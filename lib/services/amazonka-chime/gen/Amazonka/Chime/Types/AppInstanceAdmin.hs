@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAppInstanceAdmin' smart constructor.
 data AppInstanceAdmin = AppInstanceAdmin'
-  { -- | The time at which an administrator was created.
-    createdTimestamp :: Prelude.Maybe Data.POSIX,
+  { -- | The @AppInstanceAdmin@ data.
+    admin :: Prelude.Maybe Identity,
     -- | The ARN of the @AppInstance@ for which the user is an administrator.
     appInstanceArn :: Prelude.Maybe Prelude.Text,
-    -- | The @AppInstanceAdmin@ data.
-    admin :: Prelude.Maybe Identity
+    -- | The time at which an administrator was created.
+    createdTimestamp :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -46,32 +46,31 @@ data AppInstanceAdmin = AppInstanceAdmin'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdTimestamp', 'appInstanceAdmin_createdTimestamp' - The time at which an administrator was created.
+-- 'admin', 'appInstanceAdmin_admin' - The @AppInstanceAdmin@ data.
 --
 -- 'appInstanceArn', 'appInstanceAdmin_appInstanceArn' - The ARN of the @AppInstance@ for which the user is an administrator.
 --
--- 'admin', 'appInstanceAdmin_admin' - The @AppInstanceAdmin@ data.
+-- 'createdTimestamp', 'appInstanceAdmin_createdTimestamp' - The time at which an administrator was created.
 newAppInstanceAdmin ::
   AppInstanceAdmin
 newAppInstanceAdmin =
   AppInstanceAdmin'
-    { createdTimestamp =
-        Prelude.Nothing,
+    { admin = Prelude.Nothing,
       appInstanceArn = Prelude.Nothing,
-      admin = Prelude.Nothing
+      createdTimestamp = Prelude.Nothing
     }
 
--- | The time at which an administrator was created.
-appInstanceAdmin_createdTimestamp :: Lens.Lens' AppInstanceAdmin (Prelude.Maybe Prelude.UTCTime)
-appInstanceAdmin_createdTimestamp = Lens.lens (\AppInstanceAdmin' {createdTimestamp} -> createdTimestamp) (\s@AppInstanceAdmin' {} a -> s {createdTimestamp = a} :: AppInstanceAdmin) Prelude.. Lens.mapping Data._Time
+-- | The @AppInstanceAdmin@ data.
+appInstanceAdmin_admin :: Lens.Lens' AppInstanceAdmin (Prelude.Maybe Identity)
+appInstanceAdmin_admin = Lens.lens (\AppInstanceAdmin' {admin} -> admin) (\s@AppInstanceAdmin' {} a -> s {admin = a} :: AppInstanceAdmin)
 
 -- | The ARN of the @AppInstance@ for which the user is an administrator.
 appInstanceAdmin_appInstanceArn :: Lens.Lens' AppInstanceAdmin (Prelude.Maybe Prelude.Text)
 appInstanceAdmin_appInstanceArn = Lens.lens (\AppInstanceAdmin' {appInstanceArn} -> appInstanceArn) (\s@AppInstanceAdmin' {} a -> s {appInstanceArn = a} :: AppInstanceAdmin)
 
--- | The @AppInstanceAdmin@ data.
-appInstanceAdmin_admin :: Lens.Lens' AppInstanceAdmin (Prelude.Maybe Identity)
-appInstanceAdmin_admin = Lens.lens (\AppInstanceAdmin' {admin} -> admin) (\s@AppInstanceAdmin' {} a -> s {admin = a} :: AppInstanceAdmin)
+-- | The time at which an administrator was created.
+appInstanceAdmin_createdTimestamp :: Lens.Lens' AppInstanceAdmin (Prelude.Maybe Prelude.UTCTime)
+appInstanceAdmin_createdTimestamp = Lens.lens (\AppInstanceAdmin' {createdTimestamp} -> createdTimestamp) (\s@AppInstanceAdmin' {} a -> s {createdTimestamp = a} :: AppInstanceAdmin) Prelude.. Lens.mapping Data._Time
 
 instance Data.FromJSON AppInstanceAdmin where
   parseJSON =
@@ -79,19 +78,19 @@ instance Data.FromJSON AppInstanceAdmin where
       "AppInstanceAdmin"
       ( \x ->
           AppInstanceAdmin'
-            Prelude.<$> (x Data..:? "CreatedTimestamp")
+            Prelude.<$> (x Data..:? "Admin")
             Prelude.<*> (x Data..:? "AppInstanceArn")
-            Prelude.<*> (x Data..:? "Admin")
+            Prelude.<*> (x Data..:? "CreatedTimestamp")
       )
 
 instance Prelude.Hashable AppInstanceAdmin where
   hashWithSalt _salt AppInstanceAdmin' {..} =
-    _salt `Prelude.hashWithSalt` createdTimestamp
+    _salt `Prelude.hashWithSalt` admin
       `Prelude.hashWithSalt` appInstanceArn
-      `Prelude.hashWithSalt` admin
+      `Prelude.hashWithSalt` createdTimestamp
 
 instance Prelude.NFData AppInstanceAdmin where
   rnf AppInstanceAdmin' {..} =
-    Prelude.rnf createdTimestamp
+    Prelude.rnf admin
       `Prelude.seq` Prelude.rnf appInstanceArn
-      `Prelude.seq` Prelude.rnf admin
+      `Prelude.seq` Prelude.rnf createdTimestamp

@@ -28,8 +28,8 @@ module Amazonka.IoTWireless.StartBulkAssociateWirelessDeviceWithMulticastGroup
     newStartBulkAssociateWirelessDeviceWithMulticastGroup,
 
     -- * Request Lenses
-    startBulkAssociateWirelessDeviceWithMulticastGroup_tags,
     startBulkAssociateWirelessDeviceWithMulticastGroup_queryString,
+    startBulkAssociateWirelessDeviceWithMulticastGroup_tags,
     startBulkAssociateWirelessDeviceWithMulticastGroup_id,
 
     -- * Destructuring the Response
@@ -51,8 +51,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartBulkAssociateWirelessDeviceWithMulticastGroup' smart constructor.
 data StartBulkAssociateWirelessDeviceWithMulticastGroup = StartBulkAssociateWirelessDeviceWithMulticastGroup'
-  { tags :: Prelude.Maybe [Tag],
-    queryString :: Prelude.Maybe Prelude.Text,
+  { queryString :: Prelude.Maybe Prelude.Text,
+    tags :: Prelude.Maybe [Tag],
     id :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,9 +65,9 @@ data StartBulkAssociateWirelessDeviceWithMulticastGroup = StartBulkAssociateWire
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'startBulkAssociateWirelessDeviceWithMulticastGroup_tags' - Undocumented member.
---
 -- 'queryString', 'startBulkAssociateWirelessDeviceWithMulticastGroup_queryString' - Undocumented member.
+--
+-- 'tags', 'startBulkAssociateWirelessDeviceWithMulticastGroup_tags' - Undocumented member.
 --
 -- 'id', 'startBulkAssociateWirelessDeviceWithMulticastGroup_id' - Undocumented member.
 newStartBulkAssociateWirelessDeviceWithMulticastGroup ::
@@ -77,20 +77,19 @@ newStartBulkAssociateWirelessDeviceWithMulticastGroup ::
 newStartBulkAssociateWirelessDeviceWithMulticastGroup
   pId_ =
     StartBulkAssociateWirelessDeviceWithMulticastGroup'
-      { tags =
+      { queryString =
           Prelude.Nothing,
-        queryString =
-          Prelude.Nothing,
+        tags = Prelude.Nothing,
         id = pId_
       }
 
 -- | Undocumented member.
-startBulkAssociateWirelessDeviceWithMulticastGroup_tags :: Lens.Lens' StartBulkAssociateWirelessDeviceWithMulticastGroup (Prelude.Maybe [Tag])
-startBulkAssociateWirelessDeviceWithMulticastGroup_tags = Lens.lens (\StartBulkAssociateWirelessDeviceWithMulticastGroup' {tags} -> tags) (\s@StartBulkAssociateWirelessDeviceWithMulticastGroup' {} a -> s {tags = a} :: StartBulkAssociateWirelessDeviceWithMulticastGroup) Prelude.. Lens.mapping Lens.coerced
-
--- | Undocumented member.
 startBulkAssociateWirelessDeviceWithMulticastGroup_queryString :: Lens.Lens' StartBulkAssociateWirelessDeviceWithMulticastGroup (Prelude.Maybe Prelude.Text)
 startBulkAssociateWirelessDeviceWithMulticastGroup_queryString = Lens.lens (\StartBulkAssociateWirelessDeviceWithMulticastGroup' {queryString} -> queryString) (\s@StartBulkAssociateWirelessDeviceWithMulticastGroup' {} a -> s {queryString = a} :: StartBulkAssociateWirelessDeviceWithMulticastGroup)
+
+-- | Undocumented member.
+startBulkAssociateWirelessDeviceWithMulticastGroup_tags :: Lens.Lens' StartBulkAssociateWirelessDeviceWithMulticastGroup (Prelude.Maybe [Tag])
+startBulkAssociateWirelessDeviceWithMulticastGroup_tags = Lens.lens (\StartBulkAssociateWirelessDeviceWithMulticastGroup' {tags} -> tags) (\s@StartBulkAssociateWirelessDeviceWithMulticastGroup' {} a -> s {tags = a} :: StartBulkAssociateWirelessDeviceWithMulticastGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 startBulkAssociateWirelessDeviceWithMulticastGroup_id :: Lens.Lens' StartBulkAssociateWirelessDeviceWithMulticastGroup Prelude.Text
@@ -120,8 +119,8 @@ instance
   hashWithSalt
     _salt
     StartBulkAssociateWirelessDeviceWithMulticastGroup' {..} =
-      _salt `Prelude.hashWithSalt` tags
-        `Prelude.hashWithSalt` queryString
+      _salt `Prelude.hashWithSalt` queryString
+        `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` id
 
 instance
@@ -130,8 +129,8 @@ instance
   where
   rnf
     StartBulkAssociateWirelessDeviceWithMulticastGroup' {..} =
-      Prelude.rnf tags
-        `Prelude.seq` Prelude.rnf queryString
+      Prelude.rnf queryString
+        `Prelude.seq` Prelude.rnf tags
         `Prelude.seq` Prelude.rnf id
 
 instance
@@ -148,8 +147,8 @@ instance
     StartBulkAssociateWirelessDeviceWithMulticastGroup' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("Tags" Data..=) Prelude.<$> tags,
-              ("QueryString" Data..=) Prelude.<$> queryString
+            [ ("QueryString" Data..=) Prelude.<$> queryString,
+              ("Tags" Data..=) Prelude.<$> tags
             ]
         )
 

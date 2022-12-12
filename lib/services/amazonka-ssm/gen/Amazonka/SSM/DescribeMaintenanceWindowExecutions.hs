@@ -31,9 +31,9 @@ module Amazonka.SSM.DescribeMaintenanceWindowExecutions
     newDescribeMaintenanceWindowExecutions,
 
     -- * Request Lenses
-    describeMaintenanceWindowExecutions_nextToken,
     describeMaintenanceWindowExecutions_filters,
     describeMaintenanceWindowExecutions_maxResults,
+    describeMaintenanceWindowExecutions_nextToken,
     describeMaintenanceWindowExecutions_windowId,
 
     -- * Destructuring the Response
@@ -57,10 +57,7 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newDescribeMaintenanceWindowExecutions' smart constructor.
 data DescribeMaintenanceWindowExecutions = DescribeMaintenanceWindowExecutions'
-  { -- | The token for the next set of items to return. (You received this token
-    -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Each entry in the array is a structure containing:
+  { -- | Each entry in the array is a structure containing:
     --
     -- -   Key. A string between 1 and 128 characters. Supported keys include
     --     @ExecutedBefore@ and @ExecutedAfter@.
@@ -73,6 +70,9 @@ data DescribeMaintenanceWindowExecutions = DescribeMaintenanceWindowExecutions'
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the maintenance window whose executions should be retrieved.
     windowId :: Prelude.Text
   }
@@ -85,9 +85,6 @@ data DescribeMaintenanceWindowExecutions = DescribeMaintenanceWindowExecutions'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'describeMaintenanceWindowExecutions_nextToken' - The token for the next set of items to return. (You received this token
--- from a previous call.)
 --
 -- 'filters', 'describeMaintenanceWindowExecutions_filters' - Each entry in the array is a structure containing:
 --
@@ -102,6 +99,9 @@ data DescribeMaintenanceWindowExecutions = DescribeMaintenanceWindowExecutions'
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
 --
+-- 'nextToken', 'describeMaintenanceWindowExecutions_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
+--
 -- 'windowId', 'describeMaintenanceWindowExecutions_windowId' - The ID of the maintenance window whose executions should be retrieved.
 newDescribeMaintenanceWindowExecutions ::
   -- | 'windowId'
@@ -109,17 +109,12 @@ newDescribeMaintenanceWindowExecutions ::
   DescribeMaintenanceWindowExecutions
 newDescribeMaintenanceWindowExecutions pWindowId_ =
   DescribeMaintenanceWindowExecutions'
-    { nextToken =
+    { filters =
         Prelude.Nothing,
-      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       windowId = pWindowId_
     }
-
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
-describeMaintenanceWindowExecutions_nextToken :: Lens.Lens' DescribeMaintenanceWindowExecutions (Prelude.Maybe Prelude.Text)
-describeMaintenanceWindowExecutions_nextToken = Lens.lens (\DescribeMaintenanceWindowExecutions' {nextToken} -> nextToken) (\s@DescribeMaintenanceWindowExecutions' {} a -> s {nextToken = a} :: DescribeMaintenanceWindowExecutions)
 
 -- | Each entry in the array is a structure containing:
 --
@@ -137,6 +132,11 @@ describeMaintenanceWindowExecutions_filters = Lens.lens (\DescribeMaintenanceWin
 -- next set of results.
 describeMaintenanceWindowExecutions_maxResults :: Lens.Lens' DescribeMaintenanceWindowExecutions (Prelude.Maybe Prelude.Natural)
 describeMaintenanceWindowExecutions_maxResults = Lens.lens (\DescribeMaintenanceWindowExecutions' {maxResults} -> maxResults) (\s@DescribeMaintenanceWindowExecutions' {} a -> s {maxResults = a} :: DescribeMaintenanceWindowExecutions)
+
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+describeMaintenanceWindowExecutions_nextToken :: Lens.Lens' DescribeMaintenanceWindowExecutions (Prelude.Maybe Prelude.Text)
+describeMaintenanceWindowExecutions_nextToken = Lens.lens (\DescribeMaintenanceWindowExecutions' {nextToken} -> nextToken) (\s@DescribeMaintenanceWindowExecutions' {} a -> s {nextToken = a} :: DescribeMaintenanceWindowExecutions)
 
 -- | The ID of the maintenance window whose executions should be retrieved.
 describeMaintenanceWindowExecutions_windowId :: Lens.Lens' DescribeMaintenanceWindowExecutions Prelude.Text
@@ -194,9 +194,9 @@ instance
   hashWithSalt
     _salt
     DescribeMaintenanceWindowExecutions' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` filters
+      _salt `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` windowId
 
 instance
@@ -204,9 +204,9 @@ instance
     DescribeMaintenanceWindowExecutions
   where
   rnf DescribeMaintenanceWindowExecutions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf windowId
 
 instance
@@ -234,9 +234,9 @@ instance
   toJSON DescribeMaintenanceWindowExecutions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
+          [ ("Filters" Data..=) Prelude.<$> filters,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("WindowId" Data..= windowId)
           ]
       )

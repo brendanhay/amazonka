@@ -31,8 +31,8 @@ module Amazonka.KinesisVideo.ListStreams
     newListStreams,
 
     -- * Request Lenses
-    listStreams_nextToken,
     listStreams_maxResults,
+    listStreams_nextToken,
     listStreams_streamNameCondition,
 
     -- * Destructuring the Response
@@ -56,14 +56,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListStreams' smart constructor.
 data ListStreams = ListStreams'
-  { -- | If you specify this parameter, when the result of a @ListStreams@
+  { -- | The maximum number of streams to return in the response. The default is
+    -- 10,000.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If you specify this parameter, when the result of a @ListStreams@
     -- operation is truncated, the call returns the @NextToken@ in the
     -- response. To get another batch of streams, provide this token in your
     -- next request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of streams to return in the response. The default is
-    -- 10,000.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Optional: Returns only streams that satisfy a specific condition.
     -- Currently, you can specify only the prefix of a stream name as a
     -- condition.
@@ -79,13 +79,13 @@ data ListStreams = ListStreams'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listStreams_maxResults' - The maximum number of streams to return in the response. The default is
+-- 10,000.
+--
 -- 'nextToken', 'listStreams_nextToken' - If you specify this parameter, when the result of a @ListStreams@
 -- operation is truncated, the call returns the @NextToken@ in the
 -- response. To get another batch of streams, provide this token in your
 -- next request.
---
--- 'maxResults', 'listStreams_maxResults' - The maximum number of streams to return in the response. The default is
--- 10,000.
 --
 -- 'streamNameCondition', 'listStreams_streamNameCondition' - Optional: Returns only streams that satisfy a specific condition.
 -- Currently, you can specify only the prefix of a stream name as a
@@ -94,10 +94,15 @@ newListStreams ::
   ListStreams
 newListStreams =
   ListStreams'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       streamNameCondition = Prelude.Nothing
     }
+
+-- | The maximum number of streams to return in the response. The default is
+-- 10,000.
+listStreams_maxResults :: Lens.Lens' ListStreams (Prelude.Maybe Prelude.Natural)
+listStreams_maxResults = Lens.lens (\ListStreams' {maxResults} -> maxResults) (\s@ListStreams' {} a -> s {maxResults = a} :: ListStreams)
 
 -- | If you specify this parameter, when the result of a @ListStreams@
 -- operation is truncated, the call returns the @NextToken@ in the
@@ -105,11 +110,6 @@ newListStreams =
 -- next request.
 listStreams_nextToken :: Lens.Lens' ListStreams (Prelude.Maybe Prelude.Text)
 listStreams_nextToken = Lens.lens (\ListStreams' {nextToken} -> nextToken) (\s@ListStreams' {} a -> s {nextToken = a} :: ListStreams)
-
--- | The maximum number of streams to return in the response. The default is
--- 10,000.
-listStreams_maxResults :: Lens.Lens' ListStreams (Prelude.Maybe Prelude.Natural)
-listStreams_maxResults = Lens.lens (\ListStreams' {maxResults} -> maxResults) (\s@ListStreams' {} a -> s {maxResults = a} :: ListStreams)
 
 -- | Optional: Returns only streams that satisfy a specific condition.
 -- Currently, you can specify only the prefix of a stream name as a
@@ -152,14 +152,14 @@ instance Core.AWSRequest ListStreams where
 
 instance Prelude.Hashable ListStreams where
   hashWithSalt _salt ListStreams' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` streamNameCondition
 
 instance Prelude.NFData ListStreams where
   rnf ListStreams' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf streamNameCondition
 
 instance Data.ToHeaders ListStreams where
@@ -169,8 +169,8 @@ instance Data.ToJSON ListStreams where
   toJSON ListStreams' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("StreamNameCondition" Data..=)
               Prelude.<$> streamNameCondition
           ]

@@ -29,17 +29,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEntityRecognizerSummary' smart constructor.
 data EntityRecognizerSummary = EntityRecognizerSummary'
-  { -- | The number of versions you created.
-    numberOfVersions :: Prelude.Maybe Prelude.Int,
+  { -- | The time that the latest entity recognizer version was submitted for
+    -- processing.
+    latestVersionCreatedAt :: Prelude.Maybe Data.POSIX,
     -- | The version name you assigned to the latest entity recognizer version.
     latestVersionName :: Prelude.Maybe Prelude.Text,
-    -- | The name that you assigned the entity recognizer.
-    recognizerName :: Prelude.Maybe Prelude.Text,
     -- | Provides the status of the latest entity recognizer version.
     latestVersionStatus :: Prelude.Maybe ModelStatus,
-    -- | The time that the latest entity recognizer version was submitted for
-    -- processing.
-    latestVersionCreatedAt :: Prelude.Maybe Data.POSIX
+    -- | The number of versions you created.
+    numberOfVersions :: Prelude.Maybe Prelude.Int,
+    -- | The name that you assigned the entity recognizer.
+    recognizerName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,48 +51,48 @@ data EntityRecognizerSummary = EntityRecognizerSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'numberOfVersions', 'entityRecognizerSummary_numberOfVersions' - The number of versions you created.
+-- 'latestVersionCreatedAt', 'entityRecognizerSummary_latestVersionCreatedAt' - The time that the latest entity recognizer version was submitted for
+-- processing.
 --
 -- 'latestVersionName', 'entityRecognizerSummary_latestVersionName' - The version name you assigned to the latest entity recognizer version.
 --
--- 'recognizerName', 'entityRecognizerSummary_recognizerName' - The name that you assigned the entity recognizer.
---
 -- 'latestVersionStatus', 'entityRecognizerSummary_latestVersionStatus' - Provides the status of the latest entity recognizer version.
 --
--- 'latestVersionCreatedAt', 'entityRecognizerSummary_latestVersionCreatedAt' - The time that the latest entity recognizer version was submitted for
--- processing.
+-- 'numberOfVersions', 'entityRecognizerSummary_numberOfVersions' - The number of versions you created.
+--
+-- 'recognizerName', 'entityRecognizerSummary_recognizerName' - The name that you assigned the entity recognizer.
 newEntityRecognizerSummary ::
   EntityRecognizerSummary
 newEntityRecognizerSummary =
   EntityRecognizerSummary'
-    { numberOfVersions =
+    { latestVersionCreatedAt =
         Prelude.Nothing,
       latestVersionName = Prelude.Nothing,
-      recognizerName = Prelude.Nothing,
       latestVersionStatus = Prelude.Nothing,
-      latestVersionCreatedAt = Prelude.Nothing
+      numberOfVersions = Prelude.Nothing,
+      recognizerName = Prelude.Nothing
     }
-
--- | The number of versions you created.
-entityRecognizerSummary_numberOfVersions :: Lens.Lens' EntityRecognizerSummary (Prelude.Maybe Prelude.Int)
-entityRecognizerSummary_numberOfVersions = Lens.lens (\EntityRecognizerSummary' {numberOfVersions} -> numberOfVersions) (\s@EntityRecognizerSummary' {} a -> s {numberOfVersions = a} :: EntityRecognizerSummary)
-
--- | The version name you assigned to the latest entity recognizer version.
-entityRecognizerSummary_latestVersionName :: Lens.Lens' EntityRecognizerSummary (Prelude.Maybe Prelude.Text)
-entityRecognizerSummary_latestVersionName = Lens.lens (\EntityRecognizerSummary' {latestVersionName} -> latestVersionName) (\s@EntityRecognizerSummary' {} a -> s {latestVersionName = a} :: EntityRecognizerSummary)
-
--- | The name that you assigned the entity recognizer.
-entityRecognizerSummary_recognizerName :: Lens.Lens' EntityRecognizerSummary (Prelude.Maybe Prelude.Text)
-entityRecognizerSummary_recognizerName = Lens.lens (\EntityRecognizerSummary' {recognizerName} -> recognizerName) (\s@EntityRecognizerSummary' {} a -> s {recognizerName = a} :: EntityRecognizerSummary)
-
--- | Provides the status of the latest entity recognizer version.
-entityRecognizerSummary_latestVersionStatus :: Lens.Lens' EntityRecognizerSummary (Prelude.Maybe ModelStatus)
-entityRecognizerSummary_latestVersionStatus = Lens.lens (\EntityRecognizerSummary' {latestVersionStatus} -> latestVersionStatus) (\s@EntityRecognizerSummary' {} a -> s {latestVersionStatus = a} :: EntityRecognizerSummary)
 
 -- | The time that the latest entity recognizer version was submitted for
 -- processing.
 entityRecognizerSummary_latestVersionCreatedAt :: Lens.Lens' EntityRecognizerSummary (Prelude.Maybe Prelude.UTCTime)
 entityRecognizerSummary_latestVersionCreatedAt = Lens.lens (\EntityRecognizerSummary' {latestVersionCreatedAt} -> latestVersionCreatedAt) (\s@EntityRecognizerSummary' {} a -> s {latestVersionCreatedAt = a} :: EntityRecognizerSummary) Prelude.. Lens.mapping Data._Time
+
+-- | The version name you assigned to the latest entity recognizer version.
+entityRecognizerSummary_latestVersionName :: Lens.Lens' EntityRecognizerSummary (Prelude.Maybe Prelude.Text)
+entityRecognizerSummary_latestVersionName = Lens.lens (\EntityRecognizerSummary' {latestVersionName} -> latestVersionName) (\s@EntityRecognizerSummary' {} a -> s {latestVersionName = a} :: EntityRecognizerSummary)
+
+-- | Provides the status of the latest entity recognizer version.
+entityRecognizerSummary_latestVersionStatus :: Lens.Lens' EntityRecognizerSummary (Prelude.Maybe ModelStatus)
+entityRecognizerSummary_latestVersionStatus = Lens.lens (\EntityRecognizerSummary' {latestVersionStatus} -> latestVersionStatus) (\s@EntityRecognizerSummary' {} a -> s {latestVersionStatus = a} :: EntityRecognizerSummary)
+
+-- | The number of versions you created.
+entityRecognizerSummary_numberOfVersions :: Lens.Lens' EntityRecognizerSummary (Prelude.Maybe Prelude.Int)
+entityRecognizerSummary_numberOfVersions = Lens.lens (\EntityRecognizerSummary' {numberOfVersions} -> numberOfVersions) (\s@EntityRecognizerSummary' {} a -> s {numberOfVersions = a} :: EntityRecognizerSummary)
+
+-- | The name that you assigned the entity recognizer.
+entityRecognizerSummary_recognizerName :: Lens.Lens' EntityRecognizerSummary (Prelude.Maybe Prelude.Text)
+entityRecognizerSummary_recognizerName = Lens.lens (\EntityRecognizerSummary' {recognizerName} -> recognizerName) (\s@EntityRecognizerSummary' {} a -> s {recognizerName = a} :: EntityRecognizerSummary)
 
 instance Data.FromJSON EntityRecognizerSummary where
   parseJSON =
@@ -100,25 +100,25 @@ instance Data.FromJSON EntityRecognizerSummary where
       "EntityRecognizerSummary"
       ( \x ->
           EntityRecognizerSummary'
-            Prelude.<$> (x Data..:? "NumberOfVersions")
+            Prelude.<$> (x Data..:? "LatestVersionCreatedAt")
             Prelude.<*> (x Data..:? "LatestVersionName")
-            Prelude.<*> (x Data..:? "RecognizerName")
             Prelude.<*> (x Data..:? "LatestVersionStatus")
-            Prelude.<*> (x Data..:? "LatestVersionCreatedAt")
+            Prelude.<*> (x Data..:? "NumberOfVersions")
+            Prelude.<*> (x Data..:? "RecognizerName")
       )
 
 instance Prelude.Hashable EntityRecognizerSummary where
   hashWithSalt _salt EntityRecognizerSummary' {..} =
-    _salt `Prelude.hashWithSalt` numberOfVersions
+    _salt `Prelude.hashWithSalt` latestVersionCreatedAt
       `Prelude.hashWithSalt` latestVersionName
-      `Prelude.hashWithSalt` recognizerName
       `Prelude.hashWithSalt` latestVersionStatus
-      `Prelude.hashWithSalt` latestVersionCreatedAt
+      `Prelude.hashWithSalt` numberOfVersions
+      `Prelude.hashWithSalt` recognizerName
 
 instance Prelude.NFData EntityRecognizerSummary where
   rnf EntityRecognizerSummary' {..} =
-    Prelude.rnf numberOfVersions
+    Prelude.rnf latestVersionCreatedAt
       `Prelude.seq` Prelude.rnf latestVersionName
-      `Prelude.seq` Prelude.rnf recognizerName
       `Prelude.seq` Prelude.rnf latestVersionStatus
-      `Prelude.seq` Prelude.rnf latestVersionCreatedAt
+      `Prelude.seq` Prelude.rnf numberOfVersions
+      `Prelude.seq` Prelude.rnf recognizerName

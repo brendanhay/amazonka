@@ -47,23 +47,23 @@ module Amazonka.AutoScalingPlans
     -- * Errors
     -- $errors
 
-    -- ** ObjectNotFoundException
-    _ObjectNotFoundException,
-
     -- ** ConcurrentUpdateException
     _ConcurrentUpdateException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
+    -- ** InternalServiceException
+    _InternalServiceException,
 
     -- ** InvalidNextTokenException
     _InvalidNextTokenException,
 
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** ObjectNotFoundException
+    _ObjectNotFoundException,
+
     -- ** ValidationException
     _ValidationException,
-
-    -- ** InternalServiceException
-    _InternalServiceException,
 
     -- * Waiters
     -- $waiters

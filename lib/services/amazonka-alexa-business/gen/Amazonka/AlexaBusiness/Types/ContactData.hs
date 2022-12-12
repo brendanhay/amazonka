@@ -30,14 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newContactData' smart constructor.
 data ContactData = ContactData'
-  { -- | The first name of the contact, used to call the contact on the device.
-    firstName :: Prelude.Maybe Prelude.Text,
-    -- | The list of SIP addresses for the contact.
-    sipAddresses :: Prelude.Maybe [SipAddress],
+  { -- | The ARN of the contact.
+    contactArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the contact to display on the console.
     displayName :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the contact.
-    contactArn :: Prelude.Maybe Prelude.Text,
+    -- | The first name of the contact, used to call the contact on the device.
+    firstName :: Prelude.Maybe Prelude.Text,
     -- | The last name of the contact, used to call the contact on the device.
     lastName :: Prelude.Maybe Prelude.Text,
     -- | The phone number of the contact. The phone number type defaults to WORK.
@@ -46,7 +44,9 @@ data ContactData = ContactData'
     -- numbers.
     phoneNumber :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The list of phone numbers for the contact.
-    phoneNumbers :: Prelude.Maybe [PhoneNumber]
+    phoneNumbers :: Prelude.Maybe [PhoneNumber],
+    -- | The list of SIP addresses for the contact.
+    sipAddresses :: Prelude.Maybe [SipAddress]
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -58,13 +58,11 @@ data ContactData = ContactData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'firstName', 'contactData_firstName' - The first name of the contact, used to call the contact on the device.
---
--- 'sipAddresses', 'contactData_sipAddresses' - The list of SIP addresses for the contact.
+-- 'contactArn', 'contactData_contactArn' - The ARN of the contact.
 --
 -- 'displayName', 'contactData_displayName' - The name of the contact to display on the console.
 --
--- 'contactArn', 'contactData_contactArn' - The ARN of the contact.
+-- 'firstName', 'contactData_firstName' - The first name of the contact, used to call the contact on the device.
 --
 -- 'lastName', 'contactData_lastName' - The last name of the contact, used to call the contact on the device.
 --
@@ -74,34 +72,32 @@ data ContactData = ContactData'
 -- numbers.
 --
 -- 'phoneNumbers', 'contactData_phoneNumbers' - The list of phone numbers for the contact.
+--
+-- 'sipAddresses', 'contactData_sipAddresses' - The list of SIP addresses for the contact.
 newContactData ::
   ContactData
 newContactData =
   ContactData'
-    { firstName = Prelude.Nothing,
-      sipAddresses = Prelude.Nothing,
+    { contactArn = Prelude.Nothing,
       displayName = Prelude.Nothing,
-      contactArn = Prelude.Nothing,
+      firstName = Prelude.Nothing,
       lastName = Prelude.Nothing,
       phoneNumber = Prelude.Nothing,
-      phoneNumbers = Prelude.Nothing
+      phoneNumbers = Prelude.Nothing,
+      sipAddresses = Prelude.Nothing
     }
 
--- | The first name of the contact, used to call the contact on the device.
-contactData_firstName :: Lens.Lens' ContactData (Prelude.Maybe Prelude.Text)
-contactData_firstName = Lens.lens (\ContactData' {firstName} -> firstName) (\s@ContactData' {} a -> s {firstName = a} :: ContactData)
-
--- | The list of SIP addresses for the contact.
-contactData_sipAddresses :: Lens.Lens' ContactData (Prelude.Maybe [SipAddress])
-contactData_sipAddresses = Lens.lens (\ContactData' {sipAddresses} -> sipAddresses) (\s@ContactData' {} a -> s {sipAddresses = a} :: ContactData) Prelude.. Lens.mapping Lens.coerced
+-- | The ARN of the contact.
+contactData_contactArn :: Lens.Lens' ContactData (Prelude.Maybe Prelude.Text)
+contactData_contactArn = Lens.lens (\ContactData' {contactArn} -> contactArn) (\s@ContactData' {} a -> s {contactArn = a} :: ContactData)
 
 -- | The name of the contact to display on the console.
 contactData_displayName :: Lens.Lens' ContactData (Prelude.Maybe Prelude.Text)
 contactData_displayName = Lens.lens (\ContactData' {displayName} -> displayName) (\s@ContactData' {} a -> s {displayName = a} :: ContactData)
 
--- | The ARN of the contact.
-contactData_contactArn :: Lens.Lens' ContactData (Prelude.Maybe Prelude.Text)
-contactData_contactArn = Lens.lens (\ContactData' {contactArn} -> contactArn) (\s@ContactData' {} a -> s {contactArn = a} :: ContactData)
+-- | The first name of the contact, used to call the contact on the device.
+contactData_firstName :: Lens.Lens' ContactData (Prelude.Maybe Prelude.Text)
+contactData_firstName = Lens.lens (\ContactData' {firstName} -> firstName) (\s@ContactData' {} a -> s {firstName = a} :: ContactData)
 
 -- | The last name of the contact, used to call the contact on the device.
 contactData_lastName :: Lens.Lens' ContactData (Prelude.Maybe Prelude.Text)
@@ -118,37 +114,41 @@ contactData_phoneNumber = Lens.lens (\ContactData' {phoneNumber} -> phoneNumber)
 contactData_phoneNumbers :: Lens.Lens' ContactData (Prelude.Maybe [PhoneNumber])
 contactData_phoneNumbers = Lens.lens (\ContactData' {phoneNumbers} -> phoneNumbers) (\s@ContactData' {} a -> s {phoneNumbers = a} :: ContactData) Prelude.. Lens.mapping Lens.coerced
 
+-- | The list of SIP addresses for the contact.
+contactData_sipAddresses :: Lens.Lens' ContactData (Prelude.Maybe [SipAddress])
+contactData_sipAddresses = Lens.lens (\ContactData' {sipAddresses} -> sipAddresses) (\s@ContactData' {} a -> s {sipAddresses = a} :: ContactData) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON ContactData where
   parseJSON =
     Data.withObject
       "ContactData"
       ( \x ->
           ContactData'
-            Prelude.<$> (x Data..:? "FirstName")
-            Prelude.<*> (x Data..:? "SipAddresses" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "ContactArn")
             Prelude.<*> (x Data..:? "DisplayName")
-            Prelude.<*> (x Data..:? "ContactArn")
+            Prelude.<*> (x Data..:? "FirstName")
             Prelude.<*> (x Data..:? "LastName")
             Prelude.<*> (x Data..:? "PhoneNumber")
             Prelude.<*> (x Data..:? "PhoneNumbers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "SipAddresses" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ContactData where
   hashWithSalt _salt ContactData' {..} =
-    _salt `Prelude.hashWithSalt` firstName
-      `Prelude.hashWithSalt` sipAddresses
+    _salt `Prelude.hashWithSalt` contactArn
       `Prelude.hashWithSalt` displayName
-      `Prelude.hashWithSalt` contactArn
+      `Prelude.hashWithSalt` firstName
       `Prelude.hashWithSalt` lastName
       `Prelude.hashWithSalt` phoneNumber
       `Prelude.hashWithSalt` phoneNumbers
+      `Prelude.hashWithSalt` sipAddresses
 
 instance Prelude.NFData ContactData where
   rnf ContactData' {..} =
-    Prelude.rnf firstName
-      `Prelude.seq` Prelude.rnf sipAddresses
+    Prelude.rnf contactArn
       `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf contactArn
+      `Prelude.seq` Prelude.rnf firstName
       `Prelude.seq` Prelude.rnf lastName
       `Prelude.seq` Prelude.rnf phoneNumber
       `Prelude.seq` Prelude.rnf phoneNumbers
+      `Prelude.seq` Prelude.rnf sipAddresses

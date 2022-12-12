@@ -27,9 +27,11 @@ module Amazonka.MigrationHubStrategy.UpdateApplicationComponentConfig
     newUpdateApplicationComponentConfig,
 
     -- * Request Lenses
-    updateApplicationComponentConfig_sourceCodeList,
+    updateApplicationComponentConfig_appType,
+    updateApplicationComponentConfig_configureOnly,
     updateApplicationComponentConfig_inclusionStatus,
     updateApplicationComponentConfig_secretsManagerKey,
+    updateApplicationComponentConfig_sourceCodeList,
     updateApplicationComponentConfig_strategyOption,
     updateApplicationComponentConfig_applicationComponentId,
 
@@ -52,14 +54,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateApplicationComponentConfig' smart constructor.
 data UpdateApplicationComponentConfig = UpdateApplicationComponentConfig'
-  { -- | The list of source code configurations to update for the application
-    -- component.
-    sourceCodeList :: Prelude.Maybe [SourceCode],
+  { -- | The type of known component.
+    appType :: Prelude.Maybe AppType,
+    -- | Update the configuration request of an application component. If it is
+    -- set to true, the source code and\/or database credentials are updated.
+    -- If it is set to false, the source code and\/or database credentials are
+    -- updated and an analysis is initiated.
+    configureOnly :: Prelude.Maybe Prelude.Bool,
     -- | Indicates whether the application component has been included for server
     -- recommendation or not.
     inclusionStatus :: Prelude.Maybe InclusionStatus,
     -- | Database credentials.
     secretsManagerKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The list of source code configurations to update for the application
+    -- component.
+    sourceCodeList :: Prelude.Maybe [SourceCode],
     -- | The preferred strategy options for the application component. Use values
     -- from the GetApplicationComponentStrategies response.
     strategyOption :: Prelude.Maybe StrategyOption,
@@ -77,13 +86,20 @@ data UpdateApplicationComponentConfig = UpdateApplicationComponentConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceCodeList', 'updateApplicationComponentConfig_sourceCodeList' - The list of source code configurations to update for the application
--- component.
+-- 'appType', 'updateApplicationComponentConfig_appType' - The type of known component.
+--
+-- 'configureOnly', 'updateApplicationComponentConfig_configureOnly' - Update the configuration request of an application component. If it is
+-- set to true, the source code and\/or database credentials are updated.
+-- If it is set to false, the source code and\/or database credentials are
+-- updated and an analysis is initiated.
 --
 -- 'inclusionStatus', 'updateApplicationComponentConfig_inclusionStatus' - Indicates whether the application component has been included for server
 -- recommendation or not.
 --
 -- 'secretsManagerKey', 'updateApplicationComponentConfig_secretsManagerKey' - Database credentials.
+--
+-- 'sourceCodeList', 'updateApplicationComponentConfig_sourceCodeList' - The list of source code configurations to update for the application
+-- component.
 --
 -- 'strategyOption', 'updateApplicationComponentConfig_strategyOption' - The preferred strategy options for the application component. Use values
 -- from the GetApplicationComponentStrategies response.
@@ -97,19 +113,27 @@ newUpdateApplicationComponentConfig ::
 newUpdateApplicationComponentConfig
   pApplicationComponentId_ =
     UpdateApplicationComponentConfig'
-      { sourceCodeList =
+      { appType =
           Prelude.Nothing,
+        configureOnly = Prelude.Nothing,
         inclusionStatus = Prelude.Nothing,
         secretsManagerKey = Prelude.Nothing,
+        sourceCodeList = Prelude.Nothing,
         strategyOption = Prelude.Nothing,
         applicationComponentId =
           pApplicationComponentId_
       }
 
--- | The list of source code configurations to update for the application
--- component.
-updateApplicationComponentConfig_sourceCodeList :: Lens.Lens' UpdateApplicationComponentConfig (Prelude.Maybe [SourceCode])
-updateApplicationComponentConfig_sourceCodeList = Lens.lens (\UpdateApplicationComponentConfig' {sourceCodeList} -> sourceCodeList) (\s@UpdateApplicationComponentConfig' {} a -> s {sourceCodeList = a} :: UpdateApplicationComponentConfig) Prelude.. Lens.mapping Lens.coerced
+-- | The type of known component.
+updateApplicationComponentConfig_appType :: Lens.Lens' UpdateApplicationComponentConfig (Prelude.Maybe AppType)
+updateApplicationComponentConfig_appType = Lens.lens (\UpdateApplicationComponentConfig' {appType} -> appType) (\s@UpdateApplicationComponentConfig' {} a -> s {appType = a} :: UpdateApplicationComponentConfig)
+
+-- | Update the configuration request of an application component. If it is
+-- set to true, the source code and\/or database credentials are updated.
+-- If it is set to false, the source code and\/or database credentials are
+-- updated and an analysis is initiated.
+updateApplicationComponentConfig_configureOnly :: Lens.Lens' UpdateApplicationComponentConfig (Prelude.Maybe Prelude.Bool)
+updateApplicationComponentConfig_configureOnly = Lens.lens (\UpdateApplicationComponentConfig' {configureOnly} -> configureOnly) (\s@UpdateApplicationComponentConfig' {} a -> s {configureOnly = a} :: UpdateApplicationComponentConfig)
 
 -- | Indicates whether the application component has been included for server
 -- recommendation or not.
@@ -119,6 +143,11 @@ updateApplicationComponentConfig_inclusionStatus = Lens.lens (\UpdateApplication
 -- | Database credentials.
 updateApplicationComponentConfig_secretsManagerKey :: Lens.Lens' UpdateApplicationComponentConfig (Prelude.Maybe Prelude.Text)
 updateApplicationComponentConfig_secretsManagerKey = Lens.lens (\UpdateApplicationComponentConfig' {secretsManagerKey} -> secretsManagerKey) (\s@UpdateApplicationComponentConfig' {} a -> s {secretsManagerKey = a} :: UpdateApplicationComponentConfig) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The list of source code configurations to update for the application
+-- component.
+updateApplicationComponentConfig_sourceCodeList :: Lens.Lens' UpdateApplicationComponentConfig (Prelude.Maybe [SourceCode])
+updateApplicationComponentConfig_sourceCodeList = Lens.lens (\UpdateApplicationComponentConfig' {sourceCodeList} -> sourceCodeList) (\s@UpdateApplicationComponentConfig' {} a -> s {sourceCodeList = a} :: UpdateApplicationComponentConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | The preferred strategy options for the application component. Use values
 -- from the GetApplicationComponentStrategies response.
@@ -153,9 +182,11 @@ instance
   hashWithSalt
     _salt
     UpdateApplicationComponentConfig' {..} =
-      _salt `Prelude.hashWithSalt` sourceCodeList
+      _salt `Prelude.hashWithSalt` appType
+        `Prelude.hashWithSalt` configureOnly
         `Prelude.hashWithSalt` inclusionStatus
         `Prelude.hashWithSalt` secretsManagerKey
+        `Prelude.hashWithSalt` sourceCodeList
         `Prelude.hashWithSalt` strategyOption
         `Prelude.hashWithSalt` applicationComponentId
 
@@ -164,9 +195,11 @@ instance
     UpdateApplicationComponentConfig
   where
   rnf UpdateApplicationComponentConfig' {..} =
-    Prelude.rnf sourceCodeList
+    Prelude.rnf appType
+      `Prelude.seq` Prelude.rnf configureOnly
       `Prelude.seq` Prelude.rnf inclusionStatus
       `Prelude.seq` Prelude.rnf secretsManagerKey
+      `Prelude.seq` Prelude.rnf sourceCodeList
       `Prelude.seq` Prelude.rnf strategyOption
       `Prelude.seq` Prelude.rnf applicationComponentId
 
@@ -188,12 +221,14 @@ instance Data.ToJSON UpdateApplicationComponentConfig where
   toJSON UpdateApplicationComponentConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("sourceCodeList" Data..=)
-              Prelude.<$> sourceCodeList,
+          [ ("appType" Data..=) Prelude.<$> appType,
+            ("configureOnly" Data..=) Prelude.<$> configureOnly,
             ("inclusionStatus" Data..=)
               Prelude.<$> inclusionStatus,
             ("secretsManagerKey" Data..=)
               Prelude.<$> secretsManagerKey,
+            ("sourceCodeList" Data..=)
+              Prelude.<$> sourceCodeList,
             ("strategyOption" Data..=)
               Prelude.<$> strategyOption,
             Prelude.Just

@@ -15,8 +15,8 @@ module Amazonka.IdentityStore.Lens
   ( -- * Operations
 
     -- ** CreateGroup
-    createGroup_displayName,
     createGroup_description,
+    createGroup_displayName,
     createGroup_identityStoreId,
     createGroupResponse_httpStatus,
     createGroupResponse_groupId,
@@ -31,19 +31,19 @@ module Amazonka.IdentityStore.Lens
     createGroupMembershipResponse_identityStoreId,
 
     -- ** CreateUser
-    createUser_name,
-    createUser_userName,
-    createUser_locale,
-    createUser_timezone,
-    createUser_displayName,
-    createUser_userType,
-    createUser_profileUrl,
-    createUser_preferredLanguage,
-    createUser_title,
-    createUser_emails,
     createUser_addresses,
+    createUser_displayName,
+    createUser_emails,
+    createUser_locale,
+    createUser_name,
     createUser_nickName,
     createUser_phoneNumbers,
+    createUser_preferredLanguage,
+    createUser_profileUrl,
+    createUser_timezone,
+    createUser_title,
+    createUser_userName,
+    createUser_userType,
     createUser_identityStoreId,
     createUserResponse_httpStatus,
     createUserResponse_userId,
@@ -67,9 +67,9 @@ module Amazonka.IdentityStore.Lens
     -- ** DescribeGroup
     describeGroup_identityStoreId,
     describeGroup_groupId,
-    describeGroupResponse_externalIds,
-    describeGroupResponse_displayName,
     describeGroupResponse_description,
+    describeGroupResponse_displayName,
+    describeGroupResponse_externalIds,
     describeGroupResponse_httpStatus,
     describeGroupResponse_groupId,
     describeGroupResponse_identityStoreId,
@@ -86,20 +86,20 @@ module Amazonka.IdentityStore.Lens
     -- ** DescribeUser
     describeUser_identityStoreId,
     describeUser_userId,
-    describeUserResponse_name,
-    describeUserResponse_externalIds,
-    describeUserResponse_userName,
-    describeUserResponse_locale,
-    describeUserResponse_timezone,
-    describeUserResponse_displayName,
-    describeUserResponse_userType,
-    describeUserResponse_profileUrl,
-    describeUserResponse_preferredLanguage,
-    describeUserResponse_title,
-    describeUserResponse_emails,
     describeUserResponse_addresses,
+    describeUserResponse_displayName,
+    describeUserResponse_emails,
+    describeUserResponse_externalIds,
+    describeUserResponse_locale,
+    describeUserResponse_name,
     describeUserResponse_nickName,
     describeUserResponse_phoneNumbers,
+    describeUserResponse_preferredLanguage,
+    describeUserResponse_profileUrl,
+    describeUserResponse_timezone,
+    describeUserResponse_title,
+    describeUserResponse_userName,
+    describeUserResponse_userType,
     describeUserResponse_httpStatus,
     describeUserResponse_userId,
     describeUserResponse_identityStoreId,
@@ -134,8 +134,8 @@ module Amazonka.IdentityStore.Lens
     isMemberInGroupsResponse_results,
 
     -- ** ListGroupMemberships
-    listGroupMemberships_nextToken,
     listGroupMemberships_maxResults,
+    listGroupMemberships_nextToken,
     listGroupMemberships_identityStoreId,
     listGroupMemberships_groupId,
     listGroupMembershipsResponse_nextToken,
@@ -143,8 +143,8 @@ module Amazonka.IdentityStore.Lens
     listGroupMembershipsResponse_groupMemberships,
 
     -- ** ListGroupMembershipsForMember
-    listGroupMembershipsForMember_nextToken,
     listGroupMembershipsForMember_maxResults,
+    listGroupMembershipsForMember_nextToken,
     listGroupMembershipsForMember_identityStoreId,
     listGroupMembershipsForMember_memberId,
     listGroupMembershipsForMemberResponse_nextToken,
@@ -152,18 +152,18 @@ module Amazonka.IdentityStore.Lens
     listGroupMembershipsForMemberResponse_groupMemberships,
 
     -- ** ListGroups
-    listGroups_nextToken,
     listGroups_filters,
     listGroups_maxResults,
+    listGroups_nextToken,
     listGroups_identityStoreId,
     listGroupsResponse_nextToken,
     listGroupsResponse_httpStatus,
     listGroupsResponse_groups,
 
     -- ** ListUsers
-    listUsers_nextToken,
     listUsers_filters,
     listUsers_maxResults,
+    listUsers_nextToken,
     listUsers_identityStoreId,
     listUsersResponse_nextToken,
     listUsersResponse_httpStatus,
@@ -184,14 +184,14 @@ module Amazonka.IdentityStore.Lens
     -- * Types
 
     -- ** Address
-    address_type,
-    address_streetAddress,
-    address_formatted,
-    address_postalCode,
     address_country,
-    address_region,
+    address_formatted,
     address_locality,
+    address_postalCode,
     address_primary,
+    address_region,
+    address_streetAddress,
+    address_type,
 
     -- ** AlternateIdentifier
     alternateIdentifier_externalId,
@@ -204,8 +204,8 @@ module Amazonka.IdentityStore.Lens
     -- ** AttributeValue
 
     -- ** Email
-    email_type,
     email_primary,
+    email_type,
     email_value,
 
     -- ** ExternalId
@@ -217,37 +217,37 @@ module Amazonka.IdentityStore.Lens
     filter_attributeValue,
 
     -- ** Group
-    group_externalIds,
-    group_displayName,
     group_description,
+    group_displayName,
+    group_externalIds,
     group_groupId,
     group_identityStoreId,
 
     -- ** GroupMembership
+    groupMembership_groupId,
     groupMembership_memberId,
     groupMembership_membershipId,
-    groupMembership_groupId,
     groupMembership_identityStoreId,
 
     -- ** GroupMembershipExistenceResult
+    groupMembershipExistenceResult_groupId,
     groupMembershipExistenceResult_memberId,
     groupMembershipExistenceResult_membershipExists,
-    groupMembershipExistenceResult_groupId,
 
     -- ** MemberId
     memberId_userId,
 
     -- ** Name
     name_familyName,
-    name_honorificPrefix,
     name_formatted,
     name_givenName,
+    name_honorificPrefix,
     name_honorificSuffix,
     name_middleName,
 
     -- ** PhoneNumber
-    phoneNumber_type,
     phoneNumber_primary,
+    phoneNumber_type,
     phoneNumber_value,
 
     -- ** UniqueAttribute
@@ -255,20 +255,20 @@ module Amazonka.IdentityStore.Lens
     uniqueAttribute_attributeValue,
 
     -- ** User
-    user_name,
-    user_externalIds,
-    user_userName,
-    user_locale,
-    user_timezone,
-    user_displayName,
-    user_userType,
-    user_profileUrl,
-    user_preferredLanguage,
-    user_title,
-    user_emails,
     user_addresses,
+    user_displayName,
+    user_emails,
+    user_externalIds,
+    user_locale,
+    user_name,
     user_nickName,
     user_phoneNumbers,
+    user_preferredLanguage,
+    user_profileUrl,
+    user_timezone,
+    user_title,
+    user_userName,
+    user_userType,
     user_userId,
     user_identityStoreId,
   )

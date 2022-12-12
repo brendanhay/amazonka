@@ -30,9 +30,9 @@ module Amazonka.SSM.DescribeMaintenanceWindowExecutionTaskInvocations
     newDescribeMaintenanceWindowExecutionTaskInvocations,
 
     -- * Request Lenses
-    describeMaintenanceWindowExecutionTaskInvocations_nextToken,
     describeMaintenanceWindowExecutionTaskInvocations_filters,
     describeMaintenanceWindowExecutionTaskInvocations_maxResults,
+    describeMaintenanceWindowExecutionTaskInvocations_nextToken,
     describeMaintenanceWindowExecutionTaskInvocations_windowExecutionId,
     describeMaintenanceWindowExecutionTaskInvocations_taskId,
 
@@ -57,10 +57,7 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newDescribeMaintenanceWindowExecutionTaskInvocations' smart constructor.
 data DescribeMaintenanceWindowExecutionTaskInvocations = DescribeMaintenanceWindowExecutionTaskInvocations'
-  { -- | The token for the next set of items to return. (You received this token
-    -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Optional filters used to scope down the returned task invocations. The
+  { -- | Optional filters used to scope down the returned task invocations. The
     -- supported filter key is @STATUS@ with the corresponding values
     -- @PENDING@, @IN_PROGRESS@, @SUCCESS@, @FAILED@, @TIMED_OUT@,
     -- @CANCELLING@, and @CANCELLED@.
@@ -69,6 +66,9 @@ data DescribeMaintenanceWindowExecutionTaskInvocations = DescribeMaintenanceWind
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the maintenance window execution the task is part of.
     windowExecutionId :: Prelude.Text,
     -- | The ID of the specific task in the maintenance window task that should
@@ -85,9 +85,6 @@ data DescribeMaintenanceWindowExecutionTaskInvocations = DescribeMaintenanceWind
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeMaintenanceWindowExecutionTaskInvocations_nextToken' - The token for the next set of items to return. (You received this token
--- from a previous call.)
---
 -- 'filters', 'describeMaintenanceWindowExecutionTaskInvocations_filters' - Optional filters used to scope down the returned task invocations. The
 -- supported filter key is @STATUS@ with the corresponding values
 -- @PENDING@, @IN_PROGRESS@, @SUCCESS@, @FAILED@, @TIMED_OUT@,
@@ -96,6 +93,9 @@ data DescribeMaintenanceWindowExecutionTaskInvocations = DescribeMaintenanceWind
 -- 'maxResults', 'describeMaintenanceWindowExecutionTaskInvocations_maxResults' - The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
+--
+-- 'nextToken', 'describeMaintenanceWindowExecutionTaskInvocations_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
 --
 -- 'windowExecutionId', 'describeMaintenanceWindowExecutionTaskInvocations_windowExecutionId' - The ID of the maintenance window execution the task is part of.
 --
@@ -111,21 +111,16 @@ newDescribeMaintenanceWindowExecutionTaskInvocations
   pWindowExecutionId_
   pTaskId_ =
     DescribeMaintenanceWindowExecutionTaskInvocations'
-      { nextToken =
-          Prelude.Nothing,
-        filters =
+      { filters =
           Prelude.Nothing,
         maxResults =
+          Prelude.Nothing,
+        nextToken =
           Prelude.Nothing,
         windowExecutionId =
           pWindowExecutionId_,
         taskId = pTaskId_
       }
-
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
-describeMaintenanceWindowExecutionTaskInvocations_nextToken :: Lens.Lens' DescribeMaintenanceWindowExecutionTaskInvocations (Prelude.Maybe Prelude.Text)
-describeMaintenanceWindowExecutionTaskInvocations_nextToken = Lens.lens (\DescribeMaintenanceWindowExecutionTaskInvocations' {nextToken} -> nextToken) (\s@DescribeMaintenanceWindowExecutionTaskInvocations' {} a -> s {nextToken = a} :: DescribeMaintenanceWindowExecutionTaskInvocations)
 
 -- | Optional filters used to scope down the returned task invocations. The
 -- supported filter key is @STATUS@ with the corresponding values
@@ -139,6 +134,11 @@ describeMaintenanceWindowExecutionTaskInvocations_filters = Lens.lens (\Describe
 -- next set of results.
 describeMaintenanceWindowExecutionTaskInvocations_maxResults :: Lens.Lens' DescribeMaintenanceWindowExecutionTaskInvocations (Prelude.Maybe Prelude.Natural)
 describeMaintenanceWindowExecutionTaskInvocations_maxResults = Lens.lens (\DescribeMaintenanceWindowExecutionTaskInvocations' {maxResults} -> maxResults) (\s@DescribeMaintenanceWindowExecutionTaskInvocations' {} a -> s {maxResults = a} :: DescribeMaintenanceWindowExecutionTaskInvocations)
+
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+describeMaintenanceWindowExecutionTaskInvocations_nextToken :: Lens.Lens' DescribeMaintenanceWindowExecutionTaskInvocations (Prelude.Maybe Prelude.Text)
+describeMaintenanceWindowExecutionTaskInvocations_nextToken = Lens.lens (\DescribeMaintenanceWindowExecutionTaskInvocations' {nextToken} -> nextToken) (\s@DescribeMaintenanceWindowExecutionTaskInvocations' {} a -> s {nextToken = a} :: DescribeMaintenanceWindowExecutionTaskInvocations)
 
 -- | The ID of the maintenance window execution the task is part of.
 describeMaintenanceWindowExecutionTaskInvocations_windowExecutionId :: Lens.Lens' DescribeMaintenanceWindowExecutionTaskInvocations Prelude.Text
@@ -202,9 +202,9 @@ instance
   hashWithSalt
     _salt
     DescribeMaintenanceWindowExecutionTaskInvocations' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` filters
+      _salt `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` windowExecutionId
         `Prelude.hashWithSalt` taskId
 
@@ -214,9 +214,9 @@ instance
   where
   rnf
     DescribeMaintenanceWindowExecutionTaskInvocations' {..} =
-      Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf filters
+      Prelude.rnf filters
         `Prelude.seq` Prelude.rnf maxResults
+        `Prelude.seq` Prelude.rnf nextToken
         `Prelude.seq` Prelude.rnf windowExecutionId
         `Prelude.seq` Prelude.rnf taskId
 
@@ -246,9 +246,9 @@ instance
     DescribeMaintenanceWindowExecutionTaskInvocations' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("NextToken" Data..=) Prelude.<$> nextToken,
-              ("Filters" Data..=) Prelude.<$> filters,
+            [ ("Filters" Data..=) Prelude.<$> filters,
               ("MaxResults" Data..=) Prelude.<$> maxResults,
+              ("NextToken" Data..=) Prelude.<$> nextToken,
               Prelude.Just
                 ("WindowExecutionId" Data..= windowExecutionId),
               Prelude.Just ("TaskId" Data..= taskId)

@@ -31,11 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 data ManagedAgent = ManagedAgent'
   { -- | The Unix timestamp for the time when the managed agent was last started.
     lastStartedAt :: Prelude.Maybe Data.POSIX,
+    -- | The last known status of the managed agent.
+    lastStatus :: Prelude.Maybe Prelude.Text,
     -- | The name of the managed agent. When the execute command feature is
     -- enabled, the managed agent name is @ExecuteCommandAgent@.
     name :: Prelude.Maybe ManagedAgentName,
-    -- | The last known status of the managed agent.
-    lastStatus :: Prelude.Maybe Prelude.Text,
     -- | The reason for why the managed agent is in the state it is in.
     reason :: Prelude.Maybe Prelude.Text
   }
@@ -51,10 +51,10 @@ data ManagedAgent = ManagedAgent'
 --
 -- 'lastStartedAt', 'managedAgent_lastStartedAt' - The Unix timestamp for the time when the managed agent was last started.
 --
+-- 'lastStatus', 'managedAgent_lastStatus' - The last known status of the managed agent.
+--
 -- 'name', 'managedAgent_name' - The name of the managed agent. When the execute command feature is
 -- enabled, the managed agent name is @ExecuteCommandAgent@.
---
--- 'lastStatus', 'managedAgent_lastStatus' - The last known status of the managed agent.
 --
 -- 'reason', 'managedAgent_reason' - The reason for why the managed agent is in the state it is in.
 newManagedAgent ::
@@ -62,8 +62,8 @@ newManagedAgent ::
 newManagedAgent =
   ManagedAgent'
     { lastStartedAt = Prelude.Nothing,
-      name = Prelude.Nothing,
       lastStatus = Prelude.Nothing,
+      name = Prelude.Nothing,
       reason = Prelude.Nothing
     }
 
@@ -71,14 +71,14 @@ newManagedAgent =
 managedAgent_lastStartedAt :: Lens.Lens' ManagedAgent (Prelude.Maybe Prelude.UTCTime)
 managedAgent_lastStartedAt = Lens.lens (\ManagedAgent' {lastStartedAt} -> lastStartedAt) (\s@ManagedAgent' {} a -> s {lastStartedAt = a} :: ManagedAgent) Prelude.. Lens.mapping Data._Time
 
+-- | The last known status of the managed agent.
+managedAgent_lastStatus :: Lens.Lens' ManagedAgent (Prelude.Maybe Prelude.Text)
+managedAgent_lastStatus = Lens.lens (\ManagedAgent' {lastStatus} -> lastStatus) (\s@ManagedAgent' {} a -> s {lastStatus = a} :: ManagedAgent)
+
 -- | The name of the managed agent. When the execute command feature is
 -- enabled, the managed agent name is @ExecuteCommandAgent@.
 managedAgent_name :: Lens.Lens' ManagedAgent (Prelude.Maybe ManagedAgentName)
 managedAgent_name = Lens.lens (\ManagedAgent' {name} -> name) (\s@ManagedAgent' {} a -> s {name = a} :: ManagedAgent)
-
--- | The last known status of the managed agent.
-managedAgent_lastStatus :: Lens.Lens' ManagedAgent (Prelude.Maybe Prelude.Text)
-managedAgent_lastStatus = Lens.lens (\ManagedAgent' {lastStatus} -> lastStatus) (\s@ManagedAgent' {} a -> s {lastStatus = a} :: ManagedAgent)
 
 -- | The reason for why the managed agent is in the state it is in.
 managedAgent_reason :: Lens.Lens' ManagedAgent (Prelude.Maybe Prelude.Text)
@@ -91,21 +91,21 @@ instance Data.FromJSON ManagedAgent where
       ( \x ->
           ManagedAgent'
             Prelude.<$> (x Data..:? "lastStartedAt")
-            Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "lastStatus")
+            Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "reason")
       )
 
 instance Prelude.Hashable ManagedAgent where
   hashWithSalt _salt ManagedAgent' {..} =
     _salt `Prelude.hashWithSalt` lastStartedAt
-      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` lastStatus
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` reason
 
 instance Prelude.NFData ManagedAgent where
   rnf ManagedAgent' {..} =
     Prelude.rnf lastStartedAt
-      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf lastStatus
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf reason

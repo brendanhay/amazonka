@@ -27,9 +27,9 @@ module Amazonka.ResilienceHub.ListResiliencyPolicies
     newListResiliencyPolicies,
 
     -- * Request Lenses
-    listResiliencyPolicies_policyName,
-    listResiliencyPolicies_nextToken,
     listResiliencyPolicies_maxResults,
+    listResiliencyPolicies_nextToken,
+    listResiliencyPolicies_policyName,
 
     -- * Destructuring the Response
     ListResiliencyPoliciesResponse (..),
@@ -52,14 +52,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListResiliencyPolicies' smart constructor.
 data ListResiliencyPolicies = ListResiliencyPolicies'
-  { -- | The name of the policy
-    policyName :: Prelude.Maybe Prelude.Text,
-    -- | Null, or the token from a previous call to get the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to include in the response. If more
+  { -- | The maximum number of results to include in the response. If more
     -- results exist than the specified @MaxResults@ value, a token is included
     -- in the response so that the remaining results can be retrieved.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Null, or the token from a previous call to get the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The name of the policy
+    policyName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,36 +71,36 @@ data ListResiliencyPolicies = ListResiliencyPolicies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyName', 'listResiliencyPolicies_policyName' - The name of the policy
---
--- 'nextToken', 'listResiliencyPolicies_nextToken' - Null, or the token from a previous call to get the next set of results.
---
 -- 'maxResults', 'listResiliencyPolicies_maxResults' - The maximum number of results to include in the response. If more
 -- results exist than the specified @MaxResults@ value, a token is included
 -- in the response so that the remaining results can be retrieved.
+--
+-- 'nextToken', 'listResiliencyPolicies_nextToken' - Null, or the token from a previous call to get the next set of results.
+--
+-- 'policyName', 'listResiliencyPolicies_policyName' - The name of the policy
 newListResiliencyPolicies ::
   ListResiliencyPolicies
 newListResiliencyPolicies =
   ListResiliencyPolicies'
-    { policyName =
+    { maxResults =
         Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      policyName = Prelude.Nothing
     }
-
--- | The name of the policy
-listResiliencyPolicies_policyName :: Lens.Lens' ListResiliencyPolicies (Prelude.Maybe Prelude.Text)
-listResiliencyPolicies_policyName = Lens.lens (\ListResiliencyPolicies' {policyName} -> policyName) (\s@ListResiliencyPolicies' {} a -> s {policyName = a} :: ListResiliencyPolicies)
-
--- | Null, or the token from a previous call to get the next set of results.
-listResiliencyPolicies_nextToken :: Lens.Lens' ListResiliencyPolicies (Prelude.Maybe Prelude.Text)
-listResiliencyPolicies_nextToken = Lens.lens (\ListResiliencyPolicies' {nextToken} -> nextToken) (\s@ListResiliencyPolicies' {} a -> s {nextToken = a} :: ListResiliencyPolicies)
 
 -- | The maximum number of results to include in the response. If more
 -- results exist than the specified @MaxResults@ value, a token is included
 -- in the response so that the remaining results can be retrieved.
 listResiliencyPolicies_maxResults :: Lens.Lens' ListResiliencyPolicies (Prelude.Maybe Prelude.Natural)
 listResiliencyPolicies_maxResults = Lens.lens (\ListResiliencyPolicies' {maxResults} -> maxResults) (\s@ListResiliencyPolicies' {} a -> s {maxResults = a} :: ListResiliencyPolicies)
+
+-- | Null, or the token from a previous call to get the next set of results.
+listResiliencyPolicies_nextToken :: Lens.Lens' ListResiliencyPolicies (Prelude.Maybe Prelude.Text)
+listResiliencyPolicies_nextToken = Lens.lens (\ListResiliencyPolicies' {nextToken} -> nextToken) (\s@ListResiliencyPolicies' {} a -> s {nextToken = a} :: ListResiliencyPolicies)
+
+-- | The name of the policy
+listResiliencyPolicies_policyName :: Lens.Lens' ListResiliencyPolicies (Prelude.Maybe Prelude.Text)
+listResiliencyPolicies_policyName = Lens.lens (\ListResiliencyPolicies' {policyName} -> policyName) (\s@ListResiliencyPolicies' {} a -> s {policyName = a} :: ListResiliencyPolicies)
 
 instance Core.AWSRequest ListResiliencyPolicies where
   type
@@ -121,15 +121,15 @@ instance Core.AWSRequest ListResiliencyPolicies where
 
 instance Prelude.Hashable ListResiliencyPolicies where
   hashWithSalt _salt ListResiliencyPolicies' {..} =
-    _salt `Prelude.hashWithSalt` policyName
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` policyName
 
 instance Prelude.NFData ListResiliencyPolicies where
   rnf ListResiliencyPolicies' {..} =
-    Prelude.rnf policyName
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf policyName
 
 instance Data.ToHeaders ListResiliencyPolicies where
   toHeaders =
@@ -148,9 +148,9 @@ instance Data.ToPath ListResiliencyPolicies where
 instance Data.ToQuery ListResiliencyPolicies where
   toQuery ListResiliencyPolicies' {..} =
     Prelude.mconcat
-      [ "policyName" Data.=: policyName,
+      [ "maxResults" Data.=: maxResults,
         "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+        "policyName" Data.=: policyName
       ]
 
 -- | /See:/ 'newListResiliencyPoliciesResponse' smart constructor.

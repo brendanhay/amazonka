@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPhase' smart constructor.
 data Phase = Phase'
-  { -- | Specified how many new users to spawn in a minute.
-    spawnRate :: Prelude.Maybe Prelude.Natural,
+  { -- | Specifies how long traffic phase should be.
+    durationInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | Specifies how many concurrent users to start with.
     initialNumberOfUsers :: Prelude.Maybe Prelude.Natural,
-    -- | Specifies how long traffic phase should be.
-    durationInSeconds :: Prelude.Maybe Prelude.Natural
+    -- | Specified how many new users to spawn in a minute.
+    spawnRate :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,31 +45,31 @@ data Phase = Phase'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'spawnRate', 'phase_spawnRate' - Specified how many new users to spawn in a minute.
+-- 'durationInSeconds', 'phase_durationInSeconds' - Specifies how long traffic phase should be.
 --
 -- 'initialNumberOfUsers', 'phase_initialNumberOfUsers' - Specifies how many concurrent users to start with.
 --
--- 'durationInSeconds', 'phase_durationInSeconds' - Specifies how long traffic phase should be.
+-- 'spawnRate', 'phase_spawnRate' - Specified how many new users to spawn in a minute.
 newPhase ::
   Phase
 newPhase =
   Phase'
-    { spawnRate = Prelude.Nothing,
+    { durationInSeconds = Prelude.Nothing,
       initialNumberOfUsers = Prelude.Nothing,
-      durationInSeconds = Prelude.Nothing
+      spawnRate = Prelude.Nothing
     }
 
--- | Specified how many new users to spawn in a minute.
-phase_spawnRate :: Lens.Lens' Phase (Prelude.Maybe Prelude.Natural)
-phase_spawnRate = Lens.lens (\Phase' {spawnRate} -> spawnRate) (\s@Phase' {} a -> s {spawnRate = a} :: Phase)
+-- | Specifies how long traffic phase should be.
+phase_durationInSeconds :: Lens.Lens' Phase (Prelude.Maybe Prelude.Natural)
+phase_durationInSeconds = Lens.lens (\Phase' {durationInSeconds} -> durationInSeconds) (\s@Phase' {} a -> s {durationInSeconds = a} :: Phase)
 
 -- | Specifies how many concurrent users to start with.
 phase_initialNumberOfUsers :: Lens.Lens' Phase (Prelude.Maybe Prelude.Natural)
 phase_initialNumberOfUsers = Lens.lens (\Phase' {initialNumberOfUsers} -> initialNumberOfUsers) (\s@Phase' {} a -> s {initialNumberOfUsers = a} :: Phase)
 
--- | Specifies how long traffic phase should be.
-phase_durationInSeconds :: Lens.Lens' Phase (Prelude.Maybe Prelude.Natural)
-phase_durationInSeconds = Lens.lens (\Phase' {durationInSeconds} -> durationInSeconds) (\s@Phase' {} a -> s {durationInSeconds = a} :: Phase)
+-- | Specified how many new users to spawn in a minute.
+phase_spawnRate :: Lens.Lens' Phase (Prelude.Maybe Prelude.Natural)
+phase_spawnRate = Lens.lens (\Phase' {spawnRate} -> spawnRate) (\s@Phase' {} a -> s {spawnRate = a} :: Phase)
 
 instance Data.FromJSON Phase where
   parseJSON =
@@ -77,31 +77,31 @@ instance Data.FromJSON Phase where
       "Phase"
       ( \x ->
           Phase'
-            Prelude.<$> (x Data..:? "SpawnRate")
+            Prelude.<$> (x Data..:? "DurationInSeconds")
             Prelude.<*> (x Data..:? "InitialNumberOfUsers")
-            Prelude.<*> (x Data..:? "DurationInSeconds")
+            Prelude.<*> (x Data..:? "SpawnRate")
       )
 
 instance Prelude.Hashable Phase where
   hashWithSalt _salt Phase' {..} =
-    _salt `Prelude.hashWithSalt` spawnRate
+    _salt `Prelude.hashWithSalt` durationInSeconds
       `Prelude.hashWithSalt` initialNumberOfUsers
-      `Prelude.hashWithSalt` durationInSeconds
+      `Prelude.hashWithSalt` spawnRate
 
 instance Prelude.NFData Phase where
   rnf Phase' {..} =
-    Prelude.rnf spawnRate
+    Prelude.rnf durationInSeconds
       `Prelude.seq` Prelude.rnf initialNumberOfUsers
-      `Prelude.seq` Prelude.rnf durationInSeconds
+      `Prelude.seq` Prelude.rnf spawnRate
 
 instance Data.ToJSON Phase where
   toJSON Phase' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SpawnRate" Data..=) Prelude.<$> spawnRate,
+          [ ("DurationInSeconds" Data..=)
+              Prelude.<$> durationInSeconds,
             ("InitialNumberOfUsers" Data..=)
               Prelude.<$> initialNumberOfUsers,
-            ("DurationInSeconds" Data..=)
-              Prelude.<$> durationInSeconds
+            ("SpawnRate" Data..=) Prelude.<$> spawnRate
           ]
       )

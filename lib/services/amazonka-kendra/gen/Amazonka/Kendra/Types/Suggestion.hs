@@ -29,11 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSuggestion' smart constructor.
 data Suggestion = Suggestion'
-  { -- | The unique UUID (universally unique identifier) of a single query
-    -- suggestion.
+  { -- | The UUID (universally unique identifier) of a single query suggestion.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The value for the unique UUID (universally unique identifier) of a
-    -- single query suggestion.
+    -- | The value for the UUID (universally unique identifier) of a single query
+    -- suggestion.
     --
     -- The value is the text string of a suggestion.
     value :: Prelude.Maybe SuggestionValue
@@ -48,11 +47,10 @@ data Suggestion = Suggestion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'suggestion_id' - The unique UUID (universally unique identifier) of a single query
--- suggestion.
+-- 'id', 'suggestion_id' - The UUID (universally unique identifier) of a single query suggestion.
 --
--- 'value', 'suggestion_value' - The value for the unique UUID (universally unique identifier) of a
--- single query suggestion.
+-- 'value', 'suggestion_value' - The value for the UUID (universally unique identifier) of a single query
+-- suggestion.
 --
 -- The value is the text string of a suggestion.
 newSuggestion ::
@@ -63,13 +61,12 @@ newSuggestion =
       value = Prelude.Nothing
     }
 
--- | The unique UUID (universally unique identifier) of a single query
--- suggestion.
+-- | The UUID (universally unique identifier) of a single query suggestion.
 suggestion_id :: Lens.Lens' Suggestion (Prelude.Maybe Prelude.Text)
 suggestion_id = Lens.lens (\Suggestion' {id} -> id) (\s@Suggestion' {} a -> s {id = a} :: Suggestion)
 
--- | The value for the unique UUID (universally unique identifier) of a
--- single query suggestion.
+-- | The value for the UUID (universally unique identifier) of a single query
+-- suggestion.
 --
 -- The value is the text string of a suggestion.
 suggestion_value :: Lens.Lens' Suggestion (Prelude.Maybe SuggestionValue)

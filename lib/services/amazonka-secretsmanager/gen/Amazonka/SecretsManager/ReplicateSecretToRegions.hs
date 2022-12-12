@@ -48,8 +48,8 @@ module Amazonka.SecretsManager.ReplicateSecretToRegions
     newReplicateSecretToRegionsResponse,
 
     -- * Response Lenses
-    replicateSecretToRegionsResponse_replicationStatus,
     replicateSecretToRegionsResponse_arn,
+    replicateSecretToRegionsResponse_replicationStatus,
     replicateSecretToRegionsResponse_httpStatus,
   )
 where
@@ -128,10 +128,10 @@ instance Core.AWSRequest ReplicateSecretToRegions where
     Response.receiveJSON
       ( \s h x ->
           ReplicateSecretToRegionsResponse'
-            Prelude.<$> ( x Data..?> "ReplicationStatus"
+            Prelude.<$> (x Data..?> "ARN")
+            Prelude.<*> ( x Data..?> "ReplicationStatus"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "ARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -183,10 +183,10 @@ instance Data.ToQuery ReplicateSecretToRegions where
 
 -- | /See:/ 'newReplicateSecretToRegionsResponse' smart constructor.
 data ReplicateSecretToRegionsResponse = ReplicateSecretToRegionsResponse'
-  { -- | The status of replication.
-    replicationStatus :: Prelude.Maybe [ReplicationStatusType],
-    -- | The ARN of the primary secret.
+  { -- | The ARN of the primary secret.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The status of replication.
+    replicationStatus :: Prelude.Maybe [ReplicationStatusType],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -200,9 +200,9 @@ data ReplicateSecretToRegionsResponse = ReplicateSecretToRegionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'replicationStatus', 'replicateSecretToRegionsResponse_replicationStatus' - The status of replication.
---
 -- 'arn', 'replicateSecretToRegionsResponse_arn' - The ARN of the primary secret.
+--
+-- 'replicationStatus', 'replicateSecretToRegionsResponse_replicationStatus' - The status of replication.
 --
 -- 'httpStatus', 'replicateSecretToRegionsResponse_httpStatus' - The response's http status code.
 newReplicateSecretToRegionsResponse ::
@@ -211,19 +211,19 @@ newReplicateSecretToRegionsResponse ::
   ReplicateSecretToRegionsResponse
 newReplicateSecretToRegionsResponse pHttpStatus_ =
   ReplicateSecretToRegionsResponse'
-    { replicationStatus =
+    { arn =
         Prelude.Nothing,
-      arn = Prelude.Nothing,
+      replicationStatus = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The status of replication.
-replicateSecretToRegionsResponse_replicationStatus :: Lens.Lens' ReplicateSecretToRegionsResponse (Prelude.Maybe [ReplicationStatusType])
-replicateSecretToRegionsResponse_replicationStatus = Lens.lens (\ReplicateSecretToRegionsResponse' {replicationStatus} -> replicationStatus) (\s@ReplicateSecretToRegionsResponse' {} a -> s {replicationStatus = a} :: ReplicateSecretToRegionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the primary secret.
 replicateSecretToRegionsResponse_arn :: Lens.Lens' ReplicateSecretToRegionsResponse (Prelude.Maybe Prelude.Text)
 replicateSecretToRegionsResponse_arn = Lens.lens (\ReplicateSecretToRegionsResponse' {arn} -> arn) (\s@ReplicateSecretToRegionsResponse' {} a -> s {arn = a} :: ReplicateSecretToRegionsResponse)
+
+-- | The status of replication.
+replicateSecretToRegionsResponse_replicationStatus :: Lens.Lens' ReplicateSecretToRegionsResponse (Prelude.Maybe [ReplicationStatusType])
+replicateSecretToRegionsResponse_replicationStatus = Lens.lens (\ReplicateSecretToRegionsResponse' {replicationStatus} -> replicationStatus) (\s@ReplicateSecretToRegionsResponse' {} a -> s {replicationStatus = a} :: ReplicateSecretToRegionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 replicateSecretToRegionsResponse_httpStatus :: Lens.Lens' ReplicateSecretToRegionsResponse Prelude.Int
@@ -234,6 +234,6 @@ instance
     ReplicateSecretToRegionsResponse
   where
   rnf ReplicateSecretToRegionsResponse' {..} =
-    Prelude.rnf replicationStatus
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf replicationStatus
       `Prelude.seq` Prelude.rnf httpStatus

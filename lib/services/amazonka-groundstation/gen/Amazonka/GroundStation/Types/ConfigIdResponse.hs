@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConfigIdResponse' smart constructor.
 data ConfigIdResponse = ConfigIdResponse'
-  { -- | UUID of a @Config@.
+  { -- | ARN of a @Config@.
+    configArn :: Prelude.Maybe Prelude.Text,
+    -- | UUID of a @Config@.
     configId :: Prelude.Maybe Prelude.Text,
     -- | Type of a @Config@.
-    configType :: Prelude.Maybe ConfigCapabilityType,
-    -- | ARN of a @Config@.
-    configArn :: Prelude.Maybe Prelude.Text
+    configType :: Prelude.Maybe ConfigCapabilityType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,19 +46,23 @@ data ConfigIdResponse = ConfigIdResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'configArn', 'configIdResponse_configArn' - ARN of a @Config@.
+--
 -- 'configId', 'configIdResponse_configId' - UUID of a @Config@.
 --
 -- 'configType', 'configIdResponse_configType' - Type of a @Config@.
---
--- 'configArn', 'configIdResponse_configArn' - ARN of a @Config@.
 newConfigIdResponse ::
   ConfigIdResponse
 newConfigIdResponse =
   ConfigIdResponse'
-    { configId = Prelude.Nothing,
-      configType = Prelude.Nothing,
-      configArn = Prelude.Nothing
+    { configArn = Prelude.Nothing,
+      configId = Prelude.Nothing,
+      configType = Prelude.Nothing
     }
+
+-- | ARN of a @Config@.
+configIdResponse_configArn :: Lens.Lens' ConfigIdResponse (Prelude.Maybe Prelude.Text)
+configIdResponse_configArn = Lens.lens (\ConfigIdResponse' {configArn} -> configArn) (\s@ConfigIdResponse' {} a -> s {configArn = a} :: ConfigIdResponse)
 
 -- | UUID of a @Config@.
 configIdResponse_configId :: Lens.Lens' ConfigIdResponse (Prelude.Maybe Prelude.Text)
@@ -68,29 +72,25 @@ configIdResponse_configId = Lens.lens (\ConfigIdResponse' {configId} -> configId
 configIdResponse_configType :: Lens.Lens' ConfigIdResponse (Prelude.Maybe ConfigCapabilityType)
 configIdResponse_configType = Lens.lens (\ConfigIdResponse' {configType} -> configType) (\s@ConfigIdResponse' {} a -> s {configType = a} :: ConfigIdResponse)
 
--- | ARN of a @Config@.
-configIdResponse_configArn :: Lens.Lens' ConfigIdResponse (Prelude.Maybe Prelude.Text)
-configIdResponse_configArn = Lens.lens (\ConfigIdResponse' {configArn} -> configArn) (\s@ConfigIdResponse' {} a -> s {configArn = a} :: ConfigIdResponse)
-
 instance Data.FromJSON ConfigIdResponse where
   parseJSON =
     Data.withObject
       "ConfigIdResponse"
       ( \x ->
           ConfigIdResponse'
-            Prelude.<$> (x Data..:? "configId")
+            Prelude.<$> (x Data..:? "configArn")
+            Prelude.<*> (x Data..:? "configId")
             Prelude.<*> (x Data..:? "configType")
-            Prelude.<*> (x Data..:? "configArn")
       )
 
 instance Prelude.Hashable ConfigIdResponse where
   hashWithSalt _salt ConfigIdResponse' {..} =
-    _salt `Prelude.hashWithSalt` configId
+    _salt `Prelude.hashWithSalt` configArn
+      `Prelude.hashWithSalt` configId
       `Prelude.hashWithSalt` configType
-      `Prelude.hashWithSalt` configArn
 
 instance Prelude.NFData ConfigIdResponse where
   rnf ConfigIdResponse' {..} =
-    Prelude.rnf configId
+    Prelude.rnf configArn
+      `Prelude.seq` Prelude.rnf configId
       `Prelude.seq` Prelude.rnf configType
-      `Prelude.seq` Prelude.rnf configArn

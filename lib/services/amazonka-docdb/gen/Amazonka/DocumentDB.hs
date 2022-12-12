@@ -19,68 +19,98 @@ module Amazonka.DocumentDB
     -- * Errors
     -- $errors
 
-    -- ** InsufficientDBInstanceCapacityFault
-    _InsufficientDBInstanceCapacityFault,
+    -- ** AuthorizationNotFoundFault
+    _AuthorizationNotFoundFault,
 
-    -- ** InvalidDBClusterSnapshotStateFault
-    _InvalidDBClusterSnapshotStateFault,
-
-    -- ** SubnetAlreadyInUse
-    _SubnetAlreadyInUse,
-
-    -- ** InvalidDBSecurityGroupStateFault
-    _InvalidDBSecurityGroupStateFault,
-
-    -- ** InvalidDBParameterGroupStateFault
-    _InvalidDBParameterGroupStateFault,
-
-    -- ** SnapshotQuotaExceededFault
-    _SnapshotQuotaExceededFault,
-
-    -- ** InvalidSubnet
-    _InvalidSubnet,
+    -- ** CertificateNotFoundFault
+    _CertificateNotFoundFault,
 
     -- ** DBClusterAlreadyExistsFault
     _DBClusterAlreadyExistsFault,
 
-    -- ** DBParameterGroupNotFoundFault
-    _DBParameterGroupNotFoundFault,
+    -- ** DBClusterNotFoundFault
+    _DBClusterNotFoundFault,
 
-    -- ** SubscriptionAlreadyExistFault
-    _SubscriptionAlreadyExistFault,
+    -- ** DBClusterParameterGroupNotFoundFault
+    _DBClusterParameterGroupNotFoundFault,
+
+    -- ** DBClusterQuotaExceededFault
+    _DBClusterQuotaExceededFault,
+
+    -- ** DBClusterSnapshotAlreadyExistsFault
+    _DBClusterSnapshotAlreadyExistsFault,
+
+    -- ** DBClusterSnapshotNotFoundFault
+    _DBClusterSnapshotNotFoundFault,
 
     -- ** DBInstanceAlreadyExistsFault
     _DBInstanceAlreadyExistsFault,
 
-    -- ** InvalidDBSubnetGroupStateFault
-    _InvalidDBSubnetGroupStateFault,
+    -- ** DBInstanceNotFoundFault
+    _DBInstanceNotFoundFault,
 
-    -- ** SNSInvalidTopicFault
-    _SNSInvalidTopicFault,
+    -- ** DBParameterGroupAlreadyExistsFault
+    _DBParameterGroupAlreadyExistsFault,
+
+    -- ** DBParameterGroupNotFoundFault
+    _DBParameterGroupNotFoundFault,
 
     -- ** DBParameterGroupQuotaExceededFault
     _DBParameterGroupQuotaExceededFault,
 
-    -- ** SubscriptionNotFoundFault
-    _SubscriptionNotFoundFault,
+    -- ** DBSecurityGroupNotFoundFault
+    _DBSecurityGroupNotFoundFault,
+
+    -- ** DBSnapshotAlreadyExistsFault
+    _DBSnapshotAlreadyExistsFault,
 
     -- ** DBSnapshotNotFoundFault
     _DBSnapshotNotFoundFault,
 
-    -- ** InvalidDBSubnetStateFault
-    _InvalidDBSubnetStateFault,
+    -- ** DBSubnetGroupAlreadyExistsFault
+    _DBSubnetGroupAlreadyExistsFault,
+
+    -- ** DBSubnetGroupDoesNotCoverEnoughAZs
+    _DBSubnetGroupDoesNotCoverEnoughAZs,
+
+    -- ** DBSubnetGroupNotFoundFault
+    _DBSubnetGroupNotFoundFault,
+
+    -- ** DBSubnetGroupQuotaExceededFault
+    _DBSubnetGroupQuotaExceededFault,
+
+    -- ** DBSubnetQuotaExceededFault
+    _DBSubnetQuotaExceededFault,
 
     -- ** DBUpgradeDependencyFailureFault
     _DBUpgradeDependencyFailureFault,
 
-    -- ** DBSubnetGroupAlreadyExistsFault
-    _DBSubnetGroupAlreadyExistsFault,
+    -- ** EventSubscriptionQuotaExceededFault
+    _EventSubscriptionQuotaExceededFault,
 
-    -- ** DBInstanceNotFoundFault
-    _DBInstanceNotFoundFault,
+    -- ** GlobalClusterAlreadyExistsFault
+    _GlobalClusterAlreadyExistsFault,
+
+    -- ** GlobalClusterNotFoundFault
+    _GlobalClusterNotFoundFault,
+
+    -- ** GlobalClusterQuotaExceededFault
+    _GlobalClusterQuotaExceededFault,
 
     -- ** InstanceQuotaExceededFault
     _InstanceQuotaExceededFault,
+
+    -- ** InsufficientDBClusterCapacityFault
+    _InsufficientDBClusterCapacityFault,
+
+    -- ** InsufficientDBInstanceCapacityFault
+    _InsufficientDBInstanceCapacityFault,
+
+    -- ** InsufficientStorageClusterCapacityFault
+    _InsufficientStorageClusterCapacityFault,
+
+    -- ** InvalidDBClusterSnapshotStateFault
+    _InvalidDBClusterSnapshotStateFault,
 
     -- ** InvalidDBClusterStateFault
     _InvalidDBClusterStateFault,
@@ -88,107 +118,77 @@ module Amazonka.DocumentDB
     -- ** InvalidDBInstanceStateFault
     _InvalidDBInstanceStateFault,
 
-    -- ** GlobalClusterNotFoundFault
-    _GlobalClusterNotFoundFault,
+    -- ** InvalidDBParameterGroupStateFault
+    _InvalidDBParameterGroupStateFault,
 
-    -- ** AuthorizationNotFoundFault
-    _AuthorizationNotFoundFault,
+    -- ** InvalidDBSecurityGroupStateFault
+    _InvalidDBSecurityGroupStateFault,
 
-    -- ** DBSubnetGroupQuotaExceededFault
-    _DBSubnetGroupQuotaExceededFault,
+    -- ** InvalidDBSnapshotStateFault
+    _InvalidDBSnapshotStateFault,
 
-    -- ** InsufficientStorageClusterCapacityFault
-    _InsufficientStorageClusterCapacityFault,
+    -- ** InvalidDBSubnetGroupStateFault
+    _InvalidDBSubnetGroupStateFault,
 
-    -- ** SubscriptionCategoryNotFoundFault
-    _SubscriptionCategoryNotFoundFault,
-
-    -- ** SNSNoAuthorizationFault
-    _SNSNoAuthorizationFault,
-
-    -- ** KMSKeyNotAccessibleFault
-    _KMSKeyNotAccessibleFault,
-
-    -- ** SNSTopicArnNotFoundFault
-    _SNSTopicArnNotFoundFault,
-
-    -- ** DBSubnetGroupDoesNotCoverEnoughAZs
-    _DBSubnetGroupDoesNotCoverEnoughAZs,
-
-    -- ** GlobalClusterQuotaExceededFault
-    _GlobalClusterQuotaExceededFault,
-
-    -- ** StorageTypeNotSupportedFault
-    _StorageTypeNotSupportedFault,
-
-    -- ** CertificateNotFoundFault
-    _CertificateNotFoundFault,
-
-    -- ** EventSubscriptionQuotaExceededFault
-    _EventSubscriptionQuotaExceededFault,
-
-    -- ** DBSnapshotAlreadyExistsFault
-    _DBSnapshotAlreadyExistsFault,
-
-    -- ** InvalidRestoreFault
-    _InvalidRestoreFault,
-
-    -- ** DBClusterQuotaExceededFault
-    _DBClusterQuotaExceededFault,
-
-    -- ** DBClusterParameterGroupNotFoundFault
-    _DBClusterParameterGroupNotFoundFault,
-
-    -- ** DBSubnetQuotaExceededFault
-    _DBSubnetQuotaExceededFault,
-
-    -- ** GlobalClusterAlreadyExistsFault
-    _GlobalClusterAlreadyExistsFault,
-
-    -- ** ResourceNotFoundFault
-    _ResourceNotFoundFault,
-
-    -- ** InsufficientDBClusterCapacityFault
-    _InsufficientDBClusterCapacityFault,
-
-    -- ** SourceNotFoundFault
-    _SourceNotFoundFault,
-
-    -- ** DBClusterSnapshotAlreadyExistsFault
-    _DBClusterSnapshotAlreadyExistsFault,
-
-    -- ** DBParameterGroupAlreadyExistsFault
-    _DBParameterGroupAlreadyExistsFault,
-
-    -- ** InvalidVPCNetworkStateFault
-    _InvalidVPCNetworkStateFault,
-
-    -- ** DBClusterNotFoundFault
-    _DBClusterNotFoundFault,
-
-    -- ** InvalidGlobalClusterStateFault
-    _InvalidGlobalClusterStateFault,
+    -- ** InvalidDBSubnetStateFault
+    _InvalidDBSubnetStateFault,
 
     -- ** InvalidEventSubscriptionStateFault
     _InvalidEventSubscriptionStateFault,
 
-    -- ** StorageQuotaExceededFault
-    _StorageQuotaExceededFault,
+    -- ** InvalidGlobalClusterStateFault
+    _InvalidGlobalClusterStateFault,
 
-    -- ** DBSubnetGroupNotFoundFault
-    _DBSubnetGroupNotFoundFault,
+    -- ** InvalidRestoreFault
+    _InvalidRestoreFault,
 
-    -- ** DBSecurityGroupNotFoundFault
-    _DBSecurityGroupNotFoundFault,
+    -- ** InvalidSubnet
+    _InvalidSubnet,
+
+    -- ** InvalidVPCNetworkStateFault
+    _InvalidVPCNetworkStateFault,
+
+    -- ** KMSKeyNotAccessibleFault
+    _KMSKeyNotAccessibleFault,
+
+    -- ** ResourceNotFoundFault
+    _ResourceNotFoundFault,
+
+    -- ** SNSInvalidTopicFault
+    _SNSInvalidTopicFault,
+
+    -- ** SNSNoAuthorizationFault
+    _SNSNoAuthorizationFault,
+
+    -- ** SNSTopicArnNotFoundFault
+    _SNSTopicArnNotFoundFault,
 
     -- ** SharedSnapshotQuotaExceededFault
     _SharedSnapshotQuotaExceededFault,
 
-    -- ** DBClusterSnapshotNotFoundFault
-    _DBClusterSnapshotNotFoundFault,
+    -- ** SnapshotQuotaExceededFault
+    _SnapshotQuotaExceededFault,
 
-    -- ** InvalidDBSnapshotStateFault
-    _InvalidDBSnapshotStateFault,
+    -- ** SourceNotFoundFault
+    _SourceNotFoundFault,
+
+    -- ** StorageQuotaExceededFault
+    _StorageQuotaExceededFault,
+
+    -- ** StorageTypeNotSupportedFault
+    _StorageTypeNotSupportedFault,
+
+    -- ** SubnetAlreadyInUse
+    _SubnetAlreadyInUse,
+
+    -- ** SubscriptionAlreadyExistFault
+    _SubscriptionAlreadyExistFault,
+
+    -- ** SubscriptionCategoryNotFoundFault
+    _SubscriptionCategoryNotFoundFault,
+
+    -- ** SubscriptionNotFoundFault
+    _SubscriptionNotFoundFault,
 
     -- * Waiters
     -- $waiters

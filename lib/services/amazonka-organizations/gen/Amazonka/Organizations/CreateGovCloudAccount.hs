@@ -148,9 +148,9 @@ module Amazonka.Organizations.CreateGovCloudAccount
     newCreateGovCloudAccount,
 
     -- * Request Lenses
-    createGovCloudAccount_tags,
-    createGovCloudAccount_roleName,
     createGovCloudAccount_iamUserAccessToBilling,
+    createGovCloudAccount_roleName,
+    createGovCloudAccount_tags,
     createGovCloudAccount_email,
     createGovCloudAccount_accountName,
 
@@ -174,22 +174,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateGovCloudAccount' smart constructor.
 data CreateGovCloudAccount = CreateGovCloudAccount'
-  { -- | A list of tags that you want to attach to the newly created account.
-    -- These tags are attached to the commercial account associated with the
-    -- GovCloud account, and not to the GovCloud account itself. To add tags to
-    -- the actual GovCloud account, call the TagResource operation in the
-    -- GovCloud region after the new GovCloud account exists.
+  { -- | If set to @ALLOW@, the new linked account in the commercial Region
+    -- enables IAM users to access account billing information /if/ they have
+    -- the required permissions. If set to @DENY@, only the root user of the
+    -- new account can access account billing information. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate Activating Access to the Billing and Cost Management Console>
+    -- in the /Amazon Web Services Billing and Cost Management User Guide./
     --
-    -- For each tag in the list, you must specify both a tag key and a value.
-    -- You can set the value to an empty string, but you can\'t set it to
-    -- @null@. For more information about tagging, see
-    -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging Organizations resources>
-    -- in the Organizations User Guide.
-    --
-    -- If any one of the tags is invalid or if you exceed the maximum allowed
-    -- number of tags for an account, then the entire request fails and the
-    -- account is not created.
-    tags :: Prelude.Maybe [Tag],
+    -- If you don\'t specify this parameter, the value defaults to @ALLOW@, and
+    -- IAM users and roles with the required permissions can access billing
+    -- information for the new account.
+    iamUserAccessToBilling :: Prelude.Maybe IAMUserAccessToBilling,
     -- | (Optional)
     --
     -- The name of an IAM role that Organizations automatically preconfigures
@@ -214,18 +210,22 @@ data CreateGovCloudAccount = CreateGovCloudAccount'
     -- lowercase letters, digits with no spaces, and any of the following
     -- characters: =,.\@-
     roleName :: Prelude.Maybe Prelude.Text,
-    -- | If set to @ALLOW@, the new linked account in the commercial Region
-    -- enables IAM users to access account billing information /if/ they have
-    -- the required permissions. If set to @DENY@, only the root user of the
-    -- new account can access account billing information. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate Activating Access to the Billing and Cost Management Console>
-    -- in the /Amazon Web Services Billing and Cost Management User Guide./
+    -- | A list of tags that you want to attach to the newly created account.
+    -- These tags are attached to the commercial account associated with the
+    -- GovCloud account, and not to the GovCloud account itself. To add tags to
+    -- the actual GovCloud account, call the TagResource operation in the
+    -- GovCloud region after the new GovCloud account exists.
     --
-    -- If you don\'t specify this parameter, the value defaults to @ALLOW@, and
-    -- IAM users and roles with the required permissions can access billing
-    -- information for the new account.
-    iamUserAccessToBilling :: Prelude.Maybe IAMUserAccessToBilling,
+    -- For each tag in the list, you must specify both a tag key and a value.
+    -- You can set the value to an empty string, but you can\'t set it to
+    -- @null@. For more information about tagging, see
+    -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging Organizations resources>
+    -- in the Organizations User Guide.
+    --
+    -- If any one of the tags is invalid or if you exceed the maximum allowed
+    -- number of tags for an account, then the entire request fails and the
+    -- account is not created.
+    tags :: Prelude.Maybe [Tag],
     -- | Specifies the email address of the owner to assign to the new member
     -- account in the commercial Region. This email address must not already be
     -- associated with another Amazon Web Services account. You must use a
@@ -276,21 +276,17 @@ data CreateGovCloudAccount = CreateGovCloudAccount'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createGovCloudAccount_tags' - A list of tags that you want to attach to the newly created account.
--- These tags are attached to the commercial account associated with the
--- GovCloud account, and not to the GovCloud account itself. To add tags to
--- the actual GovCloud account, call the TagResource operation in the
--- GovCloud region after the new GovCloud account exists.
+-- 'iamUserAccessToBilling', 'createGovCloudAccount_iamUserAccessToBilling' - If set to @ALLOW@, the new linked account in the commercial Region
+-- enables IAM users to access account billing information /if/ they have
+-- the required permissions. If set to @DENY@, only the root user of the
+-- new account can access account billing information. For more
+-- information, see
+-- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate Activating Access to the Billing and Cost Management Console>
+-- in the /Amazon Web Services Billing and Cost Management User Guide./
 --
--- For each tag in the list, you must specify both a tag key and a value.
--- You can set the value to an empty string, but you can\'t set it to
--- @null@. For more information about tagging, see
--- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging Organizations resources>
--- in the Organizations User Guide.
---
--- If any one of the tags is invalid or if you exceed the maximum allowed
--- number of tags for an account, then the entire request fails and the
--- account is not created.
+-- If you don\'t specify this parameter, the value defaults to @ALLOW@, and
+-- IAM users and roles with the required permissions can access billing
+-- information for the new account.
 --
 -- 'roleName', 'createGovCloudAccount_roleName' - (Optional)
 --
@@ -316,17 +312,21 @@ data CreateGovCloudAccount = CreateGovCloudAccount'
 -- lowercase letters, digits with no spaces, and any of the following
 -- characters: =,.\@-
 --
--- 'iamUserAccessToBilling', 'createGovCloudAccount_iamUserAccessToBilling' - If set to @ALLOW@, the new linked account in the commercial Region
--- enables IAM users to access account billing information /if/ they have
--- the required permissions. If set to @DENY@, only the root user of the
--- new account can access account billing information. For more
--- information, see
--- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate Activating Access to the Billing and Cost Management Console>
--- in the /Amazon Web Services Billing and Cost Management User Guide./
+-- 'tags', 'createGovCloudAccount_tags' - A list of tags that you want to attach to the newly created account.
+-- These tags are attached to the commercial account associated with the
+-- GovCloud account, and not to the GovCloud account itself. To add tags to
+-- the actual GovCloud account, call the TagResource operation in the
+-- GovCloud region after the new GovCloud account exists.
 --
--- If you don\'t specify this parameter, the value defaults to @ALLOW@, and
--- IAM users and roles with the required permissions can access billing
--- information for the new account.
+-- For each tag in the list, you must specify both a tag key and a value.
+-- You can set the value to an empty string, but you can\'t set it to
+-- @null@. For more information about tagging, see
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging Organizations resources>
+-- in the Organizations User Guide.
+--
+-- If any one of the tags is invalid or if you exceed the maximum allowed
+-- number of tags for an account, then the entire request fails and the
+-- account is not created.
 --
 -- 'email', 'createGovCloudAccount_email' - Specifies the email address of the owner to assign to the new member
 -- account in the commercial Region. This email address must not already be
@@ -374,30 +374,27 @@ newCreateGovCloudAccount ::
   CreateGovCloudAccount
 newCreateGovCloudAccount pEmail_ pAccountName_ =
   CreateGovCloudAccount'
-    { tags = Prelude.Nothing,
+    { iamUserAccessToBilling =
+        Prelude.Nothing,
       roleName = Prelude.Nothing,
-      iamUserAccessToBilling = Prelude.Nothing,
+      tags = Prelude.Nothing,
       email = Data._Sensitive Lens.# pEmail_,
       accountName = Data._Sensitive Lens.# pAccountName_
     }
 
--- | A list of tags that you want to attach to the newly created account.
--- These tags are attached to the commercial account associated with the
--- GovCloud account, and not to the GovCloud account itself. To add tags to
--- the actual GovCloud account, call the TagResource operation in the
--- GovCloud region after the new GovCloud account exists.
+-- | If set to @ALLOW@, the new linked account in the commercial Region
+-- enables IAM users to access account billing information /if/ they have
+-- the required permissions. If set to @DENY@, only the root user of the
+-- new account can access account billing information. For more
+-- information, see
+-- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate Activating Access to the Billing and Cost Management Console>
+-- in the /Amazon Web Services Billing and Cost Management User Guide./
 --
--- For each tag in the list, you must specify both a tag key and a value.
--- You can set the value to an empty string, but you can\'t set it to
--- @null@. For more information about tagging, see
--- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging Organizations resources>
--- in the Organizations User Guide.
---
--- If any one of the tags is invalid or if you exceed the maximum allowed
--- number of tags for an account, then the entire request fails and the
--- account is not created.
-createGovCloudAccount_tags :: Lens.Lens' CreateGovCloudAccount (Prelude.Maybe [Tag])
-createGovCloudAccount_tags = Lens.lens (\CreateGovCloudAccount' {tags} -> tags) (\s@CreateGovCloudAccount' {} a -> s {tags = a} :: CreateGovCloudAccount) Prelude.. Lens.mapping Lens.coerced
+-- If you don\'t specify this parameter, the value defaults to @ALLOW@, and
+-- IAM users and roles with the required permissions can access billing
+-- information for the new account.
+createGovCloudAccount_iamUserAccessToBilling :: Lens.Lens' CreateGovCloudAccount (Prelude.Maybe IAMUserAccessToBilling)
+createGovCloudAccount_iamUserAccessToBilling = Lens.lens (\CreateGovCloudAccount' {iamUserAccessToBilling} -> iamUserAccessToBilling) (\s@CreateGovCloudAccount' {} a -> s {iamUserAccessToBilling = a} :: CreateGovCloudAccount)
 
 -- | (Optional)
 --
@@ -425,19 +422,23 @@ createGovCloudAccount_tags = Lens.lens (\CreateGovCloudAccount' {tags} -> tags) 
 createGovCloudAccount_roleName :: Lens.Lens' CreateGovCloudAccount (Prelude.Maybe Prelude.Text)
 createGovCloudAccount_roleName = Lens.lens (\CreateGovCloudAccount' {roleName} -> roleName) (\s@CreateGovCloudAccount' {} a -> s {roleName = a} :: CreateGovCloudAccount)
 
--- | If set to @ALLOW@, the new linked account in the commercial Region
--- enables IAM users to access account billing information /if/ they have
--- the required permissions. If set to @DENY@, only the root user of the
--- new account can access account billing information. For more
--- information, see
--- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate Activating Access to the Billing and Cost Management Console>
--- in the /Amazon Web Services Billing and Cost Management User Guide./
+-- | A list of tags that you want to attach to the newly created account.
+-- These tags are attached to the commercial account associated with the
+-- GovCloud account, and not to the GovCloud account itself. To add tags to
+-- the actual GovCloud account, call the TagResource operation in the
+-- GovCloud region after the new GovCloud account exists.
 --
--- If you don\'t specify this parameter, the value defaults to @ALLOW@, and
--- IAM users and roles with the required permissions can access billing
--- information for the new account.
-createGovCloudAccount_iamUserAccessToBilling :: Lens.Lens' CreateGovCloudAccount (Prelude.Maybe IAMUserAccessToBilling)
-createGovCloudAccount_iamUserAccessToBilling = Lens.lens (\CreateGovCloudAccount' {iamUserAccessToBilling} -> iamUserAccessToBilling) (\s@CreateGovCloudAccount' {} a -> s {iamUserAccessToBilling = a} :: CreateGovCloudAccount)
+-- For each tag in the list, you must specify both a tag key and a value.
+-- You can set the value to an empty string, but you can\'t set it to
+-- @null@. For more information about tagging, see
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging Organizations resources>
+-- in the Organizations User Guide.
+--
+-- If any one of the tags is invalid or if you exceed the maximum allowed
+-- number of tags for an account, then the entire request fails and the
+-- account is not created.
+createGovCloudAccount_tags :: Lens.Lens' CreateGovCloudAccount (Prelude.Maybe [Tag])
+createGovCloudAccount_tags = Lens.lens (\CreateGovCloudAccount' {tags} -> tags) (\s@CreateGovCloudAccount' {} a -> s {tags = a} :: CreateGovCloudAccount) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the email address of the owner to assign to the new member
 -- account in the commercial Region. This email address must not already be
@@ -498,17 +499,17 @@ instance Core.AWSRequest CreateGovCloudAccount where
 
 instance Prelude.Hashable CreateGovCloudAccount where
   hashWithSalt _salt CreateGovCloudAccount' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` iamUserAccessToBilling
       `Prelude.hashWithSalt` roleName
-      `Prelude.hashWithSalt` iamUserAccessToBilling
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` email
       `Prelude.hashWithSalt` accountName
 
 instance Prelude.NFData CreateGovCloudAccount where
   rnf CreateGovCloudAccount' {..} =
-    Prelude.rnf tags
+    Prelude.rnf iamUserAccessToBilling
       `Prelude.seq` Prelude.rnf roleName
-      `Prelude.seq` Prelude.rnf iamUserAccessToBilling
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf email
       `Prelude.seq` Prelude.rnf accountName
 
@@ -531,10 +532,10 @@ instance Data.ToJSON CreateGovCloudAccount where
   toJSON CreateGovCloudAccount' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("RoleName" Data..=) Prelude.<$> roleName,
-            ("IamUserAccessToBilling" Data..=)
+          [ ("IamUserAccessToBilling" Data..=)
               Prelude.<$> iamUserAccessToBilling,
+            ("RoleName" Data..=) Prelude.<$> roleName,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Email" Data..= email),
             Prelude.Just ("AccountName" Data..= accountName)
           ]

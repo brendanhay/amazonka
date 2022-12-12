@@ -33,13 +33,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGroupMembers' smart constructor.
 data GroupMembers = GroupMembers'
-  { -- | A list of users that belong to a group. For example, a list of interns
-    -- all belong to the \"Interns\" group.
-    memberUsers :: Prelude.Maybe (Prelude.NonEmpty MemberUser),
-    -- | A list of sub groups that belong to a group. For example, the sub groups
+  { -- | A list of sub groups that belong to a group. For example, the sub groups
     -- \"Research\", \"Engineering\", and \"Sales and Marketing\" all belong to
     -- the group \"Company\".
     memberGroups :: Prelude.Maybe (Prelude.NonEmpty MemberGroup),
+    -- | A list of users that belong to a group. For example, a list of interns
+    -- all belong to the \"Interns\" group.
+    memberUsers :: Prelude.Maybe (Prelude.NonEmpty MemberUser),
     -- | If you have more than 1000 users and\/or sub groups for a single group,
     -- you need to provide the path to the S3 file that lists your users and
     -- sub groups for a group. Your sub groups can contain more than 1000
@@ -63,12 +63,12 @@ data GroupMembers = GroupMembers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'memberUsers', 'groupMembers_memberUsers' - A list of users that belong to a group. For example, a list of interns
--- all belong to the \"Interns\" group.
---
 -- 'memberGroups', 'groupMembers_memberGroups' - A list of sub groups that belong to a group. For example, the sub groups
 -- \"Research\", \"Engineering\", and \"Sales and Marketing\" all belong to
 -- the group \"Company\".
+--
+-- 'memberUsers', 'groupMembers_memberUsers' - A list of users that belong to a group. For example, a list of interns
+-- all belong to the \"Interns\" group.
 --
 -- 's3PathforGroupMembers', 'groupMembers_s3PathforGroupMembers' - If you have more than 1000 users and\/or sub groups for a single group,
 -- you need to provide the path to the S3 file that lists your users and
@@ -85,21 +85,21 @@ newGroupMembers ::
   GroupMembers
 newGroupMembers =
   GroupMembers'
-    { memberUsers = Prelude.Nothing,
-      memberGroups = Prelude.Nothing,
+    { memberGroups = Prelude.Nothing,
+      memberUsers = Prelude.Nothing,
       s3PathforGroupMembers = Prelude.Nothing
     }
-
--- | A list of users that belong to a group. For example, a list of interns
--- all belong to the \"Interns\" group.
-groupMembers_memberUsers :: Lens.Lens' GroupMembers (Prelude.Maybe (Prelude.NonEmpty MemberUser))
-groupMembers_memberUsers = Lens.lens (\GroupMembers' {memberUsers} -> memberUsers) (\s@GroupMembers' {} a -> s {memberUsers = a} :: GroupMembers) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of sub groups that belong to a group. For example, the sub groups
 -- \"Research\", \"Engineering\", and \"Sales and Marketing\" all belong to
 -- the group \"Company\".
 groupMembers_memberGroups :: Lens.Lens' GroupMembers (Prelude.Maybe (Prelude.NonEmpty MemberGroup))
 groupMembers_memberGroups = Lens.lens (\GroupMembers' {memberGroups} -> memberGroups) (\s@GroupMembers' {} a -> s {memberGroups = a} :: GroupMembers) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of users that belong to a group. For example, a list of interns
+-- all belong to the \"Interns\" group.
+groupMembers_memberUsers :: Lens.Lens' GroupMembers (Prelude.Maybe (Prelude.NonEmpty MemberUser))
+groupMembers_memberUsers = Lens.lens (\GroupMembers' {memberUsers} -> memberUsers) (\s@GroupMembers' {} a -> s {memberUsers = a} :: GroupMembers) Prelude.. Lens.mapping Lens.coerced
 
 -- | If you have more than 1000 users and\/or sub groups for a single group,
 -- you need to provide the path to the S3 file that lists your users and
@@ -117,22 +117,22 @@ groupMembers_s3PathforGroupMembers = Lens.lens (\GroupMembers' {s3PathforGroupMe
 
 instance Prelude.Hashable GroupMembers where
   hashWithSalt _salt GroupMembers' {..} =
-    _salt `Prelude.hashWithSalt` memberUsers
-      `Prelude.hashWithSalt` memberGroups
+    _salt `Prelude.hashWithSalt` memberGroups
+      `Prelude.hashWithSalt` memberUsers
       `Prelude.hashWithSalt` s3PathforGroupMembers
 
 instance Prelude.NFData GroupMembers where
   rnf GroupMembers' {..} =
-    Prelude.rnf memberUsers
-      `Prelude.seq` Prelude.rnf memberGroups
+    Prelude.rnf memberGroups
+      `Prelude.seq` Prelude.rnf memberUsers
       `Prelude.seq` Prelude.rnf s3PathforGroupMembers
 
 instance Data.ToJSON GroupMembers where
   toJSON GroupMembers' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("MemberUsers" Data..=) Prelude.<$> memberUsers,
-            ("MemberGroups" Data..=) Prelude.<$> memberGroups,
+          [ ("MemberGroups" Data..=) Prelude.<$> memberGroups,
+            ("MemberUsers" Data..=) Prelude.<$> memberUsers,
             ("S3PathforGroupMembers" Data..=)
               Prelude.<$> s3PathforGroupMembers
           ]

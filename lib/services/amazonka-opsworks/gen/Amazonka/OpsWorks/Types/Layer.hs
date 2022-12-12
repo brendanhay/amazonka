@@ -34,40 +34,42 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLayer' smart constructor.
 data Layer = Layer'
-  { -- | The layer stack ID.
-    stackId :: Prelude.Maybe Prelude.Text,
-    -- | The layer name.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | A @LayerCustomRecipes@ object that specifies the layer\'s custom
-    -- recipes.
-    customRecipes :: Prelude.Maybe Recipes,
-    -- | The layer type.
-    type' :: Prelude.Maybe LayerType,
-    -- | For stacks that are running in a VPC, whether to automatically assign a
-    -- public IP address to the layer\'s instances. For more information, see
-    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer>.
-    autoAssignPublicIps :: Prelude.Maybe Prelude.Bool,
-    -- | A JSON formatted string containing the layer\'s custom stack
-    -- configuration and deployment attributes.
-    customJson :: Prelude.Maybe Prelude.Text,
-    -- | An array of @Package@ objects that describe the layer\'s packages.
-    packages :: Prelude.Maybe [Prelude.Text],
-    -- | A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS
-    -- volumes.
-    volumeConfigurations :: Prelude.Maybe [VolumeConfiguration],
-    -- | The Amazon Resource Number (ARN) of a layer.
+  { -- | The Amazon Resource Number (ARN) of a layer.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | An array containing the layer\'s security group names.
-    defaultSecurityGroupNames :: Prelude.Maybe [Prelude.Text],
-    -- | Whether auto healing is disabled for the layer.
-    enableAutoHealing :: Prelude.Maybe Prelude.Bool,
-    -- | An array containing the layer\'s custom security group IDs.
-    customSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
+    -- | The layer attributes.
+    --
+    -- For the @HaproxyStatsPassword@, @MysqlRootPassword@, and
+    -- @GangliaPassword@ attributes, AWS OpsWorks Stacks returns
+    -- @*****FILTERED*****@ instead of the actual value
+    --
+    -- For an ECS Cluster layer, AWS OpsWorks Stacks the @EcsClusterArn@
+    -- attribute is set to the cluster\'s ARN.
+    attributes :: Prelude.Maybe (Prelude.HashMap LayerAttributesKeys (Prelude.Maybe Prelude.Text)),
     -- | Whether to automatically assign an
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address>
     -- to the layer\'s instances. For more information, see
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer>.
     autoAssignElasticIps :: Prelude.Maybe Prelude.Bool,
+    -- | For stacks that are running in a VPC, whether to automatically assign a
+    -- public IP address to the layer\'s instances. For more information, see
+    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer>.
+    autoAssignPublicIps :: Prelude.Maybe Prelude.Bool,
+    -- | The Amazon CloudWatch Logs configuration settings for the layer.
+    cloudWatchLogsConfiguration :: Prelude.Maybe CloudWatchLogsConfiguration,
+    -- | Date when the layer was created.
+    createdAt :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the default IAM profile to be used for the layer\'s EC2
+    -- instances. For more information about IAM ARNs, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
+    customInstanceProfileArn :: Prelude.Maybe Prelude.Text,
+    -- | A JSON formatted string containing the layer\'s custom stack
+    -- configuration and deployment attributes.
+    customJson :: Prelude.Maybe Prelude.Text,
+    -- | A @LayerCustomRecipes@ object that specifies the layer\'s custom
+    -- recipes.
+    customRecipes :: Prelude.Maybe Recipes,
+    -- | An array containing the layer\'s custom security group IDs.
+    customSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | AWS OpsWorks Stacks supports five lifecycle events: __setup__,
     -- __configuration__, __deploy__, __undeploy__, and __shutdown__. For each
     -- layer, AWS OpsWorks Stacks runs a set of standard recipes for each
@@ -82,32 +84,10 @@ data Layer = Layer'
     -- @phpapp2::dbsetup@ specifies the @dbsetup.rb@ recipe in the
     -- repository\'s @phpapp2@ folder.
     defaultRecipes :: Prelude.Maybe Recipes,
-    -- | The Amazon CloudWatch Logs configuration settings for the layer.
-    cloudWatchLogsConfiguration :: Prelude.Maybe CloudWatchLogsConfiguration,
-    -- | A @LifeCycleEventConfiguration@ object that specifies the Shutdown event
-    -- configuration.
-    lifecycleEventConfiguration :: Prelude.Maybe LifecycleEventConfiguration,
-    -- | The ARN of the default IAM profile to be used for the layer\'s EC2
-    -- instances. For more information about IAM ARNs, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
-    customInstanceProfileArn :: Prelude.Maybe Prelude.Text,
-    -- | The layer attributes.
-    --
-    -- For the @HaproxyStatsPassword@, @MysqlRootPassword@, and
-    -- @GangliaPassword@ attributes, AWS OpsWorks Stacks returns
-    -- @*****FILTERED*****@ instead of the actual value
-    --
-    -- For an ECS Cluster layer, AWS OpsWorks Stacks the @EcsClusterArn@
-    -- attribute is set to the cluster\'s ARN.
-    attributes :: Prelude.Maybe (Prelude.HashMap LayerAttributesKeys (Prelude.Maybe Prelude.Text)),
-    -- | The layer ID.
-    layerId :: Prelude.Maybe Prelude.Text,
-    -- | The layer short name.
-    shortname :: Prelude.Maybe Prelude.Text,
-    -- | Date when the layer was created.
-    createdAt :: Prelude.Maybe Prelude.Text,
-    -- | Whether the layer uses Amazon EBS-optimized instances.
-    useEbsOptimizedInstances :: Prelude.Maybe Prelude.Bool,
+    -- | An array containing the layer\'s security group names.
+    defaultSecurityGroupNames :: Prelude.Maybe [Prelude.Text],
+    -- | Whether auto healing is disabled for the layer.
+    enableAutoHealing :: Prelude.Maybe Prelude.Bool,
     -- | Whether to install operating system and package updates when the
     -- instance boots. The default value is @true@. If this value is set to
     -- @false@, you must then update your instances manually by using
@@ -117,7 +97,27 @@ data Layer = Layer'
     --
     -- We strongly recommend using the default value of @true@, to ensure that
     -- your instances have the latest security updates.
-    installUpdatesOnBoot :: Prelude.Maybe Prelude.Bool
+    installUpdatesOnBoot :: Prelude.Maybe Prelude.Bool,
+    -- | The layer ID.
+    layerId :: Prelude.Maybe Prelude.Text,
+    -- | A @LifeCycleEventConfiguration@ object that specifies the Shutdown event
+    -- configuration.
+    lifecycleEventConfiguration :: Prelude.Maybe LifecycleEventConfiguration,
+    -- | The layer name.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | An array of @Package@ objects that describe the layer\'s packages.
+    packages :: Prelude.Maybe [Prelude.Text],
+    -- | The layer short name.
+    shortname :: Prelude.Maybe Prelude.Text,
+    -- | The layer stack ID.
+    stackId :: Prelude.Maybe Prelude.Text,
+    -- | The layer type.
+    type' :: Prelude.Maybe LayerType,
+    -- | Whether the layer uses Amazon EBS-optimized instances.
+    useEbsOptimizedInstances :: Prelude.Maybe Prelude.Bool,
+    -- | A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS
+    -- volumes.
+    volumeConfigurations :: Prelude.Maybe [VolumeConfiguration]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -129,39 +129,41 @@ data Layer = Layer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stackId', 'layer_stackId' - The layer stack ID.
---
--- 'name', 'layer_name' - The layer name.
---
--- 'customRecipes', 'layer_customRecipes' - A @LayerCustomRecipes@ object that specifies the layer\'s custom
--- recipes.
---
--- 'type'', 'layer_type' - The layer type.
---
--- 'autoAssignPublicIps', 'layer_autoAssignPublicIps' - For stacks that are running in a VPC, whether to automatically assign a
--- public IP address to the layer\'s instances. For more information, see
--- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer>.
---
--- 'customJson', 'layer_customJson' - A JSON formatted string containing the layer\'s custom stack
--- configuration and deployment attributes.
---
--- 'packages', 'layer_packages' - An array of @Package@ objects that describe the layer\'s packages.
---
--- 'volumeConfigurations', 'layer_volumeConfigurations' - A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS
--- volumes.
---
 -- 'arn', 'layer_arn' - The Amazon Resource Number (ARN) of a layer.
 --
--- 'defaultSecurityGroupNames', 'layer_defaultSecurityGroupNames' - An array containing the layer\'s security group names.
+-- 'attributes', 'layer_attributes' - The layer attributes.
 --
--- 'enableAutoHealing', 'layer_enableAutoHealing' - Whether auto healing is disabled for the layer.
+-- For the @HaproxyStatsPassword@, @MysqlRootPassword@, and
+-- @GangliaPassword@ attributes, AWS OpsWorks Stacks returns
+-- @*****FILTERED*****@ instead of the actual value
 --
--- 'customSecurityGroupIds', 'layer_customSecurityGroupIds' - An array containing the layer\'s custom security group IDs.
+-- For an ECS Cluster layer, AWS OpsWorks Stacks the @EcsClusterArn@
+-- attribute is set to the cluster\'s ARN.
 --
 -- 'autoAssignElasticIps', 'layer_autoAssignElasticIps' - Whether to automatically assign an
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address>
 -- to the layer\'s instances. For more information, see
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer>.
+--
+-- 'autoAssignPublicIps', 'layer_autoAssignPublicIps' - For stacks that are running in a VPC, whether to automatically assign a
+-- public IP address to the layer\'s instances. For more information, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer>.
+--
+-- 'cloudWatchLogsConfiguration', 'layer_cloudWatchLogsConfiguration' - The Amazon CloudWatch Logs configuration settings for the layer.
+--
+-- 'createdAt', 'layer_createdAt' - Date when the layer was created.
+--
+-- 'customInstanceProfileArn', 'layer_customInstanceProfileArn' - The ARN of the default IAM profile to be used for the layer\'s EC2
+-- instances. For more information about IAM ARNs, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
+--
+-- 'customJson', 'layer_customJson' - A JSON formatted string containing the layer\'s custom stack
+-- configuration and deployment attributes.
+--
+-- 'customRecipes', 'layer_customRecipes' - A @LayerCustomRecipes@ object that specifies the layer\'s custom
+-- recipes.
+--
+-- 'customSecurityGroupIds', 'layer_customSecurityGroupIds' - An array containing the layer\'s custom security group IDs.
 --
 -- 'defaultRecipes', 'layer_defaultRecipes' - AWS OpsWorks Stacks supports five lifecycle events: __setup__,
 -- __configuration__, __deploy__, __undeploy__, and __shutdown__. For each
@@ -177,31 +179,9 @@ data Layer = Layer'
 -- @phpapp2::dbsetup@ specifies the @dbsetup.rb@ recipe in the
 -- repository\'s @phpapp2@ folder.
 --
--- 'cloudWatchLogsConfiguration', 'layer_cloudWatchLogsConfiguration' - The Amazon CloudWatch Logs configuration settings for the layer.
+-- 'defaultSecurityGroupNames', 'layer_defaultSecurityGroupNames' - An array containing the layer\'s security group names.
 --
--- 'lifecycleEventConfiguration', 'layer_lifecycleEventConfiguration' - A @LifeCycleEventConfiguration@ object that specifies the Shutdown event
--- configuration.
---
--- 'customInstanceProfileArn', 'layer_customInstanceProfileArn' - The ARN of the default IAM profile to be used for the layer\'s EC2
--- instances. For more information about IAM ARNs, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
---
--- 'attributes', 'layer_attributes' - The layer attributes.
---
--- For the @HaproxyStatsPassword@, @MysqlRootPassword@, and
--- @GangliaPassword@ attributes, AWS OpsWorks Stacks returns
--- @*****FILTERED*****@ instead of the actual value
---
--- For an ECS Cluster layer, AWS OpsWorks Stacks the @EcsClusterArn@
--- attribute is set to the cluster\'s ARN.
---
--- 'layerId', 'layer_layerId' - The layer ID.
---
--- 'shortname', 'layer_shortname' - The layer short name.
---
--- 'createdAt', 'layer_createdAt' - Date when the layer was created.
---
--- 'useEbsOptimizedInstances', 'layer_useEbsOptimizedInstances' - Whether the layer uses Amazon EBS-optimized instances.
+-- 'enableAutoHealing', 'layer_enableAutoHealing' - Whether auto healing is disabled for the layer.
 --
 -- 'installUpdatesOnBoot', 'layer_installUpdatesOnBoot' - Whether to install operating system and package updates when the
 -- instance boots. The default value is @true@. If this value is set to
@@ -212,87 +192,69 @@ data Layer = Layer'
 --
 -- We strongly recommend using the default value of @true@, to ensure that
 -- your instances have the latest security updates.
+--
+-- 'layerId', 'layer_layerId' - The layer ID.
+--
+-- 'lifecycleEventConfiguration', 'layer_lifecycleEventConfiguration' - A @LifeCycleEventConfiguration@ object that specifies the Shutdown event
+-- configuration.
+--
+-- 'name', 'layer_name' - The layer name.
+--
+-- 'packages', 'layer_packages' - An array of @Package@ objects that describe the layer\'s packages.
+--
+-- 'shortname', 'layer_shortname' - The layer short name.
+--
+-- 'stackId', 'layer_stackId' - The layer stack ID.
+--
+-- 'type'', 'layer_type' - The layer type.
+--
+-- 'useEbsOptimizedInstances', 'layer_useEbsOptimizedInstances' - Whether the layer uses Amazon EBS-optimized instances.
+--
+-- 'volumeConfigurations', 'layer_volumeConfigurations' - A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS
+-- volumes.
 newLayer ::
   Layer
 newLayer =
   Layer'
-    { stackId = Prelude.Nothing,
-      name = Prelude.Nothing,
-      customRecipes = Prelude.Nothing,
-      type' = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      attributes = Prelude.Nothing,
+      autoAssignElasticIps = Prelude.Nothing,
       autoAssignPublicIps = Prelude.Nothing,
+      cloudWatchLogsConfiguration = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
+      customInstanceProfileArn = Prelude.Nothing,
       customJson = Prelude.Nothing,
-      packages = Prelude.Nothing,
-      volumeConfigurations = Prelude.Nothing,
-      arn = Prelude.Nothing,
+      customRecipes = Prelude.Nothing,
+      customSecurityGroupIds = Prelude.Nothing,
+      defaultRecipes = Prelude.Nothing,
       defaultSecurityGroupNames = Prelude.Nothing,
       enableAutoHealing = Prelude.Nothing,
-      customSecurityGroupIds = Prelude.Nothing,
-      autoAssignElasticIps = Prelude.Nothing,
-      defaultRecipes = Prelude.Nothing,
-      cloudWatchLogsConfiguration = Prelude.Nothing,
-      lifecycleEventConfiguration = Prelude.Nothing,
-      customInstanceProfileArn = Prelude.Nothing,
-      attributes = Prelude.Nothing,
+      installUpdatesOnBoot = Prelude.Nothing,
       layerId = Prelude.Nothing,
+      lifecycleEventConfiguration = Prelude.Nothing,
+      name = Prelude.Nothing,
+      packages = Prelude.Nothing,
       shortname = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
+      stackId = Prelude.Nothing,
+      type' = Prelude.Nothing,
       useEbsOptimizedInstances = Prelude.Nothing,
-      installUpdatesOnBoot = Prelude.Nothing
+      volumeConfigurations = Prelude.Nothing
     }
-
--- | The layer stack ID.
-layer_stackId :: Lens.Lens' Layer (Prelude.Maybe Prelude.Text)
-layer_stackId = Lens.lens (\Layer' {stackId} -> stackId) (\s@Layer' {} a -> s {stackId = a} :: Layer)
-
--- | The layer name.
-layer_name :: Lens.Lens' Layer (Prelude.Maybe Prelude.Text)
-layer_name = Lens.lens (\Layer' {name} -> name) (\s@Layer' {} a -> s {name = a} :: Layer)
-
--- | A @LayerCustomRecipes@ object that specifies the layer\'s custom
--- recipes.
-layer_customRecipes :: Lens.Lens' Layer (Prelude.Maybe Recipes)
-layer_customRecipes = Lens.lens (\Layer' {customRecipes} -> customRecipes) (\s@Layer' {} a -> s {customRecipes = a} :: Layer)
-
--- | The layer type.
-layer_type :: Lens.Lens' Layer (Prelude.Maybe LayerType)
-layer_type = Lens.lens (\Layer' {type'} -> type') (\s@Layer' {} a -> s {type' = a} :: Layer)
-
--- | For stacks that are running in a VPC, whether to automatically assign a
--- public IP address to the layer\'s instances. For more information, see
--- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer>.
-layer_autoAssignPublicIps :: Lens.Lens' Layer (Prelude.Maybe Prelude.Bool)
-layer_autoAssignPublicIps = Lens.lens (\Layer' {autoAssignPublicIps} -> autoAssignPublicIps) (\s@Layer' {} a -> s {autoAssignPublicIps = a} :: Layer)
-
--- | A JSON formatted string containing the layer\'s custom stack
--- configuration and deployment attributes.
-layer_customJson :: Lens.Lens' Layer (Prelude.Maybe Prelude.Text)
-layer_customJson = Lens.lens (\Layer' {customJson} -> customJson) (\s@Layer' {} a -> s {customJson = a} :: Layer)
-
--- | An array of @Package@ objects that describe the layer\'s packages.
-layer_packages :: Lens.Lens' Layer (Prelude.Maybe [Prelude.Text])
-layer_packages = Lens.lens (\Layer' {packages} -> packages) (\s@Layer' {} a -> s {packages = a} :: Layer) Prelude.. Lens.mapping Lens.coerced
-
--- | A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS
--- volumes.
-layer_volumeConfigurations :: Lens.Lens' Layer (Prelude.Maybe [VolumeConfiguration])
-layer_volumeConfigurations = Lens.lens (\Layer' {volumeConfigurations} -> volumeConfigurations) (\s@Layer' {} a -> s {volumeConfigurations = a} :: Layer) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Number (ARN) of a layer.
 layer_arn :: Lens.Lens' Layer (Prelude.Maybe Prelude.Text)
 layer_arn = Lens.lens (\Layer' {arn} -> arn) (\s@Layer' {} a -> s {arn = a} :: Layer)
 
--- | An array containing the layer\'s security group names.
-layer_defaultSecurityGroupNames :: Lens.Lens' Layer (Prelude.Maybe [Prelude.Text])
-layer_defaultSecurityGroupNames = Lens.lens (\Layer' {defaultSecurityGroupNames} -> defaultSecurityGroupNames) (\s@Layer' {} a -> s {defaultSecurityGroupNames = a} :: Layer) Prelude.. Lens.mapping Lens.coerced
-
--- | Whether auto healing is disabled for the layer.
-layer_enableAutoHealing :: Lens.Lens' Layer (Prelude.Maybe Prelude.Bool)
-layer_enableAutoHealing = Lens.lens (\Layer' {enableAutoHealing} -> enableAutoHealing) (\s@Layer' {} a -> s {enableAutoHealing = a} :: Layer)
-
--- | An array containing the layer\'s custom security group IDs.
-layer_customSecurityGroupIds :: Lens.Lens' Layer (Prelude.Maybe [Prelude.Text])
-layer_customSecurityGroupIds = Lens.lens (\Layer' {customSecurityGroupIds} -> customSecurityGroupIds) (\s@Layer' {} a -> s {customSecurityGroupIds = a} :: Layer) Prelude.. Lens.mapping Lens.coerced
+-- | The layer attributes.
+--
+-- For the @HaproxyStatsPassword@, @MysqlRootPassword@, and
+-- @GangliaPassword@ attributes, AWS OpsWorks Stacks returns
+-- @*****FILTERED*****@ instead of the actual value
+--
+-- For an ECS Cluster layer, AWS OpsWorks Stacks the @EcsClusterArn@
+-- attribute is set to the cluster\'s ARN.
+layer_attributes :: Lens.Lens' Layer (Prelude.Maybe (Prelude.HashMap LayerAttributesKeys (Prelude.Maybe Prelude.Text)))
+layer_attributes = Lens.lens (\Layer' {attributes} -> attributes) (\s@Layer' {} a -> s {attributes = a} :: Layer) Prelude.. Lens.mapping Lens.coerced
 
 -- | Whether to automatically assign an
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address>
@@ -300,6 +262,40 @@ layer_customSecurityGroupIds = Lens.lens (\Layer' {customSecurityGroupIds} -> cu
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer>.
 layer_autoAssignElasticIps :: Lens.Lens' Layer (Prelude.Maybe Prelude.Bool)
 layer_autoAssignElasticIps = Lens.lens (\Layer' {autoAssignElasticIps} -> autoAssignElasticIps) (\s@Layer' {} a -> s {autoAssignElasticIps = a} :: Layer)
+
+-- | For stacks that are running in a VPC, whether to automatically assign a
+-- public IP address to the layer\'s instances. For more information, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer>.
+layer_autoAssignPublicIps :: Lens.Lens' Layer (Prelude.Maybe Prelude.Bool)
+layer_autoAssignPublicIps = Lens.lens (\Layer' {autoAssignPublicIps} -> autoAssignPublicIps) (\s@Layer' {} a -> s {autoAssignPublicIps = a} :: Layer)
+
+-- | The Amazon CloudWatch Logs configuration settings for the layer.
+layer_cloudWatchLogsConfiguration :: Lens.Lens' Layer (Prelude.Maybe CloudWatchLogsConfiguration)
+layer_cloudWatchLogsConfiguration = Lens.lens (\Layer' {cloudWatchLogsConfiguration} -> cloudWatchLogsConfiguration) (\s@Layer' {} a -> s {cloudWatchLogsConfiguration = a} :: Layer)
+
+-- | Date when the layer was created.
+layer_createdAt :: Lens.Lens' Layer (Prelude.Maybe Prelude.Text)
+layer_createdAt = Lens.lens (\Layer' {createdAt} -> createdAt) (\s@Layer' {} a -> s {createdAt = a} :: Layer)
+
+-- | The ARN of the default IAM profile to be used for the layer\'s EC2
+-- instances. For more information about IAM ARNs, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
+layer_customInstanceProfileArn :: Lens.Lens' Layer (Prelude.Maybe Prelude.Text)
+layer_customInstanceProfileArn = Lens.lens (\Layer' {customInstanceProfileArn} -> customInstanceProfileArn) (\s@Layer' {} a -> s {customInstanceProfileArn = a} :: Layer)
+
+-- | A JSON formatted string containing the layer\'s custom stack
+-- configuration and deployment attributes.
+layer_customJson :: Lens.Lens' Layer (Prelude.Maybe Prelude.Text)
+layer_customJson = Lens.lens (\Layer' {customJson} -> customJson) (\s@Layer' {} a -> s {customJson = a} :: Layer)
+
+-- | A @LayerCustomRecipes@ object that specifies the layer\'s custom
+-- recipes.
+layer_customRecipes :: Lens.Lens' Layer (Prelude.Maybe Recipes)
+layer_customRecipes = Lens.lens (\Layer' {customRecipes} -> customRecipes) (\s@Layer' {} a -> s {customRecipes = a} :: Layer)
+
+-- | An array containing the layer\'s custom security group IDs.
+layer_customSecurityGroupIds :: Lens.Lens' Layer (Prelude.Maybe [Prelude.Text])
+layer_customSecurityGroupIds = Lens.lens (\Layer' {customSecurityGroupIds} -> customSecurityGroupIds) (\s@Layer' {} a -> s {customSecurityGroupIds = a} :: Layer) Prelude.. Lens.mapping Lens.coerced
 
 -- | AWS OpsWorks Stacks supports five lifecycle events: __setup__,
 -- __configuration__, __deploy__, __undeploy__, and __shutdown__. For each
@@ -317,47 +313,13 @@ layer_autoAssignElasticIps = Lens.lens (\Layer' {autoAssignElasticIps} -> autoAs
 layer_defaultRecipes :: Lens.Lens' Layer (Prelude.Maybe Recipes)
 layer_defaultRecipes = Lens.lens (\Layer' {defaultRecipes} -> defaultRecipes) (\s@Layer' {} a -> s {defaultRecipes = a} :: Layer)
 
--- | The Amazon CloudWatch Logs configuration settings for the layer.
-layer_cloudWatchLogsConfiguration :: Lens.Lens' Layer (Prelude.Maybe CloudWatchLogsConfiguration)
-layer_cloudWatchLogsConfiguration = Lens.lens (\Layer' {cloudWatchLogsConfiguration} -> cloudWatchLogsConfiguration) (\s@Layer' {} a -> s {cloudWatchLogsConfiguration = a} :: Layer)
+-- | An array containing the layer\'s security group names.
+layer_defaultSecurityGroupNames :: Lens.Lens' Layer (Prelude.Maybe [Prelude.Text])
+layer_defaultSecurityGroupNames = Lens.lens (\Layer' {defaultSecurityGroupNames} -> defaultSecurityGroupNames) (\s@Layer' {} a -> s {defaultSecurityGroupNames = a} :: Layer) Prelude.. Lens.mapping Lens.coerced
 
--- | A @LifeCycleEventConfiguration@ object that specifies the Shutdown event
--- configuration.
-layer_lifecycleEventConfiguration :: Lens.Lens' Layer (Prelude.Maybe LifecycleEventConfiguration)
-layer_lifecycleEventConfiguration = Lens.lens (\Layer' {lifecycleEventConfiguration} -> lifecycleEventConfiguration) (\s@Layer' {} a -> s {lifecycleEventConfiguration = a} :: Layer)
-
--- | The ARN of the default IAM profile to be used for the layer\'s EC2
--- instances. For more information about IAM ARNs, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
-layer_customInstanceProfileArn :: Lens.Lens' Layer (Prelude.Maybe Prelude.Text)
-layer_customInstanceProfileArn = Lens.lens (\Layer' {customInstanceProfileArn} -> customInstanceProfileArn) (\s@Layer' {} a -> s {customInstanceProfileArn = a} :: Layer)
-
--- | The layer attributes.
---
--- For the @HaproxyStatsPassword@, @MysqlRootPassword@, and
--- @GangliaPassword@ attributes, AWS OpsWorks Stacks returns
--- @*****FILTERED*****@ instead of the actual value
---
--- For an ECS Cluster layer, AWS OpsWorks Stacks the @EcsClusterArn@
--- attribute is set to the cluster\'s ARN.
-layer_attributes :: Lens.Lens' Layer (Prelude.Maybe (Prelude.HashMap LayerAttributesKeys (Prelude.Maybe Prelude.Text)))
-layer_attributes = Lens.lens (\Layer' {attributes} -> attributes) (\s@Layer' {} a -> s {attributes = a} :: Layer) Prelude.. Lens.mapping Lens.coerced
-
--- | The layer ID.
-layer_layerId :: Lens.Lens' Layer (Prelude.Maybe Prelude.Text)
-layer_layerId = Lens.lens (\Layer' {layerId} -> layerId) (\s@Layer' {} a -> s {layerId = a} :: Layer)
-
--- | The layer short name.
-layer_shortname :: Lens.Lens' Layer (Prelude.Maybe Prelude.Text)
-layer_shortname = Lens.lens (\Layer' {shortname} -> shortname) (\s@Layer' {} a -> s {shortname = a} :: Layer)
-
--- | Date when the layer was created.
-layer_createdAt :: Lens.Lens' Layer (Prelude.Maybe Prelude.Text)
-layer_createdAt = Lens.lens (\Layer' {createdAt} -> createdAt) (\s@Layer' {} a -> s {createdAt = a} :: Layer)
-
--- | Whether the layer uses Amazon EBS-optimized instances.
-layer_useEbsOptimizedInstances :: Lens.Lens' Layer (Prelude.Maybe Prelude.Bool)
-layer_useEbsOptimizedInstances = Lens.lens (\Layer' {useEbsOptimizedInstances} -> useEbsOptimizedInstances) (\s@Layer' {} a -> s {useEbsOptimizedInstances = a} :: Layer)
+-- | Whether auto healing is disabled for the layer.
+layer_enableAutoHealing :: Lens.Lens' Layer (Prelude.Maybe Prelude.Bool)
+layer_enableAutoHealing = Lens.lens (\Layer' {enableAutoHealing} -> enableAutoHealing) (\s@Layer' {} a -> s {enableAutoHealing = a} :: Layer)
 
 -- | Whether to install operating system and package updates when the
 -- instance boots. The default value is @true@. If this value is set to
@@ -371,94 +333,132 @@ layer_useEbsOptimizedInstances = Lens.lens (\Layer' {useEbsOptimizedInstances} -
 layer_installUpdatesOnBoot :: Lens.Lens' Layer (Prelude.Maybe Prelude.Bool)
 layer_installUpdatesOnBoot = Lens.lens (\Layer' {installUpdatesOnBoot} -> installUpdatesOnBoot) (\s@Layer' {} a -> s {installUpdatesOnBoot = a} :: Layer)
 
+-- | The layer ID.
+layer_layerId :: Lens.Lens' Layer (Prelude.Maybe Prelude.Text)
+layer_layerId = Lens.lens (\Layer' {layerId} -> layerId) (\s@Layer' {} a -> s {layerId = a} :: Layer)
+
+-- | A @LifeCycleEventConfiguration@ object that specifies the Shutdown event
+-- configuration.
+layer_lifecycleEventConfiguration :: Lens.Lens' Layer (Prelude.Maybe LifecycleEventConfiguration)
+layer_lifecycleEventConfiguration = Lens.lens (\Layer' {lifecycleEventConfiguration} -> lifecycleEventConfiguration) (\s@Layer' {} a -> s {lifecycleEventConfiguration = a} :: Layer)
+
+-- | The layer name.
+layer_name :: Lens.Lens' Layer (Prelude.Maybe Prelude.Text)
+layer_name = Lens.lens (\Layer' {name} -> name) (\s@Layer' {} a -> s {name = a} :: Layer)
+
+-- | An array of @Package@ objects that describe the layer\'s packages.
+layer_packages :: Lens.Lens' Layer (Prelude.Maybe [Prelude.Text])
+layer_packages = Lens.lens (\Layer' {packages} -> packages) (\s@Layer' {} a -> s {packages = a} :: Layer) Prelude.. Lens.mapping Lens.coerced
+
+-- | The layer short name.
+layer_shortname :: Lens.Lens' Layer (Prelude.Maybe Prelude.Text)
+layer_shortname = Lens.lens (\Layer' {shortname} -> shortname) (\s@Layer' {} a -> s {shortname = a} :: Layer)
+
+-- | The layer stack ID.
+layer_stackId :: Lens.Lens' Layer (Prelude.Maybe Prelude.Text)
+layer_stackId = Lens.lens (\Layer' {stackId} -> stackId) (\s@Layer' {} a -> s {stackId = a} :: Layer)
+
+-- | The layer type.
+layer_type :: Lens.Lens' Layer (Prelude.Maybe LayerType)
+layer_type = Lens.lens (\Layer' {type'} -> type') (\s@Layer' {} a -> s {type' = a} :: Layer)
+
+-- | Whether the layer uses Amazon EBS-optimized instances.
+layer_useEbsOptimizedInstances :: Lens.Lens' Layer (Prelude.Maybe Prelude.Bool)
+layer_useEbsOptimizedInstances = Lens.lens (\Layer' {useEbsOptimizedInstances} -> useEbsOptimizedInstances) (\s@Layer' {} a -> s {useEbsOptimizedInstances = a} :: Layer)
+
+-- | A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS
+-- volumes.
+layer_volumeConfigurations :: Lens.Lens' Layer (Prelude.Maybe [VolumeConfiguration])
+layer_volumeConfigurations = Lens.lens (\Layer' {volumeConfigurations} -> volumeConfigurations) (\s@Layer' {} a -> s {volumeConfigurations = a} :: Layer) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON Layer where
   parseJSON =
     Data.withObject
       "Layer"
       ( \x ->
           Layer'
-            Prelude.<$> (x Data..:? "StackId")
-            Prelude.<*> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "CustomRecipes")
-            Prelude.<*> (x Data..:? "Type")
+            Prelude.<$> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Attributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "AutoAssignElasticIps")
             Prelude.<*> (x Data..:? "AutoAssignPublicIps")
+            Prelude.<*> (x Data..:? "CloudWatchLogsConfiguration")
+            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "CustomInstanceProfileArn")
             Prelude.<*> (x Data..:? "CustomJson")
-            Prelude.<*> (x Data..:? "Packages" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "VolumeConfigurations"
+            Prelude.<*> (x Data..:? "CustomRecipes")
+            Prelude.<*> ( x Data..:? "CustomSecurityGroupIds"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "DefaultRecipes")
             Prelude.<*> ( x Data..:? "DefaultSecurityGroupNames"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "EnableAutoHealing")
-            Prelude.<*> ( x Data..:? "CustomSecurityGroupIds"
+            Prelude.<*> (x Data..:? "InstallUpdatesOnBoot")
+            Prelude.<*> (x Data..:? "LayerId")
+            Prelude.<*> (x Data..:? "LifecycleEventConfiguration")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Packages" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Shortname")
+            Prelude.<*> (x Data..:? "StackId")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "UseEbsOptimizedInstances")
+            Prelude.<*> ( x Data..:? "VolumeConfigurations"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "AutoAssignElasticIps")
-            Prelude.<*> (x Data..:? "DefaultRecipes")
-            Prelude.<*> (x Data..:? "CloudWatchLogsConfiguration")
-            Prelude.<*> (x Data..:? "LifecycleEventConfiguration")
-            Prelude.<*> (x Data..:? "CustomInstanceProfileArn")
-            Prelude.<*> (x Data..:? "Attributes" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "LayerId")
-            Prelude.<*> (x Data..:? "Shortname")
-            Prelude.<*> (x Data..:? "CreatedAt")
-            Prelude.<*> (x Data..:? "UseEbsOptimizedInstances")
-            Prelude.<*> (x Data..:? "InstallUpdatesOnBoot")
       )
 
 instance Prelude.Hashable Layer where
   hashWithSalt _salt Layer' {..} =
-    _salt `Prelude.hashWithSalt` stackId
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` customRecipes
-      `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` autoAssignElasticIps
       `Prelude.hashWithSalt` autoAssignPublicIps
+      `Prelude.hashWithSalt` cloudWatchLogsConfiguration
+      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` customInstanceProfileArn
       `Prelude.hashWithSalt` customJson
-      `Prelude.hashWithSalt` packages
-      `Prelude.hashWithSalt` volumeConfigurations
-      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` customRecipes
+      `Prelude.hashWithSalt` customSecurityGroupIds
+      `Prelude.hashWithSalt` defaultRecipes
       `Prelude.hashWithSalt` defaultSecurityGroupNames
       `Prelude.hashWithSalt` enableAutoHealing
-      `Prelude.hashWithSalt` customSecurityGroupIds
-      `Prelude.hashWithSalt` autoAssignElasticIps
-      `Prelude.hashWithSalt` defaultRecipes
-      `Prelude.hashWithSalt` cloudWatchLogsConfiguration
-      `Prelude.hashWithSalt` lifecycleEventConfiguration
-      `Prelude.hashWithSalt` customInstanceProfileArn
-      `Prelude.hashWithSalt` attributes
-      `Prelude.hashWithSalt` layerId
-      `Prelude.hashWithSalt` shortname
-      `Prelude.hashWithSalt` createdAt
-      `Prelude.hashWithSalt` useEbsOptimizedInstances
       `Prelude.hashWithSalt` installUpdatesOnBoot
+      `Prelude.hashWithSalt` layerId
+      `Prelude.hashWithSalt` lifecycleEventConfiguration
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` packages
+      `Prelude.hashWithSalt` shortname
+      `Prelude.hashWithSalt` stackId
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` useEbsOptimizedInstances
+      `Prelude.hashWithSalt` volumeConfigurations
 
 instance Prelude.NFData Layer where
   rnf Layer' {..} =
-    Prelude.rnf stackId
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf customRecipes
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf autoAssignElasticIps
       `Prelude.seq` Prelude.rnf autoAssignPublicIps
+      `Prelude.seq` Prelude.rnf cloudWatchLogsConfiguration
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf customInstanceProfileArn
       `Prelude.seq` Prelude.rnf customJson
-      `Prelude.seq` Prelude.rnf packages
-      `Prelude.seq` Prelude.rnf volumeConfigurations
-      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf customRecipes
+      `Prelude.seq` Prelude.rnf customSecurityGroupIds
+      `Prelude.seq` Prelude.rnf defaultRecipes
       `Prelude.seq` Prelude.rnf defaultSecurityGroupNames
       `Prelude.seq` Prelude.rnf enableAutoHealing
-      `Prelude.seq` Prelude.rnf customSecurityGroupIds
-      `Prelude.seq` Prelude.rnf autoAssignElasticIps
-      `Prelude.seq` Prelude.rnf defaultRecipes
-      `Prelude.seq` Prelude.rnf cloudWatchLogsConfiguration
+      `Prelude.seq` Prelude.rnf installUpdatesOnBoot
+      `Prelude.seq` Prelude.rnf layerId
       `Prelude.seq` Prelude.rnf
         lifecycleEventConfiguration
-      `Prelude.seq` Prelude.rnf customInstanceProfileArn
-      `Prelude.seq` Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf layerId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf packages
       `Prelude.seq` Prelude.rnf shortname
-      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf
         useEbsOptimizedInstances
       `Prelude.seq` Prelude.rnf
-        installUpdatesOnBoot
+        volumeConfigurations

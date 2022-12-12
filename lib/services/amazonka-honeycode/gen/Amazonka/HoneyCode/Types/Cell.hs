@@ -42,14 +42,14 @@ data Cell = Cell'
     -- See details in the rawValue field below for how cells of different
     -- formats will have different raw and formatted values.
     formattedValue :: Prelude.Maybe Prelude.Text,
-    -- | The formula contained in the cell. This field is empty if a cell does
-    -- not have a formula.
-    formula :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A list of formatted values of the cell. This field is only returned when
     -- the cell is ROWSET format (aka multi-select or multi-record picklist).
     -- Values in the list are always represented as strings. The formattedValue
     -- field will be empty if this field is returned.
     formattedValues :: Prelude.Maybe [Prelude.Text],
+    -- | The formula contained in the cell. This field is empty if a cell does
+    -- not have a formula.
+    formula :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The raw value of the data contained in the cell. The raw value depends
     -- on the format of the data in the cell. However the attribute in the API
     -- return value is always a string containing the raw value.
@@ -135,13 +135,13 @@ data Cell = Cell'
 -- See details in the rawValue field below for how cells of different
 -- formats will have different raw and formatted values.
 --
--- 'formula', 'cell_formula' - The formula contained in the cell. This field is empty if a cell does
--- not have a formula.
---
 -- 'formattedValues', 'cell_formattedValues' - A list of formatted values of the cell. This field is only returned when
 -- the cell is ROWSET format (aka multi-select or multi-record picklist).
 -- Values in the list are always represented as strings. The formattedValue
 -- field will be empty if this field is returned.
+--
+-- 'formula', 'cell_formula' - The formula contained in the cell. This field is empty if a cell does
+-- not have a formula.
 --
 -- 'rawValue', 'cell_rawValue' - The raw value of the data contained in the cell. The raw value depends
 -- on the format of the data in the cell. However the attribute in the API
@@ -209,8 +209,8 @@ newCell =
   Cell'
     { format = Prelude.Nothing,
       formattedValue = Prelude.Nothing,
-      formula = Prelude.Nothing,
       formattedValues = Prelude.Nothing,
+      formula = Prelude.Nothing,
       rawValue = Prelude.Nothing
     }
 
@@ -231,17 +231,17 @@ cell_format = Lens.lens (\Cell' {format} -> format) (\s@Cell' {} a -> s {format 
 cell_formattedValue :: Lens.Lens' Cell (Prelude.Maybe Prelude.Text)
 cell_formattedValue = Lens.lens (\Cell' {formattedValue} -> formattedValue) (\s@Cell' {} a -> s {formattedValue = a} :: Cell)
 
--- | The formula contained in the cell. This field is empty if a cell does
--- not have a formula.
-cell_formula :: Lens.Lens' Cell (Prelude.Maybe Prelude.Text)
-cell_formula = Lens.lens (\Cell' {formula} -> formula) (\s@Cell' {} a -> s {formula = a} :: Cell) Prelude.. Lens.mapping Data._Sensitive
-
 -- | A list of formatted values of the cell. This field is only returned when
 -- the cell is ROWSET format (aka multi-select or multi-record picklist).
 -- Values in the list are always represented as strings. The formattedValue
 -- field will be empty if this field is returned.
 cell_formattedValues :: Lens.Lens' Cell (Prelude.Maybe [Prelude.Text])
 cell_formattedValues = Lens.lens (\Cell' {formattedValues} -> formattedValues) (\s@Cell' {} a -> s {formattedValues = a} :: Cell) Prelude.. Lens.mapping Lens.coerced
+
+-- | The formula contained in the cell. This field is empty if a cell does
+-- not have a formula.
+cell_formula :: Lens.Lens' Cell (Prelude.Maybe Prelude.Text)
+cell_formula = Lens.lens (\Cell' {formula} -> formula) (\s@Cell' {} a -> s {formula = a} :: Cell) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The raw value of the data contained in the cell. The raw value depends
 -- on the format of the data in the cell. However the attribute in the API
@@ -314,10 +314,10 @@ instance Data.FromJSON Cell where
           Cell'
             Prelude.<$> (x Data..:? "format")
             Prelude.<*> (x Data..:? "formattedValue")
-            Prelude.<*> (x Data..:? "formula")
             Prelude.<*> ( x Data..:? "formattedValues"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "formula")
             Prelude.<*> (x Data..:? "rawValue")
       )
 
@@ -325,14 +325,14 @@ instance Prelude.Hashable Cell where
   hashWithSalt _salt Cell' {..} =
     _salt `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` formattedValue
-      `Prelude.hashWithSalt` formula
       `Prelude.hashWithSalt` formattedValues
+      `Prelude.hashWithSalt` formula
       `Prelude.hashWithSalt` rawValue
 
 instance Prelude.NFData Cell where
   rnf Cell' {..} =
     Prelude.rnf format
       `Prelude.seq` Prelude.rnf formattedValue
-      `Prelude.seq` Prelude.rnf formula
       `Prelude.seq` Prelude.rnf formattedValues
+      `Prelude.seq` Prelude.rnf formula
       `Prelude.seq` Prelude.rnf rawValue

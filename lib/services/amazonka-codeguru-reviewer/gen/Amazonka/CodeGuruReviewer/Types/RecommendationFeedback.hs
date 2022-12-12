@@ -29,20 +29,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRecommendationFeedback' smart constructor.
 data RecommendationFeedback = RecommendationFeedback'
-  { -- | The time at which the feedback was last updated.
+  { -- | The Amazon Resource Name (ARN) of the
+    -- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html CodeReview>
+    -- object.
+    codeReviewArn :: Prelude.Maybe Prelude.Text,
+    -- | The time at which the feedback was created.
+    createdTimeStamp :: Prelude.Maybe Data.POSIX,
+    -- | The time at which the feedback was last updated.
     lastUpdatedTimeStamp :: Prelude.Maybe Data.POSIX,
     -- | List for storing reactions. Reactions are utf-8 text code for emojis.
     -- You can send an empty list to clear off all your feedback.
     reactions :: Prelude.Maybe [Reaction],
-    -- | The time at which the feedback was created.
-    createdTimeStamp :: Prelude.Maybe Data.POSIX,
     -- | The recommendation ID that can be used to track the provided
     -- recommendations. Later on it can be used to collect the feedback.
     recommendationId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the
-    -- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html CodeReview>
-    -- object.
-    codeReviewArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the user that made the API call.
     --
     -- The @UserId@ is an IAM principal that can be specified as an Amazon Web
@@ -62,19 +62,19 @@ data RecommendationFeedback = RecommendationFeedback'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'codeReviewArn', 'recommendationFeedback_codeReviewArn' - The Amazon Resource Name (ARN) of the
+-- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html CodeReview>
+-- object.
+--
+-- 'createdTimeStamp', 'recommendationFeedback_createdTimeStamp' - The time at which the feedback was created.
+--
 -- 'lastUpdatedTimeStamp', 'recommendationFeedback_lastUpdatedTimeStamp' - The time at which the feedback was last updated.
 --
 -- 'reactions', 'recommendationFeedback_reactions' - List for storing reactions. Reactions are utf-8 text code for emojis.
 -- You can send an empty list to clear off all your feedback.
 --
--- 'createdTimeStamp', 'recommendationFeedback_createdTimeStamp' - The time at which the feedback was created.
---
 -- 'recommendationId', 'recommendationFeedback_recommendationId' - The recommendation ID that can be used to track the provided
 -- recommendations. Later on it can be used to collect the feedback.
---
--- 'codeReviewArn', 'recommendationFeedback_codeReviewArn' - The Amazon Resource Name (ARN) of the
--- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html CodeReview>
--- object.
 --
 -- 'userId', 'recommendationFeedback_userId' - The ID of the user that made the API call.
 --
@@ -87,14 +87,24 @@ newRecommendationFeedback ::
   RecommendationFeedback
 newRecommendationFeedback =
   RecommendationFeedback'
-    { lastUpdatedTimeStamp =
+    { codeReviewArn =
         Prelude.Nothing,
-      reactions = Prelude.Nothing,
       createdTimeStamp = Prelude.Nothing,
+      lastUpdatedTimeStamp = Prelude.Nothing,
+      reactions = Prelude.Nothing,
       recommendationId = Prelude.Nothing,
-      codeReviewArn = Prelude.Nothing,
       userId = Prelude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the
+-- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html CodeReview>
+-- object.
+recommendationFeedback_codeReviewArn :: Lens.Lens' RecommendationFeedback (Prelude.Maybe Prelude.Text)
+recommendationFeedback_codeReviewArn = Lens.lens (\RecommendationFeedback' {codeReviewArn} -> codeReviewArn) (\s@RecommendationFeedback' {} a -> s {codeReviewArn = a} :: RecommendationFeedback)
+
+-- | The time at which the feedback was created.
+recommendationFeedback_createdTimeStamp :: Lens.Lens' RecommendationFeedback (Prelude.Maybe Prelude.UTCTime)
+recommendationFeedback_createdTimeStamp = Lens.lens (\RecommendationFeedback' {createdTimeStamp} -> createdTimeStamp) (\s@RecommendationFeedback' {} a -> s {createdTimeStamp = a} :: RecommendationFeedback) Prelude.. Lens.mapping Data._Time
 
 -- | The time at which the feedback was last updated.
 recommendationFeedback_lastUpdatedTimeStamp :: Lens.Lens' RecommendationFeedback (Prelude.Maybe Prelude.UTCTime)
@@ -105,20 +115,10 @@ recommendationFeedback_lastUpdatedTimeStamp = Lens.lens (\RecommendationFeedback
 recommendationFeedback_reactions :: Lens.Lens' RecommendationFeedback (Prelude.Maybe [Reaction])
 recommendationFeedback_reactions = Lens.lens (\RecommendationFeedback' {reactions} -> reactions) (\s@RecommendationFeedback' {} a -> s {reactions = a} :: RecommendationFeedback) Prelude.. Lens.mapping Lens.coerced
 
--- | The time at which the feedback was created.
-recommendationFeedback_createdTimeStamp :: Lens.Lens' RecommendationFeedback (Prelude.Maybe Prelude.UTCTime)
-recommendationFeedback_createdTimeStamp = Lens.lens (\RecommendationFeedback' {createdTimeStamp} -> createdTimeStamp) (\s@RecommendationFeedback' {} a -> s {createdTimeStamp = a} :: RecommendationFeedback) Prelude.. Lens.mapping Data._Time
-
 -- | The recommendation ID that can be used to track the provided
 -- recommendations. Later on it can be used to collect the feedback.
 recommendationFeedback_recommendationId :: Lens.Lens' RecommendationFeedback (Prelude.Maybe Prelude.Text)
 recommendationFeedback_recommendationId = Lens.lens (\RecommendationFeedback' {recommendationId} -> recommendationId) (\s@RecommendationFeedback' {} a -> s {recommendationId = a} :: RecommendationFeedback)
-
--- | The Amazon Resource Name (ARN) of the
--- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html CodeReview>
--- object.
-recommendationFeedback_codeReviewArn :: Lens.Lens' RecommendationFeedback (Prelude.Maybe Prelude.Text)
-recommendationFeedback_codeReviewArn = Lens.lens (\RecommendationFeedback' {codeReviewArn} -> codeReviewArn) (\s@RecommendationFeedback' {} a -> s {codeReviewArn = a} :: RecommendationFeedback)
 
 -- | The ID of the user that made the API call.
 --
@@ -136,28 +136,28 @@ instance Data.FromJSON RecommendationFeedback where
       "RecommendationFeedback"
       ( \x ->
           RecommendationFeedback'
-            Prelude.<$> (x Data..:? "LastUpdatedTimeStamp")
-            Prelude.<*> (x Data..:? "Reactions" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "CodeReviewArn")
             Prelude.<*> (x Data..:? "CreatedTimeStamp")
+            Prelude.<*> (x Data..:? "LastUpdatedTimeStamp")
+            Prelude.<*> (x Data..:? "Reactions" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "RecommendationId")
-            Prelude.<*> (x Data..:? "CodeReviewArn")
             Prelude.<*> (x Data..:? "UserId")
       )
 
 instance Prelude.Hashable RecommendationFeedback where
   hashWithSalt _salt RecommendationFeedback' {..} =
-    _salt `Prelude.hashWithSalt` lastUpdatedTimeStamp
-      `Prelude.hashWithSalt` reactions
+    _salt `Prelude.hashWithSalt` codeReviewArn
       `Prelude.hashWithSalt` createdTimeStamp
+      `Prelude.hashWithSalt` lastUpdatedTimeStamp
+      `Prelude.hashWithSalt` reactions
       `Prelude.hashWithSalt` recommendationId
-      `Prelude.hashWithSalt` codeReviewArn
       `Prelude.hashWithSalt` userId
 
 instance Prelude.NFData RecommendationFeedback where
   rnf RecommendationFeedback' {..} =
-    Prelude.rnf lastUpdatedTimeStamp
-      `Prelude.seq` Prelude.rnf reactions
+    Prelude.rnf codeReviewArn
       `Prelude.seq` Prelude.rnf createdTimeStamp
+      `Prelude.seq` Prelude.rnf lastUpdatedTimeStamp
+      `Prelude.seq` Prelude.rnf reactions
       `Prelude.seq` Prelude.rnf recommendationId
-      `Prelude.seq` Prelude.rnf codeReviewArn
       `Prelude.seq` Prelude.rnf userId

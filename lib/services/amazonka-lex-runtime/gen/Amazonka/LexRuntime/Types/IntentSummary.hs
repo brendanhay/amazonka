@@ -34,18 +34,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIntentSummary' smart constructor.
 data IntentSummary = IntentSummary'
-  { -- | The fulfillment state of the intent. The possible values are:
+  { -- | A user-defined label that identifies a particular intent. You can use
+    -- this label to return to a previous intent.
     --
-    -- -   @Failed@ - The Lambda function associated with the intent failed to
-    --     fulfill the intent.
-    --
-    -- -   @Fulfilled@ - The intent has fulfilled by the Lambda function
-    --     associated with the intent.
-    --
-    -- -   @ReadyForFulfillment@ - All of the information necessary for the
-    --     intent is present and the intent ready to be fulfilled by the client
-    --     application.
-    fulfillmentState :: Prelude.Maybe FulfillmentState,
+    -- Use the @checkpointLabelFilter@ parameter of the @GetSessionRequest@
+    -- operation to filter the intents returned by the operation to those with
+    -- only the specified label.
+    checkpointLabel :: Prelude.Maybe Prelude.Text,
     -- | The status of the intent after the user responds to the confirmation
     -- prompt. If the user confirms the intent, Amazon Lex sets this field to
     -- @Confirmed@. If the user denies the intent, Amazon Lex sets this value
@@ -60,18 +55,23 @@ data IntentSummary = IntentSummary'
     -- -   @None@ - The user has never been prompted for confirmation; or, the
     --     user was prompted but did not confirm or deny the prompt.
     confirmationStatus :: Prelude.Maybe ConfirmationStatus,
-    -- | A user-defined label that identifies a particular intent. You can use
-    -- this label to return to a previous intent.
+    -- | The fulfillment state of the intent. The possible values are:
     --
-    -- Use the @checkpointLabelFilter@ parameter of the @GetSessionRequest@
-    -- operation to filter the intents returned by the operation to those with
-    -- only the specified label.
-    checkpointLabel :: Prelude.Maybe Prelude.Text,
+    -- -   @Failed@ - The Lambda function associated with the intent failed to
+    --     fulfill the intent.
+    --
+    -- -   @Fulfilled@ - The intent has fulfilled by the Lambda function
+    --     associated with the intent.
+    --
+    -- -   @ReadyForFulfillment@ - All of the information necessary for the
+    --     intent is present and the intent ready to be fulfilled by the client
+    --     application.
+    fulfillmentState :: Prelude.Maybe FulfillmentState,
+    -- | The name of the intent.
+    intentName :: Prelude.Maybe Prelude.Text,
     -- | The next slot to elicit from the user. If there is not slot to elicit,
     -- the field is blank.
     slotToElicit :: Prelude.Maybe Prelude.Text,
-    -- | The name of the intent.
-    intentName :: Prelude.Maybe Prelude.Text,
     -- | Map of the slots that have been gathered and their values.
     slots :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The next action that the bot should take in its interaction with the
@@ -102,17 +102,12 @@ data IntentSummary = IntentSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fulfillmentState', 'intentSummary_fulfillmentState' - The fulfillment state of the intent. The possible values are:
+-- 'checkpointLabel', 'intentSummary_checkpointLabel' - A user-defined label that identifies a particular intent. You can use
+-- this label to return to a previous intent.
 --
--- -   @Failed@ - The Lambda function associated with the intent failed to
---     fulfill the intent.
---
--- -   @Fulfilled@ - The intent has fulfilled by the Lambda function
---     associated with the intent.
---
--- -   @ReadyForFulfillment@ - All of the information necessary for the
---     intent is present and the intent ready to be fulfilled by the client
---     application.
+-- Use the @checkpointLabelFilter@ parameter of the @GetSessionRequest@
+-- operation to filter the intents returned by the operation to those with
+-- only the specified label.
 --
 -- 'confirmationStatus', 'intentSummary_confirmationStatus' - The status of the intent after the user responds to the confirmation
 -- prompt. If the user confirms the intent, Amazon Lex sets this field to
@@ -128,17 +123,22 @@ data IntentSummary = IntentSummary'
 -- -   @None@ - The user has never been prompted for confirmation; or, the
 --     user was prompted but did not confirm or deny the prompt.
 --
--- 'checkpointLabel', 'intentSummary_checkpointLabel' - A user-defined label that identifies a particular intent. You can use
--- this label to return to a previous intent.
+-- 'fulfillmentState', 'intentSummary_fulfillmentState' - The fulfillment state of the intent. The possible values are:
 --
--- Use the @checkpointLabelFilter@ parameter of the @GetSessionRequest@
--- operation to filter the intents returned by the operation to those with
--- only the specified label.
+-- -   @Failed@ - The Lambda function associated with the intent failed to
+--     fulfill the intent.
+--
+-- -   @Fulfilled@ - The intent has fulfilled by the Lambda function
+--     associated with the intent.
+--
+-- -   @ReadyForFulfillment@ - All of the information necessary for the
+--     intent is present and the intent ready to be fulfilled by the client
+--     application.
+--
+-- 'intentName', 'intentSummary_intentName' - The name of the intent.
 --
 -- 'slotToElicit', 'intentSummary_slotToElicit' - The next slot to elicit from the user. If there is not slot to elicit,
 -- the field is blank.
---
--- 'intentName', 'intentSummary_intentName' - The name of the intent.
 --
 -- 'slots', 'intentSummary_slots' - Map of the slots that have been gathered and their values.
 --
@@ -164,28 +164,23 @@ newIntentSummary ::
   IntentSummary
 newIntentSummary pDialogActionType_ =
   IntentSummary'
-    { fulfillmentState = Prelude.Nothing,
+    { checkpointLabel = Prelude.Nothing,
       confirmationStatus = Prelude.Nothing,
-      checkpointLabel = Prelude.Nothing,
-      slotToElicit = Prelude.Nothing,
+      fulfillmentState = Prelude.Nothing,
       intentName = Prelude.Nothing,
+      slotToElicit = Prelude.Nothing,
       slots = Prelude.Nothing,
       dialogActionType = pDialogActionType_
     }
 
--- | The fulfillment state of the intent. The possible values are:
+-- | A user-defined label that identifies a particular intent. You can use
+-- this label to return to a previous intent.
 --
--- -   @Failed@ - The Lambda function associated with the intent failed to
---     fulfill the intent.
---
--- -   @Fulfilled@ - The intent has fulfilled by the Lambda function
---     associated with the intent.
---
--- -   @ReadyForFulfillment@ - All of the information necessary for the
---     intent is present and the intent ready to be fulfilled by the client
---     application.
-intentSummary_fulfillmentState :: Lens.Lens' IntentSummary (Prelude.Maybe FulfillmentState)
-intentSummary_fulfillmentState = Lens.lens (\IntentSummary' {fulfillmentState} -> fulfillmentState) (\s@IntentSummary' {} a -> s {fulfillmentState = a} :: IntentSummary)
+-- Use the @checkpointLabelFilter@ parameter of the @GetSessionRequest@
+-- operation to filter the intents returned by the operation to those with
+-- only the specified label.
+intentSummary_checkpointLabel :: Lens.Lens' IntentSummary (Prelude.Maybe Prelude.Text)
+intentSummary_checkpointLabel = Lens.lens (\IntentSummary' {checkpointLabel} -> checkpointLabel) (\s@IntentSummary' {} a -> s {checkpointLabel = a} :: IntentSummary)
 
 -- | The status of the intent after the user responds to the confirmation
 -- prompt. If the user confirms the intent, Amazon Lex sets this field to
@@ -203,23 +198,28 @@ intentSummary_fulfillmentState = Lens.lens (\IntentSummary' {fulfillmentState} -
 intentSummary_confirmationStatus :: Lens.Lens' IntentSummary (Prelude.Maybe ConfirmationStatus)
 intentSummary_confirmationStatus = Lens.lens (\IntentSummary' {confirmationStatus} -> confirmationStatus) (\s@IntentSummary' {} a -> s {confirmationStatus = a} :: IntentSummary)
 
--- | A user-defined label that identifies a particular intent. You can use
--- this label to return to a previous intent.
+-- | The fulfillment state of the intent. The possible values are:
 --
--- Use the @checkpointLabelFilter@ parameter of the @GetSessionRequest@
--- operation to filter the intents returned by the operation to those with
--- only the specified label.
-intentSummary_checkpointLabel :: Lens.Lens' IntentSummary (Prelude.Maybe Prelude.Text)
-intentSummary_checkpointLabel = Lens.lens (\IntentSummary' {checkpointLabel} -> checkpointLabel) (\s@IntentSummary' {} a -> s {checkpointLabel = a} :: IntentSummary)
+-- -   @Failed@ - The Lambda function associated with the intent failed to
+--     fulfill the intent.
+--
+-- -   @Fulfilled@ - The intent has fulfilled by the Lambda function
+--     associated with the intent.
+--
+-- -   @ReadyForFulfillment@ - All of the information necessary for the
+--     intent is present and the intent ready to be fulfilled by the client
+--     application.
+intentSummary_fulfillmentState :: Lens.Lens' IntentSummary (Prelude.Maybe FulfillmentState)
+intentSummary_fulfillmentState = Lens.lens (\IntentSummary' {fulfillmentState} -> fulfillmentState) (\s@IntentSummary' {} a -> s {fulfillmentState = a} :: IntentSummary)
+
+-- | The name of the intent.
+intentSummary_intentName :: Lens.Lens' IntentSummary (Prelude.Maybe Prelude.Text)
+intentSummary_intentName = Lens.lens (\IntentSummary' {intentName} -> intentName) (\s@IntentSummary' {} a -> s {intentName = a} :: IntentSummary)
 
 -- | The next slot to elicit from the user. If there is not slot to elicit,
 -- the field is blank.
 intentSummary_slotToElicit :: Lens.Lens' IntentSummary (Prelude.Maybe Prelude.Text)
 intentSummary_slotToElicit = Lens.lens (\IntentSummary' {slotToElicit} -> slotToElicit) (\s@IntentSummary' {} a -> s {slotToElicit = a} :: IntentSummary)
-
--- | The name of the intent.
-intentSummary_intentName :: Lens.Lens' IntentSummary (Prelude.Maybe Prelude.Text)
-intentSummary_intentName = Lens.lens (\IntentSummary' {intentName} -> intentName) (\s@IntentSummary' {} a -> s {intentName = a} :: IntentSummary)
 
 -- | Map of the slots that have been gathered and their values.
 intentSummary_slots :: Lens.Lens' IntentSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -250,32 +250,32 @@ instance Data.FromJSON IntentSummary where
       "IntentSummary"
       ( \x ->
           IntentSummary'
-            Prelude.<$> (x Data..:? "fulfillmentState")
+            Prelude.<$> (x Data..:? "checkpointLabel")
             Prelude.<*> (x Data..:? "confirmationStatus")
-            Prelude.<*> (x Data..:? "checkpointLabel")
-            Prelude.<*> (x Data..:? "slotToElicit")
+            Prelude.<*> (x Data..:? "fulfillmentState")
             Prelude.<*> (x Data..:? "intentName")
+            Prelude.<*> (x Data..:? "slotToElicit")
             Prelude.<*> (x Data..:? "slots" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "dialogActionType")
       )
 
 instance Prelude.Hashable IntentSummary where
   hashWithSalt _salt IntentSummary' {..} =
-    _salt `Prelude.hashWithSalt` fulfillmentState
+    _salt `Prelude.hashWithSalt` checkpointLabel
       `Prelude.hashWithSalt` confirmationStatus
-      `Prelude.hashWithSalt` checkpointLabel
-      `Prelude.hashWithSalt` slotToElicit
+      `Prelude.hashWithSalt` fulfillmentState
       `Prelude.hashWithSalt` intentName
+      `Prelude.hashWithSalt` slotToElicit
       `Prelude.hashWithSalt` slots
       `Prelude.hashWithSalt` dialogActionType
 
 instance Prelude.NFData IntentSummary where
   rnf IntentSummary' {..} =
-    Prelude.rnf fulfillmentState
+    Prelude.rnf checkpointLabel
       `Prelude.seq` Prelude.rnf confirmationStatus
-      `Prelude.seq` Prelude.rnf checkpointLabel
-      `Prelude.seq` Prelude.rnf slotToElicit
+      `Prelude.seq` Prelude.rnf fulfillmentState
       `Prelude.seq` Prelude.rnf intentName
+      `Prelude.seq` Prelude.rnf slotToElicit
       `Prelude.seq` Prelude.rnf slots
       `Prelude.seq` Prelude.rnf dialogActionType
 
@@ -283,14 +283,14 @@ instance Data.ToJSON IntentSummary where
   toJSON IntentSummary' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("fulfillmentState" Data..=)
-              Prelude.<$> fulfillmentState,
+          [ ("checkpointLabel" Data..=)
+              Prelude.<$> checkpointLabel,
             ("confirmationStatus" Data..=)
               Prelude.<$> confirmationStatus,
-            ("checkpointLabel" Data..=)
-              Prelude.<$> checkpointLabel,
-            ("slotToElicit" Data..=) Prelude.<$> slotToElicit,
+            ("fulfillmentState" Data..=)
+              Prelude.<$> fulfillmentState,
             ("intentName" Data..=) Prelude.<$> intentName,
+            ("slotToElicit" Data..=) Prelude.<$> slotToElicit,
             ("slots" Data..=) Prelude.<$> slots,
             Prelude.Just
               ("dialogActionType" Data..= dialogActionType)

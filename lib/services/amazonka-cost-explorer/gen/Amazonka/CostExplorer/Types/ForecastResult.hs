@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newForecastResult' smart constructor.
 data ForecastResult = ForecastResult'
-  { -- | The lower limit for the prediction interval.
+  { -- | The mean value of the forecast.
+    meanValue :: Prelude.Maybe Prelude.Text,
+    -- | The lower limit for the prediction interval.
     predictionIntervalLowerBound :: Prelude.Maybe Prelude.Text,
     -- | The upper limit for the prediction interval.
     predictionIntervalUpperBound :: Prelude.Maybe Prelude.Text,
-    -- | The mean value of the forecast.
-    meanValue :: Prelude.Maybe Prelude.Text,
     -- | The period of time that the forecast covers.
     timePeriod :: Prelude.Maybe DateInterval
   }
@@ -48,23 +48,26 @@ data ForecastResult = ForecastResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'meanValue', 'forecastResult_meanValue' - The mean value of the forecast.
+--
 -- 'predictionIntervalLowerBound', 'forecastResult_predictionIntervalLowerBound' - The lower limit for the prediction interval.
 --
 -- 'predictionIntervalUpperBound', 'forecastResult_predictionIntervalUpperBound' - The upper limit for the prediction interval.
---
--- 'meanValue', 'forecastResult_meanValue' - The mean value of the forecast.
 --
 -- 'timePeriod', 'forecastResult_timePeriod' - The period of time that the forecast covers.
 newForecastResult ::
   ForecastResult
 newForecastResult =
   ForecastResult'
-    { predictionIntervalLowerBound =
-        Prelude.Nothing,
+    { meanValue = Prelude.Nothing,
+      predictionIntervalLowerBound = Prelude.Nothing,
       predictionIntervalUpperBound = Prelude.Nothing,
-      meanValue = Prelude.Nothing,
       timePeriod = Prelude.Nothing
     }
+
+-- | The mean value of the forecast.
+forecastResult_meanValue :: Lens.Lens' ForecastResult (Prelude.Maybe Prelude.Text)
+forecastResult_meanValue = Lens.lens (\ForecastResult' {meanValue} -> meanValue) (\s@ForecastResult' {} a -> s {meanValue = a} :: ForecastResult)
 
 -- | The lower limit for the prediction interval.
 forecastResult_predictionIntervalLowerBound :: Lens.Lens' ForecastResult (Prelude.Maybe Prelude.Text)
@@ -73,10 +76,6 @@ forecastResult_predictionIntervalLowerBound = Lens.lens (\ForecastResult' {predi
 -- | The upper limit for the prediction interval.
 forecastResult_predictionIntervalUpperBound :: Lens.Lens' ForecastResult (Prelude.Maybe Prelude.Text)
 forecastResult_predictionIntervalUpperBound = Lens.lens (\ForecastResult' {predictionIntervalUpperBound} -> predictionIntervalUpperBound) (\s@ForecastResult' {} a -> s {predictionIntervalUpperBound = a} :: ForecastResult)
-
--- | The mean value of the forecast.
-forecastResult_meanValue :: Lens.Lens' ForecastResult (Prelude.Maybe Prelude.Text)
-forecastResult_meanValue = Lens.lens (\ForecastResult' {meanValue} -> meanValue) (\s@ForecastResult' {} a -> s {meanValue = a} :: ForecastResult)
 
 -- | The period of time that the forecast covers.
 forecastResult_timePeriod :: Lens.Lens' ForecastResult (Prelude.Maybe DateInterval)
@@ -88,23 +87,22 @@ instance Data.FromJSON ForecastResult where
       "ForecastResult"
       ( \x ->
           ForecastResult'
-            Prelude.<$> (x Data..:? "PredictionIntervalLowerBound")
+            Prelude.<$> (x Data..:? "MeanValue")
+            Prelude.<*> (x Data..:? "PredictionIntervalLowerBound")
             Prelude.<*> (x Data..:? "PredictionIntervalUpperBound")
-            Prelude.<*> (x Data..:? "MeanValue")
             Prelude.<*> (x Data..:? "TimePeriod")
       )
 
 instance Prelude.Hashable ForecastResult where
   hashWithSalt _salt ForecastResult' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` meanValue
       `Prelude.hashWithSalt` predictionIntervalLowerBound
       `Prelude.hashWithSalt` predictionIntervalUpperBound
-      `Prelude.hashWithSalt` meanValue
       `Prelude.hashWithSalt` timePeriod
 
 instance Prelude.NFData ForecastResult where
   rnf ForecastResult' {..} =
-    Prelude.rnf predictionIntervalLowerBound
+    Prelude.rnf meanValue
+      `Prelude.seq` Prelude.rnf predictionIntervalLowerBound
       `Prelude.seq` Prelude.rnf predictionIntervalUpperBound
-      `Prelude.seq` Prelude.rnf meanValue
       `Prelude.seq` Prelude.rnf timePeriod

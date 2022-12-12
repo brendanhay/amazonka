@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAssociateClientDeviceWithCoreDeviceErrorEntry' smart constructor.
 data AssociateClientDeviceWithCoreDeviceErrorEntry = AssociateClientDeviceWithCoreDeviceErrorEntry'
-  { -- | A message that provides additional information about the error.
+  { -- | The error code for the request.
+    code :: Prelude.Maybe Prelude.Text,
+    -- | A message that provides additional information about the error.
     message :: Prelude.Maybe Prelude.Text,
     -- | The name of the IoT thing whose associate request failed.
-    thingName :: Prelude.Maybe Prelude.Text,
-    -- | The error code for the request.
-    code :: Prelude.Maybe Prelude.Text
+    thingName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,20 +48,24 @@ data AssociateClientDeviceWithCoreDeviceErrorEntry = AssociateClientDeviceWithCo
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'code', 'associateClientDeviceWithCoreDeviceErrorEntry_code' - The error code for the request.
+--
 -- 'message', 'associateClientDeviceWithCoreDeviceErrorEntry_message' - A message that provides additional information about the error.
 --
 -- 'thingName', 'associateClientDeviceWithCoreDeviceErrorEntry_thingName' - The name of the IoT thing whose associate request failed.
---
--- 'code', 'associateClientDeviceWithCoreDeviceErrorEntry_code' - The error code for the request.
 newAssociateClientDeviceWithCoreDeviceErrorEntry ::
   AssociateClientDeviceWithCoreDeviceErrorEntry
 newAssociateClientDeviceWithCoreDeviceErrorEntry =
   AssociateClientDeviceWithCoreDeviceErrorEntry'
-    { message =
+    { code =
         Prelude.Nothing,
-      thingName = Prelude.Nothing,
-      code = Prelude.Nothing
+      message = Prelude.Nothing,
+      thingName = Prelude.Nothing
     }
+
+-- | The error code for the request.
+associateClientDeviceWithCoreDeviceErrorEntry_code :: Lens.Lens' AssociateClientDeviceWithCoreDeviceErrorEntry (Prelude.Maybe Prelude.Text)
+associateClientDeviceWithCoreDeviceErrorEntry_code = Lens.lens (\AssociateClientDeviceWithCoreDeviceErrorEntry' {code} -> code) (\s@AssociateClientDeviceWithCoreDeviceErrorEntry' {} a -> s {code = a} :: AssociateClientDeviceWithCoreDeviceErrorEntry)
 
 -- | A message that provides additional information about the error.
 associateClientDeviceWithCoreDeviceErrorEntry_message :: Lens.Lens' AssociateClientDeviceWithCoreDeviceErrorEntry (Prelude.Maybe Prelude.Text)
@@ -70,10 +74,6 @@ associateClientDeviceWithCoreDeviceErrorEntry_message = Lens.lens (\AssociateCli
 -- | The name of the IoT thing whose associate request failed.
 associateClientDeviceWithCoreDeviceErrorEntry_thingName :: Lens.Lens' AssociateClientDeviceWithCoreDeviceErrorEntry (Prelude.Maybe Prelude.Text)
 associateClientDeviceWithCoreDeviceErrorEntry_thingName = Lens.lens (\AssociateClientDeviceWithCoreDeviceErrorEntry' {thingName} -> thingName) (\s@AssociateClientDeviceWithCoreDeviceErrorEntry' {} a -> s {thingName = a} :: AssociateClientDeviceWithCoreDeviceErrorEntry)
-
--- | The error code for the request.
-associateClientDeviceWithCoreDeviceErrorEntry_code :: Lens.Lens' AssociateClientDeviceWithCoreDeviceErrorEntry (Prelude.Maybe Prelude.Text)
-associateClientDeviceWithCoreDeviceErrorEntry_code = Lens.lens (\AssociateClientDeviceWithCoreDeviceErrorEntry' {code} -> code) (\s@AssociateClientDeviceWithCoreDeviceErrorEntry' {} a -> s {code = a} :: AssociateClientDeviceWithCoreDeviceErrorEntry)
 
 instance
   Data.FromJSON
@@ -84,9 +84,9 @@ instance
       "AssociateClientDeviceWithCoreDeviceErrorEntry"
       ( \x ->
           AssociateClientDeviceWithCoreDeviceErrorEntry'
-            Prelude.<$> (x Data..:? "message")
+            Prelude.<$> (x Data..:? "code")
+              Prelude.<*> (x Data..:? "message")
               Prelude.<*> (x Data..:? "thingName")
-              Prelude.<*> (x Data..:? "code")
       )
 
 instance
@@ -96,9 +96,9 @@ instance
   hashWithSalt
     _salt
     AssociateClientDeviceWithCoreDeviceErrorEntry' {..} =
-      _salt `Prelude.hashWithSalt` message
+      _salt `Prelude.hashWithSalt` code
+        `Prelude.hashWithSalt` message
         `Prelude.hashWithSalt` thingName
-        `Prelude.hashWithSalt` code
 
 instance
   Prelude.NFData
@@ -106,6 +106,6 @@ instance
   where
   rnf
     AssociateClientDeviceWithCoreDeviceErrorEntry' {..} =
-      Prelude.rnf message
+      Prelude.rnf code
+        `Prelude.seq` Prelude.rnf message
         `Prelude.seq` Prelude.rnf thingName
-        `Prelude.seq` Prelude.rnf code

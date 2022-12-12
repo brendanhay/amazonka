@@ -35,14 +35,14 @@ module Amazonka.Scheduler.UpdateSchedule
     newUpdateSchedule,
 
     -- * Request Lenses
-    updateSchedule_scheduleExpressionTimezone,
     updateSchedule_clientToken,
-    updateSchedule_endDate,
-    updateSchedule_state,
-    updateSchedule_groupName,
     updateSchedule_description,
+    updateSchedule_endDate,
+    updateSchedule_groupName,
     updateSchedule_kmsKeyArn,
+    updateSchedule_scheduleExpressionTimezone,
     updateSchedule_startDate,
+    updateSchedule_state,
     updateSchedule_flexibleTimeWindow,
     updateSchedule_name,
     updateSchedule_scheduleExpression,
@@ -68,35 +68,35 @@ import Amazonka.Scheduler.Types
 
 -- | /See:/ 'newUpdateSchedule' smart constructor.
 data UpdateSchedule = UpdateSchedule'
-  { -- | The timezone in which the scheduling expression is evaluated.
-    scheduleExpressionTimezone :: Prelude.Maybe Prelude.Text,
-    -- | Unique, case-sensitive identifier you provide to ensure the idempotency
+  { -- | Unique, case-sensitive identifier you provide to ensure the idempotency
     -- of the request. If you do not specify a client token, EventBridge
     -- Scheduler uses a randomly generated token for the request to ensure
     -- idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The description you specify for the schedule.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The date, in UTC, before which the schedule can invoke its target.
     -- Depending on the schedule\'s recurrence expression, invocations might
     -- stop on, or before, the @EndDate@ you specify. EventBridge Scheduler
     -- ignores @EndDate@ for one-time schedules.
     endDate :: Prelude.Maybe Data.POSIX,
-    -- | Specifies whether the schedule is enabled or disabled.
-    state :: Prelude.Maybe ScheduleState,
     -- | The name of the schedule group with which the schedule is associated.
     -- You must provide this value in order for EventBridge Scheduler to find
     -- the schedule you want to update. If you omit this value, EventBridge
     -- Scheduler assumes the group is associated to the default group.
     groupName :: Prelude.Maybe Prelude.Text,
-    -- | The description you specify for the schedule.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The ARN for the customer managed KMS key that that you want EventBridge
     -- Scheduler to use to encrypt and decrypt your data.
     kmsKeyArn :: Prelude.Maybe Prelude.Text,
+    -- | The timezone in which the scheduling expression is evaluated.
+    scheduleExpressionTimezone :: Prelude.Maybe Prelude.Text,
     -- | The date, in UTC, after which the schedule can begin invoking its
     -- target. Depending on the schedule\'s recurrence expression, invocations
     -- might occur on, or after, the @StartDate@ you specify. EventBridge
     -- Scheduler ignores @StartDate@ for one-time schedules.
     startDate :: Prelude.Maybe Data.POSIX,
+    -- | Specifies whether the schedule is enabled or disabled.
+    state :: Prelude.Maybe ScheduleState,
     -- | Allows you to configure a time window during which EventBridge Scheduler
     -- invokes the schedule.
     flexibleTimeWindow :: FlexibleTimeWindow,
@@ -145,34 +145,34 @@ data UpdateSchedule = UpdateSchedule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'scheduleExpressionTimezone', 'updateSchedule_scheduleExpressionTimezone' - The timezone in which the scheduling expression is evaluated.
---
 -- 'clientToken', 'updateSchedule_clientToken' - Unique, case-sensitive identifier you provide to ensure the idempotency
 -- of the request. If you do not specify a client token, EventBridge
 -- Scheduler uses a randomly generated token for the request to ensure
 -- idempotency.
+--
+-- 'description', 'updateSchedule_description' - The description you specify for the schedule.
 --
 -- 'endDate', 'updateSchedule_endDate' - The date, in UTC, before which the schedule can invoke its target.
 -- Depending on the schedule\'s recurrence expression, invocations might
 -- stop on, or before, the @EndDate@ you specify. EventBridge Scheduler
 -- ignores @EndDate@ for one-time schedules.
 --
--- 'state', 'updateSchedule_state' - Specifies whether the schedule is enabled or disabled.
---
 -- 'groupName', 'updateSchedule_groupName' - The name of the schedule group with which the schedule is associated.
 -- You must provide this value in order for EventBridge Scheduler to find
 -- the schedule you want to update. If you omit this value, EventBridge
 -- Scheduler assumes the group is associated to the default group.
 --
--- 'description', 'updateSchedule_description' - The description you specify for the schedule.
---
 -- 'kmsKeyArn', 'updateSchedule_kmsKeyArn' - The ARN for the customer managed KMS key that that you want EventBridge
 -- Scheduler to use to encrypt and decrypt your data.
+--
+-- 'scheduleExpressionTimezone', 'updateSchedule_scheduleExpressionTimezone' - The timezone in which the scheduling expression is evaluated.
 --
 -- 'startDate', 'updateSchedule_startDate' - The date, in UTC, after which the schedule can begin invoking its
 -- target. Depending on the schedule\'s recurrence expression, invocations
 -- might occur on, or after, the @StartDate@ you specify. EventBridge
 -- Scheduler ignores @StartDate@ for one-time schedules.
+--
+-- 'state', 'updateSchedule_state' - Specifies whether the schedule is enabled or disabled.
 --
 -- 'flexibleTimeWindow', 'updateSchedule_flexibleTimeWindow' - Allows you to configure a time window during which EventBridge Scheduler
 -- invokes the schedule.
@@ -226,24 +226,19 @@ newUpdateSchedule
   pScheduleExpression_
   pTarget_ =
     UpdateSchedule'
-      { scheduleExpressionTimezone =
-          Prelude.Nothing,
-        clientToken = Prelude.Nothing,
-        endDate = Prelude.Nothing,
-        state = Prelude.Nothing,
-        groupName = Prelude.Nothing,
+      { clientToken = Prelude.Nothing,
         description = Prelude.Nothing,
+        endDate = Prelude.Nothing,
+        groupName = Prelude.Nothing,
         kmsKeyArn = Prelude.Nothing,
+        scheduleExpressionTimezone = Prelude.Nothing,
         startDate = Prelude.Nothing,
+        state = Prelude.Nothing,
         flexibleTimeWindow = pFlexibleTimeWindow_,
         name = pName_,
         scheduleExpression = pScheduleExpression_,
         target = pTarget_
       }
-
--- | The timezone in which the scheduling expression is evaluated.
-updateSchedule_scheduleExpressionTimezone :: Lens.Lens' UpdateSchedule (Prelude.Maybe Prelude.Text)
-updateSchedule_scheduleExpressionTimezone = Lens.lens (\UpdateSchedule' {scheduleExpressionTimezone} -> scheduleExpressionTimezone) (\s@UpdateSchedule' {} a -> s {scheduleExpressionTimezone = a} :: UpdateSchedule)
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency
 -- of the request. If you do not specify a client token, EventBridge
@@ -252,16 +247,16 @@ updateSchedule_scheduleExpressionTimezone = Lens.lens (\UpdateSchedule' {schedul
 updateSchedule_clientToken :: Lens.Lens' UpdateSchedule (Prelude.Maybe Prelude.Text)
 updateSchedule_clientToken = Lens.lens (\UpdateSchedule' {clientToken} -> clientToken) (\s@UpdateSchedule' {} a -> s {clientToken = a} :: UpdateSchedule)
 
+-- | The description you specify for the schedule.
+updateSchedule_description :: Lens.Lens' UpdateSchedule (Prelude.Maybe Prelude.Text)
+updateSchedule_description = Lens.lens (\UpdateSchedule' {description} -> description) (\s@UpdateSchedule' {} a -> s {description = a} :: UpdateSchedule)
+
 -- | The date, in UTC, before which the schedule can invoke its target.
 -- Depending on the schedule\'s recurrence expression, invocations might
 -- stop on, or before, the @EndDate@ you specify. EventBridge Scheduler
 -- ignores @EndDate@ for one-time schedules.
 updateSchedule_endDate :: Lens.Lens' UpdateSchedule (Prelude.Maybe Prelude.UTCTime)
 updateSchedule_endDate = Lens.lens (\UpdateSchedule' {endDate} -> endDate) (\s@UpdateSchedule' {} a -> s {endDate = a} :: UpdateSchedule) Prelude.. Lens.mapping Data._Time
-
--- | Specifies whether the schedule is enabled or disabled.
-updateSchedule_state :: Lens.Lens' UpdateSchedule (Prelude.Maybe ScheduleState)
-updateSchedule_state = Lens.lens (\UpdateSchedule' {state} -> state) (\s@UpdateSchedule' {} a -> s {state = a} :: UpdateSchedule)
 
 -- | The name of the schedule group with which the schedule is associated.
 -- You must provide this value in order for EventBridge Scheduler to find
@@ -270,14 +265,14 @@ updateSchedule_state = Lens.lens (\UpdateSchedule' {state} -> state) (\s@UpdateS
 updateSchedule_groupName :: Lens.Lens' UpdateSchedule (Prelude.Maybe Prelude.Text)
 updateSchedule_groupName = Lens.lens (\UpdateSchedule' {groupName} -> groupName) (\s@UpdateSchedule' {} a -> s {groupName = a} :: UpdateSchedule)
 
--- | The description you specify for the schedule.
-updateSchedule_description :: Lens.Lens' UpdateSchedule (Prelude.Maybe Prelude.Text)
-updateSchedule_description = Lens.lens (\UpdateSchedule' {description} -> description) (\s@UpdateSchedule' {} a -> s {description = a} :: UpdateSchedule)
-
 -- | The ARN for the customer managed KMS key that that you want EventBridge
 -- Scheduler to use to encrypt and decrypt your data.
 updateSchedule_kmsKeyArn :: Lens.Lens' UpdateSchedule (Prelude.Maybe Prelude.Text)
 updateSchedule_kmsKeyArn = Lens.lens (\UpdateSchedule' {kmsKeyArn} -> kmsKeyArn) (\s@UpdateSchedule' {} a -> s {kmsKeyArn = a} :: UpdateSchedule)
+
+-- | The timezone in which the scheduling expression is evaluated.
+updateSchedule_scheduleExpressionTimezone :: Lens.Lens' UpdateSchedule (Prelude.Maybe Prelude.Text)
+updateSchedule_scheduleExpressionTimezone = Lens.lens (\UpdateSchedule' {scheduleExpressionTimezone} -> scheduleExpressionTimezone) (\s@UpdateSchedule' {} a -> s {scheduleExpressionTimezone = a} :: UpdateSchedule)
 
 -- | The date, in UTC, after which the schedule can begin invoking its
 -- target. Depending on the schedule\'s recurrence expression, invocations
@@ -285,6 +280,10 @@ updateSchedule_kmsKeyArn = Lens.lens (\UpdateSchedule' {kmsKeyArn} -> kmsKeyArn)
 -- Scheduler ignores @StartDate@ for one-time schedules.
 updateSchedule_startDate :: Lens.Lens' UpdateSchedule (Prelude.Maybe Prelude.UTCTime)
 updateSchedule_startDate = Lens.lens (\UpdateSchedule' {startDate} -> startDate) (\s@UpdateSchedule' {} a -> s {startDate = a} :: UpdateSchedule) Prelude.. Lens.mapping Data._Time
+
+-- | Specifies whether the schedule is enabled or disabled.
+updateSchedule_state :: Lens.Lens' UpdateSchedule (Prelude.Maybe ScheduleState)
+updateSchedule_state = Lens.lens (\UpdateSchedule' {state} -> state) (\s@UpdateSchedule' {} a -> s {state = a} :: UpdateSchedule)
 
 -- | Allows you to configure a time window during which EventBridge Scheduler
 -- invokes the schedule.
@@ -347,15 +346,14 @@ instance Core.AWSRequest UpdateSchedule where
 
 instance Prelude.Hashable UpdateSchedule where
   hashWithSalt _salt UpdateSchedule' {..} =
-    _salt
-      `Prelude.hashWithSalt` scheduleExpressionTimezone
-      `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` endDate
-      `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` groupName
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` endDate
+      `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` kmsKeyArn
+      `Prelude.hashWithSalt` scheduleExpressionTimezone
       `Prelude.hashWithSalt` startDate
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` flexibleTimeWindow
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` scheduleExpression
@@ -363,14 +361,14 @@ instance Prelude.Hashable UpdateSchedule where
 
 instance Prelude.NFData UpdateSchedule where
   rnf UpdateSchedule' {..} =
-    Prelude.rnf scheduleExpressionTimezone
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf endDate
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf groupName
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf endDate
+      `Prelude.seq` Prelude.rnf groupName
       `Prelude.seq` Prelude.rnf kmsKeyArn
+      `Prelude.seq` Prelude.rnf scheduleExpressionTimezone
       `Prelude.seq` Prelude.rnf startDate
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf flexibleTimeWindow
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf scheduleExpression
@@ -391,15 +389,15 @@ instance Data.ToJSON UpdateSchedule where
   toJSON UpdateSchedule' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ScheduleExpressionTimezone" Data..=)
-              Prelude.<$> scheduleExpressionTimezone,
-            ("ClientToken" Data..=) Prelude.<$> clientToken,
-            ("EndDate" Data..=) Prelude.<$> endDate,
-            ("State" Data..=) Prelude.<$> state,
-            ("GroupName" Data..=) Prelude.<$> groupName,
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
             ("Description" Data..=) Prelude.<$> description,
+            ("EndDate" Data..=) Prelude.<$> endDate,
+            ("GroupName" Data..=) Prelude.<$> groupName,
             ("KmsKeyArn" Data..=) Prelude.<$> kmsKeyArn,
+            ("ScheduleExpressionTimezone" Data..=)
+              Prelude.<$> scheduleExpressionTimezone,
             ("StartDate" Data..=) Prelude.<$> startDate,
+            ("State" Data..=) Prelude.<$> state,
             Prelude.Just
               ("FlexibleTimeWindow" Data..= flexibleTimeWindow),
             Prelude.Just

@@ -30,10 +30,10 @@ import Amazonka.SecurityHub.Types.AwsIamAccessKeySessionContextSessionIssuer
 --
 -- /See:/ 'newAwsIamAccessKeySessionContext' smart constructor.
 data AwsIamAccessKeySessionContext = AwsIamAccessKeySessionContext'
-  { -- | Information about the entity that created the session.
-    sessionIssuer :: Prelude.Maybe AwsIamAccessKeySessionContextSessionIssuer,
-    -- | Attributes of the session that the key was used for.
-    attributes :: Prelude.Maybe AwsIamAccessKeySessionContextAttributes
+  { -- | Attributes of the session that the key was used for.
+    attributes :: Prelude.Maybe AwsIamAccessKeySessionContextAttributes,
+    -- | Information about the entity that created the session.
+    sessionIssuer :: Prelude.Maybe AwsIamAccessKeySessionContextSessionIssuer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,25 +45,25 @@ data AwsIamAccessKeySessionContext = AwsIamAccessKeySessionContext'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sessionIssuer', 'awsIamAccessKeySessionContext_sessionIssuer' - Information about the entity that created the session.
---
 -- 'attributes', 'awsIamAccessKeySessionContext_attributes' - Attributes of the session that the key was used for.
+--
+-- 'sessionIssuer', 'awsIamAccessKeySessionContext_sessionIssuer' - Information about the entity that created the session.
 newAwsIamAccessKeySessionContext ::
   AwsIamAccessKeySessionContext
 newAwsIamAccessKeySessionContext =
   AwsIamAccessKeySessionContext'
-    { sessionIssuer =
+    { attributes =
         Prelude.Nothing,
-      attributes = Prelude.Nothing
+      sessionIssuer = Prelude.Nothing
     }
-
--- | Information about the entity that created the session.
-awsIamAccessKeySessionContext_sessionIssuer :: Lens.Lens' AwsIamAccessKeySessionContext (Prelude.Maybe AwsIamAccessKeySessionContextSessionIssuer)
-awsIamAccessKeySessionContext_sessionIssuer = Lens.lens (\AwsIamAccessKeySessionContext' {sessionIssuer} -> sessionIssuer) (\s@AwsIamAccessKeySessionContext' {} a -> s {sessionIssuer = a} :: AwsIamAccessKeySessionContext)
 
 -- | Attributes of the session that the key was used for.
 awsIamAccessKeySessionContext_attributes :: Lens.Lens' AwsIamAccessKeySessionContext (Prelude.Maybe AwsIamAccessKeySessionContextAttributes)
 awsIamAccessKeySessionContext_attributes = Lens.lens (\AwsIamAccessKeySessionContext' {attributes} -> attributes) (\s@AwsIamAccessKeySessionContext' {} a -> s {attributes = a} :: AwsIamAccessKeySessionContext)
+
+-- | Information about the entity that created the session.
+awsIamAccessKeySessionContext_sessionIssuer :: Lens.Lens' AwsIamAccessKeySessionContext (Prelude.Maybe AwsIamAccessKeySessionContextSessionIssuer)
+awsIamAccessKeySessionContext_sessionIssuer = Lens.lens (\AwsIamAccessKeySessionContext' {sessionIssuer} -> sessionIssuer) (\s@AwsIamAccessKeySessionContext' {} a -> s {sessionIssuer = a} :: AwsIamAccessKeySessionContext)
 
 instance Data.FromJSON AwsIamAccessKeySessionContext where
   parseJSON =
@@ -71,8 +71,8 @@ instance Data.FromJSON AwsIamAccessKeySessionContext where
       "AwsIamAccessKeySessionContext"
       ( \x ->
           AwsIamAccessKeySessionContext'
-            Prelude.<$> (x Data..:? "SessionIssuer")
-            Prelude.<*> (x Data..:? "Attributes")
+            Prelude.<$> (x Data..:? "Attributes")
+            Prelude.<*> (x Data..:? "SessionIssuer")
       )
 
 instance
@@ -80,19 +80,19 @@ instance
     AwsIamAccessKeySessionContext
   where
   hashWithSalt _salt AwsIamAccessKeySessionContext' {..} =
-    _salt `Prelude.hashWithSalt` sessionIssuer
-      `Prelude.hashWithSalt` attributes
+    _salt `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` sessionIssuer
 
 instance Prelude.NFData AwsIamAccessKeySessionContext where
   rnf AwsIamAccessKeySessionContext' {..} =
-    Prelude.rnf sessionIssuer
-      `Prelude.seq` Prelude.rnf attributes
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf sessionIssuer
 
 instance Data.ToJSON AwsIamAccessKeySessionContext where
   toJSON AwsIamAccessKeySessionContext' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SessionIssuer" Data..=) Prelude.<$> sessionIssuer,
-            ("Attributes" Data..=) Prelude.<$> attributes
+          [ ("Attributes" Data..=) Prelude.<$> attributes,
+            ("SessionIssuer" Data..=) Prelude.<$> sessionIssuer
           ]
       )

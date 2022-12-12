@@ -72,6 +72,15 @@ reference_value = Lens.lens (\Reference' {value} -> value) (\s@Reference' {} a -
 reference_type :: Lens.Lens' Reference ReferenceType
 reference_type = Lens.lens (\Reference' {type'} -> type') (\s@Reference' {} a -> s {type' = a} :: Reference)
 
+instance Data.FromJSON Reference where
+  parseJSON =
+    Data.withObject
+      "Reference"
+      ( \x ->
+          Reference'
+            Prelude.<$> (x Data..: "Value") Prelude.<*> (x Data..: "Type")
+      )
+
 instance Prelude.Hashable Reference where
   hashWithSalt _salt Reference' {..} =
     _salt `Prelude.hashWithSalt` value

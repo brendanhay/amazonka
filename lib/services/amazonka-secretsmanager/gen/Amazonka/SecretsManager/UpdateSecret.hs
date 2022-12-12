@@ -69,8 +69,8 @@ module Amazonka.SecretsManager.UpdateSecret
     -- * Request Lenses
     updateSecret_clientRequestToken,
     updateSecret_description,
-    updateSecret_secretBinary,
     updateSecret_kmsKeyId,
+    updateSecret_secretBinary,
     updateSecret_secretString,
     updateSecret_secretId,
 
@@ -79,8 +79,8 @@ module Amazonka.SecretsManager.UpdateSecret
     newUpdateSecretResponse,
 
     -- * Response Lenses
-    updateSecretResponse_name,
     updateSecretResponse_arn,
+    updateSecretResponse_name,
     updateSecretResponse_versionId,
     updateSecretResponse_httpStatus,
   )
@@ -112,14 +112,6 @@ data UpdateSecret = UpdateSecret'
     clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The description of the secret.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The binary data to encrypt and store in the new version of the secret.
-    -- We recommend that you store your binary data in a file and then pass the
-    -- contents of the file as a parameter.
-    --
-    -- Either @SecretBinary@ or @SecretString@ must have a value, but not both.
-    --
-    -- You can\'t access this parameter in the Secrets Manager console.
-    secretBinary :: Prelude.Maybe (Data.Sensitive Data.Base64),
     -- | The ARN, key ID, or alias of the KMS key that Secrets Manager uses to
     -- encrypt new secret versions as well as any existing versions with the
     -- staging labels @AWSCURRENT@, @AWSPENDING@, or @AWSPREVIOUS@. For more
@@ -146,6 +138,14 @@ data UpdateSecret = UpdateSecret'
     -- must have permissions to both the secret and the KMS key in their
     -- respective accounts.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The binary data to encrypt and store in the new version of the secret.
+    -- We recommend that you store your binary data in a file and then pass the
+    -- contents of the file as a parameter.
+    --
+    -- Either @SecretBinary@ or @SecretString@ must have a value, but not both.
+    --
+    -- You can\'t access this parameter in the Secrets Manager console.
+    secretBinary :: Prelude.Maybe (Data.Sensitive Data.Base64),
     -- | The text data to encrypt and store in the new version of the secret. We
     -- recommend you use a JSON structure of key\/value pairs for your secret
     -- value.
@@ -185,18 +185,6 @@ data UpdateSecret = UpdateSecret'
 --
 -- 'description', 'updateSecret_description' - The description of the secret.
 --
--- 'secretBinary', 'updateSecret_secretBinary' - The binary data to encrypt and store in the new version of the secret.
--- We recommend that you store your binary data in a file and then pass the
--- contents of the file as a parameter.
---
--- Either @SecretBinary@ or @SecretString@ must have a value, but not both.
---
--- You can\'t access this parameter in the Secrets Manager console.--
--- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- -- The underlying isomorphism will encode to Base64 representation during
--- -- serialisation, and decode from Base64 representation during deserialisation.
--- -- This 'Lens' accepts and returns only raw unencoded data.
---
 -- 'kmsKeyId', 'updateSecret_kmsKeyId' - The ARN, key ID, or alias of the KMS key that Secrets Manager uses to
 -- encrypt new secret versions as well as any existing versions with the
 -- staging labels @AWSCURRENT@, @AWSPENDING@, or @AWSPREVIOUS@. For more
@@ -223,6 +211,18 @@ data UpdateSecret = UpdateSecret'
 -- must have permissions to both the secret and the KMS key in their
 -- respective accounts.
 --
+-- 'secretBinary', 'updateSecret_secretBinary' - The binary data to encrypt and store in the new version of the secret.
+-- We recommend that you store your binary data in a file and then pass the
+-- contents of the file as a parameter.
+--
+-- Either @SecretBinary@ or @SecretString@ must have a value, but not both.
+--
+-- You can\'t access this parameter in the Secrets Manager console.--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
+--
 -- 'secretString', 'updateSecret_secretString' - The text data to encrypt and store in the new version of the secret. We
 -- recommend you use a JSON structure of key\/value pairs for your secret
 -- value.
@@ -242,8 +242,8 @@ newUpdateSecret pSecretId_ =
   UpdateSecret'
     { clientRequestToken = Prelude.Nothing,
       description = Prelude.Nothing,
-      secretBinary = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
+      secretBinary = Prelude.Nothing,
       secretString = Prelude.Nothing,
       secretId = pSecretId_
     }
@@ -267,20 +267,6 @@ updateSecret_clientRequestToken = Lens.lens (\UpdateSecret' {clientRequestToken}
 -- | The description of the secret.
 updateSecret_description :: Lens.Lens' UpdateSecret (Prelude.Maybe Prelude.Text)
 updateSecret_description = Lens.lens (\UpdateSecret' {description} -> description) (\s@UpdateSecret' {} a -> s {description = a} :: UpdateSecret)
-
--- | The binary data to encrypt and store in the new version of the secret.
--- We recommend that you store your binary data in a file and then pass the
--- contents of the file as a parameter.
---
--- Either @SecretBinary@ or @SecretString@ must have a value, but not both.
---
--- You can\'t access this parameter in the Secrets Manager console.--
--- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- -- The underlying isomorphism will encode to Base64 representation during
--- -- serialisation, and decode from Base64 representation during deserialisation.
--- -- This 'Lens' accepts and returns only raw unencoded data.
-updateSecret_secretBinary :: Lens.Lens' UpdateSecret (Prelude.Maybe Prelude.ByteString)
-updateSecret_secretBinary = Lens.lens (\UpdateSecret' {secretBinary} -> secretBinary) (\s@UpdateSecret' {} a -> s {secretBinary = a} :: UpdateSecret) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Data._Base64)
 
 -- | The ARN, key ID, or alias of the KMS key that Secrets Manager uses to
 -- encrypt new secret versions as well as any existing versions with the
@@ -310,6 +296,20 @@ updateSecret_secretBinary = Lens.lens (\UpdateSecret' {secretBinary} -> secretBi
 updateSecret_kmsKeyId :: Lens.Lens' UpdateSecret (Prelude.Maybe Prelude.Text)
 updateSecret_kmsKeyId = Lens.lens (\UpdateSecret' {kmsKeyId} -> kmsKeyId) (\s@UpdateSecret' {} a -> s {kmsKeyId = a} :: UpdateSecret)
 
+-- | The binary data to encrypt and store in the new version of the secret.
+-- We recommend that you store your binary data in a file and then pass the
+-- contents of the file as a parameter.
+--
+-- Either @SecretBinary@ or @SecretString@ must have a value, but not both.
+--
+-- You can\'t access this parameter in the Secrets Manager console.--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
+updateSecret_secretBinary :: Lens.Lens' UpdateSecret (Prelude.Maybe Prelude.ByteString)
+updateSecret_secretBinary = Lens.lens (\UpdateSecret' {secretBinary} -> secretBinary) (\s@UpdateSecret' {} a -> s {secretBinary = a} :: UpdateSecret) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Data._Base64)
+
 -- | The text data to encrypt and store in the new version of the secret. We
 -- recommend you use a JSON structure of key\/value pairs for your secret
 -- value.
@@ -334,8 +334,8 @@ instance Core.AWSRequest UpdateSecret where
     Response.receiveJSON
       ( \s h x ->
           UpdateSecretResponse'
-            Prelude.<$> (x Data..?> "Name")
-            Prelude.<*> (x Data..?> "ARN")
+            Prelude.<$> (x Data..?> "ARN")
+            Prelude.<*> (x Data..?> "Name")
             Prelude.<*> (x Data..?> "VersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -344,8 +344,8 @@ instance Prelude.Hashable UpdateSecret where
   hashWithSalt _salt UpdateSecret' {..} =
     _salt `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` secretBinary
       `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` secretBinary
       `Prelude.hashWithSalt` secretString
       `Prelude.hashWithSalt` secretId
 
@@ -353,8 +353,8 @@ instance Prelude.NFData UpdateSecret where
   rnf UpdateSecret' {..} =
     Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf secretBinary
       `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf secretBinary
       `Prelude.seq` Prelude.rnf secretString
       `Prelude.seq` Prelude.rnf secretId
 
@@ -380,8 +380,8 @@ instance Data.ToJSON UpdateSecret where
           [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
             ("Description" Data..=) Prelude.<$> description,
-            ("SecretBinary" Data..=) Prelude.<$> secretBinary,
             ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("SecretBinary" Data..=) Prelude.<$> secretBinary,
             ("SecretString" Data..=) Prelude.<$> secretString,
             Prelude.Just ("SecretId" Data..= secretId)
           ]
@@ -395,10 +395,10 @@ instance Data.ToQuery UpdateSecret where
 
 -- | /See:/ 'newUpdateSecretResponse' smart constructor.
 data UpdateSecretResponse = UpdateSecretResponse'
-  { -- | The name of the secret that was updated.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the secret that was updated.
+  { -- | The ARN of the secret that was updated.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the secret that was updated.
+    name :: Prelude.Maybe Prelude.Text,
     -- | If Secrets Manager created a new version of the secret during this
     -- operation, then @VersionId@ contains the unique identifier of the new
     -- version.
@@ -416,9 +416,9 @@ data UpdateSecretResponse = UpdateSecretResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateSecretResponse_name' - The name of the secret that was updated.
---
 -- 'arn', 'updateSecretResponse_arn' - The ARN of the secret that was updated.
+--
+-- 'name', 'updateSecretResponse_name' - The name of the secret that was updated.
 --
 -- 'versionId', 'updateSecretResponse_versionId' - If Secrets Manager created a new version of the secret during this
 -- operation, then @VersionId@ contains the unique identifier of the new
@@ -431,19 +431,19 @@ newUpdateSecretResponse ::
   UpdateSecretResponse
 newUpdateSecretResponse pHttpStatus_ =
   UpdateSecretResponse'
-    { name = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      name = Prelude.Nothing,
       versionId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The name of the secret that was updated.
-updateSecretResponse_name :: Lens.Lens' UpdateSecretResponse (Prelude.Maybe Prelude.Text)
-updateSecretResponse_name = Lens.lens (\UpdateSecretResponse' {name} -> name) (\s@UpdateSecretResponse' {} a -> s {name = a} :: UpdateSecretResponse)
-
 -- | The ARN of the secret that was updated.
 updateSecretResponse_arn :: Lens.Lens' UpdateSecretResponse (Prelude.Maybe Prelude.Text)
 updateSecretResponse_arn = Lens.lens (\UpdateSecretResponse' {arn} -> arn) (\s@UpdateSecretResponse' {} a -> s {arn = a} :: UpdateSecretResponse)
+
+-- | The name of the secret that was updated.
+updateSecretResponse_name :: Lens.Lens' UpdateSecretResponse (Prelude.Maybe Prelude.Text)
+updateSecretResponse_name = Lens.lens (\UpdateSecretResponse' {name} -> name) (\s@UpdateSecretResponse' {} a -> s {name = a} :: UpdateSecretResponse)
 
 -- | If Secrets Manager created a new version of the secret during this
 -- operation, then @VersionId@ contains the unique identifier of the new
@@ -457,7 +457,7 @@ updateSecretResponse_httpStatus = Lens.lens (\UpdateSecretResponse' {httpStatus}
 
 instance Prelude.NFData UpdateSecretResponse where
   rnf UpdateSecretResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf versionId
       `Prelude.seq` Prelude.rnf httpStatus

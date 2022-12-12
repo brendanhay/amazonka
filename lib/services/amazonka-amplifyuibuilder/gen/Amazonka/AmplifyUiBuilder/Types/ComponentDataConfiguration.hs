@@ -31,15 +31,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newComponentDataConfiguration' smart constructor.
 data ComponentDataConfiguration = ComponentDataConfiguration'
-  { -- | Represents the conditional logic to use when binding data to a
+  { -- | A list of IDs to use to bind data to a component. Use this property to
+    -- bind specifically chosen data, rather than data retrieved from a query.
+    identifiers :: Prelude.Maybe [Prelude.Text],
+    -- | Represents the conditional logic to use when binding data to a
     -- component. Use this property to retrieve only a subset of the data in a
     -- collection.
     predicate :: Prelude.Maybe Predicate,
     -- | Describes how to sort the component\'s properties.
     sort :: Prelude.Maybe [SortProperty],
-    -- | A list of IDs to use to bind data to a component. Use this property to
-    -- bind specifically chosen data, rather than data retrieved from a query.
-    identifiers :: Prelude.Maybe [Prelude.Text],
     -- | The name of the data model to use to bind data to a component.
     model :: Prelude.Text
   }
@@ -53,14 +53,14 @@ data ComponentDataConfiguration = ComponentDataConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'identifiers', 'componentDataConfiguration_identifiers' - A list of IDs to use to bind data to a component. Use this property to
+-- bind specifically chosen data, rather than data retrieved from a query.
+--
 -- 'predicate', 'componentDataConfiguration_predicate' - Represents the conditional logic to use when binding data to a
 -- component. Use this property to retrieve only a subset of the data in a
 -- collection.
 --
 -- 'sort', 'componentDataConfiguration_sort' - Describes how to sort the component\'s properties.
---
--- 'identifiers', 'componentDataConfiguration_identifiers' - A list of IDs to use to bind data to a component. Use this property to
--- bind specifically chosen data, rather than data retrieved from a query.
 --
 -- 'model', 'componentDataConfiguration_model' - The name of the data model to use to bind data to a component.
 newComponentDataConfiguration ::
@@ -69,12 +69,17 @@ newComponentDataConfiguration ::
   ComponentDataConfiguration
 newComponentDataConfiguration pModel_ =
   ComponentDataConfiguration'
-    { predicate =
+    { identifiers =
         Prelude.Nothing,
+      predicate = Prelude.Nothing,
       sort = Prelude.Nothing,
-      identifiers = Prelude.Nothing,
       model = pModel_
     }
+
+-- | A list of IDs to use to bind data to a component. Use this property to
+-- bind specifically chosen data, rather than data retrieved from a query.
+componentDataConfiguration_identifiers :: Lens.Lens' ComponentDataConfiguration (Prelude.Maybe [Prelude.Text])
+componentDataConfiguration_identifiers = Lens.lens (\ComponentDataConfiguration' {identifiers} -> identifiers) (\s@ComponentDataConfiguration' {} a -> s {identifiers = a} :: ComponentDataConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | Represents the conditional logic to use when binding data to a
 -- component. Use this property to retrieve only a subset of the data in a
@@ -86,11 +91,6 @@ componentDataConfiguration_predicate = Lens.lens (\ComponentDataConfiguration' {
 componentDataConfiguration_sort :: Lens.Lens' ComponentDataConfiguration (Prelude.Maybe [SortProperty])
 componentDataConfiguration_sort = Lens.lens (\ComponentDataConfiguration' {sort} -> sort) (\s@ComponentDataConfiguration' {} a -> s {sort = a} :: ComponentDataConfiguration) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of IDs to use to bind data to a component. Use this property to
--- bind specifically chosen data, rather than data retrieved from a query.
-componentDataConfiguration_identifiers :: Lens.Lens' ComponentDataConfiguration (Prelude.Maybe [Prelude.Text])
-componentDataConfiguration_identifiers = Lens.lens (\ComponentDataConfiguration' {identifiers} -> identifiers) (\s@ComponentDataConfiguration' {} a -> s {identifiers = a} :: ComponentDataConfiguration) Prelude.. Lens.mapping Lens.coerced
-
 -- | The name of the data model to use to bind data to a component.
 componentDataConfiguration_model :: Lens.Lens' ComponentDataConfiguration Prelude.Text
 componentDataConfiguration_model = Lens.lens (\ComponentDataConfiguration' {model} -> model) (\s@ComponentDataConfiguration' {} a -> s {model = a} :: ComponentDataConfiguration)
@@ -101,33 +101,33 @@ instance Data.FromJSON ComponentDataConfiguration where
       "ComponentDataConfiguration"
       ( \x ->
           ComponentDataConfiguration'
-            Prelude.<$> (x Data..:? "predicate")
+            Prelude.<$> (x Data..:? "identifiers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "predicate")
             Prelude.<*> (x Data..:? "sort" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "identifiers" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "model")
       )
 
 instance Prelude.Hashable ComponentDataConfiguration where
   hashWithSalt _salt ComponentDataConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` predicate
+    _salt `Prelude.hashWithSalt` identifiers
+      `Prelude.hashWithSalt` predicate
       `Prelude.hashWithSalt` sort
-      `Prelude.hashWithSalt` identifiers
       `Prelude.hashWithSalt` model
 
 instance Prelude.NFData ComponentDataConfiguration where
   rnf ComponentDataConfiguration' {..} =
-    Prelude.rnf predicate
+    Prelude.rnf identifiers
+      `Prelude.seq` Prelude.rnf predicate
       `Prelude.seq` Prelude.rnf sort
-      `Prelude.seq` Prelude.rnf identifiers
       `Prelude.seq` Prelude.rnf model
 
 instance Data.ToJSON ComponentDataConfiguration where
   toJSON ComponentDataConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("predicate" Data..=) Prelude.<$> predicate,
+          [ ("identifiers" Data..=) Prelude.<$> identifiers,
+            ("predicate" Data..=) Prelude.<$> predicate,
             ("sort" Data..=) Prelude.<$> sort,
-            ("identifiers" Data..=) Prelude.<$> identifiers,
             Prelude.Just ("model" Data..= model)
           ]
       )

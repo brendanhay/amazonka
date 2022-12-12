@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFirewallSubnetMissingVPCEndpointViolation' smart constructor.
 data FirewallSubnetMissingVPCEndpointViolation = FirewallSubnetMissingVPCEndpointViolation'
-  { -- | The ID of the Availability Zone of the deleted VPC subnet.
-    subnetAvailabilityZoneId :: Prelude.Maybe Prelude.Text,
+  { -- | The ID of the firewall that this VPC endpoint is associated with.
+    firewallSubnetId :: Prelude.Maybe Prelude.Text,
     -- | The name of the Availability Zone of the deleted VPC subnet.
     subnetAvailabilityZone :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the firewall that this VPC endpoint is associated with.
-    firewallSubnetId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Availability Zone of the deleted VPC subnet.
+    subnetAvailabilityZoneId :: Prelude.Maybe Prelude.Text,
     -- | The resource ID of the VPC associated with the deleted VPC subnet.
     vpcId :: Prelude.Maybe Prelude.Text
   }
@@ -48,37 +48,37 @@ data FirewallSubnetMissingVPCEndpointViolation = FirewallSubnetMissingVPCEndpoin
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'subnetAvailabilityZoneId', 'firewallSubnetMissingVPCEndpointViolation_subnetAvailabilityZoneId' - The ID of the Availability Zone of the deleted VPC subnet.
+-- 'firewallSubnetId', 'firewallSubnetMissingVPCEndpointViolation_firewallSubnetId' - The ID of the firewall that this VPC endpoint is associated with.
 --
 -- 'subnetAvailabilityZone', 'firewallSubnetMissingVPCEndpointViolation_subnetAvailabilityZone' - The name of the Availability Zone of the deleted VPC subnet.
 --
--- 'firewallSubnetId', 'firewallSubnetMissingVPCEndpointViolation_firewallSubnetId' - The ID of the firewall that this VPC endpoint is associated with.
+-- 'subnetAvailabilityZoneId', 'firewallSubnetMissingVPCEndpointViolation_subnetAvailabilityZoneId' - The ID of the Availability Zone of the deleted VPC subnet.
 --
 -- 'vpcId', 'firewallSubnetMissingVPCEndpointViolation_vpcId' - The resource ID of the VPC associated with the deleted VPC subnet.
 newFirewallSubnetMissingVPCEndpointViolation ::
   FirewallSubnetMissingVPCEndpointViolation
 newFirewallSubnetMissingVPCEndpointViolation =
   FirewallSubnetMissingVPCEndpointViolation'
-    { subnetAvailabilityZoneId =
+    { firewallSubnetId =
         Prelude.Nothing,
       subnetAvailabilityZone =
         Prelude.Nothing,
-      firewallSubnetId =
+      subnetAvailabilityZoneId =
         Prelude.Nothing,
       vpcId = Prelude.Nothing
     }
 
--- | The ID of the Availability Zone of the deleted VPC subnet.
-firewallSubnetMissingVPCEndpointViolation_subnetAvailabilityZoneId :: Lens.Lens' FirewallSubnetMissingVPCEndpointViolation (Prelude.Maybe Prelude.Text)
-firewallSubnetMissingVPCEndpointViolation_subnetAvailabilityZoneId = Lens.lens (\FirewallSubnetMissingVPCEndpointViolation' {subnetAvailabilityZoneId} -> subnetAvailabilityZoneId) (\s@FirewallSubnetMissingVPCEndpointViolation' {} a -> s {subnetAvailabilityZoneId = a} :: FirewallSubnetMissingVPCEndpointViolation)
+-- | The ID of the firewall that this VPC endpoint is associated with.
+firewallSubnetMissingVPCEndpointViolation_firewallSubnetId :: Lens.Lens' FirewallSubnetMissingVPCEndpointViolation (Prelude.Maybe Prelude.Text)
+firewallSubnetMissingVPCEndpointViolation_firewallSubnetId = Lens.lens (\FirewallSubnetMissingVPCEndpointViolation' {firewallSubnetId} -> firewallSubnetId) (\s@FirewallSubnetMissingVPCEndpointViolation' {} a -> s {firewallSubnetId = a} :: FirewallSubnetMissingVPCEndpointViolation)
 
 -- | The name of the Availability Zone of the deleted VPC subnet.
 firewallSubnetMissingVPCEndpointViolation_subnetAvailabilityZone :: Lens.Lens' FirewallSubnetMissingVPCEndpointViolation (Prelude.Maybe Prelude.Text)
 firewallSubnetMissingVPCEndpointViolation_subnetAvailabilityZone = Lens.lens (\FirewallSubnetMissingVPCEndpointViolation' {subnetAvailabilityZone} -> subnetAvailabilityZone) (\s@FirewallSubnetMissingVPCEndpointViolation' {} a -> s {subnetAvailabilityZone = a} :: FirewallSubnetMissingVPCEndpointViolation)
 
--- | The ID of the firewall that this VPC endpoint is associated with.
-firewallSubnetMissingVPCEndpointViolation_firewallSubnetId :: Lens.Lens' FirewallSubnetMissingVPCEndpointViolation (Prelude.Maybe Prelude.Text)
-firewallSubnetMissingVPCEndpointViolation_firewallSubnetId = Lens.lens (\FirewallSubnetMissingVPCEndpointViolation' {firewallSubnetId} -> firewallSubnetId) (\s@FirewallSubnetMissingVPCEndpointViolation' {} a -> s {firewallSubnetId = a} :: FirewallSubnetMissingVPCEndpointViolation)
+-- | The ID of the Availability Zone of the deleted VPC subnet.
+firewallSubnetMissingVPCEndpointViolation_subnetAvailabilityZoneId :: Lens.Lens' FirewallSubnetMissingVPCEndpointViolation (Prelude.Maybe Prelude.Text)
+firewallSubnetMissingVPCEndpointViolation_subnetAvailabilityZoneId = Lens.lens (\FirewallSubnetMissingVPCEndpointViolation' {subnetAvailabilityZoneId} -> subnetAvailabilityZoneId) (\s@FirewallSubnetMissingVPCEndpointViolation' {} a -> s {subnetAvailabilityZoneId = a} :: FirewallSubnetMissingVPCEndpointViolation)
 
 -- | The resource ID of the VPC associated with the deleted VPC subnet.
 firewallSubnetMissingVPCEndpointViolation_vpcId :: Lens.Lens' FirewallSubnetMissingVPCEndpointViolation (Prelude.Maybe Prelude.Text)
@@ -93,9 +93,9 @@ instance
       "FirewallSubnetMissingVPCEndpointViolation"
       ( \x ->
           FirewallSubnetMissingVPCEndpointViolation'
-            Prelude.<$> (x Data..:? "SubnetAvailabilityZoneId")
+            Prelude.<$> (x Data..:? "FirewallSubnetId")
               Prelude.<*> (x Data..:? "SubnetAvailabilityZone")
-              Prelude.<*> (x Data..:? "FirewallSubnetId")
+              Prelude.<*> (x Data..:? "SubnetAvailabilityZoneId")
               Prelude.<*> (x Data..:? "VpcId")
       )
 
@@ -106,10 +106,9 @@ instance
   hashWithSalt
     _salt
     FirewallSubnetMissingVPCEndpointViolation' {..} =
-      _salt
-        `Prelude.hashWithSalt` subnetAvailabilityZoneId
+      _salt `Prelude.hashWithSalt` firewallSubnetId
         `Prelude.hashWithSalt` subnetAvailabilityZone
-        `Prelude.hashWithSalt` firewallSubnetId
+        `Prelude.hashWithSalt` subnetAvailabilityZoneId
         `Prelude.hashWithSalt` vpcId
 
 instance
@@ -117,7 +116,7 @@ instance
     FirewallSubnetMissingVPCEndpointViolation
   where
   rnf FirewallSubnetMissingVPCEndpointViolation' {..} =
-    Prelude.rnf subnetAvailabilityZoneId
+    Prelude.rnf firewallSubnetId
       `Prelude.seq` Prelude.rnf subnetAvailabilityZone
-      `Prelude.seq` Prelude.rnf firewallSubnetId
+      `Prelude.seq` Prelude.rnf subnetAvailabilityZoneId
       `Prelude.seq` Prelude.rnf vpcId

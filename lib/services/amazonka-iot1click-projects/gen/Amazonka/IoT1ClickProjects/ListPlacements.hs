@@ -29,8 +29,8 @@ module Amazonka.IoT1ClickProjects.ListPlacements
     newListPlacements,
 
     -- * Request Lenses
-    listPlacements_nextToken,
     listPlacements_maxResults,
+    listPlacements_nextToken,
     listPlacements_projectName,
 
     -- * Destructuring the Response
@@ -54,11 +54,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPlacements' smart constructor.
 data ListPlacements = ListPlacements'
-  { -- | The token to retrieve the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per request. If not set, a
+  { -- | The maximum number of results to return per request. If not set, a
     -- default value of 100 is used.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to retrieve the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The project containing the placements to be listed.
     projectName :: Prelude.Text
   }
@@ -72,10 +72,10 @@ data ListPlacements = ListPlacements'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPlacements_nextToken' - The token to retrieve the next set of results.
---
 -- 'maxResults', 'listPlacements_maxResults' - The maximum number of results to return per request. If not set, a
 -- default value of 100 is used.
+--
+-- 'nextToken', 'listPlacements_nextToken' - The token to retrieve the next set of results.
 --
 -- 'projectName', 'listPlacements_projectName' - The project containing the placements to be listed.
 newListPlacements ::
@@ -84,19 +84,19 @@ newListPlacements ::
   ListPlacements
 newListPlacements pProjectName_ =
   ListPlacements'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       projectName = pProjectName_
     }
-
--- | The token to retrieve the next set of results.
-listPlacements_nextToken :: Lens.Lens' ListPlacements (Prelude.Maybe Prelude.Text)
-listPlacements_nextToken = Lens.lens (\ListPlacements' {nextToken} -> nextToken) (\s@ListPlacements' {} a -> s {nextToken = a} :: ListPlacements)
 
 -- | The maximum number of results to return per request. If not set, a
 -- default value of 100 is used.
 listPlacements_maxResults :: Lens.Lens' ListPlacements (Prelude.Maybe Prelude.Natural)
 listPlacements_maxResults = Lens.lens (\ListPlacements' {maxResults} -> maxResults) (\s@ListPlacements' {} a -> s {maxResults = a} :: ListPlacements)
+
+-- | The token to retrieve the next set of results.
+listPlacements_nextToken :: Lens.Lens' ListPlacements (Prelude.Maybe Prelude.Text)
+listPlacements_nextToken = Lens.lens (\ListPlacements' {nextToken} -> nextToken) (\s@ListPlacements' {} a -> s {nextToken = a} :: ListPlacements)
 
 -- | The project containing the placements to be listed.
 listPlacements_projectName :: Lens.Lens' ListPlacements Prelude.Text
@@ -137,14 +137,14 @@ instance Core.AWSRequest ListPlacements where
 
 instance Prelude.Hashable ListPlacements where
   hashWithSalt _salt ListPlacements' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` projectName
 
 instance Prelude.NFData ListPlacements where
   rnf ListPlacements' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf projectName
 
 instance Data.ToHeaders ListPlacements where
@@ -166,8 +166,8 @@ instance Data.ToPath ListPlacements where
 instance Data.ToQuery ListPlacements where
   toQuery ListPlacements' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListPlacementsResponse' smart constructor.

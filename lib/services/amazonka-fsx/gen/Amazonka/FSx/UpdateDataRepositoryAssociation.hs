@@ -30,8 +30,8 @@ module Amazonka.FSx.UpdateDataRepositoryAssociation
 
     -- * Request Lenses
     updateDataRepositoryAssociation_clientRequestToken,
-    updateDataRepositoryAssociation_s3,
     updateDataRepositoryAssociation_importedFileChunkSize,
+    updateDataRepositoryAssociation_s3,
     updateDataRepositoryAssociation_associationId,
 
     -- * Destructuring the Response
@@ -55,13 +55,6 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newUpdateDataRepositoryAssociation' smart constructor.
 data UpdateDataRepositoryAssociation = UpdateDataRepositoryAssociation'
   { clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | The configuration for an Amazon S3 data repository linked to an Amazon
-    -- FSx Lustre file system with a data repository association. The
-    -- configuration defines which file events (new, changed, or deleted files
-    -- or directories) are automatically imported from the linked data
-    -- repository to the file system or automatically exported from the file
-    -- system to the data repository.
-    s3 :: Prelude.Maybe S3DataRepositoryConfiguration,
     -- | For files imported from a data repository, this value determines the
     -- stripe count and maximum amount of data per file (in MiB) stored on a
     -- single physical disk. The maximum number of disks that a single file can
@@ -71,6 +64,13 @@ data UpdateDataRepositoryAssociation = UpdateDataRepositoryAssociation'
     -- The default chunk size is 1,024 MiB (1 GiB) and can go as high as
     -- 512,000 MiB (500 GiB). Amazon S3 objects have a maximum size of 5 TB.
     importedFileChunkSize :: Prelude.Maybe Prelude.Natural,
+    -- | The configuration for an Amazon S3 data repository linked to an Amazon
+    -- FSx Lustre file system with a data repository association. The
+    -- configuration defines which file events (new, changed, or deleted files
+    -- or directories) are automatically imported from the linked data
+    -- repository to the file system or automatically exported from the file
+    -- system to the data repository.
+    s3 :: Prelude.Maybe S3DataRepositoryConfiguration,
     -- | The ID of the data repository association that you are updating.
     associationId :: Prelude.Text
   }
@@ -86,13 +86,6 @@ data UpdateDataRepositoryAssociation = UpdateDataRepositoryAssociation'
 --
 -- 'clientRequestToken', 'updateDataRepositoryAssociation_clientRequestToken' - Undocumented member.
 --
--- 's3', 'updateDataRepositoryAssociation_s3' - The configuration for an Amazon S3 data repository linked to an Amazon
--- FSx Lustre file system with a data repository association. The
--- configuration defines which file events (new, changed, or deleted files
--- or directories) are automatically imported from the linked data
--- repository to the file system or automatically exported from the file
--- system to the data repository.
---
 -- 'importedFileChunkSize', 'updateDataRepositoryAssociation_importedFileChunkSize' - For files imported from a data repository, this value determines the
 -- stripe count and maximum amount of data per file (in MiB) stored on a
 -- single physical disk. The maximum number of disks that a single file can
@@ -101,6 +94,13 @@ data UpdateDataRepositoryAssociation = UpdateDataRepositoryAssociation'
 --
 -- The default chunk size is 1,024 MiB (1 GiB) and can go as high as
 -- 512,000 MiB (500 GiB). Amazon S3 objects have a maximum size of 5 TB.
+--
+-- 's3', 'updateDataRepositoryAssociation_s3' - The configuration for an Amazon S3 data repository linked to an Amazon
+-- FSx Lustre file system with a data repository association. The
+-- configuration defines which file events (new, changed, or deleted files
+-- or directories) are automatically imported from the linked data
+-- repository to the file system or automatically exported from the file
+-- system to the data repository.
 --
 -- 'associationId', 'updateDataRepositoryAssociation_associationId' - The ID of the data repository association that you are updating.
 newUpdateDataRepositoryAssociation ::
@@ -111,23 +111,14 @@ newUpdateDataRepositoryAssociation pAssociationId_ =
   UpdateDataRepositoryAssociation'
     { clientRequestToken =
         Prelude.Nothing,
-      s3 = Prelude.Nothing,
       importedFileChunkSize = Prelude.Nothing,
+      s3 = Prelude.Nothing,
       associationId = pAssociationId_
     }
 
 -- | Undocumented member.
 updateDataRepositoryAssociation_clientRequestToken :: Lens.Lens' UpdateDataRepositoryAssociation (Prelude.Maybe Prelude.Text)
 updateDataRepositoryAssociation_clientRequestToken = Lens.lens (\UpdateDataRepositoryAssociation' {clientRequestToken} -> clientRequestToken) (\s@UpdateDataRepositoryAssociation' {} a -> s {clientRequestToken = a} :: UpdateDataRepositoryAssociation)
-
--- | The configuration for an Amazon S3 data repository linked to an Amazon
--- FSx Lustre file system with a data repository association. The
--- configuration defines which file events (new, changed, or deleted files
--- or directories) are automatically imported from the linked data
--- repository to the file system or automatically exported from the file
--- system to the data repository.
-updateDataRepositoryAssociation_s3 :: Lens.Lens' UpdateDataRepositoryAssociation (Prelude.Maybe S3DataRepositoryConfiguration)
-updateDataRepositoryAssociation_s3 = Lens.lens (\UpdateDataRepositoryAssociation' {s3} -> s3) (\s@UpdateDataRepositoryAssociation' {} a -> s {s3 = a} :: UpdateDataRepositoryAssociation)
 
 -- | For files imported from a data repository, this value determines the
 -- stripe count and maximum amount of data per file (in MiB) stored on a
@@ -139,6 +130,15 @@ updateDataRepositoryAssociation_s3 = Lens.lens (\UpdateDataRepositoryAssociation
 -- 512,000 MiB (500 GiB). Amazon S3 objects have a maximum size of 5 TB.
 updateDataRepositoryAssociation_importedFileChunkSize :: Lens.Lens' UpdateDataRepositoryAssociation (Prelude.Maybe Prelude.Natural)
 updateDataRepositoryAssociation_importedFileChunkSize = Lens.lens (\UpdateDataRepositoryAssociation' {importedFileChunkSize} -> importedFileChunkSize) (\s@UpdateDataRepositoryAssociation' {} a -> s {importedFileChunkSize = a} :: UpdateDataRepositoryAssociation)
+
+-- | The configuration for an Amazon S3 data repository linked to an Amazon
+-- FSx Lustre file system with a data repository association. The
+-- configuration defines which file events (new, changed, or deleted files
+-- or directories) are automatically imported from the linked data
+-- repository to the file system or automatically exported from the file
+-- system to the data repository.
+updateDataRepositoryAssociation_s3 :: Lens.Lens' UpdateDataRepositoryAssociation (Prelude.Maybe S3DataRepositoryConfiguration)
+updateDataRepositoryAssociation_s3 = Lens.lens (\UpdateDataRepositoryAssociation' {s3} -> s3) (\s@UpdateDataRepositoryAssociation' {} a -> s {s3 = a} :: UpdateDataRepositoryAssociation)
 
 -- | The ID of the data repository association that you are updating.
 updateDataRepositoryAssociation_associationId :: Lens.Lens' UpdateDataRepositoryAssociation Prelude.Text
@@ -169,8 +169,8 @@ instance
     _salt
     UpdateDataRepositoryAssociation' {..} =
       _salt `Prelude.hashWithSalt` clientRequestToken
-        `Prelude.hashWithSalt` s3
         `Prelude.hashWithSalt` importedFileChunkSize
+        `Prelude.hashWithSalt` s3
         `Prelude.hashWithSalt` associationId
 
 instance
@@ -179,8 +179,8 @@ instance
   where
   rnf UpdateDataRepositoryAssociation' {..} =
     Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf s3
       `Prelude.seq` Prelude.rnf importedFileChunkSize
+      `Prelude.seq` Prelude.rnf s3
       `Prelude.seq` Prelude.rnf associationId
 
 instance
@@ -207,9 +207,9 @@ instance Data.ToJSON UpdateDataRepositoryAssociation where
       ( Prelude.catMaybes
           [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("S3" Data..=) Prelude.<$> s3,
             ("ImportedFileChunkSize" Data..=)
               Prelude.<$> importedFileChunkSize,
+            ("S3" Data..=) Prelude.<$> s3,
             Prelude.Just
               ("AssociationId" Data..= associationId)
           ]

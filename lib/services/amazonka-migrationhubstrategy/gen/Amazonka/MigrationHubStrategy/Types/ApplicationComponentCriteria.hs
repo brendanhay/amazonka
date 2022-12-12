@@ -20,9 +20,11 @@
 module Amazonka.MigrationHubStrategy.Types.ApplicationComponentCriteria
   ( ApplicationComponentCriteria
       ( ..,
+        ApplicationComponentCriteria_ANALYSIS_STATUS,
         ApplicationComponentCriteria_APP_NAME,
         ApplicationComponentCriteria_APP_TYPE,
         ApplicationComponentCriteria_DESTINATION,
+        ApplicationComponentCriteria_ERROR_CATEGORY,
         ApplicationComponentCriteria_NOT_DEFINED,
         ApplicationComponentCriteria_SERVER_ID,
         ApplicationComponentCriteria_STRATEGY
@@ -62,6 +64,9 @@ newtype ApplicationComponentCriteria = ApplicationComponentCriteria'
       Data.ToXML
     )
 
+pattern ApplicationComponentCriteria_ANALYSIS_STATUS :: ApplicationComponentCriteria
+pattern ApplicationComponentCriteria_ANALYSIS_STATUS = ApplicationComponentCriteria' "ANALYSIS_STATUS"
+
 pattern ApplicationComponentCriteria_APP_NAME :: ApplicationComponentCriteria
 pattern ApplicationComponentCriteria_APP_NAME = ApplicationComponentCriteria' "APP_NAME"
 
@@ -70,6 +75,9 @@ pattern ApplicationComponentCriteria_APP_TYPE = ApplicationComponentCriteria' "A
 
 pattern ApplicationComponentCriteria_DESTINATION :: ApplicationComponentCriteria
 pattern ApplicationComponentCriteria_DESTINATION = ApplicationComponentCriteria' "DESTINATION"
+
+pattern ApplicationComponentCriteria_ERROR_CATEGORY :: ApplicationComponentCriteria
+pattern ApplicationComponentCriteria_ERROR_CATEGORY = ApplicationComponentCriteria' "ERROR_CATEGORY"
 
 pattern ApplicationComponentCriteria_NOT_DEFINED :: ApplicationComponentCriteria
 pattern ApplicationComponentCriteria_NOT_DEFINED = ApplicationComponentCriteria' "NOT_DEFINED"
@@ -81,9 +89,11 @@ pattern ApplicationComponentCriteria_STRATEGY :: ApplicationComponentCriteria
 pattern ApplicationComponentCriteria_STRATEGY = ApplicationComponentCriteria' "STRATEGY"
 
 {-# COMPLETE
+  ApplicationComponentCriteria_ANALYSIS_STATUS,
   ApplicationComponentCriteria_APP_NAME,
   ApplicationComponentCriteria_APP_TYPE,
   ApplicationComponentCriteria_DESTINATION,
+  ApplicationComponentCriteria_ERROR_CATEGORY,
   ApplicationComponentCriteria_NOT_DEFINED,
   ApplicationComponentCriteria_SERVER_ID,
   ApplicationComponentCriteria_STRATEGY,

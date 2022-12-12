@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUpdateError' smart constructor.
 data UpdateError = UpdateError'
-  { -- | The error message that corresponds to the error code.
-    errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | The error code that corresponds to the error with the last update.
-    errorCode :: Prelude.Maybe Prelude.Text
+  { -- | The error code that corresponds to the error with the last update.
+    errorCode :: Prelude.Maybe Prelude.Text,
+    -- | The error message that corresponds to the error code.
+    errorMessage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data UpdateError = UpdateError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'errorMessage', 'updateError_errorMessage' - The error message that corresponds to the error code.
---
 -- 'errorCode', 'updateError_errorCode' - The error code that corresponds to the error with the last update.
+--
+-- 'errorMessage', 'updateError_errorMessage' - The error message that corresponds to the error code.
 newUpdateError ::
   UpdateError
 newUpdateError =
   UpdateError'
-    { errorMessage = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+    { errorCode = Prelude.Nothing,
+      errorMessage = Prelude.Nothing
     }
-
--- | The error message that corresponds to the error code.
-updateError_errorMessage :: Lens.Lens' UpdateError (Prelude.Maybe Prelude.Text)
-updateError_errorMessage = Lens.lens (\UpdateError' {errorMessage} -> errorMessage) (\s@UpdateError' {} a -> s {errorMessage = a} :: UpdateError)
 
 -- | The error code that corresponds to the error with the last update.
 updateError_errorCode :: Lens.Lens' UpdateError (Prelude.Maybe Prelude.Text)
 updateError_errorCode = Lens.lens (\UpdateError' {errorCode} -> errorCode) (\s@UpdateError' {} a -> s {errorCode = a} :: UpdateError)
+
+-- | The error message that corresponds to the error code.
+updateError_errorMessage :: Lens.Lens' UpdateError (Prelude.Maybe Prelude.Text)
+updateError_errorMessage = Lens.lens (\UpdateError' {errorMessage} -> errorMessage) (\s@UpdateError' {} a -> s {errorMessage = a} :: UpdateError)
 
 instance Data.FromJSON UpdateError where
   parseJSON =
@@ -69,16 +69,16 @@ instance Data.FromJSON UpdateError where
       "UpdateError"
       ( \x ->
           UpdateError'
-            Prelude.<$> (x Data..:? "ErrorMessage")
-            Prelude.<*> (x Data..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "ErrorMessage")
       )
 
 instance Prelude.Hashable UpdateError where
   hashWithSalt _salt UpdateError' {..} =
-    _salt `Prelude.hashWithSalt` errorMessage
-      `Prelude.hashWithSalt` errorCode
+    _salt `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` errorMessage
 
 instance Prelude.NFData UpdateError where
   rnf UpdateError' {..} =
-    Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf errorCode
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage

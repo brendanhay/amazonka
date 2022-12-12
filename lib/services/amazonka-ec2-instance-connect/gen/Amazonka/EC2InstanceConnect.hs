@@ -21,20 +21,14 @@ module Amazonka.EC2InstanceConnect
     -- * Errors
     -- $errors
 
-    -- ** SerialConsoleSessionUnavailableException
-    _SerialConsoleSessionUnavailableException,
-
-    -- ** EC2InstanceStateInvalidException
-    _EC2InstanceStateInvalidException,
-
     -- ** AuthException
     _AuthException,
 
-    -- ** SerialConsoleSessionLimitExceededException
-    _SerialConsoleSessionLimitExceededException,
-
     -- ** EC2InstanceNotFoundException
     _EC2InstanceNotFoundException,
+
+    -- ** EC2InstanceStateInvalidException
+    _EC2InstanceStateInvalidException,
 
     -- ** EC2InstanceTypeInvalidException
     _EC2InstanceTypeInvalidException,
@@ -42,17 +36,23 @@ module Amazonka.EC2InstanceConnect
     -- ** EC2InstanceUnavailableException
     _EC2InstanceUnavailableException,
 
-    -- ** ThrottlingException
-    _ThrottlingException,
-
-    -- ** ServiceException
-    _ServiceException,
+    -- ** InvalidArgsException
+    _InvalidArgsException,
 
     -- ** SerialConsoleAccessDisabledException
     _SerialConsoleAccessDisabledException,
 
-    -- ** InvalidArgsException
-    _InvalidArgsException,
+    -- ** SerialConsoleSessionLimitExceededException
+    _SerialConsoleSessionLimitExceededException,
+
+    -- ** SerialConsoleSessionUnavailableException
+    _SerialConsoleSessionUnavailableException,
+
+    -- ** ServiceException
+    _ServiceException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
 
     -- * Waiters
     -- $waiters

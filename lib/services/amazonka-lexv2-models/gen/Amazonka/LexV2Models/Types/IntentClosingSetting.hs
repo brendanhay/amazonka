@@ -39,13 +39,13 @@ data IntentClosingSetting = IntentClosingSetting'
     -- | The response that Amazon Lex sends to the user when the intent is
     -- complete.
     closingResponse :: Prelude.Maybe ResponseSpecification,
-    -- | Specifies the next step that the bot executes after playing the
-    -- intent\'s closing response.
-    nextStep :: Prelude.Maybe DialogState,
     -- | A list of conditional branches associated with the intent\'s closing
     -- response. These branches are executed when the @nextStep@ attribute is
     -- set to @EvalutateConditional@.
-    conditional :: Prelude.Maybe ConditionalSpecification
+    conditional :: Prelude.Maybe ConditionalSpecification,
+    -- | Specifies the next step that the bot executes after playing the
+    -- intent\'s closing response.
+    nextStep :: Prelude.Maybe DialogState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -64,20 +64,20 @@ data IntentClosingSetting = IntentClosingSetting'
 -- 'closingResponse', 'intentClosingSetting_closingResponse' - The response that Amazon Lex sends to the user when the intent is
 -- complete.
 --
--- 'nextStep', 'intentClosingSetting_nextStep' - Specifies the next step that the bot executes after playing the
--- intent\'s closing response.
---
 -- 'conditional', 'intentClosingSetting_conditional' - A list of conditional branches associated with the intent\'s closing
 -- response. These branches are executed when the @nextStep@ attribute is
 -- set to @EvalutateConditional@.
+--
+-- 'nextStep', 'intentClosingSetting_nextStep' - Specifies the next step that the bot executes after playing the
+-- intent\'s closing response.
 newIntentClosingSetting ::
   IntentClosingSetting
 newIntentClosingSetting =
   IntentClosingSetting'
     { active = Prelude.Nothing,
       closingResponse = Prelude.Nothing,
-      nextStep = Prelude.Nothing,
-      conditional = Prelude.Nothing
+      conditional = Prelude.Nothing,
+      nextStep = Prelude.Nothing
     }
 
 -- | Specifies whether an intent\'s closing response is used. When this field
@@ -91,16 +91,16 @@ intentClosingSetting_active = Lens.lens (\IntentClosingSetting' {active} -> acti
 intentClosingSetting_closingResponse :: Lens.Lens' IntentClosingSetting (Prelude.Maybe ResponseSpecification)
 intentClosingSetting_closingResponse = Lens.lens (\IntentClosingSetting' {closingResponse} -> closingResponse) (\s@IntentClosingSetting' {} a -> s {closingResponse = a} :: IntentClosingSetting)
 
--- | Specifies the next step that the bot executes after playing the
--- intent\'s closing response.
-intentClosingSetting_nextStep :: Lens.Lens' IntentClosingSetting (Prelude.Maybe DialogState)
-intentClosingSetting_nextStep = Lens.lens (\IntentClosingSetting' {nextStep} -> nextStep) (\s@IntentClosingSetting' {} a -> s {nextStep = a} :: IntentClosingSetting)
-
 -- | A list of conditional branches associated with the intent\'s closing
 -- response. These branches are executed when the @nextStep@ attribute is
 -- set to @EvalutateConditional@.
 intentClosingSetting_conditional :: Lens.Lens' IntentClosingSetting (Prelude.Maybe ConditionalSpecification)
 intentClosingSetting_conditional = Lens.lens (\IntentClosingSetting' {conditional} -> conditional) (\s@IntentClosingSetting' {} a -> s {conditional = a} :: IntentClosingSetting)
+
+-- | Specifies the next step that the bot executes after playing the
+-- intent\'s closing response.
+intentClosingSetting_nextStep :: Lens.Lens' IntentClosingSetting (Prelude.Maybe DialogState)
+intentClosingSetting_nextStep = Lens.lens (\IntentClosingSetting' {nextStep} -> nextStep) (\s@IntentClosingSetting' {} a -> s {nextStep = a} :: IntentClosingSetting)
 
 instance Data.FromJSON IntentClosingSetting where
   parseJSON =
@@ -110,23 +110,23 @@ instance Data.FromJSON IntentClosingSetting where
           IntentClosingSetting'
             Prelude.<$> (x Data..:? "active")
             Prelude.<*> (x Data..:? "closingResponse")
-            Prelude.<*> (x Data..:? "nextStep")
             Prelude.<*> (x Data..:? "conditional")
+            Prelude.<*> (x Data..:? "nextStep")
       )
 
 instance Prelude.Hashable IntentClosingSetting where
   hashWithSalt _salt IntentClosingSetting' {..} =
     _salt `Prelude.hashWithSalt` active
       `Prelude.hashWithSalt` closingResponse
-      `Prelude.hashWithSalt` nextStep
       `Prelude.hashWithSalt` conditional
+      `Prelude.hashWithSalt` nextStep
 
 instance Prelude.NFData IntentClosingSetting where
   rnf IntentClosingSetting' {..} =
     Prelude.rnf active
       `Prelude.seq` Prelude.rnf closingResponse
-      `Prelude.seq` Prelude.rnf nextStep
       `Prelude.seq` Prelude.rnf conditional
+      `Prelude.seq` Prelude.rnf nextStep
 
 instance Data.ToJSON IntentClosingSetting where
   toJSON IntentClosingSetting' {..} =
@@ -135,7 +135,7 @@ instance Data.ToJSON IntentClosingSetting where
           [ ("active" Data..=) Prelude.<$> active,
             ("closingResponse" Data..=)
               Prelude.<$> closingResponse,
-            ("nextStep" Data..=) Prelude.<$> nextStep,
-            ("conditional" Data..=) Prelude.<$> conditional
+            ("conditional" Data..=) Prelude.<$> conditional,
+            ("nextStep" Data..=) Prelude.<$> nextStep
           ]
       )

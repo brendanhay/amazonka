@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsRdsDbInstanceAssociatedRole' smart constructor.
 data AwsRdsDbInstanceAssociatedRole = AwsRdsDbInstanceAssociatedRole'
-  { -- | The ARN of the IAM role that is associated with the DB instance.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the feature associated with the IAM role.
+  { -- | The name of the feature associated with the IAM role.
     featureName :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the IAM role that is associated with the DB instance.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | Describes the state of the association between the IAM role and the DB
     -- instance. The @Status@ property returns one of the following values:
     --
@@ -57,9 +57,9 @@ data AwsRdsDbInstanceAssociatedRole = AwsRdsDbInstanceAssociatedRole'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'awsRdsDbInstanceAssociatedRole_roleArn' - The ARN of the IAM role that is associated with the DB instance.
---
 -- 'featureName', 'awsRdsDbInstanceAssociatedRole_featureName' - The name of the feature associated with the IAM role.
+--
+-- 'roleArn', 'awsRdsDbInstanceAssociatedRole_roleArn' - The ARN of the IAM role that is associated with the DB instance.
 --
 -- 'status', 'awsRdsDbInstanceAssociatedRole_status' - Describes the state of the association between the IAM role and the DB
 -- instance. The @Status@ property returns one of the following values:
@@ -78,19 +78,19 @@ newAwsRdsDbInstanceAssociatedRole ::
   AwsRdsDbInstanceAssociatedRole
 newAwsRdsDbInstanceAssociatedRole =
   AwsRdsDbInstanceAssociatedRole'
-    { roleArn =
+    { featureName =
         Prelude.Nothing,
-      featureName = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
       status = Prelude.Nothing
     }
-
--- | The ARN of the IAM role that is associated with the DB instance.
-awsRdsDbInstanceAssociatedRole_roleArn :: Lens.Lens' AwsRdsDbInstanceAssociatedRole (Prelude.Maybe Prelude.Text)
-awsRdsDbInstanceAssociatedRole_roleArn = Lens.lens (\AwsRdsDbInstanceAssociatedRole' {roleArn} -> roleArn) (\s@AwsRdsDbInstanceAssociatedRole' {} a -> s {roleArn = a} :: AwsRdsDbInstanceAssociatedRole)
 
 -- | The name of the feature associated with the IAM role.
 awsRdsDbInstanceAssociatedRole_featureName :: Lens.Lens' AwsRdsDbInstanceAssociatedRole (Prelude.Maybe Prelude.Text)
 awsRdsDbInstanceAssociatedRole_featureName = Lens.lens (\AwsRdsDbInstanceAssociatedRole' {featureName} -> featureName) (\s@AwsRdsDbInstanceAssociatedRole' {} a -> s {featureName = a} :: AwsRdsDbInstanceAssociatedRole)
+
+-- | The ARN of the IAM role that is associated with the DB instance.
+awsRdsDbInstanceAssociatedRole_roleArn :: Lens.Lens' AwsRdsDbInstanceAssociatedRole (Prelude.Maybe Prelude.Text)
+awsRdsDbInstanceAssociatedRole_roleArn = Lens.lens (\AwsRdsDbInstanceAssociatedRole' {roleArn} -> roleArn) (\s@AwsRdsDbInstanceAssociatedRole' {} a -> s {roleArn = a} :: AwsRdsDbInstanceAssociatedRole)
 
 -- | Describes the state of the association between the IAM role and the DB
 -- instance. The @Status@ property returns one of the following values:
@@ -114,8 +114,8 @@ instance Data.FromJSON AwsRdsDbInstanceAssociatedRole where
       "AwsRdsDbInstanceAssociatedRole"
       ( \x ->
           AwsRdsDbInstanceAssociatedRole'
-            Prelude.<$> (x Data..:? "RoleArn")
-            Prelude.<*> (x Data..:? "FeatureName")
+            Prelude.<$> (x Data..:? "FeatureName")
+            Prelude.<*> (x Data..:? "RoleArn")
             Prelude.<*> (x Data..:? "Status")
       )
 
@@ -126,8 +126,8 @@ instance
   hashWithSalt
     _salt
     AwsRdsDbInstanceAssociatedRole' {..} =
-      _salt `Prelude.hashWithSalt` roleArn
-        `Prelude.hashWithSalt` featureName
+      _salt `Prelude.hashWithSalt` featureName
+        `Prelude.hashWithSalt` roleArn
         `Prelude.hashWithSalt` status
 
 instance
@@ -135,16 +135,16 @@ instance
     AwsRdsDbInstanceAssociatedRole
   where
   rnf AwsRdsDbInstanceAssociatedRole' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf featureName
+    Prelude.rnf featureName
+      `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf status
 
 instance Data.ToJSON AwsRdsDbInstanceAssociatedRole where
   toJSON AwsRdsDbInstanceAssociatedRole' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("RoleArn" Data..=) Prelude.<$> roleArn,
-            ("FeatureName" Data..=) Prelude.<$> featureName,
+          [ ("FeatureName" Data..=) Prelude.<$> featureName,
+            ("RoleArn" Data..=) Prelude.<$> roleArn,
             ("Status" Data..=) Prelude.<$> status
           ]
       )

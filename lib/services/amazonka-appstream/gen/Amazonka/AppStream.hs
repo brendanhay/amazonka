@@ -38,35 +38,26 @@ module Amazonka.AppStream
     -- * Errors
     -- $errors
 
-    -- ** ResourceAlreadyExistsException
-    _ResourceAlreadyExistsException,
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
 
-    -- ** RequestLimitExceededException
-    _RequestLimitExceededException,
+    -- ** EntitlementAlreadyExistsException
+    _EntitlementAlreadyExistsException,
+
+    -- ** EntitlementNotFoundException
+    _EntitlementNotFoundException,
 
     -- ** IncompatibleImageException
     _IncompatibleImageException,
 
-    -- ** ConcurrentModificationException
-    _ConcurrentModificationException,
-
-    -- ** InvalidRoleException
-    _InvalidRoleException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** ResourceNotAvailableException
-    _ResourceNotAvailableException,
+    -- ** InvalidAccountStatusException
+    _InvalidAccountStatusException,
 
     -- ** InvalidParameterCombinationException
     _InvalidParameterCombinationException,
 
-    -- ** ResourceInUseException
-    _ResourceInUseException,
-
-    -- ** EntitlementAlreadyExistsException
-    _EntitlementAlreadyExistsException,
+    -- ** InvalidRoleException
+    _InvalidRoleException,
 
     -- ** LimitExceededException
     _LimitExceededException,
@@ -74,20 +65,29 @@ module Amazonka.AppStream
     -- ** OperationNotPermittedException
     _OperationNotPermittedException,
 
-    -- ** EntitlementNotFoundException
-    _EntitlementNotFoundException,
+    -- ** RequestLimitExceededException
+    _RequestLimitExceededException,
 
-    -- ** InvalidAccountStatusException
-    _InvalidAccountStatusException,
+    -- ** ResourceAlreadyExistsException
+    _ResourceAlreadyExistsException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
+
+    -- ** ResourceNotAvailableException
+    _ResourceNotAvailableException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- * Waiters
     -- $waiters
 
-    -- ** FleetStopped
-    newFleetStopped,
-
     -- ** FleetStarted
     newFleetStarted,
+
+    -- ** FleetStopped
+    newFleetStopped,
 
     -- * Operations
     -- $operations

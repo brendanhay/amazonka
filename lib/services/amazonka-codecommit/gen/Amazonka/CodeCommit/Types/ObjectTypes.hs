@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newObjectTypes' smart constructor.
 data ObjectTypes = ObjectTypes'
-  { -- | The type of the object in the destination branch.
-    destination :: Prelude.Maybe ObjectTypeEnum,
-    -- | The type of the object in the base commit of the merge.
+  { -- | The type of the object in the base commit of the merge.
     base :: Prelude.Maybe ObjectTypeEnum,
+    -- | The type of the object in the destination branch.
+    destination :: Prelude.Maybe ObjectTypeEnum,
     -- | The type of the object in the source branch.
     source :: Prelude.Maybe ObjectTypeEnum
   }
@@ -46,27 +46,27 @@ data ObjectTypes = ObjectTypes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'destination', 'objectTypes_destination' - The type of the object in the destination branch.
---
 -- 'base', 'objectTypes_base' - The type of the object in the base commit of the merge.
+--
+-- 'destination', 'objectTypes_destination' - The type of the object in the destination branch.
 --
 -- 'source', 'objectTypes_source' - The type of the object in the source branch.
 newObjectTypes ::
   ObjectTypes
 newObjectTypes =
   ObjectTypes'
-    { destination = Prelude.Nothing,
-      base = Prelude.Nothing,
+    { base = Prelude.Nothing,
+      destination = Prelude.Nothing,
       source = Prelude.Nothing
     }
-
--- | The type of the object in the destination branch.
-objectTypes_destination :: Lens.Lens' ObjectTypes (Prelude.Maybe ObjectTypeEnum)
-objectTypes_destination = Lens.lens (\ObjectTypes' {destination} -> destination) (\s@ObjectTypes' {} a -> s {destination = a} :: ObjectTypes)
 
 -- | The type of the object in the base commit of the merge.
 objectTypes_base :: Lens.Lens' ObjectTypes (Prelude.Maybe ObjectTypeEnum)
 objectTypes_base = Lens.lens (\ObjectTypes' {base} -> base) (\s@ObjectTypes' {} a -> s {base = a} :: ObjectTypes)
+
+-- | The type of the object in the destination branch.
+objectTypes_destination :: Lens.Lens' ObjectTypes (Prelude.Maybe ObjectTypeEnum)
+objectTypes_destination = Lens.lens (\ObjectTypes' {destination} -> destination) (\s@ObjectTypes' {} a -> s {destination = a} :: ObjectTypes)
 
 -- | The type of the object in the source branch.
 objectTypes_source :: Lens.Lens' ObjectTypes (Prelude.Maybe ObjectTypeEnum)
@@ -78,19 +78,19 @@ instance Data.FromJSON ObjectTypes where
       "ObjectTypes"
       ( \x ->
           ObjectTypes'
-            Prelude.<$> (x Data..:? "destination")
-            Prelude.<*> (x Data..:? "base")
+            Prelude.<$> (x Data..:? "base")
+            Prelude.<*> (x Data..:? "destination")
             Prelude.<*> (x Data..:? "source")
       )
 
 instance Prelude.Hashable ObjectTypes where
   hashWithSalt _salt ObjectTypes' {..} =
-    _salt `Prelude.hashWithSalt` destination
-      `Prelude.hashWithSalt` base
+    _salt `Prelude.hashWithSalt` base
+      `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` source
 
 instance Prelude.NFData ObjectTypes where
   rnf ObjectTypes' {..} =
-    Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf base
+    Prelude.rnf base
+      `Prelude.seq` Prelude.rnf destination
       `Prelude.seq` Prelude.rnf source

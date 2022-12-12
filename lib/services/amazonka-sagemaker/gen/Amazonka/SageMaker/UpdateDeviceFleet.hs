@@ -27,9 +27,9 @@ module Amazonka.SageMaker.UpdateDeviceFleet
     newUpdateDeviceFleet,
 
     -- * Request Lenses
-    updateDeviceFleet_roleArn,
     updateDeviceFleet_description,
     updateDeviceFleet_enableIotRoleAlias,
+    updateDeviceFleet_roleArn,
     updateDeviceFleet_deviceFleetName,
     updateDeviceFleet_outputConfig,
 
@@ -49,9 +49,7 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newUpdateDeviceFleet' smart constructor.
 data UpdateDeviceFleet = UpdateDeviceFleet'
-  { -- | The Amazon Resource Name (ARN) of the device.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | Description of the fleet.
+  { -- | Description of the fleet.
     description :: Prelude.Maybe Prelude.Text,
     -- | Whether to create an Amazon Web Services IoT Role Alias during device
     -- fleet creation. The name of the role alias generated will match this
@@ -60,6 +58,8 @@ data UpdateDeviceFleet = UpdateDeviceFleet'
     -- For example, if your device fleet is called \"demo-fleet\", the name of
     -- the role alias will be \"SageMakerEdge-demo-fleet\".
     enableIotRoleAlias :: Prelude.Maybe Prelude.Bool,
+    -- | The Amazon Resource Name (ARN) of the device.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the fleet.
     deviceFleetName :: Prelude.Text,
     -- | Output configuration for storing sample data collected by the fleet.
@@ -75,8 +75,6 @@ data UpdateDeviceFleet = UpdateDeviceFleet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'updateDeviceFleet_roleArn' - The Amazon Resource Name (ARN) of the device.
---
 -- 'description', 'updateDeviceFleet_description' - Description of the fleet.
 --
 -- 'enableIotRoleAlias', 'updateDeviceFleet_enableIotRoleAlias' - Whether to create an Amazon Web Services IoT Role Alias during device
@@ -85,6 +83,8 @@ data UpdateDeviceFleet = UpdateDeviceFleet'
 --
 -- For example, if your device fleet is called \"demo-fleet\", the name of
 -- the role alias will be \"SageMakerEdge-demo-fleet\".
+--
+-- 'roleArn', 'updateDeviceFleet_roleArn' - The Amazon Resource Name (ARN) of the device.
 --
 -- 'deviceFleetName', 'updateDeviceFleet_deviceFleetName' - The name of the fleet.
 --
@@ -97,16 +97,12 @@ newUpdateDeviceFleet ::
   UpdateDeviceFleet
 newUpdateDeviceFleet pDeviceFleetName_ pOutputConfig_ =
   UpdateDeviceFleet'
-    { roleArn = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
       enableIotRoleAlias = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
       deviceFleetName = pDeviceFleetName_,
       outputConfig = pOutputConfig_
     }
-
--- | The Amazon Resource Name (ARN) of the device.
-updateDeviceFleet_roleArn :: Lens.Lens' UpdateDeviceFleet (Prelude.Maybe Prelude.Text)
-updateDeviceFleet_roleArn = Lens.lens (\UpdateDeviceFleet' {roleArn} -> roleArn) (\s@UpdateDeviceFleet' {} a -> s {roleArn = a} :: UpdateDeviceFleet)
 
 -- | Description of the fleet.
 updateDeviceFleet_description :: Lens.Lens' UpdateDeviceFleet (Prelude.Maybe Prelude.Text)
@@ -120,6 +116,10 @@ updateDeviceFleet_description = Lens.lens (\UpdateDeviceFleet' {description} -> 
 -- the role alias will be \"SageMakerEdge-demo-fleet\".
 updateDeviceFleet_enableIotRoleAlias :: Lens.Lens' UpdateDeviceFleet (Prelude.Maybe Prelude.Bool)
 updateDeviceFleet_enableIotRoleAlias = Lens.lens (\UpdateDeviceFleet' {enableIotRoleAlias} -> enableIotRoleAlias) (\s@UpdateDeviceFleet' {} a -> s {enableIotRoleAlias = a} :: UpdateDeviceFleet)
+
+-- | The Amazon Resource Name (ARN) of the device.
+updateDeviceFleet_roleArn :: Lens.Lens' UpdateDeviceFleet (Prelude.Maybe Prelude.Text)
+updateDeviceFleet_roleArn = Lens.lens (\UpdateDeviceFleet' {roleArn} -> roleArn) (\s@UpdateDeviceFleet' {} a -> s {roleArn = a} :: UpdateDeviceFleet)
 
 -- | The name of the fleet.
 updateDeviceFleet_deviceFleetName :: Lens.Lens' UpdateDeviceFleet Prelude.Text
@@ -140,17 +140,17 @@ instance Core.AWSRequest UpdateDeviceFleet where
 
 instance Prelude.Hashable UpdateDeviceFleet where
   hashWithSalt _salt UpdateDeviceFleet' {..} =
-    _salt `Prelude.hashWithSalt` roleArn
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` enableIotRoleAlias
+      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` deviceFleetName
       `Prelude.hashWithSalt` outputConfig
 
 instance Prelude.NFData UpdateDeviceFleet where
   rnf UpdateDeviceFleet' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf enableIotRoleAlias
+      `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf deviceFleetName
       `Prelude.seq` Prelude.rnf outputConfig
 
@@ -173,10 +173,10 @@ instance Data.ToJSON UpdateDeviceFleet where
   toJSON UpdateDeviceFleet' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("RoleArn" Data..=) Prelude.<$> roleArn,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
             ("EnableIotRoleAlias" Data..=)
               Prelude.<$> enableIotRoleAlias,
+            ("RoleArn" Data..=) Prelude.<$> roleArn,
             Prelude.Just
               ("DeviceFleetName" Data..= deviceFleetName),
             Prelude.Just ("OutputConfig" Data..= outputConfig)

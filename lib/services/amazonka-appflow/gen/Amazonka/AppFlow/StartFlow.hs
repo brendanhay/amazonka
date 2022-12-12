@@ -37,8 +37,8 @@ module Amazonka.AppFlow.StartFlow
 
     -- * Response Lenses
     startFlowResponse_executionId,
-    startFlowResponse_flowStatus,
     startFlowResponse_flowArn,
+    startFlowResponse_flowStatus,
     startFlowResponse_httpStatus,
   )
 where
@@ -90,8 +90,8 @@ instance Core.AWSRequest StartFlow where
       ( \s h x ->
           StartFlowResponse'
             Prelude.<$> (x Data..?> "executionId")
-            Prelude.<*> (x Data..?> "flowStatus")
             Prelude.<*> (x Data..?> "flowArn")
+            Prelude.<*> (x Data..?> "flowStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,10 +131,10 @@ data StartFlowResponse = StartFlowResponse'
   { -- | Returns the internal execution ID of an on-demand flow when the flow is
     -- started. For scheduled or event-triggered flows, this value is null.
     executionId :: Prelude.Maybe Prelude.Text,
-    -- | Indicates the current status of the flow.
-    flowStatus :: Prelude.Maybe FlowStatus,
     -- | The flow\'s Amazon Resource Name (ARN).
     flowArn :: Prelude.Maybe Prelude.Text,
+    -- | Indicates the current status of the flow.
+    flowStatus :: Prelude.Maybe FlowStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -151,9 +151,9 @@ data StartFlowResponse = StartFlowResponse'
 -- 'executionId', 'startFlowResponse_executionId' - Returns the internal execution ID of an on-demand flow when the flow is
 -- started. For scheduled or event-triggered flows, this value is null.
 --
--- 'flowStatus', 'startFlowResponse_flowStatus' - Indicates the current status of the flow.
---
 -- 'flowArn', 'startFlowResponse_flowArn' - The flow\'s Amazon Resource Name (ARN).
+--
+-- 'flowStatus', 'startFlowResponse_flowStatus' - Indicates the current status of the flow.
 --
 -- 'httpStatus', 'startFlowResponse_httpStatus' - The response's http status code.
 newStartFlowResponse ::
@@ -163,8 +163,8 @@ newStartFlowResponse ::
 newStartFlowResponse pHttpStatus_ =
   StartFlowResponse'
     { executionId = Prelude.Nothing,
-      flowStatus = Prelude.Nothing,
       flowArn = Prelude.Nothing,
+      flowStatus = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -173,13 +173,13 @@ newStartFlowResponse pHttpStatus_ =
 startFlowResponse_executionId :: Lens.Lens' StartFlowResponse (Prelude.Maybe Prelude.Text)
 startFlowResponse_executionId = Lens.lens (\StartFlowResponse' {executionId} -> executionId) (\s@StartFlowResponse' {} a -> s {executionId = a} :: StartFlowResponse)
 
--- | Indicates the current status of the flow.
-startFlowResponse_flowStatus :: Lens.Lens' StartFlowResponse (Prelude.Maybe FlowStatus)
-startFlowResponse_flowStatus = Lens.lens (\StartFlowResponse' {flowStatus} -> flowStatus) (\s@StartFlowResponse' {} a -> s {flowStatus = a} :: StartFlowResponse)
-
 -- | The flow\'s Amazon Resource Name (ARN).
 startFlowResponse_flowArn :: Lens.Lens' StartFlowResponse (Prelude.Maybe Prelude.Text)
 startFlowResponse_flowArn = Lens.lens (\StartFlowResponse' {flowArn} -> flowArn) (\s@StartFlowResponse' {} a -> s {flowArn = a} :: StartFlowResponse)
+
+-- | Indicates the current status of the flow.
+startFlowResponse_flowStatus :: Lens.Lens' StartFlowResponse (Prelude.Maybe FlowStatus)
+startFlowResponse_flowStatus = Lens.lens (\StartFlowResponse' {flowStatus} -> flowStatus) (\s@StartFlowResponse' {} a -> s {flowStatus = a} :: StartFlowResponse)
 
 -- | The response's http status code.
 startFlowResponse_httpStatus :: Lens.Lens' StartFlowResponse Prelude.Int
@@ -188,6 +188,6 @@ startFlowResponse_httpStatus = Lens.lens (\StartFlowResponse' {httpStatus} -> ht
 instance Prelude.NFData StartFlowResponse where
   rnf StartFlowResponse' {..} =
     Prelude.rnf executionId
-      `Prelude.seq` Prelude.rnf flowStatus
       `Prelude.seq` Prelude.rnf flowArn
+      `Prelude.seq` Prelude.rnf flowStatus
       `Prelude.seq` Prelude.rnf httpStatus

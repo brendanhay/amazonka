@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPlanningStatistics' smart constructor.
 data PlanningStatistics = PlanningStatistics'
-  { -- | The time that it took to process the request.
-    planningTimeMillis :: Prelude.Maybe Prelude.Integer,
-    -- | The number of work units generated.
-    workUnitsGeneratedCount :: Prelude.Maybe Prelude.Integer,
-    -- | An estimate of the data that was scanned in bytes.
+  { -- | An estimate of the data that was scanned in bytes.
     estimatedDataToScanBytes :: Prelude.Maybe Prelude.Integer,
+    -- | The time that it took to process the request.
+    planningTimeMillis :: Prelude.Maybe Prelude.Integer,
     -- | The time the request was in queue to be processed.
-    queueTimeMillis :: Prelude.Maybe Prelude.Integer
+    queueTimeMillis :: Prelude.Maybe Prelude.Integer,
+    -- | The number of work units generated.
+    workUnitsGeneratedCount :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,39 +47,39 @@ data PlanningStatistics = PlanningStatistics'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'planningTimeMillis', 'planningStatistics_planningTimeMillis' - The time that it took to process the request.
---
--- 'workUnitsGeneratedCount', 'planningStatistics_workUnitsGeneratedCount' - The number of work units generated.
---
 -- 'estimatedDataToScanBytes', 'planningStatistics_estimatedDataToScanBytes' - An estimate of the data that was scanned in bytes.
 --
+-- 'planningTimeMillis', 'planningStatistics_planningTimeMillis' - The time that it took to process the request.
+--
 -- 'queueTimeMillis', 'planningStatistics_queueTimeMillis' - The time the request was in queue to be processed.
+--
+-- 'workUnitsGeneratedCount', 'planningStatistics_workUnitsGeneratedCount' - The number of work units generated.
 newPlanningStatistics ::
   PlanningStatistics
 newPlanningStatistics =
   PlanningStatistics'
-    { planningTimeMillis =
+    { estimatedDataToScanBytes =
         Prelude.Nothing,
-      workUnitsGeneratedCount = Prelude.Nothing,
-      estimatedDataToScanBytes = Prelude.Nothing,
-      queueTimeMillis = Prelude.Nothing
+      planningTimeMillis = Prelude.Nothing,
+      queueTimeMillis = Prelude.Nothing,
+      workUnitsGeneratedCount = Prelude.Nothing
     }
-
--- | The time that it took to process the request.
-planningStatistics_planningTimeMillis :: Lens.Lens' PlanningStatistics (Prelude.Maybe Prelude.Integer)
-planningStatistics_planningTimeMillis = Lens.lens (\PlanningStatistics' {planningTimeMillis} -> planningTimeMillis) (\s@PlanningStatistics' {} a -> s {planningTimeMillis = a} :: PlanningStatistics)
-
--- | The number of work units generated.
-planningStatistics_workUnitsGeneratedCount :: Lens.Lens' PlanningStatistics (Prelude.Maybe Prelude.Integer)
-planningStatistics_workUnitsGeneratedCount = Lens.lens (\PlanningStatistics' {workUnitsGeneratedCount} -> workUnitsGeneratedCount) (\s@PlanningStatistics' {} a -> s {workUnitsGeneratedCount = a} :: PlanningStatistics)
 
 -- | An estimate of the data that was scanned in bytes.
 planningStatistics_estimatedDataToScanBytes :: Lens.Lens' PlanningStatistics (Prelude.Maybe Prelude.Integer)
 planningStatistics_estimatedDataToScanBytes = Lens.lens (\PlanningStatistics' {estimatedDataToScanBytes} -> estimatedDataToScanBytes) (\s@PlanningStatistics' {} a -> s {estimatedDataToScanBytes = a} :: PlanningStatistics)
 
+-- | The time that it took to process the request.
+planningStatistics_planningTimeMillis :: Lens.Lens' PlanningStatistics (Prelude.Maybe Prelude.Integer)
+planningStatistics_planningTimeMillis = Lens.lens (\PlanningStatistics' {planningTimeMillis} -> planningTimeMillis) (\s@PlanningStatistics' {} a -> s {planningTimeMillis = a} :: PlanningStatistics)
+
 -- | The time the request was in queue to be processed.
 planningStatistics_queueTimeMillis :: Lens.Lens' PlanningStatistics (Prelude.Maybe Prelude.Integer)
 planningStatistics_queueTimeMillis = Lens.lens (\PlanningStatistics' {queueTimeMillis} -> queueTimeMillis) (\s@PlanningStatistics' {} a -> s {queueTimeMillis = a} :: PlanningStatistics)
+
+-- | The number of work units generated.
+planningStatistics_workUnitsGeneratedCount :: Lens.Lens' PlanningStatistics (Prelude.Maybe Prelude.Integer)
+planningStatistics_workUnitsGeneratedCount = Lens.lens (\PlanningStatistics' {workUnitsGeneratedCount} -> workUnitsGeneratedCount) (\s@PlanningStatistics' {} a -> s {workUnitsGeneratedCount = a} :: PlanningStatistics)
 
 instance Data.FromJSON PlanningStatistics where
   parseJSON =
@@ -87,22 +87,23 @@ instance Data.FromJSON PlanningStatistics where
       "PlanningStatistics"
       ( \x ->
           PlanningStatistics'
-            Prelude.<$> (x Data..:? "PlanningTimeMillis")
-            Prelude.<*> (x Data..:? "WorkUnitsGeneratedCount")
-            Prelude.<*> (x Data..:? "EstimatedDataToScanBytes")
+            Prelude.<$> (x Data..:? "EstimatedDataToScanBytes")
+            Prelude.<*> (x Data..:? "PlanningTimeMillis")
             Prelude.<*> (x Data..:? "QueueTimeMillis")
+            Prelude.<*> (x Data..:? "WorkUnitsGeneratedCount")
       )
 
 instance Prelude.Hashable PlanningStatistics where
   hashWithSalt _salt PlanningStatistics' {..} =
-    _salt `Prelude.hashWithSalt` planningTimeMillis
-      `Prelude.hashWithSalt` workUnitsGeneratedCount
+    _salt
       `Prelude.hashWithSalt` estimatedDataToScanBytes
+      `Prelude.hashWithSalt` planningTimeMillis
       `Prelude.hashWithSalt` queueTimeMillis
+      `Prelude.hashWithSalt` workUnitsGeneratedCount
 
 instance Prelude.NFData PlanningStatistics where
   rnf PlanningStatistics' {..} =
-    Prelude.rnf planningTimeMillis
-      `Prelude.seq` Prelude.rnf workUnitsGeneratedCount
-      `Prelude.seq` Prelude.rnf estimatedDataToScanBytes
+    Prelude.rnf estimatedDataToScanBytes
+      `Prelude.seq` Prelude.rnf planningTimeMillis
       `Prelude.seq` Prelude.rnf queueTimeMillis
+      `Prelude.seq` Prelude.rnf workUnitsGeneratedCount

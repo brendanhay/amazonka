@@ -31,9 +31,9 @@ module Amazonka.CloudWatchLogs.DescribeSubscriptionFilters
     newDescribeSubscriptionFilters,
 
     -- * Request Lenses
-    describeSubscriptionFilters_nextToken,
-    describeSubscriptionFilters_limit,
     describeSubscriptionFilters_filterNamePrefix,
+    describeSubscriptionFilters_limit,
+    describeSubscriptionFilters_nextToken,
     describeSubscriptionFilters_logGroupName,
 
     -- * Destructuring the Response
@@ -57,15 +57,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeSubscriptionFilters' smart constructor.
 data DescribeSubscriptionFilters = DescribeSubscriptionFilters'
-  { -- | The token for the next set of items to return. (You received this token
-    -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The prefix to match. If you don\'t specify a value, no prefix filter is
+    -- applied.
+    filterNamePrefix :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items returned. If you don\'t specify a value, the
     -- default is up to 50 items.
     limit :: Prelude.Maybe Prelude.Natural,
-    -- | The prefix to match. If you don\'t specify a value, no prefix filter is
-    -- applied.
-    filterNamePrefix :: Prelude.Maybe Prelude.Text,
+    -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the log group.
     logGroupName :: Prelude.Text
   }
@@ -79,14 +79,14 @@ data DescribeSubscriptionFilters = DescribeSubscriptionFilters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeSubscriptionFilters_nextToken' - The token for the next set of items to return. (You received this token
--- from a previous call.)
+-- 'filterNamePrefix', 'describeSubscriptionFilters_filterNamePrefix' - The prefix to match. If you don\'t specify a value, no prefix filter is
+-- applied.
 --
 -- 'limit', 'describeSubscriptionFilters_limit' - The maximum number of items returned. If you don\'t specify a value, the
 -- default is up to 50 items.
 --
--- 'filterNamePrefix', 'describeSubscriptionFilters_filterNamePrefix' - The prefix to match. If you don\'t specify a value, no prefix filter is
--- applied.
+-- 'nextToken', 'describeSubscriptionFilters_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
 --
 -- 'logGroupName', 'describeSubscriptionFilters_logGroupName' - The name of the log group.
 newDescribeSubscriptionFilters ::
@@ -95,27 +95,27 @@ newDescribeSubscriptionFilters ::
   DescribeSubscriptionFilters
 newDescribeSubscriptionFilters pLogGroupName_ =
   DescribeSubscriptionFilters'
-    { nextToken =
+    { filterNamePrefix =
         Prelude.Nothing,
       limit = Prelude.Nothing,
-      filterNamePrefix = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       logGroupName = pLogGroupName_
     }
 
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
-describeSubscriptionFilters_nextToken :: Lens.Lens' DescribeSubscriptionFilters (Prelude.Maybe Prelude.Text)
-describeSubscriptionFilters_nextToken = Lens.lens (\DescribeSubscriptionFilters' {nextToken} -> nextToken) (\s@DescribeSubscriptionFilters' {} a -> s {nextToken = a} :: DescribeSubscriptionFilters)
+-- | The prefix to match. If you don\'t specify a value, no prefix filter is
+-- applied.
+describeSubscriptionFilters_filterNamePrefix :: Lens.Lens' DescribeSubscriptionFilters (Prelude.Maybe Prelude.Text)
+describeSubscriptionFilters_filterNamePrefix = Lens.lens (\DescribeSubscriptionFilters' {filterNamePrefix} -> filterNamePrefix) (\s@DescribeSubscriptionFilters' {} a -> s {filterNamePrefix = a} :: DescribeSubscriptionFilters)
 
 -- | The maximum number of items returned. If you don\'t specify a value, the
 -- default is up to 50 items.
 describeSubscriptionFilters_limit :: Lens.Lens' DescribeSubscriptionFilters (Prelude.Maybe Prelude.Natural)
 describeSubscriptionFilters_limit = Lens.lens (\DescribeSubscriptionFilters' {limit} -> limit) (\s@DescribeSubscriptionFilters' {} a -> s {limit = a} :: DescribeSubscriptionFilters)
 
--- | The prefix to match. If you don\'t specify a value, no prefix filter is
--- applied.
-describeSubscriptionFilters_filterNamePrefix :: Lens.Lens' DescribeSubscriptionFilters (Prelude.Maybe Prelude.Text)
-describeSubscriptionFilters_filterNamePrefix = Lens.lens (\DescribeSubscriptionFilters' {filterNamePrefix} -> filterNamePrefix) (\s@DescribeSubscriptionFilters' {} a -> s {filterNamePrefix = a} :: DescribeSubscriptionFilters)
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+describeSubscriptionFilters_nextToken :: Lens.Lens' DescribeSubscriptionFilters (Prelude.Maybe Prelude.Text)
+describeSubscriptionFilters_nextToken = Lens.lens (\DescribeSubscriptionFilters' {nextToken} -> nextToken) (\s@DescribeSubscriptionFilters' {} a -> s {nextToken = a} :: DescribeSubscriptionFilters)
 
 -- | The name of the log group.
 describeSubscriptionFilters_logGroupName :: Lens.Lens' DescribeSubscriptionFilters Prelude.Text
@@ -162,16 +162,16 @@ instance Core.AWSRequest DescribeSubscriptionFilters where
 
 instance Prelude.Hashable DescribeSubscriptionFilters where
   hashWithSalt _salt DescribeSubscriptionFilters' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` filterNamePrefix
       `Prelude.hashWithSalt` limit
-      `Prelude.hashWithSalt` filterNamePrefix
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` logGroupName
 
 instance Prelude.NFData DescribeSubscriptionFilters where
   rnf DescribeSubscriptionFilters' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf filterNamePrefix
       `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf filterNamePrefix
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf logGroupName
 
 instance Data.ToHeaders DescribeSubscriptionFilters where
@@ -193,10 +193,10 @@ instance Data.ToJSON DescribeSubscriptionFilters where
   toJSON DescribeSubscriptionFilters' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("limit" Data..=) Prelude.<$> limit,
-            ("filterNamePrefix" Data..=)
+          [ ("filterNamePrefix" Data..=)
               Prelude.<$> filterNamePrefix,
+            ("limit" Data..=) Prelude.<$> limit,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("logGroupName" Data..= logGroupName)
           ]
       )

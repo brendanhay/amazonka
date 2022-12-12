@@ -33,11 +33,11 @@ module Amazonka.Route53Resolver.ListFirewallRuleGroupAssociations
     newListFirewallRuleGroupAssociations,
 
     -- * Request Lenses
-    listFirewallRuleGroupAssociations_nextToken,
     listFirewallRuleGroupAssociations_firewallRuleGroupId,
-    listFirewallRuleGroupAssociations_status,
     listFirewallRuleGroupAssociations_maxResults,
+    listFirewallRuleGroupAssociations_nextToken,
     listFirewallRuleGroupAssociations_priority,
+    listFirewallRuleGroupAssociations_status,
     listFirewallRuleGroupAssociations_vpcId,
 
     -- * Destructuring the Response
@@ -61,22 +61,10 @@ import Amazonka.Route53Resolver.Types
 
 -- | /See:/ 'newListFirewallRuleGroupAssociations' smart constructor.
 data ListFirewallRuleGroupAssociations = ListFirewallRuleGroupAssociations'
-  { -- | For the first call to this list request, omit this value.
-    --
-    -- When you request a list of objects, Resolver returns at most the number
-    -- of objects specified in @MaxResults@. If more objects are available for
-    -- retrieval, Resolver returns a @NextToken@ value in the response. To
-    -- retrieve the next batch of objects, use the token that was returned for
-    -- the prior request in your next request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier of the firewall rule group that you want to
+  { -- | The unique identifier of the firewall rule group that you want to
     -- retrieve the associations for. Leave this blank to retrieve associations
     -- for any rule group.
     firewallRuleGroupId :: Prelude.Maybe Prelude.Text,
-    -- | The association @Status@ setting that you want DNS Firewall to filter on
-    -- for the list. If you don\'t specify this, then DNS Firewall returns all
-    -- associations, regardless of status.
-    status :: Prelude.Maybe FirewallRuleGroupAssociationStatus,
     -- | The maximum number of objects that you want Resolver to return for this
     -- request. If more objects are available, in the response, Resolver
     -- provides a @NextToken@ value that you can use in a subsequent call to
@@ -85,11 +73,23 @@ data ListFirewallRuleGroupAssociations = ListFirewallRuleGroupAssociations'
     -- If you don\'t specify a value for @MaxResults@, Resolver returns up to
     -- 100 objects.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | For the first call to this list request, omit this value.
+    --
+    -- When you request a list of objects, Resolver returns at most the number
+    -- of objects specified in @MaxResults@. If more objects are available for
+    -- retrieval, Resolver returns a @NextToken@ value in the response. To
+    -- retrieve the next batch of objects, use the token that was returned for
+    -- the prior request in your next request.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The setting that determines the processing order of the rule group among
     -- the rule groups that are associated with a single VPC. DNS Firewall
     -- filters VPC traffic starting from the rule group with the lowest numeric
     -- priority setting.
     priority :: Prelude.Maybe Prelude.Int,
+    -- | The association @Status@ setting that you want DNS Firewall to filter on
+    -- for the list. If you don\'t specify this, then DNS Firewall returns all
+    -- associations, regardless of status.
+    status :: Prelude.Maybe FirewallRuleGroupAssociationStatus,
     -- | The unique identifier of the VPC that you want to retrieve the
     -- associations for. Leave this blank to retrieve associations for any VPC.
     vpcId :: Prelude.Maybe Prelude.Text
@@ -104,21 +104,9 @@ data ListFirewallRuleGroupAssociations = ListFirewallRuleGroupAssociations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listFirewallRuleGroupAssociations_nextToken' - For the first call to this list request, omit this value.
---
--- When you request a list of objects, Resolver returns at most the number
--- of objects specified in @MaxResults@. If more objects are available for
--- retrieval, Resolver returns a @NextToken@ value in the response. To
--- retrieve the next batch of objects, use the token that was returned for
--- the prior request in your next request.
---
 -- 'firewallRuleGroupId', 'listFirewallRuleGroupAssociations_firewallRuleGroupId' - The unique identifier of the firewall rule group that you want to
 -- retrieve the associations for. Leave this blank to retrieve associations
 -- for any rule group.
---
--- 'status', 'listFirewallRuleGroupAssociations_status' - The association @Status@ setting that you want DNS Firewall to filter on
--- for the list. If you don\'t specify this, then DNS Firewall returns all
--- associations, regardless of status.
 --
 -- 'maxResults', 'listFirewallRuleGroupAssociations_maxResults' - The maximum number of objects that you want Resolver to return for this
 -- request. If more objects are available, in the response, Resolver
@@ -128,10 +116,22 @@ data ListFirewallRuleGroupAssociations = ListFirewallRuleGroupAssociations'
 -- If you don\'t specify a value for @MaxResults@, Resolver returns up to
 -- 100 objects.
 --
+-- 'nextToken', 'listFirewallRuleGroupAssociations_nextToken' - For the first call to this list request, omit this value.
+--
+-- When you request a list of objects, Resolver returns at most the number
+-- of objects specified in @MaxResults@. If more objects are available for
+-- retrieval, Resolver returns a @NextToken@ value in the response. To
+-- retrieve the next batch of objects, use the token that was returned for
+-- the prior request in your next request.
+--
 -- 'priority', 'listFirewallRuleGroupAssociations_priority' - The setting that determines the processing order of the rule group among
 -- the rule groups that are associated with a single VPC. DNS Firewall
 -- filters VPC traffic starting from the rule group with the lowest numeric
 -- priority setting.
+--
+-- 'status', 'listFirewallRuleGroupAssociations_status' - The association @Status@ setting that you want DNS Firewall to filter on
+-- for the list. If you don\'t specify this, then DNS Firewall returns all
+-- associations, regardless of status.
 --
 -- 'vpcId', 'listFirewallRuleGroupAssociations_vpcId' - The unique identifier of the VPC that you want to retrieve the
 -- associations for. Leave this blank to retrieve associations for any VPC.
@@ -139,36 +139,20 @@ newListFirewallRuleGroupAssociations ::
   ListFirewallRuleGroupAssociations
 newListFirewallRuleGroupAssociations =
   ListFirewallRuleGroupAssociations'
-    { nextToken =
+    { firewallRuleGroupId =
         Prelude.Nothing,
-      firewallRuleGroupId = Prelude.Nothing,
-      status = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       priority = Prelude.Nothing,
+      status = Prelude.Nothing,
       vpcId = Prelude.Nothing
     }
-
--- | For the first call to this list request, omit this value.
---
--- When you request a list of objects, Resolver returns at most the number
--- of objects specified in @MaxResults@. If more objects are available for
--- retrieval, Resolver returns a @NextToken@ value in the response. To
--- retrieve the next batch of objects, use the token that was returned for
--- the prior request in your next request.
-listFirewallRuleGroupAssociations_nextToken :: Lens.Lens' ListFirewallRuleGroupAssociations (Prelude.Maybe Prelude.Text)
-listFirewallRuleGroupAssociations_nextToken = Lens.lens (\ListFirewallRuleGroupAssociations' {nextToken} -> nextToken) (\s@ListFirewallRuleGroupAssociations' {} a -> s {nextToken = a} :: ListFirewallRuleGroupAssociations)
 
 -- | The unique identifier of the firewall rule group that you want to
 -- retrieve the associations for. Leave this blank to retrieve associations
 -- for any rule group.
 listFirewallRuleGroupAssociations_firewallRuleGroupId :: Lens.Lens' ListFirewallRuleGroupAssociations (Prelude.Maybe Prelude.Text)
 listFirewallRuleGroupAssociations_firewallRuleGroupId = Lens.lens (\ListFirewallRuleGroupAssociations' {firewallRuleGroupId} -> firewallRuleGroupId) (\s@ListFirewallRuleGroupAssociations' {} a -> s {firewallRuleGroupId = a} :: ListFirewallRuleGroupAssociations)
-
--- | The association @Status@ setting that you want DNS Firewall to filter on
--- for the list. If you don\'t specify this, then DNS Firewall returns all
--- associations, regardless of status.
-listFirewallRuleGroupAssociations_status :: Lens.Lens' ListFirewallRuleGroupAssociations (Prelude.Maybe FirewallRuleGroupAssociationStatus)
-listFirewallRuleGroupAssociations_status = Lens.lens (\ListFirewallRuleGroupAssociations' {status} -> status) (\s@ListFirewallRuleGroupAssociations' {} a -> s {status = a} :: ListFirewallRuleGroupAssociations)
 
 -- | The maximum number of objects that you want Resolver to return for this
 -- request. If more objects are available, in the response, Resolver
@@ -180,12 +164,28 @@ listFirewallRuleGroupAssociations_status = Lens.lens (\ListFirewallRuleGroupAsso
 listFirewallRuleGroupAssociations_maxResults :: Lens.Lens' ListFirewallRuleGroupAssociations (Prelude.Maybe Prelude.Natural)
 listFirewallRuleGroupAssociations_maxResults = Lens.lens (\ListFirewallRuleGroupAssociations' {maxResults} -> maxResults) (\s@ListFirewallRuleGroupAssociations' {} a -> s {maxResults = a} :: ListFirewallRuleGroupAssociations)
 
+-- | For the first call to this list request, omit this value.
+--
+-- When you request a list of objects, Resolver returns at most the number
+-- of objects specified in @MaxResults@. If more objects are available for
+-- retrieval, Resolver returns a @NextToken@ value in the response. To
+-- retrieve the next batch of objects, use the token that was returned for
+-- the prior request in your next request.
+listFirewallRuleGroupAssociations_nextToken :: Lens.Lens' ListFirewallRuleGroupAssociations (Prelude.Maybe Prelude.Text)
+listFirewallRuleGroupAssociations_nextToken = Lens.lens (\ListFirewallRuleGroupAssociations' {nextToken} -> nextToken) (\s@ListFirewallRuleGroupAssociations' {} a -> s {nextToken = a} :: ListFirewallRuleGroupAssociations)
+
 -- | The setting that determines the processing order of the rule group among
 -- the rule groups that are associated with a single VPC. DNS Firewall
 -- filters VPC traffic starting from the rule group with the lowest numeric
 -- priority setting.
 listFirewallRuleGroupAssociations_priority :: Lens.Lens' ListFirewallRuleGroupAssociations (Prelude.Maybe Prelude.Int)
 listFirewallRuleGroupAssociations_priority = Lens.lens (\ListFirewallRuleGroupAssociations' {priority} -> priority) (\s@ListFirewallRuleGroupAssociations' {} a -> s {priority = a} :: ListFirewallRuleGroupAssociations)
+
+-- | The association @Status@ setting that you want DNS Firewall to filter on
+-- for the list. If you don\'t specify this, then DNS Firewall returns all
+-- associations, regardless of status.
+listFirewallRuleGroupAssociations_status :: Lens.Lens' ListFirewallRuleGroupAssociations (Prelude.Maybe FirewallRuleGroupAssociationStatus)
+listFirewallRuleGroupAssociations_status = Lens.lens (\ListFirewallRuleGroupAssociations' {status} -> status) (\s@ListFirewallRuleGroupAssociations' {} a -> s {status = a} :: ListFirewallRuleGroupAssociations)
 
 -- | The unique identifier of the VPC that you want to retrieve the
 -- associations for. Leave this blank to retrieve associations for any VPC.
@@ -244,11 +244,11 @@ instance
   hashWithSalt
     _salt
     ListFirewallRuleGroupAssociations' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` firewallRuleGroupId
-        `Prelude.hashWithSalt` status
+      _salt `Prelude.hashWithSalt` firewallRuleGroupId
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` priority
+        `Prelude.hashWithSalt` status
         `Prelude.hashWithSalt` vpcId
 
 instance
@@ -256,11 +256,11 @@ instance
     ListFirewallRuleGroupAssociations
   where
   rnf ListFirewallRuleGroupAssociations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf firewallRuleGroupId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf firewallRuleGroupId
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf vpcId
 
 instance
@@ -288,12 +288,12 @@ instance
   toJSON ListFirewallRuleGroupAssociations' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("FirewallRuleGroupId" Data..=)
+          [ ("FirewallRuleGroupId" Data..=)
               Prelude.<$> firewallRuleGroupId,
-            ("Status" Data..=) Prelude.<$> status,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("Priority" Data..=) Prelude.<$> priority,
+            ("Status" Data..=) Prelude.<$> status,
             ("VpcId" Data..=) Prelude.<$> vpcId
           ]
       )

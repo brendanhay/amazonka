@@ -30,9 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAccessConfiguration' smart constructor.
 data AccessConfiguration = AccessConfiguration'
-  { -- | AWS Secrets Manager access token configuration parameters.
-    secretsManagerAccessTokenConfiguration :: Prelude.Maybe SecretsManagerAccessTokenConfiguration,
-    -- | The type of authentication used to access content from
+  { -- | The type of authentication used to access content from
     -- @HttpConfiguration::BaseUrl@ on your source location. Accepted value:
     -- @S3_SIGV4@.
     --
@@ -57,7 +55,9 @@ data AccessConfiguration = AccessConfiguration'
     -- • The caller of the API must have s3:GetObject IAM permissions to read
     -- all top level manifests referenced by your MediaTailor VodSource
     -- packaging configurations.
-    accessType :: Prelude.Maybe AccessType
+    accessType :: Prelude.Maybe AccessType,
+    -- | AWS Secrets Manager access token configuration parameters.
+    secretsManagerAccessTokenConfiguration :: Prelude.Maybe SecretsManagerAccessTokenConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,8 +68,6 @@ data AccessConfiguration = AccessConfiguration'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'secretsManagerAccessTokenConfiguration', 'accessConfiguration_secretsManagerAccessTokenConfiguration' - AWS Secrets Manager access token configuration parameters.
 --
 -- 'accessType', 'accessConfiguration_accessType' - The type of authentication used to access content from
 -- @HttpConfiguration::BaseUrl@ on your source location. Accepted value:
@@ -96,18 +94,16 @@ data AccessConfiguration = AccessConfiguration'
 -- • The caller of the API must have s3:GetObject IAM permissions to read
 -- all top level manifests referenced by your MediaTailor VodSource
 -- packaging configurations.
+--
+-- 'secretsManagerAccessTokenConfiguration', 'accessConfiguration_secretsManagerAccessTokenConfiguration' - AWS Secrets Manager access token configuration parameters.
 newAccessConfiguration ::
   AccessConfiguration
 newAccessConfiguration =
   AccessConfiguration'
-    { secretsManagerAccessTokenConfiguration =
-        Prelude.Nothing,
-      accessType = Prelude.Nothing
+    { accessType = Prelude.Nothing,
+      secretsManagerAccessTokenConfiguration =
+        Prelude.Nothing
     }
-
--- | AWS Secrets Manager access token configuration parameters.
-accessConfiguration_secretsManagerAccessTokenConfiguration :: Lens.Lens' AccessConfiguration (Prelude.Maybe SecretsManagerAccessTokenConfiguration)
-accessConfiguration_secretsManagerAccessTokenConfiguration = Lens.lens (\AccessConfiguration' {secretsManagerAccessTokenConfiguration} -> secretsManagerAccessTokenConfiguration) (\s@AccessConfiguration' {} a -> s {secretsManagerAccessTokenConfiguration = a} :: AccessConfiguration)
 
 -- | The type of authentication used to access content from
 -- @HttpConfiguration::BaseUrl@ on your source location. Accepted value:
@@ -137,33 +133,38 @@ accessConfiguration_secretsManagerAccessTokenConfiguration = Lens.lens (\AccessC
 accessConfiguration_accessType :: Lens.Lens' AccessConfiguration (Prelude.Maybe AccessType)
 accessConfiguration_accessType = Lens.lens (\AccessConfiguration' {accessType} -> accessType) (\s@AccessConfiguration' {} a -> s {accessType = a} :: AccessConfiguration)
 
+-- | AWS Secrets Manager access token configuration parameters.
+accessConfiguration_secretsManagerAccessTokenConfiguration :: Lens.Lens' AccessConfiguration (Prelude.Maybe SecretsManagerAccessTokenConfiguration)
+accessConfiguration_secretsManagerAccessTokenConfiguration = Lens.lens (\AccessConfiguration' {secretsManagerAccessTokenConfiguration} -> secretsManagerAccessTokenConfiguration) (\s@AccessConfiguration' {} a -> s {secretsManagerAccessTokenConfiguration = a} :: AccessConfiguration)
+
 instance Data.FromJSON AccessConfiguration where
   parseJSON =
     Data.withObject
       "AccessConfiguration"
       ( \x ->
           AccessConfiguration'
-            Prelude.<$> (x Data..:? "SecretsManagerAccessTokenConfiguration")
-            Prelude.<*> (x Data..:? "AccessType")
+            Prelude.<$> (x Data..:? "AccessType")
+            Prelude.<*> ( x
+                            Data..:? "SecretsManagerAccessTokenConfiguration"
+                        )
       )
 
 instance Prelude.Hashable AccessConfiguration where
   hashWithSalt _salt AccessConfiguration' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` accessType
       `Prelude.hashWithSalt` secretsManagerAccessTokenConfiguration
-      `Prelude.hashWithSalt` accessType
 
 instance Prelude.NFData AccessConfiguration where
   rnf AccessConfiguration' {..} =
-    Prelude.rnf secretsManagerAccessTokenConfiguration
-      `Prelude.seq` Prelude.rnf accessType
+    Prelude.rnf accessType
+      `Prelude.seq` Prelude.rnf secretsManagerAccessTokenConfiguration
 
 instance Data.ToJSON AccessConfiguration where
   toJSON AccessConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SecretsManagerAccessTokenConfiguration" Data..=)
-              Prelude.<$> secretsManagerAccessTokenConfiguration,
-            ("AccessType" Data..=) Prelude.<$> accessType
+          [ ("AccessType" Data..=) Prelude.<$> accessType,
+            ("SecretsManagerAccessTokenConfiguration" Data..=)
+              Prelude.<$> secretsManagerAccessTokenConfiguration
           ]
       )

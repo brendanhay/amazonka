@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGroup' smart constructor.
 data Group = Group'
-  { -- | The principal ID of the group.
-    principalId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for the group.
+  { -- | The Amazon Resource Name (ARN) for the group.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The group description.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the group.
     groupName :: Prelude.Maybe Prelude.Text,
-    -- | The group description.
-    description :: Prelude.Maybe Prelude.Text
+    -- | The principal ID of the group.
+    principalId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,38 +48,38 @@ data Group = Group'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'principalId', 'group_principalId' - The principal ID of the group.
---
 -- 'arn', 'group_arn' - The Amazon Resource Name (ARN) for the group.
+--
+-- 'description', 'group_description' - The group description.
 --
 -- 'groupName', 'group_groupName' - The name of the group.
 --
--- 'description', 'group_description' - The group description.
+-- 'principalId', 'group_principalId' - The principal ID of the group.
 newGroup ::
   Group
 newGroup =
   Group'
-    { principalId = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      description = Prelude.Nothing,
       groupName = Prelude.Nothing,
-      description = Prelude.Nothing
+      principalId = Prelude.Nothing
     }
-
--- | The principal ID of the group.
-group_principalId :: Lens.Lens' Group (Prelude.Maybe Prelude.Text)
-group_principalId = Lens.lens (\Group' {principalId} -> principalId) (\s@Group' {} a -> s {principalId = a} :: Group)
 
 -- | The Amazon Resource Name (ARN) for the group.
 group_arn :: Lens.Lens' Group (Prelude.Maybe Prelude.Text)
 group_arn = Lens.lens (\Group' {arn} -> arn) (\s@Group' {} a -> s {arn = a} :: Group)
 
+-- | The group description.
+group_description :: Lens.Lens' Group (Prelude.Maybe Prelude.Text)
+group_description = Lens.lens (\Group' {description} -> description) (\s@Group' {} a -> s {description = a} :: Group)
+
 -- | The name of the group.
 group_groupName :: Lens.Lens' Group (Prelude.Maybe Prelude.Text)
 group_groupName = Lens.lens (\Group' {groupName} -> groupName) (\s@Group' {} a -> s {groupName = a} :: Group)
 
--- | The group description.
-group_description :: Lens.Lens' Group (Prelude.Maybe Prelude.Text)
-group_description = Lens.lens (\Group' {description} -> description) (\s@Group' {} a -> s {description = a} :: Group)
+-- | The principal ID of the group.
+group_principalId :: Lens.Lens' Group (Prelude.Maybe Prelude.Text)
+group_principalId = Lens.lens (\Group' {principalId} -> principalId) (\s@Group' {} a -> s {principalId = a} :: Group)
 
 instance Data.FromJSON Group where
   parseJSON =
@@ -87,22 +87,22 @@ instance Data.FromJSON Group where
       "Group"
       ( \x ->
           Group'
-            Prelude.<$> (x Data..:? "PrincipalId")
-            Prelude.<*> (x Data..:? "Arn")
-            Prelude.<*> (x Data..:? "GroupName")
+            Prelude.<$> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "GroupName")
+            Prelude.<*> (x Data..:? "PrincipalId")
       )
 
 instance Prelude.Hashable Group where
   hashWithSalt _salt Group' {..} =
-    _salt `Prelude.hashWithSalt` principalId
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` groupName
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` principalId
 
 instance Prelude.NFData Group where
   rnf Group' {..} =
-    Prelude.rnf principalId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf groupName
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf principalId

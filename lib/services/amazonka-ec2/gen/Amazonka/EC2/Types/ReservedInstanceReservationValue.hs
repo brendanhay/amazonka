@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newReservedInstanceReservationValue' smart constructor.
 data ReservedInstanceReservationValue = ReservedInstanceReservationValue'
-  { -- | The ID of the Convertible Reserved Instance that you are exchanging.
-    reservedInstanceId :: Prelude.Maybe Prelude.Text,
-    -- | The total value of the Convertible Reserved Instance that you are
+  { -- | The total value of the Convertible Reserved Instance that you are
     -- exchanging.
-    reservationValue :: Prelude.Maybe ReservationValue
+    reservationValue :: Prelude.Maybe ReservationValue,
+    -- | The ID of the Convertible Reserved Instance that you are exchanging.
+    reservedInstanceId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,27 +46,27 @@ data ReservedInstanceReservationValue = ReservedInstanceReservationValue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'reservedInstanceId', 'reservedInstanceReservationValue_reservedInstanceId' - The ID of the Convertible Reserved Instance that you are exchanging.
---
 -- 'reservationValue', 'reservedInstanceReservationValue_reservationValue' - The total value of the Convertible Reserved Instance that you are
 -- exchanging.
+--
+-- 'reservedInstanceId', 'reservedInstanceReservationValue_reservedInstanceId' - The ID of the Convertible Reserved Instance that you are exchanging.
 newReservedInstanceReservationValue ::
   ReservedInstanceReservationValue
 newReservedInstanceReservationValue =
   ReservedInstanceReservationValue'
-    { reservedInstanceId =
+    { reservationValue =
         Prelude.Nothing,
-      reservationValue = Prelude.Nothing
+      reservedInstanceId = Prelude.Nothing
     }
-
--- | The ID of the Convertible Reserved Instance that you are exchanging.
-reservedInstanceReservationValue_reservedInstanceId :: Lens.Lens' ReservedInstanceReservationValue (Prelude.Maybe Prelude.Text)
-reservedInstanceReservationValue_reservedInstanceId = Lens.lens (\ReservedInstanceReservationValue' {reservedInstanceId} -> reservedInstanceId) (\s@ReservedInstanceReservationValue' {} a -> s {reservedInstanceId = a} :: ReservedInstanceReservationValue)
 
 -- | The total value of the Convertible Reserved Instance that you are
 -- exchanging.
 reservedInstanceReservationValue_reservationValue :: Lens.Lens' ReservedInstanceReservationValue (Prelude.Maybe ReservationValue)
 reservedInstanceReservationValue_reservationValue = Lens.lens (\ReservedInstanceReservationValue' {reservationValue} -> reservationValue) (\s@ReservedInstanceReservationValue' {} a -> s {reservationValue = a} :: ReservedInstanceReservationValue)
+
+-- | The ID of the Convertible Reserved Instance that you are exchanging.
+reservedInstanceReservationValue_reservedInstanceId :: Lens.Lens' ReservedInstanceReservationValue (Prelude.Maybe Prelude.Text)
+reservedInstanceReservationValue_reservedInstanceId = Lens.lens (\ReservedInstanceReservationValue' {reservedInstanceId} -> reservedInstanceId) (\s@ReservedInstanceReservationValue' {} a -> s {reservedInstanceId = a} :: ReservedInstanceReservationValue)
 
 instance
   Data.FromXML
@@ -74,8 +74,8 @@ instance
   where
   parseXML x =
     ReservedInstanceReservationValue'
-      Prelude.<$> (x Data..@? "reservedInstanceId")
-      Prelude.<*> (x Data..@? "reservationValue")
+      Prelude.<$> (x Data..@? "reservationValue")
+      Prelude.<*> (x Data..@? "reservedInstanceId")
 
 instance
   Prelude.Hashable
@@ -84,13 +84,13 @@ instance
   hashWithSalt
     _salt
     ReservedInstanceReservationValue' {..} =
-      _salt `Prelude.hashWithSalt` reservedInstanceId
-        `Prelude.hashWithSalt` reservationValue
+      _salt `Prelude.hashWithSalt` reservationValue
+        `Prelude.hashWithSalt` reservedInstanceId
 
 instance
   Prelude.NFData
     ReservedInstanceReservationValue
   where
   rnf ReservedInstanceReservationValue' {..} =
-    Prelude.rnf reservedInstanceId
-      `Prelude.seq` Prelude.rnf reservationValue
+    Prelude.rnf reservationValue
+      `Prelude.seq` Prelude.rnf reservedInstanceId

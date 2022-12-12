@@ -38,8 +38,8 @@ module Amazonka.Transcribe.ListTagsForResource
     newListTagsForResourceResponse,
 
     -- * Response Lenses
-    listTagsForResourceResponse_tags,
     listTagsForResourceResponse_resourceArn,
+    listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
   )
 where
@@ -59,7 +59,7 @@ data ListTagsForResource = ListTagsForResource'
     -- @arn:partition:service:region:account-id:resource-type\/resource-id@.
     --
     -- For example,
-    -- @arn:aws:transcribe:us-west-2:account-id:transcription-job\/transcription-job-name@.
+    -- @arn:aws:transcribe:us-west-2:111122223333:transcription-job\/transcription-job-name@.
     --
     -- Valid values for @resource-type@ are: @transcription-job@,
     -- @medical-transcription-job@, @vocabulary@, @medical-vocabulary@,
@@ -81,7 +81,7 @@ data ListTagsForResource = ListTagsForResource'
 -- @arn:partition:service:region:account-id:resource-type\/resource-id@.
 --
 -- For example,
--- @arn:aws:transcribe:us-west-2:account-id:transcription-job\/transcription-job-name@.
+-- @arn:aws:transcribe:us-west-2:111122223333:transcription-job\/transcription-job-name@.
 --
 -- Valid values for @resource-type@ are: @transcription-job@,
 -- @medical-transcription-job@, @vocabulary@, @medical-vocabulary@,
@@ -98,7 +98,7 @@ newListTagsForResource pResourceArn_ =
 -- @arn:partition:service:region:account-id:resource-type\/resource-id@.
 --
 -- For example,
--- @arn:aws:transcribe:us-west-2:account-id:transcription-job\/transcription-job-name@.
+-- @arn:aws:transcribe:us-west-2:111122223333:transcription-job\/transcription-job-name@.
 --
 -- Valid values for @resource-type@ are: @transcription-job@,
 -- @medical-transcription-job@, @vocabulary@, @medical-vocabulary@,
@@ -116,8 +116,8 @@ instance Core.AWSRequest ListTagsForResource where
     Response.receiveJSON
       ( \s h x ->
           ListTagsForResourceResponse'
-            Prelude.<$> (x Data..?> "Tags")
-            Prelude.<*> (x Data..?> "ResourceArn")
+            Prelude.<$> (x Data..?> "ResourceArn")
+            Prelude.<*> (x Data..?> "Tags")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,11 +159,11 @@ instance Data.ToQuery ListTagsForResource where
 
 -- | /See:/ 'newListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-  { -- | Lists all tags associated with the given transcription job, vocabulary,
+  { -- | The Amazon Resource Name (ARN) specified in your request.
+    resourceArn :: Prelude.Maybe Prelude.Text,
+    -- | Lists all tags associated with the given transcription job, vocabulary,
     -- model, or resource.
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | The Amazon Resource Name (ARN) specified in your request.
-    resourceArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -177,10 +177,10 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'resourceArn', 'listTagsForResourceResponse_resourceArn' - The Amazon Resource Name (ARN) specified in your request.
+--
 -- 'tags', 'listTagsForResourceResponse_tags' - Lists all tags associated with the given transcription job, vocabulary,
 -- model, or resource.
---
--- 'resourceArn', 'listTagsForResourceResponse_resourceArn' - The Amazon Resource Name (ARN) specified in your request.
 --
 -- 'httpStatus', 'listTagsForResourceResponse_httpStatus' - The response's http status code.
 newListTagsForResourceResponse ::
@@ -189,20 +189,20 @@ newListTagsForResourceResponse ::
   ListTagsForResourceResponse
 newListTagsForResourceResponse pHttpStatus_ =
   ListTagsForResourceResponse'
-    { tags =
+    { resourceArn =
         Prelude.Nothing,
-      resourceArn = Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Amazon Resource Name (ARN) specified in your request.
+listTagsForResourceResponse_resourceArn :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe Prelude.Text)
+listTagsForResourceResponse_resourceArn = Lens.lens (\ListTagsForResourceResponse' {resourceArn} -> resourceArn) (\s@ListTagsForResourceResponse' {} a -> s {resourceArn = a} :: ListTagsForResourceResponse)
 
 -- | Lists all tags associated with the given transcription job, vocabulary,
 -- model, or resource.
 listTagsForResourceResponse_tags :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe (Prelude.NonEmpty Tag))
 listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tags} -> tags) (\s@ListTagsForResourceResponse' {} a -> s {tags = a} :: ListTagsForResourceResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The Amazon Resource Name (ARN) specified in your request.
-listTagsForResourceResponse_resourceArn :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe Prelude.Text)
-listTagsForResourceResponse_resourceArn = Lens.lens (\ListTagsForResourceResponse' {resourceArn} -> resourceArn) (\s@ListTagsForResourceResponse' {} a -> s {resourceArn = a} :: ListTagsForResourceResponse)
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens.Lens' ListTagsForResourceResponse Prelude.Int
@@ -210,6 +210,6 @@ listTagsForResourceResponse_httpStatus = Lens.lens (\ListTagsForResourceResponse
 
 instance Prelude.NFData ListTagsForResourceResponse where
   rnf ListTagsForResourceResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

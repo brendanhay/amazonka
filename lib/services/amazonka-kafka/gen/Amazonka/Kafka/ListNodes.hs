@@ -29,8 +29,8 @@ module Amazonka.Kafka.ListNodes
     newListNodes,
 
     -- * Request Lenses
-    listNodes_nextToken,
     listNodes_maxResults,
+    listNodes_nextToken,
     listNodes_clusterArn,
 
     -- * Destructuring the Response
@@ -54,13 +54,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListNodes' smart constructor.
 data ListNodes = ListNodes'
-  { -- | The paginated results marker. When the result of the operation is
+  { -- | The maximum number of results to return in the response. If there are
+    -- more results, the response includes a NextToken parameter.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The paginated results marker. When the result of the operation is
     -- truncated, the call returns NextToken in the response. To get the next
     -- batch, provide this token in your next request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in the response. If there are
-    -- more results, the response includes a NextToken parameter.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) that uniquely identifies the cluster.
     clusterArn :: Prelude.Text
   }
@@ -74,12 +74,12 @@ data ListNodes = ListNodes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listNodes_maxResults' - The maximum number of results to return in the response. If there are
+-- more results, the response includes a NextToken parameter.
+--
 -- 'nextToken', 'listNodes_nextToken' - The paginated results marker. When the result of the operation is
 -- truncated, the call returns NextToken in the response. To get the next
 -- batch, provide this token in your next request.
---
--- 'maxResults', 'listNodes_maxResults' - The maximum number of results to return in the response. If there are
--- more results, the response includes a NextToken parameter.
 --
 -- 'clusterArn', 'listNodes_clusterArn' - The Amazon Resource Name (ARN) that uniquely identifies the cluster.
 newListNodes ::
@@ -88,21 +88,21 @@ newListNodes ::
   ListNodes
 newListNodes pClusterArn_ =
   ListNodes'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       clusterArn = pClusterArn_
     }
+
+-- | The maximum number of results to return in the response. If there are
+-- more results, the response includes a NextToken parameter.
+listNodes_maxResults :: Lens.Lens' ListNodes (Prelude.Maybe Prelude.Natural)
+listNodes_maxResults = Lens.lens (\ListNodes' {maxResults} -> maxResults) (\s@ListNodes' {} a -> s {maxResults = a} :: ListNodes)
 
 -- | The paginated results marker. When the result of the operation is
 -- truncated, the call returns NextToken in the response. To get the next
 -- batch, provide this token in your next request.
 listNodes_nextToken :: Lens.Lens' ListNodes (Prelude.Maybe Prelude.Text)
 listNodes_nextToken = Lens.lens (\ListNodes' {nextToken} -> nextToken) (\s@ListNodes' {} a -> s {nextToken = a} :: ListNodes)
-
--- | The maximum number of results to return in the response. If there are
--- more results, the response includes a NextToken parameter.
-listNodes_maxResults :: Lens.Lens' ListNodes (Prelude.Maybe Prelude.Natural)
-listNodes_maxResults = Lens.lens (\ListNodes' {maxResults} -> maxResults) (\s@ListNodes' {} a -> s {maxResults = a} :: ListNodes)
 
 -- | The Amazon Resource Name (ARN) that uniquely identifies the cluster.
 listNodes_clusterArn :: Lens.Lens' ListNodes Prelude.Text
@@ -142,14 +142,14 @@ instance Core.AWSRequest ListNodes where
 
 instance Prelude.Hashable ListNodes where
   hashWithSalt _salt ListNodes' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` clusterArn
 
 instance Prelude.NFData ListNodes where
   rnf ListNodes' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf clusterArn
 
 instance Data.ToHeaders ListNodes where
@@ -171,8 +171,8 @@ instance Data.ToPath ListNodes where
 instance Data.ToQuery ListNodes where
   toQuery ListNodes' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListNodesResponse' smart constructor.

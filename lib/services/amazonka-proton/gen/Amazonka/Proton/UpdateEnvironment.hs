@@ -93,15 +93,15 @@ module Amazonka.Proton.UpdateEnvironment
     newUpdateEnvironment,
 
     -- * Request Lenses
-    updateEnvironment_templateMajorVersion,
     updateEnvironment_codebuildRoleArn,
-    updateEnvironment_provisioningRepository,
-    updateEnvironment_description,
-    updateEnvironment_templateMinorVersion,
-    updateEnvironment_spec,
-    updateEnvironment_protonServiceRoleArn,
     updateEnvironment_componentRoleArn,
+    updateEnvironment_description,
     updateEnvironment_environmentAccountConnectionId,
+    updateEnvironment_protonServiceRoleArn,
+    updateEnvironment_provisioningRepository,
+    updateEnvironment_spec,
+    updateEnvironment_templateMajorVersion,
+    updateEnvironment_templateMinorVersion,
     updateEnvironment_deploymentType,
     updateEnvironment_name,
 
@@ -125,26 +125,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateEnvironment' smart constructor.
 data UpdateEnvironment = UpdateEnvironment'
-  { -- | The major version of the environment to update.
-    templateMajorVersion :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the IAM service role that allows
+  { -- | The Amazon Resource Name (ARN) of the IAM service role that allows
     -- Proton to provision infrastructure using CodeBuild-based provisioning on
     -- your behalf.
     codebuildRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | The linked repository that you use to host your rendered infrastructure
-    -- templates for self-managed provisioning. A linked repository is a
-    -- repository that has been registered with Proton. For more information,
-    -- see CreateRepository.
-    provisioningRepository :: Prelude.Maybe RepositoryBranchInput,
-    -- | A description of the environment update.
-    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The minor version of the environment to update.
-    templateMinorVersion :: Prelude.Maybe Prelude.Text,
-    -- | The formatted specification that defines the update.
-    spec :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The Amazon Resource Name (ARN) of the Proton service role that allows
-    -- Proton to make API calls to other services your behalf.
-    protonServiceRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM service role that Proton uses
     -- when provisioning directly defined components in this environment. It
     -- determines the scope of infrastructure that a component can provision.
@@ -156,6 +140,8 @@ data UpdateEnvironment = UpdateEnvironment'
     -- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
     -- in the /Proton User Guide/.
     componentRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | A description of the environment update.
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the environment account connection.
     --
     -- You can only update to a new environment account connection if it was
@@ -163,6 +149,20 @@ data UpdateEnvironment = UpdateEnvironment'
     -- account connection was created in and is associated with the current
     -- environment.
     environmentAccountConnectionId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the Proton service role that allows
+    -- Proton to make API calls to other services your behalf.
+    protonServiceRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | The linked repository that you use to host your rendered infrastructure
+    -- templates for self-managed provisioning. A linked repository is a
+    -- repository that has been registered with Proton. For more information,
+    -- see CreateRepository.
+    provisioningRepository :: Prelude.Maybe RepositoryBranchInput,
+    -- | The formatted specification that defines the update.
+    spec :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The major version of the environment to update.
+    templateMajorVersion :: Prelude.Maybe Prelude.Text,
+    -- | The minor version of the environment to update.
+    templateMinorVersion :: Prelude.Maybe Prelude.Text,
     -- | There are four modes for updating an environment. The @deploymentType@
     -- field defines the mode.
     --
@@ -210,25 +210,9 @@ data UpdateEnvironment = UpdateEnvironment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'templateMajorVersion', 'updateEnvironment_templateMajorVersion' - The major version of the environment to update.
---
 -- 'codebuildRoleArn', 'updateEnvironment_codebuildRoleArn' - The Amazon Resource Name (ARN) of the IAM service role that allows
 -- Proton to provision infrastructure using CodeBuild-based provisioning on
 -- your behalf.
---
--- 'provisioningRepository', 'updateEnvironment_provisioningRepository' - The linked repository that you use to host your rendered infrastructure
--- templates for self-managed provisioning. A linked repository is a
--- repository that has been registered with Proton. For more information,
--- see CreateRepository.
---
--- 'description', 'updateEnvironment_description' - A description of the environment update.
---
--- 'templateMinorVersion', 'updateEnvironment_templateMinorVersion' - The minor version of the environment to update.
---
--- 'spec', 'updateEnvironment_spec' - The formatted specification that defines the update.
---
--- 'protonServiceRoleArn', 'updateEnvironment_protonServiceRoleArn' - The Amazon Resource Name (ARN) of the Proton service role that allows
--- Proton to make API calls to other services your behalf.
 --
 -- 'componentRoleArn', 'updateEnvironment_componentRoleArn' - The Amazon Resource Name (ARN) of the IAM service role that Proton uses
 -- when provisioning directly defined components in this environment. It
@@ -241,12 +225,28 @@ data UpdateEnvironment = UpdateEnvironment'
 -- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
 -- in the /Proton User Guide/.
 --
+-- 'description', 'updateEnvironment_description' - A description of the environment update.
+--
 -- 'environmentAccountConnectionId', 'updateEnvironment_environmentAccountConnectionId' - The ID of the environment account connection.
 --
 -- You can only update to a new environment account connection if it was
 -- created in the same environment account that the current environment
 -- account connection was created in and is associated with the current
 -- environment.
+--
+-- 'protonServiceRoleArn', 'updateEnvironment_protonServiceRoleArn' - The Amazon Resource Name (ARN) of the Proton service role that allows
+-- Proton to make API calls to other services your behalf.
+--
+-- 'provisioningRepository', 'updateEnvironment_provisioningRepository' - The linked repository that you use to host your rendered infrastructure
+-- templates for self-managed provisioning. A linked repository is a
+-- repository that has been registered with Proton. For more information,
+-- see CreateRepository.
+--
+-- 'spec', 'updateEnvironment_spec' - The formatted specification that defines the update.
+--
+-- 'templateMajorVersion', 'updateEnvironment_templateMajorVersion' - The major version of the environment to update.
+--
+-- 'templateMinorVersion', 'updateEnvironment_templateMinorVersion' - The minor version of the environment to update.
 --
 -- 'deploymentType', 'updateEnvironment_deploymentType' - There are four modes for updating an environment. The @deploymentType@
 -- field defines the mode.
@@ -291,53 +291,25 @@ newUpdateEnvironment ::
   UpdateEnvironment
 newUpdateEnvironment pDeploymentType_ pName_ =
   UpdateEnvironment'
-    { templateMajorVersion =
+    { codebuildRoleArn =
         Prelude.Nothing,
-      codebuildRoleArn = Prelude.Nothing,
-      provisioningRepository = Prelude.Nothing,
-      description = Prelude.Nothing,
-      templateMinorVersion = Prelude.Nothing,
-      spec = Prelude.Nothing,
-      protonServiceRoleArn = Prelude.Nothing,
       componentRoleArn = Prelude.Nothing,
+      description = Prelude.Nothing,
       environmentAccountConnectionId = Prelude.Nothing,
+      protonServiceRoleArn = Prelude.Nothing,
+      provisioningRepository = Prelude.Nothing,
+      spec = Prelude.Nothing,
+      templateMajorVersion = Prelude.Nothing,
+      templateMinorVersion = Prelude.Nothing,
       deploymentType = pDeploymentType_,
       name = pName_
     }
-
--- | The major version of the environment to update.
-updateEnvironment_templateMajorVersion :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
-updateEnvironment_templateMajorVersion = Lens.lens (\UpdateEnvironment' {templateMajorVersion} -> templateMajorVersion) (\s@UpdateEnvironment' {} a -> s {templateMajorVersion = a} :: UpdateEnvironment)
 
 -- | The Amazon Resource Name (ARN) of the IAM service role that allows
 -- Proton to provision infrastructure using CodeBuild-based provisioning on
 -- your behalf.
 updateEnvironment_codebuildRoleArn :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
 updateEnvironment_codebuildRoleArn = Lens.lens (\UpdateEnvironment' {codebuildRoleArn} -> codebuildRoleArn) (\s@UpdateEnvironment' {} a -> s {codebuildRoleArn = a} :: UpdateEnvironment)
-
--- | The linked repository that you use to host your rendered infrastructure
--- templates for self-managed provisioning. A linked repository is a
--- repository that has been registered with Proton. For more information,
--- see CreateRepository.
-updateEnvironment_provisioningRepository :: Lens.Lens' UpdateEnvironment (Prelude.Maybe RepositoryBranchInput)
-updateEnvironment_provisioningRepository = Lens.lens (\UpdateEnvironment' {provisioningRepository} -> provisioningRepository) (\s@UpdateEnvironment' {} a -> s {provisioningRepository = a} :: UpdateEnvironment)
-
--- | A description of the environment update.
-updateEnvironment_description :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
-updateEnvironment_description = Lens.lens (\UpdateEnvironment' {description} -> description) (\s@UpdateEnvironment' {} a -> s {description = a} :: UpdateEnvironment) Prelude.. Lens.mapping Data._Sensitive
-
--- | The minor version of the environment to update.
-updateEnvironment_templateMinorVersion :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
-updateEnvironment_templateMinorVersion = Lens.lens (\UpdateEnvironment' {templateMinorVersion} -> templateMinorVersion) (\s@UpdateEnvironment' {} a -> s {templateMinorVersion = a} :: UpdateEnvironment)
-
--- | The formatted specification that defines the update.
-updateEnvironment_spec :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
-updateEnvironment_spec = Lens.lens (\UpdateEnvironment' {spec} -> spec) (\s@UpdateEnvironment' {} a -> s {spec = a} :: UpdateEnvironment) Prelude.. Lens.mapping Data._Sensitive
-
--- | The Amazon Resource Name (ARN) of the Proton service role that allows
--- Proton to make API calls to other services your behalf.
-updateEnvironment_protonServiceRoleArn :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
-updateEnvironment_protonServiceRoleArn = Lens.lens (\UpdateEnvironment' {protonServiceRoleArn} -> protonServiceRoleArn) (\s@UpdateEnvironment' {} a -> s {protonServiceRoleArn = a} :: UpdateEnvironment)
 
 -- | The Amazon Resource Name (ARN) of the IAM service role that Proton uses
 -- when provisioning directly defined components in this environment. It
@@ -352,6 +324,10 @@ updateEnvironment_protonServiceRoleArn = Lens.lens (\UpdateEnvironment' {protonS
 updateEnvironment_componentRoleArn :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
 updateEnvironment_componentRoleArn = Lens.lens (\UpdateEnvironment' {componentRoleArn} -> componentRoleArn) (\s@UpdateEnvironment' {} a -> s {componentRoleArn = a} :: UpdateEnvironment)
 
+-- | A description of the environment update.
+updateEnvironment_description :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
+updateEnvironment_description = Lens.lens (\UpdateEnvironment' {description} -> description) (\s@UpdateEnvironment' {} a -> s {description = a} :: UpdateEnvironment) Prelude.. Lens.mapping Data._Sensitive
+
 -- | The ID of the environment account connection.
 --
 -- You can only update to a new environment account connection if it was
@@ -360,6 +336,30 @@ updateEnvironment_componentRoleArn = Lens.lens (\UpdateEnvironment' {componentRo
 -- environment.
 updateEnvironment_environmentAccountConnectionId :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
 updateEnvironment_environmentAccountConnectionId = Lens.lens (\UpdateEnvironment' {environmentAccountConnectionId} -> environmentAccountConnectionId) (\s@UpdateEnvironment' {} a -> s {environmentAccountConnectionId = a} :: UpdateEnvironment)
+
+-- | The Amazon Resource Name (ARN) of the Proton service role that allows
+-- Proton to make API calls to other services your behalf.
+updateEnvironment_protonServiceRoleArn :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
+updateEnvironment_protonServiceRoleArn = Lens.lens (\UpdateEnvironment' {protonServiceRoleArn} -> protonServiceRoleArn) (\s@UpdateEnvironment' {} a -> s {protonServiceRoleArn = a} :: UpdateEnvironment)
+
+-- | The linked repository that you use to host your rendered infrastructure
+-- templates for self-managed provisioning. A linked repository is a
+-- repository that has been registered with Proton. For more information,
+-- see CreateRepository.
+updateEnvironment_provisioningRepository :: Lens.Lens' UpdateEnvironment (Prelude.Maybe RepositoryBranchInput)
+updateEnvironment_provisioningRepository = Lens.lens (\UpdateEnvironment' {provisioningRepository} -> provisioningRepository) (\s@UpdateEnvironment' {} a -> s {provisioningRepository = a} :: UpdateEnvironment)
+
+-- | The formatted specification that defines the update.
+updateEnvironment_spec :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
+updateEnvironment_spec = Lens.lens (\UpdateEnvironment' {spec} -> spec) (\s@UpdateEnvironment' {} a -> s {spec = a} :: UpdateEnvironment) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The major version of the environment to update.
+updateEnvironment_templateMajorVersion :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
+updateEnvironment_templateMajorVersion = Lens.lens (\UpdateEnvironment' {templateMajorVersion} -> templateMajorVersion) (\s@UpdateEnvironment' {} a -> s {templateMajorVersion = a} :: UpdateEnvironment)
+
+-- | The minor version of the environment to update.
+updateEnvironment_templateMinorVersion :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
+updateEnvironment_templateMinorVersion = Lens.lens (\UpdateEnvironment' {templateMinorVersion} -> templateMinorVersion) (\s@UpdateEnvironment' {} a -> s {templateMinorVersion = a} :: UpdateEnvironment)
 
 -- | There are four modes for updating an environment. The @deploymentType@
 -- field defines the mode.
@@ -417,29 +417,29 @@ instance Core.AWSRequest UpdateEnvironment where
 
 instance Prelude.Hashable UpdateEnvironment where
   hashWithSalt _salt UpdateEnvironment' {..} =
-    _salt `Prelude.hashWithSalt` templateMajorVersion
-      `Prelude.hashWithSalt` codebuildRoleArn
-      `Prelude.hashWithSalt` provisioningRepository
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` templateMinorVersion
-      `Prelude.hashWithSalt` spec
-      `Prelude.hashWithSalt` protonServiceRoleArn
+    _salt `Prelude.hashWithSalt` codebuildRoleArn
       `Prelude.hashWithSalt` componentRoleArn
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` environmentAccountConnectionId
+      `Prelude.hashWithSalt` protonServiceRoleArn
+      `Prelude.hashWithSalt` provisioningRepository
+      `Prelude.hashWithSalt` spec
+      `Prelude.hashWithSalt` templateMajorVersion
+      `Prelude.hashWithSalt` templateMinorVersion
       `Prelude.hashWithSalt` deploymentType
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData UpdateEnvironment where
   rnf UpdateEnvironment' {..} =
-    Prelude.rnf templateMajorVersion
-      `Prelude.seq` Prelude.rnf codebuildRoleArn
-      `Prelude.seq` Prelude.rnf provisioningRepository
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf templateMinorVersion
-      `Prelude.seq` Prelude.rnf spec
-      `Prelude.seq` Prelude.rnf protonServiceRoleArn
+    Prelude.rnf codebuildRoleArn
       `Prelude.seq` Prelude.rnf componentRoleArn
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf environmentAccountConnectionId
+      `Prelude.seq` Prelude.rnf protonServiceRoleArn
+      `Prelude.seq` Prelude.rnf provisioningRepository
+      `Prelude.seq` Prelude.rnf spec
+      `Prelude.seq` Prelude.rnf templateMajorVersion
+      `Prelude.seq` Prelude.rnf templateMinorVersion
       `Prelude.seq` Prelude.rnf deploymentType
       `Prelude.seq` Prelude.rnf name
 
@@ -462,22 +462,22 @@ instance Data.ToJSON UpdateEnvironment where
   toJSON UpdateEnvironment' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("templateMajorVersion" Data..=)
-              Prelude.<$> templateMajorVersion,
-            ("codebuildRoleArn" Data..=)
+          [ ("codebuildRoleArn" Data..=)
               Prelude.<$> codebuildRoleArn,
-            ("provisioningRepository" Data..=)
-              Prelude.<$> provisioningRepository,
-            ("description" Data..=) Prelude.<$> description,
-            ("templateMinorVersion" Data..=)
-              Prelude.<$> templateMinorVersion,
-            ("spec" Data..=) Prelude.<$> spec,
-            ("protonServiceRoleArn" Data..=)
-              Prelude.<$> protonServiceRoleArn,
             ("componentRoleArn" Data..=)
               Prelude.<$> componentRoleArn,
+            ("description" Data..=) Prelude.<$> description,
             ("environmentAccountConnectionId" Data..=)
               Prelude.<$> environmentAccountConnectionId,
+            ("protonServiceRoleArn" Data..=)
+              Prelude.<$> protonServiceRoleArn,
+            ("provisioningRepository" Data..=)
+              Prelude.<$> provisioningRepository,
+            ("spec" Data..=) Prelude.<$> spec,
+            ("templateMajorVersion" Data..=)
+              Prelude.<$> templateMajorVersion,
+            ("templateMinorVersion" Data..=)
+              Prelude.<$> templateMinorVersion,
             Prelude.Just
               ("deploymentType" Data..= deploymentType),
             Prelude.Just ("name" Data..= name)

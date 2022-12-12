@@ -31,17 +31,17 @@ module Amazonka.ComputeOptimizer.GetEnrollmentStatusesForOrganization
     newGetEnrollmentStatusesForOrganization,
 
     -- * Request Lenses
-    getEnrollmentStatusesForOrganization_nextToken,
     getEnrollmentStatusesForOrganization_filters,
     getEnrollmentStatusesForOrganization_maxResults,
+    getEnrollmentStatusesForOrganization_nextToken,
 
     -- * Destructuring the Response
     GetEnrollmentStatusesForOrganizationResponse (..),
     newGetEnrollmentStatusesForOrganizationResponse,
 
     -- * Response Lenses
-    getEnrollmentStatusesForOrganizationResponse_nextToken,
     getEnrollmentStatusesForOrganizationResponse_accountEnrollmentStatuses,
+    getEnrollmentStatusesForOrganizationResponse_nextToken,
     getEnrollmentStatusesForOrganizationResponse_httpStatus,
   )
 where
@@ -56,9 +56,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetEnrollmentStatusesForOrganization' smart constructor.
 data GetEnrollmentStatusesForOrganization = GetEnrollmentStatusesForOrganization'
-  { -- | The token to advance to the next page of account enrollment statuses.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of objects to specify a filter that returns a more specific
+  { -- | An array of objects to specify a filter that returns a more specific
     -- list of account enrollment statuses.
     filters :: Prelude.Maybe [EnrollmentFilter],
     -- | The maximum number of account enrollment statuses to return with a
@@ -67,7 +65,9 @@ data GetEnrollmentStatusesForOrganization = GetEnrollmentStatusesForOrganization
     --
     -- To retrieve the remaining results, make another request with the
     -- returned @nextToken@ value.
-    maxResults :: Prelude.Maybe Prelude.Int
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The token to advance to the next page of account enrollment statuses.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,8 +79,6 @@ data GetEnrollmentStatusesForOrganization = GetEnrollmentStatusesForOrganization
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getEnrollmentStatusesForOrganization_nextToken' - The token to advance to the next page of account enrollment statuses.
---
 -- 'filters', 'getEnrollmentStatusesForOrganization_filters' - An array of objects to specify a filter that returns a more specific
 -- list of account enrollment statuses.
 --
@@ -90,19 +88,17 @@ data GetEnrollmentStatusesForOrganization = GetEnrollmentStatusesForOrganization
 --
 -- To retrieve the remaining results, make another request with the
 -- returned @nextToken@ value.
+--
+-- 'nextToken', 'getEnrollmentStatusesForOrganization_nextToken' - The token to advance to the next page of account enrollment statuses.
 newGetEnrollmentStatusesForOrganization ::
   GetEnrollmentStatusesForOrganization
 newGetEnrollmentStatusesForOrganization =
   GetEnrollmentStatusesForOrganization'
-    { nextToken =
+    { filters =
         Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token to advance to the next page of account enrollment statuses.
-getEnrollmentStatusesForOrganization_nextToken :: Lens.Lens' GetEnrollmentStatusesForOrganization (Prelude.Maybe Prelude.Text)
-getEnrollmentStatusesForOrganization_nextToken = Lens.lens (\GetEnrollmentStatusesForOrganization' {nextToken} -> nextToken) (\s@GetEnrollmentStatusesForOrganization' {} a -> s {nextToken = a} :: GetEnrollmentStatusesForOrganization)
 
 -- | An array of objects to specify a filter that returns a more specific
 -- list of account enrollment statuses.
@@ -118,6 +114,10 @@ getEnrollmentStatusesForOrganization_filters = Lens.lens (\GetEnrollmentStatuses
 getEnrollmentStatusesForOrganization_maxResults :: Lens.Lens' GetEnrollmentStatusesForOrganization (Prelude.Maybe Prelude.Int)
 getEnrollmentStatusesForOrganization_maxResults = Lens.lens (\GetEnrollmentStatusesForOrganization' {maxResults} -> maxResults) (\s@GetEnrollmentStatusesForOrganization' {} a -> s {maxResults = a} :: GetEnrollmentStatusesForOrganization)
 
+-- | The token to advance to the next page of account enrollment statuses.
+getEnrollmentStatusesForOrganization_nextToken :: Lens.Lens' GetEnrollmentStatusesForOrganization (Prelude.Maybe Prelude.Text)
+getEnrollmentStatusesForOrganization_nextToken = Lens.lens (\GetEnrollmentStatusesForOrganization' {nextToken} -> nextToken) (\s@GetEnrollmentStatusesForOrganization' {} a -> s {nextToken = a} :: GetEnrollmentStatusesForOrganization)
+
 instance
   Core.AWSRequest
     GetEnrollmentStatusesForOrganization
@@ -131,10 +131,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetEnrollmentStatusesForOrganizationResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-              Prelude.<*> ( x Data..?> "accountEnrollmentStatuses"
-                              Core..!@ Prelude.mempty
-                          )
+            Prelude.<$> ( x Data..?> "accountEnrollmentStatuses"
+                            Core..!@ Prelude.mempty
+                        )
+              Prelude.<*> (x Data..?> "nextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,18 +145,18 @@ instance
   hashWithSalt
     _salt
     GetEnrollmentStatusesForOrganization' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` filters
+      _salt `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     GetEnrollmentStatusesForOrganization
   where
   rnf GetEnrollmentStatusesForOrganization' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -183,9 +183,9 @@ instance
   toJSON GetEnrollmentStatusesForOrganization' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("filters" Data..=) Prelude.<$> filters,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("filters" Data..=) Prelude.<$> filters,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -203,15 +203,15 @@ instance
 
 -- | /See:/ 'newGetEnrollmentStatusesForOrganizationResponse' smart constructor.
 data GetEnrollmentStatusesForOrganizationResponse = GetEnrollmentStatusesForOrganizationResponse'
-  { -- | The token to use to advance to the next page of account enrollment
+  { -- | An array of objects that describe the enrollment statuses of
+    -- organization member accounts.
+    accountEnrollmentStatuses :: Prelude.Maybe [AccountEnrollmentStatus],
+    -- | The token to use to advance to the next page of account enrollment
     -- statuses.
     --
     -- This value is null when there are no more pages of account enrollment
     -- statuses to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of objects that describe the enrollment statuses of
-    -- organization member accounts.
-    accountEnrollmentStatuses :: Prelude.Maybe [AccountEnrollmentStatus],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -225,14 +225,14 @@ data GetEnrollmentStatusesForOrganizationResponse = GetEnrollmentStatusesForOrga
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'accountEnrollmentStatuses', 'getEnrollmentStatusesForOrganizationResponse_accountEnrollmentStatuses' - An array of objects that describe the enrollment statuses of
+-- organization member accounts.
+--
 -- 'nextToken', 'getEnrollmentStatusesForOrganizationResponse_nextToken' - The token to use to advance to the next page of account enrollment
 -- statuses.
 --
 -- This value is null when there are no more pages of account enrollment
 -- statuses to return.
---
--- 'accountEnrollmentStatuses', 'getEnrollmentStatusesForOrganizationResponse_accountEnrollmentStatuses' - An array of objects that describe the enrollment statuses of
--- organization member accounts.
 --
 -- 'httpStatus', 'getEnrollmentStatusesForOrganizationResponse_httpStatus' - The response's http status code.
 newGetEnrollmentStatusesForOrganizationResponse ::
@@ -242,12 +242,16 @@ newGetEnrollmentStatusesForOrganizationResponse ::
 newGetEnrollmentStatusesForOrganizationResponse
   pHttpStatus_ =
     GetEnrollmentStatusesForOrganizationResponse'
-      { nextToken =
+      { accountEnrollmentStatuses =
           Prelude.Nothing,
-        accountEnrollmentStatuses =
-          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | An array of objects that describe the enrollment statuses of
+-- organization member accounts.
+getEnrollmentStatusesForOrganizationResponse_accountEnrollmentStatuses :: Lens.Lens' GetEnrollmentStatusesForOrganizationResponse (Prelude.Maybe [AccountEnrollmentStatus])
+getEnrollmentStatusesForOrganizationResponse_accountEnrollmentStatuses = Lens.lens (\GetEnrollmentStatusesForOrganizationResponse' {accountEnrollmentStatuses} -> accountEnrollmentStatuses) (\s@GetEnrollmentStatusesForOrganizationResponse' {} a -> s {accountEnrollmentStatuses = a} :: GetEnrollmentStatusesForOrganizationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to advance to the next page of account enrollment
 -- statuses.
@@ -256,11 +260,6 @@ newGetEnrollmentStatusesForOrganizationResponse
 -- statuses to return.
 getEnrollmentStatusesForOrganizationResponse_nextToken :: Lens.Lens' GetEnrollmentStatusesForOrganizationResponse (Prelude.Maybe Prelude.Text)
 getEnrollmentStatusesForOrganizationResponse_nextToken = Lens.lens (\GetEnrollmentStatusesForOrganizationResponse' {nextToken} -> nextToken) (\s@GetEnrollmentStatusesForOrganizationResponse' {} a -> s {nextToken = a} :: GetEnrollmentStatusesForOrganizationResponse)
-
--- | An array of objects that describe the enrollment statuses of
--- organization member accounts.
-getEnrollmentStatusesForOrganizationResponse_accountEnrollmentStatuses :: Lens.Lens' GetEnrollmentStatusesForOrganizationResponse (Prelude.Maybe [AccountEnrollmentStatus])
-getEnrollmentStatusesForOrganizationResponse_accountEnrollmentStatuses = Lens.lens (\GetEnrollmentStatusesForOrganizationResponse' {accountEnrollmentStatuses} -> accountEnrollmentStatuses) (\s@GetEnrollmentStatusesForOrganizationResponse' {} a -> s {accountEnrollmentStatuses = a} :: GetEnrollmentStatusesForOrganizationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getEnrollmentStatusesForOrganizationResponse_httpStatus :: Lens.Lens' GetEnrollmentStatusesForOrganizationResponse Prelude.Int
@@ -271,6 +270,6 @@ instance
     GetEnrollmentStatusesForOrganizationResponse
   where
   rnf GetEnrollmentStatusesForOrganizationResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf accountEnrollmentStatuses
+    Prelude.rnf accountEnrollmentStatuses
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

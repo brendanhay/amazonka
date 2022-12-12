@@ -30,11 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- Configuration settings for intelligent automatic scaling that uses
 -- target tracking. These settings are used to add an Auto Scaling policy
--- when creating the corresponding Auto Scaling group with
--- CreateGameServerGroup. After the Auto Scaling group is created, all
--- updates to Auto Scaling policies, including changing this policy and
--- adding or removing other policies, is done directly on the Auto Scaling
--- group.
+-- when creating the corresponding Auto Scaling group. After the Auto
+-- Scaling group is created, all updates to Auto Scaling policies,
+-- including changing this policy and adding or removing other policies, is
+-- done directly on the Auto Scaling group.
 --
 -- /See:/ 'newGameServerGroupAutoScalingPolicy' smart constructor.
 data GameServerGroupAutoScalingPolicy = GameServerGroupAutoScalingPolicy'

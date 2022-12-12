@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newS3Location' smart constructor.
 data S3Location = S3Location'
-  { -- | The Amazon S3 bucket name where the source code files provided with the
+  { -- | The Amazon S3 object key where the source code files provided with the
     -- project request are stored.
-    bucketName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon S3 object key where the source code files provided with the
+    bucketKey :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon S3 bucket name where the source code files provided with the
     -- project request are stored.
-    bucketKey :: Prelude.Maybe Prelude.Text
+    bucketName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,44 +46,44 @@ data S3Location = S3Location'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'bucketName', 's3Location_bucketName' - The Amazon S3 bucket name where the source code files provided with the
+-- 'bucketKey', 's3Location_bucketKey' - The Amazon S3 object key where the source code files provided with the
 -- project request are stored.
 --
--- 'bucketKey', 's3Location_bucketKey' - The Amazon S3 object key where the source code files provided with the
+-- 'bucketName', 's3Location_bucketName' - The Amazon S3 bucket name where the source code files provided with the
 -- project request are stored.
 newS3Location ::
   S3Location
 newS3Location =
   S3Location'
-    { bucketName = Prelude.Nothing,
-      bucketKey = Prelude.Nothing
+    { bucketKey = Prelude.Nothing,
+      bucketName = Prelude.Nothing
     }
-
--- | The Amazon S3 bucket name where the source code files provided with the
--- project request are stored.
-s3Location_bucketName :: Lens.Lens' S3Location (Prelude.Maybe Prelude.Text)
-s3Location_bucketName = Lens.lens (\S3Location' {bucketName} -> bucketName) (\s@S3Location' {} a -> s {bucketName = a} :: S3Location)
 
 -- | The Amazon S3 object key where the source code files provided with the
 -- project request are stored.
 s3Location_bucketKey :: Lens.Lens' S3Location (Prelude.Maybe Prelude.Text)
 s3Location_bucketKey = Lens.lens (\S3Location' {bucketKey} -> bucketKey) (\s@S3Location' {} a -> s {bucketKey = a} :: S3Location)
 
+-- | The Amazon S3 bucket name where the source code files provided with the
+-- project request are stored.
+s3Location_bucketName :: Lens.Lens' S3Location (Prelude.Maybe Prelude.Text)
+s3Location_bucketName = Lens.lens (\S3Location' {bucketName} -> bucketName) (\s@S3Location' {} a -> s {bucketName = a} :: S3Location)
+
 instance Prelude.Hashable S3Location where
   hashWithSalt _salt S3Location' {..} =
-    _salt `Prelude.hashWithSalt` bucketName
-      `Prelude.hashWithSalt` bucketKey
+    _salt `Prelude.hashWithSalt` bucketKey
+      `Prelude.hashWithSalt` bucketName
 
 instance Prelude.NFData S3Location where
   rnf S3Location' {..} =
-    Prelude.rnf bucketName
-      `Prelude.seq` Prelude.rnf bucketKey
+    Prelude.rnf bucketKey
+      `Prelude.seq` Prelude.rnf bucketName
 
 instance Data.ToJSON S3Location where
   toJSON S3Location' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("bucketName" Data..=) Prelude.<$> bucketName,
-            ("bucketKey" Data..=) Prelude.<$> bucketKey
+          [ ("bucketKey" Data..=) Prelude.<$> bucketKey,
+            ("bucketName" Data..=) Prelude.<$> bucketName
           ]
       )

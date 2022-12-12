@@ -33,27 +33,27 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newImportSummary' smart constructor.
 data ImportSummary = ImportSummary'
-  { -- | The Amazon Resource Number (ARN) of the table being imported into.
-    tableArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Number (ARN) corresponding to the import request.
-    importArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Number (ARN) of the Cloudwatch Log Group associated
+  { -- | The Amazon Resource Number (ARN) of the Cloudwatch Log Group associated
     -- with this import task.
     cloudWatchLogGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The time at which this import task ended. (Does this include the
     -- successful complete creation of the table it was imported to?)
     endTime :: Prelude.Maybe Data.POSIX,
-    -- | The path and S3 bucket of the source file that is being imported. This
-    -- includes the S3Bucket (required), S3KeyPrefix (optional) and
-    -- S3BucketOwner (optional if the bucket is owned by the requester).
-    s3BucketSource :: Prelude.Maybe S3BucketSource,
+    -- | The Amazon Resource Number (ARN) corresponding to the import request.
+    importArn :: Prelude.Maybe Prelude.Text,
     -- | The status of the import operation.
     importStatus :: Prelude.Maybe ImportStatus,
     -- | The format of the source data. Valid values are @CSV@, @DYNAMODB_JSON@
     -- or @ION@.
     inputFormat :: Prelude.Maybe InputFormat,
+    -- | The path and S3 bucket of the source file that is being imported. This
+    -- includes the S3Bucket (required), S3KeyPrefix (optional) and
+    -- S3BucketOwner (optional if the bucket is owned by the requester).
+    s3BucketSource :: Prelude.Maybe S3BucketSource,
     -- | The time at which this import task began.
-    startTime :: Prelude.Maybe Data.POSIX
+    startTime :: Prelude.Maybe Data.POSIX,
+    -- | The Amazon Resource Number (ARN) of the table being imported into.
+    tableArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,47 +65,40 @@ data ImportSummary = ImportSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tableArn', 'importSummary_tableArn' - The Amazon Resource Number (ARN) of the table being imported into.
---
--- 'importArn', 'importSummary_importArn' - The Amazon Resource Number (ARN) corresponding to the import request.
---
 -- 'cloudWatchLogGroupArn', 'importSummary_cloudWatchLogGroupArn' - The Amazon Resource Number (ARN) of the Cloudwatch Log Group associated
 -- with this import task.
 --
 -- 'endTime', 'importSummary_endTime' - The time at which this import task ended. (Does this include the
 -- successful complete creation of the table it was imported to?)
 --
--- 's3BucketSource', 'importSummary_s3BucketSource' - The path and S3 bucket of the source file that is being imported. This
--- includes the S3Bucket (required), S3KeyPrefix (optional) and
--- S3BucketOwner (optional if the bucket is owned by the requester).
+-- 'importArn', 'importSummary_importArn' - The Amazon Resource Number (ARN) corresponding to the import request.
 --
 -- 'importStatus', 'importSummary_importStatus' - The status of the import operation.
 --
 -- 'inputFormat', 'importSummary_inputFormat' - The format of the source data. Valid values are @CSV@, @DYNAMODB_JSON@
 -- or @ION@.
 --
+-- 's3BucketSource', 'importSummary_s3BucketSource' - The path and S3 bucket of the source file that is being imported. This
+-- includes the S3Bucket (required), S3KeyPrefix (optional) and
+-- S3BucketOwner (optional if the bucket is owned by the requester).
+--
 -- 'startTime', 'importSummary_startTime' - The time at which this import task began.
+--
+-- 'tableArn', 'importSummary_tableArn' - The Amazon Resource Number (ARN) of the table being imported into.
 newImportSummary ::
   ImportSummary
 newImportSummary =
   ImportSummary'
-    { tableArn = Prelude.Nothing,
-      importArn = Prelude.Nothing,
-      cloudWatchLogGroupArn = Prelude.Nothing,
+    { cloudWatchLogGroupArn =
+        Prelude.Nothing,
       endTime = Prelude.Nothing,
-      s3BucketSource = Prelude.Nothing,
+      importArn = Prelude.Nothing,
       importStatus = Prelude.Nothing,
       inputFormat = Prelude.Nothing,
-      startTime = Prelude.Nothing
+      s3BucketSource = Prelude.Nothing,
+      startTime = Prelude.Nothing,
+      tableArn = Prelude.Nothing
     }
-
--- | The Amazon Resource Number (ARN) of the table being imported into.
-importSummary_tableArn :: Lens.Lens' ImportSummary (Prelude.Maybe Prelude.Text)
-importSummary_tableArn = Lens.lens (\ImportSummary' {tableArn} -> tableArn) (\s@ImportSummary' {} a -> s {tableArn = a} :: ImportSummary)
-
--- | The Amazon Resource Number (ARN) corresponding to the import request.
-importSummary_importArn :: Lens.Lens' ImportSummary (Prelude.Maybe Prelude.Text)
-importSummary_importArn = Lens.lens (\ImportSummary' {importArn} -> importArn) (\s@ImportSummary' {} a -> s {importArn = a} :: ImportSummary)
 
 -- | The Amazon Resource Number (ARN) of the Cloudwatch Log Group associated
 -- with this import task.
@@ -117,11 +110,9 @@ importSummary_cloudWatchLogGroupArn = Lens.lens (\ImportSummary' {cloudWatchLogG
 importSummary_endTime :: Lens.Lens' ImportSummary (Prelude.Maybe Prelude.UTCTime)
 importSummary_endTime = Lens.lens (\ImportSummary' {endTime} -> endTime) (\s@ImportSummary' {} a -> s {endTime = a} :: ImportSummary) Prelude.. Lens.mapping Data._Time
 
--- | The path and S3 bucket of the source file that is being imported. This
--- includes the S3Bucket (required), S3KeyPrefix (optional) and
--- S3BucketOwner (optional if the bucket is owned by the requester).
-importSummary_s3BucketSource :: Lens.Lens' ImportSummary (Prelude.Maybe S3BucketSource)
-importSummary_s3BucketSource = Lens.lens (\ImportSummary' {s3BucketSource} -> s3BucketSource) (\s@ImportSummary' {} a -> s {s3BucketSource = a} :: ImportSummary)
+-- | The Amazon Resource Number (ARN) corresponding to the import request.
+importSummary_importArn :: Lens.Lens' ImportSummary (Prelude.Maybe Prelude.Text)
+importSummary_importArn = Lens.lens (\ImportSummary' {importArn} -> importArn) (\s@ImportSummary' {} a -> s {importArn = a} :: ImportSummary)
 
 -- | The status of the import operation.
 importSummary_importStatus :: Lens.Lens' ImportSummary (Prelude.Maybe ImportStatus)
@@ -132,9 +123,19 @@ importSummary_importStatus = Lens.lens (\ImportSummary' {importStatus} -> import
 importSummary_inputFormat :: Lens.Lens' ImportSummary (Prelude.Maybe InputFormat)
 importSummary_inputFormat = Lens.lens (\ImportSummary' {inputFormat} -> inputFormat) (\s@ImportSummary' {} a -> s {inputFormat = a} :: ImportSummary)
 
+-- | The path and S3 bucket of the source file that is being imported. This
+-- includes the S3Bucket (required), S3KeyPrefix (optional) and
+-- S3BucketOwner (optional if the bucket is owned by the requester).
+importSummary_s3BucketSource :: Lens.Lens' ImportSummary (Prelude.Maybe S3BucketSource)
+importSummary_s3BucketSource = Lens.lens (\ImportSummary' {s3BucketSource} -> s3BucketSource) (\s@ImportSummary' {} a -> s {s3BucketSource = a} :: ImportSummary)
+
 -- | The time at which this import task began.
 importSummary_startTime :: Lens.Lens' ImportSummary (Prelude.Maybe Prelude.UTCTime)
 importSummary_startTime = Lens.lens (\ImportSummary' {startTime} -> startTime) (\s@ImportSummary' {} a -> s {startTime = a} :: ImportSummary) Prelude.. Lens.mapping Data._Time
+
+-- | The Amazon Resource Number (ARN) of the table being imported into.
+importSummary_tableArn :: Lens.Lens' ImportSummary (Prelude.Maybe Prelude.Text)
+importSummary_tableArn = Lens.lens (\ImportSummary' {tableArn} -> tableArn) (\s@ImportSummary' {} a -> s {tableArn = a} :: ImportSummary)
 
 instance Data.FromJSON ImportSummary where
   parseJSON =
@@ -142,34 +143,34 @@ instance Data.FromJSON ImportSummary where
       "ImportSummary"
       ( \x ->
           ImportSummary'
-            Prelude.<$> (x Data..:? "TableArn")
-            Prelude.<*> (x Data..:? "ImportArn")
-            Prelude.<*> (x Data..:? "CloudWatchLogGroupArn")
+            Prelude.<$> (x Data..:? "CloudWatchLogGroupArn")
             Prelude.<*> (x Data..:? "EndTime")
-            Prelude.<*> (x Data..:? "S3BucketSource")
+            Prelude.<*> (x Data..:? "ImportArn")
             Prelude.<*> (x Data..:? "ImportStatus")
             Prelude.<*> (x Data..:? "InputFormat")
+            Prelude.<*> (x Data..:? "S3BucketSource")
             Prelude.<*> (x Data..:? "StartTime")
+            Prelude.<*> (x Data..:? "TableArn")
       )
 
 instance Prelude.Hashable ImportSummary where
   hashWithSalt _salt ImportSummary' {..} =
-    _salt `Prelude.hashWithSalt` tableArn
-      `Prelude.hashWithSalt` importArn
-      `Prelude.hashWithSalt` cloudWatchLogGroupArn
+    _salt `Prelude.hashWithSalt` cloudWatchLogGroupArn
       `Prelude.hashWithSalt` endTime
-      `Prelude.hashWithSalt` s3BucketSource
+      `Prelude.hashWithSalt` importArn
       `Prelude.hashWithSalt` importStatus
       `Prelude.hashWithSalt` inputFormat
+      `Prelude.hashWithSalt` s3BucketSource
       `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` tableArn
 
 instance Prelude.NFData ImportSummary where
   rnf ImportSummary' {..} =
-    Prelude.rnf tableArn
-      `Prelude.seq` Prelude.rnf importArn
-      `Prelude.seq` Prelude.rnf cloudWatchLogGroupArn
+    Prelude.rnf cloudWatchLogGroupArn
       `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf s3BucketSource
+      `Prelude.seq` Prelude.rnf importArn
       `Prelude.seq` Prelude.rnf importStatus
       `Prelude.seq` Prelude.rnf inputFormat
+      `Prelude.seq` Prelude.rnf s3BucketSource
       `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf tableArn

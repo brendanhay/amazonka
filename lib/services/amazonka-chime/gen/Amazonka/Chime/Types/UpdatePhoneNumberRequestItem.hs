@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUpdatePhoneNumberRequestItem' smart constructor.
 data UpdatePhoneNumberRequestItem = UpdatePhoneNumberRequestItem'
-  { -- | The product type to update.
-    productType :: Prelude.Maybe PhoneNumberProductType,
-    -- | The outbound calling name to update.
+  { -- | The outbound calling name to update.
     callingName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The product type to update.
+    productType :: Prelude.Maybe PhoneNumberProductType,
     -- | The phone number ID to update.
     phoneNumberId :: Prelude.Text
   }
@@ -47,9 +47,9 @@ data UpdatePhoneNumberRequestItem = UpdatePhoneNumberRequestItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'productType', 'updatePhoneNumberRequestItem_productType' - The product type to update.
---
 -- 'callingName', 'updatePhoneNumberRequestItem_callingName' - The outbound calling name to update.
+--
+-- 'productType', 'updatePhoneNumberRequestItem_productType' - The product type to update.
 --
 -- 'phoneNumberId', 'updatePhoneNumberRequestItem_phoneNumberId' - The phone number ID to update.
 newUpdatePhoneNumberRequestItem ::
@@ -58,19 +58,19 @@ newUpdatePhoneNumberRequestItem ::
   UpdatePhoneNumberRequestItem
 newUpdatePhoneNumberRequestItem pPhoneNumberId_ =
   UpdatePhoneNumberRequestItem'
-    { productType =
+    { callingName =
         Prelude.Nothing,
-      callingName = Prelude.Nothing,
+      productType = Prelude.Nothing,
       phoneNumberId = pPhoneNumberId_
     }
-
--- | The product type to update.
-updatePhoneNumberRequestItem_productType :: Lens.Lens' UpdatePhoneNumberRequestItem (Prelude.Maybe PhoneNumberProductType)
-updatePhoneNumberRequestItem_productType = Lens.lens (\UpdatePhoneNumberRequestItem' {productType} -> productType) (\s@UpdatePhoneNumberRequestItem' {} a -> s {productType = a} :: UpdatePhoneNumberRequestItem)
 
 -- | The outbound calling name to update.
 updatePhoneNumberRequestItem_callingName :: Lens.Lens' UpdatePhoneNumberRequestItem (Prelude.Maybe Prelude.Text)
 updatePhoneNumberRequestItem_callingName = Lens.lens (\UpdatePhoneNumberRequestItem' {callingName} -> callingName) (\s@UpdatePhoneNumberRequestItem' {} a -> s {callingName = a} :: UpdatePhoneNumberRequestItem) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The product type to update.
+updatePhoneNumberRequestItem_productType :: Lens.Lens' UpdatePhoneNumberRequestItem (Prelude.Maybe PhoneNumberProductType)
+updatePhoneNumberRequestItem_productType = Lens.lens (\UpdatePhoneNumberRequestItem' {productType} -> productType) (\s@UpdatePhoneNumberRequestItem' {} a -> s {productType = a} :: UpdatePhoneNumberRequestItem)
 
 -- | The phone number ID to update.
 updatePhoneNumberRequestItem_phoneNumberId :: Lens.Lens' UpdatePhoneNumberRequestItem Prelude.Text
@@ -81,22 +81,22 @@ instance
     UpdatePhoneNumberRequestItem
   where
   hashWithSalt _salt UpdatePhoneNumberRequestItem' {..} =
-    _salt `Prelude.hashWithSalt` productType
-      `Prelude.hashWithSalt` callingName
+    _salt `Prelude.hashWithSalt` callingName
+      `Prelude.hashWithSalt` productType
       `Prelude.hashWithSalt` phoneNumberId
 
 instance Prelude.NFData UpdatePhoneNumberRequestItem where
   rnf UpdatePhoneNumberRequestItem' {..} =
-    Prelude.rnf productType
-      `Prelude.seq` Prelude.rnf callingName
+    Prelude.rnf callingName
+      `Prelude.seq` Prelude.rnf productType
       `Prelude.seq` Prelude.rnf phoneNumberId
 
 instance Data.ToJSON UpdatePhoneNumberRequestItem where
   toJSON UpdatePhoneNumberRequestItem' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ProductType" Data..=) Prelude.<$> productType,
-            ("CallingName" Data..=) Prelude.<$> callingName,
+          [ ("CallingName" Data..=) Prelude.<$> callingName,
+            ("ProductType" Data..=) Prelude.<$> productType,
             Prelude.Just
               ("PhoneNumberId" Data..= phoneNumberId)
           ]

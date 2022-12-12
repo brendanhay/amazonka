@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCustomConnectorDestinationProperties' smart constructor.
 data CustomConnectorDestinationProperties = CustomConnectorDestinationProperties'
-  { -- | The settings that determine how Amazon AppFlow handles an error when
-    -- placing data in the custom connector as destination.
-    errorHandlingConfig :: Prelude.Maybe ErrorHandlingConfig,
-    -- | The custom properties that are specific to the connector when it\'s used
+  { -- | The custom properties that are specific to the connector when it\'s used
     -- as a destination in the flow.
     customProperties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The settings that determine how Amazon AppFlow handles an error when
+    -- placing data in the custom connector as destination.
+    errorHandlingConfig :: Prelude.Maybe ErrorHandlingConfig,
     -- | The name of the field that Amazon AppFlow uses as an ID when performing
     -- a write operation such as update, delete, or upsert.
     idFieldNames :: Prelude.Maybe [Prelude.Text],
@@ -57,11 +57,11 @@ data CustomConnectorDestinationProperties = CustomConnectorDestinationProperties
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'errorHandlingConfig', 'customConnectorDestinationProperties_errorHandlingConfig' - The settings that determine how Amazon AppFlow handles an error when
--- placing data in the custom connector as destination.
---
 -- 'customProperties', 'customConnectorDestinationProperties_customProperties' - The custom properties that are specific to the connector when it\'s used
 -- as a destination in the flow.
+--
+-- 'errorHandlingConfig', 'customConnectorDestinationProperties_errorHandlingConfig' - The settings that determine how Amazon AppFlow handles an error when
+-- placing data in the custom connector as destination.
 --
 -- 'idFieldNames', 'customConnectorDestinationProperties_idFieldNames' - The name of the field that Amazon AppFlow uses as an ID when performing
 -- a write operation such as update, delete, or upsert.
@@ -77,23 +77,23 @@ newCustomConnectorDestinationProperties ::
   CustomConnectorDestinationProperties
 newCustomConnectorDestinationProperties pEntityName_ =
   CustomConnectorDestinationProperties'
-    { errorHandlingConfig =
+    { customProperties =
         Prelude.Nothing,
-      customProperties = Prelude.Nothing,
+      errorHandlingConfig = Prelude.Nothing,
       idFieldNames = Prelude.Nothing,
       writeOperationType = Prelude.Nothing,
       entityName = pEntityName_
     }
 
--- | The settings that determine how Amazon AppFlow handles an error when
--- placing data in the custom connector as destination.
-customConnectorDestinationProperties_errorHandlingConfig :: Lens.Lens' CustomConnectorDestinationProperties (Prelude.Maybe ErrorHandlingConfig)
-customConnectorDestinationProperties_errorHandlingConfig = Lens.lens (\CustomConnectorDestinationProperties' {errorHandlingConfig} -> errorHandlingConfig) (\s@CustomConnectorDestinationProperties' {} a -> s {errorHandlingConfig = a} :: CustomConnectorDestinationProperties)
-
 -- | The custom properties that are specific to the connector when it\'s used
 -- as a destination in the flow.
 customConnectorDestinationProperties_customProperties :: Lens.Lens' CustomConnectorDestinationProperties (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 customConnectorDestinationProperties_customProperties = Lens.lens (\CustomConnectorDestinationProperties' {customProperties} -> customProperties) (\s@CustomConnectorDestinationProperties' {} a -> s {customProperties = a} :: CustomConnectorDestinationProperties) Prelude.. Lens.mapping Lens.coerced
+
+-- | The settings that determine how Amazon AppFlow handles an error when
+-- placing data in the custom connector as destination.
+customConnectorDestinationProperties_errorHandlingConfig :: Lens.Lens' CustomConnectorDestinationProperties (Prelude.Maybe ErrorHandlingConfig)
+customConnectorDestinationProperties_errorHandlingConfig = Lens.lens (\CustomConnectorDestinationProperties' {errorHandlingConfig} -> errorHandlingConfig) (\s@CustomConnectorDestinationProperties' {} a -> s {errorHandlingConfig = a} :: CustomConnectorDestinationProperties)
 
 -- | The name of the field that Amazon AppFlow uses as an ID when performing
 -- a write operation such as update, delete, or upsert.
@@ -119,10 +119,10 @@ instance
       "CustomConnectorDestinationProperties"
       ( \x ->
           CustomConnectorDestinationProperties'
-            Prelude.<$> (x Data..:? "errorHandlingConfig")
-            Prelude.<*> ( x Data..:? "customProperties"
+            Prelude.<$> ( x Data..:? "customProperties"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "errorHandlingConfig")
             Prelude.<*> (x Data..:? "idFieldNames" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "writeOperationType")
             Prelude.<*> (x Data..: "entityName")
@@ -135,8 +135,8 @@ instance
   hashWithSalt
     _salt
     CustomConnectorDestinationProperties' {..} =
-      _salt `Prelude.hashWithSalt` errorHandlingConfig
-        `Prelude.hashWithSalt` customProperties
+      _salt `Prelude.hashWithSalt` customProperties
+        `Prelude.hashWithSalt` errorHandlingConfig
         `Prelude.hashWithSalt` idFieldNames
         `Prelude.hashWithSalt` writeOperationType
         `Prelude.hashWithSalt` entityName
@@ -146,8 +146,8 @@ instance
     CustomConnectorDestinationProperties
   where
   rnf CustomConnectorDestinationProperties' {..} =
-    Prelude.rnf errorHandlingConfig
-      `Prelude.seq` Prelude.rnf customProperties
+    Prelude.rnf customProperties
+      `Prelude.seq` Prelude.rnf errorHandlingConfig
       `Prelude.seq` Prelude.rnf idFieldNames
       `Prelude.seq` Prelude.rnf writeOperationType
       `Prelude.seq` Prelude.rnf entityName
@@ -159,10 +159,10 @@ instance
   toJSON CustomConnectorDestinationProperties' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("errorHandlingConfig" Data..=)
-              Prelude.<$> errorHandlingConfig,
-            ("customProperties" Data..=)
+          [ ("customProperties" Data..=)
               Prelude.<$> customProperties,
+            ("errorHandlingConfig" Data..=)
+              Prelude.<$> errorHandlingConfig,
             ("idFieldNames" Data..=) Prelude.<$> idFieldNames,
             ("writeOperationType" Data..=)
               Prelude.<$> writeOperationType,

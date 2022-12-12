@@ -34,11 +34,11 @@ module Amazonka.Proton.ListComponents
     newListComponents,
 
     -- * Request Lenses
-    listComponents_nextToken,
     listComponents_environmentName,
     listComponents_maxResults,
-    listComponents_serviceName,
+    listComponents_nextToken,
     listComponents_serviceInstanceName,
+    listComponents_serviceName,
 
     -- * Destructuring the Response
     ListComponentsResponse (..),
@@ -61,22 +61,22 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListComponents' smart constructor.
 data ListComponents = ListComponents'
-  { -- | A token that indicates the location of the next component in the array
-    -- of components, after the list of components that was previously
-    -- requested.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The name of an environment for result list filtering. Proton returns
+  { -- | The name of an environment for result list filtering. Proton returns
     -- components associated with the environment or attached to service
     -- instances running in it.
     environmentName :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of components to list.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The name of a service for result list filtering. Proton returns
-    -- components attached to service instances of the service.
-    serviceName :: Prelude.Maybe Prelude.Text,
+    -- | A token that indicates the location of the next component in the array
+    -- of components, after the list of components that was previously
+    -- requested.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of a service instance for result list filtering. Proton returns
     -- the component attached to the service instance, if any.
-    serviceInstanceName :: Prelude.Maybe Prelude.Text
+    serviceInstanceName :: Prelude.Maybe Prelude.Text,
+    -- | The name of a service for result list filtering. Proton returns
+    -- components attached to service instances of the service.
+    serviceName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -88,37 +88,31 @@ data ListComponents = ListComponents'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listComponents_nextToken' - A token that indicates the location of the next component in the array
--- of components, after the list of components that was previously
--- requested.
---
 -- 'environmentName', 'listComponents_environmentName' - The name of an environment for result list filtering. Proton returns
 -- components associated with the environment or attached to service
 -- instances running in it.
 --
 -- 'maxResults', 'listComponents_maxResults' - The maximum number of components to list.
 --
--- 'serviceName', 'listComponents_serviceName' - The name of a service for result list filtering. Proton returns
--- components attached to service instances of the service.
+-- 'nextToken', 'listComponents_nextToken' - A token that indicates the location of the next component in the array
+-- of components, after the list of components that was previously
+-- requested.
 --
 -- 'serviceInstanceName', 'listComponents_serviceInstanceName' - The name of a service instance for result list filtering. Proton returns
 -- the component attached to the service instance, if any.
+--
+-- 'serviceName', 'listComponents_serviceName' - The name of a service for result list filtering. Proton returns
+-- components attached to service instances of the service.
 newListComponents ::
   ListComponents
 newListComponents =
   ListComponents'
-    { nextToken = Prelude.Nothing,
-      environmentName = Prelude.Nothing,
+    { environmentName = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      serviceName = Prelude.Nothing,
-      serviceInstanceName = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      serviceInstanceName = Prelude.Nothing,
+      serviceName = Prelude.Nothing
     }
-
--- | A token that indicates the location of the next component in the array
--- of components, after the list of components that was previously
--- requested.
-listComponents_nextToken :: Lens.Lens' ListComponents (Prelude.Maybe Prelude.Text)
-listComponents_nextToken = Lens.lens (\ListComponents' {nextToken} -> nextToken) (\s@ListComponents' {} a -> s {nextToken = a} :: ListComponents)
 
 -- | The name of an environment for result list filtering. Proton returns
 -- components associated with the environment or attached to service
@@ -130,15 +124,21 @@ listComponents_environmentName = Lens.lens (\ListComponents' {environmentName} -
 listComponents_maxResults :: Lens.Lens' ListComponents (Prelude.Maybe Prelude.Natural)
 listComponents_maxResults = Lens.lens (\ListComponents' {maxResults} -> maxResults) (\s@ListComponents' {} a -> s {maxResults = a} :: ListComponents)
 
--- | The name of a service for result list filtering. Proton returns
--- components attached to service instances of the service.
-listComponents_serviceName :: Lens.Lens' ListComponents (Prelude.Maybe Prelude.Text)
-listComponents_serviceName = Lens.lens (\ListComponents' {serviceName} -> serviceName) (\s@ListComponents' {} a -> s {serviceName = a} :: ListComponents)
+-- | A token that indicates the location of the next component in the array
+-- of components, after the list of components that was previously
+-- requested.
+listComponents_nextToken :: Lens.Lens' ListComponents (Prelude.Maybe Prelude.Text)
+listComponents_nextToken = Lens.lens (\ListComponents' {nextToken} -> nextToken) (\s@ListComponents' {} a -> s {nextToken = a} :: ListComponents)
 
 -- | The name of a service instance for result list filtering. Proton returns
 -- the component attached to the service instance, if any.
 listComponents_serviceInstanceName :: Lens.Lens' ListComponents (Prelude.Maybe Prelude.Text)
 listComponents_serviceInstanceName = Lens.lens (\ListComponents' {serviceInstanceName} -> serviceInstanceName) (\s@ListComponents' {} a -> s {serviceInstanceName = a} :: ListComponents)
+
+-- | The name of a service for result list filtering. Proton returns
+-- components attached to service instances of the service.
+listComponents_serviceName :: Lens.Lens' ListComponents (Prelude.Maybe Prelude.Text)
+listComponents_serviceName = Lens.lens (\ListComponents' {serviceName} -> serviceName) (\s@ListComponents' {} a -> s {serviceName = a} :: ListComponents)
 
 instance Core.AWSPager ListComponents where
   page rq rs
@@ -175,19 +175,19 @@ instance Core.AWSRequest ListComponents where
 
 instance Prelude.Hashable ListComponents where
   hashWithSalt _salt ListComponents' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` environmentName
+    _salt `Prelude.hashWithSalt` environmentName
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` serviceInstanceName
+      `Prelude.hashWithSalt` serviceName
 
 instance Prelude.NFData ListComponents where
   rnf ListComponents' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf environmentName
+    Prelude.rnf environmentName
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf serviceInstanceName
+      `Prelude.seq` Prelude.rnf serviceName
 
 instance Data.ToHeaders ListComponents where
   toHeaders =
@@ -208,13 +208,13 @@ instance Data.ToJSON ListComponents where
   toJSON ListComponents' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("environmentName" Data..=)
+          [ ("environmentName" Data..=)
               Prelude.<$> environmentName,
             ("maxResults" Data..=) Prelude.<$> maxResults,
-            ("serviceName" Data..=) Prelude.<$> serviceName,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             ("serviceInstanceName" Data..=)
-              Prelude.<$> serviceInstanceName
+              Prelude.<$> serviceInstanceName,
+            ("serviceName" Data..=) Prelude.<$> serviceName
           ]
       )
 

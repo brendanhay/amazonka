@@ -18,13 +18,13 @@ module Amazonka.IoT1ClickDevices.Types
     defaultService,
 
     -- * Errors
-    _PreconditionFailedException,
-    _ResourceNotFoundException,
-    _RangeNotSatisfiableException,
     _ForbiddenException,
-    _ResourceConflictException,
-    _InvalidRequestException,
     _InternalFailureException,
+    _InvalidRequestException,
+    _PreconditionFailedException,
+    _RangeNotSatisfiableException,
+    _ResourceConflictException,
+    _ResourceNotFoundException,
 
     -- * Attributes
     Attributes (..),
@@ -33,20 +33,20 @@ module Amazonka.IoT1ClickDevices.Types
     -- * Device
     Device (..),
     newDevice,
-    device_type,
-    device_deviceId,
     device_attributes,
+    device_deviceId,
+    device_type,
 
     -- * DeviceDescription
     DeviceDescription (..),
     newDeviceDescription,
+    deviceDescription_arn,
+    deviceDescription_attributes,
+    deviceDescription_deviceId,
+    deviceDescription_enabled,
+    deviceDescription_remainingLife,
     deviceDescription_tags,
     deviceDescription_type,
-    deviceDescription_remainingLife,
-    deviceDescription_deviceId,
-    deviceDescription_arn,
-    deviceDescription_enabled,
-    deviceDescription_attributes,
 
     -- * DeviceEvent
     DeviceEvent (..),
@@ -57,8 +57,8 @@ module Amazonka.IoT1ClickDevices.Types
     -- * DeviceMethod
     DeviceMethod (..),
     newDeviceMethod,
-    deviceMethod_methodName,
     deviceMethod_deviceType,
+    deviceMethod_methodName,
   )
 where
 
@@ -97,28 +97,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -126,13 +120,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -140,31 +138,9 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
-
--- | Prism for PreconditionFailedException' errors.
-_PreconditionFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_PreconditionFailedException =
-  Core._MatchServiceError
-    defaultService
-    "PreconditionFailedException"
-    Prelude.. Core.hasStatus 412
-
--- | Prism for ResourceNotFoundException' errors.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
-
--- | Prism for RangeNotSatisfiableException' errors.
-_RangeNotSatisfiableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_RangeNotSatisfiableException =
-  Core._MatchServiceError
-    defaultService
-    "RangeNotSatisfiableException"
-    Prelude.. Core.hasStatus 416
 
 -- | Prism for ForbiddenException' errors.
 _ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -174,13 +150,13 @@ _ForbiddenException =
     "ForbiddenException"
     Prelude.. Core.hasStatus 403
 
--- | Prism for ResourceConflictException' errors.
-_ResourceConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceConflictException =
+-- | Prism for InternalFailureException' errors.
+_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalFailureException =
   Core._MatchServiceError
     defaultService
-    "ResourceConflictException"
-    Prelude.. Core.hasStatus 409
+    "InternalFailureException"
+    Prelude.. Core.hasStatus 500
 
 -- | Prism for InvalidRequestException' errors.
 _InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -190,10 +166,34 @@ _InvalidRequestException =
     "InvalidRequestException"
     Prelude.. Core.hasStatus 400
 
--- | Prism for InternalFailureException' errors.
-_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalFailureException =
+-- | Prism for PreconditionFailedException' errors.
+_PreconditionFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PreconditionFailedException =
   Core._MatchServiceError
     defaultService
-    "InternalFailureException"
-    Prelude.. Core.hasStatus 500
+    "PreconditionFailedException"
+    Prelude.. Core.hasStatus 412
+
+-- | Prism for RangeNotSatisfiableException' errors.
+_RangeNotSatisfiableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RangeNotSatisfiableException =
+  Core._MatchServiceError
+    defaultService
+    "RangeNotSatisfiableException"
+    Prelude.. Core.hasStatus 416
+
+-- | Prism for ResourceConflictException' errors.
+_ResourceConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceConflictException"
+    Prelude.. Core.hasStatus 409
+
+-- | Prism for ResourceNotFoundException' errors.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404

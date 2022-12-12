@@ -32,8 +32,8 @@ module Amazonka.Route53RecoveryControlConfig.CreateCluster
     newCreateCluster,
 
     -- * Request Lenses
-    createCluster_tags,
     createCluster_clientToken,
+    createCluster_tags,
     createCluster_clusterName,
 
     -- * Destructuring the Response
@@ -58,12 +58,12 @@ import Amazonka.Route53RecoveryControlConfig.Types
 --
 -- /See:/ 'newCreateCluster' smart constructor.
 data CreateCluster = CreateCluster'
-  { -- | The tags associated with the cluster.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A unique, case-sensitive string of up to 64 ASCII characters. To make an
+  { -- | A unique, case-sensitive string of up to 64 ASCII characters. To make an
     -- idempotent API request with an action, specify a client token in the
     -- request.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The tags associated with the cluster.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the cluster.
     clusterName :: Prelude.Text
   }
@@ -77,11 +77,11 @@ data CreateCluster = CreateCluster'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createCluster_tags' - The tags associated with the cluster.
---
 -- 'clientToken', 'createCluster_clientToken' - A unique, case-sensitive string of up to 64 ASCII characters. To make an
 -- idempotent API request with an action, specify a client token in the
 -- request.
+--
+-- 'tags', 'createCluster_tags' - The tags associated with the cluster.
 --
 -- 'clusterName', 'createCluster_clusterName' - The name of the cluster.
 newCreateCluster ::
@@ -90,20 +90,20 @@ newCreateCluster ::
   CreateCluster
 newCreateCluster pClusterName_ =
   CreateCluster'
-    { tags = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+    { clientToken = Prelude.Nothing,
+      tags = Prelude.Nothing,
       clusterName = pClusterName_
     }
-
--- | The tags associated with the cluster.
-createCluster_tags :: Lens.Lens' CreateCluster (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createCluster_tags = Lens.lens (\CreateCluster' {tags} -> tags) (\s@CreateCluster' {} a -> s {tags = a} :: CreateCluster) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique, case-sensitive string of up to 64 ASCII characters. To make an
 -- idempotent API request with an action, specify a client token in the
 -- request.
 createCluster_clientToken :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
 createCluster_clientToken = Lens.lens (\CreateCluster' {clientToken} -> clientToken) (\s@CreateCluster' {} a -> s {clientToken = a} :: CreateCluster)
+
+-- | The tags associated with the cluster.
+createCluster_tags :: Lens.Lens' CreateCluster (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createCluster_tags = Lens.lens (\CreateCluster' {tags} -> tags) (\s@CreateCluster' {} a -> s {tags = a} :: CreateCluster) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the cluster.
 createCluster_clusterName :: Lens.Lens' CreateCluster Prelude.Text
@@ -125,14 +125,14 @@ instance Core.AWSRequest CreateCluster where
 
 instance Prelude.Hashable CreateCluster where
   hashWithSalt _salt CreateCluster' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` clusterName
 
 instance Prelude.NFData CreateCluster where
   rnf CreateCluster' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf clusterName
 
 instance Data.ToHeaders CreateCluster where
@@ -150,8 +150,8 @@ instance Data.ToJSON CreateCluster where
   toJSON CreateCluster' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ClientToken" Data..=) Prelude.<$> clientToken,
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("ClusterName" Data..= clusterName)
           ]
       )

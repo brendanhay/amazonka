@@ -30,8 +30,8 @@ module Amazonka.KeySpaces.ListTagsForResource
     newListTagsForResource,
 
     -- * Request Lenses
-    listTagsForResource_nextToken,
     listTagsForResource_maxResults,
+    listTagsForResource_nextToken,
     listTagsForResource_resourceArn,
 
     -- * Destructuring the Response
@@ -39,8 +39,8 @@ module Amazonka.KeySpaces.ListTagsForResource
     newListTagsForResourceResponse,
 
     -- * Response Lenses
-    listTagsForResourceResponse_tags,
     listTagsForResourceResponse_nextToken,
+    listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
   )
 where
@@ -55,14 +55,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { -- | The pagination token. To resume pagination, provide the @NextToken@
-    -- value as argument of a subsequent API invocation.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The total number of tags to return in the output. If the total number of
+  { -- | The total number of tags to return in the output. If the total number of
     -- tags available is more than the value specified, a @NextToken@ is
     -- provided in the output. To resume pagination, provide the @NextToken@
     -- value as an argument of a subsequent API invocation.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token. To resume pagination, provide the @NextToken@
+    -- value as argument of a subsequent API invocation.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Amazon Keyspaces resource.
     resourceArn :: Prelude.Text
   }
@@ -76,13 +76,13 @@ data ListTagsForResource = ListTagsForResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTagsForResource_nextToken' - The pagination token. To resume pagination, provide the @NextToken@
--- value as argument of a subsequent API invocation.
---
 -- 'maxResults', 'listTagsForResource_maxResults' - The total number of tags to return in the output. If the total number of
 -- tags available is more than the value specified, a @NextToken@ is
 -- provided in the output. To resume pagination, provide the @NextToken@
 -- value as an argument of a subsequent API invocation.
+--
+-- 'nextToken', 'listTagsForResource_nextToken' - The pagination token. To resume pagination, provide the @NextToken@
+-- value as argument of a subsequent API invocation.
 --
 -- 'resourceArn', 'listTagsForResource_resourceArn' - The Amazon Resource Name (ARN) of the Amazon Keyspaces resource.
 newListTagsForResource ::
@@ -91,15 +91,10 @@ newListTagsForResource ::
   ListTagsForResource
 newListTagsForResource pResourceArn_ =
   ListTagsForResource'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       resourceArn = pResourceArn_
     }
-
--- | The pagination token. To resume pagination, provide the @NextToken@
--- value as argument of a subsequent API invocation.
-listTagsForResource_nextToken :: Lens.Lens' ListTagsForResource (Prelude.Maybe Prelude.Text)
-listTagsForResource_nextToken = Lens.lens (\ListTagsForResource' {nextToken} -> nextToken) (\s@ListTagsForResource' {} a -> s {nextToken = a} :: ListTagsForResource)
 
 -- | The total number of tags to return in the output. If the total number of
 -- tags available is more than the value specified, a @NextToken@ is
@@ -107,6 +102,11 @@ listTagsForResource_nextToken = Lens.lens (\ListTagsForResource' {nextToken} -> 
 -- value as an argument of a subsequent API invocation.
 listTagsForResource_maxResults :: Lens.Lens' ListTagsForResource (Prelude.Maybe Prelude.Natural)
 listTagsForResource_maxResults = Lens.lens (\ListTagsForResource' {maxResults} -> maxResults) (\s@ListTagsForResource' {} a -> s {maxResults = a} :: ListTagsForResource)
+
+-- | The pagination token. To resume pagination, provide the @NextToken@
+-- value as argument of a subsequent API invocation.
+listTagsForResource_nextToken :: Lens.Lens' ListTagsForResource (Prelude.Maybe Prelude.Text)
+listTagsForResource_nextToken = Lens.lens (\ListTagsForResource' {nextToken} -> nextToken) (\s@ListTagsForResource' {} a -> s {nextToken = a} :: ListTagsForResource)
 
 -- | The Amazon Resource Name (ARN) of the Amazon Keyspaces resource.
 listTagsForResource_resourceArn :: Lens.Lens' ListTagsForResource Prelude.Text
@@ -144,21 +144,21 @@ instance Core.AWSRequest ListTagsForResource where
     Response.receiveJSON
       ( \s h x ->
           ListTagsForResourceResponse'
-            Prelude.<$> (x Data..?> "tags")
-            Prelude.<*> (x Data..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "tags")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListTagsForResource where
   hashWithSalt _salt ListTagsForResource' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceArn
 
 instance Prelude.NFData ListTagsForResource where
   rnf ListTagsForResource' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf resourceArn
 
 instance Data.ToHeaders ListTagsForResource where
@@ -180,8 +180,8 @@ instance Data.ToJSON ListTagsForResource where
   toJSON ListTagsForResource' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("resourceArn" Data..= resourceArn)
           ]
       )
@@ -194,11 +194,11 @@ instance Data.ToQuery ListTagsForResource where
 
 -- | /See:/ 'newListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-  { -- | A list of tags.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | A token to specify where to start paginating. This is the @NextToken@
+  { -- | A token to specify where to start paginating. This is the @NextToken@
     -- from a previously truncated response.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of tags.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -212,10 +212,10 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'listTagsForResourceResponse_tags' - A list of tags.
---
 -- 'nextToken', 'listTagsForResourceResponse_nextToken' - A token to specify where to start paginating. This is the @NextToken@
 -- from a previously truncated response.
+--
+-- 'tags', 'listTagsForResourceResponse_tags' - A list of tags.
 --
 -- 'httpStatus', 'listTagsForResourceResponse_httpStatus' - The response's http status code.
 newListTagsForResourceResponse ::
@@ -224,20 +224,20 @@ newListTagsForResourceResponse ::
   ListTagsForResourceResponse
 newListTagsForResourceResponse pHttpStatus_ =
   ListTagsForResourceResponse'
-    { tags =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of tags.
-listTagsForResourceResponse_tags :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe (Prelude.NonEmpty Tag))
-listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tags} -> tags) (\s@ListTagsForResourceResponse' {} a -> s {tags = a} :: ListTagsForResourceResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token to specify where to start paginating. This is the @NextToken@
 -- from a previously truncated response.
 listTagsForResourceResponse_nextToken :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe Prelude.Text)
 listTagsForResourceResponse_nextToken = Lens.lens (\ListTagsForResourceResponse' {nextToken} -> nextToken) (\s@ListTagsForResourceResponse' {} a -> s {nextToken = a} :: ListTagsForResourceResponse)
+
+-- | A list of tags.
+listTagsForResourceResponse_tags :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe (Prelude.NonEmpty Tag))
+listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tags} -> tags) (\s@ListTagsForResourceResponse' {} a -> s {tags = a} :: ListTagsForResourceResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens.Lens' ListTagsForResourceResponse Prelude.Int
@@ -245,6 +245,6 @@ listTagsForResourceResponse_httpStatus = Lens.lens (\ListTagsForResourceResponse
 
 instance Prelude.NFData ListTagsForResourceResponse where
   rnf ListTagsForResourceResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

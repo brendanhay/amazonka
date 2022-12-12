@@ -35,20 +35,23 @@ module Amazonka.SMS
     -- * Errors
     -- $errors
 
-    -- ** ServerCannotBeReplicatedException
-    _ServerCannotBeReplicatedException,
-
-    -- ** NoConnectorsAvailableException
-    _NoConnectorsAvailableException,
-
-    -- ** UnauthorizedOperationException
-    _UnauthorizedOperationException,
+    -- ** DryRunOperationException
+    _DryRunOperationException,
 
     -- ** InternalError
     _InternalError,
 
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
     -- ** MissingRequiredParameterException
     _MissingRequiredParameterException,
+
+    -- ** NoConnectorsAvailableException
+    _NoConnectorsAvailableException,
+
+    -- ** OperationNotPermittedException
+    _OperationNotPermittedException,
 
     -- ** ReplicationJobAlreadyExistsException
     _ReplicationJobAlreadyExistsException,
@@ -56,20 +59,17 @@ module Amazonka.SMS
     -- ** ReplicationJobNotFoundException
     _ReplicationJobNotFoundException,
 
-    -- ** TemporarilyUnavailableException
-    _TemporarilyUnavailableException,
-
-    -- ** OperationNotPermittedException
-    _OperationNotPermittedException,
-
-    -- ** DryRunOperationException
-    _DryRunOperationException,
-
     -- ** ReplicationRunLimitExceededException
     _ReplicationRunLimitExceededException,
 
-    -- ** InvalidParameterException
-    _InvalidParameterException,
+    -- ** ServerCannotBeReplicatedException
+    _ServerCannotBeReplicatedException,
+
+    -- ** TemporarilyUnavailableException
+    _TemporarilyUnavailableException,
+
+    -- ** UnauthorizedOperationException
+    _UnauthorizedOperationException,
 
     -- * Waiters
     -- $waiters

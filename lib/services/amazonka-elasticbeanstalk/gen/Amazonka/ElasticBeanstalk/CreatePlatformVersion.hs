@@ -27,9 +27,9 @@ module Amazonka.ElasticBeanstalk.CreatePlatformVersion
     newCreatePlatformVersion,
 
     -- * Request Lenses
-    createPlatformVersion_tags,
     createPlatformVersion_environmentName,
     createPlatformVersion_optionSettings,
+    createPlatformVersion_tags,
     createPlatformVersion_platformName,
     createPlatformVersion_platformVersion,
     createPlatformVersion_platformDefinitionBundle,
@@ -39,8 +39,8 @@ module Amazonka.ElasticBeanstalk.CreatePlatformVersion
     newCreatePlatformVersionResponse,
 
     -- * Response Lenses
-    createPlatformVersionResponse_platformSummary,
     createPlatformVersionResponse_builder,
+    createPlatformVersionResponse_platformSummary,
     createPlatformVersionResponse_httpStatus,
   )
 where
@@ -57,16 +57,16 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreatePlatformVersion' smart constructor.
 data CreatePlatformVersion = CreatePlatformVersion'
-  { -- | Specifies the tags applied to the new platform version.
+  { -- | The name of the builder environment.
+    environmentName :: Prelude.Maybe Prelude.Text,
+    -- | The configuration option settings to apply to the builder environment.
+    optionSettings :: Prelude.Maybe [ConfigurationOptionSetting],
+    -- | Specifies the tags applied to the new platform version.
     --
     -- Elastic Beanstalk applies these tags only to the platform version.
     -- Environments that you create using the platform version don\'t inherit
     -- the tags.
     tags :: Prelude.Maybe [Tag],
-    -- | The name of the builder environment.
-    environmentName :: Prelude.Maybe Prelude.Text,
-    -- | The configuration option settings to apply to the builder environment.
-    optionSettings :: Prelude.Maybe [ConfigurationOptionSetting],
     -- | The name of your custom platform.
     platformName :: Prelude.Text,
     -- | The number, such as 1.0.2, for the new platform version.
@@ -84,15 +84,15 @@ data CreatePlatformVersion = CreatePlatformVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'environmentName', 'createPlatformVersion_environmentName' - The name of the builder environment.
+--
+-- 'optionSettings', 'createPlatformVersion_optionSettings' - The configuration option settings to apply to the builder environment.
+--
 -- 'tags', 'createPlatformVersion_tags' - Specifies the tags applied to the new platform version.
 --
 -- Elastic Beanstalk applies these tags only to the platform version.
 -- Environments that you create using the platform version don\'t inherit
 -- the tags.
---
--- 'environmentName', 'createPlatformVersion_environmentName' - The name of the builder environment.
---
--- 'optionSettings', 'createPlatformVersion_optionSettings' - The configuration option settings to apply to the builder environment.
 --
 -- 'platformName', 'createPlatformVersion_platformName' - The name of your custom platform.
 --
@@ -112,22 +112,15 @@ newCreatePlatformVersion
   pPlatformVersion_
   pPlatformDefinitionBundle_ =
     CreatePlatformVersion'
-      { tags = Prelude.Nothing,
-        environmentName = Prelude.Nothing,
+      { environmentName =
+          Prelude.Nothing,
         optionSettings = Prelude.Nothing,
+        tags = Prelude.Nothing,
         platformName = pPlatformName_,
         platformVersion = pPlatformVersion_,
         platformDefinitionBundle =
           pPlatformDefinitionBundle_
       }
-
--- | Specifies the tags applied to the new platform version.
---
--- Elastic Beanstalk applies these tags only to the platform version.
--- Environments that you create using the platform version don\'t inherit
--- the tags.
-createPlatformVersion_tags :: Lens.Lens' CreatePlatformVersion (Prelude.Maybe [Tag])
-createPlatformVersion_tags = Lens.lens (\CreatePlatformVersion' {tags} -> tags) (\s@CreatePlatformVersion' {} a -> s {tags = a} :: CreatePlatformVersion) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the builder environment.
 createPlatformVersion_environmentName :: Lens.Lens' CreatePlatformVersion (Prelude.Maybe Prelude.Text)
@@ -136,6 +129,14 @@ createPlatformVersion_environmentName = Lens.lens (\CreatePlatformVersion' {envi
 -- | The configuration option settings to apply to the builder environment.
 createPlatformVersion_optionSettings :: Lens.Lens' CreatePlatformVersion (Prelude.Maybe [ConfigurationOptionSetting])
 createPlatformVersion_optionSettings = Lens.lens (\CreatePlatformVersion' {optionSettings} -> optionSettings) (\s@CreatePlatformVersion' {} a -> s {optionSettings = a} :: CreatePlatformVersion) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specifies the tags applied to the new platform version.
+--
+-- Elastic Beanstalk applies these tags only to the platform version.
+-- Environments that you create using the platform version don\'t inherit
+-- the tags.
+createPlatformVersion_tags :: Lens.Lens' CreatePlatformVersion (Prelude.Maybe [Tag])
+createPlatformVersion_tags = Lens.lens (\CreatePlatformVersion' {tags} -> tags) (\s@CreatePlatformVersion' {} a -> s {tags = a} :: CreatePlatformVersion) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of your custom platform.
 createPlatformVersion_platformName :: Lens.Lens' CreatePlatformVersion Prelude.Text
@@ -160,25 +161,25 @@ instance Core.AWSRequest CreatePlatformVersion where
       "CreatePlatformVersionResult"
       ( \s h x ->
           CreatePlatformVersionResponse'
-            Prelude.<$> (x Data..@? "PlatformSummary")
-            Prelude.<*> (x Data..@? "Builder")
+            Prelude.<$> (x Data..@? "Builder")
+            Prelude.<*> (x Data..@? "PlatformSummary")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreatePlatformVersion where
   hashWithSalt _salt CreatePlatformVersion' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` environmentName
+    _salt `Prelude.hashWithSalt` environmentName
       `Prelude.hashWithSalt` optionSettings
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` platformName
       `Prelude.hashWithSalt` platformVersion
       `Prelude.hashWithSalt` platformDefinitionBundle
 
 instance Prelude.NFData CreatePlatformVersion where
   rnf CreatePlatformVersion' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf environmentName
+    Prelude.rnf environmentName
       `Prelude.seq` Prelude.rnf optionSettings
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf platformName
       `Prelude.seq` Prelude.rnf platformVersion
       `Prelude.seq` Prelude.rnf platformDefinitionBundle
@@ -196,15 +197,15 @@ instance Data.ToQuery CreatePlatformVersion where
           Data.=: ("CreatePlatformVersion" :: Prelude.ByteString),
         "Version"
           Data.=: ("2010-12-01" :: Prelude.ByteString),
-        "Tags"
-          Data.=: Data.toQuery
-            (Data.toQueryList "member" Prelude.<$> tags),
         "EnvironmentName" Data.=: environmentName,
         "OptionSettings"
           Data.=: Data.toQuery
             ( Data.toQueryList "member"
                 Prelude.<$> optionSettings
             ),
+        "Tags"
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> tags),
         "PlatformName" Data.=: platformName,
         "PlatformVersion" Data.=: platformVersion,
         "PlatformDefinitionBundle"
@@ -213,10 +214,10 @@ instance Data.ToQuery CreatePlatformVersion where
 
 -- | /See:/ 'newCreatePlatformVersionResponse' smart constructor.
 data CreatePlatformVersionResponse = CreatePlatformVersionResponse'
-  { -- | Detailed information about the new version of the custom platform.
-    platformSummary :: Prelude.Maybe PlatformSummary,
-    -- | The builder used to create the custom platform.
+  { -- | The builder used to create the custom platform.
     builder :: Prelude.Maybe Builder,
+    -- | Detailed information about the new version of the custom platform.
+    platformSummary :: Prelude.Maybe PlatformSummary,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -230,9 +231,9 @@ data CreatePlatformVersionResponse = CreatePlatformVersionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'platformSummary', 'createPlatformVersionResponse_platformSummary' - Detailed information about the new version of the custom platform.
---
 -- 'builder', 'createPlatformVersionResponse_builder' - The builder used to create the custom platform.
+--
+-- 'platformSummary', 'createPlatformVersionResponse_platformSummary' - Detailed information about the new version of the custom platform.
 --
 -- 'httpStatus', 'createPlatformVersionResponse_httpStatus' - The response's http status code.
 newCreatePlatformVersionResponse ::
@@ -241,19 +242,19 @@ newCreatePlatformVersionResponse ::
   CreatePlatformVersionResponse
 newCreatePlatformVersionResponse pHttpStatus_ =
   CreatePlatformVersionResponse'
-    { platformSummary =
+    { builder =
         Prelude.Nothing,
-      builder = Prelude.Nothing,
+      platformSummary = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Detailed information about the new version of the custom platform.
-createPlatformVersionResponse_platformSummary :: Lens.Lens' CreatePlatformVersionResponse (Prelude.Maybe PlatformSummary)
-createPlatformVersionResponse_platformSummary = Lens.lens (\CreatePlatformVersionResponse' {platformSummary} -> platformSummary) (\s@CreatePlatformVersionResponse' {} a -> s {platformSummary = a} :: CreatePlatformVersionResponse)
 
 -- | The builder used to create the custom platform.
 createPlatformVersionResponse_builder :: Lens.Lens' CreatePlatformVersionResponse (Prelude.Maybe Builder)
 createPlatformVersionResponse_builder = Lens.lens (\CreatePlatformVersionResponse' {builder} -> builder) (\s@CreatePlatformVersionResponse' {} a -> s {builder = a} :: CreatePlatformVersionResponse)
+
+-- | Detailed information about the new version of the custom platform.
+createPlatformVersionResponse_platformSummary :: Lens.Lens' CreatePlatformVersionResponse (Prelude.Maybe PlatformSummary)
+createPlatformVersionResponse_platformSummary = Lens.lens (\CreatePlatformVersionResponse' {platformSummary} -> platformSummary) (\s@CreatePlatformVersionResponse' {} a -> s {platformSummary = a} :: CreatePlatformVersionResponse)
 
 -- | The response's http status code.
 createPlatformVersionResponse_httpStatus :: Lens.Lens' CreatePlatformVersionResponse Prelude.Int
@@ -261,6 +262,6 @@ createPlatformVersionResponse_httpStatus = Lens.lens (\CreatePlatformVersionResp
 
 instance Prelude.NFData CreatePlatformVersionResponse where
   rnf CreatePlatformVersionResponse' {..} =
-    Prelude.rnf platformSummary
-      `Prelude.seq` Prelude.rnf builder
+    Prelude.rnf builder
+      `Prelude.seq` Prelude.rnf platformSummary
       `Prelude.seq` Prelude.rnf httpStatus

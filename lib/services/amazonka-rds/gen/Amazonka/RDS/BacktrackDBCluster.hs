@@ -44,12 +44,12 @@ module Amazonka.RDS.BacktrackDBCluster
     newDBClusterBacktrack,
 
     -- * Response Lenses
-    dbClusterBacktrack_backtrackedFrom,
-    dbClusterBacktrack_backtrackRequestCreationTime,
-    dbClusterBacktrack_dbClusterIdentifier,
     dbClusterBacktrack_backtrackIdentifier,
-    dbClusterBacktrack_status,
+    dbClusterBacktrack_backtrackRequestCreationTime,
     dbClusterBacktrack_backtrackTo,
+    dbClusterBacktrack_backtrackedFrom,
+    dbClusterBacktrack_dbClusterIdentifier,
+    dbClusterBacktrack_status,
   )
 where
 

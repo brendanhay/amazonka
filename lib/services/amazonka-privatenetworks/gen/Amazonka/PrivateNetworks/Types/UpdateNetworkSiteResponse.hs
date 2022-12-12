@@ -27,10 +27,10 @@ import Amazonka.PrivateNetworks.Types.NetworkSite
 
 -- | /See:/ 'newUpdateNetworkSiteResponse' smart constructor.
 data UpdateNetworkSiteResponse = UpdateNetworkSiteResponse'
-  { -- | The network site tags.
-    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
-    -- | Information about the network site.
-    networkSite :: Prelude.Maybe NetworkSite
+  { -- | Information about the network site.
+    networkSite :: Prelude.Maybe NetworkSite,
+    -- | The network site tags.
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text))
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,25 @@ data UpdateNetworkSiteResponse = UpdateNetworkSiteResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'updateNetworkSiteResponse_tags' - The network site tags.
---
 -- 'networkSite', 'updateNetworkSiteResponse_networkSite' - Information about the network site.
+--
+-- 'tags', 'updateNetworkSiteResponse_tags' - The network site tags.
 newUpdateNetworkSiteResponse ::
   UpdateNetworkSiteResponse
 newUpdateNetworkSiteResponse =
   UpdateNetworkSiteResponse'
-    { tags = Prelude.Nothing,
-      networkSite = Prelude.Nothing
+    { networkSite =
+        Prelude.Nothing,
+      tags = Prelude.Nothing
     }
-
--- | The network site tags.
-updateNetworkSiteResponse_tags :: Lens.Lens' UpdateNetworkSiteResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-updateNetworkSiteResponse_tags = Lens.lens (\UpdateNetworkSiteResponse' {tags} -> tags) (\s@UpdateNetworkSiteResponse' {} a -> s {tags = a} :: UpdateNetworkSiteResponse) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Information about the network site.
 updateNetworkSiteResponse_networkSite :: Lens.Lens' UpdateNetworkSiteResponse (Prelude.Maybe NetworkSite)
 updateNetworkSiteResponse_networkSite = Lens.lens (\UpdateNetworkSiteResponse' {networkSite} -> networkSite) (\s@UpdateNetworkSiteResponse' {} a -> s {networkSite = a} :: UpdateNetworkSiteResponse)
+
+-- | The network site tags.
+updateNetworkSiteResponse_tags :: Lens.Lens' UpdateNetworkSiteResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+updateNetworkSiteResponse_tags = Lens.lens (\UpdateNetworkSiteResponse' {tags} -> tags) (\s@UpdateNetworkSiteResponse' {} a -> s {tags = a} :: UpdateNetworkSiteResponse) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 instance Data.FromJSON UpdateNetworkSiteResponse where
   parseJSON =
@@ -67,16 +68,16 @@ instance Data.FromJSON UpdateNetworkSiteResponse where
       "UpdateNetworkSiteResponse"
       ( \x ->
           UpdateNetworkSiteResponse'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "networkSite")
+            Prelude.<$> (x Data..:? "networkSite")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable UpdateNetworkSiteResponse where
   hashWithSalt _salt UpdateNetworkSiteResponse' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` networkSite
+    _salt `Prelude.hashWithSalt` networkSite
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData UpdateNetworkSiteResponse where
   rnf UpdateNetworkSiteResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf networkSite
+    Prelude.rnf networkSite
+      `Prelude.seq` Prelude.rnf tags

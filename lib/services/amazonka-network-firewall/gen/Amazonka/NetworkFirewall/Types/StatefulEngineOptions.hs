@@ -31,7 +31,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStatefulEngineOptions' smart constructor.
 data StatefulEngineOptions = StatefulEngineOptions'
-  { -- | Configures how Network Firewall processes traffic when a network
+  { -- | Indicates how to manage the order of stateful rule evaluation for the
+    -- policy. @DEFAULT_ACTION_ORDER@ is the default behavior. Stateful rules
+    -- are provided to the rule engine as Suricata compatible strings, and
+    -- Suricata evaluates them based on certain settings. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html Evaluation order for stateful rules>
+    -- in the /Network Firewall Developer Guide/.
+    ruleOrder :: Prelude.Maybe RuleOrder,
+    -- | Configures how Network Firewall processes traffic when a network
     -- connection breaks midstream. Network connections can break due to
     -- disruptions in external networks or within the firewall itself.
     --
@@ -47,15 +55,7 @@ data StatefulEngineOptions = StatefulEngineOptions'
     --     application layer protocol as HTTP. However, this behavior is rule
     --     dependent—a TCP-layer rule using a @flow:stateless@ rule would still
     --     match, as would the @aws:drop_strict@ default action.
-    streamExceptionPolicy :: Prelude.Maybe StreamExceptionPolicy,
-    -- | Indicates how to manage the order of stateful rule evaluation for the
-    -- policy. @DEFAULT_ACTION_ORDER@ is the default behavior. Stateful rules
-    -- are provided to the rule engine as Suricata compatible strings, and
-    -- Suricata evaluates them based on certain settings. For more information,
-    -- see
-    -- <https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html Evaluation order for stateful rules>
-    -- in the /Network Firewall Developer Guide/.
-    ruleOrder :: Prelude.Maybe RuleOrder
+    streamExceptionPolicy :: Prelude.Maybe StreamExceptionPolicy
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,6 +66,14 @@ data StatefulEngineOptions = StatefulEngineOptions'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'ruleOrder', 'statefulEngineOptions_ruleOrder' - Indicates how to manage the order of stateful rule evaluation for the
+-- policy. @DEFAULT_ACTION_ORDER@ is the default behavior. Stateful rules
+-- are provided to the rule engine as Suricata compatible strings, and
+-- Suricata evaluates them based on certain settings. For more information,
+-- see
+-- <https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html Evaluation order for stateful rules>
+-- in the /Network Firewall Developer Guide/.
 --
 -- 'streamExceptionPolicy', 'statefulEngineOptions_streamExceptionPolicy' - Configures how Network Firewall processes traffic when a network
 -- connection breaks midstream. Network connections can break due to
@@ -83,22 +91,23 @@ data StatefulEngineOptions = StatefulEngineOptions'
 --     application layer protocol as HTTP. However, this behavior is rule
 --     dependent—a TCP-layer rule using a @flow:stateless@ rule would still
 --     match, as would the @aws:drop_strict@ default action.
---
--- 'ruleOrder', 'statefulEngineOptions_ruleOrder' - Indicates how to manage the order of stateful rule evaluation for the
+newStatefulEngineOptions ::
+  StatefulEngineOptions
+newStatefulEngineOptions =
+  StatefulEngineOptions'
+    { ruleOrder = Prelude.Nothing,
+      streamExceptionPolicy = Prelude.Nothing
+    }
+
+-- | Indicates how to manage the order of stateful rule evaluation for the
 -- policy. @DEFAULT_ACTION_ORDER@ is the default behavior. Stateful rules
 -- are provided to the rule engine as Suricata compatible strings, and
 -- Suricata evaluates them based on certain settings. For more information,
 -- see
 -- <https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html Evaluation order for stateful rules>
 -- in the /Network Firewall Developer Guide/.
-newStatefulEngineOptions ::
-  StatefulEngineOptions
-newStatefulEngineOptions =
-  StatefulEngineOptions'
-    { streamExceptionPolicy =
-        Prelude.Nothing,
-      ruleOrder = Prelude.Nothing
-    }
+statefulEngineOptions_ruleOrder :: Lens.Lens' StatefulEngineOptions (Prelude.Maybe RuleOrder)
+statefulEngineOptions_ruleOrder = Lens.lens (\StatefulEngineOptions' {ruleOrder} -> ruleOrder) (\s@StatefulEngineOptions' {} a -> s {ruleOrder = a} :: StatefulEngineOptions)
 
 -- | Configures how Network Firewall processes traffic when a network
 -- connection breaks midstream. Network connections can break due to
@@ -119,42 +128,32 @@ newStatefulEngineOptions =
 statefulEngineOptions_streamExceptionPolicy :: Lens.Lens' StatefulEngineOptions (Prelude.Maybe StreamExceptionPolicy)
 statefulEngineOptions_streamExceptionPolicy = Lens.lens (\StatefulEngineOptions' {streamExceptionPolicy} -> streamExceptionPolicy) (\s@StatefulEngineOptions' {} a -> s {streamExceptionPolicy = a} :: StatefulEngineOptions)
 
--- | Indicates how to manage the order of stateful rule evaluation for the
--- policy. @DEFAULT_ACTION_ORDER@ is the default behavior. Stateful rules
--- are provided to the rule engine as Suricata compatible strings, and
--- Suricata evaluates them based on certain settings. For more information,
--- see
--- <https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html Evaluation order for stateful rules>
--- in the /Network Firewall Developer Guide/.
-statefulEngineOptions_ruleOrder :: Lens.Lens' StatefulEngineOptions (Prelude.Maybe RuleOrder)
-statefulEngineOptions_ruleOrder = Lens.lens (\StatefulEngineOptions' {ruleOrder} -> ruleOrder) (\s@StatefulEngineOptions' {} a -> s {ruleOrder = a} :: StatefulEngineOptions)
-
 instance Data.FromJSON StatefulEngineOptions where
   parseJSON =
     Data.withObject
       "StatefulEngineOptions"
       ( \x ->
           StatefulEngineOptions'
-            Prelude.<$> (x Data..:? "StreamExceptionPolicy")
-            Prelude.<*> (x Data..:? "RuleOrder")
+            Prelude.<$> (x Data..:? "RuleOrder")
+            Prelude.<*> (x Data..:? "StreamExceptionPolicy")
       )
 
 instance Prelude.Hashable StatefulEngineOptions where
   hashWithSalt _salt StatefulEngineOptions' {..} =
-    _salt `Prelude.hashWithSalt` streamExceptionPolicy
-      `Prelude.hashWithSalt` ruleOrder
+    _salt `Prelude.hashWithSalt` ruleOrder
+      `Prelude.hashWithSalt` streamExceptionPolicy
 
 instance Prelude.NFData StatefulEngineOptions where
   rnf StatefulEngineOptions' {..} =
-    Prelude.rnf streamExceptionPolicy
-      `Prelude.seq` Prelude.rnf ruleOrder
+    Prelude.rnf ruleOrder
+      `Prelude.seq` Prelude.rnf streamExceptionPolicy
 
 instance Data.ToJSON StatefulEngineOptions where
   toJSON StatefulEngineOptions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("StreamExceptionPolicy" Data..=)
-              Prelude.<$> streamExceptionPolicy,
-            ("RuleOrder" Data..=) Prelude.<$> ruleOrder
+          [ ("RuleOrder" Data..=) Prelude.<$> ruleOrder,
+            ("StreamExceptionPolicy" Data..=)
+              Prelude.<$> streamExceptionPolicy
           ]
       )

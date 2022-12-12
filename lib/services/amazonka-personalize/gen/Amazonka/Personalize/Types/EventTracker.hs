@@ -28,16 +28,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEventTracker' smart constructor.
 data EventTracker = EventTracker'
-  { -- | The name of the event tracker.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | The Amazon Web Services account that owns the event tracker.
+    accountId :: Prelude.Maybe Prelude.Text,
     -- | The date and time (in Unix format) that the event tracker was created.
     creationDateTime :: Prelude.Maybe Data.POSIX,
-    -- | The ID of the event tracker. Include this ID in requests to the
-    -- <https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html PutEvents>
-    -- API.
-    trackingId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the dataset group that receives the
+    -- event data.
+    datasetGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the event tracker.
     eventTrackerArn :: Prelude.Maybe Prelude.Text,
+    -- | The date and time (in Unix time) that the event tracker was last
+    -- updated.
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The name of the event tracker.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The status of the event tracker.
     --
     -- An event tracker can be in one of the following states:
@@ -46,14 +50,10 @@ data EventTracker = EventTracker'
     --
     -- -   DELETE PENDING > DELETE IN_PROGRESS
     status :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services account that owns the event tracker.
-    accountId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the dataset group that receives the
-    -- event data.
-    datasetGroupArn :: Prelude.Maybe Prelude.Text,
-    -- | The date and time (in Unix time) that the event tracker was last
-    -- updated.
-    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX
+    -- | The ID of the event tracker. Include this ID in requests to the
+    -- <https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html PutEvents>
+    -- API.
+    trackingId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,15 +65,19 @@ data EventTracker = EventTracker'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'eventTracker_name' - The name of the event tracker.
+-- 'accountId', 'eventTracker_accountId' - The Amazon Web Services account that owns the event tracker.
 --
 -- 'creationDateTime', 'eventTracker_creationDateTime' - The date and time (in Unix format) that the event tracker was created.
 --
--- 'trackingId', 'eventTracker_trackingId' - The ID of the event tracker. Include this ID in requests to the
--- <https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html PutEvents>
--- API.
+-- 'datasetGroupArn', 'eventTracker_datasetGroupArn' - The Amazon Resource Name (ARN) of the dataset group that receives the
+-- event data.
 --
 -- 'eventTrackerArn', 'eventTracker_eventTrackerArn' - The ARN of the event tracker.
+--
+-- 'lastUpdatedDateTime', 'eventTracker_lastUpdatedDateTime' - The date and time (in Unix time) that the event tracker was last
+-- updated.
+--
+-- 'name', 'eventTracker_name' - The name of the event tracker.
 --
 -- 'status', 'eventTracker_status' - The status of the event tracker.
 --
@@ -83,44 +87,48 @@ data EventTracker = EventTracker'
 --
 -- -   DELETE PENDING > DELETE IN_PROGRESS
 --
--- 'accountId', 'eventTracker_accountId' - The Amazon Web Services account that owns the event tracker.
---
--- 'datasetGroupArn', 'eventTracker_datasetGroupArn' - The Amazon Resource Name (ARN) of the dataset group that receives the
--- event data.
---
--- 'lastUpdatedDateTime', 'eventTracker_lastUpdatedDateTime' - The date and time (in Unix time) that the event tracker was last
--- updated.
+-- 'trackingId', 'eventTracker_trackingId' - The ID of the event tracker. Include this ID in requests to the
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html PutEvents>
+-- API.
 newEventTracker ::
   EventTracker
 newEventTracker =
   EventTracker'
-    { name = Prelude.Nothing,
+    { accountId = Prelude.Nothing,
       creationDateTime = Prelude.Nothing,
-      trackingId = Prelude.Nothing,
-      eventTrackerArn = Prelude.Nothing,
-      status = Prelude.Nothing,
-      accountId = Prelude.Nothing,
       datasetGroupArn = Prelude.Nothing,
-      lastUpdatedDateTime = Prelude.Nothing
+      eventTrackerArn = Prelude.Nothing,
+      lastUpdatedDateTime = Prelude.Nothing,
+      name = Prelude.Nothing,
+      status = Prelude.Nothing,
+      trackingId = Prelude.Nothing
     }
 
--- | The name of the event tracker.
-eventTracker_name :: Lens.Lens' EventTracker (Prelude.Maybe Prelude.Text)
-eventTracker_name = Lens.lens (\EventTracker' {name} -> name) (\s@EventTracker' {} a -> s {name = a} :: EventTracker)
+-- | The Amazon Web Services account that owns the event tracker.
+eventTracker_accountId :: Lens.Lens' EventTracker (Prelude.Maybe Prelude.Text)
+eventTracker_accountId = Lens.lens (\EventTracker' {accountId} -> accountId) (\s@EventTracker' {} a -> s {accountId = a} :: EventTracker)
 
 -- | The date and time (in Unix format) that the event tracker was created.
 eventTracker_creationDateTime :: Lens.Lens' EventTracker (Prelude.Maybe Prelude.UTCTime)
 eventTracker_creationDateTime = Lens.lens (\EventTracker' {creationDateTime} -> creationDateTime) (\s@EventTracker' {} a -> s {creationDateTime = a} :: EventTracker) Prelude.. Lens.mapping Data._Time
 
--- | The ID of the event tracker. Include this ID in requests to the
--- <https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html PutEvents>
--- API.
-eventTracker_trackingId :: Lens.Lens' EventTracker (Prelude.Maybe Prelude.Text)
-eventTracker_trackingId = Lens.lens (\EventTracker' {trackingId} -> trackingId) (\s@EventTracker' {} a -> s {trackingId = a} :: EventTracker)
+-- | The Amazon Resource Name (ARN) of the dataset group that receives the
+-- event data.
+eventTracker_datasetGroupArn :: Lens.Lens' EventTracker (Prelude.Maybe Prelude.Text)
+eventTracker_datasetGroupArn = Lens.lens (\EventTracker' {datasetGroupArn} -> datasetGroupArn) (\s@EventTracker' {} a -> s {datasetGroupArn = a} :: EventTracker)
 
 -- | The ARN of the event tracker.
 eventTracker_eventTrackerArn :: Lens.Lens' EventTracker (Prelude.Maybe Prelude.Text)
 eventTracker_eventTrackerArn = Lens.lens (\EventTracker' {eventTrackerArn} -> eventTrackerArn) (\s@EventTracker' {} a -> s {eventTrackerArn = a} :: EventTracker)
+
+-- | The date and time (in Unix time) that the event tracker was last
+-- updated.
+eventTracker_lastUpdatedDateTime :: Lens.Lens' EventTracker (Prelude.Maybe Prelude.UTCTime)
+eventTracker_lastUpdatedDateTime = Lens.lens (\EventTracker' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@EventTracker' {} a -> s {lastUpdatedDateTime = a} :: EventTracker) Prelude.. Lens.mapping Data._Time
+
+-- | The name of the event tracker.
+eventTracker_name :: Lens.Lens' EventTracker (Prelude.Maybe Prelude.Text)
+eventTracker_name = Lens.lens (\EventTracker' {name} -> name) (\s@EventTracker' {} a -> s {name = a} :: EventTracker)
 
 -- | The status of the event tracker.
 --
@@ -132,19 +140,11 @@ eventTracker_eventTrackerArn = Lens.lens (\EventTracker' {eventTrackerArn} -> ev
 eventTracker_status :: Lens.Lens' EventTracker (Prelude.Maybe Prelude.Text)
 eventTracker_status = Lens.lens (\EventTracker' {status} -> status) (\s@EventTracker' {} a -> s {status = a} :: EventTracker)
 
--- | The Amazon Web Services account that owns the event tracker.
-eventTracker_accountId :: Lens.Lens' EventTracker (Prelude.Maybe Prelude.Text)
-eventTracker_accountId = Lens.lens (\EventTracker' {accountId} -> accountId) (\s@EventTracker' {} a -> s {accountId = a} :: EventTracker)
-
--- | The Amazon Resource Name (ARN) of the dataset group that receives the
--- event data.
-eventTracker_datasetGroupArn :: Lens.Lens' EventTracker (Prelude.Maybe Prelude.Text)
-eventTracker_datasetGroupArn = Lens.lens (\EventTracker' {datasetGroupArn} -> datasetGroupArn) (\s@EventTracker' {} a -> s {datasetGroupArn = a} :: EventTracker)
-
--- | The date and time (in Unix time) that the event tracker was last
--- updated.
-eventTracker_lastUpdatedDateTime :: Lens.Lens' EventTracker (Prelude.Maybe Prelude.UTCTime)
-eventTracker_lastUpdatedDateTime = Lens.lens (\EventTracker' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@EventTracker' {} a -> s {lastUpdatedDateTime = a} :: EventTracker) Prelude.. Lens.mapping Data._Time
+-- | The ID of the event tracker. Include this ID in requests to the
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html PutEvents>
+-- API.
+eventTracker_trackingId :: Lens.Lens' EventTracker (Prelude.Maybe Prelude.Text)
+eventTracker_trackingId = Lens.lens (\EventTracker' {trackingId} -> trackingId) (\s@EventTracker' {} a -> s {trackingId = a} :: EventTracker)
 
 instance Data.FromJSON EventTracker where
   parseJSON =
@@ -152,34 +152,34 @@ instance Data.FromJSON EventTracker where
       "EventTracker"
       ( \x ->
           EventTracker'
-            Prelude.<$> (x Data..:? "name")
+            Prelude.<$> (x Data..:? "accountId")
             Prelude.<*> (x Data..:? "creationDateTime")
-            Prelude.<*> (x Data..:? "trackingId")
-            Prelude.<*> (x Data..:? "eventTrackerArn")
-            Prelude.<*> (x Data..:? "status")
-            Prelude.<*> (x Data..:? "accountId")
             Prelude.<*> (x Data..:? "datasetGroupArn")
+            Prelude.<*> (x Data..:? "eventTrackerArn")
             Prelude.<*> (x Data..:? "lastUpdatedDateTime")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "trackingId")
       )
 
 instance Prelude.Hashable EventTracker where
   hashWithSalt _salt EventTracker' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` creationDateTime
-      `Prelude.hashWithSalt` trackingId
-      `Prelude.hashWithSalt` eventTrackerArn
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` datasetGroupArn
+      `Prelude.hashWithSalt` eventTrackerArn
       `Prelude.hashWithSalt` lastUpdatedDateTime
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` trackingId
 
 instance Prelude.NFData EventTracker where
   rnf EventTracker' {..} =
-    Prelude.rnf name
+    Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf trackingId
-      `Prelude.seq` Prelude.rnf eventTrackerArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf datasetGroupArn
+      `Prelude.seq` Prelude.rnf eventTrackerArn
       `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf trackingId

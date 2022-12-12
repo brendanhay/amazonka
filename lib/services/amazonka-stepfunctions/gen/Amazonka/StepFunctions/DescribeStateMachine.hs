@@ -20,7 +20,17 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes a state machine.
+-- Provides information about a state machine\'s definition, its IAM role
+-- Amazon Resource Name (ARN), and configuration. If the state machine ARN
+-- is a qualified state machine ARN, the response returned includes the
+-- @Map@ state\'s label.
+--
+-- A qualified state machine ARN refers to a /Distributed Map state/
+-- defined within a state machine. For example, the qualified state machine
+-- ARN
+-- @arn:partition:states:region:account-id:stateMachine:stateMachineName\/mapStateLabel@
+-- refers to a /Distributed Map state/ with a label @mapStateLabel@ in the
+-- state machine named @stateMachineName@.
 --
 -- This operation is eventually consistent. The results are best effort and
 -- may not reflect very recent updates and changes.
@@ -37,9 +47,10 @@ module Amazonka.StepFunctions.DescribeStateMachine
     newDescribeStateMachineResponse,
 
     -- * Response Lenses
+    describeStateMachineResponse_label,
+    describeStateMachineResponse_loggingConfiguration,
     describeStateMachineResponse_status,
     describeStateMachineResponse_tracingConfiguration,
-    describeStateMachineResponse_loggingConfiguration,
     describeStateMachineResponse_httpStatus,
     describeStateMachineResponse_stateMachineArn,
     describeStateMachineResponse_name,
@@ -98,9 +109,10 @@ instance Core.AWSRequest DescribeStateMachine where
     Response.receiveJSON
       ( \s h x ->
           DescribeStateMachineResponse'
-            Prelude.<$> (x Data..?> "status")
-            Prelude.<*> (x Data..?> "tracingConfiguration")
+            Prelude.<$> (x Data..?> "label")
             Prelude.<*> (x Data..?> "loggingConfiguration")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "tracingConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "stateMachineArn")
             Prelude.<*> (x Data..:> "name")
@@ -150,11 +162,15 @@ instance Data.ToQuery DescribeStateMachine where
 
 -- | /See:/ 'newDescribeStateMachineResponse' smart constructor.
 data DescribeStateMachineResponse = DescribeStateMachineResponse'
-  { -- | The current status of the state machine.
+  { -- | A user-defined or an auto-generated string that identifies a @Map@
+    -- state. This parameter is present only if the @stateMachineArn@ specified
+    -- in input is a qualified state machine ARN.
+    label :: Prelude.Maybe Prelude.Text,
+    loggingConfiguration :: Prelude.Maybe LoggingConfiguration,
+    -- | The current status of the state machine.
     status :: Prelude.Maybe StateMachineStatus,
     -- | Selects whether X-Ray tracing is enabled.
     tracingConfiguration :: Prelude.Maybe TracingConfiguration,
-    loggingConfiguration :: Prelude.Maybe LoggingConfiguration,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) that identifies the state machine.
@@ -198,11 +214,15 @@ data DescribeStateMachineResponse = DescribeStateMachineResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'label', 'describeStateMachineResponse_label' - A user-defined or an auto-generated string that identifies a @Map@
+-- state. This parameter is present only if the @stateMachineArn@ specified
+-- in input is a qualified state machine ARN.
+--
+-- 'loggingConfiguration', 'describeStateMachineResponse_loggingConfiguration' - Undocumented member.
+--
 -- 'status', 'describeStateMachineResponse_status' - The current status of the state machine.
 --
 -- 'tracingConfiguration', 'describeStateMachineResponse_tracingConfiguration' - Selects whether X-Ray tracing is enabled.
---
--- 'loggingConfiguration', 'describeStateMachineResponse_loggingConfiguration' - Undocumented member.
 --
 -- 'httpStatus', 'describeStateMachineResponse_httpStatus' - The response's http status code.
 --
@@ -260,10 +280,11 @@ newDescribeStateMachineResponse
   pType_
   pCreationDate_ =
     DescribeStateMachineResponse'
-      { status =
+      { label =
           Prelude.Nothing,
-        tracingConfiguration = Prelude.Nothing,
         loggingConfiguration = Prelude.Nothing,
+        status = Prelude.Nothing,
+        tracingConfiguration = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         stateMachineArn = pStateMachineArn_,
         name = pName_,
@@ -275,6 +296,16 @@ newDescribeStateMachineResponse
           Data._Time Lens.# pCreationDate_
       }
 
+-- | A user-defined or an auto-generated string that identifies a @Map@
+-- state. This parameter is present only if the @stateMachineArn@ specified
+-- in input is a qualified state machine ARN.
+describeStateMachineResponse_label :: Lens.Lens' DescribeStateMachineResponse (Prelude.Maybe Prelude.Text)
+describeStateMachineResponse_label = Lens.lens (\DescribeStateMachineResponse' {label} -> label) (\s@DescribeStateMachineResponse' {} a -> s {label = a} :: DescribeStateMachineResponse)
+
+-- | Undocumented member.
+describeStateMachineResponse_loggingConfiguration :: Lens.Lens' DescribeStateMachineResponse (Prelude.Maybe LoggingConfiguration)
+describeStateMachineResponse_loggingConfiguration = Lens.lens (\DescribeStateMachineResponse' {loggingConfiguration} -> loggingConfiguration) (\s@DescribeStateMachineResponse' {} a -> s {loggingConfiguration = a} :: DescribeStateMachineResponse)
+
 -- | The current status of the state machine.
 describeStateMachineResponse_status :: Lens.Lens' DescribeStateMachineResponse (Prelude.Maybe StateMachineStatus)
 describeStateMachineResponse_status = Lens.lens (\DescribeStateMachineResponse' {status} -> status) (\s@DescribeStateMachineResponse' {} a -> s {status = a} :: DescribeStateMachineResponse)
@@ -282,10 +313,6 @@ describeStateMachineResponse_status = Lens.lens (\DescribeStateMachineResponse' 
 -- | Selects whether X-Ray tracing is enabled.
 describeStateMachineResponse_tracingConfiguration :: Lens.Lens' DescribeStateMachineResponse (Prelude.Maybe TracingConfiguration)
 describeStateMachineResponse_tracingConfiguration = Lens.lens (\DescribeStateMachineResponse' {tracingConfiguration} -> tracingConfiguration) (\s@DescribeStateMachineResponse' {} a -> s {tracingConfiguration = a} :: DescribeStateMachineResponse)
-
--- | Undocumented member.
-describeStateMachineResponse_loggingConfiguration :: Lens.Lens' DescribeStateMachineResponse (Prelude.Maybe LoggingConfiguration)
-describeStateMachineResponse_loggingConfiguration = Lens.lens (\DescribeStateMachineResponse' {loggingConfiguration} -> loggingConfiguration) (\s@DescribeStateMachineResponse' {} a -> s {loggingConfiguration = a} :: DescribeStateMachineResponse)
 
 -- | The response's http status code.
 describeStateMachineResponse_httpStatus :: Lens.Lens' DescribeStateMachineResponse Prelude.Int
@@ -335,9 +362,10 @@ describeStateMachineResponse_creationDate = Lens.lens (\DescribeStateMachineResp
 
 instance Prelude.NFData DescribeStateMachineResponse where
   rnf DescribeStateMachineResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf tracingConfiguration
+    Prelude.rnf label
       `Prelude.seq` Prelude.rnf loggingConfiguration
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf tracingConfiguration
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf stateMachineArn
       `Prelude.seq` Prelude.rnf name

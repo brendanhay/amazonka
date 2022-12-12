@@ -36,8 +36,8 @@ module Amazonka.GuardDuty.GetRemainingFreeTrialDays
     newGetRemainingFreeTrialDaysResponse,
 
     -- * Response Lenses
-    getRemainingFreeTrialDaysResponse_unprocessedAccounts,
     getRemainingFreeTrialDaysResponse_accounts,
+    getRemainingFreeTrialDaysResponse_unprocessedAccounts,
     getRemainingFreeTrialDaysResponse_httpStatus,
   )
 where
@@ -99,10 +99,10 @@ instance Core.AWSRequest GetRemainingFreeTrialDays where
     Response.receiveJSON
       ( \s h x ->
           GetRemainingFreeTrialDaysResponse'
-            Prelude.<$> ( x Data..?> "unprocessedAccounts"
+            Prelude.<$> (x Data..?> "accounts" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "unprocessedAccounts"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "accounts" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,12 +147,12 @@ instance Data.ToQuery GetRemainingFreeTrialDays where
 
 -- | /See:/ 'newGetRemainingFreeTrialDaysResponse' smart constructor.
 data GetRemainingFreeTrialDaysResponse = GetRemainingFreeTrialDaysResponse'
-  { -- | The member account that was included in a request but for which the
-    -- request could not be processed.
-    unprocessedAccounts :: Prelude.Maybe [UnprocessedAccount],
-    -- | The member accounts which were included in a request and were processed
+  { -- | The member accounts which were included in a request and were processed
     -- successfully.
     accounts :: Prelude.Maybe [AccountFreeTrialInfo],
+    -- | The member account that was included in a request but for which the
+    -- request could not be processed.
+    unprocessedAccounts :: Prelude.Maybe [UnprocessedAccount],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -166,11 +166,11 @@ data GetRemainingFreeTrialDaysResponse = GetRemainingFreeTrialDaysResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'unprocessedAccounts', 'getRemainingFreeTrialDaysResponse_unprocessedAccounts' - The member account that was included in a request but for which the
--- request could not be processed.
---
 -- 'accounts', 'getRemainingFreeTrialDaysResponse_accounts' - The member accounts which were included in a request and were processed
 -- successfully.
+--
+-- 'unprocessedAccounts', 'getRemainingFreeTrialDaysResponse_unprocessedAccounts' - The member account that was included in a request but for which the
+-- request could not be processed.
 --
 -- 'httpStatus', 'getRemainingFreeTrialDaysResponse_httpStatus' - The response's http status code.
 newGetRemainingFreeTrialDaysResponse ::
@@ -179,21 +179,21 @@ newGetRemainingFreeTrialDaysResponse ::
   GetRemainingFreeTrialDaysResponse
 newGetRemainingFreeTrialDaysResponse pHttpStatus_ =
   GetRemainingFreeTrialDaysResponse'
-    { unprocessedAccounts =
+    { accounts =
         Prelude.Nothing,
-      accounts = Prelude.Nothing,
+      unprocessedAccounts = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The member account that was included in a request but for which the
--- request could not be processed.
-getRemainingFreeTrialDaysResponse_unprocessedAccounts :: Lens.Lens' GetRemainingFreeTrialDaysResponse (Prelude.Maybe [UnprocessedAccount])
-getRemainingFreeTrialDaysResponse_unprocessedAccounts = Lens.lens (\GetRemainingFreeTrialDaysResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@GetRemainingFreeTrialDaysResponse' {} a -> s {unprocessedAccounts = a} :: GetRemainingFreeTrialDaysResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The member accounts which were included in a request and were processed
 -- successfully.
 getRemainingFreeTrialDaysResponse_accounts :: Lens.Lens' GetRemainingFreeTrialDaysResponse (Prelude.Maybe [AccountFreeTrialInfo])
 getRemainingFreeTrialDaysResponse_accounts = Lens.lens (\GetRemainingFreeTrialDaysResponse' {accounts} -> accounts) (\s@GetRemainingFreeTrialDaysResponse' {} a -> s {accounts = a} :: GetRemainingFreeTrialDaysResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The member account that was included in a request but for which the
+-- request could not be processed.
+getRemainingFreeTrialDaysResponse_unprocessedAccounts :: Lens.Lens' GetRemainingFreeTrialDaysResponse (Prelude.Maybe [UnprocessedAccount])
+getRemainingFreeTrialDaysResponse_unprocessedAccounts = Lens.lens (\GetRemainingFreeTrialDaysResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@GetRemainingFreeTrialDaysResponse' {} a -> s {unprocessedAccounts = a} :: GetRemainingFreeTrialDaysResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getRemainingFreeTrialDaysResponse_httpStatus :: Lens.Lens' GetRemainingFreeTrialDaysResponse Prelude.Int
@@ -204,6 +204,6 @@ instance
     GetRemainingFreeTrialDaysResponse
   where
   rnf GetRemainingFreeTrialDaysResponse' {..} =
-    Prelude.rnf unprocessedAccounts
-      `Prelude.seq` Prelude.rnf accounts
+    Prelude.rnf accounts
+      `Prelude.seq` Prelude.rnf unprocessedAccounts
       `Prelude.seq` Prelude.rnf httpStatus

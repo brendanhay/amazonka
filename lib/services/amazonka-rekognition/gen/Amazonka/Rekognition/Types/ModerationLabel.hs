@@ -32,15 +32,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newModerationLabel' smart constructor.
 data ModerationLabel = ModerationLabel'
-  { -- | The label name for the type of unsafe content detected in the image.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the confidence that Amazon Rekognition has that the label has
+  { -- | Specifies the confidence that Amazon Rekognition has that the label has
     -- been correctly identified.
     --
     -- If you don\'t specify the @MinConfidence@ parameter in the call to
     -- @DetectModerationLabels@, the operation returns labels with a confidence
     -- value greater than or equal to 50 percent.
     confidence :: Prelude.Maybe Prelude.Double,
+    -- | The label name for the type of unsafe content detected in the image.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The name for the parent label. Labels at the top level of the hierarchy
     -- have the parent label @\"\"@.
     parentName :: Prelude.Maybe Prelude.Text
@@ -55,8 +55,6 @@ data ModerationLabel = ModerationLabel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'moderationLabel_name' - The label name for the type of unsafe content detected in the image.
---
 -- 'confidence', 'moderationLabel_confidence' - Specifies the confidence that Amazon Rekognition has that the label has
 -- been correctly identified.
 --
@@ -64,20 +62,18 @@ data ModerationLabel = ModerationLabel'
 -- @DetectModerationLabels@, the operation returns labels with a confidence
 -- value greater than or equal to 50 percent.
 --
+-- 'name', 'moderationLabel_name' - The label name for the type of unsafe content detected in the image.
+--
 -- 'parentName', 'moderationLabel_parentName' - The name for the parent label. Labels at the top level of the hierarchy
 -- have the parent label @\"\"@.
 newModerationLabel ::
   ModerationLabel
 newModerationLabel =
   ModerationLabel'
-    { name = Prelude.Nothing,
-      confidence = Prelude.Nothing,
+    { confidence = Prelude.Nothing,
+      name = Prelude.Nothing,
       parentName = Prelude.Nothing
     }
-
--- | The label name for the type of unsafe content detected in the image.
-moderationLabel_name :: Lens.Lens' ModerationLabel (Prelude.Maybe Prelude.Text)
-moderationLabel_name = Lens.lens (\ModerationLabel' {name} -> name) (\s@ModerationLabel' {} a -> s {name = a} :: ModerationLabel)
 
 -- | Specifies the confidence that Amazon Rekognition has that the label has
 -- been correctly identified.
@@ -87,6 +83,10 @@ moderationLabel_name = Lens.lens (\ModerationLabel' {name} -> name) (\s@Moderati
 -- value greater than or equal to 50 percent.
 moderationLabel_confidence :: Lens.Lens' ModerationLabel (Prelude.Maybe Prelude.Double)
 moderationLabel_confidence = Lens.lens (\ModerationLabel' {confidence} -> confidence) (\s@ModerationLabel' {} a -> s {confidence = a} :: ModerationLabel)
+
+-- | The label name for the type of unsafe content detected in the image.
+moderationLabel_name :: Lens.Lens' ModerationLabel (Prelude.Maybe Prelude.Text)
+moderationLabel_name = Lens.lens (\ModerationLabel' {name} -> name) (\s@ModerationLabel' {} a -> s {name = a} :: ModerationLabel)
 
 -- | The name for the parent label. Labels at the top level of the hierarchy
 -- have the parent label @\"\"@.
@@ -99,19 +99,19 @@ instance Data.FromJSON ModerationLabel where
       "ModerationLabel"
       ( \x ->
           ModerationLabel'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Confidence")
+            Prelude.<$> (x Data..:? "Confidence")
+            Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "ParentName")
       )
 
 instance Prelude.Hashable ModerationLabel where
   hashWithSalt _salt ModerationLabel' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` confidence
+    _salt `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` parentName
 
 instance Prelude.NFData ModerationLabel where
   rnf ModerationLabel' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf confidence
+    Prelude.rnf confidence
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf parentName

@@ -47,12 +47,12 @@ module Amazonka.LexV2Models.ListAggregatedUtterances
     newListAggregatedUtterances,
 
     -- * Request Lenses
-    listAggregatedUtterances_nextToken,
+    listAggregatedUtterances_botAliasId,
     listAggregatedUtterances_botVersion,
     listAggregatedUtterances_filters,
-    listAggregatedUtterances_sortBy,
-    listAggregatedUtterances_botAliasId,
     listAggregatedUtterances_maxResults,
+    listAggregatedUtterances_nextToken,
+    listAggregatedUtterances_sortBy,
     listAggregatedUtterances_botId,
     listAggregatedUtterances_localeId,
     listAggregatedUtterances_aggregationDuration,
@@ -62,16 +62,16 @@ module Amazonka.LexV2Models.ListAggregatedUtterances
     newListAggregatedUtterancesResponse,
 
     -- * Response Lenses
-    listAggregatedUtterancesResponse_nextToken,
-    listAggregatedUtterancesResponse_botVersion,
-    listAggregatedUtterancesResponse_aggregationWindowStartTime,
-    listAggregatedUtterancesResponse_localeId,
-    listAggregatedUtterancesResponse_botId,
-    listAggregatedUtterancesResponse_botAliasId,
-    listAggregatedUtterancesResponse_aggregationDuration,
-    listAggregatedUtterancesResponse_aggregationWindowEndTime,
-    listAggregatedUtterancesResponse_aggregationLastRefreshedDateTime,
     listAggregatedUtterancesResponse_aggregatedUtterancesSummaries,
+    listAggregatedUtterancesResponse_aggregationDuration,
+    listAggregatedUtterancesResponse_aggregationLastRefreshedDateTime,
+    listAggregatedUtterancesResponse_aggregationWindowEndTime,
+    listAggregatedUtterancesResponse_aggregationWindowStartTime,
+    listAggregatedUtterancesResponse_botAliasId,
+    listAggregatedUtterancesResponse_botId,
+    listAggregatedUtterancesResponse_botVersion,
+    listAggregatedUtterancesResponse_localeId,
+    listAggregatedUtterancesResponse_nextToken,
     listAggregatedUtterancesResponse_httpStatus,
   )
 where
@@ -86,11 +86,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAggregatedUtterances' smart constructor.
 data ListAggregatedUtterances = ListAggregatedUtterances'
-  { -- | If the response from the @ListAggregatedUtterances@ operation contains
-    -- more results that specified in the @maxResults@ parameter, a token is
-    -- returned in the response. Use that token in the @nextToken@ parameter to
-    -- return the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The identifier of the bot alias associated with this request. If you
+    -- specify the bot alias, you can\'t specify the bot version.
+    botAliasId :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the bot version associated with this request. If you
     -- specify the bot version, you can\'t specify the bot alias.
     botVersion :: Prelude.Maybe Prelude.Text,
@@ -98,18 +96,20 @@ data ListAggregatedUtterances = ListAggregatedUtterances'
     -- the response to only those that match the filter specification. You can
     -- only specify one filter and one string to filter on.
     filters :: Prelude.Maybe (Prelude.NonEmpty AggregatedUtterancesFilter),
-    -- | Specifies sorting parameters for the list of utterances. You can sort by
-    -- the hit count, the missed count, or the number of distinct sessions the
-    -- utterance appeared in.
-    sortBy :: Prelude.Maybe AggregatedUtterancesSortBy,
-    -- | The identifier of the bot alias associated with this request. If you
-    -- specify the bot alias, you can\'t specify the bot version.
-    botAliasId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of utterances to return in each page of results. If
     -- there are fewer results than the maximum page size, only the actual
     -- number of results are returned. If you don\'t specify the @maxResults@
     -- parameter, 1,000 results are returned.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the response from the @ListAggregatedUtterances@ operation contains
+    -- more results that specified in the @maxResults@ parameter, a token is
+    -- returned in the response. Use that token in the @nextToken@ parameter to
+    -- return the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Specifies sorting parameters for the list of utterances. You can sort by
+    -- the hit count, the missed count, or the number of distinct sessions the
+    -- utterance appeared in.
+    sortBy :: Prelude.Maybe AggregatedUtterancesSortBy,
     -- | The unique identifier of the bot associated with this request.
     botId :: Prelude.Text,
     -- | The identifier of the language and locale where the utterances were
@@ -130,10 +130,8 @@ data ListAggregatedUtterances = ListAggregatedUtterances'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAggregatedUtterances_nextToken' - If the response from the @ListAggregatedUtterances@ operation contains
--- more results that specified in the @maxResults@ parameter, a token is
--- returned in the response. Use that token in the @nextToken@ parameter to
--- return the next page of results.
+-- 'botAliasId', 'listAggregatedUtterances_botAliasId' - The identifier of the bot alias associated with this request. If you
+-- specify the bot alias, you can\'t specify the bot version.
 --
 -- 'botVersion', 'listAggregatedUtterances_botVersion' - The identifier of the bot version associated with this request. If you
 -- specify the bot version, you can\'t specify the bot alias.
@@ -142,17 +140,19 @@ data ListAggregatedUtterances = ListAggregatedUtterances'
 -- the response to only those that match the filter specification. You can
 -- only specify one filter and one string to filter on.
 --
--- 'sortBy', 'listAggregatedUtterances_sortBy' - Specifies sorting parameters for the list of utterances. You can sort by
--- the hit count, the missed count, or the number of distinct sessions the
--- utterance appeared in.
---
--- 'botAliasId', 'listAggregatedUtterances_botAliasId' - The identifier of the bot alias associated with this request. If you
--- specify the bot alias, you can\'t specify the bot version.
---
 -- 'maxResults', 'listAggregatedUtterances_maxResults' - The maximum number of utterances to return in each page of results. If
 -- there are fewer results than the maximum page size, only the actual
 -- number of results are returned. If you don\'t specify the @maxResults@
 -- parameter, 1,000 results are returned.
+--
+-- 'nextToken', 'listAggregatedUtterances_nextToken' - If the response from the @ListAggregatedUtterances@ operation contains
+-- more results that specified in the @maxResults@ parameter, a token is
+-- returned in the response. Use that token in the @nextToken@ parameter to
+-- return the next page of results.
+--
+-- 'sortBy', 'listAggregatedUtterances_sortBy' - Specifies sorting parameters for the list of utterances. You can sort by
+-- the hit count, the missed count, or the number of distinct sessions the
+-- utterance appeared in.
 --
 -- 'botId', 'listAggregatedUtterances_botId' - The unique identifier of the bot associated with this request.
 --
@@ -175,24 +175,22 @@ newListAggregatedUtterances
   pLocaleId_
   pAggregationDuration_ =
     ListAggregatedUtterances'
-      { nextToken =
+      { botAliasId =
           Prelude.Nothing,
         botVersion = Prelude.Nothing,
         filters = Prelude.Nothing,
-        sortBy = Prelude.Nothing,
-        botAliasId = Prelude.Nothing,
         maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
+        sortBy = Prelude.Nothing,
         botId = pBotId_,
         localeId = pLocaleId_,
         aggregationDuration = pAggregationDuration_
       }
 
--- | If the response from the @ListAggregatedUtterances@ operation contains
--- more results that specified in the @maxResults@ parameter, a token is
--- returned in the response. Use that token in the @nextToken@ parameter to
--- return the next page of results.
-listAggregatedUtterances_nextToken :: Lens.Lens' ListAggregatedUtterances (Prelude.Maybe Prelude.Text)
-listAggregatedUtterances_nextToken = Lens.lens (\ListAggregatedUtterances' {nextToken} -> nextToken) (\s@ListAggregatedUtterances' {} a -> s {nextToken = a} :: ListAggregatedUtterances)
+-- | The identifier of the bot alias associated with this request. If you
+-- specify the bot alias, you can\'t specify the bot version.
+listAggregatedUtterances_botAliasId :: Lens.Lens' ListAggregatedUtterances (Prelude.Maybe Prelude.Text)
+listAggregatedUtterances_botAliasId = Lens.lens (\ListAggregatedUtterances' {botAliasId} -> botAliasId) (\s@ListAggregatedUtterances' {} a -> s {botAliasId = a} :: ListAggregatedUtterances)
 
 -- | The identifier of the bot version associated with this request. If you
 -- specify the bot version, you can\'t specify the bot alias.
@@ -205,23 +203,25 @@ listAggregatedUtterances_botVersion = Lens.lens (\ListAggregatedUtterances' {bot
 listAggregatedUtterances_filters :: Lens.Lens' ListAggregatedUtterances (Prelude.Maybe (Prelude.NonEmpty AggregatedUtterancesFilter))
 listAggregatedUtterances_filters = Lens.lens (\ListAggregatedUtterances' {filters} -> filters) (\s@ListAggregatedUtterances' {} a -> s {filters = a} :: ListAggregatedUtterances) Prelude.. Lens.mapping Lens.coerced
 
--- | Specifies sorting parameters for the list of utterances. You can sort by
--- the hit count, the missed count, or the number of distinct sessions the
--- utterance appeared in.
-listAggregatedUtterances_sortBy :: Lens.Lens' ListAggregatedUtterances (Prelude.Maybe AggregatedUtterancesSortBy)
-listAggregatedUtterances_sortBy = Lens.lens (\ListAggregatedUtterances' {sortBy} -> sortBy) (\s@ListAggregatedUtterances' {} a -> s {sortBy = a} :: ListAggregatedUtterances)
-
--- | The identifier of the bot alias associated with this request. If you
--- specify the bot alias, you can\'t specify the bot version.
-listAggregatedUtterances_botAliasId :: Lens.Lens' ListAggregatedUtterances (Prelude.Maybe Prelude.Text)
-listAggregatedUtterances_botAliasId = Lens.lens (\ListAggregatedUtterances' {botAliasId} -> botAliasId) (\s@ListAggregatedUtterances' {} a -> s {botAliasId = a} :: ListAggregatedUtterances)
-
 -- | The maximum number of utterances to return in each page of results. If
 -- there are fewer results than the maximum page size, only the actual
 -- number of results are returned. If you don\'t specify the @maxResults@
 -- parameter, 1,000 results are returned.
 listAggregatedUtterances_maxResults :: Lens.Lens' ListAggregatedUtterances (Prelude.Maybe Prelude.Natural)
 listAggregatedUtterances_maxResults = Lens.lens (\ListAggregatedUtterances' {maxResults} -> maxResults) (\s@ListAggregatedUtterances' {} a -> s {maxResults = a} :: ListAggregatedUtterances)
+
+-- | If the response from the @ListAggregatedUtterances@ operation contains
+-- more results that specified in the @maxResults@ parameter, a token is
+-- returned in the response. Use that token in the @nextToken@ parameter to
+-- return the next page of results.
+listAggregatedUtterances_nextToken :: Lens.Lens' ListAggregatedUtterances (Prelude.Maybe Prelude.Text)
+listAggregatedUtterances_nextToken = Lens.lens (\ListAggregatedUtterances' {nextToken} -> nextToken) (\s@ListAggregatedUtterances' {} a -> s {nextToken = a} :: ListAggregatedUtterances)
+
+-- | Specifies sorting parameters for the list of utterances. You can sort by
+-- the hit count, the missed count, or the number of distinct sessions the
+-- utterance appeared in.
+listAggregatedUtterances_sortBy :: Lens.Lens' ListAggregatedUtterances (Prelude.Maybe AggregatedUtterancesSortBy)
+listAggregatedUtterances_sortBy = Lens.lens (\ListAggregatedUtterances' {sortBy} -> sortBy) (\s@ListAggregatedUtterances' {} a -> s {sortBy = a} :: ListAggregatedUtterances)
 
 -- | The unique identifier of the bot associated with this request.
 listAggregatedUtterances_botId :: Lens.Lens' ListAggregatedUtterances Prelude.Text
@@ -248,41 +248,41 @@ instance Core.AWSRequest ListAggregatedUtterances where
     Response.receiveJSON
       ( \s h x ->
           ListAggregatedUtterancesResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "botVersion")
-            Prelude.<*> (x Data..?> "aggregationWindowStartTime")
-            Prelude.<*> (x Data..?> "localeId")
-            Prelude.<*> (x Data..?> "botId")
-            Prelude.<*> (x Data..?> "botAliasId")
-            Prelude.<*> (x Data..?> "aggregationDuration")
-            Prelude.<*> (x Data..?> "aggregationWindowEndTime")
-            Prelude.<*> (x Data..?> "aggregationLastRefreshedDateTime")
-            Prelude.<*> ( x Data..?> "aggregatedUtterancesSummaries"
+            Prelude.<$> ( x Data..?> "aggregatedUtterancesSummaries"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "aggregationDuration")
+            Prelude.<*> (x Data..?> "aggregationLastRefreshedDateTime")
+            Prelude.<*> (x Data..?> "aggregationWindowEndTime")
+            Prelude.<*> (x Data..?> "aggregationWindowStartTime")
+            Prelude.<*> (x Data..?> "botAliasId")
+            Prelude.<*> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "botVersion")
+            Prelude.<*> (x Data..?> "localeId")
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListAggregatedUtterances where
   hashWithSalt _salt ListAggregatedUtterances' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` botAliasId
       `Prelude.hashWithSalt` botVersion
       `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` sortBy
-      `Prelude.hashWithSalt` botAliasId
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortBy
       `Prelude.hashWithSalt` botId
       `Prelude.hashWithSalt` localeId
       `Prelude.hashWithSalt` aggregationDuration
 
 instance Prelude.NFData ListAggregatedUtterances where
   rnf ListAggregatedUtterances' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf botAliasId
       `Prelude.seq` Prelude.rnf botVersion
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf botAliasId
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortBy
       `Prelude.seq` Prelude.rnf botId
       `Prelude.seq` Prelude.rnf localeId
       `Prelude.seq` Prelude.rnf aggregationDuration
@@ -302,12 +302,12 @@ instance Data.ToJSON ListAggregatedUtterances where
   toJSON ListAggregatedUtterances' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+          [ ("botAliasId" Data..=) Prelude.<$> botAliasId,
             ("botVersion" Data..=) Prelude.<$> botVersion,
             ("filters" Data..=) Prelude.<$> filters,
-            ("sortBy" Data..=) Prelude.<$> sortBy,
-            ("botAliasId" Data..=) Prelude.<$> botAliasId,
             ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("sortBy" Data..=) Prelude.<$> sortBy,
             Prelude.Just ("localeId" Data..= localeId),
             Prelude.Just
               ("aggregationDuration" Data..= aggregationDuration)
@@ -324,30 +324,13 @@ instance Data.ToQuery ListAggregatedUtterances where
 
 -- | /See:/ 'newListAggregatedUtterancesResponse' smart constructor.
 data ListAggregatedUtterancesResponse = ListAggregatedUtterancesResponse'
-  { -- | A token that indicates whether there are more results to return in a
-    -- response to the @ListAggregatedUtterances@ operation. If the @nextToken@
-    -- field is present, you send the contents as the @nextToken@ parameter of
-    -- a @ListAggregatedUtterances@ operation request to get the next page of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the bot version that contains the utterances. If you
-    -- specified the bot alias, the bot version isn\'t returned.
-    botVersion :: Prelude.Maybe Prelude.Text,
-    -- | The date and time that the aggregation window begins. Only data
-    -- collected after this time is returned in the results.
-    aggregationWindowStartTime :: Prelude.Maybe Data.POSIX,
-    -- | The identifier of the language and locale that the utterances are in.
-    localeId :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the bot that contains the utterances.
-    botId :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the bot alias that contains the utterances. If you
-    -- specified the bot version, the bot alias ID isn\'t returned.
-    botAliasId :: Prelude.Maybe Prelude.Text,
+  { -- | Summaries of the aggregated utterance data. Each response contains
+    -- information about the number of times that the utterance was seen during
+    -- the time period, whether it was detected or missed, and when it was seen
+    -- during the time period.
+    aggregatedUtterancesSummaries :: Prelude.Maybe [AggregatedUtterancesSummary],
     -- | The time period used to aggregate the utterance data.
     aggregationDuration :: Prelude.Maybe UtteranceAggregationDuration,
-    -- | The date and time that the aggregation window ends. Only data collected
-    -- between the start time and the end time are returned in the results.
-    aggregationWindowEndTime :: Prelude.Maybe Data.POSIX,
     -- | The last date and time that the aggregated data was collected. The time
     -- period depends on the length of the aggregation window.
     --
@@ -359,11 +342,28 @@ data ListAggregatedUtterancesResponse = ListAggregatedUtterancesResponse'
     -- -   __Weeks__ - for a one week time window, every 12 hours; otherwise,
     --     every day
     aggregationLastRefreshedDateTime :: Prelude.Maybe Data.POSIX,
-    -- | Summaries of the aggregated utterance data. Each response contains
-    -- information about the number of times that the utterance was seen during
-    -- the time period, whether it was detected or missed, and when it was seen
-    -- during the time period.
-    aggregatedUtterancesSummaries :: Prelude.Maybe [AggregatedUtterancesSummary],
+    -- | The date and time that the aggregation window ends. Only data collected
+    -- between the start time and the end time are returned in the results.
+    aggregationWindowEndTime :: Prelude.Maybe Data.POSIX,
+    -- | The date and time that the aggregation window begins. Only data
+    -- collected after this time is returned in the results.
+    aggregationWindowStartTime :: Prelude.Maybe Data.POSIX,
+    -- | The identifier of the bot alias that contains the utterances. If you
+    -- specified the bot version, the bot alias ID isn\'t returned.
+    botAliasId :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the bot that contains the utterances.
+    botId :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the bot version that contains the utterances. If you
+    -- specified the bot alias, the bot version isn\'t returned.
+    botVersion :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the language and locale that the utterances are in.
+    localeId :: Prelude.Maybe Prelude.Text,
+    -- | A token that indicates whether there are more results to return in a
+    -- response to the @ListAggregatedUtterances@ operation. If the @nextToken@
+    -- field is present, you send the contents as the @nextToken@ parameter of
+    -- a @ListAggregatedUtterances@ operation request to get the next page of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -377,29 +377,12 @@ data ListAggregatedUtterancesResponse = ListAggregatedUtterancesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAggregatedUtterancesResponse_nextToken' - A token that indicates whether there are more results to return in a
--- response to the @ListAggregatedUtterances@ operation. If the @nextToken@
--- field is present, you send the contents as the @nextToken@ parameter of
--- a @ListAggregatedUtterances@ operation request to get the next page of
--- results.
---
--- 'botVersion', 'listAggregatedUtterancesResponse_botVersion' - The identifier of the bot version that contains the utterances. If you
--- specified the bot alias, the bot version isn\'t returned.
---
--- 'aggregationWindowStartTime', 'listAggregatedUtterancesResponse_aggregationWindowStartTime' - The date and time that the aggregation window begins. Only data
--- collected after this time is returned in the results.
---
--- 'localeId', 'listAggregatedUtterancesResponse_localeId' - The identifier of the language and locale that the utterances are in.
---
--- 'botId', 'listAggregatedUtterancesResponse_botId' - The identifier of the bot that contains the utterances.
---
--- 'botAliasId', 'listAggregatedUtterancesResponse_botAliasId' - The identifier of the bot alias that contains the utterances. If you
--- specified the bot version, the bot alias ID isn\'t returned.
+-- 'aggregatedUtterancesSummaries', 'listAggregatedUtterancesResponse_aggregatedUtterancesSummaries' - Summaries of the aggregated utterance data. Each response contains
+-- information about the number of times that the utterance was seen during
+-- the time period, whether it was detected or missed, and when it was seen
+-- during the time period.
 --
 -- 'aggregationDuration', 'listAggregatedUtterancesResponse_aggregationDuration' - The time period used to aggregate the utterance data.
---
--- 'aggregationWindowEndTime', 'listAggregatedUtterancesResponse_aggregationWindowEndTime' - The date and time that the aggregation window ends. Only data collected
--- between the start time and the end time are returned in the results.
 --
 -- 'aggregationLastRefreshedDateTime', 'listAggregatedUtterancesResponse_aggregationLastRefreshedDateTime' - The last date and time that the aggregated data was collected. The time
 -- period depends on the length of the aggregation window.
@@ -412,10 +395,27 @@ data ListAggregatedUtterancesResponse = ListAggregatedUtterancesResponse'
 -- -   __Weeks__ - for a one week time window, every 12 hours; otherwise,
 --     every day
 --
--- 'aggregatedUtterancesSummaries', 'listAggregatedUtterancesResponse_aggregatedUtterancesSummaries' - Summaries of the aggregated utterance data. Each response contains
--- information about the number of times that the utterance was seen during
--- the time period, whether it was detected or missed, and when it was seen
--- during the time period.
+-- 'aggregationWindowEndTime', 'listAggregatedUtterancesResponse_aggregationWindowEndTime' - The date and time that the aggregation window ends. Only data collected
+-- between the start time and the end time are returned in the results.
+--
+-- 'aggregationWindowStartTime', 'listAggregatedUtterancesResponse_aggregationWindowStartTime' - The date and time that the aggregation window begins. Only data
+-- collected after this time is returned in the results.
+--
+-- 'botAliasId', 'listAggregatedUtterancesResponse_botAliasId' - The identifier of the bot alias that contains the utterances. If you
+-- specified the bot version, the bot alias ID isn\'t returned.
+--
+-- 'botId', 'listAggregatedUtterancesResponse_botId' - The identifier of the bot that contains the utterances.
+--
+-- 'botVersion', 'listAggregatedUtterancesResponse_botVersion' - The identifier of the bot version that contains the utterances. If you
+-- specified the bot alias, the bot version isn\'t returned.
+--
+-- 'localeId', 'listAggregatedUtterancesResponse_localeId' - The identifier of the language and locale that the utterances are in.
+--
+-- 'nextToken', 'listAggregatedUtterancesResponse_nextToken' - A token that indicates whether there are more results to return in a
+-- response to the @ListAggregatedUtterances@ operation. If the @nextToken@
+-- field is present, you send the contents as the @nextToken@ parameter of
+-- a @ListAggregatedUtterances@ operation request to get the next page of
+-- results.
 --
 -- 'httpStatus', 'listAggregatedUtterancesResponse_httpStatus' - The response's http status code.
 newListAggregatedUtterancesResponse ::
@@ -424,63 +424,33 @@ newListAggregatedUtterancesResponse ::
   ListAggregatedUtterancesResponse
 newListAggregatedUtterancesResponse pHttpStatus_ =
   ListAggregatedUtterancesResponse'
-    { nextToken =
+    { aggregatedUtterancesSummaries =
         Prelude.Nothing,
-      botVersion = Prelude.Nothing,
-      aggregationWindowStartTime =
-        Prelude.Nothing,
-      localeId = Prelude.Nothing,
-      botId = Prelude.Nothing,
-      botAliasId = Prelude.Nothing,
       aggregationDuration = Prelude.Nothing,
-      aggregationWindowEndTime =
-        Prelude.Nothing,
       aggregationLastRefreshedDateTime =
         Prelude.Nothing,
-      aggregatedUtterancesSummaries =
+      aggregationWindowEndTime =
         Prelude.Nothing,
+      aggregationWindowStartTime =
+        Prelude.Nothing,
+      botAliasId = Prelude.Nothing,
+      botId = Prelude.Nothing,
+      botVersion = Prelude.Nothing,
+      localeId = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | A token that indicates whether there are more results to return in a
--- response to the @ListAggregatedUtterances@ operation. If the @nextToken@
--- field is present, you send the contents as the @nextToken@ parameter of
--- a @ListAggregatedUtterances@ operation request to get the next page of
--- results.
-listAggregatedUtterancesResponse_nextToken :: Lens.Lens' ListAggregatedUtterancesResponse (Prelude.Maybe Prelude.Text)
-listAggregatedUtterancesResponse_nextToken = Lens.lens (\ListAggregatedUtterancesResponse' {nextToken} -> nextToken) (\s@ListAggregatedUtterancesResponse' {} a -> s {nextToken = a} :: ListAggregatedUtterancesResponse)
-
--- | The identifier of the bot version that contains the utterances. If you
--- specified the bot alias, the bot version isn\'t returned.
-listAggregatedUtterancesResponse_botVersion :: Lens.Lens' ListAggregatedUtterancesResponse (Prelude.Maybe Prelude.Text)
-listAggregatedUtterancesResponse_botVersion = Lens.lens (\ListAggregatedUtterancesResponse' {botVersion} -> botVersion) (\s@ListAggregatedUtterancesResponse' {} a -> s {botVersion = a} :: ListAggregatedUtterancesResponse)
-
--- | The date and time that the aggregation window begins. Only data
--- collected after this time is returned in the results.
-listAggregatedUtterancesResponse_aggregationWindowStartTime :: Lens.Lens' ListAggregatedUtterancesResponse (Prelude.Maybe Prelude.UTCTime)
-listAggregatedUtterancesResponse_aggregationWindowStartTime = Lens.lens (\ListAggregatedUtterancesResponse' {aggregationWindowStartTime} -> aggregationWindowStartTime) (\s@ListAggregatedUtterancesResponse' {} a -> s {aggregationWindowStartTime = a} :: ListAggregatedUtterancesResponse) Prelude.. Lens.mapping Data._Time
-
--- | The identifier of the language and locale that the utterances are in.
-listAggregatedUtterancesResponse_localeId :: Lens.Lens' ListAggregatedUtterancesResponse (Prelude.Maybe Prelude.Text)
-listAggregatedUtterancesResponse_localeId = Lens.lens (\ListAggregatedUtterancesResponse' {localeId} -> localeId) (\s@ListAggregatedUtterancesResponse' {} a -> s {localeId = a} :: ListAggregatedUtterancesResponse)
-
--- | The identifier of the bot that contains the utterances.
-listAggregatedUtterancesResponse_botId :: Lens.Lens' ListAggregatedUtterancesResponse (Prelude.Maybe Prelude.Text)
-listAggregatedUtterancesResponse_botId = Lens.lens (\ListAggregatedUtterancesResponse' {botId} -> botId) (\s@ListAggregatedUtterancesResponse' {} a -> s {botId = a} :: ListAggregatedUtterancesResponse)
-
--- | The identifier of the bot alias that contains the utterances. If you
--- specified the bot version, the bot alias ID isn\'t returned.
-listAggregatedUtterancesResponse_botAliasId :: Lens.Lens' ListAggregatedUtterancesResponse (Prelude.Maybe Prelude.Text)
-listAggregatedUtterancesResponse_botAliasId = Lens.lens (\ListAggregatedUtterancesResponse' {botAliasId} -> botAliasId) (\s@ListAggregatedUtterancesResponse' {} a -> s {botAliasId = a} :: ListAggregatedUtterancesResponse)
+-- | Summaries of the aggregated utterance data. Each response contains
+-- information about the number of times that the utterance was seen during
+-- the time period, whether it was detected or missed, and when it was seen
+-- during the time period.
+listAggregatedUtterancesResponse_aggregatedUtterancesSummaries :: Lens.Lens' ListAggregatedUtterancesResponse (Prelude.Maybe [AggregatedUtterancesSummary])
+listAggregatedUtterancesResponse_aggregatedUtterancesSummaries = Lens.lens (\ListAggregatedUtterancesResponse' {aggregatedUtterancesSummaries} -> aggregatedUtterancesSummaries) (\s@ListAggregatedUtterancesResponse' {} a -> s {aggregatedUtterancesSummaries = a} :: ListAggregatedUtterancesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The time period used to aggregate the utterance data.
 listAggregatedUtterancesResponse_aggregationDuration :: Lens.Lens' ListAggregatedUtterancesResponse (Prelude.Maybe UtteranceAggregationDuration)
 listAggregatedUtterancesResponse_aggregationDuration = Lens.lens (\ListAggregatedUtterancesResponse' {aggregationDuration} -> aggregationDuration) (\s@ListAggregatedUtterancesResponse' {} a -> s {aggregationDuration = a} :: ListAggregatedUtterancesResponse)
-
--- | The date and time that the aggregation window ends. Only data collected
--- between the start time and the end time are returned in the results.
-listAggregatedUtterancesResponse_aggregationWindowEndTime :: Lens.Lens' ListAggregatedUtterancesResponse (Prelude.Maybe Prelude.UTCTime)
-listAggregatedUtterancesResponse_aggregationWindowEndTime = Lens.lens (\ListAggregatedUtterancesResponse' {aggregationWindowEndTime} -> aggregationWindowEndTime) (\s@ListAggregatedUtterancesResponse' {} a -> s {aggregationWindowEndTime = a} :: ListAggregatedUtterancesResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The last date and time that the aggregated data was collected. The time
 -- period depends on the length of the aggregation window.
@@ -495,12 +465,41 @@ listAggregatedUtterancesResponse_aggregationWindowEndTime = Lens.lens (\ListAggr
 listAggregatedUtterancesResponse_aggregationLastRefreshedDateTime :: Lens.Lens' ListAggregatedUtterancesResponse (Prelude.Maybe Prelude.UTCTime)
 listAggregatedUtterancesResponse_aggregationLastRefreshedDateTime = Lens.lens (\ListAggregatedUtterancesResponse' {aggregationLastRefreshedDateTime} -> aggregationLastRefreshedDateTime) (\s@ListAggregatedUtterancesResponse' {} a -> s {aggregationLastRefreshedDateTime = a} :: ListAggregatedUtterancesResponse) Prelude.. Lens.mapping Data._Time
 
--- | Summaries of the aggregated utterance data. Each response contains
--- information about the number of times that the utterance was seen during
--- the time period, whether it was detected or missed, and when it was seen
--- during the time period.
-listAggregatedUtterancesResponse_aggregatedUtterancesSummaries :: Lens.Lens' ListAggregatedUtterancesResponse (Prelude.Maybe [AggregatedUtterancesSummary])
-listAggregatedUtterancesResponse_aggregatedUtterancesSummaries = Lens.lens (\ListAggregatedUtterancesResponse' {aggregatedUtterancesSummaries} -> aggregatedUtterancesSummaries) (\s@ListAggregatedUtterancesResponse' {} a -> s {aggregatedUtterancesSummaries = a} :: ListAggregatedUtterancesResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The date and time that the aggregation window ends. Only data collected
+-- between the start time and the end time are returned in the results.
+listAggregatedUtterancesResponse_aggregationWindowEndTime :: Lens.Lens' ListAggregatedUtterancesResponse (Prelude.Maybe Prelude.UTCTime)
+listAggregatedUtterancesResponse_aggregationWindowEndTime = Lens.lens (\ListAggregatedUtterancesResponse' {aggregationWindowEndTime} -> aggregationWindowEndTime) (\s@ListAggregatedUtterancesResponse' {} a -> s {aggregationWindowEndTime = a} :: ListAggregatedUtterancesResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The date and time that the aggregation window begins. Only data
+-- collected after this time is returned in the results.
+listAggregatedUtterancesResponse_aggregationWindowStartTime :: Lens.Lens' ListAggregatedUtterancesResponse (Prelude.Maybe Prelude.UTCTime)
+listAggregatedUtterancesResponse_aggregationWindowStartTime = Lens.lens (\ListAggregatedUtterancesResponse' {aggregationWindowStartTime} -> aggregationWindowStartTime) (\s@ListAggregatedUtterancesResponse' {} a -> s {aggregationWindowStartTime = a} :: ListAggregatedUtterancesResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The identifier of the bot alias that contains the utterances. If you
+-- specified the bot version, the bot alias ID isn\'t returned.
+listAggregatedUtterancesResponse_botAliasId :: Lens.Lens' ListAggregatedUtterancesResponse (Prelude.Maybe Prelude.Text)
+listAggregatedUtterancesResponse_botAliasId = Lens.lens (\ListAggregatedUtterancesResponse' {botAliasId} -> botAliasId) (\s@ListAggregatedUtterancesResponse' {} a -> s {botAliasId = a} :: ListAggregatedUtterancesResponse)
+
+-- | The identifier of the bot that contains the utterances.
+listAggregatedUtterancesResponse_botId :: Lens.Lens' ListAggregatedUtterancesResponse (Prelude.Maybe Prelude.Text)
+listAggregatedUtterancesResponse_botId = Lens.lens (\ListAggregatedUtterancesResponse' {botId} -> botId) (\s@ListAggregatedUtterancesResponse' {} a -> s {botId = a} :: ListAggregatedUtterancesResponse)
+
+-- | The identifier of the bot version that contains the utterances. If you
+-- specified the bot alias, the bot version isn\'t returned.
+listAggregatedUtterancesResponse_botVersion :: Lens.Lens' ListAggregatedUtterancesResponse (Prelude.Maybe Prelude.Text)
+listAggregatedUtterancesResponse_botVersion = Lens.lens (\ListAggregatedUtterancesResponse' {botVersion} -> botVersion) (\s@ListAggregatedUtterancesResponse' {} a -> s {botVersion = a} :: ListAggregatedUtterancesResponse)
+
+-- | The identifier of the language and locale that the utterances are in.
+listAggregatedUtterancesResponse_localeId :: Lens.Lens' ListAggregatedUtterancesResponse (Prelude.Maybe Prelude.Text)
+listAggregatedUtterancesResponse_localeId = Lens.lens (\ListAggregatedUtterancesResponse' {localeId} -> localeId) (\s@ListAggregatedUtterancesResponse' {} a -> s {localeId = a} :: ListAggregatedUtterancesResponse)
+
+-- | A token that indicates whether there are more results to return in a
+-- response to the @ListAggregatedUtterances@ operation. If the @nextToken@
+-- field is present, you send the contents as the @nextToken@ parameter of
+-- a @ListAggregatedUtterances@ operation request to get the next page of
+-- results.
+listAggregatedUtterancesResponse_nextToken :: Lens.Lens' ListAggregatedUtterancesResponse (Prelude.Maybe Prelude.Text)
+listAggregatedUtterancesResponse_nextToken = Lens.lens (\ListAggregatedUtterancesResponse' {nextToken} -> nextToken) (\s@ListAggregatedUtterancesResponse' {} a -> s {nextToken = a} :: ListAggregatedUtterancesResponse)
 
 -- | The response's http status code.
 listAggregatedUtterancesResponse_httpStatus :: Lens.Lens' ListAggregatedUtterancesResponse Prelude.Int
@@ -511,14 +510,14 @@ instance
     ListAggregatedUtterancesResponse
   where
   rnf ListAggregatedUtterancesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf aggregationWindowStartTime
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botAliasId
+    Prelude.rnf aggregatedUtterancesSummaries
       `Prelude.seq` Prelude.rnf aggregationDuration
-      `Prelude.seq` Prelude.rnf aggregationWindowEndTime
       `Prelude.seq` Prelude.rnf aggregationLastRefreshedDateTime
-      `Prelude.seq` Prelude.rnf aggregatedUtterancesSummaries
+      `Prelude.seq` Prelude.rnf aggregationWindowEndTime
+      `Prelude.seq` Prelude.rnf aggregationWindowStartTime
+      `Prelude.seq` Prelude.rnf botAliasId
+      `Prelude.seq` Prelude.rnf botId
+      `Prelude.seq` Prelude.rnf botVersion
+      `Prelude.seq` Prelude.rnf localeId
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

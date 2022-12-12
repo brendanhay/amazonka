@@ -29,7 +29,14 @@ import Amazonka.S3.Internal
 --
 -- /See:/ 'newChecksum' smart constructor.
 data Checksum = Checksum'
-  { -- | The base64-encoded, 32-bit CRC32C checksum of the object. This will only
+  { -- | The base64-encoded, 32-bit CRC32 checksum of the object. This will only
+    -- be present if it was uploaded with the object. With multipart uploads,
+    -- this may not be a checksum value of the object. For more information
+    -- about how checksums are calculated with multipart uploads, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
+    -- in the /Amazon S3 User Guide/.
+    checksumCRC32 :: Prelude.Maybe Prelude.Text,
+    -- | The base64-encoded, 32-bit CRC32C checksum of the object. This will only
     -- be present if it was uploaded with the object. With multipart uploads,
     -- this may not be a checksum value of the object. For more information
     -- about how checksums are calculated with multipart uploads, see
@@ -43,13 +50,6 @@ data Checksum = Checksum'
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
     -- in the /Amazon S3 User Guide/.
     checksumSHA1 :: Prelude.Maybe Prelude.Text,
-    -- | The base64-encoded, 32-bit CRC32 checksum of the object. This will only
-    -- be present if it was uploaded with the object. With multipart uploads,
-    -- this may not be a checksum value of the object. For more information
-    -- about how checksums are calculated with multipart uploads, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
-    -- in the /Amazon S3 User Guide/.
-    checksumCRC32 :: Prelude.Maybe Prelude.Text,
     -- | The base64-encoded, 256-bit SHA-256 digest of the object. This will only
     -- be present if it was uploaded with the object. With multipart uploads,
     -- this may not be a checksum value of the object. For more information
@@ -68,6 +68,13 @@ data Checksum = Checksum'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'checksumCRC32', 'checksum_checksumCRC32' - The base64-encoded, 32-bit CRC32 checksum of the object. This will only
+-- be present if it was uploaded with the object. With multipart uploads,
+-- this may not be a checksum value of the object. For more information
+-- about how checksums are calculated with multipart uploads, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+--
 -- 'checksumCRC32C', 'checksum_checksumCRC32C' - The base64-encoded, 32-bit CRC32C checksum of the object. This will only
 -- be present if it was uploaded with the object. With multipart uploads,
 -- this may not be a checksum value of the object. For more information
@@ -76,13 +83,6 @@ data Checksum = Checksum'
 -- in the /Amazon S3 User Guide/.
 --
 -- 'checksumSHA1', 'checksum_checksumSHA1' - The base64-encoded, 160-bit SHA-1 digest of the object. This will only
--- be present if it was uploaded with the object. With multipart uploads,
--- this may not be a checksum value of the object. For more information
--- about how checksums are calculated with multipart uploads, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
--- in the /Amazon S3 User Guide/.
---
--- 'checksumCRC32', 'checksum_checksumCRC32' - The base64-encoded, 32-bit CRC32 checksum of the object. This will only
 -- be present if it was uploaded with the object. With multipart uploads,
 -- this may not be a checksum value of the object. For more information
 -- about how checksums are calculated with multipart uploads, see
@@ -99,11 +99,20 @@ newChecksum ::
   Checksum
 newChecksum =
   Checksum'
-    { checksumCRC32C = Prelude.Nothing,
+    { checksumCRC32 = Prelude.Nothing,
+      checksumCRC32C = Prelude.Nothing,
       checksumSHA1 = Prelude.Nothing,
-      checksumCRC32 = Prelude.Nothing,
       checksumSHA256 = Prelude.Nothing
     }
+
+-- | The base64-encoded, 32-bit CRC32 checksum of the object. This will only
+-- be present if it was uploaded with the object. With multipart uploads,
+-- this may not be a checksum value of the object. For more information
+-- about how checksums are calculated with multipart uploads, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+checksum_checksumCRC32 :: Lens.Lens' Checksum (Prelude.Maybe Prelude.Text)
+checksum_checksumCRC32 = Lens.lens (\Checksum' {checksumCRC32} -> checksumCRC32) (\s@Checksum' {} a -> s {checksumCRC32 = a} :: Checksum)
 
 -- | The base64-encoded, 32-bit CRC32C checksum of the object. This will only
 -- be present if it was uploaded with the object. With multipart uploads,
@@ -123,15 +132,6 @@ checksum_checksumCRC32C = Lens.lens (\Checksum' {checksumCRC32C} -> checksumCRC3
 checksum_checksumSHA1 :: Lens.Lens' Checksum (Prelude.Maybe Prelude.Text)
 checksum_checksumSHA1 = Lens.lens (\Checksum' {checksumSHA1} -> checksumSHA1) (\s@Checksum' {} a -> s {checksumSHA1 = a} :: Checksum)
 
--- | The base64-encoded, 32-bit CRC32 checksum of the object. This will only
--- be present if it was uploaded with the object. With multipart uploads,
--- this may not be a checksum value of the object. For more information
--- about how checksums are calculated with multipart uploads, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
--- in the /Amazon S3 User Guide/.
-checksum_checksumCRC32 :: Lens.Lens' Checksum (Prelude.Maybe Prelude.Text)
-checksum_checksumCRC32 = Lens.lens (\Checksum' {checksumCRC32} -> checksumCRC32) (\s@Checksum' {} a -> s {checksumCRC32 = a} :: Checksum)
-
 -- | The base64-encoded, 256-bit SHA-256 digest of the object. This will only
 -- be present if it was uploaded with the object. With multipart uploads,
 -- this may not be a checksum value of the object. For more information
@@ -144,21 +144,21 @@ checksum_checksumSHA256 = Lens.lens (\Checksum' {checksumSHA256} -> checksumSHA2
 instance Data.FromXML Checksum where
   parseXML x =
     Checksum'
-      Prelude.<$> (x Data..@? "ChecksumCRC32C")
+      Prelude.<$> (x Data..@? "ChecksumCRC32")
+      Prelude.<*> (x Data..@? "ChecksumCRC32C")
       Prelude.<*> (x Data..@? "ChecksumSHA1")
-      Prelude.<*> (x Data..@? "ChecksumCRC32")
       Prelude.<*> (x Data..@? "ChecksumSHA256")
 
 instance Prelude.Hashable Checksum where
   hashWithSalt _salt Checksum' {..} =
-    _salt `Prelude.hashWithSalt` checksumCRC32C
+    _salt `Prelude.hashWithSalt` checksumCRC32
+      `Prelude.hashWithSalt` checksumCRC32C
       `Prelude.hashWithSalt` checksumSHA1
-      `Prelude.hashWithSalt` checksumCRC32
       `Prelude.hashWithSalt` checksumSHA256
 
 instance Prelude.NFData Checksum where
   rnf Checksum' {..} =
-    Prelude.rnf checksumCRC32C
+    Prelude.rnf checksumCRC32
+      `Prelude.seq` Prelude.rnf checksumCRC32C
       `Prelude.seq` Prelude.rnf checksumSHA1
-      `Prelude.seq` Prelude.rnf checksumCRC32
       `Prelude.seq` Prelude.rnf checksumSHA256

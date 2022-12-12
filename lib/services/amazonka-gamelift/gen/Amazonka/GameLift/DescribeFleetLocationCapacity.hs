@@ -37,15 +37,6 @@
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up GameLift fleets>
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html#gamelift-metrics-fleet GameLift metrics for fleets>
---
--- __Related actions__
---
--- CreateFleetLocations | DescribeFleetLocationAttributes |
--- DescribeFleetLocationCapacity | DescribeFleetLocationUtilization |
--- DescribeFleetAttributes | DescribeFleetCapacity |
--- DescribeFleetUtilization | UpdateFleetCapacity | StopFleetActions |
--- DeleteFleetLocations |
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Amazonka.GameLift.DescribeFleetLocationCapacity
   ( -- * Creating a Request
     DescribeFleetLocationCapacity (..),
@@ -73,9 +64,7 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Represents the input for a request operation.
---
--- /See:/ 'newDescribeFleetLocationCapacity' smart constructor.
+-- | /See:/ 'newDescribeFleetLocationCapacity' smart constructor.
 data DescribeFleetLocationCapacity = DescribeFleetLocationCapacity'
   { -- | A unique identifier for the fleet to request location capacity for. You
     -- can use either the fleet ID or ARN value.
@@ -184,9 +173,7 @@ instance Data.ToPath DescribeFleetLocationCapacity where
 instance Data.ToQuery DescribeFleetLocationCapacity where
   toQuery = Prelude.const Prelude.mempty
 
--- | Represents the returned data in response to a request operation.
---
--- /See:/ 'newDescribeFleetLocationCapacityResponse' smart constructor.
+-- | /See:/ 'newDescribeFleetLocationCapacityResponse' smart constructor.
 data DescribeFleetLocationCapacityResponse = DescribeFleetLocationCapacityResponse'
   { -- | Resource capacity information for the requested fleet location. Capacity
     -- objects are returned only for fleets and locations that currently exist.

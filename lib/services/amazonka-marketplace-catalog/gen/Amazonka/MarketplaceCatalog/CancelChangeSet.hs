@@ -38,8 +38,8 @@ module Amazonka.MarketplaceCatalog.CancelChangeSet
     newCancelChangeSetResponse,
 
     -- * Response Lenses
-    cancelChangeSetResponse_changeSetId,
     cancelChangeSetResponse_changeSetArn,
+    cancelChangeSetResponse_changeSetId,
     cancelChangeSetResponse_httpStatus,
   )
 where
@@ -108,8 +108,8 @@ instance Core.AWSRequest CancelChangeSet where
     Response.receiveJSON
       ( \s h x ->
           CancelChangeSetResponse'
-            Prelude.<$> (x Data..?> "ChangeSetId")
-            Prelude.<*> (x Data..?> "ChangeSetArn")
+            Prelude.<$> (x Data..?> "ChangeSetArn")
+            Prelude.<*> (x Data..?> "ChangeSetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -149,10 +149,10 @@ instance Data.ToQuery CancelChangeSet where
 
 -- | /See:/ 'newCancelChangeSetResponse' smart constructor.
 data CancelChangeSetResponse = CancelChangeSetResponse'
-  { -- | The unique identifier for the change set referenced in this request.
-    changeSetId :: Prelude.Maybe Prelude.Text,
-    -- | The ARN associated with the change set referenced in this request.
+  { -- | The ARN associated with the change set referenced in this request.
     changeSetArn :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier for the change set referenced in this request.
+    changeSetId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -166,9 +166,9 @@ data CancelChangeSetResponse = CancelChangeSetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'changeSetId', 'cancelChangeSetResponse_changeSetId' - The unique identifier for the change set referenced in this request.
---
 -- 'changeSetArn', 'cancelChangeSetResponse_changeSetArn' - The ARN associated with the change set referenced in this request.
+--
+-- 'changeSetId', 'cancelChangeSetResponse_changeSetId' - The unique identifier for the change set referenced in this request.
 --
 -- 'httpStatus', 'cancelChangeSetResponse_httpStatus' - The response's http status code.
 newCancelChangeSetResponse ::
@@ -177,19 +177,19 @@ newCancelChangeSetResponse ::
   CancelChangeSetResponse
 newCancelChangeSetResponse pHttpStatus_ =
   CancelChangeSetResponse'
-    { changeSetId =
+    { changeSetArn =
         Prelude.Nothing,
-      changeSetArn = Prelude.Nothing,
+      changeSetId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The unique identifier for the change set referenced in this request.
-cancelChangeSetResponse_changeSetId :: Lens.Lens' CancelChangeSetResponse (Prelude.Maybe Prelude.Text)
-cancelChangeSetResponse_changeSetId = Lens.lens (\CancelChangeSetResponse' {changeSetId} -> changeSetId) (\s@CancelChangeSetResponse' {} a -> s {changeSetId = a} :: CancelChangeSetResponse)
 
 -- | The ARN associated with the change set referenced in this request.
 cancelChangeSetResponse_changeSetArn :: Lens.Lens' CancelChangeSetResponse (Prelude.Maybe Prelude.Text)
 cancelChangeSetResponse_changeSetArn = Lens.lens (\CancelChangeSetResponse' {changeSetArn} -> changeSetArn) (\s@CancelChangeSetResponse' {} a -> s {changeSetArn = a} :: CancelChangeSetResponse)
+
+-- | The unique identifier for the change set referenced in this request.
+cancelChangeSetResponse_changeSetId :: Lens.Lens' CancelChangeSetResponse (Prelude.Maybe Prelude.Text)
+cancelChangeSetResponse_changeSetId = Lens.lens (\CancelChangeSetResponse' {changeSetId} -> changeSetId) (\s@CancelChangeSetResponse' {} a -> s {changeSetId = a} :: CancelChangeSetResponse)
 
 -- | The response's http status code.
 cancelChangeSetResponse_httpStatus :: Lens.Lens' CancelChangeSetResponse Prelude.Int
@@ -197,6 +197,6 @@ cancelChangeSetResponse_httpStatus = Lens.lens (\CancelChangeSetResponse' {httpS
 
 instance Prelude.NFData CancelChangeSetResponse where
   rnf CancelChangeSetResponse' {..} =
-    Prelude.rnf changeSetId
-      `Prelude.seq` Prelude.rnf changeSetArn
+    Prelude.rnf changeSetArn
+      `Prelude.seq` Prelude.rnf changeSetId
       `Prelude.seq` Prelude.rnf httpStatus

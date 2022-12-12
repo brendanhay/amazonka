@@ -27,11 +27,11 @@ module Amazonka.MediaConnect.UpdateFlowMediaStream
     newUpdateFlowMediaStream,
 
     -- * Request Lenses
+    updateFlowMediaStream_attributes,
+    updateFlowMediaStream_clockRate,
+    updateFlowMediaStream_description,
     updateFlowMediaStream_mediaStreamType,
     updateFlowMediaStream_videoFormat,
-    updateFlowMediaStream_description,
-    updateFlowMediaStream_clockRate,
-    updateFlowMediaStream_attributes,
     updateFlowMediaStream_flowArn,
     updateFlowMediaStream_mediaStreamName,
 
@@ -40,8 +40,8 @@ module Amazonka.MediaConnect.UpdateFlowMediaStream
     newUpdateFlowMediaStreamResponse,
 
     -- * Response Lenses
-    updateFlowMediaStreamResponse_mediaStream,
     updateFlowMediaStreamResponse_flowArn,
+    updateFlowMediaStreamResponse_mediaStream,
     updateFlowMediaStreamResponse_httpStatus,
   )
 where
@@ -58,18 +58,18 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateFlowMediaStream' smart constructor.
 data UpdateFlowMediaStream = UpdateFlowMediaStream'
-  { -- | The type of media stream.
-    mediaStreamType :: Prelude.Maybe MediaStreamType,
-    -- | The resolution of the video.
-    videoFormat :: Prelude.Maybe Prelude.Text,
-    -- | Description
-    description :: Prelude.Maybe Prelude.Text,
+  { -- | The attributes that you want to assign to the media stream.
+    attributes :: Prelude.Maybe MediaStreamAttributesRequest,
     -- | The sample rate (in Hz) for the stream. If the media stream type is
     -- video or ancillary data, set this value to 90000. If the media stream
     -- type is audio, set this value to either 48000 or 96000.
     clockRate :: Prelude.Maybe Prelude.Int,
-    -- | The attributes that you want to assign to the media stream.
-    attributes :: Prelude.Maybe MediaStreamAttributesRequest,
+    -- | Description
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The type of media stream.
+    mediaStreamType :: Prelude.Maybe MediaStreamType,
+    -- | The resolution of the video.
+    videoFormat :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the flow.
     flowArn :: Prelude.Text,
     -- | The name of the media stream that you want to update.
@@ -85,17 +85,17 @@ data UpdateFlowMediaStream = UpdateFlowMediaStream'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'mediaStreamType', 'updateFlowMediaStream_mediaStreamType' - The type of media stream.
---
--- 'videoFormat', 'updateFlowMediaStream_videoFormat' - The resolution of the video.
---
--- 'description', 'updateFlowMediaStream_description' - Description
+-- 'attributes', 'updateFlowMediaStream_attributes' - The attributes that you want to assign to the media stream.
 --
 -- 'clockRate', 'updateFlowMediaStream_clockRate' - The sample rate (in Hz) for the stream. If the media stream type is
 -- video or ancillary data, set this value to 90000. If the media stream
 -- type is audio, set this value to either 48000 or 96000.
 --
--- 'attributes', 'updateFlowMediaStream_attributes' - The attributes that you want to assign to the media stream.
+-- 'description', 'updateFlowMediaStream_description' - Description
+--
+-- 'mediaStreamType', 'updateFlowMediaStream_mediaStreamType' - The type of media stream.
+--
+-- 'videoFormat', 'updateFlowMediaStream_videoFormat' - The resolution of the video.
 --
 -- 'flowArn', 'updateFlowMediaStream_flowArn' - The Amazon Resource Name (ARN) of the flow.
 --
@@ -108,15 +108,29 @@ newUpdateFlowMediaStream ::
   UpdateFlowMediaStream
 newUpdateFlowMediaStream pFlowArn_ pMediaStreamName_ =
   UpdateFlowMediaStream'
-    { mediaStreamType =
+    { attributes =
         Prelude.Nothing,
-      videoFormat = Prelude.Nothing,
-      description = Prelude.Nothing,
       clockRate = Prelude.Nothing,
-      attributes = Prelude.Nothing,
+      description = Prelude.Nothing,
+      mediaStreamType = Prelude.Nothing,
+      videoFormat = Prelude.Nothing,
       flowArn = pFlowArn_,
       mediaStreamName = pMediaStreamName_
     }
+
+-- | The attributes that you want to assign to the media stream.
+updateFlowMediaStream_attributes :: Lens.Lens' UpdateFlowMediaStream (Prelude.Maybe MediaStreamAttributesRequest)
+updateFlowMediaStream_attributes = Lens.lens (\UpdateFlowMediaStream' {attributes} -> attributes) (\s@UpdateFlowMediaStream' {} a -> s {attributes = a} :: UpdateFlowMediaStream)
+
+-- | The sample rate (in Hz) for the stream. If the media stream type is
+-- video or ancillary data, set this value to 90000. If the media stream
+-- type is audio, set this value to either 48000 or 96000.
+updateFlowMediaStream_clockRate :: Lens.Lens' UpdateFlowMediaStream (Prelude.Maybe Prelude.Int)
+updateFlowMediaStream_clockRate = Lens.lens (\UpdateFlowMediaStream' {clockRate} -> clockRate) (\s@UpdateFlowMediaStream' {} a -> s {clockRate = a} :: UpdateFlowMediaStream)
+
+-- | Description
+updateFlowMediaStream_description :: Lens.Lens' UpdateFlowMediaStream (Prelude.Maybe Prelude.Text)
+updateFlowMediaStream_description = Lens.lens (\UpdateFlowMediaStream' {description} -> description) (\s@UpdateFlowMediaStream' {} a -> s {description = a} :: UpdateFlowMediaStream)
 
 -- | The type of media stream.
 updateFlowMediaStream_mediaStreamType :: Lens.Lens' UpdateFlowMediaStream (Prelude.Maybe MediaStreamType)
@@ -125,20 +139,6 @@ updateFlowMediaStream_mediaStreamType = Lens.lens (\UpdateFlowMediaStream' {medi
 -- | The resolution of the video.
 updateFlowMediaStream_videoFormat :: Lens.Lens' UpdateFlowMediaStream (Prelude.Maybe Prelude.Text)
 updateFlowMediaStream_videoFormat = Lens.lens (\UpdateFlowMediaStream' {videoFormat} -> videoFormat) (\s@UpdateFlowMediaStream' {} a -> s {videoFormat = a} :: UpdateFlowMediaStream)
-
--- | Description
-updateFlowMediaStream_description :: Lens.Lens' UpdateFlowMediaStream (Prelude.Maybe Prelude.Text)
-updateFlowMediaStream_description = Lens.lens (\UpdateFlowMediaStream' {description} -> description) (\s@UpdateFlowMediaStream' {} a -> s {description = a} :: UpdateFlowMediaStream)
-
--- | The sample rate (in Hz) for the stream. If the media stream type is
--- video or ancillary data, set this value to 90000. If the media stream
--- type is audio, set this value to either 48000 or 96000.
-updateFlowMediaStream_clockRate :: Lens.Lens' UpdateFlowMediaStream (Prelude.Maybe Prelude.Int)
-updateFlowMediaStream_clockRate = Lens.lens (\UpdateFlowMediaStream' {clockRate} -> clockRate) (\s@UpdateFlowMediaStream' {} a -> s {clockRate = a} :: UpdateFlowMediaStream)
-
--- | The attributes that you want to assign to the media stream.
-updateFlowMediaStream_attributes :: Lens.Lens' UpdateFlowMediaStream (Prelude.Maybe MediaStreamAttributesRequest)
-updateFlowMediaStream_attributes = Lens.lens (\UpdateFlowMediaStream' {attributes} -> attributes) (\s@UpdateFlowMediaStream' {} a -> s {attributes = a} :: UpdateFlowMediaStream)
 
 -- | The Amazon Resource Name (ARN) of the flow.
 updateFlowMediaStream_flowArn :: Lens.Lens' UpdateFlowMediaStream Prelude.Text
@@ -158,28 +158,28 @@ instance Core.AWSRequest UpdateFlowMediaStream where
     Response.receiveJSON
       ( \s h x ->
           UpdateFlowMediaStreamResponse'
-            Prelude.<$> (x Data..?> "mediaStream")
-            Prelude.<*> (x Data..?> "flowArn")
+            Prelude.<$> (x Data..?> "flowArn")
+            Prelude.<*> (x Data..?> "mediaStream")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateFlowMediaStream where
   hashWithSalt _salt UpdateFlowMediaStream' {..} =
-    _salt `Prelude.hashWithSalt` mediaStreamType
-      `Prelude.hashWithSalt` videoFormat
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` clockRate
-      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` mediaStreamType
+      `Prelude.hashWithSalt` videoFormat
       `Prelude.hashWithSalt` flowArn
       `Prelude.hashWithSalt` mediaStreamName
 
 instance Prelude.NFData UpdateFlowMediaStream where
   rnf UpdateFlowMediaStream' {..} =
-    Prelude.rnf mediaStreamType
-      `Prelude.seq` Prelude.rnf videoFormat
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf attributes
       `Prelude.seq` Prelude.rnf clockRate
-      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf mediaStreamType
+      `Prelude.seq` Prelude.rnf videoFormat
       `Prelude.seq` Prelude.rnf flowArn
       `Prelude.seq` Prelude.rnf mediaStreamName
 
@@ -198,12 +198,12 @@ instance Data.ToJSON UpdateFlowMediaStream where
   toJSON UpdateFlowMediaStream' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("mediaStreamType" Data..=)
-              Prelude.<$> mediaStreamType,
-            ("videoFormat" Data..=) Prelude.<$> videoFormat,
-            ("description" Data..=) Prelude.<$> description,
+          [ ("attributes" Data..=) Prelude.<$> attributes,
             ("clockRate" Data..=) Prelude.<$> clockRate,
-            ("attributes" Data..=) Prelude.<$> attributes
+            ("description" Data..=) Prelude.<$> description,
+            ("mediaStreamType" Data..=)
+              Prelude.<$> mediaStreamType,
+            ("videoFormat" Data..=) Prelude.<$> videoFormat
           ]
       )
 
@@ -221,11 +221,11 @@ instance Data.ToQuery UpdateFlowMediaStream where
 
 -- | /See:/ 'newUpdateFlowMediaStreamResponse' smart constructor.
 data UpdateFlowMediaStreamResponse = UpdateFlowMediaStreamResponse'
-  { -- | The media stream that you updated.
-    mediaStream :: Prelude.Maybe MediaStream,
-    -- | The ARN of the flow that is associated with the media stream that you
+  { -- | The ARN of the flow that is associated with the media stream that you
     -- updated.
     flowArn :: Prelude.Maybe Prelude.Text,
+    -- | The media stream that you updated.
+    mediaStream :: Prelude.Maybe MediaStream,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -239,10 +239,10 @@ data UpdateFlowMediaStreamResponse = UpdateFlowMediaStreamResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'mediaStream', 'updateFlowMediaStreamResponse_mediaStream' - The media stream that you updated.
---
 -- 'flowArn', 'updateFlowMediaStreamResponse_flowArn' - The ARN of the flow that is associated with the media stream that you
 -- updated.
+--
+-- 'mediaStream', 'updateFlowMediaStreamResponse_mediaStream' - The media stream that you updated.
 --
 -- 'httpStatus', 'updateFlowMediaStreamResponse_httpStatus' - The response's http status code.
 newUpdateFlowMediaStreamResponse ::
@@ -251,20 +251,20 @@ newUpdateFlowMediaStreamResponse ::
   UpdateFlowMediaStreamResponse
 newUpdateFlowMediaStreamResponse pHttpStatus_ =
   UpdateFlowMediaStreamResponse'
-    { mediaStream =
+    { flowArn =
         Prelude.Nothing,
-      flowArn = Prelude.Nothing,
+      mediaStream = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The media stream that you updated.
-updateFlowMediaStreamResponse_mediaStream :: Lens.Lens' UpdateFlowMediaStreamResponse (Prelude.Maybe MediaStream)
-updateFlowMediaStreamResponse_mediaStream = Lens.lens (\UpdateFlowMediaStreamResponse' {mediaStream} -> mediaStream) (\s@UpdateFlowMediaStreamResponse' {} a -> s {mediaStream = a} :: UpdateFlowMediaStreamResponse)
 
 -- | The ARN of the flow that is associated with the media stream that you
 -- updated.
 updateFlowMediaStreamResponse_flowArn :: Lens.Lens' UpdateFlowMediaStreamResponse (Prelude.Maybe Prelude.Text)
 updateFlowMediaStreamResponse_flowArn = Lens.lens (\UpdateFlowMediaStreamResponse' {flowArn} -> flowArn) (\s@UpdateFlowMediaStreamResponse' {} a -> s {flowArn = a} :: UpdateFlowMediaStreamResponse)
+
+-- | The media stream that you updated.
+updateFlowMediaStreamResponse_mediaStream :: Lens.Lens' UpdateFlowMediaStreamResponse (Prelude.Maybe MediaStream)
+updateFlowMediaStreamResponse_mediaStream = Lens.lens (\UpdateFlowMediaStreamResponse' {mediaStream} -> mediaStream) (\s@UpdateFlowMediaStreamResponse' {} a -> s {mediaStream = a} :: UpdateFlowMediaStreamResponse)
 
 -- | The response's http status code.
 updateFlowMediaStreamResponse_httpStatus :: Lens.Lens' UpdateFlowMediaStreamResponse Prelude.Int
@@ -272,6 +272,6 @@ updateFlowMediaStreamResponse_httpStatus = Lens.lens (\UpdateFlowMediaStreamResp
 
 instance Prelude.NFData UpdateFlowMediaStreamResponse where
   rnf UpdateFlowMediaStreamResponse' {..} =
-    Prelude.rnf mediaStream
-      `Prelude.seq` Prelude.rnf flowArn
+    Prelude.rnf flowArn
+      `Prelude.seq` Prelude.rnf mediaStream
       `Prelude.seq` Prelude.rnf httpStatus

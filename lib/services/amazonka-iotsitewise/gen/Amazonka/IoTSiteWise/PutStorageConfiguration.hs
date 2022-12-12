@@ -27,8 +27,8 @@ module Amazonka.IoTSiteWise.PutStorageConfiguration
     newPutStorageConfiguration,
 
     -- * Request Lenses
-    putStorageConfiguration_multiLayerStorage,
     putStorageConfiguration_disassociatedDataStorage,
+    putStorageConfiguration_multiLayerStorage,
     putStorageConfiguration_retentionPeriod,
     putStorageConfiguration_storageType,
 
@@ -37,8 +37,8 @@ module Amazonka.IoTSiteWise.PutStorageConfiguration
     newPutStorageConfigurationResponse,
 
     -- * Response Lenses
-    putStorageConfigurationResponse_multiLayerStorage,
     putStorageConfigurationResponse_disassociatedDataStorage,
+    putStorageConfigurationResponse_multiLayerStorage,
     putStorageConfigurationResponse_retentionPeriod,
     putStorageConfigurationResponse_httpStatus,
     putStorageConfigurationResponse_storageType,
@@ -56,10 +56,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutStorageConfiguration' smart constructor.
 data PutStorageConfiguration = PutStorageConfiguration'
-  { -- | Identifies a storage destination. If you specified @MULTI_LAYER_STORAGE@
-    -- for the storage type, you must specify a @MultiLayerStorage@ object.
-    multiLayerStorage :: Prelude.Maybe MultiLayerStorage,
-    -- | Contains the storage configuration for time series (data streams) that
+  { -- | Contains the storage configuration for time series (data streams) that
     -- aren\'t associated with asset properties. The @disassociatedDataStorage@
     -- can be one of the following values:
     --
@@ -76,6 +73,9 @@ data PutStorageConfiguration = PutStorageConfiguration'
     -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/data-streams.html Data streams>
     -- in the /IoT SiteWise User Guide/.
     disassociatedDataStorage :: Prelude.Maybe DisassociatedDataStorageState,
+    -- | Identifies a storage destination. If you specified @MULTI_LAYER_STORAGE@
+    -- for the storage type, you must specify a @MultiLayerStorage@ object.
+    multiLayerStorage :: Prelude.Maybe MultiLayerStorage,
     retentionPeriod :: Prelude.Maybe RetentionPeriod,
     -- | The storage tier that you specified for your data. The @storageType@
     -- parameter can be one of the following values:
@@ -98,9 +98,6 @@ data PutStorageConfiguration = PutStorageConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'multiLayerStorage', 'putStorageConfiguration_multiLayerStorage' - Identifies a storage destination. If you specified @MULTI_LAYER_STORAGE@
--- for the storage type, you must specify a @MultiLayerStorage@ object.
---
 -- 'disassociatedDataStorage', 'putStorageConfiguration_disassociatedDataStorage' - Contains the storage configuration for time series (data streams) that
 -- aren\'t associated with asset properties. The @disassociatedDataStorage@
 -- can be one of the following values:
@@ -117,6 +114,9 @@ data PutStorageConfiguration = PutStorageConfiguration'
 -- For more information, see
 -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/data-streams.html Data streams>
 -- in the /IoT SiteWise User Guide/.
+--
+-- 'multiLayerStorage', 'putStorageConfiguration_multiLayerStorage' - Identifies a storage destination. If you specified @MULTI_LAYER_STORAGE@
+-- for the storage type, you must specify a @MultiLayerStorage@ object.
 --
 -- 'retentionPeriod', 'putStorageConfiguration_retentionPeriod' - Undocumented member.
 --
@@ -135,17 +135,12 @@ newPutStorageConfiguration ::
   PutStorageConfiguration
 newPutStorageConfiguration pStorageType_ =
   PutStorageConfiguration'
-    { multiLayerStorage =
+    { disassociatedDataStorage =
         Prelude.Nothing,
-      disassociatedDataStorage = Prelude.Nothing,
+      multiLayerStorage = Prelude.Nothing,
       retentionPeriod = Prelude.Nothing,
       storageType = pStorageType_
     }
-
--- | Identifies a storage destination. If you specified @MULTI_LAYER_STORAGE@
--- for the storage type, you must specify a @MultiLayerStorage@ object.
-putStorageConfiguration_multiLayerStorage :: Lens.Lens' PutStorageConfiguration (Prelude.Maybe MultiLayerStorage)
-putStorageConfiguration_multiLayerStorage = Lens.lens (\PutStorageConfiguration' {multiLayerStorage} -> multiLayerStorage) (\s@PutStorageConfiguration' {} a -> s {multiLayerStorage = a} :: PutStorageConfiguration)
 
 -- | Contains the storage configuration for time series (data streams) that
 -- aren\'t associated with asset properties. The @disassociatedDataStorage@
@@ -165,6 +160,11 @@ putStorageConfiguration_multiLayerStorage = Lens.lens (\PutStorageConfiguration'
 -- in the /IoT SiteWise User Guide/.
 putStorageConfiguration_disassociatedDataStorage :: Lens.Lens' PutStorageConfiguration (Prelude.Maybe DisassociatedDataStorageState)
 putStorageConfiguration_disassociatedDataStorage = Lens.lens (\PutStorageConfiguration' {disassociatedDataStorage} -> disassociatedDataStorage) (\s@PutStorageConfiguration' {} a -> s {disassociatedDataStorage = a} :: PutStorageConfiguration)
+
+-- | Identifies a storage destination. If you specified @MULTI_LAYER_STORAGE@
+-- for the storage type, you must specify a @MultiLayerStorage@ object.
+putStorageConfiguration_multiLayerStorage :: Lens.Lens' PutStorageConfiguration (Prelude.Maybe MultiLayerStorage)
+putStorageConfiguration_multiLayerStorage = Lens.lens (\PutStorageConfiguration' {multiLayerStorage} -> multiLayerStorage) (\s@PutStorageConfiguration' {} a -> s {multiLayerStorage = a} :: PutStorageConfiguration)
 
 -- | Undocumented member.
 putStorageConfiguration_retentionPeriod :: Lens.Lens' PutStorageConfiguration (Prelude.Maybe RetentionPeriod)
@@ -192,8 +192,8 @@ instance Core.AWSRequest PutStorageConfiguration where
     Response.receiveJSON
       ( \s h x ->
           PutStorageConfigurationResponse'
-            Prelude.<$> (x Data..?> "multiLayerStorage")
-            Prelude.<*> (x Data..?> "disassociatedDataStorage")
+            Prelude.<$> (x Data..?> "disassociatedDataStorage")
+            Prelude.<*> (x Data..?> "multiLayerStorage")
             Prelude.<*> (x Data..?> "retentionPeriod")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "storageType")
@@ -202,15 +202,16 @@ instance Core.AWSRequest PutStorageConfiguration where
 
 instance Prelude.Hashable PutStorageConfiguration where
   hashWithSalt _salt PutStorageConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` multiLayerStorage
+    _salt
       `Prelude.hashWithSalt` disassociatedDataStorage
+      `Prelude.hashWithSalt` multiLayerStorage
       `Prelude.hashWithSalt` retentionPeriod
       `Prelude.hashWithSalt` storageType
 
 instance Prelude.NFData PutStorageConfiguration where
   rnf PutStorageConfiguration' {..} =
-    Prelude.rnf multiLayerStorage
-      `Prelude.seq` Prelude.rnf disassociatedDataStorage
+    Prelude.rnf disassociatedDataStorage
+      `Prelude.seq` Prelude.rnf multiLayerStorage
       `Prelude.seq` Prelude.rnf retentionPeriod
       `Prelude.seq` Prelude.rnf storageType
 
@@ -229,10 +230,10 @@ instance Data.ToJSON PutStorageConfiguration where
   toJSON PutStorageConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("multiLayerStorage" Data..=)
-              Prelude.<$> multiLayerStorage,
-            ("disassociatedDataStorage" Data..=)
+          [ ("disassociatedDataStorage" Data..=)
               Prelude.<$> disassociatedDataStorage,
+            ("multiLayerStorage" Data..=)
+              Prelude.<$> multiLayerStorage,
             ("retentionPeriod" Data..=)
               Prelude.<$> retentionPeriod,
             Prelude.Just ("storageType" Data..= storageType)
@@ -248,9 +249,7 @@ instance Data.ToQuery PutStorageConfiguration where
 
 -- | /See:/ 'newPutStorageConfigurationResponse' smart constructor.
 data PutStorageConfigurationResponse = PutStorageConfigurationResponse'
-  { -- | Contains information about the storage destination.
-    multiLayerStorage :: Prelude.Maybe MultiLayerStorage,
-    -- | Contains the storage configuration for time series (data streams) that
+  { -- | Contains the storage configuration for time series (data streams) that
     -- aren\'t associated with asset properties. The @disassociatedDataStorage@
     -- can be one of the following values:
     --
@@ -267,6 +266,8 @@ data PutStorageConfigurationResponse = PutStorageConfigurationResponse'
     -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/data-streams.html Data streams>
     -- in the /IoT SiteWise User Guide/.
     disassociatedDataStorage :: Prelude.Maybe DisassociatedDataStorageState,
+    -- | Contains information about the storage destination.
+    multiLayerStorage :: Prelude.Maybe MultiLayerStorage,
     retentionPeriod :: Prelude.Maybe RetentionPeriod,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -292,8 +293,6 @@ data PutStorageConfigurationResponse = PutStorageConfigurationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'multiLayerStorage', 'putStorageConfigurationResponse_multiLayerStorage' - Contains information about the storage destination.
---
 -- 'disassociatedDataStorage', 'putStorageConfigurationResponse_disassociatedDataStorage' - Contains the storage configuration for time series (data streams) that
 -- aren\'t associated with asset properties. The @disassociatedDataStorage@
 -- can be one of the following values:
@@ -310,6 +309,8 @@ data PutStorageConfigurationResponse = PutStorageConfigurationResponse'
 -- For more information, see
 -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/data-streams.html Data streams>
 -- in the /IoT SiteWise User Guide/.
+--
+-- 'multiLayerStorage', 'putStorageConfigurationResponse_multiLayerStorage' - Contains information about the storage destination.
 --
 -- 'retentionPeriod', 'putStorageConfigurationResponse_retentionPeriod' - Undocumented member.
 --
@@ -339,19 +340,15 @@ newPutStorageConfigurationResponse
   pStorageType_
   pConfigurationStatus_ =
     PutStorageConfigurationResponse'
-      { multiLayerStorage =
+      { disassociatedDataStorage =
           Prelude.Nothing,
-        disassociatedDataStorage = Prelude.Nothing,
+        multiLayerStorage = Prelude.Nothing,
         retentionPeriod = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         storageType = pStorageType_,
         configurationStatus =
           pConfigurationStatus_
       }
-
--- | Contains information about the storage destination.
-putStorageConfigurationResponse_multiLayerStorage :: Lens.Lens' PutStorageConfigurationResponse (Prelude.Maybe MultiLayerStorage)
-putStorageConfigurationResponse_multiLayerStorage = Lens.lens (\PutStorageConfigurationResponse' {multiLayerStorage} -> multiLayerStorage) (\s@PutStorageConfigurationResponse' {} a -> s {multiLayerStorage = a} :: PutStorageConfigurationResponse)
 
 -- | Contains the storage configuration for time series (data streams) that
 -- aren\'t associated with asset properties. The @disassociatedDataStorage@
@@ -371,6 +368,10 @@ putStorageConfigurationResponse_multiLayerStorage = Lens.lens (\PutStorageConfig
 -- in the /IoT SiteWise User Guide/.
 putStorageConfigurationResponse_disassociatedDataStorage :: Lens.Lens' PutStorageConfigurationResponse (Prelude.Maybe DisassociatedDataStorageState)
 putStorageConfigurationResponse_disassociatedDataStorage = Lens.lens (\PutStorageConfigurationResponse' {disassociatedDataStorage} -> disassociatedDataStorage) (\s@PutStorageConfigurationResponse' {} a -> s {disassociatedDataStorage = a} :: PutStorageConfigurationResponse)
+
+-- | Contains information about the storage destination.
+putStorageConfigurationResponse_multiLayerStorage :: Lens.Lens' PutStorageConfigurationResponse (Prelude.Maybe MultiLayerStorage)
+putStorageConfigurationResponse_multiLayerStorage = Lens.lens (\PutStorageConfigurationResponse' {multiLayerStorage} -> multiLayerStorage) (\s@PutStorageConfigurationResponse' {} a -> s {multiLayerStorage = a} :: PutStorageConfigurationResponse)
 
 -- | Undocumented member.
 putStorageConfigurationResponse_retentionPeriod :: Lens.Lens' PutStorageConfigurationResponse (Prelude.Maybe RetentionPeriod)
@@ -401,8 +402,8 @@ instance
     PutStorageConfigurationResponse
   where
   rnf PutStorageConfigurationResponse' {..} =
-    Prelude.rnf multiLayerStorage
-      `Prelude.seq` Prelude.rnf disassociatedDataStorage
+    Prelude.rnf disassociatedDataStorage
+      `Prelude.seq` Prelude.rnf multiLayerStorage
       `Prelude.seq` Prelude.rnf retentionPeriod
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf storageType

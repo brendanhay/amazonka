@@ -63,9 +63,9 @@ module Amazonka.Config.GetDiscoveredResourceCounts
     newGetDiscoveredResourceCounts,
 
     -- * Request Lenses
+    getDiscoveredResourceCounts_limit,
     getDiscoveredResourceCounts_nextToken,
     getDiscoveredResourceCounts_resourceTypes,
-    getDiscoveredResourceCounts_limit,
 
     -- * Destructuring the Response
     GetDiscoveredResourceCountsResponse (..),
@@ -89,7 +89,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetDiscoveredResourceCounts' smart constructor.
 data GetDiscoveredResourceCounts = GetDiscoveredResourceCounts'
-  { -- | The @nextToken@ string returned on a previous page that you use to get
+  { -- | The maximum number of ResourceCount objects returned on each page. The
+    -- default is 100. You cannot specify a number greater than 100. If you
+    -- specify 0, Config uses the default.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | The @nextToken@ string returned on a previous page that you use to get
     -- the next page of results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The comma-separated list that specifies the resource types that you want
@@ -103,11 +107,7 @@ data GetDiscoveredResourceCounts = GetDiscoveredResourceCounts'
     -- list of ResourceCount objects. If the configuration recorder is not
     -- recording a specific resource type (for example, S3 buckets), that
     -- resource type is not returned in the list of ResourceCount objects.
-    resourceTypes :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of ResourceCount objects returned on each page. The
-    -- default is 100. You cannot specify a number greater than 100. If you
-    -- specify 0, Config uses the default.
-    limit :: Prelude.Maybe Prelude.Natural
+    resourceTypes :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -118,6 +118,10 @@ data GetDiscoveredResourceCounts = GetDiscoveredResourceCounts'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'limit', 'getDiscoveredResourceCounts_limit' - The maximum number of ResourceCount objects returned on each page. The
+-- default is 100. You cannot specify a number greater than 100. If you
+-- specify 0, Config uses the default.
 --
 -- 'nextToken', 'getDiscoveredResourceCounts_nextToken' - The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
@@ -133,19 +137,21 @@ data GetDiscoveredResourceCounts = GetDiscoveredResourceCounts'
 -- list of ResourceCount objects. If the configuration recorder is not
 -- recording a specific resource type (for example, S3 buckets), that
 -- resource type is not returned in the list of ResourceCount objects.
---
--- 'limit', 'getDiscoveredResourceCounts_limit' - The maximum number of ResourceCount objects returned on each page. The
--- default is 100. You cannot specify a number greater than 100. If you
--- specify 0, Config uses the default.
 newGetDiscoveredResourceCounts ::
   GetDiscoveredResourceCounts
 newGetDiscoveredResourceCounts =
   GetDiscoveredResourceCounts'
-    { nextToken =
+    { limit =
         Prelude.Nothing,
-      resourceTypes = Prelude.Nothing,
-      limit = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      resourceTypes = Prelude.Nothing
     }
+
+-- | The maximum number of ResourceCount objects returned on each page. The
+-- default is 100. You cannot specify a number greater than 100. If you
+-- specify 0, Config uses the default.
+getDiscoveredResourceCounts_limit :: Lens.Lens' GetDiscoveredResourceCounts (Prelude.Maybe Prelude.Natural)
+getDiscoveredResourceCounts_limit = Lens.lens (\GetDiscoveredResourceCounts' {limit} -> limit) (\s@GetDiscoveredResourceCounts' {} a -> s {limit = a} :: GetDiscoveredResourceCounts)
 
 -- | The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
@@ -166,12 +172,6 @@ getDiscoveredResourceCounts_nextToken = Lens.lens (\GetDiscoveredResourceCounts'
 getDiscoveredResourceCounts_resourceTypes :: Lens.Lens' GetDiscoveredResourceCounts (Prelude.Maybe [Prelude.Text])
 getDiscoveredResourceCounts_resourceTypes = Lens.lens (\GetDiscoveredResourceCounts' {resourceTypes} -> resourceTypes) (\s@GetDiscoveredResourceCounts' {} a -> s {resourceTypes = a} :: GetDiscoveredResourceCounts) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum number of ResourceCount objects returned on each page. The
--- default is 100. You cannot specify a number greater than 100. If you
--- specify 0, Config uses the default.
-getDiscoveredResourceCounts_limit :: Lens.Lens' GetDiscoveredResourceCounts (Prelude.Maybe Prelude.Natural)
-getDiscoveredResourceCounts_limit = Lens.lens (\GetDiscoveredResourceCounts' {limit} -> limit) (\s@GetDiscoveredResourceCounts' {} a -> s {limit = a} :: GetDiscoveredResourceCounts)
-
 instance Core.AWSRequest GetDiscoveredResourceCounts where
   type
     AWSResponse GetDiscoveredResourceCounts =
@@ -190,15 +190,15 @@ instance Core.AWSRequest GetDiscoveredResourceCounts where
 
 instance Prelude.Hashable GetDiscoveredResourceCounts where
   hashWithSalt _salt GetDiscoveredResourceCounts' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceTypes
-      `Prelude.hashWithSalt` limit
 
 instance Prelude.NFData GetDiscoveredResourceCounts where
   rnf GetDiscoveredResourceCounts' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf resourceTypes
-      `Prelude.seq` Prelude.rnf limit
 
 instance Data.ToHeaders GetDiscoveredResourceCounts where
   toHeaders =
@@ -219,9 +219,9 @@ instance Data.ToJSON GetDiscoveredResourceCounts where
   toJSON GetDiscoveredResourceCounts' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("resourceTypes" Data..=) Prelude.<$> resourceTypes,
-            ("limit" Data..=) Prelude.<$> limit
+          [ ("limit" Data..=) Prelude.<$> limit,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("resourceTypes" Data..=) Prelude.<$> resourceTypes
           ]
       )
 

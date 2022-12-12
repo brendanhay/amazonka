@@ -156,7 +156,8 @@ instance Data.ToQuery CreateCoipPool where
 
 -- | /See:/ 'newCreateCoipPoolResponse' smart constructor.
 data CreateCoipPoolResponse = CreateCoipPoolResponse'
-  { coipPool :: Prelude.Maybe CoipPool,
+  { -- | Information about the CoIP address pool.
+    coipPool :: Prelude.Maybe CoipPool,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -170,7 +171,7 @@ data CreateCoipPoolResponse = CreateCoipPoolResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'coipPool', 'createCoipPoolResponse_coipPool' - Undocumented member.
+-- 'coipPool', 'createCoipPoolResponse_coipPool' - Information about the CoIP address pool.
 --
 -- 'httpStatus', 'createCoipPoolResponse_httpStatus' - The response's http status code.
 newCreateCoipPoolResponse ::
@@ -183,7 +184,7 @@ newCreateCoipPoolResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | Information about the CoIP address pool.
 createCoipPoolResponse_coipPool :: Lens.Lens' CreateCoipPoolResponse (Prelude.Maybe CoipPool)
 createCoipPoolResponse_coipPool = Lens.lens (\CreateCoipPoolResponse' {coipPool} -> coipPool) (\s@CreateCoipPoolResponse' {} a -> s {coipPool = a} :: CreateCoipPoolResponse)
 

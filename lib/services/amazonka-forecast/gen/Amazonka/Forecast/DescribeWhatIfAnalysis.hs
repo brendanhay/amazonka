@@ -47,15 +47,15 @@ module Amazonka.Forecast.DescribeWhatIfAnalysis
     newDescribeWhatIfAnalysisResponse,
 
     -- * Response Lenses
-    describeWhatIfAnalysisResponse_lastModificationTime,
-    describeWhatIfAnalysisResponse_whatIfAnalysisArn,
-    describeWhatIfAnalysisResponse_message,
-    describeWhatIfAnalysisResponse_whatIfAnalysisName,
-    describeWhatIfAnalysisResponse_status,
+    describeWhatIfAnalysisResponse_creationTime,
     describeWhatIfAnalysisResponse_estimatedTimeRemainingInMinutes,
     describeWhatIfAnalysisResponse_forecastArn,
-    describeWhatIfAnalysisResponse_creationTime,
+    describeWhatIfAnalysisResponse_lastModificationTime,
+    describeWhatIfAnalysisResponse_message,
+    describeWhatIfAnalysisResponse_status,
     describeWhatIfAnalysisResponse_timeSeriesSelector,
+    describeWhatIfAnalysisResponse_whatIfAnalysisArn,
+    describeWhatIfAnalysisResponse_whatIfAnalysisName,
     describeWhatIfAnalysisResponse_httpStatus,
   )
 where
@@ -111,15 +111,15 @@ instance Core.AWSRequest DescribeWhatIfAnalysis where
     Response.receiveJSON
       ( \s h x ->
           DescribeWhatIfAnalysisResponse'
-            Prelude.<$> (x Data..?> "LastModificationTime")
-            Prelude.<*> (x Data..?> "WhatIfAnalysisArn")
-            Prelude.<*> (x Data..?> "Message")
-            Prelude.<*> (x Data..?> "WhatIfAnalysisName")
-            Prelude.<*> (x Data..?> "Status")
+            Prelude.<$> (x Data..?> "CreationTime")
             Prelude.<*> (x Data..?> "EstimatedTimeRemainingInMinutes")
             Prelude.<*> (x Data..?> "ForecastArn")
-            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "LastModificationTime")
+            Prelude.<*> (x Data..?> "Message")
+            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (x Data..?> "TimeSeriesSelector")
+            Prelude.<*> (x Data..?> "WhatIfAnalysisArn")
+            Prelude.<*> (x Data..?> "WhatIfAnalysisName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,7 +163,14 @@ instance Data.ToQuery DescribeWhatIfAnalysis where
 
 -- | /See:/ 'newDescribeWhatIfAnalysisResponse' smart constructor.
 data DescribeWhatIfAnalysisResponse = DescribeWhatIfAnalysisResponse'
-  { -- | The last time the resource was modified. The timestamp depends on the
+  { -- | When the what-if analysis was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The approximate time remaining to complete the what-if analysis, in
+    -- minutes.
+    estimatedTimeRemainingInMinutes :: Prelude.Maybe Prelude.Integer,
+    -- | The Amazon Resource Name (ARN) of the what-if forecast.
+    forecastArn :: Prelude.Maybe Prelude.Text,
+    -- | The last time the resource was modified. The timestamp depends on the
     -- status of the job:
     --
     -- -   @CREATE_PENDING@ - The @CreationTime@.
@@ -176,12 +183,8 @@ data DescribeWhatIfAnalysisResponse = DescribeWhatIfAnalysisResponse'
     --
     -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
     lastModificationTime :: Prelude.Maybe Data.POSIX,
-    -- | The Amazon Resource Name (ARN) of the what-if analysis.
-    whatIfAnalysisArn :: Prelude.Maybe Prelude.Text,
     -- | If an error occurred, an informational message about the error.
     message :: Prelude.Maybe Prelude.Text,
-    -- | The name of the what-if analysis.
-    whatIfAnalysisName :: Prelude.Maybe Prelude.Text,
     -- | The status of the what-if analysis. States include:
     --
     -- -   @ACTIVE@
@@ -195,14 +198,11 @@ data DescribeWhatIfAnalysisResponse = DescribeWhatIfAnalysisResponse'
     -- The @Status@ of the what-if analysis must be @ACTIVE@ before you can
     -- access the analysis.
     status :: Prelude.Maybe Prelude.Text,
-    -- | The approximate time remaining to complete the what-if analysis, in
-    -- minutes.
-    estimatedTimeRemainingInMinutes :: Prelude.Maybe Prelude.Integer,
-    -- | The Amazon Resource Name (ARN) of the what-if forecast.
-    forecastArn :: Prelude.Maybe Prelude.Text,
-    -- | When the what-if analysis was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
     timeSeriesSelector :: Prelude.Maybe TimeSeriesSelector,
+    -- | The Amazon Resource Name (ARN) of the what-if analysis.
+    whatIfAnalysisArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the what-if analysis.
+    whatIfAnalysisName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -215,6 +215,13 @@ data DescribeWhatIfAnalysisResponse = DescribeWhatIfAnalysisResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'creationTime', 'describeWhatIfAnalysisResponse_creationTime' - When the what-if analysis was created.
+--
+-- 'estimatedTimeRemainingInMinutes', 'describeWhatIfAnalysisResponse_estimatedTimeRemainingInMinutes' - The approximate time remaining to complete the what-if analysis, in
+-- minutes.
+--
+-- 'forecastArn', 'describeWhatIfAnalysisResponse_forecastArn' - The Amazon Resource Name (ARN) of the what-if forecast.
 --
 -- 'lastModificationTime', 'describeWhatIfAnalysisResponse_lastModificationTime' - The last time the resource was modified. The timestamp depends on the
 -- status of the job:
@@ -229,11 +236,7 @@ data DescribeWhatIfAnalysisResponse = DescribeWhatIfAnalysisResponse'
 --
 -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
 --
--- 'whatIfAnalysisArn', 'describeWhatIfAnalysisResponse_whatIfAnalysisArn' - The Amazon Resource Name (ARN) of the what-if analysis.
---
 -- 'message', 'describeWhatIfAnalysisResponse_message' - If an error occurred, an informational message about the error.
---
--- 'whatIfAnalysisName', 'describeWhatIfAnalysisResponse_whatIfAnalysisName' - The name of the what-if analysis.
 --
 -- 'status', 'describeWhatIfAnalysisResponse_status' - The status of the what-if analysis. States include:
 --
@@ -248,14 +251,11 @@ data DescribeWhatIfAnalysisResponse = DescribeWhatIfAnalysisResponse'
 -- The @Status@ of the what-if analysis must be @ACTIVE@ before you can
 -- access the analysis.
 --
--- 'estimatedTimeRemainingInMinutes', 'describeWhatIfAnalysisResponse_estimatedTimeRemainingInMinutes' - The approximate time remaining to complete the what-if analysis, in
--- minutes.
---
--- 'forecastArn', 'describeWhatIfAnalysisResponse_forecastArn' - The Amazon Resource Name (ARN) of the what-if forecast.
---
--- 'creationTime', 'describeWhatIfAnalysisResponse_creationTime' - When the what-if analysis was created.
---
 -- 'timeSeriesSelector', 'describeWhatIfAnalysisResponse_timeSeriesSelector' - Undocumented member.
+--
+-- 'whatIfAnalysisArn', 'describeWhatIfAnalysisResponse_whatIfAnalysisArn' - The Amazon Resource Name (ARN) of the what-if analysis.
+--
+-- 'whatIfAnalysisName', 'describeWhatIfAnalysisResponse_whatIfAnalysisName' - The name of the what-if analysis.
 --
 -- 'httpStatus', 'describeWhatIfAnalysisResponse_httpStatus' - The response's http status code.
 newDescribeWhatIfAnalysisResponse ::
@@ -264,19 +264,32 @@ newDescribeWhatIfAnalysisResponse ::
   DescribeWhatIfAnalysisResponse
 newDescribeWhatIfAnalysisResponse pHttpStatus_ =
   DescribeWhatIfAnalysisResponse'
-    { lastModificationTime =
+    { creationTime =
         Prelude.Nothing,
-      whatIfAnalysisArn = Prelude.Nothing,
-      message = Prelude.Nothing,
-      whatIfAnalysisName = Prelude.Nothing,
-      status = Prelude.Nothing,
       estimatedTimeRemainingInMinutes =
         Prelude.Nothing,
       forecastArn = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
+      lastModificationTime = Prelude.Nothing,
+      message = Prelude.Nothing,
+      status = Prelude.Nothing,
       timeSeriesSelector = Prelude.Nothing,
+      whatIfAnalysisArn = Prelude.Nothing,
+      whatIfAnalysisName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | When the what-if analysis was created.
+describeWhatIfAnalysisResponse_creationTime :: Lens.Lens' DescribeWhatIfAnalysisResponse (Prelude.Maybe Prelude.UTCTime)
+describeWhatIfAnalysisResponse_creationTime = Lens.lens (\DescribeWhatIfAnalysisResponse' {creationTime} -> creationTime) (\s@DescribeWhatIfAnalysisResponse' {} a -> s {creationTime = a} :: DescribeWhatIfAnalysisResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The approximate time remaining to complete the what-if analysis, in
+-- minutes.
+describeWhatIfAnalysisResponse_estimatedTimeRemainingInMinutes :: Lens.Lens' DescribeWhatIfAnalysisResponse (Prelude.Maybe Prelude.Integer)
+describeWhatIfAnalysisResponse_estimatedTimeRemainingInMinutes = Lens.lens (\DescribeWhatIfAnalysisResponse' {estimatedTimeRemainingInMinutes} -> estimatedTimeRemainingInMinutes) (\s@DescribeWhatIfAnalysisResponse' {} a -> s {estimatedTimeRemainingInMinutes = a} :: DescribeWhatIfAnalysisResponse)
+
+-- | The Amazon Resource Name (ARN) of the what-if forecast.
+describeWhatIfAnalysisResponse_forecastArn :: Lens.Lens' DescribeWhatIfAnalysisResponse (Prelude.Maybe Prelude.Text)
+describeWhatIfAnalysisResponse_forecastArn = Lens.lens (\DescribeWhatIfAnalysisResponse' {forecastArn} -> forecastArn) (\s@DescribeWhatIfAnalysisResponse' {} a -> s {forecastArn = a} :: DescribeWhatIfAnalysisResponse)
 
 -- | The last time the resource was modified. The timestamp depends on the
 -- status of the job:
@@ -293,17 +306,9 @@ newDescribeWhatIfAnalysisResponse pHttpStatus_ =
 describeWhatIfAnalysisResponse_lastModificationTime :: Lens.Lens' DescribeWhatIfAnalysisResponse (Prelude.Maybe Prelude.UTCTime)
 describeWhatIfAnalysisResponse_lastModificationTime = Lens.lens (\DescribeWhatIfAnalysisResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribeWhatIfAnalysisResponse' {} a -> s {lastModificationTime = a} :: DescribeWhatIfAnalysisResponse) Prelude.. Lens.mapping Data._Time
 
--- | The Amazon Resource Name (ARN) of the what-if analysis.
-describeWhatIfAnalysisResponse_whatIfAnalysisArn :: Lens.Lens' DescribeWhatIfAnalysisResponse (Prelude.Maybe Prelude.Text)
-describeWhatIfAnalysisResponse_whatIfAnalysisArn = Lens.lens (\DescribeWhatIfAnalysisResponse' {whatIfAnalysisArn} -> whatIfAnalysisArn) (\s@DescribeWhatIfAnalysisResponse' {} a -> s {whatIfAnalysisArn = a} :: DescribeWhatIfAnalysisResponse)
-
 -- | If an error occurred, an informational message about the error.
 describeWhatIfAnalysisResponse_message :: Lens.Lens' DescribeWhatIfAnalysisResponse (Prelude.Maybe Prelude.Text)
 describeWhatIfAnalysisResponse_message = Lens.lens (\DescribeWhatIfAnalysisResponse' {message} -> message) (\s@DescribeWhatIfAnalysisResponse' {} a -> s {message = a} :: DescribeWhatIfAnalysisResponse)
-
--- | The name of the what-if analysis.
-describeWhatIfAnalysisResponse_whatIfAnalysisName :: Lens.Lens' DescribeWhatIfAnalysisResponse (Prelude.Maybe Prelude.Text)
-describeWhatIfAnalysisResponse_whatIfAnalysisName = Lens.lens (\DescribeWhatIfAnalysisResponse' {whatIfAnalysisName} -> whatIfAnalysisName) (\s@DescribeWhatIfAnalysisResponse' {} a -> s {whatIfAnalysisName = a} :: DescribeWhatIfAnalysisResponse)
 
 -- | The status of the what-if analysis. States include:
 --
@@ -320,22 +325,17 @@ describeWhatIfAnalysisResponse_whatIfAnalysisName = Lens.lens (\DescribeWhatIfAn
 describeWhatIfAnalysisResponse_status :: Lens.Lens' DescribeWhatIfAnalysisResponse (Prelude.Maybe Prelude.Text)
 describeWhatIfAnalysisResponse_status = Lens.lens (\DescribeWhatIfAnalysisResponse' {status} -> status) (\s@DescribeWhatIfAnalysisResponse' {} a -> s {status = a} :: DescribeWhatIfAnalysisResponse)
 
--- | The approximate time remaining to complete the what-if analysis, in
--- minutes.
-describeWhatIfAnalysisResponse_estimatedTimeRemainingInMinutes :: Lens.Lens' DescribeWhatIfAnalysisResponse (Prelude.Maybe Prelude.Integer)
-describeWhatIfAnalysisResponse_estimatedTimeRemainingInMinutes = Lens.lens (\DescribeWhatIfAnalysisResponse' {estimatedTimeRemainingInMinutes} -> estimatedTimeRemainingInMinutes) (\s@DescribeWhatIfAnalysisResponse' {} a -> s {estimatedTimeRemainingInMinutes = a} :: DescribeWhatIfAnalysisResponse)
-
--- | The Amazon Resource Name (ARN) of the what-if forecast.
-describeWhatIfAnalysisResponse_forecastArn :: Lens.Lens' DescribeWhatIfAnalysisResponse (Prelude.Maybe Prelude.Text)
-describeWhatIfAnalysisResponse_forecastArn = Lens.lens (\DescribeWhatIfAnalysisResponse' {forecastArn} -> forecastArn) (\s@DescribeWhatIfAnalysisResponse' {} a -> s {forecastArn = a} :: DescribeWhatIfAnalysisResponse)
-
--- | When the what-if analysis was created.
-describeWhatIfAnalysisResponse_creationTime :: Lens.Lens' DescribeWhatIfAnalysisResponse (Prelude.Maybe Prelude.UTCTime)
-describeWhatIfAnalysisResponse_creationTime = Lens.lens (\DescribeWhatIfAnalysisResponse' {creationTime} -> creationTime) (\s@DescribeWhatIfAnalysisResponse' {} a -> s {creationTime = a} :: DescribeWhatIfAnalysisResponse) Prelude.. Lens.mapping Data._Time
-
 -- | Undocumented member.
 describeWhatIfAnalysisResponse_timeSeriesSelector :: Lens.Lens' DescribeWhatIfAnalysisResponse (Prelude.Maybe TimeSeriesSelector)
 describeWhatIfAnalysisResponse_timeSeriesSelector = Lens.lens (\DescribeWhatIfAnalysisResponse' {timeSeriesSelector} -> timeSeriesSelector) (\s@DescribeWhatIfAnalysisResponse' {} a -> s {timeSeriesSelector = a} :: DescribeWhatIfAnalysisResponse)
+
+-- | The Amazon Resource Name (ARN) of the what-if analysis.
+describeWhatIfAnalysisResponse_whatIfAnalysisArn :: Lens.Lens' DescribeWhatIfAnalysisResponse (Prelude.Maybe Prelude.Text)
+describeWhatIfAnalysisResponse_whatIfAnalysisArn = Lens.lens (\DescribeWhatIfAnalysisResponse' {whatIfAnalysisArn} -> whatIfAnalysisArn) (\s@DescribeWhatIfAnalysisResponse' {} a -> s {whatIfAnalysisArn = a} :: DescribeWhatIfAnalysisResponse)
+
+-- | The name of the what-if analysis.
+describeWhatIfAnalysisResponse_whatIfAnalysisName :: Lens.Lens' DescribeWhatIfAnalysisResponse (Prelude.Maybe Prelude.Text)
+describeWhatIfAnalysisResponse_whatIfAnalysisName = Lens.lens (\DescribeWhatIfAnalysisResponse' {whatIfAnalysisName} -> whatIfAnalysisName) (\s@DescribeWhatIfAnalysisResponse' {} a -> s {whatIfAnalysisName = a} :: DescribeWhatIfAnalysisResponse)
 
 -- | The response's http status code.
 describeWhatIfAnalysisResponse_httpStatus :: Lens.Lens' DescribeWhatIfAnalysisResponse Prelude.Int
@@ -346,13 +346,13 @@ instance
     DescribeWhatIfAnalysisResponse
   where
   rnf DescribeWhatIfAnalysisResponse' {..} =
-    Prelude.rnf lastModificationTime
-      `Prelude.seq` Prelude.rnf whatIfAnalysisArn
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf whatIfAnalysisName
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf estimatedTimeRemainingInMinutes
       `Prelude.seq` Prelude.rnf forecastArn
-      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf lastModificationTime
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf timeSeriesSelector
+      `Prelude.seq` Prelude.rnf whatIfAnalysisArn
+      `Prelude.seq` Prelude.rnf whatIfAnalysisName
       `Prelude.seq` Prelude.rnf httpStatus

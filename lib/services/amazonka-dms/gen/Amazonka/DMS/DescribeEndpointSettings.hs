@@ -37,8 +37,8 @@ module Amazonka.DMS.DescribeEndpointSettings
     newDescribeEndpointSettingsResponse,
 
     -- * Response Lenses
-    describeEndpointSettingsResponse_marker,
     describeEndpointSettingsResponse_endpointSettings,
+    describeEndpointSettingsResponse_marker,
     describeEndpointSettingsResponse_httpStatus,
   )
 where
@@ -123,10 +123,10 @@ instance Core.AWSRequest DescribeEndpointSettings where
     Response.receiveJSON
       ( \s h x ->
           DescribeEndpointSettingsResponse'
-            Prelude.<$> (x Data..?> "Marker")
-            Prelude.<*> ( x Data..?> "EndpointSettings"
+            Prelude.<$> ( x Data..?> "EndpointSettings"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -175,13 +175,13 @@ instance Data.ToQuery DescribeEndpointSettings where
 
 -- | /See:/ 'newDescribeEndpointSettingsResponse' smart constructor.
 data DescribeEndpointSettingsResponse = DescribeEndpointSettingsResponse'
-  { -- | An optional pagination token provided by a previous request. If this
+  { -- | Descriptions of the endpoint settings available for your source or
+    -- target database engine.
+    endpointSettings :: Prelude.Maybe [EndpointSetting],
+    -- | An optional pagination token provided by a previous request. If this
     -- parameter is specified, the response includes only records beyond the
     -- marker, up to the value specified by @MaxRecords@.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | Descriptions of the endpoint settings available for your source or
-    -- target database engine.
-    endpointSettings :: Prelude.Maybe [EndpointSetting],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -195,12 +195,12 @@ data DescribeEndpointSettingsResponse = DescribeEndpointSettingsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'endpointSettings', 'describeEndpointSettingsResponse_endpointSettings' - Descriptions of the endpoint settings available for your source or
+-- target database engine.
+--
 -- 'marker', 'describeEndpointSettingsResponse_marker' - An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
---
--- 'endpointSettings', 'describeEndpointSettingsResponse_endpointSettings' - Descriptions of the endpoint settings available for your source or
--- target database engine.
 --
 -- 'httpStatus', 'describeEndpointSettingsResponse_httpStatus' - The response's http status code.
 newDescribeEndpointSettingsResponse ::
@@ -209,22 +209,22 @@ newDescribeEndpointSettingsResponse ::
   DescribeEndpointSettingsResponse
 newDescribeEndpointSettingsResponse pHttpStatus_ =
   DescribeEndpointSettingsResponse'
-    { marker =
+    { endpointSettings =
         Prelude.Nothing,
-      endpointSettings = Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Descriptions of the endpoint settings available for your source or
+-- target database engine.
+describeEndpointSettingsResponse_endpointSettings :: Lens.Lens' DescribeEndpointSettingsResponse (Prelude.Maybe [EndpointSetting])
+describeEndpointSettingsResponse_endpointSettings = Lens.lens (\DescribeEndpointSettingsResponse' {endpointSettings} -> endpointSettings) (\s@DescribeEndpointSettingsResponse' {} a -> s {endpointSettings = a} :: DescribeEndpointSettingsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
 describeEndpointSettingsResponse_marker :: Lens.Lens' DescribeEndpointSettingsResponse (Prelude.Maybe Prelude.Text)
 describeEndpointSettingsResponse_marker = Lens.lens (\DescribeEndpointSettingsResponse' {marker} -> marker) (\s@DescribeEndpointSettingsResponse' {} a -> s {marker = a} :: DescribeEndpointSettingsResponse)
-
--- | Descriptions of the endpoint settings available for your source or
--- target database engine.
-describeEndpointSettingsResponse_endpointSettings :: Lens.Lens' DescribeEndpointSettingsResponse (Prelude.Maybe [EndpointSetting])
-describeEndpointSettingsResponse_endpointSettings = Lens.lens (\DescribeEndpointSettingsResponse' {endpointSettings} -> endpointSettings) (\s@DescribeEndpointSettingsResponse' {} a -> s {endpointSettings = a} :: DescribeEndpointSettingsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeEndpointSettingsResponse_httpStatus :: Lens.Lens' DescribeEndpointSettingsResponse Prelude.Int
@@ -235,6 +235,6 @@ instance
     DescribeEndpointSettingsResponse
   where
   rnf DescribeEndpointSettingsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf endpointSettings
+    Prelude.rnf endpointSettings
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf httpStatus

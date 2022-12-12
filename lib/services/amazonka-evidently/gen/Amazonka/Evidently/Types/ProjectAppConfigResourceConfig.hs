@@ -37,12 +37,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newProjectAppConfigResourceConfig' smart constructor.
 data ProjectAppConfigResourceConfig = ProjectAppConfigResourceConfig'
-  { -- | The ID of the AppConfig environment to use for client-side evaluation.
+  { -- | The ID of the AppConfig application to use for client-side evaluation.
+    applicationId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the AppConfig environment to use for client-side evaluation.
     -- This must be an environment that is within the application that you
     -- specify for @applicationId@.
-    environmentId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the AppConfig application to use for client-side evaluation.
-    applicationId :: Prelude.Maybe Prelude.Text
+    environmentId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,29 +54,29 @@ data ProjectAppConfigResourceConfig = ProjectAppConfigResourceConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'applicationId', 'projectAppConfigResourceConfig_applicationId' - The ID of the AppConfig application to use for client-side evaluation.
+--
 -- 'environmentId', 'projectAppConfigResourceConfig_environmentId' - The ID of the AppConfig environment to use for client-side evaluation.
 -- This must be an environment that is within the application that you
 -- specify for @applicationId@.
---
--- 'applicationId', 'projectAppConfigResourceConfig_applicationId' - The ID of the AppConfig application to use for client-side evaluation.
 newProjectAppConfigResourceConfig ::
   ProjectAppConfigResourceConfig
 newProjectAppConfigResourceConfig =
   ProjectAppConfigResourceConfig'
-    { environmentId =
+    { applicationId =
         Prelude.Nothing,
-      applicationId = Prelude.Nothing
+      environmentId = Prelude.Nothing
     }
+
+-- | The ID of the AppConfig application to use for client-side evaluation.
+projectAppConfigResourceConfig_applicationId :: Lens.Lens' ProjectAppConfigResourceConfig (Prelude.Maybe Prelude.Text)
+projectAppConfigResourceConfig_applicationId = Lens.lens (\ProjectAppConfigResourceConfig' {applicationId} -> applicationId) (\s@ProjectAppConfigResourceConfig' {} a -> s {applicationId = a} :: ProjectAppConfigResourceConfig)
 
 -- | The ID of the AppConfig environment to use for client-side evaluation.
 -- This must be an environment that is within the application that you
 -- specify for @applicationId@.
 projectAppConfigResourceConfig_environmentId :: Lens.Lens' ProjectAppConfigResourceConfig (Prelude.Maybe Prelude.Text)
 projectAppConfigResourceConfig_environmentId = Lens.lens (\ProjectAppConfigResourceConfig' {environmentId} -> environmentId) (\s@ProjectAppConfigResourceConfig' {} a -> s {environmentId = a} :: ProjectAppConfigResourceConfig)
-
--- | The ID of the AppConfig application to use for client-side evaluation.
-projectAppConfigResourceConfig_applicationId :: Lens.Lens' ProjectAppConfigResourceConfig (Prelude.Maybe Prelude.Text)
-projectAppConfigResourceConfig_applicationId = Lens.lens (\ProjectAppConfigResourceConfig' {applicationId} -> applicationId) (\s@ProjectAppConfigResourceConfig' {} a -> s {applicationId = a} :: ProjectAppConfigResourceConfig)
 
 instance
   Prelude.Hashable
@@ -85,22 +85,22 @@ instance
   hashWithSalt
     _salt
     ProjectAppConfigResourceConfig' {..} =
-      _salt `Prelude.hashWithSalt` environmentId
-        `Prelude.hashWithSalt` applicationId
+      _salt `Prelude.hashWithSalt` applicationId
+        `Prelude.hashWithSalt` environmentId
 
 instance
   Prelude.NFData
     ProjectAppConfigResourceConfig
   where
   rnf ProjectAppConfigResourceConfig' {..} =
-    Prelude.rnf environmentId
-      `Prelude.seq` Prelude.rnf applicationId
+    Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf environmentId
 
 instance Data.ToJSON ProjectAppConfigResourceConfig where
   toJSON ProjectAppConfigResourceConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("environmentId" Data..=) Prelude.<$> environmentId,
-            ("applicationId" Data..=) Prelude.<$> applicationId
+          [ ("applicationId" Data..=) Prelude.<$> applicationId,
+            ("environmentId" Data..=) Prelude.<$> environmentId
           ]
       )

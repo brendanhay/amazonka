@@ -34,8 +34,8 @@ module Amazonka.ImageBuilder.DeleteImageRecipe
     newDeleteImageRecipeResponse,
 
     -- * Response Lenses
-    deleteImageRecipeResponse_requestId,
     deleteImageRecipeResponse_imageRecipeArn,
+    deleteImageRecipeResponse_requestId,
     deleteImageRecipeResponse_httpStatus,
   )
 where
@@ -88,8 +88,8 @@ instance Core.AWSRequest DeleteImageRecipe where
     Response.receiveJSON
       ( \s h x ->
           DeleteImageRecipeResponse'
-            Prelude.<$> (x Data..?> "requestId")
-            Prelude.<*> (x Data..?> "imageRecipeArn")
+            Prelude.<$> (x Data..?> "imageRecipeArn")
+            Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,10 +122,10 @@ instance Data.ToQuery DeleteImageRecipe where
 
 -- | /See:/ 'newDeleteImageRecipeResponse' smart constructor.
 data DeleteImageRecipeResponse = DeleteImageRecipeResponse'
-  { -- | The request ID that uniquely identifies this request.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the image recipe that was deleted.
+  { -- | The Amazon Resource Name (ARN) of the image recipe that was deleted.
     imageRecipeArn :: Prelude.Maybe Prelude.Text,
+    -- | The request ID that uniquely identifies this request.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -139,9 +139,9 @@ data DeleteImageRecipeResponse = DeleteImageRecipeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'deleteImageRecipeResponse_requestId' - The request ID that uniquely identifies this request.
---
 -- 'imageRecipeArn', 'deleteImageRecipeResponse_imageRecipeArn' - The Amazon Resource Name (ARN) of the image recipe that was deleted.
+--
+-- 'requestId', 'deleteImageRecipeResponse_requestId' - The request ID that uniquely identifies this request.
 --
 -- 'httpStatus', 'deleteImageRecipeResponse_httpStatus' - The response's http status code.
 newDeleteImageRecipeResponse ::
@@ -150,19 +150,19 @@ newDeleteImageRecipeResponse ::
   DeleteImageRecipeResponse
 newDeleteImageRecipeResponse pHttpStatus_ =
   DeleteImageRecipeResponse'
-    { requestId =
+    { imageRecipeArn =
         Prelude.Nothing,
-      imageRecipeArn = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The request ID that uniquely identifies this request.
-deleteImageRecipeResponse_requestId :: Lens.Lens' DeleteImageRecipeResponse (Prelude.Maybe Prelude.Text)
-deleteImageRecipeResponse_requestId = Lens.lens (\DeleteImageRecipeResponse' {requestId} -> requestId) (\s@DeleteImageRecipeResponse' {} a -> s {requestId = a} :: DeleteImageRecipeResponse)
 
 -- | The Amazon Resource Name (ARN) of the image recipe that was deleted.
 deleteImageRecipeResponse_imageRecipeArn :: Lens.Lens' DeleteImageRecipeResponse (Prelude.Maybe Prelude.Text)
 deleteImageRecipeResponse_imageRecipeArn = Lens.lens (\DeleteImageRecipeResponse' {imageRecipeArn} -> imageRecipeArn) (\s@DeleteImageRecipeResponse' {} a -> s {imageRecipeArn = a} :: DeleteImageRecipeResponse)
+
+-- | The request ID that uniquely identifies this request.
+deleteImageRecipeResponse_requestId :: Lens.Lens' DeleteImageRecipeResponse (Prelude.Maybe Prelude.Text)
+deleteImageRecipeResponse_requestId = Lens.lens (\DeleteImageRecipeResponse' {requestId} -> requestId) (\s@DeleteImageRecipeResponse' {} a -> s {requestId = a} :: DeleteImageRecipeResponse)
 
 -- | The response's http status code.
 deleteImageRecipeResponse_httpStatus :: Lens.Lens' DeleteImageRecipeResponse Prelude.Int
@@ -170,6 +170,6 @@ deleteImageRecipeResponse_httpStatus = Lens.lens (\DeleteImageRecipeResponse' {h
 
 instance Prelude.NFData DeleteImageRecipeResponse where
   rnf DeleteImageRecipeResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf imageRecipeArn
+    Prelude.rnf imageRecipeArn
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf httpStatus

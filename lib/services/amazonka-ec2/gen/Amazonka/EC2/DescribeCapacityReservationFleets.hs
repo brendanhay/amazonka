@@ -30,18 +30,18 @@ module Amazonka.EC2.DescribeCapacityReservationFleets
 
     -- * Request Lenses
     describeCapacityReservationFleets_capacityReservationFleetIds,
-    describeCapacityReservationFleets_nextToken,
-    describeCapacityReservationFleets_filters,
     describeCapacityReservationFleets_dryRun,
+    describeCapacityReservationFleets_filters,
     describeCapacityReservationFleets_maxResults,
+    describeCapacityReservationFleets_nextToken,
 
     -- * Destructuring the Response
     DescribeCapacityReservationFleetsResponse (..),
     newDescribeCapacityReservationFleetsResponse,
 
     -- * Response Lenses
-    describeCapacityReservationFleetsResponse_nextToken,
     describeCapacityReservationFleetsResponse_capacityReservationFleets,
+    describeCapacityReservationFleetsResponse_nextToken,
     describeCapacityReservationFleetsResponse_httpStatus,
   )
 where
@@ -58,8 +58,11 @@ import qualified Amazonka.Response as Response
 data DescribeCapacityReservationFleets = DescribeCapacityReservationFleets'
   { -- | The IDs of the Capacity Reservation Fleets to describe.
     capacityReservationFleetIds :: Prelude.Maybe [Prelude.Text],
-    -- | The token to use to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | One or more filters.
     --
     -- -   @state@ - The state of the Fleet (@submitted@ | @modifying@ |
@@ -74,16 +77,13 @@ data DescribeCapacityReservationFleets = DescribeCapacityReservationFleets'
     -- -   @allocation-strategy@ - The allocation strategy used by the Fleet.
     --     Only @prioritized@ is supported.
     filters :: Prelude.Maybe [Filter],
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return for the request in a single
     -- page. The remaining results can be seen by sending another request with
     -- the returned @nextToken@ value. This value can be between 5 and 500. If
     -- @maxResults@ is given a larger value than 500, you receive an error.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to use to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -97,7 +97,10 @@ data DescribeCapacityReservationFleets = DescribeCapacityReservationFleets'
 --
 -- 'capacityReservationFleetIds', 'describeCapacityReservationFleets_capacityReservationFleetIds' - The IDs of the Capacity Reservation Fleets to describe.
 --
--- 'nextToken', 'describeCapacityReservationFleets_nextToken' - The token to use to retrieve the next page of results.
+-- 'dryRun', 'describeCapacityReservationFleets_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'filters', 'describeCapacityReservationFleets_filters' - One or more filters.
 --
@@ -113,34 +116,34 @@ data DescribeCapacityReservationFleets = DescribeCapacityReservationFleets'
 -- -   @allocation-strategy@ - The allocation strategy used by the Fleet.
 --     Only @prioritized@ is supported.
 --
--- 'dryRun', 'describeCapacityReservationFleets_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'maxResults', 'describeCapacityReservationFleets_maxResults' - The maximum number of results to return for the request in a single
 -- page. The remaining results can be seen by sending another request with
 -- the returned @nextToken@ value. This value can be between 5 and 500. If
 -- @maxResults@ is given a larger value than 500, you receive an error.
+--
+-- 'nextToken', 'describeCapacityReservationFleets_nextToken' - The token to use to retrieve the next page of results.
 newDescribeCapacityReservationFleets ::
   DescribeCapacityReservationFleets
 newDescribeCapacityReservationFleets =
   DescribeCapacityReservationFleets'
     { capacityReservationFleetIds =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
 
 -- | The IDs of the Capacity Reservation Fleets to describe.
 describeCapacityReservationFleets_capacityReservationFleetIds :: Lens.Lens' DescribeCapacityReservationFleets (Prelude.Maybe [Prelude.Text])
 describeCapacityReservationFleets_capacityReservationFleetIds = Lens.lens (\DescribeCapacityReservationFleets' {capacityReservationFleetIds} -> capacityReservationFleetIds) (\s@DescribeCapacityReservationFleets' {} a -> s {capacityReservationFleetIds = a} :: DescribeCapacityReservationFleets) Prelude.. Lens.mapping Lens.coerced
 
--- | The token to use to retrieve the next page of results.
-describeCapacityReservationFleets_nextToken :: Lens.Lens' DescribeCapacityReservationFleets (Prelude.Maybe Prelude.Text)
-describeCapacityReservationFleets_nextToken = Lens.lens (\DescribeCapacityReservationFleets' {nextToken} -> nextToken) (\s@DescribeCapacityReservationFleets' {} a -> s {nextToken = a} :: DescribeCapacityReservationFleets)
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeCapacityReservationFleets_dryRun :: Lens.Lens' DescribeCapacityReservationFleets (Prelude.Maybe Prelude.Bool)
+describeCapacityReservationFleets_dryRun = Lens.lens (\DescribeCapacityReservationFleets' {dryRun} -> dryRun) (\s@DescribeCapacityReservationFleets' {} a -> s {dryRun = a} :: DescribeCapacityReservationFleets)
 
 -- | One or more filters.
 --
@@ -158,19 +161,16 @@ describeCapacityReservationFleets_nextToken = Lens.lens (\DescribeCapacityReserv
 describeCapacityReservationFleets_filters :: Lens.Lens' DescribeCapacityReservationFleets (Prelude.Maybe [Filter])
 describeCapacityReservationFleets_filters = Lens.lens (\DescribeCapacityReservationFleets' {filters} -> filters) (\s@DescribeCapacityReservationFleets' {} a -> s {filters = a} :: DescribeCapacityReservationFleets) Prelude.. Lens.mapping Lens.coerced
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeCapacityReservationFleets_dryRun :: Lens.Lens' DescribeCapacityReservationFleets (Prelude.Maybe Prelude.Bool)
-describeCapacityReservationFleets_dryRun = Lens.lens (\DescribeCapacityReservationFleets' {dryRun} -> dryRun) (\s@DescribeCapacityReservationFleets' {} a -> s {dryRun = a} :: DescribeCapacityReservationFleets)
-
 -- | The maximum number of results to return for the request in a single
 -- page. The remaining results can be seen by sending another request with
 -- the returned @nextToken@ value. This value can be between 5 and 500. If
 -- @maxResults@ is given a larger value than 500, you receive an error.
 describeCapacityReservationFleets_maxResults :: Lens.Lens' DescribeCapacityReservationFleets (Prelude.Maybe Prelude.Natural)
 describeCapacityReservationFleets_maxResults = Lens.lens (\DescribeCapacityReservationFleets' {maxResults} -> maxResults) (\s@DescribeCapacityReservationFleets' {} a -> s {maxResults = a} :: DescribeCapacityReservationFleets)
+
+-- | The token to use to retrieve the next page of results.
+describeCapacityReservationFleets_nextToken :: Lens.Lens' DescribeCapacityReservationFleets (Prelude.Maybe Prelude.Text)
+describeCapacityReservationFleets_nextToken = Lens.lens (\DescribeCapacityReservationFleets' {nextToken} -> nextToken) (\s@DescribeCapacityReservationFleets' {} a -> s {nextToken = a} :: DescribeCapacityReservationFleets)
 
 instance
   Core.AWSPager
@@ -210,11 +210,11 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeCapacityReservationFleetsResponse'
-            Prelude.<$> (x Data..@? "nextToken")
-              Prelude.<*> ( x Data..@? "capacityReservationFleetSet"
-                              Core..!@ Prelude.mempty
-                              Prelude.>>= Core.may (Data.parseXMLList "item")
-                          )
+            Prelude.<$> ( x Data..@? "capacityReservationFleetSet"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
+                        )
+              Prelude.<*> (x Data..@? "nextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -227,10 +227,10 @@ instance
     DescribeCapacityReservationFleets' {..} =
       _salt
         `Prelude.hashWithSalt` capacityReservationFleetIds
-        `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
@@ -238,10 +238,10 @@ instance
   where
   rnf DescribeCapacityReservationFleets' {..} =
     Prelude.rnf capacityReservationFleetIds
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -271,20 +271,20 @@ instance
           ( Data.toQueryList "CapacityReservationFleetId"
               Prelude.<$> capacityReservationFleetIds
           ),
-        "NextToken" Data.=: nextToken,
+        "DryRun" Data.=: dryRun,
         Data.toQuery
           (Data.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Data.=: dryRun,
-        "MaxResults" Data.=: maxResults
+        "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newDescribeCapacityReservationFleetsResponse' smart constructor.
 data DescribeCapacityReservationFleetsResponse = DescribeCapacityReservationFleetsResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
+  { -- | Information about the Capacity Reservation Fleets.
+    capacityReservationFleets :: Prelude.Maybe [CapacityReservationFleet],
+    -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the Capacity Reservation Fleets.
-    capacityReservationFleets :: Prelude.Maybe [CapacityReservationFleet],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -298,10 +298,10 @@ data DescribeCapacityReservationFleetsResponse = DescribeCapacityReservationFlee
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'capacityReservationFleets', 'describeCapacityReservationFleetsResponse_capacityReservationFleets' - Information about the Capacity Reservation Fleets.
+--
 -- 'nextToken', 'describeCapacityReservationFleetsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
---
--- 'capacityReservationFleets', 'describeCapacityReservationFleetsResponse_capacityReservationFleets' - Information about the Capacity Reservation Fleets.
 --
 -- 'httpStatus', 'describeCapacityReservationFleetsResponse_httpStatus' - The response's http status code.
 newDescribeCapacityReservationFleetsResponse ::
@@ -311,21 +311,20 @@ newDescribeCapacityReservationFleetsResponse ::
 newDescribeCapacityReservationFleetsResponse
   pHttpStatus_ =
     DescribeCapacityReservationFleetsResponse'
-      { nextToken =
+      { capacityReservationFleets =
           Prelude.Nothing,
-        capacityReservationFleets =
-          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | Information about the Capacity Reservation Fleets.
+describeCapacityReservationFleetsResponse_capacityReservationFleets :: Lens.Lens' DescribeCapacityReservationFleetsResponse (Prelude.Maybe [CapacityReservationFleet])
+describeCapacityReservationFleetsResponse_capacityReservationFleets = Lens.lens (\DescribeCapacityReservationFleetsResponse' {capacityReservationFleets} -> capacityReservationFleets) (\s@DescribeCapacityReservationFleetsResponse' {} a -> s {capacityReservationFleets = a} :: DescribeCapacityReservationFleetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 describeCapacityReservationFleetsResponse_nextToken :: Lens.Lens' DescribeCapacityReservationFleetsResponse (Prelude.Maybe Prelude.Text)
 describeCapacityReservationFleetsResponse_nextToken = Lens.lens (\DescribeCapacityReservationFleetsResponse' {nextToken} -> nextToken) (\s@DescribeCapacityReservationFleetsResponse' {} a -> s {nextToken = a} :: DescribeCapacityReservationFleetsResponse)
-
--- | Information about the Capacity Reservation Fleets.
-describeCapacityReservationFleetsResponse_capacityReservationFleets :: Lens.Lens' DescribeCapacityReservationFleetsResponse (Prelude.Maybe [CapacityReservationFleet])
-describeCapacityReservationFleetsResponse_capacityReservationFleets = Lens.lens (\DescribeCapacityReservationFleetsResponse' {capacityReservationFleets} -> capacityReservationFleets) (\s@DescribeCapacityReservationFleetsResponse' {} a -> s {capacityReservationFleets = a} :: DescribeCapacityReservationFleetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeCapacityReservationFleetsResponse_httpStatus :: Lens.Lens' DescribeCapacityReservationFleetsResponse Prelude.Int
@@ -336,6 +335,6 @@ instance
     DescribeCapacityReservationFleetsResponse
   where
   rnf DescribeCapacityReservationFleetsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf capacityReservationFleets
+    Prelude.rnf capacityReservationFleets
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

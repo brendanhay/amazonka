@@ -30,16 +30,16 @@ module Amazonka.ServiceCatalogAppRegistry.Lens
     associateResourceResponse_httpStatus,
 
     -- ** CreateApplication
-    createApplication_tags,
     createApplication_description,
+    createApplication_tags,
     createApplication_name,
     createApplication_clientToken,
     createApplicationResponse_application,
     createApplicationResponse_httpStatus,
 
     -- ** CreateAttributeGroup
-    createAttributeGroup_tags,
     createAttributeGroup_description,
+    createAttributeGroup_tags,
     createAttributeGroup_name,
     createAttributeGroup_attributes,
     createAttributeGroup_clientToken,
@@ -73,15 +73,15 @@ module Amazonka.ServiceCatalogAppRegistry.Lens
 
     -- ** GetApplication
     getApplication_application,
-    getApplicationResponse_tags,
-    getApplicationResponse_name,
-    getApplicationResponse_integrations,
     getApplicationResponse_arn,
+    getApplicationResponse_associatedResourceCount,
+    getApplicationResponse_creationTime,
     getApplicationResponse_description,
     getApplicationResponse_id,
-    getApplicationResponse_creationTime,
+    getApplicationResponse_integrations,
     getApplicationResponse_lastUpdateTime,
-    getApplicationResponse_associatedResourceCount,
+    getApplicationResponse_name,
+    getApplicationResponse_tags,
     getApplicationResponse_httpStatus,
 
     -- ** GetAssociatedResource
@@ -93,14 +93,14 @@ module Amazonka.ServiceCatalogAppRegistry.Lens
 
     -- ** GetAttributeGroup
     getAttributeGroup_attributeGroup,
-    getAttributeGroupResponse_tags,
-    getAttributeGroupResponse_name,
     getAttributeGroupResponse_arn,
+    getAttributeGroupResponse_attributes,
+    getAttributeGroupResponse_creationTime,
     getAttributeGroupResponse_description,
     getAttributeGroupResponse_id,
-    getAttributeGroupResponse_creationTime,
     getAttributeGroupResponse_lastUpdateTime,
-    getAttributeGroupResponse_attributes,
+    getAttributeGroupResponse_name,
+    getAttributeGroupResponse_tags,
     getAttributeGroupResponse_httpStatus,
 
     -- ** GetConfiguration
@@ -108,41 +108,41 @@ module Amazonka.ServiceCatalogAppRegistry.Lens
     getConfigurationResponse_httpStatus,
 
     -- ** ListApplications
-    listApplications_nextToken,
     listApplications_maxResults,
-    listApplicationsResponse_nextToken,
+    listApplications_nextToken,
     listApplicationsResponse_applications,
+    listApplicationsResponse_nextToken,
     listApplicationsResponse_httpStatus,
 
     -- ** ListAssociatedAttributeGroups
-    listAssociatedAttributeGroups_nextToken,
     listAssociatedAttributeGroups_maxResults,
+    listAssociatedAttributeGroups_nextToken,
     listAssociatedAttributeGroups_application,
-    listAssociatedAttributeGroupsResponse_nextToken,
     listAssociatedAttributeGroupsResponse_attributeGroups,
+    listAssociatedAttributeGroupsResponse_nextToken,
     listAssociatedAttributeGroupsResponse_httpStatus,
 
     -- ** ListAssociatedResources
-    listAssociatedResources_nextToken,
     listAssociatedResources_maxResults,
+    listAssociatedResources_nextToken,
     listAssociatedResources_application,
     listAssociatedResourcesResponse_nextToken,
     listAssociatedResourcesResponse_resources,
     listAssociatedResourcesResponse_httpStatus,
 
     -- ** ListAttributeGroups
-    listAttributeGroups_nextToken,
     listAttributeGroups_maxResults,
-    listAttributeGroupsResponse_nextToken,
+    listAttributeGroups_nextToken,
     listAttributeGroupsResponse_attributeGroups,
+    listAttributeGroupsResponse_nextToken,
     listAttributeGroupsResponse_httpStatus,
 
     -- ** ListAttributeGroupsForApplication
-    listAttributeGroupsForApplication_nextToken,
     listAttributeGroupsForApplication_maxResults,
+    listAttributeGroupsForApplication_nextToken,
     listAttributeGroupsForApplication_application,
-    listAttributeGroupsForApplicationResponse_nextToken,
     listAttributeGroupsForApplicationResponse_attributeGroupsDetails,
+    listAttributeGroupsForApplicationResponse_nextToken,
     listAttributeGroupsForApplicationResponse_httpStatus,
 
     -- ** ListTagsForResource
@@ -156,8 +156,8 @@ module Amazonka.ServiceCatalogAppRegistry.Lens
     -- ** SyncResource
     syncResource_resourceType,
     syncResource_resource,
-    syncResourceResponse_applicationArn,
     syncResourceResponse_actionTaken,
+    syncResourceResponse_applicationArn,
     syncResourceResponse_resourceArn,
     syncResourceResponse_httpStatus,
 
@@ -172,16 +172,16 @@ module Amazonka.ServiceCatalogAppRegistry.Lens
     untagResourceResponse_httpStatus,
 
     -- ** UpdateApplication
-    updateApplication_name,
     updateApplication_description,
+    updateApplication_name,
     updateApplication_application,
     updateApplicationResponse_application,
     updateApplicationResponse_httpStatus,
 
     -- ** UpdateAttributeGroup
-    updateAttributeGroup_name,
-    updateAttributeGroup_description,
     updateAttributeGroup_attributes,
+    updateAttributeGroup_description,
+    updateAttributeGroup_name,
     updateAttributeGroup_attributeGroup,
     updateAttributeGroupResponse_attributeGroup,
     updateAttributeGroupResponse_httpStatus,
@@ -192,66 +192,66 @@ module Amazonka.ServiceCatalogAppRegistry.Lens
     appRegistryConfiguration_tagQueryConfiguration,
 
     -- ** Application
-    application_tags,
-    application_name,
     application_arn,
+    application_creationTime,
     application_description,
     application_id,
-    application_creationTime,
     application_lastUpdateTime,
+    application_name,
+    application_tags,
 
     -- ** ApplicationSummary
-    applicationSummary_name,
     applicationSummary_arn,
+    applicationSummary_creationTime,
     applicationSummary_description,
     applicationSummary_id,
-    applicationSummary_creationTime,
     applicationSummary_lastUpdateTime,
+    applicationSummary_name,
 
     -- ** AttributeGroup
-    attributeGroup_tags,
-    attributeGroup_name,
     attributeGroup_arn,
+    attributeGroup_creationTime,
     attributeGroup_description,
     attributeGroup_id,
-    attributeGroup_creationTime,
     attributeGroup_lastUpdateTime,
+    attributeGroup_name,
+    attributeGroup_tags,
 
     -- ** AttributeGroupDetails
-    attributeGroupDetails_name,
     attributeGroupDetails_arn,
     attributeGroupDetails_id,
+    attributeGroupDetails_name,
 
     -- ** AttributeGroupSummary
-    attributeGroupSummary_name,
     attributeGroupSummary_arn,
+    attributeGroupSummary_creationTime,
     attributeGroupSummary_description,
     attributeGroupSummary_id,
-    attributeGroupSummary_creationTime,
     attributeGroupSummary_lastUpdateTime,
+    attributeGroupSummary_name,
 
     -- ** Integrations
     integrations_resourceGroup,
 
     -- ** Resource
-    resource_name,
-    resource_integrations,
     resource_arn,
     resource_associationTime,
+    resource_integrations,
+    resource_name,
 
     -- ** ResourceDetails
     resourceDetails_tagValue,
 
     -- ** ResourceGroup
-    resourceGroup_errorMessage,
     resourceGroup_arn,
+    resourceGroup_errorMessage,
     resourceGroup_state,
 
     -- ** ResourceInfo
-    resourceInfo_resourceType,
-    resourceInfo_name,
     resourceInfo_arn,
+    resourceInfo_name,
     resourceInfo_resourceDetails,
+    resourceInfo_resourceType,
 
     -- ** ResourceIntegrations
     resourceIntegrations_resourceGroup,

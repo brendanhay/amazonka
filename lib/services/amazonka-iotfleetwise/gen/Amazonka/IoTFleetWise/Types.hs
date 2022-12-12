@@ -19,14 +19,14 @@ module Amazonka.IoTFleetWise.Types
 
     -- * Errors
     _AccessDeniedException,
+    _ConflictException,
     _DecoderManifestValidationException,
     _InternalServerException,
-    _InvalidSignalsException,
-    _ResourceNotFoundException,
-    _LimitExceededException,
-    _ConflictException,
-    _ThrottlingException,
     _InvalidNodeException,
+    _InvalidSignalsException,
+    _LimitExceededException,
+    _ResourceNotFoundException,
+    _ThrottlingException,
     _ValidationException,
 
     -- * CampaignStatus
@@ -77,11 +77,11 @@ module Amazonka.IoTFleetWise.Types
     -- * Actuator
     Actuator (..),
     newActuator,
-    actuator_max,
-    actuator_description,
-    actuator_min,
-    actuator_assignedValue,
     actuator_allowedValues,
+    actuator_assignedValue,
+    actuator_description,
+    actuator_max,
+    actuator_min,
     actuator_unit,
     actuator_fullyQualifiedName,
     actuator_dataType,
@@ -89,12 +89,12 @@ module Amazonka.IoTFleetWise.Types
     -- * Attribute
     Attribute (..),
     newAttribute,
-    attribute_max,
+    attribute_allowedValues,
+    attribute_assignedValue,
     attribute_defaultValue,
     attribute_description,
+    attribute_max,
     attribute_min,
-    attribute_assignedValue,
-    attribute_allowedValues,
     attribute_unit,
     attribute_fullyQualifiedName,
     attribute_dataType,
@@ -108,12 +108,12 @@ module Amazonka.IoTFleetWise.Types
     -- * CampaignSummary
     CampaignSummary (..),
     newCampaignSummary,
-    campaignSummary_name,
-    campaignSummary_targetArn,
     campaignSummary_arn,
-    campaignSummary_status,
     campaignSummary_description,
+    campaignSummary_name,
     campaignSummary_signalCatalogArn,
+    campaignSummary_status,
+    campaignSummary_targetArn,
     campaignSummary_creationTime,
     campaignSummary_lastModificationTime,
 
@@ -152,8 +152,8 @@ module Amazonka.IoTFleetWise.Types
     -- * CollectionScheme
     CollectionScheme (..),
     newCollectionScheme,
-    collectionScheme_timeBasedCollectionScheme,
     collectionScheme_conditionBasedCollectionScheme,
+    collectionScheme_timeBasedCollectionScheme,
 
     -- * ConditionBasedCollectionScheme
     ConditionBasedCollectionScheme (..),
@@ -166,16 +166,16 @@ module Amazonka.IoTFleetWise.Types
     -- * CreateVehicleError
     CreateVehicleError (..),
     newCreateVehicleError,
-    createVehicleError_message,
     createVehicleError_code,
+    createVehicleError_message,
     createVehicleError_vehicleName,
 
     -- * CreateVehicleRequestItem
     CreateVehicleRequestItem (..),
     newCreateVehicleRequestItem,
-    createVehicleRequestItem_tags,
-    createVehicleRequestItem_attributes,
     createVehicleRequestItem_associationBehavior,
+    createVehicleRequestItem_attributes,
+    createVehicleRequestItem_tags,
     createVehicleRequestItem_vehicleName,
     createVehicleRequestItem_modelManifestArn,
     createVehicleRequestItem_decoderManifestArn,
@@ -183,26 +183,26 @@ module Amazonka.IoTFleetWise.Types
     -- * CreateVehicleResponseItem
     CreateVehicleResponseItem (..),
     newCreateVehicleResponseItem,
-    createVehicleResponseItem_thingArn,
     createVehicleResponseItem_arn,
+    createVehicleResponseItem_thingArn,
     createVehicleResponseItem_vehicleName,
 
     -- * DecoderManifestSummary
     DecoderManifestSummary (..),
     newDecoderManifestSummary,
-    decoderManifestSummary_name,
-    decoderManifestSummary_modelManifestArn,
     decoderManifestSummary_arn,
-    decoderManifestSummary_status,
     decoderManifestSummary_description,
+    decoderManifestSummary_modelManifestArn,
+    decoderManifestSummary_name,
+    decoderManifestSummary_status,
     decoderManifestSummary_creationTime,
     decoderManifestSummary_lastModificationTime,
 
     -- * FleetSummary
     FleetSummary (..),
     newFleetSummary,
-    fleetSummary_lastModificationTime,
     fleetSummary_description,
+    fleetSummary_lastModificationTime,
     fleetSummary_id,
     fleetSummary_arn,
     fleetSummary_signalCatalogArn,
@@ -228,11 +228,11 @@ module Amazonka.IoTFleetWise.Types
     -- * ModelManifestSummary
     ModelManifestSummary (..),
     newModelManifestSummary,
-    modelManifestSummary_name,
     modelManifestSummary_arn,
-    modelManifestSummary_status,
     modelManifestSummary_description,
+    modelManifestSummary_name,
     modelManifestSummary_signalCatalogArn,
+    modelManifestSummary_status,
     modelManifestSummary_creationTime,
     modelManifestSummary_lastModificationTime,
 
@@ -244,36 +244,36 @@ module Amazonka.IoTFleetWise.Types
     -- * NetworkInterface
     NetworkInterface (..),
     newNetworkInterface,
-    networkInterface_obdInterface,
     networkInterface_canInterface,
+    networkInterface_obdInterface,
     networkInterface_interfaceId,
     networkInterface_type,
 
     -- * Node
     Node (..),
     newNode,
-    node_branch,
-    node_attribute,
     node_actuator,
+    node_attribute,
+    node_branch,
     node_sensor,
 
     -- * NodeCounts
     NodeCounts (..),
     newNodeCounts,
-    nodeCounts_totalSensors,
-    nodeCounts_totalNodes,
     nodeCounts_totalActuators,
     nodeCounts_totalAttributes,
     nodeCounts_totalBranches,
+    nodeCounts_totalNodes,
+    nodeCounts_totalSensors,
 
     -- * ObdInterface
     ObdInterface (..),
     newObdInterface,
-    obdInterface_pidRequestIntervalSeconds,
-    obdInterface_obdStandard,
-    obdInterface_hasTransmissionEcu,
-    obdInterface_useExtendedIds,
     obdInterface_dtcRequestIntervalSeconds,
+    obdInterface_hasTransmissionEcu,
+    obdInterface_obdStandard,
+    obdInterface_pidRequestIntervalSeconds,
+    obdInterface_useExtendedIds,
     obdInterface_name,
     obdInterface_requestMessageId,
 
@@ -293,10 +293,10 @@ module Amazonka.IoTFleetWise.Types
     -- * Sensor
     Sensor (..),
     newSensor,
-    sensor_max,
-    sensor_description,
-    sensor_min,
     sensor_allowedValues,
+    sensor_description,
+    sensor_max,
+    sensor_min,
     sensor_unit,
     sensor_fullyQualifiedName,
     sensor_dataType,
@@ -304,10 +304,10 @@ module Amazonka.IoTFleetWise.Types
     -- * SignalCatalogSummary
     SignalCatalogSummary (..),
     newSignalCatalogSummary,
-    signalCatalogSummary_lastModificationTime,
-    signalCatalogSummary_name,
     signalCatalogSummary_arn,
     signalCatalogSummary_creationTime,
+    signalCatalogSummary_lastModificationTime,
+    signalCatalogSummary_name,
 
     -- * SignalDecoder
     SignalDecoder (..),
@@ -321,8 +321,8 @@ module Amazonka.IoTFleetWise.Types
     -- * SignalInformation
     SignalInformation (..),
     newSignalInformation,
-    signalInformation_minimumSamplingIntervalMs,
     signalInformation_maxSampleCount,
+    signalInformation_minimumSamplingIntervalMs,
     signalInformation_name,
 
     -- * Tag
@@ -340,8 +340,8 @@ module Amazonka.IoTFleetWise.Types
     TimestreamRegistrationResponse (..),
     newTimestreamRegistrationResponse,
     timestreamRegistrationResponse_errorMessage,
-    timestreamRegistrationResponse_timestreamTableArn,
     timestreamRegistrationResponse_timestreamDatabaseArn,
+    timestreamRegistrationResponse_timestreamTableArn,
     timestreamRegistrationResponse_timestreamDatabaseName,
     timestreamRegistrationResponse_timestreamTableName,
     timestreamRegistrationResponse_registrationStatus,
@@ -355,17 +355,17 @@ module Amazonka.IoTFleetWise.Types
     -- * UpdateVehicleError
     UpdateVehicleError (..),
     newUpdateVehicleError,
-    updateVehicleError_message,
     updateVehicleError_code,
+    updateVehicleError_message,
     updateVehicleError_vehicleName,
 
     -- * UpdateVehicleRequestItem
     UpdateVehicleRequestItem (..),
     newUpdateVehicleRequestItem,
-    updateVehicleRequestItem_modelManifestArn,
+    updateVehicleRequestItem_attributeUpdateMode,
     updateVehicleRequestItem_attributes,
     updateVehicleRequestItem_decoderManifestArn,
-    updateVehicleRequestItem_attributeUpdateMode,
+    updateVehicleRequestItem_modelManifestArn,
     updateVehicleRequestItem_vehicleName,
 
     -- * UpdateVehicleResponseItem
@@ -476,28 +476,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -505,13 +499,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -519,6 +517,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You don\'t have sufficient permission to perform this action.
@@ -527,6 +527,15 @@ _AccessDeniedException =
   Core._MatchServiceError
     defaultService
     "AccessDeniedException"
+
+-- | The request has conflicting operations. This can occur if you\'re trying
+-- to perform more than one operation on the same resource at the same
+-- time.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
 
 -- | The request couldn\'t be completed because it contains signal decoders
 -- with one or more validation errors.
@@ -544,44 +553,6 @@ _InternalServerException =
     defaultService
     "InternalServerException"
 
--- | The request couldn\'t be completed because it contains signals that
--- aren\'t valid.
-_InvalidSignalsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidSignalsException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidSignalsException"
-
--- | The resource wasn\'t found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-
--- | A service quota was exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "LimitExceededException"
-
--- | The request has conflicting operations. This can occur if you\'re trying
--- to perform more than one operation on the same resource at the same
--- time.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
-
--- | The request couldn\'t be completed due to throttling.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ThrottlingException =
-  Core._MatchServiceError
-    defaultService
-    "ThrottlingException"
-
 -- | The specified node type doesn\'t match the expected node type for a
 -- node. You can specify the node type as branch, sensor, actuator, or
 -- attribute.
@@ -590,6 +561,35 @@ _InvalidNodeException =
   Core._MatchServiceError
     defaultService
     "InvalidNodeException"
+
+-- | The request couldn\'t be completed because it contains signals that
+-- aren\'t valid.
+_InvalidSignalsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidSignalsException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidSignalsException"
+
+-- | A service quota was exceeded.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
+
+-- | The resource wasn\'t found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+
+-- | The request couldn\'t be completed due to throttling.
+_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottlingException"
 
 -- | The input fails to satisfy the constraints specified by an Amazon Web
 -- Services service.

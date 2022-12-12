@@ -39,9 +39,9 @@ module Amazonka.Shield.Lens
     createProtectionResponse_httpStatus,
 
     -- ** CreateProtectionGroup
-    createProtectionGroup_tags,
-    createProtectionGroup_resourceType,
     createProtectionGroup_members,
+    createProtectionGroup_resourceType,
+    createProtectionGroup_tags,
     createProtectionGroup_protectionGroupId,
     createProtectionGroup_aggregation,
     createProtectionGroup_pattern,
@@ -69,8 +69,8 @@ module Amazonka.Shield.Lens
     describeAttackStatisticsResponse_dataItems,
 
     -- ** DescribeDRTAccess
-    describeDRTAccessResponse_roleArn,
     describeDRTAccessResponse_logBucketList,
+    describeDRTAccessResponse_roleArn,
     describeDRTAccessResponse_httpStatus,
 
     -- ** DescribeEmergencyContactSettings
@@ -124,34 +124,34 @@ module Amazonka.Shield.Lens
     getSubscriptionStateResponse_subscriptionState,
 
     -- ** ListAttacks
-    listAttacks_nextToken,
     listAttacks_endTime,
     listAttacks_maxResults,
-    listAttacks_startTime,
+    listAttacks_nextToken,
     listAttacks_resourceArns,
-    listAttacksResponse_nextToken,
+    listAttacks_startTime,
     listAttacksResponse_attackSummaries,
+    listAttacksResponse_nextToken,
     listAttacksResponse_httpStatus,
 
     -- ** ListProtectionGroups
-    listProtectionGroups_nextToken,
-    listProtectionGroups_maxResults,
     listProtectionGroups_inclusionFilters,
+    listProtectionGroups_maxResults,
+    listProtectionGroups_nextToken,
     listProtectionGroupsResponse_nextToken,
     listProtectionGroupsResponse_httpStatus,
     listProtectionGroupsResponse_protectionGroups,
 
     -- ** ListProtections
-    listProtections_nextToken,
-    listProtections_maxResults,
     listProtections_inclusionFilters,
+    listProtections_maxResults,
+    listProtections_nextToken,
     listProtectionsResponse_nextToken,
     listProtectionsResponse_protections,
     listProtectionsResponse_httpStatus,
 
     -- ** ListResourcesInProtectionGroup
-    listResourcesInProtectionGroup_nextToken,
     listResourcesInProtectionGroup_maxResults,
+    listResourcesInProtectionGroup_nextToken,
     listResourcesInProtectionGroup_protectionGroupId,
     listResourcesInProtectionGroupResponse_nextToken,
     listResourcesInProtectionGroupResponse_httpStatus,
@@ -182,8 +182,8 @@ module Amazonka.Shield.Lens
     updateEmergencyContactSettingsResponse_httpStatus,
 
     -- ** UpdateProtectionGroup
-    updateProtectionGroup_resourceType,
     updateProtectionGroup_members,
+    updateProtectionGroup_resourceType,
     updateProtectionGroup_protectionGroupId,
     updateProtectionGroup_aggregation,
     updateProtectionGroup_pattern,
@@ -200,20 +200,20 @@ module Amazonka.Shield.Lens
     applicationLayerAutomaticResponseConfiguration_action,
 
     -- ** AttackDetail
+    attackDetail_attackCounters,
     attackDetail_attackId,
-    attackDetail_subResources,
+    attackDetail_attackProperties,
     attackDetail_endTime,
     attackDetail_mitigations,
     attackDetail_resourceArn,
-    attackDetail_attackCounters,
-    attackDetail_attackProperties,
     attackDetail_startTime,
+    attackDetail_subResources,
 
     -- ** AttackProperty
-    attackProperty_total,
     attackProperty_attackLayer,
-    attackProperty_topContributors,
     attackProperty_attackPropertyIdentifier,
+    attackProperty_topContributors,
+    attackProperty_total,
     attackProperty_unit,
 
     -- ** AttackStatisticsDataItem
@@ -222,8 +222,8 @@ module Amazonka.Shield.Lens
 
     -- ** AttackSummary
     attackSummary_attackId,
-    attackSummary_endTime,
     attackSummary_attackVectors,
+    attackSummary_endTime,
     attackSummary_resourceArn,
     attackSummary_startTime,
 
@@ -231,9 +231,9 @@ module Amazonka.Shield.Lens
     attackVectorDescription_vectorType,
 
     -- ** AttackVolume
-    attackVolume_requestsPerSecond,
     attackVolume_bitsPerSecond,
     attackVolume_packetsPerSecond,
+    attackVolume_requestsPerSecond,
 
     -- ** AttackVolumeStatistics
     attackVolumeStatistics_max,
@@ -252,34 +252,34 @@ module Amazonka.Shield.Lens
     emergencyContact_emailAddress,
 
     -- ** InclusionProtectionFilters
-    inclusionProtectionFilters_resourceTypes,
     inclusionProtectionFilters_protectionNames,
     inclusionProtectionFilters_resourceArns,
+    inclusionProtectionFilters_resourceTypes,
 
     -- ** InclusionProtectionGroupFilters
     inclusionProtectionGroupFilters_aggregations,
     inclusionProtectionGroupFilters_patterns,
-    inclusionProtectionGroupFilters_resourceTypes,
     inclusionProtectionGroupFilters_protectionGroupIds,
+    inclusionProtectionGroupFilters_resourceTypes,
 
     -- ** Limit
-    limit_type,
     limit_max,
+    limit_type,
 
     -- ** Mitigation
     mitigation_mitigationName,
 
     -- ** Protection
-    protection_name,
     protection_applicationLayerAutomaticResponseConfiguration,
+    protection_healthCheckIds,
     protection_id,
+    protection_name,
     protection_protectionArn,
     protection_resourceArn,
-    protection_healthCheckIds,
 
     -- ** ProtectionGroup
-    protectionGroup_resourceType,
     protectionGroup_protectionGroupArn,
+    protectionGroup_resourceType,
     protectionGroup_protectionGroupId,
     protectionGroup_aggregation,
     protectionGroup_pattern,
@@ -299,23 +299,23 @@ module Amazonka.Shield.Lens
     protectionLimits_protectedResourceTypeLimits,
 
     -- ** ResponseAction
-    responseAction_count,
     responseAction_block,
+    responseAction_count,
 
     -- ** SubResourceSummary
-    subResourceSummary_type,
+    subResourceSummary_attackVectors,
     subResourceSummary_counters,
     subResourceSummary_id,
-    subResourceSummary_attackVectors,
+    subResourceSummary_type,
 
     -- ** Subscription
-    subscription_subscriptionArn,
     subscription_autoRenew,
-    subscription_limits,
     subscription_endTime,
-    subscription_timeCommitmentInSeconds,
-    subscription_startTime,
+    subscription_limits,
     subscription_proactiveEngagementStatus,
+    subscription_startTime,
+    subscription_subscriptionArn,
+    subscription_timeCommitmentInSeconds,
     subscription_subscriptionLimits,
 
     -- ** SubscriptionLimits
@@ -327,11 +327,11 @@ module Amazonka.Shield.Lens
     summarizedAttackVector_vectorType,
 
     -- ** SummarizedCounter
-    summarizedCounter_name,
-    summarizedCounter_max,
     summarizedCounter_average,
-    summarizedCounter_sum,
+    summarizedCounter_max,
     summarizedCounter_n,
+    summarizedCounter_name,
+    summarizedCounter_sum,
     summarizedCounter_unit,
 
     -- ** Tag
@@ -339,8 +339,8 @@ module Amazonka.Shield.Lens
     tag_value,
 
     -- ** TimeRange
-    timeRange_toExclusive,
     timeRange_fromInclusive,
+    timeRange_toExclusive,
   )
 where
 

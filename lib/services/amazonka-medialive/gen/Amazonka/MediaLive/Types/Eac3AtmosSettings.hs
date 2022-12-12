@@ -34,6 +34,11 @@ data Eac3AtmosSettings = Eac3AtmosSettings'
   { -- | Average bitrate in bits\/second. Valid bitrates depend on the coding
     -- mode. \/\/ * \@affectsRightSizing true
     bitrate :: Prelude.Maybe Prelude.Double,
+    -- | Dolby Digital Plus with Dolby Atmos coding mode. Determines number of
+    -- channels.
+    codingMode :: Prelude.Maybe Eac3AtmosCodingMode,
+    -- | Sets the dialnorm for the output. Default 23.
+    dialnorm :: Prelude.Maybe Prelude.Natural,
     -- | Sets the Dolby dynamic range compression profile.
     drcLine :: Prelude.Maybe Eac3AtmosDrcLine,
     -- | Sets the profile for heavy Dolby dynamic range compression, ensures that
@@ -43,11 +48,6 @@ data Eac3AtmosSettings = Eac3AtmosSettings'
     -- channels when the downstream player isn??t configured to handle Dolby
     -- Digital Plus with Dolby Atmos and must remix the channels.
     heightTrim :: Prelude.Maybe Prelude.Double,
-    -- | Sets the dialnorm for the output. Default 23.
-    dialnorm :: Prelude.Maybe Prelude.Natural,
-    -- | Dolby Digital Plus with Dolby Atmos coding mode. Determines number of
-    -- channels.
-    codingMode :: Prelude.Maybe Eac3AtmosCodingMode,
     -- | Surround dimensional trim. Sets the maximum amount to attenuate the
     -- surround channels when the downstream player isn\'t configured to handle
     -- Dolby Digital Plus with Dolby Atmos and must remix the channels.
@@ -66,6 +66,11 @@ data Eac3AtmosSettings = Eac3AtmosSettings'
 -- 'bitrate', 'eac3AtmosSettings_bitrate' - Average bitrate in bits\/second. Valid bitrates depend on the coding
 -- mode. \/\/ * \@affectsRightSizing true
 --
+-- 'codingMode', 'eac3AtmosSettings_codingMode' - Dolby Digital Plus with Dolby Atmos coding mode. Determines number of
+-- channels.
+--
+-- 'dialnorm', 'eac3AtmosSettings_dialnorm' - Sets the dialnorm for the output. Default 23.
+--
 -- 'drcLine', 'eac3AtmosSettings_drcLine' - Sets the Dolby dynamic range compression profile.
 --
 -- 'drcRf', 'eac3AtmosSettings_drcRf' - Sets the profile for heavy Dolby dynamic range compression, ensures that
@@ -75,11 +80,6 @@ data Eac3AtmosSettings = Eac3AtmosSettings'
 -- channels when the downstream player isn??t configured to handle Dolby
 -- Digital Plus with Dolby Atmos and must remix the channels.
 --
--- 'dialnorm', 'eac3AtmosSettings_dialnorm' - Sets the dialnorm for the output. Default 23.
---
--- 'codingMode', 'eac3AtmosSettings_codingMode' - Dolby Digital Plus with Dolby Atmos coding mode. Determines number of
--- channels.
---
 -- 'surroundTrim', 'eac3AtmosSettings_surroundTrim' - Surround dimensional trim. Sets the maximum amount to attenuate the
 -- surround channels when the downstream player isn\'t configured to handle
 -- Dolby Digital Plus with Dolby Atmos and must remix the channels.
@@ -88,11 +88,11 @@ newEac3AtmosSettings ::
 newEac3AtmosSettings =
   Eac3AtmosSettings'
     { bitrate = Prelude.Nothing,
+      codingMode = Prelude.Nothing,
+      dialnorm = Prelude.Nothing,
       drcLine = Prelude.Nothing,
       drcRf = Prelude.Nothing,
       heightTrim = Prelude.Nothing,
-      dialnorm = Prelude.Nothing,
-      codingMode = Prelude.Nothing,
       surroundTrim = Prelude.Nothing
     }
 
@@ -100,6 +100,15 @@ newEac3AtmosSettings =
 -- mode. \/\/ * \@affectsRightSizing true
 eac3AtmosSettings_bitrate :: Lens.Lens' Eac3AtmosSettings (Prelude.Maybe Prelude.Double)
 eac3AtmosSettings_bitrate = Lens.lens (\Eac3AtmosSettings' {bitrate} -> bitrate) (\s@Eac3AtmosSettings' {} a -> s {bitrate = a} :: Eac3AtmosSettings)
+
+-- | Dolby Digital Plus with Dolby Atmos coding mode. Determines number of
+-- channels.
+eac3AtmosSettings_codingMode :: Lens.Lens' Eac3AtmosSettings (Prelude.Maybe Eac3AtmosCodingMode)
+eac3AtmosSettings_codingMode = Lens.lens (\Eac3AtmosSettings' {codingMode} -> codingMode) (\s@Eac3AtmosSettings' {} a -> s {codingMode = a} :: Eac3AtmosSettings)
+
+-- | Sets the dialnorm for the output. Default 23.
+eac3AtmosSettings_dialnorm :: Lens.Lens' Eac3AtmosSettings (Prelude.Maybe Prelude.Natural)
+eac3AtmosSettings_dialnorm = Lens.lens (\Eac3AtmosSettings' {dialnorm} -> dialnorm) (\s@Eac3AtmosSettings' {} a -> s {dialnorm = a} :: Eac3AtmosSettings)
 
 -- | Sets the Dolby dynamic range compression profile.
 eac3AtmosSettings_drcLine :: Lens.Lens' Eac3AtmosSettings (Prelude.Maybe Eac3AtmosDrcLine)
@@ -116,15 +125,6 @@ eac3AtmosSettings_drcRf = Lens.lens (\Eac3AtmosSettings' {drcRf} -> drcRf) (\s@E
 eac3AtmosSettings_heightTrim :: Lens.Lens' Eac3AtmosSettings (Prelude.Maybe Prelude.Double)
 eac3AtmosSettings_heightTrim = Lens.lens (\Eac3AtmosSettings' {heightTrim} -> heightTrim) (\s@Eac3AtmosSettings' {} a -> s {heightTrim = a} :: Eac3AtmosSettings)
 
--- | Sets the dialnorm for the output. Default 23.
-eac3AtmosSettings_dialnorm :: Lens.Lens' Eac3AtmosSettings (Prelude.Maybe Prelude.Natural)
-eac3AtmosSettings_dialnorm = Lens.lens (\Eac3AtmosSettings' {dialnorm} -> dialnorm) (\s@Eac3AtmosSettings' {} a -> s {dialnorm = a} :: Eac3AtmosSettings)
-
--- | Dolby Digital Plus with Dolby Atmos coding mode. Determines number of
--- channels.
-eac3AtmosSettings_codingMode :: Lens.Lens' Eac3AtmosSettings (Prelude.Maybe Eac3AtmosCodingMode)
-eac3AtmosSettings_codingMode = Lens.lens (\Eac3AtmosSettings' {codingMode} -> codingMode) (\s@Eac3AtmosSettings' {} a -> s {codingMode = a} :: Eac3AtmosSettings)
-
 -- | Surround dimensional trim. Sets the maximum amount to attenuate the
 -- surround channels when the downstream player isn\'t configured to handle
 -- Dolby Digital Plus with Dolby Atmos and must remix the channels.
@@ -138,32 +138,32 @@ instance Data.FromJSON Eac3AtmosSettings where
       ( \x ->
           Eac3AtmosSettings'
             Prelude.<$> (x Data..:? "bitrate")
+            Prelude.<*> (x Data..:? "codingMode")
+            Prelude.<*> (x Data..:? "dialnorm")
             Prelude.<*> (x Data..:? "drcLine")
             Prelude.<*> (x Data..:? "drcRf")
             Prelude.<*> (x Data..:? "heightTrim")
-            Prelude.<*> (x Data..:? "dialnorm")
-            Prelude.<*> (x Data..:? "codingMode")
             Prelude.<*> (x Data..:? "surroundTrim")
       )
 
 instance Prelude.Hashable Eac3AtmosSettings where
   hashWithSalt _salt Eac3AtmosSettings' {..} =
     _salt `Prelude.hashWithSalt` bitrate
+      `Prelude.hashWithSalt` codingMode
+      `Prelude.hashWithSalt` dialnorm
       `Prelude.hashWithSalt` drcLine
       `Prelude.hashWithSalt` drcRf
       `Prelude.hashWithSalt` heightTrim
-      `Prelude.hashWithSalt` dialnorm
-      `Prelude.hashWithSalt` codingMode
       `Prelude.hashWithSalt` surroundTrim
 
 instance Prelude.NFData Eac3AtmosSettings where
   rnf Eac3AtmosSettings' {..} =
     Prelude.rnf bitrate
+      `Prelude.seq` Prelude.rnf codingMode
+      `Prelude.seq` Prelude.rnf dialnorm
       `Prelude.seq` Prelude.rnf drcLine
       `Prelude.seq` Prelude.rnf drcRf
       `Prelude.seq` Prelude.rnf heightTrim
-      `Prelude.seq` Prelude.rnf dialnorm
-      `Prelude.seq` Prelude.rnf codingMode
       `Prelude.seq` Prelude.rnf surroundTrim
 
 instance Data.ToJSON Eac3AtmosSettings where
@@ -171,11 +171,11 @@ instance Data.ToJSON Eac3AtmosSettings where
     Data.object
       ( Prelude.catMaybes
           [ ("bitrate" Data..=) Prelude.<$> bitrate,
+            ("codingMode" Data..=) Prelude.<$> codingMode,
+            ("dialnorm" Data..=) Prelude.<$> dialnorm,
             ("drcLine" Data..=) Prelude.<$> drcLine,
             ("drcRf" Data..=) Prelude.<$> drcRf,
             ("heightTrim" Data..=) Prelude.<$> heightTrim,
-            ("dialnorm" Data..=) Prelude.<$> dialnorm,
-            ("codingMode" Data..=) Prelude.<$> codingMode,
             ("surroundTrim" Data..=) Prelude.<$> surroundTrim
           ]
       )

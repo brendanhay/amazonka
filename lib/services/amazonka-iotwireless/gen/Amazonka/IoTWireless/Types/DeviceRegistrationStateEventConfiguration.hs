@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeviceRegistrationStateEventConfiguration' smart constructor.
 data DeviceRegistrationStateEventConfiguration = DeviceRegistrationStateEventConfiguration'
-  { -- | Denotes whether the wireless device ID device registration state event
-    -- topic is enabled or disabled.
-    wirelessDeviceIdEventTopic :: Prelude.Maybe EventNotificationTopicStatus,
-    -- | Device registration state event configuration object for enabling or
+  { -- | Device registration state event configuration object for enabling or
     -- disabling Sidewalk related event topics.
-    sidewalk :: Prelude.Maybe SidewalkEventNotificationConfigurations
+    sidewalk :: Prelude.Maybe SidewalkEventNotificationConfigurations,
+    -- | Denotes whether the wireless device ID device registration state event
+    -- topic is enabled or disabled.
+    wirelessDeviceIdEventTopic :: Prelude.Maybe EventNotificationTopicStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,29 +48,30 @@ data DeviceRegistrationStateEventConfiguration = DeviceRegistrationStateEventCon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'wirelessDeviceIdEventTopic', 'deviceRegistrationStateEventConfiguration_wirelessDeviceIdEventTopic' - Denotes whether the wireless device ID device registration state event
--- topic is enabled or disabled.
---
 -- 'sidewalk', 'deviceRegistrationStateEventConfiguration_sidewalk' - Device registration state event configuration object for enabling or
 -- disabling Sidewalk related event topics.
+--
+-- 'wirelessDeviceIdEventTopic', 'deviceRegistrationStateEventConfiguration_wirelessDeviceIdEventTopic' - Denotes whether the wireless device ID device registration state event
+-- topic is enabled or disabled.
 newDeviceRegistrationStateEventConfiguration ::
   DeviceRegistrationStateEventConfiguration
 newDeviceRegistrationStateEventConfiguration =
   DeviceRegistrationStateEventConfiguration'
-    { wirelessDeviceIdEventTopic =
+    { sidewalk =
         Prelude.Nothing,
-      sidewalk = Prelude.Nothing
+      wirelessDeviceIdEventTopic =
+        Prelude.Nothing
     }
-
--- | Denotes whether the wireless device ID device registration state event
--- topic is enabled or disabled.
-deviceRegistrationStateEventConfiguration_wirelessDeviceIdEventTopic :: Lens.Lens' DeviceRegistrationStateEventConfiguration (Prelude.Maybe EventNotificationTopicStatus)
-deviceRegistrationStateEventConfiguration_wirelessDeviceIdEventTopic = Lens.lens (\DeviceRegistrationStateEventConfiguration' {wirelessDeviceIdEventTopic} -> wirelessDeviceIdEventTopic) (\s@DeviceRegistrationStateEventConfiguration' {} a -> s {wirelessDeviceIdEventTopic = a} :: DeviceRegistrationStateEventConfiguration)
 
 -- | Device registration state event configuration object for enabling or
 -- disabling Sidewalk related event topics.
 deviceRegistrationStateEventConfiguration_sidewalk :: Lens.Lens' DeviceRegistrationStateEventConfiguration (Prelude.Maybe SidewalkEventNotificationConfigurations)
 deviceRegistrationStateEventConfiguration_sidewalk = Lens.lens (\DeviceRegistrationStateEventConfiguration' {sidewalk} -> sidewalk) (\s@DeviceRegistrationStateEventConfiguration' {} a -> s {sidewalk = a} :: DeviceRegistrationStateEventConfiguration)
+
+-- | Denotes whether the wireless device ID device registration state event
+-- topic is enabled or disabled.
+deviceRegistrationStateEventConfiguration_wirelessDeviceIdEventTopic :: Lens.Lens' DeviceRegistrationStateEventConfiguration (Prelude.Maybe EventNotificationTopicStatus)
+deviceRegistrationStateEventConfiguration_wirelessDeviceIdEventTopic = Lens.lens (\DeviceRegistrationStateEventConfiguration' {wirelessDeviceIdEventTopic} -> wirelessDeviceIdEventTopic) (\s@DeviceRegistrationStateEventConfiguration' {} a -> s {wirelessDeviceIdEventTopic = a} :: DeviceRegistrationStateEventConfiguration)
 
 instance
   Data.FromJSON
@@ -81,8 +82,8 @@ instance
       "DeviceRegistrationStateEventConfiguration"
       ( \x ->
           DeviceRegistrationStateEventConfiguration'
-            Prelude.<$> (x Data..:? "WirelessDeviceIdEventTopic")
-              Prelude.<*> (x Data..:? "Sidewalk")
+            Prelude.<$> (x Data..:? "Sidewalk")
+              Prelude.<*> (x Data..:? "WirelessDeviceIdEventTopic")
       )
 
 instance
@@ -92,17 +93,16 @@ instance
   hashWithSalt
     _salt
     DeviceRegistrationStateEventConfiguration' {..} =
-      _salt
+      _salt `Prelude.hashWithSalt` sidewalk
         `Prelude.hashWithSalt` wirelessDeviceIdEventTopic
-        `Prelude.hashWithSalt` sidewalk
 
 instance
   Prelude.NFData
     DeviceRegistrationStateEventConfiguration
   where
   rnf DeviceRegistrationStateEventConfiguration' {..} =
-    Prelude.rnf wirelessDeviceIdEventTopic
-      `Prelude.seq` Prelude.rnf sidewalk
+    Prelude.rnf sidewalk
+      `Prelude.seq` Prelude.rnf wirelessDeviceIdEventTopic
 
 instance
   Data.ToJSON
@@ -111,8 +111,8 @@ instance
   toJSON DeviceRegistrationStateEventConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("WirelessDeviceIdEventTopic" Data..=)
-              Prelude.<$> wirelessDeviceIdEventTopic,
-            ("Sidewalk" Data..=) Prelude.<$> sidewalk
+          [ ("Sidewalk" Data..=) Prelude.<$> sidewalk,
+            ("WirelessDeviceIdEventTopic" Data..=)
+              Prelude.<$> wirelessDeviceIdEventTopic
           ]
       )

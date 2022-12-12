@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConnectedHomeSettingsForUpdate' smart constructor.
 data ConnectedHomeSettingsForUpdate = ConnectedHomeSettingsForUpdate'
-  { -- | The minimum confidence required to label an object in the video.
-    minConfidence :: Prelude.Maybe Prelude.Double,
-    -- | Specifies what you want to detect in the video, such as people,
+  { -- | Specifies what you want to detect in the video, such as people,
     -- packages, or pets. The current valid labels you can include in this list
     -- are: \"PERSON\", \"PET\", \"PACKAGE\", and \"ALL\".
-    labels :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
+    labels :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The minimum confidence required to label an object in the video.
+    minConfidence :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,29 +47,29 @@ data ConnectedHomeSettingsForUpdate = ConnectedHomeSettingsForUpdate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'minConfidence', 'connectedHomeSettingsForUpdate_minConfidence' - The minimum confidence required to label an object in the video.
---
 -- 'labels', 'connectedHomeSettingsForUpdate_labels' - Specifies what you want to detect in the video, such as people,
 -- packages, or pets. The current valid labels you can include in this list
 -- are: \"PERSON\", \"PET\", \"PACKAGE\", and \"ALL\".
+--
+-- 'minConfidence', 'connectedHomeSettingsForUpdate_minConfidence' - The minimum confidence required to label an object in the video.
 newConnectedHomeSettingsForUpdate ::
   ConnectedHomeSettingsForUpdate
 newConnectedHomeSettingsForUpdate =
   ConnectedHomeSettingsForUpdate'
-    { minConfidence =
+    { labels =
         Prelude.Nothing,
-      labels = Prelude.Nothing
+      minConfidence = Prelude.Nothing
     }
-
--- | The minimum confidence required to label an object in the video.
-connectedHomeSettingsForUpdate_minConfidence :: Lens.Lens' ConnectedHomeSettingsForUpdate (Prelude.Maybe Prelude.Double)
-connectedHomeSettingsForUpdate_minConfidence = Lens.lens (\ConnectedHomeSettingsForUpdate' {minConfidence} -> minConfidence) (\s@ConnectedHomeSettingsForUpdate' {} a -> s {minConfidence = a} :: ConnectedHomeSettingsForUpdate)
 
 -- | Specifies what you want to detect in the video, such as people,
 -- packages, or pets. The current valid labels you can include in this list
 -- are: \"PERSON\", \"PET\", \"PACKAGE\", and \"ALL\".
 connectedHomeSettingsForUpdate_labels :: Lens.Lens' ConnectedHomeSettingsForUpdate (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 connectedHomeSettingsForUpdate_labels = Lens.lens (\ConnectedHomeSettingsForUpdate' {labels} -> labels) (\s@ConnectedHomeSettingsForUpdate' {} a -> s {labels = a} :: ConnectedHomeSettingsForUpdate) Prelude.. Lens.mapping Lens.coerced
+
+-- | The minimum confidence required to label an object in the video.
+connectedHomeSettingsForUpdate_minConfidence :: Lens.Lens' ConnectedHomeSettingsForUpdate (Prelude.Maybe Prelude.Double)
+connectedHomeSettingsForUpdate_minConfidence = Lens.lens (\ConnectedHomeSettingsForUpdate' {minConfidence} -> minConfidence) (\s@ConnectedHomeSettingsForUpdate' {} a -> s {minConfidence = a} :: ConnectedHomeSettingsForUpdate)
 
 instance
   Prelude.Hashable
@@ -78,22 +78,22 @@ instance
   hashWithSalt
     _salt
     ConnectedHomeSettingsForUpdate' {..} =
-      _salt `Prelude.hashWithSalt` minConfidence
-        `Prelude.hashWithSalt` labels
+      _salt `Prelude.hashWithSalt` labels
+        `Prelude.hashWithSalt` minConfidence
 
 instance
   Prelude.NFData
     ConnectedHomeSettingsForUpdate
   where
   rnf ConnectedHomeSettingsForUpdate' {..} =
-    Prelude.rnf minConfidence
-      `Prelude.seq` Prelude.rnf labels
+    Prelude.rnf labels
+      `Prelude.seq` Prelude.rnf minConfidence
 
 instance Data.ToJSON ConnectedHomeSettingsForUpdate where
   toJSON ConnectedHomeSettingsForUpdate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("MinConfidence" Data..=) Prelude.<$> minConfidence,
-            ("Labels" Data..=) Prelude.<$> labels
+          [ ("Labels" Data..=) Prelude.<$> labels,
+            ("MinConfidence" Data..=) Prelude.<$> minConfidence
           ]
       )

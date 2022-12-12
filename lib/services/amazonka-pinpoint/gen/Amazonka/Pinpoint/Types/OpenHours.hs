@@ -31,16 +31,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOpenHours' smart constructor.
 data OpenHours = OpenHours'
-  { -- | Rules for SMS Channel.
-    sms :: Prelude.Maybe (Prelude.HashMap DayOfWeek [OpenHoursRule]),
+  { -- | Rules for Custom Channel.
+    custom :: Prelude.Maybe (Prelude.HashMap DayOfWeek [OpenHoursRule]),
     -- | Rules for Email Channel.
     email :: Prelude.Maybe (Prelude.HashMap DayOfWeek [OpenHoursRule]),
-    -- | Rules for Voice Channel.
-    voice :: Prelude.Maybe (Prelude.HashMap DayOfWeek [OpenHoursRule]),
     -- | Rules for Push Channel.
     push :: Prelude.Maybe (Prelude.HashMap DayOfWeek [OpenHoursRule]),
-    -- | Rules for Custom Channel.
-    custom :: Prelude.Maybe (Prelude.HashMap DayOfWeek [OpenHoursRule])
+    -- | Rules for SMS Channel.
+    sms :: Prelude.Maybe (Prelude.HashMap DayOfWeek [OpenHoursRule]),
+    -- | Rules for Voice Channel.
+    voice :: Prelude.Maybe (Prelude.HashMap DayOfWeek [OpenHoursRule])
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,45 +52,45 @@ data OpenHours = OpenHours'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sms', 'openHours_sms' - Rules for SMS Channel.
+-- 'custom', 'openHours_custom' - Rules for Custom Channel.
 --
 -- 'email', 'openHours_email' - Rules for Email Channel.
 --
--- 'voice', 'openHours_voice' - Rules for Voice Channel.
---
 -- 'push', 'openHours_push' - Rules for Push Channel.
 --
--- 'custom', 'openHours_custom' - Rules for Custom Channel.
+-- 'sms', 'openHours_sms' - Rules for SMS Channel.
+--
+-- 'voice', 'openHours_voice' - Rules for Voice Channel.
 newOpenHours ::
   OpenHours
 newOpenHours =
   OpenHours'
-    { sms = Prelude.Nothing,
+    { custom = Prelude.Nothing,
       email = Prelude.Nothing,
-      voice = Prelude.Nothing,
       push = Prelude.Nothing,
-      custom = Prelude.Nothing
+      sms = Prelude.Nothing,
+      voice = Prelude.Nothing
     }
 
--- | Rules for SMS Channel.
-openHours_sms :: Lens.Lens' OpenHours (Prelude.Maybe (Prelude.HashMap DayOfWeek [OpenHoursRule]))
-openHours_sms = Lens.lens (\OpenHours' {sms} -> sms) (\s@OpenHours' {} a -> s {sms = a} :: OpenHours) Prelude.. Lens.mapping Lens.coerced
+-- | Rules for Custom Channel.
+openHours_custom :: Lens.Lens' OpenHours (Prelude.Maybe (Prelude.HashMap DayOfWeek [OpenHoursRule]))
+openHours_custom = Lens.lens (\OpenHours' {custom} -> custom) (\s@OpenHours' {} a -> s {custom = a} :: OpenHours) Prelude.. Lens.mapping Lens.coerced
 
 -- | Rules for Email Channel.
 openHours_email :: Lens.Lens' OpenHours (Prelude.Maybe (Prelude.HashMap DayOfWeek [OpenHoursRule]))
 openHours_email = Lens.lens (\OpenHours' {email} -> email) (\s@OpenHours' {} a -> s {email = a} :: OpenHours) Prelude.. Lens.mapping Lens.coerced
 
--- | Rules for Voice Channel.
-openHours_voice :: Lens.Lens' OpenHours (Prelude.Maybe (Prelude.HashMap DayOfWeek [OpenHoursRule]))
-openHours_voice = Lens.lens (\OpenHours' {voice} -> voice) (\s@OpenHours' {} a -> s {voice = a} :: OpenHours) Prelude.. Lens.mapping Lens.coerced
-
 -- | Rules for Push Channel.
 openHours_push :: Lens.Lens' OpenHours (Prelude.Maybe (Prelude.HashMap DayOfWeek [OpenHoursRule]))
 openHours_push = Lens.lens (\OpenHours' {push} -> push) (\s@OpenHours' {} a -> s {push = a} :: OpenHours) Prelude.. Lens.mapping Lens.coerced
 
--- | Rules for Custom Channel.
-openHours_custom :: Lens.Lens' OpenHours (Prelude.Maybe (Prelude.HashMap DayOfWeek [OpenHoursRule]))
-openHours_custom = Lens.lens (\OpenHours' {custom} -> custom) (\s@OpenHours' {} a -> s {custom = a} :: OpenHours) Prelude.. Lens.mapping Lens.coerced
+-- | Rules for SMS Channel.
+openHours_sms :: Lens.Lens' OpenHours (Prelude.Maybe (Prelude.HashMap DayOfWeek [OpenHoursRule]))
+openHours_sms = Lens.lens (\OpenHours' {sms} -> sms) (\s@OpenHours' {} a -> s {sms = a} :: OpenHours) Prelude.. Lens.mapping Lens.coerced
+
+-- | Rules for Voice Channel.
+openHours_voice :: Lens.Lens' OpenHours (Prelude.Maybe (Prelude.HashMap DayOfWeek [OpenHoursRule]))
+openHours_voice = Lens.lens (\OpenHours' {voice} -> voice) (\s@OpenHours' {} a -> s {voice = a} :: OpenHours) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON OpenHours where
   parseJSON =
@@ -98,37 +98,37 @@ instance Data.FromJSON OpenHours where
       "OpenHours"
       ( \x ->
           OpenHours'
-            Prelude.<$> (x Data..:? "SMS" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "CUSTOM" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "EMAIL" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "VOICE" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "PUSH" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "CUSTOM" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "SMS" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "VOICE" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable OpenHours where
   hashWithSalt _salt OpenHours' {..} =
-    _salt `Prelude.hashWithSalt` sms
+    _salt `Prelude.hashWithSalt` custom
       `Prelude.hashWithSalt` email
-      `Prelude.hashWithSalt` voice
       `Prelude.hashWithSalt` push
-      `Prelude.hashWithSalt` custom
+      `Prelude.hashWithSalt` sms
+      `Prelude.hashWithSalt` voice
 
 instance Prelude.NFData OpenHours where
   rnf OpenHours' {..} =
-    Prelude.rnf sms
+    Prelude.rnf custom
       `Prelude.seq` Prelude.rnf email
-      `Prelude.seq` Prelude.rnf voice
       `Prelude.seq` Prelude.rnf push
-      `Prelude.seq` Prelude.rnf custom
+      `Prelude.seq` Prelude.rnf sms
+      `Prelude.seq` Prelude.rnf voice
 
 instance Data.ToJSON OpenHours where
   toJSON OpenHours' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SMS" Data..=) Prelude.<$> sms,
+          [ ("CUSTOM" Data..=) Prelude.<$> custom,
             ("EMAIL" Data..=) Prelude.<$> email,
-            ("VOICE" Data..=) Prelude.<$> voice,
             ("PUSH" Data..=) Prelude.<$> push,
-            ("CUSTOM" Data..=) Prelude.<$> custom
+            ("SMS" Data..=) Prelude.<$> sms,
+            ("VOICE" Data..=) Prelude.<$> voice
           ]
       )

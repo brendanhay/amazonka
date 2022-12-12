@@ -41,8 +41,8 @@ module Amazonka.Lightsail.GetRelationalDatabaseBundles
     newGetRelationalDatabaseBundlesResponse,
 
     -- * Response Lenses
-    getRelationalDatabaseBundlesResponse_nextPageToken,
     getRelationalDatabaseBundlesResponse_bundles,
+    getRelationalDatabaseBundlesResponse_nextPageToken,
     getRelationalDatabaseBundlesResponse_httpStatus,
   )
 where
@@ -142,8 +142,8 @@ instance Core.AWSRequest GetRelationalDatabaseBundles where
     Response.receiveJSON
       ( \s h x ->
           GetRelationalDatabaseBundlesResponse'
-            Prelude.<$> (x Data..?> "nextPageToken")
-            Prelude.<*> (x Data..?> "bundles" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "bundles" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -193,7 +193,10 @@ instance Data.ToQuery GetRelationalDatabaseBundles where
 
 -- | /See:/ 'newGetRelationalDatabaseBundlesResponse' smart constructor.
 data GetRelationalDatabaseBundlesResponse = GetRelationalDatabaseBundlesResponse'
-  { -- | The token to advance to the next page of results from your request.
+  { -- | An object describing the result of your get relational database bundles
+    -- request.
+    bundles :: Prelude.Maybe [RelationalDatabaseBundle],
+    -- | The token to advance to the next page of results from your request.
     --
     -- A next page token is not returned if there are no more results to
     -- display.
@@ -202,9 +205,6 @@ data GetRelationalDatabaseBundlesResponse = GetRelationalDatabaseBundlesResponse
     -- @GetRelationalDatabaseBundles@ request and specify the next page token
     -- using the @pageToken@ parameter.
     nextPageToken :: Prelude.Maybe Prelude.Text,
-    -- | An object describing the result of your get relational database bundles
-    -- request.
-    bundles :: Prelude.Maybe [RelationalDatabaseBundle],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -218,6 +218,9 @@ data GetRelationalDatabaseBundlesResponse = GetRelationalDatabaseBundlesResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'bundles', 'getRelationalDatabaseBundlesResponse_bundles' - An object describing the result of your get relational database bundles
+-- request.
+--
 -- 'nextPageToken', 'getRelationalDatabaseBundlesResponse_nextPageToken' - The token to advance to the next page of results from your request.
 --
 -- A next page token is not returned if there are no more results to
@@ -227,9 +230,6 @@ data GetRelationalDatabaseBundlesResponse = GetRelationalDatabaseBundlesResponse
 -- @GetRelationalDatabaseBundles@ request and specify the next page token
 -- using the @pageToken@ parameter.
 --
--- 'bundles', 'getRelationalDatabaseBundlesResponse_bundles' - An object describing the result of your get relational database bundles
--- request.
---
 -- 'httpStatus', 'getRelationalDatabaseBundlesResponse_httpStatus' - The response's http status code.
 newGetRelationalDatabaseBundlesResponse ::
   -- | 'httpStatus'
@@ -237,11 +237,16 @@ newGetRelationalDatabaseBundlesResponse ::
   GetRelationalDatabaseBundlesResponse
 newGetRelationalDatabaseBundlesResponse pHttpStatus_ =
   GetRelationalDatabaseBundlesResponse'
-    { nextPageToken =
+    { bundles =
         Prelude.Nothing,
-      bundles = Prelude.Nothing,
+      nextPageToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An object describing the result of your get relational database bundles
+-- request.
+getRelationalDatabaseBundlesResponse_bundles :: Lens.Lens' GetRelationalDatabaseBundlesResponse (Prelude.Maybe [RelationalDatabaseBundle])
+getRelationalDatabaseBundlesResponse_bundles = Lens.lens (\GetRelationalDatabaseBundlesResponse' {bundles} -> bundles) (\s@GetRelationalDatabaseBundlesResponse' {} a -> s {bundles = a} :: GetRelationalDatabaseBundlesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to advance to the next page of results from your request.
 --
@@ -254,11 +259,6 @@ newGetRelationalDatabaseBundlesResponse pHttpStatus_ =
 getRelationalDatabaseBundlesResponse_nextPageToken :: Lens.Lens' GetRelationalDatabaseBundlesResponse (Prelude.Maybe Prelude.Text)
 getRelationalDatabaseBundlesResponse_nextPageToken = Lens.lens (\GetRelationalDatabaseBundlesResponse' {nextPageToken} -> nextPageToken) (\s@GetRelationalDatabaseBundlesResponse' {} a -> s {nextPageToken = a} :: GetRelationalDatabaseBundlesResponse)
 
--- | An object describing the result of your get relational database bundles
--- request.
-getRelationalDatabaseBundlesResponse_bundles :: Lens.Lens' GetRelationalDatabaseBundlesResponse (Prelude.Maybe [RelationalDatabaseBundle])
-getRelationalDatabaseBundlesResponse_bundles = Lens.lens (\GetRelationalDatabaseBundlesResponse' {bundles} -> bundles) (\s@GetRelationalDatabaseBundlesResponse' {} a -> s {bundles = a} :: GetRelationalDatabaseBundlesResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 getRelationalDatabaseBundlesResponse_httpStatus :: Lens.Lens' GetRelationalDatabaseBundlesResponse Prelude.Int
 getRelationalDatabaseBundlesResponse_httpStatus = Lens.lens (\GetRelationalDatabaseBundlesResponse' {httpStatus} -> httpStatus) (\s@GetRelationalDatabaseBundlesResponse' {} a -> s {httpStatus = a} :: GetRelationalDatabaseBundlesResponse)
@@ -268,6 +268,6 @@ instance
     GetRelationalDatabaseBundlesResponse
   where
   rnf GetRelationalDatabaseBundlesResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf bundles
+    Prelude.rnf bundles
+      `Prelude.seq` Prelude.rnf nextPageToken
       `Prelude.seq` Prelude.rnf httpStatus

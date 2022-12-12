@@ -33,17 +33,17 @@ module Amazonka.FraudDetector.GetBatchPredictionJobs
     newGetBatchPredictionJobs,
 
     -- * Request Lenses
-    getBatchPredictionJobs_nextToken,
     getBatchPredictionJobs_jobId,
     getBatchPredictionJobs_maxResults,
+    getBatchPredictionJobs_nextToken,
 
     -- * Destructuring the Response
     GetBatchPredictionJobsResponse (..),
     newGetBatchPredictionJobsResponse,
 
     -- * Response Lenses
-    getBatchPredictionJobsResponse_nextToken,
     getBatchPredictionJobsResponse_batchPredictions,
+    getBatchPredictionJobsResponse_nextToken,
     getBatchPredictionJobsResponse_httpStatus,
   )
 where
@@ -58,12 +58,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetBatchPredictionJobs' smart constructor.
 data GetBatchPredictionJobs = GetBatchPredictionJobs'
-  { -- | The next token from the previous request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The batch prediction job for which to get the details.
+  { -- | The batch prediction job for which to get the details.
     jobId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of objects to return for the request.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The next token from the previous request.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,24 +75,19 @@ data GetBatchPredictionJobs = GetBatchPredictionJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getBatchPredictionJobs_nextToken' - The next token from the previous request.
---
 -- 'jobId', 'getBatchPredictionJobs_jobId' - The batch prediction job for which to get the details.
 --
 -- 'maxResults', 'getBatchPredictionJobs_maxResults' - The maximum number of objects to return for the request.
+--
+-- 'nextToken', 'getBatchPredictionJobs_nextToken' - The next token from the previous request.
 newGetBatchPredictionJobs ::
   GetBatchPredictionJobs
 newGetBatchPredictionJobs =
   GetBatchPredictionJobs'
-    { nextToken =
-        Prelude.Nothing,
-      jobId = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { jobId = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The next token from the previous request.
-getBatchPredictionJobs_nextToken :: Lens.Lens' GetBatchPredictionJobs (Prelude.Maybe Prelude.Text)
-getBatchPredictionJobs_nextToken = Lens.lens (\GetBatchPredictionJobs' {nextToken} -> nextToken) (\s@GetBatchPredictionJobs' {} a -> s {nextToken = a} :: GetBatchPredictionJobs)
 
 -- | The batch prediction job for which to get the details.
 getBatchPredictionJobs_jobId :: Lens.Lens' GetBatchPredictionJobs (Prelude.Maybe Prelude.Text)
@@ -101,6 +96,10 @@ getBatchPredictionJobs_jobId = Lens.lens (\GetBatchPredictionJobs' {jobId} -> jo
 -- | The maximum number of objects to return for the request.
 getBatchPredictionJobs_maxResults :: Lens.Lens' GetBatchPredictionJobs (Prelude.Maybe Prelude.Natural)
 getBatchPredictionJobs_maxResults = Lens.lens (\GetBatchPredictionJobs' {maxResults} -> maxResults) (\s@GetBatchPredictionJobs' {} a -> s {maxResults = a} :: GetBatchPredictionJobs)
+
+-- | The next token from the previous request.
+getBatchPredictionJobs_nextToken :: Lens.Lens' GetBatchPredictionJobs (Prelude.Maybe Prelude.Text)
+getBatchPredictionJobs_nextToken = Lens.lens (\GetBatchPredictionJobs' {nextToken} -> nextToken) (\s@GetBatchPredictionJobs' {} a -> s {nextToken = a} :: GetBatchPredictionJobs)
 
 instance Core.AWSRequest GetBatchPredictionJobs where
   type
@@ -112,24 +111,24 @@ instance Core.AWSRequest GetBatchPredictionJobs where
     Response.receiveJSON
       ( \s h x ->
           GetBatchPredictionJobsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "batchPredictions"
+            Prelude.<$> ( x Data..?> "batchPredictions"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetBatchPredictionJobs where
   hashWithSalt _salt GetBatchPredictionJobs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` jobId
+    _salt `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData GetBatchPredictionJobs where
   rnf GetBatchPredictionJobs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf jobId
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders GetBatchPredictionJobs where
   toHeaders =
@@ -150,9 +149,9 @@ instance Data.ToJSON GetBatchPredictionJobs where
   toJSON GetBatchPredictionJobs' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("jobId" Data..=) Prelude.<$> jobId,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("jobId" Data..=) Prelude.<$> jobId,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -164,10 +163,10 @@ instance Data.ToQuery GetBatchPredictionJobs where
 
 -- | /See:/ 'newGetBatchPredictionJobsResponse' smart constructor.
 data GetBatchPredictionJobsResponse = GetBatchPredictionJobsResponse'
-  { -- | The next token for the subsequent request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array containing the details of each batch prediction job.
+  { -- | An array containing the details of each batch prediction job.
     batchPredictions :: Prelude.Maybe [BatchPrediction],
+    -- | The next token for the subsequent request.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -181,9 +180,9 @@ data GetBatchPredictionJobsResponse = GetBatchPredictionJobsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getBatchPredictionJobsResponse_nextToken' - The next token for the subsequent request.
---
 -- 'batchPredictions', 'getBatchPredictionJobsResponse_batchPredictions' - An array containing the details of each batch prediction job.
+--
+-- 'nextToken', 'getBatchPredictionJobsResponse_nextToken' - The next token for the subsequent request.
 --
 -- 'httpStatus', 'getBatchPredictionJobsResponse_httpStatus' - The response's http status code.
 newGetBatchPredictionJobsResponse ::
@@ -192,19 +191,19 @@ newGetBatchPredictionJobsResponse ::
   GetBatchPredictionJobsResponse
 newGetBatchPredictionJobsResponse pHttpStatus_ =
   GetBatchPredictionJobsResponse'
-    { nextToken =
+    { batchPredictions =
         Prelude.Nothing,
-      batchPredictions = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The next token for the subsequent request.
-getBatchPredictionJobsResponse_nextToken :: Lens.Lens' GetBatchPredictionJobsResponse (Prelude.Maybe Prelude.Text)
-getBatchPredictionJobsResponse_nextToken = Lens.lens (\GetBatchPredictionJobsResponse' {nextToken} -> nextToken) (\s@GetBatchPredictionJobsResponse' {} a -> s {nextToken = a} :: GetBatchPredictionJobsResponse)
 
 -- | An array containing the details of each batch prediction job.
 getBatchPredictionJobsResponse_batchPredictions :: Lens.Lens' GetBatchPredictionJobsResponse (Prelude.Maybe [BatchPrediction])
 getBatchPredictionJobsResponse_batchPredictions = Lens.lens (\GetBatchPredictionJobsResponse' {batchPredictions} -> batchPredictions) (\s@GetBatchPredictionJobsResponse' {} a -> s {batchPredictions = a} :: GetBatchPredictionJobsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The next token for the subsequent request.
+getBatchPredictionJobsResponse_nextToken :: Lens.Lens' GetBatchPredictionJobsResponse (Prelude.Maybe Prelude.Text)
+getBatchPredictionJobsResponse_nextToken = Lens.lens (\GetBatchPredictionJobsResponse' {nextToken} -> nextToken) (\s@GetBatchPredictionJobsResponse' {} a -> s {nextToken = a} :: GetBatchPredictionJobsResponse)
 
 -- | The response's http status code.
 getBatchPredictionJobsResponse_httpStatus :: Lens.Lens' GetBatchPredictionJobsResponse Prelude.Int
@@ -215,6 +214,6 @@ instance
     GetBatchPredictionJobsResponse
   where
   rnf GetBatchPredictionJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf batchPredictions
+    Prelude.rnf batchPredictions
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -29,8 +29,8 @@ module Amazonka.DevOpsGuru.ListAnomalousLogGroups
     newListAnomalousLogGroups,
 
     -- * Request Lenses
-    listAnomalousLogGroups_nextToken,
     listAnomalousLogGroups_maxResults,
+    listAnomalousLogGroups_nextToken,
     listAnomalousLogGroups_insightId,
 
     -- * Destructuring the Response
@@ -55,13 +55,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAnomalousLogGroups' smart constructor.
 data ListAnomalousLogGroups = ListAnomalousLogGroups'
-  { -- | The pagination token to use to retrieve the next page of results for
-    -- this operation. If this value is null, it retrieves the first page.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return with a single call. To retrieve
+  { -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token to use to retrieve the next page of results for
+    -- this operation. If this value is null, it retrieves the first page.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the insight containing the log groups.
     insightId :: Prelude.Text
   }
@@ -75,12 +75,12 @@ data ListAnomalousLogGroups = ListAnomalousLogGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAnomalousLogGroups_nextToken' - The pagination token to use to retrieve the next page of results for
--- this operation. If this value is null, it retrieves the first page.
---
 -- 'maxResults', 'listAnomalousLogGroups_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
+--
+-- 'nextToken', 'listAnomalousLogGroups_nextToken' - The pagination token to use to retrieve the next page of results for
+-- this operation. If this value is null, it retrieves the first page.
 --
 -- 'insightId', 'listAnomalousLogGroups_insightId' - The ID of the insight containing the log groups.
 newListAnomalousLogGroups ::
@@ -89,22 +89,22 @@ newListAnomalousLogGroups ::
   ListAnomalousLogGroups
 newListAnomalousLogGroups pInsightId_ =
   ListAnomalousLogGroups'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       insightId = pInsightId_
     }
-
--- | The pagination token to use to retrieve the next page of results for
--- this operation. If this value is null, it retrieves the first page.
-listAnomalousLogGroups_nextToken :: Lens.Lens' ListAnomalousLogGroups (Prelude.Maybe Prelude.Text)
-listAnomalousLogGroups_nextToken = Lens.lens (\ListAnomalousLogGroups' {nextToken} -> nextToken) (\s@ListAnomalousLogGroups' {} a -> s {nextToken = a} :: ListAnomalousLogGroups)
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
 listAnomalousLogGroups_maxResults :: Lens.Lens' ListAnomalousLogGroups (Prelude.Maybe Prelude.Natural)
 listAnomalousLogGroups_maxResults = Lens.lens (\ListAnomalousLogGroups' {maxResults} -> maxResults) (\s@ListAnomalousLogGroups' {} a -> s {maxResults = a} :: ListAnomalousLogGroups)
+
+-- | The pagination token to use to retrieve the next page of results for
+-- this operation. If this value is null, it retrieves the first page.
+listAnomalousLogGroups_nextToken :: Lens.Lens' ListAnomalousLogGroups (Prelude.Maybe Prelude.Text)
+listAnomalousLogGroups_nextToken = Lens.lens (\ListAnomalousLogGroups' {nextToken} -> nextToken) (\s@ListAnomalousLogGroups' {} a -> s {nextToken = a} :: ListAnomalousLogGroups)
 
 -- | The ID of the insight containing the log groups.
 listAnomalousLogGroups_insightId :: Lens.Lens' ListAnomalousLogGroups Prelude.Text
@@ -151,14 +151,14 @@ instance Core.AWSRequest ListAnomalousLogGroups where
 
 instance Prelude.Hashable ListAnomalousLogGroups where
   hashWithSalt _salt ListAnomalousLogGroups' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` insightId
 
 instance Prelude.NFData ListAnomalousLogGroups where
   rnf ListAnomalousLogGroups' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf insightId
 
 instance Data.ToHeaders ListAnomalousLogGroups where
@@ -176,8 +176,8 @@ instance Data.ToJSON ListAnomalousLogGroups where
   toJSON ListAnomalousLogGroups' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("InsightId" Data..= insightId)
           ]
       )

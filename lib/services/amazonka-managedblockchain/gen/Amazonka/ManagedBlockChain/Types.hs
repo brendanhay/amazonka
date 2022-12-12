@@ -18,16 +18,16 @@ module Amazonka.ManagedBlockChain.Types
     defaultService,
 
     -- * Errors
-    _ResourceAlreadyExistsException,
-    _ResourceNotReadyException,
-    _IllegalActionException,
     _AccessDeniedException,
-    _TooManyTagsException,
-    _ResourceNotFoundException,
-    _ResourceLimitExceededException,
-    _ThrottlingException,
+    _IllegalActionException,
     _InternalServiceErrorException,
     _InvalidRequestException,
+    _ResourceAlreadyExistsException,
+    _ResourceLimitExceededException,
+    _ResourceNotFoundException,
+    _ResourceNotReadyException,
+    _ThrottlingException,
+    _TooManyTagsException,
 
     -- * AccessorStatus
     AccessorStatus (..),
@@ -68,38 +68,38 @@ module Amazonka.ManagedBlockChain.Types
     -- * Accessor
     Accessor (..),
     newAccessor,
-    accessor_billingToken,
-    accessor_type,
     accessor_arn,
+    accessor_billingToken,
     accessor_creationDate,
-    accessor_status,
     accessor_id,
+    accessor_status,
+    accessor_type,
 
     -- * AccessorSummary
     AccessorSummary (..),
     newAccessorSummary,
-    accessorSummary_type,
     accessorSummary_arn,
     accessorSummary_creationDate,
-    accessorSummary_status,
     accessorSummary_id,
+    accessorSummary_status,
+    accessorSummary_type,
 
     -- * ApprovalThresholdPolicy
     ApprovalThresholdPolicy (..),
     newApprovalThresholdPolicy,
     approvalThresholdPolicy_proposalDurationInHours,
-    approvalThresholdPolicy_thresholdPercentage,
     approvalThresholdPolicy_thresholdComparator,
+    approvalThresholdPolicy_thresholdPercentage,
 
     -- * Invitation
     Invitation (..),
     newInvitation,
     invitation_arn,
     invitation_creationDate,
-    invitation_status,
-    invitation_networkSummary,
     invitation_expirationDate,
     invitation_invitationId,
+    invitation_networkSummary,
+    invitation_status,
 
     -- * InviteAction
     InviteAction (..),
@@ -119,33 +119,33 @@ module Amazonka.ManagedBlockChain.Types
     -- * Member
     Member (..),
     newMember,
-    member_tags,
-    member_name,
-    member_frameworkAttributes,
     member_arn,
     member_creationDate,
-    member_status,
-    member_id,
     member_description,
+    member_frameworkAttributes,
+    member_id,
     member_kmsKeyArn,
-    member_networkId,
     member_logPublishingConfiguration,
+    member_name,
+    member_networkId,
+    member_status,
+    member_tags,
 
     -- * MemberConfiguration
     MemberConfiguration (..),
     newMemberConfiguration,
-    memberConfiguration_tags,
     memberConfiguration_description,
     memberConfiguration_kmsKeyArn,
     memberConfiguration_logPublishingConfiguration,
+    memberConfiguration_tags,
     memberConfiguration_name,
     memberConfiguration_frameworkConfiguration,
 
     -- * MemberFabricAttributes
     MemberFabricAttributes (..),
     newMemberFabricAttributes,
-    memberFabricAttributes_caEndpoint,
     memberFabricAttributes_adminUsername,
+    memberFabricAttributes_caEndpoint,
 
     -- * MemberFabricConfiguration
     MemberFabricConfiguration (..),
@@ -176,29 +176,29 @@ module Amazonka.ManagedBlockChain.Types
     -- * MemberSummary
     MemberSummary (..),
     newMemberSummary,
-    memberSummary_name,
     memberSummary_arn,
     memberSummary_creationDate,
-    memberSummary_status,
-    memberSummary_id,
     memberSummary_description,
+    memberSummary_id,
     memberSummary_isOwned,
+    memberSummary_name,
+    memberSummary_status,
 
     -- * Network
     Network (..),
     newNetwork,
-    network_tags,
-    network_name,
-    network_frameworkAttributes,
-    network_vpcEndpointServiceName,
     network_arn,
     network_creationDate,
-    network_votingPolicy,
-    network_status,
-    network_id,
     network_description,
-    network_frameworkVersion,
     network_framework,
+    network_frameworkAttributes,
+    network_frameworkVersion,
+    network_id,
+    network_name,
+    network_status,
+    network_tags,
+    network_votingPolicy,
+    network_vpcEndpointServiceName,
 
     -- * NetworkEthereumAttributes
     NetworkEthereumAttributes (..),
@@ -208,8 +208,8 @@ module Amazonka.ManagedBlockChain.Types
     -- * NetworkFabricAttributes
     NetworkFabricAttributes (..),
     newNetworkFabricAttributes,
-    networkFabricAttributes_orderingServiceEndpoint,
     networkFabricAttributes_edition,
+    networkFabricAttributes_orderingServiceEndpoint,
 
     -- * NetworkFabricConfiguration
     NetworkFabricConfiguration (..),
@@ -219,8 +219,8 @@ module Amazonka.ManagedBlockChain.Types
     -- * NetworkFrameworkAttributes
     NetworkFrameworkAttributes (..),
     newNetworkFrameworkAttributes,
-    networkFrameworkAttributes_fabric,
     networkFrameworkAttributes_ethereum,
+    networkFrameworkAttributes_fabric,
 
     -- * NetworkFrameworkConfiguration
     NetworkFrameworkConfiguration (..),
@@ -230,38 +230,38 @@ module Amazonka.ManagedBlockChain.Types
     -- * NetworkSummary
     NetworkSummary (..),
     newNetworkSummary,
-    networkSummary_name,
     networkSummary_arn,
     networkSummary_creationDate,
-    networkSummary_status,
-    networkSummary_id,
     networkSummary_description,
-    networkSummary_frameworkVersion,
     networkSummary_framework,
+    networkSummary_frameworkVersion,
+    networkSummary_id,
+    networkSummary_name,
+    networkSummary_status,
 
     -- * Node
     Node (..),
     newNode,
-    node_tags,
-    node_memberId,
-    node_frameworkAttributes,
     node_arn,
-    node_creationDate,
-    node_status,
     node_availabilityZone,
+    node_creationDate,
+    node_frameworkAttributes,
     node_id,
-    node_kmsKeyArn,
     node_instanceType,
+    node_kmsKeyArn,
+    node_logPublishingConfiguration,
+    node_memberId,
     node_networkId,
     node_stateDB,
-    node_logPublishingConfiguration,
+    node_status,
+    node_tags,
 
     -- * NodeConfiguration
     NodeConfiguration (..),
     newNodeConfiguration,
     nodeConfiguration_availabilityZone,
-    nodeConfiguration_stateDB,
     nodeConfiguration_logPublishingConfiguration,
+    nodeConfiguration_stateDB,
     nodeConfiguration_instanceType,
 
     -- * NodeEthereumAttributes
@@ -279,14 +279,14 @@ module Amazonka.ManagedBlockChain.Types
     -- * NodeFabricLogPublishingConfiguration
     NodeFabricLogPublishingConfiguration (..),
     newNodeFabricLogPublishingConfiguration,
-    nodeFabricLogPublishingConfiguration_peerLogs,
     nodeFabricLogPublishingConfiguration_chaincodeLogs,
+    nodeFabricLogPublishingConfiguration_peerLogs,
 
     -- * NodeFrameworkAttributes
     NodeFrameworkAttributes (..),
     newNodeFrameworkAttributes,
-    nodeFrameworkAttributes_fabric,
     nodeFrameworkAttributes_ethereum,
+    nodeFrameworkAttributes_fabric,
 
     -- * NodeLogPublishingConfiguration
     NodeLogPublishingConfiguration (..),
@@ -297,29 +297,29 @@ module Amazonka.ManagedBlockChain.Types
     NodeSummary (..),
     newNodeSummary,
     nodeSummary_arn,
-    nodeSummary_creationDate,
-    nodeSummary_status,
     nodeSummary_availabilityZone,
+    nodeSummary_creationDate,
     nodeSummary_id,
     nodeSummary_instanceType,
+    nodeSummary_status,
 
     -- * Proposal
     Proposal (..),
     newProposal,
-    proposal_tags,
-    proposal_proposalId,
-    proposal_yesVoteCount,
+    proposal_actions,
     proposal_arn,
     proposal_creationDate,
-    proposal_status,
     proposal_description,
-    proposal_outstandingVoteCount,
+    proposal_expirationDate,
+    proposal_networkId,
     proposal_noVoteCount,
+    proposal_outstandingVoteCount,
+    proposal_proposalId,
     proposal_proposedByMemberId,
     proposal_proposedByMemberName,
-    proposal_networkId,
-    proposal_expirationDate,
-    proposal_actions,
+    proposal_status,
+    proposal_tags,
+    proposal_yesVoteCount,
 
     -- * ProposalActions
     ProposalActions (..),
@@ -330,14 +330,14 @@ module Amazonka.ManagedBlockChain.Types
     -- * ProposalSummary
     ProposalSummary (..),
     newProposalSummary,
-    proposalSummary_proposalId,
     proposalSummary_arn,
     proposalSummary_creationDate,
-    proposalSummary_status,
     proposalSummary_description,
+    proposalSummary_expirationDate,
+    proposalSummary_proposalId,
     proposalSummary_proposedByMemberId,
     proposalSummary_proposedByMemberName,
-    proposalSummary_expirationDate,
+    proposalSummary_status,
 
     -- * RemoveAction
     RemoveAction (..),
@@ -347,8 +347,8 @@ module Amazonka.ManagedBlockChain.Types
     -- * VoteSummary
     VoteSummary (..),
     newVoteSummary,
-    voteSummary_memberName,
     voteSummary_memberId,
+    voteSummary_memberName,
     voteSummary_vote,
 
     -- * VotingPolicy
@@ -437,28 +437,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -466,13 +460,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -480,32 +478,9 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
-
--- | A resource request is issued for a resource that already exists.
-_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceAlreadyExistsException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceAlreadyExistsException"
-    Prelude.. Core.hasStatus 409
-
--- | The requested resource exists but isn\'t in a status that can complete
--- the operation.
-_ResourceNotReadyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotReadyException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotReadyException"
-    Prelude.. Core.hasStatus 409
-
--- |
-_IllegalActionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_IllegalActionException =
-  Core._MatchServiceError
-    defaultService
-    "IllegalActionException"
-    Prelude.. Core.hasStatus 400
 
 -- | You don\'t have sufficient access to perform this action.
 _AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -516,42 +491,12 @@ _AccessDeniedException =
     Prelude.. Core.hasStatus 403
 
 -- |
-_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyTagsException =
+_IllegalActionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IllegalActionException =
   Core._MatchServiceError
     defaultService
-    "TooManyTagsException"
+    "IllegalActionException"
     Prelude.. Core.hasStatus 400
-
--- | A requested resource doesn\'t exist. It may have been deleted or
--- referenced incorrectly.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
-
--- | The maximum number of resources of that type already exist. Ensure the
--- resources requested are within the boundaries of the service edition and
--- your account limits.
-_ResourceLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceLimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceLimitExceededException"
-    Prelude.. Core.hasStatus 429
-
--- | The request or operation couldn\'t be performed because a service is
--- throttling requests. The most common source of throttling errors is
--- creating resources that exceed your service limit for this resource
--- type. Request a limit increase or delete unused resources if possible.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ThrottlingException =
-  Core._MatchServiceError
-    defaultService
-    "ThrottlingException"
-    Prelude.. Core.hasStatus 429
 
 -- | The request processing has failed because of an unknown error, exception
 -- or failure.
@@ -569,4 +514,59 @@ _InvalidRequestException =
   Core._MatchServiceError
     defaultService
     "InvalidRequestException"
+    Prelude.. Core.hasStatus 400
+
+-- | A resource request is issued for a resource that already exists.
+_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceAlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceAlreadyExistsException"
+    Prelude.. Core.hasStatus 409
+
+-- | The maximum number of resources of that type already exist. Ensure the
+-- resources requested are within the boundaries of the service edition and
+-- your account limits.
+_ResourceLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceLimitExceededException"
+    Prelude.. Core.hasStatus 429
+
+-- | A requested resource doesn\'t exist. It may have been deleted or
+-- referenced incorrectly.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
+
+-- | The requested resource exists but isn\'t in a status that can complete
+-- the operation.
+_ResourceNotReadyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotReadyException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotReadyException"
+    Prelude.. Core.hasStatus 409
+
+-- | The request or operation couldn\'t be performed because a service is
+-- throttling requests. The most common source of throttling errors is
+-- creating resources that exceed your service limit for this resource
+-- type. Request a limit increase or delete unused resources if possible.
+_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottlingException"
+    Prelude.. Core.hasStatus 429
+
+-- |
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyTagsException"
     Prelude.. Core.hasStatus 400

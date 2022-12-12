@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newExecutionStatistics' smart constructor.
 data ExecutionStatistics = ExecutionStatistics'
-  { -- | The number of work units executed.
-    workUnitsExecutedCount :: Prelude.Maybe Prelude.Integer,
-    -- | The average time the request took to be executed.
+  { -- | The average time the request took to be executed.
     averageExecutionTimeMillis :: Prelude.Maybe Prelude.Integer,
     -- | The amount of data that was scanned in bytes.
-    dataScannedBytes :: Prelude.Maybe Prelude.Integer
+    dataScannedBytes :: Prelude.Maybe Prelude.Integer,
+    -- | The number of work units executed.
+    workUnitsExecutedCount :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,20 @@ data ExecutionStatistics = ExecutionStatistics'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'workUnitsExecutedCount', 'executionStatistics_workUnitsExecutedCount' - The number of work units executed.
---
 -- 'averageExecutionTimeMillis', 'executionStatistics_averageExecutionTimeMillis' - The average time the request took to be executed.
 --
 -- 'dataScannedBytes', 'executionStatistics_dataScannedBytes' - The amount of data that was scanned in bytes.
+--
+-- 'workUnitsExecutedCount', 'executionStatistics_workUnitsExecutedCount' - The number of work units executed.
 newExecutionStatistics ::
   ExecutionStatistics
 newExecutionStatistics =
   ExecutionStatistics'
-    { workUnitsExecutedCount =
+    { averageExecutionTimeMillis =
         Prelude.Nothing,
-      averageExecutionTimeMillis = Prelude.Nothing,
-      dataScannedBytes = Prelude.Nothing
+      dataScannedBytes = Prelude.Nothing,
+      workUnitsExecutedCount = Prelude.Nothing
     }
-
--- | The number of work units executed.
-executionStatistics_workUnitsExecutedCount :: Lens.Lens' ExecutionStatistics (Prelude.Maybe Prelude.Integer)
-executionStatistics_workUnitsExecutedCount = Lens.lens (\ExecutionStatistics' {workUnitsExecutedCount} -> workUnitsExecutedCount) (\s@ExecutionStatistics' {} a -> s {workUnitsExecutedCount = a} :: ExecutionStatistics)
 
 -- | The average time the request took to be executed.
 executionStatistics_averageExecutionTimeMillis :: Lens.Lens' ExecutionStatistics (Prelude.Maybe Prelude.Integer)
@@ -72,25 +68,30 @@ executionStatistics_averageExecutionTimeMillis = Lens.lens (\ExecutionStatistics
 executionStatistics_dataScannedBytes :: Lens.Lens' ExecutionStatistics (Prelude.Maybe Prelude.Integer)
 executionStatistics_dataScannedBytes = Lens.lens (\ExecutionStatistics' {dataScannedBytes} -> dataScannedBytes) (\s@ExecutionStatistics' {} a -> s {dataScannedBytes = a} :: ExecutionStatistics)
 
+-- | The number of work units executed.
+executionStatistics_workUnitsExecutedCount :: Lens.Lens' ExecutionStatistics (Prelude.Maybe Prelude.Integer)
+executionStatistics_workUnitsExecutedCount = Lens.lens (\ExecutionStatistics' {workUnitsExecutedCount} -> workUnitsExecutedCount) (\s@ExecutionStatistics' {} a -> s {workUnitsExecutedCount = a} :: ExecutionStatistics)
+
 instance Data.FromJSON ExecutionStatistics where
   parseJSON =
     Data.withObject
       "ExecutionStatistics"
       ( \x ->
           ExecutionStatistics'
-            Prelude.<$> (x Data..:? "WorkUnitsExecutedCount")
-            Prelude.<*> (x Data..:? "AverageExecutionTimeMillis")
+            Prelude.<$> (x Data..:? "AverageExecutionTimeMillis")
             Prelude.<*> (x Data..:? "DataScannedBytes")
+            Prelude.<*> (x Data..:? "WorkUnitsExecutedCount")
       )
 
 instance Prelude.Hashable ExecutionStatistics where
   hashWithSalt _salt ExecutionStatistics' {..} =
-    _salt `Prelude.hashWithSalt` workUnitsExecutedCount
+    _salt
       `Prelude.hashWithSalt` averageExecutionTimeMillis
       `Prelude.hashWithSalt` dataScannedBytes
+      `Prelude.hashWithSalt` workUnitsExecutedCount
 
 instance Prelude.NFData ExecutionStatistics where
   rnf ExecutionStatistics' {..} =
-    Prelude.rnf workUnitsExecutedCount
-      `Prelude.seq` Prelude.rnf averageExecutionTimeMillis
+    Prelude.rnf averageExecutionTimeMillis
       `Prelude.seq` Prelude.rnf dataScannedBytes
+      `Prelude.seq` Prelude.rnf workUnitsExecutedCount

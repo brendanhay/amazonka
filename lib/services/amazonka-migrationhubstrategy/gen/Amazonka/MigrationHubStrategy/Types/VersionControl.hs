@@ -20,6 +20,7 @@
 module Amazonka.MigrationHubStrategy.Types.VersionControl
   ( VersionControl
       ( ..,
+        VersionControl_AZURE_DEVOPS_GIT,
         VersionControl_GITHUB,
         VersionControl_GITHUB_ENTERPRISE
       ),
@@ -58,6 +59,9 @@ newtype VersionControl = VersionControl'
       Data.ToXML
     )
 
+pattern VersionControl_AZURE_DEVOPS_GIT :: VersionControl
+pattern VersionControl_AZURE_DEVOPS_GIT = VersionControl' "AZURE_DEVOPS_GIT"
+
 pattern VersionControl_GITHUB :: VersionControl
 pattern VersionControl_GITHUB = VersionControl' "GITHUB"
 
@@ -65,6 +69,7 @@ pattern VersionControl_GITHUB_ENTERPRISE :: VersionControl
 pattern VersionControl_GITHUB_ENTERPRISE = VersionControl' "GITHUB_ENTERPRISE"
 
 {-# COMPLETE
+  VersionControl_AZURE_DEVOPS_GIT,
   VersionControl_GITHUB,
   VersionControl_GITHUB_ENTERPRISE,
   VersionControl'

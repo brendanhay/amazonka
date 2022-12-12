@@ -34,8 +34,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStackSetSummary' smart constructor.
 data StackSetSummary = StackSetSummary'
-  { -- | The name of the stack set.
-    stackSetName :: Prelude.Maybe Prelude.Text,
+  { -- | [Service-managed permissions] Describes whether StackSets automatically
+    -- deploys to Organizations accounts that are added to a target
+    -- organizational unit (OU).
+    autoDeployment :: Prelude.Maybe AutoDeployment,
+    -- | A description of the stack set that you specify when the stack set is
+    -- created or updated.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Status of the stack set\'s actual configuration compared to its expected
     -- template and parameter configuration. A stack set is considered to have
     -- drifted if one or more of its stack instances have drifted from their
@@ -54,17 +59,10 @@ data StackSetSummary = StackSetSummary'
     --
     -- -   @UNKNOWN@: This value is reserved for future use.
     driftStatus :: Prelude.Maybe StackDriftStatus,
-    -- | The ID of the stack set.
-    stackSetId :: Prelude.Maybe Prelude.Text,
-    -- | The status of the stack set.
-    status :: Prelude.Maybe StackSetStatus,
-    -- | A description of the stack set that you specify when the stack set is
-    -- created or updated.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | [Service-managed permissions] Describes whether StackSets automatically
-    -- deploys to Organizations accounts that are added to a target
-    -- organizational unit (OU).
-    autoDeployment :: Prelude.Maybe AutoDeployment,
+    -- | Most recent time when CloudFormation performed a drift detection
+    -- operation on the stack set. This value will be @NULL@ for any stack set
+    -- on which drift detection hasn\'t yet been performed.
+    lastDriftCheckTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | Describes whether StackSets performs non-conflicting operations
     -- concurrently and queues conflicting operations.
     managedExecution :: Prelude.Maybe ManagedExecution,
@@ -81,10 +79,12 @@ data StackSetSummary = StackSetSummary'
     --     Organizations. For more information, see
     --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html Grant Service-Managed Stack Set Permissions>.
     permissionModel :: Prelude.Maybe PermissionModels,
-    -- | Most recent time when CloudFormation performed a drift detection
-    -- operation on the stack set. This value will be @NULL@ for any stack set
-    -- on which drift detection hasn\'t yet been performed.
-    lastDriftCheckTimestamp :: Prelude.Maybe Data.ISO8601
+    -- | The ID of the stack set.
+    stackSetId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the stack set.
+    stackSetName :: Prelude.Maybe Prelude.Text,
+    -- | The status of the stack set.
+    status :: Prelude.Maybe StackSetStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -96,7 +96,12 @@ data StackSetSummary = StackSetSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stackSetName', 'stackSetSummary_stackSetName' - The name of the stack set.
+-- 'autoDeployment', 'stackSetSummary_autoDeployment' - [Service-managed permissions] Describes whether StackSets automatically
+-- deploys to Organizations accounts that are added to a target
+-- organizational unit (OU).
+--
+-- 'description', 'stackSetSummary_description' - A description of the stack set that you specify when the stack set is
+-- created or updated.
 --
 -- 'driftStatus', 'stackSetSummary_driftStatus' - Status of the stack set\'s actual configuration compared to its expected
 -- template and parameter configuration. A stack set is considered to have
@@ -116,16 +121,9 @@ data StackSetSummary = StackSetSummary'
 --
 -- -   @UNKNOWN@: This value is reserved for future use.
 --
--- 'stackSetId', 'stackSetSummary_stackSetId' - The ID of the stack set.
---
--- 'status', 'stackSetSummary_status' - The status of the stack set.
---
--- 'description', 'stackSetSummary_description' - A description of the stack set that you specify when the stack set is
--- created or updated.
---
--- 'autoDeployment', 'stackSetSummary_autoDeployment' - [Service-managed permissions] Describes whether StackSets automatically
--- deploys to Organizations accounts that are added to a target
--- organizational unit (OU).
+-- 'lastDriftCheckTimestamp', 'stackSetSummary_lastDriftCheckTimestamp' - Most recent time when CloudFormation performed a drift detection
+-- operation on the stack set. This value will be @NULL@ for any stack set
+-- on which drift detection hasn\'t yet been performed.
 --
 -- 'managedExecution', 'stackSetSummary_managedExecution' - Describes whether StackSets performs non-conflicting operations
 -- concurrently and queues conflicting operations.
@@ -143,27 +141,36 @@ data StackSetSummary = StackSetSummary'
 --     Organizations. For more information, see
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html Grant Service-Managed Stack Set Permissions>.
 --
--- 'lastDriftCheckTimestamp', 'stackSetSummary_lastDriftCheckTimestamp' - Most recent time when CloudFormation performed a drift detection
--- operation on the stack set. This value will be @NULL@ for any stack set
--- on which drift detection hasn\'t yet been performed.
+-- 'stackSetId', 'stackSetSummary_stackSetId' - The ID of the stack set.
+--
+-- 'stackSetName', 'stackSetSummary_stackSetName' - The name of the stack set.
+--
+-- 'status', 'stackSetSummary_status' - The status of the stack set.
 newStackSetSummary ::
   StackSetSummary
 newStackSetSummary =
   StackSetSummary'
-    { stackSetName = Prelude.Nothing,
-      driftStatus = Prelude.Nothing,
-      stackSetId = Prelude.Nothing,
-      status = Prelude.Nothing,
+    { autoDeployment = Prelude.Nothing,
       description = Prelude.Nothing,
-      autoDeployment = Prelude.Nothing,
+      driftStatus = Prelude.Nothing,
+      lastDriftCheckTimestamp = Prelude.Nothing,
       managedExecution = Prelude.Nothing,
       permissionModel = Prelude.Nothing,
-      lastDriftCheckTimestamp = Prelude.Nothing
+      stackSetId = Prelude.Nothing,
+      stackSetName = Prelude.Nothing,
+      status = Prelude.Nothing
     }
 
--- | The name of the stack set.
-stackSetSummary_stackSetName :: Lens.Lens' StackSetSummary (Prelude.Maybe Prelude.Text)
-stackSetSummary_stackSetName = Lens.lens (\StackSetSummary' {stackSetName} -> stackSetName) (\s@StackSetSummary' {} a -> s {stackSetName = a} :: StackSetSummary)
+-- | [Service-managed permissions] Describes whether StackSets automatically
+-- deploys to Organizations accounts that are added to a target
+-- organizational unit (OU).
+stackSetSummary_autoDeployment :: Lens.Lens' StackSetSummary (Prelude.Maybe AutoDeployment)
+stackSetSummary_autoDeployment = Lens.lens (\StackSetSummary' {autoDeployment} -> autoDeployment) (\s@StackSetSummary' {} a -> s {autoDeployment = a} :: StackSetSummary)
+
+-- | A description of the stack set that you specify when the stack set is
+-- created or updated.
+stackSetSummary_description :: Lens.Lens' StackSetSummary (Prelude.Maybe Prelude.Text)
+stackSetSummary_description = Lens.lens (\StackSetSummary' {description} -> description) (\s@StackSetSummary' {} a -> s {description = a} :: StackSetSummary)
 
 -- | Status of the stack set\'s actual configuration compared to its expected
 -- template and parameter configuration. A stack set is considered to have
@@ -185,24 +192,11 @@ stackSetSummary_stackSetName = Lens.lens (\StackSetSummary' {stackSetName} -> st
 stackSetSummary_driftStatus :: Lens.Lens' StackSetSummary (Prelude.Maybe StackDriftStatus)
 stackSetSummary_driftStatus = Lens.lens (\StackSetSummary' {driftStatus} -> driftStatus) (\s@StackSetSummary' {} a -> s {driftStatus = a} :: StackSetSummary)
 
--- | The ID of the stack set.
-stackSetSummary_stackSetId :: Lens.Lens' StackSetSummary (Prelude.Maybe Prelude.Text)
-stackSetSummary_stackSetId = Lens.lens (\StackSetSummary' {stackSetId} -> stackSetId) (\s@StackSetSummary' {} a -> s {stackSetId = a} :: StackSetSummary)
-
--- | The status of the stack set.
-stackSetSummary_status :: Lens.Lens' StackSetSummary (Prelude.Maybe StackSetStatus)
-stackSetSummary_status = Lens.lens (\StackSetSummary' {status} -> status) (\s@StackSetSummary' {} a -> s {status = a} :: StackSetSummary)
-
--- | A description of the stack set that you specify when the stack set is
--- created or updated.
-stackSetSummary_description :: Lens.Lens' StackSetSummary (Prelude.Maybe Prelude.Text)
-stackSetSummary_description = Lens.lens (\StackSetSummary' {description} -> description) (\s@StackSetSummary' {} a -> s {description = a} :: StackSetSummary)
-
--- | [Service-managed permissions] Describes whether StackSets automatically
--- deploys to Organizations accounts that are added to a target
--- organizational unit (OU).
-stackSetSummary_autoDeployment :: Lens.Lens' StackSetSummary (Prelude.Maybe AutoDeployment)
-stackSetSummary_autoDeployment = Lens.lens (\StackSetSummary' {autoDeployment} -> autoDeployment) (\s@StackSetSummary' {} a -> s {autoDeployment = a} :: StackSetSummary)
+-- | Most recent time when CloudFormation performed a drift detection
+-- operation on the stack set. This value will be @NULL@ for any stack set
+-- on which drift detection hasn\'t yet been performed.
+stackSetSummary_lastDriftCheckTimestamp :: Lens.Lens' StackSetSummary (Prelude.Maybe Prelude.UTCTime)
+stackSetSummary_lastDriftCheckTimestamp = Lens.lens (\StackSetSummary' {lastDriftCheckTimestamp} -> lastDriftCheckTimestamp) (\s@StackSetSummary' {} a -> s {lastDriftCheckTimestamp = a} :: StackSetSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Describes whether StackSets performs non-conflicting operations
 -- concurrently and queues conflicting operations.
@@ -224,45 +218,51 @@ stackSetSummary_managedExecution = Lens.lens (\StackSetSummary' {managedExecutio
 stackSetSummary_permissionModel :: Lens.Lens' StackSetSummary (Prelude.Maybe PermissionModels)
 stackSetSummary_permissionModel = Lens.lens (\StackSetSummary' {permissionModel} -> permissionModel) (\s@StackSetSummary' {} a -> s {permissionModel = a} :: StackSetSummary)
 
--- | Most recent time when CloudFormation performed a drift detection
--- operation on the stack set. This value will be @NULL@ for any stack set
--- on which drift detection hasn\'t yet been performed.
-stackSetSummary_lastDriftCheckTimestamp :: Lens.Lens' StackSetSummary (Prelude.Maybe Prelude.UTCTime)
-stackSetSummary_lastDriftCheckTimestamp = Lens.lens (\StackSetSummary' {lastDriftCheckTimestamp} -> lastDriftCheckTimestamp) (\s@StackSetSummary' {} a -> s {lastDriftCheckTimestamp = a} :: StackSetSummary) Prelude.. Lens.mapping Data._Time
+-- | The ID of the stack set.
+stackSetSummary_stackSetId :: Lens.Lens' StackSetSummary (Prelude.Maybe Prelude.Text)
+stackSetSummary_stackSetId = Lens.lens (\StackSetSummary' {stackSetId} -> stackSetId) (\s@StackSetSummary' {} a -> s {stackSetId = a} :: StackSetSummary)
+
+-- | The name of the stack set.
+stackSetSummary_stackSetName :: Lens.Lens' StackSetSummary (Prelude.Maybe Prelude.Text)
+stackSetSummary_stackSetName = Lens.lens (\StackSetSummary' {stackSetName} -> stackSetName) (\s@StackSetSummary' {} a -> s {stackSetName = a} :: StackSetSummary)
+
+-- | The status of the stack set.
+stackSetSummary_status :: Lens.Lens' StackSetSummary (Prelude.Maybe StackSetStatus)
+stackSetSummary_status = Lens.lens (\StackSetSummary' {status} -> status) (\s@StackSetSummary' {} a -> s {status = a} :: StackSetSummary)
 
 instance Data.FromXML StackSetSummary where
   parseXML x =
     StackSetSummary'
-      Prelude.<$> (x Data..@? "StackSetName")
-      Prelude.<*> (x Data..@? "DriftStatus")
-      Prelude.<*> (x Data..@? "StackSetId")
-      Prelude.<*> (x Data..@? "Status")
+      Prelude.<$> (x Data..@? "AutoDeployment")
       Prelude.<*> (x Data..@? "Description")
-      Prelude.<*> (x Data..@? "AutoDeployment")
+      Prelude.<*> (x Data..@? "DriftStatus")
+      Prelude.<*> (x Data..@? "LastDriftCheckTimestamp")
       Prelude.<*> (x Data..@? "ManagedExecution")
       Prelude.<*> (x Data..@? "PermissionModel")
-      Prelude.<*> (x Data..@? "LastDriftCheckTimestamp")
+      Prelude.<*> (x Data..@? "StackSetId")
+      Prelude.<*> (x Data..@? "StackSetName")
+      Prelude.<*> (x Data..@? "Status")
 
 instance Prelude.Hashable StackSetSummary where
   hashWithSalt _salt StackSetSummary' {..} =
-    _salt `Prelude.hashWithSalt` stackSetName
-      `Prelude.hashWithSalt` driftStatus
-      `Prelude.hashWithSalt` stackSetId
-      `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` autoDeployment
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` autoDeployment
+      `Prelude.hashWithSalt` driftStatus
+      `Prelude.hashWithSalt` lastDriftCheckTimestamp
       `Prelude.hashWithSalt` managedExecution
       `Prelude.hashWithSalt` permissionModel
-      `Prelude.hashWithSalt` lastDriftCheckTimestamp
+      `Prelude.hashWithSalt` stackSetId
+      `Prelude.hashWithSalt` stackSetName
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData StackSetSummary where
   rnf StackSetSummary' {..} =
-    Prelude.rnf stackSetName
-      `Prelude.seq` Prelude.rnf driftStatus
-      `Prelude.seq` Prelude.rnf stackSetId
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf autoDeployment
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf autoDeployment
+      `Prelude.seq` Prelude.rnf driftStatus
+      `Prelude.seq` Prelude.rnf lastDriftCheckTimestamp
       `Prelude.seq` Prelude.rnf managedExecution
       `Prelude.seq` Prelude.rnf permissionModel
-      `Prelude.seq` Prelude.rnf lastDriftCheckTimestamp
+      `Prelude.seq` Prelude.rnf stackSetId
+      `Prelude.seq` Prelude.rnf stackSetName
+      `Prelude.seq` Prelude.rnf status

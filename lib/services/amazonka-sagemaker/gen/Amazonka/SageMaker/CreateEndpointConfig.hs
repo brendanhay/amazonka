@@ -58,11 +58,12 @@ module Amazonka.SageMaker.CreateEndpointConfig
     newCreateEndpointConfig,
 
     -- * Request Lenses
-    createEndpointConfig_tags,
     createEndpointConfig_asyncInferenceConfig,
     createEndpointConfig_dataCaptureConfig,
-    createEndpointConfig_kmsKeyId,
     createEndpointConfig_explainerConfig,
+    createEndpointConfig_kmsKeyId,
+    createEndpointConfig_shadowProductionVariants,
+    createEndpointConfig_tags,
     createEndpointConfig_endpointConfigName,
     createEndpointConfig_productionVariants,
 
@@ -86,17 +87,14 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newCreateEndpointConfig' smart constructor.
 data CreateEndpointConfig = CreateEndpointConfig'
-  { -- | An array of key-value pairs. You can use tags to categorize your Amazon
-    -- Web Services resources in different ways, for example, by purpose,
-    -- owner, or environment. For more information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
-    tags :: Prelude.Maybe [Tag],
-    -- | Specifies configuration for how an endpoint performs asynchronous
+  { -- | Specifies configuration for how an endpoint performs asynchronous
     -- inference. This is a required field in order for your Endpoint to be
     -- invoked using
     -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpointAsync.html InvokeEndpointAsync>.
     asyncInferenceConfig :: Prelude.Maybe AsyncInferenceConfig,
     dataCaptureConfig :: Prelude.Maybe DataCaptureConfig,
+    -- | A member of @CreateEndpointConfig@ that enables explainers.
+    explainerConfig :: Prelude.Maybe ExplainerConfig,
     -- | The Amazon Resource Name (ARN) of a Amazon Web Services Key Management
     -- Service key that SageMaker uses to encrypt data on the storage volume
     -- attached to the ML compute instance that hosts the endpoint.
@@ -134,8 +132,17 @@ data CreateEndpointConfig = CreateEndpointConfig'
     -- For more information about local instance storage encryption, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html SSD Instance Store Volumes>.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | A member of @CreateEndpointConfig@ that enables explainers.
-    explainerConfig :: Prelude.Maybe ExplainerConfig,
+    -- | Array of @ProductionVariant@ objects. There is one for each model that
+    -- you want to host at this endpoint in shadow mode with production traffic
+    -- replicated from the model specified on @ProductionVariants@.If you use
+    -- this field, you can only specify one variant for @ProductionVariants@
+    -- and one variant for @ShadowProductionVariants@.
+    shadowProductionVariants :: Prelude.Maybe (Prelude.NonEmpty ProductionVariant),
+    -- | An array of key-value pairs. You can use tags to categorize your Amazon
+    -- Web Services resources in different ways, for example, by purpose,
+    -- owner, or environment. For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the endpoint configuration. You specify this name in a
     -- CreateEndpoint request.
     endpointConfigName :: Prelude.Text,
@@ -153,17 +160,14 @@ data CreateEndpointConfig = CreateEndpointConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createEndpointConfig_tags' - An array of key-value pairs. You can use tags to categorize your Amazon
--- Web Services resources in different ways, for example, by purpose,
--- owner, or environment. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
---
 -- 'asyncInferenceConfig', 'createEndpointConfig_asyncInferenceConfig' - Specifies configuration for how an endpoint performs asynchronous
 -- inference. This is a required field in order for your Endpoint to be
 -- invoked using
 -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpointAsync.html InvokeEndpointAsync>.
 --
 -- 'dataCaptureConfig', 'createEndpointConfig_dataCaptureConfig' - Undocumented member.
+--
+-- 'explainerConfig', 'createEndpointConfig_explainerConfig' - A member of @CreateEndpointConfig@ that enables explainers.
 --
 -- 'kmsKeyId', 'createEndpointConfig_kmsKeyId' - The Amazon Resource Name (ARN) of a Amazon Web Services Key Management
 -- Service key that SageMaker uses to encrypt data on the storage volume
@@ -202,7 +206,16 @@ data CreateEndpointConfig = CreateEndpointConfig'
 -- For more information about local instance storage encryption, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html SSD Instance Store Volumes>.
 --
--- 'explainerConfig', 'createEndpointConfig_explainerConfig' - A member of @CreateEndpointConfig@ that enables explainers.
+-- 'shadowProductionVariants', 'createEndpointConfig_shadowProductionVariants' - Array of @ProductionVariant@ objects. There is one for each model that
+-- you want to host at this endpoint in shadow mode with production traffic
+-- replicated from the model specified on @ProductionVariants@.If you use
+-- this field, you can only specify one variant for @ProductionVariants@
+-- and one variant for @ShadowProductionVariants@.
+--
+-- 'tags', 'createEndpointConfig_tags' - An array of key-value pairs. You can use tags to categorize your Amazon
+-- Web Services resources in different ways, for example, by purpose,
+-- owner, or environment. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
 --
 -- 'endpointConfigName', 'createEndpointConfig_endpointConfigName' - The name of the endpoint configuration. You specify this name in a
 -- CreateEndpoint request.
@@ -219,22 +232,17 @@ newCreateEndpointConfig
   pEndpointConfigName_
   pProductionVariants_ =
     CreateEndpointConfig'
-      { tags = Prelude.Nothing,
-        asyncInferenceConfig = Prelude.Nothing,
+      { asyncInferenceConfig =
+          Prelude.Nothing,
         dataCaptureConfig = Prelude.Nothing,
-        kmsKeyId = Prelude.Nothing,
         explainerConfig = Prelude.Nothing,
+        kmsKeyId = Prelude.Nothing,
+        shadowProductionVariants = Prelude.Nothing,
+        tags = Prelude.Nothing,
         endpointConfigName = pEndpointConfigName_,
         productionVariants =
           Lens.coerced Lens.# pProductionVariants_
       }
-
--- | An array of key-value pairs. You can use tags to categorize your Amazon
--- Web Services resources in different ways, for example, by purpose,
--- owner, or environment. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
-createEndpointConfig_tags :: Lens.Lens' CreateEndpointConfig (Prelude.Maybe [Tag])
-createEndpointConfig_tags = Lens.lens (\CreateEndpointConfig' {tags} -> tags) (\s@CreateEndpointConfig' {} a -> s {tags = a} :: CreateEndpointConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies configuration for how an endpoint performs asynchronous
 -- inference. This is a required field in order for your Endpoint to be
@@ -246,6 +254,10 @@ createEndpointConfig_asyncInferenceConfig = Lens.lens (\CreateEndpointConfig' {a
 -- | Undocumented member.
 createEndpointConfig_dataCaptureConfig :: Lens.Lens' CreateEndpointConfig (Prelude.Maybe DataCaptureConfig)
 createEndpointConfig_dataCaptureConfig = Lens.lens (\CreateEndpointConfig' {dataCaptureConfig} -> dataCaptureConfig) (\s@CreateEndpointConfig' {} a -> s {dataCaptureConfig = a} :: CreateEndpointConfig)
+
+-- | A member of @CreateEndpointConfig@ that enables explainers.
+createEndpointConfig_explainerConfig :: Lens.Lens' CreateEndpointConfig (Prelude.Maybe ExplainerConfig)
+createEndpointConfig_explainerConfig = Lens.lens (\CreateEndpointConfig' {explainerConfig} -> explainerConfig) (\s@CreateEndpointConfig' {} a -> s {explainerConfig = a} :: CreateEndpointConfig)
 
 -- | The Amazon Resource Name (ARN) of a Amazon Web Services Key Management
 -- Service key that SageMaker uses to encrypt data on the storage volume
@@ -286,9 +298,20 @@ createEndpointConfig_dataCaptureConfig = Lens.lens (\CreateEndpointConfig' {data
 createEndpointConfig_kmsKeyId :: Lens.Lens' CreateEndpointConfig (Prelude.Maybe Prelude.Text)
 createEndpointConfig_kmsKeyId = Lens.lens (\CreateEndpointConfig' {kmsKeyId} -> kmsKeyId) (\s@CreateEndpointConfig' {} a -> s {kmsKeyId = a} :: CreateEndpointConfig)
 
--- | A member of @CreateEndpointConfig@ that enables explainers.
-createEndpointConfig_explainerConfig :: Lens.Lens' CreateEndpointConfig (Prelude.Maybe ExplainerConfig)
-createEndpointConfig_explainerConfig = Lens.lens (\CreateEndpointConfig' {explainerConfig} -> explainerConfig) (\s@CreateEndpointConfig' {} a -> s {explainerConfig = a} :: CreateEndpointConfig)
+-- | Array of @ProductionVariant@ objects. There is one for each model that
+-- you want to host at this endpoint in shadow mode with production traffic
+-- replicated from the model specified on @ProductionVariants@.If you use
+-- this field, you can only specify one variant for @ProductionVariants@
+-- and one variant for @ShadowProductionVariants@.
+createEndpointConfig_shadowProductionVariants :: Lens.Lens' CreateEndpointConfig (Prelude.Maybe (Prelude.NonEmpty ProductionVariant))
+createEndpointConfig_shadowProductionVariants = Lens.lens (\CreateEndpointConfig' {shadowProductionVariants} -> shadowProductionVariants) (\s@CreateEndpointConfig' {} a -> s {shadowProductionVariants = a} :: CreateEndpointConfig) Prelude.. Lens.mapping Lens.coerced
+
+-- | An array of key-value pairs. You can use tags to categorize your Amazon
+-- Web Services resources in different ways, for example, by purpose,
+-- owner, or environment. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
+createEndpointConfig_tags :: Lens.Lens' CreateEndpointConfig (Prelude.Maybe [Tag])
+createEndpointConfig_tags = Lens.lens (\CreateEndpointConfig' {tags} -> tags) (\s@CreateEndpointConfig' {} a -> s {tags = a} :: CreateEndpointConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the endpoint configuration. You specify this name in a
 -- CreateEndpoint request.
@@ -316,21 +339,23 @@ instance Core.AWSRequest CreateEndpointConfig where
 
 instance Prelude.Hashable CreateEndpointConfig where
   hashWithSalt _salt CreateEndpointConfig' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` asyncInferenceConfig
+    _salt `Prelude.hashWithSalt` asyncInferenceConfig
       `Prelude.hashWithSalt` dataCaptureConfig
-      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` explainerConfig
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` shadowProductionVariants
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` endpointConfigName
       `Prelude.hashWithSalt` productionVariants
 
 instance Prelude.NFData CreateEndpointConfig where
   rnf CreateEndpointConfig' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf asyncInferenceConfig
+    Prelude.rnf asyncInferenceConfig
       `Prelude.seq` Prelude.rnf dataCaptureConfig
-      `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf explainerConfig
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf shadowProductionVariants
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf endpointConfigName
       `Prelude.seq` Prelude.rnf productionVariants
 
@@ -353,14 +378,16 @@ instance Data.ToJSON CreateEndpointConfig where
   toJSON CreateEndpointConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("AsyncInferenceConfig" Data..=)
+          [ ("AsyncInferenceConfig" Data..=)
               Prelude.<$> asyncInferenceConfig,
             ("DataCaptureConfig" Data..=)
               Prelude.<$> dataCaptureConfig,
-            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
             ("ExplainerConfig" Data..=)
               Prelude.<$> explainerConfig,
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("ShadowProductionVariants" Data..=)
+              Prelude.<$> shadowProductionVariants,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("EndpointConfigName" Data..= endpointConfigName),
             Prelude.Just

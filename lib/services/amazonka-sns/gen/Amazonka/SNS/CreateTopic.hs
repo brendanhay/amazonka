@@ -33,9 +33,9 @@ module Amazonka.SNS.CreateTopic
     newCreateTopic,
 
     -- * Request Lenses
-    createTopic_tags,
     createTopic_attributes,
     createTopic_dataProtectionPolicy,
+    createTopic_tags,
     createTopic_name,
 
     -- * Destructuring the Response
@@ -60,12 +60,7 @@ import Amazonka.SNS.Types
 --
 -- /See:/ 'newCreateTopic' smart constructor.
 data CreateTopic = CreateTopic'
-  { -- | The list of tags to add to a new topic.
-    --
-    -- To be able to tag a topic on creation, you must have the
-    -- @sns:CreateTopic@ and @sns:TagResource@ permissions.
-    tags :: Prelude.Maybe [Tag],
-    -- | A map of attributes with their corresponding values.
+  { -- | A map of attributes with their corresponding values.
     --
     -- The following lists the names, descriptions, and values of the special
     -- request parameters that the @CreateTopic@ action uses:
@@ -80,6 +75,19 @@ data CreateTopic = CreateTopic'
     --
     -- -   @Policy@ – The policy that defines who can access your topic. By
     --     default, only the topic owner can publish or subscribe to the topic.
+    --
+    -- -   @SignatureVersion@ – The signature version corresponds to the
+    --     hashing algorithm used while creating the signature of the
+    --     notifications, subscription confirmations, or unsubscribe
+    --     confirmation messages sent by Amazon SNS. By default,
+    --     @SignatureVersion@ is set to 1.
+    --
+    -- -   @TracingConfig@ – Tracing mode of an Amazon SNS topic. By default
+    --     @TracingConfig@ is set to @PassThrough@, and the topic passes
+    --     through the tracing header it receives from an Amazon SNS publisher
+    --     to its subscriptions. If set to Active, Amazon SNS will vend X-Ray
+    --     segment data to topic owner account if the sampled flag in the
+    --     tracing header is true. This is only supported on standard topics.
     --
     -- The following attribute applies only to
     -- <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html server-side encryption>:
@@ -124,6 +132,11 @@ data CreateTopic = CreateTopic'
     --
     -- Length Constraints: Maximum length of 30,720.
     dataProtectionPolicy :: Prelude.Maybe Prelude.Text,
+    -- | The list of tags to add to a new topic.
+    --
+    -- To be able to tag a topic on creation, you must have the
+    -- @sns:CreateTopic@ and @sns:TagResource@ permissions.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the topic you want to create.
     --
     -- Constraints: Topic names must be made up of only uppercase and lowercase
@@ -144,11 +157,6 @@ data CreateTopic = CreateTopic'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createTopic_tags' - The list of tags to add to a new topic.
---
--- To be able to tag a topic on creation, you must have the
--- @sns:CreateTopic@ and @sns:TagResource@ permissions.
---
 -- 'attributes', 'createTopic_attributes' - A map of attributes with their corresponding values.
 --
 -- The following lists the names, descriptions, and values of the special
@@ -164,6 +172,19 @@ data CreateTopic = CreateTopic'
 --
 -- -   @Policy@ – The policy that defines who can access your topic. By
 --     default, only the topic owner can publish or subscribe to the topic.
+--
+-- -   @SignatureVersion@ – The signature version corresponds to the
+--     hashing algorithm used while creating the signature of the
+--     notifications, subscription confirmations, or unsubscribe
+--     confirmation messages sent by Amazon SNS. By default,
+--     @SignatureVersion@ is set to 1.
+--
+-- -   @TracingConfig@ – Tracing mode of an Amazon SNS topic. By default
+--     @TracingConfig@ is set to @PassThrough@, and the topic passes
+--     through the tracing header it receives from an Amazon SNS publisher
+--     to its subscriptions. If set to Active, Amazon SNS will vend X-Ray
+--     segment data to topic owner account if the sampled flag in the
+--     tracing header is true. This is only supported on standard topics.
 --
 -- The following attribute applies only to
 -- <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html server-side encryption>:
@@ -208,6 +229,11 @@ data CreateTopic = CreateTopic'
 --
 -- Length Constraints: Maximum length of 30,720.
 --
+-- 'tags', 'createTopic_tags' - The list of tags to add to a new topic.
+--
+-- To be able to tag a topic on creation, you must have the
+-- @sns:CreateTopic@ and @sns:TagResource@ permissions.
+--
 -- 'name', 'createTopic_name' - The name of the topic you want to create.
 --
 -- Constraints: Topic names must be made up of only uppercase and lowercase
@@ -222,18 +248,11 @@ newCreateTopic ::
   CreateTopic
 newCreateTopic pName_ =
   CreateTopic'
-    { tags = Prelude.Nothing,
-      attributes = Prelude.Nothing,
+    { attributes = Prelude.Nothing,
       dataProtectionPolicy = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_
     }
-
--- | The list of tags to add to a new topic.
---
--- To be able to tag a topic on creation, you must have the
--- @sns:CreateTopic@ and @sns:TagResource@ permissions.
-createTopic_tags :: Lens.Lens' CreateTopic (Prelude.Maybe [Tag])
-createTopic_tags = Lens.lens (\CreateTopic' {tags} -> tags) (\s@CreateTopic' {} a -> s {tags = a} :: CreateTopic) Prelude.. Lens.mapping Lens.coerced
 
 -- | A map of attributes with their corresponding values.
 --
@@ -250,6 +269,19 @@ createTopic_tags = Lens.lens (\CreateTopic' {tags} -> tags) (\s@CreateTopic' {} 
 --
 -- -   @Policy@ – The policy that defines who can access your topic. By
 --     default, only the topic owner can publish or subscribe to the topic.
+--
+-- -   @SignatureVersion@ – The signature version corresponds to the
+--     hashing algorithm used while creating the signature of the
+--     notifications, subscription confirmations, or unsubscribe
+--     confirmation messages sent by Amazon SNS. By default,
+--     @SignatureVersion@ is set to 1.
+--
+-- -   @TracingConfig@ – Tracing mode of an Amazon SNS topic. By default
+--     @TracingConfig@ is set to @PassThrough@, and the topic passes
+--     through the tracing header it receives from an Amazon SNS publisher
+--     to its subscriptions. If set to Active, Amazon SNS will vend X-Ray
+--     segment data to topic owner account if the sampled flag in the
+--     tracing header is true. This is only supported on standard topics.
 --
 -- The following attribute applies only to
 -- <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html server-side encryption>:
@@ -298,6 +330,13 @@ createTopic_attributes = Lens.lens (\CreateTopic' {attributes} -> attributes) (\
 createTopic_dataProtectionPolicy :: Lens.Lens' CreateTopic (Prelude.Maybe Prelude.Text)
 createTopic_dataProtectionPolicy = Lens.lens (\CreateTopic' {dataProtectionPolicy} -> dataProtectionPolicy) (\s@CreateTopic' {} a -> s {dataProtectionPolicy = a} :: CreateTopic)
 
+-- | The list of tags to add to a new topic.
+--
+-- To be able to tag a topic on creation, you must have the
+-- @sns:CreateTopic@ and @sns:TagResource@ permissions.
+createTopic_tags :: Lens.Lens' CreateTopic (Prelude.Maybe [Tag])
+createTopic_tags = Lens.lens (\CreateTopic' {tags} -> tags) (\s@CreateTopic' {} a -> s {tags = a} :: CreateTopic) Prelude.. Lens.mapping Lens.coerced
+
 -- | The name of the topic you want to create.
 --
 -- Constraints: Topic names must be made up of only uppercase and lowercase
@@ -324,16 +363,16 @@ instance Core.AWSRequest CreateTopic where
 
 instance Prelude.Hashable CreateTopic where
   hashWithSalt _salt CreateTopic' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` attributes
+    _salt `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` dataProtectionPolicy
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateTopic where
   rnf CreateTopic' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf attributes
+    Prelude.rnf attributes
       `Prelude.seq` Prelude.rnf dataProtectionPolicy
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders CreateTopic where
@@ -349,15 +388,15 @@ instance Data.ToQuery CreateTopic where
           Data.=: ("CreateTopic" :: Prelude.ByteString),
         "Version"
           Data.=: ("2010-03-31" :: Prelude.ByteString),
-        "Tags"
-          Data.=: Data.toQuery
-            (Data.toQueryList "member" Prelude.<$> tags),
         "Attributes"
           Data.=: Data.toQuery
             ( Data.toQueryMap "entry" "key" "value"
                 Prelude.<$> attributes
             ),
         "DataProtectionPolicy" Data.=: dataProtectionPolicy,
+        "Tags"
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> tags),
         "Name" Data.=: name
       ]
 

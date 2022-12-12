@@ -31,11 +31,12 @@ data FleetAdvisorSchemaObjectResponse = FleetAdvisorSchemaObjectResponse'
   { -- | The number of lines of code in a schema object in a Fleet Advisor
     -- collector inventory.
     codeLineCount :: Prelude.Maybe Prelude.Integer,
+    -- | The size level of the code in a schema object in a Fleet Advisor
+    -- collector inventory.
+    codeSize :: Prelude.Maybe Prelude.Integer,
     -- | The number of objects in a schema object in a Fleet Advisor collector
     -- inventory.
     numberOfObjects :: Prelude.Maybe Prelude.Integer,
-    -- | The ID of a schema object in a Fleet Advisor collector inventory.
-    schemaId :: Prelude.Maybe Prelude.Text,
     -- | The type of the schema object, as reported by the database engine.
     -- Examples include the following:
     --
@@ -47,9 +48,8 @@ data FleetAdvisorSchemaObjectResponse = FleetAdvisorSchemaObjectResponse'
     --
     -- -   @QUEUE@
     objectType :: Prelude.Maybe Prelude.Text,
-    -- | The size level of the code in a schema object in a Fleet Advisor
-    -- collector inventory.
-    codeSize :: Prelude.Maybe Prelude.Integer
+    -- | The ID of a schema object in a Fleet Advisor collector inventory.
+    schemaId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -64,10 +64,11 @@ data FleetAdvisorSchemaObjectResponse = FleetAdvisorSchemaObjectResponse'
 -- 'codeLineCount', 'fleetAdvisorSchemaObjectResponse_codeLineCount' - The number of lines of code in a schema object in a Fleet Advisor
 -- collector inventory.
 --
+-- 'codeSize', 'fleetAdvisorSchemaObjectResponse_codeSize' - The size level of the code in a schema object in a Fleet Advisor
+-- collector inventory.
+--
 -- 'numberOfObjects', 'fleetAdvisorSchemaObjectResponse_numberOfObjects' - The number of objects in a schema object in a Fleet Advisor collector
 -- inventory.
---
--- 'schemaId', 'fleetAdvisorSchemaObjectResponse_schemaId' - The ID of a schema object in a Fleet Advisor collector inventory.
 --
 -- 'objectType', 'fleetAdvisorSchemaObjectResponse_objectType' - The type of the schema object, as reported by the database engine.
 -- Examples include the following:
@@ -80,18 +81,17 @@ data FleetAdvisorSchemaObjectResponse = FleetAdvisorSchemaObjectResponse'
 --
 -- -   @QUEUE@
 --
--- 'codeSize', 'fleetAdvisorSchemaObjectResponse_codeSize' - The size level of the code in a schema object in a Fleet Advisor
--- collector inventory.
+-- 'schemaId', 'fleetAdvisorSchemaObjectResponse_schemaId' - The ID of a schema object in a Fleet Advisor collector inventory.
 newFleetAdvisorSchemaObjectResponse ::
   FleetAdvisorSchemaObjectResponse
 newFleetAdvisorSchemaObjectResponse =
   FleetAdvisorSchemaObjectResponse'
     { codeLineCount =
         Prelude.Nothing,
+      codeSize = Prelude.Nothing,
       numberOfObjects = Prelude.Nothing,
-      schemaId = Prelude.Nothing,
       objectType = Prelude.Nothing,
-      codeSize = Prelude.Nothing
+      schemaId = Prelude.Nothing
     }
 
 -- | The number of lines of code in a schema object in a Fleet Advisor
@@ -99,14 +99,15 @@ newFleetAdvisorSchemaObjectResponse =
 fleetAdvisorSchemaObjectResponse_codeLineCount :: Lens.Lens' FleetAdvisorSchemaObjectResponse (Prelude.Maybe Prelude.Integer)
 fleetAdvisorSchemaObjectResponse_codeLineCount = Lens.lens (\FleetAdvisorSchemaObjectResponse' {codeLineCount} -> codeLineCount) (\s@FleetAdvisorSchemaObjectResponse' {} a -> s {codeLineCount = a} :: FleetAdvisorSchemaObjectResponse)
 
+-- | The size level of the code in a schema object in a Fleet Advisor
+-- collector inventory.
+fleetAdvisorSchemaObjectResponse_codeSize :: Lens.Lens' FleetAdvisorSchemaObjectResponse (Prelude.Maybe Prelude.Integer)
+fleetAdvisorSchemaObjectResponse_codeSize = Lens.lens (\FleetAdvisorSchemaObjectResponse' {codeSize} -> codeSize) (\s@FleetAdvisorSchemaObjectResponse' {} a -> s {codeSize = a} :: FleetAdvisorSchemaObjectResponse)
+
 -- | The number of objects in a schema object in a Fleet Advisor collector
 -- inventory.
 fleetAdvisorSchemaObjectResponse_numberOfObjects :: Lens.Lens' FleetAdvisorSchemaObjectResponse (Prelude.Maybe Prelude.Integer)
 fleetAdvisorSchemaObjectResponse_numberOfObjects = Lens.lens (\FleetAdvisorSchemaObjectResponse' {numberOfObjects} -> numberOfObjects) (\s@FleetAdvisorSchemaObjectResponse' {} a -> s {numberOfObjects = a} :: FleetAdvisorSchemaObjectResponse)
-
--- | The ID of a schema object in a Fleet Advisor collector inventory.
-fleetAdvisorSchemaObjectResponse_schemaId :: Lens.Lens' FleetAdvisorSchemaObjectResponse (Prelude.Maybe Prelude.Text)
-fleetAdvisorSchemaObjectResponse_schemaId = Lens.lens (\FleetAdvisorSchemaObjectResponse' {schemaId} -> schemaId) (\s@FleetAdvisorSchemaObjectResponse' {} a -> s {schemaId = a} :: FleetAdvisorSchemaObjectResponse)
 
 -- | The type of the schema object, as reported by the database engine.
 -- Examples include the following:
@@ -121,10 +122,9 @@ fleetAdvisorSchemaObjectResponse_schemaId = Lens.lens (\FleetAdvisorSchemaObject
 fleetAdvisorSchemaObjectResponse_objectType :: Lens.Lens' FleetAdvisorSchemaObjectResponse (Prelude.Maybe Prelude.Text)
 fleetAdvisorSchemaObjectResponse_objectType = Lens.lens (\FleetAdvisorSchemaObjectResponse' {objectType} -> objectType) (\s@FleetAdvisorSchemaObjectResponse' {} a -> s {objectType = a} :: FleetAdvisorSchemaObjectResponse)
 
--- | The size level of the code in a schema object in a Fleet Advisor
--- collector inventory.
-fleetAdvisorSchemaObjectResponse_codeSize :: Lens.Lens' FleetAdvisorSchemaObjectResponse (Prelude.Maybe Prelude.Integer)
-fleetAdvisorSchemaObjectResponse_codeSize = Lens.lens (\FleetAdvisorSchemaObjectResponse' {codeSize} -> codeSize) (\s@FleetAdvisorSchemaObjectResponse' {} a -> s {codeSize = a} :: FleetAdvisorSchemaObjectResponse)
+-- | The ID of a schema object in a Fleet Advisor collector inventory.
+fleetAdvisorSchemaObjectResponse_schemaId :: Lens.Lens' FleetAdvisorSchemaObjectResponse (Prelude.Maybe Prelude.Text)
+fleetAdvisorSchemaObjectResponse_schemaId = Lens.lens (\FleetAdvisorSchemaObjectResponse' {schemaId} -> schemaId) (\s@FleetAdvisorSchemaObjectResponse' {} a -> s {schemaId = a} :: FleetAdvisorSchemaObjectResponse)
 
 instance
   Data.FromJSON
@@ -136,10 +136,10 @@ instance
       ( \x ->
           FleetAdvisorSchemaObjectResponse'
             Prelude.<$> (x Data..:? "CodeLineCount")
-            Prelude.<*> (x Data..:? "NumberOfObjects")
-            Prelude.<*> (x Data..:? "SchemaId")
-            Prelude.<*> (x Data..:? "ObjectType")
             Prelude.<*> (x Data..:? "CodeSize")
+            Prelude.<*> (x Data..:? "NumberOfObjects")
+            Prelude.<*> (x Data..:? "ObjectType")
+            Prelude.<*> (x Data..:? "SchemaId")
       )
 
 instance
@@ -150,10 +150,10 @@ instance
     _salt
     FleetAdvisorSchemaObjectResponse' {..} =
       _salt `Prelude.hashWithSalt` codeLineCount
-        `Prelude.hashWithSalt` numberOfObjects
-        `Prelude.hashWithSalt` schemaId
-        `Prelude.hashWithSalt` objectType
         `Prelude.hashWithSalt` codeSize
+        `Prelude.hashWithSalt` numberOfObjects
+        `Prelude.hashWithSalt` objectType
+        `Prelude.hashWithSalt` schemaId
 
 instance
   Prelude.NFData
@@ -161,7 +161,7 @@ instance
   where
   rnf FleetAdvisorSchemaObjectResponse' {..} =
     Prelude.rnf codeLineCount
-      `Prelude.seq` Prelude.rnf numberOfObjects
-      `Prelude.seq` Prelude.rnf schemaId
-      `Prelude.seq` Prelude.rnf objectType
       `Prelude.seq` Prelude.rnf codeSize
+      `Prelude.seq` Prelude.rnf numberOfObjects
+      `Prelude.seq` Prelude.rnf objectType
+      `Prelude.seq` Prelude.rnf schemaId

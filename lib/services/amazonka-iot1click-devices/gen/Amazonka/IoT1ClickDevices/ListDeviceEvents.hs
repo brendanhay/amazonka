@@ -30,8 +30,8 @@ module Amazonka.IoT1ClickDevices.ListDeviceEvents
     newListDeviceEvents,
 
     -- * Request Lenses
-    listDeviceEvents_nextToken,
     listDeviceEvents_maxResults,
+    listDeviceEvents_nextToken,
     listDeviceEvents_deviceId,
     listDeviceEvents_fromTimeStamp,
     listDeviceEvents_toTimeStamp,
@@ -41,8 +41,8 @@ module Amazonka.IoT1ClickDevices.ListDeviceEvents
     newListDeviceEventsResponse,
 
     -- * Response Lenses
-    listDeviceEventsResponse_nextToken,
     listDeviceEventsResponse_events,
+    listDeviceEventsResponse_nextToken,
     listDeviceEventsResponse_httpStatus,
   )
 where
@@ -57,11 +57,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDeviceEvents' smart constructor.
 data ListDeviceEvents = ListDeviceEvents'
-  { -- | The token to retrieve the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per request. If not set, a
+  { -- | The maximum number of results to return per request. If not set, a
     -- default value of 100 is used.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to retrieve the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the device.
     deviceId :: Prelude.Text,
     -- | The start date for the device event query, in ISO8061 format. For
@@ -81,10 +81,10 @@ data ListDeviceEvents = ListDeviceEvents'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listDeviceEvents_nextToken' - The token to retrieve the next set of results.
---
 -- 'maxResults', 'listDeviceEvents_maxResults' - The maximum number of results to return per request. If not set, a
 -- default value of 100 is used.
+--
+-- 'nextToken', 'listDeviceEvents_nextToken' - The token to retrieve the next set of results.
 --
 -- 'deviceId', 'listDeviceEvents_deviceId' - The unique identifier of the device.
 --
@@ -106,21 +106,21 @@ newListDeviceEvents
   pFromTimeStamp_
   pToTimeStamp_ =
     ListDeviceEvents'
-      { nextToken = Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+      { maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         deviceId = pDeviceId_,
         fromTimeStamp = Data._Time Lens.# pFromTimeStamp_,
         toTimeStamp = Data._Time Lens.# pToTimeStamp_
       }
 
--- | The token to retrieve the next set of results.
-listDeviceEvents_nextToken :: Lens.Lens' ListDeviceEvents (Prelude.Maybe Prelude.Text)
-listDeviceEvents_nextToken = Lens.lens (\ListDeviceEvents' {nextToken} -> nextToken) (\s@ListDeviceEvents' {} a -> s {nextToken = a} :: ListDeviceEvents)
-
 -- | The maximum number of results to return per request. If not set, a
 -- default value of 100 is used.
 listDeviceEvents_maxResults :: Lens.Lens' ListDeviceEvents (Prelude.Maybe Prelude.Natural)
 listDeviceEvents_maxResults = Lens.lens (\ListDeviceEvents' {maxResults} -> maxResults) (\s@ListDeviceEvents' {} a -> s {maxResults = a} :: ListDeviceEvents)
+
+-- | The token to retrieve the next set of results.
+listDeviceEvents_nextToken :: Lens.Lens' ListDeviceEvents (Prelude.Maybe Prelude.Text)
+listDeviceEvents_nextToken = Lens.lens (\ListDeviceEvents' {nextToken} -> nextToken) (\s@ListDeviceEvents' {} a -> s {nextToken = a} :: ListDeviceEvents)
 
 -- | The unique identifier of the device.
 listDeviceEvents_deviceId :: Lens.Lens' ListDeviceEvents Prelude.Text
@@ -167,23 +167,23 @@ instance Core.AWSRequest ListDeviceEvents where
     Response.receiveJSON
       ( \s h x ->
           ListDeviceEventsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "events" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "events" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListDeviceEvents where
   hashWithSalt _salt ListDeviceEvents' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` deviceId
       `Prelude.hashWithSalt` fromTimeStamp
       `Prelude.hashWithSalt` toTimeStamp
 
 instance Prelude.NFData ListDeviceEvents where
   rnf ListDeviceEvents' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf deviceId
       `Prelude.seq` Prelude.rnf fromTimeStamp
       `Prelude.seq` Prelude.rnf toTimeStamp
@@ -207,19 +207,19 @@ instance Data.ToPath ListDeviceEvents where
 instance Data.ToQuery ListDeviceEvents where
   toQuery ListDeviceEvents' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults,
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
         "fromTimeStamp" Data.=: fromTimeStamp,
         "toTimeStamp" Data.=: toTimeStamp
       ]
 
 -- | /See:/ 'newListDeviceEventsResponse' smart constructor.
 data ListDeviceEventsResponse = ListDeviceEventsResponse'
-  { -- | The token to retrieve the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of zero or more elements describing the event(s) associated
+  { -- | An array of zero or more elements describing the event(s) associated
     -- with the device.
     events :: Prelude.Maybe [DeviceEvent],
+    -- | The token to retrieve the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -233,10 +233,10 @@ data ListDeviceEventsResponse = ListDeviceEventsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listDeviceEventsResponse_nextToken' - The token to retrieve the next set of results.
---
 -- 'events', 'listDeviceEventsResponse_events' - An array of zero or more elements describing the event(s) associated
 -- with the device.
+--
+-- 'nextToken', 'listDeviceEventsResponse_nextToken' - The token to retrieve the next set of results.
 --
 -- 'httpStatus', 'listDeviceEventsResponse_httpStatus' - The response's http status code.
 newListDeviceEventsResponse ::
@@ -245,20 +245,19 @@ newListDeviceEventsResponse ::
   ListDeviceEventsResponse
 newListDeviceEventsResponse pHttpStatus_ =
   ListDeviceEventsResponse'
-    { nextToken =
-        Prelude.Nothing,
-      events = Prelude.Nothing,
+    { events = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token to retrieve the next set of results.
-listDeviceEventsResponse_nextToken :: Lens.Lens' ListDeviceEventsResponse (Prelude.Maybe Prelude.Text)
-listDeviceEventsResponse_nextToken = Lens.lens (\ListDeviceEventsResponse' {nextToken} -> nextToken) (\s@ListDeviceEventsResponse' {} a -> s {nextToken = a} :: ListDeviceEventsResponse)
 
 -- | An array of zero or more elements describing the event(s) associated
 -- with the device.
 listDeviceEventsResponse_events :: Lens.Lens' ListDeviceEventsResponse (Prelude.Maybe [DeviceEvent])
 listDeviceEventsResponse_events = Lens.lens (\ListDeviceEventsResponse' {events} -> events) (\s@ListDeviceEventsResponse' {} a -> s {events = a} :: ListDeviceEventsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token to retrieve the next set of results.
+listDeviceEventsResponse_nextToken :: Lens.Lens' ListDeviceEventsResponse (Prelude.Maybe Prelude.Text)
+listDeviceEventsResponse_nextToken = Lens.lens (\ListDeviceEventsResponse' {nextToken} -> nextToken) (\s@ListDeviceEventsResponse' {} a -> s {nextToken = a} :: ListDeviceEventsResponse)
 
 -- | The response's http status code.
 listDeviceEventsResponse_httpStatus :: Lens.Lens' ListDeviceEventsResponse Prelude.Int
@@ -266,6 +265,6 @@ listDeviceEventsResponse_httpStatus = Lens.lens (\ListDeviceEventsResponse' {htt
 
 instance Prelude.NFData ListDeviceEventsResponse where
   rnf ListDeviceEventsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf events
+    Prelude.rnf events
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

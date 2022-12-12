@@ -29,10 +29,7 @@ import Amazonka.SecurityHub.Types.SeverityLabel
 --
 -- /See:/ 'newSeverityUpdate' smart constructor.
 data SeverityUpdate = SeverityUpdate'
-  { -- | The native severity as defined by the Amazon Web Services service or
-    -- integrated partner product that generated the finding.
-    product :: Prelude.Maybe Prelude.Double,
-    -- | The severity value of the finding. The allowed values are the following.
+  { -- | The severity value of the finding. The allowed values are the following.
     --
     -- -   @INFORMATIONAL@ - No issue was found.
     --
@@ -60,7 +57,10 @@ data SeverityUpdate = SeverityUpdate'
     -- -   70–89 - @HIGH@
     --
     -- -   90–100 - @CRITICAL@
-    normalized :: Prelude.Maybe Prelude.Natural
+    normalized :: Prelude.Maybe Prelude.Natural,
+    -- | The native severity as defined by the Amazon Web Services service or
+    -- integrated partner product that generated the finding.
+    product :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,9 +71,6 @@ data SeverityUpdate = SeverityUpdate'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'product', 'severityUpdate_product' - The native severity as defined by the Amazon Web Services service or
--- integrated partner product that generated the finding.
 --
 -- 'label', 'severityUpdate_label' - The severity value of the finding. The allowed values are the following.
 --
@@ -103,19 +100,17 @@ data SeverityUpdate = SeverityUpdate'
 -- -   70–89 - @HIGH@
 --
 -- -   90–100 - @CRITICAL@
+--
+-- 'product', 'severityUpdate_product' - The native severity as defined by the Amazon Web Services service or
+-- integrated partner product that generated the finding.
 newSeverityUpdate ::
   SeverityUpdate
 newSeverityUpdate =
   SeverityUpdate'
-    { product = Prelude.Nothing,
-      label = Prelude.Nothing,
-      normalized = Prelude.Nothing
+    { label = Prelude.Nothing,
+      normalized = Prelude.Nothing,
+      product = Prelude.Nothing
     }
-
--- | The native severity as defined by the Amazon Web Services service or
--- integrated partner product that generated the finding.
-severityUpdate_product :: Lens.Lens' SeverityUpdate (Prelude.Maybe Prelude.Double)
-severityUpdate_product = Lens.lens (\SeverityUpdate' {product} -> product) (\s@SeverityUpdate' {} a -> s {product = a} :: SeverityUpdate)
 
 -- | The severity value of the finding. The allowed values are the following.
 --
@@ -150,24 +145,29 @@ severityUpdate_label = Lens.lens (\SeverityUpdate' {label} -> label) (\s@Severit
 severityUpdate_normalized :: Lens.Lens' SeverityUpdate (Prelude.Maybe Prelude.Natural)
 severityUpdate_normalized = Lens.lens (\SeverityUpdate' {normalized} -> normalized) (\s@SeverityUpdate' {} a -> s {normalized = a} :: SeverityUpdate)
 
+-- | The native severity as defined by the Amazon Web Services service or
+-- integrated partner product that generated the finding.
+severityUpdate_product :: Lens.Lens' SeverityUpdate (Prelude.Maybe Prelude.Double)
+severityUpdate_product = Lens.lens (\SeverityUpdate' {product} -> product) (\s@SeverityUpdate' {} a -> s {product = a} :: SeverityUpdate)
+
 instance Prelude.Hashable SeverityUpdate where
   hashWithSalt _salt SeverityUpdate' {..} =
-    _salt `Prelude.hashWithSalt` product
-      `Prelude.hashWithSalt` label
+    _salt `Prelude.hashWithSalt` label
       `Prelude.hashWithSalt` normalized
+      `Prelude.hashWithSalt` product
 
 instance Prelude.NFData SeverityUpdate where
   rnf SeverityUpdate' {..} =
-    Prelude.rnf product
-      `Prelude.seq` Prelude.rnf label
+    Prelude.rnf label
       `Prelude.seq` Prelude.rnf normalized
+      `Prelude.seq` Prelude.rnf product
 
 instance Data.ToJSON SeverityUpdate where
   toJSON SeverityUpdate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Product" Data..=) Prelude.<$> product,
-            ("Label" Data..=) Prelude.<$> label,
-            ("Normalized" Data..=) Prelude.<$> normalized
+          [ ("Label" Data..=) Prelude.<$> label,
+            ("Normalized" Data..=) Prelude.<$> normalized,
+            ("Product" Data..=) Prelude.<$> product
           ]
       )

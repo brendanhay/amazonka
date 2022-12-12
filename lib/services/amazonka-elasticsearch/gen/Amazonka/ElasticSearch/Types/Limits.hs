@@ -33,13 +33,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLimits' smart constructor.
 data Limits = Limits'
-  { instanceLimits :: Prelude.Maybe InstanceLimits,
+  { -- | List of additional limits that are specific to a given InstanceType and
+    -- for each of it\'s @ InstanceRole @ .
+    additionalLimits :: Prelude.Maybe [AdditionalLimit],
+    instanceLimits :: Prelude.Maybe InstanceLimits,
     -- | StorageType represents the list of storage related types and attributes
     -- that are available for given InstanceType.
-    storageTypes :: Prelude.Maybe [StorageType],
-    -- | List of additional limits that are specific to a given InstanceType and
-    -- for each of it\'s @ InstanceRole @ .
-    additionalLimits :: Prelude.Maybe [AdditionalLimit]
+    storageTypes :: Prelude.Maybe [StorageType]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,21 +51,26 @@ data Limits = Limits'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'additionalLimits', 'limits_additionalLimits' - List of additional limits that are specific to a given InstanceType and
+-- for each of it\'s @ InstanceRole @ .
+--
 -- 'instanceLimits', 'limits_instanceLimits' - Undocumented member.
 --
 -- 'storageTypes', 'limits_storageTypes' - StorageType represents the list of storage related types and attributes
 -- that are available for given InstanceType.
---
--- 'additionalLimits', 'limits_additionalLimits' - List of additional limits that are specific to a given InstanceType and
--- for each of it\'s @ InstanceRole @ .
 newLimits ::
   Limits
 newLimits =
   Limits'
-    { instanceLimits = Prelude.Nothing,
-      storageTypes = Prelude.Nothing,
-      additionalLimits = Prelude.Nothing
+    { additionalLimits = Prelude.Nothing,
+      instanceLimits = Prelude.Nothing,
+      storageTypes = Prelude.Nothing
     }
+
+-- | List of additional limits that are specific to a given InstanceType and
+-- for each of it\'s @ InstanceRole @ .
+limits_additionalLimits :: Lens.Lens' Limits (Prelude.Maybe [AdditionalLimit])
+limits_additionalLimits = Lens.lens (\Limits' {additionalLimits} -> additionalLimits) (\s@Limits' {} a -> s {additionalLimits = a} :: Limits) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 limits_instanceLimits :: Lens.Lens' Limits (Prelude.Maybe InstanceLimits)
@@ -76,32 +81,27 @@ limits_instanceLimits = Lens.lens (\Limits' {instanceLimits} -> instanceLimits) 
 limits_storageTypes :: Lens.Lens' Limits (Prelude.Maybe [StorageType])
 limits_storageTypes = Lens.lens (\Limits' {storageTypes} -> storageTypes) (\s@Limits' {} a -> s {storageTypes = a} :: Limits) Prelude.. Lens.mapping Lens.coerced
 
--- | List of additional limits that are specific to a given InstanceType and
--- for each of it\'s @ InstanceRole @ .
-limits_additionalLimits :: Lens.Lens' Limits (Prelude.Maybe [AdditionalLimit])
-limits_additionalLimits = Lens.lens (\Limits' {additionalLimits} -> additionalLimits) (\s@Limits' {} a -> s {additionalLimits = a} :: Limits) Prelude.. Lens.mapping Lens.coerced
-
 instance Data.FromJSON Limits where
   parseJSON =
     Data.withObject
       "Limits"
       ( \x ->
           Limits'
-            Prelude.<$> (x Data..:? "InstanceLimits")
-            Prelude.<*> (x Data..:? "StorageTypes" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "AdditionalLimits"
+            Prelude.<$> ( x Data..:? "AdditionalLimits"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "InstanceLimits")
+            Prelude.<*> (x Data..:? "StorageTypes" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Limits where
   hashWithSalt _salt Limits' {..} =
-    _salt `Prelude.hashWithSalt` instanceLimits
+    _salt `Prelude.hashWithSalt` additionalLimits
+      `Prelude.hashWithSalt` instanceLimits
       `Prelude.hashWithSalt` storageTypes
-      `Prelude.hashWithSalt` additionalLimits
 
 instance Prelude.NFData Limits where
   rnf Limits' {..} =
-    Prelude.rnf instanceLimits
+    Prelude.rnf additionalLimits
+      `Prelude.seq` Prelude.rnf instanceLimits
       `Prelude.seq` Prelude.rnf storageTypes
-      `Prelude.seq` Prelude.rnf additionalLimits

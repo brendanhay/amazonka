@@ -36,9 +36,9 @@ module Amazonka.LakeFormation.GetResourceLFTags
     newGetResourceLFTagsResponse,
 
     -- * Response Lenses
-    getResourceLFTagsResponse_lFTagsOnTable,
     getResourceLFTagsResponse_lFTagOnDatabase,
     getResourceLFTagsResponse_lFTagsOnColumns,
+    getResourceLFTagsResponse_lFTagsOnTable,
     getResourceLFTagsResponse_httpStatus,
   )
 where
@@ -120,11 +120,11 @@ instance Core.AWSRequest GetResourceLFTags where
     Response.receiveJSON
       ( \s h x ->
           GetResourceLFTagsResponse'
-            Prelude.<$> (x Data..?> "LFTagsOnTable")
-            Prelude.<*> (x Data..?> "LFTagOnDatabase")
+            Prelude.<$> (x Data..?> "LFTagOnDatabase")
             Prelude.<*> ( x Data..?> "LFTagsOnColumns"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "LFTagsOnTable")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -170,12 +170,12 @@ instance Data.ToQuery GetResourceLFTags where
 
 -- | /See:/ 'newGetResourceLFTagsResponse' smart constructor.
 data GetResourceLFTagsResponse = GetResourceLFTagsResponse'
-  { -- | A list of LF-tags applied to a table resource.
-    lFTagsOnTable :: Prelude.Maybe (Prelude.NonEmpty LFTagPair),
-    -- | A list of LF-tags applied to a database resource.
+  { -- | A list of LF-tags applied to a database resource.
     lFTagOnDatabase :: Prelude.Maybe (Prelude.NonEmpty LFTagPair),
     -- | A list of LF-tags applied to a column resource.
     lFTagsOnColumns :: Prelude.Maybe [ColumnLFTag],
+    -- | A list of LF-tags applied to a table resource.
+    lFTagsOnTable :: Prelude.Maybe (Prelude.NonEmpty LFTagPair),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -189,11 +189,11 @@ data GetResourceLFTagsResponse = GetResourceLFTagsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lFTagsOnTable', 'getResourceLFTagsResponse_lFTagsOnTable' - A list of LF-tags applied to a table resource.
---
 -- 'lFTagOnDatabase', 'getResourceLFTagsResponse_lFTagOnDatabase' - A list of LF-tags applied to a database resource.
 --
 -- 'lFTagsOnColumns', 'getResourceLFTagsResponse_lFTagsOnColumns' - A list of LF-tags applied to a column resource.
+--
+-- 'lFTagsOnTable', 'getResourceLFTagsResponse_lFTagsOnTable' - A list of LF-tags applied to a table resource.
 --
 -- 'httpStatus', 'getResourceLFTagsResponse_httpStatus' - The response's http status code.
 newGetResourceLFTagsResponse ::
@@ -202,16 +202,12 @@ newGetResourceLFTagsResponse ::
   GetResourceLFTagsResponse
 newGetResourceLFTagsResponse pHttpStatus_ =
   GetResourceLFTagsResponse'
-    { lFTagsOnTable =
+    { lFTagOnDatabase =
         Prelude.Nothing,
-      lFTagOnDatabase = Prelude.Nothing,
       lFTagsOnColumns = Prelude.Nothing,
+      lFTagsOnTable = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of LF-tags applied to a table resource.
-getResourceLFTagsResponse_lFTagsOnTable :: Lens.Lens' GetResourceLFTagsResponse (Prelude.Maybe (Prelude.NonEmpty LFTagPair))
-getResourceLFTagsResponse_lFTagsOnTable = Lens.lens (\GetResourceLFTagsResponse' {lFTagsOnTable} -> lFTagsOnTable) (\s@GetResourceLFTagsResponse' {} a -> s {lFTagsOnTable = a} :: GetResourceLFTagsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of LF-tags applied to a database resource.
 getResourceLFTagsResponse_lFTagOnDatabase :: Lens.Lens' GetResourceLFTagsResponse (Prelude.Maybe (Prelude.NonEmpty LFTagPair))
@@ -221,13 +217,17 @@ getResourceLFTagsResponse_lFTagOnDatabase = Lens.lens (\GetResourceLFTagsRespons
 getResourceLFTagsResponse_lFTagsOnColumns :: Lens.Lens' GetResourceLFTagsResponse (Prelude.Maybe [ColumnLFTag])
 getResourceLFTagsResponse_lFTagsOnColumns = Lens.lens (\GetResourceLFTagsResponse' {lFTagsOnColumns} -> lFTagsOnColumns) (\s@GetResourceLFTagsResponse' {} a -> s {lFTagsOnColumns = a} :: GetResourceLFTagsResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | A list of LF-tags applied to a table resource.
+getResourceLFTagsResponse_lFTagsOnTable :: Lens.Lens' GetResourceLFTagsResponse (Prelude.Maybe (Prelude.NonEmpty LFTagPair))
+getResourceLFTagsResponse_lFTagsOnTable = Lens.lens (\GetResourceLFTagsResponse' {lFTagsOnTable} -> lFTagsOnTable) (\s@GetResourceLFTagsResponse' {} a -> s {lFTagsOnTable = a} :: GetResourceLFTagsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 getResourceLFTagsResponse_httpStatus :: Lens.Lens' GetResourceLFTagsResponse Prelude.Int
 getResourceLFTagsResponse_httpStatus = Lens.lens (\GetResourceLFTagsResponse' {httpStatus} -> httpStatus) (\s@GetResourceLFTagsResponse' {} a -> s {httpStatus = a} :: GetResourceLFTagsResponse)
 
 instance Prelude.NFData GetResourceLFTagsResponse where
   rnf GetResourceLFTagsResponse' {..} =
-    Prelude.rnf lFTagsOnTable
-      `Prelude.seq` Prelude.rnf lFTagOnDatabase
+    Prelude.rnf lFTagOnDatabase
       `Prelude.seq` Prelude.rnf lFTagsOnColumns
+      `Prelude.seq` Prelude.rnf lFTagsOnTable
       `Prelude.seq` Prelude.rnf httpStatus

@@ -29,8 +29,8 @@ module Amazonka.SSM.ListDocumentVersions
     newListDocumentVersions,
 
     -- * Request Lenses
-    listDocumentVersions_nextToken,
     listDocumentVersions_maxResults,
+    listDocumentVersions_nextToken,
     listDocumentVersions_name,
 
     -- * Destructuring the Response
@@ -38,8 +38,8 @@ module Amazonka.SSM.ListDocumentVersions
     newListDocumentVersionsResponse,
 
     -- * Response Lenses
-    listDocumentVersionsResponse_nextToken,
     listDocumentVersionsResponse_documentVersions,
+    listDocumentVersionsResponse_nextToken,
     listDocumentVersionsResponse_httpStatus,
   )
 where
@@ -54,13 +54,13 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newListDocumentVersions' smart constructor.
 data ListDocumentVersions = ListDocumentVersions'
-  { -- | The token for the next set of items to return. (You received this token
-    -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return for this call. The call also
+  { -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the document. You can specify an Amazon Resource Name (ARN).
     name :: Prelude.Text
   }
@@ -74,12 +74,12 @@ data ListDocumentVersions = ListDocumentVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listDocumentVersions_nextToken' - The token for the next set of items to return. (You received this token
--- from a previous call.)
---
 -- 'maxResults', 'listDocumentVersions_maxResults' - The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
+--
+-- 'nextToken', 'listDocumentVersions_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
 --
 -- 'name', 'listDocumentVersions_name' - The name of the document. You can specify an Amazon Resource Name (ARN).
 newListDocumentVersions ::
@@ -88,21 +88,21 @@ newListDocumentVersions ::
   ListDocumentVersions
 newListDocumentVersions pName_ =
   ListDocumentVersions'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       name = pName_
     }
-
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
-listDocumentVersions_nextToken :: Lens.Lens' ListDocumentVersions (Prelude.Maybe Prelude.Text)
-listDocumentVersions_nextToken = Lens.lens (\ListDocumentVersions' {nextToken} -> nextToken) (\s@ListDocumentVersions' {} a -> s {nextToken = a} :: ListDocumentVersions)
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
 listDocumentVersions_maxResults :: Lens.Lens' ListDocumentVersions (Prelude.Maybe Prelude.Natural)
 listDocumentVersions_maxResults = Lens.lens (\ListDocumentVersions' {maxResults} -> maxResults) (\s@ListDocumentVersions' {} a -> s {maxResults = a} :: ListDocumentVersions)
+
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+listDocumentVersions_nextToken :: Lens.Lens' ListDocumentVersions (Prelude.Maybe Prelude.Text)
+listDocumentVersions_nextToken = Lens.lens (\ListDocumentVersions' {nextToken} -> nextToken) (\s@ListDocumentVersions' {} a -> s {nextToken = a} :: ListDocumentVersions)
 
 -- | The name of the document. You can specify an Amazon Resource Name (ARN).
 listDocumentVersions_name :: Lens.Lens' ListDocumentVersions Prelude.Text
@@ -141,21 +141,21 @@ instance Core.AWSRequest ListDocumentVersions where
     Response.receiveJSON
       ( \s h x ->
           ListDocumentVersionsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "DocumentVersions")
+            Prelude.<$> (x Data..?> "DocumentVersions")
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListDocumentVersions where
   hashWithSalt _salt ListDocumentVersions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData ListDocumentVersions where
   rnf ListDocumentVersions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders ListDocumentVersions where
@@ -177,8 +177,8 @@ instance Data.ToJSON ListDocumentVersions where
   toJSON ListDocumentVersions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("Name" Data..= name)
           ]
       )
@@ -191,11 +191,11 @@ instance Data.ToQuery ListDocumentVersions where
 
 -- | /See:/ 'newListDocumentVersionsResponse' smart constructor.
 data ListDocumentVersionsResponse = ListDocumentVersionsResponse'
-  { -- | The token to use when requesting the next set of items. If there are no
+  { -- | The document versions.
+    documentVersions :: Prelude.Maybe (Prelude.NonEmpty DocumentVersionInfo),
+    -- | The token to use when requesting the next set of items. If there are no
     -- additional items to return, the string is empty.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The document versions.
-    documentVersions :: Prelude.Maybe (Prelude.NonEmpty DocumentVersionInfo),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -209,10 +209,10 @@ data ListDocumentVersionsResponse = ListDocumentVersionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'documentVersions', 'listDocumentVersionsResponse_documentVersions' - The document versions.
+--
 -- 'nextToken', 'listDocumentVersionsResponse_nextToken' - The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
---
--- 'documentVersions', 'listDocumentVersionsResponse_documentVersions' - The document versions.
 --
 -- 'httpStatus', 'listDocumentVersionsResponse_httpStatus' - The response's http status code.
 newListDocumentVersionsResponse ::
@@ -221,20 +221,20 @@ newListDocumentVersionsResponse ::
   ListDocumentVersionsResponse
 newListDocumentVersionsResponse pHttpStatus_ =
   ListDocumentVersionsResponse'
-    { nextToken =
+    { documentVersions =
         Prelude.Nothing,
-      documentVersions = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The document versions.
+listDocumentVersionsResponse_documentVersions :: Lens.Lens' ListDocumentVersionsResponse (Prelude.Maybe (Prelude.NonEmpty DocumentVersionInfo))
+listDocumentVersionsResponse_documentVersions = Lens.lens (\ListDocumentVersionsResponse' {documentVersions} -> documentVersions) (\s@ListDocumentVersionsResponse' {} a -> s {documentVersions = a} :: ListDocumentVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
 listDocumentVersionsResponse_nextToken :: Lens.Lens' ListDocumentVersionsResponse (Prelude.Maybe Prelude.Text)
 listDocumentVersionsResponse_nextToken = Lens.lens (\ListDocumentVersionsResponse' {nextToken} -> nextToken) (\s@ListDocumentVersionsResponse' {} a -> s {nextToken = a} :: ListDocumentVersionsResponse)
-
--- | The document versions.
-listDocumentVersionsResponse_documentVersions :: Lens.Lens' ListDocumentVersionsResponse (Prelude.Maybe (Prelude.NonEmpty DocumentVersionInfo))
-listDocumentVersionsResponse_documentVersions = Lens.lens (\ListDocumentVersionsResponse' {documentVersions} -> documentVersions) (\s@ListDocumentVersionsResponse' {} a -> s {documentVersions = a} :: ListDocumentVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listDocumentVersionsResponse_httpStatus :: Lens.Lens' ListDocumentVersionsResponse Prelude.Int
@@ -242,6 +242,6 @@ listDocumentVersionsResponse_httpStatus = Lens.lens (\ListDocumentVersionsRespon
 
 instance Prelude.NFData ListDocumentVersionsResponse where
   rnf ListDocumentVersionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf documentVersions
+    Prelude.rnf documentVersions
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

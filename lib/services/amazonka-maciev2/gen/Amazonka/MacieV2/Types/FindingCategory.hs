@@ -30,7 +30,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | The category of the finding. Valid values are:
+-- | The category of the finding. Possible values are:
 newtype FindingCategory = FindingCategory'
   { fromFindingCategory ::
       Data.Text

@@ -32,8 +32,8 @@ module Amazonka.GuardDuty.GetUsageStatistics
     newGetUsageStatistics,
 
     -- * Request Lenses
-    getUsageStatistics_nextToken,
     getUsageStatistics_maxResults,
+    getUsageStatistics_nextToken,
     getUsageStatistics_unit,
     getUsageStatistics_detectorId,
     getUsageStatistics_usageStatisticType,
@@ -60,13 +60,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetUsageStatistics' smart constructor.
 data GetUsageStatistics = GetUsageStatistics'
-  { -- | A token to use for paginating results that are returned in the response.
+  { -- | The maximum number of results to return in the response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token to use for paginating results that are returned in the response.
     -- Set the value of this parameter to null for the first request to a list
     -- action. For subsequent calls, use the NextToken value returned from the
     -- previous request to continue listing results after the first page.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The currency unit you would like to view your usage statistics in.
     -- Current valid values are USD.
     unit :: Prelude.Maybe Prelude.Text,
@@ -88,12 +88,12 @@ data GetUsageStatistics = GetUsageStatistics'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'getUsageStatistics_maxResults' - The maximum number of results to return in the response.
+--
 -- 'nextToken', 'getUsageStatistics_nextToken' - A token to use for paginating results that are returned in the response.
 -- Set the value of this parameter to null for the first request to a list
 -- action. For subsequent calls, use the NextToken value returned from the
 -- previous request to continue listing results after the first page.
---
--- 'maxResults', 'getUsageStatistics_maxResults' - The maximum number of results to return in the response.
 --
 -- 'unit', 'getUsageStatistics_unit' - The currency unit you would like to view your usage statistics in.
 -- Current valid values are USD.
@@ -117,13 +117,17 @@ newGetUsageStatistics
   pUsageStatisticType_
   pUsageCriteria_ =
     GetUsageStatistics'
-      { nextToken = Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+      { maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         unit = Prelude.Nothing,
         detectorId = pDetectorId_,
         usageStatisticType = pUsageStatisticType_,
         usageCriteria = pUsageCriteria_
       }
+
+-- | The maximum number of results to return in the response.
+getUsageStatistics_maxResults :: Lens.Lens' GetUsageStatistics (Prelude.Maybe Prelude.Natural)
+getUsageStatistics_maxResults = Lens.lens (\GetUsageStatistics' {maxResults} -> maxResults) (\s@GetUsageStatistics' {} a -> s {maxResults = a} :: GetUsageStatistics)
 
 -- | A token to use for paginating results that are returned in the response.
 -- Set the value of this parameter to null for the first request to a list
@@ -131,10 +135,6 @@ newGetUsageStatistics
 -- previous request to continue listing results after the first page.
 getUsageStatistics_nextToken :: Lens.Lens' GetUsageStatistics (Prelude.Maybe Prelude.Text)
 getUsageStatistics_nextToken = Lens.lens (\GetUsageStatistics' {nextToken} -> nextToken) (\s@GetUsageStatistics' {} a -> s {nextToken = a} :: GetUsageStatistics)
-
--- | The maximum number of results to return in the response.
-getUsageStatistics_maxResults :: Lens.Lens' GetUsageStatistics (Prelude.Maybe Prelude.Natural)
-getUsageStatistics_maxResults = Lens.lens (\GetUsageStatistics' {maxResults} -> maxResults) (\s@GetUsageStatistics' {} a -> s {maxResults = a} :: GetUsageStatistics)
 
 -- | The currency unit you would like to view your usage statistics in.
 -- Current valid values are USD.
@@ -171,8 +171,8 @@ instance Core.AWSRequest GetUsageStatistics where
 
 instance Prelude.Hashable GetUsageStatistics where
   hashWithSalt _salt GetUsageStatistics' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` unit
       `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` usageStatisticType
@@ -180,8 +180,8 @@ instance Prelude.Hashable GetUsageStatistics where
 
 instance Prelude.NFData GetUsageStatistics where
   rnf GetUsageStatistics' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf unit
       `Prelude.seq` Prelude.rnf detectorId
       `Prelude.seq` Prelude.rnf usageStatisticType
@@ -202,8 +202,8 @@ instance Data.ToJSON GetUsageStatistics where
   toJSON GetUsageStatistics' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             ("unit" Data..=) Prelude.<$> unit,
             Prelude.Just
               ("usageStatisticsType" Data..= usageStatisticType),

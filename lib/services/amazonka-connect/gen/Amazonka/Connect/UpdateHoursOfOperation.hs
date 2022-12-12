@@ -30,10 +30,10 @@ module Amazonka.Connect.UpdateHoursOfOperation
     newUpdateHoursOfOperation,
 
     -- * Request Lenses
+    updateHoursOfOperation_config,
+    updateHoursOfOperation_description,
     updateHoursOfOperation_name,
     updateHoursOfOperation_timeZone,
-    updateHoursOfOperation_description,
-    updateHoursOfOperation_config,
     updateHoursOfOperation_instanceId,
     updateHoursOfOperation_hoursOfOperationId,
 
@@ -53,14 +53,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateHoursOfOperation' smart constructor.
 data UpdateHoursOfOperation = UpdateHoursOfOperation'
-  { -- | The name of the hours of operation.
+  { -- | Configuration information of the hours of operation.
+    config :: Prelude.Maybe [HoursOfOperationConfig],
+    -- | The description of the hours of operation.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The name of the hours of operation.
     name :: Prelude.Maybe Prelude.Text,
     -- | The time zone of the hours of operation.
     timeZone :: Prelude.Maybe Prelude.Text,
-    -- | The description of the hours of operation.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Configuration information of the hours of operation.
-    config :: Prelude.Maybe [HoursOfOperationConfig],
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
@@ -77,13 +77,13 @@ data UpdateHoursOfOperation = UpdateHoursOfOperation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateHoursOfOperation_name' - The name of the hours of operation.
---
--- 'timeZone', 'updateHoursOfOperation_timeZone' - The time zone of the hours of operation.
+-- 'config', 'updateHoursOfOperation_config' - Configuration information of the hours of operation.
 --
 -- 'description', 'updateHoursOfOperation_description' - The description of the hours of operation.
 --
--- 'config', 'updateHoursOfOperation_config' - Configuration information of the hours of operation.
+-- 'name', 'updateHoursOfOperation_name' - The name of the hours of operation.
+--
+-- 'timeZone', 'updateHoursOfOperation_timeZone' - The time zone of the hours of operation.
 --
 -- 'instanceId', 'updateHoursOfOperation_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -99,13 +99,21 @@ newUpdateHoursOfOperation
   pInstanceId_
   pHoursOfOperationId_ =
     UpdateHoursOfOperation'
-      { name = Prelude.Nothing,
-        timeZone = Prelude.Nothing,
+      { config = Prelude.Nothing,
         description = Prelude.Nothing,
-        config = Prelude.Nothing,
+        name = Prelude.Nothing,
+        timeZone = Prelude.Nothing,
         instanceId = pInstanceId_,
         hoursOfOperationId = pHoursOfOperationId_
       }
+
+-- | Configuration information of the hours of operation.
+updateHoursOfOperation_config :: Lens.Lens' UpdateHoursOfOperation (Prelude.Maybe [HoursOfOperationConfig])
+updateHoursOfOperation_config = Lens.lens (\UpdateHoursOfOperation' {config} -> config) (\s@UpdateHoursOfOperation' {} a -> s {config = a} :: UpdateHoursOfOperation) Prelude.. Lens.mapping Lens.coerced
+
+-- | The description of the hours of operation.
+updateHoursOfOperation_description :: Lens.Lens' UpdateHoursOfOperation (Prelude.Maybe Prelude.Text)
+updateHoursOfOperation_description = Lens.lens (\UpdateHoursOfOperation' {description} -> description) (\s@UpdateHoursOfOperation' {} a -> s {description = a} :: UpdateHoursOfOperation)
 
 -- | The name of the hours of operation.
 updateHoursOfOperation_name :: Lens.Lens' UpdateHoursOfOperation (Prelude.Maybe Prelude.Text)
@@ -114,14 +122,6 @@ updateHoursOfOperation_name = Lens.lens (\UpdateHoursOfOperation' {name} -> name
 -- | The time zone of the hours of operation.
 updateHoursOfOperation_timeZone :: Lens.Lens' UpdateHoursOfOperation (Prelude.Maybe Prelude.Text)
 updateHoursOfOperation_timeZone = Lens.lens (\UpdateHoursOfOperation' {timeZone} -> timeZone) (\s@UpdateHoursOfOperation' {} a -> s {timeZone = a} :: UpdateHoursOfOperation)
-
--- | The description of the hours of operation.
-updateHoursOfOperation_description :: Lens.Lens' UpdateHoursOfOperation (Prelude.Maybe Prelude.Text)
-updateHoursOfOperation_description = Lens.lens (\UpdateHoursOfOperation' {description} -> description) (\s@UpdateHoursOfOperation' {} a -> s {description = a} :: UpdateHoursOfOperation)
-
--- | Configuration information of the hours of operation.
-updateHoursOfOperation_config :: Lens.Lens' UpdateHoursOfOperation (Prelude.Maybe [HoursOfOperationConfig])
-updateHoursOfOperation_config = Lens.lens (\UpdateHoursOfOperation' {config} -> config) (\s@UpdateHoursOfOperation' {} a -> s {config = a} :: UpdateHoursOfOperation) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -144,19 +144,19 @@ instance Core.AWSRequest UpdateHoursOfOperation where
 
 instance Prelude.Hashable UpdateHoursOfOperation where
   hashWithSalt _salt UpdateHoursOfOperation' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` timeZone
+    _salt `Prelude.hashWithSalt` config
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` config
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` timeZone
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` hoursOfOperationId
 
 instance Prelude.NFData UpdateHoursOfOperation where
   rnf UpdateHoursOfOperation' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf timeZone
+    Prelude.rnf config
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf config
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf timeZone
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf hoursOfOperationId
 
@@ -175,10 +175,10 @@ instance Data.ToJSON UpdateHoursOfOperation where
   toJSON UpdateHoursOfOperation' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
-            ("TimeZone" Data..=) Prelude.<$> timeZone,
+          [ ("Config" Data..=) Prelude.<$> config,
             ("Description" Data..=) Prelude.<$> description,
-            ("Config" Data..=) Prelude.<$> config
+            ("Name" Data..=) Prelude.<$> name,
+            ("TimeZone" Data..=) Prelude.<$> timeZone
           ]
       )
 

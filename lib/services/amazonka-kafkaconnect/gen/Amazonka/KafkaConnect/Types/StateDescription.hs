@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStateDescription' smart constructor.
 data StateDescription = StateDescription'
-  { -- | A message that describes the state of a resource.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | A code that describes the state of a resource.
-    code :: Prelude.Maybe Prelude.Text
+  { -- | A code that describes the state of a resource.
+    code :: Prelude.Maybe Prelude.Text,
+    -- | A message that describes the state of a resource.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data StateDescription = StateDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'stateDescription_message' - A message that describes the state of a resource.
---
 -- 'code', 'stateDescription_code' - A code that describes the state of a resource.
+--
+-- 'message', 'stateDescription_message' - A message that describes the state of a resource.
 newStateDescription ::
   StateDescription
 newStateDescription =
   StateDescription'
-    { message = Prelude.Nothing,
-      code = Prelude.Nothing
+    { code = Prelude.Nothing,
+      message = Prelude.Nothing
     }
-
--- | A message that describes the state of a resource.
-stateDescription_message :: Lens.Lens' StateDescription (Prelude.Maybe Prelude.Text)
-stateDescription_message = Lens.lens (\StateDescription' {message} -> message) (\s@StateDescription' {} a -> s {message = a} :: StateDescription)
 
 -- | A code that describes the state of a resource.
 stateDescription_code :: Lens.Lens' StateDescription (Prelude.Maybe Prelude.Text)
 stateDescription_code = Lens.lens (\StateDescription' {code} -> code) (\s@StateDescription' {} a -> s {code = a} :: StateDescription)
+
+-- | A message that describes the state of a resource.
+stateDescription_message :: Lens.Lens' StateDescription (Prelude.Maybe Prelude.Text)
+stateDescription_message = Lens.lens (\StateDescription' {message} -> message) (\s@StateDescription' {} a -> s {message = a} :: StateDescription)
 
 instance Data.FromJSON StateDescription where
   parseJSON =
@@ -68,15 +68,15 @@ instance Data.FromJSON StateDescription where
       "StateDescription"
       ( \x ->
           StateDescription'
-            Prelude.<$> (x Data..:? "message")
-            Prelude.<*> (x Data..:? "code")
+            Prelude.<$> (x Data..:? "code")
+            Prelude.<*> (x Data..:? "message")
       )
 
 instance Prelude.Hashable StateDescription where
   hashWithSalt _salt StateDescription' {..} =
-    _salt `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` code
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` message
 
 instance Prelude.NFData StateDescription where
   rnf StateDescription' {..} =
-    Prelude.rnf message `Prelude.seq` Prelude.rnf code
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

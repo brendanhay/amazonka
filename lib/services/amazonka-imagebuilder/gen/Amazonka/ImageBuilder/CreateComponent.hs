@@ -34,13 +34,13 @@ module Amazonka.ImageBuilder.CreateComponent
     newCreateComponent,
 
     -- * Request Lenses
-    createComponent_tags,
     createComponent_changeDescription,
-    createComponent_description,
-    createComponent_uri,
-    createComponent_kmsKeyId,
     createComponent_data,
+    createComponent_description,
+    createComponent_kmsKeyId,
     createComponent_supportedOsVersions,
+    createComponent_tags,
+    createComponent_uri,
     createComponent_name,
     createComponent_semanticVersion,
     createComponent_platform,
@@ -52,8 +52,8 @@ module Amazonka.ImageBuilder.CreateComponent
 
     -- * Response Lenses
     createComponentResponse_clientToken,
-    createComponentResponse_requestId,
     createComponentResponse_componentBuildVersionArn,
+    createComponentResponse_requestId,
     createComponentResponse_httpStatus,
   )
 where
@@ -68,15 +68,25 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateComponent' smart constructor.
 data CreateComponent = CreateComponent'
-  { -- | The tags of the component.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The change description of the component. Describes what change has been
+  { -- | The change description of the component. Describes what change has been
     -- made in this version, or what makes this version different from other
     -- versions of this component.
     changeDescription :: Prelude.Maybe Prelude.Text,
+    -- | Component @data@ contains inline YAML document content for the
+    -- component. Alternatively, you can specify the @uri@ of a YAML document
+    -- file stored in Amazon S3. However, you cannot specify both properties.
+    data' :: Prelude.Maybe Prelude.Text,
     -- | The description of the component. Describes the contents of the
     -- component.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the KMS key that should be used to encrypt this component.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The operating system (OS) version supported by the component. If the OS
+    -- information is available, a prefix match is performed against the base
+    -- image OS version during image recipe creation.
+    supportedOsVersions :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The tags of the component.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The @uri@ of a YAML component document file. This must be an S3 URL
     -- (@s3:\/\/bucket\/key@), and the requester must have permission to access
     -- the S3 bucket it points to. If you use Amazon S3, you can specify
@@ -85,16 +95,6 @@ data CreateComponent = CreateComponent'
     -- Alternatively, you can specify the YAML document inline, using the
     -- component @data@ property. You cannot specify both properties.
     uri :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the KMS key that should be used to encrypt this component.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | Component @data@ contains inline YAML document content for the
-    -- component. Alternatively, you can specify the @uri@ of a YAML document
-    -- file stored in Amazon S3. However, you cannot specify both properties.
-    data' :: Prelude.Maybe Prelude.Text,
-    -- | The operating system (OS) version supported by the component. If the OS
-    -- information is available, a prefix match is performed against the base
-    -- image OS version during image recipe creation.
-    supportedOsVersions :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The name of the component.
     name :: Prelude.Text,
     -- | The semantic version of the component. This version follows the semantic
@@ -129,14 +129,24 @@ data CreateComponent = CreateComponent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createComponent_tags' - The tags of the component.
---
 -- 'changeDescription', 'createComponent_changeDescription' - The change description of the component. Describes what change has been
 -- made in this version, or what makes this version different from other
 -- versions of this component.
 --
+-- 'data'', 'createComponent_data' - Component @data@ contains inline YAML document content for the
+-- component. Alternatively, you can specify the @uri@ of a YAML document
+-- file stored in Amazon S3. However, you cannot specify both properties.
+--
 -- 'description', 'createComponent_description' - The description of the component. Describes the contents of the
 -- component.
+--
+-- 'kmsKeyId', 'createComponent_kmsKeyId' - The ID of the KMS key that should be used to encrypt this component.
+--
+-- 'supportedOsVersions', 'createComponent_supportedOsVersions' - The operating system (OS) version supported by the component. If the OS
+-- information is available, a prefix match is performed against the base
+-- image OS version during image recipe creation.
+--
+-- 'tags', 'createComponent_tags' - The tags of the component.
 --
 -- 'uri', 'createComponent_uri' - The @uri@ of a YAML component document file. This must be an S3 URL
 -- (@s3:\/\/bucket\/key@), and the requester must have permission to access
@@ -145,16 +155,6 @@ data CreateComponent = CreateComponent'
 --
 -- Alternatively, you can specify the YAML document inline, using the
 -- component @data@ property. You cannot specify both properties.
---
--- 'kmsKeyId', 'createComponent_kmsKeyId' - The ID of the KMS key that should be used to encrypt this component.
---
--- 'data'', 'createComponent_data' - Component @data@ contains inline YAML document content for the
--- component. Alternatively, you can specify the @uri@ of a YAML document
--- file stored in Amazon S3. However, you cannot specify both properties.
---
--- 'supportedOsVersions', 'createComponent_supportedOsVersions' - The operating system (OS) version supported by the component. If the OS
--- information is available, a prefix match is performed against the base
--- image OS version during image recipe creation.
 --
 -- 'name', 'createComponent_name' - The name of the component.
 --
@@ -194,22 +194,19 @@ newCreateComponent
   pPlatform_
   pClientToken_ =
     CreateComponent'
-      { tags = Prelude.Nothing,
-        changeDescription = Prelude.Nothing,
-        description = Prelude.Nothing,
-        uri = Prelude.Nothing,
-        kmsKeyId = Prelude.Nothing,
+      { changeDescription =
+          Prelude.Nothing,
         data' = Prelude.Nothing,
+        description = Prelude.Nothing,
+        kmsKeyId = Prelude.Nothing,
         supportedOsVersions = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        uri = Prelude.Nothing,
         name = pName_,
         semanticVersion = pSemanticVersion_,
         platform = pPlatform_,
         clientToken = pClientToken_
       }
-
--- | The tags of the component.
-createComponent_tags :: Lens.Lens' CreateComponent (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createComponent_tags = Lens.lens (\CreateComponent' {tags} -> tags) (\s@CreateComponent' {} a -> s {tags = a} :: CreateComponent) Prelude.. Lens.mapping Lens.coerced
 
 -- | The change description of the component. Describes what change has been
 -- made in this version, or what makes this version different from other
@@ -217,10 +214,30 @@ createComponent_tags = Lens.lens (\CreateComponent' {tags} -> tags) (\s@CreateCo
 createComponent_changeDescription :: Lens.Lens' CreateComponent (Prelude.Maybe Prelude.Text)
 createComponent_changeDescription = Lens.lens (\CreateComponent' {changeDescription} -> changeDescription) (\s@CreateComponent' {} a -> s {changeDescription = a} :: CreateComponent)
 
+-- | Component @data@ contains inline YAML document content for the
+-- component. Alternatively, you can specify the @uri@ of a YAML document
+-- file stored in Amazon S3. However, you cannot specify both properties.
+createComponent_data :: Lens.Lens' CreateComponent (Prelude.Maybe Prelude.Text)
+createComponent_data = Lens.lens (\CreateComponent' {data'} -> data') (\s@CreateComponent' {} a -> s {data' = a} :: CreateComponent)
+
 -- | The description of the component. Describes the contents of the
 -- component.
 createComponent_description :: Lens.Lens' CreateComponent (Prelude.Maybe Prelude.Text)
 createComponent_description = Lens.lens (\CreateComponent' {description} -> description) (\s@CreateComponent' {} a -> s {description = a} :: CreateComponent)
+
+-- | The ID of the KMS key that should be used to encrypt this component.
+createComponent_kmsKeyId :: Lens.Lens' CreateComponent (Prelude.Maybe Prelude.Text)
+createComponent_kmsKeyId = Lens.lens (\CreateComponent' {kmsKeyId} -> kmsKeyId) (\s@CreateComponent' {} a -> s {kmsKeyId = a} :: CreateComponent)
+
+-- | The operating system (OS) version supported by the component. If the OS
+-- information is available, a prefix match is performed against the base
+-- image OS version during image recipe creation.
+createComponent_supportedOsVersions :: Lens.Lens' CreateComponent (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+createComponent_supportedOsVersions = Lens.lens (\CreateComponent' {supportedOsVersions} -> supportedOsVersions) (\s@CreateComponent' {} a -> s {supportedOsVersions = a} :: CreateComponent) Prelude.. Lens.mapping Lens.coerced
+
+-- | The tags of the component.
+createComponent_tags :: Lens.Lens' CreateComponent (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createComponent_tags = Lens.lens (\CreateComponent' {tags} -> tags) (\s@CreateComponent' {} a -> s {tags = a} :: CreateComponent) Prelude.. Lens.mapping Lens.coerced
 
 -- | The @uri@ of a YAML component document file. This must be an S3 URL
 -- (@s3:\/\/bucket\/key@), and the requester must have permission to access
@@ -231,22 +248,6 @@ createComponent_description = Lens.lens (\CreateComponent' {description} -> desc
 -- component @data@ property. You cannot specify both properties.
 createComponent_uri :: Lens.Lens' CreateComponent (Prelude.Maybe Prelude.Text)
 createComponent_uri = Lens.lens (\CreateComponent' {uri} -> uri) (\s@CreateComponent' {} a -> s {uri = a} :: CreateComponent)
-
--- | The ID of the KMS key that should be used to encrypt this component.
-createComponent_kmsKeyId :: Lens.Lens' CreateComponent (Prelude.Maybe Prelude.Text)
-createComponent_kmsKeyId = Lens.lens (\CreateComponent' {kmsKeyId} -> kmsKeyId) (\s@CreateComponent' {} a -> s {kmsKeyId = a} :: CreateComponent)
-
--- | Component @data@ contains inline YAML document content for the
--- component. Alternatively, you can specify the @uri@ of a YAML document
--- file stored in Amazon S3. However, you cannot specify both properties.
-createComponent_data :: Lens.Lens' CreateComponent (Prelude.Maybe Prelude.Text)
-createComponent_data = Lens.lens (\CreateComponent' {data'} -> data') (\s@CreateComponent' {} a -> s {data' = a} :: CreateComponent)
-
--- | The operating system (OS) version supported by the component. If the OS
--- information is available, a prefix match is performed against the base
--- image OS version during image recipe creation.
-createComponent_supportedOsVersions :: Lens.Lens' CreateComponent (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-createComponent_supportedOsVersions = Lens.lens (\CreateComponent' {supportedOsVersions} -> supportedOsVersions) (\s@CreateComponent' {} a -> s {supportedOsVersions = a} :: CreateComponent) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the component.
 createComponent_name :: Lens.Lens' CreateComponent Prelude.Text
@@ -290,20 +291,20 @@ instance Core.AWSRequest CreateComponent where
       ( \s h x ->
           CreateComponentResponse'
             Prelude.<$> (x Data..?> "clientToken")
-            Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (x Data..?> "componentBuildVersionArn")
+            Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateComponent where
   hashWithSalt _salt CreateComponent' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` changeDescription
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` uri
-      `Prelude.hashWithSalt` kmsKeyId
+    _salt `Prelude.hashWithSalt` changeDescription
       `Prelude.hashWithSalt` data'
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` supportedOsVersions
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` uri
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` semanticVersion
       `Prelude.hashWithSalt` platform
@@ -311,13 +312,13 @@ instance Prelude.Hashable CreateComponent where
 
 instance Prelude.NFData CreateComponent where
   rnf CreateComponent' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf changeDescription
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf uri
-      `Prelude.seq` Prelude.rnf kmsKeyId
+    Prelude.rnf changeDescription
       `Prelude.seq` Prelude.rnf data'
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf supportedOsVersions
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf uri
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf semanticVersion
       `Prelude.seq` Prelude.rnf platform
@@ -338,15 +339,15 @@ instance Data.ToJSON CreateComponent where
   toJSON CreateComponent' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("changeDescription" Data..=)
+          [ ("changeDescription" Data..=)
               Prelude.<$> changeDescription,
-            ("description" Data..=) Prelude.<$> description,
-            ("uri" Data..=) Prelude.<$> uri,
-            ("kmsKeyId" Data..=) Prelude.<$> kmsKeyId,
             ("data" Data..=) Prelude.<$> data',
+            ("description" Data..=) Prelude.<$> description,
+            ("kmsKeyId" Data..=) Prelude.<$> kmsKeyId,
             ("supportedOsVersions" Data..=)
               Prelude.<$> supportedOsVersions,
+            ("tags" Data..=) Prelude.<$> tags,
+            ("uri" Data..=) Prelude.<$> uri,
             Prelude.Just ("name" Data..= name),
             Prelude.Just
               ("semanticVersion" Data..= semanticVersion),
@@ -365,11 +366,11 @@ instance Data.ToQuery CreateComponent where
 data CreateComponentResponse = CreateComponentResponse'
   { -- | The idempotency token used to make this request idempotent.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The request ID that uniquely identifies this request.
-    requestId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the component that was created by this
     -- request.
     componentBuildVersionArn :: Prelude.Maybe Prelude.Text,
+    -- | The request ID that uniquely identifies this request.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -385,10 +386,10 @@ data CreateComponentResponse = CreateComponentResponse'
 --
 -- 'clientToken', 'createComponentResponse_clientToken' - The idempotency token used to make this request idempotent.
 --
--- 'requestId', 'createComponentResponse_requestId' - The request ID that uniquely identifies this request.
---
 -- 'componentBuildVersionArn', 'createComponentResponse_componentBuildVersionArn' - The Amazon Resource Name (ARN) of the component that was created by this
 -- request.
+--
+-- 'requestId', 'createComponentResponse_requestId' - The request ID that uniquely identifies this request.
 --
 -- 'httpStatus', 'createComponentResponse_httpStatus' - The response's http status code.
 newCreateComponentResponse ::
@@ -399,8 +400,8 @@ newCreateComponentResponse pHttpStatus_ =
   CreateComponentResponse'
     { clientToken =
         Prelude.Nothing,
-      requestId = Prelude.Nothing,
       componentBuildVersionArn = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -408,14 +409,14 @@ newCreateComponentResponse pHttpStatus_ =
 createComponentResponse_clientToken :: Lens.Lens' CreateComponentResponse (Prelude.Maybe Prelude.Text)
 createComponentResponse_clientToken = Lens.lens (\CreateComponentResponse' {clientToken} -> clientToken) (\s@CreateComponentResponse' {} a -> s {clientToken = a} :: CreateComponentResponse)
 
--- | The request ID that uniquely identifies this request.
-createComponentResponse_requestId :: Lens.Lens' CreateComponentResponse (Prelude.Maybe Prelude.Text)
-createComponentResponse_requestId = Lens.lens (\CreateComponentResponse' {requestId} -> requestId) (\s@CreateComponentResponse' {} a -> s {requestId = a} :: CreateComponentResponse)
-
 -- | The Amazon Resource Name (ARN) of the component that was created by this
 -- request.
 createComponentResponse_componentBuildVersionArn :: Lens.Lens' CreateComponentResponse (Prelude.Maybe Prelude.Text)
 createComponentResponse_componentBuildVersionArn = Lens.lens (\CreateComponentResponse' {componentBuildVersionArn} -> componentBuildVersionArn) (\s@CreateComponentResponse' {} a -> s {componentBuildVersionArn = a} :: CreateComponentResponse)
+
+-- | The request ID that uniquely identifies this request.
+createComponentResponse_requestId :: Lens.Lens' CreateComponentResponse (Prelude.Maybe Prelude.Text)
+createComponentResponse_requestId = Lens.lens (\CreateComponentResponse' {requestId} -> requestId) (\s@CreateComponentResponse' {} a -> s {requestId = a} :: CreateComponentResponse)
 
 -- | The response's http status code.
 createComponentResponse_httpStatus :: Lens.Lens' CreateComponentResponse Prelude.Int
@@ -424,6 +425,6 @@ createComponentResponse_httpStatus = Lens.lens (\CreateComponentResponse' {httpS
 instance Prelude.NFData CreateComponentResponse where
   rnf CreateComponentResponse' {..} =
     Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf componentBuildVersionArn
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf httpStatus

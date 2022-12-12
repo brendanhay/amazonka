@@ -35,10 +35,10 @@ data InstanceEventWindowTimeRange = InstanceEventWindowTimeRange'
     endHour :: Prelude.Maybe Prelude.Natural,
     -- | The day on which the time range ends.
     endWeekDay :: Prelude.Maybe WeekDay,
-    -- | The day on which the time range begins.
-    startWeekDay :: Prelude.Maybe WeekDay,
     -- | The hour when the time range begins.
-    startHour :: Prelude.Maybe Prelude.Natural
+    startHour :: Prelude.Maybe Prelude.Natural,
+    -- | The day on which the time range begins.
+    startWeekDay :: Prelude.Maybe WeekDay
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,9 +54,9 @@ data InstanceEventWindowTimeRange = InstanceEventWindowTimeRange'
 --
 -- 'endWeekDay', 'instanceEventWindowTimeRange_endWeekDay' - The day on which the time range ends.
 --
--- 'startWeekDay', 'instanceEventWindowTimeRange_startWeekDay' - The day on which the time range begins.
---
 -- 'startHour', 'instanceEventWindowTimeRange_startHour' - The hour when the time range begins.
+--
+-- 'startWeekDay', 'instanceEventWindowTimeRange_startWeekDay' - The day on which the time range begins.
 newInstanceEventWindowTimeRange ::
   InstanceEventWindowTimeRange
 newInstanceEventWindowTimeRange =
@@ -64,8 +64,8 @@ newInstanceEventWindowTimeRange =
     { endHour =
         Prelude.Nothing,
       endWeekDay = Prelude.Nothing,
-      startWeekDay = Prelude.Nothing,
-      startHour = Prelude.Nothing
+      startHour = Prelude.Nothing,
+      startWeekDay = Prelude.Nothing
     }
 
 -- | The hour when the time range ends.
@@ -76,21 +76,21 @@ instanceEventWindowTimeRange_endHour = Lens.lens (\InstanceEventWindowTimeRange'
 instanceEventWindowTimeRange_endWeekDay :: Lens.Lens' InstanceEventWindowTimeRange (Prelude.Maybe WeekDay)
 instanceEventWindowTimeRange_endWeekDay = Lens.lens (\InstanceEventWindowTimeRange' {endWeekDay} -> endWeekDay) (\s@InstanceEventWindowTimeRange' {} a -> s {endWeekDay = a} :: InstanceEventWindowTimeRange)
 
--- | The day on which the time range begins.
-instanceEventWindowTimeRange_startWeekDay :: Lens.Lens' InstanceEventWindowTimeRange (Prelude.Maybe WeekDay)
-instanceEventWindowTimeRange_startWeekDay = Lens.lens (\InstanceEventWindowTimeRange' {startWeekDay} -> startWeekDay) (\s@InstanceEventWindowTimeRange' {} a -> s {startWeekDay = a} :: InstanceEventWindowTimeRange)
-
 -- | The hour when the time range begins.
 instanceEventWindowTimeRange_startHour :: Lens.Lens' InstanceEventWindowTimeRange (Prelude.Maybe Prelude.Natural)
 instanceEventWindowTimeRange_startHour = Lens.lens (\InstanceEventWindowTimeRange' {startHour} -> startHour) (\s@InstanceEventWindowTimeRange' {} a -> s {startHour = a} :: InstanceEventWindowTimeRange)
+
+-- | The day on which the time range begins.
+instanceEventWindowTimeRange_startWeekDay :: Lens.Lens' InstanceEventWindowTimeRange (Prelude.Maybe WeekDay)
+instanceEventWindowTimeRange_startWeekDay = Lens.lens (\InstanceEventWindowTimeRange' {startWeekDay} -> startWeekDay) (\s@InstanceEventWindowTimeRange' {} a -> s {startWeekDay = a} :: InstanceEventWindowTimeRange)
 
 instance Data.FromXML InstanceEventWindowTimeRange where
   parseXML x =
     InstanceEventWindowTimeRange'
       Prelude.<$> (x Data..@? "endHour")
       Prelude.<*> (x Data..@? "endWeekDay")
-      Prelude.<*> (x Data..@? "startWeekDay")
       Prelude.<*> (x Data..@? "startHour")
+      Prelude.<*> (x Data..@? "startWeekDay")
 
 instance
   Prelude.Hashable
@@ -99,12 +99,12 @@ instance
   hashWithSalt _salt InstanceEventWindowTimeRange' {..} =
     _salt `Prelude.hashWithSalt` endHour
       `Prelude.hashWithSalt` endWeekDay
-      `Prelude.hashWithSalt` startWeekDay
       `Prelude.hashWithSalt` startHour
+      `Prelude.hashWithSalt` startWeekDay
 
 instance Prelude.NFData InstanceEventWindowTimeRange where
   rnf InstanceEventWindowTimeRange' {..} =
     Prelude.rnf endHour
       `Prelude.seq` Prelude.rnf endWeekDay
-      `Prelude.seq` Prelude.rnf startWeekDay
       `Prelude.seq` Prelude.rnf startHour
+      `Prelude.seq` Prelude.rnf startWeekDay

@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSavingsPlansPurchaseRecommendationMetadata' smart constructor.
 data SavingsPlansPurchaseRecommendationMetadata = SavingsPlansPurchaseRecommendationMetadata'
-  { -- | The unique identifier for the recommendation set.
-    recommendationId :: Prelude.Maybe Prelude.Text,
-    -- | Additional metadata that might be applicable to the recommendation.
+  { -- | Additional metadata that might be applicable to the recommendation.
     additionalMetadata :: Prelude.Maybe Prelude.Text,
     -- | The timestamp that shows when the recommendations were generated.
-    generationTimestamp :: Prelude.Maybe Prelude.Text
+    generationTimestamp :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier for the recommendation set.
+    recommendationId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,26 +45,22 @@ data SavingsPlansPurchaseRecommendationMetadata = SavingsPlansPurchaseRecommenda
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'recommendationId', 'savingsPlansPurchaseRecommendationMetadata_recommendationId' - The unique identifier for the recommendation set.
---
 -- 'additionalMetadata', 'savingsPlansPurchaseRecommendationMetadata_additionalMetadata' - Additional metadata that might be applicable to the recommendation.
 --
 -- 'generationTimestamp', 'savingsPlansPurchaseRecommendationMetadata_generationTimestamp' - The timestamp that shows when the recommendations were generated.
+--
+-- 'recommendationId', 'savingsPlansPurchaseRecommendationMetadata_recommendationId' - The unique identifier for the recommendation set.
 newSavingsPlansPurchaseRecommendationMetadata ::
   SavingsPlansPurchaseRecommendationMetadata
 newSavingsPlansPurchaseRecommendationMetadata =
   SavingsPlansPurchaseRecommendationMetadata'
-    { recommendationId =
-        Prelude.Nothing,
-      additionalMetadata =
+    { additionalMetadata =
         Prelude.Nothing,
       generationTimestamp =
+        Prelude.Nothing,
+      recommendationId =
         Prelude.Nothing
     }
-
--- | The unique identifier for the recommendation set.
-savingsPlansPurchaseRecommendationMetadata_recommendationId :: Lens.Lens' SavingsPlansPurchaseRecommendationMetadata (Prelude.Maybe Prelude.Text)
-savingsPlansPurchaseRecommendationMetadata_recommendationId = Lens.lens (\SavingsPlansPurchaseRecommendationMetadata' {recommendationId} -> recommendationId) (\s@SavingsPlansPurchaseRecommendationMetadata' {} a -> s {recommendationId = a} :: SavingsPlansPurchaseRecommendationMetadata)
 
 -- | Additional metadata that might be applicable to the recommendation.
 savingsPlansPurchaseRecommendationMetadata_additionalMetadata :: Lens.Lens' SavingsPlansPurchaseRecommendationMetadata (Prelude.Maybe Prelude.Text)
@@ -73,6 +69,10 @@ savingsPlansPurchaseRecommendationMetadata_additionalMetadata = Lens.lens (\Savi
 -- | The timestamp that shows when the recommendations were generated.
 savingsPlansPurchaseRecommendationMetadata_generationTimestamp :: Lens.Lens' SavingsPlansPurchaseRecommendationMetadata (Prelude.Maybe Prelude.Text)
 savingsPlansPurchaseRecommendationMetadata_generationTimestamp = Lens.lens (\SavingsPlansPurchaseRecommendationMetadata' {generationTimestamp} -> generationTimestamp) (\s@SavingsPlansPurchaseRecommendationMetadata' {} a -> s {generationTimestamp = a} :: SavingsPlansPurchaseRecommendationMetadata)
+
+-- | The unique identifier for the recommendation set.
+savingsPlansPurchaseRecommendationMetadata_recommendationId :: Lens.Lens' SavingsPlansPurchaseRecommendationMetadata (Prelude.Maybe Prelude.Text)
+savingsPlansPurchaseRecommendationMetadata_recommendationId = Lens.lens (\SavingsPlansPurchaseRecommendationMetadata' {recommendationId} -> recommendationId) (\s@SavingsPlansPurchaseRecommendationMetadata' {} a -> s {recommendationId = a} :: SavingsPlansPurchaseRecommendationMetadata)
 
 instance
   Data.FromJSON
@@ -83,9 +83,9 @@ instance
       "SavingsPlansPurchaseRecommendationMetadata"
       ( \x ->
           SavingsPlansPurchaseRecommendationMetadata'
-            Prelude.<$> (x Data..:? "RecommendationId")
-              Prelude.<*> (x Data..:? "AdditionalMetadata")
+            Prelude.<$> (x Data..:? "AdditionalMetadata")
               Prelude.<*> (x Data..:? "GenerationTimestamp")
+              Prelude.<*> (x Data..:? "RecommendationId")
       )
 
 instance
@@ -95,15 +95,15 @@ instance
   hashWithSalt
     _salt
     SavingsPlansPurchaseRecommendationMetadata' {..} =
-      _salt `Prelude.hashWithSalt` recommendationId
-        `Prelude.hashWithSalt` additionalMetadata
+      _salt `Prelude.hashWithSalt` additionalMetadata
         `Prelude.hashWithSalt` generationTimestamp
+        `Prelude.hashWithSalt` recommendationId
 
 instance
   Prelude.NFData
     SavingsPlansPurchaseRecommendationMetadata
   where
   rnf SavingsPlansPurchaseRecommendationMetadata' {..} =
-    Prelude.rnf recommendationId
-      `Prelude.seq` Prelude.rnf additionalMetadata
+    Prelude.rnf additionalMetadata
       `Prelude.seq` Prelude.rnf generationTimestamp
+      `Prelude.seq` Prelude.rnf recommendationId

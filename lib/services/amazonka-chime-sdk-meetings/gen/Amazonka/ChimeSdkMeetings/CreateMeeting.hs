@@ -34,12 +34,12 @@ module Amazonka.ChimeSdkMeetings.CreateMeeting
     newCreateMeeting,
 
     -- * Request Lenses
-    createMeeting_tags,
     createMeeting_meetingFeatures,
-    createMeeting_notificationsConfiguration,
     createMeeting_meetingHostId,
-    createMeeting_tenantIds,
+    createMeeting_notificationsConfiguration,
     createMeeting_primaryMeetingId,
+    createMeeting_tags,
+    createMeeting_tenantIds,
     createMeeting_clientRequestToken,
     createMeeting_mediaRegion,
     createMeeting_externalMeetingId,
@@ -64,7 +64,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateMeeting' smart constructor.
 data CreateMeeting = CreateMeeting'
-  { -- | Applies one or more tags to an Amazon Chime SDK meeting. Note the
+  { -- | Lists the audio and video features enabled for a meeting, such as echo
+    -- reduction.
+    meetingFeatures :: Prelude.Maybe MeetingFeaturesConfiguration,
+    -- | Reserved.
+    meetingHostId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The configuration for resource targets to receive notifications when
+    -- meeting and attendee events occur.
+    notificationsConfiguration :: Prelude.Maybe NotificationsConfiguration,
+    -- | When specified, replicates the media from the primary meeting to the new
+    -- meeting.
+    primaryMeetingId :: Prelude.Maybe Prelude.Text,
+    -- | Applies one or more tags to an Amazon Chime SDK meeting. Note the
     -- following:
     --
     -- -   Not all resources have tags. For a list of services with resources
@@ -109,20 +120,9 @@ data CreateMeeting = CreateMeeting'
     -- permissions don\'t work, check the documentation for that service\'s
     -- tagging APIs for more information.
     tags :: Prelude.Maybe [Tag],
-    -- | Lists the audio and video features enabled for a meeting, such as echo
-    -- reduction.
-    meetingFeatures :: Prelude.Maybe MeetingFeaturesConfiguration,
-    -- | The configuration for resource targets to receive notifications when
-    -- meeting and attendee events occur.
-    notificationsConfiguration :: Prelude.Maybe NotificationsConfiguration,
-    -- | Reserved.
-    meetingHostId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A consistent and opaque identifier, created and maintained by the
     -- builder to represent a segment of their users.
     tenantIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | When specified, replicates the media from the primary meeting to the new
-    -- meeting.
-    primaryMeetingId :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the client request. Use a different token for
     -- different meetings.
     clientRequestToken :: Data.Sensitive Prelude.Text,
@@ -149,6 +149,17 @@ data CreateMeeting = CreateMeeting'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'meetingFeatures', 'createMeeting_meetingFeatures' - Lists the audio and video features enabled for a meeting, such as echo
+-- reduction.
+--
+-- 'meetingHostId', 'createMeeting_meetingHostId' - Reserved.
+--
+-- 'notificationsConfiguration', 'createMeeting_notificationsConfiguration' - The configuration for resource targets to receive notifications when
+-- meeting and attendee events occur.
+--
+-- 'primaryMeetingId', 'createMeeting_primaryMeetingId' - When specified, replicates the media from the primary meeting to the new
+-- meeting.
 --
 -- 'tags', 'createMeeting_tags' - Applies one or more tags to an Amazon Chime SDK meeting. Note the
 -- following:
@@ -195,19 +206,8 @@ data CreateMeeting = CreateMeeting'
 -- permissions don\'t work, check the documentation for that service\'s
 -- tagging APIs for more information.
 --
--- 'meetingFeatures', 'createMeeting_meetingFeatures' - Lists the audio and video features enabled for a meeting, such as echo
--- reduction.
---
--- 'notificationsConfiguration', 'createMeeting_notificationsConfiguration' - The configuration for resource targets to receive notifications when
--- meeting and attendee events occur.
---
--- 'meetingHostId', 'createMeeting_meetingHostId' - Reserved.
---
 -- 'tenantIds', 'createMeeting_tenantIds' - A consistent and opaque identifier, created and maintained by the
 -- builder to represent a segment of their users.
---
--- 'primaryMeetingId', 'createMeeting_primaryMeetingId' - When specified, replicates the media from the primary meeting to the new
--- meeting.
 --
 -- 'clientRequestToken', 'createMeeting_clientRequestToken' - The unique identifier for the client request. Use a different token for
 -- different meetings.
@@ -237,18 +237,37 @@ newCreateMeeting
   pMediaRegion_
   pExternalMeetingId_ =
     CreateMeeting'
-      { tags = Prelude.Nothing,
-        meetingFeatures = Prelude.Nothing,
-        notificationsConfiguration = Prelude.Nothing,
+      { meetingFeatures = Prelude.Nothing,
         meetingHostId = Prelude.Nothing,
-        tenantIds = Prelude.Nothing,
+        notificationsConfiguration = Prelude.Nothing,
         primaryMeetingId = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        tenantIds = Prelude.Nothing,
         clientRequestToken =
           Data._Sensitive Lens.# pClientRequestToken_,
         mediaRegion = pMediaRegion_,
         externalMeetingId =
           Data._Sensitive Lens.# pExternalMeetingId_
       }
+
+-- | Lists the audio and video features enabled for a meeting, such as echo
+-- reduction.
+createMeeting_meetingFeatures :: Lens.Lens' CreateMeeting (Prelude.Maybe MeetingFeaturesConfiguration)
+createMeeting_meetingFeatures = Lens.lens (\CreateMeeting' {meetingFeatures} -> meetingFeatures) (\s@CreateMeeting' {} a -> s {meetingFeatures = a} :: CreateMeeting)
+
+-- | Reserved.
+createMeeting_meetingHostId :: Lens.Lens' CreateMeeting (Prelude.Maybe Prelude.Text)
+createMeeting_meetingHostId = Lens.lens (\CreateMeeting' {meetingHostId} -> meetingHostId) (\s@CreateMeeting' {} a -> s {meetingHostId = a} :: CreateMeeting) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The configuration for resource targets to receive notifications when
+-- meeting and attendee events occur.
+createMeeting_notificationsConfiguration :: Lens.Lens' CreateMeeting (Prelude.Maybe NotificationsConfiguration)
+createMeeting_notificationsConfiguration = Lens.lens (\CreateMeeting' {notificationsConfiguration} -> notificationsConfiguration) (\s@CreateMeeting' {} a -> s {notificationsConfiguration = a} :: CreateMeeting)
+
+-- | When specified, replicates the media from the primary meeting to the new
+-- meeting.
+createMeeting_primaryMeetingId :: Lens.Lens' CreateMeeting (Prelude.Maybe Prelude.Text)
+createMeeting_primaryMeetingId = Lens.lens (\CreateMeeting' {primaryMeetingId} -> primaryMeetingId) (\s@CreateMeeting' {} a -> s {primaryMeetingId = a} :: CreateMeeting)
 
 -- | Applies one or more tags to an Amazon Chime SDK meeting. Note the
 -- following:
@@ -297,29 +316,10 @@ newCreateMeeting
 createMeeting_tags :: Lens.Lens' CreateMeeting (Prelude.Maybe [Tag])
 createMeeting_tags = Lens.lens (\CreateMeeting' {tags} -> tags) (\s@CreateMeeting' {} a -> s {tags = a} :: CreateMeeting) Prelude.. Lens.mapping Lens.coerced
 
--- | Lists the audio and video features enabled for a meeting, such as echo
--- reduction.
-createMeeting_meetingFeatures :: Lens.Lens' CreateMeeting (Prelude.Maybe MeetingFeaturesConfiguration)
-createMeeting_meetingFeatures = Lens.lens (\CreateMeeting' {meetingFeatures} -> meetingFeatures) (\s@CreateMeeting' {} a -> s {meetingFeatures = a} :: CreateMeeting)
-
--- | The configuration for resource targets to receive notifications when
--- meeting and attendee events occur.
-createMeeting_notificationsConfiguration :: Lens.Lens' CreateMeeting (Prelude.Maybe NotificationsConfiguration)
-createMeeting_notificationsConfiguration = Lens.lens (\CreateMeeting' {notificationsConfiguration} -> notificationsConfiguration) (\s@CreateMeeting' {} a -> s {notificationsConfiguration = a} :: CreateMeeting)
-
--- | Reserved.
-createMeeting_meetingHostId :: Lens.Lens' CreateMeeting (Prelude.Maybe Prelude.Text)
-createMeeting_meetingHostId = Lens.lens (\CreateMeeting' {meetingHostId} -> meetingHostId) (\s@CreateMeeting' {} a -> s {meetingHostId = a} :: CreateMeeting) Prelude.. Lens.mapping Data._Sensitive
-
 -- | A consistent and opaque identifier, created and maintained by the
 -- builder to represent a segment of their users.
 createMeeting_tenantIds :: Lens.Lens' CreateMeeting (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 createMeeting_tenantIds = Lens.lens (\CreateMeeting' {tenantIds} -> tenantIds) (\s@CreateMeeting' {} a -> s {tenantIds = a} :: CreateMeeting) Prelude.. Lens.mapping Lens.coerced
-
--- | When specified, replicates the media from the primary meeting to the new
--- meeting.
-createMeeting_primaryMeetingId :: Lens.Lens' CreateMeeting (Prelude.Maybe Prelude.Text)
-createMeeting_primaryMeetingId = Lens.lens (\CreateMeeting' {primaryMeetingId} -> primaryMeetingId) (\s@CreateMeeting' {} a -> s {primaryMeetingId = a} :: CreateMeeting)
 
 -- | The unique identifier for the client request. Use a different token for
 -- different meetings.
@@ -359,24 +359,24 @@ instance Core.AWSRequest CreateMeeting where
 
 instance Prelude.Hashable CreateMeeting where
   hashWithSalt _salt CreateMeeting' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` meetingFeatures
-      `Prelude.hashWithSalt` notificationsConfiguration
+    _salt `Prelude.hashWithSalt` meetingFeatures
       `Prelude.hashWithSalt` meetingHostId
-      `Prelude.hashWithSalt` tenantIds
+      `Prelude.hashWithSalt` notificationsConfiguration
       `Prelude.hashWithSalt` primaryMeetingId
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` tenantIds
       `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` mediaRegion
       `Prelude.hashWithSalt` externalMeetingId
 
 instance Prelude.NFData CreateMeeting where
   rnf CreateMeeting' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf meetingFeatures
-      `Prelude.seq` Prelude.rnf notificationsConfiguration
+    Prelude.rnf meetingFeatures
       `Prelude.seq` Prelude.rnf meetingHostId
-      `Prelude.seq` Prelude.rnf tenantIds
+      `Prelude.seq` Prelude.rnf notificationsConfiguration
       `Prelude.seq` Prelude.rnf primaryMeetingId
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf tenantIds
       `Prelude.seq` Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf mediaRegion
       `Prelude.seq` Prelude.rnf externalMeetingId
@@ -388,15 +388,15 @@ instance Data.ToJSON CreateMeeting where
   toJSON CreateMeeting' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("MeetingFeatures" Data..=)
+          [ ("MeetingFeatures" Data..=)
               Prelude.<$> meetingFeatures,
+            ("MeetingHostId" Data..=) Prelude.<$> meetingHostId,
             ("NotificationsConfiguration" Data..=)
               Prelude.<$> notificationsConfiguration,
-            ("MeetingHostId" Data..=) Prelude.<$> meetingHostId,
-            ("TenantIds" Data..=) Prelude.<$> tenantIds,
             ("PrimaryMeetingId" Data..=)
               Prelude.<$> primaryMeetingId,
+            ("Tags" Data..=) Prelude.<$> tags,
+            ("TenantIds" Data..=) Prelude.<$> tenantIds,
             Prelude.Just
               ("ClientRequestToken" Data..= clientRequestToken),
             Prelude.Just ("MediaRegion" Data..= mediaRegion),

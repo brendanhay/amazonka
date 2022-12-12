@@ -32,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newOutpostConfigResponse' smart constructor.
 data OutpostConfigResponse = OutpostConfigResponse'
   { -- | An object representing the placement configuration for all the control
-    -- plane instance of your local Amazon EKS cluster on an Amazon Web
+    -- plane instances of your local Amazon EKS cluster on an Amazon Web
     -- Services Outpost. For more information, see
     -- <https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-capacity-considerations.html Capacity considerations>
     -- in the /Amazon EKS User Guide/.
@@ -55,7 +55,7 @@ data OutpostConfigResponse = OutpostConfigResponse'
 -- for backwards compatibility:
 --
 -- 'controlPlanePlacement', 'outpostConfigResponse_controlPlanePlacement' - An object representing the placement configuration for all the control
--- plane instance of your local Amazon EKS cluster on an Amazon Web
+-- plane instances of your local Amazon EKS cluster on an Amazon Web
 -- Services Outpost. For more information, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-capacity-considerations.html Capacity considerations>
 -- in the /Amazon EKS User Guide/.
@@ -79,7 +79,7 @@ newOutpostConfigResponse pControlPlaneInstanceType_ =
     }
 
 -- | An object representing the placement configuration for all the control
--- plane instance of your local Amazon EKS cluster on an Amazon Web
+-- plane instances of your local Amazon EKS cluster on an Amazon Web
 -- Services Outpost. For more information, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-capacity-considerations.html Capacity considerations>
 -- in the /Amazon EKS User Guide/.

@@ -31,13 +31,7 @@ import Amazonka.RAM.Types.ResourceShareAssociationType
 --
 -- /See:/ 'newResourceShareAssociation' smart constructor.
 data ResourceShareAssociation = ResourceShareAssociation'
-  { -- | Indicates whether the principal belongs to the same organization in
-    -- Organizations as the Amazon Web Services account that owns the resource
-    -- share.
-    external :: Prelude.Maybe Prelude.Bool,
-    -- | The type of entity included in this association.
-    associationType :: Prelude.Maybe ResourceShareAssociationType,
-    -- | The associated entity. This can be either of the following:
+  { -- | The associated entity. This can be either of the following:
     --
     -- -   For a resource association, this is the
     --     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
@@ -57,20 +51,26 @@ data ResourceShareAssociation = ResourceShareAssociation'
     --
     --     -   The ARN of an IAM user
     associatedEntity :: Prelude.Maybe Prelude.Text,
+    -- | The type of entity included in this association.
+    associationType :: Prelude.Maybe ResourceShareAssociationType,
+    -- | The date and time when the association was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
+    -- | Indicates whether the principal belongs to the same organization in
+    -- Organizations as the Amazon Web Services account that owns the resource
+    -- share.
+    external :: Prelude.Maybe Prelude.Bool,
+    -- | The date and time when the association was last updated.
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
     -- of the resource share.
     resourceShareArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the resource share.
+    resourceShareName :: Prelude.Maybe Prelude.Text,
     -- | The current status of the association.
     status :: Prelude.Maybe ResourceShareAssociationStatus,
-    -- | The date and time when the association was last updated.
-    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
-    -- | The date and time when the association was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
     -- | A message about the status of the association.
-    statusMessage :: Prelude.Maybe Prelude.Text,
-    -- | The name of the resource share.
-    resourceShareName :: Prelude.Maybe Prelude.Text
+    statusMessage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,12 +81,6 @@ data ResourceShareAssociation = ResourceShareAssociation'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'external', 'resourceShareAssociation_external' - Indicates whether the principal belongs to the same organization in
--- Organizations as the Amazon Web Services account that owns the resource
--- share.
---
--- 'associationType', 'resourceShareAssociation_associationType' - The type of entity included in this association.
 --
 -- 'associatedEntity', 'resourceShareAssociation_associatedEntity' - The associated entity. This can be either of the following:
 --
@@ -108,44 +102,40 @@ data ResourceShareAssociation = ResourceShareAssociation'
 --
 --     -   The ARN of an IAM user
 --
+-- 'associationType', 'resourceShareAssociation_associationType' - The type of entity included in this association.
+--
+-- 'creationTime', 'resourceShareAssociation_creationTime' - The date and time when the association was created.
+--
+-- 'external', 'resourceShareAssociation_external' - Indicates whether the principal belongs to the same organization in
+-- Organizations as the Amazon Web Services account that owns the resource
+-- share.
+--
+-- 'lastUpdatedTime', 'resourceShareAssociation_lastUpdatedTime' - The date and time when the association was last updated.
+--
 -- 'resourceShareArn', 'resourceShareAssociation_resourceShareArn' - The
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
 -- of the resource share.
 --
+-- 'resourceShareName', 'resourceShareAssociation_resourceShareName' - The name of the resource share.
+--
 -- 'status', 'resourceShareAssociation_status' - The current status of the association.
 --
--- 'lastUpdatedTime', 'resourceShareAssociation_lastUpdatedTime' - The date and time when the association was last updated.
---
--- 'creationTime', 'resourceShareAssociation_creationTime' - The date and time when the association was created.
---
 -- 'statusMessage', 'resourceShareAssociation_statusMessage' - A message about the status of the association.
---
--- 'resourceShareName', 'resourceShareAssociation_resourceShareName' - The name of the resource share.
 newResourceShareAssociation ::
   ResourceShareAssociation
 newResourceShareAssociation =
   ResourceShareAssociation'
-    { external =
+    { associatedEntity =
         Prelude.Nothing,
       associationType = Prelude.Nothing,
-      associatedEntity = Prelude.Nothing,
-      resourceShareArn = Prelude.Nothing,
-      status = Prelude.Nothing,
-      lastUpdatedTime = Prelude.Nothing,
       creationTime = Prelude.Nothing,
-      statusMessage = Prelude.Nothing,
-      resourceShareName = Prelude.Nothing
+      external = Prelude.Nothing,
+      lastUpdatedTime = Prelude.Nothing,
+      resourceShareArn = Prelude.Nothing,
+      resourceShareName = Prelude.Nothing,
+      status = Prelude.Nothing,
+      statusMessage = Prelude.Nothing
     }
-
--- | Indicates whether the principal belongs to the same organization in
--- Organizations as the Amazon Web Services account that owns the resource
--- share.
-resourceShareAssociation_external :: Lens.Lens' ResourceShareAssociation (Prelude.Maybe Prelude.Bool)
-resourceShareAssociation_external = Lens.lens (\ResourceShareAssociation' {external} -> external) (\s@ResourceShareAssociation' {} a -> s {external = a} :: ResourceShareAssociation)
-
--- | The type of entity included in this association.
-resourceShareAssociation_associationType :: Lens.Lens' ResourceShareAssociation (Prelude.Maybe ResourceShareAssociationType)
-resourceShareAssociation_associationType = Lens.lens (\ResourceShareAssociation' {associationType} -> associationType) (\s@ResourceShareAssociation' {} a -> s {associationType = a} :: ResourceShareAssociation)
 
 -- | The associated entity. This can be either of the following:
 --
@@ -169,31 +159,41 @@ resourceShareAssociation_associationType = Lens.lens (\ResourceShareAssociation'
 resourceShareAssociation_associatedEntity :: Lens.Lens' ResourceShareAssociation (Prelude.Maybe Prelude.Text)
 resourceShareAssociation_associatedEntity = Lens.lens (\ResourceShareAssociation' {associatedEntity} -> associatedEntity) (\s@ResourceShareAssociation' {} a -> s {associatedEntity = a} :: ResourceShareAssociation)
 
+-- | The type of entity included in this association.
+resourceShareAssociation_associationType :: Lens.Lens' ResourceShareAssociation (Prelude.Maybe ResourceShareAssociationType)
+resourceShareAssociation_associationType = Lens.lens (\ResourceShareAssociation' {associationType} -> associationType) (\s@ResourceShareAssociation' {} a -> s {associationType = a} :: ResourceShareAssociation)
+
+-- | The date and time when the association was created.
+resourceShareAssociation_creationTime :: Lens.Lens' ResourceShareAssociation (Prelude.Maybe Prelude.UTCTime)
+resourceShareAssociation_creationTime = Lens.lens (\ResourceShareAssociation' {creationTime} -> creationTime) (\s@ResourceShareAssociation' {} a -> s {creationTime = a} :: ResourceShareAssociation) Prelude.. Lens.mapping Data._Time
+
+-- | Indicates whether the principal belongs to the same organization in
+-- Organizations as the Amazon Web Services account that owns the resource
+-- share.
+resourceShareAssociation_external :: Lens.Lens' ResourceShareAssociation (Prelude.Maybe Prelude.Bool)
+resourceShareAssociation_external = Lens.lens (\ResourceShareAssociation' {external} -> external) (\s@ResourceShareAssociation' {} a -> s {external = a} :: ResourceShareAssociation)
+
+-- | The date and time when the association was last updated.
+resourceShareAssociation_lastUpdatedTime :: Lens.Lens' ResourceShareAssociation (Prelude.Maybe Prelude.UTCTime)
+resourceShareAssociation_lastUpdatedTime = Lens.lens (\ResourceShareAssociation' {lastUpdatedTime} -> lastUpdatedTime) (\s@ResourceShareAssociation' {} a -> s {lastUpdatedTime = a} :: ResourceShareAssociation) Prelude.. Lens.mapping Data._Time
+
 -- | The
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
 -- of the resource share.
 resourceShareAssociation_resourceShareArn :: Lens.Lens' ResourceShareAssociation (Prelude.Maybe Prelude.Text)
 resourceShareAssociation_resourceShareArn = Lens.lens (\ResourceShareAssociation' {resourceShareArn} -> resourceShareArn) (\s@ResourceShareAssociation' {} a -> s {resourceShareArn = a} :: ResourceShareAssociation)
 
+-- | The name of the resource share.
+resourceShareAssociation_resourceShareName :: Lens.Lens' ResourceShareAssociation (Prelude.Maybe Prelude.Text)
+resourceShareAssociation_resourceShareName = Lens.lens (\ResourceShareAssociation' {resourceShareName} -> resourceShareName) (\s@ResourceShareAssociation' {} a -> s {resourceShareName = a} :: ResourceShareAssociation)
+
 -- | The current status of the association.
 resourceShareAssociation_status :: Lens.Lens' ResourceShareAssociation (Prelude.Maybe ResourceShareAssociationStatus)
 resourceShareAssociation_status = Lens.lens (\ResourceShareAssociation' {status} -> status) (\s@ResourceShareAssociation' {} a -> s {status = a} :: ResourceShareAssociation)
 
--- | The date and time when the association was last updated.
-resourceShareAssociation_lastUpdatedTime :: Lens.Lens' ResourceShareAssociation (Prelude.Maybe Prelude.UTCTime)
-resourceShareAssociation_lastUpdatedTime = Lens.lens (\ResourceShareAssociation' {lastUpdatedTime} -> lastUpdatedTime) (\s@ResourceShareAssociation' {} a -> s {lastUpdatedTime = a} :: ResourceShareAssociation) Prelude.. Lens.mapping Data._Time
-
--- | The date and time when the association was created.
-resourceShareAssociation_creationTime :: Lens.Lens' ResourceShareAssociation (Prelude.Maybe Prelude.UTCTime)
-resourceShareAssociation_creationTime = Lens.lens (\ResourceShareAssociation' {creationTime} -> creationTime) (\s@ResourceShareAssociation' {} a -> s {creationTime = a} :: ResourceShareAssociation) Prelude.. Lens.mapping Data._Time
-
 -- | A message about the status of the association.
 resourceShareAssociation_statusMessage :: Lens.Lens' ResourceShareAssociation (Prelude.Maybe Prelude.Text)
 resourceShareAssociation_statusMessage = Lens.lens (\ResourceShareAssociation' {statusMessage} -> statusMessage) (\s@ResourceShareAssociation' {} a -> s {statusMessage = a} :: ResourceShareAssociation)
-
--- | The name of the resource share.
-resourceShareAssociation_resourceShareName :: Lens.Lens' ResourceShareAssociation (Prelude.Maybe Prelude.Text)
-resourceShareAssociation_resourceShareName = Lens.lens (\ResourceShareAssociation' {resourceShareName} -> resourceShareName) (\s@ResourceShareAssociation' {} a -> s {resourceShareName = a} :: ResourceShareAssociation)
 
 instance Data.FromJSON ResourceShareAssociation where
   parseJSON =
@@ -201,37 +201,37 @@ instance Data.FromJSON ResourceShareAssociation where
       "ResourceShareAssociation"
       ( \x ->
           ResourceShareAssociation'
-            Prelude.<$> (x Data..:? "external")
+            Prelude.<$> (x Data..:? "associatedEntity")
             Prelude.<*> (x Data..:? "associationType")
-            Prelude.<*> (x Data..:? "associatedEntity")
-            Prelude.<*> (x Data..:? "resourceShareArn")
-            Prelude.<*> (x Data..:? "status")
-            Prelude.<*> (x Data..:? "lastUpdatedTime")
             Prelude.<*> (x Data..:? "creationTime")
-            Prelude.<*> (x Data..:? "statusMessage")
+            Prelude.<*> (x Data..:? "external")
+            Prelude.<*> (x Data..:? "lastUpdatedTime")
+            Prelude.<*> (x Data..:? "resourceShareArn")
             Prelude.<*> (x Data..:? "resourceShareName")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "statusMessage")
       )
 
 instance Prelude.Hashable ResourceShareAssociation where
   hashWithSalt _salt ResourceShareAssociation' {..} =
-    _salt `Prelude.hashWithSalt` external
+    _salt `Prelude.hashWithSalt` associatedEntity
       `Prelude.hashWithSalt` associationType
-      `Prelude.hashWithSalt` associatedEntity
-      `Prelude.hashWithSalt` resourceShareArn
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` lastUpdatedTime
       `Prelude.hashWithSalt` creationTime
-      `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` external
+      `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` resourceShareArn
       `Prelude.hashWithSalt` resourceShareName
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` statusMessage
 
 instance Prelude.NFData ResourceShareAssociation where
   rnf ResourceShareAssociation' {..} =
-    Prelude.rnf external
+    Prelude.rnf associatedEntity
       `Prelude.seq` Prelude.rnf associationType
-      `Prelude.seq` Prelude.rnf associatedEntity
-      `Prelude.seq` Prelude.rnf resourceShareArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
       `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf external
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf resourceShareArn
       `Prelude.seq` Prelude.rnf resourceShareName
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf statusMessage

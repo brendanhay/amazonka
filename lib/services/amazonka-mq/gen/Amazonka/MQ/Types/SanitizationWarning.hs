@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSanitizationWarning' smart constructor.
 data SanitizationWarning = SanitizationWarning'
-  { -- | The name of the XML element that has been sanitized.
-    elementName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the XML attribute that has been sanitized.
+  { -- | The name of the XML attribute that has been sanitized.
     attributeName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the XML element that has been sanitized.
+    elementName :: Prelude.Maybe Prelude.Text,
     -- | Required. The reason for which the XML elements or attributes were
     -- sanitized.
     reason :: SanitizationWarningReason
@@ -48,9 +48,9 @@ data SanitizationWarning = SanitizationWarning'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'elementName', 'sanitizationWarning_elementName' - The name of the XML element that has been sanitized.
---
 -- 'attributeName', 'sanitizationWarning_attributeName' - The name of the XML attribute that has been sanitized.
+--
+-- 'elementName', 'sanitizationWarning_elementName' - The name of the XML element that has been sanitized.
 --
 -- 'reason', 'sanitizationWarning_reason' - Required. The reason for which the XML elements or attributes were
 -- sanitized.
@@ -60,18 +60,19 @@ newSanitizationWarning ::
   SanitizationWarning
 newSanitizationWarning pReason_ =
   SanitizationWarning'
-    { elementName = Prelude.Nothing,
-      attributeName = Prelude.Nothing,
+    { attributeName =
+        Prelude.Nothing,
+      elementName = Prelude.Nothing,
       reason = pReason_
     }
-
--- | The name of the XML element that has been sanitized.
-sanitizationWarning_elementName :: Lens.Lens' SanitizationWarning (Prelude.Maybe Prelude.Text)
-sanitizationWarning_elementName = Lens.lens (\SanitizationWarning' {elementName} -> elementName) (\s@SanitizationWarning' {} a -> s {elementName = a} :: SanitizationWarning)
 
 -- | The name of the XML attribute that has been sanitized.
 sanitizationWarning_attributeName :: Lens.Lens' SanitizationWarning (Prelude.Maybe Prelude.Text)
 sanitizationWarning_attributeName = Lens.lens (\SanitizationWarning' {attributeName} -> attributeName) (\s@SanitizationWarning' {} a -> s {attributeName = a} :: SanitizationWarning)
+
+-- | The name of the XML element that has been sanitized.
+sanitizationWarning_elementName :: Lens.Lens' SanitizationWarning (Prelude.Maybe Prelude.Text)
+sanitizationWarning_elementName = Lens.lens (\SanitizationWarning' {elementName} -> elementName) (\s@SanitizationWarning' {} a -> s {elementName = a} :: SanitizationWarning)
 
 -- | Required. The reason for which the XML elements or attributes were
 -- sanitized.
@@ -84,19 +85,19 @@ instance Data.FromJSON SanitizationWarning where
       "SanitizationWarning"
       ( \x ->
           SanitizationWarning'
-            Prelude.<$> (x Data..:? "elementName")
-            Prelude.<*> (x Data..:? "attributeName")
+            Prelude.<$> (x Data..:? "attributeName")
+            Prelude.<*> (x Data..:? "elementName")
             Prelude.<*> (x Data..: "reason")
       )
 
 instance Prelude.Hashable SanitizationWarning where
   hashWithSalt _salt SanitizationWarning' {..} =
-    _salt `Prelude.hashWithSalt` elementName
-      `Prelude.hashWithSalt` attributeName
+    _salt `Prelude.hashWithSalt` attributeName
+      `Prelude.hashWithSalt` elementName
       `Prelude.hashWithSalt` reason
 
 instance Prelude.NFData SanitizationWarning where
   rnf SanitizationWarning' {..} =
-    Prelude.rnf elementName
-      `Prelude.seq` Prelude.rnf attributeName
+    Prelude.rnf attributeName
+      `Prelude.seq` Prelude.rnf elementName
       `Prelude.seq` Prelude.rnf reason

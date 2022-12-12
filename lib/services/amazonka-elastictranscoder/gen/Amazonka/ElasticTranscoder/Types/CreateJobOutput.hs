@@ -33,61 +33,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCreateJobOutput' smart constructor.
 data CreateJobOutput = CreateJobOutput'
-  { -- | The name to assign to the transcoded file. Elastic Transcoder saves the
-    -- file in the Amazon S3 bucket specified by the @OutputBucket@ object in
-    -- the pipeline that is specified by the pipeline ID. If a file with the
-    -- specified name already exists in the output bucket, the job fails.
-    key :: Prelude.Maybe Prelude.Text,
-    -- | Information about the watermarks that you want Elastic Transcoder to add
-    -- to the video during transcoding. You can specify up to four watermarks
-    -- for each output. Settings for each watermark must be defined in the
-    -- preset for the current output.
-    watermarks :: Prelude.Maybe [JobWatermark],
-    -- | You can create an output file that contains an excerpt from the input
-    -- file. This excerpt, called a clip, can come from the beginning, middle,
-    -- or end of the file. The Composition object contains settings for the
-    -- clips that make up an output file. For the current release, you can only
-    -- specify settings for a single clip per output file. The Composition
-    -- object cannot be null.
-    composition :: Prelude.Maybe [Clip],
-    -- | The encryption settings, if any, that you want Elastic Transcoder to
-    -- apply to your thumbnail.
-    thumbnailEncryption :: Prelude.Maybe Encryption,
-    -- | Whether you want Elastic Transcoder to create thumbnails for your videos
-    -- and, if so, how you want Elastic Transcoder to name the files.
-    --
-    -- If you don\'t want Elastic Transcoder to create thumbnails, specify
-    -- \"\".
-    --
-    -- If you do want Elastic Transcoder to create thumbnails, specify the
-    -- information that you want to include in the file name for each
-    -- thumbnail. You can specify the following values in any sequence:
-    --
-    -- -   __@{count}@ (Required)__: If you want to create thumbnails, you must
-    --     include @{count}@ in the @ThumbnailPattern@ object. Wherever you
-    --     specify @{count}@, Elastic Transcoder adds a five-digit sequence
-    --     number (beginning with __00001__) to thumbnail file names. The
-    --     number indicates where a given thumbnail appears in the sequence of
-    --     thumbnails for a transcoded file.
-    --
-    --     If you specify a literal value and\/or @{resolution}@ but you omit
-    --     @{count}@, Elastic Transcoder returns a validation error and does
-    --     not create the job.
-    --
-    -- -   __Literal values (Optional)__: You can specify literal values
-    --     anywhere in the @ThumbnailPattern@ object. For example, you can
-    --     include them as a file name prefix or as a delimiter between
-    --     @{resolution}@ and @{count}@.
-    --
-    -- -   __@{resolution}@ (Optional)__: If you want Elastic Transcoder to
-    --     include the resolution in the file name, include @{resolution}@ in
-    --     the @ThumbnailPattern@ object.
-    --
-    -- When creating thumbnails, Elastic Transcoder automatically saves the
-    -- files in the format (.jpg or .png) that appears in the preset that you
-    -- specified in the @PresetID@ value of @CreateJobOutput@. Elastic
-    -- Transcoder also appends the applicable file name extension.
-    thumbnailPattern :: Prelude.Maybe Prelude.Text,
+  { -- | Information about the album art that you want Elastic Transcoder to add
+    -- to the file during transcoding. You can specify up to twenty album
+    -- artworks for each output. Settings for each artwork must be defined in
+    -- the job for the current output.
+    albumArt :: Prelude.Maybe JobAlbumArt,
     -- | You can configure Elastic Transcoder to transcode captions, or
     -- subtitles, from one format to another. All captions must be in UTF-8.
     -- Elastic Transcoder supports two types of captions:
@@ -139,20 +89,27 @@ data CreateJobOutput = CreateJobOutput'
     -- For more information on sidecar files, see the Extensible Metadata
     -- Platform and Sidecar file Wikipedia pages.
     captions :: Prelude.Maybe Captions,
-    -- | Information about the album art that you want Elastic Transcoder to add
-    -- to the file during transcoding. You can specify up to twenty album
-    -- artworks for each output. Settings for each artwork must be defined in
-    -- the job for the current output.
-    albumArt :: Prelude.Maybe JobAlbumArt,
-    -- | The @Id@ of the preset to use for this job. The preset determines the
-    -- audio, video, and thumbnail settings that Elastic Transcoder uses for
-    -- transcoding.
-    presetId :: Prelude.Maybe Prelude.Text,
+    -- | You can create an output file that contains an excerpt from the input
+    -- file. This excerpt, called a clip, can come from the beginning, middle,
+    -- or end of the file. The Composition object contains settings for the
+    -- clips that make up an output file. For the current release, you can only
+    -- specify settings for a single clip per output file. The Composition
+    -- object cannot be null.
+    composition :: Prelude.Maybe [Clip],
     -- | You can specify encryption settings for any output files that you want
     -- to use for a transcoding job. This includes the output file and any
     -- watermarks, thumbnails, album art, or captions that you want to use. You
     -- must specify encryption settings for each file individually.
     encryption :: Prelude.Maybe Encryption,
+    -- | The name to assign to the transcoded file. Elastic Transcoder saves the
+    -- file in the Amazon S3 bucket specified by the @OutputBucket@ object in
+    -- the pipeline that is specified by the pipeline ID. If a file with the
+    -- specified name already exists in the output bucket, the job fails.
+    key :: Prelude.Maybe Prelude.Text,
+    -- | The @Id@ of the preset to use for this job. The preset determines the
+    -- audio, video, and thumbnail settings that Elastic Transcoder uses for
+    -- transcoding.
+    presetId :: Prelude.Maybe Prelude.Text,
     -- | The number of degrees clockwise by which you want Elastic Transcoder to
     -- rotate the output relative to the input. Enter one of the following
     -- values: @auto@, @0@, @90@, @180@, @270@. The value @auto@ generally
@@ -178,7 +135,50 @@ data CreateJobOutput = CreateJobOutput'
     -- @HLS@ output that you specify in OutputKeys. To add an output to the
     -- master playlist for this job, include it in the @OutputKeys@ of the
     -- associated playlist.
-    segmentDuration :: Prelude.Maybe Prelude.Text
+    segmentDuration :: Prelude.Maybe Prelude.Text,
+    -- | The encryption settings, if any, that you want Elastic Transcoder to
+    -- apply to your thumbnail.
+    thumbnailEncryption :: Prelude.Maybe Encryption,
+    -- | Whether you want Elastic Transcoder to create thumbnails for your videos
+    -- and, if so, how you want Elastic Transcoder to name the files.
+    --
+    -- If you don\'t want Elastic Transcoder to create thumbnails, specify
+    -- \"\".
+    --
+    -- If you do want Elastic Transcoder to create thumbnails, specify the
+    -- information that you want to include in the file name for each
+    -- thumbnail. You can specify the following values in any sequence:
+    --
+    -- -   __@{count}@ (Required)__: If you want to create thumbnails, you must
+    --     include @{count}@ in the @ThumbnailPattern@ object. Wherever you
+    --     specify @{count}@, Elastic Transcoder adds a five-digit sequence
+    --     number (beginning with __00001__) to thumbnail file names. The
+    --     number indicates where a given thumbnail appears in the sequence of
+    --     thumbnails for a transcoded file.
+    --
+    --     If you specify a literal value and\/or @{resolution}@ but you omit
+    --     @{count}@, Elastic Transcoder returns a validation error and does
+    --     not create the job.
+    --
+    -- -   __Literal values (Optional)__: You can specify literal values
+    --     anywhere in the @ThumbnailPattern@ object. For example, you can
+    --     include them as a file name prefix or as a delimiter between
+    --     @{resolution}@ and @{count}@.
+    --
+    -- -   __@{resolution}@ (Optional)__: If you want Elastic Transcoder to
+    --     include the resolution in the file name, include @{resolution}@ in
+    --     the @ThumbnailPattern@ object.
+    --
+    -- When creating thumbnails, Elastic Transcoder automatically saves the
+    -- files in the format (.jpg or .png) that appears in the preset that you
+    -- specified in the @PresetID@ value of @CreateJobOutput@. Elastic
+    -- Transcoder also appends the applicable file name extension.
+    thumbnailPattern :: Prelude.Maybe Prelude.Text,
+    -- | Information about the watermarks that you want Elastic Transcoder to add
+    -- to the video during transcoding. You can specify up to four watermarks
+    -- for each output. Settings for each watermark must be defined in the
+    -- preset for the current output.
+    watermarks :: Prelude.Maybe [JobWatermark]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -190,60 +190,10 @@ data CreateJobOutput = CreateJobOutput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 'createJobOutput_key' - The name to assign to the transcoded file. Elastic Transcoder saves the
--- file in the Amazon S3 bucket specified by the @OutputBucket@ object in
--- the pipeline that is specified by the pipeline ID. If a file with the
--- specified name already exists in the output bucket, the job fails.
---
--- 'watermarks', 'createJobOutput_watermarks' - Information about the watermarks that you want Elastic Transcoder to add
--- to the video during transcoding. You can specify up to four watermarks
--- for each output. Settings for each watermark must be defined in the
--- preset for the current output.
---
--- 'composition', 'createJobOutput_composition' - You can create an output file that contains an excerpt from the input
--- file. This excerpt, called a clip, can come from the beginning, middle,
--- or end of the file. The Composition object contains settings for the
--- clips that make up an output file. For the current release, you can only
--- specify settings for a single clip per output file. The Composition
--- object cannot be null.
---
--- 'thumbnailEncryption', 'createJobOutput_thumbnailEncryption' - The encryption settings, if any, that you want Elastic Transcoder to
--- apply to your thumbnail.
---
--- 'thumbnailPattern', 'createJobOutput_thumbnailPattern' - Whether you want Elastic Transcoder to create thumbnails for your videos
--- and, if so, how you want Elastic Transcoder to name the files.
---
--- If you don\'t want Elastic Transcoder to create thumbnails, specify
--- \"\".
---
--- If you do want Elastic Transcoder to create thumbnails, specify the
--- information that you want to include in the file name for each
--- thumbnail. You can specify the following values in any sequence:
---
--- -   __@{count}@ (Required)__: If you want to create thumbnails, you must
---     include @{count}@ in the @ThumbnailPattern@ object. Wherever you
---     specify @{count}@, Elastic Transcoder adds a five-digit sequence
---     number (beginning with __00001__) to thumbnail file names. The
---     number indicates where a given thumbnail appears in the sequence of
---     thumbnails for a transcoded file.
---
---     If you specify a literal value and\/or @{resolution}@ but you omit
---     @{count}@, Elastic Transcoder returns a validation error and does
---     not create the job.
---
--- -   __Literal values (Optional)__: You can specify literal values
---     anywhere in the @ThumbnailPattern@ object. For example, you can
---     include them as a file name prefix or as a delimiter between
---     @{resolution}@ and @{count}@.
---
--- -   __@{resolution}@ (Optional)__: If you want Elastic Transcoder to
---     include the resolution in the file name, include @{resolution}@ in
---     the @ThumbnailPattern@ object.
---
--- When creating thumbnails, Elastic Transcoder automatically saves the
--- files in the format (.jpg or .png) that appears in the preset that you
--- specified in the @PresetID@ value of @CreateJobOutput@. Elastic
--- Transcoder also appends the applicable file name extension.
+-- 'albumArt', 'createJobOutput_albumArt' - Information about the album art that you want Elastic Transcoder to add
+-- to the file during transcoding. You can specify up to twenty album
+-- artworks for each output. Settings for each artwork must be defined in
+-- the job for the current output.
 --
 -- 'captions', 'createJobOutput_captions' - You can configure Elastic Transcoder to transcode captions, or
 -- subtitles, from one format to another. All captions must be in UTF-8.
@@ -296,19 +246,26 @@ data CreateJobOutput = CreateJobOutput'
 -- For more information on sidecar files, see the Extensible Metadata
 -- Platform and Sidecar file Wikipedia pages.
 --
--- 'albumArt', 'createJobOutput_albumArt' - Information about the album art that you want Elastic Transcoder to add
--- to the file during transcoding. You can specify up to twenty album
--- artworks for each output. Settings for each artwork must be defined in
--- the job for the current output.
---
--- 'presetId', 'createJobOutput_presetId' - The @Id@ of the preset to use for this job. The preset determines the
--- audio, video, and thumbnail settings that Elastic Transcoder uses for
--- transcoding.
+-- 'composition', 'createJobOutput_composition' - You can create an output file that contains an excerpt from the input
+-- file. This excerpt, called a clip, can come from the beginning, middle,
+-- or end of the file. The Composition object contains settings for the
+-- clips that make up an output file. For the current release, you can only
+-- specify settings for a single clip per output file. The Composition
+-- object cannot be null.
 --
 -- 'encryption', 'createJobOutput_encryption' - You can specify encryption settings for any output files that you want
 -- to use for a transcoding job. This includes the output file and any
 -- watermarks, thumbnails, album art, or captions that you want to use. You
 -- must specify encryption settings for each file individually.
+--
+-- 'key', 'createJobOutput_key' - The name to assign to the transcoded file. Elastic Transcoder saves the
+-- file in the Amazon S3 bucket specified by the @OutputBucket@ object in
+-- the pipeline that is specified by the pipeline ID. If a file with the
+-- specified name already exists in the output bucket, the job fails.
+--
+-- 'presetId', 'createJobOutput_presetId' - The @Id@ of the preset to use for this job. The preset determines the
+-- audio, video, and thumbnail settings that Elastic Transcoder uses for
+-- transcoding.
 --
 -- 'rotate', 'createJobOutput_rotate' - The number of degrees clockwise by which you want Elastic Transcoder to
 -- rotate the output relative to the input. Enter one of the following
@@ -335,52 +292,11 @@ data CreateJobOutput = CreateJobOutput'
 -- @HLS@ output that you specify in OutputKeys. To add an output to the
 -- master playlist for this job, include it in the @OutputKeys@ of the
 -- associated playlist.
-newCreateJobOutput ::
-  CreateJobOutput
-newCreateJobOutput =
-  CreateJobOutput'
-    { key = Prelude.Nothing,
-      watermarks = Prelude.Nothing,
-      composition = Prelude.Nothing,
-      thumbnailEncryption = Prelude.Nothing,
-      thumbnailPattern = Prelude.Nothing,
-      captions = Prelude.Nothing,
-      albumArt = Prelude.Nothing,
-      presetId = Prelude.Nothing,
-      encryption = Prelude.Nothing,
-      rotate = Prelude.Nothing,
-      segmentDuration = Prelude.Nothing
-    }
-
--- | The name to assign to the transcoded file. Elastic Transcoder saves the
--- file in the Amazon S3 bucket specified by the @OutputBucket@ object in
--- the pipeline that is specified by the pipeline ID. If a file with the
--- specified name already exists in the output bucket, the job fails.
-createJobOutput_key :: Lens.Lens' CreateJobOutput (Prelude.Maybe Prelude.Text)
-createJobOutput_key = Lens.lens (\CreateJobOutput' {key} -> key) (\s@CreateJobOutput' {} a -> s {key = a} :: CreateJobOutput)
-
--- | Information about the watermarks that you want Elastic Transcoder to add
--- to the video during transcoding. You can specify up to four watermarks
--- for each output. Settings for each watermark must be defined in the
--- preset for the current output.
-createJobOutput_watermarks :: Lens.Lens' CreateJobOutput (Prelude.Maybe [JobWatermark])
-createJobOutput_watermarks = Lens.lens (\CreateJobOutput' {watermarks} -> watermarks) (\s@CreateJobOutput' {} a -> s {watermarks = a} :: CreateJobOutput) Prelude.. Lens.mapping Lens.coerced
-
--- | You can create an output file that contains an excerpt from the input
--- file. This excerpt, called a clip, can come from the beginning, middle,
--- or end of the file. The Composition object contains settings for the
--- clips that make up an output file. For the current release, you can only
--- specify settings for a single clip per output file. The Composition
--- object cannot be null.
-createJobOutput_composition :: Lens.Lens' CreateJobOutput (Prelude.Maybe [Clip])
-createJobOutput_composition = Lens.lens (\CreateJobOutput' {composition} -> composition) (\s@CreateJobOutput' {} a -> s {composition = a} :: CreateJobOutput) Prelude.. Lens.mapping Lens.coerced
-
--- | The encryption settings, if any, that you want Elastic Transcoder to
+--
+-- 'thumbnailEncryption', 'createJobOutput_thumbnailEncryption' - The encryption settings, if any, that you want Elastic Transcoder to
 -- apply to your thumbnail.
-createJobOutput_thumbnailEncryption :: Lens.Lens' CreateJobOutput (Prelude.Maybe Encryption)
-createJobOutput_thumbnailEncryption = Lens.lens (\CreateJobOutput' {thumbnailEncryption} -> thumbnailEncryption) (\s@CreateJobOutput' {} a -> s {thumbnailEncryption = a} :: CreateJobOutput)
-
--- | Whether you want Elastic Transcoder to create thumbnails for your videos
+--
+-- 'thumbnailPattern', 'createJobOutput_thumbnailPattern' - Whether you want Elastic Transcoder to create thumbnails for your videos
 -- and, if so, how you want Elastic Transcoder to name the files.
 --
 -- If you don\'t want Elastic Transcoder to create thumbnails, specify
@@ -414,8 +330,34 @@ createJobOutput_thumbnailEncryption = Lens.lens (\CreateJobOutput' {thumbnailEnc
 -- files in the format (.jpg or .png) that appears in the preset that you
 -- specified in the @PresetID@ value of @CreateJobOutput@. Elastic
 -- Transcoder also appends the applicable file name extension.
-createJobOutput_thumbnailPattern :: Lens.Lens' CreateJobOutput (Prelude.Maybe Prelude.Text)
-createJobOutput_thumbnailPattern = Lens.lens (\CreateJobOutput' {thumbnailPattern} -> thumbnailPattern) (\s@CreateJobOutput' {} a -> s {thumbnailPattern = a} :: CreateJobOutput)
+--
+-- 'watermarks', 'createJobOutput_watermarks' - Information about the watermarks that you want Elastic Transcoder to add
+-- to the video during transcoding. You can specify up to four watermarks
+-- for each output. Settings for each watermark must be defined in the
+-- preset for the current output.
+newCreateJobOutput ::
+  CreateJobOutput
+newCreateJobOutput =
+  CreateJobOutput'
+    { albumArt = Prelude.Nothing,
+      captions = Prelude.Nothing,
+      composition = Prelude.Nothing,
+      encryption = Prelude.Nothing,
+      key = Prelude.Nothing,
+      presetId = Prelude.Nothing,
+      rotate = Prelude.Nothing,
+      segmentDuration = Prelude.Nothing,
+      thumbnailEncryption = Prelude.Nothing,
+      thumbnailPattern = Prelude.Nothing,
+      watermarks = Prelude.Nothing
+    }
+
+-- | Information about the album art that you want Elastic Transcoder to add
+-- to the file during transcoding. You can specify up to twenty album
+-- artworks for each output. Settings for each artwork must be defined in
+-- the job for the current output.
+createJobOutput_albumArt :: Lens.Lens' CreateJobOutput (Prelude.Maybe JobAlbumArt)
+createJobOutput_albumArt = Lens.lens (\CreateJobOutput' {albumArt} -> albumArt) (\s@CreateJobOutput' {} a -> s {albumArt = a} :: CreateJobOutput)
 
 -- | You can configure Elastic Transcoder to transcode captions, or
 -- subtitles, from one format to another. All captions must be in UTF-8.
@@ -470,18 +412,14 @@ createJobOutput_thumbnailPattern = Lens.lens (\CreateJobOutput' {thumbnailPatter
 createJobOutput_captions :: Lens.Lens' CreateJobOutput (Prelude.Maybe Captions)
 createJobOutput_captions = Lens.lens (\CreateJobOutput' {captions} -> captions) (\s@CreateJobOutput' {} a -> s {captions = a} :: CreateJobOutput)
 
--- | Information about the album art that you want Elastic Transcoder to add
--- to the file during transcoding. You can specify up to twenty album
--- artworks for each output. Settings for each artwork must be defined in
--- the job for the current output.
-createJobOutput_albumArt :: Lens.Lens' CreateJobOutput (Prelude.Maybe JobAlbumArt)
-createJobOutput_albumArt = Lens.lens (\CreateJobOutput' {albumArt} -> albumArt) (\s@CreateJobOutput' {} a -> s {albumArt = a} :: CreateJobOutput)
-
--- | The @Id@ of the preset to use for this job. The preset determines the
--- audio, video, and thumbnail settings that Elastic Transcoder uses for
--- transcoding.
-createJobOutput_presetId :: Lens.Lens' CreateJobOutput (Prelude.Maybe Prelude.Text)
-createJobOutput_presetId = Lens.lens (\CreateJobOutput' {presetId} -> presetId) (\s@CreateJobOutput' {} a -> s {presetId = a} :: CreateJobOutput)
+-- | You can create an output file that contains an excerpt from the input
+-- file. This excerpt, called a clip, can come from the beginning, middle,
+-- or end of the file. The Composition object contains settings for the
+-- clips that make up an output file. For the current release, you can only
+-- specify settings for a single clip per output file. The Composition
+-- object cannot be null.
+createJobOutput_composition :: Lens.Lens' CreateJobOutput (Prelude.Maybe [Clip])
+createJobOutput_composition = Lens.lens (\CreateJobOutput' {composition} -> composition) (\s@CreateJobOutput' {} a -> s {composition = a} :: CreateJobOutput) Prelude.. Lens.mapping Lens.coerced
 
 -- | You can specify encryption settings for any output files that you want
 -- to use for a transcoding job. This includes the output file and any
@@ -489,6 +427,19 @@ createJobOutput_presetId = Lens.lens (\CreateJobOutput' {presetId} -> presetId) 
 -- must specify encryption settings for each file individually.
 createJobOutput_encryption :: Lens.Lens' CreateJobOutput (Prelude.Maybe Encryption)
 createJobOutput_encryption = Lens.lens (\CreateJobOutput' {encryption} -> encryption) (\s@CreateJobOutput' {} a -> s {encryption = a} :: CreateJobOutput)
+
+-- | The name to assign to the transcoded file. Elastic Transcoder saves the
+-- file in the Amazon S3 bucket specified by the @OutputBucket@ object in
+-- the pipeline that is specified by the pipeline ID. If a file with the
+-- specified name already exists in the output bucket, the job fails.
+createJobOutput_key :: Lens.Lens' CreateJobOutput (Prelude.Maybe Prelude.Text)
+createJobOutput_key = Lens.lens (\CreateJobOutput' {key} -> key) (\s@CreateJobOutput' {} a -> s {key = a} :: CreateJobOutput)
+
+-- | The @Id@ of the preset to use for this job. The preset determines the
+-- audio, video, and thumbnail settings that Elastic Transcoder uses for
+-- transcoding.
+createJobOutput_presetId :: Lens.Lens' CreateJobOutput (Prelude.Maybe Prelude.Text)
+createJobOutput_presetId = Lens.lens (\CreateJobOutput' {presetId} -> presetId) (\s@CreateJobOutput' {} a -> s {presetId = a} :: CreateJobOutput)
 
 -- | The number of degrees clockwise by which you want Elastic Transcoder to
 -- rotate the output relative to the input. Enter one of the following
@@ -520,51 +471,100 @@ createJobOutput_rotate = Lens.lens (\CreateJobOutput' {rotate} -> rotate) (\s@Cr
 createJobOutput_segmentDuration :: Lens.Lens' CreateJobOutput (Prelude.Maybe Prelude.Text)
 createJobOutput_segmentDuration = Lens.lens (\CreateJobOutput' {segmentDuration} -> segmentDuration) (\s@CreateJobOutput' {} a -> s {segmentDuration = a} :: CreateJobOutput)
 
+-- | The encryption settings, if any, that you want Elastic Transcoder to
+-- apply to your thumbnail.
+createJobOutput_thumbnailEncryption :: Lens.Lens' CreateJobOutput (Prelude.Maybe Encryption)
+createJobOutput_thumbnailEncryption = Lens.lens (\CreateJobOutput' {thumbnailEncryption} -> thumbnailEncryption) (\s@CreateJobOutput' {} a -> s {thumbnailEncryption = a} :: CreateJobOutput)
+
+-- | Whether you want Elastic Transcoder to create thumbnails for your videos
+-- and, if so, how you want Elastic Transcoder to name the files.
+--
+-- If you don\'t want Elastic Transcoder to create thumbnails, specify
+-- \"\".
+--
+-- If you do want Elastic Transcoder to create thumbnails, specify the
+-- information that you want to include in the file name for each
+-- thumbnail. You can specify the following values in any sequence:
+--
+-- -   __@{count}@ (Required)__: If you want to create thumbnails, you must
+--     include @{count}@ in the @ThumbnailPattern@ object. Wherever you
+--     specify @{count}@, Elastic Transcoder adds a five-digit sequence
+--     number (beginning with __00001__) to thumbnail file names. The
+--     number indicates where a given thumbnail appears in the sequence of
+--     thumbnails for a transcoded file.
+--
+--     If you specify a literal value and\/or @{resolution}@ but you omit
+--     @{count}@, Elastic Transcoder returns a validation error and does
+--     not create the job.
+--
+-- -   __Literal values (Optional)__: You can specify literal values
+--     anywhere in the @ThumbnailPattern@ object. For example, you can
+--     include them as a file name prefix or as a delimiter between
+--     @{resolution}@ and @{count}@.
+--
+-- -   __@{resolution}@ (Optional)__: If you want Elastic Transcoder to
+--     include the resolution in the file name, include @{resolution}@ in
+--     the @ThumbnailPattern@ object.
+--
+-- When creating thumbnails, Elastic Transcoder automatically saves the
+-- files in the format (.jpg or .png) that appears in the preset that you
+-- specified in the @PresetID@ value of @CreateJobOutput@. Elastic
+-- Transcoder also appends the applicable file name extension.
+createJobOutput_thumbnailPattern :: Lens.Lens' CreateJobOutput (Prelude.Maybe Prelude.Text)
+createJobOutput_thumbnailPattern = Lens.lens (\CreateJobOutput' {thumbnailPattern} -> thumbnailPattern) (\s@CreateJobOutput' {} a -> s {thumbnailPattern = a} :: CreateJobOutput)
+
+-- | Information about the watermarks that you want Elastic Transcoder to add
+-- to the video during transcoding. You can specify up to four watermarks
+-- for each output. Settings for each watermark must be defined in the
+-- preset for the current output.
+createJobOutput_watermarks :: Lens.Lens' CreateJobOutput (Prelude.Maybe [JobWatermark])
+createJobOutput_watermarks = Lens.lens (\CreateJobOutput' {watermarks} -> watermarks) (\s@CreateJobOutput' {} a -> s {watermarks = a} :: CreateJobOutput) Prelude.. Lens.mapping Lens.coerced
+
 instance Prelude.Hashable CreateJobOutput where
   hashWithSalt _salt CreateJobOutput' {..} =
-    _salt `Prelude.hashWithSalt` key
-      `Prelude.hashWithSalt` watermarks
-      `Prelude.hashWithSalt` composition
-      `Prelude.hashWithSalt` thumbnailEncryption
-      `Prelude.hashWithSalt` thumbnailPattern
+    _salt `Prelude.hashWithSalt` albumArt
       `Prelude.hashWithSalt` captions
-      `Prelude.hashWithSalt` albumArt
-      `Prelude.hashWithSalt` presetId
+      `Prelude.hashWithSalt` composition
       `Prelude.hashWithSalt` encryption
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` presetId
       `Prelude.hashWithSalt` rotate
       `Prelude.hashWithSalt` segmentDuration
+      `Prelude.hashWithSalt` thumbnailEncryption
+      `Prelude.hashWithSalt` thumbnailPattern
+      `Prelude.hashWithSalt` watermarks
 
 instance Prelude.NFData CreateJobOutput where
   rnf CreateJobOutput' {..} =
-    Prelude.rnf key
-      `Prelude.seq` Prelude.rnf watermarks
-      `Prelude.seq` Prelude.rnf composition
-      `Prelude.seq` Prelude.rnf thumbnailEncryption
-      `Prelude.seq` Prelude.rnf thumbnailPattern
+    Prelude.rnf albumArt
       `Prelude.seq` Prelude.rnf captions
-      `Prelude.seq` Prelude.rnf albumArt
-      `Prelude.seq` Prelude.rnf presetId
+      `Prelude.seq` Prelude.rnf composition
       `Prelude.seq` Prelude.rnf encryption
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf presetId
       `Prelude.seq` Prelude.rnf rotate
       `Prelude.seq` Prelude.rnf segmentDuration
+      `Prelude.seq` Prelude.rnf thumbnailEncryption
+      `Prelude.seq` Prelude.rnf thumbnailPattern
+      `Prelude.seq` Prelude.rnf watermarks
 
 instance Data.ToJSON CreateJobOutput where
   toJSON CreateJobOutput' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Key" Data..=) Prelude.<$> key,
-            ("Watermarks" Data..=) Prelude.<$> watermarks,
+          [ ("AlbumArt" Data..=) Prelude.<$> albumArt,
+            ("Captions" Data..=) Prelude.<$> captions,
             ("Composition" Data..=) Prelude.<$> composition,
+            ("Encryption" Data..=) Prelude.<$> encryption,
+            ("Key" Data..=) Prelude.<$> key,
+            ("PresetId" Data..=) Prelude.<$> presetId,
+            ("Rotate" Data..=) Prelude.<$> rotate,
+            ("SegmentDuration" Data..=)
+              Prelude.<$> segmentDuration,
             ("ThumbnailEncryption" Data..=)
               Prelude.<$> thumbnailEncryption,
             ("ThumbnailPattern" Data..=)
               Prelude.<$> thumbnailPattern,
-            ("Captions" Data..=) Prelude.<$> captions,
-            ("AlbumArt" Data..=) Prelude.<$> albumArt,
-            ("PresetId" Data..=) Prelude.<$> presetId,
-            ("Encryption" Data..=) Prelude.<$> encryption,
-            ("Rotate" Data..=) Prelude.<$> rotate,
-            ("SegmentDuration" Data..=)
-              Prelude.<$> segmentDuration
+            ("Watermarks" Data..=) Prelude.<$> watermarks
           ]
       )

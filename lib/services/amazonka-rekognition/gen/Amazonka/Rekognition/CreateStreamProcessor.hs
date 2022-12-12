@@ -61,11 +61,11 @@ module Amazonka.Rekognition.CreateStreamProcessor
     newCreateStreamProcessor,
 
     -- * Request Lenses
-    createStreamProcessor_tags,
-    createStreamProcessor_regionsOfInterest,
-    createStreamProcessor_kmsKeyId,
     createStreamProcessor_dataSharingPreference,
+    createStreamProcessor_kmsKeyId,
     createStreamProcessor_notificationChannel,
+    createStreamProcessor_regionsOfInterest,
+    createStreamProcessor_tags,
     createStreamProcessor_input,
     createStreamProcessor_output,
     createStreamProcessor_name,
@@ -92,15 +92,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateStreamProcessor' smart constructor.
 data CreateStreamProcessor = CreateStreamProcessor'
-  { -- | A set of tags (key-value pairs) that you want to attach to the stream
-    -- processor.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Specifies locations in the frames where Amazon Rekognition checks for
-    -- objects or people. You can specify up to 10 regions of interest, and
-    -- each region has either a polygon or a bounding box. This is an optional
-    -- parameter for label detection stream processors and should not be used
-    -- to create a face search stream processor.
-    regionsOfInterest :: Prelude.Maybe [RegionOfInterest],
+  { -- | Shows whether you are sharing data with Rekognition to improve model
+    -- performance. You can choose this option at the account level or on a
+    -- per-stream basis. Note that if you opt out at the account level this
+    -- setting is ignored on individual streams.
+    dataSharingPreference :: Prelude.Maybe StreamProcessorDataSharingPreference,
     -- | The identifier for your AWS Key Management Service key (AWS KMS key).
     -- This is an optional parameter for label detection stream processors and
     -- should not be used to create a face search stream processor. You can
@@ -110,12 +106,16 @@ data CreateStreamProcessor = CreateStreamProcessor'
     -- includes image frames and hero images. Your source images are
     -- unaffected.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | Shows whether you are sharing data with Rekognition to improve model
-    -- performance. You can choose this option at the account level or on a
-    -- per-stream basis. Note that if you opt out at the account level this
-    -- setting is ignored on individual streams.
-    dataSharingPreference :: Prelude.Maybe StreamProcessorDataSharingPreference,
     notificationChannel :: Prelude.Maybe StreamProcessorNotificationChannel,
+    -- | Specifies locations in the frames where Amazon Rekognition checks for
+    -- objects or people. You can specify up to 10 regions of interest, and
+    -- each region has either a polygon or a bounding box. This is an optional
+    -- parameter for label detection stream processors and should not be used
+    -- to create a face search stream processor.
+    regionsOfInterest :: Prelude.Maybe [RegionOfInterest],
+    -- | A set of tags (key-value pairs) that you want to attach to the stream
+    -- processor.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Kinesis video stream stream that provides the source streaming video. If
     -- you are using the AWS CLI, the parameter name is @StreamProcessorInput@.
     -- This is required for both face search and label detection stream
@@ -156,14 +156,10 @@ data CreateStreamProcessor = CreateStreamProcessor'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createStreamProcessor_tags' - A set of tags (key-value pairs) that you want to attach to the stream
--- processor.
---
--- 'regionsOfInterest', 'createStreamProcessor_regionsOfInterest' - Specifies locations in the frames where Amazon Rekognition checks for
--- objects or people. You can specify up to 10 regions of interest, and
--- each region has either a polygon or a bounding box. This is an optional
--- parameter for label detection stream processors and should not be used
--- to create a face search stream processor.
+-- 'dataSharingPreference', 'createStreamProcessor_dataSharingPreference' - Shows whether you are sharing data with Rekognition to improve model
+-- performance. You can choose this option at the account level or on a
+-- per-stream basis. Note that if you opt out at the account level this
+-- setting is ignored on individual streams.
 --
 -- 'kmsKeyId', 'createStreamProcessor_kmsKeyId' - The identifier for your AWS Key Management Service key (AWS KMS key).
 -- This is an optional parameter for label detection stream processors and
@@ -174,12 +170,16 @@ data CreateStreamProcessor = CreateStreamProcessor'
 -- includes image frames and hero images. Your source images are
 -- unaffected.
 --
--- 'dataSharingPreference', 'createStreamProcessor_dataSharingPreference' - Shows whether you are sharing data with Rekognition to improve model
--- performance. You can choose this option at the account level or on a
--- per-stream basis. Note that if you opt out at the account level this
--- setting is ignored on individual streams.
---
 -- 'notificationChannel', 'createStreamProcessor_notificationChannel' - Undocumented member.
+--
+-- 'regionsOfInterest', 'createStreamProcessor_regionsOfInterest' - Specifies locations in the frames where Amazon Rekognition checks for
+-- objects or people. You can specify up to 10 regions of interest, and
+-- each region has either a polygon or a bounding box. This is an optional
+-- parameter for label detection stream processors and should not be used
+-- to create a face search stream processor.
+--
+-- 'tags', 'createStreamProcessor_tags' - A set of tags (key-value pairs) that you want to attach to the stream
+-- processor.
 --
 -- 'input', 'createStreamProcessor_input' - Kinesis video stream stream that provides the source streaming video. If
 -- you are using the AWS CLI, the parameter name is @StreamProcessorInput@.
@@ -228,11 +228,12 @@ newCreateStreamProcessor
   pSettings_
   pRoleArn_ =
     CreateStreamProcessor'
-      { tags = Prelude.Nothing,
-        regionsOfInterest = Prelude.Nothing,
+      { dataSharingPreference =
+          Prelude.Nothing,
         kmsKeyId = Prelude.Nothing,
-        dataSharingPreference = Prelude.Nothing,
         notificationChannel = Prelude.Nothing,
+        regionsOfInterest = Prelude.Nothing,
+        tags = Prelude.Nothing,
         input = pInput_,
         output = pOutput_,
         name = pName_,
@@ -240,18 +241,12 @@ newCreateStreamProcessor
         roleArn = pRoleArn_
       }
 
--- | A set of tags (key-value pairs) that you want to attach to the stream
--- processor.
-createStreamProcessor_tags :: Lens.Lens' CreateStreamProcessor (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createStreamProcessor_tags = Lens.lens (\CreateStreamProcessor' {tags} -> tags) (\s@CreateStreamProcessor' {} a -> s {tags = a} :: CreateStreamProcessor) Prelude.. Lens.mapping Lens.coerced
-
--- | Specifies locations in the frames where Amazon Rekognition checks for
--- objects or people. You can specify up to 10 regions of interest, and
--- each region has either a polygon or a bounding box. This is an optional
--- parameter for label detection stream processors and should not be used
--- to create a face search stream processor.
-createStreamProcessor_regionsOfInterest :: Lens.Lens' CreateStreamProcessor (Prelude.Maybe [RegionOfInterest])
-createStreamProcessor_regionsOfInterest = Lens.lens (\CreateStreamProcessor' {regionsOfInterest} -> regionsOfInterest) (\s@CreateStreamProcessor' {} a -> s {regionsOfInterest = a} :: CreateStreamProcessor) Prelude.. Lens.mapping Lens.coerced
+-- | Shows whether you are sharing data with Rekognition to improve model
+-- performance. You can choose this option at the account level or on a
+-- per-stream basis. Note that if you opt out at the account level this
+-- setting is ignored on individual streams.
+createStreamProcessor_dataSharingPreference :: Lens.Lens' CreateStreamProcessor (Prelude.Maybe StreamProcessorDataSharingPreference)
+createStreamProcessor_dataSharingPreference = Lens.lens (\CreateStreamProcessor' {dataSharingPreference} -> dataSharingPreference) (\s@CreateStreamProcessor' {} a -> s {dataSharingPreference = a} :: CreateStreamProcessor)
 
 -- | The identifier for your AWS Key Management Service key (AWS KMS key).
 -- This is an optional parameter for label detection stream processors and
@@ -264,16 +259,22 @@ createStreamProcessor_regionsOfInterest = Lens.lens (\CreateStreamProcessor' {re
 createStreamProcessor_kmsKeyId :: Lens.Lens' CreateStreamProcessor (Prelude.Maybe Prelude.Text)
 createStreamProcessor_kmsKeyId = Lens.lens (\CreateStreamProcessor' {kmsKeyId} -> kmsKeyId) (\s@CreateStreamProcessor' {} a -> s {kmsKeyId = a} :: CreateStreamProcessor)
 
--- | Shows whether you are sharing data with Rekognition to improve model
--- performance. You can choose this option at the account level or on a
--- per-stream basis. Note that if you opt out at the account level this
--- setting is ignored on individual streams.
-createStreamProcessor_dataSharingPreference :: Lens.Lens' CreateStreamProcessor (Prelude.Maybe StreamProcessorDataSharingPreference)
-createStreamProcessor_dataSharingPreference = Lens.lens (\CreateStreamProcessor' {dataSharingPreference} -> dataSharingPreference) (\s@CreateStreamProcessor' {} a -> s {dataSharingPreference = a} :: CreateStreamProcessor)
-
 -- | Undocumented member.
 createStreamProcessor_notificationChannel :: Lens.Lens' CreateStreamProcessor (Prelude.Maybe StreamProcessorNotificationChannel)
 createStreamProcessor_notificationChannel = Lens.lens (\CreateStreamProcessor' {notificationChannel} -> notificationChannel) (\s@CreateStreamProcessor' {} a -> s {notificationChannel = a} :: CreateStreamProcessor)
+
+-- | Specifies locations in the frames where Amazon Rekognition checks for
+-- objects or people. You can specify up to 10 regions of interest, and
+-- each region has either a polygon or a bounding box. This is an optional
+-- parameter for label detection stream processors and should not be used
+-- to create a face search stream processor.
+createStreamProcessor_regionsOfInterest :: Lens.Lens' CreateStreamProcessor (Prelude.Maybe [RegionOfInterest])
+createStreamProcessor_regionsOfInterest = Lens.lens (\CreateStreamProcessor' {regionsOfInterest} -> regionsOfInterest) (\s@CreateStreamProcessor' {} a -> s {regionsOfInterest = a} :: CreateStreamProcessor) Prelude.. Lens.mapping Lens.coerced
+
+-- | A set of tags (key-value pairs) that you want to attach to the stream
+-- processor.
+createStreamProcessor_tags :: Lens.Lens' CreateStreamProcessor (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createStreamProcessor_tags = Lens.lens (\CreateStreamProcessor' {tags} -> tags) (\s@CreateStreamProcessor' {} a -> s {tags = a} :: CreateStreamProcessor) Prelude.. Lens.mapping Lens.coerced
 
 -- | Kinesis video stream stream that provides the source streaming video. If
 -- you are using the AWS CLI, the parameter name is @StreamProcessorInput@.
@@ -330,11 +331,11 @@ instance Core.AWSRequest CreateStreamProcessor where
 
 instance Prelude.Hashable CreateStreamProcessor where
   hashWithSalt _salt CreateStreamProcessor' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` regionsOfInterest
+    _salt `Prelude.hashWithSalt` dataSharingPreference
       `Prelude.hashWithSalt` kmsKeyId
-      `Prelude.hashWithSalt` dataSharingPreference
       `Prelude.hashWithSalt` notificationChannel
+      `Prelude.hashWithSalt` regionsOfInterest
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` input
       `Prelude.hashWithSalt` output
       `Prelude.hashWithSalt` name
@@ -343,11 +344,11 @@ instance Prelude.Hashable CreateStreamProcessor where
 
 instance Prelude.NFData CreateStreamProcessor where
   rnf CreateStreamProcessor' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf regionsOfInterest
+    Prelude.rnf dataSharingPreference
       `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf dataSharingPreference
       `Prelude.seq` Prelude.rnf notificationChannel
+      `Prelude.seq` Prelude.rnf regionsOfInterest
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf input
       `Prelude.seq` Prelude.rnf output
       `Prelude.seq` Prelude.rnf name
@@ -373,14 +374,14 @@ instance Data.ToJSON CreateStreamProcessor where
   toJSON CreateStreamProcessor' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("RegionsOfInterest" Data..=)
-              Prelude.<$> regionsOfInterest,
-            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
-            ("DataSharingPreference" Data..=)
+          [ ("DataSharingPreference" Data..=)
               Prelude.<$> dataSharingPreference,
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
             ("NotificationChannel" Data..=)
               Prelude.<$> notificationChannel,
+            ("RegionsOfInterest" Data..=)
+              Prelude.<$> regionsOfInterest,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Input" Data..= input),
             Prelude.Just ("Output" Data..= output),
             Prelude.Just ("Name" Data..= name),

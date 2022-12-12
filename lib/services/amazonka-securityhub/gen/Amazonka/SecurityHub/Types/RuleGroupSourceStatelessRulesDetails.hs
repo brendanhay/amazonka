@@ -29,11 +29,11 @@ import Amazonka.SecurityHub.Types.RuleGroupSourceStatelessRuleDefinition
 --
 -- /See:/ 'newRuleGroupSourceStatelessRulesDetails' smart constructor.
 data RuleGroupSourceStatelessRulesDetails = RuleGroupSourceStatelessRulesDetails'
-  { -- | Provides the definition of the stateless rule.
-    ruleDefinition :: Prelude.Maybe RuleGroupSourceStatelessRuleDefinition,
-    -- | Indicates the order in which to run this rule relative to all of the
+  { -- | Indicates the order in which to run this rule relative to all of the
     -- rules in the stateless rule group.
-    priority :: Prelude.Maybe Prelude.Int
+    priority :: Prelude.Maybe Prelude.Int,
+    -- | Provides the definition of the stateless rule.
+    ruleDefinition :: Prelude.Maybe RuleGroupSourceStatelessRuleDefinition
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,27 +45,27 @@ data RuleGroupSourceStatelessRulesDetails = RuleGroupSourceStatelessRulesDetails
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ruleDefinition', 'ruleGroupSourceStatelessRulesDetails_ruleDefinition' - Provides the definition of the stateless rule.
---
 -- 'priority', 'ruleGroupSourceStatelessRulesDetails_priority' - Indicates the order in which to run this rule relative to all of the
 -- rules in the stateless rule group.
+--
+-- 'ruleDefinition', 'ruleGroupSourceStatelessRulesDetails_ruleDefinition' - Provides the definition of the stateless rule.
 newRuleGroupSourceStatelessRulesDetails ::
   RuleGroupSourceStatelessRulesDetails
 newRuleGroupSourceStatelessRulesDetails =
   RuleGroupSourceStatelessRulesDetails'
-    { ruleDefinition =
+    { priority =
         Prelude.Nothing,
-      priority = Prelude.Nothing
+      ruleDefinition = Prelude.Nothing
     }
-
--- | Provides the definition of the stateless rule.
-ruleGroupSourceStatelessRulesDetails_ruleDefinition :: Lens.Lens' RuleGroupSourceStatelessRulesDetails (Prelude.Maybe RuleGroupSourceStatelessRuleDefinition)
-ruleGroupSourceStatelessRulesDetails_ruleDefinition = Lens.lens (\RuleGroupSourceStatelessRulesDetails' {ruleDefinition} -> ruleDefinition) (\s@RuleGroupSourceStatelessRulesDetails' {} a -> s {ruleDefinition = a} :: RuleGroupSourceStatelessRulesDetails)
 
 -- | Indicates the order in which to run this rule relative to all of the
 -- rules in the stateless rule group.
 ruleGroupSourceStatelessRulesDetails_priority :: Lens.Lens' RuleGroupSourceStatelessRulesDetails (Prelude.Maybe Prelude.Int)
 ruleGroupSourceStatelessRulesDetails_priority = Lens.lens (\RuleGroupSourceStatelessRulesDetails' {priority} -> priority) (\s@RuleGroupSourceStatelessRulesDetails' {} a -> s {priority = a} :: RuleGroupSourceStatelessRulesDetails)
+
+-- | Provides the definition of the stateless rule.
+ruleGroupSourceStatelessRulesDetails_ruleDefinition :: Lens.Lens' RuleGroupSourceStatelessRulesDetails (Prelude.Maybe RuleGroupSourceStatelessRuleDefinition)
+ruleGroupSourceStatelessRulesDetails_ruleDefinition = Lens.lens (\RuleGroupSourceStatelessRulesDetails' {ruleDefinition} -> ruleDefinition) (\s@RuleGroupSourceStatelessRulesDetails' {} a -> s {ruleDefinition = a} :: RuleGroupSourceStatelessRulesDetails)
 
 instance
   Data.FromJSON
@@ -76,8 +76,8 @@ instance
       "RuleGroupSourceStatelessRulesDetails"
       ( \x ->
           RuleGroupSourceStatelessRulesDetails'
-            Prelude.<$> (x Data..:? "RuleDefinition")
-            Prelude.<*> (x Data..:? "Priority")
+            Prelude.<$> (x Data..:? "Priority")
+            Prelude.<*> (x Data..:? "RuleDefinition")
       )
 
 instance
@@ -87,16 +87,16 @@ instance
   hashWithSalt
     _salt
     RuleGroupSourceStatelessRulesDetails' {..} =
-      _salt `Prelude.hashWithSalt` ruleDefinition
-        `Prelude.hashWithSalt` priority
+      _salt `Prelude.hashWithSalt` priority
+        `Prelude.hashWithSalt` ruleDefinition
 
 instance
   Prelude.NFData
     RuleGroupSourceStatelessRulesDetails
   where
   rnf RuleGroupSourceStatelessRulesDetails' {..} =
-    Prelude.rnf ruleDefinition
-      `Prelude.seq` Prelude.rnf priority
+    Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf ruleDefinition
 
 instance
   Data.ToJSON
@@ -105,8 +105,8 @@ instance
   toJSON RuleGroupSourceStatelessRulesDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("RuleDefinition" Data..=)
-              Prelude.<$> ruleDefinition,
-            ("Priority" Data..=) Prelude.<$> priority
+          [ ("Priority" Data..=) Prelude.<$> priority,
+            ("RuleDefinition" Data..=)
+              Prelude.<$> ruleDefinition
           ]
       )

@@ -29,8 +29,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFailedCampaignStateResponse' smart constructor.
 data FailedCampaignStateResponse = FailedCampaignStateResponse'
-  { failureCode :: Prelude.Maybe GetCampaignStateBatchFailureCode,
-    campaignId :: Prelude.Maybe Prelude.Text
+  { campaignId :: Prelude.Maybe Prelude.Text,
+    failureCode :: Prelude.Maybe GetCampaignStateBatchFailureCode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,25 +42,25 @@ data FailedCampaignStateResponse = FailedCampaignStateResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'failureCode', 'failedCampaignStateResponse_failureCode' - Undocumented member.
---
 -- 'campaignId', 'failedCampaignStateResponse_campaignId' - Undocumented member.
+--
+-- 'failureCode', 'failedCampaignStateResponse_failureCode' - Undocumented member.
 newFailedCampaignStateResponse ::
   FailedCampaignStateResponse
 newFailedCampaignStateResponse =
   FailedCampaignStateResponse'
-    { failureCode =
+    { campaignId =
         Prelude.Nothing,
-      campaignId = Prelude.Nothing
+      failureCode = Prelude.Nothing
     }
-
--- | Undocumented member.
-failedCampaignStateResponse_failureCode :: Lens.Lens' FailedCampaignStateResponse (Prelude.Maybe GetCampaignStateBatchFailureCode)
-failedCampaignStateResponse_failureCode = Lens.lens (\FailedCampaignStateResponse' {failureCode} -> failureCode) (\s@FailedCampaignStateResponse' {} a -> s {failureCode = a} :: FailedCampaignStateResponse)
 
 -- | Undocumented member.
 failedCampaignStateResponse_campaignId :: Lens.Lens' FailedCampaignStateResponse (Prelude.Maybe Prelude.Text)
 failedCampaignStateResponse_campaignId = Lens.lens (\FailedCampaignStateResponse' {campaignId} -> campaignId) (\s@FailedCampaignStateResponse' {} a -> s {campaignId = a} :: FailedCampaignStateResponse)
+
+-- | Undocumented member.
+failedCampaignStateResponse_failureCode :: Lens.Lens' FailedCampaignStateResponse (Prelude.Maybe GetCampaignStateBatchFailureCode)
+failedCampaignStateResponse_failureCode = Lens.lens (\FailedCampaignStateResponse' {failureCode} -> failureCode) (\s@FailedCampaignStateResponse' {} a -> s {failureCode = a} :: FailedCampaignStateResponse)
 
 instance Data.FromJSON FailedCampaignStateResponse where
   parseJSON =
@@ -68,16 +68,16 @@ instance Data.FromJSON FailedCampaignStateResponse where
       "FailedCampaignStateResponse"
       ( \x ->
           FailedCampaignStateResponse'
-            Prelude.<$> (x Data..:? "failureCode")
-            Prelude.<*> (x Data..:? "campaignId")
+            Prelude.<$> (x Data..:? "campaignId")
+            Prelude.<*> (x Data..:? "failureCode")
       )
 
 instance Prelude.Hashable FailedCampaignStateResponse where
   hashWithSalt _salt FailedCampaignStateResponse' {..} =
-    _salt `Prelude.hashWithSalt` failureCode
-      `Prelude.hashWithSalt` campaignId
+    _salt `Prelude.hashWithSalt` campaignId
+      `Prelude.hashWithSalt` failureCode
 
 instance Prelude.NFData FailedCampaignStateResponse where
   rnf FailedCampaignStateResponse' {..} =
-    Prelude.rnf failureCode
-      `Prelude.seq` Prelude.rnf campaignId
+    Prelude.rnf campaignId
+      `Prelude.seq` Prelude.rnf failureCode

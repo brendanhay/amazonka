@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newChoiceImprovementPlan' smart constructor.
 data ChoiceImprovementPlan = ChoiceImprovementPlan'
-  { -- | The display text for the improvement plan.
+  { choiceId :: Prelude.Maybe Prelude.Text,
+    -- | The display text for the improvement plan.
     displayText :: Prelude.Maybe Prelude.Text,
-    improvementPlanUrl :: Prelude.Maybe Prelude.Text,
-    choiceId :: Prelude.Maybe Prelude.Text
+    improvementPlanUrl :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,20 +43,23 @@ data ChoiceImprovementPlan = ChoiceImprovementPlan'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'choiceId', 'choiceImprovementPlan_choiceId' - Undocumented member.
+--
 -- 'displayText', 'choiceImprovementPlan_displayText' - The display text for the improvement plan.
 --
 -- 'improvementPlanUrl', 'choiceImprovementPlan_improvementPlanUrl' - Undocumented member.
---
--- 'choiceId', 'choiceImprovementPlan_choiceId' - Undocumented member.
 newChoiceImprovementPlan ::
   ChoiceImprovementPlan
 newChoiceImprovementPlan =
   ChoiceImprovementPlan'
-    { displayText =
-        Prelude.Nothing,
-      improvementPlanUrl = Prelude.Nothing,
-      choiceId = Prelude.Nothing
+    { choiceId = Prelude.Nothing,
+      displayText = Prelude.Nothing,
+      improvementPlanUrl = Prelude.Nothing
     }
+
+-- | Undocumented member.
+choiceImprovementPlan_choiceId :: Lens.Lens' ChoiceImprovementPlan (Prelude.Maybe Prelude.Text)
+choiceImprovementPlan_choiceId = Lens.lens (\ChoiceImprovementPlan' {choiceId} -> choiceId) (\s@ChoiceImprovementPlan' {} a -> s {choiceId = a} :: ChoiceImprovementPlan)
 
 -- | The display text for the improvement plan.
 choiceImprovementPlan_displayText :: Lens.Lens' ChoiceImprovementPlan (Prelude.Maybe Prelude.Text)
@@ -66,29 +69,25 @@ choiceImprovementPlan_displayText = Lens.lens (\ChoiceImprovementPlan' {displayT
 choiceImprovementPlan_improvementPlanUrl :: Lens.Lens' ChoiceImprovementPlan (Prelude.Maybe Prelude.Text)
 choiceImprovementPlan_improvementPlanUrl = Lens.lens (\ChoiceImprovementPlan' {improvementPlanUrl} -> improvementPlanUrl) (\s@ChoiceImprovementPlan' {} a -> s {improvementPlanUrl = a} :: ChoiceImprovementPlan)
 
--- | Undocumented member.
-choiceImprovementPlan_choiceId :: Lens.Lens' ChoiceImprovementPlan (Prelude.Maybe Prelude.Text)
-choiceImprovementPlan_choiceId = Lens.lens (\ChoiceImprovementPlan' {choiceId} -> choiceId) (\s@ChoiceImprovementPlan' {} a -> s {choiceId = a} :: ChoiceImprovementPlan)
-
 instance Data.FromJSON ChoiceImprovementPlan where
   parseJSON =
     Data.withObject
       "ChoiceImprovementPlan"
       ( \x ->
           ChoiceImprovementPlan'
-            Prelude.<$> (x Data..:? "DisplayText")
+            Prelude.<$> (x Data..:? "ChoiceId")
+            Prelude.<*> (x Data..:? "DisplayText")
             Prelude.<*> (x Data..:? "ImprovementPlanUrl")
-            Prelude.<*> (x Data..:? "ChoiceId")
       )
 
 instance Prelude.Hashable ChoiceImprovementPlan where
   hashWithSalt _salt ChoiceImprovementPlan' {..} =
-    _salt `Prelude.hashWithSalt` displayText
+    _salt `Prelude.hashWithSalt` choiceId
+      `Prelude.hashWithSalt` displayText
       `Prelude.hashWithSalt` improvementPlanUrl
-      `Prelude.hashWithSalt` choiceId
 
 instance Prelude.NFData ChoiceImprovementPlan where
   rnf ChoiceImprovementPlan' {..} =
-    Prelude.rnf displayText
+    Prelude.rnf choiceId
+      `Prelude.seq` Prelude.rnf displayText
       `Prelude.seq` Prelude.rnf improvementPlanUrl
-      `Prelude.seq` Prelude.rnf choiceId

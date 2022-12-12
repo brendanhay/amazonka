@@ -37,9 +37,9 @@ module Amazonka.AppMesh.CreateVirtualGateway
     newCreateVirtualGateway,
 
     -- * Request Lenses
-    createVirtualGateway_tags,
     createVirtualGateway_clientToken,
     createVirtualGateway_meshOwner,
+    createVirtualGateway_tags,
     createVirtualGateway_meshName,
     createVirtualGateway_spec,
     createVirtualGateway_virtualGatewayName,
@@ -64,13 +64,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateVirtualGateway' smart constructor.
 data CreateVirtualGateway = CreateVirtualGateway'
-  { -- | Optional metadata that you can apply to the virtual gateway to assist
-    -- with categorization and organization. Each tag consists of a key and an
-    -- optional value, both of which you define. Tag keys can have a maximum
-    -- character length of 128 characters, and tag values can have a maximum
-    -- length of 256 characters.
-    tags :: Prelude.Maybe [TagRef],
-    -- | Unique, case-sensitive identifier that you provide to ensure the
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. Up to 36 letters, numbers, hyphens, and
     -- underscores are allowed.
     clientToken :: Prelude.Maybe Prelude.Text,
@@ -80,6 +74,12 @@ data CreateVirtualGateway = CreateVirtualGateway'
     -- service mesh. For more information about mesh sharing, see
     -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
     meshOwner :: Prelude.Maybe Prelude.Text,
+    -- | Optional metadata that you can apply to the virtual gateway to assist
+    -- with categorization and organization. Each tag consists of a key and an
+    -- optional value, both of which you define. Tag keys can have a maximum
+    -- character length of 128 characters, and tag values can have a maximum
+    -- length of 256 characters.
+    tags :: Prelude.Maybe [TagRef],
     -- | The name of the service mesh to create the virtual gateway in.
     meshName :: Prelude.Text,
     -- | The virtual gateway specification to apply.
@@ -97,12 +97,6 @@ data CreateVirtualGateway = CreateVirtualGateway'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createVirtualGateway_tags' - Optional metadata that you can apply to the virtual gateway to assist
--- with categorization and organization. Each tag consists of a key and an
--- optional value, both of which you define. Tag keys can have a maximum
--- character length of 128 characters, and tag values can have a maximum
--- length of 256 characters.
---
 -- 'clientToken', 'createVirtualGateway_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. Up to 36 letters, numbers, hyphens, and
 -- underscores are allowed.
@@ -112,6 +106,12 @@ data CreateVirtualGateway = CreateVirtualGateway'
 -- the mesh with your account before you can create the resource in the
 -- service mesh. For more information about mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
+--
+-- 'tags', 'createVirtualGateway_tags' - Optional metadata that you can apply to the virtual gateway to assist
+-- with categorization and organization. Each tag consists of a key and an
+-- optional value, both of which you define. Tag keys can have a maximum
+-- character length of 128 characters, and tag values can have a maximum
+-- length of 256 characters.
 --
 -- 'meshName', 'createVirtualGateway_meshName' - The name of the service mesh to create the virtual gateway in.
 --
@@ -131,21 +131,14 @@ newCreateVirtualGateway
   pSpec_
   pVirtualGatewayName_ =
     CreateVirtualGateway'
-      { tags = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+      { clientToken =
+          Prelude.Nothing,
         meshOwner = Prelude.Nothing,
+        tags = Prelude.Nothing,
         meshName = pMeshName_,
         spec = pSpec_,
         virtualGatewayName = pVirtualGatewayName_
       }
-
--- | Optional metadata that you can apply to the virtual gateway to assist
--- with categorization and organization. Each tag consists of a key and an
--- optional value, both of which you define. Tag keys can have a maximum
--- character length of 128 characters, and tag values can have a maximum
--- length of 256 characters.
-createVirtualGateway_tags :: Lens.Lens' CreateVirtualGateway (Prelude.Maybe [TagRef])
-createVirtualGateway_tags = Lens.lens (\CreateVirtualGateway' {tags} -> tags) (\s@CreateVirtualGateway' {} a -> s {tags = a} :: CreateVirtualGateway) Prelude.. Lens.mapping Lens.coerced
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. Up to 36 letters, numbers, hyphens, and
@@ -160,6 +153,14 @@ createVirtualGateway_clientToken = Lens.lens (\CreateVirtualGateway' {clientToke
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 createVirtualGateway_meshOwner :: Lens.Lens' CreateVirtualGateway (Prelude.Maybe Prelude.Text)
 createVirtualGateway_meshOwner = Lens.lens (\CreateVirtualGateway' {meshOwner} -> meshOwner) (\s@CreateVirtualGateway' {} a -> s {meshOwner = a} :: CreateVirtualGateway)
+
+-- | Optional metadata that you can apply to the virtual gateway to assist
+-- with categorization and organization. Each tag consists of a key and an
+-- optional value, both of which you define. Tag keys can have a maximum
+-- character length of 128 characters, and tag values can have a maximum
+-- length of 256 characters.
+createVirtualGateway_tags :: Lens.Lens' CreateVirtualGateway (Prelude.Maybe [TagRef])
+createVirtualGateway_tags = Lens.lens (\CreateVirtualGateway' {tags} -> tags) (\s@CreateVirtualGateway' {} a -> s {tags = a} :: CreateVirtualGateway) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the service mesh to create the virtual gateway in.
 createVirtualGateway_meshName :: Lens.Lens' CreateVirtualGateway Prelude.Text
@@ -189,18 +190,18 @@ instance Core.AWSRequest CreateVirtualGateway where
 
 instance Prelude.Hashable CreateVirtualGateway where
   hashWithSalt _salt CreateVirtualGateway' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` meshOwner
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` meshName
       `Prelude.hashWithSalt` spec
       `Prelude.hashWithSalt` virtualGatewayName
 
 instance Prelude.NFData CreateVirtualGateway where
   rnf CreateVirtualGateway' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf meshOwner
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf meshName
       `Prelude.seq` Prelude.rnf spec
       `Prelude.seq` Prelude.rnf virtualGatewayName
@@ -220,8 +221,8 @@ instance Data.ToJSON CreateVirtualGateway where
   toJSON CreateVirtualGateway' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("clientToken" Data..=) Prelude.<$> clientToken,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("spec" Data..= spec),
             Prelude.Just
               ("virtualGatewayName" Data..= virtualGatewayName)

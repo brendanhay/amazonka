@@ -38,10 +38,10 @@ module Amazonka.Translate.UpdateParallelData
     newUpdateParallelDataResponse,
 
     -- * Response Lenses
-    updateParallelDataResponse_name,
-    updateParallelDataResponse_latestUpdateAttemptStatus,
-    updateParallelDataResponse_status,
     updateParallelDataResponse_latestUpdateAttemptAt,
+    updateParallelDataResponse_latestUpdateAttemptStatus,
+    updateParallelDataResponse_name,
+    updateParallelDataResponse_status,
     updateParallelDataResponse_httpStatus,
   )
 where
@@ -130,10 +130,10 @@ instance Core.AWSRequest UpdateParallelData where
     Response.receiveJSON
       ( \s h x ->
           UpdateParallelDataResponse'
-            Prelude.<$> (x Data..?> "Name")
+            Prelude.<$> (x Data..?> "LatestUpdateAttemptAt")
             Prelude.<*> (x Data..?> "LatestUpdateAttemptStatus")
+            Prelude.<*> (x Data..?> "Name")
             Prelude.<*> (x Data..?> "Status")
-            Prelude.<*> (x Data..?> "LatestUpdateAttemptAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -186,17 +186,17 @@ instance Data.ToQuery UpdateParallelData where
 
 -- | /See:/ 'newUpdateParallelDataResponse' smart constructor.
 data UpdateParallelDataResponse = UpdateParallelDataResponse'
-  { -- | The name of the parallel data resource being updated.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | The time that the most recent update was attempted.
+    latestUpdateAttemptAt :: Prelude.Maybe Data.POSIX,
     -- | The status of the parallel data update attempt. When the updated
     -- parallel data resource is ready for you to use, the status is @ACTIVE@.
     latestUpdateAttemptStatus :: Prelude.Maybe ParallelDataStatus,
+    -- | The name of the parallel data resource being updated.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The status of the parallel data resource that you are attempting to
     -- update. Your update request is accepted only if this status is either
     -- @ACTIVE@ or @FAILED@.
     status :: Prelude.Maybe ParallelDataStatus,
-    -- | The time that the most recent update was attempted.
-    latestUpdateAttemptAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -210,16 +210,16 @@ data UpdateParallelDataResponse = UpdateParallelDataResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateParallelDataResponse_name' - The name of the parallel data resource being updated.
+-- 'latestUpdateAttemptAt', 'updateParallelDataResponse_latestUpdateAttemptAt' - The time that the most recent update was attempted.
 --
 -- 'latestUpdateAttemptStatus', 'updateParallelDataResponse_latestUpdateAttemptStatus' - The status of the parallel data update attempt. When the updated
 -- parallel data resource is ready for you to use, the status is @ACTIVE@.
 --
+-- 'name', 'updateParallelDataResponse_name' - The name of the parallel data resource being updated.
+--
 -- 'status', 'updateParallelDataResponse_status' - The status of the parallel data resource that you are attempting to
 -- update. Your update request is accepted only if this status is either
 -- @ACTIVE@ or @FAILED@.
---
--- 'latestUpdateAttemptAt', 'updateParallelDataResponse_latestUpdateAttemptAt' - The time that the most recent update was attempted.
 --
 -- 'httpStatus', 'updateParallelDataResponse_httpStatus' - The response's http status code.
 newUpdateParallelDataResponse ::
@@ -228,21 +228,26 @@ newUpdateParallelDataResponse ::
   UpdateParallelDataResponse
 newUpdateParallelDataResponse pHttpStatus_ =
   UpdateParallelDataResponse'
-    { name = Prelude.Nothing,
+    { latestUpdateAttemptAt =
+        Prelude.Nothing,
       latestUpdateAttemptStatus = Prelude.Nothing,
+      name = Prelude.Nothing,
       status = Prelude.Nothing,
-      latestUpdateAttemptAt = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The name of the parallel data resource being updated.
-updateParallelDataResponse_name :: Lens.Lens' UpdateParallelDataResponse (Prelude.Maybe Prelude.Text)
-updateParallelDataResponse_name = Lens.lens (\UpdateParallelDataResponse' {name} -> name) (\s@UpdateParallelDataResponse' {} a -> s {name = a} :: UpdateParallelDataResponse)
+-- | The time that the most recent update was attempted.
+updateParallelDataResponse_latestUpdateAttemptAt :: Lens.Lens' UpdateParallelDataResponse (Prelude.Maybe Prelude.UTCTime)
+updateParallelDataResponse_latestUpdateAttemptAt = Lens.lens (\UpdateParallelDataResponse' {latestUpdateAttemptAt} -> latestUpdateAttemptAt) (\s@UpdateParallelDataResponse' {} a -> s {latestUpdateAttemptAt = a} :: UpdateParallelDataResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the parallel data update attempt. When the updated
 -- parallel data resource is ready for you to use, the status is @ACTIVE@.
 updateParallelDataResponse_latestUpdateAttemptStatus :: Lens.Lens' UpdateParallelDataResponse (Prelude.Maybe ParallelDataStatus)
 updateParallelDataResponse_latestUpdateAttemptStatus = Lens.lens (\UpdateParallelDataResponse' {latestUpdateAttemptStatus} -> latestUpdateAttemptStatus) (\s@UpdateParallelDataResponse' {} a -> s {latestUpdateAttemptStatus = a} :: UpdateParallelDataResponse)
+
+-- | The name of the parallel data resource being updated.
+updateParallelDataResponse_name :: Lens.Lens' UpdateParallelDataResponse (Prelude.Maybe Prelude.Text)
+updateParallelDataResponse_name = Lens.lens (\UpdateParallelDataResponse' {name} -> name) (\s@UpdateParallelDataResponse' {} a -> s {name = a} :: UpdateParallelDataResponse)
 
 -- | The status of the parallel data resource that you are attempting to
 -- update. Your update request is accepted only if this status is either
@@ -250,18 +255,14 @@ updateParallelDataResponse_latestUpdateAttemptStatus = Lens.lens (\UpdateParalle
 updateParallelDataResponse_status :: Lens.Lens' UpdateParallelDataResponse (Prelude.Maybe ParallelDataStatus)
 updateParallelDataResponse_status = Lens.lens (\UpdateParallelDataResponse' {status} -> status) (\s@UpdateParallelDataResponse' {} a -> s {status = a} :: UpdateParallelDataResponse)
 
--- | The time that the most recent update was attempted.
-updateParallelDataResponse_latestUpdateAttemptAt :: Lens.Lens' UpdateParallelDataResponse (Prelude.Maybe Prelude.UTCTime)
-updateParallelDataResponse_latestUpdateAttemptAt = Lens.lens (\UpdateParallelDataResponse' {latestUpdateAttemptAt} -> latestUpdateAttemptAt) (\s@UpdateParallelDataResponse' {} a -> s {latestUpdateAttemptAt = a} :: UpdateParallelDataResponse) Prelude.. Lens.mapping Data._Time
-
 -- | The response's http status code.
 updateParallelDataResponse_httpStatus :: Lens.Lens' UpdateParallelDataResponse Prelude.Int
 updateParallelDataResponse_httpStatus = Lens.lens (\UpdateParallelDataResponse' {httpStatus} -> httpStatus) (\s@UpdateParallelDataResponse' {} a -> s {httpStatus = a} :: UpdateParallelDataResponse)
 
 instance Prelude.NFData UpdateParallelDataResponse where
   rnf UpdateParallelDataResponse' {..} =
-    Prelude.rnf name
+    Prelude.rnf latestUpdateAttemptAt
       `Prelude.seq` Prelude.rnf latestUpdateAttemptStatus
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf latestUpdateAttemptAt
       `Prelude.seq` Prelude.rnf httpStatus

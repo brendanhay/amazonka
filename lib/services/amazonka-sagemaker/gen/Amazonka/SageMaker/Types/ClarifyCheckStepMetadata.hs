@@ -31,13 +31,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newClarifyCheckStepMetadata' smart constructor.
 data ClarifyCheckStepMetadata = ClarifyCheckStepMetadata'
-  { -- | The model package group name.
-    modelPackageGroupName :: Prelude.Maybe Prelude.Text,
+  { -- | The Amazon S3 URI of baseline constraints file to be used for the drift
+    -- check.
+    baselineUsedForDriftCheckConstraints :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon S3 URI of the newly calculated baseline constraints file.
+    calculatedBaselineConstraints :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the check processing job that was run
     -- by this step\'s execution.
     checkJobArn :: Prelude.Maybe Prelude.Text,
     -- | The type of the Clarify Check step
     checkType :: Prelude.Maybe Prelude.Text,
+    -- | The model package group name.
+    modelPackageGroupName :: Prelude.Maybe Prelude.Text,
     -- | This flag indicates if a newly calculated baseline can be accessed
     -- through step properties @BaselineUsedForDriftCheckConstraints@ and
     -- @BaselineUsedForDriftCheckStatistics@. If it is set to @False@, the
@@ -49,11 +54,6 @@ data ClarifyCheckStepMetadata = ClarifyCheckStepMetadata'
     -- will be skipped or not. If it is set to @False@, the previous baseline
     -- of the configured check type must be available.
     skipCheck :: Prelude.Maybe Prelude.Bool,
-    -- | The Amazon S3 URI of baseline constraints file to be used for the drift
-    -- check.
-    baselineUsedForDriftCheckConstraints :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon S3 URI of the newly calculated baseline constraints file.
-    calculatedBaselineConstraints :: Prelude.Maybe Prelude.Text,
     -- | The Amazon S3 URI of the violation report if violations are detected.
     violationReport :: Prelude.Maybe Prelude.Text
   }
@@ -67,12 +67,17 @@ data ClarifyCheckStepMetadata = ClarifyCheckStepMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'modelPackageGroupName', 'clarifyCheckStepMetadata_modelPackageGroupName' - The model package group name.
+-- 'baselineUsedForDriftCheckConstraints', 'clarifyCheckStepMetadata_baselineUsedForDriftCheckConstraints' - The Amazon S3 URI of baseline constraints file to be used for the drift
+-- check.
+--
+-- 'calculatedBaselineConstraints', 'clarifyCheckStepMetadata_calculatedBaselineConstraints' - The Amazon S3 URI of the newly calculated baseline constraints file.
 --
 -- 'checkJobArn', 'clarifyCheckStepMetadata_checkJobArn' - The Amazon Resource Name (ARN) of the check processing job that was run
 -- by this step\'s execution.
 --
 -- 'checkType', 'clarifyCheckStepMetadata_checkType' - The type of the Clarify Check step
+--
+-- 'modelPackageGroupName', 'clarifyCheckStepMetadata_modelPackageGroupName' - The model package group name.
 --
 -- 'registerNewBaseline', 'clarifyCheckStepMetadata_registerNewBaseline' - This flag indicates if a newly calculated baseline can be accessed
 -- through step properties @BaselineUsedForDriftCheckConstraints@ and
@@ -85,31 +90,30 @@ data ClarifyCheckStepMetadata = ClarifyCheckStepMetadata'
 -- will be skipped or not. If it is set to @False@, the previous baseline
 -- of the configured check type must be available.
 --
--- 'baselineUsedForDriftCheckConstraints', 'clarifyCheckStepMetadata_baselineUsedForDriftCheckConstraints' - The Amazon S3 URI of baseline constraints file to be used for the drift
--- check.
---
--- 'calculatedBaselineConstraints', 'clarifyCheckStepMetadata_calculatedBaselineConstraints' - The Amazon S3 URI of the newly calculated baseline constraints file.
---
 -- 'violationReport', 'clarifyCheckStepMetadata_violationReport' - The Amazon S3 URI of the violation report if violations are detected.
 newClarifyCheckStepMetadata ::
   ClarifyCheckStepMetadata
 newClarifyCheckStepMetadata =
   ClarifyCheckStepMetadata'
-    { modelPackageGroupName =
-        Prelude.Nothing,
-      checkJobArn = Prelude.Nothing,
-      checkType = Prelude.Nothing,
-      registerNewBaseline = Prelude.Nothing,
-      skipCheck = Prelude.Nothing,
-      baselineUsedForDriftCheckConstraints =
+    { baselineUsedForDriftCheckConstraints =
         Prelude.Nothing,
       calculatedBaselineConstraints = Prelude.Nothing,
+      checkJobArn = Prelude.Nothing,
+      checkType = Prelude.Nothing,
+      modelPackageGroupName = Prelude.Nothing,
+      registerNewBaseline = Prelude.Nothing,
+      skipCheck = Prelude.Nothing,
       violationReport = Prelude.Nothing
     }
 
--- | The model package group name.
-clarifyCheckStepMetadata_modelPackageGroupName :: Lens.Lens' ClarifyCheckStepMetadata (Prelude.Maybe Prelude.Text)
-clarifyCheckStepMetadata_modelPackageGroupName = Lens.lens (\ClarifyCheckStepMetadata' {modelPackageGroupName} -> modelPackageGroupName) (\s@ClarifyCheckStepMetadata' {} a -> s {modelPackageGroupName = a} :: ClarifyCheckStepMetadata)
+-- | The Amazon S3 URI of baseline constraints file to be used for the drift
+-- check.
+clarifyCheckStepMetadata_baselineUsedForDriftCheckConstraints :: Lens.Lens' ClarifyCheckStepMetadata (Prelude.Maybe Prelude.Text)
+clarifyCheckStepMetadata_baselineUsedForDriftCheckConstraints = Lens.lens (\ClarifyCheckStepMetadata' {baselineUsedForDriftCheckConstraints} -> baselineUsedForDriftCheckConstraints) (\s@ClarifyCheckStepMetadata' {} a -> s {baselineUsedForDriftCheckConstraints = a} :: ClarifyCheckStepMetadata)
+
+-- | The Amazon S3 URI of the newly calculated baseline constraints file.
+clarifyCheckStepMetadata_calculatedBaselineConstraints :: Lens.Lens' ClarifyCheckStepMetadata (Prelude.Maybe Prelude.Text)
+clarifyCheckStepMetadata_calculatedBaselineConstraints = Lens.lens (\ClarifyCheckStepMetadata' {calculatedBaselineConstraints} -> calculatedBaselineConstraints) (\s@ClarifyCheckStepMetadata' {} a -> s {calculatedBaselineConstraints = a} :: ClarifyCheckStepMetadata)
 
 -- | The Amazon Resource Name (ARN) of the check processing job that was run
 -- by this step\'s execution.
@@ -119,6 +123,10 @@ clarifyCheckStepMetadata_checkJobArn = Lens.lens (\ClarifyCheckStepMetadata' {ch
 -- | The type of the Clarify Check step
 clarifyCheckStepMetadata_checkType :: Lens.Lens' ClarifyCheckStepMetadata (Prelude.Maybe Prelude.Text)
 clarifyCheckStepMetadata_checkType = Lens.lens (\ClarifyCheckStepMetadata' {checkType} -> checkType) (\s@ClarifyCheckStepMetadata' {} a -> s {checkType = a} :: ClarifyCheckStepMetadata)
+
+-- | The model package group name.
+clarifyCheckStepMetadata_modelPackageGroupName :: Lens.Lens' ClarifyCheckStepMetadata (Prelude.Maybe Prelude.Text)
+clarifyCheckStepMetadata_modelPackageGroupName = Lens.lens (\ClarifyCheckStepMetadata' {modelPackageGroupName} -> modelPackageGroupName) (\s@ClarifyCheckStepMetadata' {} a -> s {modelPackageGroupName = a} :: ClarifyCheckStepMetadata)
 
 -- | This flag indicates if a newly calculated baseline can be accessed
 -- through step properties @BaselineUsedForDriftCheckConstraints@ and
@@ -135,15 +143,6 @@ clarifyCheckStepMetadata_registerNewBaseline = Lens.lens (\ClarifyCheckStepMetad
 clarifyCheckStepMetadata_skipCheck :: Lens.Lens' ClarifyCheckStepMetadata (Prelude.Maybe Prelude.Bool)
 clarifyCheckStepMetadata_skipCheck = Lens.lens (\ClarifyCheckStepMetadata' {skipCheck} -> skipCheck) (\s@ClarifyCheckStepMetadata' {} a -> s {skipCheck = a} :: ClarifyCheckStepMetadata)
 
--- | The Amazon S3 URI of baseline constraints file to be used for the drift
--- check.
-clarifyCheckStepMetadata_baselineUsedForDriftCheckConstraints :: Lens.Lens' ClarifyCheckStepMetadata (Prelude.Maybe Prelude.Text)
-clarifyCheckStepMetadata_baselineUsedForDriftCheckConstraints = Lens.lens (\ClarifyCheckStepMetadata' {baselineUsedForDriftCheckConstraints} -> baselineUsedForDriftCheckConstraints) (\s@ClarifyCheckStepMetadata' {} a -> s {baselineUsedForDriftCheckConstraints = a} :: ClarifyCheckStepMetadata)
-
--- | The Amazon S3 URI of the newly calculated baseline constraints file.
-clarifyCheckStepMetadata_calculatedBaselineConstraints :: Lens.Lens' ClarifyCheckStepMetadata (Prelude.Maybe Prelude.Text)
-clarifyCheckStepMetadata_calculatedBaselineConstraints = Lens.lens (\ClarifyCheckStepMetadata' {calculatedBaselineConstraints} -> calculatedBaselineConstraints) (\s@ClarifyCheckStepMetadata' {} a -> s {calculatedBaselineConstraints = a} :: ClarifyCheckStepMetadata)
-
 -- | The Amazon S3 URI of the violation report if violations are detected.
 clarifyCheckStepMetadata_violationReport :: Lens.Lens' ClarifyCheckStepMetadata (Prelude.Maybe Prelude.Text)
 clarifyCheckStepMetadata_violationReport = Lens.lens (\ClarifyCheckStepMetadata' {violationReport} -> violationReport) (\s@ClarifyCheckStepMetadata' {} a -> s {violationReport = a} :: ClarifyCheckStepMetadata)
@@ -154,34 +153,35 @@ instance Data.FromJSON ClarifyCheckStepMetadata where
       "ClarifyCheckStepMetadata"
       ( \x ->
           ClarifyCheckStepMetadata'
-            Prelude.<$> (x Data..:? "ModelPackageGroupName")
+            Prelude.<$> (x Data..:? "BaselineUsedForDriftCheckConstraints")
+            Prelude.<*> (x Data..:? "CalculatedBaselineConstraints")
             Prelude.<*> (x Data..:? "CheckJobArn")
             Prelude.<*> (x Data..:? "CheckType")
+            Prelude.<*> (x Data..:? "ModelPackageGroupName")
             Prelude.<*> (x Data..:? "RegisterNewBaseline")
             Prelude.<*> (x Data..:? "SkipCheck")
-            Prelude.<*> (x Data..:? "BaselineUsedForDriftCheckConstraints")
-            Prelude.<*> (x Data..:? "CalculatedBaselineConstraints")
             Prelude.<*> (x Data..:? "ViolationReport")
       )
 
 instance Prelude.Hashable ClarifyCheckStepMetadata where
   hashWithSalt _salt ClarifyCheckStepMetadata' {..} =
-    _salt `Prelude.hashWithSalt` modelPackageGroupName
-      `Prelude.hashWithSalt` checkJobArn
-      `Prelude.hashWithSalt` checkType
-      `Prelude.hashWithSalt` registerNewBaseline
-      `Prelude.hashWithSalt` skipCheck
+    _salt
       `Prelude.hashWithSalt` baselineUsedForDriftCheckConstraints
       `Prelude.hashWithSalt` calculatedBaselineConstraints
+      `Prelude.hashWithSalt` checkJobArn
+      `Prelude.hashWithSalt` checkType
+      `Prelude.hashWithSalt` modelPackageGroupName
+      `Prelude.hashWithSalt` registerNewBaseline
+      `Prelude.hashWithSalt` skipCheck
       `Prelude.hashWithSalt` violationReport
 
 instance Prelude.NFData ClarifyCheckStepMetadata where
   rnf ClarifyCheckStepMetadata' {..} =
-    Prelude.rnf modelPackageGroupName
+    Prelude.rnf baselineUsedForDriftCheckConstraints
+      `Prelude.seq` Prelude.rnf calculatedBaselineConstraints
       `Prelude.seq` Prelude.rnf checkJobArn
       `Prelude.seq` Prelude.rnf checkType
+      `Prelude.seq` Prelude.rnf modelPackageGroupName
       `Prelude.seq` Prelude.rnf registerNewBaseline
       `Prelude.seq` Prelude.rnf skipCheck
-      `Prelude.seq` Prelude.rnf baselineUsedForDriftCheckConstraints
-      `Prelude.seq` Prelude.rnf calculatedBaselineConstraints
       `Prelude.seq` Prelude.rnf violationReport

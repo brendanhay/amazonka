@@ -22,32 +22,32 @@ module Amazonka.BackupStorage
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** KMSInvalidKeyUsageException
-    _KMSInvalidKeyUsageException,
-
     -- ** DataAlreadyExistsException
     _DataAlreadyExistsException,
-
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** NotReadableInputStreamException
-    _NotReadableInputStreamException,
-
-    -- ** ServiceInternalException
-    _ServiceInternalException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
 
     -- ** IllegalArgumentException
     _IllegalArgumentException,
 
+    -- ** KMSInvalidKeyUsageException
+    _KMSInvalidKeyUsageException,
+
+    -- ** NotReadableInputStreamException
+    _NotReadableInputStreamException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
     -- ** RetryableException
     _RetryableException,
+
+    -- ** ServiceInternalException
+    _ServiceInternalException,
+
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
 
     -- * Waiters
     -- $waiters

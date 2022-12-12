@@ -27,8 +27,8 @@ module Amazonka.SageMaker.DescribeEdgeDeploymentPlan
     newDescribeEdgeDeploymentPlan,
 
     -- * Request Lenses
-    describeEdgeDeploymentPlan_nextToken,
     describeEdgeDeploymentPlan_maxResults,
+    describeEdgeDeploymentPlan_nextToken,
     describeEdgeDeploymentPlan_edgeDeploymentPlanName,
 
     -- * Destructuring the Response
@@ -36,12 +36,12 @@ module Amazonka.SageMaker.DescribeEdgeDeploymentPlan
     newDescribeEdgeDeploymentPlanResponse,
 
     -- * Response Lenses
-    describeEdgeDeploymentPlanResponse_nextToken,
-    describeEdgeDeploymentPlanResponse_edgeDeploymentFailed,
-    describeEdgeDeploymentPlanResponse_lastModifiedTime,
     describeEdgeDeploymentPlanResponse_creationTime,
+    describeEdgeDeploymentPlanResponse_edgeDeploymentFailed,
     describeEdgeDeploymentPlanResponse_edgeDeploymentPending,
     describeEdgeDeploymentPlanResponse_edgeDeploymentSuccess,
+    describeEdgeDeploymentPlanResponse_lastModifiedTime,
+    describeEdgeDeploymentPlanResponse_nextToken,
     describeEdgeDeploymentPlanResponse_httpStatus,
     describeEdgeDeploymentPlanResponse_edgeDeploymentPlanArn,
     describeEdgeDeploymentPlanResponse_edgeDeploymentPlanName,
@@ -61,11 +61,11 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newDescribeEdgeDeploymentPlan' smart constructor.
 data DescribeEdgeDeploymentPlan = DescribeEdgeDeploymentPlan'
-  { -- | If the edge deployment plan has enough stages to require tokening, then
+  { -- | The maximum number of results to select (50 by default).
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | If the edge deployment plan has enough stages to require tokening, then
     -- this is the response from the last list of stages returned.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to select (50 by default).
-    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The name of the deployment plan to describe.
     edgeDeploymentPlanName :: Prelude.Text
   }
@@ -79,10 +79,10 @@ data DescribeEdgeDeploymentPlan = DescribeEdgeDeploymentPlan'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'describeEdgeDeploymentPlan_maxResults' - The maximum number of results to select (50 by default).
+--
 -- 'nextToken', 'describeEdgeDeploymentPlan_nextToken' - If the edge deployment plan has enough stages to require tokening, then
 -- this is the response from the last list of stages returned.
---
--- 'maxResults', 'describeEdgeDeploymentPlan_maxResults' - The maximum number of results to select (50 by default).
 --
 -- 'edgeDeploymentPlanName', 'describeEdgeDeploymentPlan_edgeDeploymentPlanName' - The name of the deployment plan to describe.
 newDescribeEdgeDeploymentPlan ::
@@ -92,21 +92,21 @@ newDescribeEdgeDeploymentPlan ::
 newDescribeEdgeDeploymentPlan
   pEdgeDeploymentPlanName_ =
     DescribeEdgeDeploymentPlan'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         edgeDeploymentPlanName =
           pEdgeDeploymentPlanName_
       }
+
+-- | The maximum number of results to select (50 by default).
+describeEdgeDeploymentPlan_maxResults :: Lens.Lens' DescribeEdgeDeploymentPlan (Prelude.Maybe Prelude.Int)
+describeEdgeDeploymentPlan_maxResults = Lens.lens (\DescribeEdgeDeploymentPlan' {maxResults} -> maxResults) (\s@DescribeEdgeDeploymentPlan' {} a -> s {maxResults = a} :: DescribeEdgeDeploymentPlan)
 
 -- | If the edge deployment plan has enough stages to require tokening, then
 -- this is the response from the last list of stages returned.
 describeEdgeDeploymentPlan_nextToken :: Lens.Lens' DescribeEdgeDeploymentPlan (Prelude.Maybe Prelude.Text)
 describeEdgeDeploymentPlan_nextToken = Lens.lens (\DescribeEdgeDeploymentPlan' {nextToken} -> nextToken) (\s@DescribeEdgeDeploymentPlan' {} a -> s {nextToken = a} :: DescribeEdgeDeploymentPlan)
-
--- | The maximum number of results to select (50 by default).
-describeEdgeDeploymentPlan_maxResults :: Lens.Lens' DescribeEdgeDeploymentPlan (Prelude.Maybe Prelude.Int)
-describeEdgeDeploymentPlan_maxResults = Lens.lens (\DescribeEdgeDeploymentPlan' {maxResults} -> maxResults) (\s@DescribeEdgeDeploymentPlan' {} a -> s {maxResults = a} :: DescribeEdgeDeploymentPlan)
 
 -- | The name of the deployment plan to describe.
 describeEdgeDeploymentPlan_edgeDeploymentPlanName :: Lens.Lens' DescribeEdgeDeploymentPlan Prelude.Text
@@ -122,12 +122,12 @@ instance Core.AWSRequest DescribeEdgeDeploymentPlan where
     Response.receiveJSON
       ( \s h x ->
           DescribeEdgeDeploymentPlanResponse'
-            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<$> (x Data..?> "CreationTime")
             Prelude.<*> (x Data..?> "EdgeDeploymentFailed")
-            Prelude.<*> (x Data..?> "LastModifiedTime")
-            Prelude.<*> (x Data..?> "CreationTime")
             Prelude.<*> (x Data..?> "EdgeDeploymentPending")
             Prelude.<*> (x Data..?> "EdgeDeploymentSuccess")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "EdgeDeploymentPlanArn")
             Prelude.<*> (x Data..:> "EdgeDeploymentPlanName")
@@ -138,14 +138,14 @@ instance Core.AWSRequest DescribeEdgeDeploymentPlan where
 
 instance Prelude.Hashable DescribeEdgeDeploymentPlan where
   hashWithSalt _salt DescribeEdgeDeploymentPlan' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` edgeDeploymentPlanName
 
 instance Prelude.NFData DescribeEdgeDeploymentPlan where
   rnf DescribeEdgeDeploymentPlan' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf edgeDeploymentPlanName
 
 instance Data.ToHeaders DescribeEdgeDeploymentPlan where
@@ -167,8 +167,8 @@ instance Data.ToJSON DescribeEdgeDeploymentPlan where
   toJSON DescribeEdgeDeploymentPlan' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ( "EdgeDeploymentPlanName"
                   Data..= edgeDeploymentPlanName
@@ -184,19 +184,19 @@ instance Data.ToQuery DescribeEdgeDeploymentPlan where
 
 -- | /See:/ 'newDescribeEdgeDeploymentPlanResponse' smart constructor.
 data DescribeEdgeDeploymentPlanResponse = DescribeEdgeDeploymentPlanResponse'
-  { -- | Token to use when calling the next set of stages in the edge deployment
-    -- plan.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The time when the edge deployment plan was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The number of edge devices that failed the deployment.
     edgeDeploymentFailed :: Prelude.Maybe Prelude.Int,
-    -- | The time when the edge deployment plan was last updated.
-    lastModifiedTime :: Prelude.Maybe Data.POSIX,
-    -- | The time when the edge deployment plan was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The number of edge devices yet to pick up deployment, or in progress.
     edgeDeploymentPending :: Prelude.Maybe Prelude.Int,
     -- | The number of edge devices with the successful deployment.
     edgeDeploymentSuccess :: Prelude.Maybe Prelude.Int,
+    -- | The time when the edge deployment plan was last updated.
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
+    -- | Token to use when calling the next set of stages in the edge deployment
+    -- plan.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The ARN of edge deployment plan.
@@ -220,18 +220,18 @@ data DescribeEdgeDeploymentPlanResponse = DescribeEdgeDeploymentPlanResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeEdgeDeploymentPlanResponse_nextToken' - Token to use when calling the next set of stages in the edge deployment
--- plan.
+-- 'creationTime', 'describeEdgeDeploymentPlanResponse_creationTime' - The time when the edge deployment plan was created.
 --
 -- 'edgeDeploymentFailed', 'describeEdgeDeploymentPlanResponse_edgeDeploymentFailed' - The number of edge devices that failed the deployment.
---
--- 'lastModifiedTime', 'describeEdgeDeploymentPlanResponse_lastModifiedTime' - The time when the edge deployment plan was last updated.
---
--- 'creationTime', 'describeEdgeDeploymentPlanResponse_creationTime' - The time when the edge deployment plan was created.
 --
 -- 'edgeDeploymentPending', 'describeEdgeDeploymentPlanResponse_edgeDeploymentPending' - The number of edge devices yet to pick up deployment, or in progress.
 --
 -- 'edgeDeploymentSuccess', 'describeEdgeDeploymentPlanResponse_edgeDeploymentSuccess' - The number of edge devices with the successful deployment.
+--
+-- 'lastModifiedTime', 'describeEdgeDeploymentPlanResponse_lastModifiedTime' - The time when the edge deployment plan was last updated.
+--
+-- 'nextToken', 'describeEdgeDeploymentPlanResponse_nextToken' - Token to use when calling the next set of stages in the edge deployment
+-- plan.
 --
 -- 'httpStatus', 'describeEdgeDeploymentPlanResponse_httpStatus' - The response's http status code.
 --
@@ -260,13 +260,13 @@ newDescribeEdgeDeploymentPlanResponse
   pEdgeDeploymentPlanName_
   pDeviceFleetName_ =
     DescribeEdgeDeploymentPlanResponse'
-      { nextToken =
+      { creationTime =
           Prelude.Nothing,
         edgeDeploymentFailed = Prelude.Nothing,
-        lastModifiedTime = Prelude.Nothing,
-        creationTime = Prelude.Nothing,
         edgeDeploymentPending = Prelude.Nothing,
         edgeDeploymentSuccess = Prelude.Nothing,
+        lastModifiedTime = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         edgeDeploymentPlanArn =
           pEdgeDeploymentPlanArn_,
@@ -277,22 +277,13 @@ newDescribeEdgeDeploymentPlanResponse
         stages = Prelude.mempty
       }
 
--- | Token to use when calling the next set of stages in the edge deployment
--- plan.
-describeEdgeDeploymentPlanResponse_nextToken :: Lens.Lens' DescribeEdgeDeploymentPlanResponse (Prelude.Maybe Prelude.Text)
-describeEdgeDeploymentPlanResponse_nextToken = Lens.lens (\DescribeEdgeDeploymentPlanResponse' {nextToken} -> nextToken) (\s@DescribeEdgeDeploymentPlanResponse' {} a -> s {nextToken = a} :: DescribeEdgeDeploymentPlanResponse)
+-- | The time when the edge deployment plan was created.
+describeEdgeDeploymentPlanResponse_creationTime :: Lens.Lens' DescribeEdgeDeploymentPlanResponse (Prelude.Maybe Prelude.UTCTime)
+describeEdgeDeploymentPlanResponse_creationTime = Lens.lens (\DescribeEdgeDeploymentPlanResponse' {creationTime} -> creationTime) (\s@DescribeEdgeDeploymentPlanResponse' {} a -> s {creationTime = a} :: DescribeEdgeDeploymentPlanResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The number of edge devices that failed the deployment.
 describeEdgeDeploymentPlanResponse_edgeDeploymentFailed :: Lens.Lens' DescribeEdgeDeploymentPlanResponse (Prelude.Maybe Prelude.Int)
 describeEdgeDeploymentPlanResponse_edgeDeploymentFailed = Lens.lens (\DescribeEdgeDeploymentPlanResponse' {edgeDeploymentFailed} -> edgeDeploymentFailed) (\s@DescribeEdgeDeploymentPlanResponse' {} a -> s {edgeDeploymentFailed = a} :: DescribeEdgeDeploymentPlanResponse)
-
--- | The time when the edge deployment plan was last updated.
-describeEdgeDeploymentPlanResponse_lastModifiedTime :: Lens.Lens' DescribeEdgeDeploymentPlanResponse (Prelude.Maybe Prelude.UTCTime)
-describeEdgeDeploymentPlanResponse_lastModifiedTime = Lens.lens (\DescribeEdgeDeploymentPlanResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeEdgeDeploymentPlanResponse' {} a -> s {lastModifiedTime = a} :: DescribeEdgeDeploymentPlanResponse) Prelude.. Lens.mapping Data._Time
-
--- | The time when the edge deployment plan was created.
-describeEdgeDeploymentPlanResponse_creationTime :: Lens.Lens' DescribeEdgeDeploymentPlanResponse (Prelude.Maybe Prelude.UTCTime)
-describeEdgeDeploymentPlanResponse_creationTime = Lens.lens (\DescribeEdgeDeploymentPlanResponse' {creationTime} -> creationTime) (\s@DescribeEdgeDeploymentPlanResponse' {} a -> s {creationTime = a} :: DescribeEdgeDeploymentPlanResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The number of edge devices yet to pick up deployment, or in progress.
 describeEdgeDeploymentPlanResponse_edgeDeploymentPending :: Lens.Lens' DescribeEdgeDeploymentPlanResponse (Prelude.Maybe Prelude.Int)
@@ -301,6 +292,15 @@ describeEdgeDeploymentPlanResponse_edgeDeploymentPending = Lens.lens (\DescribeE
 -- | The number of edge devices with the successful deployment.
 describeEdgeDeploymentPlanResponse_edgeDeploymentSuccess :: Lens.Lens' DescribeEdgeDeploymentPlanResponse (Prelude.Maybe Prelude.Int)
 describeEdgeDeploymentPlanResponse_edgeDeploymentSuccess = Lens.lens (\DescribeEdgeDeploymentPlanResponse' {edgeDeploymentSuccess} -> edgeDeploymentSuccess) (\s@DescribeEdgeDeploymentPlanResponse' {} a -> s {edgeDeploymentSuccess = a} :: DescribeEdgeDeploymentPlanResponse)
+
+-- | The time when the edge deployment plan was last updated.
+describeEdgeDeploymentPlanResponse_lastModifiedTime :: Lens.Lens' DescribeEdgeDeploymentPlanResponse (Prelude.Maybe Prelude.UTCTime)
+describeEdgeDeploymentPlanResponse_lastModifiedTime = Lens.lens (\DescribeEdgeDeploymentPlanResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeEdgeDeploymentPlanResponse' {} a -> s {lastModifiedTime = a} :: DescribeEdgeDeploymentPlanResponse) Prelude.. Lens.mapping Data._Time
+
+-- | Token to use when calling the next set of stages in the edge deployment
+-- plan.
+describeEdgeDeploymentPlanResponse_nextToken :: Lens.Lens' DescribeEdgeDeploymentPlanResponse (Prelude.Maybe Prelude.Text)
+describeEdgeDeploymentPlanResponse_nextToken = Lens.lens (\DescribeEdgeDeploymentPlanResponse' {nextToken} -> nextToken) (\s@DescribeEdgeDeploymentPlanResponse' {} a -> s {nextToken = a} :: DescribeEdgeDeploymentPlanResponse)
 
 -- | The response's http status code.
 describeEdgeDeploymentPlanResponse_httpStatus :: Lens.Lens' DescribeEdgeDeploymentPlanResponse Prelude.Int
@@ -331,12 +331,12 @@ instance
     DescribeEdgeDeploymentPlanResponse
   where
   rnf DescribeEdgeDeploymentPlanResponse' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf edgeDeploymentFailed
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf edgeDeploymentPending
       `Prelude.seq` Prelude.rnf edgeDeploymentSuccess
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf edgeDeploymentPlanArn
       `Prelude.seq` Prelude.rnf edgeDeploymentPlanName

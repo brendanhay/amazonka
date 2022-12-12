@@ -32,8 +32,8 @@ module Amazonka.Personalize.ListSchemas
     newListSchemas,
 
     -- * Request Lenses
-    listSchemas_nextToken,
     listSchemas_maxResults,
+    listSchemas_nextToken,
 
     -- * Destructuring the Response
     ListSchemasResponse (..),
@@ -56,11 +56,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListSchemas' smart constructor.
 data ListSchemas = ListSchemas'
-  { -- | A token returned from the previous call to @ListSchemas@ for getting the
+  { -- | The maximum number of schemas to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token returned from the previous call to @ListSchemas@ for getting the
     -- next set of schemas (if they exist).
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of schemas to return.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,26 +72,26 @@ data ListSchemas = ListSchemas'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listSchemas_maxResults' - The maximum number of schemas to return.
+--
 -- 'nextToken', 'listSchemas_nextToken' - A token returned from the previous call to @ListSchemas@ for getting the
 -- next set of schemas (if they exist).
---
--- 'maxResults', 'listSchemas_maxResults' - The maximum number of schemas to return.
 newListSchemas ::
   ListSchemas
 newListSchemas =
   ListSchemas'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of schemas to return.
+listSchemas_maxResults :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Natural)
+listSchemas_maxResults = Lens.lens (\ListSchemas' {maxResults} -> maxResults) (\s@ListSchemas' {} a -> s {maxResults = a} :: ListSchemas)
 
 -- | A token returned from the previous call to @ListSchemas@ for getting the
 -- next set of schemas (if they exist).
 listSchemas_nextToken :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Text)
 listSchemas_nextToken = Lens.lens (\ListSchemas' {nextToken} -> nextToken) (\s@ListSchemas' {} a -> s {nextToken = a} :: ListSchemas)
-
--- | The maximum number of schemas to return.
-listSchemas_maxResults :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Natural)
-listSchemas_maxResults = Lens.lens (\ListSchemas' {maxResults} -> maxResults) (\s@ListSchemas' {} a -> s {maxResults = a} :: ListSchemas)
 
 instance Core.AWSPager ListSchemas where
   page rq rs
@@ -127,13 +127,13 @@ instance Core.AWSRequest ListSchemas where
 
 instance Prelude.Hashable ListSchemas where
   hashWithSalt _salt ListSchemas' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListSchemas where
   rnf ListSchemas' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListSchemas where
   toHeaders =
@@ -154,8 +154,8 @@ instance Data.ToJSON ListSchemas where
   toJSON ListSchemas' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

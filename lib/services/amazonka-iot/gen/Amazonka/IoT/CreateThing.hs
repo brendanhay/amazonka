@@ -38,9 +38,9 @@ module Amazonka.IoT.CreateThing
     newCreateThing,
 
     -- * Request Lenses
+    createThing_attributePayload,
     createThing_billingGroupName,
     createThing_thingTypeName,
-    createThing_attributePayload,
     createThing_thingName,
 
     -- * Destructuring the Response
@@ -48,9 +48,9 @@ module Amazonka.IoT.CreateThing
     newCreateThingResponse,
 
     -- * Response Lenses
-    createThingResponse_thingName,
-    createThingResponse_thingId,
     createThingResponse_thingArn,
+    createThingResponse_thingId,
+    createThingResponse_thingName,
     createThingResponse_httpStatus,
   )
 where
@@ -67,15 +67,15 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateThing' smart constructor.
 data CreateThing = CreateThing'
-  { -- | The name of the billing group the thing will be added to.
-    billingGroupName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the thing type associated with the new thing.
-    thingTypeName :: Prelude.Maybe Prelude.Text,
-    -- | The attribute payload, which consists of up to three name\/value pairs
+  { -- | The attribute payload, which consists of up to three name\/value pairs
     -- in a JSON document. For example:
     --
     -- @{\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}@
     attributePayload :: Prelude.Maybe AttributePayload,
+    -- | The name of the billing group the thing will be added to.
+    billingGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the thing type associated with the new thing.
+    thingTypeName :: Prelude.Maybe Prelude.Text,
     -- | The name of the thing to create.
     --
     -- You can\'t change a thing\'s name after you create it. To change a
@@ -93,14 +93,14 @@ data CreateThing = CreateThing'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'billingGroupName', 'createThing_billingGroupName' - The name of the billing group the thing will be added to.
---
--- 'thingTypeName', 'createThing_thingTypeName' - The name of the thing type associated with the new thing.
---
 -- 'attributePayload', 'createThing_attributePayload' - The attribute payload, which consists of up to three name\/value pairs
 -- in a JSON document. For example:
 --
 -- @{\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}@
+--
+-- 'billingGroupName', 'createThing_billingGroupName' - The name of the billing group the thing will be added to.
+--
+-- 'thingTypeName', 'createThing_thingTypeName' - The name of the thing type associated with the new thing.
 --
 -- 'thingName', 'createThing_thingName' - The name of the thing to create.
 --
@@ -113,11 +113,18 @@ newCreateThing ::
   CreateThing
 newCreateThing pThingName_ =
   CreateThing'
-    { billingGroupName = Prelude.Nothing,
+    { attributePayload = Prelude.Nothing,
+      billingGroupName = Prelude.Nothing,
       thingTypeName = Prelude.Nothing,
-      attributePayload = Prelude.Nothing,
       thingName = pThingName_
     }
+
+-- | The attribute payload, which consists of up to three name\/value pairs
+-- in a JSON document. For example:
+--
+-- @{\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}@
+createThing_attributePayload :: Lens.Lens' CreateThing (Prelude.Maybe AttributePayload)
+createThing_attributePayload = Lens.lens (\CreateThing' {attributePayload} -> attributePayload) (\s@CreateThing' {} a -> s {attributePayload = a} :: CreateThing)
 
 -- | The name of the billing group the thing will be added to.
 createThing_billingGroupName :: Lens.Lens' CreateThing (Prelude.Maybe Prelude.Text)
@@ -126,13 +133,6 @@ createThing_billingGroupName = Lens.lens (\CreateThing' {billingGroupName} -> bi
 -- | The name of the thing type associated with the new thing.
 createThing_thingTypeName :: Lens.Lens' CreateThing (Prelude.Maybe Prelude.Text)
 createThing_thingTypeName = Lens.lens (\CreateThing' {thingTypeName} -> thingTypeName) (\s@CreateThing' {} a -> s {thingTypeName = a} :: CreateThing)
-
--- | The attribute payload, which consists of up to three name\/value pairs
--- in a JSON document. For example:
---
--- @{\\\"attributes\\\":{\\\"string1\\\":\\\"string2\\\"}}@
-createThing_attributePayload :: Lens.Lens' CreateThing (Prelude.Maybe AttributePayload)
-createThing_attributePayload = Lens.lens (\CreateThing' {attributePayload} -> attributePayload) (\s@CreateThing' {} a -> s {attributePayload = a} :: CreateThing)
 
 -- | The name of the thing to create.
 --
@@ -150,24 +150,24 @@ instance Core.AWSRequest CreateThing where
     Response.receiveJSON
       ( \s h x ->
           CreateThingResponse'
-            Prelude.<$> (x Data..?> "thingName")
+            Prelude.<$> (x Data..?> "thingArn")
             Prelude.<*> (x Data..?> "thingId")
-            Prelude.<*> (x Data..?> "thingArn")
+            Prelude.<*> (x Data..?> "thingName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateThing where
   hashWithSalt _salt CreateThing' {..} =
-    _salt `Prelude.hashWithSalt` billingGroupName
+    _salt `Prelude.hashWithSalt` attributePayload
+      `Prelude.hashWithSalt` billingGroupName
       `Prelude.hashWithSalt` thingTypeName
-      `Prelude.hashWithSalt` attributePayload
       `Prelude.hashWithSalt` thingName
 
 instance Prelude.NFData CreateThing where
   rnf CreateThing' {..} =
-    Prelude.rnf billingGroupName
+    Prelude.rnf attributePayload
+      `Prelude.seq` Prelude.rnf billingGroupName
       `Prelude.seq` Prelude.rnf thingTypeName
-      `Prelude.seq` Prelude.rnf attributePayload
       `Prelude.seq` Prelude.rnf thingName
 
 instance Data.ToHeaders CreateThing where
@@ -177,11 +177,11 @@ instance Data.ToJSON CreateThing where
   toJSON CreateThing' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("billingGroupName" Data..=)
+          [ ("attributePayload" Data..=)
+              Prelude.<$> attributePayload,
+            ("billingGroupName" Data..=)
               Prelude.<$> billingGroupName,
-            ("thingTypeName" Data..=) Prelude.<$> thingTypeName,
-            ("attributePayload" Data..=)
-              Prelude.<$> attributePayload
+            ("thingTypeName" Data..=) Prelude.<$> thingTypeName
           ]
       )
 
@@ -196,12 +196,12 @@ instance Data.ToQuery CreateThing where
 --
 -- /See:/ 'newCreateThingResponse' smart constructor.
 data CreateThingResponse = CreateThingResponse'
-  { -- | The name of the new thing.
-    thingName :: Prelude.Maybe Prelude.Text,
+  { -- | The ARN of the new thing.
+    thingArn :: Prelude.Maybe Prelude.Text,
     -- | The thing ID.
     thingId :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the new thing.
-    thingArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the new thing.
+    thingName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -215,11 +215,11 @@ data CreateThingResponse = CreateThingResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'thingName', 'createThingResponse_thingName' - The name of the new thing.
+-- 'thingArn', 'createThingResponse_thingArn' - The ARN of the new thing.
 --
 -- 'thingId', 'createThingResponse_thingId' - The thing ID.
 --
--- 'thingArn', 'createThingResponse_thingArn' - The ARN of the new thing.
+-- 'thingName', 'createThingResponse_thingName' - The name of the new thing.
 --
 -- 'httpStatus', 'createThingResponse_httpStatus' - The response's http status code.
 newCreateThingResponse ::
@@ -228,23 +228,23 @@ newCreateThingResponse ::
   CreateThingResponse
 newCreateThingResponse pHttpStatus_ =
   CreateThingResponse'
-    { thingName = Prelude.Nothing,
+    { thingArn = Prelude.Nothing,
       thingId = Prelude.Nothing,
-      thingArn = Prelude.Nothing,
+      thingName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The name of the new thing.
-createThingResponse_thingName :: Lens.Lens' CreateThingResponse (Prelude.Maybe Prelude.Text)
-createThingResponse_thingName = Lens.lens (\CreateThingResponse' {thingName} -> thingName) (\s@CreateThingResponse' {} a -> s {thingName = a} :: CreateThingResponse)
+-- | The ARN of the new thing.
+createThingResponse_thingArn :: Lens.Lens' CreateThingResponse (Prelude.Maybe Prelude.Text)
+createThingResponse_thingArn = Lens.lens (\CreateThingResponse' {thingArn} -> thingArn) (\s@CreateThingResponse' {} a -> s {thingArn = a} :: CreateThingResponse)
 
 -- | The thing ID.
 createThingResponse_thingId :: Lens.Lens' CreateThingResponse (Prelude.Maybe Prelude.Text)
 createThingResponse_thingId = Lens.lens (\CreateThingResponse' {thingId} -> thingId) (\s@CreateThingResponse' {} a -> s {thingId = a} :: CreateThingResponse)
 
--- | The ARN of the new thing.
-createThingResponse_thingArn :: Lens.Lens' CreateThingResponse (Prelude.Maybe Prelude.Text)
-createThingResponse_thingArn = Lens.lens (\CreateThingResponse' {thingArn} -> thingArn) (\s@CreateThingResponse' {} a -> s {thingArn = a} :: CreateThingResponse)
+-- | The name of the new thing.
+createThingResponse_thingName :: Lens.Lens' CreateThingResponse (Prelude.Maybe Prelude.Text)
+createThingResponse_thingName = Lens.lens (\CreateThingResponse' {thingName} -> thingName) (\s@CreateThingResponse' {} a -> s {thingName = a} :: CreateThingResponse)
 
 -- | The response's http status code.
 createThingResponse_httpStatus :: Lens.Lens' CreateThingResponse Prelude.Int
@@ -252,7 +252,7 @@ createThingResponse_httpStatus = Lens.lens (\CreateThingResponse' {httpStatus} -
 
 instance Prelude.NFData CreateThingResponse where
   rnf CreateThingResponse' {..} =
-    Prelude.rnf thingName
+    Prelude.rnf thingArn
       `Prelude.seq` Prelude.rnf thingId
-      `Prelude.seq` Prelude.rnf thingArn
+      `Prelude.seq` Prelude.rnf thingName
       `Prelude.seq` Prelude.rnf httpStatus

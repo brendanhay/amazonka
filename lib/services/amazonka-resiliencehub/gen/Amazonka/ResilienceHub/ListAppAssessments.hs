@@ -28,13 +28,13 @@ module Amazonka.ResilienceHub.ListAppAssessments
     newListAppAssessments,
 
     -- * Request Lenses
-    listAppAssessments_nextToken,
+    listAppAssessments_appArn,
     listAppAssessments_assessmentName,
+    listAppAssessments_assessmentStatus,
     listAppAssessments_complianceStatus,
     listAppAssessments_invoker,
     listAppAssessments_maxResults,
-    listAppAssessments_appArn,
-    listAppAssessments_assessmentStatus,
+    listAppAssessments_nextToken,
     listAppAssessments_reverseOrder,
 
     -- * Destructuring the Response
@@ -58,10 +58,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAppAssessments' smart constructor.
 data ListAppAssessments = ListAppAssessments'
-  { -- | Null, or the token from a previous call to get the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The Amazon Resource Name (ARN) of the application. The format for this
+    -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
+    -- For more information about ARNs, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
+    -- in the /AWS General Reference/.
+    appArn :: Prelude.Maybe Prelude.Text,
     -- | The name for the assessment.
     assessmentName :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the assessment for the resiliency policy.
+    assessmentStatus :: Prelude.Maybe (Prelude.NonEmpty AssessmentStatus),
     -- | The current status of compliance for the resiliency policy.
     complianceStatus :: Prelude.Maybe ComplianceStatus,
     -- | Specifies the entity that invoked a specific assessment, either a @User@
@@ -71,14 +77,8 @@ data ListAppAssessments = ListAppAssessments'
     -- results exist than the specified @MaxResults@ value, a token is included
     -- in the response so that the remaining results can be retrieved.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The Amazon Resource Name (ARN) of the application. The format for this
-    -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
-    -- For more information about ARNs, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
-    appArn :: Prelude.Maybe Prelude.Text,
-    -- | The current status of the assessment for the resiliency policy.
-    assessmentStatus :: Prelude.Maybe (Prelude.NonEmpty AssessmentStatus),
+    -- | Null, or the token from a previous call to get the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The default is to sort by ascending __startTime__. To sort by descending
     -- __startTime__, set reverseOrder to @true@.
     reverseOrder :: Prelude.Maybe Prelude.Bool
@@ -93,9 +93,15 @@ data ListAppAssessments = ListAppAssessments'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAppAssessments_nextToken' - Null, or the token from a previous call to get the next set of results.
+-- 'appArn', 'listAppAssessments_appArn' - The Amazon Resource Name (ARN) of the application. The format for this
+-- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
+-- For more information about ARNs, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
+-- in the /AWS General Reference/.
 --
 -- 'assessmentName', 'listAppAssessments_assessmentName' - The name for the assessment.
+--
+-- 'assessmentStatus', 'listAppAssessments_assessmentStatus' - The current status of the assessment for the resiliency policy.
 --
 -- 'complianceStatus', 'listAppAssessments_complianceStatus' - The current status of compliance for the resiliency policy.
 --
@@ -106,13 +112,7 @@ data ListAppAssessments = ListAppAssessments'
 -- results exist than the specified @MaxResults@ value, a token is included
 -- in the response so that the remaining results can be retrieved.
 --
--- 'appArn', 'listAppAssessments_appArn' - The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
---
--- 'assessmentStatus', 'listAppAssessments_assessmentStatus' - The current status of the assessment for the resiliency policy.
+-- 'nextToken', 'listAppAssessments_nextToken' - Null, or the token from a previous call to get the next set of results.
 --
 -- 'reverseOrder', 'listAppAssessments_reverseOrder' - The default is to sort by ascending __startTime__. To sort by descending
 -- __startTime__, set reverseOrder to @true@.
@@ -120,23 +120,31 @@ newListAppAssessments ::
   ListAppAssessments
 newListAppAssessments =
   ListAppAssessments'
-    { nextToken = Prelude.Nothing,
+    { appArn = Prelude.Nothing,
       assessmentName = Prelude.Nothing,
+      assessmentStatus = Prelude.Nothing,
       complianceStatus = Prelude.Nothing,
       invoker = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      appArn = Prelude.Nothing,
-      assessmentStatus = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       reverseOrder = Prelude.Nothing
     }
 
--- | Null, or the token from a previous call to get the next set of results.
-listAppAssessments_nextToken :: Lens.Lens' ListAppAssessments (Prelude.Maybe Prelude.Text)
-listAppAssessments_nextToken = Lens.lens (\ListAppAssessments' {nextToken} -> nextToken) (\s@ListAppAssessments' {} a -> s {nextToken = a} :: ListAppAssessments)
+-- | The Amazon Resource Name (ARN) of the application. The format for this
+-- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
+-- For more information about ARNs, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
+-- in the /AWS General Reference/.
+listAppAssessments_appArn :: Lens.Lens' ListAppAssessments (Prelude.Maybe Prelude.Text)
+listAppAssessments_appArn = Lens.lens (\ListAppAssessments' {appArn} -> appArn) (\s@ListAppAssessments' {} a -> s {appArn = a} :: ListAppAssessments)
 
 -- | The name for the assessment.
 listAppAssessments_assessmentName :: Lens.Lens' ListAppAssessments (Prelude.Maybe Prelude.Text)
 listAppAssessments_assessmentName = Lens.lens (\ListAppAssessments' {assessmentName} -> assessmentName) (\s@ListAppAssessments' {} a -> s {assessmentName = a} :: ListAppAssessments)
+
+-- | The current status of the assessment for the resiliency policy.
+listAppAssessments_assessmentStatus :: Lens.Lens' ListAppAssessments (Prelude.Maybe (Prelude.NonEmpty AssessmentStatus))
+listAppAssessments_assessmentStatus = Lens.lens (\ListAppAssessments' {assessmentStatus} -> assessmentStatus) (\s@ListAppAssessments' {} a -> s {assessmentStatus = a} :: ListAppAssessments) Prelude.. Lens.mapping Lens.coerced
 
 -- | The current status of compliance for the resiliency policy.
 listAppAssessments_complianceStatus :: Lens.Lens' ListAppAssessments (Prelude.Maybe ComplianceStatus)
@@ -153,17 +161,9 @@ listAppAssessments_invoker = Lens.lens (\ListAppAssessments' {invoker} -> invoke
 listAppAssessments_maxResults :: Lens.Lens' ListAppAssessments (Prelude.Maybe Prelude.Natural)
 listAppAssessments_maxResults = Lens.lens (\ListAppAssessments' {maxResults} -> maxResults) (\s@ListAppAssessments' {} a -> s {maxResults = a} :: ListAppAssessments)
 
--- | The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
-listAppAssessments_appArn :: Lens.Lens' ListAppAssessments (Prelude.Maybe Prelude.Text)
-listAppAssessments_appArn = Lens.lens (\ListAppAssessments' {appArn} -> appArn) (\s@ListAppAssessments' {} a -> s {appArn = a} :: ListAppAssessments)
-
--- | The current status of the assessment for the resiliency policy.
-listAppAssessments_assessmentStatus :: Lens.Lens' ListAppAssessments (Prelude.Maybe (Prelude.NonEmpty AssessmentStatus))
-listAppAssessments_assessmentStatus = Lens.lens (\ListAppAssessments' {assessmentStatus} -> assessmentStatus) (\s@ListAppAssessments' {} a -> s {assessmentStatus = a} :: ListAppAssessments) Prelude.. Lens.mapping Lens.coerced
+-- | Null, or the token from a previous call to get the next set of results.
+listAppAssessments_nextToken :: Lens.Lens' ListAppAssessments (Prelude.Maybe Prelude.Text)
+listAppAssessments_nextToken = Lens.lens (\ListAppAssessments' {nextToken} -> nextToken) (\s@ListAppAssessments' {} a -> s {nextToken = a} :: ListAppAssessments)
 
 -- | The default is to sort by ascending __startTime__. To sort by descending
 -- __startTime__, set reverseOrder to @true@.
@@ -189,24 +189,24 @@ instance Core.AWSRequest ListAppAssessments where
 
 instance Prelude.Hashable ListAppAssessments where
   hashWithSalt _salt ListAppAssessments' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` appArn
       `Prelude.hashWithSalt` assessmentName
+      `Prelude.hashWithSalt` assessmentStatus
       `Prelude.hashWithSalt` complianceStatus
       `Prelude.hashWithSalt` invoker
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` appArn
-      `Prelude.hashWithSalt` assessmentStatus
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` reverseOrder
 
 instance Prelude.NFData ListAppAssessments where
   rnf ListAppAssessments' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf appArn
       `Prelude.seq` Prelude.rnf assessmentName
+      `Prelude.seq` Prelude.rnf assessmentStatus
       `Prelude.seq` Prelude.rnf complianceStatus
       `Prelude.seq` Prelude.rnf invoker
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf appArn
-      `Prelude.seq` Prelude.rnf assessmentStatus
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf reverseOrder
 
 instance Data.ToHeaders ListAppAssessments where
@@ -226,17 +226,17 @@ instance Data.ToPath ListAppAssessments where
 instance Data.ToQuery ListAppAssessments where
   toQuery ListAppAssessments' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
+      [ "appArn" Data.=: appArn,
         "assessmentName" Data.=: assessmentName,
-        "complianceStatus" Data.=: complianceStatus,
-        "invoker" Data.=: invoker,
-        "maxResults" Data.=: maxResults,
-        "appArn" Data.=: appArn,
         "assessmentStatus"
           Data.=: Data.toQuery
             ( Data.toQueryList "member"
                 Prelude.<$> assessmentStatus
             ),
+        "complianceStatus" Data.=: complianceStatus,
+        "invoker" Data.=: invoker,
+        "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
         "reverseOrder" Data.=: reverseOrder
       ]
 

@@ -116,11 +116,11 @@ module Amazonka.Batch.CreateComputeEnvironment
     newCreateComputeEnvironment,
 
     -- * Request Lenses
-    createComputeEnvironment_tags,
-    createComputeEnvironment_state,
-    createComputeEnvironment_serviceRole,
-    createComputeEnvironment_eksConfiguration,
     createComputeEnvironment_computeResources,
+    createComputeEnvironment_eksConfiguration,
+    createComputeEnvironment_serviceRole,
+    createComputeEnvironment_state,
+    createComputeEnvironment_tags,
     createComputeEnvironment_unmanagedvCpus,
     createComputeEnvironment_computeEnvironmentName,
     createComputeEnvironment_type,
@@ -148,34 +148,15 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateComputeEnvironment' smart constructor.
 data CreateComputeEnvironment = CreateComputeEnvironment'
-  { -- | The tags that you apply to the compute environment to help you
-    -- categorize and organize your resources. Each tag consists of a key and
-    -- an optional value. For more information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
-    -- in /Amazon Web Services General Reference/.
-    --
-    -- These tags can be updated or removed using the
-    -- <https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html TagResource>
-    -- and
-    -- <https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html UntagResource>
-    -- API operations. These tags don\'t propagate to the underlying compute
-    -- resources.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The state of the compute environment. If the state is @ENABLED@, then
-    -- the compute environment accepts jobs from a queue and can scale out
-    -- automatically based on queues.
-    --
-    -- If the state is @ENABLED@, then the Batch scheduler can attempt to place
-    -- jobs from an associated job queue on the compute resources within the
-    -- environment. If the compute environment is managed, then it can scale
-    -- its instances out or in automatically, based on the job queue demand.
-    --
-    -- If the state is @DISABLED@, then the Batch scheduler doesn\'t attempt to
-    -- place jobs within the environment. Jobs in a @STARTING@ or @RUNNING@
-    -- state continue to progress normally. Managed compute environments in the
-    -- @DISABLED@ state don\'t scale out. However, they scale in to @minvCpus@
-    -- value after instances become idle.
-    state :: Prelude.Maybe CEState,
+  { -- | Details about the compute resources managed by the compute environment.
+    -- This parameter is required for managed compute environments. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
+    -- in the /Batch User Guide/.
+    computeResources :: Prelude.Maybe ComputeResource,
+    -- | The details for the Amazon EKS cluster that supports the compute
+    -- environment.
+    eksConfiguration :: Prelude.Maybe EksConfiguration,
     -- | The full Amazon Resource Name (ARN) of the IAM role that allows Batch to
     -- make calls to other Amazon Web Services services on your behalf. For
     -- more information, see
@@ -203,15 +184,34 @@ data CreateComputeEnvironment = CreateComputeEnvironment'
     -- specify the full ARN of your service role when you create compute
     -- environments.
     serviceRole :: Prelude.Maybe Prelude.Text,
-    -- | The details for the Amazon EKS cluster that supports the compute
-    -- environment.
-    eksConfiguration :: Prelude.Maybe EksConfiguration,
-    -- | Details about the compute resources managed by the compute environment.
-    -- This parameter is required for managed compute environments. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
-    -- in the /Batch User Guide/.
-    computeResources :: Prelude.Maybe ComputeResource,
+    -- | The state of the compute environment. If the state is @ENABLED@, then
+    -- the compute environment accepts jobs from a queue and can scale out
+    -- automatically based on queues.
+    --
+    -- If the state is @ENABLED@, then the Batch scheduler can attempt to place
+    -- jobs from an associated job queue on the compute resources within the
+    -- environment. If the compute environment is managed, then it can scale
+    -- its instances out or in automatically, based on the job queue demand.
+    --
+    -- If the state is @DISABLED@, then the Batch scheduler doesn\'t attempt to
+    -- place jobs within the environment. Jobs in a @STARTING@ or @RUNNING@
+    -- state continue to progress normally. Managed compute environments in the
+    -- @DISABLED@ state don\'t scale out. However, they scale in to @minvCpus@
+    -- value after instances become idle.
+    state :: Prelude.Maybe CEState,
+    -- | The tags that you apply to the compute environment to help you
+    -- categorize and organize your resources. Each tag consists of a key and
+    -- an optional value. For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+    -- in /Amazon Web Services General Reference/.
+    --
+    -- These tags can be updated or removed using the
+    -- <https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html TagResource>
+    -- and
+    -- <https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html UntagResource>
+    -- API operations. These tags don\'t propagate to the underlying compute
+    -- resources.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The maximum number of vCPUs for an unmanaged compute environment. This
     -- parameter is only used for fair share scheduling to reserve vCPU
     -- capacity for new share identifiers. If this parameter isn\'t provided
@@ -240,33 +240,14 @@ data CreateComputeEnvironment = CreateComputeEnvironment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createComputeEnvironment_tags' - The tags that you apply to the compute environment to help you
--- categorize and organize your resources. Each tag consists of a key and
--- an optional value. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
--- in /Amazon Web Services General Reference/.
+-- 'computeResources', 'createComputeEnvironment_computeResources' - Details about the compute resources managed by the compute environment.
+-- This parameter is required for managed compute environments. For more
+-- information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
+-- in the /Batch User Guide/.
 --
--- These tags can be updated or removed using the
--- <https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html TagResource>
--- and
--- <https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html UntagResource>
--- API operations. These tags don\'t propagate to the underlying compute
--- resources.
---
--- 'state', 'createComputeEnvironment_state' - The state of the compute environment. If the state is @ENABLED@, then
--- the compute environment accepts jobs from a queue and can scale out
--- automatically based on queues.
---
--- If the state is @ENABLED@, then the Batch scheduler can attempt to place
--- jobs from an associated job queue on the compute resources within the
--- environment. If the compute environment is managed, then it can scale
--- its instances out or in automatically, based on the job queue demand.
---
--- If the state is @DISABLED@, then the Batch scheduler doesn\'t attempt to
--- place jobs within the environment. Jobs in a @STARTING@ or @RUNNING@
--- state continue to progress normally. Managed compute environments in the
--- @DISABLED@ state don\'t scale out. However, they scale in to @minvCpus@
--- value after instances become idle.
+-- 'eksConfiguration', 'createComputeEnvironment_eksConfiguration' - The details for the Amazon EKS cluster that supports the compute
+-- environment.
 --
 -- 'serviceRole', 'createComputeEnvironment_serviceRole' - The full Amazon Resource Name (ARN) of the IAM role that allows Batch to
 -- make calls to other Amazon Web Services services on your behalf. For
@@ -295,14 +276,33 @@ data CreateComputeEnvironment = CreateComputeEnvironment'
 -- specify the full ARN of your service role when you create compute
 -- environments.
 --
--- 'eksConfiguration', 'createComputeEnvironment_eksConfiguration' - The details for the Amazon EKS cluster that supports the compute
--- environment.
+-- 'state', 'createComputeEnvironment_state' - The state of the compute environment. If the state is @ENABLED@, then
+-- the compute environment accepts jobs from a queue and can scale out
+-- automatically based on queues.
 --
--- 'computeResources', 'createComputeEnvironment_computeResources' - Details about the compute resources managed by the compute environment.
--- This parameter is required for managed compute environments. For more
--- information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
--- in the /Batch User Guide/.
+-- If the state is @ENABLED@, then the Batch scheduler can attempt to place
+-- jobs from an associated job queue on the compute resources within the
+-- environment. If the compute environment is managed, then it can scale
+-- its instances out or in automatically, based on the job queue demand.
+--
+-- If the state is @DISABLED@, then the Batch scheduler doesn\'t attempt to
+-- place jobs within the environment. Jobs in a @STARTING@ or @RUNNING@
+-- state continue to progress normally. Managed compute environments in the
+-- @DISABLED@ state don\'t scale out. However, they scale in to @minvCpus@
+-- value after instances become idle.
+--
+-- 'tags', 'createComputeEnvironment_tags' - The tags that you apply to the compute environment to help you
+-- categorize and organize your resources. Each tag consists of a key and
+-- an optional value. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- in /Amazon Web Services General Reference/.
+--
+-- These tags can be updated or removed using the
+-- <https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html TagResource>
+-- and
+-- <https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html UntagResource>
+-- API operations. These tags don\'t propagate to the underlying compute
+-- resources.
 --
 -- 'unmanagedvCpus', 'createComputeEnvironment_unmanagedvCpus' - The maximum number of vCPUs for an unmanaged compute environment. This
 -- parameter is only used for fair share scheduling to reserve vCPU
@@ -330,47 +330,29 @@ newCreateComputeEnvironment
   pComputeEnvironmentName_
   pType_ =
     CreateComputeEnvironment'
-      { tags = Prelude.Nothing,
-        state = Prelude.Nothing,
-        serviceRole = Prelude.Nothing,
+      { computeResources =
+          Prelude.Nothing,
         eksConfiguration = Prelude.Nothing,
-        computeResources = Prelude.Nothing,
+        serviceRole = Prelude.Nothing,
+        state = Prelude.Nothing,
+        tags = Prelude.Nothing,
         unmanagedvCpus = Prelude.Nothing,
         computeEnvironmentName = pComputeEnvironmentName_,
         type' = pType_
       }
 
--- | The tags that you apply to the compute environment to help you
--- categorize and organize your resources. Each tag consists of a key and
--- an optional value. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
--- in /Amazon Web Services General Reference/.
---
--- These tags can be updated or removed using the
--- <https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html TagResource>
--- and
--- <https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html UntagResource>
--- API operations. These tags don\'t propagate to the underlying compute
--- resources.
-createComputeEnvironment_tags :: Lens.Lens' CreateComputeEnvironment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createComputeEnvironment_tags = Lens.lens (\CreateComputeEnvironment' {tags} -> tags) (\s@CreateComputeEnvironment' {} a -> s {tags = a} :: CreateComputeEnvironment) Prelude.. Lens.mapping Lens.coerced
+-- | Details about the compute resources managed by the compute environment.
+-- This parameter is required for managed compute environments. For more
+-- information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
+-- in the /Batch User Guide/.
+createComputeEnvironment_computeResources :: Lens.Lens' CreateComputeEnvironment (Prelude.Maybe ComputeResource)
+createComputeEnvironment_computeResources = Lens.lens (\CreateComputeEnvironment' {computeResources} -> computeResources) (\s@CreateComputeEnvironment' {} a -> s {computeResources = a} :: CreateComputeEnvironment)
 
--- | The state of the compute environment. If the state is @ENABLED@, then
--- the compute environment accepts jobs from a queue and can scale out
--- automatically based on queues.
---
--- If the state is @ENABLED@, then the Batch scheduler can attempt to place
--- jobs from an associated job queue on the compute resources within the
--- environment. If the compute environment is managed, then it can scale
--- its instances out or in automatically, based on the job queue demand.
---
--- If the state is @DISABLED@, then the Batch scheduler doesn\'t attempt to
--- place jobs within the environment. Jobs in a @STARTING@ or @RUNNING@
--- state continue to progress normally. Managed compute environments in the
--- @DISABLED@ state don\'t scale out. However, they scale in to @minvCpus@
--- value after instances become idle.
-createComputeEnvironment_state :: Lens.Lens' CreateComputeEnvironment (Prelude.Maybe CEState)
-createComputeEnvironment_state = Lens.lens (\CreateComputeEnvironment' {state} -> state) (\s@CreateComputeEnvironment' {} a -> s {state = a} :: CreateComputeEnvironment)
+-- | The details for the Amazon EKS cluster that supports the compute
+-- environment.
+createComputeEnvironment_eksConfiguration :: Lens.Lens' CreateComputeEnvironment (Prelude.Maybe EksConfiguration)
+createComputeEnvironment_eksConfiguration = Lens.lens (\CreateComputeEnvironment' {eksConfiguration} -> eksConfiguration) (\s@CreateComputeEnvironment' {} a -> s {eksConfiguration = a} :: CreateComputeEnvironment)
 
 -- | The full Amazon Resource Name (ARN) of the IAM role that allows Batch to
 -- make calls to other Amazon Web Services services on your behalf. For
@@ -401,18 +383,37 @@ createComputeEnvironment_state = Lens.lens (\CreateComputeEnvironment' {state} -
 createComputeEnvironment_serviceRole :: Lens.Lens' CreateComputeEnvironment (Prelude.Maybe Prelude.Text)
 createComputeEnvironment_serviceRole = Lens.lens (\CreateComputeEnvironment' {serviceRole} -> serviceRole) (\s@CreateComputeEnvironment' {} a -> s {serviceRole = a} :: CreateComputeEnvironment)
 
--- | The details for the Amazon EKS cluster that supports the compute
--- environment.
-createComputeEnvironment_eksConfiguration :: Lens.Lens' CreateComputeEnvironment (Prelude.Maybe EksConfiguration)
-createComputeEnvironment_eksConfiguration = Lens.lens (\CreateComputeEnvironment' {eksConfiguration} -> eksConfiguration) (\s@CreateComputeEnvironment' {} a -> s {eksConfiguration = a} :: CreateComputeEnvironment)
+-- | The state of the compute environment. If the state is @ENABLED@, then
+-- the compute environment accepts jobs from a queue and can scale out
+-- automatically based on queues.
+--
+-- If the state is @ENABLED@, then the Batch scheduler can attempt to place
+-- jobs from an associated job queue on the compute resources within the
+-- environment. If the compute environment is managed, then it can scale
+-- its instances out or in automatically, based on the job queue demand.
+--
+-- If the state is @DISABLED@, then the Batch scheduler doesn\'t attempt to
+-- place jobs within the environment. Jobs in a @STARTING@ or @RUNNING@
+-- state continue to progress normally. Managed compute environments in the
+-- @DISABLED@ state don\'t scale out. However, they scale in to @minvCpus@
+-- value after instances become idle.
+createComputeEnvironment_state :: Lens.Lens' CreateComputeEnvironment (Prelude.Maybe CEState)
+createComputeEnvironment_state = Lens.lens (\CreateComputeEnvironment' {state} -> state) (\s@CreateComputeEnvironment' {} a -> s {state = a} :: CreateComputeEnvironment)
 
--- | Details about the compute resources managed by the compute environment.
--- This parameter is required for managed compute environments. For more
--- information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
--- in the /Batch User Guide/.
-createComputeEnvironment_computeResources :: Lens.Lens' CreateComputeEnvironment (Prelude.Maybe ComputeResource)
-createComputeEnvironment_computeResources = Lens.lens (\CreateComputeEnvironment' {computeResources} -> computeResources) (\s@CreateComputeEnvironment' {} a -> s {computeResources = a} :: CreateComputeEnvironment)
+-- | The tags that you apply to the compute environment to help you
+-- categorize and organize your resources. Each tag consists of a key and
+-- an optional value. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- in /Amazon Web Services General Reference/.
+--
+-- These tags can be updated or removed using the
+-- <https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html TagResource>
+-- and
+-- <https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html UntagResource>
+-- API operations. These tags don\'t propagate to the underlying compute
+-- resources.
+createComputeEnvironment_tags :: Lens.Lens' CreateComputeEnvironment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createComputeEnvironment_tags = Lens.lens (\CreateComputeEnvironment' {tags} -> tags) (\s@CreateComputeEnvironment' {} a -> s {tags = a} :: CreateComputeEnvironment) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of vCPUs for an unmanaged compute environment. This
 -- parameter is only used for fair share scheduling to reserve vCPU
@@ -454,22 +455,22 @@ instance Core.AWSRequest CreateComputeEnvironment where
 
 instance Prelude.Hashable CreateComputeEnvironment where
   hashWithSalt _salt CreateComputeEnvironment' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` serviceRole
+    _salt `Prelude.hashWithSalt` computeResources
       `Prelude.hashWithSalt` eksConfiguration
-      `Prelude.hashWithSalt` computeResources
+      `Prelude.hashWithSalt` serviceRole
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` unmanagedvCpus
       `Prelude.hashWithSalt` computeEnvironmentName
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData CreateComputeEnvironment where
   rnf CreateComputeEnvironment' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf serviceRole
+    Prelude.rnf computeResources
       `Prelude.seq` Prelude.rnf eksConfiguration
-      `Prelude.seq` Prelude.rnf computeResources
+      `Prelude.seq` Prelude.rnf serviceRole
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf unmanagedvCpus
       `Prelude.seq` Prelude.rnf computeEnvironmentName
       `Prelude.seq` Prelude.rnf type'
@@ -489,13 +490,13 @@ instance Data.ToJSON CreateComputeEnvironment where
   toJSON CreateComputeEnvironment' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("state" Data..=) Prelude.<$> state,
-            ("serviceRole" Data..=) Prelude.<$> serviceRole,
+          [ ("computeResources" Data..=)
+              Prelude.<$> computeResources,
             ("eksConfiguration" Data..=)
               Prelude.<$> eksConfiguration,
-            ("computeResources" Data..=)
-              Prelude.<$> computeResources,
+            ("serviceRole" Data..=) Prelude.<$> serviceRole,
+            ("state" Data..=) Prelude.<$> state,
+            ("tags" Data..=) Prelude.<$> tags,
             ("unmanagedvCpus" Data..=)
               Prelude.<$> unmanagedvCpus,
             Prelude.Just

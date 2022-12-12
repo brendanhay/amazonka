@@ -34,9 +34,9 @@ module Amazonka.AppConfig.GetApplication
     newApplication,
 
     -- * Response Lenses
-    application_name,
-    application_id,
     application_description,
+    application_id,
+    application_name,
   )
 where
 

@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEcsServiceLoadBalancersDetails' smart constructor.
 data AwsEcsServiceLoadBalancersDetails = AwsEcsServiceLoadBalancersDetails'
-  { -- | The port on the container to associate with the load balancer. This port
+  { -- | The name of the container to associate with the load balancer.
+    containerName :: Prelude.Maybe Prelude.Text,
+    -- | The port on the container to associate with the load balancer. This port
     -- must correspond to a @containerPort@ in the task definition the tasks in
     -- the service are using. For tasks that use the EC2 launch type, the
     -- container instance they are launched on must allow ingress traffic on
     -- the @hostPort@ of the port mapping.
     containerPort :: Prelude.Maybe Prelude.Int,
-    -- | The name of the container to associate with the load balancer.
-    containerName :: Prelude.Maybe Prelude.Text,
     -- | The name of the load balancer to associate with the Amazon ECS service
     -- or task set.
     --
@@ -60,13 +60,13 @@ data AwsEcsServiceLoadBalancersDetails = AwsEcsServiceLoadBalancersDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'containerName', 'awsEcsServiceLoadBalancersDetails_containerName' - The name of the container to associate with the load balancer.
+--
 -- 'containerPort', 'awsEcsServiceLoadBalancersDetails_containerPort' - The port on the container to associate with the load balancer. This port
 -- must correspond to a @containerPort@ in the task definition the tasks in
 -- the service are using. For tasks that use the EC2 launch type, the
 -- container instance they are launched on must allow ingress traffic on
 -- the @hostPort@ of the port mapping.
---
--- 'containerName', 'awsEcsServiceLoadBalancersDetails_containerName' - The name of the container to associate with the load balancer.
 --
 -- 'loadBalancerName', 'awsEcsServiceLoadBalancersDetails_loadBalancerName' - The name of the load balancer to associate with the Amazon ECS service
 -- or task set.
@@ -84,12 +84,16 @@ newAwsEcsServiceLoadBalancersDetails ::
   AwsEcsServiceLoadBalancersDetails
 newAwsEcsServiceLoadBalancersDetails =
   AwsEcsServiceLoadBalancersDetails'
-    { containerPort =
+    { containerName =
         Prelude.Nothing,
-      containerName = Prelude.Nothing,
+      containerPort = Prelude.Nothing,
       loadBalancerName = Prelude.Nothing,
       targetGroupArn = Prelude.Nothing
     }
+
+-- | The name of the container to associate with the load balancer.
+awsEcsServiceLoadBalancersDetails_containerName :: Lens.Lens' AwsEcsServiceLoadBalancersDetails (Prelude.Maybe Prelude.Text)
+awsEcsServiceLoadBalancersDetails_containerName = Lens.lens (\AwsEcsServiceLoadBalancersDetails' {containerName} -> containerName) (\s@AwsEcsServiceLoadBalancersDetails' {} a -> s {containerName = a} :: AwsEcsServiceLoadBalancersDetails)
 
 -- | The port on the container to associate with the load balancer. This port
 -- must correspond to a @containerPort@ in the task definition the tasks in
@@ -98,10 +102,6 @@ newAwsEcsServiceLoadBalancersDetails =
 -- the @hostPort@ of the port mapping.
 awsEcsServiceLoadBalancersDetails_containerPort :: Lens.Lens' AwsEcsServiceLoadBalancersDetails (Prelude.Maybe Prelude.Int)
 awsEcsServiceLoadBalancersDetails_containerPort = Lens.lens (\AwsEcsServiceLoadBalancersDetails' {containerPort} -> containerPort) (\s@AwsEcsServiceLoadBalancersDetails' {} a -> s {containerPort = a} :: AwsEcsServiceLoadBalancersDetails)
-
--- | The name of the container to associate with the load balancer.
-awsEcsServiceLoadBalancersDetails_containerName :: Lens.Lens' AwsEcsServiceLoadBalancersDetails (Prelude.Maybe Prelude.Text)
-awsEcsServiceLoadBalancersDetails_containerName = Lens.lens (\AwsEcsServiceLoadBalancersDetails' {containerName} -> containerName) (\s@AwsEcsServiceLoadBalancersDetails' {} a -> s {containerName = a} :: AwsEcsServiceLoadBalancersDetails)
 
 -- | The name of the load balancer to associate with the Amazon ECS service
 -- or task set.
@@ -129,8 +129,8 @@ instance
       "AwsEcsServiceLoadBalancersDetails"
       ( \x ->
           AwsEcsServiceLoadBalancersDetails'
-            Prelude.<$> (x Data..:? "ContainerPort")
-            Prelude.<*> (x Data..:? "ContainerName")
+            Prelude.<$> (x Data..:? "ContainerName")
+            Prelude.<*> (x Data..:? "ContainerPort")
             Prelude.<*> (x Data..:? "LoadBalancerName")
             Prelude.<*> (x Data..:? "TargetGroupArn")
       )
@@ -142,8 +142,8 @@ instance
   hashWithSalt
     _salt
     AwsEcsServiceLoadBalancersDetails' {..} =
-      _salt `Prelude.hashWithSalt` containerPort
-        `Prelude.hashWithSalt` containerName
+      _salt `Prelude.hashWithSalt` containerName
+        `Prelude.hashWithSalt` containerPort
         `Prelude.hashWithSalt` loadBalancerName
         `Prelude.hashWithSalt` targetGroupArn
 
@@ -152,8 +152,8 @@ instance
     AwsEcsServiceLoadBalancersDetails
   where
   rnf AwsEcsServiceLoadBalancersDetails' {..} =
-    Prelude.rnf containerPort
-      `Prelude.seq` Prelude.rnf containerName
+    Prelude.rnf containerName
+      `Prelude.seq` Prelude.rnf containerPort
       `Prelude.seq` Prelude.rnf loadBalancerName
       `Prelude.seq` Prelude.rnf targetGroupArn
 
@@ -164,8 +164,8 @@ instance
   toJSON AwsEcsServiceLoadBalancersDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ContainerPort" Data..=) Prelude.<$> containerPort,
-            ("ContainerName" Data..=) Prelude.<$> containerName,
+          [ ("ContainerName" Data..=) Prelude.<$> containerName,
+            ("ContainerPort" Data..=) Prelude.<$> containerPort,
             ("LoadBalancerName" Data..=)
               Prelude.<$> loadBalancerName,
             ("TargetGroupArn" Data..=)

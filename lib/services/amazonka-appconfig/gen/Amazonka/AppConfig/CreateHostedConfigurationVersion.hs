@@ -27,8 +27,8 @@ module Amazonka.AppConfig.CreateHostedConfigurationVersion
     newCreateHostedConfigurationVersion,
 
     -- * Request Lenses
-    createHostedConfigurationVersion_latestVersionNumber,
     createHostedConfigurationVersion_description,
+    createHostedConfigurationVersion_latestVersionNumber,
     createHostedConfigurationVersion_applicationId,
     createHostedConfigurationVersion_configurationProfileId,
     createHostedConfigurationVersion_content,
@@ -39,12 +39,12 @@ module Amazonka.AppConfig.CreateHostedConfigurationVersion
     newHostedConfigurationVersion,
 
     -- * Response Lenses
+    hostedConfigurationVersion_applicationId,
+    hostedConfigurationVersion_configurationProfileId,
+    hostedConfigurationVersion_content,
+    hostedConfigurationVersion_contentType,
     hostedConfigurationVersion_description,
     hostedConfigurationVersion_versionNumber,
-    hostedConfigurationVersion_applicationId,
-    hostedConfigurationVersion_content,
-    hostedConfigurationVersion_configurationProfileId,
-    hostedConfigurationVersion_contentType,
   )
 where
 
@@ -58,14 +58,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateHostedConfigurationVersion' smart constructor.
 data CreateHostedConfigurationVersion = CreateHostedConfigurationVersion'
-  { -- | An optional locking token used to prevent race conditions from
+  { -- | A description of the configuration.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | An optional locking token used to prevent race conditions from
     -- overwriting configuration updates when creating a new version. To ensure
     -- your data is not overwritten when creating multiple hosted configuration
     -- versions in rapid succession, specify the version number of the latest
     -- hosted configuration version.
     latestVersionNumber :: Prelude.Maybe Prelude.Int,
-    -- | A description of the configuration.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The application ID.
     applicationId :: Prelude.Text,
     -- | The configuration profile ID.
@@ -87,13 +87,13 @@ data CreateHostedConfigurationVersion = CreateHostedConfigurationVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'createHostedConfigurationVersion_description' - A description of the configuration.
+--
 -- 'latestVersionNumber', 'createHostedConfigurationVersion_latestVersionNumber' - An optional locking token used to prevent race conditions from
 -- overwriting configuration updates when creating a new version. To ensure
 -- your data is not overwritten when creating multiple hosted configuration
 -- versions in rapid succession, specify the version number of the latest
 -- hosted configuration version.
---
--- 'description', 'createHostedConfigurationVersion_description' - A description of the configuration.
 --
 -- 'applicationId', 'createHostedConfigurationVersion_applicationId' - The application ID.
 --
@@ -120,9 +120,9 @@ newCreateHostedConfigurationVersion
   pContent_
   pContentType_ =
     CreateHostedConfigurationVersion'
-      { latestVersionNumber =
+      { description =
           Prelude.Nothing,
-        description = Prelude.Nothing,
+        latestVersionNumber = Prelude.Nothing,
         applicationId = pApplicationId_,
         configurationProfileId =
           pConfigurationProfileId_,
@@ -131,6 +131,10 @@ newCreateHostedConfigurationVersion
         contentType = pContentType_
       }
 
+-- | A description of the configuration.
+createHostedConfigurationVersion_description :: Lens.Lens' CreateHostedConfigurationVersion (Prelude.Maybe Prelude.Text)
+createHostedConfigurationVersion_description = Lens.lens (\CreateHostedConfigurationVersion' {description} -> description) (\s@CreateHostedConfigurationVersion' {} a -> s {description = a} :: CreateHostedConfigurationVersion)
+
 -- | An optional locking token used to prevent race conditions from
 -- overwriting configuration updates when creating a new version. To ensure
 -- your data is not overwritten when creating multiple hosted configuration
@@ -138,10 +142,6 @@ newCreateHostedConfigurationVersion
 -- hosted configuration version.
 createHostedConfigurationVersion_latestVersionNumber :: Lens.Lens' CreateHostedConfigurationVersion (Prelude.Maybe Prelude.Int)
 createHostedConfigurationVersion_latestVersionNumber = Lens.lens (\CreateHostedConfigurationVersion' {latestVersionNumber} -> latestVersionNumber) (\s@CreateHostedConfigurationVersion' {} a -> s {latestVersionNumber = a} :: CreateHostedConfigurationVersion)
-
--- | A description of the configuration.
-createHostedConfigurationVersion_description :: Lens.Lens' CreateHostedConfigurationVersion (Prelude.Maybe Prelude.Text)
-createHostedConfigurationVersion_description = Lens.lens (\CreateHostedConfigurationVersion' {description} -> description) (\s@CreateHostedConfigurationVersion' {} a -> s {description = a} :: CreateHostedConfigurationVersion)
 
 -- | The application ID.
 createHostedConfigurationVersion_applicationId :: Lens.Lens' CreateHostedConfigurationVersion Prelude.Text
@@ -174,12 +174,12 @@ instance
     Response.receiveBytes
       ( \s h x ->
           HostedConfigurationVersion'
-            Prelude.<$> (h Data..#? "Description")
-            Prelude.<*> (h Data..#? "Version-Number")
-            Prelude.<*> (h Data..#? "Application-Id")
-            Prelude.<*> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
+            Prelude.<$> (h Data..#? "Application-Id")
             Prelude.<*> (h Data..#? "Configuration-Profile-Id")
+            Prelude.<*> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
             Prelude.<*> (h Data..#? "Content-Type")
+            Prelude.<*> (h Data..#? "Description")
+            Prelude.<*> (h Data..#? "Version-Number")
       )
 
 instance
@@ -189,8 +189,8 @@ instance
   hashWithSalt
     _salt
     CreateHostedConfigurationVersion' {..} =
-      _salt `Prelude.hashWithSalt` latestVersionNumber
-        `Prelude.hashWithSalt` description
+      _salt `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` latestVersionNumber
         `Prelude.hashWithSalt` applicationId
         `Prelude.hashWithSalt` configurationProfileId
         `Prelude.hashWithSalt` content
@@ -201,8 +201,8 @@ instance
     CreateHostedConfigurationVersion
   where
   rnf CreateHostedConfigurationVersion' {..} =
-    Prelude.rnf latestVersionNumber
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf latestVersionNumber
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf configurationProfileId
       `Prelude.seq` Prelude.rnf content
@@ -218,8 +218,8 @@ instance
   where
   toHeaders CreateHostedConfigurationVersion' {..} =
     Prelude.mconcat
-      [ "Latest-Version-Number" Data.=# latestVersionNumber,
-        "Description" Data.=# description,
+      [ "Description" Data.=# description,
+        "Latest-Version-Number" Data.=# latestVersionNumber,
         "Content-Type" Data.=# contentType
       ]
 

@@ -29,16 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSuspendedState' smart constructor.
 data SuspendedState = SuspendedState'
-  { -- | Whether scale out by a target tracking scaling policy or a step scaling
-    -- policy is suspended. Set the value to @true@ if you don\'t want
-    -- Application Auto Scaling to add capacity when a scaling policy is
-    -- triggered. The default is @false@.
-    dynamicScalingOutSuspended :: Prelude.Maybe Prelude.Bool,
-    -- | Whether scale in by a target tracking scaling policy or a step scaling
+  { -- | Whether scale in by a target tracking scaling policy or a step scaling
     -- policy is suspended. Set the value to @true@ if you don\'t want
     -- Application Auto Scaling to remove capacity when a scaling policy is
     -- triggered. The default is @false@.
     dynamicScalingInSuspended :: Prelude.Maybe Prelude.Bool,
+    -- | Whether scale out by a target tracking scaling policy or a step scaling
+    -- policy is suspended. Set the value to @true@ if you don\'t want
+    -- Application Auto Scaling to add capacity when a scaling policy is
+    -- triggered. The default is @false@.
+    dynamicScalingOutSuspended :: Prelude.Maybe Prelude.Bool,
     -- | Whether scheduled scaling is suspended. Set the value to @true@ if you
     -- don\'t want Application Auto Scaling to add or remove capacity by
     -- initiating scheduled actions. The default is @false@.
@@ -54,14 +54,14 @@ data SuspendedState = SuspendedState'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dynamicScalingOutSuspended', 'suspendedState_dynamicScalingOutSuspended' - Whether scale out by a target tracking scaling policy or a step scaling
--- policy is suspended. Set the value to @true@ if you don\'t want
--- Application Auto Scaling to add capacity when a scaling policy is
--- triggered. The default is @false@.
---
 -- 'dynamicScalingInSuspended', 'suspendedState_dynamicScalingInSuspended' - Whether scale in by a target tracking scaling policy or a step scaling
 -- policy is suspended. Set the value to @true@ if you don\'t want
 -- Application Auto Scaling to remove capacity when a scaling policy is
+-- triggered. The default is @false@.
+--
+-- 'dynamicScalingOutSuspended', 'suspendedState_dynamicScalingOutSuspended' - Whether scale out by a target tracking scaling policy or a step scaling
+-- policy is suspended. Set the value to @true@ if you don\'t want
+-- Application Auto Scaling to add capacity when a scaling policy is
 -- triggered. The default is @false@.
 --
 -- 'scheduledScalingSuspended', 'suspendedState_scheduledScalingSuspended' - Whether scheduled scaling is suspended. Set the value to @true@ if you
@@ -71,18 +71,11 @@ newSuspendedState ::
   SuspendedState
 newSuspendedState =
   SuspendedState'
-    { dynamicScalingOutSuspended =
+    { dynamicScalingInSuspended =
         Prelude.Nothing,
-      dynamicScalingInSuspended = Prelude.Nothing,
+      dynamicScalingOutSuspended = Prelude.Nothing,
       scheduledScalingSuspended = Prelude.Nothing
     }
-
--- | Whether scale out by a target tracking scaling policy or a step scaling
--- policy is suspended. Set the value to @true@ if you don\'t want
--- Application Auto Scaling to add capacity when a scaling policy is
--- triggered. The default is @false@.
-suspendedState_dynamicScalingOutSuspended :: Lens.Lens' SuspendedState (Prelude.Maybe Prelude.Bool)
-suspendedState_dynamicScalingOutSuspended = Lens.lens (\SuspendedState' {dynamicScalingOutSuspended} -> dynamicScalingOutSuspended) (\s@SuspendedState' {} a -> s {dynamicScalingOutSuspended = a} :: SuspendedState)
 
 -- | Whether scale in by a target tracking scaling policy or a step scaling
 -- policy is suspended. Set the value to @true@ if you don\'t want
@@ -90,6 +83,13 @@ suspendedState_dynamicScalingOutSuspended = Lens.lens (\SuspendedState' {dynamic
 -- triggered. The default is @false@.
 suspendedState_dynamicScalingInSuspended :: Lens.Lens' SuspendedState (Prelude.Maybe Prelude.Bool)
 suspendedState_dynamicScalingInSuspended = Lens.lens (\SuspendedState' {dynamicScalingInSuspended} -> dynamicScalingInSuspended) (\s@SuspendedState' {} a -> s {dynamicScalingInSuspended = a} :: SuspendedState)
+
+-- | Whether scale out by a target tracking scaling policy or a step scaling
+-- policy is suspended. Set the value to @true@ if you don\'t want
+-- Application Auto Scaling to add capacity when a scaling policy is
+-- triggered. The default is @false@.
+suspendedState_dynamicScalingOutSuspended :: Lens.Lens' SuspendedState (Prelude.Maybe Prelude.Bool)
+suspendedState_dynamicScalingOutSuspended = Lens.lens (\SuspendedState' {dynamicScalingOutSuspended} -> dynamicScalingOutSuspended) (\s@SuspendedState' {} a -> s {dynamicScalingOutSuspended = a} :: SuspendedState)
 
 -- | Whether scheduled scaling is suspended. Set the value to @true@ if you
 -- don\'t want Application Auto Scaling to add or remove capacity by
@@ -103,32 +103,32 @@ instance Data.FromJSON SuspendedState where
       "SuspendedState"
       ( \x ->
           SuspendedState'
-            Prelude.<$> (x Data..:? "DynamicScalingOutSuspended")
-            Prelude.<*> (x Data..:? "DynamicScalingInSuspended")
+            Prelude.<$> (x Data..:? "DynamicScalingInSuspended")
+            Prelude.<*> (x Data..:? "DynamicScalingOutSuspended")
             Prelude.<*> (x Data..:? "ScheduledScalingSuspended")
       )
 
 instance Prelude.Hashable SuspendedState where
   hashWithSalt _salt SuspendedState' {..} =
     _salt
-      `Prelude.hashWithSalt` dynamicScalingOutSuspended
       `Prelude.hashWithSalt` dynamicScalingInSuspended
+      `Prelude.hashWithSalt` dynamicScalingOutSuspended
       `Prelude.hashWithSalt` scheduledScalingSuspended
 
 instance Prelude.NFData SuspendedState where
   rnf SuspendedState' {..} =
-    Prelude.rnf dynamicScalingOutSuspended
-      `Prelude.seq` Prelude.rnf dynamicScalingInSuspended
+    Prelude.rnf dynamicScalingInSuspended
+      `Prelude.seq` Prelude.rnf dynamicScalingOutSuspended
       `Prelude.seq` Prelude.rnf scheduledScalingSuspended
 
 instance Data.ToJSON SuspendedState where
   toJSON SuspendedState' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DynamicScalingOutSuspended" Data..=)
-              Prelude.<$> dynamicScalingOutSuspended,
-            ("DynamicScalingInSuspended" Data..=)
+          [ ("DynamicScalingInSuspended" Data..=)
               Prelude.<$> dynamicScalingInSuspended,
+            ("DynamicScalingOutSuspended" Data..=)
+              Prelude.<$> dynamicScalingOutSuspended,
             ("ScheduledScalingSuspended" Data..=)
               Prelude.<$> scheduledScalingSuspended
           ]

@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCodeError' smart constructor.
 data CodeError = CodeError'
-  { -- | The line, column, and span location of the error in the code.
-    location :: Prelude.Maybe CodeErrorLocation,
-    -- | The type of code error.
+  { -- | The type of code error.
     --
     -- Examples include, but aren\'t limited to: @LINT_ERROR@, @PARSER_ERROR@.
     errorType :: Prelude.Maybe Prelude.Text,
+    -- | The line, column, and span location of the error in the code.
+    location :: Prelude.Maybe CodeErrorLocation,
     -- | A user presentable error.
     --
     -- Examples include, but aren\'t limited to:
@@ -51,11 +51,11 @@ data CodeError = CodeError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'location', 'codeError_location' - The line, column, and span location of the error in the code.
---
 -- 'errorType', 'codeError_errorType' - The type of code error.
 --
 -- Examples include, but aren\'t limited to: @LINT_ERROR@, @PARSER_ERROR@.
+--
+-- 'location', 'codeError_location' - The line, column, and span location of the error in the code.
 --
 -- 'value', 'codeError_value' - A user presentable error.
 --
@@ -65,20 +65,20 @@ newCodeError ::
   CodeError
 newCodeError =
   CodeError'
-    { location = Prelude.Nothing,
-      errorType = Prelude.Nothing,
+    { errorType = Prelude.Nothing,
+      location = Prelude.Nothing,
       value = Prelude.Nothing
     }
-
--- | The line, column, and span location of the error in the code.
-codeError_location :: Lens.Lens' CodeError (Prelude.Maybe CodeErrorLocation)
-codeError_location = Lens.lens (\CodeError' {location} -> location) (\s@CodeError' {} a -> s {location = a} :: CodeError)
 
 -- | The type of code error.
 --
 -- Examples include, but aren\'t limited to: @LINT_ERROR@, @PARSER_ERROR@.
 codeError_errorType :: Lens.Lens' CodeError (Prelude.Maybe Prelude.Text)
 codeError_errorType = Lens.lens (\CodeError' {errorType} -> errorType) (\s@CodeError' {} a -> s {errorType = a} :: CodeError)
+
+-- | The line, column, and span location of the error in the code.
+codeError_location :: Lens.Lens' CodeError (Prelude.Maybe CodeErrorLocation)
+codeError_location = Lens.lens (\CodeError' {location} -> location) (\s@CodeError' {} a -> s {location = a} :: CodeError)
 
 -- | A user presentable error.
 --
@@ -93,19 +93,19 @@ instance Data.FromJSON CodeError where
       "CodeError"
       ( \x ->
           CodeError'
-            Prelude.<$> (x Data..:? "location")
-            Prelude.<*> (x Data..:? "errorType")
+            Prelude.<$> (x Data..:? "errorType")
+            Prelude.<*> (x Data..:? "location")
             Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable CodeError where
   hashWithSalt _salt CodeError' {..} =
-    _salt `Prelude.hashWithSalt` location
-      `Prelude.hashWithSalt` errorType
+    _salt `Prelude.hashWithSalt` errorType
+      `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData CodeError where
   rnf CodeError' {..} =
-    Prelude.rnf location
-      `Prelude.seq` Prelude.rnf errorType
+    Prelude.rnf errorType
+      `Prelude.seq` Prelude.rnf location
       `Prelude.seq` Prelude.rnf value

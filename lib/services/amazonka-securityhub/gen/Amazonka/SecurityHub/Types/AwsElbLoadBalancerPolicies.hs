@@ -30,14 +30,14 @@ import Amazonka.SecurityHub.Types.AwsElbLbCookieStickinessPolicy
 --
 -- /See:/ 'newAwsElbLoadBalancerPolicies' smart constructor.
 data AwsElbLoadBalancerPolicies = AwsElbLoadBalancerPolicies'
-  { -- | The policies other than the stickiness policies.
-    otherPolicies :: Prelude.Maybe [Prelude.Text],
+  { -- | The stickiness policies that are created using
+    -- @CreateAppCookieStickinessPolicy@.
+    appCookieStickinessPolicies :: Prelude.Maybe [AwsElbAppCookieStickinessPolicy],
     -- | The stickiness policies that are created using
     -- @CreateLBCookieStickinessPolicy@.
     lbCookieStickinessPolicies :: Prelude.Maybe [AwsElbLbCookieStickinessPolicy],
-    -- | The stickiness policies that are created using
-    -- @CreateAppCookieStickinessPolicy@.
-    appCookieStickinessPolicies :: Prelude.Maybe [AwsElbAppCookieStickinessPolicy]
+    -- | The policies other than the stickiness policies.
+    otherPolicies :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,36 +49,36 @@ data AwsElbLoadBalancerPolicies = AwsElbLoadBalancerPolicies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'otherPolicies', 'awsElbLoadBalancerPolicies_otherPolicies' - The policies other than the stickiness policies.
+-- 'appCookieStickinessPolicies', 'awsElbLoadBalancerPolicies_appCookieStickinessPolicies' - The stickiness policies that are created using
+-- @CreateAppCookieStickinessPolicy@.
 --
 -- 'lbCookieStickinessPolicies', 'awsElbLoadBalancerPolicies_lbCookieStickinessPolicies' - The stickiness policies that are created using
 -- @CreateLBCookieStickinessPolicy@.
 --
--- 'appCookieStickinessPolicies', 'awsElbLoadBalancerPolicies_appCookieStickinessPolicies' - The stickiness policies that are created using
--- @CreateAppCookieStickinessPolicy@.
+-- 'otherPolicies', 'awsElbLoadBalancerPolicies_otherPolicies' - The policies other than the stickiness policies.
 newAwsElbLoadBalancerPolicies ::
   AwsElbLoadBalancerPolicies
 newAwsElbLoadBalancerPolicies =
   AwsElbLoadBalancerPolicies'
-    { otherPolicies =
+    { appCookieStickinessPolicies =
         Prelude.Nothing,
       lbCookieStickinessPolicies = Prelude.Nothing,
-      appCookieStickinessPolicies = Prelude.Nothing
+      otherPolicies = Prelude.Nothing
     }
 
--- | The policies other than the stickiness policies.
-awsElbLoadBalancerPolicies_otherPolicies :: Lens.Lens' AwsElbLoadBalancerPolicies (Prelude.Maybe [Prelude.Text])
-awsElbLoadBalancerPolicies_otherPolicies = Lens.lens (\AwsElbLoadBalancerPolicies' {otherPolicies} -> otherPolicies) (\s@AwsElbLoadBalancerPolicies' {} a -> s {otherPolicies = a} :: AwsElbLoadBalancerPolicies) Prelude.. Lens.mapping Lens.coerced
+-- | The stickiness policies that are created using
+-- @CreateAppCookieStickinessPolicy@.
+awsElbLoadBalancerPolicies_appCookieStickinessPolicies :: Lens.Lens' AwsElbLoadBalancerPolicies (Prelude.Maybe [AwsElbAppCookieStickinessPolicy])
+awsElbLoadBalancerPolicies_appCookieStickinessPolicies = Lens.lens (\AwsElbLoadBalancerPolicies' {appCookieStickinessPolicies} -> appCookieStickinessPolicies) (\s@AwsElbLoadBalancerPolicies' {} a -> s {appCookieStickinessPolicies = a} :: AwsElbLoadBalancerPolicies) Prelude.. Lens.mapping Lens.coerced
 
 -- | The stickiness policies that are created using
 -- @CreateLBCookieStickinessPolicy@.
 awsElbLoadBalancerPolicies_lbCookieStickinessPolicies :: Lens.Lens' AwsElbLoadBalancerPolicies (Prelude.Maybe [AwsElbLbCookieStickinessPolicy])
 awsElbLoadBalancerPolicies_lbCookieStickinessPolicies = Lens.lens (\AwsElbLoadBalancerPolicies' {lbCookieStickinessPolicies} -> lbCookieStickinessPolicies) (\s@AwsElbLoadBalancerPolicies' {} a -> s {lbCookieStickinessPolicies = a} :: AwsElbLoadBalancerPolicies) Prelude.. Lens.mapping Lens.coerced
 
--- | The stickiness policies that are created using
--- @CreateAppCookieStickinessPolicy@.
-awsElbLoadBalancerPolicies_appCookieStickinessPolicies :: Lens.Lens' AwsElbLoadBalancerPolicies (Prelude.Maybe [AwsElbAppCookieStickinessPolicy])
-awsElbLoadBalancerPolicies_appCookieStickinessPolicies = Lens.lens (\AwsElbLoadBalancerPolicies' {appCookieStickinessPolicies} -> appCookieStickinessPolicies) (\s@AwsElbLoadBalancerPolicies' {} a -> s {appCookieStickinessPolicies = a} :: AwsElbLoadBalancerPolicies) Prelude.. Lens.mapping Lens.coerced
+-- | The policies other than the stickiness policies.
+awsElbLoadBalancerPolicies_otherPolicies :: Lens.Lens' AwsElbLoadBalancerPolicies (Prelude.Maybe [Prelude.Text])
+awsElbLoadBalancerPolicies_otherPolicies = Lens.lens (\AwsElbLoadBalancerPolicies' {otherPolicies} -> otherPolicies) (\s@AwsElbLoadBalancerPolicies' {} a -> s {otherPolicies = a} :: AwsElbLoadBalancerPolicies) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON AwsElbLoadBalancerPolicies where
   parseJSON =
@@ -86,35 +86,36 @@ instance Data.FromJSON AwsElbLoadBalancerPolicies where
       "AwsElbLoadBalancerPolicies"
       ( \x ->
           AwsElbLoadBalancerPolicies'
-            Prelude.<$> (x Data..:? "OtherPolicies" Data..!= Prelude.mempty)
+            Prelude.<$> ( x Data..:? "AppCookieStickinessPolicies"
+                            Data..!= Prelude.mempty
+                        )
             Prelude.<*> ( x Data..:? "LbCookieStickinessPolicies"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "AppCookieStickinessPolicies"
-                            Data..!= Prelude.mempty
-                        )
+            Prelude.<*> (x Data..:? "OtherPolicies" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AwsElbLoadBalancerPolicies where
   hashWithSalt _salt AwsElbLoadBalancerPolicies' {..} =
-    _salt `Prelude.hashWithSalt` otherPolicies
-      `Prelude.hashWithSalt` lbCookieStickinessPolicies
+    _salt
       `Prelude.hashWithSalt` appCookieStickinessPolicies
+      `Prelude.hashWithSalt` lbCookieStickinessPolicies
+      `Prelude.hashWithSalt` otherPolicies
 
 instance Prelude.NFData AwsElbLoadBalancerPolicies where
   rnf AwsElbLoadBalancerPolicies' {..} =
-    Prelude.rnf otherPolicies
+    Prelude.rnf appCookieStickinessPolicies
       `Prelude.seq` Prelude.rnf lbCookieStickinessPolicies
-      `Prelude.seq` Prelude.rnf appCookieStickinessPolicies
+      `Prelude.seq` Prelude.rnf otherPolicies
 
 instance Data.ToJSON AwsElbLoadBalancerPolicies where
   toJSON AwsElbLoadBalancerPolicies' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("OtherPolicies" Data..=) Prelude.<$> otherPolicies,
+          [ ("AppCookieStickinessPolicies" Data..=)
+              Prelude.<$> appCookieStickinessPolicies,
             ("LbCookieStickinessPolicies" Data..=)
               Prelude.<$> lbCookieStickinessPolicies,
-            ("AppCookieStickinessPolicies" Data..=)
-              Prelude.<$> appCookieStickinessPolicies
+            ("OtherPolicies" Data..=) Prelude.<$> otherPolicies
           ]
       )

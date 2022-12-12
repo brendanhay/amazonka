@@ -29,19 +29,19 @@ module Amazonka.EC2.DescribeImportSnapshotTasks
     newDescribeImportSnapshotTasks,
 
     -- * Request Lenses
-    describeImportSnapshotTasks_nextToken,
-    describeImportSnapshotTasks_importTaskIds,
-    describeImportSnapshotTasks_filters,
     describeImportSnapshotTasks_dryRun,
+    describeImportSnapshotTasks_filters,
+    describeImportSnapshotTasks_importTaskIds,
     describeImportSnapshotTasks_maxResults,
+    describeImportSnapshotTasks_nextToken,
 
     -- * Destructuring the Response
     DescribeImportSnapshotTasksResponse (..),
     newDescribeImportSnapshotTasksResponse,
 
     -- * Response Lenses
-    describeImportSnapshotTasksResponse_nextToken,
     describeImportSnapshotTasksResponse_importSnapshotTasks,
+    describeImportSnapshotTasksResponse_nextToken,
     describeImportSnapshotTasksResponse_httpStatus,
   )
 where
@@ -56,21 +56,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeImportSnapshotTasks' smart constructor.
 data DescribeImportSnapshotTasks = DescribeImportSnapshotTasks'
-  { -- | A token that indicates the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of import snapshot task IDs.
-    importTaskIds :: Prelude.Maybe [Prelude.Text],
-    -- | The filters.
-    filters :: Prelude.Maybe [Filter],
-    -- | Checks whether you have the required permissions for the action, without
+  { -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The filters.
+    filters :: Prelude.Maybe [Filter],
+    -- | A list of import snapshot task IDs.
+    importTaskIds :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of results to return in a single call. To retrieve
     -- the remaining results, make another call with the returned @NextToken@
     -- value.
-    maxResults :: Prelude.Maybe Prelude.Int
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | A token that indicates the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,43 +82,31 @@ data DescribeImportSnapshotTasks = DescribeImportSnapshotTasks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeImportSnapshotTasks_nextToken' - A token that indicates the next page of results.
---
--- 'importTaskIds', 'describeImportSnapshotTasks_importTaskIds' - A list of import snapshot task IDs.
---
--- 'filters', 'describeImportSnapshotTasks_filters' - The filters.
---
 -- 'dryRun', 'describeImportSnapshotTasks_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
+-- 'filters', 'describeImportSnapshotTasks_filters' - The filters.
+--
+-- 'importTaskIds', 'describeImportSnapshotTasks_importTaskIds' - A list of import snapshot task IDs.
+--
 -- 'maxResults', 'describeImportSnapshotTasks_maxResults' - The maximum number of results to return in a single call. To retrieve
 -- the remaining results, make another call with the returned @NextToken@
 -- value.
+--
+-- 'nextToken', 'describeImportSnapshotTasks_nextToken' - A token that indicates the next page of results.
 newDescribeImportSnapshotTasks ::
   DescribeImportSnapshotTasks
 newDescribeImportSnapshotTasks =
   DescribeImportSnapshotTasks'
-    { nextToken =
+    { dryRun =
         Prelude.Nothing,
-      importTaskIds = Prelude.Nothing,
       filters = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      importTaskIds = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | A token that indicates the next page of results.
-describeImportSnapshotTasks_nextToken :: Lens.Lens' DescribeImportSnapshotTasks (Prelude.Maybe Prelude.Text)
-describeImportSnapshotTasks_nextToken = Lens.lens (\DescribeImportSnapshotTasks' {nextToken} -> nextToken) (\s@DescribeImportSnapshotTasks' {} a -> s {nextToken = a} :: DescribeImportSnapshotTasks)
-
--- | A list of import snapshot task IDs.
-describeImportSnapshotTasks_importTaskIds :: Lens.Lens' DescribeImportSnapshotTasks (Prelude.Maybe [Prelude.Text])
-describeImportSnapshotTasks_importTaskIds = Lens.lens (\DescribeImportSnapshotTasks' {importTaskIds} -> importTaskIds) (\s@DescribeImportSnapshotTasks' {} a -> s {importTaskIds = a} :: DescribeImportSnapshotTasks) Prelude.. Lens.mapping Lens.coerced
-
--- | The filters.
-describeImportSnapshotTasks_filters :: Lens.Lens' DescribeImportSnapshotTasks (Prelude.Maybe [Filter])
-describeImportSnapshotTasks_filters = Lens.lens (\DescribeImportSnapshotTasks' {filters} -> filters) (\s@DescribeImportSnapshotTasks' {} a -> s {filters = a} :: DescribeImportSnapshotTasks) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -127,11 +115,23 @@ describeImportSnapshotTasks_filters = Lens.lens (\DescribeImportSnapshotTasks' {
 describeImportSnapshotTasks_dryRun :: Lens.Lens' DescribeImportSnapshotTasks (Prelude.Maybe Prelude.Bool)
 describeImportSnapshotTasks_dryRun = Lens.lens (\DescribeImportSnapshotTasks' {dryRun} -> dryRun) (\s@DescribeImportSnapshotTasks' {} a -> s {dryRun = a} :: DescribeImportSnapshotTasks)
 
+-- | The filters.
+describeImportSnapshotTasks_filters :: Lens.Lens' DescribeImportSnapshotTasks (Prelude.Maybe [Filter])
+describeImportSnapshotTasks_filters = Lens.lens (\DescribeImportSnapshotTasks' {filters} -> filters) (\s@DescribeImportSnapshotTasks' {} a -> s {filters = a} :: DescribeImportSnapshotTasks) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of import snapshot task IDs.
+describeImportSnapshotTasks_importTaskIds :: Lens.Lens' DescribeImportSnapshotTasks (Prelude.Maybe [Prelude.Text])
+describeImportSnapshotTasks_importTaskIds = Lens.lens (\DescribeImportSnapshotTasks' {importTaskIds} -> importTaskIds) (\s@DescribeImportSnapshotTasks' {} a -> s {importTaskIds = a} :: DescribeImportSnapshotTasks) Prelude.. Lens.mapping Lens.coerced
+
 -- | The maximum number of results to return in a single call. To retrieve
 -- the remaining results, make another call with the returned @NextToken@
 -- value.
 describeImportSnapshotTasks_maxResults :: Lens.Lens' DescribeImportSnapshotTasks (Prelude.Maybe Prelude.Int)
 describeImportSnapshotTasks_maxResults = Lens.lens (\DescribeImportSnapshotTasks' {maxResults} -> maxResults) (\s@DescribeImportSnapshotTasks' {} a -> s {maxResults = a} :: DescribeImportSnapshotTasks)
+
+-- | A token that indicates the next page of results.
+describeImportSnapshotTasks_nextToken :: Lens.Lens' DescribeImportSnapshotTasks (Prelude.Maybe Prelude.Text)
+describeImportSnapshotTasks_nextToken = Lens.lens (\DescribeImportSnapshotTasks' {nextToken} -> nextToken) (\s@DescribeImportSnapshotTasks' {} a -> s {nextToken = a} :: DescribeImportSnapshotTasks)
 
 instance Core.AWSPager DescribeImportSnapshotTasks where
   page rq rs
@@ -165,29 +165,29 @@ instance Core.AWSRequest DescribeImportSnapshotTasks where
     Response.receiveXML
       ( \s h x ->
           DescribeImportSnapshotTasksResponse'
-            Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "importSnapshotTaskSet"
+            Prelude.<$> ( x Data..@? "importSnapshotTaskSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
+            Prelude.<*> (x Data..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeImportSnapshotTasks where
   hashWithSalt _salt DescribeImportSnapshotTasks' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` importTaskIds
+    _salt `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` importTaskIds
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeImportSnapshotTasks where
   rnf DescribeImportSnapshotTasks' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf importTaskIds
+    Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf importTaskIds
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeImportSnapshotTasks where
   toHeaders = Prelude.const Prelude.mempty
@@ -204,25 +204,25 @@ instance Data.ToQuery DescribeImportSnapshotTasks where
                   ),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          (Data.toQueryList "Filters" Prelude.<$> filters),
         Data.toQuery
           ( Data.toQueryList "ImportTaskId"
               Prelude.<$> importTaskIds
           ),
-        Data.toQuery
-          (Data.toQueryList "Filters" Prelude.<$> filters),
-        "DryRun" Data.=: dryRun,
-        "MaxResults" Data.=: maxResults
+        "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newDescribeImportSnapshotTasksResponse' smart constructor.
 data DescribeImportSnapshotTasksResponse = DescribeImportSnapshotTasksResponse'
-  { -- | The token to use to get the next page of results. This value is @null@
-    -- when there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of zero or more import snapshot tasks that are currently active
+  { -- | A list of zero or more import snapshot tasks that are currently active
     -- or were completed or canceled in the previous 7 days.
     importSnapshotTasks :: Prelude.Maybe [ImportSnapshotTask],
+    -- | The token to use to get the next page of results. This value is @null@
+    -- when there are no more results to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -236,11 +236,11 @@ data DescribeImportSnapshotTasksResponse = DescribeImportSnapshotTasksResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeImportSnapshotTasksResponse_nextToken' - The token to use to get the next page of results. This value is @null@
--- when there are no more results to return.
---
 -- 'importSnapshotTasks', 'describeImportSnapshotTasksResponse_importSnapshotTasks' - A list of zero or more import snapshot tasks that are currently active
 -- or were completed or canceled in the previous 7 days.
+--
+-- 'nextToken', 'describeImportSnapshotTasksResponse_nextToken' - The token to use to get the next page of results. This value is @null@
+-- when there are no more results to return.
 --
 -- 'httpStatus', 'describeImportSnapshotTasksResponse_httpStatus' - The response's http status code.
 newDescribeImportSnapshotTasksResponse ::
@@ -249,21 +249,21 @@ newDescribeImportSnapshotTasksResponse ::
   DescribeImportSnapshotTasksResponse
 newDescribeImportSnapshotTasksResponse pHttpStatus_ =
   DescribeImportSnapshotTasksResponse'
-    { nextToken =
+    { importSnapshotTasks =
         Prelude.Nothing,
-      importSnapshotTasks = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token to use to get the next page of results. This value is @null@
--- when there are no more results to return.
-describeImportSnapshotTasksResponse_nextToken :: Lens.Lens' DescribeImportSnapshotTasksResponse (Prelude.Maybe Prelude.Text)
-describeImportSnapshotTasksResponse_nextToken = Lens.lens (\DescribeImportSnapshotTasksResponse' {nextToken} -> nextToken) (\s@DescribeImportSnapshotTasksResponse' {} a -> s {nextToken = a} :: DescribeImportSnapshotTasksResponse)
 
 -- | A list of zero or more import snapshot tasks that are currently active
 -- or were completed or canceled in the previous 7 days.
 describeImportSnapshotTasksResponse_importSnapshotTasks :: Lens.Lens' DescribeImportSnapshotTasksResponse (Prelude.Maybe [ImportSnapshotTask])
 describeImportSnapshotTasksResponse_importSnapshotTasks = Lens.lens (\DescribeImportSnapshotTasksResponse' {importSnapshotTasks} -> importSnapshotTasks) (\s@DescribeImportSnapshotTasksResponse' {} a -> s {importSnapshotTasks = a} :: DescribeImportSnapshotTasksResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token to use to get the next page of results. This value is @null@
+-- when there are no more results to return.
+describeImportSnapshotTasksResponse_nextToken :: Lens.Lens' DescribeImportSnapshotTasksResponse (Prelude.Maybe Prelude.Text)
+describeImportSnapshotTasksResponse_nextToken = Lens.lens (\DescribeImportSnapshotTasksResponse' {nextToken} -> nextToken) (\s@DescribeImportSnapshotTasksResponse' {} a -> s {nextToken = a} :: DescribeImportSnapshotTasksResponse)
 
 -- | The response's http status code.
 describeImportSnapshotTasksResponse_httpStatus :: Lens.Lens' DescribeImportSnapshotTasksResponse Prelude.Int
@@ -274,6 +274,6 @@ instance
     DescribeImportSnapshotTasksResponse
   where
   rnf DescribeImportSnapshotTasksResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf importSnapshotTasks
+    Prelude.rnf importSnapshotTasks
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

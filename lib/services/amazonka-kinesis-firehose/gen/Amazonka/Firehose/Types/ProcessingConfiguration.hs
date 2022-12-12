@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newProcessingConfiguration' smart constructor.
 data ProcessingConfiguration = ProcessingConfiguration'
-  { -- | The data processors.
-    processors :: Prelude.Maybe [Processor],
-    -- | Enables or disables data processing.
-    enabled :: Prelude.Maybe Prelude.Bool
+  { -- | Enables or disables data processing.
+    enabled :: Prelude.Maybe Prelude.Bool,
+    -- | The data processors.
+    processors :: Prelude.Maybe [Processor]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,24 @@ data ProcessingConfiguration = ProcessingConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'processors', 'processingConfiguration_processors' - The data processors.
---
 -- 'enabled', 'processingConfiguration_enabled' - Enables or disables data processing.
+--
+-- 'processors', 'processingConfiguration_processors' - The data processors.
 newProcessingConfiguration ::
   ProcessingConfiguration
 newProcessingConfiguration =
   ProcessingConfiguration'
-    { processors =
-        Prelude.Nothing,
-      enabled = Prelude.Nothing
+    { enabled = Prelude.Nothing,
+      processors = Prelude.Nothing
     }
-
--- | The data processors.
-processingConfiguration_processors :: Lens.Lens' ProcessingConfiguration (Prelude.Maybe [Processor])
-processingConfiguration_processors = Lens.lens (\ProcessingConfiguration' {processors} -> processors) (\s@ProcessingConfiguration' {} a -> s {processors = a} :: ProcessingConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | Enables or disables data processing.
 processingConfiguration_enabled :: Lens.Lens' ProcessingConfiguration (Prelude.Maybe Prelude.Bool)
 processingConfiguration_enabled = Lens.lens (\ProcessingConfiguration' {enabled} -> enabled) (\s@ProcessingConfiguration' {} a -> s {enabled = a} :: ProcessingConfiguration)
+
+-- | The data processors.
+processingConfiguration_processors :: Lens.Lens' ProcessingConfiguration (Prelude.Maybe [Processor])
+processingConfiguration_processors = Lens.lens (\ProcessingConfiguration' {processors} -> processors) (\s@ProcessingConfiguration' {} a -> s {processors = a} :: ProcessingConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON ProcessingConfiguration where
   parseJSON =
@@ -70,25 +69,25 @@ instance Data.FromJSON ProcessingConfiguration where
       "ProcessingConfiguration"
       ( \x ->
           ProcessingConfiguration'
-            Prelude.<$> (x Data..:? "Processors" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "Enabled")
+            Prelude.<$> (x Data..:? "Enabled")
+            Prelude.<*> (x Data..:? "Processors" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ProcessingConfiguration where
   hashWithSalt _salt ProcessingConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` processors
-      `Prelude.hashWithSalt` enabled
+    _salt `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` processors
 
 instance Prelude.NFData ProcessingConfiguration where
   rnf ProcessingConfiguration' {..} =
-    Prelude.rnf processors
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf processors
 
 instance Data.ToJSON ProcessingConfiguration where
   toJSON ProcessingConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Processors" Data..=) Prelude.<$> processors,
-            ("Enabled" Data..=) Prelude.<$> enabled
+          [ ("Enabled" Data..=) Prelude.<$> enabled,
+            ("Processors" Data..=) Prelude.<$> processors
           ]
       )

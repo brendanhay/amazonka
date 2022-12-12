@@ -34,19 +34,19 @@ import Amazonka.ResilienceHub.Types.ResiliencyScore
 --
 -- /See:/ 'newAppComponentCompliance' smart constructor.
 data AppComponentCompliance = AppComponentCompliance'
-  { -- | The compliance message.
+  { -- | The name of the application component.
+    appComponentName :: Prelude.Maybe Prelude.Text,
+    -- | The compliance of the application component against the resiliency
+    -- policy.
+    compliance :: Prelude.Maybe (Prelude.HashMap DisruptionType DisruptionCompliance),
+    -- | The cost for the application.
+    cost :: Prelude.Maybe Cost,
+    -- | The compliance message.
     message :: Prelude.Maybe Prelude.Text,
     -- | The current resiliency score for the application.
     resiliencyScore :: Prelude.Maybe ResiliencyScore,
-    -- | The name of the application component.
-    appComponentName :: Prelude.Maybe Prelude.Text,
     -- | The status of the action.
-    status :: Prelude.Maybe ComplianceStatus,
-    -- | The cost for the application.
-    cost :: Prelude.Maybe Cost,
-    -- | The compliance of the application component against the resiliency
-    -- policy.
-    compliance :: Prelude.Maybe (Prelude.HashMap DisruptionType DisruptionCompliance)
+    status :: Prelude.Maybe ComplianceStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,29 +58,43 @@ data AppComponentCompliance = AppComponentCompliance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'appComponentName', 'appComponentCompliance_appComponentName' - The name of the application component.
+--
+-- 'compliance', 'appComponentCompliance_compliance' - The compliance of the application component against the resiliency
+-- policy.
+--
+-- 'cost', 'appComponentCompliance_cost' - The cost for the application.
+--
 -- 'message', 'appComponentCompliance_message' - The compliance message.
 --
 -- 'resiliencyScore', 'appComponentCompliance_resiliencyScore' - The current resiliency score for the application.
 --
--- 'appComponentName', 'appComponentCompliance_appComponentName' - The name of the application component.
---
 -- 'status', 'appComponentCompliance_status' - The status of the action.
---
--- 'cost', 'appComponentCompliance_cost' - The cost for the application.
---
--- 'compliance', 'appComponentCompliance_compliance' - The compliance of the application component against the resiliency
--- policy.
 newAppComponentCompliance ::
   AppComponentCompliance
 newAppComponentCompliance =
   AppComponentCompliance'
-    { message = Prelude.Nothing,
-      resiliencyScore = Prelude.Nothing,
-      appComponentName = Prelude.Nothing,
-      status = Prelude.Nothing,
+    { appComponentName =
+        Prelude.Nothing,
+      compliance = Prelude.Nothing,
       cost = Prelude.Nothing,
-      compliance = Prelude.Nothing
+      message = Prelude.Nothing,
+      resiliencyScore = Prelude.Nothing,
+      status = Prelude.Nothing
     }
+
+-- | The name of the application component.
+appComponentCompliance_appComponentName :: Lens.Lens' AppComponentCompliance (Prelude.Maybe Prelude.Text)
+appComponentCompliance_appComponentName = Lens.lens (\AppComponentCompliance' {appComponentName} -> appComponentName) (\s@AppComponentCompliance' {} a -> s {appComponentName = a} :: AppComponentCompliance)
+
+-- | The compliance of the application component against the resiliency
+-- policy.
+appComponentCompliance_compliance :: Lens.Lens' AppComponentCompliance (Prelude.Maybe (Prelude.HashMap DisruptionType DisruptionCompliance))
+appComponentCompliance_compliance = Lens.lens (\AppComponentCompliance' {compliance} -> compliance) (\s@AppComponentCompliance' {} a -> s {compliance = a} :: AppComponentCompliance) Prelude.. Lens.mapping Lens.coerced
+
+-- | The cost for the application.
+appComponentCompliance_cost :: Lens.Lens' AppComponentCompliance (Prelude.Maybe Cost)
+appComponentCompliance_cost = Lens.lens (\AppComponentCompliance' {cost} -> cost) (\s@AppComponentCompliance' {} a -> s {cost = a} :: AppComponentCompliance)
 
 -- | The compliance message.
 appComponentCompliance_message :: Lens.Lens' AppComponentCompliance (Prelude.Maybe Prelude.Text)
@@ -90,22 +104,9 @@ appComponentCompliance_message = Lens.lens (\AppComponentCompliance' {message} -
 appComponentCompliance_resiliencyScore :: Lens.Lens' AppComponentCompliance (Prelude.Maybe ResiliencyScore)
 appComponentCompliance_resiliencyScore = Lens.lens (\AppComponentCompliance' {resiliencyScore} -> resiliencyScore) (\s@AppComponentCompliance' {} a -> s {resiliencyScore = a} :: AppComponentCompliance)
 
--- | The name of the application component.
-appComponentCompliance_appComponentName :: Lens.Lens' AppComponentCompliance (Prelude.Maybe Prelude.Text)
-appComponentCompliance_appComponentName = Lens.lens (\AppComponentCompliance' {appComponentName} -> appComponentName) (\s@AppComponentCompliance' {} a -> s {appComponentName = a} :: AppComponentCompliance)
-
 -- | The status of the action.
 appComponentCompliance_status :: Lens.Lens' AppComponentCompliance (Prelude.Maybe ComplianceStatus)
 appComponentCompliance_status = Lens.lens (\AppComponentCompliance' {status} -> status) (\s@AppComponentCompliance' {} a -> s {status = a} :: AppComponentCompliance)
-
--- | The cost for the application.
-appComponentCompliance_cost :: Lens.Lens' AppComponentCompliance (Prelude.Maybe Cost)
-appComponentCompliance_cost = Lens.lens (\AppComponentCompliance' {cost} -> cost) (\s@AppComponentCompliance' {} a -> s {cost = a} :: AppComponentCompliance)
-
--- | The compliance of the application component against the resiliency
--- policy.
-appComponentCompliance_compliance :: Lens.Lens' AppComponentCompliance (Prelude.Maybe (Prelude.HashMap DisruptionType DisruptionCompliance))
-appComponentCompliance_compliance = Lens.lens (\AppComponentCompliance' {compliance} -> compliance) (\s@AppComponentCompliance' {} a -> s {compliance = a} :: AppComponentCompliance) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON AppComponentCompliance where
   parseJSON =
@@ -113,28 +114,28 @@ instance Data.FromJSON AppComponentCompliance where
       "AppComponentCompliance"
       ( \x ->
           AppComponentCompliance'
-            Prelude.<$> (x Data..:? "message")
-            Prelude.<*> (x Data..:? "resiliencyScore")
-            Prelude.<*> (x Data..:? "appComponentName")
-            Prelude.<*> (x Data..:? "status")
-            Prelude.<*> (x Data..:? "cost")
+            Prelude.<$> (x Data..:? "appComponentName")
             Prelude.<*> (x Data..:? "compliance" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "cost")
+            Prelude.<*> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "resiliencyScore")
+            Prelude.<*> (x Data..:? "status")
       )
 
 instance Prelude.Hashable AppComponentCompliance where
   hashWithSalt _salt AppComponentCompliance' {..} =
-    _salt `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` resiliencyScore
-      `Prelude.hashWithSalt` appComponentName
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` cost
+    _salt `Prelude.hashWithSalt` appComponentName
       `Prelude.hashWithSalt` compliance
+      `Prelude.hashWithSalt` cost
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` resiliencyScore
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData AppComponentCompliance where
   rnf AppComponentCompliance' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf resiliencyScore
-      `Prelude.seq` Prelude.rnf appComponentName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf cost
+    Prelude.rnf appComponentName
       `Prelude.seq` Prelude.rnf compliance
+      `Prelude.seq` Prelude.rnf cost
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf resiliencyScore
+      `Prelude.seq` Prelude.rnf status

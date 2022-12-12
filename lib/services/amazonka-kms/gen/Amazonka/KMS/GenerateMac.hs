@@ -21,15 +21,18 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Generates a hash-based message authentication code (HMAC) for a message
--- using an HMAC KMS key and a MAC algorithm that the key supports. The MAC
--- algorithm computes the HMAC for the message and the key as described in
+-- using an HMAC KMS key and a MAC algorithm that the key supports. HMAC
+-- KMS keys and the HMAC algorithms that KMS uses conform to industry
+-- standards defined in
 -- <https://datatracker.ietf.org/doc/html/rfc2104 RFC 2104>.
 --
--- You can use the HMAC that this operation generates with the VerifyMac
--- operation to demonstrate that the original message has not changed.
--- Also, because a secret key is used to create the hash, you can verify
--- that the party that generated the hash has the required secret key. This
--- operation is part of KMS support for HMAC KMS keys. For details, see
+-- You can use value that GenerateMac returns in the VerifyMac operation to
+-- demonstrate that the original message has not changed. Also, because a
+-- secret key is used to create the hash, you can verify that the party
+-- that generated the hash has the required secret key. You can also use
+-- the raw result to implement HMAC-based algorithms such as key derivation
+-- functions. This operation is part of KMS support for HMAC KMS keys. For
+-- details, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html HMAC keys in KMS>
 -- in the //Key Management Service Developer Guide// .
 --
@@ -70,9 +73,9 @@ module Amazonka.KMS.GenerateMac
     newGenerateMacResponse,
 
     -- * Response Lenses
-    generateMacResponse_macAlgorithm,
-    generateMacResponse_mac,
     generateMacResponse_keyId,
+    generateMacResponse_mac,
+    generateMacResponse_macAlgorithm,
     generateMacResponse_httpStatus,
   )
 where
@@ -229,9 +232,9 @@ instance Core.AWSRequest GenerateMac where
     Response.receiveJSON
       ( \s h x ->
           GenerateMacResponse'
-            Prelude.<$> (x Data..?> "MacAlgorithm")
+            Prelude.<$> (x Data..?> "KeyId")
             Prelude.<*> (x Data..?> "Mac")
-            Prelude.<*> (x Data..?> "KeyId")
+            Prelude.<*> (x Data..?> "MacAlgorithm")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -281,13 +284,16 @@ instance Data.ToQuery GenerateMac where
 
 -- | /See:/ 'newGenerateMacResponse' smart constructor.
 data GenerateMacResponse = GenerateMacResponse'
-  { -- | The MAC algorithm that was used to generate the HMAC.
-    macAlgorithm :: Prelude.Maybe MacAlgorithmSpec,
-    -- | The hash-based message authentication code (HMAC) for the given message,
-    -- key, and MAC algorithm.
-    mac :: Prelude.Maybe Data.Base64,
-    -- | The HMAC KMS key used in the operation.
+  { -- | The HMAC KMS key used in the operation.
     keyId :: Prelude.Maybe Prelude.Text,
+    -- | The hash-based message authentication code (HMAC) that was generated for
+    -- the specified message, HMAC KMS key, and MAC algorithm.
+    --
+    -- This is the standard, raw HMAC defined in
+    -- <https://datatracker.ietf.org/doc/html/rfc2104 RFC 2104>.
+    mac :: Prelude.Maybe Data.Base64,
+    -- | The MAC algorithm that was used to generate the HMAC.
+    macAlgorithm :: Prelude.Maybe MacAlgorithmSpec,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -301,16 +307,19 @@ data GenerateMacResponse = GenerateMacResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'macAlgorithm', 'generateMacResponse_macAlgorithm' - The MAC algorithm that was used to generate the HMAC.
+-- 'keyId', 'generateMacResponse_keyId' - The HMAC KMS key used in the operation.
 --
--- 'mac', 'generateMacResponse_mac' - The hash-based message authentication code (HMAC) for the given message,
--- key, and MAC algorithm.--
+-- 'mac', 'generateMacResponse_mac' - The hash-based message authentication code (HMAC) that was generated for
+-- the specified message, HMAC KMS key, and MAC algorithm.
+--
+-- This is the standard, raw HMAC defined in
+-- <https://datatracker.ietf.org/doc/html/rfc2104 RFC 2104>.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 --
--- 'keyId', 'generateMacResponse_keyId' - The HMAC KMS key used in the operation.
+-- 'macAlgorithm', 'generateMacResponse_macAlgorithm' - The MAC algorithm that was used to generate the HMAC.
 --
 -- 'httpStatus', 'generateMacResponse_httpStatus' - The response's http status code.
 newGenerateMacResponse ::
@@ -319,19 +328,21 @@ newGenerateMacResponse ::
   GenerateMacResponse
 newGenerateMacResponse pHttpStatus_ =
   GenerateMacResponse'
-    { macAlgorithm =
-        Prelude.Nothing,
+    { keyId = Prelude.Nothing,
       mac = Prelude.Nothing,
-      keyId = Prelude.Nothing,
+      macAlgorithm = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The MAC algorithm that was used to generate the HMAC.
-generateMacResponse_macAlgorithm :: Lens.Lens' GenerateMacResponse (Prelude.Maybe MacAlgorithmSpec)
-generateMacResponse_macAlgorithm = Lens.lens (\GenerateMacResponse' {macAlgorithm} -> macAlgorithm) (\s@GenerateMacResponse' {} a -> s {macAlgorithm = a} :: GenerateMacResponse)
+-- | The HMAC KMS key used in the operation.
+generateMacResponse_keyId :: Lens.Lens' GenerateMacResponse (Prelude.Maybe Prelude.Text)
+generateMacResponse_keyId = Lens.lens (\GenerateMacResponse' {keyId} -> keyId) (\s@GenerateMacResponse' {} a -> s {keyId = a} :: GenerateMacResponse)
 
--- | The hash-based message authentication code (HMAC) for the given message,
--- key, and MAC algorithm.--
+-- | The hash-based message authentication code (HMAC) that was generated for
+-- the specified message, HMAC KMS key, and MAC algorithm.
+--
+-- This is the standard, raw HMAC defined in
+-- <https://datatracker.ietf.org/doc/html/rfc2104 RFC 2104>.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
@@ -339,9 +350,9 @@ generateMacResponse_macAlgorithm = Lens.lens (\GenerateMacResponse' {macAlgorith
 generateMacResponse_mac :: Lens.Lens' GenerateMacResponse (Prelude.Maybe Prelude.ByteString)
 generateMacResponse_mac = Lens.lens (\GenerateMacResponse' {mac} -> mac) (\s@GenerateMacResponse' {} a -> s {mac = a} :: GenerateMacResponse) Prelude.. Lens.mapping Data._Base64
 
--- | The HMAC KMS key used in the operation.
-generateMacResponse_keyId :: Lens.Lens' GenerateMacResponse (Prelude.Maybe Prelude.Text)
-generateMacResponse_keyId = Lens.lens (\GenerateMacResponse' {keyId} -> keyId) (\s@GenerateMacResponse' {} a -> s {keyId = a} :: GenerateMacResponse)
+-- | The MAC algorithm that was used to generate the HMAC.
+generateMacResponse_macAlgorithm :: Lens.Lens' GenerateMacResponse (Prelude.Maybe MacAlgorithmSpec)
+generateMacResponse_macAlgorithm = Lens.lens (\GenerateMacResponse' {macAlgorithm} -> macAlgorithm) (\s@GenerateMacResponse' {} a -> s {macAlgorithm = a} :: GenerateMacResponse)
 
 -- | The response's http status code.
 generateMacResponse_httpStatus :: Lens.Lens' GenerateMacResponse Prelude.Int
@@ -349,7 +360,7 @@ generateMacResponse_httpStatus = Lens.lens (\GenerateMacResponse' {httpStatus} -
 
 instance Prelude.NFData GenerateMacResponse where
   rnf GenerateMacResponse' {..} =
-    Prelude.rnf macAlgorithm
+    Prelude.rnf keyId
       `Prelude.seq` Prelude.rnf mac
-      `Prelude.seq` Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf macAlgorithm
       `Prelude.seq` Prelude.rnf httpStatus

@@ -36,14 +36,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAv1Settings' smart constructor.
 data Av1Settings = Av1Settings'
-  { -- | When you use the API for transcode jobs that use frame rate conversion,
-    -- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
-    -- 23.976 fps. Use FramerateDenominator to specify the denominator of this
-    -- fraction. In this example, use 1001 for the value of
-    -- FramerateDenominator. When you use the console for transcode jobs that
-    -- use frame rate conversion, provide the value as a decimal number for
-    -- Framerate. In this example, specify 23.976.
-    framerateDenominator :: Prelude.Maybe Prelude.Natural,
+  { -- | Specify the strength of any adaptive quantization filters that you
+    -- enable. The value that you choose here applies to Spatial adaptive
+    -- quantization (spatialAdaptiveQuantization).
+    adaptiveQuantization :: Prelude.Maybe Av1AdaptiveQuantization,
     -- | Specify the Bit depth (Av1BitDepth). You can choose 8-bit (BIT_8) or
     -- 10-bit (BIT_10).
     bitDepth :: Prelude.Maybe Av1BitDepth,
@@ -61,29 +57,6 @@ data Av1Settings = Av1Settings'
     -- frame rate you specify in the settings FramerateNumerator and
     -- FramerateDenominator.
     framerateControl :: Prelude.Maybe Av1FramerateControl,
-    -- | Settings for quality-defined variable bitrate encoding with the H.265
-    -- codec. Use these settings only when you set QVBR for Rate control mode
-    -- (RateControlMode).
-    qvbrSettings :: Prelude.Maybe Av1QvbrSettings,
-    -- | Maximum bitrate in bits\/second. For example, enter five megabits per
-    -- second as 5000000. Required when Rate control mode is QVBR.
-    maxBitrate :: Prelude.Maybe Prelude.Natural,
-    -- | When you use the API for transcode jobs that use frame rate conversion,
-    -- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
-    -- 23.976 fps. Use FramerateNumerator to specify the numerator of this
-    -- fraction. In this example, use 24000 for the value of
-    -- FramerateNumerator. When you use the console for transcode jobs that use
-    -- frame rate conversion, provide the value as a decimal number for
-    -- Framerate. In this example, specify 23.976.
-    framerateNumerator :: Prelude.Maybe Prelude.Natural,
-    -- | Specify the number of slices per picture. This value must be 1, 2, 4, 8,
-    -- 16, or 32. For progressive pictures, this value must be less than or
-    -- equal to the number of macroblock rows. For interlaced pictures, this
-    -- value must be less than or equal to half the number of macroblock rows.
-    slices :: Prelude.Maybe Prelude.Natural,
-    -- | \'With AV1 outputs, for rate control mode, MediaConvert supports only
-    -- quality-defined variable bitrate (QVBR). You can\'\'t use CBR or VBR.\'
-    rateControlMode :: Prelude.Maybe Av1RateControlMode,
     -- | Choose the method that you want MediaConvert to use when increasing or
     -- decreasing the frame rate. We recommend using drop duplicate
     -- (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to
@@ -96,20 +69,47 @@ data Av1Settings = Av1Settings'
     -- conversion method frame by frame. Note that using FrameFormer increases
     -- the transcoding time and incurs a significant add-on cost.
     framerateConversionAlgorithm :: Prelude.Maybe Av1FramerateConversionAlgorithm,
-    -- | Specify from the number of B-frames, in the range of 0-15. For AV1
-    -- encoding, we recommend using 7 or 15. Choose a larger number for a lower
-    -- bitrate and smaller file size; choose a smaller number for better video
-    -- quality.
-    numberBFramesBetweenReferenceFrames :: Prelude.Maybe Prelude.Natural,
-    -- | Specify the strength of any adaptive quantization filters that you
-    -- enable. The value that you choose here applies to Spatial adaptive
-    -- quantization (spatialAdaptiveQuantization).
-    adaptiveQuantization :: Prelude.Maybe Av1AdaptiveQuantization,
+    -- | When you use the API for transcode jobs that use frame rate conversion,
+    -- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
+    -- 23.976 fps. Use FramerateDenominator to specify the denominator of this
+    -- fraction. In this example, use 1001 for the value of
+    -- FramerateDenominator. When you use the console for transcode jobs that
+    -- use frame rate conversion, provide the value as a decimal number for
+    -- Framerate. In this example, specify 23.976.
+    framerateDenominator :: Prelude.Maybe Prelude.Natural,
+    -- | When you use the API for transcode jobs that use frame rate conversion,
+    -- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
+    -- 23.976 fps. Use FramerateNumerator to specify the numerator of this
+    -- fraction. In this example, use 24000 for the value of
+    -- FramerateNumerator. When you use the console for transcode jobs that use
+    -- frame rate conversion, provide the value as a decimal number for
+    -- Framerate. In this example, specify 23.976.
+    framerateNumerator :: Prelude.Maybe Prelude.Natural,
     -- | Specify the GOP length (keyframe interval) in frames. With AV1,
     -- MediaConvert doesn\'t support GOP length in seconds. This value must be
     -- greater than zero and preferably equal to 1 + ((numberBFrames + 1) * x),
     -- where x is an integer value.
     gopSize :: Prelude.Maybe Prelude.Double,
+    -- | Maximum bitrate in bits\/second. For example, enter five megabits per
+    -- second as 5000000. Required when Rate control mode is QVBR.
+    maxBitrate :: Prelude.Maybe Prelude.Natural,
+    -- | Specify from the number of B-frames, in the range of 0-15. For AV1
+    -- encoding, we recommend using 7 or 15. Choose a larger number for a lower
+    -- bitrate and smaller file size; choose a smaller number for better video
+    -- quality.
+    numberBFramesBetweenReferenceFrames :: Prelude.Maybe Prelude.Natural,
+    -- | Settings for quality-defined variable bitrate encoding with the H.265
+    -- codec. Use these settings only when you set QVBR for Rate control mode
+    -- (RateControlMode).
+    qvbrSettings :: Prelude.Maybe Av1QvbrSettings,
+    -- | \'With AV1 outputs, for rate control mode, MediaConvert supports only
+    -- quality-defined variable bitrate (QVBR). You can\'\'t use CBR or VBR.\'
+    rateControlMode :: Prelude.Maybe Av1RateControlMode,
+    -- | Specify the number of slices per picture. This value must be 1, 2, 4, 8,
+    -- 16, or 32. For progressive pictures, this value must be less than or
+    -- equal to the number of macroblock rows. For interlaced pictures, this
+    -- value must be less than or equal to half the number of macroblock rows.
+    slices :: Prelude.Maybe Prelude.Natural,
     -- | Keep the default value, Enabled (ENABLED), to adjust quantization within
     -- each frame based on spatial variation of content complexity. When you
     -- enable this feature, the encoder uses fewer bits on areas that can
@@ -138,13 +138,9 @@ data Av1Settings = Av1Settings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'framerateDenominator', 'av1Settings_framerateDenominator' - When you use the API for transcode jobs that use frame rate conversion,
--- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
--- 23.976 fps. Use FramerateDenominator to specify the denominator of this
--- fraction. In this example, use 1001 for the value of
--- FramerateDenominator. When you use the console for transcode jobs that
--- use frame rate conversion, provide the value as a decimal number for
--- Framerate. In this example, specify 23.976.
+-- 'adaptiveQuantization', 'av1Settings_adaptiveQuantization' - Specify the strength of any adaptive quantization filters that you
+-- enable. The value that you choose here applies to Spatial adaptive
+-- quantization (spatialAdaptiveQuantization).
 --
 -- 'bitDepth', 'av1Settings_bitDepth' - Specify the Bit depth (Av1BitDepth). You can choose 8-bit (BIT_8) or
 -- 10-bit (BIT_10).
@@ -163,29 +159,6 @@ data Av1Settings = Av1Settings'
 -- frame rate you specify in the settings FramerateNumerator and
 -- FramerateDenominator.
 --
--- 'qvbrSettings', 'av1Settings_qvbrSettings' - Settings for quality-defined variable bitrate encoding with the H.265
--- codec. Use these settings only when you set QVBR for Rate control mode
--- (RateControlMode).
---
--- 'maxBitrate', 'av1Settings_maxBitrate' - Maximum bitrate in bits\/second. For example, enter five megabits per
--- second as 5000000. Required when Rate control mode is QVBR.
---
--- 'framerateNumerator', 'av1Settings_framerateNumerator' - When you use the API for transcode jobs that use frame rate conversion,
--- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
--- 23.976 fps. Use FramerateNumerator to specify the numerator of this
--- fraction. In this example, use 24000 for the value of
--- FramerateNumerator. When you use the console for transcode jobs that use
--- frame rate conversion, provide the value as a decimal number for
--- Framerate. In this example, specify 23.976.
---
--- 'slices', 'av1Settings_slices' - Specify the number of slices per picture. This value must be 1, 2, 4, 8,
--- 16, or 32. For progressive pictures, this value must be less than or
--- equal to the number of macroblock rows. For interlaced pictures, this
--- value must be less than or equal to half the number of macroblock rows.
---
--- 'rateControlMode', 'av1Settings_rateControlMode' - \'With AV1 outputs, for rate control mode, MediaConvert supports only
--- quality-defined variable bitrate (QVBR). You can\'\'t use CBR or VBR.\'
---
 -- 'framerateConversionAlgorithm', 'av1Settings_framerateConversionAlgorithm' - Choose the method that you want MediaConvert to use when increasing or
 -- decreasing the frame rate. We recommend using drop duplicate
 -- (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to
@@ -198,19 +171,46 @@ data Av1Settings = Av1Settings'
 -- conversion method frame by frame. Note that using FrameFormer increases
 -- the transcoding time and incurs a significant add-on cost.
 --
--- 'numberBFramesBetweenReferenceFrames', 'av1Settings_numberBFramesBetweenReferenceFrames' - Specify from the number of B-frames, in the range of 0-15. For AV1
--- encoding, we recommend using 7 or 15. Choose a larger number for a lower
--- bitrate and smaller file size; choose a smaller number for better video
--- quality.
+-- 'framerateDenominator', 'av1Settings_framerateDenominator' - When you use the API for transcode jobs that use frame rate conversion,
+-- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
+-- 23.976 fps. Use FramerateDenominator to specify the denominator of this
+-- fraction. In this example, use 1001 for the value of
+-- FramerateDenominator. When you use the console for transcode jobs that
+-- use frame rate conversion, provide the value as a decimal number for
+-- Framerate. In this example, specify 23.976.
 --
--- 'adaptiveQuantization', 'av1Settings_adaptiveQuantization' - Specify the strength of any adaptive quantization filters that you
--- enable. The value that you choose here applies to Spatial adaptive
--- quantization (spatialAdaptiveQuantization).
+-- 'framerateNumerator', 'av1Settings_framerateNumerator' - When you use the API for transcode jobs that use frame rate conversion,
+-- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
+-- 23.976 fps. Use FramerateNumerator to specify the numerator of this
+-- fraction. In this example, use 24000 for the value of
+-- FramerateNumerator. When you use the console for transcode jobs that use
+-- frame rate conversion, provide the value as a decimal number for
+-- Framerate. In this example, specify 23.976.
 --
 -- 'gopSize', 'av1Settings_gopSize' - Specify the GOP length (keyframe interval) in frames. With AV1,
 -- MediaConvert doesn\'t support GOP length in seconds. This value must be
 -- greater than zero and preferably equal to 1 + ((numberBFrames + 1) * x),
 -- where x is an integer value.
+--
+-- 'maxBitrate', 'av1Settings_maxBitrate' - Maximum bitrate in bits\/second. For example, enter five megabits per
+-- second as 5000000. Required when Rate control mode is QVBR.
+--
+-- 'numberBFramesBetweenReferenceFrames', 'av1Settings_numberBFramesBetweenReferenceFrames' - Specify from the number of B-frames, in the range of 0-15. For AV1
+-- encoding, we recommend using 7 or 15. Choose a larger number for a lower
+-- bitrate and smaller file size; choose a smaller number for better video
+-- quality.
+--
+-- 'qvbrSettings', 'av1Settings_qvbrSettings' - Settings for quality-defined variable bitrate encoding with the H.265
+-- codec. Use these settings only when you set QVBR for Rate control mode
+-- (RateControlMode).
+--
+-- 'rateControlMode', 'av1Settings_rateControlMode' - \'With AV1 outputs, for rate control mode, MediaConvert supports only
+-- quality-defined variable bitrate (QVBR). You can\'\'t use CBR or VBR.\'
+--
+-- 'slices', 'av1Settings_slices' - Specify the number of slices per picture. This value must be 1, 2, 4, 8,
+-- 16, or 32. For progressive pictures, this value must be less than or
+-- equal to the number of macroblock rows. For interlaced pictures, this
+-- value must be less than or equal to half the number of macroblock rows.
 --
 -- 'spatialAdaptiveQuantization', 'av1Settings_spatialAdaptiveQuantization' - Keep the default value, Enabled (ENABLED), to adjust quantization within
 -- each frame based on spatial variation of content complexity. When you
@@ -232,32 +232,28 @@ newAv1Settings ::
   Av1Settings
 newAv1Settings =
   Av1Settings'
-    { framerateDenominator =
+    { adaptiveQuantization =
         Prelude.Nothing,
       bitDepth = Prelude.Nothing,
       framerateControl = Prelude.Nothing,
-      qvbrSettings = Prelude.Nothing,
-      maxBitrate = Prelude.Nothing,
-      framerateNumerator = Prelude.Nothing,
-      slices = Prelude.Nothing,
-      rateControlMode = Prelude.Nothing,
       framerateConversionAlgorithm = Prelude.Nothing,
+      framerateDenominator = Prelude.Nothing,
+      framerateNumerator = Prelude.Nothing,
+      gopSize = Prelude.Nothing,
+      maxBitrate = Prelude.Nothing,
       numberBFramesBetweenReferenceFrames =
         Prelude.Nothing,
-      adaptiveQuantization = Prelude.Nothing,
-      gopSize = Prelude.Nothing,
+      qvbrSettings = Prelude.Nothing,
+      rateControlMode = Prelude.Nothing,
+      slices = Prelude.Nothing,
       spatialAdaptiveQuantization = Prelude.Nothing
     }
 
--- | When you use the API for transcode jobs that use frame rate conversion,
--- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
--- 23.976 fps. Use FramerateDenominator to specify the denominator of this
--- fraction. In this example, use 1001 for the value of
--- FramerateDenominator. When you use the console for transcode jobs that
--- use frame rate conversion, provide the value as a decimal number for
--- Framerate. In this example, specify 23.976.
-av1Settings_framerateDenominator :: Lens.Lens' Av1Settings (Prelude.Maybe Prelude.Natural)
-av1Settings_framerateDenominator = Lens.lens (\Av1Settings' {framerateDenominator} -> framerateDenominator) (\s@Av1Settings' {} a -> s {framerateDenominator = a} :: Av1Settings)
+-- | Specify the strength of any adaptive quantization filters that you
+-- enable. The value that you choose here applies to Spatial adaptive
+-- quantization (spatialAdaptiveQuantization).
+av1Settings_adaptiveQuantization :: Lens.Lens' Av1Settings (Prelude.Maybe Av1AdaptiveQuantization)
+av1Settings_adaptiveQuantization = Lens.lens (\Av1Settings' {adaptiveQuantization} -> adaptiveQuantization) (\s@Av1Settings' {} a -> s {adaptiveQuantization = a} :: Av1Settings)
 
 -- | Specify the Bit depth (Av1BitDepth). You can choose 8-bit (BIT_8) or
 -- 10-bit (BIT_10).
@@ -280,39 +276,6 @@ av1Settings_bitDepth = Lens.lens (\Av1Settings' {bitDepth} -> bitDepth) (\s@Av1S
 av1Settings_framerateControl :: Lens.Lens' Av1Settings (Prelude.Maybe Av1FramerateControl)
 av1Settings_framerateControl = Lens.lens (\Av1Settings' {framerateControl} -> framerateControl) (\s@Av1Settings' {} a -> s {framerateControl = a} :: Av1Settings)
 
--- | Settings for quality-defined variable bitrate encoding with the H.265
--- codec. Use these settings only when you set QVBR for Rate control mode
--- (RateControlMode).
-av1Settings_qvbrSettings :: Lens.Lens' Av1Settings (Prelude.Maybe Av1QvbrSettings)
-av1Settings_qvbrSettings = Lens.lens (\Av1Settings' {qvbrSettings} -> qvbrSettings) (\s@Av1Settings' {} a -> s {qvbrSettings = a} :: Av1Settings)
-
--- | Maximum bitrate in bits\/second. For example, enter five megabits per
--- second as 5000000. Required when Rate control mode is QVBR.
-av1Settings_maxBitrate :: Lens.Lens' Av1Settings (Prelude.Maybe Prelude.Natural)
-av1Settings_maxBitrate = Lens.lens (\Av1Settings' {maxBitrate} -> maxBitrate) (\s@Av1Settings' {} a -> s {maxBitrate = a} :: Av1Settings)
-
--- | When you use the API for transcode jobs that use frame rate conversion,
--- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
--- 23.976 fps. Use FramerateNumerator to specify the numerator of this
--- fraction. In this example, use 24000 for the value of
--- FramerateNumerator. When you use the console for transcode jobs that use
--- frame rate conversion, provide the value as a decimal number for
--- Framerate. In this example, specify 23.976.
-av1Settings_framerateNumerator :: Lens.Lens' Av1Settings (Prelude.Maybe Prelude.Natural)
-av1Settings_framerateNumerator = Lens.lens (\Av1Settings' {framerateNumerator} -> framerateNumerator) (\s@Av1Settings' {} a -> s {framerateNumerator = a} :: Av1Settings)
-
--- | Specify the number of slices per picture. This value must be 1, 2, 4, 8,
--- 16, or 32. For progressive pictures, this value must be less than or
--- equal to the number of macroblock rows. For interlaced pictures, this
--- value must be less than or equal to half the number of macroblock rows.
-av1Settings_slices :: Lens.Lens' Av1Settings (Prelude.Maybe Prelude.Natural)
-av1Settings_slices = Lens.lens (\Av1Settings' {slices} -> slices) (\s@Av1Settings' {} a -> s {slices = a} :: Av1Settings)
-
--- | \'With AV1 outputs, for rate control mode, MediaConvert supports only
--- quality-defined variable bitrate (QVBR). You can\'\'t use CBR or VBR.\'
-av1Settings_rateControlMode :: Lens.Lens' Av1Settings (Prelude.Maybe Av1RateControlMode)
-av1Settings_rateControlMode = Lens.lens (\Av1Settings' {rateControlMode} -> rateControlMode) (\s@Av1Settings' {} a -> s {rateControlMode = a} :: Av1Settings)
-
 -- | Choose the method that you want MediaConvert to use when increasing or
 -- decreasing the frame rate. We recommend using drop duplicate
 -- (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to
@@ -327,18 +290,25 @@ av1Settings_rateControlMode = Lens.lens (\Av1Settings' {rateControlMode} -> rate
 av1Settings_framerateConversionAlgorithm :: Lens.Lens' Av1Settings (Prelude.Maybe Av1FramerateConversionAlgorithm)
 av1Settings_framerateConversionAlgorithm = Lens.lens (\Av1Settings' {framerateConversionAlgorithm} -> framerateConversionAlgorithm) (\s@Av1Settings' {} a -> s {framerateConversionAlgorithm = a} :: Av1Settings)
 
--- | Specify from the number of B-frames, in the range of 0-15. For AV1
--- encoding, we recommend using 7 or 15. Choose a larger number for a lower
--- bitrate and smaller file size; choose a smaller number for better video
--- quality.
-av1Settings_numberBFramesBetweenReferenceFrames :: Lens.Lens' Av1Settings (Prelude.Maybe Prelude.Natural)
-av1Settings_numberBFramesBetweenReferenceFrames = Lens.lens (\Av1Settings' {numberBFramesBetweenReferenceFrames} -> numberBFramesBetweenReferenceFrames) (\s@Av1Settings' {} a -> s {numberBFramesBetweenReferenceFrames = a} :: Av1Settings)
+-- | When you use the API for transcode jobs that use frame rate conversion,
+-- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
+-- 23.976 fps. Use FramerateDenominator to specify the denominator of this
+-- fraction. In this example, use 1001 for the value of
+-- FramerateDenominator. When you use the console for transcode jobs that
+-- use frame rate conversion, provide the value as a decimal number for
+-- Framerate. In this example, specify 23.976.
+av1Settings_framerateDenominator :: Lens.Lens' Av1Settings (Prelude.Maybe Prelude.Natural)
+av1Settings_framerateDenominator = Lens.lens (\Av1Settings' {framerateDenominator} -> framerateDenominator) (\s@Av1Settings' {} a -> s {framerateDenominator = a} :: Av1Settings)
 
--- | Specify the strength of any adaptive quantization filters that you
--- enable. The value that you choose here applies to Spatial adaptive
--- quantization (spatialAdaptiveQuantization).
-av1Settings_adaptiveQuantization :: Lens.Lens' Av1Settings (Prelude.Maybe Av1AdaptiveQuantization)
-av1Settings_adaptiveQuantization = Lens.lens (\Av1Settings' {adaptiveQuantization} -> adaptiveQuantization) (\s@Av1Settings' {} a -> s {adaptiveQuantization = a} :: Av1Settings)
+-- | When you use the API for transcode jobs that use frame rate conversion,
+-- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
+-- 23.976 fps. Use FramerateNumerator to specify the numerator of this
+-- fraction. In this example, use 24000 for the value of
+-- FramerateNumerator. When you use the console for transcode jobs that use
+-- frame rate conversion, provide the value as a decimal number for
+-- Framerate. In this example, specify 23.976.
+av1Settings_framerateNumerator :: Lens.Lens' Av1Settings (Prelude.Maybe Prelude.Natural)
+av1Settings_framerateNumerator = Lens.lens (\Av1Settings' {framerateNumerator} -> framerateNumerator) (\s@Av1Settings' {} a -> s {framerateNumerator = a} :: Av1Settings)
 
 -- | Specify the GOP length (keyframe interval) in frames. With AV1,
 -- MediaConvert doesn\'t support GOP length in seconds. This value must be
@@ -346,6 +316,36 @@ av1Settings_adaptiveQuantization = Lens.lens (\Av1Settings' {adaptiveQuantizatio
 -- where x is an integer value.
 av1Settings_gopSize :: Lens.Lens' Av1Settings (Prelude.Maybe Prelude.Double)
 av1Settings_gopSize = Lens.lens (\Av1Settings' {gopSize} -> gopSize) (\s@Av1Settings' {} a -> s {gopSize = a} :: Av1Settings)
+
+-- | Maximum bitrate in bits\/second. For example, enter five megabits per
+-- second as 5000000. Required when Rate control mode is QVBR.
+av1Settings_maxBitrate :: Lens.Lens' Av1Settings (Prelude.Maybe Prelude.Natural)
+av1Settings_maxBitrate = Lens.lens (\Av1Settings' {maxBitrate} -> maxBitrate) (\s@Av1Settings' {} a -> s {maxBitrate = a} :: Av1Settings)
+
+-- | Specify from the number of B-frames, in the range of 0-15. For AV1
+-- encoding, we recommend using 7 or 15. Choose a larger number for a lower
+-- bitrate and smaller file size; choose a smaller number for better video
+-- quality.
+av1Settings_numberBFramesBetweenReferenceFrames :: Lens.Lens' Av1Settings (Prelude.Maybe Prelude.Natural)
+av1Settings_numberBFramesBetweenReferenceFrames = Lens.lens (\Av1Settings' {numberBFramesBetweenReferenceFrames} -> numberBFramesBetweenReferenceFrames) (\s@Av1Settings' {} a -> s {numberBFramesBetweenReferenceFrames = a} :: Av1Settings)
+
+-- | Settings for quality-defined variable bitrate encoding with the H.265
+-- codec. Use these settings only when you set QVBR for Rate control mode
+-- (RateControlMode).
+av1Settings_qvbrSettings :: Lens.Lens' Av1Settings (Prelude.Maybe Av1QvbrSettings)
+av1Settings_qvbrSettings = Lens.lens (\Av1Settings' {qvbrSettings} -> qvbrSettings) (\s@Av1Settings' {} a -> s {qvbrSettings = a} :: Av1Settings)
+
+-- | \'With AV1 outputs, for rate control mode, MediaConvert supports only
+-- quality-defined variable bitrate (QVBR). You can\'\'t use CBR or VBR.\'
+av1Settings_rateControlMode :: Lens.Lens' Av1Settings (Prelude.Maybe Av1RateControlMode)
+av1Settings_rateControlMode = Lens.lens (\Av1Settings' {rateControlMode} -> rateControlMode) (\s@Av1Settings' {} a -> s {rateControlMode = a} :: Av1Settings)
+
+-- | Specify the number of slices per picture. This value must be 1, 2, 4, 8,
+-- 16, or 32. For progressive pictures, this value must be less than or
+-- equal to the number of macroblock rows. For interlaced pictures, this
+-- value must be less than or equal to half the number of macroblock rows.
+av1Settings_slices :: Lens.Lens' Av1Settings (Prelude.Maybe Prelude.Natural)
+av1Settings_slices = Lens.lens (\Av1Settings' {slices} -> slices) (\s@Av1Settings' {} a -> s {slices = a} :: Av1Settings)
 
 -- | Keep the default value, Enabled (ENABLED), to adjust quantization within
 -- each frame based on spatial variation of content complexity. When you
@@ -372,76 +372,76 @@ instance Data.FromJSON Av1Settings where
       "Av1Settings"
       ( \x ->
           Av1Settings'
-            Prelude.<$> (x Data..:? "framerateDenominator")
+            Prelude.<$> (x Data..:? "adaptiveQuantization")
             Prelude.<*> (x Data..:? "bitDepth")
             Prelude.<*> (x Data..:? "framerateControl")
-            Prelude.<*> (x Data..:? "qvbrSettings")
-            Prelude.<*> (x Data..:? "maxBitrate")
-            Prelude.<*> (x Data..:? "framerateNumerator")
-            Prelude.<*> (x Data..:? "slices")
-            Prelude.<*> (x Data..:? "rateControlMode")
             Prelude.<*> (x Data..:? "framerateConversionAlgorithm")
-            Prelude.<*> (x Data..:? "numberBFramesBetweenReferenceFrames")
-            Prelude.<*> (x Data..:? "adaptiveQuantization")
+            Prelude.<*> (x Data..:? "framerateDenominator")
+            Prelude.<*> (x Data..:? "framerateNumerator")
             Prelude.<*> (x Data..:? "gopSize")
+            Prelude.<*> (x Data..:? "maxBitrate")
+            Prelude.<*> (x Data..:? "numberBFramesBetweenReferenceFrames")
+            Prelude.<*> (x Data..:? "qvbrSettings")
+            Prelude.<*> (x Data..:? "rateControlMode")
+            Prelude.<*> (x Data..:? "slices")
             Prelude.<*> (x Data..:? "spatialAdaptiveQuantization")
       )
 
 instance Prelude.Hashable Av1Settings where
   hashWithSalt _salt Av1Settings' {..} =
-    _salt `Prelude.hashWithSalt` framerateDenominator
+    _salt `Prelude.hashWithSalt` adaptiveQuantization
       `Prelude.hashWithSalt` bitDepth
       `Prelude.hashWithSalt` framerateControl
-      `Prelude.hashWithSalt` qvbrSettings
-      `Prelude.hashWithSalt` maxBitrate
-      `Prelude.hashWithSalt` framerateNumerator
-      `Prelude.hashWithSalt` slices
-      `Prelude.hashWithSalt` rateControlMode
       `Prelude.hashWithSalt` framerateConversionAlgorithm
-      `Prelude.hashWithSalt` numberBFramesBetweenReferenceFrames
-      `Prelude.hashWithSalt` adaptiveQuantization
+      `Prelude.hashWithSalt` framerateDenominator
+      `Prelude.hashWithSalt` framerateNumerator
       `Prelude.hashWithSalt` gopSize
+      `Prelude.hashWithSalt` maxBitrate
+      `Prelude.hashWithSalt` numberBFramesBetweenReferenceFrames
+      `Prelude.hashWithSalt` qvbrSettings
+      `Prelude.hashWithSalt` rateControlMode
+      `Prelude.hashWithSalt` slices
       `Prelude.hashWithSalt` spatialAdaptiveQuantization
 
 instance Prelude.NFData Av1Settings where
   rnf Av1Settings' {..} =
-    Prelude.rnf framerateDenominator
+    Prelude.rnf adaptiveQuantization
       `Prelude.seq` Prelude.rnf bitDepth
       `Prelude.seq` Prelude.rnf framerateControl
-      `Prelude.seq` Prelude.rnf qvbrSettings
-      `Prelude.seq` Prelude.rnf maxBitrate
-      `Prelude.seq` Prelude.rnf framerateNumerator
-      `Prelude.seq` Prelude.rnf slices
-      `Prelude.seq` Prelude.rnf rateControlMode
       `Prelude.seq` Prelude.rnf framerateConversionAlgorithm
-      `Prelude.seq` Prelude.rnf numberBFramesBetweenReferenceFrames
-      `Prelude.seq` Prelude.rnf adaptiveQuantization
+      `Prelude.seq` Prelude.rnf framerateDenominator
+      `Prelude.seq` Prelude.rnf framerateNumerator
       `Prelude.seq` Prelude.rnf gopSize
+      `Prelude.seq` Prelude.rnf maxBitrate
+      `Prelude.seq` Prelude.rnf numberBFramesBetweenReferenceFrames
+      `Prelude.seq` Prelude.rnf qvbrSettings
+      `Prelude.seq` Prelude.rnf rateControlMode
+      `Prelude.seq` Prelude.rnf slices
       `Prelude.seq` Prelude.rnf spatialAdaptiveQuantization
 
 instance Data.ToJSON Av1Settings where
   toJSON Av1Settings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("framerateDenominator" Data..=)
-              Prelude.<$> framerateDenominator,
+          [ ("adaptiveQuantization" Data..=)
+              Prelude.<$> adaptiveQuantization,
             ("bitDepth" Data..=) Prelude.<$> bitDepth,
             ("framerateControl" Data..=)
               Prelude.<$> framerateControl,
-            ("qvbrSettings" Data..=) Prelude.<$> qvbrSettings,
-            ("maxBitrate" Data..=) Prelude.<$> maxBitrate,
-            ("framerateNumerator" Data..=)
-              Prelude.<$> framerateNumerator,
-            ("slices" Data..=) Prelude.<$> slices,
-            ("rateControlMode" Data..=)
-              Prelude.<$> rateControlMode,
             ("framerateConversionAlgorithm" Data..=)
               Prelude.<$> framerateConversionAlgorithm,
+            ("framerateDenominator" Data..=)
+              Prelude.<$> framerateDenominator,
+            ("framerateNumerator" Data..=)
+              Prelude.<$> framerateNumerator,
+            ("gopSize" Data..=) Prelude.<$> gopSize,
+            ("maxBitrate" Data..=) Prelude.<$> maxBitrate,
             ("numberBFramesBetweenReferenceFrames" Data..=)
               Prelude.<$> numberBFramesBetweenReferenceFrames,
-            ("adaptiveQuantization" Data..=)
-              Prelude.<$> adaptiveQuantization,
-            ("gopSize" Data..=) Prelude.<$> gopSize,
+            ("qvbrSettings" Data..=) Prelude.<$> qvbrSettings,
+            ("rateControlMode" Data..=)
+              Prelude.<$> rateControlMode,
+            ("slices" Data..=) Prelude.<$> slices,
             ("spatialAdaptiveQuantization" Data..=)
               Prelude.<$> spatialAdaptiveQuantization
           ]

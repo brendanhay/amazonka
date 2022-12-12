@@ -18,13 +18,13 @@ module Amazonka.IoTJobsData.Types
     defaultService,
 
     -- * Errors
-    _ServiceUnavailableException,
+    _CertificateValidationException,
+    _InvalidRequestException,
+    _InvalidStateTransitionException,
     _ResourceNotFoundException,
+    _ServiceUnavailableException,
     _TerminalStateException,
     _ThrottlingException,
-    _InvalidStateTransitionException,
-    _InvalidRequestException,
-    _CertificateValidationException,
 
     -- * JobExecutionStatus
     JobExecutionStatus (..),
@@ -32,34 +32,34 @@ module Amazonka.IoTJobsData.Types
     -- * JobExecution
     JobExecution (..),
     newJobExecution,
-    jobExecution_thingName,
+    jobExecution_approximateSecondsBeforeTimedOut,
     jobExecution_executionNumber,
     jobExecution_jobDocument,
-    jobExecution_lastUpdatedAt,
-    jobExecution_statusDetails,
     jobExecution_jobId,
-    jobExecution_status,
-    jobExecution_startedAt,
-    jobExecution_versionNumber,
+    jobExecution_lastUpdatedAt,
     jobExecution_queuedAt,
-    jobExecution_approximateSecondsBeforeTimedOut,
+    jobExecution_startedAt,
+    jobExecution_status,
+    jobExecution_statusDetails,
+    jobExecution_thingName,
+    jobExecution_versionNumber,
 
     -- * JobExecutionState
     JobExecutionState (..),
     newJobExecutionState,
-    jobExecutionState_statusDetails,
     jobExecutionState_status,
+    jobExecutionState_statusDetails,
     jobExecutionState_versionNumber,
 
     -- * JobExecutionSummary
     JobExecutionSummary (..),
     newJobExecutionSummary,
     jobExecutionSummary_executionNumber,
-    jobExecutionSummary_lastUpdatedAt,
     jobExecutionSummary_jobId,
+    jobExecutionSummary_lastUpdatedAt,
+    jobExecutionSummary_queuedAt,
     jobExecutionSummary_startedAt,
     jobExecutionSummary_versionNumber,
-    jobExecutionSummary_queuedAt,
   )
 where
 
@@ -97,28 +97,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -126,13 +120,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -140,15 +138,39 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The service is temporarily unavailable.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceUnavailableException =
+-- | The certificate is invalid.
+_CertificateValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CertificateValidationException =
   Core._MatchServiceError
     defaultService
-    "ServiceUnavailableException"
-    Prelude.. Core.hasStatus 503
+    "CertificateValidationException"
+    Prelude.. Core.hasStatus 400
+
+-- | The contents of the request were invalid. For example, this code is
+-- returned when an UpdateJobExecution request contains invalid status
+-- details. The message contains details about the error.
+_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRequestException"
+    Prelude.. Core.hasStatus 400
+
+-- | An update attempted to change the job execution to a state that is
+-- invalid because of the job execution\'s current state (for example, an
+-- attempt to change a request in state SUCCESS to state IN_PROGRESS). In
+-- this case, the body of the error message also contains the
+-- executionState field.
+_InvalidStateTransitionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidStateTransitionException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidStateTransitionException"
+    Prelude.. Core.hasStatus 409
 
 -- | The specified resource does not exist.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -157,6 +179,14 @@ _ResourceNotFoundException =
     defaultService
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
+
+-- | The service is temporarily unavailable.
+_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceUnavailableException"
+    Prelude.. Core.hasStatus 503
 
 -- | The job is in a terminal state.
 _TerminalStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -173,33 +203,3 @@ _ThrottlingException =
     defaultService
     "ThrottlingException"
     Prelude.. Core.hasStatus 429
-
--- | An update attempted to change the job execution to a state that is
--- invalid because of the job execution\'s current state (for example, an
--- attempt to change a request in state SUCCESS to state IN_PROGRESS). In
--- this case, the body of the error message also contains the
--- executionState field.
-_InvalidStateTransitionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidStateTransitionException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidStateTransitionException"
-    Prelude.. Core.hasStatus 409
-
--- | The contents of the request were invalid. For example, this code is
--- returned when an UpdateJobExecution request contains invalid status
--- details. The message contains details about the error.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidRequestException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidRequestException"
-    Prelude.. Core.hasStatus 400
-
--- | The certificate is invalid.
-_CertificateValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CertificateValidationException =
-  Core._MatchServiceError
-    defaultService
-    "CertificateValidationException"
-    Prelude.. Core.hasStatus 400

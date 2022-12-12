@@ -37,6 +37,8 @@ data VideoSelector = VideoSelector'
     -- colorSpaceUsage and a video description\'s colorSpaceSettingsChoice to
     -- determine if any conversion will be performed.
     colorSpace :: Prelude.Maybe VideoSelectorColorSpace,
+    -- | Color space settings
+    colorSpaceSettings :: Prelude.Maybe VideoSelectorColorSpaceSettings,
     -- | Applies only if colorSpace is a value other than follow. This field
     -- controls how the value in the colorSpace field will be used. fallback
     -- means that when the input does include color space data, that data will
@@ -48,9 +50,7 @@ data VideoSelector = VideoSelector'
     -- unreliable color space data.
     colorSpaceUsage :: Prelude.Maybe VideoSelectorColorSpaceUsage,
     -- | The video selector settings.
-    selectorSettings :: Prelude.Maybe VideoSelectorSettings,
-    -- | Color space settings
-    colorSpaceSettings :: Prelude.Maybe VideoSelectorColorSpaceSettings
+    selectorSettings :: Prelude.Maybe VideoSelectorSettings
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,6 +66,8 @@ data VideoSelector = VideoSelector'
 -- colorSpaceUsage and a video description\'s colorSpaceSettingsChoice to
 -- determine if any conversion will be performed.
 --
+-- 'colorSpaceSettings', 'videoSelector_colorSpaceSettings' - Color space settings
+--
 -- 'colorSpaceUsage', 'videoSelector_colorSpaceUsage' - Applies only if colorSpace is a value other than follow. This field
 -- controls how the value in the colorSpace field will be used. fallback
 -- means that when the input does include color space data, that data will
@@ -77,16 +79,14 @@ data VideoSelector = VideoSelector'
 -- unreliable color space data.
 --
 -- 'selectorSettings', 'videoSelector_selectorSettings' - The video selector settings.
---
--- 'colorSpaceSettings', 'videoSelector_colorSpaceSettings' - Color space settings
 newVideoSelector ::
   VideoSelector
 newVideoSelector =
   VideoSelector'
     { colorSpace = Prelude.Nothing,
+      colorSpaceSettings = Prelude.Nothing,
       colorSpaceUsage = Prelude.Nothing,
-      selectorSettings = Prelude.Nothing,
-      colorSpaceSettings = Prelude.Nothing
+      selectorSettings = Prelude.Nothing
     }
 
 -- | Specifies the color space of an input. This setting works in tandem with
@@ -94,6 +94,10 @@ newVideoSelector =
 -- determine if any conversion will be performed.
 videoSelector_colorSpace :: Lens.Lens' VideoSelector (Prelude.Maybe VideoSelectorColorSpace)
 videoSelector_colorSpace = Lens.lens (\VideoSelector' {colorSpace} -> colorSpace) (\s@VideoSelector' {} a -> s {colorSpace = a} :: VideoSelector)
+
+-- | Color space settings
+videoSelector_colorSpaceSettings :: Lens.Lens' VideoSelector (Prelude.Maybe VideoSelectorColorSpaceSettings)
+videoSelector_colorSpaceSettings = Lens.lens (\VideoSelector' {colorSpaceSettings} -> colorSpaceSettings) (\s@VideoSelector' {} a -> s {colorSpaceSettings = a} :: VideoSelector)
 
 -- | Applies only if colorSpace is a value other than follow. This field
 -- controls how the value in the colorSpace field will be used. fallback
@@ -111,10 +115,6 @@ videoSelector_colorSpaceUsage = Lens.lens (\VideoSelector' {colorSpaceUsage} -> 
 videoSelector_selectorSettings :: Lens.Lens' VideoSelector (Prelude.Maybe VideoSelectorSettings)
 videoSelector_selectorSettings = Lens.lens (\VideoSelector' {selectorSettings} -> selectorSettings) (\s@VideoSelector' {} a -> s {selectorSettings = a} :: VideoSelector)
 
--- | Color space settings
-videoSelector_colorSpaceSettings :: Lens.Lens' VideoSelector (Prelude.Maybe VideoSelectorColorSpaceSettings)
-videoSelector_colorSpaceSettings = Lens.lens (\VideoSelector' {colorSpaceSettings} -> colorSpaceSettings) (\s@VideoSelector' {} a -> s {colorSpaceSettings = a} :: VideoSelector)
-
 instance Data.FromJSON VideoSelector where
   parseJSON =
     Data.withObject
@@ -122,35 +122,35 @@ instance Data.FromJSON VideoSelector where
       ( \x ->
           VideoSelector'
             Prelude.<$> (x Data..:? "colorSpace")
+            Prelude.<*> (x Data..:? "colorSpaceSettings")
             Prelude.<*> (x Data..:? "colorSpaceUsage")
             Prelude.<*> (x Data..:? "selectorSettings")
-            Prelude.<*> (x Data..:? "colorSpaceSettings")
       )
 
 instance Prelude.Hashable VideoSelector where
   hashWithSalt _salt VideoSelector' {..} =
     _salt `Prelude.hashWithSalt` colorSpace
+      `Prelude.hashWithSalt` colorSpaceSettings
       `Prelude.hashWithSalt` colorSpaceUsage
       `Prelude.hashWithSalt` selectorSettings
-      `Prelude.hashWithSalt` colorSpaceSettings
 
 instance Prelude.NFData VideoSelector where
   rnf VideoSelector' {..} =
     Prelude.rnf colorSpace
+      `Prelude.seq` Prelude.rnf colorSpaceSettings
       `Prelude.seq` Prelude.rnf colorSpaceUsage
       `Prelude.seq` Prelude.rnf selectorSettings
-      `Prelude.seq` Prelude.rnf colorSpaceSettings
 
 instance Data.ToJSON VideoSelector where
   toJSON VideoSelector' {..} =
     Data.object
       ( Prelude.catMaybes
           [ ("colorSpace" Data..=) Prelude.<$> colorSpace,
+            ("colorSpaceSettings" Data..=)
+              Prelude.<$> colorSpaceSettings,
             ("colorSpaceUsage" Data..=)
               Prelude.<$> colorSpaceUsage,
             ("selectorSettings" Data..=)
-              Prelude.<$> selectorSettings,
-            ("colorSpaceSettings" Data..=)
-              Prelude.<$> colorSpaceSettings
+              Prelude.<$> selectorSettings
           ]
       )

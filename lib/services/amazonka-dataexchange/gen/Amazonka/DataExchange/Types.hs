@@ -19,11 +19,11 @@ module Amazonka.DataExchange.Types
 
     -- * Errors
     _AccessDeniedException,
+    _ConflictException,
     _InternalServerException,
     _ResourceNotFoundException,
-    _ConflictException,
-    _ThrottlingException,
     _ServiceLimitExceededException,
+    _ThrottlingException,
     _ValidationException,
 
     -- * AssetType
@@ -32,11 +32,23 @@ module Amazonka.DataExchange.Types
     -- * Code
     Code (..),
 
+    -- * DatabaseLFTagPolicyPermission
+    DatabaseLFTagPolicyPermission (..),
+
     -- * JobErrorLimitName
     JobErrorLimitName (..),
 
     -- * JobErrorResourceTypes
     JobErrorResourceTypes (..),
+
+    -- * LFPermission
+    LFPermission (..),
+
+    -- * LFResourceType
+    LFResourceType (..),
+
+    -- * LakeFormationDataPermissionType
+    LakeFormationDataPermissionType (..),
 
     -- * Origin
     Origin (..),
@@ -50,6 +62,9 @@ module Amazonka.DataExchange.Types
     -- * State
     State (..),
 
+    -- * TableTagPolicyLFPermission
+    TableTagPolicyLFPermission (..),
+
     -- * Type
     Type (..),
 
@@ -61,15 +76,15 @@ module Amazonka.DataExchange.Types
     -- * ApiGatewayApiAsset
     ApiGatewayApiAsset (..),
     newApiGatewayApiAsset,
+    apiGatewayApiAsset_apiDescription,
     apiGatewayApiAsset_apiEndpoint,
     apiGatewayApiAsset_apiId,
-    apiGatewayApiAsset_apiSpecificationDownloadUrlExpiresAt,
     apiGatewayApiAsset_apiKey,
+    apiGatewayApiAsset_apiName,
     apiGatewayApiAsset_apiSpecificationDownloadUrl,
+    apiGatewayApiAsset_apiSpecificationDownloadUrlExpiresAt,
     apiGatewayApiAsset_protocolType,
     apiGatewayApiAsset_stage,
-    apiGatewayApiAsset_apiName,
-    apiGatewayApiAsset_apiDescription,
 
     -- * AssetDestinationEntry
     AssetDestinationEntry (..),
@@ -81,9 +96,11 @@ module Amazonka.DataExchange.Types
     -- * AssetDetails
     AssetDetails (..),
     newAssetDetails,
-    assetDetails_s3SnapshotAsset,
     assetDetails_apiGatewayApiAsset,
+    assetDetails_lakeFormationDataPermissionAsset,
     assetDetails_redshiftDataShareAsset,
+    assetDetails_s3DataAccessAsset,
+    assetDetails_s3SnapshotAsset,
 
     -- * AssetEntry
     AssetEntry (..),
@@ -117,11 +134,25 @@ module Amazonka.DataExchange.Types
     autoExportRevisionToS3RequestDetails_encryption,
     autoExportRevisionToS3RequestDetails_revisionDestination,
 
+    -- * CreateS3DataAccessFromS3BucketRequestDetails
+    CreateS3DataAccessFromS3BucketRequestDetails (..),
+    newCreateS3DataAccessFromS3BucketRequestDetails,
+    createS3DataAccessFromS3BucketRequestDetails_assetSource,
+    createS3DataAccessFromS3BucketRequestDetails_dataSetId,
+    createS3DataAccessFromS3BucketRequestDetails_revisionId,
+
+    -- * CreateS3DataAccessFromS3BucketResponseDetails
+    CreateS3DataAccessFromS3BucketResponseDetails (..),
+    newCreateS3DataAccessFromS3BucketResponseDetails,
+    createS3DataAccessFromS3BucketResponseDetails_assetSource,
+    createS3DataAccessFromS3BucketResponseDetails_dataSetId,
+    createS3DataAccessFromS3BucketResponseDetails_revisionId,
+
     -- * DataSetEntry
     DataSetEntry (..),
     newDataSetEntry,
-    dataSetEntry_sourceId,
     dataSetEntry_originDetails,
+    dataSetEntry_sourceId,
     dataSetEntry_arn,
     dataSetEntry_assetType,
     dataSetEntry_createdAt,
@@ -131,11 +162,22 @@ module Amazonka.DataExchange.Types
     dataSetEntry_origin,
     dataSetEntry_updatedAt,
 
+    -- * DatabaseLFTagPolicy
+    DatabaseLFTagPolicy (..),
+    newDatabaseLFTagPolicy,
+    databaseLFTagPolicy_expression,
+
+    -- * DatabaseLFTagPolicyAndPermissions
+    DatabaseLFTagPolicyAndPermissions (..),
+    newDatabaseLFTagPolicyAndPermissions,
+    databaseLFTagPolicyAndPermissions_expression,
+    databaseLFTagPolicyAndPermissions_permissions,
+
     -- * Details
     Details (..),
     newDetails,
-    details_importAssetsFromS3JobErrorDetails,
     details_importAssetFromSignedUrlJobErrorDetails,
+    details_importAssetsFromS3JobErrorDetails,
 
     -- * Event
     Event (..),
@@ -162,8 +204,8 @@ module Amazonka.DataExchange.Types
     -- * ExportAssetToSignedUrlResponseDetails
     ExportAssetToSignedUrlResponseDetails (..),
     newExportAssetToSignedUrlResponseDetails,
-    exportAssetToSignedUrlResponseDetails_signedUrlExpiresAt,
     exportAssetToSignedUrlResponseDetails_signedUrl,
+    exportAssetToSignedUrlResponseDetails_signedUrlExpiresAt,
     exportAssetToSignedUrlResponseDetails_assetId,
     exportAssetToSignedUrlResponseDetails_dataSetId,
     exportAssetToSignedUrlResponseDetails_revisionId,
@@ -194,8 +236,8 @@ module Amazonka.DataExchange.Types
     -- * ExportRevisionsToS3ResponseDetails
     ExportRevisionsToS3ResponseDetails (..),
     newExportRevisionsToS3ResponseDetails,
-    exportRevisionsToS3ResponseDetails_eventActionArn,
     exportRevisionsToS3ResponseDetails_encryption,
+    exportRevisionsToS3ResponseDetails_eventActionArn,
     exportRevisionsToS3ResponseDetails_dataSetId,
     exportRevisionsToS3ResponseDetails_revisionDestinations,
 
@@ -208,8 +250,8 @@ module Amazonka.DataExchange.Types
     -- * ImportAssetFromApiGatewayApiRequestDetails
     ImportAssetFromApiGatewayApiRequestDetails (..),
     newImportAssetFromApiGatewayApiRequestDetails,
-    importAssetFromApiGatewayApiRequestDetails_apiKey,
     importAssetFromApiGatewayApiRequestDetails_apiDescription,
+    importAssetFromApiGatewayApiRequestDetails_apiKey,
     importAssetFromApiGatewayApiRequestDetails_apiId,
     importAssetFromApiGatewayApiRequestDetails_apiName,
     importAssetFromApiGatewayApiRequestDetails_apiSpecificationMd5Hash,
@@ -221,8 +263,8 @@ module Amazonka.DataExchange.Types
     -- * ImportAssetFromApiGatewayApiResponseDetails
     ImportAssetFromApiGatewayApiResponseDetails (..),
     newImportAssetFromApiGatewayApiResponseDetails,
-    importAssetFromApiGatewayApiResponseDetails_apiKey,
     importAssetFromApiGatewayApiResponseDetails_apiDescription,
+    importAssetFromApiGatewayApiResponseDetails_apiKey,
     importAssetFromApiGatewayApiResponseDetails_apiId,
     importAssetFromApiGatewayApiResponseDetails_apiName,
     importAssetFromApiGatewayApiResponseDetails_apiSpecificationMd5Hash,
@@ -249,12 +291,32 @@ module Amazonka.DataExchange.Types
     -- * ImportAssetFromSignedUrlResponseDetails
     ImportAssetFromSignedUrlResponseDetails (..),
     newImportAssetFromSignedUrlResponseDetails,
-    importAssetFromSignedUrlResponseDetails_signedUrlExpiresAt,
-    importAssetFromSignedUrlResponseDetails_signedUrl,
     importAssetFromSignedUrlResponseDetails_md5Hash,
+    importAssetFromSignedUrlResponseDetails_signedUrl,
+    importAssetFromSignedUrlResponseDetails_signedUrlExpiresAt,
     importAssetFromSignedUrlResponseDetails_assetName,
     importAssetFromSignedUrlResponseDetails_dataSetId,
     importAssetFromSignedUrlResponseDetails_revisionId,
+
+    -- * ImportAssetsFromLakeFormationTagPolicyRequestDetails
+    ImportAssetsFromLakeFormationTagPolicyRequestDetails (..),
+    newImportAssetsFromLakeFormationTagPolicyRequestDetails,
+    importAssetsFromLakeFormationTagPolicyRequestDetails_database,
+    importAssetsFromLakeFormationTagPolicyRequestDetails_table,
+    importAssetsFromLakeFormationTagPolicyRequestDetails_catalogId,
+    importAssetsFromLakeFormationTagPolicyRequestDetails_roleArn,
+    importAssetsFromLakeFormationTagPolicyRequestDetails_dataSetId,
+    importAssetsFromLakeFormationTagPolicyRequestDetails_revisionId,
+
+    -- * ImportAssetsFromLakeFormationTagPolicyResponseDetails
+    ImportAssetsFromLakeFormationTagPolicyResponseDetails (..),
+    newImportAssetsFromLakeFormationTagPolicyResponseDetails,
+    importAssetsFromLakeFormationTagPolicyResponseDetails_database,
+    importAssetsFromLakeFormationTagPolicyResponseDetails_table,
+    importAssetsFromLakeFormationTagPolicyResponseDetails_catalogId,
+    importAssetsFromLakeFormationTagPolicyResponseDetails_roleArn,
+    importAssetsFromLakeFormationTagPolicyResponseDetails_dataSetId,
+    importAssetsFromLakeFormationTagPolicyResponseDetails_revisionId,
 
     -- * ImportAssetsFromRedshiftDataSharesRequestDetails
     ImportAssetsFromRedshiftDataSharesRequestDetails (..),
@@ -299,13 +361,45 @@ module Amazonka.DataExchange.Types
     -- * JobError
     JobError (..),
     newJobError,
+    jobError_details,
+    jobError_limitName,
+    jobError_limitValue,
     jobError_resourceId,
     jobError_resourceType,
-    jobError_limitValue,
-    jobError_limitName,
-    jobError_details,
     jobError_code,
     jobError_message,
+
+    -- * LFResourceDetails
+    LFResourceDetails (..),
+    newLFResourceDetails,
+    lFResourceDetails_database,
+    lFResourceDetails_table,
+
+    -- * LFTag
+    LFTag (..),
+    newLFTag,
+    lFTag_tagKey,
+    lFTag_tagValues,
+
+    -- * LFTagPolicyDetails
+    LFTagPolicyDetails (..),
+    newLFTagPolicyDetails,
+    lFTagPolicyDetails_catalogId,
+    lFTagPolicyDetails_resourceType,
+    lFTagPolicyDetails_resourceDetails,
+
+    -- * LakeFormationDataPermissionAsset
+    LakeFormationDataPermissionAsset (..),
+    newLakeFormationDataPermissionAsset,
+    lakeFormationDataPermissionAsset_roleArn,
+    lakeFormationDataPermissionAsset_lakeFormationDataPermissionDetails,
+    lakeFormationDataPermissionAsset_lakeFormationDataPermissionType,
+    lakeFormationDataPermissionAsset_permissions,
+
+    -- * LakeFormationDataPermissionDetails
+    LakeFormationDataPermissionDetails (..),
+    newLakeFormationDataPermissionDetails,
+    lakeFormationDataPermissionDetails_lFTagPolicy,
 
     -- * OriginDetails
     OriginDetails (..),
@@ -325,24 +419,28 @@ module Amazonka.DataExchange.Types
     -- * RequestDetails
     RequestDetails (..),
     newRequestDetails,
-    requestDetails_importAssetFromSignedUrl,
-    requestDetails_importAssetsFromRedshiftDataShares,
+    requestDetails_createS3DataAccessFromS3Bucket,
     requestDetails_exportAssetToSignedUrl,
-    requestDetails_exportRevisionsToS3,
     requestDetails_exportAssetsToS3,
-    requestDetails_importAssetsFromS3,
+    requestDetails_exportRevisionsToS3,
     requestDetails_importAssetFromApiGatewayApi,
+    requestDetails_importAssetFromSignedUrl,
+    requestDetails_importAssetsFromLakeFormationTagPolicy,
+    requestDetails_importAssetsFromRedshiftDataShares,
+    requestDetails_importAssetsFromS3,
 
     -- * ResponseDetails
     ResponseDetails (..),
     newResponseDetails,
-    responseDetails_importAssetFromSignedUrl,
-    responseDetails_importAssetsFromRedshiftDataShares,
+    responseDetails_createS3DataAccessFromS3Bucket,
     responseDetails_exportAssetToSignedUrl,
-    responseDetails_exportRevisionsToS3,
     responseDetails_exportAssetsToS3,
-    responseDetails_importAssetsFromS3,
+    responseDetails_exportRevisionsToS3,
     responseDetails_importAssetFromApiGatewayApi,
+    responseDetails_importAssetFromSignedUrl,
+    responseDetails_importAssetsFromLakeFormationTagPolicy,
+    responseDetails_importAssetsFromRedshiftDataShares,
+    responseDetails_importAssetsFromS3,
 
     -- * RevisionDestinationEntry
     RevisionDestinationEntry (..),
@@ -354,12 +452,12 @@ module Amazonka.DataExchange.Types
     -- * RevisionEntry
     RevisionEntry (..),
     newRevisionEntry,
-    revisionEntry_sourceId,
-    revisionEntry_revocationComment,
     revisionEntry_comment,
     revisionEntry_finalized,
-    revisionEntry_revokedAt,
+    revisionEntry_revocationComment,
     revisionEntry_revoked,
+    revisionEntry_revokedAt,
+    revisionEntry_sourceId,
     revisionEntry_arn,
     revisionEntry_createdAt,
     revisionEntry_dataSetId,
@@ -371,10 +469,37 @@ module Amazonka.DataExchange.Types
     newRevisionPublished,
     revisionPublished_dataSetId,
 
+    -- * S3DataAccessAsset
+    S3DataAccessAsset (..),
+    newS3DataAccessAsset,
+    s3DataAccessAsset_keyPrefixes,
+    s3DataAccessAsset_keys,
+    s3DataAccessAsset_s3AccessPointAlias,
+    s3DataAccessAsset_s3AccessPointArn,
+    s3DataAccessAsset_bucket,
+
+    -- * S3DataAccessAssetSourceEntry
+    S3DataAccessAssetSourceEntry (..),
+    newS3DataAccessAssetSourceEntry,
+    s3DataAccessAssetSourceEntry_keyPrefixes,
+    s3DataAccessAssetSourceEntry_keys,
+    s3DataAccessAssetSourceEntry_bucket,
+
     -- * S3SnapshotAsset
     S3SnapshotAsset (..),
     newS3SnapshotAsset,
     s3SnapshotAsset_size,
+
+    -- * TableLFTagPolicy
+    TableLFTagPolicy (..),
+    newTableLFTagPolicy,
+    tableLFTagPolicy_expression,
+
+    -- * TableLFTagPolicyAndPermissions
+    TableLFTagPolicyAndPermissions (..),
+    newTableLFTagPolicyAndPermissions,
+    tableLFTagPolicyAndPermissions_expression,
+    tableLFTagPolicyAndPermissions_permissions,
   )
 where
 
@@ -390,7 +515,12 @@ import Amazonka.DataExchange.Types.AssetType
 import Amazonka.DataExchange.Types.AutoExportRevisionDestinationEntry
 import Amazonka.DataExchange.Types.AutoExportRevisionToS3RequestDetails
 import Amazonka.DataExchange.Types.Code
+import Amazonka.DataExchange.Types.CreateS3DataAccessFromS3BucketRequestDetails
+import Amazonka.DataExchange.Types.CreateS3DataAccessFromS3BucketResponseDetails
 import Amazonka.DataExchange.Types.DataSetEntry
+import Amazonka.DataExchange.Types.DatabaseLFTagPolicy
+import Amazonka.DataExchange.Types.DatabaseLFTagPolicyAndPermissions
+import Amazonka.DataExchange.Types.DatabaseLFTagPolicyPermission
 import Amazonka.DataExchange.Types.Details
 import Amazonka.DataExchange.Types.Event
 import Amazonka.DataExchange.Types.EventActionEntry
@@ -406,6 +536,8 @@ import Amazonka.DataExchange.Types.ImportAssetFromApiGatewayApiResponseDetails
 import Amazonka.DataExchange.Types.ImportAssetFromSignedUrlJobErrorDetails
 import Amazonka.DataExchange.Types.ImportAssetFromSignedUrlRequestDetails
 import Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails
+import Amazonka.DataExchange.Types.ImportAssetsFromLakeFormationTagPolicyRequestDetails
+import Amazonka.DataExchange.Types.ImportAssetsFromLakeFormationTagPolicyResponseDetails
 import Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesRequestDetails
 import Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesResponseDetails
 import Amazonka.DataExchange.Types.ImportAssetsFromS3RequestDetails
@@ -414,6 +546,14 @@ import Amazonka.DataExchange.Types.JobEntry
 import Amazonka.DataExchange.Types.JobError
 import Amazonka.DataExchange.Types.JobErrorLimitName
 import Amazonka.DataExchange.Types.JobErrorResourceTypes
+import Amazonka.DataExchange.Types.LFPermission
+import Amazonka.DataExchange.Types.LFResourceDetails
+import Amazonka.DataExchange.Types.LFResourceType
+import Amazonka.DataExchange.Types.LFTag
+import Amazonka.DataExchange.Types.LFTagPolicyDetails
+import Amazonka.DataExchange.Types.LakeFormationDataPermissionAsset
+import Amazonka.DataExchange.Types.LakeFormationDataPermissionDetails
+import Amazonka.DataExchange.Types.LakeFormationDataPermissionType
 import Amazonka.DataExchange.Types.Origin
 import Amazonka.DataExchange.Types.OriginDetails
 import Amazonka.DataExchange.Types.ProtocolType
@@ -424,9 +564,14 @@ import Amazonka.DataExchange.Types.ResponseDetails
 import Amazonka.DataExchange.Types.RevisionDestinationEntry
 import Amazonka.DataExchange.Types.RevisionEntry
 import Amazonka.DataExchange.Types.RevisionPublished
+import Amazonka.DataExchange.Types.S3DataAccessAsset
+import Amazonka.DataExchange.Types.S3DataAccessAssetSourceEntry
 import Amazonka.DataExchange.Types.S3SnapshotAsset
 import Amazonka.DataExchange.Types.ServerSideEncryptionTypes
 import Amazonka.DataExchange.Types.State
+import Amazonka.DataExchange.Types.TableLFTagPolicy
+import Amazonka.DataExchange.Types.TableLFTagPolicyAndPermissions
+import Amazonka.DataExchange.Types.TableTagPolicyLFPermission
 import Amazonka.DataExchange.Types.Type
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
@@ -456,28 +601,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -485,13 +624,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -499,6 +642,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Access to the resource is denied.
@@ -508,6 +653,15 @@ _AccessDeniedException =
     defaultService
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
+
+-- | The request couldn\'t be completed because it conflicted with the
+-- current state of the resource.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
 
 -- | An exception occurred with the service.
 _InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -525,14 +679,13 @@ _ResourceNotFoundException =
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
 
--- | The request couldn\'t be completed because it conflicted with the
--- current state of the resource.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
+-- | The request has exceeded the quotas imposed by the service.
+_ServiceLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceLimitExceededException =
   Core._MatchServiceError
     defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
+    "ServiceLimitExceededException"
+    Prelude.. Core.hasStatus 402
 
 -- | The limit on the number of requests per second was exceeded.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -541,14 +694,6 @@ _ThrottlingException =
     defaultService
     "ThrottlingException"
     Prelude.. Core.hasStatus 429
-
--- | The request has exceeded the quotas imposed by the service.
-_ServiceLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceLimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceLimitExceededException"
-    Prelude.. Core.hasStatus 402
 
 -- | The request was invalid.
 _ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

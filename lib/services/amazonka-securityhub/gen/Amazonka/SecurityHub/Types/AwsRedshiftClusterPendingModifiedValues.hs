@@ -28,10 +28,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsRedshiftClusterPendingModifiedValues' smart constructor.
 data AwsRedshiftClusterPendingModifiedValues = AwsRedshiftClusterPendingModifiedValues'
-  { -- | The pending or in-progress change to the identifier for the cluster.
+  { -- | The pending or in-progress change to the automated snapshot retention
+    -- period.
+    automatedSnapshotRetentionPeriod :: Prelude.Maybe Prelude.Int,
+    -- | The pending or in-progress change to the identifier for the cluster.
     clusterIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The pending or in-progress change to the cluster type.
+    clusterType :: Prelude.Maybe Prelude.Text,
     -- | The pending or in-progress change to the service version.
     clusterVersion :: Prelude.Maybe Prelude.Text,
+    -- | The encryption type for a cluster.
+    encryptionType :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether to create the cluster with enhanced VPC routing
+    -- enabled.
+    enhancedVpcRouting :: Prelude.Maybe Prelude.Bool,
     -- | The name of the maintenance track that the cluster changes to during the
     -- next maintenance window.
     maintenanceTrackName :: Prelude.Maybe Prelude.Text,
@@ -40,21 +50,11 @@ data AwsRedshiftClusterPendingModifiedValues = AwsRedshiftClusterPendingModified
     masterUserPassword :: Prelude.Maybe Prelude.Text,
     -- | The pending or in-progress change to the cluster\'s node type.
     nodeType :: Prelude.Maybe Prelude.Text,
-    -- | The pending or in-progress change to whether the cluster can be
-    -- connected to from the public network.
-    publiclyAccessible :: Prelude.Maybe Prelude.Bool,
-    -- | The encryption type for a cluster.
-    encryptionType :: Prelude.Maybe Prelude.Text,
     -- | The pending or in-progress change to the number of nodes in the cluster.
     numberOfNodes :: Prelude.Maybe Prelude.Int,
-    -- | Indicates whether to create the cluster with enhanced VPC routing
-    -- enabled.
-    enhancedVpcRouting :: Prelude.Maybe Prelude.Bool,
-    -- | The pending or in-progress change to the cluster type.
-    clusterType :: Prelude.Maybe Prelude.Text,
-    -- | The pending or in-progress change to the automated snapshot retention
-    -- period.
-    automatedSnapshotRetentionPeriod :: Prelude.Maybe Prelude.Int
+    -- | The pending or in-progress change to whether the cluster can be
+    -- connected to from the public network.
+    publiclyAccessible :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,9 +66,19 @@ data AwsRedshiftClusterPendingModifiedValues = AwsRedshiftClusterPendingModified
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'automatedSnapshotRetentionPeriod', 'awsRedshiftClusterPendingModifiedValues_automatedSnapshotRetentionPeriod' - The pending or in-progress change to the automated snapshot retention
+-- period.
+--
 -- 'clusterIdentifier', 'awsRedshiftClusterPendingModifiedValues_clusterIdentifier' - The pending or in-progress change to the identifier for the cluster.
 --
+-- 'clusterType', 'awsRedshiftClusterPendingModifiedValues_clusterType' - The pending or in-progress change to the cluster type.
+--
 -- 'clusterVersion', 'awsRedshiftClusterPendingModifiedValues_clusterVersion' - The pending or in-progress change to the service version.
+--
+-- 'encryptionType', 'awsRedshiftClusterPendingModifiedValues_encryptionType' - The encryption type for a cluster.
+--
+-- 'enhancedVpcRouting', 'awsRedshiftClusterPendingModifiedValues_enhancedVpcRouting' - Indicates whether to create the cluster with enhanced VPC routing
+-- enabled.
 --
 -- 'maintenanceTrackName', 'awsRedshiftClusterPendingModifiedValues_maintenanceTrackName' - The name of the maintenance track that the cluster changes to during the
 -- next maintenance window.
@@ -78,50 +88,58 @@ data AwsRedshiftClusterPendingModifiedValues = AwsRedshiftClusterPendingModified
 --
 -- 'nodeType', 'awsRedshiftClusterPendingModifiedValues_nodeType' - The pending or in-progress change to the cluster\'s node type.
 --
--- 'publiclyAccessible', 'awsRedshiftClusterPendingModifiedValues_publiclyAccessible' - The pending or in-progress change to whether the cluster can be
--- connected to from the public network.
---
--- 'encryptionType', 'awsRedshiftClusterPendingModifiedValues_encryptionType' - The encryption type for a cluster.
---
 -- 'numberOfNodes', 'awsRedshiftClusterPendingModifiedValues_numberOfNodes' - The pending or in-progress change to the number of nodes in the cluster.
 --
--- 'enhancedVpcRouting', 'awsRedshiftClusterPendingModifiedValues_enhancedVpcRouting' - Indicates whether to create the cluster with enhanced VPC routing
--- enabled.
---
--- 'clusterType', 'awsRedshiftClusterPendingModifiedValues_clusterType' - The pending or in-progress change to the cluster type.
---
--- 'automatedSnapshotRetentionPeriod', 'awsRedshiftClusterPendingModifiedValues_automatedSnapshotRetentionPeriod' - The pending or in-progress change to the automated snapshot retention
--- period.
+-- 'publiclyAccessible', 'awsRedshiftClusterPendingModifiedValues_publiclyAccessible' - The pending or in-progress change to whether the cluster can be
+-- connected to from the public network.
 newAwsRedshiftClusterPendingModifiedValues ::
   AwsRedshiftClusterPendingModifiedValues
 newAwsRedshiftClusterPendingModifiedValues =
   AwsRedshiftClusterPendingModifiedValues'
-    { clusterIdentifier =
+    { automatedSnapshotRetentionPeriod =
         Prelude.Nothing,
+      clusterIdentifier =
+        Prelude.Nothing,
+      clusterType = Prelude.Nothing,
       clusterVersion = Prelude.Nothing,
+      encryptionType = Prelude.Nothing,
+      enhancedVpcRouting =
+        Prelude.Nothing,
       maintenanceTrackName =
         Prelude.Nothing,
       masterUserPassword =
         Prelude.Nothing,
       nodeType = Prelude.Nothing,
-      publiclyAccessible =
-        Prelude.Nothing,
-      encryptionType = Prelude.Nothing,
       numberOfNodes = Prelude.Nothing,
-      enhancedVpcRouting =
-        Prelude.Nothing,
-      clusterType = Prelude.Nothing,
-      automatedSnapshotRetentionPeriod =
+      publiclyAccessible =
         Prelude.Nothing
     }
+
+-- | The pending or in-progress change to the automated snapshot retention
+-- period.
+awsRedshiftClusterPendingModifiedValues_automatedSnapshotRetentionPeriod :: Lens.Lens' AwsRedshiftClusterPendingModifiedValues (Prelude.Maybe Prelude.Int)
+awsRedshiftClusterPendingModifiedValues_automatedSnapshotRetentionPeriod = Lens.lens (\AwsRedshiftClusterPendingModifiedValues' {automatedSnapshotRetentionPeriod} -> automatedSnapshotRetentionPeriod) (\s@AwsRedshiftClusterPendingModifiedValues' {} a -> s {automatedSnapshotRetentionPeriod = a} :: AwsRedshiftClusterPendingModifiedValues)
 
 -- | The pending or in-progress change to the identifier for the cluster.
 awsRedshiftClusterPendingModifiedValues_clusterIdentifier :: Lens.Lens' AwsRedshiftClusterPendingModifiedValues (Prelude.Maybe Prelude.Text)
 awsRedshiftClusterPendingModifiedValues_clusterIdentifier = Lens.lens (\AwsRedshiftClusterPendingModifiedValues' {clusterIdentifier} -> clusterIdentifier) (\s@AwsRedshiftClusterPendingModifiedValues' {} a -> s {clusterIdentifier = a} :: AwsRedshiftClusterPendingModifiedValues)
 
+-- | The pending or in-progress change to the cluster type.
+awsRedshiftClusterPendingModifiedValues_clusterType :: Lens.Lens' AwsRedshiftClusterPendingModifiedValues (Prelude.Maybe Prelude.Text)
+awsRedshiftClusterPendingModifiedValues_clusterType = Lens.lens (\AwsRedshiftClusterPendingModifiedValues' {clusterType} -> clusterType) (\s@AwsRedshiftClusterPendingModifiedValues' {} a -> s {clusterType = a} :: AwsRedshiftClusterPendingModifiedValues)
+
 -- | The pending or in-progress change to the service version.
 awsRedshiftClusterPendingModifiedValues_clusterVersion :: Lens.Lens' AwsRedshiftClusterPendingModifiedValues (Prelude.Maybe Prelude.Text)
 awsRedshiftClusterPendingModifiedValues_clusterVersion = Lens.lens (\AwsRedshiftClusterPendingModifiedValues' {clusterVersion} -> clusterVersion) (\s@AwsRedshiftClusterPendingModifiedValues' {} a -> s {clusterVersion = a} :: AwsRedshiftClusterPendingModifiedValues)
+
+-- | The encryption type for a cluster.
+awsRedshiftClusterPendingModifiedValues_encryptionType :: Lens.Lens' AwsRedshiftClusterPendingModifiedValues (Prelude.Maybe Prelude.Text)
+awsRedshiftClusterPendingModifiedValues_encryptionType = Lens.lens (\AwsRedshiftClusterPendingModifiedValues' {encryptionType} -> encryptionType) (\s@AwsRedshiftClusterPendingModifiedValues' {} a -> s {encryptionType = a} :: AwsRedshiftClusterPendingModifiedValues)
+
+-- | Indicates whether to create the cluster with enhanced VPC routing
+-- enabled.
+awsRedshiftClusterPendingModifiedValues_enhancedVpcRouting :: Lens.Lens' AwsRedshiftClusterPendingModifiedValues (Prelude.Maybe Prelude.Bool)
+awsRedshiftClusterPendingModifiedValues_enhancedVpcRouting = Lens.lens (\AwsRedshiftClusterPendingModifiedValues' {enhancedVpcRouting} -> enhancedVpcRouting) (\s@AwsRedshiftClusterPendingModifiedValues' {} a -> s {enhancedVpcRouting = a} :: AwsRedshiftClusterPendingModifiedValues)
 
 -- | The name of the maintenance track that the cluster changes to during the
 -- next maintenance window.
@@ -137,32 +155,14 @@ awsRedshiftClusterPendingModifiedValues_masterUserPassword = Lens.lens (\AwsReds
 awsRedshiftClusterPendingModifiedValues_nodeType :: Lens.Lens' AwsRedshiftClusterPendingModifiedValues (Prelude.Maybe Prelude.Text)
 awsRedshiftClusterPendingModifiedValues_nodeType = Lens.lens (\AwsRedshiftClusterPendingModifiedValues' {nodeType} -> nodeType) (\s@AwsRedshiftClusterPendingModifiedValues' {} a -> s {nodeType = a} :: AwsRedshiftClusterPendingModifiedValues)
 
--- | The pending or in-progress change to whether the cluster can be
--- connected to from the public network.
-awsRedshiftClusterPendingModifiedValues_publiclyAccessible :: Lens.Lens' AwsRedshiftClusterPendingModifiedValues (Prelude.Maybe Prelude.Bool)
-awsRedshiftClusterPendingModifiedValues_publiclyAccessible = Lens.lens (\AwsRedshiftClusterPendingModifiedValues' {publiclyAccessible} -> publiclyAccessible) (\s@AwsRedshiftClusterPendingModifiedValues' {} a -> s {publiclyAccessible = a} :: AwsRedshiftClusterPendingModifiedValues)
-
--- | The encryption type for a cluster.
-awsRedshiftClusterPendingModifiedValues_encryptionType :: Lens.Lens' AwsRedshiftClusterPendingModifiedValues (Prelude.Maybe Prelude.Text)
-awsRedshiftClusterPendingModifiedValues_encryptionType = Lens.lens (\AwsRedshiftClusterPendingModifiedValues' {encryptionType} -> encryptionType) (\s@AwsRedshiftClusterPendingModifiedValues' {} a -> s {encryptionType = a} :: AwsRedshiftClusterPendingModifiedValues)
-
 -- | The pending or in-progress change to the number of nodes in the cluster.
 awsRedshiftClusterPendingModifiedValues_numberOfNodes :: Lens.Lens' AwsRedshiftClusterPendingModifiedValues (Prelude.Maybe Prelude.Int)
 awsRedshiftClusterPendingModifiedValues_numberOfNodes = Lens.lens (\AwsRedshiftClusterPendingModifiedValues' {numberOfNodes} -> numberOfNodes) (\s@AwsRedshiftClusterPendingModifiedValues' {} a -> s {numberOfNodes = a} :: AwsRedshiftClusterPendingModifiedValues)
 
--- | Indicates whether to create the cluster with enhanced VPC routing
--- enabled.
-awsRedshiftClusterPendingModifiedValues_enhancedVpcRouting :: Lens.Lens' AwsRedshiftClusterPendingModifiedValues (Prelude.Maybe Prelude.Bool)
-awsRedshiftClusterPendingModifiedValues_enhancedVpcRouting = Lens.lens (\AwsRedshiftClusterPendingModifiedValues' {enhancedVpcRouting} -> enhancedVpcRouting) (\s@AwsRedshiftClusterPendingModifiedValues' {} a -> s {enhancedVpcRouting = a} :: AwsRedshiftClusterPendingModifiedValues)
-
--- | The pending or in-progress change to the cluster type.
-awsRedshiftClusterPendingModifiedValues_clusterType :: Lens.Lens' AwsRedshiftClusterPendingModifiedValues (Prelude.Maybe Prelude.Text)
-awsRedshiftClusterPendingModifiedValues_clusterType = Lens.lens (\AwsRedshiftClusterPendingModifiedValues' {clusterType} -> clusterType) (\s@AwsRedshiftClusterPendingModifiedValues' {} a -> s {clusterType = a} :: AwsRedshiftClusterPendingModifiedValues)
-
--- | The pending or in-progress change to the automated snapshot retention
--- period.
-awsRedshiftClusterPendingModifiedValues_automatedSnapshotRetentionPeriod :: Lens.Lens' AwsRedshiftClusterPendingModifiedValues (Prelude.Maybe Prelude.Int)
-awsRedshiftClusterPendingModifiedValues_automatedSnapshotRetentionPeriod = Lens.lens (\AwsRedshiftClusterPendingModifiedValues' {automatedSnapshotRetentionPeriod} -> automatedSnapshotRetentionPeriod) (\s@AwsRedshiftClusterPendingModifiedValues' {} a -> s {automatedSnapshotRetentionPeriod = a} :: AwsRedshiftClusterPendingModifiedValues)
+-- | The pending or in-progress change to whether the cluster can be
+-- connected to from the public network.
+awsRedshiftClusterPendingModifiedValues_publiclyAccessible :: Lens.Lens' AwsRedshiftClusterPendingModifiedValues (Prelude.Maybe Prelude.Bool)
+awsRedshiftClusterPendingModifiedValues_publiclyAccessible = Lens.lens (\AwsRedshiftClusterPendingModifiedValues' {publiclyAccessible} -> publiclyAccessible) (\s@AwsRedshiftClusterPendingModifiedValues' {} a -> s {publiclyAccessible = a} :: AwsRedshiftClusterPendingModifiedValues)
 
 instance
   Data.FromJSON
@@ -173,17 +173,17 @@ instance
       "AwsRedshiftClusterPendingModifiedValues"
       ( \x ->
           AwsRedshiftClusterPendingModifiedValues'
-            Prelude.<$> (x Data..:? "ClusterIdentifier")
+            Prelude.<$> (x Data..:? "AutomatedSnapshotRetentionPeriod")
+            Prelude.<*> (x Data..:? "ClusterIdentifier")
+            Prelude.<*> (x Data..:? "ClusterType")
             Prelude.<*> (x Data..:? "ClusterVersion")
+            Prelude.<*> (x Data..:? "EncryptionType")
+            Prelude.<*> (x Data..:? "EnhancedVpcRouting")
             Prelude.<*> (x Data..:? "MaintenanceTrackName")
             Prelude.<*> (x Data..:? "MasterUserPassword")
             Prelude.<*> (x Data..:? "NodeType")
-            Prelude.<*> (x Data..:? "PubliclyAccessible")
-            Prelude.<*> (x Data..:? "EncryptionType")
             Prelude.<*> (x Data..:? "NumberOfNodes")
-            Prelude.<*> (x Data..:? "EnhancedVpcRouting")
-            Prelude.<*> (x Data..:? "ClusterType")
-            Prelude.<*> (x Data..:? "AutomatedSnapshotRetentionPeriod")
+            Prelude.<*> (x Data..:? "PubliclyAccessible")
       )
 
 instance
@@ -193,34 +193,35 @@ instance
   hashWithSalt
     _salt
     AwsRedshiftClusterPendingModifiedValues' {..} =
-      _salt `Prelude.hashWithSalt` clusterIdentifier
+      _salt
+        `Prelude.hashWithSalt` automatedSnapshotRetentionPeriod
+        `Prelude.hashWithSalt` clusterIdentifier
+        `Prelude.hashWithSalt` clusterType
         `Prelude.hashWithSalt` clusterVersion
+        `Prelude.hashWithSalt` encryptionType
+        `Prelude.hashWithSalt` enhancedVpcRouting
         `Prelude.hashWithSalt` maintenanceTrackName
         `Prelude.hashWithSalt` masterUserPassword
         `Prelude.hashWithSalt` nodeType
-        `Prelude.hashWithSalt` publiclyAccessible
-        `Prelude.hashWithSalt` encryptionType
         `Prelude.hashWithSalt` numberOfNodes
-        `Prelude.hashWithSalt` enhancedVpcRouting
-        `Prelude.hashWithSalt` clusterType
-        `Prelude.hashWithSalt` automatedSnapshotRetentionPeriod
+        `Prelude.hashWithSalt` publiclyAccessible
 
 instance
   Prelude.NFData
     AwsRedshiftClusterPendingModifiedValues
   where
   rnf AwsRedshiftClusterPendingModifiedValues' {..} =
-    Prelude.rnf clusterIdentifier
+    Prelude.rnf automatedSnapshotRetentionPeriod
+      `Prelude.seq` Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf clusterType
       `Prelude.seq` Prelude.rnf clusterVersion
+      `Prelude.seq` Prelude.rnf encryptionType
+      `Prelude.seq` Prelude.rnf enhancedVpcRouting
       `Prelude.seq` Prelude.rnf maintenanceTrackName
       `Prelude.seq` Prelude.rnf masterUserPassword
       `Prelude.seq` Prelude.rnf nodeType
-      `Prelude.seq` Prelude.rnf publiclyAccessible
-      `Prelude.seq` Prelude.rnf encryptionType
       `Prelude.seq` Prelude.rnf numberOfNodes
-      `Prelude.seq` Prelude.rnf enhancedVpcRouting
-      `Prelude.seq` Prelude.rnf clusterType
-      `Prelude.seq` Prelude.rnf automatedSnapshotRetentionPeriod
+      `Prelude.seq` Prelude.rnf publiclyAccessible
 
 instance
   Data.ToJSON
@@ -229,24 +230,24 @@ instance
   toJSON AwsRedshiftClusterPendingModifiedValues' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ClusterIdentifier" Data..=)
+          [ ("AutomatedSnapshotRetentionPeriod" Data..=)
+              Prelude.<$> automatedSnapshotRetentionPeriod,
+            ("ClusterIdentifier" Data..=)
               Prelude.<$> clusterIdentifier,
+            ("ClusterType" Data..=) Prelude.<$> clusterType,
             ("ClusterVersion" Data..=)
               Prelude.<$> clusterVersion,
+            ("EncryptionType" Data..=)
+              Prelude.<$> encryptionType,
+            ("EnhancedVpcRouting" Data..=)
+              Prelude.<$> enhancedVpcRouting,
             ("MaintenanceTrackName" Data..=)
               Prelude.<$> maintenanceTrackName,
             ("MasterUserPassword" Data..=)
               Prelude.<$> masterUserPassword,
             ("NodeType" Data..=) Prelude.<$> nodeType,
-            ("PubliclyAccessible" Data..=)
-              Prelude.<$> publiclyAccessible,
-            ("EncryptionType" Data..=)
-              Prelude.<$> encryptionType,
             ("NumberOfNodes" Data..=) Prelude.<$> numberOfNodes,
-            ("EnhancedVpcRouting" Data..=)
-              Prelude.<$> enhancedVpcRouting,
-            ("ClusterType" Data..=) Prelude.<$> clusterType,
-            ("AutomatedSnapshotRetentionPeriod" Data..=)
-              Prelude.<$> automatedSnapshotRetentionPeriod
+            ("PubliclyAccessible" Data..=)
+              Prelude.<$> publiclyAccessible
           ]
       )

@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRuleGroupSourceStatefulRulesOptionsDetails' smart constructor.
 data RuleGroupSourceStatefulRulesOptionsDetails = RuleGroupSourceStatefulRulesOptionsDetails'
-  { -- | A list of settings.
-    settings :: Prelude.Maybe [Prelude.Text],
-    -- | A keyword to look for.
-    keyword :: Prelude.Maybe Prelude.Text
+  { -- | A keyword to look for.
+    keyword :: Prelude.Maybe Prelude.Text,
+    -- | A list of settings.
+    settings :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data RuleGroupSourceStatefulRulesOptionsDetails = RuleGroupSourceStatefulRulesOp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'settings', 'ruleGroupSourceStatefulRulesOptionsDetails_settings' - A list of settings.
---
 -- 'keyword', 'ruleGroupSourceStatefulRulesOptionsDetails_keyword' - A keyword to look for.
+--
+-- 'settings', 'ruleGroupSourceStatefulRulesOptionsDetails_settings' - A list of settings.
 newRuleGroupSourceStatefulRulesOptionsDetails ::
   RuleGroupSourceStatefulRulesOptionsDetails
 newRuleGroupSourceStatefulRulesOptionsDetails =
   RuleGroupSourceStatefulRulesOptionsDetails'
-    { settings =
+    { keyword =
         Prelude.Nothing,
-      keyword = Prelude.Nothing
+      settings = Prelude.Nothing
     }
-
--- | A list of settings.
-ruleGroupSourceStatefulRulesOptionsDetails_settings :: Lens.Lens' RuleGroupSourceStatefulRulesOptionsDetails (Prelude.Maybe [Prelude.Text])
-ruleGroupSourceStatefulRulesOptionsDetails_settings = Lens.lens (\RuleGroupSourceStatefulRulesOptionsDetails' {settings} -> settings) (\s@RuleGroupSourceStatefulRulesOptionsDetails' {} a -> s {settings = a} :: RuleGroupSourceStatefulRulesOptionsDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | A keyword to look for.
 ruleGroupSourceStatefulRulesOptionsDetails_keyword :: Lens.Lens' RuleGroupSourceStatefulRulesOptionsDetails (Prelude.Maybe Prelude.Text)
 ruleGroupSourceStatefulRulesOptionsDetails_keyword = Lens.lens (\RuleGroupSourceStatefulRulesOptionsDetails' {keyword} -> keyword) (\s@RuleGroupSourceStatefulRulesOptionsDetails' {} a -> s {keyword = a} :: RuleGroupSourceStatefulRulesOptionsDetails)
+
+-- | A list of settings.
+ruleGroupSourceStatefulRulesOptionsDetails_settings :: Lens.Lens' RuleGroupSourceStatefulRulesOptionsDetails (Prelude.Maybe [Prelude.Text])
+ruleGroupSourceStatefulRulesOptionsDetails_settings = Lens.lens (\RuleGroupSourceStatefulRulesOptionsDetails' {settings} -> settings) (\s@RuleGroupSourceStatefulRulesOptionsDetails' {} a -> s {settings = a} :: RuleGroupSourceStatefulRulesOptionsDetails) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Data.FromJSON
@@ -72,8 +72,8 @@ instance
       "RuleGroupSourceStatefulRulesOptionsDetails"
       ( \x ->
           RuleGroupSourceStatefulRulesOptionsDetails'
-            Prelude.<$> (x Data..:? "Settings" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "Keyword")
+            Prelude.<$> (x Data..:? "Keyword")
+              Prelude.<*> (x Data..:? "Settings" Data..!= Prelude.mempty)
       )
 
 instance
@@ -83,16 +83,16 @@ instance
   hashWithSalt
     _salt
     RuleGroupSourceStatefulRulesOptionsDetails' {..} =
-      _salt `Prelude.hashWithSalt` settings
-        `Prelude.hashWithSalt` keyword
+      _salt `Prelude.hashWithSalt` keyword
+        `Prelude.hashWithSalt` settings
 
 instance
   Prelude.NFData
     RuleGroupSourceStatefulRulesOptionsDetails
   where
   rnf RuleGroupSourceStatefulRulesOptionsDetails' {..} =
-    Prelude.rnf settings
-      `Prelude.seq` Prelude.rnf keyword
+    Prelude.rnf keyword
+      `Prelude.seq` Prelude.rnf settings
 
 instance
   Data.ToJSON
@@ -102,7 +102,7 @@ instance
     RuleGroupSourceStatefulRulesOptionsDetails' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("Settings" Data..=) Prelude.<$> settings,
-              ("Keyword" Data..=) Prelude.<$> keyword
+            [ ("Keyword" Data..=) Prelude.<$> keyword,
+              ("Settings" Data..=) Prelude.<$> settings
             ]
         )

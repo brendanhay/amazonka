@@ -34,71 +34,71 @@ module Amazonka.RAM
     -- * Errors
     -- $errors
 
-    -- ** TagPolicyViolationException
-    _TagPolicyViolationException,
-
-    -- ** ResourceShareInvitationAlreadyAcceptedException
-    _ResourceShareInvitationAlreadyAcceptedException,
-
-    -- ** ResourceArnNotFoundException
-    _ResourceArnNotFoundException,
-
-    -- ** ServerInternalException
-    _ServerInternalException,
-
-    -- ** UnknownResourceException
-    _UnknownResourceException,
-
-    -- ** ResourceShareInvitationExpiredException
-    _ResourceShareInvitationExpiredException,
-
-    -- ** MissingRequiredParameterException
-    _MissingRequiredParameterException,
-
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
-
-    -- ** InvalidMaxResultsException
-    _InvalidMaxResultsException,
-
-    -- ** InvalidResourceTypeException
-    _InvalidResourceTypeException,
+    -- ** IdempotentParameterMismatchException
+    _IdempotentParameterMismatchException,
 
     -- ** InvalidClientTokenException
     _InvalidClientTokenException,
 
+    -- ** InvalidMaxResultsException
+    _InvalidMaxResultsException,
+
     -- ** InvalidNextTokenException
     _InvalidNextTokenException,
 
-    -- ** MalformedArnException
-    _MalformedArnException,
+    -- ** InvalidParameterException
+    _InvalidParameterException,
 
-    -- ** ThrottlingException
-    _ThrottlingException,
+    -- ** InvalidResourceTypeException
+    _InvalidResourceTypeException,
 
     -- ** InvalidStateTransitionException
     _InvalidStateTransitionException,
 
-    -- ** TagLimitExceededException
-    _TagLimitExceededException,
+    -- ** MalformedArnException
+    _MalformedArnException,
 
-    -- ** ResourceShareLimitExceededException
-    _ResourceShareLimitExceededException,
-
-    -- ** ResourceShareInvitationArnNotFoundException
-    _ResourceShareInvitationArnNotFoundException,
+    -- ** MissingRequiredParameterException
+    _MissingRequiredParameterException,
 
     -- ** OperationNotPermittedException
     _OperationNotPermittedException,
 
+    -- ** ResourceArnNotFoundException
+    _ResourceArnNotFoundException,
+
+    -- ** ResourceShareInvitationAlreadyAcceptedException
+    _ResourceShareInvitationAlreadyAcceptedException,
+
     -- ** ResourceShareInvitationAlreadyRejectedException
     _ResourceShareInvitationAlreadyRejectedException,
 
-    -- ** IdempotentParameterMismatchException
-    _IdempotentParameterMismatchException,
+    -- ** ResourceShareInvitationArnNotFoundException
+    _ResourceShareInvitationArnNotFoundException,
 
-    -- ** InvalidParameterException
-    _InvalidParameterException,
+    -- ** ResourceShareInvitationExpiredException
+    _ResourceShareInvitationExpiredException,
+
+    -- ** ResourceShareLimitExceededException
+    _ResourceShareLimitExceededException,
+
+    -- ** ServerInternalException
+    _ServerInternalException,
+
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
+
+    -- ** TagLimitExceededException
+    _TagLimitExceededException,
+
+    -- ** TagPolicyViolationException
+    _TagPolicyViolationException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** UnknownResourceException
+    _UnknownResourceException,
 
     -- * Waiters
     -- $waiters

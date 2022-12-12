@@ -63,6 +63,9 @@ import Test.Tasty
 --         , requestDescribeAddon $
 --             newDescribeAddon
 --
+--         , requestDescribeAddonConfiguration $
+--             newDescribeAddonConfiguration
+--
 --         , requestDescribeAddonVersions $
 --             newDescribeAddonVersions
 --
@@ -167,6 +170,9 @@ import Test.Tasty
 --
 --         , responseDescribeAddon $
 --             newDescribeAddonResponse
+--
+--         , responseDescribeAddonConfiguration $
+--             newDescribeAddonConfigurationResponse
 --
 --         , responseDescribeAddonVersions $
 --             newDescribeAddonVersionsResponse
@@ -310,6 +316,12 @@ requestDescribeAddon =
   req
     "DescribeAddon"
     "fixture/DescribeAddon.yaml"
+
+requestDescribeAddonConfiguration :: DescribeAddonConfiguration -> TestTree
+requestDescribeAddonConfiguration =
+  req
+    "DescribeAddonConfiguration"
+    "fixture/DescribeAddonConfiguration.yaml"
 
 requestDescribeAddonVersions :: DescribeAddonVersions -> TestTree
 requestDescribeAddonVersions =
@@ -540,6 +552,14 @@ responseDescribeAddon =
     "fixture/DescribeAddonResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeAddon)
+
+responseDescribeAddonConfiguration :: DescribeAddonConfigurationResponse -> TestTree
+responseDescribeAddonConfiguration =
+  res
+    "DescribeAddonConfigurationResponse"
+    "fixture/DescribeAddonConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeAddonConfiguration)
 
 responseDescribeAddonVersions :: DescribeAddonVersionsResponse -> TestTree
 responseDescribeAddonVersions =

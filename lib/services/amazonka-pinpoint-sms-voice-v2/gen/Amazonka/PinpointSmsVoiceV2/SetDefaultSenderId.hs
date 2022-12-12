@@ -40,9 +40,9 @@ module Amazonka.PinpointSmsVoiceV2.SetDefaultSenderId
     newSetDefaultSenderIdResponse,
 
     -- * Response Lenses
-    setDefaultSenderIdResponse_senderId,
-    setDefaultSenderIdResponse_configurationSetName,
     setDefaultSenderIdResponse_configurationSetArn,
+    setDefaultSenderIdResponse_configurationSetName,
+    setDefaultSenderIdResponse_senderId,
     setDefaultSenderIdResponse_httpStatus,
   )
 where
@@ -126,9 +126,9 @@ instance Core.AWSRequest SetDefaultSenderId where
     Response.receiveJSON
       ( \s h x ->
           SetDefaultSenderIdResponse'
-            Prelude.<$> (x Data..?> "SenderId")
+            Prelude.<$> (x Data..?> "ConfigurationSetArn")
             Prelude.<*> (x Data..?> "ConfigurationSetName")
-            Prelude.<*> (x Data..?> "ConfigurationSetArn")
+            Prelude.<*> (x Data..?> "SenderId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -177,12 +177,12 @@ instance Data.ToQuery SetDefaultSenderId where
 
 -- | /See:/ 'newSetDefaultSenderIdResponse' smart constructor.
 data SetDefaultSenderIdResponse = SetDefaultSenderIdResponse'
-  { -- | The default sender ID to set for the ConfigurationSet.
-    senderId :: Prelude.Maybe Prelude.Text,
+  { -- | The Amazon Resource Name (ARN) of the updated configuration set.
+    configurationSetArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the configuration set that was updated.
     configurationSetName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the updated configuration set.
-    configurationSetArn :: Prelude.Maybe Prelude.Text,
+    -- | The default sender ID to set for the ConfigurationSet.
+    senderId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -196,11 +196,11 @@ data SetDefaultSenderIdResponse = SetDefaultSenderIdResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'senderId', 'setDefaultSenderIdResponse_senderId' - The default sender ID to set for the ConfigurationSet.
+-- 'configurationSetArn', 'setDefaultSenderIdResponse_configurationSetArn' - The Amazon Resource Name (ARN) of the updated configuration set.
 --
 -- 'configurationSetName', 'setDefaultSenderIdResponse_configurationSetName' - The name of the configuration set that was updated.
 --
--- 'configurationSetArn', 'setDefaultSenderIdResponse_configurationSetArn' - The Amazon Resource Name (ARN) of the updated configuration set.
+-- 'senderId', 'setDefaultSenderIdResponse_senderId' - The default sender ID to set for the ConfigurationSet.
 --
 -- 'httpStatus', 'setDefaultSenderIdResponse_httpStatus' - The response's http status code.
 newSetDefaultSenderIdResponse ::
@@ -209,24 +209,24 @@ newSetDefaultSenderIdResponse ::
   SetDefaultSenderIdResponse
 newSetDefaultSenderIdResponse pHttpStatus_ =
   SetDefaultSenderIdResponse'
-    { senderId =
+    { configurationSetArn =
         Prelude.Nothing,
       configurationSetName = Prelude.Nothing,
-      configurationSetArn = Prelude.Nothing,
+      senderId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The default sender ID to set for the ConfigurationSet.
-setDefaultSenderIdResponse_senderId :: Lens.Lens' SetDefaultSenderIdResponse (Prelude.Maybe Prelude.Text)
-setDefaultSenderIdResponse_senderId = Lens.lens (\SetDefaultSenderIdResponse' {senderId} -> senderId) (\s@SetDefaultSenderIdResponse' {} a -> s {senderId = a} :: SetDefaultSenderIdResponse)
+-- | The Amazon Resource Name (ARN) of the updated configuration set.
+setDefaultSenderIdResponse_configurationSetArn :: Lens.Lens' SetDefaultSenderIdResponse (Prelude.Maybe Prelude.Text)
+setDefaultSenderIdResponse_configurationSetArn = Lens.lens (\SetDefaultSenderIdResponse' {configurationSetArn} -> configurationSetArn) (\s@SetDefaultSenderIdResponse' {} a -> s {configurationSetArn = a} :: SetDefaultSenderIdResponse)
 
 -- | The name of the configuration set that was updated.
 setDefaultSenderIdResponse_configurationSetName :: Lens.Lens' SetDefaultSenderIdResponse (Prelude.Maybe Prelude.Text)
 setDefaultSenderIdResponse_configurationSetName = Lens.lens (\SetDefaultSenderIdResponse' {configurationSetName} -> configurationSetName) (\s@SetDefaultSenderIdResponse' {} a -> s {configurationSetName = a} :: SetDefaultSenderIdResponse)
 
--- | The Amazon Resource Name (ARN) of the updated configuration set.
-setDefaultSenderIdResponse_configurationSetArn :: Lens.Lens' SetDefaultSenderIdResponse (Prelude.Maybe Prelude.Text)
-setDefaultSenderIdResponse_configurationSetArn = Lens.lens (\SetDefaultSenderIdResponse' {configurationSetArn} -> configurationSetArn) (\s@SetDefaultSenderIdResponse' {} a -> s {configurationSetArn = a} :: SetDefaultSenderIdResponse)
+-- | The default sender ID to set for the ConfigurationSet.
+setDefaultSenderIdResponse_senderId :: Lens.Lens' SetDefaultSenderIdResponse (Prelude.Maybe Prelude.Text)
+setDefaultSenderIdResponse_senderId = Lens.lens (\SetDefaultSenderIdResponse' {senderId} -> senderId) (\s@SetDefaultSenderIdResponse' {} a -> s {senderId = a} :: SetDefaultSenderIdResponse)
 
 -- | The response's http status code.
 setDefaultSenderIdResponse_httpStatus :: Lens.Lens' SetDefaultSenderIdResponse Prelude.Int
@@ -234,7 +234,7 @@ setDefaultSenderIdResponse_httpStatus = Lens.lens (\SetDefaultSenderIdResponse' 
 
 instance Prelude.NFData SetDefaultSenderIdResponse where
   rnf SetDefaultSenderIdResponse' {..} =
-    Prelude.rnf senderId
+    Prelude.rnf configurationSetArn
       `Prelude.seq` Prelude.rnf configurationSetName
-      `Prelude.seq` Prelude.rnf configurationSetArn
+      `Prelude.seq` Prelude.rnf senderId
       `Prelude.seq` Prelude.rnf httpStatus

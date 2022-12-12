@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newClientVpnConnectionStatus' smart constructor.
 data ClientVpnConnectionStatus = ClientVpnConnectionStatus'
-  { -- | A message about the status of the client connection, if applicable.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The state of the client connection.
-    code :: Prelude.Maybe ClientVpnConnectionStatusCode
+  { -- | The state of the client connection.
+    code :: Prelude.Maybe ClientVpnConnectionStatusCode,
+    -- | A message about the status of the client connection, if applicable.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,37 +45,36 @@ data ClientVpnConnectionStatus = ClientVpnConnectionStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'clientVpnConnectionStatus_message' - A message about the status of the client connection, if applicable.
---
 -- 'code', 'clientVpnConnectionStatus_code' - The state of the client connection.
+--
+-- 'message', 'clientVpnConnectionStatus_message' - A message about the status of the client connection, if applicable.
 newClientVpnConnectionStatus ::
   ClientVpnConnectionStatus
 newClientVpnConnectionStatus =
   ClientVpnConnectionStatus'
-    { message =
-        Prelude.Nothing,
-      code = Prelude.Nothing
+    { code = Prelude.Nothing,
+      message = Prelude.Nothing
     }
-
--- | A message about the status of the client connection, if applicable.
-clientVpnConnectionStatus_message :: Lens.Lens' ClientVpnConnectionStatus (Prelude.Maybe Prelude.Text)
-clientVpnConnectionStatus_message = Lens.lens (\ClientVpnConnectionStatus' {message} -> message) (\s@ClientVpnConnectionStatus' {} a -> s {message = a} :: ClientVpnConnectionStatus)
 
 -- | The state of the client connection.
 clientVpnConnectionStatus_code :: Lens.Lens' ClientVpnConnectionStatus (Prelude.Maybe ClientVpnConnectionStatusCode)
 clientVpnConnectionStatus_code = Lens.lens (\ClientVpnConnectionStatus' {code} -> code) (\s@ClientVpnConnectionStatus' {} a -> s {code = a} :: ClientVpnConnectionStatus)
 
+-- | A message about the status of the client connection, if applicable.
+clientVpnConnectionStatus_message :: Lens.Lens' ClientVpnConnectionStatus (Prelude.Maybe Prelude.Text)
+clientVpnConnectionStatus_message = Lens.lens (\ClientVpnConnectionStatus' {message} -> message) (\s@ClientVpnConnectionStatus' {} a -> s {message = a} :: ClientVpnConnectionStatus)
+
 instance Data.FromXML ClientVpnConnectionStatus where
   parseXML x =
     ClientVpnConnectionStatus'
-      Prelude.<$> (x Data..@? "message")
-      Prelude.<*> (x Data..@? "code")
+      Prelude.<$> (x Data..@? "code")
+      Prelude.<*> (x Data..@? "message")
 
 instance Prelude.Hashable ClientVpnConnectionStatus where
   hashWithSalt _salt ClientVpnConnectionStatus' {..} =
-    _salt `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` code
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` message
 
 instance Prelude.NFData ClientVpnConnectionStatus where
   rnf ClientVpnConnectionStatus' {..} =
-    Prelude.rnf message `Prelude.seq` Prelude.rnf code
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

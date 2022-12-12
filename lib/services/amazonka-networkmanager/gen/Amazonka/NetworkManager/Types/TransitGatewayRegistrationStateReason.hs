@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTransitGatewayRegistrationStateReason' smart constructor.
 data TransitGatewayRegistrationStateReason = TransitGatewayRegistrationStateReason'
-  { -- | The message for the state reason.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The code for the state reason.
-    code :: Prelude.Maybe TransitGatewayRegistrationState
+  { -- | The code for the state reason.
+    code :: Prelude.Maybe TransitGatewayRegistrationState,
+    -- | The message for the state reason.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data TransitGatewayRegistrationStateReason = TransitGatewayRegistrationStateReas
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'transitGatewayRegistrationStateReason_message' - The message for the state reason.
---
 -- 'code', 'transitGatewayRegistrationStateReason_code' - The code for the state reason.
+--
+-- 'message', 'transitGatewayRegistrationStateReason_message' - The message for the state reason.
 newTransitGatewayRegistrationStateReason ::
   TransitGatewayRegistrationStateReason
 newTransitGatewayRegistrationStateReason =
   TransitGatewayRegistrationStateReason'
-    { message =
+    { code =
         Prelude.Nothing,
-      code = Prelude.Nothing
+      message = Prelude.Nothing
     }
-
--- | The message for the state reason.
-transitGatewayRegistrationStateReason_message :: Lens.Lens' TransitGatewayRegistrationStateReason (Prelude.Maybe Prelude.Text)
-transitGatewayRegistrationStateReason_message = Lens.lens (\TransitGatewayRegistrationStateReason' {message} -> message) (\s@TransitGatewayRegistrationStateReason' {} a -> s {message = a} :: TransitGatewayRegistrationStateReason)
 
 -- | The code for the state reason.
 transitGatewayRegistrationStateReason_code :: Lens.Lens' TransitGatewayRegistrationStateReason (Prelude.Maybe TransitGatewayRegistrationState)
 transitGatewayRegistrationStateReason_code = Lens.lens (\TransitGatewayRegistrationStateReason' {code} -> code) (\s@TransitGatewayRegistrationStateReason' {} a -> s {code = a} :: TransitGatewayRegistrationStateReason)
+
+-- | The message for the state reason.
+transitGatewayRegistrationStateReason_message :: Lens.Lens' TransitGatewayRegistrationStateReason (Prelude.Maybe Prelude.Text)
+transitGatewayRegistrationStateReason_message = Lens.lens (\TransitGatewayRegistrationStateReason' {message} -> message) (\s@TransitGatewayRegistrationStateReason' {} a -> s {message = a} :: TransitGatewayRegistrationStateReason)
 
 instance
   Data.FromJSON
@@ -73,8 +73,8 @@ instance
       "TransitGatewayRegistrationStateReason"
       ( \x ->
           TransitGatewayRegistrationStateReason'
-            Prelude.<$> (x Data..:? "Message")
-            Prelude.<*> (x Data..:? "Code")
+            Prelude.<$> (x Data..:? "Code")
+            Prelude.<*> (x Data..:? "Message")
       )
 
 instance
@@ -84,12 +84,12 @@ instance
   hashWithSalt
     _salt
     TransitGatewayRegistrationStateReason' {..} =
-      _salt `Prelude.hashWithSalt` message
-        `Prelude.hashWithSalt` code
+      _salt `Prelude.hashWithSalt` code
+        `Prelude.hashWithSalt` message
 
 instance
   Prelude.NFData
     TransitGatewayRegistrationStateReason
   where
   rnf TransitGatewayRegistrationStateReason' {..} =
-    Prelude.rnf message `Prelude.seq` Prelude.rnf code
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

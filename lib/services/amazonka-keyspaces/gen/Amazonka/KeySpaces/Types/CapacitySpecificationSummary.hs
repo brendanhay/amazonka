@@ -37,12 +37,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCapacitySpecificationSummary' smart constructor.
 data CapacitySpecificationSummary = CapacitySpecificationSummary'
-  { -- | The throughput capacity specified for @read@ operations defined in
-    -- @read capacity units@ @(RCUs)@.
-    readCapacityUnits :: Prelude.Maybe Prelude.Natural,
-    -- | The timestamp of the last operation that changed the provisioned
+  { -- | The timestamp of the last operation that changed the provisioned
     -- throughput capacity of a table.
     lastUpdateToPayPerRequestTimestamp :: Prelude.Maybe Data.POSIX,
+    -- | The throughput capacity specified for @read@ operations defined in
+    -- @read capacity units@ @(RCUs)@.
+    readCapacityUnits :: Prelude.Maybe Prelude.Natural,
     -- | The throughput capacity specified for @write@ operations defined in
     -- @write capacity units@ @(WCUs)@.
     writeCapacityUnits :: Prelude.Maybe Prelude.Natural,
@@ -70,11 +70,11 @@ data CapacitySpecificationSummary = CapacitySpecificationSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'readCapacityUnits', 'capacitySpecificationSummary_readCapacityUnits' - The throughput capacity specified for @read@ operations defined in
--- @read capacity units@ @(RCUs)@.
---
 -- 'lastUpdateToPayPerRequestTimestamp', 'capacitySpecificationSummary_lastUpdateToPayPerRequestTimestamp' - The timestamp of the last operation that changed the provisioned
 -- throughput capacity of a table.
+--
+-- 'readCapacityUnits', 'capacitySpecificationSummary_readCapacityUnits' - The throughput capacity specified for @read@ operations defined in
+-- @read capacity units@ @(RCUs)@.
 --
 -- 'writeCapacityUnits', 'capacitySpecificationSummary_writeCapacityUnits' - The throughput capacity specified for @write@ operations defined in
 -- @write capacity units@ @(WCUs)@.
@@ -97,23 +97,22 @@ newCapacitySpecificationSummary ::
   CapacitySpecificationSummary
 newCapacitySpecificationSummary pThroughputMode_ =
   CapacitySpecificationSummary'
-    { readCapacityUnits =
+    { lastUpdateToPayPerRequestTimestamp =
         Prelude.Nothing,
-      lastUpdateToPayPerRequestTimestamp =
-        Prelude.Nothing,
+      readCapacityUnits = Prelude.Nothing,
       writeCapacityUnits = Prelude.Nothing,
       throughputMode = pThroughputMode_
     }
-
--- | The throughput capacity specified for @read@ operations defined in
--- @read capacity units@ @(RCUs)@.
-capacitySpecificationSummary_readCapacityUnits :: Lens.Lens' CapacitySpecificationSummary (Prelude.Maybe Prelude.Natural)
-capacitySpecificationSummary_readCapacityUnits = Lens.lens (\CapacitySpecificationSummary' {readCapacityUnits} -> readCapacityUnits) (\s@CapacitySpecificationSummary' {} a -> s {readCapacityUnits = a} :: CapacitySpecificationSummary)
 
 -- | The timestamp of the last operation that changed the provisioned
 -- throughput capacity of a table.
 capacitySpecificationSummary_lastUpdateToPayPerRequestTimestamp :: Lens.Lens' CapacitySpecificationSummary (Prelude.Maybe Prelude.UTCTime)
 capacitySpecificationSummary_lastUpdateToPayPerRequestTimestamp = Lens.lens (\CapacitySpecificationSummary' {lastUpdateToPayPerRequestTimestamp} -> lastUpdateToPayPerRequestTimestamp) (\s@CapacitySpecificationSummary' {} a -> s {lastUpdateToPayPerRequestTimestamp = a} :: CapacitySpecificationSummary) Prelude.. Lens.mapping Data._Time
+
+-- | The throughput capacity specified for @read@ operations defined in
+-- @read capacity units@ @(RCUs)@.
+capacitySpecificationSummary_readCapacityUnits :: Lens.Lens' CapacitySpecificationSummary (Prelude.Maybe Prelude.Natural)
+capacitySpecificationSummary_readCapacityUnits = Lens.lens (\CapacitySpecificationSummary' {readCapacityUnits} -> readCapacityUnits) (\s@CapacitySpecificationSummary' {} a -> s {readCapacityUnits = a} :: CapacitySpecificationSummary)
 
 -- | The throughput capacity specified for @write@ operations defined in
 -- @write capacity units@ @(WCUs)@.
@@ -141,8 +140,8 @@ instance Data.FromJSON CapacitySpecificationSummary where
       "CapacitySpecificationSummary"
       ( \x ->
           CapacitySpecificationSummary'
-            Prelude.<$> (x Data..:? "readCapacityUnits")
-            Prelude.<*> (x Data..:? "lastUpdateToPayPerRequestTimestamp")
+            Prelude.<$> (x Data..:? "lastUpdateToPayPerRequestTimestamp")
+            Prelude.<*> (x Data..:? "readCapacityUnits")
             Prelude.<*> (x Data..:? "writeCapacityUnits")
             Prelude.<*> (x Data..: "throughputMode")
       )
@@ -152,14 +151,15 @@ instance
     CapacitySpecificationSummary
   where
   hashWithSalt _salt CapacitySpecificationSummary' {..} =
-    _salt `Prelude.hashWithSalt` readCapacityUnits
+    _salt
       `Prelude.hashWithSalt` lastUpdateToPayPerRequestTimestamp
+      `Prelude.hashWithSalt` readCapacityUnits
       `Prelude.hashWithSalt` writeCapacityUnits
       `Prelude.hashWithSalt` throughputMode
 
 instance Prelude.NFData CapacitySpecificationSummary where
   rnf CapacitySpecificationSummary' {..} =
-    Prelude.rnf readCapacityUnits
-      `Prelude.seq` Prelude.rnf lastUpdateToPayPerRequestTimestamp
+    Prelude.rnf lastUpdateToPayPerRequestTimestamp
+      `Prelude.seq` Prelude.rnf readCapacityUnits
       `Prelude.seq` Prelude.rnf writeCapacityUnits
       `Prelude.seq` Prelude.rnf throughputMode

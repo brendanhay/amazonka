@@ -47,8 +47,8 @@ module Amazonka.ServiceCatalog.CreateProvisioningArtifact
 
     -- * Response Lenses
     createProvisioningArtifactResponse_info,
-    createProvisioningArtifactResponse_status,
     createProvisioningArtifactResponse_provisioningArtifactDetail,
+    createProvisioningArtifactResponse_status,
     createProvisioningArtifactResponse_httpStatus,
   )
 where
@@ -160,8 +160,8 @@ instance Core.AWSRequest CreateProvisioningArtifact where
       ( \s h x ->
           CreateProvisioningArtifactResponse'
             Prelude.<$> (x Data..?> "Info" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (x Data..?> "ProvisioningArtifactDetail")
+            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -231,10 +231,10 @@ data CreateProvisioningArtifactResponse = CreateProvisioningArtifactResponse'
     -- Use the physical id of the resource that contains the template;
     -- currently supports CloudFormation stack ARN.
     info :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The status of the current request.
-    status :: Prelude.Maybe RequestStatus,
     -- | Information about the provisioning artifact.
     provisioningArtifactDetail :: Prelude.Maybe ProvisioningArtifactDetail,
+    -- | The status of the current request.
+    status :: Prelude.Maybe RequestStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -264,9 +264,9 @@ data CreateProvisioningArtifactResponse = CreateProvisioningArtifactResponse'
 -- Use the physical id of the resource that contains the template;
 -- currently supports CloudFormation stack ARN.
 --
--- 'status', 'createProvisioningArtifactResponse_status' - The status of the current request.
---
 -- 'provisioningArtifactDetail', 'createProvisioningArtifactResponse_provisioningArtifactDetail' - Information about the provisioning artifact.
+--
+-- 'status', 'createProvisioningArtifactResponse_status' - The status of the current request.
 --
 -- 'httpStatus', 'createProvisioningArtifactResponse_httpStatus' - The response's http status code.
 newCreateProvisioningArtifactResponse ::
@@ -277,9 +277,9 @@ newCreateProvisioningArtifactResponse pHttpStatus_ =
   CreateProvisioningArtifactResponse'
     { info =
         Prelude.Nothing,
-      status = Prelude.Nothing,
       provisioningArtifactDetail =
         Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -301,13 +301,13 @@ newCreateProvisioningArtifactResponse pHttpStatus_ =
 createProvisioningArtifactResponse_info :: Lens.Lens' CreateProvisioningArtifactResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createProvisioningArtifactResponse_info = Lens.lens (\CreateProvisioningArtifactResponse' {info} -> info) (\s@CreateProvisioningArtifactResponse' {} a -> s {info = a} :: CreateProvisioningArtifactResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The status of the current request.
-createProvisioningArtifactResponse_status :: Lens.Lens' CreateProvisioningArtifactResponse (Prelude.Maybe RequestStatus)
-createProvisioningArtifactResponse_status = Lens.lens (\CreateProvisioningArtifactResponse' {status} -> status) (\s@CreateProvisioningArtifactResponse' {} a -> s {status = a} :: CreateProvisioningArtifactResponse)
-
 -- | Information about the provisioning artifact.
 createProvisioningArtifactResponse_provisioningArtifactDetail :: Lens.Lens' CreateProvisioningArtifactResponse (Prelude.Maybe ProvisioningArtifactDetail)
 createProvisioningArtifactResponse_provisioningArtifactDetail = Lens.lens (\CreateProvisioningArtifactResponse' {provisioningArtifactDetail} -> provisioningArtifactDetail) (\s@CreateProvisioningArtifactResponse' {} a -> s {provisioningArtifactDetail = a} :: CreateProvisioningArtifactResponse)
+
+-- | The status of the current request.
+createProvisioningArtifactResponse_status :: Lens.Lens' CreateProvisioningArtifactResponse (Prelude.Maybe RequestStatus)
+createProvisioningArtifactResponse_status = Lens.lens (\CreateProvisioningArtifactResponse' {status} -> status) (\s@CreateProvisioningArtifactResponse' {} a -> s {status = a} :: CreateProvisioningArtifactResponse)
 
 -- | The response's http status code.
 createProvisioningArtifactResponse_httpStatus :: Lens.Lens' CreateProvisioningArtifactResponse Prelude.Int
@@ -319,6 +319,6 @@ instance
   where
   rnf CreateProvisioningArtifactResponse' {..} =
     Prelude.rnf info
-      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf provisioningArtifactDetail
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

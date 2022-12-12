@@ -32,12 +32,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFormatOptions' smart constructor.
 data FormatOptions = FormatOptions'
-  { -- | Options that define how Excel input is to be interpreted by DataBrew.
+  { -- | Options that define how CSV input is to be interpreted by DataBrew.
+    csv :: Prelude.Maybe CsvOptions,
+    -- | Options that define how Excel input is to be interpreted by DataBrew.
     excel :: Prelude.Maybe ExcelOptions,
     -- | Options that define how JSON input is to be interpreted by DataBrew.
-    json :: Prelude.Maybe JsonOptions,
-    -- | Options that define how CSV input is to be interpreted by DataBrew.
-    csv :: Prelude.Maybe CsvOptions
+    json :: Prelude.Maybe JsonOptions
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,19 +49,23 @@ data FormatOptions = FormatOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'csv', 'formatOptions_csv' - Options that define how CSV input is to be interpreted by DataBrew.
+--
 -- 'excel', 'formatOptions_excel' - Options that define how Excel input is to be interpreted by DataBrew.
 --
 -- 'json', 'formatOptions_json' - Options that define how JSON input is to be interpreted by DataBrew.
---
--- 'csv', 'formatOptions_csv' - Options that define how CSV input is to be interpreted by DataBrew.
 newFormatOptions ::
   FormatOptions
 newFormatOptions =
   FormatOptions'
-    { excel = Prelude.Nothing,
-      json = Prelude.Nothing,
-      csv = Prelude.Nothing
+    { csv = Prelude.Nothing,
+      excel = Prelude.Nothing,
+      json = Prelude.Nothing
     }
+
+-- | Options that define how CSV input is to be interpreted by DataBrew.
+formatOptions_csv :: Lens.Lens' FormatOptions (Prelude.Maybe CsvOptions)
+formatOptions_csv = Lens.lens (\FormatOptions' {csv} -> csv) (\s@FormatOptions' {} a -> s {csv = a} :: FormatOptions)
 
 -- | Options that define how Excel input is to be interpreted by DataBrew.
 formatOptions_excel :: Lens.Lens' FormatOptions (Prelude.Maybe ExcelOptions)
@@ -71,39 +75,35 @@ formatOptions_excel = Lens.lens (\FormatOptions' {excel} -> excel) (\s@FormatOpt
 formatOptions_json :: Lens.Lens' FormatOptions (Prelude.Maybe JsonOptions)
 formatOptions_json = Lens.lens (\FormatOptions' {json} -> json) (\s@FormatOptions' {} a -> s {json = a} :: FormatOptions)
 
--- | Options that define how CSV input is to be interpreted by DataBrew.
-formatOptions_csv :: Lens.Lens' FormatOptions (Prelude.Maybe CsvOptions)
-formatOptions_csv = Lens.lens (\FormatOptions' {csv} -> csv) (\s@FormatOptions' {} a -> s {csv = a} :: FormatOptions)
-
 instance Data.FromJSON FormatOptions where
   parseJSON =
     Data.withObject
       "FormatOptions"
       ( \x ->
           FormatOptions'
-            Prelude.<$> (x Data..:? "Excel")
+            Prelude.<$> (x Data..:? "Csv")
+            Prelude.<*> (x Data..:? "Excel")
             Prelude.<*> (x Data..:? "Json")
-            Prelude.<*> (x Data..:? "Csv")
       )
 
 instance Prelude.Hashable FormatOptions where
   hashWithSalt _salt FormatOptions' {..} =
-    _salt `Prelude.hashWithSalt` excel
+    _salt `Prelude.hashWithSalt` csv
+      `Prelude.hashWithSalt` excel
       `Prelude.hashWithSalt` json
-      `Prelude.hashWithSalt` csv
 
 instance Prelude.NFData FormatOptions where
   rnf FormatOptions' {..} =
-    Prelude.rnf excel
+    Prelude.rnf csv
+      `Prelude.seq` Prelude.rnf excel
       `Prelude.seq` Prelude.rnf json
-      `Prelude.seq` Prelude.rnf csv
 
 instance Data.ToJSON FormatOptions where
   toJSON FormatOptions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Excel" Data..=) Prelude.<$> excel,
-            ("Json" Data..=) Prelude.<$> json,
-            ("Csv" Data..=) Prelude.<$> csv
+          [ ("Csv" Data..=) Prelude.<$> csv,
+            ("Excel" Data..=) Prelude.<$> excel,
+            ("Json" Data..=) Prelude.<$> json
           ]
       )

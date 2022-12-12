@@ -31,8 +31,8 @@ module Amazonka.Route53Resolver.ListResolverConfigs
     newListResolverConfigs,
 
     -- * Request Lenses
-    listResolverConfigs_nextToken,
     listResolverConfigs_maxResults,
+    listResolverConfigs_nextToken,
 
     -- * Destructuring the Response
     ListResolverConfigsResponse (..),
@@ -55,7 +55,11 @@ import Amazonka.Route53Resolver.Types
 
 -- | /See:/ 'newListResolverConfigs' smart constructor.
 data ListResolverConfigs = ListResolverConfigs'
-  { -- | (Optional) If the current Amazon Web Services account has more than
+  { -- | The maximum number of Resolver configurations that you want to return in
+    -- the response to a @ListResolverConfigs@ request. If you don\'t specify a
+    -- value for @MaxResults@, up to 100 Resolver configurations are returned.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | (Optional) If the current Amazon Web Services account has more than
     -- @MaxResults@ Resolver configurations, use @NextToken@ to get the second
     -- and subsequent pages of results.
     --
@@ -64,11 +68,7 @@ data ListResolverConfigs = ListResolverConfigs'
     -- For the second and subsequent requests, get the value of @NextToken@
     -- from the previous response and specify that value for @NextToken@ in the
     -- request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of Resolver configurations that you want to return in
-    -- the response to a @ListResolverConfigs@ request. If you don\'t specify a
-    -- value for @MaxResults@, up to 100 Resolver configurations are returned.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,6 +80,10 @@ data ListResolverConfigs = ListResolverConfigs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listResolverConfigs_maxResults' - The maximum number of Resolver configurations that you want to return in
+-- the response to a @ListResolverConfigs@ request. If you don\'t specify a
+-- value for @MaxResults@, up to 100 Resolver configurations are returned.
+--
 -- 'nextToken', 'listResolverConfigs_nextToken' - (Optional) If the current Amazon Web Services account has more than
 -- @MaxResults@ Resolver configurations, use @NextToken@ to get the second
 -- and subsequent pages of results.
@@ -89,17 +93,19 @@ data ListResolverConfigs = ListResolverConfigs'
 -- For the second and subsequent requests, get the value of @NextToken@
 -- from the previous response and specify that value for @NextToken@ in the
 -- request.
---
--- 'maxResults', 'listResolverConfigs_maxResults' - The maximum number of Resolver configurations that you want to return in
--- the response to a @ListResolverConfigs@ request. If you don\'t specify a
--- value for @MaxResults@, up to 100 Resolver configurations are returned.
 newListResolverConfigs ::
   ListResolverConfigs
 newListResolverConfigs =
   ListResolverConfigs'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of Resolver configurations that you want to return in
+-- the response to a @ListResolverConfigs@ request. If you don\'t specify a
+-- value for @MaxResults@, up to 100 Resolver configurations are returned.
+listResolverConfigs_maxResults :: Lens.Lens' ListResolverConfigs (Prelude.Maybe Prelude.Natural)
+listResolverConfigs_maxResults = Lens.lens (\ListResolverConfigs' {maxResults} -> maxResults) (\s@ListResolverConfigs' {} a -> s {maxResults = a} :: ListResolverConfigs)
 
 -- | (Optional) If the current Amazon Web Services account has more than
 -- @MaxResults@ Resolver configurations, use @NextToken@ to get the second
@@ -112,12 +118,6 @@ newListResolverConfigs =
 -- request.
 listResolverConfigs_nextToken :: Lens.Lens' ListResolverConfigs (Prelude.Maybe Prelude.Text)
 listResolverConfigs_nextToken = Lens.lens (\ListResolverConfigs' {nextToken} -> nextToken) (\s@ListResolverConfigs' {} a -> s {nextToken = a} :: ListResolverConfigs)
-
--- | The maximum number of Resolver configurations that you want to return in
--- the response to a @ListResolverConfigs@ request. If you don\'t specify a
--- value for @MaxResults@, up to 100 Resolver configurations are returned.
-listResolverConfigs_maxResults :: Lens.Lens' ListResolverConfigs (Prelude.Maybe Prelude.Natural)
-listResolverConfigs_maxResults = Lens.lens (\ListResolverConfigs' {maxResults} -> maxResults) (\s@ListResolverConfigs' {} a -> s {maxResults = a} :: ListResolverConfigs)
 
 instance Core.AWSPager ListResolverConfigs where
   page rq rs
@@ -160,13 +160,13 @@ instance Core.AWSRequest ListResolverConfigs where
 
 instance Prelude.Hashable ListResolverConfigs where
   hashWithSalt _salt ListResolverConfigs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListResolverConfigs where
   rnf ListResolverConfigs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListResolverConfigs where
   toHeaders =
@@ -187,8 +187,8 @@ instance Data.ToJSON ListResolverConfigs where
   toJSON ListResolverConfigs' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

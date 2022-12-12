@@ -29,8 +29,8 @@ module Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser
     newListIAMPolicyAssignmentsForUser,
 
     -- * Request Lenses
-    listIAMPolicyAssignmentsForUser_nextToken,
     listIAMPolicyAssignmentsForUser_maxResults,
+    listIAMPolicyAssignmentsForUser_nextToken,
     listIAMPolicyAssignmentsForUser_awsAccountId,
     listIAMPolicyAssignmentsForUser_userName,
     listIAMPolicyAssignmentsForUser_namespace,
@@ -57,11 +57,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListIAMPolicyAssignmentsForUser' smart constructor.
 data ListIAMPolicyAssignmentsForUser = ListIAMPolicyAssignmentsForUser'
-  { -- | The token for the next set of results, or null if there are no more
+  { -- | The maximum number of results to be returned per request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results, or null if there are no more
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be returned per request.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the Amazon Web Services account that contains the assignments.
     awsAccountId :: Prelude.Text,
     -- | The name of the user.
@@ -79,10 +79,10 @@ data ListIAMPolicyAssignmentsForUser = ListIAMPolicyAssignmentsForUser'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listIAMPolicyAssignmentsForUser_maxResults' - The maximum number of results to be returned per request.
+--
 -- 'nextToken', 'listIAMPolicyAssignmentsForUser_nextToken' - The token for the next set of results, or null if there are no more
 -- results.
---
--- 'maxResults', 'listIAMPolicyAssignmentsForUser_maxResults' - The maximum number of results to be returned per request.
 --
 -- 'awsAccountId', 'listIAMPolicyAssignmentsForUser_awsAccountId' - The ID of the Amazon Web Services account that contains the assignments.
 --
@@ -102,22 +102,22 @@ newListIAMPolicyAssignmentsForUser
   pUserName_
   pNamespace_ =
     ListIAMPolicyAssignmentsForUser'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         awsAccountId = pAwsAccountId_,
         userName = pUserName_,
         namespace = pNamespace_
       }
 
+-- | The maximum number of results to be returned per request.
+listIAMPolicyAssignmentsForUser_maxResults :: Lens.Lens' ListIAMPolicyAssignmentsForUser (Prelude.Maybe Prelude.Natural)
+listIAMPolicyAssignmentsForUser_maxResults = Lens.lens (\ListIAMPolicyAssignmentsForUser' {maxResults} -> maxResults) (\s@ListIAMPolicyAssignmentsForUser' {} a -> s {maxResults = a} :: ListIAMPolicyAssignmentsForUser)
+
 -- | The token for the next set of results, or null if there are no more
 -- results.
 listIAMPolicyAssignmentsForUser_nextToken :: Lens.Lens' ListIAMPolicyAssignmentsForUser (Prelude.Maybe Prelude.Text)
 listIAMPolicyAssignmentsForUser_nextToken = Lens.lens (\ListIAMPolicyAssignmentsForUser' {nextToken} -> nextToken) (\s@ListIAMPolicyAssignmentsForUser' {} a -> s {nextToken = a} :: ListIAMPolicyAssignmentsForUser)
-
--- | The maximum number of results to be returned per request.
-listIAMPolicyAssignmentsForUser_maxResults :: Lens.Lens' ListIAMPolicyAssignmentsForUser (Prelude.Maybe Prelude.Natural)
-listIAMPolicyAssignmentsForUser_maxResults = Lens.lens (\ListIAMPolicyAssignmentsForUser' {maxResults} -> maxResults) (\s@ListIAMPolicyAssignmentsForUser' {} a -> s {maxResults = a} :: ListIAMPolicyAssignmentsForUser)
 
 -- | The ID of the Amazon Web Services account that contains the assignments.
 listIAMPolicyAssignmentsForUser_awsAccountId :: Lens.Lens' ListIAMPolicyAssignmentsForUser Prelude.Text
@@ -159,8 +159,8 @@ instance
   hashWithSalt
     _salt
     ListIAMPolicyAssignmentsForUser' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` awsAccountId
         `Prelude.hashWithSalt` userName
         `Prelude.hashWithSalt` namespace
@@ -170,8 +170,8 @@ instance
     ListIAMPolicyAssignmentsForUser
   where
   rnf ListIAMPolicyAssignmentsForUser' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf userName
       `Prelude.seq` Prelude.rnf namespace
@@ -205,8 +205,8 @@ instance Data.ToPath ListIAMPolicyAssignmentsForUser where
 instance Data.ToQuery ListIAMPolicyAssignmentsForUser where
   toQuery ListIAMPolicyAssignmentsForUser' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
-        "max-results" Data.=: maxResults
+      [ "max-results" Data.=: maxResults,
+        "next-token" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListIAMPolicyAssignmentsForUserResponse' smart constructor.

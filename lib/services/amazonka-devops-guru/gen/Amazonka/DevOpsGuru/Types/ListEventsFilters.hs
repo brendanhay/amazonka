@@ -33,21 +33,21 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newListEventsFilters' smart constructor.
 data ListEventsFilters = ListEventsFilters'
-  { resourceCollection :: Prelude.Maybe ResourceCollection,
-    -- | An ID of an insight that is related to the events you want to filter
-    -- for.
-    insightId :: Prelude.Maybe Prelude.Text,
-    -- | The source, @AWS_CLOUD_TRAIL@ or @AWS_CODE_DEPLOY@, of the events you
+  { -- | The source, @AWS_CLOUD_TRAIL@ or @AWS_CODE_DEPLOY@, of the events you
     -- want returned.
     dataSource :: Prelude.Maybe EventDataSource,
     -- | The class of the events you want to filter for, such as an
     -- infrastructure change, a deployment, or a schema change.
     eventClass :: Prelude.Maybe EventClass,
-    -- | A time range during which you want the filtered events to have occurred.
-    eventTimeRange :: Prelude.Maybe EventTimeRange,
     -- | The Amazon Web Services source that emitted the events you want to
     -- filter for.
-    eventSource :: Prelude.Maybe Prelude.Text
+    eventSource :: Prelude.Maybe Prelude.Text,
+    -- | A time range during which you want the filtered events to have occurred.
+    eventTimeRange :: Prelude.Maybe EventTimeRange,
+    -- | An ID of an insight that is related to the events you want to filter
+    -- for.
+    insightId :: Prelude.Maybe Prelude.Text,
+    resourceCollection :: Prelude.Maybe ResourceCollection
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,42 +59,32 @@ data ListEventsFilters = ListEventsFilters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceCollection', 'listEventsFilters_resourceCollection' - Undocumented member.
---
--- 'insightId', 'listEventsFilters_insightId' - An ID of an insight that is related to the events you want to filter
--- for.
---
 -- 'dataSource', 'listEventsFilters_dataSource' - The source, @AWS_CLOUD_TRAIL@ or @AWS_CODE_DEPLOY@, of the events you
 -- want returned.
 --
 -- 'eventClass', 'listEventsFilters_eventClass' - The class of the events you want to filter for, such as an
 -- infrastructure change, a deployment, or a schema change.
 --
--- 'eventTimeRange', 'listEventsFilters_eventTimeRange' - A time range during which you want the filtered events to have occurred.
---
 -- 'eventSource', 'listEventsFilters_eventSource' - The Amazon Web Services source that emitted the events you want to
 -- filter for.
+--
+-- 'eventTimeRange', 'listEventsFilters_eventTimeRange' - A time range during which you want the filtered events to have occurred.
+--
+-- 'insightId', 'listEventsFilters_insightId' - An ID of an insight that is related to the events you want to filter
+-- for.
+--
+-- 'resourceCollection', 'listEventsFilters_resourceCollection' - Undocumented member.
 newListEventsFilters ::
   ListEventsFilters
 newListEventsFilters =
   ListEventsFilters'
-    { resourceCollection =
-        Prelude.Nothing,
-      insightId = Prelude.Nothing,
-      dataSource = Prelude.Nothing,
+    { dataSource = Prelude.Nothing,
       eventClass = Prelude.Nothing,
+      eventSource = Prelude.Nothing,
       eventTimeRange = Prelude.Nothing,
-      eventSource = Prelude.Nothing
+      insightId = Prelude.Nothing,
+      resourceCollection = Prelude.Nothing
     }
-
--- | Undocumented member.
-listEventsFilters_resourceCollection :: Lens.Lens' ListEventsFilters (Prelude.Maybe ResourceCollection)
-listEventsFilters_resourceCollection = Lens.lens (\ListEventsFilters' {resourceCollection} -> resourceCollection) (\s@ListEventsFilters' {} a -> s {resourceCollection = a} :: ListEventsFilters)
-
--- | An ID of an insight that is related to the events you want to filter
--- for.
-listEventsFilters_insightId :: Lens.Lens' ListEventsFilters (Prelude.Maybe Prelude.Text)
-listEventsFilters_insightId = Lens.lens (\ListEventsFilters' {insightId} -> insightId) (\s@ListEventsFilters' {} a -> s {insightId = a} :: ListEventsFilters)
 
 -- | The source, @AWS_CLOUD_TRAIL@ or @AWS_CODE_DEPLOY@, of the events you
 -- want returned.
@@ -106,44 +96,53 @@ listEventsFilters_dataSource = Lens.lens (\ListEventsFilters' {dataSource} -> da
 listEventsFilters_eventClass :: Lens.Lens' ListEventsFilters (Prelude.Maybe EventClass)
 listEventsFilters_eventClass = Lens.lens (\ListEventsFilters' {eventClass} -> eventClass) (\s@ListEventsFilters' {} a -> s {eventClass = a} :: ListEventsFilters)
 
--- | A time range during which you want the filtered events to have occurred.
-listEventsFilters_eventTimeRange :: Lens.Lens' ListEventsFilters (Prelude.Maybe EventTimeRange)
-listEventsFilters_eventTimeRange = Lens.lens (\ListEventsFilters' {eventTimeRange} -> eventTimeRange) (\s@ListEventsFilters' {} a -> s {eventTimeRange = a} :: ListEventsFilters)
-
 -- | The Amazon Web Services source that emitted the events you want to
 -- filter for.
 listEventsFilters_eventSource :: Lens.Lens' ListEventsFilters (Prelude.Maybe Prelude.Text)
 listEventsFilters_eventSource = Lens.lens (\ListEventsFilters' {eventSource} -> eventSource) (\s@ListEventsFilters' {} a -> s {eventSource = a} :: ListEventsFilters)
 
+-- | A time range during which you want the filtered events to have occurred.
+listEventsFilters_eventTimeRange :: Lens.Lens' ListEventsFilters (Prelude.Maybe EventTimeRange)
+listEventsFilters_eventTimeRange = Lens.lens (\ListEventsFilters' {eventTimeRange} -> eventTimeRange) (\s@ListEventsFilters' {} a -> s {eventTimeRange = a} :: ListEventsFilters)
+
+-- | An ID of an insight that is related to the events you want to filter
+-- for.
+listEventsFilters_insightId :: Lens.Lens' ListEventsFilters (Prelude.Maybe Prelude.Text)
+listEventsFilters_insightId = Lens.lens (\ListEventsFilters' {insightId} -> insightId) (\s@ListEventsFilters' {} a -> s {insightId = a} :: ListEventsFilters)
+
+-- | Undocumented member.
+listEventsFilters_resourceCollection :: Lens.Lens' ListEventsFilters (Prelude.Maybe ResourceCollection)
+listEventsFilters_resourceCollection = Lens.lens (\ListEventsFilters' {resourceCollection} -> resourceCollection) (\s@ListEventsFilters' {} a -> s {resourceCollection = a} :: ListEventsFilters)
+
 instance Prelude.Hashable ListEventsFilters where
   hashWithSalt _salt ListEventsFilters' {..} =
-    _salt `Prelude.hashWithSalt` resourceCollection
-      `Prelude.hashWithSalt` insightId
-      `Prelude.hashWithSalt` dataSource
+    _salt `Prelude.hashWithSalt` dataSource
       `Prelude.hashWithSalt` eventClass
-      `Prelude.hashWithSalt` eventTimeRange
       `Prelude.hashWithSalt` eventSource
+      `Prelude.hashWithSalt` eventTimeRange
+      `Prelude.hashWithSalt` insightId
+      `Prelude.hashWithSalt` resourceCollection
 
 instance Prelude.NFData ListEventsFilters where
   rnf ListEventsFilters' {..} =
-    Prelude.rnf resourceCollection
-      `Prelude.seq` Prelude.rnf insightId
-      `Prelude.seq` Prelude.rnf dataSource
+    Prelude.rnf dataSource
       `Prelude.seq` Prelude.rnf eventClass
-      `Prelude.seq` Prelude.rnf eventTimeRange
       `Prelude.seq` Prelude.rnf eventSource
+      `Prelude.seq` Prelude.rnf eventTimeRange
+      `Prelude.seq` Prelude.rnf insightId
+      `Prelude.seq` Prelude.rnf resourceCollection
 
 instance Data.ToJSON ListEventsFilters where
   toJSON ListEventsFilters' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ResourceCollection" Data..=)
-              Prelude.<$> resourceCollection,
-            ("InsightId" Data..=) Prelude.<$> insightId,
-            ("DataSource" Data..=) Prelude.<$> dataSource,
+          [ ("DataSource" Data..=) Prelude.<$> dataSource,
             ("EventClass" Data..=) Prelude.<$> eventClass,
+            ("EventSource" Data..=) Prelude.<$> eventSource,
             ("EventTimeRange" Data..=)
               Prelude.<$> eventTimeRange,
-            ("EventSource" Data..=) Prelude.<$> eventSource
+            ("InsightId" Data..=) Prelude.<$> insightId,
+            ("ResourceCollection" Data..=)
+              Prelude.<$> resourceCollection
           ]
       )

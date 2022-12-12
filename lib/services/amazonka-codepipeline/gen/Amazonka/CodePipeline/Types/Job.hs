@@ -29,16 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJob' smart constructor.
 data Job = Job'
-  { -- | A system-generated random number that AWS CodePipeline uses to ensure
-    -- that the job is being worked on by only one job worker. Use this number
-    -- in an AcknowledgeJob request.
-    nonce :: Prelude.Maybe Prelude.Text,
-    -- | The unique system-generated ID of the job.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the AWS account to use when performing the job.
+  { -- | The ID of the AWS account to use when performing the job.
     accountId :: Prelude.Maybe Prelude.Text,
     -- | Other data about a job.
-    data' :: Prelude.Maybe JobData
+    data' :: Prelude.Maybe JobData,
+    -- | The unique system-generated ID of the job.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | A system-generated random number that AWS CodePipeline uses to ensure
+    -- that the job is being worked on by only one job worker. Use this number
+    -- in an AcknowledgeJob request.
+    nonce :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -50,34 +50,24 @@ data Job = Job'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nonce', 'job_nonce' - A system-generated random number that AWS CodePipeline uses to ensure
--- that the job is being worked on by only one job worker. Use this number
--- in an AcknowledgeJob request.
---
--- 'id', 'job_id' - The unique system-generated ID of the job.
---
 -- 'accountId', 'job_accountId' - The ID of the AWS account to use when performing the job.
 --
 -- 'data'', 'job_data' - Other data about a job.
+--
+-- 'id', 'job_id' - The unique system-generated ID of the job.
+--
+-- 'nonce', 'job_nonce' - A system-generated random number that AWS CodePipeline uses to ensure
+-- that the job is being worked on by only one job worker. Use this number
+-- in an AcknowledgeJob request.
 newJob ::
   Job
 newJob =
   Job'
-    { nonce = Prelude.Nothing,
+    { accountId = Prelude.Nothing,
+      data' = Prelude.Nothing,
       id = Prelude.Nothing,
-      accountId = Prelude.Nothing,
-      data' = Prelude.Nothing
+      nonce = Prelude.Nothing
     }
-
--- | A system-generated random number that AWS CodePipeline uses to ensure
--- that the job is being worked on by only one job worker. Use this number
--- in an AcknowledgeJob request.
-job_nonce :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
-job_nonce = Lens.lens (\Job' {nonce} -> nonce) (\s@Job' {} a -> s {nonce = a} :: Job)
-
--- | The unique system-generated ID of the job.
-job_id :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
-job_id = Lens.lens (\Job' {id} -> id) (\s@Job' {} a -> s {id = a} :: Job)
 
 -- | The ID of the AWS account to use when performing the job.
 job_accountId :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
@@ -87,28 +77,38 @@ job_accountId = Lens.lens (\Job' {accountId} -> accountId) (\s@Job' {} a -> s {a
 job_data :: Lens.Lens' Job (Prelude.Maybe JobData)
 job_data = Lens.lens (\Job' {data'} -> data') (\s@Job' {} a -> s {data' = a} :: Job)
 
+-- | The unique system-generated ID of the job.
+job_id :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
+job_id = Lens.lens (\Job' {id} -> id) (\s@Job' {} a -> s {id = a} :: Job)
+
+-- | A system-generated random number that AWS CodePipeline uses to ensure
+-- that the job is being worked on by only one job worker. Use this number
+-- in an AcknowledgeJob request.
+job_nonce :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
+job_nonce = Lens.lens (\Job' {nonce} -> nonce) (\s@Job' {} a -> s {nonce = a} :: Job)
+
 instance Data.FromJSON Job where
   parseJSON =
     Data.withObject
       "Job"
       ( \x ->
           Job'
-            Prelude.<$> (x Data..:? "nonce")
-            Prelude.<*> (x Data..:? "id")
-            Prelude.<*> (x Data..:? "accountId")
+            Prelude.<$> (x Data..:? "accountId")
             Prelude.<*> (x Data..:? "data")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "nonce")
       )
 
 instance Prelude.Hashable Job where
   hashWithSalt _salt Job' {..} =
-    _salt `Prelude.hashWithSalt` nonce
-      `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` accountId
+    _salt `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` data'
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` nonce
 
 instance Prelude.NFData Job where
   rnf Job' {..} =
-    Prelude.rnf nonce
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf accountId
+    Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf data'
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf nonce

@@ -33,8 +33,8 @@ module Amazonka.MemoryDb.CreateSubnetGroup
     newCreateSubnetGroup,
 
     -- * Request Lenses
-    createSubnetGroup_tags,
     createSubnetGroup_description,
+    createSubnetGroup_tags,
     createSubnetGroup_subnetGroupName,
     createSubnetGroup_subnetIds,
 
@@ -58,11 +58,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateSubnetGroup' smart constructor.
 data CreateSubnetGroup = CreateSubnetGroup'
-  { -- | A list of tags to be added to this resource. A tag is a key-value pair.
+  { -- | A description for the subnet group.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | A list of tags to be added to this resource. A tag is a key-value pair.
     -- A tag key must be accompanied by a tag value, although null is accepted.
     tags :: Prelude.Maybe [Tag],
-    -- | A description for the subnet group.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the subnet group.
     subnetGroupName :: Prelude.Text,
     -- | A list of VPC subnet IDs for the subnet group.
@@ -78,10 +78,10 @@ data CreateSubnetGroup = CreateSubnetGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'createSubnetGroup_description' - A description for the subnet group.
+--
 -- 'tags', 'createSubnetGroup_tags' - A list of tags to be added to this resource. A tag is a key-value pair.
 -- A tag key must be accompanied by a tag value, although null is accepted.
---
--- 'description', 'createSubnetGroup_description' - A description for the subnet group.
 --
 -- 'subnetGroupName', 'createSubnetGroup_subnetGroupName' - The name of the subnet group.
 --
@@ -92,20 +92,20 @@ newCreateSubnetGroup ::
   CreateSubnetGroup
 newCreateSubnetGroup pSubnetGroupName_ =
   CreateSubnetGroup'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       subnetGroupName = pSubnetGroupName_,
       subnetIds = Prelude.mempty
     }
+
+-- | A description for the subnet group.
+createSubnetGroup_description :: Lens.Lens' CreateSubnetGroup (Prelude.Maybe Prelude.Text)
+createSubnetGroup_description = Lens.lens (\CreateSubnetGroup' {description} -> description) (\s@CreateSubnetGroup' {} a -> s {description = a} :: CreateSubnetGroup)
 
 -- | A list of tags to be added to this resource. A tag is a key-value pair.
 -- A tag key must be accompanied by a tag value, although null is accepted.
 createSubnetGroup_tags :: Lens.Lens' CreateSubnetGroup (Prelude.Maybe [Tag])
 createSubnetGroup_tags = Lens.lens (\CreateSubnetGroup' {tags} -> tags) (\s@CreateSubnetGroup' {} a -> s {tags = a} :: CreateSubnetGroup) Prelude.. Lens.mapping Lens.coerced
-
--- | A description for the subnet group.
-createSubnetGroup_description :: Lens.Lens' CreateSubnetGroup (Prelude.Maybe Prelude.Text)
-createSubnetGroup_description = Lens.lens (\CreateSubnetGroup' {description} -> description) (\s@CreateSubnetGroup' {} a -> s {description = a} :: CreateSubnetGroup)
 
 -- | The name of the subnet group.
 createSubnetGroup_subnetGroupName :: Lens.Lens' CreateSubnetGroup Prelude.Text
@@ -131,15 +131,15 @@ instance Core.AWSRequest CreateSubnetGroup where
 
 instance Prelude.Hashable CreateSubnetGroup where
   hashWithSalt _salt CreateSubnetGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` subnetGroupName
       `Prelude.hashWithSalt` subnetIds
 
 instance Prelude.NFData CreateSubnetGroup where
   rnf CreateSubnetGroup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf subnetGroupName
       `Prelude.seq` Prelude.rnf subnetIds
 
@@ -162,8 +162,8 @@ instance Data.ToJSON CreateSubnetGroup where
   toJSON CreateSubnetGroup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("SubnetGroupName" Data..= subnetGroupName),
             Prelude.Just ("SubnetIds" Data..= subnetIds)

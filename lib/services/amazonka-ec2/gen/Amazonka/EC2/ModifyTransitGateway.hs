@@ -168,7 +168,8 @@ instance Data.ToQuery ModifyTransitGateway where
 
 -- | /See:/ 'newModifyTransitGatewayResponse' smart constructor.
 data ModifyTransitGatewayResponse = ModifyTransitGatewayResponse'
-  { transitGateway :: Prelude.Maybe TransitGateway,
+  { -- | Information about the transit gateway.
+    transitGateway :: Prelude.Maybe TransitGateway,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -182,7 +183,7 @@ data ModifyTransitGatewayResponse = ModifyTransitGatewayResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'transitGateway', 'modifyTransitGatewayResponse_transitGateway' - Undocumented member.
+-- 'transitGateway', 'modifyTransitGatewayResponse_transitGateway' - Information about the transit gateway.
 --
 -- 'httpStatus', 'modifyTransitGatewayResponse_httpStatus' - The response's http status code.
 newModifyTransitGatewayResponse ::
@@ -196,7 +197,7 @@ newModifyTransitGatewayResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | Information about the transit gateway.
 modifyTransitGatewayResponse_transitGateway :: Lens.Lens' ModifyTransitGatewayResponse (Prelude.Maybe TransitGateway)
 modifyTransitGatewayResponse_transitGateway = Lens.lens (\ModifyTransitGatewayResponse' {transitGateway} -> transitGateway) (\s@ModifyTransitGatewayResponse' {} a -> s {transitGateway = a} :: ModifyTransitGatewayResponse)
 

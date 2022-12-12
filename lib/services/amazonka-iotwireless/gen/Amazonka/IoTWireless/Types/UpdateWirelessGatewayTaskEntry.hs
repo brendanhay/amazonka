@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUpdateWirelessGatewayTaskEntry' smart constructor.
 data UpdateWirelessGatewayTaskEntry = UpdateWirelessGatewayTaskEntry'
-  { -- | The properties that relate to the LoRaWAN wireless gateway.
-    loRaWAN :: Prelude.Maybe LoRaWANUpdateGatewayTaskEntry,
-    -- | The Amazon Resource Name of the resource.
+  { -- | The Amazon Resource Name of the resource.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the new wireless gateway task entry.
-    id :: Prelude.Maybe Prelude.Text
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The properties that relate to the LoRaWAN wireless gateway.
+    loRaWAN :: Prelude.Maybe LoRaWANUpdateGatewayTaskEntry
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,24 +46,20 @@ data UpdateWirelessGatewayTaskEntry = UpdateWirelessGatewayTaskEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'loRaWAN', 'updateWirelessGatewayTaskEntry_loRaWAN' - The properties that relate to the LoRaWAN wireless gateway.
---
 -- 'arn', 'updateWirelessGatewayTaskEntry_arn' - The Amazon Resource Name of the resource.
 --
 -- 'id', 'updateWirelessGatewayTaskEntry_id' - The ID of the new wireless gateway task entry.
+--
+-- 'loRaWAN', 'updateWirelessGatewayTaskEntry_loRaWAN' - The properties that relate to the LoRaWAN wireless gateway.
 newUpdateWirelessGatewayTaskEntry ::
   UpdateWirelessGatewayTaskEntry
 newUpdateWirelessGatewayTaskEntry =
   UpdateWirelessGatewayTaskEntry'
-    { loRaWAN =
+    { arn =
         Prelude.Nothing,
-      arn = Prelude.Nothing,
-      id = Prelude.Nothing
+      id = Prelude.Nothing,
+      loRaWAN = Prelude.Nothing
     }
-
--- | The properties that relate to the LoRaWAN wireless gateway.
-updateWirelessGatewayTaskEntry_loRaWAN :: Lens.Lens' UpdateWirelessGatewayTaskEntry (Prelude.Maybe LoRaWANUpdateGatewayTaskEntry)
-updateWirelessGatewayTaskEntry_loRaWAN = Lens.lens (\UpdateWirelessGatewayTaskEntry' {loRaWAN} -> loRaWAN) (\s@UpdateWirelessGatewayTaskEntry' {} a -> s {loRaWAN = a} :: UpdateWirelessGatewayTaskEntry)
 
 -- | The Amazon Resource Name of the resource.
 updateWirelessGatewayTaskEntry_arn :: Lens.Lens' UpdateWirelessGatewayTaskEntry (Prelude.Maybe Prelude.Text)
@@ -73,15 +69,19 @@ updateWirelessGatewayTaskEntry_arn = Lens.lens (\UpdateWirelessGatewayTaskEntry'
 updateWirelessGatewayTaskEntry_id :: Lens.Lens' UpdateWirelessGatewayTaskEntry (Prelude.Maybe Prelude.Text)
 updateWirelessGatewayTaskEntry_id = Lens.lens (\UpdateWirelessGatewayTaskEntry' {id} -> id) (\s@UpdateWirelessGatewayTaskEntry' {} a -> s {id = a} :: UpdateWirelessGatewayTaskEntry)
 
+-- | The properties that relate to the LoRaWAN wireless gateway.
+updateWirelessGatewayTaskEntry_loRaWAN :: Lens.Lens' UpdateWirelessGatewayTaskEntry (Prelude.Maybe LoRaWANUpdateGatewayTaskEntry)
+updateWirelessGatewayTaskEntry_loRaWAN = Lens.lens (\UpdateWirelessGatewayTaskEntry' {loRaWAN} -> loRaWAN) (\s@UpdateWirelessGatewayTaskEntry' {} a -> s {loRaWAN = a} :: UpdateWirelessGatewayTaskEntry)
+
 instance Data.FromJSON UpdateWirelessGatewayTaskEntry where
   parseJSON =
     Data.withObject
       "UpdateWirelessGatewayTaskEntry"
       ( \x ->
           UpdateWirelessGatewayTaskEntry'
-            Prelude.<$> (x Data..:? "LoRaWAN")
-            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<$> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "LoRaWAN")
       )
 
 instance
@@ -91,15 +91,15 @@ instance
   hashWithSalt
     _salt
     UpdateWirelessGatewayTaskEntry' {..} =
-      _salt `Prelude.hashWithSalt` loRaWAN
-        `Prelude.hashWithSalt` arn
+      _salt `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` id
+        `Prelude.hashWithSalt` loRaWAN
 
 instance
   Prelude.NFData
     UpdateWirelessGatewayTaskEntry
   where
   rnf UpdateWirelessGatewayTaskEntry' {..} =
-    Prelude.rnf loRaWAN
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf loRaWAN

@@ -27,9 +27,9 @@ module Amazonka.Glue.GetWorkflowRuns
     newGetWorkflowRuns,
 
     -- * Request Lenses
-    getWorkflowRuns_nextToken,
-    getWorkflowRuns_maxResults,
     getWorkflowRuns_includeGraph,
+    getWorkflowRuns_maxResults,
+    getWorkflowRuns_nextToken,
     getWorkflowRuns_name,
 
     -- * Destructuring the Response
@@ -53,12 +53,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetWorkflowRuns' smart constructor.
 data GetWorkflowRuns = GetWorkflowRuns'
-  { -- | The maximum size of the response.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | Specifies whether to include the workflow graph in response or not.
+    includeGraph :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of workflow runs to be included in the response.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Specifies whether to include the workflow graph in response or not.
-    includeGraph :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum size of the response.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Name of the workflow whose metadata of runs should be returned.
     name :: Prelude.Text
   }
@@ -72,11 +72,11 @@ data GetWorkflowRuns = GetWorkflowRuns'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getWorkflowRuns_nextToken' - The maximum size of the response.
+-- 'includeGraph', 'getWorkflowRuns_includeGraph' - Specifies whether to include the workflow graph in response or not.
 --
 -- 'maxResults', 'getWorkflowRuns_maxResults' - The maximum number of workflow runs to be included in the response.
 --
--- 'includeGraph', 'getWorkflowRuns_includeGraph' - Specifies whether to include the workflow graph in response or not.
+-- 'nextToken', 'getWorkflowRuns_nextToken' - The maximum size of the response.
 --
 -- 'name', 'getWorkflowRuns_name' - Name of the workflow whose metadata of runs should be returned.
 newGetWorkflowRuns ::
@@ -85,23 +85,23 @@ newGetWorkflowRuns ::
   GetWorkflowRuns
 newGetWorkflowRuns pName_ =
   GetWorkflowRuns'
-    { nextToken = Prelude.Nothing,
+    { includeGraph = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      includeGraph = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       name = pName_
     }
 
--- | The maximum size of the response.
-getWorkflowRuns_nextToken :: Lens.Lens' GetWorkflowRuns (Prelude.Maybe Prelude.Text)
-getWorkflowRuns_nextToken = Lens.lens (\GetWorkflowRuns' {nextToken} -> nextToken) (\s@GetWorkflowRuns' {} a -> s {nextToken = a} :: GetWorkflowRuns)
+-- | Specifies whether to include the workflow graph in response or not.
+getWorkflowRuns_includeGraph :: Lens.Lens' GetWorkflowRuns (Prelude.Maybe Prelude.Bool)
+getWorkflowRuns_includeGraph = Lens.lens (\GetWorkflowRuns' {includeGraph} -> includeGraph) (\s@GetWorkflowRuns' {} a -> s {includeGraph = a} :: GetWorkflowRuns)
 
 -- | The maximum number of workflow runs to be included in the response.
 getWorkflowRuns_maxResults :: Lens.Lens' GetWorkflowRuns (Prelude.Maybe Prelude.Natural)
 getWorkflowRuns_maxResults = Lens.lens (\GetWorkflowRuns' {maxResults} -> maxResults) (\s@GetWorkflowRuns' {} a -> s {maxResults = a} :: GetWorkflowRuns)
 
--- | Specifies whether to include the workflow graph in response or not.
-getWorkflowRuns_includeGraph :: Lens.Lens' GetWorkflowRuns (Prelude.Maybe Prelude.Bool)
-getWorkflowRuns_includeGraph = Lens.lens (\GetWorkflowRuns' {includeGraph} -> includeGraph) (\s@GetWorkflowRuns' {} a -> s {includeGraph = a} :: GetWorkflowRuns)
+-- | The maximum size of the response.
+getWorkflowRuns_nextToken :: Lens.Lens' GetWorkflowRuns (Prelude.Maybe Prelude.Text)
+getWorkflowRuns_nextToken = Lens.lens (\GetWorkflowRuns' {nextToken} -> nextToken) (\s@GetWorkflowRuns' {} a -> s {nextToken = a} :: GetWorkflowRuns)
 
 -- | Name of the workflow whose metadata of runs should be returned.
 getWorkflowRuns_name :: Lens.Lens' GetWorkflowRuns Prelude.Text
@@ -124,16 +124,16 @@ instance Core.AWSRequest GetWorkflowRuns where
 
 instance Prelude.Hashable GetWorkflowRuns where
   hashWithSalt _salt GetWorkflowRuns' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` includeGraph
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` includeGraph
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData GetWorkflowRuns where
   rnf GetWorkflowRuns' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf includeGraph
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf includeGraph
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders GetWorkflowRuns where
@@ -153,9 +153,9 @@ instance Data.ToJSON GetWorkflowRuns where
   toJSON GetWorkflowRuns' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("IncludeGraph" Data..=) Prelude.<$> includeGraph,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("IncludeGraph" Data..=) Prelude.<$> includeGraph,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("Name" Data..= name)
           ]
       )

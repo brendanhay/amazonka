@@ -38,8 +38,8 @@ module Amazonka.StorageGateway.ListTapePools
     newListTapePools,
 
     -- * Request Lenses
-    listTapePools_marker,
     listTapePools_limit,
+    listTapePools_marker,
     listTapePools_poolARNs,
 
     -- * Destructuring the Response
@@ -63,12 +63,12 @@ import Amazonka.StorageGateway.Types
 
 -- | /See:/ 'newListTapePools' smart constructor.
 data ListTapePools = ListTapePools'
-  { -- | A string that indicates the position at which to begin the returned list
-    -- of tape pools.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | An optional number limit for the tape pools in the list returned by this
+  { -- | An optional number limit for the tape pools in the list returned by this
     -- call.
     limit :: Prelude.Maybe Prelude.Natural,
+    -- | A string that indicates the position at which to begin the returned list
+    -- of tape pools.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of each of the custom tape pools you want
     -- to list. If you don\'t specify a custom tape pool ARN, the response
     -- lists all custom tape pools.
@@ -84,11 +84,11 @@ data ListTapePools = ListTapePools'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'marker', 'listTapePools_marker' - A string that indicates the position at which to begin the returned list
--- of tape pools.
---
 -- 'limit', 'listTapePools_limit' - An optional number limit for the tape pools in the list returned by this
 -- call.
+--
+-- 'marker', 'listTapePools_marker' - A string that indicates the position at which to begin the returned list
+-- of tape pools.
 --
 -- 'poolARNs', 'listTapePools_poolARNs' - The Amazon Resource Name (ARN) of each of the custom tape pools you want
 -- to list. If you don\'t specify a custom tape pool ARN, the response
@@ -97,20 +97,20 @@ newListTapePools ::
   ListTapePools
 newListTapePools =
   ListTapePools'
-    { marker = Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { limit = Prelude.Nothing,
+      marker = Prelude.Nothing,
       poolARNs = Prelude.Nothing
     }
-
--- | A string that indicates the position at which to begin the returned list
--- of tape pools.
-listTapePools_marker :: Lens.Lens' ListTapePools (Prelude.Maybe Prelude.Text)
-listTapePools_marker = Lens.lens (\ListTapePools' {marker} -> marker) (\s@ListTapePools' {} a -> s {marker = a} :: ListTapePools)
 
 -- | An optional number limit for the tape pools in the list returned by this
 -- call.
 listTapePools_limit :: Lens.Lens' ListTapePools (Prelude.Maybe Prelude.Natural)
 listTapePools_limit = Lens.lens (\ListTapePools' {limit} -> limit) (\s@ListTapePools' {} a -> s {limit = a} :: ListTapePools)
+
+-- | A string that indicates the position at which to begin the returned list
+-- of tape pools.
+listTapePools_marker :: Lens.Lens' ListTapePools (Prelude.Maybe Prelude.Text)
+listTapePools_marker = Lens.lens (\ListTapePools' {marker} -> marker) (\s@ListTapePools' {} a -> s {marker = a} :: ListTapePools)
 
 -- | The Amazon Resource Name (ARN) of each of the custom tape pools you want
 -- to list. If you don\'t specify a custom tape pool ARN, the response
@@ -154,14 +154,14 @@ instance Core.AWSRequest ListTapePools where
 
 instance Prelude.Hashable ListTapePools where
   hashWithSalt _salt ListTapePools' {..} =
-    _salt `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` limit
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` poolARNs
 
 instance Prelude.NFData ListTapePools where
   rnf ListTapePools' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf poolARNs
 
 instance Data.ToHeaders ListTapePools where
@@ -183,8 +183,8 @@ instance Data.ToJSON ListTapePools where
   toJSON ListTapePools' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Data..=) Prelude.<$> marker,
-            ("Limit" Data..=) Prelude.<$> limit,
+          [ ("Limit" Data..=) Prelude.<$> limit,
+            ("Marker" Data..=) Prelude.<$> marker,
             ("PoolARNs" Data..=) Prelude.<$> poolARNs
           ]
       )

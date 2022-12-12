@@ -27,8 +27,8 @@ module Amazonka.Panorama.DescribePackageVersion
     newDescribePackageVersion,
 
     -- * Request Lenses
-    describePackageVersion_patchVersion,
     describePackageVersion_ownerAccount,
+    describePackageVersion_patchVersion,
     describePackageVersion_packageId,
     describePackageVersion_packageVersion,
 
@@ -37,10 +37,10 @@ module Amazonka.Panorama.DescribePackageVersion
     newDescribePackageVersionResponse,
 
     -- * Response Lenses
-    describePackageVersionResponse_statusDescription,
+    describePackageVersionResponse_ownerAccount,
     describePackageVersionResponse_packageArn,
     describePackageVersionResponse_registeredTime,
-    describePackageVersionResponse_ownerAccount,
+    describePackageVersionResponse_statusDescription,
     describePackageVersionResponse_httpStatus,
     describePackageVersionResponse_isLatestPatch,
     describePackageVersionResponse_packageId,
@@ -61,10 +61,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribePackageVersion' smart constructor.
 data DescribePackageVersion = DescribePackageVersion'
-  { -- | The version\'s patch version.
-    patchVersion :: Prelude.Maybe Prelude.Text,
-    -- | The version\'s owner account.
+  { -- | The version\'s owner account.
     ownerAccount :: Prelude.Maybe Prelude.Text,
+    -- | The version\'s patch version.
+    patchVersion :: Prelude.Maybe Prelude.Text,
     -- | The version\'s ID.
     packageId :: Prelude.Text,
     -- | The version\'s version.
@@ -80,9 +80,9 @@ data DescribePackageVersion = DescribePackageVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'patchVersion', 'describePackageVersion_patchVersion' - The version\'s patch version.
---
 -- 'ownerAccount', 'describePackageVersion_ownerAccount' - The version\'s owner account.
+--
+-- 'patchVersion', 'describePackageVersion_patchVersion' - The version\'s patch version.
 --
 -- 'packageId', 'describePackageVersion_packageId' - The version\'s ID.
 --
@@ -97,20 +97,20 @@ newDescribePackageVersion
   pPackageId_
   pPackageVersion_ =
     DescribePackageVersion'
-      { patchVersion =
+      { ownerAccount =
           Prelude.Nothing,
-        ownerAccount = Prelude.Nothing,
+        patchVersion = Prelude.Nothing,
         packageId = pPackageId_,
         packageVersion = pPackageVersion_
       }
 
--- | The version\'s patch version.
-describePackageVersion_patchVersion :: Lens.Lens' DescribePackageVersion (Prelude.Maybe Prelude.Text)
-describePackageVersion_patchVersion = Lens.lens (\DescribePackageVersion' {patchVersion} -> patchVersion) (\s@DescribePackageVersion' {} a -> s {patchVersion = a} :: DescribePackageVersion)
-
 -- | The version\'s owner account.
 describePackageVersion_ownerAccount :: Lens.Lens' DescribePackageVersion (Prelude.Maybe Prelude.Text)
 describePackageVersion_ownerAccount = Lens.lens (\DescribePackageVersion' {ownerAccount} -> ownerAccount) (\s@DescribePackageVersion' {} a -> s {ownerAccount = a} :: DescribePackageVersion)
+
+-- | The version\'s patch version.
+describePackageVersion_patchVersion :: Lens.Lens' DescribePackageVersion (Prelude.Maybe Prelude.Text)
+describePackageVersion_patchVersion = Lens.lens (\DescribePackageVersion' {patchVersion} -> patchVersion) (\s@DescribePackageVersion' {} a -> s {patchVersion = a} :: DescribePackageVersion)
 
 -- | The version\'s ID.
 describePackageVersion_packageId :: Lens.Lens' DescribePackageVersion Prelude.Text
@@ -130,10 +130,10 @@ instance Core.AWSRequest DescribePackageVersion where
     Response.receiveJSON
       ( \s h x ->
           DescribePackageVersionResponse'
-            Prelude.<$> (x Data..?> "StatusDescription")
+            Prelude.<$> (x Data..?> "OwnerAccount")
             Prelude.<*> (x Data..?> "PackageArn")
             Prelude.<*> (x Data..?> "RegisteredTime")
-            Prelude.<*> (x Data..?> "OwnerAccount")
+            Prelude.<*> (x Data..?> "StatusDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "IsLatestPatch")
             Prelude.<*> (x Data..:> "PackageId")
@@ -145,15 +145,15 @@ instance Core.AWSRequest DescribePackageVersion where
 
 instance Prelude.Hashable DescribePackageVersion where
   hashWithSalt _salt DescribePackageVersion' {..} =
-    _salt `Prelude.hashWithSalt` patchVersion
-      `Prelude.hashWithSalt` ownerAccount
+    _salt `Prelude.hashWithSalt` ownerAccount
+      `Prelude.hashWithSalt` patchVersion
       `Prelude.hashWithSalt` packageId
       `Prelude.hashWithSalt` packageVersion
 
 instance Prelude.NFData DescribePackageVersion where
   rnf DescribePackageVersion' {..} =
-    Prelude.rnf patchVersion
-      `Prelude.seq` Prelude.rnf ownerAccount
+    Prelude.rnf ownerAccount
+      `Prelude.seq` Prelude.rnf patchVersion
       `Prelude.seq` Prelude.rnf packageId
       `Prelude.seq` Prelude.rnf packageVersion
 
@@ -180,20 +180,20 @@ instance Data.ToPath DescribePackageVersion where
 instance Data.ToQuery DescribePackageVersion where
   toQuery DescribePackageVersion' {..} =
     Prelude.mconcat
-      [ "PatchVersion" Data.=: patchVersion,
-        "OwnerAccount" Data.=: ownerAccount
+      [ "OwnerAccount" Data.=: ownerAccount,
+        "PatchVersion" Data.=: patchVersion
       ]
 
 -- | /See:/ 'newDescribePackageVersionResponse' smart constructor.
 data DescribePackageVersionResponse = DescribePackageVersionResponse'
-  { -- | The version\'s status description.
-    statusDescription :: Prelude.Maybe Prelude.Text,
+  { -- | The account ID of the version\'s owner.
+    ownerAccount :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the package.
     packageArn :: Prelude.Maybe Prelude.Text,
     -- | The version\'s registered time.
     registeredTime :: Prelude.Maybe Data.POSIX,
-    -- | The account ID of the version\'s owner.
-    ownerAccount :: Prelude.Maybe Prelude.Text,
+    -- | The version\'s status description.
+    statusDescription :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | Whether the version is the latest available.
@@ -219,13 +219,13 @@ data DescribePackageVersionResponse = DescribePackageVersionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statusDescription', 'describePackageVersionResponse_statusDescription' - The version\'s status description.
+-- 'ownerAccount', 'describePackageVersionResponse_ownerAccount' - The account ID of the version\'s owner.
 --
 -- 'packageArn', 'describePackageVersionResponse_packageArn' - The ARN of the package.
 --
 -- 'registeredTime', 'describePackageVersionResponse_registeredTime' - The version\'s registered time.
 --
--- 'ownerAccount', 'describePackageVersionResponse_ownerAccount' - The account ID of the version\'s owner.
+-- 'statusDescription', 'describePackageVersionResponse_statusDescription' - The version\'s status description.
 --
 -- 'httpStatus', 'describePackageVersionResponse_httpStatus' - The response's http status code.
 --
@@ -265,11 +265,11 @@ newDescribePackageVersionResponse
   pPatchVersion_
   pStatus_ =
     DescribePackageVersionResponse'
-      { statusDescription =
+      { ownerAccount =
           Prelude.Nothing,
         packageArn = Prelude.Nothing,
         registeredTime = Prelude.Nothing,
-        ownerAccount = Prelude.Nothing,
+        statusDescription = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         isLatestPatch = pIsLatestPatch_,
         packageId = pPackageId_,
@@ -279,9 +279,9 @@ newDescribePackageVersionResponse
         status = pStatus_
       }
 
--- | The version\'s status description.
-describePackageVersionResponse_statusDescription :: Lens.Lens' DescribePackageVersionResponse (Prelude.Maybe Prelude.Text)
-describePackageVersionResponse_statusDescription = Lens.lens (\DescribePackageVersionResponse' {statusDescription} -> statusDescription) (\s@DescribePackageVersionResponse' {} a -> s {statusDescription = a} :: DescribePackageVersionResponse)
+-- | The account ID of the version\'s owner.
+describePackageVersionResponse_ownerAccount :: Lens.Lens' DescribePackageVersionResponse (Prelude.Maybe Prelude.Text)
+describePackageVersionResponse_ownerAccount = Lens.lens (\DescribePackageVersionResponse' {ownerAccount} -> ownerAccount) (\s@DescribePackageVersionResponse' {} a -> s {ownerAccount = a} :: DescribePackageVersionResponse)
 
 -- | The ARN of the package.
 describePackageVersionResponse_packageArn :: Lens.Lens' DescribePackageVersionResponse (Prelude.Maybe Prelude.Text)
@@ -291,9 +291,9 @@ describePackageVersionResponse_packageArn = Lens.lens (\DescribePackageVersionRe
 describePackageVersionResponse_registeredTime :: Lens.Lens' DescribePackageVersionResponse (Prelude.Maybe Prelude.UTCTime)
 describePackageVersionResponse_registeredTime = Lens.lens (\DescribePackageVersionResponse' {registeredTime} -> registeredTime) (\s@DescribePackageVersionResponse' {} a -> s {registeredTime = a} :: DescribePackageVersionResponse) Prelude.. Lens.mapping Data._Time
 
--- | The account ID of the version\'s owner.
-describePackageVersionResponse_ownerAccount :: Lens.Lens' DescribePackageVersionResponse (Prelude.Maybe Prelude.Text)
-describePackageVersionResponse_ownerAccount = Lens.lens (\DescribePackageVersionResponse' {ownerAccount} -> ownerAccount) (\s@DescribePackageVersionResponse' {} a -> s {ownerAccount = a} :: DescribePackageVersionResponse)
+-- | The version\'s status description.
+describePackageVersionResponse_statusDescription :: Lens.Lens' DescribePackageVersionResponse (Prelude.Maybe Prelude.Text)
+describePackageVersionResponse_statusDescription = Lens.lens (\DescribePackageVersionResponse' {statusDescription} -> statusDescription) (\s@DescribePackageVersionResponse' {} a -> s {statusDescription = a} :: DescribePackageVersionResponse)
 
 -- | The response's http status code.
 describePackageVersionResponse_httpStatus :: Lens.Lens' DescribePackageVersionResponse Prelude.Int
@@ -328,10 +328,10 @@ instance
     DescribePackageVersionResponse
   where
   rnf DescribePackageVersionResponse' {..} =
-    Prelude.rnf statusDescription
+    Prelude.rnf ownerAccount
       `Prelude.seq` Prelude.rnf packageArn
       `Prelude.seq` Prelude.rnf registeredTime
-      `Prelude.seq` Prelude.rnf ownerAccount
+      `Prelude.seq` Prelude.rnf statusDescription
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf isLatestPatch
       `Prelude.seq` Prelude.rnf packageId

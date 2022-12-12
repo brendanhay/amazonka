@@ -34,9 +34,9 @@ module Amazonka.Outposts.ListSites
     newListSites,
 
     -- * Request Lenses
-    listSites_operatingAddressCityFilter,
-    listSites_nextToken,
     listSites_maxResults,
+    listSites_nextToken,
+    listSites_operatingAddressCityFilter,
     listSites_operatingAddressCountryCodeFilter,
     listSites_operatingAddressStateOrRegionFilter,
 
@@ -45,8 +45,8 @@ module Amazonka.Outposts.ListSites
     newListSitesResponse,
 
     -- * Response Lenses
-    listSitesResponse_sites,
     listSitesResponse_nextToken,
+    listSitesResponse_sites,
     listSitesResponse_httpStatus,
   )
 where
@@ -61,10 +61,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListSites' smart constructor.
 data ListSites = ListSites'
-  { -- | Filters the results by city.
-    operatingAddressCityFilter :: Prelude.Maybe [Prelude.Text],
+  { maxResults :: Prelude.Maybe Prelude.Natural,
     nextToken :: Prelude.Maybe Prelude.Text,
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Filters the results by city.
+    operatingAddressCityFilter :: Prelude.Maybe [Prelude.Text],
     -- | Filters the results by country code.
     operatingAddressCountryCodeFilter :: Prelude.Maybe [Prelude.Text],
     -- | Filters the results by state or region.
@@ -80,11 +80,11 @@ data ListSites = ListSites'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'operatingAddressCityFilter', 'listSites_operatingAddressCityFilter' - Filters the results by city.
+-- 'maxResults', 'listSites_maxResults' - Undocumented member.
 --
 -- 'nextToken', 'listSites_nextToken' - Undocumented member.
 --
--- 'maxResults', 'listSites_maxResults' - Undocumented member.
+-- 'operatingAddressCityFilter', 'listSites_operatingAddressCityFilter' - Filters the results by city.
 --
 -- 'operatingAddressCountryCodeFilter', 'listSites_operatingAddressCountryCodeFilter' - Filters the results by country code.
 --
@@ -93,26 +93,25 @@ newListSites ::
   ListSites
 newListSites =
   ListSites'
-    { operatingAddressCityFilter =
-        Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      operatingAddressCityFilter = Prelude.Nothing,
       operatingAddressCountryCodeFilter = Prelude.Nothing,
       operatingAddressStateOrRegionFilter =
         Prelude.Nothing
     }
 
--- | Filters the results by city.
-listSites_operatingAddressCityFilter :: Lens.Lens' ListSites (Prelude.Maybe [Prelude.Text])
-listSites_operatingAddressCityFilter = Lens.lens (\ListSites' {operatingAddressCityFilter} -> operatingAddressCityFilter) (\s@ListSites' {} a -> s {operatingAddressCityFilter = a} :: ListSites) Prelude.. Lens.mapping Lens.coerced
+-- | Undocumented member.
+listSites_maxResults :: Lens.Lens' ListSites (Prelude.Maybe Prelude.Natural)
+listSites_maxResults = Lens.lens (\ListSites' {maxResults} -> maxResults) (\s@ListSites' {} a -> s {maxResults = a} :: ListSites)
 
 -- | Undocumented member.
 listSites_nextToken :: Lens.Lens' ListSites (Prelude.Maybe Prelude.Text)
 listSites_nextToken = Lens.lens (\ListSites' {nextToken} -> nextToken) (\s@ListSites' {} a -> s {nextToken = a} :: ListSites)
 
--- | Undocumented member.
-listSites_maxResults :: Lens.Lens' ListSites (Prelude.Maybe Prelude.Natural)
-listSites_maxResults = Lens.lens (\ListSites' {maxResults} -> maxResults) (\s@ListSites' {} a -> s {maxResults = a} :: ListSites)
+-- | Filters the results by city.
+listSites_operatingAddressCityFilter :: Lens.Lens' ListSites (Prelude.Maybe [Prelude.Text])
+listSites_operatingAddressCityFilter = Lens.lens (\ListSites' {operatingAddressCityFilter} -> operatingAddressCityFilter) (\s@ListSites' {} a -> s {operatingAddressCityFilter = a} :: ListSites) Prelude.. Lens.mapping Lens.coerced
 
 -- | Filters the results by country code.
 listSites_operatingAddressCountryCodeFilter :: Lens.Lens' ListSites (Prelude.Maybe [Prelude.Text])
@@ -130,25 +129,24 @@ instance Core.AWSRequest ListSites where
     Response.receiveJSON
       ( \s h x ->
           ListSitesResponse'
-            Prelude.<$> (x Data..?> "Sites" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Sites" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListSites where
   hashWithSalt _salt ListSites' {..} =
-    _salt
-      `Prelude.hashWithSalt` operatingAddressCityFilter
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` operatingAddressCityFilter
       `Prelude.hashWithSalt` operatingAddressCountryCodeFilter
       `Prelude.hashWithSalt` operatingAddressStateOrRegionFilter
 
 instance Prelude.NFData ListSites where
   rnf ListSites' {..} =
-    Prelude.rnf operatingAddressCityFilter
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf operatingAddressCityFilter
       `Prelude.seq` Prelude.rnf operatingAddressCountryCodeFilter
       `Prelude.seq` Prelude.rnf operatingAddressStateOrRegionFilter
 
@@ -169,13 +167,13 @@ instance Data.ToPath ListSites where
 instance Data.ToQuery ListSites where
   toQuery ListSites' {..} =
     Prelude.mconcat
-      [ "OperatingAddressCityFilter"
+      [ "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken,
+        "OperatingAddressCityFilter"
           Data.=: Data.toQuery
             ( Data.toQueryList "member"
                 Prelude.<$> operatingAddressCityFilter
             ),
-        "NextToken" Data.=: nextToken,
-        "MaxResults" Data.=: maxResults,
         "OperatingAddressCountryCodeFilter"
           Data.=: Data.toQuery
             ( Data.toQueryList "member"
@@ -190,8 +188,8 @@ instance Data.ToQuery ListSites where
 
 -- | /See:/ 'newListSitesResponse' smart constructor.
 data ListSitesResponse = ListSitesResponse'
-  { sites :: Prelude.Maybe [Site],
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { nextToken :: Prelude.Maybe Prelude.Text,
+    sites :: Prelude.Maybe [Site],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -205,9 +203,9 @@ data ListSitesResponse = ListSitesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sites', 'listSitesResponse_sites' - Undocumented member.
---
 -- 'nextToken', 'listSitesResponse_nextToken' - Undocumented member.
+--
+-- 'sites', 'listSitesResponse_sites' - Undocumented member.
 --
 -- 'httpStatus', 'listSitesResponse_httpStatus' - The response's http status code.
 newListSitesResponse ::
@@ -216,18 +214,18 @@ newListSitesResponse ::
   ListSitesResponse
 newListSitesResponse pHttpStatus_ =
   ListSitesResponse'
-    { sites = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      sites = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-listSitesResponse_sites :: Lens.Lens' ListSitesResponse (Prelude.Maybe [Site])
-listSitesResponse_sites = Lens.lens (\ListSitesResponse' {sites} -> sites) (\s@ListSitesResponse' {} a -> s {sites = a} :: ListSitesResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Undocumented member.
 listSitesResponse_nextToken :: Lens.Lens' ListSitesResponse (Prelude.Maybe Prelude.Text)
 listSitesResponse_nextToken = Lens.lens (\ListSitesResponse' {nextToken} -> nextToken) (\s@ListSitesResponse' {} a -> s {nextToken = a} :: ListSitesResponse)
+
+-- | Undocumented member.
+listSitesResponse_sites :: Lens.Lens' ListSitesResponse (Prelude.Maybe [Site])
+listSitesResponse_sites = Lens.lens (\ListSitesResponse' {sites} -> sites) (\s@ListSitesResponse' {} a -> s {sites = a} :: ListSitesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listSitesResponse_httpStatus :: Lens.Lens' ListSitesResponse Prelude.Int
@@ -235,6 +233,6 @@ listSitesResponse_httpStatus = Lens.lens (\ListSitesResponse' {httpStatus} -> ht
 
 instance Prelude.NFData ListSitesResponse where
   rnf ListSitesResponse' {..} =
-    Prelude.rnf sites
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sites
       `Prelude.seq` Prelude.rnf httpStatus

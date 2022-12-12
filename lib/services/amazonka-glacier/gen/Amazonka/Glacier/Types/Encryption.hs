@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEncryption' smart constructor.
 data Encryption = Encryption'
-  { -- | Optional. If the encryption type is @aws:kms@, you can use this value to
-    -- specify the encryption context for the job results.
-    kmsContext :: Prelude.Maybe Prelude.Text,
-    -- | The server-side encryption algorithm used when storing job results in
+  { -- | The server-side encryption algorithm used when storing job results in
     -- Amazon S3, for example @AES256@ or @aws:kms@.
     encryptionType :: Prelude.Maybe EncryptionType,
+    -- | Optional. If the encryption type is @aws:kms@, you can use this value to
+    -- specify the encryption context for the job results.
+    kmsContext :: Prelude.Maybe Prelude.Text,
     -- | The AWS KMS key ID to use for object encryption. All GET and PUT
     -- requests for an object protected by AWS KMS fail if not made by using
     -- Secure Sockets Layer (SSL) or Signature Version 4.
@@ -51,11 +51,11 @@ data Encryption = Encryption'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsContext', 'encryption_kmsContext' - Optional. If the encryption type is @aws:kms@, you can use this value to
--- specify the encryption context for the job results.
---
 -- 'encryptionType', 'encryption_encryptionType' - The server-side encryption algorithm used when storing job results in
 -- Amazon S3, for example @AES256@ or @aws:kms@.
+--
+-- 'kmsContext', 'encryption_kmsContext' - Optional. If the encryption type is @aws:kms@, you can use this value to
+-- specify the encryption context for the job results.
 --
 -- 'kmsKeyId', 'encryption_kmsKeyId' - The AWS KMS key ID to use for object encryption. All GET and PUT
 -- requests for an object protected by AWS KMS fail if not made by using
@@ -64,20 +64,20 @@ newEncryption ::
   Encryption
 newEncryption =
   Encryption'
-    { kmsContext = Prelude.Nothing,
-      encryptionType = Prelude.Nothing,
+    { encryptionType = Prelude.Nothing,
+      kmsContext = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing
     }
-
--- | Optional. If the encryption type is @aws:kms@, you can use this value to
--- specify the encryption context for the job results.
-encryption_kmsContext :: Lens.Lens' Encryption (Prelude.Maybe Prelude.Text)
-encryption_kmsContext = Lens.lens (\Encryption' {kmsContext} -> kmsContext) (\s@Encryption' {} a -> s {kmsContext = a} :: Encryption)
 
 -- | The server-side encryption algorithm used when storing job results in
 -- Amazon S3, for example @AES256@ or @aws:kms@.
 encryption_encryptionType :: Lens.Lens' Encryption (Prelude.Maybe EncryptionType)
 encryption_encryptionType = Lens.lens (\Encryption' {encryptionType} -> encryptionType) (\s@Encryption' {} a -> s {encryptionType = a} :: Encryption)
+
+-- | Optional. If the encryption type is @aws:kms@, you can use this value to
+-- specify the encryption context for the job results.
+encryption_kmsContext :: Lens.Lens' Encryption (Prelude.Maybe Prelude.Text)
+encryption_kmsContext = Lens.lens (\Encryption' {kmsContext} -> kmsContext) (\s@Encryption' {} a -> s {kmsContext = a} :: Encryption)
 
 -- | The AWS KMS key ID to use for object encryption. All GET and PUT
 -- requests for an object protected by AWS KMS fail if not made by using
@@ -91,30 +91,30 @@ instance Data.FromJSON Encryption where
       "Encryption"
       ( \x ->
           Encryption'
-            Prelude.<$> (x Data..:? "KMSContext")
-            Prelude.<*> (x Data..:? "EncryptionType")
+            Prelude.<$> (x Data..:? "EncryptionType")
+            Prelude.<*> (x Data..:? "KMSContext")
             Prelude.<*> (x Data..:? "KMSKeyId")
       )
 
 instance Prelude.Hashable Encryption where
   hashWithSalt _salt Encryption' {..} =
-    _salt `Prelude.hashWithSalt` kmsContext
-      `Prelude.hashWithSalt` encryptionType
+    _salt `Prelude.hashWithSalt` encryptionType
+      `Prelude.hashWithSalt` kmsContext
       `Prelude.hashWithSalt` kmsKeyId
 
 instance Prelude.NFData Encryption where
   rnf Encryption' {..} =
-    Prelude.rnf kmsContext
-      `Prelude.seq` Prelude.rnf encryptionType
+    Prelude.rnf encryptionType
+      `Prelude.seq` Prelude.rnf kmsContext
       `Prelude.seq` Prelude.rnf kmsKeyId
 
 instance Data.ToJSON Encryption where
   toJSON Encryption' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("KMSContext" Data..=) Prelude.<$> kmsContext,
-            ("EncryptionType" Data..=)
+          [ ("EncryptionType" Data..=)
               Prelude.<$> encryptionType,
+            ("KMSContext" Data..=) Prelude.<$> kmsContext,
             ("KMSKeyId" Data..=) Prelude.<$> kmsKeyId
           ]
       )

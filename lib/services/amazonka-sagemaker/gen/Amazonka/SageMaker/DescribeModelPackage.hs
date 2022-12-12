@@ -38,26 +38,26 @@ module Amazonka.SageMaker.DescribeModelPackage
     newDescribeModelPackageResponse,
 
     -- * Response Lenses
-    describeModelPackageResponse_modelPackageVersion,
-    describeModelPackageResponse_modelPackageGroupName,
-    describeModelPackageResponse_sourceAlgorithmSpecification,
-    describeModelPackageResponse_validationSpecification,
-    describeModelPackageResponse_samplePayloadUrl,
-    describeModelPackageResponse_task,
-    describeModelPackageResponse_certifyForMarketplace,
-    describeModelPackageResponse_inferenceSpecification,
-    describeModelPackageResponse_modelApprovalStatus,
-    describeModelPackageResponse_metadataProperties,
-    describeModelPackageResponse_domain,
-    describeModelPackageResponse_modelPackageDescription,
-    describeModelPackageResponse_driftCheckBaselines,
-    describeModelPackageResponse_approvalDescription,
-    describeModelPackageResponse_lastModifiedTime,
-    describeModelPackageResponse_modelMetrics,
-    describeModelPackageResponse_lastModifiedBy,
     describeModelPackageResponse_additionalInferenceSpecifications,
+    describeModelPackageResponse_approvalDescription,
+    describeModelPackageResponse_certifyForMarketplace,
     describeModelPackageResponse_createdBy,
     describeModelPackageResponse_customerMetadataProperties,
+    describeModelPackageResponse_domain,
+    describeModelPackageResponse_driftCheckBaselines,
+    describeModelPackageResponse_inferenceSpecification,
+    describeModelPackageResponse_lastModifiedBy,
+    describeModelPackageResponse_lastModifiedTime,
+    describeModelPackageResponse_metadataProperties,
+    describeModelPackageResponse_modelApprovalStatus,
+    describeModelPackageResponse_modelMetrics,
+    describeModelPackageResponse_modelPackageDescription,
+    describeModelPackageResponse_modelPackageGroupName,
+    describeModelPackageResponse_modelPackageVersion,
+    describeModelPackageResponse_samplePayloadUrl,
+    describeModelPackageResponse_sourceAlgorithmSpecification,
+    describeModelPackageResponse_task,
+    describeModelPackageResponse_validationSpecification,
     describeModelPackageResponse_httpStatus,
     describeModelPackageResponse_modelPackageName,
     describeModelPackageResponse_modelPackageArn,
@@ -124,28 +124,28 @@ instance Core.AWSRequest DescribeModelPackage where
     Response.receiveJSON
       ( \s h x ->
           DescribeModelPackageResponse'
-            Prelude.<$> (x Data..?> "ModelPackageVersion")
-            Prelude.<*> (x Data..?> "ModelPackageGroupName")
-            Prelude.<*> (x Data..?> "SourceAlgorithmSpecification")
-            Prelude.<*> (x Data..?> "ValidationSpecification")
-            Prelude.<*> (x Data..?> "SamplePayloadUrl")
-            Prelude.<*> (x Data..?> "Task")
-            Prelude.<*> (x Data..?> "CertifyForMarketplace")
-            Prelude.<*> (x Data..?> "InferenceSpecification")
-            Prelude.<*> (x Data..?> "ModelApprovalStatus")
-            Prelude.<*> (x Data..?> "MetadataProperties")
-            Prelude.<*> (x Data..?> "Domain")
-            Prelude.<*> (x Data..?> "ModelPackageDescription")
-            Prelude.<*> (x Data..?> "DriftCheckBaselines")
+            Prelude.<$> (x Data..?> "AdditionalInferenceSpecifications")
             Prelude.<*> (x Data..?> "ApprovalDescription")
-            Prelude.<*> (x Data..?> "LastModifiedTime")
-            Prelude.<*> (x Data..?> "ModelMetrics")
-            Prelude.<*> (x Data..?> "LastModifiedBy")
-            Prelude.<*> (x Data..?> "AdditionalInferenceSpecifications")
+            Prelude.<*> (x Data..?> "CertifyForMarketplace")
             Prelude.<*> (x Data..?> "CreatedBy")
             Prelude.<*> ( x Data..?> "CustomerMetadataProperties"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "Domain")
+            Prelude.<*> (x Data..?> "DriftCheckBaselines")
+            Prelude.<*> (x Data..?> "InferenceSpecification")
+            Prelude.<*> (x Data..?> "LastModifiedBy")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "MetadataProperties")
+            Prelude.<*> (x Data..?> "ModelApprovalStatus")
+            Prelude.<*> (x Data..?> "ModelMetrics")
+            Prelude.<*> (x Data..?> "ModelPackageDescription")
+            Prelude.<*> (x Data..?> "ModelPackageGroupName")
+            Prelude.<*> (x Data..?> "ModelPackageVersion")
+            Prelude.<*> (x Data..?> "SamplePayloadUrl")
+            Prelude.<*> (x Data..?> "SourceAlgorithmSpecification")
+            Prelude.<*> (x Data..?> "Task")
+            Prelude.<*> (x Data..?> "ValidationSpecification")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "ModelPackageName")
             Prelude.<*> (x Data..:> "ModelPackageArn")
@@ -194,60 +194,60 @@ instance Data.ToQuery DescribeModelPackage where
 
 -- | /See:/ 'newDescribeModelPackageResponse' smart constructor.
 data DescribeModelPackageResponse = DescribeModelPackageResponse'
-  { -- | The version of the model package.
-    modelPackageVersion :: Prelude.Maybe Prelude.Natural,
-    -- | If the model is a versioned model, the name of the model group that the
-    -- versioned model belongs to.
-    modelPackageGroupName :: Prelude.Maybe Prelude.Text,
-    -- | Details about the algorithm that was used to create the model package.
-    sourceAlgorithmSpecification :: Prelude.Maybe SourceAlgorithmSpecification,
-    -- | Configurations for one or more transform jobs that SageMaker runs to
-    -- test the model package.
-    validationSpecification :: Prelude.Maybe ModelPackageValidationSpecification,
-    -- | The Amazon Simple Storage Service (Amazon S3) path where the sample
-    -- payload are stored. This path points to a single gzip compressed tar
-    -- archive (.tar.gz suffix).
-    samplePayloadUrl :: Prelude.Maybe Prelude.Text,
-    -- | The machine learning task you specified that your model package
-    -- accomplishes. Common machine learning tasks include object detection and
-    -- image classification.
-    task :: Prelude.Maybe Prelude.Text,
+  { -- | An array of additional Inference Specification objects. Each additional
+    -- Inference Specification specifies artifacts based on this model package
+    -- that can be used on inference endpoints. Generally used with SageMaker
+    -- Neo to store the compiled artifacts.
+    additionalInferenceSpecifications :: Prelude.Maybe (Prelude.NonEmpty AdditionalInferenceSpecificationDefinition),
+    -- | A description provided for the model approval.
+    approvalDescription :: Prelude.Maybe Prelude.Text,
     -- | Whether the model package is certified for listing on Amazon Web
     -- Services Marketplace.
     certifyForMarketplace :: Prelude.Maybe Prelude.Bool,
-    -- | Details about inference jobs that can be run with models based on this
-    -- model package.
-    inferenceSpecification :: Prelude.Maybe InferenceSpecification,
-    -- | The approval status of the model package.
-    modelApprovalStatus :: Prelude.Maybe ModelApprovalStatus,
-    metadataProperties :: Prelude.Maybe MetadataProperties,
+    createdBy :: Prelude.Maybe UserContext,
+    -- | The metadata properties associated with the model package versions.
+    customerMetadataProperties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The machine learning domain of the model package you specified. Common
     -- machine learning domains include computer vision and natural language
     -- processing.
     domain :: Prelude.Maybe Prelude.Text,
-    -- | A brief summary of the model package.
-    modelPackageDescription :: Prelude.Maybe Prelude.Text,
     -- | Represents the drift check baselines that can be used when the model
     -- monitor is set using the model package. For more information, see the
     -- topic on
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines-quality-clarify-baseline-lifecycle.html#pipelines-quality-clarify-baseline-drift-detection Drift Detection against Previous Baselines in SageMaker Pipelines>
     -- in the /Amazon SageMaker Developer Guide/.
     driftCheckBaselines :: Prelude.Maybe DriftCheckBaselines,
-    -- | A description provided for the model approval.
-    approvalDescription :: Prelude.Maybe Prelude.Text,
+    -- | Details about inference jobs that can be run with models based on this
+    -- model package.
+    inferenceSpecification :: Prelude.Maybe InferenceSpecification,
+    lastModifiedBy :: Prelude.Maybe UserContext,
     -- | The last time that the model package was modified.
     lastModifiedTime :: Prelude.Maybe Data.POSIX,
+    metadataProperties :: Prelude.Maybe MetadataProperties,
+    -- | The approval status of the model package.
+    modelApprovalStatus :: Prelude.Maybe ModelApprovalStatus,
     -- | Metrics for the model.
     modelMetrics :: Prelude.Maybe ModelMetrics,
-    lastModifiedBy :: Prelude.Maybe UserContext,
-    -- | An array of additional Inference Specification objects. Each additional
-    -- Inference Specification specifies artifacts based on this model package
-    -- that can be used on inference endpoints. Generally used with SageMaker
-    -- Neo to store the compiled artifacts.
-    additionalInferenceSpecifications :: Prelude.Maybe (Prelude.NonEmpty AdditionalInferenceSpecificationDefinition),
-    createdBy :: Prelude.Maybe UserContext,
-    -- | The metadata properties associated with the model package versions.
-    customerMetadataProperties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A brief summary of the model package.
+    modelPackageDescription :: Prelude.Maybe Prelude.Text,
+    -- | If the model is a versioned model, the name of the model group that the
+    -- versioned model belongs to.
+    modelPackageGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The version of the model package.
+    modelPackageVersion :: Prelude.Maybe Prelude.Natural,
+    -- | The Amazon Simple Storage Service (Amazon S3) path where the sample
+    -- payload are stored. This path points to a single gzip compressed tar
+    -- archive (.tar.gz suffix).
+    samplePayloadUrl :: Prelude.Maybe Prelude.Text,
+    -- | Details about the algorithm that was used to create the model package.
+    sourceAlgorithmSpecification :: Prelude.Maybe SourceAlgorithmSpecification,
+    -- | The machine learning task you specified that your model package
+    -- accomplishes. Common machine learning tasks include object detection and
+    -- image classification.
+    task :: Prelude.Maybe Prelude.Text,
+    -- | Configurations for one or more transform jobs that SageMaker runs to
+    -- test the model package.
+    validationSpecification :: Prelude.Maybe ModelPackageValidationSpecification,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The name of the model package being described.
@@ -271,39 +271,23 @@ data DescribeModelPackageResponse = DescribeModelPackageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'modelPackageVersion', 'describeModelPackageResponse_modelPackageVersion' - The version of the model package.
+-- 'additionalInferenceSpecifications', 'describeModelPackageResponse_additionalInferenceSpecifications' - An array of additional Inference Specification objects. Each additional
+-- Inference Specification specifies artifacts based on this model package
+-- that can be used on inference endpoints. Generally used with SageMaker
+-- Neo to store the compiled artifacts.
 --
--- 'modelPackageGroupName', 'describeModelPackageResponse_modelPackageGroupName' - If the model is a versioned model, the name of the model group that the
--- versioned model belongs to.
---
--- 'sourceAlgorithmSpecification', 'describeModelPackageResponse_sourceAlgorithmSpecification' - Details about the algorithm that was used to create the model package.
---
--- 'validationSpecification', 'describeModelPackageResponse_validationSpecification' - Configurations for one or more transform jobs that SageMaker runs to
--- test the model package.
---
--- 'samplePayloadUrl', 'describeModelPackageResponse_samplePayloadUrl' - The Amazon Simple Storage Service (Amazon S3) path where the sample
--- payload are stored. This path points to a single gzip compressed tar
--- archive (.tar.gz suffix).
---
--- 'task', 'describeModelPackageResponse_task' - The machine learning task you specified that your model package
--- accomplishes. Common machine learning tasks include object detection and
--- image classification.
+-- 'approvalDescription', 'describeModelPackageResponse_approvalDescription' - A description provided for the model approval.
 --
 -- 'certifyForMarketplace', 'describeModelPackageResponse_certifyForMarketplace' - Whether the model package is certified for listing on Amazon Web
 -- Services Marketplace.
 --
--- 'inferenceSpecification', 'describeModelPackageResponse_inferenceSpecification' - Details about inference jobs that can be run with models based on this
--- model package.
+-- 'createdBy', 'describeModelPackageResponse_createdBy' - Undocumented member.
 --
--- 'modelApprovalStatus', 'describeModelPackageResponse_modelApprovalStatus' - The approval status of the model package.
---
--- 'metadataProperties', 'describeModelPackageResponse_metadataProperties' - Undocumented member.
+-- 'customerMetadataProperties', 'describeModelPackageResponse_customerMetadataProperties' - The metadata properties associated with the model package versions.
 --
 -- 'domain', 'describeModelPackageResponse_domain' - The machine learning domain of the model package you specified. Common
 -- machine learning domains include computer vision and natural language
 -- processing.
---
--- 'modelPackageDescription', 'describeModelPackageResponse_modelPackageDescription' - A brief summary of the model package.
 --
 -- 'driftCheckBaselines', 'describeModelPackageResponse_driftCheckBaselines' - Represents the drift check baselines that can be used when the model
 -- monitor is set using the model package. For more information, see the
@@ -311,22 +295,38 @@ data DescribeModelPackageResponse = DescribeModelPackageResponse'
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines-quality-clarify-baseline-lifecycle.html#pipelines-quality-clarify-baseline-drift-detection Drift Detection against Previous Baselines in SageMaker Pipelines>
 -- in the /Amazon SageMaker Developer Guide/.
 --
--- 'approvalDescription', 'describeModelPackageResponse_approvalDescription' - A description provided for the model approval.
---
--- 'lastModifiedTime', 'describeModelPackageResponse_lastModifiedTime' - The last time that the model package was modified.
---
--- 'modelMetrics', 'describeModelPackageResponse_modelMetrics' - Metrics for the model.
+-- 'inferenceSpecification', 'describeModelPackageResponse_inferenceSpecification' - Details about inference jobs that can be run with models based on this
+-- model package.
 --
 -- 'lastModifiedBy', 'describeModelPackageResponse_lastModifiedBy' - Undocumented member.
 --
--- 'additionalInferenceSpecifications', 'describeModelPackageResponse_additionalInferenceSpecifications' - An array of additional Inference Specification objects. Each additional
--- Inference Specification specifies artifacts based on this model package
--- that can be used on inference endpoints. Generally used with SageMaker
--- Neo to store the compiled artifacts.
+-- 'lastModifiedTime', 'describeModelPackageResponse_lastModifiedTime' - The last time that the model package was modified.
 --
--- 'createdBy', 'describeModelPackageResponse_createdBy' - Undocumented member.
+-- 'metadataProperties', 'describeModelPackageResponse_metadataProperties' - Undocumented member.
 --
--- 'customerMetadataProperties', 'describeModelPackageResponse_customerMetadataProperties' - The metadata properties associated with the model package versions.
+-- 'modelApprovalStatus', 'describeModelPackageResponse_modelApprovalStatus' - The approval status of the model package.
+--
+-- 'modelMetrics', 'describeModelPackageResponse_modelMetrics' - Metrics for the model.
+--
+-- 'modelPackageDescription', 'describeModelPackageResponse_modelPackageDescription' - A brief summary of the model package.
+--
+-- 'modelPackageGroupName', 'describeModelPackageResponse_modelPackageGroupName' - If the model is a versioned model, the name of the model group that the
+-- versioned model belongs to.
+--
+-- 'modelPackageVersion', 'describeModelPackageResponse_modelPackageVersion' - The version of the model package.
+--
+-- 'samplePayloadUrl', 'describeModelPackageResponse_samplePayloadUrl' - The Amazon Simple Storage Service (Amazon S3) path where the sample
+-- payload are stored. This path points to a single gzip compressed tar
+-- archive (.tar.gz suffix).
+--
+-- 'sourceAlgorithmSpecification', 'describeModelPackageResponse_sourceAlgorithmSpecification' - Details about the algorithm that was used to create the model package.
+--
+-- 'task', 'describeModelPackageResponse_task' - The machine learning task you specified that your model package
+-- accomplishes. Common machine learning tasks include object detection and
+-- image classification.
+--
+-- 'validationSpecification', 'describeModelPackageResponse_validationSpecification' - Configurations for one or more transform jobs that SageMaker runs to
+-- test the model package.
 --
 -- 'httpStatus', 'describeModelPackageResponse_httpStatus' - The response's http status code.
 --
@@ -361,29 +361,28 @@ newDescribeModelPackageResponse
   pModelPackageStatus_
   pModelPackageStatusDetails_ =
     DescribeModelPackageResponse'
-      { modelPackageVersion =
+      { additionalInferenceSpecifications =
           Prelude.Nothing,
-        modelPackageGroupName = Prelude.Nothing,
-        sourceAlgorithmSpecification =
-          Prelude.Nothing,
-        validationSpecification = Prelude.Nothing,
-        samplePayloadUrl = Prelude.Nothing,
-        task = Prelude.Nothing,
-        certifyForMarketplace = Prelude.Nothing,
-        inferenceSpecification = Prelude.Nothing,
-        modelApprovalStatus = Prelude.Nothing,
-        metadataProperties = Prelude.Nothing,
-        domain = Prelude.Nothing,
-        modelPackageDescription = Prelude.Nothing,
-        driftCheckBaselines = Prelude.Nothing,
         approvalDescription = Prelude.Nothing,
-        lastModifiedTime = Prelude.Nothing,
-        modelMetrics = Prelude.Nothing,
-        lastModifiedBy = Prelude.Nothing,
-        additionalInferenceSpecifications =
-          Prelude.Nothing,
+        certifyForMarketplace = Prelude.Nothing,
         createdBy = Prelude.Nothing,
         customerMetadataProperties = Prelude.Nothing,
+        domain = Prelude.Nothing,
+        driftCheckBaselines = Prelude.Nothing,
+        inferenceSpecification = Prelude.Nothing,
+        lastModifiedBy = Prelude.Nothing,
+        lastModifiedTime = Prelude.Nothing,
+        metadataProperties = Prelude.Nothing,
+        modelApprovalStatus = Prelude.Nothing,
+        modelMetrics = Prelude.Nothing,
+        modelPackageDescription = Prelude.Nothing,
+        modelPackageGroupName = Prelude.Nothing,
+        modelPackageVersion = Prelude.Nothing,
+        samplePayloadUrl = Prelude.Nothing,
+        sourceAlgorithmSpecification =
+          Prelude.Nothing,
+        task = Prelude.Nothing,
+        validationSpecification = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         modelPackageName = pModelPackageName_,
         modelPackageArn = pModelPackageArn_,
@@ -394,63 +393,35 @@ newDescribeModelPackageResponse
           pModelPackageStatusDetails_
       }
 
--- | The version of the model package.
-describeModelPackageResponse_modelPackageVersion :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe Prelude.Natural)
-describeModelPackageResponse_modelPackageVersion = Lens.lens (\DescribeModelPackageResponse' {modelPackageVersion} -> modelPackageVersion) (\s@DescribeModelPackageResponse' {} a -> s {modelPackageVersion = a} :: DescribeModelPackageResponse)
+-- | An array of additional Inference Specification objects. Each additional
+-- Inference Specification specifies artifacts based on this model package
+-- that can be used on inference endpoints. Generally used with SageMaker
+-- Neo to store the compiled artifacts.
+describeModelPackageResponse_additionalInferenceSpecifications :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe (Prelude.NonEmpty AdditionalInferenceSpecificationDefinition))
+describeModelPackageResponse_additionalInferenceSpecifications = Lens.lens (\DescribeModelPackageResponse' {additionalInferenceSpecifications} -> additionalInferenceSpecifications) (\s@DescribeModelPackageResponse' {} a -> s {additionalInferenceSpecifications = a} :: DescribeModelPackageResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | If the model is a versioned model, the name of the model group that the
--- versioned model belongs to.
-describeModelPackageResponse_modelPackageGroupName :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe Prelude.Text)
-describeModelPackageResponse_modelPackageGroupName = Lens.lens (\DescribeModelPackageResponse' {modelPackageGroupName} -> modelPackageGroupName) (\s@DescribeModelPackageResponse' {} a -> s {modelPackageGroupName = a} :: DescribeModelPackageResponse)
-
--- | Details about the algorithm that was used to create the model package.
-describeModelPackageResponse_sourceAlgorithmSpecification :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe SourceAlgorithmSpecification)
-describeModelPackageResponse_sourceAlgorithmSpecification = Lens.lens (\DescribeModelPackageResponse' {sourceAlgorithmSpecification} -> sourceAlgorithmSpecification) (\s@DescribeModelPackageResponse' {} a -> s {sourceAlgorithmSpecification = a} :: DescribeModelPackageResponse)
-
--- | Configurations for one or more transform jobs that SageMaker runs to
--- test the model package.
-describeModelPackageResponse_validationSpecification :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe ModelPackageValidationSpecification)
-describeModelPackageResponse_validationSpecification = Lens.lens (\DescribeModelPackageResponse' {validationSpecification} -> validationSpecification) (\s@DescribeModelPackageResponse' {} a -> s {validationSpecification = a} :: DescribeModelPackageResponse)
-
--- | The Amazon Simple Storage Service (Amazon S3) path where the sample
--- payload are stored. This path points to a single gzip compressed tar
--- archive (.tar.gz suffix).
-describeModelPackageResponse_samplePayloadUrl :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe Prelude.Text)
-describeModelPackageResponse_samplePayloadUrl = Lens.lens (\DescribeModelPackageResponse' {samplePayloadUrl} -> samplePayloadUrl) (\s@DescribeModelPackageResponse' {} a -> s {samplePayloadUrl = a} :: DescribeModelPackageResponse)
-
--- | The machine learning task you specified that your model package
--- accomplishes. Common machine learning tasks include object detection and
--- image classification.
-describeModelPackageResponse_task :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe Prelude.Text)
-describeModelPackageResponse_task = Lens.lens (\DescribeModelPackageResponse' {task} -> task) (\s@DescribeModelPackageResponse' {} a -> s {task = a} :: DescribeModelPackageResponse)
+-- | A description provided for the model approval.
+describeModelPackageResponse_approvalDescription :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe Prelude.Text)
+describeModelPackageResponse_approvalDescription = Lens.lens (\DescribeModelPackageResponse' {approvalDescription} -> approvalDescription) (\s@DescribeModelPackageResponse' {} a -> s {approvalDescription = a} :: DescribeModelPackageResponse)
 
 -- | Whether the model package is certified for listing on Amazon Web
 -- Services Marketplace.
 describeModelPackageResponse_certifyForMarketplace :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe Prelude.Bool)
 describeModelPackageResponse_certifyForMarketplace = Lens.lens (\DescribeModelPackageResponse' {certifyForMarketplace} -> certifyForMarketplace) (\s@DescribeModelPackageResponse' {} a -> s {certifyForMarketplace = a} :: DescribeModelPackageResponse)
 
--- | Details about inference jobs that can be run with models based on this
--- model package.
-describeModelPackageResponse_inferenceSpecification :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe InferenceSpecification)
-describeModelPackageResponse_inferenceSpecification = Lens.lens (\DescribeModelPackageResponse' {inferenceSpecification} -> inferenceSpecification) (\s@DescribeModelPackageResponse' {} a -> s {inferenceSpecification = a} :: DescribeModelPackageResponse)
-
--- | The approval status of the model package.
-describeModelPackageResponse_modelApprovalStatus :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe ModelApprovalStatus)
-describeModelPackageResponse_modelApprovalStatus = Lens.lens (\DescribeModelPackageResponse' {modelApprovalStatus} -> modelApprovalStatus) (\s@DescribeModelPackageResponse' {} a -> s {modelApprovalStatus = a} :: DescribeModelPackageResponse)
-
 -- | Undocumented member.
-describeModelPackageResponse_metadataProperties :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe MetadataProperties)
-describeModelPackageResponse_metadataProperties = Lens.lens (\DescribeModelPackageResponse' {metadataProperties} -> metadataProperties) (\s@DescribeModelPackageResponse' {} a -> s {metadataProperties = a} :: DescribeModelPackageResponse)
+describeModelPackageResponse_createdBy :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe UserContext)
+describeModelPackageResponse_createdBy = Lens.lens (\DescribeModelPackageResponse' {createdBy} -> createdBy) (\s@DescribeModelPackageResponse' {} a -> s {createdBy = a} :: DescribeModelPackageResponse)
+
+-- | The metadata properties associated with the model package versions.
+describeModelPackageResponse_customerMetadataProperties :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+describeModelPackageResponse_customerMetadataProperties = Lens.lens (\DescribeModelPackageResponse' {customerMetadataProperties} -> customerMetadataProperties) (\s@DescribeModelPackageResponse' {} a -> s {customerMetadataProperties = a} :: DescribeModelPackageResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The machine learning domain of the model package you specified. Common
 -- machine learning domains include computer vision and natural language
 -- processing.
 describeModelPackageResponse_domain :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe Prelude.Text)
 describeModelPackageResponse_domain = Lens.lens (\DescribeModelPackageResponse' {domain} -> domain) (\s@DescribeModelPackageResponse' {} a -> s {domain = a} :: DescribeModelPackageResponse)
-
--- | A brief summary of the model package.
-describeModelPackageResponse_modelPackageDescription :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe Prelude.Text)
-describeModelPackageResponse_modelPackageDescription = Lens.lens (\DescribeModelPackageResponse' {modelPackageDescription} -> modelPackageDescription) (\s@DescribeModelPackageResponse' {} a -> s {modelPackageDescription = a} :: DescribeModelPackageResponse)
 
 -- | Represents the drift check baselines that can be used when the model
 -- monitor is set using the model package. For more information, see the
@@ -460,36 +431,64 @@ describeModelPackageResponse_modelPackageDescription = Lens.lens (\DescribeModel
 describeModelPackageResponse_driftCheckBaselines :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe DriftCheckBaselines)
 describeModelPackageResponse_driftCheckBaselines = Lens.lens (\DescribeModelPackageResponse' {driftCheckBaselines} -> driftCheckBaselines) (\s@DescribeModelPackageResponse' {} a -> s {driftCheckBaselines = a} :: DescribeModelPackageResponse)
 
--- | A description provided for the model approval.
-describeModelPackageResponse_approvalDescription :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe Prelude.Text)
-describeModelPackageResponse_approvalDescription = Lens.lens (\DescribeModelPackageResponse' {approvalDescription} -> approvalDescription) (\s@DescribeModelPackageResponse' {} a -> s {approvalDescription = a} :: DescribeModelPackageResponse)
-
--- | The last time that the model package was modified.
-describeModelPackageResponse_lastModifiedTime :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe Prelude.UTCTime)
-describeModelPackageResponse_lastModifiedTime = Lens.lens (\DescribeModelPackageResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeModelPackageResponse' {} a -> s {lastModifiedTime = a} :: DescribeModelPackageResponse) Prelude.. Lens.mapping Data._Time
-
--- | Metrics for the model.
-describeModelPackageResponse_modelMetrics :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe ModelMetrics)
-describeModelPackageResponse_modelMetrics = Lens.lens (\DescribeModelPackageResponse' {modelMetrics} -> modelMetrics) (\s@DescribeModelPackageResponse' {} a -> s {modelMetrics = a} :: DescribeModelPackageResponse)
+-- | Details about inference jobs that can be run with models based on this
+-- model package.
+describeModelPackageResponse_inferenceSpecification :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe InferenceSpecification)
+describeModelPackageResponse_inferenceSpecification = Lens.lens (\DescribeModelPackageResponse' {inferenceSpecification} -> inferenceSpecification) (\s@DescribeModelPackageResponse' {} a -> s {inferenceSpecification = a} :: DescribeModelPackageResponse)
 
 -- | Undocumented member.
 describeModelPackageResponse_lastModifiedBy :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe UserContext)
 describeModelPackageResponse_lastModifiedBy = Lens.lens (\DescribeModelPackageResponse' {lastModifiedBy} -> lastModifiedBy) (\s@DescribeModelPackageResponse' {} a -> s {lastModifiedBy = a} :: DescribeModelPackageResponse)
 
--- | An array of additional Inference Specification objects. Each additional
--- Inference Specification specifies artifacts based on this model package
--- that can be used on inference endpoints. Generally used with SageMaker
--- Neo to store the compiled artifacts.
-describeModelPackageResponse_additionalInferenceSpecifications :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe (Prelude.NonEmpty AdditionalInferenceSpecificationDefinition))
-describeModelPackageResponse_additionalInferenceSpecifications = Lens.lens (\DescribeModelPackageResponse' {additionalInferenceSpecifications} -> additionalInferenceSpecifications) (\s@DescribeModelPackageResponse' {} a -> s {additionalInferenceSpecifications = a} :: DescribeModelPackageResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The last time that the model package was modified.
+describeModelPackageResponse_lastModifiedTime :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe Prelude.UTCTime)
+describeModelPackageResponse_lastModifiedTime = Lens.lens (\DescribeModelPackageResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeModelPackageResponse' {} a -> s {lastModifiedTime = a} :: DescribeModelPackageResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
-describeModelPackageResponse_createdBy :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe UserContext)
-describeModelPackageResponse_createdBy = Lens.lens (\DescribeModelPackageResponse' {createdBy} -> createdBy) (\s@DescribeModelPackageResponse' {} a -> s {createdBy = a} :: DescribeModelPackageResponse)
+describeModelPackageResponse_metadataProperties :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe MetadataProperties)
+describeModelPackageResponse_metadataProperties = Lens.lens (\DescribeModelPackageResponse' {metadataProperties} -> metadataProperties) (\s@DescribeModelPackageResponse' {} a -> s {metadataProperties = a} :: DescribeModelPackageResponse)
 
--- | The metadata properties associated with the model package versions.
-describeModelPackageResponse_customerMetadataProperties :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-describeModelPackageResponse_customerMetadataProperties = Lens.lens (\DescribeModelPackageResponse' {customerMetadataProperties} -> customerMetadataProperties) (\s@DescribeModelPackageResponse' {} a -> s {customerMetadataProperties = a} :: DescribeModelPackageResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The approval status of the model package.
+describeModelPackageResponse_modelApprovalStatus :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe ModelApprovalStatus)
+describeModelPackageResponse_modelApprovalStatus = Lens.lens (\DescribeModelPackageResponse' {modelApprovalStatus} -> modelApprovalStatus) (\s@DescribeModelPackageResponse' {} a -> s {modelApprovalStatus = a} :: DescribeModelPackageResponse)
+
+-- | Metrics for the model.
+describeModelPackageResponse_modelMetrics :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe ModelMetrics)
+describeModelPackageResponse_modelMetrics = Lens.lens (\DescribeModelPackageResponse' {modelMetrics} -> modelMetrics) (\s@DescribeModelPackageResponse' {} a -> s {modelMetrics = a} :: DescribeModelPackageResponse)
+
+-- | A brief summary of the model package.
+describeModelPackageResponse_modelPackageDescription :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe Prelude.Text)
+describeModelPackageResponse_modelPackageDescription = Lens.lens (\DescribeModelPackageResponse' {modelPackageDescription} -> modelPackageDescription) (\s@DescribeModelPackageResponse' {} a -> s {modelPackageDescription = a} :: DescribeModelPackageResponse)
+
+-- | If the model is a versioned model, the name of the model group that the
+-- versioned model belongs to.
+describeModelPackageResponse_modelPackageGroupName :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe Prelude.Text)
+describeModelPackageResponse_modelPackageGroupName = Lens.lens (\DescribeModelPackageResponse' {modelPackageGroupName} -> modelPackageGroupName) (\s@DescribeModelPackageResponse' {} a -> s {modelPackageGroupName = a} :: DescribeModelPackageResponse)
+
+-- | The version of the model package.
+describeModelPackageResponse_modelPackageVersion :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe Prelude.Natural)
+describeModelPackageResponse_modelPackageVersion = Lens.lens (\DescribeModelPackageResponse' {modelPackageVersion} -> modelPackageVersion) (\s@DescribeModelPackageResponse' {} a -> s {modelPackageVersion = a} :: DescribeModelPackageResponse)
+
+-- | The Amazon Simple Storage Service (Amazon S3) path where the sample
+-- payload are stored. This path points to a single gzip compressed tar
+-- archive (.tar.gz suffix).
+describeModelPackageResponse_samplePayloadUrl :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe Prelude.Text)
+describeModelPackageResponse_samplePayloadUrl = Lens.lens (\DescribeModelPackageResponse' {samplePayloadUrl} -> samplePayloadUrl) (\s@DescribeModelPackageResponse' {} a -> s {samplePayloadUrl = a} :: DescribeModelPackageResponse)
+
+-- | Details about the algorithm that was used to create the model package.
+describeModelPackageResponse_sourceAlgorithmSpecification :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe SourceAlgorithmSpecification)
+describeModelPackageResponse_sourceAlgorithmSpecification = Lens.lens (\DescribeModelPackageResponse' {sourceAlgorithmSpecification} -> sourceAlgorithmSpecification) (\s@DescribeModelPackageResponse' {} a -> s {sourceAlgorithmSpecification = a} :: DescribeModelPackageResponse)
+
+-- | The machine learning task you specified that your model package
+-- accomplishes. Common machine learning tasks include object detection and
+-- image classification.
+describeModelPackageResponse_task :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe Prelude.Text)
+describeModelPackageResponse_task = Lens.lens (\DescribeModelPackageResponse' {task} -> task) (\s@DescribeModelPackageResponse' {} a -> s {task = a} :: DescribeModelPackageResponse)
+
+-- | Configurations for one or more transform jobs that SageMaker runs to
+-- test the model package.
+describeModelPackageResponse_validationSpecification :: Lens.Lens' DescribeModelPackageResponse (Prelude.Maybe ModelPackageValidationSpecification)
+describeModelPackageResponse_validationSpecification = Lens.lens (\DescribeModelPackageResponse' {validationSpecification} -> validationSpecification) (\s@DescribeModelPackageResponse' {} a -> s {validationSpecification = a} :: DescribeModelPackageResponse)
 
 -- | The response's http status code.
 describeModelPackageResponse_httpStatus :: Lens.Lens' DescribeModelPackageResponse Prelude.Int
@@ -517,28 +516,28 @@ describeModelPackageResponse_modelPackageStatusDetails = Lens.lens (\DescribeMod
 
 instance Prelude.NFData DescribeModelPackageResponse where
   rnf DescribeModelPackageResponse' {..} =
-    Prelude.rnf modelPackageVersion
-      `Prelude.seq` Prelude.rnf modelPackageGroupName
-      `Prelude.seq` Prelude.rnf sourceAlgorithmSpecification
-      `Prelude.seq` Prelude.rnf validationSpecification
-      `Prelude.seq` Prelude.rnf samplePayloadUrl
-      `Prelude.seq` Prelude.rnf task
-      `Prelude.seq` Prelude.rnf certifyForMarketplace
-      `Prelude.seq` Prelude.rnf inferenceSpecification
-      `Prelude.seq` Prelude.rnf modelApprovalStatus
-      `Prelude.seq` Prelude.rnf metadataProperties
-      `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf modelPackageDescription
-      `Prelude.seq` Prelude.rnf driftCheckBaselines
+    Prelude.rnf additionalInferenceSpecifications
       `Prelude.seq` Prelude.rnf approvalDescription
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf modelMetrics
-      `Prelude.seq` Prelude.rnf lastModifiedBy
-      `Prelude.seq` Prelude.rnf
-        additionalInferenceSpecifications
+      `Prelude.seq` Prelude.rnf certifyForMarketplace
       `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf customerMetadataProperties
+      `Prelude.seq` Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf driftCheckBaselines
+      `Prelude.seq` Prelude.rnf inferenceSpecification
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf metadataProperties
+      `Prelude.seq` Prelude.rnf modelApprovalStatus
+      `Prelude.seq` Prelude.rnf modelMetrics
+      `Prelude.seq` Prelude.rnf modelPackageDescription
+      `Prelude.seq` Prelude.rnf modelPackageGroupName
+      `Prelude.seq` Prelude.rnf modelPackageVersion
+      `Prelude.seq` Prelude.rnf samplePayloadUrl
       `Prelude.seq` Prelude.rnf
-        customerMetadataProperties
+        sourceAlgorithmSpecification
+      `Prelude.seq` Prelude.rnf task
+      `Prelude.seq` Prelude.rnf
+        validationSpecification
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf
         modelPackageName

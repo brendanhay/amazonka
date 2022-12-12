@@ -32,7 +32,7 @@ data AssetDestinationEntry = AssetDestinationEntry'
     key :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the asset.
     assetId :: Prelude.Text,
-    -- | The S3 bucket that is the destination for the asset.
+    -- | The Amazon S3 bucket that is the destination for the asset.
     bucket :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -49,7 +49,7 @@ data AssetDestinationEntry = AssetDestinationEntry'
 --
 -- 'assetId', 'assetDestinationEntry_assetId' - The unique identifier for the asset.
 --
--- 'bucket', 'assetDestinationEntry_bucket' - The S3 bucket that is the destination for the asset.
+-- 'bucket', 'assetDestinationEntry_bucket' - The Amazon S3 bucket that is the destination for the asset.
 newAssetDestinationEntry ::
   -- | 'assetId'
   Prelude.Text ->
@@ -71,7 +71,7 @@ assetDestinationEntry_key = Lens.lens (\AssetDestinationEntry' {key} -> key) (\s
 assetDestinationEntry_assetId :: Lens.Lens' AssetDestinationEntry Prelude.Text
 assetDestinationEntry_assetId = Lens.lens (\AssetDestinationEntry' {assetId} -> assetId) (\s@AssetDestinationEntry' {} a -> s {assetId = a} :: AssetDestinationEntry)
 
--- | The S3 bucket that is the destination for the asset.
+-- | The Amazon S3 bucket that is the destination for the asset.
 assetDestinationEntry_bucket :: Lens.Lens' AssetDestinationEntry Prelude.Text
 assetDestinationEntry_bucket = Lens.lens (\AssetDestinationEntry' {bucket} -> bucket) (\s@AssetDestinationEntry' {} a -> s {bucket = a} :: AssetDestinationEntry)
 

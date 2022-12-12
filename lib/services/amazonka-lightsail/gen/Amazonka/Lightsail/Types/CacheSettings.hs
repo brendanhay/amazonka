@@ -55,6 +55,16 @@ data CacheSettings = CacheSettings'
     -- don\'t want them to. For example, you might not want users to have
     -- permission to delete objects from your origin.
     allowedHTTPMethods :: Prelude.Maybe Prelude.Text,
+    -- | The HTTP method responses that are cached by your distribution.
+    --
+    -- You can specify the following options:
+    --
+    -- -   @GET,HEAD@ - The distribution caches responses to the @GET@ and
+    --     @HEAD@ methods.
+    --
+    -- -   @GET,HEAD,OPTIONS@ - The distribution caches responses to the @GET@,
+    --     @HEAD@, and @OPTIONS@ methods.
+    cachedHTTPMethods :: Prelude.Maybe Prelude.Text,
     -- | The default amount of time that objects stay in the distribution\'s
     -- cache before the distribution forwards another request to the origin to
     -- determine whether the content has been updated.
@@ -66,6 +76,13 @@ data CacheSettings = CacheSettings'
     -- | An object that describes the cookies that are forwarded to the origin.
     -- Your content is cached based on the cookies that are forwarded.
     forwardedCookies :: Prelude.Maybe CookieObject,
+    -- | An object that describes the headers that are forwarded to the origin.
+    -- Your content is cached based on the headers that are forwarded.
+    forwardedHeaders :: Prelude.Maybe HeaderObject,
+    -- | An object that describes the query strings that are forwarded to the
+    -- origin. Your content is cached based on the query strings that are
+    -- forwarded.
+    forwardedQueryStrings :: Prelude.Maybe QueryStringObject,
     -- | The maximum amount of time that objects stay in the distribution\'s
     -- cache before the distribution forwards another request to the origin to
     -- determine whether the object has been updated.
@@ -74,23 +91,6 @@ data CacheSettings = CacheSettings'
     -- as @Cache-Control max-age@, @Cache-Control s-maxage@, and @Expires@ to
     -- objects.
     maximumTTL :: Prelude.Maybe Prelude.Integer,
-    -- | The HTTP method responses that are cached by your distribution.
-    --
-    -- You can specify the following options:
-    --
-    -- -   @GET,HEAD@ - The distribution caches responses to the @GET@ and
-    --     @HEAD@ methods.
-    --
-    -- -   @GET,HEAD,OPTIONS@ - The distribution caches responses to the @GET@,
-    --     @HEAD@, and @OPTIONS@ methods.
-    cachedHTTPMethods :: Prelude.Maybe Prelude.Text,
-    -- | An object that describes the query strings that are forwarded to the
-    -- origin. Your content is cached based on the query strings that are
-    -- forwarded.
-    forwardedQueryStrings :: Prelude.Maybe QueryStringObject,
-    -- | An object that describes the headers that are forwarded to the origin.
-    -- Your content is cached based on the headers that are forwarded.
-    forwardedHeaders :: Prelude.Maybe HeaderObject,
     -- | The minimum amount of time that objects stay in the distribution\'s
     -- cache before the distribution forwards another request to the origin to
     -- determine whether the object has been updated.
@@ -128,6 +128,16 @@ data CacheSettings = CacheSettings'
 -- don\'t want them to. For example, you might not want users to have
 -- permission to delete objects from your origin.
 --
+-- 'cachedHTTPMethods', 'cacheSettings_cachedHTTPMethods' - The HTTP method responses that are cached by your distribution.
+--
+-- You can specify the following options:
+--
+-- -   @GET,HEAD@ - The distribution caches responses to the @GET@ and
+--     @HEAD@ methods.
+--
+-- -   @GET,HEAD,OPTIONS@ - The distribution caches responses to the @GET@,
+--     @HEAD@, and @OPTIONS@ methods.
+--
 -- 'defaultTTL', 'cacheSettings_defaultTTL' - The default amount of time that objects stay in the distribution\'s
 -- cache before the distribution forwards another request to the origin to
 -- determine whether the content has been updated.
@@ -139,6 +149,13 @@ data CacheSettings = CacheSettings'
 -- 'forwardedCookies', 'cacheSettings_forwardedCookies' - An object that describes the cookies that are forwarded to the origin.
 -- Your content is cached based on the cookies that are forwarded.
 --
+-- 'forwardedHeaders', 'cacheSettings_forwardedHeaders' - An object that describes the headers that are forwarded to the origin.
+-- Your content is cached based on the headers that are forwarded.
+--
+-- 'forwardedQueryStrings', 'cacheSettings_forwardedQueryStrings' - An object that describes the query strings that are forwarded to the
+-- origin. Your content is cached based on the query strings that are
+-- forwarded.
+--
 -- 'maximumTTL', 'cacheSettings_maximumTTL' - The maximum amount of time that objects stay in the distribution\'s
 -- cache before the distribution forwards another request to the origin to
 -- determine whether the object has been updated.
@@ -146,23 +163,6 @@ data CacheSettings = CacheSettings'
 -- The value specified applies only when the origin adds HTTP headers such
 -- as @Cache-Control max-age@, @Cache-Control s-maxage@, and @Expires@ to
 -- objects.
---
--- 'cachedHTTPMethods', 'cacheSettings_cachedHTTPMethods' - The HTTP method responses that are cached by your distribution.
---
--- You can specify the following options:
---
--- -   @GET,HEAD@ - The distribution caches responses to the @GET@ and
---     @HEAD@ methods.
---
--- -   @GET,HEAD,OPTIONS@ - The distribution caches responses to the @GET@,
---     @HEAD@, and @OPTIONS@ methods.
---
--- 'forwardedQueryStrings', 'cacheSettings_forwardedQueryStrings' - An object that describes the query strings that are forwarded to the
--- origin. Your content is cached based on the query strings that are
--- forwarded.
---
--- 'forwardedHeaders', 'cacheSettings_forwardedHeaders' - An object that describes the headers that are forwarded to the origin.
--- Your content is cached based on the headers that are forwarded.
 --
 -- 'minimumTTL', 'cacheSettings_minimumTTL' - The minimum amount of time that objects stay in the distribution\'s
 -- cache before the distribution forwards another request to the origin to
@@ -176,12 +176,12 @@ newCacheSettings =
   CacheSettings'
     { allowedHTTPMethods =
         Prelude.Nothing,
+      cachedHTTPMethods = Prelude.Nothing,
       defaultTTL = Prelude.Nothing,
       forwardedCookies = Prelude.Nothing,
-      maximumTTL = Prelude.Nothing,
-      cachedHTTPMethods = Prelude.Nothing,
-      forwardedQueryStrings = Prelude.Nothing,
       forwardedHeaders = Prelude.Nothing,
+      forwardedQueryStrings = Prelude.Nothing,
+      maximumTTL = Prelude.Nothing,
       minimumTTL = Prelude.Nothing
     }
 
@@ -206,6 +206,18 @@ newCacheSettings =
 cacheSettings_allowedHTTPMethods :: Lens.Lens' CacheSettings (Prelude.Maybe Prelude.Text)
 cacheSettings_allowedHTTPMethods = Lens.lens (\CacheSettings' {allowedHTTPMethods} -> allowedHTTPMethods) (\s@CacheSettings' {} a -> s {allowedHTTPMethods = a} :: CacheSettings)
 
+-- | The HTTP method responses that are cached by your distribution.
+--
+-- You can specify the following options:
+--
+-- -   @GET,HEAD@ - The distribution caches responses to the @GET@ and
+--     @HEAD@ methods.
+--
+-- -   @GET,HEAD,OPTIONS@ - The distribution caches responses to the @GET@,
+--     @HEAD@, and @OPTIONS@ methods.
+cacheSettings_cachedHTTPMethods :: Lens.Lens' CacheSettings (Prelude.Maybe Prelude.Text)
+cacheSettings_cachedHTTPMethods = Lens.lens (\CacheSettings' {cachedHTTPMethods} -> cachedHTTPMethods) (\s@CacheSettings' {} a -> s {cachedHTTPMethods = a} :: CacheSettings)
+
 -- | The default amount of time that objects stay in the distribution\'s
 -- cache before the distribution forwards another request to the origin to
 -- determine whether the content has been updated.
@@ -221,6 +233,17 @@ cacheSettings_defaultTTL = Lens.lens (\CacheSettings' {defaultTTL} -> defaultTTL
 cacheSettings_forwardedCookies :: Lens.Lens' CacheSettings (Prelude.Maybe CookieObject)
 cacheSettings_forwardedCookies = Lens.lens (\CacheSettings' {forwardedCookies} -> forwardedCookies) (\s@CacheSettings' {} a -> s {forwardedCookies = a} :: CacheSettings)
 
+-- | An object that describes the headers that are forwarded to the origin.
+-- Your content is cached based on the headers that are forwarded.
+cacheSettings_forwardedHeaders :: Lens.Lens' CacheSettings (Prelude.Maybe HeaderObject)
+cacheSettings_forwardedHeaders = Lens.lens (\CacheSettings' {forwardedHeaders} -> forwardedHeaders) (\s@CacheSettings' {} a -> s {forwardedHeaders = a} :: CacheSettings)
+
+-- | An object that describes the query strings that are forwarded to the
+-- origin. Your content is cached based on the query strings that are
+-- forwarded.
+cacheSettings_forwardedQueryStrings :: Lens.Lens' CacheSettings (Prelude.Maybe QueryStringObject)
+cacheSettings_forwardedQueryStrings = Lens.lens (\CacheSettings' {forwardedQueryStrings} -> forwardedQueryStrings) (\s@CacheSettings' {} a -> s {forwardedQueryStrings = a} :: CacheSettings)
+
 -- | The maximum amount of time that objects stay in the distribution\'s
 -- cache before the distribution forwards another request to the origin to
 -- determine whether the object has been updated.
@@ -230,29 +253,6 @@ cacheSettings_forwardedCookies = Lens.lens (\CacheSettings' {forwardedCookies} -
 -- objects.
 cacheSettings_maximumTTL :: Lens.Lens' CacheSettings (Prelude.Maybe Prelude.Integer)
 cacheSettings_maximumTTL = Lens.lens (\CacheSettings' {maximumTTL} -> maximumTTL) (\s@CacheSettings' {} a -> s {maximumTTL = a} :: CacheSettings)
-
--- | The HTTP method responses that are cached by your distribution.
---
--- You can specify the following options:
---
--- -   @GET,HEAD@ - The distribution caches responses to the @GET@ and
---     @HEAD@ methods.
---
--- -   @GET,HEAD,OPTIONS@ - The distribution caches responses to the @GET@,
---     @HEAD@, and @OPTIONS@ methods.
-cacheSettings_cachedHTTPMethods :: Lens.Lens' CacheSettings (Prelude.Maybe Prelude.Text)
-cacheSettings_cachedHTTPMethods = Lens.lens (\CacheSettings' {cachedHTTPMethods} -> cachedHTTPMethods) (\s@CacheSettings' {} a -> s {cachedHTTPMethods = a} :: CacheSettings)
-
--- | An object that describes the query strings that are forwarded to the
--- origin. Your content is cached based on the query strings that are
--- forwarded.
-cacheSettings_forwardedQueryStrings :: Lens.Lens' CacheSettings (Prelude.Maybe QueryStringObject)
-cacheSettings_forwardedQueryStrings = Lens.lens (\CacheSettings' {forwardedQueryStrings} -> forwardedQueryStrings) (\s@CacheSettings' {} a -> s {forwardedQueryStrings = a} :: CacheSettings)
-
--- | An object that describes the headers that are forwarded to the origin.
--- Your content is cached based on the headers that are forwarded.
-cacheSettings_forwardedHeaders :: Lens.Lens' CacheSettings (Prelude.Maybe HeaderObject)
-cacheSettings_forwardedHeaders = Lens.lens (\CacheSettings' {forwardedHeaders} -> forwardedHeaders) (\s@CacheSettings' {} a -> s {forwardedHeaders = a} :: CacheSettings)
 
 -- | The minimum amount of time that objects stay in the distribution\'s
 -- cache before the distribution forwards another request to the origin to
@@ -270,35 +270,35 @@ instance Data.FromJSON CacheSettings where
       ( \x ->
           CacheSettings'
             Prelude.<$> (x Data..:? "allowedHTTPMethods")
+            Prelude.<*> (x Data..:? "cachedHTTPMethods")
             Prelude.<*> (x Data..:? "defaultTTL")
             Prelude.<*> (x Data..:? "forwardedCookies")
-            Prelude.<*> (x Data..:? "maximumTTL")
-            Prelude.<*> (x Data..:? "cachedHTTPMethods")
-            Prelude.<*> (x Data..:? "forwardedQueryStrings")
             Prelude.<*> (x Data..:? "forwardedHeaders")
+            Prelude.<*> (x Data..:? "forwardedQueryStrings")
+            Prelude.<*> (x Data..:? "maximumTTL")
             Prelude.<*> (x Data..:? "minimumTTL")
       )
 
 instance Prelude.Hashable CacheSettings where
   hashWithSalt _salt CacheSettings' {..} =
     _salt `Prelude.hashWithSalt` allowedHTTPMethods
+      `Prelude.hashWithSalt` cachedHTTPMethods
       `Prelude.hashWithSalt` defaultTTL
       `Prelude.hashWithSalt` forwardedCookies
-      `Prelude.hashWithSalt` maximumTTL
-      `Prelude.hashWithSalt` cachedHTTPMethods
-      `Prelude.hashWithSalt` forwardedQueryStrings
       `Prelude.hashWithSalt` forwardedHeaders
+      `Prelude.hashWithSalt` forwardedQueryStrings
+      `Prelude.hashWithSalt` maximumTTL
       `Prelude.hashWithSalt` minimumTTL
 
 instance Prelude.NFData CacheSettings where
   rnf CacheSettings' {..} =
     Prelude.rnf allowedHTTPMethods
+      `Prelude.seq` Prelude.rnf cachedHTTPMethods
       `Prelude.seq` Prelude.rnf defaultTTL
       `Prelude.seq` Prelude.rnf forwardedCookies
-      `Prelude.seq` Prelude.rnf maximumTTL
-      `Prelude.seq` Prelude.rnf cachedHTTPMethods
-      `Prelude.seq` Prelude.rnf forwardedQueryStrings
       `Prelude.seq` Prelude.rnf forwardedHeaders
+      `Prelude.seq` Prelude.rnf forwardedQueryStrings
+      `Prelude.seq` Prelude.rnf maximumTTL
       `Prelude.seq` Prelude.rnf minimumTTL
 
 instance Data.ToJSON CacheSettings where
@@ -307,16 +307,16 @@ instance Data.ToJSON CacheSettings where
       ( Prelude.catMaybes
           [ ("allowedHTTPMethods" Data..=)
               Prelude.<$> allowedHTTPMethods,
+            ("cachedHTTPMethods" Data..=)
+              Prelude.<$> cachedHTTPMethods,
             ("defaultTTL" Data..=) Prelude.<$> defaultTTL,
             ("forwardedCookies" Data..=)
               Prelude.<$> forwardedCookies,
-            ("maximumTTL" Data..=) Prelude.<$> maximumTTL,
-            ("cachedHTTPMethods" Data..=)
-              Prelude.<$> cachedHTTPMethods,
-            ("forwardedQueryStrings" Data..=)
-              Prelude.<$> forwardedQueryStrings,
             ("forwardedHeaders" Data..=)
               Prelude.<$> forwardedHeaders,
+            ("forwardedQueryStrings" Data..=)
+              Prelude.<$> forwardedQueryStrings,
+            ("maximumTTL" Data..=) Prelude.<$> maximumTTL,
             ("minimumTTL" Data..=) Prelude.<$> minimumTTL
           ]
       )

@@ -36,9 +36,9 @@ module Amazonka.LexModels.GetBuiltinSlotTypes
     newGetBuiltinSlotTypes,
 
     -- * Request Lenses
-    getBuiltinSlotTypes_nextToken,
     getBuiltinSlotTypes_locale,
     getBuiltinSlotTypes_maxResults,
+    getBuiltinSlotTypes_nextToken,
     getBuiltinSlotTypes_signatureContains,
 
     -- * Destructuring the Response
@@ -62,16 +62,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetBuiltinSlotTypes' smart constructor.
 data GetBuiltinSlotTypes = GetBuiltinSlotTypes'
-  { -- | A pagination token that fetches the next page of slot types. If the
-    -- response to this API call is truncated, Amazon Lex returns a pagination
-    -- token in the response. To fetch the next page of slot types, specify the
-    -- pagination token in the next request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of locales that the slot type supports.
+  { -- | A list of locales that the slot type supports.
     locale :: Prelude.Maybe Locale,
     -- | The maximum number of slot types to return in the response. The default
     -- is 10.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A pagination token that fetches the next page of slot types. If the
+    -- response to this API call is truncated, Amazon Lex returns a pagination
+    -- token in the response. To fetch the next page of slot types, specify the
+    -- pagination token in the next request.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Substring to match in built-in slot type signatures. A slot type will be
     -- returned if any part of its signature matches the substring. For
     -- example, \"xyz\" matches both \"xyzabc\" and \"abcxyz.\"
@@ -87,15 +87,15 @@ data GetBuiltinSlotTypes = GetBuiltinSlotTypes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getBuiltinSlotTypes_nextToken' - A pagination token that fetches the next page of slot types. If the
--- response to this API call is truncated, Amazon Lex returns a pagination
--- token in the response. To fetch the next page of slot types, specify the
--- pagination token in the next request.
---
 -- 'locale', 'getBuiltinSlotTypes_locale' - A list of locales that the slot type supports.
 --
 -- 'maxResults', 'getBuiltinSlotTypes_maxResults' - The maximum number of slot types to return in the response. The default
 -- is 10.
+--
+-- 'nextToken', 'getBuiltinSlotTypes_nextToken' - A pagination token that fetches the next page of slot types. If the
+-- response to this API call is truncated, Amazon Lex returns a pagination
+-- token in the response. To fetch the next page of slot types, specify the
+-- pagination token in the next request.
 --
 -- 'signatureContains', 'getBuiltinSlotTypes_signatureContains' - Substring to match in built-in slot type signatures. A slot type will be
 -- returned if any part of its signature matches the substring. For
@@ -104,18 +104,11 @@ newGetBuiltinSlotTypes ::
   GetBuiltinSlotTypes
 newGetBuiltinSlotTypes =
   GetBuiltinSlotTypes'
-    { nextToken = Prelude.Nothing,
-      locale = Prelude.Nothing,
+    { locale = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       signatureContains = Prelude.Nothing
     }
-
--- | A pagination token that fetches the next page of slot types. If the
--- response to this API call is truncated, Amazon Lex returns a pagination
--- token in the response. To fetch the next page of slot types, specify the
--- pagination token in the next request.
-getBuiltinSlotTypes_nextToken :: Lens.Lens' GetBuiltinSlotTypes (Prelude.Maybe Prelude.Text)
-getBuiltinSlotTypes_nextToken = Lens.lens (\GetBuiltinSlotTypes' {nextToken} -> nextToken) (\s@GetBuiltinSlotTypes' {} a -> s {nextToken = a} :: GetBuiltinSlotTypes)
 
 -- | A list of locales that the slot type supports.
 getBuiltinSlotTypes_locale :: Lens.Lens' GetBuiltinSlotTypes (Prelude.Maybe Locale)
@@ -125,6 +118,13 @@ getBuiltinSlotTypes_locale = Lens.lens (\GetBuiltinSlotTypes' {locale} -> locale
 -- is 10.
 getBuiltinSlotTypes_maxResults :: Lens.Lens' GetBuiltinSlotTypes (Prelude.Maybe Prelude.Natural)
 getBuiltinSlotTypes_maxResults = Lens.lens (\GetBuiltinSlotTypes' {maxResults} -> maxResults) (\s@GetBuiltinSlotTypes' {} a -> s {maxResults = a} :: GetBuiltinSlotTypes)
+
+-- | A pagination token that fetches the next page of slot types. If the
+-- response to this API call is truncated, Amazon Lex returns a pagination
+-- token in the response. To fetch the next page of slot types, specify the
+-- pagination token in the next request.
+getBuiltinSlotTypes_nextToken :: Lens.Lens' GetBuiltinSlotTypes (Prelude.Maybe Prelude.Text)
+getBuiltinSlotTypes_nextToken = Lens.lens (\GetBuiltinSlotTypes' {nextToken} -> nextToken) (\s@GetBuiltinSlotTypes' {} a -> s {nextToken = a} :: GetBuiltinSlotTypes)
 
 -- | Substring to match in built-in slot type signatures. A slot type will be
 -- returned if any part of its signature matches the substring. For
@@ -171,16 +171,16 @@ instance Core.AWSRequest GetBuiltinSlotTypes where
 
 instance Prelude.Hashable GetBuiltinSlotTypes where
   hashWithSalt _salt GetBuiltinSlotTypes' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` locale
+    _salt `Prelude.hashWithSalt` locale
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` signatureContains
 
 instance Prelude.NFData GetBuiltinSlotTypes where
   rnf GetBuiltinSlotTypes' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf locale
+    Prelude.rnf locale
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf signatureContains
 
 instance Data.ToHeaders GetBuiltinSlotTypes where
@@ -200,9 +200,9 @@ instance Data.ToPath GetBuiltinSlotTypes where
 instance Data.ToQuery GetBuiltinSlotTypes where
   toQuery GetBuiltinSlotTypes' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "locale" Data.=: locale,
+      [ "locale" Data.=: locale,
         "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
         "signatureContains" Data.=: signatureContains
       ]
 

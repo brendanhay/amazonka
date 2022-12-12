@@ -37,16 +37,16 @@ module Amazonka.LookoutVision.ListProjects
     newListProjects,
 
     -- * Request Lenses
-    listProjects_nextToken,
     listProjects_maxResults,
+    listProjects_nextToken,
 
     -- * Destructuring the Response
     ListProjectsResponse (..),
     newListProjectsResponse,
 
     -- * Response Lenses
-    listProjectsResponse_projects,
     listProjectsResponse_nextToken,
+    listProjectsResponse_projects,
     listProjectsResponse_httpStatus,
   )
 where
@@ -61,15 +61,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListProjects' smart constructor.
 data ListProjects = ListProjects'
-  { -- | If the previous response was incomplete (because there is more data to
+  { -- | The maximum number of results to return per paginated call. The largest
+    -- value you can specify is 100. If you specify a value greater than 100, a
+    -- ValidationException error occurs. The default value is 100.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the previous response was incomplete (because there is more data to
     -- retrieve), Amazon Lookout for Vision returns a pagination token in the
     -- response. You can use this pagination token to retrieve the next set of
     -- projects.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per paginated call. The largest
-    -- value you can specify is 100. If you specify a value greater than 100, a
-    -- ValidationException error occurs. The default value is 100.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,21 +81,27 @@ data ListProjects = ListProjects'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listProjects_maxResults' - The maximum number of results to return per paginated call. The largest
+-- value you can specify is 100. If you specify a value greater than 100, a
+-- ValidationException error occurs. The default value is 100.
+--
 -- 'nextToken', 'listProjects_nextToken' - If the previous response was incomplete (because there is more data to
 -- retrieve), Amazon Lookout for Vision returns a pagination token in the
 -- response. You can use this pagination token to retrieve the next set of
 -- projects.
---
--- 'maxResults', 'listProjects_maxResults' - The maximum number of results to return per paginated call. The largest
--- value you can specify is 100. If you specify a value greater than 100, a
--- ValidationException error occurs. The default value is 100.
 newListProjects ::
   ListProjects
 newListProjects =
   ListProjects'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of results to return per paginated call. The largest
+-- value you can specify is 100. If you specify a value greater than 100, a
+-- ValidationException error occurs. The default value is 100.
+listProjects_maxResults :: Lens.Lens' ListProjects (Prelude.Maybe Prelude.Natural)
+listProjects_maxResults = Lens.lens (\ListProjects' {maxResults} -> maxResults) (\s@ListProjects' {} a -> s {maxResults = a} :: ListProjects)
 
 -- | If the previous response was incomplete (because there is more data to
 -- retrieve), Amazon Lookout for Vision returns a pagination token in the
@@ -103,12 +109,6 @@ newListProjects =
 -- projects.
 listProjects_nextToken :: Lens.Lens' ListProjects (Prelude.Maybe Prelude.Text)
 listProjects_nextToken = Lens.lens (\ListProjects' {nextToken} -> nextToken) (\s@ListProjects' {} a -> s {nextToken = a} :: ListProjects)
-
--- | The maximum number of results to return per paginated call. The largest
--- value you can specify is 100. If you specify a value greater than 100, a
--- ValidationException error occurs. The default value is 100.
-listProjects_maxResults :: Lens.Lens' ListProjects (Prelude.Maybe Prelude.Natural)
-listProjects_maxResults = Lens.lens (\ListProjects' {maxResults} -> maxResults) (\s@ListProjects' {} a -> s {maxResults = a} :: ListProjects)
 
 instance Core.AWSPager ListProjects where
   page rq rs
@@ -137,20 +137,20 @@ instance Core.AWSRequest ListProjects where
     Response.receiveJSON
       ( \s h x ->
           ListProjectsResponse'
-            Prelude.<$> (x Data..?> "Projects" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Projects" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListProjects where
   hashWithSalt _salt ListProjects' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListProjects where
   rnf ListProjects' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListProjects where
   toHeaders =
@@ -169,18 +169,18 @@ instance Data.ToPath ListProjects where
 instance Data.ToQuery ListProjects where
   toQuery ListProjects' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListProjectsResponse' smart constructor.
 data ListProjectsResponse = ListProjectsResponse'
-  { -- | A list of projects in your AWS account.
-    projects :: Prelude.Maybe [ProjectMetadata],
-    -- | If the response is truncated, Amazon Lookout for Vision returns this
+  { -- | If the response is truncated, Amazon Lookout for Vision returns this
     -- token that you can use in the subsequent request to retrieve the next
     -- set of projects.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of projects in your AWS account.
+    projects :: Prelude.Maybe [ProjectMetadata],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -194,11 +194,11 @@ data ListProjectsResponse = ListProjectsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'projects', 'listProjectsResponse_projects' - A list of projects in your AWS account.
---
 -- 'nextToken', 'listProjectsResponse_nextToken' - If the response is truncated, Amazon Lookout for Vision returns this
 -- token that you can use in the subsequent request to retrieve the next
 -- set of projects.
+--
+-- 'projects', 'listProjectsResponse_projects' - A list of projects in your AWS account.
 --
 -- 'httpStatus', 'listProjectsResponse_httpStatus' - The response's http status code.
 newListProjectsResponse ::
@@ -207,14 +207,10 @@ newListProjectsResponse ::
   ListProjectsResponse
 newListProjectsResponse pHttpStatus_ =
   ListProjectsResponse'
-    { projects = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      projects = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of projects in your AWS account.
-listProjectsResponse_projects :: Lens.Lens' ListProjectsResponse (Prelude.Maybe [ProjectMetadata])
-listProjectsResponse_projects = Lens.lens (\ListProjectsResponse' {projects} -> projects) (\s@ListProjectsResponse' {} a -> s {projects = a} :: ListProjectsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the response is truncated, Amazon Lookout for Vision returns this
 -- token that you can use in the subsequent request to retrieve the next
@@ -222,12 +218,16 @@ listProjectsResponse_projects = Lens.lens (\ListProjectsResponse' {projects} -> 
 listProjectsResponse_nextToken :: Lens.Lens' ListProjectsResponse (Prelude.Maybe Prelude.Text)
 listProjectsResponse_nextToken = Lens.lens (\ListProjectsResponse' {nextToken} -> nextToken) (\s@ListProjectsResponse' {} a -> s {nextToken = a} :: ListProjectsResponse)
 
+-- | A list of projects in your AWS account.
+listProjectsResponse_projects :: Lens.Lens' ListProjectsResponse (Prelude.Maybe [ProjectMetadata])
+listProjectsResponse_projects = Lens.lens (\ListProjectsResponse' {projects} -> projects) (\s@ListProjectsResponse' {} a -> s {projects = a} :: ListProjectsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listProjectsResponse_httpStatus :: Lens.Lens' ListProjectsResponse Prelude.Int
 listProjectsResponse_httpStatus = Lens.lens (\ListProjectsResponse' {httpStatus} -> httpStatus) (\s@ListProjectsResponse' {} a -> s {httpStatus = a} :: ListProjectsResponse)
 
 instance Prelude.NFData ListProjectsResponse where
   rnf ListProjectsResponse' {..} =
-    Prelude.rnf projects
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf projects
       `Prelude.seq` Prelude.rnf httpStatus

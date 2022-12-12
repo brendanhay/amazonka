@@ -36,11 +36,11 @@ module Amazonka.Route53RecoveryReadiness.UpdateCell
     newUpdateCellResponse,
 
     -- * Response Lenses
-    updateCellResponse_tags,
-    updateCellResponse_parentReadinessScopes,
     updateCellResponse_cellArn,
     updateCellResponse_cellName,
     updateCellResponse_cells,
+    updateCellResponse_parentReadinessScopes,
+    updateCellResponse_tags,
     updateCellResponse_httpStatus,
   )
 where
@@ -102,13 +102,13 @@ instance Core.AWSRequest UpdateCell where
     Response.receiveJSON
       ( \s h x ->
           UpdateCellResponse'
-            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "cellArn")
+            Prelude.<*> (x Data..?> "cellName")
+            Prelude.<*> (x Data..?> "cells" Core..!@ Prelude.mempty)
             Prelude.<*> ( x Data..?> "parentReadinessScopes"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "cellArn")
-            Prelude.<*> (x Data..?> "cellName")
-            Prelude.<*> (x Data..?> "cells" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -149,18 +149,18 @@ instance Data.ToQuery UpdateCell where
 
 -- | /See:/ 'newUpdateCellResponse' smart constructor.
 data UpdateCellResponse = UpdateCellResponse'
-  { -- | Tags on the resources.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The readiness scope for the cell, which can be a cell Amazon Resource
-    -- Name (ARN) or a recovery group ARN. This is a list but currently can
-    -- have only one element.
-    parentReadinessScopes :: Prelude.Maybe [Prelude.Text],
-    -- | The Amazon Resource Name (ARN) for the cell.
+  { -- | The Amazon Resource Name (ARN) for the cell.
     cellArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the cell.
     cellName :: Prelude.Maybe Prelude.Text,
     -- | A list of cell ARNs.
     cells :: Prelude.Maybe [Prelude.Text],
+    -- | The readiness scope for the cell, which can be a cell Amazon Resource
+    -- Name (ARN) or a recovery group ARN. This is a list but currently can
+    -- have only one element.
+    parentReadinessScopes :: Prelude.Maybe [Prelude.Text],
+    -- | Tags on the resources.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -174,17 +174,17 @@ data UpdateCellResponse = UpdateCellResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'updateCellResponse_tags' - Tags on the resources.
---
--- 'parentReadinessScopes', 'updateCellResponse_parentReadinessScopes' - The readiness scope for the cell, which can be a cell Amazon Resource
--- Name (ARN) or a recovery group ARN. This is a list but currently can
--- have only one element.
---
 -- 'cellArn', 'updateCellResponse_cellArn' - The Amazon Resource Name (ARN) for the cell.
 --
 -- 'cellName', 'updateCellResponse_cellName' - The name of the cell.
 --
 -- 'cells', 'updateCellResponse_cells' - A list of cell ARNs.
+--
+-- 'parentReadinessScopes', 'updateCellResponse_parentReadinessScopes' - The readiness scope for the cell, which can be a cell Amazon Resource
+-- Name (ARN) or a recovery group ARN. This is a list but currently can
+-- have only one element.
+--
+-- 'tags', 'updateCellResponse_tags' - Tags on the resources.
 --
 -- 'httpStatus', 'updateCellResponse_httpStatus' - The response's http status code.
 newUpdateCellResponse ::
@@ -193,23 +193,13 @@ newUpdateCellResponse ::
   UpdateCellResponse
 newUpdateCellResponse pHttpStatus_ =
   UpdateCellResponse'
-    { tags = Prelude.Nothing,
-      parentReadinessScopes = Prelude.Nothing,
-      cellArn = Prelude.Nothing,
+    { cellArn = Prelude.Nothing,
       cellName = Prelude.Nothing,
       cells = Prelude.Nothing,
+      parentReadinessScopes = Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Tags on the resources.
-updateCellResponse_tags :: Lens.Lens' UpdateCellResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-updateCellResponse_tags = Lens.lens (\UpdateCellResponse' {tags} -> tags) (\s@UpdateCellResponse' {} a -> s {tags = a} :: UpdateCellResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The readiness scope for the cell, which can be a cell Amazon Resource
--- Name (ARN) or a recovery group ARN. This is a list but currently can
--- have only one element.
-updateCellResponse_parentReadinessScopes :: Lens.Lens' UpdateCellResponse (Prelude.Maybe [Prelude.Text])
-updateCellResponse_parentReadinessScopes = Lens.lens (\UpdateCellResponse' {parentReadinessScopes} -> parentReadinessScopes) (\s@UpdateCellResponse' {} a -> s {parentReadinessScopes = a} :: UpdateCellResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) for the cell.
 updateCellResponse_cellArn :: Lens.Lens' UpdateCellResponse (Prelude.Maybe Prelude.Text)
@@ -223,15 +213,25 @@ updateCellResponse_cellName = Lens.lens (\UpdateCellResponse' {cellName} -> cell
 updateCellResponse_cells :: Lens.Lens' UpdateCellResponse (Prelude.Maybe [Prelude.Text])
 updateCellResponse_cells = Lens.lens (\UpdateCellResponse' {cells} -> cells) (\s@UpdateCellResponse' {} a -> s {cells = a} :: UpdateCellResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The readiness scope for the cell, which can be a cell Amazon Resource
+-- Name (ARN) or a recovery group ARN. This is a list but currently can
+-- have only one element.
+updateCellResponse_parentReadinessScopes :: Lens.Lens' UpdateCellResponse (Prelude.Maybe [Prelude.Text])
+updateCellResponse_parentReadinessScopes = Lens.lens (\UpdateCellResponse' {parentReadinessScopes} -> parentReadinessScopes) (\s@UpdateCellResponse' {} a -> s {parentReadinessScopes = a} :: UpdateCellResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Tags on the resources.
+updateCellResponse_tags :: Lens.Lens' UpdateCellResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+updateCellResponse_tags = Lens.lens (\UpdateCellResponse' {tags} -> tags) (\s@UpdateCellResponse' {} a -> s {tags = a} :: UpdateCellResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 updateCellResponse_httpStatus :: Lens.Lens' UpdateCellResponse Prelude.Int
 updateCellResponse_httpStatus = Lens.lens (\UpdateCellResponse' {httpStatus} -> httpStatus) (\s@UpdateCellResponse' {} a -> s {httpStatus = a} :: UpdateCellResponse)
 
 instance Prelude.NFData UpdateCellResponse where
   rnf UpdateCellResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf parentReadinessScopes
-      `Prelude.seq` Prelude.rnf cellArn
+    Prelude.rnf cellArn
       `Prelude.seq` Prelude.rnf cellName
       `Prelude.seq` Prelude.rnf cells
+      `Prelude.seq` Prelude.rnf parentReadinessScopes
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

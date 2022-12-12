@@ -31,8 +31,8 @@ module Amazonka.Greengrass.CreateSoftwareUpdateJob
     newCreateSoftwareUpdateJob,
 
     -- * Request Lenses
-    createSoftwareUpdateJob_updateAgentLogLevel,
     createSoftwareUpdateJob_amznClientToken,
+    createSoftwareUpdateJob_updateAgentLogLevel,
     createSoftwareUpdateJob_s3UrlSignerRole,
     createSoftwareUpdateJob_updateTargetsArchitecture,
     createSoftwareUpdateJob_softwareToUpdate,
@@ -45,8 +45,8 @@ module Amazonka.Greengrass.CreateSoftwareUpdateJob
 
     -- * Response Lenses
     createSoftwareUpdateJobResponse_iotJobArn,
-    createSoftwareUpdateJobResponse_platformSoftwareVersion,
     createSoftwareUpdateJobResponse_iotJobId,
+    createSoftwareUpdateJobResponse_platformSoftwareVersion,
     createSoftwareUpdateJobResponse_httpStatus,
   )
 where
@@ -61,9 +61,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateSoftwareUpdateJob' smart constructor.
 data CreateSoftwareUpdateJob = CreateSoftwareUpdateJob'
-  { updateAgentLogLevel :: Prelude.Maybe UpdateAgentLogLevel,
-    -- | A client token used to correlate requests and responses.
+  { -- | A client token used to correlate requests and responses.
     amznClientToken :: Prelude.Maybe Prelude.Text,
+    updateAgentLogLevel :: Prelude.Maybe UpdateAgentLogLevel,
     s3UrlSignerRole :: Prelude.Text,
     updateTargetsArchitecture :: UpdateTargetsArchitecture,
     softwareToUpdate :: SoftwareToUpdate,
@@ -80,9 +80,9 @@ data CreateSoftwareUpdateJob = CreateSoftwareUpdateJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'updateAgentLogLevel', 'createSoftwareUpdateJob_updateAgentLogLevel' - Undocumented member.
---
 -- 'amznClientToken', 'createSoftwareUpdateJob_amznClientToken' - A client token used to correlate requests and responses.
+--
+-- 'updateAgentLogLevel', 'createSoftwareUpdateJob_updateAgentLogLevel' - Undocumented member.
 --
 -- 's3UrlSignerRole', 'createSoftwareUpdateJob_s3UrlSignerRole' - Undocumented member.
 --
@@ -109,9 +109,9 @@ newCreateSoftwareUpdateJob
   pSoftwareToUpdate_
   pUpdateTargetsOperatingSystem_ =
     CreateSoftwareUpdateJob'
-      { updateAgentLogLevel =
+      { amznClientToken =
           Prelude.Nothing,
-        amznClientToken = Prelude.Nothing,
+        updateAgentLogLevel = Prelude.Nothing,
         s3UrlSignerRole = pS3UrlSignerRole_,
         updateTargetsArchitecture =
           pUpdateTargetsArchitecture_,
@@ -121,13 +121,13 @@ newCreateSoftwareUpdateJob
           pUpdateTargetsOperatingSystem_
       }
 
--- | Undocumented member.
-createSoftwareUpdateJob_updateAgentLogLevel :: Lens.Lens' CreateSoftwareUpdateJob (Prelude.Maybe UpdateAgentLogLevel)
-createSoftwareUpdateJob_updateAgentLogLevel = Lens.lens (\CreateSoftwareUpdateJob' {updateAgentLogLevel} -> updateAgentLogLevel) (\s@CreateSoftwareUpdateJob' {} a -> s {updateAgentLogLevel = a} :: CreateSoftwareUpdateJob)
-
 -- | A client token used to correlate requests and responses.
 createSoftwareUpdateJob_amznClientToken :: Lens.Lens' CreateSoftwareUpdateJob (Prelude.Maybe Prelude.Text)
 createSoftwareUpdateJob_amznClientToken = Lens.lens (\CreateSoftwareUpdateJob' {amznClientToken} -> amznClientToken) (\s@CreateSoftwareUpdateJob' {} a -> s {amznClientToken = a} :: CreateSoftwareUpdateJob)
+
+-- | Undocumented member.
+createSoftwareUpdateJob_updateAgentLogLevel :: Lens.Lens' CreateSoftwareUpdateJob (Prelude.Maybe UpdateAgentLogLevel)
+createSoftwareUpdateJob_updateAgentLogLevel = Lens.lens (\CreateSoftwareUpdateJob' {updateAgentLogLevel} -> updateAgentLogLevel) (\s@CreateSoftwareUpdateJob' {} a -> s {updateAgentLogLevel = a} :: CreateSoftwareUpdateJob)
 
 -- | Undocumented member.
 createSoftwareUpdateJob_s3UrlSignerRole :: Lens.Lens' CreateSoftwareUpdateJob Prelude.Text
@@ -160,15 +160,15 @@ instance Core.AWSRequest CreateSoftwareUpdateJob where
       ( \s h x ->
           CreateSoftwareUpdateJobResponse'
             Prelude.<$> (x Data..?> "IotJobArn")
-            Prelude.<*> (x Data..?> "PlatformSoftwareVersion")
             Prelude.<*> (x Data..?> "IotJobId")
+            Prelude.<*> (x Data..?> "PlatformSoftwareVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateSoftwareUpdateJob where
   hashWithSalt _salt CreateSoftwareUpdateJob' {..} =
-    _salt `Prelude.hashWithSalt` updateAgentLogLevel
-      `Prelude.hashWithSalt` amznClientToken
+    _salt `Prelude.hashWithSalt` amznClientToken
+      `Prelude.hashWithSalt` updateAgentLogLevel
       `Prelude.hashWithSalt` s3UrlSignerRole
       `Prelude.hashWithSalt` updateTargetsArchitecture
       `Prelude.hashWithSalt` softwareToUpdate
@@ -177,8 +177,8 @@ instance Prelude.Hashable CreateSoftwareUpdateJob where
 
 instance Prelude.NFData CreateSoftwareUpdateJob where
   rnf CreateSoftwareUpdateJob' {..} =
-    Prelude.rnf updateAgentLogLevel
-      `Prelude.seq` Prelude.rnf amznClientToken
+    Prelude.rnf amznClientToken
+      `Prelude.seq` Prelude.rnf updateAgentLogLevel
       `Prelude.seq` Prelude.rnf s3UrlSignerRole
       `Prelude.seq` Prelude.rnf updateTargetsArchitecture
       `Prelude.seq` Prelude.rnf softwareToUpdate
@@ -225,11 +225,11 @@ instance Data.ToQuery CreateSoftwareUpdateJob where
 data CreateSoftwareUpdateJobResponse = CreateSoftwareUpdateJobResponse'
   { -- | The IoT Job ARN corresponding to this update.
     iotJobArn :: Prelude.Maybe Prelude.Text,
+    -- | The IoT Job Id corresponding to this update.
+    iotJobId :: Prelude.Maybe Prelude.Text,
     -- | The software version installed on the device or devices after the
     -- update.
     platformSoftwareVersion :: Prelude.Maybe Prelude.Text,
-    -- | The IoT Job Id corresponding to this update.
-    iotJobId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -245,10 +245,10 @@ data CreateSoftwareUpdateJobResponse = CreateSoftwareUpdateJobResponse'
 --
 -- 'iotJobArn', 'createSoftwareUpdateJobResponse_iotJobArn' - The IoT Job ARN corresponding to this update.
 --
+-- 'iotJobId', 'createSoftwareUpdateJobResponse_iotJobId' - The IoT Job Id corresponding to this update.
+--
 -- 'platformSoftwareVersion', 'createSoftwareUpdateJobResponse_platformSoftwareVersion' - The software version installed on the device or devices after the
 -- update.
---
--- 'iotJobId', 'createSoftwareUpdateJobResponse_iotJobId' - The IoT Job Id corresponding to this update.
 --
 -- 'httpStatus', 'createSoftwareUpdateJobResponse_httpStatus' - The response's http status code.
 newCreateSoftwareUpdateJobResponse ::
@@ -259,8 +259,8 @@ newCreateSoftwareUpdateJobResponse pHttpStatus_ =
   CreateSoftwareUpdateJobResponse'
     { iotJobArn =
         Prelude.Nothing,
-      platformSoftwareVersion = Prelude.Nothing,
       iotJobId = Prelude.Nothing,
+      platformSoftwareVersion = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -268,14 +268,14 @@ newCreateSoftwareUpdateJobResponse pHttpStatus_ =
 createSoftwareUpdateJobResponse_iotJobArn :: Lens.Lens' CreateSoftwareUpdateJobResponse (Prelude.Maybe Prelude.Text)
 createSoftwareUpdateJobResponse_iotJobArn = Lens.lens (\CreateSoftwareUpdateJobResponse' {iotJobArn} -> iotJobArn) (\s@CreateSoftwareUpdateJobResponse' {} a -> s {iotJobArn = a} :: CreateSoftwareUpdateJobResponse)
 
+-- | The IoT Job Id corresponding to this update.
+createSoftwareUpdateJobResponse_iotJobId :: Lens.Lens' CreateSoftwareUpdateJobResponse (Prelude.Maybe Prelude.Text)
+createSoftwareUpdateJobResponse_iotJobId = Lens.lens (\CreateSoftwareUpdateJobResponse' {iotJobId} -> iotJobId) (\s@CreateSoftwareUpdateJobResponse' {} a -> s {iotJobId = a} :: CreateSoftwareUpdateJobResponse)
+
 -- | The software version installed on the device or devices after the
 -- update.
 createSoftwareUpdateJobResponse_platformSoftwareVersion :: Lens.Lens' CreateSoftwareUpdateJobResponse (Prelude.Maybe Prelude.Text)
 createSoftwareUpdateJobResponse_platformSoftwareVersion = Lens.lens (\CreateSoftwareUpdateJobResponse' {platformSoftwareVersion} -> platformSoftwareVersion) (\s@CreateSoftwareUpdateJobResponse' {} a -> s {platformSoftwareVersion = a} :: CreateSoftwareUpdateJobResponse)
-
--- | The IoT Job Id corresponding to this update.
-createSoftwareUpdateJobResponse_iotJobId :: Lens.Lens' CreateSoftwareUpdateJobResponse (Prelude.Maybe Prelude.Text)
-createSoftwareUpdateJobResponse_iotJobId = Lens.lens (\CreateSoftwareUpdateJobResponse' {iotJobId} -> iotJobId) (\s@CreateSoftwareUpdateJobResponse' {} a -> s {iotJobId = a} :: CreateSoftwareUpdateJobResponse)
 
 -- | The response's http status code.
 createSoftwareUpdateJobResponse_httpStatus :: Lens.Lens' CreateSoftwareUpdateJobResponse Prelude.Int
@@ -287,6 +287,6 @@ instance
   where
   rnf CreateSoftwareUpdateJobResponse' {..} =
     Prelude.rnf iotJobArn
-      `Prelude.seq` Prelude.rnf platformSoftwareVersion
       `Prelude.seq` Prelude.rnf iotJobId
+      `Prelude.seq` Prelude.rnf platformSoftwareVersion
       `Prelude.seq` Prelude.rnf httpStatus

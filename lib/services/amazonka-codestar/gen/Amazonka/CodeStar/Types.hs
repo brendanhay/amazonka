@@ -18,19 +18,19 @@ module Amazonka.CodeStar.Types
     defaultService,
 
     -- * Errors
-    _ProjectCreationFailedException,
     _ConcurrentModificationException,
-    _TeamMemberNotFoundException,
-    _ProjectConfigurationException,
-    _LimitExceededException,
     _InvalidNextTokenException,
     _InvalidServiceRoleException,
-    _UserProfileAlreadyExistsException,
-    _ProjectNotFoundException,
-    _UserProfileNotFoundException,
+    _LimitExceededException,
     _ProjectAlreadyExistsException,
-    _ValidationException,
+    _ProjectConfigurationException,
+    _ProjectCreationFailedException,
+    _ProjectNotFoundException,
     _TeamMemberAlreadyAssociatedException,
+    _TeamMemberNotFoundException,
+    _UserProfileAlreadyExistsException,
+    _UserProfileNotFoundException,
+    _ValidationException,
 
     -- * Code
     Code (..),
@@ -46,8 +46,8 @@ module Amazonka.CodeStar.Types
     -- * CodeDestination
     CodeDestination (..),
     newCodeDestination,
-    codeDestination_gitHub,
     codeDestination_codeCommit,
+    codeDestination_gitHub,
 
     -- * CodeSource
     CodeSource (..),
@@ -74,8 +74,8 @@ module Amazonka.CodeStar.Types
     -- * ProjectSummary
     ProjectSummary (..),
     newProjectSummary,
-    projectSummary_projectId,
     projectSummary_projectArn,
+    projectSummary_projectId,
 
     -- * Resource
     Resource (..),
@@ -85,8 +85,8 @@ module Amazonka.CodeStar.Types
     -- * S3Location
     S3Location (..),
     newS3Location,
-    s3Location_bucketName,
     s3Location_bucketKey,
+    s3Location_bucketName,
 
     -- * TeamMember
     TeamMember (..),
@@ -111,9 +111,9 @@ module Amazonka.CodeStar.Types
     UserProfileSummary (..),
     newUserProfileSummary,
     userProfileSummary_displayName,
+    userProfileSummary_emailAddress,
     userProfileSummary_sshPublicKey,
     userProfileSummary_userArn,
-    userProfileSummary_emailAddress,
   )
 where
 
@@ -160,28 +160,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -189,13 +183,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -203,16 +201,9 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The project creation request was valid, but a nonspecific exception or
--- error occurred during project creation. The project could not be created
--- in AWS CodeStar.
-_ProjectCreationFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ProjectCreationFailedException =
-  Core._MatchServiceError
-    defaultService
-    "ProjectCreationFailedException"
 
 -- | Another modification is being made. That modification must complete
 -- before you can make your change.
@@ -221,27 +212,6 @@ _ConcurrentModificationException =
   Core._MatchServiceError
     defaultService
     "ConcurrentModificationException"
-
--- | The specified team member was not found.
-_TeamMemberNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TeamMemberNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "TeamMemberNotFoundException"
-
--- | Project configuration information is required but not specified.
-_ProjectConfigurationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ProjectConfigurationException =
-  Core._MatchServiceError
-    defaultService
-    "ProjectConfigurationException"
-
--- | A resource limit has been exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "LimitExceededException"
 
 -- | The next token is not valid.
 _InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -257,28 +227,12 @@ _InvalidServiceRoleException =
     defaultService
     "InvalidServiceRoleException"
 
--- | A user profile with that name already exists in this region for the AWS
--- account. AWS CodeStar user profile names must be unique within a region
--- for the AWS account.
-_UserProfileAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UserProfileAlreadyExistsException =
+-- | A resource limit has been exceeded.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
   Core._MatchServiceError
     defaultService
-    "UserProfileAlreadyExistsException"
-
--- | The specified AWS CodeStar project was not found.
-_ProjectNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ProjectNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ProjectNotFoundException"
-
--- | The user profile was not found.
-_UserProfileNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UserProfileNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "UserProfileNotFoundException"
+    "LimitExceededException"
 
 -- | An AWS CodeStar project with the same ID already exists in this region
 -- for the AWS account. AWS CodeStar project IDs must be unique within a
@@ -289,12 +243,28 @@ _ProjectAlreadyExistsException =
     defaultService
     "ProjectAlreadyExistsException"
 
--- | The specified input is either not valid, or it could not be validated.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
+-- | Project configuration information is required but not specified.
+_ProjectConfigurationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ProjectConfigurationException =
   Core._MatchServiceError
     defaultService
-    "ValidationException"
+    "ProjectConfigurationException"
+
+-- | The project creation request was valid, but a nonspecific exception or
+-- error occurred during project creation. The project could not be created
+-- in AWS CodeStar.
+_ProjectCreationFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ProjectCreationFailedException =
+  Core._MatchServiceError
+    defaultService
+    "ProjectCreationFailedException"
+
+-- | The specified AWS CodeStar project was not found.
+_ProjectNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ProjectNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ProjectNotFoundException"
 
 -- | The team member is already associated with a role in this project.
 _TeamMemberAlreadyAssociatedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -302,3 +272,33 @@ _TeamMemberAlreadyAssociatedException =
   Core._MatchServiceError
     defaultService
     "TeamMemberAlreadyAssociatedException"
+
+-- | The specified team member was not found.
+_TeamMemberNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TeamMemberNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "TeamMemberNotFoundException"
+
+-- | A user profile with that name already exists in this region for the AWS
+-- account. AWS CodeStar user profile names must be unique within a region
+-- for the AWS account.
+_UserProfileAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UserProfileAlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "UserProfileAlreadyExistsException"
+
+-- | The user profile was not found.
+_UserProfileNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UserProfileNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "UserProfileNotFoundException"
+
+-- | The specified input is either not valid, or it could not be validated.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
+  Core._MatchServiceError
+    defaultService
+    "ValidationException"

@@ -43,11 +43,11 @@ module Amazonka.Config.ListDiscoveredResources
     newListDiscoveredResources,
 
     -- * Request Lenses
-    listDiscoveredResources_nextToken,
-    listDiscoveredResources_resourceName,
     listDiscoveredResources_includeDeletedResources,
-    listDiscoveredResources_resourceIds,
     listDiscoveredResources_limit,
+    listDiscoveredResources_nextToken,
+    listDiscoveredResources_resourceIds,
+    listDiscoveredResources_resourceName,
     listDiscoveredResources_resourceType,
 
     -- * Destructuring the Response
@@ -55,8 +55,8 @@ module Amazonka.Config.ListDiscoveredResources
     newListDiscoveredResourcesResponse,
 
     -- * Response Lenses
-    listDiscoveredResourcesResponse_resourceIdentifiers,
     listDiscoveredResourcesResponse_nextToken,
+    listDiscoveredResourcesResponse_resourceIdentifiers,
     listDiscoveredResourcesResponse_httpStatus,
   )
 where
@@ -73,24 +73,24 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListDiscoveredResources' smart constructor.
 data ListDiscoveredResources = ListDiscoveredResources'
-  { -- | The @nextToken@ string returned on a previous page that you use to get
-    -- the next page of results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The custom name of only those resources that you want Config to list in
-    -- the response. If you do not specify this parameter, Config lists all
-    -- resources of the specified type that it has discovered.
-    resourceName :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether Config includes deleted resources in the results. By
+  { -- | Specifies whether Config includes deleted resources in the results. By
     -- default, deleted resources are not included.
     includeDeletedResources :: Prelude.Maybe Prelude.Bool,
-    -- | The IDs of only those resources that you want Config to list in the
-    -- response. If you do not specify this parameter, Config lists all
-    -- resources of the specified type that it has discovered.
-    resourceIds :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of resource identifiers returned on each page. The
     -- default is 100. You cannot specify a number greater than 100. If you
     -- specify 0, Config uses the default.
     limit :: Prelude.Maybe Prelude.Natural,
+    -- | The @nextToken@ string returned on a previous page that you use to get
+    -- the next page of results in a paginated response.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The IDs of only those resources that you want Config to list in the
+    -- response. If you do not specify this parameter, Config lists all
+    -- resources of the specified type that it has discovered.
+    resourceIds :: Prelude.Maybe [Prelude.Text],
+    -- | The custom name of only those resources that you want Config to list in
+    -- the response. If you do not specify this parameter, Config lists all
+    -- resources of the specified type that it has discovered.
+    resourceName :: Prelude.Maybe Prelude.Text,
     -- | The type of resources that you want Config to list in the response.
     resourceType :: ResourceType
   }
@@ -104,23 +104,23 @@ data ListDiscoveredResources = ListDiscoveredResources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listDiscoveredResources_nextToken' - The @nextToken@ string returned on a previous page that you use to get
--- the next page of results in a paginated response.
---
--- 'resourceName', 'listDiscoveredResources_resourceName' - The custom name of only those resources that you want Config to list in
--- the response. If you do not specify this parameter, Config lists all
--- resources of the specified type that it has discovered.
---
 -- 'includeDeletedResources', 'listDiscoveredResources_includeDeletedResources' - Specifies whether Config includes deleted resources in the results. By
 -- default, deleted resources are not included.
+--
+-- 'limit', 'listDiscoveredResources_limit' - The maximum number of resource identifiers returned on each page. The
+-- default is 100. You cannot specify a number greater than 100. If you
+-- specify 0, Config uses the default.
+--
+-- 'nextToken', 'listDiscoveredResources_nextToken' - The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
 --
 -- 'resourceIds', 'listDiscoveredResources_resourceIds' - The IDs of only those resources that you want Config to list in the
 -- response. If you do not specify this parameter, Config lists all
 -- resources of the specified type that it has discovered.
 --
--- 'limit', 'listDiscoveredResources_limit' - The maximum number of resource identifiers returned on each page. The
--- default is 100. You cannot specify a number greater than 100. If you
--- specify 0, Config uses the default.
+-- 'resourceName', 'listDiscoveredResources_resourceName' - The custom name of only those resources that you want Config to list in
+-- the response. If you do not specify this parameter, Config lists all
+-- resources of the specified type that it has discovered.
 --
 -- 'resourceType', 'listDiscoveredResources_resourceType' - The type of resources that you want Config to list in the response.
 newListDiscoveredResources ::
@@ -129,30 +129,30 @@ newListDiscoveredResources ::
   ListDiscoveredResources
 newListDiscoveredResources pResourceType_ =
   ListDiscoveredResources'
-    { nextToken =
+    { includeDeletedResources =
         Prelude.Nothing,
-      resourceName = Prelude.Nothing,
-      includeDeletedResources = Prelude.Nothing,
-      resourceIds = Prelude.Nothing,
       limit = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      resourceIds = Prelude.Nothing,
+      resourceName = Prelude.Nothing,
       resourceType = pResourceType_
     }
-
--- | The @nextToken@ string returned on a previous page that you use to get
--- the next page of results in a paginated response.
-listDiscoveredResources_nextToken :: Lens.Lens' ListDiscoveredResources (Prelude.Maybe Prelude.Text)
-listDiscoveredResources_nextToken = Lens.lens (\ListDiscoveredResources' {nextToken} -> nextToken) (\s@ListDiscoveredResources' {} a -> s {nextToken = a} :: ListDiscoveredResources)
-
--- | The custom name of only those resources that you want Config to list in
--- the response. If you do not specify this parameter, Config lists all
--- resources of the specified type that it has discovered.
-listDiscoveredResources_resourceName :: Lens.Lens' ListDiscoveredResources (Prelude.Maybe Prelude.Text)
-listDiscoveredResources_resourceName = Lens.lens (\ListDiscoveredResources' {resourceName} -> resourceName) (\s@ListDiscoveredResources' {} a -> s {resourceName = a} :: ListDiscoveredResources)
 
 -- | Specifies whether Config includes deleted resources in the results. By
 -- default, deleted resources are not included.
 listDiscoveredResources_includeDeletedResources :: Lens.Lens' ListDiscoveredResources (Prelude.Maybe Prelude.Bool)
 listDiscoveredResources_includeDeletedResources = Lens.lens (\ListDiscoveredResources' {includeDeletedResources} -> includeDeletedResources) (\s@ListDiscoveredResources' {} a -> s {includeDeletedResources = a} :: ListDiscoveredResources)
+
+-- | The maximum number of resource identifiers returned on each page. The
+-- default is 100. You cannot specify a number greater than 100. If you
+-- specify 0, Config uses the default.
+listDiscoveredResources_limit :: Lens.Lens' ListDiscoveredResources (Prelude.Maybe Prelude.Natural)
+listDiscoveredResources_limit = Lens.lens (\ListDiscoveredResources' {limit} -> limit) (\s@ListDiscoveredResources' {} a -> s {limit = a} :: ListDiscoveredResources)
+
+-- | The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
+listDiscoveredResources_nextToken :: Lens.Lens' ListDiscoveredResources (Prelude.Maybe Prelude.Text)
+listDiscoveredResources_nextToken = Lens.lens (\ListDiscoveredResources' {nextToken} -> nextToken) (\s@ListDiscoveredResources' {} a -> s {nextToken = a} :: ListDiscoveredResources)
 
 -- | The IDs of only those resources that you want Config to list in the
 -- response. If you do not specify this parameter, Config lists all
@@ -160,11 +160,11 @@ listDiscoveredResources_includeDeletedResources = Lens.lens (\ListDiscoveredReso
 listDiscoveredResources_resourceIds :: Lens.Lens' ListDiscoveredResources (Prelude.Maybe [Prelude.Text])
 listDiscoveredResources_resourceIds = Lens.lens (\ListDiscoveredResources' {resourceIds} -> resourceIds) (\s@ListDiscoveredResources' {} a -> s {resourceIds = a} :: ListDiscoveredResources) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum number of resource identifiers returned on each page. The
--- default is 100. You cannot specify a number greater than 100. If you
--- specify 0, Config uses the default.
-listDiscoveredResources_limit :: Lens.Lens' ListDiscoveredResources (Prelude.Maybe Prelude.Natural)
-listDiscoveredResources_limit = Lens.lens (\ListDiscoveredResources' {limit} -> limit) (\s@ListDiscoveredResources' {} a -> s {limit = a} :: ListDiscoveredResources)
+-- | The custom name of only those resources that you want Config to list in
+-- the response. If you do not specify this parameter, Config lists all
+-- resources of the specified type that it has discovered.
+listDiscoveredResources_resourceName :: Lens.Lens' ListDiscoveredResources (Prelude.Maybe Prelude.Text)
+listDiscoveredResources_resourceName = Lens.lens (\ListDiscoveredResources' {resourceName} -> resourceName) (\s@ListDiscoveredResources' {} a -> s {resourceName = a} :: ListDiscoveredResources)
 
 -- | The type of resources that you want Config to list in the response.
 listDiscoveredResources_resourceType :: Lens.Lens' ListDiscoveredResources ResourceType
@@ -202,29 +202,30 @@ instance Core.AWSRequest ListDiscoveredResources where
     Response.receiveJSON
       ( \s h x ->
           ListDiscoveredResourcesResponse'
-            Prelude.<$> ( x Data..?> "resourceIdentifiers"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "resourceIdentifiers"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListDiscoveredResources where
   hashWithSalt _salt ListDiscoveredResources' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` resourceName
+    _salt
       `Prelude.hashWithSalt` includeDeletedResources
-      `Prelude.hashWithSalt` resourceIds
       `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` resourceIds
+      `Prelude.hashWithSalt` resourceName
       `Prelude.hashWithSalt` resourceType
 
 instance Prelude.NFData ListDiscoveredResources where
   rnf ListDiscoveredResources' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf resourceName
-      `Prelude.seq` Prelude.rnf includeDeletedResources
-      `Prelude.seq` Prelude.rnf resourceIds
+    Prelude.rnf includeDeletedResources
       `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceIds
+      `Prelude.seq` Prelude.rnf resourceName
       `Prelude.seq` Prelude.rnf resourceType
 
 instance Data.ToHeaders ListDiscoveredResources where
@@ -246,12 +247,12 @@ instance Data.ToJSON ListDiscoveredResources where
   toJSON ListDiscoveredResources' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("resourceName" Data..=) Prelude.<$> resourceName,
-            ("includeDeletedResources" Data..=)
+          [ ("includeDeletedResources" Data..=)
               Prelude.<$> includeDeletedResources,
-            ("resourceIds" Data..=) Prelude.<$> resourceIds,
             ("limit" Data..=) Prelude.<$> limit,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("resourceIds" Data..=) Prelude.<$> resourceIds,
+            ("resourceName" Data..=) Prelude.<$> resourceName,
             Prelude.Just ("resourceType" Data..= resourceType)
           ]
       )
@@ -266,13 +267,13 @@ instance Data.ToQuery ListDiscoveredResources where
 --
 -- /See:/ 'newListDiscoveredResourcesResponse' smart constructor.
 data ListDiscoveredResourcesResponse = ListDiscoveredResourcesResponse'
-  { -- | The details that identify a resource that is discovered by Config,
+  { -- | The string that you use in a subsequent request to get the next page of
+    -- results in a paginated response.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The details that identify a resource that is discovered by Config,
     -- including the resource type, ID, and (if available) the custom resource
     -- name.
     resourceIdentifiers :: Prelude.Maybe [ResourceIdentifier],
-    -- | The string that you use in a subsequent request to get the next page of
-    -- results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -286,12 +287,12 @@ data ListDiscoveredResourcesResponse = ListDiscoveredResourcesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listDiscoveredResourcesResponse_nextToken' - The string that you use in a subsequent request to get the next page of
+-- results in a paginated response.
+--
 -- 'resourceIdentifiers', 'listDiscoveredResourcesResponse_resourceIdentifiers' - The details that identify a resource that is discovered by Config,
 -- including the resource type, ID, and (if available) the custom resource
 -- name.
---
--- 'nextToken', 'listDiscoveredResourcesResponse_nextToken' - The string that you use in a subsequent request to get the next page of
--- results in a paginated response.
 --
 -- 'httpStatus', 'listDiscoveredResourcesResponse_httpStatus' - The response's http status code.
 newListDiscoveredResourcesResponse ::
@@ -300,22 +301,22 @@ newListDiscoveredResourcesResponse ::
   ListDiscoveredResourcesResponse
 newListDiscoveredResourcesResponse pHttpStatus_ =
   ListDiscoveredResourcesResponse'
-    { resourceIdentifiers =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      resourceIdentifiers = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The string that you use in a subsequent request to get the next page of
+-- results in a paginated response.
+listDiscoveredResourcesResponse_nextToken :: Lens.Lens' ListDiscoveredResourcesResponse (Prelude.Maybe Prelude.Text)
+listDiscoveredResourcesResponse_nextToken = Lens.lens (\ListDiscoveredResourcesResponse' {nextToken} -> nextToken) (\s@ListDiscoveredResourcesResponse' {} a -> s {nextToken = a} :: ListDiscoveredResourcesResponse)
 
 -- | The details that identify a resource that is discovered by Config,
 -- including the resource type, ID, and (if available) the custom resource
 -- name.
 listDiscoveredResourcesResponse_resourceIdentifiers :: Lens.Lens' ListDiscoveredResourcesResponse (Prelude.Maybe [ResourceIdentifier])
 listDiscoveredResourcesResponse_resourceIdentifiers = Lens.lens (\ListDiscoveredResourcesResponse' {resourceIdentifiers} -> resourceIdentifiers) (\s@ListDiscoveredResourcesResponse' {} a -> s {resourceIdentifiers = a} :: ListDiscoveredResourcesResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The string that you use in a subsequent request to get the next page of
--- results in a paginated response.
-listDiscoveredResourcesResponse_nextToken :: Lens.Lens' ListDiscoveredResourcesResponse (Prelude.Maybe Prelude.Text)
-listDiscoveredResourcesResponse_nextToken = Lens.lens (\ListDiscoveredResourcesResponse' {nextToken} -> nextToken) (\s@ListDiscoveredResourcesResponse' {} a -> s {nextToken = a} :: ListDiscoveredResourcesResponse)
 
 -- | The response's http status code.
 listDiscoveredResourcesResponse_httpStatus :: Lens.Lens' ListDiscoveredResourcesResponse Prelude.Int
@@ -326,6 +327,6 @@ instance
     ListDiscoveredResourcesResponse
   where
   rnf ListDiscoveredResourcesResponse' {..} =
-    Prelude.rnf resourceIdentifiers
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceIdentifiers
       `Prelude.seq` Prelude.rnf httpStatus

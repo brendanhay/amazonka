@@ -33,20 +33,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUpdateReplicationGroupMemberAction' smart constructor.
 data UpdateReplicationGroupMemberAction = UpdateReplicationGroupMemberAction'
-  { -- | The KMS key of the replica that should be used for KMS encryption. To
+  { -- | Replica-specific global secondary index settings.
+    globalSecondaryIndexes :: Prelude.Maybe (Prelude.NonEmpty ReplicaGlobalSecondaryIndex),
+    -- | The KMS key of the replica that should be used for KMS encryption. To
     -- specify a key, use its key ID, Amazon Resource Name (ARN), alias name,
     -- or alias ARN. Note that you should only provide this parameter if the
     -- key is different from the default DynamoDB KMS key
     -- @alias\/aws\/dynamodb@.
     kmsMasterKeyId :: Prelude.Maybe Prelude.Text,
-    -- | Replica-specific table class. If not specified, uses the source table\'s
-    -- table class.
-    tableClassOverride :: Prelude.Maybe TableClass,
     -- | Replica-specific provisioned throughput. If not specified, uses the
     -- source table\'s provisioned throughput settings.
     provisionedThroughputOverride :: Prelude.Maybe ProvisionedThroughputOverride,
-    -- | Replica-specific global secondary index settings.
-    globalSecondaryIndexes :: Prelude.Maybe (Prelude.NonEmpty ReplicaGlobalSecondaryIndex),
+    -- | Replica-specific table class. If not specified, uses the source table\'s
+    -- table class.
+    tableClassOverride :: Prelude.Maybe TableClass,
     -- | The Region where the replica exists.
     regionName :: Prelude.Text
   }
@@ -60,19 +60,19 @@ data UpdateReplicationGroupMemberAction = UpdateReplicationGroupMemberAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'globalSecondaryIndexes', 'updateReplicationGroupMemberAction_globalSecondaryIndexes' - Replica-specific global secondary index settings.
+--
 -- 'kmsMasterKeyId', 'updateReplicationGroupMemberAction_kmsMasterKeyId' - The KMS key of the replica that should be used for KMS encryption. To
 -- specify a key, use its key ID, Amazon Resource Name (ARN), alias name,
 -- or alias ARN. Note that you should only provide this parameter if the
 -- key is different from the default DynamoDB KMS key
 -- @alias\/aws\/dynamodb@.
 --
--- 'tableClassOverride', 'updateReplicationGroupMemberAction_tableClassOverride' - Replica-specific table class. If not specified, uses the source table\'s
--- table class.
---
 -- 'provisionedThroughputOverride', 'updateReplicationGroupMemberAction_provisionedThroughputOverride' - Replica-specific provisioned throughput. If not specified, uses the
 -- source table\'s provisioned throughput settings.
 --
--- 'globalSecondaryIndexes', 'updateReplicationGroupMemberAction_globalSecondaryIndexes' - Replica-specific global secondary index settings.
+-- 'tableClassOverride', 'updateReplicationGroupMemberAction_tableClassOverride' - Replica-specific table class. If not specified, uses the source table\'s
+-- table class.
 --
 -- 'regionName', 'updateReplicationGroupMemberAction_regionName' - The Region where the replica exists.
 newUpdateReplicationGroupMemberAction ::
@@ -81,15 +81,18 @@ newUpdateReplicationGroupMemberAction ::
   UpdateReplicationGroupMemberAction
 newUpdateReplicationGroupMemberAction pRegionName_ =
   UpdateReplicationGroupMemberAction'
-    { kmsMasterKeyId =
+    { globalSecondaryIndexes =
         Prelude.Nothing,
-      tableClassOverride = Prelude.Nothing,
+      kmsMasterKeyId = Prelude.Nothing,
       provisionedThroughputOverride =
         Prelude.Nothing,
-      globalSecondaryIndexes =
-        Prelude.Nothing,
+      tableClassOverride = Prelude.Nothing,
       regionName = pRegionName_
     }
+
+-- | Replica-specific global secondary index settings.
+updateReplicationGroupMemberAction_globalSecondaryIndexes :: Lens.Lens' UpdateReplicationGroupMemberAction (Prelude.Maybe (Prelude.NonEmpty ReplicaGlobalSecondaryIndex))
+updateReplicationGroupMemberAction_globalSecondaryIndexes = Lens.lens (\UpdateReplicationGroupMemberAction' {globalSecondaryIndexes} -> globalSecondaryIndexes) (\s@UpdateReplicationGroupMemberAction' {} a -> s {globalSecondaryIndexes = a} :: UpdateReplicationGroupMemberAction) Prelude.. Lens.mapping Lens.coerced
 
 -- | The KMS key of the replica that should be used for KMS encryption. To
 -- specify a key, use its key ID, Amazon Resource Name (ARN), alias name,
@@ -99,19 +102,15 @@ newUpdateReplicationGroupMemberAction pRegionName_ =
 updateReplicationGroupMemberAction_kmsMasterKeyId :: Lens.Lens' UpdateReplicationGroupMemberAction (Prelude.Maybe Prelude.Text)
 updateReplicationGroupMemberAction_kmsMasterKeyId = Lens.lens (\UpdateReplicationGroupMemberAction' {kmsMasterKeyId} -> kmsMasterKeyId) (\s@UpdateReplicationGroupMemberAction' {} a -> s {kmsMasterKeyId = a} :: UpdateReplicationGroupMemberAction)
 
--- | Replica-specific table class. If not specified, uses the source table\'s
--- table class.
-updateReplicationGroupMemberAction_tableClassOverride :: Lens.Lens' UpdateReplicationGroupMemberAction (Prelude.Maybe TableClass)
-updateReplicationGroupMemberAction_tableClassOverride = Lens.lens (\UpdateReplicationGroupMemberAction' {tableClassOverride} -> tableClassOverride) (\s@UpdateReplicationGroupMemberAction' {} a -> s {tableClassOverride = a} :: UpdateReplicationGroupMemberAction)
-
 -- | Replica-specific provisioned throughput. If not specified, uses the
 -- source table\'s provisioned throughput settings.
 updateReplicationGroupMemberAction_provisionedThroughputOverride :: Lens.Lens' UpdateReplicationGroupMemberAction (Prelude.Maybe ProvisionedThroughputOverride)
 updateReplicationGroupMemberAction_provisionedThroughputOverride = Lens.lens (\UpdateReplicationGroupMemberAction' {provisionedThroughputOverride} -> provisionedThroughputOverride) (\s@UpdateReplicationGroupMemberAction' {} a -> s {provisionedThroughputOverride = a} :: UpdateReplicationGroupMemberAction)
 
--- | Replica-specific global secondary index settings.
-updateReplicationGroupMemberAction_globalSecondaryIndexes :: Lens.Lens' UpdateReplicationGroupMemberAction (Prelude.Maybe (Prelude.NonEmpty ReplicaGlobalSecondaryIndex))
-updateReplicationGroupMemberAction_globalSecondaryIndexes = Lens.lens (\UpdateReplicationGroupMemberAction' {globalSecondaryIndexes} -> globalSecondaryIndexes) (\s@UpdateReplicationGroupMemberAction' {} a -> s {globalSecondaryIndexes = a} :: UpdateReplicationGroupMemberAction) Prelude.. Lens.mapping Lens.coerced
+-- | Replica-specific table class. If not specified, uses the source table\'s
+-- table class.
+updateReplicationGroupMemberAction_tableClassOverride :: Lens.Lens' UpdateReplicationGroupMemberAction (Prelude.Maybe TableClass)
+updateReplicationGroupMemberAction_tableClassOverride = Lens.lens (\UpdateReplicationGroupMemberAction' {tableClassOverride} -> tableClassOverride) (\s@UpdateReplicationGroupMemberAction' {} a -> s {tableClassOverride = a} :: UpdateReplicationGroupMemberAction)
 
 -- | The Region where the replica exists.
 updateReplicationGroupMemberAction_regionName :: Lens.Lens' UpdateReplicationGroupMemberAction Prelude.Text
@@ -124,10 +123,10 @@ instance
   hashWithSalt
     _salt
     UpdateReplicationGroupMemberAction' {..} =
-      _salt `Prelude.hashWithSalt` kmsMasterKeyId
-        `Prelude.hashWithSalt` tableClassOverride
+      _salt `Prelude.hashWithSalt` globalSecondaryIndexes
+        `Prelude.hashWithSalt` kmsMasterKeyId
         `Prelude.hashWithSalt` provisionedThroughputOverride
-        `Prelude.hashWithSalt` globalSecondaryIndexes
+        `Prelude.hashWithSalt` tableClassOverride
         `Prelude.hashWithSalt` regionName
 
 instance
@@ -135,10 +134,10 @@ instance
     UpdateReplicationGroupMemberAction
   where
   rnf UpdateReplicationGroupMemberAction' {..} =
-    Prelude.rnf kmsMasterKeyId
-      `Prelude.seq` Prelude.rnf tableClassOverride
+    Prelude.rnf globalSecondaryIndexes
+      `Prelude.seq` Prelude.rnf kmsMasterKeyId
       `Prelude.seq` Prelude.rnf provisionedThroughputOverride
-      `Prelude.seq` Prelude.rnf globalSecondaryIndexes
+      `Prelude.seq` Prelude.rnf tableClassOverride
       `Prelude.seq` Prelude.rnf regionName
 
 instance
@@ -148,14 +147,14 @@ instance
   toJSON UpdateReplicationGroupMemberAction' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("KMSMasterKeyId" Data..=)
+          [ ("GlobalSecondaryIndexes" Data..=)
+              Prelude.<$> globalSecondaryIndexes,
+            ("KMSMasterKeyId" Data..=)
               Prelude.<$> kmsMasterKeyId,
-            ("TableClassOverride" Data..=)
-              Prelude.<$> tableClassOverride,
             ("ProvisionedThroughputOverride" Data..=)
               Prelude.<$> provisionedThroughputOverride,
-            ("GlobalSecondaryIndexes" Data..=)
-              Prelude.<$> globalSecondaryIndexes,
+            ("TableClassOverride" Data..=)
+              Prelude.<$> tableClassOverride,
             Prelude.Just ("RegionName" Data..= regionName)
           ]
       )

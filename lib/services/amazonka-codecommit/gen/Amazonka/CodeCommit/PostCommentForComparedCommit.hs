@@ -27,8 +27,8 @@ module Amazonka.CodeCommit.PostCommentForComparedCommit
     newPostCommentForComparedCommit,
 
     -- * Request Lenses
-    postCommentForComparedCommit_clientRequestToken,
     postCommentForComparedCommit_beforeCommitId,
+    postCommentForComparedCommit_clientRequestToken,
     postCommentForComparedCommit_location,
     postCommentForComparedCommit_repositoryName,
     postCommentForComparedCommit_afterCommitId,
@@ -39,13 +39,13 @@ module Amazonka.CodeCommit.PostCommentForComparedCommit
     newPostCommentForComparedCommitResponse,
 
     -- * Response Lenses
-    postCommentForComparedCommitResponse_beforeBlobId,
-    postCommentForComparedCommitResponse_afterCommitId,
-    postCommentForComparedCommitResponse_repositoryName,
-    postCommentForComparedCommitResponse_beforeCommitId,
-    postCommentForComparedCommitResponse_location,
-    postCommentForComparedCommitResponse_comment,
     postCommentForComparedCommitResponse_afterBlobId,
+    postCommentForComparedCommitResponse_afterCommitId,
+    postCommentForComparedCommitResponse_beforeBlobId,
+    postCommentForComparedCommitResponse_beforeCommitId,
+    postCommentForComparedCommitResponse_comment,
+    postCommentForComparedCommitResponse_location,
+    postCommentForComparedCommitResponse_repositoryName,
     postCommentForComparedCommitResponse_httpStatus,
   )
 where
@@ -60,16 +60,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPostCommentForComparedCommit' smart constructor.
 data PostCommentForComparedCommit = PostCommentForComparedCommit'
-  { -- | A unique, client-generated idempotency token that, when provided in a
+  { -- | To establish the directionality of the comparison, the full commit ID of
+    -- the before commit. Required for commenting on any commit unless that
+    -- commit is the initial commit.
+    beforeCommitId :: Prelude.Maybe Prelude.Text,
+    -- | A unique, client-generated idempotency token that, when provided in a
     -- request, ensures the request cannot be repeated with a changed
     -- parameter. If a request is received with the same parameters and a token
     -- is included, the request returns information about the initial request
     -- that used that token.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | To establish the directionality of the comparison, the full commit ID of
-    -- the before commit. Required for commenting on any commit unless that
-    -- commit is the initial commit.
-    beforeCommitId :: Prelude.Maybe Prelude.Text,
     -- | The location of the comparison where you want to comment.
     location :: Prelude.Maybe Location,
     -- | The name of the repository where you want to post a comment on the
@@ -91,15 +91,15 @@ data PostCommentForComparedCommit = PostCommentForComparedCommit'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'beforeCommitId', 'postCommentForComparedCommit_beforeCommitId' - To establish the directionality of the comparison, the full commit ID of
+-- the before commit. Required for commenting on any commit unless that
+-- commit is the initial commit.
+--
 -- 'clientRequestToken', 'postCommentForComparedCommit_clientRequestToken' - A unique, client-generated idempotency token that, when provided in a
 -- request, ensures the request cannot be repeated with a changed
 -- parameter. If a request is received with the same parameters and a token
 -- is included, the request returns information about the initial request
 -- that used that token.
---
--- 'beforeCommitId', 'postCommentForComparedCommit_beforeCommitId' - To establish the directionality of the comparison, the full commit ID of
--- the before commit. Required for commenting on any commit unless that
--- commit is the initial commit.
 --
 -- 'location', 'postCommentForComparedCommit_location' - The location of the comparison where you want to comment.
 --
@@ -123,14 +123,20 @@ newPostCommentForComparedCommit
   pAfterCommitId_
   pContent_ =
     PostCommentForComparedCommit'
-      { clientRequestToken =
+      { beforeCommitId =
           Prelude.Nothing,
-        beforeCommitId = Prelude.Nothing,
+        clientRequestToken = Prelude.Nothing,
         location = Prelude.Nothing,
         repositoryName = pRepositoryName_,
         afterCommitId = pAfterCommitId_,
         content = pContent_
       }
+
+-- | To establish the directionality of the comparison, the full commit ID of
+-- the before commit. Required for commenting on any commit unless that
+-- commit is the initial commit.
+postCommentForComparedCommit_beforeCommitId :: Lens.Lens' PostCommentForComparedCommit (Prelude.Maybe Prelude.Text)
+postCommentForComparedCommit_beforeCommitId = Lens.lens (\PostCommentForComparedCommit' {beforeCommitId} -> beforeCommitId) (\s@PostCommentForComparedCommit' {} a -> s {beforeCommitId = a} :: PostCommentForComparedCommit)
 
 -- | A unique, client-generated idempotency token that, when provided in a
 -- request, ensures the request cannot be repeated with a changed
@@ -139,12 +145,6 @@ newPostCommentForComparedCommit
 -- that used that token.
 postCommentForComparedCommit_clientRequestToken :: Lens.Lens' PostCommentForComparedCommit (Prelude.Maybe Prelude.Text)
 postCommentForComparedCommit_clientRequestToken = Lens.lens (\PostCommentForComparedCommit' {clientRequestToken} -> clientRequestToken) (\s@PostCommentForComparedCommit' {} a -> s {clientRequestToken = a} :: PostCommentForComparedCommit)
-
--- | To establish the directionality of the comparison, the full commit ID of
--- the before commit. Required for commenting on any commit unless that
--- commit is the initial commit.
-postCommentForComparedCommit_beforeCommitId :: Lens.Lens' PostCommentForComparedCommit (Prelude.Maybe Prelude.Text)
-postCommentForComparedCommit_beforeCommitId = Lens.lens (\PostCommentForComparedCommit' {beforeCommitId} -> beforeCommitId) (\s@PostCommentForComparedCommit' {} a -> s {beforeCommitId = a} :: PostCommentForComparedCommit)
 
 -- | The location of the comparison where you want to comment.
 postCommentForComparedCommit_location :: Lens.Lens' PostCommentForComparedCommit (Prelude.Maybe Location)
@@ -174,13 +174,13 @@ instance Core.AWSRequest PostCommentForComparedCommit where
     Response.receiveJSON
       ( \s h x ->
           PostCommentForComparedCommitResponse'
-            Prelude.<$> (x Data..?> "beforeBlobId")
+            Prelude.<$> (x Data..?> "afterBlobId")
             Prelude.<*> (x Data..?> "afterCommitId")
-            Prelude.<*> (x Data..?> "repositoryName")
+            Prelude.<*> (x Data..?> "beforeBlobId")
             Prelude.<*> (x Data..?> "beforeCommitId")
-            Prelude.<*> (x Data..?> "location")
             Prelude.<*> (x Data..?> "comment")
-            Prelude.<*> (x Data..?> "afterBlobId")
+            Prelude.<*> (x Data..?> "location")
+            Prelude.<*> (x Data..?> "repositoryName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -189,8 +189,8 @@ instance
     PostCommentForComparedCommit
   where
   hashWithSalt _salt PostCommentForComparedCommit' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
-      `Prelude.hashWithSalt` beforeCommitId
+    _salt `Prelude.hashWithSalt` beforeCommitId
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` afterCommitId
@@ -198,8 +198,8 @@ instance
 
 instance Prelude.NFData PostCommentForComparedCommit where
   rnf PostCommentForComparedCommit' {..} =
-    Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf beforeCommitId
+    Prelude.rnf beforeCommitId
+      `Prelude.seq` Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf location
       `Prelude.seq` Prelude.rnf repositoryName
       `Prelude.seq` Prelude.rnf afterCommitId
@@ -224,10 +224,10 @@ instance Data.ToJSON PostCommentForComparedCommit where
   toJSON PostCommentForComparedCommit' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("clientRequestToken" Data..=)
-              Prelude.<$> clientRequestToken,
-            ("beforeCommitId" Data..=)
+          [ ("beforeCommitId" Data..=)
               Prelude.<$> beforeCommitId,
+            ("clientRequestToken" Data..=)
+              Prelude.<$> clientRequestToken,
             ("location" Data..=) Prelude.<$> location,
             Prelude.Just
               ("repositoryName" Data..= repositoryName),
@@ -244,23 +244,23 @@ instance Data.ToQuery PostCommentForComparedCommit where
 
 -- | /See:/ 'newPostCommentForComparedCommitResponse' smart constructor.
 data PostCommentForComparedCommitResponse = PostCommentForComparedCommitResponse'
-  { -- | In the directionality you established, the blob ID of the before blob.
-    beforeBlobId :: Prelude.Maybe Prelude.Text,
+  { -- | In the directionality you established, the blob ID of the after blob.
+    afterBlobId :: Prelude.Maybe Prelude.Text,
     -- | In the directionality you established, the full commit ID of the after
     -- commit.
     afterCommitId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the repository where you posted a comment on the comparison
-    -- between commits.
-    repositoryName :: Prelude.Maybe Prelude.Text,
+    -- | In the directionality you established, the blob ID of the before blob.
+    beforeBlobId :: Prelude.Maybe Prelude.Text,
     -- | In the directionality you established, the full commit ID of the before
     -- commit.
     beforeCommitId :: Prelude.Maybe Prelude.Text,
-    -- | The location of the comment in the comparison between the two commits.
-    location :: Prelude.Maybe Location,
     -- | The content of the comment you posted.
     comment :: Prelude.Maybe Comment,
-    -- | In the directionality you established, the blob ID of the after blob.
-    afterBlobId :: Prelude.Maybe Prelude.Text,
+    -- | The location of the comment in the comparison between the two commits.
+    location :: Prelude.Maybe Location,
+    -- | The name of the repository where you posted a comment on the comparison
+    -- between commits.
+    repositoryName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -274,22 +274,22 @@ data PostCommentForComparedCommitResponse = PostCommentForComparedCommitResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'beforeBlobId', 'postCommentForComparedCommitResponse_beforeBlobId' - In the directionality you established, the blob ID of the before blob.
+-- 'afterBlobId', 'postCommentForComparedCommitResponse_afterBlobId' - In the directionality you established, the blob ID of the after blob.
 --
 -- 'afterCommitId', 'postCommentForComparedCommitResponse_afterCommitId' - In the directionality you established, the full commit ID of the after
 -- commit.
 --
--- 'repositoryName', 'postCommentForComparedCommitResponse_repositoryName' - The name of the repository where you posted a comment on the comparison
--- between commits.
+-- 'beforeBlobId', 'postCommentForComparedCommitResponse_beforeBlobId' - In the directionality you established, the blob ID of the before blob.
 --
 -- 'beforeCommitId', 'postCommentForComparedCommitResponse_beforeCommitId' - In the directionality you established, the full commit ID of the before
 -- commit.
 --
--- 'location', 'postCommentForComparedCommitResponse_location' - The location of the comment in the comparison between the two commits.
---
 -- 'comment', 'postCommentForComparedCommitResponse_comment' - The content of the comment you posted.
 --
--- 'afterBlobId', 'postCommentForComparedCommitResponse_afterBlobId' - In the directionality you established, the blob ID of the after blob.
+-- 'location', 'postCommentForComparedCommitResponse_location' - The location of the comment in the comparison between the two commits.
+--
+-- 'repositoryName', 'postCommentForComparedCommitResponse_repositoryName' - The name of the repository where you posted a comment on the comparison
+-- between commits.
 --
 -- 'httpStatus', 'postCommentForComparedCommitResponse_httpStatus' - The response's http status code.
 newPostCommentForComparedCommitResponse ::
@@ -298,47 +298,47 @@ newPostCommentForComparedCommitResponse ::
   PostCommentForComparedCommitResponse
 newPostCommentForComparedCommitResponse pHttpStatus_ =
   PostCommentForComparedCommitResponse'
-    { beforeBlobId =
+    { afterBlobId =
         Prelude.Nothing,
       afterCommitId = Prelude.Nothing,
-      repositoryName = Prelude.Nothing,
+      beforeBlobId = Prelude.Nothing,
       beforeCommitId = Prelude.Nothing,
-      location = Prelude.Nothing,
       comment = Prelude.Nothing,
-      afterBlobId = Prelude.Nothing,
+      location = Prelude.Nothing,
+      repositoryName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | In the directionality you established, the blob ID of the before blob.
-postCommentForComparedCommitResponse_beforeBlobId :: Lens.Lens' PostCommentForComparedCommitResponse (Prelude.Maybe Prelude.Text)
-postCommentForComparedCommitResponse_beforeBlobId = Lens.lens (\PostCommentForComparedCommitResponse' {beforeBlobId} -> beforeBlobId) (\s@PostCommentForComparedCommitResponse' {} a -> s {beforeBlobId = a} :: PostCommentForComparedCommitResponse)
+-- | In the directionality you established, the blob ID of the after blob.
+postCommentForComparedCommitResponse_afterBlobId :: Lens.Lens' PostCommentForComparedCommitResponse (Prelude.Maybe Prelude.Text)
+postCommentForComparedCommitResponse_afterBlobId = Lens.lens (\PostCommentForComparedCommitResponse' {afterBlobId} -> afterBlobId) (\s@PostCommentForComparedCommitResponse' {} a -> s {afterBlobId = a} :: PostCommentForComparedCommitResponse)
 
 -- | In the directionality you established, the full commit ID of the after
 -- commit.
 postCommentForComparedCommitResponse_afterCommitId :: Lens.Lens' PostCommentForComparedCommitResponse (Prelude.Maybe Prelude.Text)
 postCommentForComparedCommitResponse_afterCommitId = Lens.lens (\PostCommentForComparedCommitResponse' {afterCommitId} -> afterCommitId) (\s@PostCommentForComparedCommitResponse' {} a -> s {afterCommitId = a} :: PostCommentForComparedCommitResponse)
 
--- | The name of the repository where you posted a comment on the comparison
--- between commits.
-postCommentForComparedCommitResponse_repositoryName :: Lens.Lens' PostCommentForComparedCommitResponse (Prelude.Maybe Prelude.Text)
-postCommentForComparedCommitResponse_repositoryName = Lens.lens (\PostCommentForComparedCommitResponse' {repositoryName} -> repositoryName) (\s@PostCommentForComparedCommitResponse' {} a -> s {repositoryName = a} :: PostCommentForComparedCommitResponse)
+-- | In the directionality you established, the blob ID of the before blob.
+postCommentForComparedCommitResponse_beforeBlobId :: Lens.Lens' PostCommentForComparedCommitResponse (Prelude.Maybe Prelude.Text)
+postCommentForComparedCommitResponse_beforeBlobId = Lens.lens (\PostCommentForComparedCommitResponse' {beforeBlobId} -> beforeBlobId) (\s@PostCommentForComparedCommitResponse' {} a -> s {beforeBlobId = a} :: PostCommentForComparedCommitResponse)
 
 -- | In the directionality you established, the full commit ID of the before
 -- commit.
 postCommentForComparedCommitResponse_beforeCommitId :: Lens.Lens' PostCommentForComparedCommitResponse (Prelude.Maybe Prelude.Text)
 postCommentForComparedCommitResponse_beforeCommitId = Lens.lens (\PostCommentForComparedCommitResponse' {beforeCommitId} -> beforeCommitId) (\s@PostCommentForComparedCommitResponse' {} a -> s {beforeCommitId = a} :: PostCommentForComparedCommitResponse)
 
--- | The location of the comment in the comparison between the two commits.
-postCommentForComparedCommitResponse_location :: Lens.Lens' PostCommentForComparedCommitResponse (Prelude.Maybe Location)
-postCommentForComparedCommitResponse_location = Lens.lens (\PostCommentForComparedCommitResponse' {location} -> location) (\s@PostCommentForComparedCommitResponse' {} a -> s {location = a} :: PostCommentForComparedCommitResponse)
-
 -- | The content of the comment you posted.
 postCommentForComparedCommitResponse_comment :: Lens.Lens' PostCommentForComparedCommitResponse (Prelude.Maybe Comment)
 postCommentForComparedCommitResponse_comment = Lens.lens (\PostCommentForComparedCommitResponse' {comment} -> comment) (\s@PostCommentForComparedCommitResponse' {} a -> s {comment = a} :: PostCommentForComparedCommitResponse)
 
--- | In the directionality you established, the blob ID of the after blob.
-postCommentForComparedCommitResponse_afterBlobId :: Lens.Lens' PostCommentForComparedCommitResponse (Prelude.Maybe Prelude.Text)
-postCommentForComparedCommitResponse_afterBlobId = Lens.lens (\PostCommentForComparedCommitResponse' {afterBlobId} -> afterBlobId) (\s@PostCommentForComparedCommitResponse' {} a -> s {afterBlobId = a} :: PostCommentForComparedCommitResponse)
+-- | The location of the comment in the comparison between the two commits.
+postCommentForComparedCommitResponse_location :: Lens.Lens' PostCommentForComparedCommitResponse (Prelude.Maybe Location)
+postCommentForComparedCommitResponse_location = Lens.lens (\PostCommentForComparedCommitResponse' {location} -> location) (\s@PostCommentForComparedCommitResponse' {} a -> s {location = a} :: PostCommentForComparedCommitResponse)
+
+-- | The name of the repository where you posted a comment on the comparison
+-- between commits.
+postCommentForComparedCommitResponse_repositoryName :: Lens.Lens' PostCommentForComparedCommitResponse (Prelude.Maybe Prelude.Text)
+postCommentForComparedCommitResponse_repositoryName = Lens.lens (\PostCommentForComparedCommitResponse' {repositoryName} -> repositoryName) (\s@PostCommentForComparedCommitResponse' {} a -> s {repositoryName = a} :: PostCommentForComparedCommitResponse)
 
 -- | The response's http status code.
 postCommentForComparedCommitResponse_httpStatus :: Lens.Lens' PostCommentForComparedCommitResponse Prelude.Int
@@ -349,11 +349,11 @@ instance
     PostCommentForComparedCommitResponse
   where
   rnf PostCommentForComparedCommitResponse' {..} =
-    Prelude.rnf beforeBlobId
+    Prelude.rnf afterBlobId
       `Prelude.seq` Prelude.rnf afterCommitId
-      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf beforeBlobId
       `Prelude.seq` Prelude.rnf beforeCommitId
-      `Prelude.seq` Prelude.rnf location
       `Prelude.seq` Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf afterBlobId
+      `Prelude.seq` Prelude.rnf location
+      `Prelude.seq` Prelude.rnf repositoryName
       `Prelude.seq` Prelude.rnf httpStatus

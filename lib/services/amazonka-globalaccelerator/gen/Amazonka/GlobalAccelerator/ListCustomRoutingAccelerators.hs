@@ -29,16 +29,16 @@ module Amazonka.GlobalAccelerator.ListCustomRoutingAccelerators
     newListCustomRoutingAccelerators,
 
     -- * Request Lenses
-    listCustomRoutingAccelerators_nextToken,
     listCustomRoutingAccelerators_maxResults,
+    listCustomRoutingAccelerators_nextToken,
 
     -- * Destructuring the Response
     ListCustomRoutingAcceleratorsResponse (..),
     newListCustomRoutingAcceleratorsResponse,
 
     -- * Response Lenses
-    listCustomRoutingAcceleratorsResponse_nextToken,
     listCustomRoutingAcceleratorsResponse_accelerators,
+    listCustomRoutingAcceleratorsResponse_nextToken,
     listCustomRoutingAcceleratorsResponse_httpStatus,
   )
 where
@@ -53,12 +53,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListCustomRoutingAccelerators' smart constructor.
 data ListCustomRoutingAccelerators = ListCustomRoutingAccelerators'
-  { -- | The token for the next set of results. You receive this token from a
-    -- previous call.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The number of custom routing Global Accelerator objects that you want to
+  { -- | The number of custom routing Global Accelerator objects that you want to
     -- return with this call. The default value is 10.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. You receive this token from a
+    -- previous call.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,29 +70,29 @@ data ListCustomRoutingAccelerators = ListCustomRoutingAccelerators'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listCustomRoutingAccelerators_nextToken' - The token for the next set of results. You receive this token from a
--- previous call.
---
 -- 'maxResults', 'listCustomRoutingAccelerators_maxResults' - The number of custom routing Global Accelerator objects that you want to
 -- return with this call. The default value is 10.
+--
+-- 'nextToken', 'listCustomRoutingAccelerators_nextToken' - The token for the next set of results. You receive this token from a
+-- previous call.
 newListCustomRoutingAccelerators ::
   ListCustomRoutingAccelerators
 newListCustomRoutingAccelerators =
   ListCustomRoutingAccelerators'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | The token for the next set of results. You receive this token from a
--- previous call.
-listCustomRoutingAccelerators_nextToken :: Lens.Lens' ListCustomRoutingAccelerators (Prelude.Maybe Prelude.Text)
-listCustomRoutingAccelerators_nextToken = Lens.lens (\ListCustomRoutingAccelerators' {nextToken} -> nextToken) (\s@ListCustomRoutingAccelerators' {} a -> s {nextToken = a} :: ListCustomRoutingAccelerators)
 
 -- | The number of custom routing Global Accelerator objects that you want to
 -- return with this call. The default value is 10.
 listCustomRoutingAccelerators_maxResults :: Lens.Lens' ListCustomRoutingAccelerators (Prelude.Maybe Prelude.Natural)
 listCustomRoutingAccelerators_maxResults = Lens.lens (\ListCustomRoutingAccelerators' {maxResults} -> maxResults) (\s@ListCustomRoutingAccelerators' {} a -> s {maxResults = a} :: ListCustomRoutingAccelerators)
+
+-- | The token for the next set of results. You receive this token from a
+-- previous call.
+listCustomRoutingAccelerators_nextToken :: Lens.Lens' ListCustomRoutingAccelerators (Prelude.Maybe Prelude.Text)
+listCustomRoutingAccelerators_nextToken = Lens.lens (\ListCustomRoutingAccelerators' {nextToken} -> nextToken) (\s@ListCustomRoutingAccelerators' {} a -> s {nextToken = a} :: ListCustomRoutingAccelerators)
 
 instance Core.AWSPager ListCustomRoutingAccelerators where
   page rq rs
@@ -129,8 +129,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListCustomRoutingAcceleratorsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Accelerators" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Accelerators" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,13 +139,13 @@ instance
     ListCustomRoutingAccelerators
   where
   hashWithSalt _salt ListCustomRoutingAccelerators' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListCustomRoutingAccelerators where
   rnf ListCustomRoutingAccelerators' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListCustomRoutingAccelerators where
   toHeaders =
@@ -166,8 +166,8 @@ instance Data.ToJSON ListCustomRoutingAccelerators where
   toJSON ListCustomRoutingAccelerators' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -179,11 +179,11 @@ instance Data.ToQuery ListCustomRoutingAccelerators where
 
 -- | /See:/ 'newListCustomRoutingAcceleratorsResponse' smart constructor.
 data ListCustomRoutingAcceleratorsResponse = ListCustomRoutingAcceleratorsResponse'
-  { -- | The token for the next set of results. You receive this token from a
+  { -- | The list of custom routing accelerators for a customer account.
+    accelerators :: Prelude.Maybe [CustomRoutingAccelerator],
+    -- | The token for the next set of results. You receive this token from a
     -- previous call.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of custom routing accelerators for a customer account.
-    accelerators :: Prelude.Maybe [CustomRoutingAccelerator],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -197,10 +197,10 @@ data ListCustomRoutingAcceleratorsResponse = ListCustomRoutingAcceleratorsRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'accelerators', 'listCustomRoutingAcceleratorsResponse_accelerators' - The list of custom routing accelerators for a customer account.
+--
 -- 'nextToken', 'listCustomRoutingAcceleratorsResponse_nextToken' - The token for the next set of results. You receive this token from a
 -- previous call.
---
--- 'accelerators', 'listCustomRoutingAcceleratorsResponse_accelerators' - The list of custom routing accelerators for a customer account.
 --
 -- 'httpStatus', 'listCustomRoutingAcceleratorsResponse_httpStatus' - The response's http status code.
 newListCustomRoutingAcceleratorsResponse ::
@@ -209,20 +209,20 @@ newListCustomRoutingAcceleratorsResponse ::
   ListCustomRoutingAcceleratorsResponse
 newListCustomRoutingAcceleratorsResponse pHttpStatus_ =
   ListCustomRoutingAcceleratorsResponse'
-    { nextToken =
+    { accelerators =
         Prelude.Nothing,
-      accelerators = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of custom routing accelerators for a customer account.
+listCustomRoutingAcceleratorsResponse_accelerators :: Lens.Lens' ListCustomRoutingAcceleratorsResponse (Prelude.Maybe [CustomRoutingAccelerator])
+listCustomRoutingAcceleratorsResponse_accelerators = Lens.lens (\ListCustomRoutingAcceleratorsResponse' {accelerators} -> accelerators) (\s@ListCustomRoutingAcceleratorsResponse' {} a -> s {accelerators = a} :: ListCustomRoutingAcceleratorsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results. You receive this token from a
 -- previous call.
 listCustomRoutingAcceleratorsResponse_nextToken :: Lens.Lens' ListCustomRoutingAcceleratorsResponse (Prelude.Maybe Prelude.Text)
 listCustomRoutingAcceleratorsResponse_nextToken = Lens.lens (\ListCustomRoutingAcceleratorsResponse' {nextToken} -> nextToken) (\s@ListCustomRoutingAcceleratorsResponse' {} a -> s {nextToken = a} :: ListCustomRoutingAcceleratorsResponse)
-
--- | The list of custom routing accelerators for a customer account.
-listCustomRoutingAcceleratorsResponse_accelerators :: Lens.Lens' ListCustomRoutingAcceleratorsResponse (Prelude.Maybe [CustomRoutingAccelerator])
-listCustomRoutingAcceleratorsResponse_accelerators = Lens.lens (\ListCustomRoutingAcceleratorsResponse' {accelerators} -> accelerators) (\s@ListCustomRoutingAcceleratorsResponse' {} a -> s {accelerators = a} :: ListCustomRoutingAcceleratorsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listCustomRoutingAcceleratorsResponse_httpStatus :: Lens.Lens' ListCustomRoutingAcceleratorsResponse Prelude.Int
@@ -233,6 +233,6 @@ instance
     ListCustomRoutingAcceleratorsResponse
   where
   rnf ListCustomRoutingAcceleratorsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf accelerators
+    Prelude.rnf accelerators
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

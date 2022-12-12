@@ -32,8 +32,8 @@ module Amazonka.Route53RecoveryControlConfig.CreateControlPanel
     newCreateControlPanel,
 
     -- * Request Lenses
-    createControlPanel_tags,
     createControlPanel_clientToken,
+    createControlPanel_tags,
     createControlPanel_clusterArn,
     createControlPanel_controlPanelName,
 
@@ -59,12 +59,12 @@ import Amazonka.Route53RecoveryControlConfig.Types
 --
 -- /See:/ 'newCreateControlPanel' smart constructor.
 data CreateControlPanel = CreateControlPanel'
-  { -- | The tags associated with the control panel.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A unique, case-sensitive string of up to 64 ASCII characters. To make an
+  { -- | A unique, case-sensitive string of up to 64 ASCII characters. To make an
     -- idempotent API request with an action, specify a client token in the
     -- request.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The tags associated with the control panel.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the cluster for the control panel.
     clusterArn :: Prelude.Text,
     -- | The name of the control panel.
@@ -80,11 +80,11 @@ data CreateControlPanel = CreateControlPanel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createControlPanel_tags' - The tags associated with the control panel.
---
 -- 'clientToken', 'createControlPanel_clientToken' - A unique, case-sensitive string of up to 64 ASCII characters. To make an
 -- idempotent API request with an action, specify a client token in the
 -- request.
+--
+-- 'tags', 'createControlPanel_tags' - The tags associated with the control panel.
 --
 -- 'clusterArn', 'createControlPanel_clusterArn' - The Amazon Resource Name (ARN) of the cluster for the control panel.
 --
@@ -97,21 +97,21 @@ newCreateControlPanel ::
   CreateControlPanel
 newCreateControlPanel pClusterArn_ pControlPanelName_ =
   CreateControlPanel'
-    { tags = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+    { clientToken = Prelude.Nothing,
+      tags = Prelude.Nothing,
       clusterArn = pClusterArn_,
       controlPanelName = pControlPanelName_
     }
-
--- | The tags associated with the control panel.
-createControlPanel_tags :: Lens.Lens' CreateControlPanel (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createControlPanel_tags = Lens.lens (\CreateControlPanel' {tags} -> tags) (\s@CreateControlPanel' {} a -> s {tags = a} :: CreateControlPanel) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique, case-sensitive string of up to 64 ASCII characters. To make an
 -- idempotent API request with an action, specify a client token in the
 -- request.
 createControlPanel_clientToken :: Lens.Lens' CreateControlPanel (Prelude.Maybe Prelude.Text)
 createControlPanel_clientToken = Lens.lens (\CreateControlPanel' {clientToken} -> clientToken) (\s@CreateControlPanel' {} a -> s {clientToken = a} :: CreateControlPanel)
+
+-- | The tags associated with the control panel.
+createControlPanel_tags :: Lens.Lens' CreateControlPanel (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createControlPanel_tags = Lens.lens (\CreateControlPanel' {tags} -> tags) (\s@CreateControlPanel' {} a -> s {tags = a} :: CreateControlPanel) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the cluster for the control panel.
 createControlPanel_clusterArn :: Lens.Lens' CreateControlPanel Prelude.Text
@@ -137,15 +137,15 @@ instance Core.AWSRequest CreateControlPanel where
 
 instance Prelude.Hashable CreateControlPanel where
   hashWithSalt _salt CreateControlPanel' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` clusterArn
       `Prelude.hashWithSalt` controlPanelName
 
 instance Prelude.NFData CreateControlPanel where
   rnf CreateControlPanel' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf clusterArn
       `Prelude.seq` Prelude.rnf controlPanelName
 
@@ -164,8 +164,8 @@ instance Data.ToJSON CreateControlPanel where
   toJSON CreateControlPanel' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ClientToken" Data..=) Prelude.<$> clientToken,
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("ClusterArn" Data..= clusterArn),
             Prelude.Just
               ("ControlPanelName" Data..= controlPanelName)

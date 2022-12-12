@@ -33,10 +33,10 @@ module Amazonka.Connect.SearchSecurityProfiles
     newSearchSecurityProfiles,
 
     -- * Request Lenses
+    searchSecurityProfiles_maxResults,
     searchSecurityProfiles_nextToken,
     searchSecurityProfiles_searchCriteria,
     searchSecurityProfiles_searchFilter,
-    searchSecurityProfiles_maxResults,
     searchSecurityProfiles_instanceId,
 
     -- * Destructuring the Response
@@ -44,8 +44,8 @@ module Amazonka.Connect.SearchSecurityProfiles
     newSearchSecurityProfilesResponse,
 
     -- * Response Lenses
-    searchSecurityProfilesResponse_nextToken,
     searchSecurityProfilesResponse_approximateTotalCount,
+    searchSecurityProfilesResponse_nextToken,
     searchSecurityProfilesResponse_securityProfiles,
     searchSecurityProfilesResponse_httpStatus,
   )
@@ -61,7 +61,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSearchSecurityProfiles' smart constructor.
 data SearchSecurityProfiles = SearchSecurityProfiles'
-  { -- | The token for the next set of results. Use the value returned in the
+  { -- | The maximum number of results to return per page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -75,8 +77,6 @@ data SearchSecurityProfiles = SearchSecurityProfiles'
     searchCriteria :: Prelude.Maybe SecurityProfileSearchCriteria,
     -- | Filters to be applied to search results.
     searchFilter :: Prelude.Maybe SecurityProfilesSearchFilter,
-    -- | The maximum number of results to return per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
@@ -90,6 +90,8 @@ data SearchSecurityProfiles = SearchSecurityProfiles'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'maxResults', 'searchSecurityProfiles_maxResults' - The maximum number of results to return per page.
 --
 -- 'nextToken', 'searchSecurityProfiles_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
@@ -105,8 +107,6 @@ data SearchSecurityProfiles = SearchSecurityProfiles'
 --
 -- 'searchFilter', 'searchSecurityProfiles_searchFilter' - Filters to be applied to search results.
 --
--- 'maxResults', 'searchSecurityProfiles_maxResults' - The maximum number of results to return per page.
---
 -- 'instanceId', 'searchSecurityProfiles_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
 newSearchSecurityProfiles ::
@@ -115,13 +115,17 @@ newSearchSecurityProfiles ::
   SearchSecurityProfiles
 newSearchSecurityProfiles pInstanceId_ =
   SearchSecurityProfiles'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       searchCriteria = Prelude.Nothing,
       searchFilter = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       instanceId = pInstanceId_
     }
+
+-- | The maximum number of results to return per page.
+searchSecurityProfiles_maxResults :: Lens.Lens' SearchSecurityProfiles (Prelude.Maybe Prelude.Natural)
+searchSecurityProfiles_maxResults = Lens.lens (\SearchSecurityProfiles' {maxResults} -> maxResults) (\s@SearchSecurityProfiles' {} a -> s {maxResults = a} :: SearchSecurityProfiles)
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
@@ -142,10 +146,6 @@ searchSecurityProfiles_searchCriteria = Lens.lens (\SearchSecurityProfiles' {sea
 -- | Filters to be applied to search results.
 searchSecurityProfiles_searchFilter :: Lens.Lens' SearchSecurityProfiles (Prelude.Maybe SecurityProfilesSearchFilter)
 searchSecurityProfiles_searchFilter = Lens.lens (\SearchSecurityProfiles' {searchFilter} -> searchFilter) (\s@SearchSecurityProfiles' {} a -> s {searchFilter = a} :: SearchSecurityProfiles)
-
--- | The maximum number of results to return per page.
-searchSecurityProfiles_maxResults :: Lens.Lens' SearchSecurityProfiles (Prelude.Maybe Prelude.Natural)
-searchSecurityProfiles_maxResults = Lens.lens (\SearchSecurityProfiles' {maxResults} -> maxResults) (\s@SearchSecurityProfiles' {} a -> s {maxResults = a} :: SearchSecurityProfiles)
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -184,8 +184,8 @@ instance Core.AWSRequest SearchSecurityProfiles where
     Response.receiveJSON
       ( \s h x ->
           SearchSecurityProfilesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "ApproximateTotalCount")
+            Prelude.<$> (x Data..?> "ApproximateTotalCount")
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> ( x Data..?> "SecurityProfiles"
                             Core..!@ Prelude.mempty
                         )
@@ -194,18 +194,18 @@ instance Core.AWSRequest SearchSecurityProfiles where
 
 instance Prelude.Hashable SearchSecurityProfiles where
   hashWithSalt _salt SearchSecurityProfiles' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` searchCriteria
       `Prelude.hashWithSalt` searchFilter
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData SearchSecurityProfiles where
   rnf SearchSecurityProfiles' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf searchCriteria
       `Prelude.seq` Prelude.rnf searchFilter
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf instanceId
 
 instance Data.ToHeaders SearchSecurityProfiles where
@@ -223,11 +223,11 @@ instance Data.ToJSON SearchSecurityProfiles where
   toJSON SearchSecurityProfiles' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("SearchCriteria" Data..=)
               Prelude.<$> searchCriteria,
             ("SearchFilter" Data..=) Prelude.<$> searchFilter,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just ("InstanceId" Data..= instanceId)
           ]
       )
@@ -240,11 +240,11 @@ instance Data.ToQuery SearchSecurityProfiles where
 
 -- | /See:/ 'newSearchSecurityProfilesResponse' smart constructor.
 data SearchSecurityProfilesResponse = SearchSecurityProfilesResponse'
-  { -- | If there are additional results, this is the token for the next set of
+  { -- | The total number of security profiles which matched your search query.
+    approximateTotalCount :: Prelude.Maybe Prelude.Integer,
+    -- | If there are additional results, this is the token for the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The total number of security profiles which matched your search query.
-    approximateTotalCount :: Prelude.Maybe Prelude.Integer,
     -- | Information about the security profiles.
     securityProfiles :: Prelude.Maybe [SecurityProfileSearchSummary],
     -- | The response's http status code.
@@ -260,10 +260,10 @@ data SearchSecurityProfilesResponse = SearchSecurityProfilesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'approximateTotalCount', 'searchSecurityProfilesResponse_approximateTotalCount' - The total number of security profiles which matched your search query.
+--
 -- 'nextToken', 'searchSecurityProfilesResponse_nextToken' - If there are additional results, this is the token for the next set of
 -- results.
---
--- 'approximateTotalCount', 'searchSecurityProfilesResponse_approximateTotalCount' - The total number of security profiles which matched your search query.
 --
 -- 'securityProfiles', 'searchSecurityProfilesResponse_securityProfiles' - Information about the security profiles.
 --
@@ -274,21 +274,21 @@ newSearchSecurityProfilesResponse ::
   SearchSecurityProfilesResponse
 newSearchSecurityProfilesResponse pHttpStatus_ =
   SearchSecurityProfilesResponse'
-    { nextToken =
+    { approximateTotalCount =
         Prelude.Nothing,
-      approximateTotalCount = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       securityProfiles = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The total number of security profiles which matched your search query.
+searchSecurityProfilesResponse_approximateTotalCount :: Lens.Lens' SearchSecurityProfilesResponse (Prelude.Maybe Prelude.Integer)
+searchSecurityProfilesResponse_approximateTotalCount = Lens.lens (\SearchSecurityProfilesResponse' {approximateTotalCount} -> approximateTotalCount) (\s@SearchSecurityProfilesResponse' {} a -> s {approximateTotalCount = a} :: SearchSecurityProfilesResponse)
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
 searchSecurityProfilesResponse_nextToken :: Lens.Lens' SearchSecurityProfilesResponse (Prelude.Maybe Prelude.Text)
 searchSecurityProfilesResponse_nextToken = Lens.lens (\SearchSecurityProfilesResponse' {nextToken} -> nextToken) (\s@SearchSecurityProfilesResponse' {} a -> s {nextToken = a} :: SearchSecurityProfilesResponse)
-
--- | The total number of security profiles which matched your search query.
-searchSecurityProfilesResponse_approximateTotalCount :: Lens.Lens' SearchSecurityProfilesResponse (Prelude.Maybe Prelude.Integer)
-searchSecurityProfilesResponse_approximateTotalCount = Lens.lens (\SearchSecurityProfilesResponse' {approximateTotalCount} -> approximateTotalCount) (\s@SearchSecurityProfilesResponse' {} a -> s {approximateTotalCount = a} :: SearchSecurityProfilesResponse)
 
 -- | Information about the security profiles.
 searchSecurityProfilesResponse_securityProfiles :: Lens.Lens' SearchSecurityProfilesResponse (Prelude.Maybe [SecurityProfileSearchSummary])
@@ -303,7 +303,7 @@ instance
     SearchSecurityProfilesResponse
   where
   rnf SearchSecurityProfilesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf approximateTotalCount
+    Prelude.rnf approximateTotalCount
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf securityProfiles
       `Prelude.seq` Prelude.rnf httpStatus

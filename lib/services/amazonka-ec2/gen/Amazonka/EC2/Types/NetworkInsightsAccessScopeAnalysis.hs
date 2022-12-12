@@ -32,28 +32,28 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNetworkInsightsAccessScopeAnalysis' smart constructor.
 data NetworkInsightsAccessScopeAnalysis = NetworkInsightsAccessScopeAnalysis'
-  { -- | The tags.
-    tags :: Prelude.Maybe [Tag],
+  { -- | The number of network interfaces analyzed.
+    analyzedEniCount :: Prelude.Maybe Prelude.Int,
+    -- | The analysis end date.
+    endDate :: Prelude.Maybe Data.ISO8601,
+    -- | Indicates whether there are findings.
+    findingsFound :: Prelude.Maybe FindingsFound,
+    -- | The Amazon Resource Name (ARN) of the Network Access Scope analysis.
+    networkInsightsAccessScopeAnalysisArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Network Access Scope analysis.
     networkInsightsAccessScopeAnalysisId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Network Access Scope.
     networkInsightsAccessScopeId :: Prelude.Maybe Prelude.Text,
-    -- | The number of network interfaces analyzed.
-    analyzedEniCount :: Prelude.Maybe Prelude.Int,
-    -- | The analysis end date.
-    endDate :: Prelude.Maybe Data.ISO8601,
-    -- | The status.
-    status :: Prelude.Maybe AnalysisStatus,
-    -- | The warning message.
-    warningMessage :: Prelude.Maybe Prelude.Text,
     -- | The analysis start date.
     startDate :: Prelude.Maybe Data.ISO8601,
-    -- | The Amazon Resource Name (ARN) of the Network Access Scope analysis.
-    networkInsightsAccessScopeAnalysisArn :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether there are findings.
-    findingsFound :: Prelude.Maybe FindingsFound,
+    -- | The status.
+    status :: Prelude.Maybe AnalysisStatus,
     -- | The status message.
-    statusMessage :: Prelude.Maybe Prelude.Text
+    statusMessage :: Prelude.Maybe Prelude.Text,
+    -- | The tags.
+    tags :: Prelude.Maybe [Tag],
+    -- | The warning message.
+    warningMessage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,59 +65,47 @@ data NetworkInsightsAccessScopeAnalysis = NetworkInsightsAccessScopeAnalysis'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'networkInsightsAccessScopeAnalysis_tags' - The tags.
+-- 'analyzedEniCount', 'networkInsightsAccessScopeAnalysis_analyzedEniCount' - The number of network interfaces analyzed.
+--
+-- 'endDate', 'networkInsightsAccessScopeAnalysis_endDate' - The analysis end date.
+--
+-- 'findingsFound', 'networkInsightsAccessScopeAnalysis_findingsFound' - Indicates whether there are findings.
+--
+-- 'networkInsightsAccessScopeAnalysisArn', 'networkInsightsAccessScopeAnalysis_networkInsightsAccessScopeAnalysisArn' - The Amazon Resource Name (ARN) of the Network Access Scope analysis.
 --
 -- 'networkInsightsAccessScopeAnalysisId', 'networkInsightsAccessScopeAnalysis_networkInsightsAccessScopeAnalysisId' - The ID of the Network Access Scope analysis.
 --
 -- 'networkInsightsAccessScopeId', 'networkInsightsAccessScopeAnalysis_networkInsightsAccessScopeId' - The ID of the Network Access Scope.
 --
--- 'analyzedEniCount', 'networkInsightsAccessScopeAnalysis_analyzedEniCount' - The number of network interfaces analyzed.
---
--- 'endDate', 'networkInsightsAccessScopeAnalysis_endDate' - The analysis end date.
+-- 'startDate', 'networkInsightsAccessScopeAnalysis_startDate' - The analysis start date.
 --
 -- 'status', 'networkInsightsAccessScopeAnalysis_status' - The status.
 --
--- 'warningMessage', 'networkInsightsAccessScopeAnalysis_warningMessage' - The warning message.
---
--- 'startDate', 'networkInsightsAccessScopeAnalysis_startDate' - The analysis start date.
---
--- 'networkInsightsAccessScopeAnalysisArn', 'networkInsightsAccessScopeAnalysis_networkInsightsAccessScopeAnalysisArn' - The Amazon Resource Name (ARN) of the Network Access Scope analysis.
---
--- 'findingsFound', 'networkInsightsAccessScopeAnalysis_findingsFound' - Indicates whether there are findings.
---
 -- 'statusMessage', 'networkInsightsAccessScopeAnalysis_statusMessage' - The status message.
+--
+-- 'tags', 'networkInsightsAccessScopeAnalysis_tags' - The tags.
+--
+-- 'warningMessage', 'networkInsightsAccessScopeAnalysis_warningMessage' - The warning message.
 newNetworkInsightsAccessScopeAnalysis ::
   NetworkInsightsAccessScopeAnalysis
 newNetworkInsightsAccessScopeAnalysis =
   NetworkInsightsAccessScopeAnalysis'
-    { tags =
+    { analyzedEniCount =
+        Prelude.Nothing,
+      endDate = Prelude.Nothing,
+      findingsFound = Prelude.Nothing,
+      networkInsightsAccessScopeAnalysisArn =
         Prelude.Nothing,
       networkInsightsAccessScopeAnalysisId =
         Prelude.Nothing,
       networkInsightsAccessScopeId =
         Prelude.Nothing,
-      analyzedEniCount = Prelude.Nothing,
-      endDate = Prelude.Nothing,
-      status = Prelude.Nothing,
-      warningMessage = Prelude.Nothing,
       startDate = Prelude.Nothing,
-      networkInsightsAccessScopeAnalysisArn =
-        Prelude.Nothing,
-      findingsFound = Prelude.Nothing,
-      statusMessage = Prelude.Nothing
+      status = Prelude.Nothing,
+      statusMessage = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      warningMessage = Prelude.Nothing
     }
-
--- | The tags.
-networkInsightsAccessScopeAnalysis_tags :: Lens.Lens' NetworkInsightsAccessScopeAnalysis (Prelude.Maybe [Tag])
-networkInsightsAccessScopeAnalysis_tags = Lens.lens (\NetworkInsightsAccessScopeAnalysis' {tags} -> tags) (\s@NetworkInsightsAccessScopeAnalysis' {} a -> s {tags = a} :: NetworkInsightsAccessScopeAnalysis) Prelude.. Lens.mapping Lens.coerced
-
--- | The ID of the Network Access Scope analysis.
-networkInsightsAccessScopeAnalysis_networkInsightsAccessScopeAnalysisId :: Lens.Lens' NetworkInsightsAccessScopeAnalysis (Prelude.Maybe Prelude.Text)
-networkInsightsAccessScopeAnalysis_networkInsightsAccessScopeAnalysisId = Lens.lens (\NetworkInsightsAccessScopeAnalysis' {networkInsightsAccessScopeAnalysisId} -> networkInsightsAccessScopeAnalysisId) (\s@NetworkInsightsAccessScopeAnalysis' {} a -> s {networkInsightsAccessScopeAnalysisId = a} :: NetworkInsightsAccessScopeAnalysis)
-
--- | The ID of the Network Access Scope.
-networkInsightsAccessScopeAnalysis_networkInsightsAccessScopeId :: Lens.Lens' NetworkInsightsAccessScopeAnalysis (Prelude.Maybe Prelude.Text)
-networkInsightsAccessScopeAnalysis_networkInsightsAccessScopeId = Lens.lens (\NetworkInsightsAccessScopeAnalysis' {networkInsightsAccessScopeId} -> networkInsightsAccessScopeId) (\s@NetworkInsightsAccessScopeAnalysis' {} a -> s {networkInsightsAccessScopeId = a} :: NetworkInsightsAccessScopeAnalysis)
 
 -- | The number of network interfaces analyzed.
 networkInsightsAccessScopeAnalysis_analyzedEniCount :: Lens.Lens' NetworkInsightsAccessScopeAnalysis (Prelude.Maybe Prelude.Int)
@@ -127,29 +115,41 @@ networkInsightsAccessScopeAnalysis_analyzedEniCount = Lens.lens (\NetworkInsight
 networkInsightsAccessScopeAnalysis_endDate :: Lens.Lens' NetworkInsightsAccessScopeAnalysis (Prelude.Maybe Prelude.UTCTime)
 networkInsightsAccessScopeAnalysis_endDate = Lens.lens (\NetworkInsightsAccessScopeAnalysis' {endDate} -> endDate) (\s@NetworkInsightsAccessScopeAnalysis' {} a -> s {endDate = a} :: NetworkInsightsAccessScopeAnalysis) Prelude.. Lens.mapping Data._Time
 
--- | The status.
-networkInsightsAccessScopeAnalysis_status :: Lens.Lens' NetworkInsightsAccessScopeAnalysis (Prelude.Maybe AnalysisStatus)
-networkInsightsAccessScopeAnalysis_status = Lens.lens (\NetworkInsightsAccessScopeAnalysis' {status} -> status) (\s@NetworkInsightsAccessScopeAnalysis' {} a -> s {status = a} :: NetworkInsightsAccessScopeAnalysis)
-
--- | The warning message.
-networkInsightsAccessScopeAnalysis_warningMessage :: Lens.Lens' NetworkInsightsAccessScopeAnalysis (Prelude.Maybe Prelude.Text)
-networkInsightsAccessScopeAnalysis_warningMessage = Lens.lens (\NetworkInsightsAccessScopeAnalysis' {warningMessage} -> warningMessage) (\s@NetworkInsightsAccessScopeAnalysis' {} a -> s {warningMessage = a} :: NetworkInsightsAccessScopeAnalysis)
-
--- | The analysis start date.
-networkInsightsAccessScopeAnalysis_startDate :: Lens.Lens' NetworkInsightsAccessScopeAnalysis (Prelude.Maybe Prelude.UTCTime)
-networkInsightsAccessScopeAnalysis_startDate = Lens.lens (\NetworkInsightsAccessScopeAnalysis' {startDate} -> startDate) (\s@NetworkInsightsAccessScopeAnalysis' {} a -> s {startDate = a} :: NetworkInsightsAccessScopeAnalysis) Prelude.. Lens.mapping Data._Time
+-- | Indicates whether there are findings.
+networkInsightsAccessScopeAnalysis_findingsFound :: Lens.Lens' NetworkInsightsAccessScopeAnalysis (Prelude.Maybe FindingsFound)
+networkInsightsAccessScopeAnalysis_findingsFound = Lens.lens (\NetworkInsightsAccessScopeAnalysis' {findingsFound} -> findingsFound) (\s@NetworkInsightsAccessScopeAnalysis' {} a -> s {findingsFound = a} :: NetworkInsightsAccessScopeAnalysis)
 
 -- | The Amazon Resource Name (ARN) of the Network Access Scope analysis.
 networkInsightsAccessScopeAnalysis_networkInsightsAccessScopeAnalysisArn :: Lens.Lens' NetworkInsightsAccessScopeAnalysis (Prelude.Maybe Prelude.Text)
 networkInsightsAccessScopeAnalysis_networkInsightsAccessScopeAnalysisArn = Lens.lens (\NetworkInsightsAccessScopeAnalysis' {networkInsightsAccessScopeAnalysisArn} -> networkInsightsAccessScopeAnalysisArn) (\s@NetworkInsightsAccessScopeAnalysis' {} a -> s {networkInsightsAccessScopeAnalysisArn = a} :: NetworkInsightsAccessScopeAnalysis)
 
--- | Indicates whether there are findings.
-networkInsightsAccessScopeAnalysis_findingsFound :: Lens.Lens' NetworkInsightsAccessScopeAnalysis (Prelude.Maybe FindingsFound)
-networkInsightsAccessScopeAnalysis_findingsFound = Lens.lens (\NetworkInsightsAccessScopeAnalysis' {findingsFound} -> findingsFound) (\s@NetworkInsightsAccessScopeAnalysis' {} a -> s {findingsFound = a} :: NetworkInsightsAccessScopeAnalysis)
+-- | The ID of the Network Access Scope analysis.
+networkInsightsAccessScopeAnalysis_networkInsightsAccessScopeAnalysisId :: Lens.Lens' NetworkInsightsAccessScopeAnalysis (Prelude.Maybe Prelude.Text)
+networkInsightsAccessScopeAnalysis_networkInsightsAccessScopeAnalysisId = Lens.lens (\NetworkInsightsAccessScopeAnalysis' {networkInsightsAccessScopeAnalysisId} -> networkInsightsAccessScopeAnalysisId) (\s@NetworkInsightsAccessScopeAnalysis' {} a -> s {networkInsightsAccessScopeAnalysisId = a} :: NetworkInsightsAccessScopeAnalysis)
+
+-- | The ID of the Network Access Scope.
+networkInsightsAccessScopeAnalysis_networkInsightsAccessScopeId :: Lens.Lens' NetworkInsightsAccessScopeAnalysis (Prelude.Maybe Prelude.Text)
+networkInsightsAccessScopeAnalysis_networkInsightsAccessScopeId = Lens.lens (\NetworkInsightsAccessScopeAnalysis' {networkInsightsAccessScopeId} -> networkInsightsAccessScopeId) (\s@NetworkInsightsAccessScopeAnalysis' {} a -> s {networkInsightsAccessScopeId = a} :: NetworkInsightsAccessScopeAnalysis)
+
+-- | The analysis start date.
+networkInsightsAccessScopeAnalysis_startDate :: Lens.Lens' NetworkInsightsAccessScopeAnalysis (Prelude.Maybe Prelude.UTCTime)
+networkInsightsAccessScopeAnalysis_startDate = Lens.lens (\NetworkInsightsAccessScopeAnalysis' {startDate} -> startDate) (\s@NetworkInsightsAccessScopeAnalysis' {} a -> s {startDate = a} :: NetworkInsightsAccessScopeAnalysis) Prelude.. Lens.mapping Data._Time
+
+-- | The status.
+networkInsightsAccessScopeAnalysis_status :: Lens.Lens' NetworkInsightsAccessScopeAnalysis (Prelude.Maybe AnalysisStatus)
+networkInsightsAccessScopeAnalysis_status = Lens.lens (\NetworkInsightsAccessScopeAnalysis' {status} -> status) (\s@NetworkInsightsAccessScopeAnalysis' {} a -> s {status = a} :: NetworkInsightsAccessScopeAnalysis)
 
 -- | The status message.
 networkInsightsAccessScopeAnalysis_statusMessage :: Lens.Lens' NetworkInsightsAccessScopeAnalysis (Prelude.Maybe Prelude.Text)
 networkInsightsAccessScopeAnalysis_statusMessage = Lens.lens (\NetworkInsightsAccessScopeAnalysis' {statusMessage} -> statusMessage) (\s@NetworkInsightsAccessScopeAnalysis' {} a -> s {statusMessage = a} :: NetworkInsightsAccessScopeAnalysis)
+
+-- | The tags.
+networkInsightsAccessScopeAnalysis_tags :: Lens.Lens' NetworkInsightsAccessScopeAnalysis (Prelude.Maybe [Tag])
+networkInsightsAccessScopeAnalysis_tags = Lens.lens (\NetworkInsightsAccessScopeAnalysis' {tags} -> tags) (\s@NetworkInsightsAccessScopeAnalysis' {} a -> s {tags = a} :: NetworkInsightsAccessScopeAnalysis) Prelude.. Lens.mapping Lens.coerced
+
+-- | The warning message.
+networkInsightsAccessScopeAnalysis_warningMessage :: Lens.Lens' NetworkInsightsAccessScopeAnalysis (Prelude.Maybe Prelude.Text)
+networkInsightsAccessScopeAnalysis_warningMessage = Lens.lens (\NetworkInsightsAccessScopeAnalysis' {warningMessage} -> warningMessage) (\s@NetworkInsightsAccessScopeAnalysis' {} a -> s {warningMessage = a} :: NetworkInsightsAccessScopeAnalysis)
 
 instance
   Data.FromXML
@@ -157,19 +157,19 @@ instance
   where
   parseXML x =
     NetworkInsightsAccessScopeAnalysis'
-      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Data.parseXMLList "item")
-                  )
+      Prelude.<$> (x Data..@? "analyzedEniCount")
+      Prelude.<*> (x Data..@? "endDate")
+      Prelude.<*> (x Data..@? "findingsFound")
+      Prelude.<*> (x Data..@? "networkInsightsAccessScopeAnalysisArn")
       Prelude.<*> (x Data..@? "networkInsightsAccessScopeAnalysisId")
       Prelude.<*> (x Data..@? "networkInsightsAccessScopeId")
-      Prelude.<*> (x Data..@? "analyzedEniCount")
-      Prelude.<*> (x Data..@? "endDate")
-      Prelude.<*> (x Data..@? "status")
-      Prelude.<*> (x Data..@? "warningMessage")
       Prelude.<*> (x Data..@? "startDate")
-      Prelude.<*> (x Data..@? "networkInsightsAccessScopeAnalysisArn")
-      Prelude.<*> (x Data..@? "findingsFound")
+      Prelude.<*> (x Data..@? "status")
       Prelude.<*> (x Data..@? "statusMessage")
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
+                  )
+      Prelude.<*> (x Data..@? "warningMessage")
 
 instance
   Prelude.Hashable
@@ -178,31 +178,31 @@ instance
   hashWithSalt
     _salt
     NetworkInsightsAccessScopeAnalysis' {..} =
-      _salt `Prelude.hashWithSalt` tags
+      _salt `Prelude.hashWithSalt` analyzedEniCount
+        `Prelude.hashWithSalt` endDate
+        `Prelude.hashWithSalt` findingsFound
+        `Prelude.hashWithSalt` networkInsightsAccessScopeAnalysisArn
         `Prelude.hashWithSalt` networkInsightsAccessScopeAnalysisId
         `Prelude.hashWithSalt` networkInsightsAccessScopeId
-        `Prelude.hashWithSalt` analyzedEniCount
-        `Prelude.hashWithSalt` endDate
-        `Prelude.hashWithSalt` status
-        `Prelude.hashWithSalt` warningMessage
         `Prelude.hashWithSalt` startDate
-        `Prelude.hashWithSalt` networkInsightsAccessScopeAnalysisArn
-        `Prelude.hashWithSalt` findingsFound
+        `Prelude.hashWithSalt` status
         `Prelude.hashWithSalt` statusMessage
+        `Prelude.hashWithSalt` tags
+        `Prelude.hashWithSalt` warningMessage
 
 instance
   Prelude.NFData
     NetworkInsightsAccessScopeAnalysis
   where
   rnf NetworkInsightsAccessScopeAnalysis' {..} =
-    Prelude.rnf tags
+    Prelude.rnf analyzedEniCount
+      `Prelude.seq` Prelude.rnf endDate
+      `Prelude.seq` Prelude.rnf findingsFound
+      `Prelude.seq` Prelude.rnf networkInsightsAccessScopeAnalysisArn
       `Prelude.seq` Prelude.rnf networkInsightsAccessScopeAnalysisId
       `Prelude.seq` Prelude.rnf networkInsightsAccessScopeId
-      `Prelude.seq` Prelude.rnf analyzedEniCount
-      `Prelude.seq` Prelude.rnf endDate
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf warningMessage
       `Prelude.seq` Prelude.rnf startDate
-      `Prelude.seq` Prelude.rnf networkInsightsAccessScopeAnalysisArn
-      `Prelude.seq` Prelude.rnf findingsFound
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf warningMessage

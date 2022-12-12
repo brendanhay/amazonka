@@ -29,8 +29,8 @@ module Amazonka.Location.SearchPlaceIndexForPosition
     newSearchPlaceIndexForPosition,
 
     -- * Request Lenses
-    searchPlaceIndexForPosition_maxResults,
     searchPlaceIndexForPosition_language,
+    searchPlaceIndexForPosition_maxResults,
     searchPlaceIndexForPosition_indexName,
     searchPlaceIndexForPosition_position,
 
@@ -55,12 +55,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSearchPlaceIndexForPosition' smart constructor.
 data SearchPlaceIndexForPosition = SearchPlaceIndexForPosition'
-  { -- | An optional parameter. The maximum number of results returned per
-    -- request.
-    --
-    -- Default value: @50@
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The preferred language used to return results. The value must be a valid
+  { -- | The preferred language used to return results. The value must be a valid
     -- <https://tools.ietf.org/search/bcp47 BCP 47> language tag, for example,
     -- @en@ for English.
     --
@@ -79,6 +74,11 @@ data SearchPlaceIndexForPosition = SearchPlaceIndexForPosition'
     -- If the data provider does not have a value for Greek, the result will be
     -- in a language that the provider does support.
     language :: Prelude.Maybe Prelude.Text,
+    -- | An optional parameter. The maximum number of results returned per
+    -- request.
+    --
+    -- Default value: @50@
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the place index resource you want to use for the search.
     indexName :: Prelude.Text,
     -- | Specifies the longitude and latitude of the position to query.
@@ -101,11 +101,6 @@ data SearchPlaceIndexForPosition = SearchPlaceIndexForPosition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxResults', 'searchPlaceIndexForPosition_maxResults' - An optional parameter. The maximum number of results returned per
--- request.
---
--- Default value: @50@
---
 -- 'language', 'searchPlaceIndexForPosition_language' - The preferred language used to return results. The value must be a valid
 -- <https://tools.ietf.org/search/bcp47 BCP 47> language tag, for example,
 -- @en@ for English.
@@ -125,6 +120,11 @@ data SearchPlaceIndexForPosition = SearchPlaceIndexForPosition'
 -- If the data provider does not have a value for Greek, the result will be
 -- in a language that the provider does support.
 --
+-- 'maxResults', 'searchPlaceIndexForPosition_maxResults' - An optional parameter. The maximum number of results returned per
+-- request.
+--
+-- Default value: @50@
+--
 -- 'indexName', 'searchPlaceIndexForPosition_indexName' - The name of the place index resource you want to use for the search.
 --
 -- 'position', 'searchPlaceIndexForPosition_position' - Specifies the longitude and latitude of the position to query.
@@ -143,21 +143,14 @@ newSearchPlaceIndexForPosition ::
   SearchPlaceIndexForPosition
 newSearchPlaceIndexForPosition pIndexName_ pPosition_ =
   SearchPlaceIndexForPosition'
-    { maxResults =
+    { language =
         Prelude.Nothing,
-      language = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       indexName = pIndexName_,
       position =
         Data._Sensitive Prelude.. Lens.coerced
           Lens.# pPosition_
     }
-
--- | An optional parameter. The maximum number of results returned per
--- request.
---
--- Default value: @50@
-searchPlaceIndexForPosition_maxResults :: Lens.Lens' SearchPlaceIndexForPosition (Prelude.Maybe Prelude.Natural)
-searchPlaceIndexForPosition_maxResults = Lens.lens (\SearchPlaceIndexForPosition' {maxResults} -> maxResults) (\s@SearchPlaceIndexForPosition' {} a -> s {maxResults = a} :: SearchPlaceIndexForPosition)
 
 -- | The preferred language used to return results. The value must be a valid
 -- <https://tools.ietf.org/search/bcp47 BCP 47> language tag, for example,
@@ -179,6 +172,13 @@ searchPlaceIndexForPosition_maxResults = Lens.lens (\SearchPlaceIndexForPosition
 -- in a language that the provider does support.
 searchPlaceIndexForPosition_language :: Lens.Lens' SearchPlaceIndexForPosition (Prelude.Maybe Prelude.Text)
 searchPlaceIndexForPosition_language = Lens.lens (\SearchPlaceIndexForPosition' {language} -> language) (\s@SearchPlaceIndexForPosition' {} a -> s {language = a} :: SearchPlaceIndexForPosition)
+
+-- | An optional parameter. The maximum number of results returned per
+-- request.
+--
+-- Default value: @50@
+searchPlaceIndexForPosition_maxResults :: Lens.Lens' SearchPlaceIndexForPosition (Prelude.Maybe Prelude.Natural)
+searchPlaceIndexForPosition_maxResults = Lens.lens (\SearchPlaceIndexForPosition' {maxResults} -> maxResults) (\s@SearchPlaceIndexForPosition' {} a -> s {maxResults = a} :: SearchPlaceIndexForPosition)
 
 -- | The name of the place index resource you want to use for the search.
 searchPlaceIndexForPosition_indexName :: Lens.Lens' SearchPlaceIndexForPosition Prelude.Text
@@ -212,15 +212,15 @@ instance Core.AWSRequest SearchPlaceIndexForPosition where
 
 instance Prelude.Hashable SearchPlaceIndexForPosition where
   hashWithSalt _salt SearchPlaceIndexForPosition' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` language
+    _salt `Prelude.hashWithSalt` language
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` indexName
       `Prelude.hashWithSalt` position
 
 instance Prelude.NFData SearchPlaceIndexForPosition where
   rnf SearchPlaceIndexForPosition' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf language
+    Prelude.rnf language
+      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf indexName
       `Prelude.seq` Prelude.rnf position
 
@@ -239,8 +239,8 @@ instance Data.ToJSON SearchPlaceIndexForPosition where
   toJSON SearchPlaceIndexForPosition' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("Language" Data..=) Prelude.<$> language,
+          [ ("Language" Data..=) Prelude.<$> language,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just ("Position" Data..= position)
           ]
       )

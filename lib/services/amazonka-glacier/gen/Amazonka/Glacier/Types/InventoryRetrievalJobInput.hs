@@ -28,12 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInventoryRetrievalJobInput' smart constructor.
 data InventoryRetrievalJobInput = InventoryRetrievalJobInput'
-  { -- | An opaque string that represents where to continue pagination of the
-    -- vault inventory retrieval results. You use the marker in a new
-    -- __InitiateJob__ request to obtain additional inventory items. If there
-    -- are no more inventory items, this value is @null@.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | The end of the date range in UTC for vault inventory retrieval that
+  { -- | The end of the date range in UTC for vault inventory retrieval that
     -- includes archives created before this date. This value should be a
     -- string in the ISO 8601 date format, for example @2013-03-20T17:03:43Z@.
     endDate :: Prelude.Maybe Prelude.Text,
@@ -41,6 +36,11 @@ data InventoryRetrievalJobInput = InventoryRetrievalJobInput'
     -- inventory retrieval request. Valid values are greater than or equal to
     -- 1.
     limit :: Prelude.Maybe Prelude.Text,
+    -- | An opaque string that represents where to continue pagination of the
+    -- vault inventory retrieval results. You use the marker in a new
+    -- __InitiateJob__ request to obtain additional inventory items. If there
+    -- are no more inventory items, this value is @null@.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The start of the date range in UTC for vault inventory retrieval that
     -- includes archives created on or after this date. This value should be a
     -- string in the ISO 8601 date format, for example @2013-03-20T17:03:43Z@.
@@ -56,11 +56,6 @@ data InventoryRetrievalJobInput = InventoryRetrievalJobInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'marker', 'inventoryRetrievalJobInput_marker' - An opaque string that represents where to continue pagination of the
--- vault inventory retrieval results. You use the marker in a new
--- __InitiateJob__ request to obtain additional inventory items. If there
--- are no more inventory items, this value is @null@.
---
 -- 'endDate', 'inventoryRetrievalJobInput_endDate' - The end of the date range in UTC for vault inventory retrieval that
 -- includes archives created before this date. This value should be a
 -- string in the ISO 8601 date format, for example @2013-03-20T17:03:43Z@.
@@ -69,6 +64,11 @@ data InventoryRetrievalJobInput = InventoryRetrievalJobInput'
 -- inventory retrieval request. Valid values are greater than or equal to
 -- 1.
 --
+-- 'marker', 'inventoryRetrievalJobInput_marker' - An opaque string that represents where to continue pagination of the
+-- vault inventory retrieval results. You use the marker in a new
+-- __InitiateJob__ request to obtain additional inventory items. If there
+-- are no more inventory items, this value is @null@.
+--
 -- 'startDate', 'inventoryRetrievalJobInput_startDate' - The start of the date range in UTC for vault inventory retrieval that
 -- includes archives created on or after this date. This value should be a
 -- string in the ISO 8601 date format, for example @2013-03-20T17:03:43Z@.
@@ -76,19 +76,12 @@ newInventoryRetrievalJobInput ::
   InventoryRetrievalJobInput
 newInventoryRetrievalJobInput =
   InventoryRetrievalJobInput'
-    { marker =
+    { endDate =
         Prelude.Nothing,
-      endDate = Prelude.Nothing,
       limit = Prelude.Nothing,
+      marker = Prelude.Nothing,
       startDate = Prelude.Nothing
     }
-
--- | An opaque string that represents where to continue pagination of the
--- vault inventory retrieval results. You use the marker in a new
--- __InitiateJob__ request to obtain additional inventory items. If there
--- are no more inventory items, this value is @null@.
-inventoryRetrievalJobInput_marker :: Lens.Lens' InventoryRetrievalJobInput (Prelude.Maybe Prelude.Text)
-inventoryRetrievalJobInput_marker = Lens.lens (\InventoryRetrievalJobInput' {marker} -> marker) (\s@InventoryRetrievalJobInput' {} a -> s {marker = a} :: InventoryRetrievalJobInput)
 
 -- | The end of the date range in UTC for vault inventory retrieval that
 -- includes archives created before this date. This value should be a
@@ -102,6 +95,13 @@ inventoryRetrievalJobInput_endDate = Lens.lens (\InventoryRetrievalJobInput' {en
 inventoryRetrievalJobInput_limit :: Lens.Lens' InventoryRetrievalJobInput (Prelude.Maybe Prelude.Text)
 inventoryRetrievalJobInput_limit = Lens.lens (\InventoryRetrievalJobInput' {limit} -> limit) (\s@InventoryRetrievalJobInput' {} a -> s {limit = a} :: InventoryRetrievalJobInput)
 
+-- | An opaque string that represents where to continue pagination of the
+-- vault inventory retrieval results. You use the marker in a new
+-- __InitiateJob__ request to obtain additional inventory items. If there
+-- are no more inventory items, this value is @null@.
+inventoryRetrievalJobInput_marker :: Lens.Lens' InventoryRetrievalJobInput (Prelude.Maybe Prelude.Text)
+inventoryRetrievalJobInput_marker = Lens.lens (\InventoryRetrievalJobInput' {marker} -> marker) (\s@InventoryRetrievalJobInput' {} a -> s {marker = a} :: InventoryRetrievalJobInput)
+
 -- | The start of the date range in UTC for vault inventory retrieval that
 -- includes archives created on or after this date. This value should be a
 -- string in the ISO 8601 date format, for example @2013-03-20T17:03:43Z@.
@@ -110,25 +110,25 @@ inventoryRetrievalJobInput_startDate = Lens.lens (\InventoryRetrievalJobInput' {
 
 instance Prelude.Hashable InventoryRetrievalJobInput where
   hashWithSalt _salt InventoryRetrievalJobInput' {..} =
-    _salt `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` endDate
+    _salt `Prelude.hashWithSalt` endDate
       `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` startDate
 
 instance Prelude.NFData InventoryRetrievalJobInput where
   rnf InventoryRetrievalJobInput' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf endDate
+    Prelude.rnf endDate
       `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf startDate
 
 instance Data.ToJSON InventoryRetrievalJobInput where
   toJSON InventoryRetrievalJobInput' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Data..=) Prelude.<$> marker,
-            ("EndDate" Data..=) Prelude.<$> endDate,
+          [ ("EndDate" Data..=) Prelude.<$> endDate,
             ("Limit" Data..=) Prelude.<$> limit,
+            ("Marker" Data..=) Prelude.<$> marker,
             ("StartDate" Data..=) Prelude.<$> startDate
           ]
       )

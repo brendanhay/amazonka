@@ -34,35 +34,35 @@ module Amazonka.ManagedBlockChain
     -- * Errors
     -- $errors
 
-    -- ** ResourceAlreadyExistsException
-    _ResourceAlreadyExistsException,
-
-    -- ** ResourceNotReadyException
-    _ResourceNotReadyException,
-
-    -- ** IllegalActionException
-    _IllegalActionException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** TooManyTagsException
-    _TooManyTagsException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** ResourceLimitExceededException
-    _ResourceLimitExceededException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
+    -- ** IllegalActionException
+    _IllegalActionException,
 
     -- ** InternalServiceErrorException
     _InternalServiceErrorException,
 
     -- ** InvalidRequestException
     _InvalidRequestException,
+
+    -- ** ResourceAlreadyExistsException
+    _ResourceAlreadyExistsException,
+
+    -- ** ResourceLimitExceededException
+    _ResourceLimitExceededException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ResourceNotReadyException
+    _ResourceNotReadyException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
 
     -- * Waiters
     -- $waiters

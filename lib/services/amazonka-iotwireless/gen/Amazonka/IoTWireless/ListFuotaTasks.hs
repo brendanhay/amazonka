@@ -27,16 +27,16 @@ module Amazonka.IoTWireless.ListFuotaTasks
     newListFuotaTasks,
 
     -- * Request Lenses
-    listFuotaTasks_nextToken,
     listFuotaTasks_maxResults,
+    listFuotaTasks_nextToken,
 
     -- * Destructuring the Response
     ListFuotaTasksResponse (..),
     newListFuotaTasksResponse,
 
     -- * Response Lenses
-    listFuotaTasksResponse_nextToken,
     listFuotaTasksResponse_fuotaTaskList,
+    listFuotaTasksResponse_nextToken,
     listFuotaTasksResponse_httpStatus,
   )
 where
@@ -51,11 +51,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListFuotaTasks' smart constructor.
 data ListFuotaTasks = ListFuotaTasks'
-  { -- | To retrieve the next set of results, the @nextToken@ value from a
+  { maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | To retrieve the next set of results, the @nextToken@ value from a
     -- previous response; otherwise __null__ to receive the first set of
     -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,28 +67,28 @@ data ListFuotaTasks = ListFuotaTasks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listFuotaTasks_maxResults' - Undocumented member.
+--
 -- 'nextToken', 'listFuotaTasks_nextToken' - To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
---
--- 'maxResults', 'listFuotaTasks_maxResults' - Undocumented member.
 newListFuotaTasks ::
   ListFuotaTasks
 newListFuotaTasks =
   ListFuotaTasks'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | Undocumented member.
+listFuotaTasks_maxResults :: Lens.Lens' ListFuotaTasks (Prelude.Maybe Prelude.Natural)
+listFuotaTasks_maxResults = Lens.lens (\ListFuotaTasks' {maxResults} -> maxResults) (\s@ListFuotaTasks' {} a -> s {maxResults = a} :: ListFuotaTasks)
 
 -- | To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
 listFuotaTasks_nextToken :: Lens.Lens' ListFuotaTasks (Prelude.Maybe Prelude.Text)
 listFuotaTasks_nextToken = Lens.lens (\ListFuotaTasks' {nextToken} -> nextToken) (\s@ListFuotaTasks' {} a -> s {nextToken = a} :: ListFuotaTasks)
-
--- | Undocumented member.
-listFuotaTasks_maxResults :: Lens.Lens' ListFuotaTasks (Prelude.Maybe Prelude.Natural)
-listFuotaTasks_maxResults = Lens.lens (\ListFuotaTasks' {maxResults} -> maxResults) (\s@ListFuotaTasks' {} a -> s {maxResults = a} :: ListFuotaTasks)
 
 instance Core.AWSRequest ListFuotaTasks where
   type
@@ -100,20 +100,20 @@ instance Core.AWSRequest ListFuotaTasks where
     Response.receiveJSON
       ( \s h x ->
           ListFuotaTasksResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "FuotaTaskList" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "FuotaTaskList" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListFuotaTasks where
   hashWithSalt _salt ListFuotaTasks' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListFuotaTasks where
   rnf ListFuotaTasks' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListFuotaTasks where
   toHeaders = Prelude.const Prelude.mempty
@@ -124,17 +124,17 @@ instance Data.ToPath ListFuotaTasks where
 instance Data.ToQuery ListFuotaTasks where
   toQuery ListFuotaTasks' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListFuotaTasksResponse' smart constructor.
 data ListFuotaTasksResponse = ListFuotaTasksResponse'
-  { -- | To retrieve the next set of results, the @nextToken@ value from a
+  { fuotaTaskList :: Prelude.Maybe [FuotaTask],
+    -- | To retrieve the next set of results, the @nextToken@ value from a
     -- previous response; otherwise __null__ to receive the first set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    fuotaTaskList :: Prelude.Maybe [FuotaTask],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -148,11 +148,11 @@ data ListFuotaTasksResponse = ListFuotaTasksResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'fuotaTaskList', 'listFuotaTasksResponse_fuotaTaskList' - Undocumented member.
+--
 -- 'nextToken', 'listFuotaTasksResponse_nextToken' - To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
---
--- 'fuotaTaskList', 'listFuotaTasksResponse_fuotaTaskList' - Undocumented member.
 --
 -- 'httpStatus', 'listFuotaTasksResponse_httpStatus' - The response's http status code.
 newListFuotaTasksResponse ::
@@ -161,11 +161,15 @@ newListFuotaTasksResponse ::
   ListFuotaTasksResponse
 newListFuotaTasksResponse pHttpStatus_ =
   ListFuotaTasksResponse'
-    { nextToken =
+    { fuotaTaskList =
         Prelude.Nothing,
-      fuotaTaskList = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Undocumented member.
+listFuotaTasksResponse_fuotaTaskList :: Lens.Lens' ListFuotaTasksResponse (Prelude.Maybe [FuotaTask])
+listFuotaTasksResponse_fuotaTaskList = Lens.lens (\ListFuotaTasksResponse' {fuotaTaskList} -> fuotaTaskList) (\s@ListFuotaTasksResponse' {} a -> s {fuotaTaskList = a} :: ListFuotaTasksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
@@ -173,16 +177,12 @@ newListFuotaTasksResponse pHttpStatus_ =
 listFuotaTasksResponse_nextToken :: Lens.Lens' ListFuotaTasksResponse (Prelude.Maybe Prelude.Text)
 listFuotaTasksResponse_nextToken = Lens.lens (\ListFuotaTasksResponse' {nextToken} -> nextToken) (\s@ListFuotaTasksResponse' {} a -> s {nextToken = a} :: ListFuotaTasksResponse)
 
--- | Undocumented member.
-listFuotaTasksResponse_fuotaTaskList :: Lens.Lens' ListFuotaTasksResponse (Prelude.Maybe [FuotaTask])
-listFuotaTasksResponse_fuotaTaskList = Lens.lens (\ListFuotaTasksResponse' {fuotaTaskList} -> fuotaTaskList) (\s@ListFuotaTasksResponse' {} a -> s {fuotaTaskList = a} :: ListFuotaTasksResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listFuotaTasksResponse_httpStatus :: Lens.Lens' ListFuotaTasksResponse Prelude.Int
 listFuotaTasksResponse_httpStatus = Lens.lens (\ListFuotaTasksResponse' {httpStatus} -> httpStatus) (\s@ListFuotaTasksResponse' {} a -> s {httpStatus = a} :: ListFuotaTasksResponse)
 
 instance Prelude.NFData ListFuotaTasksResponse where
   rnf ListFuotaTasksResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf fuotaTaskList
+    Prelude.rnf fuotaTaskList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

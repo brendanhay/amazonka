@@ -35,29 +35,29 @@ module Amazonka.RedshiftServerLess
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** InternalServerException
-    _InternalServerException,
-
-    -- ** TooManyTagsException
-    _TooManyTagsException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** InvalidPaginationException
-    _InvalidPaginationException,
+    -- ** ConflictException
+    _ConflictException,
 
     -- ** InsufficientCapacityException
     _InsufficientCapacityException,
 
-    -- ** ConflictException
-    _ConflictException,
+    -- ** InternalServerException
+    _InternalServerException,
+
+    -- ** InvalidPaginationException
+    _InvalidPaginationException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
 
     -- ** ThrottlingException
     _ThrottlingException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
 
     -- ** ValidationException
     _ValidationException,
@@ -176,6 +176,12 @@ module Amazonka.RedshiftServerLess
     GetSnapshotResponse (GetSnapshotResponse'),
     newGetSnapshotResponse,
 
+    -- ** GetTableRestoreStatus
+    GetTableRestoreStatus (GetTableRestoreStatus'),
+    newGetTableRestoreStatus,
+    GetTableRestoreStatusResponse (GetTableRestoreStatusResponse'),
+    newGetTableRestoreStatusResponse,
+
     -- ** GetUsageLimit
     GetUsageLimit (GetUsageLimit'),
     newGetUsageLimit,
@@ -212,6 +218,12 @@ module Amazonka.RedshiftServerLess
     ListSnapshotsResponse (ListSnapshotsResponse'),
     newListSnapshotsResponse,
 
+    -- ** ListTableRestoreStatus (Paginated)
+    ListTableRestoreStatus (ListTableRestoreStatus'),
+    newListTableRestoreStatus,
+    ListTableRestoreStatusResponse (ListTableRestoreStatusResponse'),
+    newListTableRestoreStatusResponse,
+
     -- ** ListTagsForResource
     ListTagsForResource (ListTagsForResource'),
     newListTagsForResource,
@@ -247,6 +259,12 @@ module Amazonka.RedshiftServerLess
     newRestoreFromSnapshot,
     RestoreFromSnapshotResponse (RestoreFromSnapshotResponse'),
     newRestoreFromSnapshotResponse,
+
+    -- ** RestoreTableFromSnapshot
+    RestoreTableFromSnapshot (RestoreTableFromSnapshot'),
+    newRestoreTableFromSnapshot,
+    RestoreTableFromSnapshotResponse (RestoreTableFromSnapshotResponse'),
+    newRestoreTableFromSnapshotResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -345,6 +363,10 @@ module Amazonka.RedshiftServerLess
     Snapshot (Snapshot'),
     newSnapshot,
 
+    -- ** TableRestoreStatus
+    TableRestoreStatus (TableRestoreStatus'),
+    newTableRestoreStatus,
+
     -- ** Tag
     Tag (Tag'),
     newTag,
@@ -385,6 +407,7 @@ import Amazonka.RedshiftServerLess.GetNamespace
 import Amazonka.RedshiftServerLess.GetRecoveryPoint
 import Amazonka.RedshiftServerLess.GetResourcePolicy
 import Amazonka.RedshiftServerLess.GetSnapshot
+import Amazonka.RedshiftServerLess.GetTableRestoreStatus
 import Amazonka.RedshiftServerLess.GetUsageLimit
 import Amazonka.RedshiftServerLess.GetWorkgroup
 import Amazonka.RedshiftServerLess.Lens
@@ -392,12 +415,14 @@ import Amazonka.RedshiftServerLess.ListEndpointAccess
 import Amazonka.RedshiftServerLess.ListNamespaces
 import Amazonka.RedshiftServerLess.ListRecoveryPoints
 import Amazonka.RedshiftServerLess.ListSnapshots
+import Amazonka.RedshiftServerLess.ListTableRestoreStatus
 import Amazonka.RedshiftServerLess.ListTagsForResource
 import Amazonka.RedshiftServerLess.ListUsageLimits
 import Amazonka.RedshiftServerLess.ListWorkgroups
 import Amazonka.RedshiftServerLess.PutResourcePolicy
 import Amazonka.RedshiftServerLess.RestoreFromRecoveryPoint
 import Amazonka.RedshiftServerLess.RestoreFromSnapshot
+import Amazonka.RedshiftServerLess.RestoreTableFromSnapshot
 import Amazonka.RedshiftServerLess.TagResource
 import Amazonka.RedshiftServerLess.Types
 import Amazonka.RedshiftServerLess.UntagResource

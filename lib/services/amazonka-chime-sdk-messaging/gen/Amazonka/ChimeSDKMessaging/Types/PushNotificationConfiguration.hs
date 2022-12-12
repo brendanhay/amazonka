@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPushNotificationConfiguration' smart constructor.
 data PushNotificationConfiguration = PushNotificationConfiguration'
-  { -- | Enum value that indicates the type of the push notification for a
-    -- message. @DEFAULT@: Normal mobile push notification. @VOIP@: VOIP mobile
-    -- push notification.
-    type' :: Prelude.Maybe PushNotificationType,
-    -- | The body of the push notification.
+  { -- | The body of the push notification.
     body :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The title of the push notification.
-    title :: Prelude.Maybe (Data.Sensitive Prelude.Text)
+    title :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | Enum value that indicates the type of the push notification for a
+    -- message. @DEFAULT@: Normal mobile push notification. @VOIP@: VOIP mobile
+    -- push notification.
+    type' :: Prelude.Maybe PushNotificationType
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -48,28 +48,22 @@ data PushNotificationConfiguration = PushNotificationConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'pushNotificationConfiguration_type' - Enum value that indicates the type of the push notification for a
--- message. @DEFAULT@: Normal mobile push notification. @VOIP@: VOIP mobile
--- push notification.
---
 -- 'body', 'pushNotificationConfiguration_body' - The body of the push notification.
 --
 -- 'title', 'pushNotificationConfiguration_title' - The title of the push notification.
+--
+-- 'type'', 'pushNotificationConfiguration_type' - Enum value that indicates the type of the push notification for a
+-- message. @DEFAULT@: Normal mobile push notification. @VOIP@: VOIP mobile
+-- push notification.
 newPushNotificationConfiguration ::
   PushNotificationConfiguration
 newPushNotificationConfiguration =
   PushNotificationConfiguration'
-    { type' =
+    { body =
         Prelude.Nothing,
-      body = Prelude.Nothing,
-      title = Prelude.Nothing
+      title = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
-
--- | Enum value that indicates the type of the push notification for a
--- message. @DEFAULT@: Normal mobile push notification. @VOIP@: VOIP mobile
--- push notification.
-pushNotificationConfiguration_type :: Lens.Lens' PushNotificationConfiguration (Prelude.Maybe PushNotificationType)
-pushNotificationConfiguration_type = Lens.lens (\PushNotificationConfiguration' {type'} -> type') (\s@PushNotificationConfiguration' {} a -> s {type' = a} :: PushNotificationConfiguration)
 
 -- | The body of the push notification.
 pushNotificationConfiguration_body :: Lens.Lens' PushNotificationConfiguration (Prelude.Maybe Prelude.Text)
@@ -79,27 +73,33 @@ pushNotificationConfiguration_body = Lens.lens (\PushNotificationConfiguration' 
 pushNotificationConfiguration_title :: Lens.Lens' PushNotificationConfiguration (Prelude.Maybe Prelude.Text)
 pushNotificationConfiguration_title = Lens.lens (\PushNotificationConfiguration' {title} -> title) (\s@PushNotificationConfiguration' {} a -> s {title = a} :: PushNotificationConfiguration) Prelude.. Lens.mapping Data._Sensitive
 
+-- | Enum value that indicates the type of the push notification for a
+-- message. @DEFAULT@: Normal mobile push notification. @VOIP@: VOIP mobile
+-- push notification.
+pushNotificationConfiguration_type :: Lens.Lens' PushNotificationConfiguration (Prelude.Maybe PushNotificationType)
+pushNotificationConfiguration_type = Lens.lens (\PushNotificationConfiguration' {type'} -> type') (\s@PushNotificationConfiguration' {} a -> s {type' = a} :: PushNotificationConfiguration)
+
 instance
   Prelude.Hashable
     PushNotificationConfiguration
   where
   hashWithSalt _salt PushNotificationConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` body
+    _salt `Prelude.hashWithSalt` body
       `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData PushNotificationConfiguration where
   rnf PushNotificationConfiguration' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf body
+    Prelude.rnf body
       `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf type'
 
 instance Data.ToJSON PushNotificationConfiguration where
   toJSON PushNotificationConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Type" Data..=) Prelude.<$> type',
-            ("Body" Data..=) Prelude.<$> body,
-            ("Title" Data..=) Prelude.<$> title
+          [ ("Body" Data..=) Prelude.<$> body,
+            ("Title" Data..=) Prelude.<$> title,
+            ("Type" Data..=) Prelude.<$> type'
           ]
       )

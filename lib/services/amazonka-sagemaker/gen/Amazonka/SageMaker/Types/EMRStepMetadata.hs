@@ -28,15 +28,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEMRStepMetadata' smart constructor.
 data EMRStepMetadata = EMRStepMetadata'
-  { -- | The path to the log file where the cluster step\'s failure root cause is
+  { -- | The identifier of the EMR cluster.
+    clusterId :: Prelude.Maybe Prelude.Text,
+    -- | The path to the log file where the cluster step\'s failure root cause is
     -- recorded.
     logFilePath :: Prelude.Maybe Prelude.Text,
-    -- | The name of the EMR cluster step.
-    stepName :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the EMR cluster.
-    clusterId :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the EMR cluster step.
-    stepId :: Prelude.Maybe Prelude.Text
+    stepId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the EMR cluster step.
+    stepName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,40 +48,40 @@ data EMRStepMetadata = EMRStepMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clusterId', 'eMRStepMetadata_clusterId' - The identifier of the EMR cluster.
+--
 -- 'logFilePath', 'eMRStepMetadata_logFilePath' - The path to the log file where the cluster step\'s failure root cause is
 -- recorded.
 --
--- 'stepName', 'eMRStepMetadata_stepName' - The name of the EMR cluster step.
---
--- 'clusterId', 'eMRStepMetadata_clusterId' - The identifier of the EMR cluster.
---
 -- 'stepId', 'eMRStepMetadata_stepId' - The identifier of the EMR cluster step.
+--
+-- 'stepName', 'eMRStepMetadata_stepName' - The name of the EMR cluster step.
 newEMRStepMetadata ::
   EMRStepMetadata
 newEMRStepMetadata =
   EMRStepMetadata'
-    { logFilePath = Prelude.Nothing,
-      stepName = Prelude.Nothing,
-      clusterId = Prelude.Nothing,
-      stepId = Prelude.Nothing
+    { clusterId = Prelude.Nothing,
+      logFilePath = Prelude.Nothing,
+      stepId = Prelude.Nothing,
+      stepName = Prelude.Nothing
     }
+
+-- | The identifier of the EMR cluster.
+eMRStepMetadata_clusterId :: Lens.Lens' EMRStepMetadata (Prelude.Maybe Prelude.Text)
+eMRStepMetadata_clusterId = Lens.lens (\EMRStepMetadata' {clusterId} -> clusterId) (\s@EMRStepMetadata' {} a -> s {clusterId = a} :: EMRStepMetadata)
 
 -- | The path to the log file where the cluster step\'s failure root cause is
 -- recorded.
 eMRStepMetadata_logFilePath :: Lens.Lens' EMRStepMetadata (Prelude.Maybe Prelude.Text)
 eMRStepMetadata_logFilePath = Lens.lens (\EMRStepMetadata' {logFilePath} -> logFilePath) (\s@EMRStepMetadata' {} a -> s {logFilePath = a} :: EMRStepMetadata)
 
--- | The name of the EMR cluster step.
-eMRStepMetadata_stepName :: Lens.Lens' EMRStepMetadata (Prelude.Maybe Prelude.Text)
-eMRStepMetadata_stepName = Lens.lens (\EMRStepMetadata' {stepName} -> stepName) (\s@EMRStepMetadata' {} a -> s {stepName = a} :: EMRStepMetadata)
-
--- | The identifier of the EMR cluster.
-eMRStepMetadata_clusterId :: Lens.Lens' EMRStepMetadata (Prelude.Maybe Prelude.Text)
-eMRStepMetadata_clusterId = Lens.lens (\EMRStepMetadata' {clusterId} -> clusterId) (\s@EMRStepMetadata' {} a -> s {clusterId = a} :: EMRStepMetadata)
-
 -- | The identifier of the EMR cluster step.
 eMRStepMetadata_stepId :: Lens.Lens' EMRStepMetadata (Prelude.Maybe Prelude.Text)
 eMRStepMetadata_stepId = Lens.lens (\EMRStepMetadata' {stepId} -> stepId) (\s@EMRStepMetadata' {} a -> s {stepId = a} :: EMRStepMetadata)
+
+-- | The name of the EMR cluster step.
+eMRStepMetadata_stepName :: Lens.Lens' EMRStepMetadata (Prelude.Maybe Prelude.Text)
+eMRStepMetadata_stepName = Lens.lens (\EMRStepMetadata' {stepName} -> stepName) (\s@EMRStepMetadata' {} a -> s {stepName = a} :: EMRStepMetadata)
 
 instance Data.FromJSON EMRStepMetadata where
   parseJSON =
@@ -89,22 +89,22 @@ instance Data.FromJSON EMRStepMetadata where
       "EMRStepMetadata"
       ( \x ->
           EMRStepMetadata'
-            Prelude.<$> (x Data..:? "LogFilePath")
-            Prelude.<*> (x Data..:? "StepName")
-            Prelude.<*> (x Data..:? "ClusterId")
+            Prelude.<$> (x Data..:? "ClusterId")
+            Prelude.<*> (x Data..:? "LogFilePath")
             Prelude.<*> (x Data..:? "StepId")
+            Prelude.<*> (x Data..:? "StepName")
       )
 
 instance Prelude.Hashable EMRStepMetadata where
   hashWithSalt _salt EMRStepMetadata' {..} =
-    _salt `Prelude.hashWithSalt` logFilePath
-      `Prelude.hashWithSalt` stepName
-      `Prelude.hashWithSalt` clusterId
+    _salt `Prelude.hashWithSalt` clusterId
+      `Prelude.hashWithSalt` logFilePath
       `Prelude.hashWithSalt` stepId
+      `Prelude.hashWithSalt` stepName
 
 instance Prelude.NFData EMRStepMetadata where
   rnf EMRStepMetadata' {..} =
-    Prelude.rnf logFilePath
-      `Prelude.seq` Prelude.rnf stepName
-      `Prelude.seq` Prelude.rnf clusterId
+    Prelude.rnf clusterId
+      `Prelude.seq` Prelude.rnf logFilePath
       `Prelude.seq` Prelude.rnf stepId
+      `Prelude.seq` Prelude.rnf stepName

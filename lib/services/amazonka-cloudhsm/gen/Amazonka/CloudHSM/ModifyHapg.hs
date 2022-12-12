@@ -41,8 +41,8 @@ module Amazonka.CloudHSM.ModifyHapg
     newModifyHapg,
 
     -- * Request Lenses
-    modifyHapg_partitionSerialList,
     modifyHapg_label,
+    modifyHapg_partitionSerialList,
     modifyHapg_hapgArn,
 
     -- * Destructuring the Response
@@ -65,11 +65,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newModifyHapg' smart constructor.
 data ModifyHapg = ModifyHapg'
-  { -- | The list of partition serial numbers to make members of the
+  { -- | The new label for the high-availability partition group.
+    label :: Prelude.Maybe Prelude.Text,
+    -- | The list of partition serial numbers to make members of the
     -- high-availability partition group.
     partitionSerialList :: Prelude.Maybe [Prelude.Text],
-    -- | The new label for the high-availability partition group.
-    label :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the high-availability partition group to modify.
     hapgArn :: Prelude.Text
   }
@@ -83,10 +83,10 @@ data ModifyHapg = ModifyHapg'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'label', 'modifyHapg_label' - The new label for the high-availability partition group.
+--
 -- 'partitionSerialList', 'modifyHapg_partitionSerialList' - The list of partition serial numbers to make members of the
 -- high-availability partition group.
---
--- 'label', 'modifyHapg_label' - The new label for the high-availability partition group.
 --
 -- 'hapgArn', 'modifyHapg_hapgArn' - The ARN of the high-availability partition group to modify.
 newModifyHapg ::
@@ -95,19 +95,19 @@ newModifyHapg ::
   ModifyHapg
 newModifyHapg pHapgArn_ =
   ModifyHapg'
-    { partitionSerialList = Prelude.Nothing,
-      label = Prelude.Nothing,
+    { label = Prelude.Nothing,
+      partitionSerialList = Prelude.Nothing,
       hapgArn = pHapgArn_
     }
+
+-- | The new label for the high-availability partition group.
+modifyHapg_label :: Lens.Lens' ModifyHapg (Prelude.Maybe Prelude.Text)
+modifyHapg_label = Lens.lens (\ModifyHapg' {label} -> label) (\s@ModifyHapg' {} a -> s {label = a} :: ModifyHapg)
 
 -- | The list of partition serial numbers to make members of the
 -- high-availability partition group.
 modifyHapg_partitionSerialList :: Lens.Lens' ModifyHapg (Prelude.Maybe [Prelude.Text])
 modifyHapg_partitionSerialList = Lens.lens (\ModifyHapg' {partitionSerialList} -> partitionSerialList) (\s@ModifyHapg' {} a -> s {partitionSerialList = a} :: ModifyHapg) Prelude.. Lens.mapping Lens.coerced
-
--- | The new label for the high-availability partition group.
-modifyHapg_label :: Lens.Lens' ModifyHapg (Prelude.Maybe Prelude.Text)
-modifyHapg_label = Lens.lens (\ModifyHapg' {label} -> label) (\s@ModifyHapg' {} a -> s {label = a} :: ModifyHapg)
 
 -- | The ARN of the high-availability partition group to modify.
 modifyHapg_hapgArn :: Lens.Lens' ModifyHapg Prelude.Text
@@ -127,14 +127,14 @@ instance Core.AWSRequest ModifyHapg where
 
 instance Prelude.Hashable ModifyHapg where
   hashWithSalt _salt ModifyHapg' {..} =
-    _salt `Prelude.hashWithSalt` partitionSerialList
-      `Prelude.hashWithSalt` label
+    _salt `Prelude.hashWithSalt` label
+      `Prelude.hashWithSalt` partitionSerialList
       `Prelude.hashWithSalt` hapgArn
 
 instance Prelude.NFData ModifyHapg where
   rnf ModifyHapg' {..} =
-    Prelude.rnf partitionSerialList
-      `Prelude.seq` Prelude.rnf label
+    Prelude.rnf label
+      `Prelude.seq` Prelude.rnf partitionSerialList
       `Prelude.seq` Prelude.rnf hapgArn
 
 instance Data.ToHeaders ModifyHapg where
@@ -156,9 +156,9 @@ instance Data.ToJSON ModifyHapg where
   toJSON ModifyHapg' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("PartitionSerialList" Data..=)
+          [ ("Label" Data..=) Prelude.<$> label,
+            ("PartitionSerialList" Data..=)
               Prelude.<$> partitionSerialList,
-            ("Label" Data..=) Prelude.<$> label,
             Prelude.Just ("HapgArn" Data..= hapgArn)
           ]
       )

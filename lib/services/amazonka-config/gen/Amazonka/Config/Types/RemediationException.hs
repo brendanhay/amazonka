@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRemediationException' smart constructor.
 data RemediationException = RemediationException'
-  { -- | An explanation of an remediation exception.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The time when the remediation exception will be deleted.
+  { -- | The time when the remediation exception will be deleted.
     expirationTime :: Prelude.Maybe Data.POSIX,
+    -- | An explanation of an remediation exception.
+    message :: Prelude.Maybe Prelude.Text,
     -- | The name of the Config rule.
     configRuleName :: Prelude.Text,
     -- | The type of a resource.
@@ -52,9 +52,9 @@ data RemediationException = RemediationException'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'remediationException_message' - An explanation of an remediation exception.
---
 -- 'expirationTime', 'remediationException_expirationTime' - The time when the remediation exception will be deleted.
+--
+-- 'message', 'remediationException_message' - An explanation of an remediation exception.
 --
 -- 'configRuleName', 'remediationException_configRuleName' - The name of the Config rule.
 --
@@ -74,20 +74,21 @@ newRemediationException
   pResourceType_
   pResourceId_ =
     RemediationException'
-      { message = Prelude.Nothing,
-        expirationTime = Prelude.Nothing,
+      { expirationTime =
+          Prelude.Nothing,
+        message = Prelude.Nothing,
         configRuleName = pConfigRuleName_,
         resourceType = pResourceType_,
         resourceId = pResourceId_
       }
 
--- | An explanation of an remediation exception.
-remediationException_message :: Lens.Lens' RemediationException (Prelude.Maybe Prelude.Text)
-remediationException_message = Lens.lens (\RemediationException' {message} -> message) (\s@RemediationException' {} a -> s {message = a} :: RemediationException)
-
 -- | The time when the remediation exception will be deleted.
 remediationException_expirationTime :: Lens.Lens' RemediationException (Prelude.Maybe Prelude.UTCTime)
 remediationException_expirationTime = Lens.lens (\RemediationException' {expirationTime} -> expirationTime) (\s@RemediationException' {} a -> s {expirationTime = a} :: RemediationException) Prelude.. Lens.mapping Data._Time
+
+-- | An explanation of an remediation exception.
+remediationException_message :: Lens.Lens' RemediationException (Prelude.Maybe Prelude.Text)
+remediationException_message = Lens.lens (\RemediationException' {message} -> message) (\s@RemediationException' {} a -> s {message = a} :: RemediationException)
 
 -- | The name of the Config rule.
 remediationException_configRuleName :: Lens.Lens' RemediationException Prelude.Text
@@ -107,8 +108,8 @@ instance Data.FromJSON RemediationException where
       "RemediationException"
       ( \x ->
           RemediationException'
-            Prelude.<$> (x Data..:? "Message")
-            Prelude.<*> (x Data..:? "ExpirationTime")
+            Prelude.<$> (x Data..:? "ExpirationTime")
+            Prelude.<*> (x Data..:? "Message")
             Prelude.<*> (x Data..: "ConfigRuleName")
             Prelude.<*> (x Data..: "ResourceType")
             Prelude.<*> (x Data..: "ResourceId")
@@ -116,16 +117,16 @@ instance Data.FromJSON RemediationException where
 
 instance Prelude.Hashable RemediationException where
   hashWithSalt _salt RemediationException' {..} =
-    _salt `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` expirationTime
+    _salt `Prelude.hashWithSalt` expirationTime
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` configRuleName
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` resourceId
 
 instance Prelude.NFData RemediationException where
   rnf RemediationException' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf expirationTime
+    Prelude.rnf expirationTime
+      `Prelude.seq` Prelude.rnf message
       `Prelude.seq` Prelude.rnf configRuleName
       `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf resourceId

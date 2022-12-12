@@ -29,8 +29,8 @@ module Amazonka.MediaLive.DescribeSchedule
     newDescribeSchedule,
 
     -- * Request Lenses
-    describeSchedule_nextToken,
     describeSchedule_maxResults,
+    describeSchedule_nextToken,
     describeSchedule_channelId,
 
     -- * Destructuring the Response
@@ -56,8 +56,8 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeSchedule' smart constructor.
 data DescribeSchedule = DescribeSchedule'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    maxResults :: Prelude.Maybe Prelude.Natural,
+  { maxResults :: Prelude.Maybe Prelude.Natural,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Id of the channel whose schedule is being updated.
     channelId :: Prelude.Text
   }
@@ -71,9 +71,9 @@ data DescribeSchedule = DescribeSchedule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeSchedule_nextToken' - Undocumented member.
---
 -- 'maxResults', 'describeSchedule_maxResults' - Undocumented member.
+--
+-- 'nextToken', 'describeSchedule_nextToken' - Undocumented member.
 --
 -- 'channelId', 'describeSchedule_channelId' - Id of the channel whose schedule is being updated.
 newDescribeSchedule ::
@@ -82,18 +82,18 @@ newDescribeSchedule ::
   DescribeSchedule
 newDescribeSchedule pChannelId_ =
   DescribeSchedule'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       channelId = pChannelId_
     }
 
 -- | Undocumented member.
-describeSchedule_nextToken :: Lens.Lens' DescribeSchedule (Prelude.Maybe Prelude.Text)
-describeSchedule_nextToken = Lens.lens (\DescribeSchedule' {nextToken} -> nextToken) (\s@DescribeSchedule' {} a -> s {nextToken = a} :: DescribeSchedule)
-
--- | Undocumented member.
 describeSchedule_maxResults :: Lens.Lens' DescribeSchedule (Prelude.Maybe Prelude.Natural)
 describeSchedule_maxResults = Lens.lens (\DescribeSchedule' {maxResults} -> maxResults) (\s@DescribeSchedule' {} a -> s {maxResults = a} :: DescribeSchedule)
+
+-- | Undocumented member.
+describeSchedule_nextToken :: Lens.Lens' DescribeSchedule (Prelude.Maybe Prelude.Text)
+describeSchedule_nextToken = Lens.lens (\DescribeSchedule' {nextToken} -> nextToken) (\s@DescribeSchedule' {} a -> s {nextToken = a} :: DescribeSchedule)
 
 -- | Id of the channel whose schedule is being updated.
 describeSchedule_channelId :: Lens.Lens' DescribeSchedule Prelude.Text
@@ -140,14 +140,14 @@ instance Core.AWSRequest DescribeSchedule where
 
 instance Prelude.Hashable DescribeSchedule where
   hashWithSalt _salt DescribeSchedule' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` channelId
 
 instance Prelude.NFData DescribeSchedule where
   rnf DescribeSchedule' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf channelId
 
 instance Data.ToHeaders DescribeSchedule where
@@ -169,8 +169,8 @@ instance Data.ToPath DescribeSchedule where
 instance Data.ToQuery DescribeSchedule where
   toQuery DescribeSchedule' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | Placeholder documentation for DescribeScheduleResponse

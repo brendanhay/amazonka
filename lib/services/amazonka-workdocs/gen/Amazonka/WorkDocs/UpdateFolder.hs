@@ -28,9 +28,9 @@ module Amazonka.WorkDocs.UpdateFolder
     newUpdateFolder,
 
     -- * Request Lenses
+    updateFolder_authenticationToken,
     updateFolder_name,
     updateFolder_parentFolderId,
-    updateFolder_authenticationToken,
     updateFolder_resourceState,
     updateFolder_folderId,
 
@@ -50,13 +50,13 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newUpdateFolder' smart constructor.
 data UpdateFolder = UpdateFolder'
-  { -- | The name of the folder.
+  { -- | Amazon WorkDocs authentication token. Not required when using AWS
+    -- administrator credentials to access the API.
+    authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The name of the folder.
     name :: Prelude.Maybe Prelude.Text,
     -- | The ID of the parent folder.
     parentFolderId :: Prelude.Maybe Prelude.Text,
-    -- | Amazon WorkDocs authentication token. Not required when using AWS
-    -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The resource state of the folder. Only ACTIVE and RECYCLED are accepted
     -- values from the API.
     resourceState :: Prelude.Maybe ResourceStateType,
@@ -73,12 +73,12 @@ data UpdateFolder = UpdateFolder'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'authenticationToken', 'updateFolder_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
+-- administrator credentials to access the API.
+--
 -- 'name', 'updateFolder_name' - The name of the folder.
 --
 -- 'parentFolderId', 'updateFolder_parentFolderId' - The ID of the parent folder.
---
--- 'authenticationToken', 'updateFolder_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
 --
 -- 'resourceState', 'updateFolder_resourceState' - The resource state of the folder. Only ACTIVE and RECYCLED are accepted
 -- values from the API.
@@ -90,12 +90,18 @@ newUpdateFolder ::
   UpdateFolder
 newUpdateFolder pFolderId_ =
   UpdateFolder'
-    { name = Prelude.Nothing,
+    { authenticationToken =
+        Prelude.Nothing,
+      name = Prelude.Nothing,
       parentFolderId = Prelude.Nothing,
-      authenticationToken = Prelude.Nothing,
       resourceState = Prelude.Nothing,
       folderId = pFolderId_
     }
+
+-- | Amazon WorkDocs authentication token. Not required when using AWS
+-- administrator credentials to access the API.
+updateFolder_authenticationToken :: Lens.Lens' UpdateFolder (Prelude.Maybe Prelude.Text)
+updateFolder_authenticationToken = Lens.lens (\UpdateFolder' {authenticationToken} -> authenticationToken) (\s@UpdateFolder' {} a -> s {authenticationToken = a} :: UpdateFolder) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the folder.
 updateFolder_name :: Lens.Lens' UpdateFolder (Prelude.Maybe Prelude.Text)
@@ -104,11 +110,6 @@ updateFolder_name = Lens.lens (\UpdateFolder' {name} -> name) (\s@UpdateFolder' 
 -- | The ID of the parent folder.
 updateFolder_parentFolderId :: Lens.Lens' UpdateFolder (Prelude.Maybe Prelude.Text)
 updateFolder_parentFolderId = Lens.lens (\UpdateFolder' {parentFolderId} -> parentFolderId) (\s@UpdateFolder' {} a -> s {parentFolderId = a} :: UpdateFolder)
-
--- | Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
-updateFolder_authenticationToken :: Lens.Lens' UpdateFolder (Prelude.Maybe Prelude.Text)
-updateFolder_authenticationToken = Lens.lens (\UpdateFolder' {authenticationToken} -> authenticationToken) (\s@UpdateFolder' {} a -> s {authenticationToken = a} :: UpdateFolder) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The resource state of the folder. Only ACTIVE and RECYCLED are accepted
 -- values from the API.
@@ -127,17 +128,17 @@ instance Core.AWSRequest UpdateFolder where
 
 instance Prelude.Hashable UpdateFolder where
   hashWithSalt _salt UpdateFolder' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` authenticationToken
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` parentFolderId
-      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` resourceState
       `Prelude.hashWithSalt` folderId
 
 instance Prelude.NFData UpdateFolder where
   rnf UpdateFolder' {..} =
-    Prelude.rnf name
+    Prelude.rnf authenticationToken
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf parentFolderId
-      `Prelude.seq` Prelude.rnf authenticationToken
       `Prelude.seq` Prelude.rnf resourceState
       `Prelude.seq` Prelude.rnf folderId
 

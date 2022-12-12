@@ -28,10 +28,10 @@ module Amazonka.SageMaker.CreateInferenceRecommendationsJob
     newCreateInferenceRecommendationsJob,
 
     -- * Request Lenses
-    createInferenceRecommendationsJob_tags,
-    createInferenceRecommendationsJob_stoppingConditions,
-    createInferenceRecommendationsJob_outputConfig,
     createInferenceRecommendationsJob_jobDescription,
+    createInferenceRecommendationsJob_outputConfig,
+    createInferenceRecommendationsJob_stoppingConditions,
+    createInferenceRecommendationsJob_tags,
     createInferenceRecommendationsJob_jobName,
     createInferenceRecommendationsJob_jobType,
     createInferenceRecommendationsJob_roleArn,
@@ -57,20 +57,20 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newCreateInferenceRecommendationsJob' smart constructor.
 data CreateInferenceRecommendationsJob = CreateInferenceRecommendationsJob'
-  { -- | The metadata that you apply to Amazon Web Services resources to help you
+  { -- | Description of the recommendation job.
+    jobDescription :: Prelude.Maybe Prelude.Text,
+    -- | Provides information about the output artifacts and the KMS key to use
+    -- for Amazon S3 server-side encryption.
+    outputConfig :: Prelude.Maybe RecommendationJobOutputConfig,
+    -- | A set of conditions for stopping a recommendation job. If any of the
+    -- conditions are met, the job is automatically stopped.
+    stoppingConditions :: Prelude.Maybe RecommendationJobStoppingConditions,
+    -- | The metadata that you apply to Amazon Web Services resources to help you
     -- categorize and organize them. Each tag consists of a key and a value,
     -- both of which you define. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
     -- in the Amazon Web Services General Reference.
     tags :: Prelude.Maybe [Tag],
-    -- | A set of conditions for stopping a recommendation job. If any of the
-    -- conditions are met, the job is automatically stopped.
-    stoppingConditions :: Prelude.Maybe RecommendationJobStoppingConditions,
-    -- | Provides information about the output artifacts and the KMS key to use
-    -- for Amazon S3 server-side encryption.
-    outputConfig :: Prelude.Maybe RecommendationJobOutputConfig,
-    -- | Description of the recommendation job.
-    jobDescription :: Prelude.Maybe Prelude.Text,
     -- | A name for the recommendation job. The name must be unique within the
     -- Amazon Web Services Region and within your Amazon Web Services account.
     jobName :: Prelude.Text,
@@ -96,19 +96,19 @@ data CreateInferenceRecommendationsJob = CreateInferenceRecommendationsJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'jobDescription', 'createInferenceRecommendationsJob_jobDescription' - Description of the recommendation job.
+--
+-- 'outputConfig', 'createInferenceRecommendationsJob_outputConfig' - Provides information about the output artifacts and the KMS key to use
+-- for Amazon S3 server-side encryption.
+--
+-- 'stoppingConditions', 'createInferenceRecommendationsJob_stoppingConditions' - A set of conditions for stopping a recommendation job. If any of the
+-- conditions are met, the job is automatically stopped.
+--
 -- 'tags', 'createInferenceRecommendationsJob_tags' - The metadata that you apply to Amazon Web Services resources to help you
 -- categorize and organize them. Each tag consists of a key and a value,
 -- both of which you define. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
 -- in the Amazon Web Services General Reference.
---
--- 'stoppingConditions', 'createInferenceRecommendationsJob_stoppingConditions' - A set of conditions for stopping a recommendation job. If any of the
--- conditions are met, the job is automatically stopped.
---
--- 'outputConfig', 'createInferenceRecommendationsJob_outputConfig' - Provides information about the output artifacts and the KMS key to use
--- for Amazon S3 server-side encryption.
---
--- 'jobDescription', 'createInferenceRecommendationsJob_jobDescription' - Description of the recommendation job.
 --
 -- 'jobName', 'createInferenceRecommendationsJob_jobName' - A name for the recommendation job. The name must be unique within the
 -- Amazon Web Services Region and within your Amazon Web Services account.
@@ -139,16 +139,30 @@ newCreateInferenceRecommendationsJob
   pRoleArn_
   pInputConfig_ =
     CreateInferenceRecommendationsJob'
-      { tags =
+      { jobDescription =
           Prelude.Nothing,
-        stoppingConditions = Prelude.Nothing,
         outputConfig = Prelude.Nothing,
-        jobDescription = Prelude.Nothing,
+        stoppingConditions = Prelude.Nothing,
+        tags = Prelude.Nothing,
         jobName = pJobName_,
         jobType = pJobType_,
         roleArn = pRoleArn_,
         inputConfig = pInputConfig_
       }
+
+-- | Description of the recommendation job.
+createInferenceRecommendationsJob_jobDescription :: Lens.Lens' CreateInferenceRecommendationsJob (Prelude.Maybe Prelude.Text)
+createInferenceRecommendationsJob_jobDescription = Lens.lens (\CreateInferenceRecommendationsJob' {jobDescription} -> jobDescription) (\s@CreateInferenceRecommendationsJob' {} a -> s {jobDescription = a} :: CreateInferenceRecommendationsJob)
+
+-- | Provides information about the output artifacts and the KMS key to use
+-- for Amazon S3 server-side encryption.
+createInferenceRecommendationsJob_outputConfig :: Lens.Lens' CreateInferenceRecommendationsJob (Prelude.Maybe RecommendationJobOutputConfig)
+createInferenceRecommendationsJob_outputConfig = Lens.lens (\CreateInferenceRecommendationsJob' {outputConfig} -> outputConfig) (\s@CreateInferenceRecommendationsJob' {} a -> s {outputConfig = a} :: CreateInferenceRecommendationsJob)
+
+-- | A set of conditions for stopping a recommendation job. If any of the
+-- conditions are met, the job is automatically stopped.
+createInferenceRecommendationsJob_stoppingConditions :: Lens.Lens' CreateInferenceRecommendationsJob (Prelude.Maybe RecommendationJobStoppingConditions)
+createInferenceRecommendationsJob_stoppingConditions = Lens.lens (\CreateInferenceRecommendationsJob' {stoppingConditions} -> stoppingConditions) (\s@CreateInferenceRecommendationsJob' {} a -> s {stoppingConditions = a} :: CreateInferenceRecommendationsJob)
 
 -- | The metadata that you apply to Amazon Web Services resources to help you
 -- categorize and organize them. Each tag consists of a key and a value,
@@ -157,20 +171,6 @@ newCreateInferenceRecommendationsJob
 -- in the Amazon Web Services General Reference.
 createInferenceRecommendationsJob_tags :: Lens.Lens' CreateInferenceRecommendationsJob (Prelude.Maybe [Tag])
 createInferenceRecommendationsJob_tags = Lens.lens (\CreateInferenceRecommendationsJob' {tags} -> tags) (\s@CreateInferenceRecommendationsJob' {} a -> s {tags = a} :: CreateInferenceRecommendationsJob) Prelude.. Lens.mapping Lens.coerced
-
--- | A set of conditions for stopping a recommendation job. If any of the
--- conditions are met, the job is automatically stopped.
-createInferenceRecommendationsJob_stoppingConditions :: Lens.Lens' CreateInferenceRecommendationsJob (Prelude.Maybe RecommendationJobStoppingConditions)
-createInferenceRecommendationsJob_stoppingConditions = Lens.lens (\CreateInferenceRecommendationsJob' {stoppingConditions} -> stoppingConditions) (\s@CreateInferenceRecommendationsJob' {} a -> s {stoppingConditions = a} :: CreateInferenceRecommendationsJob)
-
--- | Provides information about the output artifacts and the KMS key to use
--- for Amazon S3 server-side encryption.
-createInferenceRecommendationsJob_outputConfig :: Lens.Lens' CreateInferenceRecommendationsJob (Prelude.Maybe RecommendationJobOutputConfig)
-createInferenceRecommendationsJob_outputConfig = Lens.lens (\CreateInferenceRecommendationsJob' {outputConfig} -> outputConfig) (\s@CreateInferenceRecommendationsJob' {} a -> s {outputConfig = a} :: CreateInferenceRecommendationsJob)
-
--- | Description of the recommendation job.
-createInferenceRecommendationsJob_jobDescription :: Lens.Lens' CreateInferenceRecommendationsJob (Prelude.Maybe Prelude.Text)
-createInferenceRecommendationsJob_jobDescription = Lens.lens (\CreateInferenceRecommendationsJob' {jobDescription} -> jobDescription) (\s@CreateInferenceRecommendationsJob' {} a -> s {jobDescription = a} :: CreateInferenceRecommendationsJob)
 
 -- | A name for the recommendation job. The name must be unique within the
 -- Amazon Web Services Region and within your Amazon Web Services account.
@@ -218,10 +218,10 @@ instance
   hashWithSalt
     _salt
     CreateInferenceRecommendationsJob' {..} =
-      _salt `Prelude.hashWithSalt` tags
-        `Prelude.hashWithSalt` stoppingConditions
+      _salt `Prelude.hashWithSalt` jobDescription
         `Prelude.hashWithSalt` outputConfig
-        `Prelude.hashWithSalt` jobDescription
+        `Prelude.hashWithSalt` stoppingConditions
+        `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` jobName
         `Prelude.hashWithSalt` jobType
         `Prelude.hashWithSalt` roleArn
@@ -232,10 +232,10 @@ instance
     CreateInferenceRecommendationsJob
   where
   rnf CreateInferenceRecommendationsJob' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf stoppingConditions
+    Prelude.rnf jobDescription
       `Prelude.seq` Prelude.rnf outputConfig
-      `Prelude.seq` Prelude.rnf jobDescription
+      `Prelude.seq` Prelude.rnf stoppingConditions
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf jobName
       `Prelude.seq` Prelude.rnf jobType
       `Prelude.seq` Prelude.rnf roleArn
@@ -266,12 +266,12 @@ instance
   toJSON CreateInferenceRecommendationsJob' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
+          [ ("JobDescription" Data..=)
+              Prelude.<$> jobDescription,
+            ("OutputConfig" Data..=) Prelude.<$> outputConfig,
             ("StoppingConditions" Data..=)
               Prelude.<$> stoppingConditions,
-            ("OutputConfig" Data..=) Prelude.<$> outputConfig,
-            ("JobDescription" Data..=)
-              Prelude.<$> jobDescription,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("JobName" Data..= jobName),
             Prelude.Just ("JobType" Data..= jobType),
             Prelude.Just ("RoleArn" Data..= roleArn),

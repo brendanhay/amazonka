@@ -34,8 +34,8 @@ module Amazonka.IoTFleetWise.CreateFleet
     newCreateFleet,
 
     -- * Request Lenses
-    createFleet_tags,
     createFleet_description,
+    createFleet_tags,
     createFleet_fleetId,
     createFleet_signalCatalogArn,
 
@@ -60,10 +60,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateFleet' smart constructor.
 data CreateFleet = CreateFleet'
-  { -- | Metadata that can be used to manage the fleet.
-    tags :: Prelude.Maybe [Tag],
-    -- | A brief description of the fleet to create.
+  { -- | A brief description of the fleet to create.
     description :: Prelude.Maybe Prelude.Text,
+    -- | Metadata that can be used to manage the fleet.
+    tags :: Prelude.Maybe [Tag],
     -- | The unique ID of the fleet to create.
     fleetId :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of a signal catalog.
@@ -79,9 +79,9 @@ data CreateFleet = CreateFleet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createFleet_tags' - Metadata that can be used to manage the fleet.
---
 -- 'description', 'createFleet_description' - A brief description of the fleet to create.
+--
+-- 'tags', 'createFleet_tags' - Metadata that can be used to manage the fleet.
 --
 -- 'fleetId', 'createFleet_fleetId' - The unique ID of the fleet to create.
 --
@@ -94,19 +94,19 @@ newCreateFleet ::
   CreateFleet
 newCreateFleet pFleetId_ pSignalCatalogArn_ =
   CreateFleet'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       fleetId = pFleetId_,
       signalCatalogArn = pSignalCatalogArn_
     }
 
--- | Metadata that can be used to manage the fleet.
-createFleet_tags :: Lens.Lens' CreateFleet (Prelude.Maybe [Tag])
-createFleet_tags = Lens.lens (\CreateFleet' {tags} -> tags) (\s@CreateFleet' {} a -> s {tags = a} :: CreateFleet) Prelude.. Lens.mapping Lens.coerced
-
 -- | A brief description of the fleet to create.
 createFleet_description :: Lens.Lens' CreateFleet (Prelude.Maybe Prelude.Text)
 createFleet_description = Lens.lens (\CreateFleet' {description} -> description) (\s@CreateFleet' {} a -> s {description = a} :: CreateFleet)
+
+-- | Metadata that can be used to manage the fleet.
+createFleet_tags :: Lens.Lens' CreateFleet (Prelude.Maybe [Tag])
+createFleet_tags = Lens.lens (\CreateFleet' {tags} -> tags) (\s@CreateFleet' {} a -> s {tags = a} :: CreateFleet) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique ID of the fleet to create.
 createFleet_fleetId :: Lens.Lens' CreateFleet Prelude.Text
@@ -131,15 +131,15 @@ instance Core.AWSRequest CreateFleet where
 
 instance Prelude.Hashable CreateFleet where
   hashWithSalt _salt CreateFleet' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` fleetId
       `Prelude.hashWithSalt` signalCatalogArn
 
 instance Prelude.NFData CreateFleet where
   rnf CreateFleet' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf fleetId
       `Prelude.seq` Prelude.rnf signalCatalogArn
 
@@ -162,8 +162,8 @@ instance Data.ToJSON CreateFleet where
   toJSON CreateFleet' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("description" Data..=) Prelude.<$> description,
+          [ ("description" Data..=) Prelude.<$> description,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("fleetId" Data..= fleetId),
             Prelude.Just
               ("signalCatalogArn" Data..= signalCatalogArn)

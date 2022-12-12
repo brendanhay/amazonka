@@ -30,10 +30,10 @@ module Amazonka.CodeBuild.ListSharedReportGroups
     newListSharedReportGroups,
 
     -- * Request Lenses
-    listSharedReportGroups_sortOrder,
+    listSharedReportGroups_maxResults,
     listSharedReportGroups_nextToken,
     listSharedReportGroups_sortBy,
-    listSharedReportGroups_maxResults,
+    listSharedReportGroups_sortOrder,
 
     -- * Destructuring the Response
     ListSharedReportGroupsResponse (..),
@@ -56,12 +56,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListSharedReportGroups' smart constructor.
 data ListSharedReportGroups = ListSharedReportGroups'
-  { -- | The order in which to list shared report groups. Valid values include:
-    --
-    -- -   @ASCENDING@: List in ascending order.
-    --
-    -- -   @DESCENDING@: List in descending order.
-    sortOrder :: Prelude.Maybe SortOrderType,
+  { -- | The maximum number of paginated shared report groups per response. Use
+    -- @nextToken@ to iterate pages in the list of returned @ReportGroup@
+    -- objects. The default value is 100.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | During a previous call, the maximum number of items that can be returned
     -- is the value specified in @maxResults@. If there more items in the list,
     -- then a unique string called a /nextToken/ is returned. To get the next
@@ -78,10 +76,12 @@ data ListSharedReportGroups = ListSharedReportGroups'
     -- -   @MODIFIED_TIME@: List based on when information about the shared
     --     report group was last changed.
     sortBy :: Prelude.Maybe SharedResourceSortByType,
-    -- | The maximum number of paginated shared report groups per response. Use
-    -- @nextToken@ to iterate pages in the list of returned @ReportGroup@
-    -- objects. The default value is 100.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    -- | The order in which to list shared report groups. Valid values include:
+    --
+    -- -   @ASCENDING@: List in ascending order.
+    --
+    -- -   @DESCENDING@: List in descending order.
+    sortOrder :: Prelude.Maybe SortOrderType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -93,11 +93,9 @@ data ListSharedReportGroups = ListSharedReportGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listSharedReportGroups_sortOrder' - The order in which to list shared report groups. Valid values include:
---
--- -   @ASCENDING@: List in ascending order.
---
--- -   @DESCENDING@: List in descending order.
+-- 'maxResults', 'listSharedReportGroups_maxResults' - The maximum number of paginated shared report groups per response. Use
+-- @nextToken@ to iterate pages in the list of returned @ReportGroup@
+-- objects. The default value is 100.
 --
 -- 'nextToken', 'listSharedReportGroups_nextToken' - During a previous call, the maximum number of items that can be returned
 -- is the value specified in @maxResults@. If there more items in the list,
@@ -115,27 +113,27 @@ data ListSharedReportGroups = ListSharedReportGroups'
 -- -   @MODIFIED_TIME@: List based on when information about the shared
 --     report group was last changed.
 --
--- 'maxResults', 'listSharedReportGroups_maxResults' - The maximum number of paginated shared report groups per response. Use
--- @nextToken@ to iterate pages in the list of returned @ReportGroup@
--- objects. The default value is 100.
-newListSharedReportGroups ::
-  ListSharedReportGroups
-newListSharedReportGroups =
-  ListSharedReportGroups'
-    { sortOrder =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
-      maxResults = Prelude.Nothing
-    }
-
--- | The order in which to list shared report groups. Valid values include:
+-- 'sortOrder', 'listSharedReportGroups_sortOrder' - The order in which to list shared report groups. Valid values include:
 --
 -- -   @ASCENDING@: List in ascending order.
 --
 -- -   @DESCENDING@: List in descending order.
-listSharedReportGroups_sortOrder :: Lens.Lens' ListSharedReportGroups (Prelude.Maybe SortOrderType)
-listSharedReportGroups_sortOrder = Lens.lens (\ListSharedReportGroups' {sortOrder} -> sortOrder) (\s@ListSharedReportGroups' {} a -> s {sortOrder = a} :: ListSharedReportGroups)
+newListSharedReportGroups ::
+  ListSharedReportGroups
+newListSharedReportGroups =
+  ListSharedReportGroups'
+    { maxResults =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      sortOrder = Prelude.Nothing
+    }
+
+-- | The maximum number of paginated shared report groups per response. Use
+-- @nextToken@ to iterate pages in the list of returned @ReportGroup@
+-- objects. The default value is 100.
+listSharedReportGroups_maxResults :: Lens.Lens' ListSharedReportGroups (Prelude.Maybe Prelude.Natural)
+listSharedReportGroups_maxResults = Lens.lens (\ListSharedReportGroups' {maxResults} -> maxResults) (\s@ListSharedReportGroups' {} a -> s {maxResults = a} :: ListSharedReportGroups)
 
 -- | During a previous call, the maximum number of items that can be returned
 -- is the value specified in @maxResults@. If there more items in the list,
@@ -157,11 +155,13 @@ listSharedReportGroups_nextToken = Lens.lens (\ListSharedReportGroups' {nextToke
 listSharedReportGroups_sortBy :: Lens.Lens' ListSharedReportGroups (Prelude.Maybe SharedResourceSortByType)
 listSharedReportGroups_sortBy = Lens.lens (\ListSharedReportGroups' {sortBy} -> sortBy) (\s@ListSharedReportGroups' {} a -> s {sortBy = a} :: ListSharedReportGroups)
 
--- | The maximum number of paginated shared report groups per response. Use
--- @nextToken@ to iterate pages in the list of returned @ReportGroup@
--- objects. The default value is 100.
-listSharedReportGroups_maxResults :: Lens.Lens' ListSharedReportGroups (Prelude.Maybe Prelude.Natural)
-listSharedReportGroups_maxResults = Lens.lens (\ListSharedReportGroups' {maxResults} -> maxResults) (\s@ListSharedReportGroups' {} a -> s {maxResults = a} :: ListSharedReportGroups)
+-- | The order in which to list shared report groups. Valid values include:
+--
+-- -   @ASCENDING@: List in ascending order.
+--
+-- -   @DESCENDING@: List in descending order.
+listSharedReportGroups_sortOrder :: Lens.Lens' ListSharedReportGroups (Prelude.Maybe SortOrderType)
+listSharedReportGroups_sortOrder = Lens.lens (\ListSharedReportGroups' {sortOrder} -> sortOrder) (\s@ListSharedReportGroups' {} a -> s {sortOrder = a} :: ListSharedReportGroups)
 
 instance Core.AWSPager ListSharedReportGroups where
   page rq rs
@@ -203,17 +203,17 @@ instance Core.AWSRequest ListSharedReportGroups where
 
 instance Prelude.Hashable ListSharedReportGroups where
   hashWithSalt _salt ListSharedReportGroups' {..} =
-    _salt `Prelude.hashWithSalt` sortOrder
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortBy
-      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` sortOrder
 
 instance Prelude.NFData ListSharedReportGroups where
   rnf ListSharedReportGroups' {..} =
-    Prelude.rnf sortOrder
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListSharedReportGroups where
   toHeaders =
@@ -234,10 +234,10 @@ instance Data.ToJSON ListSharedReportGroups where
   toJSON ListSharedReportGroups' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("sortOrder" Data..=) Prelude.<$> sortOrder,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
             ("nextToken" Data..=) Prelude.<$> nextToken,
             ("sortBy" Data..=) Prelude.<$> sortBy,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+            ("sortOrder" Data..=) Prelude.<$> sortOrder
           ]
       )
 

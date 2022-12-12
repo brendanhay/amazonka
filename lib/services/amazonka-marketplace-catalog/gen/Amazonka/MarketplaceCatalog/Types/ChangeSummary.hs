@@ -31,15 +31,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newChangeSummary' smart constructor.
 data ChangeSummary = ChangeSummary'
-  { -- | The entity to be changed.
-    entity :: Prelude.Maybe Entity,
-    -- | Optional name for the change.
+  { -- | Optional name for the change.
     changeName :: Prelude.Maybe Prelude.Text,
     -- | The type of the change.
     changeType :: Prelude.Maybe Prelude.Text,
     -- | This object contains details specific to the change type of the
     -- requested change.
     details :: Prelude.Maybe Prelude.Text,
+    -- | The entity to be changed.
+    entity :: Prelude.Maybe Entity,
     -- | An array of @ErrorDetail@ objects associated with the change.
     errorDetailList :: Prelude.Maybe [ErrorDetail]
   }
@@ -53,8 +53,6 @@ data ChangeSummary = ChangeSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'entity', 'changeSummary_entity' - The entity to be changed.
---
 -- 'changeName', 'changeSummary_changeName' - Optional name for the change.
 --
 -- 'changeType', 'changeSummary_changeType' - The type of the change.
@@ -62,21 +60,19 @@ data ChangeSummary = ChangeSummary'
 -- 'details', 'changeSummary_details' - This object contains details specific to the change type of the
 -- requested change.
 --
+-- 'entity', 'changeSummary_entity' - The entity to be changed.
+--
 -- 'errorDetailList', 'changeSummary_errorDetailList' - An array of @ErrorDetail@ objects associated with the change.
 newChangeSummary ::
   ChangeSummary
 newChangeSummary =
   ChangeSummary'
-    { entity = Prelude.Nothing,
-      changeName = Prelude.Nothing,
+    { changeName = Prelude.Nothing,
       changeType = Prelude.Nothing,
       details = Prelude.Nothing,
+      entity = Prelude.Nothing,
       errorDetailList = Prelude.Nothing
     }
-
--- | The entity to be changed.
-changeSummary_entity :: Lens.Lens' ChangeSummary (Prelude.Maybe Entity)
-changeSummary_entity = Lens.lens (\ChangeSummary' {entity} -> entity) (\s@ChangeSummary' {} a -> s {entity = a} :: ChangeSummary)
 
 -- | Optional name for the change.
 changeSummary_changeName :: Lens.Lens' ChangeSummary (Prelude.Maybe Prelude.Text)
@@ -91,6 +87,10 @@ changeSummary_changeType = Lens.lens (\ChangeSummary' {changeType} -> changeType
 changeSummary_details :: Lens.Lens' ChangeSummary (Prelude.Maybe Prelude.Text)
 changeSummary_details = Lens.lens (\ChangeSummary' {details} -> details) (\s@ChangeSummary' {} a -> s {details = a} :: ChangeSummary)
 
+-- | The entity to be changed.
+changeSummary_entity :: Lens.Lens' ChangeSummary (Prelude.Maybe Entity)
+changeSummary_entity = Lens.lens (\ChangeSummary' {entity} -> entity) (\s@ChangeSummary' {} a -> s {entity = a} :: ChangeSummary)
+
 -- | An array of @ErrorDetail@ objects associated with the change.
 changeSummary_errorDetailList :: Lens.Lens' ChangeSummary (Prelude.Maybe [ErrorDetail])
 changeSummary_errorDetailList = Lens.lens (\ChangeSummary' {errorDetailList} -> errorDetailList) (\s@ChangeSummary' {} a -> s {errorDetailList = a} :: ChangeSummary) Prelude.. Lens.mapping Lens.coerced
@@ -101,10 +101,10 @@ instance Data.FromJSON ChangeSummary where
       "ChangeSummary"
       ( \x ->
           ChangeSummary'
-            Prelude.<$> (x Data..:? "Entity")
-            Prelude.<*> (x Data..:? "ChangeName")
+            Prelude.<$> (x Data..:? "ChangeName")
             Prelude.<*> (x Data..:? "ChangeType")
             Prelude.<*> (x Data..:? "Details")
+            Prelude.<*> (x Data..:? "Entity")
             Prelude.<*> ( x Data..:? "ErrorDetailList"
                             Data..!= Prelude.mempty
                         )
@@ -112,16 +112,16 @@ instance Data.FromJSON ChangeSummary where
 
 instance Prelude.Hashable ChangeSummary where
   hashWithSalt _salt ChangeSummary' {..} =
-    _salt `Prelude.hashWithSalt` entity
-      `Prelude.hashWithSalt` changeName
+    _salt `Prelude.hashWithSalt` changeName
       `Prelude.hashWithSalt` changeType
       `Prelude.hashWithSalt` details
+      `Prelude.hashWithSalt` entity
       `Prelude.hashWithSalt` errorDetailList
 
 instance Prelude.NFData ChangeSummary where
   rnf ChangeSummary' {..} =
-    Prelude.rnf entity
-      `Prelude.seq` Prelude.rnf changeName
+    Prelude.rnf changeName
       `Prelude.seq` Prelude.rnf changeType
       `Prelude.seq` Prelude.rnf details
+      `Prelude.seq` Prelude.rnf entity
       `Prelude.seq` Prelude.rnf errorDetailList

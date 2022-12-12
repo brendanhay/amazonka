@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCustomerNodeEndpoint' smart constructor.
 data CustomerNodeEndpoint = CustomerNodeEndpoint'
-  { -- | The port of the node endpoint
-    port :: Prelude.Maybe Prelude.Int,
-    -- | The address of the node endpoint
-    address :: Prelude.Maybe Prelude.Text
+  { -- | The address of the node endpoint
+    address :: Prelude.Maybe Prelude.Text,
+    -- | The port of the node endpoint
+    port :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,35 +43,35 @@ data CustomerNodeEndpoint = CustomerNodeEndpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'port', 'customerNodeEndpoint_port' - The port of the node endpoint
---
 -- 'address', 'customerNodeEndpoint_address' - The address of the node endpoint
+--
+-- 'port', 'customerNodeEndpoint_port' - The port of the node endpoint
 newCustomerNodeEndpoint ::
   CustomerNodeEndpoint
 newCustomerNodeEndpoint =
   CustomerNodeEndpoint'
-    { port = Prelude.Nothing,
-      address = Prelude.Nothing
+    { address = Prelude.Nothing,
+      port = Prelude.Nothing
     }
-
--- | The port of the node endpoint
-customerNodeEndpoint_port :: Lens.Lens' CustomerNodeEndpoint (Prelude.Maybe Prelude.Int)
-customerNodeEndpoint_port = Lens.lens (\CustomerNodeEndpoint' {port} -> port) (\s@CustomerNodeEndpoint' {} a -> s {port = a} :: CustomerNodeEndpoint)
 
 -- | The address of the node endpoint
 customerNodeEndpoint_address :: Lens.Lens' CustomerNodeEndpoint (Prelude.Maybe Prelude.Text)
 customerNodeEndpoint_address = Lens.lens (\CustomerNodeEndpoint' {address} -> address) (\s@CustomerNodeEndpoint' {} a -> s {address = a} :: CustomerNodeEndpoint)
 
+-- | The port of the node endpoint
+customerNodeEndpoint_port :: Lens.Lens' CustomerNodeEndpoint (Prelude.Maybe Prelude.Int)
+customerNodeEndpoint_port = Lens.lens (\CustomerNodeEndpoint' {port} -> port) (\s@CustomerNodeEndpoint' {} a -> s {port = a} :: CustomerNodeEndpoint)
+
 instance Prelude.Hashable CustomerNodeEndpoint where
   hashWithSalt _salt CustomerNodeEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` port
-      `Prelude.hashWithSalt` address
+    _salt `Prelude.hashWithSalt` address
+      `Prelude.hashWithSalt` port
 
 instance Prelude.NFData CustomerNodeEndpoint where
   rnf CustomerNodeEndpoint' {..} =
-    Prelude.rnf port `Prelude.seq` Prelude.rnf address
+    Prelude.rnf address `Prelude.seq` Prelude.rnf port
 
 instance Data.ToQuery CustomerNodeEndpoint where
   toQuery CustomerNodeEndpoint' {..} =
     Prelude.mconcat
-      ["Port" Data.=: port, "Address" Data.=: address]
+      ["Address" Data.=: address, "Port" Data.=: port]

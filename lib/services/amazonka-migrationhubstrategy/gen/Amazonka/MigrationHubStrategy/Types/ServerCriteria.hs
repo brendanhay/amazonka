@@ -20,7 +20,9 @@
 module Amazonka.MigrationHubStrategy.Types.ServerCriteria
   ( ServerCriteria
       ( ..,
+        ServerCriteria_ANALYSIS_STATUS,
         ServerCriteria_DESTINATION,
+        ServerCriteria_ERROR_CATEGORY,
         ServerCriteria_NOT_DEFINED,
         ServerCriteria_OS_NAME,
         ServerCriteria_SERVER_ID,
@@ -61,8 +63,14 @@ newtype ServerCriteria = ServerCriteria'
       Data.ToXML
     )
 
+pattern ServerCriteria_ANALYSIS_STATUS :: ServerCriteria
+pattern ServerCriteria_ANALYSIS_STATUS = ServerCriteria' "ANALYSIS_STATUS"
+
 pattern ServerCriteria_DESTINATION :: ServerCriteria
 pattern ServerCriteria_DESTINATION = ServerCriteria' "DESTINATION"
+
+pattern ServerCriteria_ERROR_CATEGORY :: ServerCriteria
+pattern ServerCriteria_ERROR_CATEGORY = ServerCriteria' "ERROR_CATEGORY"
 
 pattern ServerCriteria_NOT_DEFINED :: ServerCriteria
 pattern ServerCriteria_NOT_DEFINED = ServerCriteria' "NOT_DEFINED"
@@ -77,7 +85,9 @@ pattern ServerCriteria_STRATEGY :: ServerCriteria
 pattern ServerCriteria_STRATEGY = ServerCriteria' "STRATEGY"
 
 {-# COMPLETE
+  ServerCriteria_ANALYSIS_STATUS,
   ServerCriteria_DESTINATION,
+  ServerCriteria_ERROR_CATEGORY,
   ServerCriteria_NOT_DEFINED,
   ServerCriteria_OS_NAME,
   ServerCriteria_SERVER_ID,

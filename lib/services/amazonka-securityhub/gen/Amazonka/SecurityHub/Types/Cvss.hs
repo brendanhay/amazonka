@@ -29,12 +29,12 @@ import Amazonka.SecurityHub.Types.Adjustment
 --
 -- /See:/ 'newCvss' smart constructor.
 data Cvss = Cvss'
-  { -- | The base CVSS score.
+  { -- | Adjustments to the CVSS metrics.
+    adjustments :: Prelude.Maybe [Adjustment],
+    -- | The base CVSS score.
     baseScore :: Prelude.Maybe Prelude.Double,
     -- | The base scoring vector for the CVSS score.
     baseVector :: Prelude.Maybe Prelude.Text,
-    -- | Adjustments to the CVSS metrics.
-    adjustments :: Prelude.Maybe [Adjustment],
     -- | The origin of the original CVSS score and vector.
     source :: Prelude.Maybe Prelude.Text,
     -- | The version of CVSS for the CVSS score.
@@ -50,11 +50,11 @@ data Cvss = Cvss'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'adjustments', 'cvss_adjustments' - Adjustments to the CVSS metrics.
+--
 -- 'baseScore', 'cvss_baseScore' - The base CVSS score.
 --
 -- 'baseVector', 'cvss_baseVector' - The base scoring vector for the CVSS score.
---
--- 'adjustments', 'cvss_adjustments' - Adjustments to the CVSS metrics.
 --
 -- 'source', 'cvss_source' - The origin of the original CVSS score and vector.
 --
@@ -63,12 +63,16 @@ newCvss ::
   Cvss
 newCvss =
   Cvss'
-    { baseScore = Prelude.Nothing,
+    { adjustments = Prelude.Nothing,
+      baseScore = Prelude.Nothing,
       baseVector = Prelude.Nothing,
-      adjustments = Prelude.Nothing,
       source = Prelude.Nothing,
       version = Prelude.Nothing
     }
+
+-- | Adjustments to the CVSS metrics.
+cvss_adjustments :: Lens.Lens' Cvss (Prelude.Maybe [Adjustment])
+cvss_adjustments = Lens.lens (\Cvss' {adjustments} -> adjustments) (\s@Cvss' {} a -> s {adjustments = a} :: Cvss) Prelude.. Lens.mapping Lens.coerced
 
 -- | The base CVSS score.
 cvss_baseScore :: Lens.Lens' Cvss (Prelude.Maybe Prelude.Double)
@@ -77,10 +81,6 @@ cvss_baseScore = Lens.lens (\Cvss' {baseScore} -> baseScore) (\s@Cvss' {} a -> s
 -- | The base scoring vector for the CVSS score.
 cvss_baseVector :: Lens.Lens' Cvss (Prelude.Maybe Prelude.Text)
 cvss_baseVector = Lens.lens (\Cvss' {baseVector} -> baseVector) (\s@Cvss' {} a -> s {baseVector = a} :: Cvss)
-
--- | Adjustments to the CVSS metrics.
-cvss_adjustments :: Lens.Lens' Cvss (Prelude.Maybe [Adjustment])
-cvss_adjustments = Lens.lens (\Cvss' {adjustments} -> adjustments) (\s@Cvss' {} a -> s {adjustments = a} :: Cvss) Prelude.. Lens.mapping Lens.coerced
 
 -- | The origin of the original CVSS score and vector.
 cvss_source :: Lens.Lens' Cvss (Prelude.Maybe Prelude.Text)
@@ -96,26 +96,26 @@ instance Data.FromJSON Cvss where
       "Cvss"
       ( \x ->
           Cvss'
-            Prelude.<$> (x Data..:? "BaseScore")
+            Prelude.<$> (x Data..:? "Adjustments" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "BaseScore")
             Prelude.<*> (x Data..:? "BaseVector")
-            Prelude.<*> (x Data..:? "Adjustments" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Source")
             Prelude.<*> (x Data..:? "Version")
       )
 
 instance Prelude.Hashable Cvss where
   hashWithSalt _salt Cvss' {..} =
-    _salt `Prelude.hashWithSalt` baseScore
+    _salt `Prelude.hashWithSalt` adjustments
+      `Prelude.hashWithSalt` baseScore
       `Prelude.hashWithSalt` baseVector
-      `Prelude.hashWithSalt` adjustments
       `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData Cvss where
   rnf Cvss' {..} =
-    Prelude.rnf baseScore
+    Prelude.rnf adjustments
+      `Prelude.seq` Prelude.rnf baseScore
       `Prelude.seq` Prelude.rnf baseVector
-      `Prelude.seq` Prelude.rnf adjustments
       `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf version
 
@@ -123,9 +123,9 @@ instance Data.ToJSON Cvss where
   toJSON Cvss' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("BaseScore" Data..=) Prelude.<$> baseScore,
+          [ ("Adjustments" Data..=) Prelude.<$> adjustments,
+            ("BaseScore" Data..=) Prelude.<$> baseScore,
             ("BaseVector" Data..=) Prelude.<$> baseVector,
-            ("Adjustments" Data..=) Prelude.<$> adjustments,
             ("Source" Data..=) Prelude.<$> source,
             ("Version" Data..=) Prelude.<$> version
           ]

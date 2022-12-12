@@ -30,7 +30,11 @@ import Amazonka.Proton.Types.RepositoryBranch
 --
 -- /See:/ 'newAccountSettings' smart constructor.
 data AccountSettings = AccountSettings'
-  { -- | The linked repository for pipeline provisioning. Required if you have
+  { -- | The Amazon Resource Name (ARN) of the service role that Proton uses for
+    -- provisioning pipelines. Proton assumes this role for CodeBuild-based
+    -- provisioning.
+    pipelineCodebuildRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | The linked repository for pipeline provisioning. Required if you have
     -- environments configured for self-managed provisioning with services that
     -- include pipelines. A linked repository is a repository that has been
     -- registered with Proton. For more information, see CreateRepository.
@@ -39,11 +43,7 @@ data AccountSettings = AccountSettings'
     -- provisioning pipelines. Assumed by Proton for Amazon Web
     -- Services-managed provisioning, and by customer-owned automation for
     -- self-managed provisioning.
-    pipelineServiceRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the service role that Proton uses for
-    -- provisioning pipelines. Proton assumes this role for CodeBuild-based
-    -- provisioning.
-    pipelineCodebuildRoleArn :: Prelude.Maybe Prelude.Text
+    pipelineServiceRoleArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,6 +55,10 @@ data AccountSettings = AccountSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'pipelineCodebuildRoleArn', 'accountSettings_pipelineCodebuildRoleArn' - The Amazon Resource Name (ARN) of the service role that Proton uses for
+-- provisioning pipelines. Proton assumes this role for CodeBuild-based
+-- provisioning.
+--
 -- 'pipelineProvisioningRepository', 'accountSettings_pipelineProvisioningRepository' - The linked repository for pipeline provisioning. Required if you have
 -- environments configured for self-managed provisioning with services that
 -- include pipelines. A linked repository is a repository that has been
@@ -64,19 +68,21 @@ data AccountSettings = AccountSettings'
 -- provisioning pipelines. Assumed by Proton for Amazon Web
 -- Services-managed provisioning, and by customer-owned automation for
 -- self-managed provisioning.
---
--- 'pipelineCodebuildRoleArn', 'accountSettings_pipelineCodebuildRoleArn' - The Amazon Resource Name (ARN) of the service role that Proton uses for
--- provisioning pipelines. Proton assumes this role for CodeBuild-based
--- provisioning.
 newAccountSettings ::
   AccountSettings
 newAccountSettings =
   AccountSettings'
-    { pipelineProvisioningRepository =
+    { pipelineCodebuildRoleArn =
         Prelude.Nothing,
-      pipelineServiceRoleArn = Prelude.Nothing,
-      pipelineCodebuildRoleArn = Prelude.Nothing
+      pipelineProvisioningRepository = Prelude.Nothing,
+      pipelineServiceRoleArn = Prelude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the service role that Proton uses for
+-- provisioning pipelines. Proton assumes this role for CodeBuild-based
+-- provisioning.
+accountSettings_pipelineCodebuildRoleArn :: Lens.Lens' AccountSettings (Prelude.Maybe Prelude.Text)
+accountSettings_pipelineCodebuildRoleArn = Lens.lens (\AccountSettings' {pipelineCodebuildRoleArn} -> pipelineCodebuildRoleArn) (\s@AccountSettings' {} a -> s {pipelineCodebuildRoleArn = a} :: AccountSettings)
 
 -- | The linked repository for pipeline provisioning. Required if you have
 -- environments configured for self-managed provisioning with services that
@@ -92,32 +98,26 @@ accountSettings_pipelineProvisioningRepository = Lens.lens (\AccountSettings' {p
 accountSettings_pipelineServiceRoleArn :: Lens.Lens' AccountSettings (Prelude.Maybe Prelude.Text)
 accountSettings_pipelineServiceRoleArn = Lens.lens (\AccountSettings' {pipelineServiceRoleArn} -> pipelineServiceRoleArn) (\s@AccountSettings' {} a -> s {pipelineServiceRoleArn = a} :: AccountSettings)
 
--- | The Amazon Resource Name (ARN) of the service role that Proton uses for
--- provisioning pipelines. Proton assumes this role for CodeBuild-based
--- provisioning.
-accountSettings_pipelineCodebuildRoleArn :: Lens.Lens' AccountSettings (Prelude.Maybe Prelude.Text)
-accountSettings_pipelineCodebuildRoleArn = Lens.lens (\AccountSettings' {pipelineCodebuildRoleArn} -> pipelineCodebuildRoleArn) (\s@AccountSettings' {} a -> s {pipelineCodebuildRoleArn = a} :: AccountSettings)
-
 instance Data.FromJSON AccountSettings where
   parseJSON =
     Data.withObject
       "AccountSettings"
       ( \x ->
           AccountSettings'
-            Prelude.<$> (x Data..:? "pipelineProvisioningRepository")
+            Prelude.<$> (x Data..:? "pipelineCodebuildRoleArn")
+            Prelude.<*> (x Data..:? "pipelineProvisioningRepository")
             Prelude.<*> (x Data..:? "pipelineServiceRoleArn")
-            Prelude.<*> (x Data..:? "pipelineCodebuildRoleArn")
       )
 
 instance Prelude.Hashable AccountSettings where
   hashWithSalt _salt AccountSettings' {..} =
     _salt
+      `Prelude.hashWithSalt` pipelineCodebuildRoleArn
       `Prelude.hashWithSalt` pipelineProvisioningRepository
       `Prelude.hashWithSalt` pipelineServiceRoleArn
-      `Prelude.hashWithSalt` pipelineCodebuildRoleArn
 
 instance Prelude.NFData AccountSettings where
   rnf AccountSettings' {..} =
-    Prelude.rnf pipelineProvisioningRepository
+    Prelude.rnf pipelineCodebuildRoleArn
+      `Prelude.seq` Prelude.rnf pipelineProvisioningRepository
       `Prelude.seq` Prelude.rnf pipelineServiceRoleArn
-      `Prelude.seq` Prelude.rnf pipelineCodebuildRoleArn

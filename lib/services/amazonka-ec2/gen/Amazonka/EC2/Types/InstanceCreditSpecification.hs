@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceCreditSpecification' smart constructor.
 data InstanceCreditSpecification = InstanceCreditSpecification'
-  { -- | The ID of the instance.
-    instanceId :: Prelude.Maybe Prelude.Text,
-    -- | The credit option for CPU usage of the instance.
+  { -- | The credit option for CPU usage of the instance.
     --
     -- Valid values: @standard@ | @unlimited@
-    cpuCredits :: Prelude.Maybe Prelude.Text
+    cpuCredits :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the instance.
+    instanceId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,23 +47,19 @@ data InstanceCreditSpecification = InstanceCreditSpecification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'instanceCreditSpecification_instanceId' - The ID of the instance.
---
 -- 'cpuCredits', 'instanceCreditSpecification_cpuCredits' - The credit option for CPU usage of the instance.
 --
 -- Valid values: @standard@ | @unlimited@
+--
+-- 'instanceId', 'instanceCreditSpecification_instanceId' - The ID of the instance.
 newInstanceCreditSpecification ::
   InstanceCreditSpecification
 newInstanceCreditSpecification =
   InstanceCreditSpecification'
-    { instanceId =
+    { cpuCredits =
         Prelude.Nothing,
-      cpuCredits = Prelude.Nothing
+      instanceId = Prelude.Nothing
     }
-
--- | The ID of the instance.
-instanceCreditSpecification_instanceId :: Lens.Lens' InstanceCreditSpecification (Prelude.Maybe Prelude.Text)
-instanceCreditSpecification_instanceId = Lens.lens (\InstanceCreditSpecification' {instanceId} -> instanceId) (\s@InstanceCreditSpecification' {} a -> s {instanceId = a} :: InstanceCreditSpecification)
 
 -- | The credit option for CPU usage of the instance.
 --
@@ -71,18 +67,22 @@ instanceCreditSpecification_instanceId = Lens.lens (\InstanceCreditSpecification
 instanceCreditSpecification_cpuCredits :: Lens.Lens' InstanceCreditSpecification (Prelude.Maybe Prelude.Text)
 instanceCreditSpecification_cpuCredits = Lens.lens (\InstanceCreditSpecification' {cpuCredits} -> cpuCredits) (\s@InstanceCreditSpecification' {} a -> s {cpuCredits = a} :: InstanceCreditSpecification)
 
+-- | The ID of the instance.
+instanceCreditSpecification_instanceId :: Lens.Lens' InstanceCreditSpecification (Prelude.Maybe Prelude.Text)
+instanceCreditSpecification_instanceId = Lens.lens (\InstanceCreditSpecification' {instanceId} -> instanceId) (\s@InstanceCreditSpecification' {} a -> s {instanceId = a} :: InstanceCreditSpecification)
+
 instance Data.FromXML InstanceCreditSpecification where
   parseXML x =
     InstanceCreditSpecification'
-      Prelude.<$> (x Data..@? "instanceId")
-      Prelude.<*> (x Data..@? "cpuCredits")
+      Prelude.<$> (x Data..@? "cpuCredits")
+      Prelude.<*> (x Data..@? "instanceId")
 
 instance Prelude.Hashable InstanceCreditSpecification where
   hashWithSalt _salt InstanceCreditSpecification' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
-      `Prelude.hashWithSalt` cpuCredits
+    _salt `Prelude.hashWithSalt` cpuCredits
+      `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData InstanceCreditSpecification where
   rnf InstanceCreditSpecification' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf cpuCredits
+    Prelude.rnf cpuCredits
+      `Prelude.seq` Prelude.rnf instanceId

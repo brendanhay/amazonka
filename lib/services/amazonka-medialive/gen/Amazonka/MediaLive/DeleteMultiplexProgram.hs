@@ -35,11 +35,11 @@ module Amazonka.MediaLive.DeleteMultiplexProgram
     newDeleteMultiplexProgramResponse,
 
     -- * Response Lenses
-    deleteMultiplexProgramResponse_programName,
+    deleteMultiplexProgramResponse_channelId,
+    deleteMultiplexProgramResponse_multiplexProgramSettings,
     deleteMultiplexProgramResponse_packetIdentifiersMap,
     deleteMultiplexProgramResponse_pipelineDetails,
-    deleteMultiplexProgramResponse_multiplexProgramSettings,
-    deleteMultiplexProgramResponse_channelId,
+    deleteMultiplexProgramResponse_programName,
     deleteMultiplexProgramResponse_httpStatus,
   )
 where
@@ -105,13 +105,13 @@ instance Core.AWSRequest DeleteMultiplexProgram where
     Response.receiveJSON
       ( \s h x ->
           DeleteMultiplexProgramResponse'
-            Prelude.<$> (x Data..?> "programName")
+            Prelude.<$> (x Data..?> "channelId")
+            Prelude.<*> (x Data..?> "multiplexProgramSettings")
             Prelude.<*> (x Data..?> "packetIdentifiersMap")
             Prelude.<*> ( x Data..?> "pipelineDetails"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "multiplexProgramSettings")
-            Prelude.<*> (x Data..?> "channelId")
+            Prelude.<*> (x Data..?> "programName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,8 +152,10 @@ instance Data.ToQuery DeleteMultiplexProgram where
 --
 -- /See:/ 'newDeleteMultiplexProgramResponse' smart constructor.
 data DeleteMultiplexProgramResponse = DeleteMultiplexProgramResponse'
-  { -- | The name of the multiplex program.
-    programName :: Prelude.Maybe Prelude.Text,
+  { -- | The MediaLive channel associated with the program.
+    channelId :: Prelude.Maybe Prelude.Text,
+    -- | The settings for this multiplex program.
+    multiplexProgramSettings :: Prelude.Maybe MultiplexProgramSettings,
     -- | The packet identifier map for this multiplex program.
     packetIdentifiersMap :: Prelude.Maybe MultiplexProgramPacketIdentifiersMap,
     -- | Contains information about the current sources for the specified program
@@ -162,10 +164,8 @@ data DeleteMultiplexProgramResponse = DeleteMultiplexProgramResponse'
     -- identified by the program). But only one of those channel pipelines is
     -- ever active at one time.
     pipelineDetails :: Prelude.Maybe [MultiplexProgramPipelineDetail],
-    -- | The settings for this multiplex program.
-    multiplexProgramSettings :: Prelude.Maybe MultiplexProgramSettings,
-    -- | The MediaLive channel associated with the program.
-    channelId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the multiplex program.
+    programName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -179,7 +179,9 @@ data DeleteMultiplexProgramResponse = DeleteMultiplexProgramResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'programName', 'deleteMultiplexProgramResponse_programName' - The name of the multiplex program.
+-- 'channelId', 'deleteMultiplexProgramResponse_channelId' - The MediaLive channel associated with the program.
+--
+-- 'multiplexProgramSettings', 'deleteMultiplexProgramResponse_multiplexProgramSettings' - The settings for this multiplex program.
 --
 -- 'packetIdentifiersMap', 'deleteMultiplexProgramResponse_packetIdentifiersMap' - The packet identifier map for this multiplex program.
 --
@@ -189,9 +191,7 @@ data DeleteMultiplexProgramResponse = DeleteMultiplexProgramResponse'
 -- identified by the program). But only one of those channel pipelines is
 -- ever active at one time.
 --
--- 'multiplexProgramSettings', 'deleteMultiplexProgramResponse_multiplexProgramSettings' - The settings for this multiplex program.
---
--- 'channelId', 'deleteMultiplexProgramResponse_channelId' - The MediaLive channel associated with the program.
+-- 'programName', 'deleteMultiplexProgramResponse_programName' - The name of the multiplex program.
 --
 -- 'httpStatus', 'deleteMultiplexProgramResponse_httpStatus' - The response's http status code.
 newDeleteMultiplexProgramResponse ::
@@ -200,18 +200,22 @@ newDeleteMultiplexProgramResponse ::
   DeleteMultiplexProgramResponse
 newDeleteMultiplexProgramResponse pHttpStatus_ =
   DeleteMultiplexProgramResponse'
-    { programName =
+    { channelId =
         Prelude.Nothing,
+      multiplexProgramSettings = Prelude.Nothing,
       packetIdentifiersMap = Prelude.Nothing,
       pipelineDetails = Prelude.Nothing,
-      multiplexProgramSettings = Prelude.Nothing,
-      channelId = Prelude.Nothing,
+      programName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The name of the multiplex program.
-deleteMultiplexProgramResponse_programName :: Lens.Lens' DeleteMultiplexProgramResponse (Prelude.Maybe Prelude.Text)
-deleteMultiplexProgramResponse_programName = Lens.lens (\DeleteMultiplexProgramResponse' {programName} -> programName) (\s@DeleteMultiplexProgramResponse' {} a -> s {programName = a} :: DeleteMultiplexProgramResponse)
+-- | The MediaLive channel associated with the program.
+deleteMultiplexProgramResponse_channelId :: Lens.Lens' DeleteMultiplexProgramResponse (Prelude.Maybe Prelude.Text)
+deleteMultiplexProgramResponse_channelId = Lens.lens (\DeleteMultiplexProgramResponse' {channelId} -> channelId) (\s@DeleteMultiplexProgramResponse' {} a -> s {channelId = a} :: DeleteMultiplexProgramResponse)
+
+-- | The settings for this multiplex program.
+deleteMultiplexProgramResponse_multiplexProgramSettings :: Lens.Lens' DeleteMultiplexProgramResponse (Prelude.Maybe MultiplexProgramSettings)
+deleteMultiplexProgramResponse_multiplexProgramSettings = Lens.lens (\DeleteMultiplexProgramResponse' {multiplexProgramSettings} -> multiplexProgramSettings) (\s@DeleteMultiplexProgramResponse' {} a -> s {multiplexProgramSettings = a} :: DeleteMultiplexProgramResponse)
 
 -- | The packet identifier map for this multiplex program.
 deleteMultiplexProgramResponse_packetIdentifiersMap :: Lens.Lens' DeleteMultiplexProgramResponse (Prelude.Maybe MultiplexProgramPacketIdentifiersMap)
@@ -225,13 +229,9 @@ deleteMultiplexProgramResponse_packetIdentifiersMap = Lens.lens (\DeleteMultiple
 deleteMultiplexProgramResponse_pipelineDetails :: Lens.Lens' DeleteMultiplexProgramResponse (Prelude.Maybe [MultiplexProgramPipelineDetail])
 deleteMultiplexProgramResponse_pipelineDetails = Lens.lens (\DeleteMultiplexProgramResponse' {pipelineDetails} -> pipelineDetails) (\s@DeleteMultiplexProgramResponse' {} a -> s {pipelineDetails = a} :: DeleteMultiplexProgramResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The settings for this multiplex program.
-deleteMultiplexProgramResponse_multiplexProgramSettings :: Lens.Lens' DeleteMultiplexProgramResponse (Prelude.Maybe MultiplexProgramSettings)
-deleteMultiplexProgramResponse_multiplexProgramSettings = Lens.lens (\DeleteMultiplexProgramResponse' {multiplexProgramSettings} -> multiplexProgramSettings) (\s@DeleteMultiplexProgramResponse' {} a -> s {multiplexProgramSettings = a} :: DeleteMultiplexProgramResponse)
-
--- | The MediaLive channel associated with the program.
-deleteMultiplexProgramResponse_channelId :: Lens.Lens' DeleteMultiplexProgramResponse (Prelude.Maybe Prelude.Text)
-deleteMultiplexProgramResponse_channelId = Lens.lens (\DeleteMultiplexProgramResponse' {channelId} -> channelId) (\s@DeleteMultiplexProgramResponse' {} a -> s {channelId = a} :: DeleteMultiplexProgramResponse)
+-- | The name of the multiplex program.
+deleteMultiplexProgramResponse_programName :: Lens.Lens' DeleteMultiplexProgramResponse (Prelude.Maybe Prelude.Text)
+deleteMultiplexProgramResponse_programName = Lens.lens (\DeleteMultiplexProgramResponse' {programName} -> programName) (\s@DeleteMultiplexProgramResponse' {} a -> s {programName = a} :: DeleteMultiplexProgramResponse)
 
 -- | The response's http status code.
 deleteMultiplexProgramResponse_httpStatus :: Lens.Lens' DeleteMultiplexProgramResponse Prelude.Int
@@ -242,9 +242,9 @@ instance
     DeleteMultiplexProgramResponse
   where
   rnf DeleteMultiplexProgramResponse' {..} =
-    Prelude.rnf programName
+    Prelude.rnf channelId
+      `Prelude.seq` Prelude.rnf multiplexProgramSettings
       `Prelude.seq` Prelude.rnf packetIdentifiersMap
       `Prelude.seq` Prelude.rnf pipelineDetails
-      `Prelude.seq` Prelude.rnf multiplexProgramSettings
-      `Prelude.seq` Prelude.rnf channelId
+      `Prelude.seq` Prelude.rnf programName
       `Prelude.seq` Prelude.rnf httpStatus

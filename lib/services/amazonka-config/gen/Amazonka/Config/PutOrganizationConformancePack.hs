@@ -58,12 +58,12 @@ module Amazonka.Config.PutOrganizationConformancePack
     newPutOrganizationConformancePack,
 
     -- * Request Lenses
-    putOrganizationConformancePack_excludedAccounts,
-    putOrganizationConformancePack_templateS3Uri,
     putOrganizationConformancePack_conformancePackInputParameters,
-    putOrganizationConformancePack_templateBody,
     putOrganizationConformancePack_deliveryS3Bucket,
     putOrganizationConformancePack_deliveryS3KeyPrefix,
+    putOrganizationConformancePack_excludedAccounts,
+    putOrganizationConformancePack_templateBody,
+    putOrganizationConformancePack_templateS3Uri,
     putOrganizationConformancePack_organizationConformancePackName,
 
     -- * Destructuring the Response
@@ -86,20 +86,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutOrganizationConformancePack' smart constructor.
 data PutOrganizationConformancePack = PutOrganizationConformancePack'
-  { -- | A list of Amazon Web Services accounts to be excluded from an
-    -- organization conformance pack while deploying a conformance pack.
-    excludedAccounts :: Prelude.Maybe [Prelude.Text],
-    -- | Location of file containing the template body. The uri must point to the
-    -- conformance pack template (max size: 300 KB).
-    --
-    -- You must have access to read Amazon S3 bucket.
-    templateS3Uri :: Prelude.Maybe Prelude.Text,
-    -- | A list of @ConformancePackInputParameter@ objects.
+  { -- | A list of @ConformancePackInputParameter@ objects.
     conformancePackInputParameters :: Prelude.Maybe [ConformancePackInputParameter],
-    -- | A string containing full conformance pack template body. Structure
-    -- containing the template body with a minimum length of 1 byte and a
-    -- maximum length of 51,200 bytes.
-    templateBody :: Prelude.Maybe Prelude.Text,
     -- | The name of the Amazon S3 bucket where Config stores conformance pack
     -- templates.
     --
@@ -110,6 +98,18 @@ data PutOrganizationConformancePack = PutOrganizationConformancePack'
     --
     -- This field is optional.
     deliveryS3KeyPrefix :: Prelude.Maybe Prelude.Text,
+    -- | A list of Amazon Web Services accounts to be excluded from an
+    -- organization conformance pack while deploying a conformance pack.
+    excludedAccounts :: Prelude.Maybe [Prelude.Text],
+    -- | A string containing full conformance pack template body. Structure
+    -- containing the template body with a minimum length of 1 byte and a
+    -- maximum length of 51,200 bytes.
+    templateBody :: Prelude.Maybe Prelude.Text,
+    -- | Location of file containing the template body. The uri must point to the
+    -- conformance pack template (max size: 300 KB).
+    --
+    -- You must have access to read Amazon S3 bucket.
+    templateS3Uri :: Prelude.Maybe Prelude.Text,
     -- | Name of the organization conformance pack you want to create.
     organizationConformancePackName :: Prelude.Text
   }
@@ -123,19 +123,7 @@ data PutOrganizationConformancePack = PutOrganizationConformancePack'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'excludedAccounts', 'putOrganizationConformancePack_excludedAccounts' - A list of Amazon Web Services accounts to be excluded from an
--- organization conformance pack while deploying a conformance pack.
---
--- 'templateS3Uri', 'putOrganizationConformancePack_templateS3Uri' - Location of file containing the template body. The uri must point to the
--- conformance pack template (max size: 300 KB).
---
--- You must have access to read Amazon S3 bucket.
---
 -- 'conformancePackInputParameters', 'putOrganizationConformancePack_conformancePackInputParameters' - A list of @ConformancePackInputParameter@ objects.
---
--- 'templateBody', 'putOrganizationConformancePack_templateBody' - A string containing full conformance pack template body. Structure
--- containing the template body with a minimum length of 1 byte and a
--- maximum length of 51,200 bytes.
 --
 -- 'deliveryS3Bucket', 'putOrganizationConformancePack_deliveryS3Bucket' - The name of the Amazon S3 bucket where Config stores conformance pack
 -- templates.
@@ -147,6 +135,18 @@ data PutOrganizationConformancePack = PutOrganizationConformancePack'
 --
 -- This field is optional.
 --
+-- 'excludedAccounts', 'putOrganizationConformancePack_excludedAccounts' - A list of Amazon Web Services accounts to be excluded from an
+-- organization conformance pack while deploying a conformance pack.
+--
+-- 'templateBody', 'putOrganizationConformancePack_templateBody' - A string containing full conformance pack template body. Structure
+-- containing the template body with a minimum length of 1 byte and a
+-- maximum length of 51,200 bytes.
+--
+-- 'templateS3Uri', 'putOrganizationConformancePack_templateS3Uri' - Location of file containing the template body. The uri must point to the
+-- conformance pack template (max size: 300 KB).
+--
+-- You must have access to read Amazon S3 bucket.
+--
 -- 'organizationConformancePackName', 'putOrganizationConformancePack_organizationConformancePackName' - Name of the organization conformance pack you want to create.
 newPutOrganizationConformancePack ::
   -- | 'organizationConformancePackName'
@@ -155,39 +155,20 @@ newPutOrganizationConformancePack ::
 newPutOrganizationConformancePack
   pOrganizationConformancePackName_ =
     PutOrganizationConformancePack'
-      { excludedAccounts =
+      { conformancePackInputParameters =
           Prelude.Nothing,
-        templateS3Uri = Prelude.Nothing,
-        conformancePackInputParameters =
-          Prelude.Nothing,
-        templateBody = Prelude.Nothing,
         deliveryS3Bucket = Prelude.Nothing,
         deliveryS3KeyPrefix = Prelude.Nothing,
+        excludedAccounts = Prelude.Nothing,
+        templateBody = Prelude.Nothing,
+        templateS3Uri = Prelude.Nothing,
         organizationConformancePackName =
           pOrganizationConformancePackName_
       }
 
--- | A list of Amazon Web Services accounts to be excluded from an
--- organization conformance pack while deploying a conformance pack.
-putOrganizationConformancePack_excludedAccounts :: Lens.Lens' PutOrganizationConformancePack (Prelude.Maybe [Prelude.Text])
-putOrganizationConformancePack_excludedAccounts = Lens.lens (\PutOrganizationConformancePack' {excludedAccounts} -> excludedAccounts) (\s@PutOrganizationConformancePack' {} a -> s {excludedAccounts = a} :: PutOrganizationConformancePack) Prelude.. Lens.mapping Lens.coerced
-
--- | Location of file containing the template body. The uri must point to the
--- conformance pack template (max size: 300 KB).
---
--- You must have access to read Amazon S3 bucket.
-putOrganizationConformancePack_templateS3Uri :: Lens.Lens' PutOrganizationConformancePack (Prelude.Maybe Prelude.Text)
-putOrganizationConformancePack_templateS3Uri = Lens.lens (\PutOrganizationConformancePack' {templateS3Uri} -> templateS3Uri) (\s@PutOrganizationConformancePack' {} a -> s {templateS3Uri = a} :: PutOrganizationConformancePack)
-
 -- | A list of @ConformancePackInputParameter@ objects.
 putOrganizationConformancePack_conformancePackInputParameters :: Lens.Lens' PutOrganizationConformancePack (Prelude.Maybe [ConformancePackInputParameter])
 putOrganizationConformancePack_conformancePackInputParameters = Lens.lens (\PutOrganizationConformancePack' {conformancePackInputParameters} -> conformancePackInputParameters) (\s@PutOrganizationConformancePack' {} a -> s {conformancePackInputParameters = a} :: PutOrganizationConformancePack) Prelude.. Lens.mapping Lens.coerced
-
--- | A string containing full conformance pack template body. Structure
--- containing the template body with a minimum length of 1 byte and a
--- maximum length of 51,200 bytes.
-putOrganizationConformancePack_templateBody :: Lens.Lens' PutOrganizationConformancePack (Prelude.Maybe Prelude.Text)
-putOrganizationConformancePack_templateBody = Lens.lens (\PutOrganizationConformancePack' {templateBody} -> templateBody) (\s@PutOrganizationConformancePack' {} a -> s {templateBody = a} :: PutOrganizationConformancePack)
 
 -- | The name of the Amazon S3 bucket where Config stores conformance pack
 -- templates.
@@ -202,6 +183,24 @@ putOrganizationConformancePack_deliveryS3Bucket = Lens.lens (\PutOrganizationCon
 -- This field is optional.
 putOrganizationConformancePack_deliveryS3KeyPrefix :: Lens.Lens' PutOrganizationConformancePack (Prelude.Maybe Prelude.Text)
 putOrganizationConformancePack_deliveryS3KeyPrefix = Lens.lens (\PutOrganizationConformancePack' {deliveryS3KeyPrefix} -> deliveryS3KeyPrefix) (\s@PutOrganizationConformancePack' {} a -> s {deliveryS3KeyPrefix = a} :: PutOrganizationConformancePack)
+
+-- | A list of Amazon Web Services accounts to be excluded from an
+-- organization conformance pack while deploying a conformance pack.
+putOrganizationConformancePack_excludedAccounts :: Lens.Lens' PutOrganizationConformancePack (Prelude.Maybe [Prelude.Text])
+putOrganizationConformancePack_excludedAccounts = Lens.lens (\PutOrganizationConformancePack' {excludedAccounts} -> excludedAccounts) (\s@PutOrganizationConformancePack' {} a -> s {excludedAccounts = a} :: PutOrganizationConformancePack) Prelude.. Lens.mapping Lens.coerced
+
+-- | A string containing full conformance pack template body. Structure
+-- containing the template body with a minimum length of 1 byte and a
+-- maximum length of 51,200 bytes.
+putOrganizationConformancePack_templateBody :: Lens.Lens' PutOrganizationConformancePack (Prelude.Maybe Prelude.Text)
+putOrganizationConformancePack_templateBody = Lens.lens (\PutOrganizationConformancePack' {templateBody} -> templateBody) (\s@PutOrganizationConformancePack' {} a -> s {templateBody = a} :: PutOrganizationConformancePack)
+
+-- | Location of file containing the template body. The uri must point to the
+-- conformance pack template (max size: 300 KB).
+--
+-- You must have access to read Amazon S3 bucket.
+putOrganizationConformancePack_templateS3Uri :: Lens.Lens' PutOrganizationConformancePack (Prelude.Maybe Prelude.Text)
+putOrganizationConformancePack_templateS3Uri = Lens.lens (\PutOrganizationConformancePack' {templateS3Uri} -> templateS3Uri) (\s@PutOrganizationConformancePack' {} a -> s {templateS3Uri = a} :: PutOrganizationConformancePack)
 
 -- | Name of the organization conformance pack you want to create.
 putOrganizationConformancePack_organizationConformancePackName :: Lens.Lens' PutOrganizationConformancePack Prelude.Text
@@ -231,12 +230,13 @@ instance
   hashWithSalt
     _salt
     PutOrganizationConformancePack' {..} =
-      _salt `Prelude.hashWithSalt` excludedAccounts
-        `Prelude.hashWithSalt` templateS3Uri
+      _salt
         `Prelude.hashWithSalt` conformancePackInputParameters
-        `Prelude.hashWithSalt` templateBody
         `Prelude.hashWithSalt` deliveryS3Bucket
         `Prelude.hashWithSalt` deliveryS3KeyPrefix
+        `Prelude.hashWithSalt` excludedAccounts
+        `Prelude.hashWithSalt` templateBody
+        `Prelude.hashWithSalt` templateS3Uri
         `Prelude.hashWithSalt` organizationConformancePackName
 
 instance
@@ -244,12 +244,12 @@ instance
     PutOrganizationConformancePack
   where
   rnf PutOrganizationConformancePack' {..} =
-    Prelude.rnf excludedAccounts
-      `Prelude.seq` Prelude.rnf templateS3Uri
-      `Prelude.seq` Prelude.rnf conformancePackInputParameters
-      `Prelude.seq` Prelude.rnf templateBody
+    Prelude.rnf conformancePackInputParameters
       `Prelude.seq` Prelude.rnf deliveryS3Bucket
       `Prelude.seq` Prelude.rnf deliveryS3KeyPrefix
+      `Prelude.seq` Prelude.rnf excludedAccounts
+      `Prelude.seq` Prelude.rnf templateBody
+      `Prelude.seq` Prelude.rnf templateS3Uri
       `Prelude.seq` Prelude.rnf organizationConformancePackName
 
 instance
@@ -274,16 +274,16 @@ instance Data.ToJSON PutOrganizationConformancePack where
   toJSON PutOrganizationConformancePack' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ExcludedAccounts" Data..=)
-              Prelude.<$> excludedAccounts,
-            ("TemplateS3Uri" Data..=) Prelude.<$> templateS3Uri,
-            ("ConformancePackInputParameters" Data..=)
+          [ ("ConformancePackInputParameters" Data..=)
               Prelude.<$> conformancePackInputParameters,
-            ("TemplateBody" Data..=) Prelude.<$> templateBody,
             ("DeliveryS3Bucket" Data..=)
               Prelude.<$> deliveryS3Bucket,
             ("DeliveryS3KeyPrefix" Data..=)
               Prelude.<$> deliveryS3KeyPrefix,
+            ("ExcludedAccounts" Data..=)
+              Prelude.<$> excludedAccounts,
+            ("TemplateBody" Data..=) Prelude.<$> templateBody,
+            ("TemplateS3Uri" Data..=) Prelude.<$> templateS3Uri,
             Prelude.Just
               ( "OrganizationConformancePackName"
                   Data..= organizationConformancePackName

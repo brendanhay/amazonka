@@ -34,17 +34,17 @@ data LayerVersionsListItem = LayerVersionsListItem'
   { -- | A list of compatible
     -- <https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html instruction set architectures>.
     compatibleArchitectures :: Prelude.Maybe [Architecture],
-    -- | The ARN of the layer version.
-    layerVersionArn :: Prelude.Maybe Prelude.Text,
-    -- | The layer\'s open-source license.
-    licenseInfo :: Prelude.Maybe Prelude.Text,
-    -- | The description of the version.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The layer\'s compatible runtimes.
     compatibleRuntimes :: Prelude.Maybe [Runtime],
     -- | The date that the version was created, in ISO 8601 format. For example,
     -- @2018-11-27T15:10:45.123+0000@.
     createdDate :: Prelude.Maybe Prelude.Text,
+    -- | The description of the version.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the layer version.
+    layerVersionArn :: Prelude.Maybe Prelude.Text,
+    -- | The layer\'s open-source license.
+    licenseInfo :: Prelude.Maybe Prelude.Text,
     -- | The version number.
     version :: Prelude.Maybe Prelude.Integer
   }
@@ -61,16 +61,16 @@ data LayerVersionsListItem = LayerVersionsListItem'
 -- 'compatibleArchitectures', 'layerVersionsListItem_compatibleArchitectures' - A list of compatible
 -- <https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html instruction set architectures>.
 --
--- 'layerVersionArn', 'layerVersionsListItem_layerVersionArn' - The ARN of the layer version.
---
--- 'licenseInfo', 'layerVersionsListItem_licenseInfo' - The layer\'s open-source license.
---
--- 'description', 'layerVersionsListItem_description' - The description of the version.
---
 -- 'compatibleRuntimes', 'layerVersionsListItem_compatibleRuntimes' - The layer\'s compatible runtimes.
 --
 -- 'createdDate', 'layerVersionsListItem_createdDate' - The date that the version was created, in ISO 8601 format. For example,
 -- @2018-11-27T15:10:45.123+0000@.
+--
+-- 'description', 'layerVersionsListItem_description' - The description of the version.
+--
+-- 'layerVersionArn', 'layerVersionsListItem_layerVersionArn' - The ARN of the layer version.
+--
+-- 'licenseInfo', 'layerVersionsListItem_licenseInfo' - The layer\'s open-source license.
 --
 -- 'version', 'layerVersionsListItem_version' - The version number.
 newLayerVersionsListItem ::
@@ -79,11 +79,11 @@ newLayerVersionsListItem =
   LayerVersionsListItem'
     { compatibleArchitectures =
         Prelude.Nothing,
-      layerVersionArn = Prelude.Nothing,
-      licenseInfo = Prelude.Nothing,
-      description = Prelude.Nothing,
       compatibleRuntimes = Prelude.Nothing,
       createdDate = Prelude.Nothing,
+      description = Prelude.Nothing,
+      layerVersionArn = Prelude.Nothing,
+      licenseInfo = Prelude.Nothing,
       version = Prelude.Nothing
     }
 
@@ -91,18 +91,6 @@ newLayerVersionsListItem =
 -- <https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html instruction set architectures>.
 layerVersionsListItem_compatibleArchitectures :: Lens.Lens' LayerVersionsListItem (Prelude.Maybe [Architecture])
 layerVersionsListItem_compatibleArchitectures = Lens.lens (\LayerVersionsListItem' {compatibleArchitectures} -> compatibleArchitectures) (\s@LayerVersionsListItem' {} a -> s {compatibleArchitectures = a} :: LayerVersionsListItem) Prelude.. Lens.mapping Lens.coerced
-
--- | The ARN of the layer version.
-layerVersionsListItem_layerVersionArn :: Lens.Lens' LayerVersionsListItem (Prelude.Maybe Prelude.Text)
-layerVersionsListItem_layerVersionArn = Lens.lens (\LayerVersionsListItem' {layerVersionArn} -> layerVersionArn) (\s@LayerVersionsListItem' {} a -> s {layerVersionArn = a} :: LayerVersionsListItem)
-
--- | The layer\'s open-source license.
-layerVersionsListItem_licenseInfo :: Lens.Lens' LayerVersionsListItem (Prelude.Maybe Prelude.Text)
-layerVersionsListItem_licenseInfo = Lens.lens (\LayerVersionsListItem' {licenseInfo} -> licenseInfo) (\s@LayerVersionsListItem' {} a -> s {licenseInfo = a} :: LayerVersionsListItem)
-
--- | The description of the version.
-layerVersionsListItem_description :: Lens.Lens' LayerVersionsListItem (Prelude.Maybe Prelude.Text)
-layerVersionsListItem_description = Lens.lens (\LayerVersionsListItem' {description} -> description) (\s@LayerVersionsListItem' {} a -> s {description = a} :: LayerVersionsListItem)
 
 -- | The layer\'s compatible runtimes.
 layerVersionsListItem_compatibleRuntimes :: Lens.Lens' LayerVersionsListItem (Prelude.Maybe [Runtime])
@@ -112,6 +100,18 @@ layerVersionsListItem_compatibleRuntimes = Lens.lens (\LayerVersionsListItem' {c
 -- @2018-11-27T15:10:45.123+0000@.
 layerVersionsListItem_createdDate :: Lens.Lens' LayerVersionsListItem (Prelude.Maybe Prelude.Text)
 layerVersionsListItem_createdDate = Lens.lens (\LayerVersionsListItem' {createdDate} -> createdDate) (\s@LayerVersionsListItem' {} a -> s {createdDate = a} :: LayerVersionsListItem)
+
+-- | The description of the version.
+layerVersionsListItem_description :: Lens.Lens' LayerVersionsListItem (Prelude.Maybe Prelude.Text)
+layerVersionsListItem_description = Lens.lens (\LayerVersionsListItem' {description} -> description) (\s@LayerVersionsListItem' {} a -> s {description = a} :: LayerVersionsListItem)
+
+-- | The ARN of the layer version.
+layerVersionsListItem_layerVersionArn :: Lens.Lens' LayerVersionsListItem (Prelude.Maybe Prelude.Text)
+layerVersionsListItem_layerVersionArn = Lens.lens (\LayerVersionsListItem' {layerVersionArn} -> layerVersionArn) (\s@LayerVersionsListItem' {} a -> s {layerVersionArn = a} :: LayerVersionsListItem)
+
+-- | The layer\'s open-source license.
+layerVersionsListItem_licenseInfo :: Lens.Lens' LayerVersionsListItem (Prelude.Maybe Prelude.Text)
+layerVersionsListItem_licenseInfo = Lens.lens (\LayerVersionsListItem' {licenseInfo} -> licenseInfo) (\s@LayerVersionsListItem' {} a -> s {licenseInfo = a} :: LayerVersionsListItem)
 
 -- | The version number.
 layerVersionsListItem_version :: Lens.Lens' LayerVersionsListItem (Prelude.Maybe Prelude.Integer)
@@ -126,13 +126,13 @@ instance Data.FromJSON LayerVersionsListItem where
             Prelude.<$> ( x Data..:? "CompatibleArchitectures"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "LayerVersionArn")
-            Prelude.<*> (x Data..:? "LicenseInfo")
-            Prelude.<*> (x Data..:? "Description")
             Prelude.<*> ( x Data..:? "CompatibleRuntimes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "CreatedDate")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "LayerVersionArn")
+            Prelude.<*> (x Data..:? "LicenseInfo")
             Prelude.<*> (x Data..:? "Version")
       )
 
@@ -140,19 +140,19 @@ instance Prelude.Hashable LayerVersionsListItem where
   hashWithSalt _salt LayerVersionsListItem' {..} =
     _salt
       `Prelude.hashWithSalt` compatibleArchitectures
-      `Prelude.hashWithSalt` layerVersionArn
-      `Prelude.hashWithSalt` licenseInfo
-      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` compatibleRuntimes
       `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` layerVersionArn
+      `Prelude.hashWithSalt` licenseInfo
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData LayerVersionsListItem where
   rnf LayerVersionsListItem' {..} =
     Prelude.rnf compatibleArchitectures
-      `Prelude.seq` Prelude.rnf layerVersionArn
-      `Prelude.seq` Prelude.rnf licenseInfo
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf compatibleRuntimes
       `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf layerVersionArn
+      `Prelude.seq` Prelude.rnf licenseInfo
       `Prelude.seq` Prelude.rnf version

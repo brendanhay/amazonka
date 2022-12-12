@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAutoStopConfig' smart constructor.
 data AutoStopConfig = AutoStopConfig'
-  { -- | The amount of idle time in minutes after which your application will
-    -- automatically stop. Defaults to 15 minutes.
-    idleTimeoutMinutes :: Prelude.Maybe Prelude.Natural,
-    -- | Enables the application to automatically stop after a certain amount of
+  { -- | Enables the application to automatically stop after a certain amount of
     -- time being idle. Defaults to true.
-    enabled :: Prelude.Maybe Prelude.Bool
+    enabled :: Prelude.Maybe Prelude.Bool,
+    -- | The amount of idle time in minutes after which your application will
+    -- automatically stop. Defaults to 15 minutes.
+    idleTimeoutMinutes :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,29 +46,28 @@ data AutoStopConfig = AutoStopConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'idleTimeoutMinutes', 'autoStopConfig_idleTimeoutMinutes' - The amount of idle time in minutes after which your application will
--- automatically stop. Defaults to 15 minutes.
---
 -- 'enabled', 'autoStopConfig_enabled' - Enables the application to automatically stop after a certain amount of
 -- time being idle. Defaults to true.
+--
+-- 'idleTimeoutMinutes', 'autoStopConfig_idleTimeoutMinutes' - The amount of idle time in minutes after which your application will
+-- automatically stop. Defaults to 15 minutes.
 newAutoStopConfig ::
   AutoStopConfig
 newAutoStopConfig =
   AutoStopConfig'
-    { idleTimeoutMinutes =
-        Prelude.Nothing,
-      enabled = Prelude.Nothing
+    { enabled = Prelude.Nothing,
+      idleTimeoutMinutes = Prelude.Nothing
     }
-
--- | The amount of idle time in minutes after which your application will
--- automatically stop. Defaults to 15 minutes.
-autoStopConfig_idleTimeoutMinutes :: Lens.Lens' AutoStopConfig (Prelude.Maybe Prelude.Natural)
-autoStopConfig_idleTimeoutMinutes = Lens.lens (\AutoStopConfig' {idleTimeoutMinutes} -> idleTimeoutMinutes) (\s@AutoStopConfig' {} a -> s {idleTimeoutMinutes = a} :: AutoStopConfig)
 
 -- | Enables the application to automatically stop after a certain amount of
 -- time being idle. Defaults to true.
 autoStopConfig_enabled :: Lens.Lens' AutoStopConfig (Prelude.Maybe Prelude.Bool)
 autoStopConfig_enabled = Lens.lens (\AutoStopConfig' {enabled} -> enabled) (\s@AutoStopConfig' {} a -> s {enabled = a} :: AutoStopConfig)
+
+-- | The amount of idle time in minutes after which your application will
+-- automatically stop. Defaults to 15 minutes.
+autoStopConfig_idleTimeoutMinutes :: Lens.Lens' AutoStopConfig (Prelude.Maybe Prelude.Natural)
+autoStopConfig_idleTimeoutMinutes = Lens.lens (\AutoStopConfig' {idleTimeoutMinutes} -> idleTimeoutMinutes) (\s@AutoStopConfig' {} a -> s {idleTimeoutMinutes = a} :: AutoStopConfig)
 
 instance Data.FromJSON AutoStopConfig where
   parseJSON =
@@ -76,26 +75,26 @@ instance Data.FromJSON AutoStopConfig where
       "AutoStopConfig"
       ( \x ->
           AutoStopConfig'
-            Prelude.<$> (x Data..:? "idleTimeoutMinutes")
-            Prelude.<*> (x Data..:? "enabled")
+            Prelude.<$> (x Data..:? "enabled")
+            Prelude.<*> (x Data..:? "idleTimeoutMinutes")
       )
 
 instance Prelude.Hashable AutoStopConfig where
   hashWithSalt _salt AutoStopConfig' {..} =
-    _salt `Prelude.hashWithSalt` idleTimeoutMinutes
-      `Prelude.hashWithSalt` enabled
+    _salt `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` idleTimeoutMinutes
 
 instance Prelude.NFData AutoStopConfig where
   rnf AutoStopConfig' {..} =
-    Prelude.rnf idleTimeoutMinutes
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf idleTimeoutMinutes
 
 instance Data.ToJSON AutoStopConfig where
   toJSON AutoStopConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("idleTimeoutMinutes" Data..=)
-              Prelude.<$> idleTimeoutMinutes,
-            ("enabled" Data..=) Prelude.<$> enabled
+          [ ("enabled" Data..=) Prelude.<$> enabled,
+            ("idleTimeoutMinutes" Data..=)
+              Prelude.<$> idleTimeoutMinutes
           ]
       )

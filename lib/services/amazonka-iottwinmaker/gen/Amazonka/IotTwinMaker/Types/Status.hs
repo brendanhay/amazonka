@@ -31,11 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStatus' smart constructor.
 data Status = Status'
-  { -- | The current state of the entity, component, component type, or
+  { -- | The error message.
+    error :: Prelude.Maybe ErrorDetails,
+    -- | The current state of the entity, component, component type, or
     -- workspace.
-    state :: Prelude.Maybe State,
-    -- | The error message.
-    error :: Prelude.Maybe ErrorDetails
+    state :: Prelude.Maybe State
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,26 +47,26 @@ data Status = Status'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'error', 'status_error' - The error message.
+--
 -- 'state', 'status_state' - The current state of the entity, component, component type, or
 -- workspace.
---
--- 'error', 'status_error' - The error message.
 newStatus ::
   Status
 newStatus =
   Status'
-    { state = Prelude.Nothing,
-      error = Prelude.Nothing
+    { error = Prelude.Nothing,
+      state = Prelude.Nothing
     }
+
+-- | The error message.
+status_error :: Lens.Lens' Status (Prelude.Maybe ErrorDetails)
+status_error = Lens.lens (\Status' {error} -> error) (\s@Status' {} a -> s {error = a} :: Status)
 
 -- | The current state of the entity, component, component type, or
 -- workspace.
 status_state :: Lens.Lens' Status (Prelude.Maybe State)
 status_state = Lens.lens (\Status' {state} -> state) (\s@Status' {} a -> s {state = a} :: Status)
-
--- | The error message.
-status_error :: Lens.Lens' Status (Prelude.Maybe ErrorDetails)
-status_error = Lens.lens (\Status' {error} -> error) (\s@Status' {} a -> s {error = a} :: Status)
 
 instance Data.FromJSON Status where
   parseJSON =
@@ -74,15 +74,15 @@ instance Data.FromJSON Status where
       "Status"
       ( \x ->
           Status'
-            Prelude.<$> (x Data..:? "state")
-            Prelude.<*> (x Data..:? "error")
+            Prelude.<$> (x Data..:? "error")
+            Prelude.<*> (x Data..:? "state")
       )
 
 instance Prelude.Hashable Status where
   hashWithSalt _salt Status' {..} =
-    _salt `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` error
+    _salt `Prelude.hashWithSalt` error
+      `Prelude.hashWithSalt` state
 
 instance Prelude.NFData Status where
   rnf Status' {..} =
-    Prelude.rnf state `Prelude.seq` Prelude.rnf error
+    Prelude.rnf error `Prelude.seq` Prelude.rnf state

@@ -29,8 +29,8 @@ module Amazonka.M2.ListApplicationVersions
     newListApplicationVersions,
 
     -- * Request Lenses
-    listApplicationVersions_nextToken,
     listApplicationVersions_maxResults,
+    listApplicationVersions_nextToken,
     listApplicationVersions_applicationId,
 
     -- * Destructuring the Response
@@ -54,12 +54,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListApplicationVersions' smart constructor.
 data ListApplicationVersions = ListApplicationVersions'
-  { -- | A pagination token returned from a previous call to this operation. This
+  { -- | The maximum number of application versions to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A pagination token returned from a previous call to this operation. This
     -- specifies the next item to return. To return to the beginning of the
     -- list, exclude this parameter.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of application versions to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The unique identifier of the application.
     applicationId :: Prelude.Text
   }
@@ -73,11 +73,11 @@ data ListApplicationVersions = ListApplicationVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listApplicationVersions_maxResults' - The maximum number of application versions to return.
+--
 -- 'nextToken', 'listApplicationVersions_nextToken' - A pagination token returned from a previous call to this operation. This
 -- specifies the next item to return. To return to the beginning of the
 -- list, exclude this parameter.
---
--- 'maxResults', 'listApplicationVersions_maxResults' - The maximum number of application versions to return.
 --
 -- 'applicationId', 'listApplicationVersions_applicationId' - The unique identifier of the application.
 newListApplicationVersions ::
@@ -86,21 +86,21 @@ newListApplicationVersions ::
   ListApplicationVersions
 newListApplicationVersions pApplicationId_ =
   ListApplicationVersions'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       applicationId = pApplicationId_
     }
+
+-- | The maximum number of application versions to return.
+listApplicationVersions_maxResults :: Lens.Lens' ListApplicationVersions (Prelude.Maybe Prelude.Natural)
+listApplicationVersions_maxResults = Lens.lens (\ListApplicationVersions' {maxResults} -> maxResults) (\s@ListApplicationVersions' {} a -> s {maxResults = a} :: ListApplicationVersions)
 
 -- | A pagination token returned from a previous call to this operation. This
 -- specifies the next item to return. To return to the beginning of the
 -- list, exclude this parameter.
 listApplicationVersions_nextToken :: Lens.Lens' ListApplicationVersions (Prelude.Maybe Prelude.Text)
 listApplicationVersions_nextToken = Lens.lens (\ListApplicationVersions' {nextToken} -> nextToken) (\s@ListApplicationVersions' {} a -> s {nextToken = a} :: ListApplicationVersions)
-
--- | The maximum number of application versions to return.
-listApplicationVersions_maxResults :: Lens.Lens' ListApplicationVersions (Prelude.Maybe Prelude.Natural)
-listApplicationVersions_maxResults = Lens.lens (\ListApplicationVersions' {maxResults} -> maxResults) (\s@ListApplicationVersions' {} a -> s {maxResults = a} :: ListApplicationVersions)
 
 -- | The unique identifier of the application.
 listApplicationVersions_applicationId :: Lens.Lens' ListApplicationVersions Prelude.Text
@@ -146,14 +146,14 @@ instance Core.AWSRequest ListApplicationVersions where
 
 instance Prelude.Hashable ListApplicationVersions where
   hashWithSalt _salt ListApplicationVersions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` applicationId
 
 instance Prelude.NFData ListApplicationVersions where
   rnf ListApplicationVersions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf applicationId
 
 instance Data.ToHeaders ListApplicationVersions where
@@ -178,8 +178,8 @@ instance Data.ToPath ListApplicationVersions where
 instance Data.ToQuery ListApplicationVersions where
   toQuery ListApplicationVersions' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListApplicationVersionsResponse' smart constructor.

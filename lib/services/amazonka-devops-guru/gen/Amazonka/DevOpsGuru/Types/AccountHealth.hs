@@ -32,12 +32,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAccountHealth' smart constructor.
 data AccountHealth = AccountHealth'
-  { -- | Information about the health of the Amazon Web Services resources in
+  { -- | The ID of the Amazon Web Services account.
+    accountId :: Prelude.Maybe Prelude.Text,
+    -- | Information about the health of the Amazon Web Services resources in
     -- your account, including the number of open proactive, open reactive
     -- insights, and the Mean Time to Recover (MTTR) of closed insights.
-    insight :: Prelude.Maybe AccountInsightHealth,
-    -- | The ID of the Amazon Web Services account.
-    accountId :: Prelude.Maybe Prelude.Text
+    insight :: Prelude.Maybe AccountInsightHealth
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,18 +49,22 @@ data AccountHealth = AccountHealth'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'accountId', 'accountHealth_accountId' - The ID of the Amazon Web Services account.
+--
 -- 'insight', 'accountHealth_insight' - Information about the health of the Amazon Web Services resources in
 -- your account, including the number of open proactive, open reactive
 -- insights, and the Mean Time to Recover (MTTR) of closed insights.
---
--- 'accountId', 'accountHealth_accountId' - The ID of the Amazon Web Services account.
 newAccountHealth ::
   AccountHealth
 newAccountHealth =
   AccountHealth'
-    { insight = Prelude.Nothing,
-      accountId = Prelude.Nothing
+    { accountId = Prelude.Nothing,
+      insight = Prelude.Nothing
     }
+
+-- | The ID of the Amazon Web Services account.
+accountHealth_accountId :: Lens.Lens' AccountHealth (Prelude.Maybe Prelude.Text)
+accountHealth_accountId = Lens.lens (\AccountHealth' {accountId} -> accountId) (\s@AccountHealth' {} a -> s {accountId = a} :: AccountHealth)
 
 -- | Information about the health of the Amazon Web Services resources in
 -- your account, including the number of open proactive, open reactive
@@ -68,26 +72,22 @@ newAccountHealth =
 accountHealth_insight :: Lens.Lens' AccountHealth (Prelude.Maybe AccountInsightHealth)
 accountHealth_insight = Lens.lens (\AccountHealth' {insight} -> insight) (\s@AccountHealth' {} a -> s {insight = a} :: AccountHealth)
 
--- | The ID of the Amazon Web Services account.
-accountHealth_accountId :: Lens.Lens' AccountHealth (Prelude.Maybe Prelude.Text)
-accountHealth_accountId = Lens.lens (\AccountHealth' {accountId} -> accountId) (\s@AccountHealth' {} a -> s {accountId = a} :: AccountHealth)
-
 instance Data.FromJSON AccountHealth where
   parseJSON =
     Data.withObject
       "AccountHealth"
       ( \x ->
           AccountHealth'
-            Prelude.<$> (x Data..:? "Insight")
-            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<$> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "Insight")
       )
 
 instance Prelude.Hashable AccountHealth where
   hashWithSalt _salt AccountHealth' {..} =
-    _salt `Prelude.hashWithSalt` insight
-      `Prelude.hashWithSalt` accountId
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` insight
 
 instance Prelude.NFData AccountHealth where
   rnf AccountHealth' {..} =
-    Prelude.rnf insight
-      `Prelude.seq` Prelude.rnf accountId
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf insight

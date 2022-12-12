@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRelationship' smart constructor.
 data Relationship = Relationship'
-  { -- | The ID of the target component type associated with this relationship.
-    targetComponentTypeId :: Prelude.Maybe Prelude.Text,
-    -- | The type of the relationship.
-    relationshipType :: Prelude.Maybe Prelude.Text
+  { -- | The type of the relationship.
+    relationshipType :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the target component type associated with this relationship.
+    targetComponentTypeId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,24 @@ data Relationship = Relationship'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetComponentTypeId', 'relationship_targetComponentTypeId' - The ID of the target component type associated with this relationship.
---
 -- 'relationshipType', 'relationship_relationshipType' - The type of the relationship.
+--
+-- 'targetComponentTypeId', 'relationship_targetComponentTypeId' - The ID of the target component type associated with this relationship.
 newRelationship ::
   Relationship
 newRelationship =
   Relationship'
-    { targetComponentTypeId =
-        Prelude.Nothing,
-      relationshipType = Prelude.Nothing
+    { relationshipType = Prelude.Nothing,
+      targetComponentTypeId = Prelude.Nothing
     }
-
--- | The ID of the target component type associated with this relationship.
-relationship_targetComponentTypeId :: Lens.Lens' Relationship (Prelude.Maybe Prelude.Text)
-relationship_targetComponentTypeId = Lens.lens (\Relationship' {targetComponentTypeId} -> targetComponentTypeId) (\s@Relationship' {} a -> s {targetComponentTypeId = a} :: Relationship)
 
 -- | The type of the relationship.
 relationship_relationshipType :: Lens.Lens' Relationship (Prelude.Maybe Prelude.Text)
 relationship_relationshipType = Lens.lens (\Relationship' {relationshipType} -> relationshipType) (\s@Relationship' {} a -> s {relationshipType = a} :: Relationship)
+
+-- | The ID of the target component type associated with this relationship.
+relationship_targetComponentTypeId :: Lens.Lens' Relationship (Prelude.Maybe Prelude.Text)
+relationship_targetComponentTypeId = Lens.lens (\Relationship' {targetComponentTypeId} -> targetComponentTypeId) (\s@Relationship' {} a -> s {targetComponentTypeId = a} :: Relationship)
 
 instance Data.FromJSON Relationship where
   parseJSON =
@@ -69,27 +68,27 @@ instance Data.FromJSON Relationship where
       "Relationship"
       ( \x ->
           Relationship'
-            Prelude.<$> (x Data..:? "targetComponentTypeId")
-            Prelude.<*> (x Data..:? "relationshipType")
+            Prelude.<$> (x Data..:? "relationshipType")
+            Prelude.<*> (x Data..:? "targetComponentTypeId")
       )
 
 instance Prelude.Hashable Relationship where
   hashWithSalt _salt Relationship' {..} =
-    _salt `Prelude.hashWithSalt` targetComponentTypeId
-      `Prelude.hashWithSalt` relationshipType
+    _salt `Prelude.hashWithSalt` relationshipType
+      `Prelude.hashWithSalt` targetComponentTypeId
 
 instance Prelude.NFData Relationship where
   rnf Relationship' {..} =
-    Prelude.rnf targetComponentTypeId
-      `Prelude.seq` Prelude.rnf relationshipType
+    Prelude.rnf relationshipType
+      `Prelude.seq` Prelude.rnf targetComponentTypeId
 
 instance Data.ToJSON Relationship where
   toJSON Relationship' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("targetComponentTypeId" Data..=)
-              Prelude.<$> targetComponentTypeId,
-            ("relationshipType" Data..=)
-              Prelude.<$> relationshipType
+          [ ("relationshipType" Data..=)
+              Prelude.<$> relationshipType,
+            ("targetComponentTypeId" Data..=)
+              Prelude.<$> targetComponentTypeId
           ]
       )

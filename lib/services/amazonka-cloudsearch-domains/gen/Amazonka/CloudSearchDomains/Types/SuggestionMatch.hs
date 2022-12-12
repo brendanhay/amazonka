@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSuggestionMatch' smart constructor.
 data SuggestionMatch = SuggestionMatch'
-  { -- | The string that matches the query string specified in the
-    -- @SuggestRequest@.
-    suggestion :: Prelude.Maybe Prelude.Text,
+  { -- | The document ID of the suggested document.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The relevance score of a suggested match.
     score :: Prelude.Maybe Prelude.Integer,
-    -- | The document ID of the suggested document.
-    id :: Prelude.Maybe Prelude.Text
+    -- | The string that matches the query string specified in the
+    -- @SuggestRequest@.
+    suggestion :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,33 +47,33 @@ data SuggestionMatch = SuggestionMatch'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'suggestion', 'suggestionMatch_suggestion' - The string that matches the query string specified in the
--- @SuggestRequest@.
+-- 'id', 'suggestionMatch_id' - The document ID of the suggested document.
 --
 -- 'score', 'suggestionMatch_score' - The relevance score of a suggested match.
 --
--- 'id', 'suggestionMatch_id' - The document ID of the suggested document.
+-- 'suggestion', 'suggestionMatch_suggestion' - The string that matches the query string specified in the
+-- @SuggestRequest@.
 newSuggestionMatch ::
   SuggestionMatch
 newSuggestionMatch =
   SuggestionMatch'
-    { suggestion = Prelude.Nothing,
+    { id = Prelude.Nothing,
       score = Prelude.Nothing,
-      id = Prelude.Nothing
+      suggestion = Prelude.Nothing
     }
 
--- | The string that matches the query string specified in the
--- @SuggestRequest@.
-suggestionMatch_suggestion :: Lens.Lens' SuggestionMatch (Prelude.Maybe Prelude.Text)
-suggestionMatch_suggestion = Lens.lens (\SuggestionMatch' {suggestion} -> suggestion) (\s@SuggestionMatch' {} a -> s {suggestion = a} :: SuggestionMatch)
+-- | The document ID of the suggested document.
+suggestionMatch_id :: Lens.Lens' SuggestionMatch (Prelude.Maybe Prelude.Text)
+suggestionMatch_id = Lens.lens (\SuggestionMatch' {id} -> id) (\s@SuggestionMatch' {} a -> s {id = a} :: SuggestionMatch)
 
 -- | The relevance score of a suggested match.
 suggestionMatch_score :: Lens.Lens' SuggestionMatch (Prelude.Maybe Prelude.Integer)
 suggestionMatch_score = Lens.lens (\SuggestionMatch' {score} -> score) (\s@SuggestionMatch' {} a -> s {score = a} :: SuggestionMatch)
 
--- | The document ID of the suggested document.
-suggestionMatch_id :: Lens.Lens' SuggestionMatch (Prelude.Maybe Prelude.Text)
-suggestionMatch_id = Lens.lens (\SuggestionMatch' {id} -> id) (\s@SuggestionMatch' {} a -> s {id = a} :: SuggestionMatch)
+-- | The string that matches the query string specified in the
+-- @SuggestRequest@.
+suggestionMatch_suggestion :: Lens.Lens' SuggestionMatch (Prelude.Maybe Prelude.Text)
+suggestionMatch_suggestion = Lens.lens (\SuggestionMatch' {suggestion} -> suggestion) (\s@SuggestionMatch' {} a -> s {suggestion = a} :: SuggestionMatch)
 
 instance Data.FromJSON SuggestionMatch where
   parseJSON =
@@ -81,19 +81,19 @@ instance Data.FromJSON SuggestionMatch where
       "SuggestionMatch"
       ( \x ->
           SuggestionMatch'
-            Prelude.<$> (x Data..:? "suggestion")
+            Prelude.<$> (x Data..:? "id")
             Prelude.<*> (x Data..:? "score")
-            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "suggestion")
       )
 
 instance Prelude.Hashable SuggestionMatch where
   hashWithSalt _salt SuggestionMatch' {..} =
-    _salt `Prelude.hashWithSalt` suggestion
+    _salt `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` score
-      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` suggestion
 
 instance Prelude.NFData SuggestionMatch where
   rnf SuggestionMatch' {..} =
-    Prelude.rnf suggestion
+    Prelude.rnf id
       `Prelude.seq` Prelude.rnf score
-      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf suggestion

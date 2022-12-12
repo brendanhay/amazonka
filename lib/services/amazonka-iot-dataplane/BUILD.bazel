@@ -13,6 +13,7 @@ haskell_library(
         "gen/Amazonka/IoTData/ListRetainedMessages.hs",
         "gen/Amazonka/IoTData/Publish.hs",
         "gen/Amazonka/IoTData/Types.hs",
+        "gen/Amazonka/IoTData/Types/PayloadFormatIndicator.hs",
         "gen/Amazonka/IoTData/Types/RetainedMessageSummary.hs",
         "gen/Amazonka/IoTData/UpdateThingShadow.hs",
         "gen/Amazonka/IoTData/Waiters.hs",

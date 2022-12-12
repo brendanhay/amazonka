@@ -16,39 +16,39 @@ module Amazonka.ResourceGroupsTagging.Lens
 
     -- ** DescribeReportCreation
     describeReportCreationResponse_errorMessage,
-    describeReportCreationResponse_status,
     describeReportCreationResponse_s3Location,
+    describeReportCreationResponse_status,
     describeReportCreationResponse_httpStatus,
 
     -- ** GetComplianceSummary
-    getComplianceSummary_tagKeyFilters,
-    getComplianceSummary_targetIdFilters,
-    getComplianceSummary_paginationToken,
     getComplianceSummary_groupBy,
     getComplianceSummary_maxResults,
-    getComplianceSummary_resourceTypeFilters,
+    getComplianceSummary_paginationToken,
     getComplianceSummary_regionFilters,
+    getComplianceSummary_resourceTypeFilters,
+    getComplianceSummary_tagKeyFilters,
+    getComplianceSummary_targetIdFilters,
     getComplianceSummaryResponse_paginationToken,
     getComplianceSummaryResponse_summaryList,
     getComplianceSummaryResponse_httpStatus,
 
     -- ** GetResources
-    getResources_paginationToken,
-    getResources_tagsPerPage,
-    getResources_resourceARNList,
-    getResources_includeComplianceDetails,
-    getResources_tagFilters,
     getResources_excludeCompliantResources,
-    getResources_resourcesPerPage,
+    getResources_includeComplianceDetails,
+    getResources_paginationToken,
+    getResources_resourceARNList,
     getResources_resourceTypeFilters,
+    getResources_resourcesPerPage,
+    getResources_tagFilters,
+    getResources_tagsPerPage,
     getResourcesResponse_paginationToken,
     getResourcesResponse_resourceTagMappingList,
     getResourcesResponse_httpStatus,
 
     -- ** GetTagKeys
     getTagKeys_paginationToken,
-    getTagKeysResponse_tagKeys,
     getTagKeysResponse_paginationToken,
+    getTagKeysResponse_tagKeys,
     getTagKeysResponse_httpStatus,
 
     -- ** GetTagValues
@@ -77,27 +77,27 @@ module Amazonka.ResourceGroupsTagging.Lens
     -- * Types
 
     -- ** ComplianceDetails
-    complianceDetails_noncompliantKeys,
     complianceDetails_complianceStatus,
     complianceDetails_keysWithNoncompliantValues,
+    complianceDetails_noncompliantKeys,
 
     -- ** FailureInfo
-    failureInfo_errorMessage,
     failureInfo_errorCode,
+    failureInfo_errorMessage,
     failureInfo_statusCode,
 
     -- ** ResourceTagMapping
-    resourceTagMapping_tags,
     resourceTagMapping_complianceDetails,
     resourceTagMapping_resourceARN,
+    resourceTagMapping_tags,
 
     -- ** Summary
+    summary_lastUpdated,
+    summary_nonCompliantResources,
+    summary_region,
     summary_resourceType,
     summary_targetId,
     summary_targetIdType,
-    summary_lastUpdated,
-    summary_region,
-    summary_nonCompliantResources,
 
     -- ** Tag
     tag_key,

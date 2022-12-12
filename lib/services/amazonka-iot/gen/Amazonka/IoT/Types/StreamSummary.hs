@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStreamSummary' smart constructor.
 data StreamSummary = StreamSummary'
-  { -- | The stream ID.
-    streamId :: Prelude.Maybe Prelude.Text,
-    -- | A description of the stream.
+  { -- | A description of the stream.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The stream version.
-    streamVersion :: Prelude.Maybe Prelude.Natural,
     -- | The stream ARN.
-    streamArn :: Prelude.Maybe Prelude.Text
+    streamArn :: Prelude.Maybe Prelude.Text,
+    -- | The stream ID.
+    streamId :: Prelude.Maybe Prelude.Text,
+    -- | The stream version.
+    streamVersion :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,38 +47,38 @@ data StreamSummary = StreamSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'streamId', 'streamSummary_streamId' - The stream ID.
---
 -- 'description', 'streamSummary_description' - A description of the stream.
 --
--- 'streamVersion', 'streamSummary_streamVersion' - The stream version.
---
 -- 'streamArn', 'streamSummary_streamArn' - The stream ARN.
+--
+-- 'streamId', 'streamSummary_streamId' - The stream ID.
+--
+-- 'streamVersion', 'streamSummary_streamVersion' - The stream version.
 newStreamSummary ::
   StreamSummary
 newStreamSummary =
   StreamSummary'
-    { streamId = Prelude.Nothing,
-      description = Prelude.Nothing,
-      streamVersion = Prelude.Nothing,
-      streamArn = Prelude.Nothing
+    { description = Prelude.Nothing,
+      streamArn = Prelude.Nothing,
+      streamId = Prelude.Nothing,
+      streamVersion = Prelude.Nothing
     }
-
--- | The stream ID.
-streamSummary_streamId :: Lens.Lens' StreamSummary (Prelude.Maybe Prelude.Text)
-streamSummary_streamId = Lens.lens (\StreamSummary' {streamId} -> streamId) (\s@StreamSummary' {} a -> s {streamId = a} :: StreamSummary)
 
 -- | A description of the stream.
 streamSummary_description :: Lens.Lens' StreamSummary (Prelude.Maybe Prelude.Text)
 streamSummary_description = Lens.lens (\StreamSummary' {description} -> description) (\s@StreamSummary' {} a -> s {description = a} :: StreamSummary)
 
--- | The stream version.
-streamSummary_streamVersion :: Lens.Lens' StreamSummary (Prelude.Maybe Prelude.Natural)
-streamSummary_streamVersion = Lens.lens (\StreamSummary' {streamVersion} -> streamVersion) (\s@StreamSummary' {} a -> s {streamVersion = a} :: StreamSummary)
-
 -- | The stream ARN.
 streamSummary_streamArn :: Lens.Lens' StreamSummary (Prelude.Maybe Prelude.Text)
 streamSummary_streamArn = Lens.lens (\StreamSummary' {streamArn} -> streamArn) (\s@StreamSummary' {} a -> s {streamArn = a} :: StreamSummary)
+
+-- | The stream ID.
+streamSummary_streamId :: Lens.Lens' StreamSummary (Prelude.Maybe Prelude.Text)
+streamSummary_streamId = Lens.lens (\StreamSummary' {streamId} -> streamId) (\s@StreamSummary' {} a -> s {streamId = a} :: StreamSummary)
+
+-- | The stream version.
+streamSummary_streamVersion :: Lens.Lens' StreamSummary (Prelude.Maybe Prelude.Natural)
+streamSummary_streamVersion = Lens.lens (\StreamSummary' {streamVersion} -> streamVersion) (\s@StreamSummary' {} a -> s {streamVersion = a} :: StreamSummary)
 
 instance Data.FromJSON StreamSummary where
   parseJSON =
@@ -86,22 +86,22 @@ instance Data.FromJSON StreamSummary where
       "StreamSummary"
       ( \x ->
           StreamSummary'
-            Prelude.<$> (x Data..:? "streamId")
-            Prelude.<*> (x Data..:? "description")
-            Prelude.<*> (x Data..:? "streamVersion")
+            Prelude.<$> (x Data..:? "description")
             Prelude.<*> (x Data..:? "streamArn")
+            Prelude.<*> (x Data..:? "streamId")
+            Prelude.<*> (x Data..:? "streamVersion")
       )
 
 instance Prelude.Hashable StreamSummary where
   hashWithSalt _salt StreamSummary' {..} =
-    _salt `Prelude.hashWithSalt` streamId
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` streamVersion
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` streamArn
+      `Prelude.hashWithSalt` streamId
+      `Prelude.hashWithSalt` streamVersion
 
 instance Prelude.NFData StreamSummary where
   rnf StreamSummary' {..} =
-    Prelude.rnf streamId
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf streamVersion
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf streamArn
+      `Prelude.seq` Prelude.rnf streamId
+      `Prelude.seq` Prelude.rnf streamVersion

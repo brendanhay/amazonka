@@ -32,15 +32,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newScheduledAutoTuneDetails' smart constructor.
 data ScheduledAutoTuneDetails = ScheduledAutoTuneDetails'
-  { -- | The severity of the Auto-Tune action. Valid values are @LOW@, @MEDIUM@,
-    -- and @HIGH@.
-    severity :: Prelude.Maybe ScheduledAutoTuneSeverityType,
+  { -- | A description of the Auto-Tune action.
+    action :: Prelude.Maybe Prelude.Text,
     -- | The type of Auto-Tune action.
     actionType :: Prelude.Maybe ScheduledAutoTuneActionType,
     -- | The date and time when the Auto-Tune action is scheduled for the domain.
     date :: Prelude.Maybe Data.POSIX,
-    -- | A description of the Auto-Tune action.
-    action :: Prelude.Maybe Prelude.Text
+    -- | The severity of the Auto-Tune action. Valid values are @LOW@, @MEDIUM@,
+    -- and @HIGH@.
+    severity :: Prelude.Maybe ScheduledAutoTuneSeverityType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,29 +52,27 @@ data ScheduledAutoTuneDetails = ScheduledAutoTuneDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'severity', 'scheduledAutoTuneDetails_severity' - The severity of the Auto-Tune action. Valid values are @LOW@, @MEDIUM@,
--- and @HIGH@.
+-- 'action', 'scheduledAutoTuneDetails_action' - A description of the Auto-Tune action.
 --
 -- 'actionType', 'scheduledAutoTuneDetails_actionType' - The type of Auto-Tune action.
 --
 -- 'date', 'scheduledAutoTuneDetails_date' - The date and time when the Auto-Tune action is scheduled for the domain.
 --
--- 'action', 'scheduledAutoTuneDetails_action' - A description of the Auto-Tune action.
+-- 'severity', 'scheduledAutoTuneDetails_severity' - The severity of the Auto-Tune action. Valid values are @LOW@, @MEDIUM@,
+-- and @HIGH@.
 newScheduledAutoTuneDetails ::
   ScheduledAutoTuneDetails
 newScheduledAutoTuneDetails =
   ScheduledAutoTuneDetails'
-    { severity =
-        Prelude.Nothing,
+    { action = Prelude.Nothing,
       actionType = Prelude.Nothing,
       date = Prelude.Nothing,
-      action = Prelude.Nothing
+      severity = Prelude.Nothing
     }
 
--- | The severity of the Auto-Tune action. Valid values are @LOW@, @MEDIUM@,
--- and @HIGH@.
-scheduledAutoTuneDetails_severity :: Lens.Lens' ScheduledAutoTuneDetails (Prelude.Maybe ScheduledAutoTuneSeverityType)
-scheduledAutoTuneDetails_severity = Lens.lens (\ScheduledAutoTuneDetails' {severity} -> severity) (\s@ScheduledAutoTuneDetails' {} a -> s {severity = a} :: ScheduledAutoTuneDetails)
+-- | A description of the Auto-Tune action.
+scheduledAutoTuneDetails_action :: Lens.Lens' ScheduledAutoTuneDetails (Prelude.Maybe Prelude.Text)
+scheduledAutoTuneDetails_action = Lens.lens (\ScheduledAutoTuneDetails' {action} -> action) (\s@ScheduledAutoTuneDetails' {} a -> s {action = a} :: ScheduledAutoTuneDetails)
 
 -- | The type of Auto-Tune action.
 scheduledAutoTuneDetails_actionType :: Lens.Lens' ScheduledAutoTuneDetails (Prelude.Maybe ScheduledAutoTuneActionType)
@@ -84,9 +82,10 @@ scheduledAutoTuneDetails_actionType = Lens.lens (\ScheduledAutoTuneDetails' {act
 scheduledAutoTuneDetails_date :: Lens.Lens' ScheduledAutoTuneDetails (Prelude.Maybe Prelude.UTCTime)
 scheduledAutoTuneDetails_date = Lens.lens (\ScheduledAutoTuneDetails' {date} -> date) (\s@ScheduledAutoTuneDetails' {} a -> s {date = a} :: ScheduledAutoTuneDetails) Prelude.. Lens.mapping Data._Time
 
--- | A description of the Auto-Tune action.
-scheduledAutoTuneDetails_action :: Lens.Lens' ScheduledAutoTuneDetails (Prelude.Maybe Prelude.Text)
-scheduledAutoTuneDetails_action = Lens.lens (\ScheduledAutoTuneDetails' {action} -> action) (\s@ScheduledAutoTuneDetails' {} a -> s {action = a} :: ScheduledAutoTuneDetails)
+-- | The severity of the Auto-Tune action. Valid values are @LOW@, @MEDIUM@,
+-- and @HIGH@.
+scheduledAutoTuneDetails_severity :: Lens.Lens' ScheduledAutoTuneDetails (Prelude.Maybe ScheduledAutoTuneSeverityType)
+scheduledAutoTuneDetails_severity = Lens.lens (\ScheduledAutoTuneDetails' {severity} -> severity) (\s@ScheduledAutoTuneDetails' {} a -> s {severity = a} :: ScheduledAutoTuneDetails)
 
 instance Data.FromJSON ScheduledAutoTuneDetails where
   parseJSON =
@@ -94,22 +93,22 @@ instance Data.FromJSON ScheduledAutoTuneDetails where
       "ScheduledAutoTuneDetails"
       ( \x ->
           ScheduledAutoTuneDetails'
-            Prelude.<$> (x Data..:? "Severity")
+            Prelude.<$> (x Data..:? "Action")
             Prelude.<*> (x Data..:? "ActionType")
             Prelude.<*> (x Data..:? "Date")
-            Prelude.<*> (x Data..:? "Action")
+            Prelude.<*> (x Data..:? "Severity")
       )
 
 instance Prelude.Hashable ScheduledAutoTuneDetails where
   hashWithSalt _salt ScheduledAutoTuneDetails' {..} =
-    _salt `Prelude.hashWithSalt` severity
+    _salt `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` actionType
       `Prelude.hashWithSalt` date
-      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` severity
 
 instance Prelude.NFData ScheduledAutoTuneDetails where
   rnf ScheduledAutoTuneDetails' {..} =
-    Prelude.rnf severity
+    Prelude.rnf action
       `Prelude.seq` Prelude.rnf actionType
       `Prelude.seq` Prelude.rnf date
-      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf severity

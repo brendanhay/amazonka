@@ -33,12 +33,12 @@ import Amazonka.WAFV2.Types.RuleAction
 --
 -- /See:/ 'newRuleSummary' smart constructor.
 data RuleSummary = RuleSummary'
-  { -- | The name of the rule.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The action that WAF should take on a web request when it matches a
+  { -- | The action that WAF should take on a web request when it matches a
     -- rule\'s statement. Settings at the web ACL level can override the rule
     -- action setting.
-    action :: Prelude.Maybe RuleAction
+    action :: Prelude.Maybe RuleAction,
+    -- | The name of the rule.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,22 +50,18 @@ data RuleSummary = RuleSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'ruleSummary_name' - The name of the rule.
---
 -- 'action', 'ruleSummary_action' - The action that WAF should take on a web request when it matches a
 -- rule\'s statement. Settings at the web ACL level can override the rule
 -- action setting.
+--
+-- 'name', 'ruleSummary_name' - The name of the rule.
 newRuleSummary ::
   RuleSummary
 newRuleSummary =
   RuleSummary'
-    { name = Prelude.Nothing,
-      action = Prelude.Nothing
+    { action = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | The name of the rule.
-ruleSummary_name :: Lens.Lens' RuleSummary (Prelude.Maybe Prelude.Text)
-ruleSummary_name = Lens.lens (\RuleSummary' {name} -> name) (\s@RuleSummary' {} a -> s {name = a} :: RuleSummary)
 
 -- | The action that WAF should take on a web request when it matches a
 -- rule\'s statement. Settings at the web ACL level can override the rule
@@ -73,21 +69,25 @@ ruleSummary_name = Lens.lens (\RuleSummary' {name} -> name) (\s@RuleSummary' {} 
 ruleSummary_action :: Lens.Lens' RuleSummary (Prelude.Maybe RuleAction)
 ruleSummary_action = Lens.lens (\RuleSummary' {action} -> action) (\s@RuleSummary' {} a -> s {action = a} :: RuleSummary)
 
+-- | The name of the rule.
+ruleSummary_name :: Lens.Lens' RuleSummary (Prelude.Maybe Prelude.Text)
+ruleSummary_name = Lens.lens (\RuleSummary' {name} -> name) (\s@RuleSummary' {} a -> s {name = a} :: RuleSummary)
+
 instance Data.FromJSON RuleSummary where
   parseJSON =
     Data.withObject
       "RuleSummary"
       ( \x ->
           RuleSummary'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Action")
+            Prelude.<$> (x Data..:? "Action")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable RuleSummary where
   hashWithSalt _salt RuleSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` action
+    _salt `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData RuleSummary where
   rnf RuleSummary' {..} =
-    Prelude.rnf name `Prelude.seq` Prelude.rnf action
+    Prelude.rnf action `Prelude.seq` Prelude.rnf name

@@ -30,8 +30,8 @@ module Amazonka.MediaTailor.ListSourceLocations
     newListSourceLocations,
 
     -- * Request Lenses
-    listSourceLocations_nextToken,
     listSourceLocations_maxResults,
+    listSourceLocations_nextToken,
 
     -- * Destructuring the Response
     ListSourceLocationsResponse (..),
@@ -54,14 +54,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListSourceLocations' smart constructor.
 data ListSourceLocations = ListSourceLocations'
-  { -- | Pagination token returned by the list request when results exceed the
-    -- maximum allowed. Use the token to fetch the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of source locations that you want MediaTailor to
+  { -- | The maximum number of source locations that you want MediaTailor to
     -- return in response to the current request. If there are more than
     -- @MaxResults@ source locations, use the value of @NextToken@ in the
     -- response to get the next page of results.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Pagination token returned by the list request when results exceed the
+    -- maximum allowed. Use the token to fetch the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,25 +73,20 @@ data ListSourceLocations = ListSourceLocations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listSourceLocations_nextToken' - Pagination token returned by the list request when results exceed the
--- maximum allowed. Use the token to fetch the next page of results.
---
 -- 'maxResults', 'listSourceLocations_maxResults' - The maximum number of source locations that you want MediaTailor to
 -- return in response to the current request. If there are more than
 -- @MaxResults@ source locations, use the value of @NextToken@ in the
 -- response to get the next page of results.
+--
+-- 'nextToken', 'listSourceLocations_nextToken' - Pagination token returned by the list request when results exceed the
+-- maximum allowed. Use the token to fetch the next page of results.
 newListSourceLocations ::
   ListSourceLocations
 newListSourceLocations =
   ListSourceLocations'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | Pagination token returned by the list request when results exceed the
--- maximum allowed. Use the token to fetch the next page of results.
-listSourceLocations_nextToken :: Lens.Lens' ListSourceLocations (Prelude.Maybe Prelude.Text)
-listSourceLocations_nextToken = Lens.lens (\ListSourceLocations' {nextToken} -> nextToken) (\s@ListSourceLocations' {} a -> s {nextToken = a} :: ListSourceLocations)
 
 -- | The maximum number of source locations that you want MediaTailor to
 -- return in response to the current request. If there are more than
@@ -99,6 +94,11 @@ listSourceLocations_nextToken = Lens.lens (\ListSourceLocations' {nextToken} -> 
 -- response to get the next page of results.
 listSourceLocations_maxResults :: Lens.Lens' ListSourceLocations (Prelude.Maybe Prelude.Natural)
 listSourceLocations_maxResults = Lens.lens (\ListSourceLocations' {maxResults} -> maxResults) (\s@ListSourceLocations' {} a -> s {maxResults = a} :: ListSourceLocations)
+
+-- | Pagination token returned by the list request when results exceed the
+-- maximum allowed. Use the token to fetch the next page of results.
+listSourceLocations_nextToken :: Lens.Lens' ListSourceLocations (Prelude.Maybe Prelude.Text)
+listSourceLocations_nextToken = Lens.lens (\ListSourceLocations' {nextToken} -> nextToken) (\s@ListSourceLocations' {} a -> s {nextToken = a} :: ListSourceLocations)
 
 instance Core.AWSPager ListSourceLocations where
   page rq rs
@@ -139,13 +139,13 @@ instance Core.AWSRequest ListSourceLocations where
 
 instance Prelude.Hashable ListSourceLocations where
   hashWithSalt _salt ListSourceLocations' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListSourceLocations where
   rnf ListSourceLocations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListSourceLocations where
   toHeaders =
@@ -164,8 +164,8 @@ instance Data.ToPath ListSourceLocations where
 instance Data.ToQuery ListSourceLocations where
   toQuery ListSourceLocations' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListSourceLocationsResponse' smart constructor.

@@ -55,8 +55,8 @@ module Amazonka.FSx.CreateSnapshot
     newCreateSnapshot,
 
     -- * Request Lenses
-    createSnapshot_tags,
     createSnapshot_clientRequestToken,
+    createSnapshot_tags,
     createSnapshot_name,
     createSnapshot_volumeId,
 
@@ -80,8 +80,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateSnapshot' smart constructor.
 data CreateSnapshot = CreateSnapshot'
-  { tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
+  { clientRequestToken :: Prelude.Maybe Prelude.Text,
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The name of the snapshot.
     name :: Prelude.Text,
     -- | The ID of the volume that you are taking a snapshot of.
@@ -97,9 +97,9 @@ data CreateSnapshot = CreateSnapshot'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createSnapshot_tags' - Undocumented member.
---
 -- 'clientRequestToken', 'createSnapshot_clientRequestToken' - Undocumented member.
+--
+-- 'tags', 'createSnapshot_tags' - Undocumented member.
 --
 -- 'name', 'createSnapshot_name' - The name of the snapshot.
 --
@@ -112,19 +112,20 @@ newCreateSnapshot ::
   CreateSnapshot
 newCreateSnapshot pName_ pVolumeId_ =
   CreateSnapshot'
-    { tags = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
+    { clientRequestToken =
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_,
       volumeId = pVolumeId_
     }
 
 -- | Undocumented member.
-createSnapshot_tags :: Lens.Lens' CreateSnapshot (Prelude.Maybe (Prelude.NonEmpty Tag))
-createSnapshot_tags = Lens.lens (\CreateSnapshot' {tags} -> tags) (\s@CreateSnapshot' {} a -> s {tags = a} :: CreateSnapshot) Prelude.. Lens.mapping Lens.coerced
-
--- | Undocumented member.
 createSnapshot_clientRequestToken :: Lens.Lens' CreateSnapshot (Prelude.Maybe Prelude.Text)
 createSnapshot_clientRequestToken = Lens.lens (\CreateSnapshot' {clientRequestToken} -> clientRequestToken) (\s@CreateSnapshot' {} a -> s {clientRequestToken = a} :: CreateSnapshot)
+
+-- | Undocumented member.
+createSnapshot_tags :: Lens.Lens' CreateSnapshot (Prelude.Maybe (Prelude.NonEmpty Tag))
+createSnapshot_tags = Lens.lens (\CreateSnapshot' {tags} -> tags) (\s@CreateSnapshot' {} a -> s {tags = a} :: CreateSnapshot) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the snapshot.
 createSnapshot_name :: Lens.Lens' CreateSnapshot Prelude.Text
@@ -150,15 +151,15 @@ instance Core.AWSRequest CreateSnapshot where
 
 instance Prelude.Hashable CreateSnapshot where
   hashWithSalt _salt CreateSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientRequestToken
+    _salt `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` volumeId
 
 instance Prelude.NFData CreateSnapshot where
   rnf CreateSnapshot' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf volumeId
 
@@ -181,9 +182,9 @@ instance Data.ToJSON CreateSnapshot where
   toJSON CreateSnapshot' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ClientRequestToken" Data..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("VolumeId" Data..= volumeId)
           ]

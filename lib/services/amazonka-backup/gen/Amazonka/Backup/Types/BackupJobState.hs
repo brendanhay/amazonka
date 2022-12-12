@@ -26,6 +26,7 @@ module Amazonka.Backup.Types.BackupJobState
         BackupJobState_CREATED,
         BackupJobState_EXPIRED,
         BackupJobState_FAILED,
+        BackupJobState_PARTIAL,
         BackupJobState_PENDING,
         BackupJobState_RUNNING
       ),
@@ -82,6 +83,9 @@ pattern BackupJobState_EXPIRED = BackupJobState' "EXPIRED"
 pattern BackupJobState_FAILED :: BackupJobState
 pattern BackupJobState_FAILED = BackupJobState' "FAILED"
 
+pattern BackupJobState_PARTIAL :: BackupJobState
+pattern BackupJobState_PARTIAL = BackupJobState' "PARTIAL"
+
 pattern BackupJobState_PENDING :: BackupJobState
 pattern BackupJobState_PENDING = BackupJobState' "PENDING"
 
@@ -95,6 +99,7 @@ pattern BackupJobState_RUNNING = BackupJobState' "RUNNING"
   BackupJobState_CREATED,
   BackupJobState_EXPIRED,
   BackupJobState_FAILED,
+  BackupJobState_PARTIAL,
   BackupJobState_PENDING,
   BackupJobState_RUNNING,
   BackupJobState'

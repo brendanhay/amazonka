@@ -36,8 +36,8 @@ module Amazonka.Evidently.PutProjectEvents
     newPutProjectEventsResponse,
 
     -- * Response Lenses
-    putProjectEventsResponse_failedEventCount,
     putProjectEventsResponse_eventResults,
+    putProjectEventsResponse_failedEventCount,
     putProjectEventsResponse_httpStatus,
   )
 where
@@ -101,8 +101,8 @@ instance Core.AWSRequest PutProjectEvents where
     Response.receiveJSON
       ( \s h x ->
           PutProjectEventsResponse'
-            Prelude.<$> (x Data..?> "failedEventCount")
-            Prelude.<*> (x Data..?> "eventResults" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "eventResults" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "failedEventCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,12 +144,12 @@ instance Data.ToQuery PutProjectEvents where
 
 -- | /See:/ 'newPutProjectEventsResponse' smart constructor.
 data PutProjectEventsResponse = PutProjectEventsResponse'
-  { -- | The number of events in the operation that could not be used by
-    -- Evidently.
-    failedEventCount :: Prelude.Maybe Prelude.Int,
-    -- | A structure that contains Evidently\'s response to the sent events,
+  { -- | A structure that contains Evidently\'s response to the sent events,
     -- including an event ID and error codes, if any.
     eventResults :: Prelude.Maybe [PutProjectEventsResultEntry],
+    -- | The number of events in the operation that could not be used by
+    -- Evidently.
+    failedEventCount :: Prelude.Maybe Prelude.Int,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -163,11 +163,11 @@ data PutProjectEventsResponse = PutProjectEventsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'failedEventCount', 'putProjectEventsResponse_failedEventCount' - The number of events in the operation that could not be used by
--- Evidently.
---
 -- 'eventResults', 'putProjectEventsResponse_eventResults' - A structure that contains Evidently\'s response to the sent events,
 -- including an event ID and error codes, if any.
+--
+-- 'failedEventCount', 'putProjectEventsResponse_failedEventCount' - The number of events in the operation that could not be used by
+-- Evidently.
 --
 -- 'httpStatus', 'putProjectEventsResponse_httpStatus' - The response's http status code.
 newPutProjectEventsResponse ::
@@ -176,21 +176,21 @@ newPutProjectEventsResponse ::
   PutProjectEventsResponse
 newPutProjectEventsResponse pHttpStatus_ =
   PutProjectEventsResponse'
-    { failedEventCount =
+    { eventResults =
         Prelude.Nothing,
-      eventResults = Prelude.Nothing,
+      failedEventCount = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The number of events in the operation that could not be used by
--- Evidently.
-putProjectEventsResponse_failedEventCount :: Lens.Lens' PutProjectEventsResponse (Prelude.Maybe Prelude.Int)
-putProjectEventsResponse_failedEventCount = Lens.lens (\PutProjectEventsResponse' {failedEventCount} -> failedEventCount) (\s@PutProjectEventsResponse' {} a -> s {failedEventCount = a} :: PutProjectEventsResponse)
 
 -- | A structure that contains Evidently\'s response to the sent events,
 -- including an event ID and error codes, if any.
 putProjectEventsResponse_eventResults :: Lens.Lens' PutProjectEventsResponse (Prelude.Maybe [PutProjectEventsResultEntry])
 putProjectEventsResponse_eventResults = Lens.lens (\PutProjectEventsResponse' {eventResults} -> eventResults) (\s@PutProjectEventsResponse' {} a -> s {eventResults = a} :: PutProjectEventsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The number of events in the operation that could not be used by
+-- Evidently.
+putProjectEventsResponse_failedEventCount :: Lens.Lens' PutProjectEventsResponse (Prelude.Maybe Prelude.Int)
+putProjectEventsResponse_failedEventCount = Lens.lens (\PutProjectEventsResponse' {failedEventCount} -> failedEventCount) (\s@PutProjectEventsResponse' {} a -> s {failedEventCount = a} :: PutProjectEventsResponse)
 
 -- | The response's http status code.
 putProjectEventsResponse_httpStatus :: Lens.Lens' PutProjectEventsResponse Prelude.Int
@@ -198,6 +198,6 @@ putProjectEventsResponse_httpStatus = Lens.lens (\PutProjectEventsResponse' {htt
 
 instance Prelude.NFData PutProjectEventsResponse where
   rnf PutProjectEventsResponse' {..} =
-    Prelude.rnf failedEventCount
-      `Prelude.seq` Prelude.rnf eventResults
+    Prelude.rnf eventResults
+      `Prelude.seq` Prelude.rnf failedEventCount
       `Prelude.seq` Prelude.rnf httpStatus

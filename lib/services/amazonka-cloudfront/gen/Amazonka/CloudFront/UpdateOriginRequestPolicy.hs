@@ -50,8 +50,8 @@ module Amazonka.CloudFront.UpdateOriginRequestPolicy
     newUpdateOriginRequestPolicyResponse,
 
     -- * Response Lenses
-    updateOriginRequestPolicyResponse_originRequestPolicy,
     updateOriginRequestPolicyResponse_eTag,
+    updateOriginRequestPolicyResponse_originRequestPolicy,
     updateOriginRequestPolicyResponse_httpStatus,
   )
 where
@@ -142,8 +142,8 @@ instance Core.AWSRequest UpdateOriginRequestPolicy where
     Response.receiveXML
       ( \s h x ->
           UpdateOriginRequestPolicyResponse'
-            Prelude.<$> (Data.parseXML x)
-            Prelude.<*> (h Data..#? "ETag")
+            Prelude.<$> (h Data..#? "ETag")
+            Prelude.<*> (Data.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -179,10 +179,10 @@ instance Data.ToQuery UpdateOriginRequestPolicy where
 
 -- | /See:/ 'newUpdateOriginRequestPolicyResponse' smart constructor.
 data UpdateOriginRequestPolicyResponse = UpdateOriginRequestPolicyResponse'
-  { -- | An origin request policy.
-    originRequestPolicy :: Prelude.Maybe OriginRequestPolicy,
-    -- | The current version of the origin request policy.
+  { -- | The current version of the origin request policy.
     eTag :: Prelude.Maybe Prelude.Text,
+    -- | An origin request policy.
+    originRequestPolicy :: Prelude.Maybe OriginRequestPolicy,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -196,9 +196,9 @@ data UpdateOriginRequestPolicyResponse = UpdateOriginRequestPolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'originRequestPolicy', 'updateOriginRequestPolicyResponse_originRequestPolicy' - An origin request policy.
---
 -- 'eTag', 'updateOriginRequestPolicyResponse_eTag' - The current version of the origin request policy.
+--
+-- 'originRequestPolicy', 'updateOriginRequestPolicyResponse_originRequestPolicy' - An origin request policy.
 --
 -- 'httpStatus', 'updateOriginRequestPolicyResponse_httpStatus' - The response's http status code.
 newUpdateOriginRequestPolicyResponse ::
@@ -207,19 +207,19 @@ newUpdateOriginRequestPolicyResponse ::
   UpdateOriginRequestPolicyResponse
 newUpdateOriginRequestPolicyResponse pHttpStatus_ =
   UpdateOriginRequestPolicyResponse'
-    { originRequestPolicy =
+    { eTag =
         Prelude.Nothing,
-      eTag = Prelude.Nothing,
+      originRequestPolicy = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An origin request policy.
-updateOriginRequestPolicyResponse_originRequestPolicy :: Lens.Lens' UpdateOriginRequestPolicyResponse (Prelude.Maybe OriginRequestPolicy)
-updateOriginRequestPolicyResponse_originRequestPolicy = Lens.lens (\UpdateOriginRequestPolicyResponse' {originRequestPolicy} -> originRequestPolicy) (\s@UpdateOriginRequestPolicyResponse' {} a -> s {originRequestPolicy = a} :: UpdateOriginRequestPolicyResponse)
 
 -- | The current version of the origin request policy.
 updateOriginRequestPolicyResponse_eTag :: Lens.Lens' UpdateOriginRequestPolicyResponse (Prelude.Maybe Prelude.Text)
 updateOriginRequestPolicyResponse_eTag = Lens.lens (\UpdateOriginRequestPolicyResponse' {eTag} -> eTag) (\s@UpdateOriginRequestPolicyResponse' {} a -> s {eTag = a} :: UpdateOriginRequestPolicyResponse)
+
+-- | An origin request policy.
+updateOriginRequestPolicyResponse_originRequestPolicy :: Lens.Lens' UpdateOriginRequestPolicyResponse (Prelude.Maybe OriginRequestPolicy)
+updateOriginRequestPolicyResponse_originRequestPolicy = Lens.lens (\UpdateOriginRequestPolicyResponse' {originRequestPolicy} -> originRequestPolicy) (\s@UpdateOriginRequestPolicyResponse' {} a -> s {originRequestPolicy = a} :: UpdateOriginRequestPolicyResponse)
 
 -- | The response's http status code.
 updateOriginRequestPolicyResponse_httpStatus :: Lens.Lens' UpdateOriginRequestPolicyResponse Prelude.Int
@@ -230,6 +230,6 @@ instance
     UpdateOriginRequestPolicyResponse
   where
   rnf UpdateOriginRequestPolicyResponse' {..} =
-    Prelude.rnf originRequestPolicy
-      `Prelude.seq` Prelude.rnf eTag
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf originRequestPolicy
       `Prelude.seq` Prelude.rnf httpStatus

@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUpdatePolicy' smart constructor.
 data UpdatePolicy = UpdatePolicy'
-  { -- | Specifies whether jobs are automatically terminated when the computer
-    -- environment infrastructure is updated. The default value is @false@.
-    terminateJobsOnUpdate :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies the job timeout (in minutes) when the compute environment
+  { -- | Specifies the job timeout (in minutes) when the compute environment
     -- infrastructure is updated. The default value is 30.
-    jobExecutionTimeoutMinutes :: Prelude.Maybe Prelude.Natural
+    jobExecutionTimeoutMinutes :: Prelude.Maybe Prelude.Natural,
+    -- | Specifies whether jobs are automatically terminated when the computer
+    -- environment infrastructure is updated. The default value is @false@.
+    terminateJobsOnUpdate :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,29 +48,29 @@ data UpdatePolicy = UpdatePolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'terminateJobsOnUpdate', 'updatePolicy_terminateJobsOnUpdate' - Specifies whether jobs are automatically terminated when the computer
--- environment infrastructure is updated. The default value is @false@.
---
 -- 'jobExecutionTimeoutMinutes', 'updatePolicy_jobExecutionTimeoutMinutes' - Specifies the job timeout (in minutes) when the compute environment
 -- infrastructure is updated. The default value is 30.
+--
+-- 'terminateJobsOnUpdate', 'updatePolicy_terminateJobsOnUpdate' - Specifies whether jobs are automatically terminated when the computer
+-- environment infrastructure is updated. The default value is @false@.
 newUpdatePolicy ::
   UpdatePolicy
 newUpdatePolicy =
   UpdatePolicy'
-    { terminateJobsOnUpdate =
+    { jobExecutionTimeoutMinutes =
         Prelude.Nothing,
-      jobExecutionTimeoutMinutes = Prelude.Nothing
+      terminateJobsOnUpdate = Prelude.Nothing
     }
-
--- | Specifies whether jobs are automatically terminated when the computer
--- environment infrastructure is updated. The default value is @false@.
-updatePolicy_terminateJobsOnUpdate :: Lens.Lens' UpdatePolicy (Prelude.Maybe Prelude.Bool)
-updatePolicy_terminateJobsOnUpdate = Lens.lens (\UpdatePolicy' {terminateJobsOnUpdate} -> terminateJobsOnUpdate) (\s@UpdatePolicy' {} a -> s {terminateJobsOnUpdate = a} :: UpdatePolicy)
 
 -- | Specifies the job timeout (in minutes) when the compute environment
 -- infrastructure is updated. The default value is 30.
 updatePolicy_jobExecutionTimeoutMinutes :: Lens.Lens' UpdatePolicy (Prelude.Maybe Prelude.Natural)
 updatePolicy_jobExecutionTimeoutMinutes = Lens.lens (\UpdatePolicy' {jobExecutionTimeoutMinutes} -> jobExecutionTimeoutMinutes) (\s@UpdatePolicy' {} a -> s {jobExecutionTimeoutMinutes = a} :: UpdatePolicy)
+
+-- | Specifies whether jobs are automatically terminated when the computer
+-- environment infrastructure is updated. The default value is @false@.
+updatePolicy_terminateJobsOnUpdate :: Lens.Lens' UpdatePolicy (Prelude.Maybe Prelude.Bool)
+updatePolicy_terminateJobsOnUpdate = Lens.lens (\UpdatePolicy' {terminateJobsOnUpdate} -> terminateJobsOnUpdate) (\s@UpdatePolicy' {} a -> s {terminateJobsOnUpdate = a} :: UpdatePolicy)
 
 instance Data.FromJSON UpdatePolicy where
   parseJSON =
@@ -78,27 +78,28 @@ instance Data.FromJSON UpdatePolicy where
       "UpdatePolicy"
       ( \x ->
           UpdatePolicy'
-            Prelude.<$> (x Data..:? "terminateJobsOnUpdate")
-            Prelude.<*> (x Data..:? "jobExecutionTimeoutMinutes")
+            Prelude.<$> (x Data..:? "jobExecutionTimeoutMinutes")
+            Prelude.<*> (x Data..:? "terminateJobsOnUpdate")
       )
 
 instance Prelude.Hashable UpdatePolicy where
   hashWithSalt _salt UpdatePolicy' {..} =
-    _salt `Prelude.hashWithSalt` terminateJobsOnUpdate
+    _salt
       `Prelude.hashWithSalt` jobExecutionTimeoutMinutes
+      `Prelude.hashWithSalt` terminateJobsOnUpdate
 
 instance Prelude.NFData UpdatePolicy where
   rnf UpdatePolicy' {..} =
-    Prelude.rnf terminateJobsOnUpdate
-      `Prelude.seq` Prelude.rnf jobExecutionTimeoutMinutes
+    Prelude.rnf jobExecutionTimeoutMinutes
+      `Prelude.seq` Prelude.rnf terminateJobsOnUpdate
 
 instance Data.ToJSON UpdatePolicy where
   toJSON UpdatePolicy' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("terminateJobsOnUpdate" Data..=)
-              Prelude.<$> terminateJobsOnUpdate,
-            ("jobExecutionTimeoutMinutes" Data..=)
-              Prelude.<$> jobExecutionTimeoutMinutes
+          [ ("jobExecutionTimeoutMinutes" Data..=)
+              Prelude.<$> jobExecutionTimeoutMinutes,
+            ("terminateJobsOnUpdate" Data..=)
+              Prelude.<$> terminateJobsOnUpdate
           ]
       )

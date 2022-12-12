@@ -27,9 +27,9 @@ module Amazonka.LexV2Models.ListBuiltInSlotTypes
     newListBuiltInSlotTypes,
 
     -- * Request Lenses
+    listBuiltInSlotTypes_maxResults,
     listBuiltInSlotTypes_nextToken,
     listBuiltInSlotTypes_sortBy,
-    listBuiltInSlotTypes_maxResults,
     listBuiltInSlotTypes_localeId,
 
     -- * Destructuring the Response
@@ -37,9 +37,9 @@ module Amazonka.LexV2Models.ListBuiltInSlotTypes
     newListBuiltInSlotTypesResponse,
 
     -- * Response Lenses
-    listBuiltInSlotTypesResponse_nextToken,
-    listBuiltInSlotTypesResponse_localeId,
     listBuiltInSlotTypesResponse_builtInSlotTypeSummaries,
+    listBuiltInSlotTypesResponse_localeId,
+    listBuiltInSlotTypesResponse_nextToken,
     listBuiltInSlotTypesResponse_httpStatus,
   )
 where
@@ -54,7 +54,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListBuiltInSlotTypes' smart constructor.
 data ListBuiltInSlotTypes = ListBuiltInSlotTypes'
-  { -- | If the response from the @ListBuiltInSlotTypes@ operation contains more
+  { -- | The maximum number of built-in slot types to return in each page of
+    -- results. If there are fewer results than the max page size, only the
+    -- actual number of results are returned.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the response from the @ListBuiltInSlotTypes@ operation contains more
     -- results than specified in the @maxResults@ parameter, a token is
     -- returned in the response. Use that token in the @nextToken@ parameter to
     -- return the next page of results.
@@ -63,10 +67,6 @@ data ListBuiltInSlotTypes = ListBuiltInSlotTypes'
     -- @ListBuiltInSlotTypes@ operation. You can choose to sort by the slot
     -- type signature in either ascending or descending order.
     sortBy :: Prelude.Maybe BuiltInSlotTypeSortBy,
-    -- | The maximum number of built-in slot types to return in each page of
-    -- results. If there are fewer results than the max page size, only the
-    -- actual number of results are returned.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the language and locale of the slot types to list. The
     -- string must match one of the supported locales. For more information,
     -- see
@@ -83,6 +83,10 @@ data ListBuiltInSlotTypes = ListBuiltInSlotTypes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listBuiltInSlotTypes_maxResults' - The maximum number of built-in slot types to return in each page of
+-- results. If there are fewer results than the max page size, only the
+-- actual number of results are returned.
+--
 -- 'nextToken', 'listBuiltInSlotTypes_nextToken' - If the response from the @ListBuiltInSlotTypes@ operation contains more
 -- results than specified in the @maxResults@ parameter, a token is
 -- returned in the response. Use that token in the @nextToken@ parameter to
@@ -91,10 +95,6 @@ data ListBuiltInSlotTypes = ListBuiltInSlotTypes'
 -- 'sortBy', 'listBuiltInSlotTypes_sortBy' - Determines the sort order for the response from the
 -- @ListBuiltInSlotTypes@ operation. You can choose to sort by the slot
 -- type signature in either ascending or descending order.
---
--- 'maxResults', 'listBuiltInSlotTypes_maxResults' - The maximum number of built-in slot types to return in each page of
--- results. If there are fewer results than the max page size, only the
--- actual number of results are returned.
 --
 -- 'localeId', 'listBuiltInSlotTypes_localeId' - The identifier of the language and locale of the slot types to list. The
 -- string must match one of the supported locales. For more information,
@@ -106,11 +106,17 @@ newListBuiltInSlotTypes ::
   ListBuiltInSlotTypes
 newListBuiltInSlotTypes pLocaleId_ =
   ListBuiltInSlotTypes'
-    { nextToken = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       sortBy = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       localeId = pLocaleId_
     }
+
+-- | The maximum number of built-in slot types to return in each page of
+-- results. If there are fewer results than the max page size, only the
+-- actual number of results are returned.
+listBuiltInSlotTypes_maxResults :: Lens.Lens' ListBuiltInSlotTypes (Prelude.Maybe Prelude.Natural)
+listBuiltInSlotTypes_maxResults = Lens.lens (\ListBuiltInSlotTypes' {maxResults} -> maxResults) (\s@ListBuiltInSlotTypes' {} a -> s {maxResults = a} :: ListBuiltInSlotTypes)
 
 -- | If the response from the @ListBuiltInSlotTypes@ operation contains more
 -- results than specified in the @maxResults@ parameter, a token is
@@ -124,12 +130,6 @@ listBuiltInSlotTypes_nextToken = Lens.lens (\ListBuiltInSlotTypes' {nextToken} -
 -- type signature in either ascending or descending order.
 listBuiltInSlotTypes_sortBy :: Lens.Lens' ListBuiltInSlotTypes (Prelude.Maybe BuiltInSlotTypeSortBy)
 listBuiltInSlotTypes_sortBy = Lens.lens (\ListBuiltInSlotTypes' {sortBy} -> sortBy) (\s@ListBuiltInSlotTypes' {} a -> s {sortBy = a} :: ListBuiltInSlotTypes)
-
--- | The maximum number of built-in slot types to return in each page of
--- results. If there are fewer results than the max page size, only the
--- actual number of results are returned.
-listBuiltInSlotTypes_maxResults :: Lens.Lens' ListBuiltInSlotTypes (Prelude.Maybe Prelude.Natural)
-listBuiltInSlotTypes_maxResults = Lens.lens (\ListBuiltInSlotTypes' {maxResults} -> maxResults) (\s@ListBuiltInSlotTypes' {} a -> s {maxResults = a} :: ListBuiltInSlotTypes)
 
 -- | The identifier of the language and locale of the slot types to list. The
 -- string must match one of the supported locales. For more information,
@@ -148,26 +148,26 @@ instance Core.AWSRequest ListBuiltInSlotTypes where
     Response.receiveJSON
       ( \s h x ->
           ListBuiltInSlotTypesResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "localeId")
-            Prelude.<*> ( x Data..?> "builtInSlotTypeSummaries"
+            Prelude.<$> ( x Data..?> "builtInSlotTypeSummaries"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "localeId")
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListBuiltInSlotTypes where
   hashWithSalt _salt ListBuiltInSlotTypes' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortBy
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` localeId
 
 instance Prelude.NFData ListBuiltInSlotTypes where
   rnf ListBuiltInSlotTypes' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf localeId
 
 instance Data.ToHeaders ListBuiltInSlotTypes where
@@ -185,9 +185,9 @@ instance Data.ToJSON ListBuiltInSlotTypes where
   toJSON ListBuiltInSlotTypes' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("sortBy" Data..=) Prelude.<$> sortBy,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("sortBy" Data..=) Prelude.<$> sortBy
           ]
       )
 
@@ -204,20 +204,20 @@ instance Data.ToQuery ListBuiltInSlotTypes where
 
 -- | /See:/ 'newListBuiltInSlotTypesResponse' smart constructor.
 data ListBuiltInSlotTypesResponse = ListBuiltInSlotTypesResponse'
-  { -- | A token that indicates whether there are more results to return in a
-    -- response to the @ListBuiltInSlotTypes@ operation. If the @nextToken@
-    -- field is present, you send the contents as the @nextToken@ parameter of
-    -- a @LIstBuiltInSlotTypes@ operation request to get the next page of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The language and locale of the slot types in the list.
-    localeId :: Prelude.Maybe Prelude.Text,
-    -- | Summary information for the built-in slot types that meet the filter
+  { -- | Summary information for the built-in slot types that meet the filter
     -- criteria specified in the request. The length of the list is specified
     -- in the @maxResults@ parameter of the request. If there are more slot
     -- types available, the @nextToken@ field contains a token to get the next
     -- page of results.
     builtInSlotTypeSummaries :: Prelude.Maybe [BuiltInSlotTypeSummary],
+    -- | The language and locale of the slot types in the list.
+    localeId :: Prelude.Maybe Prelude.Text,
+    -- | A token that indicates whether there are more results to return in a
+    -- response to the @ListBuiltInSlotTypes@ operation. If the @nextToken@
+    -- field is present, you send the contents as the @nextToken@ parameter of
+    -- a @LIstBuiltInSlotTypes@ operation request to get the next page of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -231,19 +231,19 @@ data ListBuiltInSlotTypesResponse = ListBuiltInSlotTypesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listBuiltInSlotTypesResponse_nextToken' - A token that indicates whether there are more results to return in a
--- response to the @ListBuiltInSlotTypes@ operation. If the @nextToken@
--- field is present, you send the contents as the @nextToken@ parameter of
--- a @LIstBuiltInSlotTypes@ operation request to get the next page of
--- results.
---
--- 'localeId', 'listBuiltInSlotTypesResponse_localeId' - The language and locale of the slot types in the list.
---
 -- 'builtInSlotTypeSummaries', 'listBuiltInSlotTypesResponse_builtInSlotTypeSummaries' - Summary information for the built-in slot types that meet the filter
 -- criteria specified in the request. The length of the list is specified
 -- in the @maxResults@ parameter of the request. If there are more slot
 -- types available, the @nextToken@ field contains a token to get the next
 -- page of results.
+--
+-- 'localeId', 'listBuiltInSlotTypesResponse_localeId' - The language and locale of the slot types in the list.
+--
+-- 'nextToken', 'listBuiltInSlotTypesResponse_nextToken' - A token that indicates whether there are more results to return in a
+-- response to the @ListBuiltInSlotTypes@ operation. If the @nextToken@
+-- field is present, you send the contents as the @nextToken@ parameter of
+-- a @LIstBuiltInSlotTypes@ operation request to get the next page of
+-- results.
 --
 -- 'httpStatus', 'listBuiltInSlotTypesResponse_httpStatus' - The response's http status code.
 newListBuiltInSlotTypesResponse ::
@@ -252,24 +252,12 @@ newListBuiltInSlotTypesResponse ::
   ListBuiltInSlotTypesResponse
 newListBuiltInSlotTypesResponse pHttpStatus_ =
   ListBuiltInSlotTypesResponse'
-    { nextToken =
+    { builtInSlotTypeSummaries =
         Prelude.Nothing,
       localeId = Prelude.Nothing,
-      builtInSlotTypeSummaries = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A token that indicates whether there are more results to return in a
--- response to the @ListBuiltInSlotTypes@ operation. If the @nextToken@
--- field is present, you send the contents as the @nextToken@ parameter of
--- a @LIstBuiltInSlotTypes@ operation request to get the next page of
--- results.
-listBuiltInSlotTypesResponse_nextToken :: Lens.Lens' ListBuiltInSlotTypesResponse (Prelude.Maybe Prelude.Text)
-listBuiltInSlotTypesResponse_nextToken = Lens.lens (\ListBuiltInSlotTypesResponse' {nextToken} -> nextToken) (\s@ListBuiltInSlotTypesResponse' {} a -> s {nextToken = a} :: ListBuiltInSlotTypesResponse)
-
--- | The language and locale of the slot types in the list.
-listBuiltInSlotTypesResponse_localeId :: Lens.Lens' ListBuiltInSlotTypesResponse (Prelude.Maybe Prelude.Text)
-listBuiltInSlotTypesResponse_localeId = Lens.lens (\ListBuiltInSlotTypesResponse' {localeId} -> localeId) (\s@ListBuiltInSlotTypesResponse' {} a -> s {localeId = a} :: ListBuiltInSlotTypesResponse)
 
 -- | Summary information for the built-in slot types that meet the filter
 -- criteria specified in the request. The length of the list is specified
@@ -279,13 +267,25 @@ listBuiltInSlotTypesResponse_localeId = Lens.lens (\ListBuiltInSlotTypesResponse
 listBuiltInSlotTypesResponse_builtInSlotTypeSummaries :: Lens.Lens' ListBuiltInSlotTypesResponse (Prelude.Maybe [BuiltInSlotTypeSummary])
 listBuiltInSlotTypesResponse_builtInSlotTypeSummaries = Lens.lens (\ListBuiltInSlotTypesResponse' {builtInSlotTypeSummaries} -> builtInSlotTypeSummaries) (\s@ListBuiltInSlotTypesResponse' {} a -> s {builtInSlotTypeSummaries = a} :: ListBuiltInSlotTypesResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The language and locale of the slot types in the list.
+listBuiltInSlotTypesResponse_localeId :: Lens.Lens' ListBuiltInSlotTypesResponse (Prelude.Maybe Prelude.Text)
+listBuiltInSlotTypesResponse_localeId = Lens.lens (\ListBuiltInSlotTypesResponse' {localeId} -> localeId) (\s@ListBuiltInSlotTypesResponse' {} a -> s {localeId = a} :: ListBuiltInSlotTypesResponse)
+
+-- | A token that indicates whether there are more results to return in a
+-- response to the @ListBuiltInSlotTypes@ operation. If the @nextToken@
+-- field is present, you send the contents as the @nextToken@ parameter of
+-- a @LIstBuiltInSlotTypes@ operation request to get the next page of
+-- results.
+listBuiltInSlotTypesResponse_nextToken :: Lens.Lens' ListBuiltInSlotTypesResponse (Prelude.Maybe Prelude.Text)
+listBuiltInSlotTypesResponse_nextToken = Lens.lens (\ListBuiltInSlotTypesResponse' {nextToken} -> nextToken) (\s@ListBuiltInSlotTypesResponse' {} a -> s {nextToken = a} :: ListBuiltInSlotTypesResponse)
+
 -- | The response's http status code.
 listBuiltInSlotTypesResponse_httpStatus :: Lens.Lens' ListBuiltInSlotTypesResponse Prelude.Int
 listBuiltInSlotTypesResponse_httpStatus = Lens.lens (\ListBuiltInSlotTypesResponse' {httpStatus} -> httpStatus) (\s@ListBuiltInSlotTypesResponse' {} a -> s {httpStatus = a} :: ListBuiltInSlotTypesResponse)
 
 instance Prelude.NFData ListBuiltInSlotTypesResponse where
   rnf ListBuiltInSlotTypesResponse' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf builtInSlotTypeSummaries
       `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf builtInSlotTypeSummaries
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

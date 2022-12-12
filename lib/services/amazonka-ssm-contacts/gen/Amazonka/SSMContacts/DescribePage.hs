@@ -35,11 +35,11 @@ module Amazonka.SSMContacts.DescribePage
 
     -- * Response Lenses
     describePageResponse_deliveryTime,
-    describePageResponse_publicContent,
-    describePageResponse_sentTime,
-    describePageResponse_publicSubject,
     describePageResponse_incidentId,
+    describePageResponse_publicContent,
+    describePageResponse_publicSubject,
     describePageResponse_readTime,
+    describePageResponse_sentTime,
     describePageResponse_httpStatus,
     describePageResponse_pageArn,
     describePageResponse_engagementArn,
@@ -94,11 +94,11 @@ instance Core.AWSRequest DescribePage where
       ( \s h x ->
           DescribePageResponse'
             Prelude.<$> (x Data..?> "DeliveryTime")
-            Prelude.<*> (x Data..?> "PublicContent")
-            Prelude.<*> (x Data..?> "SentTime")
-            Prelude.<*> (x Data..?> "PublicSubject")
             Prelude.<*> (x Data..?> "IncidentId")
+            Prelude.<*> (x Data..?> "PublicContent")
+            Prelude.<*> (x Data..?> "PublicSubject")
             Prelude.<*> (x Data..?> "ReadTime")
+            Prelude.<*> (x Data..?> "SentTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "PageArn")
             Prelude.<*> (x Data..:> "EngagementArn")
@@ -145,18 +145,18 @@ instance Data.ToQuery DescribePage where
 data DescribePageResponse = DescribePageResponse'
   { -- | The time that the contact channel received the engagement.
     deliveryTime :: Prelude.Maybe Data.POSIX,
+    -- | The ARN of the incident that engaged the contact channel.
+    incidentId :: Prelude.Maybe Prelude.Text,
     -- | The insecure content of the message that was sent to the contact. Use
     -- this field for engagements to @SMS@.
     publicContent :: Prelude.Maybe Prelude.Text,
-    -- | The time the engagement was sent to the contact channel.
-    sentTime :: Prelude.Maybe Data.POSIX,
     -- | The insecure subject of the message that was sent to the contact. Use
     -- this field for engagements to @SMS@.
     publicSubject :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the incident that engaged the contact channel.
-    incidentId :: Prelude.Maybe Prelude.Text,
     -- | The time that the contact channel acknowledged the engagement.
     readTime :: Prelude.Maybe Data.POSIX,
+    -- | The time the engagement was sent to the contact channel.
+    sentTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the engagement to a contact channel.
@@ -186,17 +186,17 @@ data DescribePageResponse = DescribePageResponse'
 --
 -- 'deliveryTime', 'describePageResponse_deliveryTime' - The time that the contact channel received the engagement.
 --
+-- 'incidentId', 'describePageResponse_incidentId' - The ARN of the incident that engaged the contact channel.
+--
 -- 'publicContent', 'describePageResponse_publicContent' - The insecure content of the message that was sent to the contact. Use
 -- this field for engagements to @SMS@.
---
--- 'sentTime', 'describePageResponse_sentTime' - The time the engagement was sent to the contact channel.
 --
 -- 'publicSubject', 'describePageResponse_publicSubject' - The insecure subject of the message that was sent to the contact. Use
 -- this field for engagements to @SMS@.
 --
--- 'incidentId', 'describePageResponse_incidentId' - The ARN of the incident that engaged the contact channel.
---
 -- 'readTime', 'describePageResponse_readTime' - The time that the contact channel acknowledged the engagement.
+--
+-- 'sentTime', 'describePageResponse_sentTime' - The time the engagement was sent to the contact channel.
 --
 -- 'httpStatus', 'describePageResponse_httpStatus' - The response's http status code.
 --
@@ -240,11 +240,11 @@ newDescribePageResponse
     DescribePageResponse'
       { deliveryTime =
           Prelude.Nothing,
-        publicContent = Prelude.Nothing,
-        sentTime = Prelude.Nothing,
-        publicSubject = Prelude.Nothing,
         incidentId = Prelude.Nothing,
+        publicContent = Prelude.Nothing,
+        publicSubject = Prelude.Nothing,
         readTime = Prelude.Nothing,
+        sentTime = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         pageArn = pPageArn_,
         engagementArn = pEngagementArn_,
@@ -258,27 +258,27 @@ newDescribePageResponse
 describePageResponse_deliveryTime :: Lens.Lens' DescribePageResponse (Prelude.Maybe Prelude.UTCTime)
 describePageResponse_deliveryTime = Lens.lens (\DescribePageResponse' {deliveryTime} -> deliveryTime) (\s@DescribePageResponse' {} a -> s {deliveryTime = a} :: DescribePageResponse) Prelude.. Lens.mapping Data._Time
 
+-- | The ARN of the incident that engaged the contact channel.
+describePageResponse_incidentId :: Lens.Lens' DescribePageResponse (Prelude.Maybe Prelude.Text)
+describePageResponse_incidentId = Lens.lens (\DescribePageResponse' {incidentId} -> incidentId) (\s@DescribePageResponse' {} a -> s {incidentId = a} :: DescribePageResponse)
+
 -- | The insecure content of the message that was sent to the contact. Use
 -- this field for engagements to @SMS@.
 describePageResponse_publicContent :: Lens.Lens' DescribePageResponse (Prelude.Maybe Prelude.Text)
 describePageResponse_publicContent = Lens.lens (\DescribePageResponse' {publicContent} -> publicContent) (\s@DescribePageResponse' {} a -> s {publicContent = a} :: DescribePageResponse)
-
--- | The time the engagement was sent to the contact channel.
-describePageResponse_sentTime :: Lens.Lens' DescribePageResponse (Prelude.Maybe Prelude.UTCTime)
-describePageResponse_sentTime = Lens.lens (\DescribePageResponse' {sentTime} -> sentTime) (\s@DescribePageResponse' {} a -> s {sentTime = a} :: DescribePageResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The insecure subject of the message that was sent to the contact. Use
 -- this field for engagements to @SMS@.
 describePageResponse_publicSubject :: Lens.Lens' DescribePageResponse (Prelude.Maybe Prelude.Text)
 describePageResponse_publicSubject = Lens.lens (\DescribePageResponse' {publicSubject} -> publicSubject) (\s@DescribePageResponse' {} a -> s {publicSubject = a} :: DescribePageResponse)
 
--- | The ARN of the incident that engaged the contact channel.
-describePageResponse_incidentId :: Lens.Lens' DescribePageResponse (Prelude.Maybe Prelude.Text)
-describePageResponse_incidentId = Lens.lens (\DescribePageResponse' {incidentId} -> incidentId) (\s@DescribePageResponse' {} a -> s {incidentId = a} :: DescribePageResponse)
-
 -- | The time that the contact channel acknowledged the engagement.
 describePageResponse_readTime :: Lens.Lens' DescribePageResponse (Prelude.Maybe Prelude.UTCTime)
 describePageResponse_readTime = Lens.lens (\DescribePageResponse' {readTime} -> readTime) (\s@DescribePageResponse' {} a -> s {readTime = a} :: DescribePageResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The time the engagement was sent to the contact channel.
+describePageResponse_sentTime :: Lens.Lens' DescribePageResponse (Prelude.Maybe Prelude.UTCTime)
+describePageResponse_sentTime = Lens.lens (\DescribePageResponse' {sentTime} -> sentTime) (\s@DescribePageResponse' {} a -> s {sentTime = a} :: DescribePageResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describePageResponse_httpStatus :: Lens.Lens' DescribePageResponse Prelude.Int
@@ -313,11 +313,11 @@ describePageResponse_content = Lens.lens (\DescribePageResponse' {content} -> co
 instance Prelude.NFData DescribePageResponse where
   rnf DescribePageResponse' {..} =
     Prelude.rnf deliveryTime
-      `Prelude.seq` Prelude.rnf publicContent
-      `Prelude.seq` Prelude.rnf sentTime
-      `Prelude.seq` Prelude.rnf publicSubject
       `Prelude.seq` Prelude.rnf incidentId
+      `Prelude.seq` Prelude.rnf publicContent
+      `Prelude.seq` Prelude.rnf publicSubject
       `Prelude.seq` Prelude.rnf readTime
+      `Prelude.seq` Prelude.rnf sentTime
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf pageArn
       `Prelude.seq` Prelude.rnf engagementArn

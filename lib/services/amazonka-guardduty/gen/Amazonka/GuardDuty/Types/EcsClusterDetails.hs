@@ -30,23 +30,23 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEcsClusterDetails' smart constructor.
 data EcsClusterDetails = EcsClusterDetails'
-  { -- | The tags of the ECS Cluster.
-    tags :: Prelude.Maybe [Tag],
-    -- | The name of the ECS Cluster.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Contains information about the details of the ECS Task.
-    taskDetails :: Prelude.Maybe EcsTaskDetails,
+  { -- | The number of services that are running on the cluster in an ACTIVE
+    -- state.
+    activeServicesCount :: Prelude.Maybe Prelude.Int,
     -- | The Amazon Resource Name (ARN) that identifies the cluster.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the ECS Cluster.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The number of container instances registered into the cluster.
     registeredContainerInstancesCount :: Prelude.Maybe Prelude.Int,
-    -- | The status of the ECS cluster.
-    status :: Prelude.Maybe Prelude.Text,
     -- | The number of tasks in the cluster that are in the RUNNING state.
     runningTasksCount :: Prelude.Maybe Prelude.Int,
-    -- | The number of services that are running on the cluster in an ACTIVE
-    -- state.
-    activeServicesCount :: Prelude.Maybe Prelude.Int
+    -- | The status of the ECS cluster.
+    status :: Prelude.Maybe Prelude.Text,
+    -- | The tags of the ECS Cluster.
+    tags :: Prelude.Maybe [Tag],
+    -- | Contains information about the details of the ECS Task.
+    taskDetails :: Prelude.Maybe EcsTaskDetails
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,68 +58,69 @@ data EcsClusterDetails = EcsClusterDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'ecsClusterDetails_tags' - The tags of the ECS Cluster.
---
--- 'name', 'ecsClusterDetails_name' - The name of the ECS Cluster.
---
--- 'taskDetails', 'ecsClusterDetails_taskDetails' - Contains information about the details of the ECS Task.
+-- 'activeServicesCount', 'ecsClusterDetails_activeServicesCount' - The number of services that are running on the cluster in an ACTIVE
+-- state.
 --
 -- 'arn', 'ecsClusterDetails_arn' - The Amazon Resource Name (ARN) that identifies the cluster.
 --
--- 'registeredContainerInstancesCount', 'ecsClusterDetails_registeredContainerInstancesCount' - The number of container instances registered into the cluster.
+-- 'name', 'ecsClusterDetails_name' - The name of the ECS Cluster.
 --
--- 'status', 'ecsClusterDetails_status' - The status of the ECS cluster.
+-- 'registeredContainerInstancesCount', 'ecsClusterDetails_registeredContainerInstancesCount' - The number of container instances registered into the cluster.
 --
 -- 'runningTasksCount', 'ecsClusterDetails_runningTasksCount' - The number of tasks in the cluster that are in the RUNNING state.
 --
--- 'activeServicesCount', 'ecsClusterDetails_activeServicesCount' - The number of services that are running on the cluster in an ACTIVE
--- state.
+-- 'status', 'ecsClusterDetails_status' - The status of the ECS cluster.
+--
+-- 'tags', 'ecsClusterDetails_tags' - The tags of the ECS Cluster.
+--
+-- 'taskDetails', 'ecsClusterDetails_taskDetails' - Contains information about the details of the ECS Task.
 newEcsClusterDetails ::
   EcsClusterDetails
 newEcsClusterDetails =
   EcsClusterDetails'
-    { tags = Prelude.Nothing,
-      name = Prelude.Nothing,
-      taskDetails = Prelude.Nothing,
+    { activeServicesCount =
+        Prelude.Nothing,
       arn = Prelude.Nothing,
+      name = Prelude.Nothing,
       registeredContainerInstancesCount = Prelude.Nothing,
-      status = Prelude.Nothing,
       runningTasksCount = Prelude.Nothing,
-      activeServicesCount = Prelude.Nothing
+      status = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      taskDetails = Prelude.Nothing
     }
-
--- | The tags of the ECS Cluster.
-ecsClusterDetails_tags :: Lens.Lens' EcsClusterDetails (Prelude.Maybe [Tag])
-ecsClusterDetails_tags = Lens.lens (\EcsClusterDetails' {tags} -> tags) (\s@EcsClusterDetails' {} a -> s {tags = a} :: EcsClusterDetails) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the ECS Cluster.
-ecsClusterDetails_name :: Lens.Lens' EcsClusterDetails (Prelude.Maybe Prelude.Text)
-ecsClusterDetails_name = Lens.lens (\EcsClusterDetails' {name} -> name) (\s@EcsClusterDetails' {} a -> s {name = a} :: EcsClusterDetails)
-
--- | Contains information about the details of the ECS Task.
-ecsClusterDetails_taskDetails :: Lens.Lens' EcsClusterDetails (Prelude.Maybe EcsTaskDetails)
-ecsClusterDetails_taskDetails = Lens.lens (\EcsClusterDetails' {taskDetails} -> taskDetails) (\s@EcsClusterDetails' {} a -> s {taskDetails = a} :: EcsClusterDetails)
-
--- | The Amazon Resource Name (ARN) that identifies the cluster.
-ecsClusterDetails_arn :: Lens.Lens' EcsClusterDetails (Prelude.Maybe Prelude.Text)
-ecsClusterDetails_arn = Lens.lens (\EcsClusterDetails' {arn} -> arn) (\s@EcsClusterDetails' {} a -> s {arn = a} :: EcsClusterDetails)
-
--- | The number of container instances registered into the cluster.
-ecsClusterDetails_registeredContainerInstancesCount :: Lens.Lens' EcsClusterDetails (Prelude.Maybe Prelude.Int)
-ecsClusterDetails_registeredContainerInstancesCount = Lens.lens (\EcsClusterDetails' {registeredContainerInstancesCount} -> registeredContainerInstancesCount) (\s@EcsClusterDetails' {} a -> s {registeredContainerInstancesCount = a} :: EcsClusterDetails)
-
--- | The status of the ECS cluster.
-ecsClusterDetails_status :: Lens.Lens' EcsClusterDetails (Prelude.Maybe Prelude.Text)
-ecsClusterDetails_status = Lens.lens (\EcsClusterDetails' {status} -> status) (\s@EcsClusterDetails' {} a -> s {status = a} :: EcsClusterDetails)
-
--- | The number of tasks in the cluster that are in the RUNNING state.
-ecsClusterDetails_runningTasksCount :: Lens.Lens' EcsClusterDetails (Prelude.Maybe Prelude.Int)
-ecsClusterDetails_runningTasksCount = Lens.lens (\EcsClusterDetails' {runningTasksCount} -> runningTasksCount) (\s@EcsClusterDetails' {} a -> s {runningTasksCount = a} :: EcsClusterDetails)
 
 -- | The number of services that are running on the cluster in an ACTIVE
 -- state.
 ecsClusterDetails_activeServicesCount :: Lens.Lens' EcsClusterDetails (Prelude.Maybe Prelude.Int)
 ecsClusterDetails_activeServicesCount = Lens.lens (\EcsClusterDetails' {activeServicesCount} -> activeServicesCount) (\s@EcsClusterDetails' {} a -> s {activeServicesCount = a} :: EcsClusterDetails)
+
+-- | The Amazon Resource Name (ARN) that identifies the cluster.
+ecsClusterDetails_arn :: Lens.Lens' EcsClusterDetails (Prelude.Maybe Prelude.Text)
+ecsClusterDetails_arn = Lens.lens (\EcsClusterDetails' {arn} -> arn) (\s@EcsClusterDetails' {} a -> s {arn = a} :: EcsClusterDetails)
+
+-- | The name of the ECS Cluster.
+ecsClusterDetails_name :: Lens.Lens' EcsClusterDetails (Prelude.Maybe Prelude.Text)
+ecsClusterDetails_name = Lens.lens (\EcsClusterDetails' {name} -> name) (\s@EcsClusterDetails' {} a -> s {name = a} :: EcsClusterDetails)
+
+-- | The number of container instances registered into the cluster.
+ecsClusterDetails_registeredContainerInstancesCount :: Lens.Lens' EcsClusterDetails (Prelude.Maybe Prelude.Int)
+ecsClusterDetails_registeredContainerInstancesCount = Lens.lens (\EcsClusterDetails' {registeredContainerInstancesCount} -> registeredContainerInstancesCount) (\s@EcsClusterDetails' {} a -> s {registeredContainerInstancesCount = a} :: EcsClusterDetails)
+
+-- | The number of tasks in the cluster that are in the RUNNING state.
+ecsClusterDetails_runningTasksCount :: Lens.Lens' EcsClusterDetails (Prelude.Maybe Prelude.Int)
+ecsClusterDetails_runningTasksCount = Lens.lens (\EcsClusterDetails' {runningTasksCount} -> runningTasksCount) (\s@EcsClusterDetails' {} a -> s {runningTasksCount = a} :: EcsClusterDetails)
+
+-- | The status of the ECS cluster.
+ecsClusterDetails_status :: Lens.Lens' EcsClusterDetails (Prelude.Maybe Prelude.Text)
+ecsClusterDetails_status = Lens.lens (\EcsClusterDetails' {status} -> status) (\s@EcsClusterDetails' {} a -> s {status = a} :: EcsClusterDetails)
+
+-- | The tags of the ECS Cluster.
+ecsClusterDetails_tags :: Lens.Lens' EcsClusterDetails (Prelude.Maybe [Tag])
+ecsClusterDetails_tags = Lens.lens (\EcsClusterDetails' {tags} -> tags) (\s@EcsClusterDetails' {} a -> s {tags = a} :: EcsClusterDetails) Prelude.. Lens.mapping Lens.coerced
+
+-- | Contains information about the details of the ECS Task.
+ecsClusterDetails_taskDetails :: Lens.Lens' EcsClusterDetails (Prelude.Maybe EcsTaskDetails)
+ecsClusterDetails_taskDetails = Lens.lens (\EcsClusterDetails' {taskDetails} -> taskDetails) (\s@EcsClusterDetails' {} a -> s {taskDetails = a} :: EcsClusterDetails)
 
 instance Data.FromJSON EcsClusterDetails where
   parseJSON =
@@ -127,34 +128,34 @@ instance Data.FromJSON EcsClusterDetails where
       "EcsClusterDetails"
       ( \x ->
           EcsClusterDetails'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "taskDetails")
+            Prelude.<$> (x Data..:? "activeServicesCount")
             Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "registeredContainerInstancesCount")
-            Prelude.<*> (x Data..:? "status")
             Prelude.<*> (x Data..:? "runningTasksCount")
-            Prelude.<*> (x Data..:? "activeServicesCount")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "taskDetails")
       )
 
 instance Prelude.Hashable EcsClusterDetails where
   hashWithSalt _salt EcsClusterDetails' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` taskDetails
+    _salt `Prelude.hashWithSalt` activeServicesCount
       `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` registeredContainerInstancesCount
-      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` runningTasksCount
-      `Prelude.hashWithSalt` activeServicesCount
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` taskDetails
 
 instance Prelude.NFData EcsClusterDetails where
   rnf EcsClusterDetails' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf taskDetails
+    Prelude.rnf activeServicesCount
       `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf registeredContainerInstancesCount
-      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf runningTasksCount
-      `Prelude.seq` Prelude.rnf activeServicesCount
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf taskDetails

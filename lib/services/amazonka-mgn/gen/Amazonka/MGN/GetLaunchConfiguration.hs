@@ -34,16 +34,18 @@ module Amazonka.MGN.GetLaunchConfiguration
     newLaunchConfiguration,
 
     -- * Response Lenses
-    launchConfiguration_name,
-    launchConfiguration_targetInstanceTypeRightSizingMethod,
-    launchConfiguration_copyTags,
-    launchConfiguration_launchDisposition,
-    launchConfiguration_postLaunchActions,
-    launchConfiguration_ec2LaunchTemplateID,
     launchConfiguration_bootMode,
-    launchConfiguration_sourceServerID,
-    launchConfiguration_licensing,
     launchConfiguration_copyPrivateIp,
+    launchConfiguration_copyTags,
+    launchConfiguration_ec2LaunchTemplateID,
+    launchConfiguration_enableMapAutoTagging,
+    launchConfiguration_launchDisposition,
+    launchConfiguration_licensing,
+    launchConfiguration_mapAutoTaggingMpeID,
+    launchConfiguration_name,
+    launchConfiguration_postLaunchActions,
+    launchConfiguration_sourceServerID,
+    launchConfiguration_targetInstanceTypeRightSizingMethod,
   )
 where
 

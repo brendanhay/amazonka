@@ -32,10 +32,10 @@ module Amazonka.IoT.UpdateScheduledAudit
     newUpdateScheduledAudit,
 
     -- * Request Lenses
-    updateScheduledAudit_targetCheckNames,
-    updateScheduledAudit_frequency,
-    updateScheduledAudit_dayOfWeek,
     updateScheduledAudit_dayOfMonth,
+    updateScheduledAudit_dayOfWeek,
+    updateScheduledAudit_frequency,
+    updateScheduledAudit_targetCheckNames,
     updateScheduledAudit_scheduledAuditName,
 
     -- * Destructuring the Response
@@ -58,26 +58,26 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateScheduledAudit' smart constructor.
 data UpdateScheduledAudit = UpdateScheduledAudit'
-  { -- | Which checks are performed during the scheduled audit. Checks must be
-    -- enabled for your account. (Use @DescribeAccountAuditConfiguration@ to
-    -- see the list of all checks, including those that are enabled or use
-    -- @UpdateAccountAuditConfiguration@ to select which checks are enabled.)
-    targetCheckNames :: Prelude.Maybe [Prelude.Text],
-    -- | How often the scheduled audit takes place, either @DAILY@, @WEEKLY@,
-    -- @BIWEEKLY@, or @MONTHLY@. The start time of each audit is determined by
-    -- the system.
-    frequency :: Prelude.Maybe AuditFrequency,
-    -- | The day of the week on which the scheduled audit takes place. This can
-    -- be one of @SUN@, @MON@, @TUE@, @WED@, @THU@, @FRI@, or @SAT@. This field
-    -- is required if the \"frequency\" parameter is set to @WEEKLY@ or
-    -- @BIWEEKLY@.
-    dayOfWeek :: Prelude.Maybe DayOfWeek,
-    -- | The day of the month on which the scheduled audit takes place. This can
+  { -- | The day of the month on which the scheduled audit takes place. This can
     -- be @1@ through @31@ or @LAST@. This field is required if the @frequency@
     -- parameter is set to @MONTHLY@. If days 29-31 are specified, and the
     -- month does not have that many days, the audit takes place on the
     -- \"LAST\" day of the month.
     dayOfMonth :: Prelude.Maybe Prelude.Text,
+    -- | The day of the week on which the scheduled audit takes place. This can
+    -- be one of @SUN@, @MON@, @TUE@, @WED@, @THU@, @FRI@, or @SAT@. This field
+    -- is required if the \"frequency\" parameter is set to @WEEKLY@ or
+    -- @BIWEEKLY@.
+    dayOfWeek :: Prelude.Maybe DayOfWeek,
+    -- | How often the scheduled audit takes place, either @DAILY@, @WEEKLY@,
+    -- @BIWEEKLY@, or @MONTHLY@. The start time of each audit is determined by
+    -- the system.
+    frequency :: Prelude.Maybe AuditFrequency,
+    -- | Which checks are performed during the scheduled audit. Checks must be
+    -- enabled for your account. (Use @DescribeAccountAuditConfiguration@ to
+    -- see the list of all checks, including those that are enabled or use
+    -- @UpdateAccountAuditConfiguration@ to select which checks are enabled.)
+    targetCheckNames :: Prelude.Maybe [Prelude.Text],
     -- | The name of the scheduled audit. (Max. 128 chars)
     scheduledAuditName :: Prelude.Text
   }
@@ -91,25 +91,25 @@ data UpdateScheduledAudit = UpdateScheduledAudit'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetCheckNames', 'updateScheduledAudit_targetCheckNames' - Which checks are performed during the scheduled audit. Checks must be
--- enabled for your account. (Use @DescribeAccountAuditConfiguration@ to
--- see the list of all checks, including those that are enabled or use
--- @UpdateAccountAuditConfiguration@ to select which checks are enabled.)
---
--- 'frequency', 'updateScheduledAudit_frequency' - How often the scheduled audit takes place, either @DAILY@, @WEEKLY@,
--- @BIWEEKLY@, or @MONTHLY@. The start time of each audit is determined by
--- the system.
+-- 'dayOfMonth', 'updateScheduledAudit_dayOfMonth' - The day of the month on which the scheduled audit takes place. This can
+-- be @1@ through @31@ or @LAST@. This field is required if the @frequency@
+-- parameter is set to @MONTHLY@. If days 29-31 are specified, and the
+-- month does not have that many days, the audit takes place on the
+-- \"LAST\" day of the month.
 --
 -- 'dayOfWeek', 'updateScheduledAudit_dayOfWeek' - The day of the week on which the scheduled audit takes place. This can
 -- be one of @SUN@, @MON@, @TUE@, @WED@, @THU@, @FRI@, or @SAT@. This field
 -- is required if the \"frequency\" parameter is set to @WEEKLY@ or
 -- @BIWEEKLY@.
 --
--- 'dayOfMonth', 'updateScheduledAudit_dayOfMonth' - The day of the month on which the scheduled audit takes place. This can
--- be @1@ through @31@ or @LAST@. This field is required if the @frequency@
--- parameter is set to @MONTHLY@. If days 29-31 are specified, and the
--- month does not have that many days, the audit takes place on the
--- \"LAST\" day of the month.
+-- 'frequency', 'updateScheduledAudit_frequency' - How often the scheduled audit takes place, either @DAILY@, @WEEKLY@,
+-- @BIWEEKLY@, or @MONTHLY@. The start time of each audit is determined by
+-- the system.
+--
+-- 'targetCheckNames', 'updateScheduledAudit_targetCheckNames' - Which checks are performed during the scheduled audit. Checks must be
+-- enabled for your account. (Use @DescribeAccountAuditConfiguration@ to
+-- see the list of all checks, including those that are enabled or use
+-- @UpdateAccountAuditConfiguration@ to select which checks are enabled.)
 --
 -- 'scheduledAuditName', 'updateScheduledAudit_scheduledAuditName' - The name of the scheduled audit. (Max. 128 chars)
 newUpdateScheduledAudit ::
@@ -118,33 +118,12 @@ newUpdateScheduledAudit ::
   UpdateScheduledAudit
 newUpdateScheduledAudit pScheduledAuditName_ =
   UpdateScheduledAudit'
-    { targetCheckNames =
-        Prelude.Nothing,
-      frequency = Prelude.Nothing,
+    { dayOfMonth = Prelude.Nothing,
       dayOfWeek = Prelude.Nothing,
-      dayOfMonth = Prelude.Nothing,
+      frequency = Prelude.Nothing,
+      targetCheckNames = Prelude.Nothing,
       scheduledAuditName = pScheduledAuditName_
     }
-
--- | Which checks are performed during the scheduled audit. Checks must be
--- enabled for your account. (Use @DescribeAccountAuditConfiguration@ to
--- see the list of all checks, including those that are enabled or use
--- @UpdateAccountAuditConfiguration@ to select which checks are enabled.)
-updateScheduledAudit_targetCheckNames :: Lens.Lens' UpdateScheduledAudit (Prelude.Maybe [Prelude.Text])
-updateScheduledAudit_targetCheckNames = Lens.lens (\UpdateScheduledAudit' {targetCheckNames} -> targetCheckNames) (\s@UpdateScheduledAudit' {} a -> s {targetCheckNames = a} :: UpdateScheduledAudit) Prelude.. Lens.mapping Lens.coerced
-
--- | How often the scheduled audit takes place, either @DAILY@, @WEEKLY@,
--- @BIWEEKLY@, or @MONTHLY@. The start time of each audit is determined by
--- the system.
-updateScheduledAudit_frequency :: Lens.Lens' UpdateScheduledAudit (Prelude.Maybe AuditFrequency)
-updateScheduledAudit_frequency = Lens.lens (\UpdateScheduledAudit' {frequency} -> frequency) (\s@UpdateScheduledAudit' {} a -> s {frequency = a} :: UpdateScheduledAudit)
-
--- | The day of the week on which the scheduled audit takes place. This can
--- be one of @SUN@, @MON@, @TUE@, @WED@, @THU@, @FRI@, or @SAT@. This field
--- is required if the \"frequency\" parameter is set to @WEEKLY@ or
--- @BIWEEKLY@.
-updateScheduledAudit_dayOfWeek :: Lens.Lens' UpdateScheduledAudit (Prelude.Maybe DayOfWeek)
-updateScheduledAudit_dayOfWeek = Lens.lens (\UpdateScheduledAudit' {dayOfWeek} -> dayOfWeek) (\s@UpdateScheduledAudit' {} a -> s {dayOfWeek = a} :: UpdateScheduledAudit)
 
 -- | The day of the month on which the scheduled audit takes place. This can
 -- be @1@ through @31@ or @LAST@. This field is required if the @frequency@
@@ -153,6 +132,26 @@ updateScheduledAudit_dayOfWeek = Lens.lens (\UpdateScheduledAudit' {dayOfWeek} -
 -- \"LAST\" day of the month.
 updateScheduledAudit_dayOfMonth :: Lens.Lens' UpdateScheduledAudit (Prelude.Maybe Prelude.Text)
 updateScheduledAudit_dayOfMonth = Lens.lens (\UpdateScheduledAudit' {dayOfMonth} -> dayOfMonth) (\s@UpdateScheduledAudit' {} a -> s {dayOfMonth = a} :: UpdateScheduledAudit)
+
+-- | The day of the week on which the scheduled audit takes place. This can
+-- be one of @SUN@, @MON@, @TUE@, @WED@, @THU@, @FRI@, or @SAT@. This field
+-- is required if the \"frequency\" parameter is set to @WEEKLY@ or
+-- @BIWEEKLY@.
+updateScheduledAudit_dayOfWeek :: Lens.Lens' UpdateScheduledAudit (Prelude.Maybe DayOfWeek)
+updateScheduledAudit_dayOfWeek = Lens.lens (\UpdateScheduledAudit' {dayOfWeek} -> dayOfWeek) (\s@UpdateScheduledAudit' {} a -> s {dayOfWeek = a} :: UpdateScheduledAudit)
+
+-- | How often the scheduled audit takes place, either @DAILY@, @WEEKLY@,
+-- @BIWEEKLY@, or @MONTHLY@. The start time of each audit is determined by
+-- the system.
+updateScheduledAudit_frequency :: Lens.Lens' UpdateScheduledAudit (Prelude.Maybe AuditFrequency)
+updateScheduledAudit_frequency = Lens.lens (\UpdateScheduledAudit' {frequency} -> frequency) (\s@UpdateScheduledAudit' {} a -> s {frequency = a} :: UpdateScheduledAudit)
+
+-- | Which checks are performed during the scheduled audit. Checks must be
+-- enabled for your account. (Use @DescribeAccountAuditConfiguration@ to
+-- see the list of all checks, including those that are enabled or use
+-- @UpdateAccountAuditConfiguration@ to select which checks are enabled.)
+updateScheduledAudit_targetCheckNames :: Lens.Lens' UpdateScheduledAudit (Prelude.Maybe [Prelude.Text])
+updateScheduledAudit_targetCheckNames = Lens.lens (\UpdateScheduledAudit' {targetCheckNames} -> targetCheckNames) (\s@UpdateScheduledAudit' {} a -> s {targetCheckNames = a} :: UpdateScheduledAudit) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the scheduled audit. (Max. 128 chars)
 updateScheduledAudit_scheduledAuditName :: Lens.Lens' UpdateScheduledAudit Prelude.Text
@@ -174,18 +173,18 @@ instance Core.AWSRequest UpdateScheduledAudit where
 
 instance Prelude.Hashable UpdateScheduledAudit where
   hashWithSalt _salt UpdateScheduledAudit' {..} =
-    _salt `Prelude.hashWithSalt` targetCheckNames
-      `Prelude.hashWithSalt` frequency
+    _salt `Prelude.hashWithSalt` dayOfMonth
       `Prelude.hashWithSalt` dayOfWeek
-      `Prelude.hashWithSalt` dayOfMonth
+      `Prelude.hashWithSalt` frequency
+      `Prelude.hashWithSalt` targetCheckNames
       `Prelude.hashWithSalt` scheduledAuditName
 
 instance Prelude.NFData UpdateScheduledAudit where
   rnf UpdateScheduledAudit' {..} =
-    Prelude.rnf targetCheckNames
-      `Prelude.seq` Prelude.rnf frequency
+    Prelude.rnf dayOfMonth
       `Prelude.seq` Prelude.rnf dayOfWeek
-      `Prelude.seq` Prelude.rnf dayOfMonth
+      `Prelude.seq` Prelude.rnf frequency
+      `Prelude.seq` Prelude.rnf targetCheckNames
       `Prelude.seq` Prelude.rnf scheduledAuditName
 
 instance Data.ToHeaders UpdateScheduledAudit where
@@ -195,11 +194,11 @@ instance Data.ToJSON UpdateScheduledAudit where
   toJSON UpdateScheduledAudit' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("targetCheckNames" Data..=)
-              Prelude.<$> targetCheckNames,
-            ("frequency" Data..=) Prelude.<$> frequency,
+          [ ("dayOfMonth" Data..=) Prelude.<$> dayOfMonth,
             ("dayOfWeek" Data..=) Prelude.<$> dayOfWeek,
-            ("dayOfMonth" Data..=) Prelude.<$> dayOfMonth
+            ("frequency" Data..=) Prelude.<$> frequency,
+            ("targetCheckNames" Data..=)
+              Prelude.<$> targetCheckNames
           ]
       )
 

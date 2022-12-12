@@ -37,23 +37,23 @@ module Amazonka.ApplicationInsights
     -- ** AccessDeniedException
     _AccessDeniedException,
 
+    -- ** BadRequestException
+    _BadRequestException,
+
     -- ** InternalServerException
     _InternalServerException,
-
-    -- ** TooManyTagsException
-    _TooManyTagsException,
-
-    -- ** TagsAlreadyExistException
-    _TagsAlreadyExistException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
 
     -- ** ResourceInUseException
     _ResourceInUseException,
 
-    -- ** BadRequestException
-    _BadRequestException,
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** TagsAlreadyExistException
+    _TagsAlreadyExistException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
 
     -- ** ValidationException
     _ValidationException,

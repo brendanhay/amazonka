@@ -30,16 +30,16 @@ module Amazonka.Inspector2.ListDelegatedAdminAccounts
     newListDelegatedAdminAccounts,
 
     -- * Request Lenses
-    listDelegatedAdminAccounts_nextToken,
     listDelegatedAdminAccounts_maxResults,
+    listDelegatedAdminAccounts_nextToken,
 
     -- * Destructuring the Response
     ListDelegatedAdminAccountsResponse (..),
     newListDelegatedAdminAccountsResponse,
 
     -- * Response Lenses
-    listDelegatedAdminAccountsResponse_nextToken,
     listDelegatedAdminAccountsResponse_delegatedAdminAccounts,
+    listDelegatedAdminAccountsResponse_nextToken,
     listDelegatedAdminAccountsResponse_httpStatus,
   )
 where
@@ -54,13 +54,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDelegatedAdminAccounts' smart constructor.
 data ListDelegatedAdminAccounts = ListDelegatedAdminAccounts'
-  { -- | A token to use for paginating results that are returned in the response.
+  { -- | The maximum number of results to return in the response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token to use for paginating results that are returned in the response.
     -- Set the value of this parameter to null for the first request to a list
     -- action. For subsequent calls, use the @NextToken@ value returned from
     -- the previous request to continue listing results after the first page.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,20 +72,24 @@ data ListDelegatedAdminAccounts = ListDelegatedAdminAccounts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listDelegatedAdminAccounts_maxResults' - The maximum number of results to return in the response.
+--
 -- 'nextToken', 'listDelegatedAdminAccounts_nextToken' - A token to use for paginating results that are returned in the response.
 -- Set the value of this parameter to null for the first request to a list
 -- action. For subsequent calls, use the @NextToken@ value returned from
 -- the previous request to continue listing results after the first page.
---
--- 'maxResults', 'listDelegatedAdminAccounts_maxResults' - The maximum number of results to return in the response.
 newListDelegatedAdminAccounts ::
   ListDelegatedAdminAccounts
 newListDelegatedAdminAccounts =
   ListDelegatedAdminAccounts'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of results to return in the response.
+listDelegatedAdminAccounts_maxResults :: Lens.Lens' ListDelegatedAdminAccounts (Prelude.Maybe Prelude.Natural)
+listDelegatedAdminAccounts_maxResults = Lens.lens (\ListDelegatedAdminAccounts' {maxResults} -> maxResults) (\s@ListDelegatedAdminAccounts' {} a -> s {maxResults = a} :: ListDelegatedAdminAccounts)
 
 -- | A token to use for paginating results that are returned in the response.
 -- Set the value of this parameter to null for the first request to a list
@@ -93,10 +97,6 @@ newListDelegatedAdminAccounts =
 -- the previous request to continue listing results after the first page.
 listDelegatedAdminAccounts_nextToken :: Lens.Lens' ListDelegatedAdminAccounts (Prelude.Maybe Prelude.Text)
 listDelegatedAdminAccounts_nextToken = Lens.lens (\ListDelegatedAdminAccounts' {nextToken} -> nextToken) (\s@ListDelegatedAdminAccounts' {} a -> s {nextToken = a} :: ListDelegatedAdminAccounts)
-
--- | The maximum number of results to return in the response.
-listDelegatedAdminAccounts_maxResults :: Lens.Lens' ListDelegatedAdminAccounts (Prelude.Maybe Prelude.Natural)
-listDelegatedAdminAccounts_maxResults = Lens.lens (\ListDelegatedAdminAccounts' {maxResults} -> maxResults) (\s@ListDelegatedAdminAccounts' {} a -> s {maxResults = a} :: ListDelegatedAdminAccounts)
 
 instance Core.AWSPager ListDelegatedAdminAccounts where
   page rq rs
@@ -130,22 +130,22 @@ instance Core.AWSRequest ListDelegatedAdminAccounts where
     Response.receiveJSON
       ( \s h x ->
           ListDelegatedAdminAccountsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "delegatedAdminAccounts"
+            Prelude.<$> ( x Data..?> "delegatedAdminAccounts"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListDelegatedAdminAccounts where
   hashWithSalt _salt ListDelegatedAdminAccounts' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListDelegatedAdminAccounts where
   rnf ListDelegatedAdminAccounts' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListDelegatedAdminAccounts where
   toHeaders =
@@ -162,8 +162,8 @@ instance Data.ToJSON ListDelegatedAdminAccounts where
   toJSON ListDelegatedAdminAccounts' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -175,14 +175,14 @@ instance Data.ToQuery ListDelegatedAdminAccounts where
 
 -- | /See:/ 'newListDelegatedAdminAccountsResponse' smart constructor.
 data ListDelegatedAdminAccountsResponse = ListDelegatedAdminAccountsResponse'
-  { -- | A token to use for paginating results that are returned in the response.
+  { -- | Details of the Amazon Inspector delegated administrator of your
+    -- organization.
+    delegatedAdminAccounts :: Prelude.Maybe [DelegatedAdminAccount],
+    -- | A token to use for paginating results that are returned in the response.
     -- Set the value of this parameter to null for the first request to a list
     -- action. For subsequent calls, use the @NextToken@ value returned from
     -- the previous request to continue listing results after the first page.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Details of the Amazon Inspector delegated administrator of your
-    -- organization.
-    delegatedAdminAccounts :: Prelude.Maybe [DelegatedAdminAccount],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -196,13 +196,13 @@ data ListDelegatedAdminAccountsResponse = ListDelegatedAdminAccountsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'delegatedAdminAccounts', 'listDelegatedAdminAccountsResponse_delegatedAdminAccounts' - Details of the Amazon Inspector delegated administrator of your
+-- organization.
+--
 -- 'nextToken', 'listDelegatedAdminAccountsResponse_nextToken' - A token to use for paginating results that are returned in the response.
 -- Set the value of this parameter to null for the first request to a list
 -- action. For subsequent calls, use the @NextToken@ value returned from
 -- the previous request to continue listing results after the first page.
---
--- 'delegatedAdminAccounts', 'listDelegatedAdminAccountsResponse_delegatedAdminAccounts' - Details of the Amazon Inspector delegated administrator of your
--- organization.
 --
 -- 'httpStatus', 'listDelegatedAdminAccountsResponse_httpStatus' - The response's http status code.
 newListDelegatedAdminAccountsResponse ::
@@ -211,12 +211,16 @@ newListDelegatedAdminAccountsResponse ::
   ListDelegatedAdminAccountsResponse
 newListDelegatedAdminAccountsResponse pHttpStatus_ =
   ListDelegatedAdminAccountsResponse'
-    { nextToken =
+    { delegatedAdminAccounts =
         Prelude.Nothing,
-      delegatedAdminAccounts =
-        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Details of the Amazon Inspector delegated administrator of your
+-- organization.
+listDelegatedAdminAccountsResponse_delegatedAdminAccounts :: Lens.Lens' ListDelegatedAdminAccountsResponse (Prelude.Maybe [DelegatedAdminAccount])
+listDelegatedAdminAccountsResponse_delegatedAdminAccounts = Lens.lens (\ListDelegatedAdminAccountsResponse' {delegatedAdminAccounts} -> delegatedAdminAccounts) (\s@ListDelegatedAdminAccountsResponse' {} a -> s {delegatedAdminAccounts = a} :: ListDelegatedAdminAccountsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token to use for paginating results that are returned in the response.
 -- Set the value of this parameter to null for the first request to a list
@@ -224,11 +228,6 @@ newListDelegatedAdminAccountsResponse pHttpStatus_ =
 -- the previous request to continue listing results after the first page.
 listDelegatedAdminAccountsResponse_nextToken :: Lens.Lens' ListDelegatedAdminAccountsResponse (Prelude.Maybe Prelude.Text)
 listDelegatedAdminAccountsResponse_nextToken = Lens.lens (\ListDelegatedAdminAccountsResponse' {nextToken} -> nextToken) (\s@ListDelegatedAdminAccountsResponse' {} a -> s {nextToken = a} :: ListDelegatedAdminAccountsResponse)
-
--- | Details of the Amazon Inspector delegated administrator of your
--- organization.
-listDelegatedAdminAccountsResponse_delegatedAdminAccounts :: Lens.Lens' ListDelegatedAdminAccountsResponse (Prelude.Maybe [DelegatedAdminAccount])
-listDelegatedAdminAccountsResponse_delegatedAdminAccounts = Lens.lens (\ListDelegatedAdminAccountsResponse' {delegatedAdminAccounts} -> delegatedAdminAccounts) (\s@ListDelegatedAdminAccountsResponse' {} a -> s {delegatedAdminAccounts = a} :: ListDelegatedAdminAccountsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listDelegatedAdminAccountsResponse_httpStatus :: Lens.Lens' ListDelegatedAdminAccountsResponse Prelude.Int
@@ -239,6 +238,6 @@ instance
     ListDelegatedAdminAccountsResponse
   where
   rnf ListDelegatedAdminAccountsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf delegatedAdminAccounts
+    Prelude.rnf delegatedAdminAccounts
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

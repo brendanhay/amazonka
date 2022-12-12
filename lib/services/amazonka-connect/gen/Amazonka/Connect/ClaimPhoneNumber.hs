@@ -25,7 +25,15 @@
 -- Amazon Web Services Region where the Amazon Connect instance or traffic
 -- distribution group was created.
 --
+-- For more information about how to use this operation, see
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/claim-phone-number.html Claim a phone number in your country>
+-- and
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/claim-phone-numbers-traffic-distribution-groups.html Claim phone numbers to traffic distribution groups>
+-- in the /Amazon Connect Administrator Guide/.
+--
 -- You can call the
+-- <https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html SearchAvailablePhoneNumbers>
+-- API for available phone numbers that you can claim. Call the
 -- <https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html DescribePhoneNumber>
 -- API to verify the status of a previous
 -- <https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html ClaimPhoneNumber>
@@ -36,9 +44,9 @@ module Amazonka.Connect.ClaimPhoneNumber
     newClaimPhoneNumber,
 
     -- * Request Lenses
-    claimPhoneNumber_tags,
     claimPhoneNumber_clientToken,
     claimPhoneNumber_phoneNumberDescription,
+    claimPhoneNumber_tags,
     claimPhoneNumber_targetArn,
     claimPhoneNumber_phoneNumber,
 
@@ -63,10 +71,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newClaimPhoneNumber' smart constructor.
 data ClaimPhoneNumber = ClaimPhoneNumber'
-  { -- | The tags used to organize, track, or control access for this resource.
-    -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A unique, case-sensitive identifier that you provide to ensure the
+  { -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. If not provided, the Amazon Web Services SDK
     -- populates this field. For more information about idempotency, see
     -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
@@ -76,6 +81,9 @@ data ClaimPhoneNumber = ClaimPhoneNumber'
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The description of the phone number.
     phoneNumberDescription :: Prelude.Maybe Prelude.Text,
+    -- | The tags used to organize, track, or control access for this resource.
+    -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The Amazon Resource Name (ARN) for Amazon Connect instances or traffic
     -- distribution groups that phone numbers are claimed to.
     targetArn :: Prelude.Text,
@@ -93,9 +101,6 @@ data ClaimPhoneNumber = ClaimPhoneNumber'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'claimPhoneNumber_tags' - The tags used to organize, track, or control access for this resource.
--- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
---
 -- 'clientToken', 'claimPhoneNumber_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. If not provided, the Amazon Web Services SDK
 -- populates this field. For more information about idempotency, see
@@ -105,6 +110,9 @@ data ClaimPhoneNumber = ClaimPhoneNumber'
 -- @^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$@
 --
 -- 'phoneNumberDescription', 'claimPhoneNumber_phoneNumberDescription' - The description of the phone number.
+--
+-- 'tags', 'claimPhoneNumber_tags' - The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 --
 -- 'targetArn', 'claimPhoneNumber_targetArn' - The Amazon Resource Name (ARN) for Amazon Connect instances or traffic
 -- distribution groups that phone numbers are claimed to.
@@ -119,17 +127,12 @@ newClaimPhoneNumber ::
   ClaimPhoneNumber
 newClaimPhoneNumber pTargetArn_ pPhoneNumber_ =
   ClaimPhoneNumber'
-    { tags = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+    { clientToken = Prelude.Nothing,
       phoneNumberDescription = Prelude.Nothing,
+      tags = Prelude.Nothing,
       targetArn = pTargetArn_,
       phoneNumber = pPhoneNumber_
     }
-
--- | The tags used to organize, track, or control access for this resource.
--- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
-claimPhoneNumber_tags :: Lens.Lens' ClaimPhoneNumber (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-claimPhoneNumber_tags = Lens.lens (\ClaimPhoneNumber' {tags} -> tags) (\s@ClaimPhoneNumber' {} a -> s {tags = a} :: ClaimPhoneNumber) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. If not provided, the Amazon Web Services SDK
@@ -144,6 +147,11 @@ claimPhoneNumber_clientToken = Lens.lens (\ClaimPhoneNumber' {clientToken} -> cl
 -- | The description of the phone number.
 claimPhoneNumber_phoneNumberDescription :: Lens.Lens' ClaimPhoneNumber (Prelude.Maybe Prelude.Text)
 claimPhoneNumber_phoneNumberDescription = Lens.lens (\ClaimPhoneNumber' {phoneNumberDescription} -> phoneNumberDescription) (\s@ClaimPhoneNumber' {} a -> s {phoneNumberDescription = a} :: ClaimPhoneNumber)
+
+-- | The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
+claimPhoneNumber_tags :: Lens.Lens' ClaimPhoneNumber (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+claimPhoneNumber_tags = Lens.lens (\ClaimPhoneNumber' {tags} -> tags) (\s@ClaimPhoneNumber' {} a -> s {tags = a} :: ClaimPhoneNumber) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) for Amazon Connect instances or traffic
 -- distribution groups that phone numbers are claimed to.
@@ -172,17 +180,17 @@ instance Core.AWSRequest ClaimPhoneNumber where
 
 instance Prelude.Hashable ClaimPhoneNumber where
   hashWithSalt _salt ClaimPhoneNumber' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` phoneNumberDescription
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` targetArn
       `Prelude.hashWithSalt` phoneNumber
 
 instance Prelude.NFData ClaimPhoneNumber where
   rnf ClaimPhoneNumber' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf phoneNumberDescription
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf targetArn
       `Prelude.seq` Prelude.rnf phoneNumber
 
@@ -201,10 +209,10 @@ instance Data.ToJSON ClaimPhoneNumber where
   toJSON ClaimPhoneNumber' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ClientToken" Data..=) Prelude.<$> clientToken,
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
             ("PhoneNumberDescription" Data..=)
               Prelude.<$> phoneNumberDescription,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("TargetArn" Data..= targetArn),
             Prelude.Just ("PhoneNumber" Data..= phoneNumber)
           ]

@@ -30,9 +30,9 @@ module Amazonka.Connect.ListContactFlowModules
     newListContactFlowModules,
 
     -- * Request Lenses
-    listContactFlowModules_nextToken,
     listContactFlowModules_contactFlowModuleState,
     listContactFlowModules_maxResults,
+    listContactFlowModules_nextToken,
     listContactFlowModules_instanceId,
 
     -- * Destructuring the Response
@@ -40,8 +40,8 @@ module Amazonka.Connect.ListContactFlowModules
     newListContactFlowModulesResponse,
 
     -- * Response Lenses
-    listContactFlowModulesResponse_nextToken,
     listContactFlowModulesResponse_contactFlowModulesSummaryList,
+    listContactFlowModulesResponse_nextToken,
     listContactFlowModulesResponse_httpStatus,
   )
 where
@@ -56,14 +56,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListContactFlowModules' smart constructor.
 data ListContactFlowModules = ListContactFlowModules'
-  { -- | The token for the next set of results. Use the value returned in the
-    -- previous response in the next request to retrieve the next set of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The state of the flow module.
+  { -- | The state of the flow module.
     contactFlowModuleState :: Prelude.Maybe ContactFlowModuleState,
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. Use the value returned in the
+    -- previous response in the next request to retrieve the next set of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
@@ -78,13 +78,13 @@ data ListContactFlowModules = ListContactFlowModules'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listContactFlowModules_nextToken' - The token for the next set of results. Use the value returned in the
--- previous response in the next request to retrieve the next set of
--- results.
---
 -- 'contactFlowModuleState', 'listContactFlowModules_contactFlowModuleState' - The state of the flow module.
 --
 -- 'maxResults', 'listContactFlowModules_maxResults' - The maximum number of results to return per page.
+--
+-- 'nextToken', 'listContactFlowModules_nextToken' - The token for the next set of results. Use the value returned in the
+-- previous response in the next request to retrieve the next set of
+-- results.
 --
 -- 'instanceId', 'listContactFlowModules_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -94,18 +94,12 @@ newListContactFlowModules ::
   ListContactFlowModules
 newListContactFlowModules pInstanceId_ =
   ListContactFlowModules'
-    { nextToken =
+    { contactFlowModuleState =
         Prelude.Nothing,
-      contactFlowModuleState = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       instanceId = pInstanceId_
     }
-
--- | The token for the next set of results. Use the value returned in the
--- previous response in the next request to retrieve the next set of
--- results.
-listContactFlowModules_nextToken :: Lens.Lens' ListContactFlowModules (Prelude.Maybe Prelude.Text)
-listContactFlowModules_nextToken = Lens.lens (\ListContactFlowModules' {nextToken} -> nextToken) (\s@ListContactFlowModules' {} a -> s {nextToken = a} :: ListContactFlowModules)
 
 -- | The state of the flow module.
 listContactFlowModules_contactFlowModuleState :: Lens.Lens' ListContactFlowModules (Prelude.Maybe ContactFlowModuleState)
@@ -114,6 +108,12 @@ listContactFlowModules_contactFlowModuleState = Lens.lens (\ListContactFlowModul
 -- | The maximum number of results to return per page.
 listContactFlowModules_maxResults :: Lens.Lens' ListContactFlowModules (Prelude.Maybe Prelude.Natural)
 listContactFlowModules_maxResults = Lens.lens (\ListContactFlowModules' {maxResults} -> maxResults) (\s@ListContactFlowModules' {} a -> s {maxResults = a} :: ListContactFlowModules)
+
+-- | The token for the next set of results. Use the value returned in the
+-- previous response in the next request to retrieve the next set of
+-- results.
+listContactFlowModules_nextToken :: Lens.Lens' ListContactFlowModules (Prelude.Maybe Prelude.Text)
+listContactFlowModules_nextToken = Lens.lens (\ListContactFlowModules' {nextToken} -> nextToken) (\s@ListContactFlowModules' {} a -> s {nextToken = a} :: ListContactFlowModules)
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -152,25 +152,25 @@ instance Core.AWSRequest ListContactFlowModules where
     Response.receiveJSON
       ( \s h x ->
           ListContactFlowModulesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ContactFlowModulesSummaryList"
+            Prelude.<$> ( x Data..?> "ContactFlowModulesSummaryList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListContactFlowModules where
   hashWithSalt _salt ListContactFlowModules' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` contactFlowModuleState
+    _salt `Prelude.hashWithSalt` contactFlowModuleState
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData ListContactFlowModules where
   rnf ListContactFlowModules' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf contactFlowModuleState
+    Prelude.rnf contactFlowModuleState
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf instanceId
 
 instance Data.ToHeaders ListContactFlowModules where
@@ -194,18 +194,18 @@ instance Data.ToPath ListContactFlowModules where
 instance Data.ToQuery ListContactFlowModules where
   toQuery ListContactFlowModules' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "state" Data.=: contactFlowModuleState,
-        "maxResults" Data.=: maxResults
+      [ "state" Data.=: contactFlowModuleState,
+        "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListContactFlowModulesResponse' smart constructor.
 data ListContactFlowModulesResponse = ListContactFlowModulesResponse'
-  { -- | If there are additional results, this is the token for the next set of
+  { -- | Information about the flow module.
+    contactFlowModulesSummaryList :: Prelude.Maybe [ContactFlowModuleSummary],
+    -- | If there are additional results, this is the token for the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the flow module.
-    contactFlowModulesSummaryList :: Prelude.Maybe [ContactFlowModuleSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -219,10 +219,10 @@ data ListContactFlowModulesResponse = ListContactFlowModulesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'contactFlowModulesSummaryList', 'listContactFlowModulesResponse_contactFlowModulesSummaryList' - Information about the flow module.
+--
 -- 'nextToken', 'listContactFlowModulesResponse_nextToken' - If there are additional results, this is the token for the next set of
 -- results.
---
--- 'contactFlowModulesSummaryList', 'listContactFlowModulesResponse_contactFlowModulesSummaryList' - Information about the flow module.
 --
 -- 'httpStatus', 'listContactFlowModulesResponse_httpStatus' - The response's http status code.
 newListContactFlowModulesResponse ::
@@ -231,21 +231,20 @@ newListContactFlowModulesResponse ::
   ListContactFlowModulesResponse
 newListContactFlowModulesResponse pHttpStatus_ =
   ListContactFlowModulesResponse'
-    { nextToken =
+    { contactFlowModulesSummaryList =
         Prelude.Nothing,
-      contactFlowModulesSummaryList =
-        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about the flow module.
+listContactFlowModulesResponse_contactFlowModulesSummaryList :: Lens.Lens' ListContactFlowModulesResponse (Prelude.Maybe [ContactFlowModuleSummary])
+listContactFlowModulesResponse_contactFlowModulesSummaryList = Lens.lens (\ListContactFlowModulesResponse' {contactFlowModulesSummaryList} -> contactFlowModulesSummaryList) (\s@ListContactFlowModulesResponse' {} a -> s {contactFlowModulesSummaryList = a} :: ListContactFlowModulesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
 listContactFlowModulesResponse_nextToken :: Lens.Lens' ListContactFlowModulesResponse (Prelude.Maybe Prelude.Text)
 listContactFlowModulesResponse_nextToken = Lens.lens (\ListContactFlowModulesResponse' {nextToken} -> nextToken) (\s@ListContactFlowModulesResponse' {} a -> s {nextToken = a} :: ListContactFlowModulesResponse)
-
--- | Information about the flow module.
-listContactFlowModulesResponse_contactFlowModulesSummaryList :: Lens.Lens' ListContactFlowModulesResponse (Prelude.Maybe [ContactFlowModuleSummary])
-listContactFlowModulesResponse_contactFlowModulesSummaryList = Lens.lens (\ListContactFlowModulesResponse' {contactFlowModulesSummaryList} -> contactFlowModulesSummaryList) (\s@ListContactFlowModulesResponse' {} a -> s {contactFlowModulesSummaryList = a} :: ListContactFlowModulesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listContactFlowModulesResponse_httpStatus :: Lens.Lens' ListContactFlowModulesResponse Prelude.Int
@@ -256,6 +255,6 @@ instance
     ListContactFlowModulesResponse
   where
   rnf ListContactFlowModulesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf contactFlowModulesSummaryList
+    Prelude.rnf contactFlowModulesSummaryList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

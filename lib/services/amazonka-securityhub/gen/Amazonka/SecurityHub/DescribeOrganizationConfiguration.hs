@@ -33,8 +33,8 @@ module Amazonka.SecurityHub.DescribeOrganizationConfiguration
 
     -- * Response Lenses
     describeOrganizationConfigurationResponse_autoEnable,
-    describeOrganizationConfigurationResponse_memberAccountLimitReached,
     describeOrganizationConfigurationResponse_autoEnableStandards,
+    describeOrganizationConfigurationResponse_memberAccountLimitReached,
     describeOrganizationConfigurationResponse_httpStatus,
   )
 where
@@ -76,8 +76,8 @@ instance
       ( \s h x ->
           DescribeOrganizationConfigurationResponse'
             Prelude.<$> (x Data..?> "AutoEnable")
-              Prelude.<*> (x Data..?> "MemberAccountLimitReached")
               Prelude.<*> (x Data..?> "AutoEnableStandards")
+              Prelude.<*> (x Data..?> "MemberAccountLimitReached")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,9 +128,6 @@ data DescribeOrganizationConfigurationResponse = DescribeOrganizationConfigurati
     -- If set to @true@, then Security Hub is enabled for new accounts. If set
     -- to false, then new accounts are not added automatically.
     autoEnable :: Prelude.Maybe Prelude.Bool,
-    -- | Whether the maximum number of allowed member accounts are already
-    -- associated with the Security Hub administrator account.
-    memberAccountLimitReached :: Prelude.Maybe Prelude.Bool,
     -- | Whether to automatically enable Security Hub
     -- <https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-enable-disable.html default standards>
     -- for new member accounts in the organization.
@@ -141,6 +138,9 @@ data DescribeOrganizationConfigurationResponse = DescribeOrganizationConfigurati
     -- automatically enabled for new member accounts. If equal to @NONE@, then
     -- default standards are not automatically enabled for new member accounts.
     autoEnableStandards :: Prelude.Maybe AutoEnableStandards,
+    -- | Whether the maximum number of allowed member accounts are already
+    -- associated with the Security Hub administrator account.
+    memberAccountLimitReached :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -160,9 +160,6 @@ data DescribeOrganizationConfigurationResponse = DescribeOrganizationConfigurati
 -- If set to @true@, then Security Hub is enabled for new accounts. If set
 -- to false, then new accounts are not added automatically.
 --
--- 'memberAccountLimitReached', 'describeOrganizationConfigurationResponse_memberAccountLimitReached' - Whether the maximum number of allowed member accounts are already
--- associated with the Security Hub administrator account.
---
 -- 'autoEnableStandards', 'describeOrganizationConfigurationResponse_autoEnableStandards' - Whether to automatically enable Security Hub
 -- <https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-enable-disable.html default standards>
 -- for new member accounts in the organization.
@@ -172,6 +169,9 @@ data DescribeOrganizationConfigurationResponse = DescribeOrganizationConfigurati
 -- If equal to @DEFAULT@, then Security Hub default standards are
 -- automatically enabled for new member accounts. If equal to @NONE@, then
 -- default standards are not automatically enabled for new member accounts.
+--
+-- 'memberAccountLimitReached', 'describeOrganizationConfigurationResponse_memberAccountLimitReached' - Whether the maximum number of allowed member accounts are already
+-- associated with the Security Hub administrator account.
 --
 -- 'httpStatus', 'describeOrganizationConfigurationResponse_httpStatus' - The response's http status code.
 newDescribeOrganizationConfigurationResponse ::
@@ -183,9 +183,9 @@ newDescribeOrganizationConfigurationResponse
     DescribeOrganizationConfigurationResponse'
       { autoEnable =
           Prelude.Nothing,
-        memberAccountLimitReached =
-          Prelude.Nothing,
         autoEnableStandards =
+          Prelude.Nothing,
+        memberAccountLimitReached =
           Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
@@ -197,11 +197,6 @@ newDescribeOrganizationConfigurationResponse
 -- to false, then new accounts are not added automatically.
 describeOrganizationConfigurationResponse_autoEnable :: Lens.Lens' DescribeOrganizationConfigurationResponse (Prelude.Maybe Prelude.Bool)
 describeOrganizationConfigurationResponse_autoEnable = Lens.lens (\DescribeOrganizationConfigurationResponse' {autoEnable} -> autoEnable) (\s@DescribeOrganizationConfigurationResponse' {} a -> s {autoEnable = a} :: DescribeOrganizationConfigurationResponse)
-
--- | Whether the maximum number of allowed member accounts are already
--- associated with the Security Hub administrator account.
-describeOrganizationConfigurationResponse_memberAccountLimitReached :: Lens.Lens' DescribeOrganizationConfigurationResponse (Prelude.Maybe Prelude.Bool)
-describeOrganizationConfigurationResponse_memberAccountLimitReached = Lens.lens (\DescribeOrganizationConfigurationResponse' {memberAccountLimitReached} -> memberAccountLimitReached) (\s@DescribeOrganizationConfigurationResponse' {} a -> s {memberAccountLimitReached = a} :: DescribeOrganizationConfigurationResponse)
 
 -- | Whether to automatically enable Security Hub
 -- <https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-enable-disable.html default standards>
@@ -215,6 +210,11 @@ describeOrganizationConfigurationResponse_memberAccountLimitReached = Lens.lens 
 describeOrganizationConfigurationResponse_autoEnableStandards :: Lens.Lens' DescribeOrganizationConfigurationResponse (Prelude.Maybe AutoEnableStandards)
 describeOrganizationConfigurationResponse_autoEnableStandards = Lens.lens (\DescribeOrganizationConfigurationResponse' {autoEnableStandards} -> autoEnableStandards) (\s@DescribeOrganizationConfigurationResponse' {} a -> s {autoEnableStandards = a} :: DescribeOrganizationConfigurationResponse)
 
+-- | Whether the maximum number of allowed member accounts are already
+-- associated with the Security Hub administrator account.
+describeOrganizationConfigurationResponse_memberAccountLimitReached :: Lens.Lens' DescribeOrganizationConfigurationResponse (Prelude.Maybe Prelude.Bool)
+describeOrganizationConfigurationResponse_memberAccountLimitReached = Lens.lens (\DescribeOrganizationConfigurationResponse' {memberAccountLimitReached} -> memberAccountLimitReached) (\s@DescribeOrganizationConfigurationResponse' {} a -> s {memberAccountLimitReached = a} :: DescribeOrganizationConfigurationResponse)
+
 -- | The response's http status code.
 describeOrganizationConfigurationResponse_httpStatus :: Lens.Lens' DescribeOrganizationConfigurationResponse Prelude.Int
 describeOrganizationConfigurationResponse_httpStatus = Lens.lens (\DescribeOrganizationConfigurationResponse' {httpStatus} -> httpStatus) (\s@DescribeOrganizationConfigurationResponse' {} a -> s {httpStatus = a} :: DescribeOrganizationConfigurationResponse)
@@ -225,6 +225,6 @@ instance
   where
   rnf DescribeOrganizationConfigurationResponse' {..} =
     Prelude.rnf autoEnable
-      `Prelude.seq` Prelude.rnf memberAccountLimitReached
       `Prelude.seq` Prelude.rnf autoEnableStandards
+      `Prelude.seq` Prelude.rnf memberAccountLimitReached
       `Prelude.seq` Prelude.rnf httpStatus

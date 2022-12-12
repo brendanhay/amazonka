@@ -31,11 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFleetSummary' smart constructor.
 data FleetSummary = FleetSummary'
-  { -- | The time the fleet was last updated in seconds since epoch (January 1,
+  { -- | A brief description of the fleet.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The time the fleet was last updated in seconds since epoch (January 1,
     -- 1970 at midnight UTC time).
     lastModificationTime :: Prelude.Maybe Data.POSIX,
-    -- | A brief description of the fleet.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The unique ID of the fleet.
     id :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the fleet.
@@ -56,10 +56,10 @@ data FleetSummary = FleetSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'fleetSummary_description' - A brief description of the fleet.
+--
 -- 'lastModificationTime', 'fleetSummary_lastModificationTime' - The time the fleet was last updated in seconds since epoch (January 1,
 -- 1970 at midnight UTC time).
---
--- 'description', 'fleetSummary_description' - A brief description of the fleet.
 --
 -- 'id', 'fleetSummary_id' - The unique ID of the fleet.
 --
@@ -85,23 +85,22 @@ newFleetSummary
   pSignalCatalogArn_
   pCreationTime_ =
     FleetSummary'
-      { lastModificationTime =
-          Prelude.Nothing,
-        description = Prelude.Nothing,
+      { description = Prelude.Nothing,
+        lastModificationTime = Prelude.Nothing,
         id = pId_,
         arn = pArn_,
         signalCatalogArn = pSignalCatalogArn_,
         creationTime = Data._Time Lens.# pCreationTime_
       }
 
+-- | A brief description of the fleet.
+fleetSummary_description :: Lens.Lens' FleetSummary (Prelude.Maybe Prelude.Text)
+fleetSummary_description = Lens.lens (\FleetSummary' {description} -> description) (\s@FleetSummary' {} a -> s {description = a} :: FleetSummary)
+
 -- | The time the fleet was last updated in seconds since epoch (January 1,
 -- 1970 at midnight UTC time).
 fleetSummary_lastModificationTime :: Lens.Lens' FleetSummary (Prelude.Maybe Prelude.UTCTime)
 fleetSummary_lastModificationTime = Lens.lens (\FleetSummary' {lastModificationTime} -> lastModificationTime) (\s@FleetSummary' {} a -> s {lastModificationTime = a} :: FleetSummary) Prelude.. Lens.mapping Data._Time
-
--- | A brief description of the fleet.
-fleetSummary_description :: Lens.Lens' FleetSummary (Prelude.Maybe Prelude.Text)
-fleetSummary_description = Lens.lens (\FleetSummary' {description} -> description) (\s@FleetSummary' {} a -> s {description = a} :: FleetSummary)
 
 -- | The unique ID of the fleet.
 fleetSummary_id :: Lens.Lens' FleetSummary Prelude.Text
@@ -126,8 +125,8 @@ instance Data.FromJSON FleetSummary where
       "FleetSummary"
       ( \x ->
           FleetSummary'
-            Prelude.<$> (x Data..:? "lastModificationTime")
-            Prelude.<*> (x Data..:? "description")
+            Prelude.<$> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "lastModificationTime")
             Prelude.<*> (x Data..: "id")
             Prelude.<*> (x Data..: "arn")
             Prelude.<*> (x Data..: "signalCatalogArn")
@@ -136,8 +135,8 @@ instance Data.FromJSON FleetSummary where
 
 instance Prelude.Hashable FleetSummary where
   hashWithSalt _salt FleetSummary' {..} =
-    _salt `Prelude.hashWithSalt` lastModificationTime
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` lastModificationTime
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` signalCatalogArn
@@ -145,8 +144,8 @@ instance Prelude.Hashable FleetSummary where
 
 instance Prelude.NFData FleetSummary where
   rnf FleetSummary' {..} =
-    Prelude.rnf lastModificationTime
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf lastModificationTime
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf signalCatalogArn

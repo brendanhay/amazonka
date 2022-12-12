@@ -27,17 +27,17 @@ module Amazonka.Nimble
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
+    -- ** ConflictException
+    _ConflictException,
 
     -- ** InternalServerErrorException
     _InternalServerErrorException,
 
-    -- ** ConflictException
-    _ConflictException,
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
 
     -- ** ThrottlingException
     _ThrottlingException,
@@ -48,26 +48,17 @@ module Amazonka.Nimble
     -- * Waiters
     -- $waiters
 
-    -- ** StudioReady
-    newStudioReady,
+    -- ** LaunchProfileDeleted
+    newLaunchProfileDeleted,
 
-    -- ** StudioComponentReady
-    newStudioComponentReady,
+    -- ** LaunchProfileReady
+    newLaunchProfileReady,
 
-    -- ** StreamingSessionStopped
-    newStreamingSessionStopped,
-
-    -- ** StreamingSessionStreamReady
-    newStreamingSessionStreamReady,
+    -- ** StreamingImageDeleted
+    newStreamingImageDeleted,
 
     -- ** StreamingImageReady
     newStreamingImageReady,
-
-    -- ** StudioDeleted
-    newStudioDeleted,
-
-    -- ** StudioComponentDeleted
-    newStudioComponentDeleted,
 
     -- ** StreamingSessionDeleted
     newStreamingSessionDeleted,
@@ -75,14 +66,23 @@ module Amazonka.Nimble
     -- ** StreamingSessionReady
     newStreamingSessionReady,
 
-    -- ** LaunchProfileReady
-    newLaunchProfileReady,
+    -- ** StreamingSessionStopped
+    newStreamingSessionStopped,
 
-    -- ** LaunchProfileDeleted
-    newLaunchProfileDeleted,
+    -- ** StreamingSessionStreamReady
+    newStreamingSessionStreamReady,
 
-    -- ** StreamingImageDeleted
-    newStreamingImageDeleted,
+    -- ** StudioComponentDeleted
+    newStudioComponentDeleted,
+
+    -- ** StudioComponentReady
+    newStudioComponentReady,
+
+    -- ** StudioDeleted
+    newStudioDeleted,
+
+    -- ** StudioReady
+    newStudioReady,
 
     -- * Operations
     -- $operations

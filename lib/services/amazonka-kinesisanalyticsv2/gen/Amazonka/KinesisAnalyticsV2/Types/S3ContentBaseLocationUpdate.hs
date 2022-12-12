@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newS3ContentBaseLocationUpdate' smart constructor.
 data S3ContentBaseLocationUpdate = S3ContentBaseLocationUpdate'
-  { -- | The updated Amazon Resource Name (ARN) of the S3 bucket.
-    bucketARNUpdate :: Prelude.Maybe Prelude.Text,
-    -- | The updated S3 bucket path.
-    basePathUpdate :: Prelude.Maybe Prelude.Text
+  { -- | The updated S3 bucket path.
+    basePathUpdate :: Prelude.Maybe Prelude.Text,
+    -- | The updated Amazon Resource Name (ARN) of the S3 bucket.
+    bucketARNUpdate :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,43 +44,43 @@ data S3ContentBaseLocationUpdate = S3ContentBaseLocationUpdate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'bucketARNUpdate', 's3ContentBaseLocationUpdate_bucketARNUpdate' - The updated Amazon Resource Name (ARN) of the S3 bucket.
---
 -- 'basePathUpdate', 's3ContentBaseLocationUpdate_basePathUpdate' - The updated S3 bucket path.
+--
+-- 'bucketARNUpdate', 's3ContentBaseLocationUpdate_bucketARNUpdate' - The updated Amazon Resource Name (ARN) of the S3 bucket.
 newS3ContentBaseLocationUpdate ::
   S3ContentBaseLocationUpdate
 newS3ContentBaseLocationUpdate =
   S3ContentBaseLocationUpdate'
-    { bucketARNUpdate =
+    { basePathUpdate =
         Prelude.Nothing,
-      basePathUpdate = Prelude.Nothing
+      bucketARNUpdate = Prelude.Nothing
     }
-
--- | The updated Amazon Resource Name (ARN) of the S3 bucket.
-s3ContentBaseLocationUpdate_bucketARNUpdate :: Lens.Lens' S3ContentBaseLocationUpdate (Prelude.Maybe Prelude.Text)
-s3ContentBaseLocationUpdate_bucketARNUpdate = Lens.lens (\S3ContentBaseLocationUpdate' {bucketARNUpdate} -> bucketARNUpdate) (\s@S3ContentBaseLocationUpdate' {} a -> s {bucketARNUpdate = a} :: S3ContentBaseLocationUpdate)
 
 -- | The updated S3 bucket path.
 s3ContentBaseLocationUpdate_basePathUpdate :: Lens.Lens' S3ContentBaseLocationUpdate (Prelude.Maybe Prelude.Text)
 s3ContentBaseLocationUpdate_basePathUpdate = Lens.lens (\S3ContentBaseLocationUpdate' {basePathUpdate} -> basePathUpdate) (\s@S3ContentBaseLocationUpdate' {} a -> s {basePathUpdate = a} :: S3ContentBaseLocationUpdate)
 
+-- | The updated Amazon Resource Name (ARN) of the S3 bucket.
+s3ContentBaseLocationUpdate_bucketARNUpdate :: Lens.Lens' S3ContentBaseLocationUpdate (Prelude.Maybe Prelude.Text)
+s3ContentBaseLocationUpdate_bucketARNUpdate = Lens.lens (\S3ContentBaseLocationUpdate' {bucketARNUpdate} -> bucketARNUpdate) (\s@S3ContentBaseLocationUpdate' {} a -> s {bucketARNUpdate = a} :: S3ContentBaseLocationUpdate)
+
 instance Prelude.Hashable S3ContentBaseLocationUpdate where
   hashWithSalt _salt S3ContentBaseLocationUpdate' {..} =
-    _salt `Prelude.hashWithSalt` bucketARNUpdate
-      `Prelude.hashWithSalt` basePathUpdate
+    _salt `Prelude.hashWithSalt` basePathUpdate
+      `Prelude.hashWithSalt` bucketARNUpdate
 
 instance Prelude.NFData S3ContentBaseLocationUpdate where
   rnf S3ContentBaseLocationUpdate' {..} =
-    Prelude.rnf bucketARNUpdate
-      `Prelude.seq` Prelude.rnf basePathUpdate
+    Prelude.rnf basePathUpdate
+      `Prelude.seq` Prelude.rnf bucketARNUpdate
 
 instance Data.ToJSON S3ContentBaseLocationUpdate where
   toJSON S3ContentBaseLocationUpdate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("BucketARNUpdate" Data..=)
-              Prelude.<$> bucketARNUpdate,
-            ("BasePathUpdate" Data..=)
-              Prelude.<$> basePathUpdate
+          [ ("BasePathUpdate" Data..=)
+              Prelude.<$> basePathUpdate,
+            ("BucketARNUpdate" Data..=)
+              Prelude.<$> bucketARNUpdate
           ]
       )

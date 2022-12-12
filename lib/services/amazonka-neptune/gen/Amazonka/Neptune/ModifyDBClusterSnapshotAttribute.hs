@@ -45,8 +45,8 @@ module Amazonka.Neptune.ModifyDBClusterSnapshotAttribute
     newModifyDBClusterSnapshotAttribute,
 
     -- * Request Lenses
-    modifyDBClusterSnapshotAttribute_valuesToRemove,
     modifyDBClusterSnapshotAttribute_valuesToAdd,
+    modifyDBClusterSnapshotAttribute_valuesToRemove,
     modifyDBClusterSnapshotAttribute_dbClusterSnapshotIdentifier,
     modifyDBClusterSnapshotAttribute_attributeName,
 
@@ -70,7 +70,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newModifyDBClusterSnapshotAttribute' smart constructor.
 data ModifyDBClusterSnapshotAttribute = ModifyDBClusterSnapshotAttribute'
-  { -- | A list of DB cluster snapshot attributes to remove from the attribute
+  { -- | A list of DB cluster snapshot attributes to add to the attribute
+    -- specified by @AttributeName@.
+    --
+    -- To authorize other Amazon accounts to copy or restore a manual DB
+    -- cluster snapshot, set this list to include one or more Amazon account
+    -- IDs, or @all@ to make the manual DB cluster snapshot restorable by any
+    -- Amazon account. Do not add the @all@ value for any manual DB cluster
+    -- snapshots that contain private information that you don\'t want
+    -- available to all Amazon accounts.
+    valuesToAdd :: Prelude.Maybe [Prelude.Text],
+    -- | A list of DB cluster snapshot attributes to remove from the attribute
     -- specified by @AttributeName@.
     --
     -- To remove authorization for other Amazon accounts to copy or restore a
@@ -81,16 +91,6 @@ data ModifyDBClusterSnapshotAttribute = ModifyDBClusterSnapshotAttribute'
     -- @restore@ attribute can still copy or restore a manual DB cluster
     -- snapshot.
     valuesToRemove :: Prelude.Maybe [Prelude.Text],
-    -- | A list of DB cluster snapshot attributes to add to the attribute
-    -- specified by @AttributeName@.
-    --
-    -- To authorize other Amazon accounts to copy or restore a manual DB
-    -- cluster snapshot, set this list to include one or more Amazon account
-    -- IDs, or @all@ to make the manual DB cluster snapshot restorable by any
-    -- Amazon account. Do not add the @all@ value for any manual DB cluster
-    -- snapshots that contain private information that you don\'t want
-    -- available to all Amazon accounts.
-    valuesToAdd :: Prelude.Maybe [Prelude.Text],
     -- | The identifier for the DB cluster snapshot to modify the attributes for.
     dbClusterSnapshotIdentifier :: Prelude.Text,
     -- | The name of the DB cluster snapshot attribute to modify.
@@ -109,6 +109,16 @@ data ModifyDBClusterSnapshotAttribute = ModifyDBClusterSnapshotAttribute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'valuesToAdd', 'modifyDBClusterSnapshotAttribute_valuesToAdd' - A list of DB cluster snapshot attributes to add to the attribute
+-- specified by @AttributeName@.
+--
+-- To authorize other Amazon accounts to copy or restore a manual DB
+-- cluster snapshot, set this list to include one or more Amazon account
+-- IDs, or @all@ to make the manual DB cluster snapshot restorable by any
+-- Amazon account. Do not add the @all@ value for any manual DB cluster
+-- snapshots that contain private information that you don\'t want
+-- available to all Amazon accounts.
+--
 -- 'valuesToRemove', 'modifyDBClusterSnapshotAttribute_valuesToRemove' - A list of DB cluster snapshot attributes to remove from the attribute
 -- specified by @AttributeName@.
 --
@@ -119,16 +129,6 @@ data ModifyDBClusterSnapshotAttribute = ModifyDBClusterSnapshotAttribute'
 -- @all@, an Amazon account whose account ID is explicitly added to the
 -- @restore@ attribute can still copy or restore a manual DB cluster
 -- snapshot.
---
--- 'valuesToAdd', 'modifyDBClusterSnapshotAttribute_valuesToAdd' - A list of DB cluster snapshot attributes to add to the attribute
--- specified by @AttributeName@.
---
--- To authorize other Amazon accounts to copy or restore a manual DB
--- cluster snapshot, set this list to include one or more Amazon account
--- IDs, or @all@ to make the manual DB cluster snapshot restorable by any
--- Amazon account. Do not add the @all@ value for any manual DB cluster
--- snapshots that contain private information that you don\'t want
--- available to all Amazon accounts.
 --
 -- 'dbClusterSnapshotIdentifier', 'modifyDBClusterSnapshotAttribute_dbClusterSnapshotIdentifier' - The identifier for the DB cluster snapshot to modify the attributes for.
 --
@@ -146,13 +146,25 @@ newModifyDBClusterSnapshotAttribute
   pDBClusterSnapshotIdentifier_
   pAttributeName_ =
     ModifyDBClusterSnapshotAttribute'
-      { valuesToRemove =
+      { valuesToAdd =
           Prelude.Nothing,
-        valuesToAdd = Prelude.Nothing,
+        valuesToRemove = Prelude.Nothing,
         dbClusterSnapshotIdentifier =
           pDBClusterSnapshotIdentifier_,
         attributeName = pAttributeName_
       }
+
+-- | A list of DB cluster snapshot attributes to add to the attribute
+-- specified by @AttributeName@.
+--
+-- To authorize other Amazon accounts to copy or restore a manual DB
+-- cluster snapshot, set this list to include one or more Amazon account
+-- IDs, or @all@ to make the manual DB cluster snapshot restorable by any
+-- Amazon account. Do not add the @all@ value for any manual DB cluster
+-- snapshots that contain private information that you don\'t want
+-- available to all Amazon accounts.
+modifyDBClusterSnapshotAttribute_valuesToAdd :: Lens.Lens' ModifyDBClusterSnapshotAttribute (Prelude.Maybe [Prelude.Text])
+modifyDBClusterSnapshotAttribute_valuesToAdd = Lens.lens (\ModifyDBClusterSnapshotAttribute' {valuesToAdd} -> valuesToAdd) (\s@ModifyDBClusterSnapshotAttribute' {} a -> s {valuesToAdd = a} :: ModifyDBClusterSnapshotAttribute) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of DB cluster snapshot attributes to remove from the attribute
 -- specified by @AttributeName@.
@@ -166,18 +178,6 @@ newModifyDBClusterSnapshotAttribute
 -- snapshot.
 modifyDBClusterSnapshotAttribute_valuesToRemove :: Lens.Lens' ModifyDBClusterSnapshotAttribute (Prelude.Maybe [Prelude.Text])
 modifyDBClusterSnapshotAttribute_valuesToRemove = Lens.lens (\ModifyDBClusterSnapshotAttribute' {valuesToRemove} -> valuesToRemove) (\s@ModifyDBClusterSnapshotAttribute' {} a -> s {valuesToRemove = a} :: ModifyDBClusterSnapshotAttribute) Prelude.. Lens.mapping Lens.coerced
-
--- | A list of DB cluster snapshot attributes to add to the attribute
--- specified by @AttributeName@.
---
--- To authorize other Amazon accounts to copy or restore a manual DB
--- cluster snapshot, set this list to include one or more Amazon account
--- IDs, or @all@ to make the manual DB cluster snapshot restorable by any
--- Amazon account. Do not add the @all@ value for any manual DB cluster
--- snapshots that contain private information that you don\'t want
--- available to all Amazon accounts.
-modifyDBClusterSnapshotAttribute_valuesToAdd :: Lens.Lens' ModifyDBClusterSnapshotAttribute (Prelude.Maybe [Prelude.Text])
-modifyDBClusterSnapshotAttribute_valuesToAdd = Lens.lens (\ModifyDBClusterSnapshotAttribute' {valuesToAdd} -> valuesToAdd) (\s@ModifyDBClusterSnapshotAttribute' {} a -> s {valuesToAdd = a} :: ModifyDBClusterSnapshotAttribute) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier for the DB cluster snapshot to modify the attributes for.
 modifyDBClusterSnapshotAttribute_dbClusterSnapshotIdentifier :: Lens.Lens' ModifyDBClusterSnapshotAttribute Prelude.Text
@@ -215,8 +215,8 @@ instance
   hashWithSalt
     _salt
     ModifyDBClusterSnapshotAttribute' {..} =
-      _salt `Prelude.hashWithSalt` valuesToRemove
-        `Prelude.hashWithSalt` valuesToAdd
+      _salt `Prelude.hashWithSalt` valuesToAdd
+        `Prelude.hashWithSalt` valuesToRemove
         `Prelude.hashWithSalt` dbClusterSnapshotIdentifier
         `Prelude.hashWithSalt` attributeName
 
@@ -225,8 +225,8 @@ instance
     ModifyDBClusterSnapshotAttribute
   where
   rnf ModifyDBClusterSnapshotAttribute' {..} =
-    Prelude.rnf valuesToRemove
-      `Prelude.seq` Prelude.rnf valuesToAdd
+    Prelude.rnf valuesToAdd
+      `Prelude.seq` Prelude.rnf valuesToRemove
       `Prelude.seq` Prelude.rnf dbClusterSnapshotIdentifier
       `Prelude.seq` Prelude.rnf attributeName
 
@@ -251,15 +251,15 @@ instance
                   ),
         "Version"
           Data.=: ("2014-10-31" :: Prelude.ByteString),
-        "ValuesToRemove"
-          Data.=: Data.toQuery
-            ( Data.toQueryList "AttributeValue"
-                Prelude.<$> valuesToRemove
-            ),
         "ValuesToAdd"
           Data.=: Data.toQuery
             ( Data.toQueryList "AttributeValue"
                 Prelude.<$> valuesToAdd
+            ),
+        "ValuesToRemove"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "AttributeValue"
+                Prelude.<$> valuesToRemove
             ),
         "DBClusterSnapshotIdentifier"
           Data.=: dbClusterSnapshotIdentifier,

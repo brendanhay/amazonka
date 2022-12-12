@@ -30,14 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTabularConditions' smart constructor.
 data TabularConditions = TabularConditions'
-  { -- | You can filter the request using various logical operators and a
+  { -- | Filter criteria that orders the output. It can be sorted in ascending or
+    -- descending order.
+    orderBy :: Prelude.Maybe (Prelude.NonEmpty OrderBy),
+    -- | You can filter the request using various logical operators and a
     -- key-value format. For example:
     --
     -- @{\"key\": \"serverType\", \"value\": \"webServer\"}@
-    propertyFilters :: Prelude.Maybe (Prelude.NonEmpty PropertyFilter),
-    -- | Filter criteria that orders the output. It can be sorted in ascending or
-    -- descending order.
-    orderBy :: Prelude.Maybe (Prelude.NonEmpty OrderBy)
+    propertyFilters :: Prelude.Maybe (Prelude.NonEmpty PropertyFilter)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,21 +49,25 @@ data TabularConditions = TabularConditions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'orderBy', 'tabularConditions_orderBy' - Filter criteria that orders the output. It can be sorted in ascending or
+-- descending order.
+--
 -- 'propertyFilters', 'tabularConditions_propertyFilters' - You can filter the request using various logical operators and a
 -- key-value format. For example:
 --
 -- @{\"key\": \"serverType\", \"value\": \"webServer\"}@
---
--- 'orderBy', 'tabularConditions_orderBy' - Filter criteria that orders the output. It can be sorted in ascending or
--- descending order.
 newTabularConditions ::
   TabularConditions
 newTabularConditions =
   TabularConditions'
-    { propertyFilters =
-        Prelude.Nothing,
-      orderBy = Prelude.Nothing
+    { orderBy = Prelude.Nothing,
+      propertyFilters = Prelude.Nothing
     }
+
+-- | Filter criteria that orders the output. It can be sorted in ascending or
+-- descending order.
+tabularConditions_orderBy :: Lens.Lens' TabularConditions (Prelude.Maybe (Prelude.NonEmpty OrderBy))
+tabularConditions_orderBy = Lens.lens (\TabularConditions' {orderBy} -> orderBy) (\s@TabularConditions' {} a -> s {orderBy = a} :: TabularConditions) Prelude.. Lens.mapping Lens.coerced
 
 -- | You can filter the request using various logical operators and a
 -- key-value format. For example:
@@ -72,27 +76,22 @@ newTabularConditions =
 tabularConditions_propertyFilters :: Lens.Lens' TabularConditions (Prelude.Maybe (Prelude.NonEmpty PropertyFilter))
 tabularConditions_propertyFilters = Lens.lens (\TabularConditions' {propertyFilters} -> propertyFilters) (\s@TabularConditions' {} a -> s {propertyFilters = a} :: TabularConditions) Prelude.. Lens.mapping Lens.coerced
 
--- | Filter criteria that orders the output. It can be sorted in ascending or
--- descending order.
-tabularConditions_orderBy :: Lens.Lens' TabularConditions (Prelude.Maybe (Prelude.NonEmpty OrderBy))
-tabularConditions_orderBy = Lens.lens (\TabularConditions' {orderBy} -> orderBy) (\s@TabularConditions' {} a -> s {orderBy = a} :: TabularConditions) Prelude.. Lens.mapping Lens.coerced
-
 instance Prelude.Hashable TabularConditions where
   hashWithSalt _salt TabularConditions' {..} =
-    _salt `Prelude.hashWithSalt` propertyFilters
-      `Prelude.hashWithSalt` orderBy
+    _salt `Prelude.hashWithSalt` orderBy
+      `Prelude.hashWithSalt` propertyFilters
 
 instance Prelude.NFData TabularConditions where
   rnf TabularConditions' {..} =
-    Prelude.rnf propertyFilters
-      `Prelude.seq` Prelude.rnf orderBy
+    Prelude.rnf orderBy
+      `Prelude.seq` Prelude.rnf propertyFilters
 
 instance Data.ToJSON TabularConditions where
   toJSON TabularConditions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("propertyFilters" Data..=)
-              Prelude.<$> propertyFilters,
-            ("orderBy" Data..=) Prelude.<$> orderBy
+          [ ("orderBy" Data..=) Prelude.<$> orderBy,
+            ("propertyFilters" Data..=)
+              Prelude.<$> propertyFilters
           ]
       )

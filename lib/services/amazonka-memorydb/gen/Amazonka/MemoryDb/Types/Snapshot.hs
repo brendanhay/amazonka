@@ -31,25 +31,25 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSnapshot' smart constructor.
 data Snapshot = Snapshot'
-  { -- | The configuration of the cluster from which the snapshot was taken
-    clusterConfiguration :: Prelude.Maybe ClusterConfiguration,
-    -- | The name of the snapshot
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The ARN (Amazon Resource Name) of the snapshot.
+  { -- | The ARN (Amazon Resource Name) of the snapshot.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The status of the snapshot. Valid values: creating | available |
-    -- restoring | copying | deleting.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether the snapshot is from an automatic backup (automated)
-    -- or was created manually (manual).
-    source :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the KMS key used to encrypt the snapshot.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The configuration of the cluster from which the snapshot was taken
+    clusterConfiguration :: Prelude.Maybe ClusterConfiguration,
     -- | Enables data tiering. Data tiering is only supported for clusters using
     -- the r6gd node type. This parameter must be set when using r6gd nodes.
     -- For more information, see
     -- <https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html Data tiering>.
-    dataTiering :: Prelude.Maybe DataTieringStatus
+    dataTiering :: Prelude.Maybe DataTieringStatus,
+    -- | The ID of the KMS key used to encrypt the snapshot.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the snapshot
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether the snapshot is from an automatic backup (automated)
+    -- or was created manually (manual).
+    source :: Prelude.Maybe Prelude.Text,
+    -- | The status of the snapshot. Valid values: creating | available |
+    -- restoring | copying | deleting.
+    status :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,62 +61,44 @@ data Snapshot = Snapshot'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clusterConfiguration', 'snapshot_clusterConfiguration' - The configuration of the cluster from which the snapshot was taken
---
--- 'name', 'snapshot_name' - The name of the snapshot
---
 -- 'arn', 'snapshot_arn' - The ARN (Amazon Resource Name) of the snapshot.
 --
--- 'status', 'snapshot_status' - The status of the snapshot. Valid values: creating | available |
--- restoring | copying | deleting.
---
--- 'source', 'snapshot_source' - Indicates whether the snapshot is from an automatic backup (automated)
--- or was created manually (manual).
---
--- 'kmsKeyId', 'snapshot_kmsKeyId' - The ID of the KMS key used to encrypt the snapshot.
+-- 'clusterConfiguration', 'snapshot_clusterConfiguration' - The configuration of the cluster from which the snapshot was taken
 --
 -- 'dataTiering', 'snapshot_dataTiering' - Enables data tiering. Data tiering is only supported for clusters using
 -- the r6gd node type. This parameter must be set when using r6gd nodes.
 -- For more information, see
 -- <https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html Data tiering>.
+--
+-- 'kmsKeyId', 'snapshot_kmsKeyId' - The ID of the KMS key used to encrypt the snapshot.
+--
+-- 'name', 'snapshot_name' - The name of the snapshot
+--
+-- 'source', 'snapshot_source' - Indicates whether the snapshot is from an automatic backup (automated)
+-- or was created manually (manual).
+--
+-- 'status', 'snapshot_status' - The status of the snapshot. Valid values: creating | available |
+-- restoring | copying | deleting.
 newSnapshot ::
   Snapshot
 newSnapshot =
   Snapshot'
-    { clusterConfiguration = Prelude.Nothing,
-      name = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      status = Prelude.Nothing,
-      source = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      clusterConfiguration = Prelude.Nothing,
+      dataTiering = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
-      dataTiering = Prelude.Nothing
+      name = Prelude.Nothing,
+      source = Prelude.Nothing,
+      status = Prelude.Nothing
     }
-
--- | The configuration of the cluster from which the snapshot was taken
-snapshot_clusterConfiguration :: Lens.Lens' Snapshot (Prelude.Maybe ClusterConfiguration)
-snapshot_clusterConfiguration = Lens.lens (\Snapshot' {clusterConfiguration} -> clusterConfiguration) (\s@Snapshot' {} a -> s {clusterConfiguration = a} :: Snapshot)
-
--- | The name of the snapshot
-snapshot_name :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
-snapshot_name = Lens.lens (\Snapshot' {name} -> name) (\s@Snapshot' {} a -> s {name = a} :: Snapshot)
 
 -- | The ARN (Amazon Resource Name) of the snapshot.
 snapshot_arn :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
 snapshot_arn = Lens.lens (\Snapshot' {arn} -> arn) (\s@Snapshot' {} a -> s {arn = a} :: Snapshot)
 
--- | The status of the snapshot. Valid values: creating | available |
--- restoring | copying | deleting.
-snapshot_status :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
-snapshot_status = Lens.lens (\Snapshot' {status} -> status) (\s@Snapshot' {} a -> s {status = a} :: Snapshot)
-
--- | Indicates whether the snapshot is from an automatic backup (automated)
--- or was created manually (manual).
-snapshot_source :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
-snapshot_source = Lens.lens (\Snapshot' {source} -> source) (\s@Snapshot' {} a -> s {source = a} :: Snapshot)
-
--- | The ID of the KMS key used to encrypt the snapshot.
-snapshot_kmsKeyId :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
-snapshot_kmsKeyId = Lens.lens (\Snapshot' {kmsKeyId} -> kmsKeyId) (\s@Snapshot' {} a -> s {kmsKeyId = a} :: Snapshot)
+-- | The configuration of the cluster from which the snapshot was taken
+snapshot_clusterConfiguration :: Lens.Lens' Snapshot (Prelude.Maybe ClusterConfiguration)
+snapshot_clusterConfiguration = Lens.lens (\Snapshot' {clusterConfiguration} -> clusterConfiguration) (\s@Snapshot' {} a -> s {clusterConfiguration = a} :: Snapshot)
 
 -- | Enables data tiering. Data tiering is only supported for clusters using
 -- the r6gd node type. This parameter must be set when using r6gd nodes.
@@ -125,37 +107,55 @@ snapshot_kmsKeyId = Lens.lens (\Snapshot' {kmsKeyId} -> kmsKeyId) (\s@Snapshot' 
 snapshot_dataTiering :: Lens.Lens' Snapshot (Prelude.Maybe DataTieringStatus)
 snapshot_dataTiering = Lens.lens (\Snapshot' {dataTiering} -> dataTiering) (\s@Snapshot' {} a -> s {dataTiering = a} :: Snapshot)
 
+-- | The ID of the KMS key used to encrypt the snapshot.
+snapshot_kmsKeyId :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
+snapshot_kmsKeyId = Lens.lens (\Snapshot' {kmsKeyId} -> kmsKeyId) (\s@Snapshot' {} a -> s {kmsKeyId = a} :: Snapshot)
+
+-- | The name of the snapshot
+snapshot_name :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
+snapshot_name = Lens.lens (\Snapshot' {name} -> name) (\s@Snapshot' {} a -> s {name = a} :: Snapshot)
+
+-- | Indicates whether the snapshot is from an automatic backup (automated)
+-- or was created manually (manual).
+snapshot_source :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
+snapshot_source = Lens.lens (\Snapshot' {source} -> source) (\s@Snapshot' {} a -> s {source = a} :: Snapshot)
+
+-- | The status of the snapshot. Valid values: creating | available |
+-- restoring | copying | deleting.
+snapshot_status :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
+snapshot_status = Lens.lens (\Snapshot' {status} -> status) (\s@Snapshot' {} a -> s {status = a} :: Snapshot)
+
 instance Data.FromJSON Snapshot where
   parseJSON =
     Data.withObject
       "Snapshot"
       ( \x ->
           Snapshot'
-            Prelude.<$> (x Data..:? "ClusterConfiguration")
-            Prelude.<*> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "ARN")
-            Prelude.<*> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "Source")
-            Prelude.<*> (x Data..:? "KmsKeyId")
+            Prelude.<$> (x Data..:? "ARN")
+            Prelude.<*> (x Data..:? "ClusterConfiguration")
             Prelude.<*> (x Data..:? "DataTiering")
+            Prelude.<*> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Source")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable Snapshot where
   hashWithSalt _salt Snapshot' {..} =
-    _salt `Prelude.hashWithSalt` clusterConfiguration
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` source
-      `Prelude.hashWithSalt` kmsKeyId
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` clusterConfiguration
       `Prelude.hashWithSalt` dataTiering
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData Snapshot where
   rnf Snapshot' {..} =
-    Prelude.rnf clusterConfiguration
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf kmsKeyId
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf clusterConfiguration
       `Prelude.seq` Prelude.rnf dataTiering
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf status

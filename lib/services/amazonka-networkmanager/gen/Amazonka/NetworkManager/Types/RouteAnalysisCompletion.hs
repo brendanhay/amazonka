@@ -30,10 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRouteAnalysisCompletion' smart constructor.
 data RouteAnalysisCompletion = RouteAnalysisCompletion'
-  { -- | The result of the analysis. If the status is @NOT_CONNECTED@, check the
-    -- reason code.
-    resultCode :: Prelude.Maybe RouteAnalysisCompletionResultCode,
-    -- | The reason code. Available only if a connection is not found.
+  { -- | The reason code. Available only if a connection is not found.
     --
     -- -   @BLACKHOLE_ROUTE_FOR_DESTINATION_FOUND@ - Found a black hole route
     --     with the destination CIDR block.
@@ -63,7 +60,10 @@ data RouteAnalysisCompletion = RouteAnalysisCompletion'
     reasonCode :: Prelude.Maybe RouteAnalysisCompletionReasonCode,
     -- | Additional information about the path. Available only if a connection is
     -- not found.
-    reasonContext :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    reasonContext :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The result of the analysis. If the status is @NOT_CONNECTED@, check the
+    -- reason code.
+    resultCode :: Prelude.Maybe RouteAnalysisCompletionResultCode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,9 +74,6 @@ data RouteAnalysisCompletion = RouteAnalysisCompletion'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'resultCode', 'routeAnalysisCompletion_resultCode' - The result of the analysis. If the status is @NOT_CONNECTED@, check the
--- reason code.
 --
 -- 'reasonCode', 'routeAnalysisCompletion_reasonCode' - The reason code. Available only if a connection is not found.
 --
@@ -108,20 +105,18 @@ data RouteAnalysisCompletion = RouteAnalysisCompletion'
 --
 -- 'reasonContext', 'routeAnalysisCompletion_reasonContext' - Additional information about the path. Available only if a connection is
 -- not found.
+--
+-- 'resultCode', 'routeAnalysisCompletion_resultCode' - The result of the analysis. If the status is @NOT_CONNECTED@, check the
+-- reason code.
 newRouteAnalysisCompletion ::
   RouteAnalysisCompletion
 newRouteAnalysisCompletion =
   RouteAnalysisCompletion'
-    { resultCode =
+    { reasonCode =
         Prelude.Nothing,
-      reasonCode = Prelude.Nothing,
-      reasonContext = Prelude.Nothing
+      reasonContext = Prelude.Nothing,
+      resultCode = Prelude.Nothing
     }
-
--- | The result of the analysis. If the status is @NOT_CONNECTED@, check the
--- reason code.
-routeAnalysisCompletion_resultCode :: Lens.Lens' RouteAnalysisCompletion (Prelude.Maybe RouteAnalysisCompletionResultCode)
-routeAnalysisCompletion_resultCode = Lens.lens (\RouteAnalysisCompletion' {resultCode} -> resultCode) (\s@RouteAnalysisCompletion' {} a -> s {resultCode = a} :: RouteAnalysisCompletion)
 
 -- | The reason code. Available only if a connection is not found.
 --
@@ -158,25 +153,30 @@ routeAnalysisCompletion_reasonCode = Lens.lens (\RouteAnalysisCompletion' {reaso
 routeAnalysisCompletion_reasonContext :: Lens.Lens' RouteAnalysisCompletion (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 routeAnalysisCompletion_reasonContext = Lens.lens (\RouteAnalysisCompletion' {reasonContext} -> reasonContext) (\s@RouteAnalysisCompletion' {} a -> s {reasonContext = a} :: RouteAnalysisCompletion) Prelude.. Lens.mapping Lens.coerced
 
+-- | The result of the analysis. If the status is @NOT_CONNECTED@, check the
+-- reason code.
+routeAnalysisCompletion_resultCode :: Lens.Lens' RouteAnalysisCompletion (Prelude.Maybe RouteAnalysisCompletionResultCode)
+routeAnalysisCompletion_resultCode = Lens.lens (\RouteAnalysisCompletion' {resultCode} -> resultCode) (\s@RouteAnalysisCompletion' {} a -> s {resultCode = a} :: RouteAnalysisCompletion)
+
 instance Data.FromJSON RouteAnalysisCompletion where
   parseJSON =
     Data.withObject
       "RouteAnalysisCompletion"
       ( \x ->
           RouteAnalysisCompletion'
-            Prelude.<$> (x Data..:? "ResultCode")
-            Prelude.<*> (x Data..:? "ReasonCode")
+            Prelude.<$> (x Data..:? "ReasonCode")
             Prelude.<*> (x Data..:? "ReasonContext" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ResultCode")
       )
 
 instance Prelude.Hashable RouteAnalysisCompletion where
   hashWithSalt _salt RouteAnalysisCompletion' {..} =
-    _salt `Prelude.hashWithSalt` resultCode
-      `Prelude.hashWithSalt` reasonCode
+    _salt `Prelude.hashWithSalt` reasonCode
       `Prelude.hashWithSalt` reasonContext
+      `Prelude.hashWithSalt` resultCode
 
 instance Prelude.NFData RouteAnalysisCompletion where
   rnf RouteAnalysisCompletion' {..} =
-    Prelude.rnf resultCode
-      `Prelude.seq` Prelude.rnf reasonCode
+    Prelude.rnf reasonCode
       `Prelude.seq` Prelude.rnf reasonContext
+      `Prelude.seq` Prelude.rnf resultCode

@@ -52,8 +52,8 @@ module Amazonka.AWSHealth.DescribeEventDetails
     newDescribeEventDetailsResponse,
 
     -- * Response Lenses
-    describeEventDetailsResponse_successfulSet,
     describeEventDetailsResponse_failedSet,
+    describeEventDetailsResponse_successfulSet,
     describeEventDetailsResponse_httpStatus,
   )
 where
@@ -120,8 +120,8 @@ instance Core.AWSRequest DescribeEventDetails where
     Response.receiveJSON
       ( \s h x ->
           DescribeEventDetailsResponse'
-            Prelude.<$> (x Data..?> "successfulSet" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "failedSet" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "failedSet" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "successfulSet" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,10 +167,10 @@ instance Data.ToQuery DescribeEventDetails where
 
 -- | /See:/ 'newDescribeEventDetailsResponse' smart constructor.
 data DescribeEventDetailsResponse = DescribeEventDetailsResponse'
-  { -- | Information about the events that could be retrieved.
-    successfulSet :: Prelude.Maybe [EventDetails],
-    -- | Error messages for any events that could not be retrieved.
+  { -- | Error messages for any events that could not be retrieved.
     failedSet :: Prelude.Maybe [EventDetailsErrorItem],
+    -- | Information about the events that could be retrieved.
+    successfulSet :: Prelude.Maybe [EventDetails],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -184,9 +184,9 @@ data DescribeEventDetailsResponse = DescribeEventDetailsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'successfulSet', 'describeEventDetailsResponse_successfulSet' - Information about the events that could be retrieved.
---
 -- 'failedSet', 'describeEventDetailsResponse_failedSet' - Error messages for any events that could not be retrieved.
+--
+-- 'successfulSet', 'describeEventDetailsResponse_successfulSet' - Information about the events that could be retrieved.
 --
 -- 'httpStatus', 'describeEventDetailsResponse_httpStatus' - The response's http status code.
 newDescribeEventDetailsResponse ::
@@ -195,19 +195,19 @@ newDescribeEventDetailsResponse ::
   DescribeEventDetailsResponse
 newDescribeEventDetailsResponse pHttpStatus_ =
   DescribeEventDetailsResponse'
-    { successfulSet =
+    { failedSet =
         Prelude.Nothing,
-      failedSet = Prelude.Nothing,
+      successfulSet = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the events that could be retrieved.
-describeEventDetailsResponse_successfulSet :: Lens.Lens' DescribeEventDetailsResponse (Prelude.Maybe [EventDetails])
-describeEventDetailsResponse_successfulSet = Lens.lens (\DescribeEventDetailsResponse' {successfulSet} -> successfulSet) (\s@DescribeEventDetailsResponse' {} a -> s {successfulSet = a} :: DescribeEventDetailsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Error messages for any events that could not be retrieved.
 describeEventDetailsResponse_failedSet :: Lens.Lens' DescribeEventDetailsResponse (Prelude.Maybe [EventDetailsErrorItem])
 describeEventDetailsResponse_failedSet = Lens.lens (\DescribeEventDetailsResponse' {failedSet} -> failedSet) (\s@DescribeEventDetailsResponse' {} a -> s {failedSet = a} :: DescribeEventDetailsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Information about the events that could be retrieved.
+describeEventDetailsResponse_successfulSet :: Lens.Lens' DescribeEventDetailsResponse (Prelude.Maybe [EventDetails])
+describeEventDetailsResponse_successfulSet = Lens.lens (\DescribeEventDetailsResponse' {successfulSet} -> successfulSet) (\s@DescribeEventDetailsResponse' {} a -> s {successfulSet = a} :: DescribeEventDetailsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeEventDetailsResponse_httpStatus :: Lens.Lens' DescribeEventDetailsResponse Prelude.Int
@@ -215,6 +215,6 @@ describeEventDetailsResponse_httpStatus = Lens.lens (\DescribeEventDetailsRespon
 
 instance Prelude.NFData DescribeEventDetailsResponse where
   rnf DescribeEventDetailsResponse' {..} =
-    Prelude.rnf successfulSet
-      `Prelude.seq` Prelude.rnf failedSet
+    Prelude.rnf failedSet
+      `Prelude.seq` Prelude.rnf successfulSet
       `Prelude.seq` Prelude.rnf httpStatus

@@ -32,21 +32,6 @@ import qualified Amazonka.Prelude as Prelude
 data EksPodPropertiesDetail = EksPodPropertiesDetail'
   { -- | The properties of the container that\'s used on the Amazon EKS pod.
     containers :: Prelude.Maybe [EksContainerDetail],
-    -- | The name of the service account that\'s used to run the pod. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/eks/latest/userguide/service-accounts.html Kubernetes service accounts>
-    -- and
-    -- <https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html Configure a Kubernetes service account to assume an IAM role>
-    -- in the /Amazon EKS User Guide/ and
-    -- <https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/ Configure service accounts for pods>
-    -- in the /Kubernetes documentation/.
-    serviceAccountName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the pod for this job.
-    podName :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the volumes for a job definition using Amazon EKS resources.
-    volumes :: Prelude.Maybe [EksVolume],
-    -- | The name of the node for this job.
-    nodeName :: Prelude.Maybe Prelude.Text,
     -- | The DNS policy for the pod. The default value is @ClusterFirst@. If the
     -- @hostNetwork@ parameter is not specified, the default is
     -- @ClusterFirstWithHostNet@. @ClusterFirst@ indicates that any DNS query
@@ -76,7 +61,22 @@ data EksPodPropertiesDetail = EksPodPropertiesDetail'
     -- and
     -- <https://kubernetes.io/docs/concepts/workloads/pods/#pod-networking Pod networking>
     -- in the /Kubernetes documentation/.
-    hostNetwork :: Prelude.Maybe Prelude.Bool
+    hostNetwork :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the node for this job.
+    nodeName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the pod for this job.
+    podName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the service account that\'s used to run the pod. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/eks/latest/userguide/service-accounts.html Kubernetes service accounts>
+    -- and
+    -- <https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html Configure a Kubernetes service account to assume an IAM role>
+    -- in the /Amazon EKS User Guide/ and
+    -- <https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/ Configure service accounts for pods>
+    -- in the /Kubernetes documentation/.
+    serviceAccountName :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the volumes for a job definition using Amazon EKS resources.
+    volumes :: Prelude.Maybe [EksVolume]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -89,21 +89,6 @@ data EksPodPropertiesDetail = EksPodPropertiesDetail'
 -- for backwards compatibility:
 --
 -- 'containers', 'eksPodPropertiesDetail_containers' - The properties of the container that\'s used on the Amazon EKS pod.
---
--- 'serviceAccountName', 'eksPodPropertiesDetail_serviceAccountName' - The name of the service account that\'s used to run the pod. For more
--- information, see
--- <https://docs.aws.amazon.com/eks/latest/userguide/service-accounts.html Kubernetes service accounts>
--- and
--- <https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html Configure a Kubernetes service account to assume an IAM role>
--- in the /Amazon EKS User Guide/ and
--- <https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/ Configure service accounts for pods>
--- in the /Kubernetes documentation/.
---
--- 'podName', 'eksPodPropertiesDetail_podName' - The name of the pod for this job.
---
--- 'volumes', 'eksPodPropertiesDetail_volumes' - Specifies the volumes for a job definition using Amazon EKS resources.
---
--- 'nodeName', 'eksPodPropertiesDetail_nodeName' - The name of the node for this job.
 --
 -- 'dnsPolicy', 'eksPodPropertiesDetail_dnsPolicy' - The DNS policy for the pod. The default value is @ClusterFirst@. If the
 -- @hostNetwork@ parameter is not specified, the default is
@@ -134,25 +119,12 @@ data EksPodPropertiesDetail = EksPodPropertiesDetail'
 -- and
 -- <https://kubernetes.io/docs/concepts/workloads/pods/#pod-networking Pod networking>
 -- in the /Kubernetes documentation/.
-newEksPodPropertiesDetail ::
-  EksPodPropertiesDetail
-newEksPodPropertiesDetail =
-  EksPodPropertiesDetail'
-    { containers =
-        Prelude.Nothing,
-      serviceAccountName = Prelude.Nothing,
-      podName = Prelude.Nothing,
-      volumes = Prelude.Nothing,
-      nodeName = Prelude.Nothing,
-      dnsPolicy = Prelude.Nothing,
-      hostNetwork = Prelude.Nothing
-    }
-
--- | The properties of the container that\'s used on the Amazon EKS pod.
-eksPodPropertiesDetail_containers :: Lens.Lens' EksPodPropertiesDetail (Prelude.Maybe [EksContainerDetail])
-eksPodPropertiesDetail_containers = Lens.lens (\EksPodPropertiesDetail' {containers} -> containers) (\s@EksPodPropertiesDetail' {} a -> s {containers = a} :: EksPodPropertiesDetail) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the service account that\'s used to run the pod. For more
+--
+-- 'nodeName', 'eksPodPropertiesDetail_nodeName' - The name of the node for this job.
+--
+-- 'podName', 'eksPodPropertiesDetail_podName' - The name of the pod for this job.
+--
+-- 'serviceAccountName', 'eksPodPropertiesDetail_serviceAccountName' - The name of the service account that\'s used to run the pod. For more
 -- information, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/service-accounts.html Kubernetes service accounts>
 -- and
@@ -160,20 +132,25 @@ eksPodPropertiesDetail_containers = Lens.lens (\EksPodPropertiesDetail' {contain
 -- in the /Amazon EKS User Guide/ and
 -- <https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/ Configure service accounts for pods>
 -- in the /Kubernetes documentation/.
-eksPodPropertiesDetail_serviceAccountName :: Lens.Lens' EksPodPropertiesDetail (Prelude.Maybe Prelude.Text)
-eksPodPropertiesDetail_serviceAccountName = Lens.lens (\EksPodPropertiesDetail' {serviceAccountName} -> serviceAccountName) (\s@EksPodPropertiesDetail' {} a -> s {serviceAccountName = a} :: EksPodPropertiesDetail)
+--
+-- 'volumes', 'eksPodPropertiesDetail_volumes' - Specifies the volumes for a job definition using Amazon EKS resources.
+newEksPodPropertiesDetail ::
+  EksPodPropertiesDetail
+newEksPodPropertiesDetail =
+  EksPodPropertiesDetail'
+    { containers =
+        Prelude.Nothing,
+      dnsPolicy = Prelude.Nothing,
+      hostNetwork = Prelude.Nothing,
+      nodeName = Prelude.Nothing,
+      podName = Prelude.Nothing,
+      serviceAccountName = Prelude.Nothing,
+      volumes = Prelude.Nothing
+    }
 
--- | The name of the pod for this job.
-eksPodPropertiesDetail_podName :: Lens.Lens' EksPodPropertiesDetail (Prelude.Maybe Prelude.Text)
-eksPodPropertiesDetail_podName = Lens.lens (\EksPodPropertiesDetail' {podName} -> podName) (\s@EksPodPropertiesDetail' {} a -> s {podName = a} :: EksPodPropertiesDetail)
-
--- | Specifies the volumes for a job definition using Amazon EKS resources.
-eksPodPropertiesDetail_volumes :: Lens.Lens' EksPodPropertiesDetail (Prelude.Maybe [EksVolume])
-eksPodPropertiesDetail_volumes = Lens.lens (\EksPodPropertiesDetail' {volumes} -> volumes) (\s@EksPodPropertiesDetail' {} a -> s {volumes = a} :: EksPodPropertiesDetail) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the node for this job.
-eksPodPropertiesDetail_nodeName :: Lens.Lens' EksPodPropertiesDetail (Prelude.Maybe Prelude.Text)
-eksPodPropertiesDetail_nodeName = Lens.lens (\EksPodPropertiesDetail' {nodeName} -> nodeName) (\s@EksPodPropertiesDetail' {} a -> s {nodeName = a} :: EksPodPropertiesDetail)
+-- | The properties of the container that\'s used on the Amazon EKS pod.
+eksPodPropertiesDetail_containers :: Lens.Lens' EksPodPropertiesDetail (Prelude.Maybe [EksContainerDetail])
+eksPodPropertiesDetail_containers = Lens.lens (\EksPodPropertiesDetail' {containers} -> containers) (\s@EksPodPropertiesDetail' {} a -> s {containers = a} :: EksPodPropertiesDetail) Prelude.. Lens.mapping Lens.coerced
 
 -- | The DNS policy for the pod. The default value is @ClusterFirst@. If the
 -- @hostNetwork@ parameter is not specified, the default is
@@ -209,6 +186,29 @@ eksPodPropertiesDetail_dnsPolicy = Lens.lens (\EksPodPropertiesDetail' {dnsPolic
 eksPodPropertiesDetail_hostNetwork :: Lens.Lens' EksPodPropertiesDetail (Prelude.Maybe Prelude.Bool)
 eksPodPropertiesDetail_hostNetwork = Lens.lens (\EksPodPropertiesDetail' {hostNetwork} -> hostNetwork) (\s@EksPodPropertiesDetail' {} a -> s {hostNetwork = a} :: EksPodPropertiesDetail)
 
+-- | The name of the node for this job.
+eksPodPropertiesDetail_nodeName :: Lens.Lens' EksPodPropertiesDetail (Prelude.Maybe Prelude.Text)
+eksPodPropertiesDetail_nodeName = Lens.lens (\EksPodPropertiesDetail' {nodeName} -> nodeName) (\s@EksPodPropertiesDetail' {} a -> s {nodeName = a} :: EksPodPropertiesDetail)
+
+-- | The name of the pod for this job.
+eksPodPropertiesDetail_podName :: Lens.Lens' EksPodPropertiesDetail (Prelude.Maybe Prelude.Text)
+eksPodPropertiesDetail_podName = Lens.lens (\EksPodPropertiesDetail' {podName} -> podName) (\s@EksPodPropertiesDetail' {} a -> s {podName = a} :: EksPodPropertiesDetail)
+
+-- | The name of the service account that\'s used to run the pod. For more
+-- information, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/service-accounts.html Kubernetes service accounts>
+-- and
+-- <https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html Configure a Kubernetes service account to assume an IAM role>
+-- in the /Amazon EKS User Guide/ and
+-- <https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/ Configure service accounts for pods>
+-- in the /Kubernetes documentation/.
+eksPodPropertiesDetail_serviceAccountName :: Lens.Lens' EksPodPropertiesDetail (Prelude.Maybe Prelude.Text)
+eksPodPropertiesDetail_serviceAccountName = Lens.lens (\EksPodPropertiesDetail' {serviceAccountName} -> serviceAccountName) (\s@EksPodPropertiesDetail' {} a -> s {serviceAccountName = a} :: EksPodPropertiesDetail)
+
+-- | Specifies the volumes for a job definition using Amazon EKS resources.
+eksPodPropertiesDetail_volumes :: Lens.Lens' EksPodPropertiesDetail (Prelude.Maybe [EksVolume])
+eksPodPropertiesDetail_volumes = Lens.lens (\EksPodPropertiesDetail' {volumes} -> volumes) (\s@EksPodPropertiesDetail' {} a -> s {volumes = a} :: EksPodPropertiesDetail) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON EksPodPropertiesDetail where
   parseJSON =
     Data.withObject
@@ -216,30 +216,30 @@ instance Data.FromJSON EksPodPropertiesDetail where
       ( \x ->
           EksPodPropertiesDetail'
             Prelude.<$> (x Data..:? "containers" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "serviceAccountName")
-            Prelude.<*> (x Data..:? "podName")
-            Prelude.<*> (x Data..:? "volumes" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "nodeName")
             Prelude.<*> (x Data..:? "dnsPolicy")
             Prelude.<*> (x Data..:? "hostNetwork")
+            Prelude.<*> (x Data..:? "nodeName")
+            Prelude.<*> (x Data..:? "podName")
+            Prelude.<*> (x Data..:? "serviceAccountName")
+            Prelude.<*> (x Data..:? "volumes" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable EksPodPropertiesDetail where
   hashWithSalt _salt EksPodPropertiesDetail' {..} =
     _salt `Prelude.hashWithSalt` containers
-      `Prelude.hashWithSalt` serviceAccountName
-      `Prelude.hashWithSalt` podName
-      `Prelude.hashWithSalt` volumes
-      `Prelude.hashWithSalt` nodeName
       `Prelude.hashWithSalt` dnsPolicy
       `Prelude.hashWithSalt` hostNetwork
+      `Prelude.hashWithSalt` nodeName
+      `Prelude.hashWithSalt` podName
+      `Prelude.hashWithSalt` serviceAccountName
+      `Prelude.hashWithSalt` volumes
 
 instance Prelude.NFData EksPodPropertiesDetail where
   rnf EksPodPropertiesDetail' {..} =
     Prelude.rnf containers
-      `Prelude.seq` Prelude.rnf serviceAccountName
-      `Prelude.seq` Prelude.rnf podName
-      `Prelude.seq` Prelude.rnf volumes
-      `Prelude.seq` Prelude.rnf nodeName
       `Prelude.seq` Prelude.rnf dnsPolicy
       `Prelude.seq` Prelude.rnf hostNetwork
+      `Prelude.seq` Prelude.rnf nodeName
+      `Prelude.seq` Prelude.rnf podName
+      `Prelude.seq` Prelude.rnf serviceAccountName
+      `Prelude.seq` Prelude.rnf volumes

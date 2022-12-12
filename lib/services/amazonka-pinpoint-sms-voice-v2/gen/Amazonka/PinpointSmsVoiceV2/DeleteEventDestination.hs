@@ -41,9 +41,9 @@ module Amazonka.PinpointSmsVoiceV2.DeleteEventDestination
     newDeleteEventDestinationResponse,
 
     -- * Response Lenses
+    deleteEventDestinationResponse_configurationSetArn,
     deleteEventDestinationResponse_configurationSetName,
     deleteEventDestinationResponse_eventDestination,
-    deleteEventDestinationResponse_configurationSetArn,
     deleteEventDestinationResponse_httpStatus,
   )
 where
@@ -118,9 +118,9 @@ instance Core.AWSRequest DeleteEventDestination where
     Response.receiveJSON
       ( \s h x ->
           DeleteEventDestinationResponse'
-            Prelude.<$> (x Data..?> "ConfigurationSetName")
+            Prelude.<$> (x Data..?> "ConfigurationSetArn")
+            Prelude.<*> (x Data..?> "ConfigurationSetName")
             Prelude.<*> (x Data..?> "EventDestination")
-            Prelude.<*> (x Data..?> "ConfigurationSetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,13 +172,13 @@ instance Data.ToQuery DeleteEventDestination where
 
 -- | /See:/ 'newDeleteEventDestinationResponse' smart constructor.
 data DeleteEventDestinationResponse = DeleteEventDestinationResponse'
-  { -- | The name of the configuration set the event destination was deleted
+  { -- | The Amazon Resource Name (ARN) of the configuration set.
+    configurationSetArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the configuration set the event destination was deleted
     -- from.
     configurationSetName :: Prelude.Maybe Prelude.Text,
     -- | The event destination object that was deleted.
     eventDestination :: Prelude.Maybe EventDestination,
-    -- | The Amazon Resource Name (ARN) of the configuration set.
-    configurationSetArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -192,12 +192,12 @@ data DeleteEventDestinationResponse = DeleteEventDestinationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'configurationSetArn', 'deleteEventDestinationResponse_configurationSetArn' - The Amazon Resource Name (ARN) of the configuration set.
+--
 -- 'configurationSetName', 'deleteEventDestinationResponse_configurationSetName' - The name of the configuration set the event destination was deleted
 -- from.
 --
 -- 'eventDestination', 'deleteEventDestinationResponse_eventDestination' - The event destination object that was deleted.
---
--- 'configurationSetArn', 'deleteEventDestinationResponse_configurationSetArn' - The Amazon Resource Name (ARN) of the configuration set.
 --
 -- 'httpStatus', 'deleteEventDestinationResponse_httpStatus' - The response's http status code.
 newDeleteEventDestinationResponse ::
@@ -206,12 +206,16 @@ newDeleteEventDestinationResponse ::
   DeleteEventDestinationResponse
 newDeleteEventDestinationResponse pHttpStatus_ =
   DeleteEventDestinationResponse'
-    { configurationSetName =
+    { configurationSetArn =
         Prelude.Nothing,
+      configurationSetName = Prelude.Nothing,
       eventDestination = Prelude.Nothing,
-      configurationSetArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Amazon Resource Name (ARN) of the configuration set.
+deleteEventDestinationResponse_configurationSetArn :: Lens.Lens' DeleteEventDestinationResponse (Prelude.Maybe Prelude.Text)
+deleteEventDestinationResponse_configurationSetArn = Lens.lens (\DeleteEventDestinationResponse' {configurationSetArn} -> configurationSetArn) (\s@DeleteEventDestinationResponse' {} a -> s {configurationSetArn = a} :: DeleteEventDestinationResponse)
 
 -- | The name of the configuration set the event destination was deleted
 -- from.
@@ -222,10 +226,6 @@ deleteEventDestinationResponse_configurationSetName = Lens.lens (\DeleteEventDes
 deleteEventDestinationResponse_eventDestination :: Lens.Lens' DeleteEventDestinationResponse (Prelude.Maybe EventDestination)
 deleteEventDestinationResponse_eventDestination = Lens.lens (\DeleteEventDestinationResponse' {eventDestination} -> eventDestination) (\s@DeleteEventDestinationResponse' {} a -> s {eventDestination = a} :: DeleteEventDestinationResponse)
 
--- | The Amazon Resource Name (ARN) of the configuration set.
-deleteEventDestinationResponse_configurationSetArn :: Lens.Lens' DeleteEventDestinationResponse (Prelude.Maybe Prelude.Text)
-deleteEventDestinationResponse_configurationSetArn = Lens.lens (\DeleteEventDestinationResponse' {configurationSetArn} -> configurationSetArn) (\s@DeleteEventDestinationResponse' {} a -> s {configurationSetArn = a} :: DeleteEventDestinationResponse)
-
 -- | The response's http status code.
 deleteEventDestinationResponse_httpStatus :: Lens.Lens' DeleteEventDestinationResponse Prelude.Int
 deleteEventDestinationResponse_httpStatus = Lens.lens (\DeleteEventDestinationResponse' {httpStatus} -> httpStatus) (\s@DeleteEventDestinationResponse' {} a -> s {httpStatus = a} :: DeleteEventDestinationResponse)
@@ -235,7 +235,7 @@ instance
     DeleteEventDestinationResponse
   where
   rnf DeleteEventDestinationResponse' {..} =
-    Prelude.rnf configurationSetName
+    Prelude.rnf configurationSetArn
+      `Prelude.seq` Prelude.rnf configurationSetName
       `Prelude.seq` Prelude.rnf eventDestination
-      `Prelude.seq` Prelude.rnf configurationSetArn
       `Prelude.seq` Prelude.rnf httpStatus

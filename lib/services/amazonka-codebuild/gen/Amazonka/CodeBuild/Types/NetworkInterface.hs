@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNetworkInterface' smart constructor.
 data NetworkInterface = NetworkInterface'
-  { -- | The ID of the subnet.
-    subnetId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the network interface.
-    networkInterfaceId :: Prelude.Maybe Prelude.Text
+  { -- | The ID of the network interface.
+    networkInterfaceId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the subnet.
+    subnetId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,25 @@ data NetworkInterface = NetworkInterface'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'subnetId', 'networkInterface_subnetId' - The ID of the subnet.
---
 -- 'networkInterfaceId', 'networkInterface_networkInterfaceId' - The ID of the network interface.
+--
+-- 'subnetId', 'networkInterface_subnetId' - The ID of the subnet.
 newNetworkInterface ::
   NetworkInterface
 newNetworkInterface =
   NetworkInterface'
-    { subnetId = Prelude.Nothing,
-      networkInterfaceId = Prelude.Nothing
+    { networkInterfaceId =
+        Prelude.Nothing,
+      subnetId = Prelude.Nothing
     }
-
--- | The ID of the subnet.
-networkInterface_subnetId :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
-networkInterface_subnetId = Lens.lens (\NetworkInterface' {subnetId} -> subnetId) (\s@NetworkInterface' {} a -> s {subnetId = a} :: NetworkInterface)
 
 -- | The ID of the network interface.
 networkInterface_networkInterfaceId :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
 networkInterface_networkInterfaceId = Lens.lens (\NetworkInterface' {networkInterfaceId} -> networkInterfaceId) (\s@NetworkInterface' {} a -> s {networkInterfaceId = a} :: NetworkInterface)
+
+-- | The ID of the subnet.
+networkInterface_subnetId :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
+networkInterface_subnetId = Lens.lens (\NetworkInterface' {subnetId} -> subnetId) (\s@NetworkInterface' {} a -> s {subnetId = a} :: NetworkInterface)
 
 instance Data.FromJSON NetworkInterface where
   parseJSON =
@@ -68,16 +69,16 @@ instance Data.FromJSON NetworkInterface where
       "NetworkInterface"
       ( \x ->
           NetworkInterface'
-            Prelude.<$> (x Data..:? "subnetId")
-            Prelude.<*> (x Data..:? "networkInterfaceId")
+            Prelude.<$> (x Data..:? "networkInterfaceId")
+            Prelude.<*> (x Data..:? "subnetId")
       )
 
 instance Prelude.Hashable NetworkInterface where
   hashWithSalt _salt NetworkInterface' {..} =
-    _salt `Prelude.hashWithSalt` subnetId
-      `Prelude.hashWithSalt` networkInterfaceId
+    _salt `Prelude.hashWithSalt` networkInterfaceId
+      `Prelude.hashWithSalt` subnetId
 
 instance Prelude.NFData NetworkInterface where
   rnf NetworkInterface' {..} =
-    Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf networkInterfaceId
+    Prelude.rnf networkInterfaceId
+      `Prelude.seq` Prelude.rnf subnetId

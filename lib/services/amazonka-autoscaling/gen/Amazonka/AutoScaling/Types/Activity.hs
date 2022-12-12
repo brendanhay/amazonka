@@ -31,19 +31,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newActivity' smart constructor.
 data Activity = Activity'
-  { -- | A value between 0 and 100 that indicates the progress of the activity.
-    progress :: Prelude.Maybe Prelude.Int,
-    -- | The Amazon Resource Name (ARN) of the Auto Scaling group.
+  { -- | The Amazon Resource Name (ARN) of the Auto Scaling group.
     autoScalingGroupARN :: Prelude.Maybe Prelude.Text,
     -- | The state of the Auto Scaling group, which is either @InService@ or
     -- @Deleted@.
     autoScalingGroupState :: Prelude.Maybe Prelude.Text,
-    -- | The end time of the activity.
-    endTime :: Prelude.Maybe Data.ISO8601,
     -- | A friendly, more verbose description of the activity.
     description :: Prelude.Maybe Prelude.Text,
     -- | The details about the activity.
     details :: Prelude.Maybe Prelude.Text,
+    -- | The end time of the activity.
+    endTime :: Prelude.Maybe Data.ISO8601,
+    -- | A value between 0 and 100 that indicates the progress of the activity.
+    progress :: Prelude.Maybe Prelude.Int,
     -- | A friendly, more verbose description of the activity status.
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The ID of the activity.
@@ -67,18 +67,18 @@ data Activity = Activity'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'progress', 'activity_progress' - A value between 0 and 100 that indicates the progress of the activity.
---
 -- 'autoScalingGroupARN', 'activity_autoScalingGroupARN' - The Amazon Resource Name (ARN) of the Auto Scaling group.
 --
 -- 'autoScalingGroupState', 'activity_autoScalingGroupState' - The state of the Auto Scaling group, which is either @InService@ or
 -- @Deleted@.
 --
--- 'endTime', 'activity_endTime' - The end time of the activity.
---
 -- 'description', 'activity_description' - A friendly, more verbose description of the activity.
 --
 -- 'details', 'activity_details' - The details about the activity.
+--
+-- 'endTime', 'activity_endTime' - The end time of the activity.
+--
+-- 'progress', 'activity_progress' - A value between 0 and 100 that indicates the progress of the activity.
 --
 -- 'statusMessage', 'activity_statusMessage' - A friendly, more verbose description of the activity status.
 --
@@ -110,12 +110,12 @@ newActivity
   pStartTime_
   pStatusCode_ =
     Activity'
-      { progress = Prelude.Nothing,
-        autoScalingGroupARN = Prelude.Nothing,
+      { autoScalingGroupARN = Prelude.Nothing,
         autoScalingGroupState = Prelude.Nothing,
-        endTime = Prelude.Nothing,
         description = Prelude.Nothing,
         details = Prelude.Nothing,
+        endTime = Prelude.Nothing,
+        progress = Prelude.Nothing,
         statusMessage = Prelude.Nothing,
         activityId = pActivityId_,
         autoScalingGroupName = pAutoScalingGroupName_,
@@ -123,10 +123,6 @@ newActivity
         startTime = Data._Time Lens.# pStartTime_,
         statusCode = pStatusCode_
       }
-
--- | A value between 0 and 100 that indicates the progress of the activity.
-activity_progress :: Lens.Lens' Activity (Prelude.Maybe Prelude.Int)
-activity_progress = Lens.lens (\Activity' {progress} -> progress) (\s@Activity' {} a -> s {progress = a} :: Activity)
 
 -- | The Amazon Resource Name (ARN) of the Auto Scaling group.
 activity_autoScalingGroupARN :: Lens.Lens' Activity (Prelude.Maybe Prelude.Text)
@@ -137,10 +133,6 @@ activity_autoScalingGroupARN = Lens.lens (\Activity' {autoScalingGroupARN} -> au
 activity_autoScalingGroupState :: Lens.Lens' Activity (Prelude.Maybe Prelude.Text)
 activity_autoScalingGroupState = Lens.lens (\Activity' {autoScalingGroupState} -> autoScalingGroupState) (\s@Activity' {} a -> s {autoScalingGroupState = a} :: Activity)
 
--- | The end time of the activity.
-activity_endTime :: Lens.Lens' Activity (Prelude.Maybe Prelude.UTCTime)
-activity_endTime = Lens.lens (\Activity' {endTime} -> endTime) (\s@Activity' {} a -> s {endTime = a} :: Activity) Prelude.. Lens.mapping Data._Time
-
 -- | A friendly, more verbose description of the activity.
 activity_description :: Lens.Lens' Activity (Prelude.Maybe Prelude.Text)
 activity_description = Lens.lens (\Activity' {description} -> description) (\s@Activity' {} a -> s {description = a} :: Activity)
@@ -148,6 +140,14 @@ activity_description = Lens.lens (\Activity' {description} -> description) (\s@A
 -- | The details about the activity.
 activity_details :: Lens.Lens' Activity (Prelude.Maybe Prelude.Text)
 activity_details = Lens.lens (\Activity' {details} -> details) (\s@Activity' {} a -> s {details = a} :: Activity)
+
+-- | The end time of the activity.
+activity_endTime :: Lens.Lens' Activity (Prelude.Maybe Prelude.UTCTime)
+activity_endTime = Lens.lens (\Activity' {endTime} -> endTime) (\s@Activity' {} a -> s {endTime = a} :: Activity) Prelude.. Lens.mapping Data._Time
+
+-- | A value between 0 and 100 that indicates the progress of the activity.
+activity_progress :: Lens.Lens' Activity (Prelude.Maybe Prelude.Int)
+activity_progress = Lens.lens (\Activity' {progress} -> progress) (\s@Activity' {} a -> s {progress = a} :: Activity)
 
 -- | A friendly, more verbose description of the activity status.
 activity_statusMessage :: Lens.Lens' Activity (Prelude.Maybe Prelude.Text)
@@ -176,12 +176,12 @@ activity_statusCode = Lens.lens (\Activity' {statusCode} -> statusCode) (\s@Acti
 instance Data.FromXML Activity where
   parseXML x =
     Activity'
-      Prelude.<$> (x Data..@? "Progress")
-      Prelude.<*> (x Data..@? "AutoScalingGroupARN")
+      Prelude.<$> (x Data..@? "AutoScalingGroupARN")
       Prelude.<*> (x Data..@? "AutoScalingGroupState")
-      Prelude.<*> (x Data..@? "EndTime")
       Prelude.<*> (x Data..@? "Description")
       Prelude.<*> (x Data..@? "Details")
+      Prelude.<*> (x Data..@? "EndTime")
+      Prelude.<*> (x Data..@? "Progress")
       Prelude.<*> (x Data..@? "StatusMessage")
       Prelude.<*> (x Data..@ "ActivityId")
       Prelude.<*> (x Data..@ "AutoScalingGroupName")
@@ -191,12 +191,12 @@ instance Data.FromXML Activity where
 
 instance Prelude.Hashable Activity where
   hashWithSalt _salt Activity' {..} =
-    _salt `Prelude.hashWithSalt` progress
-      `Prelude.hashWithSalt` autoScalingGroupARN
+    _salt `Prelude.hashWithSalt` autoScalingGroupARN
       `Prelude.hashWithSalt` autoScalingGroupState
-      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` details
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` progress
       `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` activityId
       `Prelude.hashWithSalt` autoScalingGroupName
@@ -206,12 +206,12 @@ instance Prelude.Hashable Activity where
 
 instance Prelude.NFData Activity where
   rnf Activity' {..} =
-    Prelude.rnf progress
-      `Prelude.seq` Prelude.rnf autoScalingGroupARN
+    Prelude.rnf autoScalingGroupARN
       `Prelude.seq` Prelude.rnf autoScalingGroupState
-      `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf details
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf progress
       `Prelude.seq` Prelude.rnf statusMessage
       `Prelude.seq` Prelude.rnf activityId
       `Prelude.seq` Prelude.rnf autoScalingGroupName

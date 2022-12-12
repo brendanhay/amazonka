@@ -29,8 +29,8 @@ module Amazonka.WorkMail.ListOrganizations
     newListOrganizations,
 
     -- * Request Lenses
-    listOrganizations_nextToken,
     listOrganizations_maxResults,
+    listOrganizations_nextToken,
 
     -- * Destructuring the Response
     ListOrganizationsResponse (..),
@@ -53,11 +53,11 @@ import Amazonka.WorkMail.Types
 
 -- | /See:/ 'newListOrganizations' smart constructor.
 data ListOrganizations = ListOrganizations'
-  { -- | The token to use to retrieve the next page of results. The first call
+  { -- | The maximum number of results to return in a single call.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to use to retrieve the next page of results. The first call
     -- does not contain any tokens.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in a single call.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,26 +69,26 @@ data ListOrganizations = ListOrganizations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listOrganizations_maxResults' - The maximum number of results to return in a single call.
+--
 -- 'nextToken', 'listOrganizations_nextToken' - The token to use to retrieve the next page of results. The first call
 -- does not contain any tokens.
---
--- 'maxResults', 'listOrganizations_maxResults' - The maximum number of results to return in a single call.
 newListOrganizations ::
   ListOrganizations
 newListOrganizations =
   ListOrganizations'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of results to return in a single call.
+listOrganizations_maxResults :: Lens.Lens' ListOrganizations (Prelude.Maybe Prelude.Natural)
+listOrganizations_maxResults = Lens.lens (\ListOrganizations' {maxResults} -> maxResults) (\s@ListOrganizations' {} a -> s {maxResults = a} :: ListOrganizations)
 
 -- | The token to use to retrieve the next page of results. The first call
 -- does not contain any tokens.
 listOrganizations_nextToken :: Lens.Lens' ListOrganizations (Prelude.Maybe Prelude.Text)
 listOrganizations_nextToken = Lens.lens (\ListOrganizations' {nextToken} -> nextToken) (\s@ListOrganizations' {} a -> s {nextToken = a} :: ListOrganizations)
-
--- | The maximum number of results to return in a single call.
-listOrganizations_maxResults :: Lens.Lens' ListOrganizations (Prelude.Maybe Prelude.Natural)
-listOrganizations_maxResults = Lens.lens (\ListOrganizations' {maxResults} -> maxResults) (\s@ListOrganizations' {} a -> s {maxResults = a} :: ListOrganizations)
 
 instance Core.AWSPager ListOrganizations where
   page rq rs
@@ -131,13 +131,13 @@ instance Core.AWSRequest ListOrganizations where
 
 instance Prelude.Hashable ListOrganizations where
   hashWithSalt _salt ListOrganizations' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListOrganizations where
   rnf ListOrganizations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListOrganizations where
   toHeaders =
@@ -158,8 +158,8 @@ instance Data.ToJSON ListOrganizations where
   toJSON ListOrganizations' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

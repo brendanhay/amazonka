@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSlateSource' smart constructor.
 data SlateSource = SlateSource'
-  { -- | The slate VOD source name. The VOD source must already exist in a source
+  { -- | The name of the source location where the slate VOD source is stored.
+    sourceLocationName :: Prelude.Maybe Prelude.Text,
+    -- | The slate VOD source name. The VOD source must already exist in a source
     -- location before it can be used for slate.
-    vodSourceName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the source location where the slate VOD source is stored.
-    sourceLocationName :: Prelude.Maybe Prelude.Text
+    vodSourceName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,26 +44,26 @@ data SlateSource = SlateSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'sourceLocationName', 'slateSource_sourceLocationName' - The name of the source location where the slate VOD source is stored.
+--
 -- 'vodSourceName', 'slateSource_vodSourceName' - The slate VOD source name. The VOD source must already exist in a source
 -- location before it can be used for slate.
---
--- 'sourceLocationName', 'slateSource_sourceLocationName' - The name of the source location where the slate VOD source is stored.
 newSlateSource ::
   SlateSource
 newSlateSource =
   SlateSource'
-    { vodSourceName = Prelude.Nothing,
-      sourceLocationName = Prelude.Nothing
+    { sourceLocationName = Prelude.Nothing,
+      vodSourceName = Prelude.Nothing
     }
+
+-- | The name of the source location where the slate VOD source is stored.
+slateSource_sourceLocationName :: Lens.Lens' SlateSource (Prelude.Maybe Prelude.Text)
+slateSource_sourceLocationName = Lens.lens (\SlateSource' {sourceLocationName} -> sourceLocationName) (\s@SlateSource' {} a -> s {sourceLocationName = a} :: SlateSource)
 
 -- | The slate VOD source name. The VOD source must already exist in a source
 -- location before it can be used for slate.
 slateSource_vodSourceName :: Lens.Lens' SlateSource (Prelude.Maybe Prelude.Text)
 slateSource_vodSourceName = Lens.lens (\SlateSource' {vodSourceName} -> vodSourceName) (\s@SlateSource' {} a -> s {vodSourceName = a} :: SlateSource)
-
--- | The name of the source location where the slate VOD source is stored.
-slateSource_sourceLocationName :: Lens.Lens' SlateSource (Prelude.Maybe Prelude.Text)
-slateSource_sourceLocationName = Lens.lens (\SlateSource' {sourceLocationName} -> sourceLocationName) (\s@SlateSource' {} a -> s {sourceLocationName = a} :: SlateSource)
 
 instance Data.FromJSON SlateSource where
   parseJSON =
@@ -71,26 +71,26 @@ instance Data.FromJSON SlateSource where
       "SlateSource"
       ( \x ->
           SlateSource'
-            Prelude.<$> (x Data..:? "VodSourceName")
-            Prelude.<*> (x Data..:? "SourceLocationName")
+            Prelude.<$> (x Data..:? "SourceLocationName")
+            Prelude.<*> (x Data..:? "VodSourceName")
       )
 
 instance Prelude.Hashable SlateSource where
   hashWithSalt _salt SlateSource' {..} =
-    _salt `Prelude.hashWithSalt` vodSourceName
-      `Prelude.hashWithSalt` sourceLocationName
+    _salt `Prelude.hashWithSalt` sourceLocationName
+      `Prelude.hashWithSalt` vodSourceName
 
 instance Prelude.NFData SlateSource where
   rnf SlateSource' {..} =
-    Prelude.rnf vodSourceName
-      `Prelude.seq` Prelude.rnf sourceLocationName
+    Prelude.rnf sourceLocationName
+      `Prelude.seq` Prelude.rnf vodSourceName
 
 instance Data.ToJSON SlateSource where
   toJSON SlateSource' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("VodSourceName" Data..=) Prelude.<$> vodSourceName,
-            ("SourceLocationName" Data..=)
-              Prelude.<$> sourceLocationName
+          [ ("SourceLocationName" Data..=)
+              Prelude.<$> sourceLocationName,
+            ("VodSourceName" Data..=) Prelude.<$> vodSourceName
           ]
       )

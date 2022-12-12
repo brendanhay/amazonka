@@ -33,17 +33,17 @@ module Amazonka.Personalize.ListEventTrackers
     newListEventTrackers,
 
     -- * Request Lenses
-    listEventTrackers_nextToken,
-    listEventTrackers_maxResults,
     listEventTrackers_datasetGroupArn,
+    listEventTrackers_maxResults,
+    listEventTrackers_nextToken,
 
     -- * Destructuring the Response
     ListEventTrackersResponse (..),
     newListEventTrackersResponse,
 
     -- * Response Lenses
-    listEventTrackersResponse_nextToken,
     listEventTrackersResponse_eventTrackers,
+    listEventTrackersResponse_nextToken,
     listEventTrackersResponse_httpStatus,
   )
 where
@@ -58,13 +58,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListEventTrackers' smart constructor.
 data ListEventTrackers = ListEventTrackers'
-  { -- | A token returned from the previous call to @ListEventTrackers@ for
-    -- getting the next set of event trackers (if they exist).
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The ARN of a dataset group used to filter the response.
+    datasetGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of event trackers to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The ARN of a dataset group used to filter the response.
-    datasetGroupArn :: Prelude.Maybe Prelude.Text
+    -- | A token returned from the previous call to @ListEventTrackers@ for
+    -- getting the next set of event trackers (if they exist).
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,33 +76,34 @@ data ListEventTrackers = ListEventTrackers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listEventTrackers_nextToken' - A token returned from the previous call to @ListEventTrackers@ for
--- getting the next set of event trackers (if they exist).
+-- 'datasetGroupArn', 'listEventTrackers_datasetGroupArn' - The ARN of a dataset group used to filter the response.
 --
 -- 'maxResults', 'listEventTrackers_maxResults' - The maximum number of event trackers to return.
 --
--- 'datasetGroupArn', 'listEventTrackers_datasetGroupArn' - The ARN of a dataset group used to filter the response.
+-- 'nextToken', 'listEventTrackers_nextToken' - A token returned from the previous call to @ListEventTrackers@ for
+-- getting the next set of event trackers (if they exist).
 newListEventTrackers ::
   ListEventTrackers
 newListEventTrackers =
   ListEventTrackers'
-    { nextToken = Prelude.Nothing,
+    { datasetGroupArn =
+        Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      datasetGroupArn = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
 
--- | A token returned from the previous call to @ListEventTrackers@ for
--- getting the next set of event trackers (if they exist).
-listEventTrackers_nextToken :: Lens.Lens' ListEventTrackers (Prelude.Maybe Prelude.Text)
-listEventTrackers_nextToken = Lens.lens (\ListEventTrackers' {nextToken} -> nextToken) (\s@ListEventTrackers' {} a -> s {nextToken = a} :: ListEventTrackers)
+-- | The ARN of a dataset group used to filter the response.
+listEventTrackers_datasetGroupArn :: Lens.Lens' ListEventTrackers (Prelude.Maybe Prelude.Text)
+listEventTrackers_datasetGroupArn = Lens.lens (\ListEventTrackers' {datasetGroupArn} -> datasetGroupArn) (\s@ListEventTrackers' {} a -> s {datasetGroupArn = a} :: ListEventTrackers)
 
 -- | The maximum number of event trackers to return.
 listEventTrackers_maxResults :: Lens.Lens' ListEventTrackers (Prelude.Maybe Prelude.Natural)
 listEventTrackers_maxResults = Lens.lens (\ListEventTrackers' {maxResults} -> maxResults) (\s@ListEventTrackers' {} a -> s {maxResults = a} :: ListEventTrackers)
 
--- | The ARN of a dataset group used to filter the response.
-listEventTrackers_datasetGroupArn :: Lens.Lens' ListEventTrackers (Prelude.Maybe Prelude.Text)
-listEventTrackers_datasetGroupArn = Lens.lens (\ListEventTrackers' {datasetGroupArn} -> datasetGroupArn) (\s@ListEventTrackers' {} a -> s {datasetGroupArn = a} :: ListEventTrackers)
+-- | A token returned from the previous call to @ListEventTrackers@ for
+-- getting the next set of event trackers (if they exist).
+listEventTrackers_nextToken :: Lens.Lens' ListEventTrackers (Prelude.Maybe Prelude.Text)
+listEventTrackers_nextToken = Lens.lens (\ListEventTrackers' {nextToken} -> nextToken) (\s@ListEventTrackers' {} a -> s {nextToken = a} :: ListEventTrackers)
 
 instance Core.AWSPager ListEventTrackers where
   page rq rs
@@ -136,22 +137,22 @@ instance Core.AWSRequest ListEventTrackers where
     Response.receiveJSON
       ( \s h x ->
           ListEventTrackersResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "eventTrackers" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "eventTrackers" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListEventTrackers where
   hashWithSalt _salt ListEventTrackers' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` datasetGroupArn
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` datasetGroupArn
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListEventTrackers where
   rnf ListEventTrackers' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf datasetGroupArn
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf datasetGroupArn
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListEventTrackers where
   toHeaders =
@@ -172,10 +173,10 @@ instance Data.ToJSON ListEventTrackers where
   toJSON ListEventTrackers' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+          [ ("datasetGroupArn" Data..=)
+              Prelude.<$> datasetGroupArn,
             ("maxResults" Data..=) Prelude.<$> maxResults,
-            ("datasetGroupArn" Data..=)
-              Prelude.<$> datasetGroupArn
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -187,10 +188,10 @@ instance Data.ToQuery ListEventTrackers where
 
 -- | /See:/ 'newListEventTrackersResponse' smart constructor.
 data ListEventTrackersResponse = ListEventTrackersResponse'
-  { -- | A token for getting the next set of event trackers (if they exist).
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of event trackers.
+  { -- | A list of event trackers.
     eventTrackers :: Prelude.Maybe [EventTrackerSummary],
+    -- | A token for getting the next set of event trackers (if they exist).
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -204,9 +205,9 @@ data ListEventTrackersResponse = ListEventTrackersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listEventTrackersResponse_nextToken' - A token for getting the next set of event trackers (if they exist).
---
 -- 'eventTrackers', 'listEventTrackersResponse_eventTrackers' - A list of event trackers.
+--
+-- 'nextToken', 'listEventTrackersResponse_nextToken' - A token for getting the next set of event trackers (if they exist).
 --
 -- 'httpStatus', 'listEventTrackersResponse_httpStatus' - The response's http status code.
 newListEventTrackersResponse ::
@@ -215,19 +216,19 @@ newListEventTrackersResponse ::
   ListEventTrackersResponse
 newListEventTrackersResponse pHttpStatus_ =
   ListEventTrackersResponse'
-    { nextToken =
+    { eventTrackers =
         Prelude.Nothing,
-      eventTrackers = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A token for getting the next set of event trackers (if they exist).
-listEventTrackersResponse_nextToken :: Lens.Lens' ListEventTrackersResponse (Prelude.Maybe Prelude.Text)
-listEventTrackersResponse_nextToken = Lens.lens (\ListEventTrackersResponse' {nextToken} -> nextToken) (\s@ListEventTrackersResponse' {} a -> s {nextToken = a} :: ListEventTrackersResponse)
 
 -- | A list of event trackers.
 listEventTrackersResponse_eventTrackers :: Lens.Lens' ListEventTrackersResponse (Prelude.Maybe [EventTrackerSummary])
 listEventTrackersResponse_eventTrackers = Lens.lens (\ListEventTrackersResponse' {eventTrackers} -> eventTrackers) (\s@ListEventTrackersResponse' {} a -> s {eventTrackers = a} :: ListEventTrackersResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A token for getting the next set of event trackers (if they exist).
+listEventTrackersResponse_nextToken :: Lens.Lens' ListEventTrackersResponse (Prelude.Maybe Prelude.Text)
+listEventTrackersResponse_nextToken = Lens.lens (\ListEventTrackersResponse' {nextToken} -> nextToken) (\s@ListEventTrackersResponse' {} a -> s {nextToken = a} :: ListEventTrackersResponse)
 
 -- | The response's http status code.
 listEventTrackersResponse_httpStatus :: Lens.Lens' ListEventTrackersResponse Prelude.Int
@@ -235,6 +236,6 @@ listEventTrackersResponse_httpStatus = Lens.lens (\ListEventTrackersResponse' {h
 
 instance Prelude.NFData ListEventTrackersResponse where
   rnf ListEventTrackersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf eventTrackers
+    Prelude.rnf eventTrackers
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -31,16 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRelevance' smart constructor.
 data Relevance = Relevance'
-  { -- | The relative importance of the field in the search. Larger numbers
-    -- provide more of a boost than smaller numbers.
-    importance :: Prelude.Maybe Prelude.Natural,
-    -- | Indicates that this field determines how \"fresh\" a document is. For
-    -- example, if document 1 was created on November 5, and document 2 was
-    -- created on October 31, document 1 is \"fresher\" than document 2. You
-    -- can only set the @Freshness@ field on one @DATE@ type field. Only
-    -- applies to @DATE@ fields.
-    freshness :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies the time period that the boost applies to. For example, to
+  { -- | Specifies the time period that the boost applies to. For example, to
     -- make the boost apply to documents with the field value within the last
     -- month, you would use \"2628000s\". Once the field value is beyond the
     -- specified range, the effect of the boost drops off. The higher the
@@ -51,6 +42,15 @@ data Relevance = Relevance'
     --
     -- Only applies to @DATE@ fields.
     duration :: Prelude.Maybe Prelude.Text,
+    -- | Indicates that this field determines how \"fresh\" a document is. For
+    -- example, if document 1 was created on November 5, and document 2 was
+    -- created on October 31, document 1 is \"fresher\" than document 2. You
+    -- can only set the @Freshness@ field on one @DATE@ type field. Only
+    -- applies to @DATE@ fields.
+    freshness :: Prelude.Maybe Prelude.Bool,
+    -- | The relative importance of the field in the search. Larger numbers
+    -- provide more of a boost than smaller numbers.
+    importance :: Prelude.Maybe Prelude.Natural,
     -- | Determines how values should be interpreted.
     --
     -- When the @RankOrder@ field is @ASCENDING@, higher numbers are better.
@@ -86,15 +86,6 @@ data Relevance = Relevance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'importance', 'relevance_importance' - The relative importance of the field in the search. Larger numbers
--- provide more of a boost than smaller numbers.
---
--- 'freshness', 'relevance_freshness' - Indicates that this field determines how \"fresh\" a document is. For
--- example, if document 1 was created on November 5, and document 2 was
--- created on October 31, document 1 is \"fresher\" than document 2. You
--- can only set the @Freshness@ field on one @DATE@ type field. Only
--- applies to @DATE@ fields.
---
 -- 'duration', 'relevance_duration' - Specifies the time period that the boost applies to. For example, to
 -- make the boost apply to documents with the field value within the last
 -- month, you would use \"2628000s\". Once the field value is beyond the
@@ -105,6 +96,15 @@ data Relevance = Relevance'
 -- day, or \"604800s\" for one week.
 --
 -- Only applies to @DATE@ fields.
+--
+-- 'freshness', 'relevance_freshness' - Indicates that this field determines how \"fresh\" a document is. For
+-- example, if document 1 was created on November 5, and document 2 was
+-- created on October 31, document 1 is \"fresher\" than document 2. You
+-- can only set the @Freshness@ field on one @DATE@ type field. Only
+-- applies to @DATE@ fields.
+--
+-- 'importance', 'relevance_importance' - The relative importance of the field in the search. Larger numbers
+-- provide more of a boost than smaller numbers.
 --
 -- 'rankOrder', 'relevance_rankOrder' - Determines how values should be interpreted.
 --
@@ -133,25 +133,12 @@ newRelevance ::
   Relevance
 newRelevance =
   Relevance'
-    { importance = Prelude.Nothing,
+    { duration = Prelude.Nothing,
       freshness = Prelude.Nothing,
-      duration = Prelude.Nothing,
+      importance = Prelude.Nothing,
       rankOrder = Prelude.Nothing,
       valueImportanceMap = Prelude.Nothing
     }
-
--- | The relative importance of the field in the search. Larger numbers
--- provide more of a boost than smaller numbers.
-relevance_importance :: Lens.Lens' Relevance (Prelude.Maybe Prelude.Natural)
-relevance_importance = Lens.lens (\Relevance' {importance} -> importance) (\s@Relevance' {} a -> s {importance = a} :: Relevance)
-
--- | Indicates that this field determines how \"fresh\" a document is. For
--- example, if document 1 was created on November 5, and document 2 was
--- created on October 31, document 1 is \"fresher\" than document 2. You
--- can only set the @Freshness@ field on one @DATE@ type field. Only
--- applies to @DATE@ fields.
-relevance_freshness :: Lens.Lens' Relevance (Prelude.Maybe Prelude.Bool)
-relevance_freshness = Lens.lens (\Relevance' {freshness} -> freshness) (\s@Relevance' {} a -> s {freshness = a} :: Relevance)
 
 -- | Specifies the time period that the boost applies to. For example, to
 -- make the boost apply to documents with the field value within the last
@@ -165,6 +152,19 @@ relevance_freshness = Lens.lens (\Relevance' {freshness} -> freshness) (\s@Relev
 -- Only applies to @DATE@ fields.
 relevance_duration :: Lens.Lens' Relevance (Prelude.Maybe Prelude.Text)
 relevance_duration = Lens.lens (\Relevance' {duration} -> duration) (\s@Relevance' {} a -> s {duration = a} :: Relevance)
+
+-- | Indicates that this field determines how \"fresh\" a document is. For
+-- example, if document 1 was created on November 5, and document 2 was
+-- created on October 31, document 1 is \"fresher\" than document 2. You
+-- can only set the @Freshness@ field on one @DATE@ type field. Only
+-- applies to @DATE@ fields.
+relevance_freshness :: Lens.Lens' Relevance (Prelude.Maybe Prelude.Bool)
+relevance_freshness = Lens.lens (\Relevance' {freshness} -> freshness) (\s@Relevance' {} a -> s {freshness = a} :: Relevance)
+
+-- | The relative importance of the field in the search. Larger numbers
+-- provide more of a boost than smaller numbers.
+relevance_importance :: Lens.Lens' Relevance (Prelude.Maybe Prelude.Natural)
+relevance_importance = Lens.lens (\Relevance' {importance} -> importance) (\s@Relevance' {} a -> s {importance = a} :: Relevance)
 
 -- | Determines how values should be interpreted.
 --
@@ -200,9 +200,9 @@ instance Data.FromJSON Relevance where
       "Relevance"
       ( \x ->
           Relevance'
-            Prelude.<$> (x Data..:? "Importance")
+            Prelude.<$> (x Data..:? "Duration")
             Prelude.<*> (x Data..:? "Freshness")
-            Prelude.<*> (x Data..:? "Duration")
+            Prelude.<*> (x Data..:? "Importance")
             Prelude.<*> (x Data..:? "RankOrder")
             Prelude.<*> ( x Data..:? "ValueImportanceMap"
                             Data..!= Prelude.mempty
@@ -211,17 +211,17 @@ instance Data.FromJSON Relevance where
 
 instance Prelude.Hashable Relevance where
   hashWithSalt _salt Relevance' {..} =
-    _salt `Prelude.hashWithSalt` importance
+    _salt `Prelude.hashWithSalt` duration
       `Prelude.hashWithSalt` freshness
-      `Prelude.hashWithSalt` duration
+      `Prelude.hashWithSalt` importance
       `Prelude.hashWithSalt` rankOrder
       `Prelude.hashWithSalt` valueImportanceMap
 
 instance Prelude.NFData Relevance where
   rnf Relevance' {..} =
-    Prelude.rnf importance
+    Prelude.rnf duration
       `Prelude.seq` Prelude.rnf freshness
-      `Prelude.seq` Prelude.rnf duration
+      `Prelude.seq` Prelude.rnf importance
       `Prelude.seq` Prelude.rnf rankOrder
       `Prelude.seq` Prelude.rnf valueImportanceMap
 
@@ -229,9 +229,9 @@ instance Data.ToJSON Relevance where
   toJSON Relevance' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Importance" Data..=) Prelude.<$> importance,
+          [ ("Duration" Data..=) Prelude.<$> duration,
             ("Freshness" Data..=) Prelude.<$> freshness,
-            ("Duration" Data..=) Prelude.<$> duration,
+            ("Importance" Data..=) Prelude.<$> importance,
             ("RankOrder" Data..=) Prelude.<$> rankOrder,
             ("ValueImportanceMap" Data..=)
               Prelude.<$> valueImportanceMap

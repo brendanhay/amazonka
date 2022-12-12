@@ -30,9 +30,9 @@ module Amazonka.MediaPackageVOD.ListPackagingConfigurations
     newListPackagingConfigurations,
 
     -- * Request Lenses
+    listPackagingConfigurations_maxResults,
     listPackagingConfigurations_nextToken,
     listPackagingConfigurations_packagingGroupId,
-    listPackagingConfigurations_maxResults,
 
     -- * Destructuring the Response
     ListPackagingConfigurationsResponse (..),
@@ -55,13 +55,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPackagingConfigurations' smart constructor.
 data ListPackagingConfigurations = ListPackagingConfigurations'
-  { -- | A token used to resume pagination from the end of a previous request.
+  { -- | Upper bound on number of records to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token used to resume pagination from the end of a previous request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Returns MediaPackage VOD PackagingConfigurations associated with the
     -- specified PackagingGroup.
-    packagingGroupId :: Prelude.Maybe Prelude.Text,
-    -- | Upper bound on number of records to return.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    packagingGroupId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,21 +73,25 @@ data ListPackagingConfigurations = ListPackagingConfigurations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listPackagingConfigurations_maxResults' - Upper bound on number of records to return.
+--
 -- 'nextToken', 'listPackagingConfigurations_nextToken' - A token used to resume pagination from the end of a previous request.
 --
 -- 'packagingGroupId', 'listPackagingConfigurations_packagingGroupId' - Returns MediaPackage VOD PackagingConfigurations associated with the
 -- specified PackagingGroup.
---
--- 'maxResults', 'listPackagingConfigurations_maxResults' - Upper bound on number of records to return.
 newListPackagingConfigurations ::
   ListPackagingConfigurations
 newListPackagingConfigurations =
   ListPackagingConfigurations'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      packagingGroupId = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      packagingGroupId = Prelude.Nothing
     }
+
+-- | Upper bound on number of records to return.
+listPackagingConfigurations_maxResults :: Lens.Lens' ListPackagingConfigurations (Prelude.Maybe Prelude.Natural)
+listPackagingConfigurations_maxResults = Lens.lens (\ListPackagingConfigurations' {maxResults} -> maxResults) (\s@ListPackagingConfigurations' {} a -> s {maxResults = a} :: ListPackagingConfigurations)
 
 -- | A token used to resume pagination from the end of a previous request.
 listPackagingConfigurations_nextToken :: Lens.Lens' ListPackagingConfigurations (Prelude.Maybe Prelude.Text)
@@ -97,10 +101,6 @@ listPackagingConfigurations_nextToken = Lens.lens (\ListPackagingConfigurations'
 -- specified PackagingGroup.
 listPackagingConfigurations_packagingGroupId :: Lens.Lens' ListPackagingConfigurations (Prelude.Maybe Prelude.Text)
 listPackagingConfigurations_packagingGroupId = Lens.lens (\ListPackagingConfigurations' {packagingGroupId} -> packagingGroupId) (\s@ListPackagingConfigurations' {} a -> s {packagingGroupId = a} :: ListPackagingConfigurations)
-
--- | Upper bound on number of records to return.
-listPackagingConfigurations_maxResults :: Lens.Lens' ListPackagingConfigurations (Prelude.Maybe Prelude.Natural)
-listPackagingConfigurations_maxResults = Lens.lens (\ListPackagingConfigurations' {maxResults} -> maxResults) (\s@ListPackagingConfigurations' {} a -> s {maxResults = a} :: ListPackagingConfigurations)
 
 instance Core.AWSPager ListPackagingConfigurations where
   page rq rs
@@ -143,15 +143,15 @@ instance Core.AWSRequest ListPackagingConfigurations where
 
 instance Prelude.Hashable ListPackagingConfigurations where
   hashWithSalt _salt ListPackagingConfigurations' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` packagingGroupId
-      `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListPackagingConfigurations where
   rnf ListPackagingConfigurations' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf packagingGroupId
-      `Prelude.seq` Prelude.rnf maxResults
 
 instance Data.ToHeaders ListPackagingConfigurations where
   toHeaders =
@@ -170,9 +170,9 @@ instance Data.ToPath ListPackagingConfigurations where
 instance Data.ToQuery ListPackagingConfigurations where
   toQuery ListPackagingConfigurations' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "packagingGroupId" Data.=: packagingGroupId,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
+        "packagingGroupId" Data.=: packagingGroupId
       ]
 
 -- | /See:/ 'newListPackagingConfigurationsResponse' smart constructor.

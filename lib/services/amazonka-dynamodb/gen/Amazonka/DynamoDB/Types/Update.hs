@@ -31,17 +31,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUpdate' smart constructor.
 data Update = Update'
-  { -- | One or more values that can be substituted in an expression.
-    expressionAttributeValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
+  { -- | A condition that must be satisfied in order for a conditional update to
+    -- succeed.
+    conditionExpression :: Prelude.Maybe Prelude.Text,
     -- | One or more substitution tokens for attribute names in an expression.
     expressionAttributeNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | One or more values that can be substituted in an expression.
+    expressionAttributeValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
     -- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if
     -- the @Update@ condition fails. For @ReturnValuesOnConditionCheckFailure@,
     -- the valid values are: NONE, ALL_OLD, UPDATED_OLD, ALL_NEW, UPDATED_NEW.
     returnValuesOnConditionCheckFailure :: Prelude.Maybe ReturnValuesOnConditionCheckFailure,
-    -- | A condition that must be satisfied in order for a conditional update to
-    -- succeed.
-    conditionExpression :: Prelude.Maybe Prelude.Text,
     -- | The primary key of the item to be updated. Each element consists of an
     -- attribute name and a value for that attribute.
     key :: Prelude.HashMap Prelude.Text AttributeValue,
@@ -61,16 +61,16 @@ data Update = Update'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expressionAttributeValues', 'update_expressionAttributeValues' - One or more values that can be substituted in an expression.
+-- 'conditionExpression', 'update_conditionExpression' - A condition that must be satisfied in order for a conditional update to
+-- succeed.
 --
 -- 'expressionAttributeNames', 'update_expressionAttributeNames' - One or more substitution tokens for attribute names in an expression.
+--
+-- 'expressionAttributeValues', 'update_expressionAttributeValues' - One or more values that can be substituted in an expression.
 --
 -- 'returnValuesOnConditionCheckFailure', 'update_returnValuesOnConditionCheckFailure' - Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if
 -- the @Update@ condition fails. For @ReturnValuesOnConditionCheckFailure@,
 -- the valid values are: NONE, ALL_OLD, UPDATED_OLD, ALL_NEW, UPDATED_NEW.
---
--- 'conditionExpression', 'update_conditionExpression' - A condition that must be satisfied in order for a conditional update to
--- succeed.
 --
 -- 'key', 'update_key' - The primary key of the item to be updated. Each element consists of an
 -- attribute name and a value for that attribute.
@@ -87,35 +87,34 @@ newUpdate ::
   Update
 newUpdate pUpdateExpression_ pTableName_ =
   Update'
-    { expressionAttributeValues =
-        Prelude.Nothing,
+    { conditionExpression = Prelude.Nothing,
       expressionAttributeNames = Prelude.Nothing,
+      expressionAttributeValues = Prelude.Nothing,
       returnValuesOnConditionCheckFailure =
         Prelude.Nothing,
-      conditionExpression = Prelude.Nothing,
       key = Prelude.mempty,
       updateExpression = pUpdateExpression_,
       tableName = pTableName_
     }
 
--- | One or more values that can be substituted in an expression.
-update_expressionAttributeValues :: Lens.Lens' Update (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
-update_expressionAttributeValues = Lens.lens (\Update' {expressionAttributeValues} -> expressionAttributeValues) (\s@Update' {} a -> s {expressionAttributeValues = a} :: Update) Prelude.. Lens.mapping Lens.coerced
+-- | A condition that must be satisfied in order for a conditional update to
+-- succeed.
+update_conditionExpression :: Lens.Lens' Update (Prelude.Maybe Prelude.Text)
+update_conditionExpression = Lens.lens (\Update' {conditionExpression} -> conditionExpression) (\s@Update' {} a -> s {conditionExpression = a} :: Update)
 
 -- | One or more substitution tokens for attribute names in an expression.
 update_expressionAttributeNames :: Lens.Lens' Update (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 update_expressionAttributeNames = Lens.lens (\Update' {expressionAttributeNames} -> expressionAttributeNames) (\s@Update' {} a -> s {expressionAttributeNames = a} :: Update) Prelude.. Lens.mapping Lens.coerced
+
+-- | One or more values that can be substituted in an expression.
+update_expressionAttributeValues :: Lens.Lens' Update (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
+update_expressionAttributeValues = Lens.lens (\Update' {expressionAttributeValues} -> expressionAttributeValues) (\s@Update' {} a -> s {expressionAttributeValues = a} :: Update) Prelude.. Lens.mapping Lens.coerced
 
 -- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if
 -- the @Update@ condition fails. For @ReturnValuesOnConditionCheckFailure@,
 -- the valid values are: NONE, ALL_OLD, UPDATED_OLD, ALL_NEW, UPDATED_NEW.
 update_returnValuesOnConditionCheckFailure :: Lens.Lens' Update (Prelude.Maybe ReturnValuesOnConditionCheckFailure)
 update_returnValuesOnConditionCheckFailure = Lens.lens (\Update' {returnValuesOnConditionCheckFailure} -> returnValuesOnConditionCheckFailure) (\s@Update' {} a -> s {returnValuesOnConditionCheckFailure = a} :: Update)
-
--- | A condition that must be satisfied in order for a conditional update to
--- succeed.
-update_conditionExpression :: Lens.Lens' Update (Prelude.Maybe Prelude.Text)
-update_conditionExpression = Lens.lens (\Update' {conditionExpression} -> conditionExpression) (\s@Update' {} a -> s {conditionExpression = a} :: Update)
 
 -- | The primary key of the item to be updated. Each element consists of an
 -- attribute name and a value for that attribute.
@@ -133,21 +132,20 @@ update_tableName = Lens.lens (\Update' {tableName} -> tableName) (\s@Update' {} 
 
 instance Prelude.Hashable Update where
   hashWithSalt _salt Update' {..} =
-    _salt
-      `Prelude.hashWithSalt` expressionAttributeValues
+    _salt `Prelude.hashWithSalt` conditionExpression
       `Prelude.hashWithSalt` expressionAttributeNames
+      `Prelude.hashWithSalt` expressionAttributeValues
       `Prelude.hashWithSalt` returnValuesOnConditionCheckFailure
-      `Prelude.hashWithSalt` conditionExpression
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` updateExpression
       `Prelude.hashWithSalt` tableName
 
 instance Prelude.NFData Update where
   rnf Update' {..} =
-    Prelude.rnf expressionAttributeValues
+    Prelude.rnf conditionExpression
       `Prelude.seq` Prelude.rnf expressionAttributeNames
+      `Prelude.seq` Prelude.rnf expressionAttributeValues
       `Prelude.seq` Prelude.rnf returnValuesOnConditionCheckFailure
-      `Prelude.seq` Prelude.rnf conditionExpression
       `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf updateExpression
       `Prelude.seq` Prelude.rnf tableName
@@ -156,14 +154,14 @@ instance Data.ToJSON Update where
   toJSON Update' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ExpressionAttributeValues" Data..=)
-              Prelude.<$> expressionAttributeValues,
+          [ ("ConditionExpression" Data..=)
+              Prelude.<$> conditionExpression,
             ("ExpressionAttributeNames" Data..=)
               Prelude.<$> expressionAttributeNames,
+            ("ExpressionAttributeValues" Data..=)
+              Prelude.<$> expressionAttributeValues,
             ("ReturnValuesOnConditionCheckFailure" Data..=)
               Prelude.<$> returnValuesOnConditionCheckFailure,
-            ("ConditionExpression" Data..=)
-              Prelude.<$> conditionExpression,
             Prelude.Just ("Key" Data..= key),
             Prelude.Just
               ("UpdateExpression" Data..= updateExpression),

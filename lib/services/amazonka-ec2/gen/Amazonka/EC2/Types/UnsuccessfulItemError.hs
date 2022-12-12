@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUnsuccessfulItemError' smart constructor.
 data UnsuccessfulItemError = UnsuccessfulItemError'
-  { -- | The error message accompanying the error code.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The error code.
-    code :: Prelude.Maybe Prelude.Text
+  { -- | The error code.
+    code :: Prelude.Maybe Prelude.Text,
+    -- | The error message accompanying the error code.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,36 +46,36 @@ data UnsuccessfulItemError = UnsuccessfulItemError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'unsuccessfulItemError_message' - The error message accompanying the error code.
---
 -- 'code', 'unsuccessfulItemError_code' - The error code.
+--
+-- 'message', 'unsuccessfulItemError_message' - The error message accompanying the error code.
 newUnsuccessfulItemError ::
   UnsuccessfulItemError
 newUnsuccessfulItemError =
   UnsuccessfulItemError'
-    { message = Prelude.Nothing,
-      code = Prelude.Nothing
+    { code = Prelude.Nothing,
+      message = Prelude.Nothing
     }
-
--- | The error message accompanying the error code.
-unsuccessfulItemError_message :: Lens.Lens' UnsuccessfulItemError (Prelude.Maybe Prelude.Text)
-unsuccessfulItemError_message = Lens.lens (\UnsuccessfulItemError' {message} -> message) (\s@UnsuccessfulItemError' {} a -> s {message = a} :: UnsuccessfulItemError)
 
 -- | The error code.
 unsuccessfulItemError_code :: Lens.Lens' UnsuccessfulItemError (Prelude.Maybe Prelude.Text)
 unsuccessfulItemError_code = Lens.lens (\UnsuccessfulItemError' {code} -> code) (\s@UnsuccessfulItemError' {} a -> s {code = a} :: UnsuccessfulItemError)
 
+-- | The error message accompanying the error code.
+unsuccessfulItemError_message :: Lens.Lens' UnsuccessfulItemError (Prelude.Maybe Prelude.Text)
+unsuccessfulItemError_message = Lens.lens (\UnsuccessfulItemError' {message} -> message) (\s@UnsuccessfulItemError' {} a -> s {message = a} :: UnsuccessfulItemError)
+
 instance Data.FromXML UnsuccessfulItemError where
   parseXML x =
     UnsuccessfulItemError'
-      Prelude.<$> (x Data..@? "message")
-      Prelude.<*> (x Data..@? "code")
+      Prelude.<$> (x Data..@? "code")
+      Prelude.<*> (x Data..@? "message")
 
 instance Prelude.Hashable UnsuccessfulItemError where
   hashWithSalt _salt UnsuccessfulItemError' {..} =
-    _salt `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` code
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` message
 
 instance Prelude.NFData UnsuccessfulItemError where
   rnf UnsuccessfulItemError' {..} =
-    Prelude.rnf message `Prelude.seq` Prelude.rnf code
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

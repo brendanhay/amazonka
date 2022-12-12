@@ -31,20 +31,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCoreNetworkChange' smart constructor.
 data CoreNetworkChange = CoreNetworkChange'
-  { -- | The new value for a core network
-    newValues' :: Prelude.Maybe CoreNetworkChangeValues,
-    -- | The type of change.
-    type' :: Prelude.Maybe ChangeType,
-    -- | The previous values for a core network.
-    previousValues :: Prelude.Maybe CoreNetworkChangeValues,
+  { -- | The action to take for a core network.
+    action :: Prelude.Maybe ChangeAction,
     -- | The resource identifier.
     identifier :: Prelude.Maybe Prelude.Text,
     -- | Uniquely identifies the path for a change within the changeset. For
     -- example, the @IdentifierPath@ for a core network segment change might be
     -- @\"CORE_NETWORK_SEGMENT\/us-east-1\/devsegment\"@.
     identifierPath :: Prelude.Maybe Prelude.Text,
-    -- | The action to take for a core network.
-    action :: Prelude.Maybe ChangeAction
+    -- | The new value for a core network
+    newValues' :: Prelude.Maybe CoreNetworkChangeValues,
+    -- | The previous values for a core network.
+    previousValues :: Prelude.Maybe CoreNetworkChangeValues,
+    -- | The type of change.
+    type' :: Prelude.Maybe ChangeType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,11 +56,7 @@ data CoreNetworkChange = CoreNetworkChange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'newValues'', 'coreNetworkChange_newValues' - The new value for a core network
---
--- 'type'', 'coreNetworkChange_type' - The type of change.
---
--- 'previousValues', 'coreNetworkChange_previousValues' - The previous values for a core network.
+-- 'action', 'coreNetworkChange_action' - The action to take for a core network.
 --
 -- 'identifier', 'coreNetworkChange_identifier' - The resource identifier.
 --
@@ -68,30 +64,26 @@ data CoreNetworkChange = CoreNetworkChange'
 -- example, the @IdentifierPath@ for a core network segment change might be
 -- @\"CORE_NETWORK_SEGMENT\/us-east-1\/devsegment\"@.
 --
--- 'action', 'coreNetworkChange_action' - The action to take for a core network.
+-- 'newValues'', 'coreNetworkChange_newValues' - The new value for a core network
+--
+-- 'previousValues', 'coreNetworkChange_previousValues' - The previous values for a core network.
+--
+-- 'type'', 'coreNetworkChange_type' - The type of change.
 newCoreNetworkChange ::
   CoreNetworkChange
 newCoreNetworkChange =
   CoreNetworkChange'
-    { newValues' = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      previousValues = Prelude.Nothing,
+    { action = Prelude.Nothing,
       identifier = Prelude.Nothing,
       identifierPath = Prelude.Nothing,
-      action = Prelude.Nothing
+      newValues' = Prelude.Nothing,
+      previousValues = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
--- | The new value for a core network
-coreNetworkChange_newValues :: Lens.Lens' CoreNetworkChange (Prelude.Maybe CoreNetworkChangeValues)
-coreNetworkChange_newValues = Lens.lens (\CoreNetworkChange' {newValues'} -> newValues') (\s@CoreNetworkChange' {} a -> s {newValues' = a} :: CoreNetworkChange)
-
--- | The type of change.
-coreNetworkChange_type :: Lens.Lens' CoreNetworkChange (Prelude.Maybe ChangeType)
-coreNetworkChange_type = Lens.lens (\CoreNetworkChange' {type'} -> type') (\s@CoreNetworkChange' {} a -> s {type' = a} :: CoreNetworkChange)
-
--- | The previous values for a core network.
-coreNetworkChange_previousValues :: Lens.Lens' CoreNetworkChange (Prelude.Maybe CoreNetworkChangeValues)
-coreNetworkChange_previousValues = Lens.lens (\CoreNetworkChange' {previousValues} -> previousValues) (\s@CoreNetworkChange' {} a -> s {previousValues = a} :: CoreNetworkChange)
+-- | The action to take for a core network.
+coreNetworkChange_action :: Lens.Lens' CoreNetworkChange (Prelude.Maybe ChangeAction)
+coreNetworkChange_action = Lens.lens (\CoreNetworkChange' {action} -> action) (\s@CoreNetworkChange' {} a -> s {action = a} :: CoreNetworkChange)
 
 -- | The resource identifier.
 coreNetworkChange_identifier :: Lens.Lens' CoreNetworkChange (Prelude.Maybe Prelude.Text)
@@ -103,9 +95,17 @@ coreNetworkChange_identifier = Lens.lens (\CoreNetworkChange' {identifier} -> id
 coreNetworkChange_identifierPath :: Lens.Lens' CoreNetworkChange (Prelude.Maybe Prelude.Text)
 coreNetworkChange_identifierPath = Lens.lens (\CoreNetworkChange' {identifierPath} -> identifierPath) (\s@CoreNetworkChange' {} a -> s {identifierPath = a} :: CoreNetworkChange)
 
--- | The action to take for a core network.
-coreNetworkChange_action :: Lens.Lens' CoreNetworkChange (Prelude.Maybe ChangeAction)
-coreNetworkChange_action = Lens.lens (\CoreNetworkChange' {action} -> action) (\s@CoreNetworkChange' {} a -> s {action = a} :: CoreNetworkChange)
+-- | The new value for a core network
+coreNetworkChange_newValues :: Lens.Lens' CoreNetworkChange (Prelude.Maybe CoreNetworkChangeValues)
+coreNetworkChange_newValues = Lens.lens (\CoreNetworkChange' {newValues'} -> newValues') (\s@CoreNetworkChange' {} a -> s {newValues' = a} :: CoreNetworkChange)
+
+-- | The previous values for a core network.
+coreNetworkChange_previousValues :: Lens.Lens' CoreNetworkChange (Prelude.Maybe CoreNetworkChangeValues)
+coreNetworkChange_previousValues = Lens.lens (\CoreNetworkChange' {previousValues} -> previousValues) (\s@CoreNetworkChange' {} a -> s {previousValues = a} :: CoreNetworkChange)
+
+-- | The type of change.
+coreNetworkChange_type :: Lens.Lens' CoreNetworkChange (Prelude.Maybe ChangeType)
+coreNetworkChange_type = Lens.lens (\CoreNetworkChange' {type'} -> type') (\s@CoreNetworkChange' {} a -> s {type' = a} :: CoreNetworkChange)
 
 instance Data.FromJSON CoreNetworkChange where
   parseJSON =
@@ -113,28 +113,28 @@ instance Data.FromJSON CoreNetworkChange where
       "CoreNetworkChange"
       ( \x ->
           CoreNetworkChange'
-            Prelude.<$> (x Data..:? "NewValues")
-            Prelude.<*> (x Data..:? "Type")
-            Prelude.<*> (x Data..:? "PreviousValues")
+            Prelude.<$> (x Data..:? "Action")
             Prelude.<*> (x Data..:? "Identifier")
             Prelude.<*> (x Data..:? "IdentifierPath")
-            Prelude.<*> (x Data..:? "Action")
+            Prelude.<*> (x Data..:? "NewValues")
+            Prelude.<*> (x Data..:? "PreviousValues")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable CoreNetworkChange where
   hashWithSalt _salt CoreNetworkChange' {..} =
-    _salt `Prelude.hashWithSalt` newValues'
-      `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` previousValues
+    _salt `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` identifier
       `Prelude.hashWithSalt` identifierPath
-      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` newValues'
+      `Prelude.hashWithSalt` previousValues
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData CoreNetworkChange where
   rnf CoreNetworkChange' {..} =
-    Prelude.rnf newValues'
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf previousValues
+    Prelude.rnf action
       `Prelude.seq` Prelude.rnf identifier
       `Prelude.seq` Prelude.rnf identifierPath
-      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf newValues'
+      `Prelude.seq` Prelude.rnf previousValues
+      `Prelude.seq` Prelude.rnf type'

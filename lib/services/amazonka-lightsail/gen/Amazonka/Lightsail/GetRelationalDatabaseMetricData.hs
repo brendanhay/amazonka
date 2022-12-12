@@ -45,8 +45,8 @@ module Amazonka.Lightsail.GetRelationalDatabaseMetricData
     newGetRelationalDatabaseMetricDataResponse,
 
     -- * Response Lenses
-    getRelationalDatabaseMetricDataResponse_metricName,
     getRelationalDatabaseMetricDataResponse_metricData,
+    getRelationalDatabaseMetricDataResponse_metricName,
     getRelationalDatabaseMetricDataResponse_httpStatus,
   )
 where
@@ -460,8 +460,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetRelationalDatabaseMetricDataResponse'
-            Prelude.<$> (x Data..?> "metricName")
-            Prelude.<*> (x Data..?> "metricData" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "metricData" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "metricName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -536,10 +536,10 @@ instance Data.ToQuery GetRelationalDatabaseMetricData where
 
 -- | /See:/ 'newGetRelationalDatabaseMetricDataResponse' smart constructor.
 data GetRelationalDatabaseMetricDataResponse = GetRelationalDatabaseMetricDataResponse'
-  { -- | The name of the metric returned.
-    metricName :: Prelude.Maybe RelationalDatabaseMetricName,
-    -- | An array of objects that describe the metric data returned.
+  { -- | An array of objects that describe the metric data returned.
     metricData :: Prelude.Maybe [MetricDatapoint],
+    -- | The name of the metric returned.
+    metricName :: Prelude.Maybe RelationalDatabaseMetricName,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -553,9 +553,9 @@ data GetRelationalDatabaseMetricDataResponse = GetRelationalDatabaseMetricDataRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metricName', 'getRelationalDatabaseMetricDataResponse_metricName' - The name of the metric returned.
---
 -- 'metricData', 'getRelationalDatabaseMetricDataResponse_metricData' - An array of objects that describe the metric data returned.
+--
+-- 'metricName', 'getRelationalDatabaseMetricDataResponse_metricName' - The name of the metric returned.
 --
 -- 'httpStatus', 'getRelationalDatabaseMetricDataResponse_httpStatus' - The response's http status code.
 newGetRelationalDatabaseMetricDataResponse ::
@@ -565,19 +565,19 @@ newGetRelationalDatabaseMetricDataResponse ::
 newGetRelationalDatabaseMetricDataResponse
   pHttpStatus_ =
     GetRelationalDatabaseMetricDataResponse'
-      { metricName =
+      { metricData =
           Prelude.Nothing,
-        metricData = Prelude.Nothing,
+        metricName = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The name of the metric returned.
-getRelationalDatabaseMetricDataResponse_metricName :: Lens.Lens' GetRelationalDatabaseMetricDataResponse (Prelude.Maybe RelationalDatabaseMetricName)
-getRelationalDatabaseMetricDataResponse_metricName = Lens.lens (\GetRelationalDatabaseMetricDataResponse' {metricName} -> metricName) (\s@GetRelationalDatabaseMetricDataResponse' {} a -> s {metricName = a} :: GetRelationalDatabaseMetricDataResponse)
 
 -- | An array of objects that describe the metric data returned.
 getRelationalDatabaseMetricDataResponse_metricData :: Lens.Lens' GetRelationalDatabaseMetricDataResponse (Prelude.Maybe [MetricDatapoint])
 getRelationalDatabaseMetricDataResponse_metricData = Lens.lens (\GetRelationalDatabaseMetricDataResponse' {metricData} -> metricData) (\s@GetRelationalDatabaseMetricDataResponse' {} a -> s {metricData = a} :: GetRelationalDatabaseMetricDataResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of the metric returned.
+getRelationalDatabaseMetricDataResponse_metricName :: Lens.Lens' GetRelationalDatabaseMetricDataResponse (Prelude.Maybe RelationalDatabaseMetricName)
+getRelationalDatabaseMetricDataResponse_metricName = Lens.lens (\GetRelationalDatabaseMetricDataResponse' {metricName} -> metricName) (\s@GetRelationalDatabaseMetricDataResponse' {} a -> s {metricName = a} :: GetRelationalDatabaseMetricDataResponse)
 
 -- | The response's http status code.
 getRelationalDatabaseMetricDataResponse_httpStatus :: Lens.Lens' GetRelationalDatabaseMetricDataResponse Prelude.Int
@@ -588,6 +588,6 @@ instance
     GetRelationalDatabaseMetricDataResponse
   where
   rnf GetRelationalDatabaseMetricDataResponse' {..} =
-    Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf metricData
+    Prelude.rnf metricData
+      `Prelude.seq` Prelude.rnf metricName
       `Prelude.seq` Prelude.rnf httpStatus

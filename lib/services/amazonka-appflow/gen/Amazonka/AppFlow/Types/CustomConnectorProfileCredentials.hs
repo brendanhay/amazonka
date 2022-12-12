@@ -36,14 +36,14 @@ import qualified Amazonka.Prelude as Prelude
 data CustomConnectorProfileCredentials = CustomConnectorProfileCredentials'
   { -- | The API keys required for the authentication of the user.
     apiKey :: Prelude.Maybe ApiKeyCredentials,
-    -- | The OAuth 2.0 credentials required for the authentication of the user.
-    oauth2 :: Prelude.Maybe OAuth2Credentials,
-    -- | If the connector uses the custom authentication mechanism, this holds
-    -- the required credentials.
-    custom :: Prelude.Maybe CustomAuthCredentials,
     -- | The basic credentials that are required for the authentication of the
     -- user.
     basic :: Prelude.Maybe BasicAuthCredentials,
+    -- | If the connector uses the custom authentication mechanism, this holds
+    -- the required credentials.
+    custom :: Prelude.Maybe CustomAuthCredentials,
+    -- | The OAuth 2.0 credentials required for the authentication of the user.
+    oauth2 :: Prelude.Maybe OAuth2Credentials,
     -- | The authentication type that the custom connector uses for
     -- authenticating while creating a connector profile.
     authenticationType :: AuthenticationType
@@ -60,13 +60,13 @@ data CustomConnectorProfileCredentials = CustomConnectorProfileCredentials'
 --
 -- 'apiKey', 'customConnectorProfileCredentials_apiKey' - The API keys required for the authentication of the user.
 --
--- 'oauth2', 'customConnectorProfileCredentials_oauth2' - The OAuth 2.0 credentials required for the authentication of the user.
+-- 'basic', 'customConnectorProfileCredentials_basic' - The basic credentials that are required for the authentication of the
+-- user.
 --
 -- 'custom', 'customConnectorProfileCredentials_custom' - If the connector uses the custom authentication mechanism, this holds
 -- the required credentials.
 --
--- 'basic', 'customConnectorProfileCredentials_basic' - The basic credentials that are required for the authentication of the
--- user.
+-- 'oauth2', 'customConnectorProfileCredentials_oauth2' - The OAuth 2.0 credentials required for the authentication of the user.
 --
 -- 'authenticationType', 'customConnectorProfileCredentials_authenticationType' - The authentication type that the custom connector uses for
 -- authenticating while creating a connector profile.
@@ -79,9 +79,9 @@ newCustomConnectorProfileCredentials
     CustomConnectorProfileCredentials'
       { apiKey =
           Prelude.Nothing,
-        oauth2 = Prelude.Nothing,
-        custom = Prelude.Nothing,
         basic = Prelude.Nothing,
+        custom = Prelude.Nothing,
+        oauth2 = Prelude.Nothing,
         authenticationType =
           pAuthenticationType_
       }
@@ -90,19 +90,19 @@ newCustomConnectorProfileCredentials
 customConnectorProfileCredentials_apiKey :: Lens.Lens' CustomConnectorProfileCredentials (Prelude.Maybe ApiKeyCredentials)
 customConnectorProfileCredentials_apiKey = Lens.lens (\CustomConnectorProfileCredentials' {apiKey} -> apiKey) (\s@CustomConnectorProfileCredentials' {} a -> s {apiKey = a} :: CustomConnectorProfileCredentials)
 
--- | The OAuth 2.0 credentials required for the authentication of the user.
-customConnectorProfileCredentials_oauth2 :: Lens.Lens' CustomConnectorProfileCredentials (Prelude.Maybe OAuth2Credentials)
-customConnectorProfileCredentials_oauth2 = Lens.lens (\CustomConnectorProfileCredentials' {oauth2} -> oauth2) (\s@CustomConnectorProfileCredentials' {} a -> s {oauth2 = a} :: CustomConnectorProfileCredentials)
+-- | The basic credentials that are required for the authentication of the
+-- user.
+customConnectorProfileCredentials_basic :: Lens.Lens' CustomConnectorProfileCredentials (Prelude.Maybe BasicAuthCredentials)
+customConnectorProfileCredentials_basic = Lens.lens (\CustomConnectorProfileCredentials' {basic} -> basic) (\s@CustomConnectorProfileCredentials' {} a -> s {basic = a} :: CustomConnectorProfileCredentials)
 
 -- | If the connector uses the custom authentication mechanism, this holds
 -- the required credentials.
 customConnectorProfileCredentials_custom :: Lens.Lens' CustomConnectorProfileCredentials (Prelude.Maybe CustomAuthCredentials)
 customConnectorProfileCredentials_custom = Lens.lens (\CustomConnectorProfileCredentials' {custom} -> custom) (\s@CustomConnectorProfileCredentials' {} a -> s {custom = a} :: CustomConnectorProfileCredentials)
 
--- | The basic credentials that are required for the authentication of the
--- user.
-customConnectorProfileCredentials_basic :: Lens.Lens' CustomConnectorProfileCredentials (Prelude.Maybe BasicAuthCredentials)
-customConnectorProfileCredentials_basic = Lens.lens (\CustomConnectorProfileCredentials' {basic} -> basic) (\s@CustomConnectorProfileCredentials' {} a -> s {basic = a} :: CustomConnectorProfileCredentials)
+-- | The OAuth 2.0 credentials required for the authentication of the user.
+customConnectorProfileCredentials_oauth2 :: Lens.Lens' CustomConnectorProfileCredentials (Prelude.Maybe OAuth2Credentials)
+customConnectorProfileCredentials_oauth2 = Lens.lens (\CustomConnectorProfileCredentials' {oauth2} -> oauth2) (\s@CustomConnectorProfileCredentials' {} a -> s {oauth2 = a} :: CustomConnectorProfileCredentials)
 
 -- | The authentication type that the custom connector uses for
 -- authenticating while creating a connector profile.
@@ -117,9 +117,9 @@ instance
     _salt
     CustomConnectorProfileCredentials' {..} =
       _salt `Prelude.hashWithSalt` apiKey
-        `Prelude.hashWithSalt` oauth2
-        `Prelude.hashWithSalt` custom
         `Prelude.hashWithSalt` basic
+        `Prelude.hashWithSalt` custom
+        `Prelude.hashWithSalt` oauth2
         `Prelude.hashWithSalt` authenticationType
 
 instance
@@ -128,9 +128,9 @@ instance
   where
   rnf CustomConnectorProfileCredentials' {..} =
     Prelude.rnf apiKey
-      `Prelude.seq` Prelude.rnf oauth2
-      `Prelude.seq` Prelude.rnf custom
       `Prelude.seq` Prelude.rnf basic
+      `Prelude.seq` Prelude.rnf custom
+      `Prelude.seq` Prelude.rnf oauth2
       `Prelude.seq` Prelude.rnf authenticationType
 
 instance
@@ -141,9 +141,9 @@ instance
     Data.object
       ( Prelude.catMaybes
           [ ("apiKey" Data..=) Prelude.<$> apiKey,
-            ("oauth2" Data..=) Prelude.<$> oauth2,
-            ("custom" Data..=) Prelude.<$> custom,
             ("basic" Data..=) Prelude.<$> basic,
+            ("custom" Data..=) Prelude.<$> custom,
+            ("oauth2" Data..=) Prelude.<$> oauth2,
             Prelude.Just
               ("authenticationType" Data..= authenticationType)
           ]

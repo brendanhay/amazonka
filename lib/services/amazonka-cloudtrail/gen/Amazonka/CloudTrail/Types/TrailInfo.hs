@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTrailInfo' smart constructor.
 data TrailInfo = TrailInfo'
-  { -- | The name of a trail.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services Region in which a trail was created.
+  { -- | The Amazon Web Services Region in which a trail was created.
     homeRegion :: Prelude.Maybe Prelude.Text,
+    -- | The name of a trail.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The ARN of a trail.
     trailARN :: Prelude.Maybe Prelude.Text
   }
@@ -46,27 +46,27 @@ data TrailInfo = TrailInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'trailInfo_name' - The name of a trail.
---
 -- 'homeRegion', 'trailInfo_homeRegion' - The Amazon Web Services Region in which a trail was created.
+--
+-- 'name', 'trailInfo_name' - The name of a trail.
 --
 -- 'trailARN', 'trailInfo_trailARN' - The ARN of a trail.
 newTrailInfo ::
   TrailInfo
 newTrailInfo =
   TrailInfo'
-    { name = Prelude.Nothing,
-      homeRegion = Prelude.Nothing,
+    { homeRegion = Prelude.Nothing,
+      name = Prelude.Nothing,
       trailARN = Prelude.Nothing
     }
-
--- | The name of a trail.
-trailInfo_name :: Lens.Lens' TrailInfo (Prelude.Maybe Prelude.Text)
-trailInfo_name = Lens.lens (\TrailInfo' {name} -> name) (\s@TrailInfo' {} a -> s {name = a} :: TrailInfo)
 
 -- | The Amazon Web Services Region in which a trail was created.
 trailInfo_homeRegion :: Lens.Lens' TrailInfo (Prelude.Maybe Prelude.Text)
 trailInfo_homeRegion = Lens.lens (\TrailInfo' {homeRegion} -> homeRegion) (\s@TrailInfo' {} a -> s {homeRegion = a} :: TrailInfo)
+
+-- | The name of a trail.
+trailInfo_name :: Lens.Lens' TrailInfo (Prelude.Maybe Prelude.Text)
+trailInfo_name = Lens.lens (\TrailInfo' {name} -> name) (\s@TrailInfo' {} a -> s {name = a} :: TrailInfo)
 
 -- | The ARN of a trail.
 trailInfo_trailARN :: Lens.Lens' TrailInfo (Prelude.Maybe Prelude.Text)
@@ -78,19 +78,19 @@ instance Data.FromJSON TrailInfo where
       "TrailInfo"
       ( \x ->
           TrailInfo'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "HomeRegion")
+            Prelude.<$> (x Data..:? "HomeRegion")
+            Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "TrailARN")
       )
 
 instance Prelude.Hashable TrailInfo where
   hashWithSalt _salt TrailInfo' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` homeRegion
+    _salt `Prelude.hashWithSalt` homeRegion
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` trailARN
 
 instance Prelude.NFData TrailInfo where
   rnf TrailInfo' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf homeRegion
+    Prelude.rnf homeRegion
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf trailARN

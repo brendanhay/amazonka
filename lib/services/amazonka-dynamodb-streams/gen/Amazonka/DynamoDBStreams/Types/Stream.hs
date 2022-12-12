@@ -29,8 +29,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStream' smart constructor.
 data Stream = Stream'
-  { -- | The DynamoDB table with which the stream is associated.
-    tableName :: Prelude.Maybe Prelude.Text,
+  { -- | The Amazon Resource Name (ARN) for the stream.
+    streamArn :: Prelude.Maybe Prelude.Text,
     -- | A timestamp, in ISO 8601 format, for this stream.
     --
     -- Note that @LatestStreamLabel@ is not a unique identifier for the stream,
@@ -44,8 +44,8 @@ data Stream = Stream'
     --
     -- -   the @StreamLabel@
     streamLabel :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for the stream.
-    streamArn :: Prelude.Maybe Prelude.Text
+    -- | The DynamoDB table with which the stream is associated.
+    tableName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,7 +57,7 @@ data Stream = Stream'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tableName', 'stream_tableName' - The DynamoDB table with which the stream is associated.
+-- 'streamArn', 'stream_streamArn' - The Amazon Resource Name (ARN) for the stream.
 --
 -- 'streamLabel', 'stream_streamLabel' - A timestamp, in ISO 8601 format, for this stream.
 --
@@ -72,19 +72,19 @@ data Stream = Stream'
 --
 -- -   the @StreamLabel@
 --
--- 'streamArn', 'stream_streamArn' - The Amazon Resource Name (ARN) for the stream.
+-- 'tableName', 'stream_tableName' - The DynamoDB table with which the stream is associated.
 newStream ::
   Stream
 newStream =
   Stream'
-    { tableName = Prelude.Nothing,
+    { streamArn = Prelude.Nothing,
       streamLabel = Prelude.Nothing,
-      streamArn = Prelude.Nothing
+      tableName = Prelude.Nothing
     }
 
--- | The DynamoDB table with which the stream is associated.
-stream_tableName :: Lens.Lens' Stream (Prelude.Maybe Prelude.Text)
-stream_tableName = Lens.lens (\Stream' {tableName} -> tableName) (\s@Stream' {} a -> s {tableName = a} :: Stream)
+-- | The Amazon Resource Name (ARN) for the stream.
+stream_streamArn :: Lens.Lens' Stream (Prelude.Maybe Prelude.Text)
+stream_streamArn = Lens.lens (\Stream' {streamArn} -> streamArn) (\s@Stream' {} a -> s {streamArn = a} :: Stream)
 
 -- | A timestamp, in ISO 8601 format, for this stream.
 --
@@ -101,9 +101,9 @@ stream_tableName = Lens.lens (\Stream' {tableName} -> tableName) (\s@Stream' {} 
 stream_streamLabel :: Lens.Lens' Stream (Prelude.Maybe Prelude.Text)
 stream_streamLabel = Lens.lens (\Stream' {streamLabel} -> streamLabel) (\s@Stream' {} a -> s {streamLabel = a} :: Stream)
 
--- | The Amazon Resource Name (ARN) for the stream.
-stream_streamArn :: Lens.Lens' Stream (Prelude.Maybe Prelude.Text)
-stream_streamArn = Lens.lens (\Stream' {streamArn} -> streamArn) (\s@Stream' {} a -> s {streamArn = a} :: Stream)
+-- | The DynamoDB table with which the stream is associated.
+stream_tableName :: Lens.Lens' Stream (Prelude.Maybe Prelude.Text)
+stream_tableName = Lens.lens (\Stream' {tableName} -> tableName) (\s@Stream' {} a -> s {tableName = a} :: Stream)
 
 instance Data.FromJSON Stream where
   parseJSON =
@@ -111,19 +111,19 @@ instance Data.FromJSON Stream where
       "Stream"
       ( \x ->
           Stream'
-            Prelude.<$> (x Data..:? "TableName")
+            Prelude.<$> (x Data..:? "StreamArn")
             Prelude.<*> (x Data..:? "StreamLabel")
-            Prelude.<*> (x Data..:? "StreamArn")
+            Prelude.<*> (x Data..:? "TableName")
       )
 
 instance Prelude.Hashable Stream where
   hashWithSalt _salt Stream' {..} =
-    _salt `Prelude.hashWithSalt` tableName
+    _salt `Prelude.hashWithSalt` streamArn
       `Prelude.hashWithSalt` streamLabel
-      `Prelude.hashWithSalt` streamArn
+      `Prelude.hashWithSalt` tableName
 
 instance Prelude.NFData Stream where
   rnf Stream' {..} =
-    Prelude.rnf tableName
+    Prelude.rnf streamArn
       `Prelude.seq` Prelude.rnf streamLabel
-      `Prelude.seq` Prelude.rnf streamArn
+      `Prelude.seq` Prelude.rnf tableName

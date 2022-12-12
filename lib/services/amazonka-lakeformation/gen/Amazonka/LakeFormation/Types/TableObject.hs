@@ -28,13 +28,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTableObject' smart constructor.
 data TableObject = TableObject'
-  { -- | The size of the Amazon S3 object in bytes.
+  { -- | The Amazon S3 ETag of the object. Returned by @GetTableObjects@ for
+    -- validation and used to identify changes to the underlying data.
+    eTag :: Prelude.Maybe Prelude.Text,
+    -- | The size of the Amazon S3 object in bytes.
     size :: Prelude.Maybe Prelude.Integer,
     -- | The Amazon S3 location of the object.
-    uri :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon S3 ETag of the object. Returned by @GetTableObjects@ for
-    -- validation and used to identify changes to the underlying data.
-    eTag :: Prelude.Maybe Prelude.Text
+    uri :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,20 +46,25 @@ data TableObject = TableObject'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'eTag', 'tableObject_eTag' - The Amazon S3 ETag of the object. Returned by @GetTableObjects@ for
+-- validation and used to identify changes to the underlying data.
+--
 -- 'size', 'tableObject_size' - The size of the Amazon S3 object in bytes.
 --
 -- 'uri', 'tableObject_uri' - The Amazon S3 location of the object.
---
--- 'eTag', 'tableObject_eTag' - The Amazon S3 ETag of the object. Returned by @GetTableObjects@ for
--- validation and used to identify changes to the underlying data.
 newTableObject ::
   TableObject
 newTableObject =
   TableObject'
-    { size = Prelude.Nothing,
-      uri = Prelude.Nothing,
-      eTag = Prelude.Nothing
+    { eTag = Prelude.Nothing,
+      size = Prelude.Nothing,
+      uri = Prelude.Nothing
     }
+
+-- | The Amazon S3 ETag of the object. Returned by @GetTableObjects@ for
+-- validation and used to identify changes to the underlying data.
+tableObject_eTag :: Lens.Lens' TableObject (Prelude.Maybe Prelude.Text)
+tableObject_eTag = Lens.lens (\TableObject' {eTag} -> eTag) (\s@TableObject' {} a -> s {eTag = a} :: TableObject)
 
 -- | The size of the Amazon S3 object in bytes.
 tableObject_size :: Lens.Lens' TableObject (Prelude.Maybe Prelude.Integer)
@@ -69,30 +74,25 @@ tableObject_size = Lens.lens (\TableObject' {size} -> size) (\s@TableObject' {} 
 tableObject_uri :: Lens.Lens' TableObject (Prelude.Maybe Prelude.Text)
 tableObject_uri = Lens.lens (\TableObject' {uri} -> uri) (\s@TableObject' {} a -> s {uri = a} :: TableObject)
 
--- | The Amazon S3 ETag of the object. Returned by @GetTableObjects@ for
--- validation and used to identify changes to the underlying data.
-tableObject_eTag :: Lens.Lens' TableObject (Prelude.Maybe Prelude.Text)
-tableObject_eTag = Lens.lens (\TableObject' {eTag} -> eTag) (\s@TableObject' {} a -> s {eTag = a} :: TableObject)
-
 instance Data.FromJSON TableObject where
   parseJSON =
     Data.withObject
       "TableObject"
       ( \x ->
           TableObject'
-            Prelude.<$> (x Data..:? "Size")
+            Prelude.<$> (x Data..:? "ETag")
+            Prelude.<*> (x Data..:? "Size")
             Prelude.<*> (x Data..:? "Uri")
-            Prelude.<*> (x Data..:? "ETag")
       )
 
 instance Prelude.Hashable TableObject where
   hashWithSalt _salt TableObject' {..} =
-    _salt `Prelude.hashWithSalt` size
+    _salt `Prelude.hashWithSalt` eTag
+      `Prelude.hashWithSalt` size
       `Prelude.hashWithSalt` uri
-      `Prelude.hashWithSalt` eTag
 
 instance Prelude.NFData TableObject where
   rnf TableObject' {..} =
-    Prelude.rnf size
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf size
       `Prelude.seq` Prelude.rnf uri
-      `Prelude.seq` Prelude.rnf eTag

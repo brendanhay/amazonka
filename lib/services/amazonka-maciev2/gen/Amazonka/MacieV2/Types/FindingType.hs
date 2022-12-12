@@ -40,7 +40,7 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | The type of finding. For details about each type, see
 -- <https://docs.aws.amazon.com/macie/latest/user/findings-types.html Types of Amazon Macie findings>
--- in the /Amazon Macie User Guide/. Valid values are:
+-- in the /Amazon Macie User Guide/. Possible values are:
 newtype FindingType = FindingType'
   { fromFindingType ::
       Data.Text

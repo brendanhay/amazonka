@@ -28,8 +28,8 @@ module Amazonka.Connect.GetCurrentUserData
     newGetCurrentUserData,
 
     -- * Request Lenses
-    getCurrentUserData_nextToken,
     getCurrentUserData_maxResults,
+    getCurrentUserData_nextToken,
     getCurrentUserData_instanceId,
     getCurrentUserData_filters,
 
@@ -54,12 +54,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetCurrentUserData' smart constructor.
 data GetCurrentUserData = GetCurrentUserData'
-  { -- | The token for the next set of results. Use the value returned in the
+  { -- | The maximum number of results to return per page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
@@ -78,11 +78,11 @@ data GetCurrentUserData = GetCurrentUserData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'getCurrentUserData_maxResults' - The maximum number of results to return per page.
+--
 -- 'nextToken', 'getCurrentUserData_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
---
--- 'maxResults', 'getCurrentUserData_maxResults' - The maximum number of results to return per page.
 --
 -- 'instanceId', 'getCurrentUserData_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -98,21 +98,21 @@ newGetCurrentUserData ::
   GetCurrentUserData
 newGetCurrentUserData pInstanceId_ pFilters_ =
   GetCurrentUserData'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       instanceId = pInstanceId_,
       filters = pFilters_
     }
+
+-- | The maximum number of results to return per page.
+getCurrentUserData_maxResults :: Lens.Lens' GetCurrentUserData (Prelude.Maybe Prelude.Natural)
+getCurrentUserData_maxResults = Lens.lens (\GetCurrentUserData' {maxResults} -> maxResults) (\s@GetCurrentUserData' {} a -> s {maxResults = a} :: GetCurrentUserData)
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
 getCurrentUserData_nextToken :: Lens.Lens' GetCurrentUserData (Prelude.Maybe Prelude.Text)
 getCurrentUserData_nextToken = Lens.lens (\GetCurrentUserData' {nextToken} -> nextToken) (\s@GetCurrentUserData' {} a -> s {nextToken = a} :: GetCurrentUserData)
-
--- | The maximum number of results to return per page.
-getCurrentUserData_maxResults :: Lens.Lens' GetCurrentUserData (Prelude.Maybe Prelude.Natural)
-getCurrentUserData_maxResults = Lens.lens (\GetCurrentUserData' {maxResults} -> maxResults) (\s@GetCurrentUserData' {} a -> s {maxResults = a} :: GetCurrentUserData)
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -142,15 +142,15 @@ instance Core.AWSRequest GetCurrentUserData where
 
 instance Prelude.Hashable GetCurrentUserData where
   hashWithSalt _salt GetCurrentUserData' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` filters
 
 instance Prelude.NFData GetCurrentUserData where
   rnf GetCurrentUserData' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf filters
 
@@ -169,8 +169,8 @@ instance Data.ToJSON GetCurrentUserData where
   toJSON GetCurrentUserData' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("Filters" Data..= filters)
           ]
       )

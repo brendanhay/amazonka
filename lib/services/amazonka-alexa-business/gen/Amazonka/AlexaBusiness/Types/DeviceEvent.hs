@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeviceEvent' smart constructor.
 data DeviceEvent = DeviceEvent'
-  { -- | The type of device event.
-    type' :: Prelude.Maybe DeviceEventType,
-    -- | The time (in epoch) when the event occurred.
+  { -- | The time (in epoch) when the event occurred.
     timestamp :: Prelude.Maybe Data.POSIX,
+    -- | The type of device event.
+    type' :: Prelude.Maybe DeviceEventType,
     -- | The value of the event.
     value :: Prelude.Maybe Prelude.Text
   }
@@ -46,27 +46,27 @@ data DeviceEvent = DeviceEvent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'deviceEvent_type' - The type of device event.
---
 -- 'timestamp', 'deviceEvent_timestamp' - The time (in epoch) when the event occurred.
+--
+-- 'type'', 'deviceEvent_type' - The type of device event.
 --
 -- 'value', 'deviceEvent_value' - The value of the event.
 newDeviceEvent ::
   DeviceEvent
 newDeviceEvent =
   DeviceEvent'
-    { type' = Prelude.Nothing,
-      timestamp = Prelude.Nothing,
+    { timestamp = Prelude.Nothing,
+      type' = Prelude.Nothing,
       value = Prelude.Nothing
     }
-
--- | The type of device event.
-deviceEvent_type :: Lens.Lens' DeviceEvent (Prelude.Maybe DeviceEventType)
-deviceEvent_type = Lens.lens (\DeviceEvent' {type'} -> type') (\s@DeviceEvent' {} a -> s {type' = a} :: DeviceEvent)
 
 -- | The time (in epoch) when the event occurred.
 deviceEvent_timestamp :: Lens.Lens' DeviceEvent (Prelude.Maybe Prelude.UTCTime)
 deviceEvent_timestamp = Lens.lens (\DeviceEvent' {timestamp} -> timestamp) (\s@DeviceEvent' {} a -> s {timestamp = a} :: DeviceEvent) Prelude.. Lens.mapping Data._Time
+
+-- | The type of device event.
+deviceEvent_type :: Lens.Lens' DeviceEvent (Prelude.Maybe DeviceEventType)
+deviceEvent_type = Lens.lens (\DeviceEvent' {type'} -> type') (\s@DeviceEvent' {} a -> s {type' = a} :: DeviceEvent)
 
 -- | The value of the event.
 deviceEvent_value :: Lens.Lens' DeviceEvent (Prelude.Maybe Prelude.Text)
@@ -78,19 +78,19 @@ instance Data.FromJSON DeviceEvent where
       "DeviceEvent"
       ( \x ->
           DeviceEvent'
-            Prelude.<$> (x Data..:? "Type")
-            Prelude.<*> (x Data..:? "Timestamp")
+            Prelude.<$> (x Data..:? "Timestamp")
+            Prelude.<*> (x Data..:? "Type")
             Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable DeviceEvent where
   hashWithSalt _salt DeviceEvent' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` timestamp
+    _salt `Prelude.hashWithSalt` timestamp
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData DeviceEvent where
   rnf DeviceEvent' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf timestamp
+    Prelude.rnf timestamp
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf value

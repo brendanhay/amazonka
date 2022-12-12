@@ -28,8 +28,8 @@ module Amazonka.DocumentDB.DescribeEngineDefaultClusterParameters
     newDescribeEngineDefaultClusterParameters,
 
     -- * Request Lenses
-    describeEngineDefaultClusterParameters_marker,
     describeEngineDefaultClusterParameters_filters,
+    describeEngineDefaultClusterParameters_marker,
     describeEngineDefaultClusterParameters_maxRecords,
     describeEngineDefaultClusterParameters_dbParameterGroupFamily,
 
@@ -55,12 +55,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeEngineDefaultClusterParameters' smart constructor.
 data DescribeEngineDefaultClusterParameters = DescribeEngineDefaultClusterParameters'
-  { -- | An optional pagination token provided by a previous request. If this
+  { -- | This parameter is not currently supported.
+    filters :: Prelude.Maybe [Filter],
+    -- | An optional pagination token provided by a previous request. If this
     -- parameter is specified, the response includes only records beyond the
     -- marker, up to the value specified by @MaxRecords@.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | This parameter is not currently supported.
-    filters :: Prelude.Maybe [Filter],
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- (marker) is included in the response so that the remaining results can
@@ -84,11 +84,11 @@ data DescribeEngineDefaultClusterParameters = DescribeEngineDefaultClusterParame
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'filters', 'describeEngineDefaultClusterParameters_filters' - This parameter is not currently supported.
+--
 -- 'marker', 'describeEngineDefaultClusterParameters_marker' - An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
---
--- 'filters', 'describeEngineDefaultClusterParameters_filters' - This parameter is not currently supported.
 --
 -- 'maxRecords', 'describeEngineDefaultClusterParameters_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -108,23 +108,23 @@ newDescribeEngineDefaultClusterParameters ::
 newDescribeEngineDefaultClusterParameters
   pDBParameterGroupFamily_ =
     DescribeEngineDefaultClusterParameters'
-      { marker =
+      { filters =
           Prelude.Nothing,
-        filters = Prelude.Nothing,
+        marker = Prelude.Nothing,
         maxRecords = Prelude.Nothing,
         dbParameterGroupFamily =
           pDBParameterGroupFamily_
       }
+
+-- | This parameter is not currently supported.
+describeEngineDefaultClusterParameters_filters :: Lens.Lens' DescribeEngineDefaultClusterParameters (Prelude.Maybe [Filter])
+describeEngineDefaultClusterParameters_filters = Lens.lens (\DescribeEngineDefaultClusterParameters' {filters} -> filters) (\s@DescribeEngineDefaultClusterParameters' {} a -> s {filters = a} :: DescribeEngineDefaultClusterParameters) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
 describeEngineDefaultClusterParameters_marker :: Lens.Lens' DescribeEngineDefaultClusterParameters (Prelude.Maybe Prelude.Text)
 describeEngineDefaultClusterParameters_marker = Lens.lens (\DescribeEngineDefaultClusterParameters' {marker} -> marker) (\s@DescribeEngineDefaultClusterParameters' {} a -> s {marker = a} :: DescribeEngineDefaultClusterParameters)
-
--- | This parameter is not currently supported.
-describeEngineDefaultClusterParameters_filters :: Lens.Lens' DescribeEngineDefaultClusterParameters (Prelude.Maybe [Filter])
-describeEngineDefaultClusterParameters_filters = Lens.lens (\DescribeEngineDefaultClusterParameters' {filters} -> filters) (\s@DescribeEngineDefaultClusterParameters' {} a -> s {filters = a} :: DescribeEngineDefaultClusterParameters) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -168,8 +168,8 @@ instance
   hashWithSalt
     _salt
     DescribeEngineDefaultClusterParameters' {..} =
-      _salt `Prelude.hashWithSalt` marker
-        `Prelude.hashWithSalt` filters
+      _salt `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` marker
         `Prelude.hashWithSalt` maxRecords
         `Prelude.hashWithSalt` dbParameterGroupFamily
 
@@ -178,8 +178,8 @@ instance
     DescribeEngineDefaultClusterParameters
   where
   rnf DescribeEngineDefaultClusterParameters' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf dbParameterGroupFamily
 
@@ -207,10 +207,10 @@ instance
                   ),
         "Version"
           Data.=: ("2014-10-31" :: Prelude.ByteString),
-        "Marker" Data.=: marker,
         "Filters"
           Data.=: Data.toQuery
             (Data.toQueryList "Filter" Prelude.<$> filters),
+        "Marker" Data.=: marker,
         "MaxRecords" Data.=: maxRecords,
         "DBParameterGroupFamily"
           Data.=: dbParameterGroupFamily

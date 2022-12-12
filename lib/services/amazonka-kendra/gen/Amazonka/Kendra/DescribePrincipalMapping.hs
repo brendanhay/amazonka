@@ -44,10 +44,10 @@ module Amazonka.Kendra.DescribePrincipalMapping
     newDescribePrincipalMappingResponse,
 
     -- * Response Lenses
-    describePrincipalMappingResponse_groupOrderingIdSummaries,
-    describePrincipalMappingResponse_indexId,
     describePrincipalMappingResponse_dataSourceId,
     describePrincipalMappingResponse_groupId,
+    describePrincipalMappingResponse_groupOrderingIdSummaries,
+    describePrincipalMappingResponse_indexId,
     describePrincipalMappingResponse_httpStatus,
   )
 where
@@ -129,12 +129,12 @@ instance Core.AWSRequest DescribePrincipalMapping where
     Response.receiveJSON
       ( \s h x ->
           DescribePrincipalMappingResponse'
-            Prelude.<$> ( x Data..?> "GroupOrderingIdSummaries"
+            Prelude.<$> (x Data..?> "DataSourceId")
+            Prelude.<*> (x Data..?> "GroupId")
+            Prelude.<*> ( x Data..?> "GroupOrderingIdSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "IndexId")
-            Prelude.<*> (x Data..?> "DataSourceId")
-            Prelude.<*> (x Data..?> "GroupId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -183,7 +183,14 @@ instance Data.ToQuery DescribePrincipalMapping where
 
 -- | /See:/ 'newDescribePrincipalMappingResponse' smart constructor.
 data DescribePrincipalMappingResponse = DescribePrincipalMappingResponse'
-  { -- | Shows the following information on the processing of @PUT@ and @DELETE@
+  { -- | Shows the identifier of the data source to see information on the
+    -- processing of @PUT@ and @DELETE@ actions for mapping users to their
+    -- groups.
+    dataSourceId :: Prelude.Maybe Prelude.Text,
+    -- | Shows the identifier of the group to see information on the processing
+    -- of @PUT@ and @DELETE@ actions for mapping users to their groups.
+    groupId :: Prelude.Maybe Prelude.Text,
+    -- | Shows the following information on the processing of @PUT@ and @DELETE@
     -- actions for mapping users to their groups:
     --
     -- -   Status – the status can be either @PROCESSING@, @SUCCEEDED@,
@@ -201,13 +208,6 @@ data DescribePrincipalMappingResponse = DescribePrincipalMappingResponse'
     -- | Shows the identifier of the index to see information on the processing
     -- of @PUT@ and @DELETE@ actions for mapping users to their groups.
     indexId :: Prelude.Maybe Prelude.Text,
-    -- | Shows the identifier of the data source to see information on the
-    -- processing of @PUT@ and @DELETE@ actions for mapping users to their
-    -- groups.
-    dataSourceId :: Prelude.Maybe Prelude.Text,
-    -- | Shows the identifier of the group to see information on the processing
-    -- of @PUT@ and @DELETE@ actions for mapping users to their groups.
-    groupId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -220,6 +220,13 @@ data DescribePrincipalMappingResponse = DescribePrincipalMappingResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'dataSourceId', 'describePrincipalMappingResponse_dataSourceId' - Shows the identifier of the data source to see information on the
+-- processing of @PUT@ and @DELETE@ actions for mapping users to their
+-- groups.
+--
+-- 'groupId', 'describePrincipalMappingResponse_groupId' - Shows the identifier of the group to see information on the processing
+-- of @PUT@ and @DELETE@ actions for mapping users to their groups.
 --
 -- 'groupOrderingIdSummaries', 'describePrincipalMappingResponse_groupOrderingIdSummaries' - Shows the following information on the processing of @PUT@ and @DELETE@
 -- actions for mapping users to their groups:
@@ -239,13 +246,6 @@ data DescribePrincipalMappingResponse = DescribePrincipalMappingResponse'
 -- 'indexId', 'describePrincipalMappingResponse_indexId' - Shows the identifier of the index to see information on the processing
 -- of @PUT@ and @DELETE@ actions for mapping users to their groups.
 --
--- 'dataSourceId', 'describePrincipalMappingResponse_dataSourceId' - Shows the identifier of the data source to see information on the
--- processing of @PUT@ and @DELETE@ actions for mapping users to their
--- groups.
---
--- 'groupId', 'describePrincipalMappingResponse_groupId' - Shows the identifier of the group to see information on the processing
--- of @PUT@ and @DELETE@ actions for mapping users to their groups.
---
 -- 'httpStatus', 'describePrincipalMappingResponse_httpStatus' - The response's http status code.
 newDescribePrincipalMappingResponse ::
   -- | 'httpStatus'
@@ -253,13 +253,25 @@ newDescribePrincipalMappingResponse ::
   DescribePrincipalMappingResponse
 newDescribePrincipalMappingResponse pHttpStatus_ =
   DescribePrincipalMappingResponse'
-    { groupOrderingIdSummaries =
+    { dataSourceId =
+        Prelude.Nothing,
+      groupId = Prelude.Nothing,
+      groupOrderingIdSummaries =
         Prelude.Nothing,
       indexId = Prelude.Nothing,
-      dataSourceId = Prelude.Nothing,
-      groupId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Shows the identifier of the data source to see information on the
+-- processing of @PUT@ and @DELETE@ actions for mapping users to their
+-- groups.
+describePrincipalMappingResponse_dataSourceId :: Lens.Lens' DescribePrincipalMappingResponse (Prelude.Maybe Prelude.Text)
+describePrincipalMappingResponse_dataSourceId = Lens.lens (\DescribePrincipalMappingResponse' {dataSourceId} -> dataSourceId) (\s@DescribePrincipalMappingResponse' {} a -> s {dataSourceId = a} :: DescribePrincipalMappingResponse)
+
+-- | Shows the identifier of the group to see information on the processing
+-- of @PUT@ and @DELETE@ actions for mapping users to their groups.
+describePrincipalMappingResponse_groupId :: Lens.Lens' DescribePrincipalMappingResponse (Prelude.Maybe Prelude.Text)
+describePrincipalMappingResponse_groupId = Lens.lens (\DescribePrincipalMappingResponse' {groupId} -> groupId) (\s@DescribePrincipalMappingResponse' {} a -> s {groupId = a} :: DescribePrincipalMappingResponse)
 
 -- | Shows the following information on the processing of @PUT@ and @DELETE@
 -- actions for mapping users to their groups:
@@ -283,17 +295,6 @@ describePrincipalMappingResponse_groupOrderingIdSummaries = Lens.lens (\Describe
 describePrincipalMappingResponse_indexId :: Lens.Lens' DescribePrincipalMappingResponse (Prelude.Maybe Prelude.Text)
 describePrincipalMappingResponse_indexId = Lens.lens (\DescribePrincipalMappingResponse' {indexId} -> indexId) (\s@DescribePrincipalMappingResponse' {} a -> s {indexId = a} :: DescribePrincipalMappingResponse)
 
--- | Shows the identifier of the data source to see information on the
--- processing of @PUT@ and @DELETE@ actions for mapping users to their
--- groups.
-describePrincipalMappingResponse_dataSourceId :: Lens.Lens' DescribePrincipalMappingResponse (Prelude.Maybe Prelude.Text)
-describePrincipalMappingResponse_dataSourceId = Lens.lens (\DescribePrincipalMappingResponse' {dataSourceId} -> dataSourceId) (\s@DescribePrincipalMappingResponse' {} a -> s {dataSourceId = a} :: DescribePrincipalMappingResponse)
-
--- | Shows the identifier of the group to see information on the processing
--- of @PUT@ and @DELETE@ actions for mapping users to their groups.
-describePrincipalMappingResponse_groupId :: Lens.Lens' DescribePrincipalMappingResponse (Prelude.Maybe Prelude.Text)
-describePrincipalMappingResponse_groupId = Lens.lens (\DescribePrincipalMappingResponse' {groupId} -> groupId) (\s@DescribePrincipalMappingResponse' {} a -> s {groupId = a} :: DescribePrincipalMappingResponse)
-
 -- | The response's http status code.
 describePrincipalMappingResponse_httpStatus :: Lens.Lens' DescribePrincipalMappingResponse Prelude.Int
 describePrincipalMappingResponse_httpStatus = Lens.lens (\DescribePrincipalMappingResponse' {httpStatus} -> httpStatus) (\s@DescribePrincipalMappingResponse' {} a -> s {httpStatus = a} :: DescribePrincipalMappingResponse)
@@ -303,8 +304,8 @@ instance
     DescribePrincipalMappingResponse
   where
   rnf DescribePrincipalMappingResponse' {..} =
-    Prelude.rnf groupOrderingIdSummaries
-      `Prelude.seq` Prelude.rnf indexId
-      `Prelude.seq` Prelude.rnf dataSourceId
+    Prelude.rnf dataSourceId
       `Prelude.seq` Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf groupOrderingIdSummaries
+      `Prelude.seq` Prelude.rnf indexId
       `Prelude.seq` Prelude.rnf httpStatus

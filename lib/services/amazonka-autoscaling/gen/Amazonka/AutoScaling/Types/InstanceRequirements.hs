@@ -76,105 +76,27 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceRequirements' smart constructor.
 data InstanceRequirements = InstanceRequirements'
-  { -- | Indicates whether current or previous generation instance types are
-    -- included.
+  { -- | The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon
+    -- Web Services Inferentia chips) for an instance type.
     --
-    -- -   For current generation instance types, specify @current@. The
-    --     current generation includes EC2 instance types currently recommended
-    --     for use. This typically includes the latest two to three generations
-    --     in each instance family. For more information, see
-    --     <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
-    --     in the /Amazon EC2 User Guide for Linux Instances/.
-    --
-    -- -   For previous generation instance types, specify @previous@.
-    --
-    -- Default: Any current or previous generation
-    instanceGenerations :: Prelude.Maybe [InstanceGeneration],
-    -- | The minimum and maximum baseline bandwidth performance for an instance
-    -- type, in Mbps. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html Amazon EBS–optimized instances>
-    -- in the /Amazon EC2 User Guide for Linux Instances/.
+    -- To exclude accelerator-enabled instance types, set @Max@ to @0@.
     --
     -- Default: No minimum or maximum limits
-    baselineEbsBandwidthMbps :: Prelude.Maybe BaselineEbsBandwidthMbpsRequest,
-    -- | Indicates whether bare metal instance types are included, excluded, or
-    -- required.
+    acceleratorCount :: Prelude.Maybe AcceleratorCountRequest,
+    -- | Indicates whether instance types must have accelerators by specific
+    -- manufacturers.
     --
-    -- Default: @excluded@
-    bareMetal :: Prelude.Maybe BareMetal,
-    -- | The price protection threshold for Spot Instances. This is the maximum
-    -- you’ll pay for a Spot Instance, expressed as a percentage higher than
-    -- the least expensive current generation M, C, or R instance type with
-    -- your specified attributes. When Amazon EC2 Auto Scaling selects instance
-    -- types with your attributes, we will exclude instance types whose price
-    -- is higher than your threshold. The parameter accepts an integer, which
-    -- Amazon EC2 Auto Scaling interprets as a percentage. To turn off price
-    -- protection, specify a high value, such as @999999@.
+    -- -   For instance types with NVIDIA devices, specify @nvidia@.
     --
-    -- If you set @DesiredCapacityType@ to @vcpu@ or @memory-mib@, the price
-    -- protection threshold is applied based on the per vCPU or per memory
-    -- price instead of the per instance price.
+    -- -   For instance types with AMD devices, specify @amd@.
     --
-    -- Default: @100@
-    spotMaxPricePercentageOverLowestPrice :: Prelude.Maybe Prelude.Natural,
-    -- | Lists the accelerator types that must be on an instance type.
+    -- -   For instance types with Amazon Web Services devices, specify
+    --     @amazon-web-services@.
     --
-    -- -   For instance types with GPU accelerators, specify @gpu@.
+    -- -   For instance types with Xilinx devices, specify @xilinx@.
     --
-    -- -   For instance types with FPGA accelerators, specify @fpga@.
-    --
-    -- -   For instance types with inference accelerators, specify @inference@.
-    --
-    -- Default: Any accelerator type
-    acceleratorTypes :: Prelude.Maybe [AcceleratorType],
-    -- | The minimum and maximum total local storage size for an instance type,
-    -- in GB.
-    --
-    -- Default: No minimum or maximum limits
-    totalLocalStorageGB :: Prelude.Maybe TotalLocalStorageGBRequest,
-    -- | Indicates the type of local storage that is required.
-    --
-    -- -   For instance types with hard disk drive (HDD) storage, specify
-    --     @hdd@.
-    --
-    -- -   For instance types with solid state drive (SSD) storage, specify
-    --     @ssd@.
-    --
-    -- Default: Any local storage type
-    localStorageTypes :: Prelude.Maybe [LocalStorageType],
-    -- | The price protection threshold for On-Demand Instances. This is the
-    -- maximum you’ll pay for an On-Demand Instance, expressed as a percentage
-    -- higher than the least expensive current generation M, C, or R instance
-    -- type with your specified attributes. When Amazon EC2 Auto Scaling
-    -- selects instance types with your attributes, we will exclude instance
-    -- types whose price is higher than your threshold. The parameter accepts
-    -- an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To
-    -- turn off price protection, specify a high value, such as @999999@.
-    --
-    -- If you set @DesiredCapacityType@ to @vcpu@ or @memory-mib@, the price
-    -- protection threshold is applied based on the per vCPU or per memory
-    -- price instead of the per instance price.
-    --
-    -- Default: @20@
-    onDemandMaxPricePercentageOverLowestPrice :: Prelude.Maybe Prelude.Natural,
-    -- | The instance types to apply your specified attributes against. All other
-    -- instance types are ignored, even if they match your specified
-    -- attributes.
-    --
-    -- You can use strings with one or more wild cards, represented by an
-    -- asterisk (@*@), to allow an instance type, size, or generation. The
-    -- following are examples: @m5.8xlarge@, @c5*.*@, @m5a.*@, @r*@, @*3*@.
-    --
-    -- For example, if you specify @c5*@, Amazon EC2 Auto Scaling will allow
-    -- the entire C5 instance family, which includes all C5a and C5n instance
-    -- types. If you specify @m5a.*@, Amazon EC2 Auto Scaling will allow all
-    -- the M5a instance types, but not the M5n instance types.
-    --
-    -- If you specify @AllowedInstanceTypes@, you can\'t specify
-    -- @ExcludedInstanceTypes@.
-    --
-    -- Default: All instance types
-    allowedInstanceTypes :: Prelude.Maybe [Prelude.Text],
+    -- Default: Any manufacturer
+    acceleratorManufacturers :: Prelude.Maybe [AcceleratorManufacturer],
     -- | Lists the accelerators that must be on an instance type.
     --
     -- -   For instance types with NVIDIA A100 GPUs, specify @a100@.
@@ -194,62 +116,51 @@ data InstanceRequirements = InstanceRequirements'
     --
     -- Default: Any accelerator
     acceleratorNames :: Prelude.Maybe [AcceleratorName],
-    -- | The minimum and maximum amount of network bandwidth, in gigabits per
-    -- second (Gbps).
-    --
-    -- Default: No minimum or maximum limits
-    networkBandwidthGbps :: Prelude.Maybe NetworkBandwidthGbpsRequest,
-    -- | Indicates whether instance types must have accelerators by specific
-    -- manufacturers.
-    --
-    -- -   For instance types with NVIDIA devices, specify @nvidia@.
-    --
-    -- -   For instance types with AMD devices, specify @amd@.
-    --
-    -- -   For instance types with Amazon Web Services devices, specify
-    --     @amazon-web-services@.
-    --
-    -- -   For instance types with Xilinx devices, specify @xilinx@.
-    --
-    -- Default: Any manufacturer
-    acceleratorManufacturers :: Prelude.Maybe [AcceleratorManufacturer],
-    -- | The instance types to exclude. You can use strings with one or more wild
-    -- cards, represented by an asterisk (@*@), to exclude an instance family,
-    -- type, size, or generation. The following are examples: @m5.8xlarge@,
-    -- @c5*.*@, @m5a.*@, @r*@, @*3*@.
-    --
-    -- For example, if you specify @c5*@, you are excluding the entire C5
-    -- instance family, which includes all C5a and C5n instance types. If you
-    -- specify @m5a.*@, Amazon EC2 Auto Scaling will exclude all the M5a
-    -- instance types, but not the M5n instance types.
-    --
-    -- If you specify @ExcludedInstanceTypes@, you can\'t specify
-    -- @AllowedInstanceTypes@.
-    --
-    -- Default: No excluded instance types
-    excludedInstanceTypes :: Prelude.Maybe [Prelude.Text],
-    -- | The minimum and maximum number of network interfaces for an instance
-    -- type.
-    --
-    -- Default: No minimum or maximum limits
-    networkInterfaceCount :: Prelude.Maybe NetworkInterfaceCountRequest,
-    -- | Indicates whether instance types must provide On-Demand Instance
-    -- hibernation support.
-    --
-    -- Default: @false@
-    requireHibernateSupport :: Prelude.Maybe Prelude.Bool,
     -- | The minimum and maximum total memory size for the accelerators on an
     -- instance type, in MiB.
     --
     -- Default: No minimum or maximum limits
     acceleratorTotalMemoryMiB :: Prelude.Maybe AcceleratorTotalMemoryMiBRequest,
-    -- | The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon
-    -- Web Services Inferentia chips) for an instance type.
+    -- | Lists the accelerator types that must be on an instance type.
     --
-    -- To exclude accelerator-enabled instance types, set @Max@ to @0@.
+    -- -   For instance types with GPU accelerators, specify @gpu@.
+    --
+    -- -   For instance types with FPGA accelerators, specify @fpga@.
+    --
+    -- -   For instance types with inference accelerators, specify @inference@.
+    --
+    -- Default: Any accelerator type
+    acceleratorTypes :: Prelude.Maybe [AcceleratorType],
+    -- | The instance types to apply your specified attributes against. All other
+    -- instance types are ignored, even if they match your specified
+    -- attributes.
+    --
+    -- You can use strings with one or more wild cards, represented by an
+    -- asterisk (@*@), to allow an instance type, size, or generation. The
+    -- following are examples: @m5.8xlarge@, @c5*.*@, @m5a.*@, @r*@, @*3*@.
+    --
+    -- For example, if you specify @c5*@, Amazon EC2 Auto Scaling will allow
+    -- the entire C5 instance family, which includes all C5a and C5n instance
+    -- types. If you specify @m5a.*@, Amazon EC2 Auto Scaling will allow all
+    -- the M5a instance types, but not the M5n instance types.
+    --
+    -- If you specify @AllowedInstanceTypes@, you can\'t specify
+    -- @ExcludedInstanceTypes@.
+    --
+    -- Default: All instance types
+    allowedInstanceTypes :: Prelude.Maybe [Prelude.Text],
+    -- | Indicates whether bare metal instance types are included, excluded, or
+    -- required.
+    --
+    -- Default: @excluded@
+    bareMetal :: Prelude.Maybe BareMetal,
+    -- | The minimum and maximum baseline bandwidth performance for an instance
+    -- type, in Mbps. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html Amazon EBS–optimized instances>
+    -- in the /Amazon EC2 User Guide for Linux Instances/.
     --
     -- Default: No minimum or maximum limits
-    acceleratorCount :: Prelude.Maybe AcceleratorCountRequest,
+    baselineEbsBandwidthMbps :: Prelude.Maybe BaselineEbsBandwidthMbpsRequest,
     -- | Indicates whether burstable performance instance types are included,
     -- excluded, or required. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html Burstable performance instances>
@@ -273,11 +184,35 @@ data InstanceRequirements = InstanceRequirements'
     --
     -- Default: Any manufacturer
     cpuManufacturers :: Prelude.Maybe [CpuManufacturer],
-    -- | The minimum and maximum amount of memory per vCPU for an instance type,
-    -- in GiB.
+    -- | The instance types to exclude. You can use strings with one or more wild
+    -- cards, represented by an asterisk (@*@), to exclude an instance family,
+    -- type, size, or generation. The following are examples: @m5.8xlarge@,
+    -- @c5*.*@, @m5a.*@, @r*@, @*3*@.
     --
-    -- Default: No minimum or maximum limits
-    memoryGiBPerVCpu :: Prelude.Maybe MemoryGiBPerVCpuRequest,
+    -- For example, if you specify @c5*@, you are excluding the entire C5
+    -- instance family, which includes all C5a and C5n instance types. If you
+    -- specify @m5a.*@, Amazon EC2 Auto Scaling will exclude all the M5a
+    -- instance types, but not the M5n instance types.
+    --
+    -- If you specify @ExcludedInstanceTypes@, you can\'t specify
+    -- @AllowedInstanceTypes@.
+    --
+    -- Default: No excluded instance types
+    excludedInstanceTypes :: Prelude.Maybe [Prelude.Text],
+    -- | Indicates whether current or previous generation instance types are
+    -- included.
+    --
+    -- -   For current generation instance types, specify @current@. The
+    --     current generation includes EC2 instance types currently recommended
+    --     for use. This typically includes the latest two to three generations
+    --     in each instance family. For more information, see
+    --     <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
+    --     in the /Amazon EC2 User Guide for Linux Instances/.
+    --
+    -- -   For previous generation instance types, specify @previous@.
+    --
+    -- Default: Any current or previous generation
+    instanceGenerations :: Prelude.Maybe [InstanceGeneration],
     -- | Indicates whether instance types with instance store volumes are
     -- included, excluded, or required. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html Amazon EC2 instance store>
@@ -285,6 +220,71 @@ data InstanceRequirements = InstanceRequirements'
     --
     -- Default: @included@
     localStorage :: Prelude.Maybe LocalStorage,
+    -- | Indicates the type of local storage that is required.
+    --
+    -- -   For instance types with hard disk drive (HDD) storage, specify
+    --     @hdd@.
+    --
+    -- -   For instance types with solid state drive (SSD) storage, specify
+    --     @ssd@.
+    --
+    -- Default: Any local storage type
+    localStorageTypes :: Prelude.Maybe [LocalStorageType],
+    -- | The minimum and maximum amount of memory per vCPU for an instance type,
+    -- in GiB.
+    --
+    -- Default: No minimum or maximum limits
+    memoryGiBPerVCpu :: Prelude.Maybe MemoryGiBPerVCpuRequest,
+    -- | The minimum and maximum amount of network bandwidth, in gigabits per
+    -- second (Gbps).
+    --
+    -- Default: No minimum or maximum limits
+    networkBandwidthGbps :: Prelude.Maybe NetworkBandwidthGbpsRequest,
+    -- | The minimum and maximum number of network interfaces for an instance
+    -- type.
+    --
+    -- Default: No minimum or maximum limits
+    networkInterfaceCount :: Prelude.Maybe NetworkInterfaceCountRequest,
+    -- | The price protection threshold for On-Demand Instances. This is the
+    -- maximum you’ll pay for an On-Demand Instance, expressed as a percentage
+    -- higher than the least expensive current generation M, C, or R instance
+    -- type with your specified attributes. When Amazon EC2 Auto Scaling
+    -- selects instance types with your attributes, we will exclude instance
+    -- types whose price is higher than your threshold. The parameter accepts
+    -- an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To
+    -- turn off price protection, specify a high value, such as @999999@.
+    --
+    -- If you set @DesiredCapacityType@ to @vcpu@ or @memory-mib@, the price
+    -- protection threshold is applied based on the per vCPU or per memory
+    -- price instead of the per instance price.
+    --
+    -- Default: @20@
+    onDemandMaxPricePercentageOverLowestPrice :: Prelude.Maybe Prelude.Natural,
+    -- | Indicates whether instance types must provide On-Demand Instance
+    -- hibernation support.
+    --
+    -- Default: @false@
+    requireHibernateSupport :: Prelude.Maybe Prelude.Bool,
+    -- | The price protection threshold for Spot Instances. This is the maximum
+    -- you’ll pay for a Spot Instance, expressed as a percentage higher than
+    -- the least expensive current generation M, C, or R instance type with
+    -- your specified attributes. When Amazon EC2 Auto Scaling selects instance
+    -- types with your attributes, we will exclude instance types whose price
+    -- is higher than your threshold. The parameter accepts an integer, which
+    -- Amazon EC2 Auto Scaling interprets as a percentage. To turn off price
+    -- protection, specify a high value, such as @999999@.
+    --
+    -- If you set @DesiredCapacityType@ to @vcpu@ or @memory-mib@, the price
+    -- protection threshold is applied based on the per vCPU or per memory
+    -- price instead of the per instance price.
+    --
+    -- Default: @100@
+    spotMaxPricePercentageOverLowestPrice :: Prelude.Maybe Prelude.Natural,
+    -- | The minimum and maximum total local storage size for an instance type,
+    -- in GB.
+    --
+    -- Default: No minimum or maximum limits
+    totalLocalStorageGB :: Prelude.Maybe TotalLocalStorageGBRequest,
     -- | The minimum and maximum number of vCPUs for an instance type.
     vCpuCount :: VCpuCountRequest,
     -- | The minimum and maximum instance memory size for an instance type, in
@@ -301,104 +301,26 @@ data InstanceRequirements = InstanceRequirements'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceGenerations', 'instanceRequirements_instanceGenerations' - Indicates whether current or previous generation instance types are
--- included.
+-- 'acceleratorCount', 'instanceRequirements_acceleratorCount' - The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon
+-- Web Services Inferentia chips) for an instance type.
 --
--- -   For current generation instance types, specify @current@. The
---     current generation includes EC2 instance types currently recommended
---     for use. This typically includes the latest two to three generations
---     in each instance family. For more information, see
---     <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
---     in the /Amazon EC2 User Guide for Linux Instances/.
---
--- -   For previous generation instance types, specify @previous@.
---
--- Default: Any current or previous generation
---
--- 'baselineEbsBandwidthMbps', 'instanceRequirements_baselineEbsBandwidthMbps' - The minimum and maximum baseline bandwidth performance for an instance
--- type, in Mbps. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html Amazon EBS–optimized instances>
--- in the /Amazon EC2 User Guide for Linux Instances/.
+-- To exclude accelerator-enabled instance types, set @Max@ to @0@.
 --
 -- Default: No minimum or maximum limits
 --
--- 'bareMetal', 'instanceRequirements_bareMetal' - Indicates whether bare metal instance types are included, excluded, or
--- required.
+-- 'acceleratorManufacturers', 'instanceRequirements_acceleratorManufacturers' - Indicates whether instance types must have accelerators by specific
+-- manufacturers.
 --
--- Default: @excluded@
+-- -   For instance types with NVIDIA devices, specify @nvidia@.
 --
--- 'spotMaxPricePercentageOverLowestPrice', 'instanceRequirements_spotMaxPricePercentageOverLowestPrice' - The price protection threshold for Spot Instances. This is the maximum
--- you’ll pay for a Spot Instance, expressed as a percentage higher than
--- the least expensive current generation M, C, or R instance type with
--- your specified attributes. When Amazon EC2 Auto Scaling selects instance
--- types with your attributes, we will exclude instance types whose price
--- is higher than your threshold. The parameter accepts an integer, which
--- Amazon EC2 Auto Scaling interprets as a percentage. To turn off price
--- protection, specify a high value, such as @999999@.
+-- -   For instance types with AMD devices, specify @amd@.
 --
--- If you set @DesiredCapacityType@ to @vcpu@ or @memory-mib@, the price
--- protection threshold is applied based on the per vCPU or per memory
--- price instead of the per instance price.
+-- -   For instance types with Amazon Web Services devices, specify
+--     @amazon-web-services@.
 --
--- Default: @100@
+-- -   For instance types with Xilinx devices, specify @xilinx@.
 --
--- 'acceleratorTypes', 'instanceRequirements_acceleratorTypes' - Lists the accelerator types that must be on an instance type.
---
--- -   For instance types with GPU accelerators, specify @gpu@.
---
--- -   For instance types with FPGA accelerators, specify @fpga@.
---
--- -   For instance types with inference accelerators, specify @inference@.
---
--- Default: Any accelerator type
---
--- 'totalLocalStorageGB', 'instanceRequirements_totalLocalStorageGB' - The minimum and maximum total local storage size for an instance type,
--- in GB.
---
--- Default: No minimum or maximum limits
---
--- 'localStorageTypes', 'instanceRequirements_localStorageTypes' - Indicates the type of local storage that is required.
---
--- -   For instance types with hard disk drive (HDD) storage, specify
---     @hdd@.
---
--- -   For instance types with solid state drive (SSD) storage, specify
---     @ssd@.
---
--- Default: Any local storage type
---
--- 'onDemandMaxPricePercentageOverLowestPrice', 'instanceRequirements_onDemandMaxPricePercentageOverLowestPrice' - The price protection threshold for On-Demand Instances. This is the
--- maximum you’ll pay for an On-Demand Instance, expressed as a percentage
--- higher than the least expensive current generation M, C, or R instance
--- type with your specified attributes. When Amazon EC2 Auto Scaling
--- selects instance types with your attributes, we will exclude instance
--- types whose price is higher than your threshold. The parameter accepts
--- an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To
--- turn off price protection, specify a high value, such as @999999@.
---
--- If you set @DesiredCapacityType@ to @vcpu@ or @memory-mib@, the price
--- protection threshold is applied based on the per vCPU or per memory
--- price instead of the per instance price.
---
--- Default: @20@
---
--- 'allowedInstanceTypes', 'instanceRequirements_allowedInstanceTypes' - The instance types to apply your specified attributes against. All other
--- instance types are ignored, even if they match your specified
--- attributes.
---
--- You can use strings with one or more wild cards, represented by an
--- asterisk (@*@), to allow an instance type, size, or generation. The
--- following are examples: @m5.8xlarge@, @c5*.*@, @m5a.*@, @r*@, @*3*@.
---
--- For example, if you specify @c5*@, Amazon EC2 Auto Scaling will allow
--- the entire C5 instance family, which includes all C5a and C5n instance
--- types. If you specify @m5a.*@, Amazon EC2 Auto Scaling will allow all
--- the M5a instance types, but not the M5n instance types.
---
--- If you specify @AllowedInstanceTypes@, you can\'t specify
--- @ExcludedInstanceTypes@.
---
--- Default: All instance types
+-- Default: Any manufacturer
 --
 -- 'acceleratorNames', 'instanceRequirements_acceleratorNames' - Lists the accelerators that must be on an instance type.
 --
@@ -419,59 +341,48 @@ data InstanceRequirements = InstanceRequirements'
 --
 -- Default: Any accelerator
 --
--- 'networkBandwidthGbps', 'instanceRequirements_networkBandwidthGbps' - The minimum and maximum amount of network bandwidth, in gigabits per
--- second (Gbps).
---
--- Default: No minimum or maximum limits
---
--- 'acceleratorManufacturers', 'instanceRequirements_acceleratorManufacturers' - Indicates whether instance types must have accelerators by specific
--- manufacturers.
---
--- -   For instance types with NVIDIA devices, specify @nvidia@.
---
--- -   For instance types with AMD devices, specify @amd@.
---
--- -   For instance types with Amazon Web Services devices, specify
---     @amazon-web-services@.
---
--- -   For instance types with Xilinx devices, specify @xilinx@.
---
--- Default: Any manufacturer
---
--- 'excludedInstanceTypes', 'instanceRequirements_excludedInstanceTypes' - The instance types to exclude. You can use strings with one or more wild
--- cards, represented by an asterisk (@*@), to exclude an instance family,
--- type, size, or generation. The following are examples: @m5.8xlarge@,
--- @c5*.*@, @m5a.*@, @r*@, @*3*@.
---
--- For example, if you specify @c5*@, you are excluding the entire C5
--- instance family, which includes all C5a and C5n instance types. If you
--- specify @m5a.*@, Amazon EC2 Auto Scaling will exclude all the M5a
--- instance types, but not the M5n instance types.
---
--- If you specify @ExcludedInstanceTypes@, you can\'t specify
--- @AllowedInstanceTypes@.
---
--- Default: No excluded instance types
---
--- 'networkInterfaceCount', 'instanceRequirements_networkInterfaceCount' - The minimum and maximum number of network interfaces for an instance
--- type.
---
--- Default: No minimum or maximum limits
---
--- 'requireHibernateSupport', 'instanceRequirements_requireHibernateSupport' - Indicates whether instance types must provide On-Demand Instance
--- hibernation support.
---
--- Default: @false@
---
 -- 'acceleratorTotalMemoryMiB', 'instanceRequirements_acceleratorTotalMemoryMiB' - The minimum and maximum total memory size for the accelerators on an
 -- instance type, in MiB.
 --
 -- Default: No minimum or maximum limits
 --
--- 'acceleratorCount', 'instanceRequirements_acceleratorCount' - The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon
--- Web Services Inferentia chips) for an instance type.
+-- 'acceleratorTypes', 'instanceRequirements_acceleratorTypes' - Lists the accelerator types that must be on an instance type.
 --
--- To exclude accelerator-enabled instance types, set @Max@ to @0@.
+-- -   For instance types with GPU accelerators, specify @gpu@.
+--
+-- -   For instance types with FPGA accelerators, specify @fpga@.
+--
+-- -   For instance types with inference accelerators, specify @inference@.
+--
+-- Default: Any accelerator type
+--
+-- 'allowedInstanceTypes', 'instanceRequirements_allowedInstanceTypes' - The instance types to apply your specified attributes against. All other
+-- instance types are ignored, even if they match your specified
+-- attributes.
+--
+-- You can use strings with one or more wild cards, represented by an
+-- asterisk (@*@), to allow an instance type, size, or generation. The
+-- following are examples: @m5.8xlarge@, @c5*.*@, @m5a.*@, @r*@, @*3*@.
+--
+-- For example, if you specify @c5*@, Amazon EC2 Auto Scaling will allow
+-- the entire C5 instance family, which includes all C5a and C5n instance
+-- types. If you specify @m5a.*@, Amazon EC2 Auto Scaling will allow all
+-- the M5a instance types, but not the M5n instance types.
+--
+-- If you specify @AllowedInstanceTypes@, you can\'t specify
+-- @ExcludedInstanceTypes@.
+--
+-- Default: All instance types
+--
+-- 'bareMetal', 'instanceRequirements_bareMetal' - Indicates whether bare metal instance types are included, excluded, or
+-- required.
+--
+-- Default: @excluded@
+--
+-- 'baselineEbsBandwidthMbps', 'instanceRequirements_baselineEbsBandwidthMbps' - The minimum and maximum baseline bandwidth performance for an instance
+-- type, in Mbps. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html Amazon EBS–optimized instances>
+-- in the /Amazon EC2 User Guide for Linux Instances/.
 --
 -- Default: No minimum or maximum limits
 --
@@ -498,59 +409,22 @@ data InstanceRequirements = InstanceRequirements'
 --
 -- Default: Any manufacturer
 --
--- 'memoryGiBPerVCpu', 'instanceRequirements_memoryGiBPerVCpu' - The minimum and maximum amount of memory per vCPU for an instance type,
--- in GiB.
+-- 'excludedInstanceTypes', 'instanceRequirements_excludedInstanceTypes' - The instance types to exclude. You can use strings with one or more wild
+-- cards, represented by an asterisk (@*@), to exclude an instance family,
+-- type, size, or generation. The following are examples: @m5.8xlarge@,
+-- @c5*.*@, @m5a.*@, @r*@, @*3*@.
 --
--- Default: No minimum or maximum limits
+-- For example, if you specify @c5*@, you are excluding the entire C5
+-- instance family, which includes all C5a and C5n instance types. If you
+-- specify @m5a.*@, Amazon EC2 Auto Scaling will exclude all the M5a
+-- instance types, but not the M5n instance types.
 --
--- 'localStorage', 'instanceRequirements_localStorage' - Indicates whether instance types with instance store volumes are
--- included, excluded, or required. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html Amazon EC2 instance store>
--- in the /Amazon EC2 User Guide for Linux Instances/.
+-- If you specify @ExcludedInstanceTypes@, you can\'t specify
+-- @AllowedInstanceTypes@.
 --
--- Default: @included@
+-- Default: No excluded instance types
 --
--- 'vCpuCount', 'instanceRequirements_vCpuCount' - The minimum and maximum number of vCPUs for an instance type.
---
--- 'memoryMiB', 'instanceRequirements_memoryMiB' - The minimum and maximum instance memory size for an instance type, in
--- MiB.
-newInstanceRequirements ::
-  -- | 'vCpuCount'
-  VCpuCountRequest ->
-  -- | 'memoryMiB'
-  MemoryMiBRequest ->
-  InstanceRequirements
-newInstanceRequirements pVCpuCount_ pMemoryMiB_ =
-  InstanceRequirements'
-    { instanceGenerations =
-        Prelude.Nothing,
-      baselineEbsBandwidthMbps = Prelude.Nothing,
-      bareMetal = Prelude.Nothing,
-      spotMaxPricePercentageOverLowestPrice =
-        Prelude.Nothing,
-      acceleratorTypes = Prelude.Nothing,
-      totalLocalStorageGB = Prelude.Nothing,
-      localStorageTypes = Prelude.Nothing,
-      onDemandMaxPricePercentageOverLowestPrice =
-        Prelude.Nothing,
-      allowedInstanceTypes = Prelude.Nothing,
-      acceleratorNames = Prelude.Nothing,
-      networkBandwidthGbps = Prelude.Nothing,
-      acceleratorManufacturers = Prelude.Nothing,
-      excludedInstanceTypes = Prelude.Nothing,
-      networkInterfaceCount = Prelude.Nothing,
-      requireHibernateSupport = Prelude.Nothing,
-      acceleratorTotalMemoryMiB = Prelude.Nothing,
-      acceleratorCount = Prelude.Nothing,
-      burstablePerformance = Prelude.Nothing,
-      cpuManufacturers = Prelude.Nothing,
-      memoryGiBPerVCpu = Prelude.Nothing,
-      localStorage = Prelude.Nothing,
-      vCpuCount = pVCpuCount_,
-      memoryMiB = pMemoryMiB_
-    }
-
--- | Indicates whether current or previous generation instance types are
+-- 'instanceGenerations', 'instanceRequirements_instanceGenerations' - Indicates whether current or previous generation instance types are
 -- included.
 --
 -- -   For current generation instance types, specify @current@. The
@@ -563,62 +437,15 @@ newInstanceRequirements pVCpuCount_ pMemoryMiB_ =
 -- -   For previous generation instance types, specify @previous@.
 --
 -- Default: Any current or previous generation
-instanceRequirements_instanceGenerations :: Lens.Lens' InstanceRequirements (Prelude.Maybe [InstanceGeneration])
-instanceRequirements_instanceGenerations = Lens.lens (\InstanceRequirements' {instanceGenerations} -> instanceGenerations) (\s@InstanceRequirements' {} a -> s {instanceGenerations = a} :: InstanceRequirements) Prelude.. Lens.mapping Lens.coerced
-
--- | The minimum and maximum baseline bandwidth performance for an instance
--- type, in Mbps. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html Amazon EBS–optimized instances>
+--
+-- 'localStorage', 'instanceRequirements_localStorage' - Indicates whether instance types with instance store volumes are
+-- included, excluded, or required. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html Amazon EC2 instance store>
 -- in the /Amazon EC2 User Guide for Linux Instances/.
 --
--- Default: No minimum or maximum limits
-instanceRequirements_baselineEbsBandwidthMbps :: Lens.Lens' InstanceRequirements (Prelude.Maybe BaselineEbsBandwidthMbpsRequest)
-instanceRequirements_baselineEbsBandwidthMbps = Lens.lens (\InstanceRequirements' {baselineEbsBandwidthMbps} -> baselineEbsBandwidthMbps) (\s@InstanceRequirements' {} a -> s {baselineEbsBandwidthMbps = a} :: InstanceRequirements)
-
--- | Indicates whether bare metal instance types are included, excluded, or
--- required.
+-- Default: @included@
 --
--- Default: @excluded@
-instanceRequirements_bareMetal :: Lens.Lens' InstanceRequirements (Prelude.Maybe BareMetal)
-instanceRequirements_bareMetal = Lens.lens (\InstanceRequirements' {bareMetal} -> bareMetal) (\s@InstanceRequirements' {} a -> s {bareMetal = a} :: InstanceRequirements)
-
--- | The price protection threshold for Spot Instances. This is the maximum
--- you’ll pay for a Spot Instance, expressed as a percentage higher than
--- the least expensive current generation M, C, or R instance type with
--- your specified attributes. When Amazon EC2 Auto Scaling selects instance
--- types with your attributes, we will exclude instance types whose price
--- is higher than your threshold. The parameter accepts an integer, which
--- Amazon EC2 Auto Scaling interprets as a percentage. To turn off price
--- protection, specify a high value, such as @999999@.
---
--- If you set @DesiredCapacityType@ to @vcpu@ or @memory-mib@, the price
--- protection threshold is applied based on the per vCPU or per memory
--- price instead of the per instance price.
---
--- Default: @100@
-instanceRequirements_spotMaxPricePercentageOverLowestPrice :: Lens.Lens' InstanceRequirements (Prelude.Maybe Prelude.Natural)
-instanceRequirements_spotMaxPricePercentageOverLowestPrice = Lens.lens (\InstanceRequirements' {spotMaxPricePercentageOverLowestPrice} -> spotMaxPricePercentageOverLowestPrice) (\s@InstanceRequirements' {} a -> s {spotMaxPricePercentageOverLowestPrice = a} :: InstanceRequirements)
-
--- | Lists the accelerator types that must be on an instance type.
---
--- -   For instance types with GPU accelerators, specify @gpu@.
---
--- -   For instance types with FPGA accelerators, specify @fpga@.
---
--- -   For instance types with inference accelerators, specify @inference@.
---
--- Default: Any accelerator type
-instanceRequirements_acceleratorTypes :: Lens.Lens' InstanceRequirements (Prelude.Maybe [AcceleratorType])
-instanceRequirements_acceleratorTypes = Lens.lens (\InstanceRequirements' {acceleratorTypes} -> acceleratorTypes) (\s@InstanceRequirements' {} a -> s {acceleratorTypes = a} :: InstanceRequirements) Prelude.. Lens.mapping Lens.coerced
-
--- | The minimum and maximum total local storage size for an instance type,
--- in GB.
---
--- Default: No minimum or maximum limits
-instanceRequirements_totalLocalStorageGB :: Lens.Lens' InstanceRequirements (Prelude.Maybe TotalLocalStorageGBRequest)
-instanceRequirements_totalLocalStorageGB = Lens.lens (\InstanceRequirements' {totalLocalStorageGB} -> totalLocalStorageGB) (\s@InstanceRequirements' {} a -> s {totalLocalStorageGB = a} :: InstanceRequirements)
-
--- | Indicates the type of local storage that is required.
+-- 'localStorageTypes', 'instanceRequirements_localStorageTypes' - Indicates the type of local storage that is required.
 --
 -- -   For instance types with hard disk drive (HDD) storage, specify
 --     @hdd@.
@@ -627,10 +454,23 @@ instanceRequirements_totalLocalStorageGB = Lens.lens (\InstanceRequirements' {to
 --     @ssd@.
 --
 -- Default: Any local storage type
-instanceRequirements_localStorageTypes :: Lens.Lens' InstanceRequirements (Prelude.Maybe [LocalStorageType])
-instanceRequirements_localStorageTypes = Lens.lens (\InstanceRequirements' {localStorageTypes} -> localStorageTypes) (\s@InstanceRequirements' {} a -> s {localStorageTypes = a} :: InstanceRequirements) Prelude.. Lens.mapping Lens.coerced
-
--- | The price protection threshold for On-Demand Instances. This is the
+--
+-- 'memoryGiBPerVCpu', 'instanceRequirements_memoryGiBPerVCpu' - The minimum and maximum amount of memory per vCPU for an instance type,
+-- in GiB.
+--
+-- Default: No minimum or maximum limits
+--
+-- 'networkBandwidthGbps', 'instanceRequirements_networkBandwidthGbps' - The minimum and maximum amount of network bandwidth, in gigabits per
+-- second (Gbps).
+--
+-- Default: No minimum or maximum limits
+--
+-- 'networkInterfaceCount', 'instanceRequirements_networkInterfaceCount' - The minimum and maximum number of network interfaces for an instance
+-- type.
+--
+-- Default: No minimum or maximum limits
+--
+-- 'onDemandMaxPricePercentageOverLowestPrice', 'instanceRequirements_onDemandMaxPricePercentageOverLowestPrice' - The price protection threshold for On-Demand Instances. This is the
 -- maximum you’ll pay for an On-Demand Instance, expressed as a percentage
 -- higher than the least expensive current generation M, C, or R instance
 -- type with your specified attributes. When Amazon EC2 Auto Scaling
@@ -644,28 +484,96 @@ instanceRequirements_localStorageTypes = Lens.lens (\InstanceRequirements' {loca
 -- price instead of the per instance price.
 --
 -- Default: @20@
-instanceRequirements_onDemandMaxPricePercentageOverLowestPrice :: Lens.Lens' InstanceRequirements (Prelude.Maybe Prelude.Natural)
-instanceRequirements_onDemandMaxPricePercentageOverLowestPrice = Lens.lens (\InstanceRequirements' {onDemandMaxPricePercentageOverLowestPrice} -> onDemandMaxPricePercentageOverLowestPrice) (\s@InstanceRequirements' {} a -> s {onDemandMaxPricePercentageOverLowestPrice = a} :: InstanceRequirements)
+--
+-- 'requireHibernateSupport', 'instanceRequirements_requireHibernateSupport' - Indicates whether instance types must provide On-Demand Instance
+-- hibernation support.
+--
+-- Default: @false@
+--
+-- 'spotMaxPricePercentageOverLowestPrice', 'instanceRequirements_spotMaxPricePercentageOverLowestPrice' - The price protection threshold for Spot Instances. This is the maximum
+-- you’ll pay for a Spot Instance, expressed as a percentage higher than
+-- the least expensive current generation M, C, or R instance type with
+-- your specified attributes. When Amazon EC2 Auto Scaling selects instance
+-- types with your attributes, we will exclude instance types whose price
+-- is higher than your threshold. The parameter accepts an integer, which
+-- Amazon EC2 Auto Scaling interprets as a percentage. To turn off price
+-- protection, specify a high value, such as @999999@.
+--
+-- If you set @DesiredCapacityType@ to @vcpu@ or @memory-mib@, the price
+-- protection threshold is applied based on the per vCPU or per memory
+-- price instead of the per instance price.
+--
+-- Default: @100@
+--
+-- 'totalLocalStorageGB', 'instanceRequirements_totalLocalStorageGB' - The minimum and maximum total local storage size for an instance type,
+-- in GB.
+--
+-- Default: No minimum or maximum limits
+--
+-- 'vCpuCount', 'instanceRequirements_vCpuCount' - The minimum and maximum number of vCPUs for an instance type.
+--
+-- 'memoryMiB', 'instanceRequirements_memoryMiB' - The minimum and maximum instance memory size for an instance type, in
+-- MiB.
+newInstanceRequirements ::
+  -- | 'vCpuCount'
+  VCpuCountRequest ->
+  -- | 'memoryMiB'
+  MemoryMiBRequest ->
+  InstanceRequirements
+newInstanceRequirements pVCpuCount_ pMemoryMiB_ =
+  InstanceRequirements'
+    { acceleratorCount =
+        Prelude.Nothing,
+      acceleratorManufacturers = Prelude.Nothing,
+      acceleratorNames = Prelude.Nothing,
+      acceleratorTotalMemoryMiB = Prelude.Nothing,
+      acceleratorTypes = Prelude.Nothing,
+      allowedInstanceTypes = Prelude.Nothing,
+      bareMetal = Prelude.Nothing,
+      baselineEbsBandwidthMbps = Prelude.Nothing,
+      burstablePerformance = Prelude.Nothing,
+      cpuManufacturers = Prelude.Nothing,
+      excludedInstanceTypes = Prelude.Nothing,
+      instanceGenerations = Prelude.Nothing,
+      localStorage = Prelude.Nothing,
+      localStorageTypes = Prelude.Nothing,
+      memoryGiBPerVCpu = Prelude.Nothing,
+      networkBandwidthGbps = Prelude.Nothing,
+      networkInterfaceCount = Prelude.Nothing,
+      onDemandMaxPricePercentageOverLowestPrice =
+        Prelude.Nothing,
+      requireHibernateSupport = Prelude.Nothing,
+      spotMaxPricePercentageOverLowestPrice =
+        Prelude.Nothing,
+      totalLocalStorageGB = Prelude.Nothing,
+      vCpuCount = pVCpuCount_,
+      memoryMiB = pMemoryMiB_
+    }
 
--- | The instance types to apply your specified attributes against. All other
--- instance types are ignored, even if they match your specified
--- attributes.
+-- | The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon
+-- Web Services Inferentia chips) for an instance type.
 --
--- You can use strings with one or more wild cards, represented by an
--- asterisk (@*@), to allow an instance type, size, or generation. The
--- following are examples: @m5.8xlarge@, @c5*.*@, @m5a.*@, @r*@, @*3*@.
+-- To exclude accelerator-enabled instance types, set @Max@ to @0@.
 --
--- For example, if you specify @c5*@, Amazon EC2 Auto Scaling will allow
--- the entire C5 instance family, which includes all C5a and C5n instance
--- types. If you specify @m5a.*@, Amazon EC2 Auto Scaling will allow all
--- the M5a instance types, but not the M5n instance types.
+-- Default: No minimum or maximum limits
+instanceRequirements_acceleratorCount :: Lens.Lens' InstanceRequirements (Prelude.Maybe AcceleratorCountRequest)
+instanceRequirements_acceleratorCount = Lens.lens (\InstanceRequirements' {acceleratorCount} -> acceleratorCount) (\s@InstanceRequirements' {} a -> s {acceleratorCount = a} :: InstanceRequirements)
+
+-- | Indicates whether instance types must have accelerators by specific
+-- manufacturers.
 --
--- If you specify @AllowedInstanceTypes@, you can\'t specify
--- @ExcludedInstanceTypes@.
+-- -   For instance types with NVIDIA devices, specify @nvidia@.
 --
--- Default: All instance types
-instanceRequirements_allowedInstanceTypes :: Lens.Lens' InstanceRequirements (Prelude.Maybe [Prelude.Text])
-instanceRequirements_allowedInstanceTypes = Lens.lens (\InstanceRequirements' {allowedInstanceTypes} -> allowedInstanceTypes) (\s@InstanceRequirements' {} a -> s {allowedInstanceTypes = a} :: InstanceRequirements) Prelude.. Lens.mapping Lens.coerced
+-- -   For instance types with AMD devices, specify @amd@.
+--
+-- -   For instance types with Amazon Web Services devices, specify
+--     @amazon-web-services@.
+--
+-- -   For instance types with Xilinx devices, specify @xilinx@.
+--
+-- Default: Any manufacturer
+instanceRequirements_acceleratorManufacturers :: Lens.Lens' InstanceRequirements (Prelude.Maybe [AcceleratorManufacturer])
+instanceRequirements_acceleratorManufacturers = Lens.lens (\InstanceRequirements' {acceleratorManufacturers} -> acceleratorManufacturers) (\s@InstanceRequirements' {} a -> s {acceleratorManufacturers = a} :: InstanceRequirements) Prelude.. Lens.mapping Lens.coerced
 
 -- | Lists the accelerators that must be on an instance type.
 --
@@ -688,60 +596,6 @@ instanceRequirements_allowedInstanceTypes = Lens.lens (\InstanceRequirements' {a
 instanceRequirements_acceleratorNames :: Lens.Lens' InstanceRequirements (Prelude.Maybe [AcceleratorName])
 instanceRequirements_acceleratorNames = Lens.lens (\InstanceRequirements' {acceleratorNames} -> acceleratorNames) (\s@InstanceRequirements' {} a -> s {acceleratorNames = a} :: InstanceRequirements) Prelude.. Lens.mapping Lens.coerced
 
--- | The minimum and maximum amount of network bandwidth, in gigabits per
--- second (Gbps).
---
--- Default: No minimum or maximum limits
-instanceRequirements_networkBandwidthGbps :: Lens.Lens' InstanceRequirements (Prelude.Maybe NetworkBandwidthGbpsRequest)
-instanceRequirements_networkBandwidthGbps = Lens.lens (\InstanceRequirements' {networkBandwidthGbps} -> networkBandwidthGbps) (\s@InstanceRequirements' {} a -> s {networkBandwidthGbps = a} :: InstanceRequirements)
-
--- | Indicates whether instance types must have accelerators by specific
--- manufacturers.
---
--- -   For instance types with NVIDIA devices, specify @nvidia@.
---
--- -   For instance types with AMD devices, specify @amd@.
---
--- -   For instance types with Amazon Web Services devices, specify
---     @amazon-web-services@.
---
--- -   For instance types with Xilinx devices, specify @xilinx@.
---
--- Default: Any manufacturer
-instanceRequirements_acceleratorManufacturers :: Lens.Lens' InstanceRequirements (Prelude.Maybe [AcceleratorManufacturer])
-instanceRequirements_acceleratorManufacturers = Lens.lens (\InstanceRequirements' {acceleratorManufacturers} -> acceleratorManufacturers) (\s@InstanceRequirements' {} a -> s {acceleratorManufacturers = a} :: InstanceRequirements) Prelude.. Lens.mapping Lens.coerced
-
--- | The instance types to exclude. You can use strings with one or more wild
--- cards, represented by an asterisk (@*@), to exclude an instance family,
--- type, size, or generation. The following are examples: @m5.8xlarge@,
--- @c5*.*@, @m5a.*@, @r*@, @*3*@.
---
--- For example, if you specify @c5*@, you are excluding the entire C5
--- instance family, which includes all C5a and C5n instance types. If you
--- specify @m5a.*@, Amazon EC2 Auto Scaling will exclude all the M5a
--- instance types, but not the M5n instance types.
---
--- If you specify @ExcludedInstanceTypes@, you can\'t specify
--- @AllowedInstanceTypes@.
---
--- Default: No excluded instance types
-instanceRequirements_excludedInstanceTypes :: Lens.Lens' InstanceRequirements (Prelude.Maybe [Prelude.Text])
-instanceRequirements_excludedInstanceTypes = Lens.lens (\InstanceRequirements' {excludedInstanceTypes} -> excludedInstanceTypes) (\s@InstanceRequirements' {} a -> s {excludedInstanceTypes = a} :: InstanceRequirements) Prelude.. Lens.mapping Lens.coerced
-
--- | The minimum and maximum number of network interfaces for an instance
--- type.
---
--- Default: No minimum or maximum limits
-instanceRequirements_networkInterfaceCount :: Lens.Lens' InstanceRequirements (Prelude.Maybe NetworkInterfaceCountRequest)
-instanceRequirements_networkInterfaceCount = Lens.lens (\InstanceRequirements' {networkInterfaceCount} -> networkInterfaceCount) (\s@InstanceRequirements' {} a -> s {networkInterfaceCount = a} :: InstanceRequirements)
-
--- | Indicates whether instance types must provide On-Demand Instance
--- hibernation support.
---
--- Default: @false@
-instanceRequirements_requireHibernateSupport :: Lens.Lens' InstanceRequirements (Prelude.Maybe Prelude.Bool)
-instanceRequirements_requireHibernateSupport = Lens.lens (\InstanceRequirements' {requireHibernateSupport} -> requireHibernateSupport) (\s@InstanceRequirements' {} a -> s {requireHibernateSupport = a} :: InstanceRequirements)
-
 -- | The minimum and maximum total memory size for the accelerators on an
 -- instance type, in MiB.
 --
@@ -749,14 +603,53 @@ instanceRequirements_requireHibernateSupport = Lens.lens (\InstanceRequirements'
 instanceRequirements_acceleratorTotalMemoryMiB :: Lens.Lens' InstanceRequirements (Prelude.Maybe AcceleratorTotalMemoryMiBRequest)
 instanceRequirements_acceleratorTotalMemoryMiB = Lens.lens (\InstanceRequirements' {acceleratorTotalMemoryMiB} -> acceleratorTotalMemoryMiB) (\s@InstanceRequirements' {} a -> s {acceleratorTotalMemoryMiB = a} :: InstanceRequirements)
 
--- | The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon
--- Web Services Inferentia chips) for an instance type.
+-- | Lists the accelerator types that must be on an instance type.
 --
--- To exclude accelerator-enabled instance types, set @Max@ to @0@.
+-- -   For instance types with GPU accelerators, specify @gpu@.
+--
+-- -   For instance types with FPGA accelerators, specify @fpga@.
+--
+-- -   For instance types with inference accelerators, specify @inference@.
+--
+-- Default: Any accelerator type
+instanceRequirements_acceleratorTypes :: Lens.Lens' InstanceRequirements (Prelude.Maybe [AcceleratorType])
+instanceRequirements_acceleratorTypes = Lens.lens (\InstanceRequirements' {acceleratorTypes} -> acceleratorTypes) (\s@InstanceRequirements' {} a -> s {acceleratorTypes = a} :: InstanceRequirements) Prelude.. Lens.mapping Lens.coerced
+
+-- | The instance types to apply your specified attributes against. All other
+-- instance types are ignored, even if they match your specified
+-- attributes.
+--
+-- You can use strings with one or more wild cards, represented by an
+-- asterisk (@*@), to allow an instance type, size, or generation. The
+-- following are examples: @m5.8xlarge@, @c5*.*@, @m5a.*@, @r*@, @*3*@.
+--
+-- For example, if you specify @c5*@, Amazon EC2 Auto Scaling will allow
+-- the entire C5 instance family, which includes all C5a and C5n instance
+-- types. If you specify @m5a.*@, Amazon EC2 Auto Scaling will allow all
+-- the M5a instance types, but not the M5n instance types.
+--
+-- If you specify @AllowedInstanceTypes@, you can\'t specify
+-- @ExcludedInstanceTypes@.
+--
+-- Default: All instance types
+instanceRequirements_allowedInstanceTypes :: Lens.Lens' InstanceRequirements (Prelude.Maybe [Prelude.Text])
+instanceRequirements_allowedInstanceTypes = Lens.lens (\InstanceRequirements' {allowedInstanceTypes} -> allowedInstanceTypes) (\s@InstanceRequirements' {} a -> s {allowedInstanceTypes = a} :: InstanceRequirements) Prelude.. Lens.mapping Lens.coerced
+
+-- | Indicates whether bare metal instance types are included, excluded, or
+-- required.
+--
+-- Default: @excluded@
+instanceRequirements_bareMetal :: Lens.Lens' InstanceRequirements (Prelude.Maybe BareMetal)
+instanceRequirements_bareMetal = Lens.lens (\InstanceRequirements' {bareMetal} -> bareMetal) (\s@InstanceRequirements' {} a -> s {bareMetal = a} :: InstanceRequirements)
+
+-- | The minimum and maximum baseline bandwidth performance for an instance
+-- type, in Mbps. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html Amazon EBS–optimized instances>
+-- in the /Amazon EC2 User Guide for Linux Instances/.
 --
 -- Default: No minimum or maximum limits
-instanceRequirements_acceleratorCount :: Lens.Lens' InstanceRequirements (Prelude.Maybe AcceleratorCountRequest)
-instanceRequirements_acceleratorCount = Lens.lens (\InstanceRequirements' {acceleratorCount} -> acceleratorCount) (\s@InstanceRequirements' {} a -> s {acceleratorCount = a} :: InstanceRequirements)
+instanceRequirements_baselineEbsBandwidthMbps :: Lens.Lens' InstanceRequirements (Prelude.Maybe BaselineEbsBandwidthMbpsRequest)
+instanceRequirements_baselineEbsBandwidthMbps = Lens.lens (\InstanceRequirements' {baselineEbsBandwidthMbps} -> baselineEbsBandwidthMbps) (\s@InstanceRequirements' {} a -> s {baselineEbsBandwidthMbps = a} :: InstanceRequirements)
 
 -- | Indicates whether burstable performance instance types are included,
 -- excluded, or required. For more information, see
@@ -785,12 +678,38 @@ instanceRequirements_burstablePerformance = Lens.lens (\InstanceRequirements' {b
 instanceRequirements_cpuManufacturers :: Lens.Lens' InstanceRequirements (Prelude.Maybe [CpuManufacturer])
 instanceRequirements_cpuManufacturers = Lens.lens (\InstanceRequirements' {cpuManufacturers} -> cpuManufacturers) (\s@InstanceRequirements' {} a -> s {cpuManufacturers = a} :: InstanceRequirements) Prelude.. Lens.mapping Lens.coerced
 
--- | The minimum and maximum amount of memory per vCPU for an instance type,
--- in GiB.
+-- | The instance types to exclude. You can use strings with one or more wild
+-- cards, represented by an asterisk (@*@), to exclude an instance family,
+-- type, size, or generation. The following are examples: @m5.8xlarge@,
+-- @c5*.*@, @m5a.*@, @r*@, @*3*@.
 --
--- Default: No minimum or maximum limits
-instanceRequirements_memoryGiBPerVCpu :: Lens.Lens' InstanceRequirements (Prelude.Maybe MemoryGiBPerVCpuRequest)
-instanceRequirements_memoryGiBPerVCpu = Lens.lens (\InstanceRequirements' {memoryGiBPerVCpu} -> memoryGiBPerVCpu) (\s@InstanceRequirements' {} a -> s {memoryGiBPerVCpu = a} :: InstanceRequirements)
+-- For example, if you specify @c5*@, you are excluding the entire C5
+-- instance family, which includes all C5a and C5n instance types. If you
+-- specify @m5a.*@, Amazon EC2 Auto Scaling will exclude all the M5a
+-- instance types, but not the M5n instance types.
+--
+-- If you specify @ExcludedInstanceTypes@, you can\'t specify
+-- @AllowedInstanceTypes@.
+--
+-- Default: No excluded instance types
+instanceRequirements_excludedInstanceTypes :: Lens.Lens' InstanceRequirements (Prelude.Maybe [Prelude.Text])
+instanceRequirements_excludedInstanceTypes = Lens.lens (\InstanceRequirements' {excludedInstanceTypes} -> excludedInstanceTypes) (\s@InstanceRequirements' {} a -> s {excludedInstanceTypes = a} :: InstanceRequirements) Prelude.. Lens.mapping Lens.coerced
+
+-- | Indicates whether current or previous generation instance types are
+-- included.
+--
+-- -   For current generation instance types, specify @current@. The
+--     current generation includes EC2 instance types currently recommended
+--     for use. This typically includes the latest two to three generations
+--     in each instance family. For more information, see
+--     <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
+--     in the /Amazon EC2 User Guide for Linux Instances/.
+--
+-- -   For previous generation instance types, specify @previous@.
+--
+-- Default: Any current or previous generation
+instanceRequirements_instanceGenerations :: Lens.Lens' InstanceRequirements (Prelude.Maybe [InstanceGeneration])
+instanceRequirements_instanceGenerations = Lens.lens (\InstanceRequirements' {instanceGenerations} -> instanceGenerations) (\s@InstanceRequirements' {} a -> s {instanceGenerations = a} :: InstanceRequirements) Prelude.. Lens.mapping Lens.coerced
 
 -- | Indicates whether instance types with instance store volumes are
 -- included, excluded, or required. For more information, see
@@ -800,6 +719,87 @@ instanceRequirements_memoryGiBPerVCpu = Lens.lens (\InstanceRequirements' {memor
 -- Default: @included@
 instanceRequirements_localStorage :: Lens.Lens' InstanceRequirements (Prelude.Maybe LocalStorage)
 instanceRequirements_localStorage = Lens.lens (\InstanceRequirements' {localStorage} -> localStorage) (\s@InstanceRequirements' {} a -> s {localStorage = a} :: InstanceRequirements)
+
+-- | Indicates the type of local storage that is required.
+--
+-- -   For instance types with hard disk drive (HDD) storage, specify
+--     @hdd@.
+--
+-- -   For instance types with solid state drive (SSD) storage, specify
+--     @ssd@.
+--
+-- Default: Any local storage type
+instanceRequirements_localStorageTypes :: Lens.Lens' InstanceRequirements (Prelude.Maybe [LocalStorageType])
+instanceRequirements_localStorageTypes = Lens.lens (\InstanceRequirements' {localStorageTypes} -> localStorageTypes) (\s@InstanceRequirements' {} a -> s {localStorageTypes = a} :: InstanceRequirements) Prelude.. Lens.mapping Lens.coerced
+
+-- | The minimum and maximum amount of memory per vCPU for an instance type,
+-- in GiB.
+--
+-- Default: No minimum or maximum limits
+instanceRequirements_memoryGiBPerVCpu :: Lens.Lens' InstanceRequirements (Prelude.Maybe MemoryGiBPerVCpuRequest)
+instanceRequirements_memoryGiBPerVCpu = Lens.lens (\InstanceRequirements' {memoryGiBPerVCpu} -> memoryGiBPerVCpu) (\s@InstanceRequirements' {} a -> s {memoryGiBPerVCpu = a} :: InstanceRequirements)
+
+-- | The minimum and maximum amount of network bandwidth, in gigabits per
+-- second (Gbps).
+--
+-- Default: No minimum or maximum limits
+instanceRequirements_networkBandwidthGbps :: Lens.Lens' InstanceRequirements (Prelude.Maybe NetworkBandwidthGbpsRequest)
+instanceRequirements_networkBandwidthGbps = Lens.lens (\InstanceRequirements' {networkBandwidthGbps} -> networkBandwidthGbps) (\s@InstanceRequirements' {} a -> s {networkBandwidthGbps = a} :: InstanceRequirements)
+
+-- | The minimum and maximum number of network interfaces for an instance
+-- type.
+--
+-- Default: No minimum or maximum limits
+instanceRequirements_networkInterfaceCount :: Lens.Lens' InstanceRequirements (Prelude.Maybe NetworkInterfaceCountRequest)
+instanceRequirements_networkInterfaceCount = Lens.lens (\InstanceRequirements' {networkInterfaceCount} -> networkInterfaceCount) (\s@InstanceRequirements' {} a -> s {networkInterfaceCount = a} :: InstanceRequirements)
+
+-- | The price protection threshold for On-Demand Instances. This is the
+-- maximum you’ll pay for an On-Demand Instance, expressed as a percentage
+-- higher than the least expensive current generation M, C, or R instance
+-- type with your specified attributes. When Amazon EC2 Auto Scaling
+-- selects instance types with your attributes, we will exclude instance
+-- types whose price is higher than your threshold. The parameter accepts
+-- an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To
+-- turn off price protection, specify a high value, such as @999999@.
+--
+-- If you set @DesiredCapacityType@ to @vcpu@ or @memory-mib@, the price
+-- protection threshold is applied based on the per vCPU or per memory
+-- price instead of the per instance price.
+--
+-- Default: @20@
+instanceRequirements_onDemandMaxPricePercentageOverLowestPrice :: Lens.Lens' InstanceRequirements (Prelude.Maybe Prelude.Natural)
+instanceRequirements_onDemandMaxPricePercentageOverLowestPrice = Lens.lens (\InstanceRequirements' {onDemandMaxPricePercentageOverLowestPrice} -> onDemandMaxPricePercentageOverLowestPrice) (\s@InstanceRequirements' {} a -> s {onDemandMaxPricePercentageOverLowestPrice = a} :: InstanceRequirements)
+
+-- | Indicates whether instance types must provide On-Demand Instance
+-- hibernation support.
+--
+-- Default: @false@
+instanceRequirements_requireHibernateSupport :: Lens.Lens' InstanceRequirements (Prelude.Maybe Prelude.Bool)
+instanceRequirements_requireHibernateSupport = Lens.lens (\InstanceRequirements' {requireHibernateSupport} -> requireHibernateSupport) (\s@InstanceRequirements' {} a -> s {requireHibernateSupport = a} :: InstanceRequirements)
+
+-- | The price protection threshold for Spot Instances. This is the maximum
+-- you’ll pay for a Spot Instance, expressed as a percentage higher than
+-- the least expensive current generation M, C, or R instance type with
+-- your specified attributes. When Amazon EC2 Auto Scaling selects instance
+-- types with your attributes, we will exclude instance types whose price
+-- is higher than your threshold. The parameter accepts an integer, which
+-- Amazon EC2 Auto Scaling interprets as a percentage. To turn off price
+-- protection, specify a high value, such as @999999@.
+--
+-- If you set @DesiredCapacityType@ to @vcpu@ or @memory-mib@, the price
+-- protection threshold is applied based on the per vCPU or per memory
+-- price instead of the per instance price.
+--
+-- Default: @100@
+instanceRequirements_spotMaxPricePercentageOverLowestPrice :: Lens.Lens' InstanceRequirements (Prelude.Maybe Prelude.Natural)
+instanceRequirements_spotMaxPricePercentageOverLowestPrice = Lens.lens (\InstanceRequirements' {spotMaxPricePercentageOverLowestPrice} -> spotMaxPricePercentageOverLowestPrice) (\s@InstanceRequirements' {} a -> s {spotMaxPricePercentageOverLowestPrice = a} :: InstanceRequirements)
+
+-- | The minimum and maximum total local storage size for an instance type,
+-- in GB.
+--
+-- Default: No minimum or maximum limits
+instanceRequirements_totalLocalStorageGB :: Lens.Lens' InstanceRequirements (Prelude.Maybe TotalLocalStorageGBRequest)
+instanceRequirements_totalLocalStorageGB = Lens.lens (\InstanceRequirements' {totalLocalStorageGB} -> totalLocalStorageGB) (\s@InstanceRequirements' {} a -> s {totalLocalStorageGB = a} :: InstanceRequirements)
 
 -- | The minimum and maximum number of vCPUs for an instance type.
 instanceRequirements_vCpuCount :: Lens.Lens' InstanceRequirements VCpuCountRequest
@@ -813,26 +813,8 @@ instanceRequirements_memoryMiB = Lens.lens (\InstanceRequirements' {memoryMiB} -
 instance Data.FromXML InstanceRequirements where
   parseXML x =
     InstanceRequirements'
-      Prelude.<$> ( x Data..@? "InstanceGenerations"
-                      Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Data.parseXMLList "member")
-                  )
-      Prelude.<*> (x Data..@? "BaselineEbsBandwidthMbps")
-      Prelude.<*> (x Data..@? "BareMetal")
-      Prelude.<*> (x Data..@? "SpotMaxPricePercentageOverLowestPrice")
-      Prelude.<*> ( x Data..@? "AcceleratorTypes"
-                      Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Data.parseXMLList "member")
-                  )
-      Prelude.<*> (x Data..@? "TotalLocalStorageGB")
-      Prelude.<*> ( x Data..@? "LocalStorageTypes"
-                      Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Data.parseXMLList "member")
-                  )
-      Prelude.<*> ( x
-                      Data..@? "OnDemandMaxPricePercentageOverLowestPrice"
-                  )
-      Prelude.<*> ( x Data..@? "AllowedInstanceTypes"
+      Prelude.<$> (x Data..@? "AcceleratorCount")
+      Prelude.<*> ( x Data..@? "AcceleratorManufacturers"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
@@ -840,8 +822,19 @@ instance Data.FromXML InstanceRequirements where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Data..@? "NetworkBandwidthGbps")
-      Prelude.<*> ( x Data..@? "AcceleratorManufacturers"
+      Prelude.<*> (x Data..@? "AcceleratorTotalMemoryMiB")
+      Prelude.<*> ( x Data..@? "AcceleratorTypes"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
+                  )
+      Prelude.<*> ( x Data..@? "AllowedInstanceTypes"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
+                  )
+      Prelude.<*> (x Data..@? "BareMetal")
+      Prelude.<*> (x Data..@? "BaselineEbsBandwidthMbps")
+      Prelude.<*> (x Data..@? "BurstablePerformance")
+      Prelude.<*> ( x Data..@? "CpuManufacturers"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
@@ -849,134 +842,145 @@ instance Data.FromXML InstanceRequirements where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Data..@? "NetworkInterfaceCount")
-      Prelude.<*> (x Data..@? "RequireHibernateSupport")
-      Prelude.<*> (x Data..@? "AcceleratorTotalMemoryMiB")
-      Prelude.<*> (x Data..@? "AcceleratorCount")
-      Prelude.<*> (x Data..@? "BurstablePerformance")
-      Prelude.<*> ( x Data..@? "CpuManufacturers"
+      Prelude.<*> ( x Data..@? "InstanceGenerations"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
+                  )
+      Prelude.<*> (x Data..@? "LocalStorage")
+      Prelude.<*> ( x Data..@? "LocalStorageTypes"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "MemoryGiBPerVCpu")
-      Prelude.<*> (x Data..@? "LocalStorage")
+      Prelude.<*> (x Data..@? "NetworkBandwidthGbps")
+      Prelude.<*> (x Data..@? "NetworkInterfaceCount")
+      Prelude.<*> ( x
+                      Data..@? "OnDemandMaxPricePercentageOverLowestPrice"
+                  )
+      Prelude.<*> (x Data..@? "RequireHibernateSupport")
+      Prelude.<*> (x Data..@? "SpotMaxPricePercentageOverLowestPrice")
+      Prelude.<*> (x Data..@? "TotalLocalStorageGB")
       Prelude.<*> (x Data..@ "VCpuCount")
       Prelude.<*> (x Data..@ "MemoryMiB")
 
 instance Prelude.Hashable InstanceRequirements where
   hashWithSalt _salt InstanceRequirements' {..} =
-    _salt `Prelude.hashWithSalt` instanceGenerations
-      `Prelude.hashWithSalt` baselineEbsBandwidthMbps
-      `Prelude.hashWithSalt` bareMetal
-      `Prelude.hashWithSalt` spotMaxPricePercentageOverLowestPrice
-      `Prelude.hashWithSalt` acceleratorTypes
-      `Prelude.hashWithSalt` totalLocalStorageGB
-      `Prelude.hashWithSalt` localStorageTypes
-      `Prelude.hashWithSalt` onDemandMaxPricePercentageOverLowestPrice
-      `Prelude.hashWithSalt` allowedInstanceTypes
-      `Prelude.hashWithSalt` acceleratorNames
-      `Prelude.hashWithSalt` networkBandwidthGbps
+    _salt `Prelude.hashWithSalt` acceleratorCount
       `Prelude.hashWithSalt` acceleratorManufacturers
-      `Prelude.hashWithSalt` excludedInstanceTypes
-      `Prelude.hashWithSalt` networkInterfaceCount
-      `Prelude.hashWithSalt` requireHibernateSupport
+      `Prelude.hashWithSalt` acceleratorNames
       `Prelude.hashWithSalt` acceleratorTotalMemoryMiB
-      `Prelude.hashWithSalt` acceleratorCount
+      `Prelude.hashWithSalt` acceleratorTypes
+      `Prelude.hashWithSalt` allowedInstanceTypes
+      `Prelude.hashWithSalt` bareMetal
+      `Prelude.hashWithSalt` baselineEbsBandwidthMbps
       `Prelude.hashWithSalt` burstablePerformance
       `Prelude.hashWithSalt` cpuManufacturers
-      `Prelude.hashWithSalt` memoryGiBPerVCpu
+      `Prelude.hashWithSalt` excludedInstanceTypes
+      `Prelude.hashWithSalt` instanceGenerations
       `Prelude.hashWithSalt` localStorage
+      `Prelude.hashWithSalt` localStorageTypes
+      `Prelude.hashWithSalt` memoryGiBPerVCpu
+      `Prelude.hashWithSalt` networkBandwidthGbps
+      `Prelude.hashWithSalt` networkInterfaceCount
+      `Prelude.hashWithSalt` onDemandMaxPricePercentageOverLowestPrice
+      `Prelude.hashWithSalt` requireHibernateSupport
+      `Prelude.hashWithSalt` spotMaxPricePercentageOverLowestPrice
+      `Prelude.hashWithSalt` totalLocalStorageGB
       `Prelude.hashWithSalt` vCpuCount
       `Prelude.hashWithSalt` memoryMiB
 
 instance Prelude.NFData InstanceRequirements where
   rnf InstanceRequirements' {..} =
-    Prelude.rnf instanceGenerations
-      `Prelude.seq` Prelude.rnf baselineEbsBandwidthMbps
-      `Prelude.seq` Prelude.rnf bareMetal
-      `Prelude.seq` Prelude.rnf spotMaxPricePercentageOverLowestPrice
-      `Prelude.seq` Prelude.rnf acceleratorTypes
-      `Prelude.seq` Prelude.rnf totalLocalStorageGB
-      `Prelude.seq` Prelude.rnf localStorageTypes
-      `Prelude.seq` Prelude.rnf onDemandMaxPricePercentageOverLowestPrice
-      `Prelude.seq` Prelude.rnf allowedInstanceTypes
-      `Prelude.seq` Prelude.rnf acceleratorNames
-      `Prelude.seq` Prelude.rnf networkBandwidthGbps
+    Prelude.rnf acceleratorCount
       `Prelude.seq` Prelude.rnf acceleratorManufacturers
-      `Prelude.seq` Prelude.rnf excludedInstanceTypes
-      `Prelude.seq` Prelude.rnf networkInterfaceCount
-      `Prelude.seq` Prelude.rnf requireHibernateSupport
+      `Prelude.seq` Prelude.rnf acceleratorNames
       `Prelude.seq` Prelude.rnf acceleratorTotalMemoryMiB
-      `Prelude.seq` Prelude.rnf acceleratorCount
+      `Prelude.seq` Prelude.rnf acceleratorTypes
+      `Prelude.seq` Prelude.rnf allowedInstanceTypes
+      `Prelude.seq` Prelude.rnf bareMetal
+      `Prelude.seq` Prelude.rnf baselineEbsBandwidthMbps
       `Prelude.seq` Prelude.rnf burstablePerformance
       `Prelude.seq` Prelude.rnf cpuManufacturers
-      `Prelude.seq` Prelude.rnf memoryGiBPerVCpu
+      `Prelude.seq` Prelude.rnf excludedInstanceTypes
+      `Prelude.seq` Prelude.rnf instanceGenerations
       `Prelude.seq` Prelude.rnf localStorage
+      `Prelude.seq` Prelude.rnf localStorageTypes
+      `Prelude.seq` Prelude.rnf memoryGiBPerVCpu
+      `Prelude.seq` Prelude.rnf networkBandwidthGbps
+      `Prelude.seq` Prelude.rnf networkInterfaceCount
+      `Prelude.seq` Prelude.rnf
+        onDemandMaxPricePercentageOverLowestPrice
+      `Prelude.seq` Prelude.rnf
+        requireHibernateSupport
+      `Prelude.seq` Prelude.rnf
+        spotMaxPricePercentageOverLowestPrice
+      `Prelude.seq` Prelude.rnf
+        totalLocalStorageGB
       `Prelude.seq` Prelude.rnf vCpuCount
       `Prelude.seq` Prelude.rnf memoryMiB
 
 instance Data.ToQuery InstanceRequirements where
   toQuery InstanceRequirements' {..} =
     Prelude.mconcat
-      [ "InstanceGenerations"
+      [ "AcceleratorCount" Data.=: acceleratorCount,
+        "AcceleratorManufacturers"
           Data.=: Data.toQuery
             ( Data.toQueryList "member"
-                Prelude.<$> instanceGenerations
-            ),
-        "BaselineEbsBandwidthMbps"
-          Data.=: baselineEbsBandwidthMbps,
-        "BareMetal" Data.=: bareMetal,
-        "SpotMaxPricePercentageOverLowestPrice"
-          Data.=: spotMaxPricePercentageOverLowestPrice,
-        "AcceleratorTypes"
-          Data.=: Data.toQuery
-            ( Data.toQueryList "member"
-                Prelude.<$> acceleratorTypes
-            ),
-        "TotalLocalStorageGB" Data.=: totalLocalStorageGB,
-        "LocalStorageTypes"
-          Data.=: Data.toQuery
-            ( Data.toQueryList "member"
-                Prelude.<$> localStorageTypes
-            ),
-        "OnDemandMaxPricePercentageOverLowestPrice"
-          Data.=: onDemandMaxPricePercentageOverLowestPrice,
-        "AllowedInstanceTypes"
-          Data.=: Data.toQuery
-            ( Data.toQueryList "member"
-                Prelude.<$> allowedInstanceTypes
+                Prelude.<$> acceleratorManufacturers
             ),
         "AcceleratorNames"
           Data.=: Data.toQuery
             ( Data.toQueryList "member"
                 Prelude.<$> acceleratorNames
             ),
-        "NetworkBandwidthGbps" Data.=: networkBandwidthGbps,
-        "AcceleratorManufacturers"
-          Data.=: Data.toQuery
-            ( Data.toQueryList "member"
-                Prelude.<$> acceleratorManufacturers
-            ),
-        "ExcludedInstanceTypes"
-          Data.=: Data.toQuery
-            ( Data.toQueryList "member"
-                Prelude.<$> excludedInstanceTypes
-            ),
-        "NetworkInterfaceCount"
-          Data.=: networkInterfaceCount,
-        "RequireHibernateSupport"
-          Data.=: requireHibernateSupport,
         "AcceleratorTotalMemoryMiB"
           Data.=: acceleratorTotalMemoryMiB,
-        "AcceleratorCount" Data.=: acceleratorCount,
+        "AcceleratorTypes"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
+                Prelude.<$> acceleratorTypes
+            ),
+        "AllowedInstanceTypes"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
+                Prelude.<$> allowedInstanceTypes
+            ),
+        "BareMetal" Data.=: bareMetal,
+        "BaselineEbsBandwidthMbps"
+          Data.=: baselineEbsBandwidthMbps,
         "BurstablePerformance" Data.=: burstablePerformance,
         "CpuManufacturers"
           Data.=: Data.toQuery
             ( Data.toQueryList "member"
                 Prelude.<$> cpuManufacturers
             ),
-        "MemoryGiBPerVCpu" Data.=: memoryGiBPerVCpu,
+        "ExcludedInstanceTypes"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
+                Prelude.<$> excludedInstanceTypes
+            ),
+        "InstanceGenerations"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
+                Prelude.<$> instanceGenerations
+            ),
         "LocalStorage" Data.=: localStorage,
+        "LocalStorageTypes"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
+                Prelude.<$> localStorageTypes
+            ),
+        "MemoryGiBPerVCpu" Data.=: memoryGiBPerVCpu,
+        "NetworkBandwidthGbps" Data.=: networkBandwidthGbps,
+        "NetworkInterfaceCount"
+          Data.=: networkInterfaceCount,
+        "OnDemandMaxPricePercentageOverLowestPrice"
+          Data.=: onDemandMaxPricePercentageOverLowestPrice,
+        "RequireHibernateSupport"
+          Data.=: requireHibernateSupport,
+        "SpotMaxPricePercentageOverLowestPrice"
+          Data.=: spotMaxPricePercentageOverLowestPrice,
+        "TotalLocalStorageGB" Data.=: totalLocalStorageGB,
         "VCpuCount" Data.=: vCpuCount,
         "MemoryMiB" Data.=: memoryMiB
       ]

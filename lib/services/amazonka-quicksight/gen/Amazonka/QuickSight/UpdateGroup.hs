@@ -37,8 +37,8 @@ module Amazonka.QuickSight.UpdateGroup
     newUpdateGroupResponse,
 
     -- * Response Lenses
-    updateGroupResponse_requestId,
     updateGroupResponse_group,
+    updateGroupResponse_requestId,
     updateGroupResponse_status,
   )
 where
@@ -125,8 +125,8 @@ instance Core.AWSRequest UpdateGroup where
     Response.receiveJSON
       ( \s h x ->
           UpdateGroupResponse'
-            Prelude.<$> (x Data..?> "RequestId")
-            Prelude.<*> (x Data..?> "Group")
+            Prelude.<$> (x Data..?> "Group")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -178,10 +178,10 @@ instance Data.ToQuery UpdateGroup where
 
 -- | /See:/ 'newUpdateGroupResponse' smart constructor.
 data UpdateGroupResponse = UpdateGroupResponse'
-  { -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the group.
+  { -- | The name of the group.
     group' :: Prelude.Maybe Group,
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -195,9 +195,9 @@ data UpdateGroupResponse = UpdateGroupResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'updateGroupResponse_requestId' - The Amazon Web Services request ID for this operation.
---
 -- 'group'', 'updateGroupResponse_group' - The name of the group.
+--
+-- 'requestId', 'updateGroupResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'status', 'updateGroupResponse_status' - The HTTP status of the request.
 newUpdateGroupResponse ::
@@ -206,18 +206,18 @@ newUpdateGroupResponse ::
   UpdateGroupResponse
 newUpdateGroupResponse pStatus_ =
   UpdateGroupResponse'
-    { requestId = Prelude.Nothing,
-      group' = Prelude.Nothing,
+    { group' = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       status = pStatus_
     }
-
--- | The Amazon Web Services request ID for this operation.
-updateGroupResponse_requestId :: Lens.Lens' UpdateGroupResponse (Prelude.Maybe Prelude.Text)
-updateGroupResponse_requestId = Lens.lens (\UpdateGroupResponse' {requestId} -> requestId) (\s@UpdateGroupResponse' {} a -> s {requestId = a} :: UpdateGroupResponse)
 
 -- | The name of the group.
 updateGroupResponse_group :: Lens.Lens' UpdateGroupResponse (Prelude.Maybe Group)
 updateGroupResponse_group = Lens.lens (\UpdateGroupResponse' {group'} -> group') (\s@UpdateGroupResponse' {} a -> s {group' = a} :: UpdateGroupResponse)
+
+-- | The Amazon Web Services request ID for this operation.
+updateGroupResponse_requestId :: Lens.Lens' UpdateGroupResponse (Prelude.Maybe Prelude.Text)
+updateGroupResponse_requestId = Lens.lens (\UpdateGroupResponse' {requestId} -> requestId) (\s@UpdateGroupResponse' {} a -> s {requestId = a} :: UpdateGroupResponse)
 
 -- | The HTTP status of the request.
 updateGroupResponse_status :: Lens.Lens' UpdateGroupResponse Prelude.Int
@@ -225,6 +225,6 @@ updateGroupResponse_status = Lens.lens (\UpdateGroupResponse' {status} -> status
 
 instance Prelude.NFData UpdateGroupResponse where
   rnf UpdateGroupResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf group'
+    Prelude.rnf group'
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf status

@@ -32,6 +32,7 @@ module Amazonka.Transcribe.UpdateCallAnalyticsCategory
     newUpdateCallAnalyticsCategory,
 
     -- * Request Lenses
+    updateCallAnalyticsCategory_inputType,
     updateCallAnalyticsCategory_categoryName,
     updateCallAnalyticsCategory_rules,
 
@@ -55,7 +56,13 @@ import Amazonka.Transcribe.Types
 
 -- | /See:/ 'newUpdateCallAnalyticsCategory' smart constructor.
 data UpdateCallAnalyticsCategory = UpdateCallAnalyticsCategory'
-  { -- | The name of the Call Analytics category you want to update. Category
+  { -- | Choose whether you want to update a streaming or a batch Call Analytics
+    -- category. The input type you specify must match the input type specified
+    -- when the category was created. For example, if you created a category
+    -- with the @POST_CALL@ input type, you must use @POST_CALL@ as the input
+    -- type when updating this category.
+    inputType :: Prelude.Maybe InputType,
+    -- | The name of the Call Analytics category you want to update. Category
     -- names are case sensitive.
     categoryName :: Prelude.Text,
     -- | The rules used for the updated Call Analytics category. The rules you
@@ -73,6 +80,12 @@ data UpdateCallAnalyticsCategory = UpdateCallAnalyticsCategory'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'inputType', 'updateCallAnalyticsCategory_inputType' - Choose whether you want to update a streaming or a batch Call Analytics
+-- category. The input type you specify must match the input type specified
+-- when the category was created. For example, if you created a category
+-- with the @POST_CALL@ input type, you must use @POST_CALL@ as the input
+-- type when updating this category.
+--
 -- 'categoryName', 'updateCallAnalyticsCategory_categoryName' - The name of the Call Analytics category you want to update. Category
 -- names are case sensitive.
 --
@@ -87,10 +100,19 @@ newUpdateCallAnalyticsCategory ::
   UpdateCallAnalyticsCategory
 newUpdateCallAnalyticsCategory pCategoryName_ pRules_ =
   UpdateCallAnalyticsCategory'
-    { categoryName =
-        pCategoryName_,
+    { inputType =
+        Prelude.Nothing,
+      categoryName = pCategoryName_,
       rules = Lens.coerced Lens.# pRules_
     }
+
+-- | Choose whether you want to update a streaming or a batch Call Analytics
+-- category. The input type you specify must match the input type specified
+-- when the category was created. For example, if you created a category
+-- with the @POST_CALL@ input type, you must use @POST_CALL@ as the input
+-- type when updating this category.
+updateCallAnalyticsCategory_inputType :: Lens.Lens' UpdateCallAnalyticsCategory (Prelude.Maybe InputType)
+updateCallAnalyticsCategory_inputType = Lens.lens (\UpdateCallAnalyticsCategory' {inputType} -> inputType) (\s@UpdateCallAnalyticsCategory' {} a -> s {inputType = a} :: UpdateCallAnalyticsCategory)
 
 -- | The name of the Call Analytics category you want to update. Category
 -- names are case sensitive.
@@ -119,12 +141,14 @@ instance Core.AWSRequest UpdateCallAnalyticsCategory where
 
 instance Prelude.Hashable UpdateCallAnalyticsCategory where
   hashWithSalt _salt UpdateCallAnalyticsCategory' {..} =
-    _salt `Prelude.hashWithSalt` categoryName
+    _salt `Prelude.hashWithSalt` inputType
+      `Prelude.hashWithSalt` categoryName
       `Prelude.hashWithSalt` rules
 
 instance Prelude.NFData UpdateCallAnalyticsCategory where
   rnf UpdateCallAnalyticsCategory' {..} =
-    Prelude.rnf categoryName
+    Prelude.rnf inputType
+      `Prelude.seq` Prelude.rnf categoryName
       `Prelude.seq` Prelude.rnf rules
 
 instance Data.ToHeaders UpdateCallAnalyticsCategory where
@@ -146,7 +170,8 @@ instance Data.ToJSON UpdateCallAnalyticsCategory where
   toJSON UpdateCallAnalyticsCategory' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("CategoryName" Data..= categoryName),
+          [ ("InputType" Data..=) Prelude.<$> inputType,
+            Prelude.Just ("CategoryName" Data..= categoryName),
             Prelude.Just ("Rules" Data..= rules)
           ]
       )

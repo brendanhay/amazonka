@@ -32,19 +32,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRecommendationSummary' smart constructor.
 data RecommendationSummary = RecommendationSummary'
-  { -- | An object that describes the performance risk ratings for a given
+  { -- | The Amazon Web Services account ID of the recommendation summary.
+    accountId :: Prelude.Maybe Prelude.Text,
+    -- | An object that describes the performance risk ratings for a given
     -- resource type.
     currentPerformanceRiskRatings :: Prelude.Maybe CurrentPerformanceRiskRatings,
+    -- | The resource type that the recommendation summary applies to.
+    recommendationResourceType :: Prelude.Maybe RecommendationSourceType,
     -- | An object that describes the savings opportunity for a given resource
     -- type. Savings opportunity includes the estimated monthly savings amount
     -- and percentage.
     savingsOpportunity :: Prelude.Maybe SavingsOpportunity,
-    -- | The resource type that the recommendation summary applies to.
-    recommendationResourceType :: Prelude.Maybe RecommendationSourceType,
     -- | An array of objects that describe a recommendation summary.
-    summaries :: Prelude.Maybe [Summary],
-    -- | The Amazon Web Services account ID of the recommendation summary.
-    accountId :: Prelude.Maybe Prelude.Text
+    summaries :: Prelude.Maybe [Summary]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,34 +56,41 @@ data RecommendationSummary = RecommendationSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'accountId', 'recommendationSummary_accountId' - The Amazon Web Services account ID of the recommendation summary.
+--
 -- 'currentPerformanceRiskRatings', 'recommendationSummary_currentPerformanceRiskRatings' - An object that describes the performance risk ratings for a given
 -- resource type.
+--
+-- 'recommendationResourceType', 'recommendationSummary_recommendationResourceType' - The resource type that the recommendation summary applies to.
 --
 -- 'savingsOpportunity', 'recommendationSummary_savingsOpportunity' - An object that describes the savings opportunity for a given resource
 -- type. Savings opportunity includes the estimated monthly savings amount
 -- and percentage.
 --
--- 'recommendationResourceType', 'recommendationSummary_recommendationResourceType' - The resource type that the recommendation summary applies to.
---
 -- 'summaries', 'recommendationSummary_summaries' - An array of objects that describe a recommendation summary.
---
--- 'accountId', 'recommendationSummary_accountId' - The Amazon Web Services account ID of the recommendation summary.
 newRecommendationSummary ::
   RecommendationSummary
 newRecommendationSummary =
   RecommendationSummary'
-    { currentPerformanceRiskRatings =
-        Prelude.Nothing,
-      savingsOpportunity = Prelude.Nothing,
+    { accountId = Prelude.Nothing,
+      currentPerformanceRiskRatings = Prelude.Nothing,
       recommendationResourceType = Prelude.Nothing,
-      summaries = Prelude.Nothing,
-      accountId = Prelude.Nothing
+      savingsOpportunity = Prelude.Nothing,
+      summaries = Prelude.Nothing
     }
+
+-- | The Amazon Web Services account ID of the recommendation summary.
+recommendationSummary_accountId :: Lens.Lens' RecommendationSummary (Prelude.Maybe Prelude.Text)
+recommendationSummary_accountId = Lens.lens (\RecommendationSummary' {accountId} -> accountId) (\s@RecommendationSummary' {} a -> s {accountId = a} :: RecommendationSummary)
 
 -- | An object that describes the performance risk ratings for a given
 -- resource type.
 recommendationSummary_currentPerformanceRiskRatings :: Lens.Lens' RecommendationSummary (Prelude.Maybe CurrentPerformanceRiskRatings)
 recommendationSummary_currentPerformanceRiskRatings = Lens.lens (\RecommendationSummary' {currentPerformanceRiskRatings} -> currentPerformanceRiskRatings) (\s@RecommendationSummary' {} a -> s {currentPerformanceRiskRatings = a} :: RecommendationSummary)
+
+-- | The resource type that the recommendation summary applies to.
+recommendationSummary_recommendationResourceType :: Lens.Lens' RecommendationSummary (Prelude.Maybe RecommendationSourceType)
+recommendationSummary_recommendationResourceType = Lens.lens (\RecommendationSummary' {recommendationResourceType} -> recommendationResourceType) (\s@RecommendationSummary' {} a -> s {recommendationResourceType = a} :: RecommendationSummary)
 
 -- | An object that describes the savings opportunity for a given resource
 -- type. Savings opportunity includes the estimated monthly savings amount
@@ -91,17 +98,9 @@ recommendationSummary_currentPerformanceRiskRatings = Lens.lens (\Recommendation
 recommendationSummary_savingsOpportunity :: Lens.Lens' RecommendationSummary (Prelude.Maybe SavingsOpportunity)
 recommendationSummary_savingsOpportunity = Lens.lens (\RecommendationSummary' {savingsOpportunity} -> savingsOpportunity) (\s@RecommendationSummary' {} a -> s {savingsOpportunity = a} :: RecommendationSummary)
 
--- | The resource type that the recommendation summary applies to.
-recommendationSummary_recommendationResourceType :: Lens.Lens' RecommendationSummary (Prelude.Maybe RecommendationSourceType)
-recommendationSummary_recommendationResourceType = Lens.lens (\RecommendationSummary' {recommendationResourceType} -> recommendationResourceType) (\s@RecommendationSummary' {} a -> s {recommendationResourceType = a} :: RecommendationSummary)
-
 -- | An array of objects that describe a recommendation summary.
 recommendationSummary_summaries :: Lens.Lens' RecommendationSummary (Prelude.Maybe [Summary])
 recommendationSummary_summaries = Lens.lens (\RecommendationSummary' {summaries} -> summaries) (\s@RecommendationSummary' {} a -> s {summaries = a} :: RecommendationSummary) Prelude.. Lens.mapping Lens.coerced
-
--- | The Amazon Web Services account ID of the recommendation summary.
-recommendationSummary_accountId :: Lens.Lens' RecommendationSummary (Prelude.Maybe Prelude.Text)
-recommendationSummary_accountId = Lens.lens (\RecommendationSummary' {accountId} -> accountId) (\s@RecommendationSummary' {} a -> s {accountId = a} :: RecommendationSummary)
 
 instance Data.FromJSON RecommendationSummary where
   parseJSON =
@@ -109,26 +108,25 @@ instance Data.FromJSON RecommendationSummary where
       "RecommendationSummary"
       ( \x ->
           RecommendationSummary'
-            Prelude.<$> (x Data..:? "currentPerformanceRiskRatings")
-            Prelude.<*> (x Data..:? "savingsOpportunity")
+            Prelude.<$> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "currentPerformanceRiskRatings")
             Prelude.<*> (x Data..:? "recommendationResourceType")
+            Prelude.<*> (x Data..:? "savingsOpportunity")
             Prelude.<*> (x Data..:? "summaries" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "accountId")
       )
 
 instance Prelude.Hashable RecommendationSummary where
   hashWithSalt _salt RecommendationSummary' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` currentPerformanceRiskRatings
-      `Prelude.hashWithSalt` savingsOpportunity
       `Prelude.hashWithSalt` recommendationResourceType
+      `Prelude.hashWithSalt` savingsOpportunity
       `Prelude.hashWithSalt` summaries
-      `Prelude.hashWithSalt` accountId
 
 instance Prelude.NFData RecommendationSummary where
   rnf RecommendationSummary' {..} =
-    Prelude.rnf currentPerformanceRiskRatings
-      `Prelude.seq` Prelude.rnf savingsOpportunity
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf currentPerformanceRiskRatings
       `Prelude.seq` Prelude.rnf recommendationResourceType
+      `Prelude.seq` Prelude.rnf savingsOpportunity
       `Prelude.seq` Prelude.rnf summaries
-      `Prelude.seq` Prelude.rnf accountId

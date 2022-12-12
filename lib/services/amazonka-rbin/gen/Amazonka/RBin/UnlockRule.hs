@@ -35,15 +35,15 @@ module Amazonka.RBin.UnlockRule
     newUnlockRuleResponse,
 
     -- * Response Lenses
-    unlockRuleResponse_resourceType,
-    unlockRuleResponse_lockState,
-    unlockRuleResponse_lockConfiguration,
-    unlockRuleResponse_status,
-    unlockRuleResponse_resourceTags,
     unlockRuleResponse_description,
-    unlockRuleResponse_lockEndTime,
-    unlockRuleResponse_retentionPeriod,
     unlockRuleResponse_identifier,
+    unlockRuleResponse_lockConfiguration,
+    unlockRuleResponse_lockEndTime,
+    unlockRuleResponse_lockState,
+    unlockRuleResponse_resourceTags,
+    unlockRuleResponse_resourceType,
+    unlockRuleResponse_retentionPeriod,
+    unlockRuleResponse_status,
     unlockRuleResponse_httpStatus,
   )
 where
@@ -91,15 +91,15 @@ instance Core.AWSRequest UnlockRule where
     Response.receiveJSON
       ( \s h x ->
           UnlockRuleResponse'
-            Prelude.<$> (x Data..?> "ResourceType")
-            Prelude.<*> (x Data..?> "LockState")
-            Prelude.<*> (x Data..?> "LockConfiguration")
-            Prelude.<*> (x Data..?> "Status")
-            Prelude.<*> (x Data..?> "ResourceTags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "Description")
-            Prelude.<*> (x Data..?> "LockEndTime")
-            Prelude.<*> (x Data..?> "RetentionPeriod")
+            Prelude.<$> (x Data..?> "Description")
             Prelude.<*> (x Data..?> "Identifier")
+            Prelude.<*> (x Data..?> "LockConfiguration")
+            Prelude.<*> (x Data..?> "LockEndTime")
+            Prelude.<*> (x Data..?> "LockState")
+            Prelude.<*> (x Data..?> "ResourceTags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ResourceType")
+            Prelude.<*> (x Data..?> "RetentionPeriod")
+            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,8 +134,16 @@ instance Data.ToQuery UnlockRule where
 
 -- | /See:/ 'newUnlockRuleResponse' smart constructor.
 data UnlockRuleResponse = UnlockRuleResponse'
-  { -- | The resource type retained by the retention rule.
-    resourceType :: Prelude.Maybe ResourceType,
+  { -- | The retention rule description.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The unique ID of the retention rule.
+    identifier :: Prelude.Maybe Prelude.Text,
+    -- | Information about the retention rule lock configuration.
+    lockConfiguration :: Prelude.Maybe LockConfiguration,
+    -- | The date and time at which the unlock delay is set to expire. Only
+    -- returned for retention rules that have been unlocked and that are still
+    -- within the unlock delay period.
+    lockEndTime :: Prelude.Maybe Data.POSIX,
     -- | The lock state for the retention rule.
     --
     -- -   @locked@ - The retention rule is locked and can\'t be modified or
@@ -152,23 +160,15 @@ data UnlockRuleResponse = UnlockRuleResponse'
     --     rule has been locked, it can transition between the @locked@ and
     --     @unlocked@ states only; it can never transition back to @null@.
     lockState :: Prelude.Maybe LockState,
-    -- | Information about the retention rule lock configuration.
-    lockConfiguration :: Prelude.Maybe LockConfiguration,
-    -- | The state of the retention rule. Only retention rules that are in the
-    -- @available@ state retain resources.
-    status :: Prelude.Maybe RuleStatus,
     -- | Information about the resource tags used to identify resources that are
     -- retained by the retention rule.
     resourceTags :: Prelude.Maybe [ResourceTag],
-    -- | The retention rule description.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The date and time at which the unlock delay is set to expire. Only
-    -- returned for retention rules that have been unlocked and that are still
-    -- within the unlock delay period.
-    lockEndTime :: Prelude.Maybe Data.POSIX,
+    -- | The resource type retained by the retention rule.
+    resourceType :: Prelude.Maybe ResourceType,
     retentionPeriod :: Prelude.Maybe RetentionPeriod,
-    -- | The unique ID of the retention rule.
-    identifier :: Prelude.Maybe Prelude.Text,
+    -- | The state of the retention rule. Only retention rules that are in the
+    -- @available@ state retain resources.
+    status :: Prelude.Maybe RuleStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -182,7 +182,15 @@ data UnlockRuleResponse = UnlockRuleResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceType', 'unlockRuleResponse_resourceType' - The resource type retained by the retention rule.
+-- 'description', 'unlockRuleResponse_description' - The retention rule description.
+--
+-- 'identifier', 'unlockRuleResponse_identifier' - The unique ID of the retention rule.
+--
+-- 'lockConfiguration', 'unlockRuleResponse_lockConfiguration' - Information about the retention rule lock configuration.
+--
+-- 'lockEndTime', 'unlockRuleResponse_lockEndTime' - The date and time at which the unlock delay is set to expire. Only
+-- returned for retention rules that have been unlocked and that are still
+-- within the unlock delay period.
 --
 -- 'lockState', 'unlockRuleResponse_lockState' - The lock state for the retention rule.
 --
@@ -200,23 +208,15 @@ data UnlockRuleResponse = UnlockRuleResponse'
 --     rule has been locked, it can transition between the @locked@ and
 --     @unlocked@ states only; it can never transition back to @null@.
 --
--- 'lockConfiguration', 'unlockRuleResponse_lockConfiguration' - Information about the retention rule lock configuration.
---
--- 'status', 'unlockRuleResponse_status' - The state of the retention rule. Only retention rules that are in the
--- @available@ state retain resources.
---
 -- 'resourceTags', 'unlockRuleResponse_resourceTags' - Information about the resource tags used to identify resources that are
 -- retained by the retention rule.
 --
--- 'description', 'unlockRuleResponse_description' - The retention rule description.
---
--- 'lockEndTime', 'unlockRuleResponse_lockEndTime' - The date and time at which the unlock delay is set to expire. Only
--- returned for retention rules that have been unlocked and that are still
--- within the unlock delay period.
+-- 'resourceType', 'unlockRuleResponse_resourceType' - The resource type retained by the retention rule.
 --
 -- 'retentionPeriod', 'unlockRuleResponse_retentionPeriod' - Undocumented member.
 --
--- 'identifier', 'unlockRuleResponse_identifier' - The unique ID of the retention rule.
+-- 'status', 'unlockRuleResponse_status' - The state of the retention rule. Only retention rules that are in the
+-- @available@ state retain resources.
 --
 -- 'httpStatus', 'unlockRuleResponse_httpStatus' - The response's http status code.
 newUnlockRuleResponse ::
@@ -225,21 +225,35 @@ newUnlockRuleResponse ::
   UnlockRuleResponse
 newUnlockRuleResponse pHttpStatus_ =
   UnlockRuleResponse'
-    { resourceType = Prelude.Nothing,
-      lockState = Prelude.Nothing,
-      lockConfiguration = Prelude.Nothing,
-      status = Prelude.Nothing,
-      resourceTags = Prelude.Nothing,
-      description = Prelude.Nothing,
-      lockEndTime = Prelude.Nothing,
-      retentionPeriod = Prelude.Nothing,
+    { description = Prelude.Nothing,
       identifier = Prelude.Nothing,
+      lockConfiguration = Prelude.Nothing,
+      lockEndTime = Prelude.Nothing,
+      lockState = Prelude.Nothing,
+      resourceTags = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
+      retentionPeriod = Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The resource type retained by the retention rule.
-unlockRuleResponse_resourceType :: Lens.Lens' UnlockRuleResponse (Prelude.Maybe ResourceType)
-unlockRuleResponse_resourceType = Lens.lens (\UnlockRuleResponse' {resourceType} -> resourceType) (\s@UnlockRuleResponse' {} a -> s {resourceType = a} :: UnlockRuleResponse)
+-- | The retention rule description.
+unlockRuleResponse_description :: Lens.Lens' UnlockRuleResponse (Prelude.Maybe Prelude.Text)
+unlockRuleResponse_description = Lens.lens (\UnlockRuleResponse' {description} -> description) (\s@UnlockRuleResponse' {} a -> s {description = a} :: UnlockRuleResponse)
+
+-- | The unique ID of the retention rule.
+unlockRuleResponse_identifier :: Lens.Lens' UnlockRuleResponse (Prelude.Maybe Prelude.Text)
+unlockRuleResponse_identifier = Lens.lens (\UnlockRuleResponse' {identifier} -> identifier) (\s@UnlockRuleResponse' {} a -> s {identifier = a} :: UnlockRuleResponse)
+
+-- | Information about the retention rule lock configuration.
+unlockRuleResponse_lockConfiguration :: Lens.Lens' UnlockRuleResponse (Prelude.Maybe LockConfiguration)
+unlockRuleResponse_lockConfiguration = Lens.lens (\UnlockRuleResponse' {lockConfiguration} -> lockConfiguration) (\s@UnlockRuleResponse' {} a -> s {lockConfiguration = a} :: UnlockRuleResponse)
+
+-- | The date and time at which the unlock delay is set to expire. Only
+-- returned for retention rules that have been unlocked and that are still
+-- within the unlock delay period.
+unlockRuleResponse_lockEndTime :: Lens.Lens' UnlockRuleResponse (Prelude.Maybe Prelude.UTCTime)
+unlockRuleResponse_lockEndTime = Lens.lens (\UnlockRuleResponse' {lockEndTime} -> lockEndTime) (\s@UnlockRuleResponse' {} a -> s {lockEndTime = a} :: UnlockRuleResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The lock state for the retention rule.
 --
@@ -259,37 +273,23 @@ unlockRuleResponse_resourceType = Lens.lens (\UnlockRuleResponse' {resourceType}
 unlockRuleResponse_lockState :: Lens.Lens' UnlockRuleResponse (Prelude.Maybe LockState)
 unlockRuleResponse_lockState = Lens.lens (\UnlockRuleResponse' {lockState} -> lockState) (\s@UnlockRuleResponse' {} a -> s {lockState = a} :: UnlockRuleResponse)
 
--- | Information about the retention rule lock configuration.
-unlockRuleResponse_lockConfiguration :: Lens.Lens' UnlockRuleResponse (Prelude.Maybe LockConfiguration)
-unlockRuleResponse_lockConfiguration = Lens.lens (\UnlockRuleResponse' {lockConfiguration} -> lockConfiguration) (\s@UnlockRuleResponse' {} a -> s {lockConfiguration = a} :: UnlockRuleResponse)
-
--- | The state of the retention rule. Only retention rules that are in the
--- @available@ state retain resources.
-unlockRuleResponse_status :: Lens.Lens' UnlockRuleResponse (Prelude.Maybe RuleStatus)
-unlockRuleResponse_status = Lens.lens (\UnlockRuleResponse' {status} -> status) (\s@UnlockRuleResponse' {} a -> s {status = a} :: UnlockRuleResponse)
-
 -- | Information about the resource tags used to identify resources that are
 -- retained by the retention rule.
 unlockRuleResponse_resourceTags :: Lens.Lens' UnlockRuleResponse (Prelude.Maybe [ResourceTag])
 unlockRuleResponse_resourceTags = Lens.lens (\UnlockRuleResponse' {resourceTags} -> resourceTags) (\s@UnlockRuleResponse' {} a -> s {resourceTags = a} :: UnlockRuleResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The retention rule description.
-unlockRuleResponse_description :: Lens.Lens' UnlockRuleResponse (Prelude.Maybe Prelude.Text)
-unlockRuleResponse_description = Lens.lens (\UnlockRuleResponse' {description} -> description) (\s@UnlockRuleResponse' {} a -> s {description = a} :: UnlockRuleResponse)
-
--- | The date and time at which the unlock delay is set to expire. Only
--- returned for retention rules that have been unlocked and that are still
--- within the unlock delay period.
-unlockRuleResponse_lockEndTime :: Lens.Lens' UnlockRuleResponse (Prelude.Maybe Prelude.UTCTime)
-unlockRuleResponse_lockEndTime = Lens.lens (\UnlockRuleResponse' {lockEndTime} -> lockEndTime) (\s@UnlockRuleResponse' {} a -> s {lockEndTime = a} :: UnlockRuleResponse) Prelude.. Lens.mapping Data._Time
+-- | The resource type retained by the retention rule.
+unlockRuleResponse_resourceType :: Lens.Lens' UnlockRuleResponse (Prelude.Maybe ResourceType)
+unlockRuleResponse_resourceType = Lens.lens (\UnlockRuleResponse' {resourceType} -> resourceType) (\s@UnlockRuleResponse' {} a -> s {resourceType = a} :: UnlockRuleResponse)
 
 -- | Undocumented member.
 unlockRuleResponse_retentionPeriod :: Lens.Lens' UnlockRuleResponse (Prelude.Maybe RetentionPeriod)
 unlockRuleResponse_retentionPeriod = Lens.lens (\UnlockRuleResponse' {retentionPeriod} -> retentionPeriod) (\s@UnlockRuleResponse' {} a -> s {retentionPeriod = a} :: UnlockRuleResponse)
 
--- | The unique ID of the retention rule.
-unlockRuleResponse_identifier :: Lens.Lens' UnlockRuleResponse (Prelude.Maybe Prelude.Text)
-unlockRuleResponse_identifier = Lens.lens (\UnlockRuleResponse' {identifier} -> identifier) (\s@UnlockRuleResponse' {} a -> s {identifier = a} :: UnlockRuleResponse)
+-- | The state of the retention rule. Only retention rules that are in the
+-- @available@ state retain resources.
+unlockRuleResponse_status :: Lens.Lens' UnlockRuleResponse (Prelude.Maybe RuleStatus)
+unlockRuleResponse_status = Lens.lens (\UnlockRuleResponse' {status} -> status) (\s@UnlockRuleResponse' {} a -> s {status = a} :: UnlockRuleResponse)
 
 -- | The response's http status code.
 unlockRuleResponse_httpStatus :: Lens.Lens' UnlockRuleResponse Prelude.Int
@@ -297,13 +297,13 @@ unlockRuleResponse_httpStatus = Lens.lens (\UnlockRuleResponse' {httpStatus} -> 
 
 instance Prelude.NFData UnlockRuleResponse where
   rnf UnlockRuleResponse' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf lockState
-      `Prelude.seq` Prelude.rnf lockConfiguration
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf resourceTags
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lockEndTime
-      `Prelude.seq` Prelude.rnf retentionPeriod
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf identifier
+      `Prelude.seq` Prelude.rnf lockConfiguration
+      `Prelude.seq` Prelude.rnf lockEndTime
+      `Prelude.seq` Prelude.rnf lockState
+      `Prelude.seq` Prelude.rnf resourceTags
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf retentionPeriod
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

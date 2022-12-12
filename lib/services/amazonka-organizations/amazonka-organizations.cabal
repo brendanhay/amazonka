@@ -57,6 +57,7 @@ library
     Amazonka.Organizations.DeleteOrganization
     Amazonka.Organizations.DeleteOrganizationalUnit
     Amazonka.Organizations.DeletePolicy
+    Amazonka.Organizations.DeleteResourcePolicy
     Amazonka.Organizations.DeregisterDelegatedAdministrator
     Amazonka.Organizations.DescribeAccount
     Amazonka.Organizations.DescribeCreateAccountStatus
@@ -65,6 +66,7 @@ library
     Amazonka.Organizations.DescribeOrganization
     Amazonka.Organizations.DescribeOrganizationalUnit
     Amazonka.Organizations.DescribePolicy
+    Amazonka.Organizations.DescribeResourcePolicy
     Amazonka.Organizations.DetachPolicy
     Amazonka.Organizations.DisableAWSServiceAccess
     Amazonka.Organizations.DisablePolicyType
@@ -91,6 +93,7 @@ library
     Amazonka.Organizations.ListTagsForResource
     Amazonka.Organizations.ListTargetsForPolicy
     Amazonka.Organizations.MoveAccount
+    Amazonka.Organizations.PutResourcePolicy
     Amazonka.Organizations.RegisterDelegatedAdministrator
     Amazonka.Organizations.RemoveAccountFromOrganization
     Amazonka.Organizations.TagResource
@@ -128,6 +131,8 @@ library
     Amazonka.Organizations.Types.PolicyType
     Amazonka.Organizations.Types.PolicyTypeStatus
     Amazonka.Organizations.Types.PolicyTypeSummary
+    Amazonka.Organizations.Types.ResourcePolicy
+    Amazonka.Organizations.Types.ResourcePolicySummary
     Amazonka.Organizations.Types.Root
     Amazonka.Organizations.Types.Tag
     Amazonka.Organizations.Types.TargetType

@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newListGeofenceCollectionsResponseEntry' smart constructor.
 data ListGeofenceCollectionsResponseEntry = ListGeofenceCollectionsResponseEntry'
-  { -- | No longer used. Always returns an empty string.
-    pricingPlanDataSource :: Prelude.Maybe Prelude.Text,
-    -- | No longer used. Always returns @RequestBasedUsage@.
+  { -- | No longer used. Always returns @RequestBasedUsage@.
     pricingPlan :: Prelude.Maybe PricingPlan,
+    -- | No longer used. Always returns an empty string.
+    pricingPlanDataSource :: Prelude.Maybe Prelude.Text,
     -- | The name of the geofence collection.
     collectionName :: Prelude.Text,
     -- | The timestamp for when the geofence collection was created in
@@ -56,9 +56,9 @@ data ListGeofenceCollectionsResponseEntry = ListGeofenceCollectionsResponseEntry
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pricingPlanDataSource', 'listGeofenceCollectionsResponseEntry_pricingPlanDataSource' - No longer used. Always returns an empty string.
---
 -- 'pricingPlan', 'listGeofenceCollectionsResponseEntry_pricingPlan' - No longer used. Always returns @RequestBasedUsage@.
+--
+-- 'pricingPlanDataSource', 'listGeofenceCollectionsResponseEntry_pricingPlanDataSource' - No longer used. Always returns an empty string.
 --
 -- 'collectionName', 'listGeofenceCollectionsResponseEntry_collectionName' - The name of the geofence collection.
 --
@@ -87,9 +87,10 @@ newListGeofenceCollectionsResponseEntry
   pDescription_
   pUpdateTime_ =
     ListGeofenceCollectionsResponseEntry'
-      { pricingPlanDataSource =
+      { pricingPlan =
           Prelude.Nothing,
-        pricingPlan = Prelude.Nothing,
+        pricingPlanDataSource =
+          Prelude.Nothing,
         collectionName = pCollectionName_,
         createTime =
           Data._Time Lens.# pCreateTime_,
@@ -98,13 +99,13 @@ newListGeofenceCollectionsResponseEntry
           Data._Time Lens.# pUpdateTime_
       }
 
--- | No longer used. Always returns an empty string.
-listGeofenceCollectionsResponseEntry_pricingPlanDataSource :: Lens.Lens' ListGeofenceCollectionsResponseEntry (Prelude.Maybe Prelude.Text)
-listGeofenceCollectionsResponseEntry_pricingPlanDataSource = Lens.lens (\ListGeofenceCollectionsResponseEntry' {pricingPlanDataSource} -> pricingPlanDataSource) (\s@ListGeofenceCollectionsResponseEntry' {} a -> s {pricingPlanDataSource = a} :: ListGeofenceCollectionsResponseEntry)
-
 -- | No longer used. Always returns @RequestBasedUsage@.
 listGeofenceCollectionsResponseEntry_pricingPlan :: Lens.Lens' ListGeofenceCollectionsResponseEntry (Prelude.Maybe PricingPlan)
 listGeofenceCollectionsResponseEntry_pricingPlan = Lens.lens (\ListGeofenceCollectionsResponseEntry' {pricingPlan} -> pricingPlan) (\s@ListGeofenceCollectionsResponseEntry' {} a -> s {pricingPlan = a} :: ListGeofenceCollectionsResponseEntry)
+
+-- | No longer used. Always returns an empty string.
+listGeofenceCollectionsResponseEntry_pricingPlanDataSource :: Lens.Lens' ListGeofenceCollectionsResponseEntry (Prelude.Maybe Prelude.Text)
+listGeofenceCollectionsResponseEntry_pricingPlanDataSource = Lens.lens (\ListGeofenceCollectionsResponseEntry' {pricingPlanDataSource} -> pricingPlanDataSource) (\s@ListGeofenceCollectionsResponseEntry' {} a -> s {pricingPlanDataSource = a} :: ListGeofenceCollectionsResponseEntry)
 
 -- | The name of the geofence collection.
 listGeofenceCollectionsResponseEntry_collectionName :: Lens.Lens' ListGeofenceCollectionsResponseEntry Prelude.Text
@@ -135,8 +136,8 @@ instance
       "ListGeofenceCollectionsResponseEntry"
       ( \x ->
           ListGeofenceCollectionsResponseEntry'
-            Prelude.<$> (x Data..:? "PricingPlanDataSource")
-            Prelude.<*> (x Data..:? "PricingPlan")
+            Prelude.<$> (x Data..:? "PricingPlan")
+            Prelude.<*> (x Data..:? "PricingPlanDataSource")
             Prelude.<*> (x Data..: "CollectionName")
             Prelude.<*> (x Data..: "CreateTime")
             Prelude.<*> (x Data..: "Description")
@@ -150,8 +151,8 @@ instance
   hashWithSalt
     _salt
     ListGeofenceCollectionsResponseEntry' {..} =
-      _salt `Prelude.hashWithSalt` pricingPlanDataSource
-        `Prelude.hashWithSalt` pricingPlan
+      _salt `Prelude.hashWithSalt` pricingPlan
+        `Prelude.hashWithSalt` pricingPlanDataSource
         `Prelude.hashWithSalt` collectionName
         `Prelude.hashWithSalt` createTime
         `Prelude.hashWithSalt` description
@@ -162,8 +163,8 @@ instance
     ListGeofenceCollectionsResponseEntry
   where
   rnf ListGeofenceCollectionsResponseEntry' {..} =
-    Prelude.rnf pricingPlanDataSource
-      `Prelude.seq` Prelude.rnf pricingPlan
+    Prelude.rnf pricingPlan
+      `Prelude.seq` Prelude.rnf pricingPlanDataSource
       `Prelude.seq` Prelude.rnf collectionName
       `Prelude.seq` Prelude.rnf createTime
       `Prelude.seq` Prelude.rnf description

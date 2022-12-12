@@ -29,16 +29,16 @@ module Amazonka.VoiceId.ListDomains
     newListDomains,
 
     -- * Request Lenses
-    listDomains_nextToken,
     listDomains_maxResults,
+    listDomains_nextToken,
 
     -- * Destructuring the Response
     ListDomainsResponse (..),
     newListDomainsResponse,
 
     -- * Response Lenses
-    listDomainsResponse_nextToken,
     listDomainsResponse_domainSummaries,
+    listDomainsResponse_nextToken,
     listDomainsResponse_httpStatus,
   )
 where
@@ -53,13 +53,13 @@ import Amazonka.VoiceId.Types
 
 -- | /See:/ 'newListDomains' smart constructor.
 data ListDomains = ListDomains'
-  { -- | If @NextToken@ is returned, there are more results available. The value
+  { -- | The maximum number of domains to list per API call.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If @NextToken@ is returned, there are more results available. The value
     -- of @NextToken@ is a unique pagination token for each page. Make the call
     -- again using the returned token to retrieve the next page. Keep all other
     -- arguments unchanged. Each pagination token expires after 24 hours.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of domains to list per API call.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,19 +71,23 @@ data ListDomains = ListDomains'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listDomains_maxResults' - The maximum number of domains to list per API call.
+--
 -- 'nextToken', 'listDomains_nextToken' - If @NextToken@ is returned, there are more results available. The value
 -- of @NextToken@ is a unique pagination token for each page. Make the call
 -- again using the returned token to retrieve the next page. Keep all other
 -- arguments unchanged. Each pagination token expires after 24 hours.
---
--- 'maxResults', 'listDomains_maxResults' - The maximum number of domains to list per API call.
 newListDomains ::
   ListDomains
 newListDomains =
   ListDomains'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of domains to list per API call.
+listDomains_maxResults :: Lens.Lens' ListDomains (Prelude.Maybe Prelude.Natural)
+listDomains_maxResults = Lens.lens (\ListDomains' {maxResults} -> maxResults) (\s@ListDomains' {} a -> s {maxResults = a} :: ListDomains)
 
 -- | If @NextToken@ is returned, there are more results available. The value
 -- of @NextToken@ is a unique pagination token for each page. Make the call
@@ -91,10 +95,6 @@ newListDomains =
 -- arguments unchanged. Each pagination token expires after 24 hours.
 listDomains_nextToken :: Lens.Lens' ListDomains (Prelude.Maybe Prelude.Text)
 listDomains_nextToken = Lens.lens (\ListDomains' {nextToken} -> nextToken) (\s@ListDomains' {} a -> s {nextToken = a} :: ListDomains)
-
--- | The maximum number of domains to list per API call.
-listDomains_maxResults :: Lens.Lens' ListDomains (Prelude.Maybe Prelude.Natural)
-listDomains_maxResults = Lens.lens (\ListDomains' {maxResults} -> maxResults) (\s@ListDomains' {} a -> s {maxResults = a} :: ListDomains)
 
 instance Core.AWSPager ListDomains where
   page rq rs
@@ -124,22 +124,22 @@ instance Core.AWSRequest ListDomains where
     Response.receiveJSON
       ( \s h x ->
           ListDomainsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "DomainSummaries"
+            Prelude.<$> ( x Data..?> "DomainSummaries"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListDomains where
   hashWithSalt _salt ListDomains' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListDomains where
   rnf ListDomains' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListDomains where
   toHeaders =
@@ -158,8 +158,8 @@ instance Data.ToJSON ListDomains where
   toJSON ListDomains' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -171,14 +171,14 @@ instance Data.ToQuery ListDomains where
 
 -- | /See:/ 'newListDomainsResponse' smart constructor.
 data ListDomainsResponse = ListDomainsResponse'
-  { -- | If @NextToken@ is returned, there are more results available. The value
+  { -- | A list containing details about each domain in the Amazon Web Services
+    -- account.
+    domainSummaries :: Prelude.Maybe [DomainSummary],
+    -- | If @NextToken@ is returned, there are more results available. The value
     -- of @NextToken@ is a unique pagination token for each page. Make the call
     -- again using the returned token to retrieve the next page. Keep all other
     -- arguments unchanged. Each pagination token expires after 24 hours.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list containing details about each domain in the Amazon Web Services
-    -- account.
-    domainSummaries :: Prelude.Maybe [DomainSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -192,13 +192,13 @@ data ListDomainsResponse = ListDomainsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'domainSummaries', 'listDomainsResponse_domainSummaries' - A list containing details about each domain in the Amazon Web Services
+-- account.
+--
 -- 'nextToken', 'listDomainsResponse_nextToken' - If @NextToken@ is returned, there are more results available. The value
 -- of @NextToken@ is a unique pagination token for each page. Make the call
 -- again using the returned token to retrieve the next page. Keep all other
 -- arguments unchanged. Each pagination token expires after 24 hours.
---
--- 'domainSummaries', 'listDomainsResponse_domainSummaries' - A list containing details about each domain in the Amazon Web Services
--- account.
 --
 -- 'httpStatus', 'listDomainsResponse_httpStatus' - The response's http status code.
 newListDomainsResponse ::
@@ -207,10 +207,16 @@ newListDomainsResponse ::
   ListDomainsResponse
 newListDomainsResponse pHttpStatus_ =
   ListDomainsResponse'
-    { nextToken = Prelude.Nothing,
-      domainSummaries = Prelude.Nothing,
+    { domainSummaries =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list containing details about each domain in the Amazon Web Services
+-- account.
+listDomainsResponse_domainSummaries :: Lens.Lens' ListDomainsResponse (Prelude.Maybe [DomainSummary])
+listDomainsResponse_domainSummaries = Lens.lens (\ListDomainsResponse' {domainSummaries} -> domainSummaries) (\s@ListDomainsResponse' {} a -> s {domainSummaries = a} :: ListDomainsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If @NextToken@ is returned, there are more results available. The value
 -- of @NextToken@ is a unique pagination token for each page. Make the call
@@ -219,17 +225,12 @@ newListDomainsResponse pHttpStatus_ =
 listDomainsResponse_nextToken :: Lens.Lens' ListDomainsResponse (Prelude.Maybe Prelude.Text)
 listDomainsResponse_nextToken = Lens.lens (\ListDomainsResponse' {nextToken} -> nextToken) (\s@ListDomainsResponse' {} a -> s {nextToken = a} :: ListDomainsResponse)
 
--- | A list containing details about each domain in the Amazon Web Services
--- account.
-listDomainsResponse_domainSummaries :: Lens.Lens' ListDomainsResponse (Prelude.Maybe [DomainSummary])
-listDomainsResponse_domainSummaries = Lens.lens (\ListDomainsResponse' {domainSummaries} -> domainSummaries) (\s@ListDomainsResponse' {} a -> s {domainSummaries = a} :: ListDomainsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listDomainsResponse_httpStatus :: Lens.Lens' ListDomainsResponse Prelude.Int
 listDomainsResponse_httpStatus = Lens.lens (\ListDomainsResponse' {httpStatus} -> httpStatus) (\s@ListDomainsResponse' {} a -> s {httpStatus = a} :: ListDomainsResponse)
 
 instance Prelude.NFData ListDomainsResponse where
   rnf ListDomainsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf domainSummaries
+    Prelude.rnf domainSummaries
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

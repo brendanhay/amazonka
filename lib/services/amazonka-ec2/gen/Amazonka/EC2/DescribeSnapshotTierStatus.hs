@@ -29,10 +29,10 @@ module Amazonka.EC2.DescribeSnapshotTierStatus
     newDescribeSnapshotTierStatus,
 
     -- * Request Lenses
-    describeSnapshotTierStatus_nextToken,
-    describeSnapshotTierStatus_filters,
     describeSnapshotTierStatus_dryRun,
+    describeSnapshotTierStatus_filters,
     describeSnapshotTierStatus_maxResults,
+    describeSnapshotTierStatus_nextToken,
 
     -- * Destructuring the Response
     DescribeSnapshotTierStatusResponse (..),
@@ -55,8 +55,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeSnapshotTierStatus' smart constructor.
 data DescribeSnapshotTierStatus = DescribeSnapshotTierStatus'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The filters.
     --
     -- -   @snapshot-id@ - The snapshot ID.
@@ -70,15 +73,12 @@ data DescribeSnapshotTierStatus = DescribeSnapshotTierStatus'
     --     @temporary-restore-in-progress@ | @temporary-restore-completed@ |
     --     @temporary-restore-failed@)
     filters :: Prelude.Maybe [Filter],
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
-    maxResults :: Prelude.Maybe Prelude.Int
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -90,7 +90,10 @@ data DescribeSnapshotTierStatus = DescribeSnapshotTierStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeSnapshotTierStatus_nextToken' - The token for the next page of results.
+-- 'dryRun', 'describeSnapshotTierStatus_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'filters', 'describeSnapshotTierStatus_filters' - The filters.
 --
@@ -105,28 +108,28 @@ data DescribeSnapshotTierStatus = DescribeSnapshotTierStatus'
 --     @temporary-restore-in-progress@ | @temporary-restore-completed@ |
 --     @temporary-restore-failed@)
 --
--- 'dryRun', 'describeSnapshotTierStatus_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'maxResults', 'describeSnapshotTierStatus_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
+--
+-- 'nextToken', 'describeSnapshotTierStatus_nextToken' - The token for the next page of results.
 newDescribeSnapshotTierStatus ::
   DescribeSnapshotTierStatus
 newDescribeSnapshotTierStatus =
   DescribeSnapshotTierStatus'
-    { nextToken =
+    { dryRun =
         Prelude.Nothing,
       filters = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
 
--- | The token for the next page of results.
-describeSnapshotTierStatus_nextToken :: Lens.Lens' DescribeSnapshotTierStatus (Prelude.Maybe Prelude.Text)
-describeSnapshotTierStatus_nextToken = Lens.lens (\DescribeSnapshotTierStatus' {nextToken} -> nextToken) (\s@DescribeSnapshotTierStatus' {} a -> s {nextToken = a} :: DescribeSnapshotTierStatus)
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeSnapshotTierStatus_dryRun :: Lens.Lens' DescribeSnapshotTierStatus (Prelude.Maybe Prelude.Bool)
+describeSnapshotTierStatus_dryRun = Lens.lens (\DescribeSnapshotTierStatus' {dryRun} -> dryRun) (\s@DescribeSnapshotTierStatus' {} a -> s {dryRun = a} :: DescribeSnapshotTierStatus)
 
 -- | The filters.
 --
@@ -143,18 +146,15 @@ describeSnapshotTierStatus_nextToken = Lens.lens (\DescribeSnapshotTierStatus' {
 describeSnapshotTierStatus_filters :: Lens.Lens' DescribeSnapshotTierStatus (Prelude.Maybe [Filter])
 describeSnapshotTierStatus_filters = Lens.lens (\DescribeSnapshotTierStatus' {filters} -> filters) (\s@DescribeSnapshotTierStatus' {} a -> s {filters = a} :: DescribeSnapshotTierStatus) Prelude.. Lens.mapping Lens.coerced
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeSnapshotTierStatus_dryRun :: Lens.Lens' DescribeSnapshotTierStatus (Prelude.Maybe Prelude.Bool)
-describeSnapshotTierStatus_dryRun = Lens.lens (\DescribeSnapshotTierStatus' {dryRun} -> dryRun) (\s@DescribeSnapshotTierStatus' {} a -> s {dryRun = a} :: DescribeSnapshotTierStatus)
-
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
 describeSnapshotTierStatus_maxResults :: Lens.Lens' DescribeSnapshotTierStatus (Prelude.Maybe Prelude.Int)
 describeSnapshotTierStatus_maxResults = Lens.lens (\DescribeSnapshotTierStatus' {maxResults} -> maxResults) (\s@DescribeSnapshotTierStatus' {} a -> s {maxResults = a} :: DescribeSnapshotTierStatus)
+
+-- | The token for the next page of results.
+describeSnapshotTierStatus_nextToken :: Lens.Lens' DescribeSnapshotTierStatus (Prelude.Maybe Prelude.Text)
+describeSnapshotTierStatus_nextToken = Lens.lens (\DescribeSnapshotTierStatus' {nextToken} -> nextToken) (\s@DescribeSnapshotTierStatus' {} a -> s {nextToken = a} :: DescribeSnapshotTierStatus)
 
 instance Core.AWSPager DescribeSnapshotTierStatus where
   page rq rs
@@ -198,17 +198,17 @@ instance Core.AWSRequest DescribeSnapshotTierStatus where
 
 instance Prelude.Hashable DescribeSnapshotTierStatus where
   hashWithSalt _salt DescribeSnapshotTierStatus' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeSnapshotTierStatus where
   rnf DescribeSnapshotTierStatus' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeSnapshotTierStatus where
   toHeaders = Prelude.const Prelude.mempty
@@ -223,11 +223,11 @@ instance Data.ToQuery DescribeSnapshotTierStatus where
           Data.=: ("DescribeSnapshotTierStatus" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
+        "DryRun" Data.=: dryRun,
         Data.toQuery
           (Data.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Data.=: dryRun,
-        "MaxResults" Data.=: maxResults
+        "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newDescribeSnapshotTierStatusResponse' smart constructor.

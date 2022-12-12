@@ -27,11 +27,11 @@ module Amazonka.IoTAnalytics.UpdateDataset
     newUpdateDataset,
 
     -- * Request Lenses
-    updateDataset_lateDataRules,
-    updateDataset_versioningConfiguration,
-    updateDataset_triggers,
     updateDataset_contentDeliveryRules,
+    updateDataset_lateDataRules,
     updateDataset_retentionPeriod,
+    updateDataset_triggers,
+    updateDataset_versioningConfiguration,
     updateDataset_datasetName,
     updateDataset_actions,
 
@@ -51,11 +51,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateDataset' smart constructor.
 data UpdateDataset = UpdateDataset'
-  { -- | A list of data rules that send notifications to CloudWatch, when data
+  { -- | When dataset contents are created, they are delivered to destinations
+    -- specified here.
+    contentDeliveryRules :: Prelude.Maybe [DatasetContentDeliveryRule],
+    -- | A list of data rules that send notifications to CloudWatch, when data
     -- arrives late. To specify @lateDataRules@, the dataset must use a
     -- <https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html DeltaTimer>
     -- filter.
     lateDataRules :: Prelude.Maybe (Prelude.NonEmpty LateDataRule),
+    -- | How long, in days, dataset contents are kept for the dataset.
+    retentionPeriod :: Prelude.Maybe RetentionPeriod,
+    -- | A list of @DatasetTrigger@ objects. The list can be empty or can contain
+    -- up to five @DatasetTrigger@ objects.
+    triggers :: Prelude.Maybe [DatasetTrigger],
     -- | Optional. How many versions of dataset contents are kept. If not
     -- specified or set to null, only the latest version plus the latest
     -- succeeded version (if they are different) are kept for the time period
@@ -63,14 +71,6 @@ data UpdateDataset = UpdateDataset'
     -- <https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions Keeping Multiple Versions of IoT Analytics datasets>
     -- in the /IoT Analytics User Guide/.
     versioningConfiguration :: Prelude.Maybe VersioningConfiguration,
-    -- | A list of @DatasetTrigger@ objects. The list can be empty or can contain
-    -- up to five @DatasetTrigger@ objects.
-    triggers :: Prelude.Maybe [DatasetTrigger],
-    -- | When dataset contents are created, they are delivered to destinations
-    -- specified here.
-    contentDeliveryRules :: Prelude.Maybe [DatasetContentDeliveryRule],
-    -- | How long, in days, dataset contents are kept for the dataset.
-    retentionPeriod :: Prelude.Maybe RetentionPeriod,
     -- | The name of the dataset to update.
     datasetName :: Prelude.Text,
     -- | A list of @DatasetAction@ objects.
@@ -86,10 +86,18 @@ data UpdateDataset = UpdateDataset'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'contentDeliveryRules', 'updateDataset_contentDeliveryRules' - When dataset contents are created, they are delivered to destinations
+-- specified here.
+--
 -- 'lateDataRules', 'updateDataset_lateDataRules' - A list of data rules that send notifications to CloudWatch, when data
 -- arrives late. To specify @lateDataRules@, the dataset must use a
 -- <https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html DeltaTimer>
 -- filter.
+--
+-- 'retentionPeriod', 'updateDataset_retentionPeriod' - How long, in days, dataset contents are kept for the dataset.
+--
+-- 'triggers', 'updateDataset_triggers' - A list of @DatasetTrigger@ objects. The list can be empty or can contain
+-- up to five @DatasetTrigger@ objects.
 --
 -- 'versioningConfiguration', 'updateDataset_versioningConfiguration' - Optional. How many versions of dataset contents are kept. If not
 -- specified or set to null, only the latest version plus the latest
@@ -97,14 +105,6 @@ data UpdateDataset = UpdateDataset'
 -- specified by the @retentionPeriod@ parameter. For more information, see
 -- <https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions Keeping Multiple Versions of IoT Analytics datasets>
 -- in the /IoT Analytics User Guide/.
---
--- 'triggers', 'updateDataset_triggers' - A list of @DatasetTrigger@ objects. The list can be empty or can contain
--- up to five @DatasetTrigger@ objects.
---
--- 'contentDeliveryRules', 'updateDataset_contentDeliveryRules' - When dataset contents are created, they are delivered to destinations
--- specified here.
---
--- 'retentionPeriod', 'updateDataset_retentionPeriod' - How long, in days, dataset contents are kept for the dataset.
 --
 -- 'datasetName', 'updateDataset_datasetName' - The name of the dataset to update.
 --
@@ -117,14 +117,20 @@ newUpdateDataset ::
   UpdateDataset
 newUpdateDataset pDatasetName_ pActions_ =
   UpdateDataset'
-    { lateDataRules = Prelude.Nothing,
-      versioningConfiguration = Prelude.Nothing,
-      triggers = Prelude.Nothing,
-      contentDeliveryRules = Prelude.Nothing,
+    { contentDeliveryRules =
+        Prelude.Nothing,
+      lateDataRules = Prelude.Nothing,
       retentionPeriod = Prelude.Nothing,
+      triggers = Prelude.Nothing,
+      versioningConfiguration = Prelude.Nothing,
       datasetName = pDatasetName_,
       actions = Lens.coerced Lens.# pActions_
     }
+
+-- | When dataset contents are created, they are delivered to destinations
+-- specified here.
+updateDataset_contentDeliveryRules :: Lens.Lens' UpdateDataset (Prelude.Maybe [DatasetContentDeliveryRule])
+updateDataset_contentDeliveryRules = Lens.lens (\UpdateDataset' {contentDeliveryRules} -> contentDeliveryRules) (\s@UpdateDataset' {} a -> s {contentDeliveryRules = a} :: UpdateDataset) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of data rules that send notifications to CloudWatch, when data
 -- arrives late. To specify @lateDataRules@, the dataset must use a
@@ -132,6 +138,15 @@ newUpdateDataset pDatasetName_ pActions_ =
 -- filter.
 updateDataset_lateDataRules :: Lens.Lens' UpdateDataset (Prelude.Maybe (Prelude.NonEmpty LateDataRule))
 updateDataset_lateDataRules = Lens.lens (\UpdateDataset' {lateDataRules} -> lateDataRules) (\s@UpdateDataset' {} a -> s {lateDataRules = a} :: UpdateDataset) Prelude.. Lens.mapping Lens.coerced
+
+-- | How long, in days, dataset contents are kept for the dataset.
+updateDataset_retentionPeriod :: Lens.Lens' UpdateDataset (Prelude.Maybe RetentionPeriod)
+updateDataset_retentionPeriod = Lens.lens (\UpdateDataset' {retentionPeriod} -> retentionPeriod) (\s@UpdateDataset' {} a -> s {retentionPeriod = a} :: UpdateDataset)
+
+-- | A list of @DatasetTrigger@ objects. The list can be empty or can contain
+-- up to five @DatasetTrigger@ objects.
+updateDataset_triggers :: Lens.Lens' UpdateDataset (Prelude.Maybe [DatasetTrigger])
+updateDataset_triggers = Lens.lens (\UpdateDataset' {triggers} -> triggers) (\s@UpdateDataset' {} a -> s {triggers = a} :: UpdateDataset) Prelude.. Lens.mapping Lens.coerced
 
 -- | Optional. How many versions of dataset contents are kept. If not
 -- specified or set to null, only the latest version plus the latest
@@ -141,20 +156,6 @@ updateDataset_lateDataRules = Lens.lens (\UpdateDataset' {lateDataRules} -> late
 -- in the /IoT Analytics User Guide/.
 updateDataset_versioningConfiguration :: Lens.Lens' UpdateDataset (Prelude.Maybe VersioningConfiguration)
 updateDataset_versioningConfiguration = Lens.lens (\UpdateDataset' {versioningConfiguration} -> versioningConfiguration) (\s@UpdateDataset' {} a -> s {versioningConfiguration = a} :: UpdateDataset)
-
--- | A list of @DatasetTrigger@ objects. The list can be empty or can contain
--- up to five @DatasetTrigger@ objects.
-updateDataset_triggers :: Lens.Lens' UpdateDataset (Prelude.Maybe [DatasetTrigger])
-updateDataset_triggers = Lens.lens (\UpdateDataset' {triggers} -> triggers) (\s@UpdateDataset' {} a -> s {triggers = a} :: UpdateDataset) Prelude.. Lens.mapping Lens.coerced
-
--- | When dataset contents are created, they are delivered to destinations
--- specified here.
-updateDataset_contentDeliveryRules :: Lens.Lens' UpdateDataset (Prelude.Maybe [DatasetContentDeliveryRule])
-updateDataset_contentDeliveryRules = Lens.lens (\UpdateDataset' {contentDeliveryRules} -> contentDeliveryRules) (\s@UpdateDataset' {} a -> s {contentDeliveryRules = a} :: UpdateDataset) Prelude.. Lens.mapping Lens.coerced
-
--- | How long, in days, dataset contents are kept for the dataset.
-updateDataset_retentionPeriod :: Lens.Lens' UpdateDataset (Prelude.Maybe RetentionPeriod)
-updateDataset_retentionPeriod = Lens.lens (\UpdateDataset' {retentionPeriod} -> retentionPeriod) (\s@UpdateDataset' {} a -> s {retentionPeriod = a} :: UpdateDataset)
 
 -- | The name of the dataset to update.
 updateDataset_datasetName :: Lens.Lens' UpdateDataset Prelude.Text
@@ -175,21 +176,21 @@ instance Core.AWSRequest UpdateDataset where
 
 instance Prelude.Hashable UpdateDataset where
   hashWithSalt _salt UpdateDataset' {..} =
-    _salt `Prelude.hashWithSalt` lateDataRules
-      `Prelude.hashWithSalt` versioningConfiguration
-      `Prelude.hashWithSalt` triggers
-      `Prelude.hashWithSalt` contentDeliveryRules
+    _salt `Prelude.hashWithSalt` contentDeliveryRules
+      `Prelude.hashWithSalt` lateDataRules
       `Prelude.hashWithSalt` retentionPeriod
+      `Prelude.hashWithSalt` triggers
+      `Prelude.hashWithSalt` versioningConfiguration
       `Prelude.hashWithSalt` datasetName
       `Prelude.hashWithSalt` actions
 
 instance Prelude.NFData UpdateDataset where
   rnf UpdateDataset' {..} =
-    Prelude.rnf lateDataRules
-      `Prelude.seq` Prelude.rnf versioningConfiguration
-      `Prelude.seq` Prelude.rnf triggers
-      `Prelude.seq` Prelude.rnf contentDeliveryRules
+    Prelude.rnf contentDeliveryRules
+      `Prelude.seq` Prelude.rnf lateDataRules
       `Prelude.seq` Prelude.rnf retentionPeriod
+      `Prelude.seq` Prelude.rnf triggers
+      `Prelude.seq` Prelude.rnf versioningConfiguration
       `Prelude.seq` Prelude.rnf datasetName
       `Prelude.seq` Prelude.rnf actions
 
@@ -200,14 +201,14 @@ instance Data.ToJSON UpdateDataset where
   toJSON UpdateDataset' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("lateDataRules" Data..=) Prelude.<$> lateDataRules,
-            ("versioningConfiguration" Data..=)
-              Prelude.<$> versioningConfiguration,
-            ("triggers" Data..=) Prelude.<$> triggers,
-            ("contentDeliveryRules" Data..=)
+          [ ("contentDeliveryRules" Data..=)
               Prelude.<$> contentDeliveryRules,
+            ("lateDataRules" Data..=) Prelude.<$> lateDataRules,
             ("retentionPeriod" Data..=)
               Prelude.<$> retentionPeriod,
+            ("triggers" Data..=) Prelude.<$> triggers,
+            ("versioningConfiguration" Data..=)
+              Prelude.<$> versioningConfiguration,
             Prelude.Just ("actions" Data..= actions)
           ]
       )

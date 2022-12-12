@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNtpStatus' smart constructor.
 data NtpStatus = NtpStatus'
-  { -- | The domain name of the server.
-    ntpServerName :: Prelude.Maybe Prelude.Text,
-    -- | The connection\'s status.
+  { -- | The connection\'s status.
     connectionStatus :: Prelude.Maybe NetworkConnectionStatus,
     -- | The IP address of the server.
-    ipAddress :: Prelude.Maybe Prelude.Text
+    ipAddress :: Prelude.Maybe Prelude.Text,
+    -- | The domain name of the server.
+    ntpServerName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,23 +46,19 @@ data NtpStatus = NtpStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ntpServerName', 'ntpStatus_ntpServerName' - The domain name of the server.
---
 -- 'connectionStatus', 'ntpStatus_connectionStatus' - The connection\'s status.
 --
 -- 'ipAddress', 'ntpStatus_ipAddress' - The IP address of the server.
+--
+-- 'ntpServerName', 'ntpStatus_ntpServerName' - The domain name of the server.
 newNtpStatus ::
   NtpStatus
 newNtpStatus =
   NtpStatus'
-    { ntpServerName = Prelude.Nothing,
-      connectionStatus = Prelude.Nothing,
-      ipAddress = Prelude.Nothing
+    { connectionStatus = Prelude.Nothing,
+      ipAddress = Prelude.Nothing,
+      ntpServerName = Prelude.Nothing
     }
-
--- | The domain name of the server.
-ntpStatus_ntpServerName :: Lens.Lens' NtpStatus (Prelude.Maybe Prelude.Text)
-ntpStatus_ntpServerName = Lens.lens (\NtpStatus' {ntpServerName} -> ntpServerName) (\s@NtpStatus' {} a -> s {ntpServerName = a} :: NtpStatus)
 
 -- | The connection\'s status.
 ntpStatus_connectionStatus :: Lens.Lens' NtpStatus (Prelude.Maybe NetworkConnectionStatus)
@@ -72,25 +68,29 @@ ntpStatus_connectionStatus = Lens.lens (\NtpStatus' {connectionStatus} -> connec
 ntpStatus_ipAddress :: Lens.Lens' NtpStatus (Prelude.Maybe Prelude.Text)
 ntpStatus_ipAddress = Lens.lens (\NtpStatus' {ipAddress} -> ipAddress) (\s@NtpStatus' {} a -> s {ipAddress = a} :: NtpStatus)
 
+-- | The domain name of the server.
+ntpStatus_ntpServerName :: Lens.Lens' NtpStatus (Prelude.Maybe Prelude.Text)
+ntpStatus_ntpServerName = Lens.lens (\NtpStatus' {ntpServerName} -> ntpServerName) (\s@NtpStatus' {} a -> s {ntpServerName = a} :: NtpStatus)
+
 instance Data.FromJSON NtpStatus where
   parseJSON =
     Data.withObject
       "NtpStatus"
       ( \x ->
           NtpStatus'
-            Prelude.<$> (x Data..:? "NtpServerName")
-            Prelude.<*> (x Data..:? "ConnectionStatus")
+            Prelude.<$> (x Data..:? "ConnectionStatus")
             Prelude.<*> (x Data..:? "IpAddress")
+            Prelude.<*> (x Data..:? "NtpServerName")
       )
 
 instance Prelude.Hashable NtpStatus where
   hashWithSalt _salt NtpStatus' {..} =
-    _salt `Prelude.hashWithSalt` ntpServerName
-      `Prelude.hashWithSalt` connectionStatus
+    _salt `Prelude.hashWithSalt` connectionStatus
       `Prelude.hashWithSalt` ipAddress
+      `Prelude.hashWithSalt` ntpServerName
 
 instance Prelude.NFData NtpStatus where
   rnf NtpStatus' {..} =
-    Prelude.rnf ntpServerName
-      `Prelude.seq` Prelude.rnf connectionStatus
+    Prelude.rnf connectionStatus
       `Prelude.seq` Prelude.rnf ipAddress
+      `Prelude.seq` Prelude.rnf ntpServerName

@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPlatformScriptKey' smart constructor.
 data PlatformScriptKey = PlatformScriptKey'
-  { -- | The script location for Windows.
-    windows :: Prelude.Maybe Prelude.Text,
-    -- | The script location for Linux.
-    linux :: Prelude.Maybe Prelude.Text
+  { -- | The script location for Linux.
+    linux :: Prelude.Maybe Prelude.Text,
+    -- | The script location for Windows.
+    windows :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data PlatformScriptKey = PlatformScriptKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'windows', 'platformScriptKey_windows' - The script location for Windows.
---
 -- 'linux', 'platformScriptKey_linux' - The script location for Linux.
+--
+-- 'windows', 'platformScriptKey_windows' - The script location for Windows.
 newPlatformScriptKey ::
   PlatformScriptKey
 newPlatformScriptKey =
   PlatformScriptKey'
-    { windows = Prelude.Nothing,
-      linux = Prelude.Nothing
+    { linux = Prelude.Nothing,
+      windows = Prelude.Nothing
     }
-
--- | The script location for Windows.
-platformScriptKey_windows :: Lens.Lens' PlatformScriptKey (Prelude.Maybe Prelude.Text)
-platformScriptKey_windows = Lens.lens (\PlatformScriptKey' {windows} -> windows) (\s@PlatformScriptKey' {} a -> s {windows = a} :: PlatformScriptKey)
 
 -- | The script location for Linux.
 platformScriptKey_linux :: Lens.Lens' PlatformScriptKey (Prelude.Maybe Prelude.Text)
 platformScriptKey_linux = Lens.lens (\PlatformScriptKey' {linux} -> linux) (\s@PlatformScriptKey' {} a -> s {linux = a} :: PlatformScriptKey)
+
+-- | The script location for Windows.
+platformScriptKey_windows :: Lens.Lens' PlatformScriptKey (Prelude.Maybe Prelude.Text)
+platformScriptKey_windows = Lens.lens (\PlatformScriptKey' {windows} -> windows) (\s@PlatformScriptKey' {} a -> s {windows = a} :: PlatformScriptKey)
 
 instance Data.FromJSON PlatformScriptKey where
   parseJSON =
@@ -68,24 +68,24 @@ instance Data.FromJSON PlatformScriptKey where
       "PlatformScriptKey"
       ( \x ->
           PlatformScriptKey'
-            Prelude.<$> (x Data..:? "windows")
-            Prelude.<*> (x Data..:? "linux")
+            Prelude.<$> (x Data..:? "linux")
+            Prelude.<*> (x Data..:? "windows")
       )
 
 instance Prelude.Hashable PlatformScriptKey where
   hashWithSalt _salt PlatformScriptKey' {..} =
-    _salt `Prelude.hashWithSalt` windows
-      `Prelude.hashWithSalt` linux
+    _salt `Prelude.hashWithSalt` linux
+      `Prelude.hashWithSalt` windows
 
 instance Prelude.NFData PlatformScriptKey where
   rnf PlatformScriptKey' {..} =
-    Prelude.rnf windows `Prelude.seq` Prelude.rnf linux
+    Prelude.rnf linux `Prelude.seq` Prelude.rnf windows
 
 instance Data.ToJSON PlatformScriptKey where
   toJSON PlatformScriptKey' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("windows" Data..=) Prelude.<$> windows,
-            ("linux" Data..=) Prelude.<$> linux
+          [ ("linux" Data..=) Prelude.<$> linux,
+            ("windows" Data..=) Prelude.<$> windows
           ]
       )

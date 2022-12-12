@@ -39,8 +39,8 @@ module Amazonka.Route53.ListQueryLoggingConfigs
 
     -- * Request Lenses
     listQueryLoggingConfigs_hostedZoneId,
-    listQueryLoggingConfigs_nextToken,
     listQueryLoggingConfigs_maxResults,
+    listQueryLoggingConfigs_nextToken,
 
     -- * Destructuring the Response
     ListQueryLoggingConfigsResponse (..),
@@ -70,16 +70,6 @@ data ListQueryLoggingConfigs = ListQueryLoggingConfigs'
     -- returns all of the configurations that are associated with the current
     -- Amazon Web Services account.
     hostedZoneId :: Prelude.Maybe ResourceId,
-    -- | (Optional) If the current Amazon Web Services account has more than
-    -- @MaxResults@ query logging configurations, use @NextToken@ to get the
-    -- second and subsequent pages of results.
-    --
-    -- For the first @ListQueryLoggingConfigs@ request, omit this value.
-    --
-    -- For the second and subsequent requests, get the value of @NextToken@
-    -- from the previous response and specify that value for @NextToken@ in the
-    -- request.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | (Optional) The maximum number of query logging configurations that you
     -- want Amazon Route 53 to return in response to the current request. If
     -- the current Amazon Web Services account has more than @MaxResults@
@@ -89,7 +79,17 @@ data ListQueryLoggingConfigs = ListQueryLoggingConfigs'
     --
     -- If you don\'t specify a value for @MaxResults@, Route 53 returns up to
     -- 100 configurations.
-    maxResults :: Prelude.Maybe Prelude.Text
+    maxResults :: Prelude.Maybe Prelude.Text,
+    -- | (Optional) If the current Amazon Web Services account has more than
+    -- @MaxResults@ query logging configurations, use @NextToken@ to get the
+    -- second and subsequent pages of results.
+    --
+    -- For the first @ListQueryLoggingConfigs@ request, omit this value.
+    --
+    -- For the second and subsequent requests, get the value of @NextToken@
+    -- from the previous response and specify that value for @NextToken@ in the
+    -- request.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -108,16 +108,6 @@ data ListQueryLoggingConfigs = ListQueryLoggingConfigs'
 -- returns all of the configurations that are associated with the current
 -- Amazon Web Services account.
 --
--- 'nextToken', 'listQueryLoggingConfigs_nextToken' - (Optional) If the current Amazon Web Services account has more than
--- @MaxResults@ query logging configurations, use @NextToken@ to get the
--- second and subsequent pages of results.
---
--- For the first @ListQueryLoggingConfigs@ request, omit this value.
---
--- For the second and subsequent requests, get the value of @NextToken@
--- from the previous response and specify that value for @NextToken@ in the
--- request.
---
 -- 'maxResults', 'listQueryLoggingConfigs_maxResults' - (Optional) The maximum number of query logging configurations that you
 -- want Amazon Route 53 to return in response to the current request. If
 -- the current Amazon Web Services account has more than @MaxResults@
@@ -127,14 +117,24 @@ data ListQueryLoggingConfigs = ListQueryLoggingConfigs'
 --
 -- If you don\'t specify a value for @MaxResults@, Route 53 returns up to
 -- 100 configurations.
+--
+-- 'nextToken', 'listQueryLoggingConfigs_nextToken' - (Optional) If the current Amazon Web Services account has more than
+-- @MaxResults@ query logging configurations, use @NextToken@ to get the
+-- second and subsequent pages of results.
+--
+-- For the first @ListQueryLoggingConfigs@ request, omit this value.
+--
+-- For the second and subsequent requests, get the value of @NextToken@
+-- from the previous response and specify that value for @NextToken@ in the
+-- request.
 newListQueryLoggingConfigs ::
   ListQueryLoggingConfigs
 newListQueryLoggingConfigs =
   ListQueryLoggingConfigs'
     { hostedZoneId =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
 
 -- | (Optional) If you want to list the query logging configuration that is
@@ -145,18 +145,6 @@ newListQueryLoggingConfigs =
 -- Amazon Web Services account.
 listQueryLoggingConfigs_hostedZoneId :: Lens.Lens' ListQueryLoggingConfigs (Prelude.Maybe ResourceId)
 listQueryLoggingConfigs_hostedZoneId = Lens.lens (\ListQueryLoggingConfigs' {hostedZoneId} -> hostedZoneId) (\s@ListQueryLoggingConfigs' {} a -> s {hostedZoneId = a} :: ListQueryLoggingConfigs)
-
--- | (Optional) If the current Amazon Web Services account has more than
--- @MaxResults@ query logging configurations, use @NextToken@ to get the
--- second and subsequent pages of results.
---
--- For the first @ListQueryLoggingConfigs@ request, omit this value.
---
--- For the second and subsequent requests, get the value of @NextToken@
--- from the previous response and specify that value for @NextToken@ in the
--- request.
-listQueryLoggingConfigs_nextToken :: Lens.Lens' ListQueryLoggingConfigs (Prelude.Maybe Prelude.Text)
-listQueryLoggingConfigs_nextToken = Lens.lens (\ListQueryLoggingConfigs' {nextToken} -> nextToken) (\s@ListQueryLoggingConfigs' {} a -> s {nextToken = a} :: ListQueryLoggingConfigs)
 
 -- | (Optional) The maximum number of query logging configurations that you
 -- want Amazon Route 53 to return in response to the current request. If
@@ -169,6 +157,18 @@ listQueryLoggingConfigs_nextToken = Lens.lens (\ListQueryLoggingConfigs' {nextTo
 -- 100 configurations.
 listQueryLoggingConfigs_maxResults :: Lens.Lens' ListQueryLoggingConfigs (Prelude.Maybe Prelude.Text)
 listQueryLoggingConfigs_maxResults = Lens.lens (\ListQueryLoggingConfigs' {maxResults} -> maxResults) (\s@ListQueryLoggingConfigs' {} a -> s {maxResults = a} :: ListQueryLoggingConfigs)
+
+-- | (Optional) If the current Amazon Web Services account has more than
+-- @MaxResults@ query logging configurations, use @NextToken@ to get the
+-- second and subsequent pages of results.
+--
+-- For the first @ListQueryLoggingConfigs@ request, omit this value.
+--
+-- For the second and subsequent requests, get the value of @NextToken@
+-- from the previous response and specify that value for @NextToken@ in the
+-- request.
+listQueryLoggingConfigs_nextToken :: Lens.Lens' ListQueryLoggingConfigs (Prelude.Maybe Prelude.Text)
+listQueryLoggingConfigs_nextToken = Lens.lens (\ListQueryLoggingConfigs' {nextToken} -> nextToken) (\s@ListQueryLoggingConfigs' {} a -> s {nextToken = a} :: ListQueryLoggingConfigs)
 
 instance Core.AWSPager ListQueryLoggingConfigs where
   page rq rs
@@ -212,14 +212,14 @@ instance Core.AWSRequest ListQueryLoggingConfigs where
 instance Prelude.Hashable ListQueryLoggingConfigs where
   hashWithSalt _salt ListQueryLoggingConfigs' {..} =
     _salt `Prelude.hashWithSalt` hostedZoneId
-      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListQueryLoggingConfigs where
   rnf ListQueryLoggingConfigs' {..} =
     Prelude.rnf hostedZoneId
-      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListQueryLoggingConfigs where
   toHeaders = Prelude.const Prelude.mempty
@@ -232,8 +232,8 @@ instance Data.ToQuery ListQueryLoggingConfigs where
   toQuery ListQueryLoggingConfigs' {..} =
     Prelude.mconcat
       [ "hostedzoneid" Data.=: hostedZoneId,
-        "nexttoken" Data.=: nextToken,
-        "maxresults" Data.=: maxResults
+        "maxresults" Data.=: maxResults,
+        "nexttoken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListQueryLoggingConfigsResponse' smart constructor.

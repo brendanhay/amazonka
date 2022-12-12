@@ -34,21 +34,21 @@ import Amazonka.Rekognition.Types.DatasetStatusMessageCode
 --
 -- /See:/ 'newDatasetDescription' smart constructor.
 data DatasetDescription = DatasetDescription'
-  { -- | The status message code for the dataset operation. If a service error
-    -- occurs, try the API call again later. If a client error occurs, check
-    -- the input parameters to the dataset API call that failed.
-    statusMessageCode :: Prelude.Maybe DatasetStatusMessageCode,
+  { -- | The Unix timestamp for the time and date that the dataset was created.
+    creationTimestamp :: Prelude.Maybe Data.POSIX,
+    -- | The status message code for the dataset.
+    datasetStats :: Prelude.Maybe DatasetStats,
     -- | The Unix timestamp for the date and time that the dataset was last
     -- updated.
     lastUpdatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The status of the dataset.
     status :: Prelude.Maybe DatasetStatus,
-    -- | The status message code for the dataset.
-    datasetStats :: Prelude.Maybe DatasetStats,
-    -- | The Unix timestamp for the time and date that the dataset was created.
-    creationTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The status message for the dataset.
-    statusMessage :: Prelude.Maybe Prelude.Text
+    statusMessage :: Prelude.Maybe Prelude.Text,
+    -- | The status message code for the dataset operation. If a service error
+    -- occurs, try the API call again later. If a client error occurs, check
+    -- the input parameters to the dataset API call that failed.
+    statusMessageCode :: Prelude.Maybe DatasetStatusMessageCode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,38 +60,40 @@ data DatasetDescription = DatasetDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statusMessageCode', 'datasetDescription_statusMessageCode' - The status message code for the dataset operation. If a service error
--- occurs, try the API call again later. If a client error occurs, check
--- the input parameters to the dataset API call that failed.
+-- 'creationTimestamp', 'datasetDescription_creationTimestamp' - The Unix timestamp for the time and date that the dataset was created.
+--
+-- 'datasetStats', 'datasetDescription_datasetStats' - The status message code for the dataset.
 --
 -- 'lastUpdatedTimestamp', 'datasetDescription_lastUpdatedTimestamp' - The Unix timestamp for the date and time that the dataset was last
 -- updated.
 --
 -- 'status', 'datasetDescription_status' - The status of the dataset.
 --
--- 'datasetStats', 'datasetDescription_datasetStats' - The status message code for the dataset.
---
--- 'creationTimestamp', 'datasetDescription_creationTimestamp' - The Unix timestamp for the time and date that the dataset was created.
---
 -- 'statusMessage', 'datasetDescription_statusMessage' - The status message for the dataset.
+--
+-- 'statusMessageCode', 'datasetDescription_statusMessageCode' - The status message code for the dataset operation. If a service error
+-- occurs, try the API call again later. If a client error occurs, check
+-- the input parameters to the dataset API call that failed.
 newDatasetDescription ::
   DatasetDescription
 newDatasetDescription =
   DatasetDescription'
-    { statusMessageCode =
+    { creationTimestamp =
         Prelude.Nothing,
+      datasetStats = Prelude.Nothing,
       lastUpdatedTimestamp = Prelude.Nothing,
       status = Prelude.Nothing,
-      datasetStats = Prelude.Nothing,
-      creationTimestamp = Prelude.Nothing,
-      statusMessage = Prelude.Nothing
+      statusMessage = Prelude.Nothing,
+      statusMessageCode = Prelude.Nothing
     }
 
--- | The status message code for the dataset operation. If a service error
--- occurs, try the API call again later. If a client error occurs, check
--- the input parameters to the dataset API call that failed.
-datasetDescription_statusMessageCode :: Lens.Lens' DatasetDescription (Prelude.Maybe DatasetStatusMessageCode)
-datasetDescription_statusMessageCode = Lens.lens (\DatasetDescription' {statusMessageCode} -> statusMessageCode) (\s@DatasetDescription' {} a -> s {statusMessageCode = a} :: DatasetDescription)
+-- | The Unix timestamp for the time and date that the dataset was created.
+datasetDescription_creationTimestamp :: Lens.Lens' DatasetDescription (Prelude.Maybe Prelude.UTCTime)
+datasetDescription_creationTimestamp = Lens.lens (\DatasetDescription' {creationTimestamp} -> creationTimestamp) (\s@DatasetDescription' {} a -> s {creationTimestamp = a} :: DatasetDescription) Prelude.. Lens.mapping Data._Time
+
+-- | The status message code for the dataset.
+datasetDescription_datasetStats :: Lens.Lens' DatasetDescription (Prelude.Maybe DatasetStats)
+datasetDescription_datasetStats = Lens.lens (\DatasetDescription' {datasetStats} -> datasetStats) (\s@DatasetDescription' {} a -> s {datasetStats = a} :: DatasetDescription)
 
 -- | The Unix timestamp for the date and time that the dataset was last
 -- updated.
@@ -102,17 +104,15 @@ datasetDescription_lastUpdatedTimestamp = Lens.lens (\DatasetDescription' {lastU
 datasetDescription_status :: Lens.Lens' DatasetDescription (Prelude.Maybe DatasetStatus)
 datasetDescription_status = Lens.lens (\DatasetDescription' {status} -> status) (\s@DatasetDescription' {} a -> s {status = a} :: DatasetDescription)
 
--- | The status message code for the dataset.
-datasetDescription_datasetStats :: Lens.Lens' DatasetDescription (Prelude.Maybe DatasetStats)
-datasetDescription_datasetStats = Lens.lens (\DatasetDescription' {datasetStats} -> datasetStats) (\s@DatasetDescription' {} a -> s {datasetStats = a} :: DatasetDescription)
-
--- | The Unix timestamp for the time and date that the dataset was created.
-datasetDescription_creationTimestamp :: Lens.Lens' DatasetDescription (Prelude.Maybe Prelude.UTCTime)
-datasetDescription_creationTimestamp = Lens.lens (\DatasetDescription' {creationTimestamp} -> creationTimestamp) (\s@DatasetDescription' {} a -> s {creationTimestamp = a} :: DatasetDescription) Prelude.. Lens.mapping Data._Time
-
 -- | The status message for the dataset.
 datasetDescription_statusMessage :: Lens.Lens' DatasetDescription (Prelude.Maybe Prelude.Text)
 datasetDescription_statusMessage = Lens.lens (\DatasetDescription' {statusMessage} -> statusMessage) (\s@DatasetDescription' {} a -> s {statusMessage = a} :: DatasetDescription)
+
+-- | The status message code for the dataset operation. If a service error
+-- occurs, try the API call again later. If a client error occurs, check
+-- the input parameters to the dataset API call that failed.
+datasetDescription_statusMessageCode :: Lens.Lens' DatasetDescription (Prelude.Maybe DatasetStatusMessageCode)
+datasetDescription_statusMessageCode = Lens.lens (\DatasetDescription' {statusMessageCode} -> statusMessageCode) (\s@DatasetDescription' {} a -> s {statusMessageCode = a} :: DatasetDescription)
 
 instance Data.FromJSON DatasetDescription where
   parseJSON =
@@ -120,28 +120,28 @@ instance Data.FromJSON DatasetDescription where
       "DatasetDescription"
       ( \x ->
           DatasetDescription'
-            Prelude.<$> (x Data..:? "StatusMessageCode")
+            Prelude.<$> (x Data..:? "CreationTimestamp")
+            Prelude.<*> (x Data..:? "DatasetStats")
             Prelude.<*> (x Data..:? "LastUpdatedTimestamp")
             Prelude.<*> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "DatasetStats")
-            Prelude.<*> (x Data..:? "CreationTimestamp")
             Prelude.<*> (x Data..:? "StatusMessage")
+            Prelude.<*> (x Data..:? "StatusMessageCode")
       )
 
 instance Prelude.Hashable DatasetDescription where
   hashWithSalt _salt DatasetDescription' {..} =
-    _salt `Prelude.hashWithSalt` statusMessageCode
+    _salt `Prelude.hashWithSalt` creationTimestamp
+      `Prelude.hashWithSalt` datasetStats
       `Prelude.hashWithSalt` lastUpdatedTimestamp
       `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` datasetStats
-      `Prelude.hashWithSalt` creationTimestamp
       `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` statusMessageCode
 
 instance Prelude.NFData DatasetDescription where
   rnf DatasetDescription' {..} =
-    Prelude.rnf statusMessageCode
+    Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf datasetStats
       `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf datasetStats
-      `Prelude.seq` Prelude.rnf creationTimestamp
       `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf statusMessageCode

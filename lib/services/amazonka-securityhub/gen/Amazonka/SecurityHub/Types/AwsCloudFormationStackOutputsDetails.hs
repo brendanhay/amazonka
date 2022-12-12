@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsCloudFormationStackOutputsDetails' smart constructor.
 data AwsCloudFormationStackOutputsDetails = AwsCloudFormationStackOutputsDetails'
-  { -- | The key associated with the output.
-    outputKey :: Prelude.Maybe Prelude.Text,
-    -- | A user-defined description associated with the output.
+  { -- | A user-defined description associated with the output.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The key associated with the output.
+    outputKey :: Prelude.Maybe Prelude.Text,
     -- | The value associated with the output.
     outputValue :: Prelude.Maybe Prelude.Text
   }
@@ -45,28 +45,28 @@ data AwsCloudFormationStackOutputsDetails = AwsCloudFormationStackOutputsDetails
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'outputKey', 'awsCloudFormationStackOutputsDetails_outputKey' - The key associated with the output.
---
 -- 'description', 'awsCloudFormationStackOutputsDetails_description' - A user-defined description associated with the output.
+--
+-- 'outputKey', 'awsCloudFormationStackOutputsDetails_outputKey' - The key associated with the output.
 --
 -- 'outputValue', 'awsCloudFormationStackOutputsDetails_outputValue' - The value associated with the output.
 newAwsCloudFormationStackOutputsDetails ::
   AwsCloudFormationStackOutputsDetails
 newAwsCloudFormationStackOutputsDetails =
   AwsCloudFormationStackOutputsDetails'
-    { outputKey =
+    { description =
         Prelude.Nothing,
-      description = Prelude.Nothing,
+      outputKey = Prelude.Nothing,
       outputValue = Prelude.Nothing
     }
-
--- | The key associated with the output.
-awsCloudFormationStackOutputsDetails_outputKey :: Lens.Lens' AwsCloudFormationStackOutputsDetails (Prelude.Maybe Prelude.Text)
-awsCloudFormationStackOutputsDetails_outputKey = Lens.lens (\AwsCloudFormationStackOutputsDetails' {outputKey} -> outputKey) (\s@AwsCloudFormationStackOutputsDetails' {} a -> s {outputKey = a} :: AwsCloudFormationStackOutputsDetails)
 
 -- | A user-defined description associated with the output.
 awsCloudFormationStackOutputsDetails_description :: Lens.Lens' AwsCloudFormationStackOutputsDetails (Prelude.Maybe Prelude.Text)
 awsCloudFormationStackOutputsDetails_description = Lens.lens (\AwsCloudFormationStackOutputsDetails' {description} -> description) (\s@AwsCloudFormationStackOutputsDetails' {} a -> s {description = a} :: AwsCloudFormationStackOutputsDetails)
+
+-- | The key associated with the output.
+awsCloudFormationStackOutputsDetails_outputKey :: Lens.Lens' AwsCloudFormationStackOutputsDetails (Prelude.Maybe Prelude.Text)
+awsCloudFormationStackOutputsDetails_outputKey = Lens.lens (\AwsCloudFormationStackOutputsDetails' {outputKey} -> outputKey) (\s@AwsCloudFormationStackOutputsDetails' {} a -> s {outputKey = a} :: AwsCloudFormationStackOutputsDetails)
 
 -- | The value associated with the output.
 awsCloudFormationStackOutputsDetails_outputValue :: Lens.Lens' AwsCloudFormationStackOutputsDetails (Prelude.Maybe Prelude.Text)
@@ -81,8 +81,8 @@ instance
       "AwsCloudFormationStackOutputsDetails"
       ( \x ->
           AwsCloudFormationStackOutputsDetails'
-            Prelude.<$> (x Data..:? "OutputKey")
-            Prelude.<*> (x Data..:? "Description")
+            Prelude.<$> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "OutputKey")
             Prelude.<*> (x Data..:? "OutputValue")
       )
 
@@ -93,8 +93,8 @@ instance
   hashWithSalt
     _salt
     AwsCloudFormationStackOutputsDetails' {..} =
-      _salt `Prelude.hashWithSalt` outputKey
-        `Prelude.hashWithSalt` description
+      _salt `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` outputKey
         `Prelude.hashWithSalt` outputValue
 
 instance
@@ -102,8 +102,8 @@ instance
     AwsCloudFormationStackOutputsDetails
   where
   rnf AwsCloudFormationStackOutputsDetails' {..} =
-    Prelude.rnf outputKey
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf outputKey
       `Prelude.seq` Prelude.rnf outputValue
 
 instance
@@ -113,8 +113,8 @@ instance
   toJSON AwsCloudFormationStackOutputsDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("OutputKey" Data..=) Prelude.<$> outputKey,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("OutputKey" Data..=) Prelude.<$> outputKey,
             ("OutputValue" Data..=) Prelude.<$> outputValue
           ]
       )

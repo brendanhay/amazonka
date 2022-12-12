@@ -30,8 +30,8 @@ module Amazonka.AuditManager.Lens
     -- ** BatchCreateDelegationByAssessment
     batchCreateDelegationByAssessment_createDelegationRequests,
     batchCreateDelegationByAssessment_assessmentId,
-    batchCreateDelegationByAssessmentResponse_errors,
     batchCreateDelegationByAssessmentResponse_delegations,
+    batchCreateDelegationByAssessmentResponse_errors,
     batchCreateDelegationByAssessmentResponse_httpStatus,
 
     -- ** BatchDeleteDelegationByAssessment
@@ -57,8 +57,8 @@ module Amazonka.AuditManager.Lens
     batchImportEvidenceToAssessmentControlResponse_httpStatus,
 
     -- ** CreateAssessment
-    createAssessment_tags,
     createAssessment_description,
+    createAssessment_tags,
     createAssessment_name,
     createAssessment_assessmentReportsDestination,
     createAssessment_scope,
@@ -68,9 +68,9 @@ module Amazonka.AuditManager.Lens
     createAssessmentResponse_httpStatus,
 
     -- ** CreateAssessmentFramework
-    createAssessmentFramework_tags,
-    createAssessmentFramework_description,
     createAssessmentFramework_complianceType,
+    createAssessmentFramework_description,
+    createAssessmentFramework_tags,
     createAssessmentFramework_name,
     createAssessmentFramework_controlSets,
     createAssessmentFrameworkResponse_framework,
@@ -85,10 +85,10 @@ module Amazonka.AuditManager.Lens
     createAssessmentReportResponse_httpStatus,
 
     -- ** CreateControl
-    createControl_tags,
     createControl_actionPlanInstructions,
-    createControl_description,
     createControl_actionPlanTitle,
+    createControl_description,
+    createControl_tags,
     createControl_testingInformation,
     createControl_name,
     createControl_controlMappingSources,
@@ -153,12 +153,12 @@ module Amazonka.AuditManager.Lens
 
     -- ** GetChangeLogs
     getChangeLogs_controlId,
-    getChangeLogs_nextToken,
-    getChangeLogs_maxResults,
     getChangeLogs_controlSetId,
+    getChangeLogs_maxResults,
+    getChangeLogs_nextToken,
     getChangeLogs_assessmentId,
-    getChangeLogsResponse_nextToken,
     getChangeLogsResponse_changeLogs,
+    getChangeLogsResponse_nextToken,
     getChangeLogsResponse_httpStatus,
 
     -- ** GetControl
@@ -167,10 +167,10 @@ module Amazonka.AuditManager.Lens
     getControlResponse_httpStatus,
 
     -- ** GetDelegations
-    getDelegations_nextToken,
     getDelegations_maxResults,
-    getDelegationsResponse_nextToken,
+    getDelegations_nextToken,
     getDelegationsResponse_delegations,
+    getDelegationsResponse_nextToken,
     getDelegationsResponse_httpStatus,
 
     -- ** GetEvidence
@@ -182,13 +182,13 @@ module Amazonka.AuditManager.Lens
     getEvidenceResponse_httpStatus,
 
     -- ** GetEvidenceByEvidenceFolder
-    getEvidenceByEvidenceFolder_nextToken,
     getEvidenceByEvidenceFolder_maxResults,
+    getEvidenceByEvidenceFolder_nextToken,
     getEvidenceByEvidenceFolder_assessmentId,
     getEvidenceByEvidenceFolder_controlSetId,
     getEvidenceByEvidenceFolder_evidenceFolderId,
-    getEvidenceByEvidenceFolderResponse_nextToken,
     getEvidenceByEvidenceFolderResponse_evidence,
+    getEvidenceByEvidenceFolderResponse_nextToken,
     getEvidenceByEvidenceFolderResponse_httpStatus,
 
     -- ** GetEvidenceFolder
@@ -199,16 +199,16 @@ module Amazonka.AuditManager.Lens
     getEvidenceFolderResponse_httpStatus,
 
     -- ** GetEvidenceFoldersByAssessment
-    getEvidenceFoldersByAssessment_nextToken,
     getEvidenceFoldersByAssessment_maxResults,
+    getEvidenceFoldersByAssessment_nextToken,
     getEvidenceFoldersByAssessment_assessmentId,
     getEvidenceFoldersByAssessmentResponse_evidenceFolders,
     getEvidenceFoldersByAssessmentResponse_nextToken,
     getEvidenceFoldersByAssessmentResponse_httpStatus,
 
     -- ** GetEvidenceFoldersByAssessmentControl
-    getEvidenceFoldersByAssessmentControl_nextToken,
     getEvidenceFoldersByAssessmentControl_maxResults,
+    getEvidenceFoldersByAssessmentControl_nextToken,
     getEvidenceFoldersByAssessmentControl_assessmentId,
     getEvidenceFoldersByAssessmentControl_controlSetId,
     getEvidenceFoldersByAssessmentControl_controlId,
@@ -240,8 +240,8 @@ module Amazonka.AuditManager.Lens
     getSettingsResponse_httpStatus,
 
     -- ** ListAssessmentControlInsightsByControlDomain
-    listAssessmentControlInsightsByControlDomain_nextToken,
     listAssessmentControlInsightsByControlDomain_maxResults,
+    listAssessmentControlInsightsByControlDomain_nextToken,
     listAssessmentControlInsightsByControlDomain_controlDomainId,
     listAssessmentControlInsightsByControlDomain_assessmentId,
     listAssessmentControlInsightsByControlDomainResponse_controlInsightsByAssessment,
@@ -249,80 +249,80 @@ module Amazonka.AuditManager.Lens
     listAssessmentControlInsightsByControlDomainResponse_httpStatus,
 
     -- ** ListAssessmentFrameworkShareRequests
-    listAssessmentFrameworkShareRequests_nextToken,
     listAssessmentFrameworkShareRequests_maxResults,
+    listAssessmentFrameworkShareRequests_nextToken,
     listAssessmentFrameworkShareRequests_requestType,
-    listAssessmentFrameworkShareRequestsResponse_nextToken,
     listAssessmentFrameworkShareRequestsResponse_assessmentFrameworkShareRequests,
+    listAssessmentFrameworkShareRequestsResponse_nextToken,
     listAssessmentFrameworkShareRequestsResponse_httpStatus,
 
     -- ** ListAssessmentFrameworks
-    listAssessmentFrameworks_nextToken,
     listAssessmentFrameworks_maxResults,
+    listAssessmentFrameworks_nextToken,
     listAssessmentFrameworks_frameworkType,
-    listAssessmentFrameworksResponse_nextToken,
     listAssessmentFrameworksResponse_frameworkMetadataList,
+    listAssessmentFrameworksResponse_nextToken,
     listAssessmentFrameworksResponse_httpStatus,
 
     -- ** ListAssessmentReports
-    listAssessmentReports_nextToken,
     listAssessmentReports_maxResults,
-    listAssessmentReportsResponse_nextToken,
+    listAssessmentReports_nextToken,
     listAssessmentReportsResponse_assessmentReports,
+    listAssessmentReportsResponse_nextToken,
     listAssessmentReportsResponse_httpStatus,
 
     -- ** ListAssessments
+    listAssessments_maxResults,
     listAssessments_nextToken,
     listAssessments_status,
-    listAssessments_maxResults,
-    listAssessmentsResponse_nextToken,
     listAssessmentsResponse_assessmentMetadata,
+    listAssessmentsResponse_nextToken,
     listAssessmentsResponse_httpStatus,
 
     -- ** ListControlDomainInsights
-    listControlDomainInsights_nextToken,
     listControlDomainInsights_maxResults,
-    listControlDomainInsightsResponse_nextToken,
+    listControlDomainInsights_nextToken,
     listControlDomainInsightsResponse_controlDomainInsights,
+    listControlDomainInsightsResponse_nextToken,
     listControlDomainInsightsResponse_httpStatus,
 
     -- ** ListControlDomainInsightsByAssessment
-    listControlDomainInsightsByAssessment_nextToken,
     listControlDomainInsightsByAssessment_maxResults,
+    listControlDomainInsightsByAssessment_nextToken,
     listControlDomainInsightsByAssessment_assessmentId,
-    listControlDomainInsightsByAssessmentResponse_nextToken,
     listControlDomainInsightsByAssessmentResponse_controlDomainInsights,
+    listControlDomainInsightsByAssessmentResponse_nextToken,
     listControlDomainInsightsByAssessmentResponse_httpStatus,
 
     -- ** ListControlInsightsByControlDomain
-    listControlInsightsByControlDomain_nextToken,
     listControlInsightsByControlDomain_maxResults,
+    listControlInsightsByControlDomain_nextToken,
     listControlInsightsByControlDomain_controlDomainId,
-    listControlInsightsByControlDomainResponse_nextToken,
     listControlInsightsByControlDomainResponse_controlInsightsMetadata,
+    listControlInsightsByControlDomainResponse_nextToken,
     listControlInsightsByControlDomainResponse_httpStatus,
 
     -- ** ListControls
-    listControls_nextToken,
     listControls_maxResults,
+    listControls_nextToken,
     listControls_controlType,
-    listControlsResponse_nextToken,
     listControlsResponse_controlMetadataList,
+    listControlsResponse_nextToken,
     listControlsResponse_httpStatus,
 
     -- ** ListKeywordsForDataSource
-    listKeywordsForDataSource_nextToken,
     listKeywordsForDataSource_maxResults,
+    listKeywordsForDataSource_nextToken,
     listKeywordsForDataSource_source,
-    listKeywordsForDataSourceResponse_nextToken,
     listKeywordsForDataSourceResponse_keywords,
+    listKeywordsForDataSourceResponse_nextToken,
     listKeywordsForDataSourceResponse_httpStatus,
 
     -- ** ListNotifications
-    listNotifications_nextToken,
     listNotifications_maxResults,
-    listNotificationsResponse_notifications,
+    listNotifications_nextToken,
     listNotificationsResponse_nextToken,
+    listNotificationsResponse_notifications,
     listNotificationsResponse_httpStatus,
 
     -- ** ListTagsForResource
@@ -331,8 +331,8 @@ module Amazonka.AuditManager.Lens
     listTagsForResourceResponse_httpStatus,
 
     -- ** RegisterAccount
-    registerAccount_kmsKey,
     registerAccount_delegatedAdminAccount,
+    registerAccount_kmsKey,
     registerAccountResponse_status,
     registerAccountResponse_httpStatus,
 
@@ -361,8 +361,8 @@ module Amazonka.AuditManager.Lens
     untagResourceResponse_httpStatus,
 
     -- ** UpdateAssessment
-    updateAssessment_assessmentName,
     updateAssessment_assessmentDescription,
+    updateAssessment_assessmentName,
     updateAssessment_assessmentReportsDestination,
     updateAssessment_roles,
     updateAssessment_assessmentId,
@@ -371,8 +371,8 @@ module Amazonka.AuditManager.Lens
     updateAssessmentResponse_httpStatus,
 
     -- ** UpdateAssessmentControl
-    updateAssessmentControl_controlStatus,
     updateAssessmentControl_commentBody,
+    updateAssessmentControl_controlStatus,
     updateAssessmentControl_assessmentId,
     updateAssessmentControl_controlSetId,
     updateAssessmentControl_controlId,
@@ -388,8 +388,8 @@ module Amazonka.AuditManager.Lens
     updateAssessmentControlSetStatusResponse_httpStatus,
 
     -- ** UpdateAssessmentFramework
-    updateAssessmentFramework_description,
     updateAssessmentFramework_complianceType,
+    updateAssessmentFramework_description,
     updateAssessmentFramework_frameworkId,
     updateAssessmentFramework_name,
     updateAssessmentFramework_controlSets,
@@ -411,8 +411,8 @@ module Amazonka.AuditManager.Lens
 
     -- ** UpdateControl
     updateControl_actionPlanInstructions,
-    updateControl_description,
     updateControl_actionPlanTitle,
+    updateControl_description,
     updateControl_testingInformation,
     updateControl_controlId,
     updateControl_name,
@@ -421,165 +421,165 @@ module Amazonka.AuditManager.Lens
     updateControlResponse_httpStatus,
 
     -- ** UpdateSettings
-    updateSettings_defaultProcessOwners,
-    updateSettings_snsTopic,
-    updateSettings_kmsKey,
     updateSettings_defaultAssessmentReportsDestination,
+    updateSettings_defaultProcessOwners,
     updateSettings_evidenceFinderEnabled,
+    updateSettings_kmsKey,
+    updateSettings_snsTopic,
     updateSettingsResponse_settings,
     updateSettingsResponse_httpStatus,
 
     -- ** ValidateAssessmentReportIntegrity
     validateAssessmentReportIntegrity_s3RelativePath,
-    validateAssessmentReportIntegrityResponse_validationErrors,
-    validateAssessmentReportIntegrityResponse_signatureValid,
     validateAssessmentReportIntegrityResponse_signatureAlgorithm,
-    validateAssessmentReportIntegrityResponse_signatureKeyId,
     validateAssessmentReportIntegrityResponse_signatureDateTime,
+    validateAssessmentReportIntegrityResponse_signatureKeyId,
+    validateAssessmentReportIntegrityResponse_signatureValid,
+    validateAssessmentReportIntegrityResponse_validationErrors,
     validateAssessmentReportIntegrityResponse_httpStatus,
 
     -- * Types
 
     -- ** AWSAccount
-    aWSAccount_name,
-    aWSAccount_id,
     aWSAccount_emailAddress,
+    aWSAccount_id,
+    aWSAccount_name,
 
     -- ** AWSService
     aWSService_serviceName,
 
     -- ** Assessment
-    assessment_tags,
-    assessment_metadata,
-    assessment_awsAccount,
     assessment_arn,
+    assessment_awsAccount,
     assessment_framework,
+    assessment_metadata,
+    assessment_tags,
 
     -- ** AssessmentControl
-    assessmentControl_name,
-    assessmentControl_evidenceCount,
-    assessmentControl_response,
     assessmentControl_assessmentReportEvidenceCount,
-    assessmentControl_status,
-    assessmentControl_description,
-    assessmentControl_id,
     assessmentControl_comments,
+    assessmentControl_description,
+    assessmentControl_evidenceCount,
     assessmentControl_evidenceSources,
+    assessmentControl_id,
+    assessmentControl_name,
+    assessmentControl_response,
+    assessmentControl_status,
 
     -- ** AssessmentControlSet
-    assessmentControlSet_systemEvidenceCount,
-    assessmentControlSet_status,
-    assessmentControlSet_description,
-    assessmentControlSet_id,
     assessmentControlSet_controls,
     assessmentControlSet_delegations,
+    assessmentControlSet_description,
+    assessmentControlSet_id,
     assessmentControlSet_manualEvidenceCount,
     assessmentControlSet_roles,
+    assessmentControlSet_status,
+    assessmentControlSet_systemEvidenceCount,
 
     -- ** AssessmentEvidenceFolder
-    assessmentEvidenceFolder_controlId,
-    assessmentEvidenceFolder_author,
-    assessmentEvidenceFolder_name,
-    assessmentEvidenceFolder_evidenceByTypeComplianceCheckIssuesCount,
-    assessmentEvidenceFolder_totalEvidence,
     assessmentEvidenceFolder_assessmentId,
-    assessmentEvidenceFolder_evidenceResourcesIncludedCount,
+    assessmentEvidenceFolder_assessmentReportSelectionCount,
+    assessmentEvidenceFolder_author,
+    assessmentEvidenceFolder_controlId,
+    assessmentEvidenceFolder_controlName,
+    assessmentEvidenceFolder_controlSetId,
+    assessmentEvidenceFolder_dataSource,
     assessmentEvidenceFolder_date,
     assessmentEvidenceFolder_evidenceAwsServiceSourceCount,
+    assessmentEvidenceFolder_evidenceByTypeComplianceCheckCount,
+    assessmentEvidenceFolder_evidenceByTypeComplianceCheckIssuesCount,
+    assessmentEvidenceFolder_evidenceByTypeConfigurationDataCount,
     assessmentEvidenceFolder_evidenceByTypeManualCount,
     assessmentEvidenceFolder_evidenceByTypeUserActivityCount,
+    assessmentEvidenceFolder_evidenceResourcesIncludedCount,
     assessmentEvidenceFolder_id,
-    assessmentEvidenceFolder_assessmentReportSelectionCount,
-    assessmentEvidenceFolder_controlSetId,
-    assessmentEvidenceFolder_evidenceByTypeComplianceCheckCount,
-    assessmentEvidenceFolder_dataSource,
-    assessmentEvidenceFolder_controlName,
-    assessmentEvidenceFolder_evidenceByTypeConfigurationDataCount,
+    assessmentEvidenceFolder_name,
+    assessmentEvidenceFolder_totalEvidence,
 
     -- ** AssessmentFramework
-    assessmentFramework_metadata,
     assessmentFramework_arn,
-    assessmentFramework_id,
     assessmentFramework_controlSets,
+    assessmentFramework_id,
+    assessmentFramework_metadata,
 
     -- ** AssessmentFrameworkMetadata
-    assessmentFrameworkMetadata_controlSetsCount,
-    assessmentFrameworkMetadata_name,
-    assessmentFrameworkMetadata_type,
-    assessmentFrameworkMetadata_lastUpdatedAt,
     assessmentFrameworkMetadata_arn,
+    assessmentFrameworkMetadata_complianceType,
+    assessmentFrameworkMetadata_controlSetsCount,
+    assessmentFrameworkMetadata_controlsCount,
+    assessmentFrameworkMetadata_createdAt,
     assessmentFrameworkMetadata_description,
     assessmentFrameworkMetadata_id,
+    assessmentFrameworkMetadata_lastUpdatedAt,
     assessmentFrameworkMetadata_logo,
-    assessmentFrameworkMetadata_controlsCount,
-    assessmentFrameworkMetadata_complianceType,
-    assessmentFrameworkMetadata_createdAt,
+    assessmentFrameworkMetadata_name,
+    assessmentFrameworkMetadata_type,
 
     -- ** AssessmentFrameworkShareRequest
+    assessmentFrameworkShareRequest_comment,
+    assessmentFrameworkShareRequest_complianceType,
+    assessmentFrameworkShareRequest_creationTime,
     assessmentFrameworkShareRequest_customControlsCount,
     assessmentFrameworkShareRequest_destinationAccount,
+    assessmentFrameworkShareRequest_destinationRegion,
     assessmentFrameworkShareRequest_expirationTime,
     assessmentFrameworkShareRequest_frameworkDescription,
-    assessmentFrameworkShareRequest_status,
-    assessmentFrameworkShareRequest_id,
-    assessmentFrameworkShareRequest_frameworkName,
     assessmentFrameworkShareRequest_frameworkId,
+    assessmentFrameworkShareRequest_frameworkName,
+    assessmentFrameworkShareRequest_id,
     assessmentFrameworkShareRequest_lastUpdated,
-    assessmentFrameworkShareRequest_comment,
-    assessmentFrameworkShareRequest_creationTime,
-    assessmentFrameworkShareRequest_destinationRegion,
-    assessmentFrameworkShareRequest_complianceType,
-    assessmentFrameworkShareRequest_standardControlsCount,
     assessmentFrameworkShareRequest_sourceAccount,
+    assessmentFrameworkShareRequest_standardControlsCount,
+    assessmentFrameworkShareRequest_status,
 
     -- ** AssessmentMetadata
-    assessmentMetadata_name,
-    assessmentMetadata_status,
+    assessmentMetadata_assessmentReportsDestination,
+    assessmentMetadata_complianceType,
+    assessmentMetadata_creationTime,
+    assessmentMetadata_delegations,
     assessmentMetadata_description,
     assessmentMetadata_id,
     assessmentMetadata_lastUpdated,
-    assessmentMetadata_scope,
-    assessmentMetadata_creationTime,
-    assessmentMetadata_delegations,
-    assessmentMetadata_complianceType,
-    assessmentMetadata_assessmentReportsDestination,
+    assessmentMetadata_name,
     assessmentMetadata_roles,
+    assessmentMetadata_scope,
+    assessmentMetadata_status,
 
     -- ** AssessmentMetadataItem
-    assessmentMetadataItem_name,
-    assessmentMetadataItem_status,
-    assessmentMetadataItem_id,
-    assessmentMetadataItem_lastUpdated,
+    assessmentMetadataItem_complianceType,
     assessmentMetadataItem_creationTime,
     assessmentMetadataItem_delegations,
-    assessmentMetadataItem_complianceType,
+    assessmentMetadataItem_id,
+    assessmentMetadataItem_lastUpdated,
+    assessmentMetadataItem_name,
     assessmentMetadataItem_roles,
+    assessmentMetadataItem_status,
 
     -- ** AssessmentReport
-    assessmentReport_awsAccountId,
-    assessmentReport_author,
-    assessmentReport_name,
     assessmentReport_assessmentId,
     assessmentReport_assessmentName,
-    assessmentReport_status,
+    assessmentReport_author,
+    assessmentReport_awsAccountId,
+    assessmentReport_creationTime,
     assessmentReport_description,
     assessmentReport_id,
-    assessmentReport_creationTime,
+    assessmentReport_name,
+    assessmentReport_status,
 
     -- ** AssessmentReportEvidenceError
+    assessmentReportEvidenceError_errorCode,
     assessmentReportEvidenceError_errorMessage,
     assessmentReportEvidenceError_evidenceId,
-    assessmentReportEvidenceError_errorCode,
 
     -- ** AssessmentReportMetadata
-    assessmentReportMetadata_author,
-    assessmentReportMetadata_name,
     assessmentReportMetadata_assessmentId,
     assessmentReportMetadata_assessmentName,
-    assessmentReportMetadata_status,
+    assessmentReportMetadata_author,
+    assessmentReportMetadata_creationTime,
     assessmentReportMetadata_description,
     assessmentReportMetadata_id,
-    assessmentReportMetadata_creationTime,
+    assessmentReportMetadata_name,
+    assessmentReportMetadata_status,
 
     -- ** AssessmentReportsDestination
     assessmentReportsDestination_destination,
@@ -587,91 +587,91 @@ module Amazonka.AuditManager.Lens
 
     -- ** BatchCreateDelegationByAssessmentError
     batchCreateDelegationByAssessmentError_createDelegationRequest,
-    batchCreateDelegationByAssessmentError_errorMessage,
     batchCreateDelegationByAssessmentError_errorCode,
+    batchCreateDelegationByAssessmentError_errorMessage,
 
     -- ** BatchDeleteDelegationByAssessmentError
-    batchDeleteDelegationByAssessmentError_errorMessage,
     batchDeleteDelegationByAssessmentError_delegationId,
     batchDeleteDelegationByAssessmentError_errorCode,
+    batchDeleteDelegationByAssessmentError_errorMessage,
 
     -- ** BatchImportEvidenceToAssessmentControlError
-    batchImportEvidenceToAssessmentControlError_errorMessage,
     batchImportEvidenceToAssessmentControlError_errorCode,
+    batchImportEvidenceToAssessmentControlError_errorMessage,
     batchImportEvidenceToAssessmentControlError_manualEvidence,
 
     -- ** ChangeLog
     changeLog_action,
-    changeLog_objectName,
-    changeLog_createdBy,
     changeLog_createdAt,
+    changeLog_createdBy,
+    changeLog_objectName,
     changeLog_objectType,
 
     -- ** Control
-    control_tags,
-    control_name,
-    control_type,
-    control_lastUpdatedAt,
     control_actionPlanInstructions,
+    control_actionPlanTitle,
     control_arn,
+    control_controlMappingSources,
+    control_controlSources,
+    control_createdAt,
+    control_createdBy,
     control_description,
     control_id,
-    control_actionPlanTitle,
-    control_controlMappingSources,
-    control_createdBy,
-    control_createdAt,
+    control_lastUpdatedAt,
     control_lastUpdatedBy,
-    control_controlSources,
+    control_name,
+    control_tags,
     control_testingInformation,
+    control_type,
 
     -- ** ControlComment
-    controlComment_postedDate,
     controlComment_authorName,
     controlComment_commentBody,
+    controlComment_postedDate,
 
     -- ** ControlDomainInsights
+    controlDomainInsights_controlsCountByNoncompliantEvidence,
     controlDomainInsights_evidenceInsights,
-    controlDomainInsights_name,
-    controlDomainInsights_totalControlsCount,
     controlDomainInsights_id,
     controlDomainInsights_lastUpdated,
-    controlDomainInsights_controlsCountByNoncompliantEvidence,
+    controlDomainInsights_name,
+    controlDomainInsights_totalControlsCount,
 
     -- ** ControlInsightsMetadataByAssessmentItem
+    controlInsightsMetadataByAssessmentItem_controlSetName,
     controlInsightsMetadataByAssessmentItem_evidenceInsights,
-    controlInsightsMetadataByAssessmentItem_name,
     controlInsightsMetadataByAssessmentItem_id,
     controlInsightsMetadataByAssessmentItem_lastUpdated,
-    controlInsightsMetadataByAssessmentItem_controlSetName,
+    controlInsightsMetadataByAssessmentItem_name,
 
     -- ** ControlInsightsMetadataItem
     controlInsightsMetadataItem_evidenceInsights,
-    controlInsightsMetadataItem_name,
     controlInsightsMetadataItem_id,
     controlInsightsMetadataItem_lastUpdated,
+    controlInsightsMetadataItem_name,
 
     -- ** ControlMappingSource
-    controlMappingSource_sourceFrequency,
     controlMappingSource_sourceDescription,
+    controlMappingSource_sourceFrequency,
+    controlMappingSource_sourceId,
     controlMappingSource_sourceKeyword,
     controlMappingSource_sourceName,
-    controlMappingSource_sourceId,
     controlMappingSource_sourceSetUpOption,
-    controlMappingSource_troubleshootingText,
     controlMappingSource_sourceType,
+    controlMappingSource_troubleshootingText,
 
     -- ** ControlMetadata
-    controlMetadata_name,
-    controlMetadata_lastUpdatedAt,
     controlMetadata_arn,
-    controlMetadata_id,
-    controlMetadata_createdAt,
     controlMetadata_controlSources,
+    controlMetadata_createdAt,
+    controlMetadata_id,
+    controlMetadata_lastUpdatedAt,
+    controlMetadata_name,
 
     -- ** ControlSet
-    controlSet_name,
-    controlSet_id,
     controlSet_controls,
+    controlSet_id,
+    controlSet_name,
 
     -- ** CreateAssessmentFrameworkControl
     createAssessmentFrameworkControl_id,
@@ -681,64 +681,64 @@ module Amazonka.AuditManager.Lens
     createAssessmentFrameworkControlSet_name,
 
     -- ** CreateControlMappingSource
-    createControlMappingSource_sourceFrequency,
     createControlMappingSource_sourceDescription,
+    createControlMappingSource_sourceFrequency,
     createControlMappingSource_sourceKeyword,
     createControlMappingSource_sourceName,
     createControlMappingSource_sourceSetUpOption,
-    createControlMappingSource_troubleshootingText,
     createControlMappingSource_sourceType,
+    createControlMappingSource_troubleshootingText,
 
     -- ** CreateDelegationRequest
-    createDelegationRequest_roleType,
-    createDelegationRequest_roleArn,
     createDelegationRequest_comment,
     createDelegationRequest_controlSetId,
+    createDelegationRequest_roleArn,
+    createDelegationRequest_roleType,
 
     -- ** Delegation
-    delegation_roleType,
-    delegation_roleArn,
     delegation_assessmentId,
     delegation_assessmentName,
-    delegation_status,
-    delegation_id,
-    delegation_lastUpdated,
     delegation_comment,
     delegation_controlSetId,
-    delegation_creationTime,
     delegation_createdBy,
+    delegation_creationTime,
+    delegation_id,
+    delegation_lastUpdated,
+    delegation_roleArn,
+    delegation_roleType,
+    delegation_status,
 
     -- ** DelegationMetadata
-    delegationMetadata_roleArn,
     delegationMetadata_assessmentId,
     delegationMetadata_assessmentName,
-    delegationMetadata_status,
-    delegationMetadata_id,
     delegationMetadata_controlSetName,
     delegationMetadata_creationTime,
+    delegationMetadata_id,
+    delegationMetadata_roleArn,
+    delegationMetadata_status,
 
     -- ** Evidence
-    evidence_awsAccountId,
-    evidence_evidenceAwsAccountId,
-    evidence_evidenceFolderId,
-    evidence_resourcesIncluded,
-    evidence_awsOrganization,
-    evidence_time,
-    evidence_id,
-    evidence_evidenceByType,
-    evidence_complianceCheck,
-    evidence_iamId,
-    evidence_eventName,
-    evidence_dataSource,
     evidence_assessmentReportSelection,
     evidence_attributes,
+    evidence_awsAccountId,
+    evidence_awsOrganization,
+    evidence_complianceCheck,
+    evidence_dataSource,
+    evidence_eventName,
     evidence_eventSource,
+    evidence_evidenceAwsAccountId,
+    evidence_evidenceByType,
+    evidence_evidenceFolderId,
+    evidence_iamId,
+    evidence_id,
+    evidence_resourcesIncluded,
+    evidence_time,
 
     -- ** EvidenceFinderEnablement
-    evidenceFinderEnablement_eventDataStoreArn,
-    evidenceFinderEnablement_enablementStatus,
     evidenceFinderEnablement_backfillStatus,
+    evidenceFinderEnablement_enablementStatus,
     evidenceFinderEnablement_error,
+    evidenceFinderEnablement_eventDataStoreArn,
 
     -- ** EvidenceInsights
     evidenceInsights_compliantEvidenceCount,
@@ -746,43 +746,43 @@ module Amazonka.AuditManager.Lens
     evidenceInsights_noncompliantEvidenceCount,
 
     -- ** Framework
-    framework_tags,
-    framework_name,
-    framework_type,
-    framework_lastUpdatedAt,
     framework_arn,
+    framework_complianceType,
+    framework_controlSets,
+    framework_controlSources,
+    framework_createdAt,
+    framework_createdBy,
     framework_description,
     framework_id,
-    framework_logo,
-    framework_controlSets,
-    framework_complianceType,
-    framework_createdBy,
-    framework_createdAt,
+    framework_lastUpdatedAt,
     framework_lastUpdatedBy,
-    framework_controlSources,
+    framework_logo,
+    framework_name,
+    framework_tags,
+    framework_type,
 
     -- ** FrameworkMetadata
-    frameworkMetadata_name,
+    frameworkMetadata_complianceType,
     frameworkMetadata_description,
     frameworkMetadata_logo,
-    frameworkMetadata_complianceType,
+    frameworkMetadata_name,
 
     -- ** Insights
-    insights_totalAssessmentControlsCount,
-    insights_compliantEvidenceCount,
-    insights_lastUpdated,
     insights_activeAssessmentsCount,
-    insights_inconclusiveEvidenceCount,
-    insights_noncompliantEvidenceCount,
     insights_assessmentControlsCountByNoncompliantEvidence,
+    insights_compliantEvidenceCount,
+    insights_inconclusiveEvidenceCount,
+    insights_lastUpdated,
+    insights_noncompliantEvidenceCount,
+    insights_totalAssessmentControlsCount,
 
     -- ** InsightsByAssessment
-    insightsByAssessment_totalAssessmentControlsCount,
-    insightsByAssessment_compliantEvidenceCount,
-    insightsByAssessment_lastUpdated,
-    insightsByAssessment_inconclusiveEvidenceCount,
-    insightsByAssessment_noncompliantEvidenceCount,
     insightsByAssessment_assessmentControlsCountByNoncompliantEvidence,
+    insightsByAssessment_compliantEvidenceCount,
+    insightsByAssessment_inconclusiveEvidenceCount,
+    insightsByAssessment_lastUpdated,
+    insightsByAssessment_noncompliantEvidenceCount,
+    insightsByAssessment_totalAssessmentControlsCount,
 
     -- ** ManualEvidence
     manualEvidence_s3ResourcePath,
@@ -790,12 +790,12 @@ module Amazonka.AuditManager.Lens
     -- ** Notification
     notification_assessmentId,
     notification_assessmentName,
+    notification_controlSetId,
+    notification_controlSetName,
     notification_description,
+    notification_eventTime,
     notification_id,
     notification_source,
-    notification_controlSetName,
-    notification_controlSetId,
-    notification_eventTime,
 
     -- ** Resource
     resource_arn,
@@ -811,26 +811,26 @@ module Amazonka.AuditManager.Lens
     scope_awsServices,
 
     -- ** ServiceMetadata
-    serviceMetadata_name,
-    serviceMetadata_displayName,
-    serviceMetadata_description,
     serviceMetadata_category,
+    serviceMetadata_description,
+    serviceMetadata_displayName,
+    serviceMetadata_name,
 
     -- ** Settings
+    settings_defaultAssessmentReportsDestination,
     settings_defaultProcessOwners,
-    settings_snsTopic,
+    settings_evidenceFinderEnablement,
     settings_isAwsOrgEnabled,
     settings_kmsKey,
-    settings_evidenceFinderEnablement,
-    settings_defaultAssessmentReportsDestination,
+    settings_snsTopic,
 
     -- ** SourceKeyword
-    sourceKeyword_keywordValue,
     sourceKeyword_keywordInputType,
+    sourceKeyword_keywordValue,
 
     -- ** URL
-    url_link,
     url_hyperlinkName,
+    url_link,
 
     -- ** UpdateAssessmentFrameworkControlSet
     updateAssessmentFrameworkControlSet_id,

@@ -30,9 +30,9 @@ module Amazonka.Route53AutoNaming.ListServices
     newListServices,
 
     -- * Request Lenses
-    listServices_nextToken,
     listServices_filters,
     listServices_maxResults,
+    listServices_nextToken,
 
     -- * Destructuring the Response
     ListServicesResponse (..),
@@ -55,7 +55,17 @@ import Amazonka.Route53AutoNaming.Types
 
 -- | /See:/ 'newListServices' smart constructor.
 data ListServices = ListServices'
-  { -- | For the first @ListServices@ request, omit this value.
+  { -- | A complex type that contains specifications for the namespaces that you
+    -- want to list services for.
+    --
+    -- If you specify more than one filter, an operation must match all filters
+    -- to be returned by @ListServices@.
+    filters :: Prelude.Maybe [ServiceFilter],
+    -- | The maximum number of services that you want Cloud Map to return in the
+    -- response to a @ListServices@ request. If you don\'t specify a value for
+    -- @MaxResults@, Cloud Map returns up to 100 services.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | For the first @ListServices@ request, omit this value.
     --
     -- If the response contains @NextToken@, submit another @ListServices@
     -- request to get the next group of results. Specify the value of
@@ -66,17 +76,7 @@ data ListServices = ListServices'
     -- @MaxResults@ services matched the specified criteria but that subsequent
     -- groups of @MaxResults@ services do contain services that match the
     -- criteria.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A complex type that contains specifications for the namespaces that you
-    -- want to list services for.
-    --
-    -- If you specify more than one filter, an operation must match all filters
-    -- to be returned by @ListServices@.
-    filters :: Prelude.Maybe [ServiceFilter],
-    -- | The maximum number of services that you want Cloud Map to return in the
-    -- response to a @ListServices@ request. If you don\'t specify a value for
-    -- @MaxResults@, Cloud Map returns up to 100 services.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,6 +87,16 @@ data ListServices = ListServices'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'filters', 'listServices_filters' - A complex type that contains specifications for the namespaces that you
+-- want to list services for.
+--
+-- If you specify more than one filter, an operation must match all filters
+-- to be returned by @ListServices@.
+--
+-- 'maxResults', 'listServices_maxResults' - The maximum number of services that you want Cloud Map to return in the
+-- response to a @ListServices@ request. If you don\'t specify a value for
+-- @MaxResults@, Cloud Map returns up to 100 services.
 --
 -- 'nextToken', 'listServices_nextToken' - For the first @ListServices@ request, omit this value.
 --
@@ -99,38 +109,14 @@ data ListServices = ListServices'
 -- @MaxResults@ services matched the specified criteria but that subsequent
 -- groups of @MaxResults@ services do contain services that match the
 -- criteria.
---
--- 'filters', 'listServices_filters' - A complex type that contains specifications for the namespaces that you
--- want to list services for.
---
--- If you specify more than one filter, an operation must match all filters
--- to be returned by @ListServices@.
---
--- 'maxResults', 'listServices_maxResults' - The maximum number of services that you want Cloud Map to return in the
--- response to a @ListServices@ request. If you don\'t specify a value for
--- @MaxResults@, Cloud Map returns up to 100 services.
 newListServices ::
   ListServices
 newListServices =
   ListServices'
-    { nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | For the first @ListServices@ request, omit this value.
---
--- If the response contains @NextToken@, submit another @ListServices@
--- request to get the next group of results. Specify the value of
--- @NextToken@ from the previous response in the next request.
---
--- Cloud Map gets @MaxResults@ services and then filters them based on the
--- specified criteria. It\'s possible that no services in the first
--- @MaxResults@ services matched the specified criteria but that subsequent
--- groups of @MaxResults@ services do contain services that match the
--- criteria.
-listServices_nextToken :: Lens.Lens' ListServices (Prelude.Maybe Prelude.Text)
-listServices_nextToken = Lens.lens (\ListServices' {nextToken} -> nextToken) (\s@ListServices' {} a -> s {nextToken = a} :: ListServices)
 
 -- | A complex type that contains specifications for the namespaces that you
 -- want to list services for.
@@ -145,6 +131,20 @@ listServices_filters = Lens.lens (\ListServices' {filters} -> filters) (\s@ListS
 -- @MaxResults@, Cloud Map returns up to 100 services.
 listServices_maxResults :: Lens.Lens' ListServices (Prelude.Maybe Prelude.Natural)
 listServices_maxResults = Lens.lens (\ListServices' {maxResults} -> maxResults) (\s@ListServices' {} a -> s {maxResults = a} :: ListServices)
+
+-- | For the first @ListServices@ request, omit this value.
+--
+-- If the response contains @NextToken@, submit another @ListServices@
+-- request to get the next group of results. Specify the value of
+-- @NextToken@ from the previous response in the next request.
+--
+-- Cloud Map gets @MaxResults@ services and then filters them based on the
+-- specified criteria. It\'s possible that no services in the first
+-- @MaxResults@ services matched the specified criteria but that subsequent
+-- groups of @MaxResults@ services do contain services that match the
+-- criteria.
+listServices_nextToken :: Lens.Lens' ListServices (Prelude.Maybe Prelude.Text)
+listServices_nextToken = Lens.lens (\ListServices' {nextToken} -> nextToken) (\s@ListServices' {} a -> s {nextToken = a} :: ListServices)
 
 instance Core.AWSPager ListServices where
   page rq rs
@@ -180,15 +180,15 @@ instance Core.AWSRequest ListServices where
 
 instance Prelude.Hashable ListServices where
   hashWithSalt _salt ListServices' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListServices where
   rnf ListServices' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListServices where
   toHeaders =
@@ -209,9 +209,9 @@ instance Data.ToJSON ListServices where
   toJSON ListServices' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

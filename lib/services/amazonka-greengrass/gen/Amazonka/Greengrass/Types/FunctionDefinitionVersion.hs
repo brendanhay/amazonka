@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFunctionDefinitionVersion' smart constructor.
 data FunctionDefinitionVersion = FunctionDefinitionVersion'
-  { -- | A list of Lambda functions in this function definition version.
-    functions :: Prelude.Maybe [Function],
-    -- | The default configuration that applies to all Lambda functions in this
+  { -- | The default configuration that applies to all Lambda functions in this
     -- function definition version. Individual Lambda functions can override
     -- these settings.
-    defaultConfig :: Prelude.Maybe FunctionDefaultConfig
+    defaultConfig :: Prelude.Maybe FunctionDefaultConfig,
+    -- | A list of Lambda functions in this function definition version.
+    functions :: Prelude.Maybe [Function]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,23 +47,19 @@ data FunctionDefinitionVersion = FunctionDefinitionVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'functions', 'functionDefinitionVersion_functions' - A list of Lambda functions in this function definition version.
---
 -- 'defaultConfig', 'functionDefinitionVersion_defaultConfig' - The default configuration that applies to all Lambda functions in this
 -- function definition version. Individual Lambda functions can override
 -- these settings.
+--
+-- 'functions', 'functionDefinitionVersion_functions' - A list of Lambda functions in this function definition version.
 newFunctionDefinitionVersion ::
   FunctionDefinitionVersion
 newFunctionDefinitionVersion =
   FunctionDefinitionVersion'
-    { functions =
+    { defaultConfig =
         Prelude.Nothing,
-      defaultConfig = Prelude.Nothing
+      functions = Prelude.Nothing
     }
-
--- | A list of Lambda functions in this function definition version.
-functionDefinitionVersion_functions :: Lens.Lens' FunctionDefinitionVersion (Prelude.Maybe [Function])
-functionDefinitionVersion_functions = Lens.lens (\FunctionDefinitionVersion' {functions} -> functions) (\s@FunctionDefinitionVersion' {} a -> s {functions = a} :: FunctionDefinitionVersion) Prelude.. Lens.mapping Lens.coerced
 
 -- | The default configuration that applies to all Lambda functions in this
 -- function definition version. Individual Lambda functions can override
@@ -71,31 +67,35 @@ functionDefinitionVersion_functions = Lens.lens (\FunctionDefinitionVersion' {fu
 functionDefinitionVersion_defaultConfig :: Lens.Lens' FunctionDefinitionVersion (Prelude.Maybe FunctionDefaultConfig)
 functionDefinitionVersion_defaultConfig = Lens.lens (\FunctionDefinitionVersion' {defaultConfig} -> defaultConfig) (\s@FunctionDefinitionVersion' {} a -> s {defaultConfig = a} :: FunctionDefinitionVersion)
 
+-- | A list of Lambda functions in this function definition version.
+functionDefinitionVersion_functions :: Lens.Lens' FunctionDefinitionVersion (Prelude.Maybe [Function])
+functionDefinitionVersion_functions = Lens.lens (\FunctionDefinitionVersion' {functions} -> functions) (\s@FunctionDefinitionVersion' {} a -> s {functions = a} :: FunctionDefinitionVersion) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON FunctionDefinitionVersion where
   parseJSON =
     Data.withObject
       "FunctionDefinitionVersion"
       ( \x ->
           FunctionDefinitionVersion'
-            Prelude.<$> (x Data..:? "Functions" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "DefaultConfig")
+            Prelude.<$> (x Data..:? "DefaultConfig")
+            Prelude.<*> (x Data..:? "Functions" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable FunctionDefinitionVersion where
   hashWithSalt _salt FunctionDefinitionVersion' {..} =
-    _salt `Prelude.hashWithSalt` functions
-      `Prelude.hashWithSalt` defaultConfig
+    _salt `Prelude.hashWithSalt` defaultConfig
+      `Prelude.hashWithSalt` functions
 
 instance Prelude.NFData FunctionDefinitionVersion where
   rnf FunctionDefinitionVersion' {..} =
-    Prelude.rnf functions
-      `Prelude.seq` Prelude.rnf defaultConfig
+    Prelude.rnf defaultConfig
+      `Prelude.seq` Prelude.rnf functions
 
 instance Data.ToJSON FunctionDefinitionVersion where
   toJSON FunctionDefinitionVersion' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Functions" Data..=) Prelude.<$> functions,
-            ("DefaultConfig" Data..=) Prelude.<$> defaultConfig
+          [ ("DefaultConfig" Data..=) Prelude.<$> defaultConfig,
+            ("Functions" Data..=) Prelude.<$> functions
           ]
       )

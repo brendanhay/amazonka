@@ -34,10 +34,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSalesforceKnowledgeArticleConfiguration' smart constructor.
 data SalesforceKnowledgeArticleConfiguration = SalesforceKnowledgeArticleConfiguration'
-  { -- | Configuration information for standard Salesforce knowledge articles.
-    standardKnowledgeArticleTypeConfiguration :: Prelude.Maybe SalesforceStandardKnowledgeArticleTypeConfiguration,
-    -- | Configuration information for custom Salesforce knowledge articles.
+  { -- | Configuration information for custom Salesforce knowledge articles.
     customKnowledgeArticleTypeConfigurations :: Prelude.Maybe (Prelude.NonEmpty SalesforceCustomKnowledgeArticleTypeConfiguration),
+    -- | Configuration information for standard Salesforce knowledge articles.
+    standardKnowledgeArticleTypeConfiguration :: Prelude.Maybe SalesforceStandardKnowledgeArticleTypeConfiguration,
     -- | Specifies the document states that should be included when Amazon Kendra
     -- indexes knowledge articles. You must specify at least one state.
     includedStates :: Prelude.NonEmpty SalesforceKnowledgeArticleState
@@ -52,9 +52,9 @@ data SalesforceKnowledgeArticleConfiguration = SalesforceKnowledgeArticleConfigu
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'standardKnowledgeArticleTypeConfiguration', 'salesforceKnowledgeArticleConfiguration_standardKnowledgeArticleTypeConfiguration' - Configuration information for standard Salesforce knowledge articles.
---
 -- 'customKnowledgeArticleTypeConfigurations', 'salesforceKnowledgeArticleConfiguration_customKnowledgeArticleTypeConfigurations' - Configuration information for custom Salesforce knowledge articles.
+--
+-- 'standardKnowledgeArticleTypeConfiguration', 'salesforceKnowledgeArticleConfiguration_standardKnowledgeArticleTypeConfiguration' - Configuration information for standard Salesforce knowledge articles.
 --
 -- 'includedStates', 'salesforceKnowledgeArticleConfiguration_includedStates' - Specifies the document states that should be included when Amazon Kendra
 -- indexes knowledge articles. You must specify at least one state.
@@ -65,22 +65,22 @@ newSalesforceKnowledgeArticleConfiguration ::
 newSalesforceKnowledgeArticleConfiguration
   pIncludedStates_ =
     SalesforceKnowledgeArticleConfiguration'
-      { standardKnowledgeArticleTypeConfiguration =
+      { customKnowledgeArticleTypeConfigurations =
           Prelude.Nothing,
-        customKnowledgeArticleTypeConfigurations =
+        standardKnowledgeArticleTypeConfiguration =
           Prelude.Nothing,
         includedStates =
           Lens.coerced
             Lens.# pIncludedStates_
       }
 
--- | Configuration information for standard Salesforce knowledge articles.
-salesforceKnowledgeArticleConfiguration_standardKnowledgeArticleTypeConfiguration :: Lens.Lens' SalesforceKnowledgeArticleConfiguration (Prelude.Maybe SalesforceStandardKnowledgeArticleTypeConfiguration)
-salesforceKnowledgeArticleConfiguration_standardKnowledgeArticleTypeConfiguration = Lens.lens (\SalesforceKnowledgeArticleConfiguration' {standardKnowledgeArticleTypeConfiguration} -> standardKnowledgeArticleTypeConfiguration) (\s@SalesforceKnowledgeArticleConfiguration' {} a -> s {standardKnowledgeArticleTypeConfiguration = a} :: SalesforceKnowledgeArticleConfiguration)
-
 -- | Configuration information for custom Salesforce knowledge articles.
 salesforceKnowledgeArticleConfiguration_customKnowledgeArticleTypeConfigurations :: Lens.Lens' SalesforceKnowledgeArticleConfiguration (Prelude.Maybe (Prelude.NonEmpty SalesforceCustomKnowledgeArticleTypeConfiguration))
 salesforceKnowledgeArticleConfiguration_customKnowledgeArticleTypeConfigurations = Lens.lens (\SalesforceKnowledgeArticleConfiguration' {customKnowledgeArticleTypeConfigurations} -> customKnowledgeArticleTypeConfigurations) (\s@SalesforceKnowledgeArticleConfiguration' {} a -> s {customKnowledgeArticleTypeConfigurations = a} :: SalesforceKnowledgeArticleConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | Configuration information for standard Salesforce knowledge articles.
+salesforceKnowledgeArticleConfiguration_standardKnowledgeArticleTypeConfiguration :: Lens.Lens' SalesforceKnowledgeArticleConfiguration (Prelude.Maybe SalesforceStandardKnowledgeArticleTypeConfiguration)
+salesforceKnowledgeArticleConfiguration_standardKnowledgeArticleTypeConfiguration = Lens.lens (\SalesforceKnowledgeArticleConfiguration' {standardKnowledgeArticleTypeConfiguration} -> standardKnowledgeArticleTypeConfiguration) (\s@SalesforceKnowledgeArticleConfiguration' {} a -> s {standardKnowledgeArticleTypeConfiguration = a} :: SalesforceKnowledgeArticleConfiguration)
 
 -- | Specifies the document states that should be included when Amazon Kendra
 -- indexes knowledge articles. You must specify at least one state.
@@ -97,10 +97,10 @@ instance
       ( \x ->
           SalesforceKnowledgeArticleConfiguration'
             Prelude.<$> ( x
-                            Data..:? "StandardKnowledgeArticleTypeConfiguration"
+                            Data..:? "CustomKnowledgeArticleTypeConfigurations"
                         )
             Prelude.<*> ( x
-                            Data..:? "CustomKnowledgeArticleTypeConfigurations"
+                            Data..:? "StandardKnowledgeArticleTypeConfiguration"
                         )
             Prelude.<*> (x Data..: "IncludedStates")
       )
@@ -113,8 +113,8 @@ instance
     _salt
     SalesforceKnowledgeArticleConfiguration' {..} =
       _salt
-        `Prelude.hashWithSalt` standardKnowledgeArticleTypeConfiguration
         `Prelude.hashWithSalt` customKnowledgeArticleTypeConfigurations
+        `Prelude.hashWithSalt` standardKnowledgeArticleTypeConfiguration
         `Prelude.hashWithSalt` includedStates
 
 instance
@@ -123,8 +123,8 @@ instance
   where
   rnf SalesforceKnowledgeArticleConfiguration' {..} =
     Prelude.rnf
-      standardKnowledgeArticleTypeConfiguration
-      `Prelude.seq` Prelude.rnf customKnowledgeArticleTypeConfigurations
+      customKnowledgeArticleTypeConfigurations
+      `Prelude.seq` Prelude.rnf standardKnowledgeArticleTypeConfiguration
       `Prelude.seq` Prelude.rnf includedStates
 
 instance
@@ -134,12 +134,10 @@ instance
   toJSON SalesforceKnowledgeArticleConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ( "StandardKnowledgeArticleTypeConfiguration"
-                Data..=
-            )
-              Prelude.<$> standardKnowledgeArticleTypeConfiguration,
-            ("CustomKnowledgeArticleTypeConfigurations" Data..=)
+          [ ("CustomKnowledgeArticleTypeConfigurations" Data..=)
               Prelude.<$> customKnowledgeArticleTypeConfigurations,
+            ("StandardKnowledgeArticleTypeConfiguration" Data..=)
+              Prelude.<$> standardKnowledgeArticleTypeConfiguration,
             Prelude.Just
               ("IncludedStates" Data..= includedStates)
           ]

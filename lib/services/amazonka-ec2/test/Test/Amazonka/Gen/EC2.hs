@@ -117,6 +117,9 @@ import Test.Tasty
 --         , requestAttachNetworkInterface $
 --             newAttachNetworkInterface
 --
+--         , requestAttachVerifiedAccessTrustProvider $
+--             newAttachVerifiedAccessTrustProvider
+--
 --         , requestAttachVolume $
 --             newAttachVolume
 --
@@ -378,6 +381,18 @@ import Test.Tasty
 --         , requestCreateTransitGatewayVpcAttachment $
 --             newCreateTransitGatewayVpcAttachment
 --
+--         , requestCreateVerifiedAccessEndpoint $
+--             newCreateVerifiedAccessEndpoint
+--
+--         , requestCreateVerifiedAccessGroup $
+--             newCreateVerifiedAccessGroup
+--
+--         , requestCreateVerifiedAccessInstance $
+--             newCreateVerifiedAccessInstance
+--
+--         , requestCreateVerifiedAccessTrustProvider $
+--             newCreateVerifiedAccessTrustProvider
+--
 --         , requestCreateVolume $
 --             newCreateVolume
 --
@@ -582,6 +597,18 @@ import Test.Tasty
 --         , requestDeleteTransitGatewayVpcAttachment $
 --             newDeleteTransitGatewayVpcAttachment
 --
+--         , requestDeleteVerifiedAccessEndpoint $
+--             newDeleteVerifiedAccessEndpoint
+--
+--         , requestDeleteVerifiedAccessGroup $
+--             newDeleteVerifiedAccessGroup
+--
+--         , requestDeleteVerifiedAccessInstance $
+--             newDeleteVerifiedAccessInstance
+--
+--         , requestDeleteVerifiedAccessTrustProvider $
+--             newDeleteVerifiedAccessTrustProvider
+--
 --         , requestDeleteVolume $
 --             newDeleteVolume
 --
@@ -647,6 +674,9 @@ import Test.Tasty
 --
 --         , requestDescribeAvailabilityZones $
 --             newDescribeAvailabilityZones
+--
+--         , requestDescribeAwsNetworkPerformanceMetricSubscriptions $
+--             newDescribeAwsNetworkPerformanceMetricSubscriptions
 --
 --         , requestDescribeBundleTasks $
 --             newDescribeBundleTasks
@@ -987,6 +1017,21 @@ import Test.Tasty
 --         , requestDescribeTrunkInterfaceAssociations $
 --             newDescribeTrunkInterfaceAssociations
 --
+--         , requestDescribeVerifiedAccessEndpoints $
+--             newDescribeVerifiedAccessEndpoints
+--
+--         , requestDescribeVerifiedAccessGroups $
+--             newDescribeVerifiedAccessGroups
+--
+--         , requestDescribeVerifiedAccessInstanceLoggingConfigurations $
+--             newDescribeVerifiedAccessInstanceLoggingConfigurations
+--
+--         , requestDescribeVerifiedAccessInstances $
+--             newDescribeVerifiedAccessInstances
+--
+--         , requestDescribeVerifiedAccessTrustProviders $
+--             newDescribeVerifiedAccessTrustProviders
+--
 --         , requestDescribeVolumeAttribute $
 --             newDescribeVolumeAttribute
 --
@@ -1047,6 +1092,9 @@ import Test.Tasty
 --         , requestDetachNetworkInterface $
 --             newDetachNetworkInterface
 --
+--         , requestDetachVerifiedAccessTrustProvider $
+--             newDetachVerifiedAccessTrustProvider
+--
 --         , requestDetachVolume $
 --             newDetachVolume
 --
@@ -1055,6 +1103,9 @@ import Test.Tasty
 --
 --         , requestDisableAddressTransfer $
 --             newDisableAddressTransfer
+--
+--         , requestDisableAwsNetworkPerformanceMetricSubscription $
+--             newDisableAwsNetworkPerformanceMetricSubscription
 --
 --         , requestDisableEbsEncryptionByDefault $
 --             newDisableEbsEncryptionByDefault
@@ -1125,6 +1176,9 @@ import Test.Tasty
 --         , requestEnableAddressTransfer $
 --             newEnableAddressTransfer
 --
+--         , requestEnableAwsNetworkPerformanceMetricSubscription $
+--             newEnableAwsNetworkPerformanceMetricSubscription
+--
 --         , requestEnableEbsEncryptionByDefault $
 --             newEnableEbsEncryptionByDefault
 --
@@ -1139,6 +1193,9 @@ import Test.Tasty
 --
 --         , requestEnableIpamOrganizationAdminAccount $
 --             newEnableIpamOrganizationAdminAccount
+--
+--         , requestEnableReachabilityAnalyzerOrganizationSharing $
+--             newEnableReachabilityAnalyzerOrganizationSharing
 --
 --         , requestEnableSerialConsoleAccess $
 --             newEnableSerialConsoleAccess
@@ -1175,6 +1232,9 @@ import Test.Tasty
 --
 --         , requestGetAssociatedIpv6PoolCidrs $
 --             newGetAssociatedIpv6PoolCidrs
+--
+--         , requestGetAwsNetworkPerformanceData $
+--             newGetAwsNetworkPerformanceData
 --
 --         , requestGetCapacityReservationUsage $
 --             newGetCapacityReservationUsage
@@ -1274,6 +1334,12 @@ import Test.Tasty
 --
 --         , requestGetTransitGatewayRouteTablePropagations $
 --             newGetTransitGatewayRouteTablePropagations
+--
+--         , requestGetVerifiedAccessEndpointPolicy $
+--             newGetVerifiedAccessEndpointPolicy
+--
+--         , requestGetVerifiedAccessGroupPolicy $
+--             newGetVerifiedAccessGroupPolicy
 --
 --         , requestGetVpnConnectionDeviceSampleConfiguration $
 --             newGetVpnConnectionDeviceSampleConfiguration
@@ -1430,6 +1496,27 @@ import Test.Tasty
 --
 --         , requestModifyTransitGatewayVpcAttachment $
 --             newModifyTransitGatewayVpcAttachment
+--
+--         , requestModifyVerifiedAccessEndpoint $
+--             newModifyVerifiedAccessEndpoint
+--
+--         , requestModifyVerifiedAccessEndpointPolicy $
+--             newModifyVerifiedAccessEndpointPolicy
+--
+--         , requestModifyVerifiedAccessGroup $
+--             newModifyVerifiedAccessGroup
+--
+--         , requestModifyVerifiedAccessGroupPolicy $
+--             newModifyVerifiedAccessGroupPolicy
+--
+--         , requestModifyVerifiedAccessInstance $
+--             newModifyVerifiedAccessInstance
+--
+--         , requestModifyVerifiedAccessInstanceLoggingConfiguration $
+--             newModifyVerifiedAccessInstanceLoggingConfiguration
+--
+--         , requestModifyVerifiedAccessTrustProvider $
+--             newModifyVerifiedAccessTrustProvider
 --
 --         , requestModifyVolume $
 --             newModifyVolume
@@ -1761,6 +1848,9 @@ import Test.Tasty
 --         , responseAttachNetworkInterface $
 --             newAttachNetworkInterfaceResponse
 --
+--         , responseAttachVerifiedAccessTrustProvider $
+--             newAttachVerifiedAccessTrustProviderResponse
+--
 --         , responseAttachVolume $
 --             newVolumeAttachment
 --
@@ -2022,6 +2112,18 @@ import Test.Tasty
 --         , responseCreateTransitGatewayVpcAttachment $
 --             newCreateTransitGatewayVpcAttachmentResponse
 --
+--         , responseCreateVerifiedAccessEndpoint $
+--             newCreateVerifiedAccessEndpointResponse
+--
+--         , responseCreateVerifiedAccessGroup $
+--             newCreateVerifiedAccessGroupResponse
+--
+--         , responseCreateVerifiedAccessInstance $
+--             newCreateVerifiedAccessInstanceResponse
+--
+--         , responseCreateVerifiedAccessTrustProvider $
+--             newCreateVerifiedAccessTrustProviderResponse
+--
 --         , responseCreateVolume $
 --             newVolume
 --
@@ -2226,6 +2328,18 @@ import Test.Tasty
 --         , responseDeleteTransitGatewayVpcAttachment $
 --             newDeleteTransitGatewayVpcAttachmentResponse
 --
+--         , responseDeleteVerifiedAccessEndpoint $
+--             newDeleteVerifiedAccessEndpointResponse
+--
+--         , responseDeleteVerifiedAccessGroup $
+--             newDeleteVerifiedAccessGroupResponse
+--
+--         , responseDeleteVerifiedAccessInstance $
+--             newDeleteVerifiedAccessInstanceResponse
+--
+--         , responseDeleteVerifiedAccessTrustProvider $
+--             newDeleteVerifiedAccessTrustProviderResponse
+--
 --         , responseDeleteVolume $
 --             newDeleteVolumeResponse
 --
@@ -2291,6 +2405,9 @@ import Test.Tasty
 --
 --         , responseDescribeAvailabilityZones $
 --             newDescribeAvailabilityZonesResponse
+--
+--         , responseDescribeAwsNetworkPerformanceMetricSubscriptions $
+--             newDescribeAwsNetworkPerformanceMetricSubscriptionsResponse
 --
 --         , responseDescribeBundleTasks $
 --             newDescribeBundleTasksResponse
@@ -2631,6 +2748,21 @@ import Test.Tasty
 --         , responseDescribeTrunkInterfaceAssociations $
 --             newDescribeTrunkInterfaceAssociationsResponse
 --
+--         , responseDescribeVerifiedAccessEndpoints $
+--             newDescribeVerifiedAccessEndpointsResponse
+--
+--         , responseDescribeVerifiedAccessGroups $
+--             newDescribeVerifiedAccessGroupsResponse
+--
+--         , responseDescribeVerifiedAccessInstanceLoggingConfigurations $
+--             newDescribeVerifiedAccessInstanceLoggingConfigurationsResponse
+--
+--         , responseDescribeVerifiedAccessInstances $
+--             newDescribeVerifiedAccessInstancesResponse
+--
+--         , responseDescribeVerifiedAccessTrustProviders $
+--             newDescribeVerifiedAccessTrustProvidersResponse
+--
 --         , responseDescribeVolumeAttribute $
 --             newDescribeVolumeAttributeResponse
 --
@@ -2691,6 +2823,9 @@ import Test.Tasty
 --         , responseDetachNetworkInterface $
 --             newDetachNetworkInterfaceResponse
 --
+--         , responseDetachVerifiedAccessTrustProvider $
+--             newDetachVerifiedAccessTrustProviderResponse
+--
 --         , responseDetachVolume $
 --             newVolumeAttachment
 --
@@ -2699,6 +2834,9 @@ import Test.Tasty
 --
 --         , responseDisableAddressTransfer $
 --             newDisableAddressTransferResponse
+--
+--         , responseDisableAwsNetworkPerformanceMetricSubscription $
+--             newDisableAwsNetworkPerformanceMetricSubscriptionResponse
 --
 --         , responseDisableEbsEncryptionByDefault $
 --             newDisableEbsEncryptionByDefaultResponse
@@ -2769,6 +2907,9 @@ import Test.Tasty
 --         , responseEnableAddressTransfer $
 --             newEnableAddressTransferResponse
 --
+--         , responseEnableAwsNetworkPerformanceMetricSubscription $
+--             newEnableAwsNetworkPerformanceMetricSubscriptionResponse
+--
 --         , responseEnableEbsEncryptionByDefault $
 --             newEnableEbsEncryptionByDefaultResponse
 --
@@ -2783,6 +2924,9 @@ import Test.Tasty
 --
 --         , responseEnableIpamOrganizationAdminAccount $
 --             newEnableIpamOrganizationAdminAccountResponse
+--
+--         , responseEnableReachabilityAnalyzerOrganizationSharing $
+--             newEnableReachabilityAnalyzerOrganizationSharingResponse
 --
 --         , responseEnableSerialConsoleAccess $
 --             newEnableSerialConsoleAccessResponse
@@ -2819,6 +2963,9 @@ import Test.Tasty
 --
 --         , responseGetAssociatedIpv6PoolCidrs $
 --             newGetAssociatedIpv6PoolCidrsResponse
+--
+--         , responseGetAwsNetworkPerformanceData $
+--             newGetAwsNetworkPerformanceDataResponse
 --
 --         , responseGetCapacityReservationUsage $
 --             newGetCapacityReservationUsageResponse
@@ -2918,6 +3065,12 @@ import Test.Tasty
 --
 --         , responseGetTransitGatewayRouteTablePropagations $
 --             newGetTransitGatewayRouteTablePropagationsResponse
+--
+--         , responseGetVerifiedAccessEndpointPolicy $
+--             newGetVerifiedAccessEndpointPolicyResponse
+--
+--         , responseGetVerifiedAccessGroupPolicy $
+--             newGetVerifiedAccessGroupPolicyResponse
 --
 --         , responseGetVpnConnectionDeviceSampleConfiguration $
 --             newGetVpnConnectionDeviceSampleConfigurationResponse
@@ -3074,6 +3227,27 @@ import Test.Tasty
 --
 --         , responseModifyTransitGatewayVpcAttachment $
 --             newModifyTransitGatewayVpcAttachmentResponse
+--
+--         , responseModifyVerifiedAccessEndpoint $
+--             newModifyVerifiedAccessEndpointResponse
+--
+--         , responseModifyVerifiedAccessEndpointPolicy $
+--             newModifyVerifiedAccessEndpointPolicyResponse
+--
+--         , responseModifyVerifiedAccessGroup $
+--             newModifyVerifiedAccessGroupResponse
+--
+--         , responseModifyVerifiedAccessGroupPolicy $
+--             newModifyVerifiedAccessGroupPolicyResponse
+--
+--         , responseModifyVerifiedAccessInstance $
+--             newModifyVerifiedAccessInstanceResponse
+--
+--         , responseModifyVerifiedAccessInstanceLoggingConfiguration $
+--             newModifyVerifiedAccessInstanceLoggingConfigurationResponse
+--
+--         , responseModifyVerifiedAccessTrustProvider $
+--             newModifyVerifiedAccessTrustProviderResponse
 --
 --         , responseModifyVolume $
 --             newModifyVolumeResponse
@@ -3496,6 +3670,12 @@ requestAttachNetworkInterface =
   req
     "AttachNetworkInterface"
     "fixture/AttachNetworkInterface.yaml"
+
+requestAttachVerifiedAccessTrustProvider :: AttachVerifiedAccessTrustProvider -> TestTree
+requestAttachVerifiedAccessTrustProvider =
+  req
+    "AttachVerifiedAccessTrustProvider"
+    "fixture/AttachVerifiedAccessTrustProvider.yaml"
 
 requestAttachVolume :: AttachVolume -> TestTree
 requestAttachVolume =
@@ -4019,6 +4199,30 @@ requestCreateTransitGatewayVpcAttachment =
     "CreateTransitGatewayVpcAttachment"
     "fixture/CreateTransitGatewayVpcAttachment.yaml"
 
+requestCreateVerifiedAccessEndpoint :: CreateVerifiedAccessEndpoint -> TestTree
+requestCreateVerifiedAccessEndpoint =
+  req
+    "CreateVerifiedAccessEndpoint"
+    "fixture/CreateVerifiedAccessEndpoint.yaml"
+
+requestCreateVerifiedAccessGroup :: CreateVerifiedAccessGroup -> TestTree
+requestCreateVerifiedAccessGroup =
+  req
+    "CreateVerifiedAccessGroup"
+    "fixture/CreateVerifiedAccessGroup.yaml"
+
+requestCreateVerifiedAccessInstance :: CreateVerifiedAccessInstance -> TestTree
+requestCreateVerifiedAccessInstance =
+  req
+    "CreateVerifiedAccessInstance"
+    "fixture/CreateVerifiedAccessInstance.yaml"
+
+requestCreateVerifiedAccessTrustProvider :: CreateVerifiedAccessTrustProvider -> TestTree
+requestCreateVerifiedAccessTrustProvider =
+  req
+    "CreateVerifiedAccessTrustProvider"
+    "fixture/CreateVerifiedAccessTrustProvider.yaml"
+
 requestCreateVolume :: CreateVolume -> TestTree
 requestCreateVolume =
   req
@@ -4427,6 +4631,30 @@ requestDeleteTransitGatewayVpcAttachment =
     "DeleteTransitGatewayVpcAttachment"
     "fixture/DeleteTransitGatewayVpcAttachment.yaml"
 
+requestDeleteVerifiedAccessEndpoint :: DeleteVerifiedAccessEndpoint -> TestTree
+requestDeleteVerifiedAccessEndpoint =
+  req
+    "DeleteVerifiedAccessEndpoint"
+    "fixture/DeleteVerifiedAccessEndpoint.yaml"
+
+requestDeleteVerifiedAccessGroup :: DeleteVerifiedAccessGroup -> TestTree
+requestDeleteVerifiedAccessGroup =
+  req
+    "DeleteVerifiedAccessGroup"
+    "fixture/DeleteVerifiedAccessGroup.yaml"
+
+requestDeleteVerifiedAccessInstance :: DeleteVerifiedAccessInstance -> TestTree
+requestDeleteVerifiedAccessInstance =
+  req
+    "DeleteVerifiedAccessInstance"
+    "fixture/DeleteVerifiedAccessInstance.yaml"
+
+requestDeleteVerifiedAccessTrustProvider :: DeleteVerifiedAccessTrustProvider -> TestTree
+requestDeleteVerifiedAccessTrustProvider =
+  req
+    "DeleteVerifiedAccessTrustProvider"
+    "fixture/DeleteVerifiedAccessTrustProvider.yaml"
+
 requestDeleteVolume :: DeleteVolume -> TestTree
 requestDeleteVolume =
   req
@@ -4558,6 +4786,12 @@ requestDescribeAvailabilityZones =
   req
     "DescribeAvailabilityZones"
     "fixture/DescribeAvailabilityZones.yaml"
+
+requestDescribeAwsNetworkPerformanceMetricSubscriptions :: DescribeAwsNetworkPerformanceMetricSubscriptions -> TestTree
+requestDescribeAwsNetworkPerformanceMetricSubscriptions =
+  req
+    "DescribeAwsNetworkPerformanceMetricSubscriptions"
+    "fixture/DescribeAwsNetworkPerformanceMetricSubscriptions.yaml"
 
 requestDescribeBundleTasks :: DescribeBundleTasks -> TestTree
 requestDescribeBundleTasks =
@@ -5237,6 +5471,36 @@ requestDescribeTrunkInterfaceAssociations =
     "DescribeTrunkInterfaceAssociations"
     "fixture/DescribeTrunkInterfaceAssociations.yaml"
 
+requestDescribeVerifiedAccessEndpoints :: DescribeVerifiedAccessEndpoints -> TestTree
+requestDescribeVerifiedAccessEndpoints =
+  req
+    "DescribeVerifiedAccessEndpoints"
+    "fixture/DescribeVerifiedAccessEndpoints.yaml"
+
+requestDescribeVerifiedAccessGroups :: DescribeVerifiedAccessGroups -> TestTree
+requestDescribeVerifiedAccessGroups =
+  req
+    "DescribeVerifiedAccessGroups"
+    "fixture/DescribeVerifiedAccessGroups.yaml"
+
+requestDescribeVerifiedAccessInstanceLoggingConfigurations :: DescribeVerifiedAccessInstanceLoggingConfigurations -> TestTree
+requestDescribeVerifiedAccessInstanceLoggingConfigurations =
+  req
+    "DescribeVerifiedAccessInstanceLoggingConfigurations"
+    "fixture/DescribeVerifiedAccessInstanceLoggingConfigurations.yaml"
+
+requestDescribeVerifiedAccessInstances :: DescribeVerifiedAccessInstances -> TestTree
+requestDescribeVerifiedAccessInstances =
+  req
+    "DescribeVerifiedAccessInstances"
+    "fixture/DescribeVerifiedAccessInstances.yaml"
+
+requestDescribeVerifiedAccessTrustProviders :: DescribeVerifiedAccessTrustProviders -> TestTree
+requestDescribeVerifiedAccessTrustProviders =
+  req
+    "DescribeVerifiedAccessTrustProviders"
+    "fixture/DescribeVerifiedAccessTrustProviders.yaml"
+
 requestDescribeVolumeAttribute :: DescribeVolumeAttribute -> TestTree
 requestDescribeVolumeAttribute =
   req
@@ -5357,6 +5621,12 @@ requestDetachNetworkInterface =
     "DetachNetworkInterface"
     "fixture/DetachNetworkInterface.yaml"
 
+requestDetachVerifiedAccessTrustProvider :: DetachVerifiedAccessTrustProvider -> TestTree
+requestDetachVerifiedAccessTrustProvider =
+  req
+    "DetachVerifiedAccessTrustProvider"
+    "fixture/DetachVerifiedAccessTrustProvider.yaml"
+
 requestDetachVolume :: DetachVolume -> TestTree
 requestDetachVolume =
   req
@@ -5374,6 +5644,12 @@ requestDisableAddressTransfer =
   req
     "DisableAddressTransfer"
     "fixture/DisableAddressTransfer.yaml"
+
+requestDisableAwsNetworkPerformanceMetricSubscription :: DisableAwsNetworkPerformanceMetricSubscription -> TestTree
+requestDisableAwsNetworkPerformanceMetricSubscription =
+  req
+    "DisableAwsNetworkPerformanceMetricSubscription"
+    "fixture/DisableAwsNetworkPerformanceMetricSubscription.yaml"
 
 requestDisableEbsEncryptionByDefault :: DisableEbsEncryptionByDefault -> TestTree
 requestDisableEbsEncryptionByDefault =
@@ -5513,6 +5789,12 @@ requestEnableAddressTransfer =
     "EnableAddressTransfer"
     "fixture/EnableAddressTransfer.yaml"
 
+requestEnableAwsNetworkPerformanceMetricSubscription :: EnableAwsNetworkPerformanceMetricSubscription -> TestTree
+requestEnableAwsNetworkPerformanceMetricSubscription =
+  req
+    "EnableAwsNetworkPerformanceMetricSubscription"
+    "fixture/EnableAwsNetworkPerformanceMetricSubscription.yaml"
+
 requestEnableEbsEncryptionByDefault :: EnableEbsEncryptionByDefault -> TestTree
 requestEnableEbsEncryptionByDefault =
   req
@@ -5542,6 +5824,12 @@ requestEnableIpamOrganizationAdminAccount =
   req
     "EnableIpamOrganizationAdminAccount"
     "fixture/EnableIpamOrganizationAdminAccount.yaml"
+
+requestEnableReachabilityAnalyzerOrganizationSharing :: EnableReachabilityAnalyzerOrganizationSharing -> TestTree
+requestEnableReachabilityAnalyzerOrganizationSharing =
+  req
+    "EnableReachabilityAnalyzerOrganizationSharing"
+    "fixture/EnableReachabilityAnalyzerOrganizationSharing.yaml"
 
 requestEnableSerialConsoleAccess :: EnableSerialConsoleAccess -> TestTree
 requestEnableSerialConsoleAccess =
@@ -5614,6 +5902,12 @@ requestGetAssociatedIpv6PoolCidrs =
   req
     "GetAssociatedIpv6PoolCidrs"
     "fixture/GetAssociatedIpv6PoolCidrs.yaml"
+
+requestGetAwsNetworkPerformanceData :: GetAwsNetworkPerformanceData -> TestTree
+requestGetAwsNetworkPerformanceData =
+  req
+    "GetAwsNetworkPerformanceData"
+    "fixture/GetAwsNetworkPerformanceData.yaml"
 
 requestGetCapacityReservationUsage :: GetCapacityReservationUsage -> TestTree
 requestGetCapacityReservationUsage =
@@ -5812,6 +6106,18 @@ requestGetTransitGatewayRouteTablePropagations =
   req
     "GetTransitGatewayRouteTablePropagations"
     "fixture/GetTransitGatewayRouteTablePropagations.yaml"
+
+requestGetVerifiedAccessEndpointPolicy :: GetVerifiedAccessEndpointPolicy -> TestTree
+requestGetVerifiedAccessEndpointPolicy =
+  req
+    "GetVerifiedAccessEndpointPolicy"
+    "fixture/GetVerifiedAccessEndpointPolicy.yaml"
+
+requestGetVerifiedAccessGroupPolicy :: GetVerifiedAccessGroupPolicy -> TestTree
+requestGetVerifiedAccessGroupPolicy =
+  req
+    "GetVerifiedAccessGroupPolicy"
+    "fixture/GetVerifiedAccessGroupPolicy.yaml"
 
 requestGetVpnConnectionDeviceSampleConfiguration :: GetVpnConnectionDeviceSampleConfiguration -> TestTree
 requestGetVpnConnectionDeviceSampleConfiguration =
@@ -6124,6 +6430,48 @@ requestModifyTransitGatewayVpcAttachment =
   req
     "ModifyTransitGatewayVpcAttachment"
     "fixture/ModifyTransitGatewayVpcAttachment.yaml"
+
+requestModifyVerifiedAccessEndpoint :: ModifyVerifiedAccessEndpoint -> TestTree
+requestModifyVerifiedAccessEndpoint =
+  req
+    "ModifyVerifiedAccessEndpoint"
+    "fixture/ModifyVerifiedAccessEndpoint.yaml"
+
+requestModifyVerifiedAccessEndpointPolicy :: ModifyVerifiedAccessEndpointPolicy -> TestTree
+requestModifyVerifiedAccessEndpointPolicy =
+  req
+    "ModifyVerifiedAccessEndpointPolicy"
+    "fixture/ModifyVerifiedAccessEndpointPolicy.yaml"
+
+requestModifyVerifiedAccessGroup :: ModifyVerifiedAccessGroup -> TestTree
+requestModifyVerifiedAccessGroup =
+  req
+    "ModifyVerifiedAccessGroup"
+    "fixture/ModifyVerifiedAccessGroup.yaml"
+
+requestModifyVerifiedAccessGroupPolicy :: ModifyVerifiedAccessGroupPolicy -> TestTree
+requestModifyVerifiedAccessGroupPolicy =
+  req
+    "ModifyVerifiedAccessGroupPolicy"
+    "fixture/ModifyVerifiedAccessGroupPolicy.yaml"
+
+requestModifyVerifiedAccessInstance :: ModifyVerifiedAccessInstance -> TestTree
+requestModifyVerifiedAccessInstance =
+  req
+    "ModifyVerifiedAccessInstance"
+    "fixture/ModifyVerifiedAccessInstance.yaml"
+
+requestModifyVerifiedAccessInstanceLoggingConfiguration :: ModifyVerifiedAccessInstanceLoggingConfiguration -> TestTree
+requestModifyVerifiedAccessInstanceLoggingConfiguration =
+  req
+    "ModifyVerifiedAccessInstanceLoggingConfiguration"
+    "fixture/ModifyVerifiedAccessInstanceLoggingConfiguration.yaml"
+
+requestModifyVerifiedAccessTrustProvider :: ModifyVerifiedAccessTrustProvider -> TestTree
+requestModifyVerifiedAccessTrustProvider =
+  req
+    "ModifyVerifiedAccessTrustProvider"
+    "fixture/ModifyVerifiedAccessTrustProvider.yaml"
 
 requestModifyVolume :: ModifyVolume -> TestTree
 requestModifyVolume =
@@ -6841,6 +7189,14 @@ responseAttachNetworkInterface =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AttachNetworkInterface)
 
+responseAttachVerifiedAccessTrustProvider :: AttachVerifiedAccessTrustProviderResponse -> TestTree
+responseAttachVerifiedAccessTrustProvider =
+  res
+    "AttachVerifiedAccessTrustProviderResponse"
+    "fixture/AttachVerifiedAccessTrustProviderResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AttachVerifiedAccessTrustProvider)
+
 responseAttachVolume :: VolumeAttachment -> TestTree
 responseAttachVolume =
   res
@@ -7537,6 +7893,38 @@ responseCreateTransitGatewayVpcAttachment =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateTransitGatewayVpcAttachment)
 
+responseCreateVerifiedAccessEndpoint :: CreateVerifiedAccessEndpointResponse -> TestTree
+responseCreateVerifiedAccessEndpoint =
+  res
+    "CreateVerifiedAccessEndpointResponse"
+    "fixture/CreateVerifiedAccessEndpointResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateVerifiedAccessEndpoint)
+
+responseCreateVerifiedAccessGroup :: CreateVerifiedAccessGroupResponse -> TestTree
+responseCreateVerifiedAccessGroup =
+  res
+    "CreateVerifiedAccessGroupResponse"
+    "fixture/CreateVerifiedAccessGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateVerifiedAccessGroup)
+
+responseCreateVerifiedAccessInstance :: CreateVerifiedAccessInstanceResponse -> TestTree
+responseCreateVerifiedAccessInstance =
+  res
+    "CreateVerifiedAccessInstanceResponse"
+    "fixture/CreateVerifiedAccessInstanceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateVerifiedAccessInstance)
+
+responseCreateVerifiedAccessTrustProvider :: CreateVerifiedAccessTrustProviderResponse -> TestTree
+responseCreateVerifiedAccessTrustProvider =
+  res
+    "CreateVerifiedAccessTrustProviderResponse"
+    "fixture/CreateVerifiedAccessTrustProviderResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateVerifiedAccessTrustProvider)
+
 responseCreateVolume :: Volume -> TestTree
 responseCreateVolume =
   res
@@ -8081,6 +8469,38 @@ responseDeleteTransitGatewayVpcAttachment =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteTransitGatewayVpcAttachment)
 
+responseDeleteVerifiedAccessEndpoint :: DeleteVerifiedAccessEndpointResponse -> TestTree
+responseDeleteVerifiedAccessEndpoint =
+  res
+    "DeleteVerifiedAccessEndpointResponse"
+    "fixture/DeleteVerifiedAccessEndpointResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteVerifiedAccessEndpoint)
+
+responseDeleteVerifiedAccessGroup :: DeleteVerifiedAccessGroupResponse -> TestTree
+responseDeleteVerifiedAccessGroup =
+  res
+    "DeleteVerifiedAccessGroupResponse"
+    "fixture/DeleteVerifiedAccessGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteVerifiedAccessGroup)
+
+responseDeleteVerifiedAccessInstance :: DeleteVerifiedAccessInstanceResponse -> TestTree
+responseDeleteVerifiedAccessInstance =
+  res
+    "DeleteVerifiedAccessInstanceResponse"
+    "fixture/DeleteVerifiedAccessInstanceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteVerifiedAccessInstance)
+
+responseDeleteVerifiedAccessTrustProvider :: DeleteVerifiedAccessTrustProviderResponse -> TestTree
+responseDeleteVerifiedAccessTrustProvider =
+  res
+    "DeleteVerifiedAccessTrustProviderResponse"
+    "fixture/DeleteVerifiedAccessTrustProviderResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteVerifiedAccessTrustProvider)
+
 responseDeleteVolume :: DeleteVolumeResponse -> TestTree
 responseDeleteVolume =
   res
@@ -8256,6 +8676,14 @@ responseDescribeAvailabilityZones =
     "fixture/DescribeAvailabilityZonesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeAvailabilityZones)
+
+responseDescribeAwsNetworkPerformanceMetricSubscriptions :: DescribeAwsNetworkPerformanceMetricSubscriptionsResponse -> TestTree
+responseDescribeAwsNetworkPerformanceMetricSubscriptions =
+  res
+    "DescribeAwsNetworkPerformanceMetricSubscriptionsResponse"
+    "fixture/DescribeAwsNetworkPerformanceMetricSubscriptionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeAwsNetworkPerformanceMetricSubscriptions)
 
 responseDescribeBundleTasks :: DescribeBundleTasksResponse -> TestTree
 responseDescribeBundleTasks =
@@ -9161,6 +9589,46 @@ responseDescribeTrunkInterfaceAssociations =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeTrunkInterfaceAssociations)
 
+responseDescribeVerifiedAccessEndpoints :: DescribeVerifiedAccessEndpointsResponse -> TestTree
+responseDescribeVerifiedAccessEndpoints =
+  res
+    "DescribeVerifiedAccessEndpointsResponse"
+    "fixture/DescribeVerifiedAccessEndpointsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeVerifiedAccessEndpoints)
+
+responseDescribeVerifiedAccessGroups :: DescribeVerifiedAccessGroupsResponse -> TestTree
+responseDescribeVerifiedAccessGroups =
+  res
+    "DescribeVerifiedAccessGroupsResponse"
+    "fixture/DescribeVerifiedAccessGroupsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeVerifiedAccessGroups)
+
+responseDescribeVerifiedAccessInstanceLoggingConfigurations :: DescribeVerifiedAccessInstanceLoggingConfigurationsResponse -> TestTree
+responseDescribeVerifiedAccessInstanceLoggingConfigurations =
+  res
+    "DescribeVerifiedAccessInstanceLoggingConfigurationsResponse"
+    "fixture/DescribeVerifiedAccessInstanceLoggingConfigurationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeVerifiedAccessInstanceLoggingConfigurations)
+
+responseDescribeVerifiedAccessInstances :: DescribeVerifiedAccessInstancesResponse -> TestTree
+responseDescribeVerifiedAccessInstances =
+  res
+    "DescribeVerifiedAccessInstancesResponse"
+    "fixture/DescribeVerifiedAccessInstancesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeVerifiedAccessInstances)
+
+responseDescribeVerifiedAccessTrustProviders :: DescribeVerifiedAccessTrustProvidersResponse -> TestTree
+responseDescribeVerifiedAccessTrustProviders =
+  res
+    "DescribeVerifiedAccessTrustProvidersResponse"
+    "fixture/DescribeVerifiedAccessTrustProvidersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeVerifiedAccessTrustProviders)
+
 responseDescribeVolumeAttribute :: DescribeVolumeAttributeResponse -> TestTree
 responseDescribeVolumeAttribute =
   res
@@ -9321,6 +9789,14 @@ responseDetachNetworkInterface =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DetachNetworkInterface)
 
+responseDetachVerifiedAccessTrustProvider :: DetachVerifiedAccessTrustProviderResponse -> TestTree
+responseDetachVerifiedAccessTrustProvider =
+  res
+    "DetachVerifiedAccessTrustProviderResponse"
+    "fixture/DetachVerifiedAccessTrustProviderResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DetachVerifiedAccessTrustProvider)
+
 responseDetachVolume :: VolumeAttachment -> TestTree
 responseDetachVolume =
   res
@@ -9344,6 +9820,14 @@ responseDisableAddressTransfer =
     "fixture/DisableAddressTransferResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DisableAddressTransfer)
+
+responseDisableAwsNetworkPerformanceMetricSubscription :: DisableAwsNetworkPerformanceMetricSubscriptionResponse -> TestTree
+responseDisableAwsNetworkPerformanceMetricSubscription =
+  res
+    "DisableAwsNetworkPerformanceMetricSubscriptionResponse"
+    "fixture/DisableAwsNetworkPerformanceMetricSubscriptionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisableAwsNetworkPerformanceMetricSubscription)
 
 responseDisableEbsEncryptionByDefault :: DisableEbsEncryptionByDefaultResponse -> TestTree
 responseDisableEbsEncryptionByDefault =
@@ -9529,6 +10013,14 @@ responseEnableAddressTransfer =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy EnableAddressTransfer)
 
+responseEnableAwsNetworkPerformanceMetricSubscription :: EnableAwsNetworkPerformanceMetricSubscriptionResponse -> TestTree
+responseEnableAwsNetworkPerformanceMetricSubscription =
+  res
+    "EnableAwsNetworkPerformanceMetricSubscriptionResponse"
+    "fixture/EnableAwsNetworkPerformanceMetricSubscriptionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy EnableAwsNetworkPerformanceMetricSubscription)
+
 responseEnableEbsEncryptionByDefault :: EnableEbsEncryptionByDefaultResponse -> TestTree
 responseEnableEbsEncryptionByDefault =
   res
@@ -9568,6 +10060,14 @@ responseEnableIpamOrganizationAdminAccount =
     "fixture/EnableIpamOrganizationAdminAccountResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy EnableIpamOrganizationAdminAccount)
+
+responseEnableReachabilityAnalyzerOrganizationSharing :: EnableReachabilityAnalyzerOrganizationSharingResponse -> TestTree
+responseEnableReachabilityAnalyzerOrganizationSharing =
+  res
+    "EnableReachabilityAnalyzerOrganizationSharingResponse"
+    "fixture/EnableReachabilityAnalyzerOrganizationSharingResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy EnableReachabilityAnalyzerOrganizationSharing)
 
 responseEnableSerialConsoleAccess :: EnableSerialConsoleAccessResponse -> TestTree
 responseEnableSerialConsoleAccess =
@@ -9664,6 +10164,14 @@ responseGetAssociatedIpv6PoolCidrs =
     "fixture/GetAssociatedIpv6PoolCidrsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetAssociatedIpv6PoolCidrs)
+
+responseGetAwsNetworkPerformanceData :: GetAwsNetworkPerformanceDataResponse -> TestTree
+responseGetAwsNetworkPerformanceData =
+  res
+    "GetAwsNetworkPerformanceDataResponse"
+    "fixture/GetAwsNetworkPerformanceDataResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetAwsNetworkPerformanceData)
 
 responseGetCapacityReservationUsage :: GetCapacityReservationUsageResponse -> TestTree
 responseGetCapacityReservationUsage =
@@ -9928,6 +10436,22 @@ responseGetTransitGatewayRouteTablePropagations =
     "fixture/GetTransitGatewayRouteTablePropagationsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetTransitGatewayRouteTablePropagations)
+
+responseGetVerifiedAccessEndpointPolicy :: GetVerifiedAccessEndpointPolicyResponse -> TestTree
+responseGetVerifiedAccessEndpointPolicy =
+  res
+    "GetVerifiedAccessEndpointPolicyResponse"
+    "fixture/GetVerifiedAccessEndpointPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetVerifiedAccessEndpointPolicy)
+
+responseGetVerifiedAccessGroupPolicy :: GetVerifiedAccessGroupPolicyResponse -> TestTree
+responseGetVerifiedAccessGroupPolicy =
+  res
+    "GetVerifiedAccessGroupPolicyResponse"
+    "fixture/GetVerifiedAccessGroupPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetVerifiedAccessGroupPolicy)
 
 responseGetVpnConnectionDeviceSampleConfiguration :: GetVpnConnectionDeviceSampleConfigurationResponse -> TestTree
 responseGetVpnConnectionDeviceSampleConfiguration =
@@ -10344,6 +10868,62 @@ responseModifyTransitGatewayVpcAttachment =
     "fixture/ModifyTransitGatewayVpcAttachmentResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ModifyTransitGatewayVpcAttachment)
+
+responseModifyVerifiedAccessEndpoint :: ModifyVerifiedAccessEndpointResponse -> TestTree
+responseModifyVerifiedAccessEndpoint =
+  res
+    "ModifyVerifiedAccessEndpointResponse"
+    "fixture/ModifyVerifiedAccessEndpointResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ModifyVerifiedAccessEndpoint)
+
+responseModifyVerifiedAccessEndpointPolicy :: ModifyVerifiedAccessEndpointPolicyResponse -> TestTree
+responseModifyVerifiedAccessEndpointPolicy =
+  res
+    "ModifyVerifiedAccessEndpointPolicyResponse"
+    "fixture/ModifyVerifiedAccessEndpointPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ModifyVerifiedAccessEndpointPolicy)
+
+responseModifyVerifiedAccessGroup :: ModifyVerifiedAccessGroupResponse -> TestTree
+responseModifyVerifiedAccessGroup =
+  res
+    "ModifyVerifiedAccessGroupResponse"
+    "fixture/ModifyVerifiedAccessGroupResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ModifyVerifiedAccessGroup)
+
+responseModifyVerifiedAccessGroupPolicy :: ModifyVerifiedAccessGroupPolicyResponse -> TestTree
+responseModifyVerifiedAccessGroupPolicy =
+  res
+    "ModifyVerifiedAccessGroupPolicyResponse"
+    "fixture/ModifyVerifiedAccessGroupPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ModifyVerifiedAccessGroupPolicy)
+
+responseModifyVerifiedAccessInstance :: ModifyVerifiedAccessInstanceResponse -> TestTree
+responseModifyVerifiedAccessInstance =
+  res
+    "ModifyVerifiedAccessInstanceResponse"
+    "fixture/ModifyVerifiedAccessInstanceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ModifyVerifiedAccessInstance)
+
+responseModifyVerifiedAccessInstanceLoggingConfiguration :: ModifyVerifiedAccessInstanceLoggingConfigurationResponse -> TestTree
+responseModifyVerifiedAccessInstanceLoggingConfiguration =
+  res
+    "ModifyVerifiedAccessInstanceLoggingConfigurationResponse"
+    "fixture/ModifyVerifiedAccessInstanceLoggingConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ModifyVerifiedAccessInstanceLoggingConfiguration)
+
+responseModifyVerifiedAccessTrustProvider :: ModifyVerifiedAccessTrustProviderResponse -> TestTree
+responseModifyVerifiedAccessTrustProvider =
+  res
+    "ModifyVerifiedAccessTrustProviderResponse"
+    "fixture/ModifyVerifiedAccessTrustProviderResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ModifyVerifiedAccessTrustProvider)
 
 responseModifyVolume :: ModifyVolumeResponse -> TestTree
 responseModifyVolume =

@@ -30,10 +30,11 @@ module Amazonka.SageMaker.CreateApp
     newCreateApp,
 
     -- * Request Lenses
-    createApp_tags,
     createApp_resourceSpec,
-    createApp_domainId,
+    createApp_spaceName,
+    createApp_tags,
     createApp_userProfileName,
+    createApp_domainId,
     createApp_appType,
     createApp_appName,
 
@@ -57,10 +58,7 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newCreateApp' smart constructor.
 data CreateApp = CreateApp'
-  { -- | Each tag consists of a key and an optional value. Tag keys must be
-    -- unique per resource.
-    tags :: Prelude.Maybe [Tag],
-    -- | The instance type and the Amazon Resource Name (ARN) of the SageMaker
+  { -- | The instance type and the Amazon Resource Name (ARN) of the SageMaker
     -- image created on the instance.
     --
     -- The value of @InstanceType@ passed as part of the @ResourceSpec@ in the
@@ -70,10 +68,15 @@ data CreateApp = CreateApp'
     -- values for a @KernelGateway@ app, the @CreateApp@ call fails with a
     -- request validation error.
     resourceSpec :: Prelude.Maybe ResourceSpec,
+    -- | The name of the space.
+    spaceName :: Prelude.Maybe Prelude.Text,
+    -- | Each tag consists of a key and an optional value. Tag keys must be
+    -- unique per resource.
+    tags :: Prelude.Maybe [Tag],
+    -- | The user profile name.
+    userProfileName :: Prelude.Maybe Prelude.Text,
     -- | The domain ID.
     domainId :: Prelude.Text,
-    -- | The user profile name.
-    userProfileName :: Prelude.Text,
     -- | The type of app.
     appType :: AppType,
     -- | The name of the app.
@@ -89,9 +92,6 @@ data CreateApp = CreateApp'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createApp_tags' - Each tag consists of a key and an optional value. Tag keys must be
--- unique per resource.
---
 -- 'resourceSpec', 'createApp_resourceSpec' - The instance type and the Amazon Resource Name (ARN) of the SageMaker
 -- image created on the instance.
 --
@@ -102,9 +102,14 @@ data CreateApp = CreateApp'
 -- values for a @KernelGateway@ app, the @CreateApp@ call fails with a
 -- request validation error.
 --
--- 'domainId', 'createApp_domainId' - The domain ID.
+-- 'spaceName', 'createApp_spaceName' - The name of the space.
+--
+-- 'tags', 'createApp_tags' - Each tag consists of a key and an optional value. Tag keys must be
+-- unique per resource.
 --
 -- 'userProfileName', 'createApp_userProfileName' - The user profile name.
+--
+-- 'domainId', 'createApp_domainId' - The domain ID.
 --
 -- 'appType', 'createApp_appType' - The type of app.
 --
@@ -112,31 +117,21 @@ data CreateApp = CreateApp'
 newCreateApp ::
   -- | 'domainId'
   Prelude.Text ->
-  -- | 'userProfileName'
-  Prelude.Text ->
   -- | 'appType'
   AppType ->
   -- | 'appName'
   Prelude.Text ->
   CreateApp
-newCreateApp
-  pDomainId_
-  pUserProfileName_
-  pAppType_
-  pAppName_ =
-    CreateApp'
-      { tags = Prelude.Nothing,
-        resourceSpec = Prelude.Nothing,
-        domainId = pDomainId_,
-        userProfileName = pUserProfileName_,
-        appType = pAppType_,
-        appName = pAppName_
-      }
-
--- | Each tag consists of a key and an optional value. Tag keys must be
--- unique per resource.
-createApp_tags :: Lens.Lens' CreateApp (Prelude.Maybe [Tag])
-createApp_tags = Lens.lens (\CreateApp' {tags} -> tags) (\s@CreateApp' {} a -> s {tags = a} :: CreateApp) Prelude.. Lens.mapping Lens.coerced
+newCreateApp pDomainId_ pAppType_ pAppName_ =
+  CreateApp'
+    { resourceSpec = Prelude.Nothing,
+      spaceName = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      userProfileName = Prelude.Nothing,
+      domainId = pDomainId_,
+      appType = pAppType_,
+      appName = pAppName_
+    }
 
 -- | The instance type and the Amazon Resource Name (ARN) of the SageMaker
 -- image created on the instance.
@@ -150,13 +145,22 @@ createApp_tags = Lens.lens (\CreateApp' {tags} -> tags) (\s@CreateApp' {} a -> s
 createApp_resourceSpec :: Lens.Lens' CreateApp (Prelude.Maybe ResourceSpec)
 createApp_resourceSpec = Lens.lens (\CreateApp' {resourceSpec} -> resourceSpec) (\s@CreateApp' {} a -> s {resourceSpec = a} :: CreateApp)
 
+-- | The name of the space.
+createApp_spaceName :: Lens.Lens' CreateApp (Prelude.Maybe Prelude.Text)
+createApp_spaceName = Lens.lens (\CreateApp' {spaceName} -> spaceName) (\s@CreateApp' {} a -> s {spaceName = a} :: CreateApp)
+
+-- | Each tag consists of a key and an optional value. Tag keys must be
+-- unique per resource.
+createApp_tags :: Lens.Lens' CreateApp (Prelude.Maybe [Tag])
+createApp_tags = Lens.lens (\CreateApp' {tags} -> tags) (\s@CreateApp' {} a -> s {tags = a} :: CreateApp) Prelude.. Lens.mapping Lens.coerced
+
+-- | The user profile name.
+createApp_userProfileName :: Lens.Lens' CreateApp (Prelude.Maybe Prelude.Text)
+createApp_userProfileName = Lens.lens (\CreateApp' {userProfileName} -> userProfileName) (\s@CreateApp' {} a -> s {userProfileName = a} :: CreateApp)
+
 -- | The domain ID.
 createApp_domainId :: Lens.Lens' CreateApp Prelude.Text
 createApp_domainId = Lens.lens (\CreateApp' {domainId} -> domainId) (\s@CreateApp' {} a -> s {domainId = a} :: CreateApp)
-
--- | The user profile name.
-createApp_userProfileName :: Lens.Lens' CreateApp Prelude.Text
-createApp_userProfileName = Lens.lens (\CreateApp' {userProfileName} -> userProfileName) (\s@CreateApp' {} a -> s {userProfileName = a} :: CreateApp)
 
 -- | The type of app.
 createApp_appType :: Lens.Lens' CreateApp AppType
@@ -180,19 +184,21 @@ instance Core.AWSRequest CreateApp where
 
 instance Prelude.Hashable CreateApp where
   hashWithSalt _salt CreateApp' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` resourceSpec
-      `Prelude.hashWithSalt` domainId
+    _salt `Prelude.hashWithSalt` resourceSpec
+      `Prelude.hashWithSalt` spaceName
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` userProfileName
+      `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` appType
       `Prelude.hashWithSalt` appName
 
 instance Prelude.NFData CreateApp where
   rnf CreateApp' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf resourceSpec
-      `Prelude.seq` Prelude.rnf domainId
+    Prelude.rnf resourceSpec
+      `Prelude.seq` Prelude.rnf spaceName
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf userProfileName
+      `Prelude.seq` Prelude.rnf domainId
       `Prelude.seq` Prelude.rnf appType
       `Prelude.seq` Prelude.rnf appName
 
@@ -213,11 +219,12 @@ instance Data.ToJSON CreateApp where
   toJSON CreateApp' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ResourceSpec" Data..=) Prelude.<$> resourceSpec,
+          [ ("ResourceSpec" Data..=) Prelude.<$> resourceSpec,
+            ("SpaceName" Data..=) Prelude.<$> spaceName,
+            ("Tags" Data..=) Prelude.<$> tags,
+            ("UserProfileName" Data..=)
+              Prelude.<$> userProfileName,
             Prelude.Just ("DomainId" Data..= domainId),
-            Prelude.Just
-              ("UserProfileName" Data..= userProfileName),
             Prelude.Just ("AppType" Data..= appType),
             Prelude.Just ("AppName" Data..= appName)
           ]

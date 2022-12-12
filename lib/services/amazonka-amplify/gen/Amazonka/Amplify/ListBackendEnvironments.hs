@@ -27,9 +27,9 @@ module Amazonka.Amplify.ListBackendEnvironments
     newListBackendEnvironments,
 
     -- * Request Lenses
-    listBackendEnvironments_nextToken,
     listBackendEnvironments_environmentName,
     listBackendEnvironments_maxResults,
+    listBackendEnvironments_nextToken,
     listBackendEnvironments_appId,
 
     -- * Destructuring the Response
@@ -55,14 +55,14 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListBackendEnvironments' smart constructor.
 data ListBackendEnvironments = ListBackendEnvironments'
-  { -- | A pagination token. Set to null to start listing backend environments
-    -- from the start. If a non-null pagination token is returned in a result,
-    -- pass its value in here to list more backend environments.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The name of the backend environment
+  { -- | The name of the backend environment
     environmentName :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to list in a single response.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A pagination token. Set to null to start listing backend environments
+    -- from the start. If a non-null pagination token is returned in a result,
+    -- pass its value in here to list more backend environments.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The unique ID for an Amplify app.
     appId :: Prelude.Text
   }
@@ -76,13 +76,13 @@ data ListBackendEnvironments = ListBackendEnvironments'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listBackendEnvironments_nextToken' - A pagination token. Set to null to start listing backend environments
--- from the start. If a non-null pagination token is returned in a result,
--- pass its value in here to list more backend environments.
---
 -- 'environmentName', 'listBackendEnvironments_environmentName' - The name of the backend environment
 --
 -- 'maxResults', 'listBackendEnvironments_maxResults' - The maximum number of records to list in a single response.
+--
+-- 'nextToken', 'listBackendEnvironments_nextToken' - A pagination token. Set to null to start listing backend environments
+-- from the start. If a non-null pagination token is returned in a result,
+-- pass its value in here to list more backend environments.
 --
 -- 'appId', 'listBackendEnvironments_appId' - The unique ID for an Amplify app.
 newListBackendEnvironments ::
@@ -91,18 +91,12 @@ newListBackendEnvironments ::
   ListBackendEnvironments
 newListBackendEnvironments pAppId_ =
   ListBackendEnvironments'
-    { nextToken =
+    { environmentName =
         Prelude.Nothing,
-      environmentName = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       appId = pAppId_
     }
-
--- | A pagination token. Set to null to start listing backend environments
--- from the start. If a non-null pagination token is returned in a result,
--- pass its value in here to list more backend environments.
-listBackendEnvironments_nextToken :: Lens.Lens' ListBackendEnvironments (Prelude.Maybe Prelude.Text)
-listBackendEnvironments_nextToken = Lens.lens (\ListBackendEnvironments' {nextToken} -> nextToken) (\s@ListBackendEnvironments' {} a -> s {nextToken = a} :: ListBackendEnvironments)
 
 -- | The name of the backend environment
 listBackendEnvironments_environmentName :: Lens.Lens' ListBackendEnvironments (Prelude.Maybe Prelude.Text)
@@ -111,6 +105,12 @@ listBackendEnvironments_environmentName = Lens.lens (\ListBackendEnvironments' {
 -- | The maximum number of records to list in a single response.
 listBackendEnvironments_maxResults :: Lens.Lens' ListBackendEnvironments (Prelude.Maybe Prelude.Natural)
 listBackendEnvironments_maxResults = Lens.lens (\ListBackendEnvironments' {maxResults} -> maxResults) (\s@ListBackendEnvironments' {} a -> s {maxResults = a} :: ListBackendEnvironments)
+
+-- | A pagination token. Set to null to start listing backend environments
+-- from the start. If a non-null pagination token is returned in a result,
+-- pass its value in here to list more backend environments.
+listBackendEnvironments_nextToken :: Lens.Lens' ListBackendEnvironments (Prelude.Maybe Prelude.Text)
+listBackendEnvironments_nextToken = Lens.lens (\ListBackendEnvironments' {nextToken} -> nextToken) (\s@ListBackendEnvironments' {} a -> s {nextToken = a} :: ListBackendEnvironments)
 
 -- | The unique ID for an Amplify app.
 listBackendEnvironments_appId :: Lens.Lens' ListBackendEnvironments Prelude.Text
@@ -135,16 +135,16 @@ instance Core.AWSRequest ListBackendEnvironments where
 
 instance Prelude.Hashable ListBackendEnvironments where
   hashWithSalt _salt ListBackendEnvironments' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` environmentName
+    _salt `Prelude.hashWithSalt` environmentName
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` appId
 
 instance Prelude.NFData ListBackendEnvironments where
   rnf ListBackendEnvironments' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf environmentName
+    Prelude.rnf environmentName
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf appId
 
 instance Data.ToHeaders ListBackendEnvironments where
@@ -166,9 +166,9 @@ instance Data.ToPath ListBackendEnvironments where
 instance Data.ToQuery ListBackendEnvironments where
   toQuery ListBackendEnvironments' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "environmentName" Data.=: environmentName,
-        "maxResults" Data.=: maxResults
+      [ "environmentName" Data.=: environmentName,
+        "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | The result structure for the list backend environments result.

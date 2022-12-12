@@ -45,16 +45,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newProtectiveEquipmentSummary' smart constructor.
 data ProtectiveEquipmentSummary = ProtectiveEquipmentSummary'
-  { -- | An array of IDs for persons who are wearing detected personal protective
+  { -- | An array of IDs for persons where it was not possible to determine if
+    -- they are wearing personal protective equipment.
+    personsIndeterminate :: Prelude.Maybe [Prelude.Natural],
+    -- | An array of IDs for persons who are wearing detected personal protective
     -- equipment.
     personsWithRequiredEquipment :: Prelude.Maybe [Prelude.Natural],
     -- | An array of IDs for persons who are not wearing all of the types of PPE
     -- specified in the @RequiredEquipmentTypes@ field of the detected personal
     -- protective equipment.
-    personsWithoutRequiredEquipment :: Prelude.Maybe [Prelude.Natural],
-    -- | An array of IDs for persons where it was not possible to determine if
-    -- they are wearing personal protective equipment.
-    personsIndeterminate :: Prelude.Maybe [Prelude.Natural]
+    personsWithoutRequiredEquipment :: Prelude.Maybe [Prelude.Natural]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,25 +66,30 @@ data ProtectiveEquipmentSummary = ProtectiveEquipmentSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'personsIndeterminate', 'protectiveEquipmentSummary_personsIndeterminate' - An array of IDs for persons where it was not possible to determine if
+-- they are wearing personal protective equipment.
+--
 -- 'personsWithRequiredEquipment', 'protectiveEquipmentSummary_personsWithRequiredEquipment' - An array of IDs for persons who are wearing detected personal protective
 -- equipment.
 --
 -- 'personsWithoutRequiredEquipment', 'protectiveEquipmentSummary_personsWithoutRequiredEquipment' - An array of IDs for persons who are not wearing all of the types of PPE
 -- specified in the @RequiredEquipmentTypes@ field of the detected personal
 -- protective equipment.
---
--- 'personsIndeterminate', 'protectiveEquipmentSummary_personsIndeterminate' - An array of IDs for persons where it was not possible to determine if
--- they are wearing personal protective equipment.
 newProtectiveEquipmentSummary ::
   ProtectiveEquipmentSummary
 newProtectiveEquipmentSummary =
   ProtectiveEquipmentSummary'
-    { personsWithRequiredEquipment =
+    { personsIndeterminate =
         Prelude.Nothing,
+      personsWithRequiredEquipment = Prelude.Nothing,
       personsWithoutRequiredEquipment =
-        Prelude.Nothing,
-      personsIndeterminate = Prelude.Nothing
+        Prelude.Nothing
     }
+
+-- | An array of IDs for persons where it was not possible to determine if
+-- they are wearing personal protective equipment.
+protectiveEquipmentSummary_personsIndeterminate :: Lens.Lens' ProtectiveEquipmentSummary (Prelude.Maybe [Prelude.Natural])
+protectiveEquipmentSummary_personsIndeterminate = Lens.lens (\ProtectiveEquipmentSummary' {personsIndeterminate} -> personsIndeterminate) (\s@ProtectiveEquipmentSummary' {} a -> s {personsIndeterminate = a} :: ProtectiveEquipmentSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | An array of IDs for persons who are wearing detected personal protective
 -- equipment.
@@ -97,37 +102,31 @@ protectiveEquipmentSummary_personsWithRequiredEquipment = Lens.lens (\Protective
 protectiveEquipmentSummary_personsWithoutRequiredEquipment :: Lens.Lens' ProtectiveEquipmentSummary (Prelude.Maybe [Prelude.Natural])
 protectiveEquipmentSummary_personsWithoutRequiredEquipment = Lens.lens (\ProtectiveEquipmentSummary' {personsWithoutRequiredEquipment} -> personsWithoutRequiredEquipment) (\s@ProtectiveEquipmentSummary' {} a -> s {personsWithoutRequiredEquipment = a} :: ProtectiveEquipmentSummary) Prelude.. Lens.mapping Lens.coerced
 
--- | An array of IDs for persons where it was not possible to determine if
--- they are wearing personal protective equipment.
-protectiveEquipmentSummary_personsIndeterminate :: Lens.Lens' ProtectiveEquipmentSummary (Prelude.Maybe [Prelude.Natural])
-protectiveEquipmentSummary_personsIndeterminate = Lens.lens (\ProtectiveEquipmentSummary' {personsIndeterminate} -> personsIndeterminate) (\s@ProtectiveEquipmentSummary' {} a -> s {personsIndeterminate = a} :: ProtectiveEquipmentSummary) Prelude.. Lens.mapping Lens.coerced
-
 instance Data.FromJSON ProtectiveEquipmentSummary where
   parseJSON =
     Data.withObject
       "ProtectiveEquipmentSummary"
       ( \x ->
           ProtectiveEquipmentSummary'
-            Prelude.<$> ( x Data..:? "PersonsWithRequiredEquipment"
+            Prelude.<$> ( x Data..:? "PersonsIndeterminate"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x Data..:? "PersonsWithRequiredEquipment"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> ( x Data..:? "PersonsWithoutRequiredEquipment"
-                            Data..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Data..:? "PersonsIndeterminate"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ProtectiveEquipmentSummary where
   hashWithSalt _salt ProtectiveEquipmentSummary' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` personsIndeterminate
       `Prelude.hashWithSalt` personsWithRequiredEquipment
       `Prelude.hashWithSalt` personsWithoutRequiredEquipment
-      `Prelude.hashWithSalt` personsIndeterminate
 
 instance Prelude.NFData ProtectiveEquipmentSummary where
   rnf ProtectiveEquipmentSummary' {..} =
-    Prelude.rnf personsWithRequiredEquipment
+    Prelude.rnf personsIndeterminate
+      `Prelude.seq` Prelude.rnf personsWithRequiredEquipment
       `Prelude.seq` Prelude.rnf personsWithoutRequiredEquipment
-      `Prelude.seq` Prelude.rnf personsIndeterminate

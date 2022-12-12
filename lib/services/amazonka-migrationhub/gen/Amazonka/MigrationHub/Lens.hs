@@ -40,8 +40,8 @@ module Amazonka.MigrationHub.Lens
 
     -- ** DescribeApplicationState
     describeApplicationState_applicationId,
-    describeApplicationStateResponse_lastUpdatedTime,
     describeApplicationStateResponse_applicationStatus,
+    describeApplicationStateResponse_lastUpdatedTime,
     describeApplicationStateResponse_httpStatus,
 
     -- ** DescribeMigrationTask
@@ -71,49 +71,49 @@ module Amazonka.MigrationHub.Lens
     importMigrationTaskResponse_httpStatus,
 
     -- ** ListApplicationStates
-    listApplicationStates_nextToken,
     listApplicationStates_applicationIds,
     listApplicationStates_maxResults,
-    listApplicationStatesResponse_nextToken,
+    listApplicationStates_nextToken,
     listApplicationStatesResponse_applicationStateList,
+    listApplicationStatesResponse_nextToken,
     listApplicationStatesResponse_httpStatus,
 
     -- ** ListCreatedArtifacts
-    listCreatedArtifacts_nextToken,
     listCreatedArtifacts_maxResults,
+    listCreatedArtifacts_nextToken,
     listCreatedArtifacts_progressUpdateStream,
     listCreatedArtifacts_migrationTaskName,
-    listCreatedArtifactsResponse_nextToken,
     listCreatedArtifactsResponse_createdArtifactList,
+    listCreatedArtifactsResponse_nextToken,
     listCreatedArtifactsResponse_httpStatus,
 
     -- ** ListDiscoveredResources
-    listDiscoveredResources_nextToken,
     listDiscoveredResources_maxResults,
+    listDiscoveredResources_nextToken,
     listDiscoveredResources_progressUpdateStream,
     listDiscoveredResources_migrationTaskName,
-    listDiscoveredResourcesResponse_nextToken,
     listDiscoveredResourcesResponse_discoveredResourceList,
+    listDiscoveredResourcesResponse_nextToken,
     listDiscoveredResourcesResponse_httpStatus,
 
     -- ** ListMigrationTasks
+    listMigrationTasks_maxResults,
     listMigrationTasks_nextToken,
     listMigrationTasks_resourceName,
-    listMigrationTasks_maxResults,
-    listMigrationTasksResponse_nextToken,
     listMigrationTasksResponse_migrationTaskSummaryList,
+    listMigrationTasksResponse_nextToken,
     listMigrationTasksResponse_httpStatus,
 
     -- ** ListProgressUpdateStreams
-    listProgressUpdateStreams_nextToken,
     listProgressUpdateStreams_maxResults,
+    listProgressUpdateStreams_nextToken,
     listProgressUpdateStreamsResponse_nextToken,
     listProgressUpdateStreamsResponse_progressUpdateStreamSummaryList,
     listProgressUpdateStreamsResponse_httpStatus,
 
     -- ** NotifyApplicationState
-    notifyApplicationState_updateDateTime,
     notifyApplicationState_dryRun,
+    notifyApplicationState_updateDateTime,
     notifyApplicationState_applicationId,
     notifyApplicationState_status,
     notifyApplicationStateResponse_httpStatus,
@@ -137,9 +137,9 @@ module Amazonka.MigrationHub.Lens
     -- * Types
 
     -- ** ApplicationState
-    applicationState_lastUpdatedTime,
-    applicationState_applicationStatus,
     applicationState_applicationId,
+    applicationState_applicationStatus,
+    applicationState_lastUpdatedTime,
 
     -- ** CreatedArtifact
     createdArtifact_description,
@@ -150,19 +150,19 @@ module Amazonka.MigrationHub.Lens
     discoveredResource_configurationId,
 
     -- ** MigrationTask
-    migrationTask_updateDateTime,
-    migrationTask_task,
     migrationTask_migrationTaskName,
     migrationTask_progressUpdateStream,
     migrationTask_resourceAttributeList,
+    migrationTask_task,
+    migrationTask_updateDateTime,
 
     -- ** MigrationTaskSummary
-    migrationTaskSummary_updateDateTime,
     migrationTaskSummary_migrationTaskName,
-    migrationTaskSummary_statusDetail,
-    migrationTaskSummary_status,
-    migrationTaskSummary_progressUpdateStream,
     migrationTaskSummary_progressPercent,
+    migrationTaskSummary_progressUpdateStream,
+    migrationTaskSummary_status,
+    migrationTaskSummary_statusDetail,
+    migrationTaskSummary_updateDateTime,
 
     -- ** ProgressUpdateStreamSummary
     progressUpdateStreamSummary_progressUpdateStreamName,
@@ -172,8 +172,8 @@ module Amazonka.MigrationHub.Lens
     resourceAttribute_value,
 
     -- ** Task
-    task_statusDetail,
     task_progressPercent,
+    task_statusDetail,
     task_status,
   )
 where

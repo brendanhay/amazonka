@@ -29,8 +29,8 @@ module Amazonka.Route53RecoveryReadiness.ListResourceSets
     newListResourceSets,
 
     -- * Request Lenses
-    listResourceSets_nextToken,
     listResourceSets_maxResults,
+    listResourceSets_nextToken,
 
     -- * Destructuring the Response
     ListResourceSetsResponse (..),
@@ -53,10 +53,10 @@ import Amazonka.Route53RecoveryReadiness.Types
 
 -- | /See:/ 'newListResourceSets' smart constructor.
 data ListResourceSets = ListResourceSets'
-  { -- | The token that identifies which batch of results you want to see.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The number of objects that you want to return with this call.
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { -- | The number of objects that you want to return with this call.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token that identifies which batch of results you want to see.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,24 +68,24 @@ data ListResourceSets = ListResourceSets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listResourceSets_nextToken' - The token that identifies which batch of results you want to see.
---
 -- 'maxResults', 'listResourceSets_maxResults' - The number of objects that you want to return with this call.
+--
+-- 'nextToken', 'listResourceSets_nextToken' - The token that identifies which batch of results you want to see.
 newListResourceSets ::
   ListResourceSets
 newListResourceSets =
   ListResourceSets'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token that identifies which batch of results you want to see.
-listResourceSets_nextToken :: Lens.Lens' ListResourceSets (Prelude.Maybe Prelude.Text)
-listResourceSets_nextToken = Lens.lens (\ListResourceSets' {nextToken} -> nextToken) (\s@ListResourceSets' {} a -> s {nextToken = a} :: ListResourceSets)
 
 -- | The number of objects that you want to return with this call.
 listResourceSets_maxResults :: Lens.Lens' ListResourceSets (Prelude.Maybe Prelude.Natural)
 listResourceSets_maxResults = Lens.lens (\ListResourceSets' {maxResults} -> maxResults) (\s@ListResourceSets' {} a -> s {maxResults = a} :: ListResourceSets)
+
+-- | The token that identifies which batch of results you want to see.
+listResourceSets_nextToken :: Lens.Lens' ListResourceSets (Prelude.Maybe Prelude.Text)
+listResourceSets_nextToken = Lens.lens (\ListResourceSets' {nextToken} -> nextToken) (\s@ListResourceSets' {} a -> s {nextToken = a} :: ListResourceSets)
 
 instance Core.AWSPager ListResourceSets where
   page rq rs
@@ -126,13 +126,13 @@ instance Core.AWSRequest ListResourceSets where
 
 instance Prelude.Hashable ListResourceSets where
   hashWithSalt _salt ListResourceSets' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListResourceSets where
   rnf ListResourceSets' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListResourceSets where
   toHeaders =
@@ -151,8 +151,8 @@ instance Data.ToPath ListResourceSets where
 instance Data.ToQuery ListResourceSets where
   toQuery ListResourceSets' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListResourceSetsResponse' smart constructor.

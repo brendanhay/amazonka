@@ -29,8 +29,8 @@ module Amazonka.CodeStar.ListResources
     newListResources,
 
     -- * Request Lenses
-    listResources_nextToken,
     listResources_maxResults,
+    listResources_nextToken,
     listResources_projectId,
 
     -- * Destructuring the Response
@@ -54,12 +54,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListResources' smart constructor.
 data ListResources = ListResources'
-  { -- | The continuation token for the next set of results, if the results
-    -- cannot be returned in one response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum amount of data that can be contained in a single set of
+  { -- | The maximum amount of data that can be contained in a single set of
     -- results.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The continuation token for the next set of results, if the results
+    -- cannot be returned in one response.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the project.
     projectId :: Prelude.Text
   }
@@ -73,11 +73,11 @@ data ListResources = ListResources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listResources_nextToken' - The continuation token for the next set of results, if the results
--- cannot be returned in one response.
---
 -- 'maxResults', 'listResources_maxResults' - The maximum amount of data that can be contained in a single set of
 -- results.
+--
+-- 'nextToken', 'listResources_nextToken' - The continuation token for the next set of results, if the results
+-- cannot be returned in one response.
 --
 -- 'projectId', 'listResources_projectId' - The ID of the project.
 newListResources ::
@@ -86,20 +86,20 @@ newListResources ::
   ListResources
 newListResources pProjectId_ =
   ListResources'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       projectId = pProjectId_
     }
-
--- | The continuation token for the next set of results, if the results
--- cannot be returned in one response.
-listResources_nextToken :: Lens.Lens' ListResources (Prelude.Maybe Prelude.Text)
-listResources_nextToken = Lens.lens (\ListResources' {nextToken} -> nextToken) (\s@ListResources' {} a -> s {nextToken = a} :: ListResources)
 
 -- | The maximum amount of data that can be contained in a single set of
 -- results.
 listResources_maxResults :: Lens.Lens' ListResources (Prelude.Maybe Prelude.Natural)
 listResources_maxResults = Lens.lens (\ListResources' {maxResults} -> maxResults) (\s@ListResources' {} a -> s {maxResults = a} :: ListResources)
+
+-- | The continuation token for the next set of results, if the results
+-- cannot be returned in one response.
+listResources_nextToken :: Lens.Lens' ListResources (Prelude.Maybe Prelude.Text)
+listResources_nextToken = Lens.lens (\ListResources' {nextToken} -> nextToken) (\s@ListResources' {} a -> s {nextToken = a} :: ListResources)
 
 -- | The ID of the project.
 listResources_projectId :: Lens.Lens' ListResources Prelude.Text
@@ -141,14 +141,14 @@ instance Core.AWSRequest ListResources where
 
 instance Prelude.Hashable ListResources where
   hashWithSalt _salt ListResources' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` projectId
 
 instance Prelude.NFData ListResources where
   rnf ListResources' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf projectId
 
 instance Data.ToHeaders ListResources where
@@ -170,8 +170,8 @@ instance Data.ToJSON ListResources where
   toJSON ListResources' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("projectId" Data..= projectId)
           ]
       )

@@ -69,26 +69,26 @@ module Amazonka.CodeStarNotifications
     -- * Errors
     -- $errors
 
-    -- ** ResourceAlreadyExistsException
-    _ResourceAlreadyExistsException,
-
-    -- ** ConfigurationException
-    _ConfigurationException,
+    -- ** AccessDeniedException
+    _AccessDeniedException,
 
     -- ** ConcurrentModificationException
     _ConcurrentModificationException,
 
-    -- ** AccessDeniedException
-    _AccessDeniedException,
+    -- ** ConfigurationException
+    _ConfigurationException,
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
 
     -- ** LimitExceededException
     _LimitExceededException,
 
-    -- ** InvalidNextTokenException
-    _InvalidNextTokenException,
+    -- ** ResourceAlreadyExistsException
+    _ResourceAlreadyExistsException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- ** ValidationException
     _ValidationException,

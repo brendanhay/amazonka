@@ -31,6 +31,7 @@ module Amazonka.SageMakerFeatureStoreRuntime.PutRecord
     newPutRecord,
 
     -- * Request Lenses
+    putRecord_targetStores,
     putRecord_featureGroupName,
     putRecord_record,
 
@@ -50,7 +51,11 @@ import Amazonka.SageMakerFeatureStoreRuntime.Types
 
 -- | /See:/ 'newPutRecord' smart constructor.
 data PutRecord = PutRecord'
-  { -- | The name of the feature group that you want to insert the record into.
+  { -- | A list of stores to which you\'re adding the record. By default, Feature
+    -- Store adds the record to all of the stores that you\'re using for the
+    -- @FeatureGroup@.
+    targetStores :: Prelude.Maybe (Prelude.NonEmpty TargetStore),
+    -- | The name of the feature group that you want to insert the record into.
     featureGroupName :: Prelude.Text,
     -- | List of FeatureValues to be inserted. This will be a full over-write. If
     -- you only want to update few of the feature values, do the following:
@@ -72,6 +77,10 @@ data PutRecord = PutRecord'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'targetStores', 'putRecord_targetStores' - A list of stores to which you\'re adding the record. By default, Feature
+-- Store adds the record to all of the stores that you\'re using for the
+-- @FeatureGroup@.
+--
 -- 'featureGroupName', 'putRecord_featureGroupName' - The name of the feature group that you want to insert the record into.
 --
 -- 'record', 'putRecord_record' - List of FeatureValues to be inserted. This will be a full over-write. If
@@ -90,9 +99,16 @@ newPutRecord ::
   PutRecord
 newPutRecord pFeatureGroupName_ pRecord_ =
   PutRecord'
-    { featureGroupName = pFeatureGroupName_,
+    { targetStores = Prelude.Nothing,
+      featureGroupName = pFeatureGroupName_,
       record = Lens.coerced Lens.# pRecord_
     }
+
+-- | A list of stores to which you\'re adding the record. By default, Feature
+-- Store adds the record to all of the stores that you\'re using for the
+-- @FeatureGroup@.
+putRecord_targetStores :: Lens.Lens' PutRecord (Prelude.Maybe (Prelude.NonEmpty TargetStore))
+putRecord_targetStores = Lens.lens (\PutRecord' {targetStores} -> targetStores) (\s@PutRecord' {} a -> s {targetStores = a} :: PutRecord) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the feature group that you want to insert the record into.
 putRecord_featureGroupName :: Lens.Lens' PutRecord Prelude.Text
@@ -117,12 +133,14 @@ instance Core.AWSRequest PutRecord where
 
 instance Prelude.Hashable PutRecord where
   hashWithSalt _salt PutRecord' {..} =
-    _salt `Prelude.hashWithSalt` featureGroupName
+    _salt `Prelude.hashWithSalt` targetStores
+      `Prelude.hashWithSalt` featureGroupName
       `Prelude.hashWithSalt` record
 
 instance Prelude.NFData PutRecord where
   rnf PutRecord' {..} =
-    Prelude.rnf featureGroupName
+    Prelude.rnf targetStores
+      `Prelude.seq` Prelude.rnf featureGroupName
       `Prelude.seq` Prelude.rnf record
 
 instance Data.ToHeaders PutRecord where
@@ -140,7 +158,9 @@ instance Data.ToJSON PutRecord where
   toJSON PutRecord' {..} =
     Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Record" Data..= record)]
+          [ ("TargetStores" Data..=) Prelude.<$> targetStores,
+            Prelude.Just ("Record" Data..= record)
+          ]
       )
 
 instance Data.ToPath PutRecord where

@@ -30,13 +30,13 @@ import Amazonka.SecurityHub.Types.AdminStatus
 --
 -- /See:/ 'newAdminAccount' smart constructor.
 data AdminAccount = AdminAccount'
-  { -- | The current status of the Security Hub administrator account. Indicates
+  { -- | The Amazon Web Services account identifier of the Security Hub
+    -- administrator account.
+    accountId :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the Security Hub administrator account. Indicates
     -- whether the account is currently enabled as a Security Hub
     -- administrator.
-    status :: Prelude.Maybe AdminStatus,
-    -- | The Amazon Web Services account identifier of the Security Hub
-    -- administrator account.
-    accountId :: Prelude.Maybe Prelude.Text
+    status :: Prelude.Maybe AdminStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,19 +48,24 @@ data AdminAccount = AdminAccount'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'accountId', 'adminAccount_accountId' - The Amazon Web Services account identifier of the Security Hub
+-- administrator account.
+--
 -- 'status', 'adminAccount_status' - The current status of the Security Hub administrator account. Indicates
 -- whether the account is currently enabled as a Security Hub
 -- administrator.
---
--- 'accountId', 'adminAccount_accountId' - The Amazon Web Services account identifier of the Security Hub
--- administrator account.
 newAdminAccount ::
   AdminAccount
 newAdminAccount =
   AdminAccount'
-    { status = Prelude.Nothing,
-      accountId = Prelude.Nothing
+    { accountId = Prelude.Nothing,
+      status = Prelude.Nothing
     }
+
+-- | The Amazon Web Services account identifier of the Security Hub
+-- administrator account.
+adminAccount_accountId :: Lens.Lens' AdminAccount (Prelude.Maybe Prelude.Text)
+adminAccount_accountId = Lens.lens (\AdminAccount' {accountId} -> accountId) (\s@AdminAccount' {} a -> s {accountId = a} :: AdminAccount)
 
 -- | The current status of the Security Hub administrator account. Indicates
 -- whether the account is currently enabled as a Security Hub
@@ -68,27 +73,22 @@ newAdminAccount =
 adminAccount_status :: Lens.Lens' AdminAccount (Prelude.Maybe AdminStatus)
 adminAccount_status = Lens.lens (\AdminAccount' {status} -> status) (\s@AdminAccount' {} a -> s {status = a} :: AdminAccount)
 
--- | The Amazon Web Services account identifier of the Security Hub
--- administrator account.
-adminAccount_accountId :: Lens.Lens' AdminAccount (Prelude.Maybe Prelude.Text)
-adminAccount_accountId = Lens.lens (\AdminAccount' {accountId} -> accountId) (\s@AdminAccount' {} a -> s {accountId = a} :: AdminAccount)
-
 instance Data.FromJSON AdminAccount where
   parseJSON =
     Data.withObject
       "AdminAccount"
       ( \x ->
           AdminAccount'
-            Prelude.<$> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<$> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable AdminAccount where
   hashWithSalt _salt AdminAccount' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` accountId
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData AdminAccount where
   rnf AdminAccount' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf accountId
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf status

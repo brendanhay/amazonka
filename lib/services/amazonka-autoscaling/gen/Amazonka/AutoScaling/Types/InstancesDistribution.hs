@@ -30,27 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstancesDistribution' smart constructor.
 data InstancesDistribution = InstancesDistribution'
-  { -- | The minimum amount of the Auto Scaling group\'s capacity that must be
-    -- fulfilled by On-Demand Instances. This base portion is launched first as
-    -- your group scales.
-    --
-    -- This number has the same unit of measurement as the group\'s desired
-    -- capacity. If you change the default unit of measurement (number of
-    -- instances) by specifying weighted capacity values in your launch
-    -- template overrides list, or by changing the default desired capacity
-    -- type setting of the group, you must specify this number using the same
-    -- unit of measurement.
-    --
-    -- Default: 0
-    onDemandBaseCapacity :: Prelude.Maybe Prelude.Int,
-    -- | Controls the percentages of On-Demand Instances and Spot Instances for
-    -- your additional capacity beyond @OnDemandBaseCapacity@. Expressed as a
-    -- number (for example, 20 specifies 20% On-Demand Instances, 80% Spot
-    -- Instances). If set to 100, only On-Demand Instances are used.
-    --
-    -- Default: 100
-    onDemandPercentageAboveBaseCapacity :: Prelude.Maybe Prelude.Int,
-    -- | The allocation strategy to apply to your On-Demand Instances when they
+  { -- | The allocation strategy to apply to your On-Demand Instances when they
     -- are launched. Possible instance types are determined by the launch
     -- template overrides that you specify.
     --
@@ -73,26 +53,26 @@ data InstancesDistribution = InstancesDistribution'
     --     Auto Scaling groups that don\'t specify InstanceRequirements and
     --     cannot be used for groups that do.
     onDemandAllocationStrategy :: Prelude.Maybe Prelude.Text,
-    -- | The number of Spot Instance pools across which to allocate your Spot
-    -- Instances. The Spot pools are determined from the different instance
-    -- types in the overrides. Valid only when the @SpotAllocationStrategy@ is
-    -- @lowest-price@. Value must be in the range of 1–20.
+    -- | The minimum amount of the Auto Scaling group\'s capacity that must be
+    -- fulfilled by On-Demand Instances. This base portion is launched first as
+    -- your group scales.
     --
-    -- Default: 2
-    spotInstancePools :: Prelude.Maybe Prelude.Int,
-    -- | The maximum price per unit hour that you are willing to pay for a Spot
-    -- Instance. If your maximum price is lower than the Spot price for the
-    -- instance types that you selected, your Spot Instances are not launched.
-    -- We do not recommend specifying a maximum price because it can lead to
-    -- increased interruptions. When Spot Instances launch, you pay the current
-    -- Spot price. To remove a maximum price that you previously set, include
-    -- the property but specify an empty string (\"\") for the value.
+    -- This number has the same unit of measurement as the group\'s desired
+    -- capacity. If you change the default unit of measurement (number of
+    -- instances) by specifying weighted capacity values in your launch
+    -- template overrides list, or by changing the default desired capacity
+    -- type setting of the group, you must specify this number using the same
+    -- unit of measurement.
     --
-    -- If you specify a maximum price, your instances will be interrupted more
-    -- frequently than if you do not specify one.
+    -- Default: 0
+    onDemandBaseCapacity :: Prelude.Maybe Prelude.Int,
+    -- | Controls the percentages of On-Demand Instances and Spot Instances for
+    -- your additional capacity beyond @OnDemandBaseCapacity@. Expressed as a
+    -- number (for example, 20 specifies 20% On-Demand Instances, 80% Spot
+    -- Instances). If set to 100, only On-Demand Instances are used.
     --
-    -- Valid Range: Minimum value of 0.001
-    spotMaxPrice :: Prelude.Maybe Prelude.Text,
+    -- Default: 100
+    onDemandPercentageAboveBaseCapacity :: Prelude.Maybe Prelude.Int,
     -- | The allocation strategy to apply to your Spot Instances when they are
     -- launched. Possible instance types are determined by the launch template
     -- overrides that you specify.
@@ -125,13 +105,30 @@ data InstancesDistribution = InstancesDistribution'
     --     price and not available capacity.
     --
     -- [price-capacity-optimized (recommended)]
-    --     Amazon EC2 Auto Scaling identifies the pools with the highest
-    --     capacity availability for the number of instances that are
-    --     launching. This means that we will request Spot Instances from the
-    --     pools that we believe have the lowest chance of interruption in the
-    --     near term. Amazon EC2 Auto Scaling then requests Spot Instances from
-    --     the lowest priced of these pools.
-    spotAllocationStrategy :: Prelude.Maybe Prelude.Text
+    --     The price and capacity optimized allocation strategy looks at both
+    --     price and capacity to select the Spot Instance pools that are the
+    --     least likely to be interrupted and have the lowest possible price.
+    spotAllocationStrategy :: Prelude.Maybe Prelude.Text,
+    -- | The number of Spot Instance pools across which to allocate your Spot
+    -- Instances. The Spot pools are determined from the different instance
+    -- types in the overrides. Valid only when the @SpotAllocationStrategy@ is
+    -- @lowest-price@. Value must be in the range of 1–20.
+    --
+    -- Default: 2
+    spotInstancePools :: Prelude.Maybe Prelude.Int,
+    -- | The maximum price per unit hour that you are willing to pay for a Spot
+    -- Instance. If your maximum price is lower than the Spot price for the
+    -- instance types that you selected, your Spot Instances are not launched.
+    -- We do not recommend specifying a maximum price because it can lead to
+    -- increased interruptions. When Spot Instances launch, you pay the current
+    -- Spot price. To remove a maximum price that you previously set, include
+    -- the property but specify an empty string (\"\") for the value.
+    --
+    -- If you specify a maximum price, your instances will be interrupted more
+    -- frequently than if you do not specify one.
+    --
+    -- Valid Range: Minimum value of 0.001
+    spotMaxPrice :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -142,26 +139,6 @@ data InstancesDistribution = InstancesDistribution'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'onDemandBaseCapacity', 'instancesDistribution_onDemandBaseCapacity' - The minimum amount of the Auto Scaling group\'s capacity that must be
--- fulfilled by On-Demand Instances. This base portion is launched first as
--- your group scales.
---
--- This number has the same unit of measurement as the group\'s desired
--- capacity. If you change the default unit of measurement (number of
--- instances) by specifying weighted capacity values in your launch
--- template overrides list, or by changing the default desired capacity
--- type setting of the group, you must specify this number using the same
--- unit of measurement.
---
--- Default: 0
---
--- 'onDemandPercentageAboveBaseCapacity', 'instancesDistribution_onDemandPercentageAboveBaseCapacity' - Controls the percentages of On-Demand Instances and Spot Instances for
--- your additional capacity beyond @OnDemandBaseCapacity@. Expressed as a
--- number (for example, 20 specifies 20% On-Demand Instances, 80% Spot
--- Instances). If set to 100, only On-Demand Instances are used.
---
--- Default: 100
 --
 -- 'onDemandAllocationStrategy', 'instancesDistribution_onDemandAllocationStrategy' - The allocation strategy to apply to your On-Demand Instances when they
 -- are launched. Possible instance types are determined by the launch
@@ -186,25 +163,25 @@ data InstancesDistribution = InstancesDistribution'
 --     Auto Scaling groups that don\'t specify InstanceRequirements and
 --     cannot be used for groups that do.
 --
--- 'spotInstancePools', 'instancesDistribution_spotInstancePools' - The number of Spot Instance pools across which to allocate your Spot
--- Instances. The Spot pools are determined from the different instance
--- types in the overrides. Valid only when the @SpotAllocationStrategy@ is
--- @lowest-price@. Value must be in the range of 1–20.
+-- 'onDemandBaseCapacity', 'instancesDistribution_onDemandBaseCapacity' - The minimum amount of the Auto Scaling group\'s capacity that must be
+-- fulfilled by On-Demand Instances. This base portion is launched first as
+-- your group scales.
 --
--- Default: 2
+-- This number has the same unit of measurement as the group\'s desired
+-- capacity. If you change the default unit of measurement (number of
+-- instances) by specifying weighted capacity values in your launch
+-- template overrides list, or by changing the default desired capacity
+-- type setting of the group, you must specify this number using the same
+-- unit of measurement.
 --
--- 'spotMaxPrice', 'instancesDistribution_spotMaxPrice' - The maximum price per unit hour that you are willing to pay for a Spot
--- Instance. If your maximum price is lower than the Spot price for the
--- instance types that you selected, your Spot Instances are not launched.
--- We do not recommend specifying a maximum price because it can lead to
--- increased interruptions. When Spot Instances launch, you pay the current
--- Spot price. To remove a maximum price that you previously set, include
--- the property but specify an empty string (\"\") for the value.
+-- Default: 0
 --
--- If you specify a maximum price, your instances will be interrupted more
--- frequently than if you do not specify one.
+-- 'onDemandPercentageAboveBaseCapacity', 'instancesDistribution_onDemandPercentageAboveBaseCapacity' - Controls the percentages of On-Demand Instances and Spot Instances for
+-- your additional capacity beyond @OnDemandBaseCapacity@. Expressed as a
+-- number (for example, 20 specifies 20% On-Demand Instances, 80% Spot
+-- Instances). If set to 100, only On-Demand Instances are used.
 --
--- Valid Range: Minimum value of 0.001
+-- Default: 100
 --
 -- 'spotAllocationStrategy', 'instancesDistribution_spotAllocationStrategy' - The allocation strategy to apply to your Spot Instances when they are
 -- launched. Possible instance types are determined by the launch template
@@ -238,49 +215,42 @@ data InstancesDistribution = InstancesDistribution'
 --     price and not available capacity.
 --
 -- [price-capacity-optimized (recommended)]
---     Amazon EC2 Auto Scaling identifies the pools with the highest
---     capacity availability for the number of instances that are
---     launching. This means that we will request Spot Instances from the
---     pools that we believe have the lowest chance of interruption in the
---     near term. Amazon EC2 Auto Scaling then requests Spot Instances from
---     the lowest priced of these pools.
+--     The price and capacity optimized allocation strategy looks at both
+--     price and capacity to select the Spot Instance pools that are the
+--     least likely to be interrupted and have the lowest possible price.
+--
+-- 'spotInstancePools', 'instancesDistribution_spotInstancePools' - The number of Spot Instance pools across which to allocate your Spot
+-- Instances. The Spot pools are determined from the different instance
+-- types in the overrides. Valid only when the @SpotAllocationStrategy@ is
+-- @lowest-price@. Value must be in the range of 1–20.
+--
+-- Default: 2
+--
+-- 'spotMaxPrice', 'instancesDistribution_spotMaxPrice' - The maximum price per unit hour that you are willing to pay for a Spot
+-- Instance. If your maximum price is lower than the Spot price for the
+-- instance types that you selected, your Spot Instances are not launched.
+-- We do not recommend specifying a maximum price because it can lead to
+-- increased interruptions. When Spot Instances launch, you pay the current
+-- Spot price. To remove a maximum price that you previously set, include
+-- the property but specify an empty string (\"\") for the value.
+--
+-- If you specify a maximum price, your instances will be interrupted more
+-- frequently than if you do not specify one.
+--
+-- Valid Range: Minimum value of 0.001
 newInstancesDistribution ::
   InstancesDistribution
 newInstancesDistribution =
   InstancesDistribution'
-    { onDemandBaseCapacity =
+    { onDemandAllocationStrategy =
         Prelude.Nothing,
+      onDemandBaseCapacity = Prelude.Nothing,
       onDemandPercentageAboveBaseCapacity =
         Prelude.Nothing,
-      onDemandAllocationStrategy = Prelude.Nothing,
+      spotAllocationStrategy = Prelude.Nothing,
       spotInstancePools = Prelude.Nothing,
-      spotMaxPrice = Prelude.Nothing,
-      spotAllocationStrategy = Prelude.Nothing
+      spotMaxPrice = Prelude.Nothing
     }
-
--- | The minimum amount of the Auto Scaling group\'s capacity that must be
--- fulfilled by On-Demand Instances. This base portion is launched first as
--- your group scales.
---
--- This number has the same unit of measurement as the group\'s desired
--- capacity. If you change the default unit of measurement (number of
--- instances) by specifying weighted capacity values in your launch
--- template overrides list, or by changing the default desired capacity
--- type setting of the group, you must specify this number using the same
--- unit of measurement.
---
--- Default: 0
-instancesDistribution_onDemandBaseCapacity :: Lens.Lens' InstancesDistribution (Prelude.Maybe Prelude.Int)
-instancesDistribution_onDemandBaseCapacity = Lens.lens (\InstancesDistribution' {onDemandBaseCapacity} -> onDemandBaseCapacity) (\s@InstancesDistribution' {} a -> s {onDemandBaseCapacity = a} :: InstancesDistribution)
-
--- | Controls the percentages of On-Demand Instances and Spot Instances for
--- your additional capacity beyond @OnDemandBaseCapacity@. Expressed as a
--- number (for example, 20 specifies 20% On-Demand Instances, 80% Spot
--- Instances). If set to 100, only On-Demand Instances are used.
---
--- Default: 100
-instancesDistribution_onDemandPercentageAboveBaseCapacity :: Lens.Lens' InstancesDistribution (Prelude.Maybe Prelude.Int)
-instancesDistribution_onDemandPercentageAboveBaseCapacity = Lens.lens (\InstancesDistribution' {onDemandPercentageAboveBaseCapacity} -> onDemandPercentageAboveBaseCapacity) (\s@InstancesDistribution' {} a -> s {onDemandPercentageAboveBaseCapacity = a} :: InstancesDistribution)
 
 -- | The allocation strategy to apply to your On-Demand Instances when they
 -- are launched. Possible instance types are determined by the launch
@@ -307,29 +277,29 @@ instancesDistribution_onDemandPercentageAboveBaseCapacity = Lens.lens (\Instance
 instancesDistribution_onDemandAllocationStrategy :: Lens.Lens' InstancesDistribution (Prelude.Maybe Prelude.Text)
 instancesDistribution_onDemandAllocationStrategy = Lens.lens (\InstancesDistribution' {onDemandAllocationStrategy} -> onDemandAllocationStrategy) (\s@InstancesDistribution' {} a -> s {onDemandAllocationStrategy = a} :: InstancesDistribution)
 
--- | The number of Spot Instance pools across which to allocate your Spot
--- Instances. The Spot pools are determined from the different instance
--- types in the overrides. Valid only when the @SpotAllocationStrategy@ is
--- @lowest-price@. Value must be in the range of 1–20.
+-- | The minimum amount of the Auto Scaling group\'s capacity that must be
+-- fulfilled by On-Demand Instances. This base portion is launched first as
+-- your group scales.
 --
--- Default: 2
-instancesDistribution_spotInstancePools :: Lens.Lens' InstancesDistribution (Prelude.Maybe Prelude.Int)
-instancesDistribution_spotInstancePools = Lens.lens (\InstancesDistribution' {spotInstancePools} -> spotInstancePools) (\s@InstancesDistribution' {} a -> s {spotInstancePools = a} :: InstancesDistribution)
+-- This number has the same unit of measurement as the group\'s desired
+-- capacity. If you change the default unit of measurement (number of
+-- instances) by specifying weighted capacity values in your launch
+-- template overrides list, or by changing the default desired capacity
+-- type setting of the group, you must specify this number using the same
+-- unit of measurement.
+--
+-- Default: 0
+instancesDistribution_onDemandBaseCapacity :: Lens.Lens' InstancesDistribution (Prelude.Maybe Prelude.Int)
+instancesDistribution_onDemandBaseCapacity = Lens.lens (\InstancesDistribution' {onDemandBaseCapacity} -> onDemandBaseCapacity) (\s@InstancesDistribution' {} a -> s {onDemandBaseCapacity = a} :: InstancesDistribution)
 
--- | The maximum price per unit hour that you are willing to pay for a Spot
--- Instance. If your maximum price is lower than the Spot price for the
--- instance types that you selected, your Spot Instances are not launched.
--- We do not recommend specifying a maximum price because it can lead to
--- increased interruptions. When Spot Instances launch, you pay the current
--- Spot price. To remove a maximum price that you previously set, include
--- the property but specify an empty string (\"\") for the value.
+-- | Controls the percentages of On-Demand Instances and Spot Instances for
+-- your additional capacity beyond @OnDemandBaseCapacity@. Expressed as a
+-- number (for example, 20 specifies 20% On-Demand Instances, 80% Spot
+-- Instances). If set to 100, only On-Demand Instances are used.
 --
--- If you specify a maximum price, your instances will be interrupted more
--- frequently than if you do not specify one.
---
--- Valid Range: Minimum value of 0.001
-instancesDistribution_spotMaxPrice :: Lens.Lens' InstancesDistribution (Prelude.Maybe Prelude.Text)
-instancesDistribution_spotMaxPrice = Lens.lens (\InstancesDistribution' {spotMaxPrice} -> spotMaxPrice) (\s@InstancesDistribution' {} a -> s {spotMaxPrice = a} :: InstancesDistribution)
+-- Default: 100
+instancesDistribution_onDemandPercentageAboveBaseCapacity :: Lens.Lens' InstancesDistribution (Prelude.Maybe Prelude.Int)
+instancesDistribution_onDemandPercentageAboveBaseCapacity = Lens.lens (\InstancesDistribution' {onDemandPercentageAboveBaseCapacity} -> onDemandPercentageAboveBaseCapacity) (\s@InstancesDistribution' {} a -> s {onDemandPercentageAboveBaseCapacity = a} :: InstancesDistribution)
 
 -- | The allocation strategy to apply to your Spot Instances when they are
 -- launched. Possible instance types are determined by the launch template
@@ -363,53 +333,75 @@ instancesDistribution_spotMaxPrice = Lens.lens (\InstancesDistribution' {spotMax
 --     price and not available capacity.
 --
 -- [price-capacity-optimized (recommended)]
---     Amazon EC2 Auto Scaling identifies the pools with the highest
---     capacity availability for the number of instances that are
---     launching. This means that we will request Spot Instances from the
---     pools that we believe have the lowest chance of interruption in the
---     near term. Amazon EC2 Auto Scaling then requests Spot Instances from
---     the lowest priced of these pools.
+--     The price and capacity optimized allocation strategy looks at both
+--     price and capacity to select the Spot Instance pools that are the
+--     least likely to be interrupted and have the lowest possible price.
 instancesDistribution_spotAllocationStrategy :: Lens.Lens' InstancesDistribution (Prelude.Maybe Prelude.Text)
 instancesDistribution_spotAllocationStrategy = Lens.lens (\InstancesDistribution' {spotAllocationStrategy} -> spotAllocationStrategy) (\s@InstancesDistribution' {} a -> s {spotAllocationStrategy = a} :: InstancesDistribution)
+
+-- | The number of Spot Instance pools across which to allocate your Spot
+-- Instances. The Spot pools are determined from the different instance
+-- types in the overrides. Valid only when the @SpotAllocationStrategy@ is
+-- @lowest-price@. Value must be in the range of 1–20.
+--
+-- Default: 2
+instancesDistribution_spotInstancePools :: Lens.Lens' InstancesDistribution (Prelude.Maybe Prelude.Int)
+instancesDistribution_spotInstancePools = Lens.lens (\InstancesDistribution' {spotInstancePools} -> spotInstancePools) (\s@InstancesDistribution' {} a -> s {spotInstancePools = a} :: InstancesDistribution)
+
+-- | The maximum price per unit hour that you are willing to pay for a Spot
+-- Instance. If your maximum price is lower than the Spot price for the
+-- instance types that you selected, your Spot Instances are not launched.
+-- We do not recommend specifying a maximum price because it can lead to
+-- increased interruptions. When Spot Instances launch, you pay the current
+-- Spot price. To remove a maximum price that you previously set, include
+-- the property but specify an empty string (\"\") for the value.
+--
+-- If you specify a maximum price, your instances will be interrupted more
+-- frequently than if you do not specify one.
+--
+-- Valid Range: Minimum value of 0.001
+instancesDistribution_spotMaxPrice :: Lens.Lens' InstancesDistribution (Prelude.Maybe Prelude.Text)
+instancesDistribution_spotMaxPrice = Lens.lens (\InstancesDistribution' {spotMaxPrice} -> spotMaxPrice) (\s@InstancesDistribution' {} a -> s {spotMaxPrice = a} :: InstancesDistribution)
 
 instance Data.FromXML InstancesDistribution where
   parseXML x =
     InstancesDistribution'
-      Prelude.<$> (x Data..@? "OnDemandBaseCapacity")
+      Prelude.<$> (x Data..@? "OnDemandAllocationStrategy")
+      Prelude.<*> (x Data..@? "OnDemandBaseCapacity")
       Prelude.<*> (x Data..@? "OnDemandPercentageAboveBaseCapacity")
-      Prelude.<*> (x Data..@? "OnDemandAllocationStrategy")
+      Prelude.<*> (x Data..@? "SpotAllocationStrategy")
       Prelude.<*> (x Data..@? "SpotInstancePools")
       Prelude.<*> (x Data..@? "SpotMaxPrice")
-      Prelude.<*> (x Data..@? "SpotAllocationStrategy")
 
 instance Prelude.Hashable InstancesDistribution where
   hashWithSalt _salt InstancesDistribution' {..} =
-    _salt `Prelude.hashWithSalt` onDemandBaseCapacity
-      `Prelude.hashWithSalt` onDemandPercentageAboveBaseCapacity
+    _salt
       `Prelude.hashWithSalt` onDemandAllocationStrategy
+      `Prelude.hashWithSalt` onDemandBaseCapacity
+      `Prelude.hashWithSalt` onDemandPercentageAboveBaseCapacity
+      `Prelude.hashWithSalt` spotAllocationStrategy
       `Prelude.hashWithSalt` spotInstancePools
       `Prelude.hashWithSalt` spotMaxPrice
-      `Prelude.hashWithSalt` spotAllocationStrategy
 
 instance Prelude.NFData InstancesDistribution where
   rnf InstancesDistribution' {..} =
-    Prelude.rnf onDemandBaseCapacity
+    Prelude.rnf onDemandAllocationStrategy
+      `Prelude.seq` Prelude.rnf onDemandBaseCapacity
       `Prelude.seq` Prelude.rnf onDemandPercentageAboveBaseCapacity
-      `Prelude.seq` Prelude.rnf onDemandAllocationStrategy
+      `Prelude.seq` Prelude.rnf spotAllocationStrategy
       `Prelude.seq` Prelude.rnf spotInstancePools
       `Prelude.seq` Prelude.rnf spotMaxPrice
-      `Prelude.seq` Prelude.rnf spotAllocationStrategy
 
 instance Data.ToQuery InstancesDistribution where
   toQuery InstancesDistribution' {..} =
     Prelude.mconcat
-      [ "OnDemandBaseCapacity" Data.=: onDemandBaseCapacity,
+      [ "OnDemandAllocationStrategy"
+          Data.=: onDemandAllocationStrategy,
+        "OnDemandBaseCapacity" Data.=: onDemandBaseCapacity,
         "OnDemandPercentageAboveBaseCapacity"
           Data.=: onDemandPercentageAboveBaseCapacity,
-        "OnDemandAllocationStrategy"
-          Data.=: onDemandAllocationStrategy,
-        "SpotInstancePools" Data.=: spotInstancePools,
-        "SpotMaxPrice" Data.=: spotMaxPrice,
         "SpotAllocationStrategy"
-          Data.=: spotAllocationStrategy
+          Data.=: spotAllocationStrategy,
+        "SpotInstancePools" Data.=: spotInstancePools,
+        "SpotMaxPrice" Data.=: spotMaxPrice
       ]

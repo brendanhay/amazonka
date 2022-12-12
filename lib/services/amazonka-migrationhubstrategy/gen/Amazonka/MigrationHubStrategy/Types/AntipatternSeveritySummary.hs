@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAntipatternSeveritySummary' smart constructor.
 data AntipatternSeveritySummary = AntipatternSeveritySummary'
-  { -- | Contains the severity of anti-patterns.
-    severity :: Prelude.Maybe Severity,
-    -- | Contains the count of anti-patterns.
-    count :: Prelude.Maybe Prelude.Int
+  { -- | Contains the count of anti-patterns.
+    count :: Prelude.Maybe Prelude.Int,
+    -- | Contains the severity of anti-patterns.
+    severity :: Prelude.Maybe Severity
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data AntipatternSeveritySummary = AntipatternSeveritySummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'severity', 'antipatternSeveritySummary_severity' - Contains the severity of anti-patterns.
---
 -- 'count', 'antipatternSeveritySummary_count' - Contains the count of anti-patterns.
+--
+-- 'severity', 'antipatternSeveritySummary_severity' - Contains the severity of anti-patterns.
 newAntipatternSeveritySummary ::
   AntipatternSeveritySummary
 newAntipatternSeveritySummary =
   AntipatternSeveritySummary'
-    { severity =
+    { count =
         Prelude.Nothing,
-      count = Prelude.Nothing
+      severity = Prelude.Nothing
     }
-
--- | Contains the severity of anti-patterns.
-antipatternSeveritySummary_severity :: Lens.Lens' AntipatternSeveritySummary (Prelude.Maybe Severity)
-antipatternSeveritySummary_severity = Lens.lens (\AntipatternSeveritySummary' {severity} -> severity) (\s@AntipatternSeveritySummary' {} a -> s {severity = a} :: AntipatternSeveritySummary)
 
 -- | Contains the count of anti-patterns.
 antipatternSeveritySummary_count :: Lens.Lens' AntipatternSeveritySummary (Prelude.Maybe Prelude.Int)
 antipatternSeveritySummary_count = Lens.lens (\AntipatternSeveritySummary' {count} -> count) (\s@AntipatternSeveritySummary' {} a -> s {count = a} :: AntipatternSeveritySummary)
+
+-- | Contains the severity of anti-patterns.
+antipatternSeveritySummary_severity :: Lens.Lens' AntipatternSeveritySummary (Prelude.Maybe Severity)
+antipatternSeveritySummary_severity = Lens.lens (\AntipatternSeveritySummary' {severity} -> severity) (\s@AntipatternSeveritySummary' {} a -> s {severity = a} :: AntipatternSeveritySummary)
 
 instance Data.FromJSON AntipatternSeveritySummary where
   parseJSON =
@@ -70,16 +70,16 @@ instance Data.FromJSON AntipatternSeveritySummary where
       "AntipatternSeveritySummary"
       ( \x ->
           AntipatternSeveritySummary'
-            Prelude.<$> (x Data..:? "severity")
-            Prelude.<*> (x Data..:? "count")
+            Prelude.<$> (x Data..:? "count")
+            Prelude.<*> (x Data..:? "severity")
       )
 
 instance Prelude.Hashable AntipatternSeveritySummary where
   hashWithSalt _salt AntipatternSeveritySummary' {..} =
-    _salt `Prelude.hashWithSalt` severity
-      `Prelude.hashWithSalt` count
+    _salt `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` severity
 
 instance Prelude.NFData AntipatternSeveritySummary where
   rnf AntipatternSeveritySummary' {..} =
-    Prelude.rnf severity
-      `Prelude.seq` Prelude.rnf count
+    Prelude.rnf count
+      `Prelude.seq` Prelude.rnf severity

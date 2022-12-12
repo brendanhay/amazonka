@@ -30,8 +30,8 @@ module Amazonka.Redshift.DescribeEndpointAccess
 
     -- * Request Lenses
     describeEndpointAccess_clusterIdentifier,
-    describeEndpointAccess_marker,
     describeEndpointAccess_endpointName,
+    describeEndpointAccess_marker,
     describeEndpointAccess_maxRecords,
     describeEndpointAccess_resourceOwner,
     describeEndpointAccess_vpcId,
@@ -41,8 +41,8 @@ module Amazonka.Redshift.DescribeEndpointAccess
     newDescribeEndpointAccessResponse,
 
     -- * Response Lenses
-    describeEndpointAccessResponse_marker,
     describeEndpointAccessResponse_endpointAccessList,
+    describeEndpointAccessResponse_marker,
     describeEndpointAccessResponse_httpStatus,
   )
 where
@@ -59,13 +59,13 @@ import qualified Amazonka.Response as Response
 data DescribeEndpointAccess = DescribeEndpointAccess'
   { -- | The cluster identifier associated with the described endpoint.
     clusterIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The name of the endpoint to be described.
+    endpointName :: Prelude.Maybe Prelude.Text,
     -- | An optional pagination token provided by a previous
     -- @DescribeEndpointAccess@ request. If this parameter is specified, the
     -- response includes only records beyond the marker, up to the value
     -- specified by the @MaxRecords@ parameter.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | The name of the endpoint to be described.
-    endpointName :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a @Marker@ is included in the response so that the remaining
@@ -88,12 +88,12 @@ data DescribeEndpointAccess = DescribeEndpointAccess'
 --
 -- 'clusterIdentifier', 'describeEndpointAccess_clusterIdentifier' - The cluster identifier associated with the described endpoint.
 --
+-- 'endpointName', 'describeEndpointAccess_endpointName' - The name of the endpoint to be described.
+--
 -- 'marker', 'describeEndpointAccess_marker' - An optional pagination token provided by a previous
 -- @DescribeEndpointAccess@ request. If this parameter is specified, the
 -- response includes only records beyond the marker, up to the value
 -- specified by the @MaxRecords@ parameter.
---
--- 'endpointName', 'describeEndpointAccess_endpointName' - The name of the endpoint to be described.
 --
 -- 'maxRecords', 'describeEndpointAccess_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -109,8 +109,8 @@ newDescribeEndpointAccess =
   DescribeEndpointAccess'
     { clusterIdentifier =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
       endpointName = Prelude.Nothing,
+      marker = Prelude.Nothing,
       maxRecords = Prelude.Nothing,
       resourceOwner = Prelude.Nothing,
       vpcId = Prelude.Nothing
@@ -120,16 +120,16 @@ newDescribeEndpointAccess =
 describeEndpointAccess_clusterIdentifier :: Lens.Lens' DescribeEndpointAccess (Prelude.Maybe Prelude.Text)
 describeEndpointAccess_clusterIdentifier = Lens.lens (\DescribeEndpointAccess' {clusterIdentifier} -> clusterIdentifier) (\s@DescribeEndpointAccess' {} a -> s {clusterIdentifier = a} :: DescribeEndpointAccess)
 
+-- | The name of the endpoint to be described.
+describeEndpointAccess_endpointName :: Lens.Lens' DescribeEndpointAccess (Prelude.Maybe Prelude.Text)
+describeEndpointAccess_endpointName = Lens.lens (\DescribeEndpointAccess' {endpointName} -> endpointName) (\s@DescribeEndpointAccess' {} a -> s {endpointName = a} :: DescribeEndpointAccess)
+
 -- | An optional pagination token provided by a previous
 -- @DescribeEndpointAccess@ request. If this parameter is specified, the
 -- response includes only records beyond the marker, up to the value
 -- specified by the @MaxRecords@ parameter.
 describeEndpointAccess_marker :: Lens.Lens' DescribeEndpointAccess (Prelude.Maybe Prelude.Text)
 describeEndpointAccess_marker = Lens.lens (\DescribeEndpointAccess' {marker} -> marker) (\s@DescribeEndpointAccess' {} a -> s {marker = a} :: DescribeEndpointAccess)
-
--- | The name of the endpoint to be described.
-describeEndpointAccess_endpointName :: Lens.Lens' DescribeEndpointAccess (Prelude.Maybe Prelude.Text)
-describeEndpointAccess_endpointName = Lens.lens (\DescribeEndpointAccess' {endpointName} -> endpointName) (\s@DescribeEndpointAccess' {} a -> s {endpointName = a} :: DescribeEndpointAccess)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -179,19 +179,19 @@ instance Core.AWSRequest DescribeEndpointAccess where
       "DescribeEndpointAccessResult"
       ( \s h x ->
           DescribeEndpointAccessResponse'
-            Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> ( x Data..@? "EndpointAccessList"
+            Prelude.<$> ( x Data..@? "EndpointAccessList"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
+            Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeEndpointAccess where
   hashWithSalt _salt DescribeEndpointAccess' {..} =
     _salt `Prelude.hashWithSalt` clusterIdentifier
-      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` endpointName
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` resourceOwner
       `Prelude.hashWithSalt` vpcId
@@ -199,8 +199,8 @@ instance Prelude.Hashable DescribeEndpointAccess where
 instance Prelude.NFData DescribeEndpointAccess where
   rnf DescribeEndpointAccess' {..} =
     Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf endpointName
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf resourceOwner
       `Prelude.seq` Prelude.rnf vpcId
@@ -219,8 +219,8 @@ instance Data.ToQuery DescribeEndpointAccess where
         "Version"
           Data.=: ("2012-12-01" :: Prelude.ByteString),
         "ClusterIdentifier" Data.=: clusterIdentifier,
-        "Marker" Data.=: marker,
         "EndpointName" Data.=: endpointName,
+        "Marker" Data.=: marker,
         "MaxRecords" Data.=: maxRecords,
         "ResourceOwner" Data.=: resourceOwner,
         "VpcId" Data.=: vpcId
@@ -228,13 +228,13 @@ instance Data.ToQuery DescribeEndpointAccess where
 
 -- | /See:/ 'newDescribeEndpointAccessResponse' smart constructor.
 data DescribeEndpointAccessResponse = DescribeEndpointAccessResponse'
-  { -- | An optional pagination token provided by a previous
+  { -- | The list of endpoints with access to the cluster.
+    endpointAccessList :: Prelude.Maybe [EndpointAccess],
+    -- | An optional pagination token provided by a previous
     -- @DescribeEndpointAccess@ request. If this parameter is specified, the
     -- response includes only records beyond the marker, up to the value
     -- specified by the @MaxRecords@ parameter.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | The list of endpoints with access to the cluster.
-    endpointAccessList :: Prelude.Maybe [EndpointAccess],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -248,12 +248,12 @@ data DescribeEndpointAccessResponse = DescribeEndpointAccessResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'endpointAccessList', 'describeEndpointAccessResponse_endpointAccessList' - The list of endpoints with access to the cluster.
+--
 -- 'marker', 'describeEndpointAccessResponse_marker' - An optional pagination token provided by a previous
 -- @DescribeEndpointAccess@ request. If this parameter is specified, the
 -- response includes only records beyond the marker, up to the value
 -- specified by the @MaxRecords@ parameter.
---
--- 'endpointAccessList', 'describeEndpointAccessResponse_endpointAccessList' - The list of endpoints with access to the cluster.
 --
 -- 'httpStatus', 'describeEndpointAccessResponse_httpStatus' - The response's http status code.
 newDescribeEndpointAccessResponse ::
@@ -262,11 +262,15 @@ newDescribeEndpointAccessResponse ::
   DescribeEndpointAccessResponse
 newDescribeEndpointAccessResponse pHttpStatus_ =
   DescribeEndpointAccessResponse'
-    { marker =
+    { endpointAccessList =
         Prelude.Nothing,
-      endpointAccessList = Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of endpoints with access to the cluster.
+describeEndpointAccessResponse_endpointAccessList :: Lens.Lens' DescribeEndpointAccessResponse (Prelude.Maybe [EndpointAccess])
+describeEndpointAccessResponse_endpointAccessList = Lens.lens (\DescribeEndpointAccessResponse' {endpointAccessList} -> endpointAccessList) (\s@DescribeEndpointAccessResponse' {} a -> s {endpointAccessList = a} :: DescribeEndpointAccessResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional pagination token provided by a previous
 -- @DescribeEndpointAccess@ request. If this parameter is specified, the
@@ -274,10 +278,6 @@ newDescribeEndpointAccessResponse pHttpStatus_ =
 -- specified by the @MaxRecords@ parameter.
 describeEndpointAccessResponse_marker :: Lens.Lens' DescribeEndpointAccessResponse (Prelude.Maybe Prelude.Text)
 describeEndpointAccessResponse_marker = Lens.lens (\DescribeEndpointAccessResponse' {marker} -> marker) (\s@DescribeEndpointAccessResponse' {} a -> s {marker = a} :: DescribeEndpointAccessResponse)
-
--- | The list of endpoints with access to the cluster.
-describeEndpointAccessResponse_endpointAccessList :: Lens.Lens' DescribeEndpointAccessResponse (Prelude.Maybe [EndpointAccess])
-describeEndpointAccessResponse_endpointAccessList = Lens.lens (\DescribeEndpointAccessResponse' {endpointAccessList} -> endpointAccessList) (\s@DescribeEndpointAccessResponse' {} a -> s {endpointAccessList = a} :: DescribeEndpointAccessResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeEndpointAccessResponse_httpStatus :: Lens.Lens' DescribeEndpointAccessResponse Prelude.Int
@@ -288,6 +288,6 @@ instance
     DescribeEndpointAccessResponse
   where
   rnf DescribeEndpointAccessResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf endpointAccessList
+    Prelude.rnf endpointAccessList
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf httpStatus

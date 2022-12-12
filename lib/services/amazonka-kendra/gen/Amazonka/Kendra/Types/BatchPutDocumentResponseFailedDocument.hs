@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBatchPutDocumentResponseFailedDocument' smart constructor.
 data BatchPutDocumentResponseFailedDocument = BatchPutDocumentResponseFailedDocument'
-  { -- | A description of the reason why the document could not be indexed.
+  { -- | The type of error that caused the document to fail to be indexed.
+    errorCode :: Prelude.Maybe ErrorCode,
+    -- | A description of the reason why the document could not be indexed.
     errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier of the document.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The type of error that caused the document to fail to be indexed.
-    errorCode :: Prelude.Maybe ErrorCode
+    -- | The identifier of the document.
+    id :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,32 +46,32 @@ data BatchPutDocumentResponseFailedDocument = BatchPutDocumentResponseFailedDocu
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'errorCode', 'batchPutDocumentResponseFailedDocument_errorCode' - The type of error that caused the document to fail to be indexed.
+--
 -- 'errorMessage', 'batchPutDocumentResponseFailedDocument_errorMessage' - A description of the reason why the document could not be indexed.
 --
--- 'id', 'batchPutDocumentResponseFailedDocument_id' - The unique identifier of the document.
---
--- 'errorCode', 'batchPutDocumentResponseFailedDocument_errorCode' - The type of error that caused the document to fail to be indexed.
+-- 'id', 'batchPutDocumentResponseFailedDocument_id' - The identifier of the document.
 newBatchPutDocumentResponseFailedDocument ::
   BatchPutDocumentResponseFailedDocument
 newBatchPutDocumentResponseFailedDocument =
   BatchPutDocumentResponseFailedDocument'
-    { errorMessage =
+    { errorCode =
         Prelude.Nothing,
-      id = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+      errorMessage = Prelude.Nothing,
+      id = Prelude.Nothing
     }
+
+-- | The type of error that caused the document to fail to be indexed.
+batchPutDocumentResponseFailedDocument_errorCode :: Lens.Lens' BatchPutDocumentResponseFailedDocument (Prelude.Maybe ErrorCode)
+batchPutDocumentResponseFailedDocument_errorCode = Lens.lens (\BatchPutDocumentResponseFailedDocument' {errorCode} -> errorCode) (\s@BatchPutDocumentResponseFailedDocument' {} a -> s {errorCode = a} :: BatchPutDocumentResponseFailedDocument)
 
 -- | A description of the reason why the document could not be indexed.
 batchPutDocumentResponseFailedDocument_errorMessage :: Lens.Lens' BatchPutDocumentResponseFailedDocument (Prelude.Maybe Prelude.Text)
 batchPutDocumentResponseFailedDocument_errorMessage = Lens.lens (\BatchPutDocumentResponseFailedDocument' {errorMessage} -> errorMessage) (\s@BatchPutDocumentResponseFailedDocument' {} a -> s {errorMessage = a} :: BatchPutDocumentResponseFailedDocument)
 
--- | The unique identifier of the document.
+-- | The identifier of the document.
 batchPutDocumentResponseFailedDocument_id :: Lens.Lens' BatchPutDocumentResponseFailedDocument (Prelude.Maybe Prelude.Text)
 batchPutDocumentResponseFailedDocument_id = Lens.lens (\BatchPutDocumentResponseFailedDocument' {id} -> id) (\s@BatchPutDocumentResponseFailedDocument' {} a -> s {id = a} :: BatchPutDocumentResponseFailedDocument)
-
--- | The type of error that caused the document to fail to be indexed.
-batchPutDocumentResponseFailedDocument_errorCode :: Lens.Lens' BatchPutDocumentResponseFailedDocument (Prelude.Maybe ErrorCode)
-batchPutDocumentResponseFailedDocument_errorCode = Lens.lens (\BatchPutDocumentResponseFailedDocument' {errorCode} -> errorCode) (\s@BatchPutDocumentResponseFailedDocument' {} a -> s {errorCode = a} :: BatchPutDocumentResponseFailedDocument)
 
 instance
   Data.FromJSON
@@ -82,9 +82,9 @@ instance
       "BatchPutDocumentResponseFailedDocument"
       ( \x ->
           BatchPutDocumentResponseFailedDocument'
-            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<$> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "ErrorMessage")
             Prelude.<*> (x Data..:? "Id")
-            Prelude.<*> (x Data..:? "ErrorCode")
       )
 
 instance
@@ -94,15 +94,15 @@ instance
   hashWithSalt
     _salt
     BatchPutDocumentResponseFailedDocument' {..} =
-      _salt `Prelude.hashWithSalt` errorMessage
+      _salt `Prelude.hashWithSalt` errorCode
+        `Prelude.hashWithSalt` errorMessage
         `Prelude.hashWithSalt` id
-        `Prelude.hashWithSalt` errorCode
 
 instance
   Prelude.NFData
     BatchPutDocumentResponseFailedDocument
   where
   rnf BatchPutDocumentResponseFailedDocument' {..} =
-    Prelude.rnf errorMessage
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf errorCode

@@ -33,10 +33,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newExportResourceSpecification' smart constructor.
 data ExportResourceSpecification = ExportResourceSpecification'
-  { -- | Parameters for exporting a bot locale.
-    botLocaleExportSpecification :: Prelude.Maybe BotLocaleExportSpecification,
-    -- | Parameters for exporting a bot.
+  { -- | Parameters for exporting a bot.
     botExportSpecification :: Prelude.Maybe BotExportSpecification,
+    -- | Parameters for exporting a bot locale.
+    botLocaleExportSpecification :: Prelude.Maybe BotLocaleExportSpecification,
     -- | The parameters required to export a custom vocabulary.
     customVocabularyExportSpecification :: Prelude.Maybe CustomVocabularyExportSpecification
   }
@@ -50,29 +50,29 @@ data ExportResourceSpecification = ExportResourceSpecification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'botLocaleExportSpecification', 'exportResourceSpecification_botLocaleExportSpecification' - Parameters for exporting a bot locale.
---
 -- 'botExportSpecification', 'exportResourceSpecification_botExportSpecification' - Parameters for exporting a bot.
+--
+-- 'botLocaleExportSpecification', 'exportResourceSpecification_botLocaleExportSpecification' - Parameters for exporting a bot locale.
 --
 -- 'customVocabularyExportSpecification', 'exportResourceSpecification_customVocabularyExportSpecification' - The parameters required to export a custom vocabulary.
 newExportResourceSpecification ::
   ExportResourceSpecification
 newExportResourceSpecification =
   ExportResourceSpecification'
-    { botLocaleExportSpecification =
+    { botExportSpecification =
         Prelude.Nothing,
-      botExportSpecification = Prelude.Nothing,
+      botLocaleExportSpecification = Prelude.Nothing,
       customVocabularyExportSpecification =
         Prelude.Nothing
     }
 
--- | Parameters for exporting a bot locale.
-exportResourceSpecification_botLocaleExportSpecification :: Lens.Lens' ExportResourceSpecification (Prelude.Maybe BotLocaleExportSpecification)
-exportResourceSpecification_botLocaleExportSpecification = Lens.lens (\ExportResourceSpecification' {botLocaleExportSpecification} -> botLocaleExportSpecification) (\s@ExportResourceSpecification' {} a -> s {botLocaleExportSpecification = a} :: ExportResourceSpecification)
-
 -- | Parameters for exporting a bot.
 exportResourceSpecification_botExportSpecification :: Lens.Lens' ExportResourceSpecification (Prelude.Maybe BotExportSpecification)
 exportResourceSpecification_botExportSpecification = Lens.lens (\ExportResourceSpecification' {botExportSpecification} -> botExportSpecification) (\s@ExportResourceSpecification' {} a -> s {botExportSpecification = a} :: ExportResourceSpecification)
+
+-- | Parameters for exporting a bot locale.
+exportResourceSpecification_botLocaleExportSpecification :: Lens.Lens' ExportResourceSpecification (Prelude.Maybe BotLocaleExportSpecification)
+exportResourceSpecification_botLocaleExportSpecification = Lens.lens (\ExportResourceSpecification' {botLocaleExportSpecification} -> botLocaleExportSpecification) (\s@ExportResourceSpecification' {} a -> s {botLocaleExportSpecification = a} :: ExportResourceSpecification)
 
 -- | The parameters required to export a custom vocabulary.
 exportResourceSpecification_customVocabularyExportSpecification :: Lens.Lens' ExportResourceSpecification (Prelude.Maybe CustomVocabularyExportSpecification)
@@ -84,32 +84,31 @@ instance Data.FromJSON ExportResourceSpecification where
       "ExportResourceSpecification"
       ( \x ->
           ExportResourceSpecification'
-            Prelude.<$> (x Data..:? "botLocaleExportSpecification")
-            Prelude.<*> (x Data..:? "botExportSpecification")
+            Prelude.<$> (x Data..:? "botExportSpecification")
+            Prelude.<*> (x Data..:? "botLocaleExportSpecification")
             Prelude.<*> (x Data..:? "customVocabularyExportSpecification")
       )
 
 instance Prelude.Hashable ExportResourceSpecification where
   hashWithSalt _salt ExportResourceSpecification' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` botExportSpecification
       `Prelude.hashWithSalt` botLocaleExportSpecification
-      `Prelude.hashWithSalt` botExportSpecification
       `Prelude.hashWithSalt` customVocabularyExportSpecification
 
 instance Prelude.NFData ExportResourceSpecification where
   rnf ExportResourceSpecification' {..} =
-    Prelude.rnf botLocaleExportSpecification
-      `Prelude.seq` Prelude.rnf botExportSpecification
+    Prelude.rnf botExportSpecification
+      `Prelude.seq` Prelude.rnf botLocaleExportSpecification
       `Prelude.seq` Prelude.rnf customVocabularyExportSpecification
 
 instance Data.ToJSON ExportResourceSpecification where
   toJSON ExportResourceSpecification' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("botLocaleExportSpecification" Data..=)
-              Prelude.<$> botLocaleExportSpecification,
-            ("botExportSpecification" Data..=)
+          [ ("botExportSpecification" Data..=)
               Prelude.<$> botExportSpecification,
+            ("botLocaleExportSpecification" Data..=)
+              Prelude.<$> botLocaleExportSpecification,
             ("customVocabularyExportSpecification" Data..=)
               Prelude.<$> customVocabularyExportSpecification
           ]

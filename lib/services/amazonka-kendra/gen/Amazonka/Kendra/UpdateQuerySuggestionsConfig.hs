@@ -42,11 +42,11 @@ module Amazonka.Kendra.UpdateQuerySuggestionsConfig
     newUpdateQuerySuggestionsConfig,
 
     -- * Request Lenses
-    updateQuerySuggestionsConfig_minimumNumberOfQueryingUsers,
-    updateQuerySuggestionsConfig_queryLogLookBackWindowInDays,
-    updateQuerySuggestionsConfig_mode,
-    updateQuerySuggestionsConfig_minimumQueryCount,
     updateQuerySuggestionsConfig_includeQueriesWithoutUserInformation,
+    updateQuerySuggestionsConfig_minimumNumberOfQueryingUsers,
+    updateQuerySuggestionsConfig_minimumQueryCount,
+    updateQuerySuggestionsConfig_mode,
+    updateQuerySuggestionsConfig_queryLogLookBackWindowInDays,
     updateQuerySuggestionsConfig_indexId,
 
     -- * Destructuring the Response
@@ -65,41 +65,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateQuerySuggestionsConfig' smart constructor.
 data UpdateQuerySuggestionsConfig = UpdateQuerySuggestionsConfig'
-  { -- | The minimum number of unique users who must search a query in order for
-    -- the query to be eligible to suggest to your users.
-    --
-    -- Increasing this number might decrease the number of suggestions.
-    -- However, this ensures a query is searched by many users and is truly
-    -- popular to suggest to users.
-    --
-    -- How you tune this setting depends on your specific needs.
-    minimumNumberOfQueryingUsers :: Prelude.Maybe Prelude.Natural,
-    -- | How recent your queries are in your query log time window.
-    --
-    -- The time window is the number of days from current day to past days.
-    --
-    -- By default, Amazon Kendra sets this to 180.
-    queryLogLookBackWindowInDays :: Prelude.Maybe Prelude.Int,
-    -- | Set the mode to @ENABLED@ or @LEARN_ONLY@.
-    --
-    -- By default, Amazon Kendra enables query suggestions. @LEARN_ONLY@ mode
-    -- allows you to turn off query suggestions. You can to update this at any
-    -- time.
-    --
-    -- In @LEARN_ONLY@ mode, Amazon Kendra continues to learn from new queries
-    -- to keep suggestions up to date for when you are ready to switch to
-    -- ENABLED mode again.
-    mode :: Prelude.Maybe Mode,
-    -- | The the minimum number of times a query must be searched in order to be
-    -- eligible to suggest to your users.
-    --
-    -- Decreasing this number increases the number of suggestions. However,
-    -- this affects the quality of suggestions as it sets a low bar for a query
-    -- to be considered popular to suggest to users.
-    --
-    -- How you tune this setting depends on your specific needs.
-    minimumQueryCount :: Prelude.Maybe Prelude.Natural,
-    -- | @TRUE@ to include queries without user information (i.e. all queries,
+  { -- | @TRUE@ to include queries without user information (i.e. all queries,
     -- irrespective of the user), otherwise @FALSE@ to only include queries
     -- with user information.
     --
@@ -114,6 +80,40 @@ data UpdateQuerySuggestionsConfig = UpdateQuerySuggestionsConfig'
     -- If you set to @TRUE@, Amazon Kendra ignores all user information and
     -- learns from all queries.
     includeQueriesWithoutUserInformation :: Prelude.Maybe Prelude.Bool,
+    -- | The minimum number of unique users who must search a query in order for
+    -- the query to be eligible to suggest to your users.
+    --
+    -- Increasing this number might decrease the number of suggestions.
+    -- However, this ensures a query is searched by many users and is truly
+    -- popular to suggest to users.
+    --
+    -- How you tune this setting depends on your specific needs.
+    minimumNumberOfQueryingUsers :: Prelude.Maybe Prelude.Natural,
+    -- | The the minimum number of times a query must be searched in order to be
+    -- eligible to suggest to your users.
+    --
+    -- Decreasing this number increases the number of suggestions. However,
+    -- this affects the quality of suggestions as it sets a low bar for a query
+    -- to be considered popular to suggest to users.
+    --
+    -- How you tune this setting depends on your specific needs.
+    minimumQueryCount :: Prelude.Maybe Prelude.Natural,
+    -- | Set the mode to @ENABLED@ or @LEARN_ONLY@.
+    --
+    -- By default, Amazon Kendra enables query suggestions. @LEARN_ONLY@ mode
+    -- allows you to turn off query suggestions. You can to update this at any
+    -- time.
+    --
+    -- In @LEARN_ONLY@ mode, Amazon Kendra continues to learn from new queries
+    -- to keep suggestions up to date for when you are ready to switch to
+    -- ENABLED mode again.
+    mode :: Prelude.Maybe Mode,
+    -- | How recent your queries are in your query log time window.
+    --
+    -- The time window is the number of days from current day to past days.
+    --
+    -- By default, Amazon Kendra sets this to 180.
+    queryLogLookBackWindowInDays :: Prelude.Maybe Prelude.Int,
     -- | The identifier of the index with query suggestions you want to update.
     indexId :: Prelude.Text
   }
@@ -126,40 +126,6 @@ data UpdateQuerySuggestionsConfig = UpdateQuerySuggestionsConfig'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'minimumNumberOfQueryingUsers', 'updateQuerySuggestionsConfig_minimumNumberOfQueryingUsers' - The minimum number of unique users who must search a query in order for
--- the query to be eligible to suggest to your users.
---
--- Increasing this number might decrease the number of suggestions.
--- However, this ensures a query is searched by many users and is truly
--- popular to suggest to users.
---
--- How you tune this setting depends on your specific needs.
---
--- 'queryLogLookBackWindowInDays', 'updateQuerySuggestionsConfig_queryLogLookBackWindowInDays' - How recent your queries are in your query log time window.
---
--- The time window is the number of days from current day to past days.
---
--- By default, Amazon Kendra sets this to 180.
---
--- 'mode', 'updateQuerySuggestionsConfig_mode' - Set the mode to @ENABLED@ or @LEARN_ONLY@.
---
--- By default, Amazon Kendra enables query suggestions. @LEARN_ONLY@ mode
--- allows you to turn off query suggestions. You can to update this at any
--- time.
---
--- In @LEARN_ONLY@ mode, Amazon Kendra continues to learn from new queries
--- to keep suggestions up to date for when you are ready to switch to
--- ENABLED mode again.
---
--- 'minimumQueryCount', 'updateQuerySuggestionsConfig_minimumQueryCount' - The the minimum number of times a query must be searched in order to be
--- eligible to suggest to your users.
---
--- Decreasing this number increases the number of suggestions. However,
--- this affects the quality of suggestions as it sets a low bar for a query
--- to be considered popular to suggest to users.
---
--- How you tune this setting depends on your specific needs.
 --
 -- 'includeQueriesWithoutUserInformation', 'updateQuerySuggestionsConfig_includeQueriesWithoutUserInformation' - @TRUE@ to include queries without user information (i.e. all queries,
 -- irrespective of the user), otherwise @FALSE@ to only include queries
@@ -176,25 +142,7 @@ data UpdateQuerySuggestionsConfig = UpdateQuerySuggestionsConfig'
 -- If you set to @TRUE@, Amazon Kendra ignores all user information and
 -- learns from all queries.
 --
--- 'indexId', 'updateQuerySuggestionsConfig_indexId' - The identifier of the index with query suggestions you want to update.
-newUpdateQuerySuggestionsConfig ::
-  -- | 'indexId'
-  Prelude.Text ->
-  UpdateQuerySuggestionsConfig
-newUpdateQuerySuggestionsConfig pIndexId_ =
-  UpdateQuerySuggestionsConfig'
-    { minimumNumberOfQueryingUsers =
-        Prelude.Nothing,
-      queryLogLookBackWindowInDays =
-        Prelude.Nothing,
-      mode = Prelude.Nothing,
-      minimumQueryCount = Prelude.Nothing,
-      includeQueriesWithoutUserInformation =
-        Prelude.Nothing,
-      indexId = pIndexId_
-    }
-
--- | The minimum number of unique users who must search a query in order for
+-- 'minimumNumberOfQueryingUsers', 'updateQuerySuggestionsConfig_minimumNumberOfQueryingUsers' - The minimum number of unique users who must search a query in order for
 -- the query to be eligible to suggest to your users.
 --
 -- Increasing this number might decrease the number of suggestions.
@@ -202,18 +150,17 @@ newUpdateQuerySuggestionsConfig pIndexId_ =
 -- popular to suggest to users.
 --
 -- How you tune this setting depends on your specific needs.
-updateQuerySuggestionsConfig_minimumNumberOfQueryingUsers :: Lens.Lens' UpdateQuerySuggestionsConfig (Prelude.Maybe Prelude.Natural)
-updateQuerySuggestionsConfig_minimumNumberOfQueryingUsers = Lens.lens (\UpdateQuerySuggestionsConfig' {minimumNumberOfQueryingUsers} -> minimumNumberOfQueryingUsers) (\s@UpdateQuerySuggestionsConfig' {} a -> s {minimumNumberOfQueryingUsers = a} :: UpdateQuerySuggestionsConfig)
-
--- | How recent your queries are in your query log time window.
 --
--- The time window is the number of days from current day to past days.
+-- 'minimumQueryCount', 'updateQuerySuggestionsConfig_minimumQueryCount' - The the minimum number of times a query must be searched in order to be
+-- eligible to suggest to your users.
 --
--- By default, Amazon Kendra sets this to 180.
-updateQuerySuggestionsConfig_queryLogLookBackWindowInDays :: Lens.Lens' UpdateQuerySuggestionsConfig (Prelude.Maybe Prelude.Int)
-updateQuerySuggestionsConfig_queryLogLookBackWindowInDays = Lens.lens (\UpdateQuerySuggestionsConfig' {queryLogLookBackWindowInDays} -> queryLogLookBackWindowInDays) (\s@UpdateQuerySuggestionsConfig' {} a -> s {queryLogLookBackWindowInDays = a} :: UpdateQuerySuggestionsConfig)
-
--- | Set the mode to @ENABLED@ or @LEARN_ONLY@.
+-- Decreasing this number increases the number of suggestions. However,
+-- this affects the quality of suggestions as it sets a low bar for a query
+-- to be considered popular to suggest to users.
+--
+-- How you tune this setting depends on your specific needs.
+--
+-- 'mode', 'updateQuerySuggestionsConfig_mode' - Set the mode to @ENABLED@ or @LEARN_ONLY@.
 --
 -- By default, Amazon Kendra enables query suggestions. @LEARN_ONLY@ mode
 -- allows you to turn off query suggestions. You can to update this at any
@@ -222,19 +169,30 @@ updateQuerySuggestionsConfig_queryLogLookBackWindowInDays = Lens.lens (\UpdateQu
 -- In @LEARN_ONLY@ mode, Amazon Kendra continues to learn from new queries
 -- to keep suggestions up to date for when you are ready to switch to
 -- ENABLED mode again.
-updateQuerySuggestionsConfig_mode :: Lens.Lens' UpdateQuerySuggestionsConfig (Prelude.Maybe Mode)
-updateQuerySuggestionsConfig_mode = Lens.lens (\UpdateQuerySuggestionsConfig' {mode} -> mode) (\s@UpdateQuerySuggestionsConfig' {} a -> s {mode = a} :: UpdateQuerySuggestionsConfig)
-
--- | The the minimum number of times a query must be searched in order to be
--- eligible to suggest to your users.
 --
--- Decreasing this number increases the number of suggestions. However,
--- this affects the quality of suggestions as it sets a low bar for a query
--- to be considered popular to suggest to users.
+-- 'queryLogLookBackWindowInDays', 'updateQuerySuggestionsConfig_queryLogLookBackWindowInDays' - How recent your queries are in your query log time window.
 --
--- How you tune this setting depends on your specific needs.
-updateQuerySuggestionsConfig_minimumQueryCount :: Lens.Lens' UpdateQuerySuggestionsConfig (Prelude.Maybe Prelude.Natural)
-updateQuerySuggestionsConfig_minimumQueryCount = Lens.lens (\UpdateQuerySuggestionsConfig' {minimumQueryCount} -> minimumQueryCount) (\s@UpdateQuerySuggestionsConfig' {} a -> s {minimumQueryCount = a} :: UpdateQuerySuggestionsConfig)
+-- The time window is the number of days from current day to past days.
+--
+-- By default, Amazon Kendra sets this to 180.
+--
+-- 'indexId', 'updateQuerySuggestionsConfig_indexId' - The identifier of the index with query suggestions you want to update.
+newUpdateQuerySuggestionsConfig ::
+  -- | 'indexId'
+  Prelude.Text ->
+  UpdateQuerySuggestionsConfig
+newUpdateQuerySuggestionsConfig pIndexId_ =
+  UpdateQuerySuggestionsConfig'
+    { includeQueriesWithoutUserInformation =
+        Prelude.Nothing,
+      minimumNumberOfQueryingUsers =
+        Prelude.Nothing,
+      minimumQueryCount = Prelude.Nothing,
+      mode = Prelude.Nothing,
+      queryLogLookBackWindowInDays =
+        Prelude.Nothing,
+      indexId = pIndexId_
+    }
 
 -- | @TRUE@ to include queries without user information (i.e. all queries,
 -- irrespective of the user), otherwise @FALSE@ to only include queries
@@ -252,6 +210,48 @@ updateQuerySuggestionsConfig_minimumQueryCount = Lens.lens (\UpdateQuerySuggesti
 -- learns from all queries.
 updateQuerySuggestionsConfig_includeQueriesWithoutUserInformation :: Lens.Lens' UpdateQuerySuggestionsConfig (Prelude.Maybe Prelude.Bool)
 updateQuerySuggestionsConfig_includeQueriesWithoutUserInformation = Lens.lens (\UpdateQuerySuggestionsConfig' {includeQueriesWithoutUserInformation} -> includeQueriesWithoutUserInformation) (\s@UpdateQuerySuggestionsConfig' {} a -> s {includeQueriesWithoutUserInformation = a} :: UpdateQuerySuggestionsConfig)
+
+-- | The minimum number of unique users who must search a query in order for
+-- the query to be eligible to suggest to your users.
+--
+-- Increasing this number might decrease the number of suggestions.
+-- However, this ensures a query is searched by many users and is truly
+-- popular to suggest to users.
+--
+-- How you tune this setting depends on your specific needs.
+updateQuerySuggestionsConfig_minimumNumberOfQueryingUsers :: Lens.Lens' UpdateQuerySuggestionsConfig (Prelude.Maybe Prelude.Natural)
+updateQuerySuggestionsConfig_minimumNumberOfQueryingUsers = Lens.lens (\UpdateQuerySuggestionsConfig' {minimumNumberOfQueryingUsers} -> minimumNumberOfQueryingUsers) (\s@UpdateQuerySuggestionsConfig' {} a -> s {minimumNumberOfQueryingUsers = a} :: UpdateQuerySuggestionsConfig)
+
+-- | The the minimum number of times a query must be searched in order to be
+-- eligible to suggest to your users.
+--
+-- Decreasing this number increases the number of suggestions. However,
+-- this affects the quality of suggestions as it sets a low bar for a query
+-- to be considered popular to suggest to users.
+--
+-- How you tune this setting depends on your specific needs.
+updateQuerySuggestionsConfig_minimumQueryCount :: Lens.Lens' UpdateQuerySuggestionsConfig (Prelude.Maybe Prelude.Natural)
+updateQuerySuggestionsConfig_minimumQueryCount = Lens.lens (\UpdateQuerySuggestionsConfig' {minimumQueryCount} -> minimumQueryCount) (\s@UpdateQuerySuggestionsConfig' {} a -> s {minimumQueryCount = a} :: UpdateQuerySuggestionsConfig)
+
+-- | Set the mode to @ENABLED@ or @LEARN_ONLY@.
+--
+-- By default, Amazon Kendra enables query suggestions. @LEARN_ONLY@ mode
+-- allows you to turn off query suggestions. You can to update this at any
+-- time.
+--
+-- In @LEARN_ONLY@ mode, Amazon Kendra continues to learn from new queries
+-- to keep suggestions up to date for when you are ready to switch to
+-- ENABLED mode again.
+updateQuerySuggestionsConfig_mode :: Lens.Lens' UpdateQuerySuggestionsConfig (Prelude.Maybe Mode)
+updateQuerySuggestionsConfig_mode = Lens.lens (\UpdateQuerySuggestionsConfig' {mode} -> mode) (\s@UpdateQuerySuggestionsConfig' {} a -> s {mode = a} :: UpdateQuerySuggestionsConfig)
+
+-- | How recent your queries are in your query log time window.
+--
+-- The time window is the number of days from current day to past days.
+--
+-- By default, Amazon Kendra sets this to 180.
+updateQuerySuggestionsConfig_queryLogLookBackWindowInDays :: Lens.Lens' UpdateQuerySuggestionsConfig (Prelude.Maybe Prelude.Int)
+updateQuerySuggestionsConfig_queryLogLookBackWindowInDays = Lens.lens (\UpdateQuerySuggestionsConfig' {queryLogLookBackWindowInDays} -> queryLogLookBackWindowInDays) (\s@UpdateQuerySuggestionsConfig' {} a -> s {queryLogLookBackWindowInDays = a} :: UpdateQuerySuggestionsConfig)
 
 -- | The identifier of the index with query suggestions you want to update.
 updateQuerySuggestionsConfig_indexId :: Lens.Lens' UpdateQuerySuggestionsConfig Prelude.Text
@@ -273,20 +273,20 @@ instance
   where
   hashWithSalt _salt UpdateQuerySuggestionsConfig' {..} =
     _salt
-      `Prelude.hashWithSalt` minimumNumberOfQueryingUsers
-      `Prelude.hashWithSalt` queryLogLookBackWindowInDays
-      `Prelude.hashWithSalt` mode
-      `Prelude.hashWithSalt` minimumQueryCount
       `Prelude.hashWithSalt` includeQueriesWithoutUserInformation
+      `Prelude.hashWithSalt` minimumNumberOfQueryingUsers
+      `Prelude.hashWithSalt` minimumQueryCount
+      `Prelude.hashWithSalt` mode
+      `Prelude.hashWithSalt` queryLogLookBackWindowInDays
       `Prelude.hashWithSalt` indexId
 
 instance Prelude.NFData UpdateQuerySuggestionsConfig where
   rnf UpdateQuerySuggestionsConfig' {..} =
-    Prelude.rnf minimumNumberOfQueryingUsers
-      `Prelude.seq` Prelude.rnf queryLogLookBackWindowInDays
-      `Prelude.seq` Prelude.rnf mode
+    Prelude.rnf includeQueriesWithoutUserInformation
+      `Prelude.seq` Prelude.rnf minimumNumberOfQueryingUsers
       `Prelude.seq` Prelude.rnf minimumQueryCount
-      `Prelude.seq` Prelude.rnf includeQueriesWithoutUserInformation
+      `Prelude.seq` Prelude.rnf mode
+      `Prelude.seq` Prelude.rnf queryLogLookBackWindowInDays
       `Prelude.seq` Prelude.rnf indexId
 
 instance Data.ToHeaders UpdateQuerySuggestionsConfig where
@@ -308,15 +308,15 @@ instance Data.ToJSON UpdateQuerySuggestionsConfig where
   toJSON UpdateQuerySuggestionsConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("MinimumNumberOfQueryingUsers" Data..=)
+          [ ("IncludeQueriesWithoutUserInformation" Data..=)
+              Prelude.<$> includeQueriesWithoutUserInformation,
+            ("MinimumNumberOfQueryingUsers" Data..=)
               Prelude.<$> minimumNumberOfQueryingUsers,
-            ("QueryLogLookBackWindowInDays" Data..=)
-              Prelude.<$> queryLogLookBackWindowInDays,
-            ("Mode" Data..=) Prelude.<$> mode,
             ("MinimumQueryCount" Data..=)
               Prelude.<$> minimumQueryCount,
-            ("IncludeQueriesWithoutUserInformation" Data..=)
-              Prelude.<$> includeQueriesWithoutUserInformation,
+            ("Mode" Data..=) Prelude.<$> mode,
+            ("QueryLogLookBackWindowInDays" Data..=)
+              Prelude.<$> queryLogLookBackWindowInDays,
             Prelude.Just ("IndexId" Data..= indexId)
           ]
       )

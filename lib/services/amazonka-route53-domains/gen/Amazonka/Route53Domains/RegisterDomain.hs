@@ -62,8 +62,8 @@ module Amazonka.Route53Domains.RegisterDomain
     -- * Request Lenses
     registerDomain_autoRenew,
     registerDomain_idnLangCode,
-    registerDomain_privacyProtectRegistrantContact,
     registerDomain_privacyProtectAdminContact,
+    registerDomain_privacyProtectRegistrantContact,
     registerDomain_privacyProtectTechContact,
     registerDomain_domainName,
     registerDomain_durationInYears,
@@ -106,18 +106,6 @@ data RegisterDomain = RegisterDomain'
     -- information either for Amazon Registrar (for .com, .net, and .org
     -- domains) or for our registrar associate, Gandi (for all other TLDs). If
     -- you specify @false@, WHOIS queries return the information that you
-    -- entered for the registrant contact (the domain owner).
-    --
-    -- You must specify the same privacy setting for the administrative,
-    -- registrant, and technical contacts.
-    --
-    -- Default: @true@
-    privacyProtectRegistrantContact :: Prelude.Maybe Prelude.Bool,
-    -- | Whether you want to conceal contact information from WHOIS queries. If
-    -- you specify @true@, WHOIS (\"who is\") queries return contact
-    -- information either for Amazon Registrar (for .com, .net, and .org
-    -- domains) or for our registrar associate, Gandi (for all other TLDs). If
-    -- you specify @false@, WHOIS queries return the information that you
     -- entered for the admin contact.
     --
     -- You must specify the same privacy setting for the administrative,
@@ -125,6 +113,18 @@ data RegisterDomain = RegisterDomain'
     --
     -- Default: @true@
     privacyProtectAdminContact :: Prelude.Maybe Prelude.Bool,
+    -- | Whether you want to conceal contact information from WHOIS queries. If
+    -- you specify @true@, WHOIS (\"who is\") queries return contact
+    -- information either for Amazon Registrar (for .com, .net, and .org
+    -- domains) or for our registrar associate, Gandi (for all other TLDs). If
+    -- you specify @false@, WHOIS queries return the information that you
+    -- entered for the registrant contact (the domain owner).
+    --
+    -- You must specify the same privacy setting for the administrative,
+    -- registrant, and technical contacts.
+    --
+    -- Default: @true@
+    privacyProtectRegistrantContact :: Prelude.Maybe Prelude.Bool,
     -- | Whether you want to conceal contact information from WHOIS queries. If
     -- you specify @true@, WHOIS (\"who is\") queries return contact
     -- information either for Amazon Registrar (for .com, .net, and .org
@@ -201,24 +201,24 @@ data RegisterDomain = RegisterDomain'
 --
 -- 'idnLangCode', 'registerDomain_idnLangCode' - Reserved for future use.
 --
--- 'privacyProtectRegistrantContact', 'registerDomain_privacyProtectRegistrantContact' - Whether you want to conceal contact information from WHOIS queries. If
--- you specify @true@, WHOIS (\"who is\") queries return contact
--- information either for Amazon Registrar (for .com, .net, and .org
--- domains) or for our registrar associate, Gandi (for all other TLDs). If
--- you specify @false@, WHOIS queries return the information that you
--- entered for the registrant contact (the domain owner).
---
--- You must specify the same privacy setting for the administrative,
--- registrant, and technical contacts.
---
--- Default: @true@
---
 -- 'privacyProtectAdminContact', 'registerDomain_privacyProtectAdminContact' - Whether you want to conceal contact information from WHOIS queries. If
 -- you specify @true@, WHOIS (\"who is\") queries return contact
 -- information either for Amazon Registrar (for .com, .net, and .org
 -- domains) or for our registrar associate, Gandi (for all other TLDs). If
 -- you specify @false@, WHOIS queries return the information that you
 -- entered for the admin contact.
+--
+-- You must specify the same privacy setting for the administrative,
+-- registrant, and technical contacts.
+--
+-- Default: @true@
+--
+-- 'privacyProtectRegistrantContact', 'registerDomain_privacyProtectRegistrantContact' - Whether you want to conceal contact information from WHOIS queries. If
+-- you specify @true@, WHOIS (\"who is\") queries return contact
+-- information either for Amazon Registrar (for .com, .net, and .org
+-- domains) or for our registrar associate, Gandi (for all other TLDs). If
+-- you specify @false@, WHOIS queries return the information that you
+-- entered for the registrant contact (the domain owner).
 --
 -- You must specify the same privacy setting for the administrative,
 -- registrant, and technical contacts.
@@ -302,8 +302,8 @@ newRegisterDomain
     RegisterDomain'
       { autoRenew = Prelude.Nothing,
         idnLangCode = Prelude.Nothing,
-        privacyProtectRegistrantContact = Prelude.Nothing,
         privacyProtectAdminContact = Prelude.Nothing,
+        privacyProtectRegistrantContact = Prelude.Nothing,
         privacyProtectTechContact = Prelude.Nothing,
         domainName = pDomainName_,
         durationInYears = pDurationInYears_,
@@ -330,20 +330,6 @@ registerDomain_idnLangCode = Lens.lens (\RegisterDomain' {idnLangCode} -> idnLan
 -- information either for Amazon Registrar (for .com, .net, and .org
 -- domains) or for our registrar associate, Gandi (for all other TLDs). If
 -- you specify @false@, WHOIS queries return the information that you
--- entered for the registrant contact (the domain owner).
---
--- You must specify the same privacy setting for the administrative,
--- registrant, and technical contacts.
---
--- Default: @true@
-registerDomain_privacyProtectRegistrantContact :: Lens.Lens' RegisterDomain (Prelude.Maybe Prelude.Bool)
-registerDomain_privacyProtectRegistrantContact = Lens.lens (\RegisterDomain' {privacyProtectRegistrantContact} -> privacyProtectRegistrantContact) (\s@RegisterDomain' {} a -> s {privacyProtectRegistrantContact = a} :: RegisterDomain)
-
--- | Whether you want to conceal contact information from WHOIS queries. If
--- you specify @true@, WHOIS (\"who is\") queries return contact
--- information either for Amazon Registrar (for .com, .net, and .org
--- domains) or for our registrar associate, Gandi (for all other TLDs). If
--- you specify @false@, WHOIS queries return the information that you
 -- entered for the admin contact.
 --
 -- You must specify the same privacy setting for the administrative,
@@ -352,6 +338,20 @@ registerDomain_privacyProtectRegistrantContact = Lens.lens (\RegisterDomain' {pr
 -- Default: @true@
 registerDomain_privacyProtectAdminContact :: Lens.Lens' RegisterDomain (Prelude.Maybe Prelude.Bool)
 registerDomain_privacyProtectAdminContact = Lens.lens (\RegisterDomain' {privacyProtectAdminContact} -> privacyProtectAdminContact) (\s@RegisterDomain' {} a -> s {privacyProtectAdminContact = a} :: RegisterDomain)
+
+-- | Whether you want to conceal contact information from WHOIS queries. If
+-- you specify @true@, WHOIS (\"who is\") queries return contact
+-- information either for Amazon Registrar (for .com, .net, and .org
+-- domains) or for our registrar associate, Gandi (for all other TLDs). If
+-- you specify @false@, WHOIS queries return the information that you
+-- entered for the registrant contact (the domain owner).
+--
+-- You must specify the same privacy setting for the administrative,
+-- registrant, and technical contacts.
+--
+-- Default: @true@
+registerDomain_privacyProtectRegistrantContact :: Lens.Lens' RegisterDomain (Prelude.Maybe Prelude.Bool)
+registerDomain_privacyProtectRegistrantContact = Lens.lens (\RegisterDomain' {privacyProtectRegistrantContact} -> privacyProtectRegistrantContact) (\s@RegisterDomain' {} a -> s {privacyProtectRegistrantContact = a} :: RegisterDomain)
 
 -- | Whether you want to conceal contact information from WHOIS queries. If
 -- you specify @true@, WHOIS (\"who is\") queries return contact
@@ -440,8 +440,8 @@ instance Prelude.Hashable RegisterDomain where
   hashWithSalt _salt RegisterDomain' {..} =
     _salt `Prelude.hashWithSalt` autoRenew
       `Prelude.hashWithSalt` idnLangCode
-      `Prelude.hashWithSalt` privacyProtectRegistrantContact
       `Prelude.hashWithSalt` privacyProtectAdminContact
+      `Prelude.hashWithSalt` privacyProtectRegistrantContact
       `Prelude.hashWithSalt` privacyProtectTechContact
       `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` durationInYears
@@ -453,8 +453,8 @@ instance Prelude.NFData RegisterDomain where
   rnf RegisterDomain' {..} =
     Prelude.rnf autoRenew
       `Prelude.seq` Prelude.rnf idnLangCode
-      `Prelude.seq` Prelude.rnf privacyProtectRegistrantContact
       `Prelude.seq` Prelude.rnf privacyProtectAdminContact
+      `Prelude.seq` Prelude.rnf privacyProtectRegistrantContact
       `Prelude.seq` Prelude.rnf privacyProtectTechContact
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf durationInYears
@@ -483,10 +483,10 @@ instance Data.ToJSON RegisterDomain where
       ( Prelude.catMaybes
           [ ("AutoRenew" Data..=) Prelude.<$> autoRenew,
             ("IdnLangCode" Data..=) Prelude.<$> idnLangCode,
-            ("PrivacyProtectRegistrantContact" Data..=)
-              Prelude.<$> privacyProtectRegistrantContact,
             ("PrivacyProtectAdminContact" Data..=)
               Prelude.<$> privacyProtectAdminContact,
+            ("PrivacyProtectRegistrantContact" Data..=)
+              Prelude.<$> privacyProtectRegistrantContact,
             ("PrivacyProtectTechContact" Data..=)
               Prelude.<$> privacyProtectTechContact,
             Prelude.Just ("DomainName" Data..= domainName),

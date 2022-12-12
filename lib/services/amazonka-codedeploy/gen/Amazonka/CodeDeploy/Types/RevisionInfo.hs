@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRevisionInfo' smart constructor.
 data RevisionInfo = RevisionInfo'
-  { -- | Information about the location and type of an application revision.
-    revisionLocation :: Prelude.Maybe RevisionLocation,
-    -- | Information about an application revision, including usage details and
+  { -- | Information about an application revision, including usage details and
     -- associated deployment groups.
-    genericRevisionInfo :: Prelude.Maybe GenericRevisionInfo
+    genericRevisionInfo :: Prelude.Maybe GenericRevisionInfo,
+    -- | Information about the location and type of an application revision.
+    revisionLocation :: Prelude.Maybe RevisionLocation
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,26 +46,27 @@ data RevisionInfo = RevisionInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'revisionLocation', 'revisionInfo_revisionLocation' - Information about the location and type of an application revision.
---
 -- 'genericRevisionInfo', 'revisionInfo_genericRevisionInfo' - Information about an application revision, including usage details and
 -- associated deployment groups.
+--
+-- 'revisionLocation', 'revisionInfo_revisionLocation' - Information about the location and type of an application revision.
 newRevisionInfo ::
   RevisionInfo
 newRevisionInfo =
   RevisionInfo'
-    { revisionLocation = Prelude.Nothing,
-      genericRevisionInfo = Prelude.Nothing
+    { genericRevisionInfo =
+        Prelude.Nothing,
+      revisionLocation = Prelude.Nothing
     }
-
--- | Information about the location and type of an application revision.
-revisionInfo_revisionLocation :: Lens.Lens' RevisionInfo (Prelude.Maybe RevisionLocation)
-revisionInfo_revisionLocation = Lens.lens (\RevisionInfo' {revisionLocation} -> revisionLocation) (\s@RevisionInfo' {} a -> s {revisionLocation = a} :: RevisionInfo)
 
 -- | Information about an application revision, including usage details and
 -- associated deployment groups.
 revisionInfo_genericRevisionInfo :: Lens.Lens' RevisionInfo (Prelude.Maybe GenericRevisionInfo)
 revisionInfo_genericRevisionInfo = Lens.lens (\RevisionInfo' {genericRevisionInfo} -> genericRevisionInfo) (\s@RevisionInfo' {} a -> s {genericRevisionInfo = a} :: RevisionInfo)
+
+-- | Information about the location and type of an application revision.
+revisionInfo_revisionLocation :: Lens.Lens' RevisionInfo (Prelude.Maybe RevisionLocation)
+revisionInfo_revisionLocation = Lens.lens (\RevisionInfo' {revisionLocation} -> revisionLocation) (\s@RevisionInfo' {} a -> s {revisionLocation = a} :: RevisionInfo)
 
 instance Data.FromJSON RevisionInfo where
   parseJSON =
@@ -73,16 +74,16 @@ instance Data.FromJSON RevisionInfo where
       "RevisionInfo"
       ( \x ->
           RevisionInfo'
-            Prelude.<$> (x Data..:? "revisionLocation")
-            Prelude.<*> (x Data..:? "genericRevisionInfo")
+            Prelude.<$> (x Data..:? "genericRevisionInfo")
+            Prelude.<*> (x Data..:? "revisionLocation")
       )
 
 instance Prelude.Hashable RevisionInfo where
   hashWithSalt _salt RevisionInfo' {..} =
-    _salt `Prelude.hashWithSalt` revisionLocation
-      `Prelude.hashWithSalt` genericRevisionInfo
+    _salt `Prelude.hashWithSalt` genericRevisionInfo
+      `Prelude.hashWithSalt` revisionLocation
 
 instance Prelude.NFData RevisionInfo where
   rnf RevisionInfo' {..} =
-    Prelude.rnf revisionLocation
-      `Prelude.seq` Prelude.rnf genericRevisionInfo
+    Prelude.rnf genericRevisionInfo
+      `Prelude.seq` Prelude.rnf revisionLocation

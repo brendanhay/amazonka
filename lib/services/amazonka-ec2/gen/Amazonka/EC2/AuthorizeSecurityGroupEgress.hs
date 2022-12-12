@@ -45,15 +45,15 @@ module Amazonka.EC2.AuthorizeSecurityGroupEgress
     newAuthorizeSecurityGroupEgress,
 
     -- * Request Lenses
-    authorizeSecurityGroupEgress_sourceSecurityGroupName,
-    authorizeSecurityGroupEgress_toPort,
+    authorizeSecurityGroupEgress_cidrIp,
+    authorizeSecurityGroupEgress_dryRun,
+    authorizeSecurityGroupEgress_fromPort,
     authorizeSecurityGroupEgress_ipPermissions,
     authorizeSecurityGroupEgress_ipProtocol,
-    authorizeSecurityGroupEgress_dryRun,
-    authorizeSecurityGroupEgress_cidrIp,
-    authorizeSecurityGroupEgress_tagSpecifications,
+    authorizeSecurityGroupEgress_sourceSecurityGroupName,
     authorizeSecurityGroupEgress_sourceSecurityGroupOwnerId,
-    authorizeSecurityGroupEgress_fromPort,
+    authorizeSecurityGroupEgress_tagSpecifications,
+    authorizeSecurityGroupEgress_toPort,
     authorizeSecurityGroupEgress_groupId,
 
     -- * Destructuring the Response
@@ -61,8 +61,8 @@ module Amazonka.EC2.AuthorizeSecurityGroupEgress
     newAuthorizeSecurityGroupEgressResponse,
 
     -- * Response Lenses
-    authorizeSecurityGroupEgressResponse_securityGroupRules,
     authorizeSecurityGroupEgressResponse_return,
+    authorizeSecurityGroupEgressResponse_securityGroupRules,
     authorizeSecurityGroupEgressResponse_httpStatus,
   )
 where
@@ -77,31 +77,31 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAuthorizeSecurityGroupEgress' smart constructor.
 data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress'
-  { -- | Not supported. Use a set of IP permissions to specify a destination
-    -- security group.
-    sourceSecurityGroupName :: Prelude.Maybe Prelude.Text,
+  { -- | Not supported. Use a set of IP permissions to specify the CIDR.
+    cidrIp :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | Not supported. Use a set of IP permissions to specify the port.
-    toPort :: Prelude.Maybe Prelude.Int,
+    fromPort :: Prelude.Maybe Prelude.Int,
     -- | The sets of IP permissions. You can\'t specify a destination security
     -- group and a CIDR IP address range in the same set of permissions.
     ipPermissions :: Prelude.Maybe [IpPermission],
     -- | Not supported. Use a set of IP permissions to specify the protocol name
     -- or number.
     ipProtocol :: Prelude.Maybe Prelude.Text,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | Not supported. Use a set of IP permissions to specify the CIDR.
-    cidrIp :: Prelude.Maybe Prelude.Text,
-    -- | The tags applied to the security group rule.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
+    -- | Not supported. Use a set of IP permissions to specify a destination
+    -- security group.
+    sourceSecurityGroupName :: Prelude.Maybe Prelude.Text,
     -- | Not supported. Use a set of IP permissions to specify a destination
     -- security group.
     sourceSecurityGroupOwnerId :: Prelude.Maybe Prelude.Text,
+    -- | The tags applied to the security group rule.
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | Not supported. Use a set of IP permissions to specify the port.
-    fromPort :: Prelude.Maybe Prelude.Int,
+    toPort :: Prelude.Maybe Prelude.Int,
     -- | The ID of the security group.
     groupId :: Prelude.Text
   }
@@ -115,10 +115,14 @@ data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceSecurityGroupName', 'authorizeSecurityGroupEgress_sourceSecurityGroupName' - Not supported. Use a set of IP permissions to specify a destination
--- security group.
+-- 'cidrIp', 'authorizeSecurityGroupEgress_cidrIp' - Not supported. Use a set of IP permissions to specify the CIDR.
 --
--- 'toPort', 'authorizeSecurityGroupEgress_toPort' - Not supported. Use a set of IP permissions to specify the port.
+-- 'dryRun', 'authorizeSecurityGroupEgress_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'fromPort', 'authorizeSecurityGroupEgress_fromPort' - Not supported. Use a set of IP permissions to specify the port.
 --
 -- 'ipPermissions', 'authorizeSecurityGroupEgress_ipPermissions' - The sets of IP permissions. You can\'t specify a destination security
 -- group and a CIDR IP address range in the same set of permissions.
@@ -126,19 +130,15 @@ data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress'
 -- 'ipProtocol', 'authorizeSecurityGroupEgress_ipProtocol' - Not supported. Use a set of IP permissions to specify the protocol name
 -- or number.
 --
--- 'dryRun', 'authorizeSecurityGroupEgress_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
--- 'cidrIp', 'authorizeSecurityGroupEgress_cidrIp' - Not supported. Use a set of IP permissions to specify the CIDR.
---
--- 'tagSpecifications', 'authorizeSecurityGroupEgress_tagSpecifications' - The tags applied to the security group rule.
+-- 'sourceSecurityGroupName', 'authorizeSecurityGroupEgress_sourceSecurityGroupName' - Not supported. Use a set of IP permissions to specify a destination
+-- security group.
 --
 -- 'sourceSecurityGroupOwnerId', 'authorizeSecurityGroupEgress_sourceSecurityGroupOwnerId' - Not supported. Use a set of IP permissions to specify a destination
 -- security group.
 --
--- 'fromPort', 'authorizeSecurityGroupEgress_fromPort' - Not supported. Use a set of IP permissions to specify the port.
+-- 'tagSpecifications', 'authorizeSecurityGroupEgress_tagSpecifications' - The tags applied to the security group rule.
+--
+-- 'toPort', 'authorizeSecurityGroupEgress_toPort' - Not supported. Use a set of IP permissions to specify the port.
 --
 -- 'groupId', 'authorizeSecurityGroupEgress_groupId' - The ID of the security group.
 newAuthorizeSecurityGroupEgress ::
@@ -147,27 +147,33 @@ newAuthorizeSecurityGroupEgress ::
   AuthorizeSecurityGroupEgress
 newAuthorizeSecurityGroupEgress pGroupId_ =
   AuthorizeSecurityGroupEgress'
-    { sourceSecurityGroupName =
+    { cidrIp =
         Prelude.Nothing,
-      toPort = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      fromPort = Prelude.Nothing,
       ipPermissions = Prelude.Nothing,
       ipProtocol = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      cidrIp = Prelude.Nothing,
-      tagSpecifications = Prelude.Nothing,
+      sourceSecurityGroupName = Prelude.Nothing,
       sourceSecurityGroupOwnerId = Prelude.Nothing,
-      fromPort = Prelude.Nothing,
+      tagSpecifications = Prelude.Nothing,
+      toPort = Prelude.Nothing,
       groupId = pGroupId_
     }
 
--- | Not supported. Use a set of IP permissions to specify a destination
--- security group.
-authorizeSecurityGroupEgress_sourceSecurityGroupName :: Lens.Lens' AuthorizeSecurityGroupEgress (Prelude.Maybe Prelude.Text)
-authorizeSecurityGroupEgress_sourceSecurityGroupName = Lens.lens (\AuthorizeSecurityGroupEgress' {sourceSecurityGroupName} -> sourceSecurityGroupName) (\s@AuthorizeSecurityGroupEgress' {} a -> s {sourceSecurityGroupName = a} :: AuthorizeSecurityGroupEgress)
+-- | Not supported. Use a set of IP permissions to specify the CIDR.
+authorizeSecurityGroupEgress_cidrIp :: Lens.Lens' AuthorizeSecurityGroupEgress (Prelude.Maybe Prelude.Text)
+authorizeSecurityGroupEgress_cidrIp = Lens.lens (\AuthorizeSecurityGroupEgress' {cidrIp} -> cidrIp) (\s@AuthorizeSecurityGroupEgress' {} a -> s {cidrIp = a} :: AuthorizeSecurityGroupEgress)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+authorizeSecurityGroupEgress_dryRun :: Lens.Lens' AuthorizeSecurityGroupEgress (Prelude.Maybe Prelude.Bool)
+authorizeSecurityGroupEgress_dryRun = Lens.lens (\AuthorizeSecurityGroupEgress' {dryRun} -> dryRun) (\s@AuthorizeSecurityGroupEgress' {} a -> s {dryRun = a} :: AuthorizeSecurityGroupEgress)
 
 -- | Not supported. Use a set of IP permissions to specify the port.
-authorizeSecurityGroupEgress_toPort :: Lens.Lens' AuthorizeSecurityGroupEgress (Prelude.Maybe Prelude.Int)
-authorizeSecurityGroupEgress_toPort = Lens.lens (\AuthorizeSecurityGroupEgress' {toPort} -> toPort) (\s@AuthorizeSecurityGroupEgress' {} a -> s {toPort = a} :: AuthorizeSecurityGroupEgress)
+authorizeSecurityGroupEgress_fromPort :: Lens.Lens' AuthorizeSecurityGroupEgress (Prelude.Maybe Prelude.Int)
+authorizeSecurityGroupEgress_fromPort = Lens.lens (\AuthorizeSecurityGroupEgress' {fromPort} -> fromPort) (\s@AuthorizeSecurityGroupEgress' {} a -> s {fromPort = a} :: AuthorizeSecurityGroupEgress)
 
 -- | The sets of IP permissions. You can\'t specify a destination security
 -- group and a CIDR IP address range in the same set of permissions.
@@ -179,29 +185,23 @@ authorizeSecurityGroupEgress_ipPermissions = Lens.lens (\AuthorizeSecurityGroupE
 authorizeSecurityGroupEgress_ipProtocol :: Lens.Lens' AuthorizeSecurityGroupEgress (Prelude.Maybe Prelude.Text)
 authorizeSecurityGroupEgress_ipProtocol = Lens.lens (\AuthorizeSecurityGroupEgress' {ipProtocol} -> ipProtocol) (\s@AuthorizeSecurityGroupEgress' {} a -> s {ipProtocol = a} :: AuthorizeSecurityGroupEgress)
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-authorizeSecurityGroupEgress_dryRun :: Lens.Lens' AuthorizeSecurityGroupEgress (Prelude.Maybe Prelude.Bool)
-authorizeSecurityGroupEgress_dryRun = Lens.lens (\AuthorizeSecurityGroupEgress' {dryRun} -> dryRun) (\s@AuthorizeSecurityGroupEgress' {} a -> s {dryRun = a} :: AuthorizeSecurityGroupEgress)
-
--- | Not supported. Use a set of IP permissions to specify the CIDR.
-authorizeSecurityGroupEgress_cidrIp :: Lens.Lens' AuthorizeSecurityGroupEgress (Prelude.Maybe Prelude.Text)
-authorizeSecurityGroupEgress_cidrIp = Lens.lens (\AuthorizeSecurityGroupEgress' {cidrIp} -> cidrIp) (\s@AuthorizeSecurityGroupEgress' {} a -> s {cidrIp = a} :: AuthorizeSecurityGroupEgress)
-
--- | The tags applied to the security group rule.
-authorizeSecurityGroupEgress_tagSpecifications :: Lens.Lens' AuthorizeSecurityGroupEgress (Prelude.Maybe [TagSpecification])
-authorizeSecurityGroupEgress_tagSpecifications = Lens.lens (\AuthorizeSecurityGroupEgress' {tagSpecifications} -> tagSpecifications) (\s@AuthorizeSecurityGroupEgress' {} a -> s {tagSpecifications = a} :: AuthorizeSecurityGroupEgress) Prelude.. Lens.mapping Lens.coerced
+-- | Not supported. Use a set of IP permissions to specify a destination
+-- security group.
+authorizeSecurityGroupEgress_sourceSecurityGroupName :: Lens.Lens' AuthorizeSecurityGroupEgress (Prelude.Maybe Prelude.Text)
+authorizeSecurityGroupEgress_sourceSecurityGroupName = Lens.lens (\AuthorizeSecurityGroupEgress' {sourceSecurityGroupName} -> sourceSecurityGroupName) (\s@AuthorizeSecurityGroupEgress' {} a -> s {sourceSecurityGroupName = a} :: AuthorizeSecurityGroupEgress)
 
 -- | Not supported. Use a set of IP permissions to specify a destination
 -- security group.
 authorizeSecurityGroupEgress_sourceSecurityGroupOwnerId :: Lens.Lens' AuthorizeSecurityGroupEgress (Prelude.Maybe Prelude.Text)
 authorizeSecurityGroupEgress_sourceSecurityGroupOwnerId = Lens.lens (\AuthorizeSecurityGroupEgress' {sourceSecurityGroupOwnerId} -> sourceSecurityGroupOwnerId) (\s@AuthorizeSecurityGroupEgress' {} a -> s {sourceSecurityGroupOwnerId = a} :: AuthorizeSecurityGroupEgress)
 
+-- | The tags applied to the security group rule.
+authorizeSecurityGroupEgress_tagSpecifications :: Lens.Lens' AuthorizeSecurityGroupEgress (Prelude.Maybe [TagSpecification])
+authorizeSecurityGroupEgress_tagSpecifications = Lens.lens (\AuthorizeSecurityGroupEgress' {tagSpecifications} -> tagSpecifications) (\s@AuthorizeSecurityGroupEgress' {} a -> s {tagSpecifications = a} :: AuthorizeSecurityGroupEgress) Prelude.. Lens.mapping Lens.coerced
+
 -- | Not supported. Use a set of IP permissions to specify the port.
-authorizeSecurityGroupEgress_fromPort :: Lens.Lens' AuthorizeSecurityGroupEgress (Prelude.Maybe Prelude.Int)
-authorizeSecurityGroupEgress_fromPort = Lens.lens (\AuthorizeSecurityGroupEgress' {fromPort} -> fromPort) (\s@AuthorizeSecurityGroupEgress' {} a -> s {fromPort = a} :: AuthorizeSecurityGroupEgress)
+authorizeSecurityGroupEgress_toPort :: Lens.Lens' AuthorizeSecurityGroupEgress (Prelude.Maybe Prelude.Int)
+authorizeSecurityGroupEgress_toPort = Lens.lens (\AuthorizeSecurityGroupEgress' {toPort} -> toPort) (\s@AuthorizeSecurityGroupEgress' {} a -> s {toPort = a} :: AuthorizeSecurityGroupEgress)
 
 -- | The ID of the security group.
 authorizeSecurityGroupEgress_groupId :: Lens.Lens' AuthorizeSecurityGroupEgress Prelude.Text
@@ -217,11 +217,11 @@ instance Core.AWSRequest AuthorizeSecurityGroupEgress where
     Response.receiveXML
       ( \s h x ->
           AuthorizeSecurityGroupEgressResponse'
-            Prelude.<$> ( x Data..@? "securityGroupRuleSet"
+            Prelude.<$> (x Data..@? "return")
+            Prelude.<*> ( x Data..@? "securityGroupRuleSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> (x Data..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -230,29 +230,28 @@ instance
     AuthorizeSecurityGroupEgress
   where
   hashWithSalt _salt AuthorizeSecurityGroupEgress' {..} =
-    _salt
-      `Prelude.hashWithSalt` sourceSecurityGroupName
-      `Prelude.hashWithSalt` toPort
+    _salt `Prelude.hashWithSalt` cidrIp
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` fromPort
       `Prelude.hashWithSalt` ipPermissions
       `Prelude.hashWithSalt` ipProtocol
-      `Prelude.hashWithSalt` dryRun
-      `Prelude.hashWithSalt` cidrIp
-      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` sourceSecurityGroupName
       `Prelude.hashWithSalt` sourceSecurityGroupOwnerId
-      `Prelude.hashWithSalt` fromPort
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` toPort
       `Prelude.hashWithSalt` groupId
 
 instance Prelude.NFData AuthorizeSecurityGroupEgress where
   rnf AuthorizeSecurityGroupEgress' {..} =
-    Prelude.rnf sourceSecurityGroupName
-      `Prelude.seq` Prelude.rnf toPort
+    Prelude.rnf cidrIp
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf fromPort
       `Prelude.seq` Prelude.rnf ipPermissions
       `Prelude.seq` Prelude.rnf ipProtocol
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf cidrIp
-      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf sourceSecurityGroupName
       `Prelude.seq` Prelude.rnf sourceSecurityGroupOwnerId
-      `Prelude.seq` Prelude.rnf fromPort
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf toPort
       `Prelude.seq` Prelude.rnf groupId
 
 instance Data.ToHeaders AuthorizeSecurityGroupEgress where
@@ -270,33 +269,33 @@ instance Data.ToQuery AuthorizeSecurityGroupEgress where
                   ),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "SourceSecurityGroupName"
-          Data.=: sourceSecurityGroupName,
-        "ToPort" Data.=: toPort,
+        "CidrIp" Data.=: cidrIp,
+        "DryRun" Data.=: dryRun,
+        "FromPort" Data.=: fromPort,
         Data.toQuery
           ( Data.toQueryList "IpPermissions"
               Prelude.<$> ipPermissions
           ),
         "IpProtocol" Data.=: ipProtocol,
-        "DryRun" Data.=: dryRun,
-        "CidrIp" Data.=: cidrIp,
+        "SourceSecurityGroupName"
+          Data.=: sourceSecurityGroupName,
+        "SourceSecurityGroupOwnerId"
+          Data.=: sourceSecurityGroupOwnerId,
         Data.toQuery
           ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "SourceSecurityGroupOwnerId"
-          Data.=: sourceSecurityGroupOwnerId,
-        "FromPort" Data.=: fromPort,
+        "ToPort" Data.=: toPort,
         "GroupId" Data.=: groupId
       ]
 
 -- | /See:/ 'newAuthorizeSecurityGroupEgressResponse' smart constructor.
 data AuthorizeSecurityGroupEgressResponse = AuthorizeSecurityGroupEgressResponse'
-  { -- | Information about the outbound (egress) security group rules that were
+  { -- | Returns @true@ if the request succeeds; otherwise, returns an error.
+    return' :: Prelude.Maybe Prelude.Bool,
+    -- | Information about the outbound (egress) security group rules that were
     -- added.
     securityGroupRules :: Prelude.Maybe [SecurityGroupRule],
-    -- | Returns @true@ if the request succeeds; otherwise, returns an error.
-    return' :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -310,10 +309,10 @@ data AuthorizeSecurityGroupEgressResponse = AuthorizeSecurityGroupEgressResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'return'', 'authorizeSecurityGroupEgressResponse_return' - Returns @true@ if the request succeeds; otherwise, returns an error.
+--
 -- 'securityGroupRules', 'authorizeSecurityGroupEgressResponse_securityGroupRules' - Information about the outbound (egress) security group rules that were
 -- added.
---
--- 'return'', 'authorizeSecurityGroupEgressResponse_return' - Returns @true@ if the request succeeds; otherwise, returns an error.
 --
 -- 'httpStatus', 'authorizeSecurityGroupEgressResponse_httpStatus' - The response's http status code.
 newAuthorizeSecurityGroupEgressResponse ::
@@ -322,20 +321,20 @@ newAuthorizeSecurityGroupEgressResponse ::
   AuthorizeSecurityGroupEgressResponse
 newAuthorizeSecurityGroupEgressResponse pHttpStatus_ =
   AuthorizeSecurityGroupEgressResponse'
-    { securityGroupRules =
+    { return' =
         Prelude.Nothing,
-      return' = Prelude.Nothing,
+      securityGroupRules = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Returns @true@ if the request succeeds; otherwise, returns an error.
+authorizeSecurityGroupEgressResponse_return :: Lens.Lens' AuthorizeSecurityGroupEgressResponse (Prelude.Maybe Prelude.Bool)
+authorizeSecurityGroupEgressResponse_return = Lens.lens (\AuthorizeSecurityGroupEgressResponse' {return'} -> return') (\s@AuthorizeSecurityGroupEgressResponse' {} a -> s {return' = a} :: AuthorizeSecurityGroupEgressResponse)
 
 -- | Information about the outbound (egress) security group rules that were
 -- added.
 authorizeSecurityGroupEgressResponse_securityGroupRules :: Lens.Lens' AuthorizeSecurityGroupEgressResponse (Prelude.Maybe [SecurityGroupRule])
 authorizeSecurityGroupEgressResponse_securityGroupRules = Lens.lens (\AuthorizeSecurityGroupEgressResponse' {securityGroupRules} -> securityGroupRules) (\s@AuthorizeSecurityGroupEgressResponse' {} a -> s {securityGroupRules = a} :: AuthorizeSecurityGroupEgressResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Returns @true@ if the request succeeds; otherwise, returns an error.
-authorizeSecurityGroupEgressResponse_return :: Lens.Lens' AuthorizeSecurityGroupEgressResponse (Prelude.Maybe Prelude.Bool)
-authorizeSecurityGroupEgressResponse_return = Lens.lens (\AuthorizeSecurityGroupEgressResponse' {return'} -> return') (\s@AuthorizeSecurityGroupEgressResponse' {} a -> s {return' = a} :: AuthorizeSecurityGroupEgressResponse)
 
 -- | The response's http status code.
 authorizeSecurityGroupEgressResponse_httpStatus :: Lens.Lens' AuthorizeSecurityGroupEgressResponse Prelude.Int
@@ -346,6 +345,6 @@ instance
     AuthorizeSecurityGroupEgressResponse
   where
   rnf AuthorizeSecurityGroupEgressResponse' {..} =
-    Prelude.rnf securityGroupRules
-      `Prelude.seq` Prelude.rnf return'
+    Prelude.rnf return'
+      `Prelude.seq` Prelude.rnf securityGroupRules
       `Prelude.seq` Prelude.rnf httpStatus

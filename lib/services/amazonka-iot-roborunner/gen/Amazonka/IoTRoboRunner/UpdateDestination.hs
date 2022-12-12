@@ -27,9 +27,9 @@ module Amazonka.IoTRoboRunner.UpdateDestination
     newUpdateDestination,
 
     -- * Request Lenses
+    updateDestination_additionalFixedProperties,
     updateDestination_name,
     updateDestination_state,
-    updateDestination_additionalFixedProperties,
     updateDestination_id,
 
     -- * Destructuring the Response
@@ -57,9 +57,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateDestination' smart constructor.
 data UpdateDestination = UpdateDestination'
-  { name :: Prelude.Maybe Prelude.Text,
+  { additionalFixedProperties :: Prelude.Maybe Prelude.Text,
+    name :: Prelude.Maybe Prelude.Text,
     state :: Prelude.Maybe DestinationState,
-    additionalFixedProperties :: Prelude.Maybe Prelude.Text,
     id :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,11 +72,11 @@ data UpdateDestination = UpdateDestination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'additionalFixedProperties', 'updateDestination_additionalFixedProperties' - Undocumented member.
+--
 -- 'name', 'updateDestination_name' - Undocumented member.
 --
 -- 'state', 'updateDestination_state' - Undocumented member.
---
--- 'additionalFixedProperties', 'updateDestination_additionalFixedProperties' - Undocumented member.
 --
 -- 'id', 'updateDestination_id' - Undocumented member.
 newUpdateDestination ::
@@ -85,11 +85,16 @@ newUpdateDestination ::
   UpdateDestination
 newUpdateDestination pId_ =
   UpdateDestination'
-    { name = Prelude.Nothing,
+    { additionalFixedProperties =
+        Prelude.Nothing,
+      name = Prelude.Nothing,
       state = Prelude.Nothing,
-      additionalFixedProperties = Prelude.Nothing,
       id = pId_
     }
+
+-- | Undocumented member.
+updateDestination_additionalFixedProperties :: Lens.Lens' UpdateDestination (Prelude.Maybe Prelude.Text)
+updateDestination_additionalFixedProperties = Lens.lens (\UpdateDestination' {additionalFixedProperties} -> additionalFixedProperties) (\s@UpdateDestination' {} a -> s {additionalFixedProperties = a} :: UpdateDestination)
 
 -- | Undocumented member.
 updateDestination_name :: Lens.Lens' UpdateDestination (Prelude.Maybe Prelude.Text)
@@ -98,10 +103,6 @@ updateDestination_name = Lens.lens (\UpdateDestination' {name} -> name) (\s@Upda
 -- | Undocumented member.
 updateDestination_state :: Lens.Lens' UpdateDestination (Prelude.Maybe DestinationState)
 updateDestination_state = Lens.lens (\UpdateDestination' {state} -> state) (\s@UpdateDestination' {} a -> s {state = a} :: UpdateDestination)
-
--- | Undocumented member.
-updateDestination_additionalFixedProperties :: Lens.Lens' UpdateDestination (Prelude.Maybe Prelude.Text)
-updateDestination_additionalFixedProperties = Lens.lens (\UpdateDestination' {additionalFixedProperties} -> additionalFixedProperties) (\s@UpdateDestination' {} a -> s {additionalFixedProperties = a} :: UpdateDestination)
 
 -- | Undocumented member.
 updateDestination_id :: Lens.Lens' UpdateDestination Prelude.Text
@@ -128,16 +129,17 @@ instance Core.AWSRequest UpdateDestination where
 
 instance Prelude.Hashable UpdateDestination where
   hashWithSalt _salt UpdateDestination' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` state
+    _salt
       `Prelude.hashWithSalt` additionalFixedProperties
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData UpdateDestination where
   rnf UpdateDestination' {..} =
-    Prelude.rnf name
+    Prelude.rnf additionalFixedProperties
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf additionalFixedProperties
       `Prelude.seq` Prelude.rnf id
 
 instance Data.ToHeaders UpdateDestination where
@@ -155,10 +157,10 @@ instance Data.ToJSON UpdateDestination where
   toJSON UpdateDestination' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("name" Data..=) Prelude.<$> name,
-            ("state" Data..=) Prelude.<$> state,
-            ("additionalFixedProperties" Data..=)
+          [ ("additionalFixedProperties" Data..=)
               Prelude.<$> additionalFixedProperties,
+            ("name" Data..=) Prelude.<$> name,
+            ("state" Data..=) Prelude.<$> state,
             Prelude.Just ("id" Data..= id)
           ]
       )

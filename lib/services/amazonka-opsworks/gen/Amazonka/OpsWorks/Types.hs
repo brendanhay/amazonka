@@ -75,37 +75,37 @@ module Amazonka.OpsWorks.Types
     -- * App
     App (..),
     newApp,
-    app_domains,
-    app_stackId,
-    app_appSource,
-    app_name,
-    app_type,
-    app_environment,
-    app_dataSources,
-    app_sslConfiguration,
-    app_description,
-    app_attributes,
-    app_enableSsl,
-    app_shortname,
-    app_createdAt,
     app_appId,
+    app_appSource,
+    app_attributes,
+    app_createdAt,
+    app_dataSources,
+    app_description,
+    app_domains,
+    app_enableSsl,
+    app_environment,
+    app_name,
+    app_shortname,
+    app_sslConfiguration,
+    app_stackId,
+    app_type,
 
     -- * AutoScalingThresholds
     AutoScalingThresholds (..),
     newAutoScalingThresholds,
-    autoScalingThresholds_ignoreMetricsTime,
     autoScalingThresholds_alarms,
-    autoScalingThresholds_memoryThreshold,
+    autoScalingThresholds_cpuThreshold,
+    autoScalingThresholds_ignoreMetricsTime,
     autoScalingThresholds_instanceCount,
     autoScalingThresholds_loadThreshold,
+    autoScalingThresholds_memoryThreshold,
     autoScalingThresholds_thresholdsWaitTime,
-    autoScalingThresholds_cpuThreshold,
 
     -- * BlockDeviceMapping
     BlockDeviceMapping (..),
     newBlockDeviceMapping,
-    blockDeviceMapping_ebs,
     blockDeviceMapping_deviceName,
+    blockDeviceMapping_ebs,
     blockDeviceMapping_noDevice,
     blockDeviceMapping_virtualName,
 
@@ -118,60 +118,60 @@ module Amazonka.OpsWorks.Types
     -- * CloudWatchLogsConfiguration
     CloudWatchLogsConfiguration (..),
     newCloudWatchLogsConfiguration,
-    cloudWatchLogsConfiguration_logStreams,
     cloudWatchLogsConfiguration_enabled,
+    cloudWatchLogsConfiguration_logStreams,
 
     -- * CloudWatchLogsLogStream
     CloudWatchLogsLogStream (..),
     newCloudWatchLogsLogStream,
     cloudWatchLogsLogStream_batchCount,
-    cloudWatchLogsLogStream_multiLineStartPattern,
-    cloudWatchLogsLogStream_fileFingerprintLines,
-    cloudWatchLogsLogStream_encoding,
-    cloudWatchLogsLogStream_timeZone,
-    cloudWatchLogsLogStream_datetimeFormat,
-    cloudWatchLogsLogStream_initialPosition,
-    cloudWatchLogsLogStream_file,
-    cloudWatchLogsLogStream_bufferDuration,
     cloudWatchLogsLogStream_batchSize,
+    cloudWatchLogsLogStream_bufferDuration,
+    cloudWatchLogsLogStream_datetimeFormat,
+    cloudWatchLogsLogStream_encoding,
+    cloudWatchLogsLogStream_file,
+    cloudWatchLogsLogStream_fileFingerprintLines,
+    cloudWatchLogsLogStream_initialPosition,
     cloudWatchLogsLogStream_logGroupName,
+    cloudWatchLogsLogStream_multiLineStartPattern,
+    cloudWatchLogsLogStream_timeZone,
 
     -- * Command
     Command (..),
     newCommand,
-    command_type,
-    command_deploymentId,
-    command_logUrl,
-    command_status,
-    command_commandId,
-    command_instanceId,
     command_acknowledgedAt,
-    command_exitCode,
+    command_commandId,
     command_completedAt,
     command_createdAt,
+    command_deploymentId,
+    command_exitCode,
+    command_instanceId,
+    command_logUrl,
+    command_status,
+    command_type,
 
     -- * DataSource
     DataSource (..),
     newDataSource,
-    dataSource_type,
-    dataSource_databaseName,
     dataSource_arn,
+    dataSource_databaseName,
+    dataSource_type,
 
     -- * Deployment
     Deployment (..),
     newDeployment,
-    deployment_stackId,
-    deployment_iamUserArn,
-    deployment_customJson,
-    deployment_deploymentId,
+    deployment_appId,
     deployment_command,
-    deployment_status,
-    deployment_duration,
     deployment_comment,
-    deployment_instanceIds,
     deployment_completedAt,
     deployment_createdAt,
-    deployment_appId,
+    deployment_customJson,
+    deployment_deploymentId,
+    deployment_duration,
+    deployment_iamUserArn,
+    deployment_instanceIds,
+    deployment_stackId,
+    deployment_status,
 
     -- * DeploymentCommand
     DeploymentCommand (..),
@@ -183,40 +183,40 @@ module Amazonka.OpsWorks.Types
     EbsBlockDevice (..),
     newEbsBlockDevice,
     ebsBlockDevice_deleteOnTermination,
-    ebsBlockDevice_snapshotId,
-    ebsBlockDevice_volumeType,
-    ebsBlockDevice_volumeSize,
     ebsBlockDevice_iops,
+    ebsBlockDevice_snapshotId,
+    ebsBlockDevice_volumeSize,
+    ebsBlockDevice_volumeType,
 
     -- * EcsCluster
     EcsCluster (..),
     newEcsCluster,
-    ecsCluster_ecsClusterName,
-    ecsCluster_stackId,
     ecsCluster_ecsClusterArn,
+    ecsCluster_ecsClusterName,
     ecsCluster_registeredAt,
+    ecsCluster_stackId,
 
     -- * ElasticIp
     ElasticIp (..),
     newElasticIp,
-    elasticIp_name,
     elasticIp_domain,
-    elasticIp_ip,
-    elasticIp_region,
     elasticIp_instanceId,
+    elasticIp_ip,
+    elasticIp_name,
+    elasticIp_region,
 
     -- * ElasticLoadBalancer
     ElasticLoadBalancer (..),
     newElasticLoadBalancer,
-    elasticLoadBalancer_elasticLoadBalancerName,
-    elasticLoadBalancer_stackId,
     elasticLoadBalancer_availabilityZones,
-    elasticLoadBalancer_region,
-    elasticLoadBalancer_ec2InstanceIds,
-    elasticLoadBalancer_vpcId,
-    elasticLoadBalancer_layerId,
     elasticLoadBalancer_dnsName,
+    elasticLoadBalancer_ec2InstanceIds,
+    elasticLoadBalancer_elasticLoadBalancerName,
+    elasticLoadBalancer_layerId,
+    elasticLoadBalancer_region,
+    elasticLoadBalancer_stackId,
     elasticLoadBalancer_subnetIds,
+    elasticLoadBalancer_vpcId,
 
     -- * EnvironmentVariable
     EnvironmentVariable (..),
@@ -228,47 +228,47 @@ module Amazonka.OpsWorks.Types
     -- * Instance
     Instance (..),
     newInstance,
-    instance_ebsOptimized,
-    instance_os,
-    instance_privateDns,
-    instance_stackId,
+    instance_agentVersion,
     instance_amiId,
-    instance_ec2InstanceId,
-    instance_elasticIp,
-    instance_ecsClusterArn,
-    instance_blockDeviceMappings,
-    instance_securityGroupIds,
-    instance_autoScalingType,
-    instance_registeredBy,
-    instance_rootDeviceType,
-    instance_virtualizationType,
-    instance_instanceProfileArn,
-    instance_subnetId,
-    instance_ecsContainerInstanceArn,
+    instance_architecture,
     instance_arn,
-    instance_rootDeviceVolumeId,
-    instance_status,
-    instance_platform,
+    instance_autoScalingType,
     instance_availabilityZone,
+    instance_blockDeviceMappings,
+    instance_createdAt,
+    instance_ebsOptimized,
+    instance_ec2InstanceId,
+    instance_ecsClusterArn,
+    instance_ecsContainerInstanceArn,
+    instance_elasticIp,
     instance_hostname,
-    instance_publicIp,
     instance_infrastructureClass,
-    instance_reportedAgentVersion,
-    instance_instanceType,
+    instance_installUpdatesOnBoot,
     instance_instanceId,
-    instance_sshHostDsaKeyFingerprint,
-    instance_sshKeyName,
+    instance_instanceProfileArn,
+    instance_instanceType,
     instance_lastServiceErrorId,
     instance_layerIds,
+    instance_os,
+    instance_platform,
+    instance_privateDns,
     instance_privateIp,
-    instance_reportedOs,
-    instance_architecture,
-    instance_createdAt,
     instance_publicDns,
-    instance_tenancy,
-    instance_agentVersion,
+    instance_publicIp,
+    instance_registeredBy,
+    instance_reportedAgentVersion,
+    instance_reportedOs,
+    instance_rootDeviceType,
+    instance_rootDeviceVolumeId,
+    instance_securityGroupIds,
+    instance_sshHostDsaKeyFingerprint,
     instance_sshHostRsaKeyFingerprint,
-    instance_installUpdatesOnBoot,
+    instance_sshKeyName,
+    instance_stackId,
+    instance_status,
+    instance_subnetId,
+    instance_tenancy,
+    instance_virtualizationType,
 
     -- * InstanceIdentity
     InstanceIdentity (..),
@@ -279,53 +279,53 @@ module Amazonka.OpsWorks.Types
     -- * InstancesCount
     InstancesCount (..),
     newInstancesCount,
+    instancesCount_assigning,
     instancesCount_booting,
-    instancesCount_deregistering,
-    instancesCount_runningSetup,
-    instancesCount_stopFailed,
-    instancesCount_terminated,
-    instancesCount_requested,
     instancesCount_connectionLost,
+    instancesCount_deregistering,
     instancesCount_online,
+    instancesCount_pending,
+    instancesCount_rebooting,
+    instancesCount_registered,
+    instancesCount_registering,
+    instancesCount_requested,
+    instancesCount_runningSetup,
+    instancesCount_setupFailed,
+    instancesCount_shuttingDown,
     instancesCount_startFailed,
+    instancesCount_stopFailed,
+    instancesCount_stopped,
+    instancesCount_stopping,
+    instancesCount_terminated,
     instancesCount_terminating,
     instancesCount_unassigning,
-    instancesCount_setupFailed,
-    instancesCount_rebooting,
-    instancesCount_assigning,
-    instancesCount_stopped,
-    instancesCount_registered,
-    instancesCount_pending,
-    instancesCount_stopping,
-    instancesCount_shuttingDown,
-    instancesCount_registering,
 
     -- * Layer
     Layer (..),
     newLayer,
-    layer_stackId,
-    layer_name,
-    layer_customRecipes,
-    layer_type,
-    layer_autoAssignPublicIps,
-    layer_customJson,
-    layer_packages,
-    layer_volumeConfigurations,
     layer_arn,
+    layer_attributes,
+    layer_autoAssignElasticIps,
+    layer_autoAssignPublicIps,
+    layer_cloudWatchLogsConfiguration,
+    layer_createdAt,
+    layer_customInstanceProfileArn,
+    layer_customJson,
+    layer_customRecipes,
+    layer_customSecurityGroupIds,
+    layer_defaultRecipes,
     layer_defaultSecurityGroupNames,
     layer_enableAutoHealing,
-    layer_customSecurityGroupIds,
-    layer_autoAssignElasticIps,
-    layer_defaultRecipes,
-    layer_cloudWatchLogsConfiguration,
-    layer_lifecycleEventConfiguration,
-    layer_customInstanceProfileArn,
-    layer_attributes,
-    layer_layerId,
-    layer_shortname,
-    layer_createdAt,
-    layer_useEbsOptimizedInstances,
     layer_installUpdatesOnBoot,
+    layer_layerId,
+    layer_lifecycleEventConfiguration,
+    layer_name,
+    layer_packages,
+    layer_shortname,
+    layer_stackId,
+    layer_type,
+    layer_useEbsOptimizedInstances,
+    layer_volumeConfigurations,
 
     -- * LifecycleEventConfiguration
     LifecycleEventConfiguration (..),
@@ -335,21 +335,21 @@ module Amazonka.OpsWorks.Types
     -- * LoadBasedAutoScalingConfiguration
     LoadBasedAutoScalingConfiguration (..),
     newLoadBasedAutoScalingConfiguration,
-    loadBasedAutoScalingConfiguration_upScaling,
-    loadBasedAutoScalingConfiguration_enable,
     loadBasedAutoScalingConfiguration_downScaling,
+    loadBasedAutoScalingConfiguration_enable,
     loadBasedAutoScalingConfiguration_layerId,
+    loadBasedAutoScalingConfiguration_upScaling,
 
     -- * OperatingSystem
     OperatingSystem (..),
     newOperatingSystem,
     operatingSystem_configurationManagers,
-    operatingSystem_name,
-    operatingSystem_type,
-    operatingSystem_supported,
-    operatingSystem_reportedVersion,
     operatingSystem_id,
+    operatingSystem_name,
     operatingSystem_reportedName,
+    operatingSystem_reportedVersion,
+    operatingSystem_supported,
+    operatingSystem_type,
 
     -- * OperatingSystemConfigurationManager
     OperatingSystemConfigurationManager (..),
@@ -360,75 +360,75 @@ module Amazonka.OpsWorks.Types
     -- * Permission
     Permission (..),
     newPermission,
-    permission_stackId,
-    permission_iamUserArn,
-    permission_allowSudo,
-    permission_level,
     permission_allowSsh,
+    permission_allowSudo,
+    permission_iamUserArn,
+    permission_level,
+    permission_stackId,
 
     -- * RaidArray
     RaidArray (..),
     newRaidArray,
-    raidArray_stackId,
-    raidArray_name,
-    raidArray_device,
-    raidArray_raidArrayId,
-    raidArray_mountPoint,
-    raidArray_size,
-    raidArray_volumeType,
     raidArray_availabilityZone,
-    raidArray_instanceId,
-    raidArray_numberOfDisks,
-    raidArray_raidLevel,
-    raidArray_iops,
     raidArray_createdAt,
+    raidArray_device,
+    raidArray_instanceId,
+    raidArray_iops,
+    raidArray_mountPoint,
+    raidArray_name,
+    raidArray_numberOfDisks,
+    raidArray_raidArrayId,
+    raidArray_raidLevel,
+    raidArray_size,
+    raidArray_stackId,
+    raidArray_volumeType,
 
     -- * RdsDbInstance
     RdsDbInstance (..),
     newRdsDbInstance,
-    rdsDbInstance_stackId,
-    rdsDbInstance_missingOnRds,
+    rdsDbInstance_address,
     rdsDbInstance_dbInstanceIdentifier,
     rdsDbInstance_dbPassword,
-    rdsDbInstance_region,
-    rdsDbInstance_address,
-    rdsDbInstance_rdsDbInstanceArn,
-    rdsDbInstance_engine,
     rdsDbInstance_dbUser,
+    rdsDbInstance_engine,
+    rdsDbInstance_missingOnRds,
+    rdsDbInstance_rdsDbInstanceArn,
+    rdsDbInstance_region,
+    rdsDbInstance_stackId,
 
     -- * Recipes
     Recipes (..),
     newRecipes,
-    recipes_deploy,
     recipes_configure,
-    recipes_undeploy,
-    recipes_shutdown,
+    recipes_deploy,
     recipes_setup,
+    recipes_shutdown,
+    recipes_undeploy,
 
     -- * ReportedOs
     ReportedOs (..),
     newReportedOs,
-    reportedOs_name,
     reportedOs_family,
+    reportedOs_name,
     reportedOs_version,
 
     -- * SelfUserProfile
     SelfUserProfile (..),
     newSelfUserProfile,
-    selfUserProfile_name,
     selfUserProfile_iamUserArn,
+    selfUserProfile_name,
     selfUserProfile_sshPublicKey,
     selfUserProfile_sshUsername,
 
     -- * ServiceError
     ServiceError (..),
     newServiceError,
-    serviceError_stackId,
-    serviceError_message,
-    serviceError_type,
-    serviceError_serviceErrorId,
-    serviceError_instanceId,
     serviceError_createdAt,
+    serviceError_instanceId,
+    serviceError_message,
+    serviceError_serviceErrorId,
+    serviceError_stackId,
+    serviceError_type,
 
     -- * ShutdownEventConfiguration
     ShutdownEventConfiguration (..),
@@ -439,45 +439,45 @@ module Amazonka.OpsWorks.Types
     -- * Source
     Source (..),
     newSource,
-    source_type,
     source_password,
-    source_username,
     source_revision,
-    source_url,
     source_sshKey,
+    source_type,
+    source_url,
+    source_username,
 
     -- * SslConfiguration
     SslConfiguration (..),
     newSslConfiguration,
+    sslConfiguration_certificate,
     sslConfiguration_chain,
     sslConfiguration_privateKey,
-    sslConfiguration_certificate,
 
     -- * Stack
     Stack (..),
     newStack,
-    stack_hostnameTheme,
-    stack_stackId,
-    stack_name,
-    stack_defaultSshKeyName,
+    stack_agentVersion,
+    stack_arn,
+    stack_attributes,
+    stack_chefConfiguration,
+    stack_configurationManager,
+    stack_createdAt,
+    stack_customCookbooksSource,
     stack_customJson,
     stack_defaultAvailabilityZone,
-    stack_serviceRoleArn,
-    stack_defaultRootDeviceType,
     stack_defaultInstanceProfileArn,
-    stack_arn,
-    stack_configurationManager,
-    stack_defaultSubnetId,
-    stack_region,
-    stack_useCustomCookbooks,
     stack_defaultOs,
+    stack_defaultRootDeviceType,
+    stack_defaultSshKeyName,
+    stack_defaultSubnetId,
+    stack_hostnameTheme,
+    stack_name,
+    stack_region,
+    stack_serviceRoleArn,
+    stack_stackId,
+    stack_useCustomCookbooks,
     stack_useOpsworksSecurityGroups,
-    stack_attributes,
     stack_vpcId,
-    stack_createdAt,
-    stack_chefConfiguration,
-    stack_customCookbooksSource,
-    stack_agentVersion,
 
     -- * StackConfigurationManager
     StackConfigurationManager (..),
@@ -488,61 +488,61 @@ module Amazonka.OpsWorks.Types
     -- * StackSummary
     StackSummary (..),
     newStackSummary,
-    stackSummary_stackId,
-    stackSummary_name,
+    stackSummary_appsCount,
     stackSummary_arn,
     stackSummary_instancesCount,
-    stackSummary_appsCount,
     stackSummary_layersCount,
+    stackSummary_name,
+    stackSummary_stackId,
 
     -- * TemporaryCredential
     TemporaryCredential (..),
     newTemporaryCredential,
+    temporaryCredential_instanceId,
     temporaryCredential_password,
     temporaryCredential_username,
     temporaryCredential_validForInMinutes,
-    temporaryCredential_instanceId,
 
     -- * TimeBasedAutoScalingConfiguration
     TimeBasedAutoScalingConfiguration (..),
     newTimeBasedAutoScalingConfiguration,
-    timeBasedAutoScalingConfiguration_instanceId,
     timeBasedAutoScalingConfiguration_autoScalingSchedule,
+    timeBasedAutoScalingConfiguration_instanceId,
 
     -- * UserProfile
     UserProfile (..),
     newUserProfile,
-    userProfile_name,
+    userProfile_allowSelfManagement,
     userProfile_iamUserArn,
+    userProfile_name,
     userProfile_sshPublicKey,
     userProfile_sshUsername,
-    userProfile_allowSelfManagement,
 
     -- * Volume
     Volume (..),
     newVolume,
-    volume_name,
-    volume_device,
-    volume_raidArrayId,
-    volume_mountPoint,
-    volume_size,
-    volume_volumeType,
-    volume_status,
     volume_availabilityZone,
+    volume_device,
     volume_ec2VolumeId,
-    volume_region,
-    volume_instanceId,
     volume_encrypted,
-    volume_volumeId,
+    volume_instanceId,
     volume_iops,
+    volume_mountPoint,
+    volume_name,
+    volume_raidArrayId,
+    volume_region,
+    volume_size,
+    volume_status,
+    volume_volumeId,
+    volume_volumeType,
 
     -- * VolumeConfiguration
     VolumeConfiguration (..),
     newVolumeConfiguration,
-    volumeConfiguration_volumeType,
     volumeConfiguration_encrypted,
-    volumeConfiguration_raidLevel,
     volumeConfiguration_iops,
+    volumeConfiguration_raidLevel,
+    volumeConfiguration_volumeType,
     volumeConfiguration_mountPoint,
     volumeConfiguration_numberOfDisks,
     volumeConfiguration_size,
@@ -550,13 +550,13 @@ module Amazonka.OpsWorks.Types
     -- * WeeklyAutoScalingSchedule
     WeeklyAutoScalingSchedule (..),
     newWeeklyAutoScalingSchedule,
-    weeklyAutoScalingSchedule_tuesday,
     weeklyAutoScalingSchedule_friday,
-    weeklyAutoScalingSchedule_saturday,
-    weeklyAutoScalingSchedule_thursday,
-    weeklyAutoScalingSchedule_sunday,
-    weeklyAutoScalingSchedule_wednesday,
     weeklyAutoScalingSchedule_monday,
+    weeklyAutoScalingSchedule_saturday,
+    weeklyAutoScalingSchedule_sunday,
+    weeklyAutoScalingSchedule_thursday,
+    weeklyAutoScalingSchedule_tuesday,
+    weeklyAutoScalingSchedule_wednesday,
   )
 where
 
@@ -648,28 +648,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -677,13 +671,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -691,6 +689,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Indicates that a resource was not found.

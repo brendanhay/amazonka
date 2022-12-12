@@ -105,7 +105,9 @@ data DistributionSummary = DistributionSummary'
     httpVersion :: HttpVersion,
     -- | Whether CloudFront responds to IPv6 DNS requests with an IPv6 address
     -- for your distribution.
-    isIPV6Enabled :: Prelude.Bool
+    isIPV6Enabled :: Prelude.Bool,
+    -- | Whether the primary distribution has a staging distribution enabled.
+    staging :: Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -183,6 +185,8 @@ data DistributionSummary = DistributionSummary'
 --
 -- 'isIPV6Enabled', 'distributionSummary_isIPV6Enabled' - Whether CloudFront responds to IPv6 DNS requests with an IPv6 address
 -- for your distribution.
+--
+-- 'staging', 'distributionSummary_staging' - Whether the primary distribution has a staging distribution enabled.
 newDistributionSummary ::
   -- | 'id'
   Prelude.Text ->
@@ -220,6 +224,8 @@ newDistributionSummary ::
   HttpVersion ->
   -- | 'isIPV6Enabled'
   Prelude.Bool ->
+  -- | 'staging'
+  Prelude.Bool ->
   DistributionSummary
 newDistributionSummary
   pId_
@@ -239,7 +245,8 @@ newDistributionSummary
   pRestrictions_
   pWebACLId_
   pHttpVersion_
-  pIsIPV6Enabled_ =
+  pIsIPV6Enabled_
+  pStaging_ =
     DistributionSummary'
       { aliasICPRecordals =
           Prelude.Nothing,
@@ -262,7 +269,8 @@ newDistributionSummary
         restrictions = pRestrictions_,
         webACLId = pWebACLId_,
         httpVersion = pHttpVersion_,
-        isIPV6Enabled = pIsIPV6Enabled_
+        isIPV6Enabled = pIsIPV6Enabled_,
+        staging = pStaging_
       }
 
 -- | Amazon Web Services services in China customers must file for an
@@ -372,6 +380,10 @@ distributionSummary_httpVersion = Lens.lens (\DistributionSummary' {httpVersion}
 distributionSummary_isIPV6Enabled :: Lens.Lens' DistributionSummary Prelude.Bool
 distributionSummary_isIPV6Enabled = Lens.lens (\DistributionSummary' {isIPV6Enabled} -> isIPV6Enabled) (\s@DistributionSummary' {} a -> s {isIPV6Enabled = a} :: DistributionSummary)
 
+-- | Whether the primary distribution has a staging distribution enabled.
+distributionSummary_staging :: Lens.Lens' DistributionSummary Prelude.Bool
+distributionSummary_staging = Lens.lens (\DistributionSummary' {staging} -> staging) (\s@DistributionSummary' {} a -> s {staging = a} :: DistributionSummary)
+
 instance Data.FromXML DistributionSummary where
   parseXML x =
     DistributionSummary'
@@ -398,6 +410,7 @@ instance Data.FromXML DistributionSummary where
       Prelude.<*> (x Data..@ "WebACLId")
       Prelude.<*> (x Data..@ "HttpVersion")
       Prelude.<*> (x Data..@ "IsIPV6Enabled")
+      Prelude.<*> (x Data..@ "Staging")
 
 instance Prelude.Hashable DistributionSummary where
   hashWithSalt _salt DistributionSummary' {..} =
@@ -421,6 +434,7 @@ instance Prelude.Hashable DistributionSummary where
       `Prelude.hashWithSalt` webACLId
       `Prelude.hashWithSalt` httpVersion
       `Prelude.hashWithSalt` isIPV6Enabled
+      `Prelude.hashWithSalt` staging
 
 instance Prelude.NFData DistributionSummary where
   rnf DistributionSummary' {..} =
@@ -444,3 +458,4 @@ instance Prelude.NFData DistributionSummary where
       `Prelude.seq` Prelude.rnf webACLId
       `Prelude.seq` Prelude.rnf httpVersion
       `Prelude.seq` Prelude.rnf isIPV6Enabled
+      `Prelude.seq` Prelude.rnf staging

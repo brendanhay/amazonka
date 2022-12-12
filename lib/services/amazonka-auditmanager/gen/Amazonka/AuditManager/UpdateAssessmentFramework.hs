@@ -27,8 +27,8 @@ module Amazonka.AuditManager.UpdateAssessmentFramework
     newUpdateAssessmentFramework,
 
     -- * Request Lenses
-    updateAssessmentFramework_description,
     updateAssessmentFramework_complianceType,
+    updateAssessmentFramework_description,
     updateAssessmentFramework_frameworkId,
     updateAssessmentFramework_name,
     updateAssessmentFramework_controlSets,
@@ -53,11 +53,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateAssessmentFramework' smart constructor.
 data UpdateAssessmentFramework = UpdateAssessmentFramework'
-  { -- | The description of the updated framework.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The compliance type that the new custom framework supports, such as CIS
+  { -- | The compliance type that the new custom framework supports, such as CIS
     -- or HIPAA.
     complianceType :: Prelude.Maybe Prelude.Text,
+    -- | The description of the updated framework.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the framework.
     frameworkId :: Prelude.Text,
     -- | The name of the framework to be updated.
@@ -75,10 +75,10 @@ data UpdateAssessmentFramework = UpdateAssessmentFramework'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'updateAssessmentFramework_description' - The description of the updated framework.
---
 -- 'complianceType', 'updateAssessmentFramework_complianceType' - The compliance type that the new custom framework supports, such as CIS
 -- or HIPAA.
+--
+-- 'description', 'updateAssessmentFramework_description' - The description of the updated framework.
 --
 -- 'frameworkId', 'updateAssessmentFramework_frameworkId' - The unique identifier for the framework.
 --
@@ -98,22 +98,22 @@ newUpdateAssessmentFramework
   pName_
   pControlSets_ =
     UpdateAssessmentFramework'
-      { description =
+      { complianceType =
           Prelude.Nothing,
-        complianceType = Prelude.Nothing,
+        description = Prelude.Nothing,
         frameworkId = pFrameworkId_,
         name = pName_,
         controlSets = Lens.coerced Lens.# pControlSets_
       }
 
--- | The description of the updated framework.
-updateAssessmentFramework_description :: Lens.Lens' UpdateAssessmentFramework (Prelude.Maybe Prelude.Text)
-updateAssessmentFramework_description = Lens.lens (\UpdateAssessmentFramework' {description} -> description) (\s@UpdateAssessmentFramework' {} a -> s {description = a} :: UpdateAssessmentFramework)
-
 -- | The compliance type that the new custom framework supports, such as CIS
 -- or HIPAA.
 updateAssessmentFramework_complianceType :: Lens.Lens' UpdateAssessmentFramework (Prelude.Maybe Prelude.Text)
 updateAssessmentFramework_complianceType = Lens.lens (\UpdateAssessmentFramework' {complianceType} -> complianceType) (\s@UpdateAssessmentFramework' {} a -> s {complianceType = a} :: UpdateAssessmentFramework)
+
+-- | The description of the updated framework.
+updateAssessmentFramework_description :: Lens.Lens' UpdateAssessmentFramework (Prelude.Maybe Prelude.Text)
+updateAssessmentFramework_description = Lens.lens (\UpdateAssessmentFramework' {description} -> description) (\s@UpdateAssessmentFramework' {} a -> s {description = a} :: UpdateAssessmentFramework)
 
 -- | The unique identifier for the framework.
 updateAssessmentFramework_frameworkId :: Lens.Lens' UpdateAssessmentFramework Prelude.Text
@@ -143,16 +143,16 @@ instance Core.AWSRequest UpdateAssessmentFramework where
 
 instance Prelude.Hashable UpdateAssessmentFramework where
   hashWithSalt _salt UpdateAssessmentFramework' {..} =
-    _salt `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` complianceType
+    _salt `Prelude.hashWithSalt` complianceType
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` frameworkId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` controlSets
 
 instance Prelude.NFData UpdateAssessmentFramework where
   rnf UpdateAssessmentFramework' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf complianceType
+    Prelude.rnf complianceType
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf frameworkId
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf controlSets
@@ -172,9 +172,9 @@ instance Data.ToJSON UpdateAssessmentFramework where
   toJSON UpdateAssessmentFramework' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("description" Data..=) Prelude.<$> description,
-            ("complianceType" Data..=)
+          [ ("complianceType" Data..=)
               Prelude.<$> complianceType,
+            ("description" Data..=) Prelude.<$> description,
             Prelude.Just ("name" Data..= name),
             Prelude.Just ("controlSets" Data..= controlSets)
           ]

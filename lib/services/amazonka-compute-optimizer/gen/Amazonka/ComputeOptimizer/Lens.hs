@@ -21,21 +21,21 @@ module Amazonka.ComputeOptimizer.Lens
     deleteRecommendationPreferencesResponse_httpStatus,
 
     -- ** DescribeRecommendationExportJobs
-    describeRecommendationExportJobs_nextToken,
     describeRecommendationExportJobs_filters,
-    describeRecommendationExportJobs_maxResults,
     describeRecommendationExportJobs_jobIds,
+    describeRecommendationExportJobs_maxResults,
+    describeRecommendationExportJobs_nextToken,
     describeRecommendationExportJobsResponse_nextToken,
     describeRecommendationExportJobsResponse_recommendationExportJobs,
     describeRecommendationExportJobsResponse_httpStatus,
 
     -- ** ExportAutoScalingGroupRecommendations
     exportAutoScalingGroupRecommendations_accountIds,
-    exportAutoScalingGroupRecommendations_recommendationPreferences,
+    exportAutoScalingGroupRecommendations_fieldsToExport,
+    exportAutoScalingGroupRecommendations_fileFormat,
     exportAutoScalingGroupRecommendations_filters,
     exportAutoScalingGroupRecommendations_includeMemberAccounts,
-    exportAutoScalingGroupRecommendations_fileFormat,
-    exportAutoScalingGroupRecommendations_fieldsToExport,
+    exportAutoScalingGroupRecommendations_recommendationPreferences,
     exportAutoScalingGroupRecommendations_s3DestinationConfig,
     exportAutoScalingGroupRecommendationsResponse_jobId,
     exportAutoScalingGroupRecommendationsResponse_s3Destination,
@@ -43,10 +43,10 @@ module Amazonka.ComputeOptimizer.Lens
 
     -- ** ExportEBSVolumeRecommendations
     exportEBSVolumeRecommendations_accountIds,
+    exportEBSVolumeRecommendations_fieldsToExport,
+    exportEBSVolumeRecommendations_fileFormat,
     exportEBSVolumeRecommendations_filters,
     exportEBSVolumeRecommendations_includeMemberAccounts,
-    exportEBSVolumeRecommendations_fileFormat,
-    exportEBSVolumeRecommendations_fieldsToExport,
     exportEBSVolumeRecommendations_s3DestinationConfig,
     exportEBSVolumeRecommendationsResponse_jobId,
     exportEBSVolumeRecommendationsResponse_s3Destination,
@@ -54,11 +54,11 @@ module Amazonka.ComputeOptimizer.Lens
 
     -- ** ExportEC2InstanceRecommendations
     exportEC2InstanceRecommendations_accountIds,
-    exportEC2InstanceRecommendations_recommendationPreferences,
+    exportEC2InstanceRecommendations_fieldsToExport,
+    exportEC2InstanceRecommendations_fileFormat,
     exportEC2InstanceRecommendations_filters,
     exportEC2InstanceRecommendations_includeMemberAccounts,
-    exportEC2InstanceRecommendations_fileFormat,
-    exportEC2InstanceRecommendations_fieldsToExport,
+    exportEC2InstanceRecommendations_recommendationPreferences,
     exportEC2InstanceRecommendations_s3DestinationConfig,
     exportEC2InstanceRecommendationsResponse_jobId,
     exportEC2InstanceRecommendationsResponse_s3Destination,
@@ -66,10 +66,10 @@ module Amazonka.ComputeOptimizer.Lens
 
     -- ** ExportLambdaFunctionRecommendations
     exportLambdaFunctionRecommendations_accountIds,
+    exportLambdaFunctionRecommendations_fieldsToExport,
+    exportLambdaFunctionRecommendations_fileFormat,
     exportLambdaFunctionRecommendations_filters,
     exportLambdaFunctionRecommendations_includeMemberAccounts,
-    exportLambdaFunctionRecommendations_fileFormat,
-    exportLambdaFunctionRecommendations_fieldsToExport,
     exportLambdaFunctionRecommendations_s3DestinationConfig,
     exportLambdaFunctionRecommendationsResponse_jobId,
     exportLambdaFunctionRecommendationsResponse_s3Destination,
@@ -77,37 +77,37 @@ module Amazonka.ComputeOptimizer.Lens
 
     -- ** GetAutoScalingGroupRecommendations
     getAutoScalingGroupRecommendations_accountIds,
-    getAutoScalingGroupRecommendations_nextToken,
-    getAutoScalingGroupRecommendations_recommendationPreferences,
+    getAutoScalingGroupRecommendations_autoScalingGroupArns,
     getAutoScalingGroupRecommendations_filters,
     getAutoScalingGroupRecommendations_maxResults,
-    getAutoScalingGroupRecommendations_autoScalingGroupArns,
-    getAutoScalingGroupRecommendationsResponse_nextToken,
-    getAutoScalingGroupRecommendationsResponse_errors,
+    getAutoScalingGroupRecommendations_nextToken,
+    getAutoScalingGroupRecommendations_recommendationPreferences,
     getAutoScalingGroupRecommendationsResponse_autoScalingGroupRecommendations,
+    getAutoScalingGroupRecommendationsResponse_errors,
+    getAutoScalingGroupRecommendationsResponse_nextToken,
     getAutoScalingGroupRecommendationsResponse_httpStatus,
 
     -- ** GetEBSVolumeRecommendations
     getEBSVolumeRecommendations_accountIds,
-    getEBSVolumeRecommendations_nextToken,
     getEBSVolumeRecommendations_filters,
     getEBSVolumeRecommendations_maxResults,
+    getEBSVolumeRecommendations_nextToken,
     getEBSVolumeRecommendations_volumeArns,
-    getEBSVolumeRecommendationsResponse_nextToken,
     getEBSVolumeRecommendationsResponse_errors,
+    getEBSVolumeRecommendationsResponse_nextToken,
     getEBSVolumeRecommendationsResponse_volumeRecommendations,
     getEBSVolumeRecommendationsResponse_httpStatus,
 
     -- ** GetEC2InstanceRecommendations
     getEC2InstanceRecommendations_accountIds,
+    getEC2InstanceRecommendations_filters,
+    getEC2InstanceRecommendations_instanceArns,
+    getEC2InstanceRecommendations_maxResults,
     getEC2InstanceRecommendations_nextToken,
     getEC2InstanceRecommendations_recommendationPreferences,
-    getEC2InstanceRecommendations_filters,
-    getEC2InstanceRecommendations_maxResults,
-    getEC2InstanceRecommendations_instanceArns,
+    getEC2InstanceRecommendationsResponse_errors,
     getEC2InstanceRecommendationsResponse_instanceRecommendations,
     getEC2InstanceRecommendationsResponse_nextToken,
-    getEC2InstanceRecommendationsResponse_errors,
     getEC2InstanceRecommendationsResponse_httpStatus,
 
     -- ** GetEC2RecommendationProjectedMetrics
@@ -123,37 +123,38 @@ module Amazonka.ComputeOptimizer.Lens
     -- ** GetEffectiveRecommendationPreferences
     getEffectiveRecommendationPreferences_resourceArn,
     getEffectiveRecommendationPreferencesResponse_enhancedInfrastructureMetrics,
+    getEffectiveRecommendationPreferencesResponse_externalMetricsPreference,
     getEffectiveRecommendationPreferencesResponse_httpStatus,
 
     -- ** GetEnrollmentStatus
     getEnrollmentStatusResponse_lastUpdatedTimestamp,
-    getEnrollmentStatusResponse_statusReason,
-    getEnrollmentStatusResponse_status,
-    getEnrollmentStatusResponse_numberOfMemberAccountsOptedIn,
     getEnrollmentStatusResponse_memberAccountsEnrolled,
+    getEnrollmentStatusResponse_numberOfMemberAccountsOptedIn,
+    getEnrollmentStatusResponse_status,
+    getEnrollmentStatusResponse_statusReason,
     getEnrollmentStatusResponse_httpStatus,
 
     -- ** GetEnrollmentStatusesForOrganization
-    getEnrollmentStatusesForOrganization_nextToken,
     getEnrollmentStatusesForOrganization_filters,
     getEnrollmentStatusesForOrganization_maxResults,
-    getEnrollmentStatusesForOrganizationResponse_nextToken,
+    getEnrollmentStatusesForOrganization_nextToken,
     getEnrollmentStatusesForOrganizationResponse_accountEnrollmentStatuses,
+    getEnrollmentStatusesForOrganizationResponse_nextToken,
     getEnrollmentStatusesForOrganizationResponse_httpStatus,
 
     -- ** GetLambdaFunctionRecommendations
     getLambdaFunctionRecommendations_accountIds,
-    getLambdaFunctionRecommendations_nextToken,
     getLambdaFunctionRecommendations_filters,
-    getLambdaFunctionRecommendations_maxResults,
     getLambdaFunctionRecommendations_functionArns,
-    getLambdaFunctionRecommendationsResponse_nextToken,
+    getLambdaFunctionRecommendations_maxResults,
+    getLambdaFunctionRecommendations_nextToken,
     getLambdaFunctionRecommendationsResponse_lambdaFunctionRecommendations,
+    getLambdaFunctionRecommendationsResponse_nextToken,
     getLambdaFunctionRecommendationsResponse_httpStatus,
 
     -- ** GetRecommendationPreferences
-    getRecommendationPreferences_nextToken,
     getRecommendationPreferences_maxResults,
+    getRecommendationPreferences_nextToken,
     getRecommendationPreferences_scope,
     getRecommendationPreferences_resourceType,
     getRecommendationPreferencesResponse_nextToken,
@@ -162,15 +163,16 @@ module Amazonka.ComputeOptimizer.Lens
 
     -- ** GetRecommendationSummaries
     getRecommendationSummaries_accountIds,
-    getRecommendationSummaries_nextToken,
     getRecommendationSummaries_maxResults,
-    getRecommendationSummariesResponse_recommendationSummaries,
+    getRecommendationSummaries_nextToken,
     getRecommendationSummariesResponse_nextToken,
+    getRecommendationSummariesResponse_recommendationSummaries,
     getRecommendationSummariesResponse_httpStatus,
 
     -- ** PutRecommendationPreferences
-    putRecommendationPreferences_inferredWorkloadTypes,
     putRecommendationPreferences_enhancedInfrastructureMetrics,
+    putRecommendationPreferences_externalMetricsPreference,
+    putRecommendationPreferences_inferredWorkloadTypes,
     putRecommendationPreferences_scope,
     putRecommendationPreferences_resourceType,
     putRecommendationPreferencesResponse_httpStatus,
@@ -178,51 +180,51 @@ module Amazonka.ComputeOptimizer.Lens
     -- ** UpdateEnrollmentStatus
     updateEnrollmentStatus_includeMemberAccounts,
     updateEnrollmentStatus_status,
-    updateEnrollmentStatusResponse_statusReason,
     updateEnrollmentStatusResponse_status,
+    updateEnrollmentStatusResponse_statusReason,
     updateEnrollmentStatusResponse_httpStatus,
 
     -- * Types
 
     -- ** AccountEnrollmentStatus
-    accountEnrollmentStatus_lastUpdatedTimestamp,
-    accountEnrollmentStatus_statusReason,
-    accountEnrollmentStatus_status,
     accountEnrollmentStatus_accountId,
+    accountEnrollmentStatus_lastUpdatedTimestamp,
+    accountEnrollmentStatus_status,
+    accountEnrollmentStatus_statusReason,
 
     -- ** AutoScalingGroupConfiguration
-    autoScalingGroupConfiguration_instanceType,
-    autoScalingGroupConfiguration_minSize,
-    autoScalingGroupConfiguration_maxSize,
     autoScalingGroupConfiguration_desiredCapacity,
+    autoScalingGroupConfiguration_instanceType,
+    autoScalingGroupConfiguration_maxSize,
+    autoScalingGroupConfiguration_minSize,
 
     -- ** AutoScalingGroupRecommendation
-    autoScalingGroupRecommendation_currentPerformanceRisk,
-    autoScalingGroupRecommendation_autoScalingGroupArn,
-    autoScalingGroupRecommendation_inferredWorkloadTypes,
-    autoScalingGroupRecommendation_recommendationOptions,
-    autoScalingGroupRecommendation_lastRefreshTimestamp,
-    autoScalingGroupRecommendation_currentConfiguration,
-    autoScalingGroupRecommendation_lookBackPeriodInDays,
-    autoScalingGroupRecommendation_autoScalingGroupName,
     autoScalingGroupRecommendation_accountId,
+    autoScalingGroupRecommendation_autoScalingGroupArn,
+    autoScalingGroupRecommendation_autoScalingGroupName,
+    autoScalingGroupRecommendation_currentConfiguration,
+    autoScalingGroupRecommendation_currentPerformanceRisk,
     autoScalingGroupRecommendation_effectiveRecommendationPreferences,
-    autoScalingGroupRecommendation_utilizationMetrics,
     autoScalingGroupRecommendation_finding,
+    autoScalingGroupRecommendation_inferredWorkloadTypes,
+    autoScalingGroupRecommendation_lastRefreshTimestamp,
+    autoScalingGroupRecommendation_lookBackPeriodInDays,
+    autoScalingGroupRecommendation_recommendationOptions,
+    autoScalingGroupRecommendation_utilizationMetrics,
 
     -- ** AutoScalingGroupRecommendationOption
-    autoScalingGroupRecommendationOption_performanceRisk,
-    autoScalingGroupRecommendationOption_migrationEffort,
     autoScalingGroupRecommendationOption_configuration,
-    autoScalingGroupRecommendationOption_savingsOpportunity,
-    autoScalingGroupRecommendationOption_rank,
+    autoScalingGroupRecommendationOption_migrationEffort,
+    autoScalingGroupRecommendationOption_performanceRisk,
     autoScalingGroupRecommendationOption_projectedUtilizationMetrics,
+    autoScalingGroupRecommendationOption_rank,
+    autoScalingGroupRecommendationOption_savingsOpportunity,
 
     -- ** CurrentPerformanceRiskRatings
-    currentPerformanceRiskRatings_veryLow,
-    currentPerformanceRiskRatings_low,
     currentPerformanceRiskRatings_high,
+    currentPerformanceRiskRatings_low,
     currentPerformanceRiskRatings_medium,
+    currentPerformanceRiskRatings_veryLow,
 
     -- ** EBSFilter
     eBSFilter_name,
@@ -234,9 +236,10 @@ module Amazonka.ComputeOptimizer.Lens
     eBSUtilizationMetric_value,
 
     -- ** EffectiveRecommendationPreferences
-    effectiveRecommendationPreferences_inferredWorkloadTypes,
-    effectiveRecommendationPreferences_enhancedInfrastructureMetrics,
     effectiveRecommendationPreferences_cpuVendorArchitectures,
+    effectiveRecommendationPreferences_enhancedInfrastructureMetrics,
+    effectiveRecommendationPreferences_externalMetricsPreference,
+    effectiveRecommendationPreferences_inferredWorkloadTypes,
 
     -- ** EnrollmentFilter
     enrollmentFilter_name,
@@ -249,39 +252,42 @@ module Amazonka.ComputeOptimizer.Lens
     -- ** ExportDestination
     exportDestination_s3,
 
+    -- ** ExternalMetricsPreference
+    externalMetricsPreference_source,
+
     -- ** Filter
     filter_name,
     filter_values,
 
     -- ** GetRecommendationError
-    getRecommendationError_message,
     getRecommendationError_code,
     getRecommendationError_identifier,
+    getRecommendationError_message,
 
     -- ** InstanceRecommendation
-    instanceRecommendation_findingReasonCodes,
-    instanceRecommendation_currentPerformanceRisk,
-    instanceRecommendation_instanceName,
-    instanceRecommendation_inferredWorkloadTypes,
-    instanceRecommendation_recommendationOptions,
-    instanceRecommendation_lastRefreshTimestamp,
-    instanceRecommendation_instanceArn,
-    instanceRecommendation_lookBackPeriodInDays,
     instanceRecommendation_accountId,
-    instanceRecommendation_recommendationSources,
-    instanceRecommendation_effectiveRecommendationPreferences,
     instanceRecommendation_currentInstanceType,
-    instanceRecommendation_utilizationMetrics,
+    instanceRecommendation_currentPerformanceRisk,
+    instanceRecommendation_effectiveRecommendationPreferences,
     instanceRecommendation_finding,
+    instanceRecommendation_findingReasonCodes,
+    instanceRecommendation_inferredWorkloadTypes,
+    instanceRecommendation_instanceArn,
+    instanceRecommendation_instanceName,
+    instanceRecommendation_lastRefreshTimestamp,
+    instanceRecommendation_lookBackPeriodInDays,
+    instanceRecommendation_recommendationOptions,
+    instanceRecommendation_recommendationSources,
+    instanceRecommendation_utilizationMetrics,
 
     -- ** InstanceRecommendationOption
-    instanceRecommendationOption_performanceRisk,
-    instanceRecommendationOption_migrationEffort,
-    instanceRecommendationOption_savingsOpportunity,
-    instanceRecommendationOption_platformDifferences,
-    instanceRecommendationOption_rank,
     instanceRecommendationOption_instanceType,
+    instanceRecommendationOption_migrationEffort,
+    instanceRecommendationOption_performanceRisk,
+    instanceRecommendationOption_platformDifferences,
     instanceRecommendationOption_projectedUtilizationMetrics,
+    instanceRecommendationOption_rank,
+    instanceRecommendationOption_savingsOpportunity,
 
     -- ** JobFilter
     jobFilter_name,
@@ -294,23 +300,23 @@ module Amazonka.ComputeOptimizer.Lens
 
     -- ** LambdaFunctionMemoryRecommendationOption
     lambdaFunctionMemoryRecommendationOption_memorySize,
-    lambdaFunctionMemoryRecommendationOption_savingsOpportunity,
-    lambdaFunctionMemoryRecommendationOption_rank,
     lambdaFunctionMemoryRecommendationOption_projectedUtilizationMetrics,
+    lambdaFunctionMemoryRecommendationOption_rank,
+    lambdaFunctionMemoryRecommendationOption_savingsOpportunity,
 
     -- ** LambdaFunctionRecommendation
+    lambdaFunctionRecommendation_accountId,
+    lambdaFunctionRecommendation_currentMemorySize,
+    lambdaFunctionRecommendation_currentPerformanceRisk,
+    lambdaFunctionRecommendation_finding,
     lambdaFunctionRecommendation_findingReasonCodes,
     lambdaFunctionRecommendation_functionArn,
-    lambdaFunctionRecommendation_currentPerformanceRisk,
-    lambdaFunctionRecommendation_currentMemorySize,
-    lambdaFunctionRecommendation_numberOfInvocations,
-    lambdaFunctionRecommendation_lastRefreshTimestamp,
     lambdaFunctionRecommendation_functionVersion,
+    lambdaFunctionRecommendation_lastRefreshTimestamp,
     lambdaFunctionRecommendation_lookbackPeriodInDays,
-    lambdaFunctionRecommendation_accountId,
-    lambdaFunctionRecommendation_utilizationMetrics,
     lambdaFunctionRecommendation_memorySizeRecommendationOptions,
-    lambdaFunctionRecommendation_finding,
+    lambdaFunctionRecommendation_numberOfInvocations,
+    lambdaFunctionRecommendation_utilizationMetrics,
 
     -- ** LambdaFunctionRecommendationFilter
     lambdaFunctionRecommendationFilter_name,
@@ -331,42 +337,43 @@ module Amazonka.ComputeOptimizer.Lens
     reasonCodeSummary_value,
 
     -- ** RecommendationExportJob
+    recommendationExportJob_creationTimestamp,
     recommendationExportJob_destination,
+    recommendationExportJob_failureReason,
+    recommendationExportJob_jobId,
     recommendationExportJob_lastUpdatedTimestamp,
     recommendationExportJob_resourceType,
-    recommendationExportJob_jobId,
     recommendationExportJob_status,
-    recommendationExportJob_creationTimestamp,
-    recommendationExportJob_failureReason,
 
     -- ** RecommendationPreferences
     recommendationPreferences_cpuVendorArchitectures,
 
     -- ** RecommendationPreferencesDetail
-    recommendationPreferencesDetail_resourceType,
-    recommendationPreferencesDetail_inferredWorkloadTypes,
     recommendationPreferencesDetail_enhancedInfrastructureMetrics,
+    recommendationPreferencesDetail_externalMetricsPreference,
+    recommendationPreferencesDetail_inferredWorkloadTypes,
+    recommendationPreferencesDetail_resourceType,
     recommendationPreferencesDetail_scope,
 
     -- ** RecommendationSource
-    recommendationSource_recommendationSourceType,
     recommendationSource_recommendationSourceArn,
+    recommendationSource_recommendationSourceType,
 
     -- ** RecommendationSummary
-    recommendationSummary_currentPerformanceRiskRatings,
-    recommendationSummary_savingsOpportunity,
-    recommendationSummary_recommendationResourceType,
-    recommendationSummary_summaries,
     recommendationSummary_accountId,
+    recommendationSummary_currentPerformanceRiskRatings,
+    recommendationSummary_recommendationResourceType,
+    recommendationSummary_savingsOpportunity,
+    recommendationSummary_summaries,
 
     -- ** RecommendedOptionProjectedMetric
-    recommendedOptionProjectedMetric_rank,
     recommendedOptionProjectedMetric_projectedMetrics,
+    recommendedOptionProjectedMetric_rank,
     recommendedOptionProjectedMetric_recommendedInstanceType,
 
     -- ** S3Destination
-    s3Destination_key,
     s3Destination_bucket,
+    s3Destination_key,
     s3Destination_metadataKey,
 
     -- ** S3DestinationConfig
@@ -374,8 +381,8 @@ module Amazonka.ComputeOptimizer.Lens
     s3DestinationConfig_keyPrefix,
 
     -- ** SavingsOpportunity
-    savingsOpportunity_savingsOpportunityPercentage,
     savingsOpportunity_estimatedMonthlySavings,
+    savingsOpportunity_savingsOpportunityPercentage,
 
     -- ** Scope
     scope_name,
@@ -392,29 +399,29 @@ module Amazonka.ComputeOptimizer.Lens
     utilizationMetric_value,
 
     -- ** VolumeConfiguration
-    volumeConfiguration_volumeBurstThroughput,
-    volumeConfiguration_volumeType,
-    volumeConfiguration_volumeSize,
     volumeConfiguration_volumeBaselineIOPS,
     volumeConfiguration_volumeBaselineThroughput,
     volumeConfiguration_volumeBurstIOPS,
+    volumeConfiguration_volumeBurstThroughput,
+    volumeConfiguration_volumeSize,
+    volumeConfiguration_volumeType,
 
     -- ** VolumeRecommendation
-    volumeRecommendation_currentPerformanceRisk,
-    volumeRecommendation_lastRefreshTimestamp,
-    volumeRecommendation_currentConfiguration,
-    volumeRecommendation_volumeArn,
-    volumeRecommendation_lookBackPeriodInDays,
     volumeRecommendation_accountId,
-    volumeRecommendation_utilizationMetrics,
-    volumeRecommendation_volumeRecommendationOptions,
+    volumeRecommendation_currentConfiguration,
+    volumeRecommendation_currentPerformanceRisk,
     volumeRecommendation_finding,
+    volumeRecommendation_lastRefreshTimestamp,
+    volumeRecommendation_lookBackPeriodInDays,
+    volumeRecommendation_utilizationMetrics,
+    volumeRecommendation_volumeArn,
+    volumeRecommendation_volumeRecommendationOptions,
 
     -- ** VolumeRecommendationOption
-    volumeRecommendationOption_performanceRisk,
     volumeRecommendationOption_configuration,
-    volumeRecommendationOption_savingsOpportunity,
+    volumeRecommendationOption_performanceRisk,
     volumeRecommendationOption_rank,
+    volumeRecommendationOption_savingsOpportunity,
   )
 where
 
@@ -446,6 +453,7 @@ import Amazonka.ComputeOptimizer.Types.EffectiveRecommendationPreferences
 import Amazonka.ComputeOptimizer.Types.EnrollmentFilter
 import Amazonka.ComputeOptimizer.Types.EstimatedMonthlySavings
 import Amazonka.ComputeOptimizer.Types.ExportDestination
+import Amazonka.ComputeOptimizer.Types.ExternalMetricsPreference
 import Amazonka.ComputeOptimizer.Types.Filter
 import Amazonka.ComputeOptimizer.Types.GetRecommendationError
 import Amazonka.ComputeOptimizer.Types.InstanceRecommendation

@@ -45,10 +45,10 @@ module Amazonka.Evidently.EvaluateFeature
     newEvaluateFeatureResponse,
 
     -- * Response Lenses
-    evaluateFeatureResponse_variation,
     evaluateFeatureResponse_details,
     evaluateFeatureResponse_reason,
     evaluateFeatureResponse_value,
+    evaluateFeatureResponse_variation,
     evaluateFeatureResponse_httpStatus,
   )
 where
@@ -156,10 +156,10 @@ instance Core.AWSRequest EvaluateFeature where
     Response.receiveJSON
       ( \s h x ->
           EvaluateFeatureResponse'
-            Prelude.<$> (x Data..?> "variation")
-            Prelude.<*> (x Data..?> "details")
+            Prelude.<$> (x Data..?> "details")
             Prelude.<*> (x Data..?> "reason")
             Prelude.<*> (x Data..?> "value")
+            Prelude.<*> (x Data..?> "variation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -212,9 +212,7 @@ instance Data.ToQuery EvaluateFeature where
 
 -- | /See:/ 'newEvaluateFeatureResponse' smart constructor.
 data EvaluateFeatureResponse = EvaluateFeatureResponse'
-  { -- | The name of the variation that was served to the user session.
-    variation :: Prelude.Maybe Prelude.Text,
-    -- | If this user was assigned to a launch or experiment, this field lists
+  { -- | If this user was assigned to a launch or experiment, this field lists
     -- the launch or experiment name.
     details :: Prelude.Maybe Prelude.Text,
     -- | Specifies the reason that the user session was assigned this variation.
@@ -227,6 +225,8 @@ data EvaluateFeatureResponse = EvaluateFeatureResponse'
     -- | The value assigned to this variation to differentiate it from the other
     -- variations of this feature.
     value :: Prelude.Maybe VariableValue,
+    -- | The name of the variation that was served to the user session.
+    variation :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -239,8 +239,6 @@ data EvaluateFeatureResponse = EvaluateFeatureResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'variation', 'evaluateFeatureResponse_variation' - The name of the variation that was served to the user session.
 --
 -- 'details', 'evaluateFeatureResponse_details' - If this user was assigned to a launch or experiment, this field lists
 -- the launch or experiment name.
@@ -255,6 +253,8 @@ data EvaluateFeatureResponse = EvaluateFeatureResponse'
 -- 'value', 'evaluateFeatureResponse_value' - The value assigned to this variation to differentiate it from the other
 -- variations of this feature.
 --
+-- 'variation', 'evaluateFeatureResponse_variation' - The name of the variation that was served to the user session.
+--
 -- 'httpStatus', 'evaluateFeatureResponse_httpStatus' - The response's http status code.
 newEvaluateFeatureResponse ::
   -- | 'httpStatus'
@@ -262,17 +262,12 @@ newEvaluateFeatureResponse ::
   EvaluateFeatureResponse
 newEvaluateFeatureResponse pHttpStatus_ =
   EvaluateFeatureResponse'
-    { variation =
-        Prelude.Nothing,
-      details = Prelude.Nothing,
+    { details = Prelude.Nothing,
       reason = Prelude.Nothing,
       value = Prelude.Nothing,
+      variation = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The name of the variation that was served to the user session.
-evaluateFeatureResponse_variation :: Lens.Lens' EvaluateFeatureResponse (Prelude.Maybe Prelude.Text)
-evaluateFeatureResponse_variation = Lens.lens (\EvaluateFeatureResponse' {variation} -> variation) (\s@EvaluateFeatureResponse' {} a -> s {variation = a} :: EvaluateFeatureResponse)
 
 -- | If this user was assigned to a launch or experiment, this field lists
 -- the launch or experiment name.
@@ -293,14 +288,18 @@ evaluateFeatureResponse_reason = Lens.lens (\EvaluateFeatureResponse' {reason} -
 evaluateFeatureResponse_value :: Lens.Lens' EvaluateFeatureResponse (Prelude.Maybe VariableValue)
 evaluateFeatureResponse_value = Lens.lens (\EvaluateFeatureResponse' {value} -> value) (\s@EvaluateFeatureResponse' {} a -> s {value = a} :: EvaluateFeatureResponse)
 
+-- | The name of the variation that was served to the user session.
+evaluateFeatureResponse_variation :: Lens.Lens' EvaluateFeatureResponse (Prelude.Maybe Prelude.Text)
+evaluateFeatureResponse_variation = Lens.lens (\EvaluateFeatureResponse' {variation} -> variation) (\s@EvaluateFeatureResponse' {} a -> s {variation = a} :: EvaluateFeatureResponse)
+
 -- | The response's http status code.
 evaluateFeatureResponse_httpStatus :: Lens.Lens' EvaluateFeatureResponse Prelude.Int
 evaluateFeatureResponse_httpStatus = Lens.lens (\EvaluateFeatureResponse' {httpStatus} -> httpStatus) (\s@EvaluateFeatureResponse' {} a -> s {httpStatus = a} :: EvaluateFeatureResponse)
 
 instance Prelude.NFData EvaluateFeatureResponse where
   rnf EvaluateFeatureResponse' {..} =
-    Prelude.rnf variation
-      `Prelude.seq` Prelude.rnf details
+    Prelude.rnf details
       `Prelude.seq` Prelude.rnf reason
       `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf variation
       `Prelude.seq` Prelude.rnf httpStatus

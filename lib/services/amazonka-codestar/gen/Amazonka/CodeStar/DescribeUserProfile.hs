@@ -36,8 +36,8 @@ module Amazonka.CodeStar.DescribeUserProfile
 
     -- * Response Lenses
     describeUserProfileResponse_displayName,
-    describeUserProfileResponse_sshPublicKey,
     describeUserProfileResponse_emailAddress,
+    describeUserProfileResponse_sshPublicKey,
     describeUserProfileResponse_httpStatus,
     describeUserProfileResponse_userArn,
     describeUserProfileResponse_createdTimestamp,
@@ -91,8 +91,8 @@ instance Core.AWSRequest DescribeUserProfile where
       ( \s h x ->
           DescribeUserProfileResponse'
             Prelude.<$> (x Data..?> "displayName")
-            Prelude.<*> (x Data..?> "sshPublicKey")
             Prelude.<*> (x Data..?> "emailAddress")
+            Prelude.<*> (x Data..?> "sshPublicKey")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "userArn")
             Prelude.<*> (x Data..:> "createdTimestamp")
@@ -147,14 +147,14 @@ data DescribeUserProfileResponse = DescribeUserProfileResponse'
     -- Major\") would generate an initial icon using the first character and
     -- the first character after the space (\"MJ\", not \"MM\").
     displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The email address for the user. Optional.
+    emailAddress :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The SSH public key associated with the user. This SSH public key is
     -- associated with the user profile, and can be used in conjunction with
     -- the associated private key for access to project resources, such as
     -- Amazon EC2 instances, if a project owner grants remote access to those
     -- resources.
     sshPublicKey :: Prelude.Maybe Prelude.Text,
-    -- | The email address for the user. Optional.
-    emailAddress :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the user.
@@ -187,13 +187,13 @@ data DescribeUserProfileResponse = DescribeUserProfileResponse'
 -- Major\") would generate an initial icon using the first character and
 -- the first character after the space (\"MJ\", not \"MM\").
 --
+-- 'emailAddress', 'describeUserProfileResponse_emailAddress' - The email address for the user. Optional.
+--
 -- 'sshPublicKey', 'describeUserProfileResponse_sshPublicKey' - The SSH public key associated with the user. This SSH public key is
 -- associated with the user profile, and can be used in conjunction with
 -- the associated private key for access to project resources, such as
 -- Amazon EC2 instances, if a project owner grants remote access to those
 -- resources.
---
--- 'emailAddress', 'describeUserProfileResponse_emailAddress' - The email address for the user. Optional.
 --
 -- 'httpStatus', 'describeUserProfileResponse_httpStatus' - The response's http status code.
 --
@@ -222,8 +222,8 @@ newDescribeUserProfileResponse
     DescribeUserProfileResponse'
       { displayName =
           Prelude.Nothing,
-        sshPublicKey = Prelude.Nothing,
         emailAddress = Prelude.Nothing,
+        sshPublicKey = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         userArn = pUserArn_,
         createdTimestamp =
@@ -245,6 +245,10 @@ newDescribeUserProfileResponse
 describeUserProfileResponse_displayName :: Lens.Lens' DescribeUserProfileResponse (Prelude.Maybe Prelude.Text)
 describeUserProfileResponse_displayName = Lens.lens (\DescribeUserProfileResponse' {displayName} -> displayName) (\s@DescribeUserProfileResponse' {} a -> s {displayName = a} :: DescribeUserProfileResponse) Prelude.. Lens.mapping Data._Sensitive
 
+-- | The email address for the user. Optional.
+describeUserProfileResponse_emailAddress :: Lens.Lens' DescribeUserProfileResponse (Prelude.Maybe Prelude.Text)
+describeUserProfileResponse_emailAddress = Lens.lens (\DescribeUserProfileResponse' {emailAddress} -> emailAddress) (\s@DescribeUserProfileResponse' {} a -> s {emailAddress = a} :: DescribeUserProfileResponse) Prelude.. Lens.mapping Data._Sensitive
+
 -- | The SSH public key associated with the user. This SSH public key is
 -- associated with the user profile, and can be used in conjunction with
 -- the associated private key for access to project resources, such as
@@ -252,10 +256,6 @@ describeUserProfileResponse_displayName = Lens.lens (\DescribeUserProfileRespons
 -- resources.
 describeUserProfileResponse_sshPublicKey :: Lens.Lens' DescribeUserProfileResponse (Prelude.Maybe Prelude.Text)
 describeUserProfileResponse_sshPublicKey = Lens.lens (\DescribeUserProfileResponse' {sshPublicKey} -> sshPublicKey) (\s@DescribeUserProfileResponse' {} a -> s {sshPublicKey = a} :: DescribeUserProfileResponse)
-
--- | The email address for the user. Optional.
-describeUserProfileResponse_emailAddress :: Lens.Lens' DescribeUserProfileResponse (Prelude.Maybe Prelude.Text)
-describeUserProfileResponse_emailAddress = Lens.lens (\DescribeUserProfileResponse' {emailAddress} -> emailAddress) (\s@DescribeUserProfileResponse' {} a -> s {emailAddress = a} :: DescribeUserProfileResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The response's http status code.
 describeUserProfileResponse_httpStatus :: Lens.Lens' DescribeUserProfileResponse Prelude.Int
@@ -278,8 +278,8 @@ describeUserProfileResponse_lastModifiedTimestamp = Lens.lens (\DescribeUserProf
 instance Prelude.NFData DescribeUserProfileResponse where
   rnf DescribeUserProfileResponse' {..} =
     Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf sshPublicKey
       `Prelude.seq` Prelude.rnf emailAddress
+      `Prelude.seq` Prelude.rnf sshPublicKey
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf userArn
       `Prelude.seq` Prelude.rnf createdTimestamp

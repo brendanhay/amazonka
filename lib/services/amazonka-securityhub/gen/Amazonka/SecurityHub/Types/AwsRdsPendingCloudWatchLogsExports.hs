@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsRdsPendingCloudWatchLogsExports' smart constructor.
 data AwsRdsPendingCloudWatchLogsExports = AwsRdsPendingCloudWatchLogsExports'
-  { -- | A list of log types that are being enabled.
-    logTypesToEnable :: Prelude.Maybe [Prelude.Text],
-    -- | A list of log types that are being disabled.
-    logTypesToDisable :: Prelude.Maybe [Prelude.Text]
+  { -- | A list of log types that are being disabled.
+    logTypesToDisable :: Prelude.Maybe [Prelude.Text],
+    -- | A list of log types that are being enabled.
+    logTypesToEnable :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data AwsRdsPendingCloudWatchLogsExports = AwsRdsPendingCloudWatchLogsExports'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'logTypesToEnable', 'awsRdsPendingCloudWatchLogsExports_logTypesToEnable' - A list of log types that are being enabled.
---
 -- 'logTypesToDisable', 'awsRdsPendingCloudWatchLogsExports_logTypesToDisable' - A list of log types that are being disabled.
+--
+-- 'logTypesToEnable', 'awsRdsPendingCloudWatchLogsExports_logTypesToEnable' - A list of log types that are being enabled.
 newAwsRdsPendingCloudWatchLogsExports ::
   AwsRdsPendingCloudWatchLogsExports
 newAwsRdsPendingCloudWatchLogsExports =
   AwsRdsPendingCloudWatchLogsExports'
-    { logTypesToEnable =
+    { logTypesToDisable =
         Prelude.Nothing,
-      logTypesToDisable = Prelude.Nothing
+      logTypesToEnable = Prelude.Nothing
     }
-
--- | A list of log types that are being enabled.
-awsRdsPendingCloudWatchLogsExports_logTypesToEnable :: Lens.Lens' AwsRdsPendingCloudWatchLogsExports (Prelude.Maybe [Prelude.Text])
-awsRdsPendingCloudWatchLogsExports_logTypesToEnable = Lens.lens (\AwsRdsPendingCloudWatchLogsExports' {logTypesToEnable} -> logTypesToEnable) (\s@AwsRdsPendingCloudWatchLogsExports' {} a -> s {logTypesToEnable = a} :: AwsRdsPendingCloudWatchLogsExports) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of log types that are being disabled.
 awsRdsPendingCloudWatchLogsExports_logTypesToDisable :: Lens.Lens' AwsRdsPendingCloudWatchLogsExports (Prelude.Maybe [Prelude.Text])
 awsRdsPendingCloudWatchLogsExports_logTypesToDisable = Lens.lens (\AwsRdsPendingCloudWatchLogsExports' {logTypesToDisable} -> logTypesToDisable) (\s@AwsRdsPendingCloudWatchLogsExports' {} a -> s {logTypesToDisable = a} :: AwsRdsPendingCloudWatchLogsExports) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of log types that are being enabled.
+awsRdsPendingCloudWatchLogsExports_logTypesToEnable :: Lens.Lens' AwsRdsPendingCloudWatchLogsExports (Prelude.Maybe [Prelude.Text])
+awsRdsPendingCloudWatchLogsExports_logTypesToEnable = Lens.lens (\AwsRdsPendingCloudWatchLogsExports' {logTypesToEnable} -> logTypesToEnable) (\s@AwsRdsPendingCloudWatchLogsExports' {} a -> s {logTypesToEnable = a} :: AwsRdsPendingCloudWatchLogsExports) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Data.FromJSON
@@ -72,10 +72,10 @@ instance
       "AwsRdsPendingCloudWatchLogsExports"
       ( \x ->
           AwsRdsPendingCloudWatchLogsExports'
-            Prelude.<$> ( x Data..:? "LogTypesToEnable"
+            Prelude.<$> ( x Data..:? "LogTypesToDisable"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "LogTypesToDisable"
+            Prelude.<*> ( x Data..:? "LogTypesToEnable"
                             Data..!= Prelude.mempty
                         )
       )
@@ -87,16 +87,16 @@ instance
   hashWithSalt
     _salt
     AwsRdsPendingCloudWatchLogsExports' {..} =
-      _salt `Prelude.hashWithSalt` logTypesToEnable
-        `Prelude.hashWithSalt` logTypesToDisable
+      _salt `Prelude.hashWithSalt` logTypesToDisable
+        `Prelude.hashWithSalt` logTypesToEnable
 
 instance
   Prelude.NFData
     AwsRdsPendingCloudWatchLogsExports
   where
   rnf AwsRdsPendingCloudWatchLogsExports' {..} =
-    Prelude.rnf logTypesToEnable
-      `Prelude.seq` Prelude.rnf logTypesToDisable
+    Prelude.rnf logTypesToDisable
+      `Prelude.seq` Prelude.rnf logTypesToEnable
 
 instance
   Data.ToJSON
@@ -105,9 +105,9 @@ instance
   toJSON AwsRdsPendingCloudWatchLogsExports' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("LogTypesToEnable" Data..=)
-              Prelude.<$> logTypesToEnable,
-            ("LogTypesToDisable" Data..=)
-              Prelude.<$> logTypesToDisable
+          [ ("LogTypesToDisable" Data..=)
+              Prelude.<$> logTypesToDisable,
+            ("LogTypesToEnable" Data..=)
+              Prelude.<$> logTypesToEnable
           ]
       )

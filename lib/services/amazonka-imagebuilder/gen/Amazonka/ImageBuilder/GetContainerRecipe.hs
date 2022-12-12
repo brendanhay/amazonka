@@ -34,8 +34,8 @@ module Amazonka.ImageBuilder.GetContainerRecipe
     newGetContainerRecipeResponse,
 
     -- * Response Lenses
-    getContainerRecipeResponse_requestId,
     getContainerRecipeResponse_containerRecipe,
+    getContainerRecipeResponse_requestId,
     getContainerRecipeResponse_httpStatus,
   )
 where
@@ -88,8 +88,8 @@ instance Core.AWSRequest GetContainerRecipe where
     Response.receiveJSON
       ( \s h x ->
           GetContainerRecipeResponse'
-            Prelude.<$> (x Data..?> "requestId")
-            Prelude.<*> (x Data..?> "containerRecipe")
+            Prelude.<$> (x Data..?> "containerRecipe")
+            Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,10 +122,10 @@ instance Data.ToQuery GetContainerRecipe where
 
 -- | /See:/ 'newGetContainerRecipeResponse' smart constructor.
 data GetContainerRecipeResponse = GetContainerRecipeResponse'
-  { -- | The request ID that uniquely identifies this request.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The container recipe object that is returned.
+  { -- | The container recipe object that is returned.
     containerRecipe :: Prelude.Maybe ContainerRecipe,
+    -- | The request ID that uniquely identifies this request.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -139,9 +139,9 @@ data GetContainerRecipeResponse = GetContainerRecipeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'getContainerRecipeResponse_requestId' - The request ID that uniquely identifies this request.
---
 -- 'containerRecipe', 'getContainerRecipeResponse_containerRecipe' - The container recipe object that is returned.
+--
+-- 'requestId', 'getContainerRecipeResponse_requestId' - The request ID that uniquely identifies this request.
 --
 -- 'httpStatus', 'getContainerRecipeResponse_httpStatus' - The response's http status code.
 newGetContainerRecipeResponse ::
@@ -150,19 +150,19 @@ newGetContainerRecipeResponse ::
   GetContainerRecipeResponse
 newGetContainerRecipeResponse pHttpStatus_ =
   GetContainerRecipeResponse'
-    { requestId =
+    { containerRecipe =
         Prelude.Nothing,
-      containerRecipe = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The request ID that uniquely identifies this request.
-getContainerRecipeResponse_requestId :: Lens.Lens' GetContainerRecipeResponse (Prelude.Maybe Prelude.Text)
-getContainerRecipeResponse_requestId = Lens.lens (\GetContainerRecipeResponse' {requestId} -> requestId) (\s@GetContainerRecipeResponse' {} a -> s {requestId = a} :: GetContainerRecipeResponse)
 
 -- | The container recipe object that is returned.
 getContainerRecipeResponse_containerRecipe :: Lens.Lens' GetContainerRecipeResponse (Prelude.Maybe ContainerRecipe)
 getContainerRecipeResponse_containerRecipe = Lens.lens (\GetContainerRecipeResponse' {containerRecipe} -> containerRecipe) (\s@GetContainerRecipeResponse' {} a -> s {containerRecipe = a} :: GetContainerRecipeResponse)
+
+-- | The request ID that uniquely identifies this request.
+getContainerRecipeResponse_requestId :: Lens.Lens' GetContainerRecipeResponse (Prelude.Maybe Prelude.Text)
+getContainerRecipeResponse_requestId = Lens.lens (\GetContainerRecipeResponse' {requestId} -> requestId) (\s@GetContainerRecipeResponse' {} a -> s {requestId = a} :: GetContainerRecipeResponse)
 
 -- | The response's http status code.
 getContainerRecipeResponse_httpStatus :: Lens.Lens' GetContainerRecipeResponse Prelude.Int
@@ -170,6 +170,6 @@ getContainerRecipeResponse_httpStatus = Lens.lens (\GetContainerRecipeResponse' 
 
 instance Prelude.NFData GetContainerRecipeResponse where
   rnf GetContainerRecipeResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf containerRecipe
+    Prelude.rnf containerRecipe
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf httpStatus

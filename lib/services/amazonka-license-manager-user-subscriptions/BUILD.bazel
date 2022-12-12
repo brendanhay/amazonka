@@ -24,6 +24,9 @@ haskell_library(
         "gen/Amazonka/LicenseManagerUserSubscriptions/Types/InstanceSummary.hs",
         "gen/Amazonka/LicenseManagerUserSubscriptions/Types/InstanceUserSummary.hs",
         "gen/Amazonka/LicenseManagerUserSubscriptions/Types/ProductUserSummary.hs",
+        "gen/Amazonka/LicenseManagerUserSubscriptions/Types/Settings.hs",
+        "gen/Amazonka/LicenseManagerUserSubscriptions/Types/UpdateSettings.hs",
+        "gen/Amazonka/LicenseManagerUserSubscriptions/UpdateIdentityProviderSettings.hs",
         "gen/Amazonka/LicenseManagerUserSubscriptions/Waiters.hs",
     ],
     ghcopts = [

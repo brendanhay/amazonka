@@ -15,9 +15,9 @@ module Amazonka.ChimeSdkMediaPipelines.Lens
   ( -- * Operations
 
     -- ** CreateMediaCapturePipeline
-    createMediaCapturePipeline_tags,
-    createMediaCapturePipeline_clientRequestToken,
     createMediaCapturePipeline_chimeSdkMeetingConfiguration,
+    createMediaCapturePipeline_clientRequestToken,
+    createMediaCapturePipeline_tags,
     createMediaCapturePipeline_sourceType,
     createMediaCapturePipeline_sourceArn,
     createMediaCapturePipeline_sinkType,
@@ -26,16 +26,16 @@ module Amazonka.ChimeSdkMediaPipelines.Lens
     createMediaCapturePipelineResponse_httpStatus,
 
     -- ** CreateMediaConcatenationPipeline
-    createMediaConcatenationPipeline_tags,
     createMediaConcatenationPipeline_clientRequestToken,
+    createMediaConcatenationPipeline_tags,
     createMediaConcatenationPipeline_sources,
     createMediaConcatenationPipeline_sinks,
     createMediaConcatenationPipelineResponse_mediaConcatenationPipeline,
     createMediaConcatenationPipelineResponse_httpStatus,
 
     -- ** CreateMediaLiveConnectorPipeline
-    createMediaLiveConnectorPipeline_tags,
     createMediaLiveConnectorPipeline_clientRequestToken,
+    createMediaLiveConnectorPipeline_tags,
     createMediaLiveConnectorPipeline_sources,
     createMediaLiveConnectorPipeline_sinks,
     createMediaLiveConnectorPipelineResponse_mediaLiveConnectorPipeline,
@@ -58,17 +58,17 @@ module Amazonka.ChimeSdkMediaPipelines.Lens
     getMediaPipelineResponse_httpStatus,
 
     -- ** ListMediaCapturePipelines
-    listMediaCapturePipelines_nextToken,
     listMediaCapturePipelines_maxResults,
-    listMediaCapturePipelinesResponse_nextToken,
+    listMediaCapturePipelines_nextToken,
     listMediaCapturePipelinesResponse_mediaCapturePipelines,
+    listMediaCapturePipelinesResponse_nextToken,
     listMediaCapturePipelinesResponse_httpStatus,
 
     -- ** ListMediaPipelines
-    listMediaPipelines_nextToken,
     listMediaPipelines_maxResults,
-    listMediaPipelinesResponse_nextToken,
+    listMediaPipelines_nextToken,
     listMediaPipelinesResponse_mediaPipelines,
+    listMediaPipelinesResponse_nextToken,
     listMediaPipelinesResponse_httpStatus,
 
     -- ** ListTagsForResource
@@ -113,18 +113,18 @@ module Amazonka.ChimeSdkMediaPipelines.Lens
     chimeSdkMeetingConcatenationConfiguration_artifactsConfiguration,
 
     -- ** ChimeSdkMeetingConfiguration
-    chimeSdkMeetingConfiguration_sourceConfiguration,
     chimeSdkMeetingConfiguration_artifactsConfiguration,
+    chimeSdkMeetingConfiguration_sourceConfiguration,
 
     -- ** ChimeSdkMeetingLiveConnectorConfiguration
-    chimeSdkMeetingLiveConnectorConfiguration_sourceConfiguration,
     chimeSdkMeetingLiveConnectorConfiguration_compositedVideo,
+    chimeSdkMeetingLiveConnectorConfiguration_sourceConfiguration,
     chimeSdkMeetingLiveConnectorConfiguration_arn,
     chimeSdkMeetingLiveConnectorConfiguration_muxType,
 
     -- ** CompositedVideoArtifactsConfiguration
-    compositedVideoArtifactsConfiguration_resolution,
     compositedVideoArtifactsConfiguration_layout,
+    compositedVideoArtifactsConfiguration_resolution,
     compositedVideoArtifactsConfiguration_gridViewConfiguration,
 
     -- ** CompositedVideoConcatenationConfiguration
@@ -166,16 +166,16 @@ module Amazonka.ChimeSdkMediaPipelines.Lens
     liveConnectorSourceConfiguration_chimeSdkMeetingLiveConnectorConfiguration,
 
     -- ** MediaCapturePipeline
-    mediaCapturePipeline_sourceArn,
-    mediaCapturePipeline_sinkType,
+    mediaCapturePipeline_chimeSdkMeetingConfiguration,
     mediaCapturePipeline_createdTimestamp,
     mediaCapturePipeline_mediaPipelineArn,
-    mediaCapturePipeline_updatedTimestamp,
-    mediaCapturePipeline_chimeSdkMeetingConfiguration,
-    mediaCapturePipeline_status,
-    mediaCapturePipeline_sourceType,
     mediaCapturePipeline_mediaPipelineId,
     mediaCapturePipeline_sinkArn,
+    mediaCapturePipeline_sinkType,
+    mediaCapturePipeline_sourceArn,
+    mediaCapturePipeline_sourceType,
+    mediaCapturePipeline_status,
+    mediaCapturePipeline_updatedTimestamp,
 
     -- ** MediaCapturePipelineSourceConfiguration
     mediaCapturePipelineSourceConfiguration_mediaPipelineArn,
@@ -186,26 +186,26 @@ module Amazonka.ChimeSdkMediaPipelines.Lens
     mediaCapturePipelineSummary_mediaPipelineId,
 
     -- ** MediaConcatenationPipeline
-    mediaConcatenationPipeline_sources,
     mediaConcatenationPipeline_createdTimestamp,
     mediaConcatenationPipeline_mediaPipelineArn,
-    mediaConcatenationPipeline_updatedTimestamp,
-    mediaConcatenationPipeline_status,
-    mediaConcatenationPipeline_sinks,
     mediaConcatenationPipeline_mediaPipelineId,
+    mediaConcatenationPipeline_sinks,
+    mediaConcatenationPipeline_sources,
+    mediaConcatenationPipeline_status,
+    mediaConcatenationPipeline_updatedTimestamp,
 
     -- ** MediaLiveConnectorPipeline
-    mediaLiveConnectorPipeline_sources,
     mediaLiveConnectorPipeline_createdTimestamp,
     mediaLiveConnectorPipeline_mediaPipelineArn,
-    mediaLiveConnectorPipeline_updatedTimestamp,
-    mediaLiveConnectorPipeline_status,
-    mediaLiveConnectorPipeline_sinks,
     mediaLiveConnectorPipeline_mediaPipelineId,
+    mediaLiveConnectorPipeline_sinks,
+    mediaLiveConnectorPipeline_sources,
+    mediaLiveConnectorPipeline_status,
+    mediaLiveConnectorPipeline_updatedTimestamp,
 
     -- ** MediaPipeline
-    mediaPipeline_mediaConcatenationPipeline,
     mediaPipeline_mediaCapturePipeline,
+    mediaPipeline_mediaConcatenationPipeline,
     mediaPipeline_mediaLiveConnectorPipeline,
 
     -- ** MediaPipelineSummary

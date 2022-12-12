@@ -32,10 +32,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLogPublishingOptionsStatus' smart constructor.
 data LogPublishingOptionsStatus = LogPublishingOptionsStatus'
-  { -- | The status of the log publishing options for the domain.
-    status :: Prelude.Maybe OptionStatus,
-    -- | The log publishing options configured for the domain.
-    options :: Prelude.Maybe (Prelude.HashMap LogType LogPublishingOption)
+  { -- | The log publishing options configured for the domain.
+    options :: Prelude.Maybe (Prelude.HashMap LogType LogPublishingOption),
+    -- | The status of the log publishing options for the domain.
+    status :: Prelude.Maybe OptionStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,25 +47,25 @@ data LogPublishingOptionsStatus = LogPublishingOptionsStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'logPublishingOptionsStatus_status' - The status of the log publishing options for the domain.
---
 -- 'options', 'logPublishingOptionsStatus_options' - The log publishing options configured for the domain.
+--
+-- 'status', 'logPublishingOptionsStatus_status' - The status of the log publishing options for the domain.
 newLogPublishingOptionsStatus ::
   LogPublishingOptionsStatus
 newLogPublishingOptionsStatus =
   LogPublishingOptionsStatus'
-    { status =
+    { options =
         Prelude.Nothing,
-      options = Prelude.Nothing
+      status = Prelude.Nothing
     }
-
--- | The status of the log publishing options for the domain.
-logPublishingOptionsStatus_status :: Lens.Lens' LogPublishingOptionsStatus (Prelude.Maybe OptionStatus)
-logPublishingOptionsStatus_status = Lens.lens (\LogPublishingOptionsStatus' {status} -> status) (\s@LogPublishingOptionsStatus' {} a -> s {status = a} :: LogPublishingOptionsStatus)
 
 -- | The log publishing options configured for the domain.
 logPublishingOptionsStatus_options :: Lens.Lens' LogPublishingOptionsStatus (Prelude.Maybe (Prelude.HashMap LogType LogPublishingOption))
 logPublishingOptionsStatus_options = Lens.lens (\LogPublishingOptionsStatus' {options} -> options) (\s@LogPublishingOptionsStatus' {} a -> s {options = a} :: LogPublishingOptionsStatus) Prelude.. Lens.mapping Lens.coerced
+
+-- | The status of the log publishing options for the domain.
+logPublishingOptionsStatus_status :: Lens.Lens' LogPublishingOptionsStatus (Prelude.Maybe OptionStatus)
+logPublishingOptionsStatus_status = Lens.lens (\LogPublishingOptionsStatus' {status} -> status) (\s@LogPublishingOptionsStatus' {} a -> s {status = a} :: LogPublishingOptionsStatus)
 
 instance Data.FromJSON LogPublishingOptionsStatus where
   parseJSON =
@@ -73,16 +73,16 @@ instance Data.FromJSON LogPublishingOptionsStatus where
       "LogPublishingOptionsStatus"
       ( \x ->
           LogPublishingOptionsStatus'
-            Prelude.<$> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "Options" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Options" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable LogPublishingOptionsStatus where
   hashWithSalt _salt LogPublishingOptionsStatus' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` options
+    _salt `Prelude.hashWithSalt` options
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData LogPublishingOptionsStatus where
   rnf LogPublishingOptionsStatus' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf options
+    Prelude.rnf options
+      `Prelude.seq` Prelude.rnf status

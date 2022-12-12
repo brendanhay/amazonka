@@ -28,8 +28,8 @@ module Amazonka.IoTEvents.ListAlarmModelVersions
     newListAlarmModelVersions,
 
     -- * Request Lenses
-    listAlarmModelVersions_nextToken,
     listAlarmModelVersions_maxResults,
+    listAlarmModelVersions_nextToken,
     listAlarmModelVersions_alarmModelName,
 
     -- * Destructuring the Response
@@ -37,8 +37,8 @@ module Amazonka.IoTEvents.ListAlarmModelVersions
     newListAlarmModelVersionsResponse,
 
     -- * Response Lenses
-    listAlarmModelVersionsResponse_nextToken,
     listAlarmModelVersionsResponse_alarmModelVersionSummaries,
+    listAlarmModelVersionsResponse_nextToken,
     listAlarmModelVersionsResponse_httpStatus,
   )
 where
@@ -53,10 +53,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAlarmModelVersions' smart constructor.
 data ListAlarmModelVersions = ListAlarmModelVersions'
-  { -- | The token that you can use to return the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be returned per request.
+  { -- | The maximum number of results to be returned per request.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token that you can use to return the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the alarm model.
     alarmModelName :: Prelude.Text
   }
@@ -70,9 +70,9 @@ data ListAlarmModelVersions = ListAlarmModelVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAlarmModelVersions_nextToken' - The token that you can use to return the next set of results.
---
 -- 'maxResults', 'listAlarmModelVersions_maxResults' - The maximum number of results to be returned per request.
+--
+-- 'nextToken', 'listAlarmModelVersions_nextToken' - The token that you can use to return the next set of results.
 --
 -- 'alarmModelName', 'listAlarmModelVersions_alarmModelName' - The name of the alarm model.
 newListAlarmModelVersions ::
@@ -81,19 +81,19 @@ newListAlarmModelVersions ::
   ListAlarmModelVersions
 newListAlarmModelVersions pAlarmModelName_ =
   ListAlarmModelVersions'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       alarmModelName = pAlarmModelName_
     }
-
--- | The token that you can use to return the next set of results.
-listAlarmModelVersions_nextToken :: Lens.Lens' ListAlarmModelVersions (Prelude.Maybe Prelude.Text)
-listAlarmModelVersions_nextToken = Lens.lens (\ListAlarmModelVersions' {nextToken} -> nextToken) (\s@ListAlarmModelVersions' {} a -> s {nextToken = a} :: ListAlarmModelVersions)
 
 -- | The maximum number of results to be returned per request.
 listAlarmModelVersions_maxResults :: Lens.Lens' ListAlarmModelVersions (Prelude.Maybe Prelude.Natural)
 listAlarmModelVersions_maxResults = Lens.lens (\ListAlarmModelVersions' {maxResults} -> maxResults) (\s@ListAlarmModelVersions' {} a -> s {maxResults = a} :: ListAlarmModelVersions)
+
+-- | The token that you can use to return the next set of results.
+listAlarmModelVersions_nextToken :: Lens.Lens' ListAlarmModelVersions (Prelude.Maybe Prelude.Text)
+listAlarmModelVersions_nextToken = Lens.lens (\ListAlarmModelVersions' {nextToken} -> nextToken) (\s@ListAlarmModelVersions' {} a -> s {nextToken = a} :: ListAlarmModelVersions)
 
 -- | The name of the alarm model.
 listAlarmModelVersions_alarmModelName :: Lens.Lens' ListAlarmModelVersions Prelude.Text
@@ -109,23 +109,23 @@ instance Core.AWSRequest ListAlarmModelVersions where
     Response.receiveJSON
       ( \s h x ->
           ListAlarmModelVersionsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "alarmModelVersionSummaries"
+            Prelude.<$> ( x Data..?> "alarmModelVersionSummaries"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListAlarmModelVersions where
   hashWithSalt _salt ListAlarmModelVersions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` alarmModelName
 
 instance Prelude.NFData ListAlarmModelVersions where
   rnf ListAlarmModelVersions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf alarmModelName
 
 instance Data.ToHeaders ListAlarmModelVersions where
@@ -142,17 +142,17 @@ instance Data.ToPath ListAlarmModelVersions where
 instance Data.ToQuery ListAlarmModelVersions where
   toQuery ListAlarmModelVersions' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListAlarmModelVersionsResponse' smart constructor.
 data ListAlarmModelVersionsResponse = ListAlarmModelVersionsResponse'
-  { -- | The token that you can use to return the next set of results, or @null@
+  { -- | A list that summarizes each alarm model version.
+    alarmModelVersionSummaries :: Prelude.Maybe [AlarmModelVersionSummary],
+    -- | The token that you can use to return the next set of results, or @null@
     -- if there are no more results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list that summarizes each alarm model version.
-    alarmModelVersionSummaries :: Prelude.Maybe [AlarmModelVersionSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -166,10 +166,10 @@ data ListAlarmModelVersionsResponse = ListAlarmModelVersionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'alarmModelVersionSummaries', 'listAlarmModelVersionsResponse_alarmModelVersionSummaries' - A list that summarizes each alarm model version.
+--
 -- 'nextToken', 'listAlarmModelVersionsResponse_nextToken' - The token that you can use to return the next set of results, or @null@
 -- if there are no more results.
---
--- 'alarmModelVersionSummaries', 'listAlarmModelVersionsResponse_alarmModelVersionSummaries' - A list that summarizes each alarm model version.
 --
 -- 'httpStatus', 'listAlarmModelVersionsResponse_httpStatus' - The response's http status code.
 newListAlarmModelVersionsResponse ::
@@ -178,21 +178,20 @@ newListAlarmModelVersionsResponse ::
   ListAlarmModelVersionsResponse
 newListAlarmModelVersionsResponse pHttpStatus_ =
   ListAlarmModelVersionsResponse'
-    { nextToken =
+    { alarmModelVersionSummaries =
         Prelude.Nothing,
-      alarmModelVersionSummaries =
-        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list that summarizes each alarm model version.
+listAlarmModelVersionsResponse_alarmModelVersionSummaries :: Lens.Lens' ListAlarmModelVersionsResponse (Prelude.Maybe [AlarmModelVersionSummary])
+listAlarmModelVersionsResponse_alarmModelVersionSummaries = Lens.lens (\ListAlarmModelVersionsResponse' {alarmModelVersionSummaries} -> alarmModelVersionSummaries) (\s@ListAlarmModelVersionsResponse' {} a -> s {alarmModelVersionSummaries = a} :: ListAlarmModelVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token that you can use to return the next set of results, or @null@
 -- if there are no more results.
 listAlarmModelVersionsResponse_nextToken :: Lens.Lens' ListAlarmModelVersionsResponse (Prelude.Maybe Prelude.Text)
 listAlarmModelVersionsResponse_nextToken = Lens.lens (\ListAlarmModelVersionsResponse' {nextToken} -> nextToken) (\s@ListAlarmModelVersionsResponse' {} a -> s {nextToken = a} :: ListAlarmModelVersionsResponse)
-
--- | A list that summarizes each alarm model version.
-listAlarmModelVersionsResponse_alarmModelVersionSummaries :: Lens.Lens' ListAlarmModelVersionsResponse (Prelude.Maybe [AlarmModelVersionSummary])
-listAlarmModelVersionsResponse_alarmModelVersionSummaries = Lens.lens (\ListAlarmModelVersionsResponse' {alarmModelVersionSummaries} -> alarmModelVersionSummaries) (\s@ListAlarmModelVersionsResponse' {} a -> s {alarmModelVersionSummaries = a} :: ListAlarmModelVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAlarmModelVersionsResponse_httpStatus :: Lens.Lens' ListAlarmModelVersionsResponse Prelude.Int
@@ -203,6 +202,6 @@ instance
     ListAlarmModelVersionsResponse
   where
   rnf ListAlarmModelVersionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf alarmModelVersionSummaries
+    Prelude.rnf alarmModelVersionSummaries
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -47,11 +47,20 @@ module Amazonka.ELB
     -- * Errors
     -- $errors
 
-    -- ** InvalidSchemeException
-    _InvalidSchemeException,
+    -- ** AccessPointNotFoundException
+    _AccessPointNotFoundException,
 
-    -- ** ListenerNotFoundException
-    _ListenerNotFoundException,
+    -- ** CertificateNotFoundException
+    _CertificateNotFoundException,
+
+    -- ** DependencyThrottleException
+    _DependencyThrottleException,
+
+    -- ** DuplicateAccessPointNameException
+    _DuplicateAccessPointNameException,
+
+    -- ** DuplicateListenerException
+    _DuplicateListenerException,
 
     -- ** DuplicatePolicyNameException
     _DuplicatePolicyNameException,
@@ -59,68 +68,59 @@ module Amazonka.ELB
     -- ** DuplicateTagKeysException
     _DuplicateTagKeysException,
 
-    -- ** PolicyTypeNotFoundException
-    _PolicyTypeNotFoundException,
-
-    -- ** CertificateNotFoundException
-    _CertificateNotFoundException,
-
-    -- ** TooManyTagsException
-    _TooManyTagsException,
-
-    -- ** InvalidSecurityGroupException
-    _InvalidSecurityGroupException,
-
-    -- ** LoadBalancerAttributeNotFoundException
-    _LoadBalancerAttributeNotFoundException,
-
-    -- ** DependencyThrottleException
-    _DependencyThrottleException,
-
-    -- ** PolicyNotFoundException
-    _PolicyNotFoundException,
-
-    -- ** TooManyPoliciesException
-    _TooManyPoliciesException,
-
-    -- ** TooManyAccessPointsException
-    _TooManyAccessPointsException,
-
-    -- ** AccessPointNotFoundException
-    _AccessPointNotFoundException,
+    -- ** InvalidConfigurationRequestException
+    _InvalidConfigurationRequestException,
 
     -- ** InvalidEndPointException
     _InvalidEndPointException,
 
+    -- ** InvalidSchemeException
+    _InvalidSchemeException,
+
+    -- ** InvalidSecurityGroupException
+    _InvalidSecurityGroupException,
+
     -- ** InvalidSubnetException
     _InvalidSubnetException,
+
+    -- ** ListenerNotFoundException
+    _ListenerNotFoundException,
+
+    -- ** LoadBalancerAttributeNotFoundException
+    _LoadBalancerAttributeNotFoundException,
 
     -- ** OperationNotPermittedException
     _OperationNotPermittedException,
 
-    -- ** InvalidConfigurationRequestException
-    _InvalidConfigurationRequestException,
+    -- ** PolicyNotFoundException
+    _PolicyNotFoundException,
 
-    -- ** DuplicateListenerException
-    _DuplicateListenerException,
+    -- ** PolicyTypeNotFoundException
+    _PolicyTypeNotFoundException,
 
     -- ** SubnetNotFoundException
     _SubnetNotFoundException,
 
+    -- ** TooManyAccessPointsException
+    _TooManyAccessPointsException,
+
+    -- ** TooManyPoliciesException
+    _TooManyPoliciesException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
+
     -- ** UnsupportedProtocolException
     _UnsupportedProtocolException,
-
-    -- ** DuplicateAccessPointNameException
-    _DuplicateAccessPointNameException,
 
     -- * Waiters
     -- $waiters
 
-    -- ** InstanceDeregistered
-    newInstanceDeregistered,
-
     -- ** AnyInstanceInService
     newAnyInstanceInService,
+
+    -- ** InstanceDeregistered
+    newInstanceDeregistered,
 
     -- ** InstanceInService
     newInstanceInService,

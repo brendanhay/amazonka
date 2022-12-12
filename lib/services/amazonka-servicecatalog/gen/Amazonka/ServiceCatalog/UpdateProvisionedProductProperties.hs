@@ -37,10 +37,10 @@ module Amazonka.ServiceCatalog.UpdateProvisionedProductProperties
     newUpdateProvisionedProductPropertiesResponse,
 
     -- * Response Lenses
+    updateProvisionedProductPropertiesResponse_provisionedProductId,
     updateProvisionedProductPropertiesResponse_provisionedProductProperties,
     updateProvisionedProductPropertiesResponse_recordId,
     updateProvisionedProductPropertiesResponse_status,
-    updateProvisionedProductPropertiesResponse_provisionedProductId,
     updateProvisionedProductPropertiesResponse_httpStatus,
   )
 where
@@ -234,12 +234,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           UpdateProvisionedProductPropertiesResponse'
-            Prelude.<$> ( x Data..?> "ProvisionedProductProperties"
-                            Core..!@ Prelude.mempty
-                        )
+            Prelude.<$> (x Data..?> "ProvisionedProductId")
+              Prelude.<*> ( x Data..?> "ProvisionedProductProperties"
+                              Core..!@ Prelude.mempty
+                          )
               Prelude.<*> (x Data..?> "RecordId")
               Prelude.<*> (x Data..?> "Status")
-              Prelude.<*> (x Data..?> "ProvisionedProductId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -319,14 +319,14 @@ instance
 
 -- | /See:/ 'newUpdateProvisionedProductPropertiesResponse' smart constructor.
 data UpdateProvisionedProductPropertiesResponse = UpdateProvisionedProductPropertiesResponse'
-  { -- | A map that contains the properties updated.
+  { -- | The provisioned product identifier.
+    provisionedProductId :: Prelude.Maybe Prelude.Text,
+    -- | A map that contains the properties updated.
     provisionedProductProperties :: Prelude.Maybe (Prelude.HashMap PropertyKey Prelude.Text),
     -- | The identifier of the record.
     recordId :: Prelude.Maybe Prelude.Text,
     -- | The status of the request.
     status :: Prelude.Maybe RecordStatus,
-    -- | The provisioned product identifier.
-    provisionedProductId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -340,13 +340,13 @@ data UpdateProvisionedProductPropertiesResponse = UpdateProvisionedProductProper
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'provisionedProductId', 'updateProvisionedProductPropertiesResponse_provisionedProductId' - The provisioned product identifier.
+--
 -- 'provisionedProductProperties', 'updateProvisionedProductPropertiesResponse_provisionedProductProperties' - A map that contains the properties updated.
 --
 -- 'recordId', 'updateProvisionedProductPropertiesResponse_recordId' - The identifier of the record.
 --
 -- 'status', 'updateProvisionedProductPropertiesResponse_status' - The status of the request.
---
--- 'provisionedProductId', 'updateProvisionedProductPropertiesResponse_provisionedProductId' - The provisioned product identifier.
 --
 -- 'httpStatus', 'updateProvisionedProductPropertiesResponse_httpStatus' - The response's http status code.
 newUpdateProvisionedProductPropertiesResponse ::
@@ -356,14 +356,18 @@ newUpdateProvisionedProductPropertiesResponse ::
 newUpdateProvisionedProductPropertiesResponse
   pHttpStatus_ =
     UpdateProvisionedProductPropertiesResponse'
-      { provisionedProductProperties =
+      { provisionedProductId =
+          Prelude.Nothing,
+        provisionedProductProperties =
           Prelude.Nothing,
         recordId = Prelude.Nothing,
         status = Prelude.Nothing,
-        provisionedProductId =
-          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | The provisioned product identifier.
+updateProvisionedProductPropertiesResponse_provisionedProductId :: Lens.Lens' UpdateProvisionedProductPropertiesResponse (Prelude.Maybe Prelude.Text)
+updateProvisionedProductPropertiesResponse_provisionedProductId = Lens.lens (\UpdateProvisionedProductPropertiesResponse' {provisionedProductId} -> provisionedProductId) (\s@UpdateProvisionedProductPropertiesResponse' {} a -> s {provisionedProductId = a} :: UpdateProvisionedProductPropertiesResponse)
 
 -- | A map that contains the properties updated.
 updateProvisionedProductPropertiesResponse_provisionedProductProperties :: Lens.Lens' UpdateProvisionedProductPropertiesResponse (Prelude.Maybe (Prelude.HashMap PropertyKey Prelude.Text))
@@ -377,10 +381,6 @@ updateProvisionedProductPropertiesResponse_recordId = Lens.lens (\UpdateProvisio
 updateProvisionedProductPropertiesResponse_status :: Lens.Lens' UpdateProvisionedProductPropertiesResponse (Prelude.Maybe RecordStatus)
 updateProvisionedProductPropertiesResponse_status = Lens.lens (\UpdateProvisionedProductPropertiesResponse' {status} -> status) (\s@UpdateProvisionedProductPropertiesResponse' {} a -> s {status = a} :: UpdateProvisionedProductPropertiesResponse)
 
--- | The provisioned product identifier.
-updateProvisionedProductPropertiesResponse_provisionedProductId :: Lens.Lens' UpdateProvisionedProductPropertiesResponse (Prelude.Maybe Prelude.Text)
-updateProvisionedProductPropertiesResponse_provisionedProductId = Lens.lens (\UpdateProvisionedProductPropertiesResponse' {provisionedProductId} -> provisionedProductId) (\s@UpdateProvisionedProductPropertiesResponse' {} a -> s {provisionedProductId = a} :: UpdateProvisionedProductPropertiesResponse)
-
 -- | The response's http status code.
 updateProvisionedProductPropertiesResponse_httpStatus :: Lens.Lens' UpdateProvisionedProductPropertiesResponse Prelude.Int
 updateProvisionedProductPropertiesResponse_httpStatus = Lens.lens (\UpdateProvisionedProductPropertiesResponse' {httpStatus} -> httpStatus) (\s@UpdateProvisionedProductPropertiesResponse' {} a -> s {httpStatus = a} :: UpdateProvisionedProductPropertiesResponse)
@@ -390,8 +390,8 @@ instance
     UpdateProvisionedProductPropertiesResponse
   where
   rnf UpdateProvisionedProductPropertiesResponse' {..} =
-    Prelude.rnf provisionedProductProperties
+    Prelude.rnf provisionedProductId
+      `Prelude.seq` Prelude.rnf provisionedProductProperties
       `Prelude.seq` Prelude.rnf recordId
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf provisionedProductId
       `Prelude.seq` Prelude.rnf httpStatus

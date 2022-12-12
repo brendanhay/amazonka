@@ -32,26 +32,26 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDashManifest' smart constructor.
 data DashManifest = DashManifest'
-  { -- | The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set
-    -- to \"HBBTV_1_5\", HbbTV 1.5 compliant output is enabled.
-    profile :: Prelude.Maybe Profile,
-    streamSelection :: Prelude.Maybe StreamSelection,
-    -- | An optional string to include in the name of the manifest.
-    manifestName :: Prelude.Maybe Prelude.Text,
-    -- | Determines the position of some tags in the Media Presentation
+  { -- | Determines the position of some tags in the Media Presentation
     -- Description (MPD). When set to FULL, elements like SegmentTemplate and
     -- ContentProtection are included in each Representation. When set to
     -- COMPACT, duplicate elements are combined and presented at the
     -- AdaptationSet level.
     manifestLayout :: Prelude.Maybe ManifestLayout,
+    -- | An optional string to include in the name of the manifest.
+    manifestName :: Prelude.Maybe Prelude.Text,
+    -- | Minimum duration (in seconds) that a player will buffer media before
+    -- starting the presentation.
+    minBufferTimeSeconds :: Prelude.Maybe Prelude.Int,
+    -- | The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set
+    -- to \"HBBTV_1_5\", HbbTV 1.5 compliant output is enabled.
+    profile :: Prelude.Maybe Profile,
     -- | The source of scte markers used. When set to SEGMENTS, the scte markers
     -- are sourced from the segments of the ingested content. When set to
     -- MANIFEST, the scte markers are sourced from the manifest of the ingested
     -- content.
     scteMarkersSource :: Prelude.Maybe ScteMarkersSource,
-    -- | Minimum duration (in seconds) that a player will buffer media before
-    -- starting the presentation.
-    minBufferTimeSeconds :: Prelude.Maybe Prelude.Int
+    streamSelection :: Prelude.Maybe StreamSelection
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,50 +63,37 @@ data DashManifest = DashManifest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'profile', 'dashManifest_profile' - The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set
--- to \"HBBTV_1_5\", HbbTV 1.5 compliant output is enabled.
---
--- 'streamSelection', 'dashManifest_streamSelection' - Undocumented member.
---
--- 'manifestName', 'dashManifest_manifestName' - An optional string to include in the name of the manifest.
---
 -- 'manifestLayout', 'dashManifest_manifestLayout' - Determines the position of some tags in the Media Presentation
 -- Description (MPD). When set to FULL, elements like SegmentTemplate and
 -- ContentProtection are included in each Representation. When set to
 -- COMPACT, duplicate elements are combined and presented at the
 -- AdaptationSet level.
 --
+-- 'manifestName', 'dashManifest_manifestName' - An optional string to include in the name of the manifest.
+--
+-- 'minBufferTimeSeconds', 'dashManifest_minBufferTimeSeconds' - Minimum duration (in seconds) that a player will buffer media before
+-- starting the presentation.
+--
+-- 'profile', 'dashManifest_profile' - The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set
+-- to \"HBBTV_1_5\", HbbTV 1.5 compliant output is enabled.
+--
 -- 'scteMarkersSource', 'dashManifest_scteMarkersSource' - The source of scte markers used. When set to SEGMENTS, the scte markers
 -- are sourced from the segments of the ingested content. When set to
 -- MANIFEST, the scte markers are sourced from the manifest of the ingested
 -- content.
 --
--- 'minBufferTimeSeconds', 'dashManifest_minBufferTimeSeconds' - Minimum duration (in seconds) that a player will buffer media before
--- starting the presentation.
+-- 'streamSelection', 'dashManifest_streamSelection' - Undocumented member.
 newDashManifest ::
   DashManifest
 newDashManifest =
   DashManifest'
-    { profile = Prelude.Nothing,
-      streamSelection = Prelude.Nothing,
+    { manifestLayout = Prelude.Nothing,
       manifestName = Prelude.Nothing,
-      manifestLayout = Prelude.Nothing,
+      minBufferTimeSeconds = Prelude.Nothing,
+      profile = Prelude.Nothing,
       scteMarkersSource = Prelude.Nothing,
-      minBufferTimeSeconds = Prelude.Nothing
+      streamSelection = Prelude.Nothing
     }
-
--- | The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set
--- to \"HBBTV_1_5\", HbbTV 1.5 compliant output is enabled.
-dashManifest_profile :: Lens.Lens' DashManifest (Prelude.Maybe Profile)
-dashManifest_profile = Lens.lens (\DashManifest' {profile} -> profile) (\s@DashManifest' {} a -> s {profile = a} :: DashManifest)
-
--- | Undocumented member.
-dashManifest_streamSelection :: Lens.Lens' DashManifest (Prelude.Maybe StreamSelection)
-dashManifest_streamSelection = Lens.lens (\DashManifest' {streamSelection} -> streamSelection) (\s@DashManifest' {} a -> s {streamSelection = a} :: DashManifest)
-
--- | An optional string to include in the name of the manifest.
-dashManifest_manifestName :: Lens.Lens' DashManifest (Prelude.Maybe Prelude.Text)
-dashManifest_manifestName = Lens.lens (\DashManifest' {manifestName} -> manifestName) (\s@DashManifest' {} a -> s {manifestName = a} :: DashManifest)
 
 -- | Determines the position of some tags in the Media Presentation
 -- Description (MPD). When set to FULL, elements like SegmentTemplate and
@@ -116,6 +103,20 @@ dashManifest_manifestName = Lens.lens (\DashManifest' {manifestName} -> manifest
 dashManifest_manifestLayout :: Lens.Lens' DashManifest (Prelude.Maybe ManifestLayout)
 dashManifest_manifestLayout = Lens.lens (\DashManifest' {manifestLayout} -> manifestLayout) (\s@DashManifest' {} a -> s {manifestLayout = a} :: DashManifest)
 
+-- | An optional string to include in the name of the manifest.
+dashManifest_manifestName :: Lens.Lens' DashManifest (Prelude.Maybe Prelude.Text)
+dashManifest_manifestName = Lens.lens (\DashManifest' {manifestName} -> manifestName) (\s@DashManifest' {} a -> s {manifestName = a} :: DashManifest)
+
+-- | Minimum duration (in seconds) that a player will buffer media before
+-- starting the presentation.
+dashManifest_minBufferTimeSeconds :: Lens.Lens' DashManifest (Prelude.Maybe Prelude.Int)
+dashManifest_minBufferTimeSeconds = Lens.lens (\DashManifest' {minBufferTimeSeconds} -> minBufferTimeSeconds) (\s@DashManifest' {} a -> s {minBufferTimeSeconds = a} :: DashManifest)
+
+-- | The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set
+-- to \"HBBTV_1_5\", HbbTV 1.5 compliant output is enabled.
+dashManifest_profile :: Lens.Lens' DashManifest (Prelude.Maybe Profile)
+dashManifest_profile = Lens.lens (\DashManifest' {profile} -> profile) (\s@DashManifest' {} a -> s {profile = a} :: DashManifest)
+
 -- | The source of scte markers used. When set to SEGMENTS, the scte markers
 -- are sourced from the segments of the ingested content. When set to
 -- MANIFEST, the scte markers are sourced from the manifest of the ingested
@@ -123,10 +124,9 @@ dashManifest_manifestLayout = Lens.lens (\DashManifest' {manifestLayout} -> mani
 dashManifest_scteMarkersSource :: Lens.Lens' DashManifest (Prelude.Maybe ScteMarkersSource)
 dashManifest_scteMarkersSource = Lens.lens (\DashManifest' {scteMarkersSource} -> scteMarkersSource) (\s@DashManifest' {} a -> s {scteMarkersSource = a} :: DashManifest)
 
--- | Minimum duration (in seconds) that a player will buffer media before
--- starting the presentation.
-dashManifest_minBufferTimeSeconds :: Lens.Lens' DashManifest (Prelude.Maybe Prelude.Int)
-dashManifest_minBufferTimeSeconds = Lens.lens (\DashManifest' {minBufferTimeSeconds} -> minBufferTimeSeconds) (\s@DashManifest' {} a -> s {minBufferTimeSeconds = a} :: DashManifest)
+-- | Undocumented member.
+dashManifest_streamSelection :: Lens.Lens' DashManifest (Prelude.Maybe StreamSelection)
+dashManifest_streamSelection = Lens.lens (\DashManifest' {streamSelection} -> streamSelection) (\s@DashManifest' {} a -> s {streamSelection = a} :: DashManifest)
 
 instance Data.FromJSON DashManifest where
   parseJSON =
@@ -134,45 +134,45 @@ instance Data.FromJSON DashManifest where
       "DashManifest"
       ( \x ->
           DashManifest'
-            Prelude.<$> (x Data..:? "profile")
-            Prelude.<*> (x Data..:? "streamSelection")
+            Prelude.<$> (x Data..:? "manifestLayout")
             Prelude.<*> (x Data..:? "manifestName")
-            Prelude.<*> (x Data..:? "manifestLayout")
-            Prelude.<*> (x Data..:? "scteMarkersSource")
             Prelude.<*> (x Data..:? "minBufferTimeSeconds")
+            Prelude.<*> (x Data..:? "profile")
+            Prelude.<*> (x Data..:? "scteMarkersSource")
+            Prelude.<*> (x Data..:? "streamSelection")
       )
 
 instance Prelude.Hashable DashManifest where
   hashWithSalt _salt DashManifest' {..} =
-    _salt `Prelude.hashWithSalt` profile
-      `Prelude.hashWithSalt` streamSelection
+    _salt `Prelude.hashWithSalt` manifestLayout
       `Prelude.hashWithSalt` manifestName
-      `Prelude.hashWithSalt` manifestLayout
-      `Prelude.hashWithSalt` scteMarkersSource
       `Prelude.hashWithSalt` minBufferTimeSeconds
+      `Prelude.hashWithSalt` profile
+      `Prelude.hashWithSalt` scteMarkersSource
+      `Prelude.hashWithSalt` streamSelection
 
 instance Prelude.NFData DashManifest where
   rnf DashManifest' {..} =
-    Prelude.rnf profile
-      `Prelude.seq` Prelude.rnf streamSelection
+    Prelude.rnf manifestLayout
       `Prelude.seq` Prelude.rnf manifestName
-      `Prelude.seq` Prelude.rnf manifestLayout
-      `Prelude.seq` Prelude.rnf scteMarkersSource
       `Prelude.seq` Prelude.rnf minBufferTimeSeconds
+      `Prelude.seq` Prelude.rnf profile
+      `Prelude.seq` Prelude.rnf scteMarkersSource
+      `Prelude.seq` Prelude.rnf streamSelection
 
 instance Data.ToJSON DashManifest where
   toJSON DashManifest' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("profile" Data..=) Prelude.<$> profile,
-            ("streamSelection" Data..=)
-              Prelude.<$> streamSelection,
-            ("manifestName" Data..=) Prelude.<$> manifestName,
-            ("manifestLayout" Data..=)
+          [ ("manifestLayout" Data..=)
               Prelude.<$> manifestLayout,
+            ("manifestName" Data..=) Prelude.<$> manifestName,
+            ("minBufferTimeSeconds" Data..=)
+              Prelude.<$> minBufferTimeSeconds,
+            ("profile" Data..=) Prelude.<$> profile,
             ("scteMarkersSource" Data..=)
               Prelude.<$> scteMarkersSource,
-            ("minBufferTimeSeconds" Data..=)
-              Prelude.<$> minBufferTimeSeconds
+            ("streamSelection" Data..=)
+              Prelude.<$> streamSelection
           ]
       )

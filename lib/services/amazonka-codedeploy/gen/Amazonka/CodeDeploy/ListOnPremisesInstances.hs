@@ -42,8 +42,8 @@ module Amazonka.CodeDeploy.ListOnPremisesInstances
     newListOnPremisesInstancesResponse,
 
     -- * Response Lenses
-    listOnPremisesInstancesResponse_nextToken,
     listOnPremisesInstancesResponse_instanceNames,
+    listOnPremisesInstancesResponse_nextToken,
     listOnPremisesInstancesResponse_httpStatus,
   )
 where
@@ -163,8 +163,8 @@ instance Core.AWSRequest ListOnPremisesInstances where
     Response.receiveJSON
       ( \s h x ->
           ListOnPremisesInstancesResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "instanceNames" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "instanceNames" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -216,12 +216,12 @@ instance Data.ToQuery ListOnPremisesInstances where
 --
 -- /See:/ 'newListOnPremisesInstancesResponse' smart constructor.
 data ListOnPremisesInstancesResponse = ListOnPremisesInstancesResponse'
-  { -- | If a large amount of information is returned, an identifier is also
+  { -- | The list of matching on-premises instance names.
+    instanceNames :: Prelude.Maybe [Prelude.Text],
+    -- | If a large amount of information is returned, an identifier is also
     -- returned. It can be used in a subsequent list on-premises instances call
     -- to return the next set of on-premises instances in the list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of matching on-premises instance names.
-    instanceNames :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -235,11 +235,11 @@ data ListOnPremisesInstancesResponse = ListOnPremisesInstancesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'instanceNames', 'listOnPremisesInstancesResponse_instanceNames' - The list of matching on-premises instance names.
+--
 -- 'nextToken', 'listOnPremisesInstancesResponse_nextToken' - If a large amount of information is returned, an identifier is also
 -- returned. It can be used in a subsequent list on-premises instances call
 -- to return the next set of on-premises instances in the list.
---
--- 'instanceNames', 'listOnPremisesInstancesResponse_instanceNames' - The list of matching on-premises instance names.
 --
 -- 'httpStatus', 'listOnPremisesInstancesResponse_httpStatus' - The response's http status code.
 newListOnPremisesInstancesResponse ::
@@ -248,21 +248,21 @@ newListOnPremisesInstancesResponse ::
   ListOnPremisesInstancesResponse
 newListOnPremisesInstancesResponse pHttpStatus_ =
   ListOnPremisesInstancesResponse'
-    { nextToken =
+    { instanceNames =
         Prelude.Nothing,
-      instanceNames = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of matching on-premises instance names.
+listOnPremisesInstancesResponse_instanceNames :: Lens.Lens' ListOnPremisesInstancesResponse (Prelude.Maybe [Prelude.Text])
+listOnPremisesInstancesResponse_instanceNames = Lens.lens (\ListOnPremisesInstancesResponse' {instanceNames} -> instanceNames) (\s@ListOnPremisesInstancesResponse' {} a -> s {instanceNames = a} :: ListOnPremisesInstancesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If a large amount of information is returned, an identifier is also
 -- returned. It can be used in a subsequent list on-premises instances call
 -- to return the next set of on-premises instances in the list.
 listOnPremisesInstancesResponse_nextToken :: Lens.Lens' ListOnPremisesInstancesResponse (Prelude.Maybe Prelude.Text)
 listOnPremisesInstancesResponse_nextToken = Lens.lens (\ListOnPremisesInstancesResponse' {nextToken} -> nextToken) (\s@ListOnPremisesInstancesResponse' {} a -> s {nextToken = a} :: ListOnPremisesInstancesResponse)
-
--- | The list of matching on-premises instance names.
-listOnPremisesInstancesResponse_instanceNames :: Lens.Lens' ListOnPremisesInstancesResponse (Prelude.Maybe [Prelude.Text])
-listOnPremisesInstancesResponse_instanceNames = Lens.lens (\ListOnPremisesInstancesResponse' {instanceNames} -> instanceNames) (\s@ListOnPremisesInstancesResponse' {} a -> s {instanceNames = a} :: ListOnPremisesInstancesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listOnPremisesInstancesResponse_httpStatus :: Lens.Lens' ListOnPremisesInstancesResponse Prelude.Int
@@ -273,6 +273,6 @@ instance
     ListOnPremisesInstancesResponse
   where
   rnf ListOnPremisesInstancesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instanceNames
+    Prelude.rnf instanceNames
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

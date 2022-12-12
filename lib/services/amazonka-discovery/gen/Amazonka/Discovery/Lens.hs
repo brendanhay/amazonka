@@ -45,12 +45,12 @@ module Amazonka.Discovery.Lens
     deleteTagsResponse_httpStatus,
 
     -- ** DescribeAgents
-    describeAgents_nextToken,
+    describeAgents_agentIds,
     describeAgents_filters,
     describeAgents_maxResults,
-    describeAgents_agentIds,
-    describeAgentsResponse_nextToken,
+    describeAgents_nextToken,
     describeAgentsResponse_agentsInfo,
+    describeAgentsResponse_nextToken,
     describeAgentsResponse_httpStatus,
 
     -- ** DescribeConfigurations
@@ -60,35 +60,35 @@ module Amazonka.Discovery.Lens
 
     -- ** DescribeContinuousExports
     describeContinuousExports_exportIds,
-    describeContinuousExports_nextToken,
     describeContinuousExports_maxResults,
-    describeContinuousExportsResponse_nextToken,
+    describeContinuousExports_nextToken,
     describeContinuousExportsResponse_descriptions,
+    describeContinuousExportsResponse_nextToken,
     describeContinuousExportsResponse_httpStatus,
 
     -- ** DescribeExportTasks
     describeExportTasks_exportIds,
-    describeExportTasks_nextToken,
     describeExportTasks_filters,
     describeExportTasks_maxResults,
-    describeExportTasksResponse_nextToken,
+    describeExportTasks_nextToken,
     describeExportTasksResponse_exportsInfo,
+    describeExportTasksResponse_nextToken,
     describeExportTasksResponse_httpStatus,
 
     -- ** DescribeImportTasks
-    describeImportTasks_nextToken,
     describeImportTasks_filters,
     describeImportTasks_maxResults,
-    describeImportTasksResponse_tasks,
+    describeImportTasks_nextToken,
     describeImportTasksResponse_nextToken,
+    describeImportTasksResponse_tasks,
     describeImportTasksResponse_httpStatus,
 
     -- ** DescribeTags
-    describeTags_nextToken,
     describeTags_filters,
     describeTags_maxResults,
-    describeTagsResponse_tags,
+    describeTags_nextToken,
     describeTagsResponse_nextToken,
+    describeTagsResponse_tags,
     describeTagsResponse_httpStatus,
 
     -- ** DisassociateConfigurationItemsFromApplication
@@ -97,42 +97,42 @@ module Amazonka.Discovery.Lens
     disassociateConfigurationItemsFromApplicationResponse_httpStatus,
 
     -- ** GetDiscoverySummary
-    getDiscoverySummaryResponse_servers,
+    getDiscoverySummaryResponse_agentSummary,
     getDiscoverySummaryResponse_agentlessCollectorSummary,
     getDiscoverySummaryResponse_applications,
-    getDiscoverySummaryResponse_agentSummary,
     getDiscoverySummaryResponse_connectorSummary,
-    getDiscoverySummaryResponse_serversMappedtoTags,
     getDiscoverySummaryResponse_meCollectorSummary,
+    getDiscoverySummaryResponse_servers,
     getDiscoverySummaryResponse_serversMappedToApplications,
+    getDiscoverySummaryResponse_serversMappedtoTags,
     getDiscoverySummaryResponse_httpStatus,
 
     -- ** ListConfigurations
-    listConfigurations_nextToken,
     listConfigurations_filters,
     listConfigurations_maxResults,
+    listConfigurations_nextToken,
     listConfigurations_orderBy,
     listConfigurations_configurationType,
-    listConfigurationsResponse_nextToken,
     listConfigurationsResponse_configurations,
+    listConfigurationsResponse_nextToken,
     listConfigurationsResponse_httpStatus,
 
     -- ** ListServerNeighbors
-    listServerNeighbors_portInformationNeeded,
-    listServerNeighbors_nextToken,
-    listServerNeighbors_neighborConfigurationIds,
     listServerNeighbors_maxResults,
+    listServerNeighbors_neighborConfigurationIds,
+    listServerNeighbors_nextToken,
+    listServerNeighbors_portInformationNeeded,
     listServerNeighbors_configurationId,
-    listServerNeighborsResponse_nextToken,
     listServerNeighborsResponse_knownDependencyCount,
+    listServerNeighborsResponse_nextToken,
     listServerNeighborsResponse_httpStatus,
     listServerNeighborsResponse_neighbors,
 
     -- ** StartContinuousExport
-    startContinuousExportResponse_s3Bucket,
-    startContinuousExportResponse_schemaStorageConfig,
     startContinuousExportResponse_dataSource,
     startContinuousExportResponse_exportId,
+    startContinuousExportResponse_s3Bucket,
+    startContinuousExportResponse_schemaStorageConfig,
     startContinuousExportResponse_startTime,
     startContinuousExportResponse_httpStatus,
 
@@ -142,9 +142,9 @@ module Amazonka.Discovery.Lens
     startDataCollectionByAgentIdsResponse_httpStatus,
 
     -- ** StartExportTask
-    startExportTask_filters,
     startExportTask_endTime,
     startExportTask_exportDataFormat,
+    startExportTask_filters,
     startExportTask_startTime,
     startExportTaskResponse_exportId,
     startExportTaskResponse_httpStatus,
@@ -158,8 +158,8 @@ module Amazonka.Discovery.Lens
 
     -- ** StopContinuousExport
     stopContinuousExport_exportId,
-    stopContinuousExportResponse_stopTime,
     stopContinuousExportResponse_startTime,
+    stopContinuousExportResponse_stopTime,
     stopContinuousExportResponse_httpStatus,
 
     -- ** StopDataCollectionByAgentIds
@@ -168,55 +168,55 @@ module Amazonka.Discovery.Lens
     stopDataCollectionByAgentIdsResponse_httpStatus,
 
     -- ** UpdateApplication
-    updateApplication_name,
     updateApplication_description,
+    updateApplication_name,
     updateApplication_configurationId,
     updateApplicationResponse_httpStatus,
 
     -- * Types
 
     -- ** AgentConfigurationStatus
-    agentConfigurationStatus_description,
     agentConfigurationStatus_agentId,
+    agentConfigurationStatus_description,
     agentConfigurationStatus_operationSucceeded,
 
     -- ** AgentInfo
+    agentInfo_agentId,
+    agentInfo_agentNetworkInfoList,
     agentInfo_agentType,
     agentInfo_collectionStatus,
     agentInfo_connectorId,
-    agentInfo_lastHealthPingTime,
-    agentInfo_hostName,
-    agentInfo_agentId,
     agentInfo_health,
-    agentInfo_agentNetworkInfoList,
+    agentInfo_hostName,
+    agentInfo_lastHealthPingTime,
     agentInfo_registeredTime,
     agentInfo_version,
 
     -- ** AgentNetworkInfo
-    agentNetworkInfo_macAddress,
     agentNetworkInfo_ipAddress,
+    agentNetworkInfo_macAddress,
 
     -- ** BatchDeleteImportDataError
-    batchDeleteImportDataError_importTaskId,
     batchDeleteImportDataError_errorCode,
     batchDeleteImportDataError_errorDescription,
+    batchDeleteImportDataError_importTaskId,
 
     -- ** ConfigurationTag
-    configurationTag_key,
-    configurationTag_timeOfCreation,
     configurationTag_configurationId,
     configurationTag_configurationType,
+    configurationTag_key,
+    configurationTag_timeOfCreation,
     configurationTag_value,
 
     -- ** ContinuousExportDescription
-    continuousExportDescription_s3Bucket,
-    continuousExportDescription_stopTime,
-    continuousExportDescription_statusDetail,
-    continuousExportDescription_status,
-    continuousExportDescription_schemaStorageConfig,
     continuousExportDescription_dataSource,
     continuousExportDescription_exportId,
+    continuousExportDescription_s3Bucket,
+    continuousExportDescription_schemaStorageConfig,
     continuousExportDescription_startTime,
+    continuousExportDescription_status,
+    continuousExportDescription_statusDetail,
+    continuousExportDescription_stopTime,
 
     -- ** CustomerAgentInfo
     customerAgentInfo_activeAgents,
@@ -260,10 +260,10 @@ module Amazonka.Discovery.Lens
     exportFilter_condition,
 
     -- ** ExportInfo
-    exportInfo_requestedEndTime,
-    exportInfo_isTruncated,
-    exportInfo_requestedStartTime,
     exportInfo_configurationsDownloadUrl,
+    exportInfo_isTruncated,
+    exportInfo_requestedEndTime,
+    exportInfo_requestedStartTime,
     exportInfo_exportId,
     exportInfo_exportStatus,
     exportInfo_statusMessage,
@@ -275,27 +275,27 @@ module Amazonka.Discovery.Lens
     filter_condition,
 
     -- ** ImportTask
+    importTask_applicationImportFailure,
+    importTask_applicationImportSuccess,
+    importTask_clientRequestToken,
+    importTask_errorsAndFailedEntriesZip,
+    importTask_importCompletionTime,
+    importTask_importDeletedTime,
+    importTask_importRequestTime,
+    importTask_importTaskId,
+    importTask_importUrl,
     importTask_name,
     importTask_serverImportFailure,
-    importTask_clientRequestToken,
-    importTask_importTaskId,
-    importTask_status,
     importTask_serverImportSuccess,
-    importTask_errorsAndFailedEntriesZip,
-    importTask_applicationImportSuccess,
-    importTask_applicationImportFailure,
-    importTask_importCompletionTime,
-    importTask_importRequestTime,
-    importTask_importUrl,
-    importTask_importDeletedTime,
+    importTask_status,
 
     -- ** ImportTaskFilter
     importTaskFilter_name,
     importTaskFilter_values,
 
     -- ** NeighborConnectionDetail
-    neighborConnectionDetail_transportProtocol,
     neighborConnectionDetail_destinationPort,
+    neighborConnectionDetail_transportProtocol,
     neighborConnectionDetail_sourceServerId,
     neighborConnectionDetail_destinationServerId,
     neighborConnectionDetail_connectionsCount,

@@ -31,10 +31,7 @@ import Amazonka.Redshift.Internal
 --
 -- /See:/ 'newClusterIamRole' smart constructor.
 data ClusterIamRole = ClusterIamRole'
-  { -- | The Amazon Resource Name (ARN) of the IAM role, for example,
-    -- @arn:aws:iam::123456789012:role\/RedshiftCopyUnload@.
-    iamRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | A value that describes the status of the IAM role\'s association with an
+  { -- | A value that describes the status of the IAM role\'s association with an
     -- Amazon Redshift cluster.
     --
     -- The following are possible statuses and descriptions.
@@ -46,7 +43,10 @@ data ClusterIamRole = ClusterIamRole'
     --
     -- -   @removing@: The role is in the process of being disassociated with
     --     the cluster.
-    applyStatus :: Prelude.Maybe Prelude.Text
+    applyStatus :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the IAM role, for example,
+    -- @arn:aws:iam::123456789012:role\/RedshiftCopyUnload@.
+    iamRoleArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,9 +57,6 @@ data ClusterIamRole = ClusterIamRole'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'iamRoleArn', 'clusterIamRole_iamRoleArn' - The Amazon Resource Name (ARN) of the IAM role, for example,
--- @arn:aws:iam::123456789012:role\/RedshiftCopyUnload@.
 --
 -- 'applyStatus', 'clusterIamRole_applyStatus' - A value that describes the status of the IAM role\'s association with an
 -- Amazon Redshift cluster.
@@ -73,18 +70,16 @@ data ClusterIamRole = ClusterIamRole'
 --
 -- -   @removing@: The role is in the process of being disassociated with
 --     the cluster.
+--
+-- 'iamRoleArn', 'clusterIamRole_iamRoleArn' - The Amazon Resource Name (ARN) of the IAM role, for example,
+-- @arn:aws:iam::123456789012:role\/RedshiftCopyUnload@.
 newClusterIamRole ::
   ClusterIamRole
 newClusterIamRole =
   ClusterIamRole'
-    { iamRoleArn = Prelude.Nothing,
-      applyStatus = Prelude.Nothing
+    { applyStatus = Prelude.Nothing,
+      iamRoleArn = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the IAM role, for example,
--- @arn:aws:iam::123456789012:role\/RedshiftCopyUnload@.
-clusterIamRole_iamRoleArn :: Lens.Lens' ClusterIamRole (Prelude.Maybe Prelude.Text)
-clusterIamRole_iamRoleArn = Lens.lens (\ClusterIamRole' {iamRoleArn} -> iamRoleArn) (\s@ClusterIamRole' {} a -> s {iamRoleArn = a} :: ClusterIamRole)
 
 -- | A value that describes the status of the IAM role\'s association with an
 -- Amazon Redshift cluster.
@@ -101,18 +96,23 @@ clusterIamRole_iamRoleArn = Lens.lens (\ClusterIamRole' {iamRoleArn} -> iamRoleA
 clusterIamRole_applyStatus :: Lens.Lens' ClusterIamRole (Prelude.Maybe Prelude.Text)
 clusterIamRole_applyStatus = Lens.lens (\ClusterIamRole' {applyStatus} -> applyStatus) (\s@ClusterIamRole' {} a -> s {applyStatus = a} :: ClusterIamRole)
 
+-- | The Amazon Resource Name (ARN) of the IAM role, for example,
+-- @arn:aws:iam::123456789012:role\/RedshiftCopyUnload@.
+clusterIamRole_iamRoleArn :: Lens.Lens' ClusterIamRole (Prelude.Maybe Prelude.Text)
+clusterIamRole_iamRoleArn = Lens.lens (\ClusterIamRole' {iamRoleArn} -> iamRoleArn) (\s@ClusterIamRole' {} a -> s {iamRoleArn = a} :: ClusterIamRole)
+
 instance Data.FromXML ClusterIamRole where
   parseXML x =
     ClusterIamRole'
-      Prelude.<$> (x Data..@? "IamRoleArn")
-      Prelude.<*> (x Data..@? "ApplyStatus")
+      Prelude.<$> (x Data..@? "ApplyStatus")
+      Prelude.<*> (x Data..@? "IamRoleArn")
 
 instance Prelude.Hashable ClusterIamRole where
   hashWithSalt _salt ClusterIamRole' {..} =
-    _salt `Prelude.hashWithSalt` iamRoleArn
-      `Prelude.hashWithSalt` applyStatus
+    _salt `Prelude.hashWithSalt` applyStatus
+      `Prelude.hashWithSalt` iamRoleArn
 
 instance Prelude.NFData ClusterIamRole where
   rnf ClusterIamRole' {..} =
-    Prelude.rnf iamRoleArn
-      `Prelude.seq` Prelude.rnf applyStatus
+    Prelude.rnf applyStatus
+      `Prelude.seq` Prelude.rnf iamRoleArn

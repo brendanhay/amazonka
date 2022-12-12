@@ -30,14 +30,15 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | A list of the types of analyses to perform. This field specifies what
--- feature types need to be extracted from the document where entity
--- recognition is expected.
+-- | Specifies the type of Amazon Textract features to apply. If you chose
+-- @TEXTRACT_ANALYZE_DOCUMENT@ as the read action, you must specify one or
+-- both of the following values:
 --
--- -   @TABLES@ - Add TABLES to the list to return information about the
---     tables that are detected in the input document.
+-- -   @TABLES@ - Returns additional information about any tables that are
+--     detected in the input document.
 --
--- -   @FORMS@ - Add FORMS to return detected form data.
+-- -   @FORMS@ - Returns additional information about any forms that are
+--     detected in the input document.
 newtype DocumentReadFeatureTypes = DocumentReadFeatureTypes'
   { fromDocumentReadFeatureTypes ::
       Data.Text

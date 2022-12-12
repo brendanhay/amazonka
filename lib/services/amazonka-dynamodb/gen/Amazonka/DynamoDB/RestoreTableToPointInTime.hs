@@ -65,15 +65,15 @@ module Amazonka.DynamoDB.RestoreTableToPointInTime
     newRestoreTableToPointInTime,
 
     -- * Request Lenses
-    restoreTableToPointInTime_provisionedThroughputOverride,
+    restoreTableToPointInTime_billingModeOverride,
+    restoreTableToPointInTime_globalSecondaryIndexOverride,
     restoreTableToPointInTime_localSecondaryIndexOverride,
+    restoreTableToPointInTime_provisionedThroughputOverride,
+    restoreTableToPointInTime_restoreDateTime,
     restoreTableToPointInTime_sSESpecificationOverride,
     restoreTableToPointInTime_sourceTableArn,
-    restoreTableToPointInTime_useLatestRestorableTime,
-    restoreTableToPointInTime_billingModeOverride,
-    restoreTableToPointInTime_restoreDateTime,
     restoreTableToPointInTime_sourceTableName,
-    restoreTableToPointInTime_globalSecondaryIndexOverride,
+    restoreTableToPointInTime_useLatestRestorableTime,
     restoreTableToPointInTime_targetTableName,
 
     -- * Destructuring the Response
@@ -96,31 +96,31 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRestoreTableToPointInTime' smart constructor.
 data RestoreTableToPointInTime = RestoreTableToPointInTime'
-  { -- | Provisioned throughput settings for the restored table.
-    provisionedThroughputOverride :: Prelude.Maybe ProvisionedThroughput,
+  { -- | The billing mode of the restored table.
+    billingModeOverride :: Prelude.Maybe BillingMode,
+    -- | List of global secondary indexes for the restored table. The indexes
+    -- provided should match existing secondary indexes. You can choose to
+    -- exclude some or all of the indexes at the time of restore.
+    globalSecondaryIndexOverride :: Prelude.Maybe [GlobalSecondaryIndex],
     -- | List of local secondary indexes for the restored table. The indexes
     -- provided should match existing secondary indexes. You can choose to
     -- exclude some or all of the indexes at the time of restore.
     localSecondaryIndexOverride :: Prelude.Maybe [LocalSecondaryIndex],
+    -- | Provisioned throughput settings for the restored table.
+    provisionedThroughputOverride :: Prelude.Maybe ProvisionedThroughput,
+    -- | Time in the past to restore the table to.
+    restoreDateTime :: Prelude.Maybe Data.POSIX,
     -- | The new server-side encryption settings for the restored table.
     sSESpecificationOverride :: Prelude.Maybe SSESpecification,
     -- | The DynamoDB table that will be restored. This value is an Amazon
     -- Resource Name (ARN).
     sourceTableArn :: Prelude.Maybe Prelude.Text,
+    -- | Name of the source table that is being restored.
+    sourceTableName :: Prelude.Maybe Prelude.Text,
     -- | Restore the table to the latest possible time.
     -- @LatestRestorableDateTime@ is typically 5 minutes before the current
     -- time.
     useLatestRestorableTime :: Prelude.Maybe Prelude.Bool,
-    -- | The billing mode of the restored table.
-    billingModeOverride :: Prelude.Maybe BillingMode,
-    -- | Time in the past to restore the table to.
-    restoreDateTime :: Prelude.Maybe Data.POSIX,
-    -- | Name of the source table that is being restored.
-    sourceTableName :: Prelude.Maybe Prelude.Text,
-    -- | List of global secondary indexes for the restored table. The indexes
-    -- provided should match existing secondary indexes. You can choose to
-    -- exclude some or all of the indexes at the time of restore.
-    globalSecondaryIndexOverride :: Prelude.Maybe [GlobalSecondaryIndex],
     -- | The name of the new table to which it must be restored to.
     targetTableName :: Prelude.Text
   }
@@ -134,30 +134,30 @@ data RestoreTableToPointInTime = RestoreTableToPointInTime'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'provisionedThroughputOverride', 'restoreTableToPointInTime_provisionedThroughputOverride' - Provisioned throughput settings for the restored table.
+-- 'billingModeOverride', 'restoreTableToPointInTime_billingModeOverride' - The billing mode of the restored table.
+--
+-- 'globalSecondaryIndexOverride', 'restoreTableToPointInTime_globalSecondaryIndexOverride' - List of global secondary indexes for the restored table. The indexes
+-- provided should match existing secondary indexes. You can choose to
+-- exclude some or all of the indexes at the time of restore.
 --
 -- 'localSecondaryIndexOverride', 'restoreTableToPointInTime_localSecondaryIndexOverride' - List of local secondary indexes for the restored table. The indexes
 -- provided should match existing secondary indexes. You can choose to
 -- exclude some or all of the indexes at the time of restore.
+--
+-- 'provisionedThroughputOverride', 'restoreTableToPointInTime_provisionedThroughputOverride' - Provisioned throughput settings for the restored table.
+--
+-- 'restoreDateTime', 'restoreTableToPointInTime_restoreDateTime' - Time in the past to restore the table to.
 --
 -- 'sSESpecificationOverride', 'restoreTableToPointInTime_sSESpecificationOverride' - The new server-side encryption settings for the restored table.
 --
 -- 'sourceTableArn', 'restoreTableToPointInTime_sourceTableArn' - The DynamoDB table that will be restored. This value is an Amazon
 -- Resource Name (ARN).
 --
+-- 'sourceTableName', 'restoreTableToPointInTime_sourceTableName' - Name of the source table that is being restored.
+--
 -- 'useLatestRestorableTime', 'restoreTableToPointInTime_useLatestRestorableTime' - Restore the table to the latest possible time.
 -- @LatestRestorableDateTime@ is typically 5 minutes before the current
 -- time.
---
--- 'billingModeOverride', 'restoreTableToPointInTime_billingModeOverride' - The billing mode of the restored table.
---
--- 'restoreDateTime', 'restoreTableToPointInTime_restoreDateTime' - Time in the past to restore the table to.
---
--- 'sourceTableName', 'restoreTableToPointInTime_sourceTableName' - Name of the source table that is being restored.
---
--- 'globalSecondaryIndexOverride', 'restoreTableToPointInTime_globalSecondaryIndexOverride' - List of global secondary indexes for the restored table. The indexes
--- provided should match existing secondary indexes. You can choose to
--- exclude some or all of the indexes at the time of restore.
 --
 -- 'targetTableName', 'restoreTableToPointInTime_targetTableName' - The name of the new table to which it must be restored to.
 newRestoreTableToPointInTime ::
@@ -166,28 +166,42 @@ newRestoreTableToPointInTime ::
   RestoreTableToPointInTime
 newRestoreTableToPointInTime pTargetTableName_ =
   RestoreTableToPointInTime'
-    { provisionedThroughputOverride =
+    { billingModeOverride =
         Prelude.Nothing,
+      globalSecondaryIndexOverride = Prelude.Nothing,
       localSecondaryIndexOverride = Prelude.Nothing,
+      provisionedThroughputOverride = Prelude.Nothing,
+      restoreDateTime = Prelude.Nothing,
       sSESpecificationOverride = Prelude.Nothing,
       sourceTableArn = Prelude.Nothing,
-      useLatestRestorableTime = Prelude.Nothing,
-      billingModeOverride = Prelude.Nothing,
-      restoreDateTime = Prelude.Nothing,
       sourceTableName = Prelude.Nothing,
-      globalSecondaryIndexOverride = Prelude.Nothing,
+      useLatestRestorableTime = Prelude.Nothing,
       targetTableName = pTargetTableName_
     }
 
--- | Provisioned throughput settings for the restored table.
-restoreTableToPointInTime_provisionedThroughputOverride :: Lens.Lens' RestoreTableToPointInTime (Prelude.Maybe ProvisionedThroughput)
-restoreTableToPointInTime_provisionedThroughputOverride = Lens.lens (\RestoreTableToPointInTime' {provisionedThroughputOverride} -> provisionedThroughputOverride) (\s@RestoreTableToPointInTime' {} a -> s {provisionedThroughputOverride = a} :: RestoreTableToPointInTime)
+-- | The billing mode of the restored table.
+restoreTableToPointInTime_billingModeOverride :: Lens.Lens' RestoreTableToPointInTime (Prelude.Maybe BillingMode)
+restoreTableToPointInTime_billingModeOverride = Lens.lens (\RestoreTableToPointInTime' {billingModeOverride} -> billingModeOverride) (\s@RestoreTableToPointInTime' {} a -> s {billingModeOverride = a} :: RestoreTableToPointInTime)
+
+-- | List of global secondary indexes for the restored table. The indexes
+-- provided should match existing secondary indexes. You can choose to
+-- exclude some or all of the indexes at the time of restore.
+restoreTableToPointInTime_globalSecondaryIndexOverride :: Lens.Lens' RestoreTableToPointInTime (Prelude.Maybe [GlobalSecondaryIndex])
+restoreTableToPointInTime_globalSecondaryIndexOverride = Lens.lens (\RestoreTableToPointInTime' {globalSecondaryIndexOverride} -> globalSecondaryIndexOverride) (\s@RestoreTableToPointInTime' {} a -> s {globalSecondaryIndexOverride = a} :: RestoreTableToPointInTime) Prelude.. Lens.mapping Lens.coerced
 
 -- | List of local secondary indexes for the restored table. The indexes
 -- provided should match existing secondary indexes. You can choose to
 -- exclude some or all of the indexes at the time of restore.
 restoreTableToPointInTime_localSecondaryIndexOverride :: Lens.Lens' RestoreTableToPointInTime (Prelude.Maybe [LocalSecondaryIndex])
 restoreTableToPointInTime_localSecondaryIndexOverride = Lens.lens (\RestoreTableToPointInTime' {localSecondaryIndexOverride} -> localSecondaryIndexOverride) (\s@RestoreTableToPointInTime' {} a -> s {localSecondaryIndexOverride = a} :: RestoreTableToPointInTime) Prelude.. Lens.mapping Lens.coerced
+
+-- | Provisioned throughput settings for the restored table.
+restoreTableToPointInTime_provisionedThroughputOverride :: Lens.Lens' RestoreTableToPointInTime (Prelude.Maybe ProvisionedThroughput)
+restoreTableToPointInTime_provisionedThroughputOverride = Lens.lens (\RestoreTableToPointInTime' {provisionedThroughputOverride} -> provisionedThroughputOverride) (\s@RestoreTableToPointInTime' {} a -> s {provisionedThroughputOverride = a} :: RestoreTableToPointInTime)
+
+-- | Time in the past to restore the table to.
+restoreTableToPointInTime_restoreDateTime :: Lens.Lens' RestoreTableToPointInTime (Prelude.Maybe Prelude.UTCTime)
+restoreTableToPointInTime_restoreDateTime = Lens.lens (\RestoreTableToPointInTime' {restoreDateTime} -> restoreDateTime) (\s@RestoreTableToPointInTime' {} a -> s {restoreDateTime = a} :: RestoreTableToPointInTime) Prelude.. Lens.mapping Data._Time
 
 -- | The new server-side encryption settings for the restored table.
 restoreTableToPointInTime_sSESpecificationOverride :: Lens.Lens' RestoreTableToPointInTime (Prelude.Maybe SSESpecification)
@@ -198,29 +212,15 @@ restoreTableToPointInTime_sSESpecificationOverride = Lens.lens (\RestoreTableToP
 restoreTableToPointInTime_sourceTableArn :: Lens.Lens' RestoreTableToPointInTime (Prelude.Maybe Prelude.Text)
 restoreTableToPointInTime_sourceTableArn = Lens.lens (\RestoreTableToPointInTime' {sourceTableArn} -> sourceTableArn) (\s@RestoreTableToPointInTime' {} a -> s {sourceTableArn = a} :: RestoreTableToPointInTime)
 
+-- | Name of the source table that is being restored.
+restoreTableToPointInTime_sourceTableName :: Lens.Lens' RestoreTableToPointInTime (Prelude.Maybe Prelude.Text)
+restoreTableToPointInTime_sourceTableName = Lens.lens (\RestoreTableToPointInTime' {sourceTableName} -> sourceTableName) (\s@RestoreTableToPointInTime' {} a -> s {sourceTableName = a} :: RestoreTableToPointInTime)
+
 -- | Restore the table to the latest possible time.
 -- @LatestRestorableDateTime@ is typically 5 minutes before the current
 -- time.
 restoreTableToPointInTime_useLatestRestorableTime :: Lens.Lens' RestoreTableToPointInTime (Prelude.Maybe Prelude.Bool)
 restoreTableToPointInTime_useLatestRestorableTime = Lens.lens (\RestoreTableToPointInTime' {useLatestRestorableTime} -> useLatestRestorableTime) (\s@RestoreTableToPointInTime' {} a -> s {useLatestRestorableTime = a} :: RestoreTableToPointInTime)
-
--- | The billing mode of the restored table.
-restoreTableToPointInTime_billingModeOverride :: Lens.Lens' RestoreTableToPointInTime (Prelude.Maybe BillingMode)
-restoreTableToPointInTime_billingModeOverride = Lens.lens (\RestoreTableToPointInTime' {billingModeOverride} -> billingModeOverride) (\s@RestoreTableToPointInTime' {} a -> s {billingModeOverride = a} :: RestoreTableToPointInTime)
-
--- | Time in the past to restore the table to.
-restoreTableToPointInTime_restoreDateTime :: Lens.Lens' RestoreTableToPointInTime (Prelude.Maybe Prelude.UTCTime)
-restoreTableToPointInTime_restoreDateTime = Lens.lens (\RestoreTableToPointInTime' {restoreDateTime} -> restoreDateTime) (\s@RestoreTableToPointInTime' {} a -> s {restoreDateTime = a} :: RestoreTableToPointInTime) Prelude.. Lens.mapping Data._Time
-
--- | Name of the source table that is being restored.
-restoreTableToPointInTime_sourceTableName :: Lens.Lens' RestoreTableToPointInTime (Prelude.Maybe Prelude.Text)
-restoreTableToPointInTime_sourceTableName = Lens.lens (\RestoreTableToPointInTime' {sourceTableName} -> sourceTableName) (\s@RestoreTableToPointInTime' {} a -> s {sourceTableName = a} :: RestoreTableToPointInTime)
-
--- | List of global secondary indexes for the restored table. The indexes
--- provided should match existing secondary indexes. You can choose to
--- exclude some or all of the indexes at the time of restore.
-restoreTableToPointInTime_globalSecondaryIndexOverride :: Lens.Lens' RestoreTableToPointInTime (Prelude.Maybe [GlobalSecondaryIndex])
-restoreTableToPointInTime_globalSecondaryIndexOverride = Lens.lens (\RestoreTableToPointInTime' {globalSecondaryIndexOverride} -> globalSecondaryIndexOverride) (\s@RestoreTableToPointInTime' {} a -> s {globalSecondaryIndexOverride = a} :: RestoreTableToPointInTime) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the new table to which it must be restored to.
 restoreTableToPointInTime_targetTableName :: Lens.Lens' RestoreTableToPointInTime Prelude.Text
@@ -242,29 +242,28 @@ instance Core.AWSRequest RestoreTableToPointInTime where
 
 instance Prelude.Hashable RestoreTableToPointInTime where
   hashWithSalt _salt RestoreTableToPointInTime' {..} =
-    _salt
-      `Prelude.hashWithSalt` provisionedThroughputOverride
+    _salt `Prelude.hashWithSalt` billingModeOverride
+      `Prelude.hashWithSalt` globalSecondaryIndexOverride
       `Prelude.hashWithSalt` localSecondaryIndexOverride
+      `Prelude.hashWithSalt` provisionedThroughputOverride
+      `Prelude.hashWithSalt` restoreDateTime
       `Prelude.hashWithSalt` sSESpecificationOverride
       `Prelude.hashWithSalt` sourceTableArn
-      `Prelude.hashWithSalt` useLatestRestorableTime
-      `Prelude.hashWithSalt` billingModeOverride
-      `Prelude.hashWithSalt` restoreDateTime
       `Prelude.hashWithSalt` sourceTableName
-      `Prelude.hashWithSalt` globalSecondaryIndexOverride
+      `Prelude.hashWithSalt` useLatestRestorableTime
       `Prelude.hashWithSalt` targetTableName
 
 instance Prelude.NFData RestoreTableToPointInTime where
   rnf RestoreTableToPointInTime' {..} =
-    Prelude.rnf provisionedThroughputOverride
+    Prelude.rnf billingModeOverride
+      `Prelude.seq` Prelude.rnf globalSecondaryIndexOverride
       `Prelude.seq` Prelude.rnf localSecondaryIndexOverride
+      `Prelude.seq` Prelude.rnf provisionedThroughputOverride
+      `Prelude.seq` Prelude.rnf restoreDateTime
       `Prelude.seq` Prelude.rnf sSESpecificationOverride
       `Prelude.seq` Prelude.rnf sourceTableArn
-      `Prelude.seq` Prelude.rnf useLatestRestorableTime
-      `Prelude.seq` Prelude.rnf billingModeOverride
-      `Prelude.seq` Prelude.rnf restoreDateTime
       `Prelude.seq` Prelude.rnf sourceTableName
-      `Prelude.seq` Prelude.rnf globalSecondaryIndexOverride
+      `Prelude.seq` Prelude.rnf useLatestRestorableTime
       `Prelude.seq` Prelude.rnf targetTableName
 
 instance Data.ToHeaders RestoreTableToPointInTime where
@@ -286,24 +285,24 @@ instance Data.ToJSON RestoreTableToPointInTime where
   toJSON RestoreTableToPointInTime' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ProvisionedThroughputOverride" Data..=)
-              Prelude.<$> provisionedThroughputOverride,
+          [ ("BillingModeOverride" Data..=)
+              Prelude.<$> billingModeOverride,
+            ("GlobalSecondaryIndexOverride" Data..=)
+              Prelude.<$> globalSecondaryIndexOverride,
             ("LocalSecondaryIndexOverride" Data..=)
               Prelude.<$> localSecondaryIndexOverride,
+            ("ProvisionedThroughputOverride" Data..=)
+              Prelude.<$> provisionedThroughputOverride,
+            ("RestoreDateTime" Data..=)
+              Prelude.<$> restoreDateTime,
             ("SSESpecificationOverride" Data..=)
               Prelude.<$> sSESpecificationOverride,
             ("SourceTableArn" Data..=)
               Prelude.<$> sourceTableArn,
-            ("UseLatestRestorableTime" Data..=)
-              Prelude.<$> useLatestRestorableTime,
-            ("BillingModeOverride" Data..=)
-              Prelude.<$> billingModeOverride,
-            ("RestoreDateTime" Data..=)
-              Prelude.<$> restoreDateTime,
             ("SourceTableName" Data..=)
               Prelude.<$> sourceTableName,
-            ("GlobalSecondaryIndexOverride" Data..=)
-              Prelude.<$> globalSecondaryIndexOverride,
+            ("UseLatestRestorableTime" Data..=)
+              Prelude.<$> useLatestRestorableTime,
             Prelude.Just
               ("TargetTableName" Data..= targetTableName)
           ]

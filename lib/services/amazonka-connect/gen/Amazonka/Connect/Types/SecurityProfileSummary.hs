@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSecurityProfileSummary' smart constructor.
 data SecurityProfileSummary = SecurityProfileSummary'
-  { -- | The name of the security profile.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the security profile.
+  { -- | The Amazon Resource Name (ARN) of the security profile.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the security profile.
-    id :: Prelude.Maybe Prelude.Text
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The name of the security profile.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,23 +45,19 @@ data SecurityProfileSummary = SecurityProfileSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'securityProfileSummary_name' - The name of the security profile.
---
 -- 'arn', 'securityProfileSummary_arn' - The Amazon Resource Name (ARN) of the security profile.
 --
 -- 'id', 'securityProfileSummary_id' - The identifier of the security profile.
+--
+-- 'name', 'securityProfileSummary_name' - The name of the security profile.
 newSecurityProfileSummary ::
   SecurityProfileSummary
 newSecurityProfileSummary =
   SecurityProfileSummary'
-    { name = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      id = Prelude.Nothing
+    { arn = Prelude.Nothing,
+      id = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | The name of the security profile.
-securityProfileSummary_name :: Lens.Lens' SecurityProfileSummary (Prelude.Maybe Prelude.Text)
-securityProfileSummary_name = Lens.lens (\SecurityProfileSummary' {name} -> name) (\s@SecurityProfileSummary' {} a -> s {name = a} :: SecurityProfileSummary)
 
 -- | The Amazon Resource Name (ARN) of the security profile.
 securityProfileSummary_arn :: Lens.Lens' SecurityProfileSummary (Prelude.Maybe Prelude.Text)
@@ -71,25 +67,29 @@ securityProfileSummary_arn = Lens.lens (\SecurityProfileSummary' {arn} -> arn) (
 securityProfileSummary_id :: Lens.Lens' SecurityProfileSummary (Prelude.Maybe Prelude.Text)
 securityProfileSummary_id = Lens.lens (\SecurityProfileSummary' {id} -> id) (\s@SecurityProfileSummary' {} a -> s {id = a} :: SecurityProfileSummary)
 
+-- | The name of the security profile.
+securityProfileSummary_name :: Lens.Lens' SecurityProfileSummary (Prelude.Maybe Prelude.Text)
+securityProfileSummary_name = Lens.lens (\SecurityProfileSummary' {name} -> name) (\s@SecurityProfileSummary' {} a -> s {name = a} :: SecurityProfileSummary)
+
 instance Data.FromJSON SecurityProfileSummary where
   parseJSON =
     Data.withObject
       "SecurityProfileSummary"
       ( \x ->
           SecurityProfileSummary'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<$> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable SecurityProfileSummary where
   hashWithSalt _salt SecurityProfileSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData SecurityProfileSummary where
   rnf SecurityProfileSummary' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name

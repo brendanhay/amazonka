@@ -19,10 +19,10 @@ module Amazonka.AccessAnalyzer.Types
 
     -- * Errors
     _AccessDeniedException,
-    _InternalServerException,
-    _ServiceQuotaExceededException,
-    _ResourceNotFoundException,
     _ConflictException,
+    _InternalServerException,
+    _ResourceNotFoundException,
+    _ServiceQuotaExceededException,
     _ThrottlingException,
     _ValidationException,
 
@@ -96,15 +96,15 @@ module Amazonka.AccessAnalyzer.Types
     -- * AccessPreviewFinding
     AccessPreviewFinding (..),
     newAccessPreviewFinding,
-    accessPreviewFinding_principal,
-    accessPreviewFinding_sources,
-    accessPreviewFinding_isPublic,
-    accessPreviewFinding_existingFindingId,
-    accessPreviewFinding_condition,
     accessPreviewFinding_action,
+    accessPreviewFinding_condition,
     accessPreviewFinding_error,
+    accessPreviewFinding_existingFindingId,
     accessPreviewFinding_existingFindingStatus,
+    accessPreviewFinding_isPublic,
+    accessPreviewFinding_principal,
     accessPreviewFinding_resource,
+    accessPreviewFinding_sources,
     accessPreviewFinding_id,
     accessPreviewFinding_resourceType,
     accessPreviewFinding_createdAt,
@@ -129,16 +129,16 @@ module Amazonka.AccessAnalyzer.Types
     -- * AclGrantee
     AclGrantee (..),
     newAclGrantee,
-    aclGrantee_uri,
     aclGrantee_id,
+    aclGrantee_uri,
 
     -- * AnalyzedResource
     AnalyzedResource (..),
     newAnalyzedResource,
-    analyzedResource_status,
-    analyzedResource_sharedVia,
-    analyzedResource_error,
     analyzedResource_actions,
+    analyzedResource_error,
+    analyzedResource_sharedVia,
+    analyzedResource_status,
     analyzedResource_resourceArn,
     analyzedResource_resourceType,
     analyzedResource_createdAt,
@@ -157,10 +157,10 @@ module Amazonka.AccessAnalyzer.Types
     -- * AnalyzerSummary
     AnalyzerSummary (..),
     newAnalyzerSummary,
-    analyzerSummary_tags,
-    analyzerSummary_lastResourceAnalyzedAt,
     analyzerSummary_lastResourceAnalyzed,
+    analyzerSummary_lastResourceAnalyzedAt,
     analyzerSummary_statusReason,
+    analyzerSummary_tags,
     analyzerSummary_arn,
     analyzerSummary_name,
     analyzerSummary_type,
@@ -193,31 +193,31 @@ module Amazonka.AccessAnalyzer.Types
     -- * Configuration
     Configuration (..),
     newConfiguration,
-    configuration_ecrRepository,
-    configuration_s3Bucket,
-    configuration_iamRole,
-    configuration_snsTopic,
-    configuration_kmsKey,
-    configuration_rdsDbSnapshot,
-    configuration_rdsDbClusterSnapshot,
-    configuration_efsFileSystem,
-    configuration_sqsQueue,
-    configuration_secretsManagerSecret,
     configuration_ebsSnapshot,
+    configuration_ecrRepository,
+    configuration_efsFileSystem,
+    configuration_iamRole,
+    configuration_kmsKey,
+    configuration_rdsDbClusterSnapshot,
+    configuration_rdsDbSnapshot,
+    configuration_s3Bucket,
+    configuration_secretsManagerSecret,
+    configuration_snsTopic,
+    configuration_sqsQueue,
 
     -- * Criterion
     Criterion (..),
     newCriterion,
-    criterion_neq,
-    criterion_exists,
     criterion_contains,
     criterion_eq,
+    criterion_exists,
+    criterion_neq,
 
     -- * EbsSnapshotConfiguration
     EbsSnapshotConfiguration (..),
     newEbsSnapshotConfiguration,
-    ebsSnapshotConfiguration_kmsKeyId,
     ebsSnapshotConfiguration_groups,
+    ebsSnapshotConfiguration_kmsKeyId,
     ebsSnapshotConfiguration_userIds,
 
     -- * EcrRepositoryConfiguration
@@ -233,12 +233,12 @@ module Amazonka.AccessAnalyzer.Types
     -- * Finding
     Finding (..),
     newFinding,
-    finding_principal,
-    finding_sources,
-    finding_isPublic,
     finding_action,
     finding_error,
+    finding_isPublic,
+    finding_principal,
     finding_resource,
+    finding_sources,
     finding_id,
     finding_resourceType,
     finding_condition,
@@ -257,17 +257,18 @@ module Amazonka.AccessAnalyzer.Types
     -- * FindingSourceDetail
     FindingSourceDetail (..),
     newFindingSourceDetail,
+    findingSourceDetail_accessPointAccount,
     findingSourceDetail_accessPointArn,
 
     -- * FindingSummary
     FindingSummary (..),
     newFindingSummary,
-    findingSummary_principal,
-    findingSummary_sources,
-    findingSummary_isPublic,
     findingSummary_action,
     findingSummary_error,
+    findingSummary_isPublic,
+    findingSummary_principal,
     findingSummary_resource,
+    findingSummary_sources,
     findingSummary_id,
     findingSummary_resourceType,
     findingSummary_condition,
@@ -285,8 +286,8 @@ module Amazonka.AccessAnalyzer.Types
     -- * GeneratedPolicyProperties
     GeneratedPolicyProperties (..),
     newGeneratedPolicyProperties,
-    generatedPolicyProperties_isComplete,
     generatedPolicyProperties_cloudTrailProperties,
+    generatedPolicyProperties_isComplete,
     generatedPolicyProperties_principalArn,
 
     -- * GeneratedPolicyResult
@@ -313,8 +314,8 @@ module Amazonka.AccessAnalyzer.Types
     -- * JobDetails
     JobDetails (..),
     newJobDetails,
-    jobDetails_jobError,
     jobDetails_completedOn,
+    jobDetails_jobError,
     jobDetails_jobId,
     jobDetails_status,
     jobDetails_startedOn,
@@ -337,8 +338,8 @@ module Amazonka.AccessAnalyzer.Types
     -- * KmsGrantConstraints
     KmsGrantConstraints (..),
     newKmsGrantConstraints,
-    kmsGrantConstraints_encryptionContextSubset,
     kmsGrantConstraints_encryptionContextEquals,
+    kmsGrantConstraints_encryptionContextSubset,
 
     -- * KmsKeyConfiguration
     KmsKeyConfiguration (..),
@@ -355,14 +356,14 @@ module Amazonka.AccessAnalyzer.Types
     -- * NetworkOriginConfiguration
     NetworkOriginConfiguration (..),
     newNetworkOriginConfiguration,
-    networkOriginConfiguration_vpcConfiguration,
     networkOriginConfiguration_internetConfiguration,
+    networkOriginConfiguration_vpcConfiguration,
 
     -- * PathElement
     PathElement (..),
     newPathElement,
-    pathElement_key,
     pathElement_index,
+    pathElement_key,
     pathElement_substring,
     pathElement_value,
 
@@ -395,8 +396,8 @@ module Amazonka.AccessAnalyzer.Types
     -- * RdsDbClusterSnapshotConfiguration
     RdsDbClusterSnapshotConfiguration (..),
     newRdsDbClusterSnapshotConfiguration,
-    rdsDbClusterSnapshotConfiguration_kmsKeyId,
     rdsDbClusterSnapshotConfiguration_attributes,
+    rdsDbClusterSnapshotConfiguration_kmsKeyId,
 
     -- * RdsDbSnapshotAttributeValue
     RdsDbSnapshotAttributeValue (..),
@@ -406,15 +407,15 @@ module Amazonka.AccessAnalyzer.Types
     -- * RdsDbSnapshotConfiguration
     RdsDbSnapshotConfiguration (..),
     newRdsDbSnapshotConfiguration,
-    rdsDbSnapshotConfiguration_kmsKeyId,
     rdsDbSnapshotConfiguration_attributes,
+    rdsDbSnapshotConfiguration_kmsKeyId,
 
     -- * S3AccessPointConfiguration
     S3AccessPointConfiguration (..),
     newS3AccessPointConfiguration,
-    s3AccessPointConfiguration_publicAccessBlock,
-    s3AccessPointConfiguration_networkOrigin,
     s3AccessPointConfiguration_accessPointPolicy,
+    s3AccessPointConfiguration_networkOrigin,
+    s3AccessPointConfiguration_publicAccessBlock,
 
     -- * S3BucketAclGrantConfiguration
     S3BucketAclGrantConfiguration (..),
@@ -426,9 +427,9 @@ module Amazonka.AccessAnalyzer.Types
     S3BucketConfiguration (..),
     newS3BucketConfiguration,
     s3BucketConfiguration_accessPoints,
-    s3BucketConfiguration_bucketPublicAccessBlock,
     s3BucketConfiguration_bucketAclGrants,
     s3BucketConfiguration_bucketPolicy,
+    s3BucketConfiguration_bucketPublicAccessBlock,
 
     -- * S3PublicAccessBlockConfiguration
     S3PublicAccessBlockConfiguration (..),
@@ -439,8 +440,8 @@ module Amazonka.AccessAnalyzer.Types
     -- * SecretsManagerSecretConfiguration
     SecretsManagerSecretConfiguration (..),
     newSecretsManagerSecretConfiguration,
-    secretsManagerSecretConfiguration_secretPolicy,
     secretsManagerSecretConfiguration_kmsKeyId,
+    secretsManagerSecretConfiguration_secretPolicy,
 
     -- * SnsTopicConfiguration
     SnsTopicConfiguration (..),
@@ -450,8 +451,8 @@ module Amazonka.AccessAnalyzer.Types
     -- * SortCriteria
     SortCriteria (..),
     newSortCriteria,
-    sortCriteria_orderBy,
     sortCriteria_attributeName,
+    sortCriteria_orderBy,
 
     -- * Span
     Span (..),
@@ -478,15 +479,15 @@ module Amazonka.AccessAnalyzer.Types
     -- * Trail
     Trail (..),
     newTrail,
-    trail_regions,
     trail_allRegions,
+    trail_regions,
     trail_cloudTrailArn,
 
     -- * TrailProperties
     TrailProperties (..),
     newTrailProperties,
-    trailProperties_regions,
     trailProperties_allRegions,
+    trailProperties_regions,
     trailProperties_cloudTrailArn,
 
     -- * ValidatePolicyFinding
@@ -610,28 +611,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -639,13 +634,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -653,6 +652,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient access to perform this action.
@@ -663,6 +664,14 @@ _AccessDeniedException =
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
+-- | A conflict exception error.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
 -- | Internal server error.
 _InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InternalServerException =
@@ -670,14 +679,6 @@ _InternalServerException =
     defaultService
     "InternalServerException"
     Prelude.. Core.hasStatus 500
-
--- | Service quote met error.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceQuotaExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceQuotaExceededException"
-    Prelude.. Core.hasStatus 402
 
 -- | The specified resource could not be found.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -687,13 +688,13 @@ _ResourceNotFoundException =
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
 
--- | A conflict exception error.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
+-- | Service quote met error.
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
+    "ServiceQuotaExceededException"
+    Prelude.. Core.hasStatus 402
 
 -- | Throttling limit exceeded error.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

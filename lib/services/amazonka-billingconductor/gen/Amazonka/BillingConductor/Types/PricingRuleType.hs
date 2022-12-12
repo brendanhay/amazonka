@@ -21,7 +21,8 @@ module Amazonka.BillingConductor.Types.PricingRuleType
   ( PricingRuleType
       ( ..,
         PricingRuleType_DISCOUNT,
-        PricingRuleType_MARKUP
+        PricingRuleType_MARKUP,
+        PricingRuleType_TIERING
       ),
   )
 where
@@ -64,8 +65,12 @@ pattern PricingRuleType_DISCOUNT = PricingRuleType' "DISCOUNT"
 pattern PricingRuleType_MARKUP :: PricingRuleType
 pattern PricingRuleType_MARKUP = PricingRuleType' "MARKUP"
 
+pattern PricingRuleType_TIERING :: PricingRuleType
+pattern PricingRuleType_TIERING = PricingRuleType' "TIERING"
+
 {-# COMPLETE
   PricingRuleType_DISCOUNT,
   PricingRuleType_MARKUP,
+  PricingRuleType_TIERING,
   PricingRuleType'
   #-}

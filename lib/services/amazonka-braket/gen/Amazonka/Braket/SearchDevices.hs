@@ -29,8 +29,8 @@ module Amazonka.Braket.SearchDevices
     newSearchDevices,
 
     -- * Request Lenses
-    searchDevices_nextToken,
     searchDevices_maxResults,
+    searchDevices_nextToken,
     searchDevices_filters,
 
     -- * Destructuring the Response
@@ -54,12 +54,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSearchDevices' smart constructor.
 data SearchDevices = SearchDevices'
-  { -- | A token used for pagination of results returned in the response. Use the
+  { -- | The maximum number of results to return in the response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token used for pagination of results returned in the response. Use the
     -- token returned from the previous request continue results where the
     -- previous request ended.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The filter values to use to search for a device.
     filters :: [SearchDevicesFilter]
   }
@@ -73,31 +73,31 @@ data SearchDevices = SearchDevices'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'searchDevices_maxResults' - The maximum number of results to return in the response.
+--
 -- 'nextToken', 'searchDevices_nextToken' - A token used for pagination of results returned in the response. Use the
 -- token returned from the previous request continue results where the
 -- previous request ended.
---
--- 'maxResults', 'searchDevices_maxResults' - The maximum number of results to return in the response.
 --
 -- 'filters', 'searchDevices_filters' - The filter values to use to search for a device.
 newSearchDevices ::
   SearchDevices
 newSearchDevices =
   SearchDevices'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       filters = Prelude.mempty
     }
+
+-- | The maximum number of results to return in the response.
+searchDevices_maxResults :: Lens.Lens' SearchDevices (Prelude.Maybe Prelude.Natural)
+searchDevices_maxResults = Lens.lens (\SearchDevices' {maxResults} -> maxResults) (\s@SearchDevices' {} a -> s {maxResults = a} :: SearchDevices)
 
 -- | A token used for pagination of results returned in the response. Use the
 -- token returned from the previous request continue results where the
 -- previous request ended.
 searchDevices_nextToken :: Lens.Lens' SearchDevices (Prelude.Maybe Prelude.Text)
 searchDevices_nextToken = Lens.lens (\SearchDevices' {nextToken} -> nextToken) (\s@SearchDevices' {} a -> s {nextToken = a} :: SearchDevices)
-
--- | The maximum number of results to return in the response.
-searchDevices_maxResults :: Lens.Lens' SearchDevices (Prelude.Maybe Prelude.Natural)
-searchDevices_maxResults = Lens.lens (\SearchDevices' {maxResults} -> maxResults) (\s@SearchDevices' {} a -> s {maxResults = a} :: SearchDevices)
 
 -- | The filter values to use to search for a device.
 searchDevices_filters :: Lens.Lens' SearchDevices [SearchDevicesFilter]
@@ -137,14 +137,14 @@ instance Core.AWSRequest SearchDevices where
 
 instance Prelude.Hashable SearchDevices where
   hashWithSalt _salt SearchDevices' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` filters
 
 instance Prelude.NFData SearchDevices where
   rnf SearchDevices' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf filters
 
 instance Data.ToHeaders SearchDevices where
@@ -162,8 +162,8 @@ instance Data.ToJSON SearchDevices where
   toJSON SearchDevices' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("filters" Data..= filters)
           ]
       )

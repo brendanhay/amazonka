@@ -27,8 +27,8 @@ module Amazonka.APIGateway.CreateDocumentationVersion
     newCreateDocumentationVersion,
 
     -- * Request Lenses
-    createDocumentationVersion_stageName,
     createDocumentationVersion_description,
+    createDocumentationVersion_stageName,
     createDocumentationVersion_restApiId,
     createDocumentationVersion_documentationVersion,
 
@@ -37,8 +37,8 @@ module Amazonka.APIGateway.CreateDocumentationVersion
     newDocumentationVersion,
 
     -- * Response Lenses
-    documentationVersion_description,
     documentationVersion_createdDate,
+    documentationVersion_description,
     documentationVersion_version,
   )
 where
@@ -55,10 +55,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateDocumentationVersion' smart constructor.
 data CreateDocumentationVersion = CreateDocumentationVersion'
-  { -- | The stage name to be associated with the new documentation snapshot.
-    stageName :: Prelude.Maybe Prelude.Text,
-    -- | A description about the new documentation snapshot.
+  { -- | A description about the new documentation snapshot.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The stage name to be associated with the new documentation snapshot.
+    stageName :: Prelude.Maybe Prelude.Text,
     -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
     -- | The version identifier of the new snapshot.
@@ -74,9 +74,9 @@ data CreateDocumentationVersion = CreateDocumentationVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stageName', 'createDocumentationVersion_stageName' - The stage name to be associated with the new documentation snapshot.
---
 -- 'description', 'createDocumentationVersion_description' - A description about the new documentation snapshot.
+--
+-- 'stageName', 'createDocumentationVersion_stageName' - The stage name to be associated with the new documentation snapshot.
 --
 -- 'restApiId', 'createDocumentationVersion_restApiId' - The string identifier of the associated RestApi.
 --
@@ -91,20 +91,20 @@ newCreateDocumentationVersion
   pRestApiId_
   pDocumentationVersion_ =
     CreateDocumentationVersion'
-      { stageName =
+      { description =
           Prelude.Nothing,
-        description = Prelude.Nothing,
+        stageName = Prelude.Nothing,
         restApiId = pRestApiId_,
         documentationVersion = pDocumentationVersion_
       }
 
--- | The stage name to be associated with the new documentation snapshot.
-createDocumentationVersion_stageName :: Lens.Lens' CreateDocumentationVersion (Prelude.Maybe Prelude.Text)
-createDocumentationVersion_stageName = Lens.lens (\CreateDocumentationVersion' {stageName} -> stageName) (\s@CreateDocumentationVersion' {} a -> s {stageName = a} :: CreateDocumentationVersion)
-
 -- | A description about the new documentation snapshot.
 createDocumentationVersion_description :: Lens.Lens' CreateDocumentationVersion (Prelude.Maybe Prelude.Text)
 createDocumentationVersion_description = Lens.lens (\CreateDocumentationVersion' {description} -> description) (\s@CreateDocumentationVersion' {} a -> s {description = a} :: CreateDocumentationVersion)
+
+-- | The stage name to be associated with the new documentation snapshot.
+createDocumentationVersion_stageName :: Lens.Lens' CreateDocumentationVersion (Prelude.Maybe Prelude.Text)
+createDocumentationVersion_stageName = Lens.lens (\CreateDocumentationVersion' {stageName} -> stageName) (\s@CreateDocumentationVersion' {} a -> s {stageName = a} :: CreateDocumentationVersion)
 
 -- | The string identifier of the associated RestApi.
 createDocumentationVersion_restApiId :: Lens.Lens' CreateDocumentationVersion Prelude.Text
@@ -126,15 +126,15 @@ instance Core.AWSRequest CreateDocumentationVersion where
 
 instance Prelude.Hashable CreateDocumentationVersion where
   hashWithSalt _salt CreateDocumentationVersion' {..} =
-    _salt `Prelude.hashWithSalt` stageName
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` stageName
       `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` documentationVersion
 
 instance Prelude.NFData CreateDocumentationVersion where
   rnf CreateDocumentationVersion' {..} =
-    Prelude.rnf stageName
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf stageName
       `Prelude.seq` Prelude.rnf restApiId
       `Prelude.seq` Prelude.rnf documentationVersion
 
@@ -151,8 +151,8 @@ instance Data.ToJSON CreateDocumentationVersion where
   toJSON CreateDocumentationVersion' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("stageName" Data..=) Prelude.<$> stageName,
-            ("description" Data..=) Prelude.<$> description,
+          [ ("description" Data..=) Prelude.<$> description,
+            ("stageName" Data..=) Prelude.<$> stageName,
             Prelude.Just
               ( "documentationVersion"
                   Data..= documentationVersion

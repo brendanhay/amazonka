@@ -70,11 +70,11 @@ module Amazonka.RDS.CopyDBClusterSnapshot
     newCopyDBClusterSnapshot,
 
     -- * Request Lenses
-    copyDBClusterSnapshot_tags,
     copyDBClusterSnapshot_copyTags,
-    copyDBClusterSnapshot_kmsKeyId,
     copyDBClusterSnapshot_destinationRegion,
+    copyDBClusterSnapshot_kmsKeyId,
     copyDBClusterSnapshot_preSignedUrl,
+    copyDBClusterSnapshot_tags,
     copyDBClusterSnapshot_sourceDBClusterSnapshotIdentifier,
     copyDBClusterSnapshot_targetDBClusterSnapshotIdentifier,
 
@@ -100,11 +100,16 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCopyDBClusterSnapshot' smart constructor.
 data CopyDBClusterSnapshot = CopyDBClusterSnapshot'
-  { tags :: Prelude.Maybe [Tag],
-    -- | A value that indicates whether to copy all tags from the source DB
+  { -- | A value that indicates whether to copy all tags from the source DB
     -- cluster snapshot to the target DB cluster snapshot. By default, tags are
     -- not copied.
     copyTags :: Prelude.Maybe Prelude.Bool,
+    -- | Pseudo-parameter used when populating the @PreSignedUrl@ of a
+    -- cross-region @CopyDBClusterSnapshot@ request. To replicate from region
+    -- @SRC@ to region @DST@, send a request to region @DST@. In that request,
+    -- pass a @PreSignedUrl@ for region @SRC@ with @DestinationRegion@ set to
+    -- region @DST@.
+    destinationRegion :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services KMS key identifier for an encrypted DB cluster
     -- snapshot. The Amazon Web Services KMS key identifier is the key ARN, key
     -- ID, alias ARN, or alias name for the Amazon Web Services KMS key.
@@ -130,12 +135,6 @@ data CopyDBClusterSnapshot = CopyDBClusterSnapshot'
     -- If you copy an unencrypted DB cluster snapshot and specify a value for
     -- the @KmsKeyId@ parameter, an error is returned.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | Pseudo-parameter used when populating the @PreSignedUrl@ of a
-    -- cross-region @CopyDBClusterSnapshot@ request. To replicate from region
-    -- @SRC@ to region @DST@, send a request to region @DST@. In that request,
-    -- pass a @PreSignedUrl@ for region @SRC@ with @DestinationRegion@ set to
-    -- region @DST@.
-    destinationRegion :: Prelude.Maybe Prelude.Text,
     -- | When you are copying a DB cluster snapshot from one Amazon Web Services
     -- GovCloud (US) Region to another, the URL that contains a Signature
     -- Version 4 signed request for the @CopyDBClusterSnapshot@ API operation
@@ -184,6 +183,7 @@ data CopyDBClusterSnapshot = CopyDBClusterSnapshot'
     -- autogenerates a presigned URL that is a valid request for the operation
     -- that can run in the source Amazon Web Services Region.
     preSignedUrl :: Prelude.Maybe Prelude.Text,
+    tags :: Prelude.Maybe [Tag],
     -- | The identifier of the DB cluster snapshot to copy. This parameter isn\'t
     -- case-sensitive.
     --
@@ -229,11 +229,15 @@ data CopyDBClusterSnapshot = CopyDBClusterSnapshot'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'copyDBClusterSnapshot_tags' - Undocumented member.
---
 -- 'copyTags', 'copyDBClusterSnapshot_copyTags' - A value that indicates whether to copy all tags from the source DB
 -- cluster snapshot to the target DB cluster snapshot. By default, tags are
 -- not copied.
+--
+-- 'destinationRegion', 'copyDBClusterSnapshot_destinationRegion' - Pseudo-parameter used when populating the @PreSignedUrl@ of a
+-- cross-region @CopyDBClusterSnapshot@ request. To replicate from region
+-- @SRC@ to region @DST@, send a request to region @DST@. In that request,
+-- pass a @PreSignedUrl@ for region @SRC@ with @DestinationRegion@ set to
+-- region @DST@.
 --
 -- 'kmsKeyId', 'copyDBClusterSnapshot_kmsKeyId' - The Amazon Web Services KMS key identifier for an encrypted DB cluster
 -- snapshot. The Amazon Web Services KMS key identifier is the key ARN, key
@@ -259,12 +263,6 @@ data CopyDBClusterSnapshot = CopyDBClusterSnapshot'
 --
 -- If you copy an unencrypted DB cluster snapshot and specify a value for
 -- the @KmsKeyId@ parameter, an error is returned.
---
--- 'destinationRegion', 'copyDBClusterSnapshot_destinationRegion' - Pseudo-parameter used when populating the @PreSignedUrl@ of a
--- cross-region @CopyDBClusterSnapshot@ request. To replicate from region
--- @SRC@ to region @DST@, send a request to region @DST@. In that request,
--- pass a @PreSignedUrl@ for region @SRC@ with @DestinationRegion@ set to
--- region @DST@.
 --
 -- 'preSignedUrl', 'copyDBClusterSnapshot_preSignedUrl' - When you are copying a DB cluster snapshot from one Amazon Web Services
 -- GovCloud (US) Region to another, the URL that contains a Signature
@@ -314,6 +312,8 @@ data CopyDBClusterSnapshot = CopyDBClusterSnapshot'
 -- autogenerates a presigned URL that is a valid request for the operation
 -- that can run in the source Amazon Web Services Region.
 --
+-- 'tags', 'copyDBClusterSnapshot_tags' - Undocumented member.
+--
 -- 'sourceDBClusterSnapshotIdentifier', 'copyDBClusterSnapshot_sourceDBClusterSnapshotIdentifier' - The identifier of the DB cluster snapshot to copy. This parameter isn\'t
 -- case-sensitive.
 --
@@ -357,26 +357,30 @@ newCopyDBClusterSnapshot
   pSourceDBClusterSnapshotIdentifier_
   pTargetDBClusterSnapshotIdentifier_ =
     CopyDBClusterSnapshot'
-      { tags = Prelude.Nothing,
-        copyTags = Prelude.Nothing,
-        kmsKeyId = Prelude.Nothing,
+      { copyTags = Prelude.Nothing,
         destinationRegion = Prelude.Nothing,
+        kmsKeyId = Prelude.Nothing,
         preSignedUrl = Prelude.Nothing,
+        tags = Prelude.Nothing,
         sourceDBClusterSnapshotIdentifier =
           pSourceDBClusterSnapshotIdentifier_,
         targetDBClusterSnapshotIdentifier =
           pTargetDBClusterSnapshotIdentifier_
       }
 
--- | Undocumented member.
-copyDBClusterSnapshot_tags :: Lens.Lens' CopyDBClusterSnapshot (Prelude.Maybe [Tag])
-copyDBClusterSnapshot_tags = Lens.lens (\CopyDBClusterSnapshot' {tags} -> tags) (\s@CopyDBClusterSnapshot' {} a -> s {tags = a} :: CopyDBClusterSnapshot) Prelude.. Lens.mapping Lens.coerced
-
 -- | A value that indicates whether to copy all tags from the source DB
 -- cluster snapshot to the target DB cluster snapshot. By default, tags are
 -- not copied.
 copyDBClusterSnapshot_copyTags :: Lens.Lens' CopyDBClusterSnapshot (Prelude.Maybe Prelude.Bool)
 copyDBClusterSnapshot_copyTags = Lens.lens (\CopyDBClusterSnapshot' {copyTags} -> copyTags) (\s@CopyDBClusterSnapshot' {} a -> s {copyTags = a} :: CopyDBClusterSnapshot)
+
+-- | Pseudo-parameter used when populating the @PreSignedUrl@ of a
+-- cross-region @CopyDBClusterSnapshot@ request. To replicate from region
+-- @SRC@ to region @DST@, send a request to region @DST@. In that request,
+-- pass a @PreSignedUrl@ for region @SRC@ with @DestinationRegion@ set to
+-- region @DST@.
+copyDBClusterSnapshot_destinationRegion :: Lens.Lens' CopyDBClusterSnapshot (Prelude.Maybe Prelude.Text)
+copyDBClusterSnapshot_destinationRegion = Lens.lens (\CopyDBClusterSnapshot' {destinationRegion} -> destinationRegion) (\s@CopyDBClusterSnapshot' {} a -> s {destinationRegion = a} :: CopyDBClusterSnapshot)
 
 -- | The Amazon Web Services KMS key identifier for an encrypted DB cluster
 -- snapshot. The Amazon Web Services KMS key identifier is the key ARN, key
@@ -404,14 +408,6 @@ copyDBClusterSnapshot_copyTags = Lens.lens (\CopyDBClusterSnapshot' {copyTags} -
 -- the @KmsKeyId@ parameter, an error is returned.
 copyDBClusterSnapshot_kmsKeyId :: Lens.Lens' CopyDBClusterSnapshot (Prelude.Maybe Prelude.Text)
 copyDBClusterSnapshot_kmsKeyId = Lens.lens (\CopyDBClusterSnapshot' {kmsKeyId} -> kmsKeyId) (\s@CopyDBClusterSnapshot' {} a -> s {kmsKeyId = a} :: CopyDBClusterSnapshot)
-
--- | Pseudo-parameter used when populating the @PreSignedUrl@ of a
--- cross-region @CopyDBClusterSnapshot@ request. To replicate from region
--- @SRC@ to region @DST@, send a request to region @DST@. In that request,
--- pass a @PreSignedUrl@ for region @SRC@ with @DestinationRegion@ set to
--- region @DST@.
-copyDBClusterSnapshot_destinationRegion :: Lens.Lens' CopyDBClusterSnapshot (Prelude.Maybe Prelude.Text)
-copyDBClusterSnapshot_destinationRegion = Lens.lens (\CopyDBClusterSnapshot' {destinationRegion} -> destinationRegion) (\s@CopyDBClusterSnapshot' {} a -> s {destinationRegion = a} :: CopyDBClusterSnapshot)
 
 -- | When you are copying a DB cluster snapshot from one Amazon Web Services
 -- GovCloud (US) Region to another, the URL that contains a Signature
@@ -462,6 +458,10 @@ copyDBClusterSnapshot_destinationRegion = Lens.lens (\CopyDBClusterSnapshot' {de
 -- that can run in the source Amazon Web Services Region.
 copyDBClusterSnapshot_preSignedUrl :: Lens.Lens' CopyDBClusterSnapshot (Prelude.Maybe Prelude.Text)
 copyDBClusterSnapshot_preSignedUrl = Lens.lens (\CopyDBClusterSnapshot' {preSignedUrl} -> preSignedUrl) (\s@CopyDBClusterSnapshot' {} a -> s {preSignedUrl = a} :: CopyDBClusterSnapshot)
+
+-- | Undocumented member.
+copyDBClusterSnapshot_tags :: Lens.Lens' CopyDBClusterSnapshot (Prelude.Maybe [Tag])
+copyDBClusterSnapshot_tags = Lens.lens (\CopyDBClusterSnapshot' {tags} -> tags) (\s@CopyDBClusterSnapshot' {} a -> s {tags = a} :: CopyDBClusterSnapshot) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the DB cluster snapshot to copy. This parameter isn\'t
 -- case-sensitive.
@@ -518,21 +518,21 @@ instance Core.AWSRequest CopyDBClusterSnapshot where
 
 instance Prelude.Hashable CopyDBClusterSnapshot where
   hashWithSalt _salt CopyDBClusterSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` copyTags
-      `Prelude.hashWithSalt` kmsKeyId
+    _salt `Prelude.hashWithSalt` copyTags
       `Prelude.hashWithSalt` destinationRegion
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` preSignedUrl
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` sourceDBClusterSnapshotIdentifier
       `Prelude.hashWithSalt` targetDBClusterSnapshotIdentifier
 
 instance Prelude.NFData CopyDBClusterSnapshot where
   rnf CopyDBClusterSnapshot' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf copyTags
-      `Prelude.seq` Prelude.rnf kmsKeyId
+    Prelude.rnf copyTags
       `Prelude.seq` Prelude.rnf destinationRegion
+      `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf preSignedUrl
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf sourceDBClusterSnapshotIdentifier
       `Prelude.seq` Prelude.rnf targetDBClusterSnapshotIdentifier
 
@@ -549,13 +549,13 @@ instance Data.ToQuery CopyDBClusterSnapshot where
           Data.=: ("CopyDBClusterSnapshot" :: Prelude.ByteString),
         "Version"
           Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "CopyTags" Data.=: copyTags,
+        "DestinationRegion" Data.=: destinationRegion,
+        "KmsKeyId" Data.=: kmsKeyId,
+        "PreSignedUrl" Data.=: preSignedUrl,
         "Tags"
           Data.=: Data.toQuery
             (Data.toQueryList "Tag" Prelude.<$> tags),
-        "CopyTags" Data.=: copyTags,
-        "KmsKeyId" Data.=: kmsKeyId,
-        "DestinationRegion" Data.=: destinationRegion,
-        "PreSignedUrl" Data.=: preSignedUrl,
         "SourceDBClusterSnapshotIdentifier"
           Data.=: sourceDBClusterSnapshotIdentifier,
         "TargetDBClusterSnapshotIdentifier"

@@ -28,13 +28,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLabelCountersForWorkteam' smart constructor.
 data LabelCountersForWorkteam = LabelCountersForWorkteam'
-  { -- | The total number of data objects that need to be labeled by a human
+  { -- | The total number of data objects labeled by a human worker.
+    humanLabeled :: Prelude.Maybe Prelude.Natural,
+    -- | The total number of data objects that need to be labeled by a human
     -- worker.
     pendingHuman :: Prelude.Maybe Prelude.Natural,
     -- | The total number of tasks in the labeling job.
-    total :: Prelude.Maybe Prelude.Natural,
-    -- | The total number of data objects labeled by a human worker.
-    humanLabeled :: Prelude.Maybe Prelude.Natural
+    total :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,21 +46,25 @@ data LabelCountersForWorkteam = LabelCountersForWorkteam'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'humanLabeled', 'labelCountersForWorkteam_humanLabeled' - The total number of data objects labeled by a human worker.
+--
 -- 'pendingHuman', 'labelCountersForWorkteam_pendingHuman' - The total number of data objects that need to be labeled by a human
 -- worker.
 --
 -- 'total', 'labelCountersForWorkteam_total' - The total number of tasks in the labeling job.
---
--- 'humanLabeled', 'labelCountersForWorkteam_humanLabeled' - The total number of data objects labeled by a human worker.
 newLabelCountersForWorkteam ::
   LabelCountersForWorkteam
 newLabelCountersForWorkteam =
   LabelCountersForWorkteam'
-    { pendingHuman =
+    { humanLabeled =
         Prelude.Nothing,
-      total = Prelude.Nothing,
-      humanLabeled = Prelude.Nothing
+      pendingHuman = Prelude.Nothing,
+      total = Prelude.Nothing
     }
+
+-- | The total number of data objects labeled by a human worker.
+labelCountersForWorkteam_humanLabeled :: Lens.Lens' LabelCountersForWorkteam (Prelude.Maybe Prelude.Natural)
+labelCountersForWorkteam_humanLabeled = Lens.lens (\LabelCountersForWorkteam' {humanLabeled} -> humanLabeled) (\s@LabelCountersForWorkteam' {} a -> s {humanLabeled = a} :: LabelCountersForWorkteam)
 
 -- | The total number of data objects that need to be labeled by a human
 -- worker.
@@ -71,29 +75,25 @@ labelCountersForWorkteam_pendingHuman = Lens.lens (\LabelCountersForWorkteam' {p
 labelCountersForWorkteam_total :: Lens.Lens' LabelCountersForWorkteam (Prelude.Maybe Prelude.Natural)
 labelCountersForWorkteam_total = Lens.lens (\LabelCountersForWorkteam' {total} -> total) (\s@LabelCountersForWorkteam' {} a -> s {total = a} :: LabelCountersForWorkteam)
 
--- | The total number of data objects labeled by a human worker.
-labelCountersForWorkteam_humanLabeled :: Lens.Lens' LabelCountersForWorkteam (Prelude.Maybe Prelude.Natural)
-labelCountersForWorkteam_humanLabeled = Lens.lens (\LabelCountersForWorkteam' {humanLabeled} -> humanLabeled) (\s@LabelCountersForWorkteam' {} a -> s {humanLabeled = a} :: LabelCountersForWorkteam)
-
 instance Data.FromJSON LabelCountersForWorkteam where
   parseJSON =
     Data.withObject
       "LabelCountersForWorkteam"
       ( \x ->
           LabelCountersForWorkteam'
-            Prelude.<$> (x Data..:? "PendingHuman")
+            Prelude.<$> (x Data..:? "HumanLabeled")
+            Prelude.<*> (x Data..:? "PendingHuman")
             Prelude.<*> (x Data..:? "Total")
-            Prelude.<*> (x Data..:? "HumanLabeled")
       )
 
 instance Prelude.Hashable LabelCountersForWorkteam where
   hashWithSalt _salt LabelCountersForWorkteam' {..} =
-    _salt `Prelude.hashWithSalt` pendingHuman
+    _salt `Prelude.hashWithSalt` humanLabeled
+      `Prelude.hashWithSalt` pendingHuman
       `Prelude.hashWithSalt` total
-      `Prelude.hashWithSalt` humanLabeled
 
 instance Prelude.NFData LabelCountersForWorkteam where
   rnf LabelCountersForWorkteam' {..} =
-    Prelude.rnf pendingHuman
+    Prelude.rnf humanLabeled
+      `Prelude.seq` Prelude.rnf pendingHuman
       `Prelude.seq` Prelude.rnf total
-      `Prelude.seq` Prelude.rnf humanLabeled

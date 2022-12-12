@@ -55,8 +55,8 @@ module Amazonka.RDS.DeleteDBInstance
     newDeleteDBInstance,
 
     -- * Request Lenses
-    deleteDBInstance_finalDBSnapshotIdentifier,
     deleteDBInstance_deleteAutomatedBackups,
+    deleteDBInstance_finalDBSnapshotIdentifier,
     deleteDBInstance_skipFinalSnapshot,
     deleteDBInstance_dbInstanceIdentifier,
 
@@ -82,7 +82,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDeleteDBInstance' smart constructor.
 data DeleteDBInstance = DeleteDBInstance'
-  { -- | The @DBSnapshotIdentifier@ of the new @DBSnapshot@ created when the
+  { -- | A value that indicates whether to remove automated backups immediately
+    -- after the DB instance is deleted. This parameter isn\'t case-sensitive.
+    -- The default is to remove automated backups immediately after the DB
+    -- instance is deleted.
+    deleteAutomatedBackups :: Prelude.Maybe Prelude.Bool,
+    -- | The @DBSnapshotIdentifier@ of the new @DBSnapshot@ created when the
     -- @SkipFinalSnapshot@ parameter is disabled.
     --
     -- If you enable this parameter and also enable SkipFinalShapshot, the
@@ -100,11 +105,6 @@ data DeleteDBInstance = DeleteDBInstance'
     --
     -- -   Can\'t be specified when deleting a read replica.
     finalDBSnapshotIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | A value that indicates whether to remove automated backups immediately
-    -- after the DB instance is deleted. This parameter isn\'t case-sensitive.
-    -- The default is to remove automated backups immediately after the DB
-    -- instance is deleted.
-    deleteAutomatedBackups :: Prelude.Maybe Prelude.Bool,
     -- | A value that indicates whether to skip the creation of a final DB
     -- snapshot before deleting the instance. If you enable this parameter, RDS
     -- doesn\'t create a DB snapshot. If you don\'t enable this parameter, RDS
@@ -141,6 +141,11 @@ data DeleteDBInstance = DeleteDBInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'deleteAutomatedBackups', 'deleteDBInstance_deleteAutomatedBackups' - A value that indicates whether to remove automated backups immediately
+-- after the DB instance is deleted. This parameter isn\'t case-sensitive.
+-- The default is to remove automated backups immediately after the DB
+-- instance is deleted.
+--
 -- 'finalDBSnapshotIdentifier', 'deleteDBInstance_finalDBSnapshotIdentifier' - The @DBSnapshotIdentifier@ of the new @DBSnapshot@ created when the
 -- @SkipFinalSnapshot@ parameter is disabled.
 --
@@ -158,11 +163,6 @@ data DeleteDBInstance = DeleteDBInstance'
 -- -   Can\'t end with a hyphen or contain two consecutive hyphens.
 --
 -- -   Can\'t be specified when deleting a read replica.
---
--- 'deleteAutomatedBackups', 'deleteDBInstance_deleteAutomatedBackups' - A value that indicates whether to remove automated backups immediately
--- after the DB instance is deleted. This parameter isn\'t case-sensitive.
--- The default is to remove automated backups immediately after the DB
--- instance is deleted.
 --
 -- 'skipFinalSnapshot', 'deleteDBInstance_skipFinalSnapshot' - A value that indicates whether to skip the creation of a final DB
 -- snapshot before deleting the instance. If you enable this parameter, RDS
@@ -194,12 +194,19 @@ newDeleteDBInstance ::
   DeleteDBInstance
 newDeleteDBInstance pDBInstanceIdentifier_ =
   DeleteDBInstance'
-    { finalDBSnapshotIdentifier =
+    { deleteAutomatedBackups =
         Prelude.Nothing,
-      deleteAutomatedBackups = Prelude.Nothing,
+      finalDBSnapshotIdentifier = Prelude.Nothing,
       skipFinalSnapshot = Prelude.Nothing,
       dbInstanceIdentifier = pDBInstanceIdentifier_
     }
+
+-- | A value that indicates whether to remove automated backups immediately
+-- after the DB instance is deleted. This parameter isn\'t case-sensitive.
+-- The default is to remove automated backups immediately after the DB
+-- instance is deleted.
+deleteDBInstance_deleteAutomatedBackups :: Lens.Lens' DeleteDBInstance (Prelude.Maybe Prelude.Bool)
+deleteDBInstance_deleteAutomatedBackups = Lens.lens (\DeleteDBInstance' {deleteAutomatedBackups} -> deleteAutomatedBackups) (\s@DeleteDBInstance' {} a -> s {deleteAutomatedBackups = a} :: DeleteDBInstance)
 
 -- | The @DBSnapshotIdentifier@ of the new @DBSnapshot@ created when the
 -- @SkipFinalSnapshot@ parameter is disabled.
@@ -220,13 +227,6 @@ newDeleteDBInstance pDBInstanceIdentifier_ =
 -- -   Can\'t be specified when deleting a read replica.
 deleteDBInstance_finalDBSnapshotIdentifier :: Lens.Lens' DeleteDBInstance (Prelude.Maybe Prelude.Text)
 deleteDBInstance_finalDBSnapshotIdentifier = Lens.lens (\DeleteDBInstance' {finalDBSnapshotIdentifier} -> finalDBSnapshotIdentifier) (\s@DeleteDBInstance' {} a -> s {finalDBSnapshotIdentifier = a} :: DeleteDBInstance)
-
--- | A value that indicates whether to remove automated backups immediately
--- after the DB instance is deleted. This parameter isn\'t case-sensitive.
--- The default is to remove automated backups immediately after the DB
--- instance is deleted.
-deleteDBInstance_deleteAutomatedBackups :: Lens.Lens' DeleteDBInstance (Prelude.Maybe Prelude.Bool)
-deleteDBInstance_deleteAutomatedBackups = Lens.lens (\DeleteDBInstance' {deleteAutomatedBackups} -> deleteAutomatedBackups) (\s@DeleteDBInstance' {} a -> s {deleteAutomatedBackups = a} :: DeleteDBInstance)
 
 -- | A value that indicates whether to skip the creation of a final DB
 -- snapshot before deleting the instance. If you enable this parameter, RDS
@@ -274,16 +274,15 @@ instance Core.AWSRequest DeleteDBInstance where
 
 instance Prelude.Hashable DeleteDBInstance where
   hashWithSalt _salt DeleteDBInstance' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` deleteAutomatedBackups
       `Prelude.hashWithSalt` finalDBSnapshotIdentifier
-      `Prelude.hashWithSalt` deleteAutomatedBackups
       `Prelude.hashWithSalt` skipFinalSnapshot
       `Prelude.hashWithSalt` dbInstanceIdentifier
 
 instance Prelude.NFData DeleteDBInstance where
   rnf DeleteDBInstance' {..} =
-    Prelude.rnf finalDBSnapshotIdentifier
-      `Prelude.seq` Prelude.rnf deleteAutomatedBackups
+    Prelude.rnf deleteAutomatedBackups
+      `Prelude.seq` Prelude.rnf finalDBSnapshotIdentifier
       `Prelude.seq` Prelude.rnf skipFinalSnapshot
       `Prelude.seq` Prelude.rnf dbInstanceIdentifier
 
@@ -300,10 +299,10 @@ instance Data.ToQuery DeleteDBInstance where
           Data.=: ("DeleteDBInstance" :: Prelude.ByteString),
         "Version"
           Data.=: ("2014-10-31" :: Prelude.ByteString),
-        "FinalDBSnapshotIdentifier"
-          Data.=: finalDBSnapshotIdentifier,
         "DeleteAutomatedBackups"
           Data.=: deleteAutomatedBackups,
+        "FinalDBSnapshotIdentifier"
+          Data.=: finalDBSnapshotIdentifier,
         "SkipFinalSnapshot" Data.=: skipFinalSnapshot,
         "DBInstanceIdentifier" Data.=: dbInstanceIdentifier
       ]

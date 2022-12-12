@@ -30,16 +30,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHlsPackage' smart constructor.
 data HlsPackage = HlsPackage'
-  { -- | When enabled, audio streams will be placed in rendition groups in the
-    -- output.
-    useAudioRenditionGroup :: Prelude.Maybe Prelude.Bool,
-    -- | Duration (in seconds) of each fragment. Actual fragments will be rounded
-    -- to the nearest multiple of the source fragment duration.
-    segmentDurationSeconds :: Prelude.Maybe Prelude.Int,
-    encryption :: Prelude.Maybe HlsEncryption,
+  { encryption :: Prelude.Maybe HlsEncryption,
     -- | When enabled, MediaPackage passes through digital video broadcasting
     -- (DVB) subtitles into the output.
     includeDvbSubtitles :: Prelude.Maybe Prelude.Bool,
+    -- | Duration (in seconds) of each fragment. Actual fragments will be rounded
+    -- to the nearest multiple of the source fragment duration.
+    segmentDurationSeconds :: Prelude.Maybe Prelude.Int,
+    -- | When enabled, audio streams will be placed in rendition groups in the
+    -- output.
+    useAudioRenditionGroup :: Prelude.Maybe Prelude.Bool,
     -- | A list of HLS manifest configurations.
     hlsManifests :: [HlsManifest]
   }
@@ -53,39 +53,28 @@ data HlsPackage = HlsPackage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'useAudioRenditionGroup', 'hlsPackage_useAudioRenditionGroup' - When enabled, audio streams will be placed in rendition groups in the
--- output.
---
--- 'segmentDurationSeconds', 'hlsPackage_segmentDurationSeconds' - Duration (in seconds) of each fragment. Actual fragments will be rounded
--- to the nearest multiple of the source fragment duration.
---
 -- 'encryption', 'hlsPackage_encryption' - Undocumented member.
 --
 -- 'includeDvbSubtitles', 'hlsPackage_includeDvbSubtitles' - When enabled, MediaPackage passes through digital video broadcasting
 -- (DVB) subtitles into the output.
+--
+-- 'segmentDurationSeconds', 'hlsPackage_segmentDurationSeconds' - Duration (in seconds) of each fragment. Actual fragments will be rounded
+-- to the nearest multiple of the source fragment duration.
+--
+-- 'useAudioRenditionGroup', 'hlsPackage_useAudioRenditionGroup' - When enabled, audio streams will be placed in rendition groups in the
+-- output.
 --
 -- 'hlsManifests', 'hlsPackage_hlsManifests' - A list of HLS manifest configurations.
 newHlsPackage ::
   HlsPackage
 newHlsPackage =
   HlsPackage'
-    { useAudioRenditionGroup =
-        Prelude.Nothing,
-      segmentDurationSeconds = Prelude.Nothing,
-      encryption = Prelude.Nothing,
+    { encryption = Prelude.Nothing,
       includeDvbSubtitles = Prelude.Nothing,
+      segmentDurationSeconds = Prelude.Nothing,
+      useAudioRenditionGroup = Prelude.Nothing,
       hlsManifests = Prelude.mempty
     }
-
--- | When enabled, audio streams will be placed in rendition groups in the
--- output.
-hlsPackage_useAudioRenditionGroup :: Lens.Lens' HlsPackage (Prelude.Maybe Prelude.Bool)
-hlsPackage_useAudioRenditionGroup = Lens.lens (\HlsPackage' {useAudioRenditionGroup} -> useAudioRenditionGroup) (\s@HlsPackage' {} a -> s {useAudioRenditionGroup = a} :: HlsPackage)
-
--- | Duration (in seconds) of each fragment. Actual fragments will be rounded
--- to the nearest multiple of the source fragment duration.
-hlsPackage_segmentDurationSeconds :: Lens.Lens' HlsPackage (Prelude.Maybe Prelude.Int)
-hlsPackage_segmentDurationSeconds = Lens.lens (\HlsPackage' {segmentDurationSeconds} -> segmentDurationSeconds) (\s@HlsPackage' {} a -> s {segmentDurationSeconds = a} :: HlsPackage)
 
 -- | Undocumented member.
 hlsPackage_encryption :: Lens.Lens' HlsPackage (Prelude.Maybe HlsEncryption)
@@ -95,6 +84,16 @@ hlsPackage_encryption = Lens.lens (\HlsPackage' {encryption} -> encryption) (\s@
 -- (DVB) subtitles into the output.
 hlsPackage_includeDvbSubtitles :: Lens.Lens' HlsPackage (Prelude.Maybe Prelude.Bool)
 hlsPackage_includeDvbSubtitles = Lens.lens (\HlsPackage' {includeDvbSubtitles} -> includeDvbSubtitles) (\s@HlsPackage' {} a -> s {includeDvbSubtitles = a} :: HlsPackage)
+
+-- | Duration (in seconds) of each fragment. Actual fragments will be rounded
+-- to the nearest multiple of the source fragment duration.
+hlsPackage_segmentDurationSeconds :: Lens.Lens' HlsPackage (Prelude.Maybe Prelude.Int)
+hlsPackage_segmentDurationSeconds = Lens.lens (\HlsPackage' {segmentDurationSeconds} -> segmentDurationSeconds) (\s@HlsPackage' {} a -> s {segmentDurationSeconds = a} :: HlsPackage)
+
+-- | When enabled, audio streams will be placed in rendition groups in the
+-- output.
+hlsPackage_useAudioRenditionGroup :: Lens.Lens' HlsPackage (Prelude.Maybe Prelude.Bool)
+hlsPackage_useAudioRenditionGroup = Lens.lens (\HlsPackage' {useAudioRenditionGroup} -> useAudioRenditionGroup) (\s@HlsPackage' {} a -> s {useAudioRenditionGroup = a} :: HlsPackage)
 
 -- | A list of HLS manifest configurations.
 hlsPackage_hlsManifests :: Lens.Lens' HlsPackage [HlsManifest]
@@ -106,40 +105,40 @@ instance Data.FromJSON HlsPackage where
       "HlsPackage"
       ( \x ->
           HlsPackage'
-            Prelude.<$> (x Data..:? "useAudioRenditionGroup")
-            Prelude.<*> (x Data..:? "segmentDurationSeconds")
-            Prelude.<*> (x Data..:? "encryption")
+            Prelude.<$> (x Data..:? "encryption")
             Prelude.<*> (x Data..:? "includeDvbSubtitles")
+            Prelude.<*> (x Data..:? "segmentDurationSeconds")
+            Prelude.<*> (x Data..:? "useAudioRenditionGroup")
             Prelude.<*> (x Data..:? "hlsManifests" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable HlsPackage where
   hashWithSalt _salt HlsPackage' {..} =
-    _salt `Prelude.hashWithSalt` useAudioRenditionGroup
-      `Prelude.hashWithSalt` segmentDurationSeconds
-      `Prelude.hashWithSalt` encryption
+    _salt `Prelude.hashWithSalt` encryption
       `Prelude.hashWithSalt` includeDvbSubtitles
+      `Prelude.hashWithSalt` segmentDurationSeconds
+      `Prelude.hashWithSalt` useAudioRenditionGroup
       `Prelude.hashWithSalt` hlsManifests
 
 instance Prelude.NFData HlsPackage where
   rnf HlsPackage' {..} =
-    Prelude.rnf useAudioRenditionGroup
-      `Prelude.seq` Prelude.rnf segmentDurationSeconds
-      `Prelude.seq` Prelude.rnf encryption
+    Prelude.rnf encryption
       `Prelude.seq` Prelude.rnf includeDvbSubtitles
+      `Prelude.seq` Prelude.rnf segmentDurationSeconds
+      `Prelude.seq` Prelude.rnf useAudioRenditionGroup
       `Prelude.seq` Prelude.rnf hlsManifests
 
 instance Data.ToJSON HlsPackage where
   toJSON HlsPackage' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("useAudioRenditionGroup" Data..=)
-              Prelude.<$> useAudioRenditionGroup,
-            ("segmentDurationSeconds" Data..=)
-              Prelude.<$> segmentDurationSeconds,
-            ("encryption" Data..=) Prelude.<$> encryption,
+          [ ("encryption" Data..=) Prelude.<$> encryption,
             ("includeDvbSubtitles" Data..=)
               Prelude.<$> includeDvbSubtitles,
+            ("segmentDurationSeconds" Data..=)
+              Prelude.<$> segmentDurationSeconds,
+            ("useAudioRenditionGroup" Data..=)
+              Prelude.<$> useAudioRenditionGroup,
             Prelude.Just ("hlsManifests" Data..= hlsManifests)
           ]
       )

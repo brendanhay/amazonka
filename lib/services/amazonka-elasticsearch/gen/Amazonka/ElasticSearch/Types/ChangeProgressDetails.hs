@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newChangeProgressDetails' smart constructor.
 data ChangeProgressDetails = ChangeProgressDetails'
-  { -- | Contains an optional message associated with the domain configuration
-    -- change.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The unique change identifier associated with a specific domain
+  { -- | The unique change identifier associated with a specific domain
     -- configuration change.
-    changeId :: Prelude.Maybe Prelude.Text
+    changeId :: Prelude.Maybe Prelude.Text,
+    -- | Contains an optional message associated with the domain configuration
+    -- change.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,28 +45,28 @@ data ChangeProgressDetails = ChangeProgressDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'changeProgressDetails_message' - Contains an optional message associated with the domain configuration
--- change.
---
 -- 'changeId', 'changeProgressDetails_changeId' - The unique change identifier associated with a specific domain
 -- configuration change.
+--
+-- 'message', 'changeProgressDetails_message' - Contains an optional message associated with the domain configuration
+-- change.
 newChangeProgressDetails ::
   ChangeProgressDetails
 newChangeProgressDetails =
   ChangeProgressDetails'
-    { message = Prelude.Nothing,
-      changeId = Prelude.Nothing
+    { changeId = Prelude.Nothing,
+      message = Prelude.Nothing
     }
-
--- | Contains an optional message associated with the domain configuration
--- change.
-changeProgressDetails_message :: Lens.Lens' ChangeProgressDetails (Prelude.Maybe Prelude.Text)
-changeProgressDetails_message = Lens.lens (\ChangeProgressDetails' {message} -> message) (\s@ChangeProgressDetails' {} a -> s {message = a} :: ChangeProgressDetails)
 
 -- | The unique change identifier associated with a specific domain
 -- configuration change.
 changeProgressDetails_changeId :: Lens.Lens' ChangeProgressDetails (Prelude.Maybe Prelude.Text)
 changeProgressDetails_changeId = Lens.lens (\ChangeProgressDetails' {changeId} -> changeId) (\s@ChangeProgressDetails' {} a -> s {changeId = a} :: ChangeProgressDetails)
+
+-- | Contains an optional message associated with the domain configuration
+-- change.
+changeProgressDetails_message :: Lens.Lens' ChangeProgressDetails (Prelude.Maybe Prelude.Text)
+changeProgressDetails_message = Lens.lens (\ChangeProgressDetails' {message} -> message) (\s@ChangeProgressDetails' {} a -> s {message = a} :: ChangeProgressDetails)
 
 instance Data.FromJSON ChangeProgressDetails where
   parseJSON =
@@ -74,16 +74,16 @@ instance Data.FromJSON ChangeProgressDetails where
       "ChangeProgressDetails"
       ( \x ->
           ChangeProgressDetails'
-            Prelude.<$> (x Data..:? "Message")
-            Prelude.<*> (x Data..:? "ChangeId")
+            Prelude.<$> (x Data..:? "ChangeId")
+            Prelude.<*> (x Data..:? "Message")
       )
 
 instance Prelude.Hashable ChangeProgressDetails where
   hashWithSalt _salt ChangeProgressDetails' {..} =
-    _salt `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` changeId
+    _salt `Prelude.hashWithSalt` changeId
+      `Prelude.hashWithSalt` message
 
 instance Prelude.NFData ChangeProgressDetails where
   rnf ChangeProgressDetails' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf changeId
+    Prelude.rnf changeId
+      `Prelude.seq` Prelude.rnf message

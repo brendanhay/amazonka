@@ -28,13 +28,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDescribeJobsRequestFilters' smart constructor.
 data DescribeJobsRequestFilters = DescribeJobsRequestFilters'
-  { -- | The end date in a date range query.
-    toDate :: Prelude.Maybe Prelude.Text,
-    -- | The start date in a date range query.
+  { -- | The start date in a date range query.
     fromDate :: Prelude.Maybe Prelude.Text,
     -- | An array of Job IDs that should be returned. An empty array means all
     -- jobs.
-    jobIDs :: Prelude.Maybe [Prelude.Text]
+    jobIDs :: Prelude.Maybe [Prelude.Text],
+    -- | The end date in a date range query.
+    toDate :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,25 +46,21 @@ data DescribeJobsRequestFilters = DescribeJobsRequestFilters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'toDate', 'describeJobsRequestFilters_toDate' - The end date in a date range query.
---
 -- 'fromDate', 'describeJobsRequestFilters_fromDate' - The start date in a date range query.
 --
 -- 'jobIDs', 'describeJobsRequestFilters_jobIDs' - An array of Job IDs that should be returned. An empty array means all
 -- jobs.
+--
+-- 'toDate', 'describeJobsRequestFilters_toDate' - The end date in a date range query.
 newDescribeJobsRequestFilters ::
   DescribeJobsRequestFilters
 newDescribeJobsRequestFilters =
   DescribeJobsRequestFilters'
-    { toDate =
+    { fromDate =
         Prelude.Nothing,
-      fromDate = Prelude.Nothing,
-      jobIDs = Prelude.Nothing
+      jobIDs = Prelude.Nothing,
+      toDate = Prelude.Nothing
     }
-
--- | The end date in a date range query.
-describeJobsRequestFilters_toDate :: Lens.Lens' DescribeJobsRequestFilters (Prelude.Maybe Prelude.Text)
-describeJobsRequestFilters_toDate = Lens.lens (\DescribeJobsRequestFilters' {toDate} -> toDate) (\s@DescribeJobsRequestFilters' {} a -> s {toDate = a} :: DescribeJobsRequestFilters)
 
 -- | The start date in a date range query.
 describeJobsRequestFilters_fromDate :: Lens.Lens' DescribeJobsRequestFilters (Prelude.Maybe Prelude.Text)
@@ -75,24 +71,28 @@ describeJobsRequestFilters_fromDate = Lens.lens (\DescribeJobsRequestFilters' {f
 describeJobsRequestFilters_jobIDs :: Lens.Lens' DescribeJobsRequestFilters (Prelude.Maybe [Prelude.Text])
 describeJobsRequestFilters_jobIDs = Lens.lens (\DescribeJobsRequestFilters' {jobIDs} -> jobIDs) (\s@DescribeJobsRequestFilters' {} a -> s {jobIDs = a} :: DescribeJobsRequestFilters) Prelude.. Lens.mapping Lens.coerced
 
+-- | The end date in a date range query.
+describeJobsRequestFilters_toDate :: Lens.Lens' DescribeJobsRequestFilters (Prelude.Maybe Prelude.Text)
+describeJobsRequestFilters_toDate = Lens.lens (\DescribeJobsRequestFilters' {toDate} -> toDate) (\s@DescribeJobsRequestFilters' {} a -> s {toDate = a} :: DescribeJobsRequestFilters)
+
 instance Prelude.Hashable DescribeJobsRequestFilters where
   hashWithSalt _salt DescribeJobsRequestFilters' {..} =
-    _salt `Prelude.hashWithSalt` toDate
-      `Prelude.hashWithSalt` fromDate
+    _salt `Prelude.hashWithSalt` fromDate
       `Prelude.hashWithSalt` jobIDs
+      `Prelude.hashWithSalt` toDate
 
 instance Prelude.NFData DescribeJobsRequestFilters where
   rnf DescribeJobsRequestFilters' {..} =
-    Prelude.rnf toDate
-      `Prelude.seq` Prelude.rnf fromDate
+    Prelude.rnf fromDate
       `Prelude.seq` Prelude.rnf jobIDs
+      `Prelude.seq` Prelude.rnf toDate
 
 instance Data.ToJSON DescribeJobsRequestFilters where
   toJSON DescribeJobsRequestFilters' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("toDate" Data..=) Prelude.<$> toDate,
-            ("fromDate" Data..=) Prelude.<$> fromDate,
-            ("jobIDs" Data..=) Prelude.<$> jobIDs
+          [ ("fromDate" Data..=) Prelude.<$> fromDate,
+            ("jobIDs" Data..=) Prelude.<$> jobIDs,
+            ("toDate" Data..=) Prelude.<$> toDate
           ]
       )

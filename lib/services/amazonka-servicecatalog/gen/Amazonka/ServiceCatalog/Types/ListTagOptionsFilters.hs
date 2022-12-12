@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newListTagOptionsFilters' smart constructor.
 data ListTagOptionsFilters = ListTagOptionsFilters'
-  { -- | The TagOption key.
-    key :: Prelude.Maybe Prelude.Text,
-    -- | The active state.
+  { -- | The active state.
     active :: Prelude.Maybe Prelude.Bool,
+    -- | The TagOption key.
+    key :: Prelude.Maybe Prelude.Text,
     -- | The TagOption value.
     value :: Prelude.Maybe Prelude.Text
   }
@@ -45,27 +45,27 @@ data ListTagOptionsFilters = ListTagOptionsFilters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 'listTagOptionsFilters_key' - The TagOption key.
---
 -- 'active', 'listTagOptionsFilters_active' - The active state.
+--
+-- 'key', 'listTagOptionsFilters_key' - The TagOption key.
 --
 -- 'value', 'listTagOptionsFilters_value' - The TagOption value.
 newListTagOptionsFilters ::
   ListTagOptionsFilters
 newListTagOptionsFilters =
   ListTagOptionsFilters'
-    { key = Prelude.Nothing,
-      active = Prelude.Nothing,
+    { active = Prelude.Nothing,
+      key = Prelude.Nothing,
       value = Prelude.Nothing
     }
-
--- | The TagOption key.
-listTagOptionsFilters_key :: Lens.Lens' ListTagOptionsFilters (Prelude.Maybe Prelude.Text)
-listTagOptionsFilters_key = Lens.lens (\ListTagOptionsFilters' {key} -> key) (\s@ListTagOptionsFilters' {} a -> s {key = a} :: ListTagOptionsFilters)
 
 -- | The active state.
 listTagOptionsFilters_active :: Lens.Lens' ListTagOptionsFilters (Prelude.Maybe Prelude.Bool)
 listTagOptionsFilters_active = Lens.lens (\ListTagOptionsFilters' {active} -> active) (\s@ListTagOptionsFilters' {} a -> s {active = a} :: ListTagOptionsFilters)
+
+-- | The TagOption key.
+listTagOptionsFilters_key :: Lens.Lens' ListTagOptionsFilters (Prelude.Maybe Prelude.Text)
+listTagOptionsFilters_key = Lens.lens (\ListTagOptionsFilters' {key} -> key) (\s@ListTagOptionsFilters' {} a -> s {key = a} :: ListTagOptionsFilters)
 
 -- | The TagOption value.
 listTagOptionsFilters_value :: Lens.Lens' ListTagOptionsFilters (Prelude.Maybe Prelude.Text)
@@ -73,22 +73,22 @@ listTagOptionsFilters_value = Lens.lens (\ListTagOptionsFilters' {value} -> valu
 
 instance Prelude.Hashable ListTagOptionsFilters where
   hashWithSalt _salt ListTagOptionsFilters' {..} =
-    _salt `Prelude.hashWithSalt` key
-      `Prelude.hashWithSalt` active
+    _salt `Prelude.hashWithSalt` active
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData ListTagOptionsFilters where
   rnf ListTagOptionsFilters' {..} =
-    Prelude.rnf key
-      `Prelude.seq` Prelude.rnf active
+    Prelude.rnf active
+      `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf value
 
 instance Data.ToJSON ListTagOptionsFilters where
   toJSON ListTagOptionsFilters' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Key" Data..=) Prelude.<$> key,
-            ("Active" Data..=) Prelude.<$> active,
+          [ ("Active" Data..=) Prelude.<$> active,
+            ("Key" Data..=) Prelude.<$> key,
             ("Value" Data..=) Prelude.<$> value
           ]
       )

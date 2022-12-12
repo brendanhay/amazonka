@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 data DashboardSummary = DashboardSummary'
   { -- | The date the dashboard was created, in Unix epoch time.
     creationDate :: Prelude.Maybe Data.POSIX,
-    -- | The date the dashboard was last updated, in Unix epoch time.
-    lastUpdateDate :: Prelude.Maybe Data.POSIX,
     -- | The dashboard\'s description.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The date the dashboard was last updated, in Unix epoch time.
+    lastUpdateDate :: Prelude.Maybe Data.POSIX,
     -- | The ID of the dashboard.
     id :: Prelude.Text,
     -- | The name of the dashboard
@@ -51,9 +51,9 @@ data DashboardSummary = DashboardSummary'
 --
 -- 'creationDate', 'dashboardSummary_creationDate' - The date the dashboard was created, in Unix epoch time.
 --
--- 'lastUpdateDate', 'dashboardSummary_lastUpdateDate' - The date the dashboard was last updated, in Unix epoch time.
---
 -- 'description', 'dashboardSummary_description' - The dashboard\'s description.
+--
+-- 'lastUpdateDate', 'dashboardSummary_lastUpdateDate' - The date the dashboard was last updated, in Unix epoch time.
 --
 -- 'id', 'dashboardSummary_id' - The ID of the dashboard.
 --
@@ -67,8 +67,8 @@ newDashboardSummary ::
 newDashboardSummary pId_ pName_ =
   DashboardSummary'
     { creationDate = Prelude.Nothing,
-      lastUpdateDate = Prelude.Nothing,
       description = Prelude.Nothing,
+      lastUpdateDate = Prelude.Nothing,
       id = pId_,
       name = pName_
     }
@@ -77,13 +77,13 @@ newDashboardSummary pId_ pName_ =
 dashboardSummary_creationDate :: Lens.Lens' DashboardSummary (Prelude.Maybe Prelude.UTCTime)
 dashboardSummary_creationDate = Lens.lens (\DashboardSummary' {creationDate} -> creationDate) (\s@DashboardSummary' {} a -> s {creationDate = a} :: DashboardSummary) Prelude.. Lens.mapping Data._Time
 
--- | The date the dashboard was last updated, in Unix epoch time.
-dashboardSummary_lastUpdateDate :: Lens.Lens' DashboardSummary (Prelude.Maybe Prelude.UTCTime)
-dashboardSummary_lastUpdateDate = Lens.lens (\DashboardSummary' {lastUpdateDate} -> lastUpdateDate) (\s@DashboardSummary' {} a -> s {lastUpdateDate = a} :: DashboardSummary) Prelude.. Lens.mapping Data._Time
-
 -- | The dashboard\'s description.
 dashboardSummary_description :: Lens.Lens' DashboardSummary (Prelude.Maybe Prelude.Text)
 dashboardSummary_description = Lens.lens (\DashboardSummary' {description} -> description) (\s@DashboardSummary' {} a -> s {description = a} :: DashboardSummary)
+
+-- | The date the dashboard was last updated, in Unix epoch time.
+dashboardSummary_lastUpdateDate :: Lens.Lens' DashboardSummary (Prelude.Maybe Prelude.UTCTime)
+dashboardSummary_lastUpdateDate = Lens.lens (\DashboardSummary' {lastUpdateDate} -> lastUpdateDate) (\s@DashboardSummary' {} a -> s {lastUpdateDate = a} :: DashboardSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the dashboard.
 dashboardSummary_id :: Lens.Lens' DashboardSummary Prelude.Text
@@ -100,8 +100,8 @@ instance Data.FromJSON DashboardSummary where
       ( \x ->
           DashboardSummary'
             Prelude.<$> (x Data..:? "creationDate")
-            Prelude.<*> (x Data..:? "lastUpdateDate")
             Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "lastUpdateDate")
             Prelude.<*> (x Data..: "id")
             Prelude.<*> (x Data..: "name")
       )
@@ -109,15 +109,15 @@ instance Data.FromJSON DashboardSummary where
 instance Prelude.Hashable DashboardSummary where
   hashWithSalt _salt DashboardSummary' {..} =
     _salt `Prelude.hashWithSalt` creationDate
-      `Prelude.hashWithSalt` lastUpdateDate
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` lastUpdateDate
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData DashboardSummary where
   rnf DashboardSummary' {..} =
     Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf lastUpdateDate
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf lastUpdateDate
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf name

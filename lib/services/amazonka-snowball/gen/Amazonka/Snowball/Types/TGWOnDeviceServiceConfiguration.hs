@@ -31,12 +31,12 @@ import Amazonka.Snowball.Types.StorageUnit
 --
 -- /See:/ 'newTGWOnDeviceServiceConfiguration' smart constructor.
 data TGWOnDeviceServiceConfiguration = TGWOnDeviceServiceConfiguration'
-  { -- | The scale unit of the virtual tapes on the device.
-    storageUnit :: Prelude.Maybe StorageUnit,
-    -- | The maximum number of virtual tapes to store on one Snow Family device.
+  { -- | The maximum number of virtual tapes to store on one Snow Family device.
     -- Due to physical resource limitations, this value must be set to 80 for
     -- Snowball Edge.
-    storageLimit :: Prelude.Maybe Prelude.Natural
+    storageLimit :: Prelude.Maybe Prelude.Natural,
+    -- | The scale unit of the virtual tapes on the device.
+    storageUnit :: Prelude.Maybe StorageUnit
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,29 +48,29 @@ data TGWOnDeviceServiceConfiguration = TGWOnDeviceServiceConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'storageUnit', 'tGWOnDeviceServiceConfiguration_storageUnit' - The scale unit of the virtual tapes on the device.
---
 -- 'storageLimit', 'tGWOnDeviceServiceConfiguration_storageLimit' - The maximum number of virtual tapes to store on one Snow Family device.
 -- Due to physical resource limitations, this value must be set to 80 for
 -- Snowball Edge.
+--
+-- 'storageUnit', 'tGWOnDeviceServiceConfiguration_storageUnit' - The scale unit of the virtual tapes on the device.
 newTGWOnDeviceServiceConfiguration ::
   TGWOnDeviceServiceConfiguration
 newTGWOnDeviceServiceConfiguration =
   TGWOnDeviceServiceConfiguration'
-    { storageUnit =
+    { storageLimit =
         Prelude.Nothing,
-      storageLimit = Prelude.Nothing
+      storageUnit = Prelude.Nothing
     }
-
--- | The scale unit of the virtual tapes on the device.
-tGWOnDeviceServiceConfiguration_storageUnit :: Lens.Lens' TGWOnDeviceServiceConfiguration (Prelude.Maybe StorageUnit)
-tGWOnDeviceServiceConfiguration_storageUnit = Lens.lens (\TGWOnDeviceServiceConfiguration' {storageUnit} -> storageUnit) (\s@TGWOnDeviceServiceConfiguration' {} a -> s {storageUnit = a} :: TGWOnDeviceServiceConfiguration)
 
 -- | The maximum number of virtual tapes to store on one Snow Family device.
 -- Due to physical resource limitations, this value must be set to 80 for
 -- Snowball Edge.
 tGWOnDeviceServiceConfiguration_storageLimit :: Lens.Lens' TGWOnDeviceServiceConfiguration (Prelude.Maybe Prelude.Natural)
 tGWOnDeviceServiceConfiguration_storageLimit = Lens.lens (\TGWOnDeviceServiceConfiguration' {storageLimit} -> storageLimit) (\s@TGWOnDeviceServiceConfiguration' {} a -> s {storageLimit = a} :: TGWOnDeviceServiceConfiguration)
+
+-- | The scale unit of the virtual tapes on the device.
+tGWOnDeviceServiceConfiguration_storageUnit :: Lens.Lens' TGWOnDeviceServiceConfiguration (Prelude.Maybe StorageUnit)
+tGWOnDeviceServiceConfiguration_storageUnit = Lens.lens (\TGWOnDeviceServiceConfiguration' {storageUnit} -> storageUnit) (\s@TGWOnDeviceServiceConfiguration' {} a -> s {storageUnit = a} :: TGWOnDeviceServiceConfiguration)
 
 instance
   Data.FromJSON
@@ -81,8 +81,8 @@ instance
       "TGWOnDeviceServiceConfiguration"
       ( \x ->
           TGWOnDeviceServiceConfiguration'
-            Prelude.<$> (x Data..:? "StorageUnit")
-            Prelude.<*> (x Data..:? "StorageLimit")
+            Prelude.<$> (x Data..:? "StorageLimit")
+            Prelude.<*> (x Data..:? "StorageUnit")
       )
 
 instance
@@ -92,22 +92,22 @@ instance
   hashWithSalt
     _salt
     TGWOnDeviceServiceConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` storageUnit
-        `Prelude.hashWithSalt` storageLimit
+      _salt `Prelude.hashWithSalt` storageLimit
+        `Prelude.hashWithSalt` storageUnit
 
 instance
   Prelude.NFData
     TGWOnDeviceServiceConfiguration
   where
   rnf TGWOnDeviceServiceConfiguration' {..} =
-    Prelude.rnf storageUnit
-      `Prelude.seq` Prelude.rnf storageLimit
+    Prelude.rnf storageLimit
+      `Prelude.seq` Prelude.rnf storageUnit
 
 instance Data.ToJSON TGWOnDeviceServiceConfiguration where
   toJSON TGWOnDeviceServiceConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("StorageUnit" Data..=) Prelude.<$> storageUnit,
-            ("StorageLimit" Data..=) Prelude.<$> storageLimit
+          [ ("StorageLimit" Data..=) Prelude.<$> storageLimit,
+            ("StorageUnit" Data..=) Prelude.<$> storageUnit
           ]
       )

@@ -18,11 +18,11 @@ module Amazonka.ServerlessApplicationRepository.Types
     defaultService,
 
     -- * Errors
-    _NotFoundException,
-    _InternalServerErrorException,
-    _ForbiddenException,
-    _ConflictException,
     _BadRequestException,
+    _ConflictException,
+    _ForbiddenException,
+    _InternalServerErrorException,
+    _NotFoundException,
     _TooManyRequestsException,
 
     -- * Capability
@@ -48,10 +48,10 @@ module Amazonka.ServerlessApplicationRepository.Types
     -- * ApplicationSummary
     ApplicationSummary (..),
     newApplicationSummary,
-    applicationSummary_spdxLicenseId,
+    applicationSummary_creationTime,
     applicationSummary_homePageUrl,
     applicationSummary_labels,
-    applicationSummary_creationTime,
+    applicationSummary_spdxLicenseId,
     applicationSummary_description,
     applicationSummary_author,
     applicationSummary_applicationId,
@@ -60,17 +60,17 @@ module Amazonka.ServerlessApplicationRepository.Types
     -- * ParameterDefinition
     ParameterDefinition (..),
     newParameterDefinition,
+    parameterDefinition_allowedPattern,
+    parameterDefinition_allowedValues,
+    parameterDefinition_constraintDescription,
+    parameterDefinition_defaultValue,
+    parameterDefinition_description,
+    parameterDefinition_maxLength,
+    parameterDefinition_maxValue,
+    parameterDefinition_minLength,
+    parameterDefinition_minValue,
     parameterDefinition_noEcho,
     parameterDefinition_type,
-    parameterDefinition_maxLength,
-    parameterDefinition_allowedPattern,
-    parameterDefinition_defaultValue,
-    parameterDefinition_minValue,
-    parameterDefinition_description,
-    parameterDefinition_minLength,
-    parameterDefinition_allowedValues,
-    parameterDefinition_maxValue,
-    parameterDefinition_constraintDescription,
     parameterDefinition_referencedByResources,
     parameterDefinition_name,
 
@@ -166,28 +166,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -195,13 +189,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -209,16 +207,33 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The resource (for example, an access policy statement) specified in the
--- request doesn\'t exist.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NotFoundException =
+-- | One of the parameters in the request is invalid.
+_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException =
   Core._MatchServiceError
     defaultService
-    "NotFoundException"
-    Prelude.. Core.hasStatus 404
+    "BadRequestException"
+    Prelude.. Core.hasStatus 400
+
+-- | The resource already exists.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
+-- | The client is not authenticated.
+_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ForbiddenException =
+  Core._MatchServiceError
+    defaultService
+    "ForbiddenException"
+    Prelude.. Core.hasStatus 403
 
 -- | The AWS Serverless Application Repository service encountered an
 -- internal error.
@@ -229,29 +244,14 @@ _InternalServerErrorException =
     "InternalServerErrorException"
     Prelude.. Core.hasStatus 500
 
--- | The client is not authenticated.
-_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ForbiddenException =
+-- | The resource (for example, an access policy statement) specified in the
+-- request doesn\'t exist.
+_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException =
   Core._MatchServiceError
     defaultService
-    "ForbiddenException"
-    Prelude.. Core.hasStatus 403
-
--- | The resource already exists.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
-
--- | One of the parameters in the request is invalid.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_BadRequestException =
-  Core._MatchServiceError
-    defaultService
-    "BadRequestException"
-    Prelude.. Core.hasStatus 400
+    "NotFoundException"
+    Prelude.. Core.hasStatus 404
 
 -- | The client is sending more than the allowed number of requests per unit
 -- of time.

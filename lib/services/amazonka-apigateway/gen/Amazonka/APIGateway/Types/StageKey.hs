@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStageKey' smart constructor.
 data StageKey = StageKey'
-  { -- | The stage name associated with the stage key.
-    stageName :: Prelude.Maybe Prelude.Text,
-    -- | The string identifier of the associated RestApi.
-    restApiId :: Prelude.Maybe Prelude.Text
+  { -- | The string identifier of the associated RestApi.
+    restApiId :: Prelude.Maybe Prelude.Text,
+    -- | The stage name associated with the stage key.
+    stageName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,40 +44,40 @@ data StageKey = StageKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stageName', 'stageKey_stageName' - The stage name associated with the stage key.
---
 -- 'restApiId', 'stageKey_restApiId' - The string identifier of the associated RestApi.
+--
+-- 'stageName', 'stageKey_stageName' - The stage name associated with the stage key.
 newStageKey ::
   StageKey
 newStageKey =
   StageKey'
-    { stageName = Prelude.Nothing,
-      restApiId = Prelude.Nothing
+    { restApiId = Prelude.Nothing,
+      stageName = Prelude.Nothing
     }
-
--- | The stage name associated with the stage key.
-stageKey_stageName :: Lens.Lens' StageKey (Prelude.Maybe Prelude.Text)
-stageKey_stageName = Lens.lens (\StageKey' {stageName} -> stageName) (\s@StageKey' {} a -> s {stageName = a} :: StageKey)
 
 -- | The string identifier of the associated RestApi.
 stageKey_restApiId :: Lens.Lens' StageKey (Prelude.Maybe Prelude.Text)
 stageKey_restApiId = Lens.lens (\StageKey' {restApiId} -> restApiId) (\s@StageKey' {} a -> s {restApiId = a} :: StageKey)
 
+-- | The stage name associated with the stage key.
+stageKey_stageName :: Lens.Lens' StageKey (Prelude.Maybe Prelude.Text)
+stageKey_stageName = Lens.lens (\StageKey' {stageName} -> stageName) (\s@StageKey' {} a -> s {stageName = a} :: StageKey)
+
 instance Prelude.Hashable StageKey where
   hashWithSalt _salt StageKey' {..} =
-    _salt `Prelude.hashWithSalt` stageName
-      `Prelude.hashWithSalt` restApiId
+    _salt `Prelude.hashWithSalt` restApiId
+      `Prelude.hashWithSalt` stageName
 
 instance Prelude.NFData StageKey where
   rnf StageKey' {..} =
-    Prelude.rnf stageName
-      `Prelude.seq` Prelude.rnf restApiId
+    Prelude.rnf restApiId
+      `Prelude.seq` Prelude.rnf stageName
 
 instance Data.ToJSON StageKey where
   toJSON StageKey' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("stageName" Data..=) Prelude.<$> stageName,
-            ("restApiId" Data..=) Prelude.<$> restApiId
+          [ ("restApiId" Data..=) Prelude.<$> restApiId,
+            ("stageName" Data..=) Prelude.<$> stageName
           ]
       )

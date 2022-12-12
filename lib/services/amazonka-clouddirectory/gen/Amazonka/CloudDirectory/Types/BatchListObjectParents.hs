@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBatchListObjectParents' smart constructor.
 data BatchListObjectParents = BatchListObjectParents'
-  { -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to be retrieved in a single call. This is an
+  { -- | The maximum number of items to be retrieved in a single call. This is an
     -- approximate number.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
     objectReference :: ObjectReference
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -47,10 +47,10 @@ data BatchListObjectParents = BatchListObjectParents'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'batchListObjectParents_nextToken' - The pagination token.
---
 -- 'maxResults', 'batchListObjectParents_maxResults' - The maximum number of items to be retrieved in a single call. This is an
 -- approximate number.
+--
+-- 'nextToken', 'batchListObjectParents_nextToken' - The pagination token.
 --
 -- 'objectReference', 'batchListObjectParents_objectReference' - Undocumented member.
 newBatchListObjectParents ::
@@ -59,20 +59,20 @@ newBatchListObjectParents ::
   BatchListObjectParents
 newBatchListObjectParents pObjectReference_ =
   BatchListObjectParents'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       objectReference = pObjectReference_
     }
-
--- | The pagination token.
-batchListObjectParents_nextToken :: Lens.Lens' BatchListObjectParents (Prelude.Maybe Prelude.Text)
-batchListObjectParents_nextToken = Lens.lens (\BatchListObjectParents' {nextToken} -> nextToken) (\s@BatchListObjectParents' {} a -> s {nextToken = a} :: BatchListObjectParents)
 
 -- | The maximum number of items to be retrieved in a single call. This is an
 -- approximate number.
 batchListObjectParents_maxResults :: Lens.Lens' BatchListObjectParents (Prelude.Maybe Prelude.Natural)
 batchListObjectParents_maxResults = Lens.lens (\BatchListObjectParents' {maxResults} -> maxResults) (\s@BatchListObjectParents' {} a -> s {maxResults = a} :: BatchListObjectParents)
+
+-- | The pagination token.
+batchListObjectParents_nextToken :: Lens.Lens' BatchListObjectParents (Prelude.Maybe Prelude.Text)
+batchListObjectParents_nextToken = Lens.lens (\BatchListObjectParents' {nextToken} -> nextToken) (\s@BatchListObjectParents' {} a -> s {nextToken = a} :: BatchListObjectParents)
 
 -- | Undocumented member.
 batchListObjectParents_objectReference :: Lens.Lens' BatchListObjectParents ObjectReference
@@ -80,22 +80,22 @@ batchListObjectParents_objectReference = Lens.lens (\BatchListObjectParents' {ob
 
 instance Prelude.Hashable BatchListObjectParents where
   hashWithSalt _salt BatchListObjectParents' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` objectReference
 
 instance Prelude.NFData BatchListObjectParents where
   rnf BatchListObjectParents' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf objectReference
 
 instance Data.ToJSON BatchListObjectParents where
   toJSON BatchListObjectParents' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("ObjectReference" Data..= objectReference)
           ]

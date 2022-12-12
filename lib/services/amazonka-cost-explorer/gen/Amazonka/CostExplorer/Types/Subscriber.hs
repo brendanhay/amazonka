@@ -30,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSubscriber' smart constructor.
 data Subscriber = Subscriber'
-  { -- | The notification delivery channel.
-    type' :: Prelude.Maybe SubscriberType,
+  { -- | The email address or SNS Amazon Resource Name (ARN). This depends on the
+    -- @Type@.
+    address :: Prelude.Maybe Prelude.Text,
     -- | Indicates if the subscriber accepts the notifications.
     status :: Prelude.Maybe SubscriberStatus,
-    -- | The email address or SNS Amazon Resource Name (ARN). This depends on the
-    -- @Type@.
-    address :: Prelude.Maybe Prelude.Text
+    -- | The notification delivery channel.
+    type' :: Prelude.Maybe SubscriberType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,33 +48,33 @@ data Subscriber = Subscriber'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'subscriber_type' - The notification delivery channel.
+-- 'address', 'subscriber_address' - The email address or SNS Amazon Resource Name (ARN). This depends on the
+-- @Type@.
 --
 -- 'status', 'subscriber_status' - Indicates if the subscriber accepts the notifications.
 --
--- 'address', 'subscriber_address' - The email address or SNS Amazon Resource Name (ARN). This depends on the
--- @Type@.
+-- 'type'', 'subscriber_type' - The notification delivery channel.
 newSubscriber ::
   Subscriber
 newSubscriber =
   Subscriber'
-    { type' = Prelude.Nothing,
+    { address = Prelude.Nothing,
       status = Prelude.Nothing,
-      address = Prelude.Nothing
+      type' = Prelude.Nothing
     }
-
--- | The notification delivery channel.
-subscriber_type :: Lens.Lens' Subscriber (Prelude.Maybe SubscriberType)
-subscriber_type = Lens.lens (\Subscriber' {type'} -> type') (\s@Subscriber' {} a -> s {type' = a} :: Subscriber)
-
--- | Indicates if the subscriber accepts the notifications.
-subscriber_status :: Lens.Lens' Subscriber (Prelude.Maybe SubscriberStatus)
-subscriber_status = Lens.lens (\Subscriber' {status} -> status) (\s@Subscriber' {} a -> s {status = a} :: Subscriber)
 
 -- | The email address or SNS Amazon Resource Name (ARN). This depends on the
 -- @Type@.
 subscriber_address :: Lens.Lens' Subscriber (Prelude.Maybe Prelude.Text)
 subscriber_address = Lens.lens (\Subscriber' {address} -> address) (\s@Subscriber' {} a -> s {address = a} :: Subscriber)
+
+-- | Indicates if the subscriber accepts the notifications.
+subscriber_status :: Lens.Lens' Subscriber (Prelude.Maybe SubscriberStatus)
+subscriber_status = Lens.lens (\Subscriber' {status} -> status) (\s@Subscriber' {} a -> s {status = a} :: Subscriber)
+
+-- | The notification delivery channel.
+subscriber_type :: Lens.Lens' Subscriber (Prelude.Maybe SubscriberType)
+subscriber_type = Lens.lens (\Subscriber' {type'} -> type') (\s@Subscriber' {} a -> s {type' = a} :: Subscriber)
 
 instance Data.FromJSON Subscriber where
   parseJSON =
@@ -82,29 +82,29 @@ instance Data.FromJSON Subscriber where
       "Subscriber"
       ( \x ->
           Subscriber'
-            Prelude.<$> (x Data..:? "Type")
+            Prelude.<$> (x Data..:? "Address")
             Prelude.<*> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "Address")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable Subscriber where
   hashWithSalt _salt Subscriber' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` address
       `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` address
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Subscriber where
   rnf Subscriber' {..} =
-    Prelude.rnf type'
+    Prelude.rnf address
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf address
+      `Prelude.seq` Prelude.rnf type'
 
 instance Data.ToJSON Subscriber where
   toJSON Subscriber' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Type" Data..=) Prelude.<$> type',
+          [ ("Address" Data..=) Prelude.<$> address,
             ("Status" Data..=) Prelude.<$> status,
-            ("Address" Data..=) Prelude.<$> address
+            ("Type" Data..=) Prelude.<$> type'
           ]
       )

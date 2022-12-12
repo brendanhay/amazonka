@@ -33,34 +33,34 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDevice' smart constructor.
 data Device = Device'
-  { -- | The device\'s tags.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The device\'s name.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The device\'s type.
-    type' :: Prelude.Maybe DeviceType,
+  { -- | The device\'s maker.
+    brand :: Prelude.Maybe DeviceBrand,
     -- | When the device was created.
     createdTime :: Prelude.Maybe Data.POSIX,
-    -- | The device\'s lease expiration time.
-    leaseExpirationTime :: Prelude.Maybe Data.POSIX,
-    -- | The device\'s provisioning status.
-    provisioningStatus :: Prelude.Maybe DeviceStatus,
-    -- | The device\'s ID.
-    deviceId :: Prelude.Maybe Prelude.Text,
-    -- | A device\'s latest job. Includes the target image version, and the
-    -- update job status.
-    latestDeviceJob :: Prelude.Maybe LatestDeviceJob,
-    -- | When the device was updated.
-    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
+    -- | A device\'s current software.
+    currentSoftware :: Prelude.Maybe Prelude.Text,
     -- | A description for the device.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The device\'s maker.
-    brand :: Prelude.Maybe DeviceBrand,
     -- | A device\'s aggregated status. Including the device\'s connection
     -- status, provisioning status, and lease status.
     deviceAggregatedStatus :: Prelude.Maybe DeviceAggregatedStatus,
-    -- | A device\'s current software.
-    currentSoftware :: Prelude.Maybe Prelude.Text
+    -- | The device\'s ID.
+    deviceId :: Prelude.Maybe Prelude.Text,
+    -- | When the device was updated.
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
+    -- | A device\'s latest job. Includes the target image version, and the
+    -- update job status.
+    latestDeviceJob :: Prelude.Maybe LatestDeviceJob,
+    -- | The device\'s lease expiration time.
+    leaseExpirationTime :: Prelude.Maybe Data.POSIX,
+    -- | The device\'s name.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The device\'s provisioning status.
+    provisioningStatus :: Prelude.Maybe DeviceStatus,
+    -- | The device\'s tags.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The device\'s type.
+    type' :: Prelude.Maybe DeviceType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,105 +72,105 @@ data Device = Device'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'device_tags' - The device\'s tags.
---
--- 'name', 'device_name' - The device\'s name.
---
--- 'type'', 'device_type' - The device\'s type.
+-- 'brand', 'device_brand' - The device\'s maker.
 --
 -- 'createdTime', 'device_createdTime' - When the device was created.
 --
--- 'leaseExpirationTime', 'device_leaseExpirationTime' - The device\'s lease expiration time.
---
--- 'provisioningStatus', 'device_provisioningStatus' - The device\'s provisioning status.
---
--- 'deviceId', 'device_deviceId' - The device\'s ID.
---
--- 'latestDeviceJob', 'device_latestDeviceJob' - A device\'s latest job. Includes the target image version, and the
--- update job status.
---
--- 'lastUpdatedTime', 'device_lastUpdatedTime' - When the device was updated.
+-- 'currentSoftware', 'device_currentSoftware' - A device\'s current software.
 --
 -- 'description', 'device_description' - A description for the device.
---
--- 'brand', 'device_brand' - The device\'s maker.
 --
 -- 'deviceAggregatedStatus', 'device_deviceAggregatedStatus' - A device\'s aggregated status. Including the device\'s connection
 -- status, provisioning status, and lease status.
 --
--- 'currentSoftware', 'device_currentSoftware' - A device\'s current software.
+-- 'deviceId', 'device_deviceId' - The device\'s ID.
+--
+-- 'lastUpdatedTime', 'device_lastUpdatedTime' - When the device was updated.
+--
+-- 'latestDeviceJob', 'device_latestDeviceJob' - A device\'s latest job. Includes the target image version, and the
+-- update job status.
+--
+-- 'leaseExpirationTime', 'device_leaseExpirationTime' - The device\'s lease expiration time.
+--
+-- 'name', 'device_name' - The device\'s name.
+--
+-- 'provisioningStatus', 'device_provisioningStatus' - The device\'s provisioning status.
+--
+-- 'tags', 'device_tags' - The device\'s tags.
+--
+-- 'type'', 'device_type' - The device\'s type.
 newDevice ::
   Device
 newDevice =
   Device'
-    { tags = Prelude.Nothing,
-      name = Prelude.Nothing,
-      type' = Prelude.Nothing,
+    { brand = Prelude.Nothing,
       createdTime = Prelude.Nothing,
-      leaseExpirationTime = Prelude.Nothing,
-      provisioningStatus = Prelude.Nothing,
-      deviceId = Prelude.Nothing,
-      latestDeviceJob = Prelude.Nothing,
-      lastUpdatedTime = Prelude.Nothing,
+      currentSoftware = Prelude.Nothing,
       description = Prelude.Nothing,
-      brand = Prelude.Nothing,
       deviceAggregatedStatus = Prelude.Nothing,
-      currentSoftware = Prelude.Nothing
+      deviceId = Prelude.Nothing,
+      lastUpdatedTime = Prelude.Nothing,
+      latestDeviceJob = Prelude.Nothing,
+      leaseExpirationTime = Prelude.Nothing,
+      name = Prelude.Nothing,
+      provisioningStatus = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
--- | The device\'s tags.
-device_tags :: Lens.Lens' Device (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-device_tags = Lens.lens (\Device' {tags} -> tags) (\s@Device' {} a -> s {tags = a} :: Device) Prelude.. Lens.mapping Lens.coerced
-
--- | The device\'s name.
-device_name :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
-device_name = Lens.lens (\Device' {name} -> name) (\s@Device' {} a -> s {name = a} :: Device)
-
--- | The device\'s type.
-device_type :: Lens.Lens' Device (Prelude.Maybe DeviceType)
-device_type = Lens.lens (\Device' {type'} -> type') (\s@Device' {} a -> s {type' = a} :: Device)
+-- | The device\'s maker.
+device_brand :: Lens.Lens' Device (Prelude.Maybe DeviceBrand)
+device_brand = Lens.lens (\Device' {brand} -> brand) (\s@Device' {} a -> s {brand = a} :: Device)
 
 -- | When the device was created.
 device_createdTime :: Lens.Lens' Device (Prelude.Maybe Prelude.UTCTime)
 device_createdTime = Lens.lens (\Device' {createdTime} -> createdTime) (\s@Device' {} a -> s {createdTime = a} :: Device) Prelude.. Lens.mapping Data._Time
 
--- | The device\'s lease expiration time.
-device_leaseExpirationTime :: Lens.Lens' Device (Prelude.Maybe Prelude.UTCTime)
-device_leaseExpirationTime = Lens.lens (\Device' {leaseExpirationTime} -> leaseExpirationTime) (\s@Device' {} a -> s {leaseExpirationTime = a} :: Device) Prelude.. Lens.mapping Data._Time
-
--- | The device\'s provisioning status.
-device_provisioningStatus :: Lens.Lens' Device (Prelude.Maybe DeviceStatus)
-device_provisioningStatus = Lens.lens (\Device' {provisioningStatus} -> provisioningStatus) (\s@Device' {} a -> s {provisioningStatus = a} :: Device)
-
--- | The device\'s ID.
-device_deviceId :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
-device_deviceId = Lens.lens (\Device' {deviceId} -> deviceId) (\s@Device' {} a -> s {deviceId = a} :: Device)
-
--- | A device\'s latest job. Includes the target image version, and the
--- update job status.
-device_latestDeviceJob :: Lens.Lens' Device (Prelude.Maybe LatestDeviceJob)
-device_latestDeviceJob = Lens.lens (\Device' {latestDeviceJob} -> latestDeviceJob) (\s@Device' {} a -> s {latestDeviceJob = a} :: Device)
-
--- | When the device was updated.
-device_lastUpdatedTime :: Lens.Lens' Device (Prelude.Maybe Prelude.UTCTime)
-device_lastUpdatedTime = Lens.lens (\Device' {lastUpdatedTime} -> lastUpdatedTime) (\s@Device' {} a -> s {lastUpdatedTime = a} :: Device) Prelude.. Lens.mapping Data._Time
+-- | A device\'s current software.
+device_currentSoftware :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
+device_currentSoftware = Lens.lens (\Device' {currentSoftware} -> currentSoftware) (\s@Device' {} a -> s {currentSoftware = a} :: Device)
 
 -- | A description for the device.
 device_description :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
 device_description = Lens.lens (\Device' {description} -> description) (\s@Device' {} a -> s {description = a} :: Device)
-
--- | The device\'s maker.
-device_brand :: Lens.Lens' Device (Prelude.Maybe DeviceBrand)
-device_brand = Lens.lens (\Device' {brand} -> brand) (\s@Device' {} a -> s {brand = a} :: Device)
 
 -- | A device\'s aggregated status. Including the device\'s connection
 -- status, provisioning status, and lease status.
 device_deviceAggregatedStatus :: Lens.Lens' Device (Prelude.Maybe DeviceAggregatedStatus)
 device_deviceAggregatedStatus = Lens.lens (\Device' {deviceAggregatedStatus} -> deviceAggregatedStatus) (\s@Device' {} a -> s {deviceAggregatedStatus = a} :: Device)
 
--- | A device\'s current software.
-device_currentSoftware :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
-device_currentSoftware = Lens.lens (\Device' {currentSoftware} -> currentSoftware) (\s@Device' {} a -> s {currentSoftware = a} :: Device)
+-- | The device\'s ID.
+device_deviceId :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
+device_deviceId = Lens.lens (\Device' {deviceId} -> deviceId) (\s@Device' {} a -> s {deviceId = a} :: Device)
+
+-- | When the device was updated.
+device_lastUpdatedTime :: Lens.Lens' Device (Prelude.Maybe Prelude.UTCTime)
+device_lastUpdatedTime = Lens.lens (\Device' {lastUpdatedTime} -> lastUpdatedTime) (\s@Device' {} a -> s {lastUpdatedTime = a} :: Device) Prelude.. Lens.mapping Data._Time
+
+-- | A device\'s latest job. Includes the target image version, and the
+-- update job status.
+device_latestDeviceJob :: Lens.Lens' Device (Prelude.Maybe LatestDeviceJob)
+device_latestDeviceJob = Lens.lens (\Device' {latestDeviceJob} -> latestDeviceJob) (\s@Device' {} a -> s {latestDeviceJob = a} :: Device)
+
+-- | The device\'s lease expiration time.
+device_leaseExpirationTime :: Lens.Lens' Device (Prelude.Maybe Prelude.UTCTime)
+device_leaseExpirationTime = Lens.lens (\Device' {leaseExpirationTime} -> leaseExpirationTime) (\s@Device' {} a -> s {leaseExpirationTime = a} :: Device) Prelude.. Lens.mapping Data._Time
+
+-- | The device\'s name.
+device_name :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
+device_name = Lens.lens (\Device' {name} -> name) (\s@Device' {} a -> s {name = a} :: Device)
+
+-- | The device\'s provisioning status.
+device_provisioningStatus :: Lens.Lens' Device (Prelude.Maybe DeviceStatus)
+device_provisioningStatus = Lens.lens (\Device' {provisioningStatus} -> provisioningStatus) (\s@Device' {} a -> s {provisioningStatus = a} :: Device)
+
+-- | The device\'s tags.
+device_tags :: Lens.Lens' Device (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+device_tags = Lens.lens (\Device' {tags} -> tags) (\s@Device' {} a -> s {tags = a} :: Device) Prelude.. Lens.mapping Lens.coerced
+
+-- | The device\'s type.
+device_type :: Lens.Lens' Device (Prelude.Maybe DeviceType)
+device_type = Lens.lens (\Device' {type'} -> type') (\s@Device' {} a -> s {type' = a} :: Device)
 
 instance Data.FromJSON Device where
   parseJSON =
@@ -178,49 +178,49 @@ instance Data.FromJSON Device where
       "Device"
       ( \x ->
           Device'
-            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Type")
+            Prelude.<$> (x Data..:? "Brand")
             Prelude.<*> (x Data..:? "CreatedTime")
-            Prelude.<*> (x Data..:? "LeaseExpirationTime")
-            Prelude.<*> (x Data..:? "ProvisioningStatus")
-            Prelude.<*> (x Data..:? "DeviceId")
-            Prelude.<*> (x Data..:? "LatestDeviceJob")
-            Prelude.<*> (x Data..:? "LastUpdatedTime")
-            Prelude.<*> (x Data..:? "Description")
-            Prelude.<*> (x Data..:? "Brand")
-            Prelude.<*> (x Data..:? "DeviceAggregatedStatus")
             Prelude.<*> (x Data..:? "CurrentSoftware")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "DeviceAggregatedStatus")
+            Prelude.<*> (x Data..:? "DeviceId")
+            Prelude.<*> (x Data..:? "LastUpdatedTime")
+            Prelude.<*> (x Data..:? "LatestDeviceJob")
+            Prelude.<*> (x Data..:? "LeaseExpirationTime")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ProvisioningStatus")
+            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable Device where
   hashWithSalt _salt Device' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` brand
       `Prelude.hashWithSalt` createdTime
-      `Prelude.hashWithSalt` leaseExpirationTime
-      `Prelude.hashWithSalt` provisioningStatus
-      `Prelude.hashWithSalt` deviceId
-      `Prelude.hashWithSalt` latestDeviceJob
-      `Prelude.hashWithSalt` lastUpdatedTime
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` brand
-      `Prelude.hashWithSalt` deviceAggregatedStatus
       `Prelude.hashWithSalt` currentSoftware
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` deviceAggregatedStatus
+      `Prelude.hashWithSalt` deviceId
+      `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` latestDeviceJob
+      `Prelude.hashWithSalt` leaseExpirationTime
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` provisioningStatus
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Device where
   rnf Device' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf brand
       `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf leaseExpirationTime
-      `Prelude.seq` Prelude.rnf provisioningStatus
-      `Prelude.seq` Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf latestDeviceJob
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf brand
-      `Prelude.seq` Prelude.rnf deviceAggregatedStatus
       `Prelude.seq` Prelude.rnf currentSoftware
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf deviceAggregatedStatus
+      `Prelude.seq` Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf latestDeviceJob
+      `Prelude.seq` Prelude.rnf leaseExpirationTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf provisioningStatus
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf type'

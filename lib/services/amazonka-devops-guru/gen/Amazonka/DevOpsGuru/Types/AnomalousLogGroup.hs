@@ -32,8 +32,6 @@ import qualified Amazonka.Prelude as Prelude
 data AnomalousLogGroup = AnomalousLogGroup'
   { -- | The time the anomalous log events stopped.
     impactEndTime :: Prelude.Maybe Data.POSIX,
-    -- | The number of log lines that were scanned for anomalous log events.
-    numberOfLogLinesScanned :: Prelude.Maybe Prelude.Int,
     -- | The time the anomalous log events began. The impact start time indicates
     -- the time of the first log anomaly event that occurs.
     impactStartTime :: Prelude.Maybe Data.POSIX,
@@ -41,7 +39,9 @@ data AnomalousLogGroup = AnomalousLogGroup'
     -- represents a cluster of similar anomalous log events.
     logAnomalyShowcases :: Prelude.Maybe [LogAnomalyShowcase],
     -- | The name of the CloudWatch log group.
-    logGroupName :: Prelude.Maybe Prelude.Text
+    logGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The number of log lines that were scanned for anomalous log events.
+    numberOfLogLinesScanned :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,8 +55,6 @@ data AnomalousLogGroup = AnomalousLogGroup'
 --
 -- 'impactEndTime', 'anomalousLogGroup_impactEndTime' - The time the anomalous log events stopped.
 --
--- 'numberOfLogLinesScanned', 'anomalousLogGroup_numberOfLogLinesScanned' - The number of log lines that were scanned for anomalous log events.
---
 -- 'impactStartTime', 'anomalousLogGroup_impactStartTime' - The time the anomalous log events began. The impact start time indicates
 -- the time of the first log anomaly event that occurs.
 --
@@ -64,24 +62,22 @@ data AnomalousLogGroup = AnomalousLogGroup'
 -- represents a cluster of similar anomalous log events.
 --
 -- 'logGroupName', 'anomalousLogGroup_logGroupName' - The name of the CloudWatch log group.
+--
+-- 'numberOfLogLinesScanned', 'anomalousLogGroup_numberOfLogLinesScanned' - The number of log lines that were scanned for anomalous log events.
 newAnomalousLogGroup ::
   AnomalousLogGroup
 newAnomalousLogGroup =
   AnomalousLogGroup'
     { impactEndTime = Prelude.Nothing,
-      numberOfLogLinesScanned = Prelude.Nothing,
       impactStartTime = Prelude.Nothing,
       logAnomalyShowcases = Prelude.Nothing,
-      logGroupName = Prelude.Nothing
+      logGroupName = Prelude.Nothing,
+      numberOfLogLinesScanned = Prelude.Nothing
     }
 
 -- | The time the anomalous log events stopped.
 anomalousLogGroup_impactEndTime :: Lens.Lens' AnomalousLogGroup (Prelude.Maybe Prelude.UTCTime)
 anomalousLogGroup_impactEndTime = Lens.lens (\AnomalousLogGroup' {impactEndTime} -> impactEndTime) (\s@AnomalousLogGroup' {} a -> s {impactEndTime = a} :: AnomalousLogGroup) Prelude.. Lens.mapping Data._Time
-
--- | The number of log lines that were scanned for anomalous log events.
-anomalousLogGroup_numberOfLogLinesScanned :: Lens.Lens' AnomalousLogGroup (Prelude.Maybe Prelude.Int)
-anomalousLogGroup_numberOfLogLinesScanned = Lens.lens (\AnomalousLogGroup' {numberOfLogLinesScanned} -> numberOfLogLinesScanned) (\s@AnomalousLogGroup' {} a -> s {numberOfLogLinesScanned = a} :: AnomalousLogGroup)
 
 -- | The time the anomalous log events began. The impact start time indicates
 -- the time of the first log anomaly event that occurs.
@@ -97,6 +93,10 @@ anomalousLogGroup_logAnomalyShowcases = Lens.lens (\AnomalousLogGroup' {logAnoma
 anomalousLogGroup_logGroupName :: Lens.Lens' AnomalousLogGroup (Prelude.Maybe Prelude.Text)
 anomalousLogGroup_logGroupName = Lens.lens (\AnomalousLogGroup' {logGroupName} -> logGroupName) (\s@AnomalousLogGroup' {} a -> s {logGroupName = a} :: AnomalousLogGroup)
 
+-- | The number of log lines that were scanned for anomalous log events.
+anomalousLogGroup_numberOfLogLinesScanned :: Lens.Lens' AnomalousLogGroup (Prelude.Maybe Prelude.Int)
+anomalousLogGroup_numberOfLogLinesScanned = Lens.lens (\AnomalousLogGroup' {numberOfLogLinesScanned} -> numberOfLogLinesScanned) (\s@AnomalousLogGroup' {} a -> s {numberOfLogLinesScanned = a} :: AnomalousLogGroup)
+
 instance Data.FromJSON AnomalousLogGroup where
   parseJSON =
     Data.withObject
@@ -104,26 +104,26 @@ instance Data.FromJSON AnomalousLogGroup where
       ( \x ->
           AnomalousLogGroup'
             Prelude.<$> (x Data..:? "ImpactEndTime")
-            Prelude.<*> (x Data..:? "NumberOfLogLinesScanned")
             Prelude.<*> (x Data..:? "ImpactStartTime")
             Prelude.<*> ( x Data..:? "LogAnomalyShowcases"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "LogGroupName")
+            Prelude.<*> (x Data..:? "NumberOfLogLinesScanned")
       )
 
 instance Prelude.Hashable AnomalousLogGroup where
   hashWithSalt _salt AnomalousLogGroup' {..} =
     _salt `Prelude.hashWithSalt` impactEndTime
-      `Prelude.hashWithSalt` numberOfLogLinesScanned
       `Prelude.hashWithSalt` impactStartTime
       `Prelude.hashWithSalt` logAnomalyShowcases
       `Prelude.hashWithSalt` logGroupName
+      `Prelude.hashWithSalt` numberOfLogLinesScanned
 
 instance Prelude.NFData AnomalousLogGroup where
   rnf AnomalousLogGroup' {..} =
     Prelude.rnf impactEndTime
-      `Prelude.seq` Prelude.rnf numberOfLogLinesScanned
       `Prelude.seq` Prelude.rnf impactStartTime
       `Prelude.seq` Prelude.rnf logAnomalyShowcases
       `Prelude.seq` Prelude.rnf logGroupName
+      `Prelude.seq` Prelude.rnf numberOfLogLinesScanned

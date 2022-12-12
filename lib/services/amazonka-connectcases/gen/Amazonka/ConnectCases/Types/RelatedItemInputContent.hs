@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRelatedItemInputContent' smart constructor.
 data RelatedItemInputContent = RelatedItemInputContent'
-  { -- | Object representing a contact in Amazon Connect as an API request field.
-    contact :: Prelude.Maybe Contact,
-    -- | Represents the content of a comment to be returned to agents.
-    comment :: Prelude.Maybe CommentContent
+  { -- | Represents the content of a comment to be returned to agents.
+    comment :: Prelude.Maybe CommentContent,
+    -- | Object representing a contact in Amazon Connect as an API request field.
+    contact :: Prelude.Maybe Contact
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,40 +45,40 @@ data RelatedItemInputContent = RelatedItemInputContent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'contact', 'relatedItemInputContent_contact' - Object representing a contact in Amazon Connect as an API request field.
---
 -- 'comment', 'relatedItemInputContent_comment' - Represents the content of a comment to be returned to agents.
+--
+-- 'contact', 'relatedItemInputContent_contact' - Object representing a contact in Amazon Connect as an API request field.
 newRelatedItemInputContent ::
   RelatedItemInputContent
 newRelatedItemInputContent =
   RelatedItemInputContent'
-    { contact = Prelude.Nothing,
-      comment = Prelude.Nothing
+    { comment = Prelude.Nothing,
+      contact = Prelude.Nothing
     }
-
--- | Object representing a contact in Amazon Connect as an API request field.
-relatedItemInputContent_contact :: Lens.Lens' RelatedItemInputContent (Prelude.Maybe Contact)
-relatedItemInputContent_contact = Lens.lens (\RelatedItemInputContent' {contact} -> contact) (\s@RelatedItemInputContent' {} a -> s {contact = a} :: RelatedItemInputContent)
 
 -- | Represents the content of a comment to be returned to agents.
 relatedItemInputContent_comment :: Lens.Lens' RelatedItemInputContent (Prelude.Maybe CommentContent)
 relatedItemInputContent_comment = Lens.lens (\RelatedItemInputContent' {comment} -> comment) (\s@RelatedItemInputContent' {} a -> s {comment = a} :: RelatedItemInputContent)
 
+-- | Object representing a contact in Amazon Connect as an API request field.
+relatedItemInputContent_contact :: Lens.Lens' RelatedItemInputContent (Prelude.Maybe Contact)
+relatedItemInputContent_contact = Lens.lens (\RelatedItemInputContent' {contact} -> contact) (\s@RelatedItemInputContent' {} a -> s {contact = a} :: RelatedItemInputContent)
+
 instance Prelude.Hashable RelatedItemInputContent where
   hashWithSalt _salt RelatedItemInputContent' {..} =
-    _salt `Prelude.hashWithSalt` contact
-      `Prelude.hashWithSalt` comment
+    _salt `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` contact
 
 instance Prelude.NFData RelatedItemInputContent where
   rnf RelatedItemInputContent' {..} =
-    Prelude.rnf contact
-      `Prelude.seq` Prelude.rnf comment
+    Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf contact
 
 instance Data.ToJSON RelatedItemInputContent where
   toJSON RelatedItemInputContent' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("contact" Data..=) Prelude.<$> contact,
-            ("comment" Data..=) Prelude.<$> comment
+          [ ("comment" Data..=) Prelude.<$> comment,
+            ("contact" Data..=) Prelude.<$> contact
           ]
       )

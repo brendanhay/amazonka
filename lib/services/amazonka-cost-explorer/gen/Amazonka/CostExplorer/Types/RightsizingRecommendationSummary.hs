@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRightsizingRecommendationSummary' smart constructor.
 data RightsizingRecommendationSummary = RightsizingRecommendationSummary'
-  { -- | The savings percentage based on the recommended modifications. It\'s
-    -- relative to the total On-Demand costs that are associated with these
-    -- instances.
-    savingsPercentage :: Prelude.Maybe Prelude.Text,
+  { -- | The estimated total savings resulting from modifications, on a monthly
+    -- basis.
+    estimatedTotalMonthlySavingsAmount :: Prelude.Maybe Prelude.Text,
     -- | The currency code that Amazon Web Services used to calculate the
     -- savings.
     savingsCurrencyCode :: Prelude.Maybe Prelude.Text,
-    -- | The estimated total savings resulting from modifications, on a monthly
-    -- basis.
-    estimatedTotalMonthlySavingsAmount :: Prelude.Maybe Prelude.Text,
+    -- | The savings percentage based on the recommended modifications. It\'s
+    -- relative to the total On-Demand costs that are associated with these
+    -- instances.
+    savingsPercentage :: Prelude.Maybe Prelude.Text,
     -- | The total number of instance recommendations.
     totalRecommendationCount :: Prelude.Maybe Prelude.Text
   }
@@ -51,45 +51,44 @@ data RightsizingRecommendationSummary = RightsizingRecommendationSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'savingsPercentage', 'rightsizingRecommendationSummary_savingsPercentage' - The savings percentage based on the recommended modifications. It\'s
--- relative to the total On-Demand costs that are associated with these
--- instances.
+-- 'estimatedTotalMonthlySavingsAmount', 'rightsizingRecommendationSummary_estimatedTotalMonthlySavingsAmount' - The estimated total savings resulting from modifications, on a monthly
+-- basis.
 --
 -- 'savingsCurrencyCode', 'rightsizingRecommendationSummary_savingsCurrencyCode' - The currency code that Amazon Web Services used to calculate the
 -- savings.
 --
--- 'estimatedTotalMonthlySavingsAmount', 'rightsizingRecommendationSummary_estimatedTotalMonthlySavingsAmount' - The estimated total savings resulting from modifications, on a monthly
--- basis.
+-- 'savingsPercentage', 'rightsizingRecommendationSummary_savingsPercentage' - The savings percentage based on the recommended modifications. It\'s
+-- relative to the total On-Demand costs that are associated with these
+-- instances.
 --
 -- 'totalRecommendationCount', 'rightsizingRecommendationSummary_totalRecommendationCount' - The total number of instance recommendations.
 newRightsizingRecommendationSummary ::
   RightsizingRecommendationSummary
 newRightsizingRecommendationSummary =
   RightsizingRecommendationSummary'
-    { savingsPercentage =
+    { estimatedTotalMonthlySavingsAmount =
         Prelude.Nothing,
       savingsCurrencyCode = Prelude.Nothing,
-      estimatedTotalMonthlySavingsAmount =
-        Prelude.Nothing,
+      savingsPercentage = Prelude.Nothing,
       totalRecommendationCount =
         Prelude.Nothing
     }
 
--- | The savings percentage based on the recommended modifications. It\'s
--- relative to the total On-Demand costs that are associated with these
--- instances.
-rightsizingRecommendationSummary_savingsPercentage :: Lens.Lens' RightsizingRecommendationSummary (Prelude.Maybe Prelude.Text)
-rightsizingRecommendationSummary_savingsPercentage = Lens.lens (\RightsizingRecommendationSummary' {savingsPercentage} -> savingsPercentage) (\s@RightsizingRecommendationSummary' {} a -> s {savingsPercentage = a} :: RightsizingRecommendationSummary)
+-- | The estimated total savings resulting from modifications, on a monthly
+-- basis.
+rightsizingRecommendationSummary_estimatedTotalMonthlySavingsAmount :: Lens.Lens' RightsizingRecommendationSummary (Prelude.Maybe Prelude.Text)
+rightsizingRecommendationSummary_estimatedTotalMonthlySavingsAmount = Lens.lens (\RightsizingRecommendationSummary' {estimatedTotalMonthlySavingsAmount} -> estimatedTotalMonthlySavingsAmount) (\s@RightsizingRecommendationSummary' {} a -> s {estimatedTotalMonthlySavingsAmount = a} :: RightsizingRecommendationSummary)
 
 -- | The currency code that Amazon Web Services used to calculate the
 -- savings.
 rightsizingRecommendationSummary_savingsCurrencyCode :: Lens.Lens' RightsizingRecommendationSummary (Prelude.Maybe Prelude.Text)
 rightsizingRecommendationSummary_savingsCurrencyCode = Lens.lens (\RightsizingRecommendationSummary' {savingsCurrencyCode} -> savingsCurrencyCode) (\s@RightsizingRecommendationSummary' {} a -> s {savingsCurrencyCode = a} :: RightsizingRecommendationSummary)
 
--- | The estimated total savings resulting from modifications, on a monthly
--- basis.
-rightsizingRecommendationSummary_estimatedTotalMonthlySavingsAmount :: Lens.Lens' RightsizingRecommendationSummary (Prelude.Maybe Prelude.Text)
-rightsizingRecommendationSummary_estimatedTotalMonthlySavingsAmount = Lens.lens (\RightsizingRecommendationSummary' {estimatedTotalMonthlySavingsAmount} -> estimatedTotalMonthlySavingsAmount) (\s@RightsizingRecommendationSummary' {} a -> s {estimatedTotalMonthlySavingsAmount = a} :: RightsizingRecommendationSummary)
+-- | The savings percentage based on the recommended modifications. It\'s
+-- relative to the total On-Demand costs that are associated with these
+-- instances.
+rightsizingRecommendationSummary_savingsPercentage :: Lens.Lens' RightsizingRecommendationSummary (Prelude.Maybe Prelude.Text)
+rightsizingRecommendationSummary_savingsPercentage = Lens.lens (\RightsizingRecommendationSummary' {savingsPercentage} -> savingsPercentage) (\s@RightsizingRecommendationSummary' {} a -> s {savingsPercentage = a} :: RightsizingRecommendationSummary)
 
 -- | The total number of instance recommendations.
 rightsizingRecommendationSummary_totalRecommendationCount :: Lens.Lens' RightsizingRecommendationSummary (Prelude.Maybe Prelude.Text)
@@ -104,9 +103,9 @@ instance
       "RightsizingRecommendationSummary"
       ( \x ->
           RightsizingRecommendationSummary'
-            Prelude.<$> (x Data..:? "SavingsPercentage")
+            Prelude.<$> (x Data..:? "EstimatedTotalMonthlySavingsAmount")
             Prelude.<*> (x Data..:? "SavingsCurrencyCode")
-            Prelude.<*> (x Data..:? "EstimatedTotalMonthlySavingsAmount")
+            Prelude.<*> (x Data..:? "SavingsPercentage")
             Prelude.<*> (x Data..:? "TotalRecommendationCount")
       )
 
@@ -117,9 +116,10 @@ instance
   hashWithSalt
     _salt
     RightsizingRecommendationSummary' {..} =
-      _salt `Prelude.hashWithSalt` savingsPercentage
-        `Prelude.hashWithSalt` savingsCurrencyCode
+      _salt
         `Prelude.hashWithSalt` estimatedTotalMonthlySavingsAmount
+        `Prelude.hashWithSalt` savingsCurrencyCode
+        `Prelude.hashWithSalt` savingsPercentage
         `Prelude.hashWithSalt` totalRecommendationCount
 
 instance
@@ -127,7 +127,7 @@ instance
     RightsizingRecommendationSummary
   where
   rnf RightsizingRecommendationSummary' {..} =
-    Prelude.rnf savingsPercentage
+    Prelude.rnf estimatedTotalMonthlySavingsAmount
       `Prelude.seq` Prelude.rnf savingsCurrencyCode
-      `Prelude.seq` Prelude.rnf estimatedTotalMonthlySavingsAmount
+      `Prelude.seq` Prelude.rnf savingsPercentage
       `Prelude.seq` Prelude.rnf totalRecommendationCount

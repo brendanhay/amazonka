@@ -20,7 +20,8 @@
 module Amazonka.FSx.Types.OpenZFSDeploymentType
   ( OpenZFSDeploymentType
       ( ..,
-        OpenZFSDeploymentType_SINGLE_AZ_1
+        OpenZFSDeploymentType_SINGLE_AZ_1,
+        OpenZFSDeploymentType_SINGLE_AZ_2
       ),
   )
 where
@@ -60,7 +61,11 @@ newtype OpenZFSDeploymentType = OpenZFSDeploymentType'
 pattern OpenZFSDeploymentType_SINGLE_AZ_1 :: OpenZFSDeploymentType
 pattern OpenZFSDeploymentType_SINGLE_AZ_1 = OpenZFSDeploymentType' "SINGLE_AZ_1"
 
+pattern OpenZFSDeploymentType_SINGLE_AZ_2 :: OpenZFSDeploymentType
+pattern OpenZFSDeploymentType_SINGLE_AZ_2 = OpenZFSDeploymentType' "SINGLE_AZ_2"
+
 {-# COMPLETE
   OpenZFSDeploymentType_SINGLE_AZ_1,
+  OpenZFSDeploymentType_SINGLE_AZ_2,
   OpenZFSDeploymentType'
   #-}

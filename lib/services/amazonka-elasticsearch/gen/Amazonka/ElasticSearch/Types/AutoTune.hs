@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAutoTune' smart constructor.
 data AutoTune = AutoTune'
-  { -- | Specifies Auto-Tune type. Valid value is SCHEDULED_ACTION.
-    autoTuneType :: Prelude.Maybe AutoTuneType,
-    -- | Specifies details of the Auto-Tune action. See the
+  { -- | Specifies details of the Auto-Tune action. See the
     -- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>
     -- for more information.
-    autoTuneDetails :: Prelude.Maybe AutoTuneDetails
+    autoTuneDetails :: Prelude.Maybe AutoTuneDetails,
+    -- | Specifies Auto-Tune type. Valid value is SCHEDULED_ACTION.
+    autoTuneType :: Prelude.Maybe AutoTuneType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,22 +47,18 @@ data AutoTune = AutoTune'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'autoTuneType', 'autoTune_autoTuneType' - Specifies Auto-Tune type. Valid value is SCHEDULED_ACTION.
---
 -- 'autoTuneDetails', 'autoTune_autoTuneDetails' - Specifies details of the Auto-Tune action. See the
 -- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>
 -- for more information.
+--
+-- 'autoTuneType', 'autoTune_autoTuneType' - Specifies Auto-Tune type. Valid value is SCHEDULED_ACTION.
 newAutoTune ::
   AutoTune
 newAutoTune =
   AutoTune'
-    { autoTuneType = Prelude.Nothing,
-      autoTuneDetails = Prelude.Nothing
+    { autoTuneDetails = Prelude.Nothing,
+      autoTuneType = Prelude.Nothing
     }
-
--- | Specifies Auto-Tune type. Valid value is SCHEDULED_ACTION.
-autoTune_autoTuneType :: Lens.Lens' AutoTune (Prelude.Maybe AutoTuneType)
-autoTune_autoTuneType = Lens.lens (\AutoTune' {autoTuneType} -> autoTuneType) (\s@AutoTune' {} a -> s {autoTuneType = a} :: AutoTune)
 
 -- | Specifies details of the Auto-Tune action. See the
 -- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>
@@ -70,22 +66,26 @@ autoTune_autoTuneType = Lens.lens (\AutoTune' {autoTuneType} -> autoTuneType) (\
 autoTune_autoTuneDetails :: Lens.Lens' AutoTune (Prelude.Maybe AutoTuneDetails)
 autoTune_autoTuneDetails = Lens.lens (\AutoTune' {autoTuneDetails} -> autoTuneDetails) (\s@AutoTune' {} a -> s {autoTuneDetails = a} :: AutoTune)
 
+-- | Specifies Auto-Tune type. Valid value is SCHEDULED_ACTION.
+autoTune_autoTuneType :: Lens.Lens' AutoTune (Prelude.Maybe AutoTuneType)
+autoTune_autoTuneType = Lens.lens (\AutoTune' {autoTuneType} -> autoTuneType) (\s@AutoTune' {} a -> s {autoTuneType = a} :: AutoTune)
+
 instance Data.FromJSON AutoTune where
   parseJSON =
     Data.withObject
       "AutoTune"
       ( \x ->
           AutoTune'
-            Prelude.<$> (x Data..:? "AutoTuneType")
-            Prelude.<*> (x Data..:? "AutoTuneDetails")
+            Prelude.<$> (x Data..:? "AutoTuneDetails")
+            Prelude.<*> (x Data..:? "AutoTuneType")
       )
 
 instance Prelude.Hashable AutoTune where
   hashWithSalt _salt AutoTune' {..} =
-    _salt `Prelude.hashWithSalt` autoTuneType
-      `Prelude.hashWithSalt` autoTuneDetails
+    _salt `Prelude.hashWithSalt` autoTuneDetails
+      `Prelude.hashWithSalt` autoTuneType
 
 instance Prelude.NFData AutoTune where
   rnf AutoTune' {..} =
-    Prelude.rnf autoTuneType
-      `Prelude.seq` Prelude.rnf autoTuneDetails
+    Prelude.rnf autoTuneDetails
+      `Prelude.seq` Prelude.rnf autoTuneType

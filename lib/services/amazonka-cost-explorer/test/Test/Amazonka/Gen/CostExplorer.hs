@@ -108,11 +108,17 @@ import Test.Tasty
 --         , requestListCostCategoryDefinitions $
 --             newListCostCategoryDefinitions
 --
+--         , requestListSavingsPlansPurchaseRecommendationGeneration $
+--             newListSavingsPlansPurchaseRecommendationGeneration
+--
 --         , requestListTagsForResource $
 --             newListTagsForResource
 --
 --         , requestProvideAnomalyFeedback $
 --             newProvideAnomalyFeedback
+--
+--         , requestStartSavingsPlansPurchaseRecommendationGeneration $
+--             newStartSavingsPlansPurchaseRecommendationGeneration
 --
 --         , requestTagResource $
 --             newTagResource
@@ -216,11 +222,17 @@ import Test.Tasty
 --         , responseListCostCategoryDefinitions $
 --             newListCostCategoryDefinitionsResponse
 --
+--         , responseListSavingsPlansPurchaseRecommendationGeneration $
+--             newListSavingsPlansPurchaseRecommendationGenerationResponse
+--
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
 --
 --         , responseProvideAnomalyFeedback $
 --             newProvideAnomalyFeedbackResponse
+--
+--         , responseStartSavingsPlansPurchaseRecommendationGeneration $
+--             newStartSavingsPlansPurchaseRecommendationGenerationResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -407,6 +419,12 @@ requestListCostCategoryDefinitions =
     "ListCostCategoryDefinitions"
     "fixture/ListCostCategoryDefinitions.yaml"
 
+requestListSavingsPlansPurchaseRecommendationGeneration :: ListSavingsPlansPurchaseRecommendationGeneration -> TestTree
+requestListSavingsPlansPurchaseRecommendationGeneration =
+  req
+    "ListSavingsPlansPurchaseRecommendationGeneration"
+    "fixture/ListSavingsPlansPurchaseRecommendationGeneration.yaml"
+
 requestListTagsForResource :: ListTagsForResource -> TestTree
 requestListTagsForResource =
   req
@@ -418,6 +436,12 @@ requestProvideAnomalyFeedback =
   req
     "ProvideAnomalyFeedback"
     "fixture/ProvideAnomalyFeedback.yaml"
+
+requestStartSavingsPlansPurchaseRecommendationGeneration :: StartSavingsPlansPurchaseRecommendationGeneration -> TestTree
+requestStartSavingsPlansPurchaseRecommendationGeneration =
+  req
+    "StartSavingsPlansPurchaseRecommendationGeneration"
+    "fixture/StartSavingsPlansPurchaseRecommendationGeneration.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -673,6 +697,14 @@ responseListCostCategoryDefinitions =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListCostCategoryDefinitions)
 
+responseListSavingsPlansPurchaseRecommendationGeneration :: ListSavingsPlansPurchaseRecommendationGenerationResponse -> TestTree
+responseListSavingsPlansPurchaseRecommendationGeneration =
+  res
+    "ListSavingsPlansPurchaseRecommendationGenerationResponse"
+    "fixture/ListSavingsPlansPurchaseRecommendationGenerationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListSavingsPlansPurchaseRecommendationGeneration)
+
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
   res
@@ -688,6 +720,14 @@ responseProvideAnomalyFeedback =
     "fixture/ProvideAnomalyFeedbackResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ProvideAnomalyFeedback)
+
+responseStartSavingsPlansPurchaseRecommendationGeneration :: StartSavingsPlansPurchaseRecommendationGenerationResponse -> TestTree
+responseStartSavingsPlansPurchaseRecommendationGeneration =
+  res
+    "StartSavingsPlansPurchaseRecommendationGenerationResponse"
+    "fixture/StartSavingsPlansPurchaseRecommendationGenerationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartSavingsPlansPurchaseRecommendationGeneration)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =

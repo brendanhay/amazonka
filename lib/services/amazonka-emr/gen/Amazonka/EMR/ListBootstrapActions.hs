@@ -38,8 +38,8 @@ module Amazonka.EMR.ListBootstrapActions
     newListBootstrapActionsResponse,
 
     -- * Response Lenses
-    listBootstrapActionsResponse_marker,
     listBootstrapActionsResponse_bootstrapActions,
+    listBootstrapActionsResponse_marker,
     listBootstrapActionsResponse_httpStatus,
   )
 where
@@ -124,10 +124,10 @@ instance Core.AWSRequest ListBootstrapActions where
     Response.receiveJSON
       ( \s h x ->
           ListBootstrapActionsResponse'
-            Prelude.<$> (x Data..?> "Marker")
-            Prelude.<*> ( x Data..?> "BootstrapActions"
+            Prelude.<$> ( x Data..?> "BootstrapActions"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -175,10 +175,10 @@ instance Data.ToQuery ListBootstrapActions where
 --
 -- /See:/ 'newListBootstrapActionsResponse' smart constructor.
 data ListBootstrapActionsResponse = ListBootstrapActionsResponse'
-  { -- | The pagination token that indicates the next set of results to retrieve.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | The bootstrap actions associated with the cluster.
+  { -- | The bootstrap actions associated with the cluster.
     bootstrapActions :: Prelude.Maybe [Command],
+    -- | The pagination token that indicates the next set of results to retrieve.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -192,9 +192,9 @@ data ListBootstrapActionsResponse = ListBootstrapActionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'marker', 'listBootstrapActionsResponse_marker' - The pagination token that indicates the next set of results to retrieve.
---
 -- 'bootstrapActions', 'listBootstrapActionsResponse_bootstrapActions' - The bootstrap actions associated with the cluster.
+--
+-- 'marker', 'listBootstrapActionsResponse_marker' - The pagination token that indicates the next set of results to retrieve.
 --
 -- 'httpStatus', 'listBootstrapActionsResponse_httpStatus' - The response's http status code.
 newListBootstrapActionsResponse ::
@@ -203,19 +203,19 @@ newListBootstrapActionsResponse ::
   ListBootstrapActionsResponse
 newListBootstrapActionsResponse pHttpStatus_ =
   ListBootstrapActionsResponse'
-    { marker =
+    { bootstrapActions =
         Prelude.Nothing,
-      bootstrapActions = Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The pagination token that indicates the next set of results to retrieve.
-listBootstrapActionsResponse_marker :: Lens.Lens' ListBootstrapActionsResponse (Prelude.Maybe Prelude.Text)
-listBootstrapActionsResponse_marker = Lens.lens (\ListBootstrapActionsResponse' {marker} -> marker) (\s@ListBootstrapActionsResponse' {} a -> s {marker = a} :: ListBootstrapActionsResponse)
 
 -- | The bootstrap actions associated with the cluster.
 listBootstrapActionsResponse_bootstrapActions :: Lens.Lens' ListBootstrapActionsResponse (Prelude.Maybe [Command])
 listBootstrapActionsResponse_bootstrapActions = Lens.lens (\ListBootstrapActionsResponse' {bootstrapActions} -> bootstrapActions) (\s@ListBootstrapActionsResponse' {} a -> s {bootstrapActions = a} :: ListBootstrapActionsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The pagination token that indicates the next set of results to retrieve.
+listBootstrapActionsResponse_marker :: Lens.Lens' ListBootstrapActionsResponse (Prelude.Maybe Prelude.Text)
+listBootstrapActionsResponse_marker = Lens.lens (\ListBootstrapActionsResponse' {marker} -> marker) (\s@ListBootstrapActionsResponse' {} a -> s {marker = a} :: ListBootstrapActionsResponse)
 
 -- | The response's http status code.
 listBootstrapActionsResponse_httpStatus :: Lens.Lens' ListBootstrapActionsResponse Prelude.Int
@@ -223,6 +223,6 @@ listBootstrapActionsResponse_httpStatus = Lens.lens (\ListBootstrapActionsRespon
 
 instance Prelude.NFData ListBootstrapActionsResponse where
   rnf ListBootstrapActionsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf bootstrapActions
+    Prelude.rnf bootstrapActions
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf httpStatus

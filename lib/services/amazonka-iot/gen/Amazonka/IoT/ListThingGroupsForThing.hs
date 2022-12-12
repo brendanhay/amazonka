@@ -33,8 +33,8 @@ module Amazonka.IoT.ListThingGroupsForThing
     newListThingGroupsForThing,
 
     -- * Request Lenses
-    listThingGroupsForThing_nextToken,
     listThingGroupsForThing_maxResults,
+    listThingGroupsForThing_nextToken,
     listThingGroupsForThing_thingName,
 
     -- * Destructuring the Response
@@ -58,12 +58,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListThingGroupsForThing' smart constructor.
 data ListThingGroupsForThing = ListThingGroupsForThing'
-  { -- | To retrieve the next set of results, the @nextToken@ value from a
+  { -- | The maximum number of results to return at one time.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | To retrieve the next set of results, the @nextToken@ value from a
     -- previous response; otherwise __null__ to receive the first set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return at one time.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The thing name.
     thingName :: Prelude.Text
   }
@@ -77,11 +77,11 @@ data ListThingGroupsForThing = ListThingGroupsForThing'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listThingGroupsForThing_maxResults' - The maximum number of results to return at one time.
+--
 -- 'nextToken', 'listThingGroupsForThing_nextToken' - To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
---
--- 'maxResults', 'listThingGroupsForThing_maxResults' - The maximum number of results to return at one time.
 --
 -- 'thingName', 'listThingGroupsForThing_thingName' - The thing name.
 newListThingGroupsForThing ::
@@ -90,21 +90,21 @@ newListThingGroupsForThing ::
   ListThingGroupsForThing
 newListThingGroupsForThing pThingName_ =
   ListThingGroupsForThing'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       thingName = pThingName_
     }
+
+-- | The maximum number of results to return at one time.
+listThingGroupsForThing_maxResults :: Lens.Lens' ListThingGroupsForThing (Prelude.Maybe Prelude.Natural)
+listThingGroupsForThing_maxResults = Lens.lens (\ListThingGroupsForThing' {maxResults} -> maxResults) (\s@ListThingGroupsForThing' {} a -> s {maxResults = a} :: ListThingGroupsForThing)
 
 -- | To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
 listThingGroupsForThing_nextToken :: Lens.Lens' ListThingGroupsForThing (Prelude.Maybe Prelude.Text)
 listThingGroupsForThing_nextToken = Lens.lens (\ListThingGroupsForThing' {nextToken} -> nextToken) (\s@ListThingGroupsForThing' {} a -> s {nextToken = a} :: ListThingGroupsForThing)
-
--- | The maximum number of results to return at one time.
-listThingGroupsForThing_maxResults :: Lens.Lens' ListThingGroupsForThing (Prelude.Maybe Prelude.Natural)
-listThingGroupsForThing_maxResults = Lens.lens (\ListThingGroupsForThing' {maxResults} -> maxResults) (\s@ListThingGroupsForThing' {} a -> s {maxResults = a} :: ListThingGroupsForThing)
 
 -- | The thing name.
 listThingGroupsForThing_thingName :: Lens.Lens' ListThingGroupsForThing Prelude.Text
@@ -149,14 +149,14 @@ instance Core.AWSRequest ListThingGroupsForThing where
 
 instance Prelude.Hashable ListThingGroupsForThing where
   hashWithSalt _salt ListThingGroupsForThing' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` thingName
 
 instance Prelude.NFData ListThingGroupsForThing where
   rnf ListThingGroupsForThing' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf thingName
 
 instance Data.ToHeaders ListThingGroupsForThing where
@@ -170,8 +170,8 @@ instance Data.ToPath ListThingGroupsForThing where
 instance Data.ToQuery ListThingGroupsForThing where
   toQuery ListThingGroupsForThing' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListThingGroupsForThingResponse' smart constructor.

@@ -41,34 +41,33 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInputTemplate' smart constructor.
 data InputTemplate = InputTemplate'
-  { -- | Enable Deblock (InputDeblockFilter) to produce smoother motion in the
-    -- output. Default is disabled. Only manually controllable for MPEG2 and
-    -- uncompressed video inputs.
-    deblockFilter :: Prelude.Maybe InputDeblockFilter,
-    -- | Set PSI control (InputPsiControl) for transport stream inputs to specify
-    -- which data the demux process to scans. * Ignore PSI - Scan all PIDs for
-    -- audio and video. * Use PSI - Scan only PSI data.
-    psiControl :: Prelude.Maybe InputPsiControl,
-    -- | Use captions selectors to specify the captions data from your input that
-    -- you use in your outputs. You can use up to 20 captions selectors per
-    -- input.
-    captionSelectors :: Prelude.Maybe (Prelude.HashMap Prelude.Text CaptionSelector),
-    -- | Use audio selector groups to combine multiple sidecar audio inputs so
+  { -- | Use audio selector groups to combine multiple sidecar audio inputs so
     -- that you can assign them to a single output audio tab
     -- (AudioDescription). Note that, if you\'re working with embedded audio,
     -- it\'s simpler to assign multiple input tracks into a single audio
     -- selector rather than use an audio selector group.
     audioSelectorGroups :: Prelude.Maybe (Prelude.HashMap Prelude.Text AudioSelectorGroup),
-    -- | Use Filter strength (FilterStrength) to adjust the magnitude the input
-    -- filter settings (Deblock and Denoise). The range is -5 to 5. Default is
-    -- 0.
-    filterStrength :: Prelude.Maybe Prelude.Int,
-    -- | Specify the timecode that you want the service to use for this input\'s
-    -- initial frame. To use this setting, you must set the Timecode source
-    -- setting, located under the input settings (InputTimecodeSource), to
-    -- Specified start (SPECIFIEDSTART). For more information about timecodes,
-    -- see https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/timecode.
-    timecodeStart :: Prelude.Maybe Prelude.Text,
+    -- | Use Audio selectors (AudioSelectors) to specify a track or set of tracks
+    -- from the input that you will use in your outputs. You can use multiple
+    -- Audio selectors per input.
+    audioSelectors :: Prelude.Maybe (Prelude.HashMap Prelude.Text AudioSelector),
+    -- | Use captions selectors to specify the captions data from your input that
+    -- you use in your outputs. You can use up to 20 captions selectors per
+    -- input.
+    captionSelectors :: Prelude.Maybe (Prelude.HashMap Prelude.Text CaptionSelector),
+    -- | Use Cropping selection (crop) to specify the video area that the service
+    -- will include in the output video frame. If you specify a value here, it
+    -- will override any value that you specify in the output setting Cropping
+    -- selection (crop).
+    crop :: Prelude.Maybe Rectangle,
+    -- | Enable Deblock (InputDeblockFilter) to produce smoother motion in the
+    -- output. Default is disabled. Only manually controllable for MPEG2 and
+    -- uncompressed video inputs.
+    deblockFilter :: Prelude.Maybe InputDeblockFilter,
+    -- | Enable Denoise (InputDenoiseFilter) to filter noise from the input.
+    -- Default is disabled. Only applicable to MPEG2, H.264, H.265, and
+    -- uncompressed video inputs.
+    denoiseFilter :: Prelude.Maybe InputDenoiseFilter,
     -- | Use this setting only when your video source has Dolby Vision studio
     -- mastering metadata that is carried in a separate XML file. Specify the
     -- Amazon S3 location for the metadata XML file. MediaConvert uses this
@@ -80,6 +79,23 @@ data InputTemplate = InputTemplate'
     -- permissions to this file. For more information, see
     -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/iam-role.html.
     dolbyVisionMetadataXml :: Prelude.Maybe Prelude.Text,
+    -- | Specify how the transcoding service applies the denoise and deblock
+    -- filters. You must also enable the filters separately, with Denoise
+    -- (InputDenoiseFilter) and Deblock (InputDeblockFilter). * Auto - The
+    -- transcoding service determines whether to apply filtering, depending on
+    -- input type and quality. * Disable - The input is not filtered. This is
+    -- true even if you use the API to enable them in (InputDeblockFilter) and
+    -- (InputDeblockFilter). * Force - The input is filtered regardless of
+    -- input type.
+    filterEnable :: Prelude.Maybe InputFilterEnable,
+    -- | Use Filter strength (FilterStrength) to adjust the magnitude the input
+    -- filter settings (Deblock and Denoise). The range is -5 to 5. Default is
+    -- 0.
+    filterStrength :: Prelude.Maybe Prelude.Int,
+    -- | Enable the image inserter feature to include a graphic overlay on your
+    -- video. Enable or disable this feature for each input individually. This
+    -- setting is disabled by default.
+    imageInserter :: Prelude.Maybe ImageInserter,
     -- | (InputClippings) contains sets of start and end times that together
     -- specify a portion of the input to be used in the outputs. If you provide
     -- only a start time, the clip will be the entire input from that point to
@@ -88,10 +104,34 @@ data InputTemplate = InputTemplate'
     -- transcoding service creates the job outputs by stringing the clips
     -- together in the order you specify them.
     inputClippings :: Prelude.Maybe [InputClipping],
-    -- | Use Audio selectors (AudioSelectors) to specify a track or set of tracks
-    -- from the input that you will use in your outputs. You can use multiple
-    -- Audio selectors per input.
-    audioSelectors :: Prelude.Maybe (Prelude.HashMap Prelude.Text AudioSelector),
+    -- | When you have a progressive segmented frame (PsF) input, use this
+    -- setting to flag the input as PsF. MediaConvert doesn\'t automatically
+    -- detect PsF. Therefore, flagging your input as PsF results in better
+    -- preservation of video quality when you do deinterlacing and frame rate
+    -- conversion. If you don\'t specify, the default value is Auto (AUTO).
+    -- Auto is the correct setting for all inputs that are not PsF. Don\'t set
+    -- this value to PsF when your input is interlaced. Doing so creates
+    -- horizontal interlacing artifacts.
+    inputScanType :: Prelude.Maybe InputScanType,
+    -- | Use Selection placement (position) to define the video area in your
+    -- output frame. The area outside of the rectangle that you specify here is
+    -- black. If you specify a value here, it will override any value that you
+    -- specify in the output setting Selection placement (position). If you
+    -- specify a value here, this will override any AFD values in your input,
+    -- even if you set Respond to AFD (RespondToAfd) to Respond (RESPOND). If
+    -- you specify a value here, this will ignore anything that you specify for
+    -- the setting Scaling Behavior (scalingBehavior).
+    position :: Prelude.Maybe Rectangle,
+    -- | Use Program (programNumber) to select a specific program from within a
+    -- multi-program transport stream. Note that Quad 4K is not currently
+    -- supported. Default is the first program within the transport stream. If
+    -- the program you specify doesn\'t exist, the transcoding service will use
+    -- this default.
+    programNumber :: Prelude.Maybe Prelude.Natural,
+    -- | Set PSI control (InputPsiControl) for transport stream inputs to specify
+    -- which data the demux process to scans. * Ignore PSI - Scan all PIDs for
+    -- audio and video. * Use PSI - Scan only PSI data.
+    psiControl :: Prelude.Maybe InputPsiControl,
     -- | Use this Timecode source setting, located under the input settings
     -- (InputTimecodeSource), to specify how the service counts input video
     -- frames. This input frame count affects only the behavior of features
@@ -105,52 +145,12 @@ data InputTemplate = InputTemplate'
     -- information about timecodes, see
     -- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/timecode.
     timecodeSource :: Prelude.Maybe InputTimecodeSource,
-    -- | Use Program (programNumber) to select a specific program from within a
-    -- multi-program transport stream. Note that Quad 4K is not currently
-    -- supported. Default is the first program within the transport stream. If
-    -- the program you specify doesn\'t exist, the transcoding service will use
-    -- this default.
-    programNumber :: Prelude.Maybe Prelude.Natural,
-    -- | Use Cropping selection (crop) to specify the video area that the service
-    -- will include in the output video frame. If you specify a value here, it
-    -- will override any value that you specify in the output setting Cropping
-    -- selection (crop).
-    crop :: Prelude.Maybe Rectangle,
-    -- | Specify how the transcoding service applies the denoise and deblock
-    -- filters. You must also enable the filters separately, with Denoise
-    -- (InputDenoiseFilter) and Deblock (InputDeblockFilter). * Auto - The
-    -- transcoding service determines whether to apply filtering, depending on
-    -- input type and quality. * Disable - The input is not filtered. This is
-    -- true even if you use the API to enable them in (InputDeblockFilter) and
-    -- (InputDeblockFilter). * Force - The input is filtered regardless of
-    -- input type.
-    filterEnable :: Prelude.Maybe InputFilterEnable,
-    -- | Enable the image inserter feature to include a graphic overlay on your
-    -- video. Enable or disable this feature for each input individually. This
-    -- setting is disabled by default.
-    imageInserter :: Prelude.Maybe ImageInserter,
-    -- | Enable Denoise (InputDenoiseFilter) to filter noise from the input.
-    -- Default is disabled. Only applicable to MPEG2, H.264, H.265, and
-    -- uncompressed video inputs.
-    denoiseFilter :: Prelude.Maybe InputDenoiseFilter,
-    -- | Use Selection placement (position) to define the video area in your
-    -- output frame. The area outside of the rectangle that you specify here is
-    -- black. If you specify a value here, it will override any value that you
-    -- specify in the output setting Selection placement (position). If you
-    -- specify a value here, this will override any AFD values in your input,
-    -- even if you set Respond to AFD (RespondToAfd) to Respond (RESPOND). If
-    -- you specify a value here, this will ignore anything that you specify for
-    -- the setting Scaling Behavior (scalingBehavior).
-    position :: Prelude.Maybe Rectangle,
-    -- | When you have a progressive segmented frame (PsF) input, use this
-    -- setting to flag the input as PsF. MediaConvert doesn\'t automatically
-    -- detect PsF. Therefore, flagging your input as PsF results in better
-    -- preservation of video quality when you do deinterlacing and frame rate
-    -- conversion. If you don\'t specify, the default value is Auto (AUTO).
-    -- Auto is the correct setting for all inputs that are not PsF. Don\'t set
-    -- this value to PsF when your input is interlaced. Doing so creates
-    -- horizontal interlacing artifacts.
-    inputScanType :: Prelude.Maybe InputScanType,
+    -- | Specify the timecode that you want the service to use for this input\'s
+    -- initial frame. To use this setting, you must set the Timecode source
+    -- setting, located under the input settings (InputTimecodeSource), to
+    -- Specified start (SPECIFIEDSTART). For more information about timecodes,
+    -- see https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/timecode.
+    timecodeStart :: Prelude.Maybe Prelude.Text,
     -- | Input video selectors contain the video settings for the input. Each of
     -- your inputs can have up to one video selector.
     videoSelector :: Prelude.Maybe VideoSelector
@@ -165,33 +165,32 @@ data InputTemplate = InputTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deblockFilter', 'inputTemplate_deblockFilter' - Enable Deblock (InputDeblockFilter) to produce smoother motion in the
--- output. Default is disabled. Only manually controllable for MPEG2 and
--- uncompressed video inputs.
---
--- 'psiControl', 'inputTemplate_psiControl' - Set PSI control (InputPsiControl) for transport stream inputs to specify
--- which data the demux process to scans. * Ignore PSI - Scan all PIDs for
--- audio and video. * Use PSI - Scan only PSI data.
---
--- 'captionSelectors', 'inputTemplate_captionSelectors' - Use captions selectors to specify the captions data from your input that
--- you use in your outputs. You can use up to 20 captions selectors per
--- input.
---
 -- 'audioSelectorGroups', 'inputTemplate_audioSelectorGroups' - Use audio selector groups to combine multiple sidecar audio inputs so
 -- that you can assign them to a single output audio tab
 -- (AudioDescription). Note that, if you\'re working with embedded audio,
 -- it\'s simpler to assign multiple input tracks into a single audio
 -- selector rather than use an audio selector group.
 --
--- 'filterStrength', 'inputTemplate_filterStrength' - Use Filter strength (FilterStrength) to adjust the magnitude the input
--- filter settings (Deblock and Denoise). The range is -5 to 5. Default is
--- 0.
+-- 'audioSelectors', 'inputTemplate_audioSelectors' - Use Audio selectors (AudioSelectors) to specify a track or set of tracks
+-- from the input that you will use in your outputs. You can use multiple
+-- Audio selectors per input.
 --
--- 'timecodeStart', 'inputTemplate_timecodeStart' - Specify the timecode that you want the service to use for this input\'s
--- initial frame. To use this setting, you must set the Timecode source
--- setting, located under the input settings (InputTimecodeSource), to
--- Specified start (SPECIFIEDSTART). For more information about timecodes,
--- see https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/timecode.
+-- 'captionSelectors', 'inputTemplate_captionSelectors' - Use captions selectors to specify the captions data from your input that
+-- you use in your outputs. You can use up to 20 captions selectors per
+-- input.
+--
+-- 'crop', 'inputTemplate_crop' - Use Cropping selection (crop) to specify the video area that the service
+-- will include in the output video frame. If you specify a value here, it
+-- will override any value that you specify in the output setting Cropping
+-- selection (crop).
+--
+-- 'deblockFilter', 'inputTemplate_deblockFilter' - Enable Deblock (InputDeblockFilter) to produce smoother motion in the
+-- output. Default is disabled. Only manually controllable for MPEG2 and
+-- uncompressed video inputs.
+--
+-- 'denoiseFilter', 'inputTemplate_denoiseFilter' - Enable Denoise (InputDenoiseFilter) to filter noise from the input.
+-- Default is disabled. Only applicable to MPEG2, H.264, H.265, and
+-- uncompressed video inputs.
 --
 -- 'dolbyVisionMetadataXml', 'inputTemplate_dolbyVisionMetadataXml' - Use this setting only when your video source has Dolby Vision studio
 -- mastering metadata that is carried in a separate XML file. Specify the
@@ -204,6 +203,23 @@ data InputTemplate = InputTemplate'
 -- permissions to this file. For more information, see
 -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/iam-role.html.
 --
+-- 'filterEnable', 'inputTemplate_filterEnable' - Specify how the transcoding service applies the denoise and deblock
+-- filters. You must also enable the filters separately, with Denoise
+-- (InputDenoiseFilter) and Deblock (InputDeblockFilter). * Auto - The
+-- transcoding service determines whether to apply filtering, depending on
+-- input type and quality. * Disable - The input is not filtered. This is
+-- true even if you use the API to enable them in (InputDeblockFilter) and
+-- (InputDeblockFilter). * Force - The input is filtered regardless of
+-- input type.
+--
+-- 'filterStrength', 'inputTemplate_filterStrength' - Use Filter strength (FilterStrength) to adjust the magnitude the input
+-- filter settings (Deblock and Denoise). The range is -5 to 5. Default is
+-- 0.
+--
+-- 'imageInserter', 'inputTemplate_imageInserter' - Enable the image inserter feature to include a graphic overlay on your
+-- video. Enable or disable this feature for each input individually. This
+-- setting is disabled by default.
+--
 -- 'inputClippings', 'inputTemplate_inputClippings' - (InputClippings) contains sets of start and end times that together
 -- specify a portion of the input to be used in the outputs. If you provide
 -- only a start time, the clip will be the entire input from that point to
@@ -212,9 +228,33 @@ data InputTemplate = InputTemplate'
 -- transcoding service creates the job outputs by stringing the clips
 -- together in the order you specify them.
 --
--- 'audioSelectors', 'inputTemplate_audioSelectors' - Use Audio selectors (AudioSelectors) to specify a track or set of tracks
--- from the input that you will use in your outputs. You can use multiple
--- Audio selectors per input.
+-- 'inputScanType', 'inputTemplate_inputScanType' - When you have a progressive segmented frame (PsF) input, use this
+-- setting to flag the input as PsF. MediaConvert doesn\'t automatically
+-- detect PsF. Therefore, flagging your input as PsF results in better
+-- preservation of video quality when you do deinterlacing and frame rate
+-- conversion. If you don\'t specify, the default value is Auto (AUTO).
+-- Auto is the correct setting for all inputs that are not PsF. Don\'t set
+-- this value to PsF when your input is interlaced. Doing so creates
+-- horizontal interlacing artifacts.
+--
+-- 'position', 'inputTemplate_position' - Use Selection placement (position) to define the video area in your
+-- output frame. The area outside of the rectangle that you specify here is
+-- black. If you specify a value here, it will override any value that you
+-- specify in the output setting Selection placement (position). If you
+-- specify a value here, this will override any AFD values in your input,
+-- even if you set Respond to AFD (RespondToAfd) to Respond (RESPOND). If
+-- you specify a value here, this will ignore anything that you specify for
+-- the setting Scaling Behavior (scalingBehavior).
+--
+-- 'programNumber', 'inputTemplate_programNumber' - Use Program (programNumber) to select a specific program from within a
+-- multi-program transport stream. Note that Quad 4K is not currently
+-- supported. Default is the first program within the transport stream. If
+-- the program you specify doesn\'t exist, the transcoding service will use
+-- this default.
+--
+-- 'psiControl', 'inputTemplate_psiControl' - Set PSI control (InputPsiControl) for transport stream inputs to specify
+-- which data the demux process to scans. * Ignore PSI - Scan all PIDs for
+-- audio and video. * Use PSI - Scan only PSI data.
 --
 -- 'timecodeSource', 'inputTemplate_timecodeSource' - Use this Timecode source setting, located under the input settings
 -- (InputTimecodeSource), to specify how the service counts input video
@@ -229,51 +269,11 @@ data InputTemplate = InputTemplate'
 -- information about timecodes, see
 -- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/timecode.
 --
--- 'programNumber', 'inputTemplate_programNumber' - Use Program (programNumber) to select a specific program from within a
--- multi-program transport stream. Note that Quad 4K is not currently
--- supported. Default is the first program within the transport stream. If
--- the program you specify doesn\'t exist, the transcoding service will use
--- this default.
---
--- 'crop', 'inputTemplate_crop' - Use Cropping selection (crop) to specify the video area that the service
--- will include in the output video frame. If you specify a value here, it
--- will override any value that you specify in the output setting Cropping
--- selection (crop).
---
--- 'filterEnable', 'inputTemplate_filterEnable' - Specify how the transcoding service applies the denoise and deblock
--- filters. You must also enable the filters separately, with Denoise
--- (InputDenoiseFilter) and Deblock (InputDeblockFilter). * Auto - The
--- transcoding service determines whether to apply filtering, depending on
--- input type and quality. * Disable - The input is not filtered. This is
--- true even if you use the API to enable them in (InputDeblockFilter) and
--- (InputDeblockFilter). * Force - The input is filtered regardless of
--- input type.
---
--- 'imageInserter', 'inputTemplate_imageInserter' - Enable the image inserter feature to include a graphic overlay on your
--- video. Enable or disable this feature for each input individually. This
--- setting is disabled by default.
---
--- 'denoiseFilter', 'inputTemplate_denoiseFilter' - Enable Denoise (InputDenoiseFilter) to filter noise from the input.
--- Default is disabled. Only applicable to MPEG2, H.264, H.265, and
--- uncompressed video inputs.
---
--- 'position', 'inputTemplate_position' - Use Selection placement (position) to define the video area in your
--- output frame. The area outside of the rectangle that you specify here is
--- black. If you specify a value here, it will override any value that you
--- specify in the output setting Selection placement (position). If you
--- specify a value here, this will override any AFD values in your input,
--- even if you set Respond to AFD (RespondToAfd) to Respond (RESPOND). If
--- you specify a value here, this will ignore anything that you specify for
--- the setting Scaling Behavior (scalingBehavior).
---
--- 'inputScanType', 'inputTemplate_inputScanType' - When you have a progressive segmented frame (PsF) input, use this
--- setting to flag the input as PsF. MediaConvert doesn\'t automatically
--- detect PsF. Therefore, flagging your input as PsF results in better
--- preservation of video quality when you do deinterlacing and frame rate
--- conversion. If you don\'t specify, the default value is Auto (AUTO).
--- Auto is the correct setting for all inputs that are not PsF. Don\'t set
--- this value to PsF when your input is interlaced. Doing so creates
--- horizontal interlacing artifacts.
+-- 'timecodeStart', 'inputTemplate_timecodeStart' - Specify the timecode that you want the service to use for this input\'s
+-- initial frame. To use this setting, you must set the Timecode source
+-- setting, located under the input settings (InputTimecodeSource), to
+-- Specified start (SPECIFIEDSTART). For more information about timecodes,
+-- see https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/timecode.
 --
 -- 'videoSelector', 'inputTemplate_videoSelector' - Input video selectors contain the video settings for the input. Each of
 -- your inputs can have up to one video selector.
@@ -281,43 +281,26 @@ newInputTemplate ::
   InputTemplate
 newInputTemplate =
   InputTemplate'
-    { deblockFilter = Prelude.Nothing,
-      psiControl = Prelude.Nothing,
-      captionSelectors = Prelude.Nothing,
-      audioSelectorGroups = Prelude.Nothing,
-      filterStrength = Prelude.Nothing,
-      timecodeStart = Prelude.Nothing,
-      dolbyVisionMetadataXml = Prelude.Nothing,
-      inputClippings = Prelude.Nothing,
+    { audioSelectorGroups =
+        Prelude.Nothing,
       audioSelectors = Prelude.Nothing,
-      timecodeSource = Prelude.Nothing,
-      programNumber = Prelude.Nothing,
+      captionSelectors = Prelude.Nothing,
       crop = Prelude.Nothing,
-      filterEnable = Prelude.Nothing,
-      imageInserter = Prelude.Nothing,
+      deblockFilter = Prelude.Nothing,
       denoiseFilter = Prelude.Nothing,
-      position = Prelude.Nothing,
+      dolbyVisionMetadataXml = Prelude.Nothing,
+      filterEnable = Prelude.Nothing,
+      filterStrength = Prelude.Nothing,
+      imageInserter = Prelude.Nothing,
+      inputClippings = Prelude.Nothing,
       inputScanType = Prelude.Nothing,
+      position = Prelude.Nothing,
+      programNumber = Prelude.Nothing,
+      psiControl = Prelude.Nothing,
+      timecodeSource = Prelude.Nothing,
+      timecodeStart = Prelude.Nothing,
       videoSelector = Prelude.Nothing
     }
-
--- | Enable Deblock (InputDeblockFilter) to produce smoother motion in the
--- output. Default is disabled. Only manually controllable for MPEG2 and
--- uncompressed video inputs.
-inputTemplate_deblockFilter :: Lens.Lens' InputTemplate (Prelude.Maybe InputDeblockFilter)
-inputTemplate_deblockFilter = Lens.lens (\InputTemplate' {deblockFilter} -> deblockFilter) (\s@InputTemplate' {} a -> s {deblockFilter = a} :: InputTemplate)
-
--- | Set PSI control (InputPsiControl) for transport stream inputs to specify
--- which data the demux process to scans. * Ignore PSI - Scan all PIDs for
--- audio and video. * Use PSI - Scan only PSI data.
-inputTemplate_psiControl :: Lens.Lens' InputTemplate (Prelude.Maybe InputPsiControl)
-inputTemplate_psiControl = Lens.lens (\InputTemplate' {psiControl} -> psiControl) (\s@InputTemplate' {} a -> s {psiControl = a} :: InputTemplate)
-
--- | Use captions selectors to specify the captions data from your input that
--- you use in your outputs. You can use up to 20 captions selectors per
--- input.
-inputTemplate_captionSelectors :: Lens.Lens' InputTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text CaptionSelector))
-inputTemplate_captionSelectors = Lens.lens (\InputTemplate' {captionSelectors} -> captionSelectors) (\s@InputTemplate' {} a -> s {captionSelectors = a} :: InputTemplate) Prelude.. Lens.mapping Lens.coerced
 
 -- | Use audio selector groups to combine multiple sidecar audio inputs so
 -- that you can assign them to a single output audio tab
@@ -327,19 +310,36 @@ inputTemplate_captionSelectors = Lens.lens (\InputTemplate' {captionSelectors} -
 inputTemplate_audioSelectorGroups :: Lens.Lens' InputTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text AudioSelectorGroup))
 inputTemplate_audioSelectorGroups = Lens.lens (\InputTemplate' {audioSelectorGroups} -> audioSelectorGroups) (\s@InputTemplate' {} a -> s {audioSelectorGroups = a} :: InputTemplate) Prelude.. Lens.mapping Lens.coerced
 
--- | Use Filter strength (FilterStrength) to adjust the magnitude the input
--- filter settings (Deblock and Denoise). The range is -5 to 5. Default is
--- 0.
-inputTemplate_filterStrength :: Lens.Lens' InputTemplate (Prelude.Maybe Prelude.Int)
-inputTemplate_filterStrength = Lens.lens (\InputTemplate' {filterStrength} -> filterStrength) (\s@InputTemplate' {} a -> s {filterStrength = a} :: InputTemplate)
+-- | Use Audio selectors (AudioSelectors) to specify a track or set of tracks
+-- from the input that you will use in your outputs. You can use multiple
+-- Audio selectors per input.
+inputTemplate_audioSelectors :: Lens.Lens' InputTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text AudioSelector))
+inputTemplate_audioSelectors = Lens.lens (\InputTemplate' {audioSelectors} -> audioSelectors) (\s@InputTemplate' {} a -> s {audioSelectors = a} :: InputTemplate) Prelude.. Lens.mapping Lens.coerced
 
--- | Specify the timecode that you want the service to use for this input\'s
--- initial frame. To use this setting, you must set the Timecode source
--- setting, located under the input settings (InputTimecodeSource), to
--- Specified start (SPECIFIEDSTART). For more information about timecodes,
--- see https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/timecode.
-inputTemplate_timecodeStart :: Lens.Lens' InputTemplate (Prelude.Maybe Prelude.Text)
-inputTemplate_timecodeStart = Lens.lens (\InputTemplate' {timecodeStart} -> timecodeStart) (\s@InputTemplate' {} a -> s {timecodeStart = a} :: InputTemplate)
+-- | Use captions selectors to specify the captions data from your input that
+-- you use in your outputs. You can use up to 20 captions selectors per
+-- input.
+inputTemplate_captionSelectors :: Lens.Lens' InputTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text CaptionSelector))
+inputTemplate_captionSelectors = Lens.lens (\InputTemplate' {captionSelectors} -> captionSelectors) (\s@InputTemplate' {} a -> s {captionSelectors = a} :: InputTemplate) Prelude.. Lens.mapping Lens.coerced
+
+-- | Use Cropping selection (crop) to specify the video area that the service
+-- will include in the output video frame. If you specify a value here, it
+-- will override any value that you specify in the output setting Cropping
+-- selection (crop).
+inputTemplate_crop :: Lens.Lens' InputTemplate (Prelude.Maybe Rectangle)
+inputTemplate_crop = Lens.lens (\InputTemplate' {crop} -> crop) (\s@InputTemplate' {} a -> s {crop = a} :: InputTemplate)
+
+-- | Enable Deblock (InputDeblockFilter) to produce smoother motion in the
+-- output. Default is disabled. Only manually controllable for MPEG2 and
+-- uncompressed video inputs.
+inputTemplate_deblockFilter :: Lens.Lens' InputTemplate (Prelude.Maybe InputDeblockFilter)
+inputTemplate_deblockFilter = Lens.lens (\InputTemplate' {deblockFilter} -> deblockFilter) (\s@InputTemplate' {} a -> s {deblockFilter = a} :: InputTemplate)
+
+-- | Enable Denoise (InputDenoiseFilter) to filter noise from the input.
+-- Default is disabled. Only applicable to MPEG2, H.264, H.265, and
+-- uncompressed video inputs.
+inputTemplate_denoiseFilter :: Lens.Lens' InputTemplate (Prelude.Maybe InputDenoiseFilter)
+inputTemplate_denoiseFilter = Lens.lens (\InputTemplate' {denoiseFilter} -> denoiseFilter) (\s@InputTemplate' {} a -> s {denoiseFilter = a} :: InputTemplate)
 
 -- | Use this setting only when your video source has Dolby Vision studio
 -- mastering metadata that is carried in a separate XML file. Specify the
@@ -354,6 +354,29 @@ inputTemplate_timecodeStart = Lens.lens (\InputTemplate' {timecodeStart} -> time
 inputTemplate_dolbyVisionMetadataXml :: Lens.Lens' InputTemplate (Prelude.Maybe Prelude.Text)
 inputTemplate_dolbyVisionMetadataXml = Lens.lens (\InputTemplate' {dolbyVisionMetadataXml} -> dolbyVisionMetadataXml) (\s@InputTemplate' {} a -> s {dolbyVisionMetadataXml = a} :: InputTemplate)
 
+-- | Specify how the transcoding service applies the denoise and deblock
+-- filters. You must also enable the filters separately, with Denoise
+-- (InputDenoiseFilter) and Deblock (InputDeblockFilter). * Auto - The
+-- transcoding service determines whether to apply filtering, depending on
+-- input type and quality. * Disable - The input is not filtered. This is
+-- true even if you use the API to enable them in (InputDeblockFilter) and
+-- (InputDeblockFilter). * Force - The input is filtered regardless of
+-- input type.
+inputTemplate_filterEnable :: Lens.Lens' InputTemplate (Prelude.Maybe InputFilterEnable)
+inputTemplate_filterEnable = Lens.lens (\InputTemplate' {filterEnable} -> filterEnable) (\s@InputTemplate' {} a -> s {filterEnable = a} :: InputTemplate)
+
+-- | Use Filter strength (FilterStrength) to adjust the magnitude the input
+-- filter settings (Deblock and Denoise). The range is -5 to 5. Default is
+-- 0.
+inputTemplate_filterStrength :: Lens.Lens' InputTemplate (Prelude.Maybe Prelude.Int)
+inputTemplate_filterStrength = Lens.lens (\InputTemplate' {filterStrength} -> filterStrength) (\s@InputTemplate' {} a -> s {filterStrength = a} :: InputTemplate)
+
+-- | Enable the image inserter feature to include a graphic overlay on your
+-- video. Enable or disable this feature for each input individually. This
+-- setting is disabled by default.
+inputTemplate_imageInserter :: Lens.Lens' InputTemplate (Prelude.Maybe ImageInserter)
+inputTemplate_imageInserter = Lens.lens (\InputTemplate' {imageInserter} -> imageInserter) (\s@InputTemplate' {} a -> s {imageInserter = a} :: InputTemplate)
+
 -- | (InputClippings) contains sets of start and end times that together
 -- specify a portion of the input to be used in the outputs. If you provide
 -- only a start time, the clip will be the entire input from that point to
@@ -364,11 +387,41 @@ inputTemplate_dolbyVisionMetadataXml = Lens.lens (\InputTemplate' {dolbyVisionMe
 inputTemplate_inputClippings :: Lens.Lens' InputTemplate (Prelude.Maybe [InputClipping])
 inputTemplate_inputClippings = Lens.lens (\InputTemplate' {inputClippings} -> inputClippings) (\s@InputTemplate' {} a -> s {inputClippings = a} :: InputTemplate) Prelude.. Lens.mapping Lens.coerced
 
--- | Use Audio selectors (AudioSelectors) to specify a track or set of tracks
--- from the input that you will use in your outputs. You can use multiple
--- Audio selectors per input.
-inputTemplate_audioSelectors :: Lens.Lens' InputTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text AudioSelector))
-inputTemplate_audioSelectors = Lens.lens (\InputTemplate' {audioSelectors} -> audioSelectors) (\s@InputTemplate' {} a -> s {audioSelectors = a} :: InputTemplate) Prelude.. Lens.mapping Lens.coerced
+-- | When you have a progressive segmented frame (PsF) input, use this
+-- setting to flag the input as PsF. MediaConvert doesn\'t automatically
+-- detect PsF. Therefore, flagging your input as PsF results in better
+-- preservation of video quality when you do deinterlacing and frame rate
+-- conversion. If you don\'t specify, the default value is Auto (AUTO).
+-- Auto is the correct setting for all inputs that are not PsF. Don\'t set
+-- this value to PsF when your input is interlaced. Doing so creates
+-- horizontal interlacing artifacts.
+inputTemplate_inputScanType :: Lens.Lens' InputTemplate (Prelude.Maybe InputScanType)
+inputTemplate_inputScanType = Lens.lens (\InputTemplate' {inputScanType} -> inputScanType) (\s@InputTemplate' {} a -> s {inputScanType = a} :: InputTemplate)
+
+-- | Use Selection placement (position) to define the video area in your
+-- output frame. The area outside of the rectangle that you specify here is
+-- black. If you specify a value here, it will override any value that you
+-- specify in the output setting Selection placement (position). If you
+-- specify a value here, this will override any AFD values in your input,
+-- even if you set Respond to AFD (RespondToAfd) to Respond (RESPOND). If
+-- you specify a value here, this will ignore anything that you specify for
+-- the setting Scaling Behavior (scalingBehavior).
+inputTemplate_position :: Lens.Lens' InputTemplate (Prelude.Maybe Rectangle)
+inputTemplate_position = Lens.lens (\InputTemplate' {position} -> position) (\s@InputTemplate' {} a -> s {position = a} :: InputTemplate)
+
+-- | Use Program (programNumber) to select a specific program from within a
+-- multi-program transport stream. Note that Quad 4K is not currently
+-- supported. Default is the first program within the transport stream. If
+-- the program you specify doesn\'t exist, the transcoding service will use
+-- this default.
+inputTemplate_programNumber :: Lens.Lens' InputTemplate (Prelude.Maybe Prelude.Natural)
+inputTemplate_programNumber = Lens.lens (\InputTemplate' {programNumber} -> programNumber) (\s@InputTemplate' {} a -> s {programNumber = a} :: InputTemplate)
+
+-- | Set PSI control (InputPsiControl) for transport stream inputs to specify
+-- which data the demux process to scans. * Ignore PSI - Scan all PIDs for
+-- audio and video. * Use PSI - Scan only PSI data.
+inputTemplate_psiControl :: Lens.Lens' InputTemplate (Prelude.Maybe InputPsiControl)
+inputTemplate_psiControl = Lens.lens (\InputTemplate' {psiControl} -> psiControl) (\s@InputTemplate' {} a -> s {psiControl = a} :: InputTemplate)
 
 -- | Use this Timecode source setting, located under the input settings
 -- (InputTimecodeSource), to specify how the service counts input video
@@ -385,65 +438,13 @@ inputTemplate_audioSelectors = Lens.lens (\InputTemplate' {audioSelectors} -> au
 inputTemplate_timecodeSource :: Lens.Lens' InputTemplate (Prelude.Maybe InputTimecodeSource)
 inputTemplate_timecodeSource = Lens.lens (\InputTemplate' {timecodeSource} -> timecodeSource) (\s@InputTemplate' {} a -> s {timecodeSource = a} :: InputTemplate)
 
--- | Use Program (programNumber) to select a specific program from within a
--- multi-program transport stream. Note that Quad 4K is not currently
--- supported. Default is the first program within the transport stream. If
--- the program you specify doesn\'t exist, the transcoding service will use
--- this default.
-inputTemplate_programNumber :: Lens.Lens' InputTemplate (Prelude.Maybe Prelude.Natural)
-inputTemplate_programNumber = Lens.lens (\InputTemplate' {programNumber} -> programNumber) (\s@InputTemplate' {} a -> s {programNumber = a} :: InputTemplate)
-
--- | Use Cropping selection (crop) to specify the video area that the service
--- will include in the output video frame. If you specify a value here, it
--- will override any value that you specify in the output setting Cropping
--- selection (crop).
-inputTemplate_crop :: Lens.Lens' InputTemplate (Prelude.Maybe Rectangle)
-inputTemplate_crop = Lens.lens (\InputTemplate' {crop} -> crop) (\s@InputTemplate' {} a -> s {crop = a} :: InputTemplate)
-
--- | Specify how the transcoding service applies the denoise and deblock
--- filters. You must also enable the filters separately, with Denoise
--- (InputDenoiseFilter) and Deblock (InputDeblockFilter). * Auto - The
--- transcoding service determines whether to apply filtering, depending on
--- input type and quality. * Disable - The input is not filtered. This is
--- true even if you use the API to enable them in (InputDeblockFilter) and
--- (InputDeblockFilter). * Force - The input is filtered regardless of
--- input type.
-inputTemplate_filterEnable :: Lens.Lens' InputTemplate (Prelude.Maybe InputFilterEnable)
-inputTemplate_filterEnable = Lens.lens (\InputTemplate' {filterEnable} -> filterEnable) (\s@InputTemplate' {} a -> s {filterEnable = a} :: InputTemplate)
-
--- | Enable the image inserter feature to include a graphic overlay on your
--- video. Enable or disable this feature for each input individually. This
--- setting is disabled by default.
-inputTemplate_imageInserter :: Lens.Lens' InputTemplate (Prelude.Maybe ImageInserter)
-inputTemplate_imageInserter = Lens.lens (\InputTemplate' {imageInserter} -> imageInserter) (\s@InputTemplate' {} a -> s {imageInserter = a} :: InputTemplate)
-
--- | Enable Denoise (InputDenoiseFilter) to filter noise from the input.
--- Default is disabled. Only applicable to MPEG2, H.264, H.265, and
--- uncompressed video inputs.
-inputTemplate_denoiseFilter :: Lens.Lens' InputTemplate (Prelude.Maybe InputDenoiseFilter)
-inputTemplate_denoiseFilter = Lens.lens (\InputTemplate' {denoiseFilter} -> denoiseFilter) (\s@InputTemplate' {} a -> s {denoiseFilter = a} :: InputTemplate)
-
--- | Use Selection placement (position) to define the video area in your
--- output frame. The area outside of the rectangle that you specify here is
--- black. If you specify a value here, it will override any value that you
--- specify in the output setting Selection placement (position). If you
--- specify a value here, this will override any AFD values in your input,
--- even if you set Respond to AFD (RespondToAfd) to Respond (RESPOND). If
--- you specify a value here, this will ignore anything that you specify for
--- the setting Scaling Behavior (scalingBehavior).
-inputTemplate_position :: Lens.Lens' InputTemplate (Prelude.Maybe Rectangle)
-inputTemplate_position = Lens.lens (\InputTemplate' {position} -> position) (\s@InputTemplate' {} a -> s {position = a} :: InputTemplate)
-
--- | When you have a progressive segmented frame (PsF) input, use this
--- setting to flag the input as PsF. MediaConvert doesn\'t automatically
--- detect PsF. Therefore, flagging your input as PsF results in better
--- preservation of video quality when you do deinterlacing and frame rate
--- conversion. If you don\'t specify, the default value is Auto (AUTO).
--- Auto is the correct setting for all inputs that are not PsF. Don\'t set
--- this value to PsF when your input is interlaced. Doing so creates
--- horizontal interlacing artifacts.
-inputTemplate_inputScanType :: Lens.Lens' InputTemplate (Prelude.Maybe InputScanType)
-inputTemplate_inputScanType = Lens.lens (\InputTemplate' {inputScanType} -> inputScanType) (\s@InputTemplate' {} a -> s {inputScanType = a} :: InputTemplate)
+-- | Specify the timecode that you want the service to use for this input\'s
+-- initial frame. To use this setting, you must set the Timecode source
+-- setting, located under the input settings (InputTimecodeSource), to
+-- Specified start (SPECIFIEDSTART). For more information about timecodes,
+-- see https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/timecode.
+inputTemplate_timecodeStart :: Lens.Lens' InputTemplate (Prelude.Maybe Prelude.Text)
+inputTemplate_timecodeStart = Lens.lens (\InputTemplate' {timecodeStart} -> timecodeStart) (\s@InputTemplate' {} a -> s {timecodeStart = a} :: InputTemplate)
 
 -- | Input video selectors contain the video settings for the input. Each of
 -- your inputs can have up to one video selector.
@@ -456,100 +457,100 @@ instance Data.FromJSON InputTemplate where
       "InputTemplate"
       ( \x ->
           InputTemplate'
-            Prelude.<$> (x Data..:? "deblockFilter")
-            Prelude.<*> (x Data..:? "psiControl")
+            Prelude.<$> ( x Data..:? "audioSelectorGroups"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "audioSelectors" Data..!= Prelude.mempty)
             Prelude.<*> ( x Data..:? "captionSelectors"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "audioSelectorGroups"
-                            Data..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Data..:? "filterStrength")
-            Prelude.<*> (x Data..:? "timecodeStart")
-            Prelude.<*> (x Data..:? "dolbyVisionMetadataXml")
-            Prelude.<*> (x Data..:? "inputClippings" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "audioSelectors" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "timecodeSource")
-            Prelude.<*> (x Data..:? "programNumber")
             Prelude.<*> (x Data..:? "crop")
-            Prelude.<*> (x Data..:? "filterEnable")
-            Prelude.<*> (x Data..:? "imageInserter")
+            Prelude.<*> (x Data..:? "deblockFilter")
             Prelude.<*> (x Data..:? "denoiseFilter")
-            Prelude.<*> (x Data..:? "position")
+            Prelude.<*> (x Data..:? "dolbyVisionMetadataXml")
+            Prelude.<*> (x Data..:? "filterEnable")
+            Prelude.<*> (x Data..:? "filterStrength")
+            Prelude.<*> (x Data..:? "imageInserter")
+            Prelude.<*> (x Data..:? "inputClippings" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "inputScanType")
+            Prelude.<*> (x Data..:? "position")
+            Prelude.<*> (x Data..:? "programNumber")
+            Prelude.<*> (x Data..:? "psiControl")
+            Prelude.<*> (x Data..:? "timecodeSource")
+            Prelude.<*> (x Data..:? "timecodeStart")
             Prelude.<*> (x Data..:? "videoSelector")
       )
 
 instance Prelude.Hashable InputTemplate where
   hashWithSalt _salt InputTemplate' {..} =
-    _salt `Prelude.hashWithSalt` deblockFilter
-      `Prelude.hashWithSalt` psiControl
-      `Prelude.hashWithSalt` captionSelectors
-      `Prelude.hashWithSalt` audioSelectorGroups
-      `Prelude.hashWithSalt` filterStrength
-      `Prelude.hashWithSalt` timecodeStart
-      `Prelude.hashWithSalt` dolbyVisionMetadataXml
-      `Prelude.hashWithSalt` inputClippings
+    _salt `Prelude.hashWithSalt` audioSelectorGroups
       `Prelude.hashWithSalt` audioSelectors
-      `Prelude.hashWithSalt` timecodeSource
-      `Prelude.hashWithSalt` programNumber
+      `Prelude.hashWithSalt` captionSelectors
       `Prelude.hashWithSalt` crop
-      `Prelude.hashWithSalt` filterEnable
-      `Prelude.hashWithSalt` imageInserter
+      `Prelude.hashWithSalt` deblockFilter
       `Prelude.hashWithSalt` denoiseFilter
-      `Prelude.hashWithSalt` position
+      `Prelude.hashWithSalt` dolbyVisionMetadataXml
+      `Prelude.hashWithSalt` filterEnable
+      `Prelude.hashWithSalt` filterStrength
+      `Prelude.hashWithSalt` imageInserter
+      `Prelude.hashWithSalt` inputClippings
       `Prelude.hashWithSalt` inputScanType
+      `Prelude.hashWithSalt` position
+      `Prelude.hashWithSalt` programNumber
+      `Prelude.hashWithSalt` psiControl
+      `Prelude.hashWithSalt` timecodeSource
+      `Prelude.hashWithSalt` timecodeStart
       `Prelude.hashWithSalt` videoSelector
 
 instance Prelude.NFData InputTemplate where
   rnf InputTemplate' {..} =
-    Prelude.rnf deblockFilter
-      `Prelude.seq` Prelude.rnf psiControl
-      `Prelude.seq` Prelude.rnf captionSelectors
-      `Prelude.seq` Prelude.rnf audioSelectorGroups
-      `Prelude.seq` Prelude.rnf filterStrength
-      `Prelude.seq` Prelude.rnf timecodeStart
-      `Prelude.seq` Prelude.rnf dolbyVisionMetadataXml
-      `Prelude.seq` Prelude.rnf inputClippings
+    Prelude.rnf audioSelectorGroups
       `Prelude.seq` Prelude.rnf audioSelectors
-      `Prelude.seq` Prelude.rnf timecodeSource
-      `Prelude.seq` Prelude.rnf programNumber
+      `Prelude.seq` Prelude.rnf captionSelectors
       `Prelude.seq` Prelude.rnf crop
-      `Prelude.seq` Prelude.rnf filterEnable
-      `Prelude.seq` Prelude.rnf imageInserter
+      `Prelude.seq` Prelude.rnf deblockFilter
       `Prelude.seq` Prelude.rnf denoiseFilter
-      `Prelude.seq` Prelude.rnf position
+      `Prelude.seq` Prelude.rnf dolbyVisionMetadataXml
+      `Prelude.seq` Prelude.rnf filterEnable
+      `Prelude.seq` Prelude.rnf filterStrength
+      `Prelude.seq` Prelude.rnf imageInserter
+      `Prelude.seq` Prelude.rnf inputClippings
       `Prelude.seq` Prelude.rnf inputScanType
+      `Prelude.seq` Prelude.rnf position
+      `Prelude.seq` Prelude.rnf programNumber
+      `Prelude.seq` Prelude.rnf psiControl
+      `Prelude.seq` Prelude.rnf timecodeSource
+      `Prelude.seq` Prelude.rnf timecodeStart
       `Prelude.seq` Prelude.rnf videoSelector
 
 instance Data.ToJSON InputTemplate where
   toJSON InputTemplate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("deblockFilter" Data..=) Prelude.<$> deblockFilter,
-            ("psiControl" Data..=) Prelude.<$> psiControl,
-            ("captionSelectors" Data..=)
-              Prelude.<$> captionSelectors,
-            ("audioSelectorGroups" Data..=)
+          [ ("audioSelectorGroups" Data..=)
               Prelude.<$> audioSelectorGroups,
-            ("filterStrength" Data..=)
-              Prelude.<$> filterStrength,
-            ("timecodeStart" Data..=) Prelude.<$> timecodeStart,
-            ("dolbyVisionMetadataXml" Data..=)
-              Prelude.<$> dolbyVisionMetadataXml,
-            ("inputClippings" Data..=)
-              Prelude.<$> inputClippings,
             ("audioSelectors" Data..=)
               Prelude.<$> audioSelectors,
+            ("captionSelectors" Data..=)
+              Prelude.<$> captionSelectors,
+            ("crop" Data..=) Prelude.<$> crop,
+            ("deblockFilter" Data..=) Prelude.<$> deblockFilter,
+            ("denoiseFilter" Data..=) Prelude.<$> denoiseFilter,
+            ("dolbyVisionMetadataXml" Data..=)
+              Prelude.<$> dolbyVisionMetadataXml,
+            ("filterEnable" Data..=) Prelude.<$> filterEnable,
+            ("filterStrength" Data..=)
+              Prelude.<$> filterStrength,
+            ("imageInserter" Data..=) Prelude.<$> imageInserter,
+            ("inputClippings" Data..=)
+              Prelude.<$> inputClippings,
+            ("inputScanType" Data..=) Prelude.<$> inputScanType,
+            ("position" Data..=) Prelude.<$> position,
+            ("programNumber" Data..=) Prelude.<$> programNumber,
+            ("psiControl" Data..=) Prelude.<$> psiControl,
             ("timecodeSource" Data..=)
               Prelude.<$> timecodeSource,
-            ("programNumber" Data..=) Prelude.<$> programNumber,
-            ("crop" Data..=) Prelude.<$> crop,
-            ("filterEnable" Data..=) Prelude.<$> filterEnable,
-            ("imageInserter" Data..=) Prelude.<$> imageInserter,
-            ("denoiseFilter" Data..=) Prelude.<$> denoiseFilter,
-            ("position" Data..=) Prelude.<$> position,
-            ("inputScanType" Data..=) Prelude.<$> inputScanType,
+            ("timecodeStart" Data..=) Prelude.<$> timecodeStart,
             ("videoSelector" Data..=) Prelude.<$> videoSelector
           ]
       )

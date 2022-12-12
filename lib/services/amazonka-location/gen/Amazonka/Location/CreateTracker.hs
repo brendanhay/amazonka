@@ -28,12 +28,12 @@ module Amazonka.Location.CreateTracker
     newCreateTracker,
 
     -- * Request Lenses
-    createTracker_tags,
     createTracker_description,
-    createTracker_pricingPlanDataSource,
-    createTracker_pricingPlan,
     createTracker_kmsKeyId,
     createTracker_positionFiltering,
+    createTracker_pricingPlan,
+    createTracker_pricingPlanDataSource,
+    createTracker_tags,
     createTracker_trackerName,
 
     -- * Destructuring the Response
@@ -58,34 +58,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateTracker' smart constructor.
 data CreateTracker = CreateTracker'
-  { -- | Applies one or more tags to the tracker resource. A tag is a key-value
-    -- pair helps manage, identify, search, and filter your resources by
-    -- labelling them.
-    --
-    -- Format: @\"key\" : \"value\"@
-    --
-    -- Restrictions:
-    --
-    -- -   Maximum 50 tags per resource
-    --
-    -- -   Each resource tag must be unique with a maximum of one value.
-    --
-    -- -   Maximum key length: 128 Unicode characters in UTF-8
-    --
-    -- -   Maximum value length: 256 Unicode characters in UTF-8
-    --
-    -- -   Can use alphanumeric characters (A–Z, a–z, 0–9), and the following
-    --     characters: + - = . _ : \/ \@.
-    --
-    -- -   Cannot use \"aws:\" as a prefix for a key.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | An optional description for the tracker resource.
+  { -- | An optional description for the tracker resource.
     description :: Prelude.Maybe Prelude.Text,
-    -- | This parameter is no longer used.
-    pricingPlanDataSource :: Prelude.Maybe Prelude.Text,
-    -- | No longer used. If included, the only allowed value is
-    -- @RequestBasedUsage@.
-    pricingPlan :: Prelude.Maybe PricingPlan,
     -- | A key identifier for an
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>.
     -- Enter a key ID, key ARN, alias name, or alias ARN.
@@ -120,6 +94,32 @@ data CreateTracker = CreateTracker'
     -- This field is optional. If not specified, the default value is
     -- @TimeBased@.
     positionFiltering :: Prelude.Maybe PositionFiltering,
+    -- | No longer used. If included, the only allowed value is
+    -- @RequestBasedUsage@.
+    pricingPlan :: Prelude.Maybe PricingPlan,
+    -- | This parameter is no longer used.
+    pricingPlanDataSource :: Prelude.Maybe Prelude.Text,
+    -- | Applies one or more tags to the tracker resource. A tag is a key-value
+    -- pair helps manage, identify, search, and filter your resources by
+    -- labelling them.
+    --
+    -- Format: @\"key\" : \"value\"@
+    --
+    -- Restrictions:
+    --
+    -- -   Maximum 50 tags per resource
+    --
+    -- -   Each resource tag must be unique with a maximum of one value.
+    --
+    -- -   Maximum key length: 128 Unicode characters in UTF-8
+    --
+    -- -   Maximum value length: 256 Unicode characters in UTF-8
+    --
+    -- -   Can use alphanumeric characters (A–Z, a–z, 0–9), and the following
+    --     characters: + - = . _ : \/ \@.
+    --
+    -- -   Cannot use \"aws:\" as a prefix for a key.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name for the tracker resource.
     --
     -- Requirements:
@@ -142,33 +142,7 @@ data CreateTracker = CreateTracker'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createTracker_tags' - Applies one or more tags to the tracker resource. A tag is a key-value
--- pair helps manage, identify, search, and filter your resources by
--- labelling them.
---
--- Format: @\"key\" : \"value\"@
---
--- Restrictions:
---
--- -   Maximum 50 tags per resource
---
--- -   Each resource tag must be unique with a maximum of one value.
---
--- -   Maximum key length: 128 Unicode characters in UTF-8
---
--- -   Maximum value length: 256 Unicode characters in UTF-8
---
--- -   Can use alphanumeric characters (A–Z, a–z, 0–9), and the following
---     characters: + - = . _ : \/ \@.
---
--- -   Cannot use \"aws:\" as a prefix for a key.
---
 -- 'description', 'createTracker_description' - An optional description for the tracker resource.
---
--- 'pricingPlanDataSource', 'createTracker_pricingPlanDataSource' - This parameter is no longer used.
---
--- 'pricingPlan', 'createTracker_pricingPlan' - No longer used. If included, the only allowed value is
--- @RequestBasedUsage@.
 --
 -- 'kmsKeyId', 'createTracker_kmsKeyId' - A key identifier for an
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>.
@@ -204,32 +178,12 @@ data CreateTracker = CreateTracker'
 -- This field is optional. If not specified, the default value is
 -- @TimeBased@.
 --
--- 'trackerName', 'createTracker_trackerName' - The name for the tracker resource.
+-- 'pricingPlan', 'createTracker_pricingPlan' - No longer used. If included, the only allowed value is
+-- @RequestBasedUsage@.
 --
--- Requirements:
+-- 'pricingPlanDataSource', 'createTracker_pricingPlanDataSource' - This parameter is no longer used.
 --
--- -   Contain only alphanumeric characters (A-Z, a-z, 0-9) , hyphens (-),
---     periods (.), and underscores (_).
---
--- -   Must be a unique tracker resource name.
---
--- -   No spaces allowed. For example, @ExampleTracker@.
-newCreateTracker ::
-  -- | 'trackerName'
-  Prelude.Text ->
-  CreateTracker
-newCreateTracker pTrackerName_ =
-  CreateTracker'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing,
-      pricingPlanDataSource = Prelude.Nothing,
-      pricingPlan = Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing,
-      positionFiltering = Prelude.Nothing,
-      trackerName = pTrackerName_
-    }
-
--- | Applies one or more tags to the tracker resource. A tag is a key-value
+-- 'tags', 'createTracker_tags' - Applies one or more tags to the tracker resource. A tag is a key-value
 -- pair helps manage, identify, search, and filter your resources by
 -- labelling them.
 --
@@ -249,21 +203,35 @@ newCreateTracker pTrackerName_ =
 --     characters: + - = . _ : \/ \@.
 --
 -- -   Cannot use \"aws:\" as a prefix for a key.
-createTracker_tags :: Lens.Lens' CreateTracker (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createTracker_tags = Lens.lens (\CreateTracker' {tags} -> tags) (\s@CreateTracker' {} a -> s {tags = a} :: CreateTracker) Prelude.. Lens.mapping Lens.coerced
+--
+-- 'trackerName', 'createTracker_trackerName' - The name for the tracker resource.
+--
+-- Requirements:
+--
+-- -   Contain only alphanumeric characters (A-Z, a-z, 0-9) , hyphens (-),
+--     periods (.), and underscores (_).
+--
+-- -   Must be a unique tracker resource name.
+--
+-- -   No spaces allowed. For example, @ExampleTracker@.
+newCreateTracker ::
+  -- | 'trackerName'
+  Prelude.Text ->
+  CreateTracker
+newCreateTracker pTrackerName_ =
+  CreateTracker'
+    { description = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
+      positionFiltering = Prelude.Nothing,
+      pricingPlan = Prelude.Nothing,
+      pricingPlanDataSource = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      trackerName = pTrackerName_
+    }
 
 -- | An optional description for the tracker resource.
 createTracker_description :: Lens.Lens' CreateTracker (Prelude.Maybe Prelude.Text)
 createTracker_description = Lens.lens (\CreateTracker' {description} -> description) (\s@CreateTracker' {} a -> s {description = a} :: CreateTracker)
-
--- | This parameter is no longer used.
-createTracker_pricingPlanDataSource :: Lens.Lens' CreateTracker (Prelude.Maybe Prelude.Text)
-createTracker_pricingPlanDataSource = Lens.lens (\CreateTracker' {pricingPlanDataSource} -> pricingPlanDataSource) (\s@CreateTracker' {} a -> s {pricingPlanDataSource = a} :: CreateTracker)
-
--- | No longer used. If included, the only allowed value is
--- @RequestBasedUsage@.
-createTracker_pricingPlan :: Lens.Lens' CreateTracker (Prelude.Maybe PricingPlan)
-createTracker_pricingPlan = Lens.lens (\CreateTracker' {pricingPlan} -> pricingPlan) (\s@CreateTracker' {} a -> s {pricingPlan = a} :: CreateTracker)
 
 -- | A key identifier for an
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>.
@@ -303,6 +271,38 @@ createTracker_kmsKeyId = Lens.lens (\CreateTracker' {kmsKeyId} -> kmsKeyId) (\s@
 createTracker_positionFiltering :: Lens.Lens' CreateTracker (Prelude.Maybe PositionFiltering)
 createTracker_positionFiltering = Lens.lens (\CreateTracker' {positionFiltering} -> positionFiltering) (\s@CreateTracker' {} a -> s {positionFiltering = a} :: CreateTracker)
 
+-- | No longer used. If included, the only allowed value is
+-- @RequestBasedUsage@.
+createTracker_pricingPlan :: Lens.Lens' CreateTracker (Prelude.Maybe PricingPlan)
+createTracker_pricingPlan = Lens.lens (\CreateTracker' {pricingPlan} -> pricingPlan) (\s@CreateTracker' {} a -> s {pricingPlan = a} :: CreateTracker)
+
+-- | This parameter is no longer used.
+createTracker_pricingPlanDataSource :: Lens.Lens' CreateTracker (Prelude.Maybe Prelude.Text)
+createTracker_pricingPlanDataSource = Lens.lens (\CreateTracker' {pricingPlanDataSource} -> pricingPlanDataSource) (\s@CreateTracker' {} a -> s {pricingPlanDataSource = a} :: CreateTracker)
+
+-- | Applies one or more tags to the tracker resource. A tag is a key-value
+-- pair helps manage, identify, search, and filter your resources by
+-- labelling them.
+--
+-- Format: @\"key\" : \"value\"@
+--
+-- Restrictions:
+--
+-- -   Maximum 50 tags per resource
+--
+-- -   Each resource tag must be unique with a maximum of one value.
+--
+-- -   Maximum key length: 128 Unicode characters in UTF-8
+--
+-- -   Maximum value length: 256 Unicode characters in UTF-8
+--
+-- -   Can use alphanumeric characters (A–Z, a–z, 0–9), and the following
+--     characters: + - = . _ : \/ \@.
+--
+-- -   Cannot use \"aws:\" as a prefix for a key.
+createTracker_tags :: Lens.Lens' CreateTracker (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createTracker_tags = Lens.lens (\CreateTracker' {tags} -> tags) (\s@CreateTracker' {} a -> s {tags = a} :: CreateTracker) Prelude.. Lens.mapping Lens.coerced
+
 -- | The name for the tracker resource.
 --
 -- Requirements:
@@ -334,22 +334,22 @@ instance Core.AWSRequest CreateTracker where
 
 instance Prelude.Hashable CreateTracker where
   hashWithSalt _salt CreateTracker' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` pricingPlanDataSource
-      `Prelude.hashWithSalt` pricingPlan
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` positionFiltering
+      `Prelude.hashWithSalt` pricingPlan
+      `Prelude.hashWithSalt` pricingPlanDataSource
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` trackerName
 
 instance Prelude.NFData CreateTracker where
   rnf CreateTracker' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf pricingPlanDataSource
-      `Prelude.seq` Prelude.rnf pricingPlan
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf positionFiltering
+      `Prelude.seq` Prelude.rnf pricingPlan
+      `Prelude.seq` Prelude.rnf pricingPlanDataSource
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf trackerName
 
 instance Data.ToHeaders CreateTracker where
@@ -367,14 +367,14 @@ instance Data.ToJSON CreateTracker where
   toJSON CreateTracker' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Description" Data..=) Prelude.<$> description,
-            ("PricingPlanDataSource" Data..=)
-              Prelude.<$> pricingPlanDataSource,
-            ("PricingPlan" Data..=) Prelude.<$> pricingPlan,
+          [ ("Description" Data..=) Prelude.<$> description,
             ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
             ("PositionFiltering" Data..=)
               Prelude.<$> positionFiltering,
+            ("PricingPlan" Data..=) Prelude.<$> pricingPlan,
+            ("PricingPlanDataSource" Data..=)
+              Prelude.<$> pricingPlanDataSource,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("TrackerName" Data..= trackerName)
           ]
       )

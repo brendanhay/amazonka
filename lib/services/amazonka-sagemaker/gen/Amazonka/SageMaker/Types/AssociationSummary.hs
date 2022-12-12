@@ -34,21 +34,21 @@ import Amazonka.SageMaker.Types.UserContext
 data AssociationSummary = AssociationSummary'
   { -- | The type of the association.
     associationType :: Prelude.Maybe AssociationEdgeType,
-    -- | The ARN of the source.
-    sourceArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the source.
-    sourceName :: Prelude.Maybe Prelude.Text,
+    createdBy :: Prelude.Maybe UserContext,
+    -- | When the association was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The Amazon Resource Name (ARN) of the destination.
+    destinationArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the destination.
     destinationName :: Prelude.Maybe Prelude.Text,
     -- | The destination type.
     destinationType :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the source.
+    sourceArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the source.
+    sourceName :: Prelude.Maybe Prelude.Text,
     -- | The source type.
-    sourceType :: Prelude.Maybe Prelude.Text,
-    -- | When the association was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
-    createdBy :: Prelude.Maybe UserContext,
-    -- | The Amazon Resource Name (ARN) of the destination.
-    destinationArn :: Prelude.Maybe Prelude.Text
+    sourceType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,48 +62,52 @@ data AssociationSummary = AssociationSummary'
 --
 -- 'associationType', 'associationSummary_associationType' - The type of the association.
 --
--- 'sourceArn', 'associationSummary_sourceArn' - The ARN of the source.
+-- 'createdBy', 'associationSummary_createdBy' - Undocumented member.
 --
--- 'sourceName', 'associationSummary_sourceName' - The name of the source.
+-- 'creationTime', 'associationSummary_creationTime' - When the association was created.
+--
+-- 'destinationArn', 'associationSummary_destinationArn' - The Amazon Resource Name (ARN) of the destination.
 --
 -- 'destinationName', 'associationSummary_destinationName' - The name of the destination.
 --
 -- 'destinationType', 'associationSummary_destinationType' - The destination type.
 --
+-- 'sourceArn', 'associationSummary_sourceArn' - The ARN of the source.
+--
+-- 'sourceName', 'associationSummary_sourceName' - The name of the source.
+--
 -- 'sourceType', 'associationSummary_sourceType' - The source type.
---
--- 'creationTime', 'associationSummary_creationTime' - When the association was created.
---
--- 'createdBy', 'associationSummary_createdBy' - Undocumented member.
---
--- 'destinationArn', 'associationSummary_destinationArn' - The Amazon Resource Name (ARN) of the destination.
 newAssociationSummary ::
   AssociationSummary
 newAssociationSummary =
   AssociationSummary'
     { associationType =
         Prelude.Nothing,
-      sourceArn = Prelude.Nothing,
-      sourceName = Prelude.Nothing,
+      createdBy = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      destinationArn = Prelude.Nothing,
       destinationName = Prelude.Nothing,
       destinationType = Prelude.Nothing,
-      sourceType = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      createdBy = Prelude.Nothing,
-      destinationArn = Prelude.Nothing
+      sourceArn = Prelude.Nothing,
+      sourceName = Prelude.Nothing,
+      sourceType = Prelude.Nothing
     }
 
 -- | The type of the association.
 associationSummary_associationType :: Lens.Lens' AssociationSummary (Prelude.Maybe AssociationEdgeType)
 associationSummary_associationType = Lens.lens (\AssociationSummary' {associationType} -> associationType) (\s@AssociationSummary' {} a -> s {associationType = a} :: AssociationSummary)
 
--- | The ARN of the source.
-associationSummary_sourceArn :: Lens.Lens' AssociationSummary (Prelude.Maybe Prelude.Text)
-associationSummary_sourceArn = Lens.lens (\AssociationSummary' {sourceArn} -> sourceArn) (\s@AssociationSummary' {} a -> s {sourceArn = a} :: AssociationSummary)
+-- | Undocumented member.
+associationSummary_createdBy :: Lens.Lens' AssociationSummary (Prelude.Maybe UserContext)
+associationSummary_createdBy = Lens.lens (\AssociationSummary' {createdBy} -> createdBy) (\s@AssociationSummary' {} a -> s {createdBy = a} :: AssociationSummary)
 
--- | The name of the source.
-associationSummary_sourceName :: Lens.Lens' AssociationSummary (Prelude.Maybe Prelude.Text)
-associationSummary_sourceName = Lens.lens (\AssociationSummary' {sourceName} -> sourceName) (\s@AssociationSummary' {} a -> s {sourceName = a} :: AssociationSummary)
+-- | When the association was created.
+associationSummary_creationTime :: Lens.Lens' AssociationSummary (Prelude.Maybe Prelude.UTCTime)
+associationSummary_creationTime = Lens.lens (\AssociationSummary' {creationTime} -> creationTime) (\s@AssociationSummary' {} a -> s {creationTime = a} :: AssociationSummary) Prelude.. Lens.mapping Data._Time
+
+-- | The Amazon Resource Name (ARN) of the destination.
+associationSummary_destinationArn :: Lens.Lens' AssociationSummary (Prelude.Maybe Prelude.Text)
+associationSummary_destinationArn = Lens.lens (\AssociationSummary' {destinationArn} -> destinationArn) (\s@AssociationSummary' {} a -> s {destinationArn = a} :: AssociationSummary)
 
 -- | The name of the destination.
 associationSummary_destinationName :: Lens.Lens' AssociationSummary (Prelude.Maybe Prelude.Text)
@@ -113,21 +117,17 @@ associationSummary_destinationName = Lens.lens (\AssociationSummary' {destinatio
 associationSummary_destinationType :: Lens.Lens' AssociationSummary (Prelude.Maybe Prelude.Text)
 associationSummary_destinationType = Lens.lens (\AssociationSummary' {destinationType} -> destinationType) (\s@AssociationSummary' {} a -> s {destinationType = a} :: AssociationSummary)
 
+-- | The ARN of the source.
+associationSummary_sourceArn :: Lens.Lens' AssociationSummary (Prelude.Maybe Prelude.Text)
+associationSummary_sourceArn = Lens.lens (\AssociationSummary' {sourceArn} -> sourceArn) (\s@AssociationSummary' {} a -> s {sourceArn = a} :: AssociationSummary)
+
+-- | The name of the source.
+associationSummary_sourceName :: Lens.Lens' AssociationSummary (Prelude.Maybe Prelude.Text)
+associationSummary_sourceName = Lens.lens (\AssociationSummary' {sourceName} -> sourceName) (\s@AssociationSummary' {} a -> s {sourceName = a} :: AssociationSummary)
+
 -- | The source type.
 associationSummary_sourceType :: Lens.Lens' AssociationSummary (Prelude.Maybe Prelude.Text)
 associationSummary_sourceType = Lens.lens (\AssociationSummary' {sourceType} -> sourceType) (\s@AssociationSummary' {} a -> s {sourceType = a} :: AssociationSummary)
-
--- | When the association was created.
-associationSummary_creationTime :: Lens.Lens' AssociationSummary (Prelude.Maybe Prelude.UTCTime)
-associationSummary_creationTime = Lens.lens (\AssociationSummary' {creationTime} -> creationTime) (\s@AssociationSummary' {} a -> s {creationTime = a} :: AssociationSummary) Prelude.. Lens.mapping Data._Time
-
--- | Undocumented member.
-associationSummary_createdBy :: Lens.Lens' AssociationSummary (Prelude.Maybe UserContext)
-associationSummary_createdBy = Lens.lens (\AssociationSummary' {createdBy} -> createdBy) (\s@AssociationSummary' {} a -> s {createdBy = a} :: AssociationSummary)
-
--- | The Amazon Resource Name (ARN) of the destination.
-associationSummary_destinationArn :: Lens.Lens' AssociationSummary (Prelude.Maybe Prelude.Text)
-associationSummary_destinationArn = Lens.lens (\AssociationSummary' {destinationArn} -> destinationArn) (\s@AssociationSummary' {} a -> s {destinationArn = a} :: AssociationSummary)
 
 instance Data.FromJSON AssociationSummary where
   parseJSON =
@@ -136,36 +136,36 @@ instance Data.FromJSON AssociationSummary where
       ( \x ->
           AssociationSummary'
             Prelude.<$> (x Data..:? "AssociationType")
-            Prelude.<*> (x Data..:? "SourceArn")
-            Prelude.<*> (x Data..:? "SourceName")
+            Prelude.<*> (x Data..:? "CreatedBy")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "DestinationArn")
             Prelude.<*> (x Data..:? "DestinationName")
             Prelude.<*> (x Data..:? "DestinationType")
+            Prelude.<*> (x Data..:? "SourceArn")
+            Prelude.<*> (x Data..:? "SourceName")
             Prelude.<*> (x Data..:? "SourceType")
-            Prelude.<*> (x Data..:? "CreationTime")
-            Prelude.<*> (x Data..:? "CreatedBy")
-            Prelude.<*> (x Data..:? "DestinationArn")
       )
 
 instance Prelude.Hashable AssociationSummary where
   hashWithSalt _salt AssociationSummary' {..} =
     _salt `Prelude.hashWithSalt` associationType
-      `Prelude.hashWithSalt` sourceArn
-      `Prelude.hashWithSalt` sourceName
+      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` destinationArn
       `Prelude.hashWithSalt` destinationName
       `Prelude.hashWithSalt` destinationType
+      `Prelude.hashWithSalt` sourceArn
+      `Prelude.hashWithSalt` sourceName
       `Prelude.hashWithSalt` sourceType
-      `Prelude.hashWithSalt` creationTime
-      `Prelude.hashWithSalt` createdBy
-      `Prelude.hashWithSalt` destinationArn
 
 instance Prelude.NFData AssociationSummary where
   rnf AssociationSummary' {..} =
     Prelude.rnf associationType
-      `Prelude.seq` Prelude.rnf sourceArn
-      `Prelude.seq` Prelude.rnf sourceName
+      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf destinationArn
       `Prelude.seq` Prelude.rnf destinationName
       `Prelude.seq` Prelude.rnf destinationType
+      `Prelude.seq` Prelude.rnf sourceArn
+      `Prelude.seq` Prelude.rnf sourceName
       `Prelude.seq` Prelude.rnf sourceType
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf destinationArn

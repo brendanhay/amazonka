@@ -38,7 +38,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFacet' smart constructor.
 data Facet = Facet'
-  { -- | An array of document attributes that are nested facets within a facet.
+  { -- | The unique key for the document attribute.
+    documentAttributeKey :: Prelude.Maybe Prelude.Text,
+    -- | An array of document attributes that are nested facets within a facet.
     --
     -- For example, the document attribute or facet \"Department\" includes a
     -- value called \"Engineering\". In addition, the document attribute or
@@ -56,9 +58,7 @@ data Facet = Facet'
     -- this to limit the number of facet values to less than 10. If you want to
     -- increase the default, contact
     -- <http://aws.amazon.com/contact-us/ Support>.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The unique key for the document attribute.
-    documentAttributeKey :: Prelude.Maybe Prelude.Text
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,6 +69,8 @@ data Facet = Facet'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'documentAttributeKey', 'facet_documentAttributeKey' - The unique key for the document attribute.
 --
 -- 'facets', 'facet_facets' - An array of document attributes that are nested facets within a facet.
 --
@@ -88,16 +90,18 @@ data Facet = Facet'
 -- this to limit the number of facet values to less than 10. If you want to
 -- increase the default, contact
 -- <http://aws.amazon.com/contact-us/ Support>.
---
--- 'documentAttributeKey', 'facet_documentAttributeKey' - The unique key for the document attribute.
 newFacet ::
   Facet
 newFacet =
   Facet'
-    { facets = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      documentAttributeKey = Prelude.Nothing
+    { documentAttributeKey = Prelude.Nothing,
+      facets = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
+
+-- | The unique key for the document attribute.
+facet_documentAttributeKey :: Lens.Lens' Facet (Prelude.Maybe Prelude.Text)
+facet_documentAttributeKey = Lens.lens (\Facet' {documentAttributeKey} -> documentAttributeKey) (\s@Facet' {} a -> s {documentAttributeKey = a} :: Facet)
 
 -- | An array of document attributes that are nested facets within a facet.
 --
@@ -122,29 +126,25 @@ facet_facets = Lens.lens (\Facet' {facets} -> facets) (\s@Facet' {} a -> s {face
 facet_maxResults :: Lens.Lens' Facet (Prelude.Maybe Prelude.Natural)
 facet_maxResults = Lens.lens (\Facet' {maxResults} -> maxResults) (\s@Facet' {} a -> s {maxResults = a} :: Facet)
 
--- | The unique key for the document attribute.
-facet_documentAttributeKey :: Lens.Lens' Facet (Prelude.Maybe Prelude.Text)
-facet_documentAttributeKey = Lens.lens (\Facet' {documentAttributeKey} -> documentAttributeKey) (\s@Facet' {} a -> s {documentAttributeKey = a} :: Facet)
-
 instance Prelude.Hashable Facet where
   hashWithSalt _salt Facet' {..} =
-    _salt `Prelude.hashWithSalt` facets
+    _salt `Prelude.hashWithSalt` documentAttributeKey
+      `Prelude.hashWithSalt` facets
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` documentAttributeKey
 
 instance Prelude.NFData Facet where
   rnf Facet' {..} =
-    Prelude.rnf facets
+    Prelude.rnf documentAttributeKey
+      `Prelude.seq` Prelude.rnf facets
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf documentAttributeKey
 
 instance Data.ToJSON Facet where
   toJSON Facet' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Facets" Data..=) Prelude.<$> facets,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("DocumentAttributeKey" Data..=)
-              Prelude.<$> documentAttributeKey
+          [ ("DocumentAttributeKey" Data..=)
+              Prelude.<$> documentAttributeKey,
+            ("Facets" Data..=) Prelude.<$> facets,
+            ("MaxResults" Data..=) Prelude.<$> maxResults
           ]
       )

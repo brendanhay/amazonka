@@ -29,95 +29,95 @@ module Amazonka.EFS
     -- * Errors
     -- $errors
 
-    -- ** SecurityGroupLimitExceeded
-    _SecurityGroupLimitExceeded,
-
-    -- ** NetworkInterfaceLimitExceeded
-    _NetworkInterfaceLimitExceeded,
-
     -- ** AccessPointAlreadyExists
     _AccessPointAlreadyExists,
-
-    -- ** ReplicationNotFound
-    _ReplicationNotFound,
-
-    -- ** IncorrectFileSystemLifeCycleState
-    _IncorrectFileSystemLifeCycleState,
-
-    -- ** ThroughputLimitExceeded
-    _ThroughputLimitExceeded,
-
-    -- ** AccessPointNotFound
-    _AccessPointNotFound,
-
-    -- ** TooManyRequests
-    _TooManyRequests,
-
-    -- ** IpAddressInUse
-    _IpAddressInUse,
-
-    -- ** MountTargetNotFound
-    _MountTargetNotFound,
-
-    -- ** DependencyTimeout
-    _DependencyTimeout,
-
-    -- ** BadRequest
-    _BadRequest,
-
-    -- ** SecurityGroupNotFound
-    _SecurityGroupNotFound,
-
-    -- ** FileSystemNotFound
-    _FileSystemNotFound,
-
-    -- ** FileSystemInUse
-    _FileSystemInUse,
-
-    -- ** IncorrectMountTargetState
-    _IncorrectMountTargetState,
-
-    -- ** SubnetNotFound
-    _SubnetNotFound,
 
     -- ** AccessPointLimitExceeded
     _AccessPointLimitExceeded,
 
-    -- ** UnsupportedAvailabilityZone
-    _UnsupportedAvailabilityZone,
-
-    -- ** InternalServerError
-    _InternalServerError,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
+    -- ** AccessPointNotFound
+    _AccessPointNotFound,
 
     -- ** AvailabilityZonesMismatch
     _AvailabilityZonesMismatch,
 
-    -- ** ValidationException
-    _ValidationException,
+    -- ** BadRequest
+    _BadRequest,
 
-    -- ** InsufficientThroughputCapacity
-    _InsufficientThroughputCapacity,
-
-    -- ** PolicyNotFound
-    _PolicyNotFound,
-
-    -- ** MountTargetConflict
-    _MountTargetConflict,
-
-    -- ** NoFreeAddressesInSubnet
-    _NoFreeAddressesInSubnet,
+    -- ** DependencyTimeout
+    _DependencyTimeout,
 
     -- ** FileSystemAlreadyExists
     _FileSystemAlreadyExists,
 
+    -- ** FileSystemInUse
+    _FileSystemInUse,
+
     -- ** FileSystemLimitExceeded
     _FileSystemLimitExceeded,
 
+    -- ** FileSystemNotFound
+    _FileSystemNotFound,
+
+    -- ** IncorrectFileSystemLifeCycleState
+    _IncorrectFileSystemLifeCycleState,
+
+    -- ** IncorrectMountTargetState
+    _IncorrectMountTargetState,
+
+    -- ** InsufficientThroughputCapacity
+    _InsufficientThroughputCapacity,
+
+    -- ** InternalServerError
+    _InternalServerError,
+
     -- ** InvalidPolicyException
     _InvalidPolicyException,
+
+    -- ** IpAddressInUse
+    _IpAddressInUse,
+
+    -- ** MountTargetConflict
+    _MountTargetConflict,
+
+    -- ** MountTargetNotFound
+    _MountTargetNotFound,
+
+    -- ** NetworkInterfaceLimitExceeded
+    _NetworkInterfaceLimitExceeded,
+
+    -- ** NoFreeAddressesInSubnet
+    _NoFreeAddressesInSubnet,
+
+    -- ** PolicyNotFound
+    _PolicyNotFound,
+
+    -- ** ReplicationNotFound
+    _ReplicationNotFound,
+
+    -- ** SecurityGroupLimitExceeded
+    _SecurityGroupLimitExceeded,
+
+    -- ** SecurityGroupNotFound
+    _SecurityGroupNotFound,
+
+    -- ** SubnetNotFound
+    _SubnetNotFound,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** ThroughputLimitExceeded
+    _ThroughputLimitExceeded,
+
+    -- ** TooManyRequests
+    _TooManyRequests,
+
+    -- ** UnsupportedAvailabilityZone
+    _UnsupportedAvailabilityZone,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters

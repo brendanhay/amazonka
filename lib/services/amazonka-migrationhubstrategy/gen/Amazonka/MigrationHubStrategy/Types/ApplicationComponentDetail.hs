@@ -25,10 +25,12 @@ import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types.AntipatternReportStatus
 import Amazonka.MigrationHubStrategy.Types.AntipatternSeveritySummary
 import Amazonka.MigrationHubStrategy.Types.AppType
+import Amazonka.MigrationHubStrategy.Types.AppUnitError
 import Amazonka.MigrationHubStrategy.Types.DatabaseConfigDetail
 import Amazonka.MigrationHubStrategy.Types.InclusionStatus
 import Amazonka.MigrationHubStrategy.Types.RecommendationSet
 import Amazonka.MigrationHubStrategy.Types.ResourceSubType
+import Amazonka.MigrationHubStrategy.Types.RuntimeAnalysisStatus
 import Amazonka.MigrationHubStrategy.Types.S3Object
 import Amazonka.MigrationHubStrategy.Types.SourceCodeRepository
 import Amazonka.MigrationHubStrategy.Types.SrcCodeOrDbAnalysisStatus
@@ -38,49 +40,55 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newApplicationComponentDetail' smart constructor.
 data ApplicationComponentDetail = ApplicationComponentDetail'
-  { -- | The status of the anti-pattern report generation.
-    antipatternReportStatus :: Prelude.Maybe AntipatternReportStatus,
+  { -- | The status of analysis, if the application component has source code or
+    -- an associated database.
+    analysisStatus :: Prelude.Maybe SrcCodeOrDbAnalysisStatus,
     -- | The S3 bucket name and the Amazon S3 key name for the anti-pattern
     -- report.
     antipatternReportS3Object :: Prelude.Maybe S3Object,
-    -- | The name of application component.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The top recommendation set for the application component.
-    recommendationSet :: Prelude.Maybe RecommendationSet,
+    -- | The status of the anti-pattern report generation.
+    antipatternReportStatus :: Prelude.Maybe AntipatternReportStatus,
+    -- | The status message for the anti-pattern.
+    antipatternReportStatusMessage :: Prelude.Maybe Prelude.Text,
     -- | The type of application component.
     appType :: Prelude.Maybe AppType,
-    -- | Set to true if the application component is running on multiple servers.
-    moreServerAssociationExists :: Prelude.Maybe Prelude.Bool,
-    -- | A list of anti-pattern severity summaries.
-    listAntipatternSeveritySummary :: Prelude.Maybe [AntipatternSeveritySummary],
-    -- | OS version.
-    osVersion :: Prelude.Maybe Prelude.Text,
+    -- | The error in the analysis of the source code or database.
+    appUnitError :: Prelude.Maybe AppUnitError,
+    -- | The ID of the server that the application component is running on.
+    associatedServerId :: Prelude.Maybe Prelude.Text,
+    -- | Configuration details for the database associated with the application
+    -- component.
+    databaseConfigDetail :: Prelude.Maybe DatabaseConfigDetail,
     -- | The ID of the application component.
     id :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the application component has been included for server
     -- recommendation or not.
     inclusionStatus :: Prelude.Maybe InclusionStatus,
-    -- | The status of analysis, if the application component has source code or
-    -- an associated database.
-    analysisStatus :: Prelude.Maybe SrcCodeOrDbAnalysisStatus,
-    -- | The status message for the anti-pattern.
-    antipatternReportStatusMessage :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp of when the application component was assessed.
+    lastAnalyzedTimestamp :: Prelude.Maybe Data.POSIX,
+    -- | A list of anti-pattern severity summaries.
+    listAntipatternSeveritySummary :: Prelude.Maybe [AntipatternSeveritySummary],
+    -- | Set to true if the application component is running on multiple servers.
+    moreServerAssociationExists :: Prelude.Maybe Prelude.Bool,
+    -- | The name of application component.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | OS driver.
+    osDriver :: Prelude.Maybe Prelude.Text,
+    -- | OS version.
+    osVersion :: Prelude.Maybe Prelude.Text,
+    -- | The top recommendation set for the application component.
+    recommendationSet :: Prelude.Maybe RecommendationSet,
     -- | The application component subtype.
     resourceSubType :: Prelude.Maybe ResourceSubType,
+    -- | The status of the application unit.
+    runtimeStatus :: Prelude.Maybe RuntimeAnalysisStatus,
+    -- | The status message for the application unit.
+    runtimeStatusMessage :: Prelude.Maybe Prelude.Text,
     -- | Details about the source code repository associated with the application
     -- component.
     sourceCodeRepositories :: Prelude.Maybe [SourceCodeRepository],
-    -- | Configuration details for the database associated with the application
-    -- component.
-    databaseConfigDetail :: Prelude.Maybe DatabaseConfigDetail,
-    -- | The ID of the server that the application component is running on.
-    associatedServerId :: Prelude.Maybe Prelude.Text,
-    -- | OS driver.
-    osDriver :: Prelude.Maybe Prelude.Text,
     -- | A detailed description of the analysis status and any failure message.
-    statusMessage :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp of when the application component was assessed.
-    lastAnalyzedTimestamp :: Prelude.Maybe Data.POSIX
+    statusMessage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -92,108 +100,119 @@ data ApplicationComponentDetail = ApplicationComponentDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'antipatternReportStatus', 'applicationComponentDetail_antipatternReportStatus' - The status of the anti-pattern report generation.
+-- 'analysisStatus', 'applicationComponentDetail_analysisStatus' - The status of analysis, if the application component has source code or
+-- an associated database.
 --
 -- 'antipatternReportS3Object', 'applicationComponentDetail_antipatternReportS3Object' - The S3 bucket name and the Amazon S3 key name for the anti-pattern
 -- report.
 --
--- 'name', 'applicationComponentDetail_name' - The name of application component.
+-- 'antipatternReportStatus', 'applicationComponentDetail_antipatternReportStatus' - The status of the anti-pattern report generation.
 --
--- 'recommendationSet', 'applicationComponentDetail_recommendationSet' - The top recommendation set for the application component.
+-- 'antipatternReportStatusMessage', 'applicationComponentDetail_antipatternReportStatusMessage' - The status message for the anti-pattern.
 --
 -- 'appType', 'applicationComponentDetail_appType' - The type of application component.
 --
--- 'moreServerAssociationExists', 'applicationComponentDetail_moreServerAssociationExists' - Set to true if the application component is running on multiple servers.
+-- 'appUnitError', 'applicationComponentDetail_appUnitError' - The error in the analysis of the source code or database.
 --
--- 'listAntipatternSeveritySummary', 'applicationComponentDetail_listAntipatternSeveritySummary' - A list of anti-pattern severity summaries.
+-- 'associatedServerId', 'applicationComponentDetail_associatedServerId' - The ID of the server that the application component is running on.
 --
--- 'osVersion', 'applicationComponentDetail_osVersion' - OS version.
+-- 'databaseConfigDetail', 'applicationComponentDetail_databaseConfigDetail' - Configuration details for the database associated with the application
+-- component.
 --
 -- 'id', 'applicationComponentDetail_id' - The ID of the application component.
 --
 -- 'inclusionStatus', 'applicationComponentDetail_inclusionStatus' - Indicates whether the application component has been included for server
 -- recommendation or not.
 --
--- 'analysisStatus', 'applicationComponentDetail_analysisStatus' - The status of analysis, if the application component has source code or
--- an associated database.
+-- 'lastAnalyzedTimestamp', 'applicationComponentDetail_lastAnalyzedTimestamp' - The timestamp of when the application component was assessed.
 --
--- 'antipatternReportStatusMessage', 'applicationComponentDetail_antipatternReportStatusMessage' - The status message for the anti-pattern.
+-- 'listAntipatternSeveritySummary', 'applicationComponentDetail_listAntipatternSeveritySummary' - A list of anti-pattern severity summaries.
+--
+-- 'moreServerAssociationExists', 'applicationComponentDetail_moreServerAssociationExists' - Set to true if the application component is running on multiple servers.
+--
+-- 'name', 'applicationComponentDetail_name' - The name of application component.
+--
+-- 'osDriver', 'applicationComponentDetail_osDriver' - OS driver.
+--
+-- 'osVersion', 'applicationComponentDetail_osVersion' - OS version.
+--
+-- 'recommendationSet', 'applicationComponentDetail_recommendationSet' - The top recommendation set for the application component.
 --
 -- 'resourceSubType', 'applicationComponentDetail_resourceSubType' - The application component subtype.
+--
+-- 'runtimeStatus', 'applicationComponentDetail_runtimeStatus' - The status of the application unit.
+--
+-- 'runtimeStatusMessage', 'applicationComponentDetail_runtimeStatusMessage' - The status message for the application unit.
 --
 -- 'sourceCodeRepositories', 'applicationComponentDetail_sourceCodeRepositories' - Details about the source code repository associated with the application
 -- component.
 --
--- 'databaseConfigDetail', 'applicationComponentDetail_databaseConfigDetail' - Configuration details for the database associated with the application
--- component.
---
--- 'associatedServerId', 'applicationComponentDetail_associatedServerId' - The ID of the server that the application component is running on.
---
--- 'osDriver', 'applicationComponentDetail_osDriver' - OS driver.
---
 -- 'statusMessage', 'applicationComponentDetail_statusMessage' - A detailed description of the analysis status and any failure message.
---
--- 'lastAnalyzedTimestamp', 'applicationComponentDetail_lastAnalyzedTimestamp' - The timestamp of when the application component was assessed.
 newApplicationComponentDetail ::
   ApplicationComponentDetail
 newApplicationComponentDetail =
   ApplicationComponentDetail'
-    { antipatternReportStatus =
+    { analysisStatus =
         Prelude.Nothing,
       antipatternReportS3Object = Prelude.Nothing,
-      name = Prelude.Nothing,
-      recommendationSet = Prelude.Nothing,
-      appType = Prelude.Nothing,
-      moreServerAssociationExists = Prelude.Nothing,
-      listAntipatternSeveritySummary =
-        Prelude.Nothing,
-      osVersion = Prelude.Nothing,
-      id = Prelude.Nothing,
-      inclusionStatus = Prelude.Nothing,
-      analysisStatus = Prelude.Nothing,
+      antipatternReportStatus = Prelude.Nothing,
       antipatternReportStatusMessage =
         Prelude.Nothing,
-      resourceSubType = Prelude.Nothing,
-      sourceCodeRepositories = Prelude.Nothing,
-      databaseConfigDetail = Prelude.Nothing,
+      appType = Prelude.Nothing,
+      appUnitError = Prelude.Nothing,
       associatedServerId = Prelude.Nothing,
+      databaseConfigDetail = Prelude.Nothing,
+      id = Prelude.Nothing,
+      inclusionStatus = Prelude.Nothing,
+      lastAnalyzedTimestamp = Prelude.Nothing,
+      listAntipatternSeveritySummary =
+        Prelude.Nothing,
+      moreServerAssociationExists = Prelude.Nothing,
+      name = Prelude.Nothing,
       osDriver = Prelude.Nothing,
-      statusMessage = Prelude.Nothing,
-      lastAnalyzedTimestamp = Prelude.Nothing
+      osVersion = Prelude.Nothing,
+      recommendationSet = Prelude.Nothing,
+      resourceSubType = Prelude.Nothing,
+      runtimeStatus = Prelude.Nothing,
+      runtimeStatusMessage = Prelude.Nothing,
+      sourceCodeRepositories = Prelude.Nothing,
+      statusMessage = Prelude.Nothing
     }
 
--- | The status of the anti-pattern report generation.
-applicationComponentDetail_antipatternReportStatus :: Lens.Lens' ApplicationComponentDetail (Prelude.Maybe AntipatternReportStatus)
-applicationComponentDetail_antipatternReportStatus = Lens.lens (\ApplicationComponentDetail' {antipatternReportStatus} -> antipatternReportStatus) (\s@ApplicationComponentDetail' {} a -> s {antipatternReportStatus = a} :: ApplicationComponentDetail)
+-- | The status of analysis, if the application component has source code or
+-- an associated database.
+applicationComponentDetail_analysisStatus :: Lens.Lens' ApplicationComponentDetail (Prelude.Maybe SrcCodeOrDbAnalysisStatus)
+applicationComponentDetail_analysisStatus = Lens.lens (\ApplicationComponentDetail' {analysisStatus} -> analysisStatus) (\s@ApplicationComponentDetail' {} a -> s {analysisStatus = a} :: ApplicationComponentDetail)
 
 -- | The S3 bucket name and the Amazon S3 key name for the anti-pattern
 -- report.
 applicationComponentDetail_antipatternReportS3Object :: Lens.Lens' ApplicationComponentDetail (Prelude.Maybe S3Object)
 applicationComponentDetail_antipatternReportS3Object = Lens.lens (\ApplicationComponentDetail' {antipatternReportS3Object} -> antipatternReportS3Object) (\s@ApplicationComponentDetail' {} a -> s {antipatternReportS3Object = a} :: ApplicationComponentDetail)
 
--- | The name of application component.
-applicationComponentDetail_name :: Lens.Lens' ApplicationComponentDetail (Prelude.Maybe Prelude.Text)
-applicationComponentDetail_name = Lens.lens (\ApplicationComponentDetail' {name} -> name) (\s@ApplicationComponentDetail' {} a -> s {name = a} :: ApplicationComponentDetail)
+-- | The status of the anti-pattern report generation.
+applicationComponentDetail_antipatternReportStatus :: Lens.Lens' ApplicationComponentDetail (Prelude.Maybe AntipatternReportStatus)
+applicationComponentDetail_antipatternReportStatus = Lens.lens (\ApplicationComponentDetail' {antipatternReportStatus} -> antipatternReportStatus) (\s@ApplicationComponentDetail' {} a -> s {antipatternReportStatus = a} :: ApplicationComponentDetail)
 
--- | The top recommendation set for the application component.
-applicationComponentDetail_recommendationSet :: Lens.Lens' ApplicationComponentDetail (Prelude.Maybe RecommendationSet)
-applicationComponentDetail_recommendationSet = Lens.lens (\ApplicationComponentDetail' {recommendationSet} -> recommendationSet) (\s@ApplicationComponentDetail' {} a -> s {recommendationSet = a} :: ApplicationComponentDetail)
+-- | The status message for the anti-pattern.
+applicationComponentDetail_antipatternReportStatusMessage :: Lens.Lens' ApplicationComponentDetail (Prelude.Maybe Prelude.Text)
+applicationComponentDetail_antipatternReportStatusMessage = Lens.lens (\ApplicationComponentDetail' {antipatternReportStatusMessage} -> antipatternReportStatusMessage) (\s@ApplicationComponentDetail' {} a -> s {antipatternReportStatusMessage = a} :: ApplicationComponentDetail)
 
 -- | The type of application component.
 applicationComponentDetail_appType :: Lens.Lens' ApplicationComponentDetail (Prelude.Maybe AppType)
 applicationComponentDetail_appType = Lens.lens (\ApplicationComponentDetail' {appType} -> appType) (\s@ApplicationComponentDetail' {} a -> s {appType = a} :: ApplicationComponentDetail)
 
--- | Set to true if the application component is running on multiple servers.
-applicationComponentDetail_moreServerAssociationExists :: Lens.Lens' ApplicationComponentDetail (Prelude.Maybe Prelude.Bool)
-applicationComponentDetail_moreServerAssociationExists = Lens.lens (\ApplicationComponentDetail' {moreServerAssociationExists} -> moreServerAssociationExists) (\s@ApplicationComponentDetail' {} a -> s {moreServerAssociationExists = a} :: ApplicationComponentDetail)
+-- | The error in the analysis of the source code or database.
+applicationComponentDetail_appUnitError :: Lens.Lens' ApplicationComponentDetail (Prelude.Maybe AppUnitError)
+applicationComponentDetail_appUnitError = Lens.lens (\ApplicationComponentDetail' {appUnitError} -> appUnitError) (\s@ApplicationComponentDetail' {} a -> s {appUnitError = a} :: ApplicationComponentDetail)
 
--- | A list of anti-pattern severity summaries.
-applicationComponentDetail_listAntipatternSeveritySummary :: Lens.Lens' ApplicationComponentDetail (Prelude.Maybe [AntipatternSeveritySummary])
-applicationComponentDetail_listAntipatternSeveritySummary = Lens.lens (\ApplicationComponentDetail' {listAntipatternSeveritySummary} -> listAntipatternSeveritySummary) (\s@ApplicationComponentDetail' {} a -> s {listAntipatternSeveritySummary = a} :: ApplicationComponentDetail) Prelude.. Lens.mapping Lens.coerced
+-- | The ID of the server that the application component is running on.
+applicationComponentDetail_associatedServerId :: Lens.Lens' ApplicationComponentDetail (Prelude.Maybe Prelude.Text)
+applicationComponentDetail_associatedServerId = Lens.lens (\ApplicationComponentDetail' {associatedServerId} -> associatedServerId) (\s@ApplicationComponentDetail' {} a -> s {associatedServerId = a} :: ApplicationComponentDetail)
 
--- | OS version.
-applicationComponentDetail_osVersion :: Lens.Lens' ApplicationComponentDetail (Prelude.Maybe Prelude.Text)
-applicationComponentDetail_osVersion = Lens.lens (\ApplicationComponentDetail' {osVersion} -> osVersion) (\s@ApplicationComponentDetail' {} a -> s {osVersion = a} :: ApplicationComponentDetail)
+-- | Configuration details for the database associated with the application
+-- component.
+applicationComponentDetail_databaseConfigDetail :: Lens.Lens' ApplicationComponentDetail (Prelude.Maybe DatabaseConfigDetail)
+applicationComponentDetail_databaseConfigDetail = Lens.lens (\ApplicationComponentDetail' {databaseConfigDetail} -> databaseConfigDetail) (\s@ApplicationComponentDetail' {} a -> s {databaseConfigDetail = a} :: ApplicationComponentDetail)
 
 -- | The ID of the application component.
 applicationComponentDetail_id :: Lens.Lens' ApplicationComponentDetail (Prelude.Maybe Prelude.Text)
@@ -204,44 +223,54 @@ applicationComponentDetail_id = Lens.lens (\ApplicationComponentDetail' {id} -> 
 applicationComponentDetail_inclusionStatus :: Lens.Lens' ApplicationComponentDetail (Prelude.Maybe InclusionStatus)
 applicationComponentDetail_inclusionStatus = Lens.lens (\ApplicationComponentDetail' {inclusionStatus} -> inclusionStatus) (\s@ApplicationComponentDetail' {} a -> s {inclusionStatus = a} :: ApplicationComponentDetail)
 
--- | The status of analysis, if the application component has source code or
--- an associated database.
-applicationComponentDetail_analysisStatus :: Lens.Lens' ApplicationComponentDetail (Prelude.Maybe SrcCodeOrDbAnalysisStatus)
-applicationComponentDetail_analysisStatus = Lens.lens (\ApplicationComponentDetail' {analysisStatus} -> analysisStatus) (\s@ApplicationComponentDetail' {} a -> s {analysisStatus = a} :: ApplicationComponentDetail)
+-- | The timestamp of when the application component was assessed.
+applicationComponentDetail_lastAnalyzedTimestamp :: Lens.Lens' ApplicationComponentDetail (Prelude.Maybe Prelude.UTCTime)
+applicationComponentDetail_lastAnalyzedTimestamp = Lens.lens (\ApplicationComponentDetail' {lastAnalyzedTimestamp} -> lastAnalyzedTimestamp) (\s@ApplicationComponentDetail' {} a -> s {lastAnalyzedTimestamp = a} :: ApplicationComponentDetail) Prelude.. Lens.mapping Data._Time
 
--- | The status message for the anti-pattern.
-applicationComponentDetail_antipatternReportStatusMessage :: Lens.Lens' ApplicationComponentDetail (Prelude.Maybe Prelude.Text)
-applicationComponentDetail_antipatternReportStatusMessage = Lens.lens (\ApplicationComponentDetail' {antipatternReportStatusMessage} -> antipatternReportStatusMessage) (\s@ApplicationComponentDetail' {} a -> s {antipatternReportStatusMessage = a} :: ApplicationComponentDetail)
+-- | A list of anti-pattern severity summaries.
+applicationComponentDetail_listAntipatternSeveritySummary :: Lens.Lens' ApplicationComponentDetail (Prelude.Maybe [AntipatternSeveritySummary])
+applicationComponentDetail_listAntipatternSeveritySummary = Lens.lens (\ApplicationComponentDetail' {listAntipatternSeveritySummary} -> listAntipatternSeveritySummary) (\s@ApplicationComponentDetail' {} a -> s {listAntipatternSeveritySummary = a} :: ApplicationComponentDetail) Prelude.. Lens.mapping Lens.coerced
+
+-- | Set to true if the application component is running on multiple servers.
+applicationComponentDetail_moreServerAssociationExists :: Lens.Lens' ApplicationComponentDetail (Prelude.Maybe Prelude.Bool)
+applicationComponentDetail_moreServerAssociationExists = Lens.lens (\ApplicationComponentDetail' {moreServerAssociationExists} -> moreServerAssociationExists) (\s@ApplicationComponentDetail' {} a -> s {moreServerAssociationExists = a} :: ApplicationComponentDetail)
+
+-- | The name of application component.
+applicationComponentDetail_name :: Lens.Lens' ApplicationComponentDetail (Prelude.Maybe Prelude.Text)
+applicationComponentDetail_name = Lens.lens (\ApplicationComponentDetail' {name} -> name) (\s@ApplicationComponentDetail' {} a -> s {name = a} :: ApplicationComponentDetail)
+
+-- | OS driver.
+applicationComponentDetail_osDriver :: Lens.Lens' ApplicationComponentDetail (Prelude.Maybe Prelude.Text)
+applicationComponentDetail_osDriver = Lens.lens (\ApplicationComponentDetail' {osDriver} -> osDriver) (\s@ApplicationComponentDetail' {} a -> s {osDriver = a} :: ApplicationComponentDetail)
+
+-- | OS version.
+applicationComponentDetail_osVersion :: Lens.Lens' ApplicationComponentDetail (Prelude.Maybe Prelude.Text)
+applicationComponentDetail_osVersion = Lens.lens (\ApplicationComponentDetail' {osVersion} -> osVersion) (\s@ApplicationComponentDetail' {} a -> s {osVersion = a} :: ApplicationComponentDetail)
+
+-- | The top recommendation set for the application component.
+applicationComponentDetail_recommendationSet :: Lens.Lens' ApplicationComponentDetail (Prelude.Maybe RecommendationSet)
+applicationComponentDetail_recommendationSet = Lens.lens (\ApplicationComponentDetail' {recommendationSet} -> recommendationSet) (\s@ApplicationComponentDetail' {} a -> s {recommendationSet = a} :: ApplicationComponentDetail)
 
 -- | The application component subtype.
 applicationComponentDetail_resourceSubType :: Lens.Lens' ApplicationComponentDetail (Prelude.Maybe ResourceSubType)
 applicationComponentDetail_resourceSubType = Lens.lens (\ApplicationComponentDetail' {resourceSubType} -> resourceSubType) (\s@ApplicationComponentDetail' {} a -> s {resourceSubType = a} :: ApplicationComponentDetail)
+
+-- | The status of the application unit.
+applicationComponentDetail_runtimeStatus :: Lens.Lens' ApplicationComponentDetail (Prelude.Maybe RuntimeAnalysisStatus)
+applicationComponentDetail_runtimeStatus = Lens.lens (\ApplicationComponentDetail' {runtimeStatus} -> runtimeStatus) (\s@ApplicationComponentDetail' {} a -> s {runtimeStatus = a} :: ApplicationComponentDetail)
+
+-- | The status message for the application unit.
+applicationComponentDetail_runtimeStatusMessage :: Lens.Lens' ApplicationComponentDetail (Prelude.Maybe Prelude.Text)
+applicationComponentDetail_runtimeStatusMessage = Lens.lens (\ApplicationComponentDetail' {runtimeStatusMessage} -> runtimeStatusMessage) (\s@ApplicationComponentDetail' {} a -> s {runtimeStatusMessage = a} :: ApplicationComponentDetail)
 
 -- | Details about the source code repository associated with the application
 -- component.
 applicationComponentDetail_sourceCodeRepositories :: Lens.Lens' ApplicationComponentDetail (Prelude.Maybe [SourceCodeRepository])
 applicationComponentDetail_sourceCodeRepositories = Lens.lens (\ApplicationComponentDetail' {sourceCodeRepositories} -> sourceCodeRepositories) (\s@ApplicationComponentDetail' {} a -> s {sourceCodeRepositories = a} :: ApplicationComponentDetail) Prelude.. Lens.mapping Lens.coerced
 
--- | Configuration details for the database associated with the application
--- component.
-applicationComponentDetail_databaseConfigDetail :: Lens.Lens' ApplicationComponentDetail (Prelude.Maybe DatabaseConfigDetail)
-applicationComponentDetail_databaseConfigDetail = Lens.lens (\ApplicationComponentDetail' {databaseConfigDetail} -> databaseConfigDetail) (\s@ApplicationComponentDetail' {} a -> s {databaseConfigDetail = a} :: ApplicationComponentDetail)
-
--- | The ID of the server that the application component is running on.
-applicationComponentDetail_associatedServerId :: Lens.Lens' ApplicationComponentDetail (Prelude.Maybe Prelude.Text)
-applicationComponentDetail_associatedServerId = Lens.lens (\ApplicationComponentDetail' {associatedServerId} -> associatedServerId) (\s@ApplicationComponentDetail' {} a -> s {associatedServerId = a} :: ApplicationComponentDetail)
-
--- | OS driver.
-applicationComponentDetail_osDriver :: Lens.Lens' ApplicationComponentDetail (Prelude.Maybe Prelude.Text)
-applicationComponentDetail_osDriver = Lens.lens (\ApplicationComponentDetail' {osDriver} -> osDriver) (\s@ApplicationComponentDetail' {} a -> s {osDriver = a} :: ApplicationComponentDetail)
-
 -- | A detailed description of the analysis status and any failure message.
 applicationComponentDetail_statusMessage :: Lens.Lens' ApplicationComponentDetail (Prelude.Maybe Prelude.Text)
 applicationComponentDetail_statusMessage = Lens.lens (\ApplicationComponentDetail' {statusMessage} -> statusMessage) (\s@ApplicationComponentDetail' {} a -> s {statusMessage = a} :: ApplicationComponentDetail)
-
--- | The timestamp of when the application component was assessed.
-applicationComponentDetail_lastAnalyzedTimestamp :: Lens.Lens' ApplicationComponentDetail (Prelude.Maybe Prelude.UTCTime)
-applicationComponentDetail_lastAnalyzedTimestamp = Lens.lens (\ApplicationComponentDetail' {lastAnalyzedTimestamp} -> lastAnalyzedTimestamp) (\s@ApplicationComponentDetail' {} a -> s {lastAnalyzedTimestamp = a} :: ApplicationComponentDetail) Prelude.. Lens.mapping Data._Time
 
 instance Data.FromJSON ApplicationComponentDetail where
   parseJSON =
@@ -249,73 +278,82 @@ instance Data.FromJSON ApplicationComponentDetail where
       "ApplicationComponentDetail"
       ( \x ->
           ApplicationComponentDetail'
-            Prelude.<$> (x Data..:? "antipatternReportStatus")
+            Prelude.<$> (x Data..:? "analysisStatus")
             Prelude.<*> (x Data..:? "antipatternReportS3Object")
-            Prelude.<*> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "recommendationSet")
+            Prelude.<*> (x Data..:? "antipatternReportStatus")
+            Prelude.<*> (x Data..:? "antipatternReportStatusMessage")
             Prelude.<*> (x Data..:? "appType")
-            Prelude.<*> (x Data..:? "moreServerAssociationExists")
+            Prelude.<*> (x Data..:? "appUnitError")
+            Prelude.<*> (x Data..:? "associatedServerId")
+            Prelude.<*> (x Data..:? "databaseConfigDetail")
+            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "inclusionStatus")
+            Prelude.<*> (x Data..:? "lastAnalyzedTimestamp")
             Prelude.<*> ( x Data..:? "listAntipatternSeveritySummary"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "moreServerAssociationExists")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "osDriver")
             Prelude.<*> (x Data..:? "osVersion")
-            Prelude.<*> (x Data..:? "id")
-            Prelude.<*> (x Data..:? "inclusionStatus")
-            Prelude.<*> (x Data..:? "analysisStatus")
-            Prelude.<*> (x Data..:? "antipatternReportStatusMessage")
+            Prelude.<*> (x Data..:? "recommendationSet")
             Prelude.<*> (x Data..:? "resourceSubType")
+            Prelude.<*> (x Data..:? "runtimeStatus")
+            Prelude.<*> (x Data..:? "runtimeStatusMessage")
             Prelude.<*> ( x Data..:? "sourceCodeRepositories"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "databaseConfigDetail")
-            Prelude.<*> (x Data..:? "associatedServerId")
-            Prelude.<*> (x Data..:? "osDriver")
             Prelude.<*> (x Data..:? "statusMessage")
-            Prelude.<*> (x Data..:? "lastAnalyzedTimestamp")
       )
 
 instance Prelude.Hashable ApplicationComponentDetail where
   hashWithSalt _salt ApplicationComponentDetail' {..} =
-    _salt
-      `Prelude.hashWithSalt` antipatternReportStatus
+    _salt `Prelude.hashWithSalt` analysisStatus
       `Prelude.hashWithSalt` antipatternReportS3Object
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` recommendationSet
+      `Prelude.hashWithSalt` antipatternReportStatus
+      `Prelude.hashWithSalt` antipatternReportStatusMessage
       `Prelude.hashWithSalt` appType
-      `Prelude.hashWithSalt` moreServerAssociationExists
-      `Prelude.hashWithSalt` listAntipatternSeveritySummary
-      `Prelude.hashWithSalt` osVersion
+      `Prelude.hashWithSalt` appUnitError
+      `Prelude.hashWithSalt` associatedServerId
+      `Prelude.hashWithSalt` databaseConfigDetail
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` inclusionStatus
-      `Prelude.hashWithSalt` analysisStatus
-      `Prelude.hashWithSalt` antipatternReportStatusMessage
-      `Prelude.hashWithSalt` resourceSubType
-      `Prelude.hashWithSalt` sourceCodeRepositories
-      `Prelude.hashWithSalt` databaseConfigDetail
-      `Prelude.hashWithSalt` associatedServerId
-      `Prelude.hashWithSalt` osDriver
-      `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` lastAnalyzedTimestamp
+      `Prelude.hashWithSalt` listAntipatternSeveritySummary
+      `Prelude.hashWithSalt` moreServerAssociationExists
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` osDriver
+      `Prelude.hashWithSalt` osVersion
+      `Prelude.hashWithSalt` recommendationSet
+      `Prelude.hashWithSalt` resourceSubType
+      `Prelude.hashWithSalt` runtimeStatus
+      `Prelude.hashWithSalt` runtimeStatusMessage
+      `Prelude.hashWithSalt` sourceCodeRepositories
+      `Prelude.hashWithSalt` statusMessage
 
 instance Prelude.NFData ApplicationComponentDetail where
   rnf ApplicationComponentDetail' {..} =
-    Prelude.rnf antipatternReportStatus
+    Prelude.rnf analysisStatus
       `Prelude.seq` Prelude.rnf antipatternReportS3Object
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf recommendationSet
+      `Prelude.seq` Prelude.rnf antipatternReportStatus
+      `Prelude.seq` Prelude.rnf antipatternReportStatusMessage
       `Prelude.seq` Prelude.rnf appType
-      `Prelude.seq` Prelude.rnf moreServerAssociationExists
-      `Prelude.seq` Prelude.rnf listAntipatternSeveritySummary
-      `Prelude.seq` Prelude.rnf osVersion
+      `Prelude.seq` Prelude.rnf appUnitError
+      `Prelude.seq` Prelude.rnf associatedServerId
+      `Prelude.seq` Prelude.rnf databaseConfigDetail
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf inclusionStatus
-      `Prelude.seq` Prelude.rnf analysisStatus
-      `Prelude.seq` Prelude.rnf antipatternReportStatusMessage
-      `Prelude.seq` Prelude.rnf resourceSubType
-      `Prelude.seq` Prelude.rnf sourceCodeRepositories
-      `Prelude.seq` Prelude.rnf databaseConfigDetail
-      `Prelude.seq` Prelude.rnf associatedServerId
+      `Prelude.seq` Prelude.rnf lastAnalyzedTimestamp
+      `Prelude.seq` Prelude.rnf listAntipatternSeveritySummary
+      `Prelude.seq` Prelude.rnf moreServerAssociationExists
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf osDriver
-      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf osVersion
+      `Prelude.seq` Prelude.rnf recommendationSet
+      `Prelude.seq` Prelude.rnf resourceSubType
+      `Prelude.seq` Prelude.rnf runtimeStatus
       `Prelude.seq` Prelude.rnf
-        lastAnalyzedTimestamp
+        runtimeStatusMessage
+      `Prelude.seq` Prelude.rnf
+        sourceCodeRepositories
+      `Prelude.seq` Prelude.rnf statusMessage

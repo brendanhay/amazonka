@@ -18,16 +18,16 @@ module Amazonka.ECR.Lens
     batchCheckLayerAvailability_registryId,
     batchCheckLayerAvailability_repositoryName,
     batchCheckLayerAvailability_layerDigests,
-    batchCheckLayerAvailabilityResponse_layers,
     batchCheckLayerAvailabilityResponse_failures,
+    batchCheckLayerAvailabilityResponse_layers,
     batchCheckLayerAvailabilityResponse_httpStatus,
 
     -- ** BatchDeleteImage
     batchDeleteImage_registryId,
     batchDeleteImage_repositoryName,
     batchDeleteImage_imageIds,
-    batchDeleteImageResponse_imageIds,
     batchDeleteImageResponse_failures,
+    batchDeleteImageResponse_imageIds,
     batchDeleteImageResponse_httpStatus,
 
     -- ** BatchGetImage
@@ -41,8 +41,8 @@ module Amazonka.ECR.Lens
 
     -- ** BatchGetRepositoryScanningConfiguration
     batchGetRepositoryScanningConfiguration_repositoryNames,
-    batchGetRepositoryScanningConfigurationResponse_scanningConfigurations,
     batchGetRepositoryScanningConfigurationResponse_failures,
+    batchGetRepositoryScanningConfigurationResponse_scanningConfigurations,
     batchGetRepositoryScanningConfigurationResponse_httpStatus,
 
     -- ** CompleteLayerUpload
@@ -50,28 +50,28 @@ module Amazonka.ECR.Lens
     completeLayerUpload_repositoryName,
     completeLayerUpload_uploadId,
     completeLayerUpload_layerDigests,
-    completeLayerUploadResponse_uploadId,
-    completeLayerUploadResponse_repositoryName,
     completeLayerUploadResponse_layerDigest,
     completeLayerUploadResponse_registryId,
+    completeLayerUploadResponse_repositoryName,
+    completeLayerUploadResponse_uploadId,
     completeLayerUploadResponse_httpStatus,
 
     -- ** CreatePullThroughCacheRule
     createPullThroughCacheRule_registryId,
     createPullThroughCacheRule_ecrRepositoryPrefix,
     createPullThroughCacheRule_upstreamRegistryUrl,
-    createPullThroughCacheRuleResponse_upstreamRegistryUrl,
-    createPullThroughCacheRuleResponse_registryId,
-    createPullThroughCacheRuleResponse_ecrRepositoryPrefix,
     createPullThroughCacheRuleResponse_createdAt,
+    createPullThroughCacheRuleResponse_ecrRepositoryPrefix,
+    createPullThroughCacheRuleResponse_registryId,
+    createPullThroughCacheRuleResponse_upstreamRegistryUrl,
     createPullThroughCacheRuleResponse_httpStatus,
 
     -- ** CreateRepository
-    createRepository_tags,
-    createRepository_imageTagMutability,
     createRepository_encryptionConfiguration,
-    createRepository_registryId,
     createRepository_imageScanningConfiguration,
+    createRepository_imageTagMutability,
+    createRepository_registryId,
+    createRepository_tags,
     createRepository_repositoryName,
     createRepositoryResponse_repository,
     createRepositoryResponse_httpStatus,
@@ -80,18 +80,18 @@ module Amazonka.ECR.Lens
     deleteLifecyclePolicy_registryId,
     deleteLifecyclePolicy_repositoryName,
     deleteLifecyclePolicyResponse_lastEvaluatedAt,
-    deleteLifecyclePolicyResponse_repositoryName,
-    deleteLifecyclePolicyResponse_registryId,
     deleteLifecyclePolicyResponse_lifecyclePolicyText,
+    deleteLifecyclePolicyResponse_registryId,
+    deleteLifecyclePolicyResponse_repositoryName,
     deleteLifecyclePolicyResponse_httpStatus,
 
     -- ** DeletePullThroughCacheRule
     deletePullThroughCacheRule_registryId,
     deletePullThroughCacheRule_ecrRepositoryPrefix,
-    deletePullThroughCacheRuleResponse_upstreamRegistryUrl,
-    deletePullThroughCacheRuleResponse_registryId,
-    deletePullThroughCacheRuleResponse_ecrRepositoryPrefix,
     deletePullThroughCacheRuleResponse_createdAt,
+    deletePullThroughCacheRuleResponse_ecrRepositoryPrefix,
+    deletePullThroughCacheRuleResponse_registryId,
+    deletePullThroughCacheRuleResponse_upstreamRegistryUrl,
     deletePullThroughCacheRuleResponse_httpStatus,
 
     -- ** DeleteRegistryPolicy
@@ -100,8 +100,8 @@ module Amazonka.ECR.Lens
     deleteRegistryPolicyResponse_httpStatus,
 
     -- ** DeleteRepository
-    deleteRepository_registryId,
     deleteRepository_force,
+    deleteRepository_registryId,
     deleteRepository_repositoryName,
     deleteRepositoryResponse_repository,
     deleteRepositoryResponse_httpStatus,
@@ -110,61 +110,61 @@ module Amazonka.ECR.Lens
     deleteRepositoryPolicy_registryId,
     deleteRepositoryPolicy_repositoryName,
     deleteRepositoryPolicyResponse_policyText,
-    deleteRepositoryPolicyResponse_repositoryName,
     deleteRepositoryPolicyResponse_registryId,
+    deleteRepositoryPolicyResponse_repositoryName,
     deleteRepositoryPolicyResponse_httpStatus,
 
     -- ** DescribeImageReplicationStatus
     describeImageReplicationStatus_registryId,
     describeImageReplicationStatus_repositoryName,
     describeImageReplicationStatus_imageId,
+    describeImageReplicationStatusResponse_imageId,
     describeImageReplicationStatusResponse_replicationStatuses,
     describeImageReplicationStatusResponse_repositoryName,
-    describeImageReplicationStatusResponse_imageId,
     describeImageReplicationStatusResponse_httpStatus,
 
     -- ** DescribeImageScanFindings
-    describeImageScanFindings_nextToken,
     describeImageScanFindings_maxResults,
+    describeImageScanFindings_nextToken,
     describeImageScanFindings_registryId,
     describeImageScanFindings_repositoryName,
     describeImageScanFindings_imageId,
-    describeImageScanFindingsResponse_nextToken,
-    describeImageScanFindingsResponse_repositoryName,
-    describeImageScanFindingsResponse_registryId,
-    describeImageScanFindingsResponse_imageScanStatus,
-    describeImageScanFindingsResponse_imageScanFindings,
     describeImageScanFindingsResponse_imageId,
+    describeImageScanFindingsResponse_imageScanFindings,
+    describeImageScanFindingsResponse_imageScanStatus,
+    describeImageScanFindingsResponse_nextToken,
+    describeImageScanFindingsResponse_registryId,
+    describeImageScanFindingsResponse_repositoryName,
     describeImageScanFindingsResponse_httpStatus,
 
     -- ** DescribeImages
-    describeImages_nextToken,
-    describeImages_imageIds,
     describeImages_filter,
+    describeImages_imageIds,
     describeImages_maxResults,
+    describeImages_nextToken,
     describeImages_registryId,
     describeImages_repositoryName,
-    describeImagesResponse_nextToken,
     describeImagesResponse_imageDetails,
+    describeImagesResponse_nextToken,
     describeImagesResponse_httpStatus,
 
     -- ** DescribePullThroughCacheRules
-    describePullThroughCacheRules_nextToken,
     describePullThroughCacheRules_ecrRepositoryPrefixes,
     describePullThroughCacheRules_maxResults,
+    describePullThroughCacheRules_nextToken,
     describePullThroughCacheRules_registryId,
     describePullThroughCacheRulesResponse_nextToken,
     describePullThroughCacheRulesResponse_pullThroughCacheRules,
     describePullThroughCacheRulesResponse_httpStatus,
 
     -- ** DescribeRegistry
-    describeRegistryResponse_replicationConfiguration,
     describeRegistryResponse_registryId,
+    describeRegistryResponse_replicationConfiguration,
     describeRegistryResponse_httpStatus,
 
     -- ** DescribeRepositories
-    describeRepositories_nextToken,
     describeRepositories_maxResults,
+    describeRepositories_nextToken,
     describeRepositories_registryId,
     describeRepositories_repositoryNames,
     describeRepositoriesResponse_nextToken,
@@ -188,25 +188,25 @@ module Amazonka.ECR.Lens
     getLifecyclePolicy_registryId,
     getLifecyclePolicy_repositoryName,
     getLifecyclePolicyResponse_lastEvaluatedAt,
-    getLifecyclePolicyResponse_repositoryName,
-    getLifecyclePolicyResponse_registryId,
     getLifecyclePolicyResponse_lifecyclePolicyText,
+    getLifecyclePolicyResponse_registryId,
+    getLifecyclePolicyResponse_repositoryName,
     getLifecyclePolicyResponse_httpStatus,
 
     -- ** GetLifecyclePolicyPreview
-    getLifecyclePolicyPreview_nextToken,
-    getLifecyclePolicyPreview_imageIds,
     getLifecyclePolicyPreview_filter,
+    getLifecyclePolicyPreview_imageIds,
     getLifecyclePolicyPreview_maxResults,
+    getLifecyclePolicyPreview_nextToken,
     getLifecyclePolicyPreview_registryId,
     getLifecyclePolicyPreview_repositoryName,
-    getLifecyclePolicyPreviewResponse_nextToken,
-    getLifecyclePolicyPreviewResponse_repositoryName,
-    getLifecyclePolicyPreviewResponse_summary,
-    getLifecyclePolicyPreviewResponse_status,
-    getLifecyclePolicyPreviewResponse_registryId,
-    getLifecyclePolicyPreviewResponse_previewResults,
     getLifecyclePolicyPreviewResponse_lifecyclePolicyText,
+    getLifecyclePolicyPreviewResponse_nextToken,
+    getLifecyclePolicyPreviewResponse_previewResults,
+    getLifecyclePolicyPreviewResponse_registryId,
+    getLifecyclePolicyPreviewResponse_repositoryName,
+    getLifecyclePolicyPreviewResponse_status,
+    getLifecyclePolicyPreviewResponse_summary,
     getLifecyclePolicyPreviewResponse_httpStatus,
 
     -- ** GetRegistryPolicy
@@ -215,33 +215,33 @@ module Amazonka.ECR.Lens
     getRegistryPolicyResponse_httpStatus,
 
     -- ** GetRegistryScanningConfiguration
-    getRegistryScanningConfigurationResponse_scanningConfiguration,
     getRegistryScanningConfigurationResponse_registryId,
+    getRegistryScanningConfigurationResponse_scanningConfiguration,
     getRegistryScanningConfigurationResponse_httpStatus,
 
     -- ** GetRepositoryPolicy
     getRepositoryPolicy_registryId,
     getRepositoryPolicy_repositoryName,
     getRepositoryPolicyResponse_policyText,
-    getRepositoryPolicyResponse_repositoryName,
     getRepositoryPolicyResponse_registryId,
+    getRepositoryPolicyResponse_repositoryName,
     getRepositoryPolicyResponse_httpStatus,
 
     -- ** InitiateLayerUpload
     initiateLayerUpload_registryId,
     initiateLayerUpload_repositoryName,
-    initiateLayerUploadResponse_uploadId,
     initiateLayerUploadResponse_partSize,
+    initiateLayerUploadResponse_uploadId,
     initiateLayerUploadResponse_httpStatus,
 
     -- ** ListImages
-    listImages_nextToken,
     listImages_filter,
     listImages_maxResults,
+    listImages_nextToken,
     listImages_registryId,
     listImages_repositoryName,
-    listImagesResponse_nextToken,
     listImagesResponse_imageIds,
+    listImagesResponse_nextToken,
     listImagesResponse_httpStatus,
 
     -- ** ListTagsForResource
@@ -250,10 +250,10 @@ module Amazonka.ECR.Lens
     listTagsForResourceResponse_httpStatus,
 
     -- ** PutImage
+    putImage_imageDigest,
+    putImage_imageManifestMediaType,
     putImage_imageTag,
     putImage_registryId,
-    putImage_imageManifestMediaType,
-    putImage_imageDigest,
     putImage_repositoryName,
     putImage_imageManifest,
     putImageResponse_image,
@@ -263,27 +263,27 @@ module Amazonka.ECR.Lens
     putImageScanningConfiguration_registryId,
     putImageScanningConfiguration_repositoryName,
     putImageScanningConfiguration_imageScanningConfiguration,
-    putImageScanningConfigurationResponse_repositoryName,
-    putImageScanningConfigurationResponse_registryId,
     putImageScanningConfigurationResponse_imageScanningConfiguration,
+    putImageScanningConfigurationResponse_registryId,
+    putImageScanningConfigurationResponse_repositoryName,
     putImageScanningConfigurationResponse_httpStatus,
 
     -- ** PutImageTagMutability
     putImageTagMutability_registryId,
     putImageTagMutability_repositoryName,
     putImageTagMutability_imageTagMutability,
-    putImageTagMutabilityResponse_repositoryName,
     putImageTagMutabilityResponse_imageTagMutability,
     putImageTagMutabilityResponse_registryId,
+    putImageTagMutabilityResponse_repositoryName,
     putImageTagMutabilityResponse_httpStatus,
 
     -- ** PutLifecyclePolicy
     putLifecyclePolicy_registryId,
     putLifecyclePolicy_repositoryName,
     putLifecyclePolicy_lifecyclePolicyText,
-    putLifecyclePolicyResponse_repositoryName,
-    putLifecyclePolicyResponse_registryId,
     putLifecyclePolicyResponse_lifecyclePolicyText,
+    putLifecyclePolicyResponse_registryId,
+    putLifecyclePolicyResponse_repositoryName,
     putLifecyclePolicyResponse_httpStatus,
 
     -- ** PutRegistryPolicy
@@ -304,33 +304,33 @@ module Amazonka.ECR.Lens
     putReplicationConfigurationResponse_httpStatus,
 
     -- ** SetRepositoryPolicy
-    setRepositoryPolicy_registryId,
     setRepositoryPolicy_force,
+    setRepositoryPolicy_registryId,
     setRepositoryPolicy_repositoryName,
     setRepositoryPolicy_policyText,
     setRepositoryPolicyResponse_policyText,
-    setRepositoryPolicyResponse_repositoryName,
     setRepositoryPolicyResponse_registryId,
+    setRepositoryPolicyResponse_repositoryName,
     setRepositoryPolicyResponse_httpStatus,
 
     -- ** StartImageScan
     startImageScan_registryId,
     startImageScan_repositoryName,
     startImageScan_imageId,
-    startImageScanResponse_repositoryName,
-    startImageScanResponse_registryId,
-    startImageScanResponse_imageScanStatus,
     startImageScanResponse_imageId,
+    startImageScanResponse_imageScanStatus,
+    startImageScanResponse_registryId,
+    startImageScanResponse_repositoryName,
     startImageScanResponse_httpStatus,
 
     -- ** StartLifecyclePolicyPreview
-    startLifecyclePolicyPreview_registryId,
     startLifecyclePolicyPreview_lifecyclePolicyText,
+    startLifecyclePolicyPreview_registryId,
     startLifecyclePolicyPreview_repositoryName,
+    startLifecyclePolicyPreviewResponse_lifecyclePolicyText,
+    startLifecyclePolicyPreviewResponse_registryId,
     startLifecyclePolicyPreviewResponse_repositoryName,
     startLifecyclePolicyPreviewResponse_status,
-    startLifecyclePolicyPreviewResponse_registryId,
-    startLifecyclePolicyPreviewResponse_lifecyclePolicyText,
     startLifecyclePolicyPreviewResponse_httpStatus,
 
     -- ** TagResource
@@ -350,10 +350,10 @@ module Amazonka.ECR.Lens
     uploadLayerPart_partFirstByte,
     uploadLayerPart_partLastByte,
     uploadLayerPart_layerPartBlob,
-    uploadLayerPartResponse_uploadId,
-    uploadLayerPartResponse_repositoryName,
-    uploadLayerPartResponse_registryId,
     uploadLayerPartResponse_lastByteReceived,
+    uploadLayerPartResponse_registryId,
+    uploadLayerPartResponse_repositoryName,
+    uploadLayerPartResponse_uploadId,
     uploadLayerPartResponse_httpStatus,
 
     -- * Types
@@ -363,19 +363,19 @@ module Amazonka.ECR.Lens
     attribute_key,
 
     -- ** AuthorizationData
-    authorizationData_expiresAt,
     authorizationData_authorizationToken,
+    authorizationData_expiresAt,
     authorizationData_proxyEndpoint,
 
     -- ** AwsEcrContainerImageDetails
+    awsEcrContainerImageDetails_architecture,
     awsEcrContainerImageDetails_author,
+    awsEcrContainerImageDetails_imageHash,
+    awsEcrContainerImageDetails_imageTags,
+    awsEcrContainerImageDetails_platform,
+    awsEcrContainerImageDetails_pushedAt,
     awsEcrContainerImageDetails_registry,
     awsEcrContainerImageDetails_repositoryName,
-    awsEcrContainerImageDetails_platform,
-    awsEcrContainerImageDetails_imageTags,
-    awsEcrContainerImageDetails_architecture,
-    awsEcrContainerImageDetails_imageHash,
-    awsEcrContainerImageDetails_pushedAt,
 
     -- ** CvssScore
     cvssScore_baseScore,
@@ -384,14 +384,14 @@ module Amazonka.ECR.Lens
     cvssScore_version,
 
     -- ** CvssScoreAdjustment
-    cvssScoreAdjustment_reason,
     cvssScoreAdjustment_metric,
+    cvssScoreAdjustment_reason,
 
     -- ** CvssScoreDetails
+    cvssScoreDetails_adjustments,
     cvssScoreDetails_score,
     cvssScoreDetails_scoreSource,
     cvssScoreDetails_scoringVector,
-    cvssScoreDetails_adjustments,
     cvssScoreDetails_version,
 
     -- ** DescribeImagesFilter
@@ -403,102 +403,102 @@ module Amazonka.ECR.Lens
 
     -- ** EnhancedImageScanFinding
     enhancedImageScanFinding_awsAccountId,
-    enhancedImageScanFinding_severity,
-    enhancedImageScanFinding_type,
-    enhancedImageScanFinding_scoreDetails,
-    enhancedImageScanFinding_remediation,
-    enhancedImageScanFinding_score,
-    enhancedImageScanFinding_status,
     enhancedImageScanFinding_description,
-    enhancedImageScanFinding_packageVulnerabilityDetails,
-    enhancedImageScanFinding_title,
+    enhancedImageScanFinding_findingArn,
     enhancedImageScanFinding_firstObservedAt,
     enhancedImageScanFinding_lastObservedAt,
+    enhancedImageScanFinding_packageVulnerabilityDetails,
+    enhancedImageScanFinding_remediation,
     enhancedImageScanFinding_resources,
-    enhancedImageScanFinding_findingArn,
+    enhancedImageScanFinding_score,
+    enhancedImageScanFinding_scoreDetails,
+    enhancedImageScanFinding_severity,
+    enhancedImageScanFinding_status,
+    enhancedImageScanFinding_title,
+    enhancedImageScanFinding_type,
     enhancedImageScanFinding_updatedAt,
 
     -- ** Image
-    image_repositoryName,
-    image_registryId,
-    image_imageManifestMediaType,
-    image_imageManifest,
     image_imageId,
+    image_imageManifest,
+    image_imageManifestMediaType,
+    image_registryId,
+    image_repositoryName,
 
     -- ** ImageDetail
     imageDetail_artifactMediaType,
+    imageDetail_imageDigest,
+    imageDetail_imageManifestMediaType,
     imageDetail_imagePushedAt,
-    imageDetail_repositoryName,
+    imageDetail_imageScanFindingsSummary,
+    imageDetail_imageScanStatus,
     imageDetail_imageSizeInBytes,
     imageDetail_imageTags,
-    imageDetail_registryId,
-    imageDetail_imageManifestMediaType,
-    imageDetail_imageDigest,
-    imageDetail_imageScanStatus,
-    imageDetail_imageScanFindingsSummary,
     imageDetail_lastRecordedPullTime,
+    imageDetail_registryId,
+    imageDetail_repositoryName,
 
     -- ** ImageFailure
     imageFailure_failureCode,
-    imageFailure_imageId,
     imageFailure_failureReason,
+    imageFailure_imageId,
 
     -- ** ImageIdentifier
-    imageIdentifier_imageTag,
     imageIdentifier_imageDigest,
+    imageIdentifier_imageTag,
 
     -- ** ImageReplicationStatus
     imageReplicationStatus_failureCode,
-    imageReplicationStatus_status,
     imageReplicationStatus_region,
     imageReplicationStatus_registryId,
+    imageReplicationStatus_status,
 
     -- ** ImageScanFinding
-    imageScanFinding_severity,
-    imageScanFinding_name,
-    imageScanFinding_description,
-    imageScanFinding_uri,
     imageScanFinding_attributes,
+    imageScanFinding_description,
+    imageScanFinding_name,
+    imageScanFinding_severity,
+    imageScanFinding_uri,
 
     -- ** ImageScanFindings
-    imageScanFindings_findings,
     imageScanFindings_enhancedFindings,
-    imageScanFindings_vulnerabilitySourceUpdatedAt,
     imageScanFindings_findingSeverityCounts,
+    imageScanFindings_findings,
     imageScanFindings_imageScanCompletedAt,
+    imageScanFindings_vulnerabilitySourceUpdatedAt,
 
     -- ** ImageScanFindingsSummary
-    imageScanFindingsSummary_vulnerabilitySourceUpdatedAt,
     imageScanFindingsSummary_findingSeverityCounts,
     imageScanFindingsSummary_imageScanCompletedAt,
+    imageScanFindingsSummary_vulnerabilitySourceUpdatedAt,
 
     -- ** ImageScanStatus
-    imageScanStatus_status,
     imageScanStatus_description,
+    imageScanStatus_status,
 
     -- ** ImageScanningConfiguration
     imageScanningConfiguration_scanOnPush,
 
     -- ** Layer
-    layer_layerSize,
     layer_layerAvailability,
-    layer_mediaType,
     layer_layerDigest,
+    layer_layerSize,
+    layer_mediaType,
 
     -- ** LayerFailure
     layerFailure_failureCode,
-    layerFailure_layerDigest,
     layerFailure_failureReason,
+    layerFailure_layerDigest,
 
     -- ** LifecyclePolicyPreviewFilter
     lifecyclePolicyPreviewFilter_tagStatus,
 
     -- ** LifecyclePolicyPreviewResult
+    lifecyclePolicyPreviewResult_action,
     lifecyclePolicyPreviewResult_appliedRulePriority,
+    lifecyclePolicyPreviewResult_imageDigest,
     lifecyclePolicyPreviewResult_imagePushedAt,
     lifecyclePolicyPreviewResult_imageTags,
-    lifecyclePolicyPreviewResult_action,
-    lifecyclePolicyPreviewResult_imageDigest,
 
     -- ** LifecyclePolicyPreviewSummary
     lifecyclePolicyPreviewSummary_expiringImageTotalCount,
@@ -510,26 +510,26 @@ module Amazonka.ECR.Lens
     listImagesFilter_tagStatus,
 
     -- ** PackageVulnerabilityDetails
-    packageVulnerabilityDetails_vulnerablePackages,
-    packageVulnerabilityDetails_referenceUrls,
-    packageVulnerabilityDetails_vendorUpdatedAt,
-    packageVulnerabilityDetails_source,
-    packageVulnerabilityDetails_vendorCreatedAt,
     packageVulnerabilityDetails_cvss,
-    packageVulnerabilityDetails_vendorSeverity,
+    packageVulnerabilityDetails_referenceUrls,
     packageVulnerabilityDetails_relatedVulnerabilities,
-    packageVulnerabilityDetails_vulnerabilityId,
+    packageVulnerabilityDetails_source,
     packageVulnerabilityDetails_sourceUrl,
+    packageVulnerabilityDetails_vendorCreatedAt,
+    packageVulnerabilityDetails_vendorSeverity,
+    packageVulnerabilityDetails_vendorUpdatedAt,
+    packageVulnerabilityDetails_vulnerabilityId,
+    packageVulnerabilityDetails_vulnerablePackages,
 
     -- ** PullThroughCacheRule
-    pullThroughCacheRule_upstreamRegistryUrl,
-    pullThroughCacheRule_registryId,
-    pullThroughCacheRule_ecrRepositoryPrefix,
     pullThroughCacheRule_createdAt,
+    pullThroughCacheRule_ecrRepositoryPrefix,
+    pullThroughCacheRule_registryId,
+    pullThroughCacheRule_upstreamRegistryUrl,
 
     -- ** Recommendation
-    recommendation_url,
     recommendation_text,
+    recommendation_url,
 
     -- ** RegistryScanningConfiguration
     registryScanningConfiguration_rules,
@@ -554,36 +554,36 @@ module Amazonka.ECR.Lens
     replicationRule_destinations,
 
     -- ** Repository
-    repository_repositoryArn,
-    repository_repositoryUri,
-    repository_repositoryName,
-    repository_imageTagMutability,
-    repository_encryptionConfiguration,
-    repository_registryId,
-    repository_imageScanningConfiguration,
     repository_createdAt,
+    repository_encryptionConfiguration,
+    repository_imageScanningConfiguration,
+    repository_imageTagMutability,
+    repository_registryId,
+    repository_repositoryArn,
+    repository_repositoryName,
+    repository_repositoryUri,
 
     -- ** RepositoryFilter
     repositoryFilter_filter,
     repositoryFilter_filterType,
 
     -- ** RepositoryScanningConfiguration
-    repositoryScanningConfiguration_repositoryArn,
-    repositoryScanningConfiguration_scanOnPush,
-    repositoryScanningConfiguration_scanFrequency,
-    repositoryScanningConfiguration_repositoryName,
     repositoryScanningConfiguration_appliedScanFilters,
+    repositoryScanningConfiguration_repositoryArn,
+    repositoryScanningConfiguration_repositoryName,
+    repositoryScanningConfiguration_scanFrequency,
+    repositoryScanningConfiguration_scanOnPush,
 
     -- ** RepositoryScanningConfigurationFailure
     repositoryScanningConfigurationFailure_failureCode,
-    repositoryScanningConfigurationFailure_repositoryName,
     repositoryScanningConfigurationFailure_failureReason,
+    repositoryScanningConfigurationFailure_repositoryName,
 
     -- ** Resource
-    resource_tags,
-    resource_type,
     resource_details,
     resource_id,
+    resource_tags,
+    resource_type,
 
     -- ** ResourceDetails
     resourceDetails_awsEcrContainerImage,
@@ -600,10 +600,10 @@ module Amazonka.ECR.Lens
     tag_value,
 
     -- ** VulnerablePackage
-    vulnerablePackage_name,
-    vulnerablePackage_filePath,
     vulnerablePackage_arch,
     vulnerablePackage_epoch,
+    vulnerablePackage_filePath,
+    vulnerablePackage_name,
     vulnerablePackage_packageManager,
     vulnerablePackage_release,
     vulnerablePackage_sourceLayerHash,

@@ -28,8 +28,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newImportAssetFromSignedUrlRequestDetails' smart constructor.
 data ImportAssetFromSignedUrlRequestDetails = ImportAssetFromSignedUrlRequestDetails'
-  { -- | The name of the asset. When importing from Amazon S3, the S3 object key
-    -- is used as the asset name.
+  { -- | The name of the asset. When importing from Amazon S3, the Amazon S3
+    -- object key is used as the asset name.
     assetName :: Prelude.Text,
     -- | The unique identifier for the data set associated with this import job.
     dataSetId :: Prelude.Text,
@@ -50,8 +50,8 @@ data ImportAssetFromSignedUrlRequestDetails = ImportAssetFromSignedUrlRequestDet
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'assetName', 'importAssetFromSignedUrlRequestDetails_assetName' - The name of the asset. When importing from Amazon S3, the S3 object key
--- is used as the asset name.
+-- 'assetName', 'importAssetFromSignedUrlRequestDetails_assetName' - The name of the asset. When importing from Amazon S3, the Amazon S3
+-- object key is used as the asset name.
 --
 -- 'dataSetId', 'importAssetFromSignedUrlRequestDetails_dataSetId' - The unique identifier for the data set associated with this import job.
 --
@@ -83,8 +83,8 @@ newImportAssetFromSignedUrlRequestDetails
         revisionId = pRevisionId_
       }
 
--- | The name of the asset. When importing from Amazon S3, the S3 object key
--- is used as the asset name.
+-- | The name of the asset. When importing from Amazon S3, the Amazon S3
+-- object key is used as the asset name.
 importAssetFromSignedUrlRequestDetails_assetName :: Lens.Lens' ImportAssetFromSignedUrlRequestDetails Prelude.Text
 importAssetFromSignedUrlRequestDetails_assetName = Lens.lens (\ImportAssetFromSignedUrlRequestDetails' {assetName} -> assetName) (\s@ImportAssetFromSignedUrlRequestDetails' {} a -> s {assetName = a} :: ImportAssetFromSignedUrlRequestDetails)
 

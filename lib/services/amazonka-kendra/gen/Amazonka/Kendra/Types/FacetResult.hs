@@ -30,16 +30,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFacetResult' smart constructor.
 data FacetResult = FacetResult'
-  { -- | An array of key\/value pairs, where the key is the value of the
+  { -- | The key for the facet values. This is the same as the
+    -- @DocumentAttributeKey@ provided in the query.
+    documentAttributeKey :: Prelude.Maybe Prelude.Text,
+    -- | An array of key\/value pairs, where the key is the value of the
     -- attribute and the count is the number of documents that share the key
     -- value.
     documentAttributeValueCountPairs :: Prelude.Maybe [DocumentAttributeValueCountPair],
     -- | The data type of the facet value. This is the same as the type defined
     -- for the index field when it was created.
-    documentAttributeValueType :: Prelude.Maybe DocumentAttributeValueType,
-    -- | The key for the facet values. This is the same as the
-    -- @DocumentAttributeKey@ provided in the query.
-    documentAttributeKey :: Prelude.Maybe Prelude.Text
+    documentAttributeValueType :: Prelude.Maybe DocumentAttributeValueType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,24 +51,29 @@ data FacetResult = FacetResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'documentAttributeKey', 'facetResult_documentAttributeKey' - The key for the facet values. This is the same as the
+-- @DocumentAttributeKey@ provided in the query.
+--
 -- 'documentAttributeValueCountPairs', 'facetResult_documentAttributeValueCountPairs' - An array of key\/value pairs, where the key is the value of the
 -- attribute and the count is the number of documents that share the key
 -- value.
 --
 -- 'documentAttributeValueType', 'facetResult_documentAttributeValueType' - The data type of the facet value. This is the same as the type defined
 -- for the index field when it was created.
---
--- 'documentAttributeKey', 'facetResult_documentAttributeKey' - The key for the facet values. This is the same as the
--- @DocumentAttributeKey@ provided in the query.
 newFacetResult ::
   FacetResult
 newFacetResult =
   FacetResult'
-    { documentAttributeValueCountPairs =
+    { documentAttributeKey =
         Prelude.Nothing,
-      documentAttributeValueType = Prelude.Nothing,
-      documentAttributeKey = Prelude.Nothing
+      documentAttributeValueCountPairs = Prelude.Nothing,
+      documentAttributeValueType = Prelude.Nothing
     }
+
+-- | The key for the facet values. This is the same as the
+-- @DocumentAttributeKey@ provided in the query.
+facetResult_documentAttributeKey :: Lens.Lens' FacetResult (Prelude.Maybe Prelude.Text)
+facetResult_documentAttributeKey = Lens.lens (\FacetResult' {documentAttributeKey} -> documentAttributeKey) (\s@FacetResult' {} a -> s {documentAttributeKey = a} :: FacetResult)
 
 -- | An array of key\/value pairs, where the key is the value of the
 -- attribute and the count is the number of documents that share the key
@@ -81,33 +86,27 @@ facetResult_documentAttributeValueCountPairs = Lens.lens (\FacetResult' {documen
 facetResult_documentAttributeValueType :: Lens.Lens' FacetResult (Prelude.Maybe DocumentAttributeValueType)
 facetResult_documentAttributeValueType = Lens.lens (\FacetResult' {documentAttributeValueType} -> documentAttributeValueType) (\s@FacetResult' {} a -> s {documentAttributeValueType = a} :: FacetResult)
 
--- | The key for the facet values. This is the same as the
--- @DocumentAttributeKey@ provided in the query.
-facetResult_documentAttributeKey :: Lens.Lens' FacetResult (Prelude.Maybe Prelude.Text)
-facetResult_documentAttributeKey = Lens.lens (\FacetResult' {documentAttributeKey} -> documentAttributeKey) (\s@FacetResult' {} a -> s {documentAttributeKey = a} :: FacetResult)
-
 instance Data.FromJSON FacetResult where
   parseJSON =
     Data.withObject
       "FacetResult"
       ( \x ->
           FacetResult'
-            Prelude.<$> ( x Data..:? "DocumentAttributeValueCountPairs"
+            Prelude.<$> (x Data..:? "DocumentAttributeKey")
+            Prelude.<*> ( x Data..:? "DocumentAttributeValueCountPairs"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "DocumentAttributeValueType")
-            Prelude.<*> (x Data..:? "DocumentAttributeKey")
       )
 
 instance Prelude.Hashable FacetResult where
   hashWithSalt _salt FacetResult' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` documentAttributeKey
       `Prelude.hashWithSalt` documentAttributeValueCountPairs
       `Prelude.hashWithSalt` documentAttributeValueType
-      `Prelude.hashWithSalt` documentAttributeKey
 
 instance Prelude.NFData FacetResult where
   rnf FacetResult' {..} =
-    Prelude.rnf documentAttributeValueCountPairs
+    Prelude.rnf documentAttributeKey
+      `Prelude.seq` Prelude.rnf documentAttributeValueCountPairs
       `Prelude.seq` Prelude.rnf documentAttributeValueType
-      `Prelude.seq` Prelude.rnf documentAttributeKey

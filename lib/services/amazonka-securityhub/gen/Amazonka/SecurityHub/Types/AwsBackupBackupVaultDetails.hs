@@ -30,24 +30,24 @@ import Amazonka.SecurityHub.Types.AwsBackupBackupVaultNotificationsDetails
 --
 -- /See:/ 'newAwsBackupBackupVaultDetails' smart constructor.
 data AwsBackupBackupVaultDetails = AwsBackupBackupVaultDetails'
-  { -- | The Amazon SNS event notifications for the specified backup vault.
-    notifications :: Prelude.Maybe AwsBackupBackupVaultNotificationsDetails,
-    -- | The unique ARN associated with the server-side encryption key. You can
-    -- specify a key to encrypt your backups from services that support full
-    -- Backup management. If you do not specify a key, Backup creates an KMS
-    -- key for you by default.
-    encryptionKeyArn :: Prelude.Maybe Prelude.Text,
+  { -- | A resource-based policy that is used to manage access permissions on the
+    -- target backup vault.
+    accessPolicy :: Prelude.Maybe Prelude.Text,
+    -- | An Amazon Resource Name (ARN) that uniquely identifies a backup vault.
+    backupVaultArn :: Prelude.Maybe Prelude.Text,
     -- | The name of a logical container where backups are stored. Backup vaults
     -- are identified by names that are unique to the Amazon Web Services
     -- account used to create them and the Amazon Web Services Region where
     -- they are created. They consist of lowercase letters, numbers, and
     -- hyphens.
     backupVaultName :: Prelude.Maybe Prelude.Text,
-    -- | An Amazon Resource Name (ARN) that uniquely identifies a backup vault.
-    backupVaultArn :: Prelude.Maybe Prelude.Text,
-    -- | A resource-based policy that is used to manage access permissions on the
-    -- target backup vault.
-    accessPolicy :: Prelude.Maybe Prelude.Text
+    -- | The unique ARN associated with the server-side encryption key. You can
+    -- specify a key to encrypt your backups from services that support full
+    -- Backup management. If you do not specify a key, Backup creates an KMS
+    -- key for you by default.
+    encryptionKeyArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon SNS event notifications for the specified backup vault.
+    notifications :: Prelude.Maybe AwsBackupBackupVaultNotificationsDetails
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,12 +59,10 @@ data AwsBackupBackupVaultDetails = AwsBackupBackupVaultDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'notifications', 'awsBackupBackupVaultDetails_notifications' - The Amazon SNS event notifications for the specified backup vault.
+-- 'accessPolicy', 'awsBackupBackupVaultDetails_accessPolicy' - A resource-based policy that is used to manage access permissions on the
+-- target backup vault.
 --
--- 'encryptionKeyArn', 'awsBackupBackupVaultDetails_encryptionKeyArn' - The unique ARN associated with the server-side encryption key. You can
--- specify a key to encrypt your backups from services that support full
--- Backup management. If you do not specify a key, Backup creates an KMS
--- key for you by default.
+-- 'backupVaultArn', 'awsBackupBackupVaultDetails_backupVaultArn' - An Amazon Resource Name (ARN) that uniquely identifies a backup vault.
 --
 -- 'backupVaultName', 'awsBackupBackupVaultDetails_backupVaultName' - The name of a logical container where backups are stored. Backup vaults
 -- are identified by names that are unique to the Amazon Web Services
@@ -72,32 +70,32 @@ data AwsBackupBackupVaultDetails = AwsBackupBackupVaultDetails'
 -- they are created. They consist of lowercase letters, numbers, and
 -- hyphens.
 --
--- 'backupVaultArn', 'awsBackupBackupVaultDetails_backupVaultArn' - An Amazon Resource Name (ARN) that uniquely identifies a backup vault.
+-- 'encryptionKeyArn', 'awsBackupBackupVaultDetails_encryptionKeyArn' - The unique ARN associated with the server-side encryption key. You can
+-- specify a key to encrypt your backups from services that support full
+-- Backup management. If you do not specify a key, Backup creates an KMS
+-- key for you by default.
 --
--- 'accessPolicy', 'awsBackupBackupVaultDetails_accessPolicy' - A resource-based policy that is used to manage access permissions on the
--- target backup vault.
+-- 'notifications', 'awsBackupBackupVaultDetails_notifications' - The Amazon SNS event notifications for the specified backup vault.
 newAwsBackupBackupVaultDetails ::
   AwsBackupBackupVaultDetails
 newAwsBackupBackupVaultDetails =
   AwsBackupBackupVaultDetails'
-    { notifications =
+    { accessPolicy =
         Prelude.Nothing,
-      encryptionKeyArn = Prelude.Nothing,
-      backupVaultName = Prelude.Nothing,
       backupVaultArn = Prelude.Nothing,
-      accessPolicy = Prelude.Nothing
+      backupVaultName = Prelude.Nothing,
+      encryptionKeyArn = Prelude.Nothing,
+      notifications = Prelude.Nothing
     }
 
--- | The Amazon SNS event notifications for the specified backup vault.
-awsBackupBackupVaultDetails_notifications :: Lens.Lens' AwsBackupBackupVaultDetails (Prelude.Maybe AwsBackupBackupVaultNotificationsDetails)
-awsBackupBackupVaultDetails_notifications = Lens.lens (\AwsBackupBackupVaultDetails' {notifications} -> notifications) (\s@AwsBackupBackupVaultDetails' {} a -> s {notifications = a} :: AwsBackupBackupVaultDetails)
+-- | A resource-based policy that is used to manage access permissions on the
+-- target backup vault.
+awsBackupBackupVaultDetails_accessPolicy :: Lens.Lens' AwsBackupBackupVaultDetails (Prelude.Maybe Prelude.Text)
+awsBackupBackupVaultDetails_accessPolicy = Lens.lens (\AwsBackupBackupVaultDetails' {accessPolicy} -> accessPolicy) (\s@AwsBackupBackupVaultDetails' {} a -> s {accessPolicy = a} :: AwsBackupBackupVaultDetails)
 
--- | The unique ARN associated with the server-side encryption key. You can
--- specify a key to encrypt your backups from services that support full
--- Backup management. If you do not specify a key, Backup creates an KMS
--- key for you by default.
-awsBackupBackupVaultDetails_encryptionKeyArn :: Lens.Lens' AwsBackupBackupVaultDetails (Prelude.Maybe Prelude.Text)
-awsBackupBackupVaultDetails_encryptionKeyArn = Lens.lens (\AwsBackupBackupVaultDetails' {encryptionKeyArn} -> encryptionKeyArn) (\s@AwsBackupBackupVaultDetails' {} a -> s {encryptionKeyArn = a} :: AwsBackupBackupVaultDetails)
+-- | An Amazon Resource Name (ARN) that uniquely identifies a backup vault.
+awsBackupBackupVaultDetails_backupVaultArn :: Lens.Lens' AwsBackupBackupVaultDetails (Prelude.Maybe Prelude.Text)
+awsBackupBackupVaultDetails_backupVaultArn = Lens.lens (\AwsBackupBackupVaultDetails' {backupVaultArn} -> backupVaultArn) (\s@AwsBackupBackupVaultDetails' {} a -> s {backupVaultArn = a} :: AwsBackupBackupVaultDetails)
 
 -- | The name of a logical container where backups are stored. Backup vaults
 -- are identified by names that are unique to the Amazon Web Services
@@ -107,14 +105,16 @@ awsBackupBackupVaultDetails_encryptionKeyArn = Lens.lens (\AwsBackupBackupVaultD
 awsBackupBackupVaultDetails_backupVaultName :: Lens.Lens' AwsBackupBackupVaultDetails (Prelude.Maybe Prelude.Text)
 awsBackupBackupVaultDetails_backupVaultName = Lens.lens (\AwsBackupBackupVaultDetails' {backupVaultName} -> backupVaultName) (\s@AwsBackupBackupVaultDetails' {} a -> s {backupVaultName = a} :: AwsBackupBackupVaultDetails)
 
--- | An Amazon Resource Name (ARN) that uniquely identifies a backup vault.
-awsBackupBackupVaultDetails_backupVaultArn :: Lens.Lens' AwsBackupBackupVaultDetails (Prelude.Maybe Prelude.Text)
-awsBackupBackupVaultDetails_backupVaultArn = Lens.lens (\AwsBackupBackupVaultDetails' {backupVaultArn} -> backupVaultArn) (\s@AwsBackupBackupVaultDetails' {} a -> s {backupVaultArn = a} :: AwsBackupBackupVaultDetails)
+-- | The unique ARN associated with the server-side encryption key. You can
+-- specify a key to encrypt your backups from services that support full
+-- Backup management. If you do not specify a key, Backup creates an KMS
+-- key for you by default.
+awsBackupBackupVaultDetails_encryptionKeyArn :: Lens.Lens' AwsBackupBackupVaultDetails (Prelude.Maybe Prelude.Text)
+awsBackupBackupVaultDetails_encryptionKeyArn = Lens.lens (\AwsBackupBackupVaultDetails' {encryptionKeyArn} -> encryptionKeyArn) (\s@AwsBackupBackupVaultDetails' {} a -> s {encryptionKeyArn = a} :: AwsBackupBackupVaultDetails)
 
--- | A resource-based policy that is used to manage access permissions on the
--- target backup vault.
-awsBackupBackupVaultDetails_accessPolicy :: Lens.Lens' AwsBackupBackupVaultDetails (Prelude.Maybe Prelude.Text)
-awsBackupBackupVaultDetails_accessPolicy = Lens.lens (\AwsBackupBackupVaultDetails' {accessPolicy} -> accessPolicy) (\s@AwsBackupBackupVaultDetails' {} a -> s {accessPolicy = a} :: AwsBackupBackupVaultDetails)
+-- | The Amazon SNS event notifications for the specified backup vault.
+awsBackupBackupVaultDetails_notifications :: Lens.Lens' AwsBackupBackupVaultDetails (Prelude.Maybe AwsBackupBackupVaultNotificationsDetails)
+awsBackupBackupVaultDetails_notifications = Lens.lens (\AwsBackupBackupVaultDetails' {notifications} -> notifications) (\s@AwsBackupBackupVaultDetails' {} a -> s {notifications = a} :: AwsBackupBackupVaultDetails)
 
 instance Data.FromJSON AwsBackupBackupVaultDetails where
   parseJSON =
@@ -122,40 +122,40 @@ instance Data.FromJSON AwsBackupBackupVaultDetails where
       "AwsBackupBackupVaultDetails"
       ( \x ->
           AwsBackupBackupVaultDetails'
-            Prelude.<$> (x Data..:? "Notifications")
-            Prelude.<*> (x Data..:? "EncryptionKeyArn")
-            Prelude.<*> (x Data..:? "BackupVaultName")
+            Prelude.<$> (x Data..:? "AccessPolicy")
             Prelude.<*> (x Data..:? "BackupVaultArn")
-            Prelude.<*> (x Data..:? "AccessPolicy")
+            Prelude.<*> (x Data..:? "BackupVaultName")
+            Prelude.<*> (x Data..:? "EncryptionKeyArn")
+            Prelude.<*> (x Data..:? "Notifications")
       )
 
 instance Prelude.Hashable AwsBackupBackupVaultDetails where
   hashWithSalt _salt AwsBackupBackupVaultDetails' {..} =
-    _salt `Prelude.hashWithSalt` notifications
-      `Prelude.hashWithSalt` encryptionKeyArn
-      `Prelude.hashWithSalt` backupVaultName
+    _salt `Prelude.hashWithSalt` accessPolicy
       `Prelude.hashWithSalt` backupVaultArn
-      `Prelude.hashWithSalt` accessPolicy
+      `Prelude.hashWithSalt` backupVaultName
+      `Prelude.hashWithSalt` encryptionKeyArn
+      `Prelude.hashWithSalt` notifications
 
 instance Prelude.NFData AwsBackupBackupVaultDetails where
   rnf AwsBackupBackupVaultDetails' {..} =
-    Prelude.rnf notifications
-      `Prelude.seq` Prelude.rnf encryptionKeyArn
-      `Prelude.seq` Prelude.rnf backupVaultName
+    Prelude.rnf accessPolicy
       `Prelude.seq` Prelude.rnf backupVaultArn
-      `Prelude.seq` Prelude.rnf accessPolicy
+      `Prelude.seq` Prelude.rnf backupVaultName
+      `Prelude.seq` Prelude.rnf encryptionKeyArn
+      `Prelude.seq` Prelude.rnf notifications
 
 instance Data.ToJSON AwsBackupBackupVaultDetails where
   toJSON AwsBackupBackupVaultDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Notifications" Data..=) Prelude.<$> notifications,
-            ("EncryptionKeyArn" Data..=)
-              Prelude.<$> encryptionKeyArn,
-            ("BackupVaultName" Data..=)
-              Prelude.<$> backupVaultName,
+          [ ("AccessPolicy" Data..=) Prelude.<$> accessPolicy,
             ("BackupVaultArn" Data..=)
               Prelude.<$> backupVaultArn,
-            ("AccessPolicy" Data..=) Prelude.<$> accessPolicy
+            ("BackupVaultName" Data..=)
+              Prelude.<$> backupVaultName,
+            ("EncryptionKeyArn" Data..=)
+              Prelude.<$> encryptionKeyArn,
+            ("Notifications" Data..=) Prelude.<$> notifications
           ]
       )

@@ -28,18 +28,18 @@ module Amazonka.SSMSAP.GetDatabase
     newGetDatabase,
 
     -- * Request Lenses
-    getDatabase_databaseId,
-    getDatabase_componentId,
     getDatabase_applicationId,
+    getDatabase_componentId,
     getDatabase_databaseArn,
+    getDatabase_databaseId,
 
     -- * Destructuring the Response
     GetDatabaseResponse (..),
     newGetDatabaseResponse,
 
     -- * Response Lenses
-    getDatabaseResponse_tags,
     getDatabaseResponse_database,
+    getDatabaseResponse_tags,
     getDatabaseResponse_httpStatus,
   )
 where
@@ -54,10 +54,10 @@ import Amazonka.SSMSAP.Types
 
 -- | /See:/ 'newGetDatabase' smart constructor.
 data GetDatabase = GetDatabase'
-  { databaseId :: Prelude.Maybe Prelude.Text,
+  { applicationId :: Prelude.Maybe Prelude.Text,
     componentId :: Prelude.Maybe Prelude.Text,
-    applicationId :: Prelude.Maybe Prelude.Text,
-    databaseArn :: Prelude.Maybe Prelude.Text
+    databaseArn :: Prelude.Maybe Prelude.Text,
+    databaseId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,38 +69,38 @@ data GetDatabase = GetDatabase'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'databaseId', 'getDatabase_databaseId' -
+-- 'applicationId', 'getDatabase_applicationId' -
 --
 -- 'componentId', 'getDatabase_componentId' -
 --
--- 'applicationId', 'getDatabase_applicationId' -
---
 -- 'databaseArn', 'getDatabase_databaseArn' -
+--
+-- 'databaseId', 'getDatabase_databaseId' -
 newGetDatabase ::
   GetDatabase
 newGetDatabase =
   GetDatabase'
-    { databaseId = Prelude.Nothing,
+    { applicationId = Prelude.Nothing,
       componentId = Prelude.Nothing,
-      applicationId = Prelude.Nothing,
-      databaseArn = Prelude.Nothing
+      databaseArn = Prelude.Nothing,
+      databaseId = Prelude.Nothing
     }
-
--- |
-getDatabase_databaseId :: Lens.Lens' GetDatabase (Prelude.Maybe Prelude.Text)
-getDatabase_databaseId = Lens.lens (\GetDatabase' {databaseId} -> databaseId) (\s@GetDatabase' {} a -> s {databaseId = a} :: GetDatabase)
-
--- |
-getDatabase_componentId :: Lens.Lens' GetDatabase (Prelude.Maybe Prelude.Text)
-getDatabase_componentId = Lens.lens (\GetDatabase' {componentId} -> componentId) (\s@GetDatabase' {} a -> s {componentId = a} :: GetDatabase)
 
 -- |
 getDatabase_applicationId :: Lens.Lens' GetDatabase (Prelude.Maybe Prelude.Text)
 getDatabase_applicationId = Lens.lens (\GetDatabase' {applicationId} -> applicationId) (\s@GetDatabase' {} a -> s {applicationId = a} :: GetDatabase)
 
 -- |
+getDatabase_componentId :: Lens.Lens' GetDatabase (Prelude.Maybe Prelude.Text)
+getDatabase_componentId = Lens.lens (\GetDatabase' {componentId} -> componentId) (\s@GetDatabase' {} a -> s {componentId = a} :: GetDatabase)
+
+-- |
 getDatabase_databaseArn :: Lens.Lens' GetDatabase (Prelude.Maybe Prelude.Text)
 getDatabase_databaseArn = Lens.lens (\GetDatabase' {databaseArn} -> databaseArn) (\s@GetDatabase' {} a -> s {databaseArn = a} :: GetDatabase)
+
+-- |
+getDatabase_databaseId :: Lens.Lens' GetDatabase (Prelude.Maybe Prelude.Text)
+getDatabase_databaseId = Lens.lens (\GetDatabase' {databaseId} -> databaseId) (\s@GetDatabase' {} a -> s {databaseId = a} :: GetDatabase)
 
 instance Core.AWSRequest GetDatabase where
   type AWSResponse GetDatabase = GetDatabaseResponse
@@ -110,24 +110,24 @@ instance Core.AWSRequest GetDatabase where
     Response.receiveJSON
       ( \s h x ->
           GetDatabaseResponse'
-            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "Database")
+            Prelude.<$> (x Data..?> "Database")
+            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetDatabase where
   hashWithSalt _salt GetDatabase' {..} =
-    _salt `Prelude.hashWithSalt` databaseId
+    _salt `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` componentId
-      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` databaseArn
+      `Prelude.hashWithSalt` databaseId
 
 instance Prelude.NFData GetDatabase where
   rnf GetDatabase' {..} =
-    Prelude.rnf databaseId
+    Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf componentId
-      `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf databaseArn
+      `Prelude.seq` Prelude.rnf databaseId
 
 instance Data.ToHeaders GetDatabase where
   toHeaders =
@@ -144,10 +144,10 @@ instance Data.ToJSON GetDatabase where
   toJSON GetDatabase' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DatabaseId" Data..=) Prelude.<$> databaseId,
+          [ ("ApplicationId" Data..=) Prelude.<$> applicationId,
             ("ComponentId" Data..=) Prelude.<$> componentId,
-            ("ApplicationId" Data..=) Prelude.<$> applicationId,
-            ("DatabaseArn" Data..=) Prelude.<$> databaseArn
+            ("DatabaseArn" Data..=) Prelude.<$> databaseArn,
+            ("DatabaseId" Data..=) Prelude.<$> databaseId
           ]
       )
 
@@ -159,8 +159,8 @@ instance Data.ToQuery GetDatabase where
 
 -- | /See:/ 'newGetDatabaseResponse' smart constructor.
 data GetDatabaseResponse = GetDatabaseResponse'
-  { tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    database :: Prelude.Maybe Database,
+  { database :: Prelude.Maybe Database,
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -174,9 +174,9 @@ data GetDatabaseResponse = GetDatabaseResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'getDatabaseResponse_tags' -
---
 -- 'database', 'getDatabaseResponse_database' -
+--
+-- 'tags', 'getDatabaseResponse_tags' -
 --
 -- 'httpStatus', 'getDatabaseResponse_httpStatus' - The response's http status code.
 newGetDatabaseResponse ::
@@ -185,18 +185,18 @@ newGetDatabaseResponse ::
   GetDatabaseResponse
 newGetDatabaseResponse pHttpStatus_ =
   GetDatabaseResponse'
-    { tags = Prelude.Nothing,
-      database = Prelude.Nothing,
+    { database = Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- |
-getDatabaseResponse_tags :: Lens.Lens' GetDatabaseResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getDatabaseResponse_tags = Lens.lens (\GetDatabaseResponse' {tags} -> tags) (\s@GetDatabaseResponse' {} a -> s {tags = a} :: GetDatabaseResponse) Prelude.. Lens.mapping Lens.coerced
-
--- |
 getDatabaseResponse_database :: Lens.Lens' GetDatabaseResponse (Prelude.Maybe Database)
 getDatabaseResponse_database = Lens.lens (\GetDatabaseResponse' {database} -> database) (\s@GetDatabaseResponse' {} a -> s {database = a} :: GetDatabaseResponse)
+
+-- |
+getDatabaseResponse_tags :: Lens.Lens' GetDatabaseResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getDatabaseResponse_tags = Lens.lens (\GetDatabaseResponse' {tags} -> tags) (\s@GetDatabaseResponse' {} a -> s {tags = a} :: GetDatabaseResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getDatabaseResponse_httpStatus :: Lens.Lens' GetDatabaseResponse Prelude.Int
@@ -204,6 +204,6 @@ getDatabaseResponse_httpStatus = Lens.lens (\GetDatabaseResponse' {httpStatus} -
 
 instance Prelude.NFData GetDatabaseResponse where
   rnf GetDatabaseResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf database
+    Prelude.rnf database
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

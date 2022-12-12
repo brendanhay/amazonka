@@ -46,8 +46,8 @@ module Amazonka.Comprehend.StopTargetedSentimentDetectionJob
     newStopTargetedSentimentDetectionJobResponse,
 
     -- * Response Lenses
-    stopTargetedSentimentDetectionJobResponse_jobStatus,
     stopTargetedSentimentDetectionJobResponse_jobId,
+    stopTargetedSentimentDetectionJobResponse_jobStatus,
     stopTargetedSentimentDetectionJobResponse_httpStatus,
   )
 where
@@ -100,8 +100,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           StopTargetedSentimentDetectionJobResponse'
-            Prelude.<$> (x Data..?> "JobStatus")
-              Prelude.<*> (x Data..?> "JobId")
+            Prelude.<$> (x Data..?> "JobId")
+              Prelude.<*> (x Data..?> "JobStatus")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,12 +163,12 @@ instance
 
 -- | /See:/ 'newStopTargetedSentimentDetectionJobResponse' smart constructor.
 data StopTargetedSentimentDetectionJobResponse = StopTargetedSentimentDetectionJobResponse'
-  { -- | Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if
+  { -- | The identifier of the targeted sentiment detection job to stop.
+    jobId :: Prelude.Maybe Prelude.Text,
+    -- | Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if
     -- the job was previously stopped with the @StopSentimentDetectionJob@
     -- operation.
     jobStatus :: Prelude.Maybe JobStatus,
-    -- | The identifier of the targeted sentiment detection job to stop.
-    jobId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -182,11 +182,11 @@ data StopTargetedSentimentDetectionJobResponse = StopTargetedSentimentDetectionJ
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'jobId', 'stopTargetedSentimentDetectionJobResponse_jobId' - The identifier of the targeted sentiment detection job to stop.
+--
 -- 'jobStatus', 'stopTargetedSentimentDetectionJobResponse_jobStatus' - Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if
 -- the job was previously stopped with the @StopSentimentDetectionJob@
 -- operation.
---
--- 'jobId', 'stopTargetedSentimentDetectionJobResponse_jobId' - The identifier of the targeted sentiment detection job to stop.
 --
 -- 'httpStatus', 'stopTargetedSentimentDetectionJobResponse_httpStatus' - The response's http status code.
 newStopTargetedSentimentDetectionJobResponse ::
@@ -196,21 +196,21 @@ newStopTargetedSentimentDetectionJobResponse ::
 newStopTargetedSentimentDetectionJobResponse
   pHttpStatus_ =
     StopTargetedSentimentDetectionJobResponse'
-      { jobStatus =
+      { jobId =
           Prelude.Nothing,
-        jobId = Prelude.Nothing,
+        jobStatus = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | The identifier of the targeted sentiment detection job to stop.
+stopTargetedSentimentDetectionJobResponse_jobId :: Lens.Lens' StopTargetedSentimentDetectionJobResponse (Prelude.Maybe Prelude.Text)
+stopTargetedSentimentDetectionJobResponse_jobId = Lens.lens (\StopTargetedSentimentDetectionJobResponse' {jobId} -> jobId) (\s@StopTargetedSentimentDetectionJobResponse' {} a -> s {jobId = a} :: StopTargetedSentimentDetectionJobResponse)
 
 -- | Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if
 -- the job was previously stopped with the @StopSentimentDetectionJob@
 -- operation.
 stopTargetedSentimentDetectionJobResponse_jobStatus :: Lens.Lens' StopTargetedSentimentDetectionJobResponse (Prelude.Maybe JobStatus)
 stopTargetedSentimentDetectionJobResponse_jobStatus = Lens.lens (\StopTargetedSentimentDetectionJobResponse' {jobStatus} -> jobStatus) (\s@StopTargetedSentimentDetectionJobResponse' {} a -> s {jobStatus = a} :: StopTargetedSentimentDetectionJobResponse)
-
--- | The identifier of the targeted sentiment detection job to stop.
-stopTargetedSentimentDetectionJobResponse_jobId :: Lens.Lens' StopTargetedSentimentDetectionJobResponse (Prelude.Maybe Prelude.Text)
-stopTargetedSentimentDetectionJobResponse_jobId = Lens.lens (\StopTargetedSentimentDetectionJobResponse' {jobId} -> jobId) (\s@StopTargetedSentimentDetectionJobResponse' {} a -> s {jobId = a} :: StopTargetedSentimentDetectionJobResponse)
 
 -- | The response's http status code.
 stopTargetedSentimentDetectionJobResponse_httpStatus :: Lens.Lens' StopTargetedSentimentDetectionJobResponse Prelude.Int
@@ -221,6 +221,6 @@ instance
     StopTargetedSentimentDetectionJobResponse
   where
   rnf StopTargetedSentimentDetectionJobResponse' {..} =
-    Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf jobStatus
       `Prelude.seq` Prelude.rnf httpStatus

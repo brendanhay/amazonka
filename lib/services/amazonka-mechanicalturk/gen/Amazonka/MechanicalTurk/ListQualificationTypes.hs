@@ -30,9 +30,9 @@ module Amazonka.MechanicalTurk.ListQualificationTypes
     newListQualificationTypes,
 
     -- * Request Lenses
-    listQualificationTypes_nextToken,
-    listQualificationTypes_mustBeOwnedByCaller,
     listQualificationTypes_maxResults,
+    listQualificationTypes_mustBeOwnedByCaller,
+    listQualificationTypes_nextToken,
     listQualificationTypes_query,
     listQualificationTypes_mustBeRequestable,
 
@@ -58,12 +58,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListQualificationTypes' smart constructor.
 data ListQualificationTypes = ListQualificationTypes'
-  { nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The maximum number of results to return in a single call.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Specifies that only Qualification types that the Requester created are
     -- returned. If false, the operation returns all Qualification types.
     mustBeOwnedByCaller :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results to return in a single call.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A text query against all of the searchable attributes of Qualification
     -- types.
     query :: Prelude.Maybe Prelude.Text,
@@ -85,12 +85,12 @@ data ListQualificationTypes = ListQualificationTypes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listQualificationTypes_nextToken' - Undocumented member.
+-- 'maxResults', 'listQualificationTypes_maxResults' - The maximum number of results to return in a single call.
 --
 -- 'mustBeOwnedByCaller', 'listQualificationTypes_mustBeOwnedByCaller' - Specifies that only Qualification types that the Requester created are
 -- returned. If false, the operation returns all Qualification types.
 --
--- 'maxResults', 'listQualificationTypes_maxResults' - The maximum number of results to return in a single call.
+-- 'nextToken', 'listQualificationTypes_nextToken' - Undocumented member.
 --
 -- 'query', 'listQualificationTypes_query' - A text query against all of the searchable attributes of Qualification
 -- types.
@@ -107,26 +107,26 @@ newListQualificationTypes ::
   ListQualificationTypes
 newListQualificationTypes pMustBeRequestable_ =
   ListQualificationTypes'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
       mustBeOwnedByCaller = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       query = Prelude.Nothing,
       mustBeRequestable = pMustBeRequestable_
     }
 
--- | Undocumented member.
-listQualificationTypes_nextToken :: Lens.Lens' ListQualificationTypes (Prelude.Maybe Prelude.Text)
-listQualificationTypes_nextToken = Lens.lens (\ListQualificationTypes' {nextToken} -> nextToken) (\s@ListQualificationTypes' {} a -> s {nextToken = a} :: ListQualificationTypes)
+-- | The maximum number of results to return in a single call.
+listQualificationTypes_maxResults :: Lens.Lens' ListQualificationTypes (Prelude.Maybe Prelude.Natural)
+listQualificationTypes_maxResults = Lens.lens (\ListQualificationTypes' {maxResults} -> maxResults) (\s@ListQualificationTypes' {} a -> s {maxResults = a} :: ListQualificationTypes)
 
 -- | Specifies that only Qualification types that the Requester created are
 -- returned. If false, the operation returns all Qualification types.
 listQualificationTypes_mustBeOwnedByCaller :: Lens.Lens' ListQualificationTypes (Prelude.Maybe Prelude.Bool)
 listQualificationTypes_mustBeOwnedByCaller = Lens.lens (\ListQualificationTypes' {mustBeOwnedByCaller} -> mustBeOwnedByCaller) (\s@ListQualificationTypes' {} a -> s {mustBeOwnedByCaller = a} :: ListQualificationTypes)
 
--- | The maximum number of results to return in a single call.
-listQualificationTypes_maxResults :: Lens.Lens' ListQualificationTypes (Prelude.Maybe Prelude.Natural)
-listQualificationTypes_maxResults = Lens.lens (\ListQualificationTypes' {maxResults} -> maxResults) (\s@ListQualificationTypes' {} a -> s {maxResults = a} :: ListQualificationTypes)
+-- | Undocumented member.
+listQualificationTypes_nextToken :: Lens.Lens' ListQualificationTypes (Prelude.Maybe Prelude.Text)
+listQualificationTypes_nextToken = Lens.lens (\ListQualificationTypes' {nextToken} -> nextToken) (\s@ListQualificationTypes' {} a -> s {nextToken = a} :: ListQualificationTypes)
 
 -- | A text query against all of the searchable attributes of Qualification
 -- types.
@@ -184,17 +184,17 @@ instance Core.AWSRequest ListQualificationTypes where
 
 instance Prelude.Hashable ListQualificationTypes where
   hashWithSalt _salt ListQualificationTypes' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` mustBeOwnedByCaller
-      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` query
       `Prelude.hashWithSalt` mustBeRequestable
 
 instance Prelude.NFData ListQualificationTypes where
   rnf ListQualificationTypes' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf mustBeOwnedByCaller
-      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf query
       `Prelude.seq` Prelude.rnf mustBeRequestable
 
@@ -217,10 +217,10 @@ instance Data.ToJSON ListQualificationTypes where
   toJSON ListQualificationTypes' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("MustBeOwnedByCaller" Data..=)
               Prelude.<$> mustBeOwnedByCaller,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("Query" Data..=) Prelude.<$> query,
             Prelude.Just
               ("MustBeRequestable" Data..= mustBeRequestable)

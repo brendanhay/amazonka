@@ -28,18 +28,18 @@ module Amazonka.CloudWatchEvents.ListApiDestinations
     newListApiDestinations,
 
     -- * Request Lenses
-    listApiDestinations_nextToken,
     listApiDestinations_connectionArn,
     listApiDestinations_limit,
     listApiDestinations_namePrefix,
+    listApiDestinations_nextToken,
 
     -- * Destructuring the Response
     ListApiDestinationsResponse (..),
     newListApiDestinationsResponse,
 
     -- * Response Lenses
-    listApiDestinationsResponse_nextToken,
     listApiDestinationsResponse_apiDestinations,
+    listApiDestinationsResponse_nextToken,
     listApiDestinationsResponse_httpStatus,
   )
 where
@@ -54,16 +54,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListApiDestinations' smart constructor.
 data ListApiDestinations = ListApiDestinations'
-  { -- | The token returned by a previous call to retrieve the next set of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the connection specified for the API destination.
+  { -- | The ARN of the connection specified for the API destination.
     connectionArn :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of API destinations to include in the response.
     limit :: Prelude.Maybe Prelude.Natural,
     -- | A name prefix to filter results returned. Only API destinations with a
     -- name that starts with the prefix are returned.
-    namePrefix :: Prelude.Maybe Prelude.Text
+    namePrefix :: Prelude.Maybe Prelude.Text,
+    -- | The token returned by a previous call to retrieve the next set of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,29 +75,25 @@ data ListApiDestinations = ListApiDestinations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listApiDestinations_nextToken' - The token returned by a previous call to retrieve the next set of
--- results.
---
 -- 'connectionArn', 'listApiDestinations_connectionArn' - The ARN of the connection specified for the API destination.
 --
 -- 'limit', 'listApiDestinations_limit' - The maximum number of API destinations to include in the response.
 --
 -- 'namePrefix', 'listApiDestinations_namePrefix' - A name prefix to filter results returned. Only API destinations with a
 -- name that starts with the prefix are returned.
+--
+-- 'nextToken', 'listApiDestinations_nextToken' - The token returned by a previous call to retrieve the next set of
+-- results.
 newListApiDestinations ::
   ListApiDestinations
 newListApiDestinations =
   ListApiDestinations'
-    { nextToken = Prelude.Nothing,
-      connectionArn = Prelude.Nothing,
+    { connectionArn =
+        Prelude.Nothing,
       limit = Prelude.Nothing,
-      namePrefix = Prelude.Nothing
+      namePrefix = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token returned by a previous call to retrieve the next set of
--- results.
-listApiDestinations_nextToken :: Lens.Lens' ListApiDestinations (Prelude.Maybe Prelude.Text)
-listApiDestinations_nextToken = Lens.lens (\ListApiDestinations' {nextToken} -> nextToken) (\s@ListApiDestinations' {} a -> s {nextToken = a} :: ListApiDestinations)
 
 -- | The ARN of the connection specified for the API destination.
 listApiDestinations_connectionArn :: Lens.Lens' ListApiDestinations (Prelude.Maybe Prelude.Text)
@@ -112,6 +108,11 @@ listApiDestinations_limit = Lens.lens (\ListApiDestinations' {limit} -> limit) (
 listApiDestinations_namePrefix :: Lens.Lens' ListApiDestinations (Prelude.Maybe Prelude.Text)
 listApiDestinations_namePrefix = Lens.lens (\ListApiDestinations' {namePrefix} -> namePrefix) (\s@ListApiDestinations' {} a -> s {namePrefix = a} :: ListApiDestinations)
 
+-- | The token returned by a previous call to retrieve the next set of
+-- results.
+listApiDestinations_nextToken :: Lens.Lens' ListApiDestinations (Prelude.Maybe Prelude.Text)
+listApiDestinations_nextToken = Lens.lens (\ListApiDestinations' {nextToken} -> nextToken) (\s@ListApiDestinations' {} a -> s {nextToken = a} :: ListApiDestinations)
+
 instance Core.AWSRequest ListApiDestinations where
   type
     AWSResponse ListApiDestinations =
@@ -122,26 +123,26 @@ instance Core.AWSRequest ListApiDestinations where
     Response.receiveJSON
       ( \s h x ->
           ListApiDestinationsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ApiDestinations"
+            Prelude.<$> ( x Data..?> "ApiDestinations"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListApiDestinations where
   hashWithSalt _salt ListApiDestinations' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` connectionArn
+    _salt `Prelude.hashWithSalt` connectionArn
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` namePrefix
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListApiDestinations where
   rnf ListApiDestinations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf connectionArn
+    Prelude.rnf connectionArn
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf namePrefix
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListApiDestinations where
   toHeaders =
@@ -162,10 +163,10 @@ instance Data.ToJSON ListApiDestinations where
   toJSON ListApiDestinations' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("ConnectionArn" Data..=) Prelude.<$> connectionArn,
+          [ ("ConnectionArn" Data..=) Prelude.<$> connectionArn,
             ("Limit" Data..=) Prelude.<$> limit,
-            ("NamePrefix" Data..=) Prelude.<$> namePrefix
+            ("NamePrefix" Data..=) Prelude.<$> namePrefix,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -177,12 +178,12 @@ instance Data.ToQuery ListApiDestinations where
 
 -- | /See:/ 'newListApiDestinationsResponse' smart constructor.
 data ListApiDestinationsResponse = ListApiDestinationsResponse'
-  { -- | A token you can use in a subsequent request to retrieve the next set of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of @ApiDestination@ objects that include information about an
+  { -- | An array of @ApiDestination@ objects that include information about an
     -- API destination.
     apiDestinations :: Prelude.Maybe [ApiDestination],
+    -- | A token you can use in a subsequent request to retrieve the next set of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -196,11 +197,11 @@ data ListApiDestinationsResponse = ListApiDestinationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listApiDestinationsResponse_nextToken' - A token you can use in a subsequent request to retrieve the next set of
--- results.
---
 -- 'apiDestinations', 'listApiDestinationsResponse_apiDestinations' - An array of @ApiDestination@ objects that include information about an
 -- API destination.
+--
+-- 'nextToken', 'listApiDestinationsResponse_nextToken' - A token you can use in a subsequent request to retrieve the next set of
+-- results.
 --
 -- 'httpStatus', 'listApiDestinationsResponse_httpStatus' - The response's http status code.
 newListApiDestinationsResponse ::
@@ -209,21 +210,21 @@ newListApiDestinationsResponse ::
   ListApiDestinationsResponse
 newListApiDestinationsResponse pHttpStatus_ =
   ListApiDestinationsResponse'
-    { nextToken =
+    { apiDestinations =
         Prelude.Nothing,
-      apiDestinations = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A token you can use in a subsequent request to retrieve the next set of
--- results.
-listApiDestinationsResponse_nextToken :: Lens.Lens' ListApiDestinationsResponse (Prelude.Maybe Prelude.Text)
-listApiDestinationsResponse_nextToken = Lens.lens (\ListApiDestinationsResponse' {nextToken} -> nextToken) (\s@ListApiDestinationsResponse' {} a -> s {nextToken = a} :: ListApiDestinationsResponse)
 
 -- | An array of @ApiDestination@ objects that include information about an
 -- API destination.
 listApiDestinationsResponse_apiDestinations :: Lens.Lens' ListApiDestinationsResponse (Prelude.Maybe [ApiDestination])
 listApiDestinationsResponse_apiDestinations = Lens.lens (\ListApiDestinationsResponse' {apiDestinations} -> apiDestinations) (\s@ListApiDestinationsResponse' {} a -> s {apiDestinations = a} :: ListApiDestinationsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A token you can use in a subsequent request to retrieve the next set of
+-- results.
+listApiDestinationsResponse_nextToken :: Lens.Lens' ListApiDestinationsResponse (Prelude.Maybe Prelude.Text)
+listApiDestinationsResponse_nextToken = Lens.lens (\ListApiDestinationsResponse' {nextToken} -> nextToken) (\s@ListApiDestinationsResponse' {} a -> s {nextToken = a} :: ListApiDestinationsResponse)
 
 -- | The response's http status code.
 listApiDestinationsResponse_httpStatus :: Lens.Lens' ListApiDestinationsResponse Prelude.Int
@@ -231,6 +232,6 @@ listApiDestinationsResponse_httpStatus = Lens.lens (\ListApiDestinationsResponse
 
 instance Prelude.NFData ListApiDestinationsResponse where
   rnf ListApiDestinationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf apiDestinations
+    Prelude.rnf apiDestinations
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

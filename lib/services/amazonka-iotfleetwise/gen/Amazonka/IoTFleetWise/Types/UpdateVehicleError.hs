@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUpdateVehicleError' smart constructor.
 data UpdateVehicleError = UpdateVehicleError'
-  { -- | A message associated with the error.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The relevant HTTP error code (400+).
+  { -- | The relevant HTTP error code (400+).
     code :: Prelude.Maybe Prelude.Int,
+    -- | A message associated with the error.
+    message :: Prelude.Maybe Prelude.Text,
     -- | The ID of the vehicle with the error.
     vehicleName :: Prelude.Maybe Prelude.Text
   }
@@ -45,27 +45,27 @@ data UpdateVehicleError = UpdateVehicleError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'updateVehicleError_message' - A message associated with the error.
---
 -- 'code', 'updateVehicleError_code' - The relevant HTTP error code (400+).
+--
+-- 'message', 'updateVehicleError_message' - A message associated with the error.
 --
 -- 'vehicleName', 'updateVehicleError_vehicleName' - The ID of the vehicle with the error.
 newUpdateVehicleError ::
   UpdateVehicleError
 newUpdateVehicleError =
   UpdateVehicleError'
-    { message = Prelude.Nothing,
-      code = Prelude.Nothing,
+    { code = Prelude.Nothing,
+      message = Prelude.Nothing,
       vehicleName = Prelude.Nothing
     }
-
--- | A message associated with the error.
-updateVehicleError_message :: Lens.Lens' UpdateVehicleError (Prelude.Maybe Prelude.Text)
-updateVehicleError_message = Lens.lens (\UpdateVehicleError' {message} -> message) (\s@UpdateVehicleError' {} a -> s {message = a} :: UpdateVehicleError)
 
 -- | The relevant HTTP error code (400+).
 updateVehicleError_code :: Lens.Lens' UpdateVehicleError (Prelude.Maybe Prelude.Int)
 updateVehicleError_code = Lens.lens (\UpdateVehicleError' {code} -> code) (\s@UpdateVehicleError' {} a -> s {code = a} :: UpdateVehicleError)
+
+-- | A message associated with the error.
+updateVehicleError_message :: Lens.Lens' UpdateVehicleError (Prelude.Maybe Prelude.Text)
+updateVehicleError_message = Lens.lens (\UpdateVehicleError' {message} -> message) (\s@UpdateVehicleError' {} a -> s {message = a} :: UpdateVehicleError)
 
 -- | The ID of the vehicle with the error.
 updateVehicleError_vehicleName :: Lens.Lens' UpdateVehicleError (Prelude.Maybe Prelude.Text)
@@ -77,19 +77,19 @@ instance Data.FromJSON UpdateVehicleError where
       "UpdateVehicleError"
       ( \x ->
           UpdateVehicleError'
-            Prelude.<$> (x Data..:? "message")
-            Prelude.<*> (x Data..:? "code")
+            Prelude.<$> (x Data..:? "code")
+            Prelude.<*> (x Data..:? "message")
             Prelude.<*> (x Data..:? "vehicleName")
       )
 
 instance Prelude.Hashable UpdateVehicleError where
   hashWithSalt _salt UpdateVehicleError' {..} =
-    _salt `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` code
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` vehicleName
 
 instance Prelude.NFData UpdateVehicleError where
   rnf UpdateVehicleError' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf code
+    Prelude.rnf code
+      `Prelude.seq` Prelude.rnf message
       `Prelude.seq` Prelude.rnf vehicleName

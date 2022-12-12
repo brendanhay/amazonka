@@ -23,17 +23,17 @@ module Amazonka.GroundStation
     -- * Errors
     -- $errors
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** ResourceLimitExceededException
-    _ResourceLimitExceededException,
-
     -- ** DependencyException
     _DependencyException,
 
     -- ** InvalidParameterException
     _InvalidParameterException,
+
+    -- ** ResourceLimitExceededException
+    _ResourceLimitExceededException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- * Waiters
     -- $waiters

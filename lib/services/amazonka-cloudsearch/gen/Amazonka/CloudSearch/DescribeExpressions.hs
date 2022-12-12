@@ -33,8 +33,8 @@ module Amazonka.CloudSearch.DescribeExpressions
     newDescribeExpressions,
 
     -- * Request Lenses
-    describeExpressions_expressionNames,
     describeExpressions_deployed,
+    describeExpressions_expressionNames,
     describeExpressions_domainName,
 
     -- * Destructuring the Response
@@ -63,12 +63,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeExpressions' smart constructor.
 data DescribeExpressions = DescribeExpressions'
-  { -- | Limits the @DescribeExpressions@ response to the specified expressions.
-    -- If not specified, all expressions are shown.
-    expressionNames :: Prelude.Maybe [Prelude.Text],
-    -- | Whether to display the deployed configuration (@true@) or include any
+  { -- | Whether to display the deployed configuration (@true@) or include any
     -- pending changes (@false@). Defaults to @false@.
     deployed :: Prelude.Maybe Prelude.Bool,
+    -- | Limits the @DescribeExpressions@ response to the specified expressions.
+    -- If not specified, all expressions are shown.
+    expressionNames :: Prelude.Maybe [Prelude.Text],
     -- | The name of the domain you want to describe.
     domainName :: Prelude.Text
   }
@@ -82,11 +82,11 @@ data DescribeExpressions = DescribeExpressions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expressionNames', 'describeExpressions_expressionNames' - Limits the @DescribeExpressions@ response to the specified expressions.
--- If not specified, all expressions are shown.
---
 -- 'deployed', 'describeExpressions_deployed' - Whether to display the deployed configuration (@true@) or include any
 -- pending changes (@false@). Defaults to @false@.
+--
+-- 'expressionNames', 'describeExpressions_expressionNames' - Limits the @DescribeExpressions@ response to the specified expressions.
+-- If not specified, all expressions are shown.
 --
 -- 'domainName', 'describeExpressions_domainName' - The name of the domain you want to describe.
 newDescribeExpressions ::
@@ -95,21 +95,20 @@ newDescribeExpressions ::
   DescribeExpressions
 newDescribeExpressions pDomainName_ =
   DescribeExpressions'
-    { expressionNames =
-        Prelude.Nothing,
-      deployed = Prelude.Nothing,
+    { deployed = Prelude.Nothing,
+      expressionNames = Prelude.Nothing,
       domainName = pDomainName_
     }
-
--- | Limits the @DescribeExpressions@ response to the specified expressions.
--- If not specified, all expressions are shown.
-describeExpressions_expressionNames :: Lens.Lens' DescribeExpressions (Prelude.Maybe [Prelude.Text])
-describeExpressions_expressionNames = Lens.lens (\DescribeExpressions' {expressionNames} -> expressionNames) (\s@DescribeExpressions' {} a -> s {expressionNames = a} :: DescribeExpressions) Prelude.. Lens.mapping Lens.coerced
 
 -- | Whether to display the deployed configuration (@true@) or include any
 -- pending changes (@false@). Defaults to @false@.
 describeExpressions_deployed :: Lens.Lens' DescribeExpressions (Prelude.Maybe Prelude.Bool)
 describeExpressions_deployed = Lens.lens (\DescribeExpressions' {deployed} -> deployed) (\s@DescribeExpressions' {} a -> s {deployed = a} :: DescribeExpressions)
+
+-- | Limits the @DescribeExpressions@ response to the specified expressions.
+-- If not specified, all expressions are shown.
+describeExpressions_expressionNames :: Lens.Lens' DescribeExpressions (Prelude.Maybe [Prelude.Text])
+describeExpressions_expressionNames = Lens.lens (\DescribeExpressions' {expressionNames} -> expressionNames) (\s@DescribeExpressions' {} a -> s {expressionNames = a} :: DescribeExpressions) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the domain you want to describe.
 describeExpressions_domainName :: Lens.Lens' DescribeExpressions Prelude.Text
@@ -134,14 +133,14 @@ instance Core.AWSRequest DescribeExpressions where
 
 instance Prelude.Hashable DescribeExpressions where
   hashWithSalt _salt DescribeExpressions' {..} =
-    _salt `Prelude.hashWithSalt` expressionNames
-      `Prelude.hashWithSalt` deployed
+    _salt `Prelude.hashWithSalt` deployed
+      `Prelude.hashWithSalt` expressionNames
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData DescribeExpressions where
   rnf DescribeExpressions' {..} =
-    Prelude.rnf expressionNames
-      `Prelude.seq` Prelude.rnf deployed
+    Prelude.rnf deployed
+      `Prelude.seq` Prelude.rnf expressionNames
       `Prelude.seq` Prelude.rnf domainName
 
 instance Data.ToHeaders DescribeExpressions where
@@ -157,12 +156,12 @@ instance Data.ToQuery DescribeExpressions where
           Data.=: ("DescribeExpressions" :: Prelude.ByteString),
         "Version"
           Data.=: ("2013-01-01" :: Prelude.ByteString),
+        "Deployed" Data.=: deployed,
         "ExpressionNames"
           Data.=: Data.toQuery
             ( Data.toQueryList "member"
                 Prelude.<$> expressionNames
             ),
-        "Deployed" Data.=: deployed,
         "DomainName" Data.=: domainName
       ]
 

@@ -31,18 +31,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCustomPluginRevisionSummary' smart constructor.
 data CustomPluginRevisionSummary = CustomPluginRevisionSummary'
-  { -- | The revision of the custom plugin.
-    revision :: Prelude.Maybe Prelude.Integer,
+  { -- | The format of the plugin file.
+    contentType :: Prelude.Maybe CustomPluginContentType,
+    -- | The time that the custom plugin was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The description of the custom plugin.
     description :: Prelude.Maybe Prelude.Text,
     -- | Details about the custom plugin file.
     fileDescription :: Prelude.Maybe CustomPluginFileDescription,
     -- | Information about the location of the custom plugin.
     location :: Prelude.Maybe CustomPluginLocationDescription,
-    -- | The time that the custom plugin was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
-    -- | The format of the plugin file.
-    contentType :: Prelude.Maybe CustomPluginContentType
+    -- | The revision of the custom plugin.
+    revision :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,7 +54,9 @@ data CustomPluginRevisionSummary = CustomPluginRevisionSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'revision', 'customPluginRevisionSummary_revision' - The revision of the custom plugin.
+-- 'contentType', 'customPluginRevisionSummary_contentType' - The format of the plugin file.
+--
+-- 'creationTime', 'customPluginRevisionSummary_creationTime' - The time that the custom plugin was created.
 --
 -- 'description', 'customPluginRevisionSummary_description' - The description of the custom plugin.
 --
@@ -62,25 +64,27 @@ data CustomPluginRevisionSummary = CustomPluginRevisionSummary'
 --
 -- 'location', 'customPluginRevisionSummary_location' - Information about the location of the custom plugin.
 --
--- 'creationTime', 'customPluginRevisionSummary_creationTime' - The time that the custom plugin was created.
---
--- 'contentType', 'customPluginRevisionSummary_contentType' - The format of the plugin file.
+-- 'revision', 'customPluginRevisionSummary_revision' - The revision of the custom plugin.
 newCustomPluginRevisionSummary ::
   CustomPluginRevisionSummary
 newCustomPluginRevisionSummary =
   CustomPluginRevisionSummary'
-    { revision =
+    { contentType =
         Prelude.Nothing,
+      creationTime = Prelude.Nothing,
       description = Prelude.Nothing,
       fileDescription = Prelude.Nothing,
       location = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      contentType = Prelude.Nothing
+      revision = Prelude.Nothing
     }
 
--- | The revision of the custom plugin.
-customPluginRevisionSummary_revision :: Lens.Lens' CustomPluginRevisionSummary (Prelude.Maybe Prelude.Integer)
-customPluginRevisionSummary_revision = Lens.lens (\CustomPluginRevisionSummary' {revision} -> revision) (\s@CustomPluginRevisionSummary' {} a -> s {revision = a} :: CustomPluginRevisionSummary)
+-- | The format of the plugin file.
+customPluginRevisionSummary_contentType :: Lens.Lens' CustomPluginRevisionSummary (Prelude.Maybe CustomPluginContentType)
+customPluginRevisionSummary_contentType = Lens.lens (\CustomPluginRevisionSummary' {contentType} -> contentType) (\s@CustomPluginRevisionSummary' {} a -> s {contentType = a} :: CustomPluginRevisionSummary)
+
+-- | The time that the custom plugin was created.
+customPluginRevisionSummary_creationTime :: Lens.Lens' CustomPluginRevisionSummary (Prelude.Maybe Prelude.UTCTime)
+customPluginRevisionSummary_creationTime = Lens.lens (\CustomPluginRevisionSummary' {creationTime} -> creationTime) (\s@CustomPluginRevisionSummary' {} a -> s {creationTime = a} :: CustomPluginRevisionSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The description of the custom plugin.
 customPluginRevisionSummary_description :: Lens.Lens' CustomPluginRevisionSummary (Prelude.Maybe Prelude.Text)
@@ -94,13 +98,9 @@ customPluginRevisionSummary_fileDescription = Lens.lens (\CustomPluginRevisionSu
 customPluginRevisionSummary_location :: Lens.Lens' CustomPluginRevisionSummary (Prelude.Maybe CustomPluginLocationDescription)
 customPluginRevisionSummary_location = Lens.lens (\CustomPluginRevisionSummary' {location} -> location) (\s@CustomPluginRevisionSummary' {} a -> s {location = a} :: CustomPluginRevisionSummary)
 
--- | The time that the custom plugin was created.
-customPluginRevisionSummary_creationTime :: Lens.Lens' CustomPluginRevisionSummary (Prelude.Maybe Prelude.UTCTime)
-customPluginRevisionSummary_creationTime = Lens.lens (\CustomPluginRevisionSummary' {creationTime} -> creationTime) (\s@CustomPluginRevisionSummary' {} a -> s {creationTime = a} :: CustomPluginRevisionSummary) Prelude.. Lens.mapping Data._Time
-
--- | The format of the plugin file.
-customPluginRevisionSummary_contentType :: Lens.Lens' CustomPluginRevisionSummary (Prelude.Maybe CustomPluginContentType)
-customPluginRevisionSummary_contentType = Lens.lens (\CustomPluginRevisionSummary' {contentType} -> contentType) (\s@CustomPluginRevisionSummary' {} a -> s {contentType = a} :: CustomPluginRevisionSummary)
+-- | The revision of the custom plugin.
+customPluginRevisionSummary_revision :: Lens.Lens' CustomPluginRevisionSummary (Prelude.Maybe Prelude.Integer)
+customPluginRevisionSummary_revision = Lens.lens (\CustomPluginRevisionSummary' {revision} -> revision) (\s@CustomPluginRevisionSummary' {} a -> s {revision = a} :: CustomPluginRevisionSummary)
 
 instance Data.FromJSON CustomPluginRevisionSummary where
   parseJSON =
@@ -108,28 +108,28 @@ instance Data.FromJSON CustomPluginRevisionSummary where
       "CustomPluginRevisionSummary"
       ( \x ->
           CustomPluginRevisionSummary'
-            Prelude.<$> (x Data..:? "revision")
+            Prelude.<$> (x Data..:? "contentType")
+            Prelude.<*> (x Data..:? "creationTime")
             Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "fileDescription")
             Prelude.<*> (x Data..:? "location")
-            Prelude.<*> (x Data..:? "creationTime")
-            Prelude.<*> (x Data..:? "contentType")
+            Prelude.<*> (x Data..:? "revision")
       )
 
 instance Prelude.Hashable CustomPluginRevisionSummary where
   hashWithSalt _salt CustomPluginRevisionSummary' {..} =
-    _salt `Prelude.hashWithSalt` revision
+    _salt `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` fileDescription
       `Prelude.hashWithSalt` location
-      `Prelude.hashWithSalt` creationTime
-      `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` revision
 
 instance Prelude.NFData CustomPluginRevisionSummary where
   rnf CustomPluginRevisionSummary' {..} =
-    Prelude.rnf revision
+    Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf fileDescription
       `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf revision

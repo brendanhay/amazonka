@@ -28,17 +28,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAutoScalingGroupConfiguration' smart constructor.
 data AutoScalingGroupConfiguration = AutoScalingGroupConfiguration'
-  { -- | The instance type for the Auto Scaling group.
-    instanceType :: Prelude.Maybe Prelude.Text,
-    -- | The minimum size, or minimum number of instances, for the Auto Scaling
+  { -- | The desired capacity, or number of instances, for the Auto Scaling
     -- group.
-    minSize :: Prelude.Maybe Prelude.Int,
+    desiredCapacity :: Prelude.Maybe Prelude.Int,
+    -- | The instance type for the Auto Scaling group.
+    instanceType :: Prelude.Maybe Prelude.Text,
     -- | The maximum size, or maximum number of instances, for the Auto Scaling
     -- group.
     maxSize :: Prelude.Maybe Prelude.Int,
-    -- | The desired capacity, or number of instances, for the Auto Scaling
+    -- | The minimum size, or minimum number of instances, for the Auto Scaling
     -- group.
-    desiredCapacity :: Prelude.Maybe Prelude.Int
+    minSize :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,45 +50,45 @@ data AutoScalingGroupConfiguration = AutoScalingGroupConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceType', 'autoScalingGroupConfiguration_instanceType' - The instance type for the Auto Scaling group.
---
--- 'minSize', 'autoScalingGroupConfiguration_minSize' - The minimum size, or minimum number of instances, for the Auto Scaling
+-- 'desiredCapacity', 'autoScalingGroupConfiguration_desiredCapacity' - The desired capacity, or number of instances, for the Auto Scaling
 -- group.
+--
+-- 'instanceType', 'autoScalingGroupConfiguration_instanceType' - The instance type for the Auto Scaling group.
 --
 -- 'maxSize', 'autoScalingGroupConfiguration_maxSize' - The maximum size, or maximum number of instances, for the Auto Scaling
 -- group.
 --
--- 'desiredCapacity', 'autoScalingGroupConfiguration_desiredCapacity' - The desired capacity, or number of instances, for the Auto Scaling
+-- 'minSize', 'autoScalingGroupConfiguration_minSize' - The minimum size, or minimum number of instances, for the Auto Scaling
 -- group.
 newAutoScalingGroupConfiguration ::
   AutoScalingGroupConfiguration
 newAutoScalingGroupConfiguration =
   AutoScalingGroupConfiguration'
-    { instanceType =
+    { desiredCapacity =
         Prelude.Nothing,
-      minSize = Prelude.Nothing,
+      instanceType = Prelude.Nothing,
       maxSize = Prelude.Nothing,
-      desiredCapacity = Prelude.Nothing
+      minSize = Prelude.Nothing
     }
+
+-- | The desired capacity, or number of instances, for the Auto Scaling
+-- group.
+autoScalingGroupConfiguration_desiredCapacity :: Lens.Lens' AutoScalingGroupConfiguration (Prelude.Maybe Prelude.Int)
+autoScalingGroupConfiguration_desiredCapacity = Lens.lens (\AutoScalingGroupConfiguration' {desiredCapacity} -> desiredCapacity) (\s@AutoScalingGroupConfiguration' {} a -> s {desiredCapacity = a} :: AutoScalingGroupConfiguration)
 
 -- | The instance type for the Auto Scaling group.
 autoScalingGroupConfiguration_instanceType :: Lens.Lens' AutoScalingGroupConfiguration (Prelude.Maybe Prelude.Text)
 autoScalingGroupConfiguration_instanceType = Lens.lens (\AutoScalingGroupConfiguration' {instanceType} -> instanceType) (\s@AutoScalingGroupConfiguration' {} a -> s {instanceType = a} :: AutoScalingGroupConfiguration)
-
--- | The minimum size, or minimum number of instances, for the Auto Scaling
--- group.
-autoScalingGroupConfiguration_minSize :: Lens.Lens' AutoScalingGroupConfiguration (Prelude.Maybe Prelude.Int)
-autoScalingGroupConfiguration_minSize = Lens.lens (\AutoScalingGroupConfiguration' {minSize} -> minSize) (\s@AutoScalingGroupConfiguration' {} a -> s {minSize = a} :: AutoScalingGroupConfiguration)
 
 -- | The maximum size, or maximum number of instances, for the Auto Scaling
 -- group.
 autoScalingGroupConfiguration_maxSize :: Lens.Lens' AutoScalingGroupConfiguration (Prelude.Maybe Prelude.Int)
 autoScalingGroupConfiguration_maxSize = Lens.lens (\AutoScalingGroupConfiguration' {maxSize} -> maxSize) (\s@AutoScalingGroupConfiguration' {} a -> s {maxSize = a} :: AutoScalingGroupConfiguration)
 
--- | The desired capacity, or number of instances, for the Auto Scaling
+-- | The minimum size, or minimum number of instances, for the Auto Scaling
 -- group.
-autoScalingGroupConfiguration_desiredCapacity :: Lens.Lens' AutoScalingGroupConfiguration (Prelude.Maybe Prelude.Int)
-autoScalingGroupConfiguration_desiredCapacity = Lens.lens (\AutoScalingGroupConfiguration' {desiredCapacity} -> desiredCapacity) (\s@AutoScalingGroupConfiguration' {} a -> s {desiredCapacity = a} :: AutoScalingGroupConfiguration)
+autoScalingGroupConfiguration_minSize :: Lens.Lens' AutoScalingGroupConfiguration (Prelude.Maybe Prelude.Int)
+autoScalingGroupConfiguration_minSize = Lens.lens (\AutoScalingGroupConfiguration' {minSize} -> minSize) (\s@AutoScalingGroupConfiguration' {} a -> s {minSize = a} :: AutoScalingGroupConfiguration)
 
 instance Data.FromJSON AutoScalingGroupConfiguration where
   parseJSON =
@@ -96,10 +96,10 @@ instance Data.FromJSON AutoScalingGroupConfiguration where
       "AutoScalingGroupConfiguration"
       ( \x ->
           AutoScalingGroupConfiguration'
-            Prelude.<$> (x Data..:? "instanceType")
-            Prelude.<*> (x Data..:? "minSize")
+            Prelude.<$> (x Data..:? "desiredCapacity")
+            Prelude.<*> (x Data..:? "instanceType")
             Prelude.<*> (x Data..:? "maxSize")
-            Prelude.<*> (x Data..:? "desiredCapacity")
+            Prelude.<*> (x Data..:? "minSize")
       )
 
 instance
@@ -107,14 +107,14 @@ instance
     AutoScalingGroupConfiguration
   where
   hashWithSalt _salt AutoScalingGroupConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` instanceType
-      `Prelude.hashWithSalt` minSize
+    _salt `Prelude.hashWithSalt` desiredCapacity
+      `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` maxSize
-      `Prelude.hashWithSalt` desiredCapacity
+      `Prelude.hashWithSalt` minSize
 
 instance Prelude.NFData AutoScalingGroupConfiguration where
   rnf AutoScalingGroupConfiguration' {..} =
-    Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf minSize
+    Prelude.rnf desiredCapacity
+      `Prelude.seq` Prelude.rnf instanceType
       `Prelude.seq` Prelude.rnf maxSize
-      `Prelude.seq` Prelude.rnf desiredCapacity
+      `Prelude.seq` Prelude.rnf minSize

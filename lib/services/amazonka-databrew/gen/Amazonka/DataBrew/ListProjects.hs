@@ -29,8 +29,8 @@ module Amazonka.DataBrew.ListProjects
     newListProjects,
 
     -- * Request Lenses
-    listProjects_nextToken,
     listProjects_maxResults,
+    listProjects_nextToken,
 
     -- * Destructuring the Response
     ListProjectsResponse (..),
@@ -53,11 +53,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListProjects' smart constructor.
 data ListProjects = ListProjects'
-  { -- | The token returned by a previous call to retrieve the next set of
+  { -- | The maximum number of results to return in this request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token returned by a previous call to retrieve the next set of
     -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in this request.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,26 +69,26 @@ data ListProjects = ListProjects'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listProjects_maxResults' - The maximum number of results to return in this request.
+--
 -- 'nextToken', 'listProjects_nextToken' - The token returned by a previous call to retrieve the next set of
 -- results.
---
--- 'maxResults', 'listProjects_maxResults' - The maximum number of results to return in this request.
 newListProjects ::
   ListProjects
 newListProjects =
   ListProjects'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of results to return in this request.
+listProjects_maxResults :: Lens.Lens' ListProjects (Prelude.Maybe Prelude.Natural)
+listProjects_maxResults = Lens.lens (\ListProjects' {maxResults} -> maxResults) (\s@ListProjects' {} a -> s {maxResults = a} :: ListProjects)
 
 -- | The token returned by a previous call to retrieve the next set of
 -- results.
 listProjects_nextToken :: Lens.Lens' ListProjects (Prelude.Maybe Prelude.Text)
 listProjects_nextToken = Lens.lens (\ListProjects' {nextToken} -> nextToken) (\s@ListProjects' {} a -> s {nextToken = a} :: ListProjects)
-
--- | The maximum number of results to return in this request.
-listProjects_maxResults :: Lens.Lens' ListProjects (Prelude.Maybe Prelude.Natural)
-listProjects_maxResults = Lens.lens (\ListProjects' {maxResults} -> maxResults) (\s@ListProjects' {} a -> s {maxResults = a} :: ListProjects)
 
 instance Core.AWSPager ListProjects where
   page rq rs
@@ -122,13 +122,13 @@ instance Core.AWSRequest ListProjects where
 
 instance Prelude.Hashable ListProjects where
   hashWithSalt _salt ListProjects' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListProjects where
   rnf ListProjects' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListProjects where
   toHeaders =
@@ -147,8 +147,8 @@ instance Data.ToPath ListProjects where
 instance Data.ToQuery ListProjects where
   toQuery ListProjects' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListProjectsResponse' smart constructor.

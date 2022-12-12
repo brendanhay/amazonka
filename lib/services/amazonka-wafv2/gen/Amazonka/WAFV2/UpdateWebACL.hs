@@ -60,12 +60,12 @@ module Amazonka.WAFV2.UpdateWebACL
     newUpdateWebACL,
 
     -- * Request Lenses
-    updateWebACL_tokenDomains,
     updateWebACL_captchaConfig,
-    updateWebACL_rules,
-    updateWebACL_description,
-    updateWebACL_customResponseBodies,
     updateWebACL_challengeConfig,
+    updateWebACL_customResponseBodies,
+    updateWebACL_description,
+    updateWebACL_rules,
+    updateWebACL_tokenDomains,
     updateWebACL_name,
     updateWebACL_scope,
     updateWebACL_id,
@@ -93,29 +93,14 @@ import Amazonka.WAFV2.Types
 
 -- | /See:/ 'newUpdateWebACL' smart constructor.
 data UpdateWebACL = UpdateWebACL'
-  { -- | Specifies the domains that WAF should accept in a web request token.
-    -- This enables the use of tokens across multiple protected websites. When
-    -- WAF provides a token, it uses the domain of the Amazon Web Services
-    -- resource that the web ACL is protecting. If you don\'t specify a list of
-    -- token domains, WAF accepts tokens only for the domain of the protected
-    -- resource. With a token domain list, WAF accepts the resource\'s host
-    -- domain plus all domains in the token domain list, including their
-    -- prefixed subdomains.
-    --
-    -- Example JSON:
-    -- @\"TokenDomains\": { \"mywebsite.com\", \"myotherwebsite.com\" }@
-    tokenDomains :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | Specifies how WAF should handle @CAPTCHA@ evaluations for rules that
+  { -- | Specifies how WAF should handle @CAPTCHA@ evaluations for rules that
     -- don\'t have their own @CaptchaConfig@ settings. If you don\'t specify
     -- this, WAF uses its default settings for @CaptchaConfig@.
     captchaConfig :: Prelude.Maybe CaptchaConfig,
-    -- | The Rule statements used to identify the web requests that you want to
-    -- allow, block, or count. Each rule includes one top-level statement that
-    -- WAF uses to identify matching web requests, and parameters that govern
-    -- how WAF handles them.
-    rules :: Prelude.Maybe [Rule],
-    -- | A description of the web ACL that helps with identification.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | Specifies how WAF should handle challenge evaluations for rules that
+    -- don\'t have their own @ChallengeConfig@ settings. If you don\'t specify
+    -- this, WAF uses its default settings for @ChallengeConfig@.
+    challengeConfig :: Prelude.Maybe ChallengeConfig,
     -- | A map of custom response keys and content bodies. When you create a rule
     -- with a block action, you can send a custom response to the web request.
     -- You define these for the web ACL, and then use them in the rules and
@@ -132,10 +117,25 @@ data UpdateWebACL = UpdateWebACL'
     -- in the
     -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
     customResponseBodies :: Prelude.Maybe (Prelude.HashMap Prelude.Text CustomResponseBody),
-    -- | Specifies how WAF should handle challenge evaluations for rules that
-    -- don\'t have their own @ChallengeConfig@ settings. If you don\'t specify
-    -- this, WAF uses its default settings for @ChallengeConfig@.
-    challengeConfig :: Prelude.Maybe ChallengeConfig,
+    -- | A description of the web ACL that helps with identification.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The Rule statements used to identify the web requests that you want to
+    -- allow, block, or count. Each rule includes one top-level statement that
+    -- WAF uses to identify matching web requests, and parameters that govern
+    -- how WAF handles them.
+    rules :: Prelude.Maybe [Rule],
+    -- | Specifies the domains that WAF should accept in a web request token.
+    -- This enables the use of tokens across multiple protected websites. When
+    -- WAF provides a token, it uses the domain of the Amazon Web Services
+    -- resource that the web ACL is protecting. If you don\'t specify a list of
+    -- token domains, WAF accepts tokens only for the domain of the protected
+    -- resource. With a token domain list, WAF accepts the resource\'s host
+    -- domain plus all domains in the token domain list, including their
+    -- prefixed subdomains.
+    --
+    -- Example JSON:
+    -- @\"TokenDomains\": { \"mywebsite.com\", \"myotherwebsite.com\" }@
+    tokenDomains :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The name of the web ACL. You cannot change the name of a web ACL after
     -- you create it.
     name :: Prelude.Text,
@@ -182,28 +182,13 @@ data UpdateWebACL = UpdateWebACL'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tokenDomains', 'updateWebACL_tokenDomains' - Specifies the domains that WAF should accept in a web request token.
--- This enables the use of tokens across multiple protected websites. When
--- WAF provides a token, it uses the domain of the Amazon Web Services
--- resource that the web ACL is protecting. If you don\'t specify a list of
--- token domains, WAF accepts tokens only for the domain of the protected
--- resource. With a token domain list, WAF accepts the resource\'s host
--- domain plus all domains in the token domain list, including their
--- prefixed subdomains.
---
--- Example JSON:
--- @\"TokenDomains\": { \"mywebsite.com\", \"myotherwebsite.com\" }@
---
 -- 'captchaConfig', 'updateWebACL_captchaConfig' - Specifies how WAF should handle @CAPTCHA@ evaluations for rules that
 -- don\'t have their own @CaptchaConfig@ settings. If you don\'t specify
 -- this, WAF uses its default settings for @CaptchaConfig@.
 --
--- 'rules', 'updateWebACL_rules' - The Rule statements used to identify the web requests that you want to
--- allow, block, or count. Each rule includes one top-level statement that
--- WAF uses to identify matching web requests, and parameters that govern
--- how WAF handles them.
---
--- 'description', 'updateWebACL_description' - A description of the web ACL that helps with identification.
+-- 'challengeConfig', 'updateWebACL_challengeConfig' - Specifies how WAF should handle challenge evaluations for rules that
+-- don\'t have their own @ChallengeConfig@ settings. If you don\'t specify
+-- this, WAF uses its default settings for @ChallengeConfig@.
 --
 -- 'customResponseBodies', 'updateWebACL_customResponseBodies' - A map of custom response keys and content bodies. When you create a rule
 -- with a block action, you can send a custom response to the web request.
@@ -221,9 +206,24 @@ data UpdateWebACL = UpdateWebACL'
 -- in the
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
 --
--- 'challengeConfig', 'updateWebACL_challengeConfig' - Specifies how WAF should handle challenge evaluations for rules that
--- don\'t have their own @ChallengeConfig@ settings. If you don\'t specify
--- this, WAF uses its default settings for @ChallengeConfig@.
+-- 'description', 'updateWebACL_description' - A description of the web ACL that helps with identification.
+--
+-- 'rules', 'updateWebACL_rules' - The Rule statements used to identify the web requests that you want to
+-- allow, block, or count. Each rule includes one top-level statement that
+-- WAF uses to identify matching web requests, and parameters that govern
+-- how WAF handles them.
+--
+-- 'tokenDomains', 'updateWebACL_tokenDomains' - Specifies the domains that WAF should accept in a web request token.
+-- This enables the use of tokens across multiple protected websites. When
+-- WAF provides a token, it uses the domain of the Amazon Web Services
+-- resource that the web ACL is protecting. If you don\'t specify a list of
+-- token domains, WAF accepts tokens only for the domain of the protected
+-- resource. With a token domain list, WAF accepts the resource\'s host
+-- domain plus all domains in the token domain list, including their
+-- prefixed subdomains.
+--
+-- Example JSON:
+-- @\"TokenDomains\": { \"mywebsite.com\", \"myotherwebsite.com\" }@
 --
 -- 'name', 'updateWebACL_name' - The name of the web ACL. You cannot change the name of a web ACL after
 -- you create it.
@@ -281,12 +281,12 @@ newUpdateWebACL
   pVisibilityConfig_
   pLockToken_ =
     UpdateWebACL'
-      { tokenDomains = Prelude.Nothing,
-        captchaConfig = Prelude.Nothing,
-        rules = Prelude.Nothing,
-        description = Prelude.Nothing,
-        customResponseBodies = Prelude.Nothing,
+      { captchaConfig = Prelude.Nothing,
         challengeConfig = Prelude.Nothing,
+        customResponseBodies = Prelude.Nothing,
+        description = Prelude.Nothing,
+        rules = Prelude.Nothing,
+        tokenDomains = Prelude.Nothing,
         name = pName_,
         scope = pScope_,
         id = pId_,
@@ -295,36 +295,17 @@ newUpdateWebACL
         lockToken = pLockToken_
       }
 
--- | Specifies the domains that WAF should accept in a web request token.
--- This enables the use of tokens across multiple protected websites. When
--- WAF provides a token, it uses the domain of the Amazon Web Services
--- resource that the web ACL is protecting. If you don\'t specify a list of
--- token domains, WAF accepts tokens only for the domain of the protected
--- resource. With a token domain list, WAF accepts the resource\'s host
--- domain plus all domains in the token domain list, including their
--- prefixed subdomains.
---
--- Example JSON:
--- @\"TokenDomains\": { \"mywebsite.com\", \"myotherwebsite.com\" }@
-updateWebACL_tokenDomains :: Lens.Lens' UpdateWebACL (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-updateWebACL_tokenDomains = Lens.lens (\UpdateWebACL' {tokenDomains} -> tokenDomains) (\s@UpdateWebACL' {} a -> s {tokenDomains = a} :: UpdateWebACL) Prelude.. Lens.mapping Lens.coerced
-
 -- | Specifies how WAF should handle @CAPTCHA@ evaluations for rules that
 -- don\'t have their own @CaptchaConfig@ settings. If you don\'t specify
 -- this, WAF uses its default settings for @CaptchaConfig@.
 updateWebACL_captchaConfig :: Lens.Lens' UpdateWebACL (Prelude.Maybe CaptchaConfig)
 updateWebACL_captchaConfig = Lens.lens (\UpdateWebACL' {captchaConfig} -> captchaConfig) (\s@UpdateWebACL' {} a -> s {captchaConfig = a} :: UpdateWebACL)
 
--- | The Rule statements used to identify the web requests that you want to
--- allow, block, or count. Each rule includes one top-level statement that
--- WAF uses to identify matching web requests, and parameters that govern
--- how WAF handles them.
-updateWebACL_rules :: Lens.Lens' UpdateWebACL (Prelude.Maybe [Rule])
-updateWebACL_rules = Lens.lens (\UpdateWebACL' {rules} -> rules) (\s@UpdateWebACL' {} a -> s {rules = a} :: UpdateWebACL) Prelude.. Lens.mapping Lens.coerced
-
--- | A description of the web ACL that helps with identification.
-updateWebACL_description :: Lens.Lens' UpdateWebACL (Prelude.Maybe Prelude.Text)
-updateWebACL_description = Lens.lens (\UpdateWebACL' {description} -> description) (\s@UpdateWebACL' {} a -> s {description = a} :: UpdateWebACL)
+-- | Specifies how WAF should handle challenge evaluations for rules that
+-- don\'t have their own @ChallengeConfig@ settings. If you don\'t specify
+-- this, WAF uses its default settings for @ChallengeConfig@.
+updateWebACL_challengeConfig :: Lens.Lens' UpdateWebACL (Prelude.Maybe ChallengeConfig)
+updateWebACL_challengeConfig = Lens.lens (\UpdateWebACL' {challengeConfig} -> challengeConfig) (\s@UpdateWebACL' {} a -> s {challengeConfig = a} :: UpdateWebACL)
 
 -- | A map of custom response keys and content bodies. When you create a rule
 -- with a block action, you can send a custom response to the web request.
@@ -344,11 +325,30 @@ updateWebACL_description = Lens.lens (\UpdateWebACL' {description} -> descriptio
 updateWebACL_customResponseBodies :: Lens.Lens' UpdateWebACL (Prelude.Maybe (Prelude.HashMap Prelude.Text CustomResponseBody))
 updateWebACL_customResponseBodies = Lens.lens (\UpdateWebACL' {customResponseBodies} -> customResponseBodies) (\s@UpdateWebACL' {} a -> s {customResponseBodies = a} :: UpdateWebACL) Prelude.. Lens.mapping Lens.coerced
 
--- | Specifies how WAF should handle challenge evaluations for rules that
--- don\'t have their own @ChallengeConfig@ settings. If you don\'t specify
--- this, WAF uses its default settings for @ChallengeConfig@.
-updateWebACL_challengeConfig :: Lens.Lens' UpdateWebACL (Prelude.Maybe ChallengeConfig)
-updateWebACL_challengeConfig = Lens.lens (\UpdateWebACL' {challengeConfig} -> challengeConfig) (\s@UpdateWebACL' {} a -> s {challengeConfig = a} :: UpdateWebACL)
+-- | A description of the web ACL that helps with identification.
+updateWebACL_description :: Lens.Lens' UpdateWebACL (Prelude.Maybe Prelude.Text)
+updateWebACL_description = Lens.lens (\UpdateWebACL' {description} -> description) (\s@UpdateWebACL' {} a -> s {description = a} :: UpdateWebACL)
+
+-- | The Rule statements used to identify the web requests that you want to
+-- allow, block, or count. Each rule includes one top-level statement that
+-- WAF uses to identify matching web requests, and parameters that govern
+-- how WAF handles them.
+updateWebACL_rules :: Lens.Lens' UpdateWebACL (Prelude.Maybe [Rule])
+updateWebACL_rules = Lens.lens (\UpdateWebACL' {rules} -> rules) (\s@UpdateWebACL' {} a -> s {rules = a} :: UpdateWebACL) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specifies the domains that WAF should accept in a web request token.
+-- This enables the use of tokens across multiple protected websites. When
+-- WAF provides a token, it uses the domain of the Amazon Web Services
+-- resource that the web ACL is protecting. If you don\'t specify a list of
+-- token domains, WAF accepts tokens only for the domain of the protected
+-- resource. With a token domain list, WAF accepts the resource\'s host
+-- domain plus all domains in the token domain list, including their
+-- prefixed subdomains.
+--
+-- Example JSON:
+-- @\"TokenDomains\": { \"mywebsite.com\", \"myotherwebsite.com\" }@
+updateWebACL_tokenDomains :: Lens.Lens' UpdateWebACL (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+updateWebACL_tokenDomains = Lens.lens (\UpdateWebACL' {tokenDomains} -> tokenDomains) (\s@UpdateWebACL' {} a -> s {tokenDomains = a} :: UpdateWebACL) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the web ACL. You cannot change the name of a web ACL after
 -- you create it.
@@ -411,12 +411,12 @@ instance Core.AWSRequest UpdateWebACL where
 
 instance Prelude.Hashable UpdateWebACL where
   hashWithSalt _salt UpdateWebACL' {..} =
-    _salt `Prelude.hashWithSalt` tokenDomains
-      `Prelude.hashWithSalt` captchaConfig
-      `Prelude.hashWithSalt` rules
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` customResponseBodies
+    _salt `Prelude.hashWithSalt` captchaConfig
       `Prelude.hashWithSalt` challengeConfig
+      `Prelude.hashWithSalt` customResponseBodies
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` rules
+      `Prelude.hashWithSalt` tokenDomains
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` scope
       `Prelude.hashWithSalt` id
@@ -426,12 +426,12 @@ instance Prelude.Hashable UpdateWebACL where
 
 instance Prelude.NFData UpdateWebACL where
   rnf UpdateWebACL' {..} =
-    Prelude.rnf tokenDomains
-      `Prelude.seq` Prelude.rnf captchaConfig
-      `Prelude.seq` Prelude.rnf rules
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf customResponseBodies
+    Prelude.rnf captchaConfig
       `Prelude.seq` Prelude.rnf challengeConfig
+      `Prelude.seq` Prelude.rnf customResponseBodies
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf rules
+      `Prelude.seq` Prelude.rnf tokenDomains
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf scope
       `Prelude.seq` Prelude.rnf id
@@ -458,14 +458,14 @@ instance Data.ToJSON UpdateWebACL where
   toJSON UpdateWebACL' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("TokenDomains" Data..=) Prelude.<$> tokenDomains,
-            ("CaptchaConfig" Data..=) Prelude.<$> captchaConfig,
-            ("Rules" Data..=) Prelude.<$> rules,
-            ("Description" Data..=) Prelude.<$> description,
-            ("CustomResponseBodies" Data..=)
-              Prelude.<$> customResponseBodies,
+          [ ("CaptchaConfig" Data..=) Prelude.<$> captchaConfig,
             ("ChallengeConfig" Data..=)
               Prelude.<$> challengeConfig,
+            ("CustomResponseBodies" Data..=)
+              Prelude.<$> customResponseBodies,
+            ("Description" Data..=) Prelude.<$> description,
+            ("Rules" Data..=) Prelude.<$> rules,
+            ("TokenDomains" Data..=) Prelude.<$> tokenDomains,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("Scope" Data..= scope),
             Prelude.Just ("Id" Data..= id),

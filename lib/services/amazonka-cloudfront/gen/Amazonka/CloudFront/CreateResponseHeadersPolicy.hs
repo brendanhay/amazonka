@@ -45,9 +45,9 @@ module Amazonka.CloudFront.CreateResponseHeadersPolicy
     newCreateResponseHeadersPolicyResponse,
 
     -- * Response Lenses
-    createResponseHeadersPolicyResponse_responseHeadersPolicy,
-    createResponseHeadersPolicyResponse_location,
     createResponseHeadersPolicyResponse_eTag,
+    createResponseHeadersPolicyResponse_location,
+    createResponseHeadersPolicyResponse_responseHeadersPolicy,
     createResponseHeadersPolicyResponse_httpStatus,
   )
 where
@@ -104,9 +104,9 @@ instance Core.AWSRequest CreateResponseHeadersPolicy where
     Response.receiveXML
       ( \s h x ->
           CreateResponseHeadersPolicyResponse'
-            Prelude.<$> (Data.parseXML x)
+            Prelude.<$> (h Data..#? "ETag")
             Prelude.<*> (h Data..#? "Location")
-            Prelude.<*> (h Data..#? "ETag")
+            Prelude.<*> (Data.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,13 +137,13 @@ instance Data.ToQuery CreateResponseHeadersPolicy where
 
 -- | /See:/ 'newCreateResponseHeadersPolicyResponse' smart constructor.
 data CreateResponseHeadersPolicyResponse = CreateResponseHeadersPolicyResponse'
-  { -- | Contains a response headers policy.
-    responseHeadersPolicy :: Prelude.Maybe ResponseHeadersPolicy,
-    -- | The URL of the response headers policy.
-    location :: Prelude.Maybe Prelude.Text,
-    -- | The version identifier for the current version of the response headers
+  { -- | The version identifier for the current version of the response headers
     -- policy.
     eTag :: Prelude.Maybe Prelude.Text,
+    -- | The URL of the response headers policy.
+    location :: Prelude.Maybe Prelude.Text,
+    -- | Contains a response headers policy.
+    responseHeadersPolicy :: Prelude.Maybe ResponseHeadersPolicy,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -157,12 +157,12 @@ data CreateResponseHeadersPolicyResponse = CreateResponseHeadersPolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'responseHeadersPolicy', 'createResponseHeadersPolicyResponse_responseHeadersPolicy' - Contains a response headers policy.
+-- 'eTag', 'createResponseHeadersPolicyResponse_eTag' - The version identifier for the current version of the response headers
+-- policy.
 --
 -- 'location', 'createResponseHeadersPolicyResponse_location' - The URL of the response headers policy.
 --
--- 'eTag', 'createResponseHeadersPolicyResponse_eTag' - The version identifier for the current version of the response headers
--- policy.
+-- 'responseHeadersPolicy', 'createResponseHeadersPolicyResponse_responseHeadersPolicy' - Contains a response headers policy.
 --
 -- 'httpStatus', 'createResponseHeadersPolicyResponse_httpStatus' - The response's http status code.
 newCreateResponseHeadersPolicyResponse ::
@@ -171,25 +171,26 @@ newCreateResponseHeadersPolicyResponse ::
   CreateResponseHeadersPolicyResponse
 newCreateResponseHeadersPolicyResponse pHttpStatus_ =
   CreateResponseHeadersPolicyResponse'
-    { responseHeadersPolicy =
+    { eTag =
         Prelude.Nothing,
       location = Prelude.Nothing,
-      eTag = Prelude.Nothing,
+      responseHeadersPolicy =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Contains a response headers policy.
-createResponseHeadersPolicyResponse_responseHeadersPolicy :: Lens.Lens' CreateResponseHeadersPolicyResponse (Prelude.Maybe ResponseHeadersPolicy)
-createResponseHeadersPolicyResponse_responseHeadersPolicy = Lens.lens (\CreateResponseHeadersPolicyResponse' {responseHeadersPolicy} -> responseHeadersPolicy) (\s@CreateResponseHeadersPolicyResponse' {} a -> s {responseHeadersPolicy = a} :: CreateResponseHeadersPolicyResponse)
-
--- | The URL of the response headers policy.
-createResponseHeadersPolicyResponse_location :: Lens.Lens' CreateResponseHeadersPolicyResponse (Prelude.Maybe Prelude.Text)
-createResponseHeadersPolicyResponse_location = Lens.lens (\CreateResponseHeadersPolicyResponse' {location} -> location) (\s@CreateResponseHeadersPolicyResponse' {} a -> s {location = a} :: CreateResponseHeadersPolicyResponse)
 
 -- | The version identifier for the current version of the response headers
 -- policy.
 createResponseHeadersPolicyResponse_eTag :: Lens.Lens' CreateResponseHeadersPolicyResponse (Prelude.Maybe Prelude.Text)
 createResponseHeadersPolicyResponse_eTag = Lens.lens (\CreateResponseHeadersPolicyResponse' {eTag} -> eTag) (\s@CreateResponseHeadersPolicyResponse' {} a -> s {eTag = a} :: CreateResponseHeadersPolicyResponse)
+
+-- | The URL of the response headers policy.
+createResponseHeadersPolicyResponse_location :: Lens.Lens' CreateResponseHeadersPolicyResponse (Prelude.Maybe Prelude.Text)
+createResponseHeadersPolicyResponse_location = Lens.lens (\CreateResponseHeadersPolicyResponse' {location} -> location) (\s@CreateResponseHeadersPolicyResponse' {} a -> s {location = a} :: CreateResponseHeadersPolicyResponse)
+
+-- | Contains a response headers policy.
+createResponseHeadersPolicyResponse_responseHeadersPolicy :: Lens.Lens' CreateResponseHeadersPolicyResponse (Prelude.Maybe ResponseHeadersPolicy)
+createResponseHeadersPolicyResponse_responseHeadersPolicy = Lens.lens (\CreateResponseHeadersPolicyResponse' {responseHeadersPolicy} -> responseHeadersPolicy) (\s@CreateResponseHeadersPolicyResponse' {} a -> s {responseHeadersPolicy = a} :: CreateResponseHeadersPolicyResponse)
 
 -- | The response's http status code.
 createResponseHeadersPolicyResponse_httpStatus :: Lens.Lens' CreateResponseHeadersPolicyResponse Prelude.Int
@@ -200,7 +201,7 @@ instance
     CreateResponseHeadersPolicyResponse
   where
   rnf CreateResponseHeadersPolicyResponse' {..} =
-    Prelude.rnf responseHeadersPolicy
+    Prelude.rnf eTag
       `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf responseHeadersPolicy
       `Prelude.seq` Prelude.rnf httpStatus

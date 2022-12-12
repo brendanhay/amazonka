@@ -29,11 +29,11 @@ module Amazonka.AutoScalingPlans.DescribeScalingPlans
     newDescribeScalingPlans,
 
     -- * Request Lenses
-    describeScalingPlans_nextToken,
-    describeScalingPlans_scalingPlanVersion,
     describeScalingPlans_applicationSources,
     describeScalingPlans_maxResults,
+    describeScalingPlans_nextToken,
     describeScalingPlans_scalingPlanNames,
+    describeScalingPlans_scalingPlanVersion,
 
     -- * Destructuring the Response
     DescribeScalingPlansResponse (..),
@@ -56,23 +56,23 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeScalingPlans' smart constructor.
 data DescribeScalingPlans = DescribeScalingPlans'
-  { -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The version number of the scaling plan. Currently, the only valid value
-    -- is @1@.
-    --
-    -- If you specify a scaling plan version, you must also specify a scaling
-    -- plan name.
-    scalingPlanVersion :: Prelude.Maybe Prelude.Integer,
-    -- | The sources for the applications (up to 10). If you specify scaling plan
+  { -- | The sources for the applications (up to 10). If you specify scaling plan
     -- names, you cannot specify application sources.
     applicationSources :: Prelude.Maybe [ApplicationSource],
     -- | The maximum number of scalable resources to return. This value can be
     -- between 1 and 50. The default value is 50.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The names of the scaling plans (up to 10). If you specify application
     -- sources, you cannot specify scaling plan names.
-    scalingPlanNames :: Prelude.Maybe [Prelude.Text]
+    scalingPlanNames :: Prelude.Maybe [Prelude.Text],
+    -- | The version number of the scaling plan. Currently, the only valid value
+    -- is @1@.
+    --
+    -- If you specify a scaling plan version, you must also specify a scaling
+    -- plan name.
+    scalingPlanVersion :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,44 +84,33 @@ data DescribeScalingPlans = DescribeScalingPlans'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeScalingPlans_nextToken' - The token for the next set of results.
---
--- 'scalingPlanVersion', 'describeScalingPlans_scalingPlanVersion' - The version number of the scaling plan. Currently, the only valid value
--- is @1@.
---
--- If you specify a scaling plan version, you must also specify a scaling
--- plan name.
---
 -- 'applicationSources', 'describeScalingPlans_applicationSources' - The sources for the applications (up to 10). If you specify scaling plan
 -- names, you cannot specify application sources.
 --
 -- 'maxResults', 'describeScalingPlans_maxResults' - The maximum number of scalable resources to return. This value can be
 -- between 1 and 50. The default value is 50.
 --
+-- 'nextToken', 'describeScalingPlans_nextToken' - The token for the next set of results.
+--
 -- 'scalingPlanNames', 'describeScalingPlans_scalingPlanNames' - The names of the scaling plans (up to 10). If you specify application
 -- sources, you cannot specify scaling plan names.
-newDescribeScalingPlans ::
-  DescribeScalingPlans
-newDescribeScalingPlans =
-  DescribeScalingPlans'
-    { nextToken = Prelude.Nothing,
-      scalingPlanVersion = Prelude.Nothing,
-      applicationSources = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      scalingPlanNames = Prelude.Nothing
-    }
-
--- | The token for the next set of results.
-describeScalingPlans_nextToken :: Lens.Lens' DescribeScalingPlans (Prelude.Maybe Prelude.Text)
-describeScalingPlans_nextToken = Lens.lens (\DescribeScalingPlans' {nextToken} -> nextToken) (\s@DescribeScalingPlans' {} a -> s {nextToken = a} :: DescribeScalingPlans)
-
--- | The version number of the scaling plan. Currently, the only valid value
+--
+-- 'scalingPlanVersion', 'describeScalingPlans_scalingPlanVersion' - The version number of the scaling plan. Currently, the only valid value
 -- is @1@.
 --
 -- If you specify a scaling plan version, you must also specify a scaling
 -- plan name.
-describeScalingPlans_scalingPlanVersion :: Lens.Lens' DescribeScalingPlans (Prelude.Maybe Prelude.Integer)
-describeScalingPlans_scalingPlanVersion = Lens.lens (\DescribeScalingPlans' {scalingPlanVersion} -> scalingPlanVersion) (\s@DescribeScalingPlans' {} a -> s {scalingPlanVersion = a} :: DescribeScalingPlans)
+newDescribeScalingPlans ::
+  DescribeScalingPlans
+newDescribeScalingPlans =
+  DescribeScalingPlans'
+    { applicationSources =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      scalingPlanNames = Prelude.Nothing,
+      scalingPlanVersion = Prelude.Nothing
+    }
 
 -- | The sources for the applications (up to 10). If you specify scaling plan
 -- names, you cannot specify application sources.
@@ -133,10 +122,22 @@ describeScalingPlans_applicationSources = Lens.lens (\DescribeScalingPlans' {app
 describeScalingPlans_maxResults :: Lens.Lens' DescribeScalingPlans (Prelude.Maybe Prelude.Int)
 describeScalingPlans_maxResults = Lens.lens (\DescribeScalingPlans' {maxResults} -> maxResults) (\s@DescribeScalingPlans' {} a -> s {maxResults = a} :: DescribeScalingPlans)
 
+-- | The token for the next set of results.
+describeScalingPlans_nextToken :: Lens.Lens' DescribeScalingPlans (Prelude.Maybe Prelude.Text)
+describeScalingPlans_nextToken = Lens.lens (\DescribeScalingPlans' {nextToken} -> nextToken) (\s@DescribeScalingPlans' {} a -> s {nextToken = a} :: DescribeScalingPlans)
+
 -- | The names of the scaling plans (up to 10). If you specify application
 -- sources, you cannot specify scaling plan names.
 describeScalingPlans_scalingPlanNames :: Lens.Lens' DescribeScalingPlans (Prelude.Maybe [Prelude.Text])
 describeScalingPlans_scalingPlanNames = Lens.lens (\DescribeScalingPlans' {scalingPlanNames} -> scalingPlanNames) (\s@DescribeScalingPlans' {} a -> s {scalingPlanNames = a} :: DescribeScalingPlans) Prelude.. Lens.mapping Lens.coerced
+
+-- | The version number of the scaling plan. Currently, the only valid value
+-- is @1@.
+--
+-- If you specify a scaling plan version, you must also specify a scaling
+-- plan name.
+describeScalingPlans_scalingPlanVersion :: Lens.Lens' DescribeScalingPlans (Prelude.Maybe Prelude.Integer)
+describeScalingPlans_scalingPlanVersion = Lens.lens (\DescribeScalingPlans' {scalingPlanVersion} -> scalingPlanVersion) (\s@DescribeScalingPlans' {} a -> s {scalingPlanVersion = a} :: DescribeScalingPlans)
 
 instance Core.AWSPager DescribeScalingPlans where
   page rq rs
@@ -177,19 +178,19 @@ instance Core.AWSRequest DescribeScalingPlans where
 
 instance Prelude.Hashable DescribeScalingPlans where
   hashWithSalt _salt DescribeScalingPlans' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` scalingPlanVersion
-      `Prelude.hashWithSalt` applicationSources
+    _salt `Prelude.hashWithSalt` applicationSources
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` scalingPlanNames
+      `Prelude.hashWithSalt` scalingPlanVersion
 
 instance Prelude.NFData DescribeScalingPlans where
   rnf DescribeScalingPlans' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf scalingPlanVersion
-      `Prelude.seq` Prelude.rnf applicationSources
+    Prelude.rnf applicationSources
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf scalingPlanNames
+      `Prelude.seq` Prelude.rnf scalingPlanVersion
 
 instance Data.ToHeaders DescribeScalingPlans where
   toHeaders =
@@ -210,14 +211,14 @@ instance Data.ToJSON DescribeScalingPlans where
   toJSON DescribeScalingPlans' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("ScalingPlanVersion" Data..=)
-              Prelude.<$> scalingPlanVersion,
-            ("ApplicationSources" Data..=)
+          [ ("ApplicationSources" Data..=)
               Prelude.<$> applicationSources,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("ScalingPlanNames" Data..=)
-              Prelude.<$> scalingPlanNames
+              Prelude.<$> scalingPlanNames,
+            ("ScalingPlanVersion" Data..=)
+              Prelude.<$> scalingPlanVersion
           ]
       )
 

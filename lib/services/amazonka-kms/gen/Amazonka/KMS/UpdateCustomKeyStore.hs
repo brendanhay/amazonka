@@ -20,44 +20,78 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes the properties of a custom key store. Use the @CustomKeyStoreId@
--- parameter to identify the custom key store you want to edit. Use the
--- remaining parameters to change the properties of the custom key store.
+-- Changes the properties of a custom key store. You can use this operation
+-- to change the properties of an CloudHSM key store or an external key
+-- store.
 --
--- You can only update a custom key store that is disconnected. To
--- disconnect the custom key store, use DisconnectCustomKeyStore. To
--- reconnect the custom key store after the update completes, use
--- ConnectCustomKeyStore. To find the connection state of a custom key
--- store, use the DescribeCustomKeyStores operation.
---
--- The @CustomKeyStoreId@ parameter is required in all commands. Use the
--- other parameters of @UpdateCustomKeyStore@ to edit your key store
--- settings.
---
--- -   Use the @NewCustomKeyStoreName@ parameter to change the friendly
---     name of the custom key store to the value that you specify.
---
--- -   Use the @KeyStorePassword@ parameter tell KMS the current password
---     of the
---     <https://docs.aws.amazon.com/kms/latest/developerguide/key-store-concepts.html#concept-kmsuser kmsuser crypto user (CU)>
---     in the associated CloudHSM cluster. You can use this parameter to
---     <https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#fix-keystore-password fix connection failures>
---     that occur when KMS cannot log into the associated cluster because
---     the @kmsuser@ password has changed. This value does not change the
---     password in the CloudHSM cluster.
---
--- -   Use the @CloudHsmClusterId@ parameter to associate the custom key
---     store with a different, but related, CloudHSM cluster. You can use
---     this parameter to repair a custom key store if its CloudHSM cluster
---     becomes corrupted or is deleted, or when you need to create or
---     restore a cluster from a backup.
---
--- If the operation succeeds, it returns a JSON object with no properties.
+-- Use the required @CustomKeyStoreId@ parameter to identify the custom key
+-- store. Use the remaining optional parameters to change its properties.
+-- This operation does not return any property values. To verify the
+-- updated property values, use the DescribeCustomKeyStores operation.
 --
 -- This operation is part of the
--- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store feature>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key stores>
 -- feature in KMS, which combines the convenience and extensive integration
--- of KMS with the isolation and control of a single-tenant key store.
+-- of KMS with the isolation and control of a key store that you own and
+-- manage.
+--
+-- When updating the properties of an external key store, verify that the
+-- updated settings connect your key store, via the external key store
+-- proxy, to the same external key manager as the previous settings, or to
+-- a backup or snapshot of the external key manager with the same
+-- cryptographic keys. If the updated connection settings fail, you can fix
+-- them and retry, although an extended delay might disrupt Amazon Web
+-- Services services. However, if KMS permanently loses its access to
+-- cryptographic keys, ciphertext encrypted under those keys is
+-- unrecoverable.
+--
+-- For external key stores:
+--
+-- Some external key managers provide a simpler method for updating an
+-- external key store. For details, see your external key manager
+-- documentation.
+--
+-- When updating an external key store in the KMS console, you can upload a
+-- JSON-based proxy configuration file with the desired values. You cannot
+-- upload the proxy configuration file to the @UpdateCustomKeyStore@
+-- operation. However, you can use the file to help you determine the
+-- correct values for the @UpdateCustomKeyStore@ parameters.
+--
+-- For an CloudHSM key store, you can use this operation to change the
+-- custom key store friendly name (@NewCustomKeyStoreName@), to tell KMS
+-- about a change to the @kmsuser@ crypto user password
+-- (@KeyStorePassword@), or to associate the custom key store with a
+-- different, but related, CloudHSM cluster (@CloudHsmClusterId@). To
+-- update any property of an CloudHSM key store, the @ConnectionState@ of
+-- the CloudHSM key store must be @DISCONNECTED@.
+--
+-- For an external key store, you can use this operation to change the
+-- custom key store friendly name (@NewCustomKeyStoreName@), or to tell KMS
+-- about a change to the external key store proxy authentication
+-- credentials (@XksProxyAuthenticationCredential@), connection method
+-- (@XksProxyConnectivity@), external proxy endpoint
+-- (@XksProxyUriEndpoint@) and path (@XksProxyUriPath@). For external key
+-- stores with an @XksProxyConnectivity@ of @VPC_ENDPOINT_SERVICE@, you can
+-- also update the Amazon VPC endpoint service name
+-- (@XksProxyVpcEndpointServiceName@). To update most properties of an
+-- external key store, the @ConnectionState@ of the external key store must
+-- be @DISCONNECTED@. However, you can update the @CustomKeyStoreName@,
+-- @XksProxyAuthenticationCredential@, and @XksProxyUriPath@ of an external
+-- key store when it is in the CONNECTED or DISCONNECTED state.
+--
+-- If your update requires a @DISCONNECTED@ state, before using
+-- @UpdateCustomKeyStore@, use the DisconnectCustomKeyStore operation to
+-- disconnect the custom key store. After the @UpdateCustomKeyStore@
+-- operation completes, use the ConnectCustomKeyStore to reconnect the
+-- custom key store. To find the @ConnectionState@ of the custom key store,
+-- use the DescribeCustomKeyStores operation.
+--
+-- Before updating the custom key store, verify that the new values allow
+-- KMS to connect the custom key store to its backing key store. For
+-- example, before you change the @XksProxyUriPath@ value, verify that the
+-- external key store proxy is reachable at the new path.
+--
+-- If the operation succeeds, it returns a JSON object with no properties.
 --
 -- __Cross-account use__: No. You cannot perform this operation on a custom
 -- key store in a different Amazon Web Services account.
@@ -83,9 +117,14 @@ module Amazonka.KMS.UpdateCustomKeyStore
     newUpdateCustomKeyStore,
 
     -- * Request Lenses
-    updateCustomKeyStore_newCustomKeyStoreName,
-    updateCustomKeyStore_keyStorePassword,
     updateCustomKeyStore_cloudHsmClusterId,
+    updateCustomKeyStore_keyStorePassword,
+    updateCustomKeyStore_newCustomKeyStoreName,
+    updateCustomKeyStore_xksProxyAuthenticationCredential,
+    updateCustomKeyStore_xksProxyConnectivity,
+    updateCustomKeyStore_xksProxyUriEndpoint,
+    updateCustomKeyStore_xksProxyUriPath,
+    updateCustomKeyStore_xksProxyVpcEndpointServiceName,
     updateCustomKeyStore_customKeyStoreId,
 
     -- * Destructuring the Response
@@ -107,18 +146,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateCustomKeyStore' smart constructor.
 data UpdateCustomKeyStore = UpdateCustomKeyStore'
-  { -- | Changes the friendly name of the custom key store to the value that you
-    -- specify. The custom key store name must be unique in the Amazon Web
-    -- Services account.
-    newCustomKeyStoreName' :: Prelude.Maybe Prelude.Text,
-    -- | Enter the current password of the @kmsuser@ crypto user (CU) in the
-    -- CloudHSM cluster that is associated with the custom key store.
-    --
-    -- This parameter tells KMS the current password of the @kmsuser@ crypto
-    -- user (CU). It does not set or change the password of any users in the
-    -- CloudHSM cluster.
-    keyStorePassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | Associates the custom key store with a related CloudHSM cluster.
+  { -- | Associates the custom key store with a related CloudHSM cluster. This
+    -- parameter is valid only for custom key stores with a
+    -- @CustomKeyStoreType@ of @AWS_CLOUDHSM@.
     --
     -- Enter the cluster ID of the cluster that you used to create the custom
     -- key store or a cluster that shares a backup history and has the same
@@ -130,7 +160,98 @@ data UpdateCustomKeyStore = UpdateCustomKeyStore'
     -- certificate of a cluster, use the
     -- <https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html DescribeClusters>
     -- operation.
+    --
+    -- To change this value, the CloudHSM key store must be disconnected.
     cloudHsmClusterId :: Prelude.Maybe Prelude.Text,
+    -- | Enter the current password of the @kmsuser@ crypto user (CU) in the
+    -- CloudHSM cluster that is associated with the custom key store. This
+    -- parameter is valid only for custom key stores with a
+    -- @CustomKeyStoreType@ of @AWS_CLOUDHSM@.
+    --
+    -- This parameter tells KMS the current password of the @kmsuser@ crypto
+    -- user (CU). It does not set or change the password of any users in the
+    -- CloudHSM cluster.
+    --
+    -- To change this value, the CloudHSM key store must be disconnected.
+    keyStorePassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | Changes the friendly name of the custom key store to the value that you
+    -- specify. The custom key store name must be unique in the Amazon Web
+    -- Services account.
+    --
+    -- To change this value, an CloudHSM key store must be disconnected. An
+    -- external key store can be connected or disconnected.
+    newCustomKeyStoreName' :: Prelude.Maybe Prelude.Text,
+    -- | Changes the credentials that KMS uses to sign requests to the external
+    -- key store proxy (XKS proxy). This parameter is valid only for custom key
+    -- stores with a @CustomKeyStoreType@ of @EXTERNAL_KEY_STORE@.
+    --
+    -- You must specify both the @AccessKeyId@ and @SecretAccessKey@ value in
+    -- the authentication credential, even if you are only updating one value.
+    --
+    -- This parameter doesn\'t establish or change your authentication
+    -- credentials on the proxy. It just tells KMS the credential that you
+    -- established with your external key store proxy. For example, if you
+    -- rotate the credential on your external key store proxy, you can use this
+    -- parameter to update the credential in KMS.
+    --
+    -- You can change this value when the external key store is connected or
+    -- disconnected.
+    xksProxyAuthenticationCredential :: Prelude.Maybe XksProxyAuthenticationCredentialType,
+    -- | Changes the connectivity setting for the external key store. To indicate
+    -- that the external key store proxy uses a Amazon VPC endpoint service to
+    -- communicate with KMS, specify @VPC_ENDPOINT_SERVICE@. Otherwise, specify
+    -- @PUBLIC_ENDPOINT@.
+    --
+    -- If you change the @XksProxyConnectivity@ to @VPC_ENDPOINT_SERVICE@, you
+    -- must also change the @XksProxyUriEndpoint@ and add an
+    -- @XksProxyVpcEndpointServiceName@ value.
+    --
+    -- If you change the @XksProxyConnectivity@ to @PUBLIC_ENDPOINT@, you must
+    -- also change the @XksProxyUriEndpoint@ and specify a null or empty string
+    -- for the @XksProxyVpcEndpointServiceName@ value.
+    --
+    -- To change this value, the external key store must be disconnected.
+    xksProxyConnectivity :: Prelude.Maybe XksProxyConnectivityType,
+    -- | Changes the URI endpoint that KMS uses to connect to your external key
+    -- store proxy (XKS proxy). This parameter is valid only for custom key
+    -- stores with a @CustomKeyStoreType@ of @EXTERNAL_KEY_STORE@.
+    --
+    -- For external key stores with an @XksProxyConnectivity@ value of
+    -- @PUBLIC_ENDPOINT@, the protocol must be HTTPS.
+    --
+    -- For external key stores with an @XksProxyConnectivity@ value of
+    -- @VPC_ENDPOINT_SERVICE@, specify @https:\/\/@ followed by the private DNS
+    -- name associated with the VPC endpoint service. Each external key store
+    -- must use a different private DNS name.
+    --
+    -- The combined @XksProxyUriEndpoint@ and @XksProxyUriPath@ values must be
+    -- unique in the Amazon Web Services account and Region.
+    --
+    -- To change this value, the external key store must be disconnected.
+    xksProxyUriEndpoint :: Prelude.Maybe Prelude.Text,
+    -- | Changes the base path to the proxy APIs for this external key store. To
+    -- find this value, see the documentation for your external key manager and
+    -- external key store proxy (XKS proxy). This parameter is valid only for
+    -- custom key stores with a @CustomKeyStoreType@ of @EXTERNAL_KEY_STORE@.
+    --
+    -- The value must start with @\/@ and must end with @\/kms\/xks\/v1@, where
+    -- @v1@ represents the version of the KMS external key store proxy API. You
+    -- can include an optional prefix between the required elements such as
+    -- @\/example\/kms\/xks\/v1@.
+    --
+    -- The combined @XksProxyUriEndpoint@ and @XksProxyUriPath@ values must be
+    -- unique in the Amazon Web Services account and Region.
+    --
+    -- You can change this value when the external key store is connected or
+    -- disconnected.
+    xksProxyUriPath :: Prelude.Maybe Prelude.Text,
+    -- | Changes the name that KMS uses to identify the Amazon VPC endpoint
+    -- service for your external key store proxy (XKS proxy). This parameter is
+    -- valid when the @CustomKeyStoreType@ is @EXTERNAL_KEY_STORE@ and the
+    -- @XksProxyConnectivity@ is @VPC_ENDPOINT_SERVICE@.
+    --
+    -- To change this value, the external key store must be disconnected.
+    xksProxyVpcEndpointServiceName :: Prelude.Maybe Prelude.Text,
     -- | Identifies the custom key store that you want to update. Enter the ID of
     -- the custom key store. To find the ID of a custom key store, use the
     -- DescribeCustomKeyStores operation.
@@ -146,18 +267,9 @@ data UpdateCustomKeyStore = UpdateCustomKeyStore'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'newCustomKeyStoreName'', 'updateCustomKeyStore_newCustomKeyStoreName' - Changes the friendly name of the custom key store to the value that you
--- specify. The custom key store name must be unique in the Amazon Web
--- Services account.
---
--- 'keyStorePassword', 'updateCustomKeyStore_keyStorePassword' - Enter the current password of the @kmsuser@ crypto user (CU) in the
--- CloudHSM cluster that is associated with the custom key store.
---
--- This parameter tells KMS the current password of the @kmsuser@ crypto
--- user (CU). It does not set or change the password of any users in the
--- CloudHSM cluster.
---
--- 'cloudHsmClusterId', 'updateCustomKeyStore_cloudHsmClusterId' - Associates the custom key store with a related CloudHSM cluster.
+-- 'cloudHsmClusterId', 'updateCustomKeyStore_cloudHsmClusterId' - Associates the custom key store with a related CloudHSM cluster. This
+-- parameter is valid only for custom key stores with a
+-- @CustomKeyStoreType@ of @AWS_CLOUDHSM@.
 --
 -- Enter the cluster ID of the cluster that you used to create the custom
 -- key store or a cluster that shares a backup history and has the same
@@ -169,6 +281,97 @@ data UpdateCustomKeyStore = UpdateCustomKeyStore'
 -- certificate of a cluster, use the
 -- <https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html DescribeClusters>
 -- operation.
+--
+-- To change this value, the CloudHSM key store must be disconnected.
+--
+-- 'keyStorePassword', 'updateCustomKeyStore_keyStorePassword' - Enter the current password of the @kmsuser@ crypto user (CU) in the
+-- CloudHSM cluster that is associated with the custom key store. This
+-- parameter is valid only for custom key stores with a
+-- @CustomKeyStoreType@ of @AWS_CLOUDHSM@.
+--
+-- This parameter tells KMS the current password of the @kmsuser@ crypto
+-- user (CU). It does not set or change the password of any users in the
+-- CloudHSM cluster.
+--
+-- To change this value, the CloudHSM key store must be disconnected.
+--
+-- 'newCustomKeyStoreName'', 'updateCustomKeyStore_newCustomKeyStoreName' - Changes the friendly name of the custom key store to the value that you
+-- specify. The custom key store name must be unique in the Amazon Web
+-- Services account.
+--
+-- To change this value, an CloudHSM key store must be disconnected. An
+-- external key store can be connected or disconnected.
+--
+-- 'xksProxyAuthenticationCredential', 'updateCustomKeyStore_xksProxyAuthenticationCredential' - Changes the credentials that KMS uses to sign requests to the external
+-- key store proxy (XKS proxy). This parameter is valid only for custom key
+-- stores with a @CustomKeyStoreType@ of @EXTERNAL_KEY_STORE@.
+--
+-- You must specify both the @AccessKeyId@ and @SecretAccessKey@ value in
+-- the authentication credential, even if you are only updating one value.
+--
+-- This parameter doesn\'t establish or change your authentication
+-- credentials on the proxy. It just tells KMS the credential that you
+-- established with your external key store proxy. For example, if you
+-- rotate the credential on your external key store proxy, you can use this
+-- parameter to update the credential in KMS.
+--
+-- You can change this value when the external key store is connected or
+-- disconnected.
+--
+-- 'xksProxyConnectivity', 'updateCustomKeyStore_xksProxyConnectivity' - Changes the connectivity setting for the external key store. To indicate
+-- that the external key store proxy uses a Amazon VPC endpoint service to
+-- communicate with KMS, specify @VPC_ENDPOINT_SERVICE@. Otherwise, specify
+-- @PUBLIC_ENDPOINT@.
+--
+-- If you change the @XksProxyConnectivity@ to @VPC_ENDPOINT_SERVICE@, you
+-- must also change the @XksProxyUriEndpoint@ and add an
+-- @XksProxyVpcEndpointServiceName@ value.
+--
+-- If you change the @XksProxyConnectivity@ to @PUBLIC_ENDPOINT@, you must
+-- also change the @XksProxyUriEndpoint@ and specify a null or empty string
+-- for the @XksProxyVpcEndpointServiceName@ value.
+--
+-- To change this value, the external key store must be disconnected.
+--
+-- 'xksProxyUriEndpoint', 'updateCustomKeyStore_xksProxyUriEndpoint' - Changes the URI endpoint that KMS uses to connect to your external key
+-- store proxy (XKS proxy). This parameter is valid only for custom key
+-- stores with a @CustomKeyStoreType@ of @EXTERNAL_KEY_STORE@.
+--
+-- For external key stores with an @XksProxyConnectivity@ value of
+-- @PUBLIC_ENDPOINT@, the protocol must be HTTPS.
+--
+-- For external key stores with an @XksProxyConnectivity@ value of
+-- @VPC_ENDPOINT_SERVICE@, specify @https:\/\/@ followed by the private DNS
+-- name associated with the VPC endpoint service. Each external key store
+-- must use a different private DNS name.
+--
+-- The combined @XksProxyUriEndpoint@ and @XksProxyUriPath@ values must be
+-- unique in the Amazon Web Services account and Region.
+--
+-- To change this value, the external key store must be disconnected.
+--
+-- 'xksProxyUriPath', 'updateCustomKeyStore_xksProxyUriPath' - Changes the base path to the proxy APIs for this external key store. To
+-- find this value, see the documentation for your external key manager and
+-- external key store proxy (XKS proxy). This parameter is valid only for
+-- custom key stores with a @CustomKeyStoreType@ of @EXTERNAL_KEY_STORE@.
+--
+-- The value must start with @\/@ and must end with @\/kms\/xks\/v1@, where
+-- @v1@ represents the version of the KMS external key store proxy API. You
+-- can include an optional prefix between the required elements such as
+-- @\/example\/kms\/xks\/v1@.
+--
+-- The combined @XksProxyUriEndpoint@ and @XksProxyUriPath@ values must be
+-- unique in the Amazon Web Services account and Region.
+--
+-- You can change this value when the external key store is connected or
+-- disconnected.
+--
+-- 'xksProxyVpcEndpointServiceName', 'updateCustomKeyStore_xksProxyVpcEndpointServiceName' - Changes the name that KMS uses to identify the Amazon VPC endpoint
+-- service for your external key store proxy (XKS proxy). This parameter is
+-- valid when the @CustomKeyStoreType@ is @EXTERNAL_KEY_STORE@ and the
+-- @XksProxyConnectivity@ is @VPC_ENDPOINT_SERVICE@.
+--
+-- To change this value, the external key store must be disconnected.
 --
 -- 'customKeyStoreId', 'updateCustomKeyStore_customKeyStoreId' - Identifies the custom key store that you want to update. Enter the ID of
 -- the custom key store. To find the ID of a custom key store, use the
@@ -179,29 +382,21 @@ newUpdateCustomKeyStore ::
   UpdateCustomKeyStore
 newUpdateCustomKeyStore pCustomKeyStoreId_ =
   UpdateCustomKeyStore'
-    { newCustomKeyStoreName' =
+    { cloudHsmClusterId =
         Prelude.Nothing,
       keyStorePassword = Prelude.Nothing,
-      cloudHsmClusterId = Prelude.Nothing,
+      newCustomKeyStoreName' = Prelude.Nothing,
+      xksProxyAuthenticationCredential = Prelude.Nothing,
+      xksProxyConnectivity = Prelude.Nothing,
+      xksProxyUriEndpoint = Prelude.Nothing,
+      xksProxyUriPath = Prelude.Nothing,
+      xksProxyVpcEndpointServiceName = Prelude.Nothing,
       customKeyStoreId = pCustomKeyStoreId_
     }
 
--- | Changes the friendly name of the custom key store to the value that you
--- specify. The custom key store name must be unique in the Amazon Web
--- Services account.
-updateCustomKeyStore_newCustomKeyStoreName :: Lens.Lens' UpdateCustomKeyStore (Prelude.Maybe Prelude.Text)
-updateCustomKeyStore_newCustomKeyStoreName = Lens.lens (\UpdateCustomKeyStore' {newCustomKeyStoreName'} -> newCustomKeyStoreName') (\s@UpdateCustomKeyStore' {} a -> s {newCustomKeyStoreName' = a} :: UpdateCustomKeyStore)
-
--- | Enter the current password of the @kmsuser@ crypto user (CU) in the
--- CloudHSM cluster that is associated with the custom key store.
---
--- This parameter tells KMS the current password of the @kmsuser@ crypto
--- user (CU). It does not set or change the password of any users in the
--- CloudHSM cluster.
-updateCustomKeyStore_keyStorePassword :: Lens.Lens' UpdateCustomKeyStore (Prelude.Maybe Prelude.Text)
-updateCustomKeyStore_keyStorePassword = Lens.lens (\UpdateCustomKeyStore' {keyStorePassword} -> keyStorePassword) (\s@UpdateCustomKeyStore' {} a -> s {keyStorePassword = a} :: UpdateCustomKeyStore) Prelude.. Lens.mapping Data._Sensitive
-
--- | Associates the custom key store with a related CloudHSM cluster.
+-- | Associates the custom key store with a related CloudHSM cluster. This
+-- parameter is valid only for custom key stores with a
+-- @CustomKeyStoreType@ of @AWS_CLOUDHSM@.
 --
 -- Enter the cluster ID of the cluster that you used to create the custom
 -- key store or a cluster that shares a backup history and has the same
@@ -213,8 +408,113 @@ updateCustomKeyStore_keyStorePassword = Lens.lens (\UpdateCustomKeyStore' {keySt
 -- certificate of a cluster, use the
 -- <https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html DescribeClusters>
 -- operation.
+--
+-- To change this value, the CloudHSM key store must be disconnected.
 updateCustomKeyStore_cloudHsmClusterId :: Lens.Lens' UpdateCustomKeyStore (Prelude.Maybe Prelude.Text)
 updateCustomKeyStore_cloudHsmClusterId = Lens.lens (\UpdateCustomKeyStore' {cloudHsmClusterId} -> cloudHsmClusterId) (\s@UpdateCustomKeyStore' {} a -> s {cloudHsmClusterId = a} :: UpdateCustomKeyStore)
+
+-- | Enter the current password of the @kmsuser@ crypto user (CU) in the
+-- CloudHSM cluster that is associated with the custom key store. This
+-- parameter is valid only for custom key stores with a
+-- @CustomKeyStoreType@ of @AWS_CLOUDHSM@.
+--
+-- This parameter tells KMS the current password of the @kmsuser@ crypto
+-- user (CU). It does not set or change the password of any users in the
+-- CloudHSM cluster.
+--
+-- To change this value, the CloudHSM key store must be disconnected.
+updateCustomKeyStore_keyStorePassword :: Lens.Lens' UpdateCustomKeyStore (Prelude.Maybe Prelude.Text)
+updateCustomKeyStore_keyStorePassword = Lens.lens (\UpdateCustomKeyStore' {keyStorePassword} -> keyStorePassword) (\s@UpdateCustomKeyStore' {} a -> s {keyStorePassword = a} :: UpdateCustomKeyStore) Prelude.. Lens.mapping Data._Sensitive
+
+-- | Changes the friendly name of the custom key store to the value that you
+-- specify. The custom key store name must be unique in the Amazon Web
+-- Services account.
+--
+-- To change this value, an CloudHSM key store must be disconnected. An
+-- external key store can be connected or disconnected.
+updateCustomKeyStore_newCustomKeyStoreName :: Lens.Lens' UpdateCustomKeyStore (Prelude.Maybe Prelude.Text)
+updateCustomKeyStore_newCustomKeyStoreName = Lens.lens (\UpdateCustomKeyStore' {newCustomKeyStoreName'} -> newCustomKeyStoreName') (\s@UpdateCustomKeyStore' {} a -> s {newCustomKeyStoreName' = a} :: UpdateCustomKeyStore)
+
+-- | Changes the credentials that KMS uses to sign requests to the external
+-- key store proxy (XKS proxy). This parameter is valid only for custom key
+-- stores with a @CustomKeyStoreType@ of @EXTERNAL_KEY_STORE@.
+--
+-- You must specify both the @AccessKeyId@ and @SecretAccessKey@ value in
+-- the authentication credential, even if you are only updating one value.
+--
+-- This parameter doesn\'t establish or change your authentication
+-- credentials on the proxy. It just tells KMS the credential that you
+-- established with your external key store proxy. For example, if you
+-- rotate the credential on your external key store proxy, you can use this
+-- parameter to update the credential in KMS.
+--
+-- You can change this value when the external key store is connected or
+-- disconnected.
+updateCustomKeyStore_xksProxyAuthenticationCredential :: Lens.Lens' UpdateCustomKeyStore (Prelude.Maybe XksProxyAuthenticationCredentialType)
+updateCustomKeyStore_xksProxyAuthenticationCredential = Lens.lens (\UpdateCustomKeyStore' {xksProxyAuthenticationCredential} -> xksProxyAuthenticationCredential) (\s@UpdateCustomKeyStore' {} a -> s {xksProxyAuthenticationCredential = a} :: UpdateCustomKeyStore)
+
+-- | Changes the connectivity setting for the external key store. To indicate
+-- that the external key store proxy uses a Amazon VPC endpoint service to
+-- communicate with KMS, specify @VPC_ENDPOINT_SERVICE@. Otherwise, specify
+-- @PUBLIC_ENDPOINT@.
+--
+-- If you change the @XksProxyConnectivity@ to @VPC_ENDPOINT_SERVICE@, you
+-- must also change the @XksProxyUriEndpoint@ and add an
+-- @XksProxyVpcEndpointServiceName@ value.
+--
+-- If you change the @XksProxyConnectivity@ to @PUBLIC_ENDPOINT@, you must
+-- also change the @XksProxyUriEndpoint@ and specify a null or empty string
+-- for the @XksProxyVpcEndpointServiceName@ value.
+--
+-- To change this value, the external key store must be disconnected.
+updateCustomKeyStore_xksProxyConnectivity :: Lens.Lens' UpdateCustomKeyStore (Prelude.Maybe XksProxyConnectivityType)
+updateCustomKeyStore_xksProxyConnectivity = Lens.lens (\UpdateCustomKeyStore' {xksProxyConnectivity} -> xksProxyConnectivity) (\s@UpdateCustomKeyStore' {} a -> s {xksProxyConnectivity = a} :: UpdateCustomKeyStore)
+
+-- | Changes the URI endpoint that KMS uses to connect to your external key
+-- store proxy (XKS proxy). This parameter is valid only for custom key
+-- stores with a @CustomKeyStoreType@ of @EXTERNAL_KEY_STORE@.
+--
+-- For external key stores with an @XksProxyConnectivity@ value of
+-- @PUBLIC_ENDPOINT@, the protocol must be HTTPS.
+--
+-- For external key stores with an @XksProxyConnectivity@ value of
+-- @VPC_ENDPOINT_SERVICE@, specify @https:\/\/@ followed by the private DNS
+-- name associated with the VPC endpoint service. Each external key store
+-- must use a different private DNS name.
+--
+-- The combined @XksProxyUriEndpoint@ and @XksProxyUriPath@ values must be
+-- unique in the Amazon Web Services account and Region.
+--
+-- To change this value, the external key store must be disconnected.
+updateCustomKeyStore_xksProxyUriEndpoint :: Lens.Lens' UpdateCustomKeyStore (Prelude.Maybe Prelude.Text)
+updateCustomKeyStore_xksProxyUriEndpoint = Lens.lens (\UpdateCustomKeyStore' {xksProxyUriEndpoint} -> xksProxyUriEndpoint) (\s@UpdateCustomKeyStore' {} a -> s {xksProxyUriEndpoint = a} :: UpdateCustomKeyStore)
+
+-- | Changes the base path to the proxy APIs for this external key store. To
+-- find this value, see the documentation for your external key manager and
+-- external key store proxy (XKS proxy). This parameter is valid only for
+-- custom key stores with a @CustomKeyStoreType@ of @EXTERNAL_KEY_STORE@.
+--
+-- The value must start with @\/@ and must end with @\/kms\/xks\/v1@, where
+-- @v1@ represents the version of the KMS external key store proxy API. You
+-- can include an optional prefix between the required elements such as
+-- @\/example\/kms\/xks\/v1@.
+--
+-- The combined @XksProxyUriEndpoint@ and @XksProxyUriPath@ values must be
+-- unique in the Amazon Web Services account and Region.
+--
+-- You can change this value when the external key store is connected or
+-- disconnected.
+updateCustomKeyStore_xksProxyUriPath :: Lens.Lens' UpdateCustomKeyStore (Prelude.Maybe Prelude.Text)
+updateCustomKeyStore_xksProxyUriPath = Lens.lens (\UpdateCustomKeyStore' {xksProxyUriPath} -> xksProxyUriPath) (\s@UpdateCustomKeyStore' {} a -> s {xksProxyUriPath = a} :: UpdateCustomKeyStore)
+
+-- | Changes the name that KMS uses to identify the Amazon VPC endpoint
+-- service for your external key store proxy (XKS proxy). This parameter is
+-- valid when the @CustomKeyStoreType@ is @EXTERNAL_KEY_STORE@ and the
+-- @XksProxyConnectivity@ is @VPC_ENDPOINT_SERVICE@.
+--
+-- To change this value, the external key store must be disconnected.
+updateCustomKeyStore_xksProxyVpcEndpointServiceName :: Lens.Lens' UpdateCustomKeyStore (Prelude.Maybe Prelude.Text)
+updateCustomKeyStore_xksProxyVpcEndpointServiceName = Lens.lens (\UpdateCustomKeyStore' {xksProxyVpcEndpointServiceName} -> xksProxyVpcEndpointServiceName) (\s@UpdateCustomKeyStore' {} a -> s {xksProxyVpcEndpointServiceName = a} :: UpdateCustomKeyStore)
 
 -- | Identifies the custom key store that you want to update. Enter the ID of
 -- the custom key store. To find the ID of a custom key store, use the
@@ -237,16 +537,26 @@ instance Core.AWSRequest UpdateCustomKeyStore where
 
 instance Prelude.Hashable UpdateCustomKeyStore where
   hashWithSalt _salt UpdateCustomKeyStore' {..} =
-    _salt `Prelude.hashWithSalt` newCustomKeyStoreName'
+    _salt `Prelude.hashWithSalt` cloudHsmClusterId
       `Prelude.hashWithSalt` keyStorePassword
-      `Prelude.hashWithSalt` cloudHsmClusterId
+      `Prelude.hashWithSalt` newCustomKeyStoreName'
+      `Prelude.hashWithSalt` xksProxyAuthenticationCredential
+      `Prelude.hashWithSalt` xksProxyConnectivity
+      `Prelude.hashWithSalt` xksProxyUriEndpoint
+      `Prelude.hashWithSalt` xksProxyUriPath
+      `Prelude.hashWithSalt` xksProxyVpcEndpointServiceName
       `Prelude.hashWithSalt` customKeyStoreId
 
 instance Prelude.NFData UpdateCustomKeyStore where
   rnf UpdateCustomKeyStore' {..} =
-    Prelude.rnf newCustomKeyStoreName'
+    Prelude.rnf cloudHsmClusterId
       `Prelude.seq` Prelude.rnf keyStorePassword
-      `Prelude.seq` Prelude.rnf cloudHsmClusterId
+      `Prelude.seq` Prelude.rnf newCustomKeyStoreName'
+      `Prelude.seq` Prelude.rnf xksProxyAuthenticationCredential
+      `Prelude.seq` Prelude.rnf xksProxyConnectivity
+      `Prelude.seq` Prelude.rnf xksProxyUriEndpoint
+      `Prelude.seq` Prelude.rnf xksProxyUriPath
+      `Prelude.seq` Prelude.rnf xksProxyVpcEndpointServiceName
       `Prelude.seq` Prelude.rnf customKeyStoreId
 
 instance Data.ToHeaders UpdateCustomKeyStore where
@@ -268,12 +578,22 @@ instance Data.ToJSON UpdateCustomKeyStore where
   toJSON UpdateCustomKeyStore' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NewCustomKeyStoreName" Data..=)
-              Prelude.<$> newCustomKeyStoreName',
+          [ ("CloudHsmClusterId" Data..=)
+              Prelude.<$> cloudHsmClusterId,
             ("KeyStorePassword" Data..=)
               Prelude.<$> keyStorePassword,
-            ("CloudHsmClusterId" Data..=)
-              Prelude.<$> cloudHsmClusterId,
+            ("NewCustomKeyStoreName" Data..=)
+              Prelude.<$> newCustomKeyStoreName',
+            ("XksProxyAuthenticationCredential" Data..=)
+              Prelude.<$> xksProxyAuthenticationCredential,
+            ("XksProxyConnectivity" Data..=)
+              Prelude.<$> xksProxyConnectivity,
+            ("XksProxyUriEndpoint" Data..=)
+              Prelude.<$> xksProxyUriEndpoint,
+            ("XksProxyUriPath" Data..=)
+              Prelude.<$> xksProxyUriPath,
+            ("XksProxyVpcEndpointServiceName" Data..=)
+              Prelude.<$> xksProxyVpcEndpointServiceName,
             Prelude.Just
               ("CustomKeyStoreId" Data..= customKeyStoreId)
           ]

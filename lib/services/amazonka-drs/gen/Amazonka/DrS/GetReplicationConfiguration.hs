@@ -34,22 +34,22 @@ module Amazonka.DrS.GetReplicationConfiguration
     newReplicationConfiguration,
 
     -- * Response Lenses
-    replicationConfiguration_bandwidthThrottling,
-    replicationConfiguration_name,
-    replicationConfiguration_replicationServerInstanceType,
-    replicationConfiguration_stagingAreaTags,
     replicationConfiguration_associateDefaultSecurityGroup,
-    replicationConfiguration_defaultLargeStagingDiskType,
-    replicationConfiguration_stagingAreaSubnetId,
+    replicationConfiguration_bandwidthThrottling,
     replicationConfiguration_createPublicIP,
     replicationConfiguration_dataPlaneRouting,
+    replicationConfiguration_defaultLargeStagingDiskType,
     replicationConfiguration_ebsEncryption,
-    replicationConfiguration_replicatedDisks,
-    replicationConfiguration_sourceServerID,
-    replicationConfiguration_pitPolicy,
-    replicationConfiguration_useDedicatedReplicationServer,
-    replicationConfiguration_replicationServersSecurityGroupsIDs,
     replicationConfiguration_ebsEncryptionKeyArn,
+    replicationConfiguration_name,
+    replicationConfiguration_pitPolicy,
+    replicationConfiguration_replicatedDisks,
+    replicationConfiguration_replicationServerInstanceType,
+    replicationConfiguration_replicationServersSecurityGroupsIDs,
+    replicationConfiguration_sourceServerID,
+    replicationConfiguration_stagingAreaSubnetId,
+    replicationConfiguration_stagingAreaTags,
+    replicationConfiguration_useDedicatedReplicationServer,
   )
 where
 

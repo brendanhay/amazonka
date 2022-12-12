@@ -28,8 +28,8 @@ module Amazonka.Config.ListStoredQueries
     newListStoredQueries,
 
     -- * Request Lenses
-    listStoredQueries_nextToken,
     listStoredQueries_maxResults,
+    listStoredQueries_nextToken,
 
     -- * Destructuring the Response
     ListStoredQueriesResponse (..),
@@ -52,11 +52,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListStoredQueries' smart constructor.
 data ListStoredQueries = ListStoredQueries'
-  { -- | The nextToken string returned in a previous request that you use to
+  { -- | The maximum number of results to be returned with a single call.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The nextToken string returned in a previous request that you use to
     -- request the next page of results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be returned with a single call.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,26 +68,26 @@ data ListStoredQueries = ListStoredQueries'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listStoredQueries_maxResults' - The maximum number of results to be returned with a single call.
+--
 -- 'nextToken', 'listStoredQueries_nextToken' - The nextToken string returned in a previous request that you use to
 -- request the next page of results in a paginated response.
---
--- 'maxResults', 'listStoredQueries_maxResults' - The maximum number of results to be returned with a single call.
 newListStoredQueries ::
   ListStoredQueries
 newListStoredQueries =
   ListStoredQueries'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of results to be returned with a single call.
+listStoredQueries_maxResults :: Lens.Lens' ListStoredQueries (Prelude.Maybe Prelude.Natural)
+listStoredQueries_maxResults = Lens.lens (\ListStoredQueries' {maxResults} -> maxResults) (\s@ListStoredQueries' {} a -> s {maxResults = a} :: ListStoredQueries)
 
 -- | The nextToken string returned in a previous request that you use to
 -- request the next page of results in a paginated response.
 listStoredQueries_nextToken :: Lens.Lens' ListStoredQueries (Prelude.Maybe Prelude.Text)
 listStoredQueries_nextToken = Lens.lens (\ListStoredQueries' {nextToken} -> nextToken) (\s@ListStoredQueries' {} a -> s {nextToken = a} :: ListStoredQueries)
-
--- | The maximum number of results to be returned with a single call.
-listStoredQueries_maxResults :: Lens.Lens' ListStoredQueries (Prelude.Maybe Prelude.Natural)
-listStoredQueries_maxResults = Lens.lens (\ListStoredQueries' {maxResults} -> maxResults) (\s@ListStoredQueries' {} a -> s {maxResults = a} :: ListStoredQueries)
 
 instance Core.AWSRequest ListStoredQueries where
   type
@@ -108,13 +108,13 @@ instance Core.AWSRequest ListStoredQueries where
 
 instance Prelude.Hashable ListStoredQueries where
   hashWithSalt _salt ListStoredQueries' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListStoredQueries where
   rnf ListStoredQueries' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListStoredQueries where
   toHeaders =
@@ -135,8 +135,8 @@ instance Data.ToJSON ListStoredQueries where
   toJSON ListStoredQueries' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

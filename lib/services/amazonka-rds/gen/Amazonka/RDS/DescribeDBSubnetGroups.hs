@@ -34,9 +34,9 @@ module Amazonka.RDS.DescribeDBSubnetGroups
     newDescribeDBSubnetGroups,
 
     -- * Request Lenses
-    describeDBSubnetGroups_marker,
     describeDBSubnetGroups_dbSubnetGroupName,
     describeDBSubnetGroups_filters,
+    describeDBSubnetGroups_marker,
     describeDBSubnetGroups_maxRecords,
 
     -- * Destructuring the Response
@@ -44,8 +44,8 @@ module Amazonka.RDS.DescribeDBSubnetGroups
     newDescribeDBSubnetGroupsResponse,
 
     -- * Response Lenses
-    describeDBSubnetGroupsResponse_marker,
     describeDBSubnetGroupsResponse_dbSubnetGroups,
+    describeDBSubnetGroupsResponse_marker,
     describeDBSubnetGroupsResponse_httpStatus,
   )
 where
@@ -62,15 +62,15 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeDBSubnetGroups' smart constructor.
 data DescribeDBSubnetGroups = DescribeDBSubnetGroups'
-  { -- | An optional pagination token provided by a previous
+  { -- | The name of the DB subnet group to return details for.
+    dbSubnetGroupName :: Prelude.Maybe Prelude.Text,
+    -- | This parameter isn\'t currently supported.
+    filters :: Prelude.Maybe [Filter],
+    -- | An optional pagination token provided by a previous
     -- DescribeDBSubnetGroups request. If this parameter is specified, the
     -- response includes only records beyond the marker, up to the value
     -- specified by @MaxRecords@.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | The name of the DB subnet group to return details for.
-    dbSubnetGroupName :: Prelude.Maybe Prelude.Text,
-    -- | This parameter isn\'t currently supported.
-    filters :: Prelude.Maybe [Filter],
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that you can retrieve the
@@ -91,14 +91,14 @@ data DescribeDBSubnetGroups = DescribeDBSubnetGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dbSubnetGroupName', 'describeDBSubnetGroups_dbSubnetGroupName' - The name of the DB subnet group to return details for.
+--
+-- 'filters', 'describeDBSubnetGroups_filters' - This parameter isn\'t currently supported.
+--
 -- 'marker', 'describeDBSubnetGroups_marker' - An optional pagination token provided by a previous
 -- DescribeDBSubnetGroups request. If this parameter is specified, the
 -- response includes only records beyond the marker, up to the value
 -- specified by @MaxRecords@.
---
--- 'dbSubnetGroupName', 'describeDBSubnetGroups_dbSubnetGroupName' - The name of the DB subnet group to return details for.
---
--- 'filters', 'describeDBSubnetGroups_filters' - This parameter isn\'t currently supported.
 --
 -- 'maxRecords', 'describeDBSubnetGroups_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -112,18 +112,12 @@ newDescribeDBSubnetGroups ::
   DescribeDBSubnetGroups
 newDescribeDBSubnetGroups =
   DescribeDBSubnetGroups'
-    { marker = Prelude.Nothing,
-      dbSubnetGroupName = Prelude.Nothing,
+    { dbSubnetGroupName =
+        Prelude.Nothing,
       filters = Prelude.Nothing,
+      marker = Prelude.Nothing,
       maxRecords = Prelude.Nothing
     }
-
--- | An optional pagination token provided by a previous
--- DescribeDBSubnetGroups request. If this parameter is specified, the
--- response includes only records beyond the marker, up to the value
--- specified by @MaxRecords@.
-describeDBSubnetGroups_marker :: Lens.Lens' DescribeDBSubnetGroups (Prelude.Maybe Prelude.Text)
-describeDBSubnetGroups_marker = Lens.lens (\DescribeDBSubnetGroups' {marker} -> marker) (\s@DescribeDBSubnetGroups' {} a -> s {marker = a} :: DescribeDBSubnetGroups)
 
 -- | The name of the DB subnet group to return details for.
 describeDBSubnetGroups_dbSubnetGroupName :: Lens.Lens' DescribeDBSubnetGroups (Prelude.Maybe Prelude.Text)
@@ -132,6 +126,13 @@ describeDBSubnetGroups_dbSubnetGroupName = Lens.lens (\DescribeDBSubnetGroups' {
 -- | This parameter isn\'t currently supported.
 describeDBSubnetGroups_filters :: Lens.Lens' DescribeDBSubnetGroups (Prelude.Maybe [Filter])
 describeDBSubnetGroups_filters = Lens.lens (\DescribeDBSubnetGroups' {filters} -> filters) (\s@DescribeDBSubnetGroups' {} a -> s {filters = a} :: DescribeDBSubnetGroups) Prelude.. Lens.mapping Lens.coerced
+
+-- | An optional pagination token provided by a previous
+-- DescribeDBSubnetGroups request. If this parameter is specified, the
+-- response includes only records beyond the marker, up to the value
+-- specified by @MaxRecords@.
+describeDBSubnetGroups_marker :: Lens.Lens' DescribeDBSubnetGroups (Prelude.Maybe Prelude.Text)
+describeDBSubnetGroups_marker = Lens.lens (\DescribeDBSubnetGroups' {marker} -> marker) (\s@DescribeDBSubnetGroups' {} a -> s {marker = a} :: DescribeDBSubnetGroups)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -177,25 +178,25 @@ instance Core.AWSRequest DescribeDBSubnetGroups where
       "DescribeDBSubnetGroupsResult"
       ( \s h x ->
           DescribeDBSubnetGroupsResponse'
-            Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> ( x Data..@? "DBSubnetGroups" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "DBSubnetGroups" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "DBSubnetGroup")
                         )
+            Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeDBSubnetGroups where
   hashWithSalt _salt DescribeDBSubnetGroups' {..} =
-    _salt `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` dbSubnetGroupName
+    _salt `Prelude.hashWithSalt` dbSubnetGroupName
       `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
 
 instance Prelude.NFData DescribeDBSubnetGroups where
   rnf DescribeDBSubnetGroups' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf dbSubnetGroupName
+    Prelude.rnf dbSubnetGroupName
       `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxRecords
 
 instance Data.ToHeaders DescribeDBSubnetGroups where
@@ -211,11 +212,11 @@ instance Data.ToQuery DescribeDBSubnetGroups where
           Data.=: ("DescribeDBSubnetGroups" :: Prelude.ByteString),
         "Version"
           Data.=: ("2014-10-31" :: Prelude.ByteString),
-        "Marker" Data.=: marker,
         "DBSubnetGroupName" Data.=: dbSubnetGroupName,
         "Filters"
           Data.=: Data.toQuery
             (Data.toQueryList "Filter" Prelude.<$> filters),
+        "Marker" Data.=: marker,
         "MaxRecords" Data.=: maxRecords
       ]
 
@@ -224,12 +225,12 @@ instance Data.ToQuery DescribeDBSubnetGroups where
 --
 -- /See:/ 'newDescribeDBSubnetGroupsResponse' smart constructor.
 data DescribeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse'
-  { -- | An optional pagination token provided by a previous request. If this
+  { -- | A list of @DBSubnetGroup@ instances.
+    dbSubnetGroups :: Prelude.Maybe [DBSubnetGroup],
+    -- | An optional pagination token provided by a previous request. If this
     -- parameter is specified, the response includes only records beyond the
     -- marker, up to the value specified by @MaxRecords@.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | A list of @DBSubnetGroup@ instances.
-    dbSubnetGroups :: Prelude.Maybe [DBSubnetGroup],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -243,11 +244,11 @@ data DescribeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dbSubnetGroups', 'describeDBSubnetGroupsResponse_dbSubnetGroups' - A list of @DBSubnetGroup@ instances.
+--
 -- 'marker', 'describeDBSubnetGroupsResponse_marker' - An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
---
--- 'dbSubnetGroups', 'describeDBSubnetGroupsResponse_dbSubnetGroups' - A list of @DBSubnetGroup@ instances.
 --
 -- 'httpStatus', 'describeDBSubnetGroupsResponse_httpStatus' - The response's http status code.
 newDescribeDBSubnetGroupsResponse ::
@@ -256,21 +257,21 @@ newDescribeDBSubnetGroupsResponse ::
   DescribeDBSubnetGroupsResponse
 newDescribeDBSubnetGroupsResponse pHttpStatus_ =
   DescribeDBSubnetGroupsResponse'
-    { marker =
+    { dbSubnetGroups =
         Prelude.Nothing,
-      dbSubnetGroups = Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of @DBSubnetGroup@ instances.
+describeDBSubnetGroupsResponse_dbSubnetGroups :: Lens.Lens' DescribeDBSubnetGroupsResponse (Prelude.Maybe [DBSubnetGroup])
+describeDBSubnetGroupsResponse_dbSubnetGroups = Lens.lens (\DescribeDBSubnetGroupsResponse' {dbSubnetGroups} -> dbSubnetGroups) (\s@DescribeDBSubnetGroupsResponse' {} a -> s {dbSubnetGroups = a} :: DescribeDBSubnetGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
 describeDBSubnetGroupsResponse_marker :: Lens.Lens' DescribeDBSubnetGroupsResponse (Prelude.Maybe Prelude.Text)
 describeDBSubnetGroupsResponse_marker = Lens.lens (\DescribeDBSubnetGroupsResponse' {marker} -> marker) (\s@DescribeDBSubnetGroupsResponse' {} a -> s {marker = a} :: DescribeDBSubnetGroupsResponse)
-
--- | A list of @DBSubnetGroup@ instances.
-describeDBSubnetGroupsResponse_dbSubnetGroups :: Lens.Lens' DescribeDBSubnetGroupsResponse (Prelude.Maybe [DBSubnetGroup])
-describeDBSubnetGroupsResponse_dbSubnetGroups = Lens.lens (\DescribeDBSubnetGroupsResponse' {dbSubnetGroups} -> dbSubnetGroups) (\s@DescribeDBSubnetGroupsResponse' {} a -> s {dbSubnetGroups = a} :: DescribeDBSubnetGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeDBSubnetGroupsResponse_httpStatus :: Lens.Lens' DescribeDBSubnetGroupsResponse Prelude.Int
@@ -281,6 +282,6 @@ instance
     DescribeDBSubnetGroupsResponse
   where
   rnf DescribeDBSubnetGroupsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf dbSubnetGroups
+    Prelude.rnf dbSubnetGroups
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf httpStatus

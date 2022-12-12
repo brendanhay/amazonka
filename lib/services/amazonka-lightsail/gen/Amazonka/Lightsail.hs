@@ -38,8 +38,8 @@ module Amazonka.Lightsail
     -- * Errors
     -- $errors
 
-    -- ** OperationFailureException
-    _OperationFailureException,
+    -- ** AccessDeniedException
+    _AccessDeniedException,
 
     -- ** AccountSetupInProgressException
     _AccountSetupInProgressException,
@@ -47,11 +47,11 @@ module Amazonka.Lightsail
     -- ** InvalidInputException
     _InvalidInputException,
 
-    -- ** AccessDeniedException
-    _AccessDeniedException,
-
     -- ** NotFoundException
     _NotFoundException,
+
+    -- ** OperationFailureException
+    _OperationFailureException,
 
     -- ** ServiceException
     _ServiceException,

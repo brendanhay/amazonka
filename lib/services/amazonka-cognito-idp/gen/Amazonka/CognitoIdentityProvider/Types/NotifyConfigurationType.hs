@@ -29,15 +29,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNotifyConfigurationType' smart constructor.
 data NotifyConfigurationType = NotifyConfigurationType'
-  { -- | The email address that is sending the email. The address must be either
+  { -- | Email template used when a detected risk event is blocked.
+    blockEmail :: Prelude.Maybe NotifyEmailType,
+    -- | The email address that is sending the email. The address must be either
     -- individually verified with Amazon Simple Email Service, or from a domain
     -- that has been verified with Amazon SES.
     from :: Prelude.Maybe Prelude.Text,
     -- | The multi-factor authentication (MFA) email template used when MFA is
     -- challenged as part of a detected risk.
     mfaEmail :: Prelude.Maybe NotifyEmailType,
-    -- | Email template used when a detected risk event is blocked.
-    blockEmail :: Prelude.Maybe NotifyEmailType,
     -- | The email template used when a detected risk event is allowed.
     noActionEmail :: Prelude.Maybe NotifyEmailType,
     -- | The destination to which the receiver of an email should reply to.
@@ -57,14 +57,14 @@ data NotifyConfigurationType = NotifyConfigurationType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'blockEmail', 'notifyConfigurationType_blockEmail' - Email template used when a detected risk event is blocked.
+--
 -- 'from', 'notifyConfigurationType_from' - The email address that is sending the email. The address must be either
 -- individually verified with Amazon Simple Email Service, or from a domain
 -- that has been verified with Amazon SES.
 --
 -- 'mfaEmail', 'notifyConfigurationType_mfaEmail' - The multi-factor authentication (MFA) email template used when MFA is
 -- challenged as part of a detected risk.
---
--- 'blockEmail', 'notifyConfigurationType_blockEmail' - Email template used when a detected risk event is blocked.
 --
 -- 'noActionEmail', 'notifyConfigurationType_noActionEmail' - The email template used when a detected risk event is allowed.
 --
@@ -79,13 +79,18 @@ newNotifyConfigurationType ::
   NotifyConfigurationType
 newNotifyConfigurationType pSourceArn_ =
   NotifyConfigurationType'
-    { from = Prelude.Nothing,
+    { blockEmail =
+        Prelude.Nothing,
+      from = Prelude.Nothing,
       mfaEmail = Prelude.Nothing,
-      blockEmail = Prelude.Nothing,
       noActionEmail = Prelude.Nothing,
       replyTo = Prelude.Nothing,
       sourceArn = pSourceArn_
     }
+
+-- | Email template used when a detected risk event is blocked.
+notifyConfigurationType_blockEmail :: Lens.Lens' NotifyConfigurationType (Prelude.Maybe NotifyEmailType)
+notifyConfigurationType_blockEmail = Lens.lens (\NotifyConfigurationType' {blockEmail} -> blockEmail) (\s@NotifyConfigurationType' {} a -> s {blockEmail = a} :: NotifyConfigurationType)
 
 -- | The email address that is sending the email. The address must be either
 -- individually verified with Amazon Simple Email Service, or from a domain
@@ -97,10 +102,6 @@ notifyConfigurationType_from = Lens.lens (\NotifyConfigurationType' {from} -> fr
 -- challenged as part of a detected risk.
 notifyConfigurationType_mfaEmail :: Lens.Lens' NotifyConfigurationType (Prelude.Maybe NotifyEmailType)
 notifyConfigurationType_mfaEmail = Lens.lens (\NotifyConfigurationType' {mfaEmail} -> mfaEmail) (\s@NotifyConfigurationType' {} a -> s {mfaEmail = a} :: NotifyConfigurationType)
-
--- | Email template used when a detected risk event is blocked.
-notifyConfigurationType_blockEmail :: Lens.Lens' NotifyConfigurationType (Prelude.Maybe NotifyEmailType)
-notifyConfigurationType_blockEmail = Lens.lens (\NotifyConfigurationType' {blockEmail} -> blockEmail) (\s@NotifyConfigurationType' {} a -> s {blockEmail = a} :: NotifyConfigurationType)
 
 -- | The email template used when a detected risk event is allowed.
 notifyConfigurationType_noActionEmail :: Lens.Lens' NotifyConfigurationType (Prelude.Maybe NotifyEmailType)
@@ -122,9 +123,9 @@ instance Data.FromJSON NotifyConfigurationType where
       "NotifyConfigurationType"
       ( \x ->
           NotifyConfigurationType'
-            Prelude.<$> (x Data..:? "From")
+            Prelude.<$> (x Data..:? "BlockEmail")
+            Prelude.<*> (x Data..:? "From")
             Prelude.<*> (x Data..:? "MfaEmail")
-            Prelude.<*> (x Data..:? "BlockEmail")
             Prelude.<*> (x Data..:? "NoActionEmail")
             Prelude.<*> (x Data..:? "ReplyTo")
             Prelude.<*> (x Data..: "SourceArn")
@@ -132,18 +133,18 @@ instance Data.FromJSON NotifyConfigurationType where
 
 instance Prelude.Hashable NotifyConfigurationType where
   hashWithSalt _salt NotifyConfigurationType' {..} =
-    _salt `Prelude.hashWithSalt` from
+    _salt `Prelude.hashWithSalt` blockEmail
+      `Prelude.hashWithSalt` from
       `Prelude.hashWithSalt` mfaEmail
-      `Prelude.hashWithSalt` blockEmail
       `Prelude.hashWithSalt` noActionEmail
       `Prelude.hashWithSalt` replyTo
       `Prelude.hashWithSalt` sourceArn
 
 instance Prelude.NFData NotifyConfigurationType where
   rnf NotifyConfigurationType' {..} =
-    Prelude.rnf from
+    Prelude.rnf blockEmail
+      `Prelude.seq` Prelude.rnf from
       `Prelude.seq` Prelude.rnf mfaEmail
-      `Prelude.seq` Prelude.rnf blockEmail
       `Prelude.seq` Prelude.rnf noActionEmail
       `Prelude.seq` Prelude.rnf replyTo
       `Prelude.seq` Prelude.rnf sourceArn
@@ -152,9 +153,9 @@ instance Data.ToJSON NotifyConfigurationType where
   toJSON NotifyConfigurationType' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("From" Data..=) Prelude.<$> from,
+          [ ("BlockEmail" Data..=) Prelude.<$> blockEmail,
+            ("From" Data..=) Prelude.<$> from,
             ("MfaEmail" Data..=) Prelude.<$> mfaEmail,
-            ("BlockEmail" Data..=) Prelude.<$> blockEmail,
             ("NoActionEmail" Data..=) Prelude.<$> noActionEmail,
             ("ReplyTo" Data..=) Prelude.<$> replyTo,
             Prelude.Just ("SourceArn" Data..= sourceArn)

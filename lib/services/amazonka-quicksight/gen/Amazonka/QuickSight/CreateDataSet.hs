@@ -28,15 +28,15 @@ module Amazonka.QuickSight.CreateDataSet
     newCreateDataSet,
 
     -- * Request Lenses
-    createDataSet_tags,
+    createDataSet_columnGroups,
     createDataSet_columnLevelPermissionRules,
     createDataSet_dataSetUsageConfiguration,
-    createDataSet_permissions,
-    createDataSet_rowLevelPermissionTagConfiguration,
-    createDataSet_columnGroups,
     createDataSet_fieldFolders,
-    createDataSet_rowLevelPermissionDataSet,
     createDataSet_logicalTableMap,
+    createDataSet_permissions,
+    createDataSet_rowLevelPermissionDataSet,
+    createDataSet_rowLevelPermissionTagConfiguration,
+    createDataSet_tags,
     createDataSet_awsAccountId,
     createDataSet_dataSetId,
     createDataSet_name,
@@ -48,11 +48,11 @@ module Amazonka.QuickSight.CreateDataSet
     newCreateDataSetResponse,
 
     -- * Response Lenses
-    createDataSetResponse_ingestionArn,
-    createDataSetResponse_requestId,
     createDataSetResponse_arn,
     createDataSetResponse_dataSetId,
+    createDataSetResponse_ingestionArn,
     createDataSetResponse_ingestionId,
+    createDataSetResponse_requestId,
     createDataSetResponse_status,
   )
 where
@@ -67,29 +67,29 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDataSet' smart constructor.
 data CreateDataSet = CreateDataSet'
-  { -- | Contains a map of the key-value pairs for the resource tag or tags
-    -- assigned to the dataset.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+  { -- | Groupings of columns that work together in certain Amazon QuickSight
+    -- features. Currently, only geospatial hierarchy is supported.
+    columnGroups :: Prelude.Maybe (Prelude.NonEmpty ColumnGroup),
     -- | A set of one or more definitions of a @ ColumnLevelPermissionRule @.
     columnLevelPermissionRules :: Prelude.Maybe (Prelude.NonEmpty ColumnLevelPermissionRule),
     dataSetUsageConfiguration :: Prelude.Maybe DataSetUsageConfiguration,
+    -- | The folder that contains fields and nested subfolders for your dataset.
+    fieldFolders :: Prelude.Maybe (Prelude.HashMap Prelude.Text FieldFolder),
+    -- | Configures the combination and transformation of the data from the
+    -- physical tables.
+    logicalTableMap :: Prelude.Maybe (Prelude.HashMap Prelude.Text LogicalTable),
     -- | A list of resource permissions on the dataset.
     permissions :: Prelude.Maybe (Prelude.NonEmpty ResourcePermission),
+    -- | The row-level security configuration for the data that you want to
+    -- create.
+    rowLevelPermissionDataSet :: Prelude.Maybe RowLevelPermissionDataSet,
     -- | The configuration of tags on a dataset to set row-level security.
     -- Row-level security tags are currently supported for anonymous embedding
     -- only.
     rowLevelPermissionTagConfiguration :: Prelude.Maybe RowLevelPermissionTagConfiguration,
-    -- | Groupings of columns that work together in certain Amazon QuickSight
-    -- features. Currently, only geospatial hierarchy is supported.
-    columnGroups :: Prelude.Maybe (Prelude.NonEmpty ColumnGroup),
-    -- | The folder that contains fields and nested subfolders for your dataset.
-    fieldFolders :: Prelude.Maybe (Prelude.HashMap Prelude.Text FieldFolder),
-    -- | The row-level security configuration for the data that you want to
-    -- create.
-    rowLevelPermissionDataSet :: Prelude.Maybe RowLevelPermissionDataSet,
-    -- | Configures the combination and transformation of the data from the
-    -- physical tables.
-    logicalTableMap :: Prelude.Maybe (Prelude.HashMap Prelude.Text LogicalTable),
+    -- | Contains a map of the key-value pairs for the resource tag or tags
+    -- assigned to the dataset.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The Amazon Web Services account ID.
     awsAccountId :: Prelude.Text,
     -- | An ID for the dataset that you want to create. This ID is unique per
@@ -113,29 +113,29 @@ data CreateDataSet = CreateDataSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createDataSet_tags' - Contains a map of the key-value pairs for the resource tag or tags
--- assigned to the dataset.
+-- 'columnGroups', 'createDataSet_columnGroups' - Groupings of columns that work together in certain Amazon QuickSight
+-- features. Currently, only geospatial hierarchy is supported.
 --
 -- 'columnLevelPermissionRules', 'createDataSet_columnLevelPermissionRules' - A set of one or more definitions of a @ ColumnLevelPermissionRule @.
 --
 -- 'dataSetUsageConfiguration', 'createDataSet_dataSetUsageConfiguration' - Undocumented member.
 --
+-- 'fieldFolders', 'createDataSet_fieldFolders' - The folder that contains fields and nested subfolders for your dataset.
+--
+-- 'logicalTableMap', 'createDataSet_logicalTableMap' - Configures the combination and transformation of the data from the
+-- physical tables.
+--
 -- 'permissions', 'createDataSet_permissions' - A list of resource permissions on the dataset.
+--
+-- 'rowLevelPermissionDataSet', 'createDataSet_rowLevelPermissionDataSet' - The row-level security configuration for the data that you want to
+-- create.
 --
 -- 'rowLevelPermissionTagConfiguration', 'createDataSet_rowLevelPermissionTagConfiguration' - The configuration of tags on a dataset to set row-level security.
 -- Row-level security tags are currently supported for anonymous embedding
 -- only.
 --
--- 'columnGroups', 'createDataSet_columnGroups' - Groupings of columns that work together in certain Amazon QuickSight
--- features. Currently, only geospatial hierarchy is supported.
---
--- 'fieldFolders', 'createDataSet_fieldFolders' - The folder that contains fields and nested subfolders for your dataset.
---
--- 'rowLevelPermissionDataSet', 'createDataSet_rowLevelPermissionDataSet' - The row-level security configuration for the data that you want to
--- create.
---
--- 'logicalTableMap', 'createDataSet_logicalTableMap' - Configures the combination and transformation of the data from the
--- physical tables.
+-- 'tags', 'createDataSet_tags' - Contains a map of the key-value pairs for the resource tag or tags
+-- assigned to the dataset.
 --
 -- 'awsAccountId', 'createDataSet_awsAccountId' - The Amazon Web Services account ID.
 --
@@ -164,15 +164,15 @@ newCreateDataSet
   pName_
   pImportMode_ =
     CreateDataSet'
-      { tags = Prelude.Nothing,
+      { columnGroups = Prelude.Nothing,
         columnLevelPermissionRules = Prelude.Nothing,
         dataSetUsageConfiguration = Prelude.Nothing,
-        permissions = Prelude.Nothing,
-        rowLevelPermissionTagConfiguration = Prelude.Nothing,
-        columnGroups = Prelude.Nothing,
         fieldFolders = Prelude.Nothing,
-        rowLevelPermissionDataSet = Prelude.Nothing,
         logicalTableMap = Prelude.Nothing,
+        permissions = Prelude.Nothing,
+        rowLevelPermissionDataSet = Prelude.Nothing,
+        rowLevelPermissionTagConfiguration = Prelude.Nothing,
+        tags = Prelude.Nothing,
         awsAccountId = pAwsAccountId_,
         dataSetId = pDataSetId_,
         name = pName_,
@@ -180,10 +180,10 @@ newCreateDataSet
         importMode = pImportMode_
       }
 
--- | Contains a map of the key-value pairs for the resource tag or tags
--- assigned to the dataset.
-createDataSet_tags :: Lens.Lens' CreateDataSet (Prelude.Maybe (Prelude.NonEmpty Tag))
-createDataSet_tags = Lens.lens (\CreateDataSet' {tags} -> tags) (\s@CreateDataSet' {} a -> s {tags = a} :: CreateDataSet) Prelude.. Lens.mapping Lens.coerced
+-- | Groupings of columns that work together in certain Amazon QuickSight
+-- features. Currently, only geospatial hierarchy is supported.
+createDataSet_columnGroups :: Lens.Lens' CreateDataSet (Prelude.Maybe (Prelude.NonEmpty ColumnGroup))
+createDataSet_columnGroups = Lens.lens (\CreateDataSet' {columnGroups} -> columnGroups) (\s@CreateDataSet' {} a -> s {columnGroups = a} :: CreateDataSet) Prelude.. Lens.mapping Lens.coerced
 
 -- | A set of one or more definitions of a @ ColumnLevelPermissionRule @.
 createDataSet_columnLevelPermissionRules :: Lens.Lens' CreateDataSet (Prelude.Maybe (Prelude.NonEmpty ColumnLevelPermissionRule))
@@ -193,9 +193,23 @@ createDataSet_columnLevelPermissionRules = Lens.lens (\CreateDataSet' {columnLev
 createDataSet_dataSetUsageConfiguration :: Lens.Lens' CreateDataSet (Prelude.Maybe DataSetUsageConfiguration)
 createDataSet_dataSetUsageConfiguration = Lens.lens (\CreateDataSet' {dataSetUsageConfiguration} -> dataSetUsageConfiguration) (\s@CreateDataSet' {} a -> s {dataSetUsageConfiguration = a} :: CreateDataSet)
 
+-- | The folder that contains fields and nested subfolders for your dataset.
+createDataSet_fieldFolders :: Lens.Lens' CreateDataSet (Prelude.Maybe (Prelude.HashMap Prelude.Text FieldFolder))
+createDataSet_fieldFolders = Lens.lens (\CreateDataSet' {fieldFolders} -> fieldFolders) (\s@CreateDataSet' {} a -> s {fieldFolders = a} :: CreateDataSet) Prelude.. Lens.mapping Lens.coerced
+
+-- | Configures the combination and transformation of the data from the
+-- physical tables.
+createDataSet_logicalTableMap :: Lens.Lens' CreateDataSet (Prelude.Maybe (Prelude.HashMap Prelude.Text LogicalTable))
+createDataSet_logicalTableMap = Lens.lens (\CreateDataSet' {logicalTableMap} -> logicalTableMap) (\s@CreateDataSet' {} a -> s {logicalTableMap = a} :: CreateDataSet) Prelude.. Lens.mapping Lens.coerced
+
 -- | A list of resource permissions on the dataset.
 createDataSet_permissions :: Lens.Lens' CreateDataSet (Prelude.Maybe (Prelude.NonEmpty ResourcePermission))
 createDataSet_permissions = Lens.lens (\CreateDataSet' {permissions} -> permissions) (\s@CreateDataSet' {} a -> s {permissions = a} :: CreateDataSet) Prelude.. Lens.mapping Lens.coerced
+
+-- | The row-level security configuration for the data that you want to
+-- create.
+createDataSet_rowLevelPermissionDataSet :: Lens.Lens' CreateDataSet (Prelude.Maybe RowLevelPermissionDataSet)
+createDataSet_rowLevelPermissionDataSet = Lens.lens (\CreateDataSet' {rowLevelPermissionDataSet} -> rowLevelPermissionDataSet) (\s@CreateDataSet' {} a -> s {rowLevelPermissionDataSet = a} :: CreateDataSet)
 
 -- | The configuration of tags on a dataset to set row-level security.
 -- Row-level security tags are currently supported for anonymous embedding
@@ -203,24 +217,10 @@ createDataSet_permissions = Lens.lens (\CreateDataSet' {permissions} -> permissi
 createDataSet_rowLevelPermissionTagConfiguration :: Lens.Lens' CreateDataSet (Prelude.Maybe RowLevelPermissionTagConfiguration)
 createDataSet_rowLevelPermissionTagConfiguration = Lens.lens (\CreateDataSet' {rowLevelPermissionTagConfiguration} -> rowLevelPermissionTagConfiguration) (\s@CreateDataSet' {} a -> s {rowLevelPermissionTagConfiguration = a} :: CreateDataSet)
 
--- | Groupings of columns that work together in certain Amazon QuickSight
--- features. Currently, only geospatial hierarchy is supported.
-createDataSet_columnGroups :: Lens.Lens' CreateDataSet (Prelude.Maybe (Prelude.NonEmpty ColumnGroup))
-createDataSet_columnGroups = Lens.lens (\CreateDataSet' {columnGroups} -> columnGroups) (\s@CreateDataSet' {} a -> s {columnGroups = a} :: CreateDataSet) Prelude.. Lens.mapping Lens.coerced
-
--- | The folder that contains fields and nested subfolders for your dataset.
-createDataSet_fieldFolders :: Lens.Lens' CreateDataSet (Prelude.Maybe (Prelude.HashMap Prelude.Text FieldFolder))
-createDataSet_fieldFolders = Lens.lens (\CreateDataSet' {fieldFolders} -> fieldFolders) (\s@CreateDataSet' {} a -> s {fieldFolders = a} :: CreateDataSet) Prelude.. Lens.mapping Lens.coerced
-
--- | The row-level security configuration for the data that you want to
--- create.
-createDataSet_rowLevelPermissionDataSet :: Lens.Lens' CreateDataSet (Prelude.Maybe RowLevelPermissionDataSet)
-createDataSet_rowLevelPermissionDataSet = Lens.lens (\CreateDataSet' {rowLevelPermissionDataSet} -> rowLevelPermissionDataSet) (\s@CreateDataSet' {} a -> s {rowLevelPermissionDataSet = a} :: CreateDataSet)
-
--- | Configures the combination and transformation of the data from the
--- physical tables.
-createDataSet_logicalTableMap :: Lens.Lens' CreateDataSet (Prelude.Maybe (Prelude.HashMap Prelude.Text LogicalTable))
-createDataSet_logicalTableMap = Lens.lens (\CreateDataSet' {logicalTableMap} -> logicalTableMap) (\s@CreateDataSet' {} a -> s {logicalTableMap = a} :: CreateDataSet) Prelude.. Lens.mapping Lens.coerced
+-- | Contains a map of the key-value pairs for the resource tag or tags
+-- assigned to the dataset.
+createDataSet_tags :: Lens.Lens' CreateDataSet (Prelude.Maybe (Prelude.NonEmpty Tag))
+createDataSet_tags = Lens.lens (\CreateDataSet' {tags} -> tags) (\s@CreateDataSet' {} a -> s {tags = a} :: CreateDataSet) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Web Services account ID.
 createDataSet_awsAccountId :: Lens.Lens' CreateDataSet Prelude.Text
@@ -254,25 +254,25 @@ instance Core.AWSRequest CreateDataSet where
     Response.receiveJSON
       ( \s h x ->
           CreateDataSetResponse'
-            Prelude.<$> (x Data..?> "IngestionArn")
-            Prelude.<*> (x Data..?> "RequestId")
-            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (x Data..?> "DataSetId")
+            Prelude.<*> (x Data..?> "IngestionArn")
             Prelude.<*> (x Data..?> "IngestionId")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateDataSet where
   hashWithSalt _salt CreateDataSet' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` columnGroups
       `Prelude.hashWithSalt` columnLevelPermissionRules
       `Prelude.hashWithSalt` dataSetUsageConfiguration
-      `Prelude.hashWithSalt` permissions
-      `Prelude.hashWithSalt` rowLevelPermissionTagConfiguration
-      `Prelude.hashWithSalt` columnGroups
       `Prelude.hashWithSalt` fieldFolders
-      `Prelude.hashWithSalt` rowLevelPermissionDataSet
       `Prelude.hashWithSalt` logicalTableMap
+      `Prelude.hashWithSalt` permissions
+      `Prelude.hashWithSalt` rowLevelPermissionDataSet
+      `Prelude.hashWithSalt` rowLevelPermissionTagConfiguration
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` dataSetId
       `Prelude.hashWithSalt` name
@@ -281,15 +281,15 @@ instance Prelude.Hashable CreateDataSet where
 
 instance Prelude.NFData CreateDataSet where
   rnf CreateDataSet' {..} =
-    Prelude.rnf tags
+    Prelude.rnf columnGroups
       `Prelude.seq` Prelude.rnf columnLevelPermissionRules
       `Prelude.seq` Prelude.rnf dataSetUsageConfiguration
-      `Prelude.seq` Prelude.rnf permissions
-      `Prelude.seq` Prelude.rnf rowLevelPermissionTagConfiguration
-      `Prelude.seq` Prelude.rnf columnGroups
       `Prelude.seq` Prelude.rnf fieldFolders
-      `Prelude.seq` Prelude.rnf rowLevelPermissionDataSet
       `Prelude.seq` Prelude.rnf logicalTableMap
+      `Prelude.seq` Prelude.rnf permissions
+      `Prelude.seq` Prelude.rnf rowLevelPermissionDataSet
+      `Prelude.seq` Prelude.rnf rowLevelPermissionTagConfiguration
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf dataSetId
       `Prelude.seq` Prelude.rnf name
@@ -311,20 +311,20 @@ instance Data.ToJSON CreateDataSet where
   toJSON CreateDataSet' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
+          [ ("ColumnGroups" Data..=) Prelude.<$> columnGroups,
             ("ColumnLevelPermissionRules" Data..=)
               Prelude.<$> columnLevelPermissionRules,
             ("DataSetUsageConfiguration" Data..=)
               Prelude.<$> dataSetUsageConfiguration,
-            ("Permissions" Data..=) Prelude.<$> permissions,
-            ("RowLevelPermissionTagConfiguration" Data..=)
-              Prelude.<$> rowLevelPermissionTagConfiguration,
-            ("ColumnGroups" Data..=) Prelude.<$> columnGroups,
             ("FieldFolders" Data..=) Prelude.<$> fieldFolders,
-            ("RowLevelPermissionDataSet" Data..=)
-              Prelude.<$> rowLevelPermissionDataSet,
             ("LogicalTableMap" Data..=)
               Prelude.<$> logicalTableMap,
+            ("Permissions" Data..=) Prelude.<$> permissions,
+            ("RowLevelPermissionDataSet" Data..=)
+              Prelude.<$> rowLevelPermissionDataSet,
+            ("RowLevelPermissionTagConfiguration" Data..=)
+              Prelude.<$> rowLevelPermissionTagConfiguration,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("DataSetId" Data..= dataSetId),
             Prelude.Just ("Name" Data..= name),
             Prelude.Just
@@ -343,19 +343,19 @@ instance Data.ToQuery CreateDataSet where
 
 -- | /See:/ 'newCreateDataSetResponse' smart constructor.
 data CreateDataSetResponse = CreateDataSetResponse'
-  { -- | The ARN for the ingestion, which is triggered as a result of dataset
-    -- creation if the import mode is SPICE.
-    ingestionArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the dataset.
+  { -- | The Amazon Resource Name (ARN) of the dataset.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The ID for the dataset that you want to create. This ID is unique per
     -- Amazon Web Services Region for each Amazon Web Services account.
     dataSetId :: Prelude.Maybe Prelude.Text,
+    -- | The ARN for the ingestion, which is triggered as a result of dataset
+    -- creation if the import mode is SPICE.
+    ingestionArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the ingestion, which is triggered as a result of dataset
     -- creation if the import mode is SPICE.
     ingestionId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -369,18 +369,18 @@ data CreateDataSetResponse = CreateDataSetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ingestionArn', 'createDataSetResponse_ingestionArn' - The ARN for the ingestion, which is triggered as a result of dataset
--- creation if the import mode is SPICE.
---
--- 'requestId', 'createDataSetResponse_requestId' - The Amazon Web Services request ID for this operation.
---
 -- 'arn', 'createDataSetResponse_arn' - The Amazon Resource Name (ARN) of the dataset.
 --
 -- 'dataSetId', 'createDataSetResponse_dataSetId' - The ID for the dataset that you want to create. This ID is unique per
 -- Amazon Web Services Region for each Amazon Web Services account.
 --
+-- 'ingestionArn', 'createDataSetResponse_ingestionArn' - The ARN for the ingestion, which is triggered as a result of dataset
+-- creation if the import mode is SPICE.
+--
 -- 'ingestionId', 'createDataSetResponse_ingestionId' - The ID of the ingestion, which is triggered as a result of dataset
 -- creation if the import mode is SPICE.
+--
+-- 'requestId', 'createDataSetResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'status', 'createDataSetResponse_status' - The HTTP status of the request.
 newCreateDataSetResponse ::
@@ -389,23 +389,13 @@ newCreateDataSetResponse ::
   CreateDataSetResponse
 newCreateDataSetResponse pStatus_ =
   CreateDataSetResponse'
-    { ingestionArn =
-        Prelude.Nothing,
-      requestId = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       dataSetId = Prelude.Nothing,
+      ingestionArn = Prelude.Nothing,
       ingestionId = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       status = pStatus_
     }
-
--- | The ARN for the ingestion, which is triggered as a result of dataset
--- creation if the import mode is SPICE.
-createDataSetResponse_ingestionArn :: Lens.Lens' CreateDataSetResponse (Prelude.Maybe Prelude.Text)
-createDataSetResponse_ingestionArn = Lens.lens (\CreateDataSetResponse' {ingestionArn} -> ingestionArn) (\s@CreateDataSetResponse' {} a -> s {ingestionArn = a} :: CreateDataSetResponse)
-
--- | The Amazon Web Services request ID for this operation.
-createDataSetResponse_requestId :: Lens.Lens' CreateDataSetResponse (Prelude.Maybe Prelude.Text)
-createDataSetResponse_requestId = Lens.lens (\CreateDataSetResponse' {requestId} -> requestId) (\s@CreateDataSetResponse' {} a -> s {requestId = a} :: CreateDataSetResponse)
 
 -- | The Amazon Resource Name (ARN) of the dataset.
 createDataSetResponse_arn :: Lens.Lens' CreateDataSetResponse (Prelude.Maybe Prelude.Text)
@@ -416,10 +406,19 @@ createDataSetResponse_arn = Lens.lens (\CreateDataSetResponse' {arn} -> arn) (\s
 createDataSetResponse_dataSetId :: Lens.Lens' CreateDataSetResponse (Prelude.Maybe Prelude.Text)
 createDataSetResponse_dataSetId = Lens.lens (\CreateDataSetResponse' {dataSetId} -> dataSetId) (\s@CreateDataSetResponse' {} a -> s {dataSetId = a} :: CreateDataSetResponse)
 
+-- | The ARN for the ingestion, which is triggered as a result of dataset
+-- creation if the import mode is SPICE.
+createDataSetResponse_ingestionArn :: Lens.Lens' CreateDataSetResponse (Prelude.Maybe Prelude.Text)
+createDataSetResponse_ingestionArn = Lens.lens (\CreateDataSetResponse' {ingestionArn} -> ingestionArn) (\s@CreateDataSetResponse' {} a -> s {ingestionArn = a} :: CreateDataSetResponse)
+
 -- | The ID of the ingestion, which is triggered as a result of dataset
 -- creation if the import mode is SPICE.
 createDataSetResponse_ingestionId :: Lens.Lens' CreateDataSetResponse (Prelude.Maybe Prelude.Text)
 createDataSetResponse_ingestionId = Lens.lens (\CreateDataSetResponse' {ingestionId} -> ingestionId) (\s@CreateDataSetResponse' {} a -> s {ingestionId = a} :: CreateDataSetResponse)
+
+-- | The Amazon Web Services request ID for this operation.
+createDataSetResponse_requestId :: Lens.Lens' CreateDataSetResponse (Prelude.Maybe Prelude.Text)
+createDataSetResponse_requestId = Lens.lens (\CreateDataSetResponse' {requestId} -> requestId) (\s@CreateDataSetResponse' {} a -> s {requestId = a} :: CreateDataSetResponse)
 
 -- | The HTTP status of the request.
 createDataSetResponse_status :: Lens.Lens' CreateDataSetResponse Prelude.Int
@@ -427,9 +426,9 @@ createDataSetResponse_status = Lens.lens (\CreateDataSetResponse' {status} -> st
 
 instance Prelude.NFData CreateDataSetResponse where
   rnf CreateDataSetResponse' {..} =
-    Prelude.rnf ingestionArn
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf dataSetId
+      `Prelude.seq` Prelude.rnf ingestionArn
       `Prelude.seq` Prelude.rnf ingestionId
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf status

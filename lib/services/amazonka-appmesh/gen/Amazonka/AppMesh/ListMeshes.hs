@@ -29,8 +29,8 @@ module Amazonka.AppMesh.ListMeshes
     newListMeshes,
 
     -- * Request Lenses
-    listMeshes_nextToken,
     listMeshes_limit,
+    listMeshes_nextToken,
 
     -- * Destructuring the Response
     ListMeshesResponse (..),
@@ -55,7 +55,15 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListMeshes' smart constructor.
 data ListMeshes = ListMeshes'
-  { -- | The @nextToken@ value returned from a previous paginated @ListMeshes@
+  { -- | The maximum number of results returned by @ListMeshes@ in paginated
+    -- output. When you use this parameter, @ListMeshes@ returns only @limit@
+    -- results in a single page along with a @nextToken@ response element. You
+    -- can see the remaining results of the initial request by sending another
+    -- @ListMeshes@ request with the returned @nextToken@ value. This value can
+    -- be between 1 and 100. If you don\'t use this parameter, @ListMeshes@
+    -- returns up to 100 results and a @nextToken@ value if applicable.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | The @nextToken@ value returned from a previous paginated @ListMeshes@
     -- request where @limit@ was used and the results exceeded the value of
     -- that parameter. Pagination continues from the end of the previous
     -- results that returned the @nextToken@ value.
@@ -63,15 +71,7 @@ data ListMeshes = ListMeshes'
     -- This token should be treated as an opaque identifier that is used only
     -- to retrieve the next items in a list and not for other programmatic
     -- purposes.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results returned by @ListMeshes@ in paginated
-    -- output. When you use this parameter, @ListMeshes@ returns only @limit@
-    -- results in a single page along with a @nextToken@ response element. You
-    -- can see the remaining results of the initial request by sending another
-    -- @ListMeshes@ request with the returned @nextToken@ value. This value can
-    -- be between 1 and 100. If you don\'t use this parameter, @ListMeshes@
-    -- returns up to 100 results and a @nextToken@ value if applicable.
-    limit :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -83,6 +83,14 @@ data ListMeshes = ListMeshes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'limit', 'listMeshes_limit' - The maximum number of results returned by @ListMeshes@ in paginated
+-- output. When you use this parameter, @ListMeshes@ returns only @limit@
+-- results in a single page along with a @nextToken@ response element. You
+-- can see the remaining results of the initial request by sending another
+-- @ListMeshes@ request with the returned @nextToken@ value. This value can
+-- be between 1 and 100. If you don\'t use this parameter, @ListMeshes@
+-- returns up to 100 results and a @nextToken@ value if applicable.
+--
 -- 'nextToken', 'listMeshes_nextToken' - The @nextToken@ value returned from a previous paginated @ListMeshes@
 -- request where @limit@ was used and the results exceeded the value of
 -- that parameter. Pagination continues from the end of the previous
@@ -91,21 +99,23 @@ data ListMeshes = ListMeshes'
 -- This token should be treated as an opaque identifier that is used only
 -- to retrieve the next items in a list and not for other programmatic
 -- purposes.
---
--- 'limit', 'listMeshes_limit' - The maximum number of results returned by @ListMeshes@ in paginated
+newListMeshes ::
+  ListMeshes
+newListMeshes =
+  ListMeshes'
+    { limit = Prelude.Nothing,
+      nextToken = Prelude.Nothing
+    }
+
+-- | The maximum number of results returned by @ListMeshes@ in paginated
 -- output. When you use this parameter, @ListMeshes@ returns only @limit@
 -- results in a single page along with a @nextToken@ response element. You
 -- can see the remaining results of the initial request by sending another
 -- @ListMeshes@ request with the returned @nextToken@ value. This value can
 -- be between 1 and 100. If you don\'t use this parameter, @ListMeshes@
 -- returns up to 100 results and a @nextToken@ value if applicable.
-newListMeshes ::
-  ListMeshes
-newListMeshes =
-  ListMeshes'
-    { nextToken = Prelude.Nothing,
-      limit = Prelude.Nothing
-    }
+listMeshes_limit :: Lens.Lens' ListMeshes (Prelude.Maybe Prelude.Natural)
+listMeshes_limit = Lens.lens (\ListMeshes' {limit} -> limit) (\s@ListMeshes' {} a -> s {limit = a} :: ListMeshes)
 
 -- | The @nextToken@ value returned from a previous paginated @ListMeshes@
 -- request where @limit@ was used and the results exceeded the value of
@@ -117,16 +127,6 @@ newListMeshes =
 -- purposes.
 listMeshes_nextToken :: Lens.Lens' ListMeshes (Prelude.Maybe Prelude.Text)
 listMeshes_nextToken = Lens.lens (\ListMeshes' {nextToken} -> nextToken) (\s@ListMeshes' {} a -> s {nextToken = a} :: ListMeshes)
-
--- | The maximum number of results returned by @ListMeshes@ in paginated
--- output. When you use this parameter, @ListMeshes@ returns only @limit@
--- results in a single page along with a @nextToken@ response element. You
--- can see the remaining results of the initial request by sending another
--- @ListMeshes@ request with the returned @nextToken@ value. This value can
--- be between 1 and 100. If you don\'t use this parameter, @ListMeshes@
--- returns up to 100 results and a @nextToken@ value if applicable.
-listMeshes_limit :: Lens.Lens' ListMeshes (Prelude.Maybe Prelude.Natural)
-listMeshes_limit = Lens.lens (\ListMeshes' {limit} -> limit) (\s@ListMeshes' {} a -> s {limit = a} :: ListMeshes)
 
 instance Core.AWSPager ListMeshes where
   page rq rs
@@ -159,13 +159,13 @@ instance Core.AWSRequest ListMeshes where
 
 instance Prelude.Hashable ListMeshes where
   hashWithSalt _salt ListMeshes' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` limit
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListMeshes where
   rnf ListMeshes' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListMeshes where
   toHeaders =
@@ -184,8 +184,8 @@ instance Data.ToPath ListMeshes where
 instance Data.ToQuery ListMeshes where
   toQuery ListMeshes' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "limit" Data.=: limit
+      [ "limit" Data.=: limit,
+        "nextToken" Data.=: nextToken
       ]
 
 -- |

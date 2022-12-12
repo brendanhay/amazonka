@@ -27,8 +27,8 @@ module Amazonka.FraudDetector.PutDetector
     newPutDetector,
 
     -- * Request Lenses
-    putDetector_tags,
     putDetector_description,
+    putDetector_tags,
     putDetector_detectorId,
     putDetector_eventTypeName,
 
@@ -51,10 +51,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutDetector' smart constructor.
 data PutDetector = PutDetector'
-  { -- | A collection of key and value pairs.
-    tags :: Prelude.Maybe [Tag],
-    -- | The description of the detector.
+  { -- | The description of the detector.
     description :: Prelude.Maybe Prelude.Text,
+    -- | A collection of key and value pairs.
+    tags :: Prelude.Maybe [Tag],
     -- | The detector ID.
     detectorId :: Prelude.Text,
     -- | The name of the event type.
@@ -70,9 +70,9 @@ data PutDetector = PutDetector'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'putDetector_tags' - A collection of key and value pairs.
---
 -- 'description', 'putDetector_description' - The description of the detector.
+--
+-- 'tags', 'putDetector_tags' - A collection of key and value pairs.
 --
 -- 'detectorId', 'putDetector_detectorId' - The detector ID.
 --
@@ -85,19 +85,19 @@ newPutDetector ::
   PutDetector
 newPutDetector pDetectorId_ pEventTypeName_ =
   PutDetector'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       detectorId = pDetectorId_,
       eventTypeName = pEventTypeName_
     }
 
--- | A collection of key and value pairs.
-putDetector_tags :: Lens.Lens' PutDetector (Prelude.Maybe [Tag])
-putDetector_tags = Lens.lens (\PutDetector' {tags} -> tags) (\s@PutDetector' {} a -> s {tags = a} :: PutDetector) Prelude.. Lens.mapping Lens.coerced
-
 -- | The description of the detector.
 putDetector_description :: Lens.Lens' PutDetector (Prelude.Maybe Prelude.Text)
 putDetector_description = Lens.lens (\PutDetector' {description} -> description) (\s@PutDetector' {} a -> s {description = a} :: PutDetector)
+
+-- | A collection of key and value pairs.
+putDetector_tags :: Lens.Lens' PutDetector (Prelude.Maybe [Tag])
+putDetector_tags = Lens.lens (\PutDetector' {tags} -> tags) (\s@PutDetector' {} a -> s {tags = a} :: PutDetector) Prelude.. Lens.mapping Lens.coerced
 
 -- | The detector ID.
 putDetector_detectorId :: Lens.Lens' PutDetector Prelude.Text
@@ -120,15 +120,15 @@ instance Core.AWSRequest PutDetector where
 
 instance Prelude.Hashable PutDetector where
   hashWithSalt _salt PutDetector' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` eventTypeName
 
 instance Prelude.NFData PutDetector where
   rnf PutDetector' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf detectorId
       `Prelude.seq` Prelude.rnf eventTypeName
 
@@ -151,8 +151,8 @@ instance Data.ToJSON PutDetector where
   toJSON PutDetector' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("description" Data..=) Prelude.<$> description,
+          [ ("description" Data..=) Prelude.<$> description,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("detectorId" Data..= detectorId),
             Prelude.Just
               ("eventTypeName" Data..= eventTypeName)

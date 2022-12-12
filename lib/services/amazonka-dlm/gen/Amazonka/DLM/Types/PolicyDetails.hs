@@ -37,39 +37,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPolicyDetails' smart constructor.
 data PolicyDetails = PolicyDetails'
-  { -- | __[All policy types]__ The valid target resource types and actions a
-    -- policy can manage. Specify @EBS_SNAPSHOT_MANAGEMENT@ to create a
-    -- lifecycle policy that manages the lifecycle of Amazon EBS snapshots.
-    -- Specify @IMAGE_MANAGEMENT@ to create a lifecycle policy that manages the
-    -- lifecycle of EBS-backed AMIs. Specify @EVENT_BASED_POLICY @ to create an
-    -- event-based policy that performs specific actions when a defined event
-    -- occurs in your Amazon Web Services account.
-    --
-    -- The default is @EBS_SNAPSHOT_MANAGEMENT@.
-    policyType :: Prelude.Maybe PolicyTypeValues,
-    -- | __[Snapshot and AMI policies only]__ The single tag that identifies
-    -- targeted resources for this policy.
-    targetTags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | __[Snapshot and AMI policies only]__ The location of the resources to
-    -- backup. If the source resources are located in an Amazon Web Services
-    -- Region, specify @CLOUD@. If the source resources are located on an
-    -- Outpost in your account, specify @OUTPOST@.
-    --
-    -- If you specify @OUTPOST@, Amazon Data Lifecycle Manager backs up all
-    -- resources of the specified type with matching target tags across all of
-    -- the Outposts in your account.
-    resourceLocations :: Prelude.Maybe (Prelude.NonEmpty ResourceLocationValues),
-    -- | __[Snapshot and AMI policies only]__ The schedules of policy-defined
-    -- actions for snapshot and AMI lifecycle policies. A policy can have up to
-    -- four schedules—one mandatory schedule and up to three optional
-    -- schedules.
-    schedules :: Prelude.Maybe (Prelude.NonEmpty Schedule),
-    -- | __[Snapshot policies only]__ The target resource type for snapshot and
-    -- AMI lifecycle policies. Use @VOLUME @to create snapshots of individual
-    -- volumes or use @INSTANCE@ to create multi-volume snapshots from the
-    -- volumes for an instance.
-    resourceTypes :: Prelude.Maybe (Prelude.NonEmpty ResourceTypeValues),
-    -- | __[Event-based policies only]__ The actions to be performed when the
+  { -- | __[Event-based policies only]__ The actions to be performed when the
     -- event-based policy is activated. You can specify only one action per
     -- policy.
     actions :: Prelude.Maybe (Prelude.NonEmpty Action),
@@ -84,7 +52,39 @@ data PolicyDetails = PolicyDetails'
     -- this parameter and specify either the default values or the new values
     -- that you require. You can\'t omit this parameter or set its values to
     -- null.
-    parameters :: Prelude.Maybe Parameters
+    parameters :: Prelude.Maybe Parameters,
+    -- | __[All policy types]__ The valid target resource types and actions a
+    -- policy can manage. Specify @EBS_SNAPSHOT_MANAGEMENT@ to create a
+    -- lifecycle policy that manages the lifecycle of Amazon EBS snapshots.
+    -- Specify @IMAGE_MANAGEMENT@ to create a lifecycle policy that manages the
+    -- lifecycle of EBS-backed AMIs. Specify @EVENT_BASED_POLICY @ to create an
+    -- event-based policy that performs specific actions when a defined event
+    -- occurs in your Amazon Web Services account.
+    --
+    -- The default is @EBS_SNAPSHOT_MANAGEMENT@.
+    policyType :: Prelude.Maybe PolicyTypeValues,
+    -- | __[Snapshot and AMI policies only]__ The location of the resources to
+    -- backup. If the source resources are located in an Amazon Web Services
+    -- Region, specify @CLOUD@. If the source resources are located on an
+    -- Outpost in your account, specify @OUTPOST@.
+    --
+    -- If you specify @OUTPOST@, Amazon Data Lifecycle Manager backs up all
+    -- resources of the specified type with matching target tags across all of
+    -- the Outposts in your account.
+    resourceLocations :: Prelude.Maybe (Prelude.NonEmpty ResourceLocationValues),
+    -- | __[Snapshot policies only]__ The target resource type for snapshot and
+    -- AMI lifecycle policies. Use @VOLUME @to create snapshots of individual
+    -- volumes or use @INSTANCE@ to create multi-volume snapshots from the
+    -- volumes for an instance.
+    resourceTypes :: Prelude.Maybe (Prelude.NonEmpty ResourceTypeValues),
+    -- | __[Snapshot and AMI policies only]__ The schedules of policy-defined
+    -- actions for snapshot and AMI lifecycle policies. A policy can have up to
+    -- four schedules—one mandatory schedule and up to three optional
+    -- schedules.
+    schedules :: Prelude.Maybe (Prelude.NonEmpty Schedule),
+    -- | __[Snapshot and AMI policies only]__ The single tag that identifies
+    -- targeted resources for this policy.
+    targetTags :: Prelude.Maybe (Prelude.NonEmpty Tag)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -95,38 +95,6 @@ data PolicyDetails = PolicyDetails'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'policyType', 'policyDetails_policyType' - __[All policy types]__ The valid target resource types and actions a
--- policy can manage. Specify @EBS_SNAPSHOT_MANAGEMENT@ to create a
--- lifecycle policy that manages the lifecycle of Amazon EBS snapshots.
--- Specify @IMAGE_MANAGEMENT@ to create a lifecycle policy that manages the
--- lifecycle of EBS-backed AMIs. Specify @EVENT_BASED_POLICY @ to create an
--- event-based policy that performs specific actions when a defined event
--- occurs in your Amazon Web Services account.
---
--- The default is @EBS_SNAPSHOT_MANAGEMENT@.
---
--- 'targetTags', 'policyDetails_targetTags' - __[Snapshot and AMI policies only]__ The single tag that identifies
--- targeted resources for this policy.
---
--- 'resourceLocations', 'policyDetails_resourceLocations' - __[Snapshot and AMI policies only]__ The location of the resources to
--- backup. If the source resources are located in an Amazon Web Services
--- Region, specify @CLOUD@. If the source resources are located on an
--- Outpost in your account, specify @OUTPOST@.
---
--- If you specify @OUTPOST@, Amazon Data Lifecycle Manager backs up all
--- resources of the specified type with matching target tags across all of
--- the Outposts in your account.
---
--- 'schedules', 'policyDetails_schedules' - __[Snapshot and AMI policies only]__ The schedules of policy-defined
--- actions for snapshot and AMI lifecycle policies. A policy can have up to
--- four schedules—one mandatory schedule and up to three optional
--- schedules.
---
--- 'resourceTypes', 'policyDetails_resourceTypes' - __[Snapshot policies only]__ The target resource type for snapshot and
--- AMI lifecycle policies. Use @VOLUME @to create snapshots of individual
--- volumes or use @INSTANCE@ to create multi-volume snapshots from the
--- volumes for an instance.
 --
 -- 'actions', 'policyDetails_actions' - __[Event-based policies only]__ The actions to be performed when the
 -- event-based policy is activated. You can specify only one action per
@@ -143,21 +111,8 @@ data PolicyDetails = PolicyDetails'
 -- this parameter and specify either the default values or the new values
 -- that you require. You can\'t omit this parameter or set its values to
 -- null.
-newPolicyDetails ::
-  PolicyDetails
-newPolicyDetails =
-  PolicyDetails'
-    { policyType = Prelude.Nothing,
-      targetTags = Prelude.Nothing,
-      resourceLocations = Prelude.Nothing,
-      schedules = Prelude.Nothing,
-      resourceTypes = Prelude.Nothing,
-      actions = Prelude.Nothing,
-      eventSource = Prelude.Nothing,
-      parameters = Prelude.Nothing
-    }
-
--- | __[All policy types]__ The valid target resource types and actions a
+--
+-- 'policyType', 'policyDetails_policyType' - __[All policy types]__ The valid target resource types and actions a
 -- policy can manage. Specify @EBS_SNAPSHOT_MANAGEMENT@ to create a
 -- lifecycle policy that manages the lifecycle of Amazon EBS snapshots.
 -- Specify @IMAGE_MANAGEMENT@ to create a lifecycle policy that manages the
@@ -166,15 +121,8 @@ newPolicyDetails =
 -- occurs in your Amazon Web Services account.
 --
 -- The default is @EBS_SNAPSHOT_MANAGEMENT@.
-policyDetails_policyType :: Lens.Lens' PolicyDetails (Prelude.Maybe PolicyTypeValues)
-policyDetails_policyType = Lens.lens (\PolicyDetails' {policyType} -> policyType) (\s@PolicyDetails' {} a -> s {policyType = a} :: PolicyDetails)
-
--- | __[Snapshot and AMI policies only]__ The single tag that identifies
--- targeted resources for this policy.
-policyDetails_targetTags :: Lens.Lens' PolicyDetails (Prelude.Maybe (Prelude.NonEmpty Tag))
-policyDetails_targetTags = Lens.lens (\PolicyDetails' {targetTags} -> targetTags) (\s@PolicyDetails' {} a -> s {targetTags = a} :: PolicyDetails) Prelude.. Lens.mapping Lens.coerced
-
--- | __[Snapshot and AMI policies only]__ The location of the resources to
+--
+-- 'resourceLocations', 'policyDetails_resourceLocations' - __[Snapshot and AMI policies only]__ The location of the resources to
 -- backup. If the source resources are located in an Amazon Web Services
 -- Region, specify @CLOUD@. If the source resources are located on an
 -- Outpost in your account, specify @OUTPOST@.
@@ -182,22 +130,32 @@ policyDetails_targetTags = Lens.lens (\PolicyDetails' {targetTags} -> targetTags
 -- If you specify @OUTPOST@, Amazon Data Lifecycle Manager backs up all
 -- resources of the specified type with matching target tags across all of
 -- the Outposts in your account.
-policyDetails_resourceLocations :: Lens.Lens' PolicyDetails (Prelude.Maybe (Prelude.NonEmpty ResourceLocationValues))
-policyDetails_resourceLocations = Lens.lens (\PolicyDetails' {resourceLocations} -> resourceLocations) (\s@PolicyDetails' {} a -> s {resourceLocations = a} :: PolicyDetails) Prelude.. Lens.mapping Lens.coerced
-
--- | __[Snapshot and AMI policies only]__ The schedules of policy-defined
--- actions for snapshot and AMI lifecycle policies. A policy can have up to
--- four schedules—one mandatory schedule and up to three optional
--- schedules.
-policyDetails_schedules :: Lens.Lens' PolicyDetails (Prelude.Maybe (Prelude.NonEmpty Schedule))
-policyDetails_schedules = Lens.lens (\PolicyDetails' {schedules} -> schedules) (\s@PolicyDetails' {} a -> s {schedules = a} :: PolicyDetails) Prelude.. Lens.mapping Lens.coerced
-
--- | __[Snapshot policies only]__ The target resource type for snapshot and
+--
+-- 'resourceTypes', 'policyDetails_resourceTypes' - __[Snapshot policies only]__ The target resource type for snapshot and
 -- AMI lifecycle policies. Use @VOLUME @to create snapshots of individual
 -- volumes or use @INSTANCE@ to create multi-volume snapshots from the
 -- volumes for an instance.
-policyDetails_resourceTypes :: Lens.Lens' PolicyDetails (Prelude.Maybe (Prelude.NonEmpty ResourceTypeValues))
-policyDetails_resourceTypes = Lens.lens (\PolicyDetails' {resourceTypes} -> resourceTypes) (\s@PolicyDetails' {} a -> s {resourceTypes = a} :: PolicyDetails) Prelude.. Lens.mapping Lens.coerced
+--
+-- 'schedules', 'policyDetails_schedules' - __[Snapshot and AMI policies only]__ The schedules of policy-defined
+-- actions for snapshot and AMI lifecycle policies. A policy can have up to
+-- four schedules—one mandatory schedule and up to three optional
+-- schedules.
+--
+-- 'targetTags', 'policyDetails_targetTags' - __[Snapshot and AMI policies only]__ The single tag that identifies
+-- targeted resources for this policy.
+newPolicyDetails ::
+  PolicyDetails
+newPolicyDetails =
+  PolicyDetails'
+    { actions = Prelude.Nothing,
+      eventSource = Prelude.Nothing,
+      parameters = Prelude.Nothing,
+      policyType = Prelude.Nothing,
+      resourceLocations = Prelude.Nothing,
+      resourceTypes = Prelude.Nothing,
+      schedules = Prelude.Nothing,
+      targetTags = Prelude.Nothing
+    }
 
 -- | __[Event-based policies only]__ The actions to be performed when the
 -- event-based policy is activated. You can specify only one action per
@@ -221,56 +179,98 @@ policyDetails_eventSource = Lens.lens (\PolicyDetails' {eventSource} -> eventSou
 policyDetails_parameters :: Lens.Lens' PolicyDetails (Prelude.Maybe Parameters)
 policyDetails_parameters = Lens.lens (\PolicyDetails' {parameters} -> parameters) (\s@PolicyDetails' {} a -> s {parameters = a} :: PolicyDetails)
 
+-- | __[All policy types]__ The valid target resource types and actions a
+-- policy can manage. Specify @EBS_SNAPSHOT_MANAGEMENT@ to create a
+-- lifecycle policy that manages the lifecycle of Amazon EBS snapshots.
+-- Specify @IMAGE_MANAGEMENT@ to create a lifecycle policy that manages the
+-- lifecycle of EBS-backed AMIs. Specify @EVENT_BASED_POLICY @ to create an
+-- event-based policy that performs specific actions when a defined event
+-- occurs in your Amazon Web Services account.
+--
+-- The default is @EBS_SNAPSHOT_MANAGEMENT@.
+policyDetails_policyType :: Lens.Lens' PolicyDetails (Prelude.Maybe PolicyTypeValues)
+policyDetails_policyType = Lens.lens (\PolicyDetails' {policyType} -> policyType) (\s@PolicyDetails' {} a -> s {policyType = a} :: PolicyDetails)
+
+-- | __[Snapshot and AMI policies only]__ The location of the resources to
+-- backup. If the source resources are located in an Amazon Web Services
+-- Region, specify @CLOUD@. If the source resources are located on an
+-- Outpost in your account, specify @OUTPOST@.
+--
+-- If you specify @OUTPOST@, Amazon Data Lifecycle Manager backs up all
+-- resources of the specified type with matching target tags across all of
+-- the Outposts in your account.
+policyDetails_resourceLocations :: Lens.Lens' PolicyDetails (Prelude.Maybe (Prelude.NonEmpty ResourceLocationValues))
+policyDetails_resourceLocations = Lens.lens (\PolicyDetails' {resourceLocations} -> resourceLocations) (\s@PolicyDetails' {} a -> s {resourceLocations = a} :: PolicyDetails) Prelude.. Lens.mapping Lens.coerced
+
+-- | __[Snapshot policies only]__ The target resource type for snapshot and
+-- AMI lifecycle policies. Use @VOLUME @to create snapshots of individual
+-- volumes or use @INSTANCE@ to create multi-volume snapshots from the
+-- volumes for an instance.
+policyDetails_resourceTypes :: Lens.Lens' PolicyDetails (Prelude.Maybe (Prelude.NonEmpty ResourceTypeValues))
+policyDetails_resourceTypes = Lens.lens (\PolicyDetails' {resourceTypes} -> resourceTypes) (\s@PolicyDetails' {} a -> s {resourceTypes = a} :: PolicyDetails) Prelude.. Lens.mapping Lens.coerced
+
+-- | __[Snapshot and AMI policies only]__ The schedules of policy-defined
+-- actions for snapshot and AMI lifecycle policies. A policy can have up to
+-- four schedules—one mandatory schedule and up to three optional
+-- schedules.
+policyDetails_schedules :: Lens.Lens' PolicyDetails (Prelude.Maybe (Prelude.NonEmpty Schedule))
+policyDetails_schedules = Lens.lens (\PolicyDetails' {schedules} -> schedules) (\s@PolicyDetails' {} a -> s {schedules = a} :: PolicyDetails) Prelude.. Lens.mapping Lens.coerced
+
+-- | __[Snapshot and AMI policies only]__ The single tag that identifies
+-- targeted resources for this policy.
+policyDetails_targetTags :: Lens.Lens' PolicyDetails (Prelude.Maybe (Prelude.NonEmpty Tag))
+policyDetails_targetTags = Lens.lens (\PolicyDetails' {targetTags} -> targetTags) (\s@PolicyDetails' {} a -> s {targetTags = a} :: PolicyDetails) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON PolicyDetails where
   parseJSON =
     Data.withObject
       "PolicyDetails"
       ( \x ->
           PolicyDetails'
-            Prelude.<$> (x Data..:? "PolicyType")
-            Prelude.<*> (x Data..:? "TargetTags")
-            Prelude.<*> (x Data..:? "ResourceLocations")
-            Prelude.<*> (x Data..:? "Schedules")
-            Prelude.<*> (x Data..:? "ResourceTypes")
-            Prelude.<*> (x Data..:? "Actions")
+            Prelude.<$> (x Data..:? "Actions")
             Prelude.<*> (x Data..:? "EventSource")
             Prelude.<*> (x Data..:? "Parameters")
+            Prelude.<*> (x Data..:? "PolicyType")
+            Prelude.<*> (x Data..:? "ResourceLocations")
+            Prelude.<*> (x Data..:? "ResourceTypes")
+            Prelude.<*> (x Data..:? "Schedules")
+            Prelude.<*> (x Data..:? "TargetTags")
       )
 
 instance Prelude.Hashable PolicyDetails where
   hashWithSalt _salt PolicyDetails' {..} =
-    _salt `Prelude.hashWithSalt` policyType
-      `Prelude.hashWithSalt` targetTags
-      `Prelude.hashWithSalt` resourceLocations
-      `Prelude.hashWithSalt` schedules
-      `Prelude.hashWithSalt` resourceTypes
-      `Prelude.hashWithSalt` actions
+    _salt `Prelude.hashWithSalt` actions
       `Prelude.hashWithSalt` eventSource
       `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` policyType
+      `Prelude.hashWithSalt` resourceLocations
+      `Prelude.hashWithSalt` resourceTypes
+      `Prelude.hashWithSalt` schedules
+      `Prelude.hashWithSalt` targetTags
 
 instance Prelude.NFData PolicyDetails where
   rnf PolicyDetails' {..} =
-    Prelude.rnf policyType
-      `Prelude.seq` Prelude.rnf targetTags
-      `Prelude.seq` Prelude.rnf resourceLocations
-      `Prelude.seq` Prelude.rnf schedules
-      `Prelude.seq` Prelude.rnf resourceTypes
-      `Prelude.seq` Prelude.rnf actions
+    Prelude.rnf actions
       `Prelude.seq` Prelude.rnf eventSource
       `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf policyType
+      `Prelude.seq` Prelude.rnf resourceLocations
+      `Prelude.seq` Prelude.rnf resourceTypes
+      `Prelude.seq` Prelude.rnf schedules
+      `Prelude.seq` Prelude.rnf targetTags
 
 instance Data.ToJSON PolicyDetails where
   toJSON PolicyDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("PolicyType" Data..=) Prelude.<$> policyType,
-            ("TargetTags" Data..=) Prelude.<$> targetTags,
+          [ ("Actions" Data..=) Prelude.<$> actions,
+            ("EventSource" Data..=) Prelude.<$> eventSource,
+            ("Parameters" Data..=) Prelude.<$> parameters,
+            ("PolicyType" Data..=) Prelude.<$> policyType,
             ("ResourceLocations" Data..=)
               Prelude.<$> resourceLocations,
-            ("Schedules" Data..=) Prelude.<$> schedules,
             ("ResourceTypes" Data..=) Prelude.<$> resourceTypes,
-            ("Actions" Data..=) Prelude.<$> actions,
-            ("EventSource" Data..=) Prelude.<$> eventSource,
-            ("Parameters" Data..=) Prelude.<$> parameters
+            ("Schedules" Data..=) Prelude.<$> schedules,
+            ("TargetTags" Data..=) Prelude.<$> targetTags
           ]
       )

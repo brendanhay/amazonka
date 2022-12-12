@@ -28,8 +28,8 @@ module Amazonka.RedshiftServerLess.UpdateUsageLimit
     newUpdateUsageLimit,
 
     -- * Request Lenses
-    updateUsageLimit_breachAction,
     updateUsageLimit_amount,
+    updateUsageLimit_breachAction,
     updateUsageLimit_usageLimitId,
 
     -- * Destructuring the Response
@@ -52,11 +52,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateUsageLimit' smart constructor.
 data UpdateUsageLimit = UpdateUsageLimit'
-  { -- | The new action that Amazon Redshift Serverless takes when the limit is
+  { -- | The new limit amount. If time-based, this amount is in Redshift
+    -- Processing Units (RPU) consumed per hour. If data-based, this amount is
+    -- in terabytes (TB) of data transferred between Regions in cross-account
+    -- sharing. The value must be a positive number.
+    amount :: Prelude.Maybe Prelude.Integer,
+    -- | The new action that Amazon Redshift Serverless takes when the limit is
     -- reached.
     breachAction :: Prelude.Maybe UsageLimitBreachAction,
-    -- | The new limit amount. For more information about this parameter.
-    amount :: Prelude.Maybe Prelude.Integer,
     -- | The identifier of the usage limit to update.
     usageLimitId :: Prelude.Text
   }
@@ -70,10 +73,13 @@ data UpdateUsageLimit = UpdateUsageLimit'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'amount', 'updateUsageLimit_amount' - The new limit amount. If time-based, this amount is in Redshift
+-- Processing Units (RPU) consumed per hour. If data-based, this amount is
+-- in terabytes (TB) of data transferred between Regions in cross-account
+-- sharing. The value must be a positive number.
+--
 -- 'breachAction', 'updateUsageLimit_breachAction' - The new action that Amazon Redshift Serverless takes when the limit is
 -- reached.
---
--- 'amount', 'updateUsageLimit_amount' - The new limit amount. For more information about this parameter.
 --
 -- 'usageLimitId', 'updateUsageLimit_usageLimitId' - The identifier of the usage limit to update.
 newUpdateUsageLimit ::
@@ -82,19 +88,22 @@ newUpdateUsageLimit ::
   UpdateUsageLimit
 newUpdateUsageLimit pUsageLimitId_ =
   UpdateUsageLimit'
-    { breachAction = Prelude.Nothing,
-      amount = Prelude.Nothing,
+    { amount = Prelude.Nothing,
+      breachAction = Prelude.Nothing,
       usageLimitId = pUsageLimitId_
     }
+
+-- | The new limit amount. If time-based, this amount is in Redshift
+-- Processing Units (RPU) consumed per hour. If data-based, this amount is
+-- in terabytes (TB) of data transferred between Regions in cross-account
+-- sharing. The value must be a positive number.
+updateUsageLimit_amount :: Lens.Lens' UpdateUsageLimit (Prelude.Maybe Prelude.Integer)
+updateUsageLimit_amount = Lens.lens (\UpdateUsageLimit' {amount} -> amount) (\s@UpdateUsageLimit' {} a -> s {amount = a} :: UpdateUsageLimit)
 
 -- | The new action that Amazon Redshift Serverless takes when the limit is
 -- reached.
 updateUsageLimit_breachAction :: Lens.Lens' UpdateUsageLimit (Prelude.Maybe UsageLimitBreachAction)
 updateUsageLimit_breachAction = Lens.lens (\UpdateUsageLimit' {breachAction} -> breachAction) (\s@UpdateUsageLimit' {} a -> s {breachAction = a} :: UpdateUsageLimit)
-
--- | The new limit amount. For more information about this parameter.
-updateUsageLimit_amount :: Lens.Lens' UpdateUsageLimit (Prelude.Maybe Prelude.Integer)
-updateUsageLimit_amount = Lens.lens (\UpdateUsageLimit' {amount} -> amount) (\s@UpdateUsageLimit' {} a -> s {amount = a} :: UpdateUsageLimit)
 
 -- | The identifier of the usage limit to update.
 updateUsageLimit_usageLimitId :: Lens.Lens' UpdateUsageLimit Prelude.Text
@@ -116,14 +125,14 @@ instance Core.AWSRequest UpdateUsageLimit where
 
 instance Prelude.Hashable UpdateUsageLimit where
   hashWithSalt _salt UpdateUsageLimit' {..} =
-    _salt `Prelude.hashWithSalt` breachAction
-      `Prelude.hashWithSalt` amount
+    _salt `Prelude.hashWithSalt` amount
+      `Prelude.hashWithSalt` breachAction
       `Prelude.hashWithSalt` usageLimitId
 
 instance Prelude.NFData UpdateUsageLimit where
   rnf UpdateUsageLimit' {..} =
-    Prelude.rnf breachAction
-      `Prelude.seq` Prelude.rnf amount
+    Prelude.rnf amount
+      `Prelude.seq` Prelude.rnf breachAction
       `Prelude.seq` Prelude.rnf usageLimitId
 
 instance Data.ToHeaders UpdateUsageLimit where
@@ -145,8 +154,8 @@ instance Data.ToJSON UpdateUsageLimit where
   toJSON UpdateUsageLimit' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("breachAction" Data..=) Prelude.<$> breachAction,
-            ("amount" Data..=) Prelude.<$> amount,
+          [ ("amount" Data..=) Prelude.<$> amount,
+            ("breachAction" Data..=) Prelude.<$> breachAction,
             Prelude.Just ("usageLimitId" Data..= usageLimitId)
           ]
       )

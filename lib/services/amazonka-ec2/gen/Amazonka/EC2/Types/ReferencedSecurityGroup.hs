@@ -30,16 +30,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newReferencedSecurityGroup' smart constructor.
 data ReferencedSecurityGroup = ReferencedSecurityGroup'
-  { -- | The ID of the VPC peering connection.
-    vpcPeeringConnectionId :: Prelude.Maybe Prelude.Text,
+  { -- | The ID of the security group.
+    groupId :: Prelude.Maybe Prelude.Text,
     -- | The status of a VPC peering connection, if applicable.
     peeringStatus :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services account ID.
     userId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the VPC.
     vpcId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the security group.
-    groupId :: Prelude.Maybe Prelude.Text
+    -- | The ID of the VPC peering connection.
+    vpcPeeringConnectionId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,7 +51,7 @@ data ReferencedSecurityGroup = ReferencedSecurityGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vpcPeeringConnectionId', 'referencedSecurityGroup_vpcPeeringConnectionId' - The ID of the VPC peering connection.
+-- 'groupId', 'referencedSecurityGroup_groupId' - The ID of the security group.
 --
 -- 'peeringStatus', 'referencedSecurityGroup_peeringStatus' - The status of a VPC peering connection, if applicable.
 --
@@ -59,22 +59,21 @@ data ReferencedSecurityGroup = ReferencedSecurityGroup'
 --
 -- 'vpcId', 'referencedSecurityGroup_vpcId' - The ID of the VPC.
 --
--- 'groupId', 'referencedSecurityGroup_groupId' - The ID of the security group.
+-- 'vpcPeeringConnectionId', 'referencedSecurityGroup_vpcPeeringConnectionId' - The ID of the VPC peering connection.
 newReferencedSecurityGroup ::
   ReferencedSecurityGroup
 newReferencedSecurityGroup =
   ReferencedSecurityGroup'
-    { vpcPeeringConnectionId =
-        Prelude.Nothing,
+    { groupId = Prelude.Nothing,
       peeringStatus = Prelude.Nothing,
       userId = Prelude.Nothing,
       vpcId = Prelude.Nothing,
-      groupId = Prelude.Nothing
+      vpcPeeringConnectionId = Prelude.Nothing
     }
 
--- | The ID of the VPC peering connection.
-referencedSecurityGroup_vpcPeeringConnectionId :: Lens.Lens' ReferencedSecurityGroup (Prelude.Maybe Prelude.Text)
-referencedSecurityGroup_vpcPeeringConnectionId = Lens.lens (\ReferencedSecurityGroup' {vpcPeeringConnectionId} -> vpcPeeringConnectionId) (\s@ReferencedSecurityGroup' {} a -> s {vpcPeeringConnectionId = a} :: ReferencedSecurityGroup)
+-- | The ID of the security group.
+referencedSecurityGroup_groupId :: Lens.Lens' ReferencedSecurityGroup (Prelude.Maybe Prelude.Text)
+referencedSecurityGroup_groupId = Lens.lens (\ReferencedSecurityGroup' {groupId} -> groupId) (\s@ReferencedSecurityGroup' {} a -> s {groupId = a} :: ReferencedSecurityGroup)
 
 -- | The status of a VPC peering connection, if applicable.
 referencedSecurityGroup_peeringStatus :: Lens.Lens' ReferencedSecurityGroup (Prelude.Maybe Prelude.Text)
@@ -88,31 +87,31 @@ referencedSecurityGroup_userId = Lens.lens (\ReferencedSecurityGroup' {userId} -
 referencedSecurityGroup_vpcId :: Lens.Lens' ReferencedSecurityGroup (Prelude.Maybe Prelude.Text)
 referencedSecurityGroup_vpcId = Lens.lens (\ReferencedSecurityGroup' {vpcId} -> vpcId) (\s@ReferencedSecurityGroup' {} a -> s {vpcId = a} :: ReferencedSecurityGroup)
 
--- | The ID of the security group.
-referencedSecurityGroup_groupId :: Lens.Lens' ReferencedSecurityGroup (Prelude.Maybe Prelude.Text)
-referencedSecurityGroup_groupId = Lens.lens (\ReferencedSecurityGroup' {groupId} -> groupId) (\s@ReferencedSecurityGroup' {} a -> s {groupId = a} :: ReferencedSecurityGroup)
+-- | The ID of the VPC peering connection.
+referencedSecurityGroup_vpcPeeringConnectionId :: Lens.Lens' ReferencedSecurityGroup (Prelude.Maybe Prelude.Text)
+referencedSecurityGroup_vpcPeeringConnectionId = Lens.lens (\ReferencedSecurityGroup' {vpcPeeringConnectionId} -> vpcPeeringConnectionId) (\s@ReferencedSecurityGroup' {} a -> s {vpcPeeringConnectionId = a} :: ReferencedSecurityGroup)
 
 instance Data.FromXML ReferencedSecurityGroup where
   parseXML x =
     ReferencedSecurityGroup'
-      Prelude.<$> (x Data..@? "vpcPeeringConnectionId")
+      Prelude.<$> (x Data..@? "groupId")
       Prelude.<*> (x Data..@? "peeringStatus")
       Prelude.<*> (x Data..@? "userId")
       Prelude.<*> (x Data..@? "vpcId")
-      Prelude.<*> (x Data..@? "groupId")
+      Prelude.<*> (x Data..@? "vpcPeeringConnectionId")
 
 instance Prelude.Hashable ReferencedSecurityGroup where
   hashWithSalt _salt ReferencedSecurityGroup' {..} =
-    _salt `Prelude.hashWithSalt` vpcPeeringConnectionId
+    _salt `Prelude.hashWithSalt` groupId
       `Prelude.hashWithSalt` peeringStatus
       `Prelude.hashWithSalt` userId
       `Prelude.hashWithSalt` vpcId
-      `Prelude.hashWithSalt` groupId
+      `Prelude.hashWithSalt` vpcPeeringConnectionId
 
 instance Prelude.NFData ReferencedSecurityGroup where
   rnf ReferencedSecurityGroup' {..} =
-    Prelude.rnf vpcPeeringConnectionId
+    Prelude.rnf groupId
       `Prelude.seq` Prelude.rnf peeringStatus
       `Prelude.seq` Prelude.rnf userId
       `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf vpcPeeringConnectionId

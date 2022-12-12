@@ -37,9 +37,9 @@ module Amazonka.WorkMail.GetImpersonationRoleEffect
     newGetImpersonationRoleEffectResponse,
 
     -- * Response Lenses
-    getImpersonationRoleEffectResponse_type,
     getImpersonationRoleEffectResponse_effect,
     getImpersonationRoleEffectResponse_matchedRules,
+    getImpersonationRoleEffectResponse_type,
     getImpersonationRoleEffectResponse_httpStatus,
   )
 where
@@ -141,9 +141,9 @@ instance Core.AWSRequest GetImpersonationRoleEffect where
     Response.receiveJSON
       ( \s h x ->
           GetImpersonationRoleEffectResponse'
-            Prelude.<$> (x Data..?> "Type")
-            Prelude.<*> (x Data..?> "Effect")
+            Prelude.<$> (x Data..?> "Effect")
             Prelude.<*> (x Data..?> "MatchedRules" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -194,14 +194,14 @@ instance Data.ToQuery GetImpersonationRoleEffect where
 
 -- | /See:/ 'newGetImpersonationRoleEffectResponse' smart constructor.
 data GetImpersonationRoleEffectResponse = GetImpersonationRoleEffectResponse'
-  { -- | The impersonation role type.
-    type' :: Prelude.Maybe ImpersonationRoleType,
-    -- | @@Effect of the impersonation role on the target user based on its
+  { -- | @@Effect of the impersonation role on the target user based on its
     -- rules. Available effects are @ALLOW@ or @DENY@.
     effect :: Prelude.Maybe AccessEffect,
     -- | A list of the rules that match the input and produce the configured
     -- effect.
     matchedRules :: Prelude.Maybe [ImpersonationMatchedRule],
+    -- | The impersonation role type.
+    type' :: Prelude.Maybe ImpersonationRoleType,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -215,13 +215,13 @@ data GetImpersonationRoleEffectResponse = GetImpersonationRoleEffectResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'getImpersonationRoleEffectResponse_type' - The impersonation role type.
---
 -- 'effect', 'getImpersonationRoleEffectResponse_effect' - @@Effect of the impersonation role on the target user based on its
 -- rules. Available effects are @ALLOW@ or @DENY@.
 --
 -- 'matchedRules', 'getImpersonationRoleEffectResponse_matchedRules' - A list of the rules that match the input and produce the configured
 -- effect.
+--
+-- 'type'', 'getImpersonationRoleEffectResponse_type' - The impersonation role type.
 --
 -- 'httpStatus', 'getImpersonationRoleEffectResponse_httpStatus' - The response's http status code.
 newGetImpersonationRoleEffectResponse ::
@@ -230,16 +230,12 @@ newGetImpersonationRoleEffectResponse ::
   GetImpersonationRoleEffectResponse
 newGetImpersonationRoleEffectResponse pHttpStatus_ =
   GetImpersonationRoleEffectResponse'
-    { type' =
+    { effect =
         Prelude.Nothing,
-      effect = Prelude.Nothing,
       matchedRules = Prelude.Nothing,
+      type' = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The impersonation role type.
-getImpersonationRoleEffectResponse_type :: Lens.Lens' GetImpersonationRoleEffectResponse (Prelude.Maybe ImpersonationRoleType)
-getImpersonationRoleEffectResponse_type = Lens.lens (\GetImpersonationRoleEffectResponse' {type'} -> type') (\s@GetImpersonationRoleEffectResponse' {} a -> s {type' = a} :: GetImpersonationRoleEffectResponse)
 
 -- | @@Effect of the impersonation role on the target user based on its
 -- rules. Available effects are @ALLOW@ or @DENY@.
@@ -251,6 +247,10 @@ getImpersonationRoleEffectResponse_effect = Lens.lens (\GetImpersonationRoleEffe
 getImpersonationRoleEffectResponse_matchedRules :: Lens.Lens' GetImpersonationRoleEffectResponse (Prelude.Maybe [ImpersonationMatchedRule])
 getImpersonationRoleEffectResponse_matchedRules = Lens.lens (\GetImpersonationRoleEffectResponse' {matchedRules} -> matchedRules) (\s@GetImpersonationRoleEffectResponse' {} a -> s {matchedRules = a} :: GetImpersonationRoleEffectResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The impersonation role type.
+getImpersonationRoleEffectResponse_type :: Lens.Lens' GetImpersonationRoleEffectResponse (Prelude.Maybe ImpersonationRoleType)
+getImpersonationRoleEffectResponse_type = Lens.lens (\GetImpersonationRoleEffectResponse' {type'} -> type') (\s@GetImpersonationRoleEffectResponse' {} a -> s {type' = a} :: GetImpersonationRoleEffectResponse)
+
 -- | The response's http status code.
 getImpersonationRoleEffectResponse_httpStatus :: Lens.Lens' GetImpersonationRoleEffectResponse Prelude.Int
 getImpersonationRoleEffectResponse_httpStatus = Lens.lens (\GetImpersonationRoleEffectResponse' {httpStatus} -> httpStatus) (\s@GetImpersonationRoleEffectResponse' {} a -> s {httpStatus = a} :: GetImpersonationRoleEffectResponse)
@@ -260,7 +260,7 @@ instance
     GetImpersonationRoleEffectResponse
   where
   rnf GetImpersonationRoleEffectResponse' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf effect
+    Prelude.rnf effect
       `Prelude.seq` Prelude.rnf matchedRules
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf httpStatus

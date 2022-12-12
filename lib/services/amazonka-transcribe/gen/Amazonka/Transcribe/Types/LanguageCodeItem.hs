@@ -32,11 +32,11 @@ import Amazonka.Transcribe.Types.LanguageCode
 --
 -- /See:/ 'newLanguageCodeItem' smart constructor.
 data LanguageCodeItem = LanguageCodeItem'
-  { -- | Provides the language code for each language identified in your media.
-    languageCode :: Prelude.Maybe LanguageCode,
-    -- | Provides the total time, in seconds, each identified language is spoken
+  { -- | Provides the total time, in seconds, each identified language is spoken
     -- in your media.
-    durationInSeconds :: Prelude.Maybe Prelude.Double
+    durationInSeconds :: Prelude.Maybe Prelude.Double,
+    -- | Provides the language code for each language identified in your media.
+    languageCode :: Prelude.Maybe LanguageCode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,26 +48,27 @@ data LanguageCodeItem = LanguageCodeItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'languageCode', 'languageCodeItem_languageCode' - Provides the language code for each language identified in your media.
---
 -- 'durationInSeconds', 'languageCodeItem_durationInSeconds' - Provides the total time, in seconds, each identified language is spoken
 -- in your media.
+--
+-- 'languageCode', 'languageCodeItem_languageCode' - Provides the language code for each language identified in your media.
 newLanguageCodeItem ::
   LanguageCodeItem
 newLanguageCodeItem =
   LanguageCodeItem'
-    { languageCode = Prelude.Nothing,
-      durationInSeconds = Prelude.Nothing
+    { durationInSeconds =
+        Prelude.Nothing,
+      languageCode = Prelude.Nothing
     }
-
--- | Provides the language code for each language identified in your media.
-languageCodeItem_languageCode :: Lens.Lens' LanguageCodeItem (Prelude.Maybe LanguageCode)
-languageCodeItem_languageCode = Lens.lens (\LanguageCodeItem' {languageCode} -> languageCode) (\s@LanguageCodeItem' {} a -> s {languageCode = a} :: LanguageCodeItem)
 
 -- | Provides the total time, in seconds, each identified language is spoken
 -- in your media.
 languageCodeItem_durationInSeconds :: Lens.Lens' LanguageCodeItem (Prelude.Maybe Prelude.Double)
 languageCodeItem_durationInSeconds = Lens.lens (\LanguageCodeItem' {durationInSeconds} -> durationInSeconds) (\s@LanguageCodeItem' {} a -> s {durationInSeconds = a} :: LanguageCodeItem)
+
+-- | Provides the language code for each language identified in your media.
+languageCodeItem_languageCode :: Lens.Lens' LanguageCodeItem (Prelude.Maybe LanguageCode)
+languageCodeItem_languageCode = Lens.lens (\LanguageCodeItem' {languageCode} -> languageCode) (\s@LanguageCodeItem' {} a -> s {languageCode = a} :: LanguageCodeItem)
 
 instance Data.FromJSON LanguageCodeItem where
   parseJSON =
@@ -75,16 +76,16 @@ instance Data.FromJSON LanguageCodeItem where
       "LanguageCodeItem"
       ( \x ->
           LanguageCodeItem'
-            Prelude.<$> (x Data..:? "LanguageCode")
-            Prelude.<*> (x Data..:? "DurationInSeconds")
+            Prelude.<$> (x Data..:? "DurationInSeconds")
+            Prelude.<*> (x Data..:? "LanguageCode")
       )
 
 instance Prelude.Hashable LanguageCodeItem where
   hashWithSalt _salt LanguageCodeItem' {..} =
-    _salt `Prelude.hashWithSalt` languageCode
-      `Prelude.hashWithSalt` durationInSeconds
+    _salt `Prelude.hashWithSalt` durationInSeconds
+      `Prelude.hashWithSalt` languageCode
 
 instance Prelude.NFData LanguageCodeItem where
   rnf LanguageCodeItem' {..} =
-    Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf durationInSeconds
+    Prelude.rnf durationInSeconds
+      `Prelude.seq` Prelude.rnf languageCode

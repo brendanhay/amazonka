@@ -24,23 +24,23 @@ module Amazonka.Wisdom
     -- * Errors
     -- $errors
 
-    -- ** PreconditionFailedException
-    _PreconditionFailedException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** TooManyTagsException
-    _TooManyTagsException,
+    -- ** ConflictException
+    _ConflictException,
 
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
+    -- ** PreconditionFailedException
+    _PreconditionFailedException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** ConflictException
-    _ConflictException,
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
 
     -- ** ValidationException
     _ValidationException,

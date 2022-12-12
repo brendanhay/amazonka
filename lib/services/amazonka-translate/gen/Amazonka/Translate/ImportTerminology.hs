@@ -36,9 +36,9 @@ module Amazonka.Translate.ImportTerminology
     newImportTerminology,
 
     -- * Request Lenses
-    importTerminology_tags,
     importTerminology_description,
     importTerminology_encryptionKey,
+    importTerminology_tags,
     importTerminology_name,
     importTerminology_mergeStrategy,
     importTerminology_terminologyData,
@@ -64,15 +64,15 @@ import Amazonka.Translate.Types
 
 -- | /See:/ 'newImportTerminology' smart constructor.
 data ImportTerminology = ImportTerminology'
-  { -- | Tags to be associated with this resource. A tag is a key-value pair that
+  { -- | The description of the custom terminology being imported.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The encryption key for the custom terminology being imported.
+    encryptionKey :: Prelude.Maybe EncryptionKey,
+    -- | Tags to be associated with this resource. A tag is a key-value pair that
     -- adds metadata to a resource. Each tag key for the resource must be
     -- unique. For more information, see
     -- <https://docs.aws.amazon.com/translate/latest/dg/tagging.html Tagging your resources>.
     tags :: Prelude.Maybe [Tag],
-    -- | The description of the custom terminology being imported.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The encryption key for the custom terminology being imported.
-    encryptionKey :: Prelude.Maybe EncryptionKey,
     -- | The name of the custom terminology being imported.
     name :: Prelude.Text,
     -- | The merge strategy of the custom terminology being imported. Currently,
@@ -93,14 +93,14 @@ data ImportTerminology = ImportTerminology'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'importTerminology_description' - The description of the custom terminology being imported.
+--
+-- 'encryptionKey', 'importTerminology_encryptionKey' - The encryption key for the custom terminology being imported.
+--
 -- 'tags', 'importTerminology_tags' - Tags to be associated with this resource. A tag is a key-value pair that
 -- adds metadata to a resource. Each tag key for the resource must be
 -- unique. For more information, see
 -- <https://docs.aws.amazon.com/translate/latest/dg/tagging.html Tagging your resources>.
---
--- 'description', 'importTerminology_description' - The description of the custom terminology being imported.
---
--- 'encryptionKey', 'importTerminology_encryptionKey' - The encryption key for the custom terminology being imported.
 --
 -- 'name', 'importTerminology_name' - The name of the custom terminology being imported.
 --
@@ -123,20 +123,13 @@ newImportTerminology
   pMergeStrategy_
   pTerminologyData_ =
     ImportTerminology'
-      { tags = Prelude.Nothing,
-        description = Prelude.Nothing,
+      { description = Prelude.Nothing,
         encryptionKey = Prelude.Nothing,
+        tags = Prelude.Nothing,
         name = pName_,
         mergeStrategy = pMergeStrategy_,
         terminologyData = pTerminologyData_
       }
-
--- | Tags to be associated with this resource. A tag is a key-value pair that
--- adds metadata to a resource. Each tag key for the resource must be
--- unique. For more information, see
--- <https://docs.aws.amazon.com/translate/latest/dg/tagging.html Tagging your resources>.
-importTerminology_tags :: Lens.Lens' ImportTerminology (Prelude.Maybe [Tag])
-importTerminology_tags = Lens.lens (\ImportTerminology' {tags} -> tags) (\s@ImportTerminology' {} a -> s {tags = a} :: ImportTerminology) Prelude.. Lens.mapping Lens.coerced
 
 -- | The description of the custom terminology being imported.
 importTerminology_description :: Lens.Lens' ImportTerminology (Prelude.Maybe Prelude.Text)
@@ -145,6 +138,13 @@ importTerminology_description = Lens.lens (\ImportTerminology' {description} -> 
 -- | The encryption key for the custom terminology being imported.
 importTerminology_encryptionKey :: Lens.Lens' ImportTerminology (Prelude.Maybe EncryptionKey)
 importTerminology_encryptionKey = Lens.lens (\ImportTerminology' {encryptionKey} -> encryptionKey) (\s@ImportTerminology' {} a -> s {encryptionKey = a} :: ImportTerminology)
+
+-- | Tags to be associated with this resource. A tag is a key-value pair that
+-- adds metadata to a resource. Each tag key for the resource must be
+-- unique. For more information, see
+-- <https://docs.aws.amazon.com/translate/latest/dg/tagging.html Tagging your resources>.
+importTerminology_tags :: Lens.Lens' ImportTerminology (Prelude.Maybe [Tag])
+importTerminology_tags = Lens.lens (\ImportTerminology' {tags} -> tags) (\s@ImportTerminology' {} a -> s {tags = a} :: ImportTerminology) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the custom terminology being imported.
 importTerminology_name :: Lens.Lens' ImportTerminology Prelude.Text
@@ -178,18 +178,18 @@ instance Core.AWSRequest ImportTerminology where
 
 instance Prelude.Hashable ImportTerminology where
   hashWithSalt _salt ImportTerminology' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` encryptionKey
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` mergeStrategy
       `Prelude.hashWithSalt` terminologyData
 
 instance Prelude.NFData ImportTerminology where
   rnf ImportTerminology' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf encryptionKey
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf mergeStrategy
       `Prelude.seq` Prelude.rnf terminologyData
@@ -213,9 +213,9 @@ instance Data.ToJSON ImportTerminology where
   toJSON ImportTerminology' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
             ("EncryptionKey" Data..=) Prelude.<$> encryptionKey,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("MergeStrategy" Data..= mergeStrategy),
             Prelude.Just

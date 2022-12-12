@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newContainerServiceLogEvent' smart constructor.
 data ContainerServiceLogEvent = ContainerServiceLogEvent'
-  { -- | The message of the container service log event.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp when the container service log event was created.
-    createdAt :: Prelude.Maybe Data.POSIX
+  { -- | The timestamp when the container service log event was created.
+    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | The message of the container service log event.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data ContainerServiceLogEvent = ContainerServiceLogEvent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'containerServiceLogEvent_message' - The message of the container service log event.
---
 -- 'createdAt', 'containerServiceLogEvent_createdAt' - The timestamp when the container service log event was created.
+--
+-- 'message', 'containerServiceLogEvent_message' - The message of the container service log event.
 newContainerServiceLogEvent ::
   ContainerServiceLogEvent
 newContainerServiceLogEvent =
   ContainerServiceLogEvent'
-    { message =
+    { createdAt =
         Prelude.Nothing,
-      createdAt = Prelude.Nothing
+      message = Prelude.Nothing
     }
-
--- | The message of the container service log event.
-containerServiceLogEvent_message :: Lens.Lens' ContainerServiceLogEvent (Prelude.Maybe Prelude.Text)
-containerServiceLogEvent_message = Lens.lens (\ContainerServiceLogEvent' {message} -> message) (\s@ContainerServiceLogEvent' {} a -> s {message = a} :: ContainerServiceLogEvent)
 
 -- | The timestamp when the container service log event was created.
 containerServiceLogEvent_createdAt :: Lens.Lens' ContainerServiceLogEvent (Prelude.Maybe Prelude.UTCTime)
 containerServiceLogEvent_createdAt = Lens.lens (\ContainerServiceLogEvent' {createdAt} -> createdAt) (\s@ContainerServiceLogEvent' {} a -> s {createdAt = a} :: ContainerServiceLogEvent) Prelude.. Lens.mapping Data._Time
+
+-- | The message of the container service log event.
+containerServiceLogEvent_message :: Lens.Lens' ContainerServiceLogEvent (Prelude.Maybe Prelude.Text)
+containerServiceLogEvent_message = Lens.lens (\ContainerServiceLogEvent' {message} -> message) (\s@ContainerServiceLogEvent' {} a -> s {message = a} :: ContainerServiceLogEvent)
 
 instance Data.FromJSON ContainerServiceLogEvent where
   parseJSON =
@@ -70,16 +70,16 @@ instance Data.FromJSON ContainerServiceLogEvent where
       "ContainerServiceLogEvent"
       ( \x ->
           ContainerServiceLogEvent'
-            Prelude.<$> (x Data..:? "message")
-            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<$> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "message")
       )
 
 instance Prelude.Hashable ContainerServiceLogEvent where
   hashWithSalt _salt ContainerServiceLogEvent' {..} =
-    _salt `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` createdAt
+    _salt `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` message
 
 instance Prelude.NFData ContainerServiceLogEvent where
   rnf ContainerServiceLogEvent' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf createdAt
+    Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf message

@@ -19,10 +19,10 @@ module Amazonka.LookoutVision.Types
 
     -- * Errors
     _AccessDeniedException,
-    _InternalServerException,
-    _ServiceQuotaExceededException,
-    _ResourceNotFoundException,
     _ConflictException,
+    _InternalServerException,
+    _ResourceNotFoundException,
+    _ServiceQuotaExceededException,
     _ThrottlingException,
     _ValidationException,
 
@@ -59,13 +59,13 @@ module Amazonka.LookoutVision.Types
     -- * DatasetDescription
     DatasetDescription (..),
     newDatasetDescription,
-    datasetDescription_lastUpdatedTimestamp,
-    datasetDescription_datasetType,
-    datasetDescription_status,
     datasetDescription_creationTimestamp,
-    datasetDescription_projectName,
-    datasetDescription_statusMessage,
+    datasetDescription_datasetType,
     datasetDescription_imageStats,
+    datasetDescription_lastUpdatedTimestamp,
+    datasetDescription_projectName,
+    datasetDescription_status,
+    datasetDescription_statusMessage,
 
     -- * DatasetGroundTruthManifest
     DatasetGroundTruthManifest (..),
@@ -75,17 +75,17 @@ module Amazonka.LookoutVision.Types
     -- * DatasetImageStats
     DatasetImageStats (..),
     newDatasetImageStats,
-    datasetImageStats_total,
-    datasetImageStats_labeled,
     datasetImageStats_anomaly,
+    datasetImageStats_labeled,
     datasetImageStats_normal,
+    datasetImageStats_total,
 
     -- * DatasetMetadata
     DatasetMetadata (..),
     newDatasetMetadata,
+    datasetMetadata_creationTimestamp,
     datasetMetadata_datasetType,
     datasetMetadata_status,
-    datasetMetadata_creationTimestamp,
     datasetMetadata_statusMessage,
 
     -- * DatasetSource
@@ -97,28 +97,28 @@ module Amazonka.LookoutVision.Types
     DetectAnomalyResult (..),
     newDetectAnomalyResult,
     detectAnomalyResult_anomalies,
-    detectAnomalyResult_confidence,
-    detectAnomalyResult_source,
-    detectAnomalyResult_isAnomalous,
     detectAnomalyResult_anomalyMask,
+    detectAnomalyResult_confidence,
+    detectAnomalyResult_isAnomalous,
+    detectAnomalyResult_source,
 
     -- * GreengrassConfiguration
     GreengrassConfiguration (..),
     newGreengrassConfiguration,
+    greengrassConfiguration_compilerOptions,
     greengrassConfiguration_componentDescription,
-    greengrassConfiguration_tags,
     greengrassConfiguration_componentVersion,
+    greengrassConfiguration_tags,
     greengrassConfiguration_targetDevice,
     greengrassConfiguration_targetPlatform,
-    greengrassConfiguration_compilerOptions,
     greengrassConfiguration_s3OutputLocation,
     greengrassConfiguration_componentName,
 
     -- * GreengrassOutputDetails
     GreengrassOutputDetails (..),
     newGreengrassOutputDetails,
-    greengrassOutputDetails_componentVersion,
     greengrassOutputDetails_componentName,
+    greengrassOutputDetails_componentVersion,
     greengrassOutputDetails_componentVersionArn,
 
     -- * ImageSource
@@ -136,30 +136,30 @@ module Amazonka.LookoutVision.Types
     -- * ModelDescription
     ModelDescription (..),
     newModelDescription,
-    modelDescription_evaluationManifest,
-    modelDescription_minInferenceUnits,
-    modelDescription_modelVersion,
-    modelDescription_evaluationEndTimestamp,
-    modelDescription_status,
-    modelDescription_description,
     modelDescription_creationTimestamp,
-    modelDescription_performance,
-    modelDescription_modelArn,
+    modelDescription_description,
+    modelDescription_evaluationEndTimestamp,
+    modelDescription_evaluationManifest,
     modelDescription_evaluationResult,
     modelDescription_kmsKeyId,
     modelDescription_maxInferenceUnits,
-    modelDescription_statusMessage,
+    modelDescription_minInferenceUnits,
+    modelDescription_modelArn,
+    modelDescription_modelVersion,
     modelDescription_outputConfig,
+    modelDescription_performance,
+    modelDescription_status,
+    modelDescription_statusMessage,
 
     -- * ModelMetadata
     ModelMetadata (..),
     newModelMetadata,
-    modelMetadata_modelVersion,
-    modelMetadata_status,
-    modelMetadata_description,
     modelMetadata_creationTimestamp,
-    modelMetadata_performance,
+    modelMetadata_description,
     modelMetadata_modelArn,
+    modelMetadata_modelVersion,
+    modelMetadata_performance,
+    modelMetadata_status,
     modelMetadata_statusMessage,
 
     -- * ModelPackagingConfiguration
@@ -170,29 +170,29 @@ module Amazonka.LookoutVision.Types
     -- * ModelPackagingDescription
     ModelPackagingDescription (..),
     newModelPackagingDescription,
-    modelPackagingDescription_lastUpdatedTimestamp,
-    modelPackagingDescription_jobName,
-    modelPackagingDescription_modelPackagingOutputDetails,
-    modelPackagingDescription_modelVersion,
-    modelPackagingDescription_status,
     modelPackagingDescription_creationTimestamp,
+    modelPackagingDescription_jobName,
+    modelPackagingDescription_lastUpdatedTimestamp,
+    modelPackagingDescription_modelPackagingConfiguration,
     modelPackagingDescription_modelPackagingJobDescription,
     modelPackagingDescription_modelPackagingMethod,
+    modelPackagingDescription_modelPackagingOutputDetails,
+    modelPackagingDescription_modelVersion,
     modelPackagingDescription_projectName,
+    modelPackagingDescription_status,
     modelPackagingDescription_statusMessage,
-    modelPackagingDescription_modelPackagingConfiguration,
 
     -- * ModelPackagingJobMetadata
     ModelPackagingJobMetadata (..),
     newModelPackagingJobMetadata,
-    modelPackagingJobMetadata_lastUpdatedTimestamp,
-    modelPackagingJobMetadata_jobName,
-    modelPackagingJobMetadata_modelVersion,
-    modelPackagingJobMetadata_status,
     modelPackagingJobMetadata_creationTimestamp,
+    modelPackagingJobMetadata_jobName,
+    modelPackagingJobMetadata_lastUpdatedTimestamp,
     modelPackagingJobMetadata_modelPackagingJobDescription,
     modelPackagingJobMetadata_modelPackagingMethod,
+    modelPackagingJobMetadata_modelVersion,
     modelPackagingJobMetadata_projectName,
+    modelPackagingJobMetadata_status,
     modelPackagingJobMetadata_statusMessage,
 
     -- * ModelPackagingOutputDetails
@@ -204,8 +204,8 @@ module Amazonka.LookoutVision.Types
     ModelPerformance (..),
     newModelPerformance,
     modelPerformance_f1Score,
-    modelPerformance_recall,
     modelPerformance_precision,
+    modelPerformance_recall,
 
     -- * OutputConfig
     OutputConfig (..),
@@ -227,17 +227,17 @@ module Amazonka.LookoutVision.Types
     -- * ProjectDescription
     ProjectDescription (..),
     newProjectDescription,
-    projectDescription_datasets,
     projectDescription_creationTimestamp,
-    projectDescription_projectName,
+    projectDescription_datasets,
     projectDescription_projectArn,
+    projectDescription_projectName,
 
     -- * ProjectMetadata
     ProjectMetadata (..),
     newProjectMetadata,
     projectMetadata_creationTimestamp,
-    projectMetadata_projectName,
     projectMetadata_projectArn,
+    projectMetadata_projectName,
 
     -- * S3Location
     S3Location (..),
@@ -324,28 +324,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -353,13 +347,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -367,6 +365,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You are not authorized to perform the action.
@@ -377,6 +377,14 @@ _AccessDeniedException =
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
+-- | The update or deletion of a resource caused an inconsistent state.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
 -- | Amazon Lookout for Vision experienced a service issue. Try your call
 -- again.
 _InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -385,6 +393,14 @@ _InternalServerException =
     defaultService
     "InternalServerException"
     Prelude.. Core.hasStatus 500
+
+-- | The resource could not be found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
 
 -- | A service quota was exceeded the allowed limit. For more information,
 -- see Limits in Amazon Lookout for Vision in the Amazon Lookout for Vision
@@ -395,22 +411,6 @@ _ServiceQuotaExceededException =
     defaultService
     "ServiceQuotaExceededException"
     Prelude.. Core.hasStatus 402
-
--- | The resource could not be found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
-
--- | The update or deletion of a resource caused an inconsistent state.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
 
 -- | Amazon Lookout for Vision is temporarily unable to process the request.
 -- Try your call again.

@@ -33,12 +33,12 @@ module Amazonka.SageMaker.CreateAutoMLJob
     newCreateAutoMLJob,
 
     -- * Request Lenses
-    createAutoMLJob_tags,
     createAutoMLJob_autoMLJobConfig,
     createAutoMLJob_autoMLJobObjective,
+    createAutoMLJob_generateCandidateDefinitionsOnly,
     createAutoMLJob_modelDeployConfig,
     createAutoMLJob_problemType,
-    createAutoMLJob_generateCandidateDefinitionsOnly,
+    createAutoMLJob_tags,
     createAutoMLJob_autoMLJobName,
     createAutoMLJob_inputDataConfig,
     createAutoMLJob_outputDataConfig,
@@ -64,15 +64,16 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newCreateAutoMLJob' smart constructor.
 data CreateAutoMLJob = CreateAutoMLJob'
-  { -- | Each tag consists of a key and an optional value. Tag keys must be
-    -- unique per resource.
-    tags :: Prelude.Maybe [Tag],
-    -- | A collection of settings used to configure an AutoML job.
+  { -- | A collection of settings used to configure an AutoML job.
     autoMLJobConfig :: Prelude.Maybe AutoMLJobConfig,
     -- | Defines the objective metric used to measure the predictive quality of
     -- an AutoML job. You provide an AutoMLJobObjective$MetricName and
     -- Autopilot infers whether to minimize or maximize it.
     autoMLJobObjective :: Prelude.Maybe AutoMLJobObjective,
+    -- | Generates possible candidates without training the models. A candidate
+    -- is a combination of data preprocessors, algorithms, and algorithm
+    -- parameter settings.
+    generateCandidateDefinitionsOnly :: Prelude.Maybe Prelude.Bool,
     -- | Specifies how to generate the endpoint name for an automatic one-click
     -- Autopilot model deployment.
     modelDeployConfig :: Prelude.Maybe ModelDeployConfig,
@@ -80,10 +81,9 @@ data CreateAutoMLJob = CreateAutoMLJob'
     -- For more information, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-problem-types.html Amazon SageMaker Autopilot problem types and algorithm support>.
     problemType :: Prelude.Maybe ProblemType,
-    -- | Generates possible candidates without training the models. A candidate
-    -- is a combination of data preprocessors, algorithms, and algorithm
-    -- parameter settings.
-    generateCandidateDefinitionsOnly :: Prelude.Maybe Prelude.Bool,
+    -- | Each tag consists of a key and an optional value. Tag keys must be
+    -- unique per resource.
+    tags :: Prelude.Maybe [Tag],
     -- | Identifies an Autopilot job. The name must be unique to your account and
     -- is case-insensitive.
     autoMLJobName :: Prelude.Text,
@@ -109,14 +109,15 @@ data CreateAutoMLJob = CreateAutoMLJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createAutoMLJob_tags' - Each tag consists of a key and an optional value. Tag keys must be
--- unique per resource.
---
 -- 'autoMLJobConfig', 'createAutoMLJob_autoMLJobConfig' - A collection of settings used to configure an AutoML job.
 --
 -- 'autoMLJobObjective', 'createAutoMLJob_autoMLJobObjective' - Defines the objective metric used to measure the predictive quality of
 -- an AutoML job. You provide an AutoMLJobObjective$MetricName and
 -- Autopilot infers whether to minimize or maximize it.
+--
+-- 'generateCandidateDefinitionsOnly', 'createAutoMLJob_generateCandidateDefinitionsOnly' - Generates possible candidates without training the models. A candidate
+-- is a combination of data preprocessors, algorithms, and algorithm
+-- parameter settings.
 --
 -- 'modelDeployConfig', 'createAutoMLJob_modelDeployConfig' - Specifies how to generate the endpoint name for an automatic one-click
 -- Autopilot model deployment.
@@ -125,9 +126,8 @@ data CreateAutoMLJob = CreateAutoMLJob'
 -- For more information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-problem-types.html Amazon SageMaker Autopilot problem types and algorithm support>.
 --
--- 'generateCandidateDefinitionsOnly', 'createAutoMLJob_generateCandidateDefinitionsOnly' - Generates possible candidates without training the models. A candidate
--- is a combination of data preprocessors, algorithms, and algorithm
--- parameter settings.
+-- 'tags', 'createAutoMLJob_tags' - Each tag consists of a key and an optional value. Tag keys must be
+-- unique per resource.
 --
 -- 'autoMLJobName', 'createAutoMLJob_autoMLJobName' - Identifies an Autopilot job. The name must be unique to your account and
 -- is case-insensitive.
@@ -158,23 +158,18 @@ newCreateAutoMLJob
   pOutputDataConfig_
   pRoleArn_ =
     CreateAutoMLJob'
-      { tags = Prelude.Nothing,
-        autoMLJobConfig = Prelude.Nothing,
+      { autoMLJobConfig = Prelude.Nothing,
         autoMLJobObjective = Prelude.Nothing,
+        generateCandidateDefinitionsOnly = Prelude.Nothing,
         modelDeployConfig = Prelude.Nothing,
         problemType = Prelude.Nothing,
-        generateCandidateDefinitionsOnly = Prelude.Nothing,
+        tags = Prelude.Nothing,
         autoMLJobName = pAutoMLJobName_,
         inputDataConfig =
           Lens.coerced Lens.# pInputDataConfig_,
         outputDataConfig = pOutputDataConfig_,
         roleArn = pRoleArn_
       }
-
--- | Each tag consists of a key and an optional value. Tag keys must be
--- unique per resource.
-createAutoMLJob_tags :: Lens.Lens' CreateAutoMLJob (Prelude.Maybe [Tag])
-createAutoMLJob_tags = Lens.lens (\CreateAutoMLJob' {tags} -> tags) (\s@CreateAutoMLJob' {} a -> s {tags = a} :: CreateAutoMLJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | A collection of settings used to configure an AutoML job.
 createAutoMLJob_autoMLJobConfig :: Lens.Lens' CreateAutoMLJob (Prelude.Maybe AutoMLJobConfig)
@@ -185,6 +180,12 @@ createAutoMLJob_autoMLJobConfig = Lens.lens (\CreateAutoMLJob' {autoMLJobConfig}
 -- Autopilot infers whether to minimize or maximize it.
 createAutoMLJob_autoMLJobObjective :: Lens.Lens' CreateAutoMLJob (Prelude.Maybe AutoMLJobObjective)
 createAutoMLJob_autoMLJobObjective = Lens.lens (\CreateAutoMLJob' {autoMLJobObjective} -> autoMLJobObjective) (\s@CreateAutoMLJob' {} a -> s {autoMLJobObjective = a} :: CreateAutoMLJob)
+
+-- | Generates possible candidates without training the models. A candidate
+-- is a combination of data preprocessors, algorithms, and algorithm
+-- parameter settings.
+createAutoMLJob_generateCandidateDefinitionsOnly :: Lens.Lens' CreateAutoMLJob (Prelude.Maybe Prelude.Bool)
+createAutoMLJob_generateCandidateDefinitionsOnly = Lens.lens (\CreateAutoMLJob' {generateCandidateDefinitionsOnly} -> generateCandidateDefinitionsOnly) (\s@CreateAutoMLJob' {} a -> s {generateCandidateDefinitionsOnly = a} :: CreateAutoMLJob)
 
 -- | Specifies how to generate the endpoint name for an automatic one-click
 -- Autopilot model deployment.
@@ -197,11 +198,10 @@ createAutoMLJob_modelDeployConfig = Lens.lens (\CreateAutoMLJob' {modelDeployCon
 createAutoMLJob_problemType :: Lens.Lens' CreateAutoMLJob (Prelude.Maybe ProblemType)
 createAutoMLJob_problemType = Lens.lens (\CreateAutoMLJob' {problemType} -> problemType) (\s@CreateAutoMLJob' {} a -> s {problemType = a} :: CreateAutoMLJob)
 
--- | Generates possible candidates without training the models. A candidate
--- is a combination of data preprocessors, algorithms, and algorithm
--- parameter settings.
-createAutoMLJob_generateCandidateDefinitionsOnly :: Lens.Lens' CreateAutoMLJob (Prelude.Maybe Prelude.Bool)
-createAutoMLJob_generateCandidateDefinitionsOnly = Lens.lens (\CreateAutoMLJob' {generateCandidateDefinitionsOnly} -> generateCandidateDefinitionsOnly) (\s@CreateAutoMLJob' {} a -> s {generateCandidateDefinitionsOnly = a} :: CreateAutoMLJob)
+-- | Each tag consists of a key and an optional value. Tag keys must be
+-- unique per resource.
+createAutoMLJob_tags :: Lens.Lens' CreateAutoMLJob (Prelude.Maybe [Tag])
+createAutoMLJob_tags = Lens.lens (\CreateAutoMLJob' {tags} -> tags) (\s@CreateAutoMLJob' {} a -> s {tags = a} :: CreateAutoMLJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | Identifies an Autopilot job. The name must be unique to your account and
 -- is case-insensitive.
@@ -241,12 +241,12 @@ instance Core.AWSRequest CreateAutoMLJob where
 
 instance Prelude.Hashable CreateAutoMLJob where
   hashWithSalt _salt CreateAutoMLJob' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` autoMLJobConfig
+    _salt `Prelude.hashWithSalt` autoMLJobConfig
       `Prelude.hashWithSalt` autoMLJobObjective
+      `Prelude.hashWithSalt` generateCandidateDefinitionsOnly
       `Prelude.hashWithSalt` modelDeployConfig
       `Prelude.hashWithSalt` problemType
-      `Prelude.hashWithSalt` generateCandidateDefinitionsOnly
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` autoMLJobName
       `Prelude.hashWithSalt` inputDataConfig
       `Prelude.hashWithSalt` outputDataConfig
@@ -254,12 +254,12 @@ instance Prelude.Hashable CreateAutoMLJob where
 
 instance Prelude.NFData CreateAutoMLJob where
   rnf CreateAutoMLJob' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf autoMLJobConfig
+    Prelude.rnf autoMLJobConfig
       `Prelude.seq` Prelude.rnf autoMLJobObjective
+      `Prelude.seq` Prelude.rnf generateCandidateDefinitionsOnly
       `Prelude.seq` Prelude.rnf modelDeployConfig
       `Prelude.seq` Prelude.rnf problemType
-      `Prelude.seq` Prelude.rnf generateCandidateDefinitionsOnly
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf autoMLJobName
       `Prelude.seq` Prelude.rnf inputDataConfig
       `Prelude.seq` Prelude.rnf outputDataConfig
@@ -282,16 +282,16 @@ instance Data.ToJSON CreateAutoMLJob where
   toJSON CreateAutoMLJob' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("AutoMLJobConfig" Data..=)
+          [ ("AutoMLJobConfig" Data..=)
               Prelude.<$> autoMLJobConfig,
             ("AutoMLJobObjective" Data..=)
               Prelude.<$> autoMLJobObjective,
+            ("GenerateCandidateDefinitionsOnly" Data..=)
+              Prelude.<$> generateCandidateDefinitionsOnly,
             ("ModelDeployConfig" Data..=)
               Prelude.<$> modelDeployConfig,
             ("ProblemType" Data..=) Prelude.<$> problemType,
-            ("GenerateCandidateDefinitionsOnly" Data..=)
-              Prelude.<$> generateCandidateDefinitionsOnly,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("AutoMLJobName" Data..= autoMLJobName),
             Prelude.Just
               ("InputDataConfig" Data..= inputDataConfig),

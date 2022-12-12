@@ -31,10 +31,10 @@ module Amazonka.IoT.ListMetricValues
     newListMetricValues,
 
     -- * Request Lenses
-    listMetricValues_nextToken,
-    listMetricValues_dimensionValueOperator,
     listMetricValues_dimensionName,
+    listMetricValues_dimensionValueOperator,
     listMetricValues_maxResults,
+    listMetricValues_nextToken,
     listMetricValues_thingName,
     listMetricValues_metricName,
     listMetricValues_startTime,
@@ -45,8 +45,8 @@ module Amazonka.IoT.ListMetricValues
     newListMetricValuesResponse,
 
     -- * Response Lenses
-    listMetricValuesResponse_nextToken,
     listMetricValuesResponse_metricDatumList,
+    listMetricValuesResponse_nextToken,
     listMetricValuesResponse_httpStatus,
   )
 where
@@ -61,14 +61,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListMetricValues' smart constructor.
 data ListMetricValues = ListMetricValues'
-  { -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The dimension name.
+    dimensionName :: Prelude.Maybe Prelude.Text,
     -- | The dimension value operator.
     dimensionValueOperator :: Prelude.Maybe DimensionValueOperator,
-    -- | The dimension name.
-    dimensionName :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return at one time.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the thing for which security profile metric values are
     -- returned.
     thingName :: Prelude.Text,
@@ -89,13 +89,13 @@ data ListMetricValues = ListMetricValues'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listMetricValues_nextToken' - The token for the next set of results.
+-- 'dimensionName', 'listMetricValues_dimensionName' - The dimension name.
 --
 -- 'dimensionValueOperator', 'listMetricValues_dimensionValueOperator' - The dimension value operator.
 --
--- 'dimensionName', 'listMetricValues_dimensionName' - The dimension name.
---
 -- 'maxResults', 'listMetricValues_maxResults' - The maximum number of results to return at one time.
+--
+-- 'nextToken', 'listMetricValues_nextToken' - The token for the next set of results.
 --
 -- 'thingName', 'listMetricValues_thingName' - The name of the thing for which security profile metric values are
 -- returned.
@@ -121,31 +121,31 @@ newListMetricValues
   pStartTime_
   pEndTime_ =
     ListMetricValues'
-      { nextToken = Prelude.Nothing,
+      { dimensionName = Prelude.Nothing,
         dimensionValueOperator = Prelude.Nothing,
-        dimensionName = Prelude.Nothing,
         maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         thingName = pThingName_,
         metricName = pMetricName_,
         startTime = Data._Time Lens.# pStartTime_,
         endTime = Data._Time Lens.# pEndTime_
       }
 
--- | The token for the next set of results.
-listMetricValues_nextToken :: Lens.Lens' ListMetricValues (Prelude.Maybe Prelude.Text)
-listMetricValues_nextToken = Lens.lens (\ListMetricValues' {nextToken} -> nextToken) (\s@ListMetricValues' {} a -> s {nextToken = a} :: ListMetricValues)
+-- | The dimension name.
+listMetricValues_dimensionName :: Lens.Lens' ListMetricValues (Prelude.Maybe Prelude.Text)
+listMetricValues_dimensionName = Lens.lens (\ListMetricValues' {dimensionName} -> dimensionName) (\s@ListMetricValues' {} a -> s {dimensionName = a} :: ListMetricValues)
 
 -- | The dimension value operator.
 listMetricValues_dimensionValueOperator :: Lens.Lens' ListMetricValues (Prelude.Maybe DimensionValueOperator)
 listMetricValues_dimensionValueOperator = Lens.lens (\ListMetricValues' {dimensionValueOperator} -> dimensionValueOperator) (\s@ListMetricValues' {} a -> s {dimensionValueOperator = a} :: ListMetricValues)
 
--- | The dimension name.
-listMetricValues_dimensionName :: Lens.Lens' ListMetricValues (Prelude.Maybe Prelude.Text)
-listMetricValues_dimensionName = Lens.lens (\ListMetricValues' {dimensionName} -> dimensionName) (\s@ListMetricValues' {} a -> s {dimensionName = a} :: ListMetricValues)
-
 -- | The maximum number of results to return at one time.
 listMetricValues_maxResults :: Lens.Lens' ListMetricValues (Prelude.Maybe Prelude.Natural)
 listMetricValues_maxResults = Lens.lens (\ListMetricValues' {maxResults} -> maxResults) (\s@ListMetricValues' {} a -> s {maxResults = a} :: ListMetricValues)
+
+-- | The token for the next set of results.
+listMetricValues_nextToken :: Lens.Lens' ListMetricValues (Prelude.Maybe Prelude.Text)
+listMetricValues_nextToken = Lens.lens (\ListMetricValues' {nextToken} -> nextToken) (\s@ListMetricValues' {} a -> s {nextToken = a} :: ListMetricValues)
 
 -- | The name of the thing for which security profile metric values are
 -- returned.
@@ -196,19 +196,19 @@ instance Core.AWSRequest ListMetricValues where
     Response.receiveJSON
       ( \s h x ->
           ListMetricValuesResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "metricDatumList"
+            Prelude.<$> ( x Data..?> "metricDatumList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListMetricValues where
   hashWithSalt _salt ListMetricValues' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` dimensionName
       `Prelude.hashWithSalt` dimensionValueOperator
-      `Prelude.hashWithSalt` dimensionName
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` thingName
       `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` startTime
@@ -216,10 +216,10 @@ instance Prelude.Hashable ListMetricValues where
 
 instance Prelude.NFData ListMetricValues where
   rnf ListMetricValues' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf dimensionName
       `Prelude.seq` Prelude.rnf dimensionValueOperator
-      `Prelude.seq` Prelude.rnf dimensionName
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf thingName
       `Prelude.seq` Prelude.rnf metricName
       `Prelude.seq` Prelude.rnf startTime
@@ -234,11 +234,11 @@ instance Data.ToPath ListMetricValues where
 instance Data.ToQuery ListMetricValues where
   toQuery ListMetricValues' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
+      [ "dimensionName" Data.=: dimensionName,
         "dimensionValueOperator"
           Data.=: dimensionValueOperator,
-        "dimensionName" Data.=: dimensionName,
         "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
         "thingName" Data.=: thingName,
         "metricName" Data.=: metricName,
         "startTime" Data.=: startTime,
@@ -247,12 +247,12 @@ instance Data.ToQuery ListMetricValues where
 
 -- | /See:/ 'newListMetricValuesResponse' smart constructor.
 data ListMetricValuesResponse = ListMetricValuesResponse'
-  { -- | A token that can be used to retrieve the next set of results, or @null@
-    -- if there are no additional results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The data the thing reports for the metric during the specified time
+  { -- | The data the thing reports for the metric during the specified time
     -- period.
     metricDatumList :: Prelude.Maybe [MetricDatum],
+    -- | A token that can be used to retrieve the next set of results, or @null@
+    -- if there are no additional results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -266,11 +266,11 @@ data ListMetricValuesResponse = ListMetricValuesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listMetricValuesResponse_nextToken' - A token that can be used to retrieve the next set of results, or @null@
--- if there are no additional results.
---
 -- 'metricDatumList', 'listMetricValuesResponse_metricDatumList' - The data the thing reports for the metric during the specified time
 -- period.
+--
+-- 'nextToken', 'listMetricValuesResponse_nextToken' - A token that can be used to retrieve the next set of results, or @null@
+-- if there are no additional results.
 --
 -- 'httpStatus', 'listMetricValuesResponse_httpStatus' - The response's http status code.
 newListMetricValuesResponse ::
@@ -279,21 +279,21 @@ newListMetricValuesResponse ::
   ListMetricValuesResponse
 newListMetricValuesResponse pHttpStatus_ =
   ListMetricValuesResponse'
-    { nextToken =
+    { metricDatumList =
         Prelude.Nothing,
-      metricDatumList = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A token that can be used to retrieve the next set of results, or @null@
--- if there are no additional results.
-listMetricValuesResponse_nextToken :: Lens.Lens' ListMetricValuesResponse (Prelude.Maybe Prelude.Text)
-listMetricValuesResponse_nextToken = Lens.lens (\ListMetricValuesResponse' {nextToken} -> nextToken) (\s@ListMetricValuesResponse' {} a -> s {nextToken = a} :: ListMetricValuesResponse)
 
 -- | The data the thing reports for the metric during the specified time
 -- period.
 listMetricValuesResponse_metricDatumList :: Lens.Lens' ListMetricValuesResponse (Prelude.Maybe [MetricDatum])
 listMetricValuesResponse_metricDatumList = Lens.lens (\ListMetricValuesResponse' {metricDatumList} -> metricDatumList) (\s@ListMetricValuesResponse' {} a -> s {metricDatumList = a} :: ListMetricValuesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A token that can be used to retrieve the next set of results, or @null@
+-- if there are no additional results.
+listMetricValuesResponse_nextToken :: Lens.Lens' ListMetricValuesResponse (Prelude.Maybe Prelude.Text)
+listMetricValuesResponse_nextToken = Lens.lens (\ListMetricValuesResponse' {nextToken} -> nextToken) (\s@ListMetricValuesResponse' {} a -> s {nextToken = a} :: ListMetricValuesResponse)
 
 -- | The response's http status code.
 listMetricValuesResponse_httpStatus :: Lens.Lens' ListMetricValuesResponse Prelude.Int
@@ -301,6 +301,6 @@ listMetricValuesResponse_httpStatus = Lens.lens (\ListMetricValuesResponse' {htt
 
 instance Prelude.NFData ListMetricValuesResponse where
   rnf ListMetricValuesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf metricDatumList
+    Prelude.rnf metricDatumList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

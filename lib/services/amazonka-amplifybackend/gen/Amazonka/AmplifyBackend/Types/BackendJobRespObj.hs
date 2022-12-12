@@ -28,18 +28,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBackendJobRespObj' smart constructor.
 data BackendJobRespObj = BackendJobRespObj'
-  { -- | The ID for the job.
+  { -- | The time when the job was created.
+    createTime :: Prelude.Maybe Prelude.Text,
+    -- | If the request fails, this error is returned.
+    error :: Prelude.Maybe Prelude.Text,
+    -- | The ID for the job.
     jobId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the operation.
+    operation :: Prelude.Maybe Prelude.Text,
     -- | The current status of the request.
     status :: Prelude.Maybe Prelude.Text,
     -- | The time when the job was last updated.
     updateTime :: Prelude.Maybe Prelude.Text,
-    -- | The time when the job was created.
-    createTime :: Prelude.Maybe Prelude.Text,
-    -- | If the request fails, this error is returned.
-    error :: Prelude.Maybe Prelude.Text,
-    -- | The name of the operation.
-    operation :: Prelude.Maybe Prelude.Text,
     -- | The app ID.
     appId :: Prelude.Text,
     -- | The name of the backend environment.
@@ -55,17 +55,17 @@ data BackendJobRespObj = BackendJobRespObj'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobId', 'backendJobRespObj_jobId' - The ID for the job.
---
--- 'status', 'backendJobRespObj_status' - The current status of the request.
---
--- 'updateTime', 'backendJobRespObj_updateTime' - The time when the job was last updated.
---
 -- 'createTime', 'backendJobRespObj_createTime' - The time when the job was created.
 --
 -- 'error', 'backendJobRespObj_error' - If the request fails, this error is returned.
 --
+-- 'jobId', 'backendJobRespObj_jobId' - The ID for the job.
+--
 -- 'operation', 'backendJobRespObj_operation' - The name of the operation.
+--
+-- 'status', 'backendJobRespObj_status' - The current status of the request.
+--
+-- 'updateTime', 'backendJobRespObj_updateTime' - The time when the job was last updated.
 --
 -- 'appId', 'backendJobRespObj_appId' - The app ID.
 --
@@ -78,27 +78,15 @@ newBackendJobRespObj ::
   BackendJobRespObj
 newBackendJobRespObj pAppId_ pBackendEnvironmentName_ =
   BackendJobRespObj'
-    { jobId = Prelude.Nothing,
+    { createTime = Prelude.Nothing,
+      error = Prelude.Nothing,
+      jobId = Prelude.Nothing,
+      operation = Prelude.Nothing,
       status = Prelude.Nothing,
       updateTime = Prelude.Nothing,
-      createTime = Prelude.Nothing,
-      error = Prelude.Nothing,
-      operation = Prelude.Nothing,
       appId = pAppId_,
       backendEnvironmentName = pBackendEnvironmentName_
     }
-
--- | The ID for the job.
-backendJobRespObj_jobId :: Lens.Lens' BackendJobRespObj (Prelude.Maybe Prelude.Text)
-backendJobRespObj_jobId = Lens.lens (\BackendJobRespObj' {jobId} -> jobId) (\s@BackendJobRespObj' {} a -> s {jobId = a} :: BackendJobRespObj)
-
--- | The current status of the request.
-backendJobRespObj_status :: Lens.Lens' BackendJobRespObj (Prelude.Maybe Prelude.Text)
-backendJobRespObj_status = Lens.lens (\BackendJobRespObj' {status} -> status) (\s@BackendJobRespObj' {} a -> s {status = a} :: BackendJobRespObj)
-
--- | The time when the job was last updated.
-backendJobRespObj_updateTime :: Lens.Lens' BackendJobRespObj (Prelude.Maybe Prelude.Text)
-backendJobRespObj_updateTime = Lens.lens (\BackendJobRespObj' {updateTime} -> updateTime) (\s@BackendJobRespObj' {} a -> s {updateTime = a} :: BackendJobRespObj)
 
 -- | The time when the job was created.
 backendJobRespObj_createTime :: Lens.Lens' BackendJobRespObj (Prelude.Maybe Prelude.Text)
@@ -108,9 +96,21 @@ backendJobRespObj_createTime = Lens.lens (\BackendJobRespObj' {createTime} -> cr
 backendJobRespObj_error :: Lens.Lens' BackendJobRespObj (Prelude.Maybe Prelude.Text)
 backendJobRespObj_error = Lens.lens (\BackendJobRespObj' {error} -> error) (\s@BackendJobRespObj' {} a -> s {error = a} :: BackendJobRespObj)
 
+-- | The ID for the job.
+backendJobRespObj_jobId :: Lens.Lens' BackendJobRespObj (Prelude.Maybe Prelude.Text)
+backendJobRespObj_jobId = Lens.lens (\BackendJobRespObj' {jobId} -> jobId) (\s@BackendJobRespObj' {} a -> s {jobId = a} :: BackendJobRespObj)
+
 -- | The name of the operation.
 backendJobRespObj_operation :: Lens.Lens' BackendJobRespObj (Prelude.Maybe Prelude.Text)
 backendJobRespObj_operation = Lens.lens (\BackendJobRespObj' {operation} -> operation) (\s@BackendJobRespObj' {} a -> s {operation = a} :: BackendJobRespObj)
+
+-- | The current status of the request.
+backendJobRespObj_status :: Lens.Lens' BackendJobRespObj (Prelude.Maybe Prelude.Text)
+backendJobRespObj_status = Lens.lens (\BackendJobRespObj' {status} -> status) (\s@BackendJobRespObj' {} a -> s {status = a} :: BackendJobRespObj)
+
+-- | The time when the job was last updated.
+backendJobRespObj_updateTime :: Lens.Lens' BackendJobRespObj (Prelude.Maybe Prelude.Text)
+backendJobRespObj_updateTime = Lens.lens (\BackendJobRespObj' {updateTime} -> updateTime) (\s@BackendJobRespObj' {} a -> s {updateTime = a} :: BackendJobRespObj)
 
 -- | The app ID.
 backendJobRespObj_appId :: Lens.Lens' BackendJobRespObj Prelude.Text
@@ -126,34 +126,34 @@ instance Data.FromJSON BackendJobRespObj where
       "BackendJobRespObj"
       ( \x ->
           BackendJobRespObj'
-            Prelude.<$> (x Data..:? "jobId")
+            Prelude.<$> (x Data..:? "createTime")
+            Prelude.<*> (x Data..:? "error")
+            Prelude.<*> (x Data..:? "jobId")
+            Prelude.<*> (x Data..:? "operation")
             Prelude.<*> (x Data..:? "status")
             Prelude.<*> (x Data..:? "updateTime")
-            Prelude.<*> (x Data..:? "createTime")
-            Prelude.<*> (x Data..:? "error")
-            Prelude.<*> (x Data..:? "operation")
             Prelude.<*> (x Data..: "appId")
             Prelude.<*> (x Data..: "backendEnvironmentName")
       )
 
 instance Prelude.Hashable BackendJobRespObj where
   hashWithSalt _salt BackendJobRespObj' {..} =
-    _salt `Prelude.hashWithSalt` jobId
+    _salt `Prelude.hashWithSalt` createTime
+      `Prelude.hashWithSalt` error
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` operation
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` updateTime
-      `Prelude.hashWithSalt` createTime
-      `Prelude.hashWithSalt` error
-      `Prelude.hashWithSalt` operation
       `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` backendEnvironmentName
 
 instance Prelude.NFData BackendJobRespObj where
   rnf BackendJobRespObj' {..} =
-    Prelude.rnf jobId
+    Prelude.rnf createTime
+      `Prelude.seq` Prelude.rnf error
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf operation
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf updateTime
-      `Prelude.seq` Prelude.rnf createTime
-      `Prelude.seq` Prelude.rnf error
-      `Prelude.seq` Prelude.rnf operation
       `Prelude.seq` Prelude.rnf appId
       `Prelude.seq` Prelude.rnf backendEnvironmentName

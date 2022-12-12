@@ -33,10 +33,10 @@ data EvaluatedExternalModel = EvaluatedExternalModel'
     inputVariables :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The endpoint of the external (Amazon Sagemaker) model.
     modelEndpoint :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether event variables were used to generate predictions.
-    useEventVariables :: Prelude.Maybe Prelude.Bool,
     -- | Output variables.
-    outputVariables :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text))
+    outputVariables :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    -- | Indicates whether event variables were used to generate predictions.
+    useEventVariables :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -52,9 +52,9 @@ data EvaluatedExternalModel = EvaluatedExternalModel'
 --
 -- 'modelEndpoint', 'evaluatedExternalModel_modelEndpoint' - The endpoint of the external (Amazon Sagemaker) model.
 --
--- 'useEventVariables', 'evaluatedExternalModel_useEventVariables' - Indicates whether event variables were used to generate predictions.
---
 -- 'outputVariables', 'evaluatedExternalModel_outputVariables' - Output variables.
+--
+-- 'useEventVariables', 'evaluatedExternalModel_useEventVariables' - Indicates whether event variables were used to generate predictions.
 newEvaluatedExternalModel ::
   EvaluatedExternalModel
 newEvaluatedExternalModel =
@@ -62,8 +62,8 @@ newEvaluatedExternalModel =
     { inputVariables =
         Prelude.Nothing,
       modelEndpoint = Prelude.Nothing,
-      useEventVariables = Prelude.Nothing,
-      outputVariables = Prelude.Nothing
+      outputVariables = Prelude.Nothing,
+      useEventVariables = Prelude.Nothing
     }
 
 -- | Input variables use for generating predictions.
@@ -74,13 +74,13 @@ evaluatedExternalModel_inputVariables = Lens.lens (\EvaluatedExternalModel' {inp
 evaluatedExternalModel_modelEndpoint :: Lens.Lens' EvaluatedExternalModel (Prelude.Maybe Prelude.Text)
 evaluatedExternalModel_modelEndpoint = Lens.lens (\EvaluatedExternalModel' {modelEndpoint} -> modelEndpoint) (\s@EvaluatedExternalModel' {} a -> s {modelEndpoint = a} :: EvaluatedExternalModel)
 
--- | Indicates whether event variables were used to generate predictions.
-evaluatedExternalModel_useEventVariables :: Lens.Lens' EvaluatedExternalModel (Prelude.Maybe Prelude.Bool)
-evaluatedExternalModel_useEventVariables = Lens.lens (\EvaluatedExternalModel' {useEventVariables} -> useEventVariables) (\s@EvaluatedExternalModel' {} a -> s {useEventVariables = a} :: EvaluatedExternalModel)
-
 -- | Output variables.
 evaluatedExternalModel_outputVariables :: Lens.Lens' EvaluatedExternalModel (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 evaluatedExternalModel_outputVariables = Lens.lens (\EvaluatedExternalModel' {outputVariables} -> outputVariables) (\s@EvaluatedExternalModel' {} a -> s {outputVariables = a} :: EvaluatedExternalModel) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
+
+-- | Indicates whether event variables were used to generate predictions.
+evaluatedExternalModel_useEventVariables :: Lens.Lens' EvaluatedExternalModel (Prelude.Maybe Prelude.Bool)
+evaluatedExternalModel_useEventVariables = Lens.lens (\EvaluatedExternalModel' {useEventVariables} -> useEventVariables) (\s@EvaluatedExternalModel' {} a -> s {useEventVariables = a} :: EvaluatedExternalModel)
 
 instance Data.FromJSON EvaluatedExternalModel where
   parseJSON =
@@ -90,22 +90,22 @@ instance Data.FromJSON EvaluatedExternalModel where
           EvaluatedExternalModel'
             Prelude.<$> (x Data..:? "inputVariables" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "modelEndpoint")
-            Prelude.<*> (x Data..:? "useEventVariables")
             Prelude.<*> ( x Data..:? "outputVariables"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "useEventVariables")
       )
 
 instance Prelude.Hashable EvaluatedExternalModel where
   hashWithSalt _salt EvaluatedExternalModel' {..} =
     _salt `Prelude.hashWithSalt` inputVariables
       `Prelude.hashWithSalt` modelEndpoint
-      `Prelude.hashWithSalt` useEventVariables
       `Prelude.hashWithSalt` outputVariables
+      `Prelude.hashWithSalt` useEventVariables
 
 instance Prelude.NFData EvaluatedExternalModel where
   rnf EvaluatedExternalModel' {..} =
     Prelude.rnf inputVariables
       `Prelude.seq` Prelude.rnf modelEndpoint
-      `Prelude.seq` Prelude.rnf useEventVariables
       `Prelude.seq` Prelude.rnf outputVariables
+      `Prelude.seq` Prelude.rnf useEventVariables

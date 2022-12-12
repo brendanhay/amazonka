@@ -36,13 +36,13 @@ import qualified Amazonka.Prelude as Prelude
 data ConfluencePageToIndexFieldMapping = ConfluencePageToIndexFieldMapping'
   { -- | The name of the field in the data source.
     dataSourceFieldName :: Prelude.Maybe ConfluencePageFieldName,
-    -- | The name of the index field to map to the Confluence data source field.
-    -- The index field type must match the Confluence field type.
-    indexFieldName :: Prelude.Maybe Prelude.Text,
     -- | The format for date fields in the data source. If the field specified in
     -- @DataSourceFieldName@ is a date field you must specify the date format.
     -- If the field is not a date field, an exception is thrown.
-    dateFieldFormat :: Prelude.Maybe Prelude.Text
+    dateFieldFormat :: Prelude.Maybe Prelude.Text,
+    -- | The name of the index field to map to the Confluence data source field.
+    -- The index field type must match the Confluence field type.
+    indexFieldName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,36 +56,36 @@ data ConfluencePageToIndexFieldMapping = ConfluencePageToIndexFieldMapping'
 --
 -- 'dataSourceFieldName', 'confluencePageToIndexFieldMapping_dataSourceFieldName' - The name of the field in the data source.
 --
--- 'indexFieldName', 'confluencePageToIndexFieldMapping_indexFieldName' - The name of the index field to map to the Confluence data source field.
--- The index field type must match the Confluence field type.
---
 -- 'dateFieldFormat', 'confluencePageToIndexFieldMapping_dateFieldFormat' - The format for date fields in the data source. If the field specified in
 -- @DataSourceFieldName@ is a date field you must specify the date format.
 -- If the field is not a date field, an exception is thrown.
+--
+-- 'indexFieldName', 'confluencePageToIndexFieldMapping_indexFieldName' - The name of the index field to map to the Confluence data source field.
+-- The index field type must match the Confluence field type.
 newConfluencePageToIndexFieldMapping ::
   ConfluencePageToIndexFieldMapping
 newConfluencePageToIndexFieldMapping =
   ConfluencePageToIndexFieldMapping'
     { dataSourceFieldName =
         Prelude.Nothing,
-      indexFieldName = Prelude.Nothing,
-      dateFieldFormat = Prelude.Nothing
+      dateFieldFormat = Prelude.Nothing,
+      indexFieldName = Prelude.Nothing
     }
 
 -- | The name of the field in the data source.
 confluencePageToIndexFieldMapping_dataSourceFieldName :: Lens.Lens' ConfluencePageToIndexFieldMapping (Prelude.Maybe ConfluencePageFieldName)
 confluencePageToIndexFieldMapping_dataSourceFieldName = Lens.lens (\ConfluencePageToIndexFieldMapping' {dataSourceFieldName} -> dataSourceFieldName) (\s@ConfluencePageToIndexFieldMapping' {} a -> s {dataSourceFieldName = a} :: ConfluencePageToIndexFieldMapping)
 
--- | The name of the index field to map to the Confluence data source field.
--- The index field type must match the Confluence field type.
-confluencePageToIndexFieldMapping_indexFieldName :: Lens.Lens' ConfluencePageToIndexFieldMapping (Prelude.Maybe Prelude.Text)
-confluencePageToIndexFieldMapping_indexFieldName = Lens.lens (\ConfluencePageToIndexFieldMapping' {indexFieldName} -> indexFieldName) (\s@ConfluencePageToIndexFieldMapping' {} a -> s {indexFieldName = a} :: ConfluencePageToIndexFieldMapping)
-
 -- | The format for date fields in the data source. If the field specified in
 -- @DataSourceFieldName@ is a date field you must specify the date format.
 -- If the field is not a date field, an exception is thrown.
 confluencePageToIndexFieldMapping_dateFieldFormat :: Lens.Lens' ConfluencePageToIndexFieldMapping (Prelude.Maybe Prelude.Text)
 confluencePageToIndexFieldMapping_dateFieldFormat = Lens.lens (\ConfluencePageToIndexFieldMapping' {dateFieldFormat} -> dateFieldFormat) (\s@ConfluencePageToIndexFieldMapping' {} a -> s {dateFieldFormat = a} :: ConfluencePageToIndexFieldMapping)
+
+-- | The name of the index field to map to the Confluence data source field.
+-- The index field type must match the Confluence field type.
+confluencePageToIndexFieldMapping_indexFieldName :: Lens.Lens' ConfluencePageToIndexFieldMapping (Prelude.Maybe Prelude.Text)
+confluencePageToIndexFieldMapping_indexFieldName = Lens.lens (\ConfluencePageToIndexFieldMapping' {indexFieldName} -> indexFieldName) (\s@ConfluencePageToIndexFieldMapping' {} a -> s {indexFieldName = a} :: ConfluencePageToIndexFieldMapping)
 
 instance
   Data.FromJSON
@@ -97,8 +97,8 @@ instance
       ( \x ->
           ConfluencePageToIndexFieldMapping'
             Prelude.<$> (x Data..:? "DataSourceFieldName")
-            Prelude.<*> (x Data..:? "IndexFieldName")
             Prelude.<*> (x Data..:? "DateFieldFormat")
+            Prelude.<*> (x Data..:? "IndexFieldName")
       )
 
 instance
@@ -109,8 +109,8 @@ instance
     _salt
     ConfluencePageToIndexFieldMapping' {..} =
       _salt `Prelude.hashWithSalt` dataSourceFieldName
-        `Prelude.hashWithSalt` indexFieldName
         `Prelude.hashWithSalt` dateFieldFormat
+        `Prelude.hashWithSalt` indexFieldName
 
 instance
   Prelude.NFData
@@ -118,8 +118,8 @@ instance
   where
   rnf ConfluencePageToIndexFieldMapping' {..} =
     Prelude.rnf dataSourceFieldName
-      `Prelude.seq` Prelude.rnf indexFieldName
       `Prelude.seq` Prelude.rnf dateFieldFormat
+      `Prelude.seq` Prelude.rnf indexFieldName
 
 instance
   Data.ToJSON
@@ -130,9 +130,9 @@ instance
       ( Prelude.catMaybes
           [ ("DataSourceFieldName" Data..=)
               Prelude.<$> dataSourceFieldName,
-            ("IndexFieldName" Data..=)
-              Prelude.<$> indexFieldName,
             ("DateFieldFormat" Data..=)
-              Prelude.<$> dateFieldFormat
+              Prelude.<$> dateFieldFormat,
+            ("IndexFieldName" Data..=)
+              Prelude.<$> indexFieldName
           ]
       )

@@ -31,11 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 data SerDeInfo = SerDeInfo'
   { -- | Name of the SerDe.
     name :: Prelude.Maybe Prelude.Text,
+    -- | These key-value pairs define initialization parameters for the SerDe.
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Usually the class that implements the SerDe. An example is
     -- @org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe@.
-    serializationLibrary :: Prelude.Maybe Prelude.Text,
-    -- | These key-value pairs define initialization parameters for the SerDe.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    serializationLibrary :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,31 +49,31 @@ data SerDeInfo = SerDeInfo'
 --
 -- 'name', 'serDeInfo_name' - Name of the SerDe.
 --
+-- 'parameters', 'serDeInfo_parameters' - These key-value pairs define initialization parameters for the SerDe.
+--
 -- 'serializationLibrary', 'serDeInfo_serializationLibrary' - Usually the class that implements the SerDe. An example is
 -- @org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe@.
---
--- 'parameters', 'serDeInfo_parameters' - These key-value pairs define initialization parameters for the SerDe.
 newSerDeInfo ::
   SerDeInfo
 newSerDeInfo =
   SerDeInfo'
     { name = Prelude.Nothing,
-      serializationLibrary = Prelude.Nothing,
-      parameters = Prelude.Nothing
+      parameters = Prelude.Nothing,
+      serializationLibrary = Prelude.Nothing
     }
 
 -- | Name of the SerDe.
 serDeInfo_name :: Lens.Lens' SerDeInfo (Prelude.Maybe Prelude.Text)
 serDeInfo_name = Lens.lens (\SerDeInfo' {name} -> name) (\s@SerDeInfo' {} a -> s {name = a} :: SerDeInfo)
 
+-- | These key-value pairs define initialization parameters for the SerDe.
+serDeInfo_parameters :: Lens.Lens' SerDeInfo (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+serDeInfo_parameters = Lens.lens (\SerDeInfo' {parameters} -> parameters) (\s@SerDeInfo' {} a -> s {parameters = a} :: SerDeInfo) Prelude.. Lens.mapping Lens.coerced
+
 -- | Usually the class that implements the SerDe. An example is
 -- @org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe@.
 serDeInfo_serializationLibrary :: Lens.Lens' SerDeInfo (Prelude.Maybe Prelude.Text)
 serDeInfo_serializationLibrary = Lens.lens (\SerDeInfo' {serializationLibrary} -> serializationLibrary) (\s@SerDeInfo' {} a -> s {serializationLibrary = a} :: SerDeInfo)
-
--- | These key-value pairs define initialization parameters for the SerDe.
-serDeInfo_parameters :: Lens.Lens' SerDeInfo (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-serDeInfo_parameters = Lens.lens (\SerDeInfo' {parameters} -> parameters) (\s@SerDeInfo' {} a -> s {parameters = a} :: SerDeInfo) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON SerDeInfo where
   parseJSON =
@@ -82,29 +82,29 @@ instance Data.FromJSON SerDeInfo where
       ( \x ->
           SerDeInfo'
             Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "SerializationLibrary")
             Prelude.<*> (x Data..:? "Parameters" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "SerializationLibrary")
       )
 
 instance Prelude.Hashable SerDeInfo where
   hashWithSalt _salt SerDeInfo' {..} =
     _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` serializationLibrary
       `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` serializationLibrary
 
 instance Prelude.NFData SerDeInfo where
   rnf SerDeInfo' {..} =
     Prelude.rnf name
-      `Prelude.seq` Prelude.rnf serializationLibrary
       `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf serializationLibrary
 
 instance Data.ToJSON SerDeInfo where
   toJSON SerDeInfo' {..} =
     Data.object
       ( Prelude.catMaybes
           [ ("Name" Data..=) Prelude.<$> name,
+            ("Parameters" Data..=) Prelude.<$> parameters,
             ("SerializationLibrary" Data..=)
-              Prelude.<$> serializationLibrary,
-            ("Parameters" Data..=) Prelude.<$> parameters
+              Prelude.<$> serializationLibrary
           ]
       )

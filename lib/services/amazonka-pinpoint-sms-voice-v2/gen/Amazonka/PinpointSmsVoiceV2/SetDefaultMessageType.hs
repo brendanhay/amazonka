@@ -42,9 +42,9 @@ module Amazonka.PinpointSmsVoiceV2.SetDefaultMessageType
     newSetDefaultMessageTypeResponse,
 
     -- * Response Lenses
-    setDefaultMessageTypeResponse_messageType,
-    setDefaultMessageTypeResponse_configurationSetName,
     setDefaultMessageTypeResponse_configurationSetArn,
+    setDefaultMessageTypeResponse_configurationSetName,
+    setDefaultMessageTypeResponse_messageType,
     setDefaultMessageTypeResponse_httpStatus,
   )
 where
@@ -119,9 +119,9 @@ instance Core.AWSRequest SetDefaultMessageType where
     Response.receiveJSON
       ( \s h x ->
           SetDefaultMessageTypeResponse'
-            Prelude.<$> (x Data..?> "MessageType")
+            Prelude.<$> (x Data..?> "ConfigurationSetArn")
             Prelude.<*> (x Data..?> "ConfigurationSetName")
-            Prelude.<*> (x Data..?> "ConfigurationSetArn")
+            Prelude.<*> (x Data..?> "MessageType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -170,12 +170,12 @@ instance Data.ToQuery SetDefaultMessageType where
 
 -- | /See:/ 'newSetDefaultMessageTypeResponse' smart constructor.
 data SetDefaultMessageTypeResponse = SetDefaultMessageTypeResponse'
-  { -- | The new default message type of the configuration set.
-    messageType :: Prelude.Maybe MessageType,
+  { -- | The Amazon Resource Name (ARN) of the updated configuration set.
+    configurationSetArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the configuration set that was updated.
     configurationSetName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the updated configuration set.
-    configurationSetArn :: Prelude.Maybe Prelude.Text,
+    -- | The new default message type of the configuration set.
+    messageType :: Prelude.Maybe MessageType,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -189,11 +189,11 @@ data SetDefaultMessageTypeResponse = SetDefaultMessageTypeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'messageType', 'setDefaultMessageTypeResponse_messageType' - The new default message type of the configuration set.
+-- 'configurationSetArn', 'setDefaultMessageTypeResponse_configurationSetArn' - The Amazon Resource Name (ARN) of the updated configuration set.
 --
 -- 'configurationSetName', 'setDefaultMessageTypeResponse_configurationSetName' - The name of the configuration set that was updated.
 --
--- 'configurationSetArn', 'setDefaultMessageTypeResponse_configurationSetArn' - The Amazon Resource Name (ARN) of the updated configuration set.
+-- 'messageType', 'setDefaultMessageTypeResponse_messageType' - The new default message type of the configuration set.
 --
 -- 'httpStatus', 'setDefaultMessageTypeResponse_httpStatus' - The response's http status code.
 newSetDefaultMessageTypeResponse ::
@@ -202,24 +202,24 @@ newSetDefaultMessageTypeResponse ::
   SetDefaultMessageTypeResponse
 newSetDefaultMessageTypeResponse pHttpStatus_ =
   SetDefaultMessageTypeResponse'
-    { messageType =
+    { configurationSetArn =
         Prelude.Nothing,
       configurationSetName = Prelude.Nothing,
-      configurationSetArn = Prelude.Nothing,
+      messageType = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The new default message type of the configuration set.
-setDefaultMessageTypeResponse_messageType :: Lens.Lens' SetDefaultMessageTypeResponse (Prelude.Maybe MessageType)
-setDefaultMessageTypeResponse_messageType = Lens.lens (\SetDefaultMessageTypeResponse' {messageType} -> messageType) (\s@SetDefaultMessageTypeResponse' {} a -> s {messageType = a} :: SetDefaultMessageTypeResponse)
+-- | The Amazon Resource Name (ARN) of the updated configuration set.
+setDefaultMessageTypeResponse_configurationSetArn :: Lens.Lens' SetDefaultMessageTypeResponse (Prelude.Maybe Prelude.Text)
+setDefaultMessageTypeResponse_configurationSetArn = Lens.lens (\SetDefaultMessageTypeResponse' {configurationSetArn} -> configurationSetArn) (\s@SetDefaultMessageTypeResponse' {} a -> s {configurationSetArn = a} :: SetDefaultMessageTypeResponse)
 
 -- | The name of the configuration set that was updated.
 setDefaultMessageTypeResponse_configurationSetName :: Lens.Lens' SetDefaultMessageTypeResponse (Prelude.Maybe Prelude.Text)
 setDefaultMessageTypeResponse_configurationSetName = Lens.lens (\SetDefaultMessageTypeResponse' {configurationSetName} -> configurationSetName) (\s@SetDefaultMessageTypeResponse' {} a -> s {configurationSetName = a} :: SetDefaultMessageTypeResponse)
 
--- | The Amazon Resource Name (ARN) of the updated configuration set.
-setDefaultMessageTypeResponse_configurationSetArn :: Lens.Lens' SetDefaultMessageTypeResponse (Prelude.Maybe Prelude.Text)
-setDefaultMessageTypeResponse_configurationSetArn = Lens.lens (\SetDefaultMessageTypeResponse' {configurationSetArn} -> configurationSetArn) (\s@SetDefaultMessageTypeResponse' {} a -> s {configurationSetArn = a} :: SetDefaultMessageTypeResponse)
+-- | The new default message type of the configuration set.
+setDefaultMessageTypeResponse_messageType :: Lens.Lens' SetDefaultMessageTypeResponse (Prelude.Maybe MessageType)
+setDefaultMessageTypeResponse_messageType = Lens.lens (\SetDefaultMessageTypeResponse' {messageType} -> messageType) (\s@SetDefaultMessageTypeResponse' {} a -> s {messageType = a} :: SetDefaultMessageTypeResponse)
 
 -- | The response's http status code.
 setDefaultMessageTypeResponse_httpStatus :: Lens.Lens' SetDefaultMessageTypeResponse Prelude.Int
@@ -227,7 +227,7 @@ setDefaultMessageTypeResponse_httpStatus = Lens.lens (\SetDefaultMessageTypeResp
 
 instance Prelude.NFData SetDefaultMessageTypeResponse where
   rnf SetDefaultMessageTypeResponse' {..} =
-    Prelude.rnf messageType
+    Prelude.rnf configurationSetArn
       `Prelude.seq` Prelude.rnf configurationSetName
-      `Prelude.seq` Prelude.rnf configurationSetArn
+      `Prelude.seq` Prelude.rnf messageType
       `Prelude.seq` Prelude.rnf httpStatus

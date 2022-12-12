@@ -31,14 +31,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVirtualGatewayClientPolicyTls' smart constructor.
 data VirtualGatewayClientPolicyTls = VirtualGatewayClientPolicyTls'
-  { -- | One or more ports that the policy is enforced for.
-    ports :: Prelude.Maybe [Prelude.Natural],
+  { -- | A reference to an object that represents a virtual gateway\'s client\'s
+    -- Transport Layer Security (TLS) certificate.
+    certificate :: Prelude.Maybe VirtualGatewayClientTlsCertificate,
     -- | Whether the policy is enforced. The default is @True@, if a value isn\'t
     -- specified.
     enforce :: Prelude.Maybe Prelude.Bool,
-    -- | A reference to an object that represents a virtual gateway\'s client\'s
-    -- Transport Layer Security (TLS) certificate.
-    certificate :: Prelude.Maybe VirtualGatewayClientTlsCertificate,
+    -- | One or more ports that the policy is enforced for.
+    ports :: Prelude.Maybe [Prelude.Natural],
     -- | A reference to an object that represents a Transport Layer Security
     -- (TLS) validation context.
     validation :: VirtualGatewayTlsValidationContext
@@ -53,13 +53,13 @@ data VirtualGatewayClientPolicyTls = VirtualGatewayClientPolicyTls'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ports', 'virtualGatewayClientPolicyTls_ports' - One or more ports that the policy is enforced for.
+-- 'certificate', 'virtualGatewayClientPolicyTls_certificate' - A reference to an object that represents a virtual gateway\'s client\'s
+-- Transport Layer Security (TLS) certificate.
 --
 -- 'enforce', 'virtualGatewayClientPolicyTls_enforce' - Whether the policy is enforced. The default is @True@, if a value isn\'t
 -- specified.
 --
--- 'certificate', 'virtualGatewayClientPolicyTls_certificate' - A reference to an object that represents a virtual gateway\'s client\'s
--- Transport Layer Security (TLS) certificate.
+-- 'ports', 'virtualGatewayClientPolicyTls_ports' - One or more ports that the policy is enforced for.
 --
 -- 'validation', 'virtualGatewayClientPolicyTls_validation' - A reference to an object that represents a Transport Layer Security
 -- (TLS) validation context.
@@ -69,26 +69,26 @@ newVirtualGatewayClientPolicyTls ::
   VirtualGatewayClientPolicyTls
 newVirtualGatewayClientPolicyTls pValidation_ =
   VirtualGatewayClientPolicyTls'
-    { ports =
+    { certificate =
         Prelude.Nothing,
       enforce = Prelude.Nothing,
-      certificate = Prelude.Nothing,
+      ports = Prelude.Nothing,
       validation = pValidation_
     }
 
--- | One or more ports that the policy is enforced for.
-virtualGatewayClientPolicyTls_ports :: Lens.Lens' VirtualGatewayClientPolicyTls (Prelude.Maybe [Prelude.Natural])
-virtualGatewayClientPolicyTls_ports = Lens.lens (\VirtualGatewayClientPolicyTls' {ports} -> ports) (\s@VirtualGatewayClientPolicyTls' {} a -> s {ports = a} :: VirtualGatewayClientPolicyTls) Prelude.. Lens.mapping Lens.coerced
+-- | A reference to an object that represents a virtual gateway\'s client\'s
+-- Transport Layer Security (TLS) certificate.
+virtualGatewayClientPolicyTls_certificate :: Lens.Lens' VirtualGatewayClientPolicyTls (Prelude.Maybe VirtualGatewayClientTlsCertificate)
+virtualGatewayClientPolicyTls_certificate = Lens.lens (\VirtualGatewayClientPolicyTls' {certificate} -> certificate) (\s@VirtualGatewayClientPolicyTls' {} a -> s {certificate = a} :: VirtualGatewayClientPolicyTls)
 
 -- | Whether the policy is enforced. The default is @True@, if a value isn\'t
 -- specified.
 virtualGatewayClientPolicyTls_enforce :: Lens.Lens' VirtualGatewayClientPolicyTls (Prelude.Maybe Prelude.Bool)
 virtualGatewayClientPolicyTls_enforce = Lens.lens (\VirtualGatewayClientPolicyTls' {enforce} -> enforce) (\s@VirtualGatewayClientPolicyTls' {} a -> s {enforce = a} :: VirtualGatewayClientPolicyTls)
 
--- | A reference to an object that represents a virtual gateway\'s client\'s
--- Transport Layer Security (TLS) certificate.
-virtualGatewayClientPolicyTls_certificate :: Lens.Lens' VirtualGatewayClientPolicyTls (Prelude.Maybe VirtualGatewayClientTlsCertificate)
-virtualGatewayClientPolicyTls_certificate = Lens.lens (\VirtualGatewayClientPolicyTls' {certificate} -> certificate) (\s@VirtualGatewayClientPolicyTls' {} a -> s {certificate = a} :: VirtualGatewayClientPolicyTls)
+-- | One or more ports that the policy is enforced for.
+virtualGatewayClientPolicyTls_ports :: Lens.Lens' VirtualGatewayClientPolicyTls (Prelude.Maybe [Prelude.Natural])
+virtualGatewayClientPolicyTls_ports = Lens.lens (\VirtualGatewayClientPolicyTls' {ports} -> ports) (\s@VirtualGatewayClientPolicyTls' {} a -> s {ports = a} :: VirtualGatewayClientPolicyTls) Prelude.. Lens.mapping Lens.coerced
 
 -- | A reference to an object that represents a Transport Layer Security
 -- (TLS) validation context.
@@ -101,9 +101,9 @@ instance Data.FromJSON VirtualGatewayClientPolicyTls where
       "VirtualGatewayClientPolicyTls"
       ( \x ->
           VirtualGatewayClientPolicyTls'
-            Prelude.<$> (x Data..:? "ports" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "certificate")
             Prelude.<*> (x Data..:? "enforce")
-            Prelude.<*> (x Data..:? "certificate")
+            Prelude.<*> (x Data..:? "ports" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "validation")
       )
 
@@ -112,25 +112,25 @@ instance
     VirtualGatewayClientPolicyTls
   where
   hashWithSalt _salt VirtualGatewayClientPolicyTls' {..} =
-    _salt `Prelude.hashWithSalt` ports
+    _salt `Prelude.hashWithSalt` certificate
       `Prelude.hashWithSalt` enforce
-      `Prelude.hashWithSalt` certificate
+      `Prelude.hashWithSalt` ports
       `Prelude.hashWithSalt` validation
 
 instance Prelude.NFData VirtualGatewayClientPolicyTls where
   rnf VirtualGatewayClientPolicyTls' {..} =
-    Prelude.rnf ports
+    Prelude.rnf certificate
       `Prelude.seq` Prelude.rnf enforce
-      `Prelude.seq` Prelude.rnf certificate
+      `Prelude.seq` Prelude.rnf ports
       `Prelude.seq` Prelude.rnf validation
 
 instance Data.ToJSON VirtualGatewayClientPolicyTls where
   toJSON VirtualGatewayClientPolicyTls' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ports" Data..=) Prelude.<$> ports,
+          [ ("certificate" Data..=) Prelude.<$> certificate,
             ("enforce" Data..=) Prelude.<$> enforce,
-            ("certificate" Data..=) Prelude.<$> certificate,
+            ("ports" Data..=) Prelude.<$> ports,
             Prelude.Just ("validation" Data..= validation)
           ]
       )

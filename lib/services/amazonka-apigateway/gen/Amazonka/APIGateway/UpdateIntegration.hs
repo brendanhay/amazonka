@@ -38,20 +38,20 @@ module Amazonka.APIGateway.UpdateIntegration
 
     -- * Response Lenses
     integration_cacheKeyParameters,
-    integration_requestParameters,
-    integration_type,
-    integration_connectionType,
-    integration_tlsConfig,
     integration_cacheNamespace,
-    integration_uri,
     integration_connectionId,
-    integration_httpMethod,
-    integration_credentials,
-    integration_integrationResponses,
-    integration_timeoutInMillis,
+    integration_connectionType,
     integration_contentHandling,
-    integration_requestTemplates,
+    integration_credentials,
+    integration_httpMethod,
+    integration_integrationResponses,
     integration_passthroughBehavior,
+    integration_requestParameters,
+    integration_requestTemplates,
+    integration_timeoutInMillis,
+    integration_tlsConfig,
+    integration_type,
+    integration_uri,
   )
 where
 

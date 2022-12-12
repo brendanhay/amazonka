@@ -34,12 +34,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newParallelismConfiguration' smart constructor.
 data ParallelismConfiguration = ParallelismConfiguration'
-  { -- | Describes the number of parallel tasks that a Flink-based Kinesis Data
-    -- Analytics application can perform per Kinesis Processing Unit (KPU) used
-    -- by the application. For more information about KPUs, see
-    -- <http://aws.amazon.com/kinesis/data-analytics/pricing/ Amazon Kinesis Data Analytics Pricing>.
-    parallelismPerKPU :: Prelude.Maybe Prelude.Natural,
-    -- | Describes whether the Kinesis Data Analytics service can increase the
+  { -- | Describes whether the Kinesis Data Analytics service can increase the
     -- parallelism of the application in response to increased throughput.
     autoScalingEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Describes the initial number of parallel tasks that a Flink-based
@@ -53,6 +48,11 @@ data ParallelismConfiguration = ParallelismConfiguration'
     -- reduced, the service can reduce the @CurrentParallelism@ value down to
     -- the @Parallelism@ setting.
     parallelism :: Prelude.Maybe Prelude.Natural,
+    -- | Describes the number of parallel tasks that a Flink-based Kinesis Data
+    -- Analytics application can perform per Kinesis Processing Unit (KPU) used
+    -- by the application. For more information about KPUs, see
+    -- <http://aws.amazon.com/kinesis/data-analytics/pricing/ Amazon Kinesis Data Analytics Pricing>.
+    parallelismPerKPU :: Prelude.Maybe Prelude.Natural,
     -- | Describes whether the application uses the default parallelism for the
     -- Kinesis Data Analytics service. You must set this property to @CUSTOM@
     -- in order to change your application\'s @AutoScalingEnabled@,
@@ -69,11 +69,6 @@ data ParallelismConfiguration = ParallelismConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'parallelismPerKPU', 'parallelismConfiguration_parallelismPerKPU' - Describes the number of parallel tasks that a Flink-based Kinesis Data
--- Analytics application can perform per Kinesis Processing Unit (KPU) used
--- by the application. For more information about KPUs, see
--- <http://aws.amazon.com/kinesis/data-analytics/pricing/ Amazon Kinesis Data Analytics Pricing>.
---
 -- 'autoScalingEnabled', 'parallelismConfiguration_autoScalingEnabled' - Describes whether the Kinesis Data Analytics service can increase the
 -- parallelism of the application in response to increased throughput.
 --
@@ -88,6 +83,11 @@ data ParallelismConfiguration = ParallelismConfiguration'
 -- reduced, the service can reduce the @CurrentParallelism@ value down to
 -- the @Parallelism@ setting.
 --
+-- 'parallelismPerKPU', 'parallelismConfiguration_parallelismPerKPU' - Describes the number of parallel tasks that a Flink-based Kinesis Data
+-- Analytics application can perform per Kinesis Processing Unit (KPU) used
+-- by the application. For more information about KPUs, see
+-- <http://aws.amazon.com/kinesis/data-analytics/pricing/ Amazon Kinesis Data Analytics Pricing>.
+--
 -- 'configurationType', 'parallelismConfiguration_configurationType' - Describes whether the application uses the default parallelism for the
 -- Kinesis Data Analytics service. You must set this property to @CUSTOM@
 -- in order to change your application\'s @AutoScalingEnabled@,
@@ -98,19 +98,12 @@ newParallelismConfiguration ::
   ParallelismConfiguration
 newParallelismConfiguration pConfigurationType_ =
   ParallelismConfiguration'
-    { parallelismPerKPU =
+    { autoScalingEnabled =
         Prelude.Nothing,
-      autoScalingEnabled = Prelude.Nothing,
       parallelism = Prelude.Nothing,
+      parallelismPerKPU = Prelude.Nothing,
       configurationType = pConfigurationType_
     }
-
--- | Describes the number of parallel tasks that a Flink-based Kinesis Data
--- Analytics application can perform per Kinesis Processing Unit (KPU) used
--- by the application. For more information about KPUs, see
--- <http://aws.amazon.com/kinesis/data-analytics/pricing/ Amazon Kinesis Data Analytics Pricing>.
-parallelismConfiguration_parallelismPerKPU :: Lens.Lens' ParallelismConfiguration (Prelude.Maybe Prelude.Natural)
-parallelismConfiguration_parallelismPerKPU = Lens.lens (\ParallelismConfiguration' {parallelismPerKPU} -> parallelismPerKPU) (\s@ParallelismConfiguration' {} a -> s {parallelismPerKPU = a} :: ParallelismConfiguration)
 
 -- | Describes whether the Kinesis Data Analytics service can increase the
 -- parallelism of the application in response to increased throughput.
@@ -130,6 +123,13 @@ parallelismConfiguration_autoScalingEnabled = Lens.lens (\ParallelismConfigurati
 parallelismConfiguration_parallelism :: Lens.Lens' ParallelismConfiguration (Prelude.Maybe Prelude.Natural)
 parallelismConfiguration_parallelism = Lens.lens (\ParallelismConfiguration' {parallelism} -> parallelism) (\s@ParallelismConfiguration' {} a -> s {parallelism = a} :: ParallelismConfiguration)
 
+-- | Describes the number of parallel tasks that a Flink-based Kinesis Data
+-- Analytics application can perform per Kinesis Processing Unit (KPU) used
+-- by the application. For more information about KPUs, see
+-- <http://aws.amazon.com/kinesis/data-analytics/pricing/ Amazon Kinesis Data Analytics Pricing>.
+parallelismConfiguration_parallelismPerKPU :: Lens.Lens' ParallelismConfiguration (Prelude.Maybe Prelude.Natural)
+parallelismConfiguration_parallelismPerKPU = Lens.lens (\ParallelismConfiguration' {parallelismPerKPU} -> parallelismPerKPU) (\s@ParallelismConfiguration' {} a -> s {parallelismPerKPU = a} :: ParallelismConfiguration)
+
 -- | Describes whether the application uses the default parallelism for the
 -- Kinesis Data Analytics service. You must set this property to @CUSTOM@
 -- in order to change your application\'s @AutoScalingEnabled@,
@@ -139,27 +139,27 @@ parallelismConfiguration_configurationType = Lens.lens (\ParallelismConfiguratio
 
 instance Prelude.Hashable ParallelismConfiguration where
   hashWithSalt _salt ParallelismConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` parallelismPerKPU
-      `Prelude.hashWithSalt` autoScalingEnabled
+    _salt `Prelude.hashWithSalt` autoScalingEnabled
       `Prelude.hashWithSalt` parallelism
+      `Prelude.hashWithSalt` parallelismPerKPU
       `Prelude.hashWithSalt` configurationType
 
 instance Prelude.NFData ParallelismConfiguration where
   rnf ParallelismConfiguration' {..} =
-    Prelude.rnf parallelismPerKPU
-      `Prelude.seq` Prelude.rnf autoScalingEnabled
+    Prelude.rnf autoScalingEnabled
       `Prelude.seq` Prelude.rnf parallelism
+      `Prelude.seq` Prelude.rnf parallelismPerKPU
       `Prelude.seq` Prelude.rnf configurationType
 
 instance Data.ToJSON ParallelismConfiguration where
   toJSON ParallelismConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ParallelismPerKPU" Data..=)
-              Prelude.<$> parallelismPerKPU,
-            ("AutoScalingEnabled" Data..=)
+          [ ("AutoScalingEnabled" Data..=)
               Prelude.<$> autoScalingEnabled,
             ("Parallelism" Data..=) Prelude.<$> parallelism,
+            ("ParallelismPerKPU" Data..=)
+              Prelude.<$> parallelismPerKPU,
             Prelude.Just
               ("ConfigurationType" Data..= configurationType)
           ]

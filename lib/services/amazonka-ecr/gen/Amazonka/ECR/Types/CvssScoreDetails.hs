@@ -29,15 +29,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCvssScoreDetails' smart constructor.
 data CvssScoreDetails = CvssScoreDetails'
-  { -- | The CVSS score.
+  { -- | An object that contains details about adjustment Amazon Inspector made
+    -- to the CVSS score.
+    adjustments :: Prelude.Maybe [CvssScoreAdjustment],
+    -- | The CVSS score.
     score :: Prelude.Maybe Prelude.Double,
     -- | The source for the CVSS score.
     scoreSource :: Prelude.Maybe Prelude.Text,
     -- | The vector for the CVSS score.
     scoringVector :: Prelude.Maybe Prelude.Text,
-    -- | An object that contains details about adjustment Amazon Inspector made
-    -- to the CVSS score.
-    adjustments :: Prelude.Maybe [CvssScoreAdjustment],
     -- | The CVSS version used in scoring.
     version :: Prelude.Maybe Prelude.Text
   }
@@ -51,26 +51,31 @@ data CvssScoreDetails = CvssScoreDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'adjustments', 'cvssScoreDetails_adjustments' - An object that contains details about adjustment Amazon Inspector made
+-- to the CVSS score.
+--
 -- 'score', 'cvssScoreDetails_score' - The CVSS score.
 --
 -- 'scoreSource', 'cvssScoreDetails_scoreSource' - The source for the CVSS score.
 --
 -- 'scoringVector', 'cvssScoreDetails_scoringVector' - The vector for the CVSS score.
 --
--- 'adjustments', 'cvssScoreDetails_adjustments' - An object that contains details about adjustment Amazon Inspector made
--- to the CVSS score.
---
 -- 'version', 'cvssScoreDetails_version' - The CVSS version used in scoring.
 newCvssScoreDetails ::
   CvssScoreDetails
 newCvssScoreDetails =
   CvssScoreDetails'
-    { score = Prelude.Nothing,
+    { adjustments = Prelude.Nothing,
+      score = Prelude.Nothing,
       scoreSource = Prelude.Nothing,
       scoringVector = Prelude.Nothing,
-      adjustments = Prelude.Nothing,
       version = Prelude.Nothing
     }
+
+-- | An object that contains details about adjustment Amazon Inspector made
+-- to the CVSS score.
+cvssScoreDetails_adjustments :: Lens.Lens' CvssScoreDetails (Prelude.Maybe [CvssScoreAdjustment])
+cvssScoreDetails_adjustments = Lens.lens (\CvssScoreDetails' {adjustments} -> adjustments) (\s@CvssScoreDetails' {} a -> s {adjustments = a} :: CvssScoreDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | The CVSS score.
 cvssScoreDetails_score :: Lens.Lens' CvssScoreDetails (Prelude.Maybe Prelude.Double)
@@ -84,11 +89,6 @@ cvssScoreDetails_scoreSource = Lens.lens (\CvssScoreDetails' {scoreSource} -> sc
 cvssScoreDetails_scoringVector :: Lens.Lens' CvssScoreDetails (Prelude.Maybe Prelude.Text)
 cvssScoreDetails_scoringVector = Lens.lens (\CvssScoreDetails' {scoringVector} -> scoringVector) (\s@CvssScoreDetails' {} a -> s {scoringVector = a} :: CvssScoreDetails)
 
--- | An object that contains details about adjustment Amazon Inspector made
--- to the CVSS score.
-cvssScoreDetails_adjustments :: Lens.Lens' CvssScoreDetails (Prelude.Maybe [CvssScoreAdjustment])
-cvssScoreDetails_adjustments = Lens.lens (\CvssScoreDetails' {adjustments} -> adjustments) (\s@CvssScoreDetails' {} a -> s {adjustments = a} :: CvssScoreDetails) Prelude.. Lens.mapping Lens.coerced
-
 -- | The CVSS version used in scoring.
 cvssScoreDetails_version :: Lens.Lens' CvssScoreDetails (Prelude.Maybe Prelude.Text)
 cvssScoreDetails_version = Lens.lens (\CvssScoreDetails' {version} -> version) (\s@CvssScoreDetails' {} a -> s {version = a} :: CvssScoreDetails)
@@ -99,25 +99,25 @@ instance Data.FromJSON CvssScoreDetails where
       "CvssScoreDetails"
       ( \x ->
           CvssScoreDetails'
-            Prelude.<$> (x Data..:? "score")
+            Prelude.<$> (x Data..:? "adjustments" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "score")
             Prelude.<*> (x Data..:? "scoreSource")
             Prelude.<*> (x Data..:? "scoringVector")
-            Prelude.<*> (x Data..:? "adjustments" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "version")
       )
 
 instance Prelude.Hashable CvssScoreDetails where
   hashWithSalt _salt CvssScoreDetails' {..} =
-    _salt `Prelude.hashWithSalt` score
+    _salt `Prelude.hashWithSalt` adjustments
+      `Prelude.hashWithSalt` score
       `Prelude.hashWithSalt` scoreSource
       `Prelude.hashWithSalt` scoringVector
-      `Prelude.hashWithSalt` adjustments
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData CvssScoreDetails where
   rnf CvssScoreDetails' {..} =
-    Prelude.rnf score
+    Prelude.rnf adjustments
+      `Prelude.seq` Prelude.rnf score
       `Prelude.seq` Prelude.rnf scoreSource
       `Prelude.seq` Prelude.rnf scoringVector
-      `Prelude.seq` Prelude.rnf adjustments
       `Prelude.seq` Prelude.rnf version

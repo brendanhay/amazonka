@@ -29,10 +29,10 @@ module Amazonka.AlexaBusiness.SearchDevices
     newSearchDevices,
 
     -- * Request Lenses
-    searchDevices_sortCriteria,
-    searchDevices_nextToken,
     searchDevices_filters,
     searchDevices_maxResults,
+    searchDevices_nextToken,
+    searchDevices_sortCriteria,
 
     -- * Destructuring the Response
     SearchDevicesResponse (..),
@@ -56,17 +56,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSearchDevices' smart constructor.
 data SearchDevices = SearchDevices'
-  { -- | The sort order to use in listing the specified set of devices. Supported
-    -- sort keys are DeviceName, DeviceStatus, RoomName, DeviceType,
-    -- DeviceSerialNumber, ConnectionStatus, NetworkProfileName,
-    -- NetworkProfileArn, Feature, and FailureCode.
-    sortCriteria :: Prelude.Maybe [Sort],
-    -- | An optional token returned from a prior request. Use this token for
-    -- pagination of results from this action. If this parameter is specified,
-    -- the response includes only results beyond the token, up to the value
-    -- specified by @MaxResults@.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The filters to use to list a specified set of devices. Supported filter
+  { -- | The filters to use to list a specified set of devices. Supported filter
     -- keys are DeviceName, DeviceStatus, DeviceStatusDetailCode, RoomName,
     -- DeviceType, DeviceSerialNumber, UnassociatedOnly, ConnectionStatus
     -- (ONLINE and OFFLINE), NetworkProfileName, NetworkProfileArn, Feature,
@@ -75,7 +65,17 @@ data SearchDevices = SearchDevices'
     -- | The maximum number of results to include in the response. If more
     -- results exist than the specified @MaxResults@ value, a token is included
     -- in the response so that the remaining results can be retrieved.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | An optional token returned from a prior request. Use this token for
+    -- pagination of results from this action. If this parameter is specified,
+    -- the response includes only results beyond the token, up to the value
+    -- specified by @MaxResults@.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The sort order to use in listing the specified set of devices. Supported
+    -- sort keys are DeviceName, DeviceStatus, RoomName, DeviceType,
+    -- DeviceSerialNumber, ConnectionStatus, NetworkProfileName,
+    -- NetworkProfileArn, Feature, and FailureCode.
+    sortCriteria :: Prelude.Maybe [Sort]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,16 +87,6 @@ data SearchDevices = SearchDevices'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortCriteria', 'searchDevices_sortCriteria' - The sort order to use in listing the specified set of devices. Supported
--- sort keys are DeviceName, DeviceStatus, RoomName, DeviceType,
--- DeviceSerialNumber, ConnectionStatus, NetworkProfileName,
--- NetworkProfileArn, Feature, and FailureCode.
---
--- 'nextToken', 'searchDevices_nextToken' - An optional token returned from a prior request. Use this token for
--- pagination of results from this action. If this parameter is specified,
--- the response includes only results beyond the token, up to the value
--- specified by @MaxResults@.
---
 -- 'filters', 'searchDevices_filters' - The filters to use to list a specified set of devices. Supported filter
 -- keys are DeviceName, DeviceStatus, DeviceStatusDetailCode, RoomName,
 -- DeviceType, DeviceSerialNumber, UnassociatedOnly, ConnectionStatus
@@ -106,29 +96,25 @@ data SearchDevices = SearchDevices'
 -- 'maxResults', 'searchDevices_maxResults' - The maximum number of results to include in the response. If more
 -- results exist than the specified @MaxResults@ value, a token is included
 -- in the response so that the remaining results can be retrieved.
+--
+-- 'nextToken', 'searchDevices_nextToken' - An optional token returned from a prior request. Use this token for
+-- pagination of results from this action. If this parameter is specified,
+-- the response includes only results beyond the token, up to the value
+-- specified by @MaxResults@.
+--
+-- 'sortCriteria', 'searchDevices_sortCriteria' - The sort order to use in listing the specified set of devices. Supported
+-- sort keys are DeviceName, DeviceStatus, RoomName, DeviceType,
+-- DeviceSerialNumber, ConnectionStatus, NetworkProfileName,
+-- NetworkProfileArn, Feature, and FailureCode.
 newSearchDevices ::
   SearchDevices
 newSearchDevices =
   SearchDevices'
-    { sortCriteria = Prelude.Nothing,
+    { filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      sortCriteria = Prelude.Nothing
     }
-
--- | The sort order to use in listing the specified set of devices. Supported
--- sort keys are DeviceName, DeviceStatus, RoomName, DeviceType,
--- DeviceSerialNumber, ConnectionStatus, NetworkProfileName,
--- NetworkProfileArn, Feature, and FailureCode.
-searchDevices_sortCriteria :: Lens.Lens' SearchDevices (Prelude.Maybe [Sort])
-searchDevices_sortCriteria = Lens.lens (\SearchDevices' {sortCriteria} -> sortCriteria) (\s@SearchDevices' {} a -> s {sortCriteria = a} :: SearchDevices) Prelude.. Lens.mapping Lens.coerced
-
--- | An optional token returned from a prior request. Use this token for
--- pagination of results from this action. If this parameter is specified,
--- the response includes only results beyond the token, up to the value
--- specified by @MaxResults@.
-searchDevices_nextToken :: Lens.Lens' SearchDevices (Prelude.Maybe Prelude.Text)
-searchDevices_nextToken = Lens.lens (\SearchDevices' {nextToken} -> nextToken) (\s@SearchDevices' {} a -> s {nextToken = a} :: SearchDevices)
 
 -- | The filters to use to list a specified set of devices. Supported filter
 -- keys are DeviceName, DeviceStatus, DeviceStatusDetailCode, RoomName,
@@ -143,6 +129,20 @@ searchDevices_filters = Lens.lens (\SearchDevices' {filters} -> filters) (\s@Sea
 -- in the response so that the remaining results can be retrieved.
 searchDevices_maxResults :: Lens.Lens' SearchDevices (Prelude.Maybe Prelude.Natural)
 searchDevices_maxResults = Lens.lens (\SearchDevices' {maxResults} -> maxResults) (\s@SearchDevices' {} a -> s {maxResults = a} :: SearchDevices)
+
+-- | An optional token returned from a prior request. Use this token for
+-- pagination of results from this action. If this parameter is specified,
+-- the response includes only results beyond the token, up to the value
+-- specified by @MaxResults@.
+searchDevices_nextToken :: Lens.Lens' SearchDevices (Prelude.Maybe Prelude.Text)
+searchDevices_nextToken = Lens.lens (\SearchDevices' {nextToken} -> nextToken) (\s@SearchDevices' {} a -> s {nextToken = a} :: SearchDevices)
+
+-- | The sort order to use in listing the specified set of devices. Supported
+-- sort keys are DeviceName, DeviceStatus, RoomName, DeviceType,
+-- DeviceSerialNumber, ConnectionStatus, NetworkProfileName,
+-- NetworkProfileArn, Feature, and FailureCode.
+searchDevices_sortCriteria :: Lens.Lens' SearchDevices (Prelude.Maybe [Sort])
+searchDevices_sortCriteria = Lens.lens (\SearchDevices' {sortCriteria} -> sortCriteria) (\s@SearchDevices' {} a -> s {sortCriteria = a} :: SearchDevices) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSPager SearchDevices where
   page rq rs
@@ -181,17 +181,17 @@ instance Core.AWSRequest SearchDevices where
 
 instance Prelude.Hashable SearchDevices where
   hashWithSalt _salt SearchDevices' {..} =
-    _salt `Prelude.hashWithSalt` sortCriteria
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortCriteria
 
 instance Prelude.NFData SearchDevices where
   rnf SearchDevices' {..} =
-    Prelude.rnf sortCriteria
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortCriteria
 
 instance Data.ToHeaders SearchDevices where
   toHeaders =
@@ -212,10 +212,10 @@ instance Data.ToJSON SearchDevices where
   toJSON SearchDevices' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SortCriteria" Data..=) Prelude.<$> sortCriteria,
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+            ("SortCriteria" Data..=) Prelude.<$> sortCriteria
           ]
       )
 

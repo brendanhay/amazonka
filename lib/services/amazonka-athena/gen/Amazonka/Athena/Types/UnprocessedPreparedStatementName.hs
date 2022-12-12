@@ -28,7 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUnprocessedPreparedStatementName' smart constructor.
 data UnprocessedPreparedStatementName = UnprocessedPreparedStatementName'
-  { -- | The error message containing the reason why the prepared statement could
+  { -- | The error code returned when the request for the prepared statement
+    -- failed.
+    errorCode :: Prelude.Maybe Prelude.Text,
+    -- | The error message containing the reason why the prepared statement could
     -- not be returned. The following error messages are possible:
     --
     -- -   @INVALID_INPUT@ - The name of the prepared statement that was
@@ -40,9 +43,6 @@ data UnprocessedPreparedStatementName = UnprocessedPreparedStatementName'
     -- -   @UNAUTHORIZED@ - The requester does not have permission to access
     --     the workgroup that contains the prepared statement.
     errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | The error code returned when the request for the prepared statement
-    -- failed.
-    errorCode :: Prelude.Maybe Prelude.Text,
     -- | The name of a prepared statement that could not be returned due to an
     -- error.
     statementName :: Prelude.Maybe Prelude.Text
@@ -57,6 +57,9 @@ data UnprocessedPreparedStatementName = UnprocessedPreparedStatementName'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'errorCode', 'unprocessedPreparedStatementName_errorCode' - The error code returned when the request for the prepared statement
+-- failed.
+--
 -- 'errorMessage', 'unprocessedPreparedStatementName_errorMessage' - The error message containing the reason why the prepared statement could
 -- not be returned. The following error messages are possible:
 --
@@ -69,20 +72,22 @@ data UnprocessedPreparedStatementName = UnprocessedPreparedStatementName'
 -- -   @UNAUTHORIZED@ - The requester does not have permission to access
 --     the workgroup that contains the prepared statement.
 --
--- 'errorCode', 'unprocessedPreparedStatementName_errorCode' - The error code returned when the request for the prepared statement
--- failed.
---
 -- 'statementName', 'unprocessedPreparedStatementName_statementName' - The name of a prepared statement that could not be returned due to an
 -- error.
 newUnprocessedPreparedStatementName ::
   UnprocessedPreparedStatementName
 newUnprocessedPreparedStatementName =
   UnprocessedPreparedStatementName'
-    { errorMessage =
+    { errorCode =
         Prelude.Nothing,
-      errorCode = Prelude.Nothing,
+      errorMessage = Prelude.Nothing,
       statementName = Prelude.Nothing
     }
+
+-- | The error code returned when the request for the prepared statement
+-- failed.
+unprocessedPreparedStatementName_errorCode :: Lens.Lens' UnprocessedPreparedStatementName (Prelude.Maybe Prelude.Text)
+unprocessedPreparedStatementName_errorCode = Lens.lens (\UnprocessedPreparedStatementName' {errorCode} -> errorCode) (\s@UnprocessedPreparedStatementName' {} a -> s {errorCode = a} :: UnprocessedPreparedStatementName)
 
 -- | The error message containing the reason why the prepared statement could
 -- not be returned. The following error messages are possible:
@@ -98,11 +103,6 @@ newUnprocessedPreparedStatementName =
 unprocessedPreparedStatementName_errorMessage :: Lens.Lens' UnprocessedPreparedStatementName (Prelude.Maybe Prelude.Text)
 unprocessedPreparedStatementName_errorMessage = Lens.lens (\UnprocessedPreparedStatementName' {errorMessage} -> errorMessage) (\s@UnprocessedPreparedStatementName' {} a -> s {errorMessage = a} :: UnprocessedPreparedStatementName)
 
--- | The error code returned when the request for the prepared statement
--- failed.
-unprocessedPreparedStatementName_errorCode :: Lens.Lens' UnprocessedPreparedStatementName (Prelude.Maybe Prelude.Text)
-unprocessedPreparedStatementName_errorCode = Lens.lens (\UnprocessedPreparedStatementName' {errorCode} -> errorCode) (\s@UnprocessedPreparedStatementName' {} a -> s {errorCode = a} :: UnprocessedPreparedStatementName)
-
 -- | The name of a prepared statement that could not be returned due to an
 -- error.
 unprocessedPreparedStatementName_statementName :: Lens.Lens' UnprocessedPreparedStatementName (Prelude.Maybe Prelude.Text)
@@ -117,8 +117,8 @@ instance
       "UnprocessedPreparedStatementName"
       ( \x ->
           UnprocessedPreparedStatementName'
-            Prelude.<$> (x Data..:? "ErrorMessage")
-            Prelude.<*> (x Data..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "ErrorMessage")
             Prelude.<*> (x Data..:? "StatementName")
       )
 
@@ -129,8 +129,8 @@ instance
   hashWithSalt
     _salt
     UnprocessedPreparedStatementName' {..} =
-      _salt `Prelude.hashWithSalt` errorMessage
-        `Prelude.hashWithSalt` errorCode
+      _salt `Prelude.hashWithSalt` errorCode
+        `Prelude.hashWithSalt` errorMessage
         `Prelude.hashWithSalt` statementName
 
 instance
@@ -138,6 +138,6 @@ instance
     UnprocessedPreparedStatementName
   where
   rnf UnprocessedPreparedStatementName' {..} =
-    Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf errorCode
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage
       `Prelude.seq` Prelude.rnf statementName

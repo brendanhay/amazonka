@@ -29,22 +29,22 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHlsAkamaiSettings' smart constructor.
 data HlsAkamaiSettings = HlsAkamaiSettings'
-  { -- | Salt for authenticated Akamai.
-    salt :: Prelude.Maybe Prelude.Text,
-    -- | Number of retry attempts that will be made before the Live Event is put
-    -- into an error state.
-    numRetries :: Prelude.Maybe Prelude.Natural,
-    -- | Number of seconds to wait before retrying connection to the CDN if the
+  { -- | Number of seconds to wait before retrying connection to the CDN if the
     -- connection is lost.
     connectionRetryInterval :: Prelude.Maybe Prelude.Natural,
+    -- | Size in seconds of file cache for streaming outputs.
+    filecacheDuration :: Prelude.Maybe Prelude.Natural,
     -- | Specify whether or not to use chunked transfer encoding to Akamai. User
     -- should contact Akamai to enable this feature.
     httpTransferMode :: Prelude.Maybe HlsAkamaiHttpTransferMode,
+    -- | Number of retry attempts that will be made before the Live Event is put
+    -- into an error state.
+    numRetries :: Prelude.Maybe Prelude.Natural,
     -- | If a streaming output fails, number of seconds to wait until a restart
     -- is initiated. A value of 0 means never restart.
     restartDelay :: Prelude.Maybe Prelude.Natural,
-    -- | Size in seconds of file cache for streaming outputs.
-    filecacheDuration :: Prelude.Maybe Prelude.Natural,
+    -- | Salt for authenticated Akamai.
+    salt :: Prelude.Maybe Prelude.Text,
     -- | Token parameter for authenticated akamai. If not specified, _gda_ is
     -- used.
     token :: Prelude.Maybe Prelude.Text
@@ -59,21 +59,21 @@ data HlsAkamaiSettings = HlsAkamaiSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'salt', 'hlsAkamaiSettings_salt' - Salt for authenticated Akamai.
---
--- 'numRetries', 'hlsAkamaiSettings_numRetries' - Number of retry attempts that will be made before the Live Event is put
--- into an error state.
---
 -- 'connectionRetryInterval', 'hlsAkamaiSettings_connectionRetryInterval' - Number of seconds to wait before retrying connection to the CDN if the
 -- connection is lost.
+--
+-- 'filecacheDuration', 'hlsAkamaiSettings_filecacheDuration' - Size in seconds of file cache for streaming outputs.
 --
 -- 'httpTransferMode', 'hlsAkamaiSettings_httpTransferMode' - Specify whether or not to use chunked transfer encoding to Akamai. User
 -- should contact Akamai to enable this feature.
 --
+-- 'numRetries', 'hlsAkamaiSettings_numRetries' - Number of retry attempts that will be made before the Live Event is put
+-- into an error state.
+--
 -- 'restartDelay', 'hlsAkamaiSettings_restartDelay' - If a streaming output fails, number of seconds to wait until a restart
 -- is initiated. A value of 0 means never restart.
 --
--- 'filecacheDuration', 'hlsAkamaiSettings_filecacheDuration' - Size in seconds of file cache for streaming outputs.
+-- 'salt', 'hlsAkamaiSettings_salt' - Salt for authenticated Akamai.
 --
 -- 'token', 'hlsAkamaiSettings_token' - Token parameter for authenticated akamai. If not specified, _gda_ is
 -- used.
@@ -81,42 +81,43 @@ newHlsAkamaiSettings ::
   HlsAkamaiSettings
 newHlsAkamaiSettings =
   HlsAkamaiSettings'
-    { salt = Prelude.Nothing,
-      numRetries = Prelude.Nothing,
-      connectionRetryInterval = Prelude.Nothing,
-      httpTransferMode = Prelude.Nothing,
-      restartDelay = Prelude.Nothing,
+    { connectionRetryInterval =
+        Prelude.Nothing,
       filecacheDuration = Prelude.Nothing,
+      httpTransferMode = Prelude.Nothing,
+      numRetries = Prelude.Nothing,
+      restartDelay = Prelude.Nothing,
+      salt = Prelude.Nothing,
       token = Prelude.Nothing
     }
-
--- | Salt for authenticated Akamai.
-hlsAkamaiSettings_salt :: Lens.Lens' HlsAkamaiSettings (Prelude.Maybe Prelude.Text)
-hlsAkamaiSettings_salt = Lens.lens (\HlsAkamaiSettings' {salt} -> salt) (\s@HlsAkamaiSettings' {} a -> s {salt = a} :: HlsAkamaiSettings)
-
--- | Number of retry attempts that will be made before the Live Event is put
--- into an error state.
-hlsAkamaiSettings_numRetries :: Lens.Lens' HlsAkamaiSettings (Prelude.Maybe Prelude.Natural)
-hlsAkamaiSettings_numRetries = Lens.lens (\HlsAkamaiSettings' {numRetries} -> numRetries) (\s@HlsAkamaiSettings' {} a -> s {numRetries = a} :: HlsAkamaiSettings)
 
 -- | Number of seconds to wait before retrying connection to the CDN if the
 -- connection is lost.
 hlsAkamaiSettings_connectionRetryInterval :: Lens.Lens' HlsAkamaiSettings (Prelude.Maybe Prelude.Natural)
 hlsAkamaiSettings_connectionRetryInterval = Lens.lens (\HlsAkamaiSettings' {connectionRetryInterval} -> connectionRetryInterval) (\s@HlsAkamaiSettings' {} a -> s {connectionRetryInterval = a} :: HlsAkamaiSettings)
 
+-- | Size in seconds of file cache for streaming outputs.
+hlsAkamaiSettings_filecacheDuration :: Lens.Lens' HlsAkamaiSettings (Prelude.Maybe Prelude.Natural)
+hlsAkamaiSettings_filecacheDuration = Lens.lens (\HlsAkamaiSettings' {filecacheDuration} -> filecacheDuration) (\s@HlsAkamaiSettings' {} a -> s {filecacheDuration = a} :: HlsAkamaiSettings)
+
 -- | Specify whether or not to use chunked transfer encoding to Akamai. User
 -- should contact Akamai to enable this feature.
 hlsAkamaiSettings_httpTransferMode :: Lens.Lens' HlsAkamaiSettings (Prelude.Maybe HlsAkamaiHttpTransferMode)
 hlsAkamaiSettings_httpTransferMode = Lens.lens (\HlsAkamaiSettings' {httpTransferMode} -> httpTransferMode) (\s@HlsAkamaiSettings' {} a -> s {httpTransferMode = a} :: HlsAkamaiSettings)
+
+-- | Number of retry attempts that will be made before the Live Event is put
+-- into an error state.
+hlsAkamaiSettings_numRetries :: Lens.Lens' HlsAkamaiSettings (Prelude.Maybe Prelude.Natural)
+hlsAkamaiSettings_numRetries = Lens.lens (\HlsAkamaiSettings' {numRetries} -> numRetries) (\s@HlsAkamaiSettings' {} a -> s {numRetries = a} :: HlsAkamaiSettings)
 
 -- | If a streaming output fails, number of seconds to wait until a restart
 -- is initiated. A value of 0 means never restart.
 hlsAkamaiSettings_restartDelay :: Lens.Lens' HlsAkamaiSettings (Prelude.Maybe Prelude.Natural)
 hlsAkamaiSettings_restartDelay = Lens.lens (\HlsAkamaiSettings' {restartDelay} -> restartDelay) (\s@HlsAkamaiSettings' {} a -> s {restartDelay = a} :: HlsAkamaiSettings)
 
--- | Size in seconds of file cache for streaming outputs.
-hlsAkamaiSettings_filecacheDuration :: Lens.Lens' HlsAkamaiSettings (Prelude.Maybe Prelude.Natural)
-hlsAkamaiSettings_filecacheDuration = Lens.lens (\HlsAkamaiSettings' {filecacheDuration} -> filecacheDuration) (\s@HlsAkamaiSettings' {} a -> s {filecacheDuration = a} :: HlsAkamaiSettings)
+-- | Salt for authenticated Akamai.
+hlsAkamaiSettings_salt :: Lens.Lens' HlsAkamaiSettings (Prelude.Maybe Prelude.Text)
+hlsAkamaiSettings_salt = Lens.lens (\HlsAkamaiSettings' {salt} -> salt) (\s@HlsAkamaiSettings' {} a -> s {salt = a} :: HlsAkamaiSettings)
 
 -- | Token parameter for authenticated akamai. If not specified, _gda_ is
 -- used.
@@ -129,48 +130,49 @@ instance Data.FromJSON HlsAkamaiSettings where
       "HlsAkamaiSettings"
       ( \x ->
           HlsAkamaiSettings'
-            Prelude.<$> (x Data..:? "salt")
-            Prelude.<*> (x Data..:? "numRetries")
-            Prelude.<*> (x Data..:? "connectionRetryInterval")
-            Prelude.<*> (x Data..:? "httpTransferMode")
-            Prelude.<*> (x Data..:? "restartDelay")
+            Prelude.<$> (x Data..:? "connectionRetryInterval")
             Prelude.<*> (x Data..:? "filecacheDuration")
+            Prelude.<*> (x Data..:? "httpTransferMode")
+            Prelude.<*> (x Data..:? "numRetries")
+            Prelude.<*> (x Data..:? "restartDelay")
+            Prelude.<*> (x Data..:? "salt")
             Prelude.<*> (x Data..:? "token")
       )
 
 instance Prelude.Hashable HlsAkamaiSettings where
   hashWithSalt _salt HlsAkamaiSettings' {..} =
-    _salt `Prelude.hashWithSalt` salt
-      `Prelude.hashWithSalt` numRetries
+    _salt
       `Prelude.hashWithSalt` connectionRetryInterval
-      `Prelude.hashWithSalt` httpTransferMode
-      `Prelude.hashWithSalt` restartDelay
       `Prelude.hashWithSalt` filecacheDuration
+      `Prelude.hashWithSalt` httpTransferMode
+      `Prelude.hashWithSalt` numRetries
+      `Prelude.hashWithSalt` restartDelay
+      `Prelude.hashWithSalt` salt
       `Prelude.hashWithSalt` token
 
 instance Prelude.NFData HlsAkamaiSettings where
   rnf HlsAkamaiSettings' {..} =
-    Prelude.rnf salt
-      `Prelude.seq` Prelude.rnf numRetries
-      `Prelude.seq` Prelude.rnf connectionRetryInterval
-      `Prelude.seq` Prelude.rnf httpTransferMode
-      `Prelude.seq` Prelude.rnf restartDelay
+    Prelude.rnf connectionRetryInterval
       `Prelude.seq` Prelude.rnf filecacheDuration
+      `Prelude.seq` Prelude.rnf httpTransferMode
+      `Prelude.seq` Prelude.rnf numRetries
+      `Prelude.seq` Prelude.rnf restartDelay
+      `Prelude.seq` Prelude.rnf salt
       `Prelude.seq` Prelude.rnf token
 
 instance Data.ToJSON HlsAkamaiSettings where
   toJSON HlsAkamaiSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("salt" Data..=) Prelude.<$> salt,
-            ("numRetries" Data..=) Prelude.<$> numRetries,
-            ("connectionRetryInterval" Data..=)
+          [ ("connectionRetryInterval" Data..=)
               Prelude.<$> connectionRetryInterval,
-            ("httpTransferMode" Data..=)
-              Prelude.<$> httpTransferMode,
-            ("restartDelay" Data..=) Prelude.<$> restartDelay,
             ("filecacheDuration" Data..=)
               Prelude.<$> filecacheDuration,
+            ("httpTransferMode" Data..=)
+              Prelude.<$> httpTransferMode,
+            ("numRetries" Data..=) Prelude.<$> numRetries,
+            ("restartDelay" Data..=) Prelude.<$> restartDelay,
+            ("salt" Data..=) Prelude.<$> salt,
             ("token" Data..=) Prelude.<$> token
           ]
       )

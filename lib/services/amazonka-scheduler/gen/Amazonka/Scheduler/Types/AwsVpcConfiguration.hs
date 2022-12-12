@@ -31,15 +31,15 @@ import Amazonka.Scheduler.Types.AssignPublicIp
 --
 -- /See:/ 'newAwsVpcConfiguration' smart constructor.
 data AwsVpcConfiguration = AwsVpcConfiguration'
-  { -- | Specifies the security groups associated with the task. These security
+  { -- | Specifies whether the task\'s elastic network interface receives a
+    -- public IP address. You can specify @ENABLED@ only when @LaunchType@ in
+    -- @EcsParameters@ is set to @FARGATE@.
+    assignPublicIp :: Prelude.Maybe AssignPublicIp,
+    -- | Specifies the security groups associated with the task. These security
     -- groups must all be in the same VPC. You can specify as many as five
     -- security groups. If you do not specify a security group, the default
     -- security group for the VPC is used.
     securityGroups :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | Specifies whether the task\'s elastic network interface receives a
-    -- public IP address. You can specify @ENABLED@ only when @LaunchType@ in
-    -- @EcsParameters@ is set to @FARGATE@.
-    assignPublicIp :: Prelude.Maybe AssignPublicIp,
     -- | Specifies the subnets associated with the task. These subnets must all
     -- be in the same VPC. You can specify as many as 16 subnets.
     subnets :: Prelude.NonEmpty Prelude.Text
@@ -54,14 +54,14 @@ data AwsVpcConfiguration = AwsVpcConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'assignPublicIp', 'awsVpcConfiguration_assignPublicIp' - Specifies whether the task\'s elastic network interface receives a
+-- public IP address. You can specify @ENABLED@ only when @LaunchType@ in
+-- @EcsParameters@ is set to @FARGATE@.
+--
 -- 'securityGroups', 'awsVpcConfiguration_securityGroups' - Specifies the security groups associated with the task. These security
 -- groups must all be in the same VPC. You can specify as many as five
 -- security groups. If you do not specify a security group, the default
 -- security group for the VPC is used.
---
--- 'assignPublicIp', 'awsVpcConfiguration_assignPublicIp' - Specifies whether the task\'s elastic network interface receives a
--- public IP address. You can specify @ENABLED@ only when @LaunchType@ in
--- @EcsParameters@ is set to @FARGATE@.
 --
 -- 'subnets', 'awsVpcConfiguration_subnets' - Specifies the subnets associated with the task. These subnets must all
 -- be in the same VPC. You can specify as many as 16 subnets.
@@ -71,11 +71,17 @@ newAwsVpcConfiguration ::
   AwsVpcConfiguration
 newAwsVpcConfiguration pSubnets_ =
   AwsVpcConfiguration'
-    { securityGroups =
+    { assignPublicIp =
         Prelude.Nothing,
-      assignPublicIp = Prelude.Nothing,
+      securityGroups = Prelude.Nothing,
       subnets = Lens.coerced Lens.# pSubnets_
     }
+
+-- | Specifies whether the task\'s elastic network interface receives a
+-- public IP address. You can specify @ENABLED@ only when @LaunchType@ in
+-- @EcsParameters@ is set to @FARGATE@.
+awsVpcConfiguration_assignPublicIp :: Lens.Lens' AwsVpcConfiguration (Prelude.Maybe AssignPublicIp)
+awsVpcConfiguration_assignPublicIp = Lens.lens (\AwsVpcConfiguration' {assignPublicIp} -> assignPublicIp) (\s@AwsVpcConfiguration' {} a -> s {assignPublicIp = a} :: AwsVpcConfiguration)
 
 -- | Specifies the security groups associated with the task. These security
 -- groups must all be in the same VPC. You can specify as many as five
@@ -83,12 +89,6 @@ newAwsVpcConfiguration pSubnets_ =
 -- security group for the VPC is used.
 awsVpcConfiguration_securityGroups :: Lens.Lens' AwsVpcConfiguration (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 awsVpcConfiguration_securityGroups = Lens.lens (\AwsVpcConfiguration' {securityGroups} -> securityGroups) (\s@AwsVpcConfiguration' {} a -> s {securityGroups = a} :: AwsVpcConfiguration) Prelude.. Lens.mapping Lens.coerced
-
--- | Specifies whether the task\'s elastic network interface receives a
--- public IP address. You can specify @ENABLED@ only when @LaunchType@ in
--- @EcsParameters@ is set to @FARGATE@.
-awsVpcConfiguration_assignPublicIp :: Lens.Lens' AwsVpcConfiguration (Prelude.Maybe AssignPublicIp)
-awsVpcConfiguration_assignPublicIp = Lens.lens (\AwsVpcConfiguration' {assignPublicIp} -> assignPublicIp) (\s@AwsVpcConfiguration' {} a -> s {assignPublicIp = a} :: AwsVpcConfiguration)
 
 -- | Specifies the subnets associated with the task. These subnets must all
 -- be in the same VPC. You can specify as many as 16 subnets.
@@ -101,31 +101,31 @@ instance Data.FromJSON AwsVpcConfiguration where
       "AwsVpcConfiguration"
       ( \x ->
           AwsVpcConfiguration'
-            Prelude.<$> (x Data..:? "SecurityGroups")
-            Prelude.<*> (x Data..:? "AssignPublicIp")
+            Prelude.<$> (x Data..:? "AssignPublicIp")
+            Prelude.<*> (x Data..:? "SecurityGroups")
             Prelude.<*> (x Data..: "Subnets")
       )
 
 instance Prelude.Hashable AwsVpcConfiguration where
   hashWithSalt _salt AwsVpcConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` securityGroups
-      `Prelude.hashWithSalt` assignPublicIp
+    _salt `Prelude.hashWithSalt` assignPublicIp
+      `Prelude.hashWithSalt` securityGroups
       `Prelude.hashWithSalt` subnets
 
 instance Prelude.NFData AwsVpcConfiguration where
   rnf AwsVpcConfiguration' {..} =
-    Prelude.rnf securityGroups
-      `Prelude.seq` Prelude.rnf assignPublicIp
+    Prelude.rnf assignPublicIp
+      `Prelude.seq` Prelude.rnf securityGroups
       `Prelude.seq` Prelude.rnf subnets
 
 instance Data.ToJSON AwsVpcConfiguration where
   toJSON AwsVpcConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SecurityGroups" Data..=)
-              Prelude.<$> securityGroups,
-            ("AssignPublicIp" Data..=)
+          [ ("AssignPublicIp" Data..=)
               Prelude.<$> assignPublicIp,
+            ("SecurityGroups" Data..=)
+              Prelude.<$> securityGroups,
             Prelude.Just ("Subnets" Data..= subnets)
           ]
       )

@@ -32,8 +32,8 @@ module Amazonka.Route53RecoveryReadiness.GetReadinessCheckResourceStatus
     newGetReadinessCheckResourceStatus,
 
     -- * Request Lenses
-    getReadinessCheckResourceStatus_nextToken,
     getReadinessCheckResourceStatus_maxResults,
+    getReadinessCheckResourceStatus_nextToken,
     getReadinessCheckResourceStatus_readinessCheckName,
     getReadinessCheckResourceStatus_resourceIdentifier,
 
@@ -59,10 +59,10 @@ import Amazonka.Route53RecoveryReadiness.Types
 
 -- | /See:/ 'newGetReadinessCheckResourceStatus' smart constructor.
 data GetReadinessCheckResourceStatus = GetReadinessCheckResourceStatus'
-  { -- | The token that identifies which batch of results you want to see.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The number of objects that you want to return with this call.
+  { -- | The number of objects that you want to return with this call.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token that identifies which batch of results you want to see.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Name of a readiness check.
     readinessCheckName :: Prelude.Text,
     -- | The resource identifier, which is the Amazon Resource Name (ARN) or the
@@ -80,9 +80,9 @@ data GetReadinessCheckResourceStatus = GetReadinessCheckResourceStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getReadinessCheckResourceStatus_nextToken' - The token that identifies which batch of results you want to see.
---
 -- 'maxResults', 'getReadinessCheckResourceStatus_maxResults' - The number of objects that you want to return with this call.
+--
+-- 'nextToken', 'getReadinessCheckResourceStatus_nextToken' - The token that identifies which batch of results you want to see.
 --
 -- 'readinessCheckName', 'getReadinessCheckResourceStatus_readinessCheckName' - Name of a readiness check.
 --
@@ -99,20 +99,20 @@ newGetReadinessCheckResourceStatus
   pReadinessCheckName_
   pResourceIdentifier_ =
     GetReadinessCheckResourceStatus'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         readinessCheckName = pReadinessCheckName_,
         resourceIdentifier = pResourceIdentifier_
       }
 
--- | The token that identifies which batch of results you want to see.
-getReadinessCheckResourceStatus_nextToken :: Lens.Lens' GetReadinessCheckResourceStatus (Prelude.Maybe Prelude.Text)
-getReadinessCheckResourceStatus_nextToken = Lens.lens (\GetReadinessCheckResourceStatus' {nextToken} -> nextToken) (\s@GetReadinessCheckResourceStatus' {} a -> s {nextToken = a} :: GetReadinessCheckResourceStatus)
-
 -- | The number of objects that you want to return with this call.
 getReadinessCheckResourceStatus_maxResults :: Lens.Lens' GetReadinessCheckResourceStatus (Prelude.Maybe Prelude.Natural)
 getReadinessCheckResourceStatus_maxResults = Lens.lens (\GetReadinessCheckResourceStatus' {maxResults} -> maxResults) (\s@GetReadinessCheckResourceStatus' {} a -> s {maxResults = a} :: GetReadinessCheckResourceStatus)
+
+-- | The token that identifies which batch of results you want to see.
+getReadinessCheckResourceStatus_nextToken :: Lens.Lens' GetReadinessCheckResourceStatus (Prelude.Maybe Prelude.Text)
+getReadinessCheckResourceStatus_nextToken = Lens.lens (\GetReadinessCheckResourceStatus' {nextToken} -> nextToken) (\s@GetReadinessCheckResourceStatus' {} a -> s {nextToken = a} :: GetReadinessCheckResourceStatus)
 
 -- | Name of a readiness check.
 getReadinessCheckResourceStatus_readinessCheckName :: Lens.Lens' GetReadinessCheckResourceStatus Prelude.Text
@@ -175,8 +175,8 @@ instance
   hashWithSalt
     _salt
     GetReadinessCheckResourceStatus' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` readinessCheckName
         `Prelude.hashWithSalt` resourceIdentifier
 
@@ -185,8 +185,8 @@ instance
     GetReadinessCheckResourceStatus
   where
   rnf GetReadinessCheckResourceStatus' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf readinessCheckName
       `Prelude.seq` Prelude.rnf resourceIdentifier
 
@@ -217,8 +217,8 @@ instance Data.ToPath GetReadinessCheckResourceStatus where
 instance Data.ToQuery GetReadinessCheckResourceStatus where
   toQuery GetReadinessCheckResourceStatus' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newGetReadinessCheckResourceStatusResponse' smart constructor.

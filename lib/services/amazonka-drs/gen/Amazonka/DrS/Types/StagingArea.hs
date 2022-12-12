@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStagingArea' smart constructor.
 data StagingArea = StagingArea'
-  { -- | Account ID of the account to which source server belongs. If this source
-    -- server is extended - shows Account ID of staging source server.
-    stagingAccountID :: Prelude.Maybe Prelude.Text,
-    -- | Shows an error message that occurred when DRS tried to access the
+  { -- | Shows an error message that occurred when DRS tried to access the
     -- staging source server. In this case StagingArea$status will have value
     -- EXTENSION_ERROR
     errorMessage :: Prelude.Maybe Prelude.Text,
+    -- | Account ID of the account to which source server belongs. If this source
+    -- server is extended - shows Account ID of staging source server.
+    stagingAccountID :: Prelude.Maybe Prelude.Text,
     -- | Arn of the staging source server if this source server is extended
     stagingSourceServerArn :: Prelude.Maybe Prelude.Text,
     -- | Status of Source server extension. Possible values: (a) NOT_EXTENDED -
@@ -58,12 +58,12 @@ data StagingArea = StagingArea'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stagingAccountID', 'stagingArea_stagingAccountID' - Account ID of the account to which source server belongs. If this source
--- server is extended - shows Account ID of staging source server.
---
 -- 'errorMessage', 'stagingArea_errorMessage' - Shows an error message that occurred when DRS tried to access the
 -- staging source server. In this case StagingArea$status will have value
 -- EXTENSION_ERROR
+--
+-- 'stagingAccountID', 'stagingArea_stagingAccountID' - Account ID of the account to which source server belongs. If this source
+-- server is extended - shows Account ID of staging source server.
 --
 -- 'stagingSourceServerArn', 'stagingArea_stagingSourceServerArn' - Arn of the staging source server if this source server is extended
 --
@@ -79,22 +79,22 @@ newStagingArea ::
   StagingArea
 newStagingArea =
   StagingArea'
-    { stagingAccountID = Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
+    { errorMessage = Prelude.Nothing,
+      stagingAccountID = Prelude.Nothing,
       stagingSourceServerArn = Prelude.Nothing,
       status = Prelude.Nothing
     }
-
--- | Account ID of the account to which source server belongs. If this source
--- server is extended - shows Account ID of staging source server.
-stagingArea_stagingAccountID :: Lens.Lens' StagingArea (Prelude.Maybe Prelude.Text)
-stagingArea_stagingAccountID = Lens.lens (\StagingArea' {stagingAccountID} -> stagingAccountID) (\s@StagingArea' {} a -> s {stagingAccountID = a} :: StagingArea)
 
 -- | Shows an error message that occurred when DRS tried to access the
 -- staging source server. In this case StagingArea$status will have value
 -- EXTENSION_ERROR
 stagingArea_errorMessage :: Lens.Lens' StagingArea (Prelude.Maybe Prelude.Text)
 stagingArea_errorMessage = Lens.lens (\StagingArea' {errorMessage} -> errorMessage) (\s@StagingArea' {} a -> s {errorMessage = a} :: StagingArea)
+
+-- | Account ID of the account to which source server belongs. If this source
+-- server is extended - shows Account ID of staging source server.
+stagingArea_stagingAccountID :: Lens.Lens' StagingArea (Prelude.Maybe Prelude.Text)
+stagingArea_stagingAccountID = Lens.lens (\StagingArea' {stagingAccountID} -> stagingAccountID) (\s@StagingArea' {} a -> s {stagingAccountID = a} :: StagingArea)
 
 -- | Arn of the staging source server if this source server is extended
 stagingArea_stagingSourceServerArn :: Lens.Lens' StagingArea (Prelude.Maybe Prelude.Text)
@@ -117,22 +117,22 @@ instance Data.FromJSON StagingArea where
       "StagingArea"
       ( \x ->
           StagingArea'
-            Prelude.<$> (x Data..:? "stagingAccountID")
-            Prelude.<*> (x Data..:? "errorMessage")
+            Prelude.<$> (x Data..:? "errorMessage")
+            Prelude.<*> (x Data..:? "stagingAccountID")
             Prelude.<*> (x Data..:? "stagingSourceServerArn")
             Prelude.<*> (x Data..:? "status")
       )
 
 instance Prelude.Hashable StagingArea where
   hashWithSalt _salt StagingArea' {..} =
-    _salt `Prelude.hashWithSalt` stagingAccountID
-      `Prelude.hashWithSalt` errorMessage
+    _salt `Prelude.hashWithSalt` errorMessage
+      `Prelude.hashWithSalt` stagingAccountID
       `Prelude.hashWithSalt` stagingSourceServerArn
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData StagingArea where
   rnf StagingArea' {..} =
-    Prelude.rnf stagingAccountID
-      `Prelude.seq` Prelude.rnf errorMessage
+    Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf stagingAccountID
       `Prelude.seq` Prelude.rnf stagingSourceServerArn
       `Prelude.seq` Prelude.rnf status

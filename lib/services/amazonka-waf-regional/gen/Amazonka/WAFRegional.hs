@@ -42,23 +42,8 @@ module Amazonka.WAFRegional
     -- * Errors
     -- $errors
 
-    -- ** WAFUnavailableEntityException
-    _WAFUnavailableEntityException,
-
-    -- ** WAFServiceLinkedRoleErrorException
-    _WAFServiceLinkedRoleErrorException,
-
-    -- ** WAFInvalidRegexPatternException
-    _WAFInvalidRegexPatternException,
-
-    -- ** WAFNonexistentContainerException
-    _WAFNonexistentContainerException,
-
-    -- ** WAFTagOperationInternalErrorException
-    _WAFTagOperationInternalErrorException,
-
-    -- ** WAFInvalidPermissionPolicyException
-    _WAFInvalidPermissionPolicyException,
+    -- ** WAFBadRequestException
+    _WAFBadRequestException,
 
     -- ** WAFDisallowedNameException
     _WAFDisallowedNameException,
@@ -66,41 +51,56 @@ module Amazonka.WAFRegional
     -- ** WAFEntityMigrationException
     _WAFEntityMigrationException,
 
-    -- ** WAFBadRequestException
-    _WAFBadRequestException,
-
-    -- ** WAFSubscriptionNotFoundException
-    _WAFSubscriptionNotFoundException,
-
-    -- ** WAFNonexistentItemException
-    _WAFNonexistentItemException,
+    -- ** WAFInternalErrorException
+    _WAFInternalErrorException,
 
     -- ** WAFInvalidAccountException
     _WAFInvalidAccountException,
 
-    -- ** WAFStaleDataException
-    _WAFStaleDataException,
-
-    -- ** WAFNonEmptyEntityException
-    _WAFNonEmptyEntityException,
-
-    -- ** WAFTagOperationException
-    _WAFTagOperationException,
+    -- ** WAFInvalidOperationException
+    _WAFInvalidOperationException,
 
     -- ** WAFInvalidParameterException
     _WAFInvalidParameterException,
 
-    -- ** WAFInvalidOperationException
-    _WAFInvalidOperationException,
+    -- ** WAFInvalidPermissionPolicyException
+    _WAFInvalidPermissionPolicyException,
 
-    -- ** WAFInternalErrorException
-    _WAFInternalErrorException,
+    -- ** WAFInvalidRegexPatternException
+    _WAFInvalidRegexPatternException,
+
+    -- ** WAFLimitsExceededException
+    _WAFLimitsExceededException,
+
+    -- ** WAFNonEmptyEntityException
+    _WAFNonEmptyEntityException,
+
+    -- ** WAFNonexistentContainerException
+    _WAFNonexistentContainerException,
+
+    -- ** WAFNonexistentItemException
+    _WAFNonexistentItemException,
 
     -- ** WAFReferencedItemException
     _WAFReferencedItemException,
 
-    -- ** WAFLimitsExceededException
-    _WAFLimitsExceededException,
+    -- ** WAFServiceLinkedRoleErrorException
+    _WAFServiceLinkedRoleErrorException,
+
+    -- ** WAFStaleDataException
+    _WAFStaleDataException,
+
+    -- ** WAFSubscriptionNotFoundException
+    _WAFSubscriptionNotFoundException,
+
+    -- ** WAFTagOperationException
+    _WAFTagOperationException,
+
+    -- ** WAFTagOperationInternalErrorException
+    _WAFTagOperationInternalErrorException,
+
+    -- ** WAFUnavailableEntityException
+    _WAFUnavailableEntityException,
 
     -- * Waiters
     -- $waiters

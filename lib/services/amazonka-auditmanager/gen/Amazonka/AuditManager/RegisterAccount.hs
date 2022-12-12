@@ -27,8 +27,8 @@ module Amazonka.AuditManager.RegisterAccount
     newRegisterAccount,
 
     -- * Request Lenses
-    registerAccount_kmsKey,
     registerAccount_delegatedAdminAccount,
+    registerAccount_kmsKey,
 
     -- * Destructuring the Response
     RegisterAccountResponse (..),
@@ -50,10 +50,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRegisterAccount' smart constructor.
 data RegisterAccount = RegisterAccount'
-  { -- | The KMS key details.
-    kmsKey :: Prelude.Maybe Prelude.Text,
-    -- | The delegated administrator account for Audit Manager.
-    delegatedAdminAccount :: Prelude.Maybe Prelude.Text
+  { -- | The delegated administrator account for Audit Manager.
+    delegatedAdminAccount :: Prelude.Maybe Prelude.Text,
+    -- | The KMS key details.
+    kmsKey :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,24 +65,25 @@ data RegisterAccount = RegisterAccount'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKey', 'registerAccount_kmsKey' - The KMS key details.
---
 -- 'delegatedAdminAccount', 'registerAccount_delegatedAdminAccount' - The delegated administrator account for Audit Manager.
+--
+-- 'kmsKey', 'registerAccount_kmsKey' - The KMS key details.
 newRegisterAccount ::
   RegisterAccount
 newRegisterAccount =
   RegisterAccount'
-    { kmsKey = Prelude.Nothing,
-      delegatedAdminAccount = Prelude.Nothing
+    { delegatedAdminAccount =
+        Prelude.Nothing,
+      kmsKey = Prelude.Nothing
     }
-
--- | The KMS key details.
-registerAccount_kmsKey :: Lens.Lens' RegisterAccount (Prelude.Maybe Prelude.Text)
-registerAccount_kmsKey = Lens.lens (\RegisterAccount' {kmsKey} -> kmsKey) (\s@RegisterAccount' {} a -> s {kmsKey = a} :: RegisterAccount)
 
 -- | The delegated administrator account for Audit Manager.
 registerAccount_delegatedAdminAccount :: Lens.Lens' RegisterAccount (Prelude.Maybe Prelude.Text)
 registerAccount_delegatedAdminAccount = Lens.lens (\RegisterAccount' {delegatedAdminAccount} -> delegatedAdminAccount) (\s@RegisterAccount' {} a -> s {delegatedAdminAccount = a} :: RegisterAccount)
+
+-- | The KMS key details.
+registerAccount_kmsKey :: Lens.Lens' RegisterAccount (Prelude.Maybe Prelude.Text)
+registerAccount_kmsKey = Lens.lens (\RegisterAccount' {kmsKey} -> kmsKey) (\s@RegisterAccount' {} a -> s {kmsKey = a} :: RegisterAccount)
 
 instance Core.AWSRequest RegisterAccount where
   type
@@ -100,13 +101,13 @@ instance Core.AWSRequest RegisterAccount where
 
 instance Prelude.Hashable RegisterAccount where
   hashWithSalt _salt RegisterAccount' {..} =
-    _salt `Prelude.hashWithSalt` kmsKey
-      `Prelude.hashWithSalt` delegatedAdminAccount
+    _salt `Prelude.hashWithSalt` delegatedAdminAccount
+      `Prelude.hashWithSalt` kmsKey
 
 instance Prelude.NFData RegisterAccount where
   rnf RegisterAccount' {..} =
-    Prelude.rnf kmsKey
-      `Prelude.seq` Prelude.rnf delegatedAdminAccount
+    Prelude.rnf delegatedAdminAccount
+      `Prelude.seq` Prelude.rnf kmsKey
 
 instance Data.ToHeaders RegisterAccount where
   toHeaders =
@@ -123,9 +124,9 @@ instance Data.ToJSON RegisterAccount where
   toJSON RegisterAccount' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("kmsKey" Data..=) Prelude.<$> kmsKey,
-            ("delegatedAdminAccount" Data..=)
-              Prelude.<$> delegatedAdminAccount
+          [ ("delegatedAdminAccount" Data..=)
+              Prelude.<$> delegatedAdminAccount,
+            ("kmsKey" Data..=) Prelude.<$> kmsKey
           ]
       )
 

@@ -27,9 +27,9 @@ module Amazonka.GamesParks.CreateStage
     newCreateStage,
 
     -- * Request Lenses
-    createStage_tags,
     createStage_clientToken,
     createStage_description,
+    createStage_tags,
     createStage_gameName,
     createStage_role,
     createStage_stageName,
@@ -54,13 +54,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateStage' smart constructor.
 data CreateStage = CreateStage'
-  { -- | The list of tags to apply to the stage.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A client-defined token. With an active client token in the request, this
+  { -- | A client-defined token. With an active client token in the request, this
     -- action is idempotent.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The description of the stage.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The list of tags to apply to the stage.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the game.
     gameName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the role to run the game with. This
@@ -80,12 +80,12 @@ data CreateStage = CreateStage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createStage_tags' - The list of tags to apply to the stage.
---
 -- 'clientToken', 'createStage_clientToken' - A client-defined token. With an active client token in the request, this
 -- action is idempotent.
 --
 -- 'description', 'createStage_description' - The description of the stage.
+--
+-- 'tags', 'createStage_tags' - The list of tags to apply to the stage.
 --
 -- 'gameName', 'createStage_gameName' - The name of the game.
 --
@@ -104,17 +104,13 @@ newCreateStage ::
   CreateStage
 newCreateStage pGameName_ pRole_ pStageName_ =
   CreateStage'
-    { tags = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+    { clientToken = Prelude.Nothing,
       description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       gameName = pGameName_,
       role' = pRole_,
       stageName = pStageName_
     }
-
--- | The list of tags to apply to the stage.
-createStage_tags :: Lens.Lens' CreateStage (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createStage_tags = Lens.lens (\CreateStage' {tags} -> tags) (\s@CreateStage' {} a -> s {tags = a} :: CreateStage) Prelude.. Lens.mapping Lens.coerced
 
 -- | A client-defined token. With an active client token in the request, this
 -- action is idempotent.
@@ -124,6 +120,10 @@ createStage_clientToken = Lens.lens (\CreateStage' {clientToken} -> clientToken)
 -- | The description of the stage.
 createStage_description :: Lens.Lens' CreateStage (Prelude.Maybe Prelude.Text)
 createStage_description = Lens.lens (\CreateStage' {description} -> description) (\s@CreateStage' {} a -> s {description = a} :: CreateStage)
+
+-- | The list of tags to apply to the stage.
+createStage_tags :: Lens.Lens' CreateStage (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createStage_tags = Lens.lens (\CreateStage' {tags} -> tags) (\s@CreateStage' {} a -> s {tags = a} :: CreateStage) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the game.
 createStage_gameName :: Lens.Lens' CreateStage Prelude.Text
@@ -153,18 +153,18 @@ instance Core.AWSRequest CreateStage where
 
 instance Prelude.Hashable CreateStage where
   hashWithSalt _salt CreateStage' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` gameName
       `Prelude.hashWithSalt` role'
       `Prelude.hashWithSalt` stageName
 
 instance Prelude.NFData CreateStage where
   rnf CreateStage' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf gameName
       `Prelude.seq` Prelude.rnf role'
       `Prelude.seq` Prelude.rnf stageName
@@ -184,9 +184,9 @@ instance Data.ToJSON CreateStage where
   toJSON CreateStage' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ClientToken" Data..=) Prelude.<$> clientToken,
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
             ("Description" Data..=) Prelude.<$> description,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Role" Data..= role'),
             Prelude.Just ("StageName" Data..= stageName)
           ]

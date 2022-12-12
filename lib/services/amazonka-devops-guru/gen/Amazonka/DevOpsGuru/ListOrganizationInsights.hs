@@ -30,9 +30,9 @@ module Amazonka.DevOpsGuru.ListOrganizationInsights
 
     -- * Request Lenses
     listOrganizationInsights_accountIds,
+    listOrganizationInsights_maxResults,
     listOrganizationInsights_nextToken,
     listOrganizationInsights_organizationalUnitIds,
-    listOrganizationInsights_maxResults,
     listOrganizationInsights_statusFilter,
 
     -- * Destructuring the Response
@@ -41,8 +41,8 @@ module Amazonka.DevOpsGuru.ListOrganizationInsights
 
     -- * Response Lenses
     listOrganizationInsightsResponse_nextToken,
-    listOrganizationInsightsResponse_reactiveInsights,
     listOrganizationInsightsResponse_proactiveInsights,
+    listOrganizationInsightsResponse_reactiveInsights,
     listOrganizationInsightsResponse_httpStatus,
   )
 where
@@ -59,15 +59,15 @@ import qualified Amazonka.Response as Response
 data ListOrganizationInsights = ListOrganizationInsights'
   { -- | The ID of the Amazon Web Services account.
     accountIds :: Prelude.Maybe [Prelude.Text],
+    -- | The maximum number of results to return with a single call. To retrieve
+    -- the remaining results, make another call with the returned @nextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The pagination token to use to retrieve the next page of results for
     -- this operation. If this value is null, it retrieves the first page.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the organizational unit.
     organizationalUnitIds :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     statusFilter :: ListInsightsStatusFilter
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -82,14 +82,14 @@ data ListOrganizationInsights = ListOrganizationInsights'
 --
 -- 'accountIds', 'listOrganizationInsights_accountIds' - The ID of the Amazon Web Services account.
 --
+-- 'maxResults', 'listOrganizationInsights_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+--
 -- 'nextToken', 'listOrganizationInsights_nextToken' - The pagination token to use to retrieve the next page of results for
 -- this operation. If this value is null, it retrieves the first page.
 --
 -- 'organizationalUnitIds', 'listOrganizationInsights_organizationalUnitIds' - The ID of the organizational unit.
---
--- 'maxResults', 'listOrganizationInsights_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
 --
 -- 'statusFilter', 'listOrganizationInsights_statusFilter' - Undocumented member.
 newListOrganizationInsights ::
@@ -100,15 +100,21 @@ newListOrganizationInsights pStatusFilter_ =
   ListOrganizationInsights'
     { accountIds =
         Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       nextToken = Prelude.Nothing,
       organizationalUnitIds = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       statusFilter = pStatusFilter_
     }
 
 -- | The ID of the Amazon Web Services account.
 listOrganizationInsights_accountIds :: Lens.Lens' ListOrganizationInsights (Prelude.Maybe [Prelude.Text])
 listOrganizationInsights_accountIds = Lens.lens (\ListOrganizationInsights' {accountIds} -> accountIds) (\s@ListOrganizationInsights' {} a -> s {accountIds = a} :: ListOrganizationInsights) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+listOrganizationInsights_maxResults :: Lens.Lens' ListOrganizationInsights (Prelude.Maybe Prelude.Natural)
+listOrganizationInsights_maxResults = Lens.lens (\ListOrganizationInsights' {maxResults} -> maxResults) (\s@ListOrganizationInsights' {} a -> s {maxResults = a} :: ListOrganizationInsights)
 
 -- | The pagination token to use to retrieve the next page of results for
 -- this operation. If this value is null, it retrieves the first page.
@@ -118,12 +124,6 @@ listOrganizationInsights_nextToken = Lens.lens (\ListOrganizationInsights' {next
 -- | The ID of the organizational unit.
 listOrganizationInsights_organizationalUnitIds :: Lens.Lens' ListOrganizationInsights (Prelude.Maybe [Prelude.Text])
 listOrganizationInsights_organizationalUnitIds = Lens.lens (\ListOrganizationInsights' {organizationalUnitIds} -> organizationalUnitIds) (\s@ListOrganizationInsights' {} a -> s {organizationalUnitIds = a} :: ListOrganizationInsights) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
-listOrganizationInsights_maxResults :: Lens.Lens' ListOrganizationInsights (Prelude.Maybe Prelude.Natural)
-listOrganizationInsights_maxResults = Lens.lens (\ListOrganizationInsights' {maxResults} -> maxResults) (\s@ListOrganizationInsights' {} a -> s {maxResults = a} :: ListOrganizationInsights)
 
 -- | Undocumented member.
 listOrganizationInsights_statusFilter :: Lens.Lens' ListOrganizationInsights ListInsightsStatusFilter
@@ -168,10 +168,10 @@ instance Core.AWSRequest ListOrganizationInsights where
       ( \s h x ->
           ListOrganizationInsightsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ReactiveInsights"
+            Prelude.<*> ( x Data..?> "ProactiveInsights"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "ProactiveInsights"
+            Prelude.<*> ( x Data..?> "ReactiveInsights"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -180,17 +180,17 @@ instance Core.AWSRequest ListOrganizationInsights where
 instance Prelude.Hashable ListOrganizationInsights where
   hashWithSalt _salt ListOrganizationInsights' {..} =
     _salt `Prelude.hashWithSalt` accountIds
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` organizationalUnitIds
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` statusFilter
 
 instance Prelude.NFData ListOrganizationInsights where
   rnf ListOrganizationInsights' {..} =
     Prelude.rnf accountIds
+      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf organizationalUnitIds
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf statusFilter
 
 instance Data.ToHeaders ListOrganizationInsights where
@@ -209,10 +209,10 @@ instance Data.ToJSON ListOrganizationInsights where
     Data.object
       ( Prelude.catMaybes
           [ ("AccountIds" Data..=) Prelude.<$> accountIds,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("NextToken" Data..=) Prelude.<$> nextToken,
             ("OrganizationalUnitIds" Data..=)
               Prelude.<$> organizationalUnitIds,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just ("StatusFilter" Data..= statusFilter)
           ]
       )
@@ -228,12 +228,12 @@ data ListOrganizationInsightsResponse = ListOrganizationInsightsResponse'
   { -- | The pagination token to use to retrieve the next page of results for
     -- this operation. If there are no more pages, this value is null.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An integer that specifies the number of open reactive insights in your
-    -- Amazon Web Services account.
-    reactiveInsights :: Prelude.Maybe [ReactiveOrganizationInsightSummary],
     -- | An integer that specifies the number of open proactive insights in your
     -- Amazon Web Services account.
     proactiveInsights :: Prelude.Maybe [ProactiveOrganizationInsightSummary],
+    -- | An integer that specifies the number of open reactive insights in your
+    -- Amazon Web Services account.
+    reactiveInsights :: Prelude.Maybe [ReactiveOrganizationInsightSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -250,10 +250,10 @@ data ListOrganizationInsightsResponse = ListOrganizationInsightsResponse'
 -- 'nextToken', 'listOrganizationInsightsResponse_nextToken' - The pagination token to use to retrieve the next page of results for
 -- this operation. If there are no more pages, this value is null.
 --
--- 'reactiveInsights', 'listOrganizationInsightsResponse_reactiveInsights' - An integer that specifies the number of open reactive insights in your
+-- 'proactiveInsights', 'listOrganizationInsightsResponse_proactiveInsights' - An integer that specifies the number of open proactive insights in your
 -- Amazon Web Services account.
 --
--- 'proactiveInsights', 'listOrganizationInsightsResponse_proactiveInsights' - An integer that specifies the number of open proactive insights in your
+-- 'reactiveInsights', 'listOrganizationInsightsResponse_reactiveInsights' - An integer that specifies the number of open reactive insights in your
 -- Amazon Web Services account.
 --
 -- 'httpStatus', 'listOrganizationInsightsResponse_httpStatus' - The response's http status code.
@@ -265,8 +265,8 @@ newListOrganizationInsightsResponse pHttpStatus_ =
   ListOrganizationInsightsResponse'
     { nextToken =
         Prelude.Nothing,
-      reactiveInsights = Prelude.Nothing,
       proactiveInsights = Prelude.Nothing,
+      reactiveInsights = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -275,15 +275,15 @@ newListOrganizationInsightsResponse pHttpStatus_ =
 listOrganizationInsightsResponse_nextToken :: Lens.Lens' ListOrganizationInsightsResponse (Prelude.Maybe Prelude.Text)
 listOrganizationInsightsResponse_nextToken = Lens.lens (\ListOrganizationInsightsResponse' {nextToken} -> nextToken) (\s@ListOrganizationInsightsResponse' {} a -> s {nextToken = a} :: ListOrganizationInsightsResponse)
 
--- | An integer that specifies the number of open reactive insights in your
--- Amazon Web Services account.
-listOrganizationInsightsResponse_reactiveInsights :: Lens.Lens' ListOrganizationInsightsResponse (Prelude.Maybe [ReactiveOrganizationInsightSummary])
-listOrganizationInsightsResponse_reactiveInsights = Lens.lens (\ListOrganizationInsightsResponse' {reactiveInsights} -> reactiveInsights) (\s@ListOrganizationInsightsResponse' {} a -> s {reactiveInsights = a} :: ListOrganizationInsightsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | An integer that specifies the number of open proactive insights in your
 -- Amazon Web Services account.
 listOrganizationInsightsResponse_proactiveInsights :: Lens.Lens' ListOrganizationInsightsResponse (Prelude.Maybe [ProactiveOrganizationInsightSummary])
 listOrganizationInsightsResponse_proactiveInsights = Lens.lens (\ListOrganizationInsightsResponse' {proactiveInsights} -> proactiveInsights) (\s@ListOrganizationInsightsResponse' {} a -> s {proactiveInsights = a} :: ListOrganizationInsightsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | An integer that specifies the number of open reactive insights in your
+-- Amazon Web Services account.
+listOrganizationInsightsResponse_reactiveInsights :: Lens.Lens' ListOrganizationInsightsResponse (Prelude.Maybe [ReactiveOrganizationInsightSummary])
+listOrganizationInsightsResponse_reactiveInsights = Lens.lens (\ListOrganizationInsightsResponse' {reactiveInsights} -> reactiveInsights) (\s@ListOrganizationInsightsResponse' {} a -> s {reactiveInsights = a} :: ListOrganizationInsightsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listOrganizationInsightsResponse_httpStatus :: Lens.Lens' ListOrganizationInsightsResponse Prelude.Int
@@ -295,6 +295,6 @@ instance
   where
   rnf ListOrganizationInsightsResponse' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf reactiveInsights
       `Prelude.seq` Prelude.rnf proactiveInsights
+      `Prelude.seq` Prelude.rnf reactiveInsights
       `Prelude.seq` Prelude.rnf httpStatus

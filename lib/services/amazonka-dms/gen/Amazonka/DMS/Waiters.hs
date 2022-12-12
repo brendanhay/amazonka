@@ -27,37 +27,27 @@ import Amazonka.DMS.Types
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Polls 'Amazonka.DMS.DescribeReplicationTasks' every 15 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newReplicationTaskStopped :: Core.Wait DescribeReplicationTasks
-newReplicationTaskStopped =
+-- | Polls 'Amazonka.DMS.DescribeEndpoints' every 5 seconds until a successful state is reached. An error is returned after 60 failed checks.
+newEndpointDeleted :: Core.Wait DescribeEndpoints
+newEndpointDeleted =
   Core.Wait
-    { Core.name = "ReplicationTaskStopped",
+    { Core.name = "EndpointDeleted",
       Core.attempts = 60,
-      Core.delay = 15,
+      Core.delay = 5,
       Core.acceptors =
-        [ Core.matchAll
-            "stopped"
-            Core.AcceptSuccess
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeReplicationTasksResponse_replicationTasks
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. replicationTask_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Data.toTextCI
-            ),
+        [ Core.matchError
+            "ResourceNotFoundFault"
+            Core.AcceptSuccess,
           Core.matchAny
-            "ready"
+            "active"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    ( describeReplicationTasksResponse_replicationTasks
+                    ( describeEndpointsResponse_endpoints
                         Prelude.. Lens._Just
                     )
                 )
-                Prelude.. replicationTask_status
+                Prelude.. endpoint_status
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             ),
@@ -66,76 +56,11 @@ newReplicationTaskStopped =
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    ( describeReplicationTasksResponse_replicationTasks
+                    ( describeEndpointsResponse_endpoints
                         Prelude.. Lens._Just
                     )
                 )
-                Prelude.. replicationTask_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Data.toTextCI
-            ),
-          Core.matchAny
-            "starting"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeReplicationTasksResponse_replicationTasks
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. replicationTask_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Data.toTextCI
-            ),
-          Core.matchAny
-            "failed"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeReplicationTasksResponse_replicationTasks
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. replicationTask_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Data.toTextCI
-            ),
-          Core.matchAny
-            "modifying"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeReplicationTasksResponse_replicationTasks
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. replicationTask_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Data.toTextCI
-            ),
-          Core.matchAny
-            "testing"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeReplicationTasksResponse_replicationTasks
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. replicationTask_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Data.toTextCI
-            ),
-          Core.matchAny
-            "deleting"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeReplicationTasksResponse_replicationTasks
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. replicationTask_status
+                Prelude.. endpoint_status
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             )
@@ -219,43 +144,30 @@ newReplicationInstanceAvailable =
         ]
     }
 
--- | Polls 'Amazonka.DMS.DescribeEndpoints' every 5 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newEndpointDeleted :: Core.Wait DescribeEndpoints
-newEndpointDeleted =
+-- | Polls 'Amazonka.DMS.DescribeReplicationInstances' every 15 seconds until a successful state is reached. An error is returned after 60 failed checks.
+newReplicationInstanceDeleted :: Core.Wait DescribeReplicationInstances
+newReplicationInstanceDeleted =
   Core.Wait
-    { Core.name = "EndpointDeleted",
+    { Core.name = "ReplicationInstanceDeleted",
       Core.attempts = 60,
-      Core.delay = 5,
+      Core.delay = 15,
       Core.acceptors =
-        [ Core.matchError
-            "ResourceNotFoundFault"
-            Core.AcceptSuccess,
-          Core.matchAny
-            "active"
+        [ Core.matchAny
+            "available"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    ( describeEndpointsResponse_endpoints
+                    ( describeReplicationInstancesResponse_replicationInstances
                         Prelude.. Lens._Just
                     )
                 )
-                Prelude.. endpoint_status
+                Prelude.. replicationInstance_replicationInstanceStatus
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             ),
-          Core.matchAny
-            "creating"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeEndpointsResponse_endpoints
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. endpoint_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Data.toTextCI
-            )
+          Core.matchError
+            "ResourceNotFoundFault"
+            Core.AcceptSuccess
         ]
     }
 
@@ -335,6 +247,134 @@ newReplicationTaskDeleted =
           Core.matchError
             "ResourceNotFoundFault"
             Core.AcceptSuccess
+        ]
+    }
+
+-- | Polls 'Amazonka.DMS.DescribeReplicationTasks' every 15 seconds until a successful state is reached. An error is returned after 60 failed checks.
+newReplicationTaskReady :: Core.Wait DescribeReplicationTasks
+newReplicationTaskReady =
+  Core.Wait
+    { Core.name = "ReplicationTaskReady",
+      Core.attempts = 60,
+      Core.delay = 15,
+      Core.acceptors =
+        [ Core.matchAll
+            "ready"
+            Core.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeReplicationTasksResponse_replicationTasks
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Data.toTextCI
+            ),
+          Core.matchAny
+            "starting"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeReplicationTasksResponse_replicationTasks
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Data.toTextCI
+            ),
+          Core.matchAny
+            "running"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeReplicationTasksResponse_replicationTasks
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Data.toTextCI
+            ),
+          Core.matchAny
+            "stopping"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeReplicationTasksResponse_replicationTasks
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Data.toTextCI
+            ),
+          Core.matchAny
+            "stopped"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeReplicationTasksResponse_replicationTasks
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Data.toTextCI
+            ),
+          Core.matchAny
+            "failed"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeReplicationTasksResponse_replicationTasks
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Data.toTextCI
+            ),
+          Core.matchAny
+            "modifying"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeReplicationTasksResponse_replicationTasks
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Data.toTextCI
+            ),
+          Core.matchAny
+            "testing"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeReplicationTasksResponse_replicationTasks
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Data.toTextCI
+            ),
+          Core.matchAny
+            "deleting"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeReplicationTasksResponse_replicationTasks
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Data.toTextCI
+            )
         ]
     }
 
@@ -466,44 +506,43 @@ newReplicationTaskRunning =
         ]
     }
 
--- | Polls 'Amazonka.DMS.DescribeReplicationInstances' every 15 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newReplicationInstanceDeleted :: Core.Wait DescribeReplicationInstances
-newReplicationInstanceDeleted =
-  Core.Wait
-    { Core.name = "ReplicationInstanceDeleted",
-      Core.attempts = 60,
-      Core.delay = 15,
-      Core.acceptors =
-        [ Core.matchAny
-            "available"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeReplicationInstancesResponse_replicationInstances
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. replicationInstance_replicationInstanceStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Data.toTextCI
-            ),
-          Core.matchError
-            "ResourceNotFoundFault"
-            Core.AcceptSuccess
-        ]
-    }
-
 -- | Polls 'Amazonka.DMS.DescribeReplicationTasks' every 15 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newReplicationTaskReady :: Core.Wait DescribeReplicationTasks
-newReplicationTaskReady =
+newReplicationTaskStopped :: Core.Wait DescribeReplicationTasks
+newReplicationTaskStopped =
   Core.Wait
-    { Core.name = "ReplicationTaskReady",
+    { Core.name = "ReplicationTaskStopped",
       Core.attempts = 60,
       Core.delay = 15,
       Core.acceptors =
         [ Core.matchAll
-            "ready"
+            "stopped"
             Core.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeReplicationTasksResponse_replicationTasks
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Data.toTextCI
+            ),
+          Core.matchAny
+            "ready"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeReplicationTasksResponse_replicationTasks
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. replicationTask_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Data.toTextCI
+            ),
+          Core.matchAny
+            "creating"
+            Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeReplicationTasksResponse_replicationTasks
@@ -516,45 +555,6 @@ newReplicationTaskReady =
             ),
           Core.matchAny
             "starting"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeReplicationTasksResponse_replicationTasks
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. replicationTask_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Data.toTextCI
-            ),
-          Core.matchAny
-            "running"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeReplicationTasksResponse_replicationTasks
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. replicationTask_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Data.toTextCI
-            ),
-          Core.matchAny
-            "stopping"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeReplicationTasksResponse_replicationTasks
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. replicationTask_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Data.toTextCI
-            ),
-          Core.matchAny
-            "stopped"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf

@@ -31,11 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceNetworking' smart constructor.
 data InstanceNetworking = InstanceNetworking'
-  { -- | An array of key-value pairs containing information about the ports on
+  { -- | The amount of data in GB allocated for monthly data transfers.
+    monthlyTransfer :: Prelude.Maybe MonthlyTransfer,
+    -- | An array of key-value pairs containing information about the ports on
     -- the instance.
-    ports :: Prelude.Maybe [InstancePortInfo],
-    -- | The amount of data in GB allocated for monthly data transfers.
-    monthlyTransfer :: Prelude.Maybe MonthlyTransfer
+    ports :: Prelude.Maybe [InstancePortInfo]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,26 +47,27 @@ data InstanceNetworking = InstanceNetworking'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'monthlyTransfer', 'instanceNetworking_monthlyTransfer' - The amount of data in GB allocated for monthly data transfers.
+--
 -- 'ports', 'instanceNetworking_ports' - An array of key-value pairs containing information about the ports on
 -- the instance.
---
--- 'monthlyTransfer', 'instanceNetworking_monthlyTransfer' - The amount of data in GB allocated for monthly data transfers.
 newInstanceNetworking ::
   InstanceNetworking
 newInstanceNetworking =
   InstanceNetworking'
-    { ports = Prelude.Nothing,
-      monthlyTransfer = Prelude.Nothing
+    { monthlyTransfer =
+        Prelude.Nothing,
+      ports = Prelude.Nothing
     }
+
+-- | The amount of data in GB allocated for monthly data transfers.
+instanceNetworking_monthlyTransfer :: Lens.Lens' InstanceNetworking (Prelude.Maybe MonthlyTransfer)
+instanceNetworking_monthlyTransfer = Lens.lens (\InstanceNetworking' {monthlyTransfer} -> monthlyTransfer) (\s@InstanceNetworking' {} a -> s {monthlyTransfer = a} :: InstanceNetworking)
 
 -- | An array of key-value pairs containing information about the ports on
 -- the instance.
 instanceNetworking_ports :: Lens.Lens' InstanceNetworking (Prelude.Maybe [InstancePortInfo])
 instanceNetworking_ports = Lens.lens (\InstanceNetworking' {ports} -> ports) (\s@InstanceNetworking' {} a -> s {ports = a} :: InstanceNetworking) Prelude.. Lens.mapping Lens.coerced
-
--- | The amount of data in GB allocated for monthly data transfers.
-instanceNetworking_monthlyTransfer :: Lens.Lens' InstanceNetworking (Prelude.Maybe MonthlyTransfer)
-instanceNetworking_monthlyTransfer = Lens.lens (\InstanceNetworking' {monthlyTransfer} -> monthlyTransfer) (\s@InstanceNetworking' {} a -> s {monthlyTransfer = a} :: InstanceNetworking)
 
 instance Data.FromJSON InstanceNetworking where
   parseJSON =
@@ -74,16 +75,16 @@ instance Data.FromJSON InstanceNetworking where
       "InstanceNetworking"
       ( \x ->
           InstanceNetworking'
-            Prelude.<$> (x Data..:? "ports" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "monthlyTransfer")
+            Prelude.<$> (x Data..:? "monthlyTransfer")
+            Prelude.<*> (x Data..:? "ports" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable InstanceNetworking where
   hashWithSalt _salt InstanceNetworking' {..} =
-    _salt `Prelude.hashWithSalt` ports
-      `Prelude.hashWithSalt` monthlyTransfer
+    _salt `Prelude.hashWithSalt` monthlyTransfer
+      `Prelude.hashWithSalt` ports
 
 instance Prelude.NFData InstanceNetworking where
   rnf InstanceNetworking' {..} =
-    Prelude.rnf ports
-      `Prelude.seq` Prelude.rnf monthlyTransfer
+    Prelude.rnf monthlyTransfer
+      `Prelude.seq` Prelude.rnf ports

@@ -71,15 +71,15 @@ module Amazonka.WorkMail.Lens
 
     -- ** CreateMobileDeviceAccessRule
     createMobileDeviceAccessRule_clientToken,
-    createMobileDeviceAccessRule_deviceTypes,
-    createMobileDeviceAccessRule_notDeviceUserAgents,
-    createMobileDeviceAccessRule_deviceUserAgents,
-    createMobileDeviceAccessRule_notDeviceModels,
     createMobileDeviceAccessRule_description,
     createMobileDeviceAccessRule_deviceModels,
-    createMobileDeviceAccessRule_notDeviceTypes,
     createMobileDeviceAccessRule_deviceOperatingSystems,
+    createMobileDeviceAccessRule_deviceTypes,
+    createMobileDeviceAccessRule_deviceUserAgents,
+    createMobileDeviceAccessRule_notDeviceModels,
     createMobileDeviceAccessRule_notDeviceOperatingSystems,
+    createMobileDeviceAccessRule_notDeviceTypes,
+    createMobileDeviceAccessRule_notDeviceUserAgents,
     createMobileDeviceAccessRule_organizationId,
     createMobileDeviceAccessRule_name,
     createMobileDeviceAccessRule_effect,
@@ -87,11 +87,11 @@ module Amazonka.WorkMail.Lens
     createMobileDeviceAccessRuleResponse_httpStatus,
 
     -- ** CreateOrganization
+    createOrganization_clientToken,
     createOrganization_directoryId,
     createOrganization_domains,
-    createOrganization_clientToken,
-    createOrganization_kmsKeyArn,
     createOrganization_enableInteroperability,
+    createOrganization_kmsKeyArn,
     createOrganization_alias,
     createOrganizationResponse_organizationId,
     createOrganizationResponse_httpStatus,
@@ -162,8 +162,8 @@ module Amazonka.WorkMail.Lens
     deleteOrganization_clientToken,
     deleteOrganization_organizationId,
     deleteOrganization_deleteDirectory,
-    deleteOrganizationResponse_state,
     deleteOrganizationResponse_organizationId,
+    deleteOrganizationResponse_state,
     deleteOrganizationResponse_httpStatus,
 
     -- ** DeleteResource
@@ -193,19 +193,19 @@ module Amazonka.WorkMail.Lens
 
     -- ** DescribeEmailMonitoringConfiguration
     describeEmailMonitoringConfiguration_organizationId,
-    describeEmailMonitoringConfigurationResponse_roleArn,
     describeEmailMonitoringConfigurationResponse_logGroupArn,
+    describeEmailMonitoringConfigurationResponse_roleArn,
     describeEmailMonitoringConfigurationResponse_httpStatus,
 
     -- ** DescribeGroup
     describeGroup_organizationId,
     describeGroup_groupId,
-    describeGroupResponse_name,
-    describeGroupResponse_email,
-    describeGroupResponse_state,
-    describeGroupResponse_groupId,
-    describeGroupResponse_enabledDate,
     describeGroupResponse_disabledDate,
+    describeGroupResponse_email,
+    describeGroupResponse_enabledDate,
+    describeGroupResponse_groupId,
+    describeGroupResponse_name,
+    describeGroupResponse_state,
     describeGroupResponse_httpStatus,
 
     -- ** DescribeInboundDmarcSettings
@@ -216,57 +216,57 @@ module Amazonka.WorkMail.Lens
     -- ** DescribeMailboxExportJob
     describeMailboxExportJob_jobId,
     describeMailboxExportJob_organizationId,
+    describeMailboxExportJobResponse_description,
+    describeMailboxExportJobResponse_endTime,
     describeMailboxExportJobResponse_entityId,
+    describeMailboxExportJobResponse_errorInfo,
+    describeMailboxExportJobResponse_estimatedProgress,
+    describeMailboxExportJobResponse_kmsKeyArn,
     describeMailboxExportJobResponse_roleArn,
     describeMailboxExportJobResponse_s3BucketName,
-    describeMailboxExportJobResponse_state,
-    describeMailboxExportJobResponse_endTime,
-    describeMailboxExportJobResponse_description,
-    describeMailboxExportJobResponse_kmsKeyArn,
     describeMailboxExportJobResponse_s3Path,
-    describeMailboxExportJobResponse_errorInfo,
-    describeMailboxExportJobResponse_startTime,
     describeMailboxExportJobResponse_s3Prefix,
-    describeMailboxExportJobResponse_estimatedProgress,
+    describeMailboxExportJobResponse_startTime,
+    describeMailboxExportJobResponse_state,
     describeMailboxExportJobResponse_httpStatus,
 
     -- ** DescribeOrganization
     describeOrganization_organizationId,
+    describeOrganizationResponse_arn,
     describeOrganizationResponse_alias,
+    describeOrganizationResponse_completedDate,
+    describeOrganizationResponse_defaultMailDomain,
     describeOrganizationResponse_directoryId,
     describeOrganizationResponse_directoryType,
-    describeOrganizationResponse_completedDate,
     describeOrganizationResponse_errorMessage,
-    describeOrganizationResponse_defaultMailDomain,
-    describeOrganizationResponse_arn,
-    describeOrganizationResponse_state,
     describeOrganizationResponse_organizationId,
+    describeOrganizationResponse_state,
     describeOrganizationResponse_httpStatus,
 
     -- ** DescribeResource
     describeResource_organizationId,
     describeResource_resourceId,
-    describeResourceResponse_resourceId,
-    describeResourceResponse_name,
-    describeResourceResponse_type,
-    describeResourceResponse_email,
     describeResourceResponse_bookingOptions,
-    describeResourceResponse_state,
-    describeResourceResponse_enabledDate,
     describeResourceResponse_disabledDate,
+    describeResourceResponse_email,
+    describeResourceResponse_enabledDate,
+    describeResourceResponse_name,
+    describeResourceResponse_resourceId,
+    describeResourceResponse_state,
+    describeResourceResponse_type,
     describeResourceResponse_httpStatus,
 
     -- ** DescribeUser
     describeUser_organizationId,
     describeUser_userId,
-    describeUserResponse_name,
-    describeUserResponse_email,
+    describeUserResponse_disabledDate,
     describeUserResponse_displayName,
+    describeUserResponse_email,
+    describeUserResponse_enabledDate,
+    describeUserResponse_name,
     describeUserResponse_state,
     describeUserResponse_userId,
     describeUserResponse_userRole,
-    describeUserResponse_enabledDate,
-    describeUserResponse_disabledDate,
     describeUserResponse_httpStatus,
 
     -- ** DisassociateDelegateFromResource
@@ -282,8 +282,8 @@ module Amazonka.WorkMail.Lens
     disassociateMemberFromGroupResponse_httpStatus,
 
     -- ** GetAccessControlEffect
-    getAccessControlEffect_userId,
     getAccessControlEffect_impersonationRoleId,
+    getAccessControlEffect_userId,
     getAccessControlEffect_organizationId,
     getAccessControlEffect_ipAddress,
     getAccessControlEffect_action,
@@ -293,41 +293,41 @@ module Amazonka.WorkMail.Lens
 
     -- ** GetDefaultRetentionPolicy
     getDefaultRetentionPolicy_organizationId,
-    getDefaultRetentionPolicyResponse_name,
+    getDefaultRetentionPolicyResponse_description,
     getDefaultRetentionPolicyResponse_folderConfigurations,
     getDefaultRetentionPolicyResponse_id,
-    getDefaultRetentionPolicyResponse_description,
+    getDefaultRetentionPolicyResponse_name,
     getDefaultRetentionPolicyResponse_httpStatus,
 
     -- ** GetImpersonationRole
     getImpersonationRole_organizationId,
     getImpersonationRole_impersonationRoleId,
-    getImpersonationRoleResponse_name,
-    getImpersonationRoleResponse_type,
-    getImpersonationRoleResponse_rules,
-    getImpersonationRoleResponse_description,
     getImpersonationRoleResponse_dateCreated,
-    getImpersonationRoleResponse_impersonationRoleId,
     getImpersonationRoleResponse_dateModified,
+    getImpersonationRoleResponse_description,
+    getImpersonationRoleResponse_impersonationRoleId,
+    getImpersonationRoleResponse_name,
+    getImpersonationRoleResponse_rules,
+    getImpersonationRoleResponse_type,
     getImpersonationRoleResponse_httpStatus,
 
     -- ** GetImpersonationRoleEffect
     getImpersonationRoleEffect_organizationId,
     getImpersonationRoleEffect_impersonationRoleId,
     getImpersonationRoleEffect_targetUser,
-    getImpersonationRoleEffectResponse_type,
     getImpersonationRoleEffectResponse_effect,
     getImpersonationRoleEffectResponse_matchedRules,
+    getImpersonationRoleEffectResponse_type,
     getImpersonationRoleEffectResponse_httpStatus,
 
     -- ** GetMailDomain
     getMailDomain_organizationId,
     getMailDomain_domainName,
-    getMailDomainResponse_records,
-    getMailDomainResponse_isTestDomain,
     getMailDomainResponse_dkimVerificationStatus,
     getMailDomainResponse_isDefault,
+    getMailDomainResponse_isTestDomain,
     getMailDomainResponse_ownershipVerificationStatus,
+    getMailDomainResponse_records,
     getMailDomainResponse_httpStatus,
 
     -- ** GetMailboxDetails
@@ -338,10 +338,10 @@ module Amazonka.WorkMail.Lens
     getMailboxDetailsResponse_httpStatus,
 
     -- ** GetMobileDeviceAccessEffect
-    getMobileDeviceAccessEffect_deviceUserAgent,
     getMobileDeviceAccessEffect_deviceModel,
     getMobileDeviceAccessEffect_deviceOperatingSystem,
     getMobileDeviceAccessEffect_deviceType,
+    getMobileDeviceAccessEffect_deviceUserAgent,
     getMobileDeviceAccessEffect_organizationId,
     getMobileDeviceAccessEffectResponse_effect,
     getMobileDeviceAccessEffectResponse_matchedRules,
@@ -351,12 +351,12 @@ module Amazonka.WorkMail.Lens
     getMobileDeviceAccessOverride_organizationId,
     getMobileDeviceAccessOverride_userId,
     getMobileDeviceAccessOverride_deviceId,
-    getMobileDeviceAccessOverrideResponse_deviceId,
-    getMobileDeviceAccessOverrideResponse_effect,
-    getMobileDeviceAccessOverrideResponse_description,
-    getMobileDeviceAccessOverrideResponse_userId,
     getMobileDeviceAccessOverrideResponse_dateCreated,
     getMobileDeviceAccessOverrideResponse_dateModified,
+    getMobileDeviceAccessOverrideResponse_description,
+    getMobileDeviceAccessOverrideResponse_deviceId,
+    getMobileDeviceAccessOverrideResponse_effect,
+    getMobileDeviceAccessOverrideResponse_userId,
     getMobileDeviceAccessOverrideResponse_httpStatus,
 
     -- ** ListAccessControlRules
@@ -365,66 +365,66 @@ module Amazonka.WorkMail.Lens
     listAccessControlRulesResponse_httpStatus,
 
     -- ** ListAliases
-    listAliases_nextToken,
     listAliases_maxResults,
+    listAliases_nextToken,
     listAliases_organizationId,
     listAliases_entityId,
-    listAliasesResponse_nextToken,
     listAliasesResponse_aliases,
+    listAliasesResponse_nextToken,
     listAliasesResponse_httpStatus,
 
     -- ** ListAvailabilityConfigurations
-    listAvailabilityConfigurations_nextToken,
     listAvailabilityConfigurations_maxResults,
+    listAvailabilityConfigurations_nextToken,
     listAvailabilityConfigurations_organizationId,
-    listAvailabilityConfigurationsResponse_nextToken,
     listAvailabilityConfigurationsResponse_availabilityConfigurations,
+    listAvailabilityConfigurationsResponse_nextToken,
     listAvailabilityConfigurationsResponse_httpStatus,
 
     -- ** ListGroupMembers
-    listGroupMembers_nextToken,
     listGroupMembers_maxResults,
+    listGroupMembers_nextToken,
     listGroupMembers_organizationId,
     listGroupMembers_groupId,
-    listGroupMembersResponse_nextToken,
     listGroupMembersResponse_members,
+    listGroupMembersResponse_nextToken,
     listGroupMembersResponse_httpStatus,
 
     -- ** ListGroups
-    listGroups_nextToken,
     listGroups_maxResults,
+    listGroups_nextToken,
     listGroups_organizationId,
-    listGroupsResponse_nextToken,
     listGroupsResponse_groups,
+    listGroupsResponse_nextToken,
     listGroupsResponse_httpStatus,
 
     -- ** ListImpersonationRoles
-    listImpersonationRoles_nextToken,
     listImpersonationRoles_maxResults,
+    listImpersonationRoles_nextToken,
     listImpersonationRoles_organizationId,
     listImpersonationRolesResponse_nextToken,
     listImpersonationRolesResponse_roles,
     listImpersonationRolesResponse_httpStatus,
 
     -- ** ListMailDomains
-    listMailDomains_nextToken,
     listMailDomains_maxResults,
+    listMailDomains_nextToken,
     listMailDomains_organizationId,
-    listMailDomainsResponse_nextToken,
     listMailDomainsResponse_mailDomains,
+    listMailDomainsResponse_nextToken,
     listMailDomainsResponse_httpStatus,
 
     -- ** ListMailboxExportJobs
-    listMailboxExportJobs_nextToken,
     listMailboxExportJobs_maxResults,
+    listMailboxExportJobs_nextToken,
     listMailboxExportJobs_organizationId,
-    listMailboxExportJobsResponse_nextToken,
     listMailboxExportJobsResponse_jobs,
+    listMailboxExportJobsResponse_nextToken,
     listMailboxExportJobsResponse_httpStatus,
 
     -- ** ListMailboxPermissions
-    listMailboxPermissions_nextToken,
     listMailboxPermissions_maxResults,
+    listMailboxPermissions_nextToken,
     listMailboxPermissions_organizationId,
     listMailboxPermissions_entityId,
     listMailboxPermissionsResponse_nextToken,
@@ -432,9 +432,9 @@ module Amazonka.WorkMail.Lens
     listMailboxPermissionsResponse_httpStatus,
 
     -- ** ListMobileDeviceAccessOverrides
-    listMobileDeviceAccessOverrides_nextToken,
     listMobileDeviceAccessOverrides_deviceId,
     listMobileDeviceAccessOverrides_maxResults,
+    listMobileDeviceAccessOverrides_nextToken,
     listMobileDeviceAccessOverrides_userId,
     listMobileDeviceAccessOverrides_organizationId,
     listMobileDeviceAccessOverridesResponse_nextToken,
@@ -447,24 +447,24 @@ module Amazonka.WorkMail.Lens
     listMobileDeviceAccessRulesResponse_httpStatus,
 
     -- ** ListOrganizations
-    listOrganizations_nextToken,
     listOrganizations_maxResults,
+    listOrganizations_nextToken,
     listOrganizationsResponse_nextToken,
     listOrganizationsResponse_organizationSummaries,
     listOrganizationsResponse_httpStatus,
 
     -- ** ListResourceDelegates
-    listResourceDelegates_nextToken,
     listResourceDelegates_maxResults,
+    listResourceDelegates_nextToken,
     listResourceDelegates_organizationId,
     listResourceDelegates_resourceId,
-    listResourceDelegatesResponse_nextToken,
     listResourceDelegatesResponse_delegates,
+    listResourceDelegatesResponse_nextToken,
     listResourceDelegatesResponse_httpStatus,
 
     -- ** ListResources
-    listResources_nextToken,
     listResources_maxResults,
+    listResources_nextToken,
     listResources_organizationId,
     listResourcesResponse_nextToken,
     listResourcesResponse_resources,
@@ -476,22 +476,22 @@ module Amazonka.WorkMail.Lens
     listTagsForResourceResponse_httpStatus,
 
     -- ** ListUsers
-    listUsers_nextToken,
     listUsers_maxResults,
+    listUsers_nextToken,
     listUsers_organizationId,
     listUsersResponse_nextToken,
     listUsersResponse_users,
     listUsersResponse_httpStatus,
 
     -- ** PutAccessControlRule
-    putAccessControlRule_notIpRanges,
-    putAccessControlRule_notActions,
-    putAccessControlRule_ipRanges,
-    putAccessControlRule_notImpersonationRoleIds,
-    putAccessControlRule_userIds,
-    putAccessControlRule_impersonationRoleIds,
-    putAccessControlRule_notUserIds,
     putAccessControlRule_actions,
+    putAccessControlRule_impersonationRoleIds,
+    putAccessControlRule_ipRanges,
+    putAccessControlRule_notActions,
+    putAccessControlRule_notImpersonationRoleIds,
+    putAccessControlRule_notIpRanges,
+    putAccessControlRule_notUserIds,
+    putAccessControlRule_userIds,
     putAccessControlRule_name,
     putAccessControlRule_effect,
     putAccessControlRule_description,
@@ -525,8 +525,8 @@ module Amazonka.WorkMail.Lens
     putMobileDeviceAccessOverrideResponse_httpStatus,
 
     -- ** PutRetentionPolicy
-    putRetentionPolicy_id,
     putRetentionPolicy_description,
+    putRetentionPolicy_id,
     putRetentionPolicy_organizationId,
     putRetentionPolicy_name,
     putRetentionPolicy_folderConfigurations,
@@ -568,12 +568,12 @@ module Amazonka.WorkMail.Lens
     tagResourceResponse_httpStatus,
 
     -- ** TestAvailabilityConfiguration
-    testAvailabilityConfiguration_ewsProvider,
     testAvailabilityConfiguration_domainName,
+    testAvailabilityConfiguration_ewsProvider,
     testAvailabilityConfiguration_lambdaProvider,
     testAvailabilityConfiguration_organizationId,
-    testAvailabilityConfigurationResponse_testPassed,
     testAvailabilityConfigurationResponse_failureReason,
+    testAvailabilityConfigurationResponse_testPassed,
     testAvailabilityConfigurationResponse_httpStatus,
 
     -- ** UntagResource
@@ -609,15 +609,15 @@ module Amazonka.WorkMail.Lens
     updateMailboxQuotaResponse_httpStatus,
 
     -- ** UpdateMobileDeviceAccessRule
-    updateMobileDeviceAccessRule_deviceTypes,
-    updateMobileDeviceAccessRule_notDeviceUserAgents,
-    updateMobileDeviceAccessRule_deviceUserAgents,
-    updateMobileDeviceAccessRule_notDeviceModels,
     updateMobileDeviceAccessRule_description,
     updateMobileDeviceAccessRule_deviceModels,
-    updateMobileDeviceAccessRule_notDeviceTypes,
     updateMobileDeviceAccessRule_deviceOperatingSystems,
+    updateMobileDeviceAccessRule_deviceTypes,
+    updateMobileDeviceAccessRule_deviceUserAgents,
+    updateMobileDeviceAccessRule_notDeviceModels,
     updateMobileDeviceAccessRule_notDeviceOperatingSystems,
+    updateMobileDeviceAccessRule_notDeviceTypes,
+    updateMobileDeviceAccessRule_notDeviceUserAgents,
     updateMobileDeviceAccessRule_organizationId,
     updateMobileDeviceAccessRule_mobileDeviceAccessRuleId,
     updateMobileDeviceAccessRule_name,
@@ -631,8 +631,8 @@ module Amazonka.WorkMail.Lens
     updatePrimaryEmailAddressResponse_httpStatus,
 
     -- ** UpdateResource
-    updateResource_name,
     updateResource_bookingOptions,
+    updateResource_name,
     updateResource_organizationId,
     updateResource_resourceId,
     updateResourceResponse_httpStatus,
@@ -640,45 +640,45 @@ module Amazonka.WorkMail.Lens
     -- * Types
 
     -- ** AccessControlRule
-    accessControlRule_name,
-    accessControlRule_notIpRanges,
-    accessControlRule_effect,
-    accessControlRule_notActions,
-    accessControlRule_description,
-    accessControlRule_dateCreated,
-    accessControlRule_ipRanges,
-    accessControlRule_notImpersonationRoleIds,
-    accessControlRule_dateModified,
-    accessControlRule_userIds,
-    accessControlRule_impersonationRoleIds,
-    accessControlRule_notUserIds,
     accessControlRule_actions,
+    accessControlRule_dateCreated,
+    accessControlRule_dateModified,
+    accessControlRule_description,
+    accessControlRule_effect,
+    accessControlRule_impersonationRoleIds,
+    accessControlRule_ipRanges,
+    accessControlRule_name,
+    accessControlRule_notActions,
+    accessControlRule_notImpersonationRoleIds,
+    accessControlRule_notIpRanges,
+    accessControlRule_notUserIds,
+    accessControlRule_userIds,
 
     -- ** AvailabilityConfiguration
-    availabilityConfiguration_ewsProvider,
-    availabilityConfiguration_domainName,
-    availabilityConfiguration_providerType,
-    availabilityConfiguration_lambdaProvider,
     availabilityConfiguration_dateCreated,
     availabilityConfiguration_dateModified,
+    availabilityConfiguration_domainName,
+    availabilityConfiguration_ewsProvider,
+    availabilityConfiguration_lambdaProvider,
+    availabilityConfiguration_providerType,
 
     -- ** BookingOptions
-    bookingOptions_autoDeclineRecurringRequests,
-    bookingOptions_autoDeclineConflictingRequests,
     bookingOptions_autoAcceptRequests,
+    bookingOptions_autoDeclineConflictingRequests,
+    bookingOptions_autoDeclineRecurringRequests,
 
     -- ** Delegate
     delegate_id,
     delegate_type,
 
     -- ** DnsRecord
-    dnsRecord_type,
     dnsRecord_hostname,
+    dnsRecord_type,
     dnsRecord_value,
 
     -- ** Domain
-    domain_hostedZoneId,
     domain_domainName,
+    domain_hostedZoneId,
 
     -- ** EwsAvailabilityProvider
     ewsAvailabilityProvider_ewsEndpoint,
@@ -691,29 +691,29 @@ module Amazonka.WorkMail.Lens
     folderConfiguration_action,
 
     -- ** Group
-    group_name,
-    group_email,
-    group_state,
-    group_id,
-    group_enabledDate,
     group_disabledDate,
+    group_email,
+    group_enabledDate,
+    group_id,
+    group_name,
+    group_state,
 
     -- ** ImpersonationMatchedRule
-    impersonationMatchedRule_name,
     impersonationMatchedRule_impersonationRuleId,
+    impersonationMatchedRule_name,
 
     -- ** ImpersonationRole
+    impersonationRole_dateCreated,
+    impersonationRole_dateModified,
+    impersonationRole_impersonationRoleId,
     impersonationRole_name,
     impersonationRole_type,
-    impersonationRole_dateCreated,
-    impersonationRole_impersonationRoleId,
-    impersonationRole_dateModified,
 
     -- ** ImpersonationRule
-    impersonationRule_name,
-    impersonationRule_targetUsers,
     impersonationRule_description,
+    impersonationRule_name,
     impersonationRule_notTargetUsers,
+    impersonationRule_targetUsers,
     impersonationRule_impersonationRuleId,
     impersonationRule_effect,
 
@@ -725,58 +725,58 @@ module Amazonka.WorkMail.Lens
     mailDomainSummary_domainName,
 
     -- ** MailboxExportJob
-    mailboxExportJob_entityId,
-    mailboxExportJob_s3BucketName,
-    mailboxExportJob_state,
-    mailboxExportJob_jobId,
-    mailboxExportJob_endTime,
     mailboxExportJob_description,
+    mailboxExportJob_endTime,
+    mailboxExportJob_entityId,
+    mailboxExportJob_estimatedProgress,
+    mailboxExportJob_jobId,
+    mailboxExportJob_s3BucketName,
     mailboxExportJob_s3Path,
     mailboxExportJob_startTime,
-    mailboxExportJob_estimatedProgress,
+    mailboxExportJob_state,
 
     -- ** Member
-    member_name,
-    member_type,
-    member_state,
-    member_id,
-    member_enabledDate,
     member_disabledDate,
+    member_enabledDate,
+    member_id,
+    member_name,
+    member_state,
+    member_type,
 
     -- ** MobileDeviceAccessMatchedRule
-    mobileDeviceAccessMatchedRule_name,
     mobileDeviceAccessMatchedRule_mobileDeviceAccessRuleId,
+    mobileDeviceAccessMatchedRule_name,
 
     -- ** MobileDeviceAccessOverride
-    mobileDeviceAccessOverride_deviceId,
-    mobileDeviceAccessOverride_effect,
-    mobileDeviceAccessOverride_description,
-    mobileDeviceAccessOverride_userId,
     mobileDeviceAccessOverride_dateCreated,
     mobileDeviceAccessOverride_dateModified,
+    mobileDeviceAccessOverride_description,
+    mobileDeviceAccessOverride_deviceId,
+    mobileDeviceAccessOverride_effect,
+    mobileDeviceAccessOverride_userId,
 
     -- ** MobileDeviceAccessRule
-    mobileDeviceAccessRule_name,
-    mobileDeviceAccessRule_deviceTypes,
-    mobileDeviceAccessRule_mobileDeviceAccessRuleId,
-    mobileDeviceAccessRule_notDeviceUserAgents,
-    mobileDeviceAccessRule_deviceUserAgents,
-    mobileDeviceAccessRule_notDeviceModels,
-    mobileDeviceAccessRule_effect,
-    mobileDeviceAccessRule_description,
-    mobileDeviceAccessRule_deviceModels,
-    mobileDeviceAccessRule_notDeviceTypes,
-    mobileDeviceAccessRule_deviceOperatingSystems,
-    mobileDeviceAccessRule_notDeviceOperatingSystems,
     mobileDeviceAccessRule_dateCreated,
     mobileDeviceAccessRule_dateModified,
+    mobileDeviceAccessRule_description,
+    mobileDeviceAccessRule_deviceModels,
+    mobileDeviceAccessRule_deviceOperatingSystems,
+    mobileDeviceAccessRule_deviceTypes,
+    mobileDeviceAccessRule_deviceUserAgents,
+    mobileDeviceAccessRule_effect,
+    mobileDeviceAccessRule_mobileDeviceAccessRuleId,
+    mobileDeviceAccessRule_name,
+    mobileDeviceAccessRule_notDeviceModels,
+    mobileDeviceAccessRule_notDeviceOperatingSystems,
+    mobileDeviceAccessRule_notDeviceTypes,
+    mobileDeviceAccessRule_notDeviceUserAgents,
 
     -- ** OrganizationSummary
     organizationSummary_alias,
-    organizationSummary_errorMessage,
     organizationSummary_defaultMailDomain,
-    organizationSummary_state,
+    organizationSummary_errorMessage,
     organizationSummary_organizationId,
+    organizationSummary_state,
 
     -- ** Permission
     permission_granteeId,
@@ -784,31 +784,31 @@ module Amazonka.WorkMail.Lens
     permission_permissionValues,
 
     -- ** RedactedEwsAvailabilityProvider
-    redactedEwsAvailabilityProvider_ewsUsername,
     redactedEwsAvailabilityProvider_ewsEndpoint,
+    redactedEwsAvailabilityProvider_ewsUsername,
 
     -- ** Resource
-    resource_name,
-    resource_type,
-    resource_email,
-    resource_state,
-    resource_id,
-    resource_enabledDate,
     resource_disabledDate,
+    resource_email,
+    resource_enabledDate,
+    resource_id,
+    resource_name,
+    resource_state,
+    resource_type,
 
     -- ** Tag
     tag_key,
     tag_value,
 
     -- ** User
-    user_name,
-    user_email,
-    user_displayName,
-    user_state,
-    user_id,
-    user_userRole,
-    user_enabledDate,
     user_disabledDate,
+    user_displayName,
+    user_email,
+    user_enabledDate,
+    user_id,
+    user_name,
+    user_state,
+    user_userRole,
   )
 where
 

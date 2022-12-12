@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCloudWatchLogOptions' smart constructor.
 data CloudWatchLogOptions = CloudWatchLogOptions'
-  { -- | The Amazon Resource Name (ARN) of the CloudWatch log group to send logs
-    -- to.
-    logGroupArn :: Prelude.Maybe Prelude.Text,
-    -- | Status of VPN tunnel logging feature. Default value is @False@.
+  { -- | Status of VPN tunnel logging feature. Default value is @False@.
     --
     -- Valid values: @True@ | @False@
     logEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The Amazon Resource Name (ARN) of the CloudWatch log group to send logs
+    -- to.
+    logGroupArn :: Prelude.Maybe Prelude.Text,
     -- | Configured log format. Default format is @json@.
     --
     -- Valid values: @json@ | @text@
@@ -51,12 +51,12 @@ data CloudWatchLogOptions = CloudWatchLogOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'logGroupArn', 'cloudWatchLogOptions_logGroupArn' - The Amazon Resource Name (ARN) of the CloudWatch log group to send logs
--- to.
---
 -- 'logEnabled', 'cloudWatchLogOptions_logEnabled' - Status of VPN tunnel logging feature. Default value is @False@.
 --
 -- Valid values: @True@ | @False@
+--
+-- 'logGroupArn', 'cloudWatchLogOptions_logGroupArn' - The Amazon Resource Name (ARN) of the CloudWatch log group to send logs
+-- to.
 --
 -- 'logOutputFormat', 'cloudWatchLogOptions_logOutputFormat' - Configured log format. Default format is @json@.
 --
@@ -65,22 +65,21 @@ newCloudWatchLogOptions ::
   CloudWatchLogOptions
 newCloudWatchLogOptions =
   CloudWatchLogOptions'
-    { logGroupArn =
-        Prelude.Nothing,
-      logEnabled = Prelude.Nothing,
+    { logEnabled = Prelude.Nothing,
+      logGroupArn = Prelude.Nothing,
       logOutputFormat = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the CloudWatch log group to send logs
--- to.
-cloudWatchLogOptions_logGroupArn :: Lens.Lens' CloudWatchLogOptions (Prelude.Maybe Prelude.Text)
-cloudWatchLogOptions_logGroupArn = Lens.lens (\CloudWatchLogOptions' {logGroupArn} -> logGroupArn) (\s@CloudWatchLogOptions' {} a -> s {logGroupArn = a} :: CloudWatchLogOptions)
 
 -- | Status of VPN tunnel logging feature. Default value is @False@.
 --
 -- Valid values: @True@ | @False@
 cloudWatchLogOptions_logEnabled :: Lens.Lens' CloudWatchLogOptions (Prelude.Maybe Prelude.Bool)
 cloudWatchLogOptions_logEnabled = Lens.lens (\CloudWatchLogOptions' {logEnabled} -> logEnabled) (\s@CloudWatchLogOptions' {} a -> s {logEnabled = a} :: CloudWatchLogOptions)
+
+-- | The Amazon Resource Name (ARN) of the CloudWatch log group to send logs
+-- to.
+cloudWatchLogOptions_logGroupArn :: Lens.Lens' CloudWatchLogOptions (Prelude.Maybe Prelude.Text)
+cloudWatchLogOptions_logGroupArn = Lens.lens (\CloudWatchLogOptions' {logGroupArn} -> logGroupArn) (\s@CloudWatchLogOptions' {} a -> s {logGroupArn = a} :: CloudWatchLogOptions)
 
 -- | Configured log format. Default format is @json@.
 --
@@ -91,18 +90,18 @@ cloudWatchLogOptions_logOutputFormat = Lens.lens (\CloudWatchLogOptions' {logOut
 instance Data.FromXML CloudWatchLogOptions where
   parseXML x =
     CloudWatchLogOptions'
-      Prelude.<$> (x Data..@? "logGroupArn")
-      Prelude.<*> (x Data..@? "logEnabled")
+      Prelude.<$> (x Data..@? "logEnabled")
+      Prelude.<*> (x Data..@? "logGroupArn")
       Prelude.<*> (x Data..@? "logOutputFormat")
 
 instance Prelude.Hashable CloudWatchLogOptions where
   hashWithSalt _salt CloudWatchLogOptions' {..} =
-    _salt `Prelude.hashWithSalt` logGroupArn
-      `Prelude.hashWithSalt` logEnabled
+    _salt `Prelude.hashWithSalt` logEnabled
+      `Prelude.hashWithSalt` logGroupArn
       `Prelude.hashWithSalt` logOutputFormat
 
 instance Prelude.NFData CloudWatchLogOptions where
   rnf CloudWatchLogOptions' {..} =
-    Prelude.rnf logGroupArn
-      `Prelude.seq` Prelude.rnf logEnabled
+    Prelude.rnf logEnabled
+      `Prelude.seq` Prelude.rnf logGroupArn
       `Prelude.seq` Prelude.rnf logOutputFormat

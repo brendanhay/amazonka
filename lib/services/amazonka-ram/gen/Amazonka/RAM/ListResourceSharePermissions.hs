@@ -27,8 +27,8 @@ module Amazonka.RAM.ListResourceSharePermissions
     newListResourceSharePermissions,
 
     -- * Request Lenses
-    listResourceSharePermissions_nextToken,
     listResourceSharePermissions_maxResults,
+    listResourceSharePermissions_nextToken,
     listResourceSharePermissions_resourceShareArn,
 
     -- * Destructuring the Response
@@ -52,13 +52,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListResourceSharePermissions' smart constructor.
 data ListResourceSharePermissions = ListResourceSharePermissions'
-  { -- | Specifies that you want to receive the next page of results. Valid only
-    -- if you received a @NextToken@ response in the previous request. If you
-    -- did, it indicates that more output is available. Set this parameter to
-    -- the value provided by the previous call\'s @NextToken@ response to
-    -- request the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the total number of results that you want included on each
+  { -- | Specifies the total number of results that you want included on each
     -- page of the response. If you do not include this parameter, it defaults
     -- to a value that is specific to the operation. If additional items exist
     -- beyond the number you specify, the @NextToken@ response element is
@@ -69,6 +63,12 @@ data ListResourceSharePermissions = ListResourceSharePermissions'
     -- should check @NextToken@ after every operation to ensure that you
     -- receive all of the results.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Specifies that you want to receive the next page of results. Valid only
+    -- if you received a @NextToken@ response in the previous request. If you
+    -- did, it indicates that more output is available. Set this parameter to
+    -- the value provided by the previous call\'s @NextToken@ response to
+    -- request the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies the
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
     -- of the resource share for which you want to retrieve the associated
@@ -85,12 +85,6 @@ data ListResourceSharePermissions = ListResourceSharePermissions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listResourceSharePermissions_nextToken' - Specifies that you want to receive the next page of results. Valid only
--- if you received a @NextToken@ response in the previous request. If you
--- did, it indicates that more output is available. Set this parameter to
--- the value provided by the previous call\'s @NextToken@ response to
--- request the next page of results.
---
 -- 'maxResults', 'listResourceSharePermissions_maxResults' - Specifies the total number of results that you want included on each
 -- page of the response. If you do not include this parameter, it defaults
 -- to a value that is specific to the operation. If additional items exist
@@ -102,6 +96,12 @@ data ListResourceSharePermissions = ListResourceSharePermissions'
 -- should check @NextToken@ after every operation to ensure that you
 -- receive all of the results.
 --
+-- 'nextToken', 'listResourceSharePermissions_nextToken' - Specifies that you want to receive the next page of results. Valid only
+-- if you received a @NextToken@ response in the previous request. If you
+-- did, it indicates that more output is available. Set this parameter to
+-- the value provided by the previous call\'s @NextToken@ response to
+-- request the next page of results.
+--
 -- 'resourceShareArn', 'listResourceSharePermissions_resourceShareArn' - Specifies the
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
 -- of the resource share for which you want to retrieve the associated
@@ -112,19 +112,11 @@ newListResourceSharePermissions ::
   ListResourceSharePermissions
 newListResourceSharePermissions pResourceShareArn_ =
   ListResourceSharePermissions'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       resourceShareArn = pResourceShareArn_
     }
-
--- | Specifies that you want to receive the next page of results. Valid only
--- if you received a @NextToken@ response in the previous request. If you
--- did, it indicates that more output is available. Set this parameter to
--- the value provided by the previous call\'s @NextToken@ response to
--- request the next page of results.
-listResourceSharePermissions_nextToken :: Lens.Lens' ListResourceSharePermissions (Prelude.Maybe Prelude.Text)
-listResourceSharePermissions_nextToken = Lens.lens (\ListResourceSharePermissions' {nextToken} -> nextToken) (\s@ListResourceSharePermissions' {} a -> s {nextToken = a} :: ListResourceSharePermissions)
 
 -- | Specifies the total number of results that you want included on each
 -- page of the response. If you do not include this parameter, it defaults
@@ -138,6 +130,14 @@ listResourceSharePermissions_nextToken = Lens.lens (\ListResourceSharePermission
 -- receive all of the results.
 listResourceSharePermissions_maxResults :: Lens.Lens' ListResourceSharePermissions (Prelude.Maybe Prelude.Natural)
 listResourceSharePermissions_maxResults = Lens.lens (\ListResourceSharePermissions' {maxResults} -> maxResults) (\s@ListResourceSharePermissions' {} a -> s {maxResults = a} :: ListResourceSharePermissions)
+
+-- | Specifies that you want to receive the next page of results. Valid only
+-- if you received a @NextToken@ response in the previous request. If you
+-- did, it indicates that more output is available. Set this parameter to
+-- the value provided by the previous call\'s @NextToken@ response to
+-- request the next page of results.
+listResourceSharePermissions_nextToken :: Lens.Lens' ListResourceSharePermissions (Prelude.Maybe Prelude.Text)
+listResourceSharePermissions_nextToken = Lens.lens (\ListResourceSharePermissions' {nextToken} -> nextToken) (\s@ListResourceSharePermissions' {} a -> s {nextToken = a} :: ListResourceSharePermissions)
 
 -- | Specifies the
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
@@ -166,14 +166,14 @@ instance
     ListResourceSharePermissions
   where
   hashWithSalt _salt ListResourceSharePermissions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceShareArn
 
 instance Prelude.NFData ListResourceSharePermissions where
   rnf ListResourceSharePermissions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf resourceShareArn
 
 instance Data.ToHeaders ListResourceSharePermissions where
@@ -191,8 +191,8 @@ instance Data.ToJSON ListResourceSharePermissions where
   toJSON ListResourceSharePermissions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("resourceShareArn" Data..= resourceShareArn)
           ]

@@ -34,8 +34,8 @@ module Amazonka.ImageBuilder.GetInfrastructureConfiguration
     newGetInfrastructureConfigurationResponse,
 
     -- * Response Lenses
-    getInfrastructureConfigurationResponse_requestId,
     getInfrastructureConfigurationResponse_infrastructureConfiguration,
+    getInfrastructureConfigurationResponse_requestId,
     getInfrastructureConfigurationResponse_httpStatus,
   )
 where
@@ -97,8 +97,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetInfrastructureConfigurationResponse'
-            Prelude.<$> (x Data..?> "requestId")
-            Prelude.<*> (x Data..?> "infrastructureConfiguration")
+            Prelude.<$> (x Data..?> "infrastructureConfiguration")
+            Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,10 +148,10 @@ instance Data.ToQuery GetInfrastructureConfiguration where
 --
 -- /See:/ 'newGetInfrastructureConfigurationResponse' smart constructor.
 data GetInfrastructureConfigurationResponse = GetInfrastructureConfigurationResponse'
-  { -- | The request ID that uniquely identifies this request.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The infrastructure configuration object.
+  { -- | The infrastructure configuration object.
     infrastructureConfiguration :: Prelude.Maybe InfrastructureConfiguration,
+    -- | The request ID that uniquely identifies this request.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -165,9 +165,9 @@ data GetInfrastructureConfigurationResponse = GetInfrastructureConfigurationResp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'getInfrastructureConfigurationResponse_requestId' - The request ID that uniquely identifies this request.
---
 -- 'infrastructureConfiguration', 'getInfrastructureConfigurationResponse_infrastructureConfiguration' - The infrastructure configuration object.
+--
+-- 'requestId', 'getInfrastructureConfigurationResponse_requestId' - The request ID that uniquely identifies this request.
 --
 -- 'httpStatus', 'getInfrastructureConfigurationResponse_httpStatus' - The response's http status code.
 newGetInfrastructureConfigurationResponse ::
@@ -177,20 +177,19 @@ newGetInfrastructureConfigurationResponse ::
 newGetInfrastructureConfigurationResponse
   pHttpStatus_ =
     GetInfrastructureConfigurationResponse'
-      { requestId =
+      { infrastructureConfiguration =
           Prelude.Nothing,
-        infrastructureConfiguration =
-          Prelude.Nothing,
+        requestId = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The request ID that uniquely identifies this request.
-getInfrastructureConfigurationResponse_requestId :: Lens.Lens' GetInfrastructureConfigurationResponse (Prelude.Maybe Prelude.Text)
-getInfrastructureConfigurationResponse_requestId = Lens.lens (\GetInfrastructureConfigurationResponse' {requestId} -> requestId) (\s@GetInfrastructureConfigurationResponse' {} a -> s {requestId = a} :: GetInfrastructureConfigurationResponse)
 
 -- | The infrastructure configuration object.
 getInfrastructureConfigurationResponse_infrastructureConfiguration :: Lens.Lens' GetInfrastructureConfigurationResponse (Prelude.Maybe InfrastructureConfiguration)
 getInfrastructureConfigurationResponse_infrastructureConfiguration = Lens.lens (\GetInfrastructureConfigurationResponse' {infrastructureConfiguration} -> infrastructureConfiguration) (\s@GetInfrastructureConfigurationResponse' {} a -> s {infrastructureConfiguration = a} :: GetInfrastructureConfigurationResponse)
+
+-- | The request ID that uniquely identifies this request.
+getInfrastructureConfigurationResponse_requestId :: Lens.Lens' GetInfrastructureConfigurationResponse (Prelude.Maybe Prelude.Text)
+getInfrastructureConfigurationResponse_requestId = Lens.lens (\GetInfrastructureConfigurationResponse' {requestId} -> requestId) (\s@GetInfrastructureConfigurationResponse' {} a -> s {requestId = a} :: GetInfrastructureConfigurationResponse)
 
 -- | The response's http status code.
 getInfrastructureConfigurationResponse_httpStatus :: Lens.Lens' GetInfrastructureConfigurationResponse Prelude.Int
@@ -201,6 +200,6 @@ instance
     GetInfrastructureConfigurationResponse
   where
   rnf GetInfrastructureConfigurationResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf infrastructureConfiguration
+    Prelude.rnf infrastructureConfiguration
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf httpStatus

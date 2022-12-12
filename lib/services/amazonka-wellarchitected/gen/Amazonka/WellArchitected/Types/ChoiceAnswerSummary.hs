@@ -30,12 +30,12 @@ import Amazonka.WellArchitected.Types.ChoiceStatus
 --
 -- /See:/ 'newChoiceAnswerSummary' smart constructor.
 data ChoiceAnswerSummary = ChoiceAnswerSummary'
-  { -- | The status of a choice.
-    status :: Prelude.Maybe ChoiceStatus,
-    choiceId :: Prelude.Maybe Prelude.Text,
+  { choiceId :: Prelude.Maybe Prelude.Text,
     -- | The reason why a choice is non-applicable to a question in your
     -- workload.
-    reason :: Prelude.Maybe ChoiceReason
+    reason :: Prelude.Maybe ChoiceReason,
+    -- | The status of a choice.
+    status :: Prelude.Maybe ChoiceStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,24 +47,20 @@ data ChoiceAnswerSummary = ChoiceAnswerSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'choiceAnswerSummary_status' - The status of a choice.
---
 -- 'choiceId', 'choiceAnswerSummary_choiceId' - Undocumented member.
 --
 -- 'reason', 'choiceAnswerSummary_reason' - The reason why a choice is non-applicable to a question in your
 -- workload.
+--
+-- 'status', 'choiceAnswerSummary_status' - The status of a choice.
 newChoiceAnswerSummary ::
   ChoiceAnswerSummary
 newChoiceAnswerSummary =
   ChoiceAnswerSummary'
-    { status = Prelude.Nothing,
-      choiceId = Prelude.Nothing,
-      reason = Prelude.Nothing
+    { choiceId = Prelude.Nothing,
+      reason = Prelude.Nothing,
+      status = Prelude.Nothing
     }
-
--- | The status of a choice.
-choiceAnswerSummary_status :: Lens.Lens' ChoiceAnswerSummary (Prelude.Maybe ChoiceStatus)
-choiceAnswerSummary_status = Lens.lens (\ChoiceAnswerSummary' {status} -> status) (\s@ChoiceAnswerSummary' {} a -> s {status = a} :: ChoiceAnswerSummary)
 
 -- | Undocumented member.
 choiceAnswerSummary_choiceId :: Lens.Lens' ChoiceAnswerSummary (Prelude.Maybe Prelude.Text)
@@ -75,25 +71,29 @@ choiceAnswerSummary_choiceId = Lens.lens (\ChoiceAnswerSummary' {choiceId} -> ch
 choiceAnswerSummary_reason :: Lens.Lens' ChoiceAnswerSummary (Prelude.Maybe ChoiceReason)
 choiceAnswerSummary_reason = Lens.lens (\ChoiceAnswerSummary' {reason} -> reason) (\s@ChoiceAnswerSummary' {} a -> s {reason = a} :: ChoiceAnswerSummary)
 
+-- | The status of a choice.
+choiceAnswerSummary_status :: Lens.Lens' ChoiceAnswerSummary (Prelude.Maybe ChoiceStatus)
+choiceAnswerSummary_status = Lens.lens (\ChoiceAnswerSummary' {status} -> status) (\s@ChoiceAnswerSummary' {} a -> s {status = a} :: ChoiceAnswerSummary)
+
 instance Data.FromJSON ChoiceAnswerSummary where
   parseJSON =
     Data.withObject
       "ChoiceAnswerSummary"
       ( \x ->
           ChoiceAnswerSummary'
-            Prelude.<$> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "ChoiceId")
+            Prelude.<$> (x Data..:? "ChoiceId")
             Prelude.<*> (x Data..:? "Reason")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable ChoiceAnswerSummary where
   hashWithSalt _salt ChoiceAnswerSummary' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` choiceId
+    _salt `Prelude.hashWithSalt` choiceId
       `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ChoiceAnswerSummary where
   rnf ChoiceAnswerSummary' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf choiceId
+    Prelude.rnf choiceId
       `Prelude.seq` Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf status

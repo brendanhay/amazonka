@@ -173,7 +173,8 @@ instance Data.ToQuery CreateLocalGatewayRouteTable where
 
 -- | /See:/ 'newCreateLocalGatewayRouteTableResponse' smart constructor.
 data CreateLocalGatewayRouteTableResponse = CreateLocalGatewayRouteTableResponse'
-  { localGatewayRouteTable :: Prelude.Maybe LocalGatewayRouteTable,
+  { -- | Information about the local gateway route table.
+    localGatewayRouteTable :: Prelude.Maybe LocalGatewayRouteTable,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -187,7 +188,7 @@ data CreateLocalGatewayRouteTableResponse = CreateLocalGatewayRouteTableResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'localGatewayRouteTable', 'createLocalGatewayRouteTableResponse_localGatewayRouteTable' - Undocumented member.
+-- 'localGatewayRouteTable', 'createLocalGatewayRouteTableResponse_localGatewayRouteTable' - Information about the local gateway route table.
 --
 -- 'httpStatus', 'createLocalGatewayRouteTableResponse_httpStatus' - The response's http status code.
 newCreateLocalGatewayRouteTableResponse ::
@@ -201,7 +202,7 @@ newCreateLocalGatewayRouteTableResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | Information about the local gateway route table.
 createLocalGatewayRouteTableResponse_localGatewayRouteTable :: Lens.Lens' CreateLocalGatewayRouteTableResponse (Prelude.Maybe LocalGatewayRouteTable)
 createLocalGatewayRouteTableResponse_localGatewayRouteTable = Lens.lens (\CreateLocalGatewayRouteTableResponse' {localGatewayRouteTable} -> localGatewayRouteTable) (\s@CreateLocalGatewayRouteTableResponse' {} a -> s {localGatewayRouteTable = a} :: CreateLocalGatewayRouteTableResponse)
 

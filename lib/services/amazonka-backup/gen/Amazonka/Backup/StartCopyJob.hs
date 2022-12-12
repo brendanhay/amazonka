@@ -29,8 +29,8 @@ module Amazonka.Backup.StartCopyJob
     newStartCopyJob,
 
     -- * Request Lenses
-    startCopyJob_lifecycle,
     startCopyJob_idempotencyToken,
+    startCopyJob_lifecycle,
     startCopyJob_recoveryPointArn,
     startCopyJob_sourceBackupVaultName,
     startCopyJob_destinationBackupVaultArn,
@@ -41,8 +41,9 @@ module Amazonka.Backup.StartCopyJob
     newStartCopyJobResponse,
 
     -- * Response Lenses
-    startCopyJobResponse_creationDate,
     startCopyJobResponse_copyJobId,
+    startCopyJobResponse_creationDate,
+    startCopyJobResponse_isParent,
     startCopyJobResponse_httpStatus,
   )
 where
@@ -57,12 +58,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartCopyJob' smart constructor.
 data StartCopyJob = StartCopyJob'
-  { lifecycle :: Prelude.Maybe Lifecycle,
-    -- | A customer-chosen string that you can use to distinguish between
+  { -- | A customer-chosen string that you can use to distinguish between
     -- otherwise identical calls to @StartCopyJob@. Retrying a successful
     -- request with the same idempotency token results in a success message
     -- with no action taken.
     idempotencyToken :: Prelude.Maybe Prelude.Text,
+    lifecycle :: Prelude.Maybe Lifecycle,
     -- | An ARN that uniquely identifies a recovery point to use for the copy
     -- job; for example,
     -- arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45.
@@ -90,12 +91,12 @@ data StartCopyJob = StartCopyJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lifecycle', 'startCopyJob_lifecycle' - Undocumented member.
---
 -- 'idempotencyToken', 'startCopyJob_idempotencyToken' - A customer-chosen string that you can use to distinguish between
 -- otherwise identical calls to @StartCopyJob@. Retrying a successful
 -- request with the same idempotency token results in a success message
 -- with no action taken.
+--
+-- 'lifecycle', 'startCopyJob_lifecycle' - Undocumented member.
 --
 -- 'recoveryPointArn', 'startCopyJob_recoveryPointArn' - An ARN that uniquely identifies a recovery point to use for the copy
 -- job; for example,
@@ -128,8 +129,8 @@ newStartCopyJob
   pDestinationBackupVaultArn_
   pIamRoleArn_ =
     StartCopyJob'
-      { lifecycle = Prelude.Nothing,
-        idempotencyToken = Prelude.Nothing,
+      { idempotencyToken = Prelude.Nothing,
+        lifecycle = Prelude.Nothing,
         recoveryPointArn = pRecoveryPointArn_,
         sourceBackupVaultName = pSourceBackupVaultName_,
         destinationBackupVaultArn =
@@ -137,16 +138,16 @@ newStartCopyJob
         iamRoleArn = pIamRoleArn_
       }
 
--- | Undocumented member.
-startCopyJob_lifecycle :: Lens.Lens' StartCopyJob (Prelude.Maybe Lifecycle)
-startCopyJob_lifecycle = Lens.lens (\StartCopyJob' {lifecycle} -> lifecycle) (\s@StartCopyJob' {} a -> s {lifecycle = a} :: StartCopyJob)
-
 -- | A customer-chosen string that you can use to distinguish between
 -- otherwise identical calls to @StartCopyJob@. Retrying a successful
 -- request with the same idempotency token results in a success message
 -- with no action taken.
 startCopyJob_idempotencyToken :: Lens.Lens' StartCopyJob (Prelude.Maybe Prelude.Text)
 startCopyJob_idempotencyToken = Lens.lens (\StartCopyJob' {idempotencyToken} -> idempotencyToken) (\s@StartCopyJob' {} a -> s {idempotencyToken = a} :: StartCopyJob)
+
+-- | Undocumented member.
+startCopyJob_lifecycle :: Lens.Lens' StartCopyJob (Prelude.Maybe Lifecycle)
+startCopyJob_lifecycle = Lens.lens (\StartCopyJob' {lifecycle} -> lifecycle) (\s@StartCopyJob' {} a -> s {lifecycle = a} :: StartCopyJob)
 
 -- | An ARN that uniquely identifies a recovery point to use for the copy
 -- job; for example,
@@ -180,15 +181,16 @@ instance Core.AWSRequest StartCopyJob where
     Response.receiveJSON
       ( \s h x ->
           StartCopyJobResponse'
-            Prelude.<$> (x Data..?> "CreationDate")
-            Prelude.<*> (x Data..?> "CopyJobId")
+            Prelude.<$> (x Data..?> "CopyJobId")
+            Prelude.<*> (x Data..?> "CreationDate")
+            Prelude.<*> (x Data..?> "IsParent")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable StartCopyJob where
   hashWithSalt _salt StartCopyJob' {..} =
-    _salt `Prelude.hashWithSalt` lifecycle
-      `Prelude.hashWithSalt` idempotencyToken
+    _salt `Prelude.hashWithSalt` idempotencyToken
+      `Prelude.hashWithSalt` lifecycle
       `Prelude.hashWithSalt` recoveryPointArn
       `Prelude.hashWithSalt` sourceBackupVaultName
       `Prelude.hashWithSalt` destinationBackupVaultArn
@@ -196,8 +198,8 @@ instance Prelude.Hashable StartCopyJob where
 
 instance Prelude.NFData StartCopyJob where
   rnf StartCopyJob' {..} =
-    Prelude.rnf lifecycle
-      `Prelude.seq` Prelude.rnf idempotencyToken
+    Prelude.rnf idempotencyToken
+      `Prelude.seq` Prelude.rnf lifecycle
       `Prelude.seq` Prelude.rnf recoveryPointArn
       `Prelude.seq` Prelude.rnf sourceBackupVaultName
       `Prelude.seq` Prelude.rnf destinationBackupVaultArn
@@ -218,9 +220,9 @@ instance Data.ToJSON StartCopyJob where
   toJSON StartCopyJob' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Lifecycle" Data..=) Prelude.<$> lifecycle,
-            ("IdempotencyToken" Data..=)
+          [ ("IdempotencyToken" Data..=)
               Prelude.<$> idempotencyToken,
+            ("Lifecycle" Data..=) Prelude.<$> lifecycle,
             Prelude.Just
               ("RecoveryPointArn" Data..= recoveryPointArn),
             Prelude.Just
@@ -243,13 +245,16 @@ instance Data.ToQuery StartCopyJob where
 
 -- | /See:/ 'newStartCopyJobResponse' smart constructor.
 data StartCopyJobResponse = StartCopyJobResponse'
-  { -- | The date and time that a copy job is created, in Unix format and
+  { -- | Uniquely identifies a copy job.
+    copyJobId :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that a copy job is created, in Unix format and
     -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
     creationDate :: Prelude.Maybe Data.POSIX,
-    -- | Uniquely identifies a copy job.
-    copyJobId :: Prelude.Maybe Prelude.Text,
+    -- | This is a returned boolean value indicating this is a parent (composite)
+    -- copy job.
+    isParent :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -263,12 +268,15 @@ data StartCopyJobResponse = StartCopyJobResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'copyJobId', 'startCopyJobResponse_copyJobId' - Uniquely identifies a copy job.
+--
 -- 'creationDate', 'startCopyJobResponse_creationDate' - The date and time that a copy job is created, in Unix format and
 -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 --
--- 'copyJobId', 'startCopyJobResponse_copyJobId' - Uniquely identifies a copy job.
+-- 'isParent', 'startCopyJobResponse_isParent' - This is a returned boolean value indicating this is a parent (composite)
+-- copy job.
 --
 -- 'httpStatus', 'startCopyJobResponse_httpStatus' - The response's http status code.
 newStartCopyJobResponse ::
@@ -277,11 +285,15 @@ newStartCopyJobResponse ::
   StartCopyJobResponse
 newStartCopyJobResponse pHttpStatus_ =
   StartCopyJobResponse'
-    { creationDate =
-        Prelude.Nothing,
-      copyJobId = Prelude.Nothing,
+    { copyJobId = Prelude.Nothing,
+      creationDate = Prelude.Nothing,
+      isParent = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Uniquely identifies a copy job.
+startCopyJobResponse_copyJobId :: Lens.Lens' StartCopyJobResponse (Prelude.Maybe Prelude.Text)
+startCopyJobResponse_copyJobId = Lens.lens (\StartCopyJobResponse' {copyJobId} -> copyJobId) (\s@StartCopyJobResponse' {} a -> s {copyJobId = a} :: StartCopyJobResponse)
 
 -- | The date and time that a copy job is created, in Unix format and
 -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
@@ -290,9 +302,10 @@ newStartCopyJobResponse pHttpStatus_ =
 startCopyJobResponse_creationDate :: Lens.Lens' StartCopyJobResponse (Prelude.Maybe Prelude.UTCTime)
 startCopyJobResponse_creationDate = Lens.lens (\StartCopyJobResponse' {creationDate} -> creationDate) (\s@StartCopyJobResponse' {} a -> s {creationDate = a} :: StartCopyJobResponse) Prelude.. Lens.mapping Data._Time
 
--- | Uniquely identifies a copy job.
-startCopyJobResponse_copyJobId :: Lens.Lens' StartCopyJobResponse (Prelude.Maybe Prelude.Text)
-startCopyJobResponse_copyJobId = Lens.lens (\StartCopyJobResponse' {copyJobId} -> copyJobId) (\s@StartCopyJobResponse' {} a -> s {copyJobId = a} :: StartCopyJobResponse)
+-- | This is a returned boolean value indicating this is a parent (composite)
+-- copy job.
+startCopyJobResponse_isParent :: Lens.Lens' StartCopyJobResponse (Prelude.Maybe Prelude.Bool)
+startCopyJobResponse_isParent = Lens.lens (\StartCopyJobResponse' {isParent} -> isParent) (\s@StartCopyJobResponse' {} a -> s {isParent = a} :: StartCopyJobResponse)
 
 -- | The response's http status code.
 startCopyJobResponse_httpStatus :: Lens.Lens' StartCopyJobResponse Prelude.Int
@@ -300,6 +313,7 @@ startCopyJobResponse_httpStatus = Lens.lens (\StartCopyJobResponse' {httpStatus}
 
 instance Prelude.NFData StartCopyJobResponse where
   rnf StartCopyJobResponse' {..} =
-    Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf copyJobId
+    Prelude.rnf copyJobId
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf isParent
       `Prelude.seq` Prelude.rnf httpStatus

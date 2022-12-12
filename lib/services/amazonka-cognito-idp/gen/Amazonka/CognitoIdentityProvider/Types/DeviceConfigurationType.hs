@@ -51,7 +51,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeviceConfigurationType' smart constructor.
 data DeviceConfigurationType = DeviceConfigurationType'
-  { -- | When true, Amazon Cognito doesn\'t automatically remember a user\'s
+  { -- | When true, a remembered device can sign in with device authentication
+    -- instead of SMS and time-based one-time password (TOTP) factors for
+    -- multi-factor authentication (MFA).
+    --
+    -- Whether or not @ChallengeRequiredOnNewDevice@ is true, users who sign in
+    -- with devices that have not been confirmed or remembered must still
+    -- provide a second factor in a user pool that requires MFA.
+    challengeRequiredOnNewDevice :: Prelude.Maybe Prelude.Bool,
+    -- | When true, Amazon Cognito doesn\'t automatically remember a user\'s
     -- device when your app sends a
     -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmDevice.html ConfirmDevice>
     -- API request. In your app, create a prompt for your user to choose
@@ -63,15 +71,7 @@ data DeviceConfigurationType = DeviceConfigurationType'
     -- When @DeviceOnlyRememberedOnUserPrompt@ is @false@, Amazon Cognito
     -- immediately remembers devices that you register in a @ConfirmDevice@ API
     -- request.
-    deviceOnlyRememberedOnUserPrompt :: Prelude.Maybe Prelude.Bool,
-    -- | When true, a remembered device can sign in with device authentication
-    -- instead of SMS and time-based one-time password (TOTP) factors for
-    -- multi-factor authentication (MFA).
-    --
-    -- Whether or not @ChallengeRequiredOnNewDevice@ is true, users who sign in
-    -- with devices that have not been confirmed or remembered must still
-    -- provide a second factor in a user pool that requires MFA.
-    challengeRequiredOnNewDevice :: Prelude.Maybe Prelude.Bool
+    deviceOnlyRememberedOnUserPrompt :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,6 +82,14 @@ data DeviceConfigurationType = DeviceConfigurationType'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'challengeRequiredOnNewDevice', 'deviceConfigurationType_challengeRequiredOnNewDevice' - When true, a remembered device can sign in with device authentication
+-- instead of SMS and time-based one-time password (TOTP) factors for
+-- multi-factor authentication (MFA).
+--
+-- Whether or not @ChallengeRequiredOnNewDevice@ is true, users who sign in
+-- with devices that have not been confirmed or remembered must still
+-- provide a second factor in a user pool that requires MFA.
 --
 -- 'deviceOnlyRememberedOnUserPrompt', 'deviceConfigurationType_deviceOnlyRememberedOnUserPrompt' - When true, Amazon Cognito doesn\'t automatically remember a user\'s
 -- device when your app sends a
@@ -95,22 +103,24 @@ data DeviceConfigurationType = DeviceConfigurationType'
 -- When @DeviceOnlyRememberedOnUserPrompt@ is @false@, Amazon Cognito
 -- immediately remembers devices that you register in a @ConfirmDevice@ API
 -- request.
---
--- 'challengeRequiredOnNewDevice', 'deviceConfigurationType_challengeRequiredOnNewDevice' - When true, a remembered device can sign in with device authentication
+newDeviceConfigurationType ::
+  DeviceConfigurationType
+newDeviceConfigurationType =
+  DeviceConfigurationType'
+    { challengeRequiredOnNewDevice =
+        Prelude.Nothing,
+      deviceOnlyRememberedOnUserPrompt = Prelude.Nothing
+    }
+
+-- | When true, a remembered device can sign in with device authentication
 -- instead of SMS and time-based one-time password (TOTP) factors for
 -- multi-factor authentication (MFA).
 --
 -- Whether or not @ChallengeRequiredOnNewDevice@ is true, users who sign in
 -- with devices that have not been confirmed or remembered must still
 -- provide a second factor in a user pool that requires MFA.
-newDeviceConfigurationType ::
-  DeviceConfigurationType
-newDeviceConfigurationType =
-  DeviceConfigurationType'
-    { deviceOnlyRememberedOnUserPrompt =
-        Prelude.Nothing,
-      challengeRequiredOnNewDevice = Prelude.Nothing
-    }
+deviceConfigurationType_challengeRequiredOnNewDevice :: Lens.Lens' DeviceConfigurationType (Prelude.Maybe Prelude.Bool)
+deviceConfigurationType_challengeRequiredOnNewDevice = Lens.lens (\DeviceConfigurationType' {challengeRequiredOnNewDevice} -> challengeRequiredOnNewDevice) (\s@DeviceConfigurationType' {} a -> s {challengeRequiredOnNewDevice = a} :: DeviceConfigurationType)
 
 -- | When true, Amazon Cognito doesn\'t automatically remember a user\'s
 -- device when your app sends a
@@ -127,44 +137,34 @@ newDeviceConfigurationType =
 deviceConfigurationType_deviceOnlyRememberedOnUserPrompt :: Lens.Lens' DeviceConfigurationType (Prelude.Maybe Prelude.Bool)
 deviceConfigurationType_deviceOnlyRememberedOnUserPrompt = Lens.lens (\DeviceConfigurationType' {deviceOnlyRememberedOnUserPrompt} -> deviceOnlyRememberedOnUserPrompt) (\s@DeviceConfigurationType' {} a -> s {deviceOnlyRememberedOnUserPrompt = a} :: DeviceConfigurationType)
 
--- | When true, a remembered device can sign in with device authentication
--- instead of SMS and time-based one-time password (TOTP) factors for
--- multi-factor authentication (MFA).
---
--- Whether or not @ChallengeRequiredOnNewDevice@ is true, users who sign in
--- with devices that have not been confirmed or remembered must still
--- provide a second factor in a user pool that requires MFA.
-deviceConfigurationType_challengeRequiredOnNewDevice :: Lens.Lens' DeviceConfigurationType (Prelude.Maybe Prelude.Bool)
-deviceConfigurationType_challengeRequiredOnNewDevice = Lens.lens (\DeviceConfigurationType' {challengeRequiredOnNewDevice} -> challengeRequiredOnNewDevice) (\s@DeviceConfigurationType' {} a -> s {challengeRequiredOnNewDevice = a} :: DeviceConfigurationType)
-
 instance Data.FromJSON DeviceConfigurationType where
   parseJSON =
     Data.withObject
       "DeviceConfigurationType"
       ( \x ->
           DeviceConfigurationType'
-            Prelude.<$> (x Data..:? "DeviceOnlyRememberedOnUserPrompt")
-            Prelude.<*> (x Data..:? "ChallengeRequiredOnNewDevice")
+            Prelude.<$> (x Data..:? "ChallengeRequiredOnNewDevice")
+            Prelude.<*> (x Data..:? "DeviceOnlyRememberedOnUserPrompt")
       )
 
 instance Prelude.Hashable DeviceConfigurationType where
   hashWithSalt _salt DeviceConfigurationType' {..} =
     _salt
-      `Prelude.hashWithSalt` deviceOnlyRememberedOnUserPrompt
       `Prelude.hashWithSalt` challengeRequiredOnNewDevice
+      `Prelude.hashWithSalt` deviceOnlyRememberedOnUserPrompt
 
 instance Prelude.NFData DeviceConfigurationType where
   rnf DeviceConfigurationType' {..} =
-    Prelude.rnf deviceOnlyRememberedOnUserPrompt
-      `Prelude.seq` Prelude.rnf challengeRequiredOnNewDevice
+    Prelude.rnf challengeRequiredOnNewDevice
+      `Prelude.seq` Prelude.rnf deviceOnlyRememberedOnUserPrompt
 
 instance Data.ToJSON DeviceConfigurationType where
   toJSON DeviceConfigurationType' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DeviceOnlyRememberedOnUserPrompt" Data..=)
-              Prelude.<$> deviceOnlyRememberedOnUserPrompt,
-            ("ChallengeRequiredOnNewDevice" Data..=)
-              Prelude.<$> challengeRequiredOnNewDevice
+          [ ("ChallengeRequiredOnNewDevice" Data..=)
+              Prelude.<$> challengeRequiredOnNewDevice,
+            ("DeviceOnlyRememberedOnUserPrompt" Data..=)
+              Prelude.<$> deviceOnlyRememberedOnUserPrompt
           ]
       )

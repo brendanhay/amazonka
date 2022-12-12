@@ -33,10 +33,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMetricSetDimensionFilter' smart constructor.
 data MetricSetDimensionFilter = MetricSetDimensionFilter'
-  { -- | The dimension that you want to filter on.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The list of filters that you are applying.
-    filterList :: Prelude.Maybe (Prelude.NonEmpty Filter)
+  { -- | The list of filters that you are applying.
+    filterList :: Prelude.Maybe (Prelude.NonEmpty Filter),
+    -- | The dimension that you want to filter on.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,24 +48,25 @@ data MetricSetDimensionFilter = MetricSetDimensionFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'metricSetDimensionFilter_name' - The dimension that you want to filter on.
---
 -- 'filterList', 'metricSetDimensionFilter_filterList' - The list of filters that you are applying.
+--
+-- 'name', 'metricSetDimensionFilter_name' - The dimension that you want to filter on.
 newMetricSetDimensionFilter ::
   MetricSetDimensionFilter
 newMetricSetDimensionFilter =
   MetricSetDimensionFilter'
-    { name = Prelude.Nothing,
-      filterList = Prelude.Nothing
+    { filterList =
+        Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | The dimension that you want to filter on.
-metricSetDimensionFilter_name :: Lens.Lens' MetricSetDimensionFilter (Prelude.Maybe Prelude.Text)
-metricSetDimensionFilter_name = Lens.lens (\MetricSetDimensionFilter' {name} -> name) (\s@MetricSetDimensionFilter' {} a -> s {name = a} :: MetricSetDimensionFilter)
 
 -- | The list of filters that you are applying.
 metricSetDimensionFilter_filterList :: Lens.Lens' MetricSetDimensionFilter (Prelude.Maybe (Prelude.NonEmpty Filter))
 metricSetDimensionFilter_filterList = Lens.lens (\MetricSetDimensionFilter' {filterList} -> filterList) (\s@MetricSetDimensionFilter' {} a -> s {filterList = a} :: MetricSetDimensionFilter) Prelude.. Lens.mapping Lens.coerced
+
+-- | The dimension that you want to filter on.
+metricSetDimensionFilter_name :: Lens.Lens' MetricSetDimensionFilter (Prelude.Maybe Prelude.Text)
+metricSetDimensionFilter_name = Lens.lens (\MetricSetDimensionFilter' {name} -> name) (\s@MetricSetDimensionFilter' {} a -> s {name = a} :: MetricSetDimensionFilter)
 
 instance Data.FromJSON MetricSetDimensionFilter where
   parseJSON =
@@ -73,25 +74,25 @@ instance Data.FromJSON MetricSetDimensionFilter where
       "MetricSetDimensionFilter"
       ( \x ->
           MetricSetDimensionFilter'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "FilterList")
+            Prelude.<$> (x Data..:? "FilterList")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable MetricSetDimensionFilter where
   hashWithSalt _salt MetricSetDimensionFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` filterList
+    _salt `Prelude.hashWithSalt` filterList
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData MetricSetDimensionFilter where
   rnf MetricSetDimensionFilter' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf filterList
+    Prelude.rnf filterList
+      `Prelude.seq` Prelude.rnf name
 
 instance Data.ToJSON MetricSetDimensionFilter where
   toJSON MetricSetDimensionFilter' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
-            ("FilterList" Data..=) Prelude.<$> filterList
+          [ ("FilterList" Data..=) Prelude.<$> filterList,
+            ("Name" Data..=) Prelude.<$> name
           ]
       )

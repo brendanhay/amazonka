@@ -28,19 +28,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newComponentPlatform' smart constructor.
 data ComponentPlatform = ComponentPlatform'
-  { -- | The friendly name of the platform. This name helps you identify the
-    -- platform.
-    --
-    -- If you omit this parameter, IoT Greengrass creates a friendly name from
-    -- the @os@ and @architecture@ of the platform.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | A dictionary of attributes for the platform. The IoT Greengrass Core
+  { -- | A dictionary of attributes for the platform. The IoT Greengrass Core
     -- software defines the @os@ and @architecture@ by default. You can specify
     -- additional platform attributes for a core device when you deploy the
     -- Greengrass nucleus component. For more information, see the
     -- <https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html Greengrass nucleus component>
     -- in the /IoT Greengrass V2 Developer Guide/.
-    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The friendly name of the platform. This name helps you identify the
+    -- platform.
+    --
+    -- If you omit this parameter, IoT Greengrass creates a friendly name from
+    -- the @os@ and @architecture@ of the platform.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,33 +52,25 @@ data ComponentPlatform = ComponentPlatform'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'componentPlatform_name' - The friendly name of the platform. This name helps you identify the
--- platform.
---
--- If you omit this parameter, IoT Greengrass creates a friendly name from
--- the @os@ and @architecture@ of the platform.
---
 -- 'attributes', 'componentPlatform_attributes' - A dictionary of attributes for the platform. The IoT Greengrass Core
 -- software defines the @os@ and @architecture@ by default. You can specify
 -- additional platform attributes for a core device when you deploy the
 -- Greengrass nucleus component. For more information, see the
 -- <https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html Greengrass nucleus component>
 -- in the /IoT Greengrass V2 Developer Guide/.
-newComponentPlatform ::
-  ComponentPlatform
-newComponentPlatform =
-  ComponentPlatform'
-    { name = Prelude.Nothing,
-      attributes = Prelude.Nothing
-    }
-
--- | The friendly name of the platform. This name helps you identify the
+--
+-- 'name', 'componentPlatform_name' - The friendly name of the platform. This name helps you identify the
 -- platform.
 --
 -- If you omit this parameter, IoT Greengrass creates a friendly name from
 -- the @os@ and @architecture@ of the platform.
-componentPlatform_name :: Lens.Lens' ComponentPlatform (Prelude.Maybe Prelude.Text)
-componentPlatform_name = Lens.lens (\ComponentPlatform' {name} -> name) (\s@ComponentPlatform' {} a -> s {name = a} :: ComponentPlatform)
+newComponentPlatform ::
+  ComponentPlatform
+newComponentPlatform =
+  ComponentPlatform'
+    { attributes = Prelude.Nothing,
+      name = Prelude.Nothing
+    }
 
 -- | A dictionary of attributes for the platform. The IoT Greengrass Core
 -- software defines the @os@ and @architecture@ by default. You can specify
@@ -89,31 +81,39 @@ componentPlatform_name = Lens.lens (\ComponentPlatform' {name} -> name) (\s@Comp
 componentPlatform_attributes :: Lens.Lens' ComponentPlatform (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 componentPlatform_attributes = Lens.lens (\ComponentPlatform' {attributes} -> attributes) (\s@ComponentPlatform' {} a -> s {attributes = a} :: ComponentPlatform) Prelude.. Lens.mapping Lens.coerced
 
+-- | The friendly name of the platform. This name helps you identify the
+-- platform.
+--
+-- If you omit this parameter, IoT Greengrass creates a friendly name from
+-- the @os@ and @architecture@ of the platform.
+componentPlatform_name :: Lens.Lens' ComponentPlatform (Prelude.Maybe Prelude.Text)
+componentPlatform_name = Lens.lens (\ComponentPlatform' {name} -> name) (\s@ComponentPlatform' {} a -> s {name = a} :: ComponentPlatform)
+
 instance Data.FromJSON ComponentPlatform where
   parseJSON =
     Data.withObject
       "ComponentPlatform"
       ( \x ->
           ComponentPlatform'
-            Prelude.<$> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "attributes" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "attributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
       )
 
 instance Prelude.Hashable ComponentPlatform where
   hashWithSalt _salt ComponentPlatform' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` attributes
+    _salt `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData ComponentPlatform where
   rnf ComponentPlatform' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf attributes
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf name
 
 instance Data.ToJSON ComponentPlatform where
   toJSON ComponentPlatform' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("name" Data..=) Prelude.<$> name,
-            ("attributes" Data..=) Prelude.<$> attributes
+          [ ("attributes" Data..=) Prelude.<$> attributes,
+            ("name" Data..=) Prelude.<$> name
           ]
       )

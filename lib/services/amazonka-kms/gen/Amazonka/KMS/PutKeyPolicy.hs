@@ -135,7 +135,7 @@ data PutKeyPolicy = PutKeyPolicy'
     --
     -- For information about key policies, see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Key policies in KMS>
-    -- in the /Key Management Service Developer Guide/. For help writing and
+    -- in the /Key Management Service Developer Guide/.For help writing and
     -- formatting a JSON policy document, see the
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html IAM JSON Policy Reference>
     -- in the //Identity and Access Management User Guide// .
@@ -219,7 +219,7 @@ data PutKeyPolicy = PutKeyPolicy'
 --
 -- For information about key policies, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Key policies in KMS>
--- in the /Key Management Service Developer Guide/. For help writing and
+-- in the /Key Management Service Developer Guide/.For help writing and
 -- formatting a JSON policy document, see the
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html IAM JSON Policy Reference>
 -- in the //Identity and Access Management User Guide// .
@@ -314,7 +314,7 @@ putKeyPolicy_policyName = Lens.lens (\PutKeyPolicy' {policyName} -> policyName) 
 --
 -- For information about key policies, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Key policies in KMS>
--- in the /Key Management Service Developer Guide/. For help writing and
+-- in the /Key Management Service Developer Guide/.For help writing and
 -- formatting a JSON policy document, see the
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html IAM JSON Policy Reference>
 -- in the //Identity and Access Management User Guide// .

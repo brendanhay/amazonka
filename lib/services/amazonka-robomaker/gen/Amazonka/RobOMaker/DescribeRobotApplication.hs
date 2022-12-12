@@ -35,15 +35,15 @@ module Amazonka.RobOMaker.DescribeRobotApplication
     newDescribeRobotApplicationResponse,
 
     -- * Response Lenses
-    describeRobotApplicationResponse_tags,
-    describeRobotApplicationResponse_name,
-    describeRobotApplicationResponse_sources,
-    describeRobotApplicationResponse_environment,
-    describeRobotApplicationResponse_lastUpdatedAt,
     describeRobotApplicationResponse_arn,
-    describeRobotApplicationResponse_robotSoftwareSuite,
-    describeRobotApplicationResponse_revisionId,
+    describeRobotApplicationResponse_environment,
     describeRobotApplicationResponse_imageDigest,
+    describeRobotApplicationResponse_lastUpdatedAt,
+    describeRobotApplicationResponse_name,
+    describeRobotApplicationResponse_revisionId,
+    describeRobotApplicationResponse_robotSoftwareSuite,
+    describeRobotApplicationResponse_sources,
+    describeRobotApplicationResponse_tags,
     describeRobotApplicationResponse_version,
     describeRobotApplicationResponse_httpStatus,
   )
@@ -106,15 +106,15 @@ instance Core.AWSRequest DescribeRobotApplication where
     Response.receiveJSON
       ( \s h x ->
           DescribeRobotApplicationResponse'
-            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "name")
-            Prelude.<*> (x Data..?> "sources" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "arn")
             Prelude.<*> (x Data..?> "environment")
-            Prelude.<*> (x Data..?> "lastUpdatedAt")
-            Prelude.<*> (x Data..?> "arn")
-            Prelude.<*> (x Data..?> "robotSoftwareSuite")
-            Prelude.<*> (x Data..?> "revisionId")
             Prelude.<*> (x Data..?> "imageDigest")
+            Prelude.<*> (x Data..?> "lastUpdatedAt")
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "revisionId")
+            Prelude.<*> (x Data..?> "robotSoftwareSuite")
+            Prelude.<*> (x Data..?> "sources" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -158,28 +158,28 @@ instance Data.ToQuery DescribeRobotApplication where
 
 -- | /See:/ 'newDescribeRobotApplicationResponse' smart constructor.
 data DescribeRobotApplicationResponse = DescribeRobotApplicationResponse'
-  { -- | The list of all tags added to the specified robot application.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The name of the robot application.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The sources of the robot application.
-    sources :: Prelude.Maybe [Source],
+  { -- | The Amazon Resource Name (ARN) of the robot application.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The object that contains the Docker image URI used to create the robot
     -- application.
     environment :: Prelude.Maybe Environment,
-    -- | The time, in milliseconds since the epoch, when the robot application
-    -- was last updated.
-    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
-    -- | The Amazon Resource Name (ARN) of the robot application.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The robot software suite (ROS distribution) used by the robot
-    -- application.
-    robotSoftwareSuite :: Prelude.Maybe RobotSoftwareSuite,
-    -- | The revision id of the robot application.
-    revisionId :: Prelude.Maybe Prelude.Text,
     -- | A SHA256 identifier for the Docker image that you use for your robot
     -- application.
     imageDigest :: Prelude.Maybe Prelude.Text,
+    -- | The time, in milliseconds since the epoch, when the robot application
+    -- was last updated.
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
+    -- | The name of the robot application.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The revision id of the robot application.
+    revisionId :: Prelude.Maybe Prelude.Text,
+    -- | The robot software suite (ROS distribution) used by the robot
+    -- application.
+    robotSoftwareSuite :: Prelude.Maybe RobotSoftwareSuite,
+    -- | The sources of the robot application.
+    sources :: Prelude.Maybe [Source],
+    -- | The list of all tags added to the specified robot application.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The version of the robot application.
     version :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -195,27 +195,27 @@ data DescribeRobotApplicationResponse = DescribeRobotApplicationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'describeRobotApplicationResponse_tags' - The list of all tags added to the specified robot application.
---
--- 'name', 'describeRobotApplicationResponse_name' - The name of the robot application.
---
--- 'sources', 'describeRobotApplicationResponse_sources' - The sources of the robot application.
+-- 'arn', 'describeRobotApplicationResponse_arn' - The Amazon Resource Name (ARN) of the robot application.
 --
 -- 'environment', 'describeRobotApplicationResponse_environment' - The object that contains the Docker image URI used to create the robot
+-- application.
+--
+-- 'imageDigest', 'describeRobotApplicationResponse_imageDigest' - A SHA256 identifier for the Docker image that you use for your robot
 -- application.
 --
 -- 'lastUpdatedAt', 'describeRobotApplicationResponse_lastUpdatedAt' - The time, in milliseconds since the epoch, when the robot application
 -- was last updated.
 --
--- 'arn', 'describeRobotApplicationResponse_arn' - The Amazon Resource Name (ARN) of the robot application.
+-- 'name', 'describeRobotApplicationResponse_name' - The name of the robot application.
+--
+-- 'revisionId', 'describeRobotApplicationResponse_revisionId' - The revision id of the robot application.
 --
 -- 'robotSoftwareSuite', 'describeRobotApplicationResponse_robotSoftwareSuite' - The robot software suite (ROS distribution) used by the robot
 -- application.
 --
--- 'revisionId', 'describeRobotApplicationResponse_revisionId' - The revision id of the robot application.
+-- 'sources', 'describeRobotApplicationResponse_sources' - The sources of the robot application.
 --
--- 'imageDigest', 'describeRobotApplicationResponse_imageDigest' - A SHA256 identifier for the Docker image that you use for your robot
--- application.
+-- 'tags', 'describeRobotApplicationResponse_tags' - The list of all tags added to the specified robot application.
 --
 -- 'version', 'describeRobotApplicationResponse_version' - The version of the robot application.
 --
@@ -226,59 +226,59 @@ newDescribeRobotApplicationResponse ::
   DescribeRobotApplicationResponse
 newDescribeRobotApplicationResponse pHttpStatus_ =
   DescribeRobotApplicationResponse'
-    { tags =
+    { arn =
         Prelude.Nothing,
-      name = Prelude.Nothing,
-      sources = Prelude.Nothing,
       environment = Prelude.Nothing,
-      lastUpdatedAt = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      robotSoftwareSuite = Prelude.Nothing,
-      revisionId = Prelude.Nothing,
       imageDigest = Prelude.Nothing,
+      lastUpdatedAt = Prelude.Nothing,
+      name = Prelude.Nothing,
+      revisionId = Prelude.Nothing,
+      robotSoftwareSuite = Prelude.Nothing,
+      sources = Prelude.Nothing,
+      tags = Prelude.Nothing,
       version = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The list of all tags added to the specified robot application.
-describeRobotApplicationResponse_tags :: Lens.Lens' DescribeRobotApplicationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-describeRobotApplicationResponse_tags = Lens.lens (\DescribeRobotApplicationResponse' {tags} -> tags) (\s@DescribeRobotApplicationResponse' {} a -> s {tags = a} :: DescribeRobotApplicationResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the robot application.
-describeRobotApplicationResponse_name :: Lens.Lens' DescribeRobotApplicationResponse (Prelude.Maybe Prelude.Text)
-describeRobotApplicationResponse_name = Lens.lens (\DescribeRobotApplicationResponse' {name} -> name) (\s@DescribeRobotApplicationResponse' {} a -> s {name = a} :: DescribeRobotApplicationResponse)
-
--- | The sources of the robot application.
-describeRobotApplicationResponse_sources :: Lens.Lens' DescribeRobotApplicationResponse (Prelude.Maybe [Source])
-describeRobotApplicationResponse_sources = Lens.lens (\DescribeRobotApplicationResponse' {sources} -> sources) (\s@DescribeRobotApplicationResponse' {} a -> s {sources = a} :: DescribeRobotApplicationResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The Amazon Resource Name (ARN) of the robot application.
+describeRobotApplicationResponse_arn :: Lens.Lens' DescribeRobotApplicationResponse (Prelude.Maybe Prelude.Text)
+describeRobotApplicationResponse_arn = Lens.lens (\DescribeRobotApplicationResponse' {arn} -> arn) (\s@DescribeRobotApplicationResponse' {} a -> s {arn = a} :: DescribeRobotApplicationResponse)
 
 -- | The object that contains the Docker image URI used to create the robot
 -- application.
 describeRobotApplicationResponse_environment :: Lens.Lens' DescribeRobotApplicationResponse (Prelude.Maybe Environment)
 describeRobotApplicationResponse_environment = Lens.lens (\DescribeRobotApplicationResponse' {environment} -> environment) (\s@DescribeRobotApplicationResponse' {} a -> s {environment = a} :: DescribeRobotApplicationResponse)
 
+-- | A SHA256 identifier for the Docker image that you use for your robot
+-- application.
+describeRobotApplicationResponse_imageDigest :: Lens.Lens' DescribeRobotApplicationResponse (Prelude.Maybe Prelude.Text)
+describeRobotApplicationResponse_imageDigest = Lens.lens (\DescribeRobotApplicationResponse' {imageDigest} -> imageDigest) (\s@DescribeRobotApplicationResponse' {} a -> s {imageDigest = a} :: DescribeRobotApplicationResponse)
+
 -- | The time, in milliseconds since the epoch, when the robot application
 -- was last updated.
 describeRobotApplicationResponse_lastUpdatedAt :: Lens.Lens' DescribeRobotApplicationResponse (Prelude.Maybe Prelude.UTCTime)
 describeRobotApplicationResponse_lastUpdatedAt = Lens.lens (\DescribeRobotApplicationResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@DescribeRobotApplicationResponse' {} a -> s {lastUpdatedAt = a} :: DescribeRobotApplicationResponse) Prelude.. Lens.mapping Data._Time
 
--- | The Amazon Resource Name (ARN) of the robot application.
-describeRobotApplicationResponse_arn :: Lens.Lens' DescribeRobotApplicationResponse (Prelude.Maybe Prelude.Text)
-describeRobotApplicationResponse_arn = Lens.lens (\DescribeRobotApplicationResponse' {arn} -> arn) (\s@DescribeRobotApplicationResponse' {} a -> s {arn = a} :: DescribeRobotApplicationResponse)
+-- | The name of the robot application.
+describeRobotApplicationResponse_name :: Lens.Lens' DescribeRobotApplicationResponse (Prelude.Maybe Prelude.Text)
+describeRobotApplicationResponse_name = Lens.lens (\DescribeRobotApplicationResponse' {name} -> name) (\s@DescribeRobotApplicationResponse' {} a -> s {name = a} :: DescribeRobotApplicationResponse)
+
+-- | The revision id of the robot application.
+describeRobotApplicationResponse_revisionId :: Lens.Lens' DescribeRobotApplicationResponse (Prelude.Maybe Prelude.Text)
+describeRobotApplicationResponse_revisionId = Lens.lens (\DescribeRobotApplicationResponse' {revisionId} -> revisionId) (\s@DescribeRobotApplicationResponse' {} a -> s {revisionId = a} :: DescribeRobotApplicationResponse)
 
 -- | The robot software suite (ROS distribution) used by the robot
 -- application.
 describeRobotApplicationResponse_robotSoftwareSuite :: Lens.Lens' DescribeRobotApplicationResponse (Prelude.Maybe RobotSoftwareSuite)
 describeRobotApplicationResponse_robotSoftwareSuite = Lens.lens (\DescribeRobotApplicationResponse' {robotSoftwareSuite} -> robotSoftwareSuite) (\s@DescribeRobotApplicationResponse' {} a -> s {robotSoftwareSuite = a} :: DescribeRobotApplicationResponse)
 
--- | The revision id of the robot application.
-describeRobotApplicationResponse_revisionId :: Lens.Lens' DescribeRobotApplicationResponse (Prelude.Maybe Prelude.Text)
-describeRobotApplicationResponse_revisionId = Lens.lens (\DescribeRobotApplicationResponse' {revisionId} -> revisionId) (\s@DescribeRobotApplicationResponse' {} a -> s {revisionId = a} :: DescribeRobotApplicationResponse)
+-- | The sources of the robot application.
+describeRobotApplicationResponse_sources :: Lens.Lens' DescribeRobotApplicationResponse (Prelude.Maybe [Source])
+describeRobotApplicationResponse_sources = Lens.lens (\DescribeRobotApplicationResponse' {sources} -> sources) (\s@DescribeRobotApplicationResponse' {} a -> s {sources = a} :: DescribeRobotApplicationResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | A SHA256 identifier for the Docker image that you use for your robot
--- application.
-describeRobotApplicationResponse_imageDigest :: Lens.Lens' DescribeRobotApplicationResponse (Prelude.Maybe Prelude.Text)
-describeRobotApplicationResponse_imageDigest = Lens.lens (\DescribeRobotApplicationResponse' {imageDigest} -> imageDigest) (\s@DescribeRobotApplicationResponse' {} a -> s {imageDigest = a} :: DescribeRobotApplicationResponse)
+-- | The list of all tags added to the specified robot application.
+describeRobotApplicationResponse_tags :: Lens.Lens' DescribeRobotApplicationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+describeRobotApplicationResponse_tags = Lens.lens (\DescribeRobotApplicationResponse' {tags} -> tags) (\s@DescribeRobotApplicationResponse' {} a -> s {tags = a} :: DescribeRobotApplicationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The version of the robot application.
 describeRobotApplicationResponse_version :: Lens.Lens' DescribeRobotApplicationResponse (Prelude.Maybe Prelude.Text)
@@ -293,14 +293,14 @@ instance
     DescribeRobotApplicationResponse
   where
   rnf DescribeRobotApplicationResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sources
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf robotSoftwareSuite
-      `Prelude.seq` Prelude.rnf revisionId
       `Prelude.seq` Prelude.rnf imageDigest
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf robotSoftwareSuite
+      `Prelude.seq` Prelude.rnf sources
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf httpStatus

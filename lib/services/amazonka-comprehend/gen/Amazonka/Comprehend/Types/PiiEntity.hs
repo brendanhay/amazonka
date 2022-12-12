@@ -32,14 +32,14 @@ data PiiEntity = PiiEntity'
   { -- | The zero-based offset from the beginning of the source text to the first
     -- character in the entity.
     beginOffset :: Prelude.Maybe Prelude.Int,
-    -- | The entity\'s type.
-    type' :: Prelude.Maybe PiiEntityType,
+    -- | The zero-based offset from the beginning of the source text to the last
+    -- character in the entity.
+    endOffset :: Prelude.Maybe Prelude.Int,
     -- | The level of confidence that Amazon Comprehend has in the accuracy of
     -- the detection.
     score :: Prelude.Maybe Prelude.Double,
-    -- | The zero-based offset from the beginning of the source text to the last
-    -- character in the entity.
-    endOffset :: Prelude.Maybe Prelude.Int
+    -- | The entity\'s type.
+    type' :: Prelude.Maybe PiiEntityType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,21 +54,21 @@ data PiiEntity = PiiEntity'
 -- 'beginOffset', 'piiEntity_beginOffset' - The zero-based offset from the beginning of the source text to the first
 -- character in the entity.
 --
--- 'type'', 'piiEntity_type' - The entity\'s type.
+-- 'endOffset', 'piiEntity_endOffset' - The zero-based offset from the beginning of the source text to the last
+-- character in the entity.
 --
 -- 'score', 'piiEntity_score' - The level of confidence that Amazon Comprehend has in the accuracy of
 -- the detection.
 --
--- 'endOffset', 'piiEntity_endOffset' - The zero-based offset from the beginning of the source text to the last
--- character in the entity.
+-- 'type'', 'piiEntity_type' - The entity\'s type.
 newPiiEntity ::
   PiiEntity
 newPiiEntity =
   PiiEntity'
     { beginOffset = Prelude.Nothing,
-      type' = Prelude.Nothing,
+      endOffset = Prelude.Nothing,
       score = Prelude.Nothing,
-      endOffset = Prelude.Nothing
+      type' = Prelude.Nothing
     }
 
 -- | The zero-based offset from the beginning of the source text to the first
@@ -76,19 +76,19 @@ newPiiEntity =
 piiEntity_beginOffset :: Lens.Lens' PiiEntity (Prelude.Maybe Prelude.Int)
 piiEntity_beginOffset = Lens.lens (\PiiEntity' {beginOffset} -> beginOffset) (\s@PiiEntity' {} a -> s {beginOffset = a} :: PiiEntity)
 
--- | The entity\'s type.
-piiEntity_type :: Lens.Lens' PiiEntity (Prelude.Maybe PiiEntityType)
-piiEntity_type = Lens.lens (\PiiEntity' {type'} -> type') (\s@PiiEntity' {} a -> s {type' = a} :: PiiEntity)
+-- | The zero-based offset from the beginning of the source text to the last
+-- character in the entity.
+piiEntity_endOffset :: Lens.Lens' PiiEntity (Prelude.Maybe Prelude.Int)
+piiEntity_endOffset = Lens.lens (\PiiEntity' {endOffset} -> endOffset) (\s@PiiEntity' {} a -> s {endOffset = a} :: PiiEntity)
 
 -- | The level of confidence that Amazon Comprehend has in the accuracy of
 -- the detection.
 piiEntity_score :: Lens.Lens' PiiEntity (Prelude.Maybe Prelude.Double)
 piiEntity_score = Lens.lens (\PiiEntity' {score} -> score) (\s@PiiEntity' {} a -> s {score = a} :: PiiEntity)
 
--- | The zero-based offset from the beginning of the source text to the last
--- character in the entity.
-piiEntity_endOffset :: Lens.Lens' PiiEntity (Prelude.Maybe Prelude.Int)
-piiEntity_endOffset = Lens.lens (\PiiEntity' {endOffset} -> endOffset) (\s@PiiEntity' {} a -> s {endOffset = a} :: PiiEntity)
+-- | The entity\'s type.
+piiEntity_type :: Lens.Lens' PiiEntity (Prelude.Maybe PiiEntityType)
+piiEntity_type = Lens.lens (\PiiEntity' {type'} -> type') (\s@PiiEntity' {} a -> s {type' = a} :: PiiEntity)
 
 instance Data.FromJSON PiiEntity where
   parseJSON =
@@ -97,21 +97,21 @@ instance Data.FromJSON PiiEntity where
       ( \x ->
           PiiEntity'
             Prelude.<$> (x Data..:? "BeginOffset")
-            Prelude.<*> (x Data..:? "Type")
-            Prelude.<*> (x Data..:? "Score")
             Prelude.<*> (x Data..:? "EndOffset")
+            Prelude.<*> (x Data..:? "Score")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable PiiEntity where
   hashWithSalt _salt PiiEntity' {..} =
     _salt `Prelude.hashWithSalt` beginOffset
-      `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` score
       `Prelude.hashWithSalt` endOffset
+      `Prelude.hashWithSalt` score
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData PiiEntity where
   rnf PiiEntity' {..} =
     Prelude.rnf beginOffset
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf score
       `Prelude.seq` Prelude.rnf endOffset
+      `Prelude.seq` Prelude.rnf score
+      `Prelude.seq` Prelude.rnf type'

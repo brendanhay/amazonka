@@ -15,23 +15,23 @@ module Amazonka.CloudSearchDomains.Lens
   ( -- * Operations
 
     -- ** Search
-    search_filterQuery,
-    search_queryParser,
-    search_start,
-    search_return,
     search_cursor,
-    search_size,
-    search_stats,
-    search_facet,
-    search_sort,
-    search_queryOptions,
-    search_partial,
-    search_highlight,
     search_expr,
+    search_facet,
+    search_filterQuery,
+    search_highlight,
+    search_partial,
+    search_queryOptions,
+    search_queryParser,
+    search_return,
+    search_size,
+    search_sort,
+    search_start,
+    search_stats,
     search_query,
     searchResponse_facets,
-    searchResponse_stats,
     searchResponse_hits,
+    searchResponse_stats,
     searchResponse_status,
     searchResponse_httpStatus,
 
@@ -39,17 +39,17 @@ module Amazonka.CloudSearchDomains.Lens
     suggest_size,
     suggest_query,
     suggest_suggester,
-    suggestResponse_suggest,
     suggestResponse_status,
+    suggestResponse_suggest,
     suggestResponse_httpStatus,
 
     -- ** UploadDocuments
     uploadDocuments_contentType,
     uploadDocuments_documents,
     uploadDocumentsResponse_adds,
+    uploadDocumentsResponse_deletes,
     uploadDocumentsResponse_status,
     uploadDocumentsResponse_warnings,
-    uploadDocumentsResponse_deletes,
     uploadDocumentsResponse_httpStatus,
 
     -- * Types
@@ -65,30 +65,30 @@ module Amazonka.CloudSearchDomains.Lens
     documentServiceWarning_message,
 
     -- ** FieldStats
-    fieldStats_missing,
-    fieldStats_max,
-    fieldStats_sumOfSquares,
     fieldStats_count,
+    fieldStats_max,
+    fieldStats_mean,
     fieldStats_min,
+    fieldStats_missing,
     fieldStats_stddev,
     fieldStats_sum,
-    fieldStats_mean,
+    fieldStats_sumOfSquares,
 
     -- ** Hit
     hit_exprs,
-    hit_highlights,
     hit_fields,
+    hit_highlights,
     hit_id,
 
     -- ** Hits
-    hits_start,
-    hits_hit,
     hits_cursor,
     hits_found,
+    hits_hit,
+    hits_start,
 
     -- ** SearchStatus
-    searchStatus_timems,
     searchStatus_rid,
+    searchStatus_timems,
 
     -- ** SuggestModel
     suggestModel_found,
@@ -96,13 +96,13 @@ module Amazonka.CloudSearchDomains.Lens
     suggestModel_suggestions,
 
     -- ** SuggestStatus
-    suggestStatus_timems,
     suggestStatus_rid,
+    suggestStatus_timems,
 
     -- ** SuggestionMatch
-    suggestionMatch_suggestion,
-    suggestionMatch_score,
     suggestionMatch_id,
+    suggestionMatch_score,
+    suggestionMatch_suggestion,
   )
 where
 

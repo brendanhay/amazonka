@@ -29,9 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCompatibleVersionsMap' smart constructor.
 data CompatibleVersionsMap = CompatibleVersionsMap'
-  { targetVersions :: Prelude.Maybe [Prelude.Text],
-    -- | The current version of Elasticsearch on which a domain is.
-    sourceVersion :: Prelude.Maybe Prelude.Text
+  { -- | The current version of Elasticsearch on which a domain is.
+    sourceVersion :: Prelude.Maybe Prelude.Text,
+    targetVersions :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data CompatibleVersionsMap = CompatibleVersionsMap'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetVersions', 'compatibleVersionsMap_targetVersions' - Undocumented member.
---
 -- 'sourceVersion', 'compatibleVersionsMap_sourceVersion' - The current version of Elasticsearch on which a domain is.
+--
+-- 'targetVersions', 'compatibleVersionsMap_targetVersions' - Undocumented member.
 newCompatibleVersionsMap ::
   CompatibleVersionsMap
 newCompatibleVersionsMap =
   CompatibleVersionsMap'
-    { targetVersions =
+    { sourceVersion =
         Prelude.Nothing,
-      sourceVersion = Prelude.Nothing
+      targetVersions = Prelude.Nothing
     }
-
--- | Undocumented member.
-compatibleVersionsMap_targetVersions :: Lens.Lens' CompatibleVersionsMap (Prelude.Maybe [Prelude.Text])
-compatibleVersionsMap_targetVersions = Lens.lens (\CompatibleVersionsMap' {targetVersions} -> targetVersions) (\s@CompatibleVersionsMap' {} a -> s {targetVersions = a} :: CompatibleVersionsMap) Prelude.. Lens.mapping Lens.coerced
 
 -- | The current version of Elasticsearch on which a domain is.
 compatibleVersionsMap_sourceVersion :: Lens.Lens' CompatibleVersionsMap (Prelude.Maybe Prelude.Text)
 compatibleVersionsMap_sourceVersion = Lens.lens (\CompatibleVersionsMap' {sourceVersion} -> sourceVersion) (\s@CompatibleVersionsMap' {} a -> s {sourceVersion = a} :: CompatibleVersionsMap)
+
+-- | Undocumented member.
+compatibleVersionsMap_targetVersions :: Lens.Lens' CompatibleVersionsMap (Prelude.Maybe [Prelude.Text])
+compatibleVersionsMap_targetVersions = Lens.lens (\CompatibleVersionsMap' {targetVersions} -> targetVersions) (\s@CompatibleVersionsMap' {} a -> s {targetVersions = a} :: CompatibleVersionsMap) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON CompatibleVersionsMap where
   parseJSON =
@@ -69,16 +69,18 @@ instance Data.FromJSON CompatibleVersionsMap where
       "CompatibleVersionsMap"
       ( \x ->
           CompatibleVersionsMap'
-            Prelude.<$> (x Data..:? "TargetVersions" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "SourceVersion")
+            Prelude.<$> (x Data..:? "SourceVersion")
+            Prelude.<*> ( x Data..:? "TargetVersions"
+                            Data..!= Prelude.mempty
+                        )
       )
 
 instance Prelude.Hashable CompatibleVersionsMap where
   hashWithSalt _salt CompatibleVersionsMap' {..} =
-    _salt `Prelude.hashWithSalt` targetVersions
-      `Prelude.hashWithSalt` sourceVersion
+    _salt `Prelude.hashWithSalt` sourceVersion
+      `Prelude.hashWithSalt` targetVersions
 
 instance Prelude.NFData CompatibleVersionsMap where
   rnf CompatibleVersionsMap' {..} =
-    Prelude.rnf targetVersions
-      `Prelude.seq` Prelude.rnf sourceVersion
+    Prelude.rnf sourceVersion
+      `Prelude.seq` Prelude.rnf targetVersions

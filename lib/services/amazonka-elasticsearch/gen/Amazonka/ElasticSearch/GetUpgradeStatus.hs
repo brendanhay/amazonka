@@ -35,9 +35,9 @@ module Amazonka.ElasticSearch.GetUpgradeStatus
     newGetUpgradeStatusResponse,
 
     -- * Response Lenses
-    getUpgradeStatusResponse_upgradeStep,
-    getUpgradeStatusResponse_upgradeName,
     getUpgradeStatusResponse_stepStatus,
+    getUpgradeStatusResponse_upgradeName,
+    getUpgradeStatusResponse_upgradeStep,
     getUpgradeStatusResponse_httpStatus,
   )
 where
@@ -88,9 +88,9 @@ instance Core.AWSRequest GetUpgradeStatus where
     Response.receiveJSON
       ( \s h x ->
           GetUpgradeStatusResponse'
-            Prelude.<$> (x Data..?> "UpgradeStep")
+            Prelude.<$> (x Data..?> "StepStatus")
             Prelude.<*> (x Data..?> "UpgradeName")
-            Prelude.<*> (x Data..?> "StepStatus")
+            Prelude.<*> (x Data..?> "UpgradeStep")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,16 +119,7 @@ instance Data.ToQuery GetUpgradeStatus where
 --
 -- /See:/ 'newGetUpgradeStatusResponse' smart constructor.
 data GetUpgradeStatusResponse = GetUpgradeStatusResponse'
-  { -- | Represents one of 3 steps that an Upgrade or Upgrade Eligibility Check
-    -- does through:
-    --
-    -- -   PreUpgradeCheck
-    -- -   Snapshot
-    -- -   Upgrade
-    upgradeStep :: Prelude.Maybe UpgradeStep,
-    -- | A string that describes the update briefly
-    upgradeName :: Prelude.Maybe Prelude.Text,
-    -- | One of 4 statuses that a step can go through returned as part of the
+  { -- | One of 4 statuses that a step can go through returned as part of the
     -- @ GetUpgradeStatusResponse @ object. The status can take one of the
     -- following values:
     --
@@ -137,6 +128,15 @@ data GetUpgradeStatusResponse = GetUpgradeStatusResponse'
     -- -   Succeeded with Issues
     -- -   Failed
     stepStatus :: Prelude.Maybe UpgradeStatus,
+    -- | A string that describes the update briefly
+    upgradeName :: Prelude.Maybe Prelude.Text,
+    -- | Represents one of 3 steps that an Upgrade or Upgrade Eligibility Check
+    -- does through:
+    --
+    -- -   PreUpgradeCheck
+    -- -   Snapshot
+    -- -   Upgrade
+    upgradeStep :: Prelude.Maybe UpgradeStep,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -150,15 +150,6 @@ data GetUpgradeStatusResponse = GetUpgradeStatusResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'upgradeStep', 'getUpgradeStatusResponse_upgradeStep' - Represents one of 3 steps that an Upgrade or Upgrade Eligibility Check
--- does through:
---
--- -   PreUpgradeCheck
--- -   Snapshot
--- -   Upgrade
---
--- 'upgradeName', 'getUpgradeStatusResponse_upgradeName' - A string that describes the update briefly
---
 -- 'stepStatus', 'getUpgradeStatusResponse_stepStatus' - One of 4 statuses that a step can go through returned as part of the
 -- @ GetUpgradeStatusResponse @ object. The status can take one of the
 -- following values:
@@ -168,6 +159,15 @@ data GetUpgradeStatusResponse = GetUpgradeStatusResponse'
 -- -   Succeeded with Issues
 -- -   Failed
 --
+-- 'upgradeName', 'getUpgradeStatusResponse_upgradeName' - A string that describes the update briefly
+--
+-- 'upgradeStep', 'getUpgradeStatusResponse_upgradeStep' - Represents one of 3 steps that an Upgrade or Upgrade Eligibility Check
+-- does through:
+--
+-- -   PreUpgradeCheck
+-- -   Snapshot
+-- -   Upgrade
+--
 -- 'httpStatus', 'getUpgradeStatusResponse_httpStatus' - The response's http status code.
 newGetUpgradeStatusResponse ::
   -- | 'httpStatus'
@@ -175,25 +175,12 @@ newGetUpgradeStatusResponse ::
   GetUpgradeStatusResponse
 newGetUpgradeStatusResponse pHttpStatus_ =
   GetUpgradeStatusResponse'
-    { upgradeStep =
+    { stepStatus =
         Prelude.Nothing,
       upgradeName = Prelude.Nothing,
-      stepStatus = Prelude.Nothing,
+      upgradeStep = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Represents one of 3 steps that an Upgrade or Upgrade Eligibility Check
--- does through:
---
--- -   PreUpgradeCheck
--- -   Snapshot
--- -   Upgrade
-getUpgradeStatusResponse_upgradeStep :: Lens.Lens' GetUpgradeStatusResponse (Prelude.Maybe UpgradeStep)
-getUpgradeStatusResponse_upgradeStep = Lens.lens (\GetUpgradeStatusResponse' {upgradeStep} -> upgradeStep) (\s@GetUpgradeStatusResponse' {} a -> s {upgradeStep = a} :: GetUpgradeStatusResponse)
-
--- | A string that describes the update briefly
-getUpgradeStatusResponse_upgradeName :: Lens.Lens' GetUpgradeStatusResponse (Prelude.Maybe Prelude.Text)
-getUpgradeStatusResponse_upgradeName = Lens.lens (\GetUpgradeStatusResponse' {upgradeName} -> upgradeName) (\s@GetUpgradeStatusResponse' {} a -> s {upgradeName = a} :: GetUpgradeStatusResponse)
 
 -- | One of 4 statuses that a step can go through returned as part of the
 -- @ GetUpgradeStatusResponse @ object. The status can take one of the
@@ -206,13 +193,26 @@ getUpgradeStatusResponse_upgradeName = Lens.lens (\GetUpgradeStatusResponse' {up
 getUpgradeStatusResponse_stepStatus :: Lens.Lens' GetUpgradeStatusResponse (Prelude.Maybe UpgradeStatus)
 getUpgradeStatusResponse_stepStatus = Lens.lens (\GetUpgradeStatusResponse' {stepStatus} -> stepStatus) (\s@GetUpgradeStatusResponse' {} a -> s {stepStatus = a} :: GetUpgradeStatusResponse)
 
+-- | A string that describes the update briefly
+getUpgradeStatusResponse_upgradeName :: Lens.Lens' GetUpgradeStatusResponse (Prelude.Maybe Prelude.Text)
+getUpgradeStatusResponse_upgradeName = Lens.lens (\GetUpgradeStatusResponse' {upgradeName} -> upgradeName) (\s@GetUpgradeStatusResponse' {} a -> s {upgradeName = a} :: GetUpgradeStatusResponse)
+
+-- | Represents one of 3 steps that an Upgrade or Upgrade Eligibility Check
+-- does through:
+--
+-- -   PreUpgradeCheck
+-- -   Snapshot
+-- -   Upgrade
+getUpgradeStatusResponse_upgradeStep :: Lens.Lens' GetUpgradeStatusResponse (Prelude.Maybe UpgradeStep)
+getUpgradeStatusResponse_upgradeStep = Lens.lens (\GetUpgradeStatusResponse' {upgradeStep} -> upgradeStep) (\s@GetUpgradeStatusResponse' {} a -> s {upgradeStep = a} :: GetUpgradeStatusResponse)
+
 -- | The response's http status code.
 getUpgradeStatusResponse_httpStatus :: Lens.Lens' GetUpgradeStatusResponse Prelude.Int
 getUpgradeStatusResponse_httpStatus = Lens.lens (\GetUpgradeStatusResponse' {httpStatus} -> httpStatus) (\s@GetUpgradeStatusResponse' {} a -> s {httpStatus = a} :: GetUpgradeStatusResponse)
 
 instance Prelude.NFData GetUpgradeStatusResponse where
   rnf GetUpgradeStatusResponse' {..} =
-    Prelude.rnf upgradeStep
+    Prelude.rnf stepStatus
       `Prelude.seq` Prelude.rnf upgradeName
-      `Prelude.seq` Prelude.rnf stepStatus
+      `Prelude.seq` Prelude.rnf upgradeStep
       `Prelude.seq` Prelude.rnf httpStatus

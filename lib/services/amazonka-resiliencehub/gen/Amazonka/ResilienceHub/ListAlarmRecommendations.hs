@@ -27,8 +27,8 @@ module Amazonka.ResilienceHub.ListAlarmRecommendations
     newListAlarmRecommendations,
 
     -- * Request Lenses
-    listAlarmRecommendations_nextToken,
     listAlarmRecommendations_maxResults,
+    listAlarmRecommendations_nextToken,
     listAlarmRecommendations_assessmentArn,
 
     -- * Destructuring the Response
@@ -52,12 +52,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAlarmRecommendations' smart constructor.
 data ListAlarmRecommendations = ListAlarmRecommendations'
-  { -- | Null, or the token from a previous call to get the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to include in the response. If more
+  { -- | The maximum number of results to include in the response. If more
     -- results exist than the specified @MaxResults@ value, a token is included
     -- in the response so that the remaining results can be retrieved.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Null, or the token from a previous call to get the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the assessment. The format for this
     -- ARN is:
     -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
@@ -76,11 +76,11 @@ data ListAlarmRecommendations = ListAlarmRecommendations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAlarmRecommendations_nextToken' - Null, or the token from a previous call to get the next set of results.
---
 -- 'maxResults', 'listAlarmRecommendations_maxResults' - The maximum number of results to include in the response. If more
 -- results exist than the specified @MaxResults@ value, a token is included
 -- in the response so that the remaining results can be retrieved.
+--
+-- 'nextToken', 'listAlarmRecommendations_nextToken' - Null, or the token from a previous call to get the next set of results.
 --
 -- 'assessmentArn', 'listAlarmRecommendations_assessmentArn' - The Amazon Resource Name (ARN) of the assessment. The format for this
 -- ARN is:
@@ -94,21 +94,21 @@ newListAlarmRecommendations ::
   ListAlarmRecommendations
 newListAlarmRecommendations pAssessmentArn_ =
   ListAlarmRecommendations'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       assessmentArn = pAssessmentArn_
     }
-
--- | Null, or the token from a previous call to get the next set of results.
-listAlarmRecommendations_nextToken :: Lens.Lens' ListAlarmRecommendations (Prelude.Maybe Prelude.Text)
-listAlarmRecommendations_nextToken = Lens.lens (\ListAlarmRecommendations' {nextToken} -> nextToken) (\s@ListAlarmRecommendations' {} a -> s {nextToken = a} :: ListAlarmRecommendations)
 
 -- | The maximum number of results to include in the response. If more
 -- results exist than the specified @MaxResults@ value, a token is included
 -- in the response so that the remaining results can be retrieved.
 listAlarmRecommendations_maxResults :: Lens.Lens' ListAlarmRecommendations (Prelude.Maybe Prelude.Natural)
 listAlarmRecommendations_maxResults = Lens.lens (\ListAlarmRecommendations' {maxResults} -> maxResults) (\s@ListAlarmRecommendations' {} a -> s {maxResults = a} :: ListAlarmRecommendations)
+
+-- | Null, or the token from a previous call to get the next set of results.
+listAlarmRecommendations_nextToken :: Lens.Lens' ListAlarmRecommendations (Prelude.Maybe Prelude.Text)
+listAlarmRecommendations_nextToken = Lens.lens (\ListAlarmRecommendations' {nextToken} -> nextToken) (\s@ListAlarmRecommendations' {} a -> s {nextToken = a} :: ListAlarmRecommendations)
 
 -- | The Amazon Resource Name (ARN) of the assessment. The format for this
 -- ARN is:
@@ -138,14 +138,14 @@ instance Core.AWSRequest ListAlarmRecommendations where
 
 instance Prelude.Hashable ListAlarmRecommendations where
   hashWithSalt _salt ListAlarmRecommendations' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` assessmentArn
 
 instance Prelude.NFData ListAlarmRecommendations where
   rnf ListAlarmRecommendations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf assessmentArn
 
 instance Data.ToHeaders ListAlarmRecommendations where
@@ -163,8 +163,8 @@ instance Data.ToJSON ListAlarmRecommendations where
   toJSON ListAlarmRecommendations' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("assessmentArn" Data..= assessmentArn)
           ]

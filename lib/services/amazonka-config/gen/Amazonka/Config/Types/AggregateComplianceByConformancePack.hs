@@ -40,14 +40,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAggregateComplianceByConformancePack' smart constructor.
 data AggregateComplianceByConformancePack = AggregateComplianceByConformancePack'
-  { -- | The name of the conformance pack.
-    conformancePackName :: Prelude.Maybe Prelude.Text,
-    -- | The 12-digit Amazon Web Services account ID of the source account.
+  { -- | The 12-digit Amazon Web Services account ID of the source account.
     accountId :: Prelude.Maybe Prelude.Text,
     -- | The source Amazon Web Services Region from where the data is aggregated.
     awsRegion :: Prelude.Maybe Prelude.Text,
     -- | The compliance status of the conformance pack.
-    compliance :: Prelude.Maybe AggregateConformancePackCompliance
+    compliance :: Prelude.Maybe AggregateConformancePackCompliance,
+    -- | The name of the conformance pack.
+    conformancePackName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,27 +59,23 @@ data AggregateComplianceByConformancePack = AggregateComplianceByConformancePack
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'conformancePackName', 'aggregateComplianceByConformancePack_conformancePackName' - The name of the conformance pack.
---
 -- 'accountId', 'aggregateComplianceByConformancePack_accountId' - The 12-digit Amazon Web Services account ID of the source account.
 --
 -- 'awsRegion', 'aggregateComplianceByConformancePack_awsRegion' - The source Amazon Web Services Region from where the data is aggregated.
 --
 -- 'compliance', 'aggregateComplianceByConformancePack_compliance' - The compliance status of the conformance pack.
+--
+-- 'conformancePackName', 'aggregateComplianceByConformancePack_conformancePackName' - The name of the conformance pack.
 newAggregateComplianceByConformancePack ::
   AggregateComplianceByConformancePack
 newAggregateComplianceByConformancePack =
   AggregateComplianceByConformancePack'
-    { conformancePackName =
+    { accountId =
         Prelude.Nothing,
-      accountId = Prelude.Nothing,
       awsRegion = Prelude.Nothing,
-      compliance = Prelude.Nothing
+      compliance = Prelude.Nothing,
+      conformancePackName = Prelude.Nothing
     }
-
--- | The name of the conformance pack.
-aggregateComplianceByConformancePack_conformancePackName :: Lens.Lens' AggregateComplianceByConformancePack (Prelude.Maybe Prelude.Text)
-aggregateComplianceByConformancePack_conformancePackName = Lens.lens (\AggregateComplianceByConformancePack' {conformancePackName} -> conformancePackName) (\s@AggregateComplianceByConformancePack' {} a -> s {conformancePackName = a} :: AggregateComplianceByConformancePack)
 
 -- | The 12-digit Amazon Web Services account ID of the source account.
 aggregateComplianceByConformancePack_accountId :: Lens.Lens' AggregateComplianceByConformancePack (Prelude.Maybe Prelude.Text)
@@ -93,6 +89,10 @@ aggregateComplianceByConformancePack_awsRegion = Lens.lens (\AggregateCompliance
 aggregateComplianceByConformancePack_compliance :: Lens.Lens' AggregateComplianceByConformancePack (Prelude.Maybe AggregateConformancePackCompliance)
 aggregateComplianceByConformancePack_compliance = Lens.lens (\AggregateComplianceByConformancePack' {compliance} -> compliance) (\s@AggregateComplianceByConformancePack' {} a -> s {compliance = a} :: AggregateComplianceByConformancePack)
 
+-- | The name of the conformance pack.
+aggregateComplianceByConformancePack_conformancePackName :: Lens.Lens' AggregateComplianceByConformancePack (Prelude.Maybe Prelude.Text)
+aggregateComplianceByConformancePack_conformancePackName = Lens.lens (\AggregateComplianceByConformancePack' {conformancePackName} -> conformancePackName) (\s@AggregateComplianceByConformancePack' {} a -> s {conformancePackName = a} :: AggregateComplianceByConformancePack)
+
 instance
   Data.FromJSON
     AggregateComplianceByConformancePack
@@ -102,10 +102,10 @@ instance
       "AggregateComplianceByConformancePack"
       ( \x ->
           AggregateComplianceByConformancePack'
-            Prelude.<$> (x Data..:? "ConformancePackName")
-            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<$> (x Data..:? "AccountId")
             Prelude.<*> (x Data..:? "AwsRegion")
             Prelude.<*> (x Data..:? "Compliance")
+            Prelude.<*> (x Data..:? "ConformancePackName")
       )
 
 instance
@@ -115,17 +115,17 @@ instance
   hashWithSalt
     _salt
     AggregateComplianceByConformancePack' {..} =
-      _salt `Prelude.hashWithSalt` conformancePackName
-        `Prelude.hashWithSalt` accountId
+      _salt `Prelude.hashWithSalt` accountId
         `Prelude.hashWithSalt` awsRegion
         `Prelude.hashWithSalt` compliance
+        `Prelude.hashWithSalt` conformancePackName
 
 instance
   Prelude.NFData
     AggregateComplianceByConformancePack
   where
   rnf AggregateComplianceByConformancePack' {..} =
-    Prelude.rnf conformancePackName
-      `Prelude.seq` Prelude.rnf accountId
+    Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf awsRegion
       `Prelude.seq` Prelude.rnf compliance
+      `Prelude.seq` Prelude.rnf conformancePackName

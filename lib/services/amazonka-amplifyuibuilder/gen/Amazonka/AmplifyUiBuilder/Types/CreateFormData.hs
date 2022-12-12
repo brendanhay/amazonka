@@ -34,11 +34,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCreateFormData' smart constructor.
 data CreateFormData = CreateFormData'
-  { -- | One or more key-value pairs to use when tagging the form data.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The @FormCTA@ object that stores the call to action configuration for
+  { -- | The @FormCTA@ object that stores the call to action configuration for
     -- the form.
     cta :: Prelude.Maybe FormCTA,
+    -- | One or more key-value pairs to use when tagging the form data.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The type of data source to use to create the form.
     dataType :: FormDataTypeConfig,
     -- | The configuration information for the form\'s fields.
@@ -65,10 +65,10 @@ data CreateFormData = CreateFormData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createFormData_tags' - One or more key-value pairs to use when tagging the form data.
---
 -- 'cta', 'createFormData_cta' - The @FormCTA@ object that stores the call to action configuration for
 -- the form.
+--
+-- 'tags', 'createFormData_tags' - One or more key-value pairs to use when tagging the form data.
 --
 -- 'dataType', 'createFormData_dataType' - The type of data source to use to create the form.
 --
@@ -103,8 +103,8 @@ newCreateFormData
   pSchemaVersion_
   pStyle_ =
     CreateFormData'
-      { tags = Prelude.Nothing,
-        cta = Prelude.Nothing,
+      { cta = Prelude.Nothing,
+        tags = Prelude.Nothing,
         dataType = pDataType_,
         fields = Prelude.mempty,
         formActionType = pFormActionType_,
@@ -114,14 +114,14 @@ newCreateFormData
         style = pStyle_
       }
 
--- | One or more key-value pairs to use when tagging the form data.
-createFormData_tags :: Lens.Lens' CreateFormData (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createFormData_tags = Lens.lens (\CreateFormData' {tags} -> tags) (\s@CreateFormData' {} a -> s {tags = a} :: CreateFormData) Prelude.. Lens.mapping Lens.coerced
-
 -- | The @FormCTA@ object that stores the call to action configuration for
 -- the form.
 createFormData_cta :: Lens.Lens' CreateFormData (Prelude.Maybe FormCTA)
 createFormData_cta = Lens.lens (\CreateFormData' {cta} -> cta) (\s@CreateFormData' {} a -> s {cta = a} :: CreateFormData)
+
+-- | One or more key-value pairs to use when tagging the form data.
+createFormData_tags :: Lens.Lens' CreateFormData (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createFormData_tags = Lens.lens (\CreateFormData' {tags} -> tags) (\s@CreateFormData' {} a -> s {tags = a} :: CreateFormData) Prelude.. Lens.mapping Lens.coerced
 
 -- | The type of data source to use to create the form.
 createFormData_dataType :: Lens.Lens' CreateFormData FormDataTypeConfig
@@ -154,8 +154,8 @@ createFormData_style = Lens.lens (\CreateFormData' {style} -> style) (\s@CreateF
 
 instance Prelude.Hashable CreateFormData where
   hashWithSalt _salt CreateFormData' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` cta
+    _salt `Prelude.hashWithSalt` cta
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` dataType
       `Prelude.hashWithSalt` fields
       `Prelude.hashWithSalt` formActionType
@@ -166,8 +166,8 @@ instance Prelude.Hashable CreateFormData where
 
 instance Prelude.NFData CreateFormData where
   rnf CreateFormData' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf cta
+    Prelude.rnf cta
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf dataType
       `Prelude.seq` Prelude.rnf fields
       `Prelude.seq` Prelude.rnf formActionType
@@ -180,8 +180,8 @@ instance Data.ToJSON CreateFormData where
   toJSON CreateFormData' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("cta" Data..=) Prelude.<$> cta,
+          [ ("cta" Data..=) Prelude.<$> cta,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("dataType" Data..= dataType),
             Prelude.Just ("fields" Data..= fields),
             Prelude.Just

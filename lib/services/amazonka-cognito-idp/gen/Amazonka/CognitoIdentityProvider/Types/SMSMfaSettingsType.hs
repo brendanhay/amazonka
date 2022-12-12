@@ -35,13 +35,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSMSMfaSettingsType' smart constructor.
 data SMSMfaSettingsType = SMSMfaSettingsType'
-  { -- | Specifies whether SMS is the preferred MFA method.
-    preferredMfa :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies whether SMS text message MFA is activated. If an MFA type is
+  { -- | Specifies whether SMS text message MFA is activated. If an MFA type is
     -- activated for a user, the user will be prompted for MFA during all
     -- sign-in attempts, unless device tracking is turned on and the device has
     -- been trusted.
-    enabled :: Prelude.Maybe Prelude.Bool
+    enabled :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies whether SMS is the preferred MFA method.
+    preferredMfa :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,23 +53,19 @@ data SMSMfaSettingsType = SMSMfaSettingsType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'preferredMfa', 'sMSMfaSettingsType_preferredMfa' - Specifies whether SMS is the preferred MFA method.
---
 -- 'enabled', 'sMSMfaSettingsType_enabled' - Specifies whether SMS text message MFA is activated. If an MFA type is
 -- activated for a user, the user will be prompted for MFA during all
 -- sign-in attempts, unless device tracking is turned on and the device has
 -- been trusted.
+--
+-- 'preferredMfa', 'sMSMfaSettingsType_preferredMfa' - Specifies whether SMS is the preferred MFA method.
 newSMSMfaSettingsType ::
   SMSMfaSettingsType
 newSMSMfaSettingsType =
   SMSMfaSettingsType'
-    { preferredMfa = Prelude.Nothing,
-      enabled = Prelude.Nothing
+    { enabled = Prelude.Nothing,
+      preferredMfa = Prelude.Nothing
     }
-
--- | Specifies whether SMS is the preferred MFA method.
-sMSMfaSettingsType_preferredMfa :: Lens.Lens' SMSMfaSettingsType (Prelude.Maybe Prelude.Bool)
-sMSMfaSettingsType_preferredMfa = Lens.lens (\SMSMfaSettingsType' {preferredMfa} -> preferredMfa) (\s@SMSMfaSettingsType' {} a -> s {preferredMfa = a} :: SMSMfaSettingsType)
 
 -- | Specifies whether SMS text message MFA is activated. If an MFA type is
 -- activated for a user, the user will be prompted for MFA during all
@@ -78,21 +74,25 @@ sMSMfaSettingsType_preferredMfa = Lens.lens (\SMSMfaSettingsType' {preferredMfa}
 sMSMfaSettingsType_enabled :: Lens.Lens' SMSMfaSettingsType (Prelude.Maybe Prelude.Bool)
 sMSMfaSettingsType_enabled = Lens.lens (\SMSMfaSettingsType' {enabled} -> enabled) (\s@SMSMfaSettingsType' {} a -> s {enabled = a} :: SMSMfaSettingsType)
 
+-- | Specifies whether SMS is the preferred MFA method.
+sMSMfaSettingsType_preferredMfa :: Lens.Lens' SMSMfaSettingsType (Prelude.Maybe Prelude.Bool)
+sMSMfaSettingsType_preferredMfa = Lens.lens (\SMSMfaSettingsType' {preferredMfa} -> preferredMfa) (\s@SMSMfaSettingsType' {} a -> s {preferredMfa = a} :: SMSMfaSettingsType)
+
 instance Prelude.Hashable SMSMfaSettingsType where
   hashWithSalt _salt SMSMfaSettingsType' {..} =
-    _salt `Prelude.hashWithSalt` preferredMfa
-      `Prelude.hashWithSalt` enabled
+    _salt `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` preferredMfa
 
 instance Prelude.NFData SMSMfaSettingsType where
   rnf SMSMfaSettingsType' {..} =
-    Prelude.rnf preferredMfa
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf preferredMfa
 
 instance Data.ToJSON SMSMfaSettingsType where
   toJSON SMSMfaSettingsType' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("PreferredMfa" Data..=) Prelude.<$> preferredMfa,
-            ("Enabled" Data..=) Prelude.<$> enabled
+          [ ("Enabled" Data..=) Prelude.<$> enabled,
+            ("PreferredMfa" Data..=) Prelude.<$> preferredMfa
           ]
       )

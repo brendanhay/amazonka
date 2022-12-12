@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newKeyPair' smart constructor.
 data KeyPair = KeyPair'
-  { -- | The public key.
-    publicKey :: Prelude.Maybe Prelude.Text,
-    -- | The private key.
-    privateKey :: Prelude.Maybe (Data.Sensitive Prelude.Text)
+  { -- | The private key.
+    privateKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The public key.
+    publicKey :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data KeyPair = KeyPair'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'publicKey', 'keyPair_publicKey' - The public key.
---
 -- 'privateKey', 'keyPair_privateKey' - The private key.
+--
+-- 'publicKey', 'keyPair_publicKey' - The public key.
 newKeyPair ::
   KeyPair
 newKeyPair =
   KeyPair'
-    { publicKey = Prelude.Nothing,
-      privateKey = Prelude.Nothing
+    { privateKey = Prelude.Nothing,
+      publicKey = Prelude.Nothing
     }
-
--- | The public key.
-keyPair_publicKey :: Lens.Lens' KeyPair (Prelude.Maybe Prelude.Text)
-keyPair_publicKey = Lens.lens (\KeyPair' {publicKey} -> publicKey) (\s@KeyPair' {} a -> s {publicKey = a} :: KeyPair)
 
 -- | The private key.
 keyPair_privateKey :: Lens.Lens' KeyPair (Prelude.Maybe Prelude.Text)
 keyPair_privateKey = Lens.lens (\KeyPair' {privateKey} -> privateKey) (\s@KeyPair' {} a -> s {privateKey = a} :: KeyPair) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The public key.
+keyPair_publicKey :: Lens.Lens' KeyPair (Prelude.Maybe Prelude.Text)
+keyPair_publicKey = Lens.lens (\KeyPair' {publicKey} -> publicKey) (\s@KeyPair' {} a -> s {publicKey = a} :: KeyPair)
 
 instance Data.FromJSON KeyPair where
   parseJSON =
@@ -68,16 +68,16 @@ instance Data.FromJSON KeyPair where
       "KeyPair"
       ( \x ->
           KeyPair'
-            Prelude.<$> (x Data..:? "PublicKey")
-            Prelude.<*> (x Data..:? "PrivateKey")
+            Prelude.<$> (x Data..:? "PrivateKey")
+            Prelude.<*> (x Data..:? "PublicKey")
       )
 
 instance Prelude.Hashable KeyPair where
   hashWithSalt _salt KeyPair' {..} =
-    _salt `Prelude.hashWithSalt` publicKey
-      `Prelude.hashWithSalt` privateKey
+    _salt `Prelude.hashWithSalt` privateKey
+      `Prelude.hashWithSalt` publicKey
 
 instance Prelude.NFData KeyPair where
   rnf KeyPair' {..} =
-    Prelude.rnf publicKey
-      `Prelude.seq` Prelude.rnf privateKey
+    Prelude.rnf privateKey
+      `Prelude.seq` Prelude.rnf publicKey

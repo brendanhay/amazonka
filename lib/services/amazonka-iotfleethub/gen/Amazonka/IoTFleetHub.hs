@@ -23,23 +23,23 @@ module Amazonka.IoTFleetHub
     -- * Errors
     -- $errors
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
-
     -- ** ConflictException
     _ConflictException,
 
-    -- ** ThrottlingException
-    _ThrottlingException,
+    -- ** InternalFailureException
+    _InternalFailureException,
 
     -- ** InvalidRequestException
     _InvalidRequestException,
 
-    -- ** InternalFailureException
-    _InternalFailureException,
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
 
     -- * Waiters
     -- $waiters

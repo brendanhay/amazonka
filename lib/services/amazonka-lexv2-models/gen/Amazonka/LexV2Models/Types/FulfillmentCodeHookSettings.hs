@@ -33,14 +33,14 @@ data FulfillmentCodeHookSettings = FulfillmentCodeHookSettings'
   { -- | Determines whether the fulfillment code hook is used. When @active@ is
     -- false, the code hook doesn\'t run.
     active :: Prelude.Maybe Prelude.Bool,
-    -- | Provides settings for messages sent to the user for after the Lambda
-    -- fulfillment function completes. Post-fulfillment messages can be sent
-    -- for both streaming and non-streaming conversations.
-    postFulfillmentStatusSpecification :: Prelude.Maybe PostFulfillmentStatusSpecification,
     -- | Provides settings for update messages sent to the user for long-running
     -- Lambda fulfillment functions. Fulfillment updates can be used only with
     -- streaming conversations.
     fulfillmentUpdatesSpecification :: Prelude.Maybe FulfillmentUpdatesSpecification,
+    -- | Provides settings for messages sent to the user for after the Lambda
+    -- fulfillment function completes. Post-fulfillment messages can be sent
+    -- for both streaming and non-streaming conversations.
+    postFulfillmentStatusSpecification :: Prelude.Maybe PostFulfillmentStatusSpecification,
     -- | Indicates whether a Lambda function should be invoked to fulfill a
     -- specific intent.
     enabled :: Prelude.Bool
@@ -58,13 +58,13 @@ data FulfillmentCodeHookSettings = FulfillmentCodeHookSettings'
 -- 'active', 'fulfillmentCodeHookSettings_active' - Determines whether the fulfillment code hook is used. When @active@ is
 -- false, the code hook doesn\'t run.
 --
--- 'postFulfillmentStatusSpecification', 'fulfillmentCodeHookSettings_postFulfillmentStatusSpecification' - Provides settings for messages sent to the user for after the Lambda
--- fulfillment function completes. Post-fulfillment messages can be sent
--- for both streaming and non-streaming conversations.
---
 -- 'fulfillmentUpdatesSpecification', 'fulfillmentCodeHookSettings_fulfillmentUpdatesSpecification' - Provides settings for update messages sent to the user for long-running
 -- Lambda fulfillment functions. Fulfillment updates can be used only with
 -- streaming conversations.
+--
+-- 'postFulfillmentStatusSpecification', 'fulfillmentCodeHookSettings_postFulfillmentStatusSpecification' - Provides settings for messages sent to the user for after the Lambda
+-- fulfillment function completes. Post-fulfillment messages can be sent
+-- for both streaming and non-streaming conversations.
 --
 -- 'enabled', 'fulfillmentCodeHookSettings_enabled' - Indicates whether a Lambda function should be invoked to fulfill a
 -- specific intent.
@@ -76,9 +76,9 @@ newFulfillmentCodeHookSettings pEnabled_ =
   FulfillmentCodeHookSettings'
     { active =
         Prelude.Nothing,
-      postFulfillmentStatusSpecification =
-        Prelude.Nothing,
       fulfillmentUpdatesSpecification =
+        Prelude.Nothing,
+      postFulfillmentStatusSpecification =
         Prelude.Nothing,
       enabled = pEnabled_
     }
@@ -88,17 +88,17 @@ newFulfillmentCodeHookSettings pEnabled_ =
 fulfillmentCodeHookSettings_active :: Lens.Lens' FulfillmentCodeHookSettings (Prelude.Maybe Prelude.Bool)
 fulfillmentCodeHookSettings_active = Lens.lens (\FulfillmentCodeHookSettings' {active} -> active) (\s@FulfillmentCodeHookSettings' {} a -> s {active = a} :: FulfillmentCodeHookSettings)
 
--- | Provides settings for messages sent to the user for after the Lambda
--- fulfillment function completes. Post-fulfillment messages can be sent
--- for both streaming and non-streaming conversations.
-fulfillmentCodeHookSettings_postFulfillmentStatusSpecification :: Lens.Lens' FulfillmentCodeHookSettings (Prelude.Maybe PostFulfillmentStatusSpecification)
-fulfillmentCodeHookSettings_postFulfillmentStatusSpecification = Lens.lens (\FulfillmentCodeHookSettings' {postFulfillmentStatusSpecification} -> postFulfillmentStatusSpecification) (\s@FulfillmentCodeHookSettings' {} a -> s {postFulfillmentStatusSpecification = a} :: FulfillmentCodeHookSettings)
-
 -- | Provides settings for update messages sent to the user for long-running
 -- Lambda fulfillment functions. Fulfillment updates can be used only with
 -- streaming conversations.
 fulfillmentCodeHookSettings_fulfillmentUpdatesSpecification :: Lens.Lens' FulfillmentCodeHookSettings (Prelude.Maybe FulfillmentUpdatesSpecification)
 fulfillmentCodeHookSettings_fulfillmentUpdatesSpecification = Lens.lens (\FulfillmentCodeHookSettings' {fulfillmentUpdatesSpecification} -> fulfillmentUpdatesSpecification) (\s@FulfillmentCodeHookSettings' {} a -> s {fulfillmentUpdatesSpecification = a} :: FulfillmentCodeHookSettings)
+
+-- | Provides settings for messages sent to the user for after the Lambda
+-- fulfillment function completes. Post-fulfillment messages can be sent
+-- for both streaming and non-streaming conversations.
+fulfillmentCodeHookSettings_postFulfillmentStatusSpecification :: Lens.Lens' FulfillmentCodeHookSettings (Prelude.Maybe PostFulfillmentStatusSpecification)
+fulfillmentCodeHookSettings_postFulfillmentStatusSpecification = Lens.lens (\FulfillmentCodeHookSettings' {postFulfillmentStatusSpecification} -> postFulfillmentStatusSpecification) (\s@FulfillmentCodeHookSettings' {} a -> s {postFulfillmentStatusSpecification = a} :: FulfillmentCodeHookSettings)
 
 -- | Indicates whether a Lambda function should be invoked to fulfill a
 -- specific intent.
@@ -112,23 +112,23 @@ instance Data.FromJSON FulfillmentCodeHookSettings where
       ( \x ->
           FulfillmentCodeHookSettings'
             Prelude.<$> (x Data..:? "active")
-            Prelude.<*> (x Data..:? "postFulfillmentStatusSpecification")
             Prelude.<*> (x Data..:? "fulfillmentUpdatesSpecification")
+            Prelude.<*> (x Data..:? "postFulfillmentStatusSpecification")
             Prelude.<*> (x Data..: "enabled")
       )
 
 instance Prelude.Hashable FulfillmentCodeHookSettings where
   hashWithSalt _salt FulfillmentCodeHookSettings' {..} =
     _salt `Prelude.hashWithSalt` active
-      `Prelude.hashWithSalt` postFulfillmentStatusSpecification
       `Prelude.hashWithSalt` fulfillmentUpdatesSpecification
+      `Prelude.hashWithSalt` postFulfillmentStatusSpecification
       `Prelude.hashWithSalt` enabled
 
 instance Prelude.NFData FulfillmentCodeHookSettings where
   rnf FulfillmentCodeHookSettings' {..} =
     Prelude.rnf active
-      `Prelude.seq` Prelude.rnf postFulfillmentStatusSpecification
       `Prelude.seq` Prelude.rnf fulfillmentUpdatesSpecification
+      `Prelude.seq` Prelude.rnf postFulfillmentStatusSpecification
       `Prelude.seq` Prelude.rnf enabled
 
 instance Data.ToJSON FulfillmentCodeHookSettings where
@@ -136,10 +136,10 @@ instance Data.ToJSON FulfillmentCodeHookSettings where
     Data.object
       ( Prelude.catMaybes
           [ ("active" Data..=) Prelude.<$> active,
-            ("postFulfillmentStatusSpecification" Data..=)
-              Prelude.<$> postFulfillmentStatusSpecification,
             ("fulfillmentUpdatesSpecification" Data..=)
               Prelude.<$> fulfillmentUpdatesSpecification,
+            ("postFulfillmentStatusSpecification" Data..=)
+              Prelude.<$> postFulfillmentStatusSpecification,
             Prelude.Just ("enabled" Data..= enabled)
           ]
       )

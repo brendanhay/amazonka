@@ -28,18 +28,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsXrayEncryptionConfigDetails' smart constructor.
 data AwsXrayEncryptionConfigDetails = AwsXrayEncryptionConfigDetails'
-  { -- | The type of encryption. @KMS@ indicates that the encryption uses KMS
-    -- keys. @NONE@ indicates the default encryption.
-    type' :: Prelude.Maybe Prelude.Text,
+  { -- | The identifier of the KMS key that is used for encryption. Provided if
+    -- @Type@ is @KMS@.
+    keyId :: Prelude.Maybe Prelude.Text,
     -- | The current status of the encryption configuration. Valid values are
     -- @ACTIVE@ or @UPDATING@.
     --
     -- When @Status@ is equal to @UPDATING@, X-Ray might use both the old and
     -- new encryption.
     status :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the KMS key that is used for encryption. Provided if
-    -- @Type@ is @KMS@.
-    keyId :: Prelude.Maybe Prelude.Text
+    -- | The type of encryption. @KMS@ indicates that the encryption uses KMS
+    -- keys. @NONE@ indicates the default encryption.
+    type' :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,8 +51,8 @@ data AwsXrayEncryptionConfigDetails = AwsXrayEncryptionConfigDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'awsXrayEncryptionConfigDetails_type' - The type of encryption. @KMS@ indicates that the encryption uses KMS
--- keys. @NONE@ indicates the default encryption.
+-- 'keyId', 'awsXrayEncryptionConfigDetails_keyId' - The identifier of the KMS key that is used for encryption. Provided if
+-- @Type@ is @KMS@.
 --
 -- 'status', 'awsXrayEncryptionConfigDetails_status' - The current status of the encryption configuration. Valid values are
 -- @ACTIVE@ or @UPDATING@.
@@ -60,22 +60,22 @@ data AwsXrayEncryptionConfigDetails = AwsXrayEncryptionConfigDetails'
 -- When @Status@ is equal to @UPDATING@, X-Ray might use both the old and
 -- new encryption.
 --
--- 'keyId', 'awsXrayEncryptionConfigDetails_keyId' - The identifier of the KMS key that is used for encryption. Provided if
--- @Type@ is @KMS@.
+-- 'type'', 'awsXrayEncryptionConfigDetails_type' - The type of encryption. @KMS@ indicates that the encryption uses KMS
+-- keys. @NONE@ indicates the default encryption.
 newAwsXrayEncryptionConfigDetails ::
   AwsXrayEncryptionConfigDetails
 newAwsXrayEncryptionConfigDetails =
   AwsXrayEncryptionConfigDetails'
-    { type' =
+    { keyId =
         Prelude.Nothing,
       status = Prelude.Nothing,
-      keyId = Prelude.Nothing
+      type' = Prelude.Nothing
     }
 
--- | The type of encryption. @KMS@ indicates that the encryption uses KMS
--- keys. @NONE@ indicates the default encryption.
-awsXrayEncryptionConfigDetails_type :: Lens.Lens' AwsXrayEncryptionConfigDetails (Prelude.Maybe Prelude.Text)
-awsXrayEncryptionConfigDetails_type = Lens.lens (\AwsXrayEncryptionConfigDetails' {type'} -> type') (\s@AwsXrayEncryptionConfigDetails' {} a -> s {type' = a} :: AwsXrayEncryptionConfigDetails)
+-- | The identifier of the KMS key that is used for encryption. Provided if
+-- @Type@ is @KMS@.
+awsXrayEncryptionConfigDetails_keyId :: Lens.Lens' AwsXrayEncryptionConfigDetails (Prelude.Maybe Prelude.Text)
+awsXrayEncryptionConfigDetails_keyId = Lens.lens (\AwsXrayEncryptionConfigDetails' {keyId} -> keyId) (\s@AwsXrayEncryptionConfigDetails' {} a -> s {keyId = a} :: AwsXrayEncryptionConfigDetails)
 
 -- | The current status of the encryption configuration. Valid values are
 -- @ACTIVE@ or @UPDATING@.
@@ -85,10 +85,10 @@ awsXrayEncryptionConfigDetails_type = Lens.lens (\AwsXrayEncryptionConfigDetails
 awsXrayEncryptionConfigDetails_status :: Lens.Lens' AwsXrayEncryptionConfigDetails (Prelude.Maybe Prelude.Text)
 awsXrayEncryptionConfigDetails_status = Lens.lens (\AwsXrayEncryptionConfigDetails' {status} -> status) (\s@AwsXrayEncryptionConfigDetails' {} a -> s {status = a} :: AwsXrayEncryptionConfigDetails)
 
--- | The identifier of the KMS key that is used for encryption. Provided if
--- @Type@ is @KMS@.
-awsXrayEncryptionConfigDetails_keyId :: Lens.Lens' AwsXrayEncryptionConfigDetails (Prelude.Maybe Prelude.Text)
-awsXrayEncryptionConfigDetails_keyId = Lens.lens (\AwsXrayEncryptionConfigDetails' {keyId} -> keyId) (\s@AwsXrayEncryptionConfigDetails' {} a -> s {keyId = a} :: AwsXrayEncryptionConfigDetails)
+-- | The type of encryption. @KMS@ indicates that the encryption uses KMS
+-- keys. @NONE@ indicates the default encryption.
+awsXrayEncryptionConfigDetails_type :: Lens.Lens' AwsXrayEncryptionConfigDetails (Prelude.Maybe Prelude.Text)
+awsXrayEncryptionConfigDetails_type = Lens.lens (\AwsXrayEncryptionConfigDetails' {type'} -> type') (\s@AwsXrayEncryptionConfigDetails' {} a -> s {type' = a} :: AwsXrayEncryptionConfigDetails)
 
 instance Data.FromJSON AwsXrayEncryptionConfigDetails where
   parseJSON =
@@ -96,9 +96,9 @@ instance Data.FromJSON AwsXrayEncryptionConfigDetails where
       "AwsXrayEncryptionConfigDetails"
       ( \x ->
           AwsXrayEncryptionConfigDetails'
-            Prelude.<$> (x Data..:? "Type")
+            Prelude.<$> (x Data..:? "KeyId")
             Prelude.<*> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "KeyId")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance
@@ -108,25 +108,25 @@ instance
   hashWithSalt
     _salt
     AwsXrayEncryptionConfigDetails' {..} =
-      _salt `Prelude.hashWithSalt` type'
+      _salt `Prelude.hashWithSalt` keyId
         `Prelude.hashWithSalt` status
-        `Prelude.hashWithSalt` keyId
+        `Prelude.hashWithSalt` type'
 
 instance
   Prelude.NFData
     AwsXrayEncryptionConfigDetails
   where
   rnf AwsXrayEncryptionConfigDetails' {..} =
-    Prelude.rnf type'
+    Prelude.rnf keyId
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf type'
 
 instance Data.ToJSON AwsXrayEncryptionConfigDetails where
   toJSON AwsXrayEncryptionConfigDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Type" Data..=) Prelude.<$> type',
+          [ ("KeyId" Data..=) Prelude.<$> keyId,
             ("Status" Data..=) Prelude.<$> status,
-            ("KeyId" Data..=) Prelude.<$> keyId
+            ("Type" Data..=) Prelude.<$> type'
           ]
       )

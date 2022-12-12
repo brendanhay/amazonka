@@ -35,13 +35,13 @@ import Amazonka.TimeStreamQuery.Types.ScalarType
 data Type = Type'
   { -- | Indicates if the column is an array.
     arrayColumnInfo :: Prelude.Maybe ColumnInfo,
+    -- | Indicates if the column is a row.
+    rowColumnInfo :: Prelude.Maybe [ColumnInfo],
     -- | Indicates if the column is of type string, integer, Boolean, double,
     -- timestamp, date, time.
     scalarType :: Prelude.Maybe ScalarType,
     -- | Indicates if the column is a timeseries data type.
-    timeSeriesMeasureValueColumnInfo :: Prelude.Maybe ColumnInfo,
-    -- | Indicates if the column is a row.
-    rowColumnInfo :: Prelude.Maybe [ColumnInfo]
+    timeSeriesMeasureValueColumnInfo :: Prelude.Maybe ColumnInfo
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,25 +55,29 @@ data Type = Type'
 --
 -- 'arrayColumnInfo', 'type_arrayColumnInfo' - Indicates if the column is an array.
 --
+-- 'rowColumnInfo', 'type_rowColumnInfo' - Indicates if the column is a row.
+--
 -- 'scalarType', 'type_scalarType' - Indicates if the column is of type string, integer, Boolean, double,
 -- timestamp, date, time.
 --
 -- 'timeSeriesMeasureValueColumnInfo', 'type_timeSeriesMeasureValueColumnInfo' - Indicates if the column is a timeseries data type.
---
--- 'rowColumnInfo', 'type_rowColumnInfo' - Indicates if the column is a row.
 newType ::
   Type
 newType =
   Type'
     { arrayColumnInfo = Prelude.Nothing,
+      rowColumnInfo = Prelude.Nothing,
       scalarType = Prelude.Nothing,
-      timeSeriesMeasureValueColumnInfo = Prelude.Nothing,
-      rowColumnInfo = Prelude.Nothing
+      timeSeriesMeasureValueColumnInfo = Prelude.Nothing
     }
 
 -- | Indicates if the column is an array.
 type_arrayColumnInfo :: Lens.Lens' Type (Prelude.Maybe ColumnInfo)
 type_arrayColumnInfo = Lens.lens (\Type' {arrayColumnInfo} -> arrayColumnInfo) (\s@Type' {} a -> s {arrayColumnInfo = a} :: Type)
+
+-- | Indicates if the column is a row.
+type_rowColumnInfo :: Lens.Lens' Type (Prelude.Maybe [ColumnInfo])
+type_rowColumnInfo = Lens.lens (\Type' {rowColumnInfo} -> rowColumnInfo) (\s@Type' {} a -> s {rowColumnInfo = a} :: Type) Prelude.. Lens.mapping Lens.coerced
 
 -- | Indicates if the column is of type string, integer, Boolean, double,
 -- timestamp, date, time.
@@ -84,10 +88,6 @@ type_scalarType = Lens.lens (\Type' {scalarType} -> scalarType) (\s@Type' {} a -
 type_timeSeriesMeasureValueColumnInfo :: Lens.Lens' Type (Prelude.Maybe ColumnInfo)
 type_timeSeriesMeasureValueColumnInfo = Lens.lens (\Type' {timeSeriesMeasureValueColumnInfo} -> timeSeriesMeasureValueColumnInfo) (\s@Type' {} a -> s {timeSeriesMeasureValueColumnInfo = a} :: Type)
 
--- | Indicates if the column is a row.
-type_rowColumnInfo :: Lens.Lens' Type (Prelude.Maybe [ColumnInfo])
-type_rowColumnInfo = Lens.lens (\Type' {rowColumnInfo} -> rowColumnInfo) (\s@Type' {} a -> s {rowColumnInfo = a} :: Type) Prelude.. Lens.mapping Lens.coerced
-
 instance Data.FromJSON Type where
   parseJSON =
     Data.withObject
@@ -95,21 +95,21 @@ instance Data.FromJSON Type where
       ( \x ->
           Type'
             Prelude.<$> (x Data..:? "ArrayColumnInfo")
+            Prelude.<*> (x Data..:? "RowColumnInfo" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "ScalarType")
             Prelude.<*> (x Data..:? "TimeSeriesMeasureValueColumnInfo")
-            Prelude.<*> (x Data..:? "RowColumnInfo" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Type where
   hashWithSalt _salt Type' {..} =
     _salt `Prelude.hashWithSalt` arrayColumnInfo
+      `Prelude.hashWithSalt` rowColumnInfo
       `Prelude.hashWithSalt` scalarType
       `Prelude.hashWithSalt` timeSeriesMeasureValueColumnInfo
-      `Prelude.hashWithSalt` rowColumnInfo
 
 instance Prelude.NFData Type where
   rnf Type' {..} =
     Prelude.rnf arrayColumnInfo
+      `Prelude.seq` Prelude.rnf rowColumnInfo
       `Prelude.seq` Prelude.rnf scalarType
       `Prelude.seq` Prelude.rnf timeSeriesMeasureValueColumnInfo
-      `Prelude.seq` Prelude.rnf rowColumnInfo

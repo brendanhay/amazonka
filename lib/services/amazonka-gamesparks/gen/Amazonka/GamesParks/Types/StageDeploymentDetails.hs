@@ -31,20 +31,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStageDeploymentDetails' smart constructor.
 data StageDeploymentDetails = StageDeploymentDetails'
-  { -- | The state of the deployment.
-    deploymentState :: Prelude.Maybe DeploymentState,
+  { -- | The timestamp of when the stage deployment was created.
+    created :: Prelude.Maybe Data.POSIX,
     -- | The type of action of the stage deployment.
     deploymentAction :: Prelude.Maybe DeploymentAction,
     -- | The identifier of the deployment.
     deploymentId :: Prelude.Maybe Prelude.Text,
     -- | The result of the deployment.
     deploymentResult :: Prelude.Maybe DeploymentResult,
-    -- | The timestamp of when the stage deployment was created.
-    created :: Prelude.Maybe Data.POSIX,
-    -- | The identifier of the snapshot associated with the stage deployment.
-    snapshotId :: Prelude.Maybe Prelude.Text,
+    -- | The state of the deployment.
+    deploymentState :: Prelude.Maybe DeploymentState,
     -- | The timestamp of when the deployment was last updated.
-    lastUpdated :: Prelude.Maybe Data.POSIX
+    lastUpdated :: Prelude.Maybe Data.POSIX,
+    -- | The identifier of the snapshot associated with the stage deployment.
+    snapshotId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,7 +56,7 @@ data StageDeploymentDetails = StageDeploymentDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deploymentState', 'stageDeploymentDetails_deploymentState' - The state of the deployment.
+-- 'created', 'stageDeploymentDetails_created' - The timestamp of when the stage deployment was created.
 --
 -- 'deploymentAction', 'stageDeploymentDetails_deploymentAction' - The type of action of the stage deployment.
 --
@@ -64,28 +64,27 @@ data StageDeploymentDetails = StageDeploymentDetails'
 --
 -- 'deploymentResult', 'stageDeploymentDetails_deploymentResult' - The result of the deployment.
 --
--- 'created', 'stageDeploymentDetails_created' - The timestamp of when the stage deployment was created.
---
--- 'snapshotId', 'stageDeploymentDetails_snapshotId' - The identifier of the snapshot associated with the stage deployment.
+-- 'deploymentState', 'stageDeploymentDetails_deploymentState' - The state of the deployment.
 --
 -- 'lastUpdated', 'stageDeploymentDetails_lastUpdated' - The timestamp of when the deployment was last updated.
+--
+-- 'snapshotId', 'stageDeploymentDetails_snapshotId' - The identifier of the snapshot associated with the stage deployment.
 newStageDeploymentDetails ::
   StageDeploymentDetails
 newStageDeploymentDetails =
   StageDeploymentDetails'
-    { deploymentState =
-        Prelude.Nothing,
+    { created = Prelude.Nothing,
       deploymentAction = Prelude.Nothing,
       deploymentId = Prelude.Nothing,
       deploymentResult = Prelude.Nothing,
-      created = Prelude.Nothing,
-      snapshotId = Prelude.Nothing,
-      lastUpdated = Prelude.Nothing
+      deploymentState = Prelude.Nothing,
+      lastUpdated = Prelude.Nothing,
+      snapshotId = Prelude.Nothing
     }
 
--- | The state of the deployment.
-stageDeploymentDetails_deploymentState :: Lens.Lens' StageDeploymentDetails (Prelude.Maybe DeploymentState)
-stageDeploymentDetails_deploymentState = Lens.lens (\StageDeploymentDetails' {deploymentState} -> deploymentState) (\s@StageDeploymentDetails' {} a -> s {deploymentState = a} :: StageDeploymentDetails)
+-- | The timestamp of when the stage deployment was created.
+stageDeploymentDetails_created :: Lens.Lens' StageDeploymentDetails (Prelude.Maybe Prelude.UTCTime)
+stageDeploymentDetails_created = Lens.lens (\StageDeploymentDetails' {created} -> created) (\s@StageDeploymentDetails' {} a -> s {created = a} :: StageDeploymentDetails) Prelude.. Lens.mapping Data._Time
 
 -- | The type of action of the stage deployment.
 stageDeploymentDetails_deploymentAction :: Lens.Lens' StageDeploymentDetails (Prelude.Maybe DeploymentAction)
@@ -99,17 +98,17 @@ stageDeploymentDetails_deploymentId = Lens.lens (\StageDeploymentDetails' {deplo
 stageDeploymentDetails_deploymentResult :: Lens.Lens' StageDeploymentDetails (Prelude.Maybe DeploymentResult)
 stageDeploymentDetails_deploymentResult = Lens.lens (\StageDeploymentDetails' {deploymentResult} -> deploymentResult) (\s@StageDeploymentDetails' {} a -> s {deploymentResult = a} :: StageDeploymentDetails)
 
--- | The timestamp of when the stage deployment was created.
-stageDeploymentDetails_created :: Lens.Lens' StageDeploymentDetails (Prelude.Maybe Prelude.UTCTime)
-stageDeploymentDetails_created = Lens.lens (\StageDeploymentDetails' {created} -> created) (\s@StageDeploymentDetails' {} a -> s {created = a} :: StageDeploymentDetails) Prelude.. Lens.mapping Data._Time
-
--- | The identifier of the snapshot associated with the stage deployment.
-stageDeploymentDetails_snapshotId :: Lens.Lens' StageDeploymentDetails (Prelude.Maybe Prelude.Text)
-stageDeploymentDetails_snapshotId = Lens.lens (\StageDeploymentDetails' {snapshotId} -> snapshotId) (\s@StageDeploymentDetails' {} a -> s {snapshotId = a} :: StageDeploymentDetails)
+-- | The state of the deployment.
+stageDeploymentDetails_deploymentState :: Lens.Lens' StageDeploymentDetails (Prelude.Maybe DeploymentState)
+stageDeploymentDetails_deploymentState = Lens.lens (\StageDeploymentDetails' {deploymentState} -> deploymentState) (\s@StageDeploymentDetails' {} a -> s {deploymentState = a} :: StageDeploymentDetails)
 
 -- | The timestamp of when the deployment was last updated.
 stageDeploymentDetails_lastUpdated :: Lens.Lens' StageDeploymentDetails (Prelude.Maybe Prelude.UTCTime)
 stageDeploymentDetails_lastUpdated = Lens.lens (\StageDeploymentDetails' {lastUpdated} -> lastUpdated) (\s@StageDeploymentDetails' {} a -> s {lastUpdated = a} :: StageDeploymentDetails) Prelude.. Lens.mapping Data._Time
+
+-- | The identifier of the snapshot associated with the stage deployment.
+stageDeploymentDetails_snapshotId :: Lens.Lens' StageDeploymentDetails (Prelude.Maybe Prelude.Text)
+stageDeploymentDetails_snapshotId = Lens.lens (\StageDeploymentDetails' {snapshotId} -> snapshotId) (\s@StageDeploymentDetails' {} a -> s {snapshotId = a} :: StageDeploymentDetails)
 
 instance Data.FromJSON StageDeploymentDetails where
   parseJSON =
@@ -117,31 +116,31 @@ instance Data.FromJSON StageDeploymentDetails where
       "StageDeploymentDetails"
       ( \x ->
           StageDeploymentDetails'
-            Prelude.<$> (x Data..:? "DeploymentState")
+            Prelude.<$> (x Data..:? "Created")
             Prelude.<*> (x Data..:? "DeploymentAction")
             Prelude.<*> (x Data..:? "DeploymentId")
             Prelude.<*> (x Data..:? "DeploymentResult")
-            Prelude.<*> (x Data..:? "Created")
-            Prelude.<*> (x Data..:? "SnapshotId")
+            Prelude.<*> (x Data..:? "DeploymentState")
             Prelude.<*> (x Data..:? "LastUpdated")
+            Prelude.<*> (x Data..:? "SnapshotId")
       )
 
 instance Prelude.Hashable StageDeploymentDetails where
   hashWithSalt _salt StageDeploymentDetails' {..} =
-    _salt `Prelude.hashWithSalt` deploymentState
+    _salt `Prelude.hashWithSalt` created
       `Prelude.hashWithSalt` deploymentAction
       `Prelude.hashWithSalt` deploymentId
       `Prelude.hashWithSalt` deploymentResult
-      `Prelude.hashWithSalt` created
-      `Prelude.hashWithSalt` snapshotId
+      `Prelude.hashWithSalt` deploymentState
       `Prelude.hashWithSalt` lastUpdated
+      `Prelude.hashWithSalt` snapshotId
 
 instance Prelude.NFData StageDeploymentDetails where
   rnf StageDeploymentDetails' {..} =
-    Prelude.rnf deploymentState
+    Prelude.rnf created
       `Prelude.seq` Prelude.rnf deploymentAction
       `Prelude.seq` Prelude.rnf deploymentId
       `Prelude.seq` Prelude.rnf deploymentResult
-      `Prelude.seq` Prelude.rnf created
-      `Prelude.seq` Prelude.rnf snapshotId
+      `Prelude.seq` Prelude.rnf deploymentState
       `Prelude.seq` Prelude.rnf lastUpdated
+      `Prelude.seq` Prelude.rnf snapshotId

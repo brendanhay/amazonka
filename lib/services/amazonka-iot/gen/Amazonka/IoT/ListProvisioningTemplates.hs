@@ -33,8 +33,8 @@ module Amazonka.IoT.ListProvisioningTemplates
     newListProvisioningTemplates,
 
     -- * Request Lenses
-    listProvisioningTemplates_nextToken,
     listProvisioningTemplates_maxResults,
+    listProvisioningTemplates_nextToken,
 
     -- * Destructuring the Response
     ListProvisioningTemplatesResponse (..),
@@ -57,10 +57,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListProvisioningTemplates' smart constructor.
 data ListProvisioningTemplates = ListProvisioningTemplates'
-  { -- | A token to retrieve the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return at one time.
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { -- | The maximum number of results to return at one time.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token to retrieve the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,25 +72,25 @@ data ListProvisioningTemplates = ListProvisioningTemplates'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listProvisioningTemplates_nextToken' - A token to retrieve the next set of results.
---
 -- 'maxResults', 'listProvisioningTemplates_maxResults' - The maximum number of results to return at one time.
+--
+-- 'nextToken', 'listProvisioningTemplates_nextToken' - A token to retrieve the next set of results.
 newListProvisioningTemplates ::
   ListProvisioningTemplates
 newListProvisioningTemplates =
   ListProvisioningTemplates'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | A token to retrieve the next set of results.
-listProvisioningTemplates_nextToken :: Lens.Lens' ListProvisioningTemplates (Prelude.Maybe Prelude.Text)
-listProvisioningTemplates_nextToken = Lens.lens (\ListProvisioningTemplates' {nextToken} -> nextToken) (\s@ListProvisioningTemplates' {} a -> s {nextToken = a} :: ListProvisioningTemplates)
 
 -- | The maximum number of results to return at one time.
 listProvisioningTemplates_maxResults :: Lens.Lens' ListProvisioningTemplates (Prelude.Maybe Prelude.Natural)
 listProvisioningTemplates_maxResults = Lens.lens (\ListProvisioningTemplates' {maxResults} -> maxResults) (\s@ListProvisioningTemplates' {} a -> s {maxResults = a} :: ListProvisioningTemplates)
+
+-- | A token to retrieve the next set of results.
+listProvisioningTemplates_nextToken :: Lens.Lens' ListProvisioningTemplates (Prelude.Maybe Prelude.Text)
+listProvisioningTemplates_nextToken = Lens.lens (\ListProvisioningTemplates' {nextToken} -> nextToken) (\s@ListProvisioningTemplates' {} a -> s {nextToken = a} :: ListProvisioningTemplates)
 
 instance Core.AWSPager ListProvisioningTemplates where
   page rq rs
@@ -131,13 +131,13 @@ instance Core.AWSRequest ListProvisioningTemplates where
 
 instance Prelude.Hashable ListProvisioningTemplates where
   hashWithSalt _salt ListProvisioningTemplates' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListProvisioningTemplates where
   rnf ListProvisioningTemplates' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListProvisioningTemplates where
   toHeaders = Prelude.const Prelude.mempty
@@ -148,8 +148,8 @@ instance Data.ToPath ListProvisioningTemplates where
 instance Data.ToQuery ListProvisioningTemplates where
   toQuery ListProvisioningTemplates' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListProvisioningTemplatesResponse' smart constructor.

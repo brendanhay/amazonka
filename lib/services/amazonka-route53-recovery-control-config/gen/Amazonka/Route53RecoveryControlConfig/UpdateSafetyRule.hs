@@ -29,16 +29,16 @@ module Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule
     newUpdateSafetyRule,
 
     -- * Request Lenses
-    updateSafetyRule_gatingRuleUpdate,
     updateSafetyRule_assertionRuleUpdate,
+    updateSafetyRule_gatingRuleUpdate,
 
     -- * Destructuring the Response
     UpdateSafetyRuleResponse (..),
     newUpdateSafetyRuleResponse,
 
     -- * Response Lenses
-    updateSafetyRuleResponse_gatingRule,
     updateSafetyRuleResponse_assertionRule,
+    updateSafetyRuleResponse_gatingRule,
     updateSafetyRuleResponse_httpStatus,
   )
 where
@@ -57,10 +57,10 @@ import Amazonka.Route53RecoveryControlConfig.Types
 --
 -- /See:/ 'newUpdateSafetyRule' smart constructor.
 data UpdateSafetyRule = UpdateSafetyRule'
-  { -- | The gating rule to update.
-    gatingRuleUpdate :: Prelude.Maybe GatingRuleUpdate,
-    -- | The assertion rule to update.
-    assertionRuleUpdate :: Prelude.Maybe AssertionRuleUpdate
+  { -- | The assertion rule to update.
+    assertionRuleUpdate :: Prelude.Maybe AssertionRuleUpdate,
+    -- | The gating rule to update.
+    gatingRuleUpdate :: Prelude.Maybe GatingRuleUpdate
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,25 +72,25 @@ data UpdateSafetyRule = UpdateSafetyRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'gatingRuleUpdate', 'updateSafetyRule_gatingRuleUpdate' - The gating rule to update.
---
 -- 'assertionRuleUpdate', 'updateSafetyRule_assertionRuleUpdate' - The assertion rule to update.
+--
+-- 'gatingRuleUpdate', 'updateSafetyRule_gatingRuleUpdate' - The gating rule to update.
 newUpdateSafetyRule ::
   UpdateSafetyRule
 newUpdateSafetyRule =
   UpdateSafetyRule'
-    { gatingRuleUpdate =
+    { assertionRuleUpdate =
         Prelude.Nothing,
-      assertionRuleUpdate = Prelude.Nothing
+      gatingRuleUpdate = Prelude.Nothing
     }
-
--- | The gating rule to update.
-updateSafetyRule_gatingRuleUpdate :: Lens.Lens' UpdateSafetyRule (Prelude.Maybe GatingRuleUpdate)
-updateSafetyRule_gatingRuleUpdate = Lens.lens (\UpdateSafetyRule' {gatingRuleUpdate} -> gatingRuleUpdate) (\s@UpdateSafetyRule' {} a -> s {gatingRuleUpdate = a} :: UpdateSafetyRule)
 
 -- | The assertion rule to update.
 updateSafetyRule_assertionRuleUpdate :: Lens.Lens' UpdateSafetyRule (Prelude.Maybe AssertionRuleUpdate)
 updateSafetyRule_assertionRuleUpdate = Lens.lens (\UpdateSafetyRule' {assertionRuleUpdate} -> assertionRuleUpdate) (\s@UpdateSafetyRule' {} a -> s {assertionRuleUpdate = a} :: UpdateSafetyRule)
+
+-- | The gating rule to update.
+updateSafetyRule_gatingRuleUpdate :: Lens.Lens' UpdateSafetyRule (Prelude.Maybe GatingRuleUpdate)
+updateSafetyRule_gatingRuleUpdate = Lens.lens (\UpdateSafetyRule' {gatingRuleUpdate} -> gatingRuleUpdate) (\s@UpdateSafetyRule' {} a -> s {gatingRuleUpdate = a} :: UpdateSafetyRule)
 
 instance Core.AWSRequest UpdateSafetyRule where
   type
@@ -102,20 +102,20 @@ instance Core.AWSRequest UpdateSafetyRule where
     Response.receiveJSON
       ( \s h x ->
           UpdateSafetyRuleResponse'
-            Prelude.<$> (x Data..?> "GatingRule")
-            Prelude.<*> (x Data..?> "AssertionRule")
+            Prelude.<$> (x Data..?> "AssertionRule")
+            Prelude.<*> (x Data..?> "GatingRule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateSafetyRule where
   hashWithSalt _salt UpdateSafetyRule' {..} =
-    _salt `Prelude.hashWithSalt` gatingRuleUpdate
-      `Prelude.hashWithSalt` assertionRuleUpdate
+    _salt `Prelude.hashWithSalt` assertionRuleUpdate
+      `Prelude.hashWithSalt` gatingRuleUpdate
 
 instance Prelude.NFData UpdateSafetyRule where
   rnf UpdateSafetyRule' {..} =
-    Prelude.rnf gatingRuleUpdate
-      `Prelude.seq` Prelude.rnf assertionRuleUpdate
+    Prelude.rnf assertionRuleUpdate
+      `Prelude.seq` Prelude.rnf gatingRuleUpdate
 
 instance Data.ToHeaders UpdateSafetyRule where
   toHeaders =
@@ -132,10 +132,10 @@ instance Data.ToJSON UpdateSafetyRule where
   toJSON UpdateSafetyRule' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("GatingRuleUpdate" Data..=)
-              Prelude.<$> gatingRuleUpdate,
-            ("AssertionRuleUpdate" Data..=)
-              Prelude.<$> assertionRuleUpdate
+          [ ("AssertionRuleUpdate" Data..=)
+              Prelude.<$> assertionRuleUpdate,
+            ("GatingRuleUpdate" Data..=)
+              Prelude.<$> gatingRuleUpdate
           ]
       )
 
@@ -147,10 +147,10 @@ instance Data.ToQuery UpdateSafetyRule where
 
 -- | /See:/ 'newUpdateSafetyRuleResponse' smart constructor.
 data UpdateSafetyRuleResponse = UpdateSafetyRuleResponse'
-  { -- | The gating rule updated.
-    gatingRule :: Prelude.Maybe GatingRule,
-    -- | The assertion rule updated.
+  { -- | The assertion rule updated.
     assertionRule :: Prelude.Maybe AssertionRule,
+    -- | The gating rule updated.
+    gatingRule :: Prelude.Maybe GatingRule,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -164,9 +164,9 @@ data UpdateSafetyRuleResponse = UpdateSafetyRuleResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'gatingRule', 'updateSafetyRuleResponse_gatingRule' - The gating rule updated.
---
 -- 'assertionRule', 'updateSafetyRuleResponse_assertionRule' - The assertion rule updated.
+--
+-- 'gatingRule', 'updateSafetyRuleResponse_gatingRule' - The gating rule updated.
 --
 -- 'httpStatus', 'updateSafetyRuleResponse_httpStatus' - The response's http status code.
 newUpdateSafetyRuleResponse ::
@@ -175,19 +175,19 @@ newUpdateSafetyRuleResponse ::
   UpdateSafetyRuleResponse
 newUpdateSafetyRuleResponse pHttpStatus_ =
   UpdateSafetyRuleResponse'
-    { gatingRule =
+    { assertionRule =
         Prelude.Nothing,
-      assertionRule = Prelude.Nothing,
+      gatingRule = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The gating rule updated.
-updateSafetyRuleResponse_gatingRule :: Lens.Lens' UpdateSafetyRuleResponse (Prelude.Maybe GatingRule)
-updateSafetyRuleResponse_gatingRule = Lens.lens (\UpdateSafetyRuleResponse' {gatingRule} -> gatingRule) (\s@UpdateSafetyRuleResponse' {} a -> s {gatingRule = a} :: UpdateSafetyRuleResponse)
 
 -- | The assertion rule updated.
 updateSafetyRuleResponse_assertionRule :: Lens.Lens' UpdateSafetyRuleResponse (Prelude.Maybe AssertionRule)
 updateSafetyRuleResponse_assertionRule = Lens.lens (\UpdateSafetyRuleResponse' {assertionRule} -> assertionRule) (\s@UpdateSafetyRuleResponse' {} a -> s {assertionRule = a} :: UpdateSafetyRuleResponse)
+
+-- | The gating rule updated.
+updateSafetyRuleResponse_gatingRule :: Lens.Lens' UpdateSafetyRuleResponse (Prelude.Maybe GatingRule)
+updateSafetyRuleResponse_gatingRule = Lens.lens (\UpdateSafetyRuleResponse' {gatingRule} -> gatingRule) (\s@UpdateSafetyRuleResponse' {} a -> s {gatingRule = a} :: UpdateSafetyRuleResponse)
 
 -- | The response's http status code.
 updateSafetyRuleResponse_httpStatus :: Lens.Lens' UpdateSafetyRuleResponse Prelude.Int
@@ -195,6 +195,6 @@ updateSafetyRuleResponse_httpStatus = Lens.lens (\UpdateSafetyRuleResponse' {htt
 
 instance Prelude.NFData UpdateSafetyRuleResponse where
   rnf UpdateSafetyRuleResponse' {..} =
-    Prelude.rnf gatingRule
-      `Prelude.seq` Prelude.rnf assertionRule
+    Prelude.rnf assertionRule
+      `Prelude.seq` Prelude.rnf gatingRule
       `Prelude.seq` Prelude.rnf httpStatus

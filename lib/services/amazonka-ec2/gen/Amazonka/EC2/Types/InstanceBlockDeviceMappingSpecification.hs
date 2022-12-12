@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceBlockDeviceMappingSpecification' smart constructor.
 data InstanceBlockDeviceMappingSpecification = InstanceBlockDeviceMappingSpecification'
-  { -- | Parameters used to automatically set up EBS volumes when the instance is
+  { -- | The device name (for example, @\/dev\/sdh@ or @xvdh@).
+    deviceName :: Prelude.Maybe Prelude.Text,
+    -- | Parameters used to automatically set up EBS volumes when the instance is
     -- launched.
     ebs :: Prelude.Maybe EbsInstanceBlockDeviceSpecification,
-    -- | The device name (for example, @\/dev\/sdh@ or @xvdh@).
-    deviceName :: Prelude.Maybe Prelude.Text,
     -- | suppress the specified device included in the block device mapping.
     noDevice :: Prelude.Maybe Prelude.Text,
     -- | The virtual device name.
@@ -50,10 +50,10 @@ data InstanceBlockDeviceMappingSpecification = InstanceBlockDeviceMappingSpecifi
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'deviceName', 'instanceBlockDeviceMappingSpecification_deviceName' - The device name (for example, @\/dev\/sdh@ or @xvdh@).
+--
 -- 'ebs', 'instanceBlockDeviceMappingSpecification_ebs' - Parameters used to automatically set up EBS volumes when the instance is
 -- launched.
---
--- 'deviceName', 'instanceBlockDeviceMappingSpecification_deviceName' - The device name (for example, @\/dev\/sdh@ or @xvdh@).
 --
 -- 'noDevice', 'instanceBlockDeviceMappingSpecification_noDevice' - suppress the specified device included in the block device mapping.
 --
@@ -62,21 +62,21 @@ newInstanceBlockDeviceMappingSpecification ::
   InstanceBlockDeviceMappingSpecification
 newInstanceBlockDeviceMappingSpecification =
   InstanceBlockDeviceMappingSpecification'
-    { ebs =
+    { deviceName =
         Prelude.Nothing,
-      deviceName = Prelude.Nothing,
+      ebs = Prelude.Nothing,
       noDevice = Prelude.Nothing,
       virtualName = Prelude.Nothing
     }
+
+-- | The device name (for example, @\/dev\/sdh@ or @xvdh@).
+instanceBlockDeviceMappingSpecification_deviceName :: Lens.Lens' InstanceBlockDeviceMappingSpecification (Prelude.Maybe Prelude.Text)
+instanceBlockDeviceMappingSpecification_deviceName = Lens.lens (\InstanceBlockDeviceMappingSpecification' {deviceName} -> deviceName) (\s@InstanceBlockDeviceMappingSpecification' {} a -> s {deviceName = a} :: InstanceBlockDeviceMappingSpecification)
 
 -- | Parameters used to automatically set up EBS volumes when the instance is
 -- launched.
 instanceBlockDeviceMappingSpecification_ebs :: Lens.Lens' InstanceBlockDeviceMappingSpecification (Prelude.Maybe EbsInstanceBlockDeviceSpecification)
 instanceBlockDeviceMappingSpecification_ebs = Lens.lens (\InstanceBlockDeviceMappingSpecification' {ebs} -> ebs) (\s@InstanceBlockDeviceMappingSpecification' {} a -> s {ebs = a} :: InstanceBlockDeviceMappingSpecification)
-
--- | The device name (for example, @\/dev\/sdh@ or @xvdh@).
-instanceBlockDeviceMappingSpecification_deviceName :: Lens.Lens' InstanceBlockDeviceMappingSpecification (Prelude.Maybe Prelude.Text)
-instanceBlockDeviceMappingSpecification_deviceName = Lens.lens (\InstanceBlockDeviceMappingSpecification' {deviceName} -> deviceName) (\s@InstanceBlockDeviceMappingSpecification' {} a -> s {deviceName = a} :: InstanceBlockDeviceMappingSpecification)
 
 -- | suppress the specified device included in the block device mapping.
 instanceBlockDeviceMappingSpecification_noDevice :: Lens.Lens' InstanceBlockDeviceMappingSpecification (Prelude.Maybe Prelude.Text)
@@ -93,8 +93,8 @@ instance
   hashWithSalt
     _salt
     InstanceBlockDeviceMappingSpecification' {..} =
-      _salt `Prelude.hashWithSalt` ebs
-        `Prelude.hashWithSalt` deviceName
+      _salt `Prelude.hashWithSalt` deviceName
+        `Prelude.hashWithSalt` ebs
         `Prelude.hashWithSalt` noDevice
         `Prelude.hashWithSalt` virtualName
 
@@ -103,8 +103,8 @@ instance
     InstanceBlockDeviceMappingSpecification
   where
   rnf InstanceBlockDeviceMappingSpecification' {..} =
-    Prelude.rnf ebs
-      `Prelude.seq` Prelude.rnf deviceName
+    Prelude.rnf deviceName
+      `Prelude.seq` Prelude.rnf ebs
       `Prelude.seq` Prelude.rnf noDevice
       `Prelude.seq` Prelude.rnf virtualName
 
@@ -114,8 +114,8 @@ instance
   where
   toQuery InstanceBlockDeviceMappingSpecification' {..} =
     Prelude.mconcat
-      [ "Ebs" Data.=: ebs,
-        "DeviceName" Data.=: deviceName,
+      [ "DeviceName" Data.=: deviceName,
+        "Ebs" Data.=: ebs,
         "NoDevice" Data.=: noDevice,
         "VirtualName" Data.=: virtualName
       ]

@@ -32,19 +32,10 @@ import Amazonka.Shield.Types.SummarizedCounter
 --
 -- /See:/ 'newAttackDetail' smart constructor.
 data AttackDetail = AttackDetail'
-  { -- | The unique identifier (ID) of the attack.
-    attackId :: Prelude.Maybe Prelude.Text,
-    -- | If applicable, additional detail about the resource being attacked, for
-    -- example, IP address or URL.
-    subResources :: Prelude.Maybe [SubResourceSummary],
-    -- | The time the attack ended, in Unix time in seconds.
-    endTime :: Prelude.Maybe Data.POSIX,
-    -- | List of mitigation actions taken for the attack.
-    mitigations :: Prelude.Maybe [Mitigation],
-    -- | The ARN (Amazon Resource Name) of the resource that was attacked.
-    resourceArn :: Prelude.Maybe Prelude.Text,
-    -- | List of counters that describe the attack for the specified time period.
+  { -- | List of counters that describe the attack for the specified time period.
     attackCounters :: Prelude.Maybe [SummarizedCounter],
+    -- | The unique identifier (ID) of the attack.
+    attackId :: Prelude.Maybe Prelude.Text,
     -- | The array of objects that provide details of the Shield event.
     --
     -- For infrastructure layer events (L3 and L4 events), you can view metrics
@@ -53,8 +44,17 @@ data AttackDetail = AttackDetail'
     -- <https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#set-ddos-alarms Shield metrics and alarms>
     -- in the /WAF Developer Guide/.
     attackProperties :: Prelude.Maybe [AttackProperty],
+    -- | The time the attack ended, in Unix time in seconds.
+    endTime :: Prelude.Maybe Data.POSIX,
+    -- | List of mitigation actions taken for the attack.
+    mitigations :: Prelude.Maybe [Mitigation],
+    -- | The ARN (Amazon Resource Name) of the resource that was attacked.
+    resourceArn :: Prelude.Maybe Prelude.Text,
     -- | The time the attack started, in Unix time in seconds.
-    startTime :: Prelude.Maybe Data.POSIX
+    startTime :: Prelude.Maybe Data.POSIX,
+    -- | If applicable, additional detail about the resource being attacked, for
+    -- example, IP address or URL.
+    subResources :: Prelude.Maybe [SubResourceSummary]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,18 +66,9 @@ data AttackDetail = AttackDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'attackId', 'attackDetail_attackId' - The unique identifier (ID) of the attack.
---
--- 'subResources', 'attackDetail_subResources' - If applicable, additional detail about the resource being attacked, for
--- example, IP address or URL.
---
--- 'endTime', 'attackDetail_endTime' - The time the attack ended, in Unix time in seconds.
---
--- 'mitigations', 'attackDetail_mitigations' - List of mitigation actions taken for the attack.
---
--- 'resourceArn', 'attackDetail_resourceArn' - The ARN (Amazon Resource Name) of the resource that was attacked.
---
 -- 'attackCounters', 'attackDetail_attackCounters' - List of counters that describe the attack for the specified time period.
+--
+-- 'attackId', 'attackDetail_attackId' - The unique identifier (ID) of the attack.
 --
 -- 'attackProperties', 'attackDetail_attackProperties' - The array of objects that provide details of the Shield event.
 --
@@ -87,29 +78,47 @@ data AttackDetail = AttackDetail'
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#set-ddos-alarms Shield metrics and alarms>
 -- in the /WAF Developer Guide/.
 --
+-- 'endTime', 'attackDetail_endTime' - The time the attack ended, in Unix time in seconds.
+--
+-- 'mitigations', 'attackDetail_mitigations' - List of mitigation actions taken for the attack.
+--
+-- 'resourceArn', 'attackDetail_resourceArn' - The ARN (Amazon Resource Name) of the resource that was attacked.
+--
 -- 'startTime', 'attackDetail_startTime' - The time the attack started, in Unix time in seconds.
+--
+-- 'subResources', 'attackDetail_subResources' - If applicable, additional detail about the resource being attacked, for
+-- example, IP address or URL.
 newAttackDetail ::
   AttackDetail
 newAttackDetail =
   AttackDetail'
-    { attackId = Prelude.Nothing,
-      subResources = Prelude.Nothing,
+    { attackCounters = Prelude.Nothing,
+      attackId = Prelude.Nothing,
+      attackProperties = Prelude.Nothing,
       endTime = Prelude.Nothing,
       mitigations = Prelude.Nothing,
       resourceArn = Prelude.Nothing,
-      attackCounters = Prelude.Nothing,
-      attackProperties = Prelude.Nothing,
-      startTime = Prelude.Nothing
+      startTime = Prelude.Nothing,
+      subResources = Prelude.Nothing
     }
+
+-- | List of counters that describe the attack for the specified time period.
+attackDetail_attackCounters :: Lens.Lens' AttackDetail (Prelude.Maybe [SummarizedCounter])
+attackDetail_attackCounters = Lens.lens (\AttackDetail' {attackCounters} -> attackCounters) (\s@AttackDetail' {} a -> s {attackCounters = a} :: AttackDetail) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique identifier (ID) of the attack.
 attackDetail_attackId :: Lens.Lens' AttackDetail (Prelude.Maybe Prelude.Text)
 attackDetail_attackId = Lens.lens (\AttackDetail' {attackId} -> attackId) (\s@AttackDetail' {} a -> s {attackId = a} :: AttackDetail)
 
--- | If applicable, additional detail about the resource being attacked, for
--- example, IP address or URL.
-attackDetail_subResources :: Lens.Lens' AttackDetail (Prelude.Maybe [SubResourceSummary])
-attackDetail_subResources = Lens.lens (\AttackDetail' {subResources} -> subResources) (\s@AttackDetail' {} a -> s {subResources = a} :: AttackDetail) Prelude.. Lens.mapping Lens.coerced
+-- | The array of objects that provide details of the Shield event.
+--
+-- For infrastructure layer events (L3 and L4 events), you can view metrics
+-- for top contributors in Amazon CloudWatch metrics. For more information,
+-- see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#set-ddos-alarms Shield metrics and alarms>
+-- in the /WAF Developer Guide/.
+attackDetail_attackProperties :: Lens.Lens' AttackDetail (Prelude.Maybe [AttackProperty])
+attackDetail_attackProperties = Lens.lens (\AttackDetail' {attackProperties} -> attackProperties) (\s@AttackDetail' {} a -> s {attackProperties = a} :: AttackDetail) Prelude.. Lens.mapping Lens.coerced
 
 -- | The time the attack ended, in Unix time in seconds.
 attackDetail_endTime :: Lens.Lens' AttackDetail (Prelude.Maybe Prelude.UTCTime)
@@ -123,23 +132,14 @@ attackDetail_mitigations = Lens.lens (\AttackDetail' {mitigations} -> mitigation
 attackDetail_resourceArn :: Lens.Lens' AttackDetail (Prelude.Maybe Prelude.Text)
 attackDetail_resourceArn = Lens.lens (\AttackDetail' {resourceArn} -> resourceArn) (\s@AttackDetail' {} a -> s {resourceArn = a} :: AttackDetail)
 
--- | List of counters that describe the attack for the specified time period.
-attackDetail_attackCounters :: Lens.Lens' AttackDetail (Prelude.Maybe [SummarizedCounter])
-attackDetail_attackCounters = Lens.lens (\AttackDetail' {attackCounters} -> attackCounters) (\s@AttackDetail' {} a -> s {attackCounters = a} :: AttackDetail) Prelude.. Lens.mapping Lens.coerced
-
--- | The array of objects that provide details of the Shield event.
---
--- For infrastructure layer events (L3 and L4 events), you can view metrics
--- for top contributors in Amazon CloudWatch metrics. For more information,
--- see
--- <https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#set-ddos-alarms Shield metrics and alarms>
--- in the /WAF Developer Guide/.
-attackDetail_attackProperties :: Lens.Lens' AttackDetail (Prelude.Maybe [AttackProperty])
-attackDetail_attackProperties = Lens.lens (\AttackDetail' {attackProperties} -> attackProperties) (\s@AttackDetail' {} a -> s {attackProperties = a} :: AttackDetail) Prelude.. Lens.mapping Lens.coerced
-
 -- | The time the attack started, in Unix time in seconds.
 attackDetail_startTime :: Lens.Lens' AttackDetail (Prelude.Maybe Prelude.UTCTime)
 attackDetail_startTime = Lens.lens (\AttackDetail' {startTime} -> startTime) (\s@AttackDetail' {} a -> s {startTime = a} :: AttackDetail) Prelude.. Lens.mapping Data._Time
+
+-- | If applicable, additional detail about the resource being attacked, for
+-- example, IP address or URL.
+attackDetail_subResources :: Lens.Lens' AttackDetail (Prelude.Maybe [SubResourceSummary])
+attackDetail_subResources = Lens.lens (\AttackDetail' {subResources} -> subResources) (\s@AttackDetail' {} a -> s {subResources = a} :: AttackDetail) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON AttackDetail where
   parseJSON =
@@ -147,36 +147,36 @@ instance Data.FromJSON AttackDetail where
       "AttackDetail"
       ( \x ->
           AttackDetail'
-            Prelude.<$> (x Data..:? "AttackId")
-            Prelude.<*> (x Data..:? "SubResources" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "EndTime")
-            Prelude.<*> (x Data..:? "Mitigations" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "ResourceArn")
-            Prelude.<*> (x Data..:? "AttackCounters" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "AttackCounters" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "AttackId")
             Prelude.<*> ( x Data..:? "AttackProperties"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "Mitigations" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ResourceArn")
             Prelude.<*> (x Data..:? "StartTime")
+            Prelude.<*> (x Data..:? "SubResources" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AttackDetail where
   hashWithSalt _salt AttackDetail' {..} =
-    _salt `Prelude.hashWithSalt` attackId
-      `Prelude.hashWithSalt` subResources
+    _salt `Prelude.hashWithSalt` attackCounters
+      `Prelude.hashWithSalt` attackId
+      `Prelude.hashWithSalt` attackProperties
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` mitigations
       `Prelude.hashWithSalt` resourceArn
-      `Prelude.hashWithSalt` attackCounters
-      `Prelude.hashWithSalt` attackProperties
       `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` subResources
 
 instance Prelude.NFData AttackDetail where
   rnf AttackDetail' {..} =
-    Prelude.rnf attackId
-      `Prelude.seq` Prelude.rnf subResources
+    Prelude.rnf attackCounters
+      `Prelude.seq` Prelude.rnf attackId
+      `Prelude.seq` Prelude.rnf attackProperties
       `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf mitigations
       `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf attackCounters
-      `Prelude.seq` Prelude.rnf attackProperties
       `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf subResources

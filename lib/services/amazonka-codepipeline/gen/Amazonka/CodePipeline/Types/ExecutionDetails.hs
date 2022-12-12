@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newExecutionDetails' smart constructor.
 data ExecutionDetails = ExecutionDetails'
-  { -- | The summary of the current status of the actions.
-    summary :: Prelude.Maybe Prelude.Text,
-    -- | The system-generated unique ID of this action used to identify this job
+  { -- | The system-generated unique ID of this action used to identify this job
     -- worker in any external systems, such as AWS CodeDeploy.
     externalExecutionId :: Prelude.Maybe Prelude.Text,
     -- | The percentage of work completed on the action, represented on a scale
     -- of 0 to 100 percent.
-    percentComplete :: Prelude.Maybe Prelude.Natural
+    percentComplete :: Prelude.Maybe Prelude.Natural,
+    -- | The summary of the current status of the actions.
+    summary :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,25 +48,22 @@ data ExecutionDetails = ExecutionDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'summary', 'executionDetails_summary' - The summary of the current status of the actions.
---
 -- 'externalExecutionId', 'executionDetails_externalExecutionId' - The system-generated unique ID of this action used to identify this job
 -- worker in any external systems, such as AWS CodeDeploy.
 --
 -- 'percentComplete', 'executionDetails_percentComplete' - The percentage of work completed on the action, represented on a scale
 -- of 0 to 100 percent.
+--
+-- 'summary', 'executionDetails_summary' - The summary of the current status of the actions.
 newExecutionDetails ::
   ExecutionDetails
 newExecutionDetails =
   ExecutionDetails'
-    { summary = Prelude.Nothing,
-      externalExecutionId = Prelude.Nothing,
-      percentComplete = Prelude.Nothing
+    { externalExecutionId =
+        Prelude.Nothing,
+      percentComplete = Prelude.Nothing,
+      summary = Prelude.Nothing
     }
-
--- | The summary of the current status of the actions.
-executionDetails_summary :: Lens.Lens' ExecutionDetails (Prelude.Maybe Prelude.Text)
-executionDetails_summary = Lens.lens (\ExecutionDetails' {summary} -> summary) (\s@ExecutionDetails' {} a -> s {summary = a} :: ExecutionDetails)
 
 -- | The system-generated unique ID of this action used to identify this job
 -- worker in any external systems, such as AWS CodeDeploy.
@@ -78,26 +75,30 @@ executionDetails_externalExecutionId = Lens.lens (\ExecutionDetails' {externalEx
 executionDetails_percentComplete :: Lens.Lens' ExecutionDetails (Prelude.Maybe Prelude.Natural)
 executionDetails_percentComplete = Lens.lens (\ExecutionDetails' {percentComplete} -> percentComplete) (\s@ExecutionDetails' {} a -> s {percentComplete = a} :: ExecutionDetails)
 
+-- | The summary of the current status of the actions.
+executionDetails_summary :: Lens.Lens' ExecutionDetails (Prelude.Maybe Prelude.Text)
+executionDetails_summary = Lens.lens (\ExecutionDetails' {summary} -> summary) (\s@ExecutionDetails' {} a -> s {summary = a} :: ExecutionDetails)
+
 instance Prelude.Hashable ExecutionDetails where
   hashWithSalt _salt ExecutionDetails' {..} =
-    _salt `Prelude.hashWithSalt` summary
-      `Prelude.hashWithSalt` externalExecutionId
+    _salt `Prelude.hashWithSalt` externalExecutionId
       `Prelude.hashWithSalt` percentComplete
+      `Prelude.hashWithSalt` summary
 
 instance Prelude.NFData ExecutionDetails where
   rnf ExecutionDetails' {..} =
-    Prelude.rnf summary
-      `Prelude.seq` Prelude.rnf externalExecutionId
+    Prelude.rnf externalExecutionId
       `Prelude.seq` Prelude.rnf percentComplete
+      `Prelude.seq` Prelude.rnf summary
 
 instance Data.ToJSON ExecutionDetails where
   toJSON ExecutionDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("summary" Data..=) Prelude.<$> summary,
-            ("externalExecutionId" Data..=)
+          [ ("externalExecutionId" Data..=)
               Prelude.<$> externalExecutionId,
             ("percentComplete" Data..=)
-              Prelude.<$> percentComplete
+              Prelude.<$> percentComplete,
+            ("summary" Data..=) Prelude.<$> summary
           ]
       )

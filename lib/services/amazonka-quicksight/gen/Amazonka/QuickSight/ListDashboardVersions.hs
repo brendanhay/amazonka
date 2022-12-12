@@ -30,8 +30,8 @@ module Amazonka.QuickSight.ListDashboardVersions
     newListDashboardVersions,
 
     -- * Request Lenses
-    listDashboardVersions_nextToken,
     listDashboardVersions_maxResults,
+    listDashboardVersions_nextToken,
     listDashboardVersions_awsAccountId,
     listDashboardVersions_dashboardId,
 
@@ -40,9 +40,9 @@ module Amazonka.QuickSight.ListDashboardVersions
     newListDashboardVersionsResponse,
 
     -- * Response Lenses
+    listDashboardVersionsResponse_dashboardVersionSummaryList,
     listDashboardVersionsResponse_nextToken,
     listDashboardVersionsResponse_requestId,
-    listDashboardVersionsResponse_dashboardVersionSummaryList,
     listDashboardVersionsResponse_status,
   )
 where
@@ -57,11 +57,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDashboardVersions' smart constructor.
 data ListDashboardVersions = ListDashboardVersions'
-  { -- | The token for the next set of results, or null if there are no more
+  { -- | The maximum number of results to be returned per request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results, or null if there are no more
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be returned per request.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the Amazon Web Services account that contains the dashboard
     -- that you\'re listing versions for.
     awsAccountId :: Prelude.Text,
@@ -78,10 +78,10 @@ data ListDashboardVersions = ListDashboardVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listDashboardVersions_maxResults' - The maximum number of results to be returned per request.
+--
 -- 'nextToken', 'listDashboardVersions_nextToken' - The token for the next set of results, or null if there are no more
 -- results.
---
--- 'maxResults', 'listDashboardVersions_maxResults' - The maximum number of results to be returned per request.
 --
 -- 'awsAccountId', 'listDashboardVersions_awsAccountId' - The ID of the Amazon Web Services account that contains the dashboard
 -- that you\'re listing versions for.
@@ -95,20 +95,21 @@ newListDashboardVersions ::
   ListDashboardVersions
 newListDashboardVersions pAwsAccountId_ pDashboardId_ =
   ListDashboardVersions'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       awsAccountId = pAwsAccountId_,
       dashboardId = pDashboardId_
     }
+
+-- | The maximum number of results to be returned per request.
+listDashboardVersions_maxResults :: Lens.Lens' ListDashboardVersions (Prelude.Maybe Prelude.Natural)
+listDashboardVersions_maxResults = Lens.lens (\ListDashboardVersions' {maxResults} -> maxResults) (\s@ListDashboardVersions' {} a -> s {maxResults = a} :: ListDashboardVersions)
 
 -- | The token for the next set of results, or null if there are no more
 -- results.
 listDashboardVersions_nextToken :: Lens.Lens' ListDashboardVersions (Prelude.Maybe Prelude.Text)
 listDashboardVersions_nextToken = Lens.lens (\ListDashboardVersions' {nextToken} -> nextToken) (\s@ListDashboardVersions' {} a -> s {nextToken = a} :: ListDashboardVersions)
-
--- | The maximum number of results to be returned per request.
-listDashboardVersions_maxResults :: Lens.Lens' ListDashboardVersions (Prelude.Maybe Prelude.Natural)
-listDashboardVersions_maxResults = Lens.lens (\ListDashboardVersions' {maxResults} -> maxResults) (\s@ListDashboardVersions' {} a -> s {maxResults = a} :: ListDashboardVersions)
 
 -- | The ID of the Amazon Web Services account that contains the dashboard
 -- that you\'re listing versions for.
@@ -151,25 +152,25 @@ instance Core.AWSRequest ListDashboardVersions where
     Response.receiveJSON
       ( \s h x ->
           ListDashboardVersionsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "RequestId")
-            Prelude.<*> ( x Data..?> "DashboardVersionSummaryList"
+            Prelude.<$> ( x Data..?> "DashboardVersionSummaryList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListDashboardVersions where
   hashWithSalt _salt ListDashboardVersions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` dashboardId
 
 instance Prelude.NFData ListDashboardVersions where
   rnf ListDashboardVersions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf dashboardId
 
@@ -197,20 +198,20 @@ instance Data.ToPath ListDashboardVersions where
 instance Data.ToQuery ListDashboardVersions where
   toQuery ListDashboardVersions' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
-        "max-results" Data.=: maxResults
+      [ "max-results" Data.=: maxResults,
+        "next-token" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListDashboardVersionsResponse' smart constructor.
 data ListDashboardVersionsResponse = ListDashboardVersionsResponse'
-  { -- | The token for the next set of results, or null if there are no more
+  { -- | A structure that contains information about each version of the
+    -- dashboard.
+    dashboardVersionSummaryList :: Prelude.Maybe [DashboardVersionSummary],
+    -- | The token for the next set of results, or null if there are no more
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Maybe Prelude.Text,
-    -- | A structure that contains information about each version of the
-    -- dashboard.
-    dashboardVersionSummaryList :: Prelude.Maybe [DashboardVersionSummary],
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -224,13 +225,13 @@ data ListDashboardVersionsResponse = ListDashboardVersionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dashboardVersionSummaryList', 'listDashboardVersionsResponse_dashboardVersionSummaryList' - A structure that contains information about each version of the
+-- dashboard.
+--
 -- 'nextToken', 'listDashboardVersionsResponse_nextToken' - The token for the next set of results, or null if there are no more
 -- results.
 --
 -- 'requestId', 'listDashboardVersionsResponse_requestId' - The Amazon Web Services request ID for this operation.
---
--- 'dashboardVersionSummaryList', 'listDashboardVersionsResponse_dashboardVersionSummaryList' - A structure that contains information about each version of the
--- dashboard.
 --
 -- 'status', 'listDashboardVersionsResponse_status' - The HTTP status of the request.
 newListDashboardVersionsResponse ::
@@ -239,13 +240,17 @@ newListDashboardVersionsResponse ::
   ListDashboardVersionsResponse
 newListDashboardVersionsResponse pStatus_ =
   ListDashboardVersionsResponse'
-    { nextToken =
+    { dashboardVersionSummaryList =
         Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       requestId = Prelude.Nothing,
-      dashboardVersionSummaryList =
-        Prelude.Nothing,
       status = pStatus_
     }
+
+-- | A structure that contains information about each version of the
+-- dashboard.
+listDashboardVersionsResponse_dashboardVersionSummaryList :: Lens.Lens' ListDashboardVersionsResponse (Prelude.Maybe [DashboardVersionSummary])
+listDashboardVersionsResponse_dashboardVersionSummaryList = Lens.lens (\ListDashboardVersionsResponse' {dashboardVersionSummaryList} -> dashboardVersionSummaryList) (\s@ListDashboardVersionsResponse' {} a -> s {dashboardVersionSummaryList = a} :: ListDashboardVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results, or null if there are no more
 -- results.
@@ -256,18 +261,13 @@ listDashboardVersionsResponse_nextToken = Lens.lens (\ListDashboardVersionsRespo
 listDashboardVersionsResponse_requestId :: Lens.Lens' ListDashboardVersionsResponse (Prelude.Maybe Prelude.Text)
 listDashboardVersionsResponse_requestId = Lens.lens (\ListDashboardVersionsResponse' {requestId} -> requestId) (\s@ListDashboardVersionsResponse' {} a -> s {requestId = a} :: ListDashboardVersionsResponse)
 
--- | A structure that contains information about each version of the
--- dashboard.
-listDashboardVersionsResponse_dashboardVersionSummaryList :: Lens.Lens' ListDashboardVersionsResponse (Prelude.Maybe [DashboardVersionSummary])
-listDashboardVersionsResponse_dashboardVersionSummaryList = Lens.lens (\ListDashboardVersionsResponse' {dashboardVersionSummaryList} -> dashboardVersionSummaryList) (\s@ListDashboardVersionsResponse' {} a -> s {dashboardVersionSummaryList = a} :: ListDashboardVersionsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The HTTP status of the request.
 listDashboardVersionsResponse_status :: Lens.Lens' ListDashboardVersionsResponse Prelude.Int
 listDashboardVersionsResponse_status = Lens.lens (\ListDashboardVersionsResponse' {status} -> status) (\s@ListDashboardVersionsResponse' {} a -> s {status = a} :: ListDashboardVersionsResponse)
 
 instance Prelude.NFData ListDashboardVersionsResponse where
   rnf ListDashboardVersionsResponse' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf dashboardVersionSummaryList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf dashboardVersionSummaryList
       `Prelude.seq` Prelude.rnf status

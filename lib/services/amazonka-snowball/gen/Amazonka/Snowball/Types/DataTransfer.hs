@@ -31,7 +31,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDataTransfer' smart constructor.
 data DataTransfer = DataTransfer'
-  { -- | The number of objects transferred between a Snow device and Amazon S3.
+  { -- | The number of bytes transferred between a Snow device and Amazon S3.
+    bytesTransferred :: Prelude.Maybe Prelude.Integer,
+    -- | The number of objects transferred between a Snow device and Amazon S3.
     objectsTransferred :: Prelude.Maybe Prelude.Integer,
     -- | The total bytes of data for a transfer between a Snow device and Amazon
     -- S3. This value is set to 0 (zero) until all the keys that will be
@@ -40,9 +42,7 @@ data DataTransfer = DataTransfer'
     -- | The total number of objects for a transfer between a Snow device and
     -- Amazon S3. This value is set to 0 (zero) until all the keys that will be
     -- transferred have been listed.
-    totalObjects :: Prelude.Maybe Prelude.Integer,
-    -- | The number of bytes transferred between a Snow device and Amazon S3.
-    bytesTransferred :: Prelude.Maybe Prelude.Integer
+    totalObjects :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,6 +54,8 @@ data DataTransfer = DataTransfer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'bytesTransferred', 'dataTransfer_bytesTransferred' - The number of bytes transferred between a Snow device and Amazon S3.
+--
 -- 'objectsTransferred', 'dataTransfer_objectsTransferred' - The number of objects transferred between a Snow device and Amazon S3.
 --
 -- 'totalBytes', 'dataTransfer_totalBytes' - The total bytes of data for a transfer between a Snow device and Amazon
@@ -63,17 +65,19 @@ data DataTransfer = DataTransfer'
 -- 'totalObjects', 'dataTransfer_totalObjects' - The total number of objects for a transfer between a Snow device and
 -- Amazon S3. This value is set to 0 (zero) until all the keys that will be
 -- transferred have been listed.
---
--- 'bytesTransferred', 'dataTransfer_bytesTransferred' - The number of bytes transferred between a Snow device and Amazon S3.
 newDataTransfer ::
   DataTransfer
 newDataTransfer =
   DataTransfer'
-    { objectsTransferred = Prelude.Nothing,
+    { bytesTransferred = Prelude.Nothing,
+      objectsTransferred = Prelude.Nothing,
       totalBytes = Prelude.Nothing,
-      totalObjects = Prelude.Nothing,
-      bytesTransferred = Prelude.Nothing
+      totalObjects = Prelude.Nothing
     }
+
+-- | The number of bytes transferred between a Snow device and Amazon S3.
+dataTransfer_bytesTransferred :: Lens.Lens' DataTransfer (Prelude.Maybe Prelude.Integer)
+dataTransfer_bytesTransferred = Lens.lens (\DataTransfer' {bytesTransferred} -> bytesTransferred) (\s@DataTransfer' {} a -> s {bytesTransferred = a} :: DataTransfer)
 
 -- | The number of objects transferred between a Snow device and Amazon S3.
 dataTransfer_objectsTransferred :: Lens.Lens' DataTransfer (Prelude.Maybe Prelude.Integer)
@@ -91,32 +95,28 @@ dataTransfer_totalBytes = Lens.lens (\DataTransfer' {totalBytes} -> totalBytes) 
 dataTransfer_totalObjects :: Lens.Lens' DataTransfer (Prelude.Maybe Prelude.Integer)
 dataTransfer_totalObjects = Lens.lens (\DataTransfer' {totalObjects} -> totalObjects) (\s@DataTransfer' {} a -> s {totalObjects = a} :: DataTransfer)
 
--- | The number of bytes transferred between a Snow device and Amazon S3.
-dataTransfer_bytesTransferred :: Lens.Lens' DataTransfer (Prelude.Maybe Prelude.Integer)
-dataTransfer_bytesTransferred = Lens.lens (\DataTransfer' {bytesTransferred} -> bytesTransferred) (\s@DataTransfer' {} a -> s {bytesTransferred = a} :: DataTransfer)
-
 instance Data.FromJSON DataTransfer where
   parseJSON =
     Data.withObject
       "DataTransfer"
       ( \x ->
           DataTransfer'
-            Prelude.<$> (x Data..:? "ObjectsTransferred")
+            Prelude.<$> (x Data..:? "BytesTransferred")
+            Prelude.<*> (x Data..:? "ObjectsTransferred")
             Prelude.<*> (x Data..:? "TotalBytes")
             Prelude.<*> (x Data..:? "TotalObjects")
-            Prelude.<*> (x Data..:? "BytesTransferred")
       )
 
 instance Prelude.Hashable DataTransfer where
   hashWithSalt _salt DataTransfer' {..} =
-    _salt `Prelude.hashWithSalt` objectsTransferred
+    _salt `Prelude.hashWithSalt` bytesTransferred
+      `Prelude.hashWithSalt` objectsTransferred
       `Prelude.hashWithSalt` totalBytes
       `Prelude.hashWithSalt` totalObjects
-      `Prelude.hashWithSalt` bytesTransferred
 
 instance Prelude.NFData DataTransfer where
   rnf DataTransfer' {..} =
-    Prelude.rnf objectsTransferred
+    Prelude.rnf bytesTransferred
+      `Prelude.seq` Prelude.rnf objectsTransferred
       `Prelude.seq` Prelude.rnf totalBytes
       `Prelude.seq` Prelude.rnf totalObjects
-      `Prelude.seq` Prelude.rnf bytesTransferred

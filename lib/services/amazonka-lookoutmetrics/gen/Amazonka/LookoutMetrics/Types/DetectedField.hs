@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDetectedField' smart constructor.
 data DetectedField = DetectedField'
-  { -- | The field\'s message.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The field\'s confidence.
+  { -- | The field\'s confidence.
     confidence :: Prelude.Maybe Confidence,
+    -- | The field\'s message.
+    message :: Prelude.Maybe Prelude.Text,
     -- | The field\'s value.
     value :: Prelude.Maybe AttributeValue
   }
@@ -47,27 +47,27 @@ data DetectedField = DetectedField'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'detectedField_message' - The field\'s message.
---
 -- 'confidence', 'detectedField_confidence' - The field\'s confidence.
+--
+-- 'message', 'detectedField_message' - The field\'s message.
 --
 -- 'value', 'detectedField_value' - The field\'s value.
 newDetectedField ::
   DetectedField
 newDetectedField =
   DetectedField'
-    { message = Prelude.Nothing,
-      confidence = Prelude.Nothing,
+    { confidence = Prelude.Nothing,
+      message = Prelude.Nothing,
       value = Prelude.Nothing
     }
-
--- | The field\'s message.
-detectedField_message :: Lens.Lens' DetectedField (Prelude.Maybe Prelude.Text)
-detectedField_message = Lens.lens (\DetectedField' {message} -> message) (\s@DetectedField' {} a -> s {message = a} :: DetectedField)
 
 -- | The field\'s confidence.
 detectedField_confidence :: Lens.Lens' DetectedField (Prelude.Maybe Confidence)
 detectedField_confidence = Lens.lens (\DetectedField' {confidence} -> confidence) (\s@DetectedField' {} a -> s {confidence = a} :: DetectedField)
+
+-- | The field\'s message.
+detectedField_message :: Lens.Lens' DetectedField (Prelude.Maybe Prelude.Text)
+detectedField_message = Lens.lens (\DetectedField' {message} -> message) (\s@DetectedField' {} a -> s {message = a} :: DetectedField)
 
 -- | The field\'s value.
 detectedField_value :: Lens.Lens' DetectedField (Prelude.Maybe AttributeValue)
@@ -79,19 +79,19 @@ instance Data.FromJSON DetectedField where
       "DetectedField"
       ( \x ->
           DetectedField'
-            Prelude.<$> (x Data..:? "Message")
-            Prelude.<*> (x Data..:? "Confidence")
+            Prelude.<$> (x Data..:? "Confidence")
+            Prelude.<*> (x Data..:? "Message")
             Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable DetectedField where
   hashWithSalt _salt DetectedField' {..} =
-    _salt `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` confidence
+    _salt `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData DetectedField where
   rnf DetectedField' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf confidence
+    Prelude.rnf confidence
+      `Prelude.seq` Prelude.rnf message
       `Prelude.seq` Prelude.rnf value

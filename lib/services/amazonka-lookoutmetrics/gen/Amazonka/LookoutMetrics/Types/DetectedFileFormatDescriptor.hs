@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDetectedFileFormatDescriptor' smart constructor.
 data DetectedFileFormatDescriptor = DetectedFileFormatDescriptor'
-  { -- | Details about a JSON format.
-    jsonFormatDescriptor :: Prelude.Maybe DetectedJsonFormatDescriptor,
-    -- | Details about a CSV format.
-    csvFormatDescriptor :: Prelude.Maybe DetectedCsvFormatDescriptor
+  { -- | Details about a CSV format.
+    csvFormatDescriptor :: Prelude.Maybe DetectedCsvFormatDescriptor,
+    -- | Details about a JSON format.
+    jsonFormatDescriptor :: Prelude.Maybe DetectedJsonFormatDescriptor
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,25 +45,25 @@ data DetectedFileFormatDescriptor = DetectedFileFormatDescriptor'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jsonFormatDescriptor', 'detectedFileFormatDescriptor_jsonFormatDescriptor' - Details about a JSON format.
---
 -- 'csvFormatDescriptor', 'detectedFileFormatDescriptor_csvFormatDescriptor' - Details about a CSV format.
+--
+-- 'jsonFormatDescriptor', 'detectedFileFormatDescriptor_jsonFormatDescriptor' - Details about a JSON format.
 newDetectedFileFormatDescriptor ::
   DetectedFileFormatDescriptor
 newDetectedFileFormatDescriptor =
   DetectedFileFormatDescriptor'
-    { jsonFormatDescriptor =
+    { csvFormatDescriptor =
         Prelude.Nothing,
-      csvFormatDescriptor = Prelude.Nothing
+      jsonFormatDescriptor = Prelude.Nothing
     }
-
--- | Details about a JSON format.
-detectedFileFormatDescriptor_jsonFormatDescriptor :: Lens.Lens' DetectedFileFormatDescriptor (Prelude.Maybe DetectedJsonFormatDescriptor)
-detectedFileFormatDescriptor_jsonFormatDescriptor = Lens.lens (\DetectedFileFormatDescriptor' {jsonFormatDescriptor} -> jsonFormatDescriptor) (\s@DetectedFileFormatDescriptor' {} a -> s {jsonFormatDescriptor = a} :: DetectedFileFormatDescriptor)
 
 -- | Details about a CSV format.
 detectedFileFormatDescriptor_csvFormatDescriptor :: Lens.Lens' DetectedFileFormatDescriptor (Prelude.Maybe DetectedCsvFormatDescriptor)
 detectedFileFormatDescriptor_csvFormatDescriptor = Lens.lens (\DetectedFileFormatDescriptor' {csvFormatDescriptor} -> csvFormatDescriptor) (\s@DetectedFileFormatDescriptor' {} a -> s {csvFormatDescriptor = a} :: DetectedFileFormatDescriptor)
+
+-- | Details about a JSON format.
+detectedFileFormatDescriptor_jsonFormatDescriptor :: Lens.Lens' DetectedFileFormatDescriptor (Prelude.Maybe DetectedJsonFormatDescriptor)
+detectedFileFormatDescriptor_jsonFormatDescriptor = Lens.lens (\DetectedFileFormatDescriptor' {jsonFormatDescriptor} -> jsonFormatDescriptor) (\s@DetectedFileFormatDescriptor' {} a -> s {jsonFormatDescriptor = a} :: DetectedFileFormatDescriptor)
 
 instance Data.FromJSON DetectedFileFormatDescriptor where
   parseJSON =
@@ -71,8 +71,8 @@ instance Data.FromJSON DetectedFileFormatDescriptor where
       "DetectedFileFormatDescriptor"
       ( \x ->
           DetectedFileFormatDescriptor'
-            Prelude.<$> (x Data..:? "JsonFormatDescriptor")
-            Prelude.<*> (x Data..:? "CsvFormatDescriptor")
+            Prelude.<$> (x Data..:? "CsvFormatDescriptor")
+            Prelude.<*> (x Data..:? "JsonFormatDescriptor")
       )
 
 instance
@@ -80,10 +80,10 @@ instance
     DetectedFileFormatDescriptor
   where
   hashWithSalt _salt DetectedFileFormatDescriptor' {..} =
-    _salt `Prelude.hashWithSalt` jsonFormatDescriptor
-      `Prelude.hashWithSalt` csvFormatDescriptor
+    _salt `Prelude.hashWithSalt` csvFormatDescriptor
+      `Prelude.hashWithSalt` jsonFormatDescriptor
 
 instance Prelude.NFData DetectedFileFormatDescriptor where
   rnf DetectedFileFormatDescriptor' {..} =
-    Prelude.rnf jsonFormatDescriptor
-      `Prelude.seq` Prelude.rnf csvFormatDescriptor
+    Prelude.rnf csvFormatDescriptor
+      `Prelude.seq` Prelude.rnf jsonFormatDescriptor

@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCreateThemeData' smart constructor.
 data CreateThemeData = CreateThemeData'
-  { -- | One or more key-value pairs to use when tagging the theme data.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Describes the properties that can be overriden to customize an instance
+  { -- | Describes the properties that can be overriden to customize an instance
     -- of the theme.
     overrides :: Prelude.Maybe [ThemeValues],
+    -- | One or more key-value pairs to use when tagging the theme data.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the theme.
     name :: Prelude.Text,
     -- | A list of key-value pairs that deﬁnes the properties of the theme.
@@ -49,10 +49,10 @@ data CreateThemeData = CreateThemeData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createThemeData_tags' - One or more key-value pairs to use when tagging the theme data.
---
 -- 'overrides', 'createThemeData_overrides' - Describes the properties that can be overriden to customize an instance
 -- of the theme.
+--
+-- 'tags', 'createThemeData_tags' - One or more key-value pairs to use when tagging the theme data.
 --
 -- 'name', 'createThemeData_name' - The name of the theme.
 --
@@ -63,20 +63,20 @@ newCreateThemeData ::
   CreateThemeData
 newCreateThemeData pName_ =
   CreateThemeData'
-    { tags = Prelude.Nothing,
-      overrides = Prelude.Nothing,
+    { overrides = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_,
       values = Prelude.mempty
     }
-
--- | One or more key-value pairs to use when tagging the theme data.
-createThemeData_tags :: Lens.Lens' CreateThemeData (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createThemeData_tags = Lens.lens (\CreateThemeData' {tags} -> tags) (\s@CreateThemeData' {} a -> s {tags = a} :: CreateThemeData) Prelude.. Lens.mapping Lens.coerced
 
 -- | Describes the properties that can be overriden to customize an instance
 -- of the theme.
 createThemeData_overrides :: Lens.Lens' CreateThemeData (Prelude.Maybe [ThemeValues])
 createThemeData_overrides = Lens.lens (\CreateThemeData' {overrides} -> overrides) (\s@CreateThemeData' {} a -> s {overrides = a} :: CreateThemeData) Prelude.. Lens.mapping Lens.coerced
+
+-- | One or more key-value pairs to use when tagging the theme data.
+createThemeData_tags :: Lens.Lens' CreateThemeData (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createThemeData_tags = Lens.lens (\CreateThemeData' {tags} -> tags) (\s@CreateThemeData' {} a -> s {tags = a} :: CreateThemeData) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the theme.
 createThemeData_name :: Lens.Lens' CreateThemeData Prelude.Text
@@ -88,15 +88,15 @@ createThemeData_values = Lens.lens (\CreateThemeData' {values} -> values) (\s@Cr
 
 instance Prelude.Hashable CreateThemeData where
   hashWithSalt _salt CreateThemeData' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` overrides
+    _salt `Prelude.hashWithSalt` overrides
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData CreateThemeData where
   rnf CreateThemeData' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf overrides
+    Prelude.rnf overrides
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf values
 
@@ -104,8 +104,8 @@ instance Data.ToJSON CreateThemeData where
   toJSON CreateThemeData' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("overrides" Data..=) Prelude.<$> overrides,
+          [ ("overrides" Data..=) Prelude.<$> overrides,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("name" Data..= name),
             Prelude.Just ("values" Data..= values)
           ]

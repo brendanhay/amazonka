@@ -29,17 +29,17 @@ module Amazonka.LicenseManagerUserSubscriptions.ListInstances
     newListInstances,
 
     -- * Request Lenses
-    listInstances_nextToken,
     listInstances_filters,
     listInstances_maxResults,
+    listInstances_nextToken,
 
     -- * Destructuring the Response
     ListInstancesResponse (..),
     newListInstancesResponse,
 
     -- * Response Lenses
-    listInstancesResponse_nextToken,
     listInstancesResponse_instanceSummaries,
+    listInstancesResponse_nextToken,
     listInstancesResponse_httpStatus,
   )
 where
@@ -54,13 +54,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListInstances' smart constructor.
 data ListInstances = ListInstances'
-  { -- | Token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of structures that you can use to filter the results to those
+  { -- | An array of structures that you can use to filter the results to those
     -- that match one or more sets of key-value pairs that you specify.
     filters :: Prelude.Maybe [Filter],
     -- | Maximum number of results to return in a single call.
-    maxResults :: Prelude.Maybe Prelude.Int
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | Token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,24 +72,20 @@ data ListInstances = ListInstances'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listInstances_nextToken' - Token for the next set of results.
---
 -- 'filters', 'listInstances_filters' - An array of structures that you can use to filter the results to those
 -- that match one or more sets of key-value pairs that you specify.
 --
 -- 'maxResults', 'listInstances_maxResults' - Maximum number of results to return in a single call.
+--
+-- 'nextToken', 'listInstances_nextToken' - Token for the next set of results.
 newListInstances ::
   ListInstances
 newListInstances =
   ListInstances'
-    { nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | Token for the next set of results.
-listInstances_nextToken :: Lens.Lens' ListInstances (Prelude.Maybe Prelude.Text)
-listInstances_nextToken = Lens.lens (\ListInstances' {nextToken} -> nextToken) (\s@ListInstances' {} a -> s {nextToken = a} :: ListInstances)
 
 -- | An array of structures that you can use to filter the results to those
 -- that match one or more sets of key-value pairs that you specify.
@@ -99,6 +95,10 @@ listInstances_filters = Lens.lens (\ListInstances' {filters} -> filters) (\s@Lis
 -- | Maximum number of results to return in a single call.
 listInstances_maxResults :: Lens.Lens' ListInstances (Prelude.Maybe Prelude.Int)
 listInstances_maxResults = Lens.lens (\ListInstances' {maxResults} -> maxResults) (\s@ListInstances' {} a -> s {maxResults = a} :: ListInstances)
+
+-- | Token for the next set of results.
+listInstances_nextToken :: Lens.Lens' ListInstances (Prelude.Maybe Prelude.Text)
+listInstances_nextToken = Lens.lens (\ListInstances' {nextToken} -> nextToken) (\s@ListInstances' {} a -> s {nextToken = a} :: ListInstances)
 
 instance Core.AWSPager ListInstances where
   page rq rs
@@ -130,24 +130,24 @@ instance Core.AWSRequest ListInstances where
     Response.receiveJSON
       ( \s h x ->
           ListInstancesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "InstanceSummaries"
+            Prelude.<$> ( x Data..?> "InstanceSummaries"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListInstances where
   hashWithSalt _salt ListInstances' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListInstances where
   rnf ListInstances' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListInstances where
   toHeaders =
@@ -164,9 +164,9 @@ instance Data.ToJSON ListInstances where
   toJSON ListInstances' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -178,10 +178,10 @@ instance Data.ToQuery ListInstances where
 
 -- | /See:/ 'newListInstancesResponse' smart constructor.
 data ListInstancesResponse = ListInstancesResponse'
-  { -- | Token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Metadata that describes the list instances operation.
+  { -- | Metadata that describes the list instances operation.
     instanceSummaries :: Prelude.Maybe [InstanceSummary],
+    -- | Token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -195,9 +195,9 @@ data ListInstancesResponse = ListInstancesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listInstancesResponse_nextToken' - Token for the next set of results.
---
 -- 'instanceSummaries', 'listInstancesResponse_instanceSummaries' - Metadata that describes the list instances operation.
+--
+-- 'nextToken', 'listInstancesResponse_nextToken' - Token for the next set of results.
 --
 -- 'httpStatus', 'listInstancesResponse_httpStatus' - The response's http status code.
 newListInstancesResponse ::
@@ -206,18 +206,19 @@ newListInstancesResponse ::
   ListInstancesResponse
 newListInstancesResponse pHttpStatus_ =
   ListInstancesResponse'
-    { nextToken = Prelude.Nothing,
-      instanceSummaries = Prelude.Nothing,
+    { instanceSummaries =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Token for the next set of results.
-listInstancesResponse_nextToken :: Lens.Lens' ListInstancesResponse (Prelude.Maybe Prelude.Text)
-listInstancesResponse_nextToken = Lens.lens (\ListInstancesResponse' {nextToken} -> nextToken) (\s@ListInstancesResponse' {} a -> s {nextToken = a} :: ListInstancesResponse)
 
 -- | Metadata that describes the list instances operation.
 listInstancesResponse_instanceSummaries :: Lens.Lens' ListInstancesResponse (Prelude.Maybe [InstanceSummary])
 listInstancesResponse_instanceSummaries = Lens.lens (\ListInstancesResponse' {instanceSummaries} -> instanceSummaries) (\s@ListInstancesResponse' {} a -> s {instanceSummaries = a} :: ListInstancesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Token for the next set of results.
+listInstancesResponse_nextToken :: Lens.Lens' ListInstancesResponse (Prelude.Maybe Prelude.Text)
+listInstancesResponse_nextToken = Lens.lens (\ListInstancesResponse' {nextToken} -> nextToken) (\s@ListInstancesResponse' {} a -> s {nextToken = a} :: ListInstancesResponse)
 
 -- | The response's http status code.
 listInstancesResponse_httpStatus :: Lens.Lens' ListInstancesResponse Prelude.Int
@@ -225,6 +226,6 @@ listInstancesResponse_httpStatus = Lens.lens (\ListInstancesResponse' {httpStatu
 
 instance Prelude.NFData ListInstancesResponse where
   rnf ListInstancesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instanceSummaries
+    Prelude.rnf instanceSummaries
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

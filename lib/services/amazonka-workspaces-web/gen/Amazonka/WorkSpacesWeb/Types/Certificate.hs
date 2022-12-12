@@ -28,18 +28,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCertificate' smart constructor.
 data Certificate = Certificate'
-  { -- | The entity that issued the certificate.
+  { -- | The body of the certificate.
+    body :: Prelude.Maybe Data.Base64,
+    -- | The entity that issued the certificate.
     issuer :: Prelude.Maybe Prelude.Text,
     -- | The certificate is not valid after this date.
     notValidAfter :: Prelude.Maybe Data.POSIX,
-    -- | A hexadecimal identifier for the certificate.
-    thumbprint :: Prelude.Maybe Prelude.Text,
-    -- | The body of the certificate.
-    body :: Prelude.Maybe Data.Base64,
     -- | The certificate is not valid before this date.
     notValidBefore :: Prelude.Maybe Data.POSIX,
     -- | The entity the certificate belongs to.
-    subject :: Prelude.Maybe Prelude.Text
+    subject :: Prelude.Maybe Prelude.Text,
+    -- | A hexadecimal identifier for the certificate.
+    thumbprint :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,44 +51,32 @@ data Certificate = Certificate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'issuer', 'certificate_issuer' - The entity that issued the certificate.
---
--- 'notValidAfter', 'certificate_notValidAfter' - The certificate is not valid after this date.
---
--- 'thumbprint', 'certificate_thumbprint' - A hexadecimal identifier for the certificate.
---
 -- 'body', 'certificate_body' - The body of the certificate.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 --
+-- 'issuer', 'certificate_issuer' - The entity that issued the certificate.
+--
+-- 'notValidAfter', 'certificate_notValidAfter' - The certificate is not valid after this date.
+--
 -- 'notValidBefore', 'certificate_notValidBefore' - The certificate is not valid before this date.
 --
 -- 'subject', 'certificate_subject' - The entity the certificate belongs to.
+--
+-- 'thumbprint', 'certificate_thumbprint' - A hexadecimal identifier for the certificate.
 newCertificate ::
   Certificate
 newCertificate =
   Certificate'
-    { issuer = Prelude.Nothing,
+    { body = Prelude.Nothing,
+      issuer = Prelude.Nothing,
       notValidAfter = Prelude.Nothing,
-      thumbprint = Prelude.Nothing,
-      body = Prelude.Nothing,
       notValidBefore = Prelude.Nothing,
-      subject = Prelude.Nothing
+      subject = Prelude.Nothing,
+      thumbprint = Prelude.Nothing
     }
-
--- | The entity that issued the certificate.
-certificate_issuer :: Lens.Lens' Certificate (Prelude.Maybe Prelude.Text)
-certificate_issuer = Lens.lens (\Certificate' {issuer} -> issuer) (\s@Certificate' {} a -> s {issuer = a} :: Certificate)
-
--- | The certificate is not valid after this date.
-certificate_notValidAfter :: Lens.Lens' Certificate (Prelude.Maybe Prelude.UTCTime)
-certificate_notValidAfter = Lens.lens (\Certificate' {notValidAfter} -> notValidAfter) (\s@Certificate' {} a -> s {notValidAfter = a} :: Certificate) Prelude.. Lens.mapping Data._Time
-
--- | A hexadecimal identifier for the certificate.
-certificate_thumbprint :: Lens.Lens' Certificate (Prelude.Maybe Prelude.Text)
-certificate_thumbprint = Lens.lens (\Certificate' {thumbprint} -> thumbprint) (\s@Certificate' {} a -> s {thumbprint = a} :: Certificate)
 
 -- | The body of the certificate.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -98,6 +86,14 @@ certificate_thumbprint = Lens.lens (\Certificate' {thumbprint} -> thumbprint) (\
 certificate_body :: Lens.Lens' Certificate (Prelude.Maybe Prelude.ByteString)
 certificate_body = Lens.lens (\Certificate' {body} -> body) (\s@Certificate' {} a -> s {body = a} :: Certificate) Prelude.. Lens.mapping Data._Base64
 
+-- | The entity that issued the certificate.
+certificate_issuer :: Lens.Lens' Certificate (Prelude.Maybe Prelude.Text)
+certificate_issuer = Lens.lens (\Certificate' {issuer} -> issuer) (\s@Certificate' {} a -> s {issuer = a} :: Certificate)
+
+-- | The certificate is not valid after this date.
+certificate_notValidAfter :: Lens.Lens' Certificate (Prelude.Maybe Prelude.UTCTime)
+certificate_notValidAfter = Lens.lens (\Certificate' {notValidAfter} -> notValidAfter) (\s@Certificate' {} a -> s {notValidAfter = a} :: Certificate) Prelude.. Lens.mapping Data._Time
+
 -- | The certificate is not valid before this date.
 certificate_notValidBefore :: Lens.Lens' Certificate (Prelude.Maybe Prelude.UTCTime)
 certificate_notValidBefore = Lens.lens (\Certificate' {notValidBefore} -> notValidBefore) (\s@Certificate' {} a -> s {notValidBefore = a} :: Certificate) Prelude.. Lens.mapping Data._Time
@@ -106,34 +102,38 @@ certificate_notValidBefore = Lens.lens (\Certificate' {notValidBefore} -> notVal
 certificate_subject :: Lens.Lens' Certificate (Prelude.Maybe Prelude.Text)
 certificate_subject = Lens.lens (\Certificate' {subject} -> subject) (\s@Certificate' {} a -> s {subject = a} :: Certificate)
 
+-- | A hexadecimal identifier for the certificate.
+certificate_thumbprint :: Lens.Lens' Certificate (Prelude.Maybe Prelude.Text)
+certificate_thumbprint = Lens.lens (\Certificate' {thumbprint} -> thumbprint) (\s@Certificate' {} a -> s {thumbprint = a} :: Certificate)
+
 instance Data.FromJSON Certificate where
   parseJSON =
     Data.withObject
       "Certificate"
       ( \x ->
           Certificate'
-            Prelude.<$> (x Data..:? "issuer")
+            Prelude.<$> (x Data..:? "body")
+            Prelude.<*> (x Data..:? "issuer")
             Prelude.<*> (x Data..:? "notValidAfter")
-            Prelude.<*> (x Data..:? "thumbprint")
-            Prelude.<*> (x Data..:? "body")
             Prelude.<*> (x Data..:? "notValidBefore")
             Prelude.<*> (x Data..:? "subject")
+            Prelude.<*> (x Data..:? "thumbprint")
       )
 
 instance Prelude.Hashable Certificate where
   hashWithSalt _salt Certificate' {..} =
-    _salt `Prelude.hashWithSalt` issuer
+    _salt `Prelude.hashWithSalt` body
+      `Prelude.hashWithSalt` issuer
       `Prelude.hashWithSalt` notValidAfter
-      `Prelude.hashWithSalt` thumbprint
-      `Prelude.hashWithSalt` body
       `Prelude.hashWithSalt` notValidBefore
       `Prelude.hashWithSalt` subject
+      `Prelude.hashWithSalt` thumbprint
 
 instance Prelude.NFData Certificate where
   rnf Certificate' {..} =
-    Prelude.rnf issuer
+    Prelude.rnf body
+      `Prelude.seq` Prelude.rnf issuer
       `Prelude.seq` Prelude.rnf notValidAfter
-      `Prelude.seq` Prelude.rnf thumbprint
-      `Prelude.seq` Prelude.rnf body
       `Prelude.seq` Prelude.rnf notValidBefore
       `Prelude.seq` Prelude.rnf subject
+      `Prelude.seq` Prelude.rnf thumbprint

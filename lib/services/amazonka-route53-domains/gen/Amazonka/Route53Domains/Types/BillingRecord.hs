@@ -29,9 +29,7 @@ import Amazonka.Route53Domains.Types.OperationType
 --
 -- /See:/ 'newBillingRecord' smart constructor.
 data BillingRecord = BillingRecord'
-  { -- | The ID of the invoice that is associated with the billing record.
-    invoiceId :: Prelude.Maybe Prelude.Text,
-    -- | The date that the operation was billed, in Unix format.
+  { -- | The date that the operation was billed, in Unix format.
     billDate :: Prelude.Maybe Data.POSIX,
     -- | The name of the domain that the billing record applies to. If the domain
     -- name contains characters other than a-z, 0-9, and - (hyphen), such as an
@@ -40,12 +38,14 @@ data BillingRecord = BillingRecord'
     -- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html DNS Domain Name Format>
     -- in the /Amazon Route 53 Developer Guide/.
     domainName :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the invoice that is associated with the billing record.
+    invoiceId :: Prelude.Maybe Prelude.Text,
+    -- | The operation that you were charged for.
+    operation :: Prelude.Maybe OperationType,
     -- | The price that you were charged for the operation, in US dollars.
     --
     -- Example value: 12.0
-    price :: Prelude.Maybe Prelude.Double,
-    -- | The operation that you were charged for.
-    operation :: Prelude.Maybe OperationType
+    price :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,8 +57,6 @@ data BillingRecord = BillingRecord'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'invoiceId', 'billingRecord_invoiceId' - The ID of the invoice that is associated with the billing record.
---
 -- 'billDate', 'billingRecord_billDate' - The date that the operation was billed, in Unix format.
 --
 -- 'domainName', 'billingRecord_domainName' - The name of the domain that the billing record applies to. If the domain
@@ -68,25 +66,23 @@ data BillingRecord = BillingRecord'
 -- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html DNS Domain Name Format>
 -- in the /Amazon Route 53 Developer Guide/.
 --
+-- 'invoiceId', 'billingRecord_invoiceId' - The ID of the invoice that is associated with the billing record.
+--
+-- 'operation', 'billingRecord_operation' - The operation that you were charged for.
+--
 -- 'price', 'billingRecord_price' - The price that you were charged for the operation, in US dollars.
 --
 -- Example value: 12.0
---
--- 'operation', 'billingRecord_operation' - The operation that you were charged for.
 newBillingRecord ::
   BillingRecord
 newBillingRecord =
   BillingRecord'
-    { invoiceId = Prelude.Nothing,
-      billDate = Prelude.Nothing,
+    { billDate = Prelude.Nothing,
       domainName = Prelude.Nothing,
-      price = Prelude.Nothing,
-      operation = Prelude.Nothing
+      invoiceId = Prelude.Nothing,
+      operation = Prelude.Nothing,
+      price = Prelude.Nothing
     }
-
--- | The ID of the invoice that is associated with the billing record.
-billingRecord_invoiceId :: Lens.Lens' BillingRecord (Prelude.Maybe Prelude.Text)
-billingRecord_invoiceId = Lens.lens (\BillingRecord' {invoiceId} -> invoiceId) (\s@BillingRecord' {} a -> s {invoiceId = a} :: BillingRecord)
 
 -- | The date that the operation was billed, in Unix format.
 billingRecord_billDate :: Lens.Lens' BillingRecord (Prelude.Maybe Prelude.UTCTime)
@@ -101,15 +97,19 @@ billingRecord_billDate = Lens.lens (\BillingRecord' {billDate} -> billDate) (\s@
 billingRecord_domainName :: Lens.Lens' BillingRecord (Prelude.Maybe Prelude.Text)
 billingRecord_domainName = Lens.lens (\BillingRecord' {domainName} -> domainName) (\s@BillingRecord' {} a -> s {domainName = a} :: BillingRecord)
 
+-- | The ID of the invoice that is associated with the billing record.
+billingRecord_invoiceId :: Lens.Lens' BillingRecord (Prelude.Maybe Prelude.Text)
+billingRecord_invoiceId = Lens.lens (\BillingRecord' {invoiceId} -> invoiceId) (\s@BillingRecord' {} a -> s {invoiceId = a} :: BillingRecord)
+
+-- | The operation that you were charged for.
+billingRecord_operation :: Lens.Lens' BillingRecord (Prelude.Maybe OperationType)
+billingRecord_operation = Lens.lens (\BillingRecord' {operation} -> operation) (\s@BillingRecord' {} a -> s {operation = a} :: BillingRecord)
+
 -- | The price that you were charged for the operation, in US dollars.
 --
 -- Example value: 12.0
 billingRecord_price :: Lens.Lens' BillingRecord (Prelude.Maybe Prelude.Double)
 billingRecord_price = Lens.lens (\BillingRecord' {price} -> price) (\s@BillingRecord' {} a -> s {price = a} :: BillingRecord)
-
--- | The operation that you were charged for.
-billingRecord_operation :: Lens.Lens' BillingRecord (Prelude.Maybe OperationType)
-billingRecord_operation = Lens.lens (\BillingRecord' {operation} -> operation) (\s@BillingRecord' {} a -> s {operation = a} :: BillingRecord)
 
 instance Data.FromJSON BillingRecord where
   parseJSON =
@@ -117,25 +117,25 @@ instance Data.FromJSON BillingRecord where
       "BillingRecord"
       ( \x ->
           BillingRecord'
-            Prelude.<$> (x Data..:? "InvoiceId")
-            Prelude.<*> (x Data..:? "BillDate")
+            Prelude.<$> (x Data..:? "BillDate")
             Prelude.<*> (x Data..:? "DomainName")
-            Prelude.<*> (x Data..:? "Price")
+            Prelude.<*> (x Data..:? "InvoiceId")
             Prelude.<*> (x Data..:? "Operation")
+            Prelude.<*> (x Data..:? "Price")
       )
 
 instance Prelude.Hashable BillingRecord where
   hashWithSalt _salt BillingRecord' {..} =
-    _salt `Prelude.hashWithSalt` invoiceId
-      `Prelude.hashWithSalt` billDate
+    _salt `Prelude.hashWithSalt` billDate
       `Prelude.hashWithSalt` domainName
-      `Prelude.hashWithSalt` price
+      `Prelude.hashWithSalt` invoiceId
       `Prelude.hashWithSalt` operation
+      `Prelude.hashWithSalt` price
 
 instance Prelude.NFData BillingRecord where
   rnf BillingRecord' {..} =
-    Prelude.rnf invoiceId
-      `Prelude.seq` Prelude.rnf billDate
+    Prelude.rnf billDate
       `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf price
+      `Prelude.seq` Prelude.rnf invoiceId
       `Prelude.seq` Prelude.rnf operation
+      `Prelude.seq` Prelude.rnf price

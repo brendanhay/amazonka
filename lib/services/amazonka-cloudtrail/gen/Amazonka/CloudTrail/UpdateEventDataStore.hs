@@ -35,12 +35,12 @@ module Amazonka.CloudTrail.UpdateEventDataStore
     newUpdateEventDataStore,
 
     -- * Request Lenses
-    updateEventDataStore_name,
     updateEventDataStore_advancedEventSelectors,
-    updateEventDataStore_multiRegionEnabled,
-    updateEventDataStore_retentionPeriod,
     updateEventDataStore_kmsKeyId,
+    updateEventDataStore_multiRegionEnabled,
+    updateEventDataStore_name,
     updateEventDataStore_organizationEnabled,
+    updateEventDataStore_retentionPeriod,
     updateEventDataStore_terminationProtectionEnabled,
     updateEventDataStore_eventDataStore,
 
@@ -49,17 +49,17 @@ module Amazonka.CloudTrail.UpdateEventDataStore
     newUpdateEventDataStoreResponse,
 
     -- * Response Lenses
-    updateEventDataStoreResponse_name,
-    updateEventDataStoreResponse_eventDataStoreArn,
     updateEventDataStoreResponse_advancedEventSelectors,
     updateEventDataStoreResponse_createdTimestamp,
-    updateEventDataStoreResponse_multiRegionEnabled,
-    updateEventDataStoreResponse_updatedTimestamp,
-    updateEventDataStoreResponse_status,
-    updateEventDataStoreResponse_retentionPeriod,
+    updateEventDataStoreResponse_eventDataStoreArn,
     updateEventDataStoreResponse_kmsKeyId,
+    updateEventDataStoreResponse_multiRegionEnabled,
+    updateEventDataStoreResponse_name,
     updateEventDataStoreResponse_organizationEnabled,
+    updateEventDataStoreResponse_retentionPeriod,
+    updateEventDataStoreResponse_status,
     updateEventDataStoreResponse_terminationProtectionEnabled,
+    updateEventDataStoreResponse_updatedTimestamp,
     updateEventDataStoreResponse_httpStatus,
   )
 where
@@ -74,17 +74,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateEventDataStore' smart constructor.
 data UpdateEventDataStore = UpdateEventDataStore'
-  { -- | The event data store name.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The advanced event selectors used to select events for the event data
+  { -- | The advanced event selectors used to select events for the event data
     -- store. You can configure up to five advanced event selectors for each
     -- event data store.
     advancedEventSelectors :: Prelude.Maybe [AdvancedEventSelector],
-    -- | Specifies whether an event data store collects events from all regions,
-    -- or only from the region in which it was created.
-    multiRegionEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The retention period, in days.
-    retentionPeriod :: Prelude.Maybe Prelude.Natural,
     -- | Specifies the KMS key ID to use to encrypt the events delivered by
     -- CloudTrail. The value can be an alias name prefixed by @alias\/@, a
     -- fully specified ARN to an alias, a fully specified ARN to a key, or a
@@ -113,9 +106,16 @@ data UpdateEventDataStore = UpdateEventDataStore'
     --
     -- -   @12345678-1234-1234-1234-123456789012@
     kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether an event data store collects events from all regions,
+    -- or only from the region in which it was created.
+    multiRegionEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The event data store name.
+    name :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether an event data store collects events logged for an
     -- organization in Organizations.
     organizationEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The retention period, in days.
+    retentionPeriod :: Prelude.Maybe Prelude.Natural,
     -- | Indicates that termination protection is enabled and the event data
     -- store cannot be automatically deleted.
     terminationProtectionEnabled :: Prelude.Maybe Prelude.Bool,
@@ -133,16 +133,9 @@ data UpdateEventDataStore = UpdateEventDataStore'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateEventDataStore_name' - The event data store name.
---
 -- 'advancedEventSelectors', 'updateEventDataStore_advancedEventSelectors' - The advanced event selectors used to select events for the event data
 -- store. You can configure up to five advanced event selectors for each
 -- event data store.
---
--- 'multiRegionEnabled', 'updateEventDataStore_multiRegionEnabled' - Specifies whether an event data store collects events from all regions,
--- or only from the region in which it was created.
---
--- 'retentionPeriod', 'updateEventDataStore_retentionPeriod' - The retention period, in days.
 --
 -- 'kmsKeyId', 'updateEventDataStore_kmsKeyId' - Specifies the KMS key ID to use to encrypt the events delivered by
 -- CloudTrail. The value can be an alias name prefixed by @alias\/@, a
@@ -172,8 +165,15 @@ data UpdateEventDataStore = UpdateEventDataStore'
 --
 -- -   @12345678-1234-1234-1234-123456789012@
 --
+-- 'multiRegionEnabled', 'updateEventDataStore_multiRegionEnabled' - Specifies whether an event data store collects events from all regions,
+-- or only from the region in which it was created.
+--
+-- 'name', 'updateEventDataStore_name' - The event data store name.
+--
 -- 'organizationEnabled', 'updateEventDataStore_organizationEnabled' - Specifies whether an event data store collects events logged for an
 -- organization in Organizations.
+--
+-- 'retentionPeriod', 'updateEventDataStore_retentionPeriod' - The retention period, in days.
 --
 -- 'terminationProtectionEnabled', 'updateEventDataStore_terminationProtectionEnabled' - Indicates that termination protection is enabled and the event data
 -- store cannot be automatically deleted.
@@ -186,34 +186,22 @@ newUpdateEventDataStore ::
   UpdateEventDataStore
 newUpdateEventDataStore pEventDataStore_ =
   UpdateEventDataStore'
-    { name = Prelude.Nothing,
-      advancedEventSelectors = Prelude.Nothing,
-      multiRegionEnabled = Prelude.Nothing,
-      retentionPeriod = Prelude.Nothing,
+    { advancedEventSelectors =
+        Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
+      multiRegionEnabled = Prelude.Nothing,
+      name = Prelude.Nothing,
       organizationEnabled = Prelude.Nothing,
+      retentionPeriod = Prelude.Nothing,
       terminationProtectionEnabled = Prelude.Nothing,
       eventDataStore = pEventDataStore_
     }
-
--- | The event data store name.
-updateEventDataStore_name :: Lens.Lens' UpdateEventDataStore (Prelude.Maybe Prelude.Text)
-updateEventDataStore_name = Lens.lens (\UpdateEventDataStore' {name} -> name) (\s@UpdateEventDataStore' {} a -> s {name = a} :: UpdateEventDataStore)
 
 -- | The advanced event selectors used to select events for the event data
 -- store. You can configure up to five advanced event selectors for each
 -- event data store.
 updateEventDataStore_advancedEventSelectors :: Lens.Lens' UpdateEventDataStore (Prelude.Maybe [AdvancedEventSelector])
 updateEventDataStore_advancedEventSelectors = Lens.lens (\UpdateEventDataStore' {advancedEventSelectors} -> advancedEventSelectors) (\s@UpdateEventDataStore' {} a -> s {advancedEventSelectors = a} :: UpdateEventDataStore) Prelude.. Lens.mapping Lens.coerced
-
--- | Specifies whether an event data store collects events from all regions,
--- or only from the region in which it was created.
-updateEventDataStore_multiRegionEnabled :: Lens.Lens' UpdateEventDataStore (Prelude.Maybe Prelude.Bool)
-updateEventDataStore_multiRegionEnabled = Lens.lens (\UpdateEventDataStore' {multiRegionEnabled} -> multiRegionEnabled) (\s@UpdateEventDataStore' {} a -> s {multiRegionEnabled = a} :: UpdateEventDataStore)
-
--- | The retention period, in days.
-updateEventDataStore_retentionPeriod :: Lens.Lens' UpdateEventDataStore (Prelude.Maybe Prelude.Natural)
-updateEventDataStore_retentionPeriod = Lens.lens (\UpdateEventDataStore' {retentionPeriod} -> retentionPeriod) (\s@UpdateEventDataStore' {} a -> s {retentionPeriod = a} :: UpdateEventDataStore)
 
 -- | Specifies the KMS key ID to use to encrypt the events delivered by
 -- CloudTrail. The value can be an alias name prefixed by @alias\/@, a
@@ -245,10 +233,23 @@ updateEventDataStore_retentionPeriod = Lens.lens (\UpdateEventDataStore' {retent
 updateEventDataStore_kmsKeyId :: Lens.Lens' UpdateEventDataStore (Prelude.Maybe Prelude.Text)
 updateEventDataStore_kmsKeyId = Lens.lens (\UpdateEventDataStore' {kmsKeyId} -> kmsKeyId) (\s@UpdateEventDataStore' {} a -> s {kmsKeyId = a} :: UpdateEventDataStore)
 
+-- | Specifies whether an event data store collects events from all regions,
+-- or only from the region in which it was created.
+updateEventDataStore_multiRegionEnabled :: Lens.Lens' UpdateEventDataStore (Prelude.Maybe Prelude.Bool)
+updateEventDataStore_multiRegionEnabled = Lens.lens (\UpdateEventDataStore' {multiRegionEnabled} -> multiRegionEnabled) (\s@UpdateEventDataStore' {} a -> s {multiRegionEnabled = a} :: UpdateEventDataStore)
+
+-- | The event data store name.
+updateEventDataStore_name :: Lens.Lens' UpdateEventDataStore (Prelude.Maybe Prelude.Text)
+updateEventDataStore_name = Lens.lens (\UpdateEventDataStore' {name} -> name) (\s@UpdateEventDataStore' {} a -> s {name = a} :: UpdateEventDataStore)
+
 -- | Specifies whether an event data store collects events logged for an
 -- organization in Organizations.
 updateEventDataStore_organizationEnabled :: Lens.Lens' UpdateEventDataStore (Prelude.Maybe Prelude.Bool)
 updateEventDataStore_organizationEnabled = Lens.lens (\UpdateEventDataStore' {organizationEnabled} -> organizationEnabled) (\s@UpdateEventDataStore' {} a -> s {organizationEnabled = a} :: UpdateEventDataStore)
+
+-- | The retention period, in days.
+updateEventDataStore_retentionPeriod :: Lens.Lens' UpdateEventDataStore (Prelude.Maybe Prelude.Natural)
+updateEventDataStore_retentionPeriod = Lens.lens (\UpdateEventDataStore' {retentionPeriod} -> retentionPeriod) (\s@UpdateEventDataStore' {} a -> s {retentionPeriod = a} :: UpdateEventDataStore)
 
 -- | Indicates that termination protection is enabled and the event data
 -- store cannot be automatically deleted.
@@ -270,41 +271,41 @@ instance Core.AWSRequest UpdateEventDataStore where
     Response.receiveJSON
       ( \s h x ->
           UpdateEventDataStoreResponse'
-            Prelude.<$> (x Data..?> "Name")
-            Prelude.<*> (x Data..?> "EventDataStoreArn")
-            Prelude.<*> ( x Data..?> "AdvancedEventSelectors"
+            Prelude.<$> ( x Data..?> "AdvancedEventSelectors"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "CreatedTimestamp")
-            Prelude.<*> (x Data..?> "MultiRegionEnabled")
-            Prelude.<*> (x Data..?> "UpdatedTimestamp")
-            Prelude.<*> (x Data..?> "Status")
-            Prelude.<*> (x Data..?> "RetentionPeriod")
+            Prelude.<*> (x Data..?> "EventDataStoreArn")
             Prelude.<*> (x Data..?> "KmsKeyId")
+            Prelude.<*> (x Data..?> "MultiRegionEnabled")
+            Prelude.<*> (x Data..?> "Name")
             Prelude.<*> (x Data..?> "OrganizationEnabled")
+            Prelude.<*> (x Data..?> "RetentionPeriod")
+            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (x Data..?> "TerminationProtectionEnabled")
+            Prelude.<*> (x Data..?> "UpdatedTimestamp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateEventDataStore where
   hashWithSalt _salt UpdateEventDataStore' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` advancedEventSelectors
-      `Prelude.hashWithSalt` multiRegionEnabled
-      `Prelude.hashWithSalt` retentionPeriod
+    _salt `Prelude.hashWithSalt` advancedEventSelectors
       `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` multiRegionEnabled
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` organizationEnabled
+      `Prelude.hashWithSalt` retentionPeriod
       `Prelude.hashWithSalt` terminationProtectionEnabled
       `Prelude.hashWithSalt` eventDataStore
 
 instance Prelude.NFData UpdateEventDataStore where
   rnf UpdateEventDataStore' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf advancedEventSelectors
-      `Prelude.seq` Prelude.rnf multiRegionEnabled
-      `Prelude.seq` Prelude.rnf retentionPeriod
+    Prelude.rnf advancedEventSelectors
       `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf multiRegionEnabled
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf organizationEnabled
+      `Prelude.seq` Prelude.rnf retentionPeriod
       `Prelude.seq` Prelude.rnf terminationProtectionEnabled
       `Prelude.seq` Prelude.rnf eventDataStore
 
@@ -327,16 +328,16 @@ instance Data.ToJSON UpdateEventDataStore where
   toJSON UpdateEventDataStore' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
-            ("AdvancedEventSelectors" Data..=)
+          [ ("AdvancedEventSelectors" Data..=)
               Prelude.<$> advancedEventSelectors,
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
             ("MultiRegionEnabled" Data..=)
               Prelude.<$> multiRegionEnabled,
-            ("RetentionPeriod" Data..=)
-              Prelude.<$> retentionPeriod,
-            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("Name" Data..=) Prelude.<$> name,
             ("OrganizationEnabled" Data..=)
               Prelude.<$> organizationEnabled,
+            ("RetentionPeriod" Data..=)
+              Prelude.<$> retentionPeriod,
             ("TerminationProtectionEnabled" Data..=)
               Prelude.<$> terminationProtectionEnabled,
             Prelude.Just
@@ -352,38 +353,38 @@ instance Data.ToQuery UpdateEventDataStore where
 
 -- | /See:/ 'newUpdateEventDataStoreResponse' smart constructor.
 data UpdateEventDataStoreResponse = UpdateEventDataStoreResponse'
-  { -- | The name of the event data store.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the event data store.
-    eventDataStoreArn :: Prelude.Maybe Prelude.Text,
-    -- | The advanced event selectors that are applied to the event data store.
+  { -- | The advanced event selectors that are applied to the event data store.
     advancedEventSelectors :: Prelude.Maybe [AdvancedEventSelector],
     -- | The timestamp that shows when an event data store was first created.
     createdTimestamp :: Prelude.Maybe Data.POSIX,
-    -- | Indicates whether the event data store includes events from all regions,
-    -- or only from the region in which it was created.
-    multiRegionEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The timestamp that shows when the event data store was last updated.
-    -- @UpdatedTimestamp@ is always either the same or newer than the time
-    -- shown in @CreatedTimestamp@.
-    updatedTimestamp :: Prelude.Maybe Data.POSIX,
-    -- | The status of an event data store. Values can be @ENABLED@ and
-    -- @PENDING_DELETION@.
-    status :: Prelude.Maybe EventDataStoreStatus,
-    -- | The retention period, in days.
-    retentionPeriod :: Prelude.Maybe Prelude.Natural,
+    -- | The ARN of the event data store.
+    eventDataStoreArn :: Prelude.Maybe Prelude.Text,
     -- | Specifies the KMS key ID that encrypts the events delivered by
     -- CloudTrail. The value is a fully specified ARN to a KMS key in the
     -- following format.
     --
     -- @arn:aws:kms:us-east-2:123456789012:key\/12345678-1234-1234-1234-123456789012@
     kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether the event data store includes events from all regions,
+    -- or only from the region in which it was created.
+    multiRegionEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the event data store.
+    name :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether an event data store is collecting logged events for an
     -- organization in Organizations.
     organizationEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The retention period, in days.
+    retentionPeriod :: Prelude.Maybe Prelude.Natural,
+    -- | The status of an event data store. Values can be @ENABLED@ and
+    -- @PENDING_DELETION@.
+    status :: Prelude.Maybe EventDataStoreStatus,
     -- | Indicates whether termination protection is enabled for the event data
     -- store.
     terminationProtectionEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The timestamp that shows when the event data store was last updated.
+    -- @UpdatedTimestamp@ is always either the same or newer than the time
+    -- shown in @CreatedTimestamp@.
+    updatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -397,25 +398,11 @@ data UpdateEventDataStoreResponse = UpdateEventDataStoreResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateEventDataStoreResponse_name' - The name of the event data store.
---
--- 'eventDataStoreArn', 'updateEventDataStoreResponse_eventDataStoreArn' - The ARN of the event data store.
---
 -- 'advancedEventSelectors', 'updateEventDataStoreResponse_advancedEventSelectors' - The advanced event selectors that are applied to the event data store.
 --
 -- 'createdTimestamp', 'updateEventDataStoreResponse_createdTimestamp' - The timestamp that shows when an event data store was first created.
 --
--- 'multiRegionEnabled', 'updateEventDataStoreResponse_multiRegionEnabled' - Indicates whether the event data store includes events from all regions,
--- or only from the region in which it was created.
---
--- 'updatedTimestamp', 'updateEventDataStoreResponse_updatedTimestamp' - The timestamp that shows when the event data store was last updated.
--- @UpdatedTimestamp@ is always either the same or newer than the time
--- shown in @CreatedTimestamp@.
---
--- 'status', 'updateEventDataStoreResponse_status' - The status of an event data store. Values can be @ENABLED@ and
--- @PENDING_DELETION@.
---
--- 'retentionPeriod', 'updateEventDataStoreResponse_retentionPeriod' - The retention period, in days.
+-- 'eventDataStoreArn', 'updateEventDataStoreResponse_eventDataStoreArn' - The ARN of the event data store.
 --
 -- 'kmsKeyId', 'updateEventDataStoreResponse_kmsKeyId' - Specifies the KMS key ID that encrypts the events delivered by
 -- CloudTrail. The value is a fully specified ARN to a KMS key in the
@@ -423,11 +410,25 @@ data UpdateEventDataStoreResponse = UpdateEventDataStoreResponse'
 --
 -- @arn:aws:kms:us-east-2:123456789012:key\/12345678-1234-1234-1234-123456789012@
 --
+-- 'multiRegionEnabled', 'updateEventDataStoreResponse_multiRegionEnabled' - Indicates whether the event data store includes events from all regions,
+-- or only from the region in which it was created.
+--
+-- 'name', 'updateEventDataStoreResponse_name' - The name of the event data store.
+--
 -- 'organizationEnabled', 'updateEventDataStoreResponse_organizationEnabled' - Indicates whether an event data store is collecting logged events for an
 -- organization in Organizations.
 --
+-- 'retentionPeriod', 'updateEventDataStoreResponse_retentionPeriod' - The retention period, in days.
+--
+-- 'status', 'updateEventDataStoreResponse_status' - The status of an event data store. Values can be @ENABLED@ and
+-- @PENDING_DELETION@.
+--
 -- 'terminationProtectionEnabled', 'updateEventDataStoreResponse_terminationProtectionEnabled' - Indicates whether termination protection is enabled for the event data
 -- store.
+--
+-- 'updatedTimestamp', 'updateEventDataStoreResponse_updatedTimestamp' - The timestamp that shows when the event data store was last updated.
+-- @UpdatedTimestamp@ is always either the same or newer than the time
+-- shown in @CreatedTimestamp@.
 --
 -- 'httpStatus', 'updateEventDataStoreResponse_httpStatus' - The response's http status code.
 newUpdateEventDataStoreResponse ::
@@ -436,29 +437,21 @@ newUpdateEventDataStoreResponse ::
   UpdateEventDataStoreResponse
 newUpdateEventDataStoreResponse pHttpStatus_ =
   UpdateEventDataStoreResponse'
-    { name =
+    { advancedEventSelectors =
         Prelude.Nothing,
-      eventDataStoreArn = Prelude.Nothing,
-      advancedEventSelectors = Prelude.Nothing,
       createdTimestamp = Prelude.Nothing,
-      multiRegionEnabled = Prelude.Nothing,
-      updatedTimestamp = Prelude.Nothing,
-      status = Prelude.Nothing,
-      retentionPeriod = Prelude.Nothing,
+      eventDataStoreArn = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
+      multiRegionEnabled = Prelude.Nothing,
+      name = Prelude.Nothing,
       organizationEnabled = Prelude.Nothing,
+      retentionPeriod = Prelude.Nothing,
+      status = Prelude.Nothing,
       terminationProtectionEnabled =
         Prelude.Nothing,
+      updatedTimestamp = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The name of the event data store.
-updateEventDataStoreResponse_name :: Lens.Lens' UpdateEventDataStoreResponse (Prelude.Maybe Prelude.Text)
-updateEventDataStoreResponse_name = Lens.lens (\UpdateEventDataStoreResponse' {name} -> name) (\s@UpdateEventDataStoreResponse' {} a -> s {name = a} :: UpdateEventDataStoreResponse)
-
--- | The ARN of the event data store.
-updateEventDataStoreResponse_eventDataStoreArn :: Lens.Lens' UpdateEventDataStoreResponse (Prelude.Maybe Prelude.Text)
-updateEventDataStoreResponse_eventDataStoreArn = Lens.lens (\UpdateEventDataStoreResponse' {eventDataStoreArn} -> eventDataStoreArn) (\s@UpdateEventDataStoreResponse' {} a -> s {eventDataStoreArn = a} :: UpdateEventDataStoreResponse)
 
 -- | The advanced event selectors that are applied to the event data store.
 updateEventDataStoreResponse_advancedEventSelectors :: Lens.Lens' UpdateEventDataStoreResponse (Prelude.Maybe [AdvancedEventSelector])
@@ -468,25 +461,9 @@ updateEventDataStoreResponse_advancedEventSelectors = Lens.lens (\UpdateEventDat
 updateEventDataStoreResponse_createdTimestamp :: Lens.Lens' UpdateEventDataStoreResponse (Prelude.Maybe Prelude.UTCTime)
 updateEventDataStoreResponse_createdTimestamp = Lens.lens (\UpdateEventDataStoreResponse' {createdTimestamp} -> createdTimestamp) (\s@UpdateEventDataStoreResponse' {} a -> s {createdTimestamp = a} :: UpdateEventDataStoreResponse) Prelude.. Lens.mapping Data._Time
 
--- | Indicates whether the event data store includes events from all regions,
--- or only from the region in which it was created.
-updateEventDataStoreResponse_multiRegionEnabled :: Lens.Lens' UpdateEventDataStoreResponse (Prelude.Maybe Prelude.Bool)
-updateEventDataStoreResponse_multiRegionEnabled = Lens.lens (\UpdateEventDataStoreResponse' {multiRegionEnabled} -> multiRegionEnabled) (\s@UpdateEventDataStoreResponse' {} a -> s {multiRegionEnabled = a} :: UpdateEventDataStoreResponse)
-
--- | The timestamp that shows when the event data store was last updated.
--- @UpdatedTimestamp@ is always either the same or newer than the time
--- shown in @CreatedTimestamp@.
-updateEventDataStoreResponse_updatedTimestamp :: Lens.Lens' UpdateEventDataStoreResponse (Prelude.Maybe Prelude.UTCTime)
-updateEventDataStoreResponse_updatedTimestamp = Lens.lens (\UpdateEventDataStoreResponse' {updatedTimestamp} -> updatedTimestamp) (\s@UpdateEventDataStoreResponse' {} a -> s {updatedTimestamp = a} :: UpdateEventDataStoreResponse) Prelude.. Lens.mapping Data._Time
-
--- | The status of an event data store. Values can be @ENABLED@ and
--- @PENDING_DELETION@.
-updateEventDataStoreResponse_status :: Lens.Lens' UpdateEventDataStoreResponse (Prelude.Maybe EventDataStoreStatus)
-updateEventDataStoreResponse_status = Lens.lens (\UpdateEventDataStoreResponse' {status} -> status) (\s@UpdateEventDataStoreResponse' {} a -> s {status = a} :: UpdateEventDataStoreResponse)
-
--- | The retention period, in days.
-updateEventDataStoreResponse_retentionPeriod :: Lens.Lens' UpdateEventDataStoreResponse (Prelude.Maybe Prelude.Natural)
-updateEventDataStoreResponse_retentionPeriod = Lens.lens (\UpdateEventDataStoreResponse' {retentionPeriod} -> retentionPeriod) (\s@UpdateEventDataStoreResponse' {} a -> s {retentionPeriod = a} :: UpdateEventDataStoreResponse)
+-- | The ARN of the event data store.
+updateEventDataStoreResponse_eventDataStoreArn :: Lens.Lens' UpdateEventDataStoreResponse (Prelude.Maybe Prelude.Text)
+updateEventDataStoreResponse_eventDataStoreArn = Lens.lens (\UpdateEventDataStoreResponse' {eventDataStoreArn} -> eventDataStoreArn) (\s@UpdateEventDataStoreResponse' {} a -> s {eventDataStoreArn = a} :: UpdateEventDataStoreResponse)
 
 -- | Specifies the KMS key ID that encrypts the events delivered by
 -- CloudTrail. The value is a fully specified ARN to a KMS key in the
@@ -496,15 +473,39 @@ updateEventDataStoreResponse_retentionPeriod = Lens.lens (\UpdateEventDataStoreR
 updateEventDataStoreResponse_kmsKeyId :: Lens.Lens' UpdateEventDataStoreResponse (Prelude.Maybe Prelude.Text)
 updateEventDataStoreResponse_kmsKeyId = Lens.lens (\UpdateEventDataStoreResponse' {kmsKeyId} -> kmsKeyId) (\s@UpdateEventDataStoreResponse' {} a -> s {kmsKeyId = a} :: UpdateEventDataStoreResponse)
 
+-- | Indicates whether the event data store includes events from all regions,
+-- or only from the region in which it was created.
+updateEventDataStoreResponse_multiRegionEnabled :: Lens.Lens' UpdateEventDataStoreResponse (Prelude.Maybe Prelude.Bool)
+updateEventDataStoreResponse_multiRegionEnabled = Lens.lens (\UpdateEventDataStoreResponse' {multiRegionEnabled} -> multiRegionEnabled) (\s@UpdateEventDataStoreResponse' {} a -> s {multiRegionEnabled = a} :: UpdateEventDataStoreResponse)
+
+-- | The name of the event data store.
+updateEventDataStoreResponse_name :: Lens.Lens' UpdateEventDataStoreResponse (Prelude.Maybe Prelude.Text)
+updateEventDataStoreResponse_name = Lens.lens (\UpdateEventDataStoreResponse' {name} -> name) (\s@UpdateEventDataStoreResponse' {} a -> s {name = a} :: UpdateEventDataStoreResponse)
+
 -- | Indicates whether an event data store is collecting logged events for an
 -- organization in Organizations.
 updateEventDataStoreResponse_organizationEnabled :: Lens.Lens' UpdateEventDataStoreResponse (Prelude.Maybe Prelude.Bool)
 updateEventDataStoreResponse_organizationEnabled = Lens.lens (\UpdateEventDataStoreResponse' {organizationEnabled} -> organizationEnabled) (\s@UpdateEventDataStoreResponse' {} a -> s {organizationEnabled = a} :: UpdateEventDataStoreResponse)
 
+-- | The retention period, in days.
+updateEventDataStoreResponse_retentionPeriod :: Lens.Lens' UpdateEventDataStoreResponse (Prelude.Maybe Prelude.Natural)
+updateEventDataStoreResponse_retentionPeriod = Lens.lens (\UpdateEventDataStoreResponse' {retentionPeriod} -> retentionPeriod) (\s@UpdateEventDataStoreResponse' {} a -> s {retentionPeriod = a} :: UpdateEventDataStoreResponse)
+
+-- | The status of an event data store. Values can be @ENABLED@ and
+-- @PENDING_DELETION@.
+updateEventDataStoreResponse_status :: Lens.Lens' UpdateEventDataStoreResponse (Prelude.Maybe EventDataStoreStatus)
+updateEventDataStoreResponse_status = Lens.lens (\UpdateEventDataStoreResponse' {status} -> status) (\s@UpdateEventDataStoreResponse' {} a -> s {status = a} :: UpdateEventDataStoreResponse)
+
 -- | Indicates whether termination protection is enabled for the event data
 -- store.
 updateEventDataStoreResponse_terminationProtectionEnabled :: Lens.Lens' UpdateEventDataStoreResponse (Prelude.Maybe Prelude.Bool)
 updateEventDataStoreResponse_terminationProtectionEnabled = Lens.lens (\UpdateEventDataStoreResponse' {terminationProtectionEnabled} -> terminationProtectionEnabled) (\s@UpdateEventDataStoreResponse' {} a -> s {terminationProtectionEnabled = a} :: UpdateEventDataStoreResponse)
+
+-- | The timestamp that shows when the event data store was last updated.
+-- @UpdatedTimestamp@ is always either the same or newer than the time
+-- shown in @CreatedTimestamp@.
+updateEventDataStoreResponse_updatedTimestamp :: Lens.Lens' UpdateEventDataStoreResponse (Prelude.Maybe Prelude.UTCTime)
+updateEventDataStoreResponse_updatedTimestamp = Lens.lens (\UpdateEventDataStoreResponse' {updatedTimestamp} -> updatedTimestamp) (\s@UpdateEventDataStoreResponse' {} a -> s {updatedTimestamp = a} :: UpdateEventDataStoreResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 updateEventDataStoreResponse_httpStatus :: Lens.Lens' UpdateEventDataStoreResponse Prelude.Int
@@ -512,15 +513,15 @@ updateEventDataStoreResponse_httpStatus = Lens.lens (\UpdateEventDataStoreRespon
 
 instance Prelude.NFData UpdateEventDataStoreResponse where
   rnf UpdateEventDataStoreResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf eventDataStoreArn
-      `Prelude.seq` Prelude.rnf advancedEventSelectors
+    Prelude.rnf advancedEventSelectors
       `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf multiRegionEnabled
-      `Prelude.seq` Prelude.rnf updatedTimestamp
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf retentionPeriod
+      `Prelude.seq` Prelude.rnf eventDataStoreArn
       `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf multiRegionEnabled
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf organizationEnabled
+      `Prelude.seq` Prelude.rnf retentionPeriod
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf terminationProtectionEnabled
+      `Prelude.seq` Prelude.rnf updatedTimestamp
       `Prelude.seq` Prelude.rnf httpStatus

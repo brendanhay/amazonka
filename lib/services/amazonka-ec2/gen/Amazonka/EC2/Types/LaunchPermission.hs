@@ -30,17 +30,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLaunchPermission' smart constructor.
 data LaunchPermission = LaunchPermission'
-  { -- | The Amazon Resource Name (ARN) of an organization.
+  { -- | The name of the group.
+    group' :: Prelude.Maybe PermissionGroup,
+    -- | The Amazon Resource Name (ARN) of an organization.
     organizationArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of an organizational unit (OU).
+    organizationalUnitArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services account ID.
     --
     -- Constraints: Up to 10 000 account IDs can be specified in a single
     -- request.
-    userId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of an organizational unit (OU).
-    organizationalUnitArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the group.
-    group' :: Prelude.Maybe PermissionGroup
+    userId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,30 +52,37 @@ data LaunchPermission = LaunchPermission'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'group'', 'launchPermission_group' - The name of the group.
+--
 -- 'organizationArn', 'launchPermission_organizationArn' - The Amazon Resource Name (ARN) of an organization.
+--
+-- 'organizationalUnitArn', 'launchPermission_organizationalUnitArn' - The Amazon Resource Name (ARN) of an organizational unit (OU).
 --
 -- 'userId', 'launchPermission_userId' - The Amazon Web Services account ID.
 --
 -- Constraints: Up to 10 000 account IDs can be specified in a single
 -- request.
---
--- 'organizationalUnitArn', 'launchPermission_organizationalUnitArn' - The Amazon Resource Name (ARN) of an organizational unit (OU).
---
--- 'group'', 'launchPermission_group' - The name of the group.
 newLaunchPermission ::
   LaunchPermission
 newLaunchPermission =
   LaunchPermission'
-    { organizationArn =
-        Prelude.Nothing,
-      userId = Prelude.Nothing,
+    { group' = Prelude.Nothing,
+      organizationArn = Prelude.Nothing,
       organizationalUnitArn = Prelude.Nothing,
-      group' = Prelude.Nothing
+      userId = Prelude.Nothing
     }
+
+-- | The name of the group.
+launchPermission_group :: Lens.Lens' LaunchPermission (Prelude.Maybe PermissionGroup)
+launchPermission_group = Lens.lens (\LaunchPermission' {group'} -> group') (\s@LaunchPermission' {} a -> s {group' = a} :: LaunchPermission)
 
 -- | The Amazon Resource Name (ARN) of an organization.
 launchPermission_organizationArn :: Lens.Lens' LaunchPermission (Prelude.Maybe Prelude.Text)
 launchPermission_organizationArn = Lens.lens (\LaunchPermission' {organizationArn} -> organizationArn) (\s@LaunchPermission' {} a -> s {organizationArn = a} :: LaunchPermission)
+
+-- | The Amazon Resource Name (ARN) of an organizational unit (OU).
+launchPermission_organizationalUnitArn :: Lens.Lens' LaunchPermission (Prelude.Maybe Prelude.Text)
+launchPermission_organizationalUnitArn = Lens.lens (\LaunchPermission' {organizationalUnitArn} -> organizationalUnitArn) (\s@LaunchPermission' {} a -> s {organizationalUnitArn = a} :: LaunchPermission)
 
 -- | The Amazon Web Services account ID.
 --
@@ -84,42 +91,34 @@ launchPermission_organizationArn = Lens.lens (\LaunchPermission' {organizationAr
 launchPermission_userId :: Lens.Lens' LaunchPermission (Prelude.Maybe Prelude.Text)
 launchPermission_userId = Lens.lens (\LaunchPermission' {userId} -> userId) (\s@LaunchPermission' {} a -> s {userId = a} :: LaunchPermission)
 
--- | The Amazon Resource Name (ARN) of an organizational unit (OU).
-launchPermission_organizationalUnitArn :: Lens.Lens' LaunchPermission (Prelude.Maybe Prelude.Text)
-launchPermission_organizationalUnitArn = Lens.lens (\LaunchPermission' {organizationalUnitArn} -> organizationalUnitArn) (\s@LaunchPermission' {} a -> s {organizationalUnitArn = a} :: LaunchPermission)
-
--- | The name of the group.
-launchPermission_group :: Lens.Lens' LaunchPermission (Prelude.Maybe PermissionGroup)
-launchPermission_group = Lens.lens (\LaunchPermission' {group'} -> group') (\s@LaunchPermission' {} a -> s {group' = a} :: LaunchPermission)
-
 instance Data.FromXML LaunchPermission where
   parseXML x =
     LaunchPermission'
-      Prelude.<$> (x Data..@? "organizationArn")
-      Prelude.<*> (x Data..@? "userId")
+      Prelude.<$> (x Data..@? "group")
+      Prelude.<*> (x Data..@? "organizationArn")
       Prelude.<*> (x Data..@? "organizationalUnitArn")
-      Prelude.<*> (x Data..@? "group")
+      Prelude.<*> (x Data..@? "userId")
 
 instance Prelude.Hashable LaunchPermission where
   hashWithSalt _salt LaunchPermission' {..} =
-    _salt `Prelude.hashWithSalt` organizationArn
-      `Prelude.hashWithSalt` userId
+    _salt `Prelude.hashWithSalt` group'
+      `Prelude.hashWithSalt` organizationArn
       `Prelude.hashWithSalt` organizationalUnitArn
-      `Prelude.hashWithSalt` group'
+      `Prelude.hashWithSalt` userId
 
 instance Prelude.NFData LaunchPermission where
   rnf LaunchPermission' {..} =
-    Prelude.rnf organizationArn
-      `Prelude.seq` Prelude.rnf userId
+    Prelude.rnf group'
+      `Prelude.seq` Prelude.rnf organizationArn
       `Prelude.seq` Prelude.rnf organizationalUnitArn
-      `Prelude.seq` Prelude.rnf group'
+      `Prelude.seq` Prelude.rnf userId
 
 instance Data.ToQuery LaunchPermission where
   toQuery LaunchPermission' {..} =
     Prelude.mconcat
-      [ "OrganizationArn" Data.=: organizationArn,
-        "UserId" Data.=: userId,
+      [ "Group" Data.=: group',
+        "OrganizationArn" Data.=: organizationArn,
         "OrganizationalUnitArn"
           Data.=: organizationalUnitArn,
-        "Group" Data.=: group'
+        "UserId" Data.=: userId
       ]

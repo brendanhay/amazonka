@@ -28,31 +28,39 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEc2VpnConnectionOptionsTunnelOptionsDetails' smart constructor.
 data AwsEc2VpnConnectionOptionsTunnelOptionsDetails = AwsEc2VpnConnectionOptionsTunnelOptionsDetails'
-  { -- | The lifetime for phase 1 of the IKE negotiation, in seconds.
-    phase1LifetimeSeconds :: Prelude.Maybe Prelude.Int,
-    -- | The lifetime for phase 2 of the IKE negotiation, in seconds.
-    phase2LifetimeSeconds :: Prelude.Maybe Prelude.Int,
-    -- | The permitted encryption algorithms for the VPN tunnel for phase 2 IKE
-    -- negotiations.
-    phase2EncryptionAlgorithms :: Prelude.Maybe [Prelude.Text],
-    -- | The permitted Diffie-Hellman group numbers for the VPN tunnel for phase
-    -- 1 IKE negotiations.
-    phase1DhGroupNumbers :: Prelude.Maybe [Prelude.Int],
-    -- | The permitted integrity algorithms for the VPN tunnel for phase 1 IKE
-    -- negotiations.
-    phase1IntegrityAlgorithms :: Prelude.Maybe [Prelude.Text],
-    -- | The number of seconds after which a Dead Peer Detection (DPD) timeout
+  { -- | The number of seconds after which a Dead Peer Detection (DPD) timeout
     -- occurs.
     dpdTimeoutSeconds :: Prelude.Maybe Prelude.Int,
     -- | The Internet Key Exchange (IKE) versions that are permitted for the VPN
     -- tunnel.
     ikeVersions :: Prelude.Maybe [Prelude.Text],
-    -- | The preshared key to establish initial authentication between the
-    -- virtual private gateway and the customer gateway.
-    preSharedKey :: Prelude.Maybe Prelude.Text,
+    -- | The external IP address of the VPN tunnel.
+    outsideIpAddress :: Prelude.Maybe Prelude.Text,
+    -- | The permitted Diffie-Hellman group numbers for the VPN tunnel for phase
+    -- 1 IKE negotiations.
+    phase1DhGroupNumbers :: Prelude.Maybe [Prelude.Int],
+    -- | The permitted encryption algorithms for the VPN tunnel for phase 1 IKE
+    -- negotiations.
+    phase1EncryptionAlgorithms :: Prelude.Maybe [Prelude.Text],
+    -- | The permitted integrity algorithms for the VPN tunnel for phase 1 IKE
+    -- negotiations.
+    phase1IntegrityAlgorithms :: Prelude.Maybe [Prelude.Text],
+    -- | The lifetime for phase 1 of the IKE negotiation, in seconds.
+    phase1LifetimeSeconds :: Prelude.Maybe Prelude.Int,
     -- | The permitted Diffie-Hellman group numbers for the VPN tunnel for phase
     -- 2 IKE negotiations.
     phase2DhGroupNumbers :: Prelude.Maybe [Prelude.Int],
+    -- | The permitted encryption algorithms for the VPN tunnel for phase 2 IKE
+    -- negotiations.
+    phase2EncryptionAlgorithms :: Prelude.Maybe [Prelude.Text],
+    -- | The permitted integrity algorithms for the VPN tunnel for phase 2 IKE
+    -- negotiations.
+    phase2IntegrityAlgorithms :: Prelude.Maybe [Prelude.Text],
+    -- | The lifetime for phase 2 of the IKE negotiation, in seconds.
+    phase2LifetimeSeconds :: Prelude.Maybe Prelude.Int,
+    -- | The preshared key to establish initial authentication between the
+    -- virtual private gateway and the customer gateway.
+    preSharedKey :: Prelude.Maybe Prelude.Text,
     -- | The percentage of the rekey window, which is determined by
     -- @RekeyMarginTimeSeconds@ during which the rekey time is randomly
     -- selected.
@@ -61,18 +69,10 @@ data AwsEc2VpnConnectionOptionsTunnelOptionsDetails = AwsEc2VpnConnectionOptions
     -- which the Amazon Web Services side of the VPN connection performs an IKE
     -- rekey.
     rekeyMarginTimeSeconds :: Prelude.Maybe Prelude.Int,
-    -- | The permitted integrity algorithms for the VPN tunnel for phase 2 IKE
-    -- negotiations.
-    phase2IntegrityAlgorithms :: Prelude.Maybe [Prelude.Text],
-    -- | The permitted encryption algorithms for the VPN tunnel for phase 1 IKE
-    -- negotiations.
-    phase1EncryptionAlgorithms :: Prelude.Maybe [Prelude.Text],
-    -- | The range of inside IPv4 addresses for the tunnel.
-    tunnelInsideCidr :: Prelude.Maybe Prelude.Text,
-    -- | The external IP address of the VPN tunnel.
-    outsideIpAddress :: Prelude.Maybe Prelude.Text,
     -- | The number of packets in an IKE replay window.
-    replayWindowSize :: Prelude.Maybe Prelude.Int
+    replayWindowSize :: Prelude.Maybe Prelude.Int,
+    -- | The range of inside IPv4 addresses for the tunnel.
+    tunnelInsideCidr :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,30 +84,38 @@ data AwsEc2VpnConnectionOptionsTunnelOptionsDetails = AwsEc2VpnConnectionOptions
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'phase1LifetimeSeconds', 'awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase1LifetimeSeconds' - The lifetime for phase 1 of the IKE negotiation, in seconds.
---
--- 'phase2LifetimeSeconds', 'awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase2LifetimeSeconds' - The lifetime for phase 2 of the IKE negotiation, in seconds.
---
--- 'phase2EncryptionAlgorithms', 'awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase2EncryptionAlgorithms' - The permitted encryption algorithms for the VPN tunnel for phase 2 IKE
--- negotiations.
---
--- 'phase1DhGroupNumbers', 'awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase1DhGroupNumbers' - The permitted Diffie-Hellman group numbers for the VPN tunnel for phase
--- 1 IKE negotiations.
---
--- 'phase1IntegrityAlgorithms', 'awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase1IntegrityAlgorithms' - The permitted integrity algorithms for the VPN tunnel for phase 1 IKE
--- negotiations.
---
 -- 'dpdTimeoutSeconds', 'awsEc2VpnConnectionOptionsTunnelOptionsDetails_dpdTimeoutSeconds' - The number of seconds after which a Dead Peer Detection (DPD) timeout
 -- occurs.
 --
 -- 'ikeVersions', 'awsEc2VpnConnectionOptionsTunnelOptionsDetails_ikeVersions' - The Internet Key Exchange (IKE) versions that are permitted for the VPN
 -- tunnel.
 --
--- 'preSharedKey', 'awsEc2VpnConnectionOptionsTunnelOptionsDetails_preSharedKey' - The preshared key to establish initial authentication between the
--- virtual private gateway and the customer gateway.
+-- 'outsideIpAddress', 'awsEc2VpnConnectionOptionsTunnelOptionsDetails_outsideIpAddress' - The external IP address of the VPN tunnel.
+--
+-- 'phase1DhGroupNumbers', 'awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase1DhGroupNumbers' - The permitted Diffie-Hellman group numbers for the VPN tunnel for phase
+-- 1 IKE negotiations.
+--
+-- 'phase1EncryptionAlgorithms', 'awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase1EncryptionAlgorithms' - The permitted encryption algorithms for the VPN tunnel for phase 1 IKE
+-- negotiations.
+--
+-- 'phase1IntegrityAlgorithms', 'awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase1IntegrityAlgorithms' - The permitted integrity algorithms for the VPN tunnel for phase 1 IKE
+-- negotiations.
+--
+-- 'phase1LifetimeSeconds', 'awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase1LifetimeSeconds' - The lifetime for phase 1 of the IKE negotiation, in seconds.
 --
 -- 'phase2DhGroupNumbers', 'awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase2DhGroupNumbers' - The permitted Diffie-Hellman group numbers for the VPN tunnel for phase
 -- 2 IKE negotiations.
+--
+-- 'phase2EncryptionAlgorithms', 'awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase2EncryptionAlgorithms' - The permitted encryption algorithms for the VPN tunnel for phase 2 IKE
+-- negotiations.
+--
+-- 'phase2IntegrityAlgorithms', 'awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase2IntegrityAlgorithms' - The permitted integrity algorithms for the VPN tunnel for phase 2 IKE
+-- negotiations.
+--
+-- 'phase2LifetimeSeconds', 'awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase2LifetimeSeconds' - The lifetime for phase 2 of the IKE negotiation, in seconds.
+--
+-- 'preSharedKey', 'awsEc2VpnConnectionOptionsTunnelOptionsDetails_preSharedKey' - The preshared key to establish initial authentication between the
+-- virtual private gateway and the customer gateway.
 --
 -- 'rekeyFuzzPercentage', 'awsEc2VpnConnectionOptionsTunnelOptionsDetails_rekeyFuzzPercentage' - The percentage of the rekey window, which is determined by
 -- @RekeyMarginTimeSeconds@ during which the rekey time is randomly
@@ -117,77 +125,46 @@ data AwsEc2VpnConnectionOptionsTunnelOptionsDetails = AwsEc2VpnConnectionOptions
 -- which the Amazon Web Services side of the VPN connection performs an IKE
 -- rekey.
 --
--- 'phase2IntegrityAlgorithms', 'awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase2IntegrityAlgorithms' - The permitted integrity algorithms for the VPN tunnel for phase 2 IKE
--- negotiations.
---
--- 'phase1EncryptionAlgorithms', 'awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase1EncryptionAlgorithms' - The permitted encryption algorithms for the VPN tunnel for phase 1 IKE
--- negotiations.
+-- 'replayWindowSize', 'awsEc2VpnConnectionOptionsTunnelOptionsDetails_replayWindowSize' - The number of packets in an IKE replay window.
 --
 -- 'tunnelInsideCidr', 'awsEc2VpnConnectionOptionsTunnelOptionsDetails_tunnelInsideCidr' - The range of inside IPv4 addresses for the tunnel.
---
--- 'outsideIpAddress', 'awsEc2VpnConnectionOptionsTunnelOptionsDetails_outsideIpAddress' - The external IP address of the VPN tunnel.
---
--- 'replayWindowSize', 'awsEc2VpnConnectionOptionsTunnelOptionsDetails_replayWindowSize' - The number of packets in an IKE replay window.
 newAwsEc2VpnConnectionOptionsTunnelOptionsDetails ::
   AwsEc2VpnConnectionOptionsTunnelOptionsDetails
 newAwsEc2VpnConnectionOptionsTunnelOptionsDetails =
   AwsEc2VpnConnectionOptionsTunnelOptionsDetails'
-    { phase1LifetimeSeconds =
-        Prelude.Nothing,
-      phase2LifetimeSeconds =
-        Prelude.Nothing,
-      phase2EncryptionAlgorithms =
-        Prelude.Nothing,
-      phase1DhGroupNumbers =
-        Prelude.Nothing,
-      phase1IntegrityAlgorithms =
-        Prelude.Nothing,
-      dpdTimeoutSeconds =
+    { dpdTimeoutSeconds =
         Prelude.Nothing,
       ikeVersions =
         Prelude.Nothing,
-      preSharedKey =
+      outsideIpAddress =
+        Prelude.Nothing,
+      phase1DhGroupNumbers =
+        Prelude.Nothing,
+      phase1EncryptionAlgorithms =
+        Prelude.Nothing,
+      phase1IntegrityAlgorithms =
+        Prelude.Nothing,
+      phase1LifetimeSeconds =
         Prelude.Nothing,
       phase2DhGroupNumbers =
+        Prelude.Nothing,
+      phase2EncryptionAlgorithms =
+        Prelude.Nothing,
+      phase2IntegrityAlgorithms =
+        Prelude.Nothing,
+      phase2LifetimeSeconds =
+        Prelude.Nothing,
+      preSharedKey =
         Prelude.Nothing,
       rekeyFuzzPercentage =
         Prelude.Nothing,
       rekeyMarginTimeSeconds =
         Prelude.Nothing,
-      phase2IntegrityAlgorithms =
-        Prelude.Nothing,
-      phase1EncryptionAlgorithms =
+      replayWindowSize =
         Prelude.Nothing,
       tunnelInsideCidr =
-        Prelude.Nothing,
-      outsideIpAddress =
-        Prelude.Nothing,
-      replayWindowSize =
         Prelude.Nothing
     }
-
--- | The lifetime for phase 1 of the IKE negotiation, in seconds.
-awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase1LifetimeSeconds :: Lens.Lens' AwsEc2VpnConnectionOptionsTunnelOptionsDetails (Prelude.Maybe Prelude.Int)
-awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase1LifetimeSeconds = Lens.lens (\AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {phase1LifetimeSeconds} -> phase1LifetimeSeconds) (\s@AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {} a -> s {phase1LifetimeSeconds = a} :: AwsEc2VpnConnectionOptionsTunnelOptionsDetails)
-
--- | The lifetime for phase 2 of the IKE negotiation, in seconds.
-awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase2LifetimeSeconds :: Lens.Lens' AwsEc2VpnConnectionOptionsTunnelOptionsDetails (Prelude.Maybe Prelude.Int)
-awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase2LifetimeSeconds = Lens.lens (\AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {phase2LifetimeSeconds} -> phase2LifetimeSeconds) (\s@AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {} a -> s {phase2LifetimeSeconds = a} :: AwsEc2VpnConnectionOptionsTunnelOptionsDetails)
-
--- | The permitted encryption algorithms for the VPN tunnel for phase 2 IKE
--- negotiations.
-awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase2EncryptionAlgorithms :: Lens.Lens' AwsEc2VpnConnectionOptionsTunnelOptionsDetails (Prelude.Maybe [Prelude.Text])
-awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase2EncryptionAlgorithms = Lens.lens (\AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {phase2EncryptionAlgorithms} -> phase2EncryptionAlgorithms) (\s@AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {} a -> s {phase2EncryptionAlgorithms = a} :: AwsEc2VpnConnectionOptionsTunnelOptionsDetails) Prelude.. Lens.mapping Lens.coerced
-
--- | The permitted Diffie-Hellman group numbers for the VPN tunnel for phase
--- 1 IKE negotiations.
-awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase1DhGroupNumbers :: Lens.Lens' AwsEc2VpnConnectionOptionsTunnelOptionsDetails (Prelude.Maybe [Prelude.Int])
-awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase1DhGroupNumbers = Lens.lens (\AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {phase1DhGroupNumbers} -> phase1DhGroupNumbers) (\s@AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {} a -> s {phase1DhGroupNumbers = a} :: AwsEc2VpnConnectionOptionsTunnelOptionsDetails) Prelude.. Lens.mapping Lens.coerced
-
--- | The permitted integrity algorithms for the VPN tunnel for phase 1 IKE
--- negotiations.
-awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase1IntegrityAlgorithms :: Lens.Lens' AwsEc2VpnConnectionOptionsTunnelOptionsDetails (Prelude.Maybe [Prelude.Text])
-awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase1IntegrityAlgorithms = Lens.lens (\AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {phase1IntegrityAlgorithms} -> phase1IntegrityAlgorithms) (\s@AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {} a -> s {phase1IntegrityAlgorithms = a} :: AwsEc2VpnConnectionOptionsTunnelOptionsDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | The number of seconds after which a Dead Peer Detection (DPD) timeout
 -- occurs.
@@ -199,15 +176,52 @@ awsEc2VpnConnectionOptionsTunnelOptionsDetails_dpdTimeoutSeconds = Lens.lens (\A
 awsEc2VpnConnectionOptionsTunnelOptionsDetails_ikeVersions :: Lens.Lens' AwsEc2VpnConnectionOptionsTunnelOptionsDetails (Prelude.Maybe [Prelude.Text])
 awsEc2VpnConnectionOptionsTunnelOptionsDetails_ikeVersions = Lens.lens (\AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {ikeVersions} -> ikeVersions) (\s@AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {} a -> s {ikeVersions = a} :: AwsEc2VpnConnectionOptionsTunnelOptionsDetails) Prelude.. Lens.mapping Lens.coerced
 
--- | The preshared key to establish initial authentication between the
--- virtual private gateway and the customer gateway.
-awsEc2VpnConnectionOptionsTunnelOptionsDetails_preSharedKey :: Lens.Lens' AwsEc2VpnConnectionOptionsTunnelOptionsDetails (Prelude.Maybe Prelude.Text)
-awsEc2VpnConnectionOptionsTunnelOptionsDetails_preSharedKey = Lens.lens (\AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {preSharedKey} -> preSharedKey) (\s@AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {} a -> s {preSharedKey = a} :: AwsEc2VpnConnectionOptionsTunnelOptionsDetails)
+-- | The external IP address of the VPN tunnel.
+awsEc2VpnConnectionOptionsTunnelOptionsDetails_outsideIpAddress :: Lens.Lens' AwsEc2VpnConnectionOptionsTunnelOptionsDetails (Prelude.Maybe Prelude.Text)
+awsEc2VpnConnectionOptionsTunnelOptionsDetails_outsideIpAddress = Lens.lens (\AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {outsideIpAddress} -> outsideIpAddress) (\s@AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {} a -> s {outsideIpAddress = a} :: AwsEc2VpnConnectionOptionsTunnelOptionsDetails)
+
+-- | The permitted Diffie-Hellman group numbers for the VPN tunnel for phase
+-- 1 IKE negotiations.
+awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase1DhGroupNumbers :: Lens.Lens' AwsEc2VpnConnectionOptionsTunnelOptionsDetails (Prelude.Maybe [Prelude.Int])
+awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase1DhGroupNumbers = Lens.lens (\AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {phase1DhGroupNumbers} -> phase1DhGroupNumbers) (\s@AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {} a -> s {phase1DhGroupNumbers = a} :: AwsEc2VpnConnectionOptionsTunnelOptionsDetails) Prelude.. Lens.mapping Lens.coerced
+
+-- | The permitted encryption algorithms for the VPN tunnel for phase 1 IKE
+-- negotiations.
+awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase1EncryptionAlgorithms :: Lens.Lens' AwsEc2VpnConnectionOptionsTunnelOptionsDetails (Prelude.Maybe [Prelude.Text])
+awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase1EncryptionAlgorithms = Lens.lens (\AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {phase1EncryptionAlgorithms} -> phase1EncryptionAlgorithms) (\s@AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {} a -> s {phase1EncryptionAlgorithms = a} :: AwsEc2VpnConnectionOptionsTunnelOptionsDetails) Prelude.. Lens.mapping Lens.coerced
+
+-- | The permitted integrity algorithms for the VPN tunnel for phase 1 IKE
+-- negotiations.
+awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase1IntegrityAlgorithms :: Lens.Lens' AwsEc2VpnConnectionOptionsTunnelOptionsDetails (Prelude.Maybe [Prelude.Text])
+awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase1IntegrityAlgorithms = Lens.lens (\AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {phase1IntegrityAlgorithms} -> phase1IntegrityAlgorithms) (\s@AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {} a -> s {phase1IntegrityAlgorithms = a} :: AwsEc2VpnConnectionOptionsTunnelOptionsDetails) Prelude.. Lens.mapping Lens.coerced
+
+-- | The lifetime for phase 1 of the IKE negotiation, in seconds.
+awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase1LifetimeSeconds :: Lens.Lens' AwsEc2VpnConnectionOptionsTunnelOptionsDetails (Prelude.Maybe Prelude.Int)
+awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase1LifetimeSeconds = Lens.lens (\AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {phase1LifetimeSeconds} -> phase1LifetimeSeconds) (\s@AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {} a -> s {phase1LifetimeSeconds = a} :: AwsEc2VpnConnectionOptionsTunnelOptionsDetails)
 
 -- | The permitted Diffie-Hellman group numbers for the VPN tunnel for phase
 -- 2 IKE negotiations.
 awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase2DhGroupNumbers :: Lens.Lens' AwsEc2VpnConnectionOptionsTunnelOptionsDetails (Prelude.Maybe [Prelude.Int])
 awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase2DhGroupNumbers = Lens.lens (\AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {phase2DhGroupNumbers} -> phase2DhGroupNumbers) (\s@AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {} a -> s {phase2DhGroupNumbers = a} :: AwsEc2VpnConnectionOptionsTunnelOptionsDetails) Prelude.. Lens.mapping Lens.coerced
+
+-- | The permitted encryption algorithms for the VPN tunnel for phase 2 IKE
+-- negotiations.
+awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase2EncryptionAlgorithms :: Lens.Lens' AwsEc2VpnConnectionOptionsTunnelOptionsDetails (Prelude.Maybe [Prelude.Text])
+awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase2EncryptionAlgorithms = Lens.lens (\AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {phase2EncryptionAlgorithms} -> phase2EncryptionAlgorithms) (\s@AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {} a -> s {phase2EncryptionAlgorithms = a} :: AwsEc2VpnConnectionOptionsTunnelOptionsDetails) Prelude.. Lens.mapping Lens.coerced
+
+-- | The permitted integrity algorithms for the VPN tunnel for phase 2 IKE
+-- negotiations.
+awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase2IntegrityAlgorithms :: Lens.Lens' AwsEc2VpnConnectionOptionsTunnelOptionsDetails (Prelude.Maybe [Prelude.Text])
+awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase2IntegrityAlgorithms = Lens.lens (\AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {phase2IntegrityAlgorithms} -> phase2IntegrityAlgorithms) (\s@AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {} a -> s {phase2IntegrityAlgorithms = a} :: AwsEc2VpnConnectionOptionsTunnelOptionsDetails) Prelude.. Lens.mapping Lens.coerced
+
+-- | The lifetime for phase 2 of the IKE negotiation, in seconds.
+awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase2LifetimeSeconds :: Lens.Lens' AwsEc2VpnConnectionOptionsTunnelOptionsDetails (Prelude.Maybe Prelude.Int)
+awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase2LifetimeSeconds = Lens.lens (\AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {phase2LifetimeSeconds} -> phase2LifetimeSeconds) (\s@AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {} a -> s {phase2LifetimeSeconds = a} :: AwsEc2VpnConnectionOptionsTunnelOptionsDetails)
+
+-- | The preshared key to establish initial authentication between the
+-- virtual private gateway and the customer gateway.
+awsEc2VpnConnectionOptionsTunnelOptionsDetails_preSharedKey :: Lens.Lens' AwsEc2VpnConnectionOptionsTunnelOptionsDetails (Prelude.Maybe Prelude.Text)
+awsEc2VpnConnectionOptionsTunnelOptionsDetails_preSharedKey = Lens.lens (\AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {preSharedKey} -> preSharedKey) (\s@AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {} a -> s {preSharedKey = a} :: AwsEc2VpnConnectionOptionsTunnelOptionsDetails)
 
 -- | The percentage of the rekey window, which is determined by
 -- @RekeyMarginTimeSeconds@ during which the rekey time is randomly
@@ -221,27 +235,13 @@ awsEc2VpnConnectionOptionsTunnelOptionsDetails_rekeyFuzzPercentage = Lens.lens (
 awsEc2VpnConnectionOptionsTunnelOptionsDetails_rekeyMarginTimeSeconds :: Lens.Lens' AwsEc2VpnConnectionOptionsTunnelOptionsDetails (Prelude.Maybe Prelude.Int)
 awsEc2VpnConnectionOptionsTunnelOptionsDetails_rekeyMarginTimeSeconds = Lens.lens (\AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {rekeyMarginTimeSeconds} -> rekeyMarginTimeSeconds) (\s@AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {} a -> s {rekeyMarginTimeSeconds = a} :: AwsEc2VpnConnectionOptionsTunnelOptionsDetails)
 
--- | The permitted integrity algorithms for the VPN tunnel for phase 2 IKE
--- negotiations.
-awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase2IntegrityAlgorithms :: Lens.Lens' AwsEc2VpnConnectionOptionsTunnelOptionsDetails (Prelude.Maybe [Prelude.Text])
-awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase2IntegrityAlgorithms = Lens.lens (\AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {phase2IntegrityAlgorithms} -> phase2IntegrityAlgorithms) (\s@AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {} a -> s {phase2IntegrityAlgorithms = a} :: AwsEc2VpnConnectionOptionsTunnelOptionsDetails) Prelude.. Lens.mapping Lens.coerced
-
--- | The permitted encryption algorithms for the VPN tunnel for phase 1 IKE
--- negotiations.
-awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase1EncryptionAlgorithms :: Lens.Lens' AwsEc2VpnConnectionOptionsTunnelOptionsDetails (Prelude.Maybe [Prelude.Text])
-awsEc2VpnConnectionOptionsTunnelOptionsDetails_phase1EncryptionAlgorithms = Lens.lens (\AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {phase1EncryptionAlgorithms} -> phase1EncryptionAlgorithms) (\s@AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {} a -> s {phase1EncryptionAlgorithms = a} :: AwsEc2VpnConnectionOptionsTunnelOptionsDetails) Prelude.. Lens.mapping Lens.coerced
+-- | The number of packets in an IKE replay window.
+awsEc2VpnConnectionOptionsTunnelOptionsDetails_replayWindowSize :: Lens.Lens' AwsEc2VpnConnectionOptionsTunnelOptionsDetails (Prelude.Maybe Prelude.Int)
+awsEc2VpnConnectionOptionsTunnelOptionsDetails_replayWindowSize = Lens.lens (\AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {replayWindowSize} -> replayWindowSize) (\s@AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {} a -> s {replayWindowSize = a} :: AwsEc2VpnConnectionOptionsTunnelOptionsDetails)
 
 -- | The range of inside IPv4 addresses for the tunnel.
 awsEc2VpnConnectionOptionsTunnelOptionsDetails_tunnelInsideCidr :: Lens.Lens' AwsEc2VpnConnectionOptionsTunnelOptionsDetails (Prelude.Maybe Prelude.Text)
 awsEc2VpnConnectionOptionsTunnelOptionsDetails_tunnelInsideCidr = Lens.lens (\AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {tunnelInsideCidr} -> tunnelInsideCidr) (\s@AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {} a -> s {tunnelInsideCidr = a} :: AwsEc2VpnConnectionOptionsTunnelOptionsDetails)
-
--- | The external IP address of the VPN tunnel.
-awsEc2VpnConnectionOptionsTunnelOptionsDetails_outsideIpAddress :: Lens.Lens' AwsEc2VpnConnectionOptionsTunnelOptionsDetails (Prelude.Maybe Prelude.Text)
-awsEc2VpnConnectionOptionsTunnelOptionsDetails_outsideIpAddress = Lens.lens (\AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {outsideIpAddress} -> outsideIpAddress) (\s@AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {} a -> s {outsideIpAddress = a} :: AwsEc2VpnConnectionOptionsTunnelOptionsDetails)
-
--- | The number of packets in an IKE replay window.
-awsEc2VpnConnectionOptionsTunnelOptionsDetails_replayWindowSize :: Lens.Lens' AwsEc2VpnConnectionOptionsTunnelOptionsDetails (Prelude.Maybe Prelude.Int)
-awsEc2VpnConnectionOptionsTunnelOptionsDetails_replayWindowSize = Lens.lens (\AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {replayWindowSize} -> replayWindowSize) (\s@AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {} a -> s {replayWindowSize = a} :: AwsEc2VpnConnectionOptionsTunnelOptionsDetails)
 
 instance
   Data.FromJSON
@@ -252,34 +252,34 @@ instance
       "AwsEc2VpnConnectionOptionsTunnelOptionsDetails"
       ( \x ->
           AwsEc2VpnConnectionOptionsTunnelOptionsDetails'
-            Prelude.<$> (x Data..:? "Phase1LifetimeSeconds")
-              Prelude.<*> (x Data..:? "Phase2LifetimeSeconds")
-              Prelude.<*> ( x Data..:? "Phase2EncryptionAlgorithms"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> ( x Data..:? "Phase1DhGroupNumbers"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> ( x Data..:? "Phase1IntegrityAlgorithms"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> (x Data..:? "DpdTimeoutSeconds")
+            Prelude.<$> (x Data..:? "DpdTimeoutSeconds")
               Prelude.<*> (x Data..:? "IkeVersions" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "PreSharedKey")
-              Prelude.<*> ( x Data..:? "Phase2DhGroupNumbers"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> (x Data..:? "RekeyFuzzPercentage")
-              Prelude.<*> (x Data..:? "RekeyMarginTimeSeconds")
-              Prelude.<*> ( x Data..:? "Phase2IntegrityAlgorithms"
+              Prelude.<*> (x Data..:? "OutsideIpAddress")
+              Prelude.<*> ( x Data..:? "Phase1DhGroupNumbers"
                               Data..!= Prelude.mempty
                           )
               Prelude.<*> ( x Data..:? "Phase1EncryptionAlgorithms"
                               Data..!= Prelude.mempty
                           )
-              Prelude.<*> (x Data..:? "TunnelInsideCidr")
-              Prelude.<*> (x Data..:? "OutsideIpAddress")
+              Prelude.<*> ( x Data..:? "Phase1IntegrityAlgorithms"
+                              Data..!= Prelude.mempty
+                          )
+              Prelude.<*> (x Data..:? "Phase1LifetimeSeconds")
+              Prelude.<*> ( x Data..:? "Phase2DhGroupNumbers"
+                              Data..!= Prelude.mempty
+                          )
+              Prelude.<*> ( x Data..:? "Phase2EncryptionAlgorithms"
+                              Data..!= Prelude.mempty
+                          )
+              Prelude.<*> ( x Data..:? "Phase2IntegrityAlgorithms"
+                              Data..!= Prelude.mempty
+                          )
+              Prelude.<*> (x Data..:? "Phase2LifetimeSeconds")
+              Prelude.<*> (x Data..:? "PreSharedKey")
+              Prelude.<*> (x Data..:? "RekeyFuzzPercentage")
+              Prelude.<*> (x Data..:? "RekeyMarginTimeSeconds")
               Prelude.<*> (x Data..:? "ReplayWindowSize")
+              Prelude.<*> (x Data..:? "TunnelInsideCidr")
       )
 
 instance
@@ -289,22 +289,22 @@ instance
   hashWithSalt
     _salt
     AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {..} =
-      _salt `Prelude.hashWithSalt` phase1LifetimeSeconds
-        `Prelude.hashWithSalt` phase2LifetimeSeconds
-        `Prelude.hashWithSalt` phase2EncryptionAlgorithms
-        `Prelude.hashWithSalt` phase1DhGroupNumbers
-        `Prelude.hashWithSalt` phase1IntegrityAlgorithms
-        `Prelude.hashWithSalt` dpdTimeoutSeconds
+      _salt `Prelude.hashWithSalt` dpdTimeoutSeconds
         `Prelude.hashWithSalt` ikeVersions
-        `Prelude.hashWithSalt` preSharedKey
+        `Prelude.hashWithSalt` outsideIpAddress
+        `Prelude.hashWithSalt` phase1DhGroupNumbers
+        `Prelude.hashWithSalt` phase1EncryptionAlgorithms
+        `Prelude.hashWithSalt` phase1IntegrityAlgorithms
+        `Prelude.hashWithSalt` phase1LifetimeSeconds
         `Prelude.hashWithSalt` phase2DhGroupNumbers
+        `Prelude.hashWithSalt` phase2EncryptionAlgorithms
+        `Prelude.hashWithSalt` phase2IntegrityAlgorithms
+        `Prelude.hashWithSalt` phase2LifetimeSeconds
+        `Prelude.hashWithSalt` preSharedKey
         `Prelude.hashWithSalt` rekeyFuzzPercentage
         `Prelude.hashWithSalt` rekeyMarginTimeSeconds
-        `Prelude.hashWithSalt` phase2IntegrityAlgorithms
-        `Prelude.hashWithSalt` phase1EncryptionAlgorithms
-        `Prelude.hashWithSalt` tunnelInsideCidr
-        `Prelude.hashWithSalt` outsideIpAddress
         `Prelude.hashWithSalt` replayWindowSize
+        `Prelude.hashWithSalt` tunnelInsideCidr
 
 instance
   Prelude.NFData
@@ -312,22 +312,22 @@ instance
   where
   rnf
     AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {..} =
-      Prelude.rnf phase1LifetimeSeconds
-        `Prelude.seq` Prelude.rnf phase2LifetimeSeconds
-        `Prelude.seq` Prelude.rnf phase2EncryptionAlgorithms
-        `Prelude.seq` Prelude.rnf phase1DhGroupNumbers
-        `Prelude.seq` Prelude.rnf phase1IntegrityAlgorithms
-        `Prelude.seq` Prelude.rnf dpdTimeoutSeconds
+      Prelude.rnf dpdTimeoutSeconds
         `Prelude.seq` Prelude.rnf ikeVersions
-        `Prelude.seq` Prelude.rnf preSharedKey
+        `Prelude.seq` Prelude.rnf outsideIpAddress
+        `Prelude.seq` Prelude.rnf phase1DhGroupNumbers
+        `Prelude.seq` Prelude.rnf phase1EncryptionAlgorithms
+        `Prelude.seq` Prelude.rnf phase1IntegrityAlgorithms
+        `Prelude.seq` Prelude.rnf phase1LifetimeSeconds
         `Prelude.seq` Prelude.rnf phase2DhGroupNumbers
+        `Prelude.seq` Prelude.rnf phase2EncryptionAlgorithms
+        `Prelude.seq` Prelude.rnf phase2IntegrityAlgorithms
+        `Prelude.seq` Prelude.rnf phase2LifetimeSeconds
+        `Prelude.seq` Prelude.rnf preSharedKey
         `Prelude.seq` Prelude.rnf rekeyFuzzPercentage
         `Prelude.seq` Prelude.rnf rekeyMarginTimeSeconds
-        `Prelude.seq` Prelude.rnf phase2IntegrityAlgorithms
-        `Prelude.seq` Prelude.rnf phase1EncryptionAlgorithms
-        `Prelude.seq` Prelude.rnf tunnelInsideCidr
-        `Prelude.seq` Prelude.rnf outsideIpAddress
         `Prelude.seq` Prelude.rnf replayWindowSize
+        `Prelude.seq` Prelude.rnf tunnelInsideCidr
 
 instance
   Data.ToJSON
@@ -337,35 +337,35 @@ instance
     AwsEc2VpnConnectionOptionsTunnelOptionsDetails' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("Phase1LifetimeSeconds" Data..=)
-                Prelude.<$> phase1LifetimeSeconds,
-              ("Phase2LifetimeSeconds" Data..=)
-                Prelude.<$> phase2LifetimeSeconds,
-              ("Phase2EncryptionAlgorithms" Data..=)
-                Prelude.<$> phase2EncryptionAlgorithms,
-              ("Phase1DhGroupNumbers" Data..=)
-                Prelude.<$> phase1DhGroupNumbers,
-              ("Phase1IntegrityAlgorithms" Data..=)
-                Prelude.<$> phase1IntegrityAlgorithms,
-              ("DpdTimeoutSeconds" Data..=)
+            [ ("DpdTimeoutSeconds" Data..=)
                 Prelude.<$> dpdTimeoutSeconds,
               ("IkeVersions" Data..=) Prelude.<$> ikeVersions,
-              ("PreSharedKey" Data..=) Prelude.<$> preSharedKey,
+              ("OutsideIpAddress" Data..=)
+                Prelude.<$> outsideIpAddress,
+              ("Phase1DhGroupNumbers" Data..=)
+                Prelude.<$> phase1DhGroupNumbers,
+              ("Phase1EncryptionAlgorithms" Data..=)
+                Prelude.<$> phase1EncryptionAlgorithms,
+              ("Phase1IntegrityAlgorithms" Data..=)
+                Prelude.<$> phase1IntegrityAlgorithms,
+              ("Phase1LifetimeSeconds" Data..=)
+                Prelude.<$> phase1LifetimeSeconds,
               ("Phase2DhGroupNumbers" Data..=)
                 Prelude.<$> phase2DhGroupNumbers,
+              ("Phase2EncryptionAlgorithms" Data..=)
+                Prelude.<$> phase2EncryptionAlgorithms,
+              ("Phase2IntegrityAlgorithms" Data..=)
+                Prelude.<$> phase2IntegrityAlgorithms,
+              ("Phase2LifetimeSeconds" Data..=)
+                Prelude.<$> phase2LifetimeSeconds,
+              ("PreSharedKey" Data..=) Prelude.<$> preSharedKey,
               ("RekeyFuzzPercentage" Data..=)
                 Prelude.<$> rekeyFuzzPercentage,
               ("RekeyMarginTimeSeconds" Data..=)
                 Prelude.<$> rekeyMarginTimeSeconds,
-              ("Phase2IntegrityAlgorithms" Data..=)
-                Prelude.<$> phase2IntegrityAlgorithms,
-              ("Phase1EncryptionAlgorithms" Data..=)
-                Prelude.<$> phase1EncryptionAlgorithms,
-              ("TunnelInsideCidr" Data..=)
-                Prelude.<$> tunnelInsideCidr,
-              ("OutsideIpAddress" Data..=)
-                Prelude.<$> outsideIpAddress,
               ("ReplayWindowSize" Data..=)
-                Prelude.<$> replayWindowSize
+                Prelude.<$> replayWindowSize,
+              ("TunnelInsideCidr" Data..=)
+                Prelude.<$> tunnelInsideCidr
             ]
         )

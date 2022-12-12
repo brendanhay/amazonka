@@ -42,17 +42,17 @@ import Amazonka.WAFV2.Types.NoneAction
 --
 -- /See:/ 'newOverrideAction' smart constructor.
 data OverrideAction = OverrideAction'
-  { -- | Don\'t override the rule group evaluation result. This is the most
-    -- common setting.
-    none :: Prelude.Maybe NoneAction,
-    -- | Override the rule group evaluation result to count only.
+  { -- | Override the rule group evaluation result to count only.
     --
     -- This option is usually set to none. It does not affect how the rules in
     -- the rule group are evaluated. If you want the rules in the rule group to
     -- only count matches, do not use this and instead use the rule action
     -- override option, with @Count@ action, in your rule group reference
     -- statement settings.
-    count :: Prelude.Maybe CountAction
+    count :: Prelude.Maybe CountAction,
+    -- | Don\'t override the rule group evaluation result. This is the most
+    -- common setting.
+    none :: Prelude.Maybe NoneAction
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -64,9 +64,6 @@ data OverrideAction = OverrideAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'none', 'overrideAction_none' - Don\'t override the rule group evaluation result. This is the most
--- common setting.
---
 -- 'count', 'overrideAction_count' - Override the rule group evaluation result to count only.
 --
 -- This option is usually set to none. It does not affect how the rules in
@@ -74,18 +71,16 @@ data OverrideAction = OverrideAction'
 -- only count matches, do not use this and instead use the rule action
 -- override option, with @Count@ action, in your rule group reference
 -- statement settings.
+--
+-- 'none', 'overrideAction_none' - Don\'t override the rule group evaluation result. This is the most
+-- common setting.
 newOverrideAction ::
   OverrideAction
 newOverrideAction =
   OverrideAction'
-    { none = Prelude.Nothing,
-      count = Prelude.Nothing
+    { count = Prelude.Nothing,
+      none = Prelude.Nothing
     }
-
--- | Don\'t override the rule group evaluation result. This is the most
--- common setting.
-overrideAction_none :: Lens.Lens' OverrideAction (Prelude.Maybe NoneAction)
-overrideAction_none = Lens.lens (\OverrideAction' {none} -> none) (\s@OverrideAction' {} a -> s {none = a} :: OverrideAction)
 
 -- | Override the rule group evaluation result to count only.
 --
@@ -97,29 +92,34 @@ overrideAction_none = Lens.lens (\OverrideAction' {none} -> none) (\s@OverrideAc
 overrideAction_count :: Lens.Lens' OverrideAction (Prelude.Maybe CountAction)
 overrideAction_count = Lens.lens (\OverrideAction' {count} -> count) (\s@OverrideAction' {} a -> s {count = a} :: OverrideAction)
 
+-- | Don\'t override the rule group evaluation result. This is the most
+-- common setting.
+overrideAction_none :: Lens.Lens' OverrideAction (Prelude.Maybe NoneAction)
+overrideAction_none = Lens.lens (\OverrideAction' {none} -> none) (\s@OverrideAction' {} a -> s {none = a} :: OverrideAction)
+
 instance Data.FromJSON OverrideAction where
   parseJSON =
     Data.withObject
       "OverrideAction"
       ( \x ->
           OverrideAction'
-            Prelude.<$> (x Data..:? "None") Prelude.<*> (x Data..:? "Count")
+            Prelude.<$> (x Data..:? "Count") Prelude.<*> (x Data..:? "None")
       )
 
 instance Prelude.Hashable OverrideAction where
   hashWithSalt _salt OverrideAction' {..} =
-    _salt `Prelude.hashWithSalt` none
-      `Prelude.hashWithSalt` count
+    _salt `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` none
 
 instance Prelude.NFData OverrideAction where
   rnf OverrideAction' {..} =
-    Prelude.rnf none `Prelude.seq` Prelude.rnf count
+    Prelude.rnf count `Prelude.seq` Prelude.rnf none
 
 instance Data.ToJSON OverrideAction where
   toJSON OverrideAction' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("None" Data..=) Prelude.<$> none,
-            ("Count" Data..=) Prelude.<$> count
+          [ ("Count" Data..=) Prelude.<$> count,
+            ("None" Data..=) Prelude.<$> none
           ]
       )

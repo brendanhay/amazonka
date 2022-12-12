@@ -39,14 +39,14 @@ module Amazonka.AutoScaling.PutScheduledUpdateGroupAction
     newPutScheduledUpdateGroupAction,
 
     -- * Request Lenses
-    putScheduledUpdateGroupAction_timeZone,
-    putScheduledUpdateGroupAction_time,
+    putScheduledUpdateGroupAction_desiredCapacity,
     putScheduledUpdateGroupAction_endTime,
+    putScheduledUpdateGroupAction_maxSize,
     putScheduledUpdateGroupAction_minSize,
     putScheduledUpdateGroupAction_recurrence,
-    putScheduledUpdateGroupAction_maxSize,
-    putScheduledUpdateGroupAction_desiredCapacity,
     putScheduledUpdateGroupAction_startTime,
+    putScheduledUpdateGroupAction_time,
+    putScheduledUpdateGroupAction_timeZone,
     putScheduledUpdateGroupAction_autoScalingGroupName,
     putScheduledUpdateGroupAction_scheduledActionName,
 
@@ -66,19 +66,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutScheduledUpdateGroupAction' smart constructor.
 data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction'
-  { -- | Specifies the time zone for a cron expression. If a time zone is not
-    -- provided, UTC is used by default.
+  { -- | The desired capacity is the initial capacity of the Auto Scaling group
+    -- after the scheduled action runs and the capacity it attempts to
+    -- maintain. It can scale beyond this capacity if you add more scaling
+    -- conditions.
     --
-    -- Valid values are the canonical names of the IANA time zones, derived
-    -- from the IANA Time Zone Database (such as @Etc\/GMT+9@ or
-    -- @Pacific\/Tahiti@). For more information, see
-    -- <https://en.wikipedia.org/wiki/List_of_tz_database_time_zones>.
-    timeZone :: Prelude.Maybe Prelude.Text,
-    -- | This property is no longer used.
-    time :: Prelude.Maybe Data.ISO8601,
+    -- You must specify at least one of the following properties: @MaxSize@,
+    -- @MinSize@, or @DesiredCapacity@.
+    desiredCapacity :: Prelude.Maybe Prelude.Int,
     -- | The date and time for the recurring schedule to end, in UTC. For
     -- example, @\"2021-06-01T00:00:00Z\"@.
     endTime :: Prelude.Maybe Data.ISO8601,
+    -- | The maximum size of the Auto Scaling group.
+    maxSize :: Prelude.Maybe Prelude.Int,
     -- | The minimum size of the Auto Scaling group.
     minSize :: Prelude.Maybe Prelude.Int,
     -- | The recurring schedule for this action. This format consists of five
@@ -92,16 +92,6 @@ data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction'
     --
     -- Cron expressions use Universal Coordinated Time (UTC) by default.
     recurrence :: Prelude.Maybe Prelude.Text,
-    -- | The maximum size of the Auto Scaling group.
-    maxSize :: Prelude.Maybe Prelude.Int,
-    -- | The desired capacity is the initial capacity of the Auto Scaling group
-    -- after the scheduled action runs and the capacity it attempts to
-    -- maintain. It can scale beyond this capacity if you add more scaling
-    -- conditions.
-    --
-    -- You must specify at least one of the following properties: @MaxSize@,
-    -- @MinSize@, or @DesiredCapacity@.
-    desiredCapacity :: Prelude.Maybe Prelude.Int,
     -- | The date and time for this action to start, in YYYY-MM-DDThh:mm:ssZ
     -- format in UTC\/GMT only and in quotes (for example,
     -- @\"2021-06-01T00:00:00Z\"@).
@@ -110,6 +100,16 @@ data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction'
     -- performs the action at this time, and then performs the action based on
     -- the specified recurrence.
     startTime :: Prelude.Maybe Data.ISO8601,
+    -- | This property is no longer used.
+    time :: Prelude.Maybe Data.ISO8601,
+    -- | Specifies the time zone for a cron expression. If a time zone is not
+    -- provided, UTC is used by default.
+    --
+    -- Valid values are the canonical names of the IANA time zones, derived
+    -- from the IANA Time Zone Database (such as @Etc\/GMT+9@ or
+    -- @Pacific\/Tahiti@). For more information, see
+    -- <https://en.wikipedia.org/wiki/List_of_tz_database_time_zones>.
+    timeZone :: Prelude.Maybe Prelude.Text,
     -- | The name of the Auto Scaling group.
     autoScalingGroupName :: Prelude.Text,
     -- | The name of this scaling action.
@@ -125,18 +125,18 @@ data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'timeZone', 'putScheduledUpdateGroupAction_timeZone' - Specifies the time zone for a cron expression. If a time zone is not
--- provided, UTC is used by default.
+-- 'desiredCapacity', 'putScheduledUpdateGroupAction_desiredCapacity' - The desired capacity is the initial capacity of the Auto Scaling group
+-- after the scheduled action runs and the capacity it attempts to
+-- maintain. It can scale beyond this capacity if you add more scaling
+-- conditions.
 --
--- Valid values are the canonical names of the IANA time zones, derived
--- from the IANA Time Zone Database (such as @Etc\/GMT+9@ or
--- @Pacific\/Tahiti@). For more information, see
--- <https://en.wikipedia.org/wiki/List_of_tz_database_time_zones>.
---
--- 'time', 'putScheduledUpdateGroupAction_time' - This property is no longer used.
+-- You must specify at least one of the following properties: @MaxSize@,
+-- @MinSize@, or @DesiredCapacity@.
 --
 -- 'endTime', 'putScheduledUpdateGroupAction_endTime' - The date and time for the recurring schedule to end, in UTC. For
 -- example, @\"2021-06-01T00:00:00Z\"@.
+--
+-- 'maxSize', 'putScheduledUpdateGroupAction_maxSize' - The maximum size of the Auto Scaling group.
 --
 -- 'minSize', 'putScheduledUpdateGroupAction_minSize' - The minimum size of the Auto Scaling group.
 --
@@ -151,16 +151,6 @@ data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction'
 --
 -- Cron expressions use Universal Coordinated Time (UTC) by default.
 --
--- 'maxSize', 'putScheduledUpdateGroupAction_maxSize' - The maximum size of the Auto Scaling group.
---
--- 'desiredCapacity', 'putScheduledUpdateGroupAction_desiredCapacity' - The desired capacity is the initial capacity of the Auto Scaling group
--- after the scheduled action runs and the capacity it attempts to
--- maintain. It can scale beyond this capacity if you add more scaling
--- conditions.
---
--- You must specify at least one of the following properties: @MaxSize@,
--- @MinSize@, or @DesiredCapacity@.
---
 -- 'startTime', 'putScheduledUpdateGroupAction_startTime' - The date and time for this action to start, in YYYY-MM-DDThh:mm:ssZ
 -- format in UTC\/GMT only and in quotes (for example,
 -- @\"2021-06-01T00:00:00Z\"@).
@@ -168,6 +158,16 @@ data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction'
 -- If you specify @Recurrence@ and @StartTime@, Amazon EC2 Auto Scaling
 -- performs the action at this time, and then performs the action based on
 -- the specified recurrence.
+--
+-- 'time', 'putScheduledUpdateGroupAction_time' - This property is no longer used.
+--
+-- 'timeZone', 'putScheduledUpdateGroupAction_timeZone' - Specifies the time zone for a cron expression. If a time zone is not
+-- provided, UTC is used by default.
+--
+-- Valid values are the canonical names of the IANA time zones, derived
+-- from the IANA Time Zone Database (such as @Etc\/GMT+9@ or
+-- @Pacific\/Tahiti@). For more information, see
+-- <https://en.wikipedia.org/wiki/List_of_tz_database_time_zones>.
 --
 -- 'autoScalingGroupName', 'putScheduledUpdateGroupAction_autoScalingGroupName' - The name of the Auto Scaling group.
 --
@@ -182,38 +182,38 @@ newPutScheduledUpdateGroupAction
   pAutoScalingGroupName_
   pScheduledActionName_ =
     PutScheduledUpdateGroupAction'
-      { timeZone =
+      { desiredCapacity =
           Prelude.Nothing,
-        time = Prelude.Nothing,
         endTime = Prelude.Nothing,
+        maxSize = Prelude.Nothing,
         minSize = Prelude.Nothing,
         recurrence = Prelude.Nothing,
-        maxSize = Prelude.Nothing,
-        desiredCapacity = Prelude.Nothing,
         startTime = Prelude.Nothing,
+        time = Prelude.Nothing,
+        timeZone = Prelude.Nothing,
         autoScalingGroupName =
           pAutoScalingGroupName_,
         scheduledActionName = pScheduledActionName_
       }
 
--- | Specifies the time zone for a cron expression. If a time zone is not
--- provided, UTC is used by default.
+-- | The desired capacity is the initial capacity of the Auto Scaling group
+-- after the scheduled action runs and the capacity it attempts to
+-- maintain. It can scale beyond this capacity if you add more scaling
+-- conditions.
 --
--- Valid values are the canonical names of the IANA time zones, derived
--- from the IANA Time Zone Database (such as @Etc\/GMT+9@ or
--- @Pacific\/Tahiti@). For more information, see
--- <https://en.wikipedia.org/wiki/List_of_tz_database_time_zones>.
-putScheduledUpdateGroupAction_timeZone :: Lens.Lens' PutScheduledUpdateGroupAction (Prelude.Maybe Prelude.Text)
-putScheduledUpdateGroupAction_timeZone = Lens.lens (\PutScheduledUpdateGroupAction' {timeZone} -> timeZone) (\s@PutScheduledUpdateGroupAction' {} a -> s {timeZone = a} :: PutScheduledUpdateGroupAction)
-
--- | This property is no longer used.
-putScheduledUpdateGroupAction_time :: Lens.Lens' PutScheduledUpdateGroupAction (Prelude.Maybe Prelude.UTCTime)
-putScheduledUpdateGroupAction_time = Lens.lens (\PutScheduledUpdateGroupAction' {time} -> time) (\s@PutScheduledUpdateGroupAction' {} a -> s {time = a} :: PutScheduledUpdateGroupAction) Prelude.. Lens.mapping Data._Time
+-- You must specify at least one of the following properties: @MaxSize@,
+-- @MinSize@, or @DesiredCapacity@.
+putScheduledUpdateGroupAction_desiredCapacity :: Lens.Lens' PutScheduledUpdateGroupAction (Prelude.Maybe Prelude.Int)
+putScheduledUpdateGroupAction_desiredCapacity = Lens.lens (\PutScheduledUpdateGroupAction' {desiredCapacity} -> desiredCapacity) (\s@PutScheduledUpdateGroupAction' {} a -> s {desiredCapacity = a} :: PutScheduledUpdateGroupAction)
 
 -- | The date and time for the recurring schedule to end, in UTC. For
 -- example, @\"2021-06-01T00:00:00Z\"@.
 putScheduledUpdateGroupAction_endTime :: Lens.Lens' PutScheduledUpdateGroupAction (Prelude.Maybe Prelude.UTCTime)
 putScheduledUpdateGroupAction_endTime = Lens.lens (\PutScheduledUpdateGroupAction' {endTime} -> endTime) (\s@PutScheduledUpdateGroupAction' {} a -> s {endTime = a} :: PutScheduledUpdateGroupAction) Prelude.. Lens.mapping Data._Time
+
+-- | The maximum size of the Auto Scaling group.
+putScheduledUpdateGroupAction_maxSize :: Lens.Lens' PutScheduledUpdateGroupAction (Prelude.Maybe Prelude.Int)
+putScheduledUpdateGroupAction_maxSize = Lens.lens (\PutScheduledUpdateGroupAction' {maxSize} -> maxSize) (\s@PutScheduledUpdateGroupAction' {} a -> s {maxSize = a} :: PutScheduledUpdateGroupAction)
 
 -- | The minimum size of the Auto Scaling group.
 putScheduledUpdateGroupAction_minSize :: Lens.Lens' PutScheduledUpdateGroupAction (Prelude.Maybe Prelude.Int)
@@ -232,20 +232,6 @@ putScheduledUpdateGroupAction_minSize = Lens.lens (\PutScheduledUpdateGroupActio
 putScheduledUpdateGroupAction_recurrence :: Lens.Lens' PutScheduledUpdateGroupAction (Prelude.Maybe Prelude.Text)
 putScheduledUpdateGroupAction_recurrence = Lens.lens (\PutScheduledUpdateGroupAction' {recurrence} -> recurrence) (\s@PutScheduledUpdateGroupAction' {} a -> s {recurrence = a} :: PutScheduledUpdateGroupAction)
 
--- | The maximum size of the Auto Scaling group.
-putScheduledUpdateGroupAction_maxSize :: Lens.Lens' PutScheduledUpdateGroupAction (Prelude.Maybe Prelude.Int)
-putScheduledUpdateGroupAction_maxSize = Lens.lens (\PutScheduledUpdateGroupAction' {maxSize} -> maxSize) (\s@PutScheduledUpdateGroupAction' {} a -> s {maxSize = a} :: PutScheduledUpdateGroupAction)
-
--- | The desired capacity is the initial capacity of the Auto Scaling group
--- after the scheduled action runs and the capacity it attempts to
--- maintain. It can scale beyond this capacity if you add more scaling
--- conditions.
---
--- You must specify at least one of the following properties: @MaxSize@,
--- @MinSize@, or @DesiredCapacity@.
-putScheduledUpdateGroupAction_desiredCapacity :: Lens.Lens' PutScheduledUpdateGroupAction (Prelude.Maybe Prelude.Int)
-putScheduledUpdateGroupAction_desiredCapacity = Lens.lens (\PutScheduledUpdateGroupAction' {desiredCapacity} -> desiredCapacity) (\s@PutScheduledUpdateGroupAction' {} a -> s {desiredCapacity = a} :: PutScheduledUpdateGroupAction)
-
 -- | The date and time for this action to start, in YYYY-MM-DDThh:mm:ssZ
 -- format in UTC\/GMT only and in quotes (for example,
 -- @\"2021-06-01T00:00:00Z\"@).
@@ -255,6 +241,20 @@ putScheduledUpdateGroupAction_desiredCapacity = Lens.lens (\PutScheduledUpdateGr
 -- the specified recurrence.
 putScheduledUpdateGroupAction_startTime :: Lens.Lens' PutScheduledUpdateGroupAction (Prelude.Maybe Prelude.UTCTime)
 putScheduledUpdateGroupAction_startTime = Lens.lens (\PutScheduledUpdateGroupAction' {startTime} -> startTime) (\s@PutScheduledUpdateGroupAction' {} a -> s {startTime = a} :: PutScheduledUpdateGroupAction) Prelude.. Lens.mapping Data._Time
+
+-- | This property is no longer used.
+putScheduledUpdateGroupAction_time :: Lens.Lens' PutScheduledUpdateGroupAction (Prelude.Maybe Prelude.UTCTime)
+putScheduledUpdateGroupAction_time = Lens.lens (\PutScheduledUpdateGroupAction' {time} -> time) (\s@PutScheduledUpdateGroupAction' {} a -> s {time = a} :: PutScheduledUpdateGroupAction) Prelude.. Lens.mapping Data._Time
+
+-- | Specifies the time zone for a cron expression. If a time zone is not
+-- provided, UTC is used by default.
+--
+-- Valid values are the canonical names of the IANA time zones, derived
+-- from the IANA Time Zone Database (such as @Etc\/GMT+9@ or
+-- @Pacific\/Tahiti@). For more information, see
+-- <https://en.wikipedia.org/wiki/List_of_tz_database_time_zones>.
+putScheduledUpdateGroupAction_timeZone :: Lens.Lens' PutScheduledUpdateGroupAction (Prelude.Maybe Prelude.Text)
+putScheduledUpdateGroupAction_timeZone = Lens.lens (\PutScheduledUpdateGroupAction' {timeZone} -> timeZone) (\s@PutScheduledUpdateGroupAction' {} a -> s {timeZone = a} :: PutScheduledUpdateGroupAction)
 
 -- | The name of the Auto Scaling group.
 putScheduledUpdateGroupAction_autoScalingGroupName :: Lens.Lens' PutScheduledUpdateGroupAction Prelude.Text
@@ -282,27 +282,27 @@ instance
     PutScheduledUpdateGroupAction
   where
   hashWithSalt _salt PutScheduledUpdateGroupAction' {..} =
-    _salt `Prelude.hashWithSalt` timeZone
-      `Prelude.hashWithSalt` time
+    _salt `Prelude.hashWithSalt` desiredCapacity
       `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` maxSize
       `Prelude.hashWithSalt` minSize
       `Prelude.hashWithSalt` recurrence
-      `Prelude.hashWithSalt` maxSize
-      `Prelude.hashWithSalt` desiredCapacity
       `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` time
+      `Prelude.hashWithSalt` timeZone
       `Prelude.hashWithSalt` autoScalingGroupName
       `Prelude.hashWithSalt` scheduledActionName
 
 instance Prelude.NFData PutScheduledUpdateGroupAction where
   rnf PutScheduledUpdateGroupAction' {..} =
-    Prelude.rnf timeZone
-      `Prelude.seq` Prelude.rnf time
+    Prelude.rnf desiredCapacity
       `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf maxSize
       `Prelude.seq` Prelude.rnf minSize
       `Prelude.seq` Prelude.rnf recurrence
-      `Prelude.seq` Prelude.rnf maxSize
-      `Prelude.seq` Prelude.rnf desiredCapacity
       `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf time
+      `Prelude.seq` Prelude.rnf timeZone
       `Prelude.seq` Prelude.rnf autoScalingGroupName
       `Prelude.seq` Prelude.rnf scheduledActionName
 
@@ -321,14 +321,14 @@ instance Data.ToQuery PutScheduledUpdateGroupAction where
                   ),
         "Version"
           Data.=: ("2011-01-01" :: Prelude.ByteString),
-        "TimeZone" Data.=: timeZone,
-        "Time" Data.=: time,
+        "DesiredCapacity" Data.=: desiredCapacity,
         "EndTime" Data.=: endTime,
+        "MaxSize" Data.=: maxSize,
         "MinSize" Data.=: minSize,
         "Recurrence" Data.=: recurrence,
-        "MaxSize" Data.=: maxSize,
-        "DesiredCapacity" Data.=: desiredCapacity,
         "StartTime" Data.=: startTime,
+        "Time" Data.=: time,
+        "TimeZone" Data.=: timeZone,
         "AutoScalingGroupName" Data.=: autoScalingGroupName,
         "ScheduledActionName" Data.=: scheduledActionName
       ]

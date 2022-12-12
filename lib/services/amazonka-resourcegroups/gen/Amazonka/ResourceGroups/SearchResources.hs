@@ -43,8 +43,8 @@ module Amazonka.ResourceGroups.SearchResources
     newSearchResources,
 
     -- * Request Lenses
-    searchResources_nextToken,
     searchResources_maxResults,
+    searchResources_nextToken,
     searchResources_resourceQuery,
 
     -- * Destructuring the Response
@@ -52,9 +52,9 @@ module Amazonka.ResourceGroups.SearchResources
     newSearchResourcesResponse,
 
     -- * Response Lenses
-    searchResourcesResponse_resourceIdentifiers,
     searchResourcesResponse_nextToken,
     searchResourcesResponse_queryErrors,
+    searchResourcesResponse_resourceIdentifiers,
     searchResourcesResponse_httpStatus,
   )
 where
@@ -69,13 +69,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSearchResources' smart constructor.
 data SearchResources = SearchResources'
-  { -- | The parameter for receiving additional results if you receive a
-    -- @NextToken@ response in a previous request. A @NextToken@ response
-    -- indicates that more output is available. Set this parameter to the value
-    -- provided by a previous call\'s @NextToken@ response to indicate where
-    -- the output should continue from.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The total number of results that you want included on each page of the
+  { -- | The total number of results that you want included on each page of the
     -- response. If you do not include this parameter, it defaults to a value
     -- that is specific to the operation. If additional items exist beyond the
     -- maximum you specify, the @NextToken@ response element is present and has
@@ -86,6 +80,12 @@ data SearchResources = SearchResources'
     -- @NextToken@ after every operation to ensure that you receive all of the
     -- results.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The parameter for receiving additional results if you receive a
+    -- @NextToken@ response in a previous request. A @NextToken@ response
+    -- indicates that more output is available. Set this parameter to the value
+    -- provided by a previous call\'s @NextToken@ response to indicate where
+    -- the output should continue from.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The search query, using the same formats that are supported for resource
     -- group definition. For more information, see CreateGroup.
     resourceQuery :: ResourceQuery
@@ -100,12 +100,6 @@ data SearchResources = SearchResources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'searchResources_nextToken' - The parameter for receiving additional results if you receive a
--- @NextToken@ response in a previous request. A @NextToken@ response
--- indicates that more output is available. Set this parameter to the value
--- provided by a previous call\'s @NextToken@ response to indicate where
--- the output should continue from.
---
 -- 'maxResults', 'searchResources_maxResults' - The total number of results that you want included on each page of the
 -- response. If you do not include this parameter, it defaults to a value
 -- that is specific to the operation. If additional items exist beyond the
@@ -117,6 +111,12 @@ data SearchResources = SearchResources'
 -- @NextToken@ after every operation to ensure that you receive all of the
 -- results.
 --
+-- 'nextToken', 'searchResources_nextToken' - The parameter for receiving additional results if you receive a
+-- @NextToken@ response in a previous request. A @NextToken@ response
+-- indicates that more output is available. Set this parameter to the value
+-- provided by a previous call\'s @NextToken@ response to indicate where
+-- the output should continue from.
+--
 -- 'resourceQuery', 'searchResources_resourceQuery' - The search query, using the same formats that are supported for resource
 -- group definition. For more information, see CreateGroup.
 newSearchResources ::
@@ -125,18 +125,10 @@ newSearchResources ::
   SearchResources
 newSearchResources pResourceQuery_ =
   SearchResources'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       resourceQuery = pResourceQuery_
     }
-
--- | The parameter for receiving additional results if you receive a
--- @NextToken@ response in a previous request. A @NextToken@ response
--- indicates that more output is available. Set this parameter to the value
--- provided by a previous call\'s @NextToken@ response to indicate where
--- the output should continue from.
-searchResources_nextToken :: Lens.Lens' SearchResources (Prelude.Maybe Prelude.Text)
-searchResources_nextToken = Lens.lens (\SearchResources' {nextToken} -> nextToken) (\s@SearchResources' {} a -> s {nextToken = a} :: SearchResources)
 
 -- | The total number of results that you want included on each page of the
 -- response. If you do not include this parameter, it defaults to a value
@@ -150,6 +142,14 @@ searchResources_nextToken = Lens.lens (\SearchResources' {nextToken} -> nextToke
 -- results.
 searchResources_maxResults :: Lens.Lens' SearchResources (Prelude.Maybe Prelude.Natural)
 searchResources_maxResults = Lens.lens (\SearchResources' {maxResults} -> maxResults) (\s@SearchResources' {} a -> s {maxResults = a} :: SearchResources)
+
+-- | The parameter for receiving additional results if you receive a
+-- @NextToken@ response in a previous request. A @NextToken@ response
+-- indicates that more output is available. Set this parameter to the value
+-- provided by a previous call\'s @NextToken@ response to indicate where
+-- the output should continue from.
+searchResources_nextToken :: Lens.Lens' SearchResources (Prelude.Maybe Prelude.Text)
+searchResources_nextToken = Lens.lens (\SearchResources' {nextToken} -> nextToken) (\s@SearchResources' {} a -> s {nextToken = a} :: SearchResources)
 
 -- | The search query, using the same formats that are supported for resource
 -- group definition. For more information, see CreateGroup.
@@ -188,24 +188,24 @@ instance Core.AWSRequest SearchResources where
     Response.receiveJSON
       ( \s h x ->
           SearchResourcesResponse'
-            Prelude.<$> ( x Data..?> "ResourceIdentifiers"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "QueryErrors" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "ResourceIdentifiers"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "QueryErrors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable SearchResources where
   hashWithSalt _salt SearchResources' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceQuery
 
 instance Prelude.NFData SearchResources where
   rnf SearchResources' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf resourceQuery
 
 instance Data.ToHeaders SearchResources where
@@ -215,8 +215,8 @@ instance Data.ToJSON SearchResources where
   toJSON SearchResources' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("ResourceQuery" Data..= resourceQuery)
           ]
@@ -230,10 +230,7 @@ instance Data.ToQuery SearchResources where
 
 -- | /See:/ 'newSearchResourcesResponse' smart constructor.
 data SearchResourcesResponse = SearchResourcesResponse'
-  { -- | The ARNs and resource types of resources that are members of the group
-    -- that you specified.
-    resourceIdentifiers :: Prelude.Maybe [ResourceIdentifier],
-    -- | If present, indicates that more output is available than is included in
+  { -- | If present, indicates that more output is available than is included in
     -- the current response. Use this value in the @NextToken@ request
     -- parameter in a subsequent call to the operation to get the next part of
     -- the output. You should repeat this until the @NextToken@ response
@@ -244,6 +241,9 @@ data SearchResourcesResponse = SearchResourcesResponse'
     -- are @CLOUDFORMATION_STACK_INACTIVE@ and
     -- @CLOUDFORMATION_STACK_NOT_EXISTING@.
     queryErrors :: Prelude.Maybe [QueryError],
+    -- | The ARNs and resource types of resources that are members of the group
+    -- that you specified.
+    resourceIdentifiers :: Prelude.Maybe [ResourceIdentifier],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -257,9 +257,6 @@ data SearchResourcesResponse = SearchResourcesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceIdentifiers', 'searchResourcesResponse_resourceIdentifiers' - The ARNs and resource types of resources that are members of the group
--- that you specified.
---
 -- 'nextToken', 'searchResourcesResponse_nextToken' - If present, indicates that more output is available than is included in
 -- the current response. Use this value in the @NextToken@ request
 -- parameter in a subsequent call to the operation to get the next part of
@@ -271,6 +268,9 @@ data SearchResourcesResponse = SearchResourcesResponse'
 -- are @CLOUDFORMATION_STACK_INACTIVE@ and
 -- @CLOUDFORMATION_STACK_NOT_EXISTING@.
 --
+-- 'resourceIdentifiers', 'searchResourcesResponse_resourceIdentifiers' - The ARNs and resource types of resources that are members of the group
+-- that you specified.
+--
 -- 'httpStatus', 'searchResourcesResponse_httpStatus' - The response's http status code.
 newSearchResourcesResponse ::
   -- | 'httpStatus'
@@ -278,17 +278,12 @@ newSearchResourcesResponse ::
   SearchResourcesResponse
 newSearchResourcesResponse pHttpStatus_ =
   SearchResourcesResponse'
-    { resourceIdentifiers =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       queryErrors = Prelude.Nothing,
+      resourceIdentifiers = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ARNs and resource types of resources that are members of the group
--- that you specified.
-searchResourcesResponse_resourceIdentifiers :: Lens.Lens' SearchResourcesResponse (Prelude.Maybe [ResourceIdentifier])
-searchResourcesResponse_resourceIdentifiers = Lens.lens (\SearchResourcesResponse' {resourceIdentifiers} -> resourceIdentifiers) (\s@SearchResourcesResponse' {} a -> s {resourceIdentifiers = a} :: SearchResourcesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If present, indicates that more output is available than is included in
 -- the current response. Use this value in the @NextToken@ request
@@ -305,13 +300,18 @@ searchResourcesResponse_nextToken = Lens.lens (\SearchResourcesResponse' {nextTo
 searchResourcesResponse_queryErrors :: Lens.Lens' SearchResourcesResponse (Prelude.Maybe [QueryError])
 searchResourcesResponse_queryErrors = Lens.lens (\SearchResourcesResponse' {queryErrors} -> queryErrors) (\s@SearchResourcesResponse' {} a -> s {queryErrors = a} :: SearchResourcesResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The ARNs and resource types of resources that are members of the group
+-- that you specified.
+searchResourcesResponse_resourceIdentifiers :: Lens.Lens' SearchResourcesResponse (Prelude.Maybe [ResourceIdentifier])
+searchResourcesResponse_resourceIdentifiers = Lens.lens (\SearchResourcesResponse' {resourceIdentifiers} -> resourceIdentifiers) (\s@SearchResourcesResponse' {} a -> s {resourceIdentifiers = a} :: SearchResourcesResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 searchResourcesResponse_httpStatus :: Lens.Lens' SearchResourcesResponse Prelude.Int
 searchResourcesResponse_httpStatus = Lens.lens (\SearchResourcesResponse' {httpStatus} -> httpStatus) (\s@SearchResourcesResponse' {} a -> s {httpStatus = a} :: SearchResourcesResponse)
 
 instance Prelude.NFData SearchResourcesResponse where
   rnf SearchResourcesResponse' {..} =
-    Prelude.rnf resourceIdentifiers
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf queryErrors
+      `Prelude.seq` Prelude.rnf resourceIdentifiers
       `Prelude.seq` Prelude.rnf httpStatus

@@ -28,28 +28,28 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsRedshiftClusterLoggingStatus' smart constructor.
 data AwsRedshiftClusterLoggingStatus = AwsRedshiftClusterLoggingStatus'
-  { -- | The last time that logs were delivered successfully.
-    --
-    -- Uses the @date-time@ format specified in
-    -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
-    lastSuccessfulDeliveryTime :: Prelude.Maybe Prelude.Text,
-    -- | Provides the prefix applied to the log file names.
-    s3KeyPrefix :: Prelude.Maybe Prelude.Text,
+  { -- | The name of the S3 bucket where the log files are stored.
+    bucketName :: Prelude.Maybe Prelude.Text,
     -- | The message indicating that the logs failed to be delivered.
     lastFailureMessage :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether logging is enabled.
-    loggingEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the S3 bucket where the log files are stored.
-    bucketName :: Prelude.Maybe Prelude.Text,
     -- | The last time when logs failed to be delivered.
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
     -- The value cannot contain spaces. For example,
     -- @2020-03-22T13:22:13.933Z@.
-    lastFailureTime :: Prelude.Maybe Prelude.Text
+    lastFailureTime :: Prelude.Maybe Prelude.Text,
+    -- | The last time that logs were delivered successfully.
+    --
+    -- Uses the @date-time@ format specified in
+    -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
+    -- The value cannot contain spaces. For example,
+    -- @2020-03-22T13:22:13.933Z@.
+    lastSuccessfulDeliveryTime :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether logging is enabled.
+    loggingEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | Provides the prefix applied to the log file names.
+    s3KeyPrefix :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,20 +61,9 @@ data AwsRedshiftClusterLoggingStatus = AwsRedshiftClusterLoggingStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastSuccessfulDeliveryTime', 'awsRedshiftClusterLoggingStatus_lastSuccessfulDeliveryTime' - The last time that logs were delivered successfully.
---
--- Uses the @date-time@ format specified in
--- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
---
--- 's3KeyPrefix', 'awsRedshiftClusterLoggingStatus_s3KeyPrefix' - Provides the prefix applied to the log file names.
+-- 'bucketName', 'awsRedshiftClusterLoggingStatus_bucketName' - The name of the S3 bucket where the log files are stored.
 --
 -- 'lastFailureMessage', 'awsRedshiftClusterLoggingStatus_lastFailureMessage' - The message indicating that the logs failed to be delivered.
---
--- 'loggingEnabled', 'awsRedshiftClusterLoggingStatus_loggingEnabled' - Indicates whether logging is enabled.
---
--- 'bucketName', 'awsRedshiftClusterLoggingStatus_bucketName' - The name of the S3 bucket where the log files are stored.
 --
 -- 'lastFailureTime', 'awsRedshiftClusterLoggingStatus_lastFailureTime' - The last time when logs failed to be delivered.
 --
@@ -82,43 +71,38 @@ data AwsRedshiftClusterLoggingStatus = AwsRedshiftClusterLoggingStatus'
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
 -- The value cannot contain spaces. For example,
 -- @2020-03-22T13:22:13.933Z@.
-newAwsRedshiftClusterLoggingStatus ::
-  AwsRedshiftClusterLoggingStatus
-newAwsRedshiftClusterLoggingStatus =
-  AwsRedshiftClusterLoggingStatus'
-    { lastSuccessfulDeliveryTime =
-        Prelude.Nothing,
-      s3KeyPrefix = Prelude.Nothing,
-      lastFailureMessage = Prelude.Nothing,
-      loggingEnabled = Prelude.Nothing,
-      bucketName = Prelude.Nothing,
-      lastFailureTime = Prelude.Nothing
-    }
-
--- | The last time that logs were delivered successfully.
+--
+-- 'lastSuccessfulDeliveryTime', 'awsRedshiftClusterLoggingStatus_lastSuccessfulDeliveryTime' - The last time that logs were delivered successfully.
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
 -- The value cannot contain spaces. For example,
 -- @2020-03-22T13:22:13.933Z@.
-awsRedshiftClusterLoggingStatus_lastSuccessfulDeliveryTime :: Lens.Lens' AwsRedshiftClusterLoggingStatus (Prelude.Maybe Prelude.Text)
-awsRedshiftClusterLoggingStatus_lastSuccessfulDeliveryTime = Lens.lens (\AwsRedshiftClusterLoggingStatus' {lastSuccessfulDeliveryTime} -> lastSuccessfulDeliveryTime) (\s@AwsRedshiftClusterLoggingStatus' {} a -> s {lastSuccessfulDeliveryTime = a} :: AwsRedshiftClusterLoggingStatus)
-
--- | Provides the prefix applied to the log file names.
-awsRedshiftClusterLoggingStatus_s3KeyPrefix :: Lens.Lens' AwsRedshiftClusterLoggingStatus (Prelude.Maybe Prelude.Text)
-awsRedshiftClusterLoggingStatus_s3KeyPrefix = Lens.lens (\AwsRedshiftClusterLoggingStatus' {s3KeyPrefix} -> s3KeyPrefix) (\s@AwsRedshiftClusterLoggingStatus' {} a -> s {s3KeyPrefix = a} :: AwsRedshiftClusterLoggingStatus)
-
--- | The message indicating that the logs failed to be delivered.
-awsRedshiftClusterLoggingStatus_lastFailureMessage :: Lens.Lens' AwsRedshiftClusterLoggingStatus (Prelude.Maybe Prelude.Text)
-awsRedshiftClusterLoggingStatus_lastFailureMessage = Lens.lens (\AwsRedshiftClusterLoggingStatus' {lastFailureMessage} -> lastFailureMessage) (\s@AwsRedshiftClusterLoggingStatus' {} a -> s {lastFailureMessage = a} :: AwsRedshiftClusterLoggingStatus)
-
--- | Indicates whether logging is enabled.
-awsRedshiftClusterLoggingStatus_loggingEnabled :: Lens.Lens' AwsRedshiftClusterLoggingStatus (Prelude.Maybe Prelude.Bool)
-awsRedshiftClusterLoggingStatus_loggingEnabled = Lens.lens (\AwsRedshiftClusterLoggingStatus' {loggingEnabled} -> loggingEnabled) (\s@AwsRedshiftClusterLoggingStatus' {} a -> s {loggingEnabled = a} :: AwsRedshiftClusterLoggingStatus)
+--
+-- 'loggingEnabled', 'awsRedshiftClusterLoggingStatus_loggingEnabled' - Indicates whether logging is enabled.
+--
+-- 's3KeyPrefix', 'awsRedshiftClusterLoggingStatus_s3KeyPrefix' - Provides the prefix applied to the log file names.
+newAwsRedshiftClusterLoggingStatus ::
+  AwsRedshiftClusterLoggingStatus
+newAwsRedshiftClusterLoggingStatus =
+  AwsRedshiftClusterLoggingStatus'
+    { bucketName =
+        Prelude.Nothing,
+      lastFailureMessage = Prelude.Nothing,
+      lastFailureTime = Prelude.Nothing,
+      lastSuccessfulDeliveryTime =
+        Prelude.Nothing,
+      loggingEnabled = Prelude.Nothing,
+      s3KeyPrefix = Prelude.Nothing
+    }
 
 -- | The name of the S3 bucket where the log files are stored.
 awsRedshiftClusterLoggingStatus_bucketName :: Lens.Lens' AwsRedshiftClusterLoggingStatus (Prelude.Maybe Prelude.Text)
 awsRedshiftClusterLoggingStatus_bucketName = Lens.lens (\AwsRedshiftClusterLoggingStatus' {bucketName} -> bucketName) (\s@AwsRedshiftClusterLoggingStatus' {} a -> s {bucketName = a} :: AwsRedshiftClusterLoggingStatus)
+
+-- | The message indicating that the logs failed to be delivered.
+awsRedshiftClusterLoggingStatus_lastFailureMessage :: Lens.Lens' AwsRedshiftClusterLoggingStatus (Prelude.Maybe Prelude.Text)
+awsRedshiftClusterLoggingStatus_lastFailureMessage = Lens.lens (\AwsRedshiftClusterLoggingStatus' {lastFailureMessage} -> lastFailureMessage) (\s@AwsRedshiftClusterLoggingStatus' {} a -> s {lastFailureMessage = a} :: AwsRedshiftClusterLoggingStatus)
 
 -- | The last time when logs failed to be delivered.
 --
@@ -129,6 +113,23 @@ awsRedshiftClusterLoggingStatus_bucketName = Lens.lens (\AwsRedshiftClusterLoggi
 awsRedshiftClusterLoggingStatus_lastFailureTime :: Lens.Lens' AwsRedshiftClusterLoggingStatus (Prelude.Maybe Prelude.Text)
 awsRedshiftClusterLoggingStatus_lastFailureTime = Lens.lens (\AwsRedshiftClusterLoggingStatus' {lastFailureTime} -> lastFailureTime) (\s@AwsRedshiftClusterLoggingStatus' {} a -> s {lastFailureTime = a} :: AwsRedshiftClusterLoggingStatus)
 
+-- | The last time that logs were delivered successfully.
+--
+-- Uses the @date-time@ format specified in
+-- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
+-- The value cannot contain spaces. For example,
+-- @2020-03-22T13:22:13.933Z@.
+awsRedshiftClusterLoggingStatus_lastSuccessfulDeliveryTime :: Lens.Lens' AwsRedshiftClusterLoggingStatus (Prelude.Maybe Prelude.Text)
+awsRedshiftClusterLoggingStatus_lastSuccessfulDeliveryTime = Lens.lens (\AwsRedshiftClusterLoggingStatus' {lastSuccessfulDeliveryTime} -> lastSuccessfulDeliveryTime) (\s@AwsRedshiftClusterLoggingStatus' {} a -> s {lastSuccessfulDeliveryTime = a} :: AwsRedshiftClusterLoggingStatus)
+
+-- | Indicates whether logging is enabled.
+awsRedshiftClusterLoggingStatus_loggingEnabled :: Lens.Lens' AwsRedshiftClusterLoggingStatus (Prelude.Maybe Prelude.Bool)
+awsRedshiftClusterLoggingStatus_loggingEnabled = Lens.lens (\AwsRedshiftClusterLoggingStatus' {loggingEnabled} -> loggingEnabled) (\s@AwsRedshiftClusterLoggingStatus' {} a -> s {loggingEnabled = a} :: AwsRedshiftClusterLoggingStatus)
+
+-- | Provides the prefix applied to the log file names.
+awsRedshiftClusterLoggingStatus_s3KeyPrefix :: Lens.Lens' AwsRedshiftClusterLoggingStatus (Prelude.Maybe Prelude.Text)
+awsRedshiftClusterLoggingStatus_s3KeyPrefix = Lens.lens (\AwsRedshiftClusterLoggingStatus' {s3KeyPrefix} -> s3KeyPrefix) (\s@AwsRedshiftClusterLoggingStatus' {} a -> s {s3KeyPrefix = a} :: AwsRedshiftClusterLoggingStatus)
+
 instance
   Data.FromJSON
     AwsRedshiftClusterLoggingStatus
@@ -138,12 +139,12 @@ instance
       "AwsRedshiftClusterLoggingStatus"
       ( \x ->
           AwsRedshiftClusterLoggingStatus'
-            Prelude.<$> (x Data..:? "LastSuccessfulDeliveryTime")
-            Prelude.<*> (x Data..:? "S3KeyPrefix")
+            Prelude.<$> (x Data..:? "BucketName")
             Prelude.<*> (x Data..:? "LastFailureMessage")
-            Prelude.<*> (x Data..:? "LoggingEnabled")
-            Prelude.<*> (x Data..:? "BucketName")
             Prelude.<*> (x Data..:? "LastFailureTime")
+            Prelude.<*> (x Data..:? "LastSuccessfulDeliveryTime")
+            Prelude.<*> (x Data..:? "LoggingEnabled")
+            Prelude.<*> (x Data..:? "S3KeyPrefix")
       )
 
 instance
@@ -153,39 +154,38 @@ instance
   hashWithSalt
     _salt
     AwsRedshiftClusterLoggingStatus' {..} =
-      _salt
-        `Prelude.hashWithSalt` lastSuccessfulDeliveryTime
-        `Prelude.hashWithSalt` s3KeyPrefix
+      _salt `Prelude.hashWithSalt` bucketName
         `Prelude.hashWithSalt` lastFailureMessage
-        `Prelude.hashWithSalt` loggingEnabled
-        `Prelude.hashWithSalt` bucketName
         `Prelude.hashWithSalt` lastFailureTime
+        `Prelude.hashWithSalt` lastSuccessfulDeliveryTime
+        `Prelude.hashWithSalt` loggingEnabled
+        `Prelude.hashWithSalt` s3KeyPrefix
 
 instance
   Prelude.NFData
     AwsRedshiftClusterLoggingStatus
   where
   rnf AwsRedshiftClusterLoggingStatus' {..} =
-    Prelude.rnf lastSuccessfulDeliveryTime
-      `Prelude.seq` Prelude.rnf s3KeyPrefix
+    Prelude.rnf bucketName
       `Prelude.seq` Prelude.rnf lastFailureMessage
-      `Prelude.seq` Prelude.rnf loggingEnabled
-      `Prelude.seq` Prelude.rnf bucketName
       `Prelude.seq` Prelude.rnf lastFailureTime
+      `Prelude.seq` Prelude.rnf lastSuccessfulDeliveryTime
+      `Prelude.seq` Prelude.rnf loggingEnabled
+      `Prelude.seq` Prelude.rnf s3KeyPrefix
 
 instance Data.ToJSON AwsRedshiftClusterLoggingStatus where
   toJSON AwsRedshiftClusterLoggingStatus' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("LastSuccessfulDeliveryTime" Data..=)
-              Prelude.<$> lastSuccessfulDeliveryTime,
-            ("S3KeyPrefix" Data..=) Prelude.<$> s3KeyPrefix,
+          [ ("BucketName" Data..=) Prelude.<$> bucketName,
             ("LastFailureMessage" Data..=)
               Prelude.<$> lastFailureMessage,
+            ("LastFailureTime" Data..=)
+              Prelude.<$> lastFailureTime,
+            ("LastSuccessfulDeliveryTime" Data..=)
+              Prelude.<$> lastSuccessfulDeliveryTime,
             ("LoggingEnabled" Data..=)
               Prelude.<$> loggingEnabled,
-            ("BucketName" Data..=) Prelude.<$> bucketName,
-            ("LastFailureTime" Data..=)
-              Prelude.<$> lastFailureTime
+            ("S3KeyPrefix" Data..=) Prelude.<$> s3KeyPrefix
           ]
       )

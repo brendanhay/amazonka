@@ -35,9 +35,9 @@ module Amazonka.NetworkFirewall.DescribeFirewall
     newDescribeFirewallResponse,
 
     -- * Response Lenses
-    describeFirewallResponse_updateToken,
     describeFirewallResponse_firewall,
     describeFirewallResponse_firewallStatus,
+    describeFirewallResponse_updateToken,
     describeFirewallResponse_httpStatus,
   )
 where
@@ -111,9 +111,9 @@ instance Core.AWSRequest DescribeFirewall where
     Response.receiveJSON
       ( \s h x ->
           DescribeFirewallResponse'
-            Prelude.<$> (x Data..?> "UpdateToken")
-            Prelude.<*> (x Data..?> "Firewall")
+            Prelude.<$> (x Data..?> "Firewall")
             Prelude.<*> (x Data..?> "FirewallStatus")
+            Prelude.<*> (x Data..?> "UpdateToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,7 +159,15 @@ instance Data.ToQuery DescribeFirewall where
 
 -- | /See:/ 'newDescribeFirewallResponse' smart constructor.
 data DescribeFirewallResponse = DescribeFirewallResponse'
-  { -- | An optional token that you can use for optimistic locking. Network
+  { -- | The configuration settings for the firewall. These settings include the
+    -- firewall policy and the subnets in your VPC to use for the firewall
+    -- endpoints.
+    firewall :: Prelude.Maybe Firewall,
+    -- | Detailed information about the current status of a Firewall. You can
+    -- retrieve this for a firewall by calling DescribeFirewall and providing
+    -- the firewall name and ARN.
+    firewallStatus :: Prelude.Maybe FirewallStatus,
+    -- | An optional token that you can use for optimistic locking. Network
     -- Firewall returns a token to your requests that access the firewall. The
     -- token marks the state of the firewall resource at the time of the
     -- request.
@@ -177,14 +185,6 @@ data DescribeFirewallResponse = DescribeFirewallResponse'
     -- token. Reapply your changes as needed, then try the operation again
     -- using the new token.
     updateToken :: Prelude.Maybe Prelude.Text,
-    -- | The configuration settings for the firewall. These settings include the
-    -- firewall policy and the subnets in your VPC to use for the firewall
-    -- endpoints.
-    firewall :: Prelude.Maybe Firewall,
-    -- | Detailed information about the current status of a Firewall. You can
-    -- retrieve this for a firewall by calling DescribeFirewall and providing
-    -- the firewall name and ARN.
-    firewallStatus :: Prelude.Maybe FirewallStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -197,6 +197,14 @@ data DescribeFirewallResponse = DescribeFirewallResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'firewall', 'describeFirewallResponse_firewall' - The configuration settings for the firewall. These settings include the
+-- firewall policy and the subnets in your VPC to use for the firewall
+-- endpoints.
+--
+-- 'firewallStatus', 'describeFirewallResponse_firewallStatus' - Detailed information about the current status of a Firewall. You can
+-- retrieve this for a firewall by calling DescribeFirewall and providing
+-- the firewall name and ARN.
 --
 -- 'updateToken', 'describeFirewallResponse_updateToken' - An optional token that you can use for optimistic locking. Network
 -- Firewall returns a token to your requests that access the firewall. The
@@ -216,14 +224,6 @@ data DescribeFirewallResponse = DescribeFirewallResponse'
 -- token. Reapply your changes as needed, then try the operation again
 -- using the new token.
 --
--- 'firewall', 'describeFirewallResponse_firewall' - The configuration settings for the firewall. These settings include the
--- firewall policy and the subnets in your VPC to use for the firewall
--- endpoints.
---
--- 'firewallStatus', 'describeFirewallResponse_firewallStatus' - Detailed information about the current status of a Firewall. You can
--- retrieve this for a firewall by calling DescribeFirewall and providing
--- the firewall name and ARN.
---
 -- 'httpStatus', 'describeFirewallResponse_httpStatus' - The response's http status code.
 newDescribeFirewallResponse ::
   -- | 'httpStatus'
@@ -231,12 +231,24 @@ newDescribeFirewallResponse ::
   DescribeFirewallResponse
 newDescribeFirewallResponse pHttpStatus_ =
   DescribeFirewallResponse'
-    { updateToken =
+    { firewall =
         Prelude.Nothing,
-      firewall = Prelude.Nothing,
       firewallStatus = Prelude.Nothing,
+      updateToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The configuration settings for the firewall. These settings include the
+-- firewall policy and the subnets in your VPC to use for the firewall
+-- endpoints.
+describeFirewallResponse_firewall :: Lens.Lens' DescribeFirewallResponse (Prelude.Maybe Firewall)
+describeFirewallResponse_firewall = Lens.lens (\DescribeFirewallResponse' {firewall} -> firewall) (\s@DescribeFirewallResponse' {} a -> s {firewall = a} :: DescribeFirewallResponse)
+
+-- | Detailed information about the current status of a Firewall. You can
+-- retrieve this for a firewall by calling DescribeFirewall and providing
+-- the firewall name and ARN.
+describeFirewallResponse_firewallStatus :: Lens.Lens' DescribeFirewallResponse (Prelude.Maybe FirewallStatus)
+describeFirewallResponse_firewallStatus = Lens.lens (\DescribeFirewallResponse' {firewallStatus} -> firewallStatus) (\s@DescribeFirewallResponse' {} a -> s {firewallStatus = a} :: DescribeFirewallResponse)
 
 -- | An optional token that you can use for optimistic locking. Network
 -- Firewall returns a token to your requests that access the firewall. The
@@ -258,25 +270,13 @@ newDescribeFirewallResponse pHttpStatus_ =
 describeFirewallResponse_updateToken :: Lens.Lens' DescribeFirewallResponse (Prelude.Maybe Prelude.Text)
 describeFirewallResponse_updateToken = Lens.lens (\DescribeFirewallResponse' {updateToken} -> updateToken) (\s@DescribeFirewallResponse' {} a -> s {updateToken = a} :: DescribeFirewallResponse)
 
--- | The configuration settings for the firewall. These settings include the
--- firewall policy and the subnets in your VPC to use for the firewall
--- endpoints.
-describeFirewallResponse_firewall :: Lens.Lens' DescribeFirewallResponse (Prelude.Maybe Firewall)
-describeFirewallResponse_firewall = Lens.lens (\DescribeFirewallResponse' {firewall} -> firewall) (\s@DescribeFirewallResponse' {} a -> s {firewall = a} :: DescribeFirewallResponse)
-
--- | Detailed information about the current status of a Firewall. You can
--- retrieve this for a firewall by calling DescribeFirewall and providing
--- the firewall name and ARN.
-describeFirewallResponse_firewallStatus :: Lens.Lens' DescribeFirewallResponse (Prelude.Maybe FirewallStatus)
-describeFirewallResponse_firewallStatus = Lens.lens (\DescribeFirewallResponse' {firewallStatus} -> firewallStatus) (\s@DescribeFirewallResponse' {} a -> s {firewallStatus = a} :: DescribeFirewallResponse)
-
 -- | The response's http status code.
 describeFirewallResponse_httpStatus :: Lens.Lens' DescribeFirewallResponse Prelude.Int
 describeFirewallResponse_httpStatus = Lens.lens (\DescribeFirewallResponse' {httpStatus} -> httpStatus) (\s@DescribeFirewallResponse' {} a -> s {httpStatus = a} :: DescribeFirewallResponse)
 
 instance Prelude.NFData DescribeFirewallResponse where
   rnf DescribeFirewallResponse' {..} =
-    Prelude.rnf updateToken
-      `Prelude.seq` Prelude.rnf firewall
+    Prelude.rnf firewall
       `Prelude.seq` Prelude.rnf firewallStatus
+      `Prelude.seq` Prelude.rnf updateToken
       `Prelude.seq` Prelude.rnf httpStatus

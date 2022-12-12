@@ -31,9 +31,9 @@ module Amazonka.CloudDirectory.ListManagedSchemaArns
     newListManagedSchemaArns,
 
     -- * Request Lenses
+    listManagedSchemaArns_maxResults,
     listManagedSchemaArns_nextToken,
     listManagedSchemaArns_schemaArn,
-    listManagedSchemaArns_maxResults,
 
     -- * Destructuring the Response
     ListManagedSchemaArnsResponse (..),
@@ -56,13 +56,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListManagedSchemaArns' smart constructor.
 data ListManagedSchemaArns = ListManagedSchemaArns'
-  { -- | The pagination token.
+  { -- | The maximum number of results to retrieve.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response for ListManagedSchemaArns. When this parameter is used, all
     -- minor version ARNs for a major version are listed.
-    schemaArn :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to retrieve.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    schemaArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,20 +74,25 @@ data ListManagedSchemaArns = ListManagedSchemaArns'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listManagedSchemaArns_maxResults' - The maximum number of results to retrieve.
+--
 -- 'nextToken', 'listManagedSchemaArns_nextToken' - The pagination token.
 --
 -- 'schemaArn', 'listManagedSchemaArns_schemaArn' - The response for ListManagedSchemaArns. When this parameter is used, all
 -- minor version ARNs for a major version are listed.
---
--- 'maxResults', 'listManagedSchemaArns_maxResults' - The maximum number of results to retrieve.
 newListManagedSchemaArns ::
   ListManagedSchemaArns
 newListManagedSchemaArns =
   ListManagedSchemaArns'
-    { nextToken = Prelude.Nothing,
-      schemaArn = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      schemaArn = Prelude.Nothing
     }
+
+-- | The maximum number of results to retrieve.
+listManagedSchemaArns_maxResults :: Lens.Lens' ListManagedSchemaArns (Prelude.Maybe Prelude.Natural)
+listManagedSchemaArns_maxResults = Lens.lens (\ListManagedSchemaArns' {maxResults} -> maxResults) (\s@ListManagedSchemaArns' {} a -> s {maxResults = a} :: ListManagedSchemaArns)
 
 -- | The pagination token.
 listManagedSchemaArns_nextToken :: Lens.Lens' ListManagedSchemaArns (Prelude.Maybe Prelude.Text)
@@ -97,10 +102,6 @@ listManagedSchemaArns_nextToken = Lens.lens (\ListManagedSchemaArns' {nextToken}
 -- minor version ARNs for a major version are listed.
 listManagedSchemaArns_schemaArn :: Lens.Lens' ListManagedSchemaArns (Prelude.Maybe Prelude.Text)
 listManagedSchemaArns_schemaArn = Lens.lens (\ListManagedSchemaArns' {schemaArn} -> schemaArn) (\s@ListManagedSchemaArns' {} a -> s {schemaArn = a} :: ListManagedSchemaArns)
-
--- | The maximum number of results to retrieve.
-listManagedSchemaArns_maxResults :: Lens.Lens' ListManagedSchemaArns (Prelude.Maybe Prelude.Natural)
-listManagedSchemaArns_maxResults = Lens.lens (\ListManagedSchemaArns' {maxResults} -> maxResults) (\s@ListManagedSchemaArns' {} a -> s {maxResults = a} :: ListManagedSchemaArns)
 
 instance Core.AWSPager ListManagedSchemaArns where
   page rq rs
@@ -141,15 +142,15 @@ instance Core.AWSRequest ListManagedSchemaArns where
 
 instance Prelude.Hashable ListManagedSchemaArns where
   hashWithSalt _salt ListManagedSchemaArns' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` schemaArn
-      `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListManagedSchemaArns where
   rnf ListManagedSchemaArns' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf schemaArn
-      `Prelude.seq` Prelude.rnf maxResults
 
 instance Data.ToHeaders ListManagedSchemaArns where
   toHeaders = Prelude.const Prelude.mempty
@@ -158,9 +159,9 @@ instance Data.ToJSON ListManagedSchemaArns where
   toJSON ListManagedSchemaArns' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("SchemaArn" Data..=) Prelude.<$> schemaArn,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SchemaArn" Data..=) Prelude.<$> schemaArn
           ]
       )
 

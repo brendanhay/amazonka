@@ -57,13 +57,13 @@ import Amazonka.ResourceGroupsTagging.Types.ResourceErrorCode
 --
 -- /See:/ 'newFailureInfo' smart constructor.
 data FailureInfo = FailureInfo'
-  { -- | The message of the common error.
-    errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | The code of the common error. Valid values include
+  { -- | The code of the common error. Valid values include
     -- @InternalServiceException@, @InvalidParameterException@, and any valid
     -- error code returned by the Amazon Web Services service that hosts the
     -- resource that you want to tag.
     errorCode :: Prelude.Maybe ResourceErrorCode,
+    -- | The message of the common error.
+    errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status code of the common error.
     statusCode :: Prelude.Maybe Prelude.Int
   }
@@ -77,26 +77,22 @@ data FailureInfo = FailureInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'errorMessage', 'failureInfo_errorMessage' - The message of the common error.
---
 -- 'errorCode', 'failureInfo_errorCode' - The code of the common error. Valid values include
 -- @InternalServiceException@, @InvalidParameterException@, and any valid
 -- error code returned by the Amazon Web Services service that hosts the
 -- resource that you want to tag.
+--
+-- 'errorMessage', 'failureInfo_errorMessage' - The message of the common error.
 --
 -- 'statusCode', 'failureInfo_statusCode' - The HTTP status code of the common error.
 newFailureInfo ::
   FailureInfo
 newFailureInfo =
   FailureInfo'
-    { errorMessage = Prelude.Nothing,
-      errorCode = Prelude.Nothing,
+    { errorCode = Prelude.Nothing,
+      errorMessage = Prelude.Nothing,
       statusCode = Prelude.Nothing
     }
-
--- | The message of the common error.
-failureInfo_errorMessage :: Lens.Lens' FailureInfo (Prelude.Maybe Prelude.Text)
-failureInfo_errorMessage = Lens.lens (\FailureInfo' {errorMessage} -> errorMessage) (\s@FailureInfo' {} a -> s {errorMessage = a} :: FailureInfo)
 
 -- | The code of the common error. Valid values include
 -- @InternalServiceException@, @InvalidParameterException@, and any valid
@@ -104,6 +100,10 @@ failureInfo_errorMessage = Lens.lens (\FailureInfo' {errorMessage} -> errorMessa
 -- resource that you want to tag.
 failureInfo_errorCode :: Lens.Lens' FailureInfo (Prelude.Maybe ResourceErrorCode)
 failureInfo_errorCode = Lens.lens (\FailureInfo' {errorCode} -> errorCode) (\s@FailureInfo' {} a -> s {errorCode = a} :: FailureInfo)
+
+-- | The message of the common error.
+failureInfo_errorMessage :: Lens.Lens' FailureInfo (Prelude.Maybe Prelude.Text)
+failureInfo_errorMessage = Lens.lens (\FailureInfo' {errorMessage} -> errorMessage) (\s@FailureInfo' {} a -> s {errorMessage = a} :: FailureInfo)
 
 -- | The HTTP status code of the common error.
 failureInfo_statusCode :: Lens.Lens' FailureInfo (Prelude.Maybe Prelude.Int)
@@ -115,19 +115,19 @@ instance Data.FromJSON FailureInfo where
       "FailureInfo"
       ( \x ->
           FailureInfo'
-            Prelude.<$> (x Data..:? "ErrorMessage")
-            Prelude.<*> (x Data..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "ErrorMessage")
             Prelude.<*> (x Data..:? "StatusCode")
       )
 
 instance Prelude.Hashable FailureInfo where
   hashWithSalt _salt FailureInfo' {..} =
-    _salt `Prelude.hashWithSalt` errorMessage
-      `Prelude.hashWithSalt` errorCode
+    _salt `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` statusCode
 
 instance Prelude.NFData FailureInfo where
   rnf FailureInfo' {..} =
-    Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf errorCode
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage
       `Prelude.seq` Prelude.rnf statusCode

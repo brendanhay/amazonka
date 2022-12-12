@@ -52,8 +52,8 @@ module Amazonka.CustomerProfiles.GetAutoMergingPreview
     newGetAutoMergingPreviewResponse,
 
     -- * Response Lenses
-    getAutoMergingPreviewResponse_numberOfProfilesInSample,
     getAutoMergingPreviewResponse_numberOfMatchesInSample,
+    getAutoMergingPreviewResponse_numberOfProfilesInSample,
     getAutoMergingPreviewResponse_numberOfProfilesWillBeMerged,
     getAutoMergingPreviewResponse_httpStatus,
     getAutoMergingPreviewResponse_domainName,
@@ -148,8 +148,8 @@ instance Core.AWSRequest GetAutoMergingPreview where
     Response.receiveJSON
       ( \s h x ->
           GetAutoMergingPreviewResponse'
-            Prelude.<$> (x Data..?> "NumberOfProfilesInSample")
-            Prelude.<*> (x Data..?> "NumberOfMatchesInSample")
+            Prelude.<$> (x Data..?> "NumberOfMatchesInSample")
+            Prelude.<*> (x Data..?> "NumberOfProfilesInSample")
             Prelude.<*> (x Data..?> "NumberOfProfilesWillBeMerged")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "DomainName")
@@ -206,11 +206,11 @@ instance Data.ToQuery GetAutoMergingPreview where
 
 -- | /See:/ 'newGetAutoMergingPreviewResponse' smart constructor.
 data GetAutoMergingPreviewResponse = GetAutoMergingPreviewResponse'
-  { -- | The number of profiles found in this preview dry run.
-    numberOfProfilesInSample :: Prelude.Maybe Prelude.Integer,
-    -- | The number of match groups in the domain that have been reviewed in this
+  { -- | The number of match groups in the domain that have been reviewed in this
     -- preview dry run.
     numberOfMatchesInSample :: Prelude.Maybe Prelude.Integer,
+    -- | The number of profiles found in this preview dry run.
+    numberOfProfilesInSample :: Prelude.Maybe Prelude.Integer,
     -- | The number of profiles that would be merged if this wasn\'t a preview
     -- dry run.
     numberOfProfilesWillBeMerged :: Prelude.Maybe Prelude.Integer,
@@ -229,10 +229,10 @@ data GetAutoMergingPreviewResponse = GetAutoMergingPreviewResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'numberOfProfilesInSample', 'getAutoMergingPreviewResponse_numberOfProfilesInSample' - The number of profiles found in this preview dry run.
---
 -- 'numberOfMatchesInSample', 'getAutoMergingPreviewResponse_numberOfMatchesInSample' - The number of match groups in the domain that have been reviewed in this
 -- preview dry run.
+--
+-- 'numberOfProfilesInSample', 'getAutoMergingPreviewResponse_numberOfProfilesInSample' - The number of profiles found in this preview dry run.
 --
 -- 'numberOfProfilesWillBeMerged', 'getAutoMergingPreviewResponse_numberOfProfilesWillBeMerged' - The number of profiles that would be merged if this wasn\'t a preview
 -- dry run.
@@ -250,23 +250,23 @@ newGetAutoMergingPreviewResponse
   pHttpStatus_
   pDomainName_ =
     GetAutoMergingPreviewResponse'
-      { numberOfProfilesInSample =
+      { numberOfMatchesInSample =
           Prelude.Nothing,
-        numberOfMatchesInSample = Prelude.Nothing,
+        numberOfProfilesInSample = Prelude.Nothing,
         numberOfProfilesWillBeMerged =
           Prelude.Nothing,
         httpStatus = pHttpStatus_,
         domainName = pDomainName_
       }
 
--- | The number of profiles found in this preview dry run.
-getAutoMergingPreviewResponse_numberOfProfilesInSample :: Lens.Lens' GetAutoMergingPreviewResponse (Prelude.Maybe Prelude.Integer)
-getAutoMergingPreviewResponse_numberOfProfilesInSample = Lens.lens (\GetAutoMergingPreviewResponse' {numberOfProfilesInSample} -> numberOfProfilesInSample) (\s@GetAutoMergingPreviewResponse' {} a -> s {numberOfProfilesInSample = a} :: GetAutoMergingPreviewResponse)
-
 -- | The number of match groups in the domain that have been reviewed in this
 -- preview dry run.
 getAutoMergingPreviewResponse_numberOfMatchesInSample :: Lens.Lens' GetAutoMergingPreviewResponse (Prelude.Maybe Prelude.Integer)
 getAutoMergingPreviewResponse_numberOfMatchesInSample = Lens.lens (\GetAutoMergingPreviewResponse' {numberOfMatchesInSample} -> numberOfMatchesInSample) (\s@GetAutoMergingPreviewResponse' {} a -> s {numberOfMatchesInSample = a} :: GetAutoMergingPreviewResponse)
+
+-- | The number of profiles found in this preview dry run.
+getAutoMergingPreviewResponse_numberOfProfilesInSample :: Lens.Lens' GetAutoMergingPreviewResponse (Prelude.Maybe Prelude.Integer)
+getAutoMergingPreviewResponse_numberOfProfilesInSample = Lens.lens (\GetAutoMergingPreviewResponse' {numberOfProfilesInSample} -> numberOfProfilesInSample) (\s@GetAutoMergingPreviewResponse' {} a -> s {numberOfProfilesInSample = a} :: GetAutoMergingPreviewResponse)
 
 -- | The number of profiles that would be merged if this wasn\'t a preview
 -- dry run.
@@ -283,8 +283,8 @@ getAutoMergingPreviewResponse_domainName = Lens.lens (\GetAutoMergingPreviewResp
 
 instance Prelude.NFData GetAutoMergingPreviewResponse where
   rnf GetAutoMergingPreviewResponse' {..} =
-    Prelude.rnf numberOfProfilesInSample
-      `Prelude.seq` Prelude.rnf numberOfMatchesInSample
+    Prelude.rnf numberOfMatchesInSample
+      `Prelude.seq` Prelude.rnf numberOfProfilesInSample
       `Prelude.seq` Prelude.rnf numberOfProfilesWillBeMerged
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf domainName

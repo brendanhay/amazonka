@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFieldPosition' smart constructor.
 data FieldPosition = FieldPosition'
-  { -- | The field position is fixed and doesn\'t change in relation to other
+  { -- | The field position is below the field specified by the string.
+    below :: Prelude.Maybe Prelude.Text,
+    -- | The field position is fixed and doesn\'t change in relation to other
     -- fields.
     fixed :: Prelude.Maybe FixedPosition,
     -- | The field position is to the right of the field specified by the string.
-    rightOf :: Prelude.Maybe Prelude.Text,
-    -- | The field position is below the field specified by the string.
-    below :: Prelude.Maybe Prelude.Text
+    rightOf :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,20 +47,24 @@ data FieldPosition = FieldPosition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'below', 'fieldPosition_below' - The field position is below the field specified by the string.
+--
 -- 'fixed', 'fieldPosition_fixed' - The field position is fixed and doesn\'t change in relation to other
 -- fields.
 --
 -- 'rightOf', 'fieldPosition_rightOf' - The field position is to the right of the field specified by the string.
---
--- 'below', 'fieldPosition_below' - The field position is below the field specified by the string.
 newFieldPosition ::
   FieldPosition
 newFieldPosition =
   FieldPosition'
-    { fixed = Prelude.Nothing,
-      rightOf = Prelude.Nothing,
-      below = Prelude.Nothing
+    { below = Prelude.Nothing,
+      fixed = Prelude.Nothing,
+      rightOf = Prelude.Nothing
     }
+
+-- | The field position is below the field specified by the string.
+fieldPosition_below :: Lens.Lens' FieldPosition (Prelude.Maybe Prelude.Text)
+fieldPosition_below = Lens.lens (\FieldPosition' {below} -> below) (\s@FieldPosition' {} a -> s {below = a} :: FieldPosition)
 
 -- | The field position is fixed and doesn\'t change in relation to other
 -- fields.
@@ -71,39 +75,35 @@ fieldPosition_fixed = Lens.lens (\FieldPosition' {fixed} -> fixed) (\s@FieldPosi
 fieldPosition_rightOf :: Lens.Lens' FieldPosition (Prelude.Maybe Prelude.Text)
 fieldPosition_rightOf = Lens.lens (\FieldPosition' {rightOf} -> rightOf) (\s@FieldPosition' {} a -> s {rightOf = a} :: FieldPosition)
 
--- | The field position is below the field specified by the string.
-fieldPosition_below :: Lens.Lens' FieldPosition (Prelude.Maybe Prelude.Text)
-fieldPosition_below = Lens.lens (\FieldPosition' {below} -> below) (\s@FieldPosition' {} a -> s {below = a} :: FieldPosition)
-
 instance Data.FromJSON FieldPosition where
   parseJSON =
     Data.withObject
       "FieldPosition"
       ( \x ->
           FieldPosition'
-            Prelude.<$> (x Data..:? "fixed")
+            Prelude.<$> (x Data..:? "below")
+            Prelude.<*> (x Data..:? "fixed")
             Prelude.<*> (x Data..:? "rightOf")
-            Prelude.<*> (x Data..:? "below")
       )
 
 instance Prelude.Hashable FieldPosition where
   hashWithSalt _salt FieldPosition' {..} =
-    _salt `Prelude.hashWithSalt` fixed
+    _salt `Prelude.hashWithSalt` below
+      `Prelude.hashWithSalt` fixed
       `Prelude.hashWithSalt` rightOf
-      `Prelude.hashWithSalt` below
 
 instance Prelude.NFData FieldPosition where
   rnf FieldPosition' {..} =
-    Prelude.rnf fixed
+    Prelude.rnf below
+      `Prelude.seq` Prelude.rnf fixed
       `Prelude.seq` Prelude.rnf rightOf
-      `Prelude.seq` Prelude.rnf below
 
 instance Data.ToJSON FieldPosition where
   toJSON FieldPosition' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("fixed" Data..=) Prelude.<$> fixed,
-            ("rightOf" Data..=) Prelude.<$> rightOf,
-            ("below" Data..=) Prelude.<$> below
+          [ ("below" Data..=) Prelude.<$> below,
+            ("fixed" Data..=) Prelude.<$> fixed,
+            ("rightOf" Data..=) Prelude.<$> rightOf
           ]
       )

@@ -29,17 +29,17 @@ module Amazonka.DataSync.ListTasks
     newListTasks,
 
     -- * Request Lenses
-    listTasks_nextToken,
     listTasks_filters,
     listTasks_maxResults,
+    listTasks_nextToken,
 
     -- * Destructuring the Response
     ListTasksResponse (..),
     newListTasksResponse,
 
     -- * Response Lenses
-    listTasksResponse_tasks,
     listTasksResponse_nextToken,
+    listTasksResponse_tasks,
     listTasksResponse_httpStatus,
   )
 where
@@ -56,16 +56,16 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListTasks' smart constructor.
 data ListTasks = ListTasks'
-  { -- | An opaque string that indicates the position at which to begin the next
-    -- list of tasks.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | You can use API filters to narrow down the list of resources returned by
+  { -- | You can use API filters to narrow down the list of resources returned by
     -- @ListTasks@. For example, to retrieve all tasks on a specific source
     -- location, you can use @ListTasks@ with filter name @LocationId@ and
     -- @Operator Equals@ with the ARN for the location.
     filters :: Prelude.Maybe [TaskFilter],
     -- | The maximum number of tasks to return.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | An opaque string that indicates the position at which to begin the next
+    -- list of tasks.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,28 +77,23 @@ data ListTasks = ListTasks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTasks_nextToken' - An opaque string that indicates the position at which to begin the next
--- list of tasks.
---
 -- 'filters', 'listTasks_filters' - You can use API filters to narrow down the list of resources returned by
 -- @ListTasks@. For example, to retrieve all tasks on a specific source
 -- location, you can use @ListTasks@ with filter name @LocationId@ and
 -- @Operator Equals@ with the ARN for the location.
 --
 -- 'maxResults', 'listTasks_maxResults' - The maximum number of tasks to return.
+--
+-- 'nextToken', 'listTasks_nextToken' - An opaque string that indicates the position at which to begin the next
+-- list of tasks.
 newListTasks ::
   ListTasks
 newListTasks =
   ListTasks'
-    { nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | An opaque string that indicates the position at which to begin the next
--- list of tasks.
-listTasks_nextToken :: Lens.Lens' ListTasks (Prelude.Maybe Prelude.Text)
-listTasks_nextToken = Lens.lens (\ListTasks' {nextToken} -> nextToken) (\s@ListTasks' {} a -> s {nextToken = a} :: ListTasks)
 
 -- | You can use API filters to narrow down the list of resources returned by
 -- @ListTasks@. For example, to retrieve all tasks on a specific source
@@ -110,6 +105,11 @@ listTasks_filters = Lens.lens (\ListTasks' {filters} -> filters) (\s@ListTasks' 
 -- | The maximum number of tasks to return.
 listTasks_maxResults :: Lens.Lens' ListTasks (Prelude.Maybe Prelude.Natural)
 listTasks_maxResults = Lens.lens (\ListTasks' {maxResults} -> maxResults) (\s@ListTasks' {} a -> s {maxResults = a} :: ListTasks)
+
+-- | An opaque string that indicates the position at which to begin the next
+-- list of tasks.
+listTasks_nextToken :: Lens.Lens' ListTasks (Prelude.Maybe Prelude.Text)
+listTasks_nextToken = Lens.lens (\ListTasks' {nextToken} -> nextToken) (\s@ListTasks' {} a -> s {nextToken = a} :: ListTasks)
 
 instance Core.AWSPager ListTasks where
   page rq rs
@@ -138,22 +138,22 @@ instance Core.AWSRequest ListTasks where
     Response.receiveJSON
       ( \s h x ->
           ListTasksResponse'
-            Prelude.<$> (x Data..?> "Tasks" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Tasks" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListTasks where
   hashWithSalt _salt ListTasks' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListTasks where
   rnf ListTasks' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListTasks where
   toHeaders =
@@ -172,9 +172,9 @@ instance Data.ToJSON ListTasks where
   toJSON ListTasks' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -188,11 +188,11 @@ instance Data.ToQuery ListTasks where
 --
 -- /See:/ 'newListTasksResponse' smart constructor.
 data ListTasksResponse = ListTasksResponse'
-  { -- | A list of all the tasks that are returned.
-    tasks :: Prelude.Maybe [TaskListEntry],
-    -- | An opaque string that indicates the position at which to begin returning
+  { -- | An opaque string that indicates the position at which to begin returning
     -- the next list of tasks.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of all the tasks that are returned.
+    tasks :: Prelude.Maybe [TaskListEntry],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -206,10 +206,10 @@ data ListTasksResponse = ListTasksResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tasks', 'listTasksResponse_tasks' - A list of all the tasks that are returned.
---
 -- 'nextToken', 'listTasksResponse_nextToken' - An opaque string that indicates the position at which to begin returning
 -- the next list of tasks.
+--
+-- 'tasks', 'listTasksResponse_tasks' - A list of all the tasks that are returned.
 --
 -- 'httpStatus', 'listTasksResponse_httpStatus' - The response's http status code.
 newListTasksResponse ::
@@ -218,19 +218,19 @@ newListTasksResponse ::
   ListTasksResponse
 newListTasksResponse pHttpStatus_ =
   ListTasksResponse'
-    { tasks = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      tasks = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of all the tasks that are returned.
-listTasksResponse_tasks :: Lens.Lens' ListTasksResponse (Prelude.Maybe [TaskListEntry])
-listTasksResponse_tasks = Lens.lens (\ListTasksResponse' {tasks} -> tasks) (\s@ListTasksResponse' {} a -> s {tasks = a} :: ListTasksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An opaque string that indicates the position at which to begin returning
 -- the next list of tasks.
 listTasksResponse_nextToken :: Lens.Lens' ListTasksResponse (Prelude.Maybe Prelude.Text)
 listTasksResponse_nextToken = Lens.lens (\ListTasksResponse' {nextToken} -> nextToken) (\s@ListTasksResponse' {} a -> s {nextToken = a} :: ListTasksResponse)
+
+-- | A list of all the tasks that are returned.
+listTasksResponse_tasks :: Lens.Lens' ListTasksResponse (Prelude.Maybe [TaskListEntry])
+listTasksResponse_tasks = Lens.lens (\ListTasksResponse' {tasks} -> tasks) (\s@ListTasksResponse' {} a -> s {tasks = a} :: ListTasksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listTasksResponse_httpStatus :: Lens.Lens' ListTasksResponse Prelude.Int
@@ -238,6 +238,6 @@ listTasksResponse_httpStatus = Lens.lens (\ListTasksResponse' {httpStatus} -> ht
 
 instance Prelude.NFData ListTasksResponse where
   rnf ListTasksResponse' {..} =
-    Prelude.rnf tasks
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf tasks
       `Prelude.seq` Prelude.rnf httpStatus

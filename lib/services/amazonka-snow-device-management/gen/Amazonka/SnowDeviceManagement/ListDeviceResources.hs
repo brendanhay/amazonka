@@ -31,9 +31,9 @@ module Amazonka.SnowDeviceManagement.ListDeviceResources
     newListDeviceResources,
 
     -- * Request Lenses
+    listDeviceResources_maxResults,
     listDeviceResources_nextToken,
     listDeviceResources_type,
-    listDeviceResources_maxResults,
     listDeviceResources_managedDeviceId,
 
     -- * Destructuring the Response
@@ -57,12 +57,12 @@ import Amazonka.SnowDeviceManagement.Types
 
 -- | /See:/ 'newListDeviceResources' smart constructor.
 data ListDeviceResources = ListDeviceResources'
-  { -- | A pagination token to continue to the next page of results.
+  { -- | The maximum number of resources per page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A pagination token to continue to the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A structure used to filter the results by type of resource.
     type' :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of resources per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the managed device that you are listing the resources of.
     managedDeviceId :: Prelude.Text
   }
@@ -76,11 +76,11 @@ data ListDeviceResources = ListDeviceResources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listDeviceResources_maxResults' - The maximum number of resources per page.
+--
 -- 'nextToken', 'listDeviceResources_nextToken' - A pagination token to continue to the next page of results.
 --
 -- 'type'', 'listDeviceResources_type' - A structure used to filter the results by type of resource.
---
--- 'maxResults', 'listDeviceResources_maxResults' - The maximum number of resources per page.
 --
 -- 'managedDeviceId', 'listDeviceResources_managedDeviceId' - The ID of the managed device that you are listing the resources of.
 newListDeviceResources ::
@@ -89,11 +89,15 @@ newListDeviceResources ::
   ListDeviceResources
 newListDeviceResources pManagedDeviceId_ =
   ListDeviceResources'
-    { nextToken = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       type' = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       managedDeviceId = pManagedDeviceId_
     }
+
+-- | The maximum number of resources per page.
+listDeviceResources_maxResults :: Lens.Lens' ListDeviceResources (Prelude.Maybe Prelude.Natural)
+listDeviceResources_maxResults = Lens.lens (\ListDeviceResources' {maxResults} -> maxResults) (\s@ListDeviceResources' {} a -> s {maxResults = a} :: ListDeviceResources)
 
 -- | A pagination token to continue to the next page of results.
 listDeviceResources_nextToken :: Lens.Lens' ListDeviceResources (Prelude.Maybe Prelude.Text)
@@ -102,10 +106,6 @@ listDeviceResources_nextToken = Lens.lens (\ListDeviceResources' {nextToken} -> 
 -- | A structure used to filter the results by type of resource.
 listDeviceResources_type :: Lens.Lens' ListDeviceResources (Prelude.Maybe Prelude.Text)
 listDeviceResources_type = Lens.lens (\ListDeviceResources' {type'} -> type') (\s@ListDeviceResources' {} a -> s {type' = a} :: ListDeviceResources)
-
--- | The maximum number of resources per page.
-listDeviceResources_maxResults :: Lens.Lens' ListDeviceResources (Prelude.Maybe Prelude.Natural)
-listDeviceResources_maxResults = Lens.lens (\ListDeviceResources' {maxResults} -> maxResults) (\s@ListDeviceResources' {} a -> s {maxResults = a} :: ListDeviceResources)
 
 -- | The ID of the managed device that you are listing the resources of.
 listDeviceResources_managedDeviceId :: Lens.Lens' ListDeviceResources Prelude.Text
@@ -150,16 +150,16 @@ instance Core.AWSRequest ListDeviceResources where
 
 instance Prelude.Hashable ListDeviceResources where
   hashWithSalt _salt ListDeviceResources' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` managedDeviceId
 
 instance Prelude.NFData ListDeviceResources where
   rnf ListDeviceResources' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf managedDeviceId
 
 instance Data.ToHeaders ListDeviceResources where
@@ -184,9 +184,9 @@ instance Data.ToPath ListDeviceResources where
 instance Data.ToQuery ListDeviceResources where
   toQuery ListDeviceResources' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "type" Data.=: type',
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
+        "type" Data.=: type'
       ]
 
 -- | /See:/ 'newListDeviceResourcesResponse' smart constructor.

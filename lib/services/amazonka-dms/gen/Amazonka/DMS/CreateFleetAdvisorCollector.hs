@@ -38,10 +38,10 @@ module Amazonka.DMS.CreateFleetAdvisorCollector
 
     -- * Response Lenses
     createFleetAdvisorCollectorResponse_collectorName,
+    createFleetAdvisorCollectorResponse_collectorReferencedId,
+    createFleetAdvisorCollectorResponse_description,
     createFleetAdvisorCollectorResponse_s3BucketName,
     createFleetAdvisorCollectorResponse_serviceAccessRoleArn,
-    createFleetAdvisorCollectorResponse_description,
-    createFleetAdvisorCollectorResponse_collectorReferencedId,
     createFleetAdvisorCollectorResponse_httpStatus,
   )
 where
@@ -138,10 +138,10 @@ instance Core.AWSRequest CreateFleetAdvisorCollector where
       ( \s h x ->
           CreateFleetAdvisorCollectorResponse'
             Prelude.<$> (x Data..?> "CollectorName")
+            Prelude.<*> (x Data..?> "CollectorReferencedId")
+            Prelude.<*> (x Data..?> "Description")
             Prelude.<*> (x Data..?> "S3BucketName")
             Prelude.<*> (x Data..?> "ServiceAccessRoleArn")
-            Prelude.<*> (x Data..?> "Description")
-            Prelude.<*> (x Data..?> "CollectorReferencedId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -198,17 +198,17 @@ instance Data.ToQuery CreateFleetAdvisorCollector where
 data CreateFleetAdvisorCollectorResponse = CreateFleetAdvisorCollectorResponse'
   { -- | The name of the new Fleet Advisor collector.
     collectorName :: Prelude.Maybe Prelude.Text,
+    -- | The unique ID of the new Fleet Advisor collector, for example:
+    -- @22fda70c-40d5-4acf-b233-a495bd8eb7f5@
+    collectorReferencedId :: Prelude.Maybe Prelude.Text,
+    -- | A summary description of the Fleet Advisor collector.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The Amazon S3 bucket that the collector uses to store inventory
     -- metadata.
     s3BucketName :: Prelude.Maybe Prelude.Text,
     -- | The IAM role that grants permissions to access the specified Amazon S3
     -- bucket.
     serviceAccessRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | A summary description of the Fleet Advisor collector.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The unique ID of the new Fleet Advisor collector, for example:
-    -- @22fda70c-40d5-4acf-b233-a495bd8eb7f5@
-    collectorReferencedId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -224,16 +224,16 @@ data CreateFleetAdvisorCollectorResponse = CreateFleetAdvisorCollectorResponse'
 --
 -- 'collectorName', 'createFleetAdvisorCollectorResponse_collectorName' - The name of the new Fleet Advisor collector.
 --
+-- 'collectorReferencedId', 'createFleetAdvisorCollectorResponse_collectorReferencedId' - The unique ID of the new Fleet Advisor collector, for example:
+-- @22fda70c-40d5-4acf-b233-a495bd8eb7f5@
+--
+-- 'description', 'createFleetAdvisorCollectorResponse_description' - A summary description of the Fleet Advisor collector.
+--
 -- 's3BucketName', 'createFleetAdvisorCollectorResponse_s3BucketName' - The Amazon S3 bucket that the collector uses to store inventory
 -- metadata.
 --
 -- 'serviceAccessRoleArn', 'createFleetAdvisorCollectorResponse_serviceAccessRoleArn' - The IAM role that grants permissions to access the specified Amazon S3
 -- bucket.
---
--- 'description', 'createFleetAdvisorCollectorResponse_description' - A summary description of the Fleet Advisor collector.
---
--- 'collectorReferencedId', 'createFleetAdvisorCollectorResponse_collectorReferencedId' - The unique ID of the new Fleet Advisor collector, for example:
--- @22fda70c-40d5-4acf-b233-a495bd8eb7f5@
 --
 -- 'httpStatus', 'createFleetAdvisorCollectorResponse_httpStatus' - The response's http status code.
 newCreateFleetAdvisorCollectorResponse ::
@@ -244,17 +244,26 @@ newCreateFleetAdvisorCollectorResponse pHttpStatus_ =
   CreateFleetAdvisorCollectorResponse'
     { collectorName =
         Prelude.Nothing,
-      s3BucketName = Prelude.Nothing,
-      serviceAccessRoleArn = Prelude.Nothing,
-      description = Prelude.Nothing,
       collectorReferencedId =
         Prelude.Nothing,
+      description = Prelude.Nothing,
+      s3BucketName = Prelude.Nothing,
+      serviceAccessRoleArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The name of the new Fleet Advisor collector.
 createFleetAdvisorCollectorResponse_collectorName :: Lens.Lens' CreateFleetAdvisorCollectorResponse (Prelude.Maybe Prelude.Text)
 createFleetAdvisorCollectorResponse_collectorName = Lens.lens (\CreateFleetAdvisorCollectorResponse' {collectorName} -> collectorName) (\s@CreateFleetAdvisorCollectorResponse' {} a -> s {collectorName = a} :: CreateFleetAdvisorCollectorResponse)
+
+-- | The unique ID of the new Fleet Advisor collector, for example:
+-- @22fda70c-40d5-4acf-b233-a495bd8eb7f5@
+createFleetAdvisorCollectorResponse_collectorReferencedId :: Lens.Lens' CreateFleetAdvisorCollectorResponse (Prelude.Maybe Prelude.Text)
+createFleetAdvisorCollectorResponse_collectorReferencedId = Lens.lens (\CreateFleetAdvisorCollectorResponse' {collectorReferencedId} -> collectorReferencedId) (\s@CreateFleetAdvisorCollectorResponse' {} a -> s {collectorReferencedId = a} :: CreateFleetAdvisorCollectorResponse)
+
+-- | A summary description of the Fleet Advisor collector.
+createFleetAdvisorCollectorResponse_description :: Lens.Lens' CreateFleetAdvisorCollectorResponse (Prelude.Maybe Prelude.Text)
+createFleetAdvisorCollectorResponse_description = Lens.lens (\CreateFleetAdvisorCollectorResponse' {description} -> description) (\s@CreateFleetAdvisorCollectorResponse' {} a -> s {description = a} :: CreateFleetAdvisorCollectorResponse)
 
 -- | The Amazon S3 bucket that the collector uses to store inventory
 -- metadata.
@@ -266,15 +275,6 @@ createFleetAdvisorCollectorResponse_s3BucketName = Lens.lens (\CreateFleetAdviso
 createFleetAdvisorCollectorResponse_serviceAccessRoleArn :: Lens.Lens' CreateFleetAdvisorCollectorResponse (Prelude.Maybe Prelude.Text)
 createFleetAdvisorCollectorResponse_serviceAccessRoleArn = Lens.lens (\CreateFleetAdvisorCollectorResponse' {serviceAccessRoleArn} -> serviceAccessRoleArn) (\s@CreateFleetAdvisorCollectorResponse' {} a -> s {serviceAccessRoleArn = a} :: CreateFleetAdvisorCollectorResponse)
 
--- | A summary description of the Fleet Advisor collector.
-createFleetAdvisorCollectorResponse_description :: Lens.Lens' CreateFleetAdvisorCollectorResponse (Prelude.Maybe Prelude.Text)
-createFleetAdvisorCollectorResponse_description = Lens.lens (\CreateFleetAdvisorCollectorResponse' {description} -> description) (\s@CreateFleetAdvisorCollectorResponse' {} a -> s {description = a} :: CreateFleetAdvisorCollectorResponse)
-
--- | The unique ID of the new Fleet Advisor collector, for example:
--- @22fda70c-40d5-4acf-b233-a495bd8eb7f5@
-createFleetAdvisorCollectorResponse_collectorReferencedId :: Lens.Lens' CreateFleetAdvisorCollectorResponse (Prelude.Maybe Prelude.Text)
-createFleetAdvisorCollectorResponse_collectorReferencedId = Lens.lens (\CreateFleetAdvisorCollectorResponse' {collectorReferencedId} -> collectorReferencedId) (\s@CreateFleetAdvisorCollectorResponse' {} a -> s {collectorReferencedId = a} :: CreateFleetAdvisorCollectorResponse)
-
 -- | The response's http status code.
 createFleetAdvisorCollectorResponse_httpStatus :: Lens.Lens' CreateFleetAdvisorCollectorResponse Prelude.Int
 createFleetAdvisorCollectorResponse_httpStatus = Lens.lens (\CreateFleetAdvisorCollectorResponse' {httpStatus} -> httpStatus) (\s@CreateFleetAdvisorCollectorResponse' {} a -> s {httpStatus = a} :: CreateFleetAdvisorCollectorResponse)
@@ -285,8 +285,8 @@ instance
   where
   rnf CreateFleetAdvisorCollectorResponse' {..} =
     Prelude.rnf collectorName
+      `Prelude.seq` Prelude.rnf collectorReferencedId
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf s3BucketName
       `Prelude.seq` Prelude.rnf serviceAccessRoleArn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf collectorReferencedId
       `Prelude.seq` Prelude.rnf httpStatus

@@ -30,18 +30,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEventDetailsErrorItem' smart constructor.
 data EventDetailsErrorItem = EventDetailsErrorItem'
-  { -- | The unique identifier for the event. The event ARN has the
+  { -- | A message that describes the error.
+    errorMessage :: Prelude.Maybe Prelude.Text,
+    -- | The name of the error.
+    errorName :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier for the event. The event ARN has the
     -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
     -- format.
     --
     -- For example, an event ARN might look like the following:
     --
     -- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
-    eventArn :: Prelude.Maybe Prelude.Text,
-    -- | A message that describes the error.
-    errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | The name of the error.
-    errorName :: Prelude.Maybe Prelude.Text
+    eventArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,6 +53,10 @@ data EventDetailsErrorItem = EventDetailsErrorItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'errorMessage', 'eventDetailsErrorItem_errorMessage' - A message that describes the error.
+--
+-- 'errorName', 'eventDetailsErrorItem_errorName' - The name of the error.
+--
 -- 'eventArn', 'eventDetailsErrorItem_eventArn' - The unique identifier for the event. The event ARN has the
 -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
 -- format.
@@ -60,18 +64,23 @@ data EventDetailsErrorItem = EventDetailsErrorItem'
 -- For example, an event ARN might look like the following:
 --
 -- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
---
--- 'errorMessage', 'eventDetailsErrorItem_errorMessage' - A message that describes the error.
---
--- 'errorName', 'eventDetailsErrorItem_errorName' - The name of the error.
 newEventDetailsErrorItem ::
   EventDetailsErrorItem
 newEventDetailsErrorItem =
   EventDetailsErrorItem'
-    { eventArn = Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
-      errorName = Prelude.Nothing
+    { errorMessage =
+        Prelude.Nothing,
+      errorName = Prelude.Nothing,
+      eventArn = Prelude.Nothing
     }
+
+-- | A message that describes the error.
+eventDetailsErrorItem_errorMessage :: Lens.Lens' EventDetailsErrorItem (Prelude.Maybe Prelude.Text)
+eventDetailsErrorItem_errorMessage = Lens.lens (\EventDetailsErrorItem' {errorMessage} -> errorMessage) (\s@EventDetailsErrorItem' {} a -> s {errorMessage = a} :: EventDetailsErrorItem)
+
+-- | The name of the error.
+eventDetailsErrorItem_errorName :: Lens.Lens' EventDetailsErrorItem (Prelude.Maybe Prelude.Text)
+eventDetailsErrorItem_errorName = Lens.lens (\EventDetailsErrorItem' {errorName} -> errorName) (\s@EventDetailsErrorItem' {} a -> s {errorName = a} :: EventDetailsErrorItem)
 
 -- | The unique identifier for the event. The event ARN has the
 -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
@@ -83,33 +92,25 @@ newEventDetailsErrorItem =
 eventDetailsErrorItem_eventArn :: Lens.Lens' EventDetailsErrorItem (Prelude.Maybe Prelude.Text)
 eventDetailsErrorItem_eventArn = Lens.lens (\EventDetailsErrorItem' {eventArn} -> eventArn) (\s@EventDetailsErrorItem' {} a -> s {eventArn = a} :: EventDetailsErrorItem)
 
--- | A message that describes the error.
-eventDetailsErrorItem_errorMessage :: Lens.Lens' EventDetailsErrorItem (Prelude.Maybe Prelude.Text)
-eventDetailsErrorItem_errorMessage = Lens.lens (\EventDetailsErrorItem' {errorMessage} -> errorMessage) (\s@EventDetailsErrorItem' {} a -> s {errorMessage = a} :: EventDetailsErrorItem)
-
--- | The name of the error.
-eventDetailsErrorItem_errorName :: Lens.Lens' EventDetailsErrorItem (Prelude.Maybe Prelude.Text)
-eventDetailsErrorItem_errorName = Lens.lens (\EventDetailsErrorItem' {errorName} -> errorName) (\s@EventDetailsErrorItem' {} a -> s {errorName = a} :: EventDetailsErrorItem)
-
 instance Data.FromJSON EventDetailsErrorItem where
   parseJSON =
     Data.withObject
       "EventDetailsErrorItem"
       ( \x ->
           EventDetailsErrorItem'
-            Prelude.<$> (x Data..:? "eventArn")
-            Prelude.<*> (x Data..:? "errorMessage")
+            Prelude.<$> (x Data..:? "errorMessage")
             Prelude.<*> (x Data..:? "errorName")
+            Prelude.<*> (x Data..:? "eventArn")
       )
 
 instance Prelude.Hashable EventDetailsErrorItem where
   hashWithSalt _salt EventDetailsErrorItem' {..} =
-    _salt `Prelude.hashWithSalt` eventArn
-      `Prelude.hashWithSalt` errorMessage
+    _salt `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` errorName
+      `Prelude.hashWithSalt` eventArn
 
 instance Prelude.NFData EventDetailsErrorItem where
   rnf EventDetailsErrorItem' {..} =
-    Prelude.rnf eventArn
-      `Prelude.seq` Prelude.rnf errorMessage
+    Prelude.rnf errorMessage
       `Prelude.seq` Prelude.rnf errorName
+      `Prelude.seq` Prelude.rnf eventArn

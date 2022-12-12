@@ -28,17 +28,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newXMLClassifier' smart constructor.
 data XMLClassifier = XMLClassifier'
-  { -- | The XML tag designating the element that contains each record in an XML
+  { -- | The time that this classifier was registered.
+    creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The time that this classifier was last updated.
+    lastUpdated :: Prelude.Maybe Data.POSIX,
+    -- | The XML tag designating the element that contains each record in an XML
     -- document being parsed. This can\'t identify a self-closing element
     -- (closed by @\/>@). An empty row element that contains only attributes
     -- can be parsed as long as it ends with a closing tag (for example,
     -- @\<row item_a=\"A\" item_b=\"B\">\<\/row>@ is okay, but
     -- @\<row item_a=\"A\" item_b=\"B\" \/>@ is not).
     rowTag :: Prelude.Maybe Prelude.Text,
-    -- | The time that this classifier was last updated.
-    lastUpdated :: Prelude.Maybe Data.POSIX,
-    -- | The time that this classifier was registered.
-    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The version of this classifier.
     version :: Prelude.Maybe Prelude.Integer,
     -- | The name of the classifier.
@@ -56,16 +56,16 @@ data XMLClassifier = XMLClassifier'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'creationTime', 'xMLClassifier_creationTime' - The time that this classifier was registered.
+--
+-- 'lastUpdated', 'xMLClassifier_lastUpdated' - The time that this classifier was last updated.
+--
 -- 'rowTag', 'xMLClassifier_rowTag' - The XML tag designating the element that contains each record in an XML
 -- document being parsed. This can\'t identify a self-closing element
 -- (closed by @\/>@). An empty row element that contains only attributes
 -- can be parsed as long as it ends with a closing tag (for example,
 -- @\<row item_a=\"A\" item_b=\"B\">\<\/row>@ is okay, but
 -- @\<row item_a=\"A\" item_b=\"B\" \/>@ is not).
---
--- 'lastUpdated', 'xMLClassifier_lastUpdated' - The time that this classifier was last updated.
---
--- 'creationTime', 'xMLClassifier_creationTime' - The time that this classifier was registered.
 --
 -- 'version', 'xMLClassifier_version' - The version of this classifier.
 --
@@ -80,13 +80,21 @@ newXMLClassifier ::
   XMLClassifier
 newXMLClassifier pName_ pClassification_ =
   XMLClassifier'
-    { rowTag = Prelude.Nothing,
+    { creationTime = Prelude.Nothing,
       lastUpdated = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
+      rowTag = Prelude.Nothing,
       version = Prelude.Nothing,
       name = pName_,
       classification = pClassification_
     }
+
+-- | The time that this classifier was registered.
+xMLClassifier_creationTime :: Lens.Lens' XMLClassifier (Prelude.Maybe Prelude.UTCTime)
+xMLClassifier_creationTime = Lens.lens (\XMLClassifier' {creationTime} -> creationTime) (\s@XMLClassifier' {} a -> s {creationTime = a} :: XMLClassifier) Prelude.. Lens.mapping Data._Time
+
+-- | The time that this classifier was last updated.
+xMLClassifier_lastUpdated :: Lens.Lens' XMLClassifier (Prelude.Maybe Prelude.UTCTime)
+xMLClassifier_lastUpdated = Lens.lens (\XMLClassifier' {lastUpdated} -> lastUpdated) (\s@XMLClassifier' {} a -> s {lastUpdated = a} :: XMLClassifier) Prelude.. Lens.mapping Data._Time
 
 -- | The XML tag designating the element that contains each record in an XML
 -- document being parsed. This can\'t identify a self-closing element
@@ -96,14 +104,6 @@ newXMLClassifier pName_ pClassification_ =
 -- @\<row item_a=\"A\" item_b=\"B\" \/>@ is not).
 xMLClassifier_rowTag :: Lens.Lens' XMLClassifier (Prelude.Maybe Prelude.Text)
 xMLClassifier_rowTag = Lens.lens (\XMLClassifier' {rowTag} -> rowTag) (\s@XMLClassifier' {} a -> s {rowTag = a} :: XMLClassifier)
-
--- | The time that this classifier was last updated.
-xMLClassifier_lastUpdated :: Lens.Lens' XMLClassifier (Prelude.Maybe Prelude.UTCTime)
-xMLClassifier_lastUpdated = Lens.lens (\XMLClassifier' {lastUpdated} -> lastUpdated) (\s@XMLClassifier' {} a -> s {lastUpdated = a} :: XMLClassifier) Prelude.. Lens.mapping Data._Time
-
--- | The time that this classifier was registered.
-xMLClassifier_creationTime :: Lens.Lens' XMLClassifier (Prelude.Maybe Prelude.UTCTime)
-xMLClassifier_creationTime = Lens.lens (\XMLClassifier' {creationTime} -> creationTime) (\s@XMLClassifier' {} a -> s {creationTime = a} :: XMLClassifier) Prelude.. Lens.mapping Data._Time
 
 -- | The version of this classifier.
 xMLClassifier_version :: Lens.Lens' XMLClassifier (Prelude.Maybe Prelude.Integer)
@@ -123,9 +123,9 @@ instance Data.FromJSON XMLClassifier where
       "XMLClassifier"
       ( \x ->
           XMLClassifier'
-            Prelude.<$> (x Data..:? "RowTag")
+            Prelude.<$> (x Data..:? "CreationTime")
             Prelude.<*> (x Data..:? "LastUpdated")
-            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "RowTag")
             Prelude.<*> (x Data..:? "Version")
             Prelude.<*> (x Data..: "Name")
             Prelude.<*> (x Data..: "Classification")
@@ -133,18 +133,18 @@ instance Data.FromJSON XMLClassifier where
 
 instance Prelude.Hashable XMLClassifier where
   hashWithSalt _salt XMLClassifier' {..} =
-    _salt `Prelude.hashWithSalt` rowTag
+    _salt `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` lastUpdated
-      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` rowTag
       `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` classification
 
 instance Prelude.NFData XMLClassifier where
   rnf XMLClassifier' {..} =
-    Prelude.rnf rowTag
+    Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf lastUpdated
-      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf rowTag
       `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf classification

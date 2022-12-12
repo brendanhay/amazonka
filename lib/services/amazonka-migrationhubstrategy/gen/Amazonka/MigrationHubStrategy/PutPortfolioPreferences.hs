@@ -27,9 +27,10 @@ module Amazonka.MigrationHubStrategy.PutPortfolioPreferences
     newPutPortfolioPreferences,
 
     -- * Request Lenses
+    putPortfolioPreferences_applicationMode,
+    putPortfolioPreferences_applicationPreferences,
     putPortfolioPreferences_databasePreferences,
     putPortfolioPreferences_prioritizeBusinessGoals,
-    putPortfolioPreferences_applicationPreferences,
 
     -- * Destructuring the Response
     PutPortfolioPreferencesResponse (..),
@@ -50,12 +51,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutPortfolioPreferences' smart constructor.
 data PutPortfolioPreferences = PutPortfolioPreferences'
-  { -- | The transformation preferences for database applications.
+  { -- | The classification for application component types.
+    applicationMode :: Prelude.Maybe ApplicationMode,
+    -- | The transformation preferences for non-database applications.
+    applicationPreferences :: Prelude.Maybe ApplicationPreferences,
+    -- | The transformation preferences for database applications.
     databasePreferences :: Prelude.Maybe DatabasePreferences,
     -- | The rank of the business goals based on priority.
-    prioritizeBusinessGoals :: Prelude.Maybe PrioritizeBusinessGoals,
-    -- | The transformation preferences for non-database applications.
-    applicationPreferences :: Prelude.Maybe ApplicationPreferences
+    prioritizeBusinessGoals :: Prelude.Maybe PrioritizeBusinessGoals
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,20 +70,31 @@ data PutPortfolioPreferences = PutPortfolioPreferences'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'applicationMode', 'putPortfolioPreferences_applicationMode' - The classification for application component types.
+--
+-- 'applicationPreferences', 'putPortfolioPreferences_applicationPreferences' - The transformation preferences for non-database applications.
+--
 -- 'databasePreferences', 'putPortfolioPreferences_databasePreferences' - The transformation preferences for database applications.
 --
 -- 'prioritizeBusinessGoals', 'putPortfolioPreferences_prioritizeBusinessGoals' - The rank of the business goals based on priority.
---
--- 'applicationPreferences', 'putPortfolioPreferences_applicationPreferences' - The transformation preferences for non-database applications.
 newPutPortfolioPreferences ::
   PutPortfolioPreferences
 newPutPortfolioPreferences =
   PutPortfolioPreferences'
-    { databasePreferences =
+    { applicationMode =
         Prelude.Nothing,
-      prioritizeBusinessGoals = Prelude.Nothing,
-      applicationPreferences = Prelude.Nothing
+      applicationPreferences = Prelude.Nothing,
+      databasePreferences = Prelude.Nothing,
+      prioritizeBusinessGoals = Prelude.Nothing
     }
+
+-- | The classification for application component types.
+putPortfolioPreferences_applicationMode :: Lens.Lens' PutPortfolioPreferences (Prelude.Maybe ApplicationMode)
+putPortfolioPreferences_applicationMode = Lens.lens (\PutPortfolioPreferences' {applicationMode} -> applicationMode) (\s@PutPortfolioPreferences' {} a -> s {applicationMode = a} :: PutPortfolioPreferences)
+
+-- | The transformation preferences for non-database applications.
+putPortfolioPreferences_applicationPreferences :: Lens.Lens' PutPortfolioPreferences (Prelude.Maybe ApplicationPreferences)
+putPortfolioPreferences_applicationPreferences = Lens.lens (\PutPortfolioPreferences' {applicationPreferences} -> applicationPreferences) (\s@PutPortfolioPreferences' {} a -> s {applicationPreferences = a} :: PutPortfolioPreferences)
 
 -- | The transformation preferences for database applications.
 putPortfolioPreferences_databasePreferences :: Lens.Lens' PutPortfolioPreferences (Prelude.Maybe DatabasePreferences)
@@ -89,10 +103,6 @@ putPortfolioPreferences_databasePreferences = Lens.lens (\PutPortfolioPreference
 -- | The rank of the business goals based on priority.
 putPortfolioPreferences_prioritizeBusinessGoals :: Lens.Lens' PutPortfolioPreferences (Prelude.Maybe PrioritizeBusinessGoals)
 putPortfolioPreferences_prioritizeBusinessGoals = Lens.lens (\PutPortfolioPreferences' {prioritizeBusinessGoals} -> prioritizeBusinessGoals) (\s@PutPortfolioPreferences' {} a -> s {prioritizeBusinessGoals = a} :: PutPortfolioPreferences)
-
--- | The transformation preferences for non-database applications.
-putPortfolioPreferences_applicationPreferences :: Lens.Lens' PutPortfolioPreferences (Prelude.Maybe ApplicationPreferences)
-putPortfolioPreferences_applicationPreferences = Lens.lens (\PutPortfolioPreferences' {applicationPreferences} -> applicationPreferences) (\s@PutPortfolioPreferences' {} a -> s {applicationPreferences = a} :: PutPortfolioPreferences)
 
 instance Core.AWSRequest PutPortfolioPreferences where
   type
@@ -109,15 +119,17 @@ instance Core.AWSRequest PutPortfolioPreferences where
 
 instance Prelude.Hashable PutPortfolioPreferences where
   hashWithSalt _salt PutPortfolioPreferences' {..} =
-    _salt `Prelude.hashWithSalt` databasePreferences
-      `Prelude.hashWithSalt` prioritizeBusinessGoals
+    _salt `Prelude.hashWithSalt` applicationMode
       `Prelude.hashWithSalt` applicationPreferences
+      `Prelude.hashWithSalt` databasePreferences
+      `Prelude.hashWithSalt` prioritizeBusinessGoals
 
 instance Prelude.NFData PutPortfolioPreferences where
   rnf PutPortfolioPreferences' {..} =
-    Prelude.rnf databasePreferences
-      `Prelude.seq` Prelude.rnf prioritizeBusinessGoals
+    Prelude.rnf applicationMode
       `Prelude.seq` Prelude.rnf applicationPreferences
+      `Prelude.seq` Prelude.rnf databasePreferences
+      `Prelude.seq` Prelude.rnf prioritizeBusinessGoals
 
 instance Data.ToHeaders PutPortfolioPreferences where
   toHeaders =
@@ -134,12 +146,14 @@ instance Data.ToJSON PutPortfolioPreferences where
   toJSON PutPortfolioPreferences' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("databasePreferences" Data..=)
+          [ ("applicationMode" Data..=)
+              Prelude.<$> applicationMode,
+            ("applicationPreferences" Data..=)
+              Prelude.<$> applicationPreferences,
+            ("databasePreferences" Data..=)
               Prelude.<$> databasePreferences,
             ("prioritizeBusinessGoals" Data..=)
-              Prelude.<$> prioritizeBusinessGoals,
-            ("applicationPreferences" Data..=)
-              Prelude.<$> applicationPreferences
+              Prelude.<$> prioritizeBusinessGoals
           ]
       )
 

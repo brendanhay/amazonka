@@ -28,14 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPackageDependency' smart constructor.
 data PackageDependency = PackageDependency'
-  { -- | The name of the package that this package depends on.
-    package :: Prelude.Maybe Prelude.Text,
-    -- | The required version, or version range, of the package that this package
-    -- depends on. The version format is specific to the package type. For
-    -- example, the following are possible valid required versions: @1.2.3@,
-    -- @^2.3.4@, or @4.x@.
-    versionRequirement :: Prelude.Maybe Prelude.Text,
-    -- | The type of a package dependency. The possible values depend on the
+  { -- | The type of a package dependency. The possible values depend on the
     -- package type. Example types are @compile@, @runtime@, and @test@ for
     -- Maven packages, and @dev@, @prod@, and @optional@ for npm packages.
     dependencyType :: Prelude.Maybe Prelude.Text,
@@ -48,7 +41,14 @@ data PackageDependency = PackageDependency'
     --
     -- -   Python and NuGet packages do not contain a corresponding component,
     --     packages of those formats do not have a namespace.
-    namespace :: Prelude.Maybe Prelude.Text
+    namespace :: Prelude.Maybe Prelude.Text,
+    -- | The name of the package that this package depends on.
+    package :: Prelude.Maybe Prelude.Text,
+    -- | The required version, or version range, of the package that this package
+    -- depends on. The version format is specific to the package type. For
+    -- example, the following are possible valid required versions: @1.2.3@,
+    -- @^2.3.4@, or @4.x@.
+    versionRequirement :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,13 +59,6 @@ data PackageDependency = PackageDependency'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'package', 'packageDependency_package' - The name of the package that this package depends on.
---
--- 'versionRequirement', 'packageDependency_versionRequirement' - The required version, or version range, of the package that this package
--- depends on. The version format is specific to the package type. For
--- example, the following are possible valid required versions: @1.2.3@,
--- @^2.3.4@, or @4.x@.
 --
 -- 'dependencyType', 'packageDependency_dependencyType' - The type of a package dependency. The possible values depend on the
 -- package type. Example types are @compile@, @runtime@, and @test@ for
@@ -80,26 +73,23 @@ data PackageDependency = PackageDependency'
 --
 -- -   Python and NuGet packages do not contain a corresponding component,
 --     packages of those formats do not have a namespace.
+--
+-- 'package', 'packageDependency_package' - The name of the package that this package depends on.
+--
+-- 'versionRequirement', 'packageDependency_versionRequirement' - The required version, or version range, of the package that this package
+-- depends on. The version format is specific to the package type. For
+-- example, the following are possible valid required versions: @1.2.3@,
+-- @^2.3.4@, or @4.x@.
 newPackageDependency ::
   PackageDependency
 newPackageDependency =
   PackageDependency'
-    { package = Prelude.Nothing,
-      versionRequirement = Prelude.Nothing,
-      dependencyType = Prelude.Nothing,
-      namespace = Prelude.Nothing
+    { dependencyType =
+        Prelude.Nothing,
+      namespace = Prelude.Nothing,
+      package = Prelude.Nothing,
+      versionRequirement = Prelude.Nothing
     }
-
--- | The name of the package that this package depends on.
-packageDependency_package :: Lens.Lens' PackageDependency (Prelude.Maybe Prelude.Text)
-packageDependency_package = Lens.lens (\PackageDependency' {package} -> package) (\s@PackageDependency' {} a -> s {package = a} :: PackageDependency)
-
--- | The required version, or version range, of the package that this package
--- depends on. The version format is specific to the package type. For
--- example, the following are possible valid required versions: @1.2.3@,
--- @^2.3.4@, or @4.x@.
-packageDependency_versionRequirement :: Lens.Lens' PackageDependency (Prelude.Maybe Prelude.Text)
-packageDependency_versionRequirement = Lens.lens (\PackageDependency' {versionRequirement} -> versionRequirement) (\s@PackageDependency' {} a -> s {versionRequirement = a} :: PackageDependency)
 
 -- | The type of a package dependency. The possible values depend on the
 -- package type. Example types are @compile@, @runtime@, and @test@ for
@@ -119,28 +109,39 @@ packageDependency_dependencyType = Lens.lens (\PackageDependency' {dependencyTyp
 packageDependency_namespace :: Lens.Lens' PackageDependency (Prelude.Maybe Prelude.Text)
 packageDependency_namespace = Lens.lens (\PackageDependency' {namespace} -> namespace) (\s@PackageDependency' {} a -> s {namespace = a} :: PackageDependency)
 
+-- | The name of the package that this package depends on.
+packageDependency_package :: Lens.Lens' PackageDependency (Prelude.Maybe Prelude.Text)
+packageDependency_package = Lens.lens (\PackageDependency' {package} -> package) (\s@PackageDependency' {} a -> s {package = a} :: PackageDependency)
+
+-- | The required version, or version range, of the package that this package
+-- depends on. The version format is specific to the package type. For
+-- example, the following are possible valid required versions: @1.2.3@,
+-- @^2.3.4@, or @4.x@.
+packageDependency_versionRequirement :: Lens.Lens' PackageDependency (Prelude.Maybe Prelude.Text)
+packageDependency_versionRequirement = Lens.lens (\PackageDependency' {versionRequirement} -> versionRequirement) (\s@PackageDependency' {} a -> s {versionRequirement = a} :: PackageDependency)
+
 instance Data.FromJSON PackageDependency where
   parseJSON =
     Data.withObject
       "PackageDependency"
       ( \x ->
           PackageDependency'
-            Prelude.<$> (x Data..:? "package")
-            Prelude.<*> (x Data..:? "versionRequirement")
-            Prelude.<*> (x Data..:? "dependencyType")
+            Prelude.<$> (x Data..:? "dependencyType")
             Prelude.<*> (x Data..:? "namespace")
+            Prelude.<*> (x Data..:? "package")
+            Prelude.<*> (x Data..:? "versionRequirement")
       )
 
 instance Prelude.Hashable PackageDependency where
   hashWithSalt _salt PackageDependency' {..} =
-    _salt `Prelude.hashWithSalt` package
-      `Prelude.hashWithSalt` versionRequirement
-      `Prelude.hashWithSalt` dependencyType
+    _salt `Prelude.hashWithSalt` dependencyType
       `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` package
+      `Prelude.hashWithSalt` versionRequirement
 
 instance Prelude.NFData PackageDependency where
   rnf PackageDependency' {..} =
-    Prelude.rnf package
-      `Prelude.seq` Prelude.rnf versionRequirement
-      `Prelude.seq` Prelude.rnf dependencyType
+    Prelude.rnf dependencyType
       `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf package
+      `Prelude.seq` Prelude.rnf versionRequirement

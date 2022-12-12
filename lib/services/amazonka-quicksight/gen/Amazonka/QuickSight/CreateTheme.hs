@@ -32,8 +32,8 @@ module Amazonka.QuickSight.CreateTheme
     newCreateTheme,
 
     -- * Request Lenses
-    createTheme_tags,
     createTheme_permissions,
+    createTheme_tags,
     createTheme_versionDescription,
     createTheme_awsAccountId,
     createTheme_themeId,
@@ -46,11 +46,11 @@ module Amazonka.QuickSight.CreateTheme
     newCreateThemeResponse,
 
     -- * Response Lenses
+    createThemeResponse_arn,
     createThemeResponse_creationStatus,
     createThemeResponse_requestId,
-    createThemeResponse_arn,
-    createThemeResponse_versionArn,
     createThemeResponse_themeId,
+    createThemeResponse_versionArn,
     createThemeResponse_status,
   )
 where
@@ -65,11 +65,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateTheme' smart constructor.
 data CreateTheme = CreateTheme'
-  { -- | A map of the key-value pairs for the resource tag or tags that you want
+  { -- | A valid grouping of resource permissions to apply to the new theme.
+    permissions :: Prelude.Maybe (Prelude.NonEmpty ResourcePermission),
+    -- | A map of the key-value pairs for the resource tag or tags that you want
     -- to add to the resource.
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | A valid grouping of resource permissions to apply to the new theme.
-    permissions :: Prelude.Maybe (Prelude.NonEmpty ResourcePermission),
     -- | A description of the first version of the theme that you\'re creating.
     -- Every time @UpdateTheme@ is called, a new version is created. Each
     -- version of the theme has a description of the version in the
@@ -101,10 +101,10 @@ data CreateTheme = CreateTheme'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'permissions', 'createTheme_permissions' - A valid grouping of resource permissions to apply to the new theme.
+--
 -- 'tags', 'createTheme_tags' - A map of the key-value pairs for the resource tag or tags that you want
 -- to add to the resource.
---
--- 'permissions', 'createTheme_permissions' - A valid grouping of resource permissions to apply to the new theme.
 --
 -- 'versionDescription', 'createTheme_versionDescription' - A description of the first version of the theme that you\'re creating.
 -- Every time @UpdateTheme@ is called, a new version is created. Each
@@ -144,8 +144,8 @@ newCreateTheme
   pBaseThemeId_
   pConfiguration_ =
     CreateTheme'
-      { tags = Prelude.Nothing,
-        permissions = Prelude.Nothing,
+      { permissions = Prelude.Nothing,
+        tags = Prelude.Nothing,
         versionDescription = Prelude.Nothing,
         awsAccountId = pAwsAccountId_,
         themeId = pThemeId_,
@@ -154,14 +154,14 @@ newCreateTheme
         configuration = pConfiguration_
       }
 
+-- | A valid grouping of resource permissions to apply to the new theme.
+createTheme_permissions :: Lens.Lens' CreateTheme (Prelude.Maybe (Prelude.NonEmpty ResourcePermission))
+createTheme_permissions = Lens.lens (\CreateTheme' {permissions} -> permissions) (\s@CreateTheme' {} a -> s {permissions = a} :: CreateTheme) Prelude.. Lens.mapping Lens.coerced
+
 -- | A map of the key-value pairs for the resource tag or tags that you want
 -- to add to the resource.
 createTheme_tags :: Lens.Lens' CreateTheme (Prelude.Maybe (Prelude.NonEmpty Tag))
 createTheme_tags = Lens.lens (\CreateTheme' {tags} -> tags) (\s@CreateTheme' {} a -> s {tags = a} :: CreateTheme) Prelude.. Lens.mapping Lens.coerced
-
--- | A valid grouping of resource permissions to apply to the new theme.
-createTheme_permissions :: Lens.Lens' CreateTheme (Prelude.Maybe (Prelude.NonEmpty ResourcePermission))
-createTheme_permissions = Lens.lens (\CreateTheme' {permissions} -> permissions) (\s@CreateTheme' {} a -> s {permissions = a} :: CreateTheme) Prelude.. Lens.mapping Lens.coerced
 
 -- | A description of the first version of the theme that you\'re creating.
 -- Every time @UpdateTheme@ is called, a new version is created. Each
@@ -203,18 +203,18 @@ instance Core.AWSRequest CreateTheme where
     Response.receiveJSON
       ( \s h x ->
           CreateThemeResponse'
-            Prelude.<$> (x Data..?> "CreationStatus")
+            Prelude.<$> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "CreationStatus")
             Prelude.<*> (x Data..?> "RequestId")
-            Prelude.<*> (x Data..?> "Arn")
-            Prelude.<*> (x Data..?> "VersionArn")
             Prelude.<*> (x Data..?> "ThemeId")
+            Prelude.<*> (x Data..?> "VersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateTheme where
   hashWithSalt _salt CreateTheme' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` permissions
+    _salt `Prelude.hashWithSalt` permissions
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` versionDescription
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` themeId
@@ -224,8 +224,8 @@ instance Prelude.Hashable CreateTheme where
 
 instance Prelude.NFData CreateTheme where
   rnf CreateTheme' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf permissions
+    Prelude.rnf permissions
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf versionDescription
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf themeId
@@ -248,8 +248,8 @@ instance Data.ToJSON CreateTheme where
   toJSON CreateTheme' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Permissions" Data..=) Prelude.<$> permissions,
+          [ ("Permissions" Data..=) Prelude.<$> permissions,
+            ("Tags" Data..=) Prelude.<$> tags,
             ("VersionDescription" Data..=)
               Prelude.<$> versionDescription,
             Prelude.Just ("Name" Data..= name),
@@ -273,16 +273,16 @@ instance Data.ToQuery CreateTheme where
 
 -- | /See:/ 'newCreateThemeResponse' smart constructor.
 data CreateThemeResponse = CreateThemeResponse'
-  { -- | The theme creation status.
+  { -- | The Amazon Resource Name (ARN) for the theme.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The theme creation status.
     creationStatus :: Prelude.Maybe ResourceStatus,
     -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for the theme.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for the new theme.
-    versionArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the theme.
     themeId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) for the new theme.
+    versionArn :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -296,15 +296,15 @@ data CreateThemeResponse = CreateThemeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'arn', 'createThemeResponse_arn' - The Amazon Resource Name (ARN) for the theme.
+--
 -- 'creationStatus', 'createThemeResponse_creationStatus' - The theme creation status.
 --
 -- 'requestId', 'createThemeResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
--- 'arn', 'createThemeResponse_arn' - The Amazon Resource Name (ARN) for the theme.
+-- 'themeId', 'createThemeResponse_themeId' - The ID of the theme.
 --
 -- 'versionArn', 'createThemeResponse_versionArn' - The Amazon Resource Name (ARN) for the new theme.
---
--- 'themeId', 'createThemeResponse_themeId' - The ID of the theme.
 --
 -- 'status', 'createThemeResponse_status' - The HTTP status of the request.
 newCreateThemeResponse ::
@@ -313,14 +313,17 @@ newCreateThemeResponse ::
   CreateThemeResponse
 newCreateThemeResponse pStatus_ =
   CreateThemeResponse'
-    { creationStatus =
-        Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      creationStatus = Prelude.Nothing,
       requestId = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      versionArn = Prelude.Nothing,
       themeId = Prelude.Nothing,
+      versionArn = Prelude.Nothing,
       status = pStatus_
     }
+
+-- | The Amazon Resource Name (ARN) for the theme.
+createThemeResponse_arn :: Lens.Lens' CreateThemeResponse (Prelude.Maybe Prelude.Text)
+createThemeResponse_arn = Lens.lens (\CreateThemeResponse' {arn} -> arn) (\s@CreateThemeResponse' {} a -> s {arn = a} :: CreateThemeResponse)
 
 -- | The theme creation status.
 createThemeResponse_creationStatus :: Lens.Lens' CreateThemeResponse (Prelude.Maybe ResourceStatus)
@@ -330,17 +333,13 @@ createThemeResponse_creationStatus = Lens.lens (\CreateThemeResponse' {creationS
 createThemeResponse_requestId :: Lens.Lens' CreateThemeResponse (Prelude.Maybe Prelude.Text)
 createThemeResponse_requestId = Lens.lens (\CreateThemeResponse' {requestId} -> requestId) (\s@CreateThemeResponse' {} a -> s {requestId = a} :: CreateThemeResponse)
 
--- | The Amazon Resource Name (ARN) for the theme.
-createThemeResponse_arn :: Lens.Lens' CreateThemeResponse (Prelude.Maybe Prelude.Text)
-createThemeResponse_arn = Lens.lens (\CreateThemeResponse' {arn} -> arn) (\s@CreateThemeResponse' {} a -> s {arn = a} :: CreateThemeResponse)
+-- | The ID of the theme.
+createThemeResponse_themeId :: Lens.Lens' CreateThemeResponse (Prelude.Maybe Prelude.Text)
+createThemeResponse_themeId = Lens.lens (\CreateThemeResponse' {themeId} -> themeId) (\s@CreateThemeResponse' {} a -> s {themeId = a} :: CreateThemeResponse)
 
 -- | The Amazon Resource Name (ARN) for the new theme.
 createThemeResponse_versionArn :: Lens.Lens' CreateThemeResponse (Prelude.Maybe Prelude.Text)
 createThemeResponse_versionArn = Lens.lens (\CreateThemeResponse' {versionArn} -> versionArn) (\s@CreateThemeResponse' {} a -> s {versionArn = a} :: CreateThemeResponse)
-
--- | The ID of the theme.
-createThemeResponse_themeId :: Lens.Lens' CreateThemeResponse (Prelude.Maybe Prelude.Text)
-createThemeResponse_themeId = Lens.lens (\CreateThemeResponse' {themeId} -> themeId) (\s@CreateThemeResponse' {} a -> s {themeId = a} :: CreateThemeResponse)
 
 -- | The HTTP status of the request.
 createThemeResponse_status :: Lens.Lens' CreateThemeResponse Prelude.Int
@@ -348,9 +347,9 @@ createThemeResponse_status = Lens.lens (\CreateThemeResponse' {status} -> status
 
 instance Prelude.NFData CreateThemeResponse where
   rnf CreateThemeResponse' {..} =
-    Prelude.rnf creationStatus
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf creationStatus
       `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf versionArn
       `Prelude.seq` Prelude.rnf themeId
+      `Prelude.seq` Prelude.rnf versionArn
       `Prelude.seq` Prelude.rnf status

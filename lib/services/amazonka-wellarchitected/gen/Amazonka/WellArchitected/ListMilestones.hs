@@ -27,8 +27,8 @@ module Amazonka.WellArchitected.ListMilestones
     newListMilestones,
 
     -- * Request Lenses
-    listMilestones_nextToken,
     listMilestones_maxResults,
+    listMilestones_nextToken,
     listMilestones_workloadId,
 
     -- * Destructuring the Response
@@ -36,8 +36,8 @@ module Amazonka.WellArchitected.ListMilestones
     newListMilestonesResponse,
 
     -- * Response Lenses
-    listMilestonesResponse_nextToken,
     listMilestonesResponse_milestoneSummaries,
+    listMilestonesResponse_nextToken,
     listMilestonesResponse_workloadId,
     listMilestonesResponse_httpStatus,
   )
@@ -55,8 +55,8 @@ import Amazonka.WellArchitected.Types
 --
 -- /See:/ 'newListMilestones' smart constructor.
 data ListMilestones = ListMilestones'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    maxResults :: Prelude.Maybe Prelude.Natural,
+  { maxResults :: Prelude.Maybe Prelude.Natural,
+    nextToken :: Prelude.Maybe Prelude.Text,
     workloadId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,9 +69,9 @@ data ListMilestones = ListMilestones'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listMilestones_nextToken' - Undocumented member.
---
 -- 'maxResults', 'listMilestones_maxResults' - Undocumented member.
+--
+-- 'nextToken', 'listMilestones_nextToken' - Undocumented member.
 --
 -- 'workloadId', 'listMilestones_workloadId' - Undocumented member.
 newListMilestones ::
@@ -80,18 +80,18 @@ newListMilestones ::
   ListMilestones
 newListMilestones pWorkloadId_ =
   ListMilestones'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       workloadId = pWorkloadId_
     }
 
 -- | Undocumented member.
-listMilestones_nextToken :: Lens.Lens' ListMilestones (Prelude.Maybe Prelude.Text)
-listMilestones_nextToken = Lens.lens (\ListMilestones' {nextToken} -> nextToken) (\s@ListMilestones' {} a -> s {nextToken = a} :: ListMilestones)
-
--- | Undocumented member.
 listMilestones_maxResults :: Lens.Lens' ListMilestones (Prelude.Maybe Prelude.Natural)
 listMilestones_maxResults = Lens.lens (\ListMilestones' {maxResults} -> maxResults) (\s@ListMilestones' {} a -> s {maxResults = a} :: ListMilestones)
+
+-- | Undocumented member.
+listMilestones_nextToken :: Lens.Lens' ListMilestones (Prelude.Maybe Prelude.Text)
+listMilestones_nextToken = Lens.lens (\ListMilestones' {nextToken} -> nextToken) (\s@ListMilestones' {} a -> s {nextToken = a} :: ListMilestones)
 
 -- | Undocumented member.
 listMilestones_workloadId :: Lens.Lens' ListMilestones Prelude.Text
@@ -107,24 +107,24 @@ instance Core.AWSRequest ListMilestones where
     Response.receiveJSON
       ( \s h x ->
           ListMilestonesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "MilestoneSummaries"
+            Prelude.<$> ( x Data..?> "MilestoneSummaries"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "WorkloadId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListMilestones where
   hashWithSalt _salt ListMilestones' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` workloadId
 
 instance Prelude.NFData ListMilestones where
   rnf ListMilestones' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf workloadId
 
 instance Data.ToHeaders ListMilestones where
@@ -142,8 +142,8 @@ instance Data.ToJSON ListMilestones where
   toJSON ListMilestones' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -162,8 +162,8 @@ instance Data.ToQuery ListMilestones where
 --
 -- /See:/ 'newListMilestonesResponse' smart constructor.
 data ListMilestonesResponse = ListMilestonesResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    milestoneSummaries :: Prelude.Maybe [MilestoneSummary],
+  { milestoneSummaries :: Prelude.Maybe [MilestoneSummary],
+    nextToken :: Prelude.Maybe Prelude.Text,
     workloadId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -178,9 +178,9 @@ data ListMilestonesResponse = ListMilestonesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listMilestonesResponse_nextToken' - Undocumented member.
---
 -- 'milestoneSummaries', 'listMilestonesResponse_milestoneSummaries' - Undocumented member.
+--
+-- 'nextToken', 'listMilestonesResponse_nextToken' - Undocumented member.
 --
 -- 'workloadId', 'listMilestonesResponse_workloadId' - Undocumented member.
 --
@@ -191,20 +191,20 @@ newListMilestonesResponse ::
   ListMilestonesResponse
 newListMilestonesResponse pHttpStatus_ =
   ListMilestonesResponse'
-    { nextToken =
+    { milestoneSummaries =
         Prelude.Nothing,
-      milestoneSummaries = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       workloadId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-listMilestonesResponse_nextToken :: Lens.Lens' ListMilestonesResponse (Prelude.Maybe Prelude.Text)
-listMilestonesResponse_nextToken = Lens.lens (\ListMilestonesResponse' {nextToken} -> nextToken) (\s@ListMilestonesResponse' {} a -> s {nextToken = a} :: ListMilestonesResponse)
-
--- | Undocumented member.
 listMilestonesResponse_milestoneSummaries :: Lens.Lens' ListMilestonesResponse (Prelude.Maybe [MilestoneSummary])
 listMilestonesResponse_milestoneSummaries = Lens.lens (\ListMilestonesResponse' {milestoneSummaries} -> milestoneSummaries) (\s@ListMilestonesResponse' {} a -> s {milestoneSummaries = a} :: ListMilestonesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+listMilestonesResponse_nextToken :: Lens.Lens' ListMilestonesResponse (Prelude.Maybe Prelude.Text)
+listMilestonesResponse_nextToken = Lens.lens (\ListMilestonesResponse' {nextToken} -> nextToken) (\s@ListMilestonesResponse' {} a -> s {nextToken = a} :: ListMilestonesResponse)
 
 -- | Undocumented member.
 listMilestonesResponse_workloadId :: Lens.Lens' ListMilestonesResponse (Prelude.Maybe Prelude.Text)
@@ -216,7 +216,7 @@ listMilestonesResponse_httpStatus = Lens.lens (\ListMilestonesResponse' {httpSta
 
 instance Prelude.NFData ListMilestonesResponse where
   rnf ListMilestonesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf milestoneSummaries
+    Prelude.rnf milestoneSummaries
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf workloadId
       `Prelude.seq` Prelude.rnf httpStatus

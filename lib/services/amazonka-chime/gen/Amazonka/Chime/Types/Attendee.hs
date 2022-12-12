@@ -36,11 +36,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAttendee' smart constructor.
 data Attendee = Attendee'
-  { -- | The Amazon Chime SDK external user ID. An idempotency token. Links the
+  { -- | The Amazon Chime SDK attendee ID.
+    attendeeId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Chime SDK external user ID. An idempotency token. Links the
     -- attendee to an identity managed by a builder application.
     externalUserId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The Amazon Chime SDK attendee ID.
-    attendeeId :: Prelude.Maybe Prelude.Text,
     -- | The join token used by the Amazon Chime SDK attendee.
     joinToken :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
@@ -54,29 +54,29 @@ data Attendee = Attendee'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'attendeeId', 'attendee_attendeeId' - The Amazon Chime SDK attendee ID.
+--
 -- 'externalUserId', 'attendee_externalUserId' - The Amazon Chime SDK external user ID. An idempotency token. Links the
 -- attendee to an identity managed by a builder application.
---
--- 'attendeeId', 'attendee_attendeeId' - The Amazon Chime SDK attendee ID.
 --
 -- 'joinToken', 'attendee_joinToken' - The join token used by the Amazon Chime SDK attendee.
 newAttendee ::
   Attendee
 newAttendee =
   Attendee'
-    { externalUserId = Prelude.Nothing,
-      attendeeId = Prelude.Nothing,
+    { attendeeId = Prelude.Nothing,
+      externalUserId = Prelude.Nothing,
       joinToken = Prelude.Nothing
     }
+
+-- | The Amazon Chime SDK attendee ID.
+attendee_attendeeId :: Lens.Lens' Attendee (Prelude.Maybe Prelude.Text)
+attendee_attendeeId = Lens.lens (\Attendee' {attendeeId} -> attendeeId) (\s@Attendee' {} a -> s {attendeeId = a} :: Attendee)
 
 -- | The Amazon Chime SDK external user ID. An idempotency token. Links the
 -- attendee to an identity managed by a builder application.
 attendee_externalUserId :: Lens.Lens' Attendee (Prelude.Maybe Prelude.Text)
 attendee_externalUserId = Lens.lens (\Attendee' {externalUserId} -> externalUserId) (\s@Attendee' {} a -> s {externalUserId = a} :: Attendee) Prelude.. Lens.mapping Data._Sensitive
-
--- | The Amazon Chime SDK attendee ID.
-attendee_attendeeId :: Lens.Lens' Attendee (Prelude.Maybe Prelude.Text)
-attendee_attendeeId = Lens.lens (\Attendee' {attendeeId} -> attendeeId) (\s@Attendee' {} a -> s {attendeeId = a} :: Attendee)
 
 -- | The join token used by the Amazon Chime SDK attendee.
 attendee_joinToken :: Lens.Lens' Attendee (Prelude.Maybe Prelude.Text)
@@ -88,19 +88,19 @@ instance Data.FromJSON Attendee where
       "Attendee"
       ( \x ->
           Attendee'
-            Prelude.<$> (x Data..:? "ExternalUserId")
-            Prelude.<*> (x Data..:? "AttendeeId")
+            Prelude.<$> (x Data..:? "AttendeeId")
+            Prelude.<*> (x Data..:? "ExternalUserId")
             Prelude.<*> (x Data..:? "JoinToken")
       )
 
 instance Prelude.Hashable Attendee where
   hashWithSalt _salt Attendee' {..} =
-    _salt `Prelude.hashWithSalt` externalUserId
-      `Prelude.hashWithSalt` attendeeId
+    _salt `Prelude.hashWithSalt` attendeeId
+      `Prelude.hashWithSalt` externalUserId
       `Prelude.hashWithSalt` joinToken
 
 instance Prelude.NFData Attendee where
   rnf Attendee' {..} =
-    Prelude.rnf externalUserId
-      `Prelude.seq` Prelude.rnf attendeeId
+    Prelude.rnf attendeeId
+      `Prelude.seq` Prelude.rnf externalUserId
       `Prelude.seq` Prelude.rnf joinToken

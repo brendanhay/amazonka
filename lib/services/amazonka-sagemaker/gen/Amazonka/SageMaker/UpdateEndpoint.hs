@@ -45,10 +45,10 @@ module Amazonka.SageMaker.UpdateEndpoint
     newUpdateEndpoint,
 
     -- * Request Lenses
-    updateEndpoint_retainDeploymentConfig,
-    updateEndpoint_retainAllVariantProperties,
     updateEndpoint_deploymentConfig,
     updateEndpoint_excludeRetainedVariantProperties,
+    updateEndpoint_retainAllVariantProperties,
+    updateEndpoint_retainDeploymentConfig,
     updateEndpoint_endpointName,
     updateEndpoint_endpointConfigName,
 
@@ -72,18 +72,7 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newUpdateEndpoint' smart constructor.
 data UpdateEndpoint = UpdateEndpoint'
-  { -- | Specifies whether to reuse the last deployment configuration. The
-    -- default value is false (the configuration is not reused).
-    retainDeploymentConfig :: Prelude.Maybe Prelude.Bool,
-    -- | When updating endpoint resources, enables or disables the retention of
-    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VariantProperty.html variant properties>,
-    -- such as the instance count or the variant weight. To retain the variant
-    -- properties of an endpoint when updating it, set
-    -- @RetainAllVariantProperties@ to @true@. To use the variant properties
-    -- specified in a new @EndpointConfig@ call when updating an endpoint, set
-    -- @RetainAllVariantProperties@ to @false@. The default is @false@.
-    retainAllVariantProperties :: Prelude.Maybe Prelude.Bool,
-    -- | The deployment configuration for an endpoint, which contains the desired
+  { -- | The deployment configuration for an endpoint, which contains the desired
     -- deployment strategy and rollback configurations.
     deploymentConfig :: Prelude.Maybe DeploymentConfig,
     -- | When you are updating endpoint resources with
@@ -93,6 +82,17 @@ data UpdateEndpoint = UpdateEndpoint'
     -- @EndpointConfig@. If you don\'t specify a value for
     -- @ExcludeAllVariantProperties@, no variant properties are overridden.
     excludeRetainedVariantProperties :: Prelude.Maybe [VariantProperty],
+    -- | When updating endpoint resources, enables or disables the retention of
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VariantProperty.html variant properties>,
+    -- such as the instance count or the variant weight. To retain the variant
+    -- properties of an endpoint when updating it, set
+    -- @RetainAllVariantProperties@ to @true@. To use the variant properties
+    -- specified in a new @EndpointConfig@ call when updating an endpoint, set
+    -- @RetainAllVariantProperties@ to @false@. The default is @false@.
+    retainAllVariantProperties :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies whether to reuse the last deployment configuration. The
+    -- default value is false (the configuration is not reused).
+    retainDeploymentConfig :: Prelude.Maybe Prelude.Bool,
     -- | The name of the endpoint whose configuration you want to update.
     endpointName :: Prelude.Text,
     -- | The name of the new endpoint configuration.
@@ -108,17 +108,6 @@ data UpdateEndpoint = UpdateEndpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'retainDeploymentConfig', 'updateEndpoint_retainDeploymentConfig' - Specifies whether to reuse the last deployment configuration. The
--- default value is false (the configuration is not reused).
---
--- 'retainAllVariantProperties', 'updateEndpoint_retainAllVariantProperties' - When updating endpoint resources, enables or disables the retention of
--- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VariantProperty.html variant properties>,
--- such as the instance count or the variant weight. To retain the variant
--- properties of an endpoint when updating it, set
--- @RetainAllVariantProperties@ to @true@. To use the variant properties
--- specified in a new @EndpointConfig@ call when updating an endpoint, set
--- @RetainAllVariantProperties@ to @false@. The default is @false@.
---
 -- 'deploymentConfig', 'updateEndpoint_deploymentConfig' - The deployment configuration for an endpoint, which contains the desired
 -- deployment strategy and rollback configurations.
 --
@@ -128,6 +117,17 @@ data UpdateEndpoint = UpdateEndpoint'
 -- VariantProperty to override with the values provided by
 -- @EndpointConfig@. If you don\'t specify a value for
 -- @ExcludeAllVariantProperties@, no variant properties are overridden.
+--
+-- 'retainAllVariantProperties', 'updateEndpoint_retainAllVariantProperties' - When updating endpoint resources, enables or disables the retention of
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VariantProperty.html variant properties>,
+-- such as the instance count or the variant weight. To retain the variant
+-- properties of an endpoint when updating it, set
+-- @RetainAllVariantProperties@ to @true@. To use the variant properties
+-- specified in a new @EndpointConfig@ call when updating an endpoint, set
+-- @RetainAllVariantProperties@ to @false@. The default is @false@.
+--
+-- 'retainDeploymentConfig', 'updateEndpoint_retainDeploymentConfig' - Specifies whether to reuse the last deployment configuration. The
+-- default value is false (the configuration is not reused).
 --
 -- 'endpointName', 'updateEndpoint_endpointName' - The name of the endpoint whose configuration you want to update.
 --
@@ -140,29 +140,13 @@ newUpdateEndpoint ::
   UpdateEndpoint
 newUpdateEndpoint pEndpointName_ pEndpointConfigName_ =
   UpdateEndpoint'
-    { retainDeploymentConfig =
-        Prelude.Nothing,
-      retainAllVariantProperties = Prelude.Nothing,
-      deploymentConfig = Prelude.Nothing,
+    { deploymentConfig = Prelude.Nothing,
       excludeRetainedVariantProperties = Prelude.Nothing,
+      retainAllVariantProperties = Prelude.Nothing,
+      retainDeploymentConfig = Prelude.Nothing,
       endpointName = pEndpointName_,
       endpointConfigName = pEndpointConfigName_
     }
-
--- | Specifies whether to reuse the last deployment configuration. The
--- default value is false (the configuration is not reused).
-updateEndpoint_retainDeploymentConfig :: Lens.Lens' UpdateEndpoint (Prelude.Maybe Prelude.Bool)
-updateEndpoint_retainDeploymentConfig = Lens.lens (\UpdateEndpoint' {retainDeploymentConfig} -> retainDeploymentConfig) (\s@UpdateEndpoint' {} a -> s {retainDeploymentConfig = a} :: UpdateEndpoint)
-
--- | When updating endpoint resources, enables or disables the retention of
--- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VariantProperty.html variant properties>,
--- such as the instance count or the variant weight. To retain the variant
--- properties of an endpoint when updating it, set
--- @RetainAllVariantProperties@ to @true@. To use the variant properties
--- specified in a new @EndpointConfig@ call when updating an endpoint, set
--- @RetainAllVariantProperties@ to @false@. The default is @false@.
-updateEndpoint_retainAllVariantProperties :: Lens.Lens' UpdateEndpoint (Prelude.Maybe Prelude.Bool)
-updateEndpoint_retainAllVariantProperties = Lens.lens (\UpdateEndpoint' {retainAllVariantProperties} -> retainAllVariantProperties) (\s@UpdateEndpoint' {} a -> s {retainAllVariantProperties = a} :: UpdateEndpoint)
 
 -- | The deployment configuration for an endpoint, which contains the desired
 -- deployment strategy and rollback configurations.
@@ -177,6 +161,21 @@ updateEndpoint_deploymentConfig = Lens.lens (\UpdateEndpoint' {deploymentConfig}
 -- @ExcludeAllVariantProperties@, no variant properties are overridden.
 updateEndpoint_excludeRetainedVariantProperties :: Lens.Lens' UpdateEndpoint (Prelude.Maybe [VariantProperty])
 updateEndpoint_excludeRetainedVariantProperties = Lens.lens (\UpdateEndpoint' {excludeRetainedVariantProperties} -> excludeRetainedVariantProperties) (\s@UpdateEndpoint' {} a -> s {excludeRetainedVariantProperties = a} :: UpdateEndpoint) Prelude.. Lens.mapping Lens.coerced
+
+-- | When updating endpoint resources, enables or disables the retention of
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VariantProperty.html variant properties>,
+-- such as the instance count or the variant weight. To retain the variant
+-- properties of an endpoint when updating it, set
+-- @RetainAllVariantProperties@ to @true@. To use the variant properties
+-- specified in a new @EndpointConfig@ call when updating an endpoint, set
+-- @RetainAllVariantProperties@ to @false@. The default is @false@.
+updateEndpoint_retainAllVariantProperties :: Lens.Lens' UpdateEndpoint (Prelude.Maybe Prelude.Bool)
+updateEndpoint_retainAllVariantProperties = Lens.lens (\UpdateEndpoint' {retainAllVariantProperties} -> retainAllVariantProperties) (\s@UpdateEndpoint' {} a -> s {retainAllVariantProperties = a} :: UpdateEndpoint)
+
+-- | Specifies whether to reuse the last deployment configuration. The
+-- default value is false (the configuration is not reused).
+updateEndpoint_retainDeploymentConfig :: Lens.Lens' UpdateEndpoint (Prelude.Maybe Prelude.Bool)
+updateEndpoint_retainDeploymentConfig = Lens.lens (\UpdateEndpoint' {retainDeploymentConfig} -> retainDeploymentConfig) (\s@UpdateEndpoint' {} a -> s {retainDeploymentConfig = a} :: UpdateEndpoint)
 
 -- | The name of the endpoint whose configuration you want to update.
 updateEndpoint_endpointName :: Lens.Lens' UpdateEndpoint Prelude.Text
@@ -202,19 +201,19 @@ instance Core.AWSRequest UpdateEndpoint where
 
 instance Prelude.Hashable UpdateEndpoint where
   hashWithSalt _salt UpdateEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` retainDeploymentConfig
-      `Prelude.hashWithSalt` retainAllVariantProperties
-      `Prelude.hashWithSalt` deploymentConfig
+    _salt `Prelude.hashWithSalt` deploymentConfig
       `Prelude.hashWithSalt` excludeRetainedVariantProperties
+      `Prelude.hashWithSalt` retainAllVariantProperties
+      `Prelude.hashWithSalt` retainDeploymentConfig
       `Prelude.hashWithSalt` endpointName
       `Prelude.hashWithSalt` endpointConfigName
 
 instance Prelude.NFData UpdateEndpoint where
   rnf UpdateEndpoint' {..} =
-    Prelude.rnf retainDeploymentConfig
-      `Prelude.seq` Prelude.rnf retainAllVariantProperties
-      `Prelude.seq` Prelude.rnf deploymentConfig
+    Prelude.rnf deploymentConfig
       `Prelude.seq` Prelude.rnf excludeRetainedVariantProperties
+      `Prelude.seq` Prelude.rnf retainAllVariantProperties
+      `Prelude.seq` Prelude.rnf retainDeploymentConfig
       `Prelude.seq` Prelude.rnf endpointName
       `Prelude.seq` Prelude.rnf endpointConfigName
 
@@ -235,14 +234,14 @@ instance Data.ToJSON UpdateEndpoint where
   toJSON UpdateEndpoint' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("RetainDeploymentConfig" Data..=)
-              Prelude.<$> retainDeploymentConfig,
-            ("RetainAllVariantProperties" Data..=)
-              Prelude.<$> retainAllVariantProperties,
-            ("DeploymentConfig" Data..=)
+          [ ("DeploymentConfig" Data..=)
               Prelude.<$> deploymentConfig,
             ("ExcludeRetainedVariantProperties" Data..=)
               Prelude.<$> excludeRetainedVariantProperties,
+            ("RetainAllVariantProperties" Data..=)
+              Prelude.<$> retainAllVariantProperties,
+            ("RetainDeploymentConfig" Data..=)
+              Prelude.<$> retainDeploymentConfig,
             Prelude.Just ("EndpointName" Data..= endpointName),
             Prelude.Just
               ("EndpointConfigName" Data..= endpointConfigName)

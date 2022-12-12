@@ -53,8 +53,8 @@ module Amazonka.CloudHSM.CreateHsm
 
     -- * Request Lenses
     createHsm_clientToken,
-    createHsm_externalId,
     createHsm_eniIp,
+    createHsm_externalId,
     createHsm_syslogIp,
     createHsm_subnetId,
     createHsm_sshKey,
@@ -86,13 +86,13 @@ data CreateHsm = CreateHsm'
   { -- | A user-defined token to ensure idempotence. Subsequent calls to this
     -- operation with the same token will be ignored.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The external ID from @IamRoleArn@, if present.
-    externalId :: Prelude.Maybe Prelude.Text,
     -- | The IP address to assign to the HSM\'s ENI.
     --
     -- If an IP address is not specified, an IP address will be randomly chosen
     -- from the CIDR range of the subnet.
     eniIp :: Prelude.Maybe Prelude.Text,
+    -- | The external ID from @IamRoleArn@, if present.
+    externalId :: Prelude.Maybe Prelude.Text,
     -- | The IP address for the syslog monitoring server. The AWS CloudHSM
     -- service only supports one syslog monitoring server.
     syslogIp :: Prelude.Maybe Prelude.Text,
@@ -118,12 +118,12 @@ data CreateHsm = CreateHsm'
 -- 'clientToken', 'createHsm_clientToken' - A user-defined token to ensure idempotence. Subsequent calls to this
 -- operation with the same token will be ignored.
 --
--- 'externalId', 'createHsm_externalId' - The external ID from @IamRoleArn@, if present.
---
 -- 'eniIp', 'createHsm_eniIp' - The IP address to assign to the HSM\'s ENI.
 --
 -- If an IP address is not specified, an IP address will be randomly chosen
 -- from the CIDR range of the subnet.
+--
+-- 'externalId', 'createHsm_externalId' - The external ID from @IamRoleArn@, if present.
 --
 -- 'syslogIp', 'createHsm_syslogIp' - The IP address for the syslog monitoring server. The AWS CloudHSM
 -- service only supports one syslog monitoring server.
@@ -153,8 +153,8 @@ newCreateHsm
   pSubscriptionType_ =
     CreateHsm'
       { clientToken = Prelude.Nothing,
-        externalId = Prelude.Nothing,
         eniIp = Prelude.Nothing,
+        externalId = Prelude.Nothing,
         syslogIp = Prelude.Nothing,
         subnetId = pSubnetId_,
         sshKey = pSshKey_,
@@ -167,16 +167,16 @@ newCreateHsm
 createHsm_clientToken :: Lens.Lens' CreateHsm (Prelude.Maybe Prelude.Text)
 createHsm_clientToken = Lens.lens (\CreateHsm' {clientToken} -> clientToken) (\s@CreateHsm' {} a -> s {clientToken = a} :: CreateHsm)
 
--- | The external ID from @IamRoleArn@, if present.
-createHsm_externalId :: Lens.Lens' CreateHsm (Prelude.Maybe Prelude.Text)
-createHsm_externalId = Lens.lens (\CreateHsm' {externalId} -> externalId) (\s@CreateHsm' {} a -> s {externalId = a} :: CreateHsm)
-
 -- | The IP address to assign to the HSM\'s ENI.
 --
 -- If an IP address is not specified, an IP address will be randomly chosen
 -- from the CIDR range of the subnet.
 createHsm_eniIp :: Lens.Lens' CreateHsm (Prelude.Maybe Prelude.Text)
 createHsm_eniIp = Lens.lens (\CreateHsm' {eniIp} -> eniIp) (\s@CreateHsm' {} a -> s {eniIp = a} :: CreateHsm)
+
+-- | The external ID from @IamRoleArn@, if present.
+createHsm_externalId :: Lens.Lens' CreateHsm (Prelude.Maybe Prelude.Text)
+createHsm_externalId = Lens.lens (\CreateHsm' {externalId} -> externalId) (\s@CreateHsm' {} a -> s {externalId = a} :: CreateHsm)
 
 -- | The IP address for the syslog monitoring server. The AWS CloudHSM
 -- service only supports one syslog monitoring server.
@@ -215,8 +215,8 @@ instance Core.AWSRequest CreateHsm where
 instance Prelude.Hashable CreateHsm where
   hashWithSalt _salt CreateHsm' {..} =
     _salt `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` externalId
       `Prelude.hashWithSalt` eniIp
+      `Prelude.hashWithSalt` externalId
       `Prelude.hashWithSalt` syslogIp
       `Prelude.hashWithSalt` subnetId
       `Prelude.hashWithSalt` sshKey
@@ -226,8 +226,8 @@ instance Prelude.Hashable CreateHsm where
 instance Prelude.NFData CreateHsm where
   rnf CreateHsm' {..} =
     Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf externalId
       `Prelude.seq` Prelude.rnf eniIp
+      `Prelude.seq` Prelude.rnf externalId
       `Prelude.seq` Prelude.rnf syslogIp
       `Prelude.seq` Prelude.rnf subnetId
       `Prelude.seq` Prelude.rnf sshKey
@@ -254,8 +254,8 @@ instance Data.ToJSON CreateHsm where
     Data.object
       ( Prelude.catMaybes
           [ ("ClientToken" Data..=) Prelude.<$> clientToken,
-            ("ExternalId" Data..=) Prelude.<$> externalId,
             ("EniIp" Data..=) Prelude.<$> eniIp,
+            ("ExternalId" Data..=) Prelude.<$> externalId,
             ("SyslogIp" Data..=) Prelude.<$> syslogIp,
             Prelude.Just ("SubnetId" Data..= subnetId),
             Prelude.Just ("SshKey" Data..= sshKey),

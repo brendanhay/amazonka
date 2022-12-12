@@ -29,20 +29,20 @@ module Amazonka.MigrationHubStrategy.ListApplicationComponents
     newListApplicationComponents,
 
     -- * Request Lenses
-    listApplicationComponents_nextToken,
-    listApplicationComponents_groupIdFilter,
-    listApplicationComponents_filterValue,
-    listApplicationComponents_sort,
-    listApplicationComponents_maxResults,
     listApplicationComponents_applicationComponentCriteria,
+    listApplicationComponents_filterValue,
+    listApplicationComponents_groupIdFilter,
+    listApplicationComponents_maxResults,
+    listApplicationComponents_nextToken,
+    listApplicationComponents_sort,
 
     -- * Destructuring the Response
     ListApplicationComponentsResponse (..),
     newListApplicationComponentsResponse,
 
     -- * Response Lenses
-    listApplicationComponentsResponse_nextToken,
     listApplicationComponentsResponse_applicationComponentInfos,
+    listApplicationComponentsResponse_nextToken,
     listApplicationComponentsResponse_httpStatus,
   )
 where
@@ -57,27 +57,27 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListApplicationComponents' smart constructor.
 data ListApplicationComponents = ListApplicationComponents'
-  { -- | The token from a previous call that you use to retrieve the next set of
-    -- results. For example, if a previous call to this action returned 100
-    -- items, but you set @maxResults@ to 10. You\'ll receive a set of 10
-    -- results along with a token. You then use the returned token to retrieve
-    -- the next set of 10.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The group ID specified in to filter on.
-    groupIdFilter :: Prelude.Maybe [Group],
+  { -- | Criteria for filtering the list of application components.
+    applicationComponentCriteria :: Prelude.Maybe ApplicationComponentCriteria,
     -- | Specify the value based on the application component criteria type. For
     -- example, if @applicationComponentCriteria@ is set to @SERVER_ID@ and
     -- @filterValue@ is set to @server1@, then ListApplicationComponents
     -- returns all the application components running on server1.
     filterValue :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether to sort by ascending (@ASC@) or descending (@DESC@)
-    -- order.
-    sort :: Prelude.Maybe SortOrder,
+    -- | The group ID specified in to filter on.
+    groupIdFilter :: Prelude.Maybe [Group],
     -- | The maximum number of items to include in the response. The maximum
     -- value is 100.
     maxResults :: Prelude.Maybe Prelude.Int,
-    -- | Criteria for filtering the list of application components.
-    applicationComponentCriteria :: Prelude.Maybe ApplicationComponentCriteria
+    -- | The token from a previous call that you use to retrieve the next set of
+    -- results. For example, if a previous call to this action returned 100
+    -- items, but you set @maxResults@ to 10. You\'ll receive a set of 10
+    -- results along with a token. You then use the returned token to retrieve
+    -- the next set of 10.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether to sort by ascending (@ASC@) or descending (@DESC@)
+    -- order.
+    sort :: Prelude.Maybe SortOrder
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -89,38 +89,58 @@ data ListApplicationComponents = ListApplicationComponents'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listApplicationComponents_nextToken' - The token from a previous call that you use to retrieve the next set of
--- results. For example, if a previous call to this action returned 100
--- items, but you set @maxResults@ to 10. You\'ll receive a set of 10
--- results along with a token. You then use the returned token to retrieve
--- the next set of 10.
---
--- 'groupIdFilter', 'listApplicationComponents_groupIdFilter' - The group ID specified in to filter on.
+-- 'applicationComponentCriteria', 'listApplicationComponents_applicationComponentCriteria' - Criteria for filtering the list of application components.
 --
 -- 'filterValue', 'listApplicationComponents_filterValue' - Specify the value based on the application component criteria type. For
 -- example, if @applicationComponentCriteria@ is set to @SERVER_ID@ and
 -- @filterValue@ is set to @server1@, then ListApplicationComponents
 -- returns all the application components running on server1.
 --
--- 'sort', 'listApplicationComponents_sort' - Specifies whether to sort by ascending (@ASC@) or descending (@DESC@)
--- order.
+-- 'groupIdFilter', 'listApplicationComponents_groupIdFilter' - The group ID specified in to filter on.
 --
 -- 'maxResults', 'listApplicationComponents_maxResults' - The maximum number of items to include in the response. The maximum
 -- value is 100.
 --
--- 'applicationComponentCriteria', 'listApplicationComponents_applicationComponentCriteria' - Criteria for filtering the list of application components.
+-- 'nextToken', 'listApplicationComponents_nextToken' - The token from a previous call that you use to retrieve the next set of
+-- results. For example, if a previous call to this action returned 100
+-- items, but you set @maxResults@ to 10. You\'ll receive a set of 10
+-- results along with a token. You then use the returned token to retrieve
+-- the next set of 10.
+--
+-- 'sort', 'listApplicationComponents_sort' - Specifies whether to sort by ascending (@ASC@) or descending (@DESC@)
+-- order.
 newListApplicationComponents ::
   ListApplicationComponents
 newListApplicationComponents =
   ListApplicationComponents'
-    { nextToken =
+    { applicationComponentCriteria =
         Prelude.Nothing,
-      groupIdFilter = Prelude.Nothing,
       filterValue = Prelude.Nothing,
-      sort = Prelude.Nothing,
+      groupIdFilter = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      applicationComponentCriteria = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      sort = Prelude.Nothing
     }
+
+-- | Criteria for filtering the list of application components.
+listApplicationComponents_applicationComponentCriteria :: Lens.Lens' ListApplicationComponents (Prelude.Maybe ApplicationComponentCriteria)
+listApplicationComponents_applicationComponentCriteria = Lens.lens (\ListApplicationComponents' {applicationComponentCriteria} -> applicationComponentCriteria) (\s@ListApplicationComponents' {} a -> s {applicationComponentCriteria = a} :: ListApplicationComponents)
+
+-- | Specify the value based on the application component criteria type. For
+-- example, if @applicationComponentCriteria@ is set to @SERVER_ID@ and
+-- @filterValue@ is set to @server1@, then ListApplicationComponents
+-- returns all the application components running on server1.
+listApplicationComponents_filterValue :: Lens.Lens' ListApplicationComponents (Prelude.Maybe Prelude.Text)
+listApplicationComponents_filterValue = Lens.lens (\ListApplicationComponents' {filterValue} -> filterValue) (\s@ListApplicationComponents' {} a -> s {filterValue = a} :: ListApplicationComponents)
+
+-- | The group ID specified in to filter on.
+listApplicationComponents_groupIdFilter :: Lens.Lens' ListApplicationComponents (Prelude.Maybe [Group])
+listApplicationComponents_groupIdFilter = Lens.lens (\ListApplicationComponents' {groupIdFilter} -> groupIdFilter) (\s@ListApplicationComponents' {} a -> s {groupIdFilter = a} :: ListApplicationComponents) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum number of items to include in the response. The maximum
+-- value is 100.
+listApplicationComponents_maxResults :: Lens.Lens' ListApplicationComponents (Prelude.Maybe Prelude.Int)
+listApplicationComponents_maxResults = Lens.lens (\ListApplicationComponents' {maxResults} -> maxResults) (\s@ListApplicationComponents' {} a -> s {maxResults = a} :: ListApplicationComponents)
 
 -- | The token from a previous call that you use to retrieve the next set of
 -- results. For example, if a previous call to this action returned 100
@@ -130,30 +150,10 @@ newListApplicationComponents =
 listApplicationComponents_nextToken :: Lens.Lens' ListApplicationComponents (Prelude.Maybe Prelude.Text)
 listApplicationComponents_nextToken = Lens.lens (\ListApplicationComponents' {nextToken} -> nextToken) (\s@ListApplicationComponents' {} a -> s {nextToken = a} :: ListApplicationComponents)
 
--- | The group ID specified in to filter on.
-listApplicationComponents_groupIdFilter :: Lens.Lens' ListApplicationComponents (Prelude.Maybe [Group])
-listApplicationComponents_groupIdFilter = Lens.lens (\ListApplicationComponents' {groupIdFilter} -> groupIdFilter) (\s@ListApplicationComponents' {} a -> s {groupIdFilter = a} :: ListApplicationComponents) Prelude.. Lens.mapping Lens.coerced
-
--- | Specify the value based on the application component criteria type. For
--- example, if @applicationComponentCriteria@ is set to @SERVER_ID@ and
--- @filterValue@ is set to @server1@, then ListApplicationComponents
--- returns all the application components running on server1.
-listApplicationComponents_filterValue :: Lens.Lens' ListApplicationComponents (Prelude.Maybe Prelude.Text)
-listApplicationComponents_filterValue = Lens.lens (\ListApplicationComponents' {filterValue} -> filterValue) (\s@ListApplicationComponents' {} a -> s {filterValue = a} :: ListApplicationComponents)
-
 -- | Specifies whether to sort by ascending (@ASC@) or descending (@DESC@)
 -- order.
 listApplicationComponents_sort :: Lens.Lens' ListApplicationComponents (Prelude.Maybe SortOrder)
 listApplicationComponents_sort = Lens.lens (\ListApplicationComponents' {sort} -> sort) (\s@ListApplicationComponents' {} a -> s {sort = a} :: ListApplicationComponents)
-
--- | The maximum number of items to include in the response. The maximum
--- value is 100.
-listApplicationComponents_maxResults :: Lens.Lens' ListApplicationComponents (Prelude.Maybe Prelude.Int)
-listApplicationComponents_maxResults = Lens.lens (\ListApplicationComponents' {maxResults} -> maxResults) (\s@ListApplicationComponents' {} a -> s {maxResults = a} :: ListApplicationComponents)
-
--- | Criteria for filtering the list of application components.
-listApplicationComponents_applicationComponentCriteria :: Lens.Lens' ListApplicationComponents (Prelude.Maybe ApplicationComponentCriteria)
-listApplicationComponents_applicationComponentCriteria = Lens.lens (\ListApplicationComponents' {applicationComponentCriteria} -> applicationComponentCriteria) (\s@ListApplicationComponents' {} a -> s {applicationComponentCriteria = a} :: ListApplicationComponents)
 
 instance Core.AWSPager ListApplicationComponents where
   page rq rs
@@ -187,30 +187,31 @@ instance Core.AWSRequest ListApplicationComponents where
     Response.receiveJSON
       ( \s h x ->
           ListApplicationComponentsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "applicationComponentInfos"
+            Prelude.<$> ( x Data..?> "applicationComponentInfos"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListApplicationComponents where
   hashWithSalt _salt ListApplicationComponents' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` groupIdFilter
-      `Prelude.hashWithSalt` filterValue
-      `Prelude.hashWithSalt` sort
-      `Prelude.hashWithSalt` maxResults
+    _salt
       `Prelude.hashWithSalt` applicationComponentCriteria
+      `Prelude.hashWithSalt` filterValue
+      `Prelude.hashWithSalt` groupIdFilter
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sort
 
 instance Prelude.NFData ListApplicationComponents where
   rnf ListApplicationComponents' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf groupIdFilter
+    Prelude.rnf applicationComponentCriteria
       `Prelude.seq` Prelude.rnf filterValue
-      `Prelude.seq` Prelude.rnf sort
+      `Prelude.seq` Prelude.rnf groupIdFilter
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf applicationComponentCriteria
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sort
 
 instance Data.ToHeaders ListApplicationComponents where
   toHeaders =
@@ -227,13 +228,13 @@ instance Data.ToJSON ListApplicationComponents where
   toJSON ListApplicationComponents' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("groupIdFilter" Data..=) Prelude.<$> groupIdFilter,
+          [ ("applicationComponentCriteria" Data..=)
+              Prelude.<$> applicationComponentCriteria,
             ("filterValue" Data..=) Prelude.<$> filterValue,
-            ("sort" Data..=) Prelude.<$> sort,
+            ("groupIdFilter" Data..=) Prelude.<$> groupIdFilter,
             ("maxResults" Data..=) Prelude.<$> maxResults,
-            ("applicationComponentCriteria" Data..=)
-              Prelude.<$> applicationComponentCriteria
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("sort" Data..=) Prelude.<$> sort
           ]
       )
 
@@ -245,12 +246,12 @@ instance Data.ToQuery ListApplicationComponents where
 
 -- | /See:/ 'newListApplicationComponentsResponse' smart constructor.
 data ListApplicationComponentsResponse = ListApplicationComponentsResponse'
-  { -- | The token you use to retrieve the next set of results, or null if there
-    -- are no more results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of application components with detailed information about each
+  { -- | The list of application components with detailed information about each
     -- component.
     applicationComponentInfos :: Prelude.Maybe [ApplicationComponentDetail],
+    -- | The token you use to retrieve the next set of results, or null if there
+    -- are no more results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -264,11 +265,11 @@ data ListApplicationComponentsResponse = ListApplicationComponentsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listApplicationComponentsResponse_nextToken' - The token you use to retrieve the next set of results, or null if there
--- are no more results.
---
 -- 'applicationComponentInfos', 'listApplicationComponentsResponse_applicationComponentInfos' - The list of application components with detailed information about each
 -- component.
+--
+-- 'nextToken', 'listApplicationComponentsResponse_nextToken' - The token you use to retrieve the next set of results, or null if there
+-- are no more results.
 --
 -- 'httpStatus', 'listApplicationComponentsResponse_httpStatus' - The response's http status code.
 newListApplicationComponentsResponse ::
@@ -277,22 +278,21 @@ newListApplicationComponentsResponse ::
   ListApplicationComponentsResponse
 newListApplicationComponentsResponse pHttpStatus_ =
   ListApplicationComponentsResponse'
-    { nextToken =
+    { applicationComponentInfos =
         Prelude.Nothing,
-      applicationComponentInfos =
-        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token you use to retrieve the next set of results, or null if there
--- are no more results.
-listApplicationComponentsResponse_nextToken :: Lens.Lens' ListApplicationComponentsResponse (Prelude.Maybe Prelude.Text)
-listApplicationComponentsResponse_nextToken = Lens.lens (\ListApplicationComponentsResponse' {nextToken} -> nextToken) (\s@ListApplicationComponentsResponse' {} a -> s {nextToken = a} :: ListApplicationComponentsResponse)
 
 -- | The list of application components with detailed information about each
 -- component.
 listApplicationComponentsResponse_applicationComponentInfos :: Lens.Lens' ListApplicationComponentsResponse (Prelude.Maybe [ApplicationComponentDetail])
 listApplicationComponentsResponse_applicationComponentInfos = Lens.lens (\ListApplicationComponentsResponse' {applicationComponentInfos} -> applicationComponentInfos) (\s@ListApplicationComponentsResponse' {} a -> s {applicationComponentInfos = a} :: ListApplicationComponentsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token you use to retrieve the next set of results, or null if there
+-- are no more results.
+listApplicationComponentsResponse_nextToken :: Lens.Lens' ListApplicationComponentsResponse (Prelude.Maybe Prelude.Text)
+listApplicationComponentsResponse_nextToken = Lens.lens (\ListApplicationComponentsResponse' {nextToken} -> nextToken) (\s@ListApplicationComponentsResponse' {} a -> s {nextToken = a} :: ListApplicationComponentsResponse)
 
 -- | The response's http status code.
 listApplicationComponentsResponse_httpStatus :: Lens.Lens' ListApplicationComponentsResponse Prelude.Int
@@ -303,6 +303,6 @@ instance
     ListApplicationComponentsResponse
   where
   rnf ListApplicationComponentsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf applicationComponentInfos
+    Prelude.rnf applicationComponentInfos
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

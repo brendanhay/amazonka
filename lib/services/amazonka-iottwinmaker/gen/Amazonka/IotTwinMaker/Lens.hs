@@ -21,13 +21,14 @@ module Amazonka.IotTwinMaker.Lens
     batchPutPropertyValuesResponse_errorEntries,
 
     -- ** CreateComponentType
-    createComponentType_tags,
-    createComponentType_functions,
-    createComponentType_propertyDefinitions,
+    createComponentType_componentTypeName,
     createComponentType_description,
-    createComponentType_propertyGroups,
-    createComponentType_isSingleton,
     createComponentType_extendsFrom,
+    createComponentType_functions,
+    createComponentType_isSingleton,
+    createComponentType_propertyDefinitions,
+    createComponentType_propertyGroups,
+    createComponentType_tags,
     createComponentType_workspaceId,
     createComponentType_componentTypeId,
     createComponentTypeResponse_httpStatus,
@@ -36,11 +37,11 @@ module Amazonka.IotTwinMaker.Lens
     createComponentTypeResponse_state,
 
     -- ** CreateEntity
-    createEntity_tags,
+    createEntity_components,
+    createEntity_description,
     createEntity_entityId,
     createEntity_parentEntityId,
-    createEntity_description,
-    createEntity_components,
+    createEntity_tags,
     createEntity_workspaceId,
     createEntity_entityName,
     createEntityResponse_httpStatus,
@@ -50,9 +51,9 @@ module Amazonka.IotTwinMaker.Lens
     createEntityResponse_state,
 
     -- ** CreateScene
-    createScene_tags,
-    createScene_description,
     createScene_capabilities,
+    createScene_description,
+    createScene_tags,
     createScene_workspaceId,
     createScene_sceneId,
     createScene_contentLocation,
@@ -60,9 +61,19 @@ module Amazonka.IotTwinMaker.Lens
     createSceneResponse_arn,
     createSceneResponse_creationDateTime,
 
+    -- ** CreateSyncJob
+    createSyncJob_tags,
+    createSyncJob_workspaceId,
+    createSyncJob_syncSource,
+    createSyncJob_syncRole,
+    createSyncJobResponse_httpStatus,
+    createSyncJobResponse_arn,
+    createSyncJobResponse_creationDateTime,
+    createSyncJobResponse_state,
+
     -- ** CreateWorkspace
-    createWorkspace_tags,
     createWorkspace_description,
+    createWorkspace_tags,
     createWorkspace_workspaceId,
     createWorkspace_s3Location,
     createWorkspace_role,
@@ -88,32 +99,40 @@ module Amazonka.IotTwinMaker.Lens
     deleteScene_sceneId,
     deleteSceneResponse_httpStatus,
 
+    -- ** DeleteSyncJob
+    deleteSyncJob_workspaceId,
+    deleteSyncJob_syncSource,
+    deleteSyncJobResponse_httpStatus,
+    deleteSyncJobResponse_state,
+
     -- ** DeleteWorkspace
     deleteWorkspace_workspaceId,
     deleteWorkspaceResponse_httpStatus,
 
     -- ** ExecuteQuery
-    executeQuery_nextToken,
     executeQuery_maxResults,
+    executeQuery_nextToken,
     executeQuery_workspaceId,
     executeQuery_queryStatement,
+    executeQueryResponse_columnDescriptions,
     executeQueryResponse_nextToken,
     executeQueryResponse_rows,
-    executeQueryResponse_columnDescriptions,
     executeQueryResponse_httpStatus,
 
     -- ** GetComponentType
     getComponentType_workspaceId,
     getComponentType_componentTypeId,
-    getComponentTypeResponse_isSchemaInitialized,
+    getComponentTypeResponse_componentTypeName,
+    getComponentTypeResponse_description,
+    getComponentTypeResponse_extendsFrom,
     getComponentTypeResponse_functions,
     getComponentTypeResponse_isAbstract,
-    getComponentTypeResponse_propertyDefinitions,
-    getComponentTypeResponse_status,
-    getComponentTypeResponse_description,
-    getComponentTypeResponse_propertyGroups,
+    getComponentTypeResponse_isSchemaInitialized,
     getComponentTypeResponse_isSingleton,
-    getComponentTypeResponse_extendsFrom,
+    getComponentTypeResponse_propertyDefinitions,
+    getComponentTypeResponse_propertyGroups,
+    getComponentTypeResponse_status,
+    getComponentTypeResponse_syncSource,
     getComponentTypeResponse_httpStatus,
     getComponentTypeResponse_workspaceId,
     getComponentTypeResponse_componentTypeId,
@@ -124,8 +143,9 @@ module Amazonka.IotTwinMaker.Lens
     -- ** GetEntity
     getEntity_workspaceId,
     getEntity_entityId,
-    getEntityResponse_description,
     getEntityResponse_components,
+    getEntityResponse_description,
+    getEntityResponse_syncSource,
     getEntityResponse_httpStatus,
     getEntityResponse_entityId,
     getEntityResponse_entityName,
@@ -143,33 +163,33 @@ module Amazonka.IotTwinMaker.Lens
     getPricingPlanResponse_currentPricingPlan,
 
     -- ** GetPropertyValue
+    getPropertyValue_componentName,
+    getPropertyValue_componentTypeId,
     getPropertyValue_entityId,
+    getPropertyValue_maxResults,
     getPropertyValue_nextToken,
     getPropertyValue_propertyGroupName,
-    getPropertyValue_componentName,
-    getPropertyValue_maxResults,
     getPropertyValue_tabularConditions,
-    getPropertyValue_componentTypeId,
     getPropertyValue_selectedProperties,
     getPropertyValue_workspaceId,
     getPropertyValueResponse_nextToken,
-    getPropertyValueResponse_tabularPropertyValues,
     getPropertyValueResponse_propertyValues,
+    getPropertyValueResponse_tabularPropertyValues,
     getPropertyValueResponse_httpStatus,
 
     -- ** GetPropertyValueHistory
-    getPropertyValueHistory_entityId,
-    getPropertyValueHistory_nextToken,
     getPropertyValueHistory_componentName,
+    getPropertyValueHistory_componentTypeId,
+    getPropertyValueHistory_endDateTime,
+    getPropertyValueHistory_endTime,
+    getPropertyValueHistory_entityId,
+    getPropertyValueHistory_interpolation,
+    getPropertyValueHistory_maxResults,
+    getPropertyValueHistory_nextToken,
+    getPropertyValueHistory_orderByTime,
     getPropertyValueHistory_propertyFilters,
     getPropertyValueHistory_startDateTime,
-    getPropertyValueHistory_endTime,
-    getPropertyValueHistory_maxResults,
-    getPropertyValueHistory_interpolation,
-    getPropertyValueHistory_orderByTime,
     getPropertyValueHistory_startTime,
-    getPropertyValueHistory_endDateTime,
-    getPropertyValueHistory_componentTypeId,
     getPropertyValueHistory_workspaceId,
     getPropertyValueHistory_selectedProperties,
     getPropertyValueHistoryResponse_nextToken,
@@ -179,8 +199,8 @@ module Amazonka.IotTwinMaker.Lens
     -- ** GetScene
     getScene_workspaceId,
     getScene_sceneId,
-    getSceneResponse_description,
     getSceneResponse_capabilities,
+    getSceneResponse_description,
     getSceneResponse_httpStatus,
     getSceneResponse_workspaceId,
     getSceneResponse_sceneId,
@@ -188,6 +208,18 @@ module Amazonka.IotTwinMaker.Lens
     getSceneResponse_arn,
     getSceneResponse_creationDateTime,
     getSceneResponse_updateDateTime,
+
+    -- ** GetSyncJob
+    getSyncJob_workspaceId,
+    getSyncJob_syncSource,
+    getSyncJobResponse_httpStatus,
+    getSyncJobResponse_arn,
+    getSyncJobResponse_workspaceId,
+    getSyncJobResponse_syncSource,
+    getSyncJobResponse_syncRole,
+    getSyncJobResponse_status,
+    getSyncJobResponse_creationDateTime,
+    getSyncJobResponse_updateDateTime,
 
     -- ** GetWorkspace
     getWorkspace_workspaceId,
@@ -201,44 +233,62 @@ module Amazonka.IotTwinMaker.Lens
     getWorkspaceResponse_updateDateTime,
 
     -- ** ListComponentTypes
-    listComponentTypes_nextToken,
     listComponentTypes_filters,
     listComponentTypes_maxResults,
+    listComponentTypes_nextToken,
     listComponentTypes_workspaceId,
-    listComponentTypesResponse_nextToken,
     listComponentTypesResponse_maxResults,
+    listComponentTypesResponse_nextToken,
     listComponentTypesResponse_httpStatus,
     listComponentTypesResponse_workspaceId,
     listComponentTypesResponse_componentTypeSummaries,
 
     -- ** ListEntities
-    listEntities_nextToken,
     listEntities_filters,
     listEntities_maxResults,
+    listEntities_nextToken,
     listEntities_workspaceId,
-    listEntitiesResponse_nextToken,
     listEntitiesResponse_entitySummaries,
+    listEntitiesResponse_nextToken,
     listEntitiesResponse_httpStatus,
 
     -- ** ListScenes
-    listScenes_nextToken,
     listScenes_maxResults,
+    listScenes_nextToken,
     listScenes_workspaceId,
     listScenesResponse_nextToken,
     listScenesResponse_sceneSummaries,
     listScenesResponse_httpStatus,
 
+    -- ** ListSyncJobs
+    listSyncJobs_maxResults,
+    listSyncJobs_nextToken,
+    listSyncJobs_workspaceId,
+    listSyncJobsResponse_nextToken,
+    listSyncJobsResponse_syncJobSummaries,
+    listSyncJobsResponse_httpStatus,
+
+    -- ** ListSyncResources
+    listSyncResources_filters,
+    listSyncResources_maxResults,
+    listSyncResources_nextToken,
+    listSyncResources_workspaceId,
+    listSyncResources_syncSource,
+    listSyncResourcesResponse_nextToken,
+    listSyncResourcesResponse_syncResources,
+    listSyncResourcesResponse_httpStatus,
+
     -- ** ListTagsForResource
-    listTagsForResource_nextToken,
     listTagsForResource_maxResults,
+    listTagsForResource_nextToken,
     listTagsForResource_resourceARN,
-    listTagsForResourceResponse_tags,
     listTagsForResourceResponse_nextToken,
+    listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
 
     -- ** ListWorkspaces
-    listWorkspaces_nextToken,
     listWorkspaces_maxResults,
+    listWorkspaces_nextToken,
     listWorkspacesResponse_nextToken,
     listWorkspacesResponse_workspaceSummaries,
     listWorkspacesResponse_httpStatus,
@@ -254,12 +304,13 @@ module Amazonka.IotTwinMaker.Lens
     untagResourceResponse_httpStatus,
 
     -- ** UpdateComponentType
-    updateComponentType_functions,
-    updateComponentType_propertyDefinitions,
+    updateComponentType_componentTypeName,
     updateComponentType_description,
-    updateComponentType_propertyGroups,
-    updateComponentType_isSingleton,
     updateComponentType_extendsFrom,
+    updateComponentType_functions,
+    updateComponentType_isSingleton,
+    updateComponentType_propertyDefinitions,
+    updateComponentType_propertyGroups,
     updateComponentType_workspaceId,
     updateComponentType_componentTypeId,
     updateComponentTypeResponse_httpStatus,
@@ -269,9 +320,9 @@ module Amazonka.IotTwinMaker.Lens
     updateComponentTypeResponse_state,
 
     -- ** UpdateEntity
-    updateEntity_entityName,
     updateEntity_componentUpdates,
     updateEntity_description,
+    updateEntity_entityName,
     updateEntity_parentEntityUpdate,
     updateEntity_workspaceId,
     updateEntity_entityId,
@@ -287,9 +338,9 @@ module Amazonka.IotTwinMaker.Lens
     updatePricingPlanResponse_currentPricingPlan,
 
     -- ** UpdateScene
+    updateScene_capabilities,
     updateScene_contentLocation,
     updateScene_description,
-    updateScene_capabilities,
     updateScene_workspaceId,
     updateScene_sceneId,
     updateSceneResponse_httpStatus,
@@ -321,9 +372,9 @@ module Amazonka.IotTwinMaker.Lens
     columnDescription_type,
 
     -- ** ComponentPropertyGroupRequest
-    componentPropertyGroupRequest_updateType,
-    componentPropertyGroupRequest_propertyNames,
     componentPropertyGroupRequest_groupType,
+    componentPropertyGroupRequest_propertyNames,
+    componentPropertyGroupRequest_updateType,
 
     -- ** ComponentPropertyGroupResponse
     componentPropertyGroupResponse_groupType,
@@ -331,67 +382,69 @@ module Amazonka.IotTwinMaker.Lens
     componentPropertyGroupResponse_isInherited,
 
     -- ** ComponentRequest
-    componentRequest_properties,
-    componentRequest_description,
-    componentRequest_propertyGroups,
     componentRequest_componentTypeId,
+    componentRequest_description,
+    componentRequest_properties,
+    componentRequest_propertyGroups,
 
     -- ** ComponentResponse
     componentResponse_componentName,
-    componentResponse_properties,
-    componentResponse_definedIn,
-    componentResponse_status,
-    componentResponse_description,
-    componentResponse_propertyGroups,
     componentResponse_componentTypeId,
+    componentResponse_definedIn,
+    componentResponse_description,
+    componentResponse_properties,
+    componentResponse_propertyGroups,
+    componentResponse_status,
+    componentResponse_syncSource,
 
     -- ** ComponentTypeSummary
-    componentTypeSummary_status,
+    componentTypeSummary_componentTypeName,
     componentTypeSummary_description,
+    componentTypeSummary_status,
     componentTypeSummary_arn,
     componentTypeSummary_componentTypeId,
     componentTypeSummary_creationDateTime,
     componentTypeSummary_updateDateTime,
 
     -- ** ComponentUpdateRequest
-    componentUpdateRequest_updateType,
-    componentUpdateRequest_propertyUpdates,
-    componentUpdateRequest_propertyGroupUpdates,
-    componentUpdateRequest_description,
     componentUpdateRequest_componentTypeId,
+    componentUpdateRequest_description,
+    componentUpdateRequest_propertyGroupUpdates,
+    componentUpdateRequest_propertyUpdates,
+    componentUpdateRequest_updateType,
 
     -- ** DataConnector
-    dataConnector_lambda,
     dataConnector_isNative,
+    dataConnector_lambda,
 
     -- ** DataType
+    dataType_allowedValues,
     dataType_nestedType,
     dataType_relationship,
     dataType_unitOfMeasure,
-    dataType_allowedValues,
     dataType_type,
 
     -- ** DataValue
-    dataValue_integerValue,
-    dataValue_doubleValue,
     dataValue_booleanValue,
+    dataValue_doubleValue,
     dataValue_expression,
-    dataValue_mapValue,
-    dataValue_stringValue,
-    dataValue_relationshipValue,
+    dataValue_integerValue,
     dataValue_listValue,
     dataValue_longValue,
+    dataValue_mapValue,
+    dataValue_relationshipValue,
+    dataValue_stringValue,
 
     -- ** EntityPropertyReference
-    entityPropertyReference_entityId,
     entityPropertyReference_componentName,
+    entityPropertyReference_entityId,
     entityPropertyReference_externalIdProperty,
     entityPropertyReference_propertyName,
 
     -- ** EntitySummary
+    entitySummary_description,
     entitySummary_hasChildEntities,
     entitySummary_parentEntityId,
-    entitySummary_description,
     entitySummary_entityId,
     entitySummary_entityName,
     entitySummary_arn,
@@ -400,19 +453,19 @@ module Amazonka.IotTwinMaker.Lens
     entitySummary_updateDateTime,
 
     -- ** ErrorDetails
-    errorDetails_message,
     errorDetails_code,
+    errorDetails_message,
 
     -- ** FunctionRequest
-    functionRequest_requiredProperties,
     functionRequest_implementedBy,
+    functionRequest_requiredProperties,
     functionRequest_scope,
 
     -- ** FunctionResponse
-    functionResponse_requiredProperties,
     functionResponse_implementedBy,
-    functionResponse_scope,
     functionResponse_isInherited,
+    functionResponse_requiredProperties,
+    functionResponse_scope,
 
     -- ** InterpolationParameters
     interpolationParameters_interpolationType,
@@ -422,14 +475,14 @@ module Amazonka.IotTwinMaker.Lens
     lambdaFunction_arn,
 
     -- ** ListComponentTypesFilter
+    listComponentTypesFilter_extendsFrom,
     listComponentTypesFilter_isAbstract,
     listComponentTypesFilter_namespace,
-    listComponentTypesFilter_extendsFrom,
 
     -- ** ListEntitiesFilter
-    listEntitiesFilter_parentEntityId,
-    listEntitiesFilter_externalId,
     listEntitiesFilter_componentTypeId,
+    listEntitiesFilter_externalId,
+    listEntitiesFilter_parentEntityId,
 
     -- ** OrderBy
     orderBy_order,
@@ -440,25 +493,27 @@ module Amazonka.IotTwinMaker.Lens
     parentEntityUpdateRequest_updateType,
 
     -- ** PricingPlan
-    pricingPlan_bundleInformation,
     pricingPlan_billableEntityCount,
+    pricingPlan_bundleInformation,
     pricingPlan_effectiveDateTime,
     pricingPlan_pricingMode,
     pricingPlan_updateDateTime,
     pricingPlan_updateReason,
 
     -- ** PropertyDefinitionRequest
-    propertyDefinitionRequest_isExternalId,
-    propertyDefinitionRequest_isStoredExternally,
     propertyDefinitionRequest_configuration,
-    propertyDefinitionRequest_defaultValue,
-    propertyDefinitionRequest_isRequiredInEntity,
     propertyDefinitionRequest_dataType,
+    propertyDefinitionRequest_defaultValue,
+    propertyDefinitionRequest_displayName,
+    propertyDefinitionRequest_isExternalId,
+    propertyDefinitionRequest_isRequiredInEntity,
+    propertyDefinitionRequest_isStoredExternally,
     propertyDefinitionRequest_isTimeSeries,
 
     -- ** PropertyDefinitionResponse
     propertyDefinitionResponse_configuration,
     propertyDefinitionResponse_defaultValue,
+    propertyDefinitionResponse_displayName,
     propertyDefinitionResponse_dataType,
     propertyDefinitionResponse_isTimeSeries,
     propertyDefinitionResponse_isRequiredInEntity,
@@ -474,8 +529,8 @@ module Amazonka.IotTwinMaker.Lens
     propertyFilter_value,
 
     -- ** PropertyGroupRequest
-    propertyGroupRequest_propertyNames,
     propertyGroupRequest_groupType,
+    propertyGroupRequest_propertyNames,
 
     -- ** PropertyGroupResponse
     propertyGroupResponse_groupType,
@@ -487,8 +542,8 @@ module Amazonka.IotTwinMaker.Lens
     propertyLatestValue_propertyReference,
 
     -- ** PropertyRequest
-    propertyRequest_updateType,
     propertyRequest_definition,
+    propertyRequest_updateType,
     propertyRequest_value,
 
     -- ** PropertyResponse
@@ -511,12 +566,12 @@ module Amazonka.IotTwinMaker.Lens
     -- ** QueryResultValue
 
     -- ** Relationship
-    relationship_targetComponentTypeId,
     relationship_relationshipType,
+    relationship_targetComponentTypeId,
 
     -- ** RelationshipValue
-    relationshipValue_targetEntityId,
     relationshipValue_targetComponentName,
+    relationshipValue_targetEntityId,
 
     -- ** Row
     row_rowData,
@@ -530,12 +585,41 @@ module Amazonka.IotTwinMaker.Lens
     sceneSummary_updateDateTime,
 
     -- ** Status
-    status_state,
     status_error,
+    status_state,
+
+    -- ** SyncJobStatus
+    syncJobStatus_error,
+    syncJobStatus_state,
+
+    -- ** SyncJobSummary
+    syncJobSummary_arn,
+    syncJobSummary_creationDateTime,
+    syncJobSummary_status,
+    syncJobSummary_syncSource,
+    syncJobSummary_updateDateTime,
+    syncJobSummary_workspaceId,
+
+    -- ** SyncResourceFilter
+    syncResourceFilter_externalId,
+    syncResourceFilter_resourceId,
+    syncResourceFilter_resourceType,
+    syncResourceFilter_state,
+
+    -- ** SyncResourceStatus
+    syncResourceStatus_error,
+    syncResourceStatus_state,
+
+    -- ** SyncResourceSummary
+    syncResourceSummary_externalId,
+    syncResourceSummary_resourceId,
+    syncResourceSummary_resourceType,
+    syncResourceSummary_status,
+    syncResourceSummary_updateDateTime,
 
     -- ** TabularConditions
-    tabularConditions_propertyFilters,
     tabularConditions_orderBy,
+    tabularConditions_propertyFilters,
 
     -- ** WorkspaceSummary
     workspaceSummary_description,
@@ -550,10 +634,12 @@ import Amazonka.IotTwinMaker.BatchPutPropertyValues
 import Amazonka.IotTwinMaker.CreateComponentType
 import Amazonka.IotTwinMaker.CreateEntity
 import Amazonka.IotTwinMaker.CreateScene
+import Amazonka.IotTwinMaker.CreateSyncJob
 import Amazonka.IotTwinMaker.CreateWorkspace
 import Amazonka.IotTwinMaker.DeleteComponentType
 import Amazonka.IotTwinMaker.DeleteEntity
 import Amazonka.IotTwinMaker.DeleteScene
+import Amazonka.IotTwinMaker.DeleteSyncJob
 import Amazonka.IotTwinMaker.DeleteWorkspace
 import Amazonka.IotTwinMaker.ExecuteQuery
 import Amazonka.IotTwinMaker.GetComponentType
@@ -562,10 +648,13 @@ import Amazonka.IotTwinMaker.GetPricingPlan
 import Amazonka.IotTwinMaker.GetPropertyValue
 import Amazonka.IotTwinMaker.GetPropertyValueHistory
 import Amazonka.IotTwinMaker.GetScene
+import Amazonka.IotTwinMaker.GetSyncJob
 import Amazonka.IotTwinMaker.GetWorkspace
 import Amazonka.IotTwinMaker.ListComponentTypes
 import Amazonka.IotTwinMaker.ListEntities
 import Amazonka.IotTwinMaker.ListScenes
+import Amazonka.IotTwinMaker.ListSyncJobs
+import Amazonka.IotTwinMaker.ListSyncResources
 import Amazonka.IotTwinMaker.ListTagsForResource
 import Amazonka.IotTwinMaker.ListWorkspaces
 import Amazonka.IotTwinMaker.TagResource
@@ -611,6 +700,11 @@ import Amazonka.IotTwinMaker.Types.RelationshipValue
 import Amazonka.IotTwinMaker.Types.Row
 import Amazonka.IotTwinMaker.Types.SceneSummary
 import Amazonka.IotTwinMaker.Types.Status
+import Amazonka.IotTwinMaker.Types.SyncJobStatus
+import Amazonka.IotTwinMaker.Types.SyncJobSummary
+import Amazonka.IotTwinMaker.Types.SyncResourceFilter
+import Amazonka.IotTwinMaker.Types.SyncResourceStatus
+import Amazonka.IotTwinMaker.Types.SyncResourceSummary
 import Amazonka.IotTwinMaker.Types.TabularConditions
 import Amazonka.IotTwinMaker.Types.WorkspaceSummary
 import Amazonka.IotTwinMaker.UntagResource

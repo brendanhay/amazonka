@@ -30,8 +30,8 @@ module Amazonka.ManagedBlockChain.ListProposalVotes
     newListProposalVotes,
 
     -- * Request Lenses
-    listProposalVotes_nextToken,
     listProposalVotes_maxResults,
+    listProposalVotes_nextToken,
     listProposalVotes_networkId,
     listProposalVotes_proposalId,
 
@@ -56,10 +56,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListProposalVotes' smart constructor.
 data ListProposalVotes = ListProposalVotes'
-  { -- | The pagination token that indicates the next set of results to retrieve.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of votes to return.
+  { -- | The maximum number of votes to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token that indicates the next set of results to retrieve.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the network.
     networkId :: Prelude.Text,
     -- | The unique identifier of the proposal.
@@ -75,9 +75,9 @@ data ListProposalVotes = ListProposalVotes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listProposalVotes_nextToken' - The pagination token that indicates the next set of results to retrieve.
---
 -- 'maxResults', 'listProposalVotes_maxResults' - The maximum number of votes to return.
+--
+-- 'nextToken', 'listProposalVotes_nextToken' - The pagination token that indicates the next set of results to retrieve.
 --
 -- 'networkId', 'listProposalVotes_networkId' - The unique identifier of the network.
 --
@@ -90,19 +90,19 @@ newListProposalVotes ::
   ListProposalVotes
 newListProposalVotes pNetworkId_ pProposalId_ =
   ListProposalVotes'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       networkId = pNetworkId_,
       proposalId = pProposalId_
     }
 
--- | The pagination token that indicates the next set of results to retrieve.
-listProposalVotes_nextToken :: Lens.Lens' ListProposalVotes (Prelude.Maybe Prelude.Text)
-listProposalVotes_nextToken = Lens.lens (\ListProposalVotes' {nextToken} -> nextToken) (\s@ListProposalVotes' {} a -> s {nextToken = a} :: ListProposalVotes)
-
 -- | The maximum number of votes to return.
 listProposalVotes_maxResults :: Lens.Lens' ListProposalVotes (Prelude.Maybe Prelude.Natural)
 listProposalVotes_maxResults = Lens.lens (\ListProposalVotes' {maxResults} -> maxResults) (\s@ListProposalVotes' {} a -> s {maxResults = a} :: ListProposalVotes)
+
+-- | The pagination token that indicates the next set of results to retrieve.
+listProposalVotes_nextToken :: Lens.Lens' ListProposalVotes (Prelude.Maybe Prelude.Text)
+listProposalVotes_nextToken = Lens.lens (\ListProposalVotes' {nextToken} -> nextToken) (\s@ListProposalVotes' {} a -> s {nextToken = a} :: ListProposalVotes)
 
 -- | The unique identifier of the network.
 listProposalVotes_networkId :: Lens.Lens' ListProposalVotes Prelude.Text
@@ -129,15 +129,15 @@ instance Core.AWSRequest ListProposalVotes where
 
 instance Prelude.Hashable ListProposalVotes where
   hashWithSalt _salt ListProposalVotes' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` networkId
       `Prelude.hashWithSalt` proposalId
 
 instance Prelude.NFData ListProposalVotes where
   rnf ListProposalVotes' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf networkId
       `Prelude.seq` Prelude.rnf proposalId
 
@@ -165,8 +165,8 @@ instance Data.ToPath ListProposalVotes where
 instance Data.ToQuery ListProposalVotes where
   toQuery ListProposalVotes' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListProposalVotesResponse' smart constructor.

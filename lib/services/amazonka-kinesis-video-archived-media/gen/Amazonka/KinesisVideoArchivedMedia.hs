@@ -17,32 +17,32 @@ module Amazonka.KinesisVideoArchivedMedia
     -- * Errors
     -- $errors
 
-    -- ** InvalidArgumentException
-    _InvalidArgumentException,
-
-    -- ** InvalidMediaFrameException
-    _InvalidMediaFrameException,
-
     -- ** ClientLimitExceededException
     _ClientLimitExceededException,
 
-    -- ** NoDataRetentionException
-    _NoDataRetentionException,
-
-    -- ** MissingCodecPrivateDataException
-    _MissingCodecPrivateDataException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
+    -- ** InvalidArgumentException
+    _InvalidArgumentException,
 
     -- ** InvalidCodecPrivateDataException
     _InvalidCodecPrivateDataException,
 
-    -- ** UnsupportedStreamMediaTypeException
-    _UnsupportedStreamMediaTypeException,
+    -- ** InvalidMediaFrameException
+    _InvalidMediaFrameException,
+
+    -- ** MissingCodecPrivateDataException
+    _MissingCodecPrivateDataException,
+
+    -- ** NoDataRetentionException
+    _NoDataRetentionException,
 
     -- ** NotAuthorizedException
     _NotAuthorizedException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** UnsupportedStreamMediaTypeException
+    _UnsupportedStreamMediaTypeException,
 
     -- * Waiters
     -- $waiters

@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newExtensionDetails' smart constructor.
 data ExtensionDetails = ExtensionDetails'
-  { -- | The name of the extension.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The description of the extension.
+  { -- | The description of the extension.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The name of the extension.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The namespace (qualifier) of the extension.
     namespace :: Prelude.Maybe Prelude.Text
   }
@@ -45,27 +45,27 @@ data ExtensionDetails = ExtensionDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'extensionDetails_name' - The name of the extension.
---
 -- 'description', 'extensionDetails_description' - The description of the extension.
+--
+-- 'name', 'extensionDetails_name' - The name of the extension.
 --
 -- 'namespace', 'extensionDetails_namespace' - The namespace (qualifier) of the extension.
 newExtensionDetails ::
   ExtensionDetails
 newExtensionDetails =
   ExtensionDetails'
-    { name = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      name = Prelude.Nothing,
       namespace = Prelude.Nothing
     }
-
--- | The name of the extension.
-extensionDetails_name :: Lens.Lens' ExtensionDetails (Prelude.Maybe Prelude.Text)
-extensionDetails_name = Lens.lens (\ExtensionDetails' {name} -> name) (\s@ExtensionDetails' {} a -> s {name = a} :: ExtensionDetails)
 
 -- | The description of the extension.
 extensionDetails_description :: Lens.Lens' ExtensionDetails (Prelude.Maybe Prelude.Text)
 extensionDetails_description = Lens.lens (\ExtensionDetails' {description} -> description) (\s@ExtensionDetails' {} a -> s {description = a} :: ExtensionDetails)
+
+-- | The name of the extension.
+extensionDetails_name :: Lens.Lens' ExtensionDetails (Prelude.Maybe Prelude.Text)
+extensionDetails_name = Lens.lens (\ExtensionDetails' {name} -> name) (\s@ExtensionDetails' {} a -> s {name = a} :: ExtensionDetails)
 
 -- | The namespace (qualifier) of the extension.
 extensionDetails_namespace :: Lens.Lens' ExtensionDetails (Prelude.Maybe Prelude.Text)
@@ -77,19 +77,19 @@ instance Data.FromJSON ExtensionDetails where
       "ExtensionDetails"
       ( \x ->
           ExtensionDetails'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Description")
+            Prelude.<$> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "Namespace")
       )
 
 instance Prelude.Hashable ExtensionDetails where
   hashWithSalt _salt ExtensionDetails' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` namespace
 
 instance Prelude.NFData ExtensionDetails where
   rnf ExtensionDetails' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf namespace

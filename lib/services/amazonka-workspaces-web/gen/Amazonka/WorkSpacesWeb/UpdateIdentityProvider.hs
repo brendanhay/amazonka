@@ -29,8 +29,8 @@ module Amazonka.WorkSpacesWeb.UpdateIdentityProvider
     -- * Request Lenses
     updateIdentityProvider_clientToken,
     updateIdentityProvider_identityProviderDetails,
-    updateIdentityProvider_identityProviderType,
     updateIdentityProvider_identityProviderName,
+    updateIdentityProvider_identityProviderType,
     updateIdentityProvider_identityProviderArn,
 
     -- * Destructuring the Response
@@ -125,10 +125,10 @@ data UpdateIdentityProvider = UpdateIdentityProvider'
     --
     --     -   @IDPSignout@ (boolean) /optional/
     identityProviderDetails :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
-    -- | The type of the identity provider.
-    identityProviderType :: Prelude.Maybe IdentityProviderType,
     -- | The name of the identity provider.
     identityProviderName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The type of the identity provider.
+    identityProviderType :: Prelude.Maybe IdentityProviderType,
     -- | The ARN of the identity provider.
     identityProviderArn :: Prelude.Text
   }
@@ -214,9 +214,9 @@ data UpdateIdentityProvider = UpdateIdentityProvider'
 --
 --     -   @IDPSignout@ (boolean) /optional/
 --
--- 'identityProviderType', 'updateIdentityProvider_identityProviderType' - The type of the identity provider.
---
 -- 'identityProviderName', 'updateIdentityProvider_identityProviderName' - The name of the identity provider.
+--
+-- 'identityProviderType', 'updateIdentityProvider_identityProviderType' - The type of the identity provider.
 --
 -- 'identityProviderArn', 'updateIdentityProvider_identityProviderArn' - The ARN of the identity provider.
 newUpdateIdentityProvider ::
@@ -228,8 +228,8 @@ newUpdateIdentityProvider pIdentityProviderArn_ =
     { clientToken =
         Prelude.Nothing,
       identityProviderDetails = Prelude.Nothing,
-      identityProviderType = Prelude.Nothing,
       identityProviderName = Prelude.Nothing,
+      identityProviderType = Prelude.Nothing,
       identityProviderArn = pIdentityProviderArn_
     }
 
@@ -309,13 +309,13 @@ updateIdentityProvider_clientToken = Lens.lens (\UpdateIdentityProvider' {client
 updateIdentityProvider_identityProviderDetails :: Lens.Lens' UpdateIdentityProvider (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 updateIdentityProvider_identityProviderDetails = Lens.lens (\UpdateIdentityProvider' {identityProviderDetails} -> identityProviderDetails) (\s@UpdateIdentityProvider' {} a -> s {identityProviderDetails = a} :: UpdateIdentityProvider) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
--- | The type of the identity provider.
-updateIdentityProvider_identityProviderType :: Lens.Lens' UpdateIdentityProvider (Prelude.Maybe IdentityProviderType)
-updateIdentityProvider_identityProviderType = Lens.lens (\UpdateIdentityProvider' {identityProviderType} -> identityProviderType) (\s@UpdateIdentityProvider' {} a -> s {identityProviderType = a} :: UpdateIdentityProvider)
-
 -- | The name of the identity provider.
 updateIdentityProvider_identityProviderName :: Lens.Lens' UpdateIdentityProvider (Prelude.Maybe Prelude.Text)
 updateIdentityProvider_identityProviderName = Lens.lens (\UpdateIdentityProvider' {identityProviderName} -> identityProviderName) (\s@UpdateIdentityProvider' {} a -> s {identityProviderName = a} :: UpdateIdentityProvider) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The type of the identity provider.
+updateIdentityProvider_identityProviderType :: Lens.Lens' UpdateIdentityProvider (Prelude.Maybe IdentityProviderType)
+updateIdentityProvider_identityProviderType = Lens.lens (\UpdateIdentityProvider' {identityProviderType} -> identityProviderType) (\s@UpdateIdentityProvider' {} a -> s {identityProviderType = a} :: UpdateIdentityProvider)
 
 -- | The ARN of the identity provider.
 updateIdentityProvider_identityProviderArn :: Lens.Lens' UpdateIdentityProvider Prelude.Text
@@ -339,16 +339,16 @@ instance Prelude.Hashable UpdateIdentityProvider where
   hashWithSalt _salt UpdateIdentityProvider' {..} =
     _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` identityProviderDetails
-      `Prelude.hashWithSalt` identityProviderType
       `Prelude.hashWithSalt` identityProviderName
+      `Prelude.hashWithSalt` identityProviderType
       `Prelude.hashWithSalt` identityProviderArn
 
 instance Prelude.NFData UpdateIdentityProvider where
   rnf UpdateIdentityProvider' {..} =
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf identityProviderDetails
-      `Prelude.seq` Prelude.rnf identityProviderType
       `Prelude.seq` Prelude.rnf identityProviderName
+      `Prelude.seq` Prelude.rnf identityProviderType
       `Prelude.seq` Prelude.rnf identityProviderArn
 
 instance Data.ToHeaders UpdateIdentityProvider where
@@ -369,10 +369,10 @@ instance Data.ToJSON UpdateIdentityProvider where
           [ ("clientToken" Data..=) Prelude.<$> clientToken,
             ("identityProviderDetails" Data..=)
               Prelude.<$> identityProviderDetails,
-            ("identityProviderType" Data..=)
-              Prelude.<$> identityProviderType,
             ("identityProviderName" Data..=)
-              Prelude.<$> identityProviderName
+              Prelude.<$> identityProviderName,
+            ("identityProviderType" Data..=)
+              Prelude.<$> identityProviderType
           ]
       )
 

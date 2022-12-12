@@ -28,15 +28,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNetworkInterface' smart constructor.
 data NetworkInterface = NetworkInterface'
-  { -- | The Internet Protocol version 6 (IPv6) address of the interface.
+  { -- | The Internet Protocol version 4 (IPv4) address of the interface.
+    ipv4Address :: Prelude.Maybe Prelude.Text,
+    -- | The Internet Protocol version 6 (IPv6) address of the interface.
     -- /Currently not supported/.
     ipv6Address :: Prelude.Maybe Prelude.Text,
     -- | The Media Access Control (MAC) address of the interface.
     --
     -- This is currently unsupported and will not be returned in output.
-    macAddress :: Prelude.Maybe Prelude.Text,
-    -- | The Internet Protocol version 4 (IPv4) address of the interface.
-    ipv4Address :: Prelude.Maybe Prelude.Text
+    macAddress :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,22 +48,26 @@ data NetworkInterface = NetworkInterface'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ipv4Address', 'networkInterface_ipv4Address' - The Internet Protocol version 4 (IPv4) address of the interface.
+--
 -- 'ipv6Address', 'networkInterface_ipv6Address' - The Internet Protocol version 6 (IPv6) address of the interface.
 -- /Currently not supported/.
 --
 -- 'macAddress', 'networkInterface_macAddress' - The Media Access Control (MAC) address of the interface.
 --
 -- This is currently unsupported and will not be returned in output.
---
--- 'ipv4Address', 'networkInterface_ipv4Address' - The Internet Protocol version 4 (IPv4) address of the interface.
 newNetworkInterface ::
   NetworkInterface
 newNetworkInterface =
   NetworkInterface'
-    { ipv6Address = Prelude.Nothing,
-      macAddress = Prelude.Nothing,
-      ipv4Address = Prelude.Nothing
+    { ipv4Address = Prelude.Nothing,
+      ipv6Address = Prelude.Nothing,
+      macAddress = Prelude.Nothing
     }
+
+-- | The Internet Protocol version 4 (IPv4) address of the interface.
+networkInterface_ipv4Address :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
+networkInterface_ipv4Address = Lens.lens (\NetworkInterface' {ipv4Address} -> ipv4Address) (\s@NetworkInterface' {} a -> s {ipv4Address = a} :: NetworkInterface)
 
 -- | The Internet Protocol version 6 (IPv6) address of the interface.
 -- /Currently not supported/.
@@ -76,29 +80,25 @@ networkInterface_ipv6Address = Lens.lens (\NetworkInterface' {ipv6Address} -> ip
 networkInterface_macAddress :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
 networkInterface_macAddress = Lens.lens (\NetworkInterface' {macAddress} -> macAddress) (\s@NetworkInterface' {} a -> s {macAddress = a} :: NetworkInterface)
 
--- | The Internet Protocol version 4 (IPv4) address of the interface.
-networkInterface_ipv4Address :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
-networkInterface_ipv4Address = Lens.lens (\NetworkInterface' {ipv4Address} -> ipv4Address) (\s@NetworkInterface' {} a -> s {ipv4Address = a} :: NetworkInterface)
-
 instance Data.FromJSON NetworkInterface where
   parseJSON =
     Data.withObject
       "NetworkInterface"
       ( \x ->
           NetworkInterface'
-            Prelude.<$> (x Data..:? "Ipv6Address")
+            Prelude.<$> (x Data..:? "Ipv4Address")
+            Prelude.<*> (x Data..:? "Ipv6Address")
             Prelude.<*> (x Data..:? "MacAddress")
-            Prelude.<*> (x Data..:? "Ipv4Address")
       )
 
 instance Prelude.Hashable NetworkInterface where
   hashWithSalt _salt NetworkInterface' {..} =
-    _salt `Prelude.hashWithSalt` ipv6Address
+    _salt `Prelude.hashWithSalt` ipv4Address
+      `Prelude.hashWithSalt` ipv6Address
       `Prelude.hashWithSalt` macAddress
-      `Prelude.hashWithSalt` ipv4Address
 
 instance Prelude.NFData NetworkInterface where
   rnf NetworkInterface' {..} =
-    Prelude.rnf ipv6Address
+    Prelude.rnf ipv4Address
+      `Prelude.seq` Prelude.rnf ipv6Address
       `Prelude.seq` Prelude.rnf macAddress
-      `Prelude.seq` Prelude.rnf ipv4Address

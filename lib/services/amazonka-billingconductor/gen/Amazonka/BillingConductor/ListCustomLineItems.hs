@@ -31,18 +31,18 @@ module Amazonka.BillingConductor.ListCustomLineItems
     newListCustomLineItems,
 
     -- * Request Lenses
-    listCustomLineItems_nextToken,
     listCustomLineItems_billingPeriod,
     listCustomLineItems_filters,
     listCustomLineItems_maxResults,
+    listCustomLineItems_nextToken,
 
     -- * Destructuring the Response
     ListCustomLineItemsResponse (..),
     newListCustomLineItemsResponse,
 
     -- * Response Lenses
-    listCustomLineItemsResponse_nextToken,
     listCustomLineItemsResponse_customLineItems,
+    listCustomLineItemsResponse_nextToken,
     listCustomLineItemsResponse_httpStatus,
   )
 where
@@ -57,17 +57,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListCustomLineItems' smart constructor.
 data ListCustomLineItems = ListCustomLineItems'
-  { -- | The pagination token that\'s used on subsequent calls to get custom line
-    -- items (FFLIs).
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The preferred billing period to get custom line items (FFLIs).
+  { -- | The preferred billing period to get custom line items (FFLIs).
     billingPeriod :: Prelude.Maybe Prelude.Text,
     -- | A @ListCustomLineItemsFilter@ that specifies the custom line item names
     -- and\/or billing group Amazon Resource Names (ARNs) to retrieve FFLI
     -- information.
     filters :: Prelude.Maybe ListCustomLineItemsFilter,
     -- | The maximum number of billing groups to retrieve.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token that\'s used on subsequent calls to get custom line
+    -- items (FFLIs).
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -79,9 +79,6 @@ data ListCustomLineItems = ListCustomLineItems'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listCustomLineItems_nextToken' - The pagination token that\'s used on subsequent calls to get custom line
--- items (FFLIs).
---
 -- 'billingPeriod', 'listCustomLineItems_billingPeriod' - The preferred billing period to get custom line items (FFLIs).
 --
 -- 'filters', 'listCustomLineItems_filters' - A @ListCustomLineItemsFilter@ that specifies the custom line item names
@@ -89,20 +86,19 @@ data ListCustomLineItems = ListCustomLineItems'
 -- information.
 --
 -- 'maxResults', 'listCustomLineItems_maxResults' - The maximum number of billing groups to retrieve.
+--
+-- 'nextToken', 'listCustomLineItems_nextToken' - The pagination token that\'s used on subsequent calls to get custom line
+-- items (FFLIs).
 newListCustomLineItems ::
   ListCustomLineItems
 newListCustomLineItems =
   ListCustomLineItems'
-    { nextToken = Prelude.Nothing,
-      billingPeriod = Prelude.Nothing,
+    { billingPeriod =
+        Prelude.Nothing,
       filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The pagination token that\'s used on subsequent calls to get custom line
--- items (FFLIs).
-listCustomLineItems_nextToken :: Lens.Lens' ListCustomLineItems (Prelude.Maybe Prelude.Text)
-listCustomLineItems_nextToken = Lens.lens (\ListCustomLineItems' {nextToken} -> nextToken) (\s@ListCustomLineItems' {} a -> s {nextToken = a} :: ListCustomLineItems)
 
 -- | The preferred billing period to get custom line items (FFLIs).
 listCustomLineItems_billingPeriod :: Lens.Lens' ListCustomLineItems (Prelude.Maybe Prelude.Text)
@@ -117,6 +113,11 @@ listCustomLineItems_filters = Lens.lens (\ListCustomLineItems' {filters} -> filt
 -- | The maximum number of billing groups to retrieve.
 listCustomLineItems_maxResults :: Lens.Lens' ListCustomLineItems (Prelude.Maybe Prelude.Natural)
 listCustomLineItems_maxResults = Lens.lens (\ListCustomLineItems' {maxResults} -> maxResults) (\s@ListCustomLineItems' {} a -> s {maxResults = a} :: ListCustomLineItems)
+
+-- | The pagination token that\'s used on subsequent calls to get custom line
+-- items (FFLIs).
+listCustomLineItems_nextToken :: Lens.Lens' ListCustomLineItems (Prelude.Maybe Prelude.Text)
+listCustomLineItems_nextToken = Lens.lens (\ListCustomLineItems' {nextToken} -> nextToken) (\s@ListCustomLineItems' {} a -> s {nextToken = a} :: ListCustomLineItems)
 
 instance Core.AWSPager ListCustomLineItems where
   page rq rs
@@ -150,26 +151,26 @@ instance Core.AWSRequest ListCustomLineItems where
     Response.receiveJSON
       ( \s h x ->
           ListCustomLineItemsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "CustomLineItems"
+            Prelude.<$> ( x Data..?> "CustomLineItems"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListCustomLineItems where
   hashWithSalt _salt ListCustomLineItems' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` billingPeriod
+    _salt `Prelude.hashWithSalt` billingPeriod
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListCustomLineItems where
   rnf ListCustomLineItems' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf billingPeriod
+    Prelude.rnf billingPeriod
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListCustomLineItems where
   toHeaders =
@@ -186,10 +187,10 @@ instance Data.ToJSON ListCustomLineItems where
   toJSON ListCustomLineItems' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("BillingPeriod" Data..=) Prelude.<$> billingPeriod,
+          [ ("BillingPeriod" Data..=) Prelude.<$> billingPeriod,
             ("Filters" Data..=) Prelude.<$> filters,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -201,11 +202,11 @@ instance Data.ToQuery ListCustomLineItems where
 
 -- | /See:/ 'newListCustomLineItemsResponse' smart constructor.
 data ListCustomLineItemsResponse = ListCustomLineItemsResponse'
-  { -- | The pagination token that\'s used on subsequent calls to get custom line
+  { -- | A list of @FreeFormLineItemListElements@ received.
+    customLineItems :: Prelude.Maybe [CustomLineItemListElement],
+    -- | The pagination token that\'s used on subsequent calls to get custom line
     -- items (FFLIs).
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of @FreeFormLineItemListElements@ received.
-    customLineItems :: Prelude.Maybe [CustomLineItemListElement],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -219,10 +220,10 @@ data ListCustomLineItemsResponse = ListCustomLineItemsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'customLineItems', 'listCustomLineItemsResponse_customLineItems' - A list of @FreeFormLineItemListElements@ received.
+--
 -- 'nextToken', 'listCustomLineItemsResponse_nextToken' - The pagination token that\'s used on subsequent calls to get custom line
 -- items (FFLIs).
---
--- 'customLineItems', 'listCustomLineItemsResponse_customLineItems' - A list of @FreeFormLineItemListElements@ received.
 --
 -- 'httpStatus', 'listCustomLineItemsResponse_httpStatus' - The response's http status code.
 newListCustomLineItemsResponse ::
@@ -231,20 +232,20 @@ newListCustomLineItemsResponse ::
   ListCustomLineItemsResponse
 newListCustomLineItemsResponse pHttpStatus_ =
   ListCustomLineItemsResponse'
-    { nextToken =
+    { customLineItems =
         Prelude.Nothing,
-      customLineItems = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of @FreeFormLineItemListElements@ received.
+listCustomLineItemsResponse_customLineItems :: Lens.Lens' ListCustomLineItemsResponse (Prelude.Maybe [CustomLineItemListElement])
+listCustomLineItemsResponse_customLineItems = Lens.lens (\ListCustomLineItemsResponse' {customLineItems} -> customLineItems) (\s@ListCustomLineItemsResponse' {} a -> s {customLineItems = a} :: ListCustomLineItemsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token that\'s used on subsequent calls to get custom line
 -- items (FFLIs).
 listCustomLineItemsResponse_nextToken :: Lens.Lens' ListCustomLineItemsResponse (Prelude.Maybe Prelude.Text)
 listCustomLineItemsResponse_nextToken = Lens.lens (\ListCustomLineItemsResponse' {nextToken} -> nextToken) (\s@ListCustomLineItemsResponse' {} a -> s {nextToken = a} :: ListCustomLineItemsResponse)
-
--- | A list of @FreeFormLineItemListElements@ received.
-listCustomLineItemsResponse_customLineItems :: Lens.Lens' ListCustomLineItemsResponse (Prelude.Maybe [CustomLineItemListElement])
-listCustomLineItemsResponse_customLineItems = Lens.lens (\ListCustomLineItemsResponse' {customLineItems} -> customLineItems) (\s@ListCustomLineItemsResponse' {} a -> s {customLineItems = a} :: ListCustomLineItemsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listCustomLineItemsResponse_httpStatus :: Lens.Lens' ListCustomLineItemsResponse Prelude.Int
@@ -252,6 +253,6 @@ listCustomLineItemsResponse_httpStatus = Lens.lens (\ListCustomLineItemsResponse
 
 instance Prelude.NFData ListCustomLineItemsResponse where
   rnf ListCustomLineItemsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf customLineItems
+    Prelude.rnf customLineItems
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

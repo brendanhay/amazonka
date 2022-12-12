@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newImpersonationMatchedRule' smart constructor.
 data ImpersonationMatchedRule = ImpersonationMatchedRule'
-  { -- | The name of the rule that matched the input.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the rule that matched the input
-    impersonationRuleId :: Prelude.Maybe Prelude.Text
+  { -- | The ID of the rule that matched the input
+    impersonationRuleId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the rule that matched the input.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,25 @@ data ImpersonationMatchedRule = ImpersonationMatchedRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'impersonationMatchedRule_name' - The name of the rule that matched the input.
---
 -- 'impersonationRuleId', 'impersonationMatchedRule_impersonationRuleId' - The ID of the rule that matched the input
+--
+-- 'name', 'impersonationMatchedRule_name' - The name of the rule that matched the input.
 newImpersonationMatchedRule ::
   ImpersonationMatchedRule
 newImpersonationMatchedRule =
   ImpersonationMatchedRule'
-    { name = Prelude.Nothing,
-      impersonationRuleId = Prelude.Nothing
+    { impersonationRuleId =
+        Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | The name of the rule that matched the input.
-impersonationMatchedRule_name :: Lens.Lens' ImpersonationMatchedRule (Prelude.Maybe Prelude.Text)
-impersonationMatchedRule_name = Lens.lens (\ImpersonationMatchedRule' {name} -> name) (\s@ImpersonationMatchedRule' {} a -> s {name = a} :: ImpersonationMatchedRule)
 
 -- | The ID of the rule that matched the input
 impersonationMatchedRule_impersonationRuleId :: Lens.Lens' ImpersonationMatchedRule (Prelude.Maybe Prelude.Text)
 impersonationMatchedRule_impersonationRuleId = Lens.lens (\ImpersonationMatchedRule' {impersonationRuleId} -> impersonationRuleId) (\s@ImpersonationMatchedRule' {} a -> s {impersonationRuleId = a} :: ImpersonationMatchedRule)
+
+-- | The name of the rule that matched the input.
+impersonationMatchedRule_name :: Lens.Lens' ImpersonationMatchedRule (Prelude.Maybe Prelude.Text)
+impersonationMatchedRule_name = Lens.lens (\ImpersonationMatchedRule' {name} -> name) (\s@ImpersonationMatchedRule' {} a -> s {name = a} :: ImpersonationMatchedRule)
 
 instance Data.FromJSON ImpersonationMatchedRule where
   parseJSON =
@@ -68,16 +69,16 @@ instance Data.FromJSON ImpersonationMatchedRule where
       "ImpersonationMatchedRule"
       ( \x ->
           ImpersonationMatchedRule'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "ImpersonationRuleId")
+            Prelude.<$> (x Data..:? "ImpersonationRuleId")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable ImpersonationMatchedRule where
   hashWithSalt _salt ImpersonationMatchedRule' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` impersonationRuleId
+    _salt `Prelude.hashWithSalt` impersonationRuleId
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData ImpersonationMatchedRule where
   rnf ImpersonationMatchedRule' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf impersonationRuleId
+    Prelude.rnf impersonationRuleId
+      `Prelude.seq` Prelude.rnf name

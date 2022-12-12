@@ -31,16 +31,16 @@ module Amazonka.AppStream.DescribeStacks
     newDescribeStacks,
 
     -- * Request Lenses
-    describeStacks_nextToken,
     describeStacks_names,
+    describeStacks_nextToken,
 
     -- * Destructuring the Response
     DescribeStacksResponse (..),
     newDescribeStacksResponse,
 
     -- * Response Lenses
-    describeStacksResponse_stacks,
     describeStacksResponse_nextToken,
+    describeStacksResponse_stacks,
     describeStacksResponse_httpStatus,
   )
 where
@@ -55,11 +55,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeStacks' smart constructor.
 data DescribeStacks = DescribeStacks'
-  { -- | The pagination token to use to retrieve the next page of results for
+  { -- | The names of the stacks to describe.
+    names :: Prelude.Maybe [Prelude.Text],
+    -- | The pagination token to use to retrieve the next page of results for
     -- this operation. If this value is null, it retrieves the first page.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The names of the stacks to describe.
-    names :: Prelude.Maybe [Prelude.Text]
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,26 +71,26 @@ data DescribeStacks = DescribeStacks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'names', 'describeStacks_names' - The names of the stacks to describe.
+--
 -- 'nextToken', 'describeStacks_nextToken' - The pagination token to use to retrieve the next page of results for
 -- this operation. If this value is null, it retrieves the first page.
---
--- 'names', 'describeStacks_names' - The names of the stacks to describe.
 newDescribeStacks ::
   DescribeStacks
 newDescribeStacks =
   DescribeStacks'
-    { nextToken = Prelude.Nothing,
-      names = Prelude.Nothing
+    { names = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The names of the stacks to describe.
+describeStacks_names :: Lens.Lens' DescribeStacks (Prelude.Maybe [Prelude.Text])
+describeStacks_names = Lens.lens (\DescribeStacks' {names} -> names) (\s@DescribeStacks' {} a -> s {names = a} :: DescribeStacks) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token to use to retrieve the next page of results for
 -- this operation. If this value is null, it retrieves the first page.
 describeStacks_nextToken :: Lens.Lens' DescribeStacks (Prelude.Maybe Prelude.Text)
 describeStacks_nextToken = Lens.lens (\DescribeStacks' {nextToken} -> nextToken) (\s@DescribeStacks' {} a -> s {nextToken = a} :: DescribeStacks)
-
--- | The names of the stacks to describe.
-describeStacks_names :: Lens.Lens' DescribeStacks (Prelude.Maybe [Prelude.Text])
-describeStacks_names = Lens.lens (\DescribeStacks' {names} -> names) (\s@DescribeStacks' {} a -> s {names = a} :: DescribeStacks) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSPager DescribeStacks where
   page rq rs
@@ -122,20 +122,20 @@ instance Core.AWSRequest DescribeStacks where
     Response.receiveJSON
       ( \s h x ->
           DescribeStacksResponse'
-            Prelude.<$> (x Data..?> "Stacks" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Stacks" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeStacks where
   hashWithSalt _salt DescribeStacks' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` names
+    _salt `Prelude.hashWithSalt` names
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeStacks where
   rnf DescribeStacks' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf names
+    Prelude.rnf names
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeStacks where
   toHeaders =
@@ -156,8 +156,8 @@ instance Data.ToJSON DescribeStacks where
   toJSON DescribeStacks' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Names" Data..=) Prelude.<$> names
+          [ ("Names" Data..=) Prelude.<$> names,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -169,11 +169,11 @@ instance Data.ToQuery DescribeStacks where
 
 -- | /See:/ 'newDescribeStacksResponse' smart constructor.
 data DescribeStacksResponse = DescribeStacksResponse'
-  { -- | Information about the stacks.
-    stacks :: Prelude.Maybe [Stack],
-    -- | The pagination token to use to retrieve the next page of results for
+  { -- | The pagination token to use to retrieve the next page of results for
     -- this operation. If there are no more pages, this value is null.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the stacks.
+    stacks :: Prelude.Maybe [Stack],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -187,10 +187,10 @@ data DescribeStacksResponse = DescribeStacksResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stacks', 'describeStacksResponse_stacks' - Information about the stacks.
---
 -- 'nextToken', 'describeStacksResponse_nextToken' - The pagination token to use to retrieve the next page of results for
 -- this operation. If there are no more pages, this value is null.
+--
+-- 'stacks', 'describeStacksResponse_stacks' - Information about the stacks.
 --
 -- 'httpStatus', 'describeStacksResponse_httpStatus' - The response's http status code.
 newDescribeStacksResponse ::
@@ -199,19 +199,20 @@ newDescribeStacksResponse ::
   DescribeStacksResponse
 newDescribeStacksResponse pHttpStatus_ =
   DescribeStacksResponse'
-    { stacks = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      stacks = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the stacks.
-describeStacksResponse_stacks :: Lens.Lens' DescribeStacksResponse (Prelude.Maybe [Stack])
-describeStacksResponse_stacks = Lens.lens (\DescribeStacksResponse' {stacks} -> stacks) (\s@DescribeStacksResponse' {} a -> s {stacks = a} :: DescribeStacksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token to use to retrieve the next page of results for
 -- this operation. If there are no more pages, this value is null.
 describeStacksResponse_nextToken :: Lens.Lens' DescribeStacksResponse (Prelude.Maybe Prelude.Text)
 describeStacksResponse_nextToken = Lens.lens (\DescribeStacksResponse' {nextToken} -> nextToken) (\s@DescribeStacksResponse' {} a -> s {nextToken = a} :: DescribeStacksResponse)
+
+-- | Information about the stacks.
+describeStacksResponse_stacks :: Lens.Lens' DescribeStacksResponse (Prelude.Maybe [Stack])
+describeStacksResponse_stacks = Lens.lens (\DescribeStacksResponse' {stacks} -> stacks) (\s@DescribeStacksResponse' {} a -> s {stacks = a} :: DescribeStacksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeStacksResponse_httpStatus :: Lens.Lens' DescribeStacksResponse Prelude.Int
@@ -219,6 +220,6 @@ describeStacksResponse_httpStatus = Lens.lens (\DescribeStacksResponse' {httpSta
 
 instance Prelude.NFData DescribeStacksResponse where
   rnf DescribeStacksResponse' {..} =
-    Prelude.rnf stacks
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf stacks
       `Prelude.seq` Prelude.rnf httpStatus

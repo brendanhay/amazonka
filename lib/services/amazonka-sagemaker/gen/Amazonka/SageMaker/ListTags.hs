@@ -29,8 +29,8 @@ module Amazonka.SageMaker.ListTags
     newListTags,
 
     -- * Request Lenses
-    listTags_nextToken,
     listTags_maxResults,
+    listTags_nextToken,
     listTags_resourceArn,
 
     -- * Destructuring the Response
@@ -38,8 +38,8 @@ module Amazonka.SageMaker.ListTags
     newListTagsResponse,
 
     -- * Response Lenses
-    listTagsResponse_tags,
     listTagsResponse_nextToken,
+    listTagsResponse_tags,
     listTagsResponse_httpStatus,
   )
 where
@@ -54,12 +54,12 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newListTags' smart constructor.
 data ListTags = ListTags'
-  { -- | If the response to the previous @ListTags@ request is truncated,
+  { -- | Maximum number of tags to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the response to the previous @ListTags@ request is truncated,
     -- SageMaker returns this token. To retrieve the next set of tags, use it
     -- in the subsequent request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Maximum number of tags to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) of the resource whose tags you want to
     -- retrieve.
     resourceArn :: Prelude.Text
@@ -74,11 +74,11 @@ data ListTags = ListTags'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listTags_maxResults' - Maximum number of tags to return.
+--
 -- 'nextToken', 'listTags_nextToken' - If the response to the previous @ListTags@ request is truncated,
 -- SageMaker returns this token. To retrieve the next set of tags, use it
 -- in the subsequent request.
---
--- 'maxResults', 'listTags_maxResults' - Maximum number of tags to return.
 --
 -- 'resourceArn', 'listTags_resourceArn' - The Amazon Resource Name (ARN) of the resource whose tags you want to
 -- retrieve.
@@ -88,20 +88,20 @@ newListTags ::
   ListTags
 newListTags pResourceArn_ =
   ListTags'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       resourceArn = pResourceArn_
     }
+
+-- | Maximum number of tags to return.
+listTags_maxResults :: Lens.Lens' ListTags (Prelude.Maybe Prelude.Natural)
+listTags_maxResults = Lens.lens (\ListTags' {maxResults} -> maxResults) (\s@ListTags' {} a -> s {maxResults = a} :: ListTags)
 
 -- | If the response to the previous @ListTags@ request is truncated,
 -- SageMaker returns this token. To retrieve the next set of tags, use it
 -- in the subsequent request.
 listTags_nextToken :: Lens.Lens' ListTags (Prelude.Maybe Prelude.Text)
 listTags_nextToken = Lens.lens (\ListTags' {nextToken} -> nextToken) (\s@ListTags' {} a -> s {nextToken = a} :: ListTags)
-
--- | Maximum number of tags to return.
-listTags_maxResults :: Lens.Lens' ListTags (Prelude.Maybe Prelude.Natural)
-listTags_maxResults = Lens.lens (\ListTags' {maxResults} -> maxResults) (\s@ListTags' {} a -> s {maxResults = a} :: ListTags)
 
 -- | The Amazon Resource Name (ARN) of the resource whose tags you want to
 -- retrieve.
@@ -135,21 +135,21 @@ instance Core.AWSRequest ListTags where
     Response.receiveJSON
       ( \s h x ->
           ListTagsResponse'
-            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListTags where
   hashWithSalt _salt ListTags' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceArn
 
 instance Prelude.NFData ListTags where
   rnf ListTags' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf resourceArn
 
 instance Data.ToHeaders ListTags where
@@ -169,8 +169,8 @@ instance Data.ToJSON ListTags where
   toJSON ListTags' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("ResourceArn" Data..= resourceArn)
           ]
       )
@@ -183,12 +183,12 @@ instance Data.ToQuery ListTags where
 
 -- | /See:/ 'newListTagsResponse' smart constructor.
 data ListTagsResponse = ListTagsResponse'
-  { -- | An array of @Tag@ objects, each with a tag key and a value.
-    tags :: Prelude.Maybe [Tag],
-    -- | If response is truncated, SageMaker includes a token in the response.
+  { -- | If response is truncated, SageMaker includes a token in the response.
     -- You can use this token in your subsequent request to fetch next set of
     -- tokens.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of @Tag@ objects, each with a tag key and a value.
+    tags :: Prelude.Maybe [Tag],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -202,11 +202,11 @@ data ListTagsResponse = ListTagsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'listTagsResponse_tags' - An array of @Tag@ objects, each with a tag key and a value.
---
 -- 'nextToken', 'listTagsResponse_nextToken' - If response is truncated, SageMaker includes a token in the response.
 -- You can use this token in your subsequent request to fetch next set of
 -- tokens.
+--
+-- 'tags', 'listTagsResponse_tags' - An array of @Tag@ objects, each with a tag key and a value.
 --
 -- 'httpStatus', 'listTagsResponse_httpStatus' - The response's http status code.
 newListTagsResponse ::
@@ -215,14 +215,10 @@ newListTagsResponse ::
   ListTagsResponse
 newListTagsResponse pHttpStatus_ =
   ListTagsResponse'
-    { tags = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of @Tag@ objects, each with a tag key and a value.
-listTagsResponse_tags :: Lens.Lens' ListTagsResponse (Prelude.Maybe [Tag])
-listTagsResponse_tags = Lens.lens (\ListTagsResponse' {tags} -> tags) (\s@ListTagsResponse' {} a -> s {tags = a} :: ListTagsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If response is truncated, SageMaker includes a token in the response.
 -- You can use this token in your subsequent request to fetch next set of
@@ -230,12 +226,16 @@ listTagsResponse_tags = Lens.lens (\ListTagsResponse' {tags} -> tags) (\s@ListTa
 listTagsResponse_nextToken :: Lens.Lens' ListTagsResponse (Prelude.Maybe Prelude.Text)
 listTagsResponse_nextToken = Lens.lens (\ListTagsResponse' {nextToken} -> nextToken) (\s@ListTagsResponse' {} a -> s {nextToken = a} :: ListTagsResponse)
 
+-- | An array of @Tag@ objects, each with a tag key and a value.
+listTagsResponse_tags :: Lens.Lens' ListTagsResponse (Prelude.Maybe [Tag])
+listTagsResponse_tags = Lens.lens (\ListTagsResponse' {tags} -> tags) (\s@ListTagsResponse' {} a -> s {tags = a} :: ListTagsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listTagsResponse_httpStatus :: Lens.Lens' ListTagsResponse Prelude.Int
 listTagsResponse_httpStatus = Lens.lens (\ListTagsResponse' {httpStatus} -> httpStatus) (\s@ListTagsResponse' {} a -> s {httpStatus = a} :: ListTagsResponse)
 
 instance Prelude.NFData ListTagsResponse where
   rnf ListTagsResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

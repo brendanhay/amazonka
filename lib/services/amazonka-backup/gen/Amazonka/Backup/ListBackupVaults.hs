@@ -30,16 +30,16 @@ module Amazonka.Backup.ListBackupVaults
     newListBackupVaults,
 
     -- * Request Lenses
-    listBackupVaults_nextToken,
     listBackupVaults_maxResults,
+    listBackupVaults_nextToken,
 
     -- * Destructuring the Response
     ListBackupVaultsResponse (..),
     newListBackupVaultsResponse,
 
     -- * Response Lenses
-    listBackupVaultsResponse_nextToken,
     listBackupVaultsResponse_backupVaultList,
+    listBackupVaultsResponse_nextToken,
     listBackupVaultsResponse_httpStatus,
   )
 where
@@ -54,13 +54,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListBackupVaults' smart constructor.
 data ListBackupVaults = ListBackupVaults'
-  { -- | The next item following a partial list of returned items. For example,
+  { -- | The maximum number of items to be returned.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The next item following a partial list of returned items. For example,
     -- if a request is made to return @maxResults@ number of items, @NextToken@
     -- allows you to return more items in your list starting at the location
     -- pointed to by the next token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to be returned.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,19 +72,23 @@ data ListBackupVaults = ListBackupVaults'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listBackupVaults_maxResults' - The maximum number of items to be returned.
+--
 -- 'nextToken', 'listBackupVaults_nextToken' - The next item following a partial list of returned items. For example,
 -- if a request is made to return @maxResults@ number of items, @NextToken@
 -- allows you to return more items in your list starting at the location
 -- pointed to by the next token.
---
--- 'maxResults', 'listBackupVaults_maxResults' - The maximum number of items to be returned.
 newListBackupVaults ::
   ListBackupVaults
 newListBackupVaults =
   ListBackupVaults'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of items to be returned.
+listBackupVaults_maxResults :: Lens.Lens' ListBackupVaults (Prelude.Maybe Prelude.Natural)
+listBackupVaults_maxResults = Lens.lens (\ListBackupVaults' {maxResults} -> maxResults) (\s@ListBackupVaults' {} a -> s {maxResults = a} :: ListBackupVaults)
 
 -- | The next item following a partial list of returned items. For example,
 -- if a request is made to return @maxResults@ number of items, @NextToken@
@@ -92,10 +96,6 @@ newListBackupVaults =
 -- pointed to by the next token.
 listBackupVaults_nextToken :: Lens.Lens' ListBackupVaults (Prelude.Maybe Prelude.Text)
 listBackupVaults_nextToken = Lens.lens (\ListBackupVaults' {nextToken} -> nextToken) (\s@ListBackupVaults' {} a -> s {nextToken = a} :: ListBackupVaults)
-
--- | The maximum number of items to be returned.
-listBackupVaults_maxResults :: Lens.Lens' ListBackupVaults (Prelude.Maybe Prelude.Natural)
-listBackupVaults_maxResults = Lens.lens (\ListBackupVaults' {maxResults} -> maxResults) (\s@ListBackupVaults' {} a -> s {maxResults = a} :: ListBackupVaults)
 
 instance Core.AWSPager ListBackupVaults where
   page rq rs
@@ -129,22 +129,22 @@ instance Core.AWSRequest ListBackupVaults where
     Response.receiveJSON
       ( \s h x ->
           ListBackupVaultsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "BackupVaultList"
+            Prelude.<$> ( x Data..?> "BackupVaultList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListBackupVaults where
   hashWithSalt _salt ListBackupVaults' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListBackupVaults where
   rnf ListBackupVaults' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListBackupVaults where
   toHeaders =
@@ -163,22 +163,22 @@ instance Data.ToPath ListBackupVaults where
 instance Data.ToQuery ListBackupVaults where
   toQuery ListBackupVaults' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListBackupVaultsResponse' smart constructor.
 data ListBackupVaultsResponse = ListBackupVaultsResponse'
-  { -- | The next item following a partial list of returned items. For example,
-    -- if a request is made to return @maxResults@ number of items, @NextToken@
-    -- allows you to return more items in your list starting at the location
-    -- pointed to by the next token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of backup vault list members containing vault metadata,
+  { -- | An array of backup vault list members containing vault metadata,
     -- including Amazon Resource Name (ARN), display name, creation date,
     -- number of saved recovery points, and encryption information if the
     -- resources saved in the backup vault are encrypted.
     backupVaultList :: Prelude.Maybe [BackupVaultListMember],
+    -- | The next item following a partial list of returned items. For example,
+    -- if a request is made to return @maxResults@ number of items, @NextToken@
+    -- allows you to return more items in your list starting at the location
+    -- pointed to by the next token.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -192,15 +192,15 @@ data ListBackupVaultsResponse = ListBackupVaultsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listBackupVaultsResponse_nextToken' - The next item following a partial list of returned items. For example,
--- if a request is made to return @maxResults@ number of items, @NextToken@
--- allows you to return more items in your list starting at the location
--- pointed to by the next token.
---
 -- 'backupVaultList', 'listBackupVaultsResponse_backupVaultList' - An array of backup vault list members containing vault metadata,
 -- including Amazon Resource Name (ARN), display name, creation date,
 -- number of saved recovery points, and encryption information if the
 -- resources saved in the backup vault are encrypted.
+--
+-- 'nextToken', 'listBackupVaultsResponse_nextToken' - The next item following a partial list of returned items. For example,
+-- if a request is made to return @maxResults@ number of items, @NextToken@
+-- allows you to return more items in your list starting at the location
+-- pointed to by the next token.
 --
 -- 'httpStatus', 'listBackupVaultsResponse_httpStatus' - The response's http status code.
 newListBackupVaultsResponse ::
@@ -209,18 +209,11 @@ newListBackupVaultsResponse ::
   ListBackupVaultsResponse
 newListBackupVaultsResponse pHttpStatus_ =
   ListBackupVaultsResponse'
-    { nextToken =
+    { backupVaultList =
         Prelude.Nothing,
-      backupVaultList = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The next item following a partial list of returned items. For example,
--- if a request is made to return @maxResults@ number of items, @NextToken@
--- allows you to return more items in your list starting at the location
--- pointed to by the next token.
-listBackupVaultsResponse_nextToken :: Lens.Lens' ListBackupVaultsResponse (Prelude.Maybe Prelude.Text)
-listBackupVaultsResponse_nextToken = Lens.lens (\ListBackupVaultsResponse' {nextToken} -> nextToken) (\s@ListBackupVaultsResponse' {} a -> s {nextToken = a} :: ListBackupVaultsResponse)
 
 -- | An array of backup vault list members containing vault metadata,
 -- including Amazon Resource Name (ARN), display name, creation date,
@@ -229,12 +222,19 @@ listBackupVaultsResponse_nextToken = Lens.lens (\ListBackupVaultsResponse' {next
 listBackupVaultsResponse_backupVaultList :: Lens.Lens' ListBackupVaultsResponse (Prelude.Maybe [BackupVaultListMember])
 listBackupVaultsResponse_backupVaultList = Lens.lens (\ListBackupVaultsResponse' {backupVaultList} -> backupVaultList) (\s@ListBackupVaultsResponse' {} a -> s {backupVaultList = a} :: ListBackupVaultsResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The next item following a partial list of returned items. For example,
+-- if a request is made to return @maxResults@ number of items, @NextToken@
+-- allows you to return more items in your list starting at the location
+-- pointed to by the next token.
+listBackupVaultsResponse_nextToken :: Lens.Lens' ListBackupVaultsResponse (Prelude.Maybe Prelude.Text)
+listBackupVaultsResponse_nextToken = Lens.lens (\ListBackupVaultsResponse' {nextToken} -> nextToken) (\s@ListBackupVaultsResponse' {} a -> s {nextToken = a} :: ListBackupVaultsResponse)
+
 -- | The response's http status code.
 listBackupVaultsResponse_httpStatus :: Lens.Lens' ListBackupVaultsResponse Prelude.Int
 listBackupVaultsResponse_httpStatus = Lens.lens (\ListBackupVaultsResponse' {httpStatus} -> httpStatus) (\s@ListBackupVaultsResponse' {} a -> s {httpStatus = a} :: ListBackupVaultsResponse)
 
 instance Prelude.NFData ListBackupVaultsResponse where
   rnf ListBackupVaultsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf backupVaultList
+    Prelude.rnf backupVaultList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

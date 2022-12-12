@@ -36,13 +36,13 @@ module Amazonka.MediaTailor.UpdateVodSource
     newUpdateVodSourceResponse,
 
     -- * Response Lenses
+    updateVodSourceResponse_arn,
+    updateVodSourceResponse_creationTime,
+    updateVodSourceResponse_httpPackageConfigurations,
+    updateVodSourceResponse_lastModifiedTime,
+    updateVodSourceResponse_sourceLocationName,
     updateVodSourceResponse_tags,
     updateVodSourceResponse_vodSourceName,
-    updateVodSourceResponse_arn,
-    updateVodSourceResponse_lastModifiedTime,
-    updateVodSourceResponse_creationTime,
-    updateVodSourceResponse_sourceLocationName,
-    updateVodSourceResponse_httpPackageConfigurations,
     updateVodSourceResponse_httpStatus,
   )
 where
@@ -120,15 +120,15 @@ instance Core.AWSRequest UpdateVodSource where
     Response.receiveJSON
       ( \s h x ->
           UpdateVodSourceResponse'
-            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "VodSourceName")
-            Prelude.<*> (x Data..?> "Arn")
-            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (x Data..?> "CreationTime")
-            Prelude.<*> (x Data..?> "SourceLocationName")
             Prelude.<*> ( x Data..?> "HttpPackageConfigurations"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "SourceLocationName")
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "VodSourceName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,24 +181,24 @@ instance Data.ToQuery UpdateVodSource where
 
 -- | /See:/ 'newUpdateVodSourceResponse' smart constructor.
 data UpdateVodSourceResponse = UpdateVodSourceResponse'
-  { -- | The tags to assign to the VOD source. Tags are key-value pairs that you
+  { -- | The Amazon Resource Name (ARN) associated with the VOD source.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp that indicates when the VOD source was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
+    -- | A list of HTTP package configurations for the VOD source on this
+    -- account.
+    httpPackageConfigurations :: Prelude.Maybe [HttpPackageConfiguration],
+    -- | The timestamp that indicates when the VOD source was last modified.
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
+    -- | The name of the source location associated with the VOD source.
+    sourceLocationName :: Prelude.Maybe Prelude.Text,
+    -- | The tags to assign to the VOD source. Tags are key-value pairs that you
     -- can associate with Amazon resources to help with organization, access
     -- control, and cost tracking. For more information, see
     -- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the VOD source.
     vodSourceName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) associated with the VOD source.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp that indicates when the VOD source was last modified.
-    lastModifiedTime :: Prelude.Maybe Data.POSIX,
-    -- | The timestamp that indicates when the VOD source was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
-    -- | The name of the source location associated with the VOD source.
-    sourceLocationName :: Prelude.Maybe Prelude.Text,
-    -- | A list of HTTP package configurations for the VOD source on this
-    -- account.
-    httpPackageConfigurations :: Prelude.Maybe [HttpPackageConfiguration],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -212,23 +212,23 @@ data UpdateVodSourceResponse = UpdateVodSourceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'arn', 'updateVodSourceResponse_arn' - The Amazon Resource Name (ARN) associated with the VOD source.
+--
+-- 'creationTime', 'updateVodSourceResponse_creationTime' - The timestamp that indicates when the VOD source was created.
+--
+-- 'httpPackageConfigurations', 'updateVodSourceResponse_httpPackageConfigurations' - A list of HTTP package configurations for the VOD source on this
+-- account.
+--
+-- 'lastModifiedTime', 'updateVodSourceResponse_lastModifiedTime' - The timestamp that indicates when the VOD source was last modified.
+--
+-- 'sourceLocationName', 'updateVodSourceResponse_sourceLocationName' - The name of the source location associated with the VOD source.
+--
 -- 'tags', 'updateVodSourceResponse_tags' - The tags to assign to the VOD source. Tags are key-value pairs that you
 -- can associate with Amazon resources to help with organization, access
 -- control, and cost tracking. For more information, see
 -- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 --
 -- 'vodSourceName', 'updateVodSourceResponse_vodSourceName' - The name of the VOD source.
---
--- 'arn', 'updateVodSourceResponse_arn' - The Amazon Resource Name (ARN) associated with the VOD source.
---
--- 'lastModifiedTime', 'updateVodSourceResponse_lastModifiedTime' - The timestamp that indicates when the VOD source was last modified.
---
--- 'creationTime', 'updateVodSourceResponse_creationTime' - The timestamp that indicates when the VOD source was created.
---
--- 'sourceLocationName', 'updateVodSourceResponse_sourceLocationName' - The name of the source location associated with the VOD source.
---
--- 'httpPackageConfigurations', 'updateVodSourceResponse_httpPackageConfigurations' - A list of HTTP package configurations for the VOD source on this
--- account.
 --
 -- 'httpStatus', 'updateVodSourceResponse_httpStatus' - The response's http status code.
 newUpdateVodSourceResponse ::
@@ -237,15 +237,36 @@ newUpdateVodSourceResponse ::
   UpdateVodSourceResponse
 newUpdateVodSourceResponse pHttpStatus_ =
   UpdateVodSourceResponse'
-    { tags = Prelude.Nothing,
-      vodSourceName = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       creationTime = Prelude.Nothing,
-      sourceLocationName = Prelude.Nothing,
       httpPackageConfigurations = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing,
+      sourceLocationName = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      vodSourceName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Amazon Resource Name (ARN) associated with the VOD source.
+updateVodSourceResponse_arn :: Lens.Lens' UpdateVodSourceResponse (Prelude.Maybe Prelude.Text)
+updateVodSourceResponse_arn = Lens.lens (\UpdateVodSourceResponse' {arn} -> arn) (\s@UpdateVodSourceResponse' {} a -> s {arn = a} :: UpdateVodSourceResponse)
+
+-- | The timestamp that indicates when the VOD source was created.
+updateVodSourceResponse_creationTime :: Lens.Lens' UpdateVodSourceResponse (Prelude.Maybe Prelude.UTCTime)
+updateVodSourceResponse_creationTime = Lens.lens (\UpdateVodSourceResponse' {creationTime} -> creationTime) (\s@UpdateVodSourceResponse' {} a -> s {creationTime = a} :: UpdateVodSourceResponse) Prelude.. Lens.mapping Data._Time
+
+-- | A list of HTTP package configurations for the VOD source on this
+-- account.
+updateVodSourceResponse_httpPackageConfigurations :: Lens.Lens' UpdateVodSourceResponse (Prelude.Maybe [HttpPackageConfiguration])
+updateVodSourceResponse_httpPackageConfigurations = Lens.lens (\UpdateVodSourceResponse' {httpPackageConfigurations} -> httpPackageConfigurations) (\s@UpdateVodSourceResponse' {} a -> s {httpPackageConfigurations = a} :: UpdateVodSourceResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The timestamp that indicates when the VOD source was last modified.
+updateVodSourceResponse_lastModifiedTime :: Lens.Lens' UpdateVodSourceResponse (Prelude.Maybe Prelude.UTCTime)
+updateVodSourceResponse_lastModifiedTime = Lens.lens (\UpdateVodSourceResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateVodSourceResponse' {} a -> s {lastModifiedTime = a} :: UpdateVodSourceResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The name of the source location associated with the VOD source.
+updateVodSourceResponse_sourceLocationName :: Lens.Lens' UpdateVodSourceResponse (Prelude.Maybe Prelude.Text)
+updateVodSourceResponse_sourceLocationName = Lens.lens (\UpdateVodSourceResponse' {sourceLocationName} -> sourceLocationName) (\s@UpdateVodSourceResponse' {} a -> s {sourceLocationName = a} :: UpdateVodSourceResponse)
 
 -- | The tags to assign to the VOD source. Tags are key-value pairs that you
 -- can associate with Amazon resources to help with organization, access
@@ -258,38 +279,17 @@ updateVodSourceResponse_tags = Lens.lens (\UpdateVodSourceResponse' {tags} -> ta
 updateVodSourceResponse_vodSourceName :: Lens.Lens' UpdateVodSourceResponse (Prelude.Maybe Prelude.Text)
 updateVodSourceResponse_vodSourceName = Lens.lens (\UpdateVodSourceResponse' {vodSourceName} -> vodSourceName) (\s@UpdateVodSourceResponse' {} a -> s {vodSourceName = a} :: UpdateVodSourceResponse)
 
--- | The Amazon Resource Name (ARN) associated with the VOD source.
-updateVodSourceResponse_arn :: Lens.Lens' UpdateVodSourceResponse (Prelude.Maybe Prelude.Text)
-updateVodSourceResponse_arn = Lens.lens (\UpdateVodSourceResponse' {arn} -> arn) (\s@UpdateVodSourceResponse' {} a -> s {arn = a} :: UpdateVodSourceResponse)
-
--- | The timestamp that indicates when the VOD source was last modified.
-updateVodSourceResponse_lastModifiedTime :: Lens.Lens' UpdateVodSourceResponse (Prelude.Maybe Prelude.UTCTime)
-updateVodSourceResponse_lastModifiedTime = Lens.lens (\UpdateVodSourceResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateVodSourceResponse' {} a -> s {lastModifiedTime = a} :: UpdateVodSourceResponse) Prelude.. Lens.mapping Data._Time
-
--- | The timestamp that indicates when the VOD source was created.
-updateVodSourceResponse_creationTime :: Lens.Lens' UpdateVodSourceResponse (Prelude.Maybe Prelude.UTCTime)
-updateVodSourceResponse_creationTime = Lens.lens (\UpdateVodSourceResponse' {creationTime} -> creationTime) (\s@UpdateVodSourceResponse' {} a -> s {creationTime = a} :: UpdateVodSourceResponse) Prelude.. Lens.mapping Data._Time
-
--- | The name of the source location associated with the VOD source.
-updateVodSourceResponse_sourceLocationName :: Lens.Lens' UpdateVodSourceResponse (Prelude.Maybe Prelude.Text)
-updateVodSourceResponse_sourceLocationName = Lens.lens (\UpdateVodSourceResponse' {sourceLocationName} -> sourceLocationName) (\s@UpdateVodSourceResponse' {} a -> s {sourceLocationName = a} :: UpdateVodSourceResponse)
-
--- | A list of HTTP package configurations for the VOD source on this
--- account.
-updateVodSourceResponse_httpPackageConfigurations :: Lens.Lens' UpdateVodSourceResponse (Prelude.Maybe [HttpPackageConfiguration])
-updateVodSourceResponse_httpPackageConfigurations = Lens.lens (\UpdateVodSourceResponse' {httpPackageConfigurations} -> httpPackageConfigurations) (\s@UpdateVodSourceResponse' {} a -> s {httpPackageConfigurations = a} :: UpdateVodSourceResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 updateVodSourceResponse_httpStatus :: Lens.Lens' UpdateVodSourceResponse Prelude.Int
 updateVodSourceResponse_httpStatus = Lens.lens (\UpdateVodSourceResponse' {httpStatus} -> httpStatus) (\s@UpdateVodSourceResponse' {} a -> s {httpStatus = a} :: UpdateVodSourceResponse)
 
 instance Prelude.NFData UpdateVodSourceResponse where
   rnf UpdateVodSourceResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vodSourceName
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf lastModifiedTime
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf sourceLocationName
       `Prelude.seq` Prelude.rnf httpPackageConfigurations
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf sourceLocationName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf vodSourceName
       `Prelude.seq` Prelude.rnf httpStatus

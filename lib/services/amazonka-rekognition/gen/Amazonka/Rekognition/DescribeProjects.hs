@@ -32,9 +32,9 @@ module Amazonka.Rekognition.DescribeProjects
     newDescribeProjects,
 
     -- * Request Lenses
+    describeProjects_maxResults,
     describeProjects_nextToken,
     describeProjects_projectNames,
-    describeProjects_maxResults,
 
     -- * Destructuring the Response
     DescribeProjectsResponse (..),
@@ -57,7 +57,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeProjects' smart constructor.
 data DescribeProjects = DescribeProjects'
-  { -- | If the previous response was incomplete (because there is more results
+  { -- | The maximum number of results to return per paginated call. The largest
+    -- value you can specify is 100. If you specify a value greater than 100, a
+    -- ValidationException error occurs. The default value is 100.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the previous response was incomplete (because there is more results
     -- to retrieve), Amazon Rekognition Custom Labels returns a pagination
     -- token in the response. You can use this pagination token to retrieve the
     -- next set of results.
@@ -65,11 +69,7 @@ data DescribeProjects = DescribeProjects'
     -- | A list of the projects that you want Amazon Rekognition Custom Labels to
     -- describe. If you don\'t specify a value, the response includes
     -- descriptions for all the projects in your AWS account.
-    projectNames :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The maximum number of results to return per paginated call. The largest
-    -- value you can specify is 100. If you specify a value greater than 100, a
-    -- ValidationException error occurs. The default value is 100.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    projectNames :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,6 +81,10 @@ data DescribeProjects = DescribeProjects'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'describeProjects_maxResults' - The maximum number of results to return per paginated call. The largest
+-- value you can specify is 100. If you specify a value greater than 100, a
+-- ValidationException error occurs. The default value is 100.
+--
 -- 'nextToken', 'describeProjects_nextToken' - If the previous response was incomplete (because there is more results
 -- to retrieve), Amazon Rekognition Custom Labels returns a pagination
 -- token in the response. You can use this pagination token to retrieve the
@@ -89,18 +93,20 @@ data DescribeProjects = DescribeProjects'
 -- 'projectNames', 'describeProjects_projectNames' - A list of the projects that you want Amazon Rekognition Custom Labels to
 -- describe. If you don\'t specify a value, the response includes
 -- descriptions for all the projects in your AWS account.
---
--- 'maxResults', 'describeProjects_maxResults' - The maximum number of results to return per paginated call. The largest
--- value you can specify is 100. If you specify a value greater than 100, a
--- ValidationException error occurs. The default value is 100.
 newDescribeProjects ::
   DescribeProjects
 newDescribeProjects =
   DescribeProjects'
-    { nextToken = Prelude.Nothing,
-      projectNames = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      projectNames = Prelude.Nothing
     }
+
+-- | The maximum number of results to return per paginated call. The largest
+-- value you can specify is 100. If you specify a value greater than 100, a
+-- ValidationException error occurs. The default value is 100.
+describeProjects_maxResults :: Lens.Lens' DescribeProjects (Prelude.Maybe Prelude.Natural)
+describeProjects_maxResults = Lens.lens (\DescribeProjects' {maxResults} -> maxResults) (\s@DescribeProjects' {} a -> s {maxResults = a} :: DescribeProjects)
 
 -- | If the previous response was incomplete (because there is more results
 -- to retrieve), Amazon Rekognition Custom Labels returns a pagination
@@ -114,12 +120,6 @@ describeProjects_nextToken = Lens.lens (\DescribeProjects' {nextToken} -> nextTo
 -- descriptions for all the projects in your AWS account.
 describeProjects_projectNames :: Lens.Lens' DescribeProjects (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 describeProjects_projectNames = Lens.lens (\DescribeProjects' {projectNames} -> projectNames) (\s@DescribeProjects' {} a -> s {projectNames = a} :: DescribeProjects) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum number of results to return per paginated call. The largest
--- value you can specify is 100. If you specify a value greater than 100, a
--- ValidationException error occurs. The default value is 100.
-describeProjects_maxResults :: Lens.Lens' DescribeProjects (Prelude.Maybe Prelude.Natural)
-describeProjects_maxResults = Lens.lens (\DescribeProjects' {maxResults} -> maxResults) (\s@DescribeProjects' {} a -> s {maxResults = a} :: DescribeProjects)
 
 instance Core.AWSPager DescribeProjects where
   page rq rs
@@ -162,15 +162,15 @@ instance Core.AWSRequest DescribeProjects where
 
 instance Prelude.Hashable DescribeProjects where
   hashWithSalt _salt DescribeProjects' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` projectNames
-      `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData DescribeProjects where
   rnf DescribeProjects' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf projectNames
-      `Prelude.seq` Prelude.rnf maxResults
 
 instance Data.ToHeaders DescribeProjects where
   toHeaders =
@@ -191,9 +191,9 @@ instance Data.ToJSON DescribeProjects where
   toJSON DescribeProjects' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("ProjectNames" Data..=) Prelude.<$> projectNames,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ProjectNames" Data..=) Prelude.<$> projectNames
           ]
       )
 

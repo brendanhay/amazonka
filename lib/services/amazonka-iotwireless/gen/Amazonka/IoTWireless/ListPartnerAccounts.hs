@@ -27,8 +27,8 @@ module Amazonka.IoTWireless.ListPartnerAccounts
     newListPartnerAccounts,
 
     -- * Request Lenses
-    listPartnerAccounts_nextToken,
     listPartnerAccounts_maxResults,
+    listPartnerAccounts_nextToken,
 
     -- * Destructuring the Response
     ListPartnerAccountsResponse (..),
@@ -51,12 +51,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPartnerAccounts' smart constructor.
 data ListPartnerAccounts = ListPartnerAccounts'
-  { -- | To retrieve the next set of results, the @nextToken@ value from a
+  { -- | The maximum number of results to return in this operation.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | To retrieve the next set of results, the @nextToken@ value from a
     -- previous response; otherwise __null__ to receive the first set of
     -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in this operation.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,28 +68,28 @@ data ListPartnerAccounts = ListPartnerAccounts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listPartnerAccounts_maxResults' - The maximum number of results to return in this operation.
+--
 -- 'nextToken', 'listPartnerAccounts_nextToken' - To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
---
--- 'maxResults', 'listPartnerAccounts_maxResults' - The maximum number of results to return in this operation.
 newListPartnerAccounts ::
   ListPartnerAccounts
 newListPartnerAccounts =
   ListPartnerAccounts'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of results to return in this operation.
+listPartnerAccounts_maxResults :: Lens.Lens' ListPartnerAccounts (Prelude.Maybe Prelude.Natural)
+listPartnerAccounts_maxResults = Lens.lens (\ListPartnerAccounts' {maxResults} -> maxResults) (\s@ListPartnerAccounts' {} a -> s {maxResults = a} :: ListPartnerAccounts)
 
 -- | To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
 listPartnerAccounts_nextToken :: Lens.Lens' ListPartnerAccounts (Prelude.Maybe Prelude.Text)
 listPartnerAccounts_nextToken = Lens.lens (\ListPartnerAccounts' {nextToken} -> nextToken) (\s@ListPartnerAccounts' {} a -> s {nextToken = a} :: ListPartnerAccounts)
-
--- | The maximum number of results to return in this operation.
-listPartnerAccounts_maxResults :: Lens.Lens' ListPartnerAccounts (Prelude.Maybe Prelude.Natural)
-listPartnerAccounts_maxResults = Lens.lens (\ListPartnerAccounts' {maxResults} -> maxResults) (\s@ListPartnerAccounts' {} a -> s {maxResults = a} :: ListPartnerAccounts)
 
 instance Core.AWSRequest ListPartnerAccounts where
   type
@@ -108,13 +108,13 @@ instance Core.AWSRequest ListPartnerAccounts where
 
 instance Prelude.Hashable ListPartnerAccounts where
   hashWithSalt _salt ListPartnerAccounts' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListPartnerAccounts where
   rnf ListPartnerAccounts' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListPartnerAccounts where
   toHeaders = Prelude.const Prelude.mempty
@@ -125,8 +125,8 @@ instance Data.ToPath ListPartnerAccounts where
 instance Data.ToQuery ListPartnerAccounts where
   toQuery ListPartnerAccounts' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListPartnerAccountsResponse' smart constructor.

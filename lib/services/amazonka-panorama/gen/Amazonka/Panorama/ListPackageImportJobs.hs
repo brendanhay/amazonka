@@ -27,8 +27,8 @@ module Amazonka.Panorama.ListPackageImportJobs
     newListPackageImportJobs,
 
     -- * Request Lenses
-    listPackageImportJobs_nextToken,
     listPackageImportJobs_maxResults,
+    listPackageImportJobs_nextToken,
 
     -- * Destructuring the Response
     ListPackageImportJobsResponse (..),
@@ -51,12 +51,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPackageImportJobs' smart constructor.
 data ListPackageImportJobs = ListPackageImportJobs'
-  { -- | Specify the pagination token from a previous request to retrieve the
-    -- next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of package import jobs to return in one page of
+  { -- | The maximum number of package import jobs to return in one page of
     -- results.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Specify the pagination token from a previous request to retrieve the
+    -- next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,28 +68,29 @@ data ListPackageImportJobs = ListPackageImportJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPackageImportJobs_nextToken' - Specify the pagination token from a previous request to retrieve the
--- next page of results.
---
 -- 'maxResults', 'listPackageImportJobs_maxResults' - The maximum number of package import jobs to return in one page of
 -- results.
+--
+-- 'nextToken', 'listPackageImportJobs_nextToken' - Specify the pagination token from a previous request to retrieve the
+-- next page of results.
 newListPackageImportJobs ::
   ListPackageImportJobs
 newListPackageImportJobs =
   ListPackageImportJobs'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | Specify the pagination token from a previous request to retrieve the
--- next page of results.
-listPackageImportJobs_nextToken :: Lens.Lens' ListPackageImportJobs (Prelude.Maybe Prelude.Text)
-listPackageImportJobs_nextToken = Lens.lens (\ListPackageImportJobs' {nextToken} -> nextToken) (\s@ListPackageImportJobs' {} a -> s {nextToken = a} :: ListPackageImportJobs)
 
 -- | The maximum number of package import jobs to return in one page of
 -- results.
 listPackageImportJobs_maxResults :: Lens.Lens' ListPackageImportJobs (Prelude.Maybe Prelude.Natural)
 listPackageImportJobs_maxResults = Lens.lens (\ListPackageImportJobs' {maxResults} -> maxResults) (\s@ListPackageImportJobs' {} a -> s {maxResults = a} :: ListPackageImportJobs)
+
+-- | Specify the pagination token from a previous request to retrieve the
+-- next page of results.
+listPackageImportJobs_nextToken :: Lens.Lens' ListPackageImportJobs (Prelude.Maybe Prelude.Text)
+listPackageImportJobs_nextToken = Lens.lens (\ListPackageImportJobs' {nextToken} -> nextToken) (\s@ListPackageImportJobs' {} a -> s {nextToken = a} :: ListPackageImportJobs)
 
 instance Core.AWSRequest ListPackageImportJobs where
   type
@@ -110,13 +111,13 @@ instance Core.AWSRequest ListPackageImportJobs where
 
 instance Prelude.Hashable ListPackageImportJobs where
   hashWithSalt _salt ListPackageImportJobs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListPackageImportJobs where
   rnf ListPackageImportJobs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListPackageImportJobs where
   toHeaders =
@@ -135,8 +136,8 @@ instance Data.ToPath ListPackageImportJobs where
 instance Data.ToQuery ListPackageImportJobs where
   toQuery ListPackageImportJobs' {..} =
     Prelude.mconcat
-      [ "NextToken" Data.=: nextToken,
-        "MaxResults" Data.=: maxResults
+      [ "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListPackageImportJobsResponse' smart constructor.

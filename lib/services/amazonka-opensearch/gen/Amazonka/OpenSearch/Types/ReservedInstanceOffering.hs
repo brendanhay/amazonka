@@ -31,23 +31,23 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newReservedInstanceOffering' smart constructor.
 data ReservedInstanceOffering = ReservedInstanceOffering'
-  { -- | The recurring charge to your account, regardless of whether you creates
-    -- any domains using the offering.
-    recurringCharges :: Prelude.Maybe [RecurringCharge],
-    -- | The OpenSearch instance type offered by the Reserved Instance offering.
-    instanceType :: Prelude.Maybe OpenSearchPartitionInstanceType,
+  { -- | The currency code for the Reserved Instance offering.
+    currencyCode :: Prelude.Maybe Prelude.Text,
     -- | The duration, in seconds, for which the offering will reserve the
     -- OpenSearch instance.
     duration :: Prelude.Maybe Prelude.Int,
-    -- | The currency code for the Reserved Instance offering.
-    currencyCode :: Prelude.Maybe Prelude.Text,
     -- | The upfront fixed charge you will pay to purchase the specific Reserved
     -- Instance offering.
     fixedPrice :: Prelude.Maybe Prelude.Double,
-    -- | The unique identifier of the Reserved Instance offering.
-    reservedInstanceOfferingId :: Prelude.Maybe Prelude.Text,
+    -- | The OpenSearch instance type offered by the Reserved Instance offering.
+    instanceType :: Prelude.Maybe OpenSearchPartitionInstanceType,
     -- | Payment option for the Reserved Instance offering
     paymentOption :: Prelude.Maybe ReservedInstancePaymentOption,
+    -- | The recurring charge to your account, regardless of whether you creates
+    -- any domains using the offering.
+    recurringCharges :: Prelude.Maybe [RecurringCharge],
+    -- | The unique identifier of the Reserved Instance offering.
+    reservedInstanceOfferingId :: Prelude.Maybe Prelude.Text,
     -- | The hourly rate at which you\'re charged for the domain using this
     -- Reserved Instance.
     usagePrice :: Prelude.Maybe Prelude.Double
@@ -62,22 +62,22 @@ data ReservedInstanceOffering = ReservedInstanceOffering'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'recurringCharges', 'reservedInstanceOffering_recurringCharges' - The recurring charge to your account, regardless of whether you creates
--- any domains using the offering.
---
--- 'instanceType', 'reservedInstanceOffering_instanceType' - The OpenSearch instance type offered by the Reserved Instance offering.
+-- 'currencyCode', 'reservedInstanceOffering_currencyCode' - The currency code for the Reserved Instance offering.
 --
 -- 'duration', 'reservedInstanceOffering_duration' - The duration, in seconds, for which the offering will reserve the
 -- OpenSearch instance.
 --
--- 'currencyCode', 'reservedInstanceOffering_currencyCode' - The currency code for the Reserved Instance offering.
---
 -- 'fixedPrice', 'reservedInstanceOffering_fixedPrice' - The upfront fixed charge you will pay to purchase the specific Reserved
 -- Instance offering.
 --
--- 'reservedInstanceOfferingId', 'reservedInstanceOffering_reservedInstanceOfferingId' - The unique identifier of the Reserved Instance offering.
+-- 'instanceType', 'reservedInstanceOffering_instanceType' - The OpenSearch instance type offered by the Reserved Instance offering.
 --
 -- 'paymentOption', 'reservedInstanceOffering_paymentOption' - Payment option for the Reserved Instance offering
+--
+-- 'recurringCharges', 'reservedInstanceOffering_recurringCharges' - The recurring charge to your account, regardless of whether you creates
+-- any domains using the offering.
+--
+-- 'reservedInstanceOfferingId', 'reservedInstanceOffering_reservedInstanceOfferingId' - The unique identifier of the Reserved Instance offering.
 --
 -- 'usagePrice', 'reservedInstanceOffering_usagePrice' - The hourly rate at which you\'re charged for the domain using this
 -- Reserved Instance.
@@ -85,47 +85,47 @@ newReservedInstanceOffering ::
   ReservedInstanceOffering
 newReservedInstanceOffering =
   ReservedInstanceOffering'
-    { recurringCharges =
+    { currencyCode =
         Prelude.Nothing,
-      instanceType = Prelude.Nothing,
       duration = Prelude.Nothing,
-      currencyCode = Prelude.Nothing,
       fixedPrice = Prelude.Nothing,
-      reservedInstanceOfferingId = Prelude.Nothing,
+      instanceType = Prelude.Nothing,
       paymentOption = Prelude.Nothing,
+      recurringCharges = Prelude.Nothing,
+      reservedInstanceOfferingId = Prelude.Nothing,
       usagePrice = Prelude.Nothing
     }
 
--- | The recurring charge to your account, regardless of whether you creates
--- any domains using the offering.
-reservedInstanceOffering_recurringCharges :: Lens.Lens' ReservedInstanceOffering (Prelude.Maybe [RecurringCharge])
-reservedInstanceOffering_recurringCharges = Lens.lens (\ReservedInstanceOffering' {recurringCharges} -> recurringCharges) (\s@ReservedInstanceOffering' {} a -> s {recurringCharges = a} :: ReservedInstanceOffering) Prelude.. Lens.mapping Lens.coerced
-
--- | The OpenSearch instance type offered by the Reserved Instance offering.
-reservedInstanceOffering_instanceType :: Lens.Lens' ReservedInstanceOffering (Prelude.Maybe OpenSearchPartitionInstanceType)
-reservedInstanceOffering_instanceType = Lens.lens (\ReservedInstanceOffering' {instanceType} -> instanceType) (\s@ReservedInstanceOffering' {} a -> s {instanceType = a} :: ReservedInstanceOffering)
+-- | The currency code for the Reserved Instance offering.
+reservedInstanceOffering_currencyCode :: Lens.Lens' ReservedInstanceOffering (Prelude.Maybe Prelude.Text)
+reservedInstanceOffering_currencyCode = Lens.lens (\ReservedInstanceOffering' {currencyCode} -> currencyCode) (\s@ReservedInstanceOffering' {} a -> s {currencyCode = a} :: ReservedInstanceOffering)
 
 -- | The duration, in seconds, for which the offering will reserve the
 -- OpenSearch instance.
 reservedInstanceOffering_duration :: Lens.Lens' ReservedInstanceOffering (Prelude.Maybe Prelude.Int)
 reservedInstanceOffering_duration = Lens.lens (\ReservedInstanceOffering' {duration} -> duration) (\s@ReservedInstanceOffering' {} a -> s {duration = a} :: ReservedInstanceOffering)
 
--- | The currency code for the Reserved Instance offering.
-reservedInstanceOffering_currencyCode :: Lens.Lens' ReservedInstanceOffering (Prelude.Maybe Prelude.Text)
-reservedInstanceOffering_currencyCode = Lens.lens (\ReservedInstanceOffering' {currencyCode} -> currencyCode) (\s@ReservedInstanceOffering' {} a -> s {currencyCode = a} :: ReservedInstanceOffering)
-
 -- | The upfront fixed charge you will pay to purchase the specific Reserved
 -- Instance offering.
 reservedInstanceOffering_fixedPrice :: Lens.Lens' ReservedInstanceOffering (Prelude.Maybe Prelude.Double)
 reservedInstanceOffering_fixedPrice = Lens.lens (\ReservedInstanceOffering' {fixedPrice} -> fixedPrice) (\s@ReservedInstanceOffering' {} a -> s {fixedPrice = a} :: ReservedInstanceOffering)
 
--- | The unique identifier of the Reserved Instance offering.
-reservedInstanceOffering_reservedInstanceOfferingId :: Lens.Lens' ReservedInstanceOffering (Prelude.Maybe Prelude.Text)
-reservedInstanceOffering_reservedInstanceOfferingId = Lens.lens (\ReservedInstanceOffering' {reservedInstanceOfferingId} -> reservedInstanceOfferingId) (\s@ReservedInstanceOffering' {} a -> s {reservedInstanceOfferingId = a} :: ReservedInstanceOffering)
+-- | The OpenSearch instance type offered by the Reserved Instance offering.
+reservedInstanceOffering_instanceType :: Lens.Lens' ReservedInstanceOffering (Prelude.Maybe OpenSearchPartitionInstanceType)
+reservedInstanceOffering_instanceType = Lens.lens (\ReservedInstanceOffering' {instanceType} -> instanceType) (\s@ReservedInstanceOffering' {} a -> s {instanceType = a} :: ReservedInstanceOffering)
 
 -- | Payment option for the Reserved Instance offering
 reservedInstanceOffering_paymentOption :: Lens.Lens' ReservedInstanceOffering (Prelude.Maybe ReservedInstancePaymentOption)
 reservedInstanceOffering_paymentOption = Lens.lens (\ReservedInstanceOffering' {paymentOption} -> paymentOption) (\s@ReservedInstanceOffering' {} a -> s {paymentOption = a} :: ReservedInstanceOffering)
+
+-- | The recurring charge to your account, regardless of whether you creates
+-- any domains using the offering.
+reservedInstanceOffering_recurringCharges :: Lens.Lens' ReservedInstanceOffering (Prelude.Maybe [RecurringCharge])
+reservedInstanceOffering_recurringCharges = Lens.lens (\ReservedInstanceOffering' {recurringCharges} -> recurringCharges) (\s@ReservedInstanceOffering' {} a -> s {recurringCharges = a} :: ReservedInstanceOffering) Prelude.. Lens.mapping Lens.coerced
+
+-- | The unique identifier of the Reserved Instance offering.
+reservedInstanceOffering_reservedInstanceOfferingId :: Lens.Lens' ReservedInstanceOffering (Prelude.Maybe Prelude.Text)
+reservedInstanceOffering_reservedInstanceOfferingId = Lens.lens (\ReservedInstanceOffering' {reservedInstanceOfferingId} -> reservedInstanceOfferingId) (\s@ReservedInstanceOffering' {} a -> s {reservedInstanceOfferingId = a} :: ReservedInstanceOffering)
 
 -- | The hourly rate at which you\'re charged for the domain using this
 -- Reserved Instance.
@@ -138,36 +138,36 @@ instance Data.FromJSON ReservedInstanceOffering where
       "ReservedInstanceOffering"
       ( \x ->
           ReservedInstanceOffering'
-            Prelude.<$> ( x Data..:? "RecurringCharges"
+            Prelude.<$> (x Data..:? "CurrencyCode")
+            Prelude.<*> (x Data..:? "Duration")
+            Prelude.<*> (x Data..:? "FixedPrice")
+            Prelude.<*> (x Data..:? "InstanceType")
+            Prelude.<*> (x Data..:? "PaymentOption")
+            Prelude.<*> ( x Data..:? "RecurringCharges"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "InstanceType")
-            Prelude.<*> (x Data..:? "Duration")
-            Prelude.<*> (x Data..:? "CurrencyCode")
-            Prelude.<*> (x Data..:? "FixedPrice")
             Prelude.<*> (x Data..:? "ReservedInstanceOfferingId")
-            Prelude.<*> (x Data..:? "PaymentOption")
             Prelude.<*> (x Data..:? "UsagePrice")
       )
 
 instance Prelude.Hashable ReservedInstanceOffering where
   hashWithSalt _salt ReservedInstanceOffering' {..} =
-    _salt `Prelude.hashWithSalt` recurringCharges
-      `Prelude.hashWithSalt` instanceType
+    _salt `Prelude.hashWithSalt` currencyCode
       `Prelude.hashWithSalt` duration
-      `Prelude.hashWithSalt` currencyCode
       `Prelude.hashWithSalt` fixedPrice
-      `Prelude.hashWithSalt` reservedInstanceOfferingId
+      `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` paymentOption
+      `Prelude.hashWithSalt` recurringCharges
+      `Prelude.hashWithSalt` reservedInstanceOfferingId
       `Prelude.hashWithSalt` usagePrice
 
 instance Prelude.NFData ReservedInstanceOffering where
   rnf ReservedInstanceOffering' {..} =
-    Prelude.rnf recurringCharges
-      `Prelude.seq` Prelude.rnf instanceType
+    Prelude.rnf currencyCode
       `Prelude.seq` Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf currencyCode
       `Prelude.seq` Prelude.rnf fixedPrice
-      `Prelude.seq` Prelude.rnf reservedInstanceOfferingId
+      `Prelude.seq` Prelude.rnf instanceType
       `Prelude.seq` Prelude.rnf paymentOption
+      `Prelude.seq` Prelude.rnf recurringCharges
+      `Prelude.seq` Prelude.rnf reservedInstanceOfferingId
       `Prelude.seq` Prelude.rnf usagePrice

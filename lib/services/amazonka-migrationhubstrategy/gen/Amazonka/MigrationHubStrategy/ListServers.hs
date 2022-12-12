@@ -29,12 +29,12 @@ module Amazonka.MigrationHubStrategy.ListServers
     newListServers,
 
     -- * Request Lenses
-    listServers_nextToken,
-    listServers_groupIdFilter,
     listServers_filterValue,
-    listServers_sort,
+    listServers_groupIdFilter,
     listServers_maxResults,
+    listServers_nextToken,
     listServers_serverCriteria,
+    listServers_sort,
 
     -- * Destructuring the Response
     ListServersResponse (..),
@@ -57,27 +57,27 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListServers' smart constructor.
 data ListServers = ListServers'
-  { -- | The token from a previous call that you use to retrieve the next set of
+  { -- | Specifies the filter value, which is based on the type of server
+    -- criteria. For example, if @serverCriteria@ is @OS_NAME@, and the
+    -- @filterValue@ is equal to @WindowsServer@, then @ListServers@ returns
+    -- all of the servers matching the OS name @WindowsServer@.
+    filterValue :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the group ID to filter on.
+    groupIdFilter :: Prelude.Maybe [Group],
+    -- | The maximum number of items to include in the response. The maximum
+    -- value is 100.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The token from a previous call that you use to retrieve the next set of
     -- results. For example, if a previous call to this action returned 100
     -- items, but you set @maxResults@ to 10. You\'ll receive a set of 10
     -- results along with a token. You then use the returned token to retrieve
     -- the next set of 10.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the group ID to filter on.
-    groupIdFilter :: Prelude.Maybe [Group],
-    -- | Specifies the filter value, which is based on the type of server
-    -- criteria. For example, if @serverCriteria@ is @OS_NAME@, and the
-    -- @filterValue@ is equal to @WindowsServer@, then @ListServers@ returns
-    -- all of the servers matching the OS name @WindowsServer@.
-    filterValue :: Prelude.Maybe Prelude.Text,
+    -- | Criteria for filtering servers.
+    serverCriteria :: Prelude.Maybe ServerCriteria,
     -- | Specifies whether to sort by ascending (@ASC@) or descending (@DESC@)
     -- order.
-    sort :: Prelude.Maybe SortOrder,
-    -- | The maximum number of items to include in the response. The maximum
-    -- value is 100.
-    maxResults :: Prelude.Maybe Prelude.Int,
-    -- | Criteria for filtering servers.
-    serverCriteria :: Prelude.Maybe ServerCriteria
+    sort :: Prelude.Maybe SortOrder
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -89,37 +89,53 @@ data ListServers = ListServers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'filterValue', 'listServers_filterValue' - Specifies the filter value, which is based on the type of server
+-- criteria. For example, if @serverCriteria@ is @OS_NAME@, and the
+-- @filterValue@ is equal to @WindowsServer@, then @ListServers@ returns
+-- all of the servers matching the OS name @WindowsServer@.
+--
+-- 'groupIdFilter', 'listServers_groupIdFilter' - Specifies the group ID to filter on.
+--
+-- 'maxResults', 'listServers_maxResults' - The maximum number of items to include in the response. The maximum
+-- value is 100.
+--
 -- 'nextToken', 'listServers_nextToken' - The token from a previous call that you use to retrieve the next set of
 -- results. For example, if a previous call to this action returned 100
 -- items, but you set @maxResults@ to 10. You\'ll receive a set of 10
 -- results along with a token. You then use the returned token to retrieve
 -- the next set of 10.
 --
--- 'groupIdFilter', 'listServers_groupIdFilter' - Specifies the group ID to filter on.
---
--- 'filterValue', 'listServers_filterValue' - Specifies the filter value, which is based on the type of server
--- criteria. For example, if @serverCriteria@ is @OS_NAME@, and the
--- @filterValue@ is equal to @WindowsServer@, then @ListServers@ returns
--- all of the servers matching the OS name @WindowsServer@.
+-- 'serverCriteria', 'listServers_serverCriteria' - Criteria for filtering servers.
 --
 -- 'sort', 'listServers_sort' - Specifies whether to sort by ascending (@ASC@) or descending (@DESC@)
 -- order.
---
--- 'maxResults', 'listServers_maxResults' - The maximum number of items to include in the response. The maximum
--- value is 100.
---
--- 'serverCriteria', 'listServers_serverCriteria' - Criteria for filtering servers.
 newListServers ::
   ListServers
 newListServers =
   ListServers'
-    { nextToken = Prelude.Nothing,
+    { filterValue = Prelude.Nothing,
       groupIdFilter = Prelude.Nothing,
-      filterValue = Prelude.Nothing,
-      sort = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      serverCriteria = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      serverCriteria = Prelude.Nothing,
+      sort = Prelude.Nothing
     }
+
+-- | Specifies the filter value, which is based on the type of server
+-- criteria. For example, if @serverCriteria@ is @OS_NAME@, and the
+-- @filterValue@ is equal to @WindowsServer@, then @ListServers@ returns
+-- all of the servers matching the OS name @WindowsServer@.
+listServers_filterValue :: Lens.Lens' ListServers (Prelude.Maybe Prelude.Text)
+listServers_filterValue = Lens.lens (\ListServers' {filterValue} -> filterValue) (\s@ListServers' {} a -> s {filterValue = a} :: ListServers)
+
+-- | Specifies the group ID to filter on.
+listServers_groupIdFilter :: Lens.Lens' ListServers (Prelude.Maybe [Group])
+listServers_groupIdFilter = Lens.lens (\ListServers' {groupIdFilter} -> groupIdFilter) (\s@ListServers' {} a -> s {groupIdFilter = a} :: ListServers) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum number of items to include in the response. The maximum
+-- value is 100.
+listServers_maxResults :: Lens.Lens' ListServers (Prelude.Maybe Prelude.Int)
+listServers_maxResults = Lens.lens (\ListServers' {maxResults} -> maxResults) (\s@ListServers' {} a -> s {maxResults = a} :: ListServers)
 
 -- | The token from a previous call that you use to retrieve the next set of
 -- results. For example, if a previous call to this action returned 100
@@ -129,30 +145,14 @@ newListServers =
 listServers_nextToken :: Lens.Lens' ListServers (Prelude.Maybe Prelude.Text)
 listServers_nextToken = Lens.lens (\ListServers' {nextToken} -> nextToken) (\s@ListServers' {} a -> s {nextToken = a} :: ListServers)
 
--- | Specifies the group ID to filter on.
-listServers_groupIdFilter :: Lens.Lens' ListServers (Prelude.Maybe [Group])
-listServers_groupIdFilter = Lens.lens (\ListServers' {groupIdFilter} -> groupIdFilter) (\s@ListServers' {} a -> s {groupIdFilter = a} :: ListServers) Prelude.. Lens.mapping Lens.coerced
-
--- | Specifies the filter value, which is based on the type of server
--- criteria. For example, if @serverCriteria@ is @OS_NAME@, and the
--- @filterValue@ is equal to @WindowsServer@, then @ListServers@ returns
--- all of the servers matching the OS name @WindowsServer@.
-listServers_filterValue :: Lens.Lens' ListServers (Prelude.Maybe Prelude.Text)
-listServers_filterValue = Lens.lens (\ListServers' {filterValue} -> filterValue) (\s@ListServers' {} a -> s {filterValue = a} :: ListServers)
+-- | Criteria for filtering servers.
+listServers_serverCriteria :: Lens.Lens' ListServers (Prelude.Maybe ServerCriteria)
+listServers_serverCriteria = Lens.lens (\ListServers' {serverCriteria} -> serverCriteria) (\s@ListServers' {} a -> s {serverCriteria = a} :: ListServers)
 
 -- | Specifies whether to sort by ascending (@ASC@) or descending (@DESC@)
 -- order.
 listServers_sort :: Lens.Lens' ListServers (Prelude.Maybe SortOrder)
 listServers_sort = Lens.lens (\ListServers' {sort} -> sort) (\s@ListServers' {} a -> s {sort = a} :: ListServers)
-
--- | The maximum number of items to include in the response. The maximum
--- value is 100.
-listServers_maxResults :: Lens.Lens' ListServers (Prelude.Maybe Prelude.Int)
-listServers_maxResults = Lens.lens (\ListServers' {maxResults} -> maxResults) (\s@ListServers' {} a -> s {maxResults = a} :: ListServers)
-
--- | Criteria for filtering servers.
-listServers_serverCriteria :: Lens.Lens' ListServers (Prelude.Maybe ServerCriteria)
-listServers_serverCriteria = Lens.lens (\ListServers' {serverCriteria} -> serverCriteria) (\s@ListServers' {} a -> s {serverCriteria = a} :: ListServers)
 
 instance Core.AWSPager ListServers where
   page rq rs
@@ -188,21 +188,21 @@ instance Core.AWSRequest ListServers where
 
 instance Prelude.Hashable ListServers where
   hashWithSalt _salt ListServers' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` filterValue
       `Prelude.hashWithSalt` groupIdFilter
-      `Prelude.hashWithSalt` filterValue
-      `Prelude.hashWithSalt` sort
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` serverCriteria
+      `Prelude.hashWithSalt` sort
 
 instance Prelude.NFData ListServers where
   rnf ListServers' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf filterValue
       `Prelude.seq` Prelude.rnf groupIdFilter
-      `Prelude.seq` Prelude.rnf filterValue
-      `Prelude.seq` Prelude.rnf sort
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf serverCriteria
+      `Prelude.seq` Prelude.rnf sort
 
 instance Data.ToHeaders ListServers where
   toHeaders =
@@ -219,13 +219,13 @@ instance Data.ToJSON ListServers where
   toJSON ListServers' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+          [ ("filterValue" Data..=) Prelude.<$> filterValue,
             ("groupIdFilter" Data..=) Prelude.<$> groupIdFilter,
-            ("filterValue" Data..=) Prelude.<$> filterValue,
-            ("sort" Data..=) Prelude.<$> sort,
             ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             ("serverCriteria" Data..=)
-              Prelude.<$> serverCriteria
+              Prelude.<$> serverCriteria,
+            ("sort" Data..=) Prelude.<$> sort
           ]
       )
 

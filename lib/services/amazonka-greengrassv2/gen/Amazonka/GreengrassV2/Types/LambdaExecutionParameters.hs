@@ -31,33 +31,29 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLambdaExecutionParameters' smart constructor.
 data LambdaExecutionParameters = LambdaExecutionParameters'
-  { -- | The interval in seconds at which a pinned (also known as long-lived)
-    -- Lambda function component sends status updates to the Lambda manager
-    -- component.
-    statusTimeoutInSeconds :: Prelude.Maybe Prelude.Int,
-    -- | The parameters for the Linux process that contains the Lambda function.
-    linuxProcessParams :: Prelude.Maybe LambdaLinuxProcessParams,
-    -- | The list of arguments to pass to the Lambda function when it runs.
-    execArgs :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum amount of time in seconds that a non-pinned Lambda function
-    -- can idle before the IoT Greengrass Core software stops its process.
-    maxIdleTimeInSeconds :: Prelude.Maybe Prelude.Int,
+  { -- | The map of environment variables that are available to the Lambda
+    -- function when it runs.
+    environmentVariables :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The list of event sources to which to subscribe to receive work
     -- messages. The Lambda function runs when it receives a message from an
     -- event source. You can subscribe this function to local
     -- publish\/subscribe messages and Amazon Web Services IoT Core MQTT
     -- messages.
     eventSources :: Prelude.Maybe [LambdaEventSource],
-    -- | The maximum amount of time in seconds that the Lambda function can
-    -- process a work item.
-    timeoutInSeconds :: Prelude.Maybe Prelude.Int,
+    -- | The list of arguments to pass to the Lambda function when it runs.
+    execArgs :: Prelude.Maybe [Prelude.Text],
     -- | The encoding type that the Lambda function supports.
     --
     -- Default: @json@
     inputPayloadEncodingType :: Prelude.Maybe LambdaInputPayloadEncodingType,
-    -- | The map of environment variables that are available to the Lambda
-    -- function when it runs.
-    environmentVariables :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The parameters for the Linux process that contains the Lambda function.
+    linuxProcessParams :: Prelude.Maybe LambdaLinuxProcessParams,
+    -- | The maximum amount of time in seconds that a non-pinned Lambda function
+    -- can idle before the IoT Greengrass Core software stops its process.
+    maxIdleTimeInSeconds :: Prelude.Maybe Prelude.Int,
+    -- | The maximum number of instances that a non-pinned Lambda function can
+    -- run at the same time.
+    maxInstancesCount :: Prelude.Maybe Prelude.Int,
     -- | The maximum size of the message queue for the Lambda function component.
     -- The IoT Greengrass core stores messages in a FIFO (first-in-first-out)
     -- queue until it can run the Lambda function to consume each message.
@@ -74,9 +70,13 @@ data LambdaExecutionParameters = LambdaExecutionParameters'
     --
     -- Default: @true@
     pinned :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of instances that a non-pinned Lambda function can
-    -- run at the same time.
-    maxInstancesCount :: Prelude.Maybe Prelude.Int
+    -- | The interval in seconds at which a pinned (also known as long-lived)
+    -- Lambda function component sends status updates to the Lambda manager
+    -- component.
+    statusTimeoutInSeconds :: Prelude.Maybe Prelude.Int,
+    -- | The maximum amount of time in seconds that the Lambda function can
+    -- process a work item.
+    timeoutInSeconds :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -88,16 +88,8 @@ data LambdaExecutionParameters = LambdaExecutionParameters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statusTimeoutInSeconds', 'lambdaExecutionParameters_statusTimeoutInSeconds' - The interval in seconds at which a pinned (also known as long-lived)
--- Lambda function component sends status updates to the Lambda manager
--- component.
---
--- 'linuxProcessParams', 'lambdaExecutionParameters_linuxProcessParams' - The parameters for the Linux process that contains the Lambda function.
---
--- 'execArgs', 'lambdaExecutionParameters_execArgs' - The list of arguments to pass to the Lambda function when it runs.
---
--- 'maxIdleTimeInSeconds', 'lambdaExecutionParameters_maxIdleTimeInSeconds' - The maximum amount of time in seconds that a non-pinned Lambda function
--- can idle before the IoT Greengrass Core software stops its process.
+-- 'environmentVariables', 'lambdaExecutionParameters_environmentVariables' - The map of environment variables that are available to the Lambda
+-- function when it runs.
 --
 -- 'eventSources', 'lambdaExecutionParameters_eventSources' - The list of event sources to which to subscribe to receive work
 -- messages. The Lambda function runs when it receives a message from an
@@ -105,15 +97,19 @@ data LambdaExecutionParameters = LambdaExecutionParameters'
 -- publish\/subscribe messages and Amazon Web Services IoT Core MQTT
 -- messages.
 --
--- 'timeoutInSeconds', 'lambdaExecutionParameters_timeoutInSeconds' - The maximum amount of time in seconds that the Lambda function can
--- process a work item.
+-- 'execArgs', 'lambdaExecutionParameters_execArgs' - The list of arguments to pass to the Lambda function when it runs.
 --
 -- 'inputPayloadEncodingType', 'lambdaExecutionParameters_inputPayloadEncodingType' - The encoding type that the Lambda function supports.
 --
 -- Default: @json@
 --
--- 'environmentVariables', 'lambdaExecutionParameters_environmentVariables' - The map of environment variables that are available to the Lambda
--- function when it runs.
+-- 'linuxProcessParams', 'lambdaExecutionParameters_linuxProcessParams' - The parameters for the Linux process that contains the Lambda function.
+--
+-- 'maxIdleTimeInSeconds', 'lambdaExecutionParameters_maxIdleTimeInSeconds' - The maximum amount of time in seconds that a non-pinned Lambda function
+-- can idle before the IoT Greengrass Core software stops its process.
+--
+-- 'maxInstancesCount', 'lambdaExecutionParameters_maxInstancesCount' - The maximum number of instances that a non-pinned Lambda function can
+-- run at the same time.
 --
 -- 'maxQueueSize', 'lambdaExecutionParameters_maxQueueSize' - The maximum size of the message queue for the Lambda function component.
 -- The IoT Greengrass core stores messages in a FIFO (first-in-first-out)
@@ -131,44 +127,34 @@ data LambdaExecutionParameters = LambdaExecutionParameters'
 --
 -- Default: @true@
 --
--- 'maxInstancesCount', 'lambdaExecutionParameters_maxInstancesCount' - The maximum number of instances that a non-pinned Lambda function can
--- run at the same time.
+-- 'statusTimeoutInSeconds', 'lambdaExecutionParameters_statusTimeoutInSeconds' - The interval in seconds at which a pinned (also known as long-lived)
+-- Lambda function component sends status updates to the Lambda manager
+-- component.
+--
+-- 'timeoutInSeconds', 'lambdaExecutionParameters_timeoutInSeconds' - The maximum amount of time in seconds that the Lambda function can
+-- process a work item.
 newLambdaExecutionParameters ::
   LambdaExecutionParameters
 newLambdaExecutionParameters =
   LambdaExecutionParameters'
-    { statusTimeoutInSeconds =
+    { environmentVariables =
         Prelude.Nothing,
-      linuxProcessParams = Prelude.Nothing,
-      execArgs = Prelude.Nothing,
-      maxIdleTimeInSeconds = Prelude.Nothing,
       eventSources = Prelude.Nothing,
-      timeoutInSeconds = Prelude.Nothing,
+      execArgs = Prelude.Nothing,
       inputPayloadEncodingType = Prelude.Nothing,
-      environmentVariables = Prelude.Nothing,
+      linuxProcessParams = Prelude.Nothing,
+      maxIdleTimeInSeconds = Prelude.Nothing,
+      maxInstancesCount = Prelude.Nothing,
       maxQueueSize = Prelude.Nothing,
       pinned = Prelude.Nothing,
-      maxInstancesCount = Prelude.Nothing
+      statusTimeoutInSeconds = Prelude.Nothing,
+      timeoutInSeconds = Prelude.Nothing
     }
 
--- | The interval in seconds at which a pinned (also known as long-lived)
--- Lambda function component sends status updates to the Lambda manager
--- component.
-lambdaExecutionParameters_statusTimeoutInSeconds :: Lens.Lens' LambdaExecutionParameters (Prelude.Maybe Prelude.Int)
-lambdaExecutionParameters_statusTimeoutInSeconds = Lens.lens (\LambdaExecutionParameters' {statusTimeoutInSeconds} -> statusTimeoutInSeconds) (\s@LambdaExecutionParameters' {} a -> s {statusTimeoutInSeconds = a} :: LambdaExecutionParameters)
-
--- | The parameters for the Linux process that contains the Lambda function.
-lambdaExecutionParameters_linuxProcessParams :: Lens.Lens' LambdaExecutionParameters (Prelude.Maybe LambdaLinuxProcessParams)
-lambdaExecutionParameters_linuxProcessParams = Lens.lens (\LambdaExecutionParameters' {linuxProcessParams} -> linuxProcessParams) (\s@LambdaExecutionParameters' {} a -> s {linuxProcessParams = a} :: LambdaExecutionParameters)
-
--- | The list of arguments to pass to the Lambda function when it runs.
-lambdaExecutionParameters_execArgs :: Lens.Lens' LambdaExecutionParameters (Prelude.Maybe [Prelude.Text])
-lambdaExecutionParameters_execArgs = Lens.lens (\LambdaExecutionParameters' {execArgs} -> execArgs) (\s@LambdaExecutionParameters' {} a -> s {execArgs = a} :: LambdaExecutionParameters) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum amount of time in seconds that a non-pinned Lambda function
--- can idle before the IoT Greengrass Core software stops its process.
-lambdaExecutionParameters_maxIdleTimeInSeconds :: Lens.Lens' LambdaExecutionParameters (Prelude.Maybe Prelude.Int)
-lambdaExecutionParameters_maxIdleTimeInSeconds = Lens.lens (\LambdaExecutionParameters' {maxIdleTimeInSeconds} -> maxIdleTimeInSeconds) (\s@LambdaExecutionParameters' {} a -> s {maxIdleTimeInSeconds = a} :: LambdaExecutionParameters)
+-- | The map of environment variables that are available to the Lambda
+-- function when it runs.
+lambdaExecutionParameters_environmentVariables :: Lens.Lens' LambdaExecutionParameters (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+lambdaExecutionParameters_environmentVariables = Lens.lens (\LambdaExecutionParameters' {environmentVariables} -> environmentVariables) (\s@LambdaExecutionParameters' {} a -> s {environmentVariables = a} :: LambdaExecutionParameters) Prelude.. Lens.mapping Lens.coerced
 
 -- | The list of event sources to which to subscribe to receive work
 -- messages. The Lambda function runs when it receives a message from an
@@ -178,10 +164,9 @@ lambdaExecutionParameters_maxIdleTimeInSeconds = Lens.lens (\LambdaExecutionPara
 lambdaExecutionParameters_eventSources :: Lens.Lens' LambdaExecutionParameters (Prelude.Maybe [LambdaEventSource])
 lambdaExecutionParameters_eventSources = Lens.lens (\LambdaExecutionParameters' {eventSources} -> eventSources) (\s@LambdaExecutionParameters' {} a -> s {eventSources = a} :: LambdaExecutionParameters) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum amount of time in seconds that the Lambda function can
--- process a work item.
-lambdaExecutionParameters_timeoutInSeconds :: Lens.Lens' LambdaExecutionParameters (Prelude.Maybe Prelude.Int)
-lambdaExecutionParameters_timeoutInSeconds = Lens.lens (\LambdaExecutionParameters' {timeoutInSeconds} -> timeoutInSeconds) (\s@LambdaExecutionParameters' {} a -> s {timeoutInSeconds = a} :: LambdaExecutionParameters)
+-- | The list of arguments to pass to the Lambda function when it runs.
+lambdaExecutionParameters_execArgs :: Lens.Lens' LambdaExecutionParameters (Prelude.Maybe [Prelude.Text])
+lambdaExecutionParameters_execArgs = Lens.lens (\LambdaExecutionParameters' {execArgs} -> execArgs) (\s@LambdaExecutionParameters' {} a -> s {execArgs = a} :: LambdaExecutionParameters) Prelude.. Lens.mapping Lens.coerced
 
 -- | The encoding type that the Lambda function supports.
 --
@@ -189,10 +174,19 @@ lambdaExecutionParameters_timeoutInSeconds = Lens.lens (\LambdaExecutionParamete
 lambdaExecutionParameters_inputPayloadEncodingType :: Lens.Lens' LambdaExecutionParameters (Prelude.Maybe LambdaInputPayloadEncodingType)
 lambdaExecutionParameters_inputPayloadEncodingType = Lens.lens (\LambdaExecutionParameters' {inputPayloadEncodingType} -> inputPayloadEncodingType) (\s@LambdaExecutionParameters' {} a -> s {inputPayloadEncodingType = a} :: LambdaExecutionParameters)
 
--- | The map of environment variables that are available to the Lambda
--- function when it runs.
-lambdaExecutionParameters_environmentVariables :: Lens.Lens' LambdaExecutionParameters (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-lambdaExecutionParameters_environmentVariables = Lens.lens (\LambdaExecutionParameters' {environmentVariables} -> environmentVariables) (\s@LambdaExecutionParameters' {} a -> s {environmentVariables = a} :: LambdaExecutionParameters) Prelude.. Lens.mapping Lens.coerced
+-- | The parameters for the Linux process that contains the Lambda function.
+lambdaExecutionParameters_linuxProcessParams :: Lens.Lens' LambdaExecutionParameters (Prelude.Maybe LambdaLinuxProcessParams)
+lambdaExecutionParameters_linuxProcessParams = Lens.lens (\LambdaExecutionParameters' {linuxProcessParams} -> linuxProcessParams) (\s@LambdaExecutionParameters' {} a -> s {linuxProcessParams = a} :: LambdaExecutionParameters)
+
+-- | The maximum amount of time in seconds that a non-pinned Lambda function
+-- can idle before the IoT Greengrass Core software stops its process.
+lambdaExecutionParameters_maxIdleTimeInSeconds :: Lens.Lens' LambdaExecutionParameters (Prelude.Maybe Prelude.Int)
+lambdaExecutionParameters_maxIdleTimeInSeconds = Lens.lens (\LambdaExecutionParameters' {maxIdleTimeInSeconds} -> maxIdleTimeInSeconds) (\s@LambdaExecutionParameters' {} a -> s {maxIdleTimeInSeconds = a} :: LambdaExecutionParameters)
+
+-- | The maximum number of instances that a non-pinned Lambda function can
+-- run at the same time.
+lambdaExecutionParameters_maxInstancesCount :: Lens.Lens' LambdaExecutionParameters (Prelude.Maybe Prelude.Int)
+lambdaExecutionParameters_maxInstancesCount = Lens.lens (\LambdaExecutionParameters' {maxInstancesCount} -> maxInstancesCount) (\s@LambdaExecutionParameters' {} a -> s {maxInstancesCount = a} :: LambdaExecutionParameters)
 
 -- | The maximum size of the message queue for the Lambda function component.
 -- The IoT Greengrass core stores messages in a FIFO (first-in-first-out)
@@ -214,60 +208,66 @@ lambdaExecutionParameters_maxQueueSize = Lens.lens (\LambdaExecutionParameters' 
 lambdaExecutionParameters_pinned :: Lens.Lens' LambdaExecutionParameters (Prelude.Maybe Prelude.Bool)
 lambdaExecutionParameters_pinned = Lens.lens (\LambdaExecutionParameters' {pinned} -> pinned) (\s@LambdaExecutionParameters' {} a -> s {pinned = a} :: LambdaExecutionParameters)
 
--- | The maximum number of instances that a non-pinned Lambda function can
--- run at the same time.
-lambdaExecutionParameters_maxInstancesCount :: Lens.Lens' LambdaExecutionParameters (Prelude.Maybe Prelude.Int)
-lambdaExecutionParameters_maxInstancesCount = Lens.lens (\LambdaExecutionParameters' {maxInstancesCount} -> maxInstancesCount) (\s@LambdaExecutionParameters' {} a -> s {maxInstancesCount = a} :: LambdaExecutionParameters)
+-- | The interval in seconds at which a pinned (also known as long-lived)
+-- Lambda function component sends status updates to the Lambda manager
+-- component.
+lambdaExecutionParameters_statusTimeoutInSeconds :: Lens.Lens' LambdaExecutionParameters (Prelude.Maybe Prelude.Int)
+lambdaExecutionParameters_statusTimeoutInSeconds = Lens.lens (\LambdaExecutionParameters' {statusTimeoutInSeconds} -> statusTimeoutInSeconds) (\s@LambdaExecutionParameters' {} a -> s {statusTimeoutInSeconds = a} :: LambdaExecutionParameters)
+
+-- | The maximum amount of time in seconds that the Lambda function can
+-- process a work item.
+lambdaExecutionParameters_timeoutInSeconds :: Lens.Lens' LambdaExecutionParameters (Prelude.Maybe Prelude.Int)
+lambdaExecutionParameters_timeoutInSeconds = Lens.lens (\LambdaExecutionParameters' {timeoutInSeconds} -> timeoutInSeconds) (\s@LambdaExecutionParameters' {} a -> s {timeoutInSeconds = a} :: LambdaExecutionParameters)
 
 instance Prelude.Hashable LambdaExecutionParameters where
   hashWithSalt _salt LambdaExecutionParameters' {..} =
-    _salt `Prelude.hashWithSalt` statusTimeoutInSeconds
-      `Prelude.hashWithSalt` linuxProcessParams
-      `Prelude.hashWithSalt` execArgs
-      `Prelude.hashWithSalt` maxIdleTimeInSeconds
+    _salt `Prelude.hashWithSalt` environmentVariables
       `Prelude.hashWithSalt` eventSources
-      `Prelude.hashWithSalt` timeoutInSeconds
+      `Prelude.hashWithSalt` execArgs
       `Prelude.hashWithSalt` inputPayloadEncodingType
-      `Prelude.hashWithSalt` environmentVariables
+      `Prelude.hashWithSalt` linuxProcessParams
+      `Prelude.hashWithSalt` maxIdleTimeInSeconds
+      `Prelude.hashWithSalt` maxInstancesCount
       `Prelude.hashWithSalt` maxQueueSize
       `Prelude.hashWithSalt` pinned
-      `Prelude.hashWithSalt` maxInstancesCount
+      `Prelude.hashWithSalt` statusTimeoutInSeconds
+      `Prelude.hashWithSalt` timeoutInSeconds
 
 instance Prelude.NFData LambdaExecutionParameters where
   rnf LambdaExecutionParameters' {..} =
-    Prelude.rnf statusTimeoutInSeconds
-      `Prelude.seq` Prelude.rnf linuxProcessParams
-      `Prelude.seq` Prelude.rnf execArgs
-      `Prelude.seq` Prelude.rnf maxIdleTimeInSeconds
+    Prelude.rnf environmentVariables
       `Prelude.seq` Prelude.rnf eventSources
-      `Prelude.seq` Prelude.rnf timeoutInSeconds
+      `Prelude.seq` Prelude.rnf execArgs
       `Prelude.seq` Prelude.rnf inputPayloadEncodingType
-      `Prelude.seq` Prelude.rnf environmentVariables
+      `Prelude.seq` Prelude.rnf linuxProcessParams
+      `Prelude.seq` Prelude.rnf maxIdleTimeInSeconds
+      `Prelude.seq` Prelude.rnf maxInstancesCount
       `Prelude.seq` Prelude.rnf maxQueueSize
       `Prelude.seq` Prelude.rnf pinned
-      `Prelude.seq` Prelude.rnf maxInstancesCount
+      `Prelude.seq` Prelude.rnf statusTimeoutInSeconds
+      `Prelude.seq` Prelude.rnf timeoutInSeconds
 
 instance Data.ToJSON LambdaExecutionParameters where
   toJSON LambdaExecutionParameters' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("statusTimeoutInSeconds" Data..=)
-              Prelude.<$> statusTimeoutInSeconds,
-            ("linuxProcessParams" Data..=)
-              Prelude.<$> linuxProcessParams,
-            ("execArgs" Data..=) Prelude.<$> execArgs,
-            ("maxIdleTimeInSeconds" Data..=)
-              Prelude.<$> maxIdleTimeInSeconds,
+          [ ("environmentVariables" Data..=)
+              Prelude.<$> environmentVariables,
             ("eventSources" Data..=) Prelude.<$> eventSources,
-            ("timeoutInSeconds" Data..=)
-              Prelude.<$> timeoutInSeconds,
+            ("execArgs" Data..=) Prelude.<$> execArgs,
             ("inputPayloadEncodingType" Data..=)
               Prelude.<$> inputPayloadEncodingType,
-            ("environmentVariables" Data..=)
-              Prelude.<$> environmentVariables,
+            ("linuxProcessParams" Data..=)
+              Prelude.<$> linuxProcessParams,
+            ("maxIdleTimeInSeconds" Data..=)
+              Prelude.<$> maxIdleTimeInSeconds,
+            ("maxInstancesCount" Data..=)
+              Prelude.<$> maxInstancesCount,
             ("maxQueueSize" Data..=) Prelude.<$> maxQueueSize,
             ("pinned" Data..=) Prelude.<$> pinned,
-            ("maxInstancesCount" Data..=)
-              Prelude.<$> maxInstancesCount
+            ("statusTimeoutInSeconds" Data..=)
+              Prelude.<$> statusTimeoutInSeconds,
+            ("timeoutInSeconds" Data..=)
+              Prelude.<$> timeoutInSeconds
           ]
       )

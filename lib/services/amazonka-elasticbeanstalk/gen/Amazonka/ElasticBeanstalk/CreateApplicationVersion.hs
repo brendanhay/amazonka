@@ -46,13 +46,13 @@ module Amazonka.ElasticBeanstalk.CreateApplicationVersion
     newCreateApplicationVersion,
 
     -- * Request Lenses
-    createApplicationVersion_tags,
     createApplicationVersion_autoCreateApplication,
-    createApplicationVersion_description,
-    createApplicationVersion_sourceBundle,
-    createApplicationVersion_sourceBuildInformation,
-    createApplicationVersion_process,
     createApplicationVersion_buildConfiguration,
+    createApplicationVersion_description,
+    createApplicationVersion_process,
+    createApplicationVersion_sourceBuildInformation,
+    createApplicationVersion_sourceBundle,
+    createApplicationVersion_tags,
     createApplicationVersion_applicationName,
     createApplicationVersion_versionLabel,
 
@@ -77,29 +77,13 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateApplicationVersion' smart constructor.
 data CreateApplicationVersion = CreateApplicationVersion'
-  { -- | Specifies the tags applied to the application version.
-    --
-    -- Elastic Beanstalk applies these tags only to the application version.
-    -- Environments that use the application version don\'t inherit the tags.
-    tags :: Prelude.Maybe [Tag],
-    -- | Set to @true@ to create an application with the specified name if it
+  { -- | Set to @true@ to create an application with the specified name if it
     -- doesn\'t already exist.
     autoCreateApplication :: Prelude.Maybe Prelude.Bool,
+    -- | Settings for an AWS CodeBuild build.
+    buildConfiguration :: Prelude.Maybe BuildConfiguration,
     -- | A description of this application version.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon S3 bucket and key that identify the location of the source
-    -- bundle for this version.
-    --
-    -- The Amazon S3 bucket must be in the same region as the environment.
-    --
-    -- Specify a source bundle in S3 or a commit in an AWS CodeCommit
-    -- repository (with @SourceBuildInformation@), but not both. If neither
-    -- @SourceBundle@ nor @SourceBuildInformation@ are provided, Elastic
-    -- Beanstalk uses a sample application.
-    sourceBundle :: Prelude.Maybe S3Location,
-    -- | Specify a commit in an AWS CodeCommit Git repository to use as the
-    -- source code for the application version.
-    sourceBuildInformation :: Prelude.Maybe SourceBuildInformation,
     -- | Pre-processes and validates the environment manifest (@env.yaml@) and
     -- configuration files (@*.config@ files in the @.ebextensions@ folder) in
     -- the source bundle. Validating configuration files can identify issues
@@ -113,8 +97,24 @@ data CreateApplicationVersion = CreateApplicationVersion'
     -- doesn\'t validate your application\'s configuration files, like proxy
     -- server or Docker configuration.
     process :: Prelude.Maybe Prelude.Bool,
-    -- | Settings for an AWS CodeBuild build.
-    buildConfiguration :: Prelude.Maybe BuildConfiguration,
+    -- | Specify a commit in an AWS CodeCommit Git repository to use as the
+    -- source code for the application version.
+    sourceBuildInformation :: Prelude.Maybe SourceBuildInformation,
+    -- | The Amazon S3 bucket and key that identify the location of the source
+    -- bundle for this version.
+    --
+    -- The Amazon S3 bucket must be in the same region as the environment.
+    --
+    -- Specify a source bundle in S3 or a commit in an AWS CodeCommit
+    -- repository (with @SourceBuildInformation@), but not both. If neither
+    -- @SourceBundle@ nor @SourceBuildInformation@ are provided, Elastic
+    -- Beanstalk uses a sample application.
+    sourceBundle :: Prelude.Maybe S3Location,
+    -- | Specifies the tags applied to the application version.
+    --
+    -- Elastic Beanstalk applies these tags only to the application version.
+    -- Environments that use the application version don\'t inherit the tags.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the application. If no application is found with this name,
     -- and @AutoCreateApplication@ is @false@, returns an
     -- @InvalidParameterValue@ error.
@@ -136,28 +136,12 @@ data CreateApplicationVersion = CreateApplicationVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createApplicationVersion_tags' - Specifies the tags applied to the application version.
---
--- Elastic Beanstalk applies these tags only to the application version.
--- Environments that use the application version don\'t inherit the tags.
---
 -- 'autoCreateApplication', 'createApplicationVersion_autoCreateApplication' - Set to @true@ to create an application with the specified name if it
 -- doesn\'t already exist.
 --
+-- 'buildConfiguration', 'createApplicationVersion_buildConfiguration' - Settings for an AWS CodeBuild build.
+--
 -- 'description', 'createApplicationVersion_description' - A description of this application version.
---
--- 'sourceBundle', 'createApplicationVersion_sourceBundle' - The Amazon S3 bucket and key that identify the location of the source
--- bundle for this version.
---
--- The Amazon S3 bucket must be in the same region as the environment.
---
--- Specify a source bundle in S3 or a commit in an AWS CodeCommit
--- repository (with @SourceBuildInformation@), but not both. If neither
--- @SourceBundle@ nor @SourceBuildInformation@ are provided, Elastic
--- Beanstalk uses a sample application.
---
--- 'sourceBuildInformation', 'createApplicationVersion_sourceBuildInformation' - Specify a commit in an AWS CodeCommit Git repository to use as the
--- source code for the application version.
 --
 -- 'process', 'createApplicationVersion_process' - Pre-processes and validates the environment manifest (@env.yaml@) and
 -- configuration files (@*.config@ files in the @.ebextensions@ folder) in
@@ -172,7 +156,23 @@ data CreateApplicationVersion = CreateApplicationVersion'
 -- doesn\'t validate your application\'s configuration files, like proxy
 -- server or Docker configuration.
 --
--- 'buildConfiguration', 'createApplicationVersion_buildConfiguration' - Settings for an AWS CodeBuild build.
+-- 'sourceBuildInformation', 'createApplicationVersion_sourceBuildInformation' - Specify a commit in an AWS CodeCommit Git repository to use as the
+-- source code for the application version.
+--
+-- 'sourceBundle', 'createApplicationVersion_sourceBundle' - The Amazon S3 bucket and key that identify the location of the source
+-- bundle for this version.
+--
+-- The Amazon S3 bucket must be in the same region as the environment.
+--
+-- Specify a source bundle in S3 or a commit in an AWS CodeCommit
+-- repository (with @SourceBuildInformation@), but not both. If neither
+-- @SourceBundle@ nor @SourceBuildInformation@ are provided, Elastic
+-- Beanstalk uses a sample application.
+--
+-- 'tags', 'createApplicationVersion_tags' - Specifies the tags applied to the application version.
+--
+-- Elastic Beanstalk applies these tags only to the application version.
+-- Environments that use the application version don\'t inherit the tags.
 --
 -- 'applicationName', 'createApplicationVersion_applicationName' - The name of the application. If no application is found with this name,
 -- and @AutoCreateApplication@ is @false@, returns an
@@ -193,49 +193,30 @@ newCreateApplicationVersion
   pApplicationName_
   pVersionLabel_ =
     CreateApplicationVersion'
-      { tags = Prelude.Nothing,
-        autoCreateApplication = Prelude.Nothing,
-        description = Prelude.Nothing,
-        sourceBundle = Prelude.Nothing,
-        sourceBuildInformation = Prelude.Nothing,
-        process = Prelude.Nothing,
+      { autoCreateApplication =
+          Prelude.Nothing,
         buildConfiguration = Prelude.Nothing,
+        description = Prelude.Nothing,
+        process = Prelude.Nothing,
+        sourceBuildInformation = Prelude.Nothing,
+        sourceBundle = Prelude.Nothing,
+        tags = Prelude.Nothing,
         applicationName = pApplicationName_,
         versionLabel = pVersionLabel_
       }
-
--- | Specifies the tags applied to the application version.
---
--- Elastic Beanstalk applies these tags only to the application version.
--- Environments that use the application version don\'t inherit the tags.
-createApplicationVersion_tags :: Lens.Lens' CreateApplicationVersion (Prelude.Maybe [Tag])
-createApplicationVersion_tags = Lens.lens (\CreateApplicationVersion' {tags} -> tags) (\s@CreateApplicationVersion' {} a -> s {tags = a} :: CreateApplicationVersion) Prelude.. Lens.mapping Lens.coerced
 
 -- | Set to @true@ to create an application with the specified name if it
 -- doesn\'t already exist.
 createApplicationVersion_autoCreateApplication :: Lens.Lens' CreateApplicationVersion (Prelude.Maybe Prelude.Bool)
 createApplicationVersion_autoCreateApplication = Lens.lens (\CreateApplicationVersion' {autoCreateApplication} -> autoCreateApplication) (\s@CreateApplicationVersion' {} a -> s {autoCreateApplication = a} :: CreateApplicationVersion)
 
+-- | Settings for an AWS CodeBuild build.
+createApplicationVersion_buildConfiguration :: Lens.Lens' CreateApplicationVersion (Prelude.Maybe BuildConfiguration)
+createApplicationVersion_buildConfiguration = Lens.lens (\CreateApplicationVersion' {buildConfiguration} -> buildConfiguration) (\s@CreateApplicationVersion' {} a -> s {buildConfiguration = a} :: CreateApplicationVersion)
+
 -- | A description of this application version.
 createApplicationVersion_description :: Lens.Lens' CreateApplicationVersion (Prelude.Maybe Prelude.Text)
 createApplicationVersion_description = Lens.lens (\CreateApplicationVersion' {description} -> description) (\s@CreateApplicationVersion' {} a -> s {description = a} :: CreateApplicationVersion)
-
--- | The Amazon S3 bucket and key that identify the location of the source
--- bundle for this version.
---
--- The Amazon S3 bucket must be in the same region as the environment.
---
--- Specify a source bundle in S3 or a commit in an AWS CodeCommit
--- repository (with @SourceBuildInformation@), but not both. If neither
--- @SourceBundle@ nor @SourceBuildInformation@ are provided, Elastic
--- Beanstalk uses a sample application.
-createApplicationVersion_sourceBundle :: Lens.Lens' CreateApplicationVersion (Prelude.Maybe S3Location)
-createApplicationVersion_sourceBundle = Lens.lens (\CreateApplicationVersion' {sourceBundle} -> sourceBundle) (\s@CreateApplicationVersion' {} a -> s {sourceBundle = a} :: CreateApplicationVersion)
-
--- | Specify a commit in an AWS CodeCommit Git repository to use as the
--- source code for the application version.
-createApplicationVersion_sourceBuildInformation :: Lens.Lens' CreateApplicationVersion (Prelude.Maybe SourceBuildInformation)
-createApplicationVersion_sourceBuildInformation = Lens.lens (\CreateApplicationVersion' {sourceBuildInformation} -> sourceBuildInformation) (\s@CreateApplicationVersion' {} a -> s {sourceBuildInformation = a} :: CreateApplicationVersion)
 
 -- | Pre-processes and validates the environment manifest (@env.yaml@) and
 -- configuration files (@*.config@ files in the @.ebextensions@ folder) in
@@ -252,9 +233,29 @@ createApplicationVersion_sourceBuildInformation = Lens.lens (\CreateApplicationV
 createApplicationVersion_process :: Lens.Lens' CreateApplicationVersion (Prelude.Maybe Prelude.Bool)
 createApplicationVersion_process = Lens.lens (\CreateApplicationVersion' {process} -> process) (\s@CreateApplicationVersion' {} a -> s {process = a} :: CreateApplicationVersion)
 
--- | Settings for an AWS CodeBuild build.
-createApplicationVersion_buildConfiguration :: Lens.Lens' CreateApplicationVersion (Prelude.Maybe BuildConfiguration)
-createApplicationVersion_buildConfiguration = Lens.lens (\CreateApplicationVersion' {buildConfiguration} -> buildConfiguration) (\s@CreateApplicationVersion' {} a -> s {buildConfiguration = a} :: CreateApplicationVersion)
+-- | Specify a commit in an AWS CodeCommit Git repository to use as the
+-- source code for the application version.
+createApplicationVersion_sourceBuildInformation :: Lens.Lens' CreateApplicationVersion (Prelude.Maybe SourceBuildInformation)
+createApplicationVersion_sourceBuildInformation = Lens.lens (\CreateApplicationVersion' {sourceBuildInformation} -> sourceBuildInformation) (\s@CreateApplicationVersion' {} a -> s {sourceBuildInformation = a} :: CreateApplicationVersion)
+
+-- | The Amazon S3 bucket and key that identify the location of the source
+-- bundle for this version.
+--
+-- The Amazon S3 bucket must be in the same region as the environment.
+--
+-- Specify a source bundle in S3 or a commit in an AWS CodeCommit
+-- repository (with @SourceBuildInformation@), but not both. If neither
+-- @SourceBundle@ nor @SourceBuildInformation@ are provided, Elastic
+-- Beanstalk uses a sample application.
+createApplicationVersion_sourceBundle :: Lens.Lens' CreateApplicationVersion (Prelude.Maybe S3Location)
+createApplicationVersion_sourceBundle = Lens.lens (\CreateApplicationVersion' {sourceBundle} -> sourceBundle) (\s@CreateApplicationVersion' {} a -> s {sourceBundle = a} :: CreateApplicationVersion)
+
+-- | Specifies the tags applied to the application version.
+--
+-- Elastic Beanstalk applies these tags only to the application version.
+-- Environments that use the application version don\'t inherit the tags.
+createApplicationVersion_tags :: Lens.Lens' CreateApplicationVersion (Prelude.Maybe [Tag])
+createApplicationVersion_tags = Lens.lens (\CreateApplicationVersion' {tags} -> tags) (\s@CreateApplicationVersion' {} a -> s {tags = a} :: CreateApplicationVersion) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the application. If no application is found with this name,
 -- and @AutoCreateApplication@ is @false@, returns an
@@ -283,25 +284,25 @@ instance Core.AWSRequest CreateApplicationVersion where
 
 instance Prelude.Hashable CreateApplicationVersion where
   hashWithSalt _salt CreateApplicationVersion' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` autoCreateApplication
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` sourceBundle
-      `Prelude.hashWithSalt` sourceBuildInformation
-      `Prelude.hashWithSalt` process
+    _salt `Prelude.hashWithSalt` autoCreateApplication
       `Prelude.hashWithSalt` buildConfiguration
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` process
+      `Prelude.hashWithSalt` sourceBuildInformation
+      `Prelude.hashWithSalt` sourceBundle
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` applicationName
       `Prelude.hashWithSalt` versionLabel
 
 instance Prelude.NFData CreateApplicationVersion where
   rnf CreateApplicationVersion' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf autoCreateApplication
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf sourceBundle
-      `Prelude.seq` Prelude.rnf sourceBuildInformation
-      `Prelude.seq` Prelude.rnf process
+    Prelude.rnf autoCreateApplication
       `Prelude.seq` Prelude.rnf buildConfiguration
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf process
+      `Prelude.seq` Prelude.rnf sourceBuildInformation
+      `Prelude.seq` Prelude.rnf sourceBundle
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf applicationName
       `Prelude.seq` Prelude.rnf versionLabel
 
@@ -318,17 +319,17 @@ instance Data.ToQuery CreateApplicationVersion where
           Data.=: ("CreateApplicationVersion" :: Prelude.ByteString),
         "Version"
           Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "AutoCreateApplication"
+          Data.=: autoCreateApplication,
+        "BuildConfiguration" Data.=: buildConfiguration,
+        "Description" Data.=: description,
+        "Process" Data.=: process,
+        "SourceBuildInformation"
+          Data.=: sourceBuildInformation,
+        "SourceBundle" Data.=: sourceBundle,
         "Tags"
           Data.=: Data.toQuery
             (Data.toQueryList "member" Prelude.<$> tags),
-        "AutoCreateApplication"
-          Data.=: autoCreateApplication,
-        "Description" Data.=: description,
-        "SourceBundle" Data.=: sourceBundle,
-        "SourceBuildInformation"
-          Data.=: sourceBuildInformation,
-        "Process" Data.=: process,
-        "BuildConfiguration" Data.=: buildConfiguration,
         "ApplicationName" Data.=: applicationName,
         "VersionLabel" Data.=: versionLabel
       ]

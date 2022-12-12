@@ -29,9 +29,9 @@ module Amazonka.AccessAnalyzer.ListPolicyGenerations
     newListPolicyGenerations,
 
     -- * Request Lenses
+    listPolicyGenerations_maxResults,
     listPolicyGenerations_nextToken,
     listPolicyGenerations_principalArn,
-    listPolicyGenerations_maxResults,
 
     -- * Destructuring the Response
     ListPolicyGenerationsResponse (..),
@@ -54,14 +54,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPolicyGenerations' smart constructor.
 data ListPolicyGenerations = ListPolicyGenerations'
-  { -- | A token used for pagination of results returned.
+  { -- | The maximum number of results to return in the response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token used for pagination of results returned.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the IAM entity (user or role) for which you are generating a
     -- policy. Use this with @ListGeneratedPolicies@ to filter the results to
     -- only include results for a specific principal.
-    principalArn :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    principalArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,21 +73,26 @@ data ListPolicyGenerations = ListPolicyGenerations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listPolicyGenerations_maxResults' - The maximum number of results to return in the response.
+--
 -- 'nextToken', 'listPolicyGenerations_nextToken' - A token used for pagination of results returned.
 --
 -- 'principalArn', 'listPolicyGenerations_principalArn' - The ARN of the IAM entity (user or role) for which you are generating a
 -- policy. Use this with @ListGeneratedPolicies@ to filter the results to
 -- only include results for a specific principal.
---
--- 'maxResults', 'listPolicyGenerations_maxResults' - The maximum number of results to return in the response.
 newListPolicyGenerations ::
   ListPolicyGenerations
 newListPolicyGenerations =
   ListPolicyGenerations'
-    { nextToken = Prelude.Nothing,
-      principalArn = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      principalArn = Prelude.Nothing
     }
+
+-- | The maximum number of results to return in the response.
+listPolicyGenerations_maxResults :: Lens.Lens' ListPolicyGenerations (Prelude.Maybe Prelude.Natural)
+listPolicyGenerations_maxResults = Lens.lens (\ListPolicyGenerations' {maxResults} -> maxResults) (\s@ListPolicyGenerations' {} a -> s {maxResults = a} :: ListPolicyGenerations)
 
 -- | A token used for pagination of results returned.
 listPolicyGenerations_nextToken :: Lens.Lens' ListPolicyGenerations (Prelude.Maybe Prelude.Text)
@@ -98,10 +103,6 @@ listPolicyGenerations_nextToken = Lens.lens (\ListPolicyGenerations' {nextToken}
 -- only include results for a specific principal.
 listPolicyGenerations_principalArn :: Lens.Lens' ListPolicyGenerations (Prelude.Maybe Prelude.Text)
 listPolicyGenerations_principalArn = Lens.lens (\ListPolicyGenerations' {principalArn} -> principalArn) (\s@ListPolicyGenerations' {} a -> s {principalArn = a} :: ListPolicyGenerations)
-
--- | The maximum number of results to return in the response.
-listPolicyGenerations_maxResults :: Lens.Lens' ListPolicyGenerations (Prelude.Maybe Prelude.Natural)
-listPolicyGenerations_maxResults = Lens.lens (\ListPolicyGenerations' {maxResults} -> maxResults) (\s@ListPolicyGenerations' {} a -> s {maxResults = a} :: ListPolicyGenerations)
 
 instance Core.AWSPager ListPolicyGenerations where
   page rq rs
@@ -143,15 +144,15 @@ instance Core.AWSRequest ListPolicyGenerations where
 
 instance Prelude.Hashable ListPolicyGenerations where
   hashWithSalt _salt ListPolicyGenerations' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` principalArn
-      `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListPolicyGenerations where
   rnf ListPolicyGenerations' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf principalArn
-      `Prelude.seq` Prelude.rnf maxResults
 
 instance Data.ToHeaders ListPolicyGenerations where
   toHeaders =
@@ -170,9 +171,9 @@ instance Data.ToPath ListPolicyGenerations where
 instance Data.ToQuery ListPolicyGenerations where
   toQuery ListPolicyGenerations' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "principalArn" Data.=: principalArn,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
+        "principalArn" Data.=: principalArn
       ]
 
 -- | /See:/ 'newListPolicyGenerationsResponse' smart constructor.

@@ -28,8 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEc2VolumeAttachment' smart constructor.
 data AwsEc2VolumeAttachment = AwsEc2VolumeAttachment'
-  { -- | Whether the EBS volume is deleted when the EC2 instance is terminated.
+  { -- | The datetime when the attachment initiated.
+    attachTime :: Prelude.Maybe Prelude.Text,
+    -- | Whether the EBS volume is deleted when the EC2 instance is terminated.
     deleteOnTermination :: Prelude.Maybe Prelude.Bool,
+    -- | The identifier of the EC2 instance.
+    instanceId :: Prelude.Maybe Prelude.Text,
     -- | The attachment state of the volume. Valid values are as follows:
     --
     -- -   @attaching@
@@ -41,11 +45,7 @@ data AwsEc2VolumeAttachment = AwsEc2VolumeAttachment'
     -- -   @detaching@
     --
     -- -   @detached@
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the EC2 instance.
-    instanceId :: Prelude.Maybe Prelude.Text,
-    -- | The datetime when the attachment initiated.
-    attachTime :: Prelude.Maybe Prelude.Text
+    status :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,7 +57,11 @@ data AwsEc2VolumeAttachment = AwsEc2VolumeAttachment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'attachTime', 'awsEc2VolumeAttachment_attachTime' - The datetime when the attachment initiated.
+--
 -- 'deleteOnTermination', 'awsEc2VolumeAttachment_deleteOnTermination' - Whether the EBS volume is deleted when the EC2 instance is terminated.
+--
+-- 'instanceId', 'awsEc2VolumeAttachment_instanceId' - The identifier of the EC2 instance.
 --
 -- 'status', 'awsEc2VolumeAttachment_status' - The attachment state of the volume. Valid values are as follows:
 --
@@ -70,24 +74,28 @@ data AwsEc2VolumeAttachment = AwsEc2VolumeAttachment'
 -- -   @detaching@
 --
 -- -   @detached@
---
--- 'instanceId', 'awsEc2VolumeAttachment_instanceId' - The identifier of the EC2 instance.
---
--- 'attachTime', 'awsEc2VolumeAttachment_attachTime' - The datetime when the attachment initiated.
 newAwsEc2VolumeAttachment ::
   AwsEc2VolumeAttachment
 newAwsEc2VolumeAttachment =
   AwsEc2VolumeAttachment'
-    { deleteOnTermination =
+    { attachTime =
         Prelude.Nothing,
-      status = Prelude.Nothing,
+      deleteOnTermination = Prelude.Nothing,
       instanceId = Prelude.Nothing,
-      attachTime = Prelude.Nothing
+      status = Prelude.Nothing
     }
+
+-- | The datetime when the attachment initiated.
+awsEc2VolumeAttachment_attachTime :: Lens.Lens' AwsEc2VolumeAttachment (Prelude.Maybe Prelude.Text)
+awsEc2VolumeAttachment_attachTime = Lens.lens (\AwsEc2VolumeAttachment' {attachTime} -> attachTime) (\s@AwsEc2VolumeAttachment' {} a -> s {attachTime = a} :: AwsEc2VolumeAttachment)
 
 -- | Whether the EBS volume is deleted when the EC2 instance is terminated.
 awsEc2VolumeAttachment_deleteOnTermination :: Lens.Lens' AwsEc2VolumeAttachment (Prelude.Maybe Prelude.Bool)
 awsEc2VolumeAttachment_deleteOnTermination = Lens.lens (\AwsEc2VolumeAttachment' {deleteOnTermination} -> deleteOnTermination) (\s@AwsEc2VolumeAttachment' {} a -> s {deleteOnTermination = a} :: AwsEc2VolumeAttachment)
+
+-- | The identifier of the EC2 instance.
+awsEc2VolumeAttachment_instanceId :: Lens.Lens' AwsEc2VolumeAttachment (Prelude.Maybe Prelude.Text)
+awsEc2VolumeAttachment_instanceId = Lens.lens (\AwsEc2VolumeAttachment' {instanceId} -> instanceId) (\s@AwsEc2VolumeAttachment' {} a -> s {instanceId = a} :: AwsEc2VolumeAttachment)
 
 -- | The attachment state of the volume. Valid values are as follows:
 --
@@ -103,48 +111,40 @@ awsEc2VolumeAttachment_deleteOnTermination = Lens.lens (\AwsEc2VolumeAttachment'
 awsEc2VolumeAttachment_status :: Lens.Lens' AwsEc2VolumeAttachment (Prelude.Maybe Prelude.Text)
 awsEc2VolumeAttachment_status = Lens.lens (\AwsEc2VolumeAttachment' {status} -> status) (\s@AwsEc2VolumeAttachment' {} a -> s {status = a} :: AwsEc2VolumeAttachment)
 
--- | The identifier of the EC2 instance.
-awsEc2VolumeAttachment_instanceId :: Lens.Lens' AwsEc2VolumeAttachment (Prelude.Maybe Prelude.Text)
-awsEc2VolumeAttachment_instanceId = Lens.lens (\AwsEc2VolumeAttachment' {instanceId} -> instanceId) (\s@AwsEc2VolumeAttachment' {} a -> s {instanceId = a} :: AwsEc2VolumeAttachment)
-
--- | The datetime when the attachment initiated.
-awsEc2VolumeAttachment_attachTime :: Lens.Lens' AwsEc2VolumeAttachment (Prelude.Maybe Prelude.Text)
-awsEc2VolumeAttachment_attachTime = Lens.lens (\AwsEc2VolumeAttachment' {attachTime} -> attachTime) (\s@AwsEc2VolumeAttachment' {} a -> s {attachTime = a} :: AwsEc2VolumeAttachment)
-
 instance Data.FromJSON AwsEc2VolumeAttachment where
   parseJSON =
     Data.withObject
       "AwsEc2VolumeAttachment"
       ( \x ->
           AwsEc2VolumeAttachment'
-            Prelude.<$> (x Data..:? "DeleteOnTermination")
-            Prelude.<*> (x Data..:? "Status")
+            Prelude.<$> (x Data..:? "AttachTime")
+            Prelude.<*> (x Data..:? "DeleteOnTermination")
             Prelude.<*> (x Data..:? "InstanceId")
-            Prelude.<*> (x Data..:? "AttachTime")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable AwsEc2VolumeAttachment where
   hashWithSalt _salt AwsEc2VolumeAttachment' {..} =
-    _salt `Prelude.hashWithSalt` deleteOnTermination
-      `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` attachTime
+      `Prelude.hashWithSalt` deleteOnTermination
       `Prelude.hashWithSalt` instanceId
-      `Prelude.hashWithSalt` attachTime
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData AwsEc2VolumeAttachment where
   rnf AwsEc2VolumeAttachment' {..} =
-    Prelude.rnf deleteOnTermination
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf attachTime
+      `Prelude.seq` Prelude.rnf deleteOnTermination
       `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf attachTime
+      `Prelude.seq` Prelude.rnf status
 
 instance Data.ToJSON AwsEc2VolumeAttachment where
   toJSON AwsEc2VolumeAttachment' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DeleteOnTermination" Data..=)
+          [ ("AttachTime" Data..=) Prelude.<$> attachTime,
+            ("DeleteOnTermination" Data..=)
               Prelude.<$> deleteOnTermination,
-            ("Status" Data..=) Prelude.<$> status,
             ("InstanceId" Data..=) Prelude.<$> instanceId,
-            ("AttachTime" Data..=) Prelude.<$> attachTime
+            ("Status" Data..=) Prelude.<$> status
           ]
       )

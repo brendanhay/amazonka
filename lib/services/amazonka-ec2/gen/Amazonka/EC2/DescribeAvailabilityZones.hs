@@ -34,11 +34,11 @@ module Amazonka.EC2.DescribeAvailabilityZones
     newDescribeAvailabilityZones,
 
     -- * Request Lenses
-    describeAvailabilityZones_zoneNames,
-    describeAvailabilityZones_filters,
     describeAvailabilityZones_allAvailabilityZones,
     describeAvailabilityZones_dryRun,
+    describeAvailabilityZones_filters,
     describeAvailabilityZones_zoneIds,
+    describeAvailabilityZones_zoneNames,
 
     -- * Destructuring the Response
     DescribeAvailabilityZonesResponse (..),
@@ -60,8 +60,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeAvailabilityZones' smart constructor.
 data DescribeAvailabilityZones = DescribeAvailabilityZones'
-  { -- | The names of the Availability Zones, Local Zones, and Wavelength Zones.
-    zoneNames :: Prelude.Maybe [Prelude.Text],
+  { -- | Include all Availability Zones, Local Zones, and Wavelength Zones
+    -- regardless of your opt-in status.
+    --
+    -- If you do not use this parameter, the results include only the zones for
+    -- the Regions where you have chosen the option to opt in.
+    allAvailabilityZones :: Prelude.Maybe Prelude.Bool,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The filters.
     --
     -- -   @group-name@ - For Availability Zones, use the Region name. For
@@ -101,19 +110,10 @@ data DescribeAvailabilityZones = DescribeAvailabilityZones'
     --
     -- -   @zone-type@ - The type of zone, for example, @local-zone@.
     filters :: Prelude.Maybe [Filter],
-    -- | Include all Availability Zones, Local Zones, and Wavelength Zones
-    -- regardless of your opt-in status.
-    --
-    -- If you do not use this parameter, the results include only the zones for
-    -- the Regions where you have chosen the option to opt in.
-    allAvailabilityZones :: Prelude.Maybe Prelude.Bool,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The IDs of the Availability Zones, Local Zones, and Wavelength Zones.
-    zoneIds :: Prelude.Maybe [Prelude.Text]
+    zoneIds :: Prelude.Maybe [Prelude.Text],
+    -- | The names of the Availability Zones, Local Zones, and Wavelength Zones.
+    zoneNames :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -125,7 +125,16 @@ data DescribeAvailabilityZones = DescribeAvailabilityZones'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'zoneNames', 'describeAvailabilityZones_zoneNames' - The names of the Availability Zones, Local Zones, and Wavelength Zones.
+-- 'allAvailabilityZones', 'describeAvailabilityZones_allAvailabilityZones' - Include all Availability Zones, Local Zones, and Wavelength Zones
+-- regardless of your opt-in status.
+--
+-- If you do not use this parameter, the results include only the zones for
+-- the Regions where you have chosen the option to opt in.
+--
+-- 'dryRun', 'describeAvailabilityZones_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'filters', 'describeAvailabilityZones_filters' - The filters.
 --
@@ -166,33 +175,35 @@ data DescribeAvailabilityZones = DescribeAvailabilityZones'
 --
 -- -   @zone-type@ - The type of zone, for example, @local-zone@.
 --
--- 'allAvailabilityZones', 'describeAvailabilityZones_allAvailabilityZones' - Include all Availability Zones, Local Zones, and Wavelength Zones
--- regardless of your opt-in status.
---
--- If you do not use this parameter, the results include only the zones for
--- the Regions where you have chosen the option to opt in.
---
--- 'dryRun', 'describeAvailabilityZones_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'zoneIds', 'describeAvailabilityZones_zoneIds' - The IDs of the Availability Zones, Local Zones, and Wavelength Zones.
+--
+-- 'zoneNames', 'describeAvailabilityZones_zoneNames' - The names of the Availability Zones, Local Zones, and Wavelength Zones.
 newDescribeAvailabilityZones ::
   DescribeAvailabilityZones
 newDescribeAvailabilityZones =
   DescribeAvailabilityZones'
-    { zoneNames =
+    { allAvailabilityZones =
         Prelude.Nothing,
-      filters = Prelude.Nothing,
-      allAvailabilityZones = Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      zoneIds = Prelude.Nothing
+      filters = Prelude.Nothing,
+      zoneIds = Prelude.Nothing,
+      zoneNames = Prelude.Nothing
     }
 
--- | The names of the Availability Zones, Local Zones, and Wavelength Zones.
-describeAvailabilityZones_zoneNames :: Lens.Lens' DescribeAvailabilityZones (Prelude.Maybe [Prelude.Text])
-describeAvailabilityZones_zoneNames = Lens.lens (\DescribeAvailabilityZones' {zoneNames} -> zoneNames) (\s@DescribeAvailabilityZones' {} a -> s {zoneNames = a} :: DescribeAvailabilityZones) Prelude.. Lens.mapping Lens.coerced
+-- | Include all Availability Zones, Local Zones, and Wavelength Zones
+-- regardless of your opt-in status.
+--
+-- If you do not use this parameter, the results include only the zones for
+-- the Regions where you have chosen the option to opt in.
+describeAvailabilityZones_allAvailabilityZones :: Lens.Lens' DescribeAvailabilityZones (Prelude.Maybe Prelude.Bool)
+describeAvailabilityZones_allAvailabilityZones = Lens.lens (\DescribeAvailabilityZones' {allAvailabilityZones} -> allAvailabilityZones) (\s@DescribeAvailabilityZones' {} a -> s {allAvailabilityZones = a} :: DescribeAvailabilityZones)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeAvailabilityZones_dryRun :: Lens.Lens' DescribeAvailabilityZones (Prelude.Maybe Prelude.Bool)
+describeAvailabilityZones_dryRun = Lens.lens (\DescribeAvailabilityZones' {dryRun} -> dryRun) (\s@DescribeAvailabilityZones' {} a -> s {dryRun = a} :: DescribeAvailabilityZones)
 
 -- | The filters.
 --
@@ -235,24 +246,13 @@ describeAvailabilityZones_zoneNames = Lens.lens (\DescribeAvailabilityZones' {zo
 describeAvailabilityZones_filters :: Lens.Lens' DescribeAvailabilityZones (Prelude.Maybe [Filter])
 describeAvailabilityZones_filters = Lens.lens (\DescribeAvailabilityZones' {filters} -> filters) (\s@DescribeAvailabilityZones' {} a -> s {filters = a} :: DescribeAvailabilityZones) Prelude.. Lens.mapping Lens.coerced
 
--- | Include all Availability Zones, Local Zones, and Wavelength Zones
--- regardless of your opt-in status.
---
--- If you do not use this parameter, the results include only the zones for
--- the Regions where you have chosen the option to opt in.
-describeAvailabilityZones_allAvailabilityZones :: Lens.Lens' DescribeAvailabilityZones (Prelude.Maybe Prelude.Bool)
-describeAvailabilityZones_allAvailabilityZones = Lens.lens (\DescribeAvailabilityZones' {allAvailabilityZones} -> allAvailabilityZones) (\s@DescribeAvailabilityZones' {} a -> s {allAvailabilityZones = a} :: DescribeAvailabilityZones)
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeAvailabilityZones_dryRun :: Lens.Lens' DescribeAvailabilityZones (Prelude.Maybe Prelude.Bool)
-describeAvailabilityZones_dryRun = Lens.lens (\DescribeAvailabilityZones' {dryRun} -> dryRun) (\s@DescribeAvailabilityZones' {} a -> s {dryRun = a} :: DescribeAvailabilityZones)
-
 -- | The IDs of the Availability Zones, Local Zones, and Wavelength Zones.
 describeAvailabilityZones_zoneIds :: Lens.Lens' DescribeAvailabilityZones (Prelude.Maybe [Prelude.Text])
 describeAvailabilityZones_zoneIds = Lens.lens (\DescribeAvailabilityZones' {zoneIds} -> zoneIds) (\s@DescribeAvailabilityZones' {} a -> s {zoneIds = a} :: DescribeAvailabilityZones) Prelude.. Lens.mapping Lens.coerced
+
+-- | The names of the Availability Zones, Local Zones, and Wavelength Zones.
+describeAvailabilityZones_zoneNames :: Lens.Lens' DescribeAvailabilityZones (Prelude.Maybe [Prelude.Text])
+describeAvailabilityZones_zoneNames = Lens.lens (\DescribeAvailabilityZones' {zoneNames} -> zoneNames) (\s@DescribeAvailabilityZones' {} a -> s {zoneNames = a} :: DescribeAvailabilityZones) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest DescribeAvailabilityZones where
   type
@@ -273,19 +273,19 @@ instance Core.AWSRequest DescribeAvailabilityZones where
 
 instance Prelude.Hashable DescribeAvailabilityZones where
   hashWithSalt _salt DescribeAvailabilityZones' {..} =
-    _salt `Prelude.hashWithSalt` zoneNames
-      `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` allAvailabilityZones
+    _salt `Prelude.hashWithSalt` allAvailabilityZones
       `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` zoneIds
+      `Prelude.hashWithSalt` zoneNames
 
 instance Prelude.NFData DescribeAvailabilityZones where
   rnf DescribeAvailabilityZones' {..} =
-    Prelude.rnf zoneNames
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf allAvailabilityZones
+    Prelude.rnf allAvailabilityZones
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf zoneIds
+      `Prelude.seq` Prelude.rnf zoneNames
 
 instance Data.ToHeaders DescribeAvailabilityZones where
   toHeaders = Prelude.const Prelude.mempty
@@ -300,14 +300,14 @@ instance Data.ToQuery DescribeAvailabilityZones where
           Data.=: ("DescribeAvailabilityZones" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        Data.toQuery
-          (Data.toQueryList "ZoneName" Prelude.<$> zoneNames),
-        Data.toQuery
-          (Data.toQueryList "Filter" Prelude.<$> filters),
         "AllAvailabilityZones" Data.=: allAvailabilityZones,
         "DryRun" Data.=: dryRun,
         Data.toQuery
-          (Data.toQueryList "ZoneId" Prelude.<$> zoneIds)
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        Data.toQuery
+          (Data.toQueryList "ZoneId" Prelude.<$> zoneIds),
+        Data.toQuery
+          (Data.toQueryList "ZoneName" Prelude.<$> zoneNames)
       ]
 
 -- | /See:/ 'newDescribeAvailabilityZonesResponse' smart constructor.

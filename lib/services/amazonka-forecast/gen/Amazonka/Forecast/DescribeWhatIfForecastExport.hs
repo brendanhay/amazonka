@@ -47,16 +47,16 @@ module Amazonka.Forecast.DescribeWhatIfForecastExport
     newDescribeWhatIfForecastExportResponse,
 
     -- * Response Lenses
-    describeWhatIfForecastExportResponse_lastModificationTime,
+    describeWhatIfForecastExportResponse_creationTime,
     describeWhatIfForecastExportResponse_destination,
-    describeWhatIfForecastExportResponse_message,
-    describeWhatIfForecastExportResponse_whatIfForecastExportName,
+    describeWhatIfForecastExportResponse_estimatedTimeRemainingInMinutes,
     describeWhatIfForecastExportResponse_format,
+    describeWhatIfForecastExportResponse_lastModificationTime,
+    describeWhatIfForecastExportResponse_message,
+    describeWhatIfForecastExportResponse_status,
     describeWhatIfForecastExportResponse_whatIfForecastArns,
     describeWhatIfForecastExportResponse_whatIfForecastExportArn,
-    describeWhatIfForecastExportResponse_status,
-    describeWhatIfForecastExportResponse_estimatedTimeRemainingInMinutes,
-    describeWhatIfForecastExportResponse_creationTime,
+    describeWhatIfForecastExportResponse_whatIfForecastExportName,
     describeWhatIfForecastExportResponse_httpStatus,
   )
 where
@@ -113,18 +113,18 @@ instance Core.AWSRequest DescribeWhatIfForecastExport where
     Response.receiveJSON
       ( \s h x ->
           DescribeWhatIfForecastExportResponse'
-            Prelude.<$> (x Data..?> "LastModificationTime")
+            Prelude.<$> (x Data..?> "CreationTime")
             Prelude.<*> (x Data..?> "Destination")
-            Prelude.<*> (x Data..?> "Message")
-            Prelude.<*> (x Data..?> "WhatIfForecastExportName")
+            Prelude.<*> (x Data..?> "EstimatedTimeRemainingInMinutes")
             Prelude.<*> (x Data..?> "Format")
+            Prelude.<*> (x Data..?> "LastModificationTime")
+            Prelude.<*> (x Data..?> "Message")
+            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> ( x Data..?> "WhatIfForecastArns"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "WhatIfForecastExportArn")
-            Prelude.<*> (x Data..?> "Status")
-            Prelude.<*> (x Data..?> "EstimatedTimeRemainingInMinutes")
-            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "WhatIfForecastExportName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,7 +174,15 @@ instance Data.ToQuery DescribeWhatIfForecastExport where
 
 -- | /See:/ 'newDescribeWhatIfForecastExportResponse' smart constructor.
 data DescribeWhatIfForecastExportResponse = DescribeWhatIfForecastExportResponse'
-  { -- | The last time the resource was modified. The timestamp depends on the
+  { -- | When the what-if forecast export was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
+    destination :: Prelude.Maybe DataDestination,
+    -- | The approximate time remaining to complete the what-if forecast export,
+    -- in minutes.
+    estimatedTimeRemainingInMinutes :: Prelude.Maybe Prelude.Integer,
+    -- | The format of the exported data, CSV or PARQUET.
+    format :: Prelude.Maybe Prelude.Text,
+    -- | The last time the resource was modified. The timestamp depends on the
     -- status of the job:
     --
     -- -   @CREATE_PENDING@ - The @CreationTime@.
@@ -187,18 +195,8 @@ data DescribeWhatIfForecastExportResponse = DescribeWhatIfForecastExportResponse
     --
     -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
     lastModificationTime :: Prelude.Maybe Data.POSIX,
-    destination :: Prelude.Maybe DataDestination,
     -- | If an error occurred, an informational message about the error.
     message :: Prelude.Maybe Prelude.Text,
-    -- | The name of the what-if forecast export.
-    whatIfForecastExportName :: Prelude.Maybe Prelude.Text,
-    -- | The format of the exported data, CSV or PARQUET.
-    format :: Prelude.Maybe Prelude.Text,
-    -- | An array of Amazon Resource Names (ARNs) that represent all of the
-    -- what-if forecasts exported in this resource.
-    whatIfForecastArns :: Prelude.Maybe [Prelude.Text],
-    -- | The Amazon Resource Name (ARN) of the what-if forecast export.
-    whatIfForecastExportArn :: Prelude.Maybe Prelude.Text,
     -- | The status of the what-if forecast. States include:
     --
     -- -   @ACTIVE@
@@ -212,11 +210,13 @@ data DescribeWhatIfForecastExportResponse = DescribeWhatIfForecastExportResponse
     -- The @Status@ of the what-if forecast export must be @ACTIVE@ before you
     -- can access the forecast export.
     status :: Prelude.Maybe Prelude.Text,
-    -- | The approximate time remaining to complete the what-if forecast export,
-    -- in minutes.
-    estimatedTimeRemainingInMinutes :: Prelude.Maybe Prelude.Integer,
-    -- | When the what-if forecast export was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
+    -- | An array of Amazon Resource Names (ARNs) that represent all of the
+    -- what-if forecasts exported in this resource.
+    whatIfForecastArns :: Prelude.Maybe [Prelude.Text],
+    -- | The Amazon Resource Name (ARN) of the what-if forecast export.
+    whatIfForecastExportArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the what-if forecast export.
+    whatIfForecastExportName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -229,6 +229,15 @@ data DescribeWhatIfForecastExportResponse = DescribeWhatIfForecastExportResponse
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'creationTime', 'describeWhatIfForecastExportResponse_creationTime' - When the what-if forecast export was created.
+--
+-- 'destination', 'describeWhatIfForecastExportResponse_destination' - Undocumented member.
+--
+-- 'estimatedTimeRemainingInMinutes', 'describeWhatIfForecastExportResponse_estimatedTimeRemainingInMinutes' - The approximate time remaining to complete the what-if forecast export,
+-- in minutes.
+--
+-- 'format', 'describeWhatIfForecastExportResponse_format' - The format of the exported data, CSV or PARQUET.
 --
 -- 'lastModificationTime', 'describeWhatIfForecastExportResponse_lastModificationTime' - The last time the resource was modified. The timestamp depends on the
 -- status of the job:
@@ -243,18 +252,7 @@ data DescribeWhatIfForecastExportResponse = DescribeWhatIfForecastExportResponse
 --
 -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
 --
--- 'destination', 'describeWhatIfForecastExportResponse_destination' - Undocumented member.
---
 -- 'message', 'describeWhatIfForecastExportResponse_message' - If an error occurred, an informational message about the error.
---
--- 'whatIfForecastExportName', 'describeWhatIfForecastExportResponse_whatIfForecastExportName' - The name of the what-if forecast export.
---
--- 'format', 'describeWhatIfForecastExportResponse_format' - The format of the exported data, CSV or PARQUET.
---
--- 'whatIfForecastArns', 'describeWhatIfForecastExportResponse_whatIfForecastArns' - An array of Amazon Resource Names (ARNs) that represent all of the
--- what-if forecasts exported in this resource.
---
--- 'whatIfForecastExportArn', 'describeWhatIfForecastExportResponse_whatIfForecastExportArn' - The Amazon Resource Name (ARN) of the what-if forecast export.
 --
 -- 'status', 'describeWhatIfForecastExportResponse_status' - The status of the what-if forecast. States include:
 --
@@ -269,10 +267,12 @@ data DescribeWhatIfForecastExportResponse = DescribeWhatIfForecastExportResponse
 -- The @Status@ of the what-if forecast export must be @ACTIVE@ before you
 -- can access the forecast export.
 --
--- 'estimatedTimeRemainingInMinutes', 'describeWhatIfForecastExportResponse_estimatedTimeRemainingInMinutes' - The approximate time remaining to complete the what-if forecast export,
--- in minutes.
+-- 'whatIfForecastArns', 'describeWhatIfForecastExportResponse_whatIfForecastArns' - An array of Amazon Resource Names (ARNs) that represent all of the
+-- what-if forecasts exported in this resource.
 --
--- 'creationTime', 'describeWhatIfForecastExportResponse_creationTime' - When the what-if forecast export was created.
+-- 'whatIfForecastExportArn', 'describeWhatIfForecastExportResponse_whatIfForecastExportArn' - The Amazon Resource Name (ARN) of the what-if forecast export.
+--
+-- 'whatIfForecastExportName', 'describeWhatIfForecastExportResponse_whatIfForecastExportName' - The name of the what-if forecast export.
 --
 -- 'httpStatus', 'describeWhatIfForecastExportResponse_httpStatus' - The response's http status code.
 newDescribeWhatIfForecastExportResponse ::
@@ -281,22 +281,40 @@ newDescribeWhatIfForecastExportResponse ::
   DescribeWhatIfForecastExportResponse
 newDescribeWhatIfForecastExportResponse pHttpStatus_ =
   DescribeWhatIfForecastExportResponse'
-    { lastModificationTime =
+    { creationTime =
         Prelude.Nothing,
       destination = Prelude.Nothing,
-      message = Prelude.Nothing,
-      whatIfForecastExportName =
+      estimatedTimeRemainingInMinutes =
         Prelude.Nothing,
       format = Prelude.Nothing,
+      lastModificationTime =
+        Prelude.Nothing,
+      message = Prelude.Nothing,
+      status = Prelude.Nothing,
       whatIfForecastArns = Prelude.Nothing,
       whatIfForecastExportArn =
         Prelude.Nothing,
-      status = Prelude.Nothing,
-      estimatedTimeRemainingInMinutes =
+      whatIfForecastExportName =
         Prelude.Nothing,
-      creationTime = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | When the what-if forecast export was created.
+describeWhatIfForecastExportResponse_creationTime :: Lens.Lens' DescribeWhatIfForecastExportResponse (Prelude.Maybe Prelude.UTCTime)
+describeWhatIfForecastExportResponse_creationTime = Lens.lens (\DescribeWhatIfForecastExportResponse' {creationTime} -> creationTime) (\s@DescribeWhatIfForecastExportResponse' {} a -> s {creationTime = a} :: DescribeWhatIfForecastExportResponse) Prelude.. Lens.mapping Data._Time
+
+-- | Undocumented member.
+describeWhatIfForecastExportResponse_destination :: Lens.Lens' DescribeWhatIfForecastExportResponse (Prelude.Maybe DataDestination)
+describeWhatIfForecastExportResponse_destination = Lens.lens (\DescribeWhatIfForecastExportResponse' {destination} -> destination) (\s@DescribeWhatIfForecastExportResponse' {} a -> s {destination = a} :: DescribeWhatIfForecastExportResponse)
+
+-- | The approximate time remaining to complete the what-if forecast export,
+-- in minutes.
+describeWhatIfForecastExportResponse_estimatedTimeRemainingInMinutes :: Lens.Lens' DescribeWhatIfForecastExportResponse (Prelude.Maybe Prelude.Integer)
+describeWhatIfForecastExportResponse_estimatedTimeRemainingInMinutes = Lens.lens (\DescribeWhatIfForecastExportResponse' {estimatedTimeRemainingInMinutes} -> estimatedTimeRemainingInMinutes) (\s@DescribeWhatIfForecastExportResponse' {} a -> s {estimatedTimeRemainingInMinutes = a} :: DescribeWhatIfForecastExportResponse)
+
+-- | The format of the exported data, CSV or PARQUET.
+describeWhatIfForecastExportResponse_format :: Lens.Lens' DescribeWhatIfForecastExportResponse (Prelude.Maybe Prelude.Text)
+describeWhatIfForecastExportResponse_format = Lens.lens (\DescribeWhatIfForecastExportResponse' {format} -> format) (\s@DescribeWhatIfForecastExportResponse' {} a -> s {format = a} :: DescribeWhatIfForecastExportResponse)
 
 -- | The last time the resource was modified. The timestamp depends on the
 -- status of the job:
@@ -313,30 +331,9 @@ newDescribeWhatIfForecastExportResponse pHttpStatus_ =
 describeWhatIfForecastExportResponse_lastModificationTime :: Lens.Lens' DescribeWhatIfForecastExportResponse (Prelude.Maybe Prelude.UTCTime)
 describeWhatIfForecastExportResponse_lastModificationTime = Lens.lens (\DescribeWhatIfForecastExportResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribeWhatIfForecastExportResponse' {} a -> s {lastModificationTime = a} :: DescribeWhatIfForecastExportResponse) Prelude.. Lens.mapping Data._Time
 
--- | Undocumented member.
-describeWhatIfForecastExportResponse_destination :: Lens.Lens' DescribeWhatIfForecastExportResponse (Prelude.Maybe DataDestination)
-describeWhatIfForecastExportResponse_destination = Lens.lens (\DescribeWhatIfForecastExportResponse' {destination} -> destination) (\s@DescribeWhatIfForecastExportResponse' {} a -> s {destination = a} :: DescribeWhatIfForecastExportResponse)
-
 -- | If an error occurred, an informational message about the error.
 describeWhatIfForecastExportResponse_message :: Lens.Lens' DescribeWhatIfForecastExportResponse (Prelude.Maybe Prelude.Text)
 describeWhatIfForecastExportResponse_message = Lens.lens (\DescribeWhatIfForecastExportResponse' {message} -> message) (\s@DescribeWhatIfForecastExportResponse' {} a -> s {message = a} :: DescribeWhatIfForecastExportResponse)
-
--- | The name of the what-if forecast export.
-describeWhatIfForecastExportResponse_whatIfForecastExportName :: Lens.Lens' DescribeWhatIfForecastExportResponse (Prelude.Maybe Prelude.Text)
-describeWhatIfForecastExportResponse_whatIfForecastExportName = Lens.lens (\DescribeWhatIfForecastExportResponse' {whatIfForecastExportName} -> whatIfForecastExportName) (\s@DescribeWhatIfForecastExportResponse' {} a -> s {whatIfForecastExportName = a} :: DescribeWhatIfForecastExportResponse)
-
--- | The format of the exported data, CSV or PARQUET.
-describeWhatIfForecastExportResponse_format :: Lens.Lens' DescribeWhatIfForecastExportResponse (Prelude.Maybe Prelude.Text)
-describeWhatIfForecastExportResponse_format = Lens.lens (\DescribeWhatIfForecastExportResponse' {format} -> format) (\s@DescribeWhatIfForecastExportResponse' {} a -> s {format = a} :: DescribeWhatIfForecastExportResponse)
-
--- | An array of Amazon Resource Names (ARNs) that represent all of the
--- what-if forecasts exported in this resource.
-describeWhatIfForecastExportResponse_whatIfForecastArns :: Lens.Lens' DescribeWhatIfForecastExportResponse (Prelude.Maybe [Prelude.Text])
-describeWhatIfForecastExportResponse_whatIfForecastArns = Lens.lens (\DescribeWhatIfForecastExportResponse' {whatIfForecastArns} -> whatIfForecastArns) (\s@DescribeWhatIfForecastExportResponse' {} a -> s {whatIfForecastArns = a} :: DescribeWhatIfForecastExportResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The Amazon Resource Name (ARN) of the what-if forecast export.
-describeWhatIfForecastExportResponse_whatIfForecastExportArn :: Lens.Lens' DescribeWhatIfForecastExportResponse (Prelude.Maybe Prelude.Text)
-describeWhatIfForecastExportResponse_whatIfForecastExportArn = Lens.lens (\DescribeWhatIfForecastExportResponse' {whatIfForecastExportArn} -> whatIfForecastExportArn) (\s@DescribeWhatIfForecastExportResponse' {} a -> s {whatIfForecastExportArn = a} :: DescribeWhatIfForecastExportResponse)
 
 -- | The status of the what-if forecast. States include:
 --
@@ -353,14 +350,18 @@ describeWhatIfForecastExportResponse_whatIfForecastExportArn = Lens.lens (\Descr
 describeWhatIfForecastExportResponse_status :: Lens.Lens' DescribeWhatIfForecastExportResponse (Prelude.Maybe Prelude.Text)
 describeWhatIfForecastExportResponse_status = Lens.lens (\DescribeWhatIfForecastExportResponse' {status} -> status) (\s@DescribeWhatIfForecastExportResponse' {} a -> s {status = a} :: DescribeWhatIfForecastExportResponse)
 
--- | The approximate time remaining to complete the what-if forecast export,
--- in minutes.
-describeWhatIfForecastExportResponse_estimatedTimeRemainingInMinutes :: Lens.Lens' DescribeWhatIfForecastExportResponse (Prelude.Maybe Prelude.Integer)
-describeWhatIfForecastExportResponse_estimatedTimeRemainingInMinutes = Lens.lens (\DescribeWhatIfForecastExportResponse' {estimatedTimeRemainingInMinutes} -> estimatedTimeRemainingInMinutes) (\s@DescribeWhatIfForecastExportResponse' {} a -> s {estimatedTimeRemainingInMinutes = a} :: DescribeWhatIfForecastExportResponse)
+-- | An array of Amazon Resource Names (ARNs) that represent all of the
+-- what-if forecasts exported in this resource.
+describeWhatIfForecastExportResponse_whatIfForecastArns :: Lens.Lens' DescribeWhatIfForecastExportResponse (Prelude.Maybe [Prelude.Text])
+describeWhatIfForecastExportResponse_whatIfForecastArns = Lens.lens (\DescribeWhatIfForecastExportResponse' {whatIfForecastArns} -> whatIfForecastArns) (\s@DescribeWhatIfForecastExportResponse' {} a -> s {whatIfForecastArns = a} :: DescribeWhatIfForecastExportResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | When the what-if forecast export was created.
-describeWhatIfForecastExportResponse_creationTime :: Lens.Lens' DescribeWhatIfForecastExportResponse (Prelude.Maybe Prelude.UTCTime)
-describeWhatIfForecastExportResponse_creationTime = Lens.lens (\DescribeWhatIfForecastExportResponse' {creationTime} -> creationTime) (\s@DescribeWhatIfForecastExportResponse' {} a -> s {creationTime = a} :: DescribeWhatIfForecastExportResponse) Prelude.. Lens.mapping Data._Time
+-- | The Amazon Resource Name (ARN) of the what-if forecast export.
+describeWhatIfForecastExportResponse_whatIfForecastExportArn :: Lens.Lens' DescribeWhatIfForecastExportResponse (Prelude.Maybe Prelude.Text)
+describeWhatIfForecastExportResponse_whatIfForecastExportArn = Lens.lens (\DescribeWhatIfForecastExportResponse' {whatIfForecastExportArn} -> whatIfForecastExportArn) (\s@DescribeWhatIfForecastExportResponse' {} a -> s {whatIfForecastExportArn = a} :: DescribeWhatIfForecastExportResponse)
+
+-- | The name of the what-if forecast export.
+describeWhatIfForecastExportResponse_whatIfForecastExportName :: Lens.Lens' DescribeWhatIfForecastExportResponse (Prelude.Maybe Prelude.Text)
+describeWhatIfForecastExportResponse_whatIfForecastExportName = Lens.lens (\DescribeWhatIfForecastExportResponse' {whatIfForecastExportName} -> whatIfForecastExportName) (\s@DescribeWhatIfForecastExportResponse' {} a -> s {whatIfForecastExportName = a} :: DescribeWhatIfForecastExportResponse)
 
 -- | The response's http status code.
 describeWhatIfForecastExportResponse_httpStatus :: Lens.Lens' DescribeWhatIfForecastExportResponse Prelude.Int
@@ -371,14 +372,14 @@ instance
     DescribeWhatIfForecastExportResponse
   where
   rnf DescribeWhatIfForecastExportResponse' {..} =
-    Prelude.rnf lastModificationTime
+    Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf whatIfForecastExportName
+      `Prelude.seq` Prelude.rnf estimatedTimeRemainingInMinutes
       `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf lastModificationTime
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf whatIfForecastArns
       `Prelude.seq` Prelude.rnf whatIfForecastExportArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf estimatedTimeRemainingInMinutes
-      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf whatIfForecastExportName
       `Prelude.seq` Prelude.rnf httpStatus

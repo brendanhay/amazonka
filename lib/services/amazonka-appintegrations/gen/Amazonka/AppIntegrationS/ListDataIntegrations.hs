@@ -33,16 +33,16 @@ module Amazonka.AppIntegrationS.ListDataIntegrations
     newListDataIntegrations,
 
     -- * Request Lenses
-    listDataIntegrations_nextToken,
     listDataIntegrations_maxResults,
+    listDataIntegrations_nextToken,
 
     -- * Destructuring the Response
     ListDataIntegrationsResponse (..),
     newListDataIntegrationsResponse,
 
     -- * Response Lenses
-    listDataIntegrationsResponse_nextToken,
     listDataIntegrationsResponse_dataIntegrations,
+    listDataIntegrationsResponse_nextToken,
     listDataIntegrationsResponse_httpStatus,
   )
 where
@@ -57,12 +57,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDataIntegrations' smart constructor.
 data ListDataIntegrations = ListDataIntegrations'
-  { -- | The token for the next set of results. Use the value returned in the
+  { -- | The maximum number of results to return per page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per page.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,28 +74,28 @@ data ListDataIntegrations = ListDataIntegrations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listDataIntegrations_maxResults' - The maximum number of results to return per page.
+--
 -- 'nextToken', 'listDataIntegrations_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
---
--- 'maxResults', 'listDataIntegrations_maxResults' - The maximum number of results to return per page.
 newListDataIntegrations ::
   ListDataIntegrations
 newListDataIntegrations =
   ListDataIntegrations'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of results to return per page.
+listDataIntegrations_maxResults :: Lens.Lens' ListDataIntegrations (Prelude.Maybe Prelude.Natural)
+listDataIntegrations_maxResults = Lens.lens (\ListDataIntegrations' {maxResults} -> maxResults) (\s@ListDataIntegrations' {} a -> s {maxResults = a} :: ListDataIntegrations)
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
 listDataIntegrations_nextToken :: Lens.Lens' ListDataIntegrations (Prelude.Maybe Prelude.Text)
 listDataIntegrations_nextToken = Lens.lens (\ListDataIntegrations' {nextToken} -> nextToken) (\s@ListDataIntegrations' {} a -> s {nextToken = a} :: ListDataIntegrations)
-
--- | The maximum number of results to return per page.
-listDataIntegrations_maxResults :: Lens.Lens' ListDataIntegrations (Prelude.Maybe Prelude.Natural)
-listDataIntegrations_maxResults = Lens.lens (\ListDataIntegrations' {maxResults} -> maxResults) (\s@ListDataIntegrations' {} a -> s {maxResults = a} :: ListDataIntegrations)
 
 instance Core.AWSRequest ListDataIntegrations where
   type
@@ -107,20 +107,20 @@ instance Core.AWSRequest ListDataIntegrations where
     Response.receiveJSON
       ( \s h x ->
           ListDataIntegrationsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "DataIntegrations")
+            Prelude.<$> (x Data..?> "DataIntegrations")
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListDataIntegrations where
   hashWithSalt _salt ListDataIntegrations' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListDataIntegrations where
   rnf ListDataIntegrations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListDataIntegrations where
   toHeaders =
@@ -139,17 +139,17 @@ instance Data.ToPath ListDataIntegrations where
 instance Data.ToQuery ListDataIntegrations where
   toQuery ListDataIntegrations' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListDataIntegrationsResponse' smart constructor.
 data ListDataIntegrationsResponse = ListDataIntegrationsResponse'
-  { -- | If there are additional results, this is the token for the next set of
+  { -- | The DataIntegrations associated with this account.
+    dataIntegrations :: Prelude.Maybe (Prelude.NonEmpty DataIntegrationSummary),
+    -- | If there are additional results, this is the token for the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The DataIntegrations associated with this account.
-    dataIntegrations :: Prelude.Maybe (Prelude.NonEmpty DataIntegrationSummary),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -163,10 +163,10 @@ data ListDataIntegrationsResponse = ListDataIntegrationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dataIntegrations', 'listDataIntegrationsResponse_dataIntegrations' - The DataIntegrations associated with this account.
+--
 -- 'nextToken', 'listDataIntegrationsResponse_nextToken' - If there are additional results, this is the token for the next set of
 -- results.
---
--- 'dataIntegrations', 'listDataIntegrationsResponse_dataIntegrations' - The DataIntegrations associated with this account.
 --
 -- 'httpStatus', 'listDataIntegrationsResponse_httpStatus' - The response's http status code.
 newListDataIntegrationsResponse ::
@@ -175,20 +175,20 @@ newListDataIntegrationsResponse ::
   ListDataIntegrationsResponse
 newListDataIntegrationsResponse pHttpStatus_ =
   ListDataIntegrationsResponse'
-    { nextToken =
+    { dataIntegrations =
         Prelude.Nothing,
-      dataIntegrations = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The DataIntegrations associated with this account.
+listDataIntegrationsResponse_dataIntegrations :: Lens.Lens' ListDataIntegrationsResponse (Prelude.Maybe (Prelude.NonEmpty DataIntegrationSummary))
+listDataIntegrationsResponse_dataIntegrations = Lens.lens (\ListDataIntegrationsResponse' {dataIntegrations} -> dataIntegrations) (\s@ListDataIntegrationsResponse' {} a -> s {dataIntegrations = a} :: ListDataIntegrationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
 listDataIntegrationsResponse_nextToken :: Lens.Lens' ListDataIntegrationsResponse (Prelude.Maybe Prelude.Text)
 listDataIntegrationsResponse_nextToken = Lens.lens (\ListDataIntegrationsResponse' {nextToken} -> nextToken) (\s@ListDataIntegrationsResponse' {} a -> s {nextToken = a} :: ListDataIntegrationsResponse)
-
--- | The DataIntegrations associated with this account.
-listDataIntegrationsResponse_dataIntegrations :: Lens.Lens' ListDataIntegrationsResponse (Prelude.Maybe (Prelude.NonEmpty DataIntegrationSummary))
-listDataIntegrationsResponse_dataIntegrations = Lens.lens (\ListDataIntegrationsResponse' {dataIntegrations} -> dataIntegrations) (\s@ListDataIntegrationsResponse' {} a -> s {dataIntegrations = a} :: ListDataIntegrationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listDataIntegrationsResponse_httpStatus :: Lens.Lens' ListDataIntegrationsResponse Prelude.Int
@@ -196,6 +196,6 @@ listDataIntegrationsResponse_httpStatus = Lens.lens (\ListDataIntegrationsRespon
 
 instance Prelude.NFData ListDataIntegrationsResponse where
   rnf ListDataIntegrationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf dataIntegrations
+    Prelude.rnf dataIntegrations
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

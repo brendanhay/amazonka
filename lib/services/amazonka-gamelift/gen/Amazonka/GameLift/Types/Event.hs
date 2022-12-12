@@ -30,15 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 -- provide additional information for troubleshooting and debugging
 -- problems.
 --
--- __Related actions__
---
--- DescribeFleetEvents
---
 -- /See:/ 'newEvent' smart constructor.
 data Event = Event'
-  { -- | A unique identifier for an event resource, such as a fleet ID.
-    resourceId :: Prelude.Maybe Prelude.Text,
-    -- | The type of event being logged.
+  { -- | The type of event being logged.
     --
     -- __Fleet state transition events:__
     --
@@ -131,12 +125,11 @@ data Event = Event'
     --     Amazon Web Services account.
     --
     -- -   FLEET_VPC_PEERING_FAILED -- A requested VPC peering connection has
-    --     failed. Event details and status information (see
-    --     DescribeVpcPeeringConnections) provide additional detail. A common
-    --     reason for peering failure is that the two VPCs have overlapping
-    --     CIDR blocks of IPv4 addresses. To resolve this, change the CIDR
-    --     block for the VPC in your Amazon Web Services account. For more
-    --     information on VPC peering failures, see
+    --     failed. Event details and status information provide additional
+    --     detail. A common reason for peering failure is that the two VPCs
+    --     have overlapping CIDR blocks of IPv4 addresses. To resolve this,
+    --     change the CIDR block for the VPC in your Amazon Web Services
+    --     account. For more information on VPC peering failures, see
     --     <https://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide/invalid-peering-configurations.html>
     --
     -- -   FLEET_VPC_PEERING_DELETED -- A VPC peering connection has been
@@ -147,7 +140,7 @@ data Event = Event'
     -- -   INSTANCE_INTERRUPTED -- A spot instance was interrupted by EC2 with
     --     a two-minute notification.
     --
-    -- __Spot process events:__
+    -- __Server process events:__
     --
     -- -   SERVER_PROCESS_INVALID_PATH -- The game server executable or script
     --     could not be found based on the Fleet runtime configuration. Check
@@ -202,19 +195,21 @@ data Event = Event'
     --
     -- -   GENERIC_EVENT -- An unspecified event has occurred.
     eventCode :: Prelude.Maybe EventCode,
-    -- | Additional information related to the event.
-    message :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for a fleet event.
     eventId :: Prelude.Maybe Prelude.Text,
     -- | Time stamp indicating when this event occurred. Format is a number
     -- expressed in Unix time as milliseconds (for example
     -- @\"1469498468.057\"@).
     eventTime :: Prelude.Maybe Data.POSIX,
+    -- | Additional information related to the event.
+    message :: Prelude.Maybe Prelude.Text,
     -- | Location of stored logs with additional detail that is related to the
     -- event. This is useful for debugging issues. The URL is valid for 15
     -- minutes. You can also access fleet creation logs through the GameLift
     -- console.
-    preSignedLogUrl :: Prelude.Maybe Prelude.Text
+    preSignedLogUrl :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for an event resource, such as a fleet ID.
+    resourceId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -225,8 +220,6 @@ data Event = Event'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'resourceId', 'event_resourceId' - A unique identifier for an event resource, such as a fleet ID.
 --
 -- 'eventCode', 'event_eventCode' - The type of event being logged.
 --
@@ -321,12 +314,11 @@ data Event = Event'
 --     Amazon Web Services account.
 --
 -- -   FLEET_VPC_PEERING_FAILED -- A requested VPC peering connection has
---     failed. Event details and status information (see
---     DescribeVpcPeeringConnections) provide additional detail. A common
---     reason for peering failure is that the two VPCs have overlapping
---     CIDR blocks of IPv4 addresses. To resolve this, change the CIDR
---     block for the VPC in your Amazon Web Services account. For more
---     information on VPC peering failures, see
+--     failed. Event details and status information provide additional
+--     detail. A common reason for peering failure is that the two VPCs
+--     have overlapping CIDR blocks of IPv4 addresses. To resolve this,
+--     change the CIDR block for the VPC in your Amazon Web Services
+--     account. For more information on VPC peering failures, see
 --     <https://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide/invalid-peering-configurations.html>
 --
 -- -   FLEET_VPC_PEERING_DELETED -- A VPC peering connection has been
@@ -337,7 +329,7 @@ data Event = Event'
 -- -   INSTANCE_INTERRUPTED -- A spot instance was interrupted by EC2 with
 --     a two-minute notification.
 --
--- __Spot process events:__
+-- __Server process events:__
 --
 -- -   SERVER_PROCESS_INVALID_PATH -- The game server executable or script
 --     could not be found based on the Fleet runtime configuration. Check
@@ -392,33 +384,31 @@ data Event = Event'
 --
 -- -   GENERIC_EVENT -- An unspecified event has occurred.
 --
--- 'message', 'event_message' - Additional information related to the event.
---
 -- 'eventId', 'event_eventId' - A unique identifier for a fleet event.
 --
 -- 'eventTime', 'event_eventTime' - Time stamp indicating when this event occurred. Format is a number
 -- expressed in Unix time as milliseconds (for example
 -- @\"1469498468.057\"@).
 --
+-- 'message', 'event_message' - Additional information related to the event.
+--
 -- 'preSignedLogUrl', 'event_preSignedLogUrl' - Location of stored logs with additional detail that is related to the
 -- event. This is useful for debugging issues. The URL is valid for 15
 -- minutes. You can also access fleet creation logs through the GameLift
 -- console.
+--
+-- 'resourceId', 'event_resourceId' - A unique identifier for an event resource, such as a fleet ID.
 newEvent ::
   Event
 newEvent =
   Event'
-    { resourceId = Prelude.Nothing,
-      eventCode = Prelude.Nothing,
-      message = Prelude.Nothing,
+    { eventCode = Prelude.Nothing,
       eventId = Prelude.Nothing,
       eventTime = Prelude.Nothing,
-      preSignedLogUrl = Prelude.Nothing
+      message = Prelude.Nothing,
+      preSignedLogUrl = Prelude.Nothing,
+      resourceId = Prelude.Nothing
     }
-
--- | A unique identifier for an event resource, such as a fleet ID.
-event_resourceId :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
-event_resourceId = Lens.lens (\Event' {resourceId} -> resourceId) (\s@Event' {} a -> s {resourceId = a} :: Event)
 
 -- | The type of event being logged.
 --
@@ -513,12 +503,11 @@ event_resourceId = Lens.lens (\Event' {resourceId} -> resourceId) (\s@Event' {} 
 --     Amazon Web Services account.
 --
 -- -   FLEET_VPC_PEERING_FAILED -- A requested VPC peering connection has
---     failed. Event details and status information (see
---     DescribeVpcPeeringConnections) provide additional detail. A common
---     reason for peering failure is that the two VPCs have overlapping
---     CIDR blocks of IPv4 addresses. To resolve this, change the CIDR
---     block for the VPC in your Amazon Web Services account. For more
---     information on VPC peering failures, see
+--     failed. Event details and status information provide additional
+--     detail. A common reason for peering failure is that the two VPCs
+--     have overlapping CIDR blocks of IPv4 addresses. To resolve this,
+--     change the CIDR block for the VPC in your Amazon Web Services
+--     account. For more information on VPC peering failures, see
 --     <https://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide/invalid-peering-configurations.html>
 --
 -- -   FLEET_VPC_PEERING_DELETED -- A VPC peering connection has been
@@ -529,7 +518,7 @@ event_resourceId = Lens.lens (\Event' {resourceId} -> resourceId) (\s@Event' {} 
 -- -   INSTANCE_INTERRUPTED -- A spot instance was interrupted by EC2 with
 --     a two-minute notification.
 --
--- __Spot process events:__
+-- __Server process events:__
 --
 -- -   SERVER_PROCESS_INVALID_PATH -- The game server executable or script
 --     could not be found based on the Fleet runtime configuration. Check
@@ -586,10 +575,6 @@ event_resourceId = Lens.lens (\Event' {resourceId} -> resourceId) (\s@Event' {} 
 event_eventCode :: Lens.Lens' Event (Prelude.Maybe EventCode)
 event_eventCode = Lens.lens (\Event' {eventCode} -> eventCode) (\s@Event' {} a -> s {eventCode = a} :: Event)
 
--- | Additional information related to the event.
-event_message :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
-event_message = Lens.lens (\Event' {message} -> message) (\s@Event' {} a -> s {message = a} :: Event)
-
 -- | A unique identifier for a fleet event.
 event_eventId :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_eventId = Lens.lens (\Event' {eventId} -> eventId) (\s@Event' {} a -> s {eventId = a} :: Event)
@@ -600,6 +585,10 @@ event_eventId = Lens.lens (\Event' {eventId} -> eventId) (\s@Event' {} a -> s {e
 event_eventTime :: Lens.Lens' Event (Prelude.Maybe Prelude.UTCTime)
 event_eventTime = Lens.lens (\Event' {eventTime} -> eventTime) (\s@Event' {} a -> s {eventTime = a} :: Event) Prelude.. Lens.mapping Data._Time
 
+-- | Additional information related to the event.
+event_message :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
+event_message = Lens.lens (\Event' {message} -> message) (\s@Event' {} a -> s {message = a} :: Event)
+
 -- | Location of stored logs with additional detail that is related to the
 -- event. This is useful for debugging issues. The URL is valid for 15
 -- minutes. You can also access fleet creation logs through the GameLift
@@ -607,34 +596,38 @@ event_eventTime = Lens.lens (\Event' {eventTime} -> eventTime) (\s@Event' {} a -
 event_preSignedLogUrl :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_preSignedLogUrl = Lens.lens (\Event' {preSignedLogUrl} -> preSignedLogUrl) (\s@Event' {} a -> s {preSignedLogUrl = a} :: Event)
 
+-- | A unique identifier for an event resource, such as a fleet ID.
+event_resourceId :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
+event_resourceId = Lens.lens (\Event' {resourceId} -> resourceId) (\s@Event' {} a -> s {resourceId = a} :: Event)
+
 instance Data.FromJSON Event where
   parseJSON =
     Data.withObject
       "Event"
       ( \x ->
           Event'
-            Prelude.<$> (x Data..:? "ResourceId")
-            Prelude.<*> (x Data..:? "EventCode")
-            Prelude.<*> (x Data..:? "Message")
+            Prelude.<$> (x Data..:? "EventCode")
             Prelude.<*> (x Data..:? "EventId")
             Prelude.<*> (x Data..:? "EventTime")
+            Prelude.<*> (x Data..:? "Message")
             Prelude.<*> (x Data..:? "PreSignedLogUrl")
+            Prelude.<*> (x Data..:? "ResourceId")
       )
 
 instance Prelude.Hashable Event where
   hashWithSalt _salt Event' {..} =
-    _salt `Prelude.hashWithSalt` resourceId
-      `Prelude.hashWithSalt` eventCode
-      `Prelude.hashWithSalt` message
+    _salt `Prelude.hashWithSalt` eventCode
       `Prelude.hashWithSalt` eventId
       `Prelude.hashWithSalt` eventTime
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` preSignedLogUrl
+      `Prelude.hashWithSalt` resourceId
 
 instance Prelude.NFData Event where
   rnf Event' {..} =
-    Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf eventCode
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf eventCode
       `Prelude.seq` Prelude.rnf eventId
       `Prelude.seq` Prelude.rnf eventTime
+      `Prelude.seq` Prelude.rnf message
       `Prelude.seq` Prelude.rnf preSignedLogUrl
+      `Prelude.seq` Prelude.rnf resourceId

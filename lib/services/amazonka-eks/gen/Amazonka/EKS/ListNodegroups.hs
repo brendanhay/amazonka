@@ -31,8 +31,8 @@ module Amazonka.EKS.ListNodegroups
     newListNodegroups,
 
     -- * Request Lenses
-    listNodegroups_nextToken,
     listNodegroups_maxResults,
+    listNodegroups_nextToken,
     listNodegroups_clusterName,
 
     -- * Destructuring the Response
@@ -56,12 +56,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListNodegroups' smart constructor.
 data ListNodegroups = ListNodegroups'
-  { -- | The @nextToken@ value returned from a previous paginated
-    -- @ListNodegroups@ request where @maxResults@ was used and the results
-    -- exceeded the value of that parameter. Pagination continues from the end
-    -- of the previous results that returned the @nextToken@ value.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of node group results returned by @ListNodegroups@ in
+  { -- | The maximum number of node group results returned by @ListNodegroups@ in
     -- paginated output. When you use this parameter, @ListNodegroups@ returns
     -- only @maxResults@ results in a single page along with a @nextToken@
     -- response element. You can see the remaining results of the initial
@@ -70,6 +65,11 @@ data ListNodegroups = ListNodegroups'
     -- use this parameter, @ListNodegroups@ returns up to 100 results and a
     -- @nextToken@ value if applicable.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The @nextToken@ value returned from a previous paginated
+    -- @ListNodegroups@ request where @maxResults@ was used and the results
+    -- exceeded the value of that parameter. Pagination continues from the end
+    -- of the previous results that returned the @nextToken@ value.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the Amazon EKS cluster that you would like to list node
     -- groups in.
     clusterName :: Prelude.Text
@@ -84,11 +84,6 @@ data ListNodegroups = ListNodegroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listNodegroups_nextToken' - The @nextToken@ value returned from a previous paginated
--- @ListNodegroups@ request where @maxResults@ was used and the results
--- exceeded the value of that parameter. Pagination continues from the end
--- of the previous results that returned the @nextToken@ value.
---
 -- 'maxResults', 'listNodegroups_maxResults' - The maximum number of node group results returned by @ListNodegroups@ in
 -- paginated output. When you use this parameter, @ListNodegroups@ returns
 -- only @maxResults@ results in a single page along with a @nextToken@
@@ -98,6 +93,11 @@ data ListNodegroups = ListNodegroups'
 -- use this parameter, @ListNodegroups@ returns up to 100 results and a
 -- @nextToken@ value if applicable.
 --
+-- 'nextToken', 'listNodegroups_nextToken' - The @nextToken@ value returned from a previous paginated
+-- @ListNodegroups@ request where @maxResults@ was used and the results
+-- exceeded the value of that parameter. Pagination continues from the end
+-- of the previous results that returned the @nextToken@ value.
+--
 -- 'clusterName', 'listNodegroups_clusterName' - The name of the Amazon EKS cluster that you would like to list node
 -- groups in.
 newListNodegroups ::
@@ -106,17 +106,10 @@ newListNodegroups ::
   ListNodegroups
 newListNodegroups pClusterName_ =
   ListNodegroups'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       clusterName = pClusterName_
     }
-
--- | The @nextToken@ value returned from a previous paginated
--- @ListNodegroups@ request where @maxResults@ was used and the results
--- exceeded the value of that parameter. Pagination continues from the end
--- of the previous results that returned the @nextToken@ value.
-listNodegroups_nextToken :: Lens.Lens' ListNodegroups (Prelude.Maybe Prelude.Text)
-listNodegroups_nextToken = Lens.lens (\ListNodegroups' {nextToken} -> nextToken) (\s@ListNodegroups' {} a -> s {nextToken = a} :: ListNodegroups)
 
 -- | The maximum number of node group results returned by @ListNodegroups@ in
 -- paginated output. When you use this parameter, @ListNodegroups@ returns
@@ -128,6 +121,13 @@ listNodegroups_nextToken = Lens.lens (\ListNodegroups' {nextToken} -> nextToken)
 -- @nextToken@ value if applicable.
 listNodegroups_maxResults :: Lens.Lens' ListNodegroups (Prelude.Maybe Prelude.Natural)
 listNodegroups_maxResults = Lens.lens (\ListNodegroups' {maxResults} -> maxResults) (\s@ListNodegroups' {} a -> s {maxResults = a} :: ListNodegroups)
+
+-- | The @nextToken@ value returned from a previous paginated
+-- @ListNodegroups@ request where @maxResults@ was used and the results
+-- exceeded the value of that parameter. Pagination continues from the end
+-- of the previous results that returned the @nextToken@ value.
+listNodegroups_nextToken :: Lens.Lens' ListNodegroups (Prelude.Maybe Prelude.Text)
+listNodegroups_nextToken = Lens.lens (\ListNodegroups' {nextToken} -> nextToken) (\s@ListNodegroups' {} a -> s {nextToken = a} :: ListNodegroups)
 
 -- | The name of the Amazon EKS cluster that you would like to list node
 -- groups in.
@@ -172,14 +172,14 @@ instance Core.AWSRequest ListNodegroups where
 
 instance Prelude.Hashable ListNodegroups where
   hashWithSalt _salt ListNodegroups' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` clusterName
 
 instance Prelude.NFData ListNodegroups where
   rnf ListNodegroups' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf clusterName
 
 instance Data.ToHeaders ListNodegroups where
@@ -201,8 +201,8 @@ instance Data.ToPath ListNodegroups where
 instance Data.ToQuery ListNodegroups where
   toQuery ListNodegroups' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListNodegroupsResponse' smart constructor.

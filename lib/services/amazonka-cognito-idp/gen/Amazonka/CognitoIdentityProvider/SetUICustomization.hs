@@ -39,9 +39,9 @@ module Amazonka.CognitoIdentityProvider.SetUICustomization
     newSetUICustomization,
 
     -- * Request Lenses
+    setUICustomization_css,
     setUICustomization_clientId,
     setUICustomization_imageFile,
-    setUICustomization_css,
     setUICustomization_userPoolId,
 
     -- * Destructuring the Response
@@ -64,12 +64,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSetUICustomization' smart constructor.
 data SetUICustomization = SetUICustomization'
-  { -- | The client ID for the client app.
+  { -- | The CSS values in the UI customization.
+    css :: Prelude.Maybe Prelude.Text,
+    -- | The client ID for the client app.
     clientId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The uploaded logo image for the UI customization.
     imageFile :: Prelude.Maybe Data.Base64,
-    -- | The CSS values in the UI customization.
-    css :: Prelude.Maybe Prelude.Text,
     -- | The user pool ID for the user pool.
     userPoolId :: Prelude.Text
   }
@@ -83,6 +83,8 @@ data SetUICustomization = SetUICustomization'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'css', 'setUICustomization_css' - The CSS values in the UI customization.
+--
 -- 'clientId', 'setUICustomization_clientId' - The client ID for the client app.
 --
 -- 'imageFile', 'setUICustomization_imageFile' - The uploaded logo image for the UI customization.--
@@ -91,8 +93,6 @@ data SetUICustomization = SetUICustomization'
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 --
--- 'css', 'setUICustomization_css' - The CSS values in the UI customization.
---
 -- 'userPoolId', 'setUICustomization_userPoolId' - The user pool ID for the user pool.
 newSetUICustomization ::
   -- | 'userPoolId'
@@ -100,11 +100,15 @@ newSetUICustomization ::
   SetUICustomization
 newSetUICustomization pUserPoolId_ =
   SetUICustomization'
-    { clientId = Prelude.Nothing,
+    { css = Prelude.Nothing,
+      clientId = Prelude.Nothing,
       imageFile = Prelude.Nothing,
-      css = Prelude.Nothing,
       userPoolId = pUserPoolId_
     }
+
+-- | The CSS values in the UI customization.
+setUICustomization_css :: Lens.Lens' SetUICustomization (Prelude.Maybe Prelude.Text)
+setUICustomization_css = Lens.lens (\SetUICustomization' {css} -> css) (\s@SetUICustomization' {} a -> s {css = a} :: SetUICustomization)
 
 -- | The client ID for the client app.
 setUICustomization_clientId :: Lens.Lens' SetUICustomization (Prelude.Maybe Prelude.Text)
@@ -117,10 +121,6 @@ setUICustomization_clientId = Lens.lens (\SetUICustomization' {clientId} -> clie
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 setUICustomization_imageFile :: Lens.Lens' SetUICustomization (Prelude.Maybe Prelude.ByteString)
 setUICustomization_imageFile = Lens.lens (\SetUICustomization' {imageFile} -> imageFile) (\s@SetUICustomization' {} a -> s {imageFile = a} :: SetUICustomization) Prelude.. Lens.mapping Data._Base64
-
--- | The CSS values in the UI customization.
-setUICustomization_css :: Lens.Lens' SetUICustomization (Prelude.Maybe Prelude.Text)
-setUICustomization_css = Lens.lens (\SetUICustomization' {css} -> css) (\s@SetUICustomization' {} a -> s {css = a} :: SetUICustomization)
 
 -- | The user pool ID for the user pool.
 setUICustomization_userPoolId :: Lens.Lens' SetUICustomization Prelude.Text
@@ -142,16 +142,16 @@ instance Core.AWSRequest SetUICustomization where
 
 instance Prelude.Hashable SetUICustomization where
   hashWithSalt _salt SetUICustomization' {..} =
-    _salt `Prelude.hashWithSalt` clientId
+    _salt `Prelude.hashWithSalt` css
+      `Prelude.hashWithSalt` clientId
       `Prelude.hashWithSalt` imageFile
-      `Prelude.hashWithSalt` css
       `Prelude.hashWithSalt` userPoolId
 
 instance Prelude.NFData SetUICustomization where
   rnf SetUICustomization' {..} =
-    Prelude.rnf clientId
+    Prelude.rnf css
+      `Prelude.seq` Prelude.rnf clientId
       `Prelude.seq` Prelude.rnf imageFile
-      `Prelude.seq` Prelude.rnf css
       `Prelude.seq` Prelude.rnf userPoolId
 
 instance Data.ToHeaders SetUICustomization where
@@ -173,9 +173,9 @@ instance Data.ToJSON SetUICustomization where
   toJSON SetUICustomization' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ClientId" Data..=) Prelude.<$> clientId,
+          [ ("CSS" Data..=) Prelude.<$> css,
+            ("ClientId" Data..=) Prelude.<$> clientId,
             ("ImageFile" Data..=) Prelude.<$> imageFile,
-            ("CSS" Data..=) Prelude.<$> css,
             Prelude.Just ("UserPoolId" Data..= userPoolId)
           ]
       )

@@ -35,13 +35,13 @@ module Amazonka.IoT.DescribeManagedJobTemplate
     newDescribeManagedJobTemplateResponse,
 
     -- * Response Lenses
-    describeManagedJobTemplateResponse_templateName,
-    describeManagedJobTemplateResponse_environments,
-    describeManagedJobTemplateResponse_documentParameters,
     describeManagedJobTemplateResponse_description,
-    describeManagedJobTemplateResponse_templateVersion,
     describeManagedJobTemplateResponse_document,
+    describeManagedJobTemplateResponse_documentParameters,
+    describeManagedJobTemplateResponse_environments,
     describeManagedJobTemplateResponse_templateArn,
+    describeManagedJobTemplateResponse_templateName,
+    describeManagedJobTemplateResponse_templateVersion,
     describeManagedJobTemplateResponse_httpStatus,
   )
 where
@@ -106,15 +106,15 @@ instance Core.AWSRequest DescribeManagedJobTemplate where
     Response.receiveJSON
       ( \s h x ->
           DescribeManagedJobTemplateResponse'
-            Prelude.<$> (x Data..?> "templateName")
-            Prelude.<*> (x Data..?> "environments" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "document")
             Prelude.<*> ( x Data..?> "documentParameters"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "description")
-            Prelude.<*> (x Data..?> "templateVersion")
-            Prelude.<*> (x Data..?> "document")
+            Prelude.<*> (x Data..?> "environments" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "templateArn")
+            Prelude.<*> (x Data..?> "templateName")
+            Prelude.<*> (x Data..?> "templateVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,10 +143,10 @@ instance Data.ToQuery DescribeManagedJobTemplate where
 
 -- | /See:/ 'newDescribeManagedJobTemplateResponse' smart constructor.
 data DescribeManagedJobTemplateResponse = DescribeManagedJobTemplateResponse'
-  { -- | The unique name of a managed template, such as @AWS-Reboot@.
-    templateName :: Prelude.Maybe Prelude.Text,
-    -- | A list of environments that are supported with the managed job template.
-    environments :: Prelude.Maybe [Prelude.Text],
+  { -- | The unique description of a managed template.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The document schema for a managed job template.
+    document :: Prelude.Maybe Prelude.Text,
     -- | A map of key-value pairs that you can use as guidance to specify the
     -- inputs for creating a job from a managed template.
     --
@@ -154,14 +154,14 @@ data DescribeManagedJobTemplateResponse = DescribeManagedJobTemplateResponse'
     -- Services managed templates. This parameter can\'t be used with custom
     -- job templates or to create jobs from them.
     documentParameters :: Prelude.Maybe [DocumentParameter],
-    -- | The unique description of a managed template.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The version for a managed template.
-    templateVersion :: Prelude.Maybe Prelude.Text,
-    -- | The document schema for a managed job template.
-    document :: Prelude.Maybe Prelude.Text,
+    -- | A list of environments that are supported with the managed job template.
+    environments :: Prelude.Maybe [Prelude.Text],
     -- | The unique Amazon Resource Name (ARN) of the managed template.
     templateArn :: Prelude.Maybe Prelude.Text,
+    -- | The unique name of a managed template, such as @AWS-Reboot@.
+    templateName :: Prelude.Maybe Prelude.Text,
+    -- | The version for a managed template.
+    templateVersion :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -175,9 +175,9 @@ data DescribeManagedJobTemplateResponse = DescribeManagedJobTemplateResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'templateName', 'describeManagedJobTemplateResponse_templateName' - The unique name of a managed template, such as @AWS-Reboot@.
+-- 'description', 'describeManagedJobTemplateResponse_description' - The unique description of a managed template.
 --
--- 'environments', 'describeManagedJobTemplateResponse_environments' - A list of environments that are supported with the managed job template.
+-- 'document', 'describeManagedJobTemplateResponse_document' - The document schema for a managed job template.
 --
 -- 'documentParameters', 'describeManagedJobTemplateResponse_documentParameters' - A map of key-value pairs that you can use as guidance to specify the
 -- inputs for creating a job from a managed template.
@@ -186,13 +186,13 @@ data DescribeManagedJobTemplateResponse = DescribeManagedJobTemplateResponse'
 -- Services managed templates. This parameter can\'t be used with custom
 -- job templates or to create jobs from them.
 --
--- 'description', 'describeManagedJobTemplateResponse_description' - The unique description of a managed template.
---
--- 'templateVersion', 'describeManagedJobTemplateResponse_templateVersion' - The version for a managed template.
---
--- 'document', 'describeManagedJobTemplateResponse_document' - The document schema for a managed job template.
+-- 'environments', 'describeManagedJobTemplateResponse_environments' - A list of environments that are supported with the managed job template.
 --
 -- 'templateArn', 'describeManagedJobTemplateResponse_templateArn' - The unique Amazon Resource Name (ARN) of the managed template.
+--
+-- 'templateName', 'describeManagedJobTemplateResponse_templateName' - The unique name of a managed template, such as @AWS-Reboot@.
+--
+-- 'templateVersion', 'describeManagedJobTemplateResponse_templateVersion' - The version for a managed template.
 --
 -- 'httpStatus', 'describeManagedJobTemplateResponse_httpStatus' - The response's http status code.
 newDescribeManagedJobTemplateResponse ::
@@ -201,24 +201,24 @@ newDescribeManagedJobTemplateResponse ::
   DescribeManagedJobTemplateResponse
 newDescribeManagedJobTemplateResponse pHttpStatus_ =
   DescribeManagedJobTemplateResponse'
-    { templateName =
+    { description =
         Prelude.Nothing,
-      environments = Prelude.Nothing,
-      documentParameters = Prelude.Nothing,
-      description = Prelude.Nothing,
-      templateVersion = Prelude.Nothing,
       document = Prelude.Nothing,
+      documentParameters = Prelude.Nothing,
+      environments = Prelude.Nothing,
       templateArn = Prelude.Nothing,
+      templateName = Prelude.Nothing,
+      templateVersion = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The unique name of a managed template, such as @AWS-Reboot@.
-describeManagedJobTemplateResponse_templateName :: Lens.Lens' DescribeManagedJobTemplateResponse (Prelude.Maybe Prelude.Text)
-describeManagedJobTemplateResponse_templateName = Lens.lens (\DescribeManagedJobTemplateResponse' {templateName} -> templateName) (\s@DescribeManagedJobTemplateResponse' {} a -> s {templateName = a} :: DescribeManagedJobTemplateResponse)
+-- | The unique description of a managed template.
+describeManagedJobTemplateResponse_description :: Lens.Lens' DescribeManagedJobTemplateResponse (Prelude.Maybe Prelude.Text)
+describeManagedJobTemplateResponse_description = Lens.lens (\DescribeManagedJobTemplateResponse' {description} -> description) (\s@DescribeManagedJobTemplateResponse' {} a -> s {description = a} :: DescribeManagedJobTemplateResponse)
 
--- | A list of environments that are supported with the managed job template.
-describeManagedJobTemplateResponse_environments :: Lens.Lens' DescribeManagedJobTemplateResponse (Prelude.Maybe [Prelude.Text])
-describeManagedJobTemplateResponse_environments = Lens.lens (\DescribeManagedJobTemplateResponse' {environments} -> environments) (\s@DescribeManagedJobTemplateResponse' {} a -> s {environments = a} :: DescribeManagedJobTemplateResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The document schema for a managed job template.
+describeManagedJobTemplateResponse_document :: Lens.Lens' DescribeManagedJobTemplateResponse (Prelude.Maybe Prelude.Text)
+describeManagedJobTemplateResponse_document = Lens.lens (\DescribeManagedJobTemplateResponse' {document} -> document) (\s@DescribeManagedJobTemplateResponse' {} a -> s {document = a} :: DescribeManagedJobTemplateResponse)
 
 -- | A map of key-value pairs that you can use as guidance to specify the
 -- inputs for creating a job from a managed template.
@@ -229,21 +229,21 @@ describeManagedJobTemplateResponse_environments = Lens.lens (\DescribeManagedJob
 describeManagedJobTemplateResponse_documentParameters :: Lens.Lens' DescribeManagedJobTemplateResponse (Prelude.Maybe [DocumentParameter])
 describeManagedJobTemplateResponse_documentParameters = Lens.lens (\DescribeManagedJobTemplateResponse' {documentParameters} -> documentParameters) (\s@DescribeManagedJobTemplateResponse' {} a -> s {documentParameters = a} :: DescribeManagedJobTemplateResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The unique description of a managed template.
-describeManagedJobTemplateResponse_description :: Lens.Lens' DescribeManagedJobTemplateResponse (Prelude.Maybe Prelude.Text)
-describeManagedJobTemplateResponse_description = Lens.lens (\DescribeManagedJobTemplateResponse' {description} -> description) (\s@DescribeManagedJobTemplateResponse' {} a -> s {description = a} :: DescribeManagedJobTemplateResponse)
-
--- | The version for a managed template.
-describeManagedJobTemplateResponse_templateVersion :: Lens.Lens' DescribeManagedJobTemplateResponse (Prelude.Maybe Prelude.Text)
-describeManagedJobTemplateResponse_templateVersion = Lens.lens (\DescribeManagedJobTemplateResponse' {templateVersion} -> templateVersion) (\s@DescribeManagedJobTemplateResponse' {} a -> s {templateVersion = a} :: DescribeManagedJobTemplateResponse)
-
--- | The document schema for a managed job template.
-describeManagedJobTemplateResponse_document :: Lens.Lens' DescribeManagedJobTemplateResponse (Prelude.Maybe Prelude.Text)
-describeManagedJobTemplateResponse_document = Lens.lens (\DescribeManagedJobTemplateResponse' {document} -> document) (\s@DescribeManagedJobTemplateResponse' {} a -> s {document = a} :: DescribeManagedJobTemplateResponse)
+-- | A list of environments that are supported with the managed job template.
+describeManagedJobTemplateResponse_environments :: Lens.Lens' DescribeManagedJobTemplateResponse (Prelude.Maybe [Prelude.Text])
+describeManagedJobTemplateResponse_environments = Lens.lens (\DescribeManagedJobTemplateResponse' {environments} -> environments) (\s@DescribeManagedJobTemplateResponse' {} a -> s {environments = a} :: DescribeManagedJobTemplateResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique Amazon Resource Name (ARN) of the managed template.
 describeManagedJobTemplateResponse_templateArn :: Lens.Lens' DescribeManagedJobTemplateResponse (Prelude.Maybe Prelude.Text)
 describeManagedJobTemplateResponse_templateArn = Lens.lens (\DescribeManagedJobTemplateResponse' {templateArn} -> templateArn) (\s@DescribeManagedJobTemplateResponse' {} a -> s {templateArn = a} :: DescribeManagedJobTemplateResponse)
+
+-- | The unique name of a managed template, such as @AWS-Reboot@.
+describeManagedJobTemplateResponse_templateName :: Lens.Lens' DescribeManagedJobTemplateResponse (Prelude.Maybe Prelude.Text)
+describeManagedJobTemplateResponse_templateName = Lens.lens (\DescribeManagedJobTemplateResponse' {templateName} -> templateName) (\s@DescribeManagedJobTemplateResponse' {} a -> s {templateName = a} :: DescribeManagedJobTemplateResponse)
+
+-- | The version for a managed template.
+describeManagedJobTemplateResponse_templateVersion :: Lens.Lens' DescribeManagedJobTemplateResponse (Prelude.Maybe Prelude.Text)
+describeManagedJobTemplateResponse_templateVersion = Lens.lens (\DescribeManagedJobTemplateResponse' {templateVersion} -> templateVersion) (\s@DescribeManagedJobTemplateResponse' {} a -> s {templateVersion = a} :: DescribeManagedJobTemplateResponse)
 
 -- | The response's http status code.
 describeManagedJobTemplateResponse_httpStatus :: Lens.Lens' DescribeManagedJobTemplateResponse Prelude.Int
@@ -254,11 +254,11 @@ instance
     DescribeManagedJobTemplateResponse
   where
   rnf DescribeManagedJobTemplateResponse' {..} =
-    Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf environments
-      `Prelude.seq` Prelude.rnf documentParameters
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf templateVersion
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf document
+      `Prelude.seq` Prelude.rnf documentParameters
+      `Prelude.seq` Prelude.rnf environments
       `Prelude.seq` Prelude.rnf templateArn
+      `Prelude.seq` Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf templateVersion
       `Prelude.seq` Prelude.rnf httpStatus

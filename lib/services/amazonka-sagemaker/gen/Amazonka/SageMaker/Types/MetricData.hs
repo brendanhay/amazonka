@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMetricData' smart constructor.
 data MetricData = MetricData'
-  { -- | The date and time that the algorithm emitted the metric.
-    timestamp :: Prelude.Maybe Data.POSIX,
-    -- | The name of the metric.
+  { -- | The name of the metric.
     metricName :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that the algorithm emitted the metric.
+    timestamp :: Prelude.Maybe Data.POSIX,
     -- | The value of the metric.
     value :: Prelude.Maybe Prelude.Double
   }
@@ -46,27 +46,27 @@ data MetricData = MetricData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'timestamp', 'metricData_timestamp' - The date and time that the algorithm emitted the metric.
---
 -- 'metricName', 'metricData_metricName' - The name of the metric.
+--
+-- 'timestamp', 'metricData_timestamp' - The date and time that the algorithm emitted the metric.
 --
 -- 'value', 'metricData_value' - The value of the metric.
 newMetricData ::
   MetricData
 newMetricData =
   MetricData'
-    { timestamp = Prelude.Nothing,
-      metricName = Prelude.Nothing,
+    { metricName = Prelude.Nothing,
+      timestamp = Prelude.Nothing,
       value = Prelude.Nothing
     }
-
--- | The date and time that the algorithm emitted the metric.
-metricData_timestamp :: Lens.Lens' MetricData (Prelude.Maybe Prelude.UTCTime)
-metricData_timestamp = Lens.lens (\MetricData' {timestamp} -> timestamp) (\s@MetricData' {} a -> s {timestamp = a} :: MetricData) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the metric.
 metricData_metricName :: Lens.Lens' MetricData (Prelude.Maybe Prelude.Text)
 metricData_metricName = Lens.lens (\MetricData' {metricName} -> metricName) (\s@MetricData' {} a -> s {metricName = a} :: MetricData)
+
+-- | The date and time that the algorithm emitted the metric.
+metricData_timestamp :: Lens.Lens' MetricData (Prelude.Maybe Prelude.UTCTime)
+metricData_timestamp = Lens.lens (\MetricData' {timestamp} -> timestamp) (\s@MetricData' {} a -> s {timestamp = a} :: MetricData) Prelude.. Lens.mapping Data._Time
 
 -- | The value of the metric.
 metricData_value :: Lens.Lens' MetricData (Prelude.Maybe Prelude.Double)
@@ -78,19 +78,19 @@ instance Data.FromJSON MetricData where
       "MetricData"
       ( \x ->
           MetricData'
-            Prelude.<$> (x Data..:? "Timestamp")
-            Prelude.<*> (x Data..:? "MetricName")
+            Prelude.<$> (x Data..:? "MetricName")
+            Prelude.<*> (x Data..:? "Timestamp")
             Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable MetricData where
   hashWithSalt _salt MetricData' {..} =
-    _salt `Prelude.hashWithSalt` timestamp
-      `Prelude.hashWithSalt` metricName
+    _salt `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` timestamp
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData MetricData where
   rnf MetricData' {..} =
-    Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf metricName
+    Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf timestamp
       `Prelude.seq` Prelude.rnf value

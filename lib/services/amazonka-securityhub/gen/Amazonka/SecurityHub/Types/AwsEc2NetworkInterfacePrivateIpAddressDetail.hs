@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEc2NetworkInterfacePrivateIpAddressDetail' smart constructor.
 data AwsEc2NetworkInterfacePrivateIpAddressDetail = AwsEc2NetworkInterfacePrivateIpAddressDetail'
-  { -- | The IP address.
-    privateIpAddress :: Prelude.Maybe Prelude.Text,
-    -- | The private DNS name for the IP address.
-    privateDnsName :: Prelude.Maybe Prelude.Text
+  { -- | The private DNS name for the IP address.
+    privateDnsName :: Prelude.Maybe Prelude.Text,
+    -- | The IP address.
+    privateIpAddress :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,26 +44,26 @@ data AwsEc2NetworkInterfacePrivateIpAddressDetail = AwsEc2NetworkInterfacePrivat
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'privateIpAddress', 'awsEc2NetworkInterfacePrivateIpAddressDetail_privateIpAddress' - The IP address.
---
 -- 'privateDnsName', 'awsEc2NetworkInterfacePrivateIpAddressDetail_privateDnsName' - The private DNS name for the IP address.
+--
+-- 'privateIpAddress', 'awsEc2NetworkInterfacePrivateIpAddressDetail_privateIpAddress' - The IP address.
 newAwsEc2NetworkInterfacePrivateIpAddressDetail ::
   AwsEc2NetworkInterfacePrivateIpAddressDetail
 newAwsEc2NetworkInterfacePrivateIpAddressDetail =
   AwsEc2NetworkInterfacePrivateIpAddressDetail'
-    { privateIpAddress =
+    { privateDnsName =
         Prelude.Nothing,
-      privateDnsName =
+      privateIpAddress =
         Prelude.Nothing
     }
-
--- | The IP address.
-awsEc2NetworkInterfacePrivateIpAddressDetail_privateIpAddress :: Lens.Lens' AwsEc2NetworkInterfacePrivateIpAddressDetail (Prelude.Maybe Prelude.Text)
-awsEc2NetworkInterfacePrivateIpAddressDetail_privateIpAddress = Lens.lens (\AwsEc2NetworkInterfacePrivateIpAddressDetail' {privateIpAddress} -> privateIpAddress) (\s@AwsEc2NetworkInterfacePrivateIpAddressDetail' {} a -> s {privateIpAddress = a} :: AwsEc2NetworkInterfacePrivateIpAddressDetail)
 
 -- | The private DNS name for the IP address.
 awsEc2NetworkInterfacePrivateIpAddressDetail_privateDnsName :: Lens.Lens' AwsEc2NetworkInterfacePrivateIpAddressDetail (Prelude.Maybe Prelude.Text)
 awsEc2NetworkInterfacePrivateIpAddressDetail_privateDnsName = Lens.lens (\AwsEc2NetworkInterfacePrivateIpAddressDetail' {privateDnsName} -> privateDnsName) (\s@AwsEc2NetworkInterfacePrivateIpAddressDetail' {} a -> s {privateDnsName = a} :: AwsEc2NetworkInterfacePrivateIpAddressDetail)
+
+-- | The IP address.
+awsEc2NetworkInterfacePrivateIpAddressDetail_privateIpAddress :: Lens.Lens' AwsEc2NetworkInterfacePrivateIpAddressDetail (Prelude.Maybe Prelude.Text)
+awsEc2NetworkInterfacePrivateIpAddressDetail_privateIpAddress = Lens.lens (\AwsEc2NetworkInterfacePrivateIpAddressDetail' {privateIpAddress} -> privateIpAddress) (\s@AwsEc2NetworkInterfacePrivateIpAddressDetail' {} a -> s {privateIpAddress = a} :: AwsEc2NetworkInterfacePrivateIpAddressDetail)
 
 instance
   Data.FromJSON
@@ -74,8 +74,8 @@ instance
       "AwsEc2NetworkInterfacePrivateIpAddressDetail"
       ( \x ->
           AwsEc2NetworkInterfacePrivateIpAddressDetail'
-            Prelude.<$> (x Data..:? "PrivateIpAddress")
-              Prelude.<*> (x Data..:? "PrivateDnsName")
+            Prelude.<$> (x Data..:? "PrivateDnsName")
+              Prelude.<*> (x Data..:? "PrivateIpAddress")
       )
 
 instance
@@ -85,16 +85,16 @@ instance
   hashWithSalt
     _salt
     AwsEc2NetworkInterfacePrivateIpAddressDetail' {..} =
-      _salt `Prelude.hashWithSalt` privateIpAddress
-        `Prelude.hashWithSalt` privateDnsName
+      _salt `Prelude.hashWithSalt` privateDnsName
+        `Prelude.hashWithSalt` privateIpAddress
 
 instance
   Prelude.NFData
     AwsEc2NetworkInterfacePrivateIpAddressDetail
   where
   rnf AwsEc2NetworkInterfacePrivateIpAddressDetail' {..} =
-    Prelude.rnf privateIpAddress
-      `Prelude.seq` Prelude.rnf privateDnsName
+    Prelude.rnf privateDnsName
+      `Prelude.seq` Prelude.rnf privateIpAddress
 
 instance
   Data.ToJSON
@@ -104,9 +104,9 @@ instance
     AwsEc2NetworkInterfacePrivateIpAddressDetail' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("PrivateIpAddress" Data..=)
-                Prelude.<$> privateIpAddress,
-              ("PrivateDnsName" Data..=)
-                Prelude.<$> privateDnsName
+            [ ("PrivateDnsName" Data..=)
+                Prelude.<$> privateDnsName,
+              ("PrivateIpAddress" Data..=)
+                Prelude.<$> privateIpAddress
             ]
         )

@@ -26,21 +26,21 @@ module Amazonka.GuardDuty.Lens
     archiveFindingsResponse_httpStatus,
 
     -- ** CreateDetector
-    createDetector_tags,
     createDetector_clientToken,
     createDetector_dataSources,
     createDetector_findingPublishingFrequency,
+    createDetector_tags,
     createDetector_enable,
-    createDetectorResponse_unprocessedDataSources,
     createDetectorResponse_detectorId,
+    createDetectorResponse_unprocessedDataSources,
     createDetectorResponse_httpStatus,
 
     -- ** CreateFilter
-    createFilter_tags,
-    createFilter_clientToken,
-    createFilter_rank,
-    createFilter_description,
     createFilter_action,
+    createFilter_clientToken,
+    createFilter_description,
+    createFilter_rank,
+    createFilter_tags,
     createFilter_detectorId,
     createFilter_name,
     createFilter_findingCriteria,
@@ -48,8 +48,8 @@ module Amazonka.GuardDuty.Lens
     createFilterResponse_name,
 
     -- ** CreateIPSet
-    createIPSet_tags,
     createIPSet_clientToken,
+    createIPSet_tags,
     createIPSet_detectorId,
     createIPSet_name,
     createIPSet_format,
@@ -78,8 +78,8 @@ module Amazonka.GuardDuty.Lens
     createSampleFindingsResponse_httpStatus,
 
     -- ** CreateThreatIntelSet
-    createThreatIntelSet_tags,
     createThreatIntelSet_clientToken,
+    createThreatIntelSet_tags,
     createThreatIntelSet_detectorId,
     createThreatIntelSet_name,
     createThreatIntelSet_format,
@@ -129,10 +129,10 @@ module Amazonka.GuardDuty.Lens
     deleteThreatIntelSetResponse_httpStatus,
 
     -- ** DescribeMalwareScans
-    describeMalwareScans_sortCriteria,
-    describeMalwareScans_nextToken,
     describeMalwareScans_filterCriteria,
     describeMalwareScans_maxResults,
+    describeMalwareScans_nextToken,
+    describeMalwareScans_sortCriteria,
     describeMalwareScans_detectorId,
     describeMalwareScansResponse_nextToken,
     describeMalwareScansResponse_httpStatus,
@@ -180,10 +180,10 @@ module Amazonka.GuardDuty.Lens
 
     -- ** GetDetector
     getDetector_detectorId,
-    getDetectorResponse_tags,
+    getDetectorResponse_createdAt,
     getDetectorResponse_dataSources,
     getDetectorResponse_findingPublishingFrequency,
-    getDetectorResponse_createdAt,
+    getDetectorResponse_tags,
     getDetectorResponse_updatedAt,
     getDetectorResponse_httpStatus,
     getDetectorResponse_serviceRole,
@@ -192,9 +192,9 @@ module Amazonka.GuardDuty.Lens
     -- ** GetFilter
     getFilter_detectorId,
     getFilter_filterName,
-    getFilterResponse_tags,
-    getFilterResponse_rank,
     getFilterResponse_description,
+    getFilterResponse_rank,
+    getFilterResponse_tags,
     getFilterResponse_httpStatus,
     getFilterResponse_name,
     getFilterResponse_action,
@@ -251,8 +251,8 @@ module Amazonka.GuardDuty.Lens
     -- ** GetRemainingFreeTrialDays
     getRemainingFreeTrialDays_accountIds,
     getRemainingFreeTrialDays_detectorId,
-    getRemainingFreeTrialDaysResponse_unprocessedAccounts,
     getRemainingFreeTrialDaysResponse_accounts,
+    getRemainingFreeTrialDaysResponse_unprocessedAccounts,
     getRemainingFreeTrialDaysResponse_httpStatus,
 
     -- ** GetThreatIntelSet
@@ -266,8 +266,8 @@ module Amazonka.GuardDuty.Lens
     getThreatIntelSetResponse_status,
 
     -- ** GetUsageStatistics
-    getUsageStatistics_nextToken,
     getUsageStatistics_maxResults,
+    getUsageStatistics_nextToken,
     getUsageStatistics_unit,
     getUsageStatistics_detectorId,
     getUsageStatistics_usageStatisticType,
@@ -277,72 +277,72 @@ module Amazonka.GuardDuty.Lens
     getUsageStatisticsResponse_httpStatus,
 
     -- ** InviteMembers
-    inviteMembers_message,
     inviteMembers_disableEmailNotification,
+    inviteMembers_message,
     inviteMembers_detectorId,
     inviteMembers_accountIds,
     inviteMembersResponse_httpStatus,
     inviteMembersResponse_unprocessedAccounts,
 
     -- ** ListDetectors
-    listDetectors_nextToken,
     listDetectors_maxResults,
+    listDetectors_nextToken,
     listDetectorsResponse_nextToken,
     listDetectorsResponse_httpStatus,
     listDetectorsResponse_detectorIds,
 
     -- ** ListFilters
-    listFilters_nextToken,
     listFilters_maxResults,
+    listFilters_nextToken,
     listFilters_detectorId,
     listFiltersResponse_nextToken,
     listFiltersResponse_httpStatus,
     listFiltersResponse_filterNames,
 
     -- ** ListFindings
-    listFindings_sortCriteria,
-    listFindings_nextToken,
     listFindings_findingCriteria,
     listFindings_maxResults,
+    listFindings_nextToken,
+    listFindings_sortCriteria,
     listFindings_detectorId,
     listFindingsResponse_nextToken,
     listFindingsResponse_httpStatus,
     listFindingsResponse_findingIds,
 
     -- ** ListIPSets
-    listIPSets_nextToken,
     listIPSets_maxResults,
+    listIPSets_nextToken,
     listIPSets_detectorId,
     listIPSetsResponse_nextToken,
     listIPSetsResponse_httpStatus,
     listIPSetsResponse_ipSetIds,
 
     -- ** ListInvitations
-    listInvitations_nextToken,
     listInvitations_maxResults,
+    listInvitations_nextToken,
     listInvitationsResponse_invitations,
     listInvitationsResponse_nextToken,
     listInvitationsResponse_httpStatus,
 
     -- ** ListMembers
+    listMembers_maxResults,
     listMembers_nextToken,
     listMembers_onlyAssociated,
-    listMembers_maxResults,
     listMembers_detectorId,
-    listMembersResponse_nextToken,
     listMembersResponse_members,
+    listMembersResponse_nextToken,
     listMembersResponse_httpStatus,
 
     -- ** ListOrganizationAdminAccounts
-    listOrganizationAdminAccounts_nextToken,
     listOrganizationAdminAccounts_maxResults,
-    listOrganizationAdminAccountsResponse_nextToken,
+    listOrganizationAdminAccounts_nextToken,
     listOrganizationAdminAccountsResponse_adminAccounts,
+    listOrganizationAdminAccountsResponse_nextToken,
     listOrganizationAdminAccountsResponse_httpStatus,
 
     -- ** ListPublishingDestinations
-    listPublishingDestinations_nextToken,
     listPublishingDestinations_maxResults,
+    listPublishingDestinations_nextToken,
     listPublishingDestinations_detectorId,
     listPublishingDestinationsResponse_nextToken,
     listPublishingDestinationsResponse_httpStatus,
@@ -354,8 +354,8 @@ module Amazonka.GuardDuty.Lens
     listTagsForResourceResponse_httpStatus,
 
     -- ** ListThreatIntelSets
-    listThreatIntelSets_nextToken,
     listThreatIntelSets_maxResults,
+    listThreatIntelSets_nextToken,
     listThreatIntelSets_detectorId,
     listThreatIntelSetsResponse_nextToken,
     listThreatIntelSetsResponse_httpStatus,
@@ -396,10 +396,10 @@ module Amazonka.GuardDuty.Lens
     updateDetectorResponse_httpStatus,
 
     -- ** UpdateFilter
+    updateFilter_action,
+    updateFilter_description,
     updateFilter_findingCriteria,
     updateFilter_rank,
-    updateFilter_description,
-    updateFilter_action,
     updateFilter_detectorId,
     updateFilter_filterName,
     updateFilterResponse_httpStatus,
@@ -413,9 +413,9 @@ module Amazonka.GuardDuty.Lens
     updateFindingsFeedbackResponse_httpStatus,
 
     -- ** UpdateIPSet
-    updateIPSet_name,
-    updateIPSet_location,
     updateIPSet_activate,
+    updateIPSet_location,
+    updateIPSet_name,
     updateIPSet_detectorId,
     updateIPSet_ipSetId,
     updateIPSetResponse_httpStatus,
@@ -446,9 +446,9 @@ module Amazonka.GuardDuty.Lens
     updatePublishingDestinationResponse_httpStatus,
 
     -- ** UpdateThreatIntelSet
-    updateThreatIntelSet_name,
-    updateThreatIntelSet_location,
     updateThreatIntelSet_activate,
+    updateThreatIntelSet_location,
+    updateThreatIntelSet_name,
     updateThreatIntelSet_detectorId,
     updateThreatIntelSet_threatIntelSetId,
     updateThreatIntelSetResponse_httpStatus,
@@ -460,28 +460,28 @@ module Amazonka.GuardDuty.Lens
     accessControlList_allowsPublicWriteAccess,
 
     -- ** AccessKeyDetails
+    accessKeyDetails_accessKeyId,
     accessKeyDetails_principalId,
     accessKeyDetails_userName,
     accessKeyDetails_userType,
-    accessKeyDetails_accessKeyId,
 
     -- ** AccountDetail
     accountDetail_accountId,
     accountDetail_email,
 
     -- ** AccountFreeTrialInfo
-    accountFreeTrialInfo_dataSources,
     accountFreeTrialInfo_accountId,
+    accountFreeTrialInfo_dataSources,
 
     -- ** AccountLevelPermissions
     accountLevelPermissions_blockPublicAccess,
 
     -- ** Action
     action_actionType,
-    action_networkConnectionAction,
     action_awsApiCallAction,
     action_dnsRequestAction,
     action_kubernetesApiCallAction,
+    action_networkConnectionAction,
     action_portProbeAction,
 
     -- ** AdminAccount
@@ -490,26 +490,26 @@ module Amazonka.GuardDuty.Lens
 
     -- ** Administrator
     administrator_accountId,
+    administrator_invitationId,
     administrator_invitedAt,
     administrator_relationshipStatus,
-    administrator_invitationId,
 
     -- ** AwsApiCallAction
     awsApiCallAction_affectedResources,
-    awsApiCallAction_remoteIpDetails,
-    awsApiCallAction_remoteAccountDetails,
-    awsApiCallAction_domainDetails,
     awsApiCallAction_api,
+    awsApiCallAction_callerType,
+    awsApiCallAction_domainDetails,
     awsApiCallAction_errorCode,
+    awsApiCallAction_remoteAccountDetails,
+    awsApiCallAction_remoteIpDetails,
     awsApiCallAction_serviceName,
     awsApiCallAction_userAgent,
-    awsApiCallAction_callerType,
 
     -- ** BlockPublicAccess
-    blockPublicAccess_restrictPublicBuckets,
-    blockPublicAccess_ignorePublicAcls,
-    blockPublicAccess_blockPublicPolicy,
     blockPublicAccess_blockPublicAcls,
+    blockPublicAccess_blockPublicPolicy,
+    blockPublicAccess_ignorePublicAcls,
+    blockPublicAccess_restrictPublicBuckets,
 
     -- ** BucketLevelPermissions
     bucketLevelPermissions_accessControlList,
@@ -527,43 +527,43 @@ module Amazonka.GuardDuty.Lens
     cloudTrailConfigurationResult_status,
 
     -- ** Condition
-    condition_notEquals,
-    condition_lessThanOrEqual,
-    condition_neq,
-    condition_equals,
-    condition_lessThan,
-    condition_lte,
-    condition_lt,
-    condition_gte,
     condition_eq,
-    condition_gt,
-    condition_greaterThanOrEqual,
+    condition_equals,
     condition_greaterThan,
+    condition_greaterThanOrEqual,
+    condition_gt,
+    condition_gte,
+    condition_lessThan,
+    condition_lessThanOrEqual,
+    condition_lt,
+    condition_lte,
+    condition_neq,
+    condition_notEquals,
 
     -- ** Container
-    container_name,
     container_containerRuntime,
     container_id,
-    container_imagePrefix,
-    container_securityContext,
     container_image,
+    container_imagePrefix,
+    container_name,
+    container_securityContext,
     container_volumeMounts,
 
     -- ** Country
-    country_countryName,
     country_countryCode,
+    country_countryName,
 
     -- ** DNSLogsConfigurationResult
     dNSLogsConfigurationResult_status,
 
     -- ** DataSourceConfigurations
+    dataSourceConfigurations_kubernetes,
     dataSourceConfigurations_malwareProtection,
     dataSourceConfigurations_s3Logs,
-    dataSourceConfigurations_kubernetes,
 
     -- ** DataSourceConfigurationsResult
-    dataSourceConfigurationsResult_malwareProtection,
     dataSourceConfigurationsResult_kubernetes,
+    dataSourceConfigurationsResult_malwareProtection,
     dataSourceConfigurationsResult_cloudTrail,
     dataSourceConfigurationsResult_dNSLogs,
     dataSourceConfigurationsResult_flowLogs,
@@ -573,12 +573,12 @@ module Amazonka.GuardDuty.Lens
     dataSourceFreeTrial_freeTrialDaysRemaining,
 
     -- ** DataSourcesFreeTrial
-    dataSourcesFreeTrial_malwareProtection,
     dataSourcesFreeTrial_cloudTrail,
     dataSourcesFreeTrial_dnsLogs,
-    dataSourcesFreeTrial_s3Logs,
-    dataSourcesFreeTrial_kubernetes,
     dataSourcesFreeTrial_flowLogs,
+    dataSourcesFreeTrial_kubernetes,
+    dataSourcesFreeTrial_malwareProtection,
+    dataSourcesFreeTrial_s3Logs,
 
     -- ** DefaultServerSideEncryption
     defaultServerSideEncryption_encryptionType,
@@ -590,70 +590,70 @@ module Amazonka.GuardDuty.Lens
     destination_status,
 
     -- ** DestinationProperties
-    destinationProperties_kmsKeyArn,
     destinationProperties_destinationArn,
+    destinationProperties_kmsKeyArn,
 
     -- ** DnsRequestAction
-    dnsRequestAction_domain,
     dnsRequestAction_blocked,
+    dnsRequestAction_domain,
     dnsRequestAction_protocol,
 
     -- ** DomainDetails
     domainDetails_domain,
 
     -- ** EbsVolumeDetails
-    ebsVolumeDetails_skippedVolumeDetails,
     ebsVolumeDetails_scannedVolumeDetails,
+    ebsVolumeDetails_skippedVolumeDetails,
 
     -- ** EbsVolumeScanDetails
-    ebsVolumeScanDetails_sources,
-    ebsVolumeScanDetails_triggerFindingId,
+    ebsVolumeScanDetails_scanCompletedAt,
     ebsVolumeScanDetails_scanDetections,
     ebsVolumeScanDetails_scanId,
-    ebsVolumeScanDetails_scanCompletedAt,
     ebsVolumeScanDetails_scanStartedAt,
+    ebsVolumeScanDetails_sources,
+    ebsVolumeScanDetails_triggerFindingId,
 
     -- ** EbsVolumesResult
-    ebsVolumesResult_status,
     ebsVolumesResult_reason,
+    ebsVolumesResult_status,
 
     -- ** EcsClusterDetails
-    ecsClusterDetails_tags,
-    ecsClusterDetails_name,
-    ecsClusterDetails_taskDetails,
-    ecsClusterDetails_arn,
-    ecsClusterDetails_registeredContainerInstancesCount,
-    ecsClusterDetails_status,
-    ecsClusterDetails_runningTasksCount,
     ecsClusterDetails_activeServicesCount,
+    ecsClusterDetails_arn,
+    ecsClusterDetails_name,
+    ecsClusterDetails_registeredContainerInstancesCount,
+    ecsClusterDetails_runningTasksCount,
+    ecsClusterDetails_status,
+    ecsClusterDetails_tags,
+    ecsClusterDetails_taskDetails,
 
     -- ** EcsTaskDetails
-    ecsTaskDetails_tags,
-    ecsTaskDetails_containers,
     ecsTaskDetails_arn,
-    ecsTaskDetails_startedBy,
-    ecsTaskDetails_volumes,
-    ecsTaskDetails_taskCreatedAt,
-    ecsTaskDetails_startedAt,
+    ecsTaskDetails_containers,
     ecsTaskDetails_definitionArn,
     ecsTaskDetails_group,
+    ecsTaskDetails_startedAt,
+    ecsTaskDetails_startedBy,
+    ecsTaskDetails_tags,
+    ecsTaskDetails_taskCreatedAt,
     ecsTaskDetails_version,
+    ecsTaskDetails_volumes,
 
     -- ** EksClusterDetails
-    eksClusterDetails_tags,
-    eksClusterDetails_name,
     eksClusterDetails_arn,
-    eksClusterDetails_status,
-    eksClusterDetails_vpcId,
     eksClusterDetails_createdAt,
+    eksClusterDetails_name,
+    eksClusterDetails_status,
+    eksClusterDetails_tags,
+    eksClusterDetails_vpcId,
 
     -- ** Evidence
     evidence_threatIntelligenceDetails,
 
     -- ** FilterCondition
     filterCondition_equalsValue,
-    filterCondition_lessThan,
     filterCondition_greaterThan,
+    filterCondition_lessThan,
 
     -- ** FilterCriteria
     filterCriteria_filterCriterion,
@@ -665,8 +665,8 @@ module Amazonka.GuardDuty.Lens
     -- ** Finding
     finding_confidence,
     finding_description,
-    finding_service,
     finding_partition,
+    finding_service,
     finding_title,
     finding_accountId,
     finding_arn,
@@ -693,8 +693,8 @@ module Amazonka.GuardDuty.Lens
     geoLocation_lon,
 
     -- ** HighestSeverityThreatDetails
-    highestSeverityThreatDetails_severity,
     highestSeverityThreatDetails_count,
+    highestSeverityThreatDetails_severity,
     highestSeverityThreatDetails_threatName,
 
     -- ** HostPath
@@ -705,34 +705,34 @@ module Amazonka.GuardDuty.Lens
     iamInstanceProfile_id,
 
     -- ** InstanceDetails
-    instanceDetails_tags,
-    instanceDetails_instanceState,
-    instanceDetails_iamInstanceProfile,
-    instanceDetails_outpostArn,
-    instanceDetails_imageDescription,
-    instanceDetails_launchTime,
-    instanceDetails_productCodes,
-    instanceDetails_platform,
     instanceDetails_availabilityZone,
-    instanceDetails_instanceType,
-    instanceDetails_instanceId,
+    instanceDetails_iamInstanceProfile,
+    instanceDetails_imageDescription,
     instanceDetails_imageId,
+    instanceDetails_instanceId,
+    instanceDetails_instanceState,
+    instanceDetails_instanceType,
+    instanceDetails_launchTime,
     instanceDetails_networkInterfaces,
+    instanceDetails_outpostArn,
+    instanceDetails_platform,
+    instanceDetails_productCodes,
+    instanceDetails_tags,
 
     -- ** Invitation
     invitation_accountId,
+    invitation_invitationId,
     invitation_invitedAt,
     invitation_relationshipStatus,
-    invitation_invitationId,
 
     -- ** KubernetesApiCallAction
+    kubernetesApiCallAction_parameters,
     kubernetesApiCallAction_remoteIpDetails,
     kubernetesApiCallAction_requestUri,
+    kubernetesApiCallAction_sourceIps,
     kubernetesApiCallAction_statusCode,
     kubernetesApiCallAction_userAgent,
     kubernetesApiCallAction_verb,
-    kubernetesApiCallAction_sourceIps,
-    kubernetesApiCallAction_parameters,
 
     -- ** KubernetesAuditLogsConfiguration
     kubernetesAuditLogsConfiguration_enable,
@@ -754,18 +754,18 @@ module Amazonka.GuardDuty.Lens
     kubernetesDetails_kubernetesWorkloadDetails,
 
     -- ** KubernetesUserDetails
-    kubernetesUserDetails_username,
-    kubernetesUserDetails_uid,
     kubernetesUserDetails_groups,
+    kubernetesUserDetails_uid,
+    kubernetesUserDetails_username,
 
     -- ** KubernetesWorkloadDetails
-    kubernetesWorkloadDetails_name,
-    kubernetesWorkloadDetails_type,
     kubernetesWorkloadDetails_containers,
+    kubernetesWorkloadDetails_hostNetwork,
+    kubernetesWorkloadDetails_name,
+    kubernetesWorkloadDetails_namespace,
+    kubernetesWorkloadDetails_type,
     kubernetesWorkloadDetails_uid,
     kubernetesWorkloadDetails_volumes,
-    kubernetesWorkloadDetails_namespace,
-    kubernetesWorkloadDetails_hostNetwork,
 
     -- ** LocalIpDetails
     localIpDetails_ipAddressV4,
@@ -778,16 +778,16 @@ module Amazonka.GuardDuty.Lens
     malwareProtectionConfiguration_scanEc2InstanceWithFindings,
 
     -- ** MalwareProtectionConfigurationResult
-    malwareProtectionConfigurationResult_serviceRole,
     malwareProtectionConfigurationResult_scanEc2InstanceWithFindings,
+    malwareProtectionConfigurationResult_serviceRole,
 
     -- ** MalwareProtectionDataSourceFreeTrial
     malwareProtectionDataSourceFreeTrial_scanEc2InstanceWithFindings,
 
     -- ** Member
     member_administratorId,
-    member_invitedAt,
     member_detectorId,
+    member_invitedAt,
     member_accountId,
     member_masterId,
     member_email,
@@ -799,40 +799,40 @@ module Amazonka.GuardDuty.Lens
     memberDataSourceConfiguration_dataSources,
 
     -- ** NetworkConnectionAction
-    networkConnectionAction_connectionDirection,
-    networkConnectionAction_remoteIpDetails,
-    networkConnectionAction_localPortDetails,
-    networkConnectionAction_localIpDetails,
     networkConnectionAction_blocked,
+    networkConnectionAction_connectionDirection,
+    networkConnectionAction_localIpDetails,
+    networkConnectionAction_localPortDetails,
     networkConnectionAction_protocol,
+    networkConnectionAction_remoteIpDetails,
     networkConnectionAction_remotePortDetails,
 
     -- ** NetworkInterface
-    networkInterface_privateIpAddresses,
-    networkInterface_subnetId,
-    networkInterface_publicIp,
-    networkInterface_networkInterfaceId,
-    networkInterface_publicDnsName,
-    networkInterface_securityGroups,
-    networkInterface_privateIpAddress,
-    networkInterface_privateDnsName,
-    networkInterface_vpcId,
     networkInterface_ipv6Addresses,
+    networkInterface_networkInterfaceId,
+    networkInterface_privateDnsName,
+    networkInterface_privateIpAddress,
+    networkInterface_privateIpAddresses,
+    networkInterface_publicDnsName,
+    networkInterface_publicIp,
+    networkInterface_securityGroups,
+    networkInterface_subnetId,
+    networkInterface_vpcId,
 
     -- ** Organization
-    organization_isp,
-    organization_org,
     organization_asn,
     organization_asnOrg,
+    organization_isp,
+    organization_org,
 
     -- ** OrganizationDataSourceConfigurations
+    organizationDataSourceConfigurations_kubernetes,
     organizationDataSourceConfigurations_malwareProtection,
     organizationDataSourceConfigurations_s3Logs,
-    organizationDataSourceConfigurations_kubernetes,
 
     -- ** OrganizationDataSourceConfigurationsResult
-    organizationDataSourceConfigurationsResult_malwareProtection,
     organizationDataSourceConfigurationsResult_kubernetes,
+    organizationDataSourceConfigurationsResult_malwareProtection,
     organizationDataSourceConfigurationsResult_s3Logs,
 
     -- ** OrganizationEbsVolumes
@@ -883,60 +883,60 @@ module Amazonka.GuardDuty.Lens
     portProbeAction_portProbeDetails,
 
     -- ** PortProbeDetail
-    portProbeDetail_remoteIpDetails,
-    portProbeDetail_localPortDetails,
     portProbeDetail_localIpDetails,
+    portProbeDetail_localPortDetails,
+    portProbeDetail_remoteIpDetails,
 
     -- ** PrivateIpAddressDetails
-    privateIpAddressDetails_privateIpAddress,
     privateIpAddressDetails_privateDnsName,
+    privateIpAddressDetails_privateIpAddress,
 
     -- ** ProductCode
     productCode_code,
     productCode_productType,
 
     -- ** PublicAccess
-    publicAccess_permissionConfiguration,
     publicAccess_effectivePermission,
+    publicAccess_permissionConfiguration,
 
     -- ** RemoteAccountDetails
     remoteAccountDetails_accountId,
     remoteAccountDetails_affiliated,
 
     -- ** RemoteIpDetails
-    remoteIpDetails_country,
-    remoteIpDetails_ipAddressV4,
     remoteIpDetails_city,
-    remoteIpDetails_organization,
+    remoteIpDetails_country,
     remoteIpDetails_geoLocation,
+    remoteIpDetails_ipAddressV4,
+    remoteIpDetails_organization,
 
     -- ** RemotePortDetails
     remotePortDetails_port,
     remotePortDetails_portName,
 
     -- ** Resource
-    resource_resourceType,
-    resource_instanceDetails,
-    resource_s3BucketDetails,
-    resource_ecsClusterDetails,
-    resource_containerDetails,
     resource_accessKeyDetails,
-    resource_eksClusterDetails,
-    resource_kubernetesDetails,
+    resource_containerDetails,
     resource_ebsVolumeDetails,
+    resource_ecsClusterDetails,
+    resource_eksClusterDetails,
+    resource_instanceDetails,
+    resource_kubernetesDetails,
+    resource_resourceType,
+    resource_s3BucketDetails,
 
     -- ** ResourceDetails
     resourceDetails_instanceArn,
 
     -- ** S3BucketDetail
-    s3BucketDetail_tags,
-    s3BucketDetail_name,
-    s3BucketDetail_type,
-    s3BucketDetail_defaultServerSideEncryption,
     s3BucketDetail_arn,
-    s3BucketDetail_publicAccess,
-    s3BucketDetail_owner,
     s3BucketDetail_createdAt,
+    s3BucketDetail_defaultServerSideEncryption,
+    s3BucketDetail_name,
+    s3BucketDetail_owner,
+    s3BucketDetail_publicAccess,
+    s3BucketDetail_tags,
+    s3BucketDetail_type,
 
     -- ** S3LogsConfiguration
     s3LogsConfiguration_enable,
@@ -945,20 +945,20 @@ module Amazonka.GuardDuty.Lens
     s3LogsConfigurationResult_status,
 
     -- ** Scan
-    scan_attachedVolumes,
-    scan_scanStartTime,
-    scan_adminDetectorId,
-    scan_scanEndTime,
-    scan_scanStatus,
-    scan_resourceDetails,
     scan_accountId,
-    scan_scanResultDetails,
-    scan_triggerDetails,
-    scan_totalBytes,
+    scan_adminDetectorId,
+    scan_attachedVolumes,
     scan_detectorId,
-    scan_scanId,
-    scan_fileCount,
     scan_failureReason,
+    scan_fileCount,
+    scan_resourceDetails,
+    scan_scanEndTime,
+    scan_scanId,
+    scan_scanResultDetails,
+    scan_scanStartTime,
+    scan_scanStatus,
+    scan_totalBytes,
+    scan_triggerDetails,
 
     -- ** ScanCondition
     scanCondition_mapEquals,
@@ -968,10 +968,10 @@ module Amazonka.GuardDuty.Lens
     scanConditionPair_key,
 
     -- ** ScanDetections
-    scanDetections_threatsDetectedItemCount,
+    scanDetections_highestSeverityThreatDetails,
     scanDetections_scannedItemCount,
     scanDetections_threatDetectedByName,
-    scanDetections_highestSeverityThreatDetails,
+    scanDetections_threatsDetectedItemCount,
 
     -- ** ScanEc2InstanceWithFindings
     scanEc2InstanceWithFindings_ebsVolumes,
@@ -980,9 +980,9 @@ module Amazonka.GuardDuty.Lens
     scanEc2InstanceWithFindingsResult_ebsVolumes,
 
     -- ** ScanFilePath
+    scanFilePath_fileName,
     scanFilePath_filePath,
     scanFilePath_hash,
-    scanFilePath_fileName,
     scanFilePath_volumeArn,
 
     -- ** ScanResourceCriteria
@@ -993,10 +993,10 @@ module Amazonka.GuardDuty.Lens
     scanResultDetails_scanResult,
 
     -- ** ScanThreatName
-    scanThreatName_severity,
-    scanThreatName_name,
-    scanThreatName_itemCount,
     scanThreatName_filePaths,
+    scanThreatName_itemCount,
+    scanThreatName_name,
+    scanThreatName_severity,
 
     -- ** ScannedItemCount
     scannedItemCount_files,
@@ -1007,27 +1007,27 @@ module Amazonka.GuardDuty.Lens
     securityContext_privileged,
 
     -- ** SecurityGroup
-    securityGroup_groupName,
     securityGroup_groupId,
+    securityGroup_groupName,
 
     -- ** ServiceAdditionalInfo
     serviceAdditionalInfo_type,
     serviceAdditionalInfo_value,
 
     -- ** ServiceInfo
-    serviceInfo_additionalInfo,
-    serviceInfo_resourceRole,
-    serviceInfo_evidence,
-    serviceInfo_userFeedback,
-    serviceInfo_featureName,
-    serviceInfo_count,
-    serviceInfo_eventFirstSeen,
-    serviceInfo_archived,
     serviceInfo_action,
-    serviceInfo_ebsVolumeScanDetails,
+    serviceInfo_additionalInfo,
+    serviceInfo_archived,
+    serviceInfo_count,
     serviceInfo_detectorId,
-    serviceInfo_serviceName,
+    serviceInfo_ebsVolumeScanDetails,
+    serviceInfo_eventFirstSeen,
     serviceInfo_eventLastSeen,
+    serviceInfo_evidence,
+    serviceInfo_featureName,
+    serviceInfo_resourceRole,
+    serviceInfo_serviceName,
+    serviceInfo_userFeedback,
 
     -- ** SortCriteria
     sortCriteria_attributeName,
@@ -1039,9 +1039,9 @@ module Amazonka.GuardDuty.Lens
 
     -- ** ThreatDetectedByName
     threatDetectedByName_itemCount,
-    threatDetectedByName_uniqueThreatNameCount,
-    threatDetectedByName_threatNames,
     threatDetectedByName_shortened,
+    threatDetectedByName_threatNames,
+    threatDetectedByName_uniqueThreatNameCount,
 
     -- ** ThreatIntelligenceDetail
     threatIntelligenceDetail_threatListName,
@@ -1051,8 +1051,8 @@ module Amazonka.GuardDuty.Lens
     threatsDetectedItemCount_files,
 
     -- ** Total
-    total_unit,
     total_amount,
+    total_unit,
 
     -- ** TriggerDetails
     triggerDetails_description,
@@ -1066,8 +1066,8 @@ module Amazonka.GuardDuty.Lens
     unprocessedDataSourcesResult_malwareProtection,
 
     -- ** UsageAccountResult
-    usageAccountResult_total,
     usageAccountResult_accountId,
+    usageAccountResult_total,
 
     -- ** UsageCriteria
     usageCriteria_accountIds,
@@ -1075,35 +1075,35 @@ module Amazonka.GuardDuty.Lens
     usageCriteria_dataSources,
 
     -- ** UsageDataSourceResult
-    usageDataSourceResult_total,
     usageDataSourceResult_dataSource,
+    usageDataSourceResult_total,
 
     -- ** UsageResourceResult
-    usageResourceResult_total,
     usageResourceResult_resource,
+    usageResourceResult_total,
 
     -- ** UsageStatistics
-    usageStatistics_sumByDataSource,
-    usageStatistics_topResources,
-    usageStatistics_sumByResource,
     usageStatistics_sumByAccount,
+    usageStatistics_sumByDataSource,
+    usageStatistics_sumByResource,
+    usageStatistics_topResources,
 
     -- ** Volume
-    volume_name,
     volume_hostPath,
+    volume_name,
 
     -- ** VolumeDetail
-    volumeDetail_snapshotArn,
     volumeDetail_deviceName,
-    volumeDetail_volumeArn,
-    volumeDetail_volumeType,
-    volumeDetail_kmsKeyArn,
     volumeDetail_encryptionType,
+    volumeDetail_kmsKeyArn,
+    volumeDetail_snapshotArn,
+    volumeDetail_volumeArn,
     volumeDetail_volumeSizeInGB,
+    volumeDetail_volumeType,
 
     -- ** VolumeMount
-    volumeMount_name,
     volumeMount_mountPath,
+    volumeMount_name,
   )
 where
 

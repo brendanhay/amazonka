@@ -47,10 +47,10 @@ module Amazonka.ECRPublic.CompleteLayerUpload
     newCompleteLayerUploadResponse,
 
     -- * Response Lenses
-    completeLayerUploadResponse_uploadId,
-    completeLayerUploadResponse_repositoryName,
     completeLayerUploadResponse_layerDigest,
     completeLayerUploadResponse_registryId,
+    completeLayerUploadResponse_repositoryName,
+    completeLayerUploadResponse_uploadId,
     completeLayerUploadResponse_httpStatus,
   )
 where
@@ -148,10 +148,10 @@ instance Core.AWSRequest CompleteLayerUpload where
     Response.receiveJSON
       ( \s h x ->
           CompleteLayerUploadResponse'
-            Prelude.<$> (x Data..?> "uploadId")
-            Prelude.<*> (x Data..?> "repositoryName")
-            Prelude.<*> (x Data..?> "layerDigest")
+            Prelude.<$> (x Data..?> "layerDigest")
             Prelude.<*> (x Data..?> "registryId")
+            Prelude.<*> (x Data..?> "repositoryName")
+            Prelude.<*> (x Data..?> "uploadId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -204,14 +204,14 @@ instance Data.ToQuery CompleteLayerUpload where
 
 -- | /See:/ 'newCompleteLayerUploadResponse' smart constructor.
 data CompleteLayerUploadResponse = CompleteLayerUploadResponse'
-  { -- | The upload ID associated with the layer.
-    uploadId :: Prelude.Maybe Prelude.Text,
-    -- | The repository name associated with the request.
-    repositoryName :: Prelude.Maybe Prelude.Text,
-    -- | The @sha256@ digest of the image layer.
+  { -- | The @sha256@ digest of the image layer.
     layerDigest :: Prelude.Maybe Prelude.Text,
     -- | The public registry ID associated with the request.
     registryId :: Prelude.Maybe Prelude.Text,
+    -- | The repository name associated with the request.
+    repositoryName :: Prelude.Maybe Prelude.Text,
+    -- | The upload ID associated with the layer.
+    uploadId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -225,13 +225,13 @@ data CompleteLayerUploadResponse = CompleteLayerUploadResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'uploadId', 'completeLayerUploadResponse_uploadId' - The upload ID associated with the layer.
---
--- 'repositoryName', 'completeLayerUploadResponse_repositoryName' - The repository name associated with the request.
---
 -- 'layerDigest', 'completeLayerUploadResponse_layerDigest' - The @sha256@ digest of the image layer.
 --
 -- 'registryId', 'completeLayerUploadResponse_registryId' - The public registry ID associated with the request.
+--
+-- 'repositoryName', 'completeLayerUploadResponse_repositoryName' - The repository name associated with the request.
+--
+-- 'uploadId', 'completeLayerUploadResponse_uploadId' - The upload ID associated with the layer.
 --
 -- 'httpStatus', 'completeLayerUploadResponse_httpStatus' - The response's http status code.
 newCompleteLayerUploadResponse ::
@@ -240,21 +240,13 @@ newCompleteLayerUploadResponse ::
   CompleteLayerUploadResponse
 newCompleteLayerUploadResponse pHttpStatus_ =
   CompleteLayerUploadResponse'
-    { uploadId =
+    { layerDigest =
         Prelude.Nothing,
-      repositoryName = Prelude.Nothing,
-      layerDigest = Prelude.Nothing,
       registryId = Prelude.Nothing,
+      repositoryName = Prelude.Nothing,
+      uploadId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The upload ID associated with the layer.
-completeLayerUploadResponse_uploadId :: Lens.Lens' CompleteLayerUploadResponse (Prelude.Maybe Prelude.Text)
-completeLayerUploadResponse_uploadId = Lens.lens (\CompleteLayerUploadResponse' {uploadId} -> uploadId) (\s@CompleteLayerUploadResponse' {} a -> s {uploadId = a} :: CompleteLayerUploadResponse)
-
--- | The repository name associated with the request.
-completeLayerUploadResponse_repositoryName :: Lens.Lens' CompleteLayerUploadResponse (Prelude.Maybe Prelude.Text)
-completeLayerUploadResponse_repositoryName = Lens.lens (\CompleteLayerUploadResponse' {repositoryName} -> repositoryName) (\s@CompleteLayerUploadResponse' {} a -> s {repositoryName = a} :: CompleteLayerUploadResponse)
 
 -- | The @sha256@ digest of the image layer.
 completeLayerUploadResponse_layerDigest :: Lens.Lens' CompleteLayerUploadResponse (Prelude.Maybe Prelude.Text)
@@ -264,14 +256,22 @@ completeLayerUploadResponse_layerDigest = Lens.lens (\CompleteLayerUploadRespons
 completeLayerUploadResponse_registryId :: Lens.Lens' CompleteLayerUploadResponse (Prelude.Maybe Prelude.Text)
 completeLayerUploadResponse_registryId = Lens.lens (\CompleteLayerUploadResponse' {registryId} -> registryId) (\s@CompleteLayerUploadResponse' {} a -> s {registryId = a} :: CompleteLayerUploadResponse)
 
+-- | The repository name associated with the request.
+completeLayerUploadResponse_repositoryName :: Lens.Lens' CompleteLayerUploadResponse (Prelude.Maybe Prelude.Text)
+completeLayerUploadResponse_repositoryName = Lens.lens (\CompleteLayerUploadResponse' {repositoryName} -> repositoryName) (\s@CompleteLayerUploadResponse' {} a -> s {repositoryName = a} :: CompleteLayerUploadResponse)
+
+-- | The upload ID associated with the layer.
+completeLayerUploadResponse_uploadId :: Lens.Lens' CompleteLayerUploadResponse (Prelude.Maybe Prelude.Text)
+completeLayerUploadResponse_uploadId = Lens.lens (\CompleteLayerUploadResponse' {uploadId} -> uploadId) (\s@CompleteLayerUploadResponse' {} a -> s {uploadId = a} :: CompleteLayerUploadResponse)
+
 -- | The response's http status code.
 completeLayerUploadResponse_httpStatus :: Lens.Lens' CompleteLayerUploadResponse Prelude.Int
 completeLayerUploadResponse_httpStatus = Lens.lens (\CompleteLayerUploadResponse' {httpStatus} -> httpStatus) (\s@CompleteLayerUploadResponse' {} a -> s {httpStatus = a} :: CompleteLayerUploadResponse)
 
 instance Prelude.NFData CompleteLayerUploadResponse where
   rnf CompleteLayerUploadResponse' {..} =
-    Prelude.rnf uploadId
-      `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf layerDigest
+    Prelude.rnf layerDigest
       `Prelude.seq` Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf uploadId
       `Prelude.seq` Prelude.rnf httpStatus

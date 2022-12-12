@@ -41,8 +41,8 @@ module Amazonka.IoTSiteWise.Lens
     batchDisassociateProjectAssetsResponse_httpStatus,
 
     -- ** BatchGetAssetPropertyAggregates
-    batchGetAssetPropertyAggregates_nextToken,
     batchGetAssetPropertyAggregates_maxResults,
+    batchGetAssetPropertyAggregates_nextToken,
     batchGetAssetPropertyAggregates_entries,
     batchGetAssetPropertyAggregatesResponse_nextToken,
     batchGetAssetPropertyAggregatesResponse_httpStatus,
@@ -60,8 +60,8 @@ module Amazonka.IoTSiteWise.Lens
     batchGetAssetPropertyValueResponse_skippedEntries,
 
     -- ** BatchGetAssetPropertyValueHistory
-    batchGetAssetPropertyValueHistory_nextToken,
     batchGetAssetPropertyValueHistory_maxResults,
+    batchGetAssetPropertyValueHistory_nextToken,
     batchGetAssetPropertyValueHistory_entries,
     batchGetAssetPropertyValueHistoryResponse_nextToken,
     batchGetAssetPropertyValueHistoryResponse_httpStatus,
@@ -75,8 +75,8 @@ module Amazonka.IoTSiteWise.Lens
     batchPutAssetPropertyValueResponse_errorEntries,
 
     -- ** CreateAccessPolicy
-    createAccessPolicy_tags,
     createAccessPolicy_clientToken,
+    createAccessPolicy_tags,
     createAccessPolicy_accessPolicyIdentity,
     createAccessPolicy_accessPolicyResource,
     createAccessPolicy_accessPolicyPermission,
@@ -85,9 +85,9 @@ module Amazonka.IoTSiteWise.Lens
     createAccessPolicyResponse_accessPolicyArn,
 
     -- ** CreateAsset
-    createAsset_tags,
-    createAsset_clientToken,
     createAsset_assetDescription,
+    createAsset_clientToken,
+    createAsset_tags,
     createAsset_assetName,
     createAsset_assetModelId,
     createAssetResponse_httpStatus,
@@ -96,12 +96,12 @@ module Amazonka.IoTSiteWise.Lens
     createAssetResponse_assetStatus,
 
     -- ** CreateAssetModel
-    createAssetModel_tags,
-    createAssetModel_clientToken,
     createAssetModel_assetModelCompositeModels,
     createAssetModel_assetModelDescription,
     createAssetModel_assetModelHierarchies,
     createAssetModel_assetModelProperties,
+    createAssetModel_clientToken,
+    createAssetModel_tags,
     createAssetModel_assetModelName,
     createAssetModelResponse_httpStatus,
     createAssetModelResponse_assetModelId,
@@ -120,9 +120,9 @@ module Amazonka.IoTSiteWise.Lens
     createBulkImportJobResponse_jobStatus,
 
     -- ** CreateDashboard
-    createDashboard_tags,
-    createDashboard_dashboardDescription,
     createDashboard_clientToken,
+    createDashboard_dashboardDescription,
+    createDashboard_tags,
     createDashboard_projectId,
     createDashboard_dashboardName,
     createDashboard_dashboardDefinition,
@@ -139,13 +139,13 @@ module Amazonka.IoTSiteWise.Lens
     createGatewayResponse_gatewayArn,
 
     -- ** CreatePortal
-    createPortal_tags,
     createPortal_alarms,
     createPortal_clientToken,
-    createPortal_portalDescription,
-    createPortal_portalAuthMode,
-    createPortal_portalLogoImageFile,
     createPortal_notificationSenderEmail,
+    createPortal_portalAuthMode,
+    createPortal_portalDescription,
+    createPortal_portalLogoImageFile,
+    createPortal_tags,
     createPortal_portalName,
     createPortal_portalContactEmail,
     createPortal_roleArn,
@@ -157,9 +157,9 @@ module Amazonka.IoTSiteWise.Lens
     createPortalResponse_ssoApplicationId,
 
     -- ** CreateProject
-    createProject_tags,
     createProject_clientToken,
     createProject_projectDescription,
+    createProject_tags,
     createProject_portalId,
     createProject_projectName,
     createProjectResponse_httpStatus,
@@ -204,8 +204,8 @@ module Amazonka.IoTSiteWise.Lens
 
     -- ** DeleteTimeSeries
     deleteTimeSeries_alias,
-    deleteTimeSeries_clientToken,
     deleteTimeSeries_assetId,
+    deleteTimeSeries_clientToken,
     deleteTimeSeries_propertyId,
 
     -- ** DescribeAccessPolicy
@@ -318,11 +318,11 @@ module Amazonka.IoTSiteWise.Lens
     -- ** DescribePortal
     describePortal_portalId,
     describePortalResponse_alarms,
-    describePortalResponse_roleArn,
-    describePortalResponse_portalLogoImageLocation,
-    describePortalResponse_portalDescription,
-    describePortalResponse_portalAuthMode,
     describePortalResponse_notificationSenderEmail,
+    describePortalResponse_portalAuthMode,
+    describePortalResponse_portalDescription,
+    describePortalResponse_portalLogoImageLocation,
+    describePortalResponse_roleArn,
     describePortalResponse_httpStatus,
     describePortalResponse_portalId,
     describePortalResponse_portalArn,
@@ -346,9 +346,9 @@ module Amazonka.IoTSiteWise.Lens
     describeProjectResponse_projectLastUpdateDate,
 
     -- ** DescribeStorageConfiguration
-    describeStorageConfigurationResponse_multiLayerStorage,
     describeStorageConfigurationResponse_disassociatedDataStorage,
     describeStorageConfigurationResponse_lastUpdateDate,
+    describeStorageConfigurationResponse_multiLayerStorage,
     describeStorageConfigurationResponse_retentionPeriod,
     describeStorageConfigurationResponse_httpStatus,
     describeStorageConfigurationResponse_storageType,
@@ -359,8 +359,8 @@ module Amazonka.IoTSiteWise.Lens
     describeTimeSeries_assetId,
     describeTimeSeries_propertyId,
     describeTimeSeriesResponse_alias,
-    describeTimeSeriesResponse_dataTypeSpec,
     describeTimeSeriesResponse_assetId,
+    describeTimeSeriesResponse_dataTypeSpec,
     describeTimeSeriesResponse_propertyId,
     describeTimeSeriesResponse_httpStatus,
     describeTimeSeriesResponse_timeSeriesId,
@@ -381,12 +381,12 @@ module Amazonka.IoTSiteWise.Lens
     disassociateTimeSeriesFromAssetProperty_propertyId,
 
     -- ** GetAssetPropertyAggregates
+    getAssetPropertyAggregates_assetId,
+    getAssetPropertyAggregates_maxResults,
     getAssetPropertyAggregates_nextToken,
     getAssetPropertyAggregates_propertyAlias,
-    getAssetPropertyAggregates_assetId,
-    getAssetPropertyAggregates_qualities,
     getAssetPropertyAggregates_propertyId,
-    getAssetPropertyAggregates_maxResults,
+    getAssetPropertyAggregates_qualities,
     getAssetPropertyAggregates_timeOrdering,
     getAssetPropertyAggregates_aggregateTypes,
     getAssetPropertyAggregates_resolution,
@@ -397,35 +397,35 @@ module Amazonka.IoTSiteWise.Lens
     getAssetPropertyAggregatesResponse_aggregatedValues,
 
     -- ** GetAssetPropertyValue
-    getAssetPropertyValue_propertyAlias,
     getAssetPropertyValue_assetId,
+    getAssetPropertyValue_propertyAlias,
     getAssetPropertyValue_propertyId,
     getAssetPropertyValueResponse_propertyValue,
     getAssetPropertyValueResponse_httpStatus,
 
     -- ** GetAssetPropertyValueHistory
-    getAssetPropertyValueHistory_nextToken,
-    getAssetPropertyValueHistory_propertyAlias,
     getAssetPropertyValueHistory_assetId,
     getAssetPropertyValueHistory_endDate,
-    getAssetPropertyValueHistory_qualities,
-    getAssetPropertyValueHistory_propertyId,
-    getAssetPropertyValueHistory_startDate,
     getAssetPropertyValueHistory_maxResults,
+    getAssetPropertyValueHistory_nextToken,
+    getAssetPropertyValueHistory_propertyAlias,
+    getAssetPropertyValueHistory_propertyId,
+    getAssetPropertyValueHistory_qualities,
+    getAssetPropertyValueHistory_startDate,
     getAssetPropertyValueHistory_timeOrdering,
     getAssetPropertyValueHistoryResponse_nextToken,
     getAssetPropertyValueHistoryResponse_httpStatus,
     getAssetPropertyValueHistoryResponse_assetPropertyValueHistory,
 
     -- ** GetInterpolatedAssetPropertyValues
+    getInterpolatedAssetPropertyValues_assetId,
+    getInterpolatedAssetPropertyValues_endTimeOffsetInNanos,
+    getInterpolatedAssetPropertyValues_intervalWindowInSeconds,
+    getInterpolatedAssetPropertyValues_maxResults,
     getInterpolatedAssetPropertyValues_nextToken,
     getInterpolatedAssetPropertyValues_propertyAlias,
-    getInterpolatedAssetPropertyValues_assetId,
-    getInterpolatedAssetPropertyValues_startTimeOffsetInNanos,
-    getInterpolatedAssetPropertyValues_endTimeOffsetInNanos,
     getInterpolatedAssetPropertyValues_propertyId,
-    getInterpolatedAssetPropertyValues_maxResults,
-    getInterpolatedAssetPropertyValues_intervalWindowInSeconds,
+    getInterpolatedAssetPropertyValues_startTimeOffsetInNanos,
     getInterpolatedAssetPropertyValues_startTimeInSeconds,
     getInterpolatedAssetPropertyValues_endTimeInSeconds,
     getInterpolatedAssetPropertyValues_quality,
@@ -436,45 +436,45 @@ module Amazonka.IoTSiteWise.Lens
     getInterpolatedAssetPropertyValuesResponse_interpolatedAssetPropertyValues,
 
     -- ** ListAccessPolicies
-    listAccessPolicies_resourceId,
     listAccessPolicies_iamArn,
-    listAccessPolicies_resourceType,
-    listAccessPolicies_nextToken,
-    listAccessPolicies_maxResults,
     listAccessPolicies_identityId,
     listAccessPolicies_identityType,
+    listAccessPolicies_maxResults,
+    listAccessPolicies_nextToken,
+    listAccessPolicies_resourceId,
+    listAccessPolicies_resourceType,
     listAccessPoliciesResponse_nextToken,
     listAccessPoliciesResponse_httpStatus,
     listAccessPoliciesResponse_accessPolicySummaries,
 
     -- ** ListAssetModelProperties
-    listAssetModelProperties_nextToken,
     listAssetModelProperties_filter,
     listAssetModelProperties_maxResults,
+    listAssetModelProperties_nextToken,
     listAssetModelProperties_assetModelId,
     listAssetModelPropertiesResponse_nextToken,
     listAssetModelPropertiesResponse_httpStatus,
     listAssetModelPropertiesResponse_assetModelPropertySummaries,
 
     -- ** ListAssetModels
-    listAssetModels_nextToken,
     listAssetModels_maxResults,
+    listAssetModels_nextToken,
     listAssetModelsResponse_nextToken,
     listAssetModelsResponse_httpStatus,
     listAssetModelsResponse_assetModelSummaries,
 
     -- ** ListAssetProperties
-    listAssetProperties_nextToken,
     listAssetProperties_filter,
     listAssetProperties_maxResults,
+    listAssetProperties_nextToken,
     listAssetProperties_assetId,
     listAssetPropertiesResponse_nextToken,
     listAssetPropertiesResponse_httpStatus,
     listAssetPropertiesResponse_assetPropertySummaries,
 
     -- ** ListAssetRelationships
-    listAssetRelationships_nextToken,
     listAssetRelationships_maxResults,
+    listAssetRelationships_nextToken,
     listAssetRelationships_assetId,
     listAssetRelationships_traversalType,
     listAssetRelationshipsResponse_nextToken,
@@ -482,65 +482,65 @@ module Amazonka.IoTSiteWise.Lens
     listAssetRelationshipsResponse_assetRelationshipSummaries,
 
     -- ** ListAssets
-    listAssets_nextToken,
-    listAssets_filter,
     listAssets_assetModelId,
+    listAssets_filter,
     listAssets_maxResults,
+    listAssets_nextToken,
     listAssetsResponse_nextToken,
     listAssetsResponse_httpStatus,
     listAssetsResponse_assetSummaries,
 
     -- ** ListAssociatedAssets
-    listAssociatedAssets_nextToken,
-    listAssociatedAssets_traversalDirection,
     listAssociatedAssets_hierarchyId,
     listAssociatedAssets_maxResults,
+    listAssociatedAssets_nextToken,
+    listAssociatedAssets_traversalDirection,
     listAssociatedAssets_assetId,
     listAssociatedAssetsResponse_nextToken,
     listAssociatedAssetsResponse_httpStatus,
     listAssociatedAssetsResponse_assetSummaries,
 
     -- ** ListBulkImportJobs
-    listBulkImportJobs_nextToken,
     listBulkImportJobs_filter,
     listBulkImportJobs_maxResults,
+    listBulkImportJobs_nextToken,
     listBulkImportJobsResponse_nextToken,
     listBulkImportJobsResponse_httpStatus,
     listBulkImportJobsResponse_jobSummaries,
 
     -- ** ListDashboards
-    listDashboards_nextToken,
     listDashboards_maxResults,
+    listDashboards_nextToken,
     listDashboards_projectId,
     listDashboardsResponse_nextToken,
     listDashboardsResponse_httpStatus,
     listDashboardsResponse_dashboardSummaries,
 
     -- ** ListGateways
-    listGateways_nextToken,
     listGateways_maxResults,
+    listGateways_nextToken,
     listGatewaysResponse_nextToken,
     listGatewaysResponse_httpStatus,
     listGatewaysResponse_gatewaySummaries,
 
     -- ** ListPortals
-    listPortals_nextToken,
     listPortals_maxResults,
+    listPortals_nextToken,
     listPortalsResponse_nextToken,
     listPortalsResponse_portalSummaries,
     listPortalsResponse_httpStatus,
 
     -- ** ListProjectAssets
-    listProjectAssets_nextToken,
     listProjectAssets_maxResults,
+    listProjectAssets_nextToken,
     listProjectAssets_projectId,
     listProjectAssetsResponse_nextToken,
     listProjectAssetsResponse_httpStatus,
     listProjectAssetsResponse_assetIds,
 
     -- ** ListProjects
-    listProjects_nextToken,
     listProjects_maxResults,
+    listProjects_nextToken,
     listProjects_portalId,
     listProjectsResponse_nextToken,
     listProjectsResponse_httpStatus,
@@ -552,10 +552,10 @@ module Amazonka.IoTSiteWise.Lens
     listTagsForResourceResponse_httpStatus,
 
     -- ** ListTimeSeries
-    listTimeSeries_nextToken,
+    listTimeSeries_aliasPrefix,
     listTimeSeries_assetId,
     listTimeSeries_maxResults,
-    listTimeSeries_aliasPrefix,
+    listTimeSeries_nextToken,
     listTimeSeries_timeSeriesType,
     listTimeSeriesResponse_nextToken,
     listTimeSeriesResponse_httpStatus,
@@ -574,12 +574,12 @@ module Amazonka.IoTSiteWise.Lens
     putLoggingOptionsResponse_httpStatus,
 
     -- ** PutStorageConfiguration
-    putStorageConfiguration_multiLayerStorage,
     putStorageConfiguration_disassociatedDataStorage,
+    putStorageConfiguration_multiLayerStorage,
     putStorageConfiguration_retentionPeriod,
     putStorageConfiguration_storageType,
-    putStorageConfigurationResponse_multiLayerStorage,
     putStorageConfigurationResponse_disassociatedDataStorage,
+    putStorageConfigurationResponse_multiLayerStorage,
     putStorageConfigurationResponse_retentionPeriod,
     putStorageConfigurationResponse_httpStatus,
     putStorageConfigurationResponse_storageType,
@@ -604,19 +604,19 @@ module Amazonka.IoTSiteWise.Lens
     updateAccessPolicyResponse_httpStatus,
 
     -- ** UpdateAsset
-    updateAsset_clientToken,
     updateAsset_assetDescription,
+    updateAsset_clientToken,
     updateAsset_assetId,
     updateAsset_assetName,
     updateAssetResponse_httpStatus,
     updateAssetResponse_assetStatus,
 
     -- ** UpdateAssetModel
-    updateAssetModel_clientToken,
     updateAssetModel_assetModelCompositeModels,
     updateAssetModel_assetModelDescription,
     updateAssetModel_assetModelHierarchies,
     updateAssetModel_assetModelProperties,
+    updateAssetModel_clientToken,
     updateAssetModel_assetModelId,
     updateAssetModel_assetModelName,
     updateAssetModelResponse_httpStatus,
@@ -631,8 +631,8 @@ module Amazonka.IoTSiteWise.Lens
     updateAssetProperty_propertyId,
 
     -- ** UpdateDashboard
-    updateDashboard_dashboardDescription,
     updateDashboard_clientToken,
+    updateDashboard_dashboardDescription,
     updateDashboard_dashboardId,
     updateDashboard_dashboardName,
     updateDashboard_dashboardDefinition,
@@ -653,9 +653,9 @@ module Amazonka.IoTSiteWise.Lens
     -- ** UpdatePortal
     updatePortal_alarms,
     updatePortal_clientToken,
-    updatePortal_portalLogoImage,
-    updatePortal_portalDescription,
     updatePortal_notificationSenderEmail,
+    updatePortal_portalDescription,
+    updatePortal_portalLogoImage,
     updatePortal_portalId,
     updatePortal_portalName,
     updatePortal_portalContactEmail,
@@ -686,12 +686,12 @@ module Amazonka.IoTSiteWise.Lens
     aggregatedValue_value,
 
     -- ** Aggregates
-    aggregates_minimum,
-    aggregates_standardDeviation,
     aggregates_average,
     aggregates_count,
-    aggregates_sum,
     aggregates_maximum,
+    aggregates_minimum,
+    aggregates_standardDeviation,
+    aggregates_sum,
 
     -- ** Alarms
     alarms_notificationLambdaArn,
@@ -718,15 +718,15 @@ module Amazonka.IoTSiteWise.Lens
     assetHierarchyInfo_parentAssetId,
 
     -- ** AssetModelCompositeModel
-    assetModelCompositeModel_properties,
     assetModelCompositeModel_description,
     assetModelCompositeModel_id,
+    assetModelCompositeModel_properties,
     assetModelCompositeModel_name,
     assetModelCompositeModel_type,
 
     -- ** AssetModelCompositeModelDefinition
-    assetModelCompositeModelDefinition_properties,
     assetModelCompositeModelDefinition_description,
+    assetModelCompositeModelDefinition_properties,
     assetModelCompositeModelDefinition_name,
     assetModelCompositeModelDefinition_type,
 
@@ -755,8 +755,8 @@ module Amazonka.IoTSiteWise.Lens
     assetModelPropertyDefinition_type,
 
     -- ** AssetModelPropertySummary
-    assetModelPropertySummary_dataTypeSpec,
     assetModelPropertySummary_assetModelCompositeModelId,
+    assetModelPropertySummary_dataTypeSpec,
     assetModelPropertySummary_id,
     assetModelPropertySummary_unit,
     assetModelPropertySummary_name,
@@ -787,9 +787,9 @@ module Amazonka.IoTSiteWise.Lens
 
     -- ** AssetPropertySummary
     assetPropertySummary_alias,
+    assetPropertySummary_assetCompositeModelId,
     assetPropertySummary_id,
     assetPropertySummary_notification,
-    assetPropertySummary_assetCompositeModelId,
     assetPropertySummary_unit,
 
     -- ** AssetPropertyValue
@@ -831,10 +831,10 @@ module Amazonka.IoTSiteWise.Lens
     attribute_defaultValue,
 
     -- ** BatchGetAssetPropertyAggregatesEntry
-    batchGetAssetPropertyAggregatesEntry_propertyAlias,
     batchGetAssetPropertyAggregatesEntry_assetId,
-    batchGetAssetPropertyAggregatesEntry_qualities,
+    batchGetAssetPropertyAggregatesEntry_propertyAlias,
     batchGetAssetPropertyAggregatesEntry_propertyId,
+    batchGetAssetPropertyAggregatesEntry_qualities,
     batchGetAssetPropertyAggregatesEntry_timeOrdering,
     batchGetAssetPropertyAggregatesEntry_entryId,
     batchGetAssetPropertyAggregatesEntry_aggregateTypes,
@@ -861,8 +861,8 @@ module Amazonka.IoTSiteWise.Lens
     batchGetAssetPropertyAggregatesSuccessEntry_aggregatedValues,
 
     -- ** BatchGetAssetPropertyValueEntry
-    batchGetAssetPropertyValueEntry_propertyAlias,
     batchGetAssetPropertyValueEntry_assetId,
+    batchGetAssetPropertyValueEntry_propertyAlias,
     batchGetAssetPropertyValueEntry_propertyId,
     batchGetAssetPropertyValueEntry_entryId,
 
@@ -876,11 +876,11 @@ module Amazonka.IoTSiteWise.Lens
     batchGetAssetPropertyValueErrorInfo_errorTimestamp,
 
     -- ** BatchGetAssetPropertyValueHistoryEntry
-    batchGetAssetPropertyValueHistoryEntry_propertyAlias,
     batchGetAssetPropertyValueHistoryEntry_assetId,
     batchGetAssetPropertyValueHistoryEntry_endDate,
-    batchGetAssetPropertyValueHistoryEntry_qualities,
+    batchGetAssetPropertyValueHistoryEntry_propertyAlias,
     batchGetAssetPropertyValueHistoryEntry_propertyId,
+    batchGetAssetPropertyValueHistoryEntry_qualities,
     batchGetAssetPropertyValueHistoryEntry_startDate,
     batchGetAssetPropertyValueHistoryEntry_timeOrdering,
     batchGetAssetPropertyValueHistoryEntry_entryId,
@@ -944,8 +944,8 @@ module Amazonka.IoTSiteWise.Lens
 
     -- ** DashboardSummary
     dashboardSummary_creationDate,
-    dashboardSummary_lastUpdateDate,
     dashboardSummary_description,
+    dashboardSummary_lastUpdateDate,
     dashboardSummary_id,
     dashboardSummary_name,
 
@@ -986,8 +986,8 @@ module Amazonka.IoTSiteWise.Lens
     gatewayPlatform_greengrassV2,
 
     -- ** GatewaySummary
-    gatewaySummary_gatewayPlatform,
     gatewaySummary_gatewayCapabilitySummaries,
+    gatewaySummary_gatewayPlatform,
     gatewaySummary_gatewayId,
     gatewaySummary_gatewayName,
     gatewaySummary_creationDate,
@@ -1009,10 +1009,10 @@ module Amazonka.IoTSiteWise.Lens
     iAMUserIdentity_arn,
 
     -- ** Identity
-    identity_iamRole,
-    identity_user,
-    identity_iamUser,
     identity_group,
+    identity_iamRole,
+    identity_iamUser,
+    identity_user,
 
     -- ** Image
     image_file,
@@ -1060,8 +1060,8 @@ module Amazonka.IoTSiteWise.Lens
     metricWindow_tumbling,
 
     -- ** MonitorErrorDetails
-    monitorErrorDetails_message,
     monitorErrorDetails_code,
+    monitorErrorDetails_message,
 
     -- ** MultiLayerStorage
     multiLayerStorage_customerManagedS3Storage,
@@ -1074,10 +1074,10 @@ module Amazonka.IoTSiteWise.Lens
     portalStatus_state,
 
     -- ** PortalSummary
-    portalSummary_roleArn,
     portalSummary_creationDate,
-    portalSummary_lastUpdateDate,
     portalSummary_description,
+    portalSummary_lastUpdateDate,
+    portalSummary_roleArn,
     portalSummary_id,
     portalSummary_name,
     portalSummary_startUrl,
@@ -1088,15 +1088,15 @@ module Amazonka.IoTSiteWise.Lens
 
     -- ** ProjectSummary
     projectSummary_creationDate,
-    projectSummary_lastUpdateDate,
     projectSummary_description,
+    projectSummary_lastUpdateDate,
     projectSummary_id,
     projectSummary_name,
 
     -- ** Property
     property_alias,
-    property_type,
     property_notification,
+    property_type,
     property_unit,
     property_id,
     property_name,
@@ -1108,20 +1108,20 @@ module Amazonka.IoTSiteWise.Lens
 
     -- ** PropertyType
     propertyType_attribute,
+    propertyType_measurement,
     propertyType_metric,
     propertyType_transform,
-    propertyType_measurement,
 
     -- ** PutAssetPropertyValueEntry
-    putAssetPropertyValueEntry_propertyAlias,
     putAssetPropertyValueEntry_assetId,
+    putAssetPropertyValueEntry_propertyAlias,
     putAssetPropertyValueEntry_propertyId,
     putAssetPropertyValueEntry_entryId,
     putAssetPropertyValueEntry_propertyValues,
 
     -- ** Resource
-    resource_project,
     resource_portal,
+    resource_project,
 
     -- ** RetentionPeriod
     retentionPeriod_numberOfDays,
@@ -1133,8 +1133,8 @@ module Amazonka.IoTSiteWise.Lens
 
     -- ** TimeSeriesSummary
     timeSeriesSummary_alias,
-    timeSeriesSummary_dataTypeSpec,
     timeSeriesSummary_assetId,
+    timeSeriesSummary_dataTypeSpec,
     timeSeriesSummary_propertyId,
     timeSeriesSummary_timeSeriesId,
     timeSeriesSummary_dataType,
@@ -1162,9 +1162,9 @@ module Amazonka.IoTSiteWise.Lens
     variableValue_propertyId,
 
     -- ** Variant
-    variant_integerValue,
-    variant_doubleValue,
     variant_booleanValue,
+    variant_doubleValue,
+    variant_integerValue,
     variant_stringValue,
   )
 where

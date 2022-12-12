@@ -36,30 +36,11 @@ import qualified Amazonka.Prelude as Prelude
 -- Retrieve game server instances for a game server group by calling
 -- @DescribeGameServerInstances@.
 --
--- __Related actions__
---
--- CreateGameServerGroup | ListGameServerGroups | DescribeGameServerGroup |
--- UpdateGameServerGroup | DeleteGameServerGroup | ResumeGameServerGroup |
--- SuspendGameServerGroup | DescribeGameServerInstances |
--- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html All APIs by task>
---
 -- /See:/ 'newGameServerInstance' smart constructor.
 data GameServerInstance = GameServerInstance'
-  { -- | Current status of the game server instance.
-    --
-    -- -   __ACTIVE__ -- The instance is viable for hosting game servers.
-    --
-    -- -   __DRAINING__ -- The instance is not viable for hosting game servers.
-    --     Existing game servers are in the process of ending, and new game
-    --     servers are not started on this instance unless no other resources
-    --     are available. When the instance is put in DRAINING, a new instance
-    --     is started up to replace it. Once the instance has no UTILIZED game
-    --     servers, it will be terminated in favor of the new instance.
-    --
-    -- -   __SPOT_TERMINATING__ -- The instance is in the process of shutting
-    --     down due to a Spot instance interruption. No new game servers are
-    --     started on this instance.
-    instanceStatus :: Prelude.Maybe GameServerInstanceStatus,
+  { -- | A generated unique identifier for the game server group that includes
+    -- the game server instance.
+    gameServerGroupArn :: Prelude.Maybe Prelude.Text,
     -- | A developer-defined identifier for the game server group that includes
     -- the game server instance. The name is unique for each Region in each
     -- Amazon Web Services account.
@@ -68,9 +49,8 @@ data GameServerInstance = GameServerInstance'
     -- This ID is available in the instance metadata. EC2 instance IDs use a
     -- 17-character format, for example: @i-1234567890abcdef0@.
     instanceId :: Prelude.Maybe Prelude.Text,
-    -- | A generated unique identifier for the game server group that includes
-    -- the game server instance.
-    gameServerGroupArn :: Prelude.Maybe Prelude.Text
+    -- | Current status of the game server instance
+    instanceStatus :: Prelude.Maybe GameServerInstanceStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,20 +62,8 @@ data GameServerInstance = GameServerInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceStatus', 'gameServerInstance_instanceStatus' - Current status of the game server instance.
---
--- -   __ACTIVE__ -- The instance is viable for hosting game servers.
---
--- -   __DRAINING__ -- The instance is not viable for hosting game servers.
---     Existing game servers are in the process of ending, and new game
---     servers are not started on this instance unless no other resources
---     are available. When the instance is put in DRAINING, a new instance
---     is started up to replace it. Once the instance has no UTILIZED game
---     servers, it will be terminated in favor of the new instance.
---
--- -   __SPOT_TERMINATING__ -- The instance is in the process of shutting
---     down due to a Spot instance interruption. No new game servers are
---     started on this instance.
+-- 'gameServerGroupArn', 'gameServerInstance_gameServerGroupArn' - A generated unique identifier for the game server group that includes
+-- the game server instance.
 --
 -- 'gameServerGroupName', 'gameServerInstance_gameServerGroupName' - A developer-defined identifier for the game server group that includes
 -- the game server instance. The name is unique for each Region in each
@@ -105,35 +73,22 @@ data GameServerInstance = GameServerInstance'
 -- This ID is available in the instance metadata. EC2 instance IDs use a
 -- 17-character format, for example: @i-1234567890abcdef0@.
 --
--- 'gameServerGroupArn', 'gameServerInstance_gameServerGroupArn' - A generated unique identifier for the game server group that includes
--- the game server instance.
+-- 'instanceStatus', 'gameServerInstance_instanceStatus' - Current status of the game server instance
 newGameServerInstance ::
   GameServerInstance
 newGameServerInstance =
   GameServerInstance'
-    { instanceStatus =
+    { gameServerGroupArn =
         Prelude.Nothing,
       gameServerGroupName = Prelude.Nothing,
       instanceId = Prelude.Nothing,
-      gameServerGroupArn = Prelude.Nothing
+      instanceStatus = Prelude.Nothing
     }
 
--- | Current status of the game server instance.
---
--- -   __ACTIVE__ -- The instance is viable for hosting game servers.
---
--- -   __DRAINING__ -- The instance is not viable for hosting game servers.
---     Existing game servers are in the process of ending, and new game
---     servers are not started on this instance unless no other resources
---     are available. When the instance is put in DRAINING, a new instance
---     is started up to replace it. Once the instance has no UTILIZED game
---     servers, it will be terminated in favor of the new instance.
---
--- -   __SPOT_TERMINATING__ -- The instance is in the process of shutting
---     down due to a Spot instance interruption. No new game servers are
---     started on this instance.
-gameServerInstance_instanceStatus :: Lens.Lens' GameServerInstance (Prelude.Maybe GameServerInstanceStatus)
-gameServerInstance_instanceStatus = Lens.lens (\GameServerInstance' {instanceStatus} -> instanceStatus) (\s@GameServerInstance' {} a -> s {instanceStatus = a} :: GameServerInstance)
+-- | A generated unique identifier for the game server group that includes
+-- the game server instance.
+gameServerInstance_gameServerGroupArn :: Lens.Lens' GameServerInstance (Prelude.Maybe Prelude.Text)
+gameServerInstance_gameServerGroupArn = Lens.lens (\GameServerInstance' {gameServerGroupArn} -> gameServerGroupArn) (\s@GameServerInstance' {} a -> s {gameServerGroupArn = a} :: GameServerInstance)
 
 -- | A developer-defined identifier for the game server group that includes
 -- the game server instance. The name is unique for each Region in each
@@ -147,10 +102,9 @@ gameServerInstance_gameServerGroupName = Lens.lens (\GameServerInstance' {gameSe
 gameServerInstance_instanceId :: Lens.Lens' GameServerInstance (Prelude.Maybe Prelude.Text)
 gameServerInstance_instanceId = Lens.lens (\GameServerInstance' {instanceId} -> instanceId) (\s@GameServerInstance' {} a -> s {instanceId = a} :: GameServerInstance)
 
--- | A generated unique identifier for the game server group that includes
--- the game server instance.
-gameServerInstance_gameServerGroupArn :: Lens.Lens' GameServerInstance (Prelude.Maybe Prelude.Text)
-gameServerInstance_gameServerGroupArn = Lens.lens (\GameServerInstance' {gameServerGroupArn} -> gameServerGroupArn) (\s@GameServerInstance' {} a -> s {gameServerGroupArn = a} :: GameServerInstance)
+-- | Current status of the game server instance
+gameServerInstance_instanceStatus :: Lens.Lens' GameServerInstance (Prelude.Maybe GameServerInstanceStatus)
+gameServerInstance_instanceStatus = Lens.lens (\GameServerInstance' {instanceStatus} -> instanceStatus) (\s@GameServerInstance' {} a -> s {instanceStatus = a} :: GameServerInstance)
 
 instance Data.FromJSON GameServerInstance where
   parseJSON =
@@ -158,22 +112,22 @@ instance Data.FromJSON GameServerInstance where
       "GameServerInstance"
       ( \x ->
           GameServerInstance'
-            Prelude.<$> (x Data..:? "InstanceStatus")
+            Prelude.<$> (x Data..:? "GameServerGroupArn")
             Prelude.<*> (x Data..:? "GameServerGroupName")
             Prelude.<*> (x Data..:? "InstanceId")
-            Prelude.<*> (x Data..:? "GameServerGroupArn")
+            Prelude.<*> (x Data..:? "InstanceStatus")
       )
 
 instance Prelude.Hashable GameServerInstance where
   hashWithSalt _salt GameServerInstance' {..} =
-    _salt `Prelude.hashWithSalt` instanceStatus
+    _salt `Prelude.hashWithSalt` gameServerGroupArn
       `Prelude.hashWithSalt` gameServerGroupName
       `Prelude.hashWithSalt` instanceId
-      `Prelude.hashWithSalt` gameServerGroupArn
+      `Prelude.hashWithSalt` instanceStatus
 
 instance Prelude.NFData GameServerInstance where
   rnf GameServerInstance' {..} =
-    Prelude.rnf instanceStatus
+    Prelude.rnf gameServerGroupArn
       `Prelude.seq` Prelude.rnf gameServerGroupName
       `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf gameServerGroupArn
+      `Prelude.seq` Prelude.rnf instanceStatus

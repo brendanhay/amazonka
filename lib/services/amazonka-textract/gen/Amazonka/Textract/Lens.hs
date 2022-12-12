@@ -19,10 +19,10 @@ module Amazonka.Textract.Lens
     analyzeDocument_queriesConfig,
     analyzeDocument_document,
     analyzeDocument_featureTypes,
-    analyzeDocumentResponse_humanLoopActivationOutput,
-    analyzeDocumentResponse_documentMetadata,
     analyzeDocumentResponse_analyzeDocumentModelVersion,
     analyzeDocumentResponse_blocks,
+    analyzeDocumentResponse_documentMetadata,
+    analyzeDocumentResponse_humanLoopActivationOutput,
     analyzeDocumentResponse_httpStatus,
 
     -- ** AnalyzeExpense
@@ -33,64 +33,87 @@ module Amazonka.Textract.Lens
 
     -- ** AnalyzeID
     analyzeID_documentPages,
-    analyzeIDResponse_identityDocuments,
-    analyzeIDResponse_documentMetadata,
     analyzeIDResponse_analyzeIDModelVersion,
+    analyzeIDResponse_documentMetadata,
+    analyzeIDResponse_identityDocuments,
     analyzeIDResponse_httpStatus,
 
     -- ** DetectDocumentText
     detectDocumentText_document,
-    detectDocumentTextResponse_documentMetadata,
-    detectDocumentTextResponse_detectDocumentTextModelVersion,
     detectDocumentTextResponse_blocks,
+    detectDocumentTextResponse_detectDocumentTextModelVersion,
+    detectDocumentTextResponse_documentMetadata,
     detectDocumentTextResponse_httpStatus,
 
     -- ** GetDocumentAnalysis
-    getDocumentAnalysis_nextToken,
     getDocumentAnalysis_maxResults,
+    getDocumentAnalysis_nextToken,
     getDocumentAnalysis_jobId,
-    getDocumentAnalysisResponse_nextToken,
-    getDocumentAnalysisResponse_jobStatus,
-    getDocumentAnalysisResponse_documentMetadata,
-    getDocumentAnalysisResponse_warnings,
     getDocumentAnalysisResponse_analyzeDocumentModelVersion,
-    getDocumentAnalysisResponse_statusMessage,
     getDocumentAnalysisResponse_blocks,
+    getDocumentAnalysisResponse_documentMetadata,
+    getDocumentAnalysisResponse_jobStatus,
+    getDocumentAnalysisResponse_nextToken,
+    getDocumentAnalysisResponse_statusMessage,
+    getDocumentAnalysisResponse_warnings,
     getDocumentAnalysisResponse_httpStatus,
 
     -- ** GetDocumentTextDetection
-    getDocumentTextDetection_nextToken,
     getDocumentTextDetection_maxResults,
+    getDocumentTextDetection_nextToken,
     getDocumentTextDetection_jobId,
-    getDocumentTextDetectionResponse_nextToken,
-    getDocumentTextDetectionResponse_jobStatus,
-    getDocumentTextDetectionResponse_documentMetadata,
-    getDocumentTextDetectionResponse_warnings,
-    getDocumentTextDetectionResponse_detectDocumentTextModelVersion,
-    getDocumentTextDetectionResponse_statusMessage,
     getDocumentTextDetectionResponse_blocks,
+    getDocumentTextDetectionResponse_detectDocumentTextModelVersion,
+    getDocumentTextDetectionResponse_documentMetadata,
+    getDocumentTextDetectionResponse_jobStatus,
+    getDocumentTextDetectionResponse_nextToken,
+    getDocumentTextDetectionResponse_statusMessage,
+    getDocumentTextDetectionResponse_warnings,
     getDocumentTextDetectionResponse_httpStatus,
 
     -- ** GetExpenseAnalysis
-    getExpenseAnalysis_nextToken,
     getExpenseAnalysis_maxResults,
+    getExpenseAnalysis_nextToken,
     getExpenseAnalysis_jobId,
     getExpenseAnalysisResponse_analyzeExpenseModelVersion,
-    getExpenseAnalysisResponse_nextToken,
-    getExpenseAnalysisResponse_jobStatus,
     getExpenseAnalysisResponse_documentMetadata,
     getExpenseAnalysisResponse_expenseDocuments,
-    getExpenseAnalysisResponse_warnings,
+    getExpenseAnalysisResponse_jobStatus,
+    getExpenseAnalysisResponse_nextToken,
     getExpenseAnalysisResponse_statusMessage,
+    getExpenseAnalysisResponse_warnings,
     getExpenseAnalysisResponse_httpStatus,
+
+    -- ** GetLendingAnalysis
+    getLendingAnalysis_maxResults,
+    getLendingAnalysis_nextToken,
+    getLendingAnalysis_jobId,
+    getLendingAnalysisResponse_analyzeLendingModelVersion,
+    getLendingAnalysisResponse_documentMetadata,
+    getLendingAnalysisResponse_jobStatus,
+    getLendingAnalysisResponse_nextToken,
+    getLendingAnalysisResponse_results,
+    getLendingAnalysisResponse_statusMessage,
+    getLendingAnalysisResponse_warnings,
+    getLendingAnalysisResponse_httpStatus,
+
+    -- ** GetLendingAnalysisSummary
+    getLendingAnalysisSummary_jobId,
+    getLendingAnalysisSummaryResponse_analyzeLendingModelVersion,
+    getLendingAnalysisSummaryResponse_documentMetadata,
+    getLendingAnalysisSummaryResponse_jobStatus,
+    getLendingAnalysisSummaryResponse_statusMessage,
+    getLendingAnalysisSummaryResponse_summary,
+    getLendingAnalysisSummaryResponse_warnings,
+    getLendingAnalysisSummaryResponse_httpStatus,
 
     -- ** StartDocumentAnalysis
     startDocumentAnalysis_clientRequestToken,
-    startDocumentAnalysis_queriesConfig,
-    startDocumentAnalysis_kmsKeyId,
     startDocumentAnalysis_jobTag,
-    startDocumentAnalysis_outputConfig,
+    startDocumentAnalysis_kmsKeyId,
     startDocumentAnalysis_notificationChannel,
+    startDocumentAnalysis_outputConfig,
+    startDocumentAnalysis_queriesConfig,
     startDocumentAnalysis_documentLocation,
     startDocumentAnalysis_featureTypes,
     startDocumentAnalysisResponse_jobId,
@@ -98,23 +121,33 @@ module Amazonka.Textract.Lens
 
     -- ** StartDocumentTextDetection
     startDocumentTextDetection_clientRequestToken,
-    startDocumentTextDetection_kmsKeyId,
     startDocumentTextDetection_jobTag,
-    startDocumentTextDetection_outputConfig,
+    startDocumentTextDetection_kmsKeyId,
     startDocumentTextDetection_notificationChannel,
+    startDocumentTextDetection_outputConfig,
     startDocumentTextDetection_documentLocation,
     startDocumentTextDetectionResponse_jobId,
     startDocumentTextDetectionResponse_httpStatus,
 
     -- ** StartExpenseAnalysis
     startExpenseAnalysis_clientRequestToken,
-    startExpenseAnalysis_kmsKeyId,
     startExpenseAnalysis_jobTag,
-    startExpenseAnalysis_outputConfig,
+    startExpenseAnalysis_kmsKeyId,
     startExpenseAnalysis_notificationChannel,
+    startExpenseAnalysis_outputConfig,
     startExpenseAnalysis_documentLocation,
     startExpenseAnalysisResponse_jobId,
     startExpenseAnalysisResponse_httpStatus,
+
+    -- ** StartLendingAnalysis
+    startLendingAnalysis_clientRequestToken,
+    startLendingAnalysis_jobTag,
+    startLendingAnalysis_kmsKeyId,
+    startLendingAnalysis_notificationChannel,
+    startLendingAnalysis_outputConfig,
+    startLendingAnalysis_documentLocation,
+    startLendingAnalysisResponse_jobId,
+    startLendingAnalysisResponse_httpStatus,
 
     -- * Types
 
@@ -125,30 +158,39 @@ module Amazonka.Textract.Lens
 
     -- ** Block
     block_blockType,
-    block_rowSpan,
     block_columnIndex,
-    block_entityTypes,
     block_columnSpan,
     block_confidence,
-    block_rowIndex,
-    block_selectionStatus,
-    block_id,
-    block_query,
-    block_page,
-    block_textType,
-    block_relationships,
-    block_text,
+    block_entityTypes,
     block_geometry,
+    block_id,
+    block_page,
+    block_query,
+    block_relationships,
+    block_rowIndex,
+    block_rowSpan,
+    block_selectionStatus,
+    block_text,
+    block_textType,
 
     -- ** BoundingBox
-    boundingBox_width,
-    boundingBox_top,
-    boundingBox_left,
     boundingBox_height,
+    boundingBox_left,
+    boundingBox_top,
+    boundingBox_width,
+
+    -- ** DetectedSignature
+    detectedSignature_page,
 
     -- ** Document
     document_bytes,
     document_s3Object,
+
+    -- ** DocumentGroup
+    documentGroup_detectedSignatures,
+    documentGroup_splitDocuments,
+    documentGroup_type,
+    documentGroup_undetectedSignatures,
 
     -- ** DocumentLocation
     documentLocation_s3Object,
@@ -162,21 +204,21 @@ module Amazonka.Textract.Lens
 
     -- ** ExpenseDetection
     expenseDetection_confidence,
-    expenseDetection_text,
     expenseDetection_geometry,
+    expenseDetection_text,
 
     -- ** ExpenseDocument
+    expenseDocument_blocks,
+    expenseDocument_expenseIndex,
     expenseDocument_lineItemGroups,
     expenseDocument_summaryFields,
-    expenseDocument_expenseIndex,
-    expenseDocument_blocks,
 
     -- ** ExpenseField
-    expenseField_type,
-    expenseField_groupProperties,
-    expenseField_pageNumber,
-    expenseField_labelDetection,
     expenseField_currency,
+    expenseField_groupProperties,
+    expenseField_labelDetection,
+    expenseField_pageNumber,
+    expenseField_type,
     expenseField_valueDetection,
 
     -- ** ExpenseGroupProperty
@@ -187,14 +229,19 @@ module Amazonka.Textract.Lens
     expenseType_confidence,
     expenseType_text,
 
+    -- ** Extraction
+    extraction_expenseDocument,
+    extraction_identityDocument,
+    extraction_lendingDocument,
+
     -- ** Geometry
-    geometry_polygon,
     geometry_boundingBox,
+    geometry_polygon,
 
     -- ** HumanLoopActivationOutput
     humanLoopActivationOutput_humanLoopActivationConditionsEvaluationResults,
-    humanLoopActivationOutput_humanLoopArn,
     humanLoopActivationOutput_humanLoopActivationReasons,
+    humanLoopActivationOutput_humanLoopArn,
 
     -- ** HumanLoopConfig
     humanLoopConfig_dataAttributes,
@@ -205,24 +252,48 @@ module Amazonka.Textract.Lens
     humanLoopDataAttributes_contentClassifiers,
 
     -- ** IdentityDocument
+    identityDocument_blocks,
     identityDocument_documentIndex,
     identityDocument_identityDocumentFields,
-    identityDocument_blocks,
 
     -- ** IdentityDocumentField
     identityDocumentField_type,
     identityDocumentField_valueDetection,
 
+    -- ** LendingDetection
+    lendingDetection_confidence,
+    lendingDetection_geometry,
+    lendingDetection_selectionStatus,
+    lendingDetection_text,
+
+    -- ** LendingDocument
+    lendingDocument_lendingFields,
+    lendingDocument_signatureDetections,
+
+    -- ** LendingField
+    lendingField_keyDetection,
+    lendingField_type,
+    lendingField_valueDetections,
+
+    -- ** LendingResult
+    lendingResult_extractions,
+    lendingResult_page,
+    lendingResult_pageClassification,
+
+    -- ** LendingSummary
+    lendingSummary_documentGroups,
+    lendingSummary_undetectedDocumentTypes,
+
     -- ** LineItemFields
     lineItemFields_lineItemExpenseFields,
 
     -- ** LineItemGroup
-    lineItemGroup_lineItems,
     lineItemGroup_lineItemGroupIndex,
+    lineItemGroup_lineItems,
 
     -- ** NormalizedValue
-    normalizedValue_valueType,
     normalizedValue_value,
+    normalizedValue_valueType,
 
     -- ** NotificationChannel
     notificationChannel_sNSTopicArn,
@@ -232,9 +303,17 @@ module Amazonka.Textract.Lens
     outputConfig_s3Prefix,
     outputConfig_s3Bucket,
 
+    -- ** PageClassification
+    pageClassification_pageType,
+    pageClassification_pageNumber,
+
     -- ** Point
     point_x,
     point_y,
+
+    -- ** Prediction
+    prediction_confidence,
+    prediction_value,
 
     -- ** QueriesConfig
     queriesConfig_queries,
@@ -245,13 +324,24 @@ module Amazonka.Textract.Lens
     query_text,
 
     -- ** Relationship
-    relationship_type,
     relationship_ids,
+    relationship_type,
 
     -- ** S3Object
-    s3Object_name,
     s3Object_bucket,
+    s3Object_name,
     s3Object_version,
+
+    -- ** SignatureDetection
+    signatureDetection_confidence,
+    signatureDetection_geometry,
+
+    -- ** SplitDocument
+    splitDocument_index,
+    splitDocument_pages,
+
+    -- ** UndetectedSignature
+    undetectedSignature_page,
 
     -- ** Warning
     warning_errorCode,
@@ -266,13 +356,18 @@ import Amazonka.Textract.DetectDocumentText
 import Amazonka.Textract.GetDocumentAnalysis
 import Amazonka.Textract.GetDocumentTextDetection
 import Amazonka.Textract.GetExpenseAnalysis
+import Amazonka.Textract.GetLendingAnalysis
+import Amazonka.Textract.GetLendingAnalysisSummary
 import Amazonka.Textract.StartDocumentAnalysis
 import Amazonka.Textract.StartDocumentTextDetection
 import Amazonka.Textract.StartExpenseAnalysis
+import Amazonka.Textract.StartLendingAnalysis
 import Amazonka.Textract.Types.AnalyzeIDDetections
 import Amazonka.Textract.Types.Block
 import Amazonka.Textract.Types.BoundingBox
+import Amazonka.Textract.Types.DetectedSignature
 import Amazonka.Textract.Types.Document
+import Amazonka.Textract.Types.DocumentGroup
 import Amazonka.Textract.Types.DocumentLocation
 import Amazonka.Textract.Types.DocumentMetadata
 import Amazonka.Textract.Types.ExpenseCurrency
@@ -281,20 +376,31 @@ import Amazonka.Textract.Types.ExpenseDocument
 import Amazonka.Textract.Types.ExpenseField
 import Amazonka.Textract.Types.ExpenseGroupProperty
 import Amazonka.Textract.Types.ExpenseType
+import Amazonka.Textract.Types.Extraction
 import Amazonka.Textract.Types.Geometry
 import Amazonka.Textract.Types.HumanLoopActivationOutput
 import Amazonka.Textract.Types.HumanLoopConfig
 import Amazonka.Textract.Types.HumanLoopDataAttributes
 import Amazonka.Textract.Types.IdentityDocument
 import Amazonka.Textract.Types.IdentityDocumentField
+import Amazonka.Textract.Types.LendingDetection
+import Amazonka.Textract.Types.LendingDocument
+import Amazonka.Textract.Types.LendingField
+import Amazonka.Textract.Types.LendingResult
+import Amazonka.Textract.Types.LendingSummary
 import Amazonka.Textract.Types.LineItemFields
 import Amazonka.Textract.Types.LineItemGroup
 import Amazonka.Textract.Types.NormalizedValue
 import Amazonka.Textract.Types.NotificationChannel
 import Amazonka.Textract.Types.OutputConfig
+import Amazonka.Textract.Types.PageClassification
 import Amazonka.Textract.Types.Point
+import Amazonka.Textract.Types.Prediction
 import Amazonka.Textract.Types.QueriesConfig
 import Amazonka.Textract.Types.Query
 import Amazonka.Textract.Types.Relationship
 import Amazonka.Textract.Types.S3Object
+import Amazonka.Textract.Types.SignatureDetection
+import Amazonka.Textract.Types.SplitDocument
+import Amazonka.Textract.Types.UndetectedSignature
 import Amazonka.Textract.Types.Warning

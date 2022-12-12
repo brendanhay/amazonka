@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDatasetImageStats' smart constructor.
 data DatasetImageStats = DatasetImageStats'
-  { -- | The total number of images in the dataset.
-    total :: Prelude.Maybe Prelude.Int,
+  { -- | the total number of images labeled as an anomaly.
+    anomaly :: Prelude.Maybe Prelude.Int,
     -- | The total number of labeled images.
     labeled :: Prelude.Maybe Prelude.Int,
-    -- | the total number of images labeled as an anomaly.
-    anomaly :: Prelude.Maybe Prelude.Int,
     -- | The total number of images labeled as normal.
-    normal :: Prelude.Maybe Prelude.Int
+    normal :: Prelude.Maybe Prelude.Int,
+    -- | The total number of images in the dataset.
+    total :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,38 +47,38 @@ data DatasetImageStats = DatasetImageStats'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'total', 'datasetImageStats_total' - The total number of images in the dataset.
+-- 'anomaly', 'datasetImageStats_anomaly' - the total number of images labeled as an anomaly.
 --
 -- 'labeled', 'datasetImageStats_labeled' - The total number of labeled images.
 --
--- 'anomaly', 'datasetImageStats_anomaly' - the total number of images labeled as an anomaly.
---
 -- 'normal', 'datasetImageStats_normal' - The total number of images labeled as normal.
+--
+-- 'total', 'datasetImageStats_total' - The total number of images in the dataset.
 newDatasetImageStats ::
   DatasetImageStats
 newDatasetImageStats =
   DatasetImageStats'
-    { total = Prelude.Nothing,
+    { anomaly = Prelude.Nothing,
       labeled = Prelude.Nothing,
-      anomaly = Prelude.Nothing,
-      normal = Prelude.Nothing
+      normal = Prelude.Nothing,
+      total = Prelude.Nothing
     }
-
--- | The total number of images in the dataset.
-datasetImageStats_total :: Lens.Lens' DatasetImageStats (Prelude.Maybe Prelude.Int)
-datasetImageStats_total = Lens.lens (\DatasetImageStats' {total} -> total) (\s@DatasetImageStats' {} a -> s {total = a} :: DatasetImageStats)
-
--- | The total number of labeled images.
-datasetImageStats_labeled :: Lens.Lens' DatasetImageStats (Prelude.Maybe Prelude.Int)
-datasetImageStats_labeled = Lens.lens (\DatasetImageStats' {labeled} -> labeled) (\s@DatasetImageStats' {} a -> s {labeled = a} :: DatasetImageStats)
 
 -- | the total number of images labeled as an anomaly.
 datasetImageStats_anomaly :: Lens.Lens' DatasetImageStats (Prelude.Maybe Prelude.Int)
 datasetImageStats_anomaly = Lens.lens (\DatasetImageStats' {anomaly} -> anomaly) (\s@DatasetImageStats' {} a -> s {anomaly = a} :: DatasetImageStats)
 
+-- | The total number of labeled images.
+datasetImageStats_labeled :: Lens.Lens' DatasetImageStats (Prelude.Maybe Prelude.Int)
+datasetImageStats_labeled = Lens.lens (\DatasetImageStats' {labeled} -> labeled) (\s@DatasetImageStats' {} a -> s {labeled = a} :: DatasetImageStats)
+
 -- | The total number of images labeled as normal.
 datasetImageStats_normal :: Lens.Lens' DatasetImageStats (Prelude.Maybe Prelude.Int)
 datasetImageStats_normal = Lens.lens (\DatasetImageStats' {normal} -> normal) (\s@DatasetImageStats' {} a -> s {normal = a} :: DatasetImageStats)
+
+-- | The total number of images in the dataset.
+datasetImageStats_total :: Lens.Lens' DatasetImageStats (Prelude.Maybe Prelude.Int)
+datasetImageStats_total = Lens.lens (\DatasetImageStats' {total} -> total) (\s@DatasetImageStats' {} a -> s {total = a} :: DatasetImageStats)
 
 instance Data.FromJSON DatasetImageStats where
   parseJSON =
@@ -86,22 +86,22 @@ instance Data.FromJSON DatasetImageStats where
       "DatasetImageStats"
       ( \x ->
           DatasetImageStats'
-            Prelude.<$> (x Data..:? "Total")
+            Prelude.<$> (x Data..:? "Anomaly")
             Prelude.<*> (x Data..:? "Labeled")
-            Prelude.<*> (x Data..:? "Anomaly")
             Prelude.<*> (x Data..:? "Normal")
+            Prelude.<*> (x Data..:? "Total")
       )
 
 instance Prelude.Hashable DatasetImageStats where
   hashWithSalt _salt DatasetImageStats' {..} =
-    _salt `Prelude.hashWithSalt` total
+    _salt `Prelude.hashWithSalt` anomaly
       `Prelude.hashWithSalt` labeled
-      `Prelude.hashWithSalt` anomaly
       `Prelude.hashWithSalt` normal
+      `Prelude.hashWithSalt` total
 
 instance Prelude.NFData DatasetImageStats where
   rnf DatasetImageStats' {..} =
-    Prelude.rnf total
+    Prelude.rnf anomaly
       `Prelude.seq` Prelude.rnf labeled
-      `Prelude.seq` Prelude.rnf anomaly
       `Prelude.seq` Prelude.rnf normal
+      `Prelude.seq` Prelude.rnf total

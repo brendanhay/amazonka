@@ -30,15 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAnalysisOptions' smart constructor.
 data AnalysisOptions = AnalysisOptions'
-  { -- | A JSON object that contains a collection of string:value pairs that each
-    -- map a term to its stem. For example,
-    -- @{\"term1\": \"stem1\", \"term2\": \"stem2\", \"term3\": \"stem3\"}@.
-    -- The stemming dictionary is applied in addition to any algorithmic
-    -- stemming. This enables you to override the results of the algorithmic
-    -- stemming to correct specific cases of overstemming or understemming. The
-    -- maximum size of a stemming dictionary is 500 KB.
-    stemmingDictionary :: Prelude.Maybe Prelude.Text,
-    -- | The level of algorithmic stemming to perform: @none@, @minimal@,
+  { -- | The level of algorithmic stemming to perform: @none@, @minimal@,
     -- @light@, or @full@. The available levels vary depending on the language.
     -- For more information, see
     -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/text-processing.html#text-processing-settings Language Specific Text Processing Settings>
@@ -49,6 +41,14 @@ data AnalysisOptions = AnalysisOptions'
     -- dictionary enables you to override the default tokenization for selected
     -- terms. This is only valid for Japanese language fields.
     japaneseTokenizationDictionary :: Prelude.Maybe Prelude.Text,
+    -- | A JSON object that contains a collection of string:value pairs that each
+    -- map a term to its stem. For example,
+    -- @{\"term1\": \"stem1\", \"term2\": \"stem2\", \"term3\": \"stem3\"}@.
+    -- The stemming dictionary is applied in addition to any algorithmic
+    -- stemming. This enables you to override the results of the algorithmic
+    -- stemming to correct specific cases of overstemming or understemming. The
+    -- maximum size of a stemming dictionary is 500 KB.
+    stemmingDictionary :: Prelude.Maybe Prelude.Text,
     -- | A JSON array of terms to ignore during indexing and searching. For
     -- example, @[\"a\", \"an\", \"the\", \"of\"]@. The stopwords dictionary
     -- must explicitly list each word you want to ignore. Wildcards and regular
@@ -77,14 +77,6 @@ data AnalysisOptions = AnalysisOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stemmingDictionary', 'analysisOptions_stemmingDictionary' - A JSON object that contains a collection of string:value pairs that each
--- map a term to its stem. For example,
--- @{\"term1\": \"stem1\", \"term2\": \"stem2\", \"term3\": \"stem3\"}@.
--- The stemming dictionary is applied in addition to any algorithmic
--- stemming. This enables you to override the results of the algorithmic
--- stemming to correct specific cases of overstemming or understemming. The
--- maximum size of a stemming dictionary is 500 KB.
---
 -- 'algorithmicStemming', 'analysisOptions_algorithmicStemming' - The level of algorithmic stemming to perform: @none@, @minimal@,
 -- @light@, or @full@. The available levels vary depending on the language.
 -- For more information, see
@@ -95,6 +87,14 @@ data AnalysisOptions = AnalysisOptions'
 -- part of speech for Japanese Tokenizaiton. The Japanese tokenization
 -- dictionary enables you to override the default tokenization for selected
 -- terms. This is only valid for Japanese language fields.
+--
+-- 'stemmingDictionary', 'analysisOptions_stemmingDictionary' - A JSON object that contains a collection of string:value pairs that each
+-- map a term to its stem. For example,
+-- @{\"term1\": \"stem1\", \"term2\": \"stem2\", \"term3\": \"stem3\"}@.
+-- The stemming dictionary is applied in addition to any algorithmic
+-- stemming. This enables you to override the results of the algorithmic
+-- stemming to correct specific cases of overstemming or understemming. The
+-- maximum size of a stemming dictionary is 500 KB.
 --
 -- 'stopwords', 'analysisOptions_stopwords' - A JSON array of terms to ignore during indexing and searching. For
 -- example, @[\"a\", \"an\", \"the\", \"of\"]@. The stopwords dictionary
@@ -116,23 +116,13 @@ newAnalysisOptions ::
   AnalysisOptions
 newAnalysisOptions =
   AnalysisOptions'
-    { stemmingDictionary =
+    { algorithmicStemming =
         Prelude.Nothing,
-      algorithmicStemming = Prelude.Nothing,
       japaneseTokenizationDictionary = Prelude.Nothing,
+      stemmingDictionary = Prelude.Nothing,
       stopwords = Prelude.Nothing,
       synonyms = Prelude.Nothing
     }
-
--- | A JSON object that contains a collection of string:value pairs that each
--- map a term to its stem. For example,
--- @{\"term1\": \"stem1\", \"term2\": \"stem2\", \"term3\": \"stem3\"}@.
--- The stemming dictionary is applied in addition to any algorithmic
--- stemming. This enables you to override the results of the algorithmic
--- stemming to correct specific cases of overstemming or understemming. The
--- maximum size of a stemming dictionary is 500 KB.
-analysisOptions_stemmingDictionary :: Lens.Lens' AnalysisOptions (Prelude.Maybe Prelude.Text)
-analysisOptions_stemmingDictionary = Lens.lens (\AnalysisOptions' {stemmingDictionary} -> stemmingDictionary) (\s@AnalysisOptions' {} a -> s {stemmingDictionary = a} :: AnalysisOptions)
 
 -- | The level of algorithmic stemming to perform: @none@, @minimal@,
 -- @light@, or @full@. The available levels vary depending on the language.
@@ -148,6 +138,16 @@ analysisOptions_algorithmicStemming = Lens.lens (\AnalysisOptions' {algorithmicS
 -- terms. This is only valid for Japanese language fields.
 analysisOptions_japaneseTokenizationDictionary :: Lens.Lens' AnalysisOptions (Prelude.Maybe Prelude.Text)
 analysisOptions_japaneseTokenizationDictionary = Lens.lens (\AnalysisOptions' {japaneseTokenizationDictionary} -> japaneseTokenizationDictionary) (\s@AnalysisOptions' {} a -> s {japaneseTokenizationDictionary = a} :: AnalysisOptions)
+
+-- | A JSON object that contains a collection of string:value pairs that each
+-- map a term to its stem. For example,
+-- @{\"term1\": \"stem1\", \"term2\": \"stem2\", \"term3\": \"stem3\"}@.
+-- The stemming dictionary is applied in addition to any algorithmic
+-- stemming. This enables you to override the results of the algorithmic
+-- stemming to correct specific cases of overstemming or understemming. The
+-- maximum size of a stemming dictionary is 500 KB.
+analysisOptions_stemmingDictionary :: Lens.Lens' AnalysisOptions (Prelude.Maybe Prelude.Text)
+analysisOptions_stemmingDictionary = Lens.lens (\AnalysisOptions' {stemmingDictionary} -> stemmingDictionary) (\s@AnalysisOptions' {} a -> s {stemmingDictionary = a} :: AnalysisOptions)
 
 -- | A JSON array of terms to ignore during indexing and searching. For
 -- example, @[\"a\", \"an\", \"the\", \"of\"]@. The stopwords dictionary
@@ -173,35 +173,35 @@ analysisOptions_synonyms = Lens.lens (\AnalysisOptions' {synonyms} -> synonyms) 
 instance Data.FromXML AnalysisOptions where
   parseXML x =
     AnalysisOptions'
-      Prelude.<$> (x Data..@? "StemmingDictionary")
-      Prelude.<*> (x Data..@? "AlgorithmicStemming")
+      Prelude.<$> (x Data..@? "AlgorithmicStemming")
       Prelude.<*> (x Data..@? "JapaneseTokenizationDictionary")
+      Prelude.<*> (x Data..@? "StemmingDictionary")
       Prelude.<*> (x Data..@? "Stopwords")
       Prelude.<*> (x Data..@? "Synonyms")
 
 instance Prelude.Hashable AnalysisOptions where
   hashWithSalt _salt AnalysisOptions' {..} =
-    _salt `Prelude.hashWithSalt` stemmingDictionary
-      `Prelude.hashWithSalt` algorithmicStemming
+    _salt `Prelude.hashWithSalt` algorithmicStemming
       `Prelude.hashWithSalt` japaneseTokenizationDictionary
+      `Prelude.hashWithSalt` stemmingDictionary
       `Prelude.hashWithSalt` stopwords
       `Prelude.hashWithSalt` synonyms
 
 instance Prelude.NFData AnalysisOptions where
   rnf AnalysisOptions' {..} =
-    Prelude.rnf stemmingDictionary
-      `Prelude.seq` Prelude.rnf algorithmicStemming
+    Prelude.rnf algorithmicStemming
       `Prelude.seq` Prelude.rnf japaneseTokenizationDictionary
+      `Prelude.seq` Prelude.rnf stemmingDictionary
       `Prelude.seq` Prelude.rnf stopwords
       `Prelude.seq` Prelude.rnf synonyms
 
 instance Data.ToQuery AnalysisOptions where
   toQuery AnalysisOptions' {..} =
     Prelude.mconcat
-      [ "StemmingDictionary" Data.=: stemmingDictionary,
-        "AlgorithmicStemming" Data.=: algorithmicStemming,
+      [ "AlgorithmicStemming" Data.=: algorithmicStemming,
         "JapaneseTokenizationDictionary"
           Data.=: japaneseTokenizationDictionary,
+        "StemmingDictionary" Data.=: stemmingDictionary,
         "Stopwords" Data.=: stopwords,
         "Synonyms" Data.=: synonyms
       ]

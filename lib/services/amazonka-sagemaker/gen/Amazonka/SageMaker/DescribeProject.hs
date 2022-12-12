@@ -34,11 +34,11 @@ module Amazonka.SageMaker.DescribeProject
     newDescribeProjectResponse,
 
     -- * Response Lenses
-    describeProjectResponse_serviceCatalogProvisionedProductDetails,
+    describeProjectResponse_createdBy,
+    describeProjectResponse_lastModifiedBy,
     describeProjectResponse_lastModifiedTime,
     describeProjectResponse_projectDescription,
-    describeProjectResponse_lastModifiedBy,
-    describeProjectResponse_createdBy,
+    describeProjectResponse_serviceCatalogProvisionedProductDetails,
     describeProjectResponse_httpStatus,
     describeProjectResponse_projectArn,
     describeProjectResponse_projectName,
@@ -94,13 +94,13 @@ instance Core.AWSRequest DescribeProject where
     Response.receiveJSON
       ( \s h x ->
           DescribeProjectResponse'
-            Prelude.<$> ( x
-                            Data..?> "ServiceCatalogProvisionedProductDetails"
-                        )
+            Prelude.<$> (x Data..?> "CreatedBy")
+            Prelude.<*> (x Data..?> "LastModifiedBy")
             Prelude.<*> (x Data..?> "LastModifiedTime")
             Prelude.<*> (x Data..?> "ProjectDescription")
-            Prelude.<*> (x Data..?> "LastModifiedBy")
-            Prelude.<*> (x Data..?> "CreatedBy")
+            Prelude.<*> ( x
+                            Data..?> "ServiceCatalogProvisionedProductDetails"
+                        )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "ProjectArn")
             Prelude.<*> (x Data..:> "ProjectName")
@@ -145,14 +145,14 @@ instance Data.ToQuery DescribeProject where
 
 -- | /See:/ 'newDescribeProjectResponse' smart constructor.
 data DescribeProjectResponse = DescribeProjectResponse'
-  { -- | Information about a provisioned service catalog product.
-    serviceCatalogProvisionedProductDetails :: Prelude.Maybe ServiceCatalogProvisionedProductDetails,
+  { createdBy :: Prelude.Maybe UserContext,
+    lastModifiedBy :: Prelude.Maybe UserContext,
     -- | The timestamp when project was last modified.
     lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The description of the project.
     projectDescription :: Prelude.Maybe Prelude.Text,
-    lastModifiedBy :: Prelude.Maybe UserContext,
-    createdBy :: Prelude.Maybe UserContext,
+    -- | Information about a provisioned service catalog product.
+    serviceCatalogProvisionedProductDetails :: Prelude.Maybe ServiceCatalogProvisionedProductDetails,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the project.
@@ -180,15 +180,15 @@ data DescribeProjectResponse = DescribeProjectResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serviceCatalogProvisionedProductDetails', 'describeProjectResponse_serviceCatalogProvisionedProductDetails' - Information about a provisioned service catalog product.
+-- 'createdBy', 'describeProjectResponse_createdBy' - Undocumented member.
+--
+-- 'lastModifiedBy', 'describeProjectResponse_lastModifiedBy' - Undocumented member.
 --
 -- 'lastModifiedTime', 'describeProjectResponse_lastModifiedTime' - The timestamp when project was last modified.
 --
 -- 'projectDescription', 'describeProjectResponse_projectDescription' - The description of the project.
 --
--- 'lastModifiedBy', 'describeProjectResponse_lastModifiedBy' - Undocumented member.
---
--- 'createdBy', 'describeProjectResponse_createdBy' - Undocumented member.
+-- 'serviceCatalogProvisionedProductDetails', 'describeProjectResponse_serviceCatalogProvisionedProductDetails' - Information about a provisioned service catalog product.
 --
 -- 'httpStatus', 'describeProjectResponse_httpStatus' - The response's http status code.
 --
@@ -230,12 +230,13 @@ newDescribeProjectResponse
   pProjectStatus_
   pCreationTime_ =
     DescribeProjectResponse'
-      { serviceCatalogProvisionedProductDetails =
+      { createdBy =
           Prelude.Nothing,
+        lastModifiedBy = Prelude.Nothing,
         lastModifiedTime = Prelude.Nothing,
         projectDescription = Prelude.Nothing,
-        lastModifiedBy = Prelude.Nothing,
-        createdBy = Prelude.Nothing,
+        serviceCatalogProvisionedProductDetails =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_,
         projectArn = pProjectArn_,
         projectName = pProjectName_,
@@ -246,9 +247,13 @@ newDescribeProjectResponse
         creationTime = Data._Time Lens.# pCreationTime_
       }
 
--- | Information about a provisioned service catalog product.
-describeProjectResponse_serviceCatalogProvisionedProductDetails :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe ServiceCatalogProvisionedProductDetails)
-describeProjectResponse_serviceCatalogProvisionedProductDetails = Lens.lens (\DescribeProjectResponse' {serviceCatalogProvisionedProductDetails} -> serviceCatalogProvisionedProductDetails) (\s@DescribeProjectResponse' {} a -> s {serviceCatalogProvisionedProductDetails = a} :: DescribeProjectResponse)
+-- | Undocumented member.
+describeProjectResponse_createdBy :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe UserContext)
+describeProjectResponse_createdBy = Lens.lens (\DescribeProjectResponse' {createdBy} -> createdBy) (\s@DescribeProjectResponse' {} a -> s {createdBy = a} :: DescribeProjectResponse)
+
+-- | Undocumented member.
+describeProjectResponse_lastModifiedBy :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe UserContext)
+describeProjectResponse_lastModifiedBy = Lens.lens (\DescribeProjectResponse' {lastModifiedBy} -> lastModifiedBy) (\s@DescribeProjectResponse' {} a -> s {lastModifiedBy = a} :: DescribeProjectResponse)
 
 -- | The timestamp when project was last modified.
 describeProjectResponse_lastModifiedTime :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.UTCTime)
@@ -258,13 +263,9 @@ describeProjectResponse_lastModifiedTime = Lens.lens (\DescribeProjectResponse' 
 describeProjectResponse_projectDescription :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.Text)
 describeProjectResponse_projectDescription = Lens.lens (\DescribeProjectResponse' {projectDescription} -> projectDescription) (\s@DescribeProjectResponse' {} a -> s {projectDescription = a} :: DescribeProjectResponse)
 
--- | Undocumented member.
-describeProjectResponse_lastModifiedBy :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe UserContext)
-describeProjectResponse_lastModifiedBy = Lens.lens (\DescribeProjectResponse' {lastModifiedBy} -> lastModifiedBy) (\s@DescribeProjectResponse' {} a -> s {lastModifiedBy = a} :: DescribeProjectResponse)
-
--- | Undocumented member.
-describeProjectResponse_createdBy :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe UserContext)
-describeProjectResponse_createdBy = Lens.lens (\DescribeProjectResponse' {createdBy} -> createdBy) (\s@DescribeProjectResponse' {} a -> s {createdBy = a} :: DescribeProjectResponse)
+-- | Information about a provisioned service catalog product.
+describeProjectResponse_serviceCatalogProvisionedProductDetails :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe ServiceCatalogProvisionedProductDetails)
+describeProjectResponse_serviceCatalogProvisionedProductDetails = Lens.lens (\DescribeProjectResponse' {serviceCatalogProvisionedProductDetails} -> serviceCatalogProvisionedProductDetails) (\s@DescribeProjectResponse' {} a -> s {serviceCatalogProvisionedProductDetails = a} :: DescribeProjectResponse)
 
 -- | The response's http status code.
 describeProjectResponse_httpStatus :: Lens.Lens' DescribeProjectResponse Prelude.Int
@@ -298,11 +299,11 @@ describeProjectResponse_creationTime = Lens.lens (\DescribeProjectResponse' {cre
 
 instance Prelude.NFData DescribeProjectResponse where
   rnf DescribeProjectResponse' {..} =
-    Prelude.rnf serviceCatalogProvisionedProductDetails
+    Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf lastModifiedBy
       `Prelude.seq` Prelude.rnf lastModifiedTime
       `Prelude.seq` Prelude.rnf projectDescription
-      `Prelude.seq` Prelude.rnf lastModifiedBy
-      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf serviceCatalogProvisionedProductDetails
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf projectArn
       `Prelude.seq` Prelude.rnf projectName

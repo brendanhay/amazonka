@@ -27,8 +27,8 @@ module Amazonka.QuickSight.DescribeDashboard
     newDescribeDashboard,
 
     -- * Request Lenses
-    describeDashboard_versionNumber,
     describeDashboard_aliasName,
+    describeDashboard_versionNumber,
     describeDashboard_awsAccountId,
     describeDashboard_dashboardId,
 
@@ -53,11 +53,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeDashboard' smart constructor.
 data DescribeDashboard = DescribeDashboard'
-  { -- | The version number for the dashboard. If a version number isn\'t passed,
+  { -- | The alias name.
+    aliasName :: Prelude.Maybe Prelude.Text,
+    -- | The version number for the dashboard. If a version number isn\'t passed,
     -- the latest published dashboard version is described.
     versionNumber :: Prelude.Maybe Prelude.Natural,
-    -- | The alias name.
-    aliasName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Amazon Web Services account that contains the dashboard
     -- that you\'re describing.
     awsAccountId :: Prelude.Text,
@@ -74,10 +74,10 @@ data DescribeDashboard = DescribeDashboard'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'aliasName', 'describeDashboard_aliasName' - The alias name.
+--
 -- 'versionNumber', 'describeDashboard_versionNumber' - The version number for the dashboard. If a version number isn\'t passed,
 -- the latest published dashboard version is described.
---
--- 'aliasName', 'describeDashboard_aliasName' - The alias name.
 --
 -- 'awsAccountId', 'describeDashboard_awsAccountId' - The ID of the Amazon Web Services account that contains the dashboard
 -- that you\'re describing.
@@ -91,20 +91,20 @@ newDescribeDashboard ::
   DescribeDashboard
 newDescribeDashboard pAwsAccountId_ pDashboardId_ =
   DescribeDashboard'
-    { versionNumber = Prelude.Nothing,
-      aliasName = Prelude.Nothing,
+    { aliasName = Prelude.Nothing,
+      versionNumber = Prelude.Nothing,
       awsAccountId = pAwsAccountId_,
       dashboardId = pDashboardId_
     }
+
+-- | The alias name.
+describeDashboard_aliasName :: Lens.Lens' DescribeDashboard (Prelude.Maybe Prelude.Text)
+describeDashboard_aliasName = Lens.lens (\DescribeDashboard' {aliasName} -> aliasName) (\s@DescribeDashboard' {} a -> s {aliasName = a} :: DescribeDashboard)
 
 -- | The version number for the dashboard. If a version number isn\'t passed,
 -- the latest published dashboard version is described.
 describeDashboard_versionNumber :: Lens.Lens' DescribeDashboard (Prelude.Maybe Prelude.Natural)
 describeDashboard_versionNumber = Lens.lens (\DescribeDashboard' {versionNumber} -> versionNumber) (\s@DescribeDashboard' {} a -> s {versionNumber = a} :: DescribeDashboard)
-
--- | The alias name.
-describeDashboard_aliasName :: Lens.Lens' DescribeDashboard (Prelude.Maybe Prelude.Text)
-describeDashboard_aliasName = Lens.lens (\DescribeDashboard' {aliasName} -> aliasName) (\s@DescribeDashboard' {} a -> s {aliasName = a} :: DescribeDashboard)
 
 -- | The ID of the Amazon Web Services account that contains the dashboard
 -- that you\'re describing.
@@ -132,15 +132,15 @@ instance Core.AWSRequest DescribeDashboard where
 
 instance Prelude.Hashable DescribeDashboard where
   hashWithSalt _salt DescribeDashboard' {..} =
-    _salt `Prelude.hashWithSalt` versionNumber
-      `Prelude.hashWithSalt` aliasName
+    _salt `Prelude.hashWithSalt` aliasName
+      `Prelude.hashWithSalt` versionNumber
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` dashboardId
 
 instance Prelude.NFData DescribeDashboard where
   rnf DescribeDashboard' {..} =
-    Prelude.rnf versionNumber
-      `Prelude.seq` Prelude.rnf aliasName
+    Prelude.rnf aliasName
+      `Prelude.seq` Prelude.rnf versionNumber
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf dashboardId
 
@@ -167,8 +167,8 @@ instance Data.ToPath DescribeDashboard where
 instance Data.ToQuery DescribeDashboard where
   toQuery DescribeDashboard' {..} =
     Prelude.mconcat
-      [ "version-number" Data.=: versionNumber,
-        "alias-name" Data.=: aliasName
+      [ "alias-name" Data.=: aliasName,
+        "version-number" Data.=: versionNumber
       ]
 
 -- | /See:/ 'newDescribeDashboardResponse' smart constructor.

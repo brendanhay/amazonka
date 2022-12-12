@@ -30,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 data LensUpgradeSummary = LensUpgradeSummary'
   { -- | The current version of the lens.
     currentLensVersion :: Prelude.Maybe Prelude.Text,
-    -- | The ARN for the lens.
-    lensArn :: Prelude.Maybe Prelude.Text,
-    lensAlias :: Prelude.Maybe Prelude.Text,
-    workloadName :: Prelude.Maybe Prelude.Text,
     -- | The latest version of the lens.
     latestLensVersion :: Prelude.Maybe Prelude.Text,
-    workloadId :: Prelude.Maybe Prelude.Text
+    lensAlias :: Prelude.Maybe Prelude.Text,
+    -- | The ARN for the lens.
+    lensArn :: Prelude.Maybe Prelude.Text,
+    workloadId :: Prelude.Maybe Prelude.Text,
+    workloadName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,51 +50,51 @@ data LensUpgradeSummary = LensUpgradeSummary'
 --
 -- 'currentLensVersion', 'lensUpgradeSummary_currentLensVersion' - The current version of the lens.
 --
--- 'lensArn', 'lensUpgradeSummary_lensArn' - The ARN for the lens.
+-- 'latestLensVersion', 'lensUpgradeSummary_latestLensVersion' - The latest version of the lens.
 --
 -- 'lensAlias', 'lensUpgradeSummary_lensAlias' - Undocumented member.
 --
--- 'workloadName', 'lensUpgradeSummary_workloadName' - Undocumented member.
---
--- 'latestLensVersion', 'lensUpgradeSummary_latestLensVersion' - The latest version of the lens.
+-- 'lensArn', 'lensUpgradeSummary_lensArn' - The ARN for the lens.
 --
 -- 'workloadId', 'lensUpgradeSummary_workloadId' - Undocumented member.
+--
+-- 'workloadName', 'lensUpgradeSummary_workloadName' - Undocumented member.
 newLensUpgradeSummary ::
   LensUpgradeSummary
 newLensUpgradeSummary =
   LensUpgradeSummary'
     { currentLensVersion =
         Prelude.Nothing,
-      lensArn = Prelude.Nothing,
-      lensAlias = Prelude.Nothing,
-      workloadName = Prelude.Nothing,
       latestLensVersion = Prelude.Nothing,
-      workloadId = Prelude.Nothing
+      lensAlias = Prelude.Nothing,
+      lensArn = Prelude.Nothing,
+      workloadId = Prelude.Nothing,
+      workloadName = Prelude.Nothing
     }
 
 -- | The current version of the lens.
 lensUpgradeSummary_currentLensVersion :: Lens.Lens' LensUpgradeSummary (Prelude.Maybe Prelude.Text)
 lensUpgradeSummary_currentLensVersion = Lens.lens (\LensUpgradeSummary' {currentLensVersion} -> currentLensVersion) (\s@LensUpgradeSummary' {} a -> s {currentLensVersion = a} :: LensUpgradeSummary)
 
--- | The ARN for the lens.
-lensUpgradeSummary_lensArn :: Lens.Lens' LensUpgradeSummary (Prelude.Maybe Prelude.Text)
-lensUpgradeSummary_lensArn = Lens.lens (\LensUpgradeSummary' {lensArn} -> lensArn) (\s@LensUpgradeSummary' {} a -> s {lensArn = a} :: LensUpgradeSummary)
-
--- | Undocumented member.
-lensUpgradeSummary_lensAlias :: Lens.Lens' LensUpgradeSummary (Prelude.Maybe Prelude.Text)
-lensUpgradeSummary_lensAlias = Lens.lens (\LensUpgradeSummary' {lensAlias} -> lensAlias) (\s@LensUpgradeSummary' {} a -> s {lensAlias = a} :: LensUpgradeSummary)
-
--- | Undocumented member.
-lensUpgradeSummary_workloadName :: Lens.Lens' LensUpgradeSummary (Prelude.Maybe Prelude.Text)
-lensUpgradeSummary_workloadName = Lens.lens (\LensUpgradeSummary' {workloadName} -> workloadName) (\s@LensUpgradeSummary' {} a -> s {workloadName = a} :: LensUpgradeSummary)
-
 -- | The latest version of the lens.
 lensUpgradeSummary_latestLensVersion :: Lens.Lens' LensUpgradeSummary (Prelude.Maybe Prelude.Text)
 lensUpgradeSummary_latestLensVersion = Lens.lens (\LensUpgradeSummary' {latestLensVersion} -> latestLensVersion) (\s@LensUpgradeSummary' {} a -> s {latestLensVersion = a} :: LensUpgradeSummary)
 
 -- | Undocumented member.
+lensUpgradeSummary_lensAlias :: Lens.Lens' LensUpgradeSummary (Prelude.Maybe Prelude.Text)
+lensUpgradeSummary_lensAlias = Lens.lens (\LensUpgradeSummary' {lensAlias} -> lensAlias) (\s@LensUpgradeSummary' {} a -> s {lensAlias = a} :: LensUpgradeSummary)
+
+-- | The ARN for the lens.
+lensUpgradeSummary_lensArn :: Lens.Lens' LensUpgradeSummary (Prelude.Maybe Prelude.Text)
+lensUpgradeSummary_lensArn = Lens.lens (\LensUpgradeSummary' {lensArn} -> lensArn) (\s@LensUpgradeSummary' {} a -> s {lensArn = a} :: LensUpgradeSummary)
+
+-- | Undocumented member.
 lensUpgradeSummary_workloadId :: Lens.Lens' LensUpgradeSummary (Prelude.Maybe Prelude.Text)
 lensUpgradeSummary_workloadId = Lens.lens (\LensUpgradeSummary' {workloadId} -> workloadId) (\s@LensUpgradeSummary' {} a -> s {workloadId = a} :: LensUpgradeSummary)
+
+-- | Undocumented member.
+lensUpgradeSummary_workloadName :: Lens.Lens' LensUpgradeSummary (Prelude.Maybe Prelude.Text)
+lensUpgradeSummary_workloadName = Lens.lens (\LensUpgradeSummary' {workloadName} -> workloadName) (\s@LensUpgradeSummary' {} a -> s {workloadName = a} :: LensUpgradeSummary)
 
 instance Data.FromJSON LensUpgradeSummary where
   parseJSON =
@@ -103,27 +103,27 @@ instance Data.FromJSON LensUpgradeSummary where
       ( \x ->
           LensUpgradeSummary'
             Prelude.<$> (x Data..:? "CurrentLensVersion")
-            Prelude.<*> (x Data..:? "LensArn")
-            Prelude.<*> (x Data..:? "LensAlias")
-            Prelude.<*> (x Data..:? "WorkloadName")
             Prelude.<*> (x Data..:? "LatestLensVersion")
+            Prelude.<*> (x Data..:? "LensAlias")
+            Prelude.<*> (x Data..:? "LensArn")
             Prelude.<*> (x Data..:? "WorkloadId")
+            Prelude.<*> (x Data..:? "WorkloadName")
       )
 
 instance Prelude.Hashable LensUpgradeSummary where
   hashWithSalt _salt LensUpgradeSummary' {..} =
     _salt `Prelude.hashWithSalt` currentLensVersion
-      `Prelude.hashWithSalt` lensArn
-      `Prelude.hashWithSalt` lensAlias
-      `Prelude.hashWithSalt` workloadName
       `Prelude.hashWithSalt` latestLensVersion
+      `Prelude.hashWithSalt` lensAlias
+      `Prelude.hashWithSalt` lensArn
       `Prelude.hashWithSalt` workloadId
+      `Prelude.hashWithSalt` workloadName
 
 instance Prelude.NFData LensUpgradeSummary where
   rnf LensUpgradeSummary' {..} =
     Prelude.rnf currentLensVersion
-      `Prelude.seq` Prelude.rnf lensArn
-      `Prelude.seq` Prelude.rnf lensAlias
-      `Prelude.seq` Prelude.rnf workloadName
       `Prelude.seq` Prelude.rnf latestLensVersion
+      `Prelude.seq` Prelude.rnf lensAlias
+      `Prelude.seq` Prelude.rnf lensArn
       `Prelude.seq` Prelude.rnf workloadId
+      `Prelude.seq` Prelude.rnf workloadName

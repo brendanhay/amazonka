@@ -32,8 +32,8 @@ module Amazonka.SecurityHub.DescribeStandardsControls
     newDescribeStandardsControls,
 
     -- * Request Lenses
-    describeStandardsControls_nextToken,
     describeStandardsControls_maxResults,
+    describeStandardsControls_nextToken,
     describeStandardsControls_standardsSubscriptionArn,
 
     -- * Destructuring the Response
@@ -41,8 +41,8 @@ module Amazonka.SecurityHub.DescribeStandardsControls
     newDescribeStandardsControlsResponse,
 
     -- * Response Lenses
-    describeStandardsControlsResponse_nextToken,
     describeStandardsControlsResponse_controls,
+    describeStandardsControlsResponse_nextToken,
     describeStandardsControlsResponse_httpStatus,
   )
 where
@@ -57,7 +57,9 @@ import Amazonka.SecurityHub.Types
 
 -- | /See:/ 'newDescribeStandardsControls' smart constructor.
 data DescribeStandardsControls = DescribeStandardsControls'
-  { -- | The token that is required for pagination. On your first call to the
+  { -- | The maximum number of security standard controls to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token that is required for pagination. On your first call to the
     -- @DescribeStandardsControls@ operation, set the value of this parameter
     -- to @NULL@.
     --
@@ -65,8 +67,6 @@ data DescribeStandardsControls = DescribeStandardsControls'
     -- value of this parameter to the value returned from the previous
     -- response.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of security standard controls to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ARN of a resource that represents your subscription to a supported
     -- standard. To get the subscription ARNs of the standards you have
     -- enabled, use the @GetEnabledStandards@ operation.
@@ -82,6 +82,8 @@ data DescribeStandardsControls = DescribeStandardsControls'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'describeStandardsControls_maxResults' - The maximum number of security standard controls to return.
+--
 -- 'nextToken', 'describeStandardsControls_nextToken' - The token that is required for pagination. On your first call to the
 -- @DescribeStandardsControls@ operation, set the value of this parameter
 -- to @NULL@.
@@ -89,8 +91,6 @@ data DescribeStandardsControls = DescribeStandardsControls'
 -- For subsequent calls to the operation, to continue listing data, set the
 -- value of this parameter to the value returned from the previous
 -- response.
---
--- 'maxResults', 'describeStandardsControls_maxResults' - The maximum number of security standard controls to return.
 --
 -- 'standardsSubscriptionArn', 'describeStandardsControls_standardsSubscriptionArn' - The ARN of a resource that represents your subscription to a supported
 -- standard. To get the subscription ARNs of the standards you have
@@ -102,12 +102,16 @@ newDescribeStandardsControls ::
 newDescribeStandardsControls
   pStandardsSubscriptionArn_ =
     DescribeStandardsControls'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         standardsSubscriptionArn =
           pStandardsSubscriptionArn_
       }
+
+-- | The maximum number of security standard controls to return.
+describeStandardsControls_maxResults :: Lens.Lens' DescribeStandardsControls (Prelude.Maybe Prelude.Natural)
+describeStandardsControls_maxResults = Lens.lens (\DescribeStandardsControls' {maxResults} -> maxResults) (\s@DescribeStandardsControls' {} a -> s {maxResults = a} :: DescribeStandardsControls)
 
 -- | The token that is required for pagination. On your first call to the
 -- @DescribeStandardsControls@ operation, set the value of this parameter
@@ -118,10 +122,6 @@ newDescribeStandardsControls
 -- response.
 describeStandardsControls_nextToken :: Lens.Lens' DescribeStandardsControls (Prelude.Maybe Prelude.Text)
 describeStandardsControls_nextToken = Lens.lens (\DescribeStandardsControls' {nextToken} -> nextToken) (\s@DescribeStandardsControls' {} a -> s {nextToken = a} :: DescribeStandardsControls)
-
--- | The maximum number of security standard controls to return.
-describeStandardsControls_maxResults :: Lens.Lens' DescribeStandardsControls (Prelude.Maybe Prelude.Natural)
-describeStandardsControls_maxResults = Lens.lens (\DescribeStandardsControls' {maxResults} -> maxResults) (\s@DescribeStandardsControls' {} a -> s {maxResults = a} :: DescribeStandardsControls)
 
 -- | The ARN of a resource that represents your subscription to a supported
 -- standard. To get the subscription ARNs of the standards you have
@@ -161,21 +161,21 @@ instance Core.AWSRequest DescribeStandardsControls where
     Response.receiveJSON
       ( \s h x ->
           DescribeStandardsControlsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Controls" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Controls" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeStandardsControls where
   hashWithSalt _salt DescribeStandardsControls' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` standardsSubscriptionArn
 
 instance Prelude.NFData DescribeStandardsControls where
   rnf DescribeStandardsControls' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf standardsSubscriptionArn
 
 instance Data.ToHeaders DescribeStandardsControls where
@@ -199,16 +199,16 @@ instance Data.ToPath DescribeStandardsControls where
 instance Data.ToQuery DescribeStandardsControls where
   toQuery DescribeStandardsControls' {..} =
     Prelude.mconcat
-      [ "NextToken" Data.=: nextToken,
-        "MaxResults" Data.=: maxResults
+      [ "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newDescribeStandardsControlsResponse' smart constructor.
 data DescribeStandardsControlsResponse = DescribeStandardsControlsResponse'
-  { -- | The pagination token to use to request the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of security standards controls.
+  { -- | A list of security standards controls.
     controls :: Prelude.Maybe [StandardsControl],
+    -- | The pagination token to use to request the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -222,9 +222,9 @@ data DescribeStandardsControlsResponse = DescribeStandardsControlsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeStandardsControlsResponse_nextToken' - The pagination token to use to request the next page of results.
---
 -- 'controls', 'describeStandardsControlsResponse_controls' - A list of security standards controls.
+--
+-- 'nextToken', 'describeStandardsControlsResponse_nextToken' - The pagination token to use to request the next page of results.
 --
 -- 'httpStatus', 'describeStandardsControlsResponse_httpStatus' - The response's http status code.
 newDescribeStandardsControlsResponse ::
@@ -233,19 +233,19 @@ newDescribeStandardsControlsResponse ::
   DescribeStandardsControlsResponse
 newDescribeStandardsControlsResponse pHttpStatus_ =
   DescribeStandardsControlsResponse'
-    { nextToken =
+    { controls =
         Prelude.Nothing,
-      controls = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The pagination token to use to request the next page of results.
-describeStandardsControlsResponse_nextToken :: Lens.Lens' DescribeStandardsControlsResponse (Prelude.Maybe Prelude.Text)
-describeStandardsControlsResponse_nextToken = Lens.lens (\DescribeStandardsControlsResponse' {nextToken} -> nextToken) (\s@DescribeStandardsControlsResponse' {} a -> s {nextToken = a} :: DescribeStandardsControlsResponse)
 
 -- | A list of security standards controls.
 describeStandardsControlsResponse_controls :: Lens.Lens' DescribeStandardsControlsResponse (Prelude.Maybe [StandardsControl])
 describeStandardsControlsResponse_controls = Lens.lens (\DescribeStandardsControlsResponse' {controls} -> controls) (\s@DescribeStandardsControlsResponse' {} a -> s {controls = a} :: DescribeStandardsControlsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The pagination token to use to request the next page of results.
+describeStandardsControlsResponse_nextToken :: Lens.Lens' DescribeStandardsControlsResponse (Prelude.Maybe Prelude.Text)
+describeStandardsControlsResponse_nextToken = Lens.lens (\DescribeStandardsControlsResponse' {nextToken} -> nextToken) (\s@DescribeStandardsControlsResponse' {} a -> s {nextToken = a} :: DescribeStandardsControlsResponse)
 
 -- | The response's http status code.
 describeStandardsControlsResponse_httpStatus :: Lens.Lens' DescribeStandardsControlsResponse Prelude.Int
@@ -256,6 +256,6 @@ instance
     DescribeStandardsControlsResponse
   where
   rnf DescribeStandardsControlsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf controls
+    Prelude.rnf controls
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

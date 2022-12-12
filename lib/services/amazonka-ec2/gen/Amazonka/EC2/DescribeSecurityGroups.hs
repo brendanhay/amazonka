@@ -41,12 +41,12 @@ module Amazonka.EC2.DescribeSecurityGroups
     newDescribeSecurityGroups,
 
     -- * Request Lenses
-    describeSecurityGroups_nextToken,
-    describeSecurityGroups_filters,
     describeSecurityGroups_dryRun,
-    describeSecurityGroups_maxResults,
+    describeSecurityGroups_filters,
     describeSecurityGroups_groupIds,
     describeSecurityGroups_groupNames,
+    describeSecurityGroups_maxResults,
+    describeSecurityGroups_nextToken,
 
     -- * Destructuring the Response
     DescribeSecurityGroupsResponse (..),
@@ -69,8 +69,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeSecurityGroups' smart constructor.
 data DescribeSecurityGroups = DescribeSecurityGroups'
-  { -- | The token to request the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The filters. If using multiple filters for rules, the results include
     -- security groups for which any combination of rules - not necessarily a
     -- single rule - match all filters.
@@ -153,16 +156,6 @@ data DescribeSecurityGroups = DescribeSecurityGroups'
     -- -   @vpc-id@ - The ID of the VPC specified when the security group was
     --     created.
     filters :: Prelude.Maybe [Filter],
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results to return in a single call. To retrieve
-    -- the remaining results, make another request with the returned
-    -- @NextToken@ value. This value can be between 5 and 1000. If this
-    -- parameter is not specified, then all results are returned.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The IDs of the security groups. Required for security groups in a
     -- nondefault VPC.
     --
@@ -174,7 +167,14 @@ data DescribeSecurityGroups = DescribeSecurityGroups'
     -- describe security groups by name.
     --
     -- Default: Describes all of your security groups.
-    groupNames :: Prelude.Maybe [Prelude.Text]
+    groupNames :: Prelude.Maybe [Prelude.Text],
+    -- | The maximum number of results to return in a single call. To retrieve
+    -- the remaining results, make another request with the returned
+    -- @NextToken@ value. This value can be between 5 and 1000. If this
+    -- parameter is not specified, then all results are returned.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to request the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -186,7 +186,10 @@ data DescribeSecurityGroups = DescribeSecurityGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeSecurityGroups_nextToken' - The token to request the next page of results.
+-- 'dryRun', 'describeSecurityGroups_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'filters', 'describeSecurityGroups_filters' - The filters. If using multiple filters for rules, the results include
 -- security groups for which any combination of rules - not necessarily a
@@ -270,16 +273,6 @@ data DescribeSecurityGroups = DescribeSecurityGroups'
 -- -   @vpc-id@ - The ID of the VPC specified when the security group was
 --     created.
 --
--- 'dryRun', 'describeSecurityGroups_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
--- 'maxResults', 'describeSecurityGroups_maxResults' - The maximum number of results to return in a single call. To retrieve
--- the remaining results, make another request with the returned
--- @NextToken@ value. This value can be between 5 and 1000. If this
--- parameter is not specified, then all results are returned.
---
 -- 'groupIds', 'describeSecurityGroups_groupIds' - The IDs of the security groups. Required for security groups in a
 -- nondefault VPC.
 --
@@ -291,22 +284,31 @@ data DescribeSecurityGroups = DescribeSecurityGroups'
 -- describe security groups by name.
 --
 -- Default: Describes all of your security groups.
+--
+-- 'maxResults', 'describeSecurityGroups_maxResults' - The maximum number of results to return in a single call. To retrieve
+-- the remaining results, make another request with the returned
+-- @NextToken@ value. This value can be between 5 and 1000. If this
+-- parameter is not specified, then all results are returned.
+--
+-- 'nextToken', 'describeSecurityGroups_nextToken' - The token to request the next page of results.
 newDescribeSecurityGroups ::
   DescribeSecurityGroups
 newDescribeSecurityGroups =
   DescribeSecurityGroups'
-    { nextToken =
-        Prelude.Nothing,
+    { dryRun = Prelude.Nothing,
       filters = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       groupIds = Prelude.Nothing,
-      groupNames = Prelude.Nothing
+      groupNames = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
 
--- | The token to request the next page of results.
-describeSecurityGroups_nextToken :: Lens.Lens' DescribeSecurityGroups (Prelude.Maybe Prelude.Text)
-describeSecurityGroups_nextToken = Lens.lens (\DescribeSecurityGroups' {nextToken} -> nextToken) (\s@DescribeSecurityGroups' {} a -> s {nextToken = a} :: DescribeSecurityGroups)
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeSecurityGroups_dryRun :: Lens.Lens' DescribeSecurityGroups (Prelude.Maybe Prelude.Bool)
+describeSecurityGroups_dryRun = Lens.lens (\DescribeSecurityGroups' {dryRun} -> dryRun) (\s@DescribeSecurityGroups' {} a -> s {dryRun = a} :: DescribeSecurityGroups)
 
 -- | The filters. If using multiple filters for rules, the results include
 -- security groups for which any combination of rules - not necessarily a
@@ -392,20 +394,6 @@ describeSecurityGroups_nextToken = Lens.lens (\DescribeSecurityGroups' {nextToke
 describeSecurityGroups_filters :: Lens.Lens' DescribeSecurityGroups (Prelude.Maybe [Filter])
 describeSecurityGroups_filters = Lens.lens (\DescribeSecurityGroups' {filters} -> filters) (\s@DescribeSecurityGroups' {} a -> s {filters = a} :: DescribeSecurityGroups) Prelude.. Lens.mapping Lens.coerced
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeSecurityGroups_dryRun :: Lens.Lens' DescribeSecurityGroups (Prelude.Maybe Prelude.Bool)
-describeSecurityGroups_dryRun = Lens.lens (\DescribeSecurityGroups' {dryRun} -> dryRun) (\s@DescribeSecurityGroups' {} a -> s {dryRun = a} :: DescribeSecurityGroups)
-
--- | The maximum number of results to return in a single call. To retrieve
--- the remaining results, make another request with the returned
--- @NextToken@ value. This value can be between 5 and 1000. If this
--- parameter is not specified, then all results are returned.
-describeSecurityGroups_maxResults :: Lens.Lens' DescribeSecurityGroups (Prelude.Maybe Prelude.Natural)
-describeSecurityGroups_maxResults = Lens.lens (\DescribeSecurityGroups' {maxResults} -> maxResults) (\s@DescribeSecurityGroups' {} a -> s {maxResults = a} :: DescribeSecurityGroups)
-
 -- | The IDs of the security groups. Required for security groups in a
 -- nondefault VPC.
 --
@@ -421,6 +409,17 @@ describeSecurityGroups_groupIds = Lens.lens (\DescribeSecurityGroups' {groupIds}
 -- Default: Describes all of your security groups.
 describeSecurityGroups_groupNames :: Lens.Lens' DescribeSecurityGroups (Prelude.Maybe [Prelude.Text])
 describeSecurityGroups_groupNames = Lens.lens (\DescribeSecurityGroups' {groupNames} -> groupNames) (\s@DescribeSecurityGroups' {} a -> s {groupNames = a} :: DescribeSecurityGroups) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum number of results to return in a single call. To retrieve
+-- the remaining results, make another request with the returned
+-- @NextToken@ value. This value can be between 5 and 1000. If this
+-- parameter is not specified, then all results are returned.
+describeSecurityGroups_maxResults :: Lens.Lens' DescribeSecurityGroups (Prelude.Maybe Prelude.Natural)
+describeSecurityGroups_maxResults = Lens.lens (\DescribeSecurityGroups' {maxResults} -> maxResults) (\s@DescribeSecurityGroups' {} a -> s {maxResults = a} :: DescribeSecurityGroups)
+
+-- | The token to request the next page of results.
+describeSecurityGroups_nextToken :: Lens.Lens' DescribeSecurityGroups (Prelude.Maybe Prelude.Text)
+describeSecurityGroups_nextToken = Lens.lens (\DescribeSecurityGroups' {nextToken} -> nextToken) (\s@DescribeSecurityGroups' {} a -> s {nextToken = a} :: DescribeSecurityGroups)
 
 instance Core.AWSPager DescribeSecurityGroups where
   page rq rs
@@ -464,21 +463,21 @@ instance Core.AWSRequest DescribeSecurityGroups where
 
 instance Prelude.Hashable DescribeSecurityGroups where
   hashWithSalt _salt DescribeSecurityGroups' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` dryRun
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` groupIds
       `Prelude.hashWithSalt` groupNames
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeSecurityGroups where
   rnf DescribeSecurityGroups' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf groupIds
       `Prelude.seq` Prelude.rnf groupNames
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeSecurityGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -493,17 +492,17 @@ instance Data.ToQuery DescribeSecurityGroups where
           Data.=: ("DescribeSecurityGroups" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
+        "DryRun" Data.=: dryRun,
         Data.toQuery
           (Data.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Data.=: dryRun,
-        "MaxResults" Data.=: maxResults,
         Data.toQuery
           (Data.toQueryList "GroupId" Prelude.<$> groupIds),
         Data.toQuery
           ( Data.toQueryList "GroupName"
               Prelude.<$> groupNames
-          )
+          ),
+        "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newDescribeSecurityGroupsResponse' smart constructor.

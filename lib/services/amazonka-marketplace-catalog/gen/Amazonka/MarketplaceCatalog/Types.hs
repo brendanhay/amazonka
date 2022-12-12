@@ -18,14 +18,14 @@ module Amazonka.MarketplaceCatalog.Types
     defaultService,
 
     -- * Errors
-    _ResourceNotSupportedException,
     _AccessDeniedException,
-    _ServiceQuotaExceededException,
-    _ResourceNotFoundException,
+    _InternalServiceException,
     _ResourceInUseException,
+    _ResourceNotFoundException,
+    _ResourceNotSupportedException,
+    _ServiceQuotaExceededException,
     _ThrottlingException,
     _ValidationException,
-    _InternalServiceException,
 
     -- * ChangeStatus
     ChangeStatus (..),
@@ -48,22 +48,22 @@ module Amazonka.MarketplaceCatalog.Types
     -- * ChangeSetSummaryListItem
     ChangeSetSummaryListItem (..),
     newChangeSetSummaryListItem,
-    changeSetSummaryListItem_failureCode,
+    changeSetSummaryListItem_changeSetArn,
     changeSetSummaryListItem_changeSetId,
     changeSetSummaryListItem_changeSetName,
-    changeSetSummaryListItem_changeSetArn,
-    changeSetSummaryListItem_status,
     changeSetSummaryListItem_endTime,
     changeSetSummaryListItem_entityIdList,
+    changeSetSummaryListItem_failureCode,
     changeSetSummaryListItem_startTime,
+    changeSetSummaryListItem_status,
 
     -- * ChangeSummary
     ChangeSummary (..),
     newChangeSummary,
-    changeSummary_entity,
     changeSummary_changeName,
     changeSummary_changeType,
     changeSummary_details,
+    changeSummary_entity,
     changeSummary_errorDetailList,
 
     -- * Entity
@@ -75,18 +75,18 @@ module Amazonka.MarketplaceCatalog.Types
     -- * EntitySummary
     EntitySummary (..),
     newEntitySummary,
-    entitySummary_entityId,
-    entitySummary_name,
-    entitySummary_lastModifiedDate,
-    entitySummary_visibility,
-    entitySummary_entityType,
     entitySummary_entityArn,
+    entitySummary_entityId,
+    entitySummary_entityType,
+    entitySummary_lastModifiedDate,
+    entitySummary_name,
+    entitySummary_visibility,
 
     -- * ErrorDetail
     ErrorDetail (..),
     newErrorDetail,
-    errorDetail_errorMessage,
     errorDetail_errorCode,
+    errorDetail_errorMessage,
 
     -- * Filter
     Filter (..),
@@ -97,8 +97,8 @@ module Amazonka.MarketplaceCatalog.Types
     -- * Sort
     Sort (..),
     newSort,
-    sort_sortOrder,
     sort_sortBy,
+    sort_sortOrder,
 
     -- * Tag
     Tag (..),
@@ -151,28 +151,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -180,13 +174,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -194,15 +192,9 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
-
--- | Currently, the specified resource is not supported.
-_ResourceNotSupportedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotSupportedException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotSupportedException"
-    Prelude.. Core.hasStatus 415
 
 -- | Access is denied.
 _AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -212,13 +204,21 @@ _AccessDeniedException =
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
--- | The maximum number of open requests per account has been exceeded.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceQuotaExceededException =
+-- | There was an internal service exception.
+_InternalServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServiceException =
   Core._MatchServiceError
     defaultService
-    "ServiceQuotaExceededException"
-    Prelude.. Core.hasStatus 402
+    "InternalServiceException"
+    Prelude.. Core.hasStatus 500
+
+-- | The resource is currently in use.
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceInUseException"
+    Prelude.. Core.hasStatus 423
 
 -- | The specified resource wasn\'t found.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -228,13 +228,21 @@ _ResourceNotFoundException =
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
 
--- | The resource is currently in use.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceInUseException =
+-- | Currently, the specified resource is not supported.
+_ResourceNotSupportedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotSupportedException =
   Core._MatchServiceError
     defaultService
-    "ResourceInUseException"
-    Prelude.. Core.hasStatus 423
+    "ResourceNotSupportedException"
+    Prelude.. Core.hasStatus 415
+
+-- | The maximum number of open requests per account has been exceeded.
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceQuotaExceededException"
+    Prelude.. Core.hasStatus 402
 
 -- | Too many requests.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -251,11 +259,3 @@ _ValidationException =
     defaultService
     "ValidationException"
     Prelude.. Core.hasStatus 422
-
--- | There was an internal service exception.
-_InternalServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServiceException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServiceException"
-    Prelude.. Core.hasStatus 500

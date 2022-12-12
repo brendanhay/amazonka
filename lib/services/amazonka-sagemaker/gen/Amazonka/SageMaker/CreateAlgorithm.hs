@@ -28,11 +28,11 @@ module Amazonka.SageMaker.CreateAlgorithm
     newCreateAlgorithm,
 
     -- * Request Lenses
-    createAlgorithm_tags,
-    createAlgorithm_validationSpecification,
+    createAlgorithm_algorithmDescription,
     createAlgorithm_certifyForMarketplace,
     createAlgorithm_inferenceSpecification,
-    createAlgorithm_algorithmDescription,
+    createAlgorithm_tags,
+    createAlgorithm_validationSpecification,
     createAlgorithm_algorithmName,
     createAlgorithm_trainingSpecification,
 
@@ -56,16 +56,8 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newCreateAlgorithm' smart constructor.
 data CreateAlgorithm = CreateAlgorithm'
-  { -- | An array of key-value pairs. You can use tags to categorize your Amazon
-    -- Web Services resources in different ways, for example, by purpose,
-    -- owner, or environment. For more information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
-    tags :: Prelude.Maybe [Tag],
-    -- | Specifies configurations for one or more training jobs and that
-    -- SageMaker runs to test the algorithm\'s training code and, optionally,
-    -- one or more batch transform jobs that SageMaker runs to test the
-    -- algorithm\'s inference code.
-    validationSpecification :: Prelude.Maybe AlgorithmValidationSpecification,
+  { -- | A description of the algorithm.
+    algorithmDescription :: Prelude.Maybe Prelude.Text,
     -- | Whether to certify the algorithm so that it can be listed in Amazon Web
     -- Services Marketplace.
     certifyForMarketplace :: Prelude.Maybe Prelude.Bool,
@@ -81,8 +73,16 @@ data CreateAlgorithm = CreateAlgorithm'
     -- -   The input and output content formats that the algorithm supports for
     --     inference.
     inferenceSpecification :: Prelude.Maybe InferenceSpecification,
-    -- | A description of the algorithm.
-    algorithmDescription :: Prelude.Maybe Prelude.Text,
+    -- | An array of key-value pairs. You can use tags to categorize your Amazon
+    -- Web Services resources in different ways, for example, by purpose,
+    -- owner, or environment. For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
+    tags :: Prelude.Maybe [Tag],
+    -- | Specifies configurations for one or more training jobs and that
+    -- SageMaker runs to test the algorithm\'s training code and, optionally,
+    -- one or more batch transform jobs that SageMaker runs to test the
+    -- algorithm\'s inference code.
+    validationSpecification :: Prelude.Maybe AlgorithmValidationSpecification,
     -- | The name of the algorithm.
     algorithmName :: Prelude.Text,
     -- | Specifies details about training jobs run by this algorithm, including
@@ -117,15 +117,7 @@ data CreateAlgorithm = CreateAlgorithm'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createAlgorithm_tags' - An array of key-value pairs. You can use tags to categorize your Amazon
--- Web Services resources in different ways, for example, by purpose,
--- owner, or environment. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
---
--- 'validationSpecification', 'createAlgorithm_validationSpecification' - Specifies configurations for one or more training jobs and that
--- SageMaker runs to test the algorithm\'s training code and, optionally,
--- one or more batch transform jobs that SageMaker runs to test the
--- algorithm\'s inference code.
+-- 'algorithmDescription', 'createAlgorithm_algorithmDescription' - A description of the algorithm.
 --
 -- 'certifyForMarketplace', 'createAlgorithm_certifyForMarketplace' - Whether to certify the algorithm so that it can be listed in Amazon Web
 -- Services Marketplace.
@@ -142,7 +134,15 @@ data CreateAlgorithm = CreateAlgorithm'
 -- -   The input and output content formats that the algorithm supports for
 --     inference.
 --
--- 'algorithmDescription', 'createAlgorithm_algorithmDescription' - A description of the algorithm.
+-- 'tags', 'createAlgorithm_tags' - An array of key-value pairs. You can use tags to categorize your Amazon
+-- Web Services resources in different ways, for example, by purpose,
+-- owner, or environment. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
+--
+-- 'validationSpecification', 'createAlgorithm_validationSpecification' - Specifies configurations for one or more training jobs and that
+-- SageMaker runs to test the algorithm\'s training code and, optionally,
+-- one or more batch transform jobs that SageMaker runs to test the
+-- algorithm\'s inference code.
 --
 -- 'algorithmName', 'createAlgorithm_algorithmName' - The name of the algorithm.
 --
@@ -176,28 +176,19 @@ newCreateAlgorithm
   pAlgorithmName_
   pTrainingSpecification_ =
     CreateAlgorithm'
-      { tags = Prelude.Nothing,
-        validationSpecification = Prelude.Nothing,
+      { algorithmDescription =
+          Prelude.Nothing,
         certifyForMarketplace = Prelude.Nothing,
         inferenceSpecification = Prelude.Nothing,
-        algorithmDescription = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        validationSpecification = Prelude.Nothing,
         algorithmName = pAlgorithmName_,
         trainingSpecification = pTrainingSpecification_
       }
 
--- | An array of key-value pairs. You can use tags to categorize your Amazon
--- Web Services resources in different ways, for example, by purpose,
--- owner, or environment. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
-createAlgorithm_tags :: Lens.Lens' CreateAlgorithm (Prelude.Maybe [Tag])
-createAlgorithm_tags = Lens.lens (\CreateAlgorithm' {tags} -> tags) (\s@CreateAlgorithm' {} a -> s {tags = a} :: CreateAlgorithm) Prelude.. Lens.mapping Lens.coerced
-
--- | Specifies configurations for one or more training jobs and that
--- SageMaker runs to test the algorithm\'s training code and, optionally,
--- one or more batch transform jobs that SageMaker runs to test the
--- algorithm\'s inference code.
-createAlgorithm_validationSpecification :: Lens.Lens' CreateAlgorithm (Prelude.Maybe AlgorithmValidationSpecification)
-createAlgorithm_validationSpecification = Lens.lens (\CreateAlgorithm' {validationSpecification} -> validationSpecification) (\s@CreateAlgorithm' {} a -> s {validationSpecification = a} :: CreateAlgorithm)
+-- | A description of the algorithm.
+createAlgorithm_algorithmDescription :: Lens.Lens' CreateAlgorithm (Prelude.Maybe Prelude.Text)
+createAlgorithm_algorithmDescription = Lens.lens (\CreateAlgorithm' {algorithmDescription} -> algorithmDescription) (\s@CreateAlgorithm' {} a -> s {algorithmDescription = a} :: CreateAlgorithm)
 
 -- | Whether to certify the algorithm so that it can be listed in Amazon Web
 -- Services Marketplace.
@@ -218,9 +209,19 @@ createAlgorithm_certifyForMarketplace = Lens.lens (\CreateAlgorithm' {certifyFor
 createAlgorithm_inferenceSpecification :: Lens.Lens' CreateAlgorithm (Prelude.Maybe InferenceSpecification)
 createAlgorithm_inferenceSpecification = Lens.lens (\CreateAlgorithm' {inferenceSpecification} -> inferenceSpecification) (\s@CreateAlgorithm' {} a -> s {inferenceSpecification = a} :: CreateAlgorithm)
 
--- | A description of the algorithm.
-createAlgorithm_algorithmDescription :: Lens.Lens' CreateAlgorithm (Prelude.Maybe Prelude.Text)
-createAlgorithm_algorithmDescription = Lens.lens (\CreateAlgorithm' {algorithmDescription} -> algorithmDescription) (\s@CreateAlgorithm' {} a -> s {algorithmDescription = a} :: CreateAlgorithm)
+-- | An array of key-value pairs. You can use tags to categorize your Amazon
+-- Web Services resources in different ways, for example, by purpose,
+-- owner, or environment. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
+createAlgorithm_tags :: Lens.Lens' CreateAlgorithm (Prelude.Maybe [Tag])
+createAlgorithm_tags = Lens.lens (\CreateAlgorithm' {tags} -> tags) (\s@CreateAlgorithm' {} a -> s {tags = a} :: CreateAlgorithm) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specifies configurations for one or more training jobs and that
+-- SageMaker runs to test the algorithm\'s training code and, optionally,
+-- one or more batch transform jobs that SageMaker runs to test the
+-- algorithm\'s inference code.
+createAlgorithm_validationSpecification :: Lens.Lens' CreateAlgorithm (Prelude.Maybe AlgorithmValidationSpecification)
+createAlgorithm_validationSpecification = Lens.lens (\CreateAlgorithm' {validationSpecification} -> validationSpecification) (\s@CreateAlgorithm' {} a -> s {validationSpecification = a} :: CreateAlgorithm)
 
 -- | The name of the algorithm.
 createAlgorithm_algorithmName :: Lens.Lens' CreateAlgorithm Prelude.Text
@@ -265,21 +266,21 @@ instance Core.AWSRequest CreateAlgorithm where
 
 instance Prelude.Hashable CreateAlgorithm where
   hashWithSalt _salt CreateAlgorithm' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` validationSpecification
+    _salt `Prelude.hashWithSalt` algorithmDescription
       `Prelude.hashWithSalt` certifyForMarketplace
       `Prelude.hashWithSalt` inferenceSpecification
-      `Prelude.hashWithSalt` algorithmDescription
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` validationSpecification
       `Prelude.hashWithSalt` algorithmName
       `Prelude.hashWithSalt` trainingSpecification
 
 instance Prelude.NFData CreateAlgorithm where
   rnf CreateAlgorithm' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf validationSpecification
+    Prelude.rnf algorithmDescription
       `Prelude.seq` Prelude.rnf certifyForMarketplace
       `Prelude.seq` Prelude.rnf inferenceSpecification
-      `Prelude.seq` Prelude.rnf algorithmDescription
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf validationSpecification
       `Prelude.seq` Prelude.rnf algorithmName
       `Prelude.seq` Prelude.rnf trainingSpecification
 
@@ -300,15 +301,15 @@ instance Data.ToJSON CreateAlgorithm where
   toJSON CreateAlgorithm' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ValidationSpecification" Data..=)
-              Prelude.<$> validationSpecification,
+          [ ("AlgorithmDescription" Data..=)
+              Prelude.<$> algorithmDescription,
             ("CertifyForMarketplace" Data..=)
               Prelude.<$> certifyForMarketplace,
             ("InferenceSpecification" Data..=)
               Prelude.<$> inferenceSpecification,
-            ("AlgorithmDescription" Data..=)
-              Prelude.<$> algorithmDescription,
+            ("Tags" Data..=) Prelude.<$> tags,
+            ("ValidationSpecification" Data..=)
+              Prelude.<$> validationSpecification,
             Prelude.Just ("AlgorithmName" Data..= algorithmName),
             Prelude.Just
               ( "TrainingSpecification"

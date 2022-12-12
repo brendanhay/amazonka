@@ -29,24 +29,24 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLogAnomalyClass' smart constructor.
 data LogAnomalyClass = LogAnomalyClass'
-  { -- | The number of log lines where this anomalous log event occurs.
-    numberOfLogLinesOccurrences :: Prelude.Maybe Prelude.Int,
-    -- | The time of the first occurrence of the anomalous log event.
-    logEventTimestamp :: Prelude.Maybe Data.POSIX,
-    -- | The ID of the log event.
-    logEventId :: Prelude.Maybe Prelude.Text,
+  { -- | The explanation for why the log event is considered an anomaly.
+    explanation :: Prelude.Maybe Prelude.Text,
     -- | The token where the anomaly was detected. This may refer to an exception
     -- or another location, or it may be blank for log anomalies such as format
     -- anomalies.
     logAnomalyToken :: Prelude.Maybe Prelude.Text,
     -- | The type of log anomaly that has been detected.
     logAnomalyType :: Prelude.Maybe LogAnomalyType,
-    -- | The explanation for why the log event is considered an anomaly.
-    explanation :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the log event.
+    logEventId :: Prelude.Maybe Prelude.Text,
+    -- | The time of the first occurrence of the anomalous log event.
+    logEventTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The name of the Amazon CloudWatch log stream that the anomalous log
     -- event belongs to. A log stream is a sequence of log events that share
     -- the same source.
-    logStreamName :: Prelude.Maybe Prelude.Text
+    logStreamName :: Prelude.Maybe Prelude.Text,
+    -- | The number of log lines where this anomalous log event occurs.
+    numberOfLogLinesOccurrences :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,11 +58,7 @@ data LogAnomalyClass = LogAnomalyClass'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'numberOfLogLinesOccurrences', 'logAnomalyClass_numberOfLogLinesOccurrences' - The number of log lines where this anomalous log event occurs.
---
--- 'logEventTimestamp', 'logAnomalyClass_logEventTimestamp' - The time of the first occurrence of the anomalous log event.
---
--- 'logEventId', 'logAnomalyClass_logEventId' - The ID of the log event.
+-- 'explanation', 'logAnomalyClass_explanation' - The explanation for why the log event is considered an anomaly.
 --
 -- 'logAnomalyToken', 'logAnomalyClass_logAnomalyToken' - The token where the anomaly was detected. This may refer to an exception
 -- or another location, or it may be blank for log anomalies such as format
@@ -70,36 +66,31 @@ data LogAnomalyClass = LogAnomalyClass'
 --
 -- 'logAnomalyType', 'logAnomalyClass_logAnomalyType' - The type of log anomaly that has been detected.
 --
--- 'explanation', 'logAnomalyClass_explanation' - The explanation for why the log event is considered an anomaly.
+-- 'logEventId', 'logAnomalyClass_logEventId' - The ID of the log event.
+--
+-- 'logEventTimestamp', 'logAnomalyClass_logEventTimestamp' - The time of the first occurrence of the anomalous log event.
 --
 -- 'logStreamName', 'logAnomalyClass_logStreamName' - The name of the Amazon CloudWatch log stream that the anomalous log
 -- event belongs to. A log stream is a sequence of log events that share
 -- the same source.
+--
+-- 'numberOfLogLinesOccurrences', 'logAnomalyClass_numberOfLogLinesOccurrences' - The number of log lines where this anomalous log event occurs.
 newLogAnomalyClass ::
   LogAnomalyClass
 newLogAnomalyClass =
   LogAnomalyClass'
-    { numberOfLogLinesOccurrences =
-        Prelude.Nothing,
-      logEventTimestamp = Prelude.Nothing,
-      logEventId = Prelude.Nothing,
+    { explanation = Prelude.Nothing,
       logAnomalyToken = Prelude.Nothing,
       logAnomalyType = Prelude.Nothing,
-      explanation = Prelude.Nothing,
-      logStreamName = Prelude.Nothing
+      logEventId = Prelude.Nothing,
+      logEventTimestamp = Prelude.Nothing,
+      logStreamName = Prelude.Nothing,
+      numberOfLogLinesOccurrences = Prelude.Nothing
     }
 
--- | The number of log lines where this anomalous log event occurs.
-logAnomalyClass_numberOfLogLinesOccurrences :: Lens.Lens' LogAnomalyClass (Prelude.Maybe Prelude.Int)
-logAnomalyClass_numberOfLogLinesOccurrences = Lens.lens (\LogAnomalyClass' {numberOfLogLinesOccurrences} -> numberOfLogLinesOccurrences) (\s@LogAnomalyClass' {} a -> s {numberOfLogLinesOccurrences = a} :: LogAnomalyClass)
-
--- | The time of the first occurrence of the anomalous log event.
-logAnomalyClass_logEventTimestamp :: Lens.Lens' LogAnomalyClass (Prelude.Maybe Prelude.UTCTime)
-logAnomalyClass_logEventTimestamp = Lens.lens (\LogAnomalyClass' {logEventTimestamp} -> logEventTimestamp) (\s@LogAnomalyClass' {} a -> s {logEventTimestamp = a} :: LogAnomalyClass) Prelude.. Lens.mapping Data._Time
-
--- | The ID of the log event.
-logAnomalyClass_logEventId :: Lens.Lens' LogAnomalyClass (Prelude.Maybe Prelude.Text)
-logAnomalyClass_logEventId = Lens.lens (\LogAnomalyClass' {logEventId} -> logEventId) (\s@LogAnomalyClass' {} a -> s {logEventId = a} :: LogAnomalyClass)
+-- | The explanation for why the log event is considered an anomaly.
+logAnomalyClass_explanation :: Lens.Lens' LogAnomalyClass (Prelude.Maybe Prelude.Text)
+logAnomalyClass_explanation = Lens.lens (\LogAnomalyClass' {explanation} -> explanation) (\s@LogAnomalyClass' {} a -> s {explanation = a} :: LogAnomalyClass)
 
 -- | The token where the anomaly was detected. This may refer to an exception
 -- or another location, or it may be blank for log anomalies such as format
@@ -111,9 +102,13 @@ logAnomalyClass_logAnomalyToken = Lens.lens (\LogAnomalyClass' {logAnomalyToken}
 logAnomalyClass_logAnomalyType :: Lens.Lens' LogAnomalyClass (Prelude.Maybe LogAnomalyType)
 logAnomalyClass_logAnomalyType = Lens.lens (\LogAnomalyClass' {logAnomalyType} -> logAnomalyType) (\s@LogAnomalyClass' {} a -> s {logAnomalyType = a} :: LogAnomalyClass)
 
--- | The explanation for why the log event is considered an anomaly.
-logAnomalyClass_explanation :: Lens.Lens' LogAnomalyClass (Prelude.Maybe Prelude.Text)
-logAnomalyClass_explanation = Lens.lens (\LogAnomalyClass' {explanation} -> explanation) (\s@LogAnomalyClass' {} a -> s {explanation = a} :: LogAnomalyClass)
+-- | The ID of the log event.
+logAnomalyClass_logEventId :: Lens.Lens' LogAnomalyClass (Prelude.Maybe Prelude.Text)
+logAnomalyClass_logEventId = Lens.lens (\LogAnomalyClass' {logEventId} -> logEventId) (\s@LogAnomalyClass' {} a -> s {logEventId = a} :: LogAnomalyClass)
+
+-- | The time of the first occurrence of the anomalous log event.
+logAnomalyClass_logEventTimestamp :: Lens.Lens' LogAnomalyClass (Prelude.Maybe Prelude.UTCTime)
+logAnomalyClass_logEventTimestamp = Lens.lens (\LogAnomalyClass' {logEventTimestamp} -> logEventTimestamp) (\s@LogAnomalyClass' {} a -> s {logEventTimestamp = a} :: LogAnomalyClass) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the Amazon CloudWatch log stream that the anomalous log
 -- event belongs to. A log stream is a sequence of log events that share
@@ -121,38 +116,41 @@ logAnomalyClass_explanation = Lens.lens (\LogAnomalyClass' {explanation} -> expl
 logAnomalyClass_logStreamName :: Lens.Lens' LogAnomalyClass (Prelude.Maybe Prelude.Text)
 logAnomalyClass_logStreamName = Lens.lens (\LogAnomalyClass' {logStreamName} -> logStreamName) (\s@LogAnomalyClass' {} a -> s {logStreamName = a} :: LogAnomalyClass)
 
+-- | The number of log lines where this anomalous log event occurs.
+logAnomalyClass_numberOfLogLinesOccurrences :: Lens.Lens' LogAnomalyClass (Prelude.Maybe Prelude.Int)
+logAnomalyClass_numberOfLogLinesOccurrences = Lens.lens (\LogAnomalyClass' {numberOfLogLinesOccurrences} -> numberOfLogLinesOccurrences) (\s@LogAnomalyClass' {} a -> s {numberOfLogLinesOccurrences = a} :: LogAnomalyClass)
+
 instance Data.FromJSON LogAnomalyClass where
   parseJSON =
     Data.withObject
       "LogAnomalyClass"
       ( \x ->
           LogAnomalyClass'
-            Prelude.<$> (x Data..:? "NumberOfLogLinesOccurrences")
-            Prelude.<*> (x Data..:? "LogEventTimestamp")
-            Prelude.<*> (x Data..:? "LogEventId")
+            Prelude.<$> (x Data..:? "Explanation")
             Prelude.<*> (x Data..:? "LogAnomalyToken")
             Prelude.<*> (x Data..:? "LogAnomalyType")
-            Prelude.<*> (x Data..:? "Explanation")
+            Prelude.<*> (x Data..:? "LogEventId")
+            Prelude.<*> (x Data..:? "LogEventTimestamp")
             Prelude.<*> (x Data..:? "LogStreamName")
+            Prelude.<*> (x Data..:? "NumberOfLogLinesOccurrences")
       )
 
 instance Prelude.Hashable LogAnomalyClass where
   hashWithSalt _salt LogAnomalyClass' {..} =
-    _salt
-      `Prelude.hashWithSalt` numberOfLogLinesOccurrences
-      `Prelude.hashWithSalt` logEventTimestamp
-      `Prelude.hashWithSalt` logEventId
+    _salt `Prelude.hashWithSalt` explanation
       `Prelude.hashWithSalt` logAnomalyToken
       `Prelude.hashWithSalt` logAnomalyType
-      `Prelude.hashWithSalt` explanation
+      `Prelude.hashWithSalt` logEventId
+      `Prelude.hashWithSalt` logEventTimestamp
       `Prelude.hashWithSalt` logStreamName
+      `Prelude.hashWithSalt` numberOfLogLinesOccurrences
 
 instance Prelude.NFData LogAnomalyClass where
   rnf LogAnomalyClass' {..} =
-    Prelude.rnf numberOfLogLinesOccurrences
-      `Prelude.seq` Prelude.rnf logEventTimestamp
-      `Prelude.seq` Prelude.rnf logEventId
+    Prelude.rnf explanation
       `Prelude.seq` Prelude.rnf logAnomalyToken
       `Prelude.seq` Prelude.rnf logAnomalyType
-      `Prelude.seq` Prelude.rnf explanation
+      `Prelude.seq` Prelude.rnf logEventId
+      `Prelude.seq` Prelude.rnf logEventTimestamp
       `Prelude.seq` Prelude.rnf logStreamName
+      `Prelude.seq` Prelude.rnf numberOfLogLinesOccurrences

@@ -30,7 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCaptions' smart constructor.
 data Captions = Captions'
-  { -- | Source files for the input sidecar captions used during the transcoding
+  { -- | The array of file formats for the output captions. If you leave this
+    -- value blank, Elastic Transcoder returns an error.
+    captionFormats :: Prelude.Maybe [CaptionFormat],
+    -- | Source files for the input sidecar captions used during the transcoding
     -- process. To omit all sidecar captions, leave @CaptionSources@ blank.
     captionSources :: Prelude.Maybe [CaptionSource],
     -- | A policy that determines how Elastic Transcoder handles the existence of
@@ -53,10 +56,7 @@ data Captions = Captions'
     --     captions that you specify in @CaptionSources@.
     --
     -- @MergePolicy@ cannot be null.
-    mergePolicy :: Prelude.Maybe Prelude.Text,
-    -- | The array of file formats for the output captions. If you leave this
-    -- value blank, Elastic Transcoder returns an error.
-    captionFormats :: Prelude.Maybe [CaptionFormat]
+    mergePolicy :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,6 +67,9 @@ data Captions = Captions'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'captionFormats', 'captions_captionFormats' - The array of file formats for the output captions. If you leave this
+-- value blank, Elastic Transcoder returns an error.
 --
 -- 'captionSources', 'captions_captionSources' - Source files for the input sidecar captions used during the transcoding
 -- process. To omit all sidecar captions, leave @CaptionSources@ blank.
@@ -91,17 +94,19 @@ data Captions = Captions'
 --     captions that you specify in @CaptionSources@.
 --
 -- @MergePolicy@ cannot be null.
---
--- 'captionFormats', 'captions_captionFormats' - The array of file formats for the output captions. If you leave this
--- value blank, Elastic Transcoder returns an error.
 newCaptions ::
   Captions
 newCaptions =
   Captions'
-    { captionSources = Prelude.Nothing,
-      mergePolicy = Prelude.Nothing,
-      captionFormats = Prelude.Nothing
+    { captionFormats = Prelude.Nothing,
+      captionSources = Prelude.Nothing,
+      mergePolicy = Prelude.Nothing
     }
+
+-- | The array of file formats for the output captions. If you leave this
+-- value blank, Elastic Transcoder returns an error.
+captions_captionFormats :: Lens.Lens' Captions (Prelude.Maybe [CaptionFormat])
+captions_captionFormats = Lens.lens (\Captions' {captionFormats} -> captionFormats) (\s@Captions' {} a -> s {captionFormats = a} :: Captions) Prelude.. Lens.mapping Lens.coerced
 
 -- | Source files for the input sidecar captions used during the transcoding
 -- process. To omit all sidecar captions, leave @CaptionSources@ blank.
@@ -131,44 +136,37 @@ captions_captionSources = Lens.lens (\Captions' {captionSources} -> captionSourc
 captions_mergePolicy :: Lens.Lens' Captions (Prelude.Maybe Prelude.Text)
 captions_mergePolicy = Lens.lens (\Captions' {mergePolicy} -> mergePolicy) (\s@Captions' {} a -> s {mergePolicy = a} :: Captions)
 
--- | The array of file formats for the output captions. If you leave this
--- value blank, Elastic Transcoder returns an error.
-captions_captionFormats :: Lens.Lens' Captions (Prelude.Maybe [CaptionFormat])
-captions_captionFormats = Lens.lens (\Captions' {captionFormats} -> captionFormats) (\s@Captions' {} a -> s {captionFormats = a} :: Captions) Prelude.. Lens.mapping Lens.coerced
-
 instance Data.FromJSON Captions where
   parseJSON =
     Data.withObject
       "Captions"
       ( \x ->
           Captions'
-            Prelude.<$> (x Data..:? "CaptionSources" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "CaptionFormats" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "CaptionSources" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "MergePolicy")
-            Prelude.<*> ( x Data..:? "CaptionFormats"
-                            Data..!= Prelude.mempty
-                        )
       )
 
 instance Prelude.Hashable Captions where
   hashWithSalt _salt Captions' {..} =
-    _salt `Prelude.hashWithSalt` captionSources
+    _salt `Prelude.hashWithSalt` captionFormats
+      `Prelude.hashWithSalt` captionSources
       `Prelude.hashWithSalt` mergePolicy
-      `Prelude.hashWithSalt` captionFormats
 
 instance Prelude.NFData Captions where
   rnf Captions' {..} =
-    Prelude.rnf captionSources
+    Prelude.rnf captionFormats
+      `Prelude.seq` Prelude.rnf captionSources
       `Prelude.seq` Prelude.rnf mergePolicy
-      `Prelude.seq` Prelude.rnf captionFormats
 
 instance Data.ToJSON Captions where
   toJSON Captions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("CaptionSources" Data..=)
+          [ ("CaptionFormats" Data..=)
+              Prelude.<$> captionFormats,
+            ("CaptionSources" Data..=)
               Prelude.<$> captionSources,
-            ("MergePolicy" Data..=) Prelude.<$> mergePolicy,
-            ("CaptionFormats" Data..=)
-              Prelude.<$> captionFormats
+            ("MergePolicy" Data..=) Prelude.<$> mergePolicy
           ]
       )

@@ -27,13 +27,13 @@ module Amazonka.SageMaker.ListProjects
     newListProjects,
 
     -- * Request Lenses
-    listProjects_sortOrder,
-    listProjects_nextToken,
-    listProjects_nameContains,
-    listProjects_creationTimeBefore,
-    listProjects_sortBy,
-    listProjects_maxResults,
     listProjects_creationTimeAfter,
+    listProjects_creationTimeBefore,
+    listProjects_maxResults,
+    listProjects_nameContains,
+    listProjects_nextToken,
+    listProjects_sortBy,
+    listProjects_sortOrder,
 
     -- * Destructuring the Response
     ListProjectsResponse (..),
@@ -56,25 +56,25 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newListProjects' smart constructor.
 data ListProjects = ListProjects'
-  { -- | The sort order for results. The default is @Ascending@.
-    sortOrder :: Prelude.Maybe ProjectSortOrder,
+  { -- | A filter that returns the projects that were created after a specified
+    -- time.
+    creationTimeAfter :: Prelude.Maybe Data.POSIX,
+    -- | A filter that returns the projects that were created before a specified
+    -- time.
+    creationTimeBefore :: Prelude.Maybe Data.POSIX,
+    -- | The maximum number of projects to return in the response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A filter that returns the projects whose name contains a specified
+    -- string.
+    nameContains :: Prelude.Maybe Prelude.Text,
     -- | If the result of the previous @ListProjects@ request was truncated, the
     -- response includes a @NextToken@. To retrieve the next set of projects,
     -- use the token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A filter that returns the projects whose name contains a specified
-    -- string.
-    nameContains :: Prelude.Maybe Prelude.Text,
-    -- | A filter that returns the projects that were created before a specified
-    -- time.
-    creationTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | The field by which to sort results. The default is @CreationTime@.
     sortBy :: Prelude.Maybe ProjectSortBy,
-    -- | The maximum number of projects to return in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | A filter that returns the projects that were created after a specified
-    -- time.
-    creationTimeAfter :: Prelude.Maybe Data.POSIX
+    -- | The sort order for results. The default is @Ascending@.
+    sortOrder :: Prelude.Maybe ProjectSortOrder
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -86,40 +86,55 @@ data ListProjects = ListProjects'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listProjects_sortOrder' - The sort order for results. The default is @Ascending@.
+-- 'creationTimeAfter', 'listProjects_creationTimeAfter' - A filter that returns the projects that were created after a specified
+-- time.
+--
+-- 'creationTimeBefore', 'listProjects_creationTimeBefore' - A filter that returns the projects that were created before a specified
+-- time.
+--
+-- 'maxResults', 'listProjects_maxResults' - The maximum number of projects to return in the response.
+--
+-- 'nameContains', 'listProjects_nameContains' - A filter that returns the projects whose name contains a specified
+-- string.
 --
 -- 'nextToken', 'listProjects_nextToken' - If the result of the previous @ListProjects@ request was truncated, the
 -- response includes a @NextToken@. To retrieve the next set of projects,
 -- use the token in the next request.
 --
--- 'nameContains', 'listProjects_nameContains' - A filter that returns the projects whose name contains a specified
--- string.
---
--- 'creationTimeBefore', 'listProjects_creationTimeBefore' - A filter that returns the projects that were created before a specified
--- time.
---
 -- 'sortBy', 'listProjects_sortBy' - The field by which to sort results. The default is @CreationTime@.
 --
--- 'maxResults', 'listProjects_maxResults' - The maximum number of projects to return in the response.
---
--- 'creationTimeAfter', 'listProjects_creationTimeAfter' - A filter that returns the projects that were created after a specified
--- time.
+-- 'sortOrder', 'listProjects_sortOrder' - The sort order for results. The default is @Ascending@.
 newListProjects ::
   ListProjects
 newListProjects =
   ListProjects'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      nameContains = Prelude.Nothing,
+    { creationTimeAfter = Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      creationTimeAfter = Prelude.Nothing
+      nameContains = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      sortOrder = Prelude.Nothing
     }
 
--- | The sort order for results. The default is @Ascending@.
-listProjects_sortOrder :: Lens.Lens' ListProjects (Prelude.Maybe ProjectSortOrder)
-listProjects_sortOrder = Lens.lens (\ListProjects' {sortOrder} -> sortOrder) (\s@ListProjects' {} a -> s {sortOrder = a} :: ListProjects)
+-- | A filter that returns the projects that were created after a specified
+-- time.
+listProjects_creationTimeAfter :: Lens.Lens' ListProjects (Prelude.Maybe Prelude.UTCTime)
+listProjects_creationTimeAfter = Lens.lens (\ListProjects' {creationTimeAfter} -> creationTimeAfter) (\s@ListProjects' {} a -> s {creationTimeAfter = a} :: ListProjects) Prelude.. Lens.mapping Data._Time
+
+-- | A filter that returns the projects that were created before a specified
+-- time.
+listProjects_creationTimeBefore :: Lens.Lens' ListProjects (Prelude.Maybe Prelude.UTCTime)
+listProjects_creationTimeBefore = Lens.lens (\ListProjects' {creationTimeBefore} -> creationTimeBefore) (\s@ListProjects' {} a -> s {creationTimeBefore = a} :: ListProjects) Prelude.. Lens.mapping Data._Time
+
+-- | The maximum number of projects to return in the response.
+listProjects_maxResults :: Lens.Lens' ListProjects (Prelude.Maybe Prelude.Natural)
+listProjects_maxResults = Lens.lens (\ListProjects' {maxResults} -> maxResults) (\s@ListProjects' {} a -> s {maxResults = a} :: ListProjects)
+
+-- | A filter that returns the projects whose name contains a specified
+-- string.
+listProjects_nameContains :: Lens.Lens' ListProjects (Prelude.Maybe Prelude.Text)
+listProjects_nameContains = Lens.lens (\ListProjects' {nameContains} -> nameContains) (\s@ListProjects' {} a -> s {nameContains = a} :: ListProjects)
 
 -- | If the result of the previous @ListProjects@ request was truncated, the
 -- response includes a @NextToken@. To retrieve the next set of projects,
@@ -127,28 +142,13 @@ listProjects_sortOrder = Lens.lens (\ListProjects' {sortOrder} -> sortOrder) (\s
 listProjects_nextToken :: Lens.Lens' ListProjects (Prelude.Maybe Prelude.Text)
 listProjects_nextToken = Lens.lens (\ListProjects' {nextToken} -> nextToken) (\s@ListProjects' {} a -> s {nextToken = a} :: ListProjects)
 
--- | A filter that returns the projects whose name contains a specified
--- string.
-listProjects_nameContains :: Lens.Lens' ListProjects (Prelude.Maybe Prelude.Text)
-listProjects_nameContains = Lens.lens (\ListProjects' {nameContains} -> nameContains) (\s@ListProjects' {} a -> s {nameContains = a} :: ListProjects)
-
--- | A filter that returns the projects that were created before a specified
--- time.
-listProjects_creationTimeBefore :: Lens.Lens' ListProjects (Prelude.Maybe Prelude.UTCTime)
-listProjects_creationTimeBefore = Lens.lens (\ListProjects' {creationTimeBefore} -> creationTimeBefore) (\s@ListProjects' {} a -> s {creationTimeBefore = a} :: ListProjects) Prelude.. Lens.mapping Data._Time
-
 -- | The field by which to sort results. The default is @CreationTime@.
 listProjects_sortBy :: Lens.Lens' ListProjects (Prelude.Maybe ProjectSortBy)
 listProjects_sortBy = Lens.lens (\ListProjects' {sortBy} -> sortBy) (\s@ListProjects' {} a -> s {sortBy = a} :: ListProjects)
 
--- | The maximum number of projects to return in the response.
-listProjects_maxResults :: Lens.Lens' ListProjects (Prelude.Maybe Prelude.Natural)
-listProjects_maxResults = Lens.lens (\ListProjects' {maxResults} -> maxResults) (\s@ListProjects' {} a -> s {maxResults = a} :: ListProjects)
-
--- | A filter that returns the projects that were created after a specified
--- time.
-listProjects_creationTimeAfter :: Lens.Lens' ListProjects (Prelude.Maybe Prelude.UTCTime)
-listProjects_creationTimeAfter = Lens.lens (\ListProjects' {creationTimeAfter} -> creationTimeAfter) (\s@ListProjects' {} a -> s {creationTimeAfter = a} :: ListProjects) Prelude.. Lens.mapping Data._Time
+-- | The sort order for results. The default is @Ascending@.
+listProjects_sortOrder :: Lens.Lens' ListProjects (Prelude.Maybe ProjectSortOrder)
+listProjects_sortOrder = Lens.lens (\ListProjects' {sortOrder} -> sortOrder) (\s@ListProjects' {} a -> s {sortOrder = a} :: ListProjects)
 
 instance Core.AWSRequest ListProjects where
   type AWSResponse ListProjects = ListProjectsResponse
@@ -167,23 +167,23 @@ instance Core.AWSRequest ListProjects where
 
 instance Prelude.Hashable ListProjects where
   hashWithSalt _salt ListProjects' {..} =
-    _salt `Prelude.hashWithSalt` sortOrder
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` nameContains
+    _salt `Prelude.hashWithSalt` creationTimeAfter
       `Prelude.hashWithSalt` creationTimeBefore
-      `Prelude.hashWithSalt` sortBy
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` creationTimeAfter
+      `Prelude.hashWithSalt` nameContains
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` sortOrder
 
 instance Prelude.NFData ListProjects where
   rnf ListProjects' {..} =
-    Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf nameContains
+    Prelude.rnf creationTimeAfter
       `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf sortBy
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf creationTimeAfter
+      `Prelude.seq` Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListProjects where
   toHeaders =
@@ -202,15 +202,15 @@ instance Data.ToJSON ListProjects where
   toJSON ListProjects' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
-            ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("NameContains" Data..=) Prelude.<$> nameContains,
+          [ ("CreationTimeAfter" Data..=)
+              Prelude.<$> creationTimeAfter,
             ("CreationTimeBefore" Data..=)
               Prelude.<$> creationTimeBefore,
-            ("SortBy" Data..=) Prelude.<$> sortBy,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("CreationTimeAfter" Data..=)
-              Prelude.<$> creationTimeAfter
+            ("NameContains" Data..=) Prelude.<$> nameContains,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("SortOrder" Data..=) Prelude.<$> sortOrder
           ]
       )
 

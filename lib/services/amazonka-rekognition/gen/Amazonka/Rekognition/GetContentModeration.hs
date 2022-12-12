@@ -65,9 +65,9 @@ module Amazonka.Rekognition.GetContentModeration
     newGetContentModeration,
 
     -- * Request Lenses
+    getContentModeration_maxResults,
     getContentModeration_nextToken,
     getContentModeration_sortBy,
-    getContentModeration_maxResults,
     getContentModeration_jobId,
 
     -- * Destructuring the Response
@@ -75,12 +75,12 @@ module Amazonka.Rekognition.GetContentModeration
     newGetContentModerationResponse,
 
     -- * Response Lenses
-    getContentModerationResponse_nextToken,
     getContentModerationResponse_jobStatus,
     getContentModerationResponse_moderationLabels,
-    getContentModerationResponse_videoMetadata,
-    getContentModerationResponse_statusMessage,
     getContentModerationResponse_moderationModelVersion,
+    getContentModerationResponse_nextToken,
+    getContentModerationResponse_statusMessage,
+    getContentModerationResponse_videoMetadata,
     getContentModerationResponse_httpStatus,
   )
 where
@@ -95,7 +95,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetContentModeration' smart constructor.
 data GetContentModeration = GetContentModeration'
-  { -- | If the previous response was incomplete (because there is more data to
+  { -- | Maximum number of results to return per paginated call. The largest
+    -- value you can specify is 1000. If you specify a value greater than 1000,
+    -- a maximum of 1000 results is returned. The default value is 1000.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the previous response was incomplete (because there is more data to
     -- retrieve), Amazon Rekognition returns a pagination token in the
     -- response. You can use this pagination token to retrieve the next set of
     -- content moderation labels.
@@ -106,10 +110,6 @@ data GetContentModeration = GetContentModeration'
     -- each label group, the array element are sorted by detection confidence.
     -- The default sort is by @TIMESTAMP@.
     sortBy :: Prelude.Maybe ContentModerationSortBy,
-    -- | Maximum number of results to return per paginated call. The largest
-    -- value you can specify is 1000. If you specify a value greater than 1000,
-    -- a maximum of 1000 results is returned. The default value is 1000.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier for the inappropriate, unwanted, or offensive content
     -- moderation job. Use @JobId@ to identify the job in a subsequent call to
     -- @GetContentModeration@.
@@ -125,6 +125,10 @@ data GetContentModeration = GetContentModeration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'getContentModeration_maxResults' - Maximum number of results to return per paginated call. The largest
+-- value you can specify is 1000. If you specify a value greater than 1000,
+-- a maximum of 1000 results is returned. The default value is 1000.
+--
 -- 'nextToken', 'getContentModeration_nextToken' - If the previous response was incomplete (because there is more data to
 -- retrieve), Amazon Rekognition returns a pagination token in the
 -- response. You can use this pagination token to retrieve the next set of
@@ -136,10 +140,6 @@ data GetContentModeration = GetContentModeration'
 -- each label group, the array element are sorted by detection confidence.
 -- The default sort is by @TIMESTAMP@.
 --
--- 'maxResults', 'getContentModeration_maxResults' - Maximum number of results to return per paginated call. The largest
--- value you can specify is 1000. If you specify a value greater than 1000,
--- a maximum of 1000 results is returned. The default value is 1000.
---
 -- 'jobId', 'getContentModeration_jobId' - The identifier for the inappropriate, unwanted, or offensive content
 -- moderation job. Use @JobId@ to identify the job in a subsequent call to
 -- @GetContentModeration@.
@@ -149,11 +149,17 @@ newGetContentModeration ::
   GetContentModeration
 newGetContentModeration pJobId_ =
   GetContentModeration'
-    { nextToken = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       sortBy = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       jobId = pJobId_
     }
+
+-- | Maximum number of results to return per paginated call. The largest
+-- value you can specify is 1000. If you specify a value greater than 1000,
+-- a maximum of 1000 results is returned. The default value is 1000.
+getContentModeration_maxResults :: Lens.Lens' GetContentModeration (Prelude.Maybe Prelude.Natural)
+getContentModeration_maxResults = Lens.lens (\GetContentModeration' {maxResults} -> maxResults) (\s@GetContentModeration' {} a -> s {maxResults = a} :: GetContentModeration)
 
 -- | If the previous response was incomplete (because there is more data to
 -- retrieve), Amazon Rekognition returns a pagination token in the
@@ -169,12 +175,6 @@ getContentModeration_nextToken = Lens.lens (\GetContentModeration' {nextToken} -
 -- The default sort is by @TIMESTAMP@.
 getContentModeration_sortBy :: Lens.Lens' GetContentModeration (Prelude.Maybe ContentModerationSortBy)
 getContentModeration_sortBy = Lens.lens (\GetContentModeration' {sortBy} -> sortBy) (\s@GetContentModeration' {} a -> s {sortBy = a} :: GetContentModeration)
-
--- | Maximum number of results to return per paginated call. The largest
--- value you can specify is 1000. If you specify a value greater than 1000,
--- a maximum of 1000 results is returned. The default value is 1000.
-getContentModeration_maxResults :: Lens.Lens' GetContentModeration (Prelude.Maybe Prelude.Natural)
-getContentModeration_maxResults = Lens.lens (\GetContentModeration' {maxResults} -> maxResults) (\s@GetContentModeration' {} a -> s {maxResults = a} :: GetContentModeration)
 
 -- | The identifier for the inappropriate, unwanted, or offensive content
 -- moderation job. Use @JobId@ to identify the job in a subsequent call to
@@ -192,29 +192,29 @@ instance Core.AWSRequest GetContentModeration where
     Response.receiveJSON
       ( \s h x ->
           GetContentModerationResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "JobStatus")
+            Prelude.<$> (x Data..?> "JobStatus")
             Prelude.<*> ( x Data..?> "ModerationLabels"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "VideoMetadata")
-            Prelude.<*> (x Data..?> "StatusMessage")
             Prelude.<*> (x Data..?> "ModerationModelVersion")
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "StatusMessage")
+            Prelude.<*> (x Data..?> "VideoMetadata")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetContentModeration where
   hashWithSalt _salt GetContentModeration' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortBy
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` jobId
 
 instance Prelude.NFData GetContentModeration where
   rnf GetContentModeration' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf jobId
 
 instance Data.ToHeaders GetContentModeration where
@@ -236,9 +236,9 @@ instance Data.ToJSON GetContentModeration where
   toJSON GetContentModeration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("SortBy" Data..=) Prelude.<$> sortBy,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just ("JobId" Data..= jobId)
           ]
       )
@@ -251,24 +251,24 @@ instance Data.ToQuery GetContentModeration where
 
 -- | /See:/ 'newGetContentModerationResponse' smart constructor.
 data GetContentModerationResponse = GetContentModerationResponse'
-  { -- | If the response is truncated, Amazon Rekognition Video returns this
-    -- token that you can use in the subsequent request to retrieve the next
-    -- set of content moderation labels.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The current status of the content moderation analysis job.
+  { -- | The current status of the content moderation analysis job.
     jobStatus :: Prelude.Maybe VideoJobStatus,
     -- | The detected inappropriate, unwanted, or offensive content moderation
     -- labels and the time(s) they were detected.
     moderationLabels :: Prelude.Maybe [ContentModerationDetection],
+    -- | Version number of the moderation detection model that was used to detect
+    -- inappropriate, unwanted, or offensive content.
+    moderationModelVersion :: Prelude.Maybe Prelude.Text,
+    -- | If the response is truncated, Amazon Rekognition Video returns this
+    -- token that you can use in the subsequent request to retrieve the next
+    -- set of content moderation labels.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | If the job fails, @StatusMessage@ provides a descriptive error message.
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | Information about a video that Amazon Rekognition analyzed.
     -- @Videometadata@ is returned in every page of paginated responses from
     -- @GetContentModeration@.
     videoMetadata :: Prelude.Maybe VideoMetadata,
-    -- | If the job fails, @StatusMessage@ provides a descriptive error message.
-    statusMessage :: Prelude.Maybe Prelude.Text,
-    -- | Version number of the moderation detection model that was used to detect
-    -- inappropriate, unwanted, or offensive content.
-    moderationModelVersion :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -282,23 +282,23 @@ data GetContentModerationResponse = GetContentModerationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getContentModerationResponse_nextToken' - If the response is truncated, Amazon Rekognition Video returns this
--- token that you can use in the subsequent request to retrieve the next
--- set of content moderation labels.
---
 -- 'jobStatus', 'getContentModerationResponse_jobStatus' - The current status of the content moderation analysis job.
 --
 -- 'moderationLabels', 'getContentModerationResponse_moderationLabels' - The detected inappropriate, unwanted, or offensive content moderation
 -- labels and the time(s) they were detected.
 --
--- 'videoMetadata', 'getContentModerationResponse_videoMetadata' - Information about a video that Amazon Rekognition analyzed.
--- @Videometadata@ is returned in every page of paginated responses from
--- @GetContentModeration@.
+-- 'moderationModelVersion', 'getContentModerationResponse_moderationModelVersion' - Version number of the moderation detection model that was used to detect
+-- inappropriate, unwanted, or offensive content.
+--
+-- 'nextToken', 'getContentModerationResponse_nextToken' - If the response is truncated, Amazon Rekognition Video returns this
+-- token that you can use in the subsequent request to retrieve the next
+-- set of content moderation labels.
 --
 -- 'statusMessage', 'getContentModerationResponse_statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
 --
--- 'moderationModelVersion', 'getContentModerationResponse_moderationModelVersion' - Version number of the moderation detection model that was used to detect
--- inappropriate, unwanted, or offensive content.
+-- 'videoMetadata', 'getContentModerationResponse_videoMetadata' - Information about a video that Amazon Rekognition analyzed.
+-- @Videometadata@ is returned in every page of paginated responses from
+-- @GetContentModeration@.
 --
 -- 'httpStatus', 'getContentModerationResponse_httpStatus' - The response's http status code.
 newGetContentModerationResponse ::
@@ -307,21 +307,15 @@ newGetContentModerationResponse ::
   GetContentModerationResponse
 newGetContentModerationResponse pHttpStatus_ =
   GetContentModerationResponse'
-    { nextToken =
+    { jobStatus =
         Prelude.Nothing,
-      jobStatus = Prelude.Nothing,
       moderationLabels = Prelude.Nothing,
-      videoMetadata = Prelude.Nothing,
-      statusMessage = Prelude.Nothing,
       moderationModelVersion = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      statusMessage = Prelude.Nothing,
+      videoMetadata = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | If the response is truncated, Amazon Rekognition Video returns this
--- token that you can use in the subsequent request to retrieve the next
--- set of content moderation labels.
-getContentModerationResponse_nextToken :: Lens.Lens' GetContentModerationResponse (Prelude.Maybe Prelude.Text)
-getContentModerationResponse_nextToken = Lens.lens (\GetContentModerationResponse' {nextToken} -> nextToken) (\s@GetContentModerationResponse' {} a -> s {nextToken = a} :: GetContentModerationResponse)
 
 -- | The current status of the content moderation analysis job.
 getContentModerationResponse_jobStatus :: Lens.Lens' GetContentModerationResponse (Prelude.Maybe VideoJobStatus)
@@ -332,20 +326,26 @@ getContentModerationResponse_jobStatus = Lens.lens (\GetContentModerationRespons
 getContentModerationResponse_moderationLabels :: Lens.Lens' GetContentModerationResponse (Prelude.Maybe [ContentModerationDetection])
 getContentModerationResponse_moderationLabels = Lens.lens (\GetContentModerationResponse' {moderationLabels} -> moderationLabels) (\s@GetContentModerationResponse' {} a -> s {moderationLabels = a} :: GetContentModerationResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Information about a video that Amazon Rekognition analyzed.
--- @Videometadata@ is returned in every page of paginated responses from
--- @GetContentModeration@.
-getContentModerationResponse_videoMetadata :: Lens.Lens' GetContentModerationResponse (Prelude.Maybe VideoMetadata)
-getContentModerationResponse_videoMetadata = Lens.lens (\GetContentModerationResponse' {videoMetadata} -> videoMetadata) (\s@GetContentModerationResponse' {} a -> s {videoMetadata = a} :: GetContentModerationResponse)
+-- | Version number of the moderation detection model that was used to detect
+-- inappropriate, unwanted, or offensive content.
+getContentModerationResponse_moderationModelVersion :: Lens.Lens' GetContentModerationResponse (Prelude.Maybe Prelude.Text)
+getContentModerationResponse_moderationModelVersion = Lens.lens (\GetContentModerationResponse' {moderationModelVersion} -> moderationModelVersion) (\s@GetContentModerationResponse' {} a -> s {moderationModelVersion = a} :: GetContentModerationResponse)
+
+-- | If the response is truncated, Amazon Rekognition Video returns this
+-- token that you can use in the subsequent request to retrieve the next
+-- set of content moderation labels.
+getContentModerationResponse_nextToken :: Lens.Lens' GetContentModerationResponse (Prelude.Maybe Prelude.Text)
+getContentModerationResponse_nextToken = Lens.lens (\GetContentModerationResponse' {nextToken} -> nextToken) (\s@GetContentModerationResponse' {} a -> s {nextToken = a} :: GetContentModerationResponse)
 
 -- | If the job fails, @StatusMessage@ provides a descriptive error message.
 getContentModerationResponse_statusMessage :: Lens.Lens' GetContentModerationResponse (Prelude.Maybe Prelude.Text)
 getContentModerationResponse_statusMessage = Lens.lens (\GetContentModerationResponse' {statusMessage} -> statusMessage) (\s@GetContentModerationResponse' {} a -> s {statusMessage = a} :: GetContentModerationResponse)
 
--- | Version number of the moderation detection model that was used to detect
--- inappropriate, unwanted, or offensive content.
-getContentModerationResponse_moderationModelVersion :: Lens.Lens' GetContentModerationResponse (Prelude.Maybe Prelude.Text)
-getContentModerationResponse_moderationModelVersion = Lens.lens (\GetContentModerationResponse' {moderationModelVersion} -> moderationModelVersion) (\s@GetContentModerationResponse' {} a -> s {moderationModelVersion = a} :: GetContentModerationResponse)
+-- | Information about a video that Amazon Rekognition analyzed.
+-- @Videometadata@ is returned in every page of paginated responses from
+-- @GetContentModeration@.
+getContentModerationResponse_videoMetadata :: Lens.Lens' GetContentModerationResponse (Prelude.Maybe VideoMetadata)
+getContentModerationResponse_videoMetadata = Lens.lens (\GetContentModerationResponse' {videoMetadata} -> videoMetadata) (\s@GetContentModerationResponse' {} a -> s {videoMetadata = a} :: GetContentModerationResponse)
 
 -- | The response's http status code.
 getContentModerationResponse_httpStatus :: Lens.Lens' GetContentModerationResponse Prelude.Int
@@ -353,10 +353,10 @@ getContentModerationResponse_httpStatus = Lens.lens (\GetContentModerationRespon
 
 instance Prelude.NFData GetContentModerationResponse where
   rnf GetContentModerationResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf jobStatus
+    Prelude.rnf jobStatus
       `Prelude.seq` Prelude.rnf moderationLabels
-      `Prelude.seq` Prelude.rnf videoMetadata
-      `Prelude.seq` Prelude.rnf statusMessage
       `Prelude.seq` Prelude.rnf moderationModelVersion
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf videoMetadata
       `Prelude.seq` Prelude.rnf httpStatus

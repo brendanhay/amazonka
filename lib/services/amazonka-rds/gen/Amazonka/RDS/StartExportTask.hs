@@ -43,22 +43,22 @@ module Amazonka.RDS.StartExportTask
     newExportTask,
 
     -- * Response Lenses
-    exportTask_s3Bucket,
-    exportTask_percentProgress,
-    exportTask_taskStartTime,
     exportTask_exportOnly,
-    exportTask_sourceArn,
-    exportTask_totalExtractedDataInGB,
-    exportTask_status,
-    exportTask_sourceType,
-    exportTask_warningMessage,
-    exportTask_snapshotTime,
     exportTask_exportTaskIdentifier,
+    exportTask_failureCause,
     exportTask_iamRoleArn,
     exportTask_kmsKeyId,
-    exportTask_failureCause,
-    exportTask_taskEndTime,
+    exportTask_percentProgress,
+    exportTask_s3Bucket,
     exportTask_s3Prefix,
+    exportTask_snapshotTime,
+    exportTask_sourceArn,
+    exportTask_sourceType,
+    exportTask_status,
+    exportTask_taskEndTime,
+    exportTask_taskStartTime,
+    exportTask_totalExtractedDataInGB,
+    exportTask_warningMessage,
   )
 where
 

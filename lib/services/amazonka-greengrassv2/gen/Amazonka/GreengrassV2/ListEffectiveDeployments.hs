@@ -30,8 +30,8 @@ module Amazonka.GreengrassV2.ListEffectiveDeployments
     newListEffectiveDeployments,
 
     -- * Request Lenses
-    listEffectiveDeployments_nextToken,
     listEffectiveDeployments_maxResults,
+    listEffectiveDeployments_nextToken,
     listEffectiveDeployments_coreDeviceThingName,
 
     -- * Destructuring the Response
@@ -55,10 +55,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListEffectiveDeployments' smart constructor.
 data ListEffectiveDeployments = ListEffectiveDeployments'
-  { -- | The token to be used for the next set of paginated results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be returned per paginated request.
+  { -- | The maximum number of results to be returned per paginated request.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to be used for the next set of paginated results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the core device. This is also the name of the IoT thing.
     coreDeviceThingName :: Prelude.Text
   }
@@ -72,9 +72,9 @@ data ListEffectiveDeployments = ListEffectiveDeployments'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listEffectiveDeployments_nextToken' - The token to be used for the next set of paginated results.
---
 -- 'maxResults', 'listEffectiveDeployments_maxResults' - The maximum number of results to be returned per paginated request.
+--
+-- 'nextToken', 'listEffectiveDeployments_nextToken' - The token to be used for the next set of paginated results.
 --
 -- 'coreDeviceThingName', 'listEffectiveDeployments_coreDeviceThingName' - The name of the core device. This is also the name of the IoT thing.
 newListEffectiveDeployments ::
@@ -83,19 +83,19 @@ newListEffectiveDeployments ::
   ListEffectiveDeployments
 newListEffectiveDeployments pCoreDeviceThingName_ =
   ListEffectiveDeployments'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       coreDeviceThingName = pCoreDeviceThingName_
     }
-
--- | The token to be used for the next set of paginated results.
-listEffectiveDeployments_nextToken :: Lens.Lens' ListEffectiveDeployments (Prelude.Maybe Prelude.Text)
-listEffectiveDeployments_nextToken = Lens.lens (\ListEffectiveDeployments' {nextToken} -> nextToken) (\s@ListEffectiveDeployments' {} a -> s {nextToken = a} :: ListEffectiveDeployments)
 
 -- | The maximum number of results to be returned per paginated request.
 listEffectiveDeployments_maxResults :: Lens.Lens' ListEffectiveDeployments (Prelude.Maybe Prelude.Natural)
 listEffectiveDeployments_maxResults = Lens.lens (\ListEffectiveDeployments' {maxResults} -> maxResults) (\s@ListEffectiveDeployments' {} a -> s {maxResults = a} :: ListEffectiveDeployments)
+
+-- | The token to be used for the next set of paginated results.
+listEffectiveDeployments_nextToken :: Lens.Lens' ListEffectiveDeployments (Prelude.Maybe Prelude.Text)
+listEffectiveDeployments_nextToken = Lens.lens (\ListEffectiveDeployments' {nextToken} -> nextToken) (\s@ListEffectiveDeployments' {} a -> s {nextToken = a} :: ListEffectiveDeployments)
 
 -- | The name of the core device. This is also the name of the IoT thing.
 listEffectiveDeployments_coreDeviceThingName :: Lens.Lens' ListEffectiveDeployments Prelude.Text
@@ -142,14 +142,14 @@ instance Core.AWSRequest ListEffectiveDeployments where
 
 instance Prelude.Hashable ListEffectiveDeployments where
   hashWithSalt _salt ListEffectiveDeployments' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` coreDeviceThingName
 
 instance Prelude.NFData ListEffectiveDeployments where
   rnf ListEffectiveDeployments' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf coreDeviceThingName
 
 instance Data.ToHeaders ListEffectiveDeployments where
@@ -166,8 +166,8 @@ instance Data.ToPath ListEffectiveDeployments where
 instance Data.ToQuery ListEffectiveDeployments where
   toQuery ListEffectiveDeployments' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListEffectiveDeploymentsResponse' smart constructor.

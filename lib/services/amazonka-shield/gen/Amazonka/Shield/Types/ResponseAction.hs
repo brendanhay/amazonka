@@ -37,15 +37,15 @@ import Amazonka.Shield.Types.CountAction
 -- /See:/ 'newResponseAction' smart constructor.
 data ResponseAction = ResponseAction'
   { -- | Specifies that Shield Advanced should configure its WAF rules with the
-    -- WAF @Count@ action.
-    --
-    -- You must specify exactly one action, either @Block@ or @Count@.
-    count :: Prelude.Maybe CountAction,
-    -- | Specifies that Shield Advanced should configure its WAF rules with the
     -- WAF @Block@ action.
     --
     -- You must specify exactly one action, either @Block@ or @Count@.
-    block :: Prelude.Maybe BlockAction
+    block :: Prelude.Maybe BlockAction,
+    -- | Specifies that Shield Advanced should configure its WAF rules with the
+    -- WAF @Count@ action.
+    --
+    -- You must specify exactly one action, either @Block@ or @Count@.
+    count :: Prelude.Maybe CountAction
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,29 +57,22 @@ data ResponseAction = ResponseAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'count', 'responseAction_count' - Specifies that Shield Advanced should configure its WAF rules with the
--- WAF @Count@ action.
+-- 'block', 'responseAction_block' - Specifies that Shield Advanced should configure its WAF rules with the
+-- WAF @Block@ action.
 --
 -- You must specify exactly one action, either @Block@ or @Count@.
 --
--- 'block', 'responseAction_block' - Specifies that Shield Advanced should configure its WAF rules with the
--- WAF @Block@ action.
+-- 'count', 'responseAction_count' - Specifies that Shield Advanced should configure its WAF rules with the
+-- WAF @Count@ action.
 --
 -- You must specify exactly one action, either @Block@ or @Count@.
 newResponseAction ::
   ResponseAction
 newResponseAction =
   ResponseAction'
-    { count = Prelude.Nothing,
-      block = Prelude.Nothing
+    { block = Prelude.Nothing,
+      count = Prelude.Nothing
     }
-
--- | Specifies that Shield Advanced should configure its WAF rules with the
--- WAF @Count@ action.
---
--- You must specify exactly one action, either @Block@ or @Count@.
-responseAction_count :: Lens.Lens' ResponseAction (Prelude.Maybe CountAction)
-responseAction_count = Lens.lens (\ResponseAction' {count} -> count) (\s@ResponseAction' {} a -> s {count = a} :: ResponseAction)
 
 -- | Specifies that Shield Advanced should configure its WAF rules with the
 -- WAF @Block@ action.
@@ -88,30 +81,37 @@ responseAction_count = Lens.lens (\ResponseAction' {count} -> count) (\s@Respons
 responseAction_block :: Lens.Lens' ResponseAction (Prelude.Maybe BlockAction)
 responseAction_block = Lens.lens (\ResponseAction' {block} -> block) (\s@ResponseAction' {} a -> s {block = a} :: ResponseAction)
 
+-- | Specifies that Shield Advanced should configure its WAF rules with the
+-- WAF @Count@ action.
+--
+-- You must specify exactly one action, either @Block@ or @Count@.
+responseAction_count :: Lens.Lens' ResponseAction (Prelude.Maybe CountAction)
+responseAction_count = Lens.lens (\ResponseAction' {count} -> count) (\s@ResponseAction' {} a -> s {count = a} :: ResponseAction)
+
 instance Data.FromJSON ResponseAction where
   parseJSON =
     Data.withObject
       "ResponseAction"
       ( \x ->
           ResponseAction'
-            Prelude.<$> (x Data..:? "Count")
-            Prelude.<*> (x Data..:? "Block")
+            Prelude.<$> (x Data..:? "Block")
+            Prelude.<*> (x Data..:? "Count")
       )
 
 instance Prelude.Hashable ResponseAction where
   hashWithSalt _salt ResponseAction' {..} =
-    _salt `Prelude.hashWithSalt` count
-      `Prelude.hashWithSalt` block
+    _salt `Prelude.hashWithSalt` block
+      `Prelude.hashWithSalt` count
 
 instance Prelude.NFData ResponseAction where
   rnf ResponseAction' {..} =
-    Prelude.rnf count `Prelude.seq` Prelude.rnf block
+    Prelude.rnf block `Prelude.seq` Prelude.rnf count
 
 instance Data.ToJSON ResponseAction where
   toJSON ResponseAction' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Count" Data..=) Prelude.<$> count,
-            ("Block" Data..=) Prelude.<$> block
+          [ ("Block" Data..=) Prelude.<$> block,
+            ("Count" Data..=) Prelude.<$> count
           ]
       )

@@ -33,11 +33,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRepositoryAnalysis' smart constructor.
 data RepositoryAnalysis = RepositoryAnalysis'
-  { sourceCodeType :: Prelude.Maybe SourceCodeType,
-    -- | A
+  { -- | A
     -- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType SourceCodeType>
     -- that specifies the tip of a branch in an associated repository.
-    repositoryHead :: Prelude.Maybe RepositoryHeadSourceCodeType
+    repositoryHead :: Prelude.Maybe RepositoryHeadSourceCodeType,
+    sourceCodeType :: Prelude.Maybe SourceCodeType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,23 +49,19 @@ data RepositoryAnalysis = RepositoryAnalysis'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceCodeType', 'repositoryAnalysis_sourceCodeType' - Undocumented member.
---
 -- 'repositoryHead', 'repositoryAnalysis_repositoryHead' - A
 -- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType SourceCodeType>
 -- that specifies the tip of a branch in an associated repository.
+--
+-- 'sourceCodeType', 'repositoryAnalysis_sourceCodeType' - Undocumented member.
 newRepositoryAnalysis ::
   RepositoryAnalysis
 newRepositoryAnalysis =
   RepositoryAnalysis'
-    { sourceCodeType =
+    { repositoryHead =
         Prelude.Nothing,
-      repositoryHead = Prelude.Nothing
+      sourceCodeType = Prelude.Nothing
     }
-
--- | Undocumented member.
-repositoryAnalysis_sourceCodeType :: Lens.Lens' RepositoryAnalysis (Prelude.Maybe SourceCodeType)
-repositoryAnalysis_sourceCodeType = Lens.lens (\RepositoryAnalysis' {sourceCodeType} -> sourceCodeType) (\s@RepositoryAnalysis' {} a -> s {sourceCodeType = a} :: RepositoryAnalysis)
 
 -- | A
 -- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_SourceCodeType SourceCodeType>
@@ -73,23 +69,27 @@ repositoryAnalysis_sourceCodeType = Lens.lens (\RepositoryAnalysis' {sourceCodeT
 repositoryAnalysis_repositoryHead :: Lens.Lens' RepositoryAnalysis (Prelude.Maybe RepositoryHeadSourceCodeType)
 repositoryAnalysis_repositoryHead = Lens.lens (\RepositoryAnalysis' {repositoryHead} -> repositoryHead) (\s@RepositoryAnalysis' {} a -> s {repositoryHead = a} :: RepositoryAnalysis)
 
+-- | Undocumented member.
+repositoryAnalysis_sourceCodeType :: Lens.Lens' RepositoryAnalysis (Prelude.Maybe SourceCodeType)
+repositoryAnalysis_sourceCodeType = Lens.lens (\RepositoryAnalysis' {sourceCodeType} -> sourceCodeType) (\s@RepositoryAnalysis' {} a -> s {sourceCodeType = a} :: RepositoryAnalysis)
+
 instance Prelude.Hashable RepositoryAnalysis where
   hashWithSalt _salt RepositoryAnalysis' {..} =
-    _salt `Prelude.hashWithSalt` sourceCodeType
-      `Prelude.hashWithSalt` repositoryHead
+    _salt `Prelude.hashWithSalt` repositoryHead
+      `Prelude.hashWithSalt` sourceCodeType
 
 instance Prelude.NFData RepositoryAnalysis where
   rnf RepositoryAnalysis' {..} =
-    Prelude.rnf sourceCodeType
-      `Prelude.seq` Prelude.rnf repositoryHead
+    Prelude.rnf repositoryHead
+      `Prelude.seq` Prelude.rnf sourceCodeType
 
 instance Data.ToJSON RepositoryAnalysis where
   toJSON RepositoryAnalysis' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SourceCodeType" Data..=)
-              Prelude.<$> sourceCodeType,
-            ("RepositoryHead" Data..=)
-              Prelude.<$> repositoryHead
+          [ ("RepositoryHead" Data..=)
+              Prelude.<$> repositoryHead,
+            ("SourceCodeType" Data..=)
+              Prelude.<$> sourceCodeType
           ]
       )

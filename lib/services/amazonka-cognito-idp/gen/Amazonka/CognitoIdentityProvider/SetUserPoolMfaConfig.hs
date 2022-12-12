@@ -47,8 +47,8 @@ module Amazonka.CognitoIdentityProvider.SetUserPoolMfaConfig
 
     -- * Request Lenses
     setUserPoolMfaConfig_mfaConfiguration,
-    setUserPoolMfaConfig_softwareTokenMfaConfiguration,
     setUserPoolMfaConfig_smsMfaConfiguration,
+    setUserPoolMfaConfig_softwareTokenMfaConfiguration,
     setUserPoolMfaConfig_userPoolId,
 
     -- * Destructuring the Response
@@ -57,8 +57,8 @@ module Amazonka.CognitoIdentityProvider.SetUserPoolMfaConfig
 
     -- * Response Lenses
     setUserPoolMfaConfigResponse_mfaConfiguration,
-    setUserPoolMfaConfigResponse_softwareTokenMfaConfiguration,
     setUserPoolMfaConfigResponse_smsMfaConfiguration,
+    setUserPoolMfaConfigResponse_softwareTokenMfaConfiguration,
     setUserPoolMfaConfigResponse_httpStatus,
   )
 where
@@ -85,10 +85,10 @@ data SetUserPoolMfaConfig = SetUserPoolMfaConfig'
     -- -   @OPTIONAL@ MFA will be required only for individual users who have
     --     an MFA factor activated.
     mfaConfiguration :: Prelude.Maybe UserPoolMfaType,
-    -- | The software token MFA configuration.
-    softwareTokenMfaConfiguration :: Prelude.Maybe SoftwareTokenMfaConfigType,
     -- | The SMS text message MFA configuration.
     smsMfaConfiguration :: Prelude.Maybe SmsMfaConfigType,
+    -- | The software token MFA configuration.
+    softwareTokenMfaConfiguration :: Prelude.Maybe SoftwareTokenMfaConfigType,
     -- | The user pool ID.
     userPoolId :: Prelude.Text
   }
@@ -114,9 +114,9 @@ data SetUserPoolMfaConfig = SetUserPoolMfaConfig'
 -- -   @OPTIONAL@ MFA will be required only for individual users who have
 --     an MFA factor activated.
 --
--- 'softwareTokenMfaConfiguration', 'setUserPoolMfaConfig_softwareTokenMfaConfiguration' - The software token MFA configuration.
---
 -- 'smsMfaConfiguration', 'setUserPoolMfaConfig_smsMfaConfiguration' - The SMS text message MFA configuration.
+--
+-- 'softwareTokenMfaConfiguration', 'setUserPoolMfaConfig_softwareTokenMfaConfiguration' - The software token MFA configuration.
 --
 -- 'userPoolId', 'setUserPoolMfaConfig_userPoolId' - The user pool ID.
 newSetUserPoolMfaConfig ::
@@ -127,8 +127,8 @@ newSetUserPoolMfaConfig pUserPoolId_ =
   SetUserPoolMfaConfig'
     { mfaConfiguration =
         Prelude.Nothing,
-      softwareTokenMfaConfiguration = Prelude.Nothing,
       smsMfaConfiguration = Prelude.Nothing,
+      softwareTokenMfaConfiguration = Prelude.Nothing,
       userPoolId = pUserPoolId_
     }
 
@@ -146,13 +146,13 @@ newSetUserPoolMfaConfig pUserPoolId_ =
 setUserPoolMfaConfig_mfaConfiguration :: Lens.Lens' SetUserPoolMfaConfig (Prelude.Maybe UserPoolMfaType)
 setUserPoolMfaConfig_mfaConfiguration = Lens.lens (\SetUserPoolMfaConfig' {mfaConfiguration} -> mfaConfiguration) (\s@SetUserPoolMfaConfig' {} a -> s {mfaConfiguration = a} :: SetUserPoolMfaConfig)
 
--- | The software token MFA configuration.
-setUserPoolMfaConfig_softwareTokenMfaConfiguration :: Lens.Lens' SetUserPoolMfaConfig (Prelude.Maybe SoftwareTokenMfaConfigType)
-setUserPoolMfaConfig_softwareTokenMfaConfiguration = Lens.lens (\SetUserPoolMfaConfig' {softwareTokenMfaConfiguration} -> softwareTokenMfaConfiguration) (\s@SetUserPoolMfaConfig' {} a -> s {softwareTokenMfaConfiguration = a} :: SetUserPoolMfaConfig)
-
 -- | The SMS text message MFA configuration.
 setUserPoolMfaConfig_smsMfaConfiguration :: Lens.Lens' SetUserPoolMfaConfig (Prelude.Maybe SmsMfaConfigType)
 setUserPoolMfaConfig_smsMfaConfiguration = Lens.lens (\SetUserPoolMfaConfig' {smsMfaConfiguration} -> smsMfaConfiguration) (\s@SetUserPoolMfaConfig' {} a -> s {smsMfaConfiguration = a} :: SetUserPoolMfaConfig)
+
+-- | The software token MFA configuration.
+setUserPoolMfaConfig_softwareTokenMfaConfiguration :: Lens.Lens' SetUserPoolMfaConfig (Prelude.Maybe SoftwareTokenMfaConfigType)
+setUserPoolMfaConfig_softwareTokenMfaConfiguration = Lens.lens (\SetUserPoolMfaConfig' {softwareTokenMfaConfiguration} -> softwareTokenMfaConfiguration) (\s@SetUserPoolMfaConfig' {} a -> s {softwareTokenMfaConfiguration = a} :: SetUserPoolMfaConfig)
 
 -- | The user pool ID.
 setUserPoolMfaConfig_userPoolId :: Lens.Lens' SetUserPoolMfaConfig Prelude.Text
@@ -169,23 +169,23 @@ instance Core.AWSRequest SetUserPoolMfaConfig where
       ( \s h x ->
           SetUserPoolMfaConfigResponse'
             Prelude.<$> (x Data..?> "MfaConfiguration")
-            Prelude.<*> (x Data..?> "SoftwareTokenMfaConfiguration")
             Prelude.<*> (x Data..?> "SmsMfaConfiguration")
+            Prelude.<*> (x Data..?> "SoftwareTokenMfaConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable SetUserPoolMfaConfig where
   hashWithSalt _salt SetUserPoolMfaConfig' {..} =
     _salt `Prelude.hashWithSalt` mfaConfiguration
-      `Prelude.hashWithSalt` softwareTokenMfaConfiguration
       `Prelude.hashWithSalt` smsMfaConfiguration
+      `Prelude.hashWithSalt` softwareTokenMfaConfiguration
       `Prelude.hashWithSalt` userPoolId
 
 instance Prelude.NFData SetUserPoolMfaConfig where
   rnf SetUserPoolMfaConfig' {..} =
     Prelude.rnf mfaConfiguration
-      `Prelude.seq` Prelude.rnf softwareTokenMfaConfiguration
       `Prelude.seq` Prelude.rnf smsMfaConfiguration
+      `Prelude.seq` Prelude.rnf softwareTokenMfaConfiguration
       `Prelude.seq` Prelude.rnf userPoolId
 
 instance Data.ToHeaders SetUserPoolMfaConfig where
@@ -209,10 +209,10 @@ instance Data.ToJSON SetUserPoolMfaConfig where
       ( Prelude.catMaybes
           [ ("MfaConfiguration" Data..=)
               Prelude.<$> mfaConfiguration,
-            ("SoftwareTokenMfaConfiguration" Data..=)
-              Prelude.<$> softwareTokenMfaConfiguration,
             ("SmsMfaConfiguration" Data..=)
               Prelude.<$> smsMfaConfiguration,
+            ("SoftwareTokenMfaConfiguration" Data..=)
+              Prelude.<$> softwareTokenMfaConfiguration,
             Prelude.Just ("UserPoolId" Data..= userPoolId)
           ]
       )
@@ -234,10 +234,10 @@ data SetUserPoolMfaConfigResponse = SetUserPoolMfaConfigResponse'
     -- -   @OPTIONAL@ MFA will be required only for individual users who have
     --     an MFA factor enabled.
     mfaConfiguration :: Prelude.Maybe UserPoolMfaType,
-    -- | The software token MFA configuration.
-    softwareTokenMfaConfiguration :: Prelude.Maybe SoftwareTokenMfaConfigType,
     -- | The SMS text message MFA configuration.
     smsMfaConfiguration :: Prelude.Maybe SmsMfaConfigType,
+    -- | The software token MFA configuration.
+    softwareTokenMfaConfiguration :: Prelude.Maybe SoftwareTokenMfaConfigType,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -260,9 +260,9 @@ data SetUserPoolMfaConfigResponse = SetUserPoolMfaConfigResponse'
 -- -   @OPTIONAL@ MFA will be required only for individual users who have
 --     an MFA factor enabled.
 --
--- 'softwareTokenMfaConfiguration', 'setUserPoolMfaConfigResponse_softwareTokenMfaConfiguration' - The software token MFA configuration.
---
 -- 'smsMfaConfiguration', 'setUserPoolMfaConfigResponse_smsMfaConfiguration' - The SMS text message MFA configuration.
+--
+-- 'softwareTokenMfaConfiguration', 'setUserPoolMfaConfigResponse_softwareTokenMfaConfiguration' - The software token MFA configuration.
 --
 -- 'httpStatus', 'setUserPoolMfaConfigResponse_httpStatus' - The response's http status code.
 newSetUserPoolMfaConfigResponse ::
@@ -273,9 +273,9 @@ newSetUserPoolMfaConfigResponse pHttpStatus_ =
   SetUserPoolMfaConfigResponse'
     { mfaConfiguration =
         Prelude.Nothing,
+      smsMfaConfiguration = Prelude.Nothing,
       softwareTokenMfaConfiguration =
         Prelude.Nothing,
-      smsMfaConfiguration = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -290,13 +290,13 @@ newSetUserPoolMfaConfigResponse pHttpStatus_ =
 setUserPoolMfaConfigResponse_mfaConfiguration :: Lens.Lens' SetUserPoolMfaConfigResponse (Prelude.Maybe UserPoolMfaType)
 setUserPoolMfaConfigResponse_mfaConfiguration = Lens.lens (\SetUserPoolMfaConfigResponse' {mfaConfiguration} -> mfaConfiguration) (\s@SetUserPoolMfaConfigResponse' {} a -> s {mfaConfiguration = a} :: SetUserPoolMfaConfigResponse)
 
--- | The software token MFA configuration.
-setUserPoolMfaConfigResponse_softwareTokenMfaConfiguration :: Lens.Lens' SetUserPoolMfaConfigResponse (Prelude.Maybe SoftwareTokenMfaConfigType)
-setUserPoolMfaConfigResponse_softwareTokenMfaConfiguration = Lens.lens (\SetUserPoolMfaConfigResponse' {softwareTokenMfaConfiguration} -> softwareTokenMfaConfiguration) (\s@SetUserPoolMfaConfigResponse' {} a -> s {softwareTokenMfaConfiguration = a} :: SetUserPoolMfaConfigResponse)
-
 -- | The SMS text message MFA configuration.
 setUserPoolMfaConfigResponse_smsMfaConfiguration :: Lens.Lens' SetUserPoolMfaConfigResponse (Prelude.Maybe SmsMfaConfigType)
 setUserPoolMfaConfigResponse_smsMfaConfiguration = Lens.lens (\SetUserPoolMfaConfigResponse' {smsMfaConfiguration} -> smsMfaConfiguration) (\s@SetUserPoolMfaConfigResponse' {} a -> s {smsMfaConfiguration = a} :: SetUserPoolMfaConfigResponse)
+
+-- | The software token MFA configuration.
+setUserPoolMfaConfigResponse_softwareTokenMfaConfiguration :: Lens.Lens' SetUserPoolMfaConfigResponse (Prelude.Maybe SoftwareTokenMfaConfigType)
+setUserPoolMfaConfigResponse_softwareTokenMfaConfiguration = Lens.lens (\SetUserPoolMfaConfigResponse' {softwareTokenMfaConfiguration} -> softwareTokenMfaConfiguration) (\s@SetUserPoolMfaConfigResponse' {} a -> s {softwareTokenMfaConfiguration = a} :: SetUserPoolMfaConfigResponse)
 
 -- | The response's http status code.
 setUserPoolMfaConfigResponse_httpStatus :: Lens.Lens' SetUserPoolMfaConfigResponse Prelude.Int
@@ -305,6 +305,6 @@ setUserPoolMfaConfigResponse_httpStatus = Lens.lens (\SetUserPoolMfaConfigRespon
 instance Prelude.NFData SetUserPoolMfaConfigResponse where
   rnf SetUserPoolMfaConfigResponse' {..} =
     Prelude.rnf mfaConfiguration
-      `Prelude.seq` Prelude.rnf softwareTokenMfaConfiguration
       `Prelude.seq` Prelude.rnf smsMfaConfiguration
+      `Prelude.seq` Prelude.rnf softwareTokenMfaConfiguration
       `Prelude.seq` Prelude.rnf httpStatus

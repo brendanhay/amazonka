@@ -34,15 +34,15 @@ module Amazonka.DataBrew.DescribeRuleset
     newDescribeRulesetResponse,
 
     -- * Response Lenses
-    describeRulesetResponse_tags,
-    describeRulesetResponse_lastModifiedDate,
-    describeRulesetResponse_rules,
-    describeRulesetResponse_targetArn,
-    describeRulesetResponse_description,
     describeRulesetResponse_createDate,
-    describeRulesetResponse_lastModifiedBy,
-    describeRulesetResponse_resourceArn,
     describeRulesetResponse_createdBy,
+    describeRulesetResponse_description,
+    describeRulesetResponse_lastModifiedBy,
+    describeRulesetResponse_lastModifiedDate,
+    describeRulesetResponse_resourceArn,
+    describeRulesetResponse_rules,
+    describeRulesetResponse_tags,
+    describeRulesetResponse_targetArn,
     describeRulesetResponse_httpStatus,
     describeRulesetResponse_name,
   )
@@ -93,15 +93,15 @@ instance Core.AWSRequest DescribeRuleset where
     Response.receiveJSON
       ( \s h x ->
           DescribeRulesetResponse'
-            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "LastModifiedDate")
-            Prelude.<*> (x Data..?> "Rules")
-            Prelude.<*> (x Data..?> "TargetArn")
-            Prelude.<*> (x Data..?> "Description")
-            Prelude.<*> (x Data..?> "CreateDate")
-            Prelude.<*> (x Data..?> "LastModifiedBy")
-            Prelude.<*> (x Data..?> "ResourceArn")
+            Prelude.<$> (x Data..?> "CreateDate")
             Prelude.<*> (x Data..?> "CreatedBy")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "LastModifiedBy")
+            Prelude.<*> (x Data..?> "LastModifiedDate")
+            Prelude.<*> (x Data..?> "ResourceArn")
+            Prelude.<*> (x Data..?> "Rules")
+            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "TargetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "Name")
       )
@@ -133,27 +133,27 @@ instance Data.ToQuery DescribeRuleset where
 
 -- | /See:/ 'newDescribeRulesetResponse' smart constructor.
 data DescribeRulesetResponse = DescribeRulesetResponse'
-  { -- | Metadata tags that have been applied to the ruleset.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The modification date and time of the ruleset.
-    lastModifiedDate :: Prelude.Maybe Data.POSIX,
-    -- | A list of rules that are defined with the ruleset. A rule includes one
-    -- or more checks to be validated on a DataBrew dataset.
-    rules :: Prelude.Maybe (Prelude.NonEmpty Rule),
-    -- | The Amazon Resource Name (ARN) of a resource (dataset) that the ruleset
-    -- is associated with.
-    targetArn :: Prelude.Maybe Prelude.Text,
+  { -- | The date and time that the ruleset was created.
+    createDate :: Prelude.Maybe Data.POSIX,
+    -- | The Amazon Resource Name (ARN) of the user who created the ruleset.
+    createdBy :: Prelude.Maybe Prelude.Text,
     -- | The description of the ruleset.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The date and time that the ruleset was created.
-    createDate :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the user who last modified the
     -- ruleset.
     lastModifiedBy :: Prelude.Maybe Prelude.Text,
+    -- | The modification date and time of the ruleset.
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) for the ruleset.
     resourceArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the user who created the ruleset.
-    createdBy :: Prelude.Maybe Prelude.Text,
+    -- | A list of rules that are defined with the ruleset. A rule includes one
+    -- or more checks to be validated on a DataBrew dataset.
+    rules :: Prelude.Maybe (Prelude.NonEmpty Rule),
+    -- | Metadata tags that have been applied to the ruleset.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The Amazon Resource Name (ARN) of a resource (dataset) that the ruleset
+    -- is associated with.
+    targetArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The name of the ruleset.
@@ -169,26 +169,26 @@ data DescribeRulesetResponse = DescribeRulesetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'describeRulesetResponse_tags' - Metadata tags that have been applied to the ruleset.
+-- 'createDate', 'describeRulesetResponse_createDate' - The date and time that the ruleset was created.
 --
--- 'lastModifiedDate', 'describeRulesetResponse_lastModifiedDate' - The modification date and time of the ruleset.
---
--- 'rules', 'describeRulesetResponse_rules' - A list of rules that are defined with the ruleset. A rule includes one
--- or more checks to be validated on a DataBrew dataset.
---
--- 'targetArn', 'describeRulesetResponse_targetArn' - The Amazon Resource Name (ARN) of a resource (dataset) that the ruleset
--- is associated with.
+-- 'createdBy', 'describeRulesetResponse_createdBy' - The Amazon Resource Name (ARN) of the user who created the ruleset.
 --
 -- 'description', 'describeRulesetResponse_description' - The description of the ruleset.
---
--- 'createDate', 'describeRulesetResponse_createDate' - The date and time that the ruleset was created.
 --
 -- 'lastModifiedBy', 'describeRulesetResponse_lastModifiedBy' - The Amazon Resource Name (ARN) of the user who last modified the
 -- ruleset.
 --
+-- 'lastModifiedDate', 'describeRulesetResponse_lastModifiedDate' - The modification date and time of the ruleset.
+--
 -- 'resourceArn', 'describeRulesetResponse_resourceArn' - The Amazon Resource Name (ARN) for the ruleset.
 --
--- 'createdBy', 'describeRulesetResponse_createdBy' - The Amazon Resource Name (ARN) of the user who created the ruleset.
+-- 'rules', 'describeRulesetResponse_rules' - A list of rules that are defined with the ruleset. A rule includes one
+-- or more checks to be validated on a DataBrew dataset.
+--
+-- 'tags', 'describeRulesetResponse_tags' - Metadata tags that have been applied to the ruleset.
+--
+-- 'targetArn', 'describeRulesetResponse_targetArn' - The Amazon Resource Name (ARN) of a resource (dataset) that the ruleset
+-- is associated with.
 --
 -- 'httpStatus', 'describeRulesetResponse_httpStatus' - The response's http status code.
 --
@@ -201,57 +201,58 @@ newDescribeRulesetResponse ::
   DescribeRulesetResponse
 newDescribeRulesetResponse pHttpStatus_ pName_ =
   DescribeRulesetResponse'
-    { tags = Prelude.Nothing,
-      lastModifiedDate = Prelude.Nothing,
-      rules = Prelude.Nothing,
-      targetArn = Prelude.Nothing,
-      description = Prelude.Nothing,
-      createDate = Prelude.Nothing,
-      lastModifiedBy = Prelude.Nothing,
-      resourceArn = Prelude.Nothing,
+    { createDate =
+        Prelude.Nothing,
       createdBy = Prelude.Nothing,
+      description = Prelude.Nothing,
+      lastModifiedBy = Prelude.Nothing,
+      lastModifiedDate = Prelude.Nothing,
+      resourceArn = Prelude.Nothing,
+      rules = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      targetArn = Prelude.Nothing,
       httpStatus = pHttpStatus_,
       name = pName_
     }
 
--- | Metadata tags that have been applied to the ruleset.
-describeRulesetResponse_tags :: Lens.Lens' DescribeRulesetResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-describeRulesetResponse_tags = Lens.lens (\DescribeRulesetResponse' {tags} -> tags) (\s@DescribeRulesetResponse' {} a -> s {tags = a} :: DescribeRulesetResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The date and time that the ruleset was created.
+describeRulesetResponse_createDate :: Lens.Lens' DescribeRulesetResponse (Prelude.Maybe Prelude.UTCTime)
+describeRulesetResponse_createDate = Lens.lens (\DescribeRulesetResponse' {createDate} -> createDate) (\s@DescribeRulesetResponse' {} a -> s {createDate = a} :: DescribeRulesetResponse) Prelude.. Lens.mapping Data._Time
 
--- | The modification date and time of the ruleset.
-describeRulesetResponse_lastModifiedDate :: Lens.Lens' DescribeRulesetResponse (Prelude.Maybe Prelude.UTCTime)
-describeRulesetResponse_lastModifiedDate = Lens.lens (\DescribeRulesetResponse' {lastModifiedDate} -> lastModifiedDate) (\s@DescribeRulesetResponse' {} a -> s {lastModifiedDate = a} :: DescribeRulesetResponse) Prelude.. Lens.mapping Data._Time
-
--- | A list of rules that are defined with the ruleset. A rule includes one
--- or more checks to be validated on a DataBrew dataset.
-describeRulesetResponse_rules :: Lens.Lens' DescribeRulesetResponse (Prelude.Maybe (Prelude.NonEmpty Rule))
-describeRulesetResponse_rules = Lens.lens (\DescribeRulesetResponse' {rules} -> rules) (\s@DescribeRulesetResponse' {} a -> s {rules = a} :: DescribeRulesetResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The Amazon Resource Name (ARN) of a resource (dataset) that the ruleset
--- is associated with.
-describeRulesetResponse_targetArn :: Lens.Lens' DescribeRulesetResponse (Prelude.Maybe Prelude.Text)
-describeRulesetResponse_targetArn = Lens.lens (\DescribeRulesetResponse' {targetArn} -> targetArn) (\s@DescribeRulesetResponse' {} a -> s {targetArn = a} :: DescribeRulesetResponse)
+-- | The Amazon Resource Name (ARN) of the user who created the ruleset.
+describeRulesetResponse_createdBy :: Lens.Lens' DescribeRulesetResponse (Prelude.Maybe Prelude.Text)
+describeRulesetResponse_createdBy = Lens.lens (\DescribeRulesetResponse' {createdBy} -> createdBy) (\s@DescribeRulesetResponse' {} a -> s {createdBy = a} :: DescribeRulesetResponse)
 
 -- | The description of the ruleset.
 describeRulesetResponse_description :: Lens.Lens' DescribeRulesetResponse (Prelude.Maybe Prelude.Text)
 describeRulesetResponse_description = Lens.lens (\DescribeRulesetResponse' {description} -> description) (\s@DescribeRulesetResponse' {} a -> s {description = a} :: DescribeRulesetResponse)
-
--- | The date and time that the ruleset was created.
-describeRulesetResponse_createDate :: Lens.Lens' DescribeRulesetResponse (Prelude.Maybe Prelude.UTCTime)
-describeRulesetResponse_createDate = Lens.lens (\DescribeRulesetResponse' {createDate} -> createDate) (\s@DescribeRulesetResponse' {} a -> s {createDate = a} :: DescribeRulesetResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the user who last modified the
 -- ruleset.
 describeRulesetResponse_lastModifiedBy :: Lens.Lens' DescribeRulesetResponse (Prelude.Maybe Prelude.Text)
 describeRulesetResponse_lastModifiedBy = Lens.lens (\DescribeRulesetResponse' {lastModifiedBy} -> lastModifiedBy) (\s@DescribeRulesetResponse' {} a -> s {lastModifiedBy = a} :: DescribeRulesetResponse)
 
+-- | The modification date and time of the ruleset.
+describeRulesetResponse_lastModifiedDate :: Lens.Lens' DescribeRulesetResponse (Prelude.Maybe Prelude.UTCTime)
+describeRulesetResponse_lastModifiedDate = Lens.lens (\DescribeRulesetResponse' {lastModifiedDate} -> lastModifiedDate) (\s@DescribeRulesetResponse' {} a -> s {lastModifiedDate = a} :: DescribeRulesetResponse) Prelude.. Lens.mapping Data._Time
+
 -- | The Amazon Resource Name (ARN) for the ruleset.
 describeRulesetResponse_resourceArn :: Lens.Lens' DescribeRulesetResponse (Prelude.Maybe Prelude.Text)
 describeRulesetResponse_resourceArn = Lens.lens (\DescribeRulesetResponse' {resourceArn} -> resourceArn) (\s@DescribeRulesetResponse' {} a -> s {resourceArn = a} :: DescribeRulesetResponse)
 
--- | The Amazon Resource Name (ARN) of the user who created the ruleset.
-describeRulesetResponse_createdBy :: Lens.Lens' DescribeRulesetResponse (Prelude.Maybe Prelude.Text)
-describeRulesetResponse_createdBy = Lens.lens (\DescribeRulesetResponse' {createdBy} -> createdBy) (\s@DescribeRulesetResponse' {} a -> s {createdBy = a} :: DescribeRulesetResponse)
+-- | A list of rules that are defined with the ruleset. A rule includes one
+-- or more checks to be validated on a DataBrew dataset.
+describeRulesetResponse_rules :: Lens.Lens' DescribeRulesetResponse (Prelude.Maybe (Prelude.NonEmpty Rule))
+describeRulesetResponse_rules = Lens.lens (\DescribeRulesetResponse' {rules} -> rules) (\s@DescribeRulesetResponse' {} a -> s {rules = a} :: DescribeRulesetResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Metadata tags that have been applied to the ruleset.
+describeRulesetResponse_tags :: Lens.Lens' DescribeRulesetResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+describeRulesetResponse_tags = Lens.lens (\DescribeRulesetResponse' {tags} -> tags) (\s@DescribeRulesetResponse' {} a -> s {tags = a} :: DescribeRulesetResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Resource Name (ARN) of a resource (dataset) that the ruleset
+-- is associated with.
+describeRulesetResponse_targetArn :: Lens.Lens' DescribeRulesetResponse (Prelude.Maybe Prelude.Text)
+describeRulesetResponse_targetArn = Lens.lens (\DescribeRulesetResponse' {targetArn} -> targetArn) (\s@DescribeRulesetResponse' {} a -> s {targetArn = a} :: DescribeRulesetResponse)
 
 -- | The response's http status code.
 describeRulesetResponse_httpStatus :: Lens.Lens' DescribeRulesetResponse Prelude.Int
@@ -263,14 +264,14 @@ describeRulesetResponse_name = Lens.lens (\DescribeRulesetResponse' {name} -> na
 
 instance Prelude.NFData DescribeRulesetResponse where
   rnf DescribeRulesetResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf rules
-      `Prelude.seq` Prelude.rnf targetArn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf lastModifiedBy
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf createDate
       `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf lastModifiedBy
+      `Prelude.seq` Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf rules
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf targetArn
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf name

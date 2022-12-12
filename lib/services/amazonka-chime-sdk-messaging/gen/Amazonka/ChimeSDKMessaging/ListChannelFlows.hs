@@ -28,8 +28,8 @@ module Amazonka.ChimeSDKMessaging.ListChannelFlows
     newListChannelFlows,
 
     -- * Request Lenses
-    listChannelFlows_nextToken,
     listChannelFlows_maxResults,
+    listChannelFlows_nextToken,
     listChannelFlows_appInstanceArn,
 
     -- * Destructuring the Response
@@ -53,11 +53,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListChannelFlows' smart constructor.
 data ListChannelFlows = ListChannelFlows'
-  { -- | The token passed by previous API calls until all requested channel flows
+  { -- | The maximum number of channel flows that you want to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token passed by previous API calls until all requested channel flows
     -- are returned.
     nextToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The maximum number of channel flows that you want to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ARN of the app instance.
     appInstanceArn :: Prelude.Text
   }
@@ -71,10 +71,10 @@ data ListChannelFlows = ListChannelFlows'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listChannelFlows_maxResults' - The maximum number of channel flows that you want to return.
+--
 -- 'nextToken', 'listChannelFlows_nextToken' - The token passed by previous API calls until all requested channel flows
 -- are returned.
---
--- 'maxResults', 'listChannelFlows_maxResults' - The maximum number of channel flows that you want to return.
 --
 -- 'appInstanceArn', 'listChannelFlows_appInstanceArn' - The ARN of the app instance.
 newListChannelFlows ::
@@ -83,19 +83,19 @@ newListChannelFlows ::
   ListChannelFlows
 newListChannelFlows pAppInstanceArn_ =
   ListChannelFlows'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       appInstanceArn = pAppInstanceArn_
     }
+
+-- | The maximum number of channel flows that you want to return.
+listChannelFlows_maxResults :: Lens.Lens' ListChannelFlows (Prelude.Maybe Prelude.Natural)
+listChannelFlows_maxResults = Lens.lens (\ListChannelFlows' {maxResults} -> maxResults) (\s@ListChannelFlows' {} a -> s {maxResults = a} :: ListChannelFlows)
 
 -- | The token passed by previous API calls until all requested channel flows
 -- are returned.
 listChannelFlows_nextToken :: Lens.Lens' ListChannelFlows (Prelude.Maybe Prelude.Text)
 listChannelFlows_nextToken = Lens.lens (\ListChannelFlows' {nextToken} -> nextToken) (\s@ListChannelFlows' {} a -> s {nextToken = a} :: ListChannelFlows) Prelude.. Lens.mapping Data._Sensitive
-
--- | The maximum number of channel flows that you want to return.
-listChannelFlows_maxResults :: Lens.Lens' ListChannelFlows (Prelude.Maybe Prelude.Natural)
-listChannelFlows_maxResults = Lens.lens (\ListChannelFlows' {maxResults} -> maxResults) (\s@ListChannelFlows' {} a -> s {maxResults = a} :: ListChannelFlows)
 
 -- | The ARN of the app instance.
 listChannelFlows_appInstanceArn :: Lens.Lens' ListChannelFlows Prelude.Text
@@ -118,14 +118,14 @@ instance Core.AWSRequest ListChannelFlows where
 
 instance Prelude.Hashable ListChannelFlows where
   hashWithSalt _salt ListChannelFlows' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` appInstanceArn
 
 instance Prelude.NFData ListChannelFlows where
   rnf ListChannelFlows' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf appInstanceArn
 
 instance Data.ToHeaders ListChannelFlows where
@@ -137,8 +137,8 @@ instance Data.ToPath ListChannelFlows where
 instance Data.ToQuery ListChannelFlows where
   toQuery ListChannelFlows' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
-        "max-results" Data.=: maxResults,
+      [ "max-results" Data.=: maxResults,
+        "next-token" Data.=: nextToken,
         "app-instance-arn" Data.=: appInstanceArn
       ]
 

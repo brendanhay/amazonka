@@ -25,14 +25,16 @@ import qualified Amazonka.Data as Data
 import Amazonka.MGN.Types.JobPostLaunchActionsLaunchStatus
 import qualified Amazonka.Prelude as Prelude
 
--- | Server participating in Job.
+-- | Status of the Post Launch Actions running on the Test or Cutover
+-- instance.
 --
 -- /See:/ 'newPostLaunchActionsStatus' smart constructor.
 data PostLaunchActionsStatus = PostLaunchActionsStatus'
-  { -- | Server participating in Job.
-    ssmAgentDiscoveryDatetime :: Prelude.Maybe Prelude.Text,
-    -- | Server participating in Job.
-    postLaunchActionsLaunchStatusList :: Prelude.Maybe [JobPostLaunchActionsLaunchStatus]
+  { -- | List of Post Launch Action status.
+    postLaunchActionsLaunchStatusList :: Prelude.Maybe [JobPostLaunchActionsLaunchStatus],
+    -- | Time where the AWS Systems Manager was detected as running on the Test
+    -- or Cutover instance.
+    ssmAgentDiscoveryDatetime :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,26 +46,27 @@ data PostLaunchActionsStatus = PostLaunchActionsStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ssmAgentDiscoveryDatetime', 'postLaunchActionsStatus_ssmAgentDiscoveryDatetime' - Server participating in Job.
+-- 'postLaunchActionsLaunchStatusList', 'postLaunchActionsStatus_postLaunchActionsLaunchStatusList' - List of Post Launch Action status.
 --
--- 'postLaunchActionsLaunchStatusList', 'postLaunchActionsStatus_postLaunchActionsLaunchStatusList' - Server participating in Job.
+-- 'ssmAgentDiscoveryDatetime', 'postLaunchActionsStatus_ssmAgentDiscoveryDatetime' - Time where the AWS Systems Manager was detected as running on the Test
+-- or Cutover instance.
 newPostLaunchActionsStatus ::
   PostLaunchActionsStatus
 newPostLaunchActionsStatus =
   PostLaunchActionsStatus'
-    { ssmAgentDiscoveryDatetime =
+    { postLaunchActionsLaunchStatusList =
         Prelude.Nothing,
-      postLaunchActionsLaunchStatusList =
-        Prelude.Nothing
+      ssmAgentDiscoveryDatetime = Prelude.Nothing
     }
 
--- | Server participating in Job.
-postLaunchActionsStatus_ssmAgentDiscoveryDatetime :: Lens.Lens' PostLaunchActionsStatus (Prelude.Maybe Prelude.Text)
-postLaunchActionsStatus_ssmAgentDiscoveryDatetime = Lens.lens (\PostLaunchActionsStatus' {ssmAgentDiscoveryDatetime} -> ssmAgentDiscoveryDatetime) (\s@PostLaunchActionsStatus' {} a -> s {ssmAgentDiscoveryDatetime = a} :: PostLaunchActionsStatus)
-
--- | Server participating in Job.
+-- | List of Post Launch Action status.
 postLaunchActionsStatus_postLaunchActionsLaunchStatusList :: Lens.Lens' PostLaunchActionsStatus (Prelude.Maybe [JobPostLaunchActionsLaunchStatus])
 postLaunchActionsStatus_postLaunchActionsLaunchStatusList = Lens.lens (\PostLaunchActionsStatus' {postLaunchActionsLaunchStatusList} -> postLaunchActionsLaunchStatusList) (\s@PostLaunchActionsStatus' {} a -> s {postLaunchActionsLaunchStatusList = a} :: PostLaunchActionsStatus) Prelude.. Lens.mapping Lens.coerced
+
+-- | Time where the AWS Systems Manager was detected as running on the Test
+-- or Cutover instance.
+postLaunchActionsStatus_ssmAgentDiscoveryDatetime :: Lens.Lens' PostLaunchActionsStatus (Prelude.Maybe Prelude.Text)
+postLaunchActionsStatus_ssmAgentDiscoveryDatetime = Lens.lens (\PostLaunchActionsStatus' {ssmAgentDiscoveryDatetime} -> ssmAgentDiscoveryDatetime) (\s@PostLaunchActionsStatus' {} a -> s {ssmAgentDiscoveryDatetime = a} :: PostLaunchActionsStatus)
 
 instance Data.FromJSON PostLaunchActionsStatus where
   parseJSON =
@@ -71,19 +74,19 @@ instance Data.FromJSON PostLaunchActionsStatus where
       "PostLaunchActionsStatus"
       ( \x ->
           PostLaunchActionsStatus'
-            Prelude.<$> (x Data..:? "ssmAgentDiscoveryDatetime")
-            Prelude.<*> ( x Data..:? "postLaunchActionsLaunchStatusList"
+            Prelude.<$> ( x Data..:? "postLaunchActionsLaunchStatusList"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "ssmAgentDiscoveryDatetime")
       )
 
 instance Prelude.Hashable PostLaunchActionsStatus where
   hashWithSalt _salt PostLaunchActionsStatus' {..} =
     _salt
-      `Prelude.hashWithSalt` ssmAgentDiscoveryDatetime
       `Prelude.hashWithSalt` postLaunchActionsLaunchStatusList
+      `Prelude.hashWithSalt` ssmAgentDiscoveryDatetime
 
 instance Prelude.NFData PostLaunchActionsStatus where
   rnf PostLaunchActionsStatus' {..} =
-    Prelude.rnf ssmAgentDiscoveryDatetime
-      `Prelude.seq` Prelude.rnf postLaunchActionsLaunchStatusList
+    Prelude.rnf postLaunchActionsLaunchStatusList
+      `Prelude.seq` Prelude.rnf ssmAgentDiscoveryDatetime

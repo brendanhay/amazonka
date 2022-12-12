@@ -31,14 +31,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStatisticSet' smart constructor.
 data StatisticSet = StatisticSet'
-  { -- | __Internal only__. The minimum value of the sample set.
+  { -- | __Internal only__. The maximum value of the sample set.
+    maximum :: Prelude.Maybe Prelude.Double,
+    -- | __Internal only__. The minimum value of the sample set.
     minimum :: Prelude.Maybe Prelude.Double,
     -- | __Internal only__. The number of samples used for the statistic set.
     sampleCount :: Prelude.Maybe Prelude.Int,
     -- | __Internal only__. The sum of values for the sample set.
-    sum :: Prelude.Maybe Prelude.Double,
-    -- | __Internal only__. The maximum value of the sample set.
-    maximum :: Prelude.Maybe Prelude.Double
+    sum :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,22 +50,26 @@ data StatisticSet = StatisticSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maximum', 'statisticSet_maximum' - __Internal only__. The maximum value of the sample set.
+--
 -- 'minimum', 'statisticSet_minimum' - __Internal only__. The minimum value of the sample set.
 --
 -- 'sampleCount', 'statisticSet_sampleCount' - __Internal only__. The number of samples used for the statistic set.
 --
 -- 'sum', 'statisticSet_sum' - __Internal only__. The sum of values for the sample set.
---
--- 'maximum', 'statisticSet_maximum' - __Internal only__. The maximum value of the sample set.
 newStatisticSet ::
   StatisticSet
 newStatisticSet =
   StatisticSet'
-    { minimum = Prelude.Nothing,
+    { maximum = Prelude.Nothing,
+      minimum = Prelude.Nothing,
       sampleCount = Prelude.Nothing,
-      sum = Prelude.Nothing,
-      maximum = Prelude.Nothing
+      sum = Prelude.Nothing
     }
+
+-- | __Internal only__. The maximum value of the sample set.
+statisticSet_maximum :: Lens.Lens' StatisticSet (Prelude.Maybe Prelude.Double)
+statisticSet_maximum = Lens.lens (\StatisticSet' {maximum} -> maximum) (\s@StatisticSet' {} a -> s {maximum = a} :: StatisticSet)
 
 -- | __Internal only__. The minimum value of the sample set.
 statisticSet_minimum :: Lens.Lens' StatisticSet (Prelude.Maybe Prelude.Double)
@@ -79,31 +83,27 @@ statisticSet_sampleCount = Lens.lens (\StatisticSet' {sampleCount} -> sampleCoun
 statisticSet_sum :: Lens.Lens' StatisticSet (Prelude.Maybe Prelude.Double)
 statisticSet_sum = Lens.lens (\StatisticSet' {sum} -> sum) (\s@StatisticSet' {} a -> s {sum = a} :: StatisticSet)
 
--- | __Internal only__. The maximum value of the sample set.
-statisticSet_maximum :: Lens.Lens' StatisticSet (Prelude.Maybe Prelude.Double)
-statisticSet_maximum = Lens.lens (\StatisticSet' {maximum} -> maximum) (\s@StatisticSet' {} a -> s {maximum = a} :: StatisticSet)
-
 instance Prelude.Hashable StatisticSet where
   hashWithSalt _salt StatisticSet' {..} =
-    _salt `Prelude.hashWithSalt` minimum
+    _salt `Prelude.hashWithSalt` maximum
+      `Prelude.hashWithSalt` minimum
       `Prelude.hashWithSalt` sampleCount
       `Prelude.hashWithSalt` sum
-      `Prelude.hashWithSalt` maximum
 
 instance Prelude.NFData StatisticSet where
   rnf StatisticSet' {..} =
-    Prelude.rnf minimum
+    Prelude.rnf maximum
+      `Prelude.seq` Prelude.rnf minimum
       `Prelude.seq` Prelude.rnf sampleCount
       `Prelude.seq` Prelude.rnf sum
-      `Prelude.seq` Prelude.rnf maximum
 
 instance Data.ToJSON StatisticSet where
   toJSON StatisticSet' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Minimum" Data..=) Prelude.<$> minimum,
+          [ ("Maximum" Data..=) Prelude.<$> maximum,
+            ("Minimum" Data..=) Prelude.<$> minimum,
             ("SampleCount" Data..=) Prelude.<$> sampleCount,
-            ("Sum" Data..=) Prelude.<$> sum,
-            ("Maximum" Data..=) Prelude.<$> maximum
+            ("Sum" Data..=) Prelude.<$> sum
           ]
       )

@@ -30,10 +30,10 @@ import Amazonka.RolesAnywhere.Types.TrustAnchorType
 --
 -- /See:/ 'newSource' smart constructor.
 data Source = Source'
-  { -- | The type of the trust anchor.
-    sourceType :: Prelude.Maybe TrustAnchorType,
-    -- | The data field of the trust anchor depending on its type.
-    sourceData :: Prelude.Maybe SourceData
+  { -- | The data field of the trust anchor depending on its type.
+    sourceData :: Prelude.Maybe SourceData,
+    -- | The type of the trust anchor.
+    sourceType :: Prelude.Maybe TrustAnchorType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,24 @@ data Source = Source'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceType', 'source_sourceType' - The type of the trust anchor.
---
 -- 'sourceData', 'source_sourceData' - The data field of the trust anchor depending on its type.
+--
+-- 'sourceType', 'source_sourceType' - The type of the trust anchor.
 newSource ::
   Source
 newSource =
   Source'
-    { sourceType = Prelude.Nothing,
-      sourceData = Prelude.Nothing
+    { sourceData = Prelude.Nothing,
+      sourceType = Prelude.Nothing
     }
-
--- | The type of the trust anchor.
-source_sourceType :: Lens.Lens' Source (Prelude.Maybe TrustAnchorType)
-source_sourceType = Lens.lens (\Source' {sourceType} -> sourceType) (\s@Source' {} a -> s {sourceType = a} :: Source)
 
 -- | The data field of the trust anchor depending on its type.
 source_sourceData :: Lens.Lens' Source (Prelude.Maybe SourceData)
 source_sourceData = Lens.lens (\Source' {sourceData} -> sourceData) (\s@Source' {} a -> s {sourceData = a} :: Source)
+
+-- | The type of the trust anchor.
+source_sourceType :: Lens.Lens' Source (Prelude.Maybe TrustAnchorType)
+source_sourceType = Lens.lens (\Source' {sourceType} -> sourceType) (\s@Source' {} a -> s {sourceType = a} :: Source)
 
 instance Data.FromJSON Source where
   parseJSON =
@@ -70,25 +70,25 @@ instance Data.FromJSON Source where
       "Source"
       ( \x ->
           Source'
-            Prelude.<$> (x Data..:? "sourceType")
-            Prelude.<*> (x Data..:? "sourceData")
+            Prelude.<$> (x Data..:? "sourceData")
+            Prelude.<*> (x Data..:? "sourceType")
       )
 
 instance Prelude.Hashable Source where
   hashWithSalt _salt Source' {..} =
-    _salt `Prelude.hashWithSalt` sourceType
-      `Prelude.hashWithSalt` sourceData
+    _salt `Prelude.hashWithSalt` sourceData
+      `Prelude.hashWithSalt` sourceType
 
 instance Prelude.NFData Source where
   rnf Source' {..} =
-    Prelude.rnf sourceType
-      `Prelude.seq` Prelude.rnf sourceData
+    Prelude.rnf sourceData
+      `Prelude.seq` Prelude.rnf sourceType
 
 instance Data.ToJSON Source where
   toJSON Source' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("sourceType" Data..=) Prelude.<$> sourceType,
-            ("sourceData" Data..=) Prelude.<$> sourceData
+          [ ("sourceData" Data..=) Prelude.<$> sourceData,
+            ("sourceType" Data..=) Prelude.<$> sourceType
           ]
       )

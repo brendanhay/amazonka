@@ -34,13 +34,13 @@ data CORSRule = CORSRule'
     -- response to any preflight OPTIONS request, Amazon S3 returns any
     -- requested headers that are allowed.
     allowedHeaders :: Prelude.Maybe [Prelude.Text],
-    -- | Unique identifier for the rule. The value cannot be longer than 255
-    -- characters.
-    id :: Prelude.Maybe Prelude.Text,
     -- | One or more headers in the response that you want customers to be able
     -- to access from their applications (for example, from a JavaScript
     -- @XMLHttpRequest@ object).
     exposeHeaders :: Prelude.Maybe [Prelude.Text],
+    -- | Unique identifier for the rule. The value cannot be longer than 255
+    -- characters.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The time in seconds that your browser is to cache the preflight response
     -- for the specified resource.
     maxAgeSeconds :: Prelude.Maybe Prelude.Int,
@@ -66,12 +66,12 @@ data CORSRule = CORSRule'
 -- response to any preflight OPTIONS request, Amazon S3 returns any
 -- requested headers that are allowed.
 --
--- 'id', 'cORSRule_id' - Unique identifier for the rule. The value cannot be longer than 255
--- characters.
---
 -- 'exposeHeaders', 'cORSRule_exposeHeaders' - One or more headers in the response that you want customers to be able
 -- to access from their applications (for example, from a JavaScript
 -- @XMLHttpRequest@ object).
+--
+-- 'id', 'cORSRule_id' - Unique identifier for the rule. The value cannot be longer than 255
+-- characters.
 --
 -- 'maxAgeSeconds', 'cORSRule_maxAgeSeconds' - The time in seconds that your browser is to cache the preflight response
 -- for the specified resource.
@@ -86,8 +86,8 @@ newCORSRule ::
 newCORSRule =
   CORSRule'
     { allowedHeaders = Prelude.Nothing,
-      id = Prelude.Nothing,
       exposeHeaders = Prelude.Nothing,
+      id = Prelude.Nothing,
       maxAgeSeconds = Prelude.Nothing,
       allowedMethods = Prelude.mempty,
       allowedOrigins = Prelude.mempty
@@ -100,16 +100,16 @@ newCORSRule =
 cORSRule_allowedHeaders :: Lens.Lens' CORSRule (Prelude.Maybe [Prelude.Text])
 cORSRule_allowedHeaders = Lens.lens (\CORSRule' {allowedHeaders} -> allowedHeaders) (\s@CORSRule' {} a -> s {allowedHeaders = a} :: CORSRule) Prelude.. Lens.mapping Lens.coerced
 
--- | Unique identifier for the rule. The value cannot be longer than 255
--- characters.
-cORSRule_id :: Lens.Lens' CORSRule (Prelude.Maybe Prelude.Text)
-cORSRule_id = Lens.lens (\CORSRule' {id} -> id) (\s@CORSRule' {} a -> s {id = a} :: CORSRule)
-
 -- | One or more headers in the response that you want customers to be able
 -- to access from their applications (for example, from a JavaScript
 -- @XMLHttpRequest@ object).
 cORSRule_exposeHeaders :: Lens.Lens' CORSRule (Prelude.Maybe [Prelude.Text])
 cORSRule_exposeHeaders = Lens.lens (\CORSRule' {exposeHeaders} -> exposeHeaders) (\s@CORSRule' {} a -> s {exposeHeaders = a} :: CORSRule) Prelude.. Lens.mapping Lens.coerced
+
+-- | Unique identifier for the rule. The value cannot be longer than 255
+-- characters.
+cORSRule_id :: Lens.Lens' CORSRule (Prelude.Maybe Prelude.Text)
+cORSRule_id = Lens.lens (\CORSRule' {id} -> id) (\s@CORSRule' {} a -> s {id = a} :: CORSRule)
 
 -- | The time in seconds that your browser is to cache the preflight response
 -- for the specified resource.
@@ -130,8 +130,8 @@ instance Data.FromXML CORSRule where
   parseXML x =
     CORSRule'
       Prelude.<$> (Core.may (Data.parseXMLList "AllowedHeader") x)
-      Prelude.<*> (x Data..@? "ID")
       Prelude.<*> (Core.may (Data.parseXMLList "ExposeHeader") x)
+      Prelude.<*> (x Data..@? "ID")
       Prelude.<*> (x Data..@? "MaxAgeSeconds")
       Prelude.<*> (Data.parseXMLList "AllowedMethod" x)
       Prelude.<*> (Data.parseXMLList "AllowedOrigin" x)
@@ -139,8 +139,8 @@ instance Data.FromXML CORSRule where
 instance Prelude.Hashable CORSRule where
   hashWithSalt _salt CORSRule' {..} =
     _salt `Prelude.hashWithSalt` allowedHeaders
-      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` exposeHeaders
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` maxAgeSeconds
       `Prelude.hashWithSalt` allowedMethods
       `Prelude.hashWithSalt` allowedOrigins
@@ -148,8 +148,8 @@ instance Prelude.Hashable CORSRule where
 instance Prelude.NFData CORSRule where
   rnf CORSRule' {..} =
     Prelude.rnf allowedHeaders
-      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf exposeHeaders
+      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf maxAgeSeconds
       `Prelude.seq` Prelude.rnf allowedMethods
       `Prelude.seq` Prelude.rnf allowedOrigins
@@ -161,11 +161,11 @@ instance Data.ToXML CORSRule where
           ( Data.toXMLList "AllowedHeader"
               Prelude.<$> allowedHeaders
           ),
-        "ID" Data.@= id,
         Data.toXML
           ( Data.toXMLList "ExposeHeader"
               Prelude.<$> exposeHeaders
           ),
+        "ID" Data.@= id,
         "MaxAgeSeconds" Data.@= maxAgeSeconds,
         Data.toXMLList "AllowedMethod" allowedMethods,
         Data.toXMLList "AllowedOrigin" allowedOrigins

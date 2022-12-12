@@ -30,8 +30,8 @@ module Amazonka.DevOpsGuru.DescribeOrganizationOverview
 
     -- * Request Lenses
     describeOrganizationOverview_accountIds,
-    describeOrganizationOverview_toTime,
     describeOrganizationOverview_organizationalUnitIds,
+    describeOrganizationOverview_toTime,
     describeOrganizationOverview_fromTime,
 
     -- * Destructuring the Response
@@ -57,13 +57,13 @@ import qualified Amazonka.Response as Response
 data DescribeOrganizationOverview = DescribeOrganizationOverview'
   { -- | The ID of the Amazon Web Services account.
     accountIds :: Prelude.Maybe [Prelude.Text],
+    -- | The ID of the organizational unit.
+    organizationalUnitIds :: Prelude.Maybe [Prelude.Text],
     -- | The end of the time range passed in. The start time granularity is at
     -- the day level. The floor of the start time is used. Returned information
     -- occurred before this day. If this is not specified, then the current day
     -- is used.
     toTime :: Prelude.Maybe Data.POSIX,
-    -- | The ID of the organizational unit.
-    organizationalUnitIds :: Prelude.Maybe [Prelude.Text],
     -- | The start of the time range passed in. The start time granularity is at
     -- the day level. The floor of the start time is used. Returned information
     -- occurred after this day.
@@ -81,12 +81,12 @@ data DescribeOrganizationOverview = DescribeOrganizationOverview'
 --
 -- 'accountIds', 'describeOrganizationOverview_accountIds' - The ID of the Amazon Web Services account.
 --
+-- 'organizationalUnitIds', 'describeOrganizationOverview_organizationalUnitIds' - The ID of the organizational unit.
+--
 -- 'toTime', 'describeOrganizationOverview_toTime' - The end of the time range passed in. The start time granularity is at
 -- the day level. The floor of the start time is used. Returned information
 -- occurred before this day. If this is not specified, then the current day
 -- is used.
---
--- 'organizationalUnitIds', 'describeOrganizationOverview_organizationalUnitIds' - The ID of the organizational unit.
 --
 -- 'fromTime', 'describeOrganizationOverview_fromTime' - The start of the time range passed in. The start time granularity is at
 -- the day level. The floor of the start time is used. Returned information
@@ -99,8 +99,8 @@ newDescribeOrganizationOverview pFromTime_ =
   DescribeOrganizationOverview'
     { accountIds =
         Prelude.Nothing,
-      toTime = Prelude.Nothing,
       organizationalUnitIds = Prelude.Nothing,
+      toTime = Prelude.Nothing,
       fromTime = Data._Time Lens.# pFromTime_
     }
 
@@ -108,16 +108,16 @@ newDescribeOrganizationOverview pFromTime_ =
 describeOrganizationOverview_accountIds :: Lens.Lens' DescribeOrganizationOverview (Prelude.Maybe [Prelude.Text])
 describeOrganizationOverview_accountIds = Lens.lens (\DescribeOrganizationOverview' {accountIds} -> accountIds) (\s@DescribeOrganizationOverview' {} a -> s {accountIds = a} :: DescribeOrganizationOverview) Prelude.. Lens.mapping Lens.coerced
 
+-- | The ID of the organizational unit.
+describeOrganizationOverview_organizationalUnitIds :: Lens.Lens' DescribeOrganizationOverview (Prelude.Maybe [Prelude.Text])
+describeOrganizationOverview_organizationalUnitIds = Lens.lens (\DescribeOrganizationOverview' {organizationalUnitIds} -> organizationalUnitIds) (\s@DescribeOrganizationOverview' {} a -> s {organizationalUnitIds = a} :: DescribeOrganizationOverview) Prelude.. Lens.mapping Lens.coerced
+
 -- | The end of the time range passed in. The start time granularity is at
 -- the day level. The floor of the start time is used. Returned information
 -- occurred before this day. If this is not specified, then the current day
 -- is used.
 describeOrganizationOverview_toTime :: Lens.Lens' DescribeOrganizationOverview (Prelude.Maybe Prelude.UTCTime)
 describeOrganizationOverview_toTime = Lens.lens (\DescribeOrganizationOverview' {toTime} -> toTime) (\s@DescribeOrganizationOverview' {} a -> s {toTime = a} :: DescribeOrganizationOverview) Prelude.. Lens.mapping Data._Time
-
--- | The ID of the organizational unit.
-describeOrganizationOverview_organizationalUnitIds :: Lens.Lens' DescribeOrganizationOverview (Prelude.Maybe [Prelude.Text])
-describeOrganizationOverview_organizationalUnitIds = Lens.lens (\DescribeOrganizationOverview' {organizationalUnitIds} -> organizationalUnitIds) (\s@DescribeOrganizationOverview' {} a -> s {organizationalUnitIds = a} :: DescribeOrganizationOverview) Prelude.. Lens.mapping Lens.coerced
 
 -- | The start of the time range passed in. The start time granularity is at
 -- the day level. The floor of the start time is used. Returned information
@@ -146,15 +146,15 @@ instance
   where
   hashWithSalt _salt DescribeOrganizationOverview' {..} =
     _salt `Prelude.hashWithSalt` accountIds
-      `Prelude.hashWithSalt` toTime
       `Prelude.hashWithSalt` organizationalUnitIds
+      `Prelude.hashWithSalt` toTime
       `Prelude.hashWithSalt` fromTime
 
 instance Prelude.NFData DescribeOrganizationOverview where
   rnf DescribeOrganizationOverview' {..} =
     Prelude.rnf accountIds
-      `Prelude.seq` Prelude.rnf toTime
       `Prelude.seq` Prelude.rnf organizationalUnitIds
+      `Prelude.seq` Prelude.rnf toTime
       `Prelude.seq` Prelude.rnf fromTime
 
 instance Data.ToHeaders DescribeOrganizationOverview where
@@ -173,9 +173,9 @@ instance Data.ToJSON DescribeOrganizationOverview where
     Data.object
       ( Prelude.catMaybes
           [ ("AccountIds" Data..=) Prelude.<$> accountIds,
-            ("ToTime" Data..=) Prelude.<$> toTime,
             ("OrganizationalUnitIds" Data..=)
               Prelude.<$> organizationalUnitIds,
+            ("ToTime" Data..=) Prelude.<$> toTime,
             Prelude.Just ("FromTime" Data..= fromTime)
           ]
       )

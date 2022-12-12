@@ -34,12 +34,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDiskIopsConfiguration' smart constructor.
 data DiskIopsConfiguration = DiskIopsConfiguration'
-  { -- | Specifies whether the number of IOPS for the file system is using the
+  { -- | The total number of SSD IOPS provisioned for the file system.
+    iops :: Prelude.Maybe Prelude.Natural,
+    -- | Specifies whether the number of IOPS for the file system is using the
     -- system default (@AUTOMATIC@) or was provisioned by the customer
     -- (@USER_PROVISIONED@).
-    mode :: Prelude.Maybe DiskIopsConfigurationMode,
-    -- | The total number of SSD IOPS provisioned for the file system.
-    iops :: Prelude.Maybe Prelude.Natural
+    mode :: Prelude.Maybe DiskIopsConfigurationMode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,18 +51,22 @@ data DiskIopsConfiguration = DiskIopsConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'iops', 'diskIopsConfiguration_iops' - The total number of SSD IOPS provisioned for the file system.
+--
 -- 'mode', 'diskIopsConfiguration_mode' - Specifies whether the number of IOPS for the file system is using the
 -- system default (@AUTOMATIC@) or was provisioned by the customer
 -- (@USER_PROVISIONED@).
---
--- 'iops', 'diskIopsConfiguration_iops' - The total number of SSD IOPS provisioned for the file system.
 newDiskIopsConfiguration ::
   DiskIopsConfiguration
 newDiskIopsConfiguration =
   DiskIopsConfiguration'
-    { mode = Prelude.Nothing,
-      iops = Prelude.Nothing
+    { iops = Prelude.Nothing,
+      mode = Prelude.Nothing
     }
+
+-- | The total number of SSD IOPS provisioned for the file system.
+diskIopsConfiguration_iops :: Lens.Lens' DiskIopsConfiguration (Prelude.Maybe Prelude.Natural)
+diskIopsConfiguration_iops = Lens.lens (\DiskIopsConfiguration' {iops} -> iops) (\s@DiskIopsConfiguration' {} a -> s {iops = a} :: DiskIopsConfiguration)
 
 -- | Specifies whether the number of IOPS for the file system is using the
 -- system default (@AUTOMATIC@) or was provisioned by the customer
@@ -70,33 +74,29 @@ newDiskIopsConfiguration =
 diskIopsConfiguration_mode :: Lens.Lens' DiskIopsConfiguration (Prelude.Maybe DiskIopsConfigurationMode)
 diskIopsConfiguration_mode = Lens.lens (\DiskIopsConfiguration' {mode} -> mode) (\s@DiskIopsConfiguration' {} a -> s {mode = a} :: DiskIopsConfiguration)
 
--- | The total number of SSD IOPS provisioned for the file system.
-diskIopsConfiguration_iops :: Lens.Lens' DiskIopsConfiguration (Prelude.Maybe Prelude.Natural)
-diskIopsConfiguration_iops = Lens.lens (\DiskIopsConfiguration' {iops} -> iops) (\s@DiskIopsConfiguration' {} a -> s {iops = a} :: DiskIopsConfiguration)
-
 instance Data.FromJSON DiskIopsConfiguration where
   parseJSON =
     Data.withObject
       "DiskIopsConfiguration"
       ( \x ->
           DiskIopsConfiguration'
-            Prelude.<$> (x Data..:? "Mode") Prelude.<*> (x Data..:? "Iops")
+            Prelude.<$> (x Data..:? "Iops") Prelude.<*> (x Data..:? "Mode")
       )
 
 instance Prelude.Hashable DiskIopsConfiguration where
   hashWithSalt _salt DiskIopsConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` mode
-      `Prelude.hashWithSalt` iops
+    _salt `Prelude.hashWithSalt` iops
+      `Prelude.hashWithSalt` mode
 
 instance Prelude.NFData DiskIopsConfiguration where
   rnf DiskIopsConfiguration' {..} =
-    Prelude.rnf mode `Prelude.seq` Prelude.rnf iops
+    Prelude.rnf iops `Prelude.seq` Prelude.rnf mode
 
 instance Data.ToJSON DiskIopsConfiguration where
   toJSON DiskIopsConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Mode" Data..=) Prelude.<$> mode,
-            ("Iops" Data..=) Prelude.<$> iops
+          [ ("Iops" Data..=) Prelude.<$> iops,
+            ("Mode" Data..=) Prelude.<$> mode
           ]
       )

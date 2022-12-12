@@ -34,12 +34,12 @@ module Amazonka.IoTWireless.GetNetworkAnalyzerConfiguration
     newGetNetworkAnalyzerConfigurationResponse,
 
     -- * Response Lenses
-    getNetworkAnalyzerConfigurationResponse_wirelessGateways,
-    getNetworkAnalyzerConfigurationResponse_name,
-    getNetworkAnalyzerConfigurationResponse_wirelessDevices,
     getNetworkAnalyzerConfigurationResponse_arn,
     getNetworkAnalyzerConfigurationResponse_description,
+    getNetworkAnalyzerConfigurationResponse_name,
     getNetworkAnalyzerConfigurationResponse_traceContent,
+    getNetworkAnalyzerConfigurationResponse_wirelessDevices,
+    getNetworkAnalyzerConfigurationResponse_wirelessGateways,
     getNetworkAnalyzerConfigurationResponse_httpStatus,
   )
 where
@@ -95,16 +95,16 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetNetworkAnalyzerConfigurationResponse'
-            Prelude.<$> ( x Data..?> "WirelessGateways"
-                            Core..!@ Prelude.mempty
-                        )
+            Prelude.<$> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Description")
             Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "TraceContent")
             Prelude.<*> ( x Data..?> "WirelessDevices"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "Arn")
-            Prelude.<*> (x Data..?> "Description")
-            Prelude.<*> (x Data..?> "TraceContent")
+            Prelude.<*> ( x Data..?> "WirelessGateways"
+                            Core..!@ Prelude.mempty
+                        )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -142,17 +142,17 @@ instance Data.ToQuery GetNetworkAnalyzerConfiguration where
 
 -- | /See:/ 'newGetNetworkAnalyzerConfigurationResponse' smart constructor.
 data GetNetworkAnalyzerConfigurationResponse = GetNetworkAnalyzerConfigurationResponse'
-  { -- | List of wireless gateway resources that have been added to the network
-    -- analyzer configuration.
-    wirelessGateways :: Prelude.Maybe [Prelude.Text],
+  { -- | The Amazon Resource Name of the new resource.
+    arn :: Prelude.Maybe Prelude.Text,
+    description :: Prelude.Maybe Prelude.Text,
     name :: Prelude.Maybe Prelude.Text,
+    traceContent :: Prelude.Maybe TraceContent,
     -- | List of wireless gateway resources that have been added to the network
     -- analyzer configuration.
     wirelessDevices :: Prelude.Maybe [Prelude.Text],
-    -- | The Amazon Resource Name of the new resource.
-    arn :: Prelude.Maybe Prelude.Text,
-    description :: Prelude.Maybe Prelude.Text,
-    traceContent :: Prelude.Maybe TraceContent,
+    -- | List of wireless gateway resources that have been added to the network
+    -- analyzer configuration.
+    wirelessGateways :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -166,19 +166,19 @@ data GetNetworkAnalyzerConfigurationResponse = GetNetworkAnalyzerConfigurationRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'wirelessGateways', 'getNetworkAnalyzerConfigurationResponse_wirelessGateways' - List of wireless gateway resources that have been added to the network
--- analyzer configuration.
---
--- 'name', 'getNetworkAnalyzerConfigurationResponse_name' - Undocumented member.
---
--- 'wirelessDevices', 'getNetworkAnalyzerConfigurationResponse_wirelessDevices' - List of wireless gateway resources that have been added to the network
--- analyzer configuration.
---
 -- 'arn', 'getNetworkAnalyzerConfigurationResponse_arn' - The Amazon Resource Name of the new resource.
 --
 -- 'description', 'getNetworkAnalyzerConfigurationResponse_description' - Undocumented member.
 --
+-- 'name', 'getNetworkAnalyzerConfigurationResponse_name' - Undocumented member.
+--
 -- 'traceContent', 'getNetworkAnalyzerConfigurationResponse_traceContent' - Undocumented member.
+--
+-- 'wirelessDevices', 'getNetworkAnalyzerConfigurationResponse_wirelessDevices' - List of wireless gateway resources that have been added to the network
+-- analyzer configuration.
+--
+-- 'wirelessGateways', 'getNetworkAnalyzerConfigurationResponse_wirelessGateways' - List of wireless gateway resources that have been added to the network
+-- analyzer configuration.
 --
 -- 'httpStatus', 'getNetworkAnalyzerConfigurationResponse_httpStatus' - The response's http status code.
 newGetNetworkAnalyzerConfigurationResponse ::
@@ -188,29 +188,15 @@ newGetNetworkAnalyzerConfigurationResponse ::
 newGetNetworkAnalyzerConfigurationResponse
   pHttpStatus_ =
     GetNetworkAnalyzerConfigurationResponse'
-      { wirelessGateways =
+      { arn =
           Prelude.Nothing,
-        name = Prelude.Nothing,
-        wirelessDevices = Prelude.Nothing,
-        arn = Prelude.Nothing,
         description = Prelude.Nothing,
+        name = Prelude.Nothing,
         traceContent = Prelude.Nothing,
+        wirelessDevices = Prelude.Nothing,
+        wirelessGateways = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | List of wireless gateway resources that have been added to the network
--- analyzer configuration.
-getNetworkAnalyzerConfigurationResponse_wirelessGateways :: Lens.Lens' GetNetworkAnalyzerConfigurationResponse (Prelude.Maybe [Prelude.Text])
-getNetworkAnalyzerConfigurationResponse_wirelessGateways = Lens.lens (\GetNetworkAnalyzerConfigurationResponse' {wirelessGateways} -> wirelessGateways) (\s@GetNetworkAnalyzerConfigurationResponse' {} a -> s {wirelessGateways = a} :: GetNetworkAnalyzerConfigurationResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Undocumented member.
-getNetworkAnalyzerConfigurationResponse_name :: Lens.Lens' GetNetworkAnalyzerConfigurationResponse (Prelude.Maybe Prelude.Text)
-getNetworkAnalyzerConfigurationResponse_name = Lens.lens (\GetNetworkAnalyzerConfigurationResponse' {name} -> name) (\s@GetNetworkAnalyzerConfigurationResponse' {} a -> s {name = a} :: GetNetworkAnalyzerConfigurationResponse)
-
--- | List of wireless gateway resources that have been added to the network
--- analyzer configuration.
-getNetworkAnalyzerConfigurationResponse_wirelessDevices :: Lens.Lens' GetNetworkAnalyzerConfigurationResponse (Prelude.Maybe [Prelude.Text])
-getNetworkAnalyzerConfigurationResponse_wirelessDevices = Lens.lens (\GetNetworkAnalyzerConfigurationResponse' {wirelessDevices} -> wirelessDevices) (\s@GetNetworkAnalyzerConfigurationResponse' {} a -> s {wirelessDevices = a} :: GetNetworkAnalyzerConfigurationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name of the new resource.
 getNetworkAnalyzerConfigurationResponse_arn :: Lens.Lens' GetNetworkAnalyzerConfigurationResponse (Prelude.Maybe Prelude.Text)
@@ -221,8 +207,22 @@ getNetworkAnalyzerConfigurationResponse_description :: Lens.Lens' GetNetworkAnal
 getNetworkAnalyzerConfigurationResponse_description = Lens.lens (\GetNetworkAnalyzerConfigurationResponse' {description} -> description) (\s@GetNetworkAnalyzerConfigurationResponse' {} a -> s {description = a} :: GetNetworkAnalyzerConfigurationResponse)
 
 -- | Undocumented member.
+getNetworkAnalyzerConfigurationResponse_name :: Lens.Lens' GetNetworkAnalyzerConfigurationResponse (Prelude.Maybe Prelude.Text)
+getNetworkAnalyzerConfigurationResponse_name = Lens.lens (\GetNetworkAnalyzerConfigurationResponse' {name} -> name) (\s@GetNetworkAnalyzerConfigurationResponse' {} a -> s {name = a} :: GetNetworkAnalyzerConfigurationResponse)
+
+-- | Undocumented member.
 getNetworkAnalyzerConfigurationResponse_traceContent :: Lens.Lens' GetNetworkAnalyzerConfigurationResponse (Prelude.Maybe TraceContent)
 getNetworkAnalyzerConfigurationResponse_traceContent = Lens.lens (\GetNetworkAnalyzerConfigurationResponse' {traceContent} -> traceContent) (\s@GetNetworkAnalyzerConfigurationResponse' {} a -> s {traceContent = a} :: GetNetworkAnalyzerConfigurationResponse)
+
+-- | List of wireless gateway resources that have been added to the network
+-- analyzer configuration.
+getNetworkAnalyzerConfigurationResponse_wirelessDevices :: Lens.Lens' GetNetworkAnalyzerConfigurationResponse (Prelude.Maybe [Prelude.Text])
+getNetworkAnalyzerConfigurationResponse_wirelessDevices = Lens.lens (\GetNetworkAnalyzerConfigurationResponse' {wirelessDevices} -> wirelessDevices) (\s@GetNetworkAnalyzerConfigurationResponse' {} a -> s {wirelessDevices = a} :: GetNetworkAnalyzerConfigurationResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | List of wireless gateway resources that have been added to the network
+-- analyzer configuration.
+getNetworkAnalyzerConfigurationResponse_wirelessGateways :: Lens.Lens' GetNetworkAnalyzerConfigurationResponse (Prelude.Maybe [Prelude.Text])
+getNetworkAnalyzerConfigurationResponse_wirelessGateways = Lens.lens (\GetNetworkAnalyzerConfigurationResponse' {wirelessGateways} -> wirelessGateways) (\s@GetNetworkAnalyzerConfigurationResponse' {} a -> s {wirelessGateways = a} :: GetNetworkAnalyzerConfigurationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getNetworkAnalyzerConfigurationResponse_httpStatus :: Lens.Lens' GetNetworkAnalyzerConfigurationResponse Prelude.Int
@@ -233,10 +233,10 @@ instance
     GetNetworkAnalyzerConfigurationResponse
   where
   rnf GetNetworkAnalyzerConfigurationResponse' {..} =
-    Prelude.rnf wirelessGateways
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf wirelessDevices
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf traceContent
+      `Prelude.seq` Prelude.rnf wirelessDevices
+      `Prelude.seq` Prelude.rnf wirelessGateways
       `Prelude.seq` Prelude.rnf httpStatus

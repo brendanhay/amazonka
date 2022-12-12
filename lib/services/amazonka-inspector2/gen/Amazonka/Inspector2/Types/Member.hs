@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMember' smart constructor.
 data Member = Member'
-  { -- | The Amazon Web Services account ID of the Amazon Inspector delegated
+  { -- | The Amazon Web Services account ID of the member account.
+    accountId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services account ID of the Amazon Inspector delegated
     -- administrator for this member account.
     delegatedAdminAccountId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services account ID of the member account.
-    accountId :: Prelude.Maybe Prelude.Text,
     -- | The status of the member account.
     relationshipStatus :: Prelude.Maybe RelationshipStatus,
     -- | A timestamp showing when the status of this member was last updated.
@@ -49,10 +49,10 @@ data Member = Member'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'accountId', 'member_accountId' - The Amazon Web Services account ID of the member account.
+--
 -- 'delegatedAdminAccountId', 'member_delegatedAdminAccountId' - The Amazon Web Services account ID of the Amazon Inspector delegated
 -- administrator for this member account.
---
--- 'accountId', 'member_accountId' - The Amazon Web Services account ID of the member account.
 --
 -- 'relationshipStatus', 'member_relationshipStatus' - The status of the member account.
 --
@@ -61,20 +61,20 @@ newMember ::
   Member
 newMember =
   Member'
-    { delegatedAdminAccountId = Prelude.Nothing,
-      accountId = Prelude.Nothing,
+    { accountId = Prelude.Nothing,
+      delegatedAdminAccountId = Prelude.Nothing,
       relationshipStatus = Prelude.Nothing,
       updatedAt = Prelude.Nothing
     }
+
+-- | The Amazon Web Services account ID of the member account.
+member_accountId :: Lens.Lens' Member (Prelude.Maybe Prelude.Text)
+member_accountId = Lens.lens (\Member' {accountId} -> accountId) (\s@Member' {} a -> s {accountId = a} :: Member)
 
 -- | The Amazon Web Services account ID of the Amazon Inspector delegated
 -- administrator for this member account.
 member_delegatedAdminAccountId :: Lens.Lens' Member (Prelude.Maybe Prelude.Text)
 member_delegatedAdminAccountId = Lens.lens (\Member' {delegatedAdminAccountId} -> delegatedAdminAccountId) (\s@Member' {} a -> s {delegatedAdminAccountId = a} :: Member)
-
--- | The Amazon Web Services account ID of the member account.
-member_accountId :: Lens.Lens' Member (Prelude.Maybe Prelude.Text)
-member_accountId = Lens.lens (\Member' {accountId} -> accountId) (\s@Member' {} a -> s {accountId = a} :: Member)
 
 -- | The status of the member account.
 member_relationshipStatus :: Lens.Lens' Member (Prelude.Maybe RelationshipStatus)
@@ -90,23 +90,22 @@ instance Data.FromJSON Member where
       "Member"
       ( \x ->
           Member'
-            Prelude.<$> (x Data..:? "delegatedAdminAccountId")
-            Prelude.<*> (x Data..:? "accountId")
+            Prelude.<$> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "delegatedAdminAccountId")
             Prelude.<*> (x Data..:? "relationshipStatus")
             Prelude.<*> (x Data..:? "updatedAt")
       )
 
 instance Prelude.Hashable Member where
   hashWithSalt _salt Member' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` delegatedAdminAccountId
-      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` relationshipStatus
       `Prelude.hashWithSalt` updatedAt
 
 instance Prelude.NFData Member where
   rnf Member' {..} =
-    Prelude.rnf delegatedAdminAccountId
-      `Prelude.seq` Prelude.rnf accountId
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf delegatedAdminAccountId
       `Prelude.seq` Prelude.rnf relationshipStatus
       `Prelude.seq` Prelude.rnf updatedAt

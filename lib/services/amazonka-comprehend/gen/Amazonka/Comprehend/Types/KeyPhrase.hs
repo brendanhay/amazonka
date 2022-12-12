@@ -31,12 +31,12 @@ data KeyPhrase = KeyPhrase'
   { -- | The zero-based offset from the beginning of the source text to the first
     -- character in the key phrase.
     beginOffset :: Prelude.Maybe Prelude.Int,
-    -- | The level of confidence that Amazon Comprehend has in the accuracy of
-    -- the detection.
-    score :: Prelude.Maybe Prelude.Double,
     -- | The zero-based offset from the beginning of the source text to the last
     -- character in the key phrase.
     endOffset :: Prelude.Maybe Prelude.Int,
+    -- | The level of confidence that Amazon Comprehend has in the accuracy of
+    -- the detection.
+    score :: Prelude.Maybe Prelude.Double,
     -- | The text of a key noun phrase.
     text :: Prelude.Maybe Prelude.Text
   }
@@ -53,11 +53,11 @@ data KeyPhrase = KeyPhrase'
 -- 'beginOffset', 'keyPhrase_beginOffset' - The zero-based offset from the beginning of the source text to the first
 -- character in the key phrase.
 --
--- 'score', 'keyPhrase_score' - The level of confidence that Amazon Comprehend has in the accuracy of
--- the detection.
---
 -- 'endOffset', 'keyPhrase_endOffset' - The zero-based offset from the beginning of the source text to the last
 -- character in the key phrase.
+--
+-- 'score', 'keyPhrase_score' - The level of confidence that Amazon Comprehend has in the accuracy of
+-- the detection.
 --
 -- 'text', 'keyPhrase_text' - The text of a key noun phrase.
 newKeyPhrase ::
@@ -65,8 +65,8 @@ newKeyPhrase ::
 newKeyPhrase =
   KeyPhrase'
     { beginOffset = Prelude.Nothing,
-      score = Prelude.Nothing,
       endOffset = Prelude.Nothing,
+      score = Prelude.Nothing,
       text = Prelude.Nothing
     }
 
@@ -75,15 +75,15 @@ newKeyPhrase =
 keyPhrase_beginOffset :: Lens.Lens' KeyPhrase (Prelude.Maybe Prelude.Int)
 keyPhrase_beginOffset = Lens.lens (\KeyPhrase' {beginOffset} -> beginOffset) (\s@KeyPhrase' {} a -> s {beginOffset = a} :: KeyPhrase)
 
--- | The level of confidence that Amazon Comprehend has in the accuracy of
--- the detection.
-keyPhrase_score :: Lens.Lens' KeyPhrase (Prelude.Maybe Prelude.Double)
-keyPhrase_score = Lens.lens (\KeyPhrase' {score} -> score) (\s@KeyPhrase' {} a -> s {score = a} :: KeyPhrase)
-
 -- | The zero-based offset from the beginning of the source text to the last
 -- character in the key phrase.
 keyPhrase_endOffset :: Lens.Lens' KeyPhrase (Prelude.Maybe Prelude.Int)
 keyPhrase_endOffset = Lens.lens (\KeyPhrase' {endOffset} -> endOffset) (\s@KeyPhrase' {} a -> s {endOffset = a} :: KeyPhrase)
+
+-- | The level of confidence that Amazon Comprehend has in the accuracy of
+-- the detection.
+keyPhrase_score :: Lens.Lens' KeyPhrase (Prelude.Maybe Prelude.Double)
+keyPhrase_score = Lens.lens (\KeyPhrase' {score} -> score) (\s@KeyPhrase' {} a -> s {score = a} :: KeyPhrase)
 
 -- | The text of a key noun phrase.
 keyPhrase_text :: Lens.Lens' KeyPhrase (Prelude.Maybe Prelude.Text)
@@ -96,21 +96,21 @@ instance Data.FromJSON KeyPhrase where
       ( \x ->
           KeyPhrase'
             Prelude.<$> (x Data..:? "BeginOffset")
-            Prelude.<*> (x Data..:? "Score")
             Prelude.<*> (x Data..:? "EndOffset")
+            Prelude.<*> (x Data..:? "Score")
             Prelude.<*> (x Data..:? "Text")
       )
 
 instance Prelude.Hashable KeyPhrase where
   hashWithSalt _salt KeyPhrase' {..} =
     _salt `Prelude.hashWithSalt` beginOffset
-      `Prelude.hashWithSalt` score
       `Prelude.hashWithSalt` endOffset
+      `Prelude.hashWithSalt` score
       `Prelude.hashWithSalt` text
 
 instance Prelude.NFData KeyPhrase where
   rnf KeyPhrase' {..} =
     Prelude.rnf beginOffset
-      `Prelude.seq` Prelude.rnf score
       `Prelude.seq` Prelude.rnf endOffset
+      `Prelude.seq` Prelude.rnf score
       `Prelude.seq` Prelude.rnf text

@@ -28,8 +28,8 @@ module Amazonka.WellArchitected.ListCheckDetails
     newListCheckDetails,
 
     -- * Request Lenses
-    listCheckDetails_nextToken,
     listCheckDetails_maxResults,
+    listCheckDetails_nextToken,
     listCheckDetails_workloadId,
     listCheckDetails_lensArn,
     listCheckDetails_pillarId,
@@ -41,8 +41,8 @@ module Amazonka.WellArchitected.ListCheckDetails
     newListCheckDetailsResponse,
 
     -- * Response Lenses
-    listCheckDetailsResponse_nextToken,
     listCheckDetailsResponse_checkDetails,
+    listCheckDetailsResponse_nextToken,
     listCheckDetailsResponse_httpStatus,
   )
 where
@@ -57,8 +57,8 @@ import Amazonka.WellArchitected.Types
 
 -- | /See:/ 'newListCheckDetails' smart constructor.
 data ListCheckDetails = ListCheckDetails'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    maxResults :: Prelude.Maybe Prelude.Natural,
+  { maxResults :: Prelude.Maybe Prelude.Natural,
+    nextToken :: Prelude.Maybe Prelude.Text,
     workloadId :: Prelude.Text,
     -- | Well-Architected Lens ARN.
     lensArn :: Prelude.Text,
@@ -76,9 +76,9 @@ data ListCheckDetails = ListCheckDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listCheckDetails_nextToken' - Undocumented member.
---
 -- 'maxResults', 'listCheckDetails_maxResults' - Undocumented member.
+--
+-- 'nextToken', 'listCheckDetails_nextToken' - Undocumented member.
 --
 -- 'workloadId', 'listCheckDetails_workloadId' - Undocumented member.
 --
@@ -108,8 +108,8 @@ newListCheckDetails
   pQuestionId_
   pChoiceId_ =
     ListCheckDetails'
-      { nextToken = Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+      { maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         workloadId = pWorkloadId_,
         lensArn = pLensArn_,
         pillarId = pPillarId_,
@@ -118,12 +118,12 @@ newListCheckDetails
       }
 
 -- | Undocumented member.
-listCheckDetails_nextToken :: Lens.Lens' ListCheckDetails (Prelude.Maybe Prelude.Text)
-listCheckDetails_nextToken = Lens.lens (\ListCheckDetails' {nextToken} -> nextToken) (\s@ListCheckDetails' {} a -> s {nextToken = a} :: ListCheckDetails)
-
--- | Undocumented member.
 listCheckDetails_maxResults :: Lens.Lens' ListCheckDetails (Prelude.Maybe Prelude.Natural)
 listCheckDetails_maxResults = Lens.lens (\ListCheckDetails' {maxResults} -> maxResults) (\s@ListCheckDetails' {} a -> s {maxResults = a} :: ListCheckDetails)
+
+-- | Undocumented member.
+listCheckDetails_nextToken :: Lens.Lens' ListCheckDetails (Prelude.Maybe Prelude.Text)
+listCheckDetails_nextToken = Lens.lens (\ListCheckDetails' {nextToken} -> nextToken) (\s@ListCheckDetails' {} a -> s {nextToken = a} :: ListCheckDetails)
 
 -- | Undocumented member.
 listCheckDetails_workloadId :: Lens.Lens' ListCheckDetails Prelude.Text
@@ -155,15 +155,15 @@ instance Core.AWSRequest ListCheckDetails where
     Response.receiveJSON
       ( \s h x ->
           ListCheckDetailsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "CheckDetails" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "CheckDetails" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListCheckDetails where
   hashWithSalt _salt ListCheckDetails' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` workloadId
       `Prelude.hashWithSalt` lensArn
       `Prelude.hashWithSalt` pillarId
@@ -172,8 +172,8 @@ instance Prelude.Hashable ListCheckDetails where
 
 instance Prelude.NFData ListCheckDetails where
   rnf ListCheckDetails' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf workloadId
       `Prelude.seq` Prelude.rnf lensArn
       `Prelude.seq` Prelude.rnf pillarId
@@ -195,8 +195,8 @@ instance Data.ToJSON ListCheckDetails where
   toJSON ListCheckDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("LensArn" Data..= lensArn),
             Prelude.Just ("PillarId" Data..= pillarId),
             Prelude.Just ("QuestionId" Data..= questionId),
@@ -214,10 +214,10 @@ instance Data.ToQuery ListCheckDetails where
 
 -- | /See:/ 'newListCheckDetailsResponse' smart constructor.
 data ListCheckDetailsResponse = ListCheckDetailsResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The details about the Trusted Advisor checks related to the
+  { -- | The details about the Trusted Advisor checks related to the
     -- Well-Architected best practice.
     checkDetails :: Prelude.Maybe [CheckDetail],
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -231,10 +231,10 @@ data ListCheckDetailsResponse = ListCheckDetailsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listCheckDetailsResponse_nextToken' - Undocumented member.
---
 -- 'checkDetails', 'listCheckDetailsResponse_checkDetails' - The details about the Trusted Advisor checks related to the
 -- Well-Architected best practice.
+--
+-- 'nextToken', 'listCheckDetailsResponse_nextToken' - Undocumented member.
 --
 -- 'httpStatus', 'listCheckDetailsResponse_httpStatus' - The response's http status code.
 newListCheckDetailsResponse ::
@@ -243,20 +243,20 @@ newListCheckDetailsResponse ::
   ListCheckDetailsResponse
 newListCheckDetailsResponse pHttpStatus_ =
   ListCheckDetailsResponse'
-    { nextToken =
+    { checkDetails =
         Prelude.Nothing,
-      checkDetails = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Undocumented member.
-listCheckDetailsResponse_nextToken :: Lens.Lens' ListCheckDetailsResponse (Prelude.Maybe Prelude.Text)
-listCheckDetailsResponse_nextToken = Lens.lens (\ListCheckDetailsResponse' {nextToken} -> nextToken) (\s@ListCheckDetailsResponse' {} a -> s {nextToken = a} :: ListCheckDetailsResponse)
 
 -- | The details about the Trusted Advisor checks related to the
 -- Well-Architected best practice.
 listCheckDetailsResponse_checkDetails :: Lens.Lens' ListCheckDetailsResponse (Prelude.Maybe [CheckDetail])
 listCheckDetailsResponse_checkDetails = Lens.lens (\ListCheckDetailsResponse' {checkDetails} -> checkDetails) (\s@ListCheckDetailsResponse' {} a -> s {checkDetails = a} :: ListCheckDetailsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+listCheckDetailsResponse_nextToken :: Lens.Lens' ListCheckDetailsResponse (Prelude.Maybe Prelude.Text)
+listCheckDetailsResponse_nextToken = Lens.lens (\ListCheckDetailsResponse' {nextToken} -> nextToken) (\s@ListCheckDetailsResponse' {} a -> s {nextToken = a} :: ListCheckDetailsResponse)
 
 -- | The response's http status code.
 listCheckDetailsResponse_httpStatus :: Lens.Lens' ListCheckDetailsResponse Prelude.Int
@@ -264,6 +264,6 @@ listCheckDetailsResponse_httpStatus = Lens.lens (\ListCheckDetailsResponse' {htt
 
 instance Prelude.NFData ListCheckDetailsResponse where
   rnf ListCheckDetailsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf checkDetails
+    Prelude.rnf checkDetails
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

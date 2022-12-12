@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSpellCorrectedQuery' smart constructor.
 data SpellCorrectedQuery = SpellCorrectedQuery'
-  { -- | The query with the suggested spell corrections.
-    suggestedQueryText :: Prelude.Maybe Prelude.Text,
-    -- | The corrected misspelled word or words in a query.
-    corrections :: Prelude.Maybe [Correction]
+  { -- | The corrected misspelled word or words in a query.
+    corrections :: Prelude.Maybe [Correction],
+    -- | The query with the suggested spell corrections.
+    suggestedQueryText :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,24 @@ data SpellCorrectedQuery = SpellCorrectedQuery'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'suggestedQueryText', 'spellCorrectedQuery_suggestedQueryText' - The query with the suggested spell corrections.
---
 -- 'corrections', 'spellCorrectedQuery_corrections' - The corrected misspelled word or words in a query.
+--
+-- 'suggestedQueryText', 'spellCorrectedQuery_suggestedQueryText' - The query with the suggested spell corrections.
 newSpellCorrectedQuery ::
   SpellCorrectedQuery
 newSpellCorrectedQuery =
   SpellCorrectedQuery'
-    { suggestedQueryText =
-        Prelude.Nothing,
-      corrections = Prelude.Nothing
+    { corrections = Prelude.Nothing,
+      suggestedQueryText = Prelude.Nothing
     }
-
--- | The query with the suggested spell corrections.
-spellCorrectedQuery_suggestedQueryText :: Lens.Lens' SpellCorrectedQuery (Prelude.Maybe Prelude.Text)
-spellCorrectedQuery_suggestedQueryText = Lens.lens (\SpellCorrectedQuery' {suggestedQueryText} -> suggestedQueryText) (\s@SpellCorrectedQuery' {} a -> s {suggestedQueryText = a} :: SpellCorrectedQuery)
 
 -- | The corrected misspelled word or words in a query.
 spellCorrectedQuery_corrections :: Lens.Lens' SpellCorrectedQuery (Prelude.Maybe [Correction])
 spellCorrectedQuery_corrections = Lens.lens (\SpellCorrectedQuery' {corrections} -> corrections) (\s@SpellCorrectedQuery' {} a -> s {corrections = a} :: SpellCorrectedQuery) Prelude.. Lens.mapping Lens.coerced
+
+-- | The query with the suggested spell corrections.
+spellCorrectedQuery_suggestedQueryText :: Lens.Lens' SpellCorrectedQuery (Prelude.Maybe Prelude.Text)
+spellCorrectedQuery_suggestedQueryText = Lens.lens (\SpellCorrectedQuery' {suggestedQueryText} -> suggestedQueryText) (\s@SpellCorrectedQuery' {} a -> s {suggestedQueryText = a} :: SpellCorrectedQuery)
 
 instance Data.FromJSON SpellCorrectedQuery where
   parseJSON =
@@ -70,16 +69,16 @@ instance Data.FromJSON SpellCorrectedQuery where
       "SpellCorrectedQuery"
       ( \x ->
           SpellCorrectedQuery'
-            Prelude.<$> (x Data..:? "SuggestedQueryText")
-            Prelude.<*> (x Data..:? "Corrections" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Corrections" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "SuggestedQueryText")
       )
 
 instance Prelude.Hashable SpellCorrectedQuery where
   hashWithSalt _salt SpellCorrectedQuery' {..} =
-    _salt `Prelude.hashWithSalt` suggestedQueryText
-      `Prelude.hashWithSalt` corrections
+    _salt `Prelude.hashWithSalt` corrections
+      `Prelude.hashWithSalt` suggestedQueryText
 
 instance Prelude.NFData SpellCorrectedQuery where
   rnf SpellCorrectedQuery' {..} =
-    Prelude.rnf suggestedQueryText
-      `Prelude.seq` Prelude.rnf corrections
+    Prelude.rnf corrections
+      `Prelude.seq` Prelude.rnf suggestedQueryText

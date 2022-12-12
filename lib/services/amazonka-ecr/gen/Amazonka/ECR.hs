@@ -32,71 +32,95 @@ module Amazonka.ECR
     -- * Errors
     -- $errors
 
-    -- ** InvalidLayerPartException
-    _InvalidLayerPartException,
-
-    -- ** RepositoryAlreadyExistsException
-    _RepositoryAlreadyExistsException,
-
-    -- ** LayerAlreadyExistsException
-    _LayerAlreadyExistsException,
-
-    -- ** PullThroughCacheRuleNotFoundException
-    _PullThroughCacheRuleNotFoundException,
-
-    -- ** LayerPartTooSmallException
-    _LayerPartTooSmallException,
+    -- ** EmptyUploadException
+    _EmptyUploadException,
 
     -- ** ImageAlreadyExistsException
     _ImageAlreadyExistsException,
 
-    -- ** RepositoryNotFoundException
-    _RepositoryNotFoundException,
-
-    -- ** ReferencedImagesNotFoundException
-    _ReferencedImagesNotFoundException,
-
-    -- ** TooManyTagsException
-    _TooManyTagsException,
-
-    -- ** LifecyclePolicyPreviewNotFoundException
-    _LifecyclePolicyPreviewNotFoundException,
-
-    -- ** UnsupportedImageTypeException
-    _UnsupportedImageTypeException,
-
     -- ** ImageDigestDoesNotMatchException
     _ImageDigestDoesNotMatchException,
 
-    -- ** RepositoryNotEmptyException
-    _RepositoryNotEmptyException,
-
-    -- ** LayersNotFoundException
-    _LayersNotFoundException,
-
-    -- ** InvalidTagParameterException
-    _InvalidTagParameterException,
-
-    -- ** LayerInaccessibleException
-    _LayerInaccessibleException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
-
-    -- ** EmptyUploadException
-    _EmptyUploadException,
-
-    -- ** RegistryPolicyNotFoundException
-    _RegistryPolicyNotFoundException,
-
-    -- ** RepositoryPolicyNotFoundException
-    _RepositoryPolicyNotFoundException,
+    -- ** ImageNotFoundException
+    _ImageNotFoundException,
 
     -- ** ImageTagAlreadyExistsException
     _ImageTagAlreadyExistsException,
 
+    -- ** InvalidLayerException
+    _InvalidLayerException,
+
+    -- ** InvalidLayerPartException
+    _InvalidLayerPartException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
+    -- ** InvalidTagParameterException
+    _InvalidTagParameterException,
+
+    -- ** KmsException
+    _KmsException,
+
+    -- ** LayerAlreadyExistsException
+    _LayerAlreadyExistsException,
+
+    -- ** LayerInaccessibleException
+    _LayerInaccessibleException,
+
+    -- ** LayerPartTooSmallException
+    _LayerPartTooSmallException,
+
+    -- ** LayersNotFoundException
+    _LayersNotFoundException,
+
     -- ** LifecyclePolicyNotFoundException
     _LifecyclePolicyNotFoundException,
+
+    -- ** LifecyclePolicyPreviewInProgressException
+    _LifecyclePolicyPreviewInProgressException,
+
+    -- ** LifecyclePolicyPreviewNotFoundException
+    _LifecyclePolicyPreviewNotFoundException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** PullThroughCacheRuleAlreadyExistsException
+    _PullThroughCacheRuleAlreadyExistsException,
+
+    -- ** PullThroughCacheRuleNotFoundException
+    _PullThroughCacheRuleNotFoundException,
+
+    -- ** ReferencedImagesNotFoundException
+    _ReferencedImagesNotFoundException,
+
+    -- ** RegistryPolicyNotFoundException
+    _RegistryPolicyNotFoundException,
+
+    -- ** RepositoryAlreadyExistsException
+    _RepositoryAlreadyExistsException,
+
+    -- ** RepositoryNotEmptyException
+    _RepositoryNotEmptyException,
+
+    -- ** RepositoryNotFoundException
+    _RepositoryNotFoundException,
+
+    -- ** RepositoryPolicyNotFoundException
+    _RepositoryPolicyNotFoundException,
+
+    -- ** ScanNotFoundException
+    _ScanNotFoundException,
+
+    -- ** ServerException
+    _ServerException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
+
+    -- ** UnsupportedImageTypeException
+    _UnsupportedImageTypeException,
 
     -- ** UnsupportedUpstreamRegistryException
     _UnsupportedUpstreamRegistryException,
@@ -104,32 +128,8 @@ module Amazonka.ECR
     -- ** UploadNotFoundException
     _UploadNotFoundException,
 
-    -- ** PullThroughCacheRuleAlreadyExistsException
-    _PullThroughCacheRuleAlreadyExistsException,
-
-    -- ** ScanNotFoundException
-    _ScanNotFoundException,
-
     -- ** ValidationException
     _ValidationException,
-
-    -- ** ImageNotFoundException
-    _ImageNotFoundException,
-
-    -- ** LifecyclePolicyPreviewInProgressException
-    _LifecyclePolicyPreviewInProgressException,
-
-    -- ** InvalidLayerException
-    _InvalidLayerException,
-
-    -- ** KmsException
-    _KmsException,
-
-    -- ** ServerException
-    _ServerException,
-
-    -- ** InvalidParameterException
-    _InvalidParameterException,
 
     -- * Waiters
     -- $waiters

@@ -48,10 +48,12 @@ library
     Amazonka.IotTwinMaker.CreateComponentType
     Amazonka.IotTwinMaker.CreateEntity
     Amazonka.IotTwinMaker.CreateScene
+    Amazonka.IotTwinMaker.CreateSyncJob
     Amazonka.IotTwinMaker.CreateWorkspace
     Amazonka.IotTwinMaker.DeleteComponentType
     Amazonka.IotTwinMaker.DeleteEntity
     Amazonka.IotTwinMaker.DeleteScene
+    Amazonka.IotTwinMaker.DeleteSyncJob
     Amazonka.IotTwinMaker.DeleteWorkspace
     Amazonka.IotTwinMaker.ExecuteQuery
     Amazonka.IotTwinMaker.GetComponentType
@@ -60,11 +62,14 @@ library
     Amazonka.IotTwinMaker.GetPropertyValue
     Amazonka.IotTwinMaker.GetPropertyValueHistory
     Amazonka.IotTwinMaker.GetScene
+    Amazonka.IotTwinMaker.GetSyncJob
     Amazonka.IotTwinMaker.GetWorkspace
     Amazonka.IotTwinMaker.Lens
     Amazonka.IotTwinMaker.ListComponentTypes
     Amazonka.IotTwinMaker.ListEntities
     Amazonka.IotTwinMaker.ListScenes
+    Amazonka.IotTwinMaker.ListSyncJobs
+    Amazonka.IotTwinMaker.ListSyncResources
     Amazonka.IotTwinMaker.ListTagsForResource
     Amazonka.IotTwinMaker.ListWorkspaces
     Amazonka.IotTwinMaker.TagResource
@@ -125,6 +130,14 @@ library
     Amazonka.IotTwinMaker.Types.Scope
     Amazonka.IotTwinMaker.Types.State
     Amazonka.IotTwinMaker.Types.Status
+    Amazonka.IotTwinMaker.Types.SyncJobState
+    Amazonka.IotTwinMaker.Types.SyncJobStatus
+    Amazonka.IotTwinMaker.Types.SyncJobSummary
+    Amazonka.IotTwinMaker.Types.SyncResourceFilter
+    Amazonka.IotTwinMaker.Types.SyncResourceState
+    Amazonka.IotTwinMaker.Types.SyncResourceStatus
+    Amazonka.IotTwinMaker.Types.SyncResourceSummary
+    Amazonka.IotTwinMaker.Types.SyncResourceType
     Amazonka.IotTwinMaker.Types.TabularConditions
     Amazonka.IotTwinMaker.Types.Type
     Amazonka.IotTwinMaker.Types.UpdateReason

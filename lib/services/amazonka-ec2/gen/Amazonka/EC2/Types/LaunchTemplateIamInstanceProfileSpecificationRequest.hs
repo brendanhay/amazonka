@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLaunchTemplateIamInstanceProfileSpecificationRequest' smart constructor.
 data LaunchTemplateIamInstanceProfileSpecificationRequest = LaunchTemplateIamInstanceProfileSpecificationRequest'
-  { -- | The name of the instance profile.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the instance profile.
-    arn :: Prelude.Maybe Prelude.Text
+  { -- | The Amazon Resource Name (ARN) of the instance profile.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the instance profile.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,26 @@ data LaunchTemplateIamInstanceProfileSpecificationRequest = LaunchTemplateIamIns
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'launchTemplateIamInstanceProfileSpecificationRequest_name' - The name of the instance profile.
---
 -- 'arn', 'launchTemplateIamInstanceProfileSpecificationRequest_arn' - The Amazon Resource Name (ARN) of the instance profile.
+--
+-- 'name', 'launchTemplateIamInstanceProfileSpecificationRequest_name' - The name of the instance profile.
 newLaunchTemplateIamInstanceProfileSpecificationRequest ::
   LaunchTemplateIamInstanceProfileSpecificationRequest
 newLaunchTemplateIamInstanceProfileSpecificationRequest =
   LaunchTemplateIamInstanceProfileSpecificationRequest'
-    { name =
+    { arn =
         Prelude.Nothing,
-      arn = Prelude.Nothing
+      name =
+        Prelude.Nothing
     }
-
--- | The name of the instance profile.
-launchTemplateIamInstanceProfileSpecificationRequest_name :: Lens.Lens' LaunchTemplateIamInstanceProfileSpecificationRequest (Prelude.Maybe Prelude.Text)
-launchTemplateIamInstanceProfileSpecificationRequest_name = Lens.lens (\LaunchTemplateIamInstanceProfileSpecificationRequest' {name} -> name) (\s@LaunchTemplateIamInstanceProfileSpecificationRequest' {} a -> s {name = a} :: LaunchTemplateIamInstanceProfileSpecificationRequest)
 
 -- | The Amazon Resource Name (ARN) of the instance profile.
 launchTemplateIamInstanceProfileSpecificationRequest_arn :: Lens.Lens' LaunchTemplateIamInstanceProfileSpecificationRequest (Prelude.Maybe Prelude.Text)
 launchTemplateIamInstanceProfileSpecificationRequest_arn = Lens.lens (\LaunchTemplateIamInstanceProfileSpecificationRequest' {arn} -> arn) (\s@LaunchTemplateIamInstanceProfileSpecificationRequest' {} a -> s {arn = a} :: LaunchTemplateIamInstanceProfileSpecificationRequest)
+
+-- | The name of the instance profile.
+launchTemplateIamInstanceProfileSpecificationRequest_name :: Lens.Lens' LaunchTemplateIamInstanceProfileSpecificationRequest (Prelude.Maybe Prelude.Text)
+launchTemplateIamInstanceProfileSpecificationRequest_name = Lens.lens (\LaunchTemplateIamInstanceProfileSpecificationRequest' {name} -> name) (\s@LaunchTemplateIamInstanceProfileSpecificationRequest' {} a -> s {name = a} :: LaunchTemplateIamInstanceProfileSpecificationRequest)
 
 instance
   Prelude.Hashable
@@ -71,8 +72,8 @@ instance
   hashWithSalt
     _salt
     LaunchTemplateIamInstanceProfileSpecificationRequest' {..} =
-      _salt `Prelude.hashWithSalt` name
-        `Prelude.hashWithSalt` arn
+      _salt `Prelude.hashWithSalt` arn
+        `Prelude.hashWithSalt` name
 
 instance
   Prelude.NFData
@@ -80,7 +81,7 @@ instance
   where
   rnf
     LaunchTemplateIamInstanceProfileSpecificationRequest' {..} =
-      Prelude.rnf name `Prelude.seq` Prelude.rnf arn
+      Prelude.rnf arn `Prelude.seq` Prelude.rnf name
 
 instance
   Data.ToQuery
@@ -89,4 +90,4 @@ instance
   toQuery
     LaunchTemplateIamInstanceProfileSpecificationRequest' {..} =
       Prelude.mconcat
-        ["Name" Data.=: name, "Arn" Data.=: arn]
+        ["Arn" Data.=: arn, "Name" Data.=: name]

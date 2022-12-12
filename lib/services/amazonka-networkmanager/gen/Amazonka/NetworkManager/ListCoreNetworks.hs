@@ -29,16 +29,16 @@ module Amazonka.NetworkManager.ListCoreNetworks
     newListCoreNetworks,
 
     -- * Request Lenses
-    listCoreNetworks_nextToken,
     listCoreNetworks_maxResults,
+    listCoreNetworks_nextToken,
 
     -- * Destructuring the Response
     ListCoreNetworksResponse (..),
     newListCoreNetworksResponse,
 
     -- * Response Lenses
-    listCoreNetworksResponse_nextToken,
     listCoreNetworksResponse_coreNetworks,
+    listCoreNetworksResponse_nextToken,
     listCoreNetworksResponse_httpStatus,
   )
 where
@@ -53,10 +53,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListCoreNetworks' smart constructor.
 data ListCoreNetworks = ListCoreNetworks'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return.
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { -- | The maximum number of results to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,24 +68,24 @@ data ListCoreNetworks = ListCoreNetworks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listCoreNetworks_nextToken' - The token for the next page of results.
---
 -- 'maxResults', 'listCoreNetworks_maxResults' - The maximum number of results to return.
+--
+-- 'nextToken', 'listCoreNetworks_nextToken' - The token for the next page of results.
 newListCoreNetworks ::
   ListCoreNetworks
 newListCoreNetworks =
   ListCoreNetworks'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token for the next page of results.
-listCoreNetworks_nextToken :: Lens.Lens' ListCoreNetworks (Prelude.Maybe Prelude.Text)
-listCoreNetworks_nextToken = Lens.lens (\ListCoreNetworks' {nextToken} -> nextToken) (\s@ListCoreNetworks' {} a -> s {nextToken = a} :: ListCoreNetworks)
 
 -- | The maximum number of results to return.
 listCoreNetworks_maxResults :: Lens.Lens' ListCoreNetworks (Prelude.Maybe Prelude.Natural)
 listCoreNetworks_maxResults = Lens.lens (\ListCoreNetworks' {maxResults} -> maxResults) (\s@ListCoreNetworks' {} a -> s {maxResults = a} :: ListCoreNetworks)
+
+-- | The token for the next page of results.
+listCoreNetworks_nextToken :: Lens.Lens' ListCoreNetworks (Prelude.Maybe Prelude.Text)
+listCoreNetworks_nextToken = Lens.lens (\ListCoreNetworks' {nextToken} -> nextToken) (\s@ListCoreNetworks' {} a -> s {nextToken = a} :: ListCoreNetworks)
 
 instance Core.AWSPager ListCoreNetworks where
   page rq rs
@@ -119,20 +119,20 @@ instance Core.AWSRequest ListCoreNetworks where
     Response.receiveJSON
       ( \s h x ->
           ListCoreNetworksResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "CoreNetworks" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "CoreNetworks" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListCoreNetworks where
   hashWithSalt _salt ListCoreNetworks' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListCoreNetworks where
   rnf ListCoreNetworks' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListCoreNetworks where
   toHeaders =
@@ -151,16 +151,16 @@ instance Data.ToPath ListCoreNetworks where
 instance Data.ToQuery ListCoreNetworks where
   toQuery ListCoreNetworks' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListCoreNetworksResponse' smart constructor.
 data ListCoreNetworksResponse = ListCoreNetworksResponse'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Describes the list of core networks.
+  { -- | Describes the list of core networks.
     coreNetworks :: Prelude.Maybe [CoreNetworkSummary],
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -174,9 +174,9 @@ data ListCoreNetworksResponse = ListCoreNetworksResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listCoreNetworksResponse_nextToken' - The token for the next page of results.
---
 -- 'coreNetworks', 'listCoreNetworksResponse_coreNetworks' - Describes the list of core networks.
+--
+-- 'nextToken', 'listCoreNetworksResponse_nextToken' - The token for the next page of results.
 --
 -- 'httpStatus', 'listCoreNetworksResponse_httpStatus' - The response's http status code.
 newListCoreNetworksResponse ::
@@ -185,19 +185,19 @@ newListCoreNetworksResponse ::
   ListCoreNetworksResponse
 newListCoreNetworksResponse pHttpStatus_ =
   ListCoreNetworksResponse'
-    { nextToken =
+    { coreNetworks =
         Prelude.Nothing,
-      coreNetworks = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token for the next page of results.
-listCoreNetworksResponse_nextToken :: Lens.Lens' ListCoreNetworksResponse (Prelude.Maybe Prelude.Text)
-listCoreNetworksResponse_nextToken = Lens.lens (\ListCoreNetworksResponse' {nextToken} -> nextToken) (\s@ListCoreNetworksResponse' {} a -> s {nextToken = a} :: ListCoreNetworksResponse)
 
 -- | Describes the list of core networks.
 listCoreNetworksResponse_coreNetworks :: Lens.Lens' ListCoreNetworksResponse (Prelude.Maybe [CoreNetworkSummary])
 listCoreNetworksResponse_coreNetworks = Lens.lens (\ListCoreNetworksResponse' {coreNetworks} -> coreNetworks) (\s@ListCoreNetworksResponse' {} a -> s {coreNetworks = a} :: ListCoreNetworksResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next page of results.
+listCoreNetworksResponse_nextToken :: Lens.Lens' ListCoreNetworksResponse (Prelude.Maybe Prelude.Text)
+listCoreNetworksResponse_nextToken = Lens.lens (\ListCoreNetworksResponse' {nextToken} -> nextToken) (\s@ListCoreNetworksResponse' {} a -> s {nextToken = a} :: ListCoreNetworksResponse)
 
 -- | The response's http status code.
 listCoreNetworksResponse_httpStatus :: Lens.Lens' ListCoreNetworksResponse Prelude.Int
@@ -205,6 +205,6 @@ listCoreNetworksResponse_httpStatus = Lens.lens (\ListCoreNetworksResponse' {htt
 
 instance Prelude.NFData ListCoreNetworksResponse where
   rnf ListCoreNetworksResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf coreNetworks
+    Prelude.rnf coreNetworks
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describe Amazon Inspector configuration settings for an Amazon Web
--- Services organization
+-- Services organization.
 module Amazonka.Inspector2.DescribeOrganizationConfiguration
   ( -- * Creating a Request
     DescribeOrganizationConfiguration (..),
@@ -32,8 +32,8 @@ module Amazonka.Inspector2.DescribeOrganizationConfiguration
     newDescribeOrganizationConfigurationResponse,
 
     -- * Response Lenses
-    describeOrganizationConfigurationResponse_maxAccountLimitReached,
     describeOrganizationConfigurationResponse_autoEnable,
+    describeOrganizationConfigurationResponse_maxAccountLimitReached,
     describeOrganizationConfigurationResponse_httpStatus,
   )
 where
@@ -74,8 +74,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeOrganizationConfigurationResponse'
-            Prelude.<$> (x Data..?> "maxAccountLimitReached")
-              Prelude.<*> (x Data..?> "autoEnable")
+            Prelude.<$> (x Data..?> "autoEnable")
+              Prelude.<*> (x Data..?> "maxAccountLimitReached")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -127,12 +127,12 @@ instance
 
 -- | /See:/ 'newDescribeOrganizationConfigurationResponse' smart constructor.
 data DescribeOrganizationConfigurationResponse = DescribeOrganizationConfigurationResponse'
-  { -- | Represents whether your organization has reached the maximum Amazon Web
-    -- Services account limit for Amazon Inspector.
-    maxAccountLimitReached :: Prelude.Maybe Prelude.Bool,
-    -- | The scan types are automatically enabled for new members of your
+  { -- | The scan types are automatically enabled for new members of your
     -- organization.
     autoEnable :: Prelude.Maybe AutoEnable,
+    -- | Represents whether your organization has reached the maximum Amazon Web
+    -- Services account limit for Amazon Inspector.
+    maxAccountLimitReached :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -146,11 +146,11 @@ data DescribeOrganizationConfigurationResponse = DescribeOrganizationConfigurati
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxAccountLimitReached', 'describeOrganizationConfigurationResponse_maxAccountLimitReached' - Represents whether your organization has reached the maximum Amazon Web
--- Services account limit for Amazon Inspector.
---
 -- 'autoEnable', 'describeOrganizationConfigurationResponse_autoEnable' - The scan types are automatically enabled for new members of your
 -- organization.
+--
+-- 'maxAccountLimitReached', 'describeOrganizationConfigurationResponse_maxAccountLimitReached' - Represents whether your organization has reached the maximum Amazon Web
+-- Services account limit for Amazon Inspector.
 --
 -- 'httpStatus', 'describeOrganizationConfigurationResponse_httpStatus' - The response's http status code.
 newDescribeOrganizationConfigurationResponse ::
@@ -160,21 +160,22 @@ newDescribeOrganizationConfigurationResponse ::
 newDescribeOrganizationConfigurationResponse
   pHttpStatus_ =
     DescribeOrganizationConfigurationResponse'
-      { maxAccountLimitReached =
+      { autoEnable =
           Prelude.Nothing,
-        autoEnable = Prelude.Nothing,
+        maxAccountLimitReached =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | Represents whether your organization has reached the maximum Amazon Web
--- Services account limit for Amazon Inspector.
-describeOrganizationConfigurationResponse_maxAccountLimitReached :: Lens.Lens' DescribeOrganizationConfigurationResponse (Prelude.Maybe Prelude.Bool)
-describeOrganizationConfigurationResponse_maxAccountLimitReached = Lens.lens (\DescribeOrganizationConfigurationResponse' {maxAccountLimitReached} -> maxAccountLimitReached) (\s@DescribeOrganizationConfigurationResponse' {} a -> s {maxAccountLimitReached = a} :: DescribeOrganizationConfigurationResponse)
 
 -- | The scan types are automatically enabled for new members of your
 -- organization.
 describeOrganizationConfigurationResponse_autoEnable :: Lens.Lens' DescribeOrganizationConfigurationResponse (Prelude.Maybe AutoEnable)
 describeOrganizationConfigurationResponse_autoEnable = Lens.lens (\DescribeOrganizationConfigurationResponse' {autoEnable} -> autoEnable) (\s@DescribeOrganizationConfigurationResponse' {} a -> s {autoEnable = a} :: DescribeOrganizationConfigurationResponse)
+
+-- | Represents whether your organization has reached the maximum Amazon Web
+-- Services account limit for Amazon Inspector.
+describeOrganizationConfigurationResponse_maxAccountLimitReached :: Lens.Lens' DescribeOrganizationConfigurationResponse (Prelude.Maybe Prelude.Bool)
+describeOrganizationConfigurationResponse_maxAccountLimitReached = Lens.lens (\DescribeOrganizationConfigurationResponse' {maxAccountLimitReached} -> maxAccountLimitReached) (\s@DescribeOrganizationConfigurationResponse' {} a -> s {maxAccountLimitReached = a} :: DescribeOrganizationConfigurationResponse)
 
 -- | The response's http status code.
 describeOrganizationConfigurationResponse_httpStatus :: Lens.Lens' DescribeOrganizationConfigurationResponse Prelude.Int
@@ -185,6 +186,6 @@ instance
     DescribeOrganizationConfigurationResponse
   where
   rnf DescribeOrganizationConfigurationResponse' {..} =
-    Prelude.rnf maxAccountLimitReached
-      `Prelude.seq` Prelude.rnf autoEnable
+    Prelude.rnf autoEnable
+      `Prelude.seq` Prelude.rnf maxAccountLimitReached
       `Prelude.seq` Prelude.rnf httpStatus

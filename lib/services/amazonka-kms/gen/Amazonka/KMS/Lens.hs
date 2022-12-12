@@ -28,48 +28,55 @@ module Amazonka.KMS.Lens
     createAlias_targetKeyId,
 
     -- ** CreateCustomKeyStore
-    createCustomKeyStore_keyStorePassword,
     createCustomKeyStore_cloudHsmClusterId,
+    createCustomKeyStore_customKeyStoreType,
+    createCustomKeyStore_keyStorePassword,
     createCustomKeyStore_trustAnchorCertificate,
+    createCustomKeyStore_xksProxyAuthenticationCredential,
+    createCustomKeyStore_xksProxyConnectivity,
+    createCustomKeyStore_xksProxyUriEndpoint,
+    createCustomKeyStore_xksProxyUriPath,
+    createCustomKeyStore_xksProxyVpcEndpointServiceName,
     createCustomKeyStore_customKeyStoreName,
     createCustomKeyStoreResponse_customKeyStoreId,
     createCustomKeyStoreResponse_httpStatus,
 
     -- ** CreateGrant
-    createGrant_name,
     createGrant_constraints,
-    createGrant_retiringPrincipal,
     createGrant_grantTokens,
+    createGrant_name,
+    createGrant_retiringPrincipal,
     createGrant_keyId,
     createGrant_granteePrincipal,
     createGrant_operations,
-    createGrantResponse_grantToken,
     createGrantResponse_grantId,
+    createGrantResponse_grantToken,
     createGrantResponse_httpStatus,
 
     -- ** CreateKey
-    createKey_tags,
-    createKey_policy,
+    createKey_bypassPolicyLockoutSafetyCheck,
     createKey_customKeyStoreId,
     createKey_customerMasterKeySpec,
-    createKey_keyUsage,
     createKey_description,
-    createKey_multiRegion,
     createKey_keySpec,
-    createKey_bypassPolicyLockoutSafetyCheck,
+    createKey_keyUsage,
+    createKey_multiRegion,
     createKey_origin,
+    createKey_policy,
+    createKey_tags,
+    createKey_xksKeyId,
     createKeyResponse_keyMetadata,
     createKeyResponse_httpStatus,
 
     -- ** Decrypt
     decrypt_encryptionAlgorithm,
+    decrypt_encryptionContext,
     decrypt_grantTokens,
     decrypt_keyId,
-    decrypt_encryptionContext,
     decrypt_ciphertextBlob,
     decryptResponse_encryptionAlgorithm,
-    decryptResponse_plaintext,
     decryptResponse_keyId,
+    decryptResponse_plaintext,
     decryptResponse_httpStatus,
 
     -- ** DeleteAlias
@@ -83,13 +90,13 @@ module Amazonka.KMS.Lens
     deleteImportedKeyMaterial_keyId,
 
     -- ** DescribeCustomKeyStores
-    describeCustomKeyStores_marker,
     describeCustomKeyStores_customKeyStoreId,
-    describeCustomKeyStores_limit,
     describeCustomKeyStores_customKeyStoreName,
-    describeCustomKeyStoresResponse_truncated,
+    describeCustomKeyStores_limit,
+    describeCustomKeyStores_marker,
     describeCustomKeyStoresResponse_customKeyStores,
     describeCustomKeyStoresResponse_nextMarker,
+    describeCustomKeyStoresResponse_truncated,
     describeCustomKeyStoresResponse_httpStatus,
 
     -- ** DescribeKey
@@ -116,20 +123,20 @@ module Amazonka.KMS.Lens
 
     -- ** Encrypt
     encrypt_encryptionAlgorithm,
-    encrypt_grantTokens,
     encrypt_encryptionContext,
+    encrypt_grantTokens,
     encrypt_keyId,
     encrypt_plaintext,
-    encryptResponse_encryptionAlgorithm,
     encryptResponse_ciphertextBlob,
+    encryptResponse_encryptionAlgorithm,
     encryptResponse_keyId,
     encryptResponse_httpStatus,
 
     -- ** GenerateDataKey
+    generateDataKey_encryptionContext,
     generateDataKey_grantTokens,
     generateDataKey_keySpec,
     generateDataKey_numberOfBytes,
-    generateDataKey_encryptionContext,
     generateDataKey_keyId,
     generateDataKeyResponse_httpStatus,
     generateDataKeyResponse_keyId,
@@ -137,33 +144,33 @@ module Amazonka.KMS.Lens
     generateDataKeyResponse_ciphertextBlob,
 
     -- ** GenerateDataKeyPair
-    generateDataKeyPair_grantTokens,
     generateDataKeyPair_encryptionContext,
+    generateDataKeyPair_grantTokens,
     generateDataKeyPair_keyId,
     generateDataKeyPair_keyPairSpec,
+    generateDataKeyPairResponse_keyId,
+    generateDataKeyPairResponse_keyPairSpec,
+    generateDataKeyPairResponse_privateKeyCiphertextBlob,
     generateDataKeyPairResponse_privateKeyPlaintext,
     generateDataKeyPairResponse_publicKey,
-    generateDataKeyPairResponse_privateKeyCiphertextBlob,
-    generateDataKeyPairResponse_keyPairSpec,
-    generateDataKeyPairResponse_keyId,
     generateDataKeyPairResponse_httpStatus,
 
     -- ** GenerateDataKeyPairWithoutPlaintext
-    generateDataKeyPairWithoutPlaintext_grantTokens,
     generateDataKeyPairWithoutPlaintext_encryptionContext,
+    generateDataKeyPairWithoutPlaintext_grantTokens,
     generateDataKeyPairWithoutPlaintext_keyId,
     generateDataKeyPairWithoutPlaintext_keyPairSpec,
-    generateDataKeyPairWithoutPlaintextResponse_publicKey,
-    generateDataKeyPairWithoutPlaintextResponse_privateKeyCiphertextBlob,
-    generateDataKeyPairWithoutPlaintextResponse_keyPairSpec,
     generateDataKeyPairWithoutPlaintextResponse_keyId,
+    generateDataKeyPairWithoutPlaintextResponse_keyPairSpec,
+    generateDataKeyPairWithoutPlaintextResponse_privateKeyCiphertextBlob,
+    generateDataKeyPairWithoutPlaintextResponse_publicKey,
     generateDataKeyPairWithoutPlaintextResponse_httpStatus,
 
     -- ** GenerateDataKeyWithoutPlaintext
+    generateDataKeyWithoutPlaintext_encryptionContext,
     generateDataKeyWithoutPlaintext_grantTokens,
     generateDataKeyWithoutPlaintext_keySpec,
     generateDataKeyWithoutPlaintext_numberOfBytes,
-    generateDataKeyWithoutPlaintext_encryptionContext,
     generateDataKeyWithoutPlaintext_keyId,
     generateDataKeyWithoutPlaintextResponse_ciphertextBlob,
     generateDataKeyWithoutPlaintextResponse_keyId,
@@ -174,9 +181,9 @@ module Amazonka.KMS.Lens
     generateMac_message,
     generateMac_keyId,
     generateMac_macAlgorithm,
-    generateMacResponse_macAlgorithm,
-    generateMacResponse_mac,
     generateMacResponse_keyId,
+    generateMacResponse_mac,
+    generateMacResponse_macAlgorithm,
     generateMacResponse_httpStatus,
 
     -- ** GenerateRandom
@@ -200,21 +207,21 @@ module Amazonka.KMS.Lens
     getParametersForImport_keyId,
     getParametersForImport_wrappingAlgorithm,
     getParametersForImport_wrappingKeySpec,
-    getParametersForImportResponse_publicKey,
-    getParametersForImportResponse_keyId,
     getParametersForImportResponse_importToken,
+    getParametersForImportResponse_keyId,
     getParametersForImportResponse_parametersValidTo,
+    getParametersForImportResponse_publicKey,
     getParametersForImportResponse_httpStatus,
 
     -- ** GetPublicKey
     getPublicKey_grantTokens,
     getPublicKey_keyId,
-    getPublicKeyResponse_publicKey,
-    getPublicKeyResponse_encryptionAlgorithms,
     getPublicKeyResponse_customerMasterKeySpec,
-    getPublicKeyResponse_keyUsage,
-    getPublicKeyResponse_keySpec,
+    getPublicKeyResponse_encryptionAlgorithms,
     getPublicKeyResponse_keyId,
+    getPublicKeyResponse_keySpec,
+    getPublicKeyResponse_keyUsage,
+    getPublicKeyResponse_publicKey,
     getPublicKeyResponse_signingAlgorithms,
     getPublicKeyResponse_httpStatus,
 
@@ -227,57 +234,57 @@ module Amazonka.KMS.Lens
     importKeyMaterialResponse_httpStatus,
 
     -- ** ListAliases
-    listAliases_marker,
-    listAliases_limit,
     listAliases_keyId,
-    listAliasesResponse_truncated,
+    listAliases_limit,
+    listAliases_marker,
     listAliasesResponse_aliases,
     listAliasesResponse_nextMarker,
+    listAliasesResponse_truncated,
     listAliasesResponse_httpStatus,
 
     -- ** ListGrants
-    listGrants_granteePrincipal,
-    listGrants_marker,
-    listGrants_limit,
     listGrants_grantId,
+    listGrants_granteePrincipal,
+    listGrants_limit,
+    listGrants_marker,
     listGrants_keyId,
-    listGrantsResponse_truncated,
     listGrantsResponse_grants,
     listGrantsResponse_nextMarker,
+    listGrantsResponse_truncated,
 
     -- ** ListKeyPolicies
-    listKeyPolicies_marker,
     listKeyPolicies_limit,
+    listKeyPolicies_marker,
     listKeyPolicies_keyId,
-    listKeyPoliciesResponse_truncated,
-    listKeyPoliciesResponse_policyNames,
     listKeyPoliciesResponse_nextMarker,
+    listKeyPoliciesResponse_policyNames,
+    listKeyPoliciesResponse_truncated,
     listKeyPoliciesResponse_httpStatus,
 
     -- ** ListKeys
-    listKeys_marker,
     listKeys_limit,
-    listKeysResponse_truncated,
-    listKeysResponse_nextMarker,
+    listKeys_marker,
     listKeysResponse_keys,
+    listKeysResponse_nextMarker,
+    listKeysResponse_truncated,
     listKeysResponse_httpStatus,
 
     -- ** ListResourceTags
-    listResourceTags_marker,
     listResourceTags_limit,
+    listResourceTags_marker,
     listResourceTags_keyId,
+    listResourceTagsResponse_nextMarker,
     listResourceTagsResponse_tags,
     listResourceTagsResponse_truncated,
-    listResourceTagsResponse_nextMarker,
     listResourceTagsResponse_httpStatus,
 
     -- ** ListRetirableGrants
-    listRetirableGrants_marker,
     listRetirableGrants_limit,
+    listRetirableGrants_marker,
     listRetirableGrants_retiringPrincipal,
-    listGrantsResponse_truncated,
     listGrantsResponse_grants,
     listGrantsResponse_nextMarker,
+    listGrantsResponse_truncated,
 
     -- ** PutKeyPolicy
     putKeyPolicy_bypassPolicyLockoutSafetyCheck,
@@ -286,36 +293,36 @@ module Amazonka.KMS.Lens
     putKeyPolicy_policy,
 
     -- ** ReEncrypt
-    reEncrypt_sourceKeyId,
-    reEncrypt_sourceEncryptionAlgorithm,
-    reEncrypt_grantTokens,
-    reEncrypt_destinationEncryptionContext,
     reEncrypt_destinationEncryptionAlgorithm,
+    reEncrypt_destinationEncryptionContext,
+    reEncrypt_grantTokens,
+    reEncrypt_sourceEncryptionAlgorithm,
     reEncrypt_sourceEncryptionContext,
+    reEncrypt_sourceKeyId,
     reEncrypt_ciphertextBlob,
     reEncrypt_destinationKeyId,
-    reEncryptResponse_sourceKeyId,
-    reEncryptResponse_sourceEncryptionAlgorithm,
     reEncryptResponse_ciphertextBlob,
-    reEncryptResponse_keyId,
     reEncryptResponse_destinationEncryptionAlgorithm,
+    reEncryptResponse_keyId,
+    reEncryptResponse_sourceEncryptionAlgorithm,
+    reEncryptResponse_sourceKeyId,
     reEncryptResponse_httpStatus,
 
     -- ** ReplicateKey
-    replicateKey_tags,
-    replicateKey_policy,
-    replicateKey_description,
     replicateKey_bypassPolicyLockoutSafetyCheck,
+    replicateKey_description,
+    replicateKey_policy,
+    replicateKey_tags,
     replicateKey_keyId,
     replicateKey_replicaRegion,
     replicateKeyResponse_replicaKeyMetadata,
-    replicateKeyResponse_replicaTags,
     replicateKeyResponse_replicaPolicy,
+    replicateKeyResponse_replicaTags,
     replicateKeyResponse_httpStatus,
 
     -- ** RetireGrant
-    retireGrant_grantToken,
     retireGrant_grantId,
+    retireGrant_grantToken,
     retireGrant_keyId,
 
     -- ** RevokeGrant
@@ -325,21 +332,21 @@ module Amazonka.KMS.Lens
     -- ** ScheduleKeyDeletion
     scheduleKeyDeletion_pendingWindowInDays,
     scheduleKeyDeletion_keyId,
-    scheduleKeyDeletionResponse_pendingWindowInDays,
-    scheduleKeyDeletionResponse_keyState,
     scheduleKeyDeletionResponse_deletionDate,
     scheduleKeyDeletionResponse_keyId,
+    scheduleKeyDeletionResponse_keyState,
+    scheduleKeyDeletionResponse_pendingWindowInDays,
     scheduleKeyDeletionResponse_httpStatus,
 
     -- ** Sign
-    sign_messageType,
     sign_grantTokens,
+    sign_messageType,
     sign_keyId,
     sign_message,
     sign_signingAlgorithm,
+    signResponse_keyId,
     signResponse_signature,
     signResponse_signingAlgorithm,
-    signResponse_keyId,
     signResponse_httpStatus,
 
     -- ** TagResource
@@ -355,9 +362,14 @@ module Amazonka.KMS.Lens
     updateAlias_targetKeyId,
 
     -- ** UpdateCustomKeyStore
-    updateCustomKeyStore_newCustomKeyStoreName,
-    updateCustomKeyStore_keyStorePassword,
     updateCustomKeyStore_cloudHsmClusterId,
+    updateCustomKeyStore_keyStorePassword,
+    updateCustomKeyStore_newCustomKeyStoreName,
+    updateCustomKeyStore_xksProxyAuthenticationCredential,
+    updateCustomKeyStore_xksProxyConnectivity,
+    updateCustomKeyStore_xksProxyUriEndpoint,
+    updateCustomKeyStore_xksProxyUriPath,
+    updateCustomKeyStore_xksProxyVpcEndpointServiceName,
     updateCustomKeyStore_customKeyStoreId,
     updateCustomKeyStoreResponse_httpStatus,
 
@@ -370,15 +382,15 @@ module Amazonka.KMS.Lens
     updatePrimaryRegion_primaryRegion,
 
     -- ** Verify
-    verify_messageType,
     verify_grantTokens,
+    verify_messageType,
     verify_keyId,
     verify_message,
     verify_signature,
     verify_signingAlgorithm,
+    verifyResponse_keyId,
     verifyResponse_signatureValid,
     verifyResponse_signingAlgorithm,
-    verifyResponse_keyId,
     verifyResponse_httpStatus,
 
     -- ** VerifyMac
@@ -387,43 +399,45 @@ module Amazonka.KMS.Lens
     verifyMac_keyId,
     verifyMac_macAlgorithm,
     verifyMac_mac,
+    verifyMacResponse_keyId,
     verifyMacResponse_macAlgorithm,
     verifyMacResponse_macValid,
-    verifyMacResponse_keyId,
     verifyMacResponse_httpStatus,
 
     -- * Types
 
     -- ** AliasListEntry
-    aliasListEntry_lastUpdatedDate,
     aliasListEntry_aliasArn,
-    aliasListEntry_creationDate,
-    aliasListEntry_targetKeyId,
     aliasListEntry_aliasName,
+    aliasListEntry_creationDate,
+    aliasListEntry_lastUpdatedDate,
+    aliasListEntry_targetKeyId,
 
     -- ** CustomKeyStoresListEntry
-    customKeyStoresListEntry_customKeyStoreId,
+    customKeyStoresListEntry_cloudHsmClusterId,
+    customKeyStoresListEntry_connectionErrorCode,
     customKeyStoresListEntry_connectionState,
     customKeyStoresListEntry_creationDate,
-    customKeyStoresListEntry_cloudHsmClusterId,
-    customKeyStoresListEntry_trustAnchorCertificate,
+    customKeyStoresListEntry_customKeyStoreId,
     customKeyStoresListEntry_customKeyStoreName,
-    customKeyStoresListEntry_connectionErrorCode,
+    customKeyStoresListEntry_customKeyStoreType,
+    customKeyStoresListEntry_trustAnchorCertificate,
+    customKeyStoresListEntry_xksProxyConfiguration,
 
     -- ** GrantConstraints
-    grantConstraints_encryptionContextSubset,
     grantConstraints_encryptionContextEquals,
+    grantConstraints_encryptionContextSubset,
 
     -- ** GrantListEntry
-    grantListEntry_issuingAccount,
-    grantListEntry_name,
-    grantListEntry_granteePrincipal,
-    grantListEntry_operations,
     grantListEntry_constraints,
     grantListEntry_creationDate,
-    grantListEntry_retiringPrincipal,
     grantListEntry_grantId,
+    grantListEntry_granteePrincipal,
+    grantListEntry_issuingAccount,
     grantListEntry_keyId,
+    grantListEntry_name,
+    grantListEntry_operations,
+    grantListEntry_retiringPrincipal,
 
     -- ** KeyListEntry
     keyListEntry_keyArn,
@@ -431,38 +445,39 @@ module Amazonka.KMS.Lens
 
     -- ** KeyMetadata
     keyMetadata_aWSAccountId,
-    keyMetadata_expirationModel,
-    keyMetadata_encryptionAlgorithms,
-    keyMetadata_customKeyStoreId,
-    keyMetadata_pendingDeletionWindowInDays,
     keyMetadata_arn,
-    keyMetadata_multiRegionConfiguration,
-    keyMetadata_creationDate,
-    keyMetadata_customerMasterKeySpec,
-    keyMetadata_keyUsage,
-    keyMetadata_description,
-    keyMetadata_multiRegion,
-    keyMetadata_enabled,
-    keyMetadata_keyManager,
     keyMetadata_cloudHsmClusterId,
+    keyMetadata_creationDate,
+    keyMetadata_customKeyStoreId,
+    keyMetadata_customerMasterKeySpec,
+    keyMetadata_deletionDate,
+    keyMetadata_description,
+    keyMetadata_enabled,
+    keyMetadata_encryptionAlgorithms,
+    keyMetadata_expirationModel,
+    keyMetadata_keyManager,
     keyMetadata_keySpec,
     keyMetadata_keyState,
-    keyMetadata_deletionDate,
-    keyMetadata_origin,
+    keyMetadata_keyUsage,
     keyMetadata_macAlgorithms,
+    keyMetadata_multiRegion,
+    keyMetadata_multiRegionConfiguration,
+    keyMetadata_origin,
+    keyMetadata_pendingDeletionWindowInDays,
     keyMetadata_signingAlgorithms,
     keyMetadata_validTo,
+    keyMetadata_xksKeyConfiguration,
     keyMetadata_keyId,
 
     -- ** ListGrantsResponse
-    listGrantsResponse_truncated,
     listGrantsResponse_grants,
     listGrantsResponse_nextMarker,
+    listGrantsResponse_truncated,
 
     -- ** MultiRegionConfiguration
+    multiRegionConfiguration_multiRegionKeyType,
     multiRegionConfiguration_primaryKey,
     multiRegionConfiguration_replicaKeys,
-    multiRegionConfiguration_multiRegionKeyType,
 
     -- ** MultiRegionKey
     multiRegionKey_arn,
@@ -471,6 +486,20 @@ module Amazonka.KMS.Lens
     -- ** Tag
     tag_tagKey,
     tag_tagValue,
+
+    -- ** XksKeyConfigurationType
+    xksKeyConfigurationType_id,
+
+    -- ** XksProxyAuthenticationCredentialType
+    xksProxyAuthenticationCredentialType_accessKeyId,
+    xksProxyAuthenticationCredentialType_rawSecretAccessKey,
+
+    -- ** XksProxyConfigurationType
+    xksProxyConfigurationType_accessKeyId,
+    xksProxyConfigurationType_connectivity,
+    xksProxyConfigurationType_uriEndpoint,
+    xksProxyConfigurationType_uriPath,
+    xksProxyConfigurationType_vpcEndpointServiceName,
   )
 where
 
@@ -527,6 +556,9 @@ import Amazonka.KMS.Types.ListGrantsResponse
 import Amazonka.KMS.Types.MultiRegionConfiguration
 import Amazonka.KMS.Types.MultiRegionKey
 import Amazonka.KMS.Types.Tag
+import Amazonka.KMS.Types.XksKeyConfigurationType
+import Amazonka.KMS.Types.XksProxyAuthenticationCredentialType
+import Amazonka.KMS.Types.XksProxyConfigurationType
 import Amazonka.KMS.UntagResource
 import Amazonka.KMS.UpdateAlias
 import Amazonka.KMS.UpdateCustomKeyStore

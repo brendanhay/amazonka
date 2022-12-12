@@ -19,20 +19,20 @@ module Amazonka.IoT1ClickProjects
     -- * Errors
     -- $errors
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** ResourceConflictException
-    _ResourceConflictException,
-
-    -- ** TooManyRequestsException
-    _TooManyRequestsException,
+    -- ** InternalFailureException
+    _InternalFailureException,
 
     -- ** InvalidRequestException
     _InvalidRequestException,
 
-    -- ** InternalFailureException
-    _InternalFailureException,
+    -- ** ResourceConflictException
+    _ResourceConflictException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
 
     -- * Waiters
     -- $waiters

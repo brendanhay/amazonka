@@ -39,11 +39,11 @@ module Amazonka.Route53RecoveryReadiness.CreateResourceSet
     newCreateResourceSetResponse,
 
     -- * Response Lenses
-    createResourceSetResponse_tags,
-    createResourceSetResponse_resourceSetType,
-    createResourceSetResponse_resourceSetName,
-    createResourceSetResponse_resources,
     createResourceSetResponse_resourceSetArn,
+    createResourceSetResponse_resourceSetName,
+    createResourceSetResponse_resourceSetType,
+    createResourceSetResponse_resources,
+    createResourceSetResponse_tags,
     createResourceSetResponse_httpStatus,
   )
 where
@@ -159,11 +159,11 @@ instance Core.AWSRequest CreateResourceSet where
     Response.receiveJSON
       ( \s h x ->
           CreateResourceSetResponse'
-            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "resourceSetType")
+            Prelude.<$> (x Data..?> "resourceSetArn")
             Prelude.<*> (x Data..?> "resourceSetName")
+            Prelude.<*> (x Data..?> "resourceSetType")
             Prelude.<*> (x Data..?> "resources" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "resourceSetArn")
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -213,7 +213,10 @@ instance Data.ToQuery CreateResourceSet where
 
 -- | /See:/ 'newCreateResourceSetResponse' smart constructor.
 data CreateResourceSetResponse = CreateResourceSetResponse'
-  { tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | The Amazon Resource Name (ARN) for the resource set.
+    resourceSetArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the resource set.
+    resourceSetName :: Prelude.Maybe Prelude.Text,
     -- | The resource type of the resources in the resource set. Enter one of the
     -- following values for resource type:
     --
@@ -227,12 +230,9 @@ data CreateResourceSetResponse = CreateResourceSetResponse'
     -- AWS::EC2::VPNConnection, AWS::EC2::VPNGateway,
     -- AWS::Route53RecoveryReadiness::DNSTargetResource
     resourceSetType :: Prelude.Maybe Prelude.Text,
-    -- | The name of the resource set.
-    resourceSetName :: Prelude.Maybe Prelude.Text,
     -- | A list of resource objects.
     resources :: Prelude.Maybe [Resource],
-    -- | The Amazon Resource Name (ARN) for the resource set.
-    resourceSetArn :: Prelude.Maybe Prelude.Text,
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -246,7 +246,9 @@ data CreateResourceSetResponse = CreateResourceSetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createResourceSetResponse_tags' - Undocumented member.
+-- 'resourceSetArn', 'createResourceSetResponse_resourceSetArn' - The Amazon Resource Name (ARN) for the resource set.
+--
+-- 'resourceSetName', 'createResourceSetResponse_resourceSetName' - The name of the resource set.
 --
 -- 'resourceSetType', 'createResourceSetResponse_resourceSetType' - The resource type of the resources in the resource set. Enter one of the
 -- following values for resource type:
@@ -261,11 +263,9 @@ data CreateResourceSetResponse = CreateResourceSetResponse'
 -- AWS::EC2::VPNConnection, AWS::EC2::VPNGateway,
 -- AWS::Route53RecoveryReadiness::DNSTargetResource
 --
--- 'resourceSetName', 'createResourceSetResponse_resourceSetName' - The name of the resource set.
---
 -- 'resources', 'createResourceSetResponse_resources' - A list of resource objects.
 --
--- 'resourceSetArn', 'createResourceSetResponse_resourceSetArn' - The Amazon Resource Name (ARN) for the resource set.
+-- 'tags', 'createResourceSetResponse_tags' - Undocumented member.
 --
 -- 'httpStatus', 'createResourceSetResponse_httpStatus' - The response's http status code.
 newCreateResourceSetResponse ::
@@ -274,17 +274,22 @@ newCreateResourceSetResponse ::
   CreateResourceSetResponse
 newCreateResourceSetResponse pHttpStatus_ =
   CreateResourceSetResponse'
-    { tags = Prelude.Nothing,
-      resourceSetType = Prelude.Nothing,
+    { resourceSetArn =
+        Prelude.Nothing,
       resourceSetName = Prelude.Nothing,
+      resourceSetType = Prelude.Nothing,
       resources = Prelude.Nothing,
-      resourceSetArn = Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
-createResourceSetResponse_tags :: Lens.Lens' CreateResourceSetResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createResourceSetResponse_tags = Lens.lens (\CreateResourceSetResponse' {tags} -> tags) (\s@CreateResourceSetResponse' {} a -> s {tags = a} :: CreateResourceSetResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The Amazon Resource Name (ARN) for the resource set.
+createResourceSetResponse_resourceSetArn :: Lens.Lens' CreateResourceSetResponse (Prelude.Maybe Prelude.Text)
+createResourceSetResponse_resourceSetArn = Lens.lens (\CreateResourceSetResponse' {resourceSetArn} -> resourceSetArn) (\s@CreateResourceSetResponse' {} a -> s {resourceSetArn = a} :: CreateResourceSetResponse)
+
+-- | The name of the resource set.
+createResourceSetResponse_resourceSetName :: Lens.Lens' CreateResourceSetResponse (Prelude.Maybe Prelude.Text)
+createResourceSetResponse_resourceSetName = Lens.lens (\CreateResourceSetResponse' {resourceSetName} -> resourceSetName) (\s@CreateResourceSetResponse' {} a -> s {resourceSetName = a} :: CreateResourceSetResponse)
 
 -- | The resource type of the resources in the resource set. Enter one of the
 -- following values for resource type:
@@ -301,17 +306,13 @@ createResourceSetResponse_tags = Lens.lens (\CreateResourceSetResponse' {tags} -
 createResourceSetResponse_resourceSetType :: Lens.Lens' CreateResourceSetResponse (Prelude.Maybe Prelude.Text)
 createResourceSetResponse_resourceSetType = Lens.lens (\CreateResourceSetResponse' {resourceSetType} -> resourceSetType) (\s@CreateResourceSetResponse' {} a -> s {resourceSetType = a} :: CreateResourceSetResponse)
 
--- | The name of the resource set.
-createResourceSetResponse_resourceSetName :: Lens.Lens' CreateResourceSetResponse (Prelude.Maybe Prelude.Text)
-createResourceSetResponse_resourceSetName = Lens.lens (\CreateResourceSetResponse' {resourceSetName} -> resourceSetName) (\s@CreateResourceSetResponse' {} a -> s {resourceSetName = a} :: CreateResourceSetResponse)
-
 -- | A list of resource objects.
 createResourceSetResponse_resources :: Lens.Lens' CreateResourceSetResponse (Prelude.Maybe [Resource])
 createResourceSetResponse_resources = Lens.lens (\CreateResourceSetResponse' {resources} -> resources) (\s@CreateResourceSetResponse' {} a -> s {resources = a} :: CreateResourceSetResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Resource Name (ARN) for the resource set.
-createResourceSetResponse_resourceSetArn :: Lens.Lens' CreateResourceSetResponse (Prelude.Maybe Prelude.Text)
-createResourceSetResponse_resourceSetArn = Lens.lens (\CreateResourceSetResponse' {resourceSetArn} -> resourceSetArn) (\s@CreateResourceSetResponse' {} a -> s {resourceSetArn = a} :: CreateResourceSetResponse)
+-- | Undocumented member.
+createResourceSetResponse_tags :: Lens.Lens' CreateResourceSetResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createResourceSetResponse_tags = Lens.lens (\CreateResourceSetResponse' {tags} -> tags) (\s@CreateResourceSetResponse' {} a -> s {tags = a} :: CreateResourceSetResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 createResourceSetResponse_httpStatus :: Lens.Lens' CreateResourceSetResponse Prelude.Int
@@ -319,9 +320,9 @@ createResourceSetResponse_httpStatus = Lens.lens (\CreateResourceSetResponse' {h
 
 instance Prelude.NFData CreateResourceSetResponse where
   rnf CreateResourceSetResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf resourceSetType
+    Prelude.rnf resourceSetArn
       `Prelude.seq` Prelude.rnf resourceSetName
+      `Prelude.seq` Prelude.rnf resourceSetType
       `Prelude.seq` Prelude.rnf resources
-      `Prelude.seq` Prelude.rnf resourceSetArn
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

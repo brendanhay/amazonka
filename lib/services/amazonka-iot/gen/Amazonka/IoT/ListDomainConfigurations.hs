@@ -35,8 +35,8 @@ module Amazonka.IoT.ListDomainConfigurations
 
     -- * Request Lenses
     listDomainConfigurations_marker,
-    listDomainConfigurations_serviceType,
     listDomainConfigurations_pageSize,
+    listDomainConfigurations_serviceType,
 
     -- * Destructuring the Response
     ListDomainConfigurationsResponse (..),
@@ -61,10 +61,10 @@ import qualified Amazonka.Response as Response
 data ListDomainConfigurations = ListDomainConfigurations'
   { -- | The marker for the next set of results.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | The type of service delivered by the endpoint.
-    serviceType :: Prelude.Maybe ServiceType,
     -- | The result page size.
-    pageSize :: Prelude.Maybe Prelude.Natural
+    pageSize :: Prelude.Maybe Prelude.Natural,
+    -- | The type of service delivered by the endpoint.
+    serviceType :: Prelude.Maybe ServiceType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,29 +78,29 @@ data ListDomainConfigurations = ListDomainConfigurations'
 --
 -- 'marker', 'listDomainConfigurations_marker' - The marker for the next set of results.
 --
--- 'serviceType', 'listDomainConfigurations_serviceType' - The type of service delivered by the endpoint.
---
 -- 'pageSize', 'listDomainConfigurations_pageSize' - The result page size.
+--
+-- 'serviceType', 'listDomainConfigurations_serviceType' - The type of service delivered by the endpoint.
 newListDomainConfigurations ::
   ListDomainConfigurations
 newListDomainConfigurations =
   ListDomainConfigurations'
     { marker = Prelude.Nothing,
-      serviceType = Prelude.Nothing,
-      pageSize = Prelude.Nothing
+      pageSize = Prelude.Nothing,
+      serviceType = Prelude.Nothing
     }
 
 -- | The marker for the next set of results.
 listDomainConfigurations_marker :: Lens.Lens' ListDomainConfigurations (Prelude.Maybe Prelude.Text)
 listDomainConfigurations_marker = Lens.lens (\ListDomainConfigurations' {marker} -> marker) (\s@ListDomainConfigurations' {} a -> s {marker = a} :: ListDomainConfigurations)
 
--- | The type of service delivered by the endpoint.
-listDomainConfigurations_serviceType :: Lens.Lens' ListDomainConfigurations (Prelude.Maybe ServiceType)
-listDomainConfigurations_serviceType = Lens.lens (\ListDomainConfigurations' {serviceType} -> serviceType) (\s@ListDomainConfigurations' {} a -> s {serviceType = a} :: ListDomainConfigurations)
-
 -- | The result page size.
 listDomainConfigurations_pageSize :: Lens.Lens' ListDomainConfigurations (Prelude.Maybe Prelude.Natural)
 listDomainConfigurations_pageSize = Lens.lens (\ListDomainConfigurations' {pageSize} -> pageSize) (\s@ListDomainConfigurations' {} a -> s {pageSize = a} :: ListDomainConfigurations)
+
+-- | The type of service delivered by the endpoint.
+listDomainConfigurations_serviceType :: Lens.Lens' ListDomainConfigurations (Prelude.Maybe ServiceType)
+listDomainConfigurations_serviceType = Lens.lens (\ListDomainConfigurations' {serviceType} -> serviceType) (\s@ListDomainConfigurations' {} a -> s {serviceType = a} :: ListDomainConfigurations)
 
 instance Core.AWSPager ListDomainConfigurations where
   page rq rs
@@ -144,14 +144,14 @@ instance Core.AWSRequest ListDomainConfigurations where
 instance Prelude.Hashable ListDomainConfigurations where
   hashWithSalt _salt ListDomainConfigurations' {..} =
     _salt `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` serviceType
       `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` serviceType
 
 instance Prelude.NFData ListDomainConfigurations where
   rnf ListDomainConfigurations' {..} =
     Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf serviceType
       `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf serviceType
 
 instance Data.ToHeaders ListDomainConfigurations where
   toHeaders = Prelude.const Prelude.mempty
@@ -163,8 +163,8 @@ instance Data.ToQuery ListDomainConfigurations where
   toQuery ListDomainConfigurations' {..} =
     Prelude.mconcat
       [ "marker" Data.=: marker,
-        "serviceType" Data.=: serviceType,
-        "pageSize" Data.=: pageSize
+        "pageSize" Data.=: pageSize,
+        "serviceType" Data.=: serviceType
       ]
 
 -- | /See:/ 'newListDomainConfigurationsResponse' smart constructor.

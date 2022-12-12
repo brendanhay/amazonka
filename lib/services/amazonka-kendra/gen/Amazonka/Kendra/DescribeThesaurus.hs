@@ -35,18 +35,18 @@ module Amazonka.Kendra.DescribeThesaurus
     newDescribeThesaurusResponse,
 
     -- * Response Lenses
+    describeThesaurusResponse_createdAt,
+    describeThesaurusResponse_description,
+    describeThesaurusResponse_errorMessage,
+    describeThesaurusResponse_fileSizeBytes,
+    describeThesaurusResponse_id,
     describeThesaurusResponse_indexId,
     describeThesaurusResponse_name,
     describeThesaurusResponse_roleArn,
-    describeThesaurusResponse_termCount,
-    describeThesaurusResponse_errorMessage,
-    describeThesaurusResponse_status,
-    describeThesaurusResponse_id,
-    describeThesaurusResponse_description,
-    describeThesaurusResponse_synonymRuleCount,
     describeThesaurusResponse_sourceS3Path,
-    describeThesaurusResponse_fileSizeBytes,
-    describeThesaurusResponse_createdAt,
+    describeThesaurusResponse_status,
+    describeThesaurusResponse_synonymRuleCount,
+    describeThesaurusResponse_termCount,
     describeThesaurusResponse_updatedAt,
     describeThesaurusResponse_httpStatus,
   )
@@ -107,18 +107,18 @@ instance Core.AWSRequest DescribeThesaurus where
     Response.receiveJSON
       ( \s h x ->
           DescribeThesaurusResponse'
-            Prelude.<$> (x Data..?> "IndexId")
+            Prelude.<$> (x Data..?> "CreatedAt")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "ErrorMessage")
+            Prelude.<*> (x Data..?> "FileSizeBytes")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "IndexId")
             Prelude.<*> (x Data..?> "Name")
             Prelude.<*> (x Data..?> "RoleArn")
-            Prelude.<*> (x Data..?> "TermCount")
-            Prelude.<*> (x Data..?> "ErrorMessage")
-            Prelude.<*> (x Data..?> "Status")
-            Prelude.<*> (x Data..?> "Id")
-            Prelude.<*> (x Data..?> "Description")
-            Prelude.<*> (x Data..?> "SynonymRuleCount")
             Prelude.<*> (x Data..?> "SourceS3Path")
-            Prelude.<*> (x Data..?> "FileSizeBytes")
-            Prelude.<*> (x Data..?> "CreatedAt")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "SynonymRuleCount")
+            Prelude.<*> (x Data..?> "TermCount")
             Prelude.<*> (x Data..?> "UpdatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -164,19 +164,25 @@ instance Data.ToQuery DescribeThesaurus where
 
 -- | /See:/ 'newDescribeThesaurusResponse' smart constructor.
 data DescribeThesaurusResponse = DescribeThesaurusResponse'
-  { -- | The identifier of the index for the thesaurus.
+  { -- | The Unix datetime that the thesaurus was created.
+    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | The thesaurus description.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | When the @Status@ field value is @FAILED@, the @ErrorMessage@ field
+    -- provides more information.
+    errorMessage :: Prelude.Maybe Prelude.Text,
+    -- | The size of the thesaurus file in bytes.
+    fileSizeBytes :: Prelude.Maybe Prelude.Integer,
+    -- | The identifier of the thesaurus.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the index for the thesaurus.
     indexId :: Prelude.Maybe Prelude.Text,
     -- | The thesaurus name.
     name :: Prelude.Maybe Prelude.Text,
     -- | An IAM role that gives Amazon Kendra permissions to access thesaurus
     -- file specified in @SourceS3Path@.
     roleArn :: Prelude.Maybe Prelude.Text,
-    -- | The number of unique terms in the thesaurus file. For example, the
-    -- synonyms @a,b,c@ and @a=>d@, the term count would be 4.
-    termCount :: Prelude.Maybe Prelude.Integer,
-    -- | When the @Status@ field value is @FAILED@, the @ErrorMessage@ field
-    -- provides more information.
-    errorMessage :: Prelude.Maybe Prelude.Text,
+    sourceS3Path :: Prelude.Maybe S3Path,
     -- | The current status of the thesaurus. When the value is @ACTIVE@, queries
     -- are able to use the thesaurus. If the @Status@ field value is @FAILED@,
     -- the @ErrorMessage@ field provides more information.
@@ -185,17 +191,11 @@ data DescribeThesaurusResponse = DescribeThesaurusResponse'
     -- could not ingest the new thesaurus file. The old thesaurus file is still
     -- active.
     status :: Prelude.Maybe ThesaurusStatus,
-    -- | The identifier of the thesaurus.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The thesaurus description.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The number of synonym rules in the thesaurus file.
     synonymRuleCount :: Prelude.Maybe Prelude.Integer,
-    sourceS3Path :: Prelude.Maybe S3Path,
-    -- | The size of the thesaurus file in bytes.
-    fileSizeBytes :: Prelude.Maybe Prelude.Integer,
-    -- | The Unix datetime that the thesaurus was created.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | The number of unique terms in the thesaurus file. For example, the
+    -- synonyms @a,b,c@ and @a=>d@, the term count would be 4.
+    termCount :: Prelude.Maybe Prelude.Integer,
     -- | The Unix datetime that the thesaurus was last updated.
     updatedAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
@@ -211,6 +211,17 @@ data DescribeThesaurusResponse = DescribeThesaurusResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'createdAt', 'describeThesaurusResponse_createdAt' - The Unix datetime that the thesaurus was created.
+--
+-- 'description', 'describeThesaurusResponse_description' - The thesaurus description.
+--
+-- 'errorMessage', 'describeThesaurusResponse_errorMessage' - When the @Status@ field value is @FAILED@, the @ErrorMessage@ field
+-- provides more information.
+--
+-- 'fileSizeBytes', 'describeThesaurusResponse_fileSizeBytes' - The size of the thesaurus file in bytes.
+--
+-- 'id', 'describeThesaurusResponse_id' - The identifier of the thesaurus.
+--
 -- 'indexId', 'describeThesaurusResponse_indexId' - The identifier of the index for the thesaurus.
 --
 -- 'name', 'describeThesaurusResponse_name' - The thesaurus name.
@@ -218,11 +229,7 @@ data DescribeThesaurusResponse = DescribeThesaurusResponse'
 -- 'roleArn', 'describeThesaurusResponse_roleArn' - An IAM role that gives Amazon Kendra permissions to access thesaurus
 -- file specified in @SourceS3Path@.
 --
--- 'termCount', 'describeThesaurusResponse_termCount' - The number of unique terms in the thesaurus file. For example, the
--- synonyms @a,b,c@ and @a=>d@, the term count would be 4.
---
--- 'errorMessage', 'describeThesaurusResponse_errorMessage' - When the @Status@ field value is @FAILED@, the @ErrorMessage@ field
--- provides more information.
+-- 'sourceS3Path', 'describeThesaurusResponse_sourceS3Path' - Undocumented member.
 --
 -- 'status', 'describeThesaurusResponse_status' - The current status of the thesaurus. When the value is @ACTIVE@, queries
 -- are able to use the thesaurus. If the @Status@ field value is @FAILED@,
@@ -232,17 +239,10 @@ data DescribeThesaurusResponse = DescribeThesaurusResponse'
 -- could not ingest the new thesaurus file. The old thesaurus file is still
 -- active.
 --
--- 'id', 'describeThesaurusResponse_id' - The identifier of the thesaurus.
---
--- 'description', 'describeThesaurusResponse_description' - The thesaurus description.
---
 -- 'synonymRuleCount', 'describeThesaurusResponse_synonymRuleCount' - The number of synonym rules in the thesaurus file.
 --
--- 'sourceS3Path', 'describeThesaurusResponse_sourceS3Path' - Undocumented member.
---
--- 'fileSizeBytes', 'describeThesaurusResponse_fileSizeBytes' - The size of the thesaurus file in bytes.
---
--- 'createdAt', 'describeThesaurusResponse_createdAt' - The Unix datetime that the thesaurus was created.
+-- 'termCount', 'describeThesaurusResponse_termCount' - The number of unique terms in the thesaurus file. For example, the
+-- synonyms @a,b,c@ and @a=>d@, the term count would be 4.
 --
 -- 'updatedAt', 'describeThesaurusResponse_updatedAt' - The Unix datetime that the thesaurus was last updated.
 --
@@ -253,22 +253,43 @@ newDescribeThesaurusResponse ::
   DescribeThesaurusResponse
 newDescribeThesaurusResponse pHttpStatus_ =
   DescribeThesaurusResponse'
-    { indexId =
+    { createdAt =
         Prelude.Nothing,
+      description = Prelude.Nothing,
+      errorMessage = Prelude.Nothing,
+      fileSizeBytes = Prelude.Nothing,
+      id = Prelude.Nothing,
+      indexId = Prelude.Nothing,
       name = Prelude.Nothing,
       roleArn = Prelude.Nothing,
-      termCount = Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
-      status = Prelude.Nothing,
-      id = Prelude.Nothing,
-      description = Prelude.Nothing,
-      synonymRuleCount = Prelude.Nothing,
       sourceS3Path = Prelude.Nothing,
-      fileSizeBytes = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
+      status = Prelude.Nothing,
+      synonymRuleCount = Prelude.Nothing,
+      termCount = Prelude.Nothing,
       updatedAt = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Unix datetime that the thesaurus was created.
+describeThesaurusResponse_createdAt :: Lens.Lens' DescribeThesaurusResponse (Prelude.Maybe Prelude.UTCTime)
+describeThesaurusResponse_createdAt = Lens.lens (\DescribeThesaurusResponse' {createdAt} -> createdAt) (\s@DescribeThesaurusResponse' {} a -> s {createdAt = a} :: DescribeThesaurusResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The thesaurus description.
+describeThesaurusResponse_description :: Lens.Lens' DescribeThesaurusResponse (Prelude.Maybe Prelude.Text)
+describeThesaurusResponse_description = Lens.lens (\DescribeThesaurusResponse' {description} -> description) (\s@DescribeThesaurusResponse' {} a -> s {description = a} :: DescribeThesaurusResponse)
+
+-- | When the @Status@ field value is @FAILED@, the @ErrorMessage@ field
+-- provides more information.
+describeThesaurusResponse_errorMessage :: Lens.Lens' DescribeThesaurusResponse (Prelude.Maybe Prelude.Text)
+describeThesaurusResponse_errorMessage = Lens.lens (\DescribeThesaurusResponse' {errorMessage} -> errorMessage) (\s@DescribeThesaurusResponse' {} a -> s {errorMessage = a} :: DescribeThesaurusResponse)
+
+-- | The size of the thesaurus file in bytes.
+describeThesaurusResponse_fileSizeBytes :: Lens.Lens' DescribeThesaurusResponse (Prelude.Maybe Prelude.Integer)
+describeThesaurusResponse_fileSizeBytes = Lens.lens (\DescribeThesaurusResponse' {fileSizeBytes} -> fileSizeBytes) (\s@DescribeThesaurusResponse' {} a -> s {fileSizeBytes = a} :: DescribeThesaurusResponse)
+
+-- | The identifier of the thesaurus.
+describeThesaurusResponse_id :: Lens.Lens' DescribeThesaurusResponse (Prelude.Maybe Prelude.Text)
+describeThesaurusResponse_id = Lens.lens (\DescribeThesaurusResponse' {id} -> id) (\s@DescribeThesaurusResponse' {} a -> s {id = a} :: DescribeThesaurusResponse)
 
 -- | The identifier of the index for the thesaurus.
 describeThesaurusResponse_indexId :: Lens.Lens' DescribeThesaurusResponse (Prelude.Maybe Prelude.Text)
@@ -283,15 +304,9 @@ describeThesaurusResponse_name = Lens.lens (\DescribeThesaurusResponse' {name} -
 describeThesaurusResponse_roleArn :: Lens.Lens' DescribeThesaurusResponse (Prelude.Maybe Prelude.Text)
 describeThesaurusResponse_roleArn = Lens.lens (\DescribeThesaurusResponse' {roleArn} -> roleArn) (\s@DescribeThesaurusResponse' {} a -> s {roleArn = a} :: DescribeThesaurusResponse)
 
--- | The number of unique terms in the thesaurus file. For example, the
--- synonyms @a,b,c@ and @a=>d@, the term count would be 4.
-describeThesaurusResponse_termCount :: Lens.Lens' DescribeThesaurusResponse (Prelude.Maybe Prelude.Integer)
-describeThesaurusResponse_termCount = Lens.lens (\DescribeThesaurusResponse' {termCount} -> termCount) (\s@DescribeThesaurusResponse' {} a -> s {termCount = a} :: DescribeThesaurusResponse)
-
--- | When the @Status@ field value is @FAILED@, the @ErrorMessage@ field
--- provides more information.
-describeThesaurusResponse_errorMessage :: Lens.Lens' DescribeThesaurusResponse (Prelude.Maybe Prelude.Text)
-describeThesaurusResponse_errorMessage = Lens.lens (\DescribeThesaurusResponse' {errorMessage} -> errorMessage) (\s@DescribeThesaurusResponse' {} a -> s {errorMessage = a} :: DescribeThesaurusResponse)
+-- | Undocumented member.
+describeThesaurusResponse_sourceS3Path :: Lens.Lens' DescribeThesaurusResponse (Prelude.Maybe S3Path)
+describeThesaurusResponse_sourceS3Path = Lens.lens (\DescribeThesaurusResponse' {sourceS3Path} -> sourceS3Path) (\s@DescribeThesaurusResponse' {} a -> s {sourceS3Path = a} :: DescribeThesaurusResponse)
 
 -- | The current status of the thesaurus. When the value is @ACTIVE@, queries
 -- are able to use the thesaurus. If the @Status@ field value is @FAILED@,
@@ -303,29 +318,14 @@ describeThesaurusResponse_errorMessage = Lens.lens (\DescribeThesaurusResponse' 
 describeThesaurusResponse_status :: Lens.Lens' DescribeThesaurusResponse (Prelude.Maybe ThesaurusStatus)
 describeThesaurusResponse_status = Lens.lens (\DescribeThesaurusResponse' {status} -> status) (\s@DescribeThesaurusResponse' {} a -> s {status = a} :: DescribeThesaurusResponse)
 
--- | The identifier of the thesaurus.
-describeThesaurusResponse_id :: Lens.Lens' DescribeThesaurusResponse (Prelude.Maybe Prelude.Text)
-describeThesaurusResponse_id = Lens.lens (\DescribeThesaurusResponse' {id} -> id) (\s@DescribeThesaurusResponse' {} a -> s {id = a} :: DescribeThesaurusResponse)
-
--- | The thesaurus description.
-describeThesaurusResponse_description :: Lens.Lens' DescribeThesaurusResponse (Prelude.Maybe Prelude.Text)
-describeThesaurusResponse_description = Lens.lens (\DescribeThesaurusResponse' {description} -> description) (\s@DescribeThesaurusResponse' {} a -> s {description = a} :: DescribeThesaurusResponse)
-
 -- | The number of synonym rules in the thesaurus file.
 describeThesaurusResponse_synonymRuleCount :: Lens.Lens' DescribeThesaurusResponse (Prelude.Maybe Prelude.Integer)
 describeThesaurusResponse_synonymRuleCount = Lens.lens (\DescribeThesaurusResponse' {synonymRuleCount} -> synonymRuleCount) (\s@DescribeThesaurusResponse' {} a -> s {synonymRuleCount = a} :: DescribeThesaurusResponse)
 
--- | Undocumented member.
-describeThesaurusResponse_sourceS3Path :: Lens.Lens' DescribeThesaurusResponse (Prelude.Maybe S3Path)
-describeThesaurusResponse_sourceS3Path = Lens.lens (\DescribeThesaurusResponse' {sourceS3Path} -> sourceS3Path) (\s@DescribeThesaurusResponse' {} a -> s {sourceS3Path = a} :: DescribeThesaurusResponse)
-
--- | The size of the thesaurus file in bytes.
-describeThesaurusResponse_fileSizeBytes :: Lens.Lens' DescribeThesaurusResponse (Prelude.Maybe Prelude.Integer)
-describeThesaurusResponse_fileSizeBytes = Lens.lens (\DescribeThesaurusResponse' {fileSizeBytes} -> fileSizeBytes) (\s@DescribeThesaurusResponse' {} a -> s {fileSizeBytes = a} :: DescribeThesaurusResponse)
-
--- | The Unix datetime that the thesaurus was created.
-describeThesaurusResponse_createdAt :: Lens.Lens' DescribeThesaurusResponse (Prelude.Maybe Prelude.UTCTime)
-describeThesaurusResponse_createdAt = Lens.lens (\DescribeThesaurusResponse' {createdAt} -> createdAt) (\s@DescribeThesaurusResponse' {} a -> s {createdAt = a} :: DescribeThesaurusResponse) Prelude.. Lens.mapping Data._Time
+-- | The number of unique terms in the thesaurus file. For example, the
+-- synonyms @a,b,c@ and @a=>d@, the term count would be 4.
+describeThesaurusResponse_termCount :: Lens.Lens' DescribeThesaurusResponse (Prelude.Maybe Prelude.Integer)
+describeThesaurusResponse_termCount = Lens.lens (\DescribeThesaurusResponse' {termCount} -> termCount) (\s@DescribeThesaurusResponse' {} a -> s {termCount = a} :: DescribeThesaurusResponse)
 
 -- | The Unix datetime that the thesaurus was last updated.
 describeThesaurusResponse_updatedAt :: Lens.Lens' DescribeThesaurusResponse (Prelude.Maybe Prelude.UTCTime)
@@ -337,17 +337,17 @@ describeThesaurusResponse_httpStatus = Lens.lens (\DescribeThesaurusResponse' {h
 
 instance Prelude.NFData DescribeThesaurusResponse where
   rnf DescribeThesaurusResponse' {..} =
-    Prelude.rnf indexId
+    Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf fileSizeBytes
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf indexId
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf termCount
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf synonymRuleCount
       `Prelude.seq` Prelude.rnf sourceS3Path
-      `Prelude.seq` Prelude.rnf fileSizeBytes
-      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf synonymRuleCount
+      `Prelude.seq` Prelude.rnf termCount
       `Prelude.seq` Prelude.rnf updatedAt
       `Prelude.seq` Prelude.rnf httpStatus

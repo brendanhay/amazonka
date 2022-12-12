@@ -19,85 +19,85 @@ module Amazonka.CloudFront.Lens
     associateAlias_alias,
 
     -- ** CopyDistribution
-    copyDistribution_staging,
     copyDistribution_ifMatch,
+    copyDistribution_staging,
     copyDistribution_primaryDistributionId,
     copyDistribution_callerReference,
-    copyDistributionResponse_location,
     copyDistributionResponse_distribution,
     copyDistributionResponse_eTag,
+    copyDistributionResponse_location,
     copyDistributionResponse_httpStatus,
 
     -- ** CreateCachePolicy
     createCachePolicy_cachePolicyConfig,
-    createCachePolicyResponse_location,
     createCachePolicyResponse_cachePolicy,
     createCachePolicyResponse_eTag,
+    createCachePolicyResponse_location,
     createCachePolicyResponse_httpStatus,
 
     -- ** CreateCloudFrontOriginAccessIdentity
     createCloudFrontOriginAccessIdentity_cloudFrontOriginAccessIdentityConfig,
     createCloudFrontOriginAccessIdentityResponse_cloudFrontOriginAccessIdentity,
-    createCloudFrontOriginAccessIdentityResponse_location,
     createCloudFrontOriginAccessIdentityResponse_eTag,
+    createCloudFrontOriginAccessIdentityResponse_location,
     createCloudFrontOriginAccessIdentityResponse_httpStatus,
 
     -- ** CreateContinuousDeploymentPolicy
     createContinuousDeploymentPolicy_continuousDeploymentPolicyConfig,
     createContinuousDeploymentPolicyResponse_continuousDeploymentPolicy,
-    createContinuousDeploymentPolicyResponse_location,
     createContinuousDeploymentPolicyResponse_eTag,
+    createContinuousDeploymentPolicyResponse_location,
     createContinuousDeploymentPolicyResponse_httpStatus,
 
     -- ** CreateDistribution
     createDistribution_distributionConfig,
-    createDistributionResponse_location,
     createDistributionResponse_distribution,
     createDistributionResponse_eTag,
+    createDistributionResponse_location,
     createDistributionResponse_httpStatus,
 
     -- ** CreateDistributionWithTags
     createDistributionWithTags_distributionConfigWithTags,
-    createDistributionWithTagsResponse_location,
     createDistributionWithTagsResponse_distribution,
     createDistributionWithTagsResponse_eTag,
+    createDistributionWithTagsResponse_location,
     createDistributionWithTagsResponse_httpStatus,
 
     -- ** CreateFieldLevelEncryptionConfig
     createFieldLevelEncryptionConfig_fieldLevelEncryptionConfig,
-    createFieldLevelEncryptionConfigResponse_location,
     createFieldLevelEncryptionConfigResponse_eTag,
     createFieldLevelEncryptionConfigResponse_fieldLevelEncryption,
+    createFieldLevelEncryptionConfigResponse_location,
     createFieldLevelEncryptionConfigResponse_httpStatus,
 
     -- ** CreateFieldLevelEncryptionProfile
     createFieldLevelEncryptionProfile_fieldLevelEncryptionProfileConfig,
+    createFieldLevelEncryptionProfileResponse_eTag,
     createFieldLevelEncryptionProfileResponse_fieldLevelEncryptionProfile,
     createFieldLevelEncryptionProfileResponse_location,
-    createFieldLevelEncryptionProfileResponse_eTag,
     createFieldLevelEncryptionProfileResponse_httpStatus,
 
     -- ** CreateFunction
     createFunction_name,
     createFunction_functionConfig,
     createFunction_functionCode,
+    createFunctionResponse_eTag,
     createFunctionResponse_functionSummary,
     createFunctionResponse_location,
-    createFunctionResponse_eTag,
     createFunctionResponse_httpStatus,
 
     -- ** CreateInvalidation
     createInvalidation_distributionId,
     createInvalidation_invalidationBatch,
-    createInvalidationResponse_location,
     createInvalidationResponse_invalidation,
+    createInvalidationResponse_location,
     createInvalidationResponse_httpStatus,
 
     -- ** CreateKeyGroup
     createKeyGroup_keyGroupConfig,
+    createKeyGroupResponse_eTag,
     createKeyGroupResponse_keyGroup,
     createKeyGroupResponse_location,
-    createKeyGroupResponse_eTag,
     createKeyGroupResponse_httpStatus,
 
     -- ** CreateMonitoringSubscription
@@ -108,23 +108,23 @@ module Amazonka.CloudFront.Lens
 
     -- ** CreateOriginAccessControl
     createOriginAccessControl_originAccessControlConfig,
-    createOriginAccessControlResponse_originAccessControl,
-    createOriginAccessControlResponse_location,
     createOriginAccessControlResponse_eTag,
+    createOriginAccessControlResponse_location,
+    createOriginAccessControlResponse_originAccessControl,
     createOriginAccessControlResponse_httpStatus,
 
     -- ** CreateOriginRequestPolicy
     createOriginRequestPolicy_originRequestPolicyConfig,
-    createOriginRequestPolicyResponse_originRequestPolicy,
-    createOriginRequestPolicyResponse_location,
     createOriginRequestPolicyResponse_eTag,
+    createOriginRequestPolicyResponse_location,
+    createOriginRequestPolicyResponse_originRequestPolicy,
     createOriginRequestPolicyResponse_httpStatus,
 
     -- ** CreatePublicKey
     createPublicKey_publicKeyConfig,
-    createPublicKeyResponse_publicKey,
-    createPublicKeyResponse_location,
     createPublicKeyResponse_eTag,
+    createPublicKeyResponse_location,
+    createPublicKeyResponse_publicKey,
     createPublicKeyResponse_httpStatus,
 
     -- ** CreateRealtimeLogConfig
@@ -137,23 +137,23 @@ module Amazonka.CloudFront.Lens
 
     -- ** CreateResponseHeadersPolicy
     createResponseHeadersPolicy_responseHeadersPolicyConfig,
-    createResponseHeadersPolicyResponse_responseHeadersPolicy,
-    createResponseHeadersPolicyResponse_location,
     createResponseHeadersPolicyResponse_eTag,
+    createResponseHeadersPolicyResponse_location,
+    createResponseHeadersPolicyResponse_responseHeadersPolicy,
     createResponseHeadersPolicyResponse_httpStatus,
 
     -- ** CreateStreamingDistribution
     createStreamingDistribution_streamingDistributionConfig,
+    createStreamingDistributionResponse_eTag,
     createStreamingDistributionResponse_location,
     createStreamingDistributionResponse_streamingDistribution,
-    createStreamingDistributionResponse_eTag,
     createStreamingDistributionResponse_httpStatus,
 
     -- ** CreateStreamingDistributionWithTags
     createStreamingDistributionWithTags_streamingDistributionConfigWithTags,
+    createStreamingDistributionWithTagsResponse_eTag,
     createStreamingDistributionWithTagsResponse_location,
     createStreamingDistributionWithTagsResponse_streamingDistribution,
-    createStreamingDistributionWithTagsResponse_eTag,
     createStreamingDistributionWithTagsResponse_httpStatus,
 
     -- ** DeleteCachePolicy
@@ -205,8 +205,8 @@ module Amazonka.CloudFront.Lens
     deletePublicKey_id,
 
     -- ** DeleteRealtimeLogConfig
-    deleteRealtimeLogConfig_name,
     deleteRealtimeLogConfig_arn,
+    deleteRealtimeLogConfig_name,
 
     -- ** DeleteResponseHeadersPolicy
     deleteResponseHeadersPolicy_ifMatch,
@@ -219,8 +219,8 @@ module Amazonka.CloudFront.Lens
     -- ** DescribeFunction
     describeFunction_stage,
     describeFunction_name,
-    describeFunctionResponse_functionSummary,
     describeFunctionResponse_eTag,
+    describeFunctionResponse_functionSummary,
     describeFunctionResponse_httpStatus,
 
     -- ** GetCachePolicy
@@ -243,8 +243,8 @@ module Amazonka.CloudFront.Lens
 
     -- ** GetCloudFrontOriginAccessIdentityConfig
     getCloudFrontOriginAccessIdentityConfig_id,
-    getCloudFrontOriginAccessIdentityConfigResponse_eTag,
     getCloudFrontOriginAccessIdentityConfigResponse_cloudFrontOriginAccessIdentityConfig,
+    getCloudFrontOriginAccessIdentityConfigResponse_eTag,
     getCloudFrontOriginAccessIdentityConfigResponse_httpStatus,
 
     -- ** GetContinuousDeploymentPolicy
@@ -267,8 +267,8 @@ module Amazonka.CloudFront.Lens
 
     -- ** GetDistributionConfig
     getDistributionConfig_id,
-    getDistributionConfigResponse_eTag,
     getDistributionConfigResponse_distributionConfig,
+    getDistributionConfigResponse_eTag,
     getDistributionConfigResponse_httpStatus,
 
     -- ** GetFieldLevelEncryption
@@ -285,22 +285,22 @@ module Amazonka.CloudFront.Lens
 
     -- ** GetFieldLevelEncryptionProfile
     getFieldLevelEncryptionProfile_id,
-    getFieldLevelEncryptionProfileResponse_fieldLevelEncryptionProfile,
     getFieldLevelEncryptionProfileResponse_eTag,
+    getFieldLevelEncryptionProfileResponse_fieldLevelEncryptionProfile,
     getFieldLevelEncryptionProfileResponse_httpStatus,
 
     -- ** GetFieldLevelEncryptionProfileConfig
     getFieldLevelEncryptionProfileConfig_id,
-    getFieldLevelEncryptionProfileConfigResponse_fieldLevelEncryptionProfileConfig,
     getFieldLevelEncryptionProfileConfigResponse_eTag,
+    getFieldLevelEncryptionProfileConfigResponse_fieldLevelEncryptionProfileConfig,
     getFieldLevelEncryptionProfileConfigResponse_httpStatus,
 
     -- ** GetFunction
     getFunction_stage,
     getFunction_name,
+    getFunctionResponse_contentType,
     getFunctionResponse_eTag,
     getFunctionResponse_functionCode,
-    getFunctionResponse_contentType,
     getFunctionResponse_httpStatus,
 
     -- ** GetInvalidation
@@ -311,14 +311,14 @@ module Amazonka.CloudFront.Lens
 
     -- ** GetKeyGroup
     getKeyGroup_id,
-    getKeyGroupResponse_keyGroup,
     getKeyGroupResponse_eTag,
+    getKeyGroupResponse_keyGroup,
     getKeyGroupResponse_httpStatus,
 
     -- ** GetKeyGroupConfig
     getKeyGroupConfig_id,
-    getKeyGroupConfigResponse_keyGroupConfig,
     getKeyGroupConfigResponse_eTag,
+    getKeyGroupConfigResponse_keyGroupConfig,
     getKeyGroupConfigResponse_httpStatus,
 
     -- ** GetMonitoringSubscription
@@ -328,20 +328,20 @@ module Amazonka.CloudFront.Lens
 
     -- ** GetOriginAccessControl
     getOriginAccessControl_id,
-    getOriginAccessControlResponse_originAccessControl,
     getOriginAccessControlResponse_eTag,
+    getOriginAccessControlResponse_originAccessControl,
     getOriginAccessControlResponse_httpStatus,
 
     -- ** GetOriginAccessControlConfig
     getOriginAccessControlConfig_id,
-    getOriginAccessControlConfigResponse_originAccessControlConfig,
     getOriginAccessControlConfigResponse_eTag,
+    getOriginAccessControlConfigResponse_originAccessControlConfig,
     getOriginAccessControlConfigResponse_httpStatus,
 
     -- ** GetOriginRequestPolicy
     getOriginRequestPolicy_id,
-    getOriginRequestPolicyResponse_originRequestPolicy,
     getOriginRequestPolicyResponse_eTag,
+    getOriginRequestPolicyResponse_originRequestPolicy,
     getOriginRequestPolicyResponse_httpStatus,
 
     -- ** GetOriginRequestPolicyConfig
@@ -352,8 +352,8 @@ module Amazonka.CloudFront.Lens
 
     -- ** GetPublicKey
     getPublicKey_id,
-    getPublicKeyResponse_publicKey,
     getPublicKeyResponse_eTag,
+    getPublicKeyResponse_publicKey,
     getPublicKeyResponse_httpStatus,
 
     -- ** GetPublicKeyConfig
@@ -363,15 +363,15 @@ module Amazonka.CloudFront.Lens
     getPublicKeyConfigResponse_httpStatus,
 
     -- ** GetRealtimeLogConfig
-    getRealtimeLogConfig_name,
     getRealtimeLogConfig_arn,
+    getRealtimeLogConfig_name,
     getRealtimeLogConfigResponse_realtimeLogConfig,
     getRealtimeLogConfigResponse_httpStatus,
 
     -- ** GetResponseHeadersPolicy
     getResponseHeadersPolicy_id,
-    getResponseHeadersPolicyResponse_responseHeadersPolicy,
     getResponseHeadersPolicyResponse_eTag,
+    getResponseHeadersPolicyResponse_responseHeadersPolicy,
     getResponseHeadersPolicyResponse_httpStatus,
 
     -- ** GetResponseHeadersPolicyConfig
@@ -382,20 +382,20 @@ module Amazonka.CloudFront.Lens
 
     -- ** GetStreamingDistribution
     getStreamingDistribution_id,
-    getStreamingDistributionResponse_streamingDistribution,
     getStreamingDistributionResponse_eTag,
+    getStreamingDistributionResponse_streamingDistribution,
     getStreamingDistributionResponse_httpStatus,
 
     -- ** GetStreamingDistributionConfig
     getStreamingDistributionConfig_id,
-    getStreamingDistributionConfigResponse_streamingDistributionConfig,
     getStreamingDistributionConfigResponse_eTag,
+    getStreamingDistributionConfigResponse_streamingDistributionConfig,
     getStreamingDistributionConfigResponse_httpStatus,
 
     -- ** ListCachePolicies
-    listCachePolicies_type,
     listCachePolicies_marker,
     listCachePolicies_maxItems,
+    listCachePolicies_type,
     listCachePoliciesResponse_cachePolicyList,
     listCachePoliciesResponse_httpStatus,
 
@@ -447,10 +447,10 @@ module Amazonka.CloudFront.Lens
     listDistributionsByOriginRequestPolicyIdResponse_httpStatus,
 
     -- ** ListDistributionsByRealtimeLogConfig
-    listDistributionsByRealtimeLogConfig_realtimeLogConfigName,
     listDistributionsByRealtimeLogConfig_marker,
     listDistributionsByRealtimeLogConfig_maxItems,
     listDistributionsByRealtimeLogConfig_realtimeLogConfigArn,
+    listDistributionsByRealtimeLogConfig_realtimeLogConfigName,
     listDistributionsByRealtimeLogConfigResponse_distributionList,
     listDistributionsByRealtimeLogConfigResponse_httpStatus,
 
@@ -507,9 +507,9 @@ module Amazonka.CloudFront.Lens
     listOriginAccessControlsResponse_httpStatus,
 
     -- ** ListOriginRequestPolicies
-    listOriginRequestPolicies_type,
     listOriginRequestPolicies_marker,
     listOriginRequestPolicies_maxItems,
+    listOriginRequestPolicies_type,
     listOriginRequestPoliciesResponse_originRequestPolicyList,
     listOriginRequestPoliciesResponse_httpStatus,
 
@@ -526,9 +526,9 @@ module Amazonka.CloudFront.Lens
     listRealtimeLogConfigsResponse_httpStatus,
 
     -- ** ListResponseHeadersPolicies
-    listResponseHeadersPolicies_type,
     listResponseHeadersPolicies_marker,
     listResponseHeadersPolicies_maxItems,
+    listResponseHeadersPolicies_type,
     listResponseHeadersPoliciesResponse_responseHeadersPolicyList,
     listResponseHeadersPoliciesResponse_httpStatus,
 
@@ -597,6 +597,14 @@ module Amazonka.CloudFront.Lens
     updateDistributionResponse_eTag,
     updateDistributionResponse_httpStatus,
 
+    -- ** UpdateDistributionWithStagingConfig
+    updateDistributionWithStagingConfig_ifMatch,
+    updateDistributionWithStagingConfig_stagingDistributionId,
+    updateDistributionWithStagingConfig_id,
+    updateDistributionWithStagingConfigResponse_distribution,
+    updateDistributionWithStagingConfigResponse_eTag,
+    updateDistributionWithStagingConfigResponse_httpStatus,
+
     -- ** UpdateFieldLevelEncryptionConfig
     updateFieldLevelEncryptionConfig_ifMatch,
     updateFieldLevelEncryptionConfig_fieldLevelEncryptionConfig,
@@ -609,8 +617,8 @@ module Amazonka.CloudFront.Lens
     updateFieldLevelEncryptionProfile_ifMatch,
     updateFieldLevelEncryptionProfile_fieldLevelEncryptionProfileConfig,
     updateFieldLevelEncryptionProfile_id,
-    updateFieldLevelEncryptionProfileResponse_fieldLevelEncryptionProfile,
     updateFieldLevelEncryptionProfileResponse_eTag,
+    updateFieldLevelEncryptionProfileResponse_fieldLevelEncryptionProfile,
     updateFieldLevelEncryptionProfileResponse_httpStatus,
 
     -- ** UpdateFunction
@@ -618,47 +626,47 @@ module Amazonka.CloudFront.Lens
     updateFunction_functionConfig,
     updateFunction_functionCode,
     updateFunction_name,
-    updateFunctionResponse_functionSummary,
     updateFunctionResponse_eTag,
+    updateFunctionResponse_functionSummary,
     updateFunctionResponse_httpStatus,
 
     -- ** UpdateKeyGroup
     updateKeyGroup_ifMatch,
     updateKeyGroup_keyGroupConfig,
     updateKeyGroup_id,
-    updateKeyGroupResponse_keyGroup,
     updateKeyGroupResponse_eTag,
+    updateKeyGroupResponse_keyGroup,
     updateKeyGroupResponse_httpStatus,
 
     -- ** UpdateOriginAccessControl
     updateOriginAccessControl_ifMatch,
     updateOriginAccessControl_originAccessControlConfig,
     updateOriginAccessControl_id,
-    updateOriginAccessControlResponse_originAccessControl,
     updateOriginAccessControlResponse_eTag,
+    updateOriginAccessControlResponse_originAccessControl,
     updateOriginAccessControlResponse_httpStatus,
 
     -- ** UpdateOriginRequestPolicy
     updateOriginRequestPolicy_ifMatch,
     updateOriginRequestPolicy_originRequestPolicyConfig,
     updateOriginRequestPolicy_id,
-    updateOriginRequestPolicyResponse_originRequestPolicy,
     updateOriginRequestPolicyResponse_eTag,
+    updateOriginRequestPolicyResponse_originRequestPolicy,
     updateOriginRequestPolicyResponse_httpStatus,
 
     -- ** UpdatePublicKey
     updatePublicKey_ifMatch,
     updatePublicKey_publicKeyConfig,
     updatePublicKey_id,
-    updatePublicKeyResponse_publicKey,
     updatePublicKeyResponse_eTag,
+    updatePublicKeyResponse_publicKey,
     updatePublicKeyResponse_httpStatus,
 
     -- ** UpdateRealtimeLogConfig
-    updateRealtimeLogConfig_name,
     updateRealtimeLogConfig_arn,
     updateRealtimeLogConfig_endPoints,
     updateRealtimeLogConfig_fields,
+    updateRealtimeLogConfig_name,
     updateRealtimeLogConfig_samplingRate,
     updateRealtimeLogConfigResponse_realtimeLogConfig,
     updateRealtimeLogConfigResponse_httpStatus,
@@ -667,16 +675,16 @@ module Amazonka.CloudFront.Lens
     updateResponseHeadersPolicy_ifMatch,
     updateResponseHeadersPolicy_responseHeadersPolicyConfig,
     updateResponseHeadersPolicy_id,
-    updateResponseHeadersPolicyResponse_responseHeadersPolicy,
     updateResponseHeadersPolicyResponse_eTag,
+    updateResponseHeadersPolicyResponse_responseHeadersPolicy,
     updateResponseHeadersPolicyResponse_httpStatus,
 
     -- ** UpdateStreamingDistribution
     updateStreamingDistribution_ifMatch,
     updateStreamingDistribution_streamingDistributionConfig,
     updateStreamingDistribution_id,
-    updateStreamingDistributionResponse_streamingDistribution,
     updateStreamingDistributionResponse_eTag,
+    updateStreamingDistributionResponse_streamingDistribution,
     updateStreamingDistributionResponse_httpStatus,
 
     -- * Types
@@ -705,21 +713,21 @@ module Amazonka.CloudFront.Lens
     allowedMethods_items,
 
     -- ** CacheBehavior
-    cacheBehavior_trustedKeyGroups,
     cacheBehavior_allowedMethods,
-    cacheBehavior_defaultTTL,
     cacheBehavior_cachePolicyId,
-    cacheBehavior_fieldLevelEncryptionId,
-    cacheBehavior_lambdaFunctionAssociations,
-    cacheBehavior_originRequestPolicyId,
-    cacheBehavior_functionAssociations,
-    cacheBehavior_forwardedValues,
-    cacheBehavior_responseHeadersPolicyId,
-    cacheBehavior_minTTL,
-    cacheBehavior_realtimeLogConfigArn,
     cacheBehavior_compress,
+    cacheBehavior_defaultTTL,
+    cacheBehavior_fieldLevelEncryptionId,
+    cacheBehavior_forwardedValues,
+    cacheBehavior_functionAssociations,
+    cacheBehavior_lambdaFunctionAssociations,
     cacheBehavior_maxTTL,
+    cacheBehavior_minTTL,
+    cacheBehavior_originRequestPolicyId,
+    cacheBehavior_realtimeLogConfigArn,
+    cacheBehavior_responseHeadersPolicyId,
     cacheBehavior_smoothStreaming,
+    cacheBehavior_trustedKeyGroups,
     cacheBehavior_trustedSigners,
     cacheBehavior_pathPattern,
     cacheBehavior_targetOriginId,
@@ -735,10 +743,10 @@ module Amazonka.CloudFront.Lens
     cachePolicy_cachePolicyConfig,
 
     -- ** CachePolicyConfig
-    cachePolicyConfig_parametersInCacheKeyAndForwardedToOrigin,
-    cachePolicyConfig_defaultTTL,
     cachePolicyConfig_comment,
+    cachePolicyConfig_defaultTTL,
     cachePolicyConfig_maxTTL,
+    cachePolicyConfig_parametersInCacheKeyAndForwardedToOrigin,
     cachePolicyConfig_name,
     cachePolicyConfig_minTTL,
 
@@ -791,15 +799,15 @@ module Amazonka.CloudFront.Lens
     cloudFrontOriginAccessIdentitySummary_comment,
 
     -- ** ConflictingAlias
+    conflictingAlias_accountId,
     conflictingAlias_alias,
     conflictingAlias_distributionId,
-    conflictingAlias_accountId,
 
     -- ** ConflictingAliasesList
     conflictingAliasesList_items,
-    conflictingAliasesList_quantity,
     conflictingAliasesList_maxItems,
     conflictingAliasesList_nextMarker,
+    conflictingAliasesList_quantity,
 
     -- ** ContentTypeProfile
     contentTypeProfile_profileId,
@@ -850,9 +858,9 @@ module Amazonka.CloudFront.Lens
     cookiePreference_forward,
 
     -- ** CustomErrorResponse
-    customErrorResponse_responsePagePath,
     customErrorResponse_errorCachingMinTTL,
     customErrorResponse_responseCode,
+    customErrorResponse_responsePagePath,
     customErrorResponse_errorCode,
 
     -- ** CustomErrorResponses
@@ -872,29 +880,29 @@ module Amazonka.CloudFront.Lens
     customOriginConfig_originProtocolPolicy,
 
     -- ** DefaultCacheBehavior
-    defaultCacheBehavior_trustedKeyGroups,
     defaultCacheBehavior_allowedMethods,
-    defaultCacheBehavior_defaultTTL,
     defaultCacheBehavior_cachePolicyId,
-    defaultCacheBehavior_fieldLevelEncryptionId,
-    defaultCacheBehavior_lambdaFunctionAssociations,
-    defaultCacheBehavior_originRequestPolicyId,
-    defaultCacheBehavior_functionAssociations,
-    defaultCacheBehavior_forwardedValues,
-    defaultCacheBehavior_responseHeadersPolicyId,
-    defaultCacheBehavior_minTTL,
-    defaultCacheBehavior_realtimeLogConfigArn,
     defaultCacheBehavior_compress,
+    defaultCacheBehavior_defaultTTL,
+    defaultCacheBehavior_fieldLevelEncryptionId,
+    defaultCacheBehavior_forwardedValues,
+    defaultCacheBehavior_functionAssociations,
+    defaultCacheBehavior_lambdaFunctionAssociations,
     defaultCacheBehavior_maxTTL,
+    defaultCacheBehavior_minTTL,
+    defaultCacheBehavior_originRequestPolicyId,
+    defaultCacheBehavior_realtimeLogConfigArn,
+    defaultCacheBehavior_responseHeadersPolicyId,
     defaultCacheBehavior_smoothStreaming,
+    defaultCacheBehavior_trustedKeyGroups,
     defaultCacheBehavior_trustedSigners,
     defaultCacheBehavior_targetOriginId,
     defaultCacheBehavior_viewerProtocolPolicy,
 
     -- ** Distribution
-    distribution_aliasICPRecordals,
     distribution_activeTrustedKeyGroups,
     distribution_activeTrustedSigners,
+    distribution_aliasICPRecordals,
     distribution_id,
     distribution_arn,
     distribution_status,
@@ -904,18 +912,20 @@ module Amazonka.CloudFront.Lens
     distribution_distributionConfig,
 
     -- ** DistributionConfig
-    distributionConfig_isIPV6Enabled,
-    distributionConfig_httpVersion,
-    distributionConfig_customErrorResponses,
     distributionConfig_aliases,
-    distributionConfig_restrictions,
+    distributionConfig_cacheBehaviors,
+    distributionConfig_continuousDeploymentPolicyId,
+    distributionConfig_customErrorResponses,
     distributionConfig_defaultRootObject,
-    distributionConfig_viewerCertificate,
+    distributionConfig_httpVersion,
+    distributionConfig_isIPV6Enabled,
     distributionConfig_logging,
-    distributionConfig_webACLId,
     distributionConfig_originGroups,
     distributionConfig_priceClass,
-    distributionConfig_cacheBehaviors,
+    distributionConfig_restrictions,
+    distributionConfig_staging,
+    distributionConfig_viewerCertificate,
+    distributionConfig_webACLId,
     distributionConfig_callerReference,
     distributionConfig_origins,
     distributionConfig_defaultCacheBehavior,
@@ -963,6 +973,7 @@ module Amazonka.CloudFront.Lens
     distributionSummary_webACLId,
     distributionSummary_httpVersion,
     distributionSummary_isIPV6Enabled,
+    distributionSummary_staging,
 
     -- ** EncryptionEntities
     encryptionEntities_items,
@@ -1098,8 +1109,8 @@ module Amazonka.CloudFront.Lens
     invalidationSummary_status,
 
     -- ** KGKeyPairIds
-    kGKeyPairIds_keyPairIds,
     kGKeyPairIds_keyGroupId,
+    kGKeyPairIds_keyPairIds,
 
     -- ** KeyGroup
     keyGroup_id,
@@ -1147,14 +1158,14 @@ module Amazonka.CloudFront.Lens
     monitoringSubscription_realtimeMetricsSubscriptionConfig,
 
     -- ** Origin
-    origin_customHeaders,
-    origin_connectionTimeout,
-    origin_s3OriginConfig,
-    origin_originPath,
-    origin_originAccessControlId,
-    origin_customOriginConfig,
-    origin_originShield,
     origin_connectionAttempts,
+    origin_connectionTimeout,
+    origin_customHeaders,
+    origin_customOriginConfig,
+    origin_originAccessControlId,
+    origin_originPath,
+    origin_originShield,
+    origin_s3OriginConfig,
     origin_id,
     origin_domainName,
 
@@ -1348,11 +1359,11 @@ module Amazonka.CloudFront.Lens
     responseHeadersPolicyAccessControlExposeHeaders_quantity,
 
     -- ** ResponseHeadersPolicyConfig
-    responseHeadersPolicyConfig_serverTimingHeadersConfig,
     responseHeadersPolicyConfig_comment,
-    responseHeadersPolicyConfig_securityHeadersConfig,
     responseHeadersPolicyConfig_corsConfig,
     responseHeadersPolicyConfig_customHeadersConfig,
+    responseHeadersPolicyConfig_securityHeadersConfig,
+    responseHeadersPolicyConfig_serverTimingHeadersConfig,
     responseHeadersPolicyConfig_name,
 
     -- ** ResponseHeadersPolicyContentSecurityPolicy
@@ -1363,8 +1374,8 @@ module Amazonka.CloudFront.Lens
     responseHeadersPolicyContentTypeOptions_override,
 
     -- ** ResponseHeadersPolicyCorsConfig
-    responseHeadersPolicyCorsConfig_accessControlMaxAgeSec,
     responseHeadersPolicyCorsConfig_accessControlExposeHeaders,
+    responseHeadersPolicyCorsConfig_accessControlMaxAgeSec,
     responseHeadersPolicyCorsConfig_accessControlAllowOrigins,
     responseHeadersPolicyCorsConfig_accessControlAllowHeaders,
     responseHeadersPolicyCorsConfig_accessControlAllowMethods,
@@ -1395,12 +1406,12 @@ module Amazonka.CloudFront.Lens
     responseHeadersPolicyReferrerPolicy_referrerPolicy,
 
     -- ** ResponseHeadersPolicySecurityHeadersConfig
-    responseHeadersPolicySecurityHeadersConfig_contentTypeOptions,
-    responseHeadersPolicySecurityHeadersConfig_xSSProtection,
-    responseHeadersPolicySecurityHeadersConfig_frameOptions,
     responseHeadersPolicySecurityHeadersConfig_contentSecurityPolicy,
+    responseHeadersPolicySecurityHeadersConfig_contentTypeOptions,
+    responseHeadersPolicySecurityHeadersConfig_frameOptions,
     responseHeadersPolicySecurityHeadersConfig_referrerPolicy,
     responseHeadersPolicySecurityHeadersConfig_strictTransportSecurity,
+    responseHeadersPolicySecurityHeadersConfig_xSSProtection,
 
     -- ** ResponseHeadersPolicyServerTimingHeadersConfig
     responseHeadersPolicyServerTimingHeadersConfig_samplingRate,
@@ -1437,8 +1448,8 @@ module Amazonka.CloudFront.Lens
     sessionStickinessConfig_maximumTTL,
 
     -- ** Signer
-    signer_keyPairIds,
     signer_awsAccountNumber,
+    signer_keyPairIds,
 
     -- ** StagingDistributionDnsNames
     stagingDistributionDnsNames_items,
@@ -1508,15 +1519,15 @@ module Amazonka.CloudFront.Lens
     tags_items,
 
     -- ** TestResult
-    testResult_functionSummary,
     testResult_computeUtilization,
-    testResult_functionOutput,
     testResult_functionErrorMessage,
     testResult_functionExecutionLogs,
+    testResult_functionOutput,
+    testResult_functionSummary,
 
     -- ** TrafficConfig
-    trafficConfig_singleWeightConfig,
     trafficConfig_singleHeaderConfig,
+    trafficConfig_singleWeightConfig,
     trafficConfig_type,
 
     -- ** TrustedKeyGroups
@@ -1530,13 +1541,13 @@ module Amazonka.CloudFront.Lens
     trustedSigners_quantity,
 
     -- ** ViewerCertificate
-    viewerCertificate_iAMCertificateId,
-    viewerCertificate_cloudFrontDefaultCertificate,
-    viewerCertificate_certificate,
-    viewerCertificate_minimumProtocolVersion,
     viewerCertificate_aCMCertificateArn,
-    viewerCertificate_sSLSupportMethod,
+    viewerCertificate_certificate,
     viewerCertificate_certificateSource,
+    viewerCertificate_cloudFrontDefaultCertificate,
+    viewerCertificate_iAMCertificateId,
+    viewerCertificate_minimumProtocolVersion,
+    viewerCertificate_sSLSupportMethod,
   )
 where
 
@@ -1789,6 +1800,7 @@ import Amazonka.CloudFront.UpdateCachePolicy
 import Amazonka.CloudFront.UpdateCloudFrontOriginAccessIdentity
 import Amazonka.CloudFront.UpdateContinuousDeploymentPolicy
 import Amazonka.CloudFront.UpdateDistribution
+import Amazonka.CloudFront.UpdateDistributionWithStagingConfig
 import Amazonka.CloudFront.UpdateFieldLevelEncryptionConfig
 import Amazonka.CloudFront.UpdateFieldLevelEncryptionProfile
 import Amazonka.CloudFront.UpdateFunction

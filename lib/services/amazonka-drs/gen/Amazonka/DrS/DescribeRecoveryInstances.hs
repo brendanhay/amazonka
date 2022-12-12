@@ -29,9 +29,9 @@ module Amazonka.DrS.DescribeRecoveryInstances
     newDescribeRecoveryInstances,
 
     -- * Request Lenses
-    describeRecoveryInstances_nextToken,
     describeRecoveryInstances_filters,
     describeRecoveryInstances_maxResults,
+    describeRecoveryInstances_nextToken,
 
     -- * Destructuring the Response
     DescribeRecoveryInstancesResponse (..),
@@ -54,12 +54,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeRecoveryInstances' smart constructor.
 data DescribeRecoveryInstances = DescribeRecoveryInstances'
-  { -- | The token of the next Recovery Instance to retrieve.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A set of filters by which to return Recovery Instances.
+  { -- | A set of filters by which to return Recovery Instances.
     filters :: Prelude.Maybe DescribeRecoveryInstancesRequestFilters,
     -- | Maximum number of Recovery Instances to retrieve.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token of the next Recovery Instance to retrieve.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,24 +71,20 @@ data DescribeRecoveryInstances = DescribeRecoveryInstances'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeRecoveryInstances_nextToken' - The token of the next Recovery Instance to retrieve.
---
 -- 'filters', 'describeRecoveryInstances_filters' - A set of filters by which to return Recovery Instances.
 --
 -- 'maxResults', 'describeRecoveryInstances_maxResults' - Maximum number of Recovery Instances to retrieve.
+--
+-- 'nextToken', 'describeRecoveryInstances_nextToken' - The token of the next Recovery Instance to retrieve.
 newDescribeRecoveryInstances ::
   DescribeRecoveryInstances
 newDescribeRecoveryInstances =
   DescribeRecoveryInstances'
-    { nextToken =
+    { filters =
         Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token of the next Recovery Instance to retrieve.
-describeRecoveryInstances_nextToken :: Lens.Lens' DescribeRecoveryInstances (Prelude.Maybe Prelude.Text)
-describeRecoveryInstances_nextToken = Lens.lens (\DescribeRecoveryInstances' {nextToken} -> nextToken) (\s@DescribeRecoveryInstances' {} a -> s {nextToken = a} :: DescribeRecoveryInstances)
 
 -- | A set of filters by which to return Recovery Instances.
 describeRecoveryInstances_filters :: Lens.Lens' DescribeRecoveryInstances (Prelude.Maybe DescribeRecoveryInstancesRequestFilters)
@@ -97,6 +93,10 @@ describeRecoveryInstances_filters = Lens.lens (\DescribeRecoveryInstances' {filt
 -- | Maximum number of Recovery Instances to retrieve.
 describeRecoveryInstances_maxResults :: Lens.Lens' DescribeRecoveryInstances (Prelude.Maybe Prelude.Natural)
 describeRecoveryInstances_maxResults = Lens.lens (\DescribeRecoveryInstances' {maxResults} -> maxResults) (\s@DescribeRecoveryInstances' {} a -> s {maxResults = a} :: DescribeRecoveryInstances)
+
+-- | The token of the next Recovery Instance to retrieve.
+describeRecoveryInstances_nextToken :: Lens.Lens' DescribeRecoveryInstances (Prelude.Maybe Prelude.Text)
+describeRecoveryInstances_nextToken = Lens.lens (\DescribeRecoveryInstances' {nextToken} -> nextToken) (\s@DescribeRecoveryInstances' {} a -> s {nextToken = a} :: DescribeRecoveryInstances)
 
 instance Core.AWSPager DescribeRecoveryInstances where
   page rq rs
@@ -137,15 +137,15 @@ instance Core.AWSRequest DescribeRecoveryInstances where
 
 instance Prelude.Hashable DescribeRecoveryInstances where
   hashWithSalt _salt DescribeRecoveryInstances' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeRecoveryInstances where
   rnf DescribeRecoveryInstances' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeRecoveryInstances where
   toHeaders =
@@ -162,9 +162,9 @@ instance Data.ToJSON DescribeRecoveryInstances where
   toJSON DescribeRecoveryInstances' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("filters" Data..=) Prelude.<$> filters,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("filters" Data..=) Prelude.<$> filters,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

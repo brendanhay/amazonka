@@ -27,10 +27,10 @@ module Amazonka.MediaLive.BatchDelete
     newBatchDelete',
 
     -- * Request Lenses
-    batchDelete'_multiplexIds,
-    batchDelete'_inputSecurityGroupIds,
     batchDelete'_channelIds,
     batchDelete'_inputIds,
+    batchDelete'_inputSecurityGroupIds,
+    batchDelete'_multiplexIds,
 
     -- * Destructuring the Response
     BatchDeleteResponse (..),
@@ -55,14 +55,14 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newBatchDelete'' smart constructor.
 data BatchDelete' = BatchDelete''
-  { -- | List of multiplex IDs
-    multiplexIds :: Prelude.Maybe [Prelude.Text],
-    -- | List of input security group IDs
-    inputSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | List of channel IDs
+  { -- | List of channel IDs
     channelIds :: Prelude.Maybe [Prelude.Text],
     -- | List of input IDs
-    inputIds :: Prelude.Maybe [Prelude.Text]
+    inputIds :: Prelude.Maybe [Prelude.Text],
+    -- | List of input security group IDs
+    inputSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
+    -- | List of multiplex IDs
+    multiplexIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,30 +74,22 @@ data BatchDelete' = BatchDelete''
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'multiplexIds', 'batchDelete'_multiplexIds' - List of multiplex IDs
---
--- 'inputSecurityGroupIds', 'batchDelete'_inputSecurityGroupIds' - List of input security group IDs
---
 -- 'channelIds', 'batchDelete'_channelIds' - List of channel IDs
 --
 -- 'inputIds', 'batchDelete'_inputIds' - List of input IDs
+--
+-- 'inputSecurityGroupIds', 'batchDelete'_inputSecurityGroupIds' - List of input security group IDs
+--
+-- 'multiplexIds', 'batchDelete'_multiplexIds' - List of multiplex IDs
 newBatchDelete' ::
   BatchDelete'
 newBatchDelete' =
   BatchDelete''
-    { multiplexIds = Prelude.Nothing,
+    { channelIds = Prelude.Nothing,
+      inputIds = Prelude.Nothing,
       inputSecurityGroupIds = Prelude.Nothing,
-      channelIds = Prelude.Nothing,
-      inputIds = Prelude.Nothing
+      multiplexIds = Prelude.Nothing
     }
-
--- | List of multiplex IDs
-batchDelete'_multiplexIds :: Lens.Lens' BatchDelete' (Prelude.Maybe [Prelude.Text])
-batchDelete'_multiplexIds = Lens.lens (\BatchDelete'' {multiplexIds} -> multiplexIds) (\s@BatchDelete'' {} a -> s {multiplexIds = a} :: BatchDelete') Prelude.. Lens.mapping Lens.coerced
-
--- | List of input security group IDs
-batchDelete'_inputSecurityGroupIds :: Lens.Lens' BatchDelete' (Prelude.Maybe [Prelude.Text])
-batchDelete'_inputSecurityGroupIds = Lens.lens (\BatchDelete'' {inputSecurityGroupIds} -> inputSecurityGroupIds) (\s@BatchDelete'' {} a -> s {inputSecurityGroupIds = a} :: BatchDelete') Prelude.. Lens.mapping Lens.coerced
 
 -- | List of channel IDs
 batchDelete'_channelIds :: Lens.Lens' BatchDelete' (Prelude.Maybe [Prelude.Text])
@@ -106,6 +98,14 @@ batchDelete'_channelIds = Lens.lens (\BatchDelete'' {channelIds} -> channelIds) 
 -- | List of input IDs
 batchDelete'_inputIds :: Lens.Lens' BatchDelete' (Prelude.Maybe [Prelude.Text])
 batchDelete'_inputIds = Lens.lens (\BatchDelete'' {inputIds} -> inputIds) (\s@BatchDelete'' {} a -> s {inputIds = a} :: BatchDelete') Prelude.. Lens.mapping Lens.coerced
+
+-- | List of input security group IDs
+batchDelete'_inputSecurityGroupIds :: Lens.Lens' BatchDelete' (Prelude.Maybe [Prelude.Text])
+batchDelete'_inputSecurityGroupIds = Lens.lens (\BatchDelete'' {inputSecurityGroupIds} -> inputSecurityGroupIds) (\s@BatchDelete'' {} a -> s {inputSecurityGroupIds = a} :: BatchDelete') Prelude.. Lens.mapping Lens.coerced
+
+-- | List of multiplex IDs
+batchDelete'_multiplexIds :: Lens.Lens' BatchDelete' (Prelude.Maybe [Prelude.Text])
+batchDelete'_multiplexIds = Lens.lens (\BatchDelete'' {multiplexIds} -> multiplexIds) (\s@BatchDelete'' {} a -> s {multiplexIds = a} :: BatchDelete') Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest BatchDelete' where
   type AWSResponse BatchDelete' = BatchDeleteResponse
@@ -122,17 +122,17 @@ instance Core.AWSRequest BatchDelete' where
 
 instance Prelude.Hashable BatchDelete' where
   hashWithSalt _salt BatchDelete'' {..} =
-    _salt `Prelude.hashWithSalt` multiplexIds
-      `Prelude.hashWithSalt` inputSecurityGroupIds
-      `Prelude.hashWithSalt` channelIds
+    _salt `Prelude.hashWithSalt` channelIds
       `Prelude.hashWithSalt` inputIds
+      `Prelude.hashWithSalt` inputSecurityGroupIds
+      `Prelude.hashWithSalt` multiplexIds
 
 instance Prelude.NFData BatchDelete' where
   rnf BatchDelete'' {..} =
-    Prelude.rnf multiplexIds
-      `Prelude.seq` Prelude.rnf inputSecurityGroupIds
-      `Prelude.seq` Prelude.rnf channelIds
+    Prelude.rnf channelIds
       `Prelude.seq` Prelude.rnf inputIds
+      `Prelude.seq` Prelude.rnf inputSecurityGroupIds
+      `Prelude.seq` Prelude.rnf multiplexIds
 
 instance Data.ToHeaders BatchDelete' where
   toHeaders =
@@ -149,11 +149,11 @@ instance Data.ToJSON BatchDelete' where
   toJSON BatchDelete'' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("multiplexIds" Data..=) Prelude.<$> multiplexIds,
+          [ ("channelIds" Data..=) Prelude.<$> channelIds,
+            ("inputIds" Data..=) Prelude.<$> inputIds,
             ("inputSecurityGroupIds" Data..=)
               Prelude.<$> inputSecurityGroupIds,
-            ("channelIds" Data..=) Prelude.<$> channelIds,
-            ("inputIds" Data..=) Prelude.<$> inputIds
+            ("multiplexIds" Data..=) Prelude.<$> multiplexIds
           ]
       )
 

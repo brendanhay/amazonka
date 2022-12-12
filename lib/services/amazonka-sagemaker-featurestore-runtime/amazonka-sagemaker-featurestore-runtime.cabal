@@ -54,6 +54,7 @@ library
     Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordIdentifier
     Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail
     Amazonka.SageMakerFeatureStoreRuntime.Types.FeatureValue
+    Amazonka.SageMakerFeatureStoreRuntime.Types.TargetStore
     Amazonka.SageMakerFeatureStoreRuntime.Waiters
 
   build-depends:

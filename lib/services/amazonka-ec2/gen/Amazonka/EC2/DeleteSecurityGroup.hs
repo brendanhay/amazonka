@@ -37,9 +37,9 @@ module Amazonka.EC2.DeleteSecurityGroup
     newDeleteSecurityGroup,
 
     -- * Request Lenses
-    deleteSecurityGroup_groupName,
     deleteSecurityGroup_dryRun,
     deleteSecurityGroup_groupId,
+    deleteSecurityGroup_groupName,
 
     -- * Destructuring the Response
     DeleteSecurityGroupResponse (..),
@@ -57,18 +57,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteSecurityGroup' smart constructor.
 data DeleteSecurityGroup = DeleteSecurityGroup'
-  { -- | [EC2-Classic, default VPC] The name of the security group. You can
-    -- specify either the security group name or the security group ID. For
-    -- security groups in a nondefault VPC, you must specify the security group
-    -- ID.
-    groupName :: Prelude.Maybe Prelude.Text,
-    -- | Checks whether you have the required permissions for the action, without
+  { -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the security group. Required for a nondefault VPC.
-    groupId :: Prelude.Maybe Prelude.Text
+    groupId :: Prelude.Maybe Prelude.Text,
+    -- | [EC2-Classic, default VPC] The name of the security group. You can
+    -- specify either the security group name or the security group ID. For
+    -- security groups in a nondefault VPC, you must specify the security group
+    -- ID.
+    groupName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,32 +80,25 @@ data DeleteSecurityGroup = DeleteSecurityGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'groupName', 'deleteSecurityGroup_groupName' - [EC2-Classic, default VPC] The name of the security group. You can
--- specify either the security group name or the security group ID. For
--- security groups in a nondefault VPC, you must specify the security group
--- ID.
---
 -- 'dryRun', 'deleteSecurityGroup_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'groupId', 'deleteSecurityGroup_groupId' - The ID of the security group. Required for a nondefault VPC.
+--
+-- 'groupName', 'deleteSecurityGroup_groupName' - [EC2-Classic, default VPC] The name of the security group. You can
+-- specify either the security group name or the security group ID. For
+-- security groups in a nondefault VPC, you must specify the security group
+-- ID.
 newDeleteSecurityGroup ::
   DeleteSecurityGroup
 newDeleteSecurityGroup =
   DeleteSecurityGroup'
-    { groupName = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      groupId = Prelude.Nothing
+    { dryRun = Prelude.Nothing,
+      groupId = Prelude.Nothing,
+      groupName = Prelude.Nothing
     }
-
--- | [EC2-Classic, default VPC] The name of the security group. You can
--- specify either the security group name or the security group ID. For
--- security groups in a nondefault VPC, you must specify the security group
--- ID.
-deleteSecurityGroup_groupName :: Lens.Lens' DeleteSecurityGroup (Prelude.Maybe Prelude.Text)
-deleteSecurityGroup_groupName = Lens.lens (\DeleteSecurityGroup' {groupName} -> groupName) (\s@DeleteSecurityGroup' {} a -> s {groupName = a} :: DeleteSecurityGroup)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -118,6 +111,13 @@ deleteSecurityGroup_dryRun = Lens.lens (\DeleteSecurityGroup' {dryRun} -> dryRun
 deleteSecurityGroup_groupId :: Lens.Lens' DeleteSecurityGroup (Prelude.Maybe Prelude.Text)
 deleteSecurityGroup_groupId = Lens.lens (\DeleteSecurityGroup' {groupId} -> groupId) (\s@DeleteSecurityGroup' {} a -> s {groupId = a} :: DeleteSecurityGroup)
 
+-- | [EC2-Classic, default VPC] The name of the security group. You can
+-- specify either the security group name or the security group ID. For
+-- security groups in a nondefault VPC, you must specify the security group
+-- ID.
+deleteSecurityGroup_groupName :: Lens.Lens' DeleteSecurityGroup (Prelude.Maybe Prelude.Text)
+deleteSecurityGroup_groupName = Lens.lens (\DeleteSecurityGroup' {groupName} -> groupName) (\s@DeleteSecurityGroup' {} a -> s {groupName = a} :: DeleteSecurityGroup)
+
 instance Core.AWSRequest DeleteSecurityGroup where
   type
     AWSResponse DeleteSecurityGroup =
@@ -129,15 +129,15 @@ instance Core.AWSRequest DeleteSecurityGroup where
 
 instance Prelude.Hashable DeleteSecurityGroup where
   hashWithSalt _salt DeleteSecurityGroup' {..} =
-    _salt `Prelude.hashWithSalt` groupName
-      `Prelude.hashWithSalt` dryRun
+    _salt `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` groupId
+      `Prelude.hashWithSalt` groupName
 
 instance Prelude.NFData DeleteSecurityGroup where
   rnf DeleteSecurityGroup' {..} =
-    Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf dryRun
+    Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf groupName
 
 instance Data.ToHeaders DeleteSecurityGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -152,9 +152,9 @@ instance Data.ToQuery DeleteSecurityGroup where
           Data.=: ("DeleteSecurityGroup" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "GroupName" Data.=: groupName,
         "DryRun" Data.=: dryRun,
-        "GroupId" Data.=: groupId
+        "GroupId" Data.=: groupId,
+        "GroupName" Data.=: groupName
       ]
 
 -- | /See:/ 'newDeleteSecurityGroupResponse' smart constructor.

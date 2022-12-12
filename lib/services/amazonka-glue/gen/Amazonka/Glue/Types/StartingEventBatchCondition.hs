@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStartingEventBatchCondition' smart constructor.
 data StartingEventBatchCondition = StartingEventBatchCondition'
-  { -- | Duration of the batch window in seconds.
-    batchWindow :: Prelude.Maybe Prelude.Int,
-    -- | Number of events in the batch.
-    batchSize :: Prelude.Maybe Prelude.Int
+  { -- | Number of events in the batch.
+    batchSize :: Prelude.Maybe Prelude.Int,
+    -- | Duration of the batch window in seconds.
+    batchWindow :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,25 +46,25 @@ data StartingEventBatchCondition = StartingEventBatchCondition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'batchWindow', 'startingEventBatchCondition_batchWindow' - Duration of the batch window in seconds.
---
 -- 'batchSize', 'startingEventBatchCondition_batchSize' - Number of events in the batch.
+--
+-- 'batchWindow', 'startingEventBatchCondition_batchWindow' - Duration of the batch window in seconds.
 newStartingEventBatchCondition ::
   StartingEventBatchCondition
 newStartingEventBatchCondition =
   StartingEventBatchCondition'
-    { batchWindow =
+    { batchSize =
         Prelude.Nothing,
-      batchSize = Prelude.Nothing
+      batchWindow = Prelude.Nothing
     }
-
--- | Duration of the batch window in seconds.
-startingEventBatchCondition_batchWindow :: Lens.Lens' StartingEventBatchCondition (Prelude.Maybe Prelude.Int)
-startingEventBatchCondition_batchWindow = Lens.lens (\StartingEventBatchCondition' {batchWindow} -> batchWindow) (\s@StartingEventBatchCondition' {} a -> s {batchWindow = a} :: StartingEventBatchCondition)
 
 -- | Number of events in the batch.
 startingEventBatchCondition_batchSize :: Lens.Lens' StartingEventBatchCondition (Prelude.Maybe Prelude.Int)
 startingEventBatchCondition_batchSize = Lens.lens (\StartingEventBatchCondition' {batchSize} -> batchSize) (\s@StartingEventBatchCondition' {} a -> s {batchSize = a} :: StartingEventBatchCondition)
+
+-- | Duration of the batch window in seconds.
+startingEventBatchCondition_batchWindow :: Lens.Lens' StartingEventBatchCondition (Prelude.Maybe Prelude.Int)
+startingEventBatchCondition_batchWindow = Lens.lens (\StartingEventBatchCondition' {batchWindow} -> batchWindow) (\s@StartingEventBatchCondition' {} a -> s {batchWindow = a} :: StartingEventBatchCondition)
 
 instance Data.FromJSON StartingEventBatchCondition where
   parseJSON =
@@ -72,16 +72,16 @@ instance Data.FromJSON StartingEventBatchCondition where
       "StartingEventBatchCondition"
       ( \x ->
           StartingEventBatchCondition'
-            Prelude.<$> (x Data..:? "BatchWindow")
-            Prelude.<*> (x Data..:? "BatchSize")
+            Prelude.<$> (x Data..:? "BatchSize")
+            Prelude.<*> (x Data..:? "BatchWindow")
       )
 
 instance Prelude.Hashable StartingEventBatchCondition where
   hashWithSalt _salt StartingEventBatchCondition' {..} =
-    _salt `Prelude.hashWithSalt` batchWindow
-      `Prelude.hashWithSalt` batchSize
+    _salt `Prelude.hashWithSalt` batchSize
+      `Prelude.hashWithSalt` batchWindow
 
 instance Prelude.NFData StartingEventBatchCondition where
   rnf StartingEventBatchCondition' {..} =
-    Prelude.rnf batchWindow
-      `Prelude.seq` Prelude.rnf batchSize
+    Prelude.rnf batchSize
+      `Prelude.seq` Prelude.rnf batchWindow

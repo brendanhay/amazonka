@@ -41,26 +41,26 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceTypeConfig' smart constructor.
 data InstanceTypeConfig = InstanceTypeConfig'
-  { -- | The bid price, as a percentage of On-Demand price, for each EC2 Spot
+  { -- | The bid price for each EC2 Spot Instance type as defined by
+    -- @InstanceType@. Expressed in USD. If neither @BidPrice@ nor
+    -- @BidPriceAsPercentageOfOnDemandPrice@ is provided,
+    -- @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
+    bidPrice :: Prelude.Maybe Prelude.Text,
+    -- | The bid price, as a percentage of On-Demand price, for each EC2 Spot
     -- Instance as defined by @InstanceType@. Expressed as a number (for
     -- example, 20 specifies 20%). If neither @BidPrice@ nor
     -- @BidPriceAsPercentageOfOnDemandPrice@ is provided,
     -- @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
     bidPriceAsPercentageOfOnDemandPrice :: Prelude.Maybe Prelude.Double,
-    -- | The configuration of Amazon Elastic Block Store (Amazon EBS) attached to
-    -- each instance as defined by @InstanceType@.
-    ebsConfiguration :: Prelude.Maybe EbsConfiguration,
     -- | A configuration classification that applies when provisioning cluster
     -- instances, which can include configurations for applications and
     -- software that run on the cluster.
     configurations :: Prelude.Maybe [Configuration],
-    -- | The bid price for each EC2 Spot Instance type as defined by
-    -- @InstanceType@. Expressed in USD. If neither @BidPrice@ nor
-    -- @BidPriceAsPercentageOfOnDemandPrice@ is provided,
-    -- @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
-    bidPrice :: Prelude.Maybe Prelude.Text,
     -- | The custom AMI ID to use for the instance type.
     customAmiId :: Prelude.Maybe Prelude.Text,
+    -- | The configuration of Amazon Elastic Block Store (Amazon EBS) attached to
+    -- each instance as defined by @InstanceType@.
+    ebsConfiguration :: Prelude.Maybe EbsConfiguration,
     -- | The number of units that a provisioned instance of this type provides
     -- toward fulfilling the target capacities defined in InstanceFleetConfig.
     -- This value is 1 for a master instance fleet, and must be 1 or greater
@@ -79,25 +79,25 @@ data InstanceTypeConfig = InstanceTypeConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'bidPrice', 'instanceTypeConfig_bidPrice' - The bid price for each EC2 Spot Instance type as defined by
+-- @InstanceType@. Expressed in USD. If neither @BidPrice@ nor
+-- @BidPriceAsPercentageOfOnDemandPrice@ is provided,
+-- @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
+--
 -- 'bidPriceAsPercentageOfOnDemandPrice', 'instanceTypeConfig_bidPriceAsPercentageOfOnDemandPrice' - The bid price, as a percentage of On-Demand price, for each EC2 Spot
 -- Instance as defined by @InstanceType@. Expressed as a number (for
 -- example, 20 specifies 20%). If neither @BidPrice@ nor
 -- @BidPriceAsPercentageOfOnDemandPrice@ is provided,
 -- @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
 --
--- 'ebsConfiguration', 'instanceTypeConfig_ebsConfiguration' - The configuration of Amazon Elastic Block Store (Amazon EBS) attached to
--- each instance as defined by @InstanceType@.
---
 -- 'configurations', 'instanceTypeConfig_configurations' - A configuration classification that applies when provisioning cluster
 -- instances, which can include configurations for applications and
 -- software that run on the cluster.
 --
--- 'bidPrice', 'instanceTypeConfig_bidPrice' - The bid price for each EC2 Spot Instance type as defined by
--- @InstanceType@. Expressed in USD. If neither @BidPrice@ nor
--- @BidPriceAsPercentageOfOnDemandPrice@ is provided,
--- @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
---
 -- 'customAmiId', 'instanceTypeConfig_customAmiId' - The custom AMI ID to use for the instance type.
+--
+-- 'ebsConfiguration', 'instanceTypeConfig_ebsConfiguration' - The configuration of Amazon Elastic Block Store (Amazon EBS) attached to
+-- each instance as defined by @InstanceType@.
 --
 -- 'weightedCapacity', 'instanceTypeConfig_weightedCapacity' - The number of units that a provisioned instance of this type provides
 -- toward fulfilling the target capacities defined in InstanceFleetConfig.
@@ -111,15 +111,22 @@ newInstanceTypeConfig ::
   InstanceTypeConfig
 newInstanceTypeConfig pInstanceType_ =
   InstanceTypeConfig'
-    { bidPriceAsPercentageOfOnDemandPrice =
+    { bidPrice = Prelude.Nothing,
+      bidPriceAsPercentageOfOnDemandPrice =
         Prelude.Nothing,
-      ebsConfiguration = Prelude.Nothing,
       configurations = Prelude.Nothing,
-      bidPrice = Prelude.Nothing,
       customAmiId = Prelude.Nothing,
+      ebsConfiguration = Prelude.Nothing,
       weightedCapacity = Prelude.Nothing,
       instanceType = pInstanceType_
     }
+
+-- | The bid price for each EC2 Spot Instance type as defined by
+-- @InstanceType@. Expressed in USD. If neither @BidPrice@ nor
+-- @BidPriceAsPercentageOfOnDemandPrice@ is provided,
+-- @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
+instanceTypeConfig_bidPrice :: Lens.Lens' InstanceTypeConfig (Prelude.Maybe Prelude.Text)
+instanceTypeConfig_bidPrice = Lens.lens (\InstanceTypeConfig' {bidPrice} -> bidPrice) (\s@InstanceTypeConfig' {} a -> s {bidPrice = a} :: InstanceTypeConfig)
 
 -- | The bid price, as a percentage of On-Demand price, for each EC2 Spot
 -- Instance as defined by @InstanceType@. Expressed as a number (for
@@ -129,27 +136,20 @@ newInstanceTypeConfig pInstanceType_ =
 instanceTypeConfig_bidPriceAsPercentageOfOnDemandPrice :: Lens.Lens' InstanceTypeConfig (Prelude.Maybe Prelude.Double)
 instanceTypeConfig_bidPriceAsPercentageOfOnDemandPrice = Lens.lens (\InstanceTypeConfig' {bidPriceAsPercentageOfOnDemandPrice} -> bidPriceAsPercentageOfOnDemandPrice) (\s@InstanceTypeConfig' {} a -> s {bidPriceAsPercentageOfOnDemandPrice = a} :: InstanceTypeConfig)
 
--- | The configuration of Amazon Elastic Block Store (Amazon EBS) attached to
--- each instance as defined by @InstanceType@.
-instanceTypeConfig_ebsConfiguration :: Lens.Lens' InstanceTypeConfig (Prelude.Maybe EbsConfiguration)
-instanceTypeConfig_ebsConfiguration = Lens.lens (\InstanceTypeConfig' {ebsConfiguration} -> ebsConfiguration) (\s@InstanceTypeConfig' {} a -> s {ebsConfiguration = a} :: InstanceTypeConfig)
-
 -- | A configuration classification that applies when provisioning cluster
 -- instances, which can include configurations for applications and
 -- software that run on the cluster.
 instanceTypeConfig_configurations :: Lens.Lens' InstanceTypeConfig (Prelude.Maybe [Configuration])
 instanceTypeConfig_configurations = Lens.lens (\InstanceTypeConfig' {configurations} -> configurations) (\s@InstanceTypeConfig' {} a -> s {configurations = a} :: InstanceTypeConfig) Prelude.. Lens.mapping Lens.coerced
 
--- | The bid price for each EC2 Spot Instance type as defined by
--- @InstanceType@. Expressed in USD. If neither @BidPrice@ nor
--- @BidPriceAsPercentageOfOnDemandPrice@ is provided,
--- @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
-instanceTypeConfig_bidPrice :: Lens.Lens' InstanceTypeConfig (Prelude.Maybe Prelude.Text)
-instanceTypeConfig_bidPrice = Lens.lens (\InstanceTypeConfig' {bidPrice} -> bidPrice) (\s@InstanceTypeConfig' {} a -> s {bidPrice = a} :: InstanceTypeConfig)
-
 -- | The custom AMI ID to use for the instance type.
 instanceTypeConfig_customAmiId :: Lens.Lens' InstanceTypeConfig (Prelude.Maybe Prelude.Text)
 instanceTypeConfig_customAmiId = Lens.lens (\InstanceTypeConfig' {customAmiId} -> customAmiId) (\s@InstanceTypeConfig' {} a -> s {customAmiId = a} :: InstanceTypeConfig)
+
+-- | The configuration of Amazon Elastic Block Store (Amazon EBS) attached to
+-- each instance as defined by @InstanceType@.
+instanceTypeConfig_ebsConfiguration :: Lens.Lens' InstanceTypeConfig (Prelude.Maybe EbsConfiguration)
+instanceTypeConfig_ebsConfiguration = Lens.lens (\InstanceTypeConfig' {ebsConfiguration} -> ebsConfiguration) (\s@InstanceTypeConfig' {} a -> s {ebsConfiguration = a} :: InstanceTypeConfig)
 
 -- | The number of units that a provisioned instance of this type provides
 -- toward fulfilling the target capacities defined in InstanceFleetConfig.
@@ -164,22 +164,21 @@ instanceTypeConfig_instanceType = Lens.lens (\InstanceTypeConfig' {instanceType}
 
 instance Prelude.Hashable InstanceTypeConfig where
   hashWithSalt _salt InstanceTypeConfig' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` bidPrice
       `Prelude.hashWithSalt` bidPriceAsPercentageOfOnDemandPrice
-      `Prelude.hashWithSalt` ebsConfiguration
       `Prelude.hashWithSalt` configurations
-      `Prelude.hashWithSalt` bidPrice
       `Prelude.hashWithSalt` customAmiId
+      `Prelude.hashWithSalt` ebsConfiguration
       `Prelude.hashWithSalt` weightedCapacity
       `Prelude.hashWithSalt` instanceType
 
 instance Prelude.NFData InstanceTypeConfig where
   rnf InstanceTypeConfig' {..} =
-    Prelude.rnf bidPriceAsPercentageOfOnDemandPrice
-      `Prelude.seq` Prelude.rnf ebsConfiguration
+    Prelude.rnf bidPrice
+      `Prelude.seq` Prelude.rnf bidPriceAsPercentageOfOnDemandPrice
       `Prelude.seq` Prelude.rnf configurations
-      `Prelude.seq` Prelude.rnf bidPrice
       `Prelude.seq` Prelude.rnf customAmiId
+      `Prelude.seq` Prelude.rnf ebsConfiguration
       `Prelude.seq` Prelude.rnf weightedCapacity
       `Prelude.seq` Prelude.rnf instanceType
 
@@ -187,14 +186,14 @@ instance Data.ToJSON InstanceTypeConfig where
   toJSON InstanceTypeConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("BidPriceAsPercentageOfOnDemandPrice" Data..=)
+          [ ("BidPrice" Data..=) Prelude.<$> bidPrice,
+            ("BidPriceAsPercentageOfOnDemandPrice" Data..=)
               Prelude.<$> bidPriceAsPercentageOfOnDemandPrice,
-            ("EbsConfiguration" Data..=)
-              Prelude.<$> ebsConfiguration,
             ("Configurations" Data..=)
               Prelude.<$> configurations,
-            ("BidPrice" Data..=) Prelude.<$> bidPrice,
             ("CustomAmiId" Data..=) Prelude.<$> customAmiId,
+            ("EbsConfiguration" Data..=)
+              Prelude.<$> ebsConfiguration,
             ("WeightedCapacity" Data..=)
               Prelude.<$> weightedCapacity,
             Prelude.Just ("InstanceType" Data..= instanceType)

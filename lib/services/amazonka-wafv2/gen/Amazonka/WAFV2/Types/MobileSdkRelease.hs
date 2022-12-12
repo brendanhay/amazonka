@@ -36,12 +36,12 @@ import Amazonka.WAFV2.Types.Tag
 --
 -- /See:/ 'newMobileSdkRelease' smart constructor.
 data MobileSdkRelease = MobileSdkRelease'
-  { -- | The release version.
+  { -- | Notes describing the release.
+    releaseNotes :: Prelude.Maybe Prelude.Text,
+    -- | The release version.
     releaseVersion :: Prelude.Maybe Prelude.Text,
     -- | Tags that are associated with the release.
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | Notes describing the release.
-    releaseNotes :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of the release.
     timestamp :: Prelude.Maybe Data.POSIX
   }
@@ -55,22 +55,26 @@ data MobileSdkRelease = MobileSdkRelease'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'releaseNotes', 'mobileSdkRelease_releaseNotes' - Notes describing the release.
+--
 -- 'releaseVersion', 'mobileSdkRelease_releaseVersion' - The release version.
 --
 -- 'tags', 'mobileSdkRelease_tags' - Tags that are associated with the release.
---
--- 'releaseNotes', 'mobileSdkRelease_releaseNotes' - Notes describing the release.
 --
 -- 'timestamp', 'mobileSdkRelease_timestamp' - The timestamp of the release.
 newMobileSdkRelease ::
   MobileSdkRelease
 newMobileSdkRelease =
   MobileSdkRelease'
-    { releaseVersion = Prelude.Nothing,
+    { releaseNotes = Prelude.Nothing,
+      releaseVersion = Prelude.Nothing,
       tags = Prelude.Nothing,
-      releaseNotes = Prelude.Nothing,
       timestamp = Prelude.Nothing
     }
+
+-- | Notes describing the release.
+mobileSdkRelease_releaseNotes :: Lens.Lens' MobileSdkRelease (Prelude.Maybe Prelude.Text)
+mobileSdkRelease_releaseNotes = Lens.lens (\MobileSdkRelease' {releaseNotes} -> releaseNotes) (\s@MobileSdkRelease' {} a -> s {releaseNotes = a} :: MobileSdkRelease)
 
 -- | The release version.
 mobileSdkRelease_releaseVersion :: Lens.Lens' MobileSdkRelease (Prelude.Maybe Prelude.Text)
@@ -79,10 +83,6 @@ mobileSdkRelease_releaseVersion = Lens.lens (\MobileSdkRelease' {releaseVersion}
 -- | Tags that are associated with the release.
 mobileSdkRelease_tags :: Lens.Lens' MobileSdkRelease (Prelude.Maybe (Prelude.NonEmpty Tag))
 mobileSdkRelease_tags = Lens.lens (\MobileSdkRelease' {tags} -> tags) (\s@MobileSdkRelease' {} a -> s {tags = a} :: MobileSdkRelease) Prelude.. Lens.mapping Lens.coerced
-
--- | Notes describing the release.
-mobileSdkRelease_releaseNotes :: Lens.Lens' MobileSdkRelease (Prelude.Maybe Prelude.Text)
-mobileSdkRelease_releaseNotes = Lens.lens (\MobileSdkRelease' {releaseNotes} -> releaseNotes) (\s@MobileSdkRelease' {} a -> s {releaseNotes = a} :: MobileSdkRelease)
 
 -- | The timestamp of the release.
 mobileSdkRelease_timestamp :: Lens.Lens' MobileSdkRelease (Prelude.Maybe Prelude.UTCTime)
@@ -94,22 +94,22 @@ instance Data.FromJSON MobileSdkRelease where
       "MobileSdkRelease"
       ( \x ->
           MobileSdkRelease'
-            Prelude.<$> (x Data..:? "ReleaseVersion")
+            Prelude.<$> (x Data..:? "ReleaseNotes")
+            Prelude.<*> (x Data..:? "ReleaseVersion")
             Prelude.<*> (x Data..:? "Tags")
-            Prelude.<*> (x Data..:? "ReleaseNotes")
             Prelude.<*> (x Data..:? "Timestamp")
       )
 
 instance Prelude.Hashable MobileSdkRelease where
   hashWithSalt _salt MobileSdkRelease' {..} =
-    _salt `Prelude.hashWithSalt` releaseVersion
+    _salt `Prelude.hashWithSalt` releaseNotes
+      `Prelude.hashWithSalt` releaseVersion
       `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` releaseNotes
       `Prelude.hashWithSalt` timestamp
 
 instance Prelude.NFData MobileSdkRelease where
   rnf MobileSdkRelease' {..} =
-    Prelude.rnf releaseVersion
+    Prelude.rnf releaseNotes
+      `Prelude.seq` Prelude.rnf releaseVersion
       `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf releaseNotes
       `Prelude.seq` Prelude.rnf timestamp

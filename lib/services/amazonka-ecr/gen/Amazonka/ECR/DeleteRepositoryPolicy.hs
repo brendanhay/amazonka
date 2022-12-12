@@ -36,8 +36,8 @@ module Amazonka.ECR.DeleteRepositoryPolicy
 
     -- * Response Lenses
     deleteRepositoryPolicyResponse_policyText,
-    deleteRepositoryPolicyResponse_repositoryName,
     deleteRepositoryPolicyResponse_registryId,
+    deleteRepositoryPolicyResponse_repositoryName,
     deleteRepositoryPolicyResponse_httpStatus,
   )
 where
@@ -109,8 +109,8 @@ instance Core.AWSRequest DeleteRepositoryPolicy where
       ( \s h x ->
           DeleteRepositoryPolicyResponse'
             Prelude.<$> (x Data..?> "policyText")
-            Prelude.<*> (x Data..?> "repositoryName")
             Prelude.<*> (x Data..?> "registryId")
+            Prelude.<*> (x Data..?> "repositoryName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,10 +159,10 @@ instance Data.ToQuery DeleteRepositoryPolicy where
 data DeleteRepositoryPolicyResponse = DeleteRepositoryPolicyResponse'
   { -- | The JSON repository policy that was deleted from the repository.
     policyText :: Prelude.Maybe Prelude.Text,
-    -- | The repository name associated with the request.
-    repositoryName :: Prelude.Maybe Prelude.Text,
     -- | The registry ID associated with the request.
     registryId :: Prelude.Maybe Prelude.Text,
+    -- | The repository name associated with the request.
+    repositoryName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -178,9 +178,9 @@ data DeleteRepositoryPolicyResponse = DeleteRepositoryPolicyResponse'
 --
 -- 'policyText', 'deleteRepositoryPolicyResponse_policyText' - The JSON repository policy that was deleted from the repository.
 --
--- 'repositoryName', 'deleteRepositoryPolicyResponse_repositoryName' - The repository name associated with the request.
---
 -- 'registryId', 'deleteRepositoryPolicyResponse_registryId' - The registry ID associated with the request.
+--
+-- 'repositoryName', 'deleteRepositoryPolicyResponse_repositoryName' - The repository name associated with the request.
 --
 -- 'httpStatus', 'deleteRepositoryPolicyResponse_httpStatus' - The response's http status code.
 newDeleteRepositoryPolicyResponse ::
@@ -191,8 +191,8 @@ newDeleteRepositoryPolicyResponse pHttpStatus_ =
   DeleteRepositoryPolicyResponse'
     { policyText =
         Prelude.Nothing,
-      repositoryName = Prelude.Nothing,
       registryId = Prelude.Nothing,
+      repositoryName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -200,13 +200,13 @@ newDeleteRepositoryPolicyResponse pHttpStatus_ =
 deleteRepositoryPolicyResponse_policyText :: Lens.Lens' DeleteRepositoryPolicyResponse (Prelude.Maybe Prelude.Text)
 deleteRepositoryPolicyResponse_policyText = Lens.lens (\DeleteRepositoryPolicyResponse' {policyText} -> policyText) (\s@DeleteRepositoryPolicyResponse' {} a -> s {policyText = a} :: DeleteRepositoryPolicyResponse)
 
--- | The repository name associated with the request.
-deleteRepositoryPolicyResponse_repositoryName :: Lens.Lens' DeleteRepositoryPolicyResponse (Prelude.Maybe Prelude.Text)
-deleteRepositoryPolicyResponse_repositoryName = Lens.lens (\DeleteRepositoryPolicyResponse' {repositoryName} -> repositoryName) (\s@DeleteRepositoryPolicyResponse' {} a -> s {repositoryName = a} :: DeleteRepositoryPolicyResponse)
-
 -- | The registry ID associated with the request.
 deleteRepositoryPolicyResponse_registryId :: Lens.Lens' DeleteRepositoryPolicyResponse (Prelude.Maybe Prelude.Text)
 deleteRepositoryPolicyResponse_registryId = Lens.lens (\DeleteRepositoryPolicyResponse' {registryId} -> registryId) (\s@DeleteRepositoryPolicyResponse' {} a -> s {registryId = a} :: DeleteRepositoryPolicyResponse)
+
+-- | The repository name associated with the request.
+deleteRepositoryPolicyResponse_repositoryName :: Lens.Lens' DeleteRepositoryPolicyResponse (Prelude.Maybe Prelude.Text)
+deleteRepositoryPolicyResponse_repositoryName = Lens.lens (\DeleteRepositoryPolicyResponse' {repositoryName} -> repositoryName) (\s@DeleteRepositoryPolicyResponse' {} a -> s {repositoryName = a} :: DeleteRepositoryPolicyResponse)
 
 -- | The response's http status code.
 deleteRepositoryPolicyResponse_httpStatus :: Lens.Lens' DeleteRepositoryPolicyResponse Prelude.Int
@@ -218,6 +218,6 @@ instance
   where
   rnf DeleteRepositoryPolicyResponse' {..} =
     Prelude.rnf policyText
-      `Prelude.seq` Prelude.rnf repositoryName
       `Prelude.seq` Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf repositoryName
       `Prelude.seq` Prelude.rnf httpStatus

@@ -41,8 +41,8 @@ module Amazonka.SDB.Select
     newSelect,
 
     -- * Request Lenses
-    select_nextToken,
     select_consistentRead,
+    select_nextToken,
     select_selectExpression,
 
     -- * Destructuring the Response
@@ -66,15 +66,15 @@ import Amazonka.SDB.Types
 
 -- | /See:/ 'newSelect' smart constructor.
 data Select = Select'
-  { -- | A string informing Amazon SimpleDB where to start the next list of
-    -- @ItemNames@.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Determines whether or not strong consistency should be enforced when
+  { -- | Determines whether or not strong consistency should be enforced when
     -- data is read from SimpleDB. If @true@, any data previously written to
     -- SimpleDB will be returned. Otherwise, results will be consistent
     -- eventually, and the client may not see data that was written immediately
     -- before your read.
     consistentRead :: Prelude.Maybe Prelude.Bool,
+    -- | A string informing Amazon SimpleDB where to start the next list of
+    -- @ItemNames@.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The expression used to query the domain.
     selectExpression :: Prelude.Text
   }
@@ -88,14 +88,14 @@ data Select = Select'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'select_nextToken' - A string informing Amazon SimpleDB where to start the next list of
--- @ItemNames@.
---
 -- 'consistentRead', 'select_consistentRead' - Determines whether or not strong consistency should be enforced when
 -- data is read from SimpleDB. If @true@, any data previously written to
 -- SimpleDB will be returned. Otherwise, results will be consistent
 -- eventually, and the client may not see data that was written immediately
 -- before your read.
+--
+-- 'nextToken', 'select_nextToken' - A string informing Amazon SimpleDB where to start the next list of
+-- @ItemNames@.
 --
 -- 'selectExpression', 'select_selectExpression' - The expression used to query the domain.
 newSelect ::
@@ -104,15 +104,10 @@ newSelect ::
   Select
 newSelect pSelectExpression_ =
   Select'
-    { nextToken = Prelude.Nothing,
-      consistentRead = Prelude.Nothing,
+    { consistentRead = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       selectExpression = pSelectExpression_
     }
-
--- | A string informing Amazon SimpleDB where to start the next list of
--- @ItemNames@.
-select_nextToken :: Lens.Lens' Select (Prelude.Maybe Prelude.Text)
-select_nextToken = Lens.lens (\Select' {nextToken} -> nextToken) (\s@Select' {} a -> s {nextToken = a} :: Select)
 
 -- | Determines whether or not strong consistency should be enforced when
 -- data is read from SimpleDB. If @true@, any data previously written to
@@ -121,6 +116,11 @@ select_nextToken = Lens.lens (\Select' {nextToken} -> nextToken) (\s@Select' {} 
 -- before your read.
 select_consistentRead :: Lens.Lens' Select (Prelude.Maybe Prelude.Bool)
 select_consistentRead = Lens.lens (\Select' {consistentRead} -> consistentRead) (\s@Select' {} a -> s {consistentRead = a} :: Select)
+
+-- | A string informing Amazon SimpleDB where to start the next list of
+-- @ItemNames@.
+select_nextToken :: Lens.Lens' Select (Prelude.Maybe Prelude.Text)
+select_nextToken = Lens.lens (\Select' {nextToken} -> nextToken) (\s@Select' {} a -> s {nextToken = a} :: Select)
 
 -- | The expression used to query the domain.
 select_selectExpression :: Lens.Lens' Select Prelude.Text
@@ -161,14 +161,14 @@ instance Core.AWSRequest Select where
 
 instance Prelude.Hashable Select where
   hashWithSalt _salt Select' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` consistentRead
+    _salt `Prelude.hashWithSalt` consistentRead
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` selectExpression
 
 instance Prelude.NFData Select where
   rnf Select' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf consistentRead
+    Prelude.rnf consistentRead
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf selectExpression
 
 instance Data.ToHeaders Select where
@@ -183,8 +183,8 @@ instance Data.ToQuery Select where
       [ "Action" Data.=: ("Select" :: Prelude.ByteString),
         "Version"
           Data.=: ("2009-04-15" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
         "ConsistentRead" Data.=: consistentRead,
+        "NextToken" Data.=: nextToken,
         "SelectExpression" Data.=: selectExpression
       ]
 

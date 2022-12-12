@@ -32,8 +32,8 @@ module Amazonka.PersonalizeRuntime.GetPersonalizedRanking
     newGetPersonalizedRanking,
 
     -- * Request Lenses
-    getPersonalizedRanking_filterArn,
     getPersonalizedRanking_context,
+    getPersonalizedRanking_filterArn,
     getPersonalizedRanking_filterValues,
     getPersonalizedRanking_campaignArn,
     getPersonalizedRanking_inputList,
@@ -60,16 +60,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetPersonalizedRanking' smart constructor.
 data GetPersonalizedRanking = GetPersonalizedRanking'
-  { -- | The Amazon Resource Name (ARN) of a filter you created to include items
-    -- or exclude items from recommendations for a given user. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/personalize/latest/dg/filter.html Filtering Recommendations>.
-    filterArn :: Prelude.Maybe Prelude.Text,
-    -- | The contextual metadata to use when getting recommendations. Contextual
+  { -- | The contextual metadata to use when getting recommendations. Contextual
     -- metadata includes any interaction information that might be relevant
     -- when getting a user\'s recommendations, such as the user\'s current
     -- location or device type.
     context :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Data.Sensitive Prelude.Text)),
+    -- | The Amazon Resource Name (ARN) of a filter you created to include items
+    -- or exclude items from recommendations for a given user. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/personalize/latest/dg/filter.html Filtering Recommendations>.
+    filterArn :: Prelude.Maybe Prelude.Text,
     -- | The values to use when filtering recommendations. For each placeholder
     -- parameter in your filter expression, provide the parameter name (in
     -- matching case) as a key and the filter value(s) as the corresponding
@@ -106,15 +106,15 @@ data GetPersonalizedRanking = GetPersonalizedRanking'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filterArn', 'getPersonalizedRanking_filterArn' - The Amazon Resource Name (ARN) of a filter you created to include items
--- or exclude items from recommendations for a given user. For more
--- information, see
--- <https://docs.aws.amazon.com/personalize/latest/dg/filter.html Filtering Recommendations>.
---
 -- 'context', 'getPersonalizedRanking_context' - The contextual metadata to use when getting recommendations. Contextual
 -- metadata includes any interaction information that might be relevant
 -- when getting a user\'s recommendations, such as the user\'s current
 -- location or device type.
+--
+-- 'filterArn', 'getPersonalizedRanking_filterArn' - The Amazon Resource Name (ARN) of a filter you created to include items
+-- or exclude items from recommendations for a given user. For more
+-- information, see
+-- <https://docs.aws.amazon.com/personalize/latest/dg/filter.html Filtering Recommendations>.
 --
 -- 'filterValues', 'getPersonalizedRanking_filterValues' - The values to use when filtering recommendations. For each placeholder
 -- parameter in your filter expression, provide the parameter name (in
@@ -148,21 +148,13 @@ newGetPersonalizedRanking ::
   GetPersonalizedRanking
 newGetPersonalizedRanking pCampaignArn_ pUserId_ =
   GetPersonalizedRanking'
-    { filterArn =
-        Prelude.Nothing,
-      context = Prelude.Nothing,
+    { context = Prelude.Nothing,
+      filterArn = Prelude.Nothing,
       filterValues = Prelude.Nothing,
       campaignArn = pCampaignArn_,
       inputList = Prelude.mempty,
       userId = pUserId_
     }
-
--- | The Amazon Resource Name (ARN) of a filter you created to include items
--- or exclude items from recommendations for a given user. For more
--- information, see
--- <https://docs.aws.amazon.com/personalize/latest/dg/filter.html Filtering Recommendations>.
-getPersonalizedRanking_filterArn :: Lens.Lens' GetPersonalizedRanking (Prelude.Maybe Prelude.Text)
-getPersonalizedRanking_filterArn = Lens.lens (\GetPersonalizedRanking' {filterArn} -> filterArn) (\s@GetPersonalizedRanking' {} a -> s {filterArn = a} :: GetPersonalizedRanking)
 
 -- | The contextual metadata to use when getting recommendations. Contextual
 -- metadata includes any interaction information that might be relevant
@@ -170,6 +162,13 @@ getPersonalizedRanking_filterArn = Lens.lens (\GetPersonalizedRanking' {filterAr
 -- location or device type.
 getPersonalizedRanking_context :: Lens.Lens' GetPersonalizedRanking (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 getPersonalizedRanking_context = Lens.lens (\GetPersonalizedRanking' {context} -> context) (\s@GetPersonalizedRanking' {} a -> s {context = a} :: GetPersonalizedRanking) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Resource Name (ARN) of a filter you created to include items
+-- or exclude items from recommendations for a given user. For more
+-- information, see
+-- <https://docs.aws.amazon.com/personalize/latest/dg/filter.html Filtering Recommendations>.
+getPersonalizedRanking_filterArn :: Lens.Lens' GetPersonalizedRanking (Prelude.Maybe Prelude.Text)
+getPersonalizedRanking_filterArn = Lens.lens (\GetPersonalizedRanking' {filterArn} -> filterArn) (\s@GetPersonalizedRanking' {} a -> s {filterArn = a} :: GetPersonalizedRanking)
 
 -- | The values to use when filtering recommendations. For each placeholder
 -- parameter in your filter expression, provide the parameter name (in
@@ -223,8 +222,8 @@ instance Core.AWSRequest GetPersonalizedRanking where
 
 instance Prelude.Hashable GetPersonalizedRanking where
   hashWithSalt _salt GetPersonalizedRanking' {..} =
-    _salt `Prelude.hashWithSalt` filterArn
-      `Prelude.hashWithSalt` context
+    _salt `Prelude.hashWithSalt` context
+      `Prelude.hashWithSalt` filterArn
       `Prelude.hashWithSalt` filterValues
       `Prelude.hashWithSalt` campaignArn
       `Prelude.hashWithSalt` inputList
@@ -232,8 +231,8 @@ instance Prelude.Hashable GetPersonalizedRanking where
 
 instance Prelude.NFData GetPersonalizedRanking where
   rnf GetPersonalizedRanking' {..} =
-    Prelude.rnf filterArn
-      `Prelude.seq` Prelude.rnf context
+    Prelude.rnf context
+      `Prelude.seq` Prelude.rnf filterArn
       `Prelude.seq` Prelude.rnf filterValues
       `Prelude.seq` Prelude.rnf campaignArn
       `Prelude.seq` Prelude.rnf inputList
@@ -254,8 +253,8 @@ instance Data.ToJSON GetPersonalizedRanking where
   toJSON GetPersonalizedRanking' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("filterArn" Data..=) Prelude.<$> filterArn,
-            ("context" Data..=) Prelude.<$> context,
+          [ ("context" Data..=) Prelude.<$> context,
+            ("filterArn" Data..=) Prelude.<$> filterArn,
             ("filterValues" Data..=) Prelude.<$> filterValues,
             Prelude.Just ("campaignArn" Data..= campaignArn),
             Prelude.Just ("inputList" Data..= inputList),

@@ -32,7 +32,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newApplicationSettingsResource' smart constructor.
 data ApplicationSettingsResource = ApplicationSettingsResource'
-  { -- | The date and time, in ISO 8601 format, when the application\'s settings
+  { -- | The settings for the AWS Lambda function to invoke by default as a code
+    -- hook for campaigns in the application. You can use this hook to
+    -- customize segments that are used by campaigns in the application.
+    campaignHook :: Prelude.Maybe CampaignHook,
+    -- | The date and time, in ISO 8601 format, when the application\'s settings
     -- were last modified.
     lastModifiedDate :: Prelude.Maybe Prelude.Text,
     -- | The default sending limits for campaigns in the application.
@@ -57,10 +61,6 @@ data ApplicationSettingsResource = ApplicationSettingsResource'
     -- If any of the preceding conditions isn\'t met, the endpoint will receive
     -- messages from a campaign or journey, even if quiet time is enabled.
     quietTime :: Prelude.Maybe QuietTime,
-    -- | The settings for the AWS Lambda function to invoke by default as a code
-    -- hook for campaigns in the application. You can use this hook to
-    -- customize segments that are used by campaigns in the application.
-    campaignHook :: Prelude.Maybe CampaignHook,
     -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
     applicationId :: Prelude.Text
@@ -74,6 +74,10 @@ data ApplicationSettingsResource = ApplicationSettingsResource'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'campaignHook', 'applicationSettingsResource_campaignHook' - The settings for the AWS Lambda function to invoke by default as a code
+-- hook for campaigns in the application. You can use this hook to
+-- customize segments that are used by campaigns in the application.
 --
 -- 'lastModifiedDate', 'applicationSettingsResource_lastModifiedDate' - The date and time, in ISO 8601 format, when the application\'s settings
 -- were last modified.
@@ -100,10 +104,6 @@ data ApplicationSettingsResource = ApplicationSettingsResource'
 -- If any of the preceding conditions isn\'t met, the endpoint will receive
 -- messages from a campaign or journey, even if quiet time is enabled.
 --
--- 'campaignHook', 'applicationSettingsResource_campaignHook' - The settings for the AWS Lambda function to invoke by default as a code
--- hook for campaigns in the application. You can use this hook to
--- customize segments that are used by campaigns in the application.
---
 -- 'applicationId', 'applicationSettingsResource_applicationId' - The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
 newApplicationSettingsResource ::
@@ -112,13 +112,19 @@ newApplicationSettingsResource ::
   ApplicationSettingsResource
 newApplicationSettingsResource pApplicationId_ =
   ApplicationSettingsResource'
-    { lastModifiedDate =
+    { campaignHook =
         Prelude.Nothing,
+      lastModifiedDate = Prelude.Nothing,
       limits = Prelude.Nothing,
       quietTime = Prelude.Nothing,
-      campaignHook = Prelude.Nothing,
       applicationId = pApplicationId_
     }
+
+-- | The settings for the AWS Lambda function to invoke by default as a code
+-- hook for campaigns in the application. You can use this hook to
+-- customize segments that are used by campaigns in the application.
+applicationSettingsResource_campaignHook :: Lens.Lens' ApplicationSettingsResource (Prelude.Maybe CampaignHook)
+applicationSettingsResource_campaignHook = Lens.lens (\ApplicationSettingsResource' {campaignHook} -> campaignHook) (\s@ApplicationSettingsResource' {} a -> s {campaignHook = a} :: ApplicationSettingsResource)
 
 -- | The date and time, in ISO 8601 format, when the application\'s settings
 -- were last modified.
@@ -151,12 +157,6 @@ applicationSettingsResource_limits = Lens.lens (\ApplicationSettingsResource' {l
 applicationSettingsResource_quietTime :: Lens.Lens' ApplicationSettingsResource (Prelude.Maybe QuietTime)
 applicationSettingsResource_quietTime = Lens.lens (\ApplicationSettingsResource' {quietTime} -> quietTime) (\s@ApplicationSettingsResource' {} a -> s {quietTime = a} :: ApplicationSettingsResource)
 
--- | The settings for the AWS Lambda function to invoke by default as a code
--- hook for campaigns in the application. You can use this hook to
--- customize segments that are used by campaigns in the application.
-applicationSettingsResource_campaignHook :: Lens.Lens' ApplicationSettingsResource (Prelude.Maybe CampaignHook)
-applicationSettingsResource_campaignHook = Lens.lens (\ApplicationSettingsResource' {campaignHook} -> campaignHook) (\s@ApplicationSettingsResource' {} a -> s {campaignHook = a} :: ApplicationSettingsResource)
-
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
 applicationSettingsResource_applicationId :: Lens.Lens' ApplicationSettingsResource Prelude.Text
@@ -168,25 +168,25 @@ instance Data.FromJSON ApplicationSettingsResource where
       "ApplicationSettingsResource"
       ( \x ->
           ApplicationSettingsResource'
-            Prelude.<$> (x Data..:? "LastModifiedDate")
+            Prelude.<$> (x Data..:? "CampaignHook")
+            Prelude.<*> (x Data..:? "LastModifiedDate")
             Prelude.<*> (x Data..:? "Limits")
             Prelude.<*> (x Data..:? "QuietTime")
-            Prelude.<*> (x Data..:? "CampaignHook")
             Prelude.<*> (x Data..: "ApplicationId")
       )
 
 instance Prelude.Hashable ApplicationSettingsResource where
   hashWithSalt _salt ApplicationSettingsResource' {..} =
-    _salt `Prelude.hashWithSalt` lastModifiedDate
+    _salt `Prelude.hashWithSalt` campaignHook
+      `Prelude.hashWithSalt` lastModifiedDate
       `Prelude.hashWithSalt` limits
       `Prelude.hashWithSalt` quietTime
-      `Prelude.hashWithSalt` campaignHook
       `Prelude.hashWithSalt` applicationId
 
 instance Prelude.NFData ApplicationSettingsResource where
   rnf ApplicationSettingsResource' {..} =
-    Prelude.rnf lastModifiedDate
+    Prelude.rnf campaignHook
+      `Prelude.seq` Prelude.rnf lastModifiedDate
       `Prelude.seq` Prelude.rnf limits
       `Prelude.seq` Prelude.rnf quietTime
-      `Prelude.seq` Prelude.rnf campaignHook
       `Prelude.seq` Prelude.rnf applicationId

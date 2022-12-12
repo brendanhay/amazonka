@@ -30,11 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeploymentReadyOption' smart constructor.
 data DeploymentReadyOption = DeploymentReadyOption'
-  { -- | The number of minutes to wait before the status of a blue\/green
-    -- deployment is changed to Stopped if rerouting is not started manually.
-    -- Applies only to the @STOP_DEPLOYMENT@ option for @actionOnTimeout@.
-    waitTimeInMinutes :: Prelude.Maybe Prelude.Int,
-    -- | Information about when to reroute traffic from an original environment
+  { -- | Information about when to reroute traffic from an original environment
     -- to a replacement environment in a blue\/green deployment.
     --
     -- -   CONTINUE_DEPLOYMENT: Register new instances with the load balancer
@@ -45,7 +41,11 @@ data DeploymentReadyOption = DeploymentReadyOption'
     --     unless traffic rerouting is started using ContinueDeployment. If
     --     traffic rerouting is not started before the end of the specified
     --     wait period, the deployment status is changed to Stopped.
-    actionOnTimeout :: Prelude.Maybe DeploymentReadyAction
+    actionOnTimeout :: Prelude.Maybe DeploymentReadyAction,
+    -- | The number of minutes to wait before the status of a blue\/green
+    -- deployment is changed to Stopped if rerouting is not started manually.
+    -- Applies only to the @STOP_DEPLOYMENT@ option for @actionOnTimeout@.
+    waitTimeInMinutes :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,10 +56,6 @@ data DeploymentReadyOption = DeploymentReadyOption'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'waitTimeInMinutes', 'deploymentReadyOption_waitTimeInMinutes' - The number of minutes to wait before the status of a blue\/green
--- deployment is changed to Stopped if rerouting is not started manually.
--- Applies only to the @STOP_DEPLOYMENT@ option for @actionOnTimeout@.
 --
 -- 'actionOnTimeout', 'deploymentReadyOption_actionOnTimeout' - Information about when to reroute traffic from an original environment
 -- to a replacement environment in a blue\/green deployment.
@@ -72,20 +68,18 @@ data DeploymentReadyOption = DeploymentReadyOption'
 --     unless traffic rerouting is started using ContinueDeployment. If
 --     traffic rerouting is not started before the end of the specified
 --     wait period, the deployment status is changed to Stopped.
+--
+-- 'waitTimeInMinutes', 'deploymentReadyOption_waitTimeInMinutes' - The number of minutes to wait before the status of a blue\/green
+-- deployment is changed to Stopped if rerouting is not started manually.
+-- Applies only to the @STOP_DEPLOYMENT@ option for @actionOnTimeout@.
 newDeploymentReadyOption ::
   DeploymentReadyOption
 newDeploymentReadyOption =
   DeploymentReadyOption'
-    { waitTimeInMinutes =
+    { actionOnTimeout =
         Prelude.Nothing,
-      actionOnTimeout = Prelude.Nothing
+      waitTimeInMinutes = Prelude.Nothing
     }
-
--- | The number of minutes to wait before the status of a blue\/green
--- deployment is changed to Stopped if rerouting is not started manually.
--- Applies only to the @STOP_DEPLOYMENT@ option for @actionOnTimeout@.
-deploymentReadyOption_waitTimeInMinutes :: Lens.Lens' DeploymentReadyOption (Prelude.Maybe Prelude.Int)
-deploymentReadyOption_waitTimeInMinutes = Lens.lens (\DeploymentReadyOption' {waitTimeInMinutes} -> waitTimeInMinutes) (\s@DeploymentReadyOption' {} a -> s {waitTimeInMinutes = a} :: DeploymentReadyOption)
 
 -- | Information about when to reroute traffic from an original environment
 -- to a replacement environment in a blue\/green deployment.
@@ -101,33 +95,39 @@ deploymentReadyOption_waitTimeInMinutes = Lens.lens (\DeploymentReadyOption' {wa
 deploymentReadyOption_actionOnTimeout :: Lens.Lens' DeploymentReadyOption (Prelude.Maybe DeploymentReadyAction)
 deploymentReadyOption_actionOnTimeout = Lens.lens (\DeploymentReadyOption' {actionOnTimeout} -> actionOnTimeout) (\s@DeploymentReadyOption' {} a -> s {actionOnTimeout = a} :: DeploymentReadyOption)
 
+-- | The number of minutes to wait before the status of a blue\/green
+-- deployment is changed to Stopped if rerouting is not started manually.
+-- Applies only to the @STOP_DEPLOYMENT@ option for @actionOnTimeout@.
+deploymentReadyOption_waitTimeInMinutes :: Lens.Lens' DeploymentReadyOption (Prelude.Maybe Prelude.Int)
+deploymentReadyOption_waitTimeInMinutes = Lens.lens (\DeploymentReadyOption' {waitTimeInMinutes} -> waitTimeInMinutes) (\s@DeploymentReadyOption' {} a -> s {waitTimeInMinutes = a} :: DeploymentReadyOption)
+
 instance Data.FromJSON DeploymentReadyOption where
   parseJSON =
     Data.withObject
       "DeploymentReadyOption"
       ( \x ->
           DeploymentReadyOption'
-            Prelude.<$> (x Data..:? "waitTimeInMinutes")
-            Prelude.<*> (x Data..:? "actionOnTimeout")
+            Prelude.<$> (x Data..:? "actionOnTimeout")
+            Prelude.<*> (x Data..:? "waitTimeInMinutes")
       )
 
 instance Prelude.Hashable DeploymentReadyOption where
   hashWithSalt _salt DeploymentReadyOption' {..} =
-    _salt `Prelude.hashWithSalt` waitTimeInMinutes
-      `Prelude.hashWithSalt` actionOnTimeout
+    _salt `Prelude.hashWithSalt` actionOnTimeout
+      `Prelude.hashWithSalt` waitTimeInMinutes
 
 instance Prelude.NFData DeploymentReadyOption where
   rnf DeploymentReadyOption' {..} =
-    Prelude.rnf waitTimeInMinutes
-      `Prelude.seq` Prelude.rnf actionOnTimeout
+    Prelude.rnf actionOnTimeout
+      `Prelude.seq` Prelude.rnf waitTimeInMinutes
 
 instance Data.ToJSON DeploymentReadyOption where
   toJSON DeploymentReadyOption' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("waitTimeInMinutes" Data..=)
-              Prelude.<$> waitTimeInMinutes,
-            ("actionOnTimeout" Data..=)
-              Prelude.<$> actionOnTimeout
+          [ ("actionOnTimeout" Data..=)
+              Prelude.<$> actionOnTimeout,
+            ("waitTimeInMinutes" Data..=)
+              Prelude.<$> waitTimeInMinutes
           ]
       )

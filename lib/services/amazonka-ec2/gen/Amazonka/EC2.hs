@@ -48,107 +48,107 @@ module Amazonka.EC2
     -- * Waiters
     -- $waiters
 
-    -- ** InstanceStopped
-    newInstanceStopped,
-
-    -- ** ExportTaskCompleted
-    newExportTaskCompleted,
-
-    -- ** SpotInstanceRequestFulfilled
-    newSpotInstanceRequestFulfilled,
-
-    -- ** ImageExists
-    newImageExists,
-
-    -- ** KeyPairExists
-    newKeyPairExists,
-
-    -- ** ExportTaskCancelled
-    newExportTaskCancelled,
-
-    -- ** InstanceStatusOk
-    newInstanceStatusOk,
-
     -- ** BundleTaskComplete
     newBundleTaskComplete,
-
-    -- ** InstanceExists
-    newInstanceExists,
-
-    -- ** ImageAvailable
-    newImageAvailable,
-
-    -- ** VolumeDeleted
-    newVolumeDeleted,
-
-    -- ** InstanceRunning
-    newInstanceRunning,
-
-    -- ** VolumeAvailable
-    newVolumeAvailable,
-
-    -- ** SubnetAvailable
-    newSubnetAvailable,
-
-    -- ** VpnConnectionDeleted
-    newVpnConnectionDeleted,
-
-    -- ** CustomerGatewayAvailable
-    newCustomerGatewayAvailable,
-
-    -- ** VolumeInUse
-    newVolumeInUse,
-
-    -- ** PasswordDataAvailable
-    newPasswordDataAvailable,
-
-    -- ** SystemStatusOk
-    newSystemStatusOk,
-
-    -- ** NatGatewayDeleted
-    newNatGatewayDeleted,
-
-    -- ** VpnConnectionAvailable
-    newVpnConnectionAvailable,
-
-    -- ** VpcExists
-    newVpcExists,
-
-    -- ** InternetGatewayExists
-    newInternetGatewayExists,
-
-    -- ** NetworkInterfaceAvailable
-    newNetworkInterfaceAvailable,
-
-    -- ** ConversionTaskCompleted
-    newConversionTaskCompleted,
-
-    -- ** VpcPeeringConnectionDeleted
-    newVpcPeeringConnectionDeleted,
-
-    -- ** InstanceTerminated
-    newInstanceTerminated,
-
-    -- ** SnapshotCompleted
-    newSnapshotCompleted,
-
-    -- ** NatGatewayAvailable
-    newNatGatewayAvailable,
-
-    -- ** VpcPeeringConnectionExists
-    newVpcPeeringConnectionExists,
 
     -- ** ConversionTaskCancelled
     newConversionTaskCancelled,
 
+    -- ** ConversionTaskCompleted
+    newConversionTaskCompleted,
+
     -- ** ConversionTaskDeleted
     newConversionTaskDeleted,
+
+    -- ** CustomerGatewayAvailable
+    newCustomerGatewayAvailable,
+
+    -- ** ExportTaskCancelled
+    newExportTaskCancelled,
+
+    -- ** ExportTaskCompleted
+    newExportTaskCompleted,
+
+    -- ** ImageAvailable
+    newImageAvailable,
+
+    -- ** ImageExists
+    newImageExists,
+
+    -- ** InstanceExists
+    newInstanceExists,
+
+    -- ** InstanceRunning
+    newInstanceRunning,
+
+    -- ** InstanceStatusOk
+    newInstanceStatusOk,
+
+    -- ** InstanceStopped
+    newInstanceStopped,
+
+    -- ** InstanceTerminated
+    newInstanceTerminated,
+
+    -- ** InternetGatewayExists
+    newInternetGatewayExists,
+
+    -- ** KeyPairExists
+    newKeyPairExists,
+
+    -- ** NatGatewayAvailable
+    newNatGatewayAvailable,
+
+    -- ** NatGatewayDeleted
+    newNatGatewayDeleted,
+
+    -- ** NetworkInterfaceAvailable
+    newNetworkInterfaceAvailable,
+
+    -- ** PasswordDataAvailable
+    newPasswordDataAvailable,
 
     -- ** SecurityGroupExists
     newSecurityGroupExists,
 
+    -- ** SnapshotCompleted
+    newSnapshotCompleted,
+
+    -- ** SpotInstanceRequestFulfilled
+    newSpotInstanceRequestFulfilled,
+
+    -- ** SubnetAvailable
+    newSubnetAvailable,
+
+    -- ** SystemStatusOk
+    newSystemStatusOk,
+
+    -- ** VolumeAvailable
+    newVolumeAvailable,
+
+    -- ** VolumeDeleted
+    newVolumeDeleted,
+
+    -- ** VolumeInUse
+    newVolumeInUse,
+
     -- ** VpcAvailable
     newVpcAvailable,
+
+    -- ** VpcExists
+    newVpcExists,
+
+    -- ** VpcPeeringConnectionDeleted
+    newVpcPeeringConnectionDeleted,
+
+    -- ** VpcPeeringConnectionExists
+    newVpcPeeringConnectionExists,
+
+    -- ** VpnConnectionAvailable
+    newVpnConnectionAvailable,
+
+    -- ** VpnConnectionDeleted
+    newVpnConnectionDeleted,
 
     -- * Operations
     -- $operations
@@ -332,6 +332,12 @@ module Amazonka.EC2
     newAttachNetworkInterface,
     AttachNetworkInterfaceResponse (AttachNetworkInterfaceResponse'),
     newAttachNetworkInterfaceResponse,
+
+    -- ** AttachVerifiedAccessTrustProvider
+    AttachVerifiedAccessTrustProvider (AttachVerifiedAccessTrustProvider'),
+    newAttachVerifiedAccessTrustProvider,
+    AttachVerifiedAccessTrustProviderResponse (AttachVerifiedAccessTrustProviderResponse'),
+    newAttachVerifiedAccessTrustProviderResponse,
 
     -- ** AttachVolume
     AttachVolume (AttachVolume'),
@@ -855,6 +861,30 @@ module Amazonka.EC2
     CreateTransitGatewayVpcAttachmentResponse (CreateTransitGatewayVpcAttachmentResponse'),
     newCreateTransitGatewayVpcAttachmentResponse,
 
+    -- ** CreateVerifiedAccessEndpoint
+    CreateVerifiedAccessEndpoint (CreateVerifiedAccessEndpoint'),
+    newCreateVerifiedAccessEndpoint,
+    CreateVerifiedAccessEndpointResponse (CreateVerifiedAccessEndpointResponse'),
+    newCreateVerifiedAccessEndpointResponse,
+
+    -- ** CreateVerifiedAccessGroup
+    CreateVerifiedAccessGroup (CreateVerifiedAccessGroup'),
+    newCreateVerifiedAccessGroup,
+    CreateVerifiedAccessGroupResponse (CreateVerifiedAccessGroupResponse'),
+    newCreateVerifiedAccessGroupResponse,
+
+    -- ** CreateVerifiedAccessInstance
+    CreateVerifiedAccessInstance (CreateVerifiedAccessInstance'),
+    newCreateVerifiedAccessInstance,
+    CreateVerifiedAccessInstanceResponse (CreateVerifiedAccessInstanceResponse'),
+    newCreateVerifiedAccessInstanceResponse,
+
+    -- ** CreateVerifiedAccessTrustProvider
+    CreateVerifiedAccessTrustProvider (CreateVerifiedAccessTrustProvider'),
+    newCreateVerifiedAccessTrustProvider,
+    CreateVerifiedAccessTrustProviderResponse (CreateVerifiedAccessTrustProviderResponse'),
+    newCreateVerifiedAccessTrustProviderResponse,
+
     -- ** CreateVolume
     CreateVolume (CreateVolume'),
     newCreateVolume,
@@ -1263,6 +1293,30 @@ module Amazonka.EC2
     DeleteTransitGatewayVpcAttachmentResponse (DeleteTransitGatewayVpcAttachmentResponse'),
     newDeleteTransitGatewayVpcAttachmentResponse,
 
+    -- ** DeleteVerifiedAccessEndpoint
+    DeleteVerifiedAccessEndpoint (DeleteVerifiedAccessEndpoint'),
+    newDeleteVerifiedAccessEndpoint,
+    DeleteVerifiedAccessEndpointResponse (DeleteVerifiedAccessEndpointResponse'),
+    newDeleteVerifiedAccessEndpointResponse,
+
+    -- ** DeleteVerifiedAccessGroup
+    DeleteVerifiedAccessGroup (DeleteVerifiedAccessGroup'),
+    newDeleteVerifiedAccessGroup,
+    DeleteVerifiedAccessGroupResponse (DeleteVerifiedAccessGroupResponse'),
+    newDeleteVerifiedAccessGroupResponse,
+
+    -- ** DeleteVerifiedAccessInstance
+    DeleteVerifiedAccessInstance (DeleteVerifiedAccessInstance'),
+    newDeleteVerifiedAccessInstance,
+    DeleteVerifiedAccessInstanceResponse (DeleteVerifiedAccessInstanceResponse'),
+    newDeleteVerifiedAccessInstanceResponse,
+
+    -- ** DeleteVerifiedAccessTrustProvider
+    DeleteVerifiedAccessTrustProvider (DeleteVerifiedAccessTrustProvider'),
+    newDeleteVerifiedAccessTrustProvider,
+    DeleteVerifiedAccessTrustProviderResponse (DeleteVerifiedAccessTrustProviderResponse'),
+    newDeleteVerifiedAccessTrustProviderResponse,
+
     -- ** DeleteVolume
     DeleteVolume (DeleteVolume'),
     newDeleteVolume,
@@ -1394,6 +1448,12 @@ module Amazonka.EC2
     newDescribeAvailabilityZones,
     DescribeAvailabilityZonesResponse (DescribeAvailabilityZonesResponse'),
     newDescribeAvailabilityZonesResponse,
+
+    -- ** DescribeAwsNetworkPerformanceMetricSubscriptions (Paginated)
+    DescribeAwsNetworkPerformanceMetricSubscriptions (DescribeAwsNetworkPerformanceMetricSubscriptions'),
+    newDescribeAwsNetworkPerformanceMetricSubscriptions,
+    DescribeAwsNetworkPerformanceMetricSubscriptionsResponse (DescribeAwsNetworkPerformanceMetricSubscriptionsResponse'),
+    newDescribeAwsNetworkPerformanceMetricSubscriptionsResponse,
 
     -- ** DescribeBundleTasks
     DescribeBundleTasks (DescribeBundleTasks'),
@@ -2073,6 +2133,36 @@ module Amazonka.EC2
     DescribeTrunkInterfaceAssociationsResponse (DescribeTrunkInterfaceAssociationsResponse'),
     newDescribeTrunkInterfaceAssociationsResponse,
 
+    -- ** DescribeVerifiedAccessEndpoints (Paginated)
+    DescribeVerifiedAccessEndpoints (DescribeVerifiedAccessEndpoints'),
+    newDescribeVerifiedAccessEndpoints,
+    DescribeVerifiedAccessEndpointsResponse (DescribeVerifiedAccessEndpointsResponse'),
+    newDescribeVerifiedAccessEndpointsResponse,
+
+    -- ** DescribeVerifiedAccessGroups (Paginated)
+    DescribeVerifiedAccessGroups (DescribeVerifiedAccessGroups'),
+    newDescribeVerifiedAccessGroups,
+    DescribeVerifiedAccessGroupsResponse (DescribeVerifiedAccessGroupsResponse'),
+    newDescribeVerifiedAccessGroupsResponse,
+
+    -- ** DescribeVerifiedAccessInstanceLoggingConfigurations (Paginated)
+    DescribeVerifiedAccessInstanceLoggingConfigurations (DescribeVerifiedAccessInstanceLoggingConfigurations'),
+    newDescribeVerifiedAccessInstanceLoggingConfigurations,
+    DescribeVerifiedAccessInstanceLoggingConfigurationsResponse (DescribeVerifiedAccessInstanceLoggingConfigurationsResponse'),
+    newDescribeVerifiedAccessInstanceLoggingConfigurationsResponse,
+
+    -- ** DescribeVerifiedAccessInstances (Paginated)
+    DescribeVerifiedAccessInstances (DescribeVerifiedAccessInstances'),
+    newDescribeVerifiedAccessInstances,
+    DescribeVerifiedAccessInstancesResponse (DescribeVerifiedAccessInstancesResponse'),
+    newDescribeVerifiedAccessInstancesResponse,
+
+    -- ** DescribeVerifiedAccessTrustProviders (Paginated)
+    DescribeVerifiedAccessTrustProviders (DescribeVerifiedAccessTrustProviders'),
+    newDescribeVerifiedAccessTrustProviders,
+    DescribeVerifiedAccessTrustProvidersResponse (DescribeVerifiedAccessTrustProvidersResponse'),
+    newDescribeVerifiedAccessTrustProvidersResponse,
+
     -- ** DescribeVolumeAttribute
     DescribeVolumeAttribute (DescribeVolumeAttribute'),
     newDescribeVolumeAttribute,
@@ -2193,6 +2283,12 @@ module Amazonka.EC2
     DetachNetworkInterfaceResponse (DetachNetworkInterfaceResponse'),
     newDetachNetworkInterfaceResponse,
 
+    -- ** DetachVerifiedAccessTrustProvider
+    DetachVerifiedAccessTrustProvider (DetachVerifiedAccessTrustProvider'),
+    newDetachVerifiedAccessTrustProvider,
+    DetachVerifiedAccessTrustProviderResponse (DetachVerifiedAccessTrustProviderResponse'),
+    newDetachVerifiedAccessTrustProviderResponse,
+
     -- ** DetachVolume
     DetachVolume (DetachVolume'),
     newDetachVolume,
@@ -2210,6 +2306,12 @@ module Amazonka.EC2
     newDisableAddressTransfer,
     DisableAddressTransferResponse (DisableAddressTransferResponse'),
     newDisableAddressTransferResponse,
+
+    -- ** DisableAwsNetworkPerformanceMetricSubscription
+    DisableAwsNetworkPerformanceMetricSubscription (DisableAwsNetworkPerformanceMetricSubscription'),
+    newDisableAwsNetworkPerformanceMetricSubscription,
+    DisableAwsNetworkPerformanceMetricSubscriptionResponse (DisableAwsNetworkPerformanceMetricSubscriptionResponse'),
+    newDisableAwsNetworkPerformanceMetricSubscriptionResponse,
 
     -- ** DisableEbsEncryptionByDefault
     DisableEbsEncryptionByDefault (DisableEbsEncryptionByDefault'),
@@ -2349,6 +2451,12 @@ module Amazonka.EC2
     EnableAddressTransferResponse (EnableAddressTransferResponse'),
     newEnableAddressTransferResponse,
 
+    -- ** EnableAwsNetworkPerformanceMetricSubscription
+    EnableAwsNetworkPerformanceMetricSubscription (EnableAwsNetworkPerformanceMetricSubscription'),
+    newEnableAwsNetworkPerformanceMetricSubscription,
+    EnableAwsNetworkPerformanceMetricSubscriptionResponse (EnableAwsNetworkPerformanceMetricSubscriptionResponse'),
+    newEnableAwsNetworkPerformanceMetricSubscriptionResponse,
+
     -- ** EnableEbsEncryptionByDefault
     EnableEbsEncryptionByDefault (EnableEbsEncryptionByDefault'),
     newEnableEbsEncryptionByDefault,
@@ -2378,6 +2486,12 @@ module Amazonka.EC2
     newEnableIpamOrganizationAdminAccount,
     EnableIpamOrganizationAdminAccountResponse (EnableIpamOrganizationAdminAccountResponse'),
     newEnableIpamOrganizationAdminAccountResponse,
+
+    -- ** EnableReachabilityAnalyzerOrganizationSharing
+    EnableReachabilityAnalyzerOrganizationSharing (EnableReachabilityAnalyzerOrganizationSharing'),
+    newEnableReachabilityAnalyzerOrganizationSharing,
+    EnableReachabilityAnalyzerOrganizationSharingResponse (EnableReachabilityAnalyzerOrganizationSharingResponse'),
+    newEnableReachabilityAnalyzerOrganizationSharingResponse,
 
     -- ** EnableSerialConsoleAccess
     EnableSerialConsoleAccess (EnableSerialConsoleAccess'),
@@ -2450,6 +2564,12 @@ module Amazonka.EC2
     newGetAssociatedIpv6PoolCidrs,
     GetAssociatedIpv6PoolCidrsResponse (GetAssociatedIpv6PoolCidrsResponse'),
     newGetAssociatedIpv6PoolCidrsResponse,
+
+    -- ** GetAwsNetworkPerformanceData (Paginated)
+    GetAwsNetworkPerformanceData (GetAwsNetworkPerformanceData'),
+    newGetAwsNetworkPerformanceData,
+    GetAwsNetworkPerformanceDataResponse (GetAwsNetworkPerformanceDataResponse'),
+    newGetAwsNetworkPerformanceDataResponse,
 
     -- ** GetCapacityReservationUsage
     GetCapacityReservationUsage (GetCapacityReservationUsage'),
@@ -2648,6 +2768,18 @@ module Amazonka.EC2
     newGetTransitGatewayRouteTablePropagations,
     GetTransitGatewayRouteTablePropagationsResponse (GetTransitGatewayRouteTablePropagationsResponse'),
     newGetTransitGatewayRouteTablePropagationsResponse,
+
+    -- ** GetVerifiedAccessEndpointPolicy
+    GetVerifiedAccessEndpointPolicy (GetVerifiedAccessEndpointPolicy'),
+    newGetVerifiedAccessEndpointPolicy,
+    GetVerifiedAccessEndpointPolicyResponse (GetVerifiedAccessEndpointPolicyResponse'),
+    newGetVerifiedAccessEndpointPolicyResponse,
+
+    -- ** GetVerifiedAccessGroupPolicy
+    GetVerifiedAccessGroupPolicy (GetVerifiedAccessGroupPolicy'),
+    newGetVerifiedAccessGroupPolicy,
+    GetVerifiedAccessGroupPolicyResponse (GetVerifiedAccessGroupPolicyResponse'),
+    newGetVerifiedAccessGroupPolicyResponse,
 
     -- ** GetVpnConnectionDeviceSampleConfiguration
     GetVpnConnectionDeviceSampleConfiguration (GetVpnConnectionDeviceSampleConfiguration'),
@@ -2960,6 +3092,48 @@ module Amazonka.EC2
     newModifyTransitGatewayVpcAttachment,
     ModifyTransitGatewayVpcAttachmentResponse (ModifyTransitGatewayVpcAttachmentResponse'),
     newModifyTransitGatewayVpcAttachmentResponse,
+
+    -- ** ModifyVerifiedAccessEndpoint
+    ModifyVerifiedAccessEndpoint (ModifyVerifiedAccessEndpoint'),
+    newModifyVerifiedAccessEndpoint,
+    ModifyVerifiedAccessEndpointResponse (ModifyVerifiedAccessEndpointResponse'),
+    newModifyVerifiedAccessEndpointResponse,
+
+    -- ** ModifyVerifiedAccessEndpointPolicy
+    ModifyVerifiedAccessEndpointPolicy (ModifyVerifiedAccessEndpointPolicy'),
+    newModifyVerifiedAccessEndpointPolicy,
+    ModifyVerifiedAccessEndpointPolicyResponse (ModifyVerifiedAccessEndpointPolicyResponse'),
+    newModifyVerifiedAccessEndpointPolicyResponse,
+
+    -- ** ModifyVerifiedAccessGroup
+    ModifyVerifiedAccessGroup (ModifyVerifiedAccessGroup'),
+    newModifyVerifiedAccessGroup,
+    ModifyVerifiedAccessGroupResponse (ModifyVerifiedAccessGroupResponse'),
+    newModifyVerifiedAccessGroupResponse,
+
+    -- ** ModifyVerifiedAccessGroupPolicy
+    ModifyVerifiedAccessGroupPolicy (ModifyVerifiedAccessGroupPolicy'),
+    newModifyVerifiedAccessGroupPolicy,
+    ModifyVerifiedAccessGroupPolicyResponse (ModifyVerifiedAccessGroupPolicyResponse'),
+    newModifyVerifiedAccessGroupPolicyResponse,
+
+    -- ** ModifyVerifiedAccessInstance
+    ModifyVerifiedAccessInstance (ModifyVerifiedAccessInstance'),
+    newModifyVerifiedAccessInstance,
+    ModifyVerifiedAccessInstanceResponse (ModifyVerifiedAccessInstanceResponse'),
+    newModifyVerifiedAccessInstanceResponse,
+
+    -- ** ModifyVerifiedAccessInstanceLoggingConfiguration
+    ModifyVerifiedAccessInstanceLoggingConfiguration (ModifyVerifiedAccessInstanceLoggingConfiguration'),
+    newModifyVerifiedAccessInstanceLoggingConfiguration,
+    ModifyVerifiedAccessInstanceLoggingConfigurationResponse (ModifyVerifiedAccessInstanceLoggingConfigurationResponse'),
+    newModifyVerifiedAccessInstanceLoggingConfigurationResponse,
+
+    -- ** ModifyVerifiedAccessTrustProvider
+    ModifyVerifiedAccessTrustProvider (ModifyVerifiedAccessTrustProvider'),
+    newModifyVerifiedAccessTrustProvider,
+    ModifyVerifiedAccessTrustProviderResponse (ModifyVerifiedAccessTrustProviderResponse'),
+    newModifyVerifiedAccessTrustProviderResponse,
 
     -- ** ModifyVolume
     ModifyVolume (ModifyVolume'),
@@ -3632,6 +3806,9 @@ module Amazonka.EC2
     -- ** DestinationFileFormat
     DestinationFileFormat (..),
 
+    -- ** DeviceTrustProviderType
+    DeviceTrustProviderType (..),
+
     -- ** DeviceType
     DeviceType (..),
 
@@ -3947,6 +4124,9 @@ module Amazonka.EC2
     -- ** MembershipType
     MembershipType (..),
 
+    -- ** MetricType
+    MetricType (..),
+
     -- ** ModifyAvailabilityZoneOptInStatus
     ModifyAvailabilityZoneOptInStatus (..),
 
@@ -3997,6 +4177,9 @@ module Amazonka.EC2
 
     -- ** PaymentOption
     PaymentOption (..),
+
+    -- ** PeriodType
+    PeriodType (..),
 
     -- ** PermissionGroup
     PermissionGroup (..),
@@ -4121,6 +4304,9 @@ module Amazonka.EC2
     -- ** StaticSourcesSupportValue
     StaticSourcesSupportValue (..),
 
+    -- ** StatisticType
+    StatisticType (..),
+
     -- ** StatusName
     StatusName (..),
 
@@ -4229,6 +4415,9 @@ module Amazonka.EC2
     -- ** TransportProtocol
     TransportProtocol (..),
 
+    -- ** TrustProviderType
+    TrustProviderType (..),
+
     -- ** TunnelInsideIpVersion
     TunnelInsideIpVersion (..),
 
@@ -4240,6 +4429,24 @@ module Amazonka.EC2
 
     -- ** UsageClassType
     UsageClassType (..),
+
+    -- ** UserTrustProviderType
+    UserTrustProviderType (..),
+
+    -- ** VerifiedAccessEndpointAttachmentType
+    VerifiedAccessEndpointAttachmentType (..),
+
+    -- ** VerifiedAccessEndpointProtocol
+    VerifiedAccessEndpointProtocol (..),
+
+    -- ** VerifiedAccessEndpointStatusCode
+    VerifiedAccessEndpointStatusCode (..),
+
+    -- ** VerifiedAccessEndpointType
+    VerifiedAccessEndpointType (..),
+
+    -- ** VerifiedAccessLogDeliveryStatusCode
+    VerifiedAccessLogDeliveryStatusCode (..),
 
     -- ** VirtualizationType
     VirtualizationType (..),
@@ -4421,6 +4628,14 @@ module Amazonka.EC2
     -- ** AthenaIntegration
     AthenaIntegration (AthenaIntegration'),
     newAthenaIntegration,
+
+    -- ** AttachmentEnaSrdSpecification
+    AttachmentEnaSrdSpecification (AttachmentEnaSrdSpecification'),
+    newAttachmentEnaSrdSpecification,
+
+    -- ** AttachmentEnaSrdUdpSpecification
+    AttachmentEnaSrdUdpSpecification (AttachmentEnaSrdUdpSpecification'),
+    newAttachmentEnaSrdUdpSpecification,
 
     -- ** AttributeBooleanValue
     AttributeBooleanValue (AttributeBooleanValue'),
@@ -4706,6 +4921,22 @@ module Amazonka.EC2
     CreateTransitGatewayVpcAttachmentRequestOptions (CreateTransitGatewayVpcAttachmentRequestOptions'),
     newCreateTransitGatewayVpcAttachmentRequestOptions,
 
+    -- ** CreateVerifiedAccessEndpointEniOptions
+    CreateVerifiedAccessEndpointEniOptions (CreateVerifiedAccessEndpointEniOptions'),
+    newCreateVerifiedAccessEndpointEniOptions,
+
+    -- ** CreateVerifiedAccessEndpointLoadBalancerOptions
+    CreateVerifiedAccessEndpointLoadBalancerOptions (CreateVerifiedAccessEndpointLoadBalancerOptions'),
+    newCreateVerifiedAccessEndpointLoadBalancerOptions,
+
+    -- ** CreateVerifiedAccessTrustProviderDeviceOptions
+    CreateVerifiedAccessTrustProviderDeviceOptions (CreateVerifiedAccessTrustProviderDeviceOptions'),
+    newCreateVerifiedAccessTrustProviderDeviceOptions,
+
+    -- ** CreateVerifiedAccessTrustProviderOidcOptions
+    CreateVerifiedAccessTrustProviderOidcOptions (CreateVerifiedAccessTrustProviderOidcOptions'),
+    newCreateVerifiedAccessTrustProviderOidcOptions,
+
     -- ** CreateVolumePermission
     CreateVolumePermission (CreateVolumePermission'),
     newCreateVolumePermission,
@@ -4725,6 +4956,14 @@ module Amazonka.EC2
     -- ** CustomerGateway
     CustomerGateway (CustomerGateway'),
     newCustomerGateway,
+
+    -- ** DataQuery
+    DataQuery (DataQuery'),
+    newDataQuery,
+
+    -- ** DataResponse
+    DataResponse (DataResponse'),
+    newDataResponse,
 
     -- ** DeleteFleetError
     DeleteFleetError (DeleteFleetError'),
@@ -4777,6 +5016,10 @@ module Amazonka.EC2
     -- ** DestinationOptionsResponse
     DestinationOptionsResponse (DestinationOptionsResponse'),
     newDestinationOptionsResponse,
+
+    -- ** DeviceOptions
+    DeviceOptions (DeviceOptions'),
+    newDeviceOptions,
 
     -- ** DhcpConfiguration
     DhcpConfiguration (DhcpConfiguration'),
@@ -4901,6 +5144,14 @@ module Amazonka.EC2
     -- ** ElasticInferenceAcceleratorAssociation
     ElasticInferenceAcceleratorAssociation (ElasticInferenceAcceleratorAssociation'),
     newElasticInferenceAcceleratorAssociation,
+
+    -- ** EnaSrdSpecification
+    EnaSrdSpecification (EnaSrdSpecification'),
+    newEnaSrdSpecification,
+
+    -- ** EnaSrdUdpSpecification
+    EnaSrdUdpSpecification (EnaSrdUdpSpecification'),
+    newEnaSrdUdpSpecification,
 
     -- ** EnableFastSnapshotRestoreErrorItem
     EnableFastSnapshotRestoreErrorItem (EnableFastSnapshotRestoreErrorItem'),
@@ -5758,6 +6009,10 @@ module Amazonka.EC2
     MemoryMiBRequest (MemoryMiBRequest'),
     newMemoryMiBRequest,
 
+    -- ** MetricPoint
+    MetricPoint (MetricPoint'),
+    newMetricPoint,
+
     -- ** ModifyTransitGatewayOptions
     ModifyTransitGatewayOptions (ModifyTransitGatewayOptions'),
     newModifyTransitGatewayOptions,
@@ -5765,6 +6020,18 @@ module Amazonka.EC2
     -- ** ModifyTransitGatewayVpcAttachmentRequestOptions
     ModifyTransitGatewayVpcAttachmentRequestOptions (ModifyTransitGatewayVpcAttachmentRequestOptions'),
     newModifyTransitGatewayVpcAttachmentRequestOptions,
+
+    -- ** ModifyVerifiedAccessEndpointEniOptions
+    ModifyVerifiedAccessEndpointEniOptions (ModifyVerifiedAccessEndpointEniOptions'),
+    newModifyVerifiedAccessEndpointEniOptions,
+
+    -- ** ModifyVerifiedAccessEndpointLoadBalancerOptions
+    ModifyVerifiedAccessEndpointLoadBalancerOptions (ModifyVerifiedAccessEndpointLoadBalancerOptions'),
+    newModifyVerifiedAccessEndpointLoadBalancerOptions,
+
+    -- ** ModifyVerifiedAccessTrustProviderOidcOptions
+    ModifyVerifiedAccessTrustProviderOidcOptions (ModifyVerifiedAccessTrustProviderOidcOptions'),
+    newModifyVerifiedAccessTrustProviderOidcOptions,
 
     -- ** ModifyVpnTunnelOptionsSpecification
     ModifyVpnTunnelOptionsSpecification (ModifyVpnTunnelOptionsSpecification'),
@@ -5877,6 +6144,10 @@ module Amazonka.EC2
     -- ** NewDhcpConfiguration
     NewDhcpConfiguration (NewDhcpConfiguration'),
     newNewDhcpConfiguration,
+
+    -- ** OidcOptions
+    OidcOptions (OidcOptions'),
+    newOidcOptions,
 
     -- ** OnDemandOptions
     OnDemandOptions (OnDemandOptions'),
@@ -6462,6 +6733,10 @@ module Amazonka.EC2
     SubnetIpv6CidrBlockAssociation (SubnetIpv6CidrBlockAssociation'),
     newSubnetIpv6CidrBlockAssociation,
 
+    -- ** Subscription
+    Subscription (Subscription'),
+    newSubscription,
+
     -- ** SuccessfulInstanceCreditSpecificationItem
     SuccessfulInstanceCreditSpecificationItem (SuccessfulInstanceCreditSpecificationItem'),
     newSuccessfulInstanceCreditSpecificationItem,
@@ -6782,6 +7057,78 @@ module Amazonka.EC2
     ValidationWarning (ValidationWarning'),
     newValidationWarning,
 
+    -- ** VerifiedAccessEndpoint
+    VerifiedAccessEndpoint (VerifiedAccessEndpoint'),
+    newVerifiedAccessEndpoint,
+
+    -- ** VerifiedAccessEndpointEniOptions
+    VerifiedAccessEndpointEniOptions (VerifiedAccessEndpointEniOptions'),
+    newVerifiedAccessEndpointEniOptions,
+
+    -- ** VerifiedAccessEndpointLoadBalancerOptions
+    VerifiedAccessEndpointLoadBalancerOptions (VerifiedAccessEndpointLoadBalancerOptions'),
+    newVerifiedAccessEndpointLoadBalancerOptions,
+
+    -- ** VerifiedAccessEndpointStatus
+    VerifiedAccessEndpointStatus (VerifiedAccessEndpointStatus'),
+    newVerifiedAccessEndpointStatus,
+
+    -- ** VerifiedAccessGroup
+    VerifiedAccessGroup (VerifiedAccessGroup'),
+    newVerifiedAccessGroup,
+
+    -- ** VerifiedAccessInstance
+    VerifiedAccessInstance (VerifiedAccessInstance'),
+    newVerifiedAccessInstance,
+
+    -- ** VerifiedAccessInstanceLoggingConfiguration
+    VerifiedAccessInstanceLoggingConfiguration (VerifiedAccessInstanceLoggingConfiguration'),
+    newVerifiedAccessInstanceLoggingConfiguration,
+
+    -- ** VerifiedAccessLogCloudWatchLogsDestination
+    VerifiedAccessLogCloudWatchLogsDestination (VerifiedAccessLogCloudWatchLogsDestination'),
+    newVerifiedAccessLogCloudWatchLogsDestination,
+
+    -- ** VerifiedAccessLogCloudWatchLogsDestinationOptions
+    VerifiedAccessLogCloudWatchLogsDestinationOptions (VerifiedAccessLogCloudWatchLogsDestinationOptions'),
+    newVerifiedAccessLogCloudWatchLogsDestinationOptions,
+
+    -- ** VerifiedAccessLogDeliveryStatus
+    VerifiedAccessLogDeliveryStatus (VerifiedAccessLogDeliveryStatus'),
+    newVerifiedAccessLogDeliveryStatus,
+
+    -- ** VerifiedAccessLogKinesisDataFirehoseDestination
+    VerifiedAccessLogKinesisDataFirehoseDestination (VerifiedAccessLogKinesisDataFirehoseDestination'),
+    newVerifiedAccessLogKinesisDataFirehoseDestination,
+
+    -- ** VerifiedAccessLogKinesisDataFirehoseDestinationOptions
+    VerifiedAccessLogKinesisDataFirehoseDestinationOptions (VerifiedAccessLogKinesisDataFirehoseDestinationOptions'),
+    newVerifiedAccessLogKinesisDataFirehoseDestinationOptions,
+
+    -- ** VerifiedAccessLogOptions
+    VerifiedAccessLogOptions (VerifiedAccessLogOptions'),
+    newVerifiedAccessLogOptions,
+
+    -- ** VerifiedAccessLogS3Destination
+    VerifiedAccessLogS3Destination (VerifiedAccessLogS3Destination'),
+    newVerifiedAccessLogS3Destination,
+
+    -- ** VerifiedAccessLogS3DestinationOptions
+    VerifiedAccessLogS3DestinationOptions (VerifiedAccessLogS3DestinationOptions'),
+    newVerifiedAccessLogS3DestinationOptions,
+
+    -- ** VerifiedAccessLogs
+    VerifiedAccessLogs (VerifiedAccessLogs'),
+    newVerifiedAccessLogs,
+
+    -- ** VerifiedAccessTrustProvider
+    VerifiedAccessTrustProvider (VerifiedAccessTrustProvider'),
+    newVerifiedAccessTrustProvider,
+
+    -- ** VerifiedAccessTrustProviderCondensed
+    VerifiedAccessTrustProviderCondensed (VerifiedAccessTrustProviderCondensed'),
+    newVerifiedAccessTrustProviderCondensed,
+
     -- ** VgwTelemetry
     VgwTelemetry (VgwTelemetry'),
     newVgwTelemetry,
@@ -6942,6 +7289,7 @@ import Amazonka.EC2.AssociateVpcCidrBlock
 import Amazonka.EC2.AttachClassicLinkVpc
 import Amazonka.EC2.AttachInternetGateway
 import Amazonka.EC2.AttachNetworkInterface
+import Amazonka.EC2.AttachVerifiedAccessTrustProvider
 import Amazonka.EC2.AttachVolume
 import Amazonka.EC2.AttachVpnGateway
 import Amazonka.EC2.AuthorizeClientVpnIngress
@@ -7029,6 +7377,10 @@ import Amazonka.EC2.CreateTransitGatewayRoute
 import Amazonka.EC2.CreateTransitGatewayRouteTable
 import Amazonka.EC2.CreateTransitGatewayRouteTableAnnouncement
 import Amazonka.EC2.CreateTransitGatewayVpcAttachment
+import Amazonka.EC2.CreateVerifiedAccessEndpoint
+import Amazonka.EC2.CreateVerifiedAccessGroup
+import Amazonka.EC2.CreateVerifiedAccessInstance
+import Amazonka.EC2.CreateVerifiedAccessTrustProvider
 import Amazonka.EC2.CreateVolume
 import Amazonka.EC2.CreateVpc
 import Amazonka.EC2.CreateVpcEndpoint
@@ -7097,6 +7449,10 @@ import Amazonka.EC2.DeleteTransitGatewayRoute
 import Amazonka.EC2.DeleteTransitGatewayRouteTable
 import Amazonka.EC2.DeleteTransitGatewayRouteTableAnnouncement
 import Amazonka.EC2.DeleteTransitGatewayVpcAttachment
+import Amazonka.EC2.DeleteVerifiedAccessEndpoint
+import Amazonka.EC2.DeleteVerifiedAccessGroup
+import Amazonka.EC2.DeleteVerifiedAccessInstance
+import Amazonka.EC2.DeleteVerifiedAccessTrustProvider
 import Amazonka.EC2.DeleteVolume
 import Amazonka.EC2.DeleteVpc
 import Amazonka.EC2.DeleteVpcEndpointConnectionNotifications
@@ -7119,6 +7475,7 @@ import Amazonka.EC2.DescribeAddresses
 import Amazonka.EC2.DescribeAddressesAttribute
 import Amazonka.EC2.DescribeAggregateIdFormat
 import Amazonka.EC2.DescribeAvailabilityZones
+import Amazonka.EC2.DescribeAwsNetworkPerformanceMetricSubscriptions
 import Amazonka.EC2.DescribeBundleTasks
 import Amazonka.EC2.DescribeByoipCidrs
 import Amazonka.EC2.DescribeCapacityReservationFleets
@@ -7232,6 +7589,11 @@ import Amazonka.EC2.DescribeTransitGatewayRouteTables
 import Amazonka.EC2.DescribeTransitGatewayVpcAttachments
 import Amazonka.EC2.DescribeTransitGateways
 import Amazonka.EC2.DescribeTrunkInterfaceAssociations
+import Amazonka.EC2.DescribeVerifiedAccessEndpoints
+import Amazonka.EC2.DescribeVerifiedAccessGroups
+import Amazonka.EC2.DescribeVerifiedAccessInstanceLoggingConfigurations
+import Amazonka.EC2.DescribeVerifiedAccessInstances
+import Amazonka.EC2.DescribeVerifiedAccessTrustProviders
 import Amazonka.EC2.DescribeVolumeAttribute
 import Amazonka.EC2.DescribeVolumeStatus
 import Amazonka.EC2.DescribeVolumes
@@ -7252,9 +7614,11 @@ import Amazonka.EC2.DescribeVpnGateways
 import Amazonka.EC2.DetachClassicLinkVpc
 import Amazonka.EC2.DetachInternetGateway
 import Amazonka.EC2.DetachNetworkInterface
+import Amazonka.EC2.DetachVerifiedAccessTrustProvider
 import Amazonka.EC2.DetachVolume
 import Amazonka.EC2.DetachVpnGateway
 import Amazonka.EC2.DisableAddressTransfer
+import Amazonka.EC2.DisableAwsNetworkPerformanceMetricSubscription
 import Amazonka.EC2.DisableEbsEncryptionByDefault
 import Amazonka.EC2.DisableFastLaunch
 import Amazonka.EC2.DisableFastSnapshotRestores
@@ -7278,11 +7642,13 @@ import Amazonka.EC2.DisassociateTransitGatewayRouteTable
 import Amazonka.EC2.DisassociateTrunkInterface
 import Amazonka.EC2.DisassociateVpcCidrBlock
 import Amazonka.EC2.EnableAddressTransfer
+import Amazonka.EC2.EnableAwsNetworkPerformanceMetricSubscription
 import Amazonka.EC2.EnableEbsEncryptionByDefault
 import Amazonka.EC2.EnableFastLaunch
 import Amazonka.EC2.EnableFastSnapshotRestores
 import Amazonka.EC2.EnableImageDeprecation
 import Amazonka.EC2.EnableIpamOrganizationAdminAccount
+import Amazonka.EC2.EnableReachabilityAnalyzerOrganizationSharing
 import Amazonka.EC2.EnableSerialConsoleAccess
 import Amazonka.EC2.EnableTransitGatewayRouteTablePropagation
 import Amazonka.EC2.EnableVgwRoutePropagation
@@ -7295,6 +7661,7 @@ import Amazonka.EC2.ExportImage
 import Amazonka.EC2.ExportTransitGatewayRoutes
 import Amazonka.EC2.GetAssociatedEnclaveCertificateIamRoles
 import Amazonka.EC2.GetAssociatedIpv6PoolCidrs
+import Amazonka.EC2.GetAwsNetworkPerformanceData
 import Amazonka.EC2.GetCapacityReservationUsage
 import Amazonka.EC2.GetCoipPoolUsage
 import Amazonka.EC2.GetConsoleOutput
@@ -7328,6 +7695,8 @@ import Amazonka.EC2.GetTransitGatewayPolicyTableEntries
 import Amazonka.EC2.GetTransitGatewayPrefixListReferences
 import Amazonka.EC2.GetTransitGatewayRouteTableAssociations
 import Amazonka.EC2.GetTransitGatewayRouteTablePropagations
+import Amazonka.EC2.GetVerifiedAccessEndpointPolicy
+import Amazonka.EC2.GetVerifiedAccessGroupPolicy
 import Amazonka.EC2.GetVpnConnectionDeviceSampleConfiguration
 import Amazonka.EC2.GetVpnConnectionDeviceTypes
 import Amazonka.EC2.ImportClientVpnClientCertificateRevocationList
@@ -7382,6 +7751,13 @@ import Amazonka.EC2.ModifyTrafficMirrorSession
 import Amazonka.EC2.ModifyTransitGateway
 import Amazonka.EC2.ModifyTransitGatewayPrefixListReference
 import Amazonka.EC2.ModifyTransitGatewayVpcAttachment
+import Amazonka.EC2.ModifyVerifiedAccessEndpoint
+import Amazonka.EC2.ModifyVerifiedAccessEndpointPolicy
+import Amazonka.EC2.ModifyVerifiedAccessGroup
+import Amazonka.EC2.ModifyVerifiedAccessGroupPolicy
+import Amazonka.EC2.ModifyVerifiedAccessInstance
+import Amazonka.EC2.ModifyVerifiedAccessInstanceLoggingConfiguration
+import Amazonka.EC2.ModifyVerifiedAccessTrustProvider
 import Amazonka.EC2.ModifyVolume
 import Amazonka.EC2.ModifyVolumeAttribute
 import Amazonka.EC2.ModifyVpcAttribute

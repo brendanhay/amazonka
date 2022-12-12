@@ -29,9 +29,9 @@ module Amazonka.Glue.GetTriggers
     newGetTriggers,
 
     -- * Request Lenses
-    getTriggers_nextToken,
-    getTriggers_maxResults,
     getTriggers_dependentJobName,
+    getTriggers_maxResults,
+    getTriggers_nextToken,
 
     -- * Destructuring the Response
     GetTriggersResponse (..),
@@ -54,14 +54,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetTriggers' smart constructor.
 data GetTriggers = GetTriggers'
-  { -- | A continuation token, if this is a continuation call.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum size of the response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The name of the job to retrieve triggers for. The trigger that can start
+  { -- | The name of the job to retrieve triggers for. The trigger that can start
     -- this job is returned, and if there is no such trigger, all triggers are
     -- returned.
-    dependentJobName :: Prelude.Maybe Prelude.Text
+    dependentJobName :: Prelude.Maybe Prelude.Text,
+    -- | The maximum size of the response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A continuation token, if this is a continuation call.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,35 +73,35 @@ data GetTriggers = GetTriggers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getTriggers_nextToken' - A continuation token, if this is a continuation call.
---
--- 'maxResults', 'getTriggers_maxResults' - The maximum size of the response.
---
 -- 'dependentJobName', 'getTriggers_dependentJobName' - The name of the job to retrieve triggers for. The trigger that can start
 -- this job is returned, and if there is no such trigger, all triggers are
 -- returned.
+--
+-- 'maxResults', 'getTriggers_maxResults' - The maximum size of the response.
+--
+-- 'nextToken', 'getTriggers_nextToken' - A continuation token, if this is a continuation call.
 newGetTriggers ::
   GetTriggers
 newGetTriggers =
   GetTriggers'
-    { nextToken = Prelude.Nothing,
+    { dependentJobName = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      dependentJobName = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | A continuation token, if this is a continuation call.
-getTriggers_nextToken :: Lens.Lens' GetTriggers (Prelude.Maybe Prelude.Text)
-getTriggers_nextToken = Lens.lens (\GetTriggers' {nextToken} -> nextToken) (\s@GetTriggers' {} a -> s {nextToken = a} :: GetTriggers)
-
--- | The maximum size of the response.
-getTriggers_maxResults :: Lens.Lens' GetTriggers (Prelude.Maybe Prelude.Natural)
-getTriggers_maxResults = Lens.lens (\GetTriggers' {maxResults} -> maxResults) (\s@GetTriggers' {} a -> s {maxResults = a} :: GetTriggers)
 
 -- | The name of the job to retrieve triggers for. The trigger that can start
 -- this job is returned, and if there is no such trigger, all triggers are
 -- returned.
 getTriggers_dependentJobName :: Lens.Lens' GetTriggers (Prelude.Maybe Prelude.Text)
 getTriggers_dependentJobName = Lens.lens (\GetTriggers' {dependentJobName} -> dependentJobName) (\s@GetTriggers' {} a -> s {dependentJobName = a} :: GetTriggers)
+
+-- | The maximum size of the response.
+getTriggers_maxResults :: Lens.Lens' GetTriggers (Prelude.Maybe Prelude.Natural)
+getTriggers_maxResults = Lens.lens (\GetTriggers' {maxResults} -> maxResults) (\s@GetTriggers' {} a -> s {maxResults = a} :: GetTriggers)
+
+-- | A continuation token, if this is a continuation call.
+getTriggers_nextToken :: Lens.Lens' GetTriggers (Prelude.Maybe Prelude.Text)
+getTriggers_nextToken = Lens.lens (\GetTriggers' {nextToken} -> nextToken) (\s@GetTriggers' {} a -> s {nextToken = a} :: GetTriggers)
 
 instance Core.AWSPager GetTriggers where
   page rq rs
@@ -137,15 +137,15 @@ instance Core.AWSRequest GetTriggers where
 
 instance Prelude.Hashable GetTriggers where
   hashWithSalt _salt GetTriggers' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` dependentJobName
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` dependentJobName
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData GetTriggers where
   rnf GetTriggers' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf dependentJobName
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf dependentJobName
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders GetTriggers where
   toHeaders =
@@ -164,10 +164,10 @@ instance Data.ToJSON GetTriggers where
   toJSON GetTriggers' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("DependentJobName" Data..=)
+              Prelude.<$> dependentJobName,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("DependentJobName" Data..=)
-              Prelude.<$> dependentJobName
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

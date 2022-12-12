@@ -30,8 +30,8 @@ module Amazonka.Proton.ListServiceTemplateVersions
 
     -- * Request Lenses
     listServiceTemplateVersions_majorVersion,
-    listServiceTemplateVersions_nextToken,
     listServiceTemplateVersions_maxResults,
+    listServiceTemplateVersions_nextToken,
     listServiceTemplateVersions_templateName,
 
     -- * Destructuring the Response
@@ -61,13 +61,13 @@ data ListServiceTemplateVersions = ListServiceTemplateVersions'
     -- To view a list of major versions of a service template, /exclude/
     -- @major Version@.
     majorVersion :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of major or minor versions of a service template to
+    -- list.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A token that indicates the location of the next major or minor version
     -- in the array of major or minor versions of a service template, after the
     -- list of major or minor versions that was previously requested.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of major or minor versions of a service template to
-    -- list.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the service template.
     templateName :: Prelude.Text
   }
@@ -87,12 +87,12 @@ data ListServiceTemplateVersions = ListServiceTemplateVersions'
 -- To view a list of major versions of a service template, /exclude/
 -- @major Version@.
 --
+-- 'maxResults', 'listServiceTemplateVersions_maxResults' - The maximum number of major or minor versions of a service template to
+-- list.
+--
 -- 'nextToken', 'listServiceTemplateVersions_nextToken' - A token that indicates the location of the next major or minor version
 -- in the array of major or minor versions of a service template, after the
 -- list of major or minor versions that was previously requested.
---
--- 'maxResults', 'listServiceTemplateVersions_maxResults' - The maximum number of major or minor versions of a service template to
--- list.
 --
 -- 'templateName', 'listServiceTemplateVersions_templateName' - The name of the service template.
 newListServiceTemplateVersions ::
@@ -103,8 +103,8 @@ newListServiceTemplateVersions pTemplateName_ =
   ListServiceTemplateVersions'
     { majorVersion =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       templateName = pTemplateName_
     }
 
@@ -116,16 +116,16 @@ newListServiceTemplateVersions pTemplateName_ =
 listServiceTemplateVersions_majorVersion :: Lens.Lens' ListServiceTemplateVersions (Prelude.Maybe Prelude.Text)
 listServiceTemplateVersions_majorVersion = Lens.lens (\ListServiceTemplateVersions' {majorVersion} -> majorVersion) (\s@ListServiceTemplateVersions' {} a -> s {majorVersion = a} :: ListServiceTemplateVersions)
 
+-- | The maximum number of major or minor versions of a service template to
+-- list.
+listServiceTemplateVersions_maxResults :: Lens.Lens' ListServiceTemplateVersions (Prelude.Maybe Prelude.Natural)
+listServiceTemplateVersions_maxResults = Lens.lens (\ListServiceTemplateVersions' {maxResults} -> maxResults) (\s@ListServiceTemplateVersions' {} a -> s {maxResults = a} :: ListServiceTemplateVersions)
+
 -- | A token that indicates the location of the next major or minor version
 -- in the array of major or minor versions of a service template, after the
 -- list of major or minor versions that was previously requested.
 listServiceTemplateVersions_nextToken :: Lens.Lens' ListServiceTemplateVersions (Prelude.Maybe Prelude.Text)
 listServiceTemplateVersions_nextToken = Lens.lens (\ListServiceTemplateVersions' {nextToken} -> nextToken) (\s@ListServiceTemplateVersions' {} a -> s {nextToken = a} :: ListServiceTemplateVersions)
-
--- | The maximum number of major or minor versions of a service template to
--- list.
-listServiceTemplateVersions_maxResults :: Lens.Lens' ListServiceTemplateVersions (Prelude.Maybe Prelude.Natural)
-listServiceTemplateVersions_maxResults = Lens.lens (\ListServiceTemplateVersions' {maxResults} -> maxResults) (\s@ListServiceTemplateVersions' {} a -> s {maxResults = a} :: ListServiceTemplateVersions)
 
 -- | The name of the service template.
 listServiceTemplateVersions_templateName :: Lens.Lens' ListServiceTemplateVersions Prelude.Text
@@ -172,15 +172,15 @@ instance Core.AWSRequest ListServiceTemplateVersions where
 instance Prelude.Hashable ListServiceTemplateVersions where
   hashWithSalt _salt ListServiceTemplateVersions' {..} =
     _salt `Prelude.hashWithSalt` majorVersion
-      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` templateName
 
 instance Prelude.NFData ListServiceTemplateVersions where
   rnf ListServiceTemplateVersions' {..} =
     Prelude.rnf majorVersion
-      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf templateName
 
 instance Data.ToHeaders ListServiceTemplateVersions where
@@ -203,8 +203,8 @@ instance Data.ToJSON ListServiceTemplateVersions where
     Data.object
       ( Prelude.catMaybes
           [ ("majorVersion" Data..=) Prelude.<$> majorVersion,
-            ("nextToken" Data..=) Prelude.<$> nextToken,
             ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("templateName" Data..= templateName)
           ]
       )

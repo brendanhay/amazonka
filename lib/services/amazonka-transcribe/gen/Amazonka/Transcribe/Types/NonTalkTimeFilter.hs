@@ -36,26 +36,26 @@ import Amazonka.Transcribe.Types.RelativeTimeRange
 -- -   The presence of speech at specified periods throughout the call
 --
 -- See
--- <https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics-create-categories.html#call-analytics-create-categories-rules Rule criteria>
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html#tca-rules-batch Rule criteria for batch categories>
 -- for usage examples.
 --
 -- /See:/ 'newNonTalkTimeFilter' smart constructor.
 data NonTalkTimeFilter = NonTalkTimeFilter'
-  { -- | Set to @TRUE@ to flag periods of speech. Set to @FALSE@ to flag periods
+  { -- | Makes it possible to specify a time range (in milliseconds) in your
+    -- audio, during which you want to search for a period of silence. See for
+    -- more detail.
+    absoluteTimeRange :: Prelude.Maybe AbsoluteTimeRange,
+    -- | Set to @TRUE@ to flag periods of speech. Set to @FALSE@ to flag periods
     -- of silence
     negate :: Prelude.Maybe Prelude.Bool,
-    -- | Allows you to specify a time range (in milliseconds) in your audio,
-    -- during which you want to search for a period of silence. See for more
-    -- detail.
-    absoluteTimeRange :: Prelude.Maybe AbsoluteTimeRange,
-    -- | Specify the duration, in milliseconds, of the period of silence you want
-    -- to flag. For example, you can flag a silent period that lasts 30000
-    -- milliseconds.
-    threshold :: Prelude.Maybe Prelude.Natural,
-    -- | Allows you to specify a time range (in percentage) in your media file,
-    -- during which you want to search for a period of silence. See for more
-    -- detail.
-    relativeTimeRange :: Prelude.Maybe RelativeTimeRange
+    -- | Makes it possible to specify a time range (in percentage) in your media
+    -- file, during which you want to search for a period of silence. See for
+    -- more detail.
+    relativeTimeRange :: Prelude.Maybe RelativeTimeRange,
+    -- | Specify the duration, in milliseconds, of the period of silence that you
+    -- want to flag. For example, you can flag a silent period that lasts
+    -- 30,000 milliseconds.
+    threshold :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,52 +67,53 @@ data NonTalkTimeFilter = NonTalkTimeFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'absoluteTimeRange', 'nonTalkTimeFilter_absoluteTimeRange' - Makes it possible to specify a time range (in milliseconds) in your
+-- audio, during which you want to search for a period of silence. See for
+-- more detail.
+--
 -- 'negate', 'nonTalkTimeFilter_negate' - Set to @TRUE@ to flag periods of speech. Set to @FALSE@ to flag periods
 -- of silence
 --
--- 'absoluteTimeRange', 'nonTalkTimeFilter_absoluteTimeRange' - Allows you to specify a time range (in milliseconds) in your audio,
--- during which you want to search for a period of silence. See for more
--- detail.
+-- 'relativeTimeRange', 'nonTalkTimeFilter_relativeTimeRange' - Makes it possible to specify a time range (in percentage) in your media
+-- file, during which you want to search for a period of silence. See for
+-- more detail.
 --
--- 'threshold', 'nonTalkTimeFilter_threshold' - Specify the duration, in milliseconds, of the period of silence you want
--- to flag. For example, you can flag a silent period that lasts 30000
--- milliseconds.
---
--- 'relativeTimeRange', 'nonTalkTimeFilter_relativeTimeRange' - Allows you to specify a time range (in percentage) in your media file,
--- during which you want to search for a period of silence. See for more
--- detail.
+-- 'threshold', 'nonTalkTimeFilter_threshold' - Specify the duration, in milliseconds, of the period of silence that you
+-- want to flag. For example, you can flag a silent period that lasts
+-- 30,000 milliseconds.
 newNonTalkTimeFilter ::
   NonTalkTimeFilter
 newNonTalkTimeFilter =
   NonTalkTimeFilter'
-    { negate = Prelude.Nothing,
-      absoluteTimeRange = Prelude.Nothing,
-      threshold = Prelude.Nothing,
-      relativeTimeRange = Prelude.Nothing
+    { absoluteTimeRange =
+        Prelude.Nothing,
+      negate = Prelude.Nothing,
+      relativeTimeRange = Prelude.Nothing,
+      threshold = Prelude.Nothing
     }
+
+-- | Makes it possible to specify a time range (in milliseconds) in your
+-- audio, during which you want to search for a period of silence. See for
+-- more detail.
+nonTalkTimeFilter_absoluteTimeRange :: Lens.Lens' NonTalkTimeFilter (Prelude.Maybe AbsoluteTimeRange)
+nonTalkTimeFilter_absoluteTimeRange = Lens.lens (\NonTalkTimeFilter' {absoluteTimeRange} -> absoluteTimeRange) (\s@NonTalkTimeFilter' {} a -> s {absoluteTimeRange = a} :: NonTalkTimeFilter)
 
 -- | Set to @TRUE@ to flag periods of speech. Set to @FALSE@ to flag periods
 -- of silence
 nonTalkTimeFilter_negate :: Lens.Lens' NonTalkTimeFilter (Prelude.Maybe Prelude.Bool)
 nonTalkTimeFilter_negate = Lens.lens (\NonTalkTimeFilter' {negate} -> negate) (\s@NonTalkTimeFilter' {} a -> s {negate = a} :: NonTalkTimeFilter)
 
--- | Allows you to specify a time range (in milliseconds) in your audio,
--- during which you want to search for a period of silence. See for more
--- detail.
-nonTalkTimeFilter_absoluteTimeRange :: Lens.Lens' NonTalkTimeFilter (Prelude.Maybe AbsoluteTimeRange)
-nonTalkTimeFilter_absoluteTimeRange = Lens.lens (\NonTalkTimeFilter' {absoluteTimeRange} -> absoluteTimeRange) (\s@NonTalkTimeFilter' {} a -> s {absoluteTimeRange = a} :: NonTalkTimeFilter)
-
--- | Specify the duration, in milliseconds, of the period of silence you want
--- to flag. For example, you can flag a silent period that lasts 30000
--- milliseconds.
-nonTalkTimeFilter_threshold :: Lens.Lens' NonTalkTimeFilter (Prelude.Maybe Prelude.Natural)
-nonTalkTimeFilter_threshold = Lens.lens (\NonTalkTimeFilter' {threshold} -> threshold) (\s@NonTalkTimeFilter' {} a -> s {threshold = a} :: NonTalkTimeFilter)
-
--- | Allows you to specify a time range (in percentage) in your media file,
--- during which you want to search for a period of silence. See for more
--- detail.
+-- | Makes it possible to specify a time range (in percentage) in your media
+-- file, during which you want to search for a period of silence. See for
+-- more detail.
 nonTalkTimeFilter_relativeTimeRange :: Lens.Lens' NonTalkTimeFilter (Prelude.Maybe RelativeTimeRange)
 nonTalkTimeFilter_relativeTimeRange = Lens.lens (\NonTalkTimeFilter' {relativeTimeRange} -> relativeTimeRange) (\s@NonTalkTimeFilter' {} a -> s {relativeTimeRange = a} :: NonTalkTimeFilter)
+
+-- | Specify the duration, in milliseconds, of the period of silence that you
+-- want to flag. For example, you can flag a silent period that lasts
+-- 30,000 milliseconds.
+nonTalkTimeFilter_threshold :: Lens.Lens' NonTalkTimeFilter (Prelude.Maybe Prelude.Natural)
+nonTalkTimeFilter_threshold = Lens.lens (\NonTalkTimeFilter' {threshold} -> threshold) (\s@NonTalkTimeFilter' {} a -> s {threshold = a} :: NonTalkTimeFilter)
 
 instance Data.FromJSON NonTalkTimeFilter where
   parseJSON =
@@ -120,35 +121,35 @@ instance Data.FromJSON NonTalkTimeFilter where
       "NonTalkTimeFilter"
       ( \x ->
           NonTalkTimeFilter'
-            Prelude.<$> (x Data..:? "Negate")
-            Prelude.<*> (x Data..:? "AbsoluteTimeRange")
-            Prelude.<*> (x Data..:? "Threshold")
+            Prelude.<$> (x Data..:? "AbsoluteTimeRange")
+            Prelude.<*> (x Data..:? "Negate")
             Prelude.<*> (x Data..:? "RelativeTimeRange")
+            Prelude.<*> (x Data..:? "Threshold")
       )
 
 instance Prelude.Hashable NonTalkTimeFilter where
   hashWithSalt _salt NonTalkTimeFilter' {..} =
-    _salt `Prelude.hashWithSalt` negate
-      `Prelude.hashWithSalt` absoluteTimeRange
-      `Prelude.hashWithSalt` threshold
+    _salt `Prelude.hashWithSalt` absoluteTimeRange
+      `Prelude.hashWithSalt` negate
       `Prelude.hashWithSalt` relativeTimeRange
+      `Prelude.hashWithSalt` threshold
 
 instance Prelude.NFData NonTalkTimeFilter where
   rnf NonTalkTimeFilter' {..} =
-    Prelude.rnf negate
-      `Prelude.seq` Prelude.rnf absoluteTimeRange
-      `Prelude.seq` Prelude.rnf threshold
+    Prelude.rnf absoluteTimeRange
+      `Prelude.seq` Prelude.rnf negate
       `Prelude.seq` Prelude.rnf relativeTimeRange
+      `Prelude.seq` Prelude.rnf threshold
 
 instance Data.ToJSON NonTalkTimeFilter where
   toJSON NonTalkTimeFilter' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Negate" Data..=) Prelude.<$> negate,
-            ("AbsoluteTimeRange" Data..=)
+          [ ("AbsoluteTimeRange" Data..=)
               Prelude.<$> absoluteTimeRange,
-            ("Threshold" Data..=) Prelude.<$> threshold,
+            ("Negate" Data..=) Prelude.<$> negate,
             ("RelativeTimeRange" Data..=)
-              Prelude.<$> relativeTimeRange
+              Prelude.<$> relativeTimeRange,
+            ("Threshold" Data..=) Prelude.<$> threshold
           ]
       )

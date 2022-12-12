@@ -22,7 +22,8 @@ module Amazonka.AccessAnalyzer.Types.FindingSourceType
       ( ..,
         FindingSourceType_BUCKET_ACL,
         FindingSourceType_POLICY,
-        FindingSourceType_S3_ACCESS_POINT
+        FindingSourceType_S3_ACCESS_POINT,
+        FindingSourceType_S3_ACCESS_POINT_ACCOUNT
       ),
   )
 where
@@ -68,9 +69,13 @@ pattern FindingSourceType_POLICY = FindingSourceType' "POLICY"
 pattern FindingSourceType_S3_ACCESS_POINT :: FindingSourceType
 pattern FindingSourceType_S3_ACCESS_POINT = FindingSourceType' "S3_ACCESS_POINT"
 
+pattern FindingSourceType_S3_ACCESS_POINT_ACCOUNT :: FindingSourceType
+pattern FindingSourceType_S3_ACCESS_POINT_ACCOUNT = FindingSourceType' "S3_ACCESS_POINT_ACCOUNT"
+
 {-# COMPLETE
   FindingSourceType_BUCKET_ACL,
   FindingSourceType_POLICY,
   FindingSourceType_S3_ACCESS_POINT,
+  FindingSourceType_S3_ACCESS_POINT_ACCOUNT,
   FindingSourceType'
   #-}

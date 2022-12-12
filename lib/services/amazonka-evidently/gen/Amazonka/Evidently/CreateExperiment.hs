@@ -41,12 +41,12 @@ module Amazonka.Evidently.CreateExperiment
     newCreateExperiment,
 
     -- * Request Lenses
-    createExperiment_tags,
-    createExperiment_onlineAbConfig,
     createExperiment_description,
+    createExperiment_onlineAbConfig,
+    createExperiment_randomizationSalt,
     createExperiment_samplingRate,
     createExperiment_segment,
-    createExperiment_randomizationSalt,
+    createExperiment_tags,
     createExperiment_metricGoals,
     createExperiment_name,
     createExperiment_project,
@@ -72,24 +72,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateExperiment' smart constructor.
 data CreateExperiment = CreateExperiment'
-  { -- | Assigns one or more tags (key-value pairs) to the experiment.
-    --
-    -- Tags can help you organize and categorize your resources. You can also
-    -- use them to scope user permissions by granting a user permission to
-    -- access or change only resources with certain tag values.
-    --
-    -- Tags don\'t have any semantic meaning to Amazon Web Services and are
-    -- interpreted strictly as strings of characters.
-    --
-    -- >  <p>You can associate as many as 50 tags with an experiment.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | An optional description of the experiment.
+    description :: Prelude.Maybe Prelude.Text,
     -- | A structure that contains the configuration of which variation to use as
     -- the \"control\" version. tThe \"control\" version is used for comparison
     -- with other variations. This structure also specifies how much experiment
     -- traffic is allocated to each variation.
     onlineAbConfig :: Prelude.Maybe OnlineAbConfig,
-    -- | An optional description of the experiment.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | When Evidently assigns a particular user session to an experiment, it
+    -- must use a randomization ID to determine which variation the user
+    -- session is served. This randomization ID is a combination of the entity
+    -- ID and @randomizationSalt@. If you omit @randomizationSalt@, Evidently
+    -- uses the experiment name as the @randomizationSalt@.
+    randomizationSalt :: Prelude.Maybe Prelude.Text,
     -- | The portion of the available audience that you want to allocate to this
     -- experiment, in thousandths of a percent. The available audience is the
     -- total audience minus the audience that you have allocated to overrides
@@ -102,12 +97,17 @@ data CreateExperiment = CreateExperiment'
     -- is used in an experiment, only user sessions that match the segment
     -- pattern are used in the experiment.
     segment :: Prelude.Maybe Prelude.Text,
-    -- | When Evidently assigns a particular user session to an experiment, it
-    -- must use a randomization ID to determine which variation the user
-    -- session is served. This randomization ID is a combination of the entity
-    -- ID and @randomizationSalt@. If you omit @randomizationSalt@, Evidently
-    -- uses the experiment name as the @randomizationSalt@.
-    randomizationSalt :: Prelude.Maybe Prelude.Text,
+    -- | Assigns one or more tags (key-value pairs) to the experiment.
+    --
+    -- Tags can help you organize and categorize your resources. You can also
+    -- use them to scope user permissions by granting a user permission to
+    -- access or change only resources with certain tag values.
+    --
+    -- Tags don\'t have any semantic meaning to Amazon Web Services and are
+    -- interpreted strictly as strings of characters.
+    --
+    -- >  <p>You can associate as many as 50 tags with an experiment.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | An array of structures that defines the metrics used for the experiment,
     -- and whether a higher or lower value for each metric is the goal.
     metricGoals :: Prelude.NonEmpty MetricGoalConfig,
@@ -130,23 +130,18 @@ data CreateExperiment = CreateExperiment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createExperiment_tags' - Assigns one or more tags (key-value pairs) to the experiment.
---
--- Tags can help you organize and categorize your resources. You can also
--- use them to scope user permissions by granting a user permission to
--- access or change only resources with certain tag values.
---
--- Tags don\'t have any semantic meaning to Amazon Web Services and are
--- interpreted strictly as strings of characters.
---
--- >  <p>You can associate as many as 50 tags with an experiment.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
+-- 'description', 'createExperiment_description' - An optional description of the experiment.
 --
 -- 'onlineAbConfig', 'createExperiment_onlineAbConfig' - A structure that contains the configuration of which variation to use as
 -- the \"control\" version. tThe \"control\" version is used for comparison
 -- with other variations. This structure also specifies how much experiment
 -- traffic is allocated to each variation.
 --
--- 'description', 'createExperiment_description' - An optional description of the experiment.
+-- 'randomizationSalt', 'createExperiment_randomizationSalt' - When Evidently assigns a particular user session to an experiment, it
+-- must use a randomization ID to determine which variation the user
+-- session is served. This randomization ID is a combination of the entity
+-- ID and @randomizationSalt@. If you omit @randomizationSalt@, Evidently
+-- uses the experiment name as the @randomizationSalt@.
 --
 -- 'samplingRate', 'createExperiment_samplingRate' - The portion of the available audience that you want to allocate to this
 -- experiment, in thousandths of a percent. The available audience is the
@@ -160,11 +155,16 @@ data CreateExperiment = CreateExperiment'
 -- is used in an experiment, only user sessions that match the segment
 -- pattern are used in the experiment.
 --
--- 'randomizationSalt', 'createExperiment_randomizationSalt' - When Evidently assigns a particular user session to an experiment, it
--- must use a randomization ID to determine which variation the user
--- session is served. This randomization ID is a combination of the entity
--- ID and @randomizationSalt@. If you omit @randomizationSalt@, Evidently
--- uses the experiment name as the @randomizationSalt@.
+-- 'tags', 'createExperiment_tags' - Assigns one or more tags (key-value pairs) to the experiment.
+--
+-- Tags can help you organize and categorize your resources. You can also
+-- use them to scope user permissions by granting a user permission to
+-- access or change only resources with certain tag values.
+--
+-- Tags don\'t have any semantic meaning to Amazon Web Services and are
+-- interpreted strictly as strings of characters.
+--
+-- >  <p>You can associate as many as 50 tags with an experiment.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
 --
 -- 'metricGoals', 'createExperiment_metricGoals' - An array of structures that defines the metrics used for the experiment,
 -- and whether a higher or lower value for each metric is the goal.
@@ -186,30 +186,21 @@ newCreateExperiment ::
   CreateExperiment
 newCreateExperiment pMetricGoals_ pName_ pProject_ =
   CreateExperiment'
-    { tags = Prelude.Nothing,
+    { description = Prelude.Nothing,
       onlineAbConfig = Prelude.Nothing,
-      description = Prelude.Nothing,
+      randomizationSalt = Prelude.Nothing,
       samplingRate = Prelude.Nothing,
       segment = Prelude.Nothing,
-      randomizationSalt = Prelude.Nothing,
+      tags = Prelude.Nothing,
       metricGoals = Lens.coerced Lens.# pMetricGoals_,
       name = pName_,
       project = pProject_,
       treatments = Prelude.mempty
     }
 
--- | Assigns one or more tags (key-value pairs) to the experiment.
---
--- Tags can help you organize and categorize your resources. You can also
--- use them to scope user permissions by granting a user permission to
--- access or change only resources with certain tag values.
---
--- Tags don\'t have any semantic meaning to Amazon Web Services and are
--- interpreted strictly as strings of characters.
---
--- >  <p>You can associate as many as 50 tags with an experiment.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
-createExperiment_tags :: Lens.Lens' CreateExperiment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createExperiment_tags = Lens.lens (\CreateExperiment' {tags} -> tags) (\s@CreateExperiment' {} a -> s {tags = a} :: CreateExperiment) Prelude.. Lens.mapping Lens.coerced
+-- | An optional description of the experiment.
+createExperiment_description :: Lens.Lens' CreateExperiment (Prelude.Maybe Prelude.Text)
+createExperiment_description = Lens.lens (\CreateExperiment' {description} -> description) (\s@CreateExperiment' {} a -> s {description = a} :: CreateExperiment)
 
 -- | A structure that contains the configuration of which variation to use as
 -- the \"control\" version. tThe \"control\" version is used for comparison
@@ -218,9 +209,13 @@ createExperiment_tags = Lens.lens (\CreateExperiment' {tags} -> tags) (\s@Create
 createExperiment_onlineAbConfig :: Lens.Lens' CreateExperiment (Prelude.Maybe OnlineAbConfig)
 createExperiment_onlineAbConfig = Lens.lens (\CreateExperiment' {onlineAbConfig} -> onlineAbConfig) (\s@CreateExperiment' {} a -> s {onlineAbConfig = a} :: CreateExperiment)
 
--- | An optional description of the experiment.
-createExperiment_description :: Lens.Lens' CreateExperiment (Prelude.Maybe Prelude.Text)
-createExperiment_description = Lens.lens (\CreateExperiment' {description} -> description) (\s@CreateExperiment' {} a -> s {description = a} :: CreateExperiment)
+-- | When Evidently assigns a particular user session to an experiment, it
+-- must use a randomization ID to determine which variation the user
+-- session is served. This randomization ID is a combination of the entity
+-- ID and @randomizationSalt@. If you omit @randomizationSalt@, Evidently
+-- uses the experiment name as the @randomizationSalt@.
+createExperiment_randomizationSalt :: Lens.Lens' CreateExperiment (Prelude.Maybe Prelude.Text)
+createExperiment_randomizationSalt = Lens.lens (\CreateExperiment' {randomizationSalt} -> randomizationSalt) (\s@CreateExperiment' {} a -> s {randomizationSalt = a} :: CreateExperiment)
 
 -- | The portion of the available audience that you want to allocate to this
 -- experiment, in thousandths of a percent. The available audience is the
@@ -238,13 +233,18 @@ createExperiment_samplingRate = Lens.lens (\CreateExperiment' {samplingRate} -> 
 createExperiment_segment :: Lens.Lens' CreateExperiment (Prelude.Maybe Prelude.Text)
 createExperiment_segment = Lens.lens (\CreateExperiment' {segment} -> segment) (\s@CreateExperiment' {} a -> s {segment = a} :: CreateExperiment)
 
--- | When Evidently assigns a particular user session to an experiment, it
--- must use a randomization ID to determine which variation the user
--- session is served. This randomization ID is a combination of the entity
--- ID and @randomizationSalt@. If you omit @randomizationSalt@, Evidently
--- uses the experiment name as the @randomizationSalt@.
-createExperiment_randomizationSalt :: Lens.Lens' CreateExperiment (Prelude.Maybe Prelude.Text)
-createExperiment_randomizationSalt = Lens.lens (\CreateExperiment' {randomizationSalt} -> randomizationSalt) (\s@CreateExperiment' {} a -> s {randomizationSalt = a} :: CreateExperiment)
+-- | Assigns one or more tags (key-value pairs) to the experiment.
+--
+-- Tags can help you organize and categorize your resources. You can also
+-- use them to scope user permissions by granting a user permission to
+-- access or change only resources with certain tag values.
+--
+-- Tags don\'t have any semantic meaning to Amazon Web Services and are
+-- interpreted strictly as strings of characters.
+--
+-- >  <p>You can associate as many as 50 tags with an experiment.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
+createExperiment_tags :: Lens.Lens' CreateExperiment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createExperiment_tags = Lens.lens (\CreateExperiment' {tags} -> tags) (\s@CreateExperiment' {} a -> s {tags = a} :: CreateExperiment) Prelude.. Lens.mapping Lens.coerced
 
 -- | An array of structures that defines the metrics used for the experiment,
 -- and whether a higher or lower value for each metric is the goal.
@@ -281,12 +281,12 @@ instance Core.AWSRequest CreateExperiment where
 
 instance Prelude.Hashable CreateExperiment where
   hashWithSalt _salt CreateExperiment' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` onlineAbConfig
-      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` randomizationSalt
       `Prelude.hashWithSalt` samplingRate
       `Prelude.hashWithSalt` segment
-      `Prelude.hashWithSalt` randomizationSalt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` metricGoals
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` project
@@ -294,12 +294,12 @@ instance Prelude.Hashable CreateExperiment where
 
 instance Prelude.NFData CreateExperiment where
   rnf CreateExperiment' {..} =
-    Prelude.rnf tags
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf onlineAbConfig
-      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf randomizationSalt
       `Prelude.seq` Prelude.rnf samplingRate
       `Prelude.seq` Prelude.rnf segment
-      `Prelude.seq` Prelude.rnf randomizationSalt
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf metricGoals
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf project
@@ -320,14 +320,14 @@ instance Data.ToJSON CreateExperiment where
   toJSON CreateExperiment' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
+          [ ("description" Data..=) Prelude.<$> description,
             ("onlineAbConfig" Data..=)
               Prelude.<$> onlineAbConfig,
-            ("description" Data..=) Prelude.<$> description,
-            ("samplingRate" Data..=) Prelude.<$> samplingRate,
-            ("segment" Data..=) Prelude.<$> segment,
             ("randomizationSalt" Data..=)
               Prelude.<$> randomizationSalt,
+            ("samplingRate" Data..=) Prelude.<$> samplingRate,
+            ("segment" Data..=) Prelude.<$> segment,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("metricGoals" Data..= metricGoals),
             Prelude.Just ("name" Data..= name),
             Prelude.Just ("treatments" Data..= treatments)

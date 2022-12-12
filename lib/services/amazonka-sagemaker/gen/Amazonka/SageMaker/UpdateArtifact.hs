@@ -28,8 +28,8 @@ module Amazonka.SageMaker.UpdateArtifact
 
     -- * Request Lenses
     updateArtifact_artifactName,
-    updateArtifact_propertiesToRemove,
     updateArtifact_properties,
+    updateArtifact_propertiesToRemove,
     updateArtifact_artifactArn,
 
     -- * Destructuring the Response
@@ -54,10 +54,10 @@ import Amazonka.SageMaker.Types
 data UpdateArtifact = UpdateArtifact'
   { -- | The new name for the artifact.
     artifactName :: Prelude.Maybe Prelude.Text,
-    -- | A list of properties to remove.
-    propertiesToRemove :: Prelude.Maybe [Prelude.Text],
     -- | The new list of properties. Overwrites the current property list.
     properties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A list of properties to remove.
+    propertiesToRemove :: Prelude.Maybe [Prelude.Text],
     -- | The Amazon Resource Name (ARN) of the artifact to update.
     artifactArn :: Prelude.Text
   }
@@ -73,9 +73,9 @@ data UpdateArtifact = UpdateArtifact'
 --
 -- 'artifactName', 'updateArtifact_artifactName' - The new name for the artifact.
 --
--- 'propertiesToRemove', 'updateArtifact_propertiesToRemove' - A list of properties to remove.
---
 -- 'properties', 'updateArtifact_properties' - The new list of properties. Overwrites the current property list.
+--
+-- 'propertiesToRemove', 'updateArtifact_propertiesToRemove' - A list of properties to remove.
 --
 -- 'artifactArn', 'updateArtifact_artifactArn' - The Amazon Resource Name (ARN) of the artifact to update.
 newUpdateArtifact ::
@@ -85,8 +85,8 @@ newUpdateArtifact ::
 newUpdateArtifact pArtifactArn_ =
   UpdateArtifact'
     { artifactName = Prelude.Nothing,
-      propertiesToRemove = Prelude.Nothing,
       properties = Prelude.Nothing,
+      propertiesToRemove = Prelude.Nothing,
       artifactArn = pArtifactArn_
     }
 
@@ -94,13 +94,13 @@ newUpdateArtifact pArtifactArn_ =
 updateArtifact_artifactName :: Lens.Lens' UpdateArtifact (Prelude.Maybe Prelude.Text)
 updateArtifact_artifactName = Lens.lens (\UpdateArtifact' {artifactName} -> artifactName) (\s@UpdateArtifact' {} a -> s {artifactName = a} :: UpdateArtifact)
 
--- | A list of properties to remove.
-updateArtifact_propertiesToRemove :: Lens.Lens' UpdateArtifact (Prelude.Maybe [Prelude.Text])
-updateArtifact_propertiesToRemove = Lens.lens (\UpdateArtifact' {propertiesToRemove} -> propertiesToRemove) (\s@UpdateArtifact' {} a -> s {propertiesToRemove = a} :: UpdateArtifact) Prelude.. Lens.mapping Lens.coerced
-
 -- | The new list of properties. Overwrites the current property list.
 updateArtifact_properties :: Lens.Lens' UpdateArtifact (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 updateArtifact_properties = Lens.lens (\UpdateArtifact' {properties} -> properties) (\s@UpdateArtifact' {} a -> s {properties = a} :: UpdateArtifact) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of properties to remove.
+updateArtifact_propertiesToRemove :: Lens.Lens' UpdateArtifact (Prelude.Maybe [Prelude.Text])
+updateArtifact_propertiesToRemove = Lens.lens (\UpdateArtifact' {propertiesToRemove} -> propertiesToRemove) (\s@UpdateArtifact' {} a -> s {propertiesToRemove = a} :: UpdateArtifact) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the artifact to update.
 updateArtifact_artifactArn :: Lens.Lens' UpdateArtifact Prelude.Text
@@ -123,15 +123,15 @@ instance Core.AWSRequest UpdateArtifact where
 instance Prelude.Hashable UpdateArtifact where
   hashWithSalt _salt UpdateArtifact' {..} =
     _salt `Prelude.hashWithSalt` artifactName
-      `Prelude.hashWithSalt` propertiesToRemove
       `Prelude.hashWithSalt` properties
+      `Prelude.hashWithSalt` propertiesToRemove
       `Prelude.hashWithSalt` artifactArn
 
 instance Prelude.NFData UpdateArtifact where
   rnf UpdateArtifact' {..} =
     Prelude.rnf artifactName
-      `Prelude.seq` Prelude.rnf propertiesToRemove
       `Prelude.seq` Prelude.rnf properties
+      `Prelude.seq` Prelude.rnf propertiesToRemove
       `Prelude.seq` Prelude.rnf artifactArn
 
 instance Data.ToHeaders UpdateArtifact where
@@ -152,9 +152,9 @@ instance Data.ToJSON UpdateArtifact where
     Data.object
       ( Prelude.catMaybes
           [ ("ArtifactName" Data..=) Prelude.<$> artifactName,
+            ("Properties" Data..=) Prelude.<$> properties,
             ("PropertiesToRemove" Data..=)
               Prelude.<$> propertiesToRemove,
-            ("Properties" Data..=) Prelude.<$> properties,
             Prelude.Just ("ArtifactArn" Data..= artifactArn)
           ]
       )

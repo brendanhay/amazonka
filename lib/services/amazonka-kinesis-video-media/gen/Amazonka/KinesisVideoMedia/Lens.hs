@@ -26,8 +26,8 @@ module Amazonka.KinesisVideoMedia.Lens
 
     -- ** StartSelector
     startSelector_afterFragmentNumber,
-    startSelector_startTimestamp,
     startSelector_continuationToken,
+    startSelector_startTimestamp,
     startSelector_startSelectorType,
   )
 where

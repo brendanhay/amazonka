@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInsightHealth' smart constructor.
 data InsightHealth = InsightHealth'
-  { -- | The number of open reactive insights.
-    openReactiveInsights :: Prelude.Maybe Prelude.Int,
-    -- | The Meant Time to Recover (MTTR) for the insight.
+  { -- | The Meant Time to Recover (MTTR) for the insight.
     meanTimeToRecoverInMilliseconds :: Prelude.Maybe Prelude.Integer,
     -- | The number of open proactive insights.
-    openProactiveInsights :: Prelude.Maybe Prelude.Int
+    openProactiveInsights :: Prelude.Maybe Prelude.Int,
+    -- | The number of open reactive insights.
+    openReactiveInsights :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,24 +46,20 @@ data InsightHealth = InsightHealth'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'openReactiveInsights', 'insightHealth_openReactiveInsights' - The number of open reactive insights.
---
 -- 'meanTimeToRecoverInMilliseconds', 'insightHealth_meanTimeToRecoverInMilliseconds' - The Meant Time to Recover (MTTR) for the insight.
 --
 -- 'openProactiveInsights', 'insightHealth_openProactiveInsights' - The number of open proactive insights.
+--
+-- 'openReactiveInsights', 'insightHealth_openReactiveInsights' - The number of open reactive insights.
 newInsightHealth ::
   InsightHealth
 newInsightHealth =
   InsightHealth'
-    { openReactiveInsights =
+    { meanTimeToRecoverInMilliseconds =
         Prelude.Nothing,
-      meanTimeToRecoverInMilliseconds = Prelude.Nothing,
-      openProactiveInsights = Prelude.Nothing
+      openProactiveInsights = Prelude.Nothing,
+      openReactiveInsights = Prelude.Nothing
     }
-
--- | The number of open reactive insights.
-insightHealth_openReactiveInsights :: Lens.Lens' InsightHealth (Prelude.Maybe Prelude.Int)
-insightHealth_openReactiveInsights = Lens.lens (\InsightHealth' {openReactiveInsights} -> openReactiveInsights) (\s@InsightHealth' {} a -> s {openReactiveInsights = a} :: InsightHealth)
 
 -- | The Meant Time to Recover (MTTR) for the insight.
 insightHealth_meanTimeToRecoverInMilliseconds :: Lens.Lens' InsightHealth (Prelude.Maybe Prelude.Integer)
@@ -73,25 +69,30 @@ insightHealth_meanTimeToRecoverInMilliseconds = Lens.lens (\InsightHealth' {mean
 insightHealth_openProactiveInsights :: Lens.Lens' InsightHealth (Prelude.Maybe Prelude.Int)
 insightHealth_openProactiveInsights = Lens.lens (\InsightHealth' {openProactiveInsights} -> openProactiveInsights) (\s@InsightHealth' {} a -> s {openProactiveInsights = a} :: InsightHealth)
 
+-- | The number of open reactive insights.
+insightHealth_openReactiveInsights :: Lens.Lens' InsightHealth (Prelude.Maybe Prelude.Int)
+insightHealth_openReactiveInsights = Lens.lens (\InsightHealth' {openReactiveInsights} -> openReactiveInsights) (\s@InsightHealth' {} a -> s {openReactiveInsights = a} :: InsightHealth)
+
 instance Data.FromJSON InsightHealth where
   parseJSON =
     Data.withObject
       "InsightHealth"
       ( \x ->
           InsightHealth'
-            Prelude.<$> (x Data..:? "OpenReactiveInsights")
-            Prelude.<*> (x Data..:? "MeanTimeToRecoverInMilliseconds")
+            Prelude.<$> (x Data..:? "MeanTimeToRecoverInMilliseconds")
             Prelude.<*> (x Data..:? "OpenProactiveInsights")
+            Prelude.<*> (x Data..:? "OpenReactiveInsights")
       )
 
 instance Prelude.Hashable InsightHealth where
   hashWithSalt _salt InsightHealth' {..} =
-    _salt `Prelude.hashWithSalt` openReactiveInsights
+    _salt
       `Prelude.hashWithSalt` meanTimeToRecoverInMilliseconds
       `Prelude.hashWithSalt` openProactiveInsights
+      `Prelude.hashWithSalt` openReactiveInsights
 
 instance Prelude.NFData InsightHealth where
   rnf InsightHealth' {..} =
-    Prelude.rnf openReactiveInsights
-      `Prelude.seq` Prelude.rnf meanTimeToRecoverInMilliseconds
+    Prelude.rnf meanTimeToRecoverInMilliseconds
       `Prelude.seq` Prelude.rnf openProactiveInsights
+      `Prelude.seq` Prelude.rnf openReactiveInsights

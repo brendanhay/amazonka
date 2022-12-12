@@ -18,14 +18,14 @@ module Amazonka.Mobile.Types
     defaultService,
 
     -- * Errors
-    _UnauthorizedException,
-    _NotFoundException,
-    _ServiceUnavailableException,
-    _LimitExceededException,
     _AccountActionRequiredException,
     _BadRequestException,
-    _TooManyRequestsException,
     _InternalFailureException,
+    _LimitExceededException,
+    _NotFoundException,
+    _ServiceUnavailableException,
+    _TooManyRequestsException,
+    _UnauthorizedException,
 
     -- * Platform
     Platform (..),
@@ -37,23 +37,23 @@ module Amazonka.Mobile.Types
     BundleDetails (..),
     newBundleDetails,
     bundleDetails_availablePlatforms,
+    bundleDetails_bundleId,
     bundleDetails_description,
     bundleDetails_iconUrl,
     bundleDetails_title,
-    bundleDetails_bundleId,
     bundleDetails_version,
 
     -- * ProjectDetails
     ProjectDetails (..),
     newProjectDetails,
-    projectDetails_name,
     projectDetails_consoleUrl,
+    projectDetails_createdDate,
     projectDetails_lastUpdatedDate,
-    projectDetails_state,
+    projectDetails_name,
     projectDetails_projectId,
     projectDetails_region,
-    projectDetails_createdDate,
     projectDetails_resources,
+    projectDetails_state,
 
     -- * ProjectSummary
     ProjectSummary (..),
@@ -64,11 +64,11 @@ module Amazonka.Mobile.Types
     -- * Resource
     Resource (..),
     newResource,
+    resource_arn,
+    resource_attributes,
+    resource_feature,
     resource_name,
     resource_type,
-    resource_arn,
-    resource_feature,
-    resource_attributes,
   )
 where
 
@@ -108,28 +108,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -137,13 +131,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -151,43 +149,9 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
-
--- | Credentials of the caller are insufficient to authorize the request.
-_UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnauthorizedException =
-  Core._MatchServiceError
-    defaultService
-    "UnauthorizedException"
-    Prelude.. Core.hasStatus 401
-
--- | No entity can be found with the specified identifier.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "NotFoundException"
-    Prelude.. Core.hasStatus 404
-
--- | The service is temporarily unavailable. The request should be retried
--- after some time delay.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceUnavailableException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceUnavailableException"
-    Prelude.. Core.hasStatus 503
-
--- | There are too many AWS Mobile Hub projects in the account or the account
--- has exceeded the maximum number of resources in some AWS service. You
--- should create another sub-account using AWS Organizations or remove some
--- resources and retry your request.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "LimitExceededException"
-    Prelude.. Core.hasStatus 429
 
 -- | Account Action is required in order to continue the request.
 _AccountActionRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -206,6 +170,43 @@ _BadRequestException =
     "BadRequestException"
     Prelude.. Core.hasStatus 400
 
+-- | The service has encountered an unexpected error condition which prevents
+-- it from servicing the request.
+_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalFailureException =
+  Core._MatchServiceError
+    defaultService
+    "InternalFailureException"
+    Prelude.. Core.hasStatus 500
+
+-- | There are too many AWS Mobile Hub projects in the account or the account
+-- has exceeded the maximum number of resources in some AWS service. You
+-- should create another sub-account using AWS Organizations or remove some
+-- resources and retry your request.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
+    Prelude.. Core.hasStatus 429
+
+-- | No entity can be found with the specified identifier.
+_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "NotFoundException"
+    Prelude.. Core.hasStatus 404
+
+-- | The service is temporarily unavailable. The request should be retried
+-- after some time delay.
+_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceUnavailableException"
+    Prelude.. Core.hasStatus 503
+
 -- | Too many requests have been received for this AWS account in too short a
 -- time. The request should be retried after some time delay.
 _TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -215,11 +216,10 @@ _TooManyRequestsException =
     "TooManyRequestsException"
     Prelude.. Core.hasStatus 429
 
--- | The service has encountered an unexpected error condition which prevents
--- it from servicing the request.
-_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalFailureException =
+-- | Credentials of the caller are insufficient to authorize the request.
+_UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnauthorizedException =
   Core._MatchServiceError
     defaultService
-    "InternalFailureException"
-    Prelude.. Core.hasStatus 500
+    "UnauthorizedException"
+    Prelude.. Core.hasStatus 401

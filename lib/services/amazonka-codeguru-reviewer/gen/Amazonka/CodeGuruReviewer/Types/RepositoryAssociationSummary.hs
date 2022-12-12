@@ -32,16 +32,34 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRepositoryAssociationSummary' smart constructor.
 data RepositoryAssociationSummary = RepositoryAssociationSummary'
-  { -- | The time, in milliseconds since the epoch, since the repository
-    -- association was last updated.
-    lastUpdatedTimeStamp :: Prelude.Maybe Data.POSIX,
-    -- | The name of the repository association.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the
+  { -- | The Amazon Resource Name (ARN) of the
     -- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html RepositoryAssociation>
     -- object. You can retrieve this ARN by calling
     -- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html ListRepositoryAssociations>.
     associationArn :: Prelude.Maybe Prelude.Text,
+    -- | The repository association ID.
+    associationId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of an Amazon Web Services CodeStar
+    -- Connections connection. Its format is
+    -- @arn:aws:codestar-connections:region-id:aws-account_id:connection\/connection-id@.
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html Connection>
+    -- in the /Amazon Web Services CodeStar Connections API Reference/.
+    connectionArn :: Prelude.Maybe Prelude.Text,
+    -- | The time, in milliseconds since the epoch, since the repository
+    -- association was last updated.
+    lastUpdatedTimeStamp :: Prelude.Maybe Data.POSIX,
+    -- | The name of the repository association.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The owner of the repository. For an Amazon Web Services CodeCommit
+    -- repository, this is the Amazon Web Services account ID of the account
+    -- that owns the repository. For a GitHub, GitHub Enterprise Server, or
+    -- Bitbucket repository, this is the username for the account that owns the
+    -- repository. For an S3 repository, it can be the username or Amazon Web
+    -- Services account ID.
+    owner :: Prelude.Maybe Prelude.Text,
+    -- | The provider type of the repository association.
+    providerType :: Prelude.Maybe ProviderType,
     -- | The state of the repository association.
     --
     -- The valid repository association states are:
@@ -74,25 +92,7 @@ data RepositoryAssociationSummary = RepositoryAssociationSummary'
     --     it has been disassociated. For more information, see
     --     <https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/auth-and-access-control-using-tags.html Using tags to control access to associated repositories>
     --     in the /Amazon CodeGuru Reviewer User Guide/.
-    state :: Prelude.Maybe RepositoryAssociationState,
-    -- | The owner of the repository. For an Amazon Web Services CodeCommit
-    -- repository, this is the Amazon Web Services account ID of the account
-    -- that owns the repository. For a GitHub, GitHub Enterprise Server, or
-    -- Bitbucket repository, this is the username for the account that owns the
-    -- repository. For an S3 repository, it can be the username or Amazon Web
-    -- Services account ID.
-    owner :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of an Amazon Web Services CodeStar
-    -- Connections connection. Its format is
-    -- @arn:aws:codestar-connections:region-id:aws-account_id:connection\/connection-id@.
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html Connection>
-    -- in the /Amazon Web Services CodeStar Connections API Reference/.
-    connectionArn :: Prelude.Maybe Prelude.Text,
-    -- | The provider type of the repository association.
-    providerType :: Prelude.Maybe ProviderType,
-    -- | The repository association ID.
-    associationId :: Prelude.Maybe Prelude.Text
+    state :: Prelude.Maybe RepositoryAssociationState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -104,15 +104,33 @@ data RepositoryAssociationSummary = RepositoryAssociationSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'associationArn', 'repositoryAssociationSummary_associationArn' - The Amazon Resource Name (ARN) of the
+-- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html RepositoryAssociation>
+-- object. You can retrieve this ARN by calling
+-- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html ListRepositoryAssociations>.
+--
+-- 'associationId', 'repositoryAssociationSummary_associationId' - The repository association ID.
+--
+-- 'connectionArn', 'repositoryAssociationSummary_connectionArn' - The Amazon Resource Name (ARN) of an Amazon Web Services CodeStar
+-- Connections connection. Its format is
+-- @arn:aws:codestar-connections:region-id:aws-account_id:connection\/connection-id@.
+-- For more information, see
+-- <https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html Connection>
+-- in the /Amazon Web Services CodeStar Connections API Reference/.
+--
 -- 'lastUpdatedTimeStamp', 'repositoryAssociationSummary_lastUpdatedTimeStamp' - The time, in milliseconds since the epoch, since the repository
 -- association was last updated.
 --
 -- 'name', 'repositoryAssociationSummary_name' - The name of the repository association.
 --
--- 'associationArn', 'repositoryAssociationSummary_associationArn' - The Amazon Resource Name (ARN) of the
--- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html RepositoryAssociation>
--- object. You can retrieve this ARN by calling
--- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html ListRepositoryAssociations>.
+-- 'owner', 'repositoryAssociationSummary_owner' - The owner of the repository. For an Amazon Web Services CodeCommit
+-- repository, this is the Amazon Web Services account ID of the account
+-- that owns the repository. For a GitHub, GitHub Enterprise Server, or
+-- Bitbucket repository, this is the username for the account that owns the
+-- repository. For an S3 repository, it can be the username or Amazon Web
+-- Services account ID.
+--
+-- 'providerType', 'repositoryAssociationSummary_providerType' - The provider type of the repository association.
 --
 -- 'state', 'repositoryAssociationSummary_state' - The state of the repository association.
 --
@@ -146,38 +164,40 @@ data RepositoryAssociationSummary = RepositoryAssociationSummary'
 --     it has been disassociated. For more information, see
 --     <https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/auth-and-access-control-using-tags.html Using tags to control access to associated repositories>
 --     in the /Amazon CodeGuru Reviewer User Guide/.
---
--- 'owner', 'repositoryAssociationSummary_owner' - The owner of the repository. For an Amazon Web Services CodeCommit
--- repository, this is the Amazon Web Services account ID of the account
--- that owns the repository. For a GitHub, GitHub Enterprise Server, or
--- Bitbucket repository, this is the username for the account that owns the
--- repository. For an S3 repository, it can be the username or Amazon Web
--- Services account ID.
---
--- 'connectionArn', 'repositoryAssociationSummary_connectionArn' - The Amazon Resource Name (ARN) of an Amazon Web Services CodeStar
+newRepositoryAssociationSummary ::
+  RepositoryAssociationSummary
+newRepositoryAssociationSummary =
+  RepositoryAssociationSummary'
+    { associationArn =
+        Prelude.Nothing,
+      associationId = Prelude.Nothing,
+      connectionArn = Prelude.Nothing,
+      lastUpdatedTimeStamp = Prelude.Nothing,
+      name = Prelude.Nothing,
+      owner = Prelude.Nothing,
+      providerType = Prelude.Nothing,
+      state = Prelude.Nothing
+    }
+
+-- | The Amazon Resource Name (ARN) of the
+-- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html RepositoryAssociation>
+-- object. You can retrieve this ARN by calling
+-- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html ListRepositoryAssociations>.
+repositoryAssociationSummary_associationArn :: Lens.Lens' RepositoryAssociationSummary (Prelude.Maybe Prelude.Text)
+repositoryAssociationSummary_associationArn = Lens.lens (\RepositoryAssociationSummary' {associationArn} -> associationArn) (\s@RepositoryAssociationSummary' {} a -> s {associationArn = a} :: RepositoryAssociationSummary)
+
+-- | The repository association ID.
+repositoryAssociationSummary_associationId :: Lens.Lens' RepositoryAssociationSummary (Prelude.Maybe Prelude.Text)
+repositoryAssociationSummary_associationId = Lens.lens (\RepositoryAssociationSummary' {associationId} -> associationId) (\s@RepositoryAssociationSummary' {} a -> s {associationId = a} :: RepositoryAssociationSummary)
+
+-- | The Amazon Resource Name (ARN) of an Amazon Web Services CodeStar
 -- Connections connection. Its format is
 -- @arn:aws:codestar-connections:region-id:aws-account_id:connection\/connection-id@.
 -- For more information, see
 -- <https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html Connection>
 -- in the /Amazon Web Services CodeStar Connections API Reference/.
---
--- 'providerType', 'repositoryAssociationSummary_providerType' - The provider type of the repository association.
---
--- 'associationId', 'repositoryAssociationSummary_associationId' - The repository association ID.
-newRepositoryAssociationSummary ::
-  RepositoryAssociationSummary
-newRepositoryAssociationSummary =
-  RepositoryAssociationSummary'
-    { lastUpdatedTimeStamp =
-        Prelude.Nothing,
-      name = Prelude.Nothing,
-      associationArn = Prelude.Nothing,
-      state = Prelude.Nothing,
-      owner = Prelude.Nothing,
-      connectionArn = Prelude.Nothing,
-      providerType = Prelude.Nothing,
-      associationId = Prelude.Nothing
-    }
+repositoryAssociationSummary_connectionArn :: Lens.Lens' RepositoryAssociationSummary (Prelude.Maybe Prelude.Text)
+repositoryAssociationSummary_connectionArn = Lens.lens (\RepositoryAssociationSummary' {connectionArn} -> connectionArn) (\s@RepositoryAssociationSummary' {} a -> s {connectionArn = a} :: RepositoryAssociationSummary)
 
 -- | The time, in milliseconds since the epoch, since the repository
 -- association was last updated.
@@ -188,12 +208,18 @@ repositoryAssociationSummary_lastUpdatedTimeStamp = Lens.lens (\RepositoryAssoci
 repositoryAssociationSummary_name :: Lens.Lens' RepositoryAssociationSummary (Prelude.Maybe Prelude.Text)
 repositoryAssociationSummary_name = Lens.lens (\RepositoryAssociationSummary' {name} -> name) (\s@RepositoryAssociationSummary' {} a -> s {name = a} :: RepositoryAssociationSummary)
 
--- | The Amazon Resource Name (ARN) of the
--- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html RepositoryAssociation>
--- object. You can retrieve this ARN by calling
--- <https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html ListRepositoryAssociations>.
-repositoryAssociationSummary_associationArn :: Lens.Lens' RepositoryAssociationSummary (Prelude.Maybe Prelude.Text)
-repositoryAssociationSummary_associationArn = Lens.lens (\RepositoryAssociationSummary' {associationArn} -> associationArn) (\s@RepositoryAssociationSummary' {} a -> s {associationArn = a} :: RepositoryAssociationSummary)
+-- | The owner of the repository. For an Amazon Web Services CodeCommit
+-- repository, this is the Amazon Web Services account ID of the account
+-- that owns the repository. For a GitHub, GitHub Enterprise Server, or
+-- Bitbucket repository, this is the username for the account that owns the
+-- repository. For an S3 repository, it can be the username or Amazon Web
+-- Services account ID.
+repositoryAssociationSummary_owner :: Lens.Lens' RepositoryAssociationSummary (Prelude.Maybe Prelude.Text)
+repositoryAssociationSummary_owner = Lens.lens (\RepositoryAssociationSummary' {owner} -> owner) (\s@RepositoryAssociationSummary' {} a -> s {owner = a} :: RepositoryAssociationSummary)
+
+-- | The provider type of the repository association.
+repositoryAssociationSummary_providerType :: Lens.Lens' RepositoryAssociationSummary (Prelude.Maybe ProviderType)
+repositoryAssociationSummary_providerType = Lens.lens (\RepositoryAssociationSummary' {providerType} -> providerType) (\s@RepositoryAssociationSummary' {} a -> s {providerType = a} :: RepositoryAssociationSummary)
 
 -- | The state of the repository association.
 --
@@ -230,46 +256,20 @@ repositoryAssociationSummary_associationArn = Lens.lens (\RepositoryAssociationS
 repositoryAssociationSummary_state :: Lens.Lens' RepositoryAssociationSummary (Prelude.Maybe RepositoryAssociationState)
 repositoryAssociationSummary_state = Lens.lens (\RepositoryAssociationSummary' {state} -> state) (\s@RepositoryAssociationSummary' {} a -> s {state = a} :: RepositoryAssociationSummary)
 
--- | The owner of the repository. For an Amazon Web Services CodeCommit
--- repository, this is the Amazon Web Services account ID of the account
--- that owns the repository. For a GitHub, GitHub Enterprise Server, or
--- Bitbucket repository, this is the username for the account that owns the
--- repository. For an S3 repository, it can be the username or Amazon Web
--- Services account ID.
-repositoryAssociationSummary_owner :: Lens.Lens' RepositoryAssociationSummary (Prelude.Maybe Prelude.Text)
-repositoryAssociationSummary_owner = Lens.lens (\RepositoryAssociationSummary' {owner} -> owner) (\s@RepositoryAssociationSummary' {} a -> s {owner = a} :: RepositoryAssociationSummary)
-
--- | The Amazon Resource Name (ARN) of an Amazon Web Services CodeStar
--- Connections connection. Its format is
--- @arn:aws:codestar-connections:region-id:aws-account_id:connection\/connection-id@.
--- For more information, see
--- <https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html Connection>
--- in the /Amazon Web Services CodeStar Connections API Reference/.
-repositoryAssociationSummary_connectionArn :: Lens.Lens' RepositoryAssociationSummary (Prelude.Maybe Prelude.Text)
-repositoryAssociationSummary_connectionArn = Lens.lens (\RepositoryAssociationSummary' {connectionArn} -> connectionArn) (\s@RepositoryAssociationSummary' {} a -> s {connectionArn = a} :: RepositoryAssociationSummary)
-
--- | The provider type of the repository association.
-repositoryAssociationSummary_providerType :: Lens.Lens' RepositoryAssociationSummary (Prelude.Maybe ProviderType)
-repositoryAssociationSummary_providerType = Lens.lens (\RepositoryAssociationSummary' {providerType} -> providerType) (\s@RepositoryAssociationSummary' {} a -> s {providerType = a} :: RepositoryAssociationSummary)
-
--- | The repository association ID.
-repositoryAssociationSummary_associationId :: Lens.Lens' RepositoryAssociationSummary (Prelude.Maybe Prelude.Text)
-repositoryAssociationSummary_associationId = Lens.lens (\RepositoryAssociationSummary' {associationId} -> associationId) (\s@RepositoryAssociationSummary' {} a -> s {associationId = a} :: RepositoryAssociationSummary)
-
 instance Data.FromJSON RepositoryAssociationSummary where
   parseJSON =
     Data.withObject
       "RepositoryAssociationSummary"
       ( \x ->
           RepositoryAssociationSummary'
-            Prelude.<$> (x Data..:? "LastUpdatedTimeStamp")
-            Prelude.<*> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "AssociationArn")
-            Prelude.<*> (x Data..:? "State")
-            Prelude.<*> (x Data..:? "Owner")
-            Prelude.<*> (x Data..:? "ConnectionArn")
-            Prelude.<*> (x Data..:? "ProviderType")
+            Prelude.<$> (x Data..:? "AssociationArn")
             Prelude.<*> (x Data..:? "AssociationId")
+            Prelude.<*> (x Data..:? "ConnectionArn")
+            Prelude.<*> (x Data..:? "LastUpdatedTimeStamp")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Owner")
+            Prelude.<*> (x Data..:? "ProviderType")
+            Prelude.<*> (x Data..:? "State")
       )
 
 instance
@@ -277,22 +277,22 @@ instance
     RepositoryAssociationSummary
   where
   hashWithSalt _salt RepositoryAssociationSummary' {..} =
-    _salt `Prelude.hashWithSalt` lastUpdatedTimeStamp
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` associationArn
-      `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` owner
-      `Prelude.hashWithSalt` connectionArn
-      `Prelude.hashWithSalt` providerType
+    _salt `Prelude.hashWithSalt` associationArn
       `Prelude.hashWithSalt` associationId
+      `Prelude.hashWithSalt` connectionArn
+      `Prelude.hashWithSalt` lastUpdatedTimeStamp
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` providerType
+      `Prelude.hashWithSalt` state
 
 instance Prelude.NFData RepositoryAssociationSummary where
   rnf RepositoryAssociationSummary' {..} =
-    Prelude.rnf lastUpdatedTimeStamp
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf associationArn
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf connectionArn
-      `Prelude.seq` Prelude.rnf providerType
+    Prelude.rnf associationArn
       `Prelude.seq` Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf connectionArn
+      `Prelude.seq` Prelude.rnf lastUpdatedTimeStamp
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf providerType
+      `Prelude.seq` Prelude.rnf state

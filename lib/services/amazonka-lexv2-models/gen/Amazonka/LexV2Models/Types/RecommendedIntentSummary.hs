@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRecommendedIntentSummary' smart constructor.
 data RecommendedIntentSummary = RecommendedIntentSummary'
-  { -- | The count of sample utterances of a recommended intent that is
-    -- associated with a bot recommendation.
-    sampleUtterancesCount :: Prelude.Maybe Prelude.Int,
-    -- | The unique identifier of a recommended intent associated with the bot
+  { -- | The unique identifier of a recommended intent associated with the bot
     -- recommendation.
     intentId :: Prelude.Maybe Prelude.Text,
     -- | The name of a recommended intent associated with the bot recommendation.
-    intentName :: Prelude.Maybe Prelude.Text
+    intentName :: Prelude.Maybe Prelude.Text,
+    -- | The count of sample utterances of a recommended intent that is
+    -- associated with a bot recommendation.
+    sampleUtterancesCount :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,27 +47,22 @@ data RecommendedIntentSummary = RecommendedIntentSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sampleUtterancesCount', 'recommendedIntentSummary_sampleUtterancesCount' - The count of sample utterances of a recommended intent that is
--- associated with a bot recommendation.
---
 -- 'intentId', 'recommendedIntentSummary_intentId' - The unique identifier of a recommended intent associated with the bot
 -- recommendation.
 --
 -- 'intentName', 'recommendedIntentSummary_intentName' - The name of a recommended intent associated with the bot recommendation.
+--
+-- 'sampleUtterancesCount', 'recommendedIntentSummary_sampleUtterancesCount' - The count of sample utterances of a recommended intent that is
+-- associated with a bot recommendation.
 newRecommendedIntentSummary ::
   RecommendedIntentSummary
 newRecommendedIntentSummary =
   RecommendedIntentSummary'
-    { sampleUtterancesCount =
+    { intentId =
         Prelude.Nothing,
-      intentId = Prelude.Nothing,
-      intentName = Prelude.Nothing
+      intentName = Prelude.Nothing,
+      sampleUtterancesCount = Prelude.Nothing
     }
-
--- | The count of sample utterances of a recommended intent that is
--- associated with a bot recommendation.
-recommendedIntentSummary_sampleUtterancesCount :: Lens.Lens' RecommendedIntentSummary (Prelude.Maybe Prelude.Int)
-recommendedIntentSummary_sampleUtterancesCount = Lens.lens (\RecommendedIntentSummary' {sampleUtterancesCount} -> sampleUtterancesCount) (\s@RecommendedIntentSummary' {} a -> s {sampleUtterancesCount = a} :: RecommendedIntentSummary)
 
 -- | The unique identifier of a recommended intent associated with the bot
 -- recommendation.
@@ -78,25 +73,30 @@ recommendedIntentSummary_intentId = Lens.lens (\RecommendedIntentSummary' {inten
 recommendedIntentSummary_intentName :: Lens.Lens' RecommendedIntentSummary (Prelude.Maybe Prelude.Text)
 recommendedIntentSummary_intentName = Lens.lens (\RecommendedIntentSummary' {intentName} -> intentName) (\s@RecommendedIntentSummary' {} a -> s {intentName = a} :: RecommendedIntentSummary)
 
+-- | The count of sample utterances of a recommended intent that is
+-- associated with a bot recommendation.
+recommendedIntentSummary_sampleUtterancesCount :: Lens.Lens' RecommendedIntentSummary (Prelude.Maybe Prelude.Int)
+recommendedIntentSummary_sampleUtterancesCount = Lens.lens (\RecommendedIntentSummary' {sampleUtterancesCount} -> sampleUtterancesCount) (\s@RecommendedIntentSummary' {} a -> s {sampleUtterancesCount = a} :: RecommendedIntentSummary)
+
 instance Data.FromJSON RecommendedIntentSummary where
   parseJSON =
     Data.withObject
       "RecommendedIntentSummary"
       ( \x ->
           RecommendedIntentSummary'
-            Prelude.<$> (x Data..:? "sampleUtterancesCount")
-            Prelude.<*> (x Data..:? "intentId")
+            Prelude.<$> (x Data..:? "intentId")
             Prelude.<*> (x Data..:? "intentName")
+            Prelude.<*> (x Data..:? "sampleUtterancesCount")
       )
 
 instance Prelude.Hashable RecommendedIntentSummary where
   hashWithSalt _salt RecommendedIntentSummary' {..} =
-    _salt `Prelude.hashWithSalt` sampleUtterancesCount
-      `Prelude.hashWithSalt` intentId
+    _salt `Prelude.hashWithSalt` intentId
       `Prelude.hashWithSalt` intentName
+      `Prelude.hashWithSalt` sampleUtterancesCount
 
 instance Prelude.NFData RecommendedIntentSummary where
   rnf RecommendedIntentSummary' {..} =
-    Prelude.rnf sampleUtterancesCount
-      `Prelude.seq` Prelude.rnf intentId
+    Prelude.rnf intentId
       `Prelude.seq` Prelude.rnf intentName
+      `Prelude.seq` Prelude.rnf sampleUtterancesCount

@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newParticipant' smart constructor.
 data Participant = Participant'
-  { -- | The participant\'s proxy phone number.
-    proxyPhoneNumber :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The participant\'s phone number.
-    phoneNumber :: Prelude.Maybe (Data.Sensitive Prelude.Text)
+  { -- | The participant\'s phone number.
+    phoneNumber :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The participant\'s proxy phone number.
+    proxyPhoneNumber :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data Participant = Participant'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'proxyPhoneNumber', 'participant_proxyPhoneNumber' - The participant\'s proxy phone number.
---
 -- 'phoneNumber', 'participant_phoneNumber' - The participant\'s phone number.
+--
+-- 'proxyPhoneNumber', 'participant_proxyPhoneNumber' - The participant\'s proxy phone number.
 newParticipant ::
   Participant
 newParticipant =
   Participant'
-    { proxyPhoneNumber = Prelude.Nothing,
-      phoneNumber = Prelude.Nothing
+    { phoneNumber = Prelude.Nothing,
+      proxyPhoneNumber = Prelude.Nothing
     }
-
--- | The participant\'s proxy phone number.
-participant_proxyPhoneNumber :: Lens.Lens' Participant (Prelude.Maybe Prelude.Text)
-participant_proxyPhoneNumber = Lens.lens (\Participant' {proxyPhoneNumber} -> proxyPhoneNumber) (\s@Participant' {} a -> s {proxyPhoneNumber = a} :: Participant) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The participant\'s phone number.
 participant_phoneNumber :: Lens.Lens' Participant (Prelude.Maybe Prelude.Text)
 participant_phoneNumber = Lens.lens (\Participant' {phoneNumber} -> phoneNumber) (\s@Participant' {} a -> s {phoneNumber = a} :: Participant) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The participant\'s proxy phone number.
+participant_proxyPhoneNumber :: Lens.Lens' Participant (Prelude.Maybe Prelude.Text)
+participant_proxyPhoneNumber = Lens.lens (\Participant' {proxyPhoneNumber} -> proxyPhoneNumber) (\s@Participant' {} a -> s {proxyPhoneNumber = a} :: Participant) Prelude.. Lens.mapping Data._Sensitive
 
 instance Data.FromJSON Participant where
   parseJSON =
@@ -69,16 +69,16 @@ instance Data.FromJSON Participant where
       "Participant"
       ( \x ->
           Participant'
-            Prelude.<$> (x Data..:? "ProxyPhoneNumber")
-            Prelude.<*> (x Data..:? "PhoneNumber")
+            Prelude.<$> (x Data..:? "PhoneNumber")
+            Prelude.<*> (x Data..:? "ProxyPhoneNumber")
       )
 
 instance Prelude.Hashable Participant where
   hashWithSalt _salt Participant' {..} =
-    _salt `Prelude.hashWithSalt` proxyPhoneNumber
-      `Prelude.hashWithSalt` phoneNumber
+    _salt `Prelude.hashWithSalt` phoneNumber
+      `Prelude.hashWithSalt` proxyPhoneNumber
 
 instance Prelude.NFData Participant where
   rnf Participant' {..} =
-    Prelude.rnf proxyPhoneNumber
-      `Prelude.seq` Prelude.rnf phoneNumber
+    Prelude.rnf phoneNumber
+      `Prelude.seq` Prelude.rnf proxyPhoneNumber

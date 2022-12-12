@@ -30,10 +30,10 @@ module Amazonka.FSx.DescribeStorageVirtualMachines
     newDescribeStorageVirtualMachines,
 
     -- * Request Lenses
-    describeStorageVirtualMachines_nextToken,
     describeStorageVirtualMachines_filters,
-    describeStorageVirtualMachines_storageVirtualMachineIds,
     describeStorageVirtualMachines_maxResults,
+    describeStorageVirtualMachines_nextToken,
+    describeStorageVirtualMachines_storageVirtualMachineIds,
 
     -- * Destructuring the Response
     DescribeStorageVirtualMachinesResponse (..),
@@ -56,12 +56,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeStorageVirtualMachines' smart constructor.
 data DescribeStorageVirtualMachines = DescribeStorageVirtualMachines'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Enter a filter name:value pair to view a select set of SVMs.
+  { -- | Enter a filter name:value pair to view a select set of SVMs.
     filters :: Prelude.Maybe [StorageVirtualMachineFilter],
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Enter the ID of one or more SVMs that you want to view.
-    storageVirtualMachineIds :: Prelude.Maybe [Prelude.Text],
-    maxResults :: Prelude.Maybe Prelude.Natural
+    storageVirtualMachineIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,39 +73,39 @@ data DescribeStorageVirtualMachines = DescribeStorageVirtualMachines'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeStorageVirtualMachines_nextToken' - Undocumented member.
---
 -- 'filters', 'describeStorageVirtualMachines_filters' - Enter a filter name:value pair to view a select set of SVMs.
 --
--- 'storageVirtualMachineIds', 'describeStorageVirtualMachines_storageVirtualMachineIds' - Enter the ID of one or more SVMs that you want to view.
---
 -- 'maxResults', 'describeStorageVirtualMachines_maxResults' - Undocumented member.
+--
+-- 'nextToken', 'describeStorageVirtualMachines_nextToken' - Undocumented member.
+--
+-- 'storageVirtualMachineIds', 'describeStorageVirtualMachines_storageVirtualMachineIds' - Enter the ID of one or more SVMs that you want to view.
 newDescribeStorageVirtualMachines ::
   DescribeStorageVirtualMachines
 newDescribeStorageVirtualMachines =
   DescribeStorageVirtualMachines'
-    { nextToken =
+    { filters =
         Prelude.Nothing,
-      filters = Prelude.Nothing,
-      storageVirtualMachineIds = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      storageVirtualMachineIds = Prelude.Nothing
     }
-
--- | Undocumented member.
-describeStorageVirtualMachines_nextToken :: Lens.Lens' DescribeStorageVirtualMachines (Prelude.Maybe Prelude.Text)
-describeStorageVirtualMachines_nextToken = Lens.lens (\DescribeStorageVirtualMachines' {nextToken} -> nextToken) (\s@DescribeStorageVirtualMachines' {} a -> s {nextToken = a} :: DescribeStorageVirtualMachines)
 
 -- | Enter a filter name:value pair to view a select set of SVMs.
 describeStorageVirtualMachines_filters :: Lens.Lens' DescribeStorageVirtualMachines (Prelude.Maybe [StorageVirtualMachineFilter])
 describeStorageVirtualMachines_filters = Lens.lens (\DescribeStorageVirtualMachines' {filters} -> filters) (\s@DescribeStorageVirtualMachines' {} a -> s {filters = a} :: DescribeStorageVirtualMachines) Prelude.. Lens.mapping Lens.coerced
 
--- | Enter the ID of one or more SVMs that you want to view.
-describeStorageVirtualMachines_storageVirtualMachineIds :: Lens.Lens' DescribeStorageVirtualMachines (Prelude.Maybe [Prelude.Text])
-describeStorageVirtualMachines_storageVirtualMachineIds = Lens.lens (\DescribeStorageVirtualMachines' {storageVirtualMachineIds} -> storageVirtualMachineIds) (\s@DescribeStorageVirtualMachines' {} a -> s {storageVirtualMachineIds = a} :: DescribeStorageVirtualMachines) Prelude.. Lens.mapping Lens.coerced
-
 -- | Undocumented member.
 describeStorageVirtualMachines_maxResults :: Lens.Lens' DescribeStorageVirtualMachines (Prelude.Maybe Prelude.Natural)
 describeStorageVirtualMachines_maxResults = Lens.lens (\DescribeStorageVirtualMachines' {maxResults} -> maxResults) (\s@DescribeStorageVirtualMachines' {} a -> s {maxResults = a} :: DescribeStorageVirtualMachines)
+
+-- | Undocumented member.
+describeStorageVirtualMachines_nextToken :: Lens.Lens' DescribeStorageVirtualMachines (Prelude.Maybe Prelude.Text)
+describeStorageVirtualMachines_nextToken = Lens.lens (\DescribeStorageVirtualMachines' {nextToken} -> nextToken) (\s@DescribeStorageVirtualMachines' {} a -> s {nextToken = a} :: DescribeStorageVirtualMachines)
+
+-- | Enter the ID of one or more SVMs that you want to view.
+describeStorageVirtualMachines_storageVirtualMachineIds :: Lens.Lens' DescribeStorageVirtualMachines (Prelude.Maybe [Prelude.Text])
+describeStorageVirtualMachines_storageVirtualMachineIds = Lens.lens (\DescribeStorageVirtualMachines' {storageVirtualMachineIds} -> storageVirtualMachineIds) (\s@DescribeStorageVirtualMachines' {} a -> s {storageVirtualMachineIds = a} :: DescribeStorageVirtualMachines) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSPager DescribeStorageVirtualMachines where
   page rq rs
@@ -156,20 +156,20 @@ instance
   hashWithSalt
     _salt
     DescribeStorageVirtualMachines' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` storageVirtualMachineIds
+      _salt `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` storageVirtualMachineIds
 
 instance
   Prelude.NFData
     DescribeStorageVirtualMachines
   where
   rnf DescribeStorageVirtualMachines' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf storageVirtualMachineIds
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf storageVirtualMachineIds
 
 instance
   Data.ToHeaders
@@ -193,11 +193,11 @@ instance Data.ToJSON DescribeStorageVirtualMachines where
   toJSON DescribeStorageVirtualMachines' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("StorageVirtualMachineIds" Data..=)
-              Prelude.<$> storageVirtualMachineIds,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+              Prelude.<$> storageVirtualMachineIds
           ]
       )
 

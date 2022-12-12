@@ -27,8 +27,8 @@ module Amazonka.ConnectCases.ListFieldOptions
     newListFieldOptions,
 
     -- * Request Lenses
-    listFieldOptions_nextToken,
     listFieldOptions_maxResults,
+    listFieldOptions_nextToken,
     listFieldOptions_values,
     listFieldOptions_domainId,
     listFieldOptions_fieldId,
@@ -54,12 +54,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListFieldOptions' smart constructor.
 data ListFieldOptions = ListFieldOptions'
-  { -- | The token for the next set of results. Use the value returned in the
+  { -- | The maximum number of results to return per page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A list of @FieldOption@ values to filter on for @ListFieldOptions@.
     values :: Prelude.Maybe [Prelude.Text],
     -- | The unique identifier of the Cases domain.
@@ -77,11 +77,11 @@ data ListFieldOptions = ListFieldOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listFieldOptions_maxResults' - The maximum number of results to return per page.
+--
 -- 'nextToken', 'listFieldOptions_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
---
--- 'maxResults', 'listFieldOptions_maxResults' - The maximum number of results to return per page.
 --
 -- 'values', 'listFieldOptions_values' - A list of @FieldOption@ values to filter on for @ListFieldOptions@.
 --
@@ -96,22 +96,22 @@ newListFieldOptions ::
   ListFieldOptions
 newListFieldOptions pDomainId_ pFieldId_ =
   ListFieldOptions'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       values = Prelude.Nothing,
       domainId = pDomainId_,
       fieldId = pFieldId_
     }
+
+-- | The maximum number of results to return per page.
+listFieldOptions_maxResults :: Lens.Lens' ListFieldOptions (Prelude.Maybe Prelude.Natural)
+listFieldOptions_maxResults = Lens.lens (\ListFieldOptions' {maxResults} -> maxResults) (\s@ListFieldOptions' {} a -> s {maxResults = a} :: ListFieldOptions)
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
 listFieldOptions_nextToken :: Lens.Lens' ListFieldOptions (Prelude.Maybe Prelude.Text)
 listFieldOptions_nextToken = Lens.lens (\ListFieldOptions' {nextToken} -> nextToken) (\s@ListFieldOptions' {} a -> s {nextToken = a} :: ListFieldOptions)
-
--- | The maximum number of results to return per page.
-listFieldOptions_maxResults :: Lens.Lens' ListFieldOptions (Prelude.Maybe Prelude.Natural)
-listFieldOptions_maxResults = Lens.lens (\ListFieldOptions' {maxResults} -> maxResults) (\s@ListFieldOptions' {} a -> s {maxResults = a} :: ListFieldOptions)
 
 -- | A list of @FieldOption@ values to filter on for @ListFieldOptions@.
 listFieldOptions_values :: Lens.Lens' ListFieldOptions (Prelude.Maybe [Prelude.Text])
@@ -142,16 +142,16 @@ instance Core.AWSRequest ListFieldOptions where
 
 instance Prelude.Hashable ListFieldOptions where
   hashWithSalt _salt ListFieldOptions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` values
       `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` fieldId
 
 instance Prelude.NFData ListFieldOptions where
   rnf ListFieldOptions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf values
       `Prelude.seq` Prelude.rnf domainId
       `Prelude.seq` Prelude.rnf fieldId
@@ -183,8 +183,8 @@ instance Data.ToPath ListFieldOptions where
 instance Data.ToQuery ListFieldOptions where
   toQuery ListFieldOptions' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults,
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
         "values"
           Data.=: Data.toQuery
             (Data.toQueryList "member" Prelude.<$> values)

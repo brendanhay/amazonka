@@ -15,8 +15,8 @@ module Amazonka.MarketplaceAnalytics.Lens
   ( -- * Operations
 
     -- ** GenerateDataSet
-    generateDataSet_destinationS3Prefix,
     generateDataSet_customerDefinedValues,
+    generateDataSet_destinationS3Prefix,
     generateDataSet_dataSetType,
     generateDataSet_dataSetPublicationDate,
     generateDataSet_roleNameArn,
@@ -26,8 +26,8 @@ module Amazonka.MarketplaceAnalytics.Lens
     generateDataSetResponse_httpStatus,
 
     -- ** StartSupportDataExport
-    startSupportDataExport_destinationS3Prefix,
     startSupportDataExport_customerDefinedValues,
+    startSupportDataExport_destinationS3Prefix,
     startSupportDataExport_dataSetType,
     startSupportDataExport_fromDate,
     startSupportDataExport_roleNameArn,

@@ -48,6 +48,12 @@ import Test.Tasty
 --         , requestGetExpenseAnalysis $
 --             newGetExpenseAnalysis
 --
+--         , requestGetLendingAnalysis $
+--             newGetLendingAnalysis
+--
+--         , requestGetLendingAnalysisSummary $
+--             newGetLendingAnalysisSummary
+--
 --         , requestStartDocumentAnalysis $
 --             newStartDocumentAnalysis
 --
@@ -56,6 +62,9 @@ import Test.Tasty
 --
 --         , requestStartExpenseAnalysis $
 --             newStartExpenseAnalysis
+--
+--         , requestStartLendingAnalysis $
+--             newStartLendingAnalysis
 --
 --           ]
 
@@ -81,6 +90,12 @@ import Test.Tasty
 --         , responseGetExpenseAnalysis $
 --             newGetExpenseAnalysisResponse
 --
+--         , responseGetLendingAnalysis $
+--             newGetLendingAnalysisResponse
+--
+--         , responseGetLendingAnalysisSummary $
+--             newGetLendingAnalysisSummaryResponse
+--
 --         , responseStartDocumentAnalysis $
 --             newStartDocumentAnalysisResponse
 --
@@ -89,6 +104,9 @@ import Test.Tasty
 --
 --         , responseStartExpenseAnalysis $
 --             newStartExpenseAnalysisResponse
+--
+--         , responseStartLendingAnalysis $
+--             newStartLendingAnalysisResponse
 --
 --           ]
 --     ]
@@ -137,6 +155,18 @@ requestGetExpenseAnalysis =
     "GetExpenseAnalysis"
     "fixture/GetExpenseAnalysis.yaml"
 
+requestGetLendingAnalysis :: GetLendingAnalysis -> TestTree
+requestGetLendingAnalysis =
+  req
+    "GetLendingAnalysis"
+    "fixture/GetLendingAnalysis.yaml"
+
+requestGetLendingAnalysisSummary :: GetLendingAnalysisSummary -> TestTree
+requestGetLendingAnalysisSummary =
+  req
+    "GetLendingAnalysisSummary"
+    "fixture/GetLendingAnalysisSummary.yaml"
+
 requestStartDocumentAnalysis :: StartDocumentAnalysis -> TestTree
 requestStartDocumentAnalysis =
   req
@@ -154,6 +184,12 @@ requestStartExpenseAnalysis =
   req
     "StartExpenseAnalysis"
     "fixture/StartExpenseAnalysis.yaml"
+
+requestStartLendingAnalysis :: StartLendingAnalysis -> TestTree
+requestStartLendingAnalysis =
+  req
+    "StartLendingAnalysis"
+    "fixture/StartLendingAnalysis.yaml"
 
 -- Responses
 
@@ -213,6 +249,22 @@ responseGetExpenseAnalysis =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetExpenseAnalysis)
 
+responseGetLendingAnalysis :: GetLendingAnalysisResponse -> TestTree
+responseGetLendingAnalysis =
+  res
+    "GetLendingAnalysisResponse"
+    "fixture/GetLendingAnalysisResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetLendingAnalysis)
+
+responseGetLendingAnalysisSummary :: GetLendingAnalysisSummaryResponse -> TestTree
+responseGetLendingAnalysisSummary =
+  res
+    "GetLendingAnalysisSummaryResponse"
+    "fixture/GetLendingAnalysisSummaryResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetLendingAnalysisSummary)
+
 responseStartDocumentAnalysis :: StartDocumentAnalysisResponse -> TestTree
 responseStartDocumentAnalysis =
   res
@@ -236,3 +288,11 @@ responseStartExpenseAnalysis =
     "fixture/StartExpenseAnalysisResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StartExpenseAnalysis)
+
+responseStartLendingAnalysis :: StartLendingAnalysisResponse -> TestTree
+responseStartLendingAnalysis =
+  res
+    "StartLendingAnalysisResponse"
+    "fixture/StartLendingAnalysisResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartLendingAnalysis)

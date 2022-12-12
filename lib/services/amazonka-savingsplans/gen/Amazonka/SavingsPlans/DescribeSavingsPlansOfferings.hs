@@ -27,19 +27,19 @@ module Amazonka.SavingsPlans.DescribeSavingsPlansOfferings
     newDescribeSavingsPlansOfferings,
 
     -- * Request Lenses
-    describeSavingsPlansOfferings_nextToken,
-    describeSavingsPlansOfferings_usageTypes,
-    describeSavingsPlansOfferings_operations,
-    describeSavingsPlansOfferings_productType,
-    describeSavingsPlansOfferings_filters,
-    describeSavingsPlansOfferings_descriptions,
     describeSavingsPlansOfferings_currencies,
-    describeSavingsPlansOfferings_maxResults,
+    describeSavingsPlansOfferings_descriptions,
     describeSavingsPlansOfferings_durations,
+    describeSavingsPlansOfferings_filters,
+    describeSavingsPlansOfferings_maxResults,
+    describeSavingsPlansOfferings_nextToken,
     describeSavingsPlansOfferings_offeringIds,
+    describeSavingsPlansOfferings_operations,
     describeSavingsPlansOfferings_paymentOptions,
     describeSavingsPlansOfferings_planTypes,
+    describeSavingsPlansOfferings_productType,
     describeSavingsPlansOfferings_serviceCodes,
+    describeSavingsPlansOfferings_usageTypes,
 
     -- * Destructuring the Response
     DescribeSavingsPlansOfferingsResponse (..),
@@ -62,33 +62,33 @@ import Amazonka.SavingsPlans.Types
 
 -- | /See:/ 'newDescribeSavingsPlansOfferings' smart constructor.
 data DescribeSavingsPlansOfferings = DescribeSavingsPlansOfferings'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The usage details of the line item in the billing report.
-    usageTypes :: Prelude.Maybe [Prelude.Text],
-    -- | The specific AWS operation for the line item in the billing report.
-    operations :: Prelude.Maybe [Prelude.Text],
-    -- | The product type.
-    productType :: Prelude.Maybe SavingsPlanProductType,
-    -- | The filters.
-    filters :: Prelude.Maybe [SavingsPlanOfferingFilterElement],
+  { -- | The currencies.
+    currencies :: Prelude.Maybe [CurrencyCode],
     -- | The descriptions.
     descriptions :: Prelude.Maybe [Prelude.Text],
-    -- | The currencies.
-    currencies :: Prelude.Maybe [CurrencyCode],
+    -- | The durations, in seconds.
+    durations :: Prelude.Maybe [Prelude.Natural],
+    -- | The filters.
+    filters :: Prelude.Maybe [SavingsPlanOfferingFilterElement],
     -- | The maximum number of results to return with a single call. To retrieve
     -- additional results, make another call with the returned token value.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The durations, in seconds.
-    durations :: Prelude.Maybe [Prelude.Natural],
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The IDs of the offerings.
     offeringIds :: Prelude.Maybe [Prelude.Text],
+    -- | The specific AWS operation for the line item in the billing report.
+    operations :: Prelude.Maybe [Prelude.Text],
     -- | The payment options.
     paymentOptions :: Prelude.Maybe [SavingsPlanPaymentOption],
     -- | The plan type.
     planTypes :: Prelude.Maybe [SavingsPlanType],
+    -- | The product type.
+    productType :: Prelude.Maybe SavingsPlanProductType,
     -- | The services.
-    serviceCodes :: Prelude.Maybe [Prelude.Text]
+    serviceCodes :: Prelude.Maybe [Prelude.Text],
+    -- | The usage details of the line item in the billing report.
+    usageTypes :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -100,92 +100,84 @@ data DescribeSavingsPlansOfferings = DescribeSavingsPlansOfferings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeSavingsPlansOfferings_nextToken' - The token for the next page of results.
---
--- 'usageTypes', 'describeSavingsPlansOfferings_usageTypes' - The usage details of the line item in the billing report.
---
--- 'operations', 'describeSavingsPlansOfferings_operations' - The specific AWS operation for the line item in the billing report.
---
--- 'productType', 'describeSavingsPlansOfferings_productType' - The product type.
---
--- 'filters', 'describeSavingsPlansOfferings_filters' - The filters.
+-- 'currencies', 'describeSavingsPlansOfferings_currencies' - The currencies.
 --
 -- 'descriptions', 'describeSavingsPlansOfferings_descriptions' - The descriptions.
 --
--- 'currencies', 'describeSavingsPlansOfferings_currencies' - The currencies.
+-- 'durations', 'describeSavingsPlansOfferings_durations' - The durations, in seconds.
+--
+-- 'filters', 'describeSavingsPlansOfferings_filters' - The filters.
 --
 -- 'maxResults', 'describeSavingsPlansOfferings_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- additional results, make another call with the returned token value.
 --
--- 'durations', 'describeSavingsPlansOfferings_durations' - The durations, in seconds.
+-- 'nextToken', 'describeSavingsPlansOfferings_nextToken' - The token for the next page of results.
 --
 -- 'offeringIds', 'describeSavingsPlansOfferings_offeringIds' - The IDs of the offerings.
+--
+-- 'operations', 'describeSavingsPlansOfferings_operations' - The specific AWS operation for the line item in the billing report.
 --
 -- 'paymentOptions', 'describeSavingsPlansOfferings_paymentOptions' - The payment options.
 --
 -- 'planTypes', 'describeSavingsPlansOfferings_planTypes' - The plan type.
 --
+-- 'productType', 'describeSavingsPlansOfferings_productType' - The product type.
+--
 -- 'serviceCodes', 'describeSavingsPlansOfferings_serviceCodes' - The services.
+--
+-- 'usageTypes', 'describeSavingsPlansOfferings_usageTypes' - The usage details of the line item in the billing report.
 newDescribeSavingsPlansOfferings ::
   DescribeSavingsPlansOfferings
 newDescribeSavingsPlansOfferings =
   DescribeSavingsPlansOfferings'
-    { nextToken =
+    { currencies =
         Prelude.Nothing,
-      usageTypes = Prelude.Nothing,
-      operations = Prelude.Nothing,
-      productType = Prelude.Nothing,
-      filters = Prelude.Nothing,
       descriptions = Prelude.Nothing,
-      currencies = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       durations = Prelude.Nothing,
+      filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       offeringIds = Prelude.Nothing,
+      operations = Prelude.Nothing,
       paymentOptions = Prelude.Nothing,
       planTypes = Prelude.Nothing,
-      serviceCodes = Prelude.Nothing
+      productType = Prelude.Nothing,
+      serviceCodes = Prelude.Nothing,
+      usageTypes = Prelude.Nothing
     }
 
--- | The token for the next page of results.
-describeSavingsPlansOfferings_nextToken :: Lens.Lens' DescribeSavingsPlansOfferings (Prelude.Maybe Prelude.Text)
-describeSavingsPlansOfferings_nextToken = Lens.lens (\DescribeSavingsPlansOfferings' {nextToken} -> nextToken) (\s@DescribeSavingsPlansOfferings' {} a -> s {nextToken = a} :: DescribeSavingsPlansOfferings)
-
--- | The usage details of the line item in the billing report.
-describeSavingsPlansOfferings_usageTypes :: Lens.Lens' DescribeSavingsPlansOfferings (Prelude.Maybe [Prelude.Text])
-describeSavingsPlansOfferings_usageTypes = Lens.lens (\DescribeSavingsPlansOfferings' {usageTypes} -> usageTypes) (\s@DescribeSavingsPlansOfferings' {} a -> s {usageTypes = a} :: DescribeSavingsPlansOfferings) Prelude.. Lens.mapping Lens.coerced
-
--- | The specific AWS operation for the line item in the billing report.
-describeSavingsPlansOfferings_operations :: Lens.Lens' DescribeSavingsPlansOfferings (Prelude.Maybe [Prelude.Text])
-describeSavingsPlansOfferings_operations = Lens.lens (\DescribeSavingsPlansOfferings' {operations} -> operations) (\s@DescribeSavingsPlansOfferings' {} a -> s {operations = a} :: DescribeSavingsPlansOfferings) Prelude.. Lens.mapping Lens.coerced
-
--- | The product type.
-describeSavingsPlansOfferings_productType :: Lens.Lens' DescribeSavingsPlansOfferings (Prelude.Maybe SavingsPlanProductType)
-describeSavingsPlansOfferings_productType = Lens.lens (\DescribeSavingsPlansOfferings' {productType} -> productType) (\s@DescribeSavingsPlansOfferings' {} a -> s {productType = a} :: DescribeSavingsPlansOfferings)
-
--- | The filters.
-describeSavingsPlansOfferings_filters :: Lens.Lens' DescribeSavingsPlansOfferings (Prelude.Maybe [SavingsPlanOfferingFilterElement])
-describeSavingsPlansOfferings_filters = Lens.lens (\DescribeSavingsPlansOfferings' {filters} -> filters) (\s@DescribeSavingsPlansOfferings' {} a -> s {filters = a} :: DescribeSavingsPlansOfferings) Prelude.. Lens.mapping Lens.coerced
+-- | The currencies.
+describeSavingsPlansOfferings_currencies :: Lens.Lens' DescribeSavingsPlansOfferings (Prelude.Maybe [CurrencyCode])
+describeSavingsPlansOfferings_currencies = Lens.lens (\DescribeSavingsPlansOfferings' {currencies} -> currencies) (\s@DescribeSavingsPlansOfferings' {} a -> s {currencies = a} :: DescribeSavingsPlansOfferings) Prelude.. Lens.mapping Lens.coerced
 
 -- | The descriptions.
 describeSavingsPlansOfferings_descriptions :: Lens.Lens' DescribeSavingsPlansOfferings (Prelude.Maybe [Prelude.Text])
 describeSavingsPlansOfferings_descriptions = Lens.lens (\DescribeSavingsPlansOfferings' {descriptions} -> descriptions) (\s@DescribeSavingsPlansOfferings' {} a -> s {descriptions = a} :: DescribeSavingsPlansOfferings) Prelude.. Lens.mapping Lens.coerced
 
--- | The currencies.
-describeSavingsPlansOfferings_currencies :: Lens.Lens' DescribeSavingsPlansOfferings (Prelude.Maybe [CurrencyCode])
-describeSavingsPlansOfferings_currencies = Lens.lens (\DescribeSavingsPlansOfferings' {currencies} -> currencies) (\s@DescribeSavingsPlansOfferings' {} a -> s {currencies = a} :: DescribeSavingsPlansOfferings) Prelude.. Lens.mapping Lens.coerced
+-- | The durations, in seconds.
+describeSavingsPlansOfferings_durations :: Lens.Lens' DescribeSavingsPlansOfferings (Prelude.Maybe [Prelude.Natural])
+describeSavingsPlansOfferings_durations = Lens.lens (\DescribeSavingsPlansOfferings' {durations} -> durations) (\s@DescribeSavingsPlansOfferings' {} a -> s {durations = a} :: DescribeSavingsPlansOfferings) Prelude.. Lens.mapping Lens.coerced
+
+-- | The filters.
+describeSavingsPlansOfferings_filters :: Lens.Lens' DescribeSavingsPlansOfferings (Prelude.Maybe [SavingsPlanOfferingFilterElement])
+describeSavingsPlansOfferings_filters = Lens.lens (\DescribeSavingsPlansOfferings' {filters} -> filters) (\s@DescribeSavingsPlansOfferings' {} a -> s {filters = a} :: DescribeSavingsPlansOfferings) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- additional results, make another call with the returned token value.
 describeSavingsPlansOfferings_maxResults :: Lens.Lens' DescribeSavingsPlansOfferings (Prelude.Maybe Prelude.Natural)
 describeSavingsPlansOfferings_maxResults = Lens.lens (\DescribeSavingsPlansOfferings' {maxResults} -> maxResults) (\s@DescribeSavingsPlansOfferings' {} a -> s {maxResults = a} :: DescribeSavingsPlansOfferings)
 
--- | The durations, in seconds.
-describeSavingsPlansOfferings_durations :: Lens.Lens' DescribeSavingsPlansOfferings (Prelude.Maybe [Prelude.Natural])
-describeSavingsPlansOfferings_durations = Lens.lens (\DescribeSavingsPlansOfferings' {durations} -> durations) (\s@DescribeSavingsPlansOfferings' {} a -> s {durations = a} :: DescribeSavingsPlansOfferings) Prelude.. Lens.mapping Lens.coerced
+-- | The token for the next page of results.
+describeSavingsPlansOfferings_nextToken :: Lens.Lens' DescribeSavingsPlansOfferings (Prelude.Maybe Prelude.Text)
+describeSavingsPlansOfferings_nextToken = Lens.lens (\DescribeSavingsPlansOfferings' {nextToken} -> nextToken) (\s@DescribeSavingsPlansOfferings' {} a -> s {nextToken = a} :: DescribeSavingsPlansOfferings)
 
 -- | The IDs of the offerings.
 describeSavingsPlansOfferings_offeringIds :: Lens.Lens' DescribeSavingsPlansOfferings (Prelude.Maybe [Prelude.Text])
 describeSavingsPlansOfferings_offeringIds = Lens.lens (\DescribeSavingsPlansOfferings' {offeringIds} -> offeringIds) (\s@DescribeSavingsPlansOfferings' {} a -> s {offeringIds = a} :: DescribeSavingsPlansOfferings) Prelude.. Lens.mapping Lens.coerced
+
+-- | The specific AWS operation for the line item in the billing report.
+describeSavingsPlansOfferings_operations :: Lens.Lens' DescribeSavingsPlansOfferings (Prelude.Maybe [Prelude.Text])
+describeSavingsPlansOfferings_operations = Lens.lens (\DescribeSavingsPlansOfferings' {operations} -> operations) (\s@DescribeSavingsPlansOfferings' {} a -> s {operations = a} :: DescribeSavingsPlansOfferings) Prelude.. Lens.mapping Lens.coerced
 
 -- | The payment options.
 describeSavingsPlansOfferings_paymentOptions :: Lens.Lens' DescribeSavingsPlansOfferings (Prelude.Maybe [SavingsPlanPaymentOption])
@@ -195,9 +187,17 @@ describeSavingsPlansOfferings_paymentOptions = Lens.lens (\DescribeSavingsPlansO
 describeSavingsPlansOfferings_planTypes :: Lens.Lens' DescribeSavingsPlansOfferings (Prelude.Maybe [SavingsPlanType])
 describeSavingsPlansOfferings_planTypes = Lens.lens (\DescribeSavingsPlansOfferings' {planTypes} -> planTypes) (\s@DescribeSavingsPlansOfferings' {} a -> s {planTypes = a} :: DescribeSavingsPlansOfferings) Prelude.. Lens.mapping Lens.coerced
 
+-- | The product type.
+describeSavingsPlansOfferings_productType :: Lens.Lens' DescribeSavingsPlansOfferings (Prelude.Maybe SavingsPlanProductType)
+describeSavingsPlansOfferings_productType = Lens.lens (\DescribeSavingsPlansOfferings' {productType} -> productType) (\s@DescribeSavingsPlansOfferings' {} a -> s {productType = a} :: DescribeSavingsPlansOfferings)
+
 -- | The services.
 describeSavingsPlansOfferings_serviceCodes :: Lens.Lens' DescribeSavingsPlansOfferings (Prelude.Maybe [Prelude.Text])
 describeSavingsPlansOfferings_serviceCodes = Lens.lens (\DescribeSavingsPlansOfferings' {serviceCodes} -> serviceCodes) (\s@DescribeSavingsPlansOfferings' {} a -> s {serviceCodes = a} :: DescribeSavingsPlansOfferings) Prelude.. Lens.mapping Lens.coerced
+
+-- | The usage details of the line item in the billing report.
+describeSavingsPlansOfferings_usageTypes :: Lens.Lens' DescribeSavingsPlansOfferings (Prelude.Maybe [Prelude.Text])
+describeSavingsPlansOfferings_usageTypes = Lens.lens (\DescribeSavingsPlansOfferings' {usageTypes} -> usageTypes) (\s@DescribeSavingsPlansOfferings' {} a -> s {usageTypes = a} :: DescribeSavingsPlansOfferings) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.AWSRequest
@@ -222,35 +222,35 @@ instance
     DescribeSavingsPlansOfferings
   where
   hashWithSalt _salt DescribeSavingsPlansOfferings' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` usageTypes
-      `Prelude.hashWithSalt` operations
-      `Prelude.hashWithSalt` productType
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` currencies
       `Prelude.hashWithSalt` descriptions
-      `Prelude.hashWithSalt` currencies
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` durations
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` offeringIds
+      `Prelude.hashWithSalt` operations
       `Prelude.hashWithSalt` paymentOptions
       `Prelude.hashWithSalt` planTypes
+      `Prelude.hashWithSalt` productType
       `Prelude.hashWithSalt` serviceCodes
+      `Prelude.hashWithSalt` usageTypes
 
 instance Prelude.NFData DescribeSavingsPlansOfferings where
   rnf DescribeSavingsPlansOfferings' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf usageTypes
-      `Prelude.seq` Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf productType
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf currencies
       `Prelude.seq` Prelude.rnf descriptions
-      `Prelude.seq` Prelude.rnf currencies
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf durations
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf offeringIds
+      `Prelude.seq` Prelude.rnf operations
       `Prelude.seq` Prelude.rnf paymentOptions
       `Prelude.seq` Prelude.rnf planTypes
+      `Prelude.seq` Prelude.rnf productType
       `Prelude.seq` Prelude.rnf serviceCodes
+      `Prelude.seq` Prelude.rnf usageTypes
 
 instance Data.ToHeaders DescribeSavingsPlansOfferings where
   toHeaders =
@@ -267,20 +267,20 @@ instance Data.ToJSON DescribeSavingsPlansOfferings where
   toJSON DescribeSavingsPlansOfferings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("usageTypes" Data..=) Prelude.<$> usageTypes,
-            ("operations" Data..=) Prelude.<$> operations,
-            ("productType" Data..=) Prelude.<$> productType,
-            ("filters" Data..=) Prelude.<$> filters,
+          [ ("currencies" Data..=) Prelude.<$> currencies,
             ("descriptions" Data..=) Prelude.<$> descriptions,
-            ("currencies" Data..=) Prelude.<$> currencies,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
             ("durations" Data..=) Prelude.<$> durations,
+            ("filters" Data..=) Prelude.<$> filters,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             ("offeringIds" Data..=) Prelude.<$> offeringIds,
+            ("operations" Data..=) Prelude.<$> operations,
             ("paymentOptions" Data..=)
               Prelude.<$> paymentOptions,
             ("planTypes" Data..=) Prelude.<$> planTypes,
-            ("serviceCodes" Data..=) Prelude.<$> serviceCodes
+            ("productType" Data..=) Prelude.<$> productType,
+            ("serviceCodes" Data..=) Prelude.<$> serviceCodes,
+            ("usageTypes" Data..=) Prelude.<$> usageTypes
           ]
       )
 

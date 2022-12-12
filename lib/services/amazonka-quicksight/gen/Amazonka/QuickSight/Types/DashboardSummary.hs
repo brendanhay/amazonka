@@ -28,20 +28,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDashboardSummary' smart constructor.
 data DashboardSummary = DashboardSummary'
-  { -- | A display name for the dashboard.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | The Amazon Resource Name (ARN) of the resource.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The time that this dashboard was created.
     createdTime :: Prelude.Maybe Data.POSIX,
-    -- | The Amazon Resource Name (ARN) of the resource.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The last time that this dashboard was updated.
-    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
-    -- | Published version number.
-    publishedVersionNumber :: Prelude.Maybe Prelude.Natural,
     -- | Dashboard ID.
     dashboardId :: Prelude.Maybe Prelude.Text,
     -- | The last time that this dashboard was published.
-    lastPublishedTime :: Prelude.Maybe Data.POSIX
+    lastPublishedTime :: Prelude.Maybe Data.POSIX,
+    -- | The last time that this dashboard was updated.
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
+    -- | A display name for the dashboard.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Published version number.
+    publishedVersionNumber :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,51 +53,39 @@ data DashboardSummary = DashboardSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'dashboardSummary_name' - A display name for the dashboard.
---
--- 'createdTime', 'dashboardSummary_createdTime' - The time that this dashboard was created.
---
 -- 'arn', 'dashboardSummary_arn' - The Amazon Resource Name (ARN) of the resource.
 --
--- 'lastUpdatedTime', 'dashboardSummary_lastUpdatedTime' - The last time that this dashboard was updated.
---
--- 'publishedVersionNumber', 'dashboardSummary_publishedVersionNumber' - Published version number.
+-- 'createdTime', 'dashboardSummary_createdTime' - The time that this dashboard was created.
 --
 -- 'dashboardId', 'dashboardSummary_dashboardId' - Dashboard ID.
 --
 -- 'lastPublishedTime', 'dashboardSummary_lastPublishedTime' - The last time that this dashboard was published.
+--
+-- 'lastUpdatedTime', 'dashboardSummary_lastUpdatedTime' - The last time that this dashboard was updated.
+--
+-- 'name', 'dashboardSummary_name' - A display name for the dashboard.
+--
+-- 'publishedVersionNumber', 'dashboardSummary_publishedVersionNumber' - Published version number.
 newDashboardSummary ::
   DashboardSummary
 newDashboardSummary =
   DashboardSummary'
-    { name = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       createdTime = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      lastUpdatedTime = Prelude.Nothing,
-      publishedVersionNumber = Prelude.Nothing,
       dashboardId = Prelude.Nothing,
-      lastPublishedTime = Prelude.Nothing
+      lastPublishedTime = Prelude.Nothing,
+      lastUpdatedTime = Prelude.Nothing,
+      name = Prelude.Nothing,
+      publishedVersionNumber = Prelude.Nothing
     }
-
--- | A display name for the dashboard.
-dashboardSummary_name :: Lens.Lens' DashboardSummary (Prelude.Maybe Prelude.Text)
-dashboardSummary_name = Lens.lens (\DashboardSummary' {name} -> name) (\s@DashboardSummary' {} a -> s {name = a} :: DashboardSummary)
-
--- | The time that this dashboard was created.
-dashboardSummary_createdTime :: Lens.Lens' DashboardSummary (Prelude.Maybe Prelude.UTCTime)
-dashboardSummary_createdTime = Lens.lens (\DashboardSummary' {createdTime} -> createdTime) (\s@DashboardSummary' {} a -> s {createdTime = a} :: DashboardSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the resource.
 dashboardSummary_arn :: Lens.Lens' DashboardSummary (Prelude.Maybe Prelude.Text)
 dashboardSummary_arn = Lens.lens (\DashboardSummary' {arn} -> arn) (\s@DashboardSummary' {} a -> s {arn = a} :: DashboardSummary)
 
--- | The last time that this dashboard was updated.
-dashboardSummary_lastUpdatedTime :: Lens.Lens' DashboardSummary (Prelude.Maybe Prelude.UTCTime)
-dashboardSummary_lastUpdatedTime = Lens.lens (\DashboardSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@DashboardSummary' {} a -> s {lastUpdatedTime = a} :: DashboardSummary) Prelude.. Lens.mapping Data._Time
-
--- | Published version number.
-dashboardSummary_publishedVersionNumber :: Lens.Lens' DashboardSummary (Prelude.Maybe Prelude.Natural)
-dashboardSummary_publishedVersionNumber = Lens.lens (\DashboardSummary' {publishedVersionNumber} -> publishedVersionNumber) (\s@DashboardSummary' {} a -> s {publishedVersionNumber = a} :: DashboardSummary)
+-- | The time that this dashboard was created.
+dashboardSummary_createdTime :: Lens.Lens' DashboardSummary (Prelude.Maybe Prelude.UTCTime)
+dashboardSummary_createdTime = Lens.lens (\DashboardSummary' {createdTime} -> createdTime) (\s@DashboardSummary' {} a -> s {createdTime = a} :: DashboardSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Dashboard ID.
 dashboardSummary_dashboardId :: Lens.Lens' DashboardSummary (Prelude.Maybe Prelude.Text)
@@ -107,37 +95,49 @@ dashboardSummary_dashboardId = Lens.lens (\DashboardSummary' {dashboardId} -> da
 dashboardSummary_lastPublishedTime :: Lens.Lens' DashboardSummary (Prelude.Maybe Prelude.UTCTime)
 dashboardSummary_lastPublishedTime = Lens.lens (\DashboardSummary' {lastPublishedTime} -> lastPublishedTime) (\s@DashboardSummary' {} a -> s {lastPublishedTime = a} :: DashboardSummary) Prelude.. Lens.mapping Data._Time
 
+-- | The last time that this dashboard was updated.
+dashboardSummary_lastUpdatedTime :: Lens.Lens' DashboardSummary (Prelude.Maybe Prelude.UTCTime)
+dashboardSummary_lastUpdatedTime = Lens.lens (\DashboardSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@DashboardSummary' {} a -> s {lastUpdatedTime = a} :: DashboardSummary) Prelude.. Lens.mapping Data._Time
+
+-- | A display name for the dashboard.
+dashboardSummary_name :: Lens.Lens' DashboardSummary (Prelude.Maybe Prelude.Text)
+dashboardSummary_name = Lens.lens (\DashboardSummary' {name} -> name) (\s@DashboardSummary' {} a -> s {name = a} :: DashboardSummary)
+
+-- | Published version number.
+dashboardSummary_publishedVersionNumber :: Lens.Lens' DashboardSummary (Prelude.Maybe Prelude.Natural)
+dashboardSummary_publishedVersionNumber = Lens.lens (\DashboardSummary' {publishedVersionNumber} -> publishedVersionNumber) (\s@DashboardSummary' {} a -> s {publishedVersionNumber = a} :: DashboardSummary)
+
 instance Data.FromJSON DashboardSummary where
   parseJSON =
     Data.withObject
       "DashboardSummary"
       ( \x ->
           DashboardSummary'
-            Prelude.<$> (x Data..:? "Name")
+            Prelude.<$> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "CreatedTime")
-            Prelude.<*> (x Data..:? "Arn")
-            Prelude.<*> (x Data..:? "LastUpdatedTime")
-            Prelude.<*> (x Data..:? "PublishedVersionNumber")
             Prelude.<*> (x Data..:? "DashboardId")
             Prelude.<*> (x Data..:? "LastPublishedTime")
+            Prelude.<*> (x Data..:? "LastUpdatedTime")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "PublishedVersionNumber")
       )
 
 instance Prelude.Hashable DashboardSummary where
   hashWithSalt _salt DashboardSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` lastUpdatedTime
-      `Prelude.hashWithSalt` publishedVersionNumber
       `Prelude.hashWithSalt` dashboardId
       `Prelude.hashWithSalt` lastPublishedTime
+      `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` publishedVersionNumber
 
 instance Prelude.NFData DashboardSummary where
   rnf DashboardSummary' {..} =
-    Prelude.rnf name
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf publishedVersionNumber
       `Prelude.seq` Prelude.rnf dashboardId
       `Prelude.seq` Prelude.rnf lastPublishedTime
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf publishedVersionNumber

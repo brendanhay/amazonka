@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEc2VpnConnectionRoutesDetails' smart constructor.
 data AwsEc2VpnConnectionRoutesDetails = AwsEc2VpnConnectionRoutesDetails'
-  { -- | The current state of the static route.
-    state :: Prelude.Maybe Prelude.Text,
-    -- | The CIDR block associated with the local subnet of the customer data
+  { -- | The CIDR block associated with the local subnet of the customer data
     -- center.
-    destinationCidrBlock :: Prelude.Maybe Prelude.Text
+    destinationCidrBlock :: Prelude.Maybe Prelude.Text,
+    -- | The current state of the static route.
+    state :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,27 +44,27 @@ data AwsEc2VpnConnectionRoutesDetails = AwsEc2VpnConnectionRoutesDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'state', 'awsEc2VpnConnectionRoutesDetails_state' - The current state of the static route.
---
 -- 'destinationCidrBlock', 'awsEc2VpnConnectionRoutesDetails_destinationCidrBlock' - The CIDR block associated with the local subnet of the customer data
 -- center.
+--
+-- 'state', 'awsEc2VpnConnectionRoutesDetails_state' - The current state of the static route.
 newAwsEc2VpnConnectionRoutesDetails ::
   AwsEc2VpnConnectionRoutesDetails
 newAwsEc2VpnConnectionRoutesDetails =
   AwsEc2VpnConnectionRoutesDetails'
-    { state =
+    { destinationCidrBlock =
         Prelude.Nothing,
-      destinationCidrBlock = Prelude.Nothing
+      state = Prelude.Nothing
     }
-
--- | The current state of the static route.
-awsEc2VpnConnectionRoutesDetails_state :: Lens.Lens' AwsEc2VpnConnectionRoutesDetails (Prelude.Maybe Prelude.Text)
-awsEc2VpnConnectionRoutesDetails_state = Lens.lens (\AwsEc2VpnConnectionRoutesDetails' {state} -> state) (\s@AwsEc2VpnConnectionRoutesDetails' {} a -> s {state = a} :: AwsEc2VpnConnectionRoutesDetails)
 
 -- | The CIDR block associated with the local subnet of the customer data
 -- center.
 awsEc2VpnConnectionRoutesDetails_destinationCidrBlock :: Lens.Lens' AwsEc2VpnConnectionRoutesDetails (Prelude.Maybe Prelude.Text)
 awsEc2VpnConnectionRoutesDetails_destinationCidrBlock = Lens.lens (\AwsEc2VpnConnectionRoutesDetails' {destinationCidrBlock} -> destinationCidrBlock) (\s@AwsEc2VpnConnectionRoutesDetails' {} a -> s {destinationCidrBlock = a} :: AwsEc2VpnConnectionRoutesDetails)
+
+-- | The current state of the static route.
+awsEc2VpnConnectionRoutesDetails_state :: Lens.Lens' AwsEc2VpnConnectionRoutesDetails (Prelude.Maybe Prelude.Text)
+awsEc2VpnConnectionRoutesDetails_state = Lens.lens (\AwsEc2VpnConnectionRoutesDetails' {state} -> state) (\s@AwsEc2VpnConnectionRoutesDetails' {} a -> s {state = a} :: AwsEc2VpnConnectionRoutesDetails)
 
 instance
   Data.FromJSON
@@ -75,8 +75,8 @@ instance
       "AwsEc2VpnConnectionRoutesDetails"
       ( \x ->
           AwsEc2VpnConnectionRoutesDetails'
-            Prelude.<$> (x Data..:? "State")
-            Prelude.<*> (x Data..:? "DestinationCidrBlock")
+            Prelude.<$> (x Data..:? "DestinationCidrBlock")
+            Prelude.<*> (x Data..:? "State")
       )
 
 instance
@@ -86,23 +86,23 @@ instance
   hashWithSalt
     _salt
     AwsEc2VpnConnectionRoutesDetails' {..} =
-      _salt `Prelude.hashWithSalt` state
-        `Prelude.hashWithSalt` destinationCidrBlock
+      _salt `Prelude.hashWithSalt` destinationCidrBlock
+        `Prelude.hashWithSalt` state
 
 instance
   Prelude.NFData
     AwsEc2VpnConnectionRoutesDetails
   where
   rnf AwsEc2VpnConnectionRoutesDetails' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf destinationCidrBlock
+    Prelude.rnf destinationCidrBlock
+      `Prelude.seq` Prelude.rnf state
 
 instance Data.ToJSON AwsEc2VpnConnectionRoutesDetails where
   toJSON AwsEc2VpnConnectionRoutesDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("State" Data..=) Prelude.<$> state,
-            ("DestinationCidrBlock" Data..=)
-              Prelude.<$> destinationCidrBlock
+          [ ("DestinationCidrBlock" Data..=)
+              Prelude.<$> destinationCidrBlock,
+            ("State" Data..=) Prelude.<$> state
           ]
       )

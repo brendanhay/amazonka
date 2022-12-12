@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 data InstanceUserSummary = InstanceUserSummary'
   { -- | The date a user was associated with an EC2 instance.
     associationDate :: Prelude.Maybe Prelude.Text,
-    -- | The domain name of the user.
-    domain :: Prelude.Maybe Prelude.Text,
     -- | The date a user was disassociated from an EC2 instance.
     disassociationDate :: Prelude.Maybe Prelude.Text,
+    -- | The domain name of the user.
+    domain :: Prelude.Maybe Prelude.Text,
     -- | The status message for users of an EC2 instance.
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | An object that specifies details for the identity provider.
@@ -58,9 +58,9 @@ data InstanceUserSummary = InstanceUserSummary'
 --
 -- 'associationDate', 'instanceUserSummary_associationDate' - The date a user was associated with an EC2 instance.
 --
--- 'domain', 'instanceUserSummary_domain' - The domain name of the user.
---
 -- 'disassociationDate', 'instanceUserSummary_disassociationDate' - The date a user was disassociated from an EC2 instance.
+--
+-- 'domain', 'instanceUserSummary_domain' - The domain name of the user.
 --
 -- 'statusMessage', 'instanceUserSummary_statusMessage' - The status message for users of an EC2 instance.
 --
@@ -89,8 +89,8 @@ newInstanceUserSummary
     InstanceUserSummary'
       { associationDate =
           Prelude.Nothing,
-        domain = Prelude.Nothing,
         disassociationDate = Prelude.Nothing,
+        domain = Prelude.Nothing,
         statusMessage = Prelude.Nothing,
         identityProvider = pIdentityProvider_,
         instanceId = pInstanceId_,
@@ -102,13 +102,13 @@ newInstanceUserSummary
 instanceUserSummary_associationDate :: Lens.Lens' InstanceUserSummary (Prelude.Maybe Prelude.Text)
 instanceUserSummary_associationDate = Lens.lens (\InstanceUserSummary' {associationDate} -> associationDate) (\s@InstanceUserSummary' {} a -> s {associationDate = a} :: InstanceUserSummary)
 
--- | The domain name of the user.
-instanceUserSummary_domain :: Lens.Lens' InstanceUserSummary (Prelude.Maybe Prelude.Text)
-instanceUserSummary_domain = Lens.lens (\InstanceUserSummary' {domain} -> domain) (\s@InstanceUserSummary' {} a -> s {domain = a} :: InstanceUserSummary)
-
 -- | The date a user was disassociated from an EC2 instance.
 instanceUserSummary_disassociationDate :: Lens.Lens' InstanceUserSummary (Prelude.Maybe Prelude.Text)
 instanceUserSummary_disassociationDate = Lens.lens (\InstanceUserSummary' {disassociationDate} -> disassociationDate) (\s@InstanceUserSummary' {} a -> s {disassociationDate = a} :: InstanceUserSummary)
+
+-- | The domain name of the user.
+instanceUserSummary_domain :: Lens.Lens' InstanceUserSummary (Prelude.Maybe Prelude.Text)
+instanceUserSummary_domain = Lens.lens (\InstanceUserSummary' {domain} -> domain) (\s@InstanceUserSummary' {} a -> s {domain = a} :: InstanceUserSummary)
 
 -- | The status message for users of an EC2 instance.
 instanceUserSummary_statusMessage :: Lens.Lens' InstanceUserSummary (Prelude.Maybe Prelude.Text)
@@ -137,8 +137,8 @@ instance Data.FromJSON InstanceUserSummary where
       ( \x ->
           InstanceUserSummary'
             Prelude.<$> (x Data..:? "AssociationDate")
-            Prelude.<*> (x Data..:? "Domain")
             Prelude.<*> (x Data..:? "DisassociationDate")
+            Prelude.<*> (x Data..:? "Domain")
             Prelude.<*> (x Data..:? "StatusMessage")
             Prelude.<*> (x Data..: "IdentityProvider")
             Prelude.<*> (x Data..: "InstanceId")
@@ -149,8 +149,8 @@ instance Data.FromJSON InstanceUserSummary where
 instance Prelude.Hashable InstanceUserSummary where
   hashWithSalt _salt InstanceUserSummary' {..} =
     _salt `Prelude.hashWithSalt` associationDate
-      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` disassociationDate
+      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` identityProvider
       `Prelude.hashWithSalt` instanceId
@@ -160,8 +160,8 @@ instance Prelude.Hashable InstanceUserSummary where
 instance Prelude.NFData InstanceUserSummary where
   rnf InstanceUserSummary' {..} =
     Prelude.rnf associationDate
-      `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf disassociationDate
+      `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf statusMessage
       `Prelude.seq` Prelude.rnf identityProvider
       `Prelude.seq` Prelude.rnf instanceId

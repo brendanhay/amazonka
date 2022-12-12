@@ -31,12 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAnalyzerSummary' smart constructor.
 data AnalyzerSummary = AnalyzerSummary'
-  { -- | The tags added to the analyzer.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | The resource that was most recently analyzed by the analyzer.
+    lastResourceAnalyzed :: Prelude.Maybe Prelude.Text,
     -- | The time at which the most recently analyzed resource was analyzed.
     lastResourceAnalyzedAt :: Prelude.Maybe Data.POSIX,
-    -- | The resource that was most recently analyzed by the analyzer.
-    lastResourceAnalyzed :: Prelude.Maybe Prelude.Text,
     -- | The @statusReason@ provides more details about the current status of the
     -- analyzer. For example, if the creation for the analyzer fails, a
     -- @Failed@ status is returned. For an analyzer with organization as the
@@ -44,6 +42,8 @@ data AnalyzerSummary = AnalyzerSummary'
     -- service-linked roles required in the member accounts of the Amazon Web
     -- Services organization.
     statusReason :: Prelude.Maybe StatusReason,
+    -- | The tags added to the analyzer.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The ARN of the analyzer.
     arn :: Prelude.Text,
     -- | The name of the analyzer.
@@ -72,11 +72,9 @@ data AnalyzerSummary = AnalyzerSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'analyzerSummary_tags' - The tags added to the analyzer.
+-- 'lastResourceAnalyzed', 'analyzerSummary_lastResourceAnalyzed' - The resource that was most recently analyzed by the analyzer.
 --
 -- 'lastResourceAnalyzedAt', 'analyzerSummary_lastResourceAnalyzedAt' - The time at which the most recently analyzed resource was analyzed.
---
--- 'lastResourceAnalyzed', 'analyzerSummary_lastResourceAnalyzed' - The resource that was most recently analyzed by the analyzer.
 --
 -- 'statusReason', 'analyzerSummary_statusReason' - The @statusReason@ provides more details about the current status of the
 -- analyzer. For example, if the creation for the analyzer fails, a
@@ -84,6 +82,8 @@ data AnalyzerSummary = AnalyzerSummary'
 -- type, this failure can be due to an issue with creating the
 -- service-linked roles required in the member accounts of the Amazon Web
 -- Services organization.
+--
+-- 'tags', 'analyzerSummary_tags' - The tags added to the analyzer.
 --
 -- 'arn', 'analyzerSummary_arn' - The ARN of the analyzer.
 --
@@ -120,10 +120,11 @@ newAnalyzerSummary
   pCreatedAt_
   pStatus_ =
     AnalyzerSummary'
-      { tags = Prelude.Nothing,
+      { lastResourceAnalyzed =
+          Prelude.Nothing,
         lastResourceAnalyzedAt = Prelude.Nothing,
-        lastResourceAnalyzed = Prelude.Nothing,
         statusReason = Prelude.Nothing,
+        tags = Prelude.Nothing,
         arn = pArn_,
         name = pName_,
         type' = pType_,
@@ -131,17 +132,13 @@ newAnalyzerSummary
         status = pStatus_
       }
 
--- | The tags added to the analyzer.
-analyzerSummary_tags :: Lens.Lens' AnalyzerSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-analyzerSummary_tags = Lens.lens (\AnalyzerSummary' {tags} -> tags) (\s@AnalyzerSummary' {} a -> s {tags = a} :: AnalyzerSummary) Prelude.. Lens.mapping Lens.coerced
+-- | The resource that was most recently analyzed by the analyzer.
+analyzerSummary_lastResourceAnalyzed :: Lens.Lens' AnalyzerSummary (Prelude.Maybe Prelude.Text)
+analyzerSummary_lastResourceAnalyzed = Lens.lens (\AnalyzerSummary' {lastResourceAnalyzed} -> lastResourceAnalyzed) (\s@AnalyzerSummary' {} a -> s {lastResourceAnalyzed = a} :: AnalyzerSummary)
 
 -- | The time at which the most recently analyzed resource was analyzed.
 analyzerSummary_lastResourceAnalyzedAt :: Lens.Lens' AnalyzerSummary (Prelude.Maybe Prelude.UTCTime)
 analyzerSummary_lastResourceAnalyzedAt = Lens.lens (\AnalyzerSummary' {lastResourceAnalyzedAt} -> lastResourceAnalyzedAt) (\s@AnalyzerSummary' {} a -> s {lastResourceAnalyzedAt = a} :: AnalyzerSummary) Prelude.. Lens.mapping Data._Time
-
--- | The resource that was most recently analyzed by the analyzer.
-analyzerSummary_lastResourceAnalyzed :: Lens.Lens' AnalyzerSummary (Prelude.Maybe Prelude.Text)
-analyzerSummary_lastResourceAnalyzed = Lens.lens (\AnalyzerSummary' {lastResourceAnalyzed} -> lastResourceAnalyzed) (\s@AnalyzerSummary' {} a -> s {lastResourceAnalyzed = a} :: AnalyzerSummary)
 
 -- | The @statusReason@ provides more details about the current status of the
 -- analyzer. For example, if the creation for the analyzer fails, a
@@ -151,6 +148,10 @@ analyzerSummary_lastResourceAnalyzed = Lens.lens (\AnalyzerSummary' {lastResourc
 -- Services organization.
 analyzerSummary_statusReason :: Lens.Lens' AnalyzerSummary (Prelude.Maybe StatusReason)
 analyzerSummary_statusReason = Lens.lens (\AnalyzerSummary' {statusReason} -> statusReason) (\s@AnalyzerSummary' {} a -> s {statusReason = a} :: AnalyzerSummary)
+
+-- | The tags added to the analyzer.
+analyzerSummary_tags :: Lens.Lens' AnalyzerSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+analyzerSummary_tags = Lens.lens (\AnalyzerSummary' {tags} -> tags) (\s@AnalyzerSummary' {} a -> s {tags = a} :: AnalyzerSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the analyzer.
 analyzerSummary_arn :: Lens.Lens' AnalyzerSummary Prelude.Text
@@ -185,10 +186,10 @@ instance Data.FromJSON AnalyzerSummary where
       "AnalyzerSummary"
       ( \x ->
           AnalyzerSummary'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "lastResourceAnalyzed")
             Prelude.<*> (x Data..:? "lastResourceAnalyzedAt")
-            Prelude.<*> (x Data..:? "lastResourceAnalyzed")
             Prelude.<*> (x Data..:? "statusReason")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "arn")
             Prelude.<*> (x Data..: "name")
             Prelude.<*> (x Data..: "type")
@@ -198,10 +199,10 @@ instance Data.FromJSON AnalyzerSummary where
 
 instance Prelude.Hashable AnalyzerSummary where
   hashWithSalt _salt AnalyzerSummary' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` lastResourceAnalyzed
       `Prelude.hashWithSalt` lastResourceAnalyzedAt
-      `Prelude.hashWithSalt` lastResourceAnalyzed
       `Prelude.hashWithSalt` statusReason
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
@@ -210,10 +211,10 @@ instance Prelude.Hashable AnalyzerSummary where
 
 instance Prelude.NFData AnalyzerSummary where
   rnf AnalyzerSummary' {..} =
-    Prelude.rnf tags
+    Prelude.rnf lastResourceAnalyzed
       `Prelude.seq` Prelude.rnf lastResourceAnalyzedAt
-      `Prelude.seq` Prelude.rnf lastResourceAnalyzed
       `Prelude.seq` Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf type'

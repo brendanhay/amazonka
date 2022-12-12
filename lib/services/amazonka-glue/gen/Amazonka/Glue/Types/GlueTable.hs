@@ -29,7 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGlueTable' smart constructor.
 data GlueTable = GlueTable'
-  { -- | A unique identifier for the Glue Data Catalog.
+  { -- | Additional options for the table. Currently there are two keys
+    -- supported:
+    --
+    -- -   @pushDownPredicate@: to filter on partitions without having to list
+    --     and read all the files in your dataset.
+    --
+    -- -   @catalogPartitionPredicate@: to use server-side partition pruning
+    --     using partition indexes in the Glue Data Catalog.
+    additionalOptions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A unique identifier for the Glue Data Catalog.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | The name of the connection to the Glue Data Catalog.
     connectionName :: Prelude.Maybe Prelude.Text,
@@ -48,6 +57,15 @@ data GlueTable = GlueTable'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'additionalOptions', 'glueTable_additionalOptions' - Additional options for the table. Currently there are two keys
+-- supported:
+--
+-- -   @pushDownPredicate@: to filter on partitions without having to list
+--     and read all the files in your dataset.
+--
+-- -   @catalogPartitionPredicate@: to use server-side partition pruning
+--     using partition indexes in the Glue Data Catalog.
+--
 -- 'catalogId', 'glueTable_catalogId' - A unique identifier for the Glue Data Catalog.
 --
 -- 'connectionName', 'glueTable_connectionName' - The name of the connection to the Glue Data Catalog.
@@ -63,11 +81,23 @@ newGlueTable ::
   GlueTable
 newGlueTable pDatabaseName_ pTableName_ =
   GlueTable'
-    { catalogId = Prelude.Nothing,
+    { additionalOptions = Prelude.Nothing,
+      catalogId = Prelude.Nothing,
       connectionName = Prelude.Nothing,
       databaseName = pDatabaseName_,
       tableName = pTableName_
     }
+
+-- | Additional options for the table. Currently there are two keys
+-- supported:
+--
+-- -   @pushDownPredicate@: to filter on partitions without having to list
+--     and read all the files in your dataset.
+--
+-- -   @catalogPartitionPredicate@: to use server-side partition pruning
+--     using partition indexes in the Glue Data Catalog.
+glueTable_additionalOptions :: Lens.Lens' GlueTable (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+glueTable_additionalOptions = Lens.lens (\GlueTable' {additionalOptions} -> additionalOptions) (\s@GlueTable' {} a -> s {additionalOptions = a} :: GlueTable) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique identifier for the Glue Data Catalog.
 glueTable_catalogId :: Lens.Lens' GlueTable (Prelude.Maybe Prelude.Text)
@@ -91,7 +121,10 @@ instance Data.FromJSON GlueTable where
       "GlueTable"
       ( \x ->
           GlueTable'
-            Prelude.<$> (x Data..:? "CatalogId")
+            Prelude.<$> ( x Data..:? "AdditionalOptions"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "CatalogId")
             Prelude.<*> (x Data..:? "ConnectionName")
             Prelude.<*> (x Data..: "DatabaseName")
             Prelude.<*> (x Data..: "TableName")
@@ -99,14 +132,16 @@ instance Data.FromJSON GlueTable where
 
 instance Prelude.Hashable GlueTable where
   hashWithSalt _salt GlueTable' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt `Prelude.hashWithSalt` additionalOptions
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` connectionName
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tableName
 
 instance Prelude.NFData GlueTable where
   rnf GlueTable' {..} =
-    Prelude.rnf catalogId
+    Prelude.rnf additionalOptions
+      `Prelude.seq` Prelude.rnf catalogId
       `Prelude.seq` Prelude.rnf connectionName
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf tableName
@@ -115,7 +150,9 @@ instance Data.ToJSON GlueTable where
   toJSON GlueTable' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+          [ ("AdditionalOptions" Data..=)
+              Prelude.<$> additionalOptions,
+            ("CatalogId" Data..=) Prelude.<$> catalogId,
             ("ConnectionName" Data..=)
               Prelude.<$> connectionName,
             Prelude.Just ("DatabaseName" Data..= databaseName),

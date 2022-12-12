@@ -25,10 +25,10 @@ import Amazonka.ElasticBeanstalk.Types
 import qualified Amazonka.Prelude as Prelude
 
 -- | Polls 'Amazonka.ElasticBeanstalk.DescribeEnvironments' every 20 seconds until a successful state is reached. An error is returned after 20 failed checks.
-newEnvironmentUpdated :: Core.Wait DescribeEnvironments
-newEnvironmentUpdated =
+newEnvironmentExists :: Core.Wait DescribeEnvironments
+newEnvironmentExists =
   Core.Wait
-    { Core.name = "EnvironmentUpdated",
+    { Core.name = "EnvironmentExists",
       Core.attempts = 20,
       Core.delay = 20,
       Core.acceptors =
@@ -46,7 +46,7 @@ newEnvironmentUpdated =
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
-            "Updating"
+            "Launching"
             Core.AcceptRetry
             ( Lens.folding
                 ( Lens.concatOf
@@ -99,10 +99,10 @@ newEnvironmentTerminated =
     }
 
 -- | Polls 'Amazonka.ElasticBeanstalk.DescribeEnvironments' every 20 seconds until a successful state is reached. An error is returned after 20 failed checks.
-newEnvironmentExists :: Core.Wait DescribeEnvironments
-newEnvironmentExists =
+newEnvironmentUpdated :: Core.Wait DescribeEnvironments
+newEnvironmentUpdated =
   Core.Wait
-    { Core.name = "EnvironmentExists",
+    { Core.name = "EnvironmentUpdated",
       Core.attempts = 20,
       Core.delay = 20,
       Core.acceptors =
@@ -120,7 +120,7 @@ newEnvironmentExists =
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
-            "Launching"
+            "Updating"
             Core.AcceptRetry
             ( Lens.folding
                 ( Lens.concatOf

@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new ReplicationConfigurationTemplate.
+-- Deletes a single Launch Configuration Template by ID.
 module Amazonka.MGN.DeleteLaunchConfigurationTemplate
   ( -- * Creating a Request
     DeleteLaunchConfigurationTemplate (..),

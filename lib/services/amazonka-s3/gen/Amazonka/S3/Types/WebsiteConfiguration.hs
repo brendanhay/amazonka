@@ -33,17 +33,17 @@ import Amazonka.S3.Types.RoutingRule
 --
 -- /See:/ 'newWebsiteConfiguration' smart constructor.
 data WebsiteConfiguration = WebsiteConfiguration'
-  { -- | Rules that define when a redirect is applied and the redirect behavior.
-    routingRules :: Prelude.Maybe [RoutingRule],
-    -- | The name of the error document for the website.
+  { -- | The name of the error document for the website.
     errorDocument :: Prelude.Maybe ErrorDocument,
+    -- | The name of the index document for the website.
+    indexDocument :: Prelude.Maybe IndexDocument,
     -- | The redirect behavior for every request to this bucket\'s website
     -- endpoint.
     --
     -- If you specify this property, you can\'t specify any other property.
     redirectAllRequestsTo :: Prelude.Maybe RedirectAllRequestsTo,
-    -- | The name of the index document for the website.
-    indexDocument :: Prelude.Maybe IndexDocument
+    -- | Rules that define when a redirect is applied and the redirect behavior.
+    routingRules :: Prelude.Maybe [RoutingRule]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,34 +55,34 @@ data WebsiteConfiguration = WebsiteConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'routingRules', 'websiteConfiguration_routingRules' - Rules that define when a redirect is applied and the redirect behavior.
---
 -- 'errorDocument', 'websiteConfiguration_errorDocument' - The name of the error document for the website.
+--
+-- 'indexDocument', 'websiteConfiguration_indexDocument' - The name of the index document for the website.
 --
 -- 'redirectAllRequestsTo', 'websiteConfiguration_redirectAllRequestsTo' - The redirect behavior for every request to this bucket\'s website
 -- endpoint.
 --
 -- If you specify this property, you can\'t specify any other property.
 --
--- 'indexDocument', 'websiteConfiguration_indexDocument' - The name of the index document for the website.
+-- 'routingRules', 'websiteConfiguration_routingRules' - Rules that define when a redirect is applied and the redirect behavior.
 newWebsiteConfiguration ::
   WebsiteConfiguration
 newWebsiteConfiguration =
   WebsiteConfiguration'
-    { routingRules =
+    { errorDocument =
         Prelude.Nothing,
-      errorDocument = Prelude.Nothing,
+      indexDocument = Prelude.Nothing,
       redirectAllRequestsTo = Prelude.Nothing,
-      indexDocument = Prelude.Nothing
+      routingRules = Prelude.Nothing
     }
-
--- | Rules that define when a redirect is applied and the redirect behavior.
-websiteConfiguration_routingRules :: Lens.Lens' WebsiteConfiguration (Prelude.Maybe [RoutingRule])
-websiteConfiguration_routingRules = Lens.lens (\WebsiteConfiguration' {routingRules} -> routingRules) (\s@WebsiteConfiguration' {} a -> s {routingRules = a} :: WebsiteConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the error document for the website.
 websiteConfiguration_errorDocument :: Lens.Lens' WebsiteConfiguration (Prelude.Maybe ErrorDocument)
 websiteConfiguration_errorDocument = Lens.lens (\WebsiteConfiguration' {errorDocument} -> errorDocument) (\s@WebsiteConfiguration' {} a -> s {errorDocument = a} :: WebsiteConfiguration)
+
+-- | The name of the index document for the website.
+websiteConfiguration_indexDocument :: Lens.Lens' WebsiteConfiguration (Prelude.Maybe IndexDocument)
+websiteConfiguration_indexDocument = Lens.lens (\WebsiteConfiguration' {indexDocument} -> indexDocument) (\s@WebsiteConfiguration' {} a -> s {indexDocument = a} :: WebsiteConfiguration)
 
 -- | The redirect behavior for every request to this bucket\'s website
 -- endpoint.
@@ -91,34 +91,34 @@ websiteConfiguration_errorDocument = Lens.lens (\WebsiteConfiguration' {errorDoc
 websiteConfiguration_redirectAllRequestsTo :: Lens.Lens' WebsiteConfiguration (Prelude.Maybe RedirectAllRequestsTo)
 websiteConfiguration_redirectAllRequestsTo = Lens.lens (\WebsiteConfiguration' {redirectAllRequestsTo} -> redirectAllRequestsTo) (\s@WebsiteConfiguration' {} a -> s {redirectAllRequestsTo = a} :: WebsiteConfiguration)
 
--- | The name of the index document for the website.
-websiteConfiguration_indexDocument :: Lens.Lens' WebsiteConfiguration (Prelude.Maybe IndexDocument)
-websiteConfiguration_indexDocument = Lens.lens (\WebsiteConfiguration' {indexDocument} -> indexDocument) (\s@WebsiteConfiguration' {} a -> s {indexDocument = a} :: WebsiteConfiguration)
+-- | Rules that define when a redirect is applied and the redirect behavior.
+websiteConfiguration_routingRules :: Lens.Lens' WebsiteConfiguration (Prelude.Maybe [RoutingRule])
+websiteConfiguration_routingRules = Lens.lens (\WebsiteConfiguration' {routingRules} -> routingRules) (\s@WebsiteConfiguration' {} a -> s {routingRules = a} :: WebsiteConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 instance Prelude.Hashable WebsiteConfiguration where
   hashWithSalt _salt WebsiteConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` routingRules
-      `Prelude.hashWithSalt` errorDocument
-      `Prelude.hashWithSalt` redirectAllRequestsTo
+    _salt `Prelude.hashWithSalt` errorDocument
       `Prelude.hashWithSalt` indexDocument
+      `Prelude.hashWithSalt` redirectAllRequestsTo
+      `Prelude.hashWithSalt` routingRules
 
 instance Prelude.NFData WebsiteConfiguration where
   rnf WebsiteConfiguration' {..} =
-    Prelude.rnf routingRules
-      `Prelude.seq` Prelude.rnf errorDocument
-      `Prelude.seq` Prelude.rnf redirectAllRequestsTo
+    Prelude.rnf errorDocument
       `Prelude.seq` Prelude.rnf indexDocument
+      `Prelude.seq` Prelude.rnf redirectAllRequestsTo
+      `Prelude.seq` Prelude.rnf routingRules
 
 instance Data.ToXML WebsiteConfiguration where
   toXML WebsiteConfiguration' {..} =
     Prelude.mconcat
-      [ "RoutingRules"
+      [ "ErrorDocument" Data.@= errorDocument,
+        "IndexDocument" Data.@= indexDocument,
+        "RedirectAllRequestsTo"
+          Data.@= redirectAllRequestsTo,
+        "RoutingRules"
           Data.@= Data.toXML
             ( Data.toXMLList "RoutingRule"
                 Prelude.<$> routingRules
-            ),
-        "ErrorDocument" Data.@= errorDocument,
-        "RedirectAllRequestsTo"
-          Data.@= redirectAllRequestsTo,
-        "IndexDocument" Data.@= indexDocument
+            )
       ]

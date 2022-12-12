@@ -38,63 +38,63 @@ module Amazonka.SageMakerEdge.Types
     -- * Checksum
     Checksum (..),
     newChecksum,
-    checksum_type,
     checksum_sum,
+    checksum_type,
 
     -- * Definition
     Definition (..),
     newDefinition,
-    definition_state,
     definition_checksum,
-    definition_s3Url,
     definition_modelHandle,
+    definition_s3Url,
+    definition_state,
 
     -- * DeploymentModel
     DeploymentModel (..),
     newDeploymentModel,
-    deploymentModel_rollbackFailureReason,
-    deploymentModel_statusReason,
-    deploymentModel_state,
-    deploymentModel_modelVersion,
-    deploymentModel_status,
     deploymentModel_desiredState,
-    deploymentModel_modelName,
     deploymentModel_modelHandle,
+    deploymentModel_modelName,
+    deploymentModel_modelVersion,
+    deploymentModel_rollbackFailureReason,
+    deploymentModel_state,
+    deploymentModel_status,
+    deploymentModel_statusReason,
 
     -- * DeploymentResult
     DeploymentResult (..),
     newDeploymentResult,
-    deploymentResult_deploymentStatus,
-    deploymentResult_deploymentName,
-    deploymentResult_deploymentModels,
     deploymentResult_deploymentEndTime,
-    deploymentResult_deploymentStatusMessage,
+    deploymentResult_deploymentModels,
+    deploymentResult_deploymentName,
     deploymentResult_deploymentStartTime,
+    deploymentResult_deploymentStatus,
+    deploymentResult_deploymentStatusMessage,
 
     -- * EdgeDeployment
     EdgeDeployment (..),
     newEdgeDeployment,
-    edgeDeployment_type,
+    edgeDeployment_definitions,
     edgeDeployment_deploymentName,
     edgeDeployment_failureHandlingPolicy,
-    edgeDeployment_definitions,
+    edgeDeployment_type,
 
     -- * EdgeMetric
     EdgeMetric (..),
     newEdgeMetric,
-    edgeMetric_timestamp,
-    edgeMetric_metricName,
     edgeMetric_dimension,
+    edgeMetric_metricName,
+    edgeMetric_timestamp,
     edgeMetric_value,
 
     -- * Model
     Model (..),
     newModel,
+    model_latestInference,
     model_latestSampleTime,
-    model_modelVersion,
     model_modelMetrics,
     model_modelName,
-    model_latestInference,
+    model_modelVersion,
   )
 where
 
@@ -140,28 +140,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -169,13 +163,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -183,6 +181,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | An internal failure occurred. Try your request again. If the problem

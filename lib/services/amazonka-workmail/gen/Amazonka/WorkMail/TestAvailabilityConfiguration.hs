@@ -37,8 +37,8 @@ module Amazonka.WorkMail.TestAvailabilityConfiguration
     newTestAvailabilityConfiguration,
 
     -- * Request Lenses
-    testAvailabilityConfiguration_ewsProvider,
     testAvailabilityConfiguration_domainName,
+    testAvailabilityConfiguration_ewsProvider,
     testAvailabilityConfiguration_lambdaProvider,
     testAvailabilityConfiguration_organizationId,
 
@@ -47,8 +47,8 @@ module Amazonka.WorkMail.TestAvailabilityConfiguration
     newTestAvailabilityConfigurationResponse,
 
     -- * Response Lenses
-    testAvailabilityConfigurationResponse_testPassed,
     testAvailabilityConfigurationResponse_failureReason,
+    testAvailabilityConfigurationResponse_testPassed,
     testAvailabilityConfigurationResponse_httpStatus,
   )
 where
@@ -63,11 +63,11 @@ import Amazonka.WorkMail.Types
 
 -- | /See:/ 'newTestAvailabilityConfiguration' smart constructor.
 data TestAvailabilityConfiguration = TestAvailabilityConfiguration'
-  { ewsProvider :: Prelude.Maybe EwsAvailabilityProvider,
-    -- | The domain to which the provider applies. If this field is provided, a
+  { -- | The domain to which the provider applies. If this field is provided, a
     -- stored availability provider associated to this domain name will be
     -- tested.
     domainName :: Prelude.Maybe Prelude.Text,
+    ewsProvider :: Prelude.Maybe EwsAvailabilityProvider,
     lambdaProvider :: Prelude.Maybe LambdaAvailabilityProvider,
     -- | The WorkMail organization where the availability provider will be
     -- tested.
@@ -83,11 +83,11 @@ data TestAvailabilityConfiguration = TestAvailabilityConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ewsProvider', 'testAvailabilityConfiguration_ewsProvider' - Undocumented member.
---
 -- 'domainName', 'testAvailabilityConfiguration_domainName' - The domain to which the provider applies. If this field is provided, a
 -- stored availability provider associated to this domain name will be
 -- tested.
+--
+-- 'ewsProvider', 'testAvailabilityConfiguration_ewsProvider' - Undocumented member.
 --
 -- 'lambdaProvider', 'testAvailabilityConfiguration_lambdaProvider' - Undocumented member.
 --
@@ -99,22 +99,22 @@ newTestAvailabilityConfiguration ::
   TestAvailabilityConfiguration
 newTestAvailabilityConfiguration pOrganizationId_ =
   TestAvailabilityConfiguration'
-    { ewsProvider =
+    { domainName =
         Prelude.Nothing,
-      domainName = Prelude.Nothing,
+      ewsProvider = Prelude.Nothing,
       lambdaProvider = Prelude.Nothing,
       organizationId = pOrganizationId_
     }
-
--- | Undocumented member.
-testAvailabilityConfiguration_ewsProvider :: Lens.Lens' TestAvailabilityConfiguration (Prelude.Maybe EwsAvailabilityProvider)
-testAvailabilityConfiguration_ewsProvider = Lens.lens (\TestAvailabilityConfiguration' {ewsProvider} -> ewsProvider) (\s@TestAvailabilityConfiguration' {} a -> s {ewsProvider = a} :: TestAvailabilityConfiguration)
 
 -- | The domain to which the provider applies. If this field is provided, a
 -- stored availability provider associated to this domain name will be
 -- tested.
 testAvailabilityConfiguration_domainName :: Lens.Lens' TestAvailabilityConfiguration (Prelude.Maybe Prelude.Text)
 testAvailabilityConfiguration_domainName = Lens.lens (\TestAvailabilityConfiguration' {domainName} -> domainName) (\s@TestAvailabilityConfiguration' {} a -> s {domainName = a} :: TestAvailabilityConfiguration)
+
+-- | Undocumented member.
+testAvailabilityConfiguration_ewsProvider :: Lens.Lens' TestAvailabilityConfiguration (Prelude.Maybe EwsAvailabilityProvider)
+testAvailabilityConfiguration_ewsProvider = Lens.lens (\TestAvailabilityConfiguration' {ewsProvider} -> ewsProvider) (\s@TestAvailabilityConfiguration' {} a -> s {ewsProvider = a} :: TestAvailabilityConfiguration)
 
 -- | Undocumented member.
 testAvailabilityConfiguration_lambdaProvider :: Lens.Lens' TestAvailabilityConfiguration (Prelude.Maybe LambdaAvailabilityProvider)
@@ -138,8 +138,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           TestAvailabilityConfigurationResponse'
-            Prelude.<$> (x Data..?> "TestPassed")
-            Prelude.<*> (x Data..?> "FailureReason")
+            Prelude.<$> (x Data..?> "FailureReason")
+            Prelude.<*> (x Data..?> "TestPassed")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,15 +148,15 @@ instance
     TestAvailabilityConfiguration
   where
   hashWithSalt _salt TestAvailabilityConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` ewsProvider
-      `Prelude.hashWithSalt` domainName
+    _salt `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` ewsProvider
       `Prelude.hashWithSalt` lambdaProvider
       `Prelude.hashWithSalt` organizationId
 
 instance Prelude.NFData TestAvailabilityConfiguration where
   rnf TestAvailabilityConfiguration' {..} =
-    Prelude.rnf ewsProvider
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf ewsProvider
       `Prelude.seq` Prelude.rnf lambdaProvider
       `Prelude.seq` Prelude.rnf organizationId
 
@@ -179,8 +179,8 @@ instance Data.ToJSON TestAvailabilityConfiguration where
   toJSON TestAvailabilityConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("EwsProvider" Data..=) Prelude.<$> ewsProvider,
-            ("DomainName" Data..=) Prelude.<$> domainName,
+          [ ("DomainName" Data..=) Prelude.<$> domainName,
+            ("EwsProvider" Data..=) Prelude.<$> ewsProvider,
             ("LambdaProvider" Data..=)
               Prelude.<$> lambdaProvider,
             Prelude.Just
@@ -196,10 +196,10 @@ instance Data.ToQuery TestAvailabilityConfiguration where
 
 -- | /See:/ 'newTestAvailabilityConfigurationResponse' smart constructor.
 data TestAvailabilityConfigurationResponse = TestAvailabilityConfigurationResponse'
-  { -- | Boolean indicating whether the test passed or failed.
-    testPassed :: Prelude.Maybe Prelude.Bool,
-    -- | String containing the reason for a failed test if @TestPassed@ is false.
+  { -- | String containing the reason for a failed test if @TestPassed@ is false.
     failureReason :: Prelude.Maybe Prelude.Text,
+    -- | Boolean indicating whether the test passed or failed.
+    testPassed :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -213,9 +213,9 @@ data TestAvailabilityConfigurationResponse = TestAvailabilityConfigurationRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'testPassed', 'testAvailabilityConfigurationResponse_testPassed' - Boolean indicating whether the test passed or failed.
---
 -- 'failureReason', 'testAvailabilityConfigurationResponse_failureReason' - String containing the reason for a failed test if @TestPassed@ is false.
+--
+-- 'testPassed', 'testAvailabilityConfigurationResponse_testPassed' - Boolean indicating whether the test passed or failed.
 --
 -- 'httpStatus', 'testAvailabilityConfigurationResponse_httpStatus' - The response's http status code.
 newTestAvailabilityConfigurationResponse ::
@@ -224,19 +224,19 @@ newTestAvailabilityConfigurationResponse ::
   TestAvailabilityConfigurationResponse
 newTestAvailabilityConfigurationResponse pHttpStatus_ =
   TestAvailabilityConfigurationResponse'
-    { testPassed =
+    { failureReason =
         Prelude.Nothing,
-      failureReason = Prelude.Nothing,
+      testPassed = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Boolean indicating whether the test passed or failed.
-testAvailabilityConfigurationResponse_testPassed :: Lens.Lens' TestAvailabilityConfigurationResponse (Prelude.Maybe Prelude.Bool)
-testAvailabilityConfigurationResponse_testPassed = Lens.lens (\TestAvailabilityConfigurationResponse' {testPassed} -> testPassed) (\s@TestAvailabilityConfigurationResponse' {} a -> s {testPassed = a} :: TestAvailabilityConfigurationResponse)
 
 -- | String containing the reason for a failed test if @TestPassed@ is false.
 testAvailabilityConfigurationResponse_failureReason :: Lens.Lens' TestAvailabilityConfigurationResponse (Prelude.Maybe Prelude.Text)
 testAvailabilityConfigurationResponse_failureReason = Lens.lens (\TestAvailabilityConfigurationResponse' {failureReason} -> failureReason) (\s@TestAvailabilityConfigurationResponse' {} a -> s {failureReason = a} :: TestAvailabilityConfigurationResponse)
+
+-- | Boolean indicating whether the test passed or failed.
+testAvailabilityConfigurationResponse_testPassed :: Lens.Lens' TestAvailabilityConfigurationResponse (Prelude.Maybe Prelude.Bool)
+testAvailabilityConfigurationResponse_testPassed = Lens.lens (\TestAvailabilityConfigurationResponse' {testPassed} -> testPassed) (\s@TestAvailabilityConfigurationResponse' {} a -> s {testPassed = a} :: TestAvailabilityConfigurationResponse)
 
 -- | The response's http status code.
 testAvailabilityConfigurationResponse_httpStatus :: Lens.Lens' TestAvailabilityConfigurationResponse Prelude.Int
@@ -247,6 +247,6 @@ instance
     TestAvailabilityConfigurationResponse
   where
   rnf TestAvailabilityConfigurationResponse' {..} =
-    Prelude.rnf testPassed
-      `Prelude.seq` Prelude.rnf failureReason
+    Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf testPassed
       `Prelude.seq` Prelude.rnf httpStatus

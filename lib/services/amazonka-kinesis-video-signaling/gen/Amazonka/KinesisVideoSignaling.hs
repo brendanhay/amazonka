@@ -22,23 +22,23 @@ module Amazonka.KinesisVideoSignaling
     -- * Errors
     -- $errors
 
-    -- ** InvalidArgumentException
-    _InvalidArgumentException,
-
     -- ** ClientLimitExceededException
     _ClientLimitExceededException,
 
+    -- ** InvalidArgumentException
+    _InvalidArgumentException,
+
     -- ** InvalidClientException
     _InvalidClientException,
+
+    -- ** NotAuthorizedException
+    _NotAuthorizedException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
     -- ** SessionExpiredException
     _SessionExpiredException,
-
-    -- ** NotAuthorizedException
-    _NotAuthorizedException,
 
     -- * Waiters
     -- $waiters

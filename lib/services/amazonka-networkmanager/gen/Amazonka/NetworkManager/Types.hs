@@ -19,11 +19,11 @@ module Amazonka.NetworkManager.Types
 
     -- * Errors
     _AccessDeniedException,
-    _InternalServerException,
-    _ServiceQuotaExceededException,
-    _ResourceNotFoundException,
-    _CoreNetworkPolicyException,
     _ConflictException,
+    _CoreNetworkPolicyException,
+    _InternalServerException,
+    _ResourceNotFoundException,
+    _ServiceQuotaExceededException,
     _ThrottlingException,
     _ValidationException,
 
@@ -120,31 +120,31 @@ module Amazonka.NetworkManager.Types
     -- * AWSLocation
     AWSLocation (..),
     newAWSLocation,
-    aWSLocation_zone,
     aWSLocation_subnetArn,
+    aWSLocation_zone,
 
     -- * AccountStatus
     AccountStatus (..),
     newAccountStatus,
-    accountStatus_sLRDeploymentStatus,
     accountStatus_accountId,
+    accountStatus_sLRDeploymentStatus,
 
     -- * Attachment
     Attachment (..),
     newAttachment,
-    attachment_tags,
-    attachment_proposedSegmentChange,
-    attachment_coreNetworkId,
-    attachment_state,
-    attachment_edgeLocation,
     attachment_attachmentId,
-    attachment_segmentName,
-    attachment_coreNetworkArn,
-    attachment_ownerAccountId,
-    attachment_attachmentType,
-    attachment_resourceArn,
     attachment_attachmentPolicyRuleNumber,
+    attachment_attachmentType,
+    attachment_coreNetworkArn,
+    attachment_coreNetworkId,
     attachment_createdAt,
+    attachment_edgeLocation,
+    attachment_ownerAccountId,
+    attachment_proposedSegmentChange,
+    attachment_resourceArn,
+    attachment_segmentName,
+    attachment_state,
+    attachment_tags,
     attachment_updatedAt,
 
     -- * Bandwidth
@@ -162,8 +162,8 @@ module Amazonka.NetworkManager.Types
     ConnectAttachment (..),
     newConnectAttachment,
     connectAttachment_attachment,
-    connectAttachment_transportAttachmentId,
     connectAttachment_options,
+    connectAttachment_transportAttachmentId,
 
     -- * ConnectAttachmentOptions
     ConnectAttachmentOptions (..),
@@ -173,31 +173,31 @@ module Amazonka.NetworkManager.Types
     -- * ConnectPeer
     ConnectPeer (..),
     newConnectPeer,
-    connectPeer_tags,
-    connectPeer_coreNetworkId,
-    connectPeer_connectAttachmentId,
     connectPeer_configuration,
-    connectPeer_state,
-    connectPeer_edgeLocation,
+    connectPeer_connectAttachmentId,
     connectPeer_connectPeerId,
+    connectPeer_coreNetworkId,
     connectPeer_createdAt,
+    connectPeer_edgeLocation,
+    connectPeer_state,
+    connectPeer_tags,
 
     -- * ConnectPeerAssociation
     ConnectPeerAssociation (..),
     newConnectPeerAssociation,
+    connectPeerAssociation_connectPeerId,
+    connectPeerAssociation_deviceId,
     connectPeerAssociation_globalNetworkId,
     connectPeerAssociation_linkId,
-    connectPeerAssociation_deviceId,
     connectPeerAssociation_state,
-    connectPeerAssociation_connectPeerId,
 
     -- * ConnectPeerBgpConfiguration
     ConnectPeerBgpConfiguration (..),
     newConnectPeerBgpConfiguration,
-    connectPeerBgpConfiguration_peerAsn,
     connectPeerBgpConfiguration_coreNetworkAddress,
     connectPeerBgpConfiguration_coreNetworkAsn,
     connectPeerBgpConfiguration_peerAddress,
+    connectPeerBgpConfiguration_peerAsn,
 
     -- * ConnectPeerConfiguration
     ConnectPeerConfiguration (..),
@@ -211,106 +211,106 @@ module Amazonka.NetworkManager.Types
     -- * ConnectPeerSummary
     ConnectPeerSummary (..),
     newConnectPeerSummary,
-    connectPeerSummary_tags,
-    connectPeerSummary_coreNetworkId,
     connectPeerSummary_connectAttachmentId,
-    connectPeerSummary_edgeLocation,
-    connectPeerSummary_connectPeerState,
     connectPeerSummary_connectPeerId,
+    connectPeerSummary_connectPeerState,
+    connectPeerSummary_coreNetworkId,
     connectPeerSummary_createdAt,
+    connectPeerSummary_edgeLocation,
+    connectPeerSummary_tags,
 
     -- * Connection
     Connection (..),
     newConnection,
-    connection_globalNetworkId,
-    connection_tags,
-    connection_linkId,
-    connection_deviceId,
     connection_connectedDeviceId,
-    connection_state,
-    connection_connectionId,
-    connection_description,
-    connection_connectionArn,
     connection_connectedLinkId,
+    connection_connectionArn,
+    connection_connectionId,
     connection_createdAt,
+    connection_description,
+    connection_deviceId,
+    connection_globalNetworkId,
+    connection_linkId,
+    connection_state,
+    connection_tags,
 
     -- * ConnectionHealth
     ConnectionHealth (..),
     newConnectionHealth,
-    connectionHealth_type,
-    connectionHealth_timestamp,
     connectionHealth_status,
+    connectionHealth_timestamp,
+    connectionHealth_type,
 
     -- * CoreNetwork
     CoreNetwork (..),
     newCoreNetwork,
-    coreNetwork_globalNetworkId,
-    coreNetwork_tags,
-    coreNetwork_edges,
-    coreNetwork_coreNetworkId,
-    coreNetwork_state,
-    coreNetwork_description,
     coreNetwork_coreNetworkArn,
+    coreNetwork_coreNetworkId,
     coreNetwork_createdAt,
+    coreNetwork_description,
+    coreNetwork_edges,
+    coreNetwork_globalNetworkId,
     coreNetwork_segments,
+    coreNetwork_state,
+    coreNetwork_tags,
 
     -- * CoreNetworkChange
     CoreNetworkChange (..),
     newCoreNetworkChange,
-    coreNetworkChange_newValues,
-    coreNetworkChange_type,
-    coreNetworkChange_previousValues,
+    coreNetworkChange_action,
     coreNetworkChange_identifier,
     coreNetworkChange_identifierPath,
-    coreNetworkChange_action,
+    coreNetworkChange_newValues,
+    coreNetworkChange_previousValues,
+    coreNetworkChange_type,
 
     -- * CoreNetworkChangeEvent
     CoreNetworkChangeEvent (..),
     newCoreNetworkChangeEvent,
-    coreNetworkChangeEvent_type,
-    coreNetworkChangeEvent_status,
-    coreNetworkChangeEvent_identifierPath,
     coreNetworkChangeEvent_action,
-    coreNetworkChangeEvent_values,
     coreNetworkChangeEvent_eventTime,
+    coreNetworkChangeEvent_identifierPath,
+    coreNetworkChangeEvent_status,
+    coreNetworkChangeEvent_type,
+    coreNetworkChangeEvent_values,
 
     -- * CoreNetworkChangeEventValues
     CoreNetworkChangeEventValues (..),
     newCoreNetworkChangeEventValues,
+    coreNetworkChangeEventValues_attachmentId,
     coreNetworkChangeEventValues_cidr,
     coreNetworkChangeEventValues_edgeLocation,
-    coreNetworkChangeEventValues_attachmentId,
     coreNetworkChangeEventValues_segmentName,
 
     -- * CoreNetworkChangeValues
     CoreNetworkChangeValues (..),
     newCoreNetworkChangeValues,
-    coreNetworkChangeValues_sharedSegments,
-    coreNetworkChangeValues_cidr,
     coreNetworkChangeValues_asn,
-    coreNetworkChangeValues_segmentName,
+    coreNetworkChangeValues_cidr,
+    coreNetworkChangeValues_destinationIdentifier,
     coreNetworkChangeValues_edgeLocations,
     coreNetworkChangeValues_insideCidrBlocks,
-    coreNetworkChangeValues_destinationIdentifier,
+    coreNetworkChangeValues_segmentName,
+    coreNetworkChangeValues_sharedSegments,
 
     -- * CoreNetworkEdge
     CoreNetworkEdge (..),
     newCoreNetworkEdge,
-    coreNetworkEdge_edgeLocation,
     coreNetworkEdge_asn,
+    coreNetworkEdge_edgeLocation,
     coreNetworkEdge_insideCidrBlocks,
 
     -- * CoreNetworkPolicy
     CoreNetworkPolicy (..),
     newCoreNetworkPolicy,
     coreNetworkPolicy_alias,
-    coreNetworkPolicy_coreNetworkId,
     coreNetworkPolicy_changeSetState,
-    coreNetworkPolicy_policyVersionId,
-    coreNetworkPolicy_policyErrors,
+    coreNetworkPolicy_coreNetworkId,
+    coreNetworkPolicy_createdAt,
     coreNetworkPolicy_description,
     coreNetworkPolicy_policyDocument,
-    coreNetworkPolicy_createdAt,
+    coreNetworkPolicy_policyErrors,
+    coreNetworkPolicy_policyVersionId,
 
     -- * CoreNetworkPolicyError
     CoreNetworkPolicyError (..),
@@ -323,18 +323,18 @@ module Amazonka.NetworkManager.Types
     CoreNetworkPolicyVersion (..),
     newCoreNetworkPolicyVersion,
     coreNetworkPolicyVersion_alias,
-    coreNetworkPolicyVersion_coreNetworkId,
     coreNetworkPolicyVersion_changeSetState,
-    coreNetworkPolicyVersion_policyVersionId,
-    coreNetworkPolicyVersion_description,
+    coreNetworkPolicyVersion_coreNetworkId,
     coreNetworkPolicyVersion_createdAt,
+    coreNetworkPolicyVersion_description,
+    coreNetworkPolicyVersion_policyVersionId,
 
     -- * CoreNetworkSegment
     CoreNetworkSegment (..),
     newCoreNetworkSegment,
+    coreNetworkSegment_edgeLocations,
     coreNetworkSegment_name,
     coreNetworkSegment_sharedSegments,
-    coreNetworkSegment_edgeLocations,
 
     -- * CoreNetworkSegmentEdgeIdentifier
     CoreNetworkSegmentEdgeIdentifier (..),
@@ -346,179 +346,179 @@ module Amazonka.NetworkManager.Types
     -- * CoreNetworkSummary
     CoreNetworkSummary (..),
     newCoreNetworkSummary,
-    coreNetworkSummary_globalNetworkId,
-    coreNetworkSummary_tags,
-    coreNetworkSummary_coreNetworkId,
-    coreNetworkSummary_state,
-    coreNetworkSummary_description,
     coreNetworkSummary_coreNetworkArn,
+    coreNetworkSummary_coreNetworkId,
+    coreNetworkSummary_description,
+    coreNetworkSummary_globalNetworkId,
     coreNetworkSummary_ownerAccountId,
+    coreNetworkSummary_state,
+    coreNetworkSummary_tags,
 
     -- * CustomerGatewayAssociation
     CustomerGatewayAssociation (..),
     newCustomerGatewayAssociation,
+    customerGatewayAssociation_customerGatewayArn,
+    customerGatewayAssociation_deviceId,
     customerGatewayAssociation_globalNetworkId,
     customerGatewayAssociation_linkId,
-    customerGatewayAssociation_deviceId,
     customerGatewayAssociation_state,
-    customerGatewayAssociation_customerGatewayArn,
 
     -- * Device
     Device (..),
     newDevice,
+    device_aWSLocation,
+    device_createdAt,
+    device_description,
+    device_deviceArn,
+    device_deviceId,
     device_globalNetworkId,
+    device_location,
+    device_model,
+    device_serialNumber,
+    device_siteId,
+    device_state,
     device_tags,
     device_type,
-    device_model,
-    device_aWSLocation,
-    device_deviceId,
-    device_state,
-    device_description,
-    device_siteId,
-    device_location,
-    device_serialNumber,
     device_vendor,
-    device_createdAt,
-    device_deviceArn,
 
     -- * GlobalNetwork
     GlobalNetwork (..),
     newGlobalNetwork,
-    globalNetwork_globalNetworkId,
-    globalNetwork_tags,
-    globalNetwork_state,
+    globalNetwork_createdAt,
     globalNetwork_description,
     globalNetwork_globalNetworkArn,
-    globalNetwork_createdAt,
+    globalNetwork_globalNetworkId,
+    globalNetwork_state,
+    globalNetwork_tags,
 
     -- * Link
     Link (..),
     newLink,
-    link_globalNetworkId,
-    link_tags,
-    link_linkId,
-    link_type,
     link_bandwidth,
-    link_state,
-    link_provider,
-    link_description,
-    link_siteId,
     link_createdAt,
+    link_description,
+    link_globalNetworkId,
     link_linkArn,
+    link_linkId,
+    link_provider,
+    link_siteId,
+    link_state,
+    link_tags,
+    link_type,
 
     -- * LinkAssociation
     LinkAssociation (..),
     newLinkAssociation,
-    linkAssociation_globalNetworkId,
-    linkAssociation_linkId,
     linkAssociation_deviceId,
+    linkAssociation_globalNetworkId,
     linkAssociation_linkAssociationState,
+    linkAssociation_linkId,
 
     -- * Location
     Location (..),
     newLocation,
-    location_longitude,
     location_address,
     location_latitude,
+    location_longitude,
 
     -- * NetworkResource
     NetworkResource (..),
     newNetworkResource,
-    networkResource_resourceId,
-    networkResource_tags,
-    networkResource_resourceType,
-    networkResource_coreNetworkId,
-    networkResource_metadata,
     networkResource_accountId,
-    networkResource_registeredGatewayArn,
     networkResource_awsRegion,
-    networkResource_definitionTimestamp,
-    networkResource_resourceArn,
+    networkResource_coreNetworkId,
     networkResource_definition,
+    networkResource_definitionTimestamp,
+    networkResource_metadata,
+    networkResource_registeredGatewayArn,
+    networkResource_resourceArn,
+    networkResource_resourceId,
+    networkResource_resourceType,
+    networkResource_tags,
 
     -- * NetworkResourceCount
     NetworkResourceCount (..),
     newNetworkResourceCount,
-    networkResourceCount_resourceType,
     networkResourceCount_count,
+    networkResourceCount_resourceType,
 
     -- * NetworkResourceSummary
     NetworkResourceSummary (..),
     newNetworkResourceSummary,
-    networkResourceSummary_resourceType,
+    networkResourceSummary_definition,
     networkResourceSummary_isMiddlebox,
+    networkResourceSummary_nameTag,
     networkResourceSummary_registeredGatewayArn,
     networkResourceSummary_resourceArn,
-    networkResourceSummary_definition,
-    networkResourceSummary_nameTag,
+    networkResourceSummary_resourceType,
 
     -- * NetworkRoute
     NetworkRoute (..),
     newNetworkRoute,
-    networkRoute_type,
-    networkRoute_prefixListId,
-    networkRoute_state,
     networkRoute_destinationCidrBlock,
     networkRoute_destinations,
+    networkRoute_prefixListId,
+    networkRoute_state,
+    networkRoute_type,
 
     -- * NetworkRouteDestination
     NetworkRouteDestination (..),
     newNetworkRouteDestination,
+    networkRouteDestination_coreNetworkAttachmentId,
+    networkRouteDestination_edgeLocation,
     networkRouteDestination_resourceId,
     networkRouteDestination_resourceType,
-    networkRouteDestination_coreNetworkAttachmentId,
-    networkRouteDestination_transitGatewayAttachmentId,
-    networkRouteDestination_edgeLocation,
     networkRouteDestination_segmentName,
+    networkRouteDestination_transitGatewayAttachmentId,
 
     -- * NetworkTelemetry
     NetworkTelemetry (..),
     newNetworkTelemetry,
-    networkTelemetry_resourceId,
-    networkTelemetry_resourceType,
-    networkTelemetry_coreNetworkId,
     networkTelemetry_accountId,
     networkTelemetry_address,
-    networkTelemetry_registeredGatewayArn,
-    networkTelemetry_health,
     networkTelemetry_awsRegion,
+    networkTelemetry_coreNetworkId,
+    networkTelemetry_health,
+    networkTelemetry_registeredGatewayArn,
     networkTelemetry_resourceArn,
+    networkTelemetry_resourceId,
+    networkTelemetry_resourceType,
 
     -- * OrganizationStatus
     OrganizationStatus (..),
     newOrganizationStatus,
-    organizationStatus_sLRDeploymentStatus,
     organizationStatus_accountStatusList,
-    organizationStatus_organizationId,
     organizationStatus_organizationAwsServiceAccessStatus,
+    organizationStatus_organizationId,
+    organizationStatus_sLRDeploymentStatus,
 
     -- * PathComponent
     PathComponent (..),
     newPathComponent,
-    pathComponent_sequence,
     pathComponent_destinationCidrBlock,
     pathComponent_resource,
+    pathComponent_sequence,
 
     -- * Peering
     Peering (..),
     newPeering,
-    peering_tags,
-    peering_coreNetworkId,
-    peering_peeringType,
-    peering_state,
-    peering_edgeLocation,
     peering_coreNetworkArn,
+    peering_coreNetworkId,
+    peering_createdAt,
+    peering_edgeLocation,
     peering_ownerAccountId,
     peering_peeringId,
+    peering_peeringType,
     peering_resourceArn,
-    peering_createdAt,
+    peering_state,
+    peering_tags,
 
     -- * ProposedSegmentChange
     ProposedSegmentChange (..),
     newProposedSegmentChange,
-    proposedSegmentChange_tags,
-    proposedSegmentChange_segmentName,
     proposedSegmentChange_attachmentPolicyRuleNumber,
+    proposedSegmentChange_segmentName,
+    proposedSegmentChange_tags,
 
     -- * Relationship
     Relationship (..),
@@ -529,43 +529,43 @@ module Amazonka.NetworkManager.Types
     -- * RouteAnalysis
     RouteAnalysis (..),
     newRouteAnalysis,
-    routeAnalysis_globalNetworkId,
     routeAnalysis_destination,
+    routeAnalysis_forwardPath,
+    routeAnalysis_globalNetworkId,
+    routeAnalysis_includeReturnPath,
+    routeAnalysis_ownerAccountId,
     routeAnalysis_returnPath,
     routeAnalysis_routeAnalysisId,
-    routeAnalysis_includeReturnPath,
+    routeAnalysis_source,
     routeAnalysis_startTimestamp,
     routeAnalysis_status,
-    routeAnalysis_source,
-    routeAnalysis_ownerAccountId,
     routeAnalysis_useMiddleboxes,
-    routeAnalysis_forwardPath,
 
     -- * RouteAnalysisCompletion
     RouteAnalysisCompletion (..),
     newRouteAnalysisCompletion,
-    routeAnalysisCompletion_resultCode,
     routeAnalysisCompletion_reasonCode,
     routeAnalysisCompletion_reasonContext,
+    routeAnalysisCompletion_resultCode,
 
     -- * RouteAnalysisEndpointOptions
     RouteAnalysisEndpointOptions (..),
     newRouteAnalysisEndpointOptions,
-    routeAnalysisEndpointOptions_transitGatewayAttachmentArn,
-    routeAnalysisEndpointOptions_transitGatewayArn,
     routeAnalysisEndpointOptions_ipAddress,
+    routeAnalysisEndpointOptions_transitGatewayArn,
+    routeAnalysisEndpointOptions_transitGatewayAttachmentArn,
 
     -- * RouteAnalysisEndpointOptionsSpecification
     RouteAnalysisEndpointOptionsSpecification (..),
     newRouteAnalysisEndpointOptionsSpecification,
-    routeAnalysisEndpointOptionsSpecification_transitGatewayAttachmentArn,
     routeAnalysisEndpointOptionsSpecification_ipAddress,
+    routeAnalysisEndpointOptionsSpecification_transitGatewayAttachmentArn,
 
     -- * RouteAnalysisPath
     RouteAnalysisPath (..),
     newRouteAnalysisPath,
-    routeAnalysisPath_path,
     routeAnalysisPath_completionStatus,
+    routeAnalysisPath_path,
 
     -- * RouteTableIdentifier
     RouteTableIdentifier (..),
@@ -576,14 +576,14 @@ module Amazonka.NetworkManager.Types
     -- * Site
     Site (..),
     newSite,
-    site_globalNetworkId,
-    site_tags,
-    site_siteArn,
-    site_state,
-    site_description,
-    site_siteId,
-    site_location,
     site_createdAt,
+    site_description,
+    site_globalNetworkId,
+    site_location,
+    site_siteArn,
+    site_siteId,
+    site_state,
+    site_tags,
 
     -- * SiteToSiteVpnAttachment
     SiteToSiteVpnAttachment (..),
@@ -600,31 +600,31 @@ module Amazonka.NetworkManager.Types
     -- * TransitGatewayConnectPeerAssociation
     TransitGatewayConnectPeerAssociation (..),
     newTransitGatewayConnectPeerAssociation,
+    transitGatewayConnectPeerAssociation_deviceId,
     transitGatewayConnectPeerAssociation_globalNetworkId,
     transitGatewayConnectPeerAssociation_linkId,
-    transitGatewayConnectPeerAssociation_deviceId,
     transitGatewayConnectPeerAssociation_state,
     transitGatewayConnectPeerAssociation_transitGatewayConnectPeerArn,
 
     -- * TransitGatewayPeering
     TransitGatewayPeering (..),
     newTransitGatewayPeering,
+    transitGatewayPeering_peering,
     transitGatewayPeering_transitGatewayArn,
     transitGatewayPeering_transitGatewayPeeringAttachmentId,
-    transitGatewayPeering_peering,
 
     -- * TransitGatewayRegistration
     TransitGatewayRegistration (..),
     newTransitGatewayRegistration,
     transitGatewayRegistration_globalNetworkId,
-    transitGatewayRegistration_transitGatewayArn,
     transitGatewayRegistration_state,
+    transitGatewayRegistration_transitGatewayArn,
 
     -- * TransitGatewayRegistrationStateReason
     TransitGatewayRegistrationStateReason (..),
     newTransitGatewayRegistrationStateReason,
-    transitGatewayRegistrationStateReason_message,
     transitGatewayRegistrationStateReason_code,
+    transitGatewayRegistrationStateReason_message,
 
     -- * TransitGatewayRouteTableAttachment
     TransitGatewayRouteTableAttachment (..),
@@ -637,8 +637,8 @@ module Amazonka.NetworkManager.Types
     VpcAttachment (..),
     newVpcAttachment,
     vpcAttachment_attachment,
-    vpcAttachment_subnetArns,
     vpcAttachment_options,
+    vpcAttachment_subnetArns,
 
     -- * VpcOptions
     VpcOptions (..),
@@ -766,28 +766,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -795,13 +789,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -809,6 +807,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient access to perform this action.
@@ -819,29 +819,14 @@ _AccessDeniedException =
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
--- | The request has failed due to an internal error.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerException =
+-- | There was a conflict processing the request. Updating or deleting the
+-- resource can cause an inconsistent state.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
   Core._MatchServiceError
     defaultService
-    "InternalServerException"
-    Prelude.. Core.hasStatus 500
-
--- | A service limit was exceeded.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceQuotaExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceQuotaExceededException"
-    Prelude.. Core.hasStatus 402
-
--- | The specified resource could not be found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
 
 -- | Describes a core network policy exception.
 _CoreNetworkPolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -851,14 +836,29 @@ _CoreNetworkPolicyException =
     "CoreNetworkPolicyException"
     Prelude.. Core.hasStatus 400
 
--- | There was a conflict processing the request. Updating or deleting the
--- resource can cause an inconsistent state.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
+-- | The request has failed due to an internal error.
+_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException =
   Core._MatchServiceError
     defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
+    "InternalServerException"
+    Prelude.. Core.hasStatus 500
+
+-- | The specified resource could not be found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
+
+-- | A service limit was exceeded.
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceQuotaExceededException"
+    Prelude.. Core.hasStatus 402
 
 -- | The request was denied due to request throttling.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

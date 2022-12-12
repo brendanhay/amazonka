@@ -32,10 +32,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSuspendedProcess' smart constructor.
 data SuspendedProcess = SuspendedProcess'
-  { -- | The reason that the process was suspended.
-    suspensionReason :: Prelude.Maybe Prelude.Text,
-    -- | The name of the suspended process.
-    processName :: Prelude.Maybe Prelude.Text
+  { -- | The name of the suspended process.
+    processName :: Prelude.Maybe Prelude.Text,
+    -- | The reason that the process was suspended.
+    suspensionReason :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,38 +47,37 @@ data SuspendedProcess = SuspendedProcess'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'suspensionReason', 'suspendedProcess_suspensionReason' - The reason that the process was suspended.
---
 -- 'processName', 'suspendedProcess_processName' - The name of the suspended process.
+--
+-- 'suspensionReason', 'suspendedProcess_suspensionReason' - The reason that the process was suspended.
 newSuspendedProcess ::
   SuspendedProcess
 newSuspendedProcess =
   SuspendedProcess'
-    { suspensionReason =
-        Prelude.Nothing,
-      processName = Prelude.Nothing
+    { processName = Prelude.Nothing,
+      suspensionReason = Prelude.Nothing
     }
-
--- | The reason that the process was suspended.
-suspendedProcess_suspensionReason :: Lens.Lens' SuspendedProcess (Prelude.Maybe Prelude.Text)
-suspendedProcess_suspensionReason = Lens.lens (\SuspendedProcess' {suspensionReason} -> suspensionReason) (\s@SuspendedProcess' {} a -> s {suspensionReason = a} :: SuspendedProcess)
 
 -- | The name of the suspended process.
 suspendedProcess_processName :: Lens.Lens' SuspendedProcess (Prelude.Maybe Prelude.Text)
 suspendedProcess_processName = Lens.lens (\SuspendedProcess' {processName} -> processName) (\s@SuspendedProcess' {} a -> s {processName = a} :: SuspendedProcess)
 
+-- | The reason that the process was suspended.
+suspendedProcess_suspensionReason :: Lens.Lens' SuspendedProcess (Prelude.Maybe Prelude.Text)
+suspendedProcess_suspensionReason = Lens.lens (\SuspendedProcess' {suspensionReason} -> suspensionReason) (\s@SuspendedProcess' {} a -> s {suspensionReason = a} :: SuspendedProcess)
+
 instance Data.FromXML SuspendedProcess where
   parseXML x =
     SuspendedProcess'
-      Prelude.<$> (x Data..@? "SuspensionReason")
-      Prelude.<*> (x Data..@? "ProcessName")
+      Prelude.<$> (x Data..@? "ProcessName")
+      Prelude.<*> (x Data..@? "SuspensionReason")
 
 instance Prelude.Hashable SuspendedProcess where
   hashWithSalt _salt SuspendedProcess' {..} =
-    _salt `Prelude.hashWithSalt` suspensionReason
-      `Prelude.hashWithSalt` processName
+    _salt `Prelude.hashWithSalt` processName
+      `Prelude.hashWithSalt` suspensionReason
 
 instance Prelude.NFData SuspendedProcess where
   rnf SuspendedProcess' {..} =
-    Prelude.rnf suspensionReason
-      `Prelude.seq` Prelude.rnf processName
+    Prelude.rnf processName
+      `Prelude.seq` Prelude.rnf suspensionReason

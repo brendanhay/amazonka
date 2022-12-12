@@ -30,8 +30,8 @@ module Amazonka.QuickSight.ListAnalyses
     newListAnalyses,
 
     -- * Request Lenses
-    listAnalyses_nextToken,
     listAnalyses_maxResults,
+    listAnalyses_nextToken,
     listAnalyses_awsAccountId,
 
     -- * Destructuring the Response
@@ -56,10 +56,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAnalyses' smart constructor.
 data ListAnalyses = ListAnalyses'
-  { -- | A pagination token that can be used in a subsequent request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return.
+  { -- | The maximum number of results to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A pagination token that can be used in a subsequent request.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Amazon Web Services account that contains the analyses.
     awsAccountId :: Prelude.Text
   }
@@ -73,9 +73,9 @@ data ListAnalyses = ListAnalyses'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAnalyses_nextToken' - A pagination token that can be used in a subsequent request.
---
 -- 'maxResults', 'listAnalyses_maxResults' - The maximum number of results to return.
+--
+-- 'nextToken', 'listAnalyses_nextToken' - A pagination token that can be used in a subsequent request.
 --
 -- 'awsAccountId', 'listAnalyses_awsAccountId' - The ID of the Amazon Web Services account that contains the analyses.
 newListAnalyses ::
@@ -84,18 +84,18 @@ newListAnalyses ::
   ListAnalyses
 newListAnalyses pAwsAccountId_ =
   ListAnalyses'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       awsAccountId = pAwsAccountId_
     }
-
--- | A pagination token that can be used in a subsequent request.
-listAnalyses_nextToken :: Lens.Lens' ListAnalyses (Prelude.Maybe Prelude.Text)
-listAnalyses_nextToken = Lens.lens (\ListAnalyses' {nextToken} -> nextToken) (\s@ListAnalyses' {} a -> s {nextToken = a} :: ListAnalyses)
 
 -- | The maximum number of results to return.
 listAnalyses_maxResults :: Lens.Lens' ListAnalyses (Prelude.Maybe Prelude.Natural)
 listAnalyses_maxResults = Lens.lens (\ListAnalyses' {maxResults} -> maxResults) (\s@ListAnalyses' {} a -> s {maxResults = a} :: ListAnalyses)
+
+-- | A pagination token that can be used in a subsequent request.
+listAnalyses_nextToken :: Lens.Lens' ListAnalyses (Prelude.Maybe Prelude.Text)
+listAnalyses_nextToken = Lens.lens (\ListAnalyses' {nextToken} -> nextToken) (\s@ListAnalyses' {} a -> s {nextToken = a} :: ListAnalyses)
 
 -- | The ID of the Amazon Web Services account that contains the analyses.
 listAnalyses_awsAccountId :: Lens.Lens' ListAnalyses Prelude.Text
@@ -139,14 +139,14 @@ instance Core.AWSRequest ListAnalyses where
 
 instance Prelude.Hashable ListAnalyses where
   hashWithSalt _salt ListAnalyses' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` awsAccountId
 
 instance Prelude.NFData ListAnalyses where
   rnf ListAnalyses' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf awsAccountId
 
 instance Data.ToHeaders ListAnalyses where
@@ -168,8 +168,8 @@ instance Data.ToPath ListAnalyses where
 instance Data.ToQuery ListAnalyses where
   toQuery ListAnalyses' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
-        "max-results" Data.=: maxResults
+      [ "max-results" Data.=: maxResults,
+        "next-token" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListAnalysesResponse' smart constructor.

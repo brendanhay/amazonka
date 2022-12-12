@@ -29,9 +29,9 @@ module Amazonka.SSM.DescribeAssociationExecutions
     newDescribeAssociationExecutions,
 
     -- * Request Lenses
-    describeAssociationExecutions_nextToken,
     describeAssociationExecutions_filters,
     describeAssociationExecutions_maxResults,
+    describeAssociationExecutions_nextToken,
     describeAssociationExecutions_associationId,
 
     -- * Destructuring the Response
@@ -55,10 +55,7 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newDescribeAssociationExecutions' smart constructor.
 data DescribeAssociationExecutions = DescribeAssociationExecutions'
-  { -- | A token to start the list. Use this token to get the next set of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters for the request. You can specify the following filters and
+  { -- | Filters for the request. You can specify the following filters and
     -- values.
     --
     -- ExecutionId (EQUAL)
@@ -71,6 +68,9 @@ data DescribeAssociationExecutions = DescribeAssociationExecutions'
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token to start the list. Use this token to get the next set of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The association ID for which you want to view execution history details.
     associationId :: Prelude.Text
   }
@@ -83,9 +83,6 @@ data DescribeAssociationExecutions = DescribeAssociationExecutions'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'describeAssociationExecutions_nextToken' - A token to start the list. Use this token to get the next set of
--- results.
 --
 -- 'filters', 'describeAssociationExecutions_filters' - Filters for the request. You can specify the following filters and
 -- values.
@@ -100,6 +97,9 @@ data DescribeAssociationExecutions = DescribeAssociationExecutions'
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
 --
+-- 'nextToken', 'describeAssociationExecutions_nextToken' - A token to start the list. Use this token to get the next set of
+-- results.
+--
 -- 'associationId', 'describeAssociationExecutions_associationId' - The association ID for which you want to view execution history details.
 newDescribeAssociationExecutions ::
   -- | 'associationId'
@@ -107,17 +107,12 @@ newDescribeAssociationExecutions ::
   DescribeAssociationExecutions
 newDescribeAssociationExecutions pAssociationId_ =
   DescribeAssociationExecutions'
-    { nextToken =
+    { filters =
         Prelude.Nothing,
-      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       associationId = pAssociationId_
     }
-
--- | A token to start the list. Use this token to get the next set of
--- results.
-describeAssociationExecutions_nextToken :: Lens.Lens' DescribeAssociationExecutions (Prelude.Maybe Prelude.Text)
-describeAssociationExecutions_nextToken = Lens.lens (\DescribeAssociationExecutions' {nextToken} -> nextToken) (\s@DescribeAssociationExecutions' {} a -> s {nextToken = a} :: DescribeAssociationExecutions)
 
 -- | Filters for the request. You can specify the following filters and
 -- values.
@@ -135,6 +130,11 @@ describeAssociationExecutions_filters = Lens.lens (\DescribeAssociationExecution
 -- next set of results.
 describeAssociationExecutions_maxResults :: Lens.Lens' DescribeAssociationExecutions (Prelude.Maybe Prelude.Natural)
 describeAssociationExecutions_maxResults = Lens.lens (\DescribeAssociationExecutions' {maxResults} -> maxResults) (\s@DescribeAssociationExecutions' {} a -> s {maxResults = a} :: DescribeAssociationExecutions)
+
+-- | A token to start the list. Use this token to get the next set of
+-- results.
+describeAssociationExecutions_nextToken :: Lens.Lens' DescribeAssociationExecutions (Prelude.Maybe Prelude.Text)
+describeAssociationExecutions_nextToken = Lens.lens (\DescribeAssociationExecutions' {nextToken} -> nextToken) (\s@DescribeAssociationExecutions' {} a -> s {nextToken = a} :: DescribeAssociationExecutions)
 
 -- | The association ID for which you want to view execution history details.
 describeAssociationExecutions_associationId :: Lens.Lens' DescribeAssociationExecutions Prelude.Text
@@ -187,16 +187,16 @@ instance
     DescribeAssociationExecutions
   where
   hashWithSalt _salt DescribeAssociationExecutions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` associationId
 
 instance Prelude.NFData DescribeAssociationExecutions where
   rnf DescribeAssociationExecutions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf associationId
 
 instance Data.ToHeaders DescribeAssociationExecutions where
@@ -218,9 +218,9 @@ instance Data.ToJSON DescribeAssociationExecutions where
   toJSON DescribeAssociationExecutions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
+          [ ("Filters" Data..=) Prelude.<$> filters,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("AssociationId" Data..= associationId)
           ]

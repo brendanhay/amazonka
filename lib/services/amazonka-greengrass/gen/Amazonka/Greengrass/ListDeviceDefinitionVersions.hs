@@ -29,8 +29,8 @@ module Amazonka.Greengrass.ListDeviceDefinitionVersions
     newListDeviceDefinitionVersions,
 
     -- * Request Lenses
-    listDeviceDefinitionVersions_nextToken,
     listDeviceDefinitionVersions_maxResults,
+    listDeviceDefinitionVersions_nextToken,
     listDeviceDefinitionVersions_deviceDefinitionId,
 
     -- * Destructuring the Response
@@ -54,11 +54,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDeviceDefinitionVersions' smart constructor.
 data ListDeviceDefinitionVersions = ListDeviceDefinitionVersions'
-  { -- | The token for the next set of results, or \'\'null\'\' if there are no
+  { -- | The maximum number of results to be returned per request.
+    maxResults :: Prelude.Maybe Prelude.Text,
+    -- | The token for the next set of results, or \'\'null\'\' if there are no
     -- additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be returned per request.
-    maxResults :: Prelude.Maybe Prelude.Text,
     -- | The ID of the device definition.
     deviceDefinitionId :: Prelude.Text
   }
@@ -72,10 +72,10 @@ data ListDeviceDefinitionVersions = ListDeviceDefinitionVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listDeviceDefinitionVersions_maxResults' - The maximum number of results to be returned per request.
+--
 -- 'nextToken', 'listDeviceDefinitionVersions_nextToken' - The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
---
--- 'maxResults', 'listDeviceDefinitionVersions_maxResults' - The maximum number of results to be returned per request.
 --
 -- 'deviceDefinitionId', 'listDeviceDefinitionVersions_deviceDefinitionId' - The ID of the device definition.
 newListDeviceDefinitionVersions ::
@@ -84,20 +84,20 @@ newListDeviceDefinitionVersions ::
   ListDeviceDefinitionVersions
 newListDeviceDefinitionVersions pDeviceDefinitionId_ =
   ListDeviceDefinitionVersions'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       deviceDefinitionId = pDeviceDefinitionId_
     }
+
+-- | The maximum number of results to be returned per request.
+listDeviceDefinitionVersions_maxResults :: Lens.Lens' ListDeviceDefinitionVersions (Prelude.Maybe Prelude.Text)
+listDeviceDefinitionVersions_maxResults = Lens.lens (\ListDeviceDefinitionVersions' {maxResults} -> maxResults) (\s@ListDeviceDefinitionVersions' {} a -> s {maxResults = a} :: ListDeviceDefinitionVersions)
 
 -- | The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
 listDeviceDefinitionVersions_nextToken :: Lens.Lens' ListDeviceDefinitionVersions (Prelude.Maybe Prelude.Text)
 listDeviceDefinitionVersions_nextToken = Lens.lens (\ListDeviceDefinitionVersions' {nextToken} -> nextToken) (\s@ListDeviceDefinitionVersions' {} a -> s {nextToken = a} :: ListDeviceDefinitionVersions)
-
--- | The maximum number of results to be returned per request.
-listDeviceDefinitionVersions_maxResults :: Lens.Lens' ListDeviceDefinitionVersions (Prelude.Maybe Prelude.Text)
-listDeviceDefinitionVersions_maxResults = Lens.lens (\ListDeviceDefinitionVersions' {maxResults} -> maxResults) (\s@ListDeviceDefinitionVersions' {} a -> s {maxResults = a} :: ListDeviceDefinitionVersions)
 
 -- | The ID of the device definition.
 listDeviceDefinitionVersions_deviceDefinitionId :: Lens.Lens' ListDeviceDefinitionVersions Prelude.Text
@@ -145,14 +145,14 @@ instance
     ListDeviceDefinitionVersions
   where
   hashWithSalt _salt ListDeviceDefinitionVersions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` deviceDefinitionId
 
 instance Prelude.NFData ListDeviceDefinitionVersions where
   rnf ListDeviceDefinitionVersions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf deviceDefinitionId
 
 instance Data.ToHeaders ListDeviceDefinitionVersions where
@@ -177,8 +177,8 @@ instance Data.ToPath ListDeviceDefinitionVersions where
 instance Data.ToQuery ListDeviceDefinitionVersions where
   toQuery ListDeviceDefinitionVersions' {..} =
     Prelude.mconcat
-      [ "NextToken" Data.=: nextToken,
-        "MaxResults" Data.=: maxResults
+      [ "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListDeviceDefinitionVersionsResponse' smart constructor.

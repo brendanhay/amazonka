@@ -56,8 +56,8 @@ module Amazonka.ElasticTranscoder.CreatePreset
     newCreatePresetResponse,
 
     -- * Response Lenses
-    createPresetResponse_warning,
     createPresetResponse_preset,
+    createPresetResponse_warning,
     createPresetResponse_httpStatus,
   )
 where
@@ -168,8 +168,8 @@ instance Core.AWSRequest CreatePreset where
     Response.receiveJSON
       ( \s h x ->
           CreatePresetResponse'
-            Prelude.<$> (x Data..?> "Warning")
-            Prelude.<*> (x Data..?> "Preset")
+            Prelude.<$> (x Data..?> "Preset")
+            Prelude.<*> (x Data..?> "Warning")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -217,15 +217,15 @@ instance Data.ToQuery CreatePreset where
 --
 -- /See:/ 'newCreatePresetResponse' smart constructor.
 data CreatePresetResponse = CreatePresetResponse'
-  { -- | If the preset settings don\'t comply with the standards for the video
+  { -- | A section of the response body that provides information about the
+    -- preset that is created.
+    preset :: Prelude.Maybe Preset,
+    -- | If the preset settings don\'t comply with the standards for the video
     -- codec but Elastic Transcoder created the preset, this message explains
     -- the reason the preset settings don\'t meet the standard. Elastic
     -- Transcoder created the preset because the settings might produce
     -- acceptable output.
     warning :: Prelude.Maybe Prelude.Text,
-    -- | A section of the response body that provides information about the
-    -- preset that is created.
-    preset :: Prelude.Maybe Preset,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -239,14 +239,14 @@ data CreatePresetResponse = CreatePresetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'preset', 'createPresetResponse_preset' - A section of the response body that provides information about the
+-- preset that is created.
+--
 -- 'warning', 'createPresetResponse_warning' - If the preset settings don\'t comply with the standards for the video
 -- codec but Elastic Transcoder created the preset, this message explains
 -- the reason the preset settings don\'t meet the standard. Elastic
 -- Transcoder created the preset because the settings might produce
 -- acceptable output.
---
--- 'preset', 'createPresetResponse_preset' - A section of the response body that provides information about the
--- preset that is created.
 --
 -- 'httpStatus', 'createPresetResponse_httpStatus' - The response's http status code.
 newCreatePresetResponse ::
@@ -255,10 +255,15 @@ newCreatePresetResponse ::
   CreatePresetResponse
 newCreatePresetResponse pHttpStatus_ =
   CreatePresetResponse'
-    { warning = Prelude.Nothing,
-      preset = Prelude.Nothing,
+    { preset = Prelude.Nothing,
+      warning = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A section of the response body that provides information about the
+-- preset that is created.
+createPresetResponse_preset :: Lens.Lens' CreatePresetResponse (Prelude.Maybe Preset)
+createPresetResponse_preset = Lens.lens (\CreatePresetResponse' {preset} -> preset) (\s@CreatePresetResponse' {} a -> s {preset = a} :: CreatePresetResponse)
 
 -- | If the preset settings don\'t comply with the standards for the video
 -- codec but Elastic Transcoder created the preset, this message explains
@@ -268,17 +273,12 @@ newCreatePresetResponse pHttpStatus_ =
 createPresetResponse_warning :: Lens.Lens' CreatePresetResponse (Prelude.Maybe Prelude.Text)
 createPresetResponse_warning = Lens.lens (\CreatePresetResponse' {warning} -> warning) (\s@CreatePresetResponse' {} a -> s {warning = a} :: CreatePresetResponse)
 
--- | A section of the response body that provides information about the
--- preset that is created.
-createPresetResponse_preset :: Lens.Lens' CreatePresetResponse (Prelude.Maybe Preset)
-createPresetResponse_preset = Lens.lens (\CreatePresetResponse' {preset} -> preset) (\s@CreatePresetResponse' {} a -> s {preset = a} :: CreatePresetResponse)
-
 -- | The response's http status code.
 createPresetResponse_httpStatus :: Lens.Lens' CreatePresetResponse Prelude.Int
 createPresetResponse_httpStatus = Lens.lens (\CreatePresetResponse' {httpStatus} -> httpStatus) (\s@CreatePresetResponse' {} a -> s {httpStatus = a} :: CreatePresetResponse)
 
 instance Prelude.NFData CreatePresetResponse where
   rnf CreatePresetResponse' {..} =
-    Prelude.rnf warning
-      `Prelude.seq` Prelude.rnf preset
+    Prelude.rnf preset
+      `Prelude.seq` Prelude.rnf warning
       `Prelude.seq` Prelude.rnf httpStatus

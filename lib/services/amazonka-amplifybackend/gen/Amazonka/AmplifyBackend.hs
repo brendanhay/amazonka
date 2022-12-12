@@ -19,14 +19,14 @@ module Amazonka.AmplifyBackend
     -- * Errors
     -- $errors
 
-    -- ** NotFoundException
-    _NotFoundException,
-
     -- ** BadRequestException
     _BadRequestException,
 
     -- ** GatewayTimeoutException
     _GatewayTimeoutException,
+
+    -- ** NotFoundException
+    _NotFoundException,
 
     -- ** TooManyRequestsException
     _TooManyRequestsException,

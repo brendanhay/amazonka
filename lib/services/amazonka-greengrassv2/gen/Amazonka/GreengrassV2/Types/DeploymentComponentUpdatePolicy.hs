@@ -37,13 +37,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeploymentComponentUpdatePolicy' smart constructor.
 data DeploymentComponentUpdatePolicy = DeploymentComponentUpdatePolicy'
-  { -- | The amount of time in seconds that each component on a device has to
-    -- report that it\'s safe to update. If the component waits for longer than
-    -- this timeout, then the deployment proceeds on the device.
-    --
-    -- Default: @60@
-    timeoutInSeconds :: Prelude.Maybe Prelude.Int,
-    -- | Whether or not to notify components and wait for components to become
+  { -- | Whether or not to notify components and wait for components to become
     -- safe to update. Choose from the following options:
     --
     -- -   @NOTIFY_COMPONENTS@ – The deployment notifies each component before
@@ -60,7 +54,13 @@ data DeploymentComponentUpdatePolicy = DeploymentComponentUpdatePolicy'
     --     or wait for them to be safe to update.
     --
     -- Default: @NOTIFY_COMPONENTS@
-    action :: Prelude.Maybe DeploymentComponentUpdatePolicyAction
+    action :: Prelude.Maybe DeploymentComponentUpdatePolicyAction,
+    -- | The amount of time in seconds that each component on a device has to
+    -- report that it\'s safe to update. If the component waits for longer than
+    -- this timeout, then the deployment proceeds on the device.
+    --
+    -- Default: @60@
+    timeoutInSeconds :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,12 +71,6 @@ data DeploymentComponentUpdatePolicy = DeploymentComponentUpdatePolicy'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'timeoutInSeconds', 'deploymentComponentUpdatePolicy_timeoutInSeconds' - The amount of time in seconds that each component on a device has to
--- report that it\'s safe to update. If the component waits for longer than
--- this timeout, then the deployment proceeds on the device.
---
--- Default: @60@
 --
 -- 'action', 'deploymentComponentUpdatePolicy_action' - Whether or not to notify components and wait for components to become
 -- safe to update. Choose from the following options:
@@ -95,22 +89,20 @@ data DeploymentComponentUpdatePolicy = DeploymentComponentUpdatePolicy'
 --     or wait for them to be safe to update.
 --
 -- Default: @NOTIFY_COMPONENTS@
-newDeploymentComponentUpdatePolicy ::
-  DeploymentComponentUpdatePolicy
-newDeploymentComponentUpdatePolicy =
-  DeploymentComponentUpdatePolicy'
-    { timeoutInSeconds =
-        Prelude.Nothing,
-      action = Prelude.Nothing
-    }
-
--- | The amount of time in seconds that each component on a device has to
+--
+-- 'timeoutInSeconds', 'deploymentComponentUpdatePolicy_timeoutInSeconds' - The amount of time in seconds that each component on a device has to
 -- report that it\'s safe to update. If the component waits for longer than
 -- this timeout, then the deployment proceeds on the device.
 --
 -- Default: @60@
-deploymentComponentUpdatePolicy_timeoutInSeconds :: Lens.Lens' DeploymentComponentUpdatePolicy (Prelude.Maybe Prelude.Int)
-deploymentComponentUpdatePolicy_timeoutInSeconds = Lens.lens (\DeploymentComponentUpdatePolicy' {timeoutInSeconds} -> timeoutInSeconds) (\s@DeploymentComponentUpdatePolicy' {} a -> s {timeoutInSeconds = a} :: DeploymentComponentUpdatePolicy)
+newDeploymentComponentUpdatePolicy ::
+  DeploymentComponentUpdatePolicy
+newDeploymentComponentUpdatePolicy =
+  DeploymentComponentUpdatePolicy'
+    { action =
+        Prelude.Nothing,
+      timeoutInSeconds = Prelude.Nothing
+    }
 
 -- | Whether or not to notify components and wait for components to become
 -- safe to update. Choose from the following options:
@@ -132,6 +124,14 @@ deploymentComponentUpdatePolicy_timeoutInSeconds = Lens.lens (\DeploymentCompone
 deploymentComponentUpdatePolicy_action :: Lens.Lens' DeploymentComponentUpdatePolicy (Prelude.Maybe DeploymentComponentUpdatePolicyAction)
 deploymentComponentUpdatePolicy_action = Lens.lens (\DeploymentComponentUpdatePolicy' {action} -> action) (\s@DeploymentComponentUpdatePolicy' {} a -> s {action = a} :: DeploymentComponentUpdatePolicy)
 
+-- | The amount of time in seconds that each component on a device has to
+-- report that it\'s safe to update. If the component waits for longer than
+-- this timeout, then the deployment proceeds on the device.
+--
+-- Default: @60@
+deploymentComponentUpdatePolicy_timeoutInSeconds :: Lens.Lens' DeploymentComponentUpdatePolicy (Prelude.Maybe Prelude.Int)
+deploymentComponentUpdatePolicy_timeoutInSeconds = Lens.lens (\DeploymentComponentUpdatePolicy' {timeoutInSeconds} -> timeoutInSeconds) (\s@DeploymentComponentUpdatePolicy' {} a -> s {timeoutInSeconds = a} :: DeploymentComponentUpdatePolicy)
+
 instance
   Data.FromJSON
     DeploymentComponentUpdatePolicy
@@ -141,8 +141,8 @@ instance
       "DeploymentComponentUpdatePolicy"
       ( \x ->
           DeploymentComponentUpdatePolicy'
-            Prelude.<$> (x Data..:? "timeoutInSeconds")
-            Prelude.<*> (x Data..:? "action")
+            Prelude.<$> (x Data..:? "action")
+            Prelude.<*> (x Data..:? "timeoutInSeconds")
       )
 
 instance
@@ -152,23 +152,23 @@ instance
   hashWithSalt
     _salt
     DeploymentComponentUpdatePolicy' {..} =
-      _salt `Prelude.hashWithSalt` timeoutInSeconds
-        `Prelude.hashWithSalt` action
+      _salt `Prelude.hashWithSalt` action
+        `Prelude.hashWithSalt` timeoutInSeconds
 
 instance
   Prelude.NFData
     DeploymentComponentUpdatePolicy
   where
   rnf DeploymentComponentUpdatePolicy' {..} =
-    Prelude.rnf timeoutInSeconds
-      `Prelude.seq` Prelude.rnf action
+    Prelude.rnf action
+      `Prelude.seq` Prelude.rnf timeoutInSeconds
 
 instance Data.ToJSON DeploymentComponentUpdatePolicy where
   toJSON DeploymentComponentUpdatePolicy' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("timeoutInSeconds" Data..=)
-              Prelude.<$> timeoutInSeconds,
-            ("action" Data..=) Prelude.<$> action
+          [ ("action" Data..=) Prelude.<$> action,
+            ("timeoutInSeconds" Data..=)
+              Prelude.<$> timeoutInSeconds
           ]
       )

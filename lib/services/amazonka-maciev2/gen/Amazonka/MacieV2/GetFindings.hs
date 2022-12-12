@@ -140,7 +140,7 @@ instance Data.ToQuery GetFindings where
 
 -- | /See:/ 'newGetFindingsResponse' smart constructor.
 data GetFindingsResponse = GetFindingsResponse'
-  { -- | An array of objects, one for each finding that meets the criteria
+  { -- | An array of objects, one for each finding that matches the criteria
     -- specified in the request.
     findings :: Prelude.Maybe [Finding],
     -- | The response's http status code.
@@ -156,7 +156,7 @@ data GetFindingsResponse = GetFindingsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'findings', 'getFindingsResponse_findings' - An array of objects, one for each finding that meets the criteria
+-- 'findings', 'getFindingsResponse_findings' - An array of objects, one for each finding that matches the criteria
 -- specified in the request.
 --
 -- 'httpStatus', 'getFindingsResponse_httpStatus' - The response's http status code.
@@ -170,7 +170,7 @@ newGetFindingsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | An array of objects, one for each finding that meets the criteria
+-- | An array of objects, one for each finding that matches the criteria
 -- specified in the request.
 getFindingsResponse_findings :: Lens.Lens' GetFindingsResponse (Prelude.Maybe [Finding])
 getFindingsResponse_findings = Lens.lens (\GetFindingsResponse' {findings} -> findings) (\s@GetFindingsResponse' {} a -> s {findings = a} :: GetFindingsResponse) Prelude.. Lens.mapping Lens.coerced

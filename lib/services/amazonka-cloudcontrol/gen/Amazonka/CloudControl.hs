@@ -21,68 +21,68 @@ module Amazonka.CloudControl
     -- * Errors
     -- $errors
 
-    -- ** ConcurrentModificationException
-    _ConcurrentModificationException,
-
-    -- ** NotStabilizedException
-    _NotStabilizedException,
-
-    -- ** UnsupportedActionException
-    _UnsupportedActionException,
-
-    -- ** PrivateTypeException
-    _PrivateTypeException,
-
-    -- ** NetworkFailureException
-    _NetworkFailureException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** GeneralServiceException
-    _GeneralServiceException,
-
-    -- ** NotUpdatableException
-    _NotUpdatableException,
-
     -- ** AlreadyExistsException
     _AlreadyExistsException,
 
-    -- ** HandlerInternalFailureException
-    _HandlerInternalFailureException,
+    -- ** ClientTokenConflictException
+    _ClientTokenConflictException,
 
-    -- ** ServiceInternalErrorException
-    _ServiceInternalErrorException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
-
-    -- ** ResourceConflictException
-    _ResourceConflictException,
-
-    -- ** TypeNotFoundException
-    _TypeNotFoundException,
-
-    -- ** ServiceLimitExceededException
-    _ServiceLimitExceededException,
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
 
     -- ** ConcurrentOperationException
     _ConcurrentOperationException,
 
-    -- ** RequestTokenNotFoundException
-    _RequestTokenNotFoundException,
+    -- ** GeneralServiceException
+    _GeneralServiceException,
 
     -- ** HandlerFailureException
     _HandlerFailureException,
 
-    -- ** InvalidRequestException
-    _InvalidRequestException,
+    -- ** HandlerInternalFailureException
+    _HandlerInternalFailureException,
 
     -- ** InvalidCredentialsException
     _InvalidCredentialsException,
 
-    -- ** ClientTokenConflictException
-    _ClientTokenConflictException,
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
+    -- ** NetworkFailureException
+    _NetworkFailureException,
+
+    -- ** NotStabilizedException
+    _NotStabilizedException,
+
+    -- ** NotUpdatableException
+    _NotUpdatableException,
+
+    -- ** PrivateTypeException
+    _PrivateTypeException,
+
+    -- ** RequestTokenNotFoundException
+    _RequestTokenNotFoundException,
+
+    -- ** ResourceConflictException
+    _ResourceConflictException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ServiceInternalErrorException
+    _ServiceInternalErrorException,
+
+    -- ** ServiceLimitExceededException
+    _ServiceLimitExceededException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** TypeNotFoundException
+    _TypeNotFoundException,
+
+    -- ** UnsupportedActionException
+    _UnsupportedActionException,
 
     -- * Waiters
     -- $waiters

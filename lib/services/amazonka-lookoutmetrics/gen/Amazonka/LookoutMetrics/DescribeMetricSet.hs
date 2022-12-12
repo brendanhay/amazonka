@@ -39,20 +39,20 @@ module Amazonka.LookoutMetrics.DescribeMetricSet
     newDescribeMetricSetResponse,
 
     -- * Response Lenses
-    describeMetricSetResponse_lastModificationTime,
-    describeMetricSetResponse_timestampColumn,
-    describeMetricSetResponse_metricSetDescription,
     describeMetricSetResponse_anomalyDetectorArn,
-    describeMetricSetResponse_metricSetName,
-    describeMetricSetResponse_timezone,
-    describeMetricSetResponse_offset,
-    describeMetricSetResponse_metricSource,
+    describeMetricSetResponse_creationTime,
     describeMetricSetResponse_dimensionFilterList,
     describeMetricSetResponse_dimensionList,
-    describeMetricSetResponse_metricSetArn,
-    describeMetricSetResponse_metricSetFrequency,
-    describeMetricSetResponse_creationTime,
+    describeMetricSetResponse_lastModificationTime,
     describeMetricSetResponse_metricList,
+    describeMetricSetResponse_metricSetArn,
+    describeMetricSetResponse_metricSetDescription,
+    describeMetricSetResponse_metricSetFrequency,
+    describeMetricSetResponse_metricSetName,
+    describeMetricSetResponse_metricSource,
+    describeMetricSetResponse_offset,
+    describeMetricSetResponse_timestampColumn,
+    describeMetricSetResponse_timezone,
     describeMetricSetResponse_httpStatus,
   )
 where
@@ -102,22 +102,22 @@ instance Core.AWSRequest DescribeMetricSet where
     Response.receiveJSON
       ( \s h x ->
           DescribeMetricSetResponse'
-            Prelude.<$> (x Data..?> "LastModificationTime")
-            Prelude.<*> (x Data..?> "TimestampColumn")
-            Prelude.<*> (x Data..?> "MetricSetDescription")
-            Prelude.<*> (x Data..?> "AnomalyDetectorArn")
-            Prelude.<*> (x Data..?> "MetricSetName")
-            Prelude.<*> (x Data..?> "Timezone")
-            Prelude.<*> (x Data..?> "Offset")
-            Prelude.<*> (x Data..?> "MetricSource")
+            Prelude.<$> (x Data..?> "AnomalyDetectorArn")
+            Prelude.<*> (x Data..?> "CreationTime")
             Prelude.<*> ( x Data..?> "DimensionFilterList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "DimensionList")
-            Prelude.<*> (x Data..?> "MetricSetArn")
-            Prelude.<*> (x Data..?> "MetricSetFrequency")
-            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "LastModificationTime")
             Prelude.<*> (x Data..?> "MetricList")
+            Prelude.<*> (x Data..?> "MetricSetArn")
+            Prelude.<*> (x Data..?> "MetricSetDescription")
+            Prelude.<*> (x Data..?> "MetricSetFrequency")
+            Prelude.<*> (x Data..?> "MetricSetName")
+            Prelude.<*> (x Data..?> "MetricSource")
+            Prelude.<*> (x Data..?> "Offset")
+            Prelude.<*> (x Data..?> "TimestampColumn")
+            Prelude.<*> (x Data..?> "Timezone")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,37 +154,37 @@ instance Data.ToQuery DescribeMetricSet where
 
 -- | /See:/ 'newDescribeMetricSetResponse' smart constructor.
 data DescribeMetricSetResponse = DescribeMetricSetResponse'
-  { -- | The time at which the dataset was last modified.
-    lastModificationTime :: Prelude.Maybe Data.POSIX,
-    -- | Contains information about the column used for tracking time in your
-    -- source data.
-    timestampColumn :: Prelude.Maybe TimestampColumn,
-    -- | The dataset\'s description.
-    metricSetDescription :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the detector that contains the dataset.
+  { -- | The ARN of the detector that contains the dataset.
     anomalyDetectorArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the dataset.
-    metricSetName :: Prelude.Maybe Prelude.Text,
-    -- | The time zone in which the dataset\'s data was recorded.
-    timezone :: Prelude.Maybe Prelude.Text,
-    -- | After an interval ends, the amount of seconds that the detector waits
-    -- before importing data. Offset is only supported for S3, Redshift, Athena
-    -- and datasources.
-    offset :: Prelude.Maybe Prelude.Natural,
-    -- | Contains information about the dataset\'s source data.
-    metricSource :: Prelude.Maybe MetricSource,
+    -- | The time at which the dataset was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The dimensions and their values that were used to filter the dataset.
     dimensionFilterList :: Prelude.Maybe [MetricSetDimensionFilter],
     -- | A list of the dimensions chosen for analysis.
     dimensionList :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The ARN of the dataset.
-    metricSetArn :: Prelude.Maybe Prelude.Text,
-    -- | The interval at which the data will be analyzed for anomalies.
-    metricSetFrequency :: Prelude.Maybe Frequency,
-    -- | The time at which the dataset was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The time at which the dataset was last modified.
+    lastModificationTime :: Prelude.Maybe Data.POSIX,
     -- | A list of the metrics defined by the dataset.
     metricList :: Prelude.Maybe (Prelude.NonEmpty Metric),
+    -- | The ARN of the dataset.
+    metricSetArn :: Prelude.Maybe Prelude.Text,
+    -- | The dataset\'s description.
+    metricSetDescription :: Prelude.Maybe Prelude.Text,
+    -- | The interval at which the data will be analyzed for anomalies.
+    metricSetFrequency :: Prelude.Maybe Frequency,
+    -- | The name of the dataset.
+    metricSetName :: Prelude.Maybe Prelude.Text,
+    -- | Contains information about the dataset\'s source data.
+    metricSource :: Prelude.Maybe MetricSource,
+    -- | After an interval ends, the amount of seconds that the detector waits
+    -- before importing data. Offset is only supported for S3, Redshift, Athena
+    -- and datasources.
+    offset :: Prelude.Maybe Prelude.Natural,
+    -- | Contains information about the column used for tracking time in your
+    -- source data.
+    timestampColumn :: Prelude.Maybe TimestampColumn,
+    -- | The time zone in which the dataset\'s data was recorded.
+    timezone :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -198,36 +198,36 @@ data DescribeMetricSetResponse = DescribeMetricSetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastModificationTime', 'describeMetricSetResponse_lastModificationTime' - The time at which the dataset was last modified.
---
--- 'timestampColumn', 'describeMetricSetResponse_timestampColumn' - Contains information about the column used for tracking time in your
--- source data.
---
--- 'metricSetDescription', 'describeMetricSetResponse_metricSetDescription' - The dataset\'s description.
---
 -- 'anomalyDetectorArn', 'describeMetricSetResponse_anomalyDetectorArn' - The ARN of the detector that contains the dataset.
 --
--- 'metricSetName', 'describeMetricSetResponse_metricSetName' - The name of the dataset.
---
--- 'timezone', 'describeMetricSetResponse_timezone' - The time zone in which the dataset\'s data was recorded.
---
--- 'offset', 'describeMetricSetResponse_offset' - After an interval ends, the amount of seconds that the detector waits
--- before importing data. Offset is only supported for S3, Redshift, Athena
--- and datasources.
---
--- 'metricSource', 'describeMetricSetResponse_metricSource' - Contains information about the dataset\'s source data.
+-- 'creationTime', 'describeMetricSetResponse_creationTime' - The time at which the dataset was created.
 --
 -- 'dimensionFilterList', 'describeMetricSetResponse_dimensionFilterList' - The dimensions and their values that were used to filter the dataset.
 --
 -- 'dimensionList', 'describeMetricSetResponse_dimensionList' - A list of the dimensions chosen for analysis.
 --
+-- 'lastModificationTime', 'describeMetricSetResponse_lastModificationTime' - The time at which the dataset was last modified.
+--
+-- 'metricList', 'describeMetricSetResponse_metricList' - A list of the metrics defined by the dataset.
+--
 -- 'metricSetArn', 'describeMetricSetResponse_metricSetArn' - The ARN of the dataset.
+--
+-- 'metricSetDescription', 'describeMetricSetResponse_metricSetDescription' - The dataset\'s description.
 --
 -- 'metricSetFrequency', 'describeMetricSetResponse_metricSetFrequency' - The interval at which the data will be analyzed for anomalies.
 --
--- 'creationTime', 'describeMetricSetResponse_creationTime' - The time at which the dataset was created.
+-- 'metricSetName', 'describeMetricSetResponse_metricSetName' - The name of the dataset.
 --
--- 'metricList', 'describeMetricSetResponse_metricList' - A list of the metrics defined by the dataset.
+-- 'metricSource', 'describeMetricSetResponse_metricSource' - Contains information about the dataset\'s source data.
+--
+-- 'offset', 'describeMetricSetResponse_offset' - After an interval ends, the amount of seconds that the detector waits
+-- before importing data. Offset is only supported for S3, Redshift, Athena
+-- and datasources.
+--
+-- 'timestampColumn', 'describeMetricSetResponse_timestampColumn' - Contains information about the column used for tracking time in your
+-- source data.
+--
+-- 'timezone', 'describeMetricSetResponse_timezone' - The time zone in which the dataset\'s data was recorded.
 --
 -- 'httpStatus', 'describeMetricSetResponse_httpStatus' - The response's http status code.
 newDescribeMetricSetResponse ::
@@ -236,58 +236,31 @@ newDescribeMetricSetResponse ::
   DescribeMetricSetResponse
 newDescribeMetricSetResponse pHttpStatus_ =
   DescribeMetricSetResponse'
-    { lastModificationTime =
+    { anomalyDetectorArn =
         Prelude.Nothing,
-      timestampColumn = Prelude.Nothing,
-      metricSetDescription = Prelude.Nothing,
-      anomalyDetectorArn = Prelude.Nothing,
-      metricSetName = Prelude.Nothing,
-      timezone = Prelude.Nothing,
-      offset = Prelude.Nothing,
-      metricSource = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
       dimensionFilterList = Prelude.Nothing,
       dimensionList = Prelude.Nothing,
-      metricSetArn = Prelude.Nothing,
-      metricSetFrequency = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
+      lastModificationTime = Prelude.Nothing,
       metricList = Prelude.Nothing,
+      metricSetArn = Prelude.Nothing,
+      metricSetDescription = Prelude.Nothing,
+      metricSetFrequency = Prelude.Nothing,
+      metricSetName = Prelude.Nothing,
+      metricSource = Prelude.Nothing,
+      offset = Prelude.Nothing,
+      timestampColumn = Prelude.Nothing,
+      timezone = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The time at which the dataset was last modified.
-describeMetricSetResponse_lastModificationTime :: Lens.Lens' DescribeMetricSetResponse (Prelude.Maybe Prelude.UTCTime)
-describeMetricSetResponse_lastModificationTime = Lens.lens (\DescribeMetricSetResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribeMetricSetResponse' {} a -> s {lastModificationTime = a} :: DescribeMetricSetResponse) Prelude.. Lens.mapping Data._Time
-
--- | Contains information about the column used for tracking time in your
--- source data.
-describeMetricSetResponse_timestampColumn :: Lens.Lens' DescribeMetricSetResponse (Prelude.Maybe TimestampColumn)
-describeMetricSetResponse_timestampColumn = Lens.lens (\DescribeMetricSetResponse' {timestampColumn} -> timestampColumn) (\s@DescribeMetricSetResponse' {} a -> s {timestampColumn = a} :: DescribeMetricSetResponse)
-
--- | The dataset\'s description.
-describeMetricSetResponse_metricSetDescription :: Lens.Lens' DescribeMetricSetResponse (Prelude.Maybe Prelude.Text)
-describeMetricSetResponse_metricSetDescription = Lens.lens (\DescribeMetricSetResponse' {metricSetDescription} -> metricSetDescription) (\s@DescribeMetricSetResponse' {} a -> s {metricSetDescription = a} :: DescribeMetricSetResponse)
 
 -- | The ARN of the detector that contains the dataset.
 describeMetricSetResponse_anomalyDetectorArn :: Lens.Lens' DescribeMetricSetResponse (Prelude.Maybe Prelude.Text)
 describeMetricSetResponse_anomalyDetectorArn = Lens.lens (\DescribeMetricSetResponse' {anomalyDetectorArn} -> anomalyDetectorArn) (\s@DescribeMetricSetResponse' {} a -> s {anomalyDetectorArn = a} :: DescribeMetricSetResponse)
 
--- | The name of the dataset.
-describeMetricSetResponse_metricSetName :: Lens.Lens' DescribeMetricSetResponse (Prelude.Maybe Prelude.Text)
-describeMetricSetResponse_metricSetName = Lens.lens (\DescribeMetricSetResponse' {metricSetName} -> metricSetName) (\s@DescribeMetricSetResponse' {} a -> s {metricSetName = a} :: DescribeMetricSetResponse)
-
--- | The time zone in which the dataset\'s data was recorded.
-describeMetricSetResponse_timezone :: Lens.Lens' DescribeMetricSetResponse (Prelude.Maybe Prelude.Text)
-describeMetricSetResponse_timezone = Lens.lens (\DescribeMetricSetResponse' {timezone} -> timezone) (\s@DescribeMetricSetResponse' {} a -> s {timezone = a} :: DescribeMetricSetResponse)
-
--- | After an interval ends, the amount of seconds that the detector waits
--- before importing data. Offset is only supported for S3, Redshift, Athena
--- and datasources.
-describeMetricSetResponse_offset :: Lens.Lens' DescribeMetricSetResponse (Prelude.Maybe Prelude.Natural)
-describeMetricSetResponse_offset = Lens.lens (\DescribeMetricSetResponse' {offset} -> offset) (\s@DescribeMetricSetResponse' {} a -> s {offset = a} :: DescribeMetricSetResponse)
-
--- | Contains information about the dataset\'s source data.
-describeMetricSetResponse_metricSource :: Lens.Lens' DescribeMetricSetResponse (Prelude.Maybe MetricSource)
-describeMetricSetResponse_metricSource = Lens.lens (\DescribeMetricSetResponse' {metricSource} -> metricSource) (\s@DescribeMetricSetResponse' {} a -> s {metricSource = a} :: DescribeMetricSetResponse)
+-- | The time at which the dataset was created.
+describeMetricSetResponse_creationTime :: Lens.Lens' DescribeMetricSetResponse (Prelude.Maybe Prelude.UTCTime)
+describeMetricSetResponse_creationTime = Lens.lens (\DescribeMetricSetResponse' {creationTime} -> creationTime) (\s@DescribeMetricSetResponse' {} a -> s {creationTime = a} :: DescribeMetricSetResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The dimensions and their values that were used to filter the dataset.
 describeMetricSetResponse_dimensionFilterList :: Lens.Lens' DescribeMetricSetResponse (Prelude.Maybe [MetricSetDimensionFilter])
@@ -297,21 +270,48 @@ describeMetricSetResponse_dimensionFilterList = Lens.lens (\DescribeMetricSetRes
 describeMetricSetResponse_dimensionList :: Lens.Lens' DescribeMetricSetResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 describeMetricSetResponse_dimensionList = Lens.lens (\DescribeMetricSetResponse' {dimensionList} -> dimensionList) (\s@DescribeMetricSetResponse' {} a -> s {dimensionList = a} :: DescribeMetricSetResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The time at which the dataset was last modified.
+describeMetricSetResponse_lastModificationTime :: Lens.Lens' DescribeMetricSetResponse (Prelude.Maybe Prelude.UTCTime)
+describeMetricSetResponse_lastModificationTime = Lens.lens (\DescribeMetricSetResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribeMetricSetResponse' {} a -> s {lastModificationTime = a} :: DescribeMetricSetResponse) Prelude.. Lens.mapping Data._Time
+
+-- | A list of the metrics defined by the dataset.
+describeMetricSetResponse_metricList :: Lens.Lens' DescribeMetricSetResponse (Prelude.Maybe (Prelude.NonEmpty Metric))
+describeMetricSetResponse_metricList = Lens.lens (\DescribeMetricSetResponse' {metricList} -> metricList) (\s@DescribeMetricSetResponse' {} a -> s {metricList = a} :: DescribeMetricSetResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The ARN of the dataset.
 describeMetricSetResponse_metricSetArn :: Lens.Lens' DescribeMetricSetResponse (Prelude.Maybe Prelude.Text)
 describeMetricSetResponse_metricSetArn = Lens.lens (\DescribeMetricSetResponse' {metricSetArn} -> metricSetArn) (\s@DescribeMetricSetResponse' {} a -> s {metricSetArn = a} :: DescribeMetricSetResponse)
+
+-- | The dataset\'s description.
+describeMetricSetResponse_metricSetDescription :: Lens.Lens' DescribeMetricSetResponse (Prelude.Maybe Prelude.Text)
+describeMetricSetResponse_metricSetDescription = Lens.lens (\DescribeMetricSetResponse' {metricSetDescription} -> metricSetDescription) (\s@DescribeMetricSetResponse' {} a -> s {metricSetDescription = a} :: DescribeMetricSetResponse)
 
 -- | The interval at which the data will be analyzed for anomalies.
 describeMetricSetResponse_metricSetFrequency :: Lens.Lens' DescribeMetricSetResponse (Prelude.Maybe Frequency)
 describeMetricSetResponse_metricSetFrequency = Lens.lens (\DescribeMetricSetResponse' {metricSetFrequency} -> metricSetFrequency) (\s@DescribeMetricSetResponse' {} a -> s {metricSetFrequency = a} :: DescribeMetricSetResponse)
 
--- | The time at which the dataset was created.
-describeMetricSetResponse_creationTime :: Lens.Lens' DescribeMetricSetResponse (Prelude.Maybe Prelude.UTCTime)
-describeMetricSetResponse_creationTime = Lens.lens (\DescribeMetricSetResponse' {creationTime} -> creationTime) (\s@DescribeMetricSetResponse' {} a -> s {creationTime = a} :: DescribeMetricSetResponse) Prelude.. Lens.mapping Data._Time
+-- | The name of the dataset.
+describeMetricSetResponse_metricSetName :: Lens.Lens' DescribeMetricSetResponse (Prelude.Maybe Prelude.Text)
+describeMetricSetResponse_metricSetName = Lens.lens (\DescribeMetricSetResponse' {metricSetName} -> metricSetName) (\s@DescribeMetricSetResponse' {} a -> s {metricSetName = a} :: DescribeMetricSetResponse)
 
--- | A list of the metrics defined by the dataset.
-describeMetricSetResponse_metricList :: Lens.Lens' DescribeMetricSetResponse (Prelude.Maybe (Prelude.NonEmpty Metric))
-describeMetricSetResponse_metricList = Lens.lens (\DescribeMetricSetResponse' {metricList} -> metricList) (\s@DescribeMetricSetResponse' {} a -> s {metricList = a} :: DescribeMetricSetResponse) Prelude.. Lens.mapping Lens.coerced
+-- | Contains information about the dataset\'s source data.
+describeMetricSetResponse_metricSource :: Lens.Lens' DescribeMetricSetResponse (Prelude.Maybe MetricSource)
+describeMetricSetResponse_metricSource = Lens.lens (\DescribeMetricSetResponse' {metricSource} -> metricSource) (\s@DescribeMetricSetResponse' {} a -> s {metricSource = a} :: DescribeMetricSetResponse)
+
+-- | After an interval ends, the amount of seconds that the detector waits
+-- before importing data. Offset is only supported for S3, Redshift, Athena
+-- and datasources.
+describeMetricSetResponse_offset :: Lens.Lens' DescribeMetricSetResponse (Prelude.Maybe Prelude.Natural)
+describeMetricSetResponse_offset = Lens.lens (\DescribeMetricSetResponse' {offset} -> offset) (\s@DescribeMetricSetResponse' {} a -> s {offset = a} :: DescribeMetricSetResponse)
+
+-- | Contains information about the column used for tracking time in your
+-- source data.
+describeMetricSetResponse_timestampColumn :: Lens.Lens' DescribeMetricSetResponse (Prelude.Maybe TimestampColumn)
+describeMetricSetResponse_timestampColumn = Lens.lens (\DescribeMetricSetResponse' {timestampColumn} -> timestampColumn) (\s@DescribeMetricSetResponse' {} a -> s {timestampColumn = a} :: DescribeMetricSetResponse)
+
+-- | The time zone in which the dataset\'s data was recorded.
+describeMetricSetResponse_timezone :: Lens.Lens' DescribeMetricSetResponse (Prelude.Maybe Prelude.Text)
+describeMetricSetResponse_timezone = Lens.lens (\DescribeMetricSetResponse' {timezone} -> timezone) (\s@DescribeMetricSetResponse' {} a -> s {timezone = a} :: DescribeMetricSetResponse)
 
 -- | The response's http status code.
 describeMetricSetResponse_httpStatus :: Lens.Lens' DescribeMetricSetResponse Prelude.Int
@@ -319,18 +319,18 @@ describeMetricSetResponse_httpStatus = Lens.lens (\DescribeMetricSetResponse' {h
 
 instance Prelude.NFData DescribeMetricSetResponse where
   rnf DescribeMetricSetResponse' {..} =
-    Prelude.rnf lastModificationTime
-      `Prelude.seq` Prelude.rnf timestampColumn
-      `Prelude.seq` Prelude.rnf metricSetDescription
-      `Prelude.seq` Prelude.rnf anomalyDetectorArn
-      `Prelude.seq` Prelude.rnf metricSetName
-      `Prelude.seq` Prelude.rnf timezone
-      `Prelude.seq` Prelude.rnf offset
-      `Prelude.seq` Prelude.rnf metricSource
+    Prelude.rnf anomalyDetectorArn
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf dimensionFilterList
       `Prelude.seq` Prelude.rnf dimensionList
-      `Prelude.seq` Prelude.rnf metricSetArn
-      `Prelude.seq` Prelude.rnf metricSetFrequency
-      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf lastModificationTime
       `Prelude.seq` Prelude.rnf metricList
+      `Prelude.seq` Prelude.rnf metricSetArn
+      `Prelude.seq` Prelude.rnf metricSetDescription
+      `Prelude.seq` Prelude.rnf metricSetFrequency
+      `Prelude.seq` Prelude.rnf metricSetName
+      `Prelude.seq` Prelude.rnf metricSource
+      `Prelude.seq` Prelude.rnf offset
+      `Prelude.seq` Prelude.rnf timestampColumn
+      `Prelude.seq` Prelude.rnf timezone
       `Prelude.seq` Prelude.rnf httpStatus

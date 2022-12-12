@@ -30,18 +30,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDatabase' smart constructor.
 data Database = Database'
-  { -- | The name of the Timestream database.
-    databaseName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name that uniquely identifies this database.
+  { -- | The Amazon Resource Name that uniquely identifies this database.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The last time that this database was updated.
-    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
-    -- | The identifier of the KMS key used to encrypt the data stored in the
-    -- database.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The time when the database was created, calculated from the Unix epoch
     -- time.
     creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The name of the Timestream database.
+    databaseName :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the KMS key used to encrypt the data stored in the
+    -- database.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The last time that this database was updated.
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The total number of tables found within a Timestream database.
     tableCount :: Prelude.Maybe Prelude.Integer
   }
@@ -55,52 +55,52 @@ data Database = Database'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'databaseName', 'database_databaseName' - The name of the Timestream database.
---
 -- 'arn', 'database_arn' - The Amazon Resource Name that uniquely identifies this database.
 --
--- 'lastUpdatedTime', 'database_lastUpdatedTime' - The last time that this database was updated.
+-- 'creationTime', 'database_creationTime' - The time when the database was created, calculated from the Unix epoch
+-- time.
+--
+-- 'databaseName', 'database_databaseName' - The name of the Timestream database.
 --
 -- 'kmsKeyId', 'database_kmsKeyId' - The identifier of the KMS key used to encrypt the data stored in the
 -- database.
 --
--- 'creationTime', 'database_creationTime' - The time when the database was created, calculated from the Unix epoch
--- time.
+-- 'lastUpdatedTime', 'database_lastUpdatedTime' - The last time that this database was updated.
 --
 -- 'tableCount', 'database_tableCount' - The total number of tables found within a Timestream database.
 newDatabase ::
   Database
 newDatabase =
   Database'
-    { databaseName = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      lastUpdatedTime = Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       creationTime = Prelude.Nothing,
+      databaseName = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
+      lastUpdatedTime = Prelude.Nothing,
       tableCount = Prelude.Nothing
     }
-
--- | The name of the Timestream database.
-database_databaseName :: Lens.Lens' Database (Prelude.Maybe Prelude.Text)
-database_databaseName = Lens.lens (\Database' {databaseName} -> databaseName) (\s@Database' {} a -> s {databaseName = a} :: Database)
 
 -- | The Amazon Resource Name that uniquely identifies this database.
 database_arn :: Lens.Lens' Database (Prelude.Maybe Prelude.Text)
 database_arn = Lens.lens (\Database' {arn} -> arn) (\s@Database' {} a -> s {arn = a} :: Database)
 
--- | The last time that this database was updated.
-database_lastUpdatedTime :: Lens.Lens' Database (Prelude.Maybe Prelude.UTCTime)
-database_lastUpdatedTime = Lens.lens (\Database' {lastUpdatedTime} -> lastUpdatedTime) (\s@Database' {} a -> s {lastUpdatedTime = a} :: Database) Prelude.. Lens.mapping Data._Time
+-- | The time when the database was created, calculated from the Unix epoch
+-- time.
+database_creationTime :: Lens.Lens' Database (Prelude.Maybe Prelude.UTCTime)
+database_creationTime = Lens.lens (\Database' {creationTime} -> creationTime) (\s@Database' {} a -> s {creationTime = a} :: Database) Prelude.. Lens.mapping Data._Time
+
+-- | The name of the Timestream database.
+database_databaseName :: Lens.Lens' Database (Prelude.Maybe Prelude.Text)
+database_databaseName = Lens.lens (\Database' {databaseName} -> databaseName) (\s@Database' {} a -> s {databaseName = a} :: Database)
 
 -- | The identifier of the KMS key used to encrypt the data stored in the
 -- database.
 database_kmsKeyId :: Lens.Lens' Database (Prelude.Maybe Prelude.Text)
 database_kmsKeyId = Lens.lens (\Database' {kmsKeyId} -> kmsKeyId) (\s@Database' {} a -> s {kmsKeyId = a} :: Database)
 
--- | The time when the database was created, calculated from the Unix epoch
--- time.
-database_creationTime :: Lens.Lens' Database (Prelude.Maybe Prelude.UTCTime)
-database_creationTime = Lens.lens (\Database' {creationTime} -> creationTime) (\s@Database' {} a -> s {creationTime = a} :: Database) Prelude.. Lens.mapping Data._Time
+-- | The last time that this database was updated.
+database_lastUpdatedTime :: Lens.Lens' Database (Prelude.Maybe Prelude.UTCTime)
+database_lastUpdatedTime = Lens.lens (\Database' {lastUpdatedTime} -> lastUpdatedTime) (\s@Database' {} a -> s {lastUpdatedTime = a} :: Database) Prelude.. Lens.mapping Data._Time
 
 -- | The total number of tables found within a Timestream database.
 database_tableCount :: Lens.Lens' Database (Prelude.Maybe Prelude.Integer)
@@ -112,28 +112,28 @@ instance Data.FromJSON Database where
       "Database"
       ( \x ->
           Database'
-            Prelude.<$> (x Data..:? "DatabaseName")
-            Prelude.<*> (x Data..:? "Arn")
-            Prelude.<*> (x Data..:? "LastUpdatedTime")
-            Prelude.<*> (x Data..:? "KmsKeyId")
+            Prelude.<$> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "DatabaseName")
+            Prelude.<*> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..:? "LastUpdatedTime")
             Prelude.<*> (x Data..:? "TableCount")
       )
 
 instance Prelude.Hashable Database where
   hashWithSalt _salt Database' {..} =
-    _salt `Prelude.hashWithSalt` databaseName
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` lastUpdatedTime
-      `Prelude.hashWithSalt` kmsKeyId
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` lastUpdatedTime
       `Prelude.hashWithSalt` tableCount
 
 instance Prelude.NFData Database where
   rnf Database' {..} =
-    Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf kmsKeyId
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
       `Prelude.seq` Prelude.rnf tableCount

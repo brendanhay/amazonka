@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRouteAnalysisPath' smart constructor.
 data RouteAnalysisPath = RouteAnalysisPath'
-  { -- | The route analysis path.
-    path :: Prelude.Maybe [PathComponent],
-    -- | The status of the analysis at completion.
-    completionStatus :: Prelude.Maybe RouteAnalysisCompletion
+  { -- | The status of the analysis at completion.
+    completionStatus :: Prelude.Maybe RouteAnalysisCompletion,
+    -- | The route analysis path.
+    path :: Prelude.Maybe [PathComponent]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,25 @@ data RouteAnalysisPath = RouteAnalysisPath'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'path', 'routeAnalysisPath_path' - The route analysis path.
---
 -- 'completionStatus', 'routeAnalysisPath_completionStatus' - The status of the analysis at completion.
+--
+-- 'path', 'routeAnalysisPath_path' - The route analysis path.
 newRouteAnalysisPath ::
   RouteAnalysisPath
 newRouteAnalysisPath =
   RouteAnalysisPath'
-    { path = Prelude.Nothing,
-      completionStatus = Prelude.Nothing
+    { completionStatus =
+        Prelude.Nothing,
+      path = Prelude.Nothing
     }
-
--- | The route analysis path.
-routeAnalysisPath_path :: Lens.Lens' RouteAnalysisPath (Prelude.Maybe [PathComponent])
-routeAnalysisPath_path = Lens.lens (\RouteAnalysisPath' {path} -> path) (\s@RouteAnalysisPath' {} a -> s {path = a} :: RouteAnalysisPath) Prelude.. Lens.mapping Lens.coerced
 
 -- | The status of the analysis at completion.
 routeAnalysisPath_completionStatus :: Lens.Lens' RouteAnalysisPath (Prelude.Maybe RouteAnalysisCompletion)
 routeAnalysisPath_completionStatus = Lens.lens (\RouteAnalysisPath' {completionStatus} -> completionStatus) (\s@RouteAnalysisPath' {} a -> s {completionStatus = a} :: RouteAnalysisPath)
+
+-- | The route analysis path.
+routeAnalysisPath_path :: Lens.Lens' RouteAnalysisPath (Prelude.Maybe [PathComponent])
+routeAnalysisPath_path = Lens.lens (\RouteAnalysisPath' {path} -> path) (\s@RouteAnalysisPath' {} a -> s {path = a} :: RouteAnalysisPath) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON RouteAnalysisPath where
   parseJSON =
@@ -70,16 +71,16 @@ instance Data.FromJSON RouteAnalysisPath where
       "RouteAnalysisPath"
       ( \x ->
           RouteAnalysisPath'
-            Prelude.<$> (x Data..:? "Path" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "CompletionStatus")
+            Prelude.<$> (x Data..:? "CompletionStatus")
+            Prelude.<*> (x Data..:? "Path" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable RouteAnalysisPath where
   hashWithSalt _salt RouteAnalysisPath' {..} =
-    _salt `Prelude.hashWithSalt` path
-      `Prelude.hashWithSalt` completionStatus
+    _salt `Prelude.hashWithSalt` completionStatus
+      `Prelude.hashWithSalt` path
 
 instance Prelude.NFData RouteAnalysisPath where
   rnf RouteAnalysisPath' {..} =
-    Prelude.rnf path
-      `Prelude.seq` Prelude.rnf completionStatus
+    Prelude.rnf completionStatus
+      `Prelude.seq` Prelude.rnf path

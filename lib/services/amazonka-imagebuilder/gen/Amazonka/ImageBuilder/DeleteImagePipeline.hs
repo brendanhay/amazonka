@@ -34,8 +34,8 @@ module Amazonka.ImageBuilder.DeleteImagePipeline
     newDeleteImagePipelineResponse,
 
     -- * Response Lenses
-    deleteImagePipelineResponse_requestId,
     deleteImagePipelineResponse_imagePipelineArn,
+    deleteImagePipelineResponse_requestId,
     deleteImagePipelineResponse_httpStatus,
   )
 where
@@ -88,8 +88,8 @@ instance Core.AWSRequest DeleteImagePipeline where
     Response.receiveJSON
       ( \s h x ->
           DeleteImagePipelineResponse'
-            Prelude.<$> (x Data..?> "requestId")
-            Prelude.<*> (x Data..?> "imagePipelineArn")
+            Prelude.<$> (x Data..?> "imagePipelineArn")
+            Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,10 +122,10 @@ instance Data.ToQuery DeleteImagePipeline where
 
 -- | /See:/ 'newDeleteImagePipelineResponse' smart constructor.
 data DeleteImagePipelineResponse = DeleteImagePipelineResponse'
-  { -- | The request ID that uniquely identifies this request.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the image pipeline that was deleted.
+  { -- | The Amazon Resource Name (ARN) of the image pipeline that was deleted.
     imagePipelineArn :: Prelude.Maybe Prelude.Text,
+    -- | The request ID that uniquely identifies this request.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -139,9 +139,9 @@ data DeleteImagePipelineResponse = DeleteImagePipelineResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'deleteImagePipelineResponse_requestId' - The request ID that uniquely identifies this request.
---
 -- 'imagePipelineArn', 'deleteImagePipelineResponse_imagePipelineArn' - The Amazon Resource Name (ARN) of the image pipeline that was deleted.
+--
+-- 'requestId', 'deleteImagePipelineResponse_requestId' - The request ID that uniquely identifies this request.
 --
 -- 'httpStatus', 'deleteImagePipelineResponse_httpStatus' - The response's http status code.
 newDeleteImagePipelineResponse ::
@@ -150,19 +150,19 @@ newDeleteImagePipelineResponse ::
   DeleteImagePipelineResponse
 newDeleteImagePipelineResponse pHttpStatus_ =
   DeleteImagePipelineResponse'
-    { requestId =
+    { imagePipelineArn =
         Prelude.Nothing,
-      imagePipelineArn = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The request ID that uniquely identifies this request.
-deleteImagePipelineResponse_requestId :: Lens.Lens' DeleteImagePipelineResponse (Prelude.Maybe Prelude.Text)
-deleteImagePipelineResponse_requestId = Lens.lens (\DeleteImagePipelineResponse' {requestId} -> requestId) (\s@DeleteImagePipelineResponse' {} a -> s {requestId = a} :: DeleteImagePipelineResponse)
 
 -- | The Amazon Resource Name (ARN) of the image pipeline that was deleted.
 deleteImagePipelineResponse_imagePipelineArn :: Lens.Lens' DeleteImagePipelineResponse (Prelude.Maybe Prelude.Text)
 deleteImagePipelineResponse_imagePipelineArn = Lens.lens (\DeleteImagePipelineResponse' {imagePipelineArn} -> imagePipelineArn) (\s@DeleteImagePipelineResponse' {} a -> s {imagePipelineArn = a} :: DeleteImagePipelineResponse)
+
+-- | The request ID that uniquely identifies this request.
+deleteImagePipelineResponse_requestId :: Lens.Lens' DeleteImagePipelineResponse (Prelude.Maybe Prelude.Text)
+deleteImagePipelineResponse_requestId = Lens.lens (\DeleteImagePipelineResponse' {requestId} -> requestId) (\s@DeleteImagePipelineResponse' {} a -> s {requestId = a} :: DeleteImagePipelineResponse)
 
 -- | The response's http status code.
 deleteImagePipelineResponse_httpStatus :: Lens.Lens' DeleteImagePipelineResponse Prelude.Int
@@ -170,6 +170,6 @@ deleteImagePipelineResponse_httpStatus = Lens.lens (\DeleteImagePipelineResponse
 
 instance Prelude.NFData DeleteImagePipelineResponse where
   rnf DeleteImagePipelineResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf imagePipelineArn
+    Prelude.rnf imagePipelineArn
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf httpStatus

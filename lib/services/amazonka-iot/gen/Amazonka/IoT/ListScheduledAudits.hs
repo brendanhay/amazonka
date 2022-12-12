@@ -33,8 +33,8 @@ module Amazonka.IoT.ListScheduledAudits
     newListScheduledAudits,
 
     -- * Request Lenses
-    listScheduledAudits_nextToken,
     listScheduledAudits_maxResults,
+    listScheduledAudits_nextToken,
 
     -- * Destructuring the Response
     ListScheduledAuditsResponse (..),
@@ -57,10 +57,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListScheduledAudits' smart constructor.
 data ListScheduledAudits = ListScheduledAudits'
-  { -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return at one time. The default is 25.
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { -- | The maximum number of results to return at one time. The default is 25.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,24 +72,24 @@ data ListScheduledAudits = ListScheduledAudits'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listScheduledAudits_nextToken' - The token for the next set of results.
---
 -- 'maxResults', 'listScheduledAudits_maxResults' - The maximum number of results to return at one time. The default is 25.
+--
+-- 'nextToken', 'listScheduledAudits_nextToken' - The token for the next set of results.
 newListScheduledAudits ::
   ListScheduledAudits
 newListScheduledAudits =
   ListScheduledAudits'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token for the next set of results.
-listScheduledAudits_nextToken :: Lens.Lens' ListScheduledAudits (Prelude.Maybe Prelude.Text)
-listScheduledAudits_nextToken = Lens.lens (\ListScheduledAudits' {nextToken} -> nextToken) (\s@ListScheduledAudits' {} a -> s {nextToken = a} :: ListScheduledAudits)
 
 -- | The maximum number of results to return at one time. The default is 25.
 listScheduledAudits_maxResults :: Lens.Lens' ListScheduledAudits (Prelude.Maybe Prelude.Natural)
 listScheduledAudits_maxResults = Lens.lens (\ListScheduledAudits' {maxResults} -> maxResults) (\s@ListScheduledAudits' {} a -> s {maxResults = a} :: ListScheduledAudits)
+
+-- | The token for the next set of results.
+listScheduledAudits_nextToken :: Lens.Lens' ListScheduledAudits (Prelude.Maybe Prelude.Text)
+listScheduledAudits_nextToken = Lens.lens (\ListScheduledAudits' {nextToken} -> nextToken) (\s@ListScheduledAudits' {} a -> s {nextToken = a} :: ListScheduledAudits)
 
 instance Core.AWSPager ListScheduledAudits where
   page rq rs
@@ -132,13 +132,13 @@ instance Core.AWSRequest ListScheduledAudits where
 
 instance Prelude.Hashable ListScheduledAudits where
   hashWithSalt _salt ListScheduledAudits' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListScheduledAudits where
   rnf ListScheduledAudits' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListScheduledAudits where
   toHeaders = Prelude.const Prelude.mempty
@@ -149,8 +149,8 @@ instance Data.ToPath ListScheduledAudits where
 instance Data.ToQuery ListScheduledAudits where
   toQuery ListScheduledAudits' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListScheduledAuditsResponse' smart constructor.

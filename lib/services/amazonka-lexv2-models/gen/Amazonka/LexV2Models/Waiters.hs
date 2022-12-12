@@ -29,6 +29,137 @@ import Amazonka.LexV2Models.Lens
 import Amazonka.LexV2Models.Types
 import qualified Amazonka.Prelude as Prelude
 
+-- | Polls 'Amazonka.LexV2Models.DescribeBotAlias' every 10 seconds until a successful state is reached. An error is returned after 35 failed checks.
+newBotAliasAvailable :: Core.Wait DescribeBotAlias
+newBotAliasAvailable =
+  Core.Wait
+    { Core.name = "BotAliasAvailable",
+      Core.attempts = 35,
+      Core.delay = 10,
+      Core.acceptors =
+        [ Core.matchAll
+            "Available"
+            Core.AcceptSuccess
+            ( describeBotAliasResponse_botAliasStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Data.toTextCI
+            ),
+          Core.matchAll
+            "Failed"
+            Core.AcceptFailure
+            ( describeBotAliasResponse_botAliasStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Data.toTextCI
+            ),
+          Core.matchAll
+            "Deleting"
+            Core.AcceptFailure
+            ( describeBotAliasResponse_botAliasStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Data.toTextCI
+            )
+        ]
+    }
+
+-- | Polls 'Amazonka.LexV2Models.DescribeBot' every 10 seconds until a successful state is reached. An error is returned after 35 failed checks.
+newBotAvailable :: Core.Wait DescribeBot
+newBotAvailable =
+  Core.Wait
+    { Core.name = "BotAvailable",
+      Core.attempts = 35,
+      Core.delay = 10,
+      Core.acceptors =
+        [ Core.matchAll
+            "Available"
+            Core.AcceptSuccess
+            ( describeBotResponse_botStatus Prelude.. Lens._Just
+                Prelude.. Lens.to Data.toTextCI
+            ),
+          Core.matchAll
+            "Deleting"
+            Core.AcceptFailure
+            ( describeBotResponse_botStatus Prelude.. Lens._Just
+                Prelude.. Lens.to Data.toTextCI
+            ),
+          Core.matchAll
+            "Failed"
+            Core.AcceptFailure
+            ( describeBotResponse_botStatus Prelude.. Lens._Just
+                Prelude.. Lens.to Data.toTextCI
+            ),
+          Core.matchAll
+            "Inactive"
+            Core.AcceptFailure
+            ( describeBotResponse_botStatus Prelude.. Lens._Just
+                Prelude.. Lens.to Data.toTextCI
+            )
+        ]
+    }
+
+-- | Polls 'Amazonka.LexV2Models.DescribeExport' every 10 seconds until a successful state is reached. An error is returned after 35 failed checks.
+newBotExportCompleted :: Core.Wait DescribeExport
+newBotExportCompleted =
+  Core.Wait
+    { Core.name = "BotExportCompleted",
+      Core.attempts = 35,
+      Core.delay = 10,
+      Core.acceptors =
+        [ Core.matchAll
+            "Completed"
+            Core.AcceptSuccess
+            ( describeExportResponse_exportStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Data.toTextCI
+            ),
+          Core.matchAll
+            "Deleting"
+            Core.AcceptFailure
+            ( describeExportResponse_exportStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Data.toTextCI
+            ),
+          Core.matchAll
+            "Failed"
+            Core.AcceptFailure
+            ( describeExportResponse_exportStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Data.toTextCI
+            )
+        ]
+    }
+
+-- | Polls 'Amazonka.LexV2Models.DescribeImport' every 10 seconds until a successful state is reached. An error is returned after 35 failed checks.
+newBotImportCompleted :: Core.Wait DescribeImport
+newBotImportCompleted =
+  Core.Wait
+    { Core.name = "BotImportCompleted",
+      Core.attempts = 35,
+      Core.delay = 10,
+      Core.acceptors =
+        [ Core.matchAll
+            "Completed"
+            Core.AcceptSuccess
+            ( describeImportResponse_importStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Data.toTextCI
+            ),
+          Core.matchAll
+            "Deleting"
+            Core.AcceptFailure
+            ( describeImportResponse_importStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Data.toTextCI
+            ),
+          Core.matchAll
+            "Failed"
+            Core.AcceptFailure
+            ( describeImportResponse_importStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Data.toTextCI
+            )
+        ]
+    }
+
 -- | Polls 'Amazonka.LexV2Models.DescribeBotLocale' every 10 seconds until a successful state is reached. An error is returned after 35 failed checks.
 newBotLocaleBuilt :: Core.Wait DescribeBotLocale
 newBotLocaleBuilt =
@@ -68,32 +199,46 @@ newBotLocaleBuilt =
         ]
     }
 
--- | Polls 'Amazonka.LexV2Models.DescribeImport' every 10 seconds until a successful state is reached. An error is returned after 35 failed checks.
-newBotImportCompleted :: Core.Wait DescribeImport
-newBotImportCompleted =
+-- | Polls 'Amazonka.LexV2Models.DescribeBotLocale' every 10 seconds until a successful state is reached. An error is returned after 35 failed checks.
+newBotLocaleCreated :: Core.Wait DescribeBotLocale
+newBotLocaleCreated =
   Core.Wait
-    { Core.name = "BotImportCompleted",
+    { Core.name = "BotLocaleCreated",
       Core.attempts = 35,
       Core.delay = 10,
       Core.acceptors =
         [ Core.matchAll
-            "Completed"
+            "Built"
             Core.AcceptSuccess
-            ( describeImportResponse_importStatus
+            ( describeBotLocaleResponse_botLocaleStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Data.toTextCI
+            ),
+          Core.matchAll
+            "ReadyExpressTesting"
+            Core.AcceptSuccess
+            ( describeBotLocaleResponse_botLocaleStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Data.toTextCI
+            ),
+          Core.matchAll
+            "NotBuilt"
+            Core.AcceptSuccess
+            ( describeBotLocaleResponse_botLocaleStatus
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Deleting"
             Core.AcceptFailure
-            ( describeImportResponse_importStatus
+            ( describeBotLocaleResponse_botLocaleStatus
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
             "Failed"
             Core.AcceptFailure
-            ( describeImportResponse_importStatus
+            ( describeBotLocaleResponse_botLocaleStatus
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             )
@@ -147,119 +292,6 @@ newBotLocaleExpressTestingAvailable =
         ]
     }
 
--- | Polls 'Amazonka.LexV2Models.DescribeBot' every 10 seconds until a successful state is reached. An error is returned after 35 failed checks.
-newBotAvailable :: Core.Wait DescribeBot
-newBotAvailable =
-  Core.Wait
-    { Core.name = "BotAvailable",
-      Core.attempts = 35,
-      Core.delay = 10,
-      Core.acceptors =
-        [ Core.matchAll
-            "Available"
-            Core.AcceptSuccess
-            ( describeBotResponse_botStatus Prelude.. Lens._Just
-                Prelude.. Lens.to Data.toTextCI
-            ),
-          Core.matchAll
-            "Deleting"
-            Core.AcceptFailure
-            ( describeBotResponse_botStatus Prelude.. Lens._Just
-                Prelude.. Lens.to Data.toTextCI
-            ),
-          Core.matchAll
-            "Failed"
-            Core.AcceptFailure
-            ( describeBotResponse_botStatus Prelude.. Lens._Just
-                Prelude.. Lens.to Data.toTextCI
-            ),
-          Core.matchAll
-            "Inactive"
-            Core.AcceptFailure
-            ( describeBotResponse_botStatus Prelude.. Lens._Just
-                Prelude.. Lens.to Data.toTextCI
-            )
-        ]
-    }
-
--- | Polls 'Amazonka.LexV2Models.DescribeBotAlias' every 10 seconds until a successful state is reached. An error is returned after 35 failed checks.
-newBotAliasAvailable :: Core.Wait DescribeBotAlias
-newBotAliasAvailable =
-  Core.Wait
-    { Core.name = "BotAliasAvailable",
-      Core.attempts = 35,
-      Core.delay = 10,
-      Core.acceptors =
-        [ Core.matchAll
-            "Available"
-            Core.AcceptSuccess
-            ( describeBotAliasResponse_botAliasStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Data.toTextCI
-            ),
-          Core.matchAll
-            "Failed"
-            Core.AcceptFailure
-            ( describeBotAliasResponse_botAliasStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Data.toTextCI
-            ),
-          Core.matchAll
-            "Deleting"
-            Core.AcceptFailure
-            ( describeBotAliasResponse_botAliasStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Data.toTextCI
-            )
-        ]
-    }
-
--- | Polls 'Amazonka.LexV2Models.DescribeBotLocale' every 10 seconds until a successful state is reached. An error is returned after 35 failed checks.
-newBotLocaleCreated :: Core.Wait DescribeBotLocale
-newBotLocaleCreated =
-  Core.Wait
-    { Core.name = "BotLocaleCreated",
-      Core.attempts = 35,
-      Core.delay = 10,
-      Core.acceptors =
-        [ Core.matchAll
-            "Built"
-            Core.AcceptSuccess
-            ( describeBotLocaleResponse_botLocaleStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Data.toTextCI
-            ),
-          Core.matchAll
-            "ReadyExpressTesting"
-            Core.AcceptSuccess
-            ( describeBotLocaleResponse_botLocaleStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Data.toTextCI
-            ),
-          Core.matchAll
-            "NotBuilt"
-            Core.AcceptSuccess
-            ( describeBotLocaleResponse_botLocaleStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Data.toTextCI
-            ),
-          Core.matchAll
-            "Deleting"
-            Core.AcceptFailure
-            ( describeBotLocaleResponse_botLocaleStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Data.toTextCI
-            ),
-          Core.matchAll
-            "Failed"
-            Core.AcceptFailure
-            ( describeBotLocaleResponse_botLocaleStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Data.toTextCI
-            )
-        ]
-    }
-
 -- | Polls 'Amazonka.LexV2Models.DescribeBotVersion' every 10 seconds until a successful state is reached. An error is returned after 35 failed checks.
 newBotVersionAvailable :: Core.Wait DescribeBotVersion
 newBotVersionAvailable =
@@ -290,37 +322,5 @@ newBotVersionAvailable =
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchStatus 404 Core.AcceptRetry
-        ]
-    }
-
--- | Polls 'Amazonka.LexV2Models.DescribeExport' every 10 seconds until a successful state is reached. An error is returned after 35 failed checks.
-newBotExportCompleted :: Core.Wait DescribeExport
-newBotExportCompleted =
-  Core.Wait
-    { Core.name = "BotExportCompleted",
-      Core.attempts = 35,
-      Core.delay = 10,
-      Core.acceptors =
-        [ Core.matchAll
-            "Completed"
-            Core.AcceptSuccess
-            ( describeExportResponse_exportStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Data.toTextCI
-            ),
-          Core.matchAll
-            "Deleting"
-            Core.AcceptFailure
-            ( describeExportResponse_exportStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Data.toTextCI
-            ),
-          Core.matchAll
-            "Failed"
-            Core.AcceptFailure
-            ( describeExportResponse_exportStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Data.toTextCI
-            )
         ]
     }

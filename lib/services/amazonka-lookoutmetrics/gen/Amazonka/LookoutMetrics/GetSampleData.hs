@@ -34,8 +34,8 @@ module Amazonka.LookoutMetrics.GetSampleData
     newGetSampleDataResponse,
 
     -- * Response Lenses
-    getSampleDataResponse_sampleRows,
     getSampleDataResponse_headerValues,
+    getSampleDataResponse_sampleRows,
     getSampleDataResponse_httpStatus,
   )
 where
@@ -83,8 +83,8 @@ instance Core.AWSRequest GetSampleData where
     Response.receiveJSON
       ( \s h x ->
           GetSampleDataResponse'
-            Prelude.<$> (x Data..?> "SampleRows" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "HeaderValues" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "HeaderValues" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "SampleRows" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,10 +123,10 @@ instance Data.ToQuery GetSampleData where
 
 -- | /See:/ 'newGetSampleDataResponse' smart constructor.
 data GetSampleDataResponse = GetSampleDataResponse'
-  { -- | A list of records.
-    sampleRows :: Prelude.Maybe [[Prelude.Text]],
-    -- | A list of header labels for the records.
+  { -- | A list of header labels for the records.
     headerValues :: Prelude.Maybe [Prelude.Text],
+    -- | A list of records.
+    sampleRows :: Prelude.Maybe [[Prelude.Text]],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -140,9 +140,9 @@ data GetSampleDataResponse = GetSampleDataResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sampleRows', 'getSampleDataResponse_sampleRows' - A list of records.
---
 -- 'headerValues', 'getSampleDataResponse_headerValues' - A list of header labels for the records.
+--
+-- 'sampleRows', 'getSampleDataResponse_sampleRows' - A list of records.
 --
 -- 'httpStatus', 'getSampleDataResponse_httpStatus' - The response's http status code.
 newGetSampleDataResponse ::
@@ -151,19 +151,19 @@ newGetSampleDataResponse ::
   GetSampleDataResponse
 newGetSampleDataResponse pHttpStatus_ =
   GetSampleDataResponse'
-    { sampleRows =
+    { headerValues =
         Prelude.Nothing,
-      headerValues = Prelude.Nothing,
+      sampleRows = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of records.
-getSampleDataResponse_sampleRows :: Lens.Lens' GetSampleDataResponse (Prelude.Maybe [[Prelude.Text]])
-getSampleDataResponse_sampleRows = Lens.lens (\GetSampleDataResponse' {sampleRows} -> sampleRows) (\s@GetSampleDataResponse' {} a -> s {sampleRows = a} :: GetSampleDataResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of header labels for the records.
 getSampleDataResponse_headerValues :: Lens.Lens' GetSampleDataResponse (Prelude.Maybe [Prelude.Text])
 getSampleDataResponse_headerValues = Lens.lens (\GetSampleDataResponse' {headerValues} -> headerValues) (\s@GetSampleDataResponse' {} a -> s {headerValues = a} :: GetSampleDataResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of records.
+getSampleDataResponse_sampleRows :: Lens.Lens' GetSampleDataResponse (Prelude.Maybe [[Prelude.Text]])
+getSampleDataResponse_sampleRows = Lens.lens (\GetSampleDataResponse' {sampleRows} -> sampleRows) (\s@GetSampleDataResponse' {} a -> s {sampleRows = a} :: GetSampleDataResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getSampleDataResponse_httpStatus :: Lens.Lens' GetSampleDataResponse Prelude.Int
@@ -171,6 +171,6 @@ getSampleDataResponse_httpStatus = Lens.lens (\GetSampleDataResponse' {httpStatu
 
 instance Prelude.NFData GetSampleDataResponse where
   rnf GetSampleDataResponse' {..} =
-    Prelude.rnf sampleRows
-      `Prelude.seq` Prelude.rnf headerValues
+    Prelude.rnf headerValues
+      `Prelude.seq` Prelude.rnf sampleRows
       `Prelude.seq` Prelude.rnf httpStatus

@@ -108,8 +108,8 @@ module Amazonka.KMS.Encrypt
 
     -- * Request Lenses
     encrypt_encryptionAlgorithm,
-    encrypt_grantTokens,
     encrypt_encryptionContext,
+    encrypt_grantTokens,
     encrypt_keyId,
     encrypt_plaintext,
 
@@ -118,8 +118,8 @@ module Amazonka.KMS.Encrypt
     newEncryptResponse,
 
     -- * Response Lenses
-    encryptResponse_encryptionAlgorithm,
     encryptResponse_ciphertextBlob,
+    encryptResponse_encryptionAlgorithm,
     encryptResponse_keyId,
     encryptResponse_httpStatus,
   )
@@ -143,17 +143,9 @@ data Encrypt = Encrypt'
     -- value, @SYMMETRIC_DEFAULT@, is the algorithm used for symmetric
     -- encryption KMS keys. If you are using an asymmetric KMS key, we
     -- recommend RSAES_OAEP_SHA_256.
-    encryptionAlgorithm :: Prelude.Maybe EncryptionAlgorithmSpec,
-    -- | A list of grant tokens.
     --
-    -- Use a grant token when your permission to call this operation comes from
-    -- a new grant that has not yet achieved /eventual consistency/. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
-    -- and
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
-    -- in the /Key Management Service Developer Guide/.
-    grantTokens :: Prelude.Maybe [Prelude.Text],
+    -- The SM2PKE algorithm is only available in China Regions.
+    encryptionAlgorithm :: Prelude.Maybe EncryptionAlgorithmSpec,
     -- | Specifies the encryption context that will be used to encrypt the data.
     -- An encryption context is valid only for
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations>
@@ -173,6 +165,16 @@ data Encrypt = Encrypt'
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption context>
     -- in the /Key Management Service Developer Guide/.
     encryptionContext :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A list of grant tokens.
+    --
+    -- Use a grant token when your permission to call this operation comes from
+    -- a new grant that has not yet achieved /eventual consistency/. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
+    -- and
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
+    -- in the /Key Management Service Developer Guide/.
+    grantTokens :: Prelude.Maybe [Prelude.Text],
     -- | Identifies the KMS key to use in the encryption operation. The KMS key
     -- must have a @KeyUsage@ of @ENCRYPT_DECRYPT@. To find the @KeyUsage@ of a
     -- KMS key, use the DescribeKey operation.
@@ -218,15 +220,7 @@ data Encrypt = Encrypt'
 -- encryption KMS keys. If you are using an asymmetric KMS key, we
 -- recommend RSAES_OAEP_SHA_256.
 --
--- 'grantTokens', 'encrypt_grantTokens' - A list of grant tokens.
---
--- Use a grant token when your permission to call this operation comes from
--- a new grant that has not yet achieved /eventual consistency/. For more
--- information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
--- and
--- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
--- in the /Key Management Service Developer Guide/.
+-- The SM2PKE algorithm is only available in China Regions.
 --
 -- 'encryptionContext', 'encrypt_encryptionContext' - Specifies the encryption context that will be used to encrypt the data.
 -- An encryption context is valid only for
@@ -245,6 +239,16 @@ data Encrypt = Encrypt'
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption context>
+-- in the /Key Management Service Developer Guide/.
+--
+-- 'grantTokens', 'encrypt_grantTokens' - A list of grant tokens.
+--
+-- Use a grant token when your permission to call this operation comes from
+-- a new grant that has not yet achieved /eventual consistency/. For more
+-- information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
+-- and
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
 -- in the /Key Management Service Developer Guide/.
 --
 -- 'keyId', 'encrypt_keyId' - Identifies the KMS key to use in the encryption operation. The KMS key
@@ -284,8 +288,8 @@ newEncrypt ::
 newEncrypt pKeyId_ pPlaintext_ =
   Encrypt'
     { encryptionAlgorithm = Prelude.Nothing,
-      grantTokens = Prelude.Nothing,
       encryptionContext = Prelude.Nothing,
+      grantTokens = Prelude.Nothing,
       keyId = pKeyId_,
       plaintext =
         Data._Sensitive Prelude.. Data._Base64
@@ -300,20 +304,10 @@ newEncrypt pKeyId_ pPlaintext_ =
 -- value, @SYMMETRIC_DEFAULT@, is the algorithm used for symmetric
 -- encryption KMS keys. If you are using an asymmetric KMS key, we
 -- recommend RSAES_OAEP_SHA_256.
+--
+-- The SM2PKE algorithm is only available in China Regions.
 encrypt_encryptionAlgorithm :: Lens.Lens' Encrypt (Prelude.Maybe EncryptionAlgorithmSpec)
 encrypt_encryptionAlgorithm = Lens.lens (\Encrypt' {encryptionAlgorithm} -> encryptionAlgorithm) (\s@Encrypt' {} a -> s {encryptionAlgorithm = a} :: Encrypt)
-
--- | A list of grant tokens.
---
--- Use a grant token when your permission to call this operation comes from
--- a new grant that has not yet achieved /eventual consistency/. For more
--- information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
--- and
--- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
--- in the /Key Management Service Developer Guide/.
-encrypt_grantTokens :: Lens.Lens' Encrypt (Prelude.Maybe [Prelude.Text])
-encrypt_grantTokens = Lens.lens (\Encrypt' {grantTokens} -> grantTokens) (\s@Encrypt' {} a -> s {grantTokens = a} :: Encrypt) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the encryption context that will be used to encrypt the data.
 -- An encryption context is valid only for
@@ -335,6 +329,18 @@ encrypt_grantTokens = Lens.lens (\Encrypt' {grantTokens} -> grantTokens) (\s@Enc
 -- in the /Key Management Service Developer Guide/.
 encrypt_encryptionContext :: Lens.Lens' Encrypt (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 encrypt_encryptionContext = Lens.lens (\Encrypt' {encryptionContext} -> encryptionContext) (\s@Encrypt' {} a -> s {encryptionContext = a} :: Encrypt) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of grant tokens.
+--
+-- Use a grant token when your permission to call this operation comes from
+-- a new grant that has not yet achieved /eventual consistency/. For more
+-- information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
+-- and
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
+-- in the /Key Management Service Developer Guide/.
+encrypt_grantTokens :: Lens.Lens' Encrypt (Prelude.Maybe [Prelude.Text])
+encrypt_grantTokens = Lens.lens (\Encrypt' {grantTokens} -> grantTokens) (\s@Encrypt' {} a -> s {grantTokens = a} :: Encrypt) Prelude.. Lens.mapping Lens.coerced
 
 -- | Identifies the KMS key to use in the encryption operation. The KMS key
 -- must have a @KeyUsage@ of @ENCRYPT_DECRYPT@. To find the @KeyUsage@ of a
@@ -377,8 +383,8 @@ instance Core.AWSRequest Encrypt where
     Response.receiveJSON
       ( \s h x ->
           EncryptResponse'
-            Prelude.<$> (x Data..?> "EncryptionAlgorithm")
-            Prelude.<*> (x Data..?> "CiphertextBlob")
+            Prelude.<$> (x Data..?> "CiphertextBlob")
+            Prelude.<*> (x Data..?> "EncryptionAlgorithm")
             Prelude.<*> (x Data..?> "KeyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -386,16 +392,16 @@ instance Core.AWSRequest Encrypt where
 instance Prelude.Hashable Encrypt where
   hashWithSalt _salt Encrypt' {..} =
     _salt `Prelude.hashWithSalt` encryptionAlgorithm
-      `Prelude.hashWithSalt` grantTokens
       `Prelude.hashWithSalt` encryptionContext
+      `Prelude.hashWithSalt` grantTokens
       `Prelude.hashWithSalt` keyId
       `Prelude.hashWithSalt` plaintext
 
 instance Prelude.NFData Encrypt where
   rnf Encrypt' {..} =
     Prelude.rnf encryptionAlgorithm
-      `Prelude.seq` Prelude.rnf grantTokens
       `Prelude.seq` Prelude.rnf encryptionContext
+      `Prelude.seq` Prelude.rnf grantTokens
       `Prelude.seq` Prelude.rnf keyId
       `Prelude.seq` Prelude.rnf plaintext
 
@@ -418,9 +424,9 @@ instance Data.ToJSON Encrypt where
       ( Prelude.catMaybes
           [ ("EncryptionAlgorithm" Data..=)
               Prelude.<$> encryptionAlgorithm,
-            ("GrantTokens" Data..=) Prelude.<$> grantTokens,
             ("EncryptionContext" Data..=)
               Prelude.<$> encryptionContext,
+            ("GrantTokens" Data..=) Prelude.<$> grantTokens,
             Prelude.Just ("KeyId" Data..= keyId),
             Prelude.Just ("Plaintext" Data..= plaintext)
           ]
@@ -434,12 +440,12 @@ instance Data.ToQuery Encrypt where
 
 -- | /See:/ 'newEncryptResponse' smart constructor.
 data EncryptResponse = EncryptResponse'
-  { -- | The encryption algorithm that was used to encrypt the plaintext.
-    encryptionAlgorithm :: Prelude.Maybe EncryptionAlgorithmSpec,
-    -- | The encrypted plaintext. When you use the HTTP API or the Amazon Web
+  { -- | The encrypted plaintext. When you use the HTTP API or the Amazon Web
     -- Services CLI, the value is Base64-encoded. Otherwise, it is not
     -- Base64-encoded.
     ciphertextBlob :: Prelude.Maybe Data.Base64,
+    -- | The encryption algorithm that was used to encrypt the plaintext.
+    encryptionAlgorithm :: Prelude.Maybe EncryptionAlgorithmSpec,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
     -- of the KMS key that was used to encrypt the plaintext.
@@ -457,8 +463,6 @@ data EncryptResponse = EncryptResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'encryptionAlgorithm', 'encryptResponse_encryptionAlgorithm' - The encryption algorithm that was used to encrypt the plaintext.
---
 -- 'ciphertextBlob', 'encryptResponse_ciphertextBlob' - The encrypted plaintext. When you use the HTTP API or the Amazon Web
 -- Services CLI, the value is Base64-encoded. Otherwise, it is not
 -- Base64-encoded.--
@@ -466,6 +470,8 @@ data EncryptResponse = EncryptResponse'
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- 'encryptionAlgorithm', 'encryptResponse_encryptionAlgorithm' - The encryption algorithm that was used to encrypt the plaintext.
 --
 -- 'keyId', 'encryptResponse_keyId' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
@@ -478,16 +484,11 @@ newEncryptResponse ::
   EncryptResponse
 newEncryptResponse pHttpStatus_ =
   EncryptResponse'
-    { encryptionAlgorithm =
-        Prelude.Nothing,
-      ciphertextBlob = Prelude.Nothing,
+    { ciphertextBlob = Prelude.Nothing,
+      encryptionAlgorithm = Prelude.Nothing,
       keyId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The encryption algorithm that was used to encrypt the plaintext.
-encryptResponse_encryptionAlgorithm :: Lens.Lens' EncryptResponse (Prelude.Maybe EncryptionAlgorithmSpec)
-encryptResponse_encryptionAlgorithm = Lens.lens (\EncryptResponse' {encryptionAlgorithm} -> encryptionAlgorithm) (\s@EncryptResponse' {} a -> s {encryptionAlgorithm = a} :: EncryptResponse)
 
 -- | The encrypted plaintext. When you use the HTTP API or the Amazon Web
 -- Services CLI, the value is Base64-encoded. Otherwise, it is not
@@ -498,6 +499,10 @@ encryptResponse_encryptionAlgorithm = Lens.lens (\EncryptResponse' {encryptionAl
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 encryptResponse_ciphertextBlob :: Lens.Lens' EncryptResponse (Prelude.Maybe Prelude.ByteString)
 encryptResponse_ciphertextBlob = Lens.lens (\EncryptResponse' {ciphertextBlob} -> ciphertextBlob) (\s@EncryptResponse' {} a -> s {ciphertextBlob = a} :: EncryptResponse) Prelude.. Lens.mapping Data._Base64
+
+-- | The encryption algorithm that was used to encrypt the plaintext.
+encryptResponse_encryptionAlgorithm :: Lens.Lens' EncryptResponse (Prelude.Maybe EncryptionAlgorithmSpec)
+encryptResponse_encryptionAlgorithm = Lens.lens (\EncryptResponse' {encryptionAlgorithm} -> encryptionAlgorithm) (\s@EncryptResponse' {} a -> s {encryptionAlgorithm = a} :: EncryptResponse)
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
@@ -511,7 +516,7 @@ encryptResponse_httpStatus = Lens.lens (\EncryptResponse' {httpStatus} -> httpSt
 
 instance Prelude.NFData EncryptResponse where
   rnf EncryptResponse' {..} =
-    Prelude.rnf encryptionAlgorithm
-      `Prelude.seq` Prelude.rnf ciphertextBlob
+    Prelude.rnf ciphertextBlob
+      `Prelude.seq` Prelude.rnf encryptionAlgorithm
       `Prelude.seq` Prelude.rnf keyId
       `Prelude.seq` Prelude.rnf httpStatus

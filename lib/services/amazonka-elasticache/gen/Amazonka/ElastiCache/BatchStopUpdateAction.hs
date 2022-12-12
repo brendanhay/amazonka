@@ -38,8 +38,8 @@ module Amazonka.ElastiCache.BatchStopUpdateAction
     newUpdateActionResultsMessage,
 
     -- * Response Lenses
-    updateActionResultsMessage_unprocessedUpdateActions,
     updateActionResultsMessage_processedUpdateActions,
+    updateActionResultsMessage_unprocessedUpdateActions,
   )
 where
 

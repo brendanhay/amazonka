@@ -30,16 +30,16 @@ import Amazonka.WorkSpaces.Types.ReconnectEnum
 --
 -- /See:/ 'newClientProperties' smart constructor.
 data ClientProperties = ClientProperties'
-  { -- | Specifies whether users can cache their credentials on the Amazon
-    -- WorkSpaces client. When enabled, users can choose to reconnect to their
-    -- WorkSpaces without re-entering their credentials.
-    reconnectEnabled :: Prelude.Maybe ReconnectEnum,
-    -- | Specifies whether users can upload diagnostic log files of Amazon
+  { -- | Specifies whether users can upload diagnostic log files of Amazon
     -- WorkSpaces client directly to WorkSpaces to troubleshoot issues when
     -- using the WorkSpaces client. When enabled, the log files will be sent to
     -- WorkSpaces automatically and will be applied to all users in the
     -- specified directory.
-    logUploadEnabled :: Prelude.Maybe LogUploadEnum
+    logUploadEnabled :: Prelude.Maybe LogUploadEnum,
+    -- | Specifies whether users can cache their credentials on the Amazon
+    -- WorkSpaces client. When enabled, users can choose to reconnect to their
+    -- WorkSpaces without re-entering their credentials.
+    reconnectEnabled :: Prelude.Maybe ReconnectEnum
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,29 +51,23 @@ data ClientProperties = ClientProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'reconnectEnabled', 'clientProperties_reconnectEnabled' - Specifies whether users can cache their credentials on the Amazon
--- WorkSpaces client. When enabled, users can choose to reconnect to their
--- WorkSpaces without re-entering their credentials.
---
 -- 'logUploadEnabled', 'clientProperties_logUploadEnabled' - Specifies whether users can upload diagnostic log files of Amazon
 -- WorkSpaces client directly to WorkSpaces to troubleshoot issues when
 -- using the WorkSpaces client. When enabled, the log files will be sent to
 -- WorkSpaces automatically and will be applied to all users in the
 -- specified directory.
+--
+-- 'reconnectEnabled', 'clientProperties_reconnectEnabled' - Specifies whether users can cache their credentials on the Amazon
+-- WorkSpaces client. When enabled, users can choose to reconnect to their
+-- WorkSpaces without re-entering their credentials.
 newClientProperties ::
   ClientProperties
 newClientProperties =
   ClientProperties'
-    { reconnectEnabled =
+    { logUploadEnabled =
         Prelude.Nothing,
-      logUploadEnabled = Prelude.Nothing
+      reconnectEnabled = Prelude.Nothing
     }
-
--- | Specifies whether users can cache their credentials on the Amazon
--- WorkSpaces client. When enabled, users can choose to reconnect to their
--- WorkSpaces without re-entering their credentials.
-clientProperties_reconnectEnabled :: Lens.Lens' ClientProperties (Prelude.Maybe ReconnectEnum)
-clientProperties_reconnectEnabled = Lens.lens (\ClientProperties' {reconnectEnabled} -> reconnectEnabled) (\s@ClientProperties' {} a -> s {reconnectEnabled = a} :: ClientProperties)
 
 -- | Specifies whether users can upload diagnostic log files of Amazon
 -- WorkSpaces client directly to WorkSpaces to troubleshoot issues when
@@ -83,33 +77,39 @@ clientProperties_reconnectEnabled = Lens.lens (\ClientProperties' {reconnectEnab
 clientProperties_logUploadEnabled :: Lens.Lens' ClientProperties (Prelude.Maybe LogUploadEnum)
 clientProperties_logUploadEnabled = Lens.lens (\ClientProperties' {logUploadEnabled} -> logUploadEnabled) (\s@ClientProperties' {} a -> s {logUploadEnabled = a} :: ClientProperties)
 
+-- | Specifies whether users can cache their credentials on the Amazon
+-- WorkSpaces client. When enabled, users can choose to reconnect to their
+-- WorkSpaces without re-entering their credentials.
+clientProperties_reconnectEnabled :: Lens.Lens' ClientProperties (Prelude.Maybe ReconnectEnum)
+clientProperties_reconnectEnabled = Lens.lens (\ClientProperties' {reconnectEnabled} -> reconnectEnabled) (\s@ClientProperties' {} a -> s {reconnectEnabled = a} :: ClientProperties)
+
 instance Data.FromJSON ClientProperties where
   parseJSON =
     Data.withObject
       "ClientProperties"
       ( \x ->
           ClientProperties'
-            Prelude.<$> (x Data..:? "ReconnectEnabled")
-            Prelude.<*> (x Data..:? "LogUploadEnabled")
+            Prelude.<$> (x Data..:? "LogUploadEnabled")
+            Prelude.<*> (x Data..:? "ReconnectEnabled")
       )
 
 instance Prelude.Hashable ClientProperties where
   hashWithSalt _salt ClientProperties' {..} =
-    _salt `Prelude.hashWithSalt` reconnectEnabled
-      `Prelude.hashWithSalt` logUploadEnabled
+    _salt `Prelude.hashWithSalt` logUploadEnabled
+      `Prelude.hashWithSalt` reconnectEnabled
 
 instance Prelude.NFData ClientProperties where
   rnf ClientProperties' {..} =
-    Prelude.rnf reconnectEnabled
-      `Prelude.seq` Prelude.rnf logUploadEnabled
+    Prelude.rnf logUploadEnabled
+      `Prelude.seq` Prelude.rnf reconnectEnabled
 
 instance Data.ToJSON ClientProperties where
   toJSON ClientProperties' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ReconnectEnabled" Data..=)
-              Prelude.<$> reconnectEnabled,
-            ("LogUploadEnabled" Data..=)
-              Prelude.<$> logUploadEnabled
+          [ ("LogUploadEnabled" Data..=)
+              Prelude.<$> logUploadEnabled,
+            ("ReconnectEnabled" Data..=)
+              Prelude.<$> reconnectEnabled
           ]
       )

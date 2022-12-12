@@ -19,16 +19,16 @@ module Amazonka.IotTwinMaker.Types
 
     -- * Errors
     _AccessDeniedException,
-    _InternalServerException,
-    _TooManyTagsException,
-    _ServiceQuotaExceededException,
-    _ResourceNotFoundException,
-    _QueryTimeoutException,
     _ConflictException,
     _ConnectorFailureException,
-    _ThrottlingException,
-    _ValidationException,
     _ConnectorTimeoutException,
+    _InternalServerException,
+    _QueryTimeoutException,
+    _ResourceNotFoundException,
+    _ServiceQuotaExceededException,
+    _ThrottlingException,
+    _TooManyTagsException,
+    _ValidationException,
 
     -- * ColumnType
     ColumnType (..),
@@ -72,6 +72,15 @@ module Amazonka.IotTwinMaker.Types
     -- * State
     State (..),
 
+    -- * SyncJobState
+    SyncJobState (..),
+
+    -- * SyncResourceState
+    SyncResourceState (..),
+
+    -- * SyncResourceType
+    SyncResourceType (..),
+
     -- * Type
     Type (..),
 
@@ -105,9 +114,9 @@ module Amazonka.IotTwinMaker.Types
     -- * ComponentPropertyGroupRequest
     ComponentPropertyGroupRequest (..),
     newComponentPropertyGroupRequest,
-    componentPropertyGroupRequest_updateType,
-    componentPropertyGroupRequest_propertyNames,
     componentPropertyGroupRequest_groupType,
+    componentPropertyGroupRequest_propertyNames,
+    componentPropertyGroupRequest_updateType,
 
     -- * ComponentPropertyGroupResponse
     ComponentPropertyGroupResponse (..),
@@ -119,27 +128,29 @@ module Amazonka.IotTwinMaker.Types
     -- * ComponentRequest
     ComponentRequest (..),
     newComponentRequest,
-    componentRequest_properties,
-    componentRequest_description,
-    componentRequest_propertyGroups,
     componentRequest_componentTypeId,
+    componentRequest_description,
+    componentRequest_properties,
+    componentRequest_propertyGroups,
 
     -- * ComponentResponse
     ComponentResponse (..),
     newComponentResponse,
     componentResponse_componentName,
-    componentResponse_properties,
-    componentResponse_definedIn,
-    componentResponse_status,
-    componentResponse_description,
-    componentResponse_propertyGroups,
     componentResponse_componentTypeId,
+    componentResponse_definedIn,
+    componentResponse_description,
+    componentResponse_properties,
+    componentResponse_propertyGroups,
+    componentResponse_status,
+    componentResponse_syncSource,
 
     -- * ComponentTypeSummary
     ComponentTypeSummary (..),
     newComponentTypeSummary,
-    componentTypeSummary_status,
+    componentTypeSummary_componentTypeName,
     componentTypeSummary_description,
+    componentTypeSummary_status,
     componentTypeSummary_arn,
     componentTypeSummary_componentTypeId,
     componentTypeSummary_creationDateTime,
@@ -148,54 +159,54 @@ module Amazonka.IotTwinMaker.Types
     -- * ComponentUpdateRequest
     ComponentUpdateRequest (..),
     newComponentUpdateRequest,
-    componentUpdateRequest_updateType,
-    componentUpdateRequest_propertyUpdates,
-    componentUpdateRequest_propertyGroupUpdates,
-    componentUpdateRequest_description,
     componentUpdateRequest_componentTypeId,
+    componentUpdateRequest_description,
+    componentUpdateRequest_propertyGroupUpdates,
+    componentUpdateRequest_propertyUpdates,
+    componentUpdateRequest_updateType,
 
     -- * DataConnector
     DataConnector (..),
     newDataConnector,
-    dataConnector_lambda,
     dataConnector_isNative,
+    dataConnector_lambda,
 
     -- * DataType
     DataType (..),
     newDataType,
+    dataType_allowedValues,
     dataType_nestedType,
     dataType_relationship,
     dataType_unitOfMeasure,
-    dataType_allowedValues,
     dataType_type,
 
     -- * DataValue
     DataValue (..),
     newDataValue,
-    dataValue_integerValue,
-    dataValue_doubleValue,
     dataValue_booleanValue,
+    dataValue_doubleValue,
     dataValue_expression,
-    dataValue_mapValue,
-    dataValue_stringValue,
-    dataValue_relationshipValue,
+    dataValue_integerValue,
     dataValue_listValue,
     dataValue_longValue,
+    dataValue_mapValue,
+    dataValue_relationshipValue,
+    dataValue_stringValue,
 
     -- * EntityPropertyReference
     EntityPropertyReference (..),
     newEntityPropertyReference,
-    entityPropertyReference_entityId,
     entityPropertyReference_componentName,
+    entityPropertyReference_entityId,
     entityPropertyReference_externalIdProperty,
     entityPropertyReference_propertyName,
 
     -- * EntitySummary
     EntitySummary (..),
     newEntitySummary,
+    entitySummary_description,
     entitySummary_hasChildEntities,
     entitySummary_parentEntityId,
-    entitySummary_description,
     entitySummary_entityId,
     entitySummary_entityName,
     entitySummary_arn,
@@ -206,23 +217,23 @@ module Amazonka.IotTwinMaker.Types
     -- * ErrorDetails
     ErrorDetails (..),
     newErrorDetails,
-    errorDetails_message,
     errorDetails_code,
+    errorDetails_message,
 
     -- * FunctionRequest
     FunctionRequest (..),
     newFunctionRequest,
-    functionRequest_requiredProperties,
     functionRequest_implementedBy,
+    functionRequest_requiredProperties,
     functionRequest_scope,
 
     -- * FunctionResponse
     FunctionResponse (..),
     newFunctionResponse,
-    functionResponse_requiredProperties,
     functionResponse_implementedBy,
-    functionResponse_scope,
     functionResponse_isInherited,
+    functionResponse_requiredProperties,
+    functionResponse_scope,
 
     -- * InterpolationParameters
     InterpolationParameters (..),
@@ -238,16 +249,16 @@ module Amazonka.IotTwinMaker.Types
     -- * ListComponentTypesFilter
     ListComponentTypesFilter (..),
     newListComponentTypesFilter,
+    listComponentTypesFilter_extendsFrom,
     listComponentTypesFilter_isAbstract,
     listComponentTypesFilter_namespace,
-    listComponentTypesFilter_extendsFrom,
 
     -- * ListEntitiesFilter
     ListEntitiesFilter (..),
     newListEntitiesFilter,
-    listEntitiesFilter_parentEntityId,
-    listEntitiesFilter_externalId,
     listEntitiesFilter_componentTypeId,
+    listEntitiesFilter_externalId,
+    listEntitiesFilter_parentEntityId,
 
     -- * OrderBy
     OrderBy (..),
@@ -264,8 +275,8 @@ module Amazonka.IotTwinMaker.Types
     -- * PricingPlan
     PricingPlan (..),
     newPricingPlan,
-    pricingPlan_bundleInformation,
     pricingPlan_billableEntityCount,
+    pricingPlan_bundleInformation,
     pricingPlan_effectiveDateTime,
     pricingPlan_pricingMode,
     pricingPlan_updateDateTime,
@@ -274,12 +285,13 @@ module Amazonka.IotTwinMaker.Types
     -- * PropertyDefinitionRequest
     PropertyDefinitionRequest (..),
     newPropertyDefinitionRequest,
-    propertyDefinitionRequest_isExternalId,
-    propertyDefinitionRequest_isStoredExternally,
     propertyDefinitionRequest_configuration,
-    propertyDefinitionRequest_defaultValue,
-    propertyDefinitionRequest_isRequiredInEntity,
     propertyDefinitionRequest_dataType,
+    propertyDefinitionRequest_defaultValue,
+    propertyDefinitionRequest_displayName,
+    propertyDefinitionRequest_isExternalId,
+    propertyDefinitionRequest_isRequiredInEntity,
+    propertyDefinitionRequest_isStoredExternally,
     propertyDefinitionRequest_isTimeSeries,
 
     -- * PropertyDefinitionResponse
@@ -287,6 +299,7 @@ module Amazonka.IotTwinMaker.Types
     newPropertyDefinitionResponse,
     propertyDefinitionResponse_configuration,
     propertyDefinitionResponse_defaultValue,
+    propertyDefinitionResponse_displayName,
     propertyDefinitionResponse_dataType,
     propertyDefinitionResponse_isTimeSeries,
     propertyDefinitionResponse_isRequiredInEntity,
@@ -306,8 +319,8 @@ module Amazonka.IotTwinMaker.Types
     -- * PropertyGroupRequest
     PropertyGroupRequest (..),
     newPropertyGroupRequest,
-    propertyGroupRequest_propertyNames,
     propertyGroupRequest_groupType,
+    propertyGroupRequest_propertyNames,
 
     -- * PropertyGroupResponse
     PropertyGroupResponse (..),
@@ -325,8 +338,8 @@ module Amazonka.IotTwinMaker.Types
     -- * PropertyRequest
     PropertyRequest (..),
     newPropertyRequest,
-    propertyRequest_updateType,
     propertyRequest_definition,
+    propertyRequest_updateType,
     propertyRequest_value,
 
     -- * PropertyResponse
@@ -361,14 +374,14 @@ module Amazonka.IotTwinMaker.Types
     -- * Relationship
     Relationship (..),
     newRelationship,
-    relationship_targetComponentTypeId,
     relationship_relationshipType,
+    relationship_targetComponentTypeId,
 
     -- * RelationshipValue
     RelationshipValue (..),
     newRelationshipValue,
-    relationshipValue_targetEntityId,
     relationshipValue_targetComponentName,
+    relationshipValue_targetEntityId,
 
     -- * Row
     Row (..),
@@ -388,14 +401,53 @@ module Amazonka.IotTwinMaker.Types
     -- * Status
     Status (..),
     newStatus,
-    status_state,
     status_error,
+    status_state,
+
+    -- * SyncJobStatus
+    SyncJobStatus (..),
+    newSyncJobStatus,
+    syncJobStatus_error,
+    syncJobStatus_state,
+
+    -- * SyncJobSummary
+    SyncJobSummary (..),
+    newSyncJobSummary,
+    syncJobSummary_arn,
+    syncJobSummary_creationDateTime,
+    syncJobSummary_status,
+    syncJobSummary_syncSource,
+    syncJobSummary_updateDateTime,
+    syncJobSummary_workspaceId,
+
+    -- * SyncResourceFilter
+    SyncResourceFilter (..),
+    newSyncResourceFilter,
+    syncResourceFilter_externalId,
+    syncResourceFilter_resourceId,
+    syncResourceFilter_resourceType,
+    syncResourceFilter_state,
+
+    -- * SyncResourceStatus
+    SyncResourceStatus (..),
+    newSyncResourceStatus,
+    syncResourceStatus_error,
+    syncResourceStatus_state,
+
+    -- * SyncResourceSummary
+    SyncResourceSummary (..),
+    newSyncResourceSummary,
+    syncResourceSummary_externalId,
+    syncResourceSummary_resourceId,
+    syncResourceSummary_resourceType,
+    syncResourceSummary_status,
+    syncResourceSummary_updateDateTime,
 
     -- * TabularConditions
     TabularConditions (..),
     newTabularConditions,
-    tabularConditions_propertyFilters,
     tabularConditions_orderBy,
+    tabularConditions_propertyFilters,
 
     -- * WorkspaceSummary
     WorkspaceSummary (..),
@@ -466,6 +518,14 @@ import Amazonka.IotTwinMaker.Types.SceneSummary
 import Amazonka.IotTwinMaker.Types.Scope
 import Amazonka.IotTwinMaker.Types.State
 import Amazonka.IotTwinMaker.Types.Status
+import Amazonka.IotTwinMaker.Types.SyncJobState
+import Amazonka.IotTwinMaker.Types.SyncJobStatus
+import Amazonka.IotTwinMaker.Types.SyncJobSummary
+import Amazonka.IotTwinMaker.Types.SyncResourceFilter
+import Amazonka.IotTwinMaker.Types.SyncResourceState
+import Amazonka.IotTwinMaker.Types.SyncResourceStatus
+import Amazonka.IotTwinMaker.Types.SyncResourceSummary
+import Amazonka.IotTwinMaker.Types.SyncResourceType
 import Amazonka.IotTwinMaker.Types.TabularConditions
 import Amazonka.IotTwinMaker.Types.Type
 import Amazonka.IotTwinMaker.Types.UpdateReason
@@ -498,28 +558,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -527,13 +581,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -541,6 +599,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Access is denied.
@@ -550,46 +610,6 @@ _AccessDeniedException =
     defaultService
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
-
--- | An unexpected error has occurred.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServerException"
-    Prelude.. Core.hasStatus 500
-
--- | The number of tags exceeds the limit.
-_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyTagsException =
-  Core._MatchServiceError
-    defaultService
-    "TooManyTagsException"
-    Prelude.. Core.hasStatus 400
-
--- | The service quota was exceeded.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceQuotaExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceQuotaExceededException"
-    Prelude.. Core.hasStatus 402
-
--- | The resource wasn\'t found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
-
--- | The query timeout exception.
-_QueryTimeoutException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_QueryTimeoutException =
-  Core._MatchServiceError
-    defaultService
-    "QueryTimeoutException"
-    Prelude.. Core.hasStatus 400
 
 -- | A conflict occurred.
 _ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -607,6 +627,46 @@ _ConnectorFailureException =
     "ConnectorFailureException"
     Prelude.. Core.hasStatus 424
 
+-- | The connector timed out.
+_ConnectorTimeoutException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConnectorTimeoutException =
+  Core._MatchServiceError
+    defaultService
+    "ConnectorTimeoutException"
+    Prelude.. Core.hasStatus 424
+
+-- | An unexpected error has occurred.
+_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServerException"
+    Prelude.. Core.hasStatus 500
+
+-- | The query timeout exception.
+_QueryTimeoutException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_QueryTimeoutException =
+  Core._MatchServiceError
+    defaultService
+    "QueryTimeoutException"
+    Prelude.. Core.hasStatus 400
+
+-- | The resource wasn\'t found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
+
+-- | The service quota was exceeded.
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceQuotaExceededException"
+    Prelude.. Core.hasStatus 402
+
 -- | The rate exceeds the limit.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ThrottlingException =
@@ -615,6 +675,14 @@ _ThrottlingException =
     "ThrottlingException"
     Prelude.. Core.hasStatus 429
 
+-- | The number of tags exceeds the limit.
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyTagsException"
+    Prelude.. Core.hasStatus 400
+
 -- | Failed
 _ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ValidationException =
@@ -622,11 +690,3 @@ _ValidationException =
     defaultService
     "ValidationException"
     Prelude.. Core.hasStatus 400
-
--- | The connector timed out.
-_ConnectorTimeoutException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConnectorTimeoutException =
-  Core._MatchServiceError
-    defaultService
-    "ConnectorTimeoutException"
-    Prelude.. Core.hasStatus 424

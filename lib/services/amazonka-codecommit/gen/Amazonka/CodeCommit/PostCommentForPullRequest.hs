@@ -40,14 +40,14 @@ module Amazonka.CodeCommit.PostCommentForPullRequest
     newPostCommentForPullRequestResponse,
 
     -- * Response Lenses
-    postCommentForPullRequestResponse_beforeBlobId,
+    postCommentForPullRequestResponse_afterBlobId,
     postCommentForPullRequestResponse_afterCommitId,
+    postCommentForPullRequestResponse_beforeBlobId,
+    postCommentForPullRequestResponse_beforeCommitId,
+    postCommentForPullRequestResponse_comment,
+    postCommentForPullRequestResponse_location,
     postCommentForPullRequestResponse_pullRequestId,
     postCommentForPullRequestResponse_repositoryName,
-    postCommentForPullRequestResponse_beforeCommitId,
-    postCommentForPullRequestResponse_location,
-    postCommentForPullRequestResponse_comment,
-    postCommentForPullRequestResponse_afterBlobId,
     postCommentForPullRequestResponse_httpStatus,
   )
 where
@@ -203,14 +203,14 @@ instance Core.AWSRequest PostCommentForPullRequest where
     Response.receiveJSON
       ( \s h x ->
           PostCommentForPullRequestResponse'
-            Prelude.<$> (x Data..?> "beforeBlobId")
+            Prelude.<$> (x Data..?> "afterBlobId")
             Prelude.<*> (x Data..?> "afterCommitId")
+            Prelude.<*> (x Data..?> "beforeBlobId")
+            Prelude.<*> (x Data..?> "beforeCommitId")
+            Prelude.<*> (x Data..?> "comment")
+            Prelude.<*> (x Data..?> "location")
             Prelude.<*> (x Data..?> "pullRequestId")
             Prelude.<*> (x Data..?> "repositoryName")
-            Prelude.<*> (x Data..?> "beforeCommitId")
-            Prelude.<*> (x Data..?> "location")
-            Prelude.<*> (x Data..?> "comment")
-            Prelude.<*> (x Data..?> "afterBlobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -274,27 +274,27 @@ instance Data.ToQuery PostCommentForPullRequest where
 
 -- | /See:/ 'newPostCommentForPullRequestResponse' smart constructor.
 data PostCommentForPullRequestResponse = PostCommentForPullRequestResponse'
-  { -- | In the directionality of the pull request, the blob ID of the before
+  { -- | In the directionality of the pull request, the blob ID of the after
     -- blob.
-    beforeBlobId :: Prelude.Maybe Prelude.Text,
+    afterBlobId :: Prelude.Maybe Prelude.Text,
     -- | The full commit ID of the commit in the destination branch where the
     -- pull request is merged.
     afterCommitId :: Prelude.Maybe Prelude.Text,
-    -- | The system-generated ID of the pull request.
-    pullRequestId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the repository where you posted a comment on a pull request.
-    repositoryName :: Prelude.Maybe Prelude.Text,
+    -- | In the directionality of the pull request, the blob ID of the before
+    -- blob.
+    beforeBlobId :: Prelude.Maybe Prelude.Text,
     -- | The full commit ID of the commit in the source branch used to create the
     -- pull request, or in the case of an updated pull request, the full commit
     -- ID of the commit used to update the pull request.
     beforeCommitId :: Prelude.Maybe Prelude.Text,
-    -- | The location of the change where you posted your comment.
-    location :: Prelude.Maybe Location,
     -- | The content of the comment you posted.
     comment :: Prelude.Maybe Comment,
-    -- | In the directionality of the pull request, the blob ID of the after
-    -- blob.
-    afterBlobId :: Prelude.Maybe Prelude.Text,
+    -- | The location of the change where you posted your comment.
+    location :: Prelude.Maybe Location,
+    -- | The system-generated ID of the pull request.
+    pullRequestId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the repository where you posted a comment on a pull request.
+    repositoryName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -308,26 +308,26 @@ data PostCommentForPullRequestResponse = PostCommentForPullRequestResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'beforeBlobId', 'postCommentForPullRequestResponse_beforeBlobId' - In the directionality of the pull request, the blob ID of the before
+-- 'afterBlobId', 'postCommentForPullRequestResponse_afterBlobId' - In the directionality of the pull request, the blob ID of the after
 -- blob.
 --
 -- 'afterCommitId', 'postCommentForPullRequestResponse_afterCommitId' - The full commit ID of the commit in the destination branch where the
 -- pull request is merged.
 --
--- 'pullRequestId', 'postCommentForPullRequestResponse_pullRequestId' - The system-generated ID of the pull request.
---
--- 'repositoryName', 'postCommentForPullRequestResponse_repositoryName' - The name of the repository where you posted a comment on a pull request.
+-- 'beforeBlobId', 'postCommentForPullRequestResponse_beforeBlobId' - In the directionality of the pull request, the blob ID of the before
+-- blob.
 --
 -- 'beforeCommitId', 'postCommentForPullRequestResponse_beforeCommitId' - The full commit ID of the commit in the source branch used to create the
 -- pull request, or in the case of an updated pull request, the full commit
 -- ID of the commit used to update the pull request.
 --
--- 'location', 'postCommentForPullRequestResponse_location' - The location of the change where you posted your comment.
---
 -- 'comment', 'postCommentForPullRequestResponse_comment' - The content of the comment you posted.
 --
--- 'afterBlobId', 'postCommentForPullRequestResponse_afterBlobId' - In the directionality of the pull request, the blob ID of the after
--- blob.
+-- 'location', 'postCommentForPullRequestResponse_location' - The location of the change where you posted your comment.
+--
+-- 'pullRequestId', 'postCommentForPullRequestResponse_pullRequestId' - The system-generated ID of the pull request.
+--
+-- 'repositoryName', 'postCommentForPullRequestResponse_repositoryName' - The name of the repository where you posted a comment on a pull request.
 --
 -- 'httpStatus', 'postCommentForPullRequestResponse_httpStatus' - The response's http status code.
 newPostCommentForPullRequestResponse ::
@@ -336,27 +336,46 @@ newPostCommentForPullRequestResponse ::
   PostCommentForPullRequestResponse
 newPostCommentForPullRequestResponse pHttpStatus_ =
   PostCommentForPullRequestResponse'
-    { beforeBlobId =
+    { afterBlobId =
         Prelude.Nothing,
       afterCommitId = Prelude.Nothing,
+      beforeBlobId = Prelude.Nothing,
+      beforeCommitId = Prelude.Nothing,
+      comment = Prelude.Nothing,
+      location = Prelude.Nothing,
       pullRequestId = Prelude.Nothing,
       repositoryName = Prelude.Nothing,
-      beforeCommitId = Prelude.Nothing,
-      location = Prelude.Nothing,
-      comment = Prelude.Nothing,
-      afterBlobId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | In the directionality of the pull request, the blob ID of the after
+-- blob.
+postCommentForPullRequestResponse_afterBlobId :: Lens.Lens' PostCommentForPullRequestResponse (Prelude.Maybe Prelude.Text)
+postCommentForPullRequestResponse_afterBlobId = Lens.lens (\PostCommentForPullRequestResponse' {afterBlobId} -> afterBlobId) (\s@PostCommentForPullRequestResponse' {} a -> s {afterBlobId = a} :: PostCommentForPullRequestResponse)
+
+-- | The full commit ID of the commit in the destination branch where the
+-- pull request is merged.
+postCommentForPullRequestResponse_afterCommitId :: Lens.Lens' PostCommentForPullRequestResponse (Prelude.Maybe Prelude.Text)
+postCommentForPullRequestResponse_afterCommitId = Lens.lens (\PostCommentForPullRequestResponse' {afterCommitId} -> afterCommitId) (\s@PostCommentForPullRequestResponse' {} a -> s {afterCommitId = a} :: PostCommentForPullRequestResponse)
 
 -- | In the directionality of the pull request, the blob ID of the before
 -- blob.
 postCommentForPullRequestResponse_beforeBlobId :: Lens.Lens' PostCommentForPullRequestResponse (Prelude.Maybe Prelude.Text)
 postCommentForPullRequestResponse_beforeBlobId = Lens.lens (\PostCommentForPullRequestResponse' {beforeBlobId} -> beforeBlobId) (\s@PostCommentForPullRequestResponse' {} a -> s {beforeBlobId = a} :: PostCommentForPullRequestResponse)
 
--- | The full commit ID of the commit in the destination branch where the
--- pull request is merged.
-postCommentForPullRequestResponse_afterCommitId :: Lens.Lens' PostCommentForPullRequestResponse (Prelude.Maybe Prelude.Text)
-postCommentForPullRequestResponse_afterCommitId = Lens.lens (\PostCommentForPullRequestResponse' {afterCommitId} -> afterCommitId) (\s@PostCommentForPullRequestResponse' {} a -> s {afterCommitId = a} :: PostCommentForPullRequestResponse)
+-- | The full commit ID of the commit in the source branch used to create the
+-- pull request, or in the case of an updated pull request, the full commit
+-- ID of the commit used to update the pull request.
+postCommentForPullRequestResponse_beforeCommitId :: Lens.Lens' PostCommentForPullRequestResponse (Prelude.Maybe Prelude.Text)
+postCommentForPullRequestResponse_beforeCommitId = Lens.lens (\PostCommentForPullRequestResponse' {beforeCommitId} -> beforeCommitId) (\s@PostCommentForPullRequestResponse' {} a -> s {beforeCommitId = a} :: PostCommentForPullRequestResponse)
+
+-- | The content of the comment you posted.
+postCommentForPullRequestResponse_comment :: Lens.Lens' PostCommentForPullRequestResponse (Prelude.Maybe Comment)
+postCommentForPullRequestResponse_comment = Lens.lens (\PostCommentForPullRequestResponse' {comment} -> comment) (\s@PostCommentForPullRequestResponse' {} a -> s {comment = a} :: PostCommentForPullRequestResponse)
+
+-- | The location of the change where you posted your comment.
+postCommentForPullRequestResponse_location :: Lens.Lens' PostCommentForPullRequestResponse (Prelude.Maybe Location)
+postCommentForPullRequestResponse_location = Lens.lens (\PostCommentForPullRequestResponse' {location} -> location) (\s@PostCommentForPullRequestResponse' {} a -> s {location = a} :: PostCommentForPullRequestResponse)
 
 -- | The system-generated ID of the pull request.
 postCommentForPullRequestResponse_pullRequestId :: Lens.Lens' PostCommentForPullRequestResponse (Prelude.Maybe Prelude.Text)
@@ -365,25 +384,6 @@ postCommentForPullRequestResponse_pullRequestId = Lens.lens (\PostCommentForPull
 -- | The name of the repository where you posted a comment on a pull request.
 postCommentForPullRequestResponse_repositoryName :: Lens.Lens' PostCommentForPullRequestResponse (Prelude.Maybe Prelude.Text)
 postCommentForPullRequestResponse_repositoryName = Lens.lens (\PostCommentForPullRequestResponse' {repositoryName} -> repositoryName) (\s@PostCommentForPullRequestResponse' {} a -> s {repositoryName = a} :: PostCommentForPullRequestResponse)
-
--- | The full commit ID of the commit in the source branch used to create the
--- pull request, or in the case of an updated pull request, the full commit
--- ID of the commit used to update the pull request.
-postCommentForPullRequestResponse_beforeCommitId :: Lens.Lens' PostCommentForPullRequestResponse (Prelude.Maybe Prelude.Text)
-postCommentForPullRequestResponse_beforeCommitId = Lens.lens (\PostCommentForPullRequestResponse' {beforeCommitId} -> beforeCommitId) (\s@PostCommentForPullRequestResponse' {} a -> s {beforeCommitId = a} :: PostCommentForPullRequestResponse)
-
--- | The location of the change where you posted your comment.
-postCommentForPullRequestResponse_location :: Lens.Lens' PostCommentForPullRequestResponse (Prelude.Maybe Location)
-postCommentForPullRequestResponse_location = Lens.lens (\PostCommentForPullRequestResponse' {location} -> location) (\s@PostCommentForPullRequestResponse' {} a -> s {location = a} :: PostCommentForPullRequestResponse)
-
--- | The content of the comment you posted.
-postCommentForPullRequestResponse_comment :: Lens.Lens' PostCommentForPullRequestResponse (Prelude.Maybe Comment)
-postCommentForPullRequestResponse_comment = Lens.lens (\PostCommentForPullRequestResponse' {comment} -> comment) (\s@PostCommentForPullRequestResponse' {} a -> s {comment = a} :: PostCommentForPullRequestResponse)
-
--- | In the directionality of the pull request, the blob ID of the after
--- blob.
-postCommentForPullRequestResponse_afterBlobId :: Lens.Lens' PostCommentForPullRequestResponse (Prelude.Maybe Prelude.Text)
-postCommentForPullRequestResponse_afterBlobId = Lens.lens (\PostCommentForPullRequestResponse' {afterBlobId} -> afterBlobId) (\s@PostCommentForPullRequestResponse' {} a -> s {afterBlobId = a} :: PostCommentForPullRequestResponse)
 
 -- | The response's http status code.
 postCommentForPullRequestResponse_httpStatus :: Lens.Lens' PostCommentForPullRequestResponse Prelude.Int
@@ -394,12 +394,12 @@ instance
     PostCommentForPullRequestResponse
   where
   rnf PostCommentForPullRequestResponse' {..} =
-    Prelude.rnf beforeBlobId
+    Prelude.rnf afterBlobId
       `Prelude.seq` Prelude.rnf afterCommitId
+      `Prelude.seq` Prelude.rnf beforeBlobId
+      `Prelude.seq` Prelude.rnf beforeCommitId
+      `Prelude.seq` Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf location
       `Prelude.seq` Prelude.rnf pullRequestId
       `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf beforeCommitId
-      `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf afterBlobId
       `Prelude.seq` Prelude.rnf httpStatus

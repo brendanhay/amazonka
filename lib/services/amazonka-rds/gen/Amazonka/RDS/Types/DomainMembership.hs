@@ -33,12 +33,12 @@ data DomainMembership = DomainMembership'
     domain :: Prelude.Maybe Prelude.Text,
     -- | The fully qualified domain name of the Active Directory Domain.
     fqdn :: Prelude.Maybe Prelude.Text,
-    -- | The status of the Active Directory Domain membership for the DB instance
-    -- or cluster. Values include joined, pending-join, failed, and so on.
-    status :: Prelude.Maybe Prelude.Text,
     -- | The name of the IAM role to be used when making API calls to the
     -- Directory Service.
-    iAMRoleName :: Prelude.Maybe Prelude.Text
+    iAMRoleName :: Prelude.Maybe Prelude.Text,
+    -- | The status of the Active Directory Domain membership for the DB instance
+    -- or cluster. Values include joined, pending-join, failed, and so on.
+    status :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,19 +54,19 @@ data DomainMembership = DomainMembership'
 --
 -- 'fqdn', 'domainMembership_fqdn' - The fully qualified domain name of the Active Directory Domain.
 --
--- 'status', 'domainMembership_status' - The status of the Active Directory Domain membership for the DB instance
--- or cluster. Values include joined, pending-join, failed, and so on.
---
 -- 'iAMRoleName', 'domainMembership_iAMRoleName' - The name of the IAM role to be used when making API calls to the
 -- Directory Service.
+--
+-- 'status', 'domainMembership_status' - The status of the Active Directory Domain membership for the DB instance
+-- or cluster. Values include joined, pending-join, failed, and so on.
 newDomainMembership ::
   DomainMembership
 newDomainMembership =
   DomainMembership'
     { domain = Prelude.Nothing,
       fqdn = Prelude.Nothing,
-      status = Prelude.Nothing,
-      iAMRoleName = Prelude.Nothing
+      iAMRoleName = Prelude.Nothing,
+      status = Prelude.Nothing
     }
 
 -- | The identifier of the Active Directory Domain.
@@ -77,34 +77,34 @@ domainMembership_domain = Lens.lens (\DomainMembership' {domain} -> domain) (\s@
 domainMembership_fqdn :: Lens.Lens' DomainMembership (Prelude.Maybe Prelude.Text)
 domainMembership_fqdn = Lens.lens (\DomainMembership' {fqdn} -> fqdn) (\s@DomainMembership' {} a -> s {fqdn = a} :: DomainMembership)
 
--- | The status of the Active Directory Domain membership for the DB instance
--- or cluster. Values include joined, pending-join, failed, and so on.
-domainMembership_status :: Lens.Lens' DomainMembership (Prelude.Maybe Prelude.Text)
-domainMembership_status = Lens.lens (\DomainMembership' {status} -> status) (\s@DomainMembership' {} a -> s {status = a} :: DomainMembership)
-
 -- | The name of the IAM role to be used when making API calls to the
 -- Directory Service.
 domainMembership_iAMRoleName :: Lens.Lens' DomainMembership (Prelude.Maybe Prelude.Text)
 domainMembership_iAMRoleName = Lens.lens (\DomainMembership' {iAMRoleName} -> iAMRoleName) (\s@DomainMembership' {} a -> s {iAMRoleName = a} :: DomainMembership)
+
+-- | The status of the Active Directory Domain membership for the DB instance
+-- or cluster. Values include joined, pending-join, failed, and so on.
+domainMembership_status :: Lens.Lens' DomainMembership (Prelude.Maybe Prelude.Text)
+domainMembership_status = Lens.lens (\DomainMembership' {status} -> status) (\s@DomainMembership' {} a -> s {status = a} :: DomainMembership)
 
 instance Data.FromXML DomainMembership where
   parseXML x =
     DomainMembership'
       Prelude.<$> (x Data..@? "Domain")
       Prelude.<*> (x Data..@? "FQDN")
-      Prelude.<*> (x Data..@? "Status")
       Prelude.<*> (x Data..@? "IAMRoleName")
+      Prelude.<*> (x Data..@? "Status")
 
 instance Prelude.Hashable DomainMembership where
   hashWithSalt _salt DomainMembership' {..} =
     _salt `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` fqdn
-      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` iAMRoleName
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData DomainMembership where
   rnf DomainMembership' {..} =
     Prelude.rnf domain
       `Prelude.seq` Prelude.rnf fqdn
-      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf iAMRoleName
+      `Prelude.seq` Prelude.rnf status

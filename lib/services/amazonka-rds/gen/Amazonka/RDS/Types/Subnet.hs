@@ -31,18 +31,18 @@ import Amazonka.RDS.Types.Outpost
 --
 -- /See:/ 'newSubnet' smart constructor.
 data Subnet = Subnet'
-  { -- | If the subnet is associated with an Outpost, this value specifies the
+  { subnetAvailabilityZone :: Prelude.Maybe AvailabilityZone,
+    -- | The identifier of the subnet.
+    subnetIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | If the subnet is associated with an Outpost, this value specifies the
     -- Outpost.
     --
     -- For more information about RDS on Outposts, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Amazon RDS on Amazon Web Services Outposts>
     -- in the /Amazon RDS User Guide./
     subnetOutpost :: Prelude.Maybe Outpost,
-    -- | The identifier of the subnet.
-    subnetIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The status of the subnet.
-    subnetStatus :: Prelude.Maybe Prelude.Text,
-    subnetAvailabilityZone :: Prelude.Maybe AvailabilityZone
+    subnetStatus :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,6 +54,10 @@ data Subnet = Subnet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'subnetAvailabilityZone', 'subnet_subnetAvailabilityZone' - Undocumented member.
+--
+-- 'subnetIdentifier', 'subnet_subnetIdentifier' - The identifier of the subnet.
+--
 -- 'subnetOutpost', 'subnet_subnetOutpost' - If the subnet is associated with an Outpost, this value specifies the
 -- Outpost.
 --
@@ -61,20 +65,24 @@ data Subnet = Subnet'
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Amazon RDS on Amazon Web Services Outposts>
 -- in the /Amazon RDS User Guide./
 --
--- 'subnetIdentifier', 'subnet_subnetIdentifier' - The identifier of the subnet.
---
 -- 'subnetStatus', 'subnet_subnetStatus' - The status of the subnet.
---
--- 'subnetAvailabilityZone', 'subnet_subnetAvailabilityZone' - Undocumented member.
 newSubnet ::
   Subnet
 newSubnet =
   Subnet'
-    { subnetOutpost = Prelude.Nothing,
+    { subnetAvailabilityZone = Prelude.Nothing,
       subnetIdentifier = Prelude.Nothing,
-      subnetStatus = Prelude.Nothing,
-      subnetAvailabilityZone = Prelude.Nothing
+      subnetOutpost = Prelude.Nothing,
+      subnetStatus = Prelude.Nothing
     }
+
+-- | Undocumented member.
+subnet_subnetAvailabilityZone :: Lens.Lens' Subnet (Prelude.Maybe AvailabilityZone)
+subnet_subnetAvailabilityZone = Lens.lens (\Subnet' {subnetAvailabilityZone} -> subnetAvailabilityZone) (\s@Subnet' {} a -> s {subnetAvailabilityZone = a} :: Subnet)
+
+-- | The identifier of the subnet.
+subnet_subnetIdentifier :: Lens.Lens' Subnet (Prelude.Maybe Prelude.Text)
+subnet_subnetIdentifier = Lens.lens (\Subnet' {subnetIdentifier} -> subnetIdentifier) (\s@Subnet' {} a -> s {subnetIdentifier = a} :: Subnet)
 
 -- | If the subnet is associated with an Outpost, this value specifies the
 -- Outpost.
@@ -85,36 +93,28 @@ newSubnet =
 subnet_subnetOutpost :: Lens.Lens' Subnet (Prelude.Maybe Outpost)
 subnet_subnetOutpost = Lens.lens (\Subnet' {subnetOutpost} -> subnetOutpost) (\s@Subnet' {} a -> s {subnetOutpost = a} :: Subnet)
 
--- | The identifier of the subnet.
-subnet_subnetIdentifier :: Lens.Lens' Subnet (Prelude.Maybe Prelude.Text)
-subnet_subnetIdentifier = Lens.lens (\Subnet' {subnetIdentifier} -> subnetIdentifier) (\s@Subnet' {} a -> s {subnetIdentifier = a} :: Subnet)
-
 -- | The status of the subnet.
 subnet_subnetStatus :: Lens.Lens' Subnet (Prelude.Maybe Prelude.Text)
 subnet_subnetStatus = Lens.lens (\Subnet' {subnetStatus} -> subnetStatus) (\s@Subnet' {} a -> s {subnetStatus = a} :: Subnet)
 
--- | Undocumented member.
-subnet_subnetAvailabilityZone :: Lens.Lens' Subnet (Prelude.Maybe AvailabilityZone)
-subnet_subnetAvailabilityZone = Lens.lens (\Subnet' {subnetAvailabilityZone} -> subnetAvailabilityZone) (\s@Subnet' {} a -> s {subnetAvailabilityZone = a} :: Subnet)
-
 instance Data.FromXML Subnet where
   parseXML x =
     Subnet'
-      Prelude.<$> (x Data..@? "SubnetOutpost")
+      Prelude.<$> (x Data..@? "SubnetAvailabilityZone")
       Prelude.<*> (x Data..@? "SubnetIdentifier")
+      Prelude.<*> (x Data..@? "SubnetOutpost")
       Prelude.<*> (x Data..@? "SubnetStatus")
-      Prelude.<*> (x Data..@? "SubnetAvailabilityZone")
 
 instance Prelude.Hashable Subnet where
   hashWithSalt _salt Subnet' {..} =
-    _salt `Prelude.hashWithSalt` subnetOutpost
+    _salt `Prelude.hashWithSalt` subnetAvailabilityZone
       `Prelude.hashWithSalt` subnetIdentifier
+      `Prelude.hashWithSalt` subnetOutpost
       `Prelude.hashWithSalt` subnetStatus
-      `Prelude.hashWithSalt` subnetAvailabilityZone
 
 instance Prelude.NFData Subnet where
   rnf Subnet' {..} =
-    Prelude.rnf subnetOutpost
+    Prelude.rnf subnetAvailabilityZone
       `Prelude.seq` Prelude.rnf subnetIdentifier
+      `Prelude.seq` Prelude.rnf subnetOutpost
       `Prelude.seq` Prelude.rnf subnetStatus
-      `Prelude.seq` Prelude.rnf subnetAvailabilityZone

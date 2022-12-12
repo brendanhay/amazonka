@@ -35,6 +35,8 @@ data PropertyDefinitionResponse = PropertyDefinitionResponse'
     configuration :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | An object that contains the default value.
     defaultValue :: Prelude.Maybe DataValue,
+    -- | A friendly name for the property.
+    displayName :: Prelude.Maybe Prelude.Text,
     -- | An object that contains information about the data type.
     dataType :: DataType,
     -- | A Boolean value that specifies whether the property consists of time
@@ -72,6 +74,8 @@ data PropertyDefinitionResponse = PropertyDefinitionResponse'
 -- 'configuration', 'propertyDefinitionResponse_configuration' - A mapping that specifies configuration information about the property.
 --
 -- 'defaultValue', 'propertyDefinitionResponse_defaultValue' - An object that contains the default value.
+--
+-- 'displayName', 'propertyDefinitionResponse_displayName' - A friendly name for the property.
 --
 -- 'dataType', 'propertyDefinitionResponse_dataType' - An object that contains information about the data type.
 --
@@ -126,6 +130,7 @@ newPropertyDefinitionResponse
       { configuration =
           Prelude.Nothing,
         defaultValue = Prelude.Nothing,
+        displayName = Prelude.Nothing,
         dataType = pDataType_,
         isTimeSeries = pIsTimeSeries_,
         isRequiredInEntity = pIsRequiredInEntity_,
@@ -143,6 +148,10 @@ propertyDefinitionResponse_configuration = Lens.lens (\PropertyDefinitionRespons
 -- | An object that contains the default value.
 propertyDefinitionResponse_defaultValue :: Lens.Lens' PropertyDefinitionResponse (Prelude.Maybe DataValue)
 propertyDefinitionResponse_defaultValue = Lens.lens (\PropertyDefinitionResponse' {defaultValue} -> defaultValue) (\s@PropertyDefinitionResponse' {} a -> s {defaultValue = a} :: PropertyDefinitionResponse)
+
+-- | A friendly name for the property.
+propertyDefinitionResponse_displayName :: Lens.Lens' PropertyDefinitionResponse (Prelude.Maybe Prelude.Text)
+propertyDefinitionResponse_displayName = Lens.lens (\PropertyDefinitionResponse' {displayName} -> displayName) (\s@PropertyDefinitionResponse' {} a -> s {displayName = a} :: PropertyDefinitionResponse)
 
 -- | An object that contains information about the data type.
 propertyDefinitionResponse_dataType :: Lens.Lens' PropertyDefinitionResponse DataType
@@ -191,6 +200,7 @@ instance Data.FromJSON PropertyDefinitionResponse where
           PropertyDefinitionResponse'
             Prelude.<$> (x Data..:? "configuration" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "defaultValue")
+            Prelude.<*> (x Data..:? "displayName")
             Prelude.<*> (x Data..: "dataType")
             Prelude.<*> (x Data..: "isTimeSeries")
             Prelude.<*> (x Data..: "isRequiredInEntity")
@@ -205,6 +215,7 @@ instance Prelude.Hashable PropertyDefinitionResponse where
   hashWithSalt _salt PropertyDefinitionResponse' {..} =
     _salt `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` defaultValue
+      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` dataType
       `Prelude.hashWithSalt` isTimeSeries
       `Prelude.hashWithSalt` isRequiredInEntity
@@ -218,6 +229,7 @@ instance Prelude.NFData PropertyDefinitionResponse where
   rnf PropertyDefinitionResponse' {..} =
     Prelude.rnf configuration
       `Prelude.seq` Prelude.rnf defaultValue
+      `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf dataType
       `Prelude.seq` Prelude.rnf isTimeSeries
       `Prelude.seq` Prelude.rnf isRequiredInEntity

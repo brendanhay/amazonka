@@ -31,18 +31,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSSESpecification' smart constructor.
 data SSESpecification = SSESpecification'
-  { -- | The KMS key that should be used for the KMS encryption. To specify a
-    -- key, use its key ID, Amazon Resource Name (ARN), alias name, or alias
-    -- ARN. Note that you should only provide this parameter if the key is
-    -- different from the default DynamoDB key @alias\/aws\/dynamodb@.
-    kmsMasterKeyId :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether server-side encryption is done using an Amazon Web
+  { -- | Indicates whether server-side encryption is done using an Amazon Web
     -- Services managed key or an Amazon Web Services owned key. If enabled
     -- (true), server-side encryption type is set to @KMS@ and an Amazon Web
     -- Services managed key is used (KMS charges apply). If disabled (false) or
     -- not specified, server-side encryption is set to Amazon Web Services
     -- owned key.
     enabled :: Prelude.Maybe Prelude.Bool,
+    -- | The KMS key that should be used for the KMS encryption. To specify a
+    -- key, use its key ID, Amazon Resource Name (ARN), alias name, or alias
+    -- ARN. Note that you should only provide this parameter if the key is
+    -- different from the default DynamoDB key @alias\/aws\/dynamodb@.
+    kmsMasterKeyId :: Prelude.Maybe Prelude.Text,
     -- | Server-side encryption type. The only supported value is:
     --
     -- -   @KMS@ - Server-side encryption that uses Key Management Service. The
@@ -60,17 +60,17 @@ data SSESpecification = SSESpecification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsMasterKeyId', 'sSESpecification_kmsMasterKeyId' - The KMS key that should be used for the KMS encryption. To specify a
--- key, use its key ID, Amazon Resource Name (ARN), alias name, or alias
--- ARN. Note that you should only provide this parameter if the key is
--- different from the default DynamoDB key @alias\/aws\/dynamodb@.
---
 -- 'enabled', 'sSESpecification_enabled' - Indicates whether server-side encryption is done using an Amazon Web
 -- Services managed key or an Amazon Web Services owned key. If enabled
 -- (true), server-side encryption type is set to @KMS@ and an Amazon Web
 -- Services managed key is used (KMS charges apply). If disabled (false) or
 -- not specified, server-side encryption is set to Amazon Web Services
 -- owned key.
+--
+-- 'kmsMasterKeyId', 'sSESpecification_kmsMasterKeyId' - The KMS key that should be used for the KMS encryption. To specify a
+-- key, use its key ID, Amazon Resource Name (ARN), alias name, or alias
+-- ARN. Note that you should only provide this parameter if the key is
+-- different from the default DynamoDB key @alias\/aws\/dynamodb@.
 --
 -- 'sSEType', 'sSESpecification_sSEType' - Server-side encryption type. The only supported value is:
 --
@@ -81,17 +81,10 @@ newSSESpecification ::
   SSESpecification
 newSSESpecification =
   SSESpecification'
-    { kmsMasterKeyId = Prelude.Nothing,
-      enabled = Prelude.Nothing,
+    { enabled = Prelude.Nothing,
+      kmsMasterKeyId = Prelude.Nothing,
       sSEType = Prelude.Nothing
     }
-
--- | The KMS key that should be used for the KMS encryption. To specify a
--- key, use its key ID, Amazon Resource Name (ARN), alias name, or alias
--- ARN. Note that you should only provide this parameter if the key is
--- different from the default DynamoDB key @alias\/aws\/dynamodb@.
-sSESpecification_kmsMasterKeyId :: Lens.Lens' SSESpecification (Prelude.Maybe Prelude.Text)
-sSESpecification_kmsMasterKeyId = Lens.lens (\SSESpecification' {kmsMasterKeyId} -> kmsMasterKeyId) (\s@SSESpecification' {} a -> s {kmsMasterKeyId = a} :: SSESpecification)
 
 -- | Indicates whether server-side encryption is done using an Amazon Web
 -- Services managed key or an Amazon Web Services owned key. If enabled
@@ -101,6 +94,13 @@ sSESpecification_kmsMasterKeyId = Lens.lens (\SSESpecification' {kmsMasterKeyId}
 -- owned key.
 sSESpecification_enabled :: Lens.Lens' SSESpecification (Prelude.Maybe Prelude.Bool)
 sSESpecification_enabled = Lens.lens (\SSESpecification' {enabled} -> enabled) (\s@SSESpecification' {} a -> s {enabled = a} :: SSESpecification)
+
+-- | The KMS key that should be used for the KMS encryption. To specify a
+-- key, use its key ID, Amazon Resource Name (ARN), alias name, or alias
+-- ARN. Note that you should only provide this parameter if the key is
+-- different from the default DynamoDB key @alias\/aws\/dynamodb@.
+sSESpecification_kmsMasterKeyId :: Lens.Lens' SSESpecification (Prelude.Maybe Prelude.Text)
+sSESpecification_kmsMasterKeyId = Lens.lens (\SSESpecification' {kmsMasterKeyId} -> kmsMasterKeyId) (\s@SSESpecification' {} a -> s {kmsMasterKeyId = a} :: SSESpecification)
 
 -- | Server-side encryption type. The only supported value is:
 --
@@ -116,30 +116,30 @@ instance Data.FromJSON SSESpecification where
       "SSESpecification"
       ( \x ->
           SSESpecification'
-            Prelude.<$> (x Data..:? "KMSMasterKeyId")
-            Prelude.<*> (x Data..:? "Enabled")
+            Prelude.<$> (x Data..:? "Enabled")
+            Prelude.<*> (x Data..:? "KMSMasterKeyId")
             Prelude.<*> (x Data..:? "SSEType")
       )
 
 instance Prelude.Hashable SSESpecification where
   hashWithSalt _salt SSESpecification' {..} =
-    _salt `Prelude.hashWithSalt` kmsMasterKeyId
-      `Prelude.hashWithSalt` enabled
+    _salt `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` kmsMasterKeyId
       `Prelude.hashWithSalt` sSEType
 
 instance Prelude.NFData SSESpecification where
   rnf SSESpecification' {..} =
-    Prelude.rnf kmsMasterKeyId
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf kmsMasterKeyId
       `Prelude.seq` Prelude.rnf sSEType
 
 instance Data.ToJSON SSESpecification where
   toJSON SSESpecification' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("KMSMasterKeyId" Data..=)
+          [ ("Enabled" Data..=) Prelude.<$> enabled,
+            ("KMSMasterKeyId" Data..=)
               Prelude.<$> kmsMasterKeyId,
-            ("Enabled" Data..=) Prelude.<$> enabled,
             ("SSEType" Data..=) Prelude.<$> sSEType
           ]
       )

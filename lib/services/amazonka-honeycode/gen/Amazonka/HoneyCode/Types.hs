@@ -19,15 +19,15 @@ module Amazonka.HoneyCode.Types
 
     -- * Errors
     _AccessDeniedException,
+    _AutomationExecutionException,
+    _AutomationExecutionTimeoutException,
     _InternalServerException,
+    _RequestTimeoutException,
+    _ResourceNotFoundException,
     _ServiceQuotaExceededException,
     _ServiceUnavailableException,
-    _ResourceNotFoundException,
-    _AutomationExecutionTimeoutException,
     _ThrottlingException,
-    _RequestTimeoutException,
     _ValidationException,
-    _AutomationExecutionException,
 
     -- * ErrorCode
     ErrorCode (..),
@@ -52,15 +52,15 @@ module Amazonka.HoneyCode.Types
     newCell,
     cell_format,
     cell_formattedValue,
-    cell_formula,
     cell_formattedValues,
+    cell_formula,
     cell_rawValue,
 
     -- * CellInput
     CellInput (..),
     newCellInput,
-    cellInput_facts,
     cellInput_fact,
+    cellInput_facts,
 
     -- * ColumnMetadata
     ColumnMetadata (..),
@@ -84,9 +84,9 @@ module Amazonka.HoneyCode.Types
     -- * DelimitedTextImportOptions
     DelimitedTextImportOptions (..),
     newDelimitedTextImportOptions,
+    delimitedTextImportOptions_dataCharacterEncoding,
     delimitedTextImportOptions_hasHeaderRow,
     delimitedTextImportOptions_ignoreEmptyRows,
-    delimitedTextImportOptions_dataCharacterEncoding,
     delimitedTextImportOptions_delimiter,
 
     -- * DestinationOptions
@@ -125,8 +125,8 @@ module Amazonka.HoneyCode.Types
     -- * ImportOptions
     ImportOptions (..),
     newImportOptions,
-    importOptions_destinationOptions,
     importOptions_delimitedTextOptions,
+    importOptions_destinationOptions,
 
     -- * ResultRow
     ResultRow (..),
@@ -148,15 +148,15 @@ module Amazonka.HoneyCode.Types
     -- * Table
     Table (..),
     newTable,
-    table_tableName,
     table_tableId,
+    table_tableName,
 
     -- * TableColumn
     TableColumn (..),
     newTableColumn,
     tableColumn_format,
-    tableColumn_tableColumnName,
     tableColumn_tableColumnId,
+    tableColumn_tableColumnName,
 
     -- * TableDataImportJobMetadata
     TableDataImportJobMetadata (..),
@@ -258,28 +258,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -287,13 +281,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -301,6 +299,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient access to perform this action. Check that the
@@ -313,6 +313,22 @@ _AccessDeniedException =
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
+-- | The automation execution did not end successfully.
+_AutomationExecutionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AutomationExecutionException =
+  Core._MatchServiceError
+    defaultService
+    "AutomationExecutionException"
+    Prelude.. Core.hasStatus 400
+
+-- | The automation execution timed out.
+_AutomationExecutionTimeoutException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AutomationExecutionTimeoutException =
+  Core._MatchServiceError
+    defaultService
+    "AutomationExecutionTimeoutException"
+    Prelude.. Core.hasStatus 504
+
 -- | There were unexpected errors from the server.
 _InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InternalServerException =
@@ -320,6 +336,23 @@ _InternalServerException =
     defaultService
     "InternalServerException"
     Prelude.. Core.hasStatus 500
+
+-- | The request timed out.
+_RequestTimeoutException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RequestTimeoutException =
+  Core._MatchServiceError
+    defaultService
+    "RequestTimeoutException"
+    Prelude.. Core.hasStatus 504
+
+-- | A Workbook, Table, App, Screen or Screen Automation was not found with
+-- the given ID.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
 
 -- | The request caused service quota to be breached.
 _ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -337,23 +370,6 @@ _ServiceUnavailableException =
     "ServiceUnavailableException"
     Prelude.. Core.hasStatus 503
 
--- | A Workbook, Table, App, Screen or Screen Automation was not found with
--- the given ID.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
-
--- | The automation execution timed out.
-_AutomationExecutionTimeoutException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AutomationExecutionTimeoutException =
-  Core._MatchServiceError
-    defaultService
-    "AutomationExecutionTimeoutException"
-    Prelude.. Core.hasStatus 504
-
 -- | Tps(transactions per second) rate reached.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ThrottlingException =
@@ -362,14 +378,6 @@ _ThrottlingException =
     "ThrottlingException"
     Prelude.. Core.hasStatus 429
 
--- | The request timed out.
-_RequestTimeoutException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_RequestTimeoutException =
-  Core._MatchServiceError
-    defaultService
-    "RequestTimeoutException"
-    Prelude.. Core.hasStatus 504
-
 -- | Request is invalid. The message in the response contains details on why
 -- the request is invalid.
 _ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -377,12 +385,4 @@ _ValidationException =
   Core._MatchServiceError
     defaultService
     "ValidationException"
-    Prelude.. Core.hasStatus 400
-
--- | The automation execution did not end successfully.
-_AutomationExecutionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AutomationExecutionException =
-  Core._MatchServiceError
-    defaultService
-    "AutomationExecutionException"
     Prelude.. Core.hasStatus 400

@@ -33,7 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 -- | Specify whether this output\'s video uses the D10 syntax. Keep the
 -- default value to not use the syntax. Related settings: When you choose
 -- D10 (D_10) for your MXF profile (profile), you must also set this value
--- to to D10 (D_10).
+-- to D10 (D_10).
 newtype Mpeg2Syntax = Mpeg2Syntax'
   { fromMpeg2Syntax ::
       Data.Text

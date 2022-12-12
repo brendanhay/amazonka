@@ -29,7 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRDSMetadata' smart constructor.
 data RDSMetadata = RDSMetadata'
-  { databaseUserName :: Prelude.Maybe Prelude.Text,
+  { -- | The ID of the Data Pipeline instance that is used to carry to copy data
+    -- from Amazon RDS to Amazon S3. You can use the ID to find details about
+    -- the instance in the Data Pipeline console.
+    dataPipelineId :: Prelude.Maybe Prelude.Text,
+    -- | The database details required to connect to an Amazon RDS.
+    database :: Prelude.Maybe RDSDatabase,
+    databaseUserName :: Prelude.Maybe Prelude.Text,
     -- | The role (DataPipelineDefaultResourceRole) assumed by an Amazon EC2
     -- instance to carry out the copy task from Amazon RDS to Amazon S3. For
     -- more information, see
@@ -44,13 +50,7 @@ data RDSMetadata = RDSMetadata'
     -- For more information, see
     -- <https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates>
     -- for data pipelines.
-    serviceRole :: Prelude.Maybe Prelude.Text,
-    -- | The database details required to connect to an Amazon RDS.
-    database :: Prelude.Maybe RDSDatabase,
-    -- | The ID of the Data Pipeline instance that is used to carry to copy data
-    -- from Amazon RDS to Amazon S3. You can use the ID to find details about
-    -- the instance in the Data Pipeline console.
-    dataPipelineId :: Prelude.Maybe Prelude.Text
+    serviceRole :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,6 +61,12 @@ data RDSMetadata = RDSMetadata'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'dataPipelineId', 'rDSMetadata_dataPipelineId' - The ID of the Data Pipeline instance that is used to carry to copy data
+-- from Amazon RDS to Amazon S3. You can use the ID to find details about
+-- the instance in the Data Pipeline console.
+--
+-- 'database', 'rDSMetadata_database' - The database details required to connect to an Amazon RDS.
 --
 -- 'databaseUserName', 'rDSMetadata_databaseUserName' - Undocumented member.
 --
@@ -78,23 +84,27 @@ data RDSMetadata = RDSMetadata'
 -- For more information, see
 -- <https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates>
 -- for data pipelines.
---
--- 'database', 'rDSMetadata_database' - The database details required to connect to an Amazon RDS.
---
--- 'dataPipelineId', 'rDSMetadata_dataPipelineId' - The ID of the Data Pipeline instance that is used to carry to copy data
--- from Amazon RDS to Amazon S3. You can use the ID to find details about
--- the instance in the Data Pipeline console.
 newRDSMetadata ::
   RDSMetadata
 newRDSMetadata =
   RDSMetadata'
-    { databaseUserName = Prelude.Nothing,
+    { dataPipelineId = Prelude.Nothing,
+      database = Prelude.Nothing,
+      databaseUserName = Prelude.Nothing,
       resourceRole = Prelude.Nothing,
       selectSqlQuery = Prelude.Nothing,
-      serviceRole = Prelude.Nothing,
-      database = Prelude.Nothing,
-      dataPipelineId = Prelude.Nothing
+      serviceRole = Prelude.Nothing
     }
+
+-- | The ID of the Data Pipeline instance that is used to carry to copy data
+-- from Amazon RDS to Amazon S3. You can use the ID to find details about
+-- the instance in the Data Pipeline console.
+rDSMetadata_dataPipelineId :: Lens.Lens' RDSMetadata (Prelude.Maybe Prelude.Text)
+rDSMetadata_dataPipelineId = Lens.lens (\RDSMetadata' {dataPipelineId} -> dataPipelineId) (\s@RDSMetadata' {} a -> s {dataPipelineId = a} :: RDSMetadata)
+
+-- | The database details required to connect to an Amazon RDS.
+rDSMetadata_database :: Lens.Lens' RDSMetadata (Prelude.Maybe RDSDatabase)
+rDSMetadata_database = Lens.lens (\RDSMetadata' {database} -> database) (\s@RDSMetadata' {} a -> s {database = a} :: RDSMetadata)
 
 -- | Undocumented member.
 rDSMetadata_databaseUserName :: Lens.Lens' RDSMetadata (Prelude.Maybe Prelude.Text)
@@ -121,44 +131,34 @@ rDSMetadata_selectSqlQuery = Lens.lens (\RDSMetadata' {selectSqlQuery} -> select
 rDSMetadata_serviceRole :: Lens.Lens' RDSMetadata (Prelude.Maybe Prelude.Text)
 rDSMetadata_serviceRole = Lens.lens (\RDSMetadata' {serviceRole} -> serviceRole) (\s@RDSMetadata' {} a -> s {serviceRole = a} :: RDSMetadata)
 
--- | The database details required to connect to an Amazon RDS.
-rDSMetadata_database :: Lens.Lens' RDSMetadata (Prelude.Maybe RDSDatabase)
-rDSMetadata_database = Lens.lens (\RDSMetadata' {database} -> database) (\s@RDSMetadata' {} a -> s {database = a} :: RDSMetadata)
-
--- | The ID of the Data Pipeline instance that is used to carry to copy data
--- from Amazon RDS to Amazon S3. You can use the ID to find details about
--- the instance in the Data Pipeline console.
-rDSMetadata_dataPipelineId :: Lens.Lens' RDSMetadata (Prelude.Maybe Prelude.Text)
-rDSMetadata_dataPipelineId = Lens.lens (\RDSMetadata' {dataPipelineId} -> dataPipelineId) (\s@RDSMetadata' {} a -> s {dataPipelineId = a} :: RDSMetadata)
-
 instance Data.FromJSON RDSMetadata where
   parseJSON =
     Data.withObject
       "RDSMetadata"
       ( \x ->
           RDSMetadata'
-            Prelude.<$> (x Data..:? "DatabaseUserName")
+            Prelude.<$> (x Data..:? "DataPipelineId")
+            Prelude.<*> (x Data..:? "Database")
+            Prelude.<*> (x Data..:? "DatabaseUserName")
             Prelude.<*> (x Data..:? "ResourceRole")
             Prelude.<*> (x Data..:? "SelectSqlQuery")
             Prelude.<*> (x Data..:? "ServiceRole")
-            Prelude.<*> (x Data..:? "Database")
-            Prelude.<*> (x Data..:? "DataPipelineId")
       )
 
 instance Prelude.Hashable RDSMetadata where
   hashWithSalt _salt RDSMetadata' {..} =
-    _salt `Prelude.hashWithSalt` databaseUserName
+    _salt `Prelude.hashWithSalt` dataPipelineId
+      `Prelude.hashWithSalt` database
+      `Prelude.hashWithSalt` databaseUserName
       `Prelude.hashWithSalt` resourceRole
       `Prelude.hashWithSalt` selectSqlQuery
       `Prelude.hashWithSalt` serviceRole
-      `Prelude.hashWithSalt` database
-      `Prelude.hashWithSalt` dataPipelineId
 
 instance Prelude.NFData RDSMetadata where
   rnf RDSMetadata' {..} =
-    Prelude.rnf databaseUserName
+    Prelude.rnf dataPipelineId
+      `Prelude.seq` Prelude.rnf database
+      `Prelude.seq` Prelude.rnf databaseUserName
       `Prelude.seq` Prelude.rnf resourceRole
       `Prelude.seq` Prelude.rnf selectSqlQuery
       `Prelude.seq` Prelude.rnf serviceRole
-      `Prelude.seq` Prelude.rnf database
-      `Prelude.seq` Prelude.rnf dataPipelineId

@@ -35,10 +35,10 @@ module Amazonka.Kafka.DescribeConfigurationRevision
     newDescribeConfigurationRevisionResponse,
 
     -- * Response Lenses
-    describeConfigurationRevisionResponse_revision,
     describeConfigurationRevisionResponse_arn,
-    describeConfigurationRevisionResponse_description,
     describeConfigurationRevisionResponse_creationTime,
+    describeConfigurationRevisionResponse_description,
+    describeConfigurationRevisionResponse_revision,
     describeConfigurationRevisionResponse_serverProperties,
     describeConfigurationRevisionResponse_httpStatus,
   )
@@ -109,10 +109,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeConfigurationRevisionResponse'
-            Prelude.<$> (x Data..?> "revision")
-            Prelude.<*> (x Data..?> "arn")
-            Prelude.<*> (x Data..?> "description")
+            Prelude.<$> (x Data..?> "arn")
             Prelude.<*> (x Data..?> "creationTime")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "revision")
             Prelude.<*> (x Data..?> "serverProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -154,14 +154,14 @@ instance Data.ToQuery DescribeConfigurationRevision where
 
 -- | /See:/ 'newDescribeConfigurationRevisionResponse' smart constructor.
 data DescribeConfigurationRevisionResponse = DescribeConfigurationRevisionResponse'
-  { -- | The revision number.
-    revision :: Prelude.Maybe Prelude.Integer,
-    -- | The Amazon Resource Name (ARN) of the configuration.
+  { -- | The Amazon Resource Name (ARN) of the configuration.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The description of the configuration.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The time when the configuration was created.
     creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The description of the configuration.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The revision number.
+    revision :: Prelude.Maybe Prelude.Integer,
     -- | Contents of the server.properties file. When using the API, you must
     -- ensure that the contents of the file are base64 encoded. When using the
     -- AWS Management Console, the SDK, or the AWS CLI, the contents of
@@ -180,13 +180,13 @@ data DescribeConfigurationRevisionResponse = DescribeConfigurationRevisionRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'revision', 'describeConfigurationRevisionResponse_revision' - The revision number.
---
 -- 'arn', 'describeConfigurationRevisionResponse_arn' - The Amazon Resource Name (ARN) of the configuration.
+--
+-- 'creationTime', 'describeConfigurationRevisionResponse_creationTime' - The time when the configuration was created.
 --
 -- 'description', 'describeConfigurationRevisionResponse_description' - The description of the configuration.
 --
--- 'creationTime', 'describeConfigurationRevisionResponse_creationTime' - The time when the configuration was created.
+-- 'revision', 'describeConfigurationRevisionResponse_revision' - The revision number.
 --
 -- 'serverProperties', 'describeConfigurationRevisionResponse_serverProperties' - Contents of the server.properties file. When using the API, you must
 -- ensure that the contents of the file are base64 encoded. When using the
@@ -204,30 +204,30 @@ newDescribeConfigurationRevisionResponse ::
   DescribeConfigurationRevisionResponse
 newDescribeConfigurationRevisionResponse pHttpStatus_ =
   DescribeConfigurationRevisionResponse'
-    { revision =
+    { arn =
         Prelude.Nothing,
-      arn = Prelude.Nothing,
-      description = Prelude.Nothing,
       creationTime = Prelude.Nothing,
+      description = Prelude.Nothing,
+      revision = Prelude.Nothing,
       serverProperties = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The revision number.
-describeConfigurationRevisionResponse_revision :: Lens.Lens' DescribeConfigurationRevisionResponse (Prelude.Maybe Prelude.Integer)
-describeConfigurationRevisionResponse_revision = Lens.lens (\DescribeConfigurationRevisionResponse' {revision} -> revision) (\s@DescribeConfigurationRevisionResponse' {} a -> s {revision = a} :: DescribeConfigurationRevisionResponse)
 
 -- | The Amazon Resource Name (ARN) of the configuration.
 describeConfigurationRevisionResponse_arn :: Lens.Lens' DescribeConfigurationRevisionResponse (Prelude.Maybe Prelude.Text)
 describeConfigurationRevisionResponse_arn = Lens.lens (\DescribeConfigurationRevisionResponse' {arn} -> arn) (\s@DescribeConfigurationRevisionResponse' {} a -> s {arn = a} :: DescribeConfigurationRevisionResponse)
 
+-- | The time when the configuration was created.
+describeConfigurationRevisionResponse_creationTime :: Lens.Lens' DescribeConfigurationRevisionResponse (Prelude.Maybe Prelude.UTCTime)
+describeConfigurationRevisionResponse_creationTime = Lens.lens (\DescribeConfigurationRevisionResponse' {creationTime} -> creationTime) (\s@DescribeConfigurationRevisionResponse' {} a -> s {creationTime = a} :: DescribeConfigurationRevisionResponse) Prelude.. Lens.mapping Data._Time
+
 -- | The description of the configuration.
 describeConfigurationRevisionResponse_description :: Lens.Lens' DescribeConfigurationRevisionResponse (Prelude.Maybe Prelude.Text)
 describeConfigurationRevisionResponse_description = Lens.lens (\DescribeConfigurationRevisionResponse' {description} -> description) (\s@DescribeConfigurationRevisionResponse' {} a -> s {description = a} :: DescribeConfigurationRevisionResponse)
 
--- | The time when the configuration was created.
-describeConfigurationRevisionResponse_creationTime :: Lens.Lens' DescribeConfigurationRevisionResponse (Prelude.Maybe Prelude.UTCTime)
-describeConfigurationRevisionResponse_creationTime = Lens.lens (\DescribeConfigurationRevisionResponse' {creationTime} -> creationTime) (\s@DescribeConfigurationRevisionResponse' {} a -> s {creationTime = a} :: DescribeConfigurationRevisionResponse) Prelude.. Lens.mapping Data._Time
+-- | The revision number.
+describeConfigurationRevisionResponse_revision :: Lens.Lens' DescribeConfigurationRevisionResponse (Prelude.Maybe Prelude.Integer)
+describeConfigurationRevisionResponse_revision = Lens.lens (\DescribeConfigurationRevisionResponse' {revision} -> revision) (\s@DescribeConfigurationRevisionResponse' {} a -> s {revision = a} :: DescribeConfigurationRevisionResponse)
 
 -- | Contents of the server.properties file. When using the API, you must
 -- ensure that the contents of the file are base64 encoded. When using the
@@ -249,9 +249,9 @@ instance
     DescribeConfigurationRevisionResponse
   where
   rnf DescribeConfigurationRevisionResponse' {..} =
-    Prelude.rnf revision
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf revision
       `Prelude.seq` Prelude.rnf serverProperties
       `Prelude.seq` Prelude.rnf httpStatus

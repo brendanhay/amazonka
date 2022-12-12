@@ -34,9 +34,9 @@ module Amazonka.IoTFleetWise.GetDecoderManifest
     newGetDecoderManifestResponse,
 
     -- * Response Lenses
+    getDecoderManifestResponse_description,
     getDecoderManifestResponse_modelManifestArn,
     getDecoderManifestResponse_status,
-    getDecoderManifestResponse_description,
     getDecoderManifestResponse_httpStatus,
     getDecoderManifestResponse_name,
     getDecoderManifestResponse_arn,
@@ -90,9 +90,9 @@ instance Core.AWSRequest GetDecoderManifest where
     Response.receiveJSON
       ( \s h x ->
           GetDecoderManifestResponse'
-            Prelude.<$> (x Data..?> "modelManifestArn")
+            Prelude.<$> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "modelManifestArn")
             Prelude.<*> (x Data..?> "status")
-            Prelude.<*> (x Data..?> "description")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "name")
             Prelude.<*> (x Data..:> "arn")
@@ -137,15 +137,15 @@ instance Data.ToQuery GetDecoderManifest where
 
 -- | /See:/ 'newGetDecoderManifestResponse' smart constructor.
 data GetDecoderManifestResponse = GetDecoderManifestResponse'
-  { -- | The ARN of a vehicle model (model manifest) associated with the decoder
+  { -- | A brief description of the decoder manifest.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of a vehicle model (model manifest) associated with the decoder
     -- manifest.
     modelManifestArn :: Prelude.Maybe Prelude.Text,
     -- | The state of the decoder manifest. If the status is @ACTIVE@, the
     -- decoder manifest can\'t be edited. If the status is marked @DRAFT@, you
     -- can edit the decoder manifest.
     status :: Prelude.Maybe ManifestStatus,
-    -- | A brief description of the decoder manifest.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The name of the decoder manifest.
@@ -169,14 +169,14 @@ data GetDecoderManifestResponse = GetDecoderManifestResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'getDecoderManifestResponse_description' - A brief description of the decoder manifest.
+--
 -- 'modelManifestArn', 'getDecoderManifestResponse_modelManifestArn' - The ARN of a vehicle model (model manifest) associated with the decoder
 -- manifest.
 --
 -- 'status', 'getDecoderManifestResponse_status' - The state of the decoder manifest. If the status is @ACTIVE@, the
 -- decoder manifest can\'t be edited. If the status is marked @DRAFT@, you
 -- can edit the decoder manifest.
---
--- 'description', 'getDecoderManifestResponse_description' - A brief description of the decoder manifest.
 --
 -- 'httpStatus', 'getDecoderManifestResponse_httpStatus' - The response's http status code.
 --
@@ -208,10 +208,10 @@ newGetDecoderManifestResponse
   pCreationTime_
   pLastModificationTime_ =
     GetDecoderManifestResponse'
-      { modelManifestArn =
+      { description =
           Prelude.Nothing,
+        modelManifestArn = Prelude.Nothing,
         status = Prelude.Nothing,
-        description = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         name = pName_,
         arn = pArn_,
@@ -219,6 +219,10 @@ newGetDecoderManifestResponse
         lastModificationTime =
           Data._Time Lens.# pLastModificationTime_
       }
+
+-- | A brief description of the decoder manifest.
+getDecoderManifestResponse_description :: Lens.Lens' GetDecoderManifestResponse (Prelude.Maybe Prelude.Text)
+getDecoderManifestResponse_description = Lens.lens (\GetDecoderManifestResponse' {description} -> description) (\s@GetDecoderManifestResponse' {} a -> s {description = a} :: GetDecoderManifestResponse)
 
 -- | The ARN of a vehicle model (model manifest) associated with the decoder
 -- manifest.
@@ -230,10 +234,6 @@ getDecoderManifestResponse_modelManifestArn = Lens.lens (\GetDecoderManifestResp
 -- can edit the decoder manifest.
 getDecoderManifestResponse_status :: Lens.Lens' GetDecoderManifestResponse (Prelude.Maybe ManifestStatus)
 getDecoderManifestResponse_status = Lens.lens (\GetDecoderManifestResponse' {status} -> status) (\s@GetDecoderManifestResponse' {} a -> s {status = a} :: GetDecoderManifestResponse)
-
--- | A brief description of the decoder manifest.
-getDecoderManifestResponse_description :: Lens.Lens' GetDecoderManifestResponse (Prelude.Maybe Prelude.Text)
-getDecoderManifestResponse_description = Lens.lens (\GetDecoderManifestResponse' {description} -> description) (\s@GetDecoderManifestResponse' {} a -> s {description = a} :: GetDecoderManifestResponse)
 
 -- | The response's http status code.
 getDecoderManifestResponse_httpStatus :: Lens.Lens' GetDecoderManifestResponse Prelude.Int
@@ -259,9 +259,9 @@ getDecoderManifestResponse_lastModificationTime = Lens.lens (\GetDecoderManifest
 
 instance Prelude.NFData GetDecoderManifestResponse where
   rnf GetDecoderManifestResponse' {..} =
-    Prelude.rnf modelManifestArn
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf modelManifestArn
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf arn

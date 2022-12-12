@@ -31,8 +31,8 @@ module Amazonka.DataPipeline.ReportTaskRunnerHeartbeat
     newReportTaskRunnerHeartbeat,
 
     -- * Request Lenses
-    reportTaskRunnerHeartbeat_workerGroup,
     reportTaskRunnerHeartbeat_hostname,
+    reportTaskRunnerHeartbeat_workerGroup,
     reportTaskRunnerHeartbeat_taskrunnerId,
 
     -- * Destructuring the Response
@@ -57,14 +57,14 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newReportTaskRunnerHeartbeat' smart constructor.
 data ReportTaskRunnerHeartbeat = ReportTaskRunnerHeartbeat'
-  { -- | The type of task the task runner is configured to accept and process.
+  { -- | The public DNS name of the task runner.
+    hostname :: Prelude.Maybe Prelude.Text,
+    -- | The type of task the task runner is configured to accept and process.
     -- The worker group is set as a field on objects in the pipeline when they
     -- are created. You can only specify a single value for @workerGroup@.
     -- There are no wildcard values permitted in @workerGroup@; the string must
     -- be an exact, case-sensitive, match.
     workerGroup :: Prelude.Maybe Prelude.Text,
-    -- | The public DNS name of the task runner.
-    hostname :: Prelude.Maybe Prelude.Text,
     -- | The ID of the task runner. This value should be unique across your AWS
     -- account. In the case of AWS Data Pipeline Task Runner launched on a
     -- resource managed by AWS Data Pipeline, the web service provides a unique
@@ -83,13 +83,13 @@ data ReportTaskRunnerHeartbeat = ReportTaskRunnerHeartbeat'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'hostname', 'reportTaskRunnerHeartbeat_hostname' - The public DNS name of the task runner.
+--
 -- 'workerGroup', 'reportTaskRunnerHeartbeat_workerGroup' - The type of task the task runner is configured to accept and process.
 -- The worker group is set as a field on objects in the pipeline when they
 -- are created. You can only specify a single value for @workerGroup@.
 -- There are no wildcard values permitted in @workerGroup@; the string must
 -- be an exact, case-sensitive, match.
---
--- 'hostname', 'reportTaskRunnerHeartbeat_hostname' - The public DNS name of the task runner.
 --
 -- 'taskrunnerId', 'reportTaskRunnerHeartbeat_taskrunnerId' - The ID of the task runner. This value should be unique across your AWS
 -- account. In the case of AWS Data Pipeline Task Runner launched on a
@@ -103,11 +103,15 @@ newReportTaskRunnerHeartbeat ::
   ReportTaskRunnerHeartbeat
 newReportTaskRunnerHeartbeat pTaskrunnerId_ =
   ReportTaskRunnerHeartbeat'
-    { workerGroup =
+    { hostname =
         Prelude.Nothing,
-      hostname = Prelude.Nothing,
+      workerGroup = Prelude.Nothing,
       taskrunnerId = pTaskrunnerId_
     }
+
+-- | The public DNS name of the task runner.
+reportTaskRunnerHeartbeat_hostname :: Lens.Lens' ReportTaskRunnerHeartbeat (Prelude.Maybe Prelude.Text)
+reportTaskRunnerHeartbeat_hostname = Lens.lens (\ReportTaskRunnerHeartbeat' {hostname} -> hostname) (\s@ReportTaskRunnerHeartbeat' {} a -> s {hostname = a} :: ReportTaskRunnerHeartbeat)
 
 -- | The type of task the task runner is configured to accept and process.
 -- The worker group is set as a field on objects in the pipeline when they
@@ -116,10 +120,6 @@ newReportTaskRunnerHeartbeat pTaskrunnerId_ =
 -- be an exact, case-sensitive, match.
 reportTaskRunnerHeartbeat_workerGroup :: Lens.Lens' ReportTaskRunnerHeartbeat (Prelude.Maybe Prelude.Text)
 reportTaskRunnerHeartbeat_workerGroup = Lens.lens (\ReportTaskRunnerHeartbeat' {workerGroup} -> workerGroup) (\s@ReportTaskRunnerHeartbeat' {} a -> s {workerGroup = a} :: ReportTaskRunnerHeartbeat)
-
--- | The public DNS name of the task runner.
-reportTaskRunnerHeartbeat_hostname :: Lens.Lens' ReportTaskRunnerHeartbeat (Prelude.Maybe Prelude.Text)
-reportTaskRunnerHeartbeat_hostname = Lens.lens (\ReportTaskRunnerHeartbeat' {hostname} -> hostname) (\s@ReportTaskRunnerHeartbeat' {} a -> s {hostname = a} :: ReportTaskRunnerHeartbeat)
 
 -- | The ID of the task runner. This value should be unique across your AWS
 -- account. In the case of AWS Data Pipeline Task Runner launched on a
@@ -146,14 +146,14 @@ instance Core.AWSRequest ReportTaskRunnerHeartbeat where
 
 instance Prelude.Hashable ReportTaskRunnerHeartbeat where
   hashWithSalt _salt ReportTaskRunnerHeartbeat' {..} =
-    _salt `Prelude.hashWithSalt` workerGroup
-      `Prelude.hashWithSalt` hostname
+    _salt `Prelude.hashWithSalt` hostname
+      `Prelude.hashWithSalt` workerGroup
       `Prelude.hashWithSalt` taskrunnerId
 
 instance Prelude.NFData ReportTaskRunnerHeartbeat where
   rnf ReportTaskRunnerHeartbeat' {..} =
-    Prelude.rnf workerGroup
-      `Prelude.seq` Prelude.rnf hostname
+    Prelude.rnf hostname
+      `Prelude.seq` Prelude.rnf workerGroup
       `Prelude.seq` Prelude.rnf taskrunnerId
 
 instance Data.ToHeaders ReportTaskRunnerHeartbeat where
@@ -175,8 +175,8 @@ instance Data.ToJSON ReportTaskRunnerHeartbeat where
   toJSON ReportTaskRunnerHeartbeat' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("workerGroup" Data..=) Prelude.<$> workerGroup,
-            ("hostname" Data..=) Prelude.<$> hostname,
+          [ ("hostname" Data..=) Prelude.<$> hostname,
+            ("workerGroup" Data..=) Prelude.<$> workerGroup,
             Prelude.Just ("taskrunnerId" Data..= taskrunnerId)
           ]
       )

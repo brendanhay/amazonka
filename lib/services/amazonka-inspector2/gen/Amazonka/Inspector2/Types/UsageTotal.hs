@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUsageTotal' smart constructor.
 data UsageTotal = UsageTotal'
-  { -- | An object representing the total usage for an account.
-    usage :: Prelude.Maybe [Usage],
-    -- | The account ID of the account that usage data was retrieved for.
-    accountId :: Prelude.Maybe Prelude.Text
+  { -- | The account ID of the account that usage data was retrieved for.
+    accountId :: Prelude.Maybe Prelude.Text,
+    -- | An object representing the total usage for an account.
+    usage :: Prelude.Maybe [Usage]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data UsageTotal = UsageTotal'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'usage', 'usageTotal_usage' - An object representing the total usage for an account.
---
 -- 'accountId', 'usageTotal_accountId' - The account ID of the account that usage data was retrieved for.
+--
+-- 'usage', 'usageTotal_usage' - An object representing the total usage for an account.
 newUsageTotal ::
   UsageTotal
 newUsageTotal =
   UsageTotal'
-    { usage = Prelude.Nothing,
-      accountId = Prelude.Nothing
+    { accountId = Prelude.Nothing,
+      usage = Prelude.Nothing
     }
-
--- | An object representing the total usage for an account.
-usageTotal_usage :: Lens.Lens' UsageTotal (Prelude.Maybe [Usage])
-usageTotal_usage = Lens.lens (\UsageTotal' {usage} -> usage) (\s@UsageTotal' {} a -> s {usage = a} :: UsageTotal) Prelude.. Lens.mapping Lens.coerced
 
 -- | The account ID of the account that usage data was retrieved for.
 usageTotal_accountId :: Lens.Lens' UsageTotal (Prelude.Maybe Prelude.Text)
 usageTotal_accountId = Lens.lens (\UsageTotal' {accountId} -> accountId) (\s@UsageTotal' {} a -> s {accountId = a} :: UsageTotal)
+
+-- | An object representing the total usage for an account.
+usageTotal_usage :: Lens.Lens' UsageTotal (Prelude.Maybe [Usage])
+usageTotal_usage = Lens.lens (\UsageTotal' {usage} -> usage) (\s@UsageTotal' {} a -> s {usage = a} :: UsageTotal) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON UsageTotal where
   parseJSON =
@@ -69,16 +69,16 @@ instance Data.FromJSON UsageTotal where
       "UsageTotal"
       ( \x ->
           UsageTotal'
-            Prelude.<$> (x Data..:? "usage" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "accountId")
+            Prelude.<$> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "usage" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable UsageTotal where
   hashWithSalt _salt UsageTotal' {..} =
-    _salt `Prelude.hashWithSalt` usage
-      `Prelude.hashWithSalt` accountId
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` usage
 
 instance Prelude.NFData UsageTotal where
   rnf UsageTotal' {..} =
-    Prelude.rnf usage
-      `Prelude.seq` Prelude.rnf accountId
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf usage

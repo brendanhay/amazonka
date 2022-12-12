@@ -31,14 +31,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBlockPublicAccess' smart constructor.
 data BlockPublicAccess = BlockPublicAccess'
-  { -- | Indicates if S3 Block Public Access is set to @RestrictPublicBuckets@.
-    restrictPublicBuckets :: Prelude.Maybe Prelude.Bool,
-    -- | Indicates if S3 Block Public Access is set to @IgnorePublicAcls@.
-    ignorePublicAcls :: Prelude.Maybe Prelude.Bool,
+  { -- | Indicates if S3 Block Public Access is set to @BlockPublicAcls@.
+    blockPublicAcls :: Prelude.Maybe Prelude.Bool,
     -- | Indicates if S3 Block Public Access is set to @BlockPublicPolicy@.
     blockPublicPolicy :: Prelude.Maybe Prelude.Bool,
-    -- | Indicates if S3 Block Public Access is set to @BlockPublicAcls@.
-    blockPublicAcls :: Prelude.Maybe Prelude.Bool
+    -- | Indicates if S3 Block Public Access is set to @IgnorePublicAcls@.
+    ignorePublicAcls :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates if S3 Block Public Access is set to @RestrictPublicBuckets@.
+    restrictPublicBuckets :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,39 +50,39 @@ data BlockPublicAccess = BlockPublicAccess'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'restrictPublicBuckets', 'blockPublicAccess_restrictPublicBuckets' - Indicates if S3 Block Public Access is set to @RestrictPublicBuckets@.
---
--- 'ignorePublicAcls', 'blockPublicAccess_ignorePublicAcls' - Indicates if S3 Block Public Access is set to @IgnorePublicAcls@.
+-- 'blockPublicAcls', 'blockPublicAccess_blockPublicAcls' - Indicates if S3 Block Public Access is set to @BlockPublicAcls@.
 --
 -- 'blockPublicPolicy', 'blockPublicAccess_blockPublicPolicy' - Indicates if S3 Block Public Access is set to @BlockPublicPolicy@.
 --
--- 'blockPublicAcls', 'blockPublicAccess_blockPublicAcls' - Indicates if S3 Block Public Access is set to @BlockPublicAcls@.
+-- 'ignorePublicAcls', 'blockPublicAccess_ignorePublicAcls' - Indicates if S3 Block Public Access is set to @IgnorePublicAcls@.
+--
+-- 'restrictPublicBuckets', 'blockPublicAccess_restrictPublicBuckets' - Indicates if S3 Block Public Access is set to @RestrictPublicBuckets@.
 newBlockPublicAccess ::
   BlockPublicAccess
 newBlockPublicAccess =
   BlockPublicAccess'
-    { restrictPublicBuckets =
+    { blockPublicAcls =
         Prelude.Nothing,
-      ignorePublicAcls = Prelude.Nothing,
       blockPublicPolicy = Prelude.Nothing,
-      blockPublicAcls = Prelude.Nothing
+      ignorePublicAcls = Prelude.Nothing,
+      restrictPublicBuckets = Prelude.Nothing
     }
 
--- | Indicates if S3 Block Public Access is set to @RestrictPublicBuckets@.
-blockPublicAccess_restrictPublicBuckets :: Lens.Lens' BlockPublicAccess (Prelude.Maybe Prelude.Bool)
-blockPublicAccess_restrictPublicBuckets = Lens.lens (\BlockPublicAccess' {restrictPublicBuckets} -> restrictPublicBuckets) (\s@BlockPublicAccess' {} a -> s {restrictPublicBuckets = a} :: BlockPublicAccess)
-
--- | Indicates if S3 Block Public Access is set to @IgnorePublicAcls@.
-blockPublicAccess_ignorePublicAcls :: Lens.Lens' BlockPublicAccess (Prelude.Maybe Prelude.Bool)
-blockPublicAccess_ignorePublicAcls = Lens.lens (\BlockPublicAccess' {ignorePublicAcls} -> ignorePublicAcls) (\s@BlockPublicAccess' {} a -> s {ignorePublicAcls = a} :: BlockPublicAccess)
+-- | Indicates if S3 Block Public Access is set to @BlockPublicAcls@.
+blockPublicAccess_blockPublicAcls :: Lens.Lens' BlockPublicAccess (Prelude.Maybe Prelude.Bool)
+blockPublicAccess_blockPublicAcls = Lens.lens (\BlockPublicAccess' {blockPublicAcls} -> blockPublicAcls) (\s@BlockPublicAccess' {} a -> s {blockPublicAcls = a} :: BlockPublicAccess)
 
 -- | Indicates if S3 Block Public Access is set to @BlockPublicPolicy@.
 blockPublicAccess_blockPublicPolicy :: Lens.Lens' BlockPublicAccess (Prelude.Maybe Prelude.Bool)
 blockPublicAccess_blockPublicPolicy = Lens.lens (\BlockPublicAccess' {blockPublicPolicy} -> blockPublicPolicy) (\s@BlockPublicAccess' {} a -> s {blockPublicPolicy = a} :: BlockPublicAccess)
 
--- | Indicates if S3 Block Public Access is set to @BlockPublicAcls@.
-blockPublicAccess_blockPublicAcls :: Lens.Lens' BlockPublicAccess (Prelude.Maybe Prelude.Bool)
-blockPublicAccess_blockPublicAcls = Lens.lens (\BlockPublicAccess' {blockPublicAcls} -> blockPublicAcls) (\s@BlockPublicAccess' {} a -> s {blockPublicAcls = a} :: BlockPublicAccess)
+-- | Indicates if S3 Block Public Access is set to @IgnorePublicAcls@.
+blockPublicAccess_ignorePublicAcls :: Lens.Lens' BlockPublicAccess (Prelude.Maybe Prelude.Bool)
+blockPublicAccess_ignorePublicAcls = Lens.lens (\BlockPublicAccess' {ignorePublicAcls} -> ignorePublicAcls) (\s@BlockPublicAccess' {} a -> s {ignorePublicAcls = a} :: BlockPublicAccess)
+
+-- | Indicates if S3 Block Public Access is set to @RestrictPublicBuckets@.
+blockPublicAccess_restrictPublicBuckets :: Lens.Lens' BlockPublicAccess (Prelude.Maybe Prelude.Bool)
+blockPublicAccess_restrictPublicBuckets = Lens.lens (\BlockPublicAccess' {restrictPublicBuckets} -> restrictPublicBuckets) (\s@BlockPublicAccess' {} a -> s {restrictPublicBuckets = a} :: BlockPublicAccess)
 
 instance Data.FromJSON BlockPublicAccess where
   parseJSON =
@@ -90,22 +90,22 @@ instance Data.FromJSON BlockPublicAccess where
       "BlockPublicAccess"
       ( \x ->
           BlockPublicAccess'
-            Prelude.<$> (x Data..:? "restrictPublicBuckets")
-            Prelude.<*> (x Data..:? "ignorePublicAcls")
+            Prelude.<$> (x Data..:? "blockPublicAcls")
             Prelude.<*> (x Data..:? "blockPublicPolicy")
-            Prelude.<*> (x Data..:? "blockPublicAcls")
+            Prelude.<*> (x Data..:? "ignorePublicAcls")
+            Prelude.<*> (x Data..:? "restrictPublicBuckets")
       )
 
 instance Prelude.Hashable BlockPublicAccess where
   hashWithSalt _salt BlockPublicAccess' {..} =
-    _salt `Prelude.hashWithSalt` restrictPublicBuckets
-      `Prelude.hashWithSalt` ignorePublicAcls
+    _salt `Prelude.hashWithSalt` blockPublicAcls
       `Prelude.hashWithSalt` blockPublicPolicy
-      `Prelude.hashWithSalt` blockPublicAcls
+      `Prelude.hashWithSalt` ignorePublicAcls
+      `Prelude.hashWithSalt` restrictPublicBuckets
 
 instance Prelude.NFData BlockPublicAccess where
   rnf BlockPublicAccess' {..} =
-    Prelude.rnf restrictPublicBuckets
-      `Prelude.seq` Prelude.rnf ignorePublicAcls
+    Prelude.rnf blockPublicAcls
       `Prelude.seq` Prelude.rnf blockPublicPolicy
-      `Prelude.seq` Prelude.rnf blockPublicAcls
+      `Prelude.seq` Prelude.rnf ignorePublicAcls
+      `Prelude.seq` Prelude.rnf restrictPublicBuckets

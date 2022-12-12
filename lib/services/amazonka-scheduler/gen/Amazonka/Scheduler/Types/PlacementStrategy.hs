@@ -29,7 +29,15 @@ import Amazonka.Scheduler.Types.PlacementStrategyType
 --
 -- /See:/ 'newPlacementStrategy' smart constructor.
 data PlacementStrategy = PlacementStrategy'
-  { -- | The type of placement strategy. The random placement strategy randomly
+  { -- | The field to apply the placement strategy against. For the spread
+    -- placement strategy, valid values are @instanceId@ (or @instanceId@,
+    -- which has the same effect), or any platform or custom attribute that is
+    -- applied to a container instance, such as
+    -- @attribute:ecs.availability-zone@. For the binpack placement strategy,
+    -- valid values are @cpu@ and @memory@. For the random placement strategy,
+    -- this field is not used.
+    field :: Prelude.Maybe Prelude.Text,
+    -- | The type of placement strategy. The random placement strategy randomly
     -- places tasks on available candidates. The spread placement strategy
     -- spreads placement across available candidates evenly based on the field
     -- parameter. The binpack strategy places tasks on available candidates
@@ -37,15 +45,7 @@ data PlacementStrategy = PlacementStrategy'
     -- with the field parameter. For example, if you binpack on memory, a task
     -- is placed on the instance with the least amount of remaining memory (but
     -- still enough to run the task).
-    type' :: Prelude.Maybe PlacementStrategyType,
-    -- | The field to apply the placement strategy against. For the spread
-    -- placement strategy, valid values are @instanceId@ (or @instanceId@,
-    -- which has the same effect), or any platform or custom attribute that is
-    -- applied to a container instance, such as
-    -- @attribute:ecs.availability-zone@. For the binpack placement strategy,
-    -- valid values are @cpu@ and @memory@. For the random placement strategy,
-    -- this field is not used.
-    field :: Prelude.Maybe Prelude.Text
+    type' :: Prelude.Maybe PlacementStrategyType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,6 +57,14 @@ data PlacementStrategy = PlacementStrategy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'field', 'placementStrategy_field' - The field to apply the placement strategy against. For the spread
+-- placement strategy, valid values are @instanceId@ (or @instanceId@,
+-- which has the same effect), or any platform or custom attribute that is
+-- applied to a container instance, such as
+-- @attribute:ecs.availability-zone@. For the binpack placement strategy,
+-- valid values are @cpu@ and @memory@. For the random placement strategy,
+-- this field is not used.
+--
 -- 'type'', 'placementStrategy_type' - The type of placement strategy. The random placement strategy randomly
 -- places tasks on available candidates. The spread placement strategy
 -- spreads placement across available candidates evenly based on the field
@@ -65,21 +73,23 @@ data PlacementStrategy = PlacementStrategy'
 -- with the field parameter. For example, if you binpack on memory, a task
 -- is placed on the instance with the least amount of remaining memory (but
 -- still enough to run the task).
---
--- 'field', 'placementStrategy_field' - The field to apply the placement strategy against. For the spread
+newPlacementStrategy ::
+  PlacementStrategy
+newPlacementStrategy =
+  PlacementStrategy'
+    { field = Prelude.Nothing,
+      type' = Prelude.Nothing
+    }
+
+-- | The field to apply the placement strategy against. For the spread
 -- placement strategy, valid values are @instanceId@ (or @instanceId@,
 -- which has the same effect), or any platform or custom attribute that is
 -- applied to a container instance, such as
 -- @attribute:ecs.availability-zone@. For the binpack placement strategy,
 -- valid values are @cpu@ and @memory@. For the random placement strategy,
 -- this field is not used.
-newPlacementStrategy ::
-  PlacementStrategy
-newPlacementStrategy =
-  PlacementStrategy'
-    { type' = Prelude.Nothing,
-      field = Prelude.Nothing
-    }
+placementStrategy_field :: Lens.Lens' PlacementStrategy (Prelude.Maybe Prelude.Text)
+placementStrategy_field = Lens.lens (\PlacementStrategy' {field} -> field) (\s@PlacementStrategy' {} a -> s {field = a} :: PlacementStrategy)
 
 -- | The type of placement strategy. The random placement strategy randomly
 -- places tasks on available candidates. The spread placement strategy
@@ -92,39 +102,29 @@ newPlacementStrategy =
 placementStrategy_type :: Lens.Lens' PlacementStrategy (Prelude.Maybe PlacementStrategyType)
 placementStrategy_type = Lens.lens (\PlacementStrategy' {type'} -> type') (\s@PlacementStrategy' {} a -> s {type' = a} :: PlacementStrategy)
 
--- | The field to apply the placement strategy against. For the spread
--- placement strategy, valid values are @instanceId@ (or @instanceId@,
--- which has the same effect), or any platform or custom attribute that is
--- applied to a container instance, such as
--- @attribute:ecs.availability-zone@. For the binpack placement strategy,
--- valid values are @cpu@ and @memory@. For the random placement strategy,
--- this field is not used.
-placementStrategy_field :: Lens.Lens' PlacementStrategy (Prelude.Maybe Prelude.Text)
-placementStrategy_field = Lens.lens (\PlacementStrategy' {field} -> field) (\s@PlacementStrategy' {} a -> s {field = a} :: PlacementStrategy)
-
 instance Data.FromJSON PlacementStrategy where
   parseJSON =
     Data.withObject
       "PlacementStrategy"
       ( \x ->
           PlacementStrategy'
-            Prelude.<$> (x Data..:? "type") Prelude.<*> (x Data..:? "field")
+            Prelude.<$> (x Data..:? "field") Prelude.<*> (x Data..:? "type")
       )
 
 instance Prelude.Hashable PlacementStrategy where
   hashWithSalt _salt PlacementStrategy' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` field
+    _salt `Prelude.hashWithSalt` field
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData PlacementStrategy where
   rnf PlacementStrategy' {..} =
-    Prelude.rnf type' `Prelude.seq` Prelude.rnf field
+    Prelude.rnf field `Prelude.seq` Prelude.rnf type'
 
 instance Data.ToJSON PlacementStrategy where
   toJSON PlacementStrategy' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("type" Data..=) Prelude.<$> type',
-            ("field" Data..=) Prelude.<$> field
+          [ ("field" Data..=) Prelude.<$> field,
+            ("type" Data..=) Prelude.<$> type'
           ]
       )

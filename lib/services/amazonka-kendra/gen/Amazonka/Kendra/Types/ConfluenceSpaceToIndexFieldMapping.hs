@@ -36,13 +36,13 @@ import qualified Amazonka.Prelude as Prelude
 data ConfluenceSpaceToIndexFieldMapping = ConfluenceSpaceToIndexFieldMapping'
   { -- | The name of the field in the data source.
     dataSourceFieldName :: Prelude.Maybe ConfluenceSpaceFieldName,
-    -- | The name of the index field to map to the Confluence data source field.
-    -- The index field type must match the Confluence field type.
-    indexFieldName :: Prelude.Maybe Prelude.Text,
     -- | The format for date fields in the data source. If the field specified in
     -- @DataSourceFieldName@ is a date field you must specify the date format.
     -- If the field is not a date field, an exception is thrown.
-    dateFieldFormat :: Prelude.Maybe Prelude.Text
+    dateFieldFormat :: Prelude.Maybe Prelude.Text,
+    -- | The name of the index field to map to the Confluence data source field.
+    -- The index field type must match the Confluence field type.
+    indexFieldName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,36 +56,36 @@ data ConfluenceSpaceToIndexFieldMapping = ConfluenceSpaceToIndexFieldMapping'
 --
 -- 'dataSourceFieldName', 'confluenceSpaceToIndexFieldMapping_dataSourceFieldName' - The name of the field in the data source.
 --
--- 'indexFieldName', 'confluenceSpaceToIndexFieldMapping_indexFieldName' - The name of the index field to map to the Confluence data source field.
--- The index field type must match the Confluence field type.
---
 -- 'dateFieldFormat', 'confluenceSpaceToIndexFieldMapping_dateFieldFormat' - The format for date fields in the data source. If the field specified in
 -- @DataSourceFieldName@ is a date field you must specify the date format.
 -- If the field is not a date field, an exception is thrown.
+--
+-- 'indexFieldName', 'confluenceSpaceToIndexFieldMapping_indexFieldName' - The name of the index field to map to the Confluence data source field.
+-- The index field type must match the Confluence field type.
 newConfluenceSpaceToIndexFieldMapping ::
   ConfluenceSpaceToIndexFieldMapping
 newConfluenceSpaceToIndexFieldMapping =
   ConfluenceSpaceToIndexFieldMapping'
     { dataSourceFieldName =
         Prelude.Nothing,
-      indexFieldName = Prelude.Nothing,
-      dateFieldFormat = Prelude.Nothing
+      dateFieldFormat = Prelude.Nothing,
+      indexFieldName = Prelude.Nothing
     }
 
 -- | The name of the field in the data source.
 confluenceSpaceToIndexFieldMapping_dataSourceFieldName :: Lens.Lens' ConfluenceSpaceToIndexFieldMapping (Prelude.Maybe ConfluenceSpaceFieldName)
 confluenceSpaceToIndexFieldMapping_dataSourceFieldName = Lens.lens (\ConfluenceSpaceToIndexFieldMapping' {dataSourceFieldName} -> dataSourceFieldName) (\s@ConfluenceSpaceToIndexFieldMapping' {} a -> s {dataSourceFieldName = a} :: ConfluenceSpaceToIndexFieldMapping)
 
--- | The name of the index field to map to the Confluence data source field.
--- The index field type must match the Confluence field type.
-confluenceSpaceToIndexFieldMapping_indexFieldName :: Lens.Lens' ConfluenceSpaceToIndexFieldMapping (Prelude.Maybe Prelude.Text)
-confluenceSpaceToIndexFieldMapping_indexFieldName = Lens.lens (\ConfluenceSpaceToIndexFieldMapping' {indexFieldName} -> indexFieldName) (\s@ConfluenceSpaceToIndexFieldMapping' {} a -> s {indexFieldName = a} :: ConfluenceSpaceToIndexFieldMapping)
-
 -- | The format for date fields in the data source. If the field specified in
 -- @DataSourceFieldName@ is a date field you must specify the date format.
 -- If the field is not a date field, an exception is thrown.
 confluenceSpaceToIndexFieldMapping_dateFieldFormat :: Lens.Lens' ConfluenceSpaceToIndexFieldMapping (Prelude.Maybe Prelude.Text)
 confluenceSpaceToIndexFieldMapping_dateFieldFormat = Lens.lens (\ConfluenceSpaceToIndexFieldMapping' {dateFieldFormat} -> dateFieldFormat) (\s@ConfluenceSpaceToIndexFieldMapping' {} a -> s {dateFieldFormat = a} :: ConfluenceSpaceToIndexFieldMapping)
+
+-- | The name of the index field to map to the Confluence data source field.
+-- The index field type must match the Confluence field type.
+confluenceSpaceToIndexFieldMapping_indexFieldName :: Lens.Lens' ConfluenceSpaceToIndexFieldMapping (Prelude.Maybe Prelude.Text)
+confluenceSpaceToIndexFieldMapping_indexFieldName = Lens.lens (\ConfluenceSpaceToIndexFieldMapping' {indexFieldName} -> indexFieldName) (\s@ConfluenceSpaceToIndexFieldMapping' {} a -> s {indexFieldName = a} :: ConfluenceSpaceToIndexFieldMapping)
 
 instance
   Data.FromJSON
@@ -97,8 +97,8 @@ instance
       ( \x ->
           ConfluenceSpaceToIndexFieldMapping'
             Prelude.<$> (x Data..:? "DataSourceFieldName")
-            Prelude.<*> (x Data..:? "IndexFieldName")
             Prelude.<*> (x Data..:? "DateFieldFormat")
+            Prelude.<*> (x Data..:? "IndexFieldName")
       )
 
 instance
@@ -109,8 +109,8 @@ instance
     _salt
     ConfluenceSpaceToIndexFieldMapping' {..} =
       _salt `Prelude.hashWithSalt` dataSourceFieldName
-        `Prelude.hashWithSalt` indexFieldName
         `Prelude.hashWithSalt` dateFieldFormat
+        `Prelude.hashWithSalt` indexFieldName
 
 instance
   Prelude.NFData
@@ -118,8 +118,8 @@ instance
   where
   rnf ConfluenceSpaceToIndexFieldMapping' {..} =
     Prelude.rnf dataSourceFieldName
-      `Prelude.seq` Prelude.rnf indexFieldName
       `Prelude.seq` Prelude.rnf dateFieldFormat
+      `Prelude.seq` Prelude.rnf indexFieldName
 
 instance
   Data.ToJSON
@@ -130,9 +130,9 @@ instance
       ( Prelude.catMaybes
           [ ("DataSourceFieldName" Data..=)
               Prelude.<$> dataSourceFieldName,
-            ("IndexFieldName" Data..=)
-              Prelude.<$> indexFieldName,
             ("DateFieldFormat" Data..=)
-              Prelude.<$> dateFieldFormat
+              Prelude.<$> dateFieldFormat,
+            ("IndexFieldName" Data..=)
+              Prelude.<$> indexFieldName
           ]
       )

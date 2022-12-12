@@ -27,8 +27,8 @@ module Amazonka.ConnectCases.UpdateField
     newUpdateField,
 
     -- * Request Lenses
-    updateField_name,
     updateField_description,
+    updateField_name,
     updateField_domainId,
     updateField_fieldId,
 
@@ -51,10 +51,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateField' smart constructor.
 data UpdateField = UpdateField'
-  { -- | The name of the field.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The description of a field.
+  { -- | The description of a field.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The name of the field.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the Cases domain.
     domainId :: Prelude.Text,
     -- | The unique identifier of a field.
@@ -70,9 +70,9 @@ data UpdateField = UpdateField'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateField_name' - The name of the field.
---
 -- 'description', 'updateField_description' - The description of a field.
+--
+-- 'name', 'updateField_name' - The name of the field.
 --
 -- 'domainId', 'updateField_domainId' - The unique identifier of the Cases domain.
 --
@@ -85,19 +85,19 @@ newUpdateField ::
   UpdateField
 newUpdateField pDomainId_ pFieldId_ =
   UpdateField'
-    { name = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      name = Prelude.Nothing,
       domainId = pDomainId_,
       fieldId = pFieldId_
     }
 
--- | The name of the field.
-updateField_name :: Lens.Lens' UpdateField (Prelude.Maybe Prelude.Text)
-updateField_name = Lens.lens (\UpdateField' {name} -> name) (\s@UpdateField' {} a -> s {name = a} :: UpdateField)
-
 -- | The description of a field.
 updateField_description :: Lens.Lens' UpdateField (Prelude.Maybe Prelude.Text)
 updateField_description = Lens.lens (\UpdateField' {description} -> description) (\s@UpdateField' {} a -> s {description = a} :: UpdateField)
+
+-- | The name of the field.
+updateField_name :: Lens.Lens' UpdateField (Prelude.Maybe Prelude.Text)
+updateField_name = Lens.lens (\UpdateField' {name} -> name) (\s@UpdateField' {} a -> s {name = a} :: UpdateField)
 
 -- | The unique identifier of the Cases domain.
 updateField_domainId :: Lens.Lens' UpdateField Prelude.Text
@@ -120,15 +120,15 @@ instance Core.AWSRequest UpdateField where
 
 instance Prelude.Hashable UpdateField where
   hashWithSalt _salt UpdateField' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` fieldId
 
 instance Prelude.NFData UpdateField where
   rnf UpdateField' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf domainId
       `Prelude.seq` Prelude.rnf fieldId
 
@@ -147,8 +147,8 @@ instance Data.ToJSON UpdateField where
   toJSON UpdateField' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("name" Data..=) Prelude.<$> name,
-            ("description" Data..=) Prelude.<$> description
+          [ ("description" Data..=) Prelude.<$> description,
+            ("name" Data..=) Prelude.<$> name
           ]
       )
 

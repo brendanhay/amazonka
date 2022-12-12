@@ -85,10 +85,10 @@ module Amazonka.IAM.GetServiceLastAccessedDetails
     newGetServiceLastAccessedDetailsResponse,
 
     -- * Response Lenses
-    getServiceLastAccessedDetailsResponse_marker,
-    getServiceLastAccessedDetailsResponse_isTruncated,
     getServiceLastAccessedDetailsResponse_error,
+    getServiceLastAccessedDetailsResponse_isTruncated,
     getServiceLastAccessedDetailsResponse_jobType,
+    getServiceLastAccessedDetailsResponse_marker,
     getServiceLastAccessedDetailsResponse_httpStatus,
     getServiceLastAccessedDetailsResponse_jobStatus,
     getServiceLastAccessedDetailsResponse_jobCreationDate,
@@ -212,10 +212,10 @@ instance
       "GetServiceLastAccessedDetailsResult"
       ( \s h x ->
           GetServiceLastAccessedDetailsResponse'
-            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<$> (x Data..@? "Error")
             Prelude.<*> (x Data..@? "IsTruncated")
-            Prelude.<*> (x Data..@? "Error")
             Prelude.<*> (x Data..@? "JobType")
+            Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "JobStatus")
             Prelude.<*> (x Data..@ "JobCreationDate")
@@ -263,10 +263,8 @@ instance Data.ToQuery GetServiceLastAccessedDetails where
 
 -- | /See:/ 'newGetServiceLastAccessedDetailsResponse' smart constructor.
 data GetServiceLastAccessedDetailsResponse = GetServiceLastAccessedDetailsResponse'
-  { -- | When @IsTruncated@ is @true@, this element is present and contains the
-    -- value to use for the @Marker@ parameter in a subsequent pagination
-    -- request.
-    marker :: Prelude.Maybe Prelude.Text,
+  { -- | An object that contains details about the reason the operation failed.
+    error :: Prelude.Maybe ErrorDetails,
     -- | A flag that indicates whether there are more items to return. If your
     -- results were truncated, you can make a subsequent pagination request
     -- using the @Marker@ request parameter to retrieve more items. Note that
@@ -275,12 +273,14 @@ data GetServiceLastAccessedDetailsResponse = GetServiceLastAccessedDetailsRespon
     -- @IsTruncated@ after every call to ensure that you receive all your
     -- results.
     isTruncated :: Prelude.Maybe Prelude.Bool,
-    -- | An object that contains details about the reason the operation failed.
-    error :: Prelude.Maybe ErrorDetails,
     -- | The type of job. Service jobs return information about when each service
     -- was last accessed. Action jobs also include information about when
     -- tracked actions within the service were last accessed.
     jobType :: Prelude.Maybe AccessAdvisorUsageGranularityType,
+    -- | When @IsTruncated@ is @true@, this element is present and contains the
+    -- value to use for the @Marker@ parameter in a subsequent pagination
+    -- request.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The status of the job.
@@ -310,9 +310,7 @@ data GetServiceLastAccessedDetailsResponse = GetServiceLastAccessedDetailsRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'marker', 'getServiceLastAccessedDetailsResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
+-- 'error', 'getServiceLastAccessedDetailsResponse_error' - An object that contains details about the reason the operation failed.
 --
 -- 'isTruncated', 'getServiceLastAccessedDetailsResponse_isTruncated' - A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
@@ -322,11 +320,13 @@ data GetServiceLastAccessedDetailsResponse = GetServiceLastAccessedDetailsRespon
 -- @IsTruncated@ after every call to ensure that you receive all your
 -- results.
 --
--- 'error', 'getServiceLastAccessedDetailsResponse_error' - An object that contains details about the reason the operation failed.
---
 -- 'jobType', 'getServiceLastAccessedDetailsResponse_jobType' - The type of job. Service jobs return information about when each service
 -- was last accessed. Action jobs also include information about when
 -- tracked actions within the service were last accessed.
+--
+-- 'marker', 'getServiceLastAccessedDetailsResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
 --
 -- 'httpStatus', 'getServiceLastAccessedDetailsResponse_httpStatus' - The response's http status code.
 --
@@ -361,11 +361,11 @@ newGetServiceLastAccessedDetailsResponse
   pJobCreationDate_
   pJobCompletionDate_ =
     GetServiceLastAccessedDetailsResponse'
-      { marker =
+      { error =
           Prelude.Nothing,
         isTruncated = Prelude.Nothing,
-        error = Prelude.Nothing,
         jobType = Prelude.Nothing,
+        marker = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         jobStatus = pJobStatus_,
         jobCreationDate =
@@ -378,11 +378,9 @@ newGetServiceLastAccessedDetailsResponse
             Lens.# pJobCompletionDate_
       }
 
--- | When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
-getServiceLastAccessedDetailsResponse_marker :: Lens.Lens' GetServiceLastAccessedDetailsResponse (Prelude.Maybe Prelude.Text)
-getServiceLastAccessedDetailsResponse_marker = Lens.lens (\GetServiceLastAccessedDetailsResponse' {marker} -> marker) (\s@GetServiceLastAccessedDetailsResponse' {} a -> s {marker = a} :: GetServiceLastAccessedDetailsResponse)
+-- | An object that contains details about the reason the operation failed.
+getServiceLastAccessedDetailsResponse_error :: Lens.Lens' GetServiceLastAccessedDetailsResponse (Prelude.Maybe ErrorDetails)
+getServiceLastAccessedDetailsResponse_error = Lens.lens (\GetServiceLastAccessedDetailsResponse' {error} -> error) (\s@GetServiceLastAccessedDetailsResponse' {} a -> s {error = a} :: GetServiceLastAccessedDetailsResponse)
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
@@ -394,15 +392,17 @@ getServiceLastAccessedDetailsResponse_marker = Lens.lens (\GetServiceLastAccesse
 getServiceLastAccessedDetailsResponse_isTruncated :: Lens.Lens' GetServiceLastAccessedDetailsResponse (Prelude.Maybe Prelude.Bool)
 getServiceLastAccessedDetailsResponse_isTruncated = Lens.lens (\GetServiceLastAccessedDetailsResponse' {isTruncated} -> isTruncated) (\s@GetServiceLastAccessedDetailsResponse' {} a -> s {isTruncated = a} :: GetServiceLastAccessedDetailsResponse)
 
--- | An object that contains details about the reason the operation failed.
-getServiceLastAccessedDetailsResponse_error :: Lens.Lens' GetServiceLastAccessedDetailsResponse (Prelude.Maybe ErrorDetails)
-getServiceLastAccessedDetailsResponse_error = Lens.lens (\GetServiceLastAccessedDetailsResponse' {error} -> error) (\s@GetServiceLastAccessedDetailsResponse' {} a -> s {error = a} :: GetServiceLastAccessedDetailsResponse)
-
 -- | The type of job. Service jobs return information about when each service
 -- was last accessed. Action jobs also include information about when
 -- tracked actions within the service were last accessed.
 getServiceLastAccessedDetailsResponse_jobType :: Lens.Lens' GetServiceLastAccessedDetailsResponse (Prelude.Maybe AccessAdvisorUsageGranularityType)
 getServiceLastAccessedDetailsResponse_jobType = Lens.lens (\GetServiceLastAccessedDetailsResponse' {jobType} -> jobType) (\s@GetServiceLastAccessedDetailsResponse' {} a -> s {jobType = a} :: GetServiceLastAccessedDetailsResponse)
+
+-- | When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+getServiceLastAccessedDetailsResponse_marker :: Lens.Lens' GetServiceLastAccessedDetailsResponse (Prelude.Maybe Prelude.Text)
+getServiceLastAccessedDetailsResponse_marker = Lens.lens (\GetServiceLastAccessedDetailsResponse' {marker} -> marker) (\s@GetServiceLastAccessedDetailsResponse' {} a -> s {marker = a} :: GetServiceLastAccessedDetailsResponse)
 
 -- | The response's http status code.
 getServiceLastAccessedDetailsResponse_httpStatus :: Lens.Lens' GetServiceLastAccessedDetailsResponse Prelude.Int
@@ -437,10 +437,10 @@ instance
     GetServiceLastAccessedDetailsResponse
   where
   rnf GetServiceLastAccessedDetailsResponse' {..} =
-    Prelude.rnf marker
+    Prelude.rnf error
       `Prelude.seq` Prelude.rnf isTruncated
-      `Prelude.seq` Prelude.rnf error
       `Prelude.seq` Prelude.rnf jobType
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf jobStatus
       `Prelude.seq` Prelude.rnf jobCreationDate

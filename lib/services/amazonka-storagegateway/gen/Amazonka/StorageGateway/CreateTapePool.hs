@@ -28,9 +28,9 @@ module Amazonka.StorageGateway.CreateTapePool
     newCreateTapePool,
 
     -- * Request Lenses
-    createTapePool_tags,
     createTapePool_retentionLockTimeInDays,
     createTapePool_retentionLockType,
+    createTapePool_tags,
     createTapePool_poolName,
     createTapePool_storageClass,
 
@@ -54,15 +54,7 @@ import Amazonka.StorageGateway.Types
 
 -- | /See:/ 'newCreateTapePool' smart constructor.
 data CreateTapePool = CreateTapePool'
-  { -- | A list of up to 50 tags that can be assigned to tape pool. Each tag is a
-    -- key-value pair.
-    --
-    -- Valid characters for key and value are letters, spaces, and numbers
-    -- representable in UTF-8 format, and the following special characters: + -
-    -- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
-    -- the maximum length for a tag\'s value is 256.
-    tags :: Prelude.Maybe [Tag],
-    -- | Tape retention lock time is set in days. Tape retention lock can be
+  { -- | Tape retention lock time is set in days. Tape retention lock can be
     -- enabled for up to 100 years (36,500 days).
     retentionLockTimeInDays :: Prelude.Maybe Prelude.Natural,
     -- | Tape retention lock can be configured in two modes. When configured in
@@ -72,6 +64,14 @@ data CreateTapePool = CreateTapePool'
     -- retention lock cannot be removed by any user, including the root Amazon
     -- Web Services account.
     retentionLockType :: Prelude.Maybe RetentionLockType,
+    -- | A list of up to 50 tags that can be assigned to tape pool. Each tag is a
+    -- key-value pair.
+    --
+    -- Valid characters for key and value are letters, spaces, and numbers
+    -- representable in UTF-8 format, and the following special characters: + -
+    -- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
+    -- the maximum length for a tag\'s value is 256.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the new custom tape pool.
     poolName :: Prelude.Text,
     -- | The storage class that is associated with the new custom pool. When you
@@ -90,14 +90,6 @@ data CreateTapePool = CreateTapePool'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createTapePool_tags' - A list of up to 50 tags that can be assigned to tape pool. Each tag is a
--- key-value pair.
---
--- Valid characters for key and value are letters, spaces, and numbers
--- representable in UTF-8 format, and the following special characters: + -
--- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
--- the maximum length for a tag\'s value is 256.
---
 -- 'retentionLockTimeInDays', 'createTapePool_retentionLockTimeInDays' - Tape retention lock time is set in days. Tape retention lock can be
 -- enabled for up to 100 years (36,500 days).
 --
@@ -107,6 +99,14 @@ data CreateTapePool = CreateTapePool'
 -- archived virtual tapes. When configured in compliance mode, the tape
 -- retention lock cannot be removed by any user, including the root Amazon
 -- Web Services account.
+--
+-- 'tags', 'createTapePool_tags' - A list of up to 50 tags that can be assigned to tape pool. Each tag is a
+-- key-value pair.
+--
+-- Valid characters for key and value are letters, spaces, and numbers
+-- representable in UTF-8 format, and the following special characters: + -
+-- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
+-- the maximum length for a tag\'s value is 256.
 --
 -- 'poolName', 'createTapePool_poolName' - The name of the new custom tape pool.
 --
@@ -122,22 +122,13 @@ newCreateTapePool ::
   CreateTapePool
 newCreateTapePool pPoolName_ pStorageClass_ =
   CreateTapePool'
-    { tags = Prelude.Nothing,
-      retentionLockTimeInDays = Prelude.Nothing,
+    { retentionLockTimeInDays =
+        Prelude.Nothing,
       retentionLockType = Prelude.Nothing,
+      tags = Prelude.Nothing,
       poolName = pPoolName_,
       storageClass = pStorageClass_
     }
-
--- | A list of up to 50 tags that can be assigned to tape pool. Each tag is a
--- key-value pair.
---
--- Valid characters for key and value are letters, spaces, and numbers
--- representable in UTF-8 format, and the following special characters: + -
--- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
--- the maximum length for a tag\'s value is 256.
-createTapePool_tags :: Lens.Lens' CreateTapePool (Prelude.Maybe [Tag])
-createTapePool_tags = Lens.lens (\CreateTapePool' {tags} -> tags) (\s@CreateTapePool' {} a -> s {tags = a} :: CreateTapePool) Prelude.. Lens.mapping Lens.coerced
 
 -- | Tape retention lock time is set in days. Tape retention lock can be
 -- enabled for up to 100 years (36,500 days).
@@ -152,6 +143,16 @@ createTapePool_retentionLockTimeInDays = Lens.lens (\CreateTapePool' {retentionL
 -- Web Services account.
 createTapePool_retentionLockType :: Lens.Lens' CreateTapePool (Prelude.Maybe RetentionLockType)
 createTapePool_retentionLockType = Lens.lens (\CreateTapePool' {retentionLockType} -> retentionLockType) (\s@CreateTapePool' {} a -> s {retentionLockType = a} :: CreateTapePool)
+
+-- | A list of up to 50 tags that can be assigned to tape pool. Each tag is a
+-- key-value pair.
+--
+-- Valid characters for key and value are letters, spaces, and numbers
+-- representable in UTF-8 format, and the following special characters: + -
+-- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
+-- the maximum length for a tag\'s value is 256.
+createTapePool_tags :: Lens.Lens' CreateTapePool (Prelude.Maybe [Tag])
+createTapePool_tags = Lens.lens (\CreateTapePool' {tags} -> tags) (\s@CreateTapePool' {} a -> s {tags = a} :: CreateTapePool) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the new custom tape pool.
 createTapePool_poolName :: Lens.Lens' CreateTapePool Prelude.Text
@@ -180,17 +181,18 @@ instance Core.AWSRequest CreateTapePool where
 
 instance Prelude.Hashable CreateTapePool where
   hashWithSalt _salt CreateTapePool' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
       `Prelude.hashWithSalt` retentionLockTimeInDays
       `Prelude.hashWithSalt` retentionLockType
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` poolName
       `Prelude.hashWithSalt` storageClass
 
 instance Prelude.NFData CreateTapePool where
   rnf CreateTapePool' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf retentionLockTimeInDays
+    Prelude.rnf retentionLockTimeInDays
       `Prelude.seq` Prelude.rnf retentionLockType
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf poolName
       `Prelude.seq` Prelude.rnf storageClass
 
@@ -213,11 +215,11 @@ instance Data.ToJSON CreateTapePool where
   toJSON CreateTapePool' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("RetentionLockTimeInDays" Data..=)
+          [ ("RetentionLockTimeInDays" Data..=)
               Prelude.<$> retentionLockTimeInDays,
             ("RetentionLockType" Data..=)
               Prelude.<$> retentionLockType,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("PoolName" Data..= poolName),
             Prelude.Just ("StorageClass" Data..= storageClass)
           ]

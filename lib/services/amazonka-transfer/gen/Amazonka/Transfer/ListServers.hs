@@ -30,8 +30,8 @@ module Amazonka.Transfer.ListServers
     newListServers,
 
     -- * Request Lenses
-    listServers_nextToken,
     listServers_maxResults,
+    listServers_nextToken,
 
     -- * Destructuring the Response
     ListServersResponse (..),
@@ -54,14 +54,14 @@ import Amazonka.Transfer.Types
 
 -- | /See:/ 'newListServers' smart constructor.
 data ListServers = ListServers'
-  { -- | When additional results are obtained from the @ListServers@ command, a
+  { -- | Specifies the number of servers to return as a response to the
+    -- @ListServers@ query.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | When additional results are obtained from the @ListServers@ command, a
     -- @NextToken@ parameter is returned in the output. You can then pass the
     -- @NextToken@ parameter in a subsequent command to continue listing
     -- additional servers.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the number of servers to return as a response to the
-    -- @ListServers@ query.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,20 +73,25 @@ data ListServers = ListServers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listServers_maxResults' - Specifies the number of servers to return as a response to the
+-- @ListServers@ query.
+--
 -- 'nextToken', 'listServers_nextToken' - When additional results are obtained from the @ListServers@ command, a
 -- @NextToken@ parameter is returned in the output. You can then pass the
 -- @NextToken@ parameter in a subsequent command to continue listing
 -- additional servers.
---
--- 'maxResults', 'listServers_maxResults' - Specifies the number of servers to return as a response to the
--- @ListServers@ query.
 newListServers ::
   ListServers
 newListServers =
   ListServers'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | Specifies the number of servers to return as a response to the
+-- @ListServers@ query.
+listServers_maxResults :: Lens.Lens' ListServers (Prelude.Maybe Prelude.Natural)
+listServers_maxResults = Lens.lens (\ListServers' {maxResults} -> maxResults) (\s@ListServers' {} a -> s {maxResults = a} :: ListServers)
 
 -- | When additional results are obtained from the @ListServers@ command, a
 -- @NextToken@ parameter is returned in the output. You can then pass the
@@ -94,11 +99,6 @@ newListServers =
 -- additional servers.
 listServers_nextToken :: Lens.Lens' ListServers (Prelude.Maybe Prelude.Text)
 listServers_nextToken = Lens.lens (\ListServers' {nextToken} -> nextToken) (\s@ListServers' {} a -> s {nextToken = a} :: ListServers)
-
--- | Specifies the number of servers to return as a response to the
--- @ListServers@ query.
-listServers_maxResults :: Lens.Lens' ListServers (Prelude.Maybe Prelude.Natural)
-listServers_maxResults = Lens.lens (\ListServers' {maxResults} -> maxResults) (\s@ListServers' {} a -> s {maxResults = a} :: ListServers)
 
 instance Core.AWSPager ListServers where
   page rq rs
@@ -131,13 +131,13 @@ instance Core.AWSRequest ListServers where
 
 instance Prelude.Hashable ListServers where
   hashWithSalt _salt ListServers' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListServers where
   rnf ListServers' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListServers where
   toHeaders =
@@ -158,8 +158,8 @@ instance Data.ToJSON ListServers where
   toJSON ListServers' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

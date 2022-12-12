@@ -34,17 +34,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFleetSpotCapacityRebalanceRequest' smart constructor.
 data FleetSpotCapacityRebalanceRequest = FleetSpotCapacityRebalanceRequest'
-  { -- | The amount of time (in seconds) that Amazon EC2 waits before terminating
-    -- the old Spot Instance after launching a new replacement Spot Instance.
-    --
-    -- Required when @ReplacementStrategy@ is set to @launch-before-terminate@.
-    --
-    -- Not valid when @ReplacementStrategy@ is set to @launch@.
-    --
-    -- Valid values: Minimum value of @120@ seconds. Maximum value of @7200@
-    -- seconds.
-    terminationDelay :: Prelude.Maybe Prelude.Int,
-    -- | The replacement strategy to use. Only available for fleets of type
+  { -- | The replacement strategy to use. Only available for fleets of type
     -- @maintain@.
     --
     -- @launch@ - EC2 Fleet launches a replacement Spot Instance when a
@@ -59,7 +49,17 @@ data FleetSpotCapacityRebalanceRequest = FleetSpotCapacityRebalanceRequest'
     -- Instance in the fleet, and then, after a delay that you specify (in
     -- @TerminationDelay@), terminates the instances that received a rebalance
     -- notification.
-    replacementStrategy :: Prelude.Maybe FleetReplacementStrategy
+    replacementStrategy :: Prelude.Maybe FleetReplacementStrategy,
+    -- | The amount of time (in seconds) that Amazon EC2 waits before terminating
+    -- the old Spot Instance after launching a new replacement Spot Instance.
+    --
+    -- Required when @ReplacementStrategy@ is set to @launch-before-terminate@.
+    --
+    -- Not valid when @ReplacementStrategy@ is set to @launch@.
+    --
+    -- Valid values: Minimum value of @120@ seconds. Maximum value of @7200@
+    -- seconds.
+    terminationDelay :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,16 +70,6 @@ data FleetSpotCapacityRebalanceRequest = FleetSpotCapacityRebalanceRequest'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'terminationDelay', 'fleetSpotCapacityRebalanceRequest_terminationDelay' - The amount of time (in seconds) that Amazon EC2 waits before terminating
--- the old Spot Instance after launching a new replacement Spot Instance.
---
--- Required when @ReplacementStrategy@ is set to @launch-before-terminate@.
---
--- Not valid when @ReplacementStrategy@ is set to @launch@.
---
--- Valid values: Minimum value of @120@ seconds. Maximum value of @7200@
--- seconds.
 --
 -- 'replacementStrategy', 'fleetSpotCapacityRebalanceRequest_replacementStrategy' - The replacement strategy to use. Only available for fleets of type
 -- @maintain@.
@@ -96,16 +86,8 @@ data FleetSpotCapacityRebalanceRequest = FleetSpotCapacityRebalanceRequest'
 -- Instance in the fleet, and then, after a delay that you specify (in
 -- @TerminationDelay@), terminates the instances that received a rebalance
 -- notification.
-newFleetSpotCapacityRebalanceRequest ::
-  FleetSpotCapacityRebalanceRequest
-newFleetSpotCapacityRebalanceRequest =
-  FleetSpotCapacityRebalanceRequest'
-    { terminationDelay =
-        Prelude.Nothing,
-      replacementStrategy = Prelude.Nothing
-    }
-
--- | The amount of time (in seconds) that Amazon EC2 waits before terminating
+--
+-- 'terminationDelay', 'fleetSpotCapacityRebalanceRequest_terminationDelay' - The amount of time (in seconds) that Amazon EC2 waits before terminating
 -- the old Spot Instance after launching a new replacement Spot Instance.
 --
 -- Required when @ReplacementStrategy@ is set to @launch-before-terminate@.
@@ -114,8 +96,14 @@ newFleetSpotCapacityRebalanceRequest =
 --
 -- Valid values: Minimum value of @120@ seconds. Maximum value of @7200@
 -- seconds.
-fleetSpotCapacityRebalanceRequest_terminationDelay :: Lens.Lens' FleetSpotCapacityRebalanceRequest (Prelude.Maybe Prelude.Int)
-fleetSpotCapacityRebalanceRequest_terminationDelay = Lens.lens (\FleetSpotCapacityRebalanceRequest' {terminationDelay} -> terminationDelay) (\s@FleetSpotCapacityRebalanceRequest' {} a -> s {terminationDelay = a} :: FleetSpotCapacityRebalanceRequest)
+newFleetSpotCapacityRebalanceRequest ::
+  FleetSpotCapacityRebalanceRequest
+newFleetSpotCapacityRebalanceRequest =
+  FleetSpotCapacityRebalanceRequest'
+    { replacementStrategy =
+        Prelude.Nothing,
+      terminationDelay = Prelude.Nothing
+    }
 
 -- | The replacement strategy to use. Only available for fleets of type
 -- @maintain@.
@@ -135,6 +123,18 @@ fleetSpotCapacityRebalanceRequest_terminationDelay = Lens.lens (\FleetSpotCapaci
 fleetSpotCapacityRebalanceRequest_replacementStrategy :: Lens.Lens' FleetSpotCapacityRebalanceRequest (Prelude.Maybe FleetReplacementStrategy)
 fleetSpotCapacityRebalanceRequest_replacementStrategy = Lens.lens (\FleetSpotCapacityRebalanceRequest' {replacementStrategy} -> replacementStrategy) (\s@FleetSpotCapacityRebalanceRequest' {} a -> s {replacementStrategy = a} :: FleetSpotCapacityRebalanceRequest)
 
+-- | The amount of time (in seconds) that Amazon EC2 waits before terminating
+-- the old Spot Instance after launching a new replacement Spot Instance.
+--
+-- Required when @ReplacementStrategy@ is set to @launch-before-terminate@.
+--
+-- Not valid when @ReplacementStrategy@ is set to @launch@.
+--
+-- Valid values: Minimum value of @120@ seconds. Maximum value of @7200@
+-- seconds.
+fleetSpotCapacityRebalanceRequest_terminationDelay :: Lens.Lens' FleetSpotCapacityRebalanceRequest (Prelude.Maybe Prelude.Int)
+fleetSpotCapacityRebalanceRequest_terminationDelay = Lens.lens (\FleetSpotCapacityRebalanceRequest' {terminationDelay} -> terminationDelay) (\s@FleetSpotCapacityRebalanceRequest' {} a -> s {terminationDelay = a} :: FleetSpotCapacityRebalanceRequest)
+
 instance
   Prelude.Hashable
     FleetSpotCapacityRebalanceRequest
@@ -142,16 +142,16 @@ instance
   hashWithSalt
     _salt
     FleetSpotCapacityRebalanceRequest' {..} =
-      _salt `Prelude.hashWithSalt` terminationDelay
-        `Prelude.hashWithSalt` replacementStrategy
+      _salt `Prelude.hashWithSalt` replacementStrategy
+        `Prelude.hashWithSalt` terminationDelay
 
 instance
   Prelude.NFData
     FleetSpotCapacityRebalanceRequest
   where
   rnf FleetSpotCapacityRebalanceRequest' {..} =
-    Prelude.rnf terminationDelay
-      `Prelude.seq` Prelude.rnf replacementStrategy
+    Prelude.rnf replacementStrategy
+      `Prelude.seq` Prelude.rnf terminationDelay
 
 instance
   Data.ToQuery
@@ -159,6 +159,6 @@ instance
   where
   toQuery FleetSpotCapacityRebalanceRequest' {..} =
     Prelude.mconcat
-      [ "TerminationDelay" Data.=: terminationDelay,
-        "ReplacementStrategy" Data.=: replacementStrategy
+      [ "ReplacementStrategy" Data.=: replacementStrategy,
+        "TerminationDelay" Data.=: terminationDelay
       ]

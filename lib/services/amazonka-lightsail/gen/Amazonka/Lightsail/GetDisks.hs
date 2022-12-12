@@ -37,8 +37,8 @@ module Amazonka.Lightsail.GetDisks
     newGetDisksResponse,
 
     -- * Response Lenses
-    getDisksResponse_nextPageToken,
     getDisksResponse_disks,
+    getDisksResponse_nextPageToken,
     getDisksResponse_httpStatus,
   )
 where
@@ -114,8 +114,8 @@ instance Core.AWSRequest GetDisks where
     Response.receiveJSON
       ( \s h x ->
           GetDisksResponse'
-            Prelude.<$> (x Data..?> "nextPageToken")
-            Prelude.<*> (x Data..?> "disks" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "disks" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,7 +156,10 @@ instance Data.ToQuery GetDisks where
 
 -- | /See:/ 'newGetDisksResponse' smart constructor.
 data GetDisksResponse = GetDisksResponse'
-  { -- | The token to advance to the next page of results from your request.
+  { -- | An array of objects containing information about all block storage
+    -- disks.
+    disks :: Prelude.Maybe [Disk],
+    -- | The token to advance to the next page of results from your request.
     --
     -- A next page token is not returned if there are no more results to
     -- display.
@@ -164,9 +167,6 @@ data GetDisksResponse = GetDisksResponse'
     -- To get the next page of results, perform another @GetDisks@ request and
     -- specify the next page token using the @pageToken@ parameter.
     nextPageToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of objects containing information about all block storage
-    -- disks.
-    disks :: Prelude.Maybe [Disk],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -180,6 +180,9 @@ data GetDisksResponse = GetDisksResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'disks', 'getDisksResponse_disks' - An array of objects containing information about all block storage
+-- disks.
+--
 -- 'nextPageToken', 'getDisksResponse_nextPageToken' - The token to advance to the next page of results from your request.
 --
 -- A next page token is not returned if there are no more results to
@@ -188,9 +191,6 @@ data GetDisksResponse = GetDisksResponse'
 -- To get the next page of results, perform another @GetDisks@ request and
 -- specify the next page token using the @pageToken@ parameter.
 --
--- 'disks', 'getDisksResponse_disks' - An array of objects containing information about all block storage
--- disks.
---
 -- 'httpStatus', 'getDisksResponse_httpStatus' - The response's http status code.
 newGetDisksResponse ::
   -- | 'httpStatus'
@@ -198,10 +198,15 @@ newGetDisksResponse ::
   GetDisksResponse
 newGetDisksResponse pHttpStatus_ =
   GetDisksResponse'
-    { nextPageToken = Prelude.Nothing,
-      disks = Prelude.Nothing,
+    { disks = Prelude.Nothing,
+      nextPageToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array of objects containing information about all block storage
+-- disks.
+getDisksResponse_disks :: Lens.Lens' GetDisksResponse (Prelude.Maybe [Disk])
+getDisksResponse_disks = Lens.lens (\GetDisksResponse' {disks} -> disks) (\s@GetDisksResponse' {} a -> s {disks = a} :: GetDisksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to advance to the next page of results from your request.
 --
@@ -213,17 +218,12 @@ newGetDisksResponse pHttpStatus_ =
 getDisksResponse_nextPageToken :: Lens.Lens' GetDisksResponse (Prelude.Maybe Prelude.Text)
 getDisksResponse_nextPageToken = Lens.lens (\GetDisksResponse' {nextPageToken} -> nextPageToken) (\s@GetDisksResponse' {} a -> s {nextPageToken = a} :: GetDisksResponse)
 
--- | An array of objects containing information about all block storage
--- disks.
-getDisksResponse_disks :: Lens.Lens' GetDisksResponse (Prelude.Maybe [Disk])
-getDisksResponse_disks = Lens.lens (\GetDisksResponse' {disks} -> disks) (\s@GetDisksResponse' {} a -> s {disks = a} :: GetDisksResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 getDisksResponse_httpStatus :: Lens.Lens' GetDisksResponse Prelude.Int
 getDisksResponse_httpStatus = Lens.lens (\GetDisksResponse' {httpStatus} -> httpStatus) (\s@GetDisksResponse' {} a -> s {httpStatus = a} :: GetDisksResponse)
 
 instance Prelude.NFData GetDisksResponse where
   rnf GetDisksResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf disks
+    Prelude.rnf disks
+      `Prelude.seq` Prelude.rnf nextPageToken
       `Prelude.seq` Prelude.rnf httpStatus

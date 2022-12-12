@@ -46,26 +46,26 @@ module Amazonka.EBS
     -- * Errors
     -- $errors
 
-    -- ** RequestThrottledException
-    _RequestThrottledException,
+    -- ** AccessDeniedException
+    _AccessDeniedException,
 
     -- ** ConcurrentLimitExceededException
     _ConcurrentLimitExceededException,
 
-    -- ** AccessDeniedException
-    _AccessDeniedException,
+    -- ** ConflictException
+    _ConflictException,
 
     -- ** InternalServerException
     _InternalServerException,
 
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
+    -- ** RequestThrottledException
+    _RequestThrottledException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** ConflictException
-    _ConflictException,
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
 
     -- ** ValidationException
     _ValidationException,

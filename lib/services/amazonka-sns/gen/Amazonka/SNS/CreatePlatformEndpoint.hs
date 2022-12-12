@@ -42,8 +42,8 @@ module Amazonka.SNS.CreatePlatformEndpoint
     newCreatePlatformEndpoint,
 
     -- * Request Lenses
-    createPlatformEndpoint_customUserData,
     createPlatformEndpoint_attributes,
+    createPlatformEndpoint_customUserData,
     createPlatformEndpoint_platformApplicationArn,
     createPlatformEndpoint_token,
 
@@ -69,12 +69,12 @@ import Amazonka.SNS.Types
 --
 -- /See:/ 'newCreatePlatformEndpoint' smart constructor.
 data CreatePlatformEndpoint = CreatePlatformEndpoint'
-  { -- | Arbitrary user data to associate with the endpoint. Amazon SNS does not
-    -- use this data. The data must be in UTF-8 format and less than 2KB.
-    customUserData :: Prelude.Maybe Prelude.Text,
-    -- | For a list of attributes, see
+  { -- | For a list of attributes, see
     -- <https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html SetEndpointAttributes>.
     attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Arbitrary user data to associate with the endpoint. Amazon SNS does not
+    -- use this data. The data must be in UTF-8 format and less than 2KB.
+    customUserData :: Prelude.Maybe Prelude.Text,
     -- | PlatformApplicationArn returned from CreatePlatformApplication is used
     -- to create a an endpoint.
     platformApplicationArn :: Prelude.Text,
@@ -96,11 +96,11 @@ data CreatePlatformEndpoint = CreatePlatformEndpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'customUserData', 'createPlatformEndpoint_customUserData' - Arbitrary user data to associate with the endpoint. Amazon SNS does not
--- use this data. The data must be in UTF-8 format and less than 2KB.
---
 -- 'attributes', 'createPlatformEndpoint_attributes' - For a list of attributes, see
 -- <https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html SetEndpointAttributes>.
+--
+-- 'customUserData', 'createPlatformEndpoint_customUserData' - Arbitrary user data to associate with the endpoint. Amazon SNS does not
+-- use this data. The data must be in UTF-8 format and less than 2KB.
 --
 -- 'platformApplicationArn', 'createPlatformEndpoint_platformApplicationArn' - PlatformApplicationArn returned from CreatePlatformApplication is used
 -- to create a an endpoint.
@@ -121,22 +121,22 @@ newCreatePlatformEndpoint
   pPlatformApplicationArn_
   pToken_ =
     CreatePlatformEndpoint'
-      { customUserData =
+      { attributes =
           Prelude.Nothing,
-        attributes = Prelude.Nothing,
+        customUserData = Prelude.Nothing,
         platformApplicationArn = pPlatformApplicationArn_,
         token = pToken_
       }
-
--- | Arbitrary user data to associate with the endpoint. Amazon SNS does not
--- use this data. The data must be in UTF-8 format and less than 2KB.
-createPlatformEndpoint_customUserData :: Lens.Lens' CreatePlatformEndpoint (Prelude.Maybe Prelude.Text)
-createPlatformEndpoint_customUserData = Lens.lens (\CreatePlatformEndpoint' {customUserData} -> customUserData) (\s@CreatePlatformEndpoint' {} a -> s {customUserData = a} :: CreatePlatformEndpoint)
 
 -- | For a list of attributes, see
 -- <https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html SetEndpointAttributes>.
 createPlatformEndpoint_attributes :: Lens.Lens' CreatePlatformEndpoint (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createPlatformEndpoint_attributes = Lens.lens (\CreatePlatformEndpoint' {attributes} -> attributes) (\s@CreatePlatformEndpoint' {} a -> s {attributes = a} :: CreatePlatformEndpoint) Prelude.. Lens.mapping Lens.coerced
+
+-- | Arbitrary user data to associate with the endpoint. Amazon SNS does not
+-- use this data. The data must be in UTF-8 format and less than 2KB.
+createPlatformEndpoint_customUserData :: Lens.Lens' CreatePlatformEndpoint (Prelude.Maybe Prelude.Text)
+createPlatformEndpoint_customUserData = Lens.lens (\CreatePlatformEndpoint' {customUserData} -> customUserData) (\s@CreatePlatformEndpoint' {} a -> s {customUserData = a} :: CreatePlatformEndpoint)
 
 -- | PlatformApplicationArn returned from CreatePlatformApplication is used
 -- to create a an endpoint.
@@ -169,15 +169,15 @@ instance Core.AWSRequest CreatePlatformEndpoint where
 
 instance Prelude.Hashable CreatePlatformEndpoint where
   hashWithSalt _salt CreatePlatformEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` customUserData
-      `Prelude.hashWithSalt` attributes
+    _salt `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` customUserData
       `Prelude.hashWithSalt` platformApplicationArn
       `Prelude.hashWithSalt` token
 
 instance Prelude.NFData CreatePlatformEndpoint where
   rnf CreatePlatformEndpoint' {..} =
-    Prelude.rnf customUserData
-      `Prelude.seq` Prelude.rnf attributes
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf customUserData
       `Prelude.seq` Prelude.rnf platformApplicationArn
       `Prelude.seq` Prelude.rnf token
 
@@ -194,12 +194,12 @@ instance Data.ToQuery CreatePlatformEndpoint where
           Data.=: ("CreatePlatformEndpoint" :: Prelude.ByteString),
         "Version"
           Data.=: ("2010-03-31" :: Prelude.ByteString),
-        "CustomUserData" Data.=: customUserData,
         "Attributes"
           Data.=: Data.toQuery
             ( Data.toQueryMap "entry" "key" "value"
                 Prelude.<$> attributes
             ),
+        "CustomUserData" Data.=: customUserData,
         "PlatformApplicationArn"
           Data.=: platformApplicationArn,
         "Token" Data.=: token

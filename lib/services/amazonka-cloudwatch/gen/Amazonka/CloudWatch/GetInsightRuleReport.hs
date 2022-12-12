@@ -59,8 +59,8 @@ module Amazonka.CloudWatch.GetInsightRuleReport
     newGetInsightRuleReport,
 
     -- * Request Lenses
-    getInsightRuleReport_metrics,
     getInsightRuleReport_maxContributorCount,
+    getInsightRuleReport_metrics,
     getInsightRuleReport_orderBy,
     getInsightRuleReport_ruleName,
     getInsightRuleReport_startTime,
@@ -72,12 +72,12 @@ module Amazonka.CloudWatch.GetInsightRuleReport
     newGetInsightRuleReportResponse,
 
     -- * Response Lenses
-    getInsightRuleReportResponse_aggregationStatistic,
-    getInsightRuleReportResponse_metricDatapoints,
     getInsightRuleReportResponse_aggregateValue,
-    getInsightRuleReportResponse_keyLabels,
+    getInsightRuleReportResponse_aggregationStatistic,
     getInsightRuleReportResponse_approximateUniqueCount,
     getInsightRuleReportResponse_contributors,
+    getInsightRuleReportResponse_keyLabels,
+    getInsightRuleReportResponse_metricDatapoints,
     getInsightRuleReportResponse_httpStatus,
   )
 where
@@ -92,7 +92,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetInsightRuleReport' smart constructor.
 data GetInsightRuleReport = GetInsightRuleReport'
-  { -- | Specifies which metrics to use for aggregation of contributor values for
+  { -- | The maximum number of contributors to include in the report. The range
+    -- is 1 to 100. If you omit this, the default of 10 is used.
+    maxContributorCount :: Prelude.Maybe Prelude.Int,
+    -- | Specifies which metrics to use for aggregation of contributor values for
     -- the report. You can specify one or more of the following metrics:
     --
     -- -   @UniqueContributors@ -- the number of unique contributors for each
@@ -122,9 +125,6 @@ data GetInsightRuleReport = GetInsightRuleReport'
     -- -   @Average@ -- the average value from all contributors during the time
     --     period represented by that data point.
     metrics :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of contributors to include in the report. The range
-    -- is 1 to 100. If you omit this, the default of 10 is used.
-    maxContributorCount :: Prelude.Maybe Prelude.Int,
     -- | Determines what statistic to use to rank the contributors. Valid values
     -- are SUM and MAXIMUM.
     orderBy :: Prelude.Maybe Prelude.Text,
@@ -151,6 +151,9 @@ data GetInsightRuleReport = GetInsightRuleReport'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'maxContributorCount', 'getInsightRuleReport_maxContributorCount' - The maximum number of contributors to include in the report. The range
+-- is 1 to 100. If you omit this, the default of 10 is used.
 --
 -- 'metrics', 'getInsightRuleReport_metrics' - Specifies which metrics to use for aggregation of contributor values for
 -- the report. You can specify one or more of the following metrics:
@@ -181,9 +184,6 @@ data GetInsightRuleReport = GetInsightRuleReport'
 --
 -- -   @Average@ -- the average value from all contributors during the time
 --     period represented by that data point.
---
--- 'maxContributorCount', 'getInsightRuleReport_maxContributorCount' - The maximum number of contributors to include in the report. The range
--- is 1 to 100. If you omit this, the default of 10 is used.
 --
 -- 'orderBy', 'getInsightRuleReport_orderBy' - Determines what statistic to use to rank the contributors. Valid values
 -- are SUM and MAXIMUM.
@@ -216,14 +216,20 @@ newGetInsightRuleReport
   pEndTime_
   pPeriod_ =
     GetInsightRuleReport'
-      { metrics = Prelude.Nothing,
-        maxContributorCount = Prelude.Nothing,
+      { maxContributorCount =
+          Prelude.Nothing,
+        metrics = Prelude.Nothing,
         orderBy = Prelude.Nothing,
         ruleName = pRuleName_,
         startTime = Data._Time Lens.# pStartTime_,
         endTime = Data._Time Lens.# pEndTime_,
         period = pPeriod_
       }
+
+-- | The maximum number of contributors to include in the report. The range
+-- is 1 to 100. If you omit this, the default of 10 is used.
+getInsightRuleReport_maxContributorCount :: Lens.Lens' GetInsightRuleReport (Prelude.Maybe Prelude.Int)
+getInsightRuleReport_maxContributorCount = Lens.lens (\GetInsightRuleReport' {maxContributorCount} -> maxContributorCount) (\s@GetInsightRuleReport' {} a -> s {maxContributorCount = a} :: GetInsightRuleReport)
 
 -- | Specifies which metrics to use for aggregation of contributor values for
 -- the report. You can specify one or more of the following metrics:
@@ -256,11 +262,6 @@ newGetInsightRuleReport
 --     period represented by that data point.
 getInsightRuleReport_metrics :: Lens.Lens' GetInsightRuleReport (Prelude.Maybe [Prelude.Text])
 getInsightRuleReport_metrics = Lens.lens (\GetInsightRuleReport' {metrics} -> metrics) (\s@GetInsightRuleReport' {} a -> s {metrics = a} :: GetInsightRuleReport) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum number of contributors to include in the report. The range
--- is 1 to 100. If you omit this, the default of 10 is used.
-getInsightRuleReport_maxContributorCount :: Lens.Lens' GetInsightRuleReport (Prelude.Maybe Prelude.Int)
-getInsightRuleReport_maxContributorCount = Lens.lens (\GetInsightRuleReport' {maxContributorCount} -> maxContributorCount) (\s@GetInsightRuleReport' {} a -> s {maxContributorCount = a} :: GetInsightRuleReport)
 
 -- | Determines what statistic to use to rank the contributors. Valid values
 -- are SUM and MAXIMUM.
@@ -299,17 +300,17 @@ instance Core.AWSRequest GetInsightRuleReport where
       "GetInsightRuleReportResult"
       ( \s h x ->
           GetInsightRuleReportResponse'
-            Prelude.<$> (x Data..@? "AggregationStatistic")
-            Prelude.<*> ( x Data..@? "MetricDatapoints"
-                            Core..!@ Prelude.mempty
+            Prelude.<$> (x Data..@? "AggregateValue")
+            Prelude.<*> (x Data..@? "AggregationStatistic")
+            Prelude.<*> (x Data..@? "ApproximateUniqueCount")
+            Prelude.<*> ( x Data..@? "Contributors" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> (x Data..@? "AggregateValue")
             Prelude.<*> ( x Data..@? "KeyLabels" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> (x Data..@? "ApproximateUniqueCount")
-            Prelude.<*> ( x Data..@? "Contributors" Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "MetricDatapoints"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -317,8 +318,8 @@ instance Core.AWSRequest GetInsightRuleReport where
 
 instance Prelude.Hashable GetInsightRuleReport where
   hashWithSalt _salt GetInsightRuleReport' {..} =
-    _salt `Prelude.hashWithSalt` metrics
-      `Prelude.hashWithSalt` maxContributorCount
+    _salt `Prelude.hashWithSalt` maxContributorCount
+      `Prelude.hashWithSalt` metrics
       `Prelude.hashWithSalt` orderBy
       `Prelude.hashWithSalt` ruleName
       `Prelude.hashWithSalt` startTime
@@ -327,8 +328,8 @@ instance Prelude.Hashable GetInsightRuleReport where
 
 instance Prelude.NFData GetInsightRuleReport where
   rnf GetInsightRuleReport' {..} =
-    Prelude.rnf metrics
-      `Prelude.seq` Prelude.rnf maxContributorCount
+    Prelude.rnf maxContributorCount
+      `Prelude.seq` Prelude.rnf metrics
       `Prelude.seq` Prelude.rnf orderBy
       `Prelude.seq` Prelude.rnf ruleName
       `Prelude.seq` Prelude.rnf startTime
@@ -348,10 +349,10 @@ instance Data.ToQuery GetInsightRuleReport where
           Data.=: ("GetInsightRuleReport" :: Prelude.ByteString),
         "Version"
           Data.=: ("2010-08-01" :: Prelude.ByteString),
+        "MaxContributorCount" Data.=: maxContributorCount,
         "Metrics"
           Data.=: Data.toQuery
             (Data.toQueryList "member" Prelude.<$> metrics),
-        "MaxContributorCount" Data.=: maxContributorCount,
         "OrderBy" Data.=: orderBy,
         "RuleName" Data.=: ruleName,
         "StartTime" Data.=: startTime,
@@ -361,19 +362,11 @@ instance Data.ToQuery GetInsightRuleReport where
 
 -- | /See:/ 'newGetInsightRuleReportResponse' smart constructor.
 data GetInsightRuleReportResponse = GetInsightRuleReportResponse'
-  { -- | Specifies whether this rule aggregates contributor data by COUNT or SUM.
-    aggregationStatistic :: Prelude.Maybe Prelude.Text,
-    -- | A time series of metric data points that matches the time period in the
-    -- rule request.
-    metricDatapoints :: Prelude.Maybe [InsightRuleMetricDatapoint],
-    -- | The sum of the values from all individual contributors that match the
+  { -- | The sum of the values from all individual contributors that match the
     -- rule.
     aggregateValue :: Prelude.Maybe Prelude.Double,
-    -- | An array of the strings used as the keys for this rule. The keys are the
-    -- dimensions used to classify contributors. If the rule contains more than
-    -- one key, then each unique combination of values for the keys is counted
-    -- as a unique contributor.
-    keyLabels :: Prelude.Maybe [Prelude.Text],
+    -- | Specifies whether this rule aggregates contributor data by COUNT or SUM.
+    aggregationStatistic :: Prelude.Maybe Prelude.Text,
     -- | An approximate count of the unique contributors found by this rule in
     -- this time period.
     approximateUniqueCount :: Prelude.Maybe Prelude.Integer,
@@ -381,6 +374,14 @@ data GetInsightRuleReportResponse = GetInsightRuleReportResponse'
     -- period. If the rule contains multiple keys, each combination of values
     -- for the keys counts as a unique contributor.
     contributors :: Prelude.Maybe [InsightRuleContributor],
+    -- | An array of the strings used as the keys for this rule. The keys are the
+    -- dimensions used to classify contributors. If the rule contains more than
+    -- one key, then each unique combination of values for the keys is counted
+    -- as a unique contributor.
+    keyLabels :: Prelude.Maybe [Prelude.Text],
+    -- | A time series of metric data points that matches the time period in the
+    -- rule request.
+    metricDatapoints :: Prelude.Maybe [InsightRuleMetricDatapoint],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -394,18 +395,10 @@ data GetInsightRuleReportResponse = GetInsightRuleReportResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'aggregationStatistic', 'getInsightRuleReportResponse_aggregationStatistic' - Specifies whether this rule aggregates contributor data by COUNT or SUM.
---
--- 'metricDatapoints', 'getInsightRuleReportResponse_metricDatapoints' - A time series of metric data points that matches the time period in the
--- rule request.
---
 -- 'aggregateValue', 'getInsightRuleReportResponse_aggregateValue' - The sum of the values from all individual contributors that match the
 -- rule.
 --
--- 'keyLabels', 'getInsightRuleReportResponse_keyLabels' - An array of the strings used as the keys for this rule. The keys are the
--- dimensions used to classify contributors. If the rule contains more than
--- one key, then each unique combination of values for the keys is counted
--- as a unique contributor.
+-- 'aggregationStatistic', 'getInsightRuleReportResponse_aggregationStatistic' - Specifies whether this rule aggregates contributor data by COUNT or SUM.
 --
 -- 'approximateUniqueCount', 'getInsightRuleReportResponse_approximateUniqueCount' - An approximate count of the unique contributors found by this rule in
 -- this time period.
@@ -414,6 +407,14 @@ data GetInsightRuleReportResponse = GetInsightRuleReportResponse'
 -- period. If the rule contains multiple keys, each combination of values
 -- for the keys counts as a unique contributor.
 --
+-- 'keyLabels', 'getInsightRuleReportResponse_keyLabels' - An array of the strings used as the keys for this rule. The keys are the
+-- dimensions used to classify contributors. If the rule contains more than
+-- one key, then each unique combination of values for the keys is counted
+-- as a unique contributor.
+--
+-- 'metricDatapoints', 'getInsightRuleReportResponse_metricDatapoints' - A time series of metric data points that matches the time period in the
+-- rule request.
+--
 -- 'httpStatus', 'getInsightRuleReportResponse_httpStatus' - The response's http status code.
 newGetInsightRuleReportResponse ::
   -- | 'httpStatus'
@@ -421,36 +422,24 @@ newGetInsightRuleReportResponse ::
   GetInsightRuleReportResponse
 newGetInsightRuleReportResponse pHttpStatus_ =
   GetInsightRuleReportResponse'
-    { aggregationStatistic =
+    { aggregateValue =
         Prelude.Nothing,
-      metricDatapoints = Prelude.Nothing,
-      aggregateValue = Prelude.Nothing,
-      keyLabels = Prelude.Nothing,
+      aggregationStatistic = Prelude.Nothing,
       approximateUniqueCount = Prelude.Nothing,
       contributors = Prelude.Nothing,
+      keyLabels = Prelude.Nothing,
+      metricDatapoints = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Specifies whether this rule aggregates contributor data by COUNT or SUM.
-getInsightRuleReportResponse_aggregationStatistic :: Lens.Lens' GetInsightRuleReportResponse (Prelude.Maybe Prelude.Text)
-getInsightRuleReportResponse_aggregationStatistic = Lens.lens (\GetInsightRuleReportResponse' {aggregationStatistic} -> aggregationStatistic) (\s@GetInsightRuleReportResponse' {} a -> s {aggregationStatistic = a} :: GetInsightRuleReportResponse)
-
--- | A time series of metric data points that matches the time period in the
--- rule request.
-getInsightRuleReportResponse_metricDatapoints :: Lens.Lens' GetInsightRuleReportResponse (Prelude.Maybe [InsightRuleMetricDatapoint])
-getInsightRuleReportResponse_metricDatapoints = Lens.lens (\GetInsightRuleReportResponse' {metricDatapoints} -> metricDatapoints) (\s@GetInsightRuleReportResponse' {} a -> s {metricDatapoints = a} :: GetInsightRuleReportResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The sum of the values from all individual contributors that match the
 -- rule.
 getInsightRuleReportResponse_aggregateValue :: Lens.Lens' GetInsightRuleReportResponse (Prelude.Maybe Prelude.Double)
 getInsightRuleReportResponse_aggregateValue = Lens.lens (\GetInsightRuleReportResponse' {aggregateValue} -> aggregateValue) (\s@GetInsightRuleReportResponse' {} a -> s {aggregateValue = a} :: GetInsightRuleReportResponse)
 
--- | An array of the strings used as the keys for this rule. The keys are the
--- dimensions used to classify contributors. If the rule contains more than
--- one key, then each unique combination of values for the keys is counted
--- as a unique contributor.
-getInsightRuleReportResponse_keyLabels :: Lens.Lens' GetInsightRuleReportResponse (Prelude.Maybe [Prelude.Text])
-getInsightRuleReportResponse_keyLabels = Lens.lens (\GetInsightRuleReportResponse' {keyLabels} -> keyLabels) (\s@GetInsightRuleReportResponse' {} a -> s {keyLabels = a} :: GetInsightRuleReportResponse) Prelude.. Lens.mapping Lens.coerced
+-- | Specifies whether this rule aggregates contributor data by COUNT or SUM.
+getInsightRuleReportResponse_aggregationStatistic :: Lens.Lens' GetInsightRuleReportResponse (Prelude.Maybe Prelude.Text)
+getInsightRuleReportResponse_aggregationStatistic = Lens.lens (\GetInsightRuleReportResponse' {aggregationStatistic} -> aggregationStatistic) (\s@GetInsightRuleReportResponse' {} a -> s {aggregationStatistic = a} :: GetInsightRuleReportResponse)
 
 -- | An approximate count of the unique contributors found by this rule in
 -- this time period.
@@ -463,16 +452,28 @@ getInsightRuleReportResponse_approximateUniqueCount = Lens.lens (\GetInsightRule
 getInsightRuleReportResponse_contributors :: Lens.Lens' GetInsightRuleReportResponse (Prelude.Maybe [InsightRuleContributor])
 getInsightRuleReportResponse_contributors = Lens.lens (\GetInsightRuleReportResponse' {contributors} -> contributors) (\s@GetInsightRuleReportResponse' {} a -> s {contributors = a} :: GetInsightRuleReportResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | An array of the strings used as the keys for this rule. The keys are the
+-- dimensions used to classify contributors. If the rule contains more than
+-- one key, then each unique combination of values for the keys is counted
+-- as a unique contributor.
+getInsightRuleReportResponse_keyLabels :: Lens.Lens' GetInsightRuleReportResponse (Prelude.Maybe [Prelude.Text])
+getInsightRuleReportResponse_keyLabels = Lens.lens (\GetInsightRuleReportResponse' {keyLabels} -> keyLabels) (\s@GetInsightRuleReportResponse' {} a -> s {keyLabels = a} :: GetInsightRuleReportResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A time series of metric data points that matches the time period in the
+-- rule request.
+getInsightRuleReportResponse_metricDatapoints :: Lens.Lens' GetInsightRuleReportResponse (Prelude.Maybe [InsightRuleMetricDatapoint])
+getInsightRuleReportResponse_metricDatapoints = Lens.lens (\GetInsightRuleReportResponse' {metricDatapoints} -> metricDatapoints) (\s@GetInsightRuleReportResponse' {} a -> s {metricDatapoints = a} :: GetInsightRuleReportResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 getInsightRuleReportResponse_httpStatus :: Lens.Lens' GetInsightRuleReportResponse Prelude.Int
 getInsightRuleReportResponse_httpStatus = Lens.lens (\GetInsightRuleReportResponse' {httpStatus} -> httpStatus) (\s@GetInsightRuleReportResponse' {} a -> s {httpStatus = a} :: GetInsightRuleReportResponse)
 
 instance Prelude.NFData GetInsightRuleReportResponse where
   rnf GetInsightRuleReportResponse' {..} =
-    Prelude.rnf aggregationStatistic
-      `Prelude.seq` Prelude.rnf metricDatapoints
-      `Prelude.seq` Prelude.rnf aggregateValue
-      `Prelude.seq` Prelude.rnf keyLabels
+    Prelude.rnf aggregateValue
+      `Prelude.seq` Prelude.rnf aggregationStatistic
       `Prelude.seq` Prelude.rnf approximateUniqueCount
       `Prelude.seq` Prelude.rnf contributors
+      `Prelude.seq` Prelude.rnf keyLabels
+      `Prelude.seq` Prelude.rnf metricDatapoints
       `Prelude.seq` Prelude.rnf httpStatus

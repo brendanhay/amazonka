@@ -27,8 +27,8 @@ module Amazonka.FMS.ListResourceSets
     newListResourceSets,
 
     -- * Request Lenses
-    listResourceSets_nextToken,
     listResourceSets_maxResults,
+    listResourceSets_nextToken,
 
     -- * Destructuring the Response
     ListResourceSetsResponse (..),
@@ -51,17 +51,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListResourceSets' smart constructor.
 data ListResourceSets = ListResourceSets'
-  { -- | When you request a list of objects with a @MaxResults@ setting, if the
+  { -- | The maximum number of objects that you want Firewall Manager to return
+    -- for this request. If more objects are available, in the response,
+    -- Firewall Manager provides a @NextToken@ value that you can use in a
+    -- subsequent call to get the next batch of objects.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | When you request a list of objects with a @MaxResults@ setting, if the
     -- number of objects that are still available for retrieval exceeds the
     -- maximum you requested, Firewall Manager returns a @NextToken@ value in
     -- the response. To retrieve the next batch of objects, use the token
     -- returned from the prior request in your next request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of objects that you want Firewall Manager to return
-    -- for this request. If more objects are available, in the response,
-    -- Firewall Manager provides a @NextToken@ value that you can use in a
-    -- subsequent call to get the next batch of objects.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,23 +73,30 @@ data ListResourceSets = ListResourceSets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listResourceSets_maxResults' - The maximum number of objects that you want Firewall Manager to return
+-- for this request. If more objects are available, in the response,
+-- Firewall Manager provides a @NextToken@ value that you can use in a
+-- subsequent call to get the next batch of objects.
+--
 -- 'nextToken', 'listResourceSets_nextToken' - When you request a list of objects with a @MaxResults@ setting, if the
 -- number of objects that are still available for retrieval exceeds the
 -- maximum you requested, Firewall Manager returns a @NextToken@ value in
 -- the response. To retrieve the next batch of objects, use the token
 -- returned from the prior request in your next request.
---
--- 'maxResults', 'listResourceSets_maxResults' - The maximum number of objects that you want Firewall Manager to return
--- for this request. If more objects are available, in the response,
--- Firewall Manager provides a @NextToken@ value that you can use in a
--- subsequent call to get the next batch of objects.
 newListResourceSets ::
   ListResourceSets
 newListResourceSets =
   ListResourceSets'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of objects that you want Firewall Manager to return
+-- for this request. If more objects are available, in the response,
+-- Firewall Manager provides a @NextToken@ value that you can use in a
+-- subsequent call to get the next batch of objects.
+listResourceSets_maxResults :: Lens.Lens' ListResourceSets (Prelude.Maybe Prelude.Natural)
+listResourceSets_maxResults = Lens.lens (\ListResourceSets' {maxResults} -> maxResults) (\s@ListResourceSets' {} a -> s {maxResults = a} :: ListResourceSets)
 
 -- | When you request a list of objects with a @MaxResults@ setting, if the
 -- number of objects that are still available for retrieval exceeds the
@@ -98,13 +105,6 @@ newListResourceSets =
 -- returned from the prior request in your next request.
 listResourceSets_nextToken :: Lens.Lens' ListResourceSets (Prelude.Maybe Prelude.Text)
 listResourceSets_nextToken = Lens.lens (\ListResourceSets' {nextToken} -> nextToken) (\s@ListResourceSets' {} a -> s {nextToken = a} :: ListResourceSets)
-
--- | The maximum number of objects that you want Firewall Manager to return
--- for this request. If more objects are available, in the response,
--- Firewall Manager provides a @NextToken@ value that you can use in a
--- subsequent call to get the next batch of objects.
-listResourceSets_maxResults :: Lens.Lens' ListResourceSets (Prelude.Maybe Prelude.Natural)
-listResourceSets_maxResults = Lens.lens (\ListResourceSets' {maxResults} -> maxResults) (\s@ListResourceSets' {} a -> s {maxResults = a} :: ListResourceSets)
 
 instance Core.AWSRequest ListResourceSets where
   type
@@ -123,13 +123,13 @@ instance Core.AWSRequest ListResourceSets where
 
 instance Prelude.Hashable ListResourceSets where
   hashWithSalt _salt ListResourceSets' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListResourceSets where
   rnf ListResourceSets' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListResourceSets where
   toHeaders =
@@ -150,8 +150,8 @@ instance Data.ToJSON ListResourceSets where
   toJSON ListResourceSets' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

@@ -29,8 +29,8 @@ module Amazonka.SageMaker.CreateProject
     newCreateProject,
 
     -- * Request Lenses
-    createProject_tags,
     createProject_projectDescription,
+    createProject_tags,
     createProject_projectName,
     createProject_serviceCatalogProvisioningDetails,
 
@@ -55,13 +55,13 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newCreateProject' smart constructor.
 data CreateProject = CreateProject'
-  { -- | An array of key-value pairs that you want to use to organize and track
+  { -- | A description for the project.
+    projectDescription :: Prelude.Maybe Prelude.Text,
+    -- | An array of key-value pairs that you want to use to organize and track
     -- your Amazon Web Services resource costs. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
     -- in the /Amazon Web Services General Reference Guide/.
     tags :: Prelude.Maybe [Tag],
-    -- | A description for the project.
-    projectDescription :: Prelude.Maybe Prelude.Text,
     -- | The name of the project.
     projectName :: Prelude.Text,
     -- | The product ID and provisioning artifact ID to provision a service
@@ -81,12 +81,12 @@ data CreateProject = CreateProject'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'projectDescription', 'createProject_projectDescription' - A description for the project.
+--
 -- 'tags', 'createProject_tags' - An array of key-value pairs that you want to use to organize and track
 -- your Amazon Web Services resource costs. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
 -- in the /Amazon Web Services General Reference Guide/.
---
--- 'projectDescription', 'createProject_projectDescription' - A description for the project.
 --
 -- 'projectName', 'createProject_projectName' - The name of the project.
 --
@@ -105,12 +105,17 @@ newCreateProject
   pProjectName_
   pServiceCatalogProvisioningDetails_ =
     CreateProject'
-      { tags = Prelude.Nothing,
-        projectDescription = Prelude.Nothing,
+      { projectDescription =
+          Prelude.Nothing,
+        tags = Prelude.Nothing,
         projectName = pProjectName_,
         serviceCatalogProvisioningDetails =
           pServiceCatalogProvisioningDetails_
       }
+
+-- | A description for the project.
+createProject_projectDescription :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.Text)
+createProject_projectDescription = Lens.lens (\CreateProject' {projectDescription} -> projectDescription) (\s@CreateProject' {} a -> s {projectDescription = a} :: CreateProject)
 
 -- | An array of key-value pairs that you want to use to organize and track
 -- your Amazon Web Services resource costs. For more information, see
@@ -118,10 +123,6 @@ newCreateProject
 -- in the /Amazon Web Services General Reference Guide/.
 createProject_tags :: Lens.Lens' CreateProject (Prelude.Maybe [Tag])
 createProject_tags = Lens.lens (\CreateProject' {tags} -> tags) (\s@CreateProject' {} a -> s {tags = a} :: CreateProject) Prelude.. Lens.mapping Lens.coerced
-
--- | A description for the project.
-createProject_projectDescription :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.Text)
-createProject_projectDescription = Lens.lens (\CreateProject' {projectDescription} -> projectDescription) (\s@CreateProject' {} a -> s {projectDescription = a} :: CreateProject)
 
 -- | The name of the project.
 createProject_projectName :: Lens.Lens' CreateProject Prelude.Text
@@ -152,15 +153,15 @@ instance Core.AWSRequest CreateProject where
 
 instance Prelude.Hashable CreateProject where
   hashWithSalt _salt CreateProject' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` projectDescription
+    _salt `Prelude.hashWithSalt` projectDescription
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` projectName
       `Prelude.hashWithSalt` serviceCatalogProvisioningDetails
 
 instance Prelude.NFData CreateProject where
   rnf CreateProject' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf projectDescription
+    Prelude.rnf projectDescription
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf projectName
       `Prelude.seq` Prelude.rnf serviceCatalogProvisioningDetails
 
@@ -181,9 +182,9 @@ instance Data.ToJSON CreateProject where
   toJSON CreateProject' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ProjectDescription" Data..=)
+          [ ("ProjectDescription" Data..=)
               Prelude.<$> projectDescription,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("ProjectName" Data..= projectName),
             Prelude.Just
               ( "ServiceCatalogProvisioningDetails"

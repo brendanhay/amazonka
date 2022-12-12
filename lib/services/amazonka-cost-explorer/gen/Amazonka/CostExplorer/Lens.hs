@@ -27,15 +27,15 @@ module Amazonka.CostExplorer.Lens
     createAnomalySubscriptionResponse_subscriptionArn,
 
     -- ** CreateCostCategoryDefinition
-    createCostCategoryDefinition_splitChargeRules,
     createCostCategoryDefinition_defaultValue,
-    createCostCategoryDefinition_resourceTags,
     createCostCategoryDefinition_effectiveStart,
+    createCostCategoryDefinition_resourceTags,
+    createCostCategoryDefinition_splitChargeRules,
     createCostCategoryDefinition_name,
     createCostCategoryDefinition_ruleVersion,
     createCostCategoryDefinition_rules,
-    createCostCategoryDefinitionResponse_effectiveStart,
     createCostCategoryDefinitionResponse_costCategoryArn,
+    createCostCategoryDefinitionResponse_effectiveStart,
     createCostCategoryDefinitionResponse_httpStatus,
 
     -- ** DeleteAnomalyMonitor
@@ -48,8 +48,8 @@ module Amazonka.CostExplorer.Lens
 
     -- ** DeleteCostCategoryDefinition
     deleteCostCategoryDefinition_costCategoryArn,
-    deleteCostCategoryDefinitionResponse_effectiveEnd,
     deleteCostCategoryDefinitionResponse_costCategoryArn,
+    deleteCostCategoryDefinitionResponse_effectiveEnd,
     deleteCostCategoryDefinitionResponse_httpStatus,
 
     -- ** DescribeCostCategoryDefinition
@@ -59,77 +59,77 @@ module Amazonka.CostExplorer.Lens
     describeCostCategoryDefinitionResponse_httpStatus,
 
     -- ** GetAnomalies
-    getAnomalies_nextPageToken,
-    getAnomalies_totalImpact,
-    getAnomalies_monitorArn,
     getAnomalies_feedback,
     getAnomalies_maxResults,
+    getAnomalies_monitorArn,
+    getAnomalies_nextPageToken,
+    getAnomalies_totalImpact,
     getAnomalies_dateInterval,
     getAnomaliesResponse_nextPageToken,
     getAnomaliesResponse_httpStatus,
     getAnomaliesResponse_anomalies,
 
     -- ** GetAnomalyMonitors
-    getAnomalyMonitors_nextPageToken,
-    getAnomalyMonitors_monitorArnList,
     getAnomalyMonitors_maxResults,
+    getAnomalyMonitors_monitorArnList,
+    getAnomalyMonitors_nextPageToken,
     getAnomalyMonitorsResponse_nextPageToken,
     getAnomalyMonitorsResponse_httpStatus,
     getAnomalyMonitorsResponse_anomalyMonitors,
 
     -- ** GetAnomalySubscriptions
+    getAnomalySubscriptions_maxResults,
+    getAnomalySubscriptions_monitorArn,
     getAnomalySubscriptions_nextPageToken,
     getAnomalySubscriptions_subscriptionArnList,
-    getAnomalySubscriptions_monitorArn,
-    getAnomalySubscriptions_maxResults,
     getAnomalySubscriptionsResponse_nextPageToken,
     getAnomalySubscriptionsResponse_httpStatus,
     getAnomalySubscriptionsResponse_anomalySubscriptions,
 
     -- ** GetCostAndUsage
-    getCostAndUsage_nextPageToken,
-    getCostAndUsage_groupBy,
     getCostAndUsage_filter,
+    getCostAndUsage_groupBy,
+    getCostAndUsage_nextPageToken,
     getCostAndUsage_timePeriod,
     getCostAndUsage_granularity,
     getCostAndUsage_metrics,
-    getCostAndUsageResponse_nextPageToken,
     getCostAndUsageResponse_dimensionValueAttributes,
     getCostAndUsageResponse_groupDefinitions,
+    getCostAndUsageResponse_nextPageToken,
     getCostAndUsageResponse_resultsByTime,
     getCostAndUsageResponse_httpStatus,
 
     -- ** GetCostAndUsageWithResources
-    getCostAndUsageWithResources_nextPageToken,
     getCostAndUsageWithResources_groupBy,
     getCostAndUsageWithResources_metrics,
+    getCostAndUsageWithResources_nextPageToken,
     getCostAndUsageWithResources_timePeriod,
     getCostAndUsageWithResources_granularity,
     getCostAndUsageWithResources_filter,
-    getCostAndUsageWithResourcesResponse_nextPageToken,
     getCostAndUsageWithResourcesResponse_dimensionValueAttributes,
     getCostAndUsageWithResourcesResponse_groupDefinitions,
+    getCostAndUsageWithResourcesResponse_nextPageToken,
     getCostAndUsageWithResourcesResponse_resultsByTime,
     getCostAndUsageWithResourcesResponse_httpStatus,
 
     -- ** GetCostCategories
-    getCostCategories_nextPageToken,
-    getCostCategories_sortBy,
-    getCostCategories_searchString,
+    getCostCategories_costCategoryName,
     getCostCategories_filter,
     getCostCategories_maxResults,
-    getCostCategories_costCategoryName,
+    getCostCategories_nextPageToken,
+    getCostCategories_searchString,
+    getCostCategories_sortBy,
     getCostCategories_timePeriod,
-    getCostCategoriesResponse_nextPageToken,
-    getCostCategoriesResponse_costCategoryValues,
     getCostCategoriesResponse_costCategoryNames,
+    getCostCategoriesResponse_costCategoryValues,
+    getCostCategoriesResponse_nextPageToken,
     getCostCategoriesResponse_httpStatus,
     getCostCategoriesResponse_returnSize,
     getCostCategoriesResponse_totalSize,
 
     -- ** GetCostForecast
-    getCostForecast_predictionIntervalLevel,
     getCostForecast_filter,
+    getCostForecast_predictionIntervalLevel,
     getCostForecast_timePeriod,
     getCostForecast_metric,
     getCostForecast_granularity,
@@ -138,12 +138,12 @@ module Amazonka.CostExplorer.Lens
     getCostForecastResponse_httpStatus,
 
     -- ** GetDimensionValues
-    getDimensionValues_nextPageToken,
     getDimensionValues_context,
-    getDimensionValues_sortBy,
-    getDimensionValues_searchString,
     getDimensionValues_filter,
     getDimensionValues_maxResults,
+    getDimensionValues_nextPageToken,
+    getDimensionValues_searchString,
+    getDimensionValues_sortBy,
     getDimensionValues_timePeriod,
     getDimensionValues_dimension,
     getDimensionValuesResponse_nextPageToken,
@@ -153,13 +153,13 @@ module Amazonka.CostExplorer.Lens
     getDimensionValuesResponse_totalSize,
 
     -- ** GetReservationCoverage
-    getReservationCoverage_nextPageToken,
+    getReservationCoverage_filter,
     getReservationCoverage_granularity,
     getReservationCoverage_groupBy,
-    getReservationCoverage_metrics,
-    getReservationCoverage_sortBy,
-    getReservationCoverage_filter,
     getReservationCoverage_maxResults,
+    getReservationCoverage_metrics,
+    getReservationCoverage_nextPageToken,
+    getReservationCoverage_sortBy,
     getReservationCoverage_timePeriod,
     getReservationCoverageResponse_nextPageToken,
     getReservationCoverageResponse_total,
@@ -167,28 +167,28 @@ module Amazonka.CostExplorer.Lens
     getReservationCoverageResponse_coveragesByTime,
 
     -- ** GetReservationPurchaseRecommendation
-    getReservationPurchaseRecommendation_nextPageToken,
-    getReservationPurchaseRecommendation_serviceSpecification,
-    getReservationPurchaseRecommendation_lookbackPeriodInDays,
-    getReservationPurchaseRecommendation_filter,
-    getReservationPurchaseRecommendation_pageSize,
     getReservationPurchaseRecommendation_accountId,
-    getReservationPurchaseRecommendation_termInYears,
-    getReservationPurchaseRecommendation_paymentOption,
     getReservationPurchaseRecommendation_accountScope,
+    getReservationPurchaseRecommendation_filter,
+    getReservationPurchaseRecommendation_lookbackPeriodInDays,
+    getReservationPurchaseRecommendation_nextPageToken,
+    getReservationPurchaseRecommendation_pageSize,
+    getReservationPurchaseRecommendation_paymentOption,
+    getReservationPurchaseRecommendation_serviceSpecification,
+    getReservationPurchaseRecommendation_termInYears,
     getReservationPurchaseRecommendation_service,
-    getReservationPurchaseRecommendationResponse_nextPageToken,
     getReservationPurchaseRecommendationResponse_metadata,
+    getReservationPurchaseRecommendationResponse_nextPageToken,
     getReservationPurchaseRecommendationResponse_recommendations,
     getReservationPurchaseRecommendationResponse_httpStatus,
 
     -- ** GetReservationUtilization
-    getReservationUtilization_nextPageToken,
+    getReservationUtilization_filter,
     getReservationUtilization_granularity,
     getReservationUtilization_groupBy,
-    getReservationUtilization_sortBy,
-    getReservationUtilization_filter,
     getReservationUtilization_maxResults,
+    getReservationUtilization_nextPageToken,
+    getReservationUtilization_sortBy,
     getReservationUtilization_timePeriod,
     getReservationUtilizationResponse_nextPageToken,
     getReservationUtilizationResponse_total,
@@ -196,60 +196,60 @@ module Amazonka.CostExplorer.Lens
     getReservationUtilizationResponse_utilizationsByTime,
 
     -- ** GetRightsizingRecommendation
-    getRightsizingRecommendation_nextPageToken,
     getRightsizingRecommendation_configuration,
     getRightsizingRecommendation_filter,
+    getRightsizingRecommendation_nextPageToken,
     getRightsizingRecommendation_pageSize,
     getRightsizingRecommendation_service,
-    getRightsizingRecommendationResponse_nextPageToken,
-    getRightsizingRecommendationResponse_metadata,
     getRightsizingRecommendationResponse_configuration,
-    getRightsizingRecommendationResponse_summary,
+    getRightsizingRecommendationResponse_metadata,
+    getRightsizingRecommendationResponse_nextPageToken,
     getRightsizingRecommendationResponse_rightsizingRecommendations,
+    getRightsizingRecommendationResponse_summary,
     getRightsizingRecommendationResponse_httpStatus,
 
     -- ** GetSavingsPlansCoverage
-    getSavingsPlansCoverage_nextToken,
+    getSavingsPlansCoverage_filter,
     getSavingsPlansCoverage_granularity,
     getSavingsPlansCoverage_groupBy,
-    getSavingsPlansCoverage_metrics,
-    getSavingsPlansCoverage_sortBy,
-    getSavingsPlansCoverage_filter,
     getSavingsPlansCoverage_maxResults,
+    getSavingsPlansCoverage_metrics,
+    getSavingsPlansCoverage_nextToken,
+    getSavingsPlansCoverage_sortBy,
     getSavingsPlansCoverage_timePeriod,
     getSavingsPlansCoverageResponse_nextToken,
     getSavingsPlansCoverageResponse_httpStatus,
     getSavingsPlansCoverageResponse_savingsPlansCoverages,
 
     -- ** GetSavingsPlansPurchaseRecommendation
-    getSavingsPlansPurchaseRecommendation_nextPageToken,
-    getSavingsPlansPurchaseRecommendation_filter,
-    getSavingsPlansPurchaseRecommendation_pageSize,
     getSavingsPlansPurchaseRecommendation_accountScope,
+    getSavingsPlansPurchaseRecommendation_filter,
+    getSavingsPlansPurchaseRecommendation_nextPageToken,
+    getSavingsPlansPurchaseRecommendation_pageSize,
     getSavingsPlansPurchaseRecommendation_savingsPlansType,
     getSavingsPlansPurchaseRecommendation_termInYears,
     getSavingsPlansPurchaseRecommendation_paymentOption,
     getSavingsPlansPurchaseRecommendation_lookbackPeriodInDays,
+    getSavingsPlansPurchaseRecommendationResponse_metadata,
     getSavingsPlansPurchaseRecommendationResponse_nextPageToken,
     getSavingsPlansPurchaseRecommendationResponse_savingsPlansPurchaseRecommendation,
-    getSavingsPlansPurchaseRecommendationResponse_metadata,
     getSavingsPlansPurchaseRecommendationResponse_httpStatus,
 
     -- ** GetSavingsPlansUtilization
+    getSavingsPlansUtilization_filter,
     getSavingsPlansUtilization_granularity,
     getSavingsPlansUtilization_sortBy,
-    getSavingsPlansUtilization_filter,
     getSavingsPlansUtilization_timePeriod,
     getSavingsPlansUtilizationResponse_savingsPlansUtilizationsByTime,
     getSavingsPlansUtilizationResponse_httpStatus,
     getSavingsPlansUtilizationResponse_total,
 
     -- ** GetSavingsPlansUtilizationDetails
-    getSavingsPlansUtilizationDetails_nextToken,
-    getSavingsPlansUtilizationDetails_sortBy,
+    getSavingsPlansUtilizationDetails_dataType,
     getSavingsPlansUtilizationDetails_filter,
     getSavingsPlansUtilizationDetails_maxResults,
-    getSavingsPlansUtilizationDetails_dataType,
+    getSavingsPlansUtilizationDetails_nextToken,
+    getSavingsPlansUtilizationDetails_sortBy,
     getSavingsPlansUtilizationDetails_timePeriod,
     getSavingsPlansUtilizationDetailsResponse_nextToken,
     getSavingsPlansUtilizationDetailsResponse_total,
@@ -258,12 +258,12 @@ module Amazonka.CostExplorer.Lens
     getSavingsPlansUtilizationDetailsResponse_timePeriod,
 
     -- ** GetTags
-    getTags_nextPageToken,
-    getTags_sortBy,
-    getTags_searchString,
     getTags_filter,
-    getTags_tagKey,
     getTags_maxResults,
+    getTags_nextPageToken,
+    getTags_searchString,
+    getTags_sortBy,
+    getTags_tagKey,
     getTags_timePeriod,
     getTagsResponse_nextPageToken,
     getTagsResponse_httpStatus,
@@ -272,8 +272,8 @@ module Amazonka.CostExplorer.Lens
     getTagsResponse_totalSize,
 
     -- ** GetUsageForecast
-    getUsageForecast_predictionIntervalLevel,
     getUsageForecast_filter,
+    getUsageForecast_predictionIntervalLevel,
     getUsageForecast_timePeriod,
     getUsageForecast_metric,
     getUsageForecast_granularity,
@@ -282,22 +282,31 @@ module Amazonka.CostExplorer.Lens
     getUsageForecastResponse_httpStatus,
 
     -- ** ListCostAllocationTags
-    listCostAllocationTags_tagKeys,
-    listCostAllocationTags_nextToken,
-    listCostAllocationTags_type,
-    listCostAllocationTags_status,
     listCostAllocationTags_maxResults,
-    listCostAllocationTagsResponse_nextToken,
+    listCostAllocationTags_nextToken,
+    listCostAllocationTags_status,
+    listCostAllocationTags_tagKeys,
+    listCostAllocationTags_type,
     listCostAllocationTagsResponse_costAllocationTags,
+    listCostAllocationTagsResponse_nextToken,
     listCostAllocationTagsResponse_httpStatus,
 
     -- ** ListCostCategoryDefinitions
     listCostCategoryDefinitions_effectiveOn,
-    listCostCategoryDefinitions_nextToken,
     listCostCategoryDefinitions_maxResults,
-    listCostCategoryDefinitionsResponse_nextToken,
+    listCostCategoryDefinitions_nextToken,
     listCostCategoryDefinitionsResponse_costCategoryReferences,
+    listCostCategoryDefinitionsResponse_nextToken,
     listCostCategoryDefinitionsResponse_httpStatus,
+
+    -- ** ListSavingsPlansPurchaseRecommendationGeneration
+    listSavingsPlansPurchaseRecommendationGeneration_generationStatus,
+    listSavingsPlansPurchaseRecommendationGeneration_nextPageToken,
+    listSavingsPlansPurchaseRecommendationGeneration_pageSize,
+    listSavingsPlansPurchaseRecommendationGeneration_recommendationIds,
+    listSavingsPlansPurchaseRecommendationGenerationResponse_generationSummaryList,
+    listSavingsPlansPurchaseRecommendationGenerationResponse_nextPageToken,
+    listSavingsPlansPurchaseRecommendationGenerationResponse_httpStatus,
 
     -- ** ListTagsForResource
     listTagsForResource_resourceArn,
@@ -309,6 +318,12 @@ module Amazonka.CostExplorer.Lens
     provideAnomalyFeedback_feedback,
     provideAnomalyFeedbackResponse_httpStatus,
     provideAnomalyFeedbackResponse_anomalyId,
+
+    -- ** StartSavingsPlansPurchaseRecommendationGeneration
+    startSavingsPlansPurchaseRecommendationGenerationResponse_estimatedCompletionTime,
+    startSavingsPlansPurchaseRecommendationGenerationResponse_generationStartedTime,
+    startSavingsPlansPurchaseRecommendationGenerationResponse_recommendationId,
+    startSavingsPlansPurchaseRecommendationGenerationResponse_httpStatus,
 
     -- ** TagResource
     tagResource_resourceArn,
@@ -327,10 +342,10 @@ module Amazonka.CostExplorer.Lens
     updateAnomalyMonitorResponse_monitorArn,
 
     -- ** UpdateAnomalySubscription
-    updateAnomalySubscription_monitorArnList,
     updateAnomalySubscription_frequency,
-    updateAnomalySubscription_subscriptionName,
+    updateAnomalySubscription_monitorArnList,
     updateAnomalySubscription_subscribers,
+    updateAnomalySubscription_subscriptionName,
     updateAnomalySubscription_threshold,
     updateAnomalySubscription_subscriptionArn,
     updateAnomalySubscriptionResponse_httpStatus,
@@ -342,23 +357,23 @@ module Amazonka.CostExplorer.Lens
     updateCostAllocationTagsStatusResponse_httpStatus,
 
     -- ** UpdateCostCategoryDefinition
-    updateCostCategoryDefinition_splitChargeRules,
     updateCostCategoryDefinition_defaultValue,
     updateCostCategoryDefinition_effectiveStart,
+    updateCostCategoryDefinition_splitChargeRules,
     updateCostCategoryDefinition_costCategoryArn,
     updateCostCategoryDefinition_ruleVersion,
     updateCostCategoryDefinition_rules,
-    updateCostCategoryDefinitionResponse_effectiveStart,
     updateCostCategoryDefinitionResponse_costCategoryArn,
+    updateCostCategoryDefinitionResponse_effectiveStart,
     updateCostCategoryDefinitionResponse_httpStatus,
 
     -- * Types
 
     -- ** Anomaly
-    anomaly_dimensionValue,
     anomaly_anomalyEndDate,
-    anomaly_feedback,
     anomaly_anomalyStartDate,
+    anomaly_dimensionValue,
+    anomaly_feedback,
     anomaly_rootCauses,
     anomaly_anomalyId,
     anomaly_anomalyScore,
@@ -370,13 +385,13 @@ module Amazonka.CostExplorer.Lens
     anomalyDateInterval_startDate,
 
     -- ** AnomalyMonitor
-    anomalyMonitor_monitorDimension,
-    anomalyMonitor_monitorSpecification,
-    anomalyMonitor_lastUpdatedDate,
-    anomalyMonitor_monitorArn,
     anomalyMonitor_creationDate,
     anomalyMonitor_dimensionalValueCount,
     anomalyMonitor_lastEvaluatedDate,
+    anomalyMonitor_lastUpdatedDate,
+    anomalyMonitor_monitorArn,
+    anomalyMonitor_monitorDimension,
+    anomalyMonitor_monitorSpecification,
     anomalyMonitor_monitorName,
     anomalyMonitor_monitorType,
 
@@ -385,8 +400,8 @@ module Amazonka.CostExplorer.Lens
     anomalyScore_currentScore,
 
     -- ** AnomalySubscription
-    anomalySubscription_subscriptionArn,
     anomalySubscription_accountId,
+    anomalySubscription_subscriptionArn,
     anomalySubscription_monitorArnList,
     anomalySubscription_subscribers,
     anomalySubscription_threshold,
@@ -403,10 +418,10 @@ module Amazonka.CostExplorer.Lens
     costAllocationTagStatusEntry_status,
 
     -- ** CostCategory
-    costCategory_splitChargeRules,
-    costCategory_effectiveEnd,
     costCategory_defaultValue,
+    costCategory_effectiveEnd,
     costCategory_processingStatus,
+    costCategory_splitChargeRules,
     costCategory_costCategoryArn,
     costCategory_effectiveStart,
     costCategory_name,
@@ -418,23 +433,23 @@ module Amazonka.CostExplorer.Lens
     costCategoryInheritedValueDimension_dimensionName,
 
     -- ** CostCategoryProcessingStatus
-    costCategoryProcessingStatus_status,
     costCategoryProcessingStatus_component,
+    costCategoryProcessingStatus_status,
 
     -- ** CostCategoryReference
-    costCategoryReference_name,
-    costCategoryReference_effectiveEnd,
-    costCategoryReference_defaultValue,
-    costCategoryReference_processingStatus,
-    costCategoryReference_effectiveStart,
-    costCategoryReference_values,
     costCategoryReference_costCategoryArn,
+    costCategoryReference_defaultValue,
+    costCategoryReference_effectiveEnd,
+    costCategoryReference_effectiveStart,
+    costCategoryReference_name,
     costCategoryReference_numberOfRules,
+    costCategoryReference_processingStatus,
+    costCategoryReference_values,
 
     -- ** CostCategoryRule
-    costCategoryRule_type,
     costCategoryRule_inheritedValue,
     costCategoryRule_rule,
+    costCategoryRule_type,
     costCategoryRule_value,
 
     -- ** CostCategorySplitChargeRule
@@ -453,42 +468,42 @@ module Amazonka.CostExplorer.Lens
     costCategoryValues_values,
 
     -- ** Coverage
-    coverage_coverageNormalizedUnits,
-    coverage_coverageHours,
     coverage_coverageCost,
+    coverage_coverageHours,
+    coverage_coverageNormalizedUnits,
 
     -- ** CoverageByTime
-    coverageByTime_total,
-    coverageByTime_timePeriod,
     coverageByTime_groups,
+    coverageByTime_timePeriod,
+    coverageByTime_total,
 
     -- ** CoverageCost
     coverageCost_onDemandCost,
 
     -- ** CoverageHours
-    coverageHours_onDemandHours,
-    coverageHours_totalRunningHours,
-    coverageHours_reservedHours,
     coverageHours_coverageHoursPercentage,
+    coverageHours_onDemandHours,
+    coverageHours_reservedHours,
+    coverageHours_totalRunningHours,
 
     -- ** CoverageNormalizedUnits
-    coverageNormalizedUnits_totalRunningNormalizedUnits,
-    coverageNormalizedUnits_reservedNormalizedUnits,
     coverageNormalizedUnits_coverageNormalizedUnitsPercentage,
     coverageNormalizedUnits_onDemandNormalizedUnits,
+    coverageNormalizedUnits_reservedNormalizedUnits,
+    coverageNormalizedUnits_totalRunningNormalizedUnits,
 
     -- ** CurrentInstance
-    currentInstance_resourceId,
-    currentInstance_tags,
-    currentInstance_savingsPlansCoveredHoursInLookbackPeriod,
-    currentInstance_instanceName,
-    currentInstance_reservationCoveredHoursInLookbackPeriod,
-    currentInstance_totalRunningHoursInLookbackPeriod,
-    currentInstance_resourceDetails,
     currentInstance_currencyCode,
-    currentInstance_resourceUtilization,
+    currentInstance_instanceName,
     currentInstance_monthlyCost,
     currentInstance_onDemandHoursInLookbackPeriod,
+    currentInstance_reservationCoveredHoursInLookbackPeriod,
+    currentInstance_resourceDetails,
+    currentInstance_resourceId,
+    currentInstance_resourceUtilization,
+    currentInstance_savingsPlansCoveredHoursInLookbackPeriod,
+    currentInstance_tags,
+    currentInstance_totalRunningHoursInLookbackPeriod,
 
     -- ** DateInterval
     dateInterval_start,
@@ -504,81 +519,88 @@ module Amazonka.CostExplorer.Lens
     dimensionValuesWithAttributes_value,
 
     -- ** DiskResourceUtilization
+    diskResourceUtilization_diskReadBytesPerSecond,
     diskResourceUtilization_diskReadOpsPerSecond,
     diskResourceUtilization_diskWriteBytesPerSecond,
     diskResourceUtilization_diskWriteOpsPerSecond,
-    diskResourceUtilization_diskReadBytesPerSecond,
 
     -- ** EBSResourceUtilization
-    eBSResourceUtilization_ebsWriteOpsPerSecond,
     eBSResourceUtilization_ebsReadBytesPerSecond,
     eBSResourceUtilization_ebsReadOpsPerSecond,
     eBSResourceUtilization_ebsWriteBytesPerSecond,
+    eBSResourceUtilization_ebsWriteOpsPerSecond,
 
     -- ** EC2InstanceDetails
-    eC2InstanceDetails_platform,
-    eC2InstanceDetails_sizeFlexEligible,
     eC2InstanceDetails_availabilityZone,
-    eC2InstanceDetails_instanceType,
-    eC2InstanceDetails_region,
-    eC2InstanceDetails_family,
     eC2InstanceDetails_currentGeneration,
+    eC2InstanceDetails_family,
+    eC2InstanceDetails_instanceType,
+    eC2InstanceDetails_platform,
+    eC2InstanceDetails_region,
+    eC2InstanceDetails_sizeFlexEligible,
     eC2InstanceDetails_tenancy,
 
     -- ** EC2ResourceDetails
     eC2ResourceDetails_hourlyOnDemandRate,
-    eC2ResourceDetails_networkPerformance,
-    eC2ResourceDetails_memory,
-    eC2ResourceDetails_vcpu,
-    eC2ResourceDetails_storage,
-    eC2ResourceDetails_platform,
     eC2ResourceDetails_instanceType,
+    eC2ResourceDetails_memory,
+    eC2ResourceDetails_networkPerformance,
+    eC2ResourceDetails_platform,
     eC2ResourceDetails_region,
     eC2ResourceDetails_sku,
+    eC2ResourceDetails_storage,
+    eC2ResourceDetails_vcpu,
 
     -- ** EC2ResourceUtilization
-    eC2ResourceUtilization_maxCpuUtilizationPercentage,
-    eC2ResourceUtilization_eBSResourceUtilization,
     eC2ResourceUtilization_diskResourceUtilization,
+    eC2ResourceUtilization_eBSResourceUtilization,
+    eC2ResourceUtilization_maxCpuUtilizationPercentage,
     eC2ResourceUtilization_maxMemoryUtilizationPercentage,
-    eC2ResourceUtilization_networkResourceUtilization,
     eC2ResourceUtilization_maxStorageUtilizationPercentage,
+    eC2ResourceUtilization_networkResourceUtilization,
 
     -- ** EC2Specification
     eC2Specification_offeringClass,
 
     -- ** ESInstanceDetails
-    eSInstanceDetails_sizeFlexEligible,
-    eSInstanceDetails_region,
-    eSInstanceDetails_instanceClass,
     eSInstanceDetails_currentGeneration,
+    eSInstanceDetails_instanceClass,
     eSInstanceDetails_instanceSize,
+    eSInstanceDetails_region,
+    eSInstanceDetails_sizeFlexEligible,
 
     -- ** ElastiCacheInstanceDetails
-    elastiCacheInstanceDetails_sizeFlexEligible,
-    elastiCacheInstanceDetails_nodeType,
-    elastiCacheInstanceDetails_region,
-    elastiCacheInstanceDetails_productDescription,
-    elastiCacheInstanceDetails_family,
     elastiCacheInstanceDetails_currentGeneration,
+    elastiCacheInstanceDetails_family,
+    elastiCacheInstanceDetails_nodeType,
+    elastiCacheInstanceDetails_productDescription,
+    elastiCacheInstanceDetails_region,
+    elastiCacheInstanceDetails_sizeFlexEligible,
 
     -- ** Expression
-    expression_tags,
+    expression_and,
     expression_costCategories,
     expression_dimensions,
-    expression_or,
     expression_not,
-    expression_and,
+    expression_or,
+    expression_tags,
 
     -- ** ForecastResult
+    forecastResult_meanValue,
     forecastResult_predictionIntervalLowerBound,
     forecastResult_predictionIntervalUpperBound,
-    forecastResult_meanValue,
     forecastResult_timePeriod,
 
+    -- ** GenerationSummary
+    generationSummary_estimatedCompletionTime,
+    generationSummary_generationCompletionTime,
+    generationSummary_generationStartedTime,
+    generationSummary_generationStatus,
+    generationSummary_recommendationId,
+
     -- ** Group
-    group_metrics,
     group_keys,
+    group_metrics,
 
     -- ** GroupDefinition
     groupDefinition_key,
@@ -590,108 +612,108 @@ module Amazonka.CostExplorer.Lens
 
     -- ** InstanceDetails
     instanceDetails_eC2InstanceDetails,
+    instanceDetails_eSInstanceDetails,
     instanceDetails_elastiCacheInstanceDetails,
     instanceDetails_rDSInstanceDetails,
     instanceDetails_redshiftInstanceDetails,
-    instanceDetails_eSInstanceDetails,
 
     -- ** MetricValue
-    metricValue_unit,
     metricValue_amount,
+    metricValue_unit,
 
     -- ** ModifyRecommendationDetail
     modifyRecommendationDetail_targetInstances,
 
     -- ** NetworkResourceUtilization
+    networkResourceUtilization_networkInBytesPerSecond,
     networkResourceUtilization_networkOutBytesPerSecond,
     networkResourceUtilization_networkPacketsInPerSecond,
     networkResourceUtilization_networkPacketsOutPerSecond,
-    networkResourceUtilization_networkInBytesPerSecond,
 
     -- ** RDSInstanceDetails
-    rDSInstanceDetails_databaseEngine,
-    rDSInstanceDetails_sizeFlexEligible,
-    rDSInstanceDetails_instanceType,
-    rDSInstanceDetails_region,
-    rDSInstanceDetails_family,
     rDSInstanceDetails_currentGeneration,
     rDSInstanceDetails_databaseEdition,
+    rDSInstanceDetails_databaseEngine,
     rDSInstanceDetails_deploymentOption,
+    rDSInstanceDetails_family,
+    rDSInstanceDetails_instanceType,
     rDSInstanceDetails_licenseModel,
+    rDSInstanceDetails_region,
+    rDSInstanceDetails_sizeFlexEligible,
 
     -- ** RedshiftInstanceDetails
-    redshiftInstanceDetails_sizeFlexEligible,
+    redshiftInstanceDetails_currentGeneration,
+    redshiftInstanceDetails_family,
     redshiftInstanceDetails_nodeType,
     redshiftInstanceDetails_region,
-    redshiftInstanceDetails_family,
-    redshiftInstanceDetails_currentGeneration,
+    redshiftInstanceDetails_sizeFlexEligible,
 
     -- ** ReservationAggregates
-    reservationAggregates_totalAmortizedFee,
-    reservationAggregates_onDemandCostOfRIHoursUsed,
-    reservationAggregates_totalActualHours,
     reservationAggregates_amortizedRecurringFee,
     reservationAggregates_amortizedUpfrontFee,
-    reservationAggregates_totalActualUnits,
-    reservationAggregates_purchasedHours,
     reservationAggregates_netRISavings,
-    reservationAggregates_rICostForUnusedHours,
-    reservationAggregates_unusedUnits,
-    reservationAggregates_unusedHours,
-    reservationAggregates_unrealizedSavings,
-    reservationAggregates_totalPotentialRISavings,
-    reservationAggregates_utilizationPercentageInUnits,
+    reservationAggregates_onDemandCostOfRIHoursUsed,
+    reservationAggregates_purchasedHours,
     reservationAggregates_purchasedUnits,
-    reservationAggregates_utilizationPercentage,
+    reservationAggregates_rICostForUnusedHours,
     reservationAggregates_realizedSavings,
+    reservationAggregates_totalActualHours,
+    reservationAggregates_totalActualUnits,
+    reservationAggregates_totalAmortizedFee,
+    reservationAggregates_totalPotentialRISavings,
+    reservationAggregates_unrealizedSavings,
+    reservationAggregates_unusedHours,
+    reservationAggregates_unusedUnits,
+    reservationAggregates_utilizationPercentage,
+    reservationAggregates_utilizationPercentageInUnits,
 
     -- ** ReservationCoverageGroup
-    reservationCoverageGroup_coverage,
     reservationCoverageGroup_attributes,
+    reservationCoverageGroup_coverage,
 
     -- ** ReservationPurchaseRecommendation
+    reservationPurchaseRecommendation_accountScope,
+    reservationPurchaseRecommendation_lookbackPeriodInDays,
+    reservationPurchaseRecommendation_paymentOption,
+    reservationPurchaseRecommendation_recommendationDetails,
     reservationPurchaseRecommendation_recommendationSummary,
     reservationPurchaseRecommendation_serviceSpecification,
-    reservationPurchaseRecommendation_lookbackPeriodInDays,
     reservationPurchaseRecommendation_termInYears,
-    reservationPurchaseRecommendation_recommendationDetails,
-    reservationPurchaseRecommendation_paymentOption,
-    reservationPurchaseRecommendation_accountScope,
 
     -- ** ReservationPurchaseRecommendationDetail
-    reservationPurchaseRecommendationDetail_recommendedNumberOfInstancesToPurchase,
-    reservationPurchaseRecommendationDetail_maximumNumberOfInstancesUsedPerHour,
-    reservationPurchaseRecommendationDetail_averageNumberOfInstancesUsedPerHour,
-    reservationPurchaseRecommendationDetail_estimatedMonthlySavingsAmount,
-    reservationPurchaseRecommendationDetail_minimumNumberOfInstancesUsedPerHour,
-    reservationPurchaseRecommendationDetail_recurringStandardMonthlyCost,
-    reservationPurchaseRecommendationDetail_instanceDetails,
-    reservationPurchaseRecommendationDetail_upfrontCost,
-    reservationPurchaseRecommendationDetail_estimatedMonthlyOnDemandCost,
-    reservationPurchaseRecommendationDetail_averageUtilization,
-    reservationPurchaseRecommendationDetail_estimatedBreakEvenInMonths,
-    reservationPurchaseRecommendationDetail_currencyCode,
     reservationPurchaseRecommendationDetail_accountId,
-    reservationPurchaseRecommendationDetail_maximumNormalizedUnitsUsedPerHour,
-    reservationPurchaseRecommendationDetail_estimatedReservationCostForLookbackPeriod,
     reservationPurchaseRecommendationDetail_averageNormalizedUnitsUsedPerHour,
-    reservationPurchaseRecommendationDetail_recommendedNormalizedUnitsToPurchase,
-    reservationPurchaseRecommendationDetail_minimumNormalizedUnitsUsedPerHour,
+    reservationPurchaseRecommendationDetail_averageNumberOfInstancesUsedPerHour,
+    reservationPurchaseRecommendationDetail_averageUtilization,
+    reservationPurchaseRecommendationDetail_currencyCode,
+    reservationPurchaseRecommendationDetail_estimatedBreakEvenInMonths,
+    reservationPurchaseRecommendationDetail_estimatedMonthlyOnDemandCost,
+    reservationPurchaseRecommendationDetail_estimatedMonthlySavingsAmount,
     reservationPurchaseRecommendationDetail_estimatedMonthlySavingsPercentage,
+    reservationPurchaseRecommendationDetail_estimatedReservationCostForLookbackPeriod,
+    reservationPurchaseRecommendationDetail_instanceDetails,
+    reservationPurchaseRecommendationDetail_maximumNormalizedUnitsUsedPerHour,
+    reservationPurchaseRecommendationDetail_maximumNumberOfInstancesUsedPerHour,
+    reservationPurchaseRecommendationDetail_minimumNormalizedUnitsUsedPerHour,
+    reservationPurchaseRecommendationDetail_minimumNumberOfInstancesUsedPerHour,
+    reservationPurchaseRecommendationDetail_recommendedNormalizedUnitsToPurchase,
+    reservationPurchaseRecommendationDetail_recommendedNumberOfInstancesToPurchase,
+    reservationPurchaseRecommendationDetail_recurringStandardMonthlyCost,
+    reservationPurchaseRecommendationDetail_upfrontCost,
 
     -- ** ReservationPurchaseRecommendationMetadata
-    reservationPurchaseRecommendationMetadata_recommendationId,
     reservationPurchaseRecommendationMetadata_generationTimestamp,
+    reservationPurchaseRecommendationMetadata_recommendationId,
 
     -- ** ReservationPurchaseRecommendationSummary
     reservationPurchaseRecommendationSummary_currencyCode,
-    reservationPurchaseRecommendationSummary_totalEstimatedMonthlySavingsPercentage,
     reservationPurchaseRecommendationSummary_totalEstimatedMonthlySavingsAmount,
+    reservationPurchaseRecommendationSummary_totalEstimatedMonthlySavingsPercentage,
 
     -- ** ReservationUtilizationGroup
+    reservationUtilizationGroup_attributes,
     reservationUtilizationGroup_key,
     reservationUtilizationGroup_utilization,
-    reservationUtilizationGroup_attributes,
     reservationUtilizationGroup_value,
 
     -- ** ResourceDetails
@@ -705,105 +727,106 @@ module Amazonka.CostExplorer.Lens
     resourceUtilization_eC2ResourceUtilization,
 
     -- ** ResultByTime
-    resultByTime_total,
     resultByTime_estimated,
-    resultByTime_timePeriod,
     resultByTime_groups,
+    resultByTime_timePeriod,
+    resultByTime_total,
 
     -- ** RightsizingRecommendation
-    rightsizingRecommendation_findingReasonCodes,
-    rightsizingRecommendation_terminateRecommendationDetail,
-    rightsizingRecommendation_modifyRecommendationDetail,
     rightsizingRecommendation_accountId,
     rightsizingRecommendation_currentInstance,
+    rightsizingRecommendation_findingReasonCodes,
+    rightsizingRecommendation_modifyRecommendationDetail,
     rightsizingRecommendation_rightsizingType,
+    rightsizingRecommendation_terminateRecommendationDetail,
 
     -- ** RightsizingRecommendationConfiguration
     rightsizingRecommendationConfiguration_recommendationTarget,
     rightsizingRecommendationConfiguration_benefitsConsidered,
 
     -- ** RightsizingRecommendationMetadata
-    rightsizingRecommendationMetadata_recommendationId,
-    rightsizingRecommendationMetadata_lookbackPeriodInDays,
     rightsizingRecommendationMetadata_additionalMetadata,
     rightsizingRecommendationMetadata_generationTimestamp,
+    rightsizingRecommendationMetadata_lookbackPeriodInDays,
+    rightsizingRecommendationMetadata_recommendationId,
 
     -- ** RightsizingRecommendationSummary
-    rightsizingRecommendationSummary_savingsPercentage,
-    rightsizingRecommendationSummary_savingsCurrencyCode,
     rightsizingRecommendationSummary_estimatedTotalMonthlySavingsAmount,
+    rightsizingRecommendationSummary_savingsCurrencyCode,
+    rightsizingRecommendationSummary_savingsPercentage,
     rightsizingRecommendationSummary_totalRecommendationCount,
 
     -- ** RootCause
-    rootCause_usageType,
-    rootCause_service,
-    rootCause_region,
     rootCause_linkedAccount,
+    rootCause_linkedAccountName,
+    rootCause_region,
+    rootCause_service,
+    rootCause_usageType,
 
     -- ** SavingsPlansAmortizedCommitment
+    savingsPlansAmortizedCommitment_amortizedRecurringCommitment,
     savingsPlansAmortizedCommitment_amortizedUpfrontCommitment,
     savingsPlansAmortizedCommitment_totalAmortizedCommitment,
-    savingsPlansAmortizedCommitment_amortizedRecurringCommitment,
 
     -- ** SavingsPlansCoverage
+    savingsPlansCoverage_attributes,
     savingsPlansCoverage_coverage,
     savingsPlansCoverage_timePeriod,
-    savingsPlansCoverage_attributes,
 
     -- ** SavingsPlansCoverageData
-    savingsPlansCoverageData_spendCoveredBySavingsPlans,
     savingsPlansCoverageData_coveragePercentage,
-    savingsPlansCoverageData_totalCost,
     savingsPlansCoverageData_onDemandCost,
+    savingsPlansCoverageData_spendCoveredBySavingsPlans,
+    savingsPlansCoverageData_totalCost,
 
     -- ** SavingsPlansDetails
-    savingsPlansDetails_region,
     savingsPlansDetails_instanceFamily,
     savingsPlansDetails_offeringId,
+    savingsPlansDetails_region,
 
     -- ** SavingsPlansPurchaseRecommendation
-    savingsPlansPurchaseRecommendation_savingsPlansType,
-    savingsPlansPurchaseRecommendation_savingsPlansPurchaseRecommendationDetails,
-    savingsPlansPurchaseRecommendation_lookbackPeriodInDays,
-    savingsPlansPurchaseRecommendation_savingsPlansPurchaseRecommendationSummary,
-    savingsPlansPurchaseRecommendation_termInYears,
-    savingsPlansPurchaseRecommendation_paymentOption,
     savingsPlansPurchaseRecommendation_accountScope,
+    savingsPlansPurchaseRecommendation_lookbackPeriodInDays,
+    savingsPlansPurchaseRecommendation_paymentOption,
+    savingsPlansPurchaseRecommendation_savingsPlansPurchaseRecommendationDetails,
+    savingsPlansPurchaseRecommendation_savingsPlansPurchaseRecommendationSummary,
+    savingsPlansPurchaseRecommendation_savingsPlansType,
+    savingsPlansPurchaseRecommendation_termInYears,
 
     -- ** SavingsPlansPurchaseRecommendationDetail
-    savingsPlansPurchaseRecommendationDetail_hourlyCommitmentToPurchase,
-    savingsPlansPurchaseRecommendationDetail_estimatedSavingsPercentage,
-    savingsPlansPurchaseRecommendationDetail_estimatedMonthlySavingsAmount,
-    savingsPlansPurchaseRecommendationDetail_estimatedOnDemandCostWithCurrentCommitment,
-    savingsPlansPurchaseRecommendationDetail_upfrontCost,
-    savingsPlansPurchaseRecommendationDetail_estimatedAverageUtilization,
-    savingsPlansPurchaseRecommendationDetail_currentMinimumHourlyOnDemandSpend,
-    savingsPlansPurchaseRecommendationDetail_currencyCode,
     savingsPlansPurchaseRecommendationDetail_accountId,
-    savingsPlansPurchaseRecommendationDetail_estimatedOnDemandCost,
+    savingsPlansPurchaseRecommendationDetail_currencyCode,
     savingsPlansPurchaseRecommendationDetail_currentAverageHourlyOnDemandSpend,
-    savingsPlansPurchaseRecommendationDetail_estimatedSavingsAmount,
-    savingsPlansPurchaseRecommendationDetail_estimatedSPCost,
-    savingsPlansPurchaseRecommendationDetail_savingsPlansDetails,
     savingsPlansPurchaseRecommendationDetail_currentMaximumHourlyOnDemandSpend,
+    savingsPlansPurchaseRecommendationDetail_currentMinimumHourlyOnDemandSpend,
+    savingsPlansPurchaseRecommendationDetail_estimatedAverageUtilization,
+    savingsPlansPurchaseRecommendationDetail_estimatedMonthlySavingsAmount,
+    savingsPlansPurchaseRecommendationDetail_estimatedOnDemandCost,
+    savingsPlansPurchaseRecommendationDetail_estimatedOnDemandCostWithCurrentCommitment,
     savingsPlansPurchaseRecommendationDetail_estimatedROI,
+    savingsPlansPurchaseRecommendationDetail_estimatedSPCost,
+    savingsPlansPurchaseRecommendationDetail_estimatedSavingsAmount,
+    savingsPlansPurchaseRecommendationDetail_estimatedSavingsPercentage,
+    savingsPlansPurchaseRecommendationDetail_hourlyCommitmentToPurchase,
+    savingsPlansPurchaseRecommendationDetail_savingsPlansDetails,
+    savingsPlansPurchaseRecommendationDetail_upfrontCost,
 
     -- ** SavingsPlansPurchaseRecommendationMetadata
-    savingsPlansPurchaseRecommendationMetadata_recommendationId,
     savingsPlansPurchaseRecommendationMetadata_additionalMetadata,
     savingsPlansPurchaseRecommendationMetadata_generationTimestamp,
+    savingsPlansPurchaseRecommendationMetadata_recommendationId,
 
     -- ** SavingsPlansPurchaseRecommendationSummary
-    savingsPlansPurchaseRecommendationSummary_hourlyCommitmentToPurchase,
-    savingsPlansPurchaseRecommendationSummary_estimatedSavingsPercentage,
-    savingsPlansPurchaseRecommendationSummary_estimatedMonthlySavingsAmount,
-    savingsPlansPurchaseRecommendationSummary_dailyCommitmentToPurchase,
-    savingsPlansPurchaseRecommendationSummary_estimatedOnDemandCostWithCurrentCommitment,
-    savingsPlansPurchaseRecommendationSummary_estimatedTotalCost,
-    savingsPlansPurchaseRecommendationSummary_currentOnDemandSpend,
     savingsPlansPurchaseRecommendationSummary_currencyCode,
-    savingsPlansPurchaseRecommendationSummary_estimatedSavingsAmount,
+    savingsPlansPurchaseRecommendationSummary_currentOnDemandSpend,
+    savingsPlansPurchaseRecommendationSummary_dailyCommitmentToPurchase,
+    savingsPlansPurchaseRecommendationSummary_estimatedMonthlySavingsAmount,
+    savingsPlansPurchaseRecommendationSummary_estimatedOnDemandCostWithCurrentCommitment,
     savingsPlansPurchaseRecommendationSummary_estimatedROI,
+    savingsPlansPurchaseRecommendationSummary_estimatedSavingsAmount,
+    savingsPlansPurchaseRecommendationSummary_estimatedSavingsPercentage,
+    savingsPlansPurchaseRecommendationSummary_estimatedTotalCost,
+    savingsPlansPurchaseRecommendationSummary_hourlyCommitmentToPurchase,
     savingsPlansPurchaseRecommendationSummary_totalRecommendationCount,
 
     -- ** SavingsPlansSavings
@@ -829,10 +852,10 @@ module Amazonka.CostExplorer.Lens
 
     -- ** SavingsPlansUtilizationDetail
     savingsPlansUtilizationDetail_amortizedCommitment,
-    savingsPlansUtilizationDetail_utilization,
+    savingsPlansUtilizationDetail_attributes,
     savingsPlansUtilizationDetail_savings,
     savingsPlansUtilizationDetail_savingsPlanArn,
-    savingsPlansUtilizationDetail_attributes,
+    savingsPlansUtilizationDetail_utilization,
 
     -- ** ServiceSpecification
     serviceSpecification_eC2Specification,
@@ -842,9 +865,9 @@ module Amazonka.CostExplorer.Lens
     sortDefinition_key,
 
     -- ** Subscriber
-    subscriber_type,
-    subscriber_status,
     subscriber_address,
+    subscriber_status,
+    subscriber_type,
 
     -- ** TagValues
     tagValues_key,
@@ -852,17 +875,17 @@ module Amazonka.CostExplorer.Lens
     tagValues_values,
 
     -- ** TargetInstance
-    targetInstance_estimatedMonthlyCost,
-    targetInstance_platformDifferences,
-    targetInstance_expectedResourceUtilization,
-    targetInstance_defaultTargetInstance,
-    targetInstance_estimatedMonthlySavings,
-    targetInstance_resourceDetails,
     targetInstance_currencyCode,
+    targetInstance_defaultTargetInstance,
+    targetInstance_estimatedMonthlyCost,
+    targetInstance_estimatedMonthlySavings,
+    targetInstance_expectedResourceUtilization,
+    targetInstance_platformDifferences,
+    targetInstance_resourceDetails,
 
     -- ** TerminateRecommendationDetail
-    terminateRecommendationDetail_estimatedMonthlySavings,
     terminateRecommendationDetail_currencyCode,
+    terminateRecommendationDetail_estimatedMonthlySavings,
 
     -- ** TotalImpactFilter
     totalImpactFilter_endValue,
@@ -870,14 +893,14 @@ module Amazonka.CostExplorer.Lens
     totalImpactFilter_startValue,
 
     -- ** UpdateCostAllocationTagsStatusError
-    updateCostAllocationTagsStatusError_message,
     updateCostAllocationTagsStatusError_code,
+    updateCostAllocationTagsStatusError_message,
     updateCostAllocationTagsStatusError_tagKey,
 
     -- ** UtilizationByTime
-    utilizationByTime_total,
-    utilizationByTime_timePeriod,
     utilizationByTime_groups,
+    utilizationByTime_timePeriod,
+    utilizationByTime_total,
   )
 where
 
@@ -908,8 +931,10 @@ import Amazonka.CostExplorer.GetTags
 import Amazonka.CostExplorer.GetUsageForecast
 import Amazonka.CostExplorer.ListCostAllocationTags
 import Amazonka.CostExplorer.ListCostCategoryDefinitions
+import Amazonka.CostExplorer.ListSavingsPlansPurchaseRecommendationGeneration
 import Amazonka.CostExplorer.ListTagsForResource
 import Amazonka.CostExplorer.ProvideAnomalyFeedback
+import Amazonka.CostExplorer.StartSavingsPlansPurchaseRecommendationGeneration
 import Amazonka.CostExplorer.TagResource
 import Amazonka.CostExplorer.Types.Anomaly
 import Amazonka.CostExplorer.Types.AnomalyDateInterval
@@ -945,6 +970,7 @@ import Amazonka.CostExplorer.Types.ESInstanceDetails
 import Amazonka.CostExplorer.Types.ElastiCacheInstanceDetails
 import Amazonka.CostExplorer.Types.Expression
 import Amazonka.CostExplorer.Types.ForecastResult
+import Amazonka.CostExplorer.Types.GenerationSummary
 import Amazonka.CostExplorer.Types.Group
 import Amazonka.CostExplorer.Types.GroupDefinition
 import Amazonka.CostExplorer.Types.Impact

@@ -38,77 +38,80 @@ module Amazonka.ECS
     -- * Errors
     -- $errors
 
-    -- ** ClientException
-    _ClientException,
-
-    -- ** UpdateInProgressException
-    _UpdateInProgressException,
-
-    -- ** ServiceNotFoundException
-    _ServiceNotFoundException,
-
-    -- ** ClusterContainsContainerInstancesException
-    _ClusterContainsContainerInstancesException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** ClusterNotFoundException
-    _ClusterNotFoundException,
-
-    -- ** MissingVersionException
-    _MissingVersionException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** ResourceInUseException
-    _ResourceInUseException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
-
-    -- ** TaskSetNotFoundException
-    _TaskSetNotFoundException,
-
-    -- ** ClusterContainsTasksException
-    _ClusterContainsTasksException,
-
-    -- ** UnsupportedFeatureException
-    _UnsupportedFeatureException,
-
-    -- ** TargetNotFoundException
-    _TargetNotFoundException,
-
-    -- ** PlatformUnknownException
-    _PlatformUnknownException,
-
-    -- ** TargetNotConnectedException
-    _TargetNotConnectedException,
-
-    -- ** ServiceNotActiveException
-    _ServiceNotActiveException,
-
-    -- ** NoUpdateAvailableException
-    _NoUpdateAvailableException,
-
-    -- ** BlockedException
-    _BlockedException,
-
-    -- ** ServerException
-    _ServerException,
-
-    -- ** PlatformTaskDefinitionIncompatibilityException
-    _PlatformTaskDefinitionIncompatibilityException,
 
     -- ** AttributeLimitExceededException
     _AttributeLimitExceededException,
 
-    -- ** InvalidParameterException
-    _InvalidParameterException,
+    -- ** BlockedException
+    _BlockedException,
+
+    -- ** ClientException
+    _ClientException,
+
+    -- ** ClusterContainsContainerInstancesException
+    _ClusterContainsContainerInstancesException,
 
     -- ** ClusterContainsServicesException
     _ClusterContainsServicesException,
+
+    -- ** ClusterContainsTasksException
+    _ClusterContainsTasksException,
+
+    -- ** ClusterNotFoundException
+    _ClusterNotFoundException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** MissingVersionException
+    _MissingVersionException,
+
+    -- ** NamespaceNotFoundException
+    _NamespaceNotFoundException,
+
+    -- ** NoUpdateAvailableException
+    _NoUpdateAvailableException,
+
+    -- ** PlatformTaskDefinitionIncompatibilityException
+    _PlatformTaskDefinitionIncompatibilityException,
+
+    -- ** PlatformUnknownException
+    _PlatformUnknownException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ServerException
+    _ServerException,
+
+    -- ** ServiceNotActiveException
+    _ServiceNotActiveException,
+
+    -- ** ServiceNotFoundException
+    _ServiceNotFoundException,
+
+    -- ** TargetNotConnectedException
+    _TargetNotConnectedException,
+
+    -- ** TargetNotFoundException
+    _TargetNotFoundException,
+
+    -- ** TaskSetNotFoundException
+    _TaskSetNotFoundException,
+
+    -- ** UnsupportedFeatureException
+    _UnsupportedFeatureException,
+
+    -- ** UpdateInProgressException
+    _UpdateInProgressException,
 
     -- * Waiters
     -- $waiters
@@ -287,6 +290,12 @@ module Amazonka.ECS
     ListServicesResponse (ListServicesResponse'),
     newListServicesResponse,
 
+    -- ** ListServicesByNamespace (Paginated)
+    ListServicesByNamespace (ListServicesByNamespace'),
+    newListServicesByNamespace,
+    ListServicesByNamespaceResponse (ListServicesByNamespaceResponse'),
+    newListServicesByNamespaceResponse,
+
     -- ** ListTagsForResource
     ListTagsForResource (ListTagsForResource'),
     newListTagsForResource,
@@ -453,6 +462,9 @@ module Amazonka.ECS
 
     -- ** AgentUpdateStatus
     AgentUpdateStatus (..),
+
+    -- ** ApplicationProtocol
+    ApplicationProtocol (..),
 
     -- ** AssignPublicIp
     AssignPublicIp (..),
@@ -661,6 +673,14 @@ module Amazonka.ECS
     -- ** ClusterConfiguration
     ClusterConfiguration (ClusterConfiguration'),
     newClusterConfiguration,
+
+    -- ** ClusterServiceConnectDefaults
+    ClusterServiceConnectDefaults (ClusterServiceConnectDefaults'),
+    newClusterServiceConnectDefaults,
+
+    -- ** ClusterServiceConnectDefaultsRequest
+    ClusterServiceConnectDefaultsRequest (ClusterServiceConnectDefaultsRequest'),
+    newClusterServiceConnectDefaultsRequest,
 
     -- ** ClusterSetting
     ClusterSetting (ClusterSetting'),
@@ -882,6 +902,22 @@ module Amazonka.ECS
     Secret (Secret'),
     newSecret,
 
+    -- ** ServiceConnectClientAlias
+    ServiceConnectClientAlias (ServiceConnectClientAlias'),
+    newServiceConnectClientAlias,
+
+    -- ** ServiceConnectConfiguration
+    ServiceConnectConfiguration (ServiceConnectConfiguration'),
+    newServiceConnectConfiguration,
+
+    -- ** ServiceConnectService
+    ServiceConnectService (ServiceConnectService'),
+    newServiceConnectService,
+
+    -- ** ServiceConnectServiceResource
+    ServiceConnectServiceResource (ServiceConnectServiceResource'),
+    newServiceConnectServiceResource,
+
     -- ** ServiceEvent
     ServiceEvent (ServiceEvent'),
     newServiceEvent,
@@ -976,6 +1012,7 @@ import Amazonka.ECS.ListAttributes
 import Amazonka.ECS.ListClusters
 import Amazonka.ECS.ListContainerInstances
 import Amazonka.ECS.ListServices
+import Amazonka.ECS.ListServicesByNamespace
 import Amazonka.ECS.ListTagsForResource
 import Amazonka.ECS.ListTaskDefinitionFamilies
 import Amazonka.ECS.ListTaskDefinitions

@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAssetModelPropertySummary' smart constructor.
 data AssetModelPropertySummary = AssetModelPropertySummary'
-  { -- | The data type of the structure for this property. This parameter exists
+  { -- | The ID of the composite model that contains the asset model property.
+    assetModelCompositeModelId :: Prelude.Maybe Prelude.Text,
+    -- | The data type of the structure for this property. This parameter exists
     -- on properties that have the @STRUCT@ data type.
     dataTypeSpec :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the composite model that contains the asset model property.
-    assetModelCompositeModelId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the property.
     id :: Prelude.Maybe Prelude.Text,
     -- | The unit (such as @Newtons@ or @RPM@) of the property.
@@ -55,10 +55,10 @@ data AssetModelPropertySummary = AssetModelPropertySummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'assetModelCompositeModelId', 'assetModelPropertySummary_assetModelCompositeModelId' - The ID of the composite model that contains the asset model property.
+--
 -- 'dataTypeSpec', 'assetModelPropertySummary_dataTypeSpec' - The data type of the structure for this property. This parameter exists
 -- on properties that have the @STRUCT@ data type.
---
--- 'assetModelCompositeModelId', 'assetModelPropertySummary_assetModelCompositeModelId' - The ID of the composite model that contains the asset model property.
 --
 -- 'id', 'assetModelPropertySummary_id' - The ID of the property.
 --
@@ -79,9 +79,9 @@ newAssetModelPropertySummary ::
   AssetModelPropertySummary
 newAssetModelPropertySummary pName_ pDataType_ pType_ =
   AssetModelPropertySummary'
-    { dataTypeSpec =
+    { assetModelCompositeModelId =
         Prelude.Nothing,
-      assetModelCompositeModelId = Prelude.Nothing,
+      dataTypeSpec = Prelude.Nothing,
       id = Prelude.Nothing,
       unit = Prelude.Nothing,
       name = pName_,
@@ -89,14 +89,14 @@ newAssetModelPropertySummary pName_ pDataType_ pType_ =
       type' = pType_
     }
 
+-- | The ID of the composite model that contains the asset model property.
+assetModelPropertySummary_assetModelCompositeModelId :: Lens.Lens' AssetModelPropertySummary (Prelude.Maybe Prelude.Text)
+assetModelPropertySummary_assetModelCompositeModelId = Lens.lens (\AssetModelPropertySummary' {assetModelCompositeModelId} -> assetModelCompositeModelId) (\s@AssetModelPropertySummary' {} a -> s {assetModelCompositeModelId = a} :: AssetModelPropertySummary)
+
 -- | The data type of the structure for this property. This parameter exists
 -- on properties that have the @STRUCT@ data type.
 assetModelPropertySummary_dataTypeSpec :: Lens.Lens' AssetModelPropertySummary (Prelude.Maybe Prelude.Text)
 assetModelPropertySummary_dataTypeSpec = Lens.lens (\AssetModelPropertySummary' {dataTypeSpec} -> dataTypeSpec) (\s@AssetModelPropertySummary' {} a -> s {dataTypeSpec = a} :: AssetModelPropertySummary)
-
--- | The ID of the composite model that contains the asset model property.
-assetModelPropertySummary_assetModelCompositeModelId :: Lens.Lens' AssetModelPropertySummary (Prelude.Maybe Prelude.Text)
-assetModelPropertySummary_assetModelCompositeModelId = Lens.lens (\AssetModelPropertySummary' {assetModelCompositeModelId} -> assetModelCompositeModelId) (\s@AssetModelPropertySummary' {} a -> s {assetModelCompositeModelId = a} :: AssetModelPropertySummary)
 
 -- | The ID of the property.
 assetModelPropertySummary_id :: Lens.Lens' AssetModelPropertySummary (Prelude.Maybe Prelude.Text)
@@ -124,8 +124,8 @@ instance Data.FromJSON AssetModelPropertySummary where
       "AssetModelPropertySummary"
       ( \x ->
           AssetModelPropertySummary'
-            Prelude.<$> (x Data..:? "dataTypeSpec")
-            Prelude.<*> (x Data..:? "assetModelCompositeModelId")
+            Prelude.<$> (x Data..:? "assetModelCompositeModelId")
+            Prelude.<*> (x Data..:? "dataTypeSpec")
             Prelude.<*> (x Data..:? "id")
             Prelude.<*> (x Data..:? "unit")
             Prelude.<*> (x Data..: "name")
@@ -135,8 +135,9 @@ instance Data.FromJSON AssetModelPropertySummary where
 
 instance Prelude.Hashable AssetModelPropertySummary where
   hashWithSalt _salt AssetModelPropertySummary' {..} =
-    _salt `Prelude.hashWithSalt` dataTypeSpec
+    _salt
       `Prelude.hashWithSalt` assetModelCompositeModelId
+      `Prelude.hashWithSalt` dataTypeSpec
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` unit
       `Prelude.hashWithSalt` name
@@ -145,8 +146,8 @@ instance Prelude.Hashable AssetModelPropertySummary where
 
 instance Prelude.NFData AssetModelPropertySummary where
   rnf AssetModelPropertySummary' {..} =
-    Prelude.rnf dataTypeSpec
-      `Prelude.seq` Prelude.rnf assetModelCompositeModelId
+    Prelude.rnf assetModelCompositeModelId
+      `Prelude.seq` Prelude.rnf dataTypeSpec
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf unit
       `Prelude.seq` Prelude.rnf name

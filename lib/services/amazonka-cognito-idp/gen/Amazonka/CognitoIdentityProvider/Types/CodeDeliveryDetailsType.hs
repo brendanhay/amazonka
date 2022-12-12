@@ -30,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCodeDeliveryDetailsType' smart constructor.
 data CodeDeliveryDetailsType = CodeDeliveryDetailsType'
-  { -- | The email address or phone number destination where Amazon Cognito sent
-    -- the code.
-    destination :: Prelude.Maybe Prelude.Text,
+  { -- | The name of the attribute that Amazon Cognito verifies with the code.
+    attributeName :: Prelude.Maybe Prelude.Text,
     -- | The method that Amazon Cognito used to send the code.
     deliveryMedium :: Prelude.Maybe DeliveryMediumType,
-    -- | The name of the attribute that Amazon Cognito verifies with the code.
-    attributeName :: Prelude.Maybe Prelude.Text
+    -- | The email address or phone number destination where Amazon Cognito sent
+    -- the code.
+    destination :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,34 +48,34 @@ data CodeDeliveryDetailsType = CodeDeliveryDetailsType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'destination', 'codeDeliveryDetailsType_destination' - The email address or phone number destination where Amazon Cognito sent
--- the code.
+-- 'attributeName', 'codeDeliveryDetailsType_attributeName' - The name of the attribute that Amazon Cognito verifies with the code.
 --
 -- 'deliveryMedium', 'codeDeliveryDetailsType_deliveryMedium' - The method that Amazon Cognito used to send the code.
 --
--- 'attributeName', 'codeDeliveryDetailsType_attributeName' - The name of the attribute that Amazon Cognito verifies with the code.
+-- 'destination', 'codeDeliveryDetailsType_destination' - The email address or phone number destination where Amazon Cognito sent
+-- the code.
 newCodeDeliveryDetailsType ::
   CodeDeliveryDetailsType
 newCodeDeliveryDetailsType =
   CodeDeliveryDetailsType'
-    { destination =
+    { attributeName =
         Prelude.Nothing,
       deliveryMedium = Prelude.Nothing,
-      attributeName = Prelude.Nothing
+      destination = Prelude.Nothing
     }
 
--- | The email address or phone number destination where Amazon Cognito sent
--- the code.
-codeDeliveryDetailsType_destination :: Lens.Lens' CodeDeliveryDetailsType (Prelude.Maybe Prelude.Text)
-codeDeliveryDetailsType_destination = Lens.lens (\CodeDeliveryDetailsType' {destination} -> destination) (\s@CodeDeliveryDetailsType' {} a -> s {destination = a} :: CodeDeliveryDetailsType)
+-- | The name of the attribute that Amazon Cognito verifies with the code.
+codeDeliveryDetailsType_attributeName :: Lens.Lens' CodeDeliveryDetailsType (Prelude.Maybe Prelude.Text)
+codeDeliveryDetailsType_attributeName = Lens.lens (\CodeDeliveryDetailsType' {attributeName} -> attributeName) (\s@CodeDeliveryDetailsType' {} a -> s {attributeName = a} :: CodeDeliveryDetailsType)
 
 -- | The method that Amazon Cognito used to send the code.
 codeDeliveryDetailsType_deliveryMedium :: Lens.Lens' CodeDeliveryDetailsType (Prelude.Maybe DeliveryMediumType)
 codeDeliveryDetailsType_deliveryMedium = Lens.lens (\CodeDeliveryDetailsType' {deliveryMedium} -> deliveryMedium) (\s@CodeDeliveryDetailsType' {} a -> s {deliveryMedium = a} :: CodeDeliveryDetailsType)
 
--- | The name of the attribute that Amazon Cognito verifies with the code.
-codeDeliveryDetailsType_attributeName :: Lens.Lens' CodeDeliveryDetailsType (Prelude.Maybe Prelude.Text)
-codeDeliveryDetailsType_attributeName = Lens.lens (\CodeDeliveryDetailsType' {attributeName} -> attributeName) (\s@CodeDeliveryDetailsType' {} a -> s {attributeName = a} :: CodeDeliveryDetailsType)
+-- | The email address or phone number destination where Amazon Cognito sent
+-- the code.
+codeDeliveryDetailsType_destination :: Lens.Lens' CodeDeliveryDetailsType (Prelude.Maybe Prelude.Text)
+codeDeliveryDetailsType_destination = Lens.lens (\CodeDeliveryDetailsType' {destination} -> destination) (\s@CodeDeliveryDetailsType' {} a -> s {destination = a} :: CodeDeliveryDetailsType)
 
 instance Data.FromJSON CodeDeliveryDetailsType where
   parseJSON =
@@ -83,19 +83,19 @@ instance Data.FromJSON CodeDeliveryDetailsType where
       "CodeDeliveryDetailsType"
       ( \x ->
           CodeDeliveryDetailsType'
-            Prelude.<$> (x Data..:? "Destination")
+            Prelude.<$> (x Data..:? "AttributeName")
             Prelude.<*> (x Data..:? "DeliveryMedium")
-            Prelude.<*> (x Data..:? "AttributeName")
+            Prelude.<*> (x Data..:? "Destination")
       )
 
 instance Prelude.Hashable CodeDeliveryDetailsType where
   hashWithSalt _salt CodeDeliveryDetailsType' {..} =
-    _salt `Prelude.hashWithSalt` destination
+    _salt `Prelude.hashWithSalt` attributeName
       `Prelude.hashWithSalt` deliveryMedium
-      `Prelude.hashWithSalt` attributeName
+      `Prelude.hashWithSalt` destination
 
 instance Prelude.NFData CodeDeliveryDetailsType where
   rnf CodeDeliveryDetailsType' {..} =
-    Prelude.rnf destination
+    Prelude.rnf attributeName
       `Prelude.seq` Prelude.rnf deliveryMedium
-      `Prelude.seq` Prelude.rnf attributeName
+      `Prelude.seq` Prelude.rnf destination

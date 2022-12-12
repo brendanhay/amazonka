@@ -34,14 +34,14 @@ import qualified Amazonka.Prelude as Prelude
 data WorkflowStepAutomationConfiguration = WorkflowStepAutomationConfiguration'
   { -- | The command required to run the script.
     command :: Prelude.Maybe PlatformCommand,
-    -- | The servers on which to run the script.
-    targetType :: Prelude.Maybe TargetType,
-    -- | The Amazon S3 key for the script location.
-    scriptLocationS3Key :: Prelude.Maybe PlatformScriptKey,
+    -- | The source or target environment.
+    runEnvironment :: Prelude.Maybe RunEnvironment,
     -- | The Amazon S3 bucket where the script is located.
     scriptLocationS3Bucket :: Prelude.Maybe Prelude.Text,
-    -- | The source or target environment.
-    runEnvironment :: Prelude.Maybe RunEnvironment
+    -- | The Amazon S3 key for the script location.
+    scriptLocationS3Key :: Prelude.Maybe PlatformScriptKey,
+    -- | The servers on which to run the script.
+    targetType :: Prelude.Maybe TargetType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,45 +55,45 @@ data WorkflowStepAutomationConfiguration = WorkflowStepAutomationConfiguration'
 --
 -- 'command', 'workflowStepAutomationConfiguration_command' - The command required to run the script.
 --
--- 'targetType', 'workflowStepAutomationConfiguration_targetType' - The servers on which to run the script.
---
--- 'scriptLocationS3Key', 'workflowStepAutomationConfiguration_scriptLocationS3Key' - The Amazon S3 key for the script location.
+-- 'runEnvironment', 'workflowStepAutomationConfiguration_runEnvironment' - The source or target environment.
 --
 -- 'scriptLocationS3Bucket', 'workflowStepAutomationConfiguration_scriptLocationS3Bucket' - The Amazon S3 bucket where the script is located.
 --
--- 'runEnvironment', 'workflowStepAutomationConfiguration_runEnvironment' - The source or target environment.
+-- 'scriptLocationS3Key', 'workflowStepAutomationConfiguration_scriptLocationS3Key' - The Amazon S3 key for the script location.
+--
+-- 'targetType', 'workflowStepAutomationConfiguration_targetType' - The servers on which to run the script.
 newWorkflowStepAutomationConfiguration ::
   WorkflowStepAutomationConfiguration
 newWorkflowStepAutomationConfiguration =
   WorkflowStepAutomationConfiguration'
     { command =
         Prelude.Nothing,
-      targetType = Prelude.Nothing,
-      scriptLocationS3Key = Prelude.Nothing,
+      runEnvironment = Prelude.Nothing,
       scriptLocationS3Bucket =
         Prelude.Nothing,
-      runEnvironment = Prelude.Nothing
+      scriptLocationS3Key = Prelude.Nothing,
+      targetType = Prelude.Nothing
     }
 
 -- | The command required to run the script.
 workflowStepAutomationConfiguration_command :: Lens.Lens' WorkflowStepAutomationConfiguration (Prelude.Maybe PlatformCommand)
 workflowStepAutomationConfiguration_command = Lens.lens (\WorkflowStepAutomationConfiguration' {command} -> command) (\s@WorkflowStepAutomationConfiguration' {} a -> s {command = a} :: WorkflowStepAutomationConfiguration)
 
--- | The servers on which to run the script.
-workflowStepAutomationConfiguration_targetType :: Lens.Lens' WorkflowStepAutomationConfiguration (Prelude.Maybe TargetType)
-workflowStepAutomationConfiguration_targetType = Lens.lens (\WorkflowStepAutomationConfiguration' {targetType} -> targetType) (\s@WorkflowStepAutomationConfiguration' {} a -> s {targetType = a} :: WorkflowStepAutomationConfiguration)
-
--- | The Amazon S3 key for the script location.
-workflowStepAutomationConfiguration_scriptLocationS3Key :: Lens.Lens' WorkflowStepAutomationConfiguration (Prelude.Maybe PlatformScriptKey)
-workflowStepAutomationConfiguration_scriptLocationS3Key = Lens.lens (\WorkflowStepAutomationConfiguration' {scriptLocationS3Key} -> scriptLocationS3Key) (\s@WorkflowStepAutomationConfiguration' {} a -> s {scriptLocationS3Key = a} :: WorkflowStepAutomationConfiguration)
+-- | The source or target environment.
+workflowStepAutomationConfiguration_runEnvironment :: Lens.Lens' WorkflowStepAutomationConfiguration (Prelude.Maybe RunEnvironment)
+workflowStepAutomationConfiguration_runEnvironment = Lens.lens (\WorkflowStepAutomationConfiguration' {runEnvironment} -> runEnvironment) (\s@WorkflowStepAutomationConfiguration' {} a -> s {runEnvironment = a} :: WorkflowStepAutomationConfiguration)
 
 -- | The Amazon S3 bucket where the script is located.
 workflowStepAutomationConfiguration_scriptLocationS3Bucket :: Lens.Lens' WorkflowStepAutomationConfiguration (Prelude.Maybe Prelude.Text)
 workflowStepAutomationConfiguration_scriptLocationS3Bucket = Lens.lens (\WorkflowStepAutomationConfiguration' {scriptLocationS3Bucket} -> scriptLocationS3Bucket) (\s@WorkflowStepAutomationConfiguration' {} a -> s {scriptLocationS3Bucket = a} :: WorkflowStepAutomationConfiguration)
 
--- | The source or target environment.
-workflowStepAutomationConfiguration_runEnvironment :: Lens.Lens' WorkflowStepAutomationConfiguration (Prelude.Maybe RunEnvironment)
-workflowStepAutomationConfiguration_runEnvironment = Lens.lens (\WorkflowStepAutomationConfiguration' {runEnvironment} -> runEnvironment) (\s@WorkflowStepAutomationConfiguration' {} a -> s {runEnvironment = a} :: WorkflowStepAutomationConfiguration)
+-- | The Amazon S3 key for the script location.
+workflowStepAutomationConfiguration_scriptLocationS3Key :: Lens.Lens' WorkflowStepAutomationConfiguration (Prelude.Maybe PlatformScriptKey)
+workflowStepAutomationConfiguration_scriptLocationS3Key = Lens.lens (\WorkflowStepAutomationConfiguration' {scriptLocationS3Key} -> scriptLocationS3Key) (\s@WorkflowStepAutomationConfiguration' {} a -> s {scriptLocationS3Key = a} :: WorkflowStepAutomationConfiguration)
+
+-- | The servers on which to run the script.
+workflowStepAutomationConfiguration_targetType :: Lens.Lens' WorkflowStepAutomationConfiguration (Prelude.Maybe TargetType)
+workflowStepAutomationConfiguration_targetType = Lens.lens (\WorkflowStepAutomationConfiguration' {targetType} -> targetType) (\s@WorkflowStepAutomationConfiguration' {} a -> s {targetType = a} :: WorkflowStepAutomationConfiguration)
 
 instance
   Data.FromJSON
@@ -105,10 +105,10 @@ instance
       ( \x ->
           WorkflowStepAutomationConfiguration'
             Prelude.<$> (x Data..:? "command")
-            Prelude.<*> (x Data..:? "targetType")
-            Prelude.<*> (x Data..:? "scriptLocationS3Key")
-            Prelude.<*> (x Data..:? "scriptLocationS3Bucket")
             Prelude.<*> (x Data..:? "runEnvironment")
+            Prelude.<*> (x Data..:? "scriptLocationS3Bucket")
+            Prelude.<*> (x Data..:? "scriptLocationS3Key")
+            Prelude.<*> (x Data..:? "targetType")
       )
 
 instance
@@ -119,10 +119,10 @@ instance
     _salt
     WorkflowStepAutomationConfiguration' {..} =
       _salt `Prelude.hashWithSalt` command
-        `Prelude.hashWithSalt` targetType
-        `Prelude.hashWithSalt` scriptLocationS3Key
-        `Prelude.hashWithSalt` scriptLocationS3Bucket
         `Prelude.hashWithSalt` runEnvironment
+        `Prelude.hashWithSalt` scriptLocationS3Bucket
+        `Prelude.hashWithSalt` scriptLocationS3Key
+        `Prelude.hashWithSalt` targetType
 
 instance
   Prelude.NFData
@@ -130,10 +130,10 @@ instance
   where
   rnf WorkflowStepAutomationConfiguration' {..} =
     Prelude.rnf command
-      `Prelude.seq` Prelude.rnf targetType
-      `Prelude.seq` Prelude.rnf scriptLocationS3Key
-      `Prelude.seq` Prelude.rnf scriptLocationS3Bucket
       `Prelude.seq` Prelude.rnf runEnvironment
+      `Prelude.seq` Prelude.rnf scriptLocationS3Bucket
+      `Prelude.seq` Prelude.rnf scriptLocationS3Key
+      `Prelude.seq` Prelude.rnf targetType
 
 instance
   Data.ToJSON
@@ -143,12 +143,12 @@ instance
     Data.object
       ( Prelude.catMaybes
           [ ("command" Data..=) Prelude.<$> command,
-            ("targetType" Data..=) Prelude.<$> targetType,
-            ("scriptLocationS3Key" Data..=)
-              Prelude.<$> scriptLocationS3Key,
+            ("runEnvironment" Data..=)
+              Prelude.<$> runEnvironment,
             ("scriptLocationS3Bucket" Data..=)
               Prelude.<$> scriptLocationS3Bucket,
-            ("runEnvironment" Data..=)
-              Prelude.<$> runEnvironment
+            ("scriptLocationS3Key" Data..=)
+              Prelude.<$> scriptLocationS3Key,
+            ("targetType" Data..=) Prelude.<$> targetType
           ]
       )

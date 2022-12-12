@@ -49,11 +49,11 @@ module Amazonka.CertificateManagerPCA.CreateCertificateAuthority
     newCreateCertificateAuthority,
 
     -- * Request Lenses
-    createCertificateAuthority_tags,
-    createCertificateAuthority_keyStorageSecurityStandard,
-    createCertificateAuthority_usageMode,
     createCertificateAuthority_idempotencyToken,
+    createCertificateAuthority_keyStorageSecurityStandard,
     createCertificateAuthority_revocationConfiguration,
+    createCertificateAuthority_tags,
+    createCertificateAuthority_usageMode,
     createCertificateAuthority_certificateAuthorityConfiguration,
     createCertificateAuthority_certificateAuthorityType,
 
@@ -77,11 +77,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateCertificateAuthority' smart constructor.
 data CreateCertificateAuthority = CreateCertificateAuthority'
-  { -- | Key-value pairs that will be attached to the new private CA. You can
-    -- associate up to 50 tags with a private CA. For information using tags
-    -- with IAM to manage permissions, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html Controlling Access Using IAM Tags>.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+  { -- | Custom string that can be used to distinguish between calls to the
+    -- __CreateCertificateAuthority__ action. Idempotency tokens for
+    -- __CreateCertificateAuthority__ time out after five minutes. Therefore,
+    -- if you call __CreateCertificateAuthority__ multiple times with the same
+    -- idempotency token within five minutes, ACM Private CA recognizes that
+    -- you are requesting only certificate authority and will issue only one.
+    -- If you change the idempotency token for each call, PCA recognizes that
+    -- you are requesting multiple certificate authorities.
+    idempotencyToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies a cryptographic key management compliance standard used for
     -- handling CA keys.
     --
@@ -100,22 +104,6 @@ data CreateCertificateAuthority = CreateCertificateAuthority'
     -- @InvalidArgsException@ with the message, \"A certificate authority
     -- cannot be created in this region with the specified security standard.\"
     keyStorageSecurityStandard :: Prelude.Maybe KeyStorageSecurityStandard,
-    -- | Specifies whether the CA issues general-purpose certificates that
-    -- typically require a revocation mechanism, or short-lived certificates
-    -- that may optionally omit revocation because they expire quickly.
-    -- Short-lived certificate validity is limited to seven days.
-    --
-    -- The default value is GENERAL_PURPOSE.
-    usageMode :: Prelude.Maybe CertificateAuthorityUsageMode,
-    -- | Custom string that can be used to distinguish between calls to the
-    -- __CreateCertificateAuthority__ action. Idempotency tokens for
-    -- __CreateCertificateAuthority__ time out after five minutes. Therefore,
-    -- if you call __CreateCertificateAuthority__ multiple times with the same
-    -- idempotency token within five minutes, ACM Private CA recognizes that
-    -- you are requesting only certificate authority and will issue only one.
-    -- If you change the idempotency token for each call, PCA recognizes that
-    -- you are requesting multiple certificate authorities.
-    idempotencyToken :: Prelude.Maybe Prelude.Text,
     -- | Contains information to enable Online Certificate Status Protocol (OCSP)
     -- support, to enable a certificate revocation list (CRL), to enable both,
     -- or to enable neither. The default is for both certificate validation
@@ -125,6 +113,18 @@ data CreateCertificateAuthority = CreateCertificateAuthority'
     -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CrlConfiguration.html CrlConfiguration>
     -- types.
     revocationConfiguration :: Prelude.Maybe RevocationConfiguration,
+    -- | Key-value pairs that will be attached to the new private CA. You can
+    -- associate up to 50 tags with a private CA. For information using tags
+    -- with IAM to manage permissions, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html Controlling Access Using IAM Tags>.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | Specifies whether the CA issues general-purpose certificates that
+    -- typically require a revocation mechanism, or short-lived certificates
+    -- that may optionally omit revocation because they expire quickly.
+    -- Short-lived certificate validity is limited to seven days.
+    --
+    -- The default value is GENERAL_PURPOSE.
+    usageMode :: Prelude.Maybe CertificateAuthorityUsageMode,
     -- | Name and bit size of the private key algorithm, the name of the signing
     -- algorithm, and X.500 certificate subject information.
     certificateAuthorityConfiguration :: CertificateAuthorityConfiguration,
@@ -141,10 +141,14 @@ data CreateCertificateAuthority = CreateCertificateAuthority'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createCertificateAuthority_tags' - Key-value pairs that will be attached to the new private CA. You can
--- associate up to 50 tags with a private CA. For information using tags
--- with IAM to manage permissions, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html Controlling Access Using IAM Tags>.
+-- 'idempotencyToken', 'createCertificateAuthority_idempotencyToken' - Custom string that can be used to distinguish between calls to the
+-- __CreateCertificateAuthority__ action. Idempotency tokens for
+-- __CreateCertificateAuthority__ time out after five minutes. Therefore,
+-- if you call __CreateCertificateAuthority__ multiple times with the same
+-- idempotency token within five minutes, ACM Private CA recognizes that
+-- you are requesting only certificate authority and will issue only one.
+-- If you change the idempotency token for each call, PCA recognizes that
+-- you are requesting multiple certificate authorities.
 --
 -- 'keyStorageSecurityStandard', 'createCertificateAuthority_keyStorageSecurityStandard' - Specifies a cryptographic key management compliance standard used for
 -- handling CA keys.
@@ -164,22 +168,6 @@ data CreateCertificateAuthority = CreateCertificateAuthority'
 -- @InvalidArgsException@ with the message, \"A certificate authority
 -- cannot be created in this region with the specified security standard.\"
 --
--- 'usageMode', 'createCertificateAuthority_usageMode' - Specifies whether the CA issues general-purpose certificates that
--- typically require a revocation mechanism, or short-lived certificates
--- that may optionally omit revocation because they expire quickly.
--- Short-lived certificate validity is limited to seven days.
---
--- The default value is GENERAL_PURPOSE.
---
--- 'idempotencyToken', 'createCertificateAuthority_idempotencyToken' - Custom string that can be used to distinguish between calls to the
--- __CreateCertificateAuthority__ action. Idempotency tokens for
--- __CreateCertificateAuthority__ time out after five minutes. Therefore,
--- if you call __CreateCertificateAuthority__ multiple times with the same
--- idempotency token within five minutes, ACM Private CA recognizes that
--- you are requesting only certificate authority and will issue only one.
--- If you change the idempotency token for each call, PCA recognizes that
--- you are requesting multiple certificate authorities.
---
 -- 'revocationConfiguration', 'createCertificateAuthority_revocationConfiguration' - Contains information to enable Online Certificate Status Protocol (OCSP)
 -- support, to enable a certificate revocation list (CRL), to enable both,
 -- or to enable neither. The default is for both certificate validation
@@ -188,6 +176,18 @@ data CreateCertificateAuthority = CreateCertificateAuthority'
 -- and
 -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CrlConfiguration.html CrlConfiguration>
 -- types.
+--
+-- 'tags', 'createCertificateAuthority_tags' - Key-value pairs that will be attached to the new private CA. You can
+-- associate up to 50 tags with a private CA. For information using tags
+-- with IAM to manage permissions, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html Controlling Access Using IAM Tags>.
+--
+-- 'usageMode', 'createCertificateAuthority_usageMode' - Specifies whether the CA issues general-purpose certificates that
+-- typically require a revocation mechanism, or short-lived certificates
+-- that may optionally omit revocation because they expire quickly.
+-- Short-lived certificate validity is limited to seven days.
+--
+-- The default value is GENERAL_PURPOSE.
 --
 -- 'certificateAuthorityConfiguration', 'createCertificateAuthority_certificateAuthorityConfiguration' - Name and bit size of the private key algorithm, the name of the signing
 -- algorithm, and X.500 certificate subject information.
@@ -203,23 +203,28 @@ newCreateCertificateAuthority
   pCertificateAuthorityConfiguration_
   pCertificateAuthorityType_ =
     CreateCertificateAuthority'
-      { tags = Prelude.Nothing,
+      { idempotencyToken =
+          Prelude.Nothing,
         keyStorageSecurityStandard = Prelude.Nothing,
-        usageMode = Prelude.Nothing,
-        idempotencyToken = Prelude.Nothing,
         revocationConfiguration = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        usageMode = Prelude.Nothing,
         certificateAuthorityConfiguration =
           pCertificateAuthorityConfiguration_,
         certificateAuthorityType =
           pCertificateAuthorityType_
       }
 
--- | Key-value pairs that will be attached to the new private CA. You can
--- associate up to 50 tags with a private CA. For information using tags
--- with IAM to manage permissions, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html Controlling Access Using IAM Tags>.
-createCertificateAuthority_tags :: Lens.Lens' CreateCertificateAuthority (Prelude.Maybe (Prelude.NonEmpty Tag))
-createCertificateAuthority_tags = Lens.lens (\CreateCertificateAuthority' {tags} -> tags) (\s@CreateCertificateAuthority' {} a -> s {tags = a} :: CreateCertificateAuthority) Prelude.. Lens.mapping Lens.coerced
+-- | Custom string that can be used to distinguish between calls to the
+-- __CreateCertificateAuthority__ action. Idempotency tokens for
+-- __CreateCertificateAuthority__ time out after five minutes. Therefore,
+-- if you call __CreateCertificateAuthority__ multiple times with the same
+-- idempotency token within five minutes, ACM Private CA recognizes that
+-- you are requesting only certificate authority and will issue only one.
+-- If you change the idempotency token for each call, PCA recognizes that
+-- you are requesting multiple certificate authorities.
+createCertificateAuthority_idempotencyToken :: Lens.Lens' CreateCertificateAuthority (Prelude.Maybe Prelude.Text)
+createCertificateAuthority_idempotencyToken = Lens.lens (\CreateCertificateAuthority' {idempotencyToken} -> idempotencyToken) (\s@CreateCertificateAuthority' {} a -> s {idempotencyToken = a} :: CreateCertificateAuthority)
 
 -- | Specifies a cryptographic key management compliance standard used for
 -- handling CA keys.
@@ -241,26 +246,6 @@ createCertificateAuthority_tags = Lens.lens (\CreateCertificateAuthority' {tags}
 createCertificateAuthority_keyStorageSecurityStandard :: Lens.Lens' CreateCertificateAuthority (Prelude.Maybe KeyStorageSecurityStandard)
 createCertificateAuthority_keyStorageSecurityStandard = Lens.lens (\CreateCertificateAuthority' {keyStorageSecurityStandard} -> keyStorageSecurityStandard) (\s@CreateCertificateAuthority' {} a -> s {keyStorageSecurityStandard = a} :: CreateCertificateAuthority)
 
--- | Specifies whether the CA issues general-purpose certificates that
--- typically require a revocation mechanism, or short-lived certificates
--- that may optionally omit revocation because they expire quickly.
--- Short-lived certificate validity is limited to seven days.
---
--- The default value is GENERAL_PURPOSE.
-createCertificateAuthority_usageMode :: Lens.Lens' CreateCertificateAuthority (Prelude.Maybe CertificateAuthorityUsageMode)
-createCertificateAuthority_usageMode = Lens.lens (\CreateCertificateAuthority' {usageMode} -> usageMode) (\s@CreateCertificateAuthority' {} a -> s {usageMode = a} :: CreateCertificateAuthority)
-
--- | Custom string that can be used to distinguish between calls to the
--- __CreateCertificateAuthority__ action. Idempotency tokens for
--- __CreateCertificateAuthority__ time out after five minutes. Therefore,
--- if you call __CreateCertificateAuthority__ multiple times with the same
--- idempotency token within five minutes, ACM Private CA recognizes that
--- you are requesting only certificate authority and will issue only one.
--- If you change the idempotency token for each call, PCA recognizes that
--- you are requesting multiple certificate authorities.
-createCertificateAuthority_idempotencyToken :: Lens.Lens' CreateCertificateAuthority (Prelude.Maybe Prelude.Text)
-createCertificateAuthority_idempotencyToken = Lens.lens (\CreateCertificateAuthority' {idempotencyToken} -> idempotencyToken) (\s@CreateCertificateAuthority' {} a -> s {idempotencyToken = a} :: CreateCertificateAuthority)
-
 -- | Contains information to enable Online Certificate Status Protocol (OCSP)
 -- support, to enable a certificate revocation list (CRL), to enable both,
 -- or to enable neither. The default is for both certificate validation
@@ -271,6 +256,22 @@ createCertificateAuthority_idempotencyToken = Lens.lens (\CreateCertificateAutho
 -- types.
 createCertificateAuthority_revocationConfiguration :: Lens.Lens' CreateCertificateAuthority (Prelude.Maybe RevocationConfiguration)
 createCertificateAuthority_revocationConfiguration = Lens.lens (\CreateCertificateAuthority' {revocationConfiguration} -> revocationConfiguration) (\s@CreateCertificateAuthority' {} a -> s {revocationConfiguration = a} :: CreateCertificateAuthority)
+
+-- | Key-value pairs that will be attached to the new private CA. You can
+-- associate up to 50 tags with a private CA. For information using tags
+-- with IAM to manage permissions, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html Controlling Access Using IAM Tags>.
+createCertificateAuthority_tags :: Lens.Lens' CreateCertificateAuthority (Prelude.Maybe (Prelude.NonEmpty Tag))
+createCertificateAuthority_tags = Lens.lens (\CreateCertificateAuthority' {tags} -> tags) (\s@CreateCertificateAuthority' {} a -> s {tags = a} :: CreateCertificateAuthority) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specifies whether the CA issues general-purpose certificates that
+-- typically require a revocation mechanism, or short-lived certificates
+-- that may optionally omit revocation because they expire quickly.
+-- Short-lived certificate validity is limited to seven days.
+--
+-- The default value is GENERAL_PURPOSE.
+createCertificateAuthority_usageMode :: Lens.Lens' CreateCertificateAuthority (Prelude.Maybe CertificateAuthorityUsageMode)
+createCertificateAuthority_usageMode = Lens.lens (\CreateCertificateAuthority' {usageMode} -> usageMode) (\s@CreateCertificateAuthority' {} a -> s {usageMode = a} :: CreateCertificateAuthority)
 
 -- | Name and bit size of the private key algorithm, the name of the signing
 -- algorithm, and X.500 certificate subject information.
@@ -297,21 +298,21 @@ instance Core.AWSRequest CreateCertificateAuthority where
 
 instance Prelude.Hashable CreateCertificateAuthority where
   hashWithSalt _salt CreateCertificateAuthority' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` idempotencyToken
       `Prelude.hashWithSalt` keyStorageSecurityStandard
-      `Prelude.hashWithSalt` usageMode
-      `Prelude.hashWithSalt` idempotencyToken
       `Prelude.hashWithSalt` revocationConfiguration
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` usageMode
       `Prelude.hashWithSalt` certificateAuthorityConfiguration
       `Prelude.hashWithSalt` certificateAuthorityType
 
 instance Prelude.NFData CreateCertificateAuthority where
   rnf CreateCertificateAuthority' {..} =
-    Prelude.rnf tags
+    Prelude.rnf idempotencyToken
       `Prelude.seq` Prelude.rnf keyStorageSecurityStandard
-      `Prelude.seq` Prelude.rnf usageMode
-      `Prelude.seq` Prelude.rnf idempotencyToken
       `Prelude.seq` Prelude.rnf revocationConfiguration
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf usageMode
       `Prelude.seq` Prelude.rnf certificateAuthorityConfiguration
       `Prelude.seq` Prelude.rnf certificateAuthorityType
 
@@ -334,14 +335,14 @@ instance Data.ToJSON CreateCertificateAuthority where
   toJSON CreateCertificateAuthority' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
+          [ ("IdempotencyToken" Data..=)
+              Prelude.<$> idempotencyToken,
             ("KeyStorageSecurityStandard" Data..=)
               Prelude.<$> keyStorageSecurityStandard,
-            ("UsageMode" Data..=) Prelude.<$> usageMode,
-            ("IdempotencyToken" Data..=)
-              Prelude.<$> idempotencyToken,
             ("RevocationConfiguration" Data..=)
               Prelude.<$> revocationConfiguration,
+            ("Tags" Data..=) Prelude.<$> tags,
+            ("UsageMode" Data..=) Prelude.<$> usageMode,
             Prelude.Just
               ( "CertificateAuthorityConfiguration"
                   Data..= certificateAuthorityConfiguration

@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPropertyPredicate' smart constructor.
 data PropertyPredicate = PropertyPredicate'
-  { -- | The key of the property.
-    key :: Prelude.Maybe Prelude.Text,
-    -- | The comparator used to compare this property to others.
+  { -- | The comparator used to compare this property to others.
     comparator :: Prelude.Maybe Comparator,
+    -- | The key of the property.
+    key :: Prelude.Maybe Prelude.Text,
     -- | The value of the property.
     value :: Prelude.Maybe Prelude.Text
   }
@@ -46,27 +46,27 @@ data PropertyPredicate = PropertyPredicate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 'propertyPredicate_key' - The key of the property.
---
 -- 'comparator', 'propertyPredicate_comparator' - The comparator used to compare this property to others.
+--
+-- 'key', 'propertyPredicate_key' - The key of the property.
 --
 -- 'value', 'propertyPredicate_value' - The value of the property.
 newPropertyPredicate ::
   PropertyPredicate
 newPropertyPredicate =
   PropertyPredicate'
-    { key = Prelude.Nothing,
-      comparator = Prelude.Nothing,
+    { comparator = Prelude.Nothing,
+      key = Prelude.Nothing,
       value = Prelude.Nothing
     }
-
--- | The key of the property.
-propertyPredicate_key :: Lens.Lens' PropertyPredicate (Prelude.Maybe Prelude.Text)
-propertyPredicate_key = Lens.lens (\PropertyPredicate' {key} -> key) (\s@PropertyPredicate' {} a -> s {key = a} :: PropertyPredicate)
 
 -- | The comparator used to compare this property to others.
 propertyPredicate_comparator :: Lens.Lens' PropertyPredicate (Prelude.Maybe Comparator)
 propertyPredicate_comparator = Lens.lens (\PropertyPredicate' {comparator} -> comparator) (\s@PropertyPredicate' {} a -> s {comparator = a} :: PropertyPredicate)
+
+-- | The key of the property.
+propertyPredicate_key :: Lens.Lens' PropertyPredicate (Prelude.Maybe Prelude.Text)
+propertyPredicate_key = Lens.lens (\PropertyPredicate' {key} -> key) (\s@PropertyPredicate' {} a -> s {key = a} :: PropertyPredicate)
 
 -- | The value of the property.
 propertyPredicate_value :: Lens.Lens' PropertyPredicate (Prelude.Maybe Prelude.Text)
@@ -74,22 +74,22 @@ propertyPredicate_value = Lens.lens (\PropertyPredicate' {value} -> value) (\s@P
 
 instance Prelude.Hashable PropertyPredicate where
   hashWithSalt _salt PropertyPredicate' {..} =
-    _salt `Prelude.hashWithSalt` key
-      `Prelude.hashWithSalt` comparator
+    _salt `Prelude.hashWithSalt` comparator
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData PropertyPredicate where
   rnf PropertyPredicate' {..} =
-    Prelude.rnf key
-      `Prelude.seq` Prelude.rnf comparator
+    Prelude.rnf comparator
+      `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf value
 
 instance Data.ToJSON PropertyPredicate where
   toJSON PropertyPredicate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Key" Data..=) Prelude.<$> key,
-            ("Comparator" Data..=) Prelude.<$> comparator,
+          [ ("Comparator" Data..=) Prelude.<$> comparator,
+            ("Key" Data..=) Prelude.<$> key,
             ("Value" Data..=) Prelude.<$> value
           ]
       )

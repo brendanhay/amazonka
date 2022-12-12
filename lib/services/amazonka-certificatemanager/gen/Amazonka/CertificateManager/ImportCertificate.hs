@@ -89,9 +89,9 @@ module Amazonka.CertificateManager.ImportCertificate
     newImportCertificate,
 
     -- * Request Lenses
-    importCertificate_tags,
     importCertificate_certificateArn,
     importCertificate_certificateChain,
+    importCertificate_tags,
     importCertificate_certificate,
     importCertificate_privateKey,
 
@@ -115,17 +115,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newImportCertificate' smart constructor.
 data ImportCertificate = ImportCertificate'
-  { -- | One or more resource tags to associate with the imported certificate.
-    --
-    -- Note: You cannot apply tags when reimporting a certificate.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | The
+  { -- | The
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
     -- of an imported certificate to replace. To import a new certificate, omit
     -- this field.
     certificateArn :: Prelude.Maybe Prelude.Text,
     -- | The PEM encoded certificate chain.
     certificateChain :: Prelude.Maybe Data.Base64,
+    -- | One or more resource tags to associate with the imported certificate.
+    --
+    -- Note: You cannot apply tags when reimporting a certificate.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The certificate to import.
     certificate :: Data.Base64,
     -- | The private key that matches the public key in the certificate.
@@ -141,10 +141,6 @@ data ImportCertificate = ImportCertificate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'importCertificate_tags' - One or more resource tags to associate with the imported certificate.
---
--- Note: You cannot apply tags when reimporting a certificate.
---
 -- 'certificateArn', 'importCertificate_certificateArn' - The
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
 -- of an imported certificate to replace. To import a new certificate, omit
@@ -155,6 +151,10 @@ data ImportCertificate = ImportCertificate'
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- 'tags', 'importCertificate_tags' - One or more resource tags to associate with the imported certificate.
+--
+-- Note: You cannot apply tags when reimporting a certificate.
 --
 -- 'certificate', 'importCertificate_certificate' - The certificate to import.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -175,20 +175,15 @@ newImportCertificate ::
   ImportCertificate
 newImportCertificate pCertificate_ pPrivateKey_ =
   ImportCertificate'
-    { tags = Prelude.Nothing,
-      certificateArn = Prelude.Nothing,
+    { certificateArn =
+        Prelude.Nothing,
       certificateChain = Prelude.Nothing,
+      tags = Prelude.Nothing,
       certificate = Data._Base64 Lens.# pCertificate_,
       privateKey =
         Data._Sensitive Prelude.. Data._Base64
           Lens.# pPrivateKey_
     }
-
--- | One or more resource tags to associate with the imported certificate.
---
--- Note: You cannot apply tags when reimporting a certificate.
-importCertificate_tags :: Lens.Lens' ImportCertificate (Prelude.Maybe (Prelude.NonEmpty Tag))
-importCertificate_tags = Lens.lens (\ImportCertificate' {tags} -> tags) (\s@ImportCertificate' {} a -> s {tags = a} :: ImportCertificate) Prelude.. Lens.mapping Lens.coerced
 
 -- | The
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
@@ -204,6 +199,12 @@ importCertificate_certificateArn = Lens.lens (\ImportCertificate' {certificateAr
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 importCertificate_certificateChain :: Lens.Lens' ImportCertificate (Prelude.Maybe Prelude.ByteString)
 importCertificate_certificateChain = Lens.lens (\ImportCertificate' {certificateChain} -> certificateChain) (\s@ImportCertificate' {} a -> s {certificateChain = a} :: ImportCertificate) Prelude.. Lens.mapping Data._Base64
+
+-- | One or more resource tags to associate with the imported certificate.
+--
+-- Note: You cannot apply tags when reimporting a certificate.
+importCertificate_tags :: Lens.Lens' ImportCertificate (Prelude.Maybe (Prelude.NonEmpty Tag))
+importCertificate_tags = Lens.lens (\ImportCertificate' {tags} -> tags) (\s@ImportCertificate' {} a -> s {tags = a} :: ImportCertificate) Prelude.. Lens.mapping Lens.coerced
 
 -- | The certificate to import.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -237,17 +238,17 @@ instance Core.AWSRequest ImportCertificate where
 
 instance Prelude.Hashable ImportCertificate where
   hashWithSalt _salt ImportCertificate' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` certificateArn
+    _salt `Prelude.hashWithSalt` certificateArn
       `Prelude.hashWithSalt` certificateChain
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` certificate
       `Prelude.hashWithSalt` privateKey
 
 instance Prelude.NFData ImportCertificate where
   rnf ImportCertificate' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf certificateArn
+    Prelude.rnf certificateArn
       `Prelude.seq` Prelude.rnf certificateChain
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf certificate
       `Prelude.seq` Prelude.rnf privateKey
 
@@ -270,11 +271,11 @@ instance Data.ToJSON ImportCertificate where
   toJSON ImportCertificate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("CertificateArn" Data..=)
+          [ ("CertificateArn" Data..=)
               Prelude.<$> certificateArn,
             ("CertificateChain" Data..=)
               Prelude.<$> certificateChain,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Certificate" Data..= certificate),
             Prelude.Just ("PrivateKey" Data..= privateKey)
           ]

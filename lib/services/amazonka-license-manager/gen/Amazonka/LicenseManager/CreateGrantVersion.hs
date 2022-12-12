@@ -27,11 +27,11 @@ module Amazonka.LicenseManager.CreateGrantVersion
     newCreateGrantVersion,
 
     -- * Request Lenses
-    createGrantVersion_sourceVersion,
-    createGrantVersion_statusReason,
     createGrantVersion_allowedOperations,
-    createGrantVersion_status,
     createGrantVersion_grantName,
+    createGrantVersion_sourceVersion,
+    createGrantVersion_status,
+    createGrantVersion_statusReason,
     createGrantVersion_clientToken,
     createGrantVersion_grantArn,
 
@@ -40,8 +40,8 @@ module Amazonka.LicenseManager.CreateGrantVersion
     newCreateGrantVersionResponse,
 
     -- * Response Lenses
-    createGrantVersionResponse_status,
     createGrantVersionResponse_grantArn,
+    createGrantVersionResponse_status,
     createGrantVersionResponse_version,
     createGrantVersionResponse_httpStatus,
   )
@@ -57,16 +57,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateGrantVersion' smart constructor.
 data CreateGrantVersion = CreateGrantVersion'
-  { -- | Current version of the grant.
-    sourceVersion :: Prelude.Maybe Prelude.Text,
-    -- | Grant status reason.
-    statusReason :: Prelude.Maybe Prelude.Text,
-    -- | Allowed operations for the grant.
+  { -- | Allowed operations for the grant.
     allowedOperations :: Prelude.Maybe (Prelude.NonEmpty AllowedOperation),
-    -- | Grant status.
-    status :: Prelude.Maybe GrantStatus,
     -- | Grant name.
     grantName :: Prelude.Maybe Prelude.Text,
+    -- | Current version of the grant.
+    sourceVersion :: Prelude.Maybe Prelude.Text,
+    -- | Grant status.
+    status :: Prelude.Maybe GrantStatus,
+    -- | Grant status reason.
+    statusReason :: Prelude.Maybe Prelude.Text,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
     clientToken :: Prelude.Text,
@@ -83,15 +83,15 @@ data CreateGrantVersion = CreateGrantVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceVersion', 'createGrantVersion_sourceVersion' - Current version of the grant.
---
--- 'statusReason', 'createGrantVersion_statusReason' - Grant status reason.
---
 -- 'allowedOperations', 'createGrantVersion_allowedOperations' - Allowed operations for the grant.
+--
+-- 'grantName', 'createGrantVersion_grantName' - Grant name.
+--
+-- 'sourceVersion', 'createGrantVersion_sourceVersion' - Current version of the grant.
 --
 -- 'status', 'createGrantVersion_status' - Grant status.
 --
--- 'grantName', 'createGrantVersion_grantName' - Grant name.
+-- 'statusReason', 'createGrantVersion_statusReason' - Grant status reason.
 --
 -- 'clientToken', 'createGrantVersion_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
@@ -105,35 +105,35 @@ newCreateGrantVersion ::
   CreateGrantVersion
 newCreateGrantVersion pClientToken_ pGrantArn_ =
   CreateGrantVersion'
-    { sourceVersion =
+    { allowedOperations =
         Prelude.Nothing,
-      statusReason = Prelude.Nothing,
-      allowedOperations = Prelude.Nothing,
-      status = Prelude.Nothing,
       grantName = Prelude.Nothing,
+      sourceVersion = Prelude.Nothing,
+      status = Prelude.Nothing,
+      statusReason = Prelude.Nothing,
       clientToken = pClientToken_,
       grantArn = pGrantArn_
     }
-
--- | Current version of the grant.
-createGrantVersion_sourceVersion :: Lens.Lens' CreateGrantVersion (Prelude.Maybe Prelude.Text)
-createGrantVersion_sourceVersion = Lens.lens (\CreateGrantVersion' {sourceVersion} -> sourceVersion) (\s@CreateGrantVersion' {} a -> s {sourceVersion = a} :: CreateGrantVersion)
-
--- | Grant status reason.
-createGrantVersion_statusReason :: Lens.Lens' CreateGrantVersion (Prelude.Maybe Prelude.Text)
-createGrantVersion_statusReason = Lens.lens (\CreateGrantVersion' {statusReason} -> statusReason) (\s@CreateGrantVersion' {} a -> s {statusReason = a} :: CreateGrantVersion)
 
 -- | Allowed operations for the grant.
 createGrantVersion_allowedOperations :: Lens.Lens' CreateGrantVersion (Prelude.Maybe (Prelude.NonEmpty AllowedOperation))
 createGrantVersion_allowedOperations = Lens.lens (\CreateGrantVersion' {allowedOperations} -> allowedOperations) (\s@CreateGrantVersion' {} a -> s {allowedOperations = a} :: CreateGrantVersion) Prelude.. Lens.mapping Lens.coerced
 
+-- | Grant name.
+createGrantVersion_grantName :: Lens.Lens' CreateGrantVersion (Prelude.Maybe Prelude.Text)
+createGrantVersion_grantName = Lens.lens (\CreateGrantVersion' {grantName} -> grantName) (\s@CreateGrantVersion' {} a -> s {grantName = a} :: CreateGrantVersion)
+
+-- | Current version of the grant.
+createGrantVersion_sourceVersion :: Lens.Lens' CreateGrantVersion (Prelude.Maybe Prelude.Text)
+createGrantVersion_sourceVersion = Lens.lens (\CreateGrantVersion' {sourceVersion} -> sourceVersion) (\s@CreateGrantVersion' {} a -> s {sourceVersion = a} :: CreateGrantVersion)
+
 -- | Grant status.
 createGrantVersion_status :: Lens.Lens' CreateGrantVersion (Prelude.Maybe GrantStatus)
 createGrantVersion_status = Lens.lens (\CreateGrantVersion' {status} -> status) (\s@CreateGrantVersion' {} a -> s {status = a} :: CreateGrantVersion)
 
--- | Grant name.
-createGrantVersion_grantName :: Lens.Lens' CreateGrantVersion (Prelude.Maybe Prelude.Text)
-createGrantVersion_grantName = Lens.lens (\CreateGrantVersion' {grantName} -> grantName) (\s@CreateGrantVersion' {} a -> s {grantName = a} :: CreateGrantVersion)
+-- | Grant status reason.
+createGrantVersion_statusReason :: Lens.Lens' CreateGrantVersion (Prelude.Maybe Prelude.Text)
+createGrantVersion_statusReason = Lens.lens (\CreateGrantVersion' {statusReason} -> statusReason) (\s@CreateGrantVersion' {} a -> s {statusReason = a} :: CreateGrantVersion)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
@@ -154,29 +154,29 @@ instance Core.AWSRequest CreateGrantVersion where
     Response.receiveJSON
       ( \s h x ->
           CreateGrantVersionResponse'
-            Prelude.<$> (x Data..?> "Status")
-            Prelude.<*> (x Data..?> "GrantArn")
+            Prelude.<$> (x Data..?> "GrantArn")
+            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (x Data..?> "Version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateGrantVersion where
   hashWithSalt _salt CreateGrantVersion' {..} =
-    _salt `Prelude.hashWithSalt` sourceVersion
-      `Prelude.hashWithSalt` statusReason
-      `Prelude.hashWithSalt` allowedOperations
-      `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` allowedOperations
       `Prelude.hashWithSalt` grantName
+      `Prelude.hashWithSalt` sourceVersion
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` statusReason
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` grantArn
 
 instance Prelude.NFData CreateGrantVersion where
   rnf CreateGrantVersion' {..} =
-    Prelude.rnf sourceVersion
-      `Prelude.seq` Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf allowedOperations
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf allowedOperations
       `Prelude.seq` Prelude.rnf grantName
+      `Prelude.seq` Prelude.rnf sourceVersion
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf statusReason
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf grantArn
 
@@ -199,12 +199,12 @@ instance Data.ToJSON CreateGrantVersion where
   toJSON CreateGrantVersion' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SourceVersion" Data..=) Prelude.<$> sourceVersion,
-            ("StatusReason" Data..=) Prelude.<$> statusReason,
-            ("AllowedOperations" Data..=)
+          [ ("AllowedOperations" Data..=)
               Prelude.<$> allowedOperations,
-            ("Status" Data..=) Prelude.<$> status,
             ("GrantName" Data..=) Prelude.<$> grantName,
+            ("SourceVersion" Data..=) Prelude.<$> sourceVersion,
+            ("Status" Data..=) Prelude.<$> status,
+            ("StatusReason" Data..=) Prelude.<$> statusReason,
             Prelude.Just ("ClientToken" Data..= clientToken),
             Prelude.Just ("GrantArn" Data..= grantArn)
           ]
@@ -218,10 +218,10 @@ instance Data.ToQuery CreateGrantVersion where
 
 -- | /See:/ 'newCreateGrantVersionResponse' smart constructor.
 data CreateGrantVersionResponse = CreateGrantVersionResponse'
-  { -- | Grant status.
-    status :: Prelude.Maybe GrantStatus,
-    -- | Grant ARN.
+  { -- | Grant ARN.
     grantArn :: Prelude.Maybe Prelude.Text,
+    -- | Grant status.
+    status :: Prelude.Maybe GrantStatus,
     -- | New version of the grant.
     version :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -237,9 +237,9 @@ data CreateGrantVersionResponse = CreateGrantVersionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'createGrantVersionResponse_status' - Grant status.
---
 -- 'grantArn', 'createGrantVersionResponse_grantArn' - Grant ARN.
+--
+-- 'status', 'createGrantVersionResponse_status' - Grant status.
 --
 -- 'version', 'createGrantVersionResponse_version' - New version of the grant.
 --
@@ -250,20 +250,20 @@ newCreateGrantVersionResponse ::
   CreateGrantVersionResponse
 newCreateGrantVersionResponse pHttpStatus_ =
   CreateGrantVersionResponse'
-    { status =
+    { grantArn =
         Prelude.Nothing,
-      grantArn = Prelude.Nothing,
+      status = Prelude.Nothing,
       version = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | Grant status.
-createGrantVersionResponse_status :: Lens.Lens' CreateGrantVersionResponse (Prelude.Maybe GrantStatus)
-createGrantVersionResponse_status = Lens.lens (\CreateGrantVersionResponse' {status} -> status) (\s@CreateGrantVersionResponse' {} a -> s {status = a} :: CreateGrantVersionResponse)
-
 -- | Grant ARN.
 createGrantVersionResponse_grantArn :: Lens.Lens' CreateGrantVersionResponse (Prelude.Maybe Prelude.Text)
 createGrantVersionResponse_grantArn = Lens.lens (\CreateGrantVersionResponse' {grantArn} -> grantArn) (\s@CreateGrantVersionResponse' {} a -> s {grantArn = a} :: CreateGrantVersionResponse)
+
+-- | Grant status.
+createGrantVersionResponse_status :: Lens.Lens' CreateGrantVersionResponse (Prelude.Maybe GrantStatus)
+createGrantVersionResponse_status = Lens.lens (\CreateGrantVersionResponse' {status} -> status) (\s@CreateGrantVersionResponse' {} a -> s {status = a} :: CreateGrantVersionResponse)
 
 -- | New version of the grant.
 createGrantVersionResponse_version :: Lens.Lens' CreateGrantVersionResponse (Prelude.Maybe Prelude.Text)
@@ -275,7 +275,7 @@ createGrantVersionResponse_httpStatus = Lens.lens (\CreateGrantVersionResponse' 
 
 instance Prelude.NFData CreateGrantVersionResponse where
   rnf CreateGrantVersionResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf grantArn
+    Prelude.rnf grantArn
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf httpStatus

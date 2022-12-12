@@ -29,16 +29,16 @@ module Amazonka.DeviceFarm.ListProjects
     newListProjects,
 
     -- * Request Lenses
-    listProjects_nextToken,
     listProjects_arn,
+    listProjects_nextToken,
 
     -- * Destructuring the Response
     ListProjectsResponse (..),
     newListProjectsResponse,
 
     -- * Response Lenses
-    listProjectsResponse_projects,
     listProjectsResponse_nextToken,
+    listProjectsResponse_projects,
     listProjectsResponse_httpStatus,
   )
 where
@@ -55,14 +55,14 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListProjects' smart constructor.
 data ListProjects = ListProjects'
-  { -- | An identifier that was returned from the previous call to this
-    -- operation, which can be used to return the next set of items in the
-    -- list.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Optional. If no Amazon Resource Name (ARN) is specified, then AWS Device
+  { -- | Optional. If no Amazon Resource Name (ARN) is specified, then AWS Device
     -- Farm returns a list of all projects for the AWS account. You can also
     -- specify a project ARN.
-    arn :: Prelude.Maybe Prelude.Text
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | An identifier that was returned from the previous call to this
+    -- operation, which can be used to return the next set of items in the
+    -- list.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,32 +74,32 @@ data ListProjects = ListProjects'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listProjects_nextToken' - An identifier that was returned from the previous call to this
--- operation, which can be used to return the next set of items in the
--- list.
---
 -- 'arn', 'listProjects_arn' - Optional. If no Amazon Resource Name (ARN) is specified, then AWS Device
 -- Farm returns a list of all projects for the AWS account. You can also
 -- specify a project ARN.
+--
+-- 'nextToken', 'listProjects_nextToken' - An identifier that was returned from the previous call to this
+-- operation, which can be used to return the next set of items in the
+-- list.
 newListProjects ::
   ListProjects
 newListProjects =
   ListProjects'
-    { nextToken = Prelude.Nothing,
-      arn = Prelude.Nothing
+    { arn = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | An identifier that was returned from the previous call to this
--- operation, which can be used to return the next set of items in the
--- list.
-listProjects_nextToken :: Lens.Lens' ListProjects (Prelude.Maybe Prelude.Text)
-listProjects_nextToken = Lens.lens (\ListProjects' {nextToken} -> nextToken) (\s@ListProjects' {} a -> s {nextToken = a} :: ListProjects)
 
 -- | Optional. If no Amazon Resource Name (ARN) is specified, then AWS Device
 -- Farm returns a list of all projects for the AWS account. You can also
 -- specify a project ARN.
 listProjects_arn :: Lens.Lens' ListProjects (Prelude.Maybe Prelude.Text)
 listProjects_arn = Lens.lens (\ListProjects' {arn} -> arn) (\s@ListProjects' {} a -> s {arn = a} :: ListProjects)
+
+-- | An identifier that was returned from the previous call to this
+-- operation, which can be used to return the next set of items in the
+-- list.
+listProjects_nextToken :: Lens.Lens' ListProjects (Prelude.Maybe Prelude.Text)
+listProjects_nextToken = Lens.lens (\ListProjects' {nextToken} -> nextToken) (\s@ListProjects' {} a -> s {nextToken = a} :: ListProjects)
 
 instance Core.AWSPager ListProjects where
   page rq rs
@@ -128,19 +128,19 @@ instance Core.AWSRequest ListProjects where
     Response.receiveJSON
       ( \s h x ->
           ListProjectsResponse'
-            Prelude.<$> (x Data..?> "projects" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "projects" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListProjects where
   hashWithSalt _salt ListProjects' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListProjects where
   rnf ListProjects' {..} =
-    Prelude.rnf nextToken `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListProjects where
   toHeaders =
@@ -161,8 +161,8 @@ instance Data.ToJSON ListProjects where
   toJSON ListProjects' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("arn" Data..=) Prelude.<$> arn
+          [ ("arn" Data..=) Prelude.<$> arn,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -176,12 +176,12 @@ instance Data.ToQuery ListProjects where
 --
 -- /See:/ 'newListProjectsResponse' smart constructor.
 data ListProjectsResponse = ListProjectsResponse'
-  { -- | Information about the projects.
-    projects :: Prelude.Maybe [Project],
-    -- | If the number of items that are returned is significantly large, this is
+  { -- | If the number of items that are returned is significantly large, this is
     -- an identifier that is also returned. It can be used in a subsequent call
     -- to this operation to return the next set of items in the list.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the projects.
+    projects :: Prelude.Maybe [Project],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -195,11 +195,11 @@ data ListProjectsResponse = ListProjectsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'projects', 'listProjectsResponse_projects' - Information about the projects.
---
 -- 'nextToken', 'listProjectsResponse_nextToken' - If the number of items that are returned is significantly large, this is
 -- an identifier that is also returned. It can be used in a subsequent call
 -- to this operation to return the next set of items in the list.
+--
+-- 'projects', 'listProjectsResponse_projects' - Information about the projects.
 --
 -- 'httpStatus', 'listProjectsResponse_httpStatus' - The response's http status code.
 newListProjectsResponse ::
@@ -208,14 +208,10 @@ newListProjectsResponse ::
   ListProjectsResponse
 newListProjectsResponse pHttpStatus_ =
   ListProjectsResponse'
-    { projects = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      projects = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the projects.
-listProjectsResponse_projects :: Lens.Lens' ListProjectsResponse (Prelude.Maybe [Project])
-listProjectsResponse_projects = Lens.lens (\ListProjectsResponse' {projects} -> projects) (\s@ListProjectsResponse' {} a -> s {projects = a} :: ListProjectsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the number of items that are returned is significantly large, this is
 -- an identifier that is also returned. It can be used in a subsequent call
@@ -223,12 +219,16 @@ listProjectsResponse_projects = Lens.lens (\ListProjectsResponse' {projects} -> 
 listProjectsResponse_nextToken :: Lens.Lens' ListProjectsResponse (Prelude.Maybe Prelude.Text)
 listProjectsResponse_nextToken = Lens.lens (\ListProjectsResponse' {nextToken} -> nextToken) (\s@ListProjectsResponse' {} a -> s {nextToken = a} :: ListProjectsResponse)
 
+-- | Information about the projects.
+listProjectsResponse_projects :: Lens.Lens' ListProjectsResponse (Prelude.Maybe [Project])
+listProjectsResponse_projects = Lens.lens (\ListProjectsResponse' {projects} -> projects) (\s@ListProjectsResponse' {} a -> s {projects = a} :: ListProjectsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listProjectsResponse_httpStatus :: Lens.Lens' ListProjectsResponse Prelude.Int
 listProjectsResponse_httpStatus = Lens.lens (\ListProjectsResponse' {httpStatus} -> httpStatus) (\s@ListProjectsResponse' {} a -> s {httpStatus = a} :: ListProjectsResponse)
 
 instance Prelude.NFData ListProjectsResponse where
   rnf ListProjectsResponse' {..} =
-    Prelude.rnf projects
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf projects
       `Prelude.seq` Prelude.rnf httpStatus

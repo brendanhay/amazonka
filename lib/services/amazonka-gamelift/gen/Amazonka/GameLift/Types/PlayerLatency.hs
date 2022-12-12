@@ -25,11 +25,11 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Regional latency information for a player, used when requesting a new
--- game session with StartGameSessionPlacement. This value indicates the
--- amount of time lag that exists when the player is connected to a fleet
--- in the specified Region. The relative difference between a player\'s
--- latency values for multiple Regions are used to determine which fleets
--- are best suited to place a new game session for the player.
+-- game session. This value indicates the amount of time lag that exists
+-- when the player is connected to a fleet in the specified Region. The
+-- relative difference between a player\'s latency values for multiple
+-- Regions are used to determine which fleets are best suited to place a
+-- new game session for the player.
 --
 -- /See:/ 'newPlayerLatency' smart constructor.
 data PlayerLatency = PlayerLatency'

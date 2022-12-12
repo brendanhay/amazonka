@@ -29,9 +29,6 @@
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html Upload a Custom Server Build>
 --
--- __Related actions__
---
--- CreateBuild | ListBuilds | DescribeBuild | UpdateBuild | DeleteBuild |
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Amazonka.GameLift.UpdateBuild
   ( -- * Creating a Request
@@ -61,15 +58,13 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Represents the input for a request operation.
---
--- /See:/ 'newUpdateBuild' smart constructor.
+-- | /See:/ 'newUpdateBuild' smart constructor.
 data UpdateBuild = UpdateBuild'
-  { -- | A descriptive label that is associated with a build. Build names do not
-    -- need to be unique.
+  { -- | A descriptive label associated with a build. Build names do not need to
+    -- be unique.
     name :: Prelude.Maybe Prelude.Text,
-    -- | Version information that is associated with a build or script. Version
-    -- strings do not need to be unique.
+    -- | Version information associated with a build or script. Version strings
+    -- do not need to be unique.
     version :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the build to update. You can use either the
     -- build ID or ARN value.
@@ -85,11 +80,11 @@ data UpdateBuild = UpdateBuild'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateBuild_name' - A descriptive label that is associated with a build. Build names do not
--- need to be unique.
+-- 'name', 'updateBuild_name' - A descriptive label associated with a build. Build names do not need to
+-- be unique.
 --
--- 'version', 'updateBuild_version' - Version information that is associated with a build or script. Version
--- strings do not need to be unique.
+-- 'version', 'updateBuild_version' - Version information associated with a build or script. Version strings
+-- do not need to be unique.
 --
 -- 'buildId', 'updateBuild_buildId' - A unique identifier for the build to update. You can use either the
 -- build ID or ARN value.
@@ -104,13 +99,13 @@ newUpdateBuild pBuildId_ =
       buildId = pBuildId_
     }
 
--- | A descriptive label that is associated with a build. Build names do not
--- need to be unique.
+-- | A descriptive label associated with a build. Build names do not need to
+-- be unique.
 updateBuild_name :: Lens.Lens' UpdateBuild (Prelude.Maybe Prelude.Text)
 updateBuild_name = Lens.lens (\UpdateBuild' {name} -> name) (\s@UpdateBuild' {} a -> s {name = a} :: UpdateBuild)
 
--- | Version information that is associated with a build or script. Version
--- strings do not need to be unique.
+-- | Version information associated with a build or script. Version strings
+-- do not need to be unique.
 updateBuild_version :: Lens.Lens' UpdateBuild (Prelude.Maybe Prelude.Text)
 updateBuild_version = Lens.lens (\UpdateBuild' {version} -> version) (\s@UpdateBuild' {} a -> s {version = a} :: UpdateBuild)
 
@@ -172,9 +167,7 @@ instance Data.ToPath UpdateBuild where
 instance Data.ToQuery UpdateBuild where
   toQuery = Prelude.const Prelude.mempty
 
--- | Represents the returned data in response to a request operation.
---
--- /See:/ 'newUpdateBuildResponse' smart constructor.
+-- | /See:/ 'newUpdateBuildResponse' smart constructor.
 data UpdateBuildResponse = UpdateBuildResponse'
   { -- | The updated build resource.
     build :: Prelude.Maybe Build,

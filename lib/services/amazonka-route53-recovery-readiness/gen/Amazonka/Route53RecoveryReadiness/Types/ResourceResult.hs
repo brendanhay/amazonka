@@ -30,10 +30,10 @@ import Amazonka.Route53RecoveryReadiness.Types.Readiness
 --
 -- /See:/ 'newResourceResult' smart constructor.
 data ResourceResult = ResourceResult'
-  { -- | The Amazon Resource Name (ARN) of the resource.
-    resourceArn :: Prelude.Maybe Prelude.Text,
-    -- | The component id of the resource.
+  { -- | The component id of the resource.
     componentId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the resource.
+    resourceArn :: Prelude.Maybe Prelude.Text,
     -- | The readiness of a resource.
     readiness :: Readiness,
     -- | The time (UTC) that the resource was last checked for readiness, in
@@ -50,9 +50,9 @@ data ResourceResult = ResourceResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'resourceResult_resourceArn' - The Amazon Resource Name (ARN) of the resource.
---
 -- 'componentId', 'resourceResult_componentId' - The component id of the resource.
+--
+-- 'resourceArn', 'resourceResult_resourceArn' - The Amazon Resource Name (ARN) of the resource.
 --
 -- 'readiness', 'resourceResult_readiness' - The readiness of a resource.
 --
@@ -66,20 +66,20 @@ newResourceResult ::
   ResourceResult
 newResourceResult pReadiness_ pLastCheckedTimestamp_ =
   ResourceResult'
-    { resourceArn = Prelude.Nothing,
-      componentId = Prelude.Nothing,
+    { componentId = Prelude.Nothing,
+      resourceArn = Prelude.Nothing,
       readiness = pReadiness_,
       lastCheckedTimestamp =
         Data._Time Lens.# pLastCheckedTimestamp_
     }
 
--- | The Amazon Resource Name (ARN) of the resource.
-resourceResult_resourceArn :: Lens.Lens' ResourceResult (Prelude.Maybe Prelude.Text)
-resourceResult_resourceArn = Lens.lens (\ResourceResult' {resourceArn} -> resourceArn) (\s@ResourceResult' {} a -> s {resourceArn = a} :: ResourceResult)
-
 -- | The component id of the resource.
 resourceResult_componentId :: Lens.Lens' ResourceResult (Prelude.Maybe Prelude.Text)
 resourceResult_componentId = Lens.lens (\ResourceResult' {componentId} -> componentId) (\s@ResourceResult' {} a -> s {componentId = a} :: ResourceResult)
+
+-- | The Amazon Resource Name (ARN) of the resource.
+resourceResult_resourceArn :: Lens.Lens' ResourceResult (Prelude.Maybe Prelude.Text)
+resourceResult_resourceArn = Lens.lens (\ResourceResult' {resourceArn} -> resourceArn) (\s@ResourceResult' {} a -> s {resourceArn = a} :: ResourceResult)
 
 -- | The readiness of a resource.
 resourceResult_readiness :: Lens.Lens' ResourceResult Readiness
@@ -96,22 +96,22 @@ instance Data.FromJSON ResourceResult where
       "ResourceResult"
       ( \x ->
           ResourceResult'
-            Prelude.<$> (x Data..:? "resourceArn")
-            Prelude.<*> (x Data..:? "componentId")
+            Prelude.<$> (x Data..:? "componentId")
+            Prelude.<*> (x Data..:? "resourceArn")
             Prelude.<*> (x Data..: "readiness")
             Prelude.<*> (x Data..: "lastCheckedTimestamp")
       )
 
 instance Prelude.Hashable ResourceResult where
   hashWithSalt _salt ResourceResult' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
-      `Prelude.hashWithSalt` componentId
+    _salt `Prelude.hashWithSalt` componentId
+      `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` readiness
       `Prelude.hashWithSalt` lastCheckedTimestamp
 
 instance Prelude.NFData ResourceResult where
   rnf ResourceResult' {..} =
-    Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf componentId
+    Prelude.rnf componentId
+      `Prelude.seq` Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf readiness
       `Prelude.seq` Prelude.rnf lastCheckedTimestamp

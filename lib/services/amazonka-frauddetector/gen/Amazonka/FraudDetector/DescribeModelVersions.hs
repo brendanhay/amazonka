@@ -29,19 +29,19 @@ module Amazonka.FraudDetector.DescribeModelVersions
     newDescribeModelVersions,
 
     -- * Request Lenses
-    describeModelVersions_nextToken,
-    describeModelVersions_modelVersionNumber,
-    describeModelVersions_modelType,
     describeModelVersions_maxResults,
     describeModelVersions_modelId,
+    describeModelVersions_modelType,
+    describeModelVersions_modelVersionNumber,
+    describeModelVersions_nextToken,
 
     -- * Destructuring the Response
     DescribeModelVersionsResponse (..),
     newDescribeModelVersionsResponse,
 
     -- * Response Lenses
-    describeModelVersionsResponse_nextToken,
     describeModelVersionsResponse_modelVersionDetails,
+    describeModelVersionsResponse_nextToken,
     describeModelVersionsResponse_httpStatus,
   )
 where
@@ -56,16 +56,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeModelVersions' smart constructor.
 data DescribeModelVersions = DescribeModelVersions'
-  { -- | The next token from the previous results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The model version number.
-    modelVersionNumber :: Prelude.Maybe Prelude.Text,
-    -- | The model type.
-    modelType :: Prelude.Maybe ModelTypeEnum,
-    -- | The maximum number of results to return.
+  { -- | The maximum number of results to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The model ID.
-    modelId :: Prelude.Maybe Prelude.Text
+    modelId :: Prelude.Maybe Prelude.Text,
+    -- | The model type.
+    modelType :: Prelude.Maybe ModelTypeEnum,
+    -- | The model version number.
+    modelVersionNumber :: Prelude.Maybe Prelude.Text,
+    -- | The next token from the previous results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,37 +77,26 @@ data DescribeModelVersions = DescribeModelVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeModelVersions_nextToken' - The next token from the previous results.
---
--- 'modelVersionNumber', 'describeModelVersions_modelVersionNumber' - The model version number.
---
--- 'modelType', 'describeModelVersions_modelType' - The model type.
---
 -- 'maxResults', 'describeModelVersions_maxResults' - The maximum number of results to return.
 --
 -- 'modelId', 'describeModelVersions_modelId' - The model ID.
+--
+-- 'modelType', 'describeModelVersions_modelType' - The model type.
+--
+-- 'modelVersionNumber', 'describeModelVersions_modelVersionNumber' - The model version number.
+--
+-- 'nextToken', 'describeModelVersions_nextToken' - The next token from the previous results.
 newDescribeModelVersions ::
   DescribeModelVersions
 newDescribeModelVersions =
   DescribeModelVersions'
-    { nextToken = Prelude.Nothing,
-      modelVersionNumber = Prelude.Nothing,
+    { maxResults =
+        Prelude.Nothing,
+      modelId = Prelude.Nothing,
       modelType = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      modelId = Prelude.Nothing
+      modelVersionNumber = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The next token from the previous results.
-describeModelVersions_nextToken :: Lens.Lens' DescribeModelVersions (Prelude.Maybe Prelude.Text)
-describeModelVersions_nextToken = Lens.lens (\DescribeModelVersions' {nextToken} -> nextToken) (\s@DescribeModelVersions' {} a -> s {nextToken = a} :: DescribeModelVersions)
-
--- | The model version number.
-describeModelVersions_modelVersionNumber :: Lens.Lens' DescribeModelVersions (Prelude.Maybe Prelude.Text)
-describeModelVersions_modelVersionNumber = Lens.lens (\DescribeModelVersions' {modelVersionNumber} -> modelVersionNumber) (\s@DescribeModelVersions' {} a -> s {modelVersionNumber = a} :: DescribeModelVersions)
-
--- | The model type.
-describeModelVersions_modelType :: Lens.Lens' DescribeModelVersions (Prelude.Maybe ModelTypeEnum)
-describeModelVersions_modelType = Lens.lens (\DescribeModelVersions' {modelType} -> modelType) (\s@DescribeModelVersions' {} a -> s {modelType = a} :: DescribeModelVersions)
 
 -- | The maximum number of results to return.
 describeModelVersions_maxResults :: Lens.Lens' DescribeModelVersions (Prelude.Maybe Prelude.Natural)
@@ -116,6 +105,18 @@ describeModelVersions_maxResults = Lens.lens (\DescribeModelVersions' {maxResult
 -- | The model ID.
 describeModelVersions_modelId :: Lens.Lens' DescribeModelVersions (Prelude.Maybe Prelude.Text)
 describeModelVersions_modelId = Lens.lens (\DescribeModelVersions' {modelId} -> modelId) (\s@DescribeModelVersions' {} a -> s {modelId = a} :: DescribeModelVersions)
+
+-- | The model type.
+describeModelVersions_modelType :: Lens.Lens' DescribeModelVersions (Prelude.Maybe ModelTypeEnum)
+describeModelVersions_modelType = Lens.lens (\DescribeModelVersions' {modelType} -> modelType) (\s@DescribeModelVersions' {} a -> s {modelType = a} :: DescribeModelVersions)
+
+-- | The model version number.
+describeModelVersions_modelVersionNumber :: Lens.Lens' DescribeModelVersions (Prelude.Maybe Prelude.Text)
+describeModelVersions_modelVersionNumber = Lens.lens (\DescribeModelVersions' {modelVersionNumber} -> modelVersionNumber) (\s@DescribeModelVersions' {} a -> s {modelVersionNumber = a} :: DescribeModelVersions)
+
+-- | The next token from the previous results.
+describeModelVersions_nextToken :: Lens.Lens' DescribeModelVersions (Prelude.Maybe Prelude.Text)
+describeModelVersions_nextToken = Lens.lens (\DescribeModelVersions' {nextToken} -> nextToken) (\s@DescribeModelVersions' {} a -> s {nextToken = a} :: DescribeModelVersions)
 
 instance Core.AWSRequest DescribeModelVersions where
   type
@@ -127,28 +128,28 @@ instance Core.AWSRequest DescribeModelVersions where
     Response.receiveJSON
       ( \s h x ->
           DescribeModelVersionsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "modelVersionDetails"
+            Prelude.<$> ( x Data..?> "modelVersionDetails"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeModelVersions where
   hashWithSalt _salt DescribeModelVersions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` modelVersionNumber
-      `Prelude.hashWithSalt` modelType
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` modelId
+      `Prelude.hashWithSalt` modelType
+      `Prelude.hashWithSalt` modelVersionNumber
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeModelVersions where
   rnf DescribeModelVersions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf modelVersionNumber
-      `Prelude.seq` Prelude.rnf modelType
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf modelId
+      `Prelude.seq` Prelude.rnf modelType
+      `Prelude.seq` Prelude.rnf modelVersionNumber
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeModelVersions where
   toHeaders =
@@ -169,12 +170,12 @@ instance Data.ToJSON DescribeModelVersions where
   toJSON DescribeModelVersions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("modelId" Data..=) Prelude.<$> modelId,
+            ("modelType" Data..=) Prelude.<$> modelType,
             ("modelVersionNumber" Data..=)
               Prelude.<$> modelVersionNumber,
-            ("modelType" Data..=) Prelude.<$> modelType,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
-            ("modelId" Data..=) Prelude.<$> modelId
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -186,10 +187,10 @@ instance Data.ToQuery DescribeModelVersions where
 
 -- | /See:/ 'newDescribeModelVersionsResponse' smart constructor.
 data DescribeModelVersionsResponse = DescribeModelVersionsResponse'
-  { -- | The next token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The model version details.
+  { -- | The model version details.
     modelVersionDetails :: Prelude.Maybe [ModelVersionDetail],
+    -- | The next token.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -203,9 +204,9 @@ data DescribeModelVersionsResponse = DescribeModelVersionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeModelVersionsResponse_nextToken' - The next token.
---
 -- 'modelVersionDetails', 'describeModelVersionsResponse_modelVersionDetails' - The model version details.
+--
+-- 'nextToken', 'describeModelVersionsResponse_nextToken' - The next token.
 --
 -- 'httpStatus', 'describeModelVersionsResponse_httpStatus' - The response's http status code.
 newDescribeModelVersionsResponse ::
@@ -214,19 +215,19 @@ newDescribeModelVersionsResponse ::
   DescribeModelVersionsResponse
 newDescribeModelVersionsResponse pHttpStatus_ =
   DescribeModelVersionsResponse'
-    { nextToken =
+    { modelVersionDetails =
         Prelude.Nothing,
-      modelVersionDetails = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The next token.
-describeModelVersionsResponse_nextToken :: Lens.Lens' DescribeModelVersionsResponse (Prelude.Maybe Prelude.Text)
-describeModelVersionsResponse_nextToken = Lens.lens (\DescribeModelVersionsResponse' {nextToken} -> nextToken) (\s@DescribeModelVersionsResponse' {} a -> s {nextToken = a} :: DescribeModelVersionsResponse)
 
 -- | The model version details.
 describeModelVersionsResponse_modelVersionDetails :: Lens.Lens' DescribeModelVersionsResponse (Prelude.Maybe [ModelVersionDetail])
 describeModelVersionsResponse_modelVersionDetails = Lens.lens (\DescribeModelVersionsResponse' {modelVersionDetails} -> modelVersionDetails) (\s@DescribeModelVersionsResponse' {} a -> s {modelVersionDetails = a} :: DescribeModelVersionsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The next token.
+describeModelVersionsResponse_nextToken :: Lens.Lens' DescribeModelVersionsResponse (Prelude.Maybe Prelude.Text)
+describeModelVersionsResponse_nextToken = Lens.lens (\DescribeModelVersionsResponse' {nextToken} -> nextToken) (\s@DescribeModelVersionsResponse' {} a -> s {nextToken = a} :: DescribeModelVersionsResponse)
 
 -- | The response's http status code.
 describeModelVersionsResponse_httpStatus :: Lens.Lens' DescribeModelVersionsResponse Prelude.Int
@@ -234,6 +235,6 @@ describeModelVersionsResponse_httpStatus = Lens.lens (\DescribeModelVersionsResp
 
 instance Prelude.NFData DescribeModelVersionsResponse where
   rnf DescribeModelVersionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf modelVersionDetails
+    Prelude.rnf modelVersionDetails
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

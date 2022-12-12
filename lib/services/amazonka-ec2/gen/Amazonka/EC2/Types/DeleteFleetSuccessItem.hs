@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeleteFleetSuccessItem' smart constructor.
 data DeleteFleetSuccessItem = DeleteFleetSuccessItem'
-  { -- | The ID of the EC2 Fleet.
-    fleetId :: Prelude.Maybe Prelude.Text,
-    -- | The current state of the EC2 Fleet.
+  { -- | The current state of the EC2 Fleet.
     currentFleetState :: Prelude.Maybe FleetStateCode,
+    -- | The ID of the EC2 Fleet.
+    fleetId :: Prelude.Maybe Prelude.Text,
     -- | The previous state of the EC2 Fleet.
     previousFleetState :: Prelude.Maybe FleetStateCode
   }
@@ -47,27 +47,28 @@ data DeleteFleetSuccessItem = DeleteFleetSuccessItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fleetId', 'deleteFleetSuccessItem_fleetId' - The ID of the EC2 Fleet.
---
 -- 'currentFleetState', 'deleteFleetSuccessItem_currentFleetState' - The current state of the EC2 Fleet.
+--
+-- 'fleetId', 'deleteFleetSuccessItem_fleetId' - The ID of the EC2 Fleet.
 --
 -- 'previousFleetState', 'deleteFleetSuccessItem_previousFleetState' - The previous state of the EC2 Fleet.
 newDeleteFleetSuccessItem ::
   DeleteFleetSuccessItem
 newDeleteFleetSuccessItem =
   DeleteFleetSuccessItem'
-    { fleetId = Prelude.Nothing,
-      currentFleetState = Prelude.Nothing,
+    { currentFleetState =
+        Prelude.Nothing,
+      fleetId = Prelude.Nothing,
       previousFleetState = Prelude.Nothing
     }
-
--- | The ID of the EC2 Fleet.
-deleteFleetSuccessItem_fleetId :: Lens.Lens' DeleteFleetSuccessItem (Prelude.Maybe Prelude.Text)
-deleteFleetSuccessItem_fleetId = Lens.lens (\DeleteFleetSuccessItem' {fleetId} -> fleetId) (\s@DeleteFleetSuccessItem' {} a -> s {fleetId = a} :: DeleteFleetSuccessItem)
 
 -- | The current state of the EC2 Fleet.
 deleteFleetSuccessItem_currentFleetState :: Lens.Lens' DeleteFleetSuccessItem (Prelude.Maybe FleetStateCode)
 deleteFleetSuccessItem_currentFleetState = Lens.lens (\DeleteFleetSuccessItem' {currentFleetState} -> currentFleetState) (\s@DeleteFleetSuccessItem' {} a -> s {currentFleetState = a} :: DeleteFleetSuccessItem)
+
+-- | The ID of the EC2 Fleet.
+deleteFleetSuccessItem_fleetId :: Lens.Lens' DeleteFleetSuccessItem (Prelude.Maybe Prelude.Text)
+deleteFleetSuccessItem_fleetId = Lens.lens (\DeleteFleetSuccessItem' {fleetId} -> fleetId) (\s@DeleteFleetSuccessItem' {} a -> s {fleetId = a} :: DeleteFleetSuccessItem)
 
 -- | The previous state of the EC2 Fleet.
 deleteFleetSuccessItem_previousFleetState :: Lens.Lens' DeleteFleetSuccessItem (Prelude.Maybe FleetStateCode)
@@ -76,18 +77,18 @@ deleteFleetSuccessItem_previousFleetState = Lens.lens (\DeleteFleetSuccessItem' 
 instance Data.FromXML DeleteFleetSuccessItem where
   parseXML x =
     DeleteFleetSuccessItem'
-      Prelude.<$> (x Data..@? "fleetId")
-      Prelude.<*> (x Data..@? "currentFleetState")
+      Prelude.<$> (x Data..@? "currentFleetState")
+      Prelude.<*> (x Data..@? "fleetId")
       Prelude.<*> (x Data..@? "previousFleetState")
 
 instance Prelude.Hashable DeleteFleetSuccessItem where
   hashWithSalt _salt DeleteFleetSuccessItem' {..} =
-    _salt `Prelude.hashWithSalt` fleetId
-      `Prelude.hashWithSalt` currentFleetState
+    _salt `Prelude.hashWithSalt` currentFleetState
+      `Prelude.hashWithSalt` fleetId
       `Prelude.hashWithSalt` previousFleetState
 
 instance Prelude.NFData DeleteFleetSuccessItem where
   rnf DeleteFleetSuccessItem' {..} =
-    Prelude.rnf fleetId
-      `Prelude.seq` Prelude.rnf currentFleetState
+    Prelude.rnf currentFleetState
+      `Prelude.seq` Prelude.rnf fleetId
       `Prelude.seq` Prelude.rnf previousFleetState

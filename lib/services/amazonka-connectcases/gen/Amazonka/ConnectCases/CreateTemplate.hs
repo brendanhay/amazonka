@@ -33,10 +33,10 @@ module Amazonka.ConnectCases.CreateTemplate
     newCreateTemplate,
 
     -- * Request Lenses
-    createTemplate_layoutConfiguration,
-    createTemplate_status,
     createTemplate_description,
+    createTemplate_layoutConfiguration,
     createTemplate_requiredFields,
+    createTemplate_status,
     createTemplate_domainId,
     createTemplate_name,
 
@@ -61,15 +61,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateTemplate' smart constructor.
 data CreateTemplate = CreateTemplate'
-  { -- | Configuration of layouts associated to the template.
-    layoutConfiguration :: Prelude.Maybe LayoutConfiguration,
-    -- | The status of the template.
-    status :: Prelude.Maybe TemplateStatus,
-    -- | A brief description of the template.
+  { -- | A brief description of the template.
     description :: Prelude.Maybe Prelude.Text,
+    -- | Configuration of layouts associated to the template.
+    layoutConfiguration :: Prelude.Maybe LayoutConfiguration,
     -- | A list of fields that must contain a value for a case to be successfully
     -- created with this template.
     requiredFields :: Prelude.Maybe [RequiredField],
+    -- | The status of the template.
+    status :: Prelude.Maybe TemplateStatus,
     -- | The unique identifier of the Cases domain.
     domainId :: Prelude.Text,
     -- | A name for the template. It must be unique per domain.
@@ -85,14 +85,14 @@ data CreateTemplate = CreateTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'layoutConfiguration', 'createTemplate_layoutConfiguration' - Configuration of layouts associated to the template.
---
--- 'status', 'createTemplate_status' - The status of the template.
---
 -- 'description', 'createTemplate_description' - A brief description of the template.
+--
+-- 'layoutConfiguration', 'createTemplate_layoutConfiguration' - Configuration of layouts associated to the template.
 --
 -- 'requiredFields', 'createTemplate_requiredFields' - A list of fields that must contain a value for a case to be successfully
 -- created with this template.
+--
+-- 'status', 'createTemplate_status' - The status of the template.
 --
 -- 'domainId', 'createTemplate_domainId' - The unique identifier of the Cases domain.
 --
@@ -105,31 +105,30 @@ newCreateTemplate ::
   CreateTemplate
 newCreateTemplate pDomainId_ pName_ =
   CreateTemplate'
-    { layoutConfiguration =
-        Prelude.Nothing,
-      status = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      layoutConfiguration = Prelude.Nothing,
       requiredFields = Prelude.Nothing,
+      status = Prelude.Nothing,
       domainId = pDomainId_,
       name = pName_
     }
-
--- | Configuration of layouts associated to the template.
-createTemplate_layoutConfiguration :: Lens.Lens' CreateTemplate (Prelude.Maybe LayoutConfiguration)
-createTemplate_layoutConfiguration = Lens.lens (\CreateTemplate' {layoutConfiguration} -> layoutConfiguration) (\s@CreateTemplate' {} a -> s {layoutConfiguration = a} :: CreateTemplate)
-
--- | The status of the template.
-createTemplate_status :: Lens.Lens' CreateTemplate (Prelude.Maybe TemplateStatus)
-createTemplate_status = Lens.lens (\CreateTemplate' {status} -> status) (\s@CreateTemplate' {} a -> s {status = a} :: CreateTemplate)
 
 -- | A brief description of the template.
 createTemplate_description :: Lens.Lens' CreateTemplate (Prelude.Maybe Prelude.Text)
 createTemplate_description = Lens.lens (\CreateTemplate' {description} -> description) (\s@CreateTemplate' {} a -> s {description = a} :: CreateTemplate)
 
+-- | Configuration of layouts associated to the template.
+createTemplate_layoutConfiguration :: Lens.Lens' CreateTemplate (Prelude.Maybe LayoutConfiguration)
+createTemplate_layoutConfiguration = Lens.lens (\CreateTemplate' {layoutConfiguration} -> layoutConfiguration) (\s@CreateTemplate' {} a -> s {layoutConfiguration = a} :: CreateTemplate)
+
 -- | A list of fields that must contain a value for a case to be successfully
 -- created with this template.
 createTemplate_requiredFields :: Lens.Lens' CreateTemplate (Prelude.Maybe [RequiredField])
 createTemplate_requiredFields = Lens.lens (\CreateTemplate' {requiredFields} -> requiredFields) (\s@CreateTemplate' {} a -> s {requiredFields = a} :: CreateTemplate) Prelude.. Lens.mapping Lens.coerced
+
+-- | The status of the template.
+createTemplate_status :: Lens.Lens' CreateTemplate (Prelude.Maybe TemplateStatus)
+createTemplate_status = Lens.lens (\CreateTemplate' {status} -> status) (\s@CreateTemplate' {} a -> s {status = a} :: CreateTemplate)
 
 -- | The unique identifier of the Cases domain.
 createTemplate_domainId :: Lens.Lens' CreateTemplate Prelude.Text
@@ -156,19 +155,19 @@ instance Core.AWSRequest CreateTemplate where
 
 instance Prelude.Hashable CreateTemplate where
   hashWithSalt _salt CreateTemplate' {..} =
-    _salt `Prelude.hashWithSalt` layoutConfiguration
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` layoutConfiguration
       `Prelude.hashWithSalt` requiredFields
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateTemplate where
   rnf CreateTemplate' {..} =
-    Prelude.rnf layoutConfiguration
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf layoutConfiguration
       `Prelude.seq` Prelude.rnf requiredFields
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf domainId
       `Prelude.seq` Prelude.rnf name
 
@@ -187,12 +186,12 @@ instance Data.ToJSON CreateTemplate where
   toJSON CreateTemplate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("layoutConfiguration" Data..=)
+          [ ("description" Data..=) Prelude.<$> description,
+            ("layoutConfiguration" Data..=)
               Prelude.<$> layoutConfiguration,
-            ("status" Data..=) Prelude.<$> status,
-            ("description" Data..=) Prelude.<$> description,
             ("requiredFields" Data..=)
               Prelude.<$> requiredFields,
+            ("status" Data..=) Prelude.<$> status,
             Prelude.Just ("name" Data..= name)
           ]
       )

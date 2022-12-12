@@ -29,10 +29,10 @@ module Amazonka.SageMaker.ListPipelineExecutionSteps
     newListPipelineExecutionSteps,
 
     -- * Request Lenses
-    listPipelineExecutionSteps_sortOrder,
-    listPipelineExecutionSteps_nextToken,
     listPipelineExecutionSteps_maxResults,
+    listPipelineExecutionSteps_nextToken,
     listPipelineExecutionSteps_pipelineExecutionArn,
+    listPipelineExecutionSteps_sortOrder,
 
     -- * Destructuring the Response
     ListPipelineExecutionStepsResponse (..),
@@ -55,17 +55,17 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newListPipelineExecutionSteps' smart constructor.
 data ListPipelineExecutionSteps = ListPipelineExecutionSteps'
-  { -- | The field by which to sort results. The default is @CreatedTime@.
-    sortOrder :: Prelude.Maybe SortOrder,
+  { -- | The maximum number of pipeline execution steps to return in the
+    -- response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | If the result of the previous @ListPipelineExecutionSteps@ request was
     -- truncated, the response includes a @NextToken@. To retrieve the next set
     -- of pipeline execution steps, use the token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of pipeline execution steps to return in the
-    -- response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) of the pipeline execution.
-    pipelineExecutionArn :: Prelude.Maybe Prelude.Text
+    pipelineExecutionArn :: Prelude.Maybe Prelude.Text,
+    -- | The field by which to sort results. The default is @CreatedTime@.
+    sortOrder :: Prelude.Maybe SortOrder
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,30 +77,31 @@ data ListPipelineExecutionSteps = ListPipelineExecutionSteps'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listPipelineExecutionSteps_sortOrder' - The field by which to sort results. The default is @CreatedTime@.
+-- 'maxResults', 'listPipelineExecutionSteps_maxResults' - The maximum number of pipeline execution steps to return in the
+-- response.
 --
 -- 'nextToken', 'listPipelineExecutionSteps_nextToken' - If the result of the previous @ListPipelineExecutionSteps@ request was
 -- truncated, the response includes a @NextToken@. To retrieve the next set
 -- of pipeline execution steps, use the token in the next request.
 --
--- 'maxResults', 'listPipelineExecutionSteps_maxResults' - The maximum number of pipeline execution steps to return in the
--- response.
---
 -- 'pipelineExecutionArn', 'listPipelineExecutionSteps_pipelineExecutionArn' - The Amazon Resource Name (ARN) of the pipeline execution.
+--
+-- 'sortOrder', 'listPipelineExecutionSteps_sortOrder' - The field by which to sort results. The default is @CreatedTime@.
 newListPipelineExecutionSteps ::
   ListPipelineExecutionSteps
 newListPipelineExecutionSteps =
   ListPipelineExecutionSteps'
-    { sortOrder =
+    { maxResults =
         Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      pipelineExecutionArn = Prelude.Nothing
+      pipelineExecutionArn = Prelude.Nothing,
+      sortOrder = Prelude.Nothing
     }
 
--- | The field by which to sort results. The default is @CreatedTime@.
-listPipelineExecutionSteps_sortOrder :: Lens.Lens' ListPipelineExecutionSteps (Prelude.Maybe SortOrder)
-listPipelineExecutionSteps_sortOrder = Lens.lens (\ListPipelineExecutionSteps' {sortOrder} -> sortOrder) (\s@ListPipelineExecutionSteps' {} a -> s {sortOrder = a} :: ListPipelineExecutionSteps)
+-- | The maximum number of pipeline execution steps to return in the
+-- response.
+listPipelineExecutionSteps_maxResults :: Lens.Lens' ListPipelineExecutionSteps (Prelude.Maybe Prelude.Natural)
+listPipelineExecutionSteps_maxResults = Lens.lens (\ListPipelineExecutionSteps' {maxResults} -> maxResults) (\s@ListPipelineExecutionSteps' {} a -> s {maxResults = a} :: ListPipelineExecutionSteps)
 
 -- | If the result of the previous @ListPipelineExecutionSteps@ request was
 -- truncated, the response includes a @NextToken@. To retrieve the next set
@@ -108,14 +109,13 @@ listPipelineExecutionSteps_sortOrder = Lens.lens (\ListPipelineExecutionSteps' {
 listPipelineExecutionSteps_nextToken :: Lens.Lens' ListPipelineExecutionSteps (Prelude.Maybe Prelude.Text)
 listPipelineExecutionSteps_nextToken = Lens.lens (\ListPipelineExecutionSteps' {nextToken} -> nextToken) (\s@ListPipelineExecutionSteps' {} a -> s {nextToken = a} :: ListPipelineExecutionSteps)
 
--- | The maximum number of pipeline execution steps to return in the
--- response.
-listPipelineExecutionSteps_maxResults :: Lens.Lens' ListPipelineExecutionSteps (Prelude.Maybe Prelude.Natural)
-listPipelineExecutionSteps_maxResults = Lens.lens (\ListPipelineExecutionSteps' {maxResults} -> maxResults) (\s@ListPipelineExecutionSteps' {} a -> s {maxResults = a} :: ListPipelineExecutionSteps)
-
 -- | The Amazon Resource Name (ARN) of the pipeline execution.
 listPipelineExecutionSteps_pipelineExecutionArn :: Lens.Lens' ListPipelineExecutionSteps (Prelude.Maybe Prelude.Text)
 listPipelineExecutionSteps_pipelineExecutionArn = Lens.lens (\ListPipelineExecutionSteps' {pipelineExecutionArn} -> pipelineExecutionArn) (\s@ListPipelineExecutionSteps' {} a -> s {pipelineExecutionArn = a} :: ListPipelineExecutionSteps)
+
+-- | The field by which to sort results. The default is @CreatedTime@.
+listPipelineExecutionSteps_sortOrder :: Lens.Lens' ListPipelineExecutionSteps (Prelude.Maybe SortOrder)
+listPipelineExecutionSteps_sortOrder = Lens.lens (\ListPipelineExecutionSteps' {sortOrder} -> sortOrder) (\s@ListPipelineExecutionSteps' {} a -> s {sortOrder = a} :: ListPipelineExecutionSteps)
 
 instance Core.AWSPager ListPipelineExecutionSteps where
   page rq rs
@@ -158,17 +158,17 @@ instance Core.AWSRequest ListPipelineExecutionSteps where
 
 instance Prelude.Hashable ListPipelineExecutionSteps where
   hashWithSalt _salt ListPipelineExecutionSteps' {..} =
-    _salt `Prelude.hashWithSalt` sortOrder
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` pipelineExecutionArn
+      `Prelude.hashWithSalt` sortOrder
 
 instance Prelude.NFData ListPipelineExecutionSteps where
   rnf ListPipelineExecutionSteps' {..} =
-    Prelude.rnf sortOrder
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf pipelineExecutionArn
+      `Prelude.seq` Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListPipelineExecutionSteps where
   toHeaders =
@@ -189,11 +189,11 @@ instance Data.ToJSON ListPipelineExecutionSteps where
   toJSON ListPipelineExecutionSteps' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("PipelineExecutionArn" Data..=)
-              Prelude.<$> pipelineExecutionArn
+              Prelude.<$> pipelineExecutionArn,
+            ("SortOrder" Data..=) Prelude.<$> sortOrder
           ]
       )
 

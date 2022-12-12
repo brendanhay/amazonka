@@ -33,11 +33,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStreamNameCondition' smart constructor.
 data StreamNameCondition = StreamNameCondition'
-  { -- | A value to compare.
-    comparisonValue :: Prelude.Maybe Prelude.Text,
-    -- | A comparison operator. Currently, you can specify only the @BEGINS_WITH@
+  { -- | A comparison operator. Currently, you can specify only the @BEGINS_WITH@
     -- operator, which finds streams whose names start with a given prefix.
-    comparisonOperator :: Prelude.Maybe ComparisonOperator
+    comparisonOperator :: Prelude.Maybe ComparisonOperator,
+    -- | A value to compare.
+    comparisonValue :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,45 +49,45 @@ data StreamNameCondition = StreamNameCondition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'comparisonValue', 'streamNameCondition_comparisonValue' - A value to compare.
---
 -- 'comparisonOperator', 'streamNameCondition_comparisonOperator' - A comparison operator. Currently, you can specify only the @BEGINS_WITH@
 -- operator, which finds streams whose names start with a given prefix.
+--
+-- 'comparisonValue', 'streamNameCondition_comparisonValue' - A value to compare.
 newStreamNameCondition ::
   StreamNameCondition
 newStreamNameCondition =
   StreamNameCondition'
-    { comparisonValue =
+    { comparisonOperator =
         Prelude.Nothing,
-      comparisonOperator = Prelude.Nothing
+      comparisonValue = Prelude.Nothing
     }
-
--- | A value to compare.
-streamNameCondition_comparisonValue :: Lens.Lens' StreamNameCondition (Prelude.Maybe Prelude.Text)
-streamNameCondition_comparisonValue = Lens.lens (\StreamNameCondition' {comparisonValue} -> comparisonValue) (\s@StreamNameCondition' {} a -> s {comparisonValue = a} :: StreamNameCondition)
 
 -- | A comparison operator. Currently, you can specify only the @BEGINS_WITH@
 -- operator, which finds streams whose names start with a given prefix.
 streamNameCondition_comparisonOperator :: Lens.Lens' StreamNameCondition (Prelude.Maybe ComparisonOperator)
 streamNameCondition_comparisonOperator = Lens.lens (\StreamNameCondition' {comparisonOperator} -> comparisonOperator) (\s@StreamNameCondition' {} a -> s {comparisonOperator = a} :: StreamNameCondition)
 
+-- | A value to compare.
+streamNameCondition_comparisonValue :: Lens.Lens' StreamNameCondition (Prelude.Maybe Prelude.Text)
+streamNameCondition_comparisonValue = Lens.lens (\StreamNameCondition' {comparisonValue} -> comparisonValue) (\s@StreamNameCondition' {} a -> s {comparisonValue = a} :: StreamNameCondition)
+
 instance Prelude.Hashable StreamNameCondition where
   hashWithSalt _salt StreamNameCondition' {..} =
-    _salt `Prelude.hashWithSalt` comparisonValue
-      `Prelude.hashWithSalt` comparisonOperator
+    _salt `Prelude.hashWithSalt` comparisonOperator
+      `Prelude.hashWithSalt` comparisonValue
 
 instance Prelude.NFData StreamNameCondition where
   rnf StreamNameCondition' {..} =
-    Prelude.rnf comparisonValue
-      `Prelude.seq` Prelude.rnf comparisonOperator
+    Prelude.rnf comparisonOperator
+      `Prelude.seq` Prelude.rnf comparisonValue
 
 instance Data.ToJSON StreamNameCondition where
   toJSON StreamNameCondition' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ComparisonValue" Data..=)
-              Prelude.<$> comparisonValue,
-            ("ComparisonOperator" Data..=)
-              Prelude.<$> comparisonOperator
+          [ ("ComparisonOperator" Data..=)
+              Prelude.<$> comparisonOperator,
+            ("ComparisonValue" Data..=)
+              Prelude.<$> comparisonValue
           ]
       )

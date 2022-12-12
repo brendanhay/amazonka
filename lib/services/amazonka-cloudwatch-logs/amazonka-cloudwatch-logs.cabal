@@ -49,6 +49,7 @@ library
     Amazonka.CloudWatchLogs.CreateExportTask
     Amazonka.CloudWatchLogs.CreateLogGroup
     Amazonka.CloudWatchLogs.CreateLogStream
+    Amazonka.CloudWatchLogs.DeleteDataProtectionPolicy
     Amazonka.CloudWatchLogs.DeleteDestination
     Amazonka.CloudWatchLogs.DeleteLogGroup
     Amazonka.CloudWatchLogs.DeleteLogStream
@@ -68,12 +69,14 @@ library
     Amazonka.CloudWatchLogs.DescribeSubscriptionFilters
     Amazonka.CloudWatchLogs.DisassociateKmsKey
     Amazonka.CloudWatchLogs.FilterLogEvents
+    Amazonka.CloudWatchLogs.GetDataProtectionPolicy
     Amazonka.CloudWatchLogs.GetLogEvents
     Amazonka.CloudWatchLogs.GetLogGroupFields
     Amazonka.CloudWatchLogs.GetLogRecord
     Amazonka.CloudWatchLogs.GetQueryResults
     Amazonka.CloudWatchLogs.Lens
     Amazonka.CloudWatchLogs.ListTagsForResource
+    Amazonka.CloudWatchLogs.PutDataProtectionPolicy
     Amazonka.CloudWatchLogs.PutDestination
     Amazonka.CloudWatchLogs.PutDestinationPolicy
     Amazonka.CloudWatchLogs.PutLogEvents
@@ -87,6 +90,7 @@ library
     Amazonka.CloudWatchLogs.TagResource
     Amazonka.CloudWatchLogs.TestMetricFilter
     Amazonka.CloudWatchLogs.Types
+    Amazonka.CloudWatchLogs.Types.DataProtectionStatus
     Amazonka.CloudWatchLogs.Types.Destination
     Amazonka.CloudWatchLogs.Types.Distribution
     Amazonka.CloudWatchLogs.Types.ExportTask

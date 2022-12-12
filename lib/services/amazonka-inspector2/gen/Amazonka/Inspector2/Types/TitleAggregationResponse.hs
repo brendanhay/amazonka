@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTitleAggregationResponse' smart constructor.
 data TitleAggregationResponse = TitleAggregationResponse'
-  { -- | An object that represent the count of matched findings per severity.
-    severityCounts :: Prelude.Maybe SeverityCounts,
-    -- | The ID of the Amazon Web Services account associated with the findings.
+  { -- | The ID of the Amazon Web Services account associated with the findings.
     accountId :: Prelude.Maybe Prelude.Text,
+    -- | An object that represent the count of matched findings per severity.
+    severityCounts :: Prelude.Maybe SeverityCounts,
     -- | The vulnerability ID of the finding.
     vulnerabilityId :: Prelude.Maybe Prelude.Text,
     -- | The title that the findings were aggregated on.
@@ -49,9 +49,9 @@ data TitleAggregationResponse = TitleAggregationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'severityCounts', 'titleAggregationResponse_severityCounts' - An object that represent the count of matched findings per severity.
---
 -- 'accountId', 'titleAggregationResponse_accountId' - The ID of the Amazon Web Services account associated with the findings.
+--
+-- 'severityCounts', 'titleAggregationResponse_severityCounts' - An object that represent the count of matched findings per severity.
 --
 -- 'vulnerabilityId', 'titleAggregationResponse_vulnerabilityId' - The vulnerability ID of the finding.
 --
@@ -62,20 +62,20 @@ newTitleAggregationResponse ::
   TitleAggregationResponse
 newTitleAggregationResponse pTitle_ =
   TitleAggregationResponse'
-    { severityCounts =
+    { accountId =
         Prelude.Nothing,
-      accountId = Prelude.Nothing,
+      severityCounts = Prelude.Nothing,
       vulnerabilityId = Prelude.Nothing,
       title = pTitle_
     }
 
--- | An object that represent the count of matched findings per severity.
-titleAggregationResponse_severityCounts :: Lens.Lens' TitleAggregationResponse (Prelude.Maybe SeverityCounts)
-titleAggregationResponse_severityCounts = Lens.lens (\TitleAggregationResponse' {severityCounts} -> severityCounts) (\s@TitleAggregationResponse' {} a -> s {severityCounts = a} :: TitleAggregationResponse)
-
 -- | The ID of the Amazon Web Services account associated with the findings.
 titleAggregationResponse_accountId :: Lens.Lens' TitleAggregationResponse (Prelude.Maybe Prelude.Text)
 titleAggregationResponse_accountId = Lens.lens (\TitleAggregationResponse' {accountId} -> accountId) (\s@TitleAggregationResponse' {} a -> s {accountId = a} :: TitleAggregationResponse)
+
+-- | An object that represent the count of matched findings per severity.
+titleAggregationResponse_severityCounts :: Lens.Lens' TitleAggregationResponse (Prelude.Maybe SeverityCounts)
+titleAggregationResponse_severityCounts = Lens.lens (\TitleAggregationResponse' {severityCounts} -> severityCounts) (\s@TitleAggregationResponse' {} a -> s {severityCounts = a} :: TitleAggregationResponse)
 
 -- | The vulnerability ID of the finding.
 titleAggregationResponse_vulnerabilityId :: Lens.Lens' TitleAggregationResponse (Prelude.Maybe Prelude.Text)
@@ -91,22 +91,22 @@ instance Data.FromJSON TitleAggregationResponse where
       "TitleAggregationResponse"
       ( \x ->
           TitleAggregationResponse'
-            Prelude.<$> (x Data..:? "severityCounts")
-            Prelude.<*> (x Data..:? "accountId")
+            Prelude.<$> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "severityCounts")
             Prelude.<*> (x Data..:? "vulnerabilityId")
             Prelude.<*> (x Data..: "title")
       )
 
 instance Prelude.Hashable TitleAggregationResponse where
   hashWithSalt _salt TitleAggregationResponse' {..} =
-    _salt `Prelude.hashWithSalt` severityCounts
-      `Prelude.hashWithSalt` accountId
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` severityCounts
       `Prelude.hashWithSalt` vulnerabilityId
       `Prelude.hashWithSalt` title
 
 instance Prelude.NFData TitleAggregationResponse where
   rnf TitleAggregationResponse' {..} =
-    Prelude.rnf severityCounts
-      `Prelude.seq` Prelude.rnf accountId
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf severityCounts
       `Prelude.seq` Prelude.rnf vulnerabilityId
       `Prelude.seq` Prelude.rnf title

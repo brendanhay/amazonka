@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDomainInfo' smart constructor.
 data DomainInfo = DomainInfo'
-  { -- | The type of search engine that the domain is running.@OpenSearch@ for an
+  { -- | Name of the domain.
+    domainName :: Prelude.Maybe Prelude.Text,
+    -- | The type of search engine that the domain is running.@OpenSearch@ for an
     -- OpenSearch engine, or @Elasticsearch@ for a legacy Elasticsearch OSS
     -- engine.
-    engineType :: Prelude.Maybe EngineType,
-    -- | Name of the domain.
-    domainName :: Prelude.Maybe Prelude.Text
+    engineType :: Prelude.Maybe EngineType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,18 +46,22 @@ data DomainInfo = DomainInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'domainName', 'domainInfo_domainName' - Name of the domain.
+--
 -- 'engineType', 'domainInfo_engineType' - The type of search engine that the domain is running.@OpenSearch@ for an
 -- OpenSearch engine, or @Elasticsearch@ for a legacy Elasticsearch OSS
 -- engine.
---
--- 'domainName', 'domainInfo_domainName' - Name of the domain.
 newDomainInfo ::
   DomainInfo
 newDomainInfo =
   DomainInfo'
-    { engineType = Prelude.Nothing,
-      domainName = Prelude.Nothing
+    { domainName = Prelude.Nothing,
+      engineType = Prelude.Nothing
     }
+
+-- | Name of the domain.
+domainInfo_domainName :: Lens.Lens' DomainInfo (Prelude.Maybe Prelude.Text)
+domainInfo_domainName = Lens.lens (\DomainInfo' {domainName} -> domainName) (\s@DomainInfo' {} a -> s {domainName = a} :: DomainInfo)
 
 -- | The type of search engine that the domain is running.@OpenSearch@ for an
 -- OpenSearch engine, or @Elasticsearch@ for a legacy Elasticsearch OSS
@@ -65,26 +69,22 @@ newDomainInfo =
 domainInfo_engineType :: Lens.Lens' DomainInfo (Prelude.Maybe EngineType)
 domainInfo_engineType = Lens.lens (\DomainInfo' {engineType} -> engineType) (\s@DomainInfo' {} a -> s {engineType = a} :: DomainInfo)
 
--- | Name of the domain.
-domainInfo_domainName :: Lens.Lens' DomainInfo (Prelude.Maybe Prelude.Text)
-domainInfo_domainName = Lens.lens (\DomainInfo' {domainName} -> domainName) (\s@DomainInfo' {} a -> s {domainName = a} :: DomainInfo)
-
 instance Data.FromJSON DomainInfo where
   parseJSON =
     Data.withObject
       "DomainInfo"
       ( \x ->
           DomainInfo'
-            Prelude.<$> (x Data..:? "EngineType")
-            Prelude.<*> (x Data..:? "DomainName")
+            Prelude.<$> (x Data..:? "DomainName")
+            Prelude.<*> (x Data..:? "EngineType")
       )
 
 instance Prelude.Hashable DomainInfo where
   hashWithSalt _salt DomainInfo' {..} =
-    _salt `Prelude.hashWithSalt` engineType
-      `Prelude.hashWithSalt` domainName
+    _salt `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` engineType
 
 instance Prelude.NFData DomainInfo where
   rnf DomainInfo' {..} =
-    Prelude.rnf engineType
-      `Prelude.seq` Prelude.rnf domainName
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf engineType

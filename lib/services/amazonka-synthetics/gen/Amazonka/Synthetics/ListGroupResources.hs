@@ -28,8 +28,8 @@ module Amazonka.Synthetics.ListGroupResources
     newListGroupResources,
 
     -- * Request Lenses
-    listGroupResources_nextToken,
     listGroupResources_maxResults,
+    listGroupResources_nextToken,
     listGroupResources_groupIdentifier,
 
     -- * Destructuring the Response
@@ -53,14 +53,14 @@ import Amazonka.Synthetics.Types
 
 -- | /See:/ 'newListGroupResources' smart constructor.
 data ListGroupResources = ListGroupResources'
-  { -- | A token that indicates that there is more data available. You can use
-    -- this token in a subsequent operation to retrieve the next set of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specify this parameter to limit how many canary ARNs are returned each
+  { -- | Specify this parameter to limit how many canary ARNs are returned each
     -- time you use the @ListGroupResources@ operation. If you omit this
     -- parameter, the default of 20 is used.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token that indicates that there is more data available. You can use
+    -- this token in a subsequent operation to retrieve the next set of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies the group to return information for. You can specify the group
     -- name, the ARN, or the group ID as the @GroupIdentifier@.
     groupIdentifier :: Prelude.Text
@@ -75,13 +75,13 @@ data ListGroupResources = ListGroupResources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listGroupResources_nextToken' - A token that indicates that there is more data available. You can use
--- this token in a subsequent operation to retrieve the next set of
--- results.
---
 -- 'maxResults', 'listGroupResources_maxResults' - Specify this parameter to limit how many canary ARNs are returned each
 -- time you use the @ListGroupResources@ operation. If you omit this
 -- parameter, the default of 20 is used.
+--
+-- 'nextToken', 'listGroupResources_nextToken' - A token that indicates that there is more data available. You can use
+-- this token in a subsequent operation to retrieve the next set of
+-- results.
 --
 -- 'groupIdentifier', 'listGroupResources_groupIdentifier' - Specifies the group to return information for. You can specify the group
 -- name, the ARN, or the group ID as the @GroupIdentifier@.
@@ -91,22 +91,22 @@ newListGroupResources ::
   ListGroupResources
 newListGroupResources pGroupIdentifier_ =
   ListGroupResources'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       groupIdentifier = pGroupIdentifier_
     }
-
--- | A token that indicates that there is more data available. You can use
--- this token in a subsequent operation to retrieve the next set of
--- results.
-listGroupResources_nextToken :: Lens.Lens' ListGroupResources (Prelude.Maybe Prelude.Text)
-listGroupResources_nextToken = Lens.lens (\ListGroupResources' {nextToken} -> nextToken) (\s@ListGroupResources' {} a -> s {nextToken = a} :: ListGroupResources)
 
 -- | Specify this parameter to limit how many canary ARNs are returned each
 -- time you use the @ListGroupResources@ operation. If you omit this
 -- parameter, the default of 20 is used.
 listGroupResources_maxResults :: Lens.Lens' ListGroupResources (Prelude.Maybe Prelude.Natural)
 listGroupResources_maxResults = Lens.lens (\ListGroupResources' {maxResults} -> maxResults) (\s@ListGroupResources' {} a -> s {maxResults = a} :: ListGroupResources)
+
+-- | A token that indicates that there is more data available. You can use
+-- this token in a subsequent operation to retrieve the next set of
+-- results.
+listGroupResources_nextToken :: Lens.Lens' ListGroupResources (Prelude.Maybe Prelude.Text)
+listGroupResources_nextToken = Lens.lens (\ListGroupResources' {nextToken} -> nextToken) (\s@ListGroupResources' {} a -> s {nextToken = a} :: ListGroupResources)
 
 -- | Specifies the group to return information for. You can specify the group
 -- name, the ARN, or the group ID as the @GroupIdentifier@.
@@ -130,14 +130,14 @@ instance Core.AWSRequest ListGroupResources where
 
 instance Prelude.Hashable ListGroupResources where
   hashWithSalt _salt ListGroupResources' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` groupIdentifier
 
 instance Prelude.NFData ListGroupResources where
   rnf ListGroupResources' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf groupIdentifier
 
 instance Data.ToHeaders ListGroupResources where
@@ -155,8 +155,8 @@ instance Data.ToJSON ListGroupResources where
   toJSON ListGroupResources' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

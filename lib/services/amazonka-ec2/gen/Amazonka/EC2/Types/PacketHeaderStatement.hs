@@ -30,14 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPacketHeaderStatement' smart constructor.
 data PacketHeaderStatement = PacketHeaderStatement'
-  { -- | The destination ports.
+  { -- | The destination addresses.
+    destinationAddresses :: Prelude.Maybe [Prelude.Text],
+    -- | The destination ports.
     destinationPorts :: Prelude.Maybe [Prelude.Text],
     -- | The destination prefix lists.
     destinationPrefixLists :: Prelude.Maybe [Prelude.Text],
     -- | The protocols.
     protocols :: Prelude.Maybe [Protocol],
-    -- | The destination addresses.
-    destinationAddresses :: Prelude.Maybe [Prelude.Text],
     -- | The source addresses.
     sourceAddresses :: Prelude.Maybe [Prelude.Text],
     -- | The source ports.
@@ -55,13 +55,13 @@ data PacketHeaderStatement = PacketHeaderStatement'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'destinationAddresses', 'packetHeaderStatement_destinationAddresses' - The destination addresses.
+--
 -- 'destinationPorts', 'packetHeaderStatement_destinationPorts' - The destination ports.
 --
 -- 'destinationPrefixLists', 'packetHeaderStatement_destinationPrefixLists' - The destination prefix lists.
 --
 -- 'protocols', 'packetHeaderStatement_protocols' - The protocols.
---
--- 'destinationAddresses', 'packetHeaderStatement_destinationAddresses' - The destination addresses.
 --
 -- 'sourceAddresses', 'packetHeaderStatement_sourceAddresses' - The source addresses.
 --
@@ -72,15 +72,19 @@ newPacketHeaderStatement ::
   PacketHeaderStatement
 newPacketHeaderStatement =
   PacketHeaderStatement'
-    { destinationPorts =
+    { destinationAddresses =
         Prelude.Nothing,
+      destinationPorts = Prelude.Nothing,
       destinationPrefixLists = Prelude.Nothing,
       protocols = Prelude.Nothing,
-      destinationAddresses = Prelude.Nothing,
       sourceAddresses = Prelude.Nothing,
       sourcePorts = Prelude.Nothing,
       sourcePrefixLists = Prelude.Nothing
     }
+
+-- | The destination addresses.
+packetHeaderStatement_destinationAddresses :: Lens.Lens' PacketHeaderStatement (Prelude.Maybe [Prelude.Text])
+packetHeaderStatement_destinationAddresses = Lens.lens (\PacketHeaderStatement' {destinationAddresses} -> destinationAddresses) (\s@PacketHeaderStatement' {} a -> s {destinationAddresses = a} :: PacketHeaderStatement) Prelude.. Lens.mapping Lens.coerced
 
 -- | The destination ports.
 packetHeaderStatement_destinationPorts :: Lens.Lens' PacketHeaderStatement (Prelude.Maybe [Prelude.Text])
@@ -93,10 +97,6 @@ packetHeaderStatement_destinationPrefixLists = Lens.lens (\PacketHeaderStatement
 -- | The protocols.
 packetHeaderStatement_protocols :: Lens.Lens' PacketHeaderStatement (Prelude.Maybe [Protocol])
 packetHeaderStatement_protocols = Lens.lens (\PacketHeaderStatement' {protocols} -> protocols) (\s@PacketHeaderStatement' {} a -> s {protocols = a} :: PacketHeaderStatement) Prelude.. Lens.mapping Lens.coerced
-
--- | The destination addresses.
-packetHeaderStatement_destinationAddresses :: Lens.Lens' PacketHeaderStatement (Prelude.Maybe [Prelude.Text])
-packetHeaderStatement_destinationAddresses = Lens.lens (\PacketHeaderStatement' {destinationAddresses} -> destinationAddresses) (\s@PacketHeaderStatement' {} a -> s {destinationAddresses = a} :: PacketHeaderStatement) Prelude.. Lens.mapping Lens.coerced
 
 -- | The source addresses.
 packetHeaderStatement_sourceAddresses :: Lens.Lens' PacketHeaderStatement (Prelude.Maybe [Prelude.Text])
@@ -113,7 +113,11 @@ packetHeaderStatement_sourcePrefixLists = Lens.lens (\PacketHeaderStatement' {so
 instance Data.FromXML PacketHeaderStatement where
   parseXML x =
     PacketHeaderStatement'
-      Prelude.<$> ( x Data..@? "destinationPortSet"
+      Prelude.<$> ( x Data..@? "destinationAddressSet"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
+                  )
+      Prelude.<*> ( x Data..@? "destinationPortSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -122,10 +126,6 @@ instance Data.FromXML PacketHeaderStatement where
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> ( x Data..@? "protocolSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Data.parseXMLList "item")
-                  )
-      Prelude.<*> ( x Data..@? "destinationAddressSet"
-                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> ( x Data..@? "sourceAddressSet"
@@ -142,20 +142,20 @@ instance Data.FromXML PacketHeaderStatement where
 
 instance Prelude.Hashable PacketHeaderStatement where
   hashWithSalt _salt PacketHeaderStatement' {..} =
-    _salt `Prelude.hashWithSalt` destinationPorts
+    _salt `Prelude.hashWithSalt` destinationAddresses
+      `Prelude.hashWithSalt` destinationPorts
       `Prelude.hashWithSalt` destinationPrefixLists
       `Prelude.hashWithSalt` protocols
-      `Prelude.hashWithSalt` destinationAddresses
       `Prelude.hashWithSalt` sourceAddresses
       `Prelude.hashWithSalt` sourcePorts
       `Prelude.hashWithSalt` sourcePrefixLists
 
 instance Prelude.NFData PacketHeaderStatement where
   rnf PacketHeaderStatement' {..} =
-    Prelude.rnf destinationPorts
+    Prelude.rnf destinationAddresses
+      `Prelude.seq` Prelude.rnf destinationPorts
       `Prelude.seq` Prelude.rnf destinationPrefixLists
       `Prelude.seq` Prelude.rnf protocols
-      `Prelude.seq` Prelude.rnf destinationAddresses
       `Prelude.seq` Prelude.rnf sourceAddresses
       `Prelude.seq` Prelude.rnf sourcePorts
       `Prelude.seq` Prelude.rnf sourcePrefixLists

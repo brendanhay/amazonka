@@ -36,10 +36,10 @@ module Amazonka.IoTWireless.GetResourceEventConfiguration
     newGetResourceEventConfigurationResponse,
 
     -- * Response Lenses
-    getResourceEventConfigurationResponse_deviceRegistrationState,
     getResourceEventConfigurationResponse_connectionStatus,
-    getResourceEventConfigurationResponse_messageDeliveryStatus,
+    getResourceEventConfigurationResponse_deviceRegistrationState,
     getResourceEventConfigurationResponse_join,
+    getResourceEventConfigurationResponse_messageDeliveryStatus,
     getResourceEventConfigurationResponse_proximity,
     getResourceEventConfigurationResponse_httpStatus,
   )
@@ -124,10 +124,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetResourceEventConfigurationResponse'
-            Prelude.<$> (x Data..?> "DeviceRegistrationState")
-            Prelude.<*> (x Data..?> "ConnectionStatus")
-            Prelude.<*> (x Data..?> "MessageDeliveryStatus")
+            Prelude.<$> (x Data..?> "ConnectionStatus")
+            Prelude.<*> (x Data..?> "DeviceRegistrationState")
             Prelude.<*> (x Data..?> "Join")
+            Prelude.<*> (x Data..?> "MessageDeliveryStatus")
             Prelude.<*> (x Data..?> "Proximity")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -164,14 +164,14 @@ instance Data.ToQuery GetResourceEventConfiguration where
 
 -- | /See:/ 'newGetResourceEventConfigurationResponse' smart constructor.
 data GetResourceEventConfigurationResponse = GetResourceEventConfigurationResponse'
-  { -- | Event configuration for the device registration state event.
-    deviceRegistrationState :: Prelude.Maybe DeviceRegistrationStateEventConfiguration,
-    -- | Event configuration for the connection status event.
+  { -- | Event configuration for the connection status event.
     connectionStatus :: Prelude.Maybe ConnectionStatusEventConfiguration,
-    -- | Event configuration for the message delivery status event.
-    messageDeliveryStatus :: Prelude.Maybe MessageDeliveryStatusEventConfiguration,
+    -- | Event configuration for the device registration state event.
+    deviceRegistrationState :: Prelude.Maybe DeviceRegistrationStateEventConfiguration,
     -- | Event configuration for the join event.
     join :: Prelude.Maybe JoinEventConfiguration,
+    -- | Event configuration for the message delivery status event.
+    messageDeliveryStatus :: Prelude.Maybe MessageDeliveryStatusEventConfiguration,
     -- | Event configuration for the proximity event.
     proximity :: Prelude.Maybe ProximityEventConfiguration,
     -- | The response's http status code.
@@ -187,13 +187,13 @@ data GetResourceEventConfigurationResponse = GetResourceEventConfigurationRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deviceRegistrationState', 'getResourceEventConfigurationResponse_deviceRegistrationState' - Event configuration for the device registration state event.
---
 -- 'connectionStatus', 'getResourceEventConfigurationResponse_connectionStatus' - Event configuration for the connection status event.
 --
--- 'messageDeliveryStatus', 'getResourceEventConfigurationResponse_messageDeliveryStatus' - Event configuration for the message delivery status event.
+-- 'deviceRegistrationState', 'getResourceEventConfigurationResponse_deviceRegistrationState' - Event configuration for the device registration state event.
 --
 -- 'join', 'getResourceEventConfigurationResponse_join' - Event configuration for the join event.
+--
+-- 'messageDeliveryStatus', 'getResourceEventConfigurationResponse_messageDeliveryStatus' - Event configuration for the message delivery status event.
 --
 -- 'proximity', 'getResourceEventConfigurationResponse_proximity' - Event configuration for the proximity event.
 --
@@ -204,31 +204,32 @@ newGetResourceEventConfigurationResponse ::
   GetResourceEventConfigurationResponse
 newGetResourceEventConfigurationResponse pHttpStatus_ =
   GetResourceEventConfigurationResponse'
-    { deviceRegistrationState =
+    { connectionStatus =
         Prelude.Nothing,
-      connectionStatus = Prelude.Nothing,
-      messageDeliveryStatus =
+      deviceRegistrationState =
         Prelude.Nothing,
       join = Prelude.Nothing,
+      messageDeliveryStatus =
+        Prelude.Nothing,
       proximity = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Event configuration for the device registration state event.
-getResourceEventConfigurationResponse_deviceRegistrationState :: Lens.Lens' GetResourceEventConfigurationResponse (Prelude.Maybe DeviceRegistrationStateEventConfiguration)
-getResourceEventConfigurationResponse_deviceRegistrationState = Lens.lens (\GetResourceEventConfigurationResponse' {deviceRegistrationState} -> deviceRegistrationState) (\s@GetResourceEventConfigurationResponse' {} a -> s {deviceRegistrationState = a} :: GetResourceEventConfigurationResponse)
 
 -- | Event configuration for the connection status event.
 getResourceEventConfigurationResponse_connectionStatus :: Lens.Lens' GetResourceEventConfigurationResponse (Prelude.Maybe ConnectionStatusEventConfiguration)
 getResourceEventConfigurationResponse_connectionStatus = Lens.lens (\GetResourceEventConfigurationResponse' {connectionStatus} -> connectionStatus) (\s@GetResourceEventConfigurationResponse' {} a -> s {connectionStatus = a} :: GetResourceEventConfigurationResponse)
 
--- | Event configuration for the message delivery status event.
-getResourceEventConfigurationResponse_messageDeliveryStatus :: Lens.Lens' GetResourceEventConfigurationResponse (Prelude.Maybe MessageDeliveryStatusEventConfiguration)
-getResourceEventConfigurationResponse_messageDeliveryStatus = Lens.lens (\GetResourceEventConfigurationResponse' {messageDeliveryStatus} -> messageDeliveryStatus) (\s@GetResourceEventConfigurationResponse' {} a -> s {messageDeliveryStatus = a} :: GetResourceEventConfigurationResponse)
+-- | Event configuration for the device registration state event.
+getResourceEventConfigurationResponse_deviceRegistrationState :: Lens.Lens' GetResourceEventConfigurationResponse (Prelude.Maybe DeviceRegistrationStateEventConfiguration)
+getResourceEventConfigurationResponse_deviceRegistrationState = Lens.lens (\GetResourceEventConfigurationResponse' {deviceRegistrationState} -> deviceRegistrationState) (\s@GetResourceEventConfigurationResponse' {} a -> s {deviceRegistrationState = a} :: GetResourceEventConfigurationResponse)
 
 -- | Event configuration for the join event.
 getResourceEventConfigurationResponse_join :: Lens.Lens' GetResourceEventConfigurationResponse (Prelude.Maybe JoinEventConfiguration)
 getResourceEventConfigurationResponse_join = Lens.lens (\GetResourceEventConfigurationResponse' {join} -> join) (\s@GetResourceEventConfigurationResponse' {} a -> s {join = a} :: GetResourceEventConfigurationResponse)
+
+-- | Event configuration for the message delivery status event.
+getResourceEventConfigurationResponse_messageDeliveryStatus :: Lens.Lens' GetResourceEventConfigurationResponse (Prelude.Maybe MessageDeliveryStatusEventConfiguration)
+getResourceEventConfigurationResponse_messageDeliveryStatus = Lens.lens (\GetResourceEventConfigurationResponse' {messageDeliveryStatus} -> messageDeliveryStatus) (\s@GetResourceEventConfigurationResponse' {} a -> s {messageDeliveryStatus = a} :: GetResourceEventConfigurationResponse)
 
 -- | Event configuration for the proximity event.
 getResourceEventConfigurationResponse_proximity :: Lens.Lens' GetResourceEventConfigurationResponse (Prelude.Maybe ProximityEventConfiguration)
@@ -243,9 +244,9 @@ instance
     GetResourceEventConfigurationResponse
   where
   rnf GetResourceEventConfigurationResponse' {..} =
-    Prelude.rnf deviceRegistrationState
-      `Prelude.seq` Prelude.rnf connectionStatus
-      `Prelude.seq` Prelude.rnf messageDeliveryStatus
+    Prelude.rnf connectionStatus
+      `Prelude.seq` Prelude.rnf deviceRegistrationState
       `Prelude.seq` Prelude.rnf join
+      `Prelude.seq` Prelude.rnf messageDeliveryStatus
       `Prelude.seq` Prelude.rnf proximity
       `Prelude.seq` Prelude.rnf httpStatus

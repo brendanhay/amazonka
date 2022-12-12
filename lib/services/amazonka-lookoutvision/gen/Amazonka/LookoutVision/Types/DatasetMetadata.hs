@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDatasetMetadata' smart constructor.
 data DatasetMetadata = DatasetMetadata'
-  { -- | The type of the dataset.
+  { -- | The Unix timestamp for the date and time that the dataset was created.
+    creationTimestamp :: Prelude.Maybe Data.POSIX,
+    -- | The type of the dataset.
     datasetType :: Prelude.Maybe Prelude.Text,
     -- | The status for the dataset.
     status :: Prelude.Maybe DatasetStatus,
-    -- | The Unix timestamp for the date and time that the dataset was created.
-    creationTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The status message for the dataset.
     statusMessage :: Prelude.Maybe Prelude.Text
   }
@@ -49,22 +49,27 @@ data DatasetMetadata = DatasetMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'creationTimestamp', 'datasetMetadata_creationTimestamp' - The Unix timestamp for the date and time that the dataset was created.
+--
 -- 'datasetType', 'datasetMetadata_datasetType' - The type of the dataset.
 --
 -- 'status', 'datasetMetadata_status' - The status for the dataset.
---
--- 'creationTimestamp', 'datasetMetadata_creationTimestamp' - The Unix timestamp for the date and time that the dataset was created.
 --
 -- 'statusMessage', 'datasetMetadata_statusMessage' - The status message for the dataset.
 newDatasetMetadata ::
   DatasetMetadata
 newDatasetMetadata =
   DatasetMetadata'
-    { datasetType = Prelude.Nothing,
+    { creationTimestamp =
+        Prelude.Nothing,
+      datasetType = Prelude.Nothing,
       status = Prelude.Nothing,
-      creationTimestamp = Prelude.Nothing,
       statusMessage = Prelude.Nothing
     }
+
+-- | The Unix timestamp for the date and time that the dataset was created.
+datasetMetadata_creationTimestamp :: Lens.Lens' DatasetMetadata (Prelude.Maybe Prelude.UTCTime)
+datasetMetadata_creationTimestamp = Lens.lens (\DatasetMetadata' {creationTimestamp} -> creationTimestamp) (\s@DatasetMetadata' {} a -> s {creationTimestamp = a} :: DatasetMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The type of the dataset.
 datasetMetadata_datasetType :: Lens.Lens' DatasetMetadata (Prelude.Maybe Prelude.Text)
@@ -73,10 +78,6 @@ datasetMetadata_datasetType = Lens.lens (\DatasetMetadata' {datasetType} -> data
 -- | The status for the dataset.
 datasetMetadata_status :: Lens.Lens' DatasetMetadata (Prelude.Maybe DatasetStatus)
 datasetMetadata_status = Lens.lens (\DatasetMetadata' {status} -> status) (\s@DatasetMetadata' {} a -> s {status = a} :: DatasetMetadata)
-
--- | The Unix timestamp for the date and time that the dataset was created.
-datasetMetadata_creationTimestamp :: Lens.Lens' DatasetMetadata (Prelude.Maybe Prelude.UTCTime)
-datasetMetadata_creationTimestamp = Lens.lens (\DatasetMetadata' {creationTimestamp} -> creationTimestamp) (\s@DatasetMetadata' {} a -> s {creationTimestamp = a} :: DatasetMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The status message for the dataset.
 datasetMetadata_statusMessage :: Lens.Lens' DatasetMetadata (Prelude.Maybe Prelude.Text)
@@ -88,22 +89,22 @@ instance Data.FromJSON DatasetMetadata where
       "DatasetMetadata"
       ( \x ->
           DatasetMetadata'
-            Prelude.<$> (x Data..:? "DatasetType")
+            Prelude.<$> (x Data..:? "CreationTimestamp")
+            Prelude.<*> (x Data..:? "DatasetType")
             Prelude.<*> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "CreationTimestamp")
             Prelude.<*> (x Data..:? "StatusMessage")
       )
 
 instance Prelude.Hashable DatasetMetadata where
   hashWithSalt _salt DatasetMetadata' {..} =
-    _salt `Prelude.hashWithSalt` datasetType
+    _salt `Prelude.hashWithSalt` creationTimestamp
+      `Prelude.hashWithSalt` datasetType
       `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` creationTimestamp
       `Prelude.hashWithSalt` statusMessage
 
 instance Prelude.NFData DatasetMetadata where
   rnf DatasetMetadata' {..} =
-    Prelude.rnf datasetType
+    Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf datasetType
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf creationTimestamp
       `Prelude.seq` Prelude.rnf statusMessage

@@ -41,8 +41,8 @@ module Amazonka.Glacier.InitiateJob
 
     -- * Response Lenses
     initiateJobResponse_jobId,
-    initiateJobResponse_location,
     initiateJobResponse_jobOutputPath,
+    initiateJobResponse_location,
     initiateJobResponse_httpStatus,
   )
 where
@@ -128,8 +128,8 @@ instance Core.AWSRequest InitiateJob where
       ( \s h x ->
           InitiateJobResponse'
             Prelude.<$> (h Data..#? "x-amz-job-id")
-            Prelude.<*> (h Data..#? "Location")
             Prelude.<*> (h Data..#? "x-amz-job-output-path")
+            Prelude.<*> (h Data..#? "Location")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -170,10 +170,10 @@ instance Data.ToQuery InitiateJob where
 data InitiateJobResponse = InitiateJobResponse'
   { -- | The ID of the job.
     jobId :: Prelude.Maybe Prelude.Text,
-    -- | The relative URI path of the job.
-    location :: Prelude.Maybe Prelude.Text,
     -- | The path to the location of where the select results are stored.
     jobOutputPath :: Prelude.Maybe Prelude.Text,
+    -- | The relative URI path of the job.
+    location :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -189,9 +189,9 @@ data InitiateJobResponse = InitiateJobResponse'
 --
 -- 'jobId', 'initiateJobResponse_jobId' - The ID of the job.
 --
--- 'location', 'initiateJobResponse_location' - The relative URI path of the job.
---
 -- 'jobOutputPath', 'initiateJobResponse_jobOutputPath' - The path to the location of where the select results are stored.
+--
+-- 'location', 'initiateJobResponse_location' - The relative URI path of the job.
 --
 -- 'httpStatus', 'initiateJobResponse_httpStatus' - The response's http status code.
 newInitiateJobResponse ::
@@ -201,8 +201,8 @@ newInitiateJobResponse ::
 newInitiateJobResponse pHttpStatus_ =
   InitiateJobResponse'
     { jobId = Prelude.Nothing,
-      location = Prelude.Nothing,
       jobOutputPath = Prelude.Nothing,
+      location = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -210,13 +210,13 @@ newInitiateJobResponse pHttpStatus_ =
 initiateJobResponse_jobId :: Lens.Lens' InitiateJobResponse (Prelude.Maybe Prelude.Text)
 initiateJobResponse_jobId = Lens.lens (\InitiateJobResponse' {jobId} -> jobId) (\s@InitiateJobResponse' {} a -> s {jobId = a} :: InitiateJobResponse)
 
--- | The relative URI path of the job.
-initiateJobResponse_location :: Lens.Lens' InitiateJobResponse (Prelude.Maybe Prelude.Text)
-initiateJobResponse_location = Lens.lens (\InitiateJobResponse' {location} -> location) (\s@InitiateJobResponse' {} a -> s {location = a} :: InitiateJobResponse)
-
 -- | The path to the location of where the select results are stored.
 initiateJobResponse_jobOutputPath :: Lens.Lens' InitiateJobResponse (Prelude.Maybe Prelude.Text)
 initiateJobResponse_jobOutputPath = Lens.lens (\InitiateJobResponse' {jobOutputPath} -> jobOutputPath) (\s@InitiateJobResponse' {} a -> s {jobOutputPath = a} :: InitiateJobResponse)
+
+-- | The relative URI path of the job.
+initiateJobResponse_location :: Lens.Lens' InitiateJobResponse (Prelude.Maybe Prelude.Text)
+initiateJobResponse_location = Lens.lens (\InitiateJobResponse' {location} -> location) (\s@InitiateJobResponse' {} a -> s {location = a} :: InitiateJobResponse)
 
 -- | The response's http status code.
 initiateJobResponse_httpStatus :: Lens.Lens' InitiateJobResponse Prelude.Int
@@ -225,6 +225,6 @@ initiateJobResponse_httpStatus = Lens.lens (\InitiateJobResponse' {httpStatus} -
 instance Prelude.NFData InitiateJobResponse where
   rnf InitiateJobResponse' {..} =
     Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf location
       `Prelude.seq` Prelude.rnf jobOutputPath
+      `Prelude.seq` Prelude.rnf location
       `Prelude.seq` Prelude.rnf httpStatus

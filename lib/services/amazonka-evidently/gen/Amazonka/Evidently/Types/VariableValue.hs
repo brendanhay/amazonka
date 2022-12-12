@@ -30,18 +30,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVariableValue' smart constructor.
 data VariableValue = VariableValue'
-  { -- | If this feature uses the double integer variation type, this field
+  { -- | If this feature uses the Boolean variation type, this field contains the
+    -- Boolean value of this variation.
+    boolValue :: Prelude.Maybe Prelude.Bool,
+    -- | If this feature uses the double integer variation type, this field
     -- contains the double integer value of this variation.
     doubleValue :: Prelude.Maybe Prelude.Double,
-    -- | If this feature uses the string variation type, this field contains the
-    -- string value of this variation.
-    stringValue :: Prelude.Maybe Prelude.Text,
     -- | If this feature uses the long variation type, this field contains the
     -- long value of this variation.
     longValue :: Prelude.Maybe Prelude.Integer,
-    -- | If this feature uses the Boolean variation type, this field contains the
-    -- Boolean value of this variation.
-    boolValue :: Prelude.Maybe Prelude.Bool
+    -- | If this feature uses the string variation type, this field contains the
+    -- string value of this variation.
+    stringValue :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,46 +53,46 @@ data VariableValue = VariableValue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'boolValue', 'variableValue_boolValue' - If this feature uses the Boolean variation type, this field contains the
+-- Boolean value of this variation.
+--
 -- 'doubleValue', 'variableValue_doubleValue' - If this feature uses the double integer variation type, this field
 -- contains the double integer value of this variation.
---
--- 'stringValue', 'variableValue_stringValue' - If this feature uses the string variation type, this field contains the
--- string value of this variation.
 --
 -- 'longValue', 'variableValue_longValue' - If this feature uses the long variation type, this field contains the
 -- long value of this variation.
 --
--- 'boolValue', 'variableValue_boolValue' - If this feature uses the Boolean variation type, this field contains the
--- Boolean value of this variation.
+-- 'stringValue', 'variableValue_stringValue' - If this feature uses the string variation type, this field contains the
+-- string value of this variation.
 newVariableValue ::
   VariableValue
 newVariableValue =
   VariableValue'
-    { doubleValue = Prelude.Nothing,
-      stringValue = Prelude.Nothing,
+    { boolValue = Prelude.Nothing,
+      doubleValue = Prelude.Nothing,
       longValue = Prelude.Nothing,
-      boolValue = Prelude.Nothing
+      stringValue = Prelude.Nothing
     }
+
+-- | If this feature uses the Boolean variation type, this field contains the
+-- Boolean value of this variation.
+variableValue_boolValue :: Lens.Lens' VariableValue (Prelude.Maybe Prelude.Bool)
+variableValue_boolValue = Lens.lens (\VariableValue' {boolValue} -> boolValue) (\s@VariableValue' {} a -> s {boolValue = a} :: VariableValue)
 
 -- | If this feature uses the double integer variation type, this field
 -- contains the double integer value of this variation.
 variableValue_doubleValue :: Lens.Lens' VariableValue (Prelude.Maybe Prelude.Double)
 variableValue_doubleValue = Lens.lens (\VariableValue' {doubleValue} -> doubleValue) (\s@VariableValue' {} a -> s {doubleValue = a} :: VariableValue)
 
--- | If this feature uses the string variation type, this field contains the
--- string value of this variation.
-variableValue_stringValue :: Lens.Lens' VariableValue (Prelude.Maybe Prelude.Text)
-variableValue_stringValue = Lens.lens (\VariableValue' {stringValue} -> stringValue) (\s@VariableValue' {} a -> s {stringValue = a} :: VariableValue)
-
 -- | If this feature uses the long variation type, this field contains the
 -- long value of this variation.
 variableValue_longValue :: Lens.Lens' VariableValue (Prelude.Maybe Prelude.Integer)
 variableValue_longValue = Lens.lens (\VariableValue' {longValue} -> longValue) (\s@VariableValue' {} a -> s {longValue = a} :: VariableValue)
 
--- | If this feature uses the Boolean variation type, this field contains the
--- Boolean value of this variation.
-variableValue_boolValue :: Lens.Lens' VariableValue (Prelude.Maybe Prelude.Bool)
-variableValue_boolValue = Lens.lens (\VariableValue' {boolValue} -> boolValue) (\s@VariableValue' {} a -> s {boolValue = a} :: VariableValue)
+-- | If this feature uses the string variation type, this field contains the
+-- string value of this variation.
+variableValue_stringValue :: Lens.Lens' VariableValue (Prelude.Maybe Prelude.Text)
+variableValue_stringValue = Lens.lens (\VariableValue' {stringValue} -> stringValue) (\s@VariableValue' {} a -> s {stringValue = a} :: VariableValue)
 
 instance Data.FromJSON VariableValue where
   parseJSON =
@@ -100,33 +100,33 @@ instance Data.FromJSON VariableValue where
       "VariableValue"
       ( \x ->
           VariableValue'
-            Prelude.<$> (x Data..:? "doubleValue")
-            Prelude.<*> (x Data..:? "stringValue")
+            Prelude.<$> (x Data..:? "boolValue")
+            Prelude.<*> (x Data..:? "doubleValue")
             Prelude.<*> (x Data..:? "longValue")
-            Prelude.<*> (x Data..:? "boolValue")
+            Prelude.<*> (x Data..:? "stringValue")
       )
 
 instance Prelude.Hashable VariableValue where
   hashWithSalt _salt VariableValue' {..} =
-    _salt `Prelude.hashWithSalt` doubleValue
-      `Prelude.hashWithSalt` stringValue
+    _salt `Prelude.hashWithSalt` boolValue
+      `Prelude.hashWithSalt` doubleValue
       `Prelude.hashWithSalt` longValue
-      `Prelude.hashWithSalt` boolValue
+      `Prelude.hashWithSalt` stringValue
 
 instance Prelude.NFData VariableValue where
   rnf VariableValue' {..} =
-    Prelude.rnf doubleValue
-      `Prelude.seq` Prelude.rnf stringValue
+    Prelude.rnf boolValue
+      `Prelude.seq` Prelude.rnf doubleValue
       `Prelude.seq` Prelude.rnf longValue
-      `Prelude.seq` Prelude.rnf boolValue
+      `Prelude.seq` Prelude.rnf stringValue
 
 instance Data.ToJSON VariableValue where
   toJSON VariableValue' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("doubleValue" Data..=) Prelude.<$> doubleValue,
-            ("stringValue" Data..=) Prelude.<$> stringValue,
+          [ ("boolValue" Data..=) Prelude.<$> boolValue,
+            ("doubleValue" Data..=) Prelude.<$> doubleValue,
             ("longValue" Data..=) Prelude.<$> longValue,
-            ("boolValue" Data..=) Prelude.<$> boolValue
+            ("stringValue" Data..=) Prelude.<$> stringValue
           ]
       )

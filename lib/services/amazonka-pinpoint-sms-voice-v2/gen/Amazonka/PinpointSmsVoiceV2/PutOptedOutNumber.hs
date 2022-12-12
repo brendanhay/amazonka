@@ -38,11 +38,11 @@ module Amazonka.PinpointSmsVoiceV2.PutOptedOutNumber
     newPutOptedOutNumberResponse,
 
     -- * Response Lenses
+    putOptedOutNumberResponse_endUserOptedOut,
     putOptedOutNumberResponse_optOutListArn,
-    putOptedOutNumberResponse_optedOutTimestamp,
     putOptedOutNumberResponse_optOutListName,
     putOptedOutNumberResponse_optedOutNumber,
-    putOptedOutNumberResponse_endUserOptedOut,
+    putOptedOutNumberResponse_optedOutTimestamp,
     putOptedOutNumberResponse_httpStatus,
   )
 where
@@ -108,11 +108,11 @@ instance Core.AWSRequest PutOptedOutNumber where
     Response.receiveJSON
       ( \s h x ->
           PutOptedOutNumberResponse'
-            Prelude.<$> (x Data..?> "OptOutListArn")
-            Prelude.<*> (x Data..?> "OptedOutTimestamp")
+            Prelude.<$> (x Data..?> "EndUserOptedOut")
+            Prelude.<*> (x Data..?> "OptOutListArn")
             Prelude.<*> (x Data..?> "OptOutListName")
             Prelude.<*> (x Data..?> "OptedOutNumber")
-            Prelude.<*> (x Data..?> "EndUserOptedOut")
+            Prelude.<*> (x Data..?> "OptedOutTimestamp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,18 +160,18 @@ instance Data.ToQuery PutOptedOutNumber where
 
 -- | /See:/ 'newPutOptedOutNumberResponse' smart constructor.
 data PutOptedOutNumberResponse = PutOptedOutNumberResponse'
-  { -- | The OptOutListArn that the phone number was removed from.
+  { -- | This is true if it was the end user who requested their phone number be
+    -- removed.
+    endUserOptedOut :: Prelude.Maybe Prelude.Bool,
+    -- | The OptOutListArn that the phone number was removed from.
     optOutListArn :: Prelude.Maybe Prelude.Text,
-    -- | The time that the phone number was added to the OptOutList, in
-    -- <https://www.epochconverter.com/ UNIX epoch time> format.
-    optedOutTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The OptOutListName that the phone number was removed from.
     optOutListName :: Prelude.Maybe Prelude.Text,
     -- | The phone number that was added to the OptOutList.
     optedOutNumber :: Prelude.Maybe Prelude.Text,
-    -- | This is true if it was the end user who requested their phone number be
-    -- removed.
-    endUserOptedOut :: Prelude.Maybe Prelude.Bool,
+    -- | The time that the phone number was added to the OptOutList, in
+    -- <https://www.epochconverter.com/ UNIX epoch time> format.
+    optedOutTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -185,17 +185,17 @@ data PutOptedOutNumberResponse = PutOptedOutNumberResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'optOutListArn', 'putOptedOutNumberResponse_optOutListArn' - The OptOutListArn that the phone number was removed from.
+-- 'endUserOptedOut', 'putOptedOutNumberResponse_endUserOptedOut' - This is true if it was the end user who requested their phone number be
+-- removed.
 --
--- 'optedOutTimestamp', 'putOptedOutNumberResponse_optedOutTimestamp' - The time that the phone number was added to the OptOutList, in
--- <https://www.epochconverter.com/ UNIX epoch time> format.
+-- 'optOutListArn', 'putOptedOutNumberResponse_optOutListArn' - The OptOutListArn that the phone number was removed from.
 --
 -- 'optOutListName', 'putOptedOutNumberResponse_optOutListName' - The OptOutListName that the phone number was removed from.
 --
 -- 'optedOutNumber', 'putOptedOutNumberResponse_optedOutNumber' - The phone number that was added to the OptOutList.
 --
--- 'endUserOptedOut', 'putOptedOutNumberResponse_endUserOptedOut' - This is true if it was the end user who requested their phone number be
--- removed.
+-- 'optedOutTimestamp', 'putOptedOutNumberResponse_optedOutTimestamp' - The time that the phone number was added to the OptOutList, in
+-- <https://www.epochconverter.com/ UNIX epoch time> format.
 --
 -- 'httpStatus', 'putOptedOutNumberResponse_httpStatus' - The response's http status code.
 newPutOptedOutNumberResponse ::
@@ -204,23 +204,23 @@ newPutOptedOutNumberResponse ::
   PutOptedOutNumberResponse
 newPutOptedOutNumberResponse pHttpStatus_ =
   PutOptedOutNumberResponse'
-    { optOutListArn =
+    { endUserOptedOut =
         Prelude.Nothing,
-      optedOutTimestamp = Prelude.Nothing,
+      optOutListArn = Prelude.Nothing,
       optOutListName = Prelude.Nothing,
       optedOutNumber = Prelude.Nothing,
-      endUserOptedOut = Prelude.Nothing,
+      optedOutTimestamp = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | This is true if it was the end user who requested their phone number be
+-- removed.
+putOptedOutNumberResponse_endUserOptedOut :: Lens.Lens' PutOptedOutNumberResponse (Prelude.Maybe Prelude.Bool)
+putOptedOutNumberResponse_endUserOptedOut = Lens.lens (\PutOptedOutNumberResponse' {endUserOptedOut} -> endUserOptedOut) (\s@PutOptedOutNumberResponse' {} a -> s {endUserOptedOut = a} :: PutOptedOutNumberResponse)
 
 -- | The OptOutListArn that the phone number was removed from.
 putOptedOutNumberResponse_optOutListArn :: Lens.Lens' PutOptedOutNumberResponse (Prelude.Maybe Prelude.Text)
 putOptedOutNumberResponse_optOutListArn = Lens.lens (\PutOptedOutNumberResponse' {optOutListArn} -> optOutListArn) (\s@PutOptedOutNumberResponse' {} a -> s {optOutListArn = a} :: PutOptedOutNumberResponse)
-
--- | The time that the phone number was added to the OptOutList, in
--- <https://www.epochconverter.com/ UNIX epoch time> format.
-putOptedOutNumberResponse_optedOutTimestamp :: Lens.Lens' PutOptedOutNumberResponse (Prelude.Maybe Prelude.UTCTime)
-putOptedOutNumberResponse_optedOutTimestamp = Lens.lens (\PutOptedOutNumberResponse' {optedOutTimestamp} -> optedOutTimestamp) (\s@PutOptedOutNumberResponse' {} a -> s {optedOutTimestamp = a} :: PutOptedOutNumberResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The OptOutListName that the phone number was removed from.
 putOptedOutNumberResponse_optOutListName :: Lens.Lens' PutOptedOutNumberResponse (Prelude.Maybe Prelude.Text)
@@ -230,10 +230,10 @@ putOptedOutNumberResponse_optOutListName = Lens.lens (\PutOptedOutNumberResponse
 putOptedOutNumberResponse_optedOutNumber :: Lens.Lens' PutOptedOutNumberResponse (Prelude.Maybe Prelude.Text)
 putOptedOutNumberResponse_optedOutNumber = Lens.lens (\PutOptedOutNumberResponse' {optedOutNumber} -> optedOutNumber) (\s@PutOptedOutNumberResponse' {} a -> s {optedOutNumber = a} :: PutOptedOutNumberResponse)
 
--- | This is true if it was the end user who requested their phone number be
--- removed.
-putOptedOutNumberResponse_endUserOptedOut :: Lens.Lens' PutOptedOutNumberResponse (Prelude.Maybe Prelude.Bool)
-putOptedOutNumberResponse_endUserOptedOut = Lens.lens (\PutOptedOutNumberResponse' {endUserOptedOut} -> endUserOptedOut) (\s@PutOptedOutNumberResponse' {} a -> s {endUserOptedOut = a} :: PutOptedOutNumberResponse)
+-- | The time that the phone number was added to the OptOutList, in
+-- <https://www.epochconverter.com/ UNIX epoch time> format.
+putOptedOutNumberResponse_optedOutTimestamp :: Lens.Lens' PutOptedOutNumberResponse (Prelude.Maybe Prelude.UTCTime)
+putOptedOutNumberResponse_optedOutTimestamp = Lens.lens (\PutOptedOutNumberResponse' {optedOutTimestamp} -> optedOutTimestamp) (\s@PutOptedOutNumberResponse' {} a -> s {optedOutTimestamp = a} :: PutOptedOutNumberResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 putOptedOutNumberResponse_httpStatus :: Lens.Lens' PutOptedOutNumberResponse Prelude.Int
@@ -241,9 +241,9 @@ putOptedOutNumberResponse_httpStatus = Lens.lens (\PutOptedOutNumberResponse' {h
 
 instance Prelude.NFData PutOptedOutNumberResponse where
   rnf PutOptedOutNumberResponse' {..} =
-    Prelude.rnf optOutListArn
-      `Prelude.seq` Prelude.rnf optedOutTimestamp
+    Prelude.rnf endUserOptedOut
+      `Prelude.seq` Prelude.rnf optOutListArn
       `Prelude.seq` Prelude.rnf optOutListName
       `Prelude.seq` Prelude.rnf optedOutNumber
-      `Prelude.seq` Prelude.rnf endUserOptedOut
+      `Prelude.seq` Prelude.rnf optedOutTimestamp
       `Prelude.seq` Prelude.rnf httpStatus

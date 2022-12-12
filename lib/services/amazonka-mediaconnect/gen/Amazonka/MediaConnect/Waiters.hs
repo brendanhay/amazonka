@@ -25,22 +25,29 @@ import Amazonka.MediaConnect.Types
 import qualified Amazonka.Prelude as Prelude
 
 -- | Polls 'Amazonka.MediaConnect.DescribeFlow' every 3 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newFlowStandby :: Core.Wait DescribeFlow
-newFlowStandby =
+newFlowActive :: Core.Wait DescribeFlow
+newFlowActive =
   Core.Wait
-    { Core.name = "FlowStandby",
+    { Core.name = "FlowActive",
       Core.attempts = 40,
       Core.delay = 3,
       Core.acceptors =
         [ Core.matchAll
-            "STANDBY"
+            "ACTIVE"
             Core.AcceptSuccess
             ( describeFlowResponse_flow Prelude.. Lens._Just
                 Prelude.. flow_status
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
-            "STOPPING"
+            "STARTING"
+            Core.AcceptRetry
+            ( describeFlowResponse_flow Prelude.. Lens._Just
+                Prelude.. flow_status
+                Prelude.. Lens.to Data.toTextCI
+            ),
+          Core.matchAll
+            "UPDATING"
             Core.AcceptRetry
             ( describeFlowResponse_flow Prelude.. Lens._Just
                 Prelude.. flow_status
@@ -87,29 +94,22 @@ newFlowDeleted =
     }
 
 -- | Polls 'Amazonka.MediaConnect.DescribeFlow' every 3 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newFlowActive :: Core.Wait DescribeFlow
-newFlowActive =
+newFlowStandby :: Core.Wait DescribeFlow
+newFlowStandby =
   Core.Wait
-    { Core.name = "FlowActive",
+    { Core.name = "FlowStandby",
       Core.attempts = 40,
       Core.delay = 3,
       Core.acceptors =
         [ Core.matchAll
-            "ACTIVE"
+            "STANDBY"
             Core.AcceptSuccess
             ( describeFlowResponse_flow Prelude.. Lens._Just
                 Prelude.. flow_status
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
-            "STARTING"
-            Core.AcceptRetry
-            ( describeFlowResponse_flow Prelude.. Lens._Just
-                Prelude.. flow_status
-                Prelude.. Lens.to Data.toTextCI
-            ),
-          Core.matchAll
-            "UPDATING"
+            "STOPPING"
             Core.AcceptRetry
             ( describeFlowResponse_flow Prelude.. Lens._Just
                 Prelude.. flow_status

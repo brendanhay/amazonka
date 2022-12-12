@@ -27,10 +27,10 @@ module Amazonka.EC2.GetSubnetCidrReservations
     newGetSubnetCidrReservations,
 
     -- * Request Lenses
-    getSubnetCidrReservations_nextToken,
-    getSubnetCidrReservations_filters,
     getSubnetCidrReservations_dryRun,
+    getSubnetCidrReservations_filters,
     getSubnetCidrReservations_maxResults,
+    getSubnetCidrReservations_nextToken,
     getSubnetCidrReservations_subnetId,
 
     -- * Destructuring the Response
@@ -55,8 +55,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetSubnetCidrReservations' smart constructor.
 data GetSubnetCidrReservations = GetSubnetCidrReservations'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | One or more filters.
     --
     -- -   @reservationType@ - The type of reservation (@prefix@ | @explicit@).
@@ -73,15 +76,12 @@ data GetSubnetCidrReservations = GetSubnetCidrReservations'
     --     filter to find all resources assigned a tag with a specific key,
     --     regardless of the tag value.
     filters :: Prelude.Maybe [Filter],
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the subnet.
     subnetId :: Prelude.Text
   }
@@ -95,7 +95,10 @@ data GetSubnetCidrReservations = GetSubnetCidrReservations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getSubnetCidrReservations_nextToken' - The token for the next page of results.
+-- 'dryRun', 'getSubnetCidrReservations_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'filters', 'getSubnetCidrReservations_filters' - One or more filters.
 --
@@ -113,14 +116,11 @@ data GetSubnetCidrReservations = GetSubnetCidrReservations'
 --     filter to find all resources assigned a tag with a specific key,
 --     regardless of the tag value.
 --
--- 'dryRun', 'getSubnetCidrReservations_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'maxResults', 'getSubnetCidrReservations_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
+--
+-- 'nextToken', 'getSubnetCidrReservations_nextToken' - The token for the next page of results.
 --
 -- 'subnetId', 'getSubnetCidrReservations_subnetId' - The ID of the subnet.
 newGetSubnetCidrReservations ::
@@ -129,17 +129,20 @@ newGetSubnetCidrReservations ::
   GetSubnetCidrReservations
 newGetSubnetCidrReservations pSubnetId_ =
   GetSubnetCidrReservations'
-    { nextToken =
+    { dryRun =
         Prelude.Nothing,
       filters = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       subnetId = pSubnetId_
     }
 
--- | The token for the next page of results.
-getSubnetCidrReservations_nextToken :: Lens.Lens' GetSubnetCidrReservations (Prelude.Maybe Prelude.Text)
-getSubnetCidrReservations_nextToken = Lens.lens (\GetSubnetCidrReservations' {nextToken} -> nextToken) (\s@GetSubnetCidrReservations' {} a -> s {nextToken = a} :: GetSubnetCidrReservations)
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+getSubnetCidrReservations_dryRun :: Lens.Lens' GetSubnetCidrReservations (Prelude.Maybe Prelude.Bool)
+getSubnetCidrReservations_dryRun = Lens.lens (\GetSubnetCidrReservations' {dryRun} -> dryRun) (\s@GetSubnetCidrReservations' {} a -> s {dryRun = a} :: GetSubnetCidrReservations)
 
 -- | One or more filters.
 --
@@ -159,18 +162,15 @@ getSubnetCidrReservations_nextToken = Lens.lens (\GetSubnetCidrReservations' {ne
 getSubnetCidrReservations_filters :: Lens.Lens' GetSubnetCidrReservations (Prelude.Maybe [Filter])
 getSubnetCidrReservations_filters = Lens.lens (\GetSubnetCidrReservations' {filters} -> filters) (\s@GetSubnetCidrReservations' {} a -> s {filters = a} :: GetSubnetCidrReservations) Prelude.. Lens.mapping Lens.coerced
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-getSubnetCidrReservations_dryRun :: Lens.Lens' GetSubnetCidrReservations (Prelude.Maybe Prelude.Bool)
-getSubnetCidrReservations_dryRun = Lens.lens (\GetSubnetCidrReservations' {dryRun} -> dryRun) (\s@GetSubnetCidrReservations' {} a -> s {dryRun = a} :: GetSubnetCidrReservations)
-
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
 getSubnetCidrReservations_maxResults :: Lens.Lens' GetSubnetCidrReservations (Prelude.Maybe Prelude.Natural)
 getSubnetCidrReservations_maxResults = Lens.lens (\GetSubnetCidrReservations' {maxResults} -> maxResults) (\s@GetSubnetCidrReservations' {} a -> s {maxResults = a} :: GetSubnetCidrReservations)
+
+-- | The token for the next page of results.
+getSubnetCidrReservations_nextToken :: Lens.Lens' GetSubnetCidrReservations (Prelude.Maybe Prelude.Text)
+getSubnetCidrReservations_nextToken = Lens.lens (\GetSubnetCidrReservations' {nextToken} -> nextToken) (\s@GetSubnetCidrReservations' {} a -> s {nextToken = a} :: GetSubnetCidrReservations)
 
 -- | The ID of the subnet.
 getSubnetCidrReservations_subnetId :: Lens.Lens' GetSubnetCidrReservations Prelude.Text
@@ -200,18 +200,18 @@ instance Core.AWSRequest GetSubnetCidrReservations where
 
 instance Prelude.Hashable GetSubnetCidrReservations where
   hashWithSalt _salt GetSubnetCidrReservations' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` subnetId
 
 instance Prelude.NFData GetSubnetCidrReservations where
   rnf GetSubnetCidrReservations' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf subnetId
 
 instance Data.ToHeaders GetSubnetCidrReservations where
@@ -227,11 +227,11 @@ instance Data.ToQuery GetSubnetCidrReservations where
           Data.=: ("GetSubnetCidrReservations" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
+        "DryRun" Data.=: dryRun,
         Data.toQuery
           (Data.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Data.=: dryRun,
         "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken,
         "SubnetId" Data.=: subnetId
       ]
 

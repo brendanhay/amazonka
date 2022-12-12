@@ -33,12 +33,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newQueryRuntimeStatistics' smart constructor.
 data QueryRuntimeStatistics = QueryRuntimeStatistics'
-  { rows :: Prelude.Maybe QueryRuntimeStatisticsRows,
-    timeline :: Prelude.Maybe QueryRuntimeStatisticsTimeline,
-    -- | Stage statistics such as input and output rows and bytes, execution
+  { -- | Stage statistics such as input and output rows and bytes, execution
     -- time, and stage state. This information also includes substages and the
     -- query stage plan.
-    outputStage :: Prelude.Maybe QueryStage
+    outputStage :: Prelude.Maybe QueryStage,
+    rows :: Prelude.Maybe QueryRuntimeStatisticsRows,
+    timeline :: Prelude.Maybe QueryRuntimeStatisticsTimeline
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,21 +50,28 @@ data QueryRuntimeStatistics = QueryRuntimeStatistics'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'rows', 'queryRuntimeStatistics_rows' - Undocumented member.
---
--- 'timeline', 'queryRuntimeStatistics_timeline' - Undocumented member.
---
 -- 'outputStage', 'queryRuntimeStatistics_outputStage' - Stage statistics such as input and output rows and bytes, execution
 -- time, and stage state. This information also includes substages and the
 -- query stage plan.
+--
+-- 'rows', 'queryRuntimeStatistics_rows' - Undocumented member.
+--
+-- 'timeline', 'queryRuntimeStatistics_timeline' - Undocumented member.
 newQueryRuntimeStatistics ::
   QueryRuntimeStatistics
 newQueryRuntimeStatistics =
   QueryRuntimeStatistics'
-    { rows = Prelude.Nothing,
-      timeline = Prelude.Nothing,
-      outputStage = Prelude.Nothing
+    { outputStage =
+        Prelude.Nothing,
+      rows = Prelude.Nothing,
+      timeline = Prelude.Nothing
     }
+
+-- | Stage statistics such as input and output rows and bytes, execution
+-- time, and stage state. This information also includes substages and the
+-- query stage plan.
+queryRuntimeStatistics_outputStage :: Lens.Lens' QueryRuntimeStatistics (Prelude.Maybe QueryStage)
+queryRuntimeStatistics_outputStage = Lens.lens (\QueryRuntimeStatistics' {outputStage} -> outputStage) (\s@QueryRuntimeStatistics' {} a -> s {outputStage = a} :: QueryRuntimeStatistics)
 
 -- | Undocumented member.
 queryRuntimeStatistics_rows :: Lens.Lens' QueryRuntimeStatistics (Prelude.Maybe QueryRuntimeStatisticsRows)
@@ -74,31 +81,25 @@ queryRuntimeStatistics_rows = Lens.lens (\QueryRuntimeStatistics' {rows} -> rows
 queryRuntimeStatistics_timeline :: Lens.Lens' QueryRuntimeStatistics (Prelude.Maybe QueryRuntimeStatisticsTimeline)
 queryRuntimeStatistics_timeline = Lens.lens (\QueryRuntimeStatistics' {timeline} -> timeline) (\s@QueryRuntimeStatistics' {} a -> s {timeline = a} :: QueryRuntimeStatistics)
 
--- | Stage statistics such as input and output rows and bytes, execution
--- time, and stage state. This information also includes substages and the
--- query stage plan.
-queryRuntimeStatistics_outputStage :: Lens.Lens' QueryRuntimeStatistics (Prelude.Maybe QueryStage)
-queryRuntimeStatistics_outputStage = Lens.lens (\QueryRuntimeStatistics' {outputStage} -> outputStage) (\s@QueryRuntimeStatistics' {} a -> s {outputStage = a} :: QueryRuntimeStatistics)
-
 instance Data.FromJSON QueryRuntimeStatistics where
   parseJSON =
     Data.withObject
       "QueryRuntimeStatistics"
       ( \x ->
           QueryRuntimeStatistics'
-            Prelude.<$> (x Data..:? "Rows")
+            Prelude.<$> (x Data..:? "OutputStage")
+            Prelude.<*> (x Data..:? "Rows")
             Prelude.<*> (x Data..:? "Timeline")
-            Prelude.<*> (x Data..:? "OutputStage")
       )
 
 instance Prelude.Hashable QueryRuntimeStatistics where
   hashWithSalt _salt QueryRuntimeStatistics' {..} =
-    _salt `Prelude.hashWithSalt` rows
+    _salt `Prelude.hashWithSalt` outputStage
+      `Prelude.hashWithSalt` rows
       `Prelude.hashWithSalt` timeline
-      `Prelude.hashWithSalt` outputStage
 
 instance Prelude.NFData QueryRuntimeStatistics where
   rnf QueryRuntimeStatistics' {..} =
-    Prelude.rnf rows
+    Prelude.rnf outputStage
+      `Prelude.seq` Prelude.rnf rows
       `Prelude.seq` Prelude.rnf timeline
-      `Prelude.seq` Prelude.rnf outputStage

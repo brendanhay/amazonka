@@ -28,8 +28,8 @@ module Amazonka.DirectoryService.RegisterCertificate
     newRegisterCertificate,
 
     -- * Request Lenses
-    registerCertificate_type,
     registerCertificate_clientCertAuthSettings,
+    registerCertificate_type,
     registerCertificate_directoryId,
     registerCertificate_certificateData,
 
@@ -53,13 +53,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRegisterCertificate' smart constructor.
 data RegisterCertificate = RegisterCertificate'
-  { -- | The function that the registered certificate performs. Valid values
+  { -- | A @ClientCertAuthSettings@ object that contains client certificate
+    -- authentication settings.
+    clientCertAuthSettings :: Prelude.Maybe ClientCertAuthSettings,
+    -- | The function that the registered certificate performs. Valid values
     -- include @ClientLDAPS@ or @ClientCertAuth@. The default value is
     -- @ClientLDAPS@.
     type' :: Prelude.Maybe CertificateType,
-    -- | A @ClientCertAuthSettings@ object that contains client certificate
-    -- authentication settings.
-    clientCertAuthSettings :: Prelude.Maybe ClientCertAuthSettings,
     -- | The identifier of the directory.
     directoryId :: Prelude.Text,
     -- | The certificate PEM string that needs to be registered.
@@ -75,12 +75,12 @@ data RegisterCertificate = RegisterCertificate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clientCertAuthSettings', 'registerCertificate_clientCertAuthSettings' - A @ClientCertAuthSettings@ object that contains client certificate
+-- authentication settings.
+--
 -- 'type'', 'registerCertificate_type' - The function that the registered certificate performs. Valid values
 -- include @ClientLDAPS@ or @ClientCertAuth@. The default value is
 -- @ClientLDAPS@.
---
--- 'clientCertAuthSettings', 'registerCertificate_clientCertAuthSettings' - A @ClientCertAuthSettings@ object that contains client certificate
--- authentication settings.
 --
 -- 'directoryId', 'registerCertificate_directoryId' - The identifier of the directory.
 --
@@ -95,22 +95,23 @@ newRegisterCertificate
   pDirectoryId_
   pCertificateData_ =
     RegisterCertificate'
-      { type' = Prelude.Nothing,
-        clientCertAuthSettings = Prelude.Nothing,
+      { clientCertAuthSettings =
+          Prelude.Nothing,
+        type' = Prelude.Nothing,
         directoryId = pDirectoryId_,
         certificateData = pCertificateData_
       }
+
+-- | A @ClientCertAuthSettings@ object that contains client certificate
+-- authentication settings.
+registerCertificate_clientCertAuthSettings :: Lens.Lens' RegisterCertificate (Prelude.Maybe ClientCertAuthSettings)
+registerCertificate_clientCertAuthSettings = Lens.lens (\RegisterCertificate' {clientCertAuthSettings} -> clientCertAuthSettings) (\s@RegisterCertificate' {} a -> s {clientCertAuthSettings = a} :: RegisterCertificate)
 
 -- | The function that the registered certificate performs. Valid values
 -- include @ClientLDAPS@ or @ClientCertAuth@. The default value is
 -- @ClientLDAPS@.
 registerCertificate_type :: Lens.Lens' RegisterCertificate (Prelude.Maybe CertificateType)
 registerCertificate_type = Lens.lens (\RegisterCertificate' {type'} -> type') (\s@RegisterCertificate' {} a -> s {type' = a} :: RegisterCertificate)
-
--- | A @ClientCertAuthSettings@ object that contains client certificate
--- authentication settings.
-registerCertificate_clientCertAuthSettings :: Lens.Lens' RegisterCertificate (Prelude.Maybe ClientCertAuthSettings)
-registerCertificate_clientCertAuthSettings = Lens.lens (\RegisterCertificate' {clientCertAuthSettings} -> clientCertAuthSettings) (\s@RegisterCertificate' {} a -> s {clientCertAuthSettings = a} :: RegisterCertificate)
 
 -- | The identifier of the directory.
 registerCertificate_directoryId :: Lens.Lens' RegisterCertificate Prelude.Text
@@ -136,15 +137,15 @@ instance Core.AWSRequest RegisterCertificate where
 
 instance Prelude.Hashable RegisterCertificate where
   hashWithSalt _salt RegisterCertificate' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` clientCertAuthSettings
+    _salt `Prelude.hashWithSalt` clientCertAuthSettings
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` certificateData
 
 instance Prelude.NFData RegisterCertificate where
   rnf RegisterCertificate' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf clientCertAuthSettings
+    Prelude.rnf clientCertAuthSettings
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf directoryId
       `Prelude.seq` Prelude.rnf certificateData
 
@@ -167,9 +168,9 @@ instance Data.ToJSON RegisterCertificate where
   toJSON RegisterCertificate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Type" Data..=) Prelude.<$> type',
-            ("ClientCertAuthSettings" Data..=)
+          [ ("ClientCertAuthSettings" Data..=)
               Prelude.<$> clientCertAuthSettings,
+            ("Type" Data..=) Prelude.<$> type',
             Prelude.Just ("DirectoryId" Data..= directoryId),
             Prelude.Just
               ("CertificateData" Data..= certificateData)

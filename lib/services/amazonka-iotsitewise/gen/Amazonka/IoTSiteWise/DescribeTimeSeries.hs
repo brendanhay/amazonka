@@ -50,8 +50,8 @@ module Amazonka.IoTSiteWise.DescribeTimeSeries
 
     -- * Response Lenses
     describeTimeSeriesResponse_alias,
-    describeTimeSeriesResponse_dataTypeSpec,
     describeTimeSeriesResponse_assetId,
+    describeTimeSeriesResponse_dataTypeSpec,
     describeTimeSeriesResponse_propertyId,
     describeTimeSeriesResponse_httpStatus,
     describeTimeSeriesResponse_timeSeriesId,
@@ -125,8 +125,8 @@ instance Core.AWSRequest DescribeTimeSeries where
       ( \s h x ->
           DescribeTimeSeriesResponse'
             Prelude.<$> (x Data..?> "alias")
-            Prelude.<*> (x Data..?> "dataTypeSpec")
             Prelude.<*> (x Data..?> "assetId")
+            Prelude.<*> (x Data..?> "dataTypeSpec")
             Prelude.<*> (x Data..?> "propertyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "timeSeriesId")
@@ -173,6 +173,8 @@ instance Data.ToQuery DescribeTimeSeries where
 data DescribeTimeSeriesResponse = DescribeTimeSeriesResponse'
   { -- | The alias that identifies the time series.
     alias :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the asset in which the asset property was created.
+    assetId :: Prelude.Maybe Prelude.Text,
     -- | The data type of the structure for this time series. This parameter is
     -- required for time series that have the @STRUCT@ data type.
     --
@@ -181,8 +183,6 @@ data DescribeTimeSeriesResponse = DescribeTimeSeriesResponse'
     -- time series. Use @AWS\/ALARM_STATE@ for alarm state in alarm composite
     -- models.
     dataTypeSpec :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the asset in which the asset property was created.
-    assetId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the asset property.
     propertyId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -211,6 +211,8 @@ data DescribeTimeSeriesResponse = DescribeTimeSeriesResponse'
 --
 -- 'alias', 'describeTimeSeriesResponse_alias' - The alias that identifies the time series.
 --
+-- 'assetId', 'describeTimeSeriesResponse_assetId' - The ID of the asset in which the asset property was created.
+--
 -- 'dataTypeSpec', 'describeTimeSeriesResponse_dataTypeSpec' - The data type of the structure for this time series. This parameter is
 -- required for time series that have the @STRUCT@ data type.
 --
@@ -218,8 +220,6 @@ data DescribeTimeSeriesResponse = DescribeTimeSeriesResponse'
 -- in which you created the asset property that is associated with your
 -- time series. Use @AWS\/ALARM_STATE@ for alarm state in alarm composite
 -- models.
---
--- 'assetId', 'describeTimeSeriesResponse_assetId' - The ID of the asset in which the asset property was created.
 --
 -- 'propertyId', 'describeTimeSeriesResponse_propertyId' - The ID of the asset property.
 --
@@ -256,8 +256,8 @@ newDescribeTimeSeriesResponse
     DescribeTimeSeriesResponse'
       { alias =
           Prelude.Nothing,
-        dataTypeSpec = Prelude.Nothing,
         assetId = Prelude.Nothing,
+        dataTypeSpec = Prelude.Nothing,
         propertyId = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         timeSeriesId = pTimeSeriesId_,
@@ -272,6 +272,10 @@ newDescribeTimeSeriesResponse
 describeTimeSeriesResponse_alias :: Lens.Lens' DescribeTimeSeriesResponse (Prelude.Maybe Prelude.Text)
 describeTimeSeriesResponse_alias = Lens.lens (\DescribeTimeSeriesResponse' {alias} -> alias) (\s@DescribeTimeSeriesResponse' {} a -> s {alias = a} :: DescribeTimeSeriesResponse)
 
+-- | The ID of the asset in which the asset property was created.
+describeTimeSeriesResponse_assetId :: Lens.Lens' DescribeTimeSeriesResponse (Prelude.Maybe Prelude.Text)
+describeTimeSeriesResponse_assetId = Lens.lens (\DescribeTimeSeriesResponse' {assetId} -> assetId) (\s@DescribeTimeSeriesResponse' {} a -> s {assetId = a} :: DescribeTimeSeriesResponse)
+
 -- | The data type of the structure for this time series. This parameter is
 -- required for time series that have the @STRUCT@ data type.
 --
@@ -281,10 +285,6 @@ describeTimeSeriesResponse_alias = Lens.lens (\DescribeTimeSeriesResponse' {alia
 -- models.
 describeTimeSeriesResponse_dataTypeSpec :: Lens.Lens' DescribeTimeSeriesResponse (Prelude.Maybe Prelude.Text)
 describeTimeSeriesResponse_dataTypeSpec = Lens.lens (\DescribeTimeSeriesResponse' {dataTypeSpec} -> dataTypeSpec) (\s@DescribeTimeSeriesResponse' {} a -> s {dataTypeSpec = a} :: DescribeTimeSeriesResponse)
-
--- | The ID of the asset in which the asset property was created.
-describeTimeSeriesResponse_assetId :: Lens.Lens' DescribeTimeSeriesResponse (Prelude.Maybe Prelude.Text)
-describeTimeSeriesResponse_assetId = Lens.lens (\DescribeTimeSeriesResponse' {assetId} -> assetId) (\s@DescribeTimeSeriesResponse' {} a -> s {assetId = a} :: DescribeTimeSeriesResponse)
 
 -- | The ID of the asset property.
 describeTimeSeriesResponse_propertyId :: Lens.Lens' DescribeTimeSeriesResponse (Prelude.Maybe Prelude.Text)
@@ -316,8 +316,8 @@ describeTimeSeriesResponse_timeSeriesLastUpdateDate = Lens.lens (\DescribeTimeSe
 instance Prelude.NFData DescribeTimeSeriesResponse where
   rnf DescribeTimeSeriesResponse' {..} =
     Prelude.rnf alias
-      `Prelude.seq` Prelude.rnf dataTypeSpec
       `Prelude.seq` Prelude.rnf assetId
+      `Prelude.seq` Prelude.rnf dataTypeSpec
       `Prelude.seq` Prelude.rnf propertyId
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf timeSeriesId

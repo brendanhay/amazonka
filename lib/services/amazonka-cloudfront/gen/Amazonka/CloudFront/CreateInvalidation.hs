@@ -35,8 +35,8 @@ module Amazonka.CloudFront.CreateInvalidation
     newCreateInvalidationResponse,
 
     -- * Response Lenses
-    createInvalidationResponse_location,
     createInvalidationResponse_invalidation,
+    createInvalidationResponse_location,
     createInvalidationResponse_httpStatus,
   )
 where
@@ -104,8 +104,8 @@ instance Core.AWSRequest CreateInvalidation where
     Response.receiveXML
       ( \s h x ->
           CreateInvalidationResponse'
-            Prelude.<$> (h Data..#? "Location")
-            Prelude.<*> (Data.parseXML x)
+            Prelude.<$> (Data.parseXML x)
+            Prelude.<*> (h Data..#? "Location")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,11 +143,11 @@ instance Data.ToQuery CreateInvalidation where
 --
 -- /See:/ 'newCreateInvalidationResponse' smart constructor.
 data CreateInvalidationResponse = CreateInvalidationResponse'
-  { -- | The fully qualified URI of the distribution and invalidation batch
+  { -- | The invalidation\'s information.
+    invalidation :: Prelude.Maybe Invalidation,
+    -- | The fully qualified URI of the distribution and invalidation batch
     -- request, including the @Invalidation ID@.
     location :: Prelude.Maybe Prelude.Text,
-    -- | The invalidation\'s information.
-    invalidation :: Prelude.Maybe Invalidation,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -161,10 +161,10 @@ data CreateInvalidationResponse = CreateInvalidationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'invalidation', 'createInvalidationResponse_invalidation' - The invalidation\'s information.
+--
 -- 'location', 'createInvalidationResponse_location' - The fully qualified URI of the distribution and invalidation batch
 -- request, including the @Invalidation ID@.
---
--- 'invalidation', 'createInvalidationResponse_invalidation' - The invalidation\'s information.
 --
 -- 'httpStatus', 'createInvalidationResponse_httpStatus' - The response's http status code.
 newCreateInvalidationResponse ::
@@ -173,20 +173,20 @@ newCreateInvalidationResponse ::
   CreateInvalidationResponse
 newCreateInvalidationResponse pHttpStatus_ =
   CreateInvalidationResponse'
-    { location =
+    { invalidation =
         Prelude.Nothing,
-      invalidation = Prelude.Nothing,
+      location = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The invalidation\'s information.
+createInvalidationResponse_invalidation :: Lens.Lens' CreateInvalidationResponse (Prelude.Maybe Invalidation)
+createInvalidationResponse_invalidation = Lens.lens (\CreateInvalidationResponse' {invalidation} -> invalidation) (\s@CreateInvalidationResponse' {} a -> s {invalidation = a} :: CreateInvalidationResponse)
 
 -- | The fully qualified URI of the distribution and invalidation batch
 -- request, including the @Invalidation ID@.
 createInvalidationResponse_location :: Lens.Lens' CreateInvalidationResponse (Prelude.Maybe Prelude.Text)
 createInvalidationResponse_location = Lens.lens (\CreateInvalidationResponse' {location} -> location) (\s@CreateInvalidationResponse' {} a -> s {location = a} :: CreateInvalidationResponse)
-
--- | The invalidation\'s information.
-createInvalidationResponse_invalidation :: Lens.Lens' CreateInvalidationResponse (Prelude.Maybe Invalidation)
-createInvalidationResponse_invalidation = Lens.lens (\CreateInvalidationResponse' {invalidation} -> invalidation) (\s@CreateInvalidationResponse' {} a -> s {invalidation = a} :: CreateInvalidationResponse)
 
 -- | The response's http status code.
 createInvalidationResponse_httpStatus :: Lens.Lens' CreateInvalidationResponse Prelude.Int
@@ -194,6 +194,6 @@ createInvalidationResponse_httpStatus = Lens.lens (\CreateInvalidationResponse' 
 
 instance Prelude.NFData CreateInvalidationResponse where
   rnf CreateInvalidationResponse' {..} =
-    Prelude.rnf location
-      `Prelude.seq` Prelude.rnf invalidation
+    Prelude.rnf invalidation
+      `Prelude.seq` Prelude.rnf location
       `Prelude.seq` Prelude.rnf httpStatus

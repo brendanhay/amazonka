@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDefaultCategoricalHyperParameterRange' smart constructor.
 data DefaultCategoricalHyperParameterRange = DefaultCategoricalHyperParameterRange'
-  { -- | The name of the hyperparameter.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Whether the hyperparameter is tunable.
+  { -- | Whether the hyperparameter is tunable.
     isTunable :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the hyperparameter.
+    name :: Prelude.Maybe Prelude.Text,
     -- | A list of the categories for the hyperparameter.
     values :: Prelude.Maybe [Prelude.Text]
   }
@@ -47,28 +47,28 @@ data DefaultCategoricalHyperParameterRange = DefaultCategoricalHyperParameterRan
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'defaultCategoricalHyperParameterRange_name' - The name of the hyperparameter.
---
 -- 'isTunable', 'defaultCategoricalHyperParameterRange_isTunable' - Whether the hyperparameter is tunable.
+--
+-- 'name', 'defaultCategoricalHyperParameterRange_name' - The name of the hyperparameter.
 --
 -- 'values', 'defaultCategoricalHyperParameterRange_values' - A list of the categories for the hyperparameter.
 newDefaultCategoricalHyperParameterRange ::
   DefaultCategoricalHyperParameterRange
 newDefaultCategoricalHyperParameterRange =
   DefaultCategoricalHyperParameterRange'
-    { name =
+    { isTunable =
         Prelude.Nothing,
-      isTunable = Prelude.Nothing,
+      name = Prelude.Nothing,
       values = Prelude.Nothing
     }
-
--- | The name of the hyperparameter.
-defaultCategoricalHyperParameterRange_name :: Lens.Lens' DefaultCategoricalHyperParameterRange (Prelude.Maybe Prelude.Text)
-defaultCategoricalHyperParameterRange_name = Lens.lens (\DefaultCategoricalHyperParameterRange' {name} -> name) (\s@DefaultCategoricalHyperParameterRange' {} a -> s {name = a} :: DefaultCategoricalHyperParameterRange)
 
 -- | Whether the hyperparameter is tunable.
 defaultCategoricalHyperParameterRange_isTunable :: Lens.Lens' DefaultCategoricalHyperParameterRange (Prelude.Maybe Prelude.Bool)
 defaultCategoricalHyperParameterRange_isTunable = Lens.lens (\DefaultCategoricalHyperParameterRange' {isTunable} -> isTunable) (\s@DefaultCategoricalHyperParameterRange' {} a -> s {isTunable = a} :: DefaultCategoricalHyperParameterRange)
+
+-- | The name of the hyperparameter.
+defaultCategoricalHyperParameterRange_name :: Lens.Lens' DefaultCategoricalHyperParameterRange (Prelude.Maybe Prelude.Text)
+defaultCategoricalHyperParameterRange_name = Lens.lens (\DefaultCategoricalHyperParameterRange' {name} -> name) (\s@DefaultCategoricalHyperParameterRange' {} a -> s {name = a} :: DefaultCategoricalHyperParameterRange)
 
 -- | A list of the categories for the hyperparameter.
 defaultCategoricalHyperParameterRange_values :: Lens.Lens' DefaultCategoricalHyperParameterRange (Prelude.Maybe [Prelude.Text])
@@ -83,8 +83,8 @@ instance
       "DefaultCategoricalHyperParameterRange"
       ( \x ->
           DefaultCategoricalHyperParameterRange'
-            Prelude.<$> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "isTunable")
+            Prelude.<$> (x Data..:? "isTunable")
+            Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "values" Data..!= Prelude.mempty)
       )
 
@@ -95,8 +95,8 @@ instance
   hashWithSalt
     _salt
     DefaultCategoricalHyperParameterRange' {..} =
-      _salt `Prelude.hashWithSalt` name
-        `Prelude.hashWithSalt` isTunable
+      _salt `Prelude.hashWithSalt` isTunable
+        `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` values
 
 instance
@@ -104,6 +104,6 @@ instance
     DefaultCategoricalHyperParameterRange
   where
   rnf DefaultCategoricalHyperParameterRange' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf isTunable
+    Prelude.rnf isTunable
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf values

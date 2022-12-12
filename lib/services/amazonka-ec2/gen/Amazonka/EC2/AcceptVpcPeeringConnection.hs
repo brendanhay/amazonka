@@ -33,8 +33,8 @@ module Amazonka.EC2.AcceptVpcPeeringConnection
     newAcceptVpcPeeringConnection,
 
     -- * Request Lenses
-    acceptVpcPeeringConnection_vpcPeeringConnectionId,
     acceptVpcPeeringConnection_dryRun,
+    acceptVpcPeeringConnection_vpcPeeringConnectionId,
 
     -- * Destructuring the Response
     AcceptVpcPeeringConnectionResponse (..),
@@ -56,14 +56,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAcceptVpcPeeringConnection' smart constructor.
 data AcceptVpcPeeringConnection = AcceptVpcPeeringConnection'
-  { -- | The ID of the VPC peering connection. You must specify this parameter in
-    -- the request.
-    vpcPeeringConnectionId :: Prelude.Maybe Prelude.Text,
-    -- | Checks whether you have the required permissions for the action, without
+  { -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The ID of the VPC peering connection. You must specify this parameter in
+    -- the request.
+    vpcPeeringConnectionId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,26 +75,21 @@ data AcceptVpcPeeringConnection = AcceptVpcPeeringConnection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vpcPeeringConnectionId', 'acceptVpcPeeringConnection_vpcPeeringConnectionId' - The ID of the VPC peering connection. You must specify this parameter in
--- the request.
---
 -- 'dryRun', 'acceptVpcPeeringConnection_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'vpcPeeringConnectionId', 'acceptVpcPeeringConnection_vpcPeeringConnectionId' - The ID of the VPC peering connection. You must specify this parameter in
+-- the request.
 newAcceptVpcPeeringConnection ::
   AcceptVpcPeeringConnection
 newAcceptVpcPeeringConnection =
   AcceptVpcPeeringConnection'
-    { vpcPeeringConnectionId =
+    { dryRun =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing
+      vpcPeeringConnectionId = Prelude.Nothing
     }
-
--- | The ID of the VPC peering connection. You must specify this parameter in
--- the request.
-acceptVpcPeeringConnection_vpcPeeringConnectionId :: Lens.Lens' AcceptVpcPeeringConnection (Prelude.Maybe Prelude.Text)
-acceptVpcPeeringConnection_vpcPeeringConnectionId = Lens.lens (\AcceptVpcPeeringConnection' {vpcPeeringConnectionId} -> vpcPeeringConnectionId) (\s@AcceptVpcPeeringConnection' {} a -> s {vpcPeeringConnectionId = a} :: AcceptVpcPeeringConnection)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -102,6 +97,11 @@ acceptVpcPeeringConnection_vpcPeeringConnectionId = Lens.lens (\AcceptVpcPeering
 -- Otherwise, it is @UnauthorizedOperation@.
 acceptVpcPeeringConnection_dryRun :: Lens.Lens' AcceptVpcPeeringConnection (Prelude.Maybe Prelude.Bool)
 acceptVpcPeeringConnection_dryRun = Lens.lens (\AcceptVpcPeeringConnection' {dryRun} -> dryRun) (\s@AcceptVpcPeeringConnection' {} a -> s {dryRun = a} :: AcceptVpcPeeringConnection)
+
+-- | The ID of the VPC peering connection. You must specify this parameter in
+-- the request.
+acceptVpcPeeringConnection_vpcPeeringConnectionId :: Lens.Lens' AcceptVpcPeeringConnection (Prelude.Maybe Prelude.Text)
+acceptVpcPeeringConnection_vpcPeeringConnectionId = Lens.lens (\AcceptVpcPeeringConnection' {vpcPeeringConnectionId} -> vpcPeeringConnectionId) (\s@AcceptVpcPeeringConnection' {} a -> s {vpcPeeringConnectionId = a} :: AcceptVpcPeeringConnection)
 
 instance Core.AWSRequest AcceptVpcPeeringConnection where
   type
@@ -119,13 +119,13 @@ instance Core.AWSRequest AcceptVpcPeeringConnection where
 
 instance Prelude.Hashable AcceptVpcPeeringConnection where
   hashWithSalt _salt AcceptVpcPeeringConnection' {..} =
-    _salt `Prelude.hashWithSalt` vpcPeeringConnectionId
-      `Prelude.hashWithSalt` dryRun
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` vpcPeeringConnectionId
 
 instance Prelude.NFData AcceptVpcPeeringConnection where
   rnf AcceptVpcPeeringConnection' {..} =
-    Prelude.rnf vpcPeeringConnectionId
-      `Prelude.seq` Prelude.rnf dryRun
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf vpcPeeringConnectionId
 
 instance Data.ToHeaders AcceptVpcPeeringConnection where
   toHeaders = Prelude.const Prelude.mempty
@@ -140,9 +140,9 @@ instance Data.ToQuery AcceptVpcPeeringConnection where
           Data.=: ("AcceptVpcPeeringConnection" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
         "VpcPeeringConnectionId"
-          Data.=: vpcPeeringConnectionId,
-        "DryRun" Data.=: dryRun
+          Data.=: vpcPeeringConnectionId
       ]
 
 -- | /See:/ 'newAcceptVpcPeeringConnectionResponse' smart constructor.

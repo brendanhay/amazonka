@@ -21,7 +21,8 @@ module Amazonka.Inspector2.Types.AggregationResourceType
   ( AggregationResourceType
       ( ..,
         AggregationResourceType_AWS_EC2_INSTANCE,
-        AggregationResourceType_AWS_ECR_CONTAINER_IMAGE
+        AggregationResourceType_AWS_ECR_CONTAINER_IMAGE,
+        AggregationResourceType_AWS_LAMBDA_FUNCTION
       ),
   )
 where
@@ -64,8 +65,12 @@ pattern AggregationResourceType_AWS_EC2_INSTANCE = AggregationResourceType' "AWS
 pattern AggregationResourceType_AWS_ECR_CONTAINER_IMAGE :: AggregationResourceType
 pattern AggregationResourceType_AWS_ECR_CONTAINER_IMAGE = AggregationResourceType' "AWS_ECR_CONTAINER_IMAGE"
 
+pattern AggregationResourceType_AWS_LAMBDA_FUNCTION :: AggregationResourceType
+pattern AggregationResourceType_AWS_LAMBDA_FUNCTION = AggregationResourceType' "AWS_LAMBDA_FUNCTION"
+
 {-# COMPLETE
   AggregationResourceType_AWS_EC2_INSTANCE,
   AggregationResourceType_AWS_ECR_CONTAINER_IMAGE,
+  AggregationResourceType_AWS_LAMBDA_FUNCTION,
   AggregationResourceType'
   #-}

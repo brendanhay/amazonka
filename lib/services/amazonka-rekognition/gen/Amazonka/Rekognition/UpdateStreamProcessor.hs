@@ -29,9 +29,9 @@ module Amazonka.Rekognition.UpdateStreamProcessor
 
     -- * Request Lenses
     updateStreamProcessor_dataSharingPreferenceForUpdate,
-    updateStreamProcessor_settingsForUpdate,
-    updateStreamProcessor_regionsOfInterestForUpdate,
     updateStreamProcessor_parametersToDelete,
+    updateStreamProcessor_regionsOfInterestForUpdate,
+    updateStreamProcessor_settingsForUpdate,
     updateStreamProcessor_name,
 
     -- * Destructuring the Response
@@ -58,16 +58,16 @@ data UpdateStreamProcessor = UpdateStreamProcessor'
     -- per-stream basis. Note that if you opt out at the account level this
     -- setting is ignored on individual streams.
     dataSharingPreferenceForUpdate :: Prelude.Maybe StreamProcessorDataSharingPreference,
-    -- | The stream processor settings that you want to update. Label detection
-    -- settings can be updated to detect different labels with a different
-    -- minimum confidence.
-    settingsForUpdate :: Prelude.Maybe StreamProcessorSettingsForUpdate,
+    -- | A list of parameters you want to delete from the stream processor.
+    parametersToDelete :: Prelude.Maybe [StreamProcessorParameterToDelete],
     -- | Specifies locations in the frames where Amazon Rekognition checks for
     -- objects or people. This is an optional parameter for label detection
     -- stream processors.
     regionsOfInterestForUpdate :: Prelude.Maybe [RegionOfInterest],
-    -- | A list of parameters you want to delete from the stream processor.
-    parametersToDelete :: Prelude.Maybe [StreamProcessorParameterToDelete],
+    -- | The stream processor settings that you want to update. Label detection
+    -- settings can be updated to detect different labels with a different
+    -- minimum confidence.
+    settingsForUpdate :: Prelude.Maybe StreamProcessorSettingsForUpdate,
     -- | Name of the stream processor that you want to update.
     name :: Prelude.Text
   }
@@ -86,15 +86,15 @@ data UpdateStreamProcessor = UpdateStreamProcessor'
 -- per-stream basis. Note that if you opt out at the account level this
 -- setting is ignored on individual streams.
 --
--- 'settingsForUpdate', 'updateStreamProcessor_settingsForUpdate' - The stream processor settings that you want to update. Label detection
--- settings can be updated to detect different labels with a different
--- minimum confidence.
+-- 'parametersToDelete', 'updateStreamProcessor_parametersToDelete' - A list of parameters you want to delete from the stream processor.
 --
 -- 'regionsOfInterestForUpdate', 'updateStreamProcessor_regionsOfInterestForUpdate' - Specifies locations in the frames where Amazon Rekognition checks for
 -- objects or people. This is an optional parameter for label detection
 -- stream processors.
 --
--- 'parametersToDelete', 'updateStreamProcessor_parametersToDelete' - A list of parameters you want to delete from the stream processor.
+-- 'settingsForUpdate', 'updateStreamProcessor_settingsForUpdate' - The stream processor settings that you want to update. Label detection
+-- settings can be updated to detect different labels with a different
+-- minimum confidence.
 --
 -- 'name', 'updateStreamProcessor_name' - Name of the stream processor that you want to update.
 newUpdateStreamProcessor ::
@@ -105,9 +105,9 @@ newUpdateStreamProcessor pName_ =
   UpdateStreamProcessor'
     { dataSharingPreferenceForUpdate =
         Prelude.Nothing,
-      settingsForUpdate = Prelude.Nothing,
-      regionsOfInterestForUpdate = Prelude.Nothing,
       parametersToDelete = Prelude.Nothing,
+      regionsOfInterestForUpdate = Prelude.Nothing,
+      settingsForUpdate = Prelude.Nothing,
       name = pName_
     }
 
@@ -118,11 +118,9 @@ newUpdateStreamProcessor pName_ =
 updateStreamProcessor_dataSharingPreferenceForUpdate :: Lens.Lens' UpdateStreamProcessor (Prelude.Maybe StreamProcessorDataSharingPreference)
 updateStreamProcessor_dataSharingPreferenceForUpdate = Lens.lens (\UpdateStreamProcessor' {dataSharingPreferenceForUpdate} -> dataSharingPreferenceForUpdate) (\s@UpdateStreamProcessor' {} a -> s {dataSharingPreferenceForUpdate = a} :: UpdateStreamProcessor)
 
--- | The stream processor settings that you want to update. Label detection
--- settings can be updated to detect different labels with a different
--- minimum confidence.
-updateStreamProcessor_settingsForUpdate :: Lens.Lens' UpdateStreamProcessor (Prelude.Maybe StreamProcessorSettingsForUpdate)
-updateStreamProcessor_settingsForUpdate = Lens.lens (\UpdateStreamProcessor' {settingsForUpdate} -> settingsForUpdate) (\s@UpdateStreamProcessor' {} a -> s {settingsForUpdate = a} :: UpdateStreamProcessor)
+-- | A list of parameters you want to delete from the stream processor.
+updateStreamProcessor_parametersToDelete :: Lens.Lens' UpdateStreamProcessor (Prelude.Maybe [StreamProcessorParameterToDelete])
+updateStreamProcessor_parametersToDelete = Lens.lens (\UpdateStreamProcessor' {parametersToDelete} -> parametersToDelete) (\s@UpdateStreamProcessor' {} a -> s {parametersToDelete = a} :: UpdateStreamProcessor) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies locations in the frames where Amazon Rekognition checks for
 -- objects or people. This is an optional parameter for label detection
@@ -130,9 +128,11 @@ updateStreamProcessor_settingsForUpdate = Lens.lens (\UpdateStreamProcessor' {se
 updateStreamProcessor_regionsOfInterestForUpdate :: Lens.Lens' UpdateStreamProcessor (Prelude.Maybe [RegionOfInterest])
 updateStreamProcessor_regionsOfInterestForUpdate = Lens.lens (\UpdateStreamProcessor' {regionsOfInterestForUpdate} -> regionsOfInterestForUpdate) (\s@UpdateStreamProcessor' {} a -> s {regionsOfInterestForUpdate = a} :: UpdateStreamProcessor) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of parameters you want to delete from the stream processor.
-updateStreamProcessor_parametersToDelete :: Lens.Lens' UpdateStreamProcessor (Prelude.Maybe [StreamProcessorParameterToDelete])
-updateStreamProcessor_parametersToDelete = Lens.lens (\UpdateStreamProcessor' {parametersToDelete} -> parametersToDelete) (\s@UpdateStreamProcessor' {} a -> s {parametersToDelete = a} :: UpdateStreamProcessor) Prelude.. Lens.mapping Lens.coerced
+-- | The stream processor settings that you want to update. Label detection
+-- settings can be updated to detect different labels with a different
+-- minimum confidence.
+updateStreamProcessor_settingsForUpdate :: Lens.Lens' UpdateStreamProcessor (Prelude.Maybe StreamProcessorSettingsForUpdate)
+updateStreamProcessor_settingsForUpdate = Lens.lens (\UpdateStreamProcessor' {settingsForUpdate} -> settingsForUpdate) (\s@UpdateStreamProcessor' {} a -> s {settingsForUpdate = a} :: UpdateStreamProcessor)
 
 -- | Name of the stream processor that you want to update.
 updateStreamProcessor_name :: Lens.Lens' UpdateStreamProcessor Prelude.Text
@@ -155,17 +155,17 @@ instance Prelude.Hashable UpdateStreamProcessor where
   hashWithSalt _salt UpdateStreamProcessor' {..} =
     _salt
       `Prelude.hashWithSalt` dataSharingPreferenceForUpdate
-      `Prelude.hashWithSalt` settingsForUpdate
-      `Prelude.hashWithSalt` regionsOfInterestForUpdate
       `Prelude.hashWithSalt` parametersToDelete
+      `Prelude.hashWithSalt` regionsOfInterestForUpdate
+      `Prelude.hashWithSalt` settingsForUpdate
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData UpdateStreamProcessor where
   rnf UpdateStreamProcessor' {..} =
     Prelude.rnf dataSharingPreferenceForUpdate
-      `Prelude.seq` Prelude.rnf settingsForUpdate
-      `Prelude.seq` Prelude.rnf regionsOfInterestForUpdate
       `Prelude.seq` Prelude.rnf parametersToDelete
+      `Prelude.seq` Prelude.rnf regionsOfInterestForUpdate
+      `Prelude.seq` Prelude.rnf settingsForUpdate
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders UpdateStreamProcessor where
@@ -189,12 +189,12 @@ instance Data.ToJSON UpdateStreamProcessor where
       ( Prelude.catMaybes
           [ ("DataSharingPreferenceForUpdate" Data..=)
               Prelude.<$> dataSharingPreferenceForUpdate,
-            ("SettingsForUpdate" Data..=)
-              Prelude.<$> settingsForUpdate,
-            ("RegionsOfInterestForUpdate" Data..=)
-              Prelude.<$> regionsOfInterestForUpdate,
             ("ParametersToDelete" Data..=)
               Prelude.<$> parametersToDelete,
+            ("RegionsOfInterestForUpdate" Data..=)
+              Prelude.<$> regionsOfInterestForUpdate,
+            ("SettingsForUpdate" Data..=)
+              Prelude.<$> settingsForUpdate,
             Prelude.Just ("Name" Data..= name)
           ]
       )

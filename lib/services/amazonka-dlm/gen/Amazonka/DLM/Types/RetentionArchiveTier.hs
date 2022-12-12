@@ -41,15 +41,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRetentionArchiveTier' smart constructor.
 data RetentionArchiveTier = RetentionArchiveTier'
-  { -- | Specifies the period of time to retain snapshots in the archive tier.
-    -- After this period expires, the snapshot is permanently deleted.
-    interval :: Prelude.Maybe Prelude.Natural,
-    -- | The maximum number of snapshots to retain in the archive storage tier
+  { -- | The maximum number of snapshots to retain in the archive storage tier
     -- for each volume. The count must ensure that each snapshot remains in the
     -- archive tier for at least 90 days. For example, if the schedule creates
     -- snapshots every 30 days, you must specify a count of 3 or more to ensure
     -- that each snapshot is archived for at least 90 days.
     count :: Prelude.Maybe Prelude.Natural,
+    -- | Specifies the period of time to retain snapshots in the archive tier.
+    -- After this period expires, the snapshot is permanently deleted.
+    interval :: Prelude.Maybe Prelude.Natural,
     -- | The unit of time in which to measure the __Interval__. For example, to
     -- retain a snapshots in the archive tier for 6 months, specify
     -- @Interval=6@ and @IntervalUnit=MONTHS@.
@@ -65,14 +65,14 @@ data RetentionArchiveTier = RetentionArchiveTier'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'interval', 'retentionArchiveTier_interval' - Specifies the period of time to retain snapshots in the archive tier.
--- After this period expires, the snapshot is permanently deleted.
---
 -- 'count', 'retentionArchiveTier_count' - The maximum number of snapshots to retain in the archive storage tier
 -- for each volume. The count must ensure that each snapshot remains in the
 -- archive tier for at least 90 days. For example, if the schedule creates
 -- snapshots every 30 days, you must specify a count of 3 or more to ensure
 -- that each snapshot is archived for at least 90 days.
+--
+-- 'interval', 'retentionArchiveTier_interval' - Specifies the period of time to retain snapshots in the archive tier.
+-- After this period expires, the snapshot is permanently deleted.
 --
 -- 'intervalUnit', 'retentionArchiveTier_intervalUnit' - The unit of time in which to measure the __Interval__. For example, to
 -- retain a snapshots in the archive tier for 6 months, specify
@@ -81,15 +81,10 @@ newRetentionArchiveTier ::
   RetentionArchiveTier
 newRetentionArchiveTier =
   RetentionArchiveTier'
-    { interval = Prelude.Nothing,
-      count = Prelude.Nothing,
+    { count = Prelude.Nothing,
+      interval = Prelude.Nothing,
       intervalUnit = Prelude.Nothing
     }
-
--- | Specifies the period of time to retain snapshots in the archive tier.
--- After this period expires, the snapshot is permanently deleted.
-retentionArchiveTier_interval :: Lens.Lens' RetentionArchiveTier (Prelude.Maybe Prelude.Natural)
-retentionArchiveTier_interval = Lens.lens (\RetentionArchiveTier' {interval} -> interval) (\s@RetentionArchiveTier' {} a -> s {interval = a} :: RetentionArchiveTier)
 
 -- | The maximum number of snapshots to retain in the archive storage tier
 -- for each volume. The count must ensure that each snapshot remains in the
@@ -98,6 +93,11 @@ retentionArchiveTier_interval = Lens.lens (\RetentionArchiveTier' {interval} -> 
 -- that each snapshot is archived for at least 90 days.
 retentionArchiveTier_count :: Lens.Lens' RetentionArchiveTier (Prelude.Maybe Prelude.Natural)
 retentionArchiveTier_count = Lens.lens (\RetentionArchiveTier' {count} -> count) (\s@RetentionArchiveTier' {} a -> s {count = a} :: RetentionArchiveTier)
+
+-- | Specifies the period of time to retain snapshots in the archive tier.
+-- After this period expires, the snapshot is permanently deleted.
+retentionArchiveTier_interval :: Lens.Lens' RetentionArchiveTier (Prelude.Maybe Prelude.Natural)
+retentionArchiveTier_interval = Lens.lens (\RetentionArchiveTier' {interval} -> interval) (\s@RetentionArchiveTier' {} a -> s {interval = a} :: RetentionArchiveTier)
 
 -- | The unit of time in which to measure the __Interval__. For example, to
 -- retain a snapshots in the archive tier for 6 months, specify
@@ -111,29 +111,29 @@ instance Data.FromJSON RetentionArchiveTier where
       "RetentionArchiveTier"
       ( \x ->
           RetentionArchiveTier'
-            Prelude.<$> (x Data..:? "Interval")
-            Prelude.<*> (x Data..:? "Count")
+            Prelude.<$> (x Data..:? "Count")
+            Prelude.<*> (x Data..:? "Interval")
             Prelude.<*> (x Data..:? "IntervalUnit")
       )
 
 instance Prelude.Hashable RetentionArchiveTier where
   hashWithSalt _salt RetentionArchiveTier' {..} =
-    _salt `Prelude.hashWithSalt` interval
-      `Prelude.hashWithSalt` count
+    _salt `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` interval
       `Prelude.hashWithSalt` intervalUnit
 
 instance Prelude.NFData RetentionArchiveTier where
   rnf RetentionArchiveTier' {..} =
-    Prelude.rnf interval
-      `Prelude.seq` Prelude.rnf count
+    Prelude.rnf count
+      `Prelude.seq` Prelude.rnf interval
       `Prelude.seq` Prelude.rnf intervalUnit
 
 instance Data.ToJSON RetentionArchiveTier where
   toJSON RetentionArchiveTier' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Interval" Data..=) Prelude.<$> interval,
-            ("Count" Data..=) Prelude.<$> count,
+          [ ("Count" Data..=) Prelude.<$> count,
+            ("Interval" Data..=) Prelude.<$> interval,
             ("IntervalUnit" Data..=) Prelude.<$> intervalUnit
           ]
       )

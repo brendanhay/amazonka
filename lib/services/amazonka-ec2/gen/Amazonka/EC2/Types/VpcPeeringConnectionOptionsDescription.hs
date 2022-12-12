@@ -37,12 +37,12 @@ data VpcPeeringConnectionOptionsDescription = VpcPeeringConnectionOptionsDescrip
   { -- | Indicates whether a local VPC can resolve public DNS hostnames to
     -- private IP addresses when queried from instances in a peer VPC.
     allowDnsResolutionFromRemoteVpc :: Prelude.Maybe Prelude.Bool,
-    -- | Indicates whether a local VPC can communicate with a ClassicLink
-    -- connection in the peer VPC over the VPC peering connection.
-    allowEgressFromLocalVpcToRemoteClassicLink :: Prelude.Maybe Prelude.Bool,
     -- | Indicates whether a local ClassicLink connection can communicate with
     -- the peer VPC over the VPC peering connection.
-    allowEgressFromLocalClassicLinkToRemoteVpc :: Prelude.Maybe Prelude.Bool
+    allowEgressFromLocalClassicLinkToRemoteVpc :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates whether a local VPC can communicate with a ClassicLink
+    -- connection in the peer VPC over the VPC peering connection.
+    allowEgressFromLocalVpcToRemoteClassicLink :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,20 +57,20 @@ data VpcPeeringConnectionOptionsDescription = VpcPeeringConnectionOptionsDescrip
 -- 'allowDnsResolutionFromRemoteVpc', 'vpcPeeringConnectionOptionsDescription_allowDnsResolutionFromRemoteVpc' - Indicates whether a local VPC can resolve public DNS hostnames to
 -- private IP addresses when queried from instances in a peer VPC.
 --
--- 'allowEgressFromLocalVpcToRemoteClassicLink', 'vpcPeeringConnectionOptionsDescription_allowEgressFromLocalVpcToRemoteClassicLink' - Indicates whether a local VPC can communicate with a ClassicLink
--- connection in the peer VPC over the VPC peering connection.
---
 -- 'allowEgressFromLocalClassicLinkToRemoteVpc', 'vpcPeeringConnectionOptionsDescription_allowEgressFromLocalClassicLinkToRemoteVpc' - Indicates whether a local ClassicLink connection can communicate with
 -- the peer VPC over the VPC peering connection.
+--
+-- 'allowEgressFromLocalVpcToRemoteClassicLink', 'vpcPeeringConnectionOptionsDescription_allowEgressFromLocalVpcToRemoteClassicLink' - Indicates whether a local VPC can communicate with a ClassicLink
+-- connection in the peer VPC over the VPC peering connection.
 newVpcPeeringConnectionOptionsDescription ::
   VpcPeeringConnectionOptionsDescription
 newVpcPeeringConnectionOptionsDescription =
   VpcPeeringConnectionOptionsDescription'
     { allowDnsResolutionFromRemoteVpc =
         Prelude.Nothing,
-      allowEgressFromLocalVpcToRemoteClassicLink =
-        Prelude.Nothing,
       allowEgressFromLocalClassicLinkToRemoteVpc =
+        Prelude.Nothing,
+      allowEgressFromLocalVpcToRemoteClassicLink =
         Prelude.Nothing
     }
 
@@ -79,15 +79,15 @@ newVpcPeeringConnectionOptionsDescription =
 vpcPeeringConnectionOptionsDescription_allowDnsResolutionFromRemoteVpc :: Lens.Lens' VpcPeeringConnectionOptionsDescription (Prelude.Maybe Prelude.Bool)
 vpcPeeringConnectionOptionsDescription_allowDnsResolutionFromRemoteVpc = Lens.lens (\VpcPeeringConnectionOptionsDescription' {allowDnsResolutionFromRemoteVpc} -> allowDnsResolutionFromRemoteVpc) (\s@VpcPeeringConnectionOptionsDescription' {} a -> s {allowDnsResolutionFromRemoteVpc = a} :: VpcPeeringConnectionOptionsDescription)
 
--- | Indicates whether a local VPC can communicate with a ClassicLink
--- connection in the peer VPC over the VPC peering connection.
-vpcPeeringConnectionOptionsDescription_allowEgressFromLocalVpcToRemoteClassicLink :: Lens.Lens' VpcPeeringConnectionOptionsDescription (Prelude.Maybe Prelude.Bool)
-vpcPeeringConnectionOptionsDescription_allowEgressFromLocalVpcToRemoteClassicLink = Lens.lens (\VpcPeeringConnectionOptionsDescription' {allowEgressFromLocalVpcToRemoteClassicLink} -> allowEgressFromLocalVpcToRemoteClassicLink) (\s@VpcPeeringConnectionOptionsDescription' {} a -> s {allowEgressFromLocalVpcToRemoteClassicLink = a} :: VpcPeeringConnectionOptionsDescription)
-
 -- | Indicates whether a local ClassicLink connection can communicate with
 -- the peer VPC over the VPC peering connection.
 vpcPeeringConnectionOptionsDescription_allowEgressFromLocalClassicLinkToRemoteVpc :: Lens.Lens' VpcPeeringConnectionOptionsDescription (Prelude.Maybe Prelude.Bool)
 vpcPeeringConnectionOptionsDescription_allowEgressFromLocalClassicLinkToRemoteVpc = Lens.lens (\VpcPeeringConnectionOptionsDescription' {allowEgressFromLocalClassicLinkToRemoteVpc} -> allowEgressFromLocalClassicLinkToRemoteVpc) (\s@VpcPeeringConnectionOptionsDescription' {} a -> s {allowEgressFromLocalClassicLinkToRemoteVpc = a} :: VpcPeeringConnectionOptionsDescription)
+
+-- | Indicates whether a local VPC can communicate with a ClassicLink
+-- connection in the peer VPC over the VPC peering connection.
+vpcPeeringConnectionOptionsDescription_allowEgressFromLocalVpcToRemoteClassicLink :: Lens.Lens' VpcPeeringConnectionOptionsDescription (Prelude.Maybe Prelude.Bool)
+vpcPeeringConnectionOptionsDescription_allowEgressFromLocalVpcToRemoteClassicLink = Lens.lens (\VpcPeeringConnectionOptionsDescription' {allowEgressFromLocalVpcToRemoteClassicLink} -> allowEgressFromLocalVpcToRemoteClassicLink) (\s@VpcPeeringConnectionOptionsDescription' {} a -> s {allowEgressFromLocalVpcToRemoteClassicLink = a} :: VpcPeeringConnectionOptionsDescription)
 
 instance
   Data.FromXML
@@ -97,10 +97,10 @@ instance
     VpcPeeringConnectionOptionsDescription'
       Prelude.<$> (x Data..@? "allowDnsResolutionFromRemoteVpc")
       Prelude.<*> ( x
-                      Data..@? "allowEgressFromLocalVpcToRemoteClassicLink"
+                      Data..@? "allowEgressFromLocalClassicLinkToRemoteVpc"
                   )
       Prelude.<*> ( x
-                      Data..@? "allowEgressFromLocalClassicLinkToRemoteVpc"
+                      Data..@? "allowEgressFromLocalVpcToRemoteClassicLink"
                   )
 
 instance
@@ -112,8 +112,8 @@ instance
     VpcPeeringConnectionOptionsDescription' {..} =
       _salt
         `Prelude.hashWithSalt` allowDnsResolutionFromRemoteVpc
-        `Prelude.hashWithSalt` allowEgressFromLocalVpcToRemoteClassicLink
         `Prelude.hashWithSalt` allowEgressFromLocalClassicLinkToRemoteVpc
+        `Prelude.hashWithSalt` allowEgressFromLocalVpcToRemoteClassicLink
 
 instance
   Prelude.NFData
@@ -122,6 +122,6 @@ instance
   rnf VpcPeeringConnectionOptionsDescription' {..} =
     Prelude.rnf allowDnsResolutionFromRemoteVpc
       `Prelude.seq` Prelude.rnf
-        allowEgressFromLocalVpcToRemoteClassicLink
-      `Prelude.seq` Prelude.rnf
         allowEgressFromLocalClassicLinkToRemoteVpc
+      `Prelude.seq` Prelude.rnf
+        allowEgressFromLocalVpcToRemoteClassicLink

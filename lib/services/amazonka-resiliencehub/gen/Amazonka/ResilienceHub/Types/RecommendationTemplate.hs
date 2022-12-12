@@ -33,27 +33,27 @@ import Amazonka.ResilienceHub.Types.TemplateFormat
 --
 -- /See:/ 'newRecommendationTemplate' smart constructor.
 data RecommendationTemplate = RecommendationTemplate'
-  { -- | The tags assigned to the resource. A tag is a label that you assign to
-    -- an Amazon Web Services resource. Each tag consists of a key\/value pair.
-    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
-    -- | The message for the recommendation template.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | Indicates if replacements are needed.
-    needsReplacements :: Prelude.Maybe Prelude.Bool,
-    -- | The end time for the action.
-    endTime :: Prelude.Maybe Data.POSIX,
-    -- | Identifiers for the recommendations used in the recommendation template.
-    recommendationIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The file location of the template.
-    templatesLocation :: Prelude.Maybe S3Location,
-    -- | The Amazon Resource Name (ARN) of the application. The format for this
+  { -- | The Amazon Resource Name (ARN) of the application. The format for this
     -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /AWS General Reference/.
     appArn :: Prelude.Maybe Prelude.Text,
+    -- | The end time for the action.
+    endTime :: Prelude.Maybe Data.POSIX,
+    -- | The message for the recommendation template.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | Indicates if replacements are needed.
+    needsReplacements :: Prelude.Maybe Prelude.Bool,
+    -- | Identifiers for the recommendations used in the recommendation template.
+    recommendationIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The start time for the action.
     startTime :: Prelude.Maybe Data.POSIX,
+    -- | The tags assigned to the resource. A tag is a label that you assign to
+    -- an Amazon Web Services resource. Each tag consists of a key\/value pair.
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    -- | The file location of the template.
+    templatesLocation :: Prelude.Maybe S3Location,
     -- | The Amazon Resource Name (ARN) of the assessment. The format for this
     -- ARN is:
     -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
@@ -98,26 +98,26 @@ data RecommendationTemplate = RecommendationTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'recommendationTemplate_tags' - The tags assigned to the resource. A tag is a label that you assign to
--- an Amazon Web Services resource. Each tag consists of a key\/value pair.
---
--- 'message', 'recommendationTemplate_message' - The message for the recommendation template.
---
--- 'needsReplacements', 'recommendationTemplate_needsReplacements' - Indicates if replacements are needed.
---
--- 'endTime', 'recommendationTemplate_endTime' - The end time for the action.
---
--- 'recommendationIds', 'recommendationTemplate_recommendationIds' - Identifiers for the recommendations used in the recommendation template.
---
--- 'templatesLocation', 'recommendationTemplate_templatesLocation' - The file location of the template.
---
 -- 'appArn', 'recommendationTemplate_appArn' - The Amazon Resource Name (ARN) of the application. The format for this
 -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /AWS General Reference/.
 --
+-- 'endTime', 'recommendationTemplate_endTime' - The end time for the action.
+--
+-- 'message', 'recommendationTemplate_message' - The message for the recommendation template.
+--
+-- 'needsReplacements', 'recommendationTemplate_needsReplacements' - Indicates if replacements are needed.
+--
+-- 'recommendationIds', 'recommendationTemplate_recommendationIds' - Identifiers for the recommendations used in the recommendation template.
+--
 -- 'startTime', 'recommendationTemplate_startTime' - The start time for the action.
+--
+-- 'tags', 'recommendationTemplate_tags' - The tags assigned to the resource. A tag is a label that you assign to
+-- an Amazon Web Services resource. Each tag consists of a key\/value pair.
+--
+-- 'templatesLocation', 'recommendationTemplate_templatesLocation' - The file location of the template.
 --
 -- 'assessmentArn', 'recommendationTemplate_assessmentArn' - The Amazon Resource Name (ARN) of the assessment. The format for this
 -- ARN is:
@@ -173,14 +173,14 @@ newRecommendationTemplate
   pRecommendationTypes_
   pStatus_ =
     RecommendationTemplate'
-      { tags = Prelude.Nothing,
+      { appArn = Prelude.Nothing,
+        endTime = Prelude.Nothing,
         message = Prelude.Nothing,
         needsReplacements = Prelude.Nothing,
-        endTime = Prelude.Nothing,
         recommendationIds = Prelude.Nothing,
-        templatesLocation = Prelude.Nothing,
-        appArn = Prelude.Nothing,
         startTime = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        templatesLocation = Prelude.Nothing,
         assessmentArn = pAssessmentArn_,
         format = pFormat_,
         name = pName_,
@@ -191,10 +191,17 @@ newRecommendationTemplate
         status = pStatus_
       }
 
--- | The tags assigned to the resource. A tag is a label that you assign to
--- an Amazon Web Services resource. Each tag consists of a key\/value pair.
-recommendationTemplate_tags :: Lens.Lens' RecommendationTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-recommendationTemplate_tags = Lens.lens (\RecommendationTemplate' {tags} -> tags) (\s@RecommendationTemplate' {} a -> s {tags = a} :: RecommendationTemplate) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
+-- | The Amazon Resource Name (ARN) of the application. The format for this
+-- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
+-- For more information about ARNs, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
+-- in the /AWS General Reference/.
+recommendationTemplate_appArn :: Lens.Lens' RecommendationTemplate (Prelude.Maybe Prelude.Text)
+recommendationTemplate_appArn = Lens.lens (\RecommendationTemplate' {appArn} -> appArn) (\s@RecommendationTemplate' {} a -> s {appArn = a} :: RecommendationTemplate)
+
+-- | The end time for the action.
+recommendationTemplate_endTime :: Lens.Lens' RecommendationTemplate (Prelude.Maybe Prelude.UTCTime)
+recommendationTemplate_endTime = Lens.lens (\RecommendationTemplate' {endTime} -> endTime) (\s@RecommendationTemplate' {} a -> s {endTime = a} :: RecommendationTemplate) Prelude.. Lens.mapping Data._Time
 
 -- | The message for the recommendation template.
 recommendationTemplate_message :: Lens.Lens' RecommendationTemplate (Prelude.Maybe Prelude.Text)
@@ -204,29 +211,22 @@ recommendationTemplate_message = Lens.lens (\RecommendationTemplate' {message} -
 recommendationTemplate_needsReplacements :: Lens.Lens' RecommendationTemplate (Prelude.Maybe Prelude.Bool)
 recommendationTemplate_needsReplacements = Lens.lens (\RecommendationTemplate' {needsReplacements} -> needsReplacements) (\s@RecommendationTemplate' {} a -> s {needsReplacements = a} :: RecommendationTemplate)
 
--- | The end time for the action.
-recommendationTemplate_endTime :: Lens.Lens' RecommendationTemplate (Prelude.Maybe Prelude.UTCTime)
-recommendationTemplate_endTime = Lens.lens (\RecommendationTemplate' {endTime} -> endTime) (\s@RecommendationTemplate' {} a -> s {endTime = a} :: RecommendationTemplate) Prelude.. Lens.mapping Data._Time
-
 -- | Identifiers for the recommendations used in the recommendation template.
 recommendationTemplate_recommendationIds :: Lens.Lens' RecommendationTemplate (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 recommendationTemplate_recommendationIds = Lens.lens (\RecommendationTemplate' {recommendationIds} -> recommendationIds) (\s@RecommendationTemplate' {} a -> s {recommendationIds = a} :: RecommendationTemplate) Prelude.. Lens.mapping Lens.coerced
 
--- | The file location of the template.
-recommendationTemplate_templatesLocation :: Lens.Lens' RecommendationTemplate (Prelude.Maybe S3Location)
-recommendationTemplate_templatesLocation = Lens.lens (\RecommendationTemplate' {templatesLocation} -> templatesLocation) (\s@RecommendationTemplate' {} a -> s {templatesLocation = a} :: RecommendationTemplate)
-
--- | The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
-recommendationTemplate_appArn :: Lens.Lens' RecommendationTemplate (Prelude.Maybe Prelude.Text)
-recommendationTemplate_appArn = Lens.lens (\RecommendationTemplate' {appArn} -> appArn) (\s@RecommendationTemplate' {} a -> s {appArn = a} :: RecommendationTemplate)
-
 -- | The start time for the action.
 recommendationTemplate_startTime :: Lens.Lens' RecommendationTemplate (Prelude.Maybe Prelude.UTCTime)
 recommendationTemplate_startTime = Lens.lens (\RecommendationTemplate' {startTime} -> startTime) (\s@RecommendationTemplate' {} a -> s {startTime = a} :: RecommendationTemplate) Prelude.. Lens.mapping Data._Time
+
+-- | The tags assigned to the resource. A tag is a label that you assign to
+-- an Amazon Web Services resource. Each tag consists of a key\/value pair.
+recommendationTemplate_tags :: Lens.Lens' RecommendationTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+recommendationTemplate_tags = Lens.lens (\RecommendationTemplate' {tags} -> tags) (\s@RecommendationTemplate' {} a -> s {tags = a} :: RecommendationTemplate) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
+
+-- | The file location of the template.
+recommendationTemplate_templatesLocation :: Lens.Lens' RecommendationTemplate (Prelude.Maybe S3Location)
+recommendationTemplate_templatesLocation = Lens.lens (\RecommendationTemplate' {templatesLocation} -> templatesLocation) (\s@RecommendationTemplate' {} a -> s {templatesLocation = a} :: RecommendationTemplate)
 
 -- | The Amazon Resource Name (ARN) of the assessment. The format for this
 -- ARN is:
@@ -279,14 +279,14 @@ instance Data.FromJSON RecommendationTemplate where
       "RecommendationTemplate"
       ( \x ->
           RecommendationTemplate'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "appArn")
+            Prelude.<*> (x Data..:? "endTime")
             Prelude.<*> (x Data..:? "message")
             Prelude.<*> (x Data..:? "needsReplacements")
-            Prelude.<*> (x Data..:? "endTime")
             Prelude.<*> (x Data..:? "recommendationIds")
-            Prelude.<*> (x Data..:? "templatesLocation")
-            Prelude.<*> (x Data..:? "appArn")
             Prelude.<*> (x Data..:? "startTime")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "templatesLocation")
             Prelude.<*> (x Data..: "assessmentArn")
             Prelude.<*> (x Data..: "format")
             Prelude.<*> (x Data..: "name")
@@ -297,14 +297,14 @@ instance Data.FromJSON RecommendationTemplate where
 
 instance Prelude.Hashable RecommendationTemplate where
   hashWithSalt _salt RecommendationTemplate' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` appArn
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` needsReplacements
-      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` recommendationIds
-      `Prelude.hashWithSalt` templatesLocation
-      `Prelude.hashWithSalt` appArn
       `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` templatesLocation
       `Prelude.hashWithSalt` assessmentArn
       `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` name
@@ -314,14 +314,14 @@ instance Prelude.Hashable RecommendationTemplate where
 
 instance Prelude.NFData RecommendationTemplate where
   rnf RecommendationTemplate' {..} =
-    Prelude.rnf tags
+    Prelude.rnf appArn
+      `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf message
       `Prelude.seq` Prelude.rnf needsReplacements
-      `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf recommendationIds
-      `Prelude.seq` Prelude.rnf templatesLocation
-      `Prelude.seq` Prelude.rnf appArn
       `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf templatesLocation
       `Prelude.seq` Prelude.rnf assessmentArn
       `Prelude.seq` Prelude.rnf format
       `Prelude.seq` Prelude.rnf name

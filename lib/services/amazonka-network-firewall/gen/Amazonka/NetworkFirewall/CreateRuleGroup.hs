@@ -31,13 +31,13 @@ module Amazonka.NetworkFirewall.CreateRuleGroup
     newCreateRuleGroup,
 
     -- * Request Lenses
-    createRuleGroup_tags,
-    createRuleGroup_ruleGroup,
-    createRuleGroup_rules,
     createRuleGroup_description,
     createRuleGroup_dryRun,
-    createRuleGroup_sourceMetadata,
     createRuleGroup_encryptionConfiguration,
+    createRuleGroup_ruleGroup,
+    createRuleGroup_rules,
+    createRuleGroup_sourceMetadata,
+    createRuleGroup_tags,
     createRuleGroup_ruleGroupName,
     createRuleGroup_type,
     createRuleGroup_capacity,
@@ -63,8 +63,25 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateRuleGroup' smart constructor.
 data CreateRuleGroup = CreateRuleGroup'
-  { -- | The key:value pairs to associate with the resource.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+  { -- | A description of the rule group.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether you want Network Firewall to just check the validity
+    -- of the request, rather than run the request.
+    --
+    -- If set to @TRUE@, Network Firewall checks whether the request can run
+    -- successfully, but doesn\'t actually make the requested changes. The call
+    -- returns the value that the request would return if you ran it with dry
+    -- run set to @FALSE@, but doesn\'t make additions or changes to your
+    -- resources. This option allows you to make sure that you have the
+    -- required permissions to run the request and that your request parameters
+    -- are valid.
+    --
+    -- If set to @FALSE@, Network Firewall makes the requested changes to your
+    -- resources.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | A complex type that contains settings for encryption of your rule group
+    -- resources.
+    encryptionConfiguration :: Prelude.Maybe EncryptionConfiguration,
     -- | An object that defines the rule group rules.
     --
     -- You must provide either this rule group setting or a @Rules@ setting,
@@ -82,29 +99,12 @@ data CreateRuleGroup = CreateRuleGroup'
     -- response returns a RuleGroup object that Network Firewall has populated
     -- from your string.
     rules :: Prelude.Maybe Prelude.Text,
-    -- | A description of the rule group.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether you want Network Firewall to just check the validity
-    -- of the request, rather than run the request.
-    --
-    -- If set to @TRUE@, Network Firewall checks whether the request can run
-    -- successfully, but doesn\'t actually make the requested changes. The call
-    -- returns the value that the request would return if you ran it with dry
-    -- run set to @FALSE@, but doesn\'t make additions or changes to your
-    -- resources. This option allows you to make sure that you have the
-    -- required permissions to run the request and that your request parameters
-    -- are valid.
-    --
-    -- If set to @FALSE@, Network Firewall makes the requested changes to your
-    -- resources.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | A complex type that contains metadata about the rule group that your own
     -- rule group is copied from. You can use the metadata to keep track of
     -- updates made to the originating rule group.
     sourceMetadata :: Prelude.Maybe SourceMetadata,
-    -- | A complex type that contains settings for encryption of your rule group
-    -- resources.
-    encryptionConfiguration :: Prelude.Maybe EncryptionConfiguration,
+    -- | The key:value pairs to associate with the resource.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The descriptive name of the rule group. You can\'t change the name of a
     -- rule group after you create it.
     ruleGroupName :: Prelude.Text,
@@ -168,7 +168,24 @@ data CreateRuleGroup = CreateRuleGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createRuleGroup_tags' - The key:value pairs to associate with the resource.
+-- 'description', 'createRuleGroup_description' - A description of the rule group.
+--
+-- 'dryRun', 'createRuleGroup_dryRun' - Indicates whether you want Network Firewall to just check the validity
+-- of the request, rather than run the request.
+--
+-- If set to @TRUE@, Network Firewall checks whether the request can run
+-- successfully, but doesn\'t actually make the requested changes. The call
+-- returns the value that the request would return if you ran it with dry
+-- run set to @FALSE@, but doesn\'t make additions or changes to your
+-- resources. This option allows you to make sure that you have the
+-- required permissions to run the request and that your request parameters
+-- are valid.
+--
+-- If set to @FALSE@, Network Firewall makes the requested changes to your
+-- resources.
+--
+-- 'encryptionConfiguration', 'createRuleGroup_encryptionConfiguration' - A complex type that contains settings for encryption of your rule group
+-- resources.
 --
 -- 'ruleGroup', 'createRuleGroup_ruleGroup' - An object that defines the rule group rules.
 --
@@ -187,28 +204,11 @@ data CreateRuleGroup = CreateRuleGroup'
 -- response returns a RuleGroup object that Network Firewall has populated
 -- from your string.
 --
--- 'description', 'createRuleGroup_description' - A description of the rule group.
---
--- 'dryRun', 'createRuleGroup_dryRun' - Indicates whether you want Network Firewall to just check the validity
--- of the request, rather than run the request.
---
--- If set to @TRUE@, Network Firewall checks whether the request can run
--- successfully, but doesn\'t actually make the requested changes. The call
--- returns the value that the request would return if you ran it with dry
--- run set to @FALSE@, but doesn\'t make additions or changes to your
--- resources. This option allows you to make sure that you have the
--- required permissions to run the request and that your request parameters
--- are valid.
---
--- If set to @FALSE@, Network Firewall makes the requested changes to your
--- resources.
---
 -- 'sourceMetadata', 'createRuleGroup_sourceMetadata' - A complex type that contains metadata about the rule group that your own
 -- rule group is copied from. You can use the metadata to keep track of
 -- updates made to the originating rule group.
 --
--- 'encryptionConfiguration', 'createRuleGroup_encryptionConfiguration' - A complex type that contains settings for encryption of your rule group
--- resources.
+-- 'tags', 'createRuleGroup_tags' - The key:value pairs to associate with the resource.
 --
 -- 'ruleGroupName', 'createRuleGroup_ruleGroupName' - The descriptive name of the rule group. You can\'t change the name of a
 -- rule group after you create it.
@@ -271,21 +271,42 @@ newCreateRuleGroup ::
   CreateRuleGroup
 newCreateRuleGroup pRuleGroupName_ pType_ pCapacity_ =
   CreateRuleGroup'
-    { tags = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      encryptionConfiguration = Prelude.Nothing,
       ruleGroup = Prelude.Nothing,
       rules = Prelude.Nothing,
-      description = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       sourceMetadata = Prelude.Nothing,
-      encryptionConfiguration = Prelude.Nothing,
+      tags = Prelude.Nothing,
       ruleGroupName = pRuleGroupName_,
       type' = pType_,
       capacity = pCapacity_
     }
 
--- | The key:value pairs to associate with the resource.
-createRuleGroup_tags :: Lens.Lens' CreateRuleGroup (Prelude.Maybe (Prelude.NonEmpty Tag))
-createRuleGroup_tags = Lens.lens (\CreateRuleGroup' {tags} -> tags) (\s@CreateRuleGroup' {} a -> s {tags = a} :: CreateRuleGroup) Prelude.. Lens.mapping Lens.coerced
+-- | A description of the rule group.
+createRuleGroup_description :: Lens.Lens' CreateRuleGroup (Prelude.Maybe Prelude.Text)
+createRuleGroup_description = Lens.lens (\CreateRuleGroup' {description} -> description) (\s@CreateRuleGroup' {} a -> s {description = a} :: CreateRuleGroup)
+
+-- | Indicates whether you want Network Firewall to just check the validity
+-- of the request, rather than run the request.
+--
+-- If set to @TRUE@, Network Firewall checks whether the request can run
+-- successfully, but doesn\'t actually make the requested changes. The call
+-- returns the value that the request would return if you ran it with dry
+-- run set to @FALSE@, but doesn\'t make additions or changes to your
+-- resources. This option allows you to make sure that you have the
+-- required permissions to run the request and that your request parameters
+-- are valid.
+--
+-- If set to @FALSE@, Network Firewall makes the requested changes to your
+-- resources.
+createRuleGroup_dryRun :: Lens.Lens' CreateRuleGroup (Prelude.Maybe Prelude.Bool)
+createRuleGroup_dryRun = Lens.lens (\CreateRuleGroup' {dryRun} -> dryRun) (\s@CreateRuleGroup' {} a -> s {dryRun = a} :: CreateRuleGroup)
+
+-- | A complex type that contains settings for encryption of your rule group
+-- resources.
+createRuleGroup_encryptionConfiguration :: Lens.Lens' CreateRuleGroup (Prelude.Maybe EncryptionConfiguration)
+createRuleGroup_encryptionConfiguration = Lens.lens (\CreateRuleGroup' {encryptionConfiguration} -> encryptionConfiguration) (\s@CreateRuleGroup' {} a -> s {encryptionConfiguration = a} :: CreateRuleGroup)
 
 -- | An object that defines the rule group rules.
 --
@@ -308,36 +329,15 @@ createRuleGroup_ruleGroup = Lens.lens (\CreateRuleGroup' {ruleGroup} -> ruleGrou
 createRuleGroup_rules :: Lens.Lens' CreateRuleGroup (Prelude.Maybe Prelude.Text)
 createRuleGroup_rules = Lens.lens (\CreateRuleGroup' {rules} -> rules) (\s@CreateRuleGroup' {} a -> s {rules = a} :: CreateRuleGroup)
 
--- | A description of the rule group.
-createRuleGroup_description :: Lens.Lens' CreateRuleGroup (Prelude.Maybe Prelude.Text)
-createRuleGroup_description = Lens.lens (\CreateRuleGroup' {description} -> description) (\s@CreateRuleGroup' {} a -> s {description = a} :: CreateRuleGroup)
-
--- | Indicates whether you want Network Firewall to just check the validity
--- of the request, rather than run the request.
---
--- If set to @TRUE@, Network Firewall checks whether the request can run
--- successfully, but doesn\'t actually make the requested changes. The call
--- returns the value that the request would return if you ran it with dry
--- run set to @FALSE@, but doesn\'t make additions or changes to your
--- resources. This option allows you to make sure that you have the
--- required permissions to run the request and that your request parameters
--- are valid.
---
--- If set to @FALSE@, Network Firewall makes the requested changes to your
--- resources.
-createRuleGroup_dryRun :: Lens.Lens' CreateRuleGroup (Prelude.Maybe Prelude.Bool)
-createRuleGroup_dryRun = Lens.lens (\CreateRuleGroup' {dryRun} -> dryRun) (\s@CreateRuleGroup' {} a -> s {dryRun = a} :: CreateRuleGroup)
-
 -- | A complex type that contains metadata about the rule group that your own
 -- rule group is copied from. You can use the metadata to keep track of
 -- updates made to the originating rule group.
 createRuleGroup_sourceMetadata :: Lens.Lens' CreateRuleGroup (Prelude.Maybe SourceMetadata)
 createRuleGroup_sourceMetadata = Lens.lens (\CreateRuleGroup' {sourceMetadata} -> sourceMetadata) (\s@CreateRuleGroup' {} a -> s {sourceMetadata = a} :: CreateRuleGroup)
 
--- | A complex type that contains settings for encryption of your rule group
--- resources.
-createRuleGroup_encryptionConfiguration :: Lens.Lens' CreateRuleGroup (Prelude.Maybe EncryptionConfiguration)
-createRuleGroup_encryptionConfiguration = Lens.lens (\CreateRuleGroup' {encryptionConfiguration} -> encryptionConfiguration) (\s@CreateRuleGroup' {} a -> s {encryptionConfiguration = a} :: CreateRuleGroup)
+-- | The key:value pairs to associate with the resource.
+createRuleGroup_tags :: Lens.Lens' CreateRuleGroup (Prelude.Maybe (Prelude.NonEmpty Tag))
+createRuleGroup_tags = Lens.lens (\CreateRuleGroup' {tags} -> tags) (\s@CreateRuleGroup' {} a -> s {tags = a} :: CreateRuleGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The descriptive name of the rule group. You can\'t change the name of a
 -- rule group after you create it.
@@ -414,26 +414,26 @@ instance Core.AWSRequest CreateRuleGroup where
 
 instance Prelude.Hashable CreateRuleGroup where
   hashWithSalt _salt CreateRuleGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` encryptionConfiguration
       `Prelude.hashWithSalt` ruleGroup
       `Prelude.hashWithSalt` rules
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` sourceMetadata
-      `Prelude.hashWithSalt` encryptionConfiguration
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` ruleGroupName
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` capacity
 
 instance Prelude.NFData CreateRuleGroup where
   rnf CreateRuleGroup' {..} =
-    Prelude.rnf tags
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf encryptionConfiguration
       `Prelude.seq` Prelude.rnf ruleGroup
       `Prelude.seq` Prelude.rnf rules
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf sourceMetadata
-      `Prelude.seq` Prelude.rnf encryptionConfiguration
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf ruleGroupName
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf capacity
@@ -457,15 +457,15 @@ instance Data.ToJSON CreateRuleGroup where
   toJSON CreateRuleGroup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("RuleGroup" Data..=) Prelude.<$> ruleGroup,
-            ("Rules" Data..=) Prelude.<$> rules,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
             ("DryRun" Data..=) Prelude.<$> dryRun,
-            ("SourceMetadata" Data..=)
-              Prelude.<$> sourceMetadata,
             ("EncryptionConfiguration" Data..=)
               Prelude.<$> encryptionConfiguration,
+            ("RuleGroup" Data..=) Prelude.<$> ruleGroup,
+            ("Rules" Data..=) Prelude.<$> rules,
+            ("SourceMetadata" Data..=)
+              Prelude.<$> sourceMetadata,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("RuleGroupName" Data..= ruleGroupName),
             Prelude.Just ("Type" Data..= type'),
             Prelude.Just ("Capacity" Data..= capacity)

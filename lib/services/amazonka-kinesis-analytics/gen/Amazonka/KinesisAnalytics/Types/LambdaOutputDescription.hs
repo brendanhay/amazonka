@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLambdaOutputDescription' smart constructor.
 data LambdaOutputDescription = LambdaOutputDescription'
-  { -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to write to
+  { -- | Amazon Resource Name (ARN) of the destination Lambda function.
+    resourceARN :: Prelude.Maybe Prelude.Text,
+    -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to write to
     -- the destination function.
-    roleARN :: Prelude.Maybe Prelude.Text,
-    -- | Amazon Resource Name (ARN) of the destination Lambda function.
-    resourceARN :: Prelude.Maybe Prelude.Text
+    roleARN :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,26 +45,27 @@ data LambdaOutputDescription = LambdaOutputDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'resourceARN', 'lambdaOutputDescription_resourceARN' - Amazon Resource Name (ARN) of the destination Lambda function.
+--
 -- 'roleARN', 'lambdaOutputDescription_roleARN' - ARN of the IAM role that Amazon Kinesis Analytics can assume to write to
 -- the destination function.
---
--- 'resourceARN', 'lambdaOutputDescription_resourceARN' - Amazon Resource Name (ARN) of the destination Lambda function.
 newLambdaOutputDescription ::
   LambdaOutputDescription
 newLambdaOutputDescription =
   LambdaOutputDescription'
-    { roleARN = Prelude.Nothing,
-      resourceARN = Prelude.Nothing
+    { resourceARN =
+        Prelude.Nothing,
+      roleARN = Prelude.Nothing
     }
+
+-- | Amazon Resource Name (ARN) of the destination Lambda function.
+lambdaOutputDescription_resourceARN :: Lens.Lens' LambdaOutputDescription (Prelude.Maybe Prelude.Text)
+lambdaOutputDescription_resourceARN = Lens.lens (\LambdaOutputDescription' {resourceARN} -> resourceARN) (\s@LambdaOutputDescription' {} a -> s {resourceARN = a} :: LambdaOutputDescription)
 
 -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to write to
 -- the destination function.
 lambdaOutputDescription_roleARN :: Lens.Lens' LambdaOutputDescription (Prelude.Maybe Prelude.Text)
 lambdaOutputDescription_roleARN = Lens.lens (\LambdaOutputDescription' {roleARN} -> roleARN) (\s@LambdaOutputDescription' {} a -> s {roleARN = a} :: LambdaOutputDescription)
-
--- | Amazon Resource Name (ARN) of the destination Lambda function.
-lambdaOutputDescription_resourceARN :: Lens.Lens' LambdaOutputDescription (Prelude.Maybe Prelude.Text)
-lambdaOutputDescription_resourceARN = Lens.lens (\LambdaOutputDescription' {resourceARN} -> resourceARN) (\s@LambdaOutputDescription' {} a -> s {resourceARN = a} :: LambdaOutputDescription)
 
 instance Data.FromJSON LambdaOutputDescription where
   parseJSON =
@@ -72,16 +73,16 @@ instance Data.FromJSON LambdaOutputDescription where
       "LambdaOutputDescription"
       ( \x ->
           LambdaOutputDescription'
-            Prelude.<$> (x Data..:? "RoleARN")
-            Prelude.<*> (x Data..:? "ResourceARN")
+            Prelude.<$> (x Data..:? "ResourceARN")
+            Prelude.<*> (x Data..:? "RoleARN")
       )
 
 instance Prelude.Hashable LambdaOutputDescription where
   hashWithSalt _salt LambdaOutputDescription' {..} =
-    _salt `Prelude.hashWithSalt` roleARN
-      `Prelude.hashWithSalt` resourceARN
+    _salt `Prelude.hashWithSalt` resourceARN
+      `Prelude.hashWithSalt` roleARN
 
 instance Prelude.NFData LambdaOutputDescription where
   rnf LambdaOutputDescription' {..} =
-    Prelude.rnf roleARN
-      `Prelude.seq` Prelude.rnf resourceARN
+    Prelude.rnf resourceARN
+      `Prelude.seq` Prelude.rnf roleARN

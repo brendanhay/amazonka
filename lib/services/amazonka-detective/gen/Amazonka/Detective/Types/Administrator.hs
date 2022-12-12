@@ -29,15 +29,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAdministrator' smart constructor.
 data Administrator = Administrator'
-  { -- | The ARN of the organization behavior graph.
-    graphArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services account identifier of the Detective
+  { -- | The Amazon Web Services account identifier of the Detective
     -- administrator account for the organization.
     accountId :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the Detective administrator account was enabled.
     -- The value is an ISO8601 formatted string. For example,
     -- @2021-08-18T16:35:56.284Z@.
-    delegationTime :: Prelude.Maybe Data.POSIX
+    delegationTime :: Prelude.Maybe Data.POSIX,
+    -- | The ARN of the organization behavior graph.
+    graphArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,26 +49,22 @@ data Administrator = Administrator'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'graphArn', 'administrator_graphArn' - The ARN of the organization behavior graph.
---
 -- 'accountId', 'administrator_accountId' - The Amazon Web Services account identifier of the Detective
 -- administrator account for the organization.
 --
 -- 'delegationTime', 'administrator_delegationTime' - The date and time when the Detective administrator account was enabled.
 -- The value is an ISO8601 formatted string. For example,
 -- @2021-08-18T16:35:56.284Z@.
+--
+-- 'graphArn', 'administrator_graphArn' - The ARN of the organization behavior graph.
 newAdministrator ::
   Administrator
 newAdministrator =
   Administrator'
-    { graphArn = Prelude.Nothing,
-      accountId = Prelude.Nothing,
-      delegationTime = Prelude.Nothing
+    { accountId = Prelude.Nothing,
+      delegationTime = Prelude.Nothing,
+      graphArn = Prelude.Nothing
     }
-
--- | The ARN of the organization behavior graph.
-administrator_graphArn :: Lens.Lens' Administrator (Prelude.Maybe Prelude.Text)
-administrator_graphArn = Lens.lens (\Administrator' {graphArn} -> graphArn) (\s@Administrator' {} a -> s {graphArn = a} :: Administrator)
 
 -- | The Amazon Web Services account identifier of the Detective
 -- administrator account for the organization.
@@ -81,25 +77,29 @@ administrator_accountId = Lens.lens (\Administrator' {accountId} -> accountId) (
 administrator_delegationTime :: Lens.Lens' Administrator (Prelude.Maybe Prelude.UTCTime)
 administrator_delegationTime = Lens.lens (\Administrator' {delegationTime} -> delegationTime) (\s@Administrator' {} a -> s {delegationTime = a} :: Administrator) Prelude.. Lens.mapping Data._Time
 
+-- | The ARN of the organization behavior graph.
+administrator_graphArn :: Lens.Lens' Administrator (Prelude.Maybe Prelude.Text)
+administrator_graphArn = Lens.lens (\Administrator' {graphArn} -> graphArn) (\s@Administrator' {} a -> s {graphArn = a} :: Administrator)
+
 instance Data.FromJSON Administrator where
   parseJSON =
     Data.withObject
       "Administrator"
       ( \x ->
           Administrator'
-            Prelude.<$> (x Data..:? "GraphArn")
-            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<$> (x Data..:? "AccountId")
             Prelude.<*> (x Data..:? "DelegationTime")
+            Prelude.<*> (x Data..:? "GraphArn")
       )
 
 instance Prelude.Hashable Administrator where
   hashWithSalt _salt Administrator' {..} =
-    _salt `Prelude.hashWithSalt` graphArn
-      `Prelude.hashWithSalt` accountId
+    _salt `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` delegationTime
+      `Prelude.hashWithSalt` graphArn
 
 instance Prelude.NFData Administrator where
   rnf Administrator' {..} =
-    Prelude.rnf graphArn
-      `Prelude.seq` Prelude.rnf accountId
+    Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf delegationTime
+      `Prelude.seq` Prelude.rnf graphArn

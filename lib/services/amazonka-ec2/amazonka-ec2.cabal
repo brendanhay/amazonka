@@ -74,6 +74,7 @@ library
     Amazonka.EC2.AttachClassicLinkVpc
     Amazonka.EC2.AttachInternetGateway
     Amazonka.EC2.AttachNetworkInterface
+    Amazonka.EC2.AttachVerifiedAccessTrustProvider
     Amazonka.EC2.AttachVolume
     Amazonka.EC2.AttachVpnGateway
     Amazonka.EC2.AuthorizeClientVpnIngress
@@ -161,6 +162,10 @@ library
     Amazonka.EC2.CreateTransitGatewayRouteTable
     Amazonka.EC2.CreateTransitGatewayRouteTableAnnouncement
     Amazonka.EC2.CreateTransitGatewayVpcAttachment
+    Amazonka.EC2.CreateVerifiedAccessEndpoint
+    Amazonka.EC2.CreateVerifiedAccessGroup
+    Amazonka.EC2.CreateVerifiedAccessInstance
+    Amazonka.EC2.CreateVerifiedAccessTrustProvider
     Amazonka.EC2.CreateVolume
     Amazonka.EC2.CreateVpc
     Amazonka.EC2.CreateVpcEndpoint
@@ -229,6 +234,10 @@ library
     Amazonka.EC2.DeleteTransitGatewayRouteTable
     Amazonka.EC2.DeleteTransitGatewayRouteTableAnnouncement
     Amazonka.EC2.DeleteTransitGatewayVpcAttachment
+    Amazonka.EC2.DeleteVerifiedAccessEndpoint
+    Amazonka.EC2.DeleteVerifiedAccessGroup
+    Amazonka.EC2.DeleteVerifiedAccessInstance
+    Amazonka.EC2.DeleteVerifiedAccessTrustProvider
     Amazonka.EC2.DeleteVolume
     Amazonka.EC2.DeleteVpc
     Amazonka.EC2.DeleteVpcEndpointConnectionNotifications
@@ -251,6 +260,7 @@ library
     Amazonka.EC2.DescribeAddressTransfers
     Amazonka.EC2.DescribeAggregateIdFormat
     Amazonka.EC2.DescribeAvailabilityZones
+    Amazonka.EC2.DescribeAwsNetworkPerformanceMetricSubscriptions
     Amazonka.EC2.DescribeBundleTasks
     Amazonka.EC2.DescribeByoipCidrs
     Amazonka.EC2.DescribeCapacityReservationFleets
@@ -364,6 +374,11 @@ library
     Amazonka.EC2.DescribeTransitGateways
     Amazonka.EC2.DescribeTransitGatewayVpcAttachments
     Amazonka.EC2.DescribeTrunkInterfaceAssociations
+    Amazonka.EC2.DescribeVerifiedAccessEndpoints
+    Amazonka.EC2.DescribeVerifiedAccessGroups
+    Amazonka.EC2.DescribeVerifiedAccessInstanceLoggingConfigurations
+    Amazonka.EC2.DescribeVerifiedAccessInstances
+    Amazonka.EC2.DescribeVerifiedAccessTrustProviders
     Amazonka.EC2.DescribeVolumeAttribute
     Amazonka.EC2.DescribeVolumes
     Amazonka.EC2.DescribeVolumesModifications
@@ -384,9 +399,11 @@ library
     Amazonka.EC2.DetachClassicLinkVpc
     Amazonka.EC2.DetachInternetGateway
     Amazonka.EC2.DetachNetworkInterface
+    Amazonka.EC2.DetachVerifiedAccessTrustProvider
     Amazonka.EC2.DetachVolume
     Amazonka.EC2.DetachVpnGateway
     Amazonka.EC2.DisableAddressTransfer
+    Amazonka.EC2.DisableAwsNetworkPerformanceMetricSubscription
     Amazonka.EC2.DisableEbsEncryptionByDefault
     Amazonka.EC2.DisableFastLaunch
     Amazonka.EC2.DisableFastSnapshotRestores
@@ -410,11 +427,13 @@ library
     Amazonka.EC2.DisassociateTrunkInterface
     Amazonka.EC2.DisassociateVpcCidrBlock
     Amazonka.EC2.EnableAddressTransfer
+    Amazonka.EC2.EnableAwsNetworkPerformanceMetricSubscription
     Amazonka.EC2.EnableEbsEncryptionByDefault
     Amazonka.EC2.EnableFastLaunch
     Amazonka.EC2.EnableFastSnapshotRestores
     Amazonka.EC2.EnableImageDeprecation
     Amazonka.EC2.EnableIpamOrganizationAdminAccount
+    Amazonka.EC2.EnableReachabilityAnalyzerOrganizationSharing
     Amazonka.EC2.EnableSerialConsoleAccess
     Amazonka.EC2.EnableTransitGatewayRouteTablePropagation
     Amazonka.EC2.EnableVgwRoutePropagation
@@ -427,6 +446,7 @@ library
     Amazonka.EC2.ExportTransitGatewayRoutes
     Amazonka.EC2.GetAssociatedEnclaveCertificateIamRoles
     Amazonka.EC2.GetAssociatedIpv6PoolCidrs
+    Amazonka.EC2.GetAwsNetworkPerformanceData
     Amazonka.EC2.GetCapacityReservationUsage
     Amazonka.EC2.GetCoipPoolUsage
     Amazonka.EC2.GetConsoleOutput
@@ -460,6 +480,8 @@ library
     Amazonka.EC2.GetTransitGatewayPrefixListReferences
     Amazonka.EC2.GetTransitGatewayRouteTableAssociations
     Amazonka.EC2.GetTransitGatewayRouteTablePropagations
+    Amazonka.EC2.GetVerifiedAccessEndpointPolicy
+    Amazonka.EC2.GetVerifiedAccessGroupPolicy
     Amazonka.EC2.GetVpnConnectionDeviceSampleConfiguration
     Amazonka.EC2.GetVpnConnectionDeviceTypes
     Amazonka.EC2.ImportClientVpnClientCertificateRevocationList
@@ -514,6 +536,13 @@ library
     Amazonka.EC2.ModifyTransitGateway
     Amazonka.EC2.ModifyTransitGatewayPrefixListReference
     Amazonka.EC2.ModifyTransitGatewayVpcAttachment
+    Amazonka.EC2.ModifyVerifiedAccessEndpoint
+    Amazonka.EC2.ModifyVerifiedAccessEndpointPolicy
+    Amazonka.EC2.ModifyVerifiedAccessGroup
+    Amazonka.EC2.ModifyVerifiedAccessGroupPolicy
+    Amazonka.EC2.ModifyVerifiedAccessInstance
+    Amazonka.EC2.ModifyVerifiedAccessInstanceLoggingConfiguration
+    Amazonka.EC2.ModifyVerifiedAccessTrustProvider
     Amazonka.EC2.ModifyVolume
     Amazonka.EC2.ModifyVolumeAttribute
     Amazonka.EC2.ModifyVpcAttribute
@@ -639,6 +668,8 @@ library
     Amazonka.EC2.Types.AssociationStatus
     Amazonka.EC2.Types.AssociationStatusCode
     Amazonka.EC2.Types.AthenaIntegration
+    Amazonka.EC2.Types.AttachmentEnaSrdSpecification
+    Amazonka.EC2.Types.AttachmentEnaSrdUdpSpecification
     Amazonka.EC2.Types.AttachmentStatus
     Amazonka.EC2.Types.AttributeBooleanValue
     Amazonka.EC2.Types.AttributeValue
@@ -746,6 +777,10 @@ library
     Amazonka.EC2.Types.CreateTransitGatewayMulticastDomainRequestOptions
     Amazonka.EC2.Types.CreateTransitGatewayPeeringAttachmentRequestOptions
     Amazonka.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions
+    Amazonka.EC2.Types.CreateVerifiedAccessEndpointEniOptions
+    Amazonka.EC2.Types.CreateVerifiedAccessEndpointLoadBalancerOptions
+    Amazonka.EC2.Types.CreateVerifiedAccessTrustProviderDeviceOptions
+    Amazonka.EC2.Types.CreateVerifiedAccessTrustProviderOidcOptions
     Amazonka.EC2.Types.CreateVolumePermission
     Amazonka.EC2.Types.CreateVolumePermissionModifications
     Amazonka.EC2.Types.CreditSpecification
@@ -753,6 +788,8 @@ library
     Amazonka.EC2.Types.CurrencyCodeValues
     Amazonka.EC2.Types.CustomerGateway
     Amazonka.EC2.Types.DatafeedSubscriptionState
+    Amazonka.EC2.Types.DataQuery
+    Amazonka.EC2.Types.DataResponse
     Amazonka.EC2.Types.DefaultRouteTableAssociationValue
     Amazonka.EC2.Types.DefaultRouteTablePropagationValue
     Amazonka.EC2.Types.DefaultTargetCapacityType
@@ -772,6 +809,8 @@ library
     Amazonka.EC2.Types.DestinationFileFormat
     Amazonka.EC2.Types.DestinationOptionsRequest
     Amazonka.EC2.Types.DestinationOptionsResponse
+    Amazonka.EC2.Types.DeviceOptions
+    Amazonka.EC2.Types.DeviceTrustProviderType
     Amazonka.EC2.Types.DeviceType
     Amazonka.EC2.Types.DhcpConfiguration
     Amazonka.EC2.Types.DhcpOptions
@@ -820,6 +859,8 @@ library
     Amazonka.EC2.Types.EnableFastSnapshotRestoreStateError
     Amazonka.EC2.Types.EnableFastSnapshotRestoreStateErrorItem
     Amazonka.EC2.Types.EnableFastSnapshotRestoreSuccessItem
+    Amazonka.EC2.Types.EnaSrdSpecification
+    Amazonka.EC2.Types.EnaSrdUdpSpecification
     Amazonka.EC2.Types.EnaSupport
     Amazonka.EC2.Types.EnclaveOptions
     Amazonka.EC2.Types.EnclaveOptionsRequest
@@ -1122,9 +1163,14 @@ library
     Amazonka.EC2.Types.MemoryInfo
     Amazonka.EC2.Types.MemoryMiB
     Amazonka.EC2.Types.MemoryMiBRequest
+    Amazonka.EC2.Types.MetricPoint
+    Amazonka.EC2.Types.MetricType
     Amazonka.EC2.Types.ModifyAvailabilityZoneOptInStatus
     Amazonka.EC2.Types.ModifyTransitGatewayOptions
     Amazonka.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions
+    Amazonka.EC2.Types.ModifyVerifiedAccessEndpointEniOptions
+    Amazonka.EC2.Types.ModifyVerifiedAccessEndpointLoadBalancerOptions
+    Amazonka.EC2.Types.ModifyVerifiedAccessTrustProviderOidcOptions
     Amazonka.EC2.Types.ModifyVpnTunnelOptionsSpecification
     Amazonka.EC2.Types.Monitoring
     Amazonka.EC2.Types.MonitoringState
@@ -1164,6 +1210,7 @@ library
     Amazonka.EC2.Types.NewDhcpConfiguration
     Amazonka.EC2.Types.OfferingClassType
     Amazonka.EC2.Types.OfferingTypeValues
+    Amazonka.EC2.Types.OidcOptions
     Amazonka.EC2.Types.OnDemandAllocationStrategy
     Amazonka.EC2.Types.OnDemandOptions
     Amazonka.EC2.Types.OnDemandOptionsRequest
@@ -1181,6 +1228,7 @@ library
     Amazonka.EC2.Types.PeeringConnectionOptions
     Amazonka.EC2.Types.PeeringConnectionOptionsRequest
     Amazonka.EC2.Types.PeeringTgwInfo
+    Amazonka.EC2.Types.PeriodType
     Amazonka.EC2.Types.PermissionGroup
     Amazonka.EC2.Types.Phase1DHGroupNumbersListValue
     Amazonka.EC2.Types.Phase1DHGroupNumbersRequestListValue
@@ -1348,6 +1396,7 @@ library
     Amazonka.EC2.Types.State
     Amazonka.EC2.Types.StateReason
     Amazonka.EC2.Types.StaticSourcesSupportValue
+    Amazonka.EC2.Types.StatisticType
     Amazonka.EC2.Types.StatusName
     Amazonka.EC2.Types.StatusType
     Amazonka.EC2.Types.Storage
@@ -1362,6 +1411,7 @@ library
     Amazonka.EC2.Types.SubnetCidrReservationType
     Amazonka.EC2.Types.SubnetIpv6CidrBlockAssociation
     Amazonka.EC2.Types.SubnetState
+    Amazonka.EC2.Types.Subscription
     Amazonka.EC2.Types.SuccessfulInstanceCreditSpecificationItem
     Amazonka.EC2.Types.SuccessfulQueuedPurchaseDeletion
     Amazonka.EC2.Types.SummaryStatus
@@ -1458,6 +1508,7 @@ library
     Amazonka.EC2.Types.TransitGatewayVpcAttachmentOptions
     Amazonka.EC2.Types.TransportProtocol
     Amazonka.EC2.Types.TrunkInterfaceAssociation
+    Amazonka.EC2.Types.TrustProviderType
     Amazonka.EC2.Types.TunnelInsideIpVersion
     Amazonka.EC2.Types.TunnelOption
     Amazonka.EC2.Types.UnlimitedSupportedInstanceFamily
@@ -1471,11 +1522,35 @@ library
     Amazonka.EC2.Types.UserBucketDetails
     Amazonka.EC2.Types.UserData
     Amazonka.EC2.Types.UserIdGroupPair
+    Amazonka.EC2.Types.UserTrustProviderType
     Amazonka.EC2.Types.ValidationError
     Amazonka.EC2.Types.ValidationWarning
     Amazonka.EC2.Types.VCpuCountRange
     Amazonka.EC2.Types.VCpuCountRangeRequest
     Amazonka.EC2.Types.VCpuInfo
+    Amazonka.EC2.Types.VerifiedAccessEndpoint
+    Amazonka.EC2.Types.VerifiedAccessEndpointAttachmentType
+    Amazonka.EC2.Types.VerifiedAccessEndpointEniOptions
+    Amazonka.EC2.Types.VerifiedAccessEndpointLoadBalancerOptions
+    Amazonka.EC2.Types.VerifiedAccessEndpointProtocol
+    Amazonka.EC2.Types.VerifiedAccessEndpointStatus
+    Amazonka.EC2.Types.VerifiedAccessEndpointStatusCode
+    Amazonka.EC2.Types.VerifiedAccessEndpointType
+    Amazonka.EC2.Types.VerifiedAccessGroup
+    Amazonka.EC2.Types.VerifiedAccessInstance
+    Amazonka.EC2.Types.VerifiedAccessInstanceLoggingConfiguration
+    Amazonka.EC2.Types.VerifiedAccessLogCloudWatchLogsDestination
+    Amazonka.EC2.Types.VerifiedAccessLogCloudWatchLogsDestinationOptions
+    Amazonka.EC2.Types.VerifiedAccessLogDeliveryStatus
+    Amazonka.EC2.Types.VerifiedAccessLogDeliveryStatusCode
+    Amazonka.EC2.Types.VerifiedAccessLogKinesisDataFirehoseDestination
+    Amazonka.EC2.Types.VerifiedAccessLogKinesisDataFirehoseDestinationOptions
+    Amazonka.EC2.Types.VerifiedAccessLogOptions
+    Amazonka.EC2.Types.VerifiedAccessLogs
+    Amazonka.EC2.Types.VerifiedAccessLogS3Destination
+    Amazonka.EC2.Types.VerifiedAccessLogS3DestinationOptions
+    Amazonka.EC2.Types.VerifiedAccessTrustProvider
+    Amazonka.EC2.Types.VerifiedAccessTrustProviderCondensed
     Amazonka.EC2.Types.VgwTelemetry
     Amazonka.EC2.Types.VirtualizationType
     Amazonka.EC2.Types.Volume

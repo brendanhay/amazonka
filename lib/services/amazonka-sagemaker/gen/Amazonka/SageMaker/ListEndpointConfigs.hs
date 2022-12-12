@@ -29,13 +29,13 @@ module Amazonka.SageMaker.ListEndpointConfigs
     newListEndpointConfigs,
 
     -- * Request Lenses
-    listEndpointConfigs_sortOrder,
-    listEndpointConfigs_nextToken,
-    listEndpointConfigs_nameContains,
-    listEndpointConfigs_creationTimeBefore,
-    listEndpointConfigs_sortBy,
-    listEndpointConfigs_maxResults,
     listEndpointConfigs_creationTimeAfter,
+    listEndpointConfigs_creationTimeBefore,
+    listEndpointConfigs_maxResults,
+    listEndpointConfigs_nameContains,
+    listEndpointConfigs_nextToken,
+    listEndpointConfigs_sortBy,
+    listEndpointConfigs_sortOrder,
 
     -- * Destructuring the Response
     ListEndpointConfigsResponse (..),
@@ -58,25 +58,25 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newListEndpointConfigs' smart constructor.
 data ListEndpointConfigs = ListEndpointConfigs'
-  { -- | The sort order for results. The default is @Descending@.
-    sortOrder :: Prelude.Maybe OrderKey,
+  { -- | A filter that returns only endpoint configurations with a creation time
+    -- greater than or equal to the specified time (timestamp).
+    creationTimeAfter :: Prelude.Maybe Data.POSIX,
+    -- | A filter that returns only endpoint configurations created before the
+    -- specified time (timestamp).
+    creationTimeBefore :: Prelude.Maybe Data.POSIX,
+    -- | The maximum number of training jobs to return in the response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A string in the endpoint configuration name. This filter returns only
+    -- endpoint configurations whose name contains the specified string.
+    nameContains :: Prelude.Maybe Prelude.Text,
     -- | If the result of the previous @ListEndpointConfig@ request was
     -- truncated, the response includes a @NextToken@. To retrieve the next set
     -- of endpoint configurations, use the token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A string in the endpoint configuration name. This filter returns only
-    -- endpoint configurations whose name contains the specified string.
-    nameContains :: Prelude.Maybe Prelude.Text,
-    -- | A filter that returns only endpoint configurations created before the
-    -- specified time (timestamp).
-    creationTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | The field to sort results by. The default is @CreationTime@.
     sortBy :: Prelude.Maybe EndpointConfigSortKey,
-    -- | The maximum number of training jobs to return in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | A filter that returns only endpoint configurations with a creation time
-    -- greater than or equal to the specified time (timestamp).
-    creationTimeAfter :: Prelude.Maybe Data.POSIX
+    -- | The sort order for results. The default is @Descending@.
+    sortOrder :: Prelude.Maybe OrderKey
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -88,40 +88,56 @@ data ListEndpointConfigs = ListEndpointConfigs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listEndpointConfigs_sortOrder' - The sort order for results. The default is @Descending@.
+-- 'creationTimeAfter', 'listEndpointConfigs_creationTimeAfter' - A filter that returns only endpoint configurations with a creation time
+-- greater than or equal to the specified time (timestamp).
+--
+-- 'creationTimeBefore', 'listEndpointConfigs_creationTimeBefore' - A filter that returns only endpoint configurations created before the
+-- specified time (timestamp).
+--
+-- 'maxResults', 'listEndpointConfigs_maxResults' - The maximum number of training jobs to return in the response.
+--
+-- 'nameContains', 'listEndpointConfigs_nameContains' - A string in the endpoint configuration name. This filter returns only
+-- endpoint configurations whose name contains the specified string.
 --
 -- 'nextToken', 'listEndpointConfigs_nextToken' - If the result of the previous @ListEndpointConfig@ request was
 -- truncated, the response includes a @NextToken@. To retrieve the next set
 -- of endpoint configurations, use the token in the next request.
 --
--- 'nameContains', 'listEndpointConfigs_nameContains' - A string in the endpoint configuration name. This filter returns only
--- endpoint configurations whose name contains the specified string.
---
--- 'creationTimeBefore', 'listEndpointConfigs_creationTimeBefore' - A filter that returns only endpoint configurations created before the
--- specified time (timestamp).
---
 -- 'sortBy', 'listEndpointConfigs_sortBy' - The field to sort results by. The default is @CreationTime@.
 --
--- 'maxResults', 'listEndpointConfigs_maxResults' - The maximum number of training jobs to return in the response.
---
--- 'creationTimeAfter', 'listEndpointConfigs_creationTimeAfter' - A filter that returns only endpoint configurations with a creation time
--- greater than or equal to the specified time (timestamp).
+-- 'sortOrder', 'listEndpointConfigs_sortOrder' - The sort order for results. The default is @Descending@.
 newListEndpointConfigs ::
   ListEndpointConfigs
 newListEndpointConfigs =
   ListEndpointConfigs'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      nameContains = Prelude.Nothing,
+    { creationTimeAfter =
+        Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      creationTimeAfter = Prelude.Nothing
+      nameContains = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      sortOrder = Prelude.Nothing
     }
 
--- | The sort order for results. The default is @Descending@.
-listEndpointConfigs_sortOrder :: Lens.Lens' ListEndpointConfigs (Prelude.Maybe OrderKey)
-listEndpointConfigs_sortOrder = Lens.lens (\ListEndpointConfigs' {sortOrder} -> sortOrder) (\s@ListEndpointConfigs' {} a -> s {sortOrder = a} :: ListEndpointConfigs)
+-- | A filter that returns only endpoint configurations with a creation time
+-- greater than or equal to the specified time (timestamp).
+listEndpointConfigs_creationTimeAfter :: Lens.Lens' ListEndpointConfigs (Prelude.Maybe Prelude.UTCTime)
+listEndpointConfigs_creationTimeAfter = Lens.lens (\ListEndpointConfigs' {creationTimeAfter} -> creationTimeAfter) (\s@ListEndpointConfigs' {} a -> s {creationTimeAfter = a} :: ListEndpointConfigs) Prelude.. Lens.mapping Data._Time
+
+-- | A filter that returns only endpoint configurations created before the
+-- specified time (timestamp).
+listEndpointConfigs_creationTimeBefore :: Lens.Lens' ListEndpointConfigs (Prelude.Maybe Prelude.UTCTime)
+listEndpointConfigs_creationTimeBefore = Lens.lens (\ListEndpointConfigs' {creationTimeBefore} -> creationTimeBefore) (\s@ListEndpointConfigs' {} a -> s {creationTimeBefore = a} :: ListEndpointConfigs) Prelude.. Lens.mapping Data._Time
+
+-- | The maximum number of training jobs to return in the response.
+listEndpointConfigs_maxResults :: Lens.Lens' ListEndpointConfigs (Prelude.Maybe Prelude.Natural)
+listEndpointConfigs_maxResults = Lens.lens (\ListEndpointConfigs' {maxResults} -> maxResults) (\s@ListEndpointConfigs' {} a -> s {maxResults = a} :: ListEndpointConfigs)
+
+-- | A string in the endpoint configuration name. This filter returns only
+-- endpoint configurations whose name contains the specified string.
+listEndpointConfigs_nameContains :: Lens.Lens' ListEndpointConfigs (Prelude.Maybe Prelude.Text)
+listEndpointConfigs_nameContains = Lens.lens (\ListEndpointConfigs' {nameContains} -> nameContains) (\s@ListEndpointConfigs' {} a -> s {nameContains = a} :: ListEndpointConfigs)
 
 -- | If the result of the previous @ListEndpointConfig@ request was
 -- truncated, the response includes a @NextToken@. To retrieve the next set
@@ -129,28 +145,13 @@ listEndpointConfigs_sortOrder = Lens.lens (\ListEndpointConfigs' {sortOrder} -> 
 listEndpointConfigs_nextToken :: Lens.Lens' ListEndpointConfigs (Prelude.Maybe Prelude.Text)
 listEndpointConfigs_nextToken = Lens.lens (\ListEndpointConfigs' {nextToken} -> nextToken) (\s@ListEndpointConfigs' {} a -> s {nextToken = a} :: ListEndpointConfigs)
 
--- | A string in the endpoint configuration name. This filter returns only
--- endpoint configurations whose name contains the specified string.
-listEndpointConfigs_nameContains :: Lens.Lens' ListEndpointConfigs (Prelude.Maybe Prelude.Text)
-listEndpointConfigs_nameContains = Lens.lens (\ListEndpointConfigs' {nameContains} -> nameContains) (\s@ListEndpointConfigs' {} a -> s {nameContains = a} :: ListEndpointConfigs)
-
--- | A filter that returns only endpoint configurations created before the
--- specified time (timestamp).
-listEndpointConfigs_creationTimeBefore :: Lens.Lens' ListEndpointConfigs (Prelude.Maybe Prelude.UTCTime)
-listEndpointConfigs_creationTimeBefore = Lens.lens (\ListEndpointConfigs' {creationTimeBefore} -> creationTimeBefore) (\s@ListEndpointConfigs' {} a -> s {creationTimeBefore = a} :: ListEndpointConfigs) Prelude.. Lens.mapping Data._Time
-
 -- | The field to sort results by. The default is @CreationTime@.
 listEndpointConfigs_sortBy :: Lens.Lens' ListEndpointConfigs (Prelude.Maybe EndpointConfigSortKey)
 listEndpointConfigs_sortBy = Lens.lens (\ListEndpointConfigs' {sortBy} -> sortBy) (\s@ListEndpointConfigs' {} a -> s {sortBy = a} :: ListEndpointConfigs)
 
--- | The maximum number of training jobs to return in the response.
-listEndpointConfigs_maxResults :: Lens.Lens' ListEndpointConfigs (Prelude.Maybe Prelude.Natural)
-listEndpointConfigs_maxResults = Lens.lens (\ListEndpointConfigs' {maxResults} -> maxResults) (\s@ListEndpointConfigs' {} a -> s {maxResults = a} :: ListEndpointConfigs)
-
--- | A filter that returns only endpoint configurations with a creation time
--- greater than or equal to the specified time (timestamp).
-listEndpointConfigs_creationTimeAfter :: Lens.Lens' ListEndpointConfigs (Prelude.Maybe Prelude.UTCTime)
-listEndpointConfigs_creationTimeAfter = Lens.lens (\ListEndpointConfigs' {creationTimeAfter} -> creationTimeAfter) (\s@ListEndpointConfigs' {} a -> s {creationTimeAfter = a} :: ListEndpointConfigs) Prelude.. Lens.mapping Data._Time
+-- | The sort order for results. The default is @Descending@.
+listEndpointConfigs_sortOrder :: Lens.Lens' ListEndpointConfigs (Prelude.Maybe OrderKey)
+listEndpointConfigs_sortOrder = Lens.lens (\ListEndpointConfigs' {sortOrder} -> sortOrder) (\s@ListEndpointConfigs' {} a -> s {sortOrder = a} :: ListEndpointConfigs)
 
 instance Core.AWSPager ListEndpointConfigs where
   page rq rs
@@ -192,23 +193,23 @@ instance Core.AWSRequest ListEndpointConfigs where
 
 instance Prelude.Hashable ListEndpointConfigs where
   hashWithSalt _salt ListEndpointConfigs' {..} =
-    _salt `Prelude.hashWithSalt` sortOrder
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` nameContains
+    _salt `Prelude.hashWithSalt` creationTimeAfter
       `Prelude.hashWithSalt` creationTimeBefore
-      `Prelude.hashWithSalt` sortBy
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` creationTimeAfter
+      `Prelude.hashWithSalt` nameContains
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` sortOrder
 
 instance Prelude.NFData ListEndpointConfigs where
   rnf ListEndpointConfigs' {..} =
-    Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf nameContains
+    Prelude.rnf creationTimeAfter
       `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf sortBy
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf creationTimeAfter
+      `Prelude.seq` Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListEndpointConfigs where
   toHeaders =
@@ -229,15 +230,15 @@ instance Data.ToJSON ListEndpointConfigs where
   toJSON ListEndpointConfigs' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
-            ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("NameContains" Data..=) Prelude.<$> nameContains,
+          [ ("CreationTimeAfter" Data..=)
+              Prelude.<$> creationTimeAfter,
             ("CreationTimeBefore" Data..=)
               Prelude.<$> creationTimeBefore,
-            ("SortBy" Data..=) Prelude.<$> sortBy,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("CreationTimeAfter" Data..=)
-              Prelude.<$> creationTimeAfter
+            ("NameContains" Data..=) Prelude.<$> nameContains,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("SortOrder" Data..=) Prelude.<$> sortOrder
           ]
       )
 

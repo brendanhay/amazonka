@@ -29,12 +29,12 @@ import Amazonka.PrivateNetworks.Types.NetworkStatus
 --
 -- /See:/ 'newNetwork' smart constructor.
 data Network = Network'
-  { -- | The status reason of the network.
-    statusReason :: Prelude.Maybe Prelude.Text,
+  { -- | The creation time of the network.
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The description of the network.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The creation time of the network.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | The status reason of the network.
+    statusReason :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the network.
     networkArn :: Prelude.Text,
     -- | The name of the network.
@@ -52,11 +52,11 @@ data Network = Network'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statusReason', 'network_statusReason' - The status reason of the network.
+-- 'createdAt', 'network_createdAt' - The creation time of the network.
 --
 -- 'description', 'network_description' - The description of the network.
 --
--- 'createdAt', 'network_createdAt' - The creation time of the network.
+-- 'statusReason', 'network_statusReason' - The status reason of the network.
 --
 -- 'networkArn', 'network_networkArn' - The Amazon Resource Name (ARN) of the network.
 --
@@ -73,25 +73,25 @@ newNetwork ::
   Network
 newNetwork pNetworkArn_ pNetworkName_ pStatus_ =
   Network'
-    { statusReason = Prelude.Nothing,
+    { createdAt = Prelude.Nothing,
       description = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
+      statusReason = Prelude.Nothing,
       networkArn = pNetworkArn_,
       networkName = pNetworkName_,
       status = pStatus_
     }
 
--- | The status reason of the network.
-network_statusReason :: Lens.Lens' Network (Prelude.Maybe Prelude.Text)
-network_statusReason = Lens.lens (\Network' {statusReason} -> statusReason) (\s@Network' {} a -> s {statusReason = a} :: Network)
+-- | The creation time of the network.
+network_createdAt :: Lens.Lens' Network (Prelude.Maybe Prelude.UTCTime)
+network_createdAt = Lens.lens (\Network' {createdAt} -> createdAt) (\s@Network' {} a -> s {createdAt = a} :: Network) Prelude.. Lens.mapping Data._Time
 
 -- | The description of the network.
 network_description :: Lens.Lens' Network (Prelude.Maybe Prelude.Text)
 network_description = Lens.lens (\Network' {description} -> description) (\s@Network' {} a -> s {description = a} :: Network)
 
--- | The creation time of the network.
-network_createdAt :: Lens.Lens' Network (Prelude.Maybe Prelude.UTCTime)
-network_createdAt = Lens.lens (\Network' {createdAt} -> createdAt) (\s@Network' {} a -> s {createdAt = a} :: Network) Prelude.. Lens.mapping Data._Time
+-- | The status reason of the network.
+network_statusReason :: Lens.Lens' Network (Prelude.Maybe Prelude.Text)
+network_statusReason = Lens.lens (\Network' {statusReason} -> statusReason) (\s@Network' {} a -> s {statusReason = a} :: Network)
 
 -- | The Amazon Resource Name (ARN) of the network.
 network_networkArn :: Lens.Lens' Network Prelude.Text
@@ -111,9 +111,9 @@ instance Data.FromJSON Network where
       "Network"
       ( \x ->
           Network'
-            Prelude.<$> (x Data..:? "statusReason")
+            Prelude.<$> (x Data..:? "createdAt")
             Prelude.<*> (x Data..:? "description")
-            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "statusReason")
             Prelude.<*> (x Data..: "networkArn")
             Prelude.<*> (x Data..: "networkName")
             Prelude.<*> (x Data..: "status")
@@ -121,18 +121,18 @@ instance Data.FromJSON Network where
 
 instance Prelude.Hashable Network where
   hashWithSalt _salt Network' {..} =
-    _salt `Prelude.hashWithSalt` statusReason
+    _salt `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` statusReason
       `Prelude.hashWithSalt` networkArn
       `Prelude.hashWithSalt` networkName
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData Network where
   rnf Network' {..} =
-    Prelude.rnf statusReason
+    Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf statusReason
       `Prelude.seq` Prelude.rnf networkArn
       `Prelude.seq` Prelude.rnf networkName
       `Prelude.seq` Prelude.rnf status

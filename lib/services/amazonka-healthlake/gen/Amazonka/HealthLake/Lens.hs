@@ -15,11 +15,11 @@ module Amazonka.HealthLake.Lens
   ( -- * Operations
 
     -- ** CreateFHIRDatastore
-    createFHIRDatastore_tags,
     createFHIRDatastore_clientToken,
     createFHIRDatastore_datastoreName,
-    createFHIRDatastore_sseConfiguration,
     createFHIRDatastore_preloadDataConfig,
+    createFHIRDatastore_sseConfiguration,
+    createFHIRDatastore_tags,
     createFHIRDatastore_datastoreTypeVersion,
     createFHIRDatastoreResponse_httpStatus,
     createFHIRDatastoreResponse_datastoreId,
@@ -53,32 +53,32 @@ module Amazonka.HealthLake.Lens
     describeFHIRImportJobResponse_importJobProperties,
 
     -- ** ListFHIRDatastores
-    listFHIRDatastores_nextToken,
     listFHIRDatastores_filter,
     listFHIRDatastores_maxResults,
+    listFHIRDatastores_nextToken,
     listFHIRDatastoresResponse_nextToken,
     listFHIRDatastoresResponse_httpStatus,
     listFHIRDatastoresResponse_datastorePropertiesList,
 
     -- ** ListFHIRExportJobs
-    listFHIRExportJobs_nextToken,
-    listFHIRExportJobs_jobStatus,
     listFHIRExportJobs_jobName,
-    listFHIRExportJobs_submittedBefore,
-    listFHIRExportJobs_submittedAfter,
+    listFHIRExportJobs_jobStatus,
     listFHIRExportJobs_maxResults,
+    listFHIRExportJobs_nextToken,
+    listFHIRExportJobs_submittedAfter,
+    listFHIRExportJobs_submittedBefore,
     listFHIRExportJobs_datastoreId,
     listFHIRExportJobsResponse_nextToken,
     listFHIRExportJobsResponse_httpStatus,
     listFHIRExportJobsResponse_exportJobPropertiesList,
 
     -- ** ListFHIRImportJobs
-    listFHIRImportJobs_nextToken,
-    listFHIRImportJobs_jobStatus,
     listFHIRImportJobs_jobName,
-    listFHIRImportJobs_submittedBefore,
-    listFHIRImportJobs_submittedAfter,
+    listFHIRImportJobs_jobStatus,
     listFHIRImportJobs_maxResults,
+    listFHIRImportJobs_nextToken,
+    listFHIRImportJobs_submittedAfter,
+    listFHIRImportJobs_submittedBefore,
     listFHIRImportJobs_datastoreId,
     listFHIRImportJobsResponse_nextToken,
     listFHIRImportJobsResponse_httpStatus,
@@ -125,16 +125,16 @@ module Amazonka.HealthLake.Lens
     -- * Types
 
     -- ** DatastoreFilter
+    datastoreFilter_createdAfter,
     datastoreFilter_createdBefore,
     datastoreFilter_datastoreName,
-    datastoreFilter_createdAfter,
     datastoreFilter_datastoreStatus,
 
     -- ** DatastoreProperties
-    datastoreProperties_datastoreName,
-    datastoreProperties_sseConfiguration,
-    datastoreProperties_preloadDataConfig,
     datastoreProperties_createdAt,
+    datastoreProperties_datastoreName,
+    datastoreProperties_preloadDataConfig,
+    datastoreProperties_sseConfiguration,
     datastoreProperties_datastoreId,
     datastoreProperties_datastoreArn,
     datastoreProperties_datastoreStatus,
@@ -142,10 +142,10 @@ module Amazonka.HealthLake.Lens
     datastoreProperties_datastoreEndpoint,
 
     -- ** ExportJobProperties
-    exportJobProperties_message,
-    exportJobProperties_jobName,
     exportJobProperties_dataAccessRoleArn,
     exportJobProperties_endTime,
+    exportJobProperties_jobName,
+    exportJobProperties_message,
     exportJobProperties_jobId,
     exportJobProperties_jobStatus,
     exportJobProperties_submitTime,
@@ -153,11 +153,11 @@ module Amazonka.HealthLake.Lens
     exportJobProperties_outputDataConfig,
 
     -- ** ImportJobProperties
-    importJobProperties_message,
-    importJobProperties_jobName,
-    importJobProperties_jobOutputDataConfig,
     importJobProperties_dataAccessRoleArn,
     importJobProperties_endTime,
+    importJobProperties_jobName,
+    importJobProperties_jobOutputDataConfig,
+    importJobProperties_message,
     importJobProperties_jobId,
     importJobProperties_jobStatus,
     importJobProperties_submitTime,

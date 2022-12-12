@@ -23,27 +23,30 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.MigrationHubStrategy.Types.CollectorHealth
+import Amazonka.MigrationHubStrategy.Types.ConfigurationSummary
 import qualified Amazonka.Prelude as Prelude
 
 -- | Process data collector that runs in the environment that you specify.
 --
 -- /See:/ 'newCollector' smart constructor.
 data Collector = Collector'
-  { -- | Time when the collector last pinged the service.
-    lastActivityTimeStamp :: Prelude.Maybe Prelude.Text,
-    -- | Time when the collector registered with the service.
-    registeredTimeStamp :: Prelude.Maybe Prelude.Text,
-    -- | Hostname of the server that is hosting the collector.
-    hostName :: Prelude.Maybe Prelude.Text,
+  { -- | Indicates the health of a collector.
+    collectorHealth :: Prelude.Maybe CollectorHealth,
     -- | The ID of the collector.
     collectorId :: Prelude.Maybe Prelude.Text,
     -- | Current version of the collector that is running in the environment that
     -- you specify.
     collectorVersion :: Prelude.Maybe Prelude.Text,
-    -- | Indicates the health of a collector.
-    collectorHealth :: Prelude.Maybe CollectorHealth,
+    -- | Summary of the collector configuration.
+    configurationSummary :: Prelude.Maybe ConfigurationSummary,
+    -- | Hostname of the server that is hosting the collector.
+    hostName :: Prelude.Maybe Prelude.Text,
     -- | IP address of the server that is hosting the collector.
-    ipAddress :: Prelude.Maybe Prelude.Text
+    ipAddress :: Prelude.Maybe Prelude.Text,
+    -- | Time when the collector last pinged the service.
+    lastActivityTimeStamp :: Prelude.Maybe Prelude.Text,
+    -- | Time when the collector registered with the service.
+    registeredTimeStamp :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,44 +58,39 @@ data Collector = Collector'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastActivityTimeStamp', 'collector_lastActivityTimeStamp' - Time when the collector last pinged the service.
---
--- 'registeredTimeStamp', 'collector_registeredTimeStamp' - Time when the collector registered with the service.
---
--- 'hostName', 'collector_hostName' - Hostname of the server that is hosting the collector.
+-- 'collectorHealth', 'collector_collectorHealth' - Indicates the health of a collector.
 --
 -- 'collectorId', 'collector_collectorId' - The ID of the collector.
 --
 -- 'collectorVersion', 'collector_collectorVersion' - Current version of the collector that is running in the environment that
 -- you specify.
 --
--- 'collectorHealth', 'collector_collectorHealth' - Indicates the health of a collector.
+-- 'configurationSummary', 'collector_configurationSummary' - Summary of the collector configuration.
+--
+-- 'hostName', 'collector_hostName' - Hostname of the server that is hosting the collector.
 --
 -- 'ipAddress', 'collector_ipAddress' - IP address of the server that is hosting the collector.
+--
+-- 'lastActivityTimeStamp', 'collector_lastActivityTimeStamp' - Time when the collector last pinged the service.
+--
+-- 'registeredTimeStamp', 'collector_registeredTimeStamp' - Time when the collector registered with the service.
 newCollector ::
   Collector
 newCollector =
   Collector'
-    { lastActivityTimeStamp = Prelude.Nothing,
-      registeredTimeStamp = Prelude.Nothing,
-      hostName = Prelude.Nothing,
+    { collectorHealth = Prelude.Nothing,
       collectorId = Prelude.Nothing,
       collectorVersion = Prelude.Nothing,
-      collectorHealth = Prelude.Nothing,
-      ipAddress = Prelude.Nothing
+      configurationSummary = Prelude.Nothing,
+      hostName = Prelude.Nothing,
+      ipAddress = Prelude.Nothing,
+      lastActivityTimeStamp = Prelude.Nothing,
+      registeredTimeStamp = Prelude.Nothing
     }
 
--- | Time when the collector last pinged the service.
-collector_lastActivityTimeStamp :: Lens.Lens' Collector (Prelude.Maybe Prelude.Text)
-collector_lastActivityTimeStamp = Lens.lens (\Collector' {lastActivityTimeStamp} -> lastActivityTimeStamp) (\s@Collector' {} a -> s {lastActivityTimeStamp = a} :: Collector)
-
--- | Time when the collector registered with the service.
-collector_registeredTimeStamp :: Lens.Lens' Collector (Prelude.Maybe Prelude.Text)
-collector_registeredTimeStamp = Lens.lens (\Collector' {registeredTimeStamp} -> registeredTimeStamp) (\s@Collector' {} a -> s {registeredTimeStamp = a} :: Collector)
-
--- | Hostname of the server that is hosting the collector.
-collector_hostName :: Lens.Lens' Collector (Prelude.Maybe Prelude.Text)
-collector_hostName = Lens.lens (\Collector' {hostName} -> hostName) (\s@Collector' {} a -> s {hostName = a} :: Collector)
+-- | Indicates the health of a collector.
+collector_collectorHealth :: Lens.Lens' Collector (Prelude.Maybe CollectorHealth)
+collector_collectorHealth = Lens.lens (\Collector' {collectorHealth} -> collectorHealth) (\s@Collector' {} a -> s {collectorHealth = a} :: Collector)
 
 -- | The ID of the collector.
 collector_collectorId :: Lens.Lens' Collector (Prelude.Maybe Prelude.Text)
@@ -103,13 +101,25 @@ collector_collectorId = Lens.lens (\Collector' {collectorId} -> collectorId) (\s
 collector_collectorVersion :: Lens.Lens' Collector (Prelude.Maybe Prelude.Text)
 collector_collectorVersion = Lens.lens (\Collector' {collectorVersion} -> collectorVersion) (\s@Collector' {} a -> s {collectorVersion = a} :: Collector)
 
--- | Indicates the health of a collector.
-collector_collectorHealth :: Lens.Lens' Collector (Prelude.Maybe CollectorHealth)
-collector_collectorHealth = Lens.lens (\Collector' {collectorHealth} -> collectorHealth) (\s@Collector' {} a -> s {collectorHealth = a} :: Collector)
+-- | Summary of the collector configuration.
+collector_configurationSummary :: Lens.Lens' Collector (Prelude.Maybe ConfigurationSummary)
+collector_configurationSummary = Lens.lens (\Collector' {configurationSummary} -> configurationSummary) (\s@Collector' {} a -> s {configurationSummary = a} :: Collector)
+
+-- | Hostname of the server that is hosting the collector.
+collector_hostName :: Lens.Lens' Collector (Prelude.Maybe Prelude.Text)
+collector_hostName = Lens.lens (\Collector' {hostName} -> hostName) (\s@Collector' {} a -> s {hostName = a} :: Collector)
 
 -- | IP address of the server that is hosting the collector.
 collector_ipAddress :: Lens.Lens' Collector (Prelude.Maybe Prelude.Text)
 collector_ipAddress = Lens.lens (\Collector' {ipAddress} -> ipAddress) (\s@Collector' {} a -> s {ipAddress = a} :: Collector)
+
+-- | Time when the collector last pinged the service.
+collector_lastActivityTimeStamp :: Lens.Lens' Collector (Prelude.Maybe Prelude.Text)
+collector_lastActivityTimeStamp = Lens.lens (\Collector' {lastActivityTimeStamp} -> lastActivityTimeStamp) (\s@Collector' {} a -> s {lastActivityTimeStamp = a} :: Collector)
+
+-- | Time when the collector registered with the service.
+collector_registeredTimeStamp :: Lens.Lens' Collector (Prelude.Maybe Prelude.Text)
+collector_registeredTimeStamp = Lens.lens (\Collector' {registeredTimeStamp} -> registeredTimeStamp) (\s@Collector' {} a -> s {registeredTimeStamp = a} :: Collector)
 
 instance Data.FromJSON Collector where
   parseJSON =
@@ -117,31 +127,34 @@ instance Data.FromJSON Collector where
       "Collector"
       ( \x ->
           Collector'
-            Prelude.<$> (x Data..:? "lastActivityTimeStamp")
-            Prelude.<*> (x Data..:? "registeredTimeStamp")
-            Prelude.<*> (x Data..:? "hostName")
+            Prelude.<$> (x Data..:? "collectorHealth")
             Prelude.<*> (x Data..:? "collectorId")
             Prelude.<*> (x Data..:? "collectorVersion")
-            Prelude.<*> (x Data..:? "collectorHealth")
+            Prelude.<*> (x Data..:? "configurationSummary")
+            Prelude.<*> (x Data..:? "hostName")
             Prelude.<*> (x Data..:? "ipAddress")
+            Prelude.<*> (x Data..:? "lastActivityTimeStamp")
+            Prelude.<*> (x Data..:? "registeredTimeStamp")
       )
 
 instance Prelude.Hashable Collector where
   hashWithSalt _salt Collector' {..} =
-    _salt `Prelude.hashWithSalt` lastActivityTimeStamp
-      `Prelude.hashWithSalt` registeredTimeStamp
-      `Prelude.hashWithSalt` hostName
+    _salt `Prelude.hashWithSalt` collectorHealth
       `Prelude.hashWithSalt` collectorId
       `Prelude.hashWithSalt` collectorVersion
-      `Prelude.hashWithSalt` collectorHealth
+      `Prelude.hashWithSalt` configurationSummary
+      `Prelude.hashWithSalt` hostName
       `Prelude.hashWithSalt` ipAddress
+      `Prelude.hashWithSalt` lastActivityTimeStamp
+      `Prelude.hashWithSalt` registeredTimeStamp
 
 instance Prelude.NFData Collector where
   rnf Collector' {..} =
-    Prelude.rnf lastActivityTimeStamp
-      `Prelude.seq` Prelude.rnf registeredTimeStamp
-      `Prelude.seq` Prelude.rnf hostName
+    Prelude.rnf collectorHealth
       `Prelude.seq` Prelude.rnf collectorId
       `Prelude.seq` Prelude.rnf collectorVersion
-      `Prelude.seq` Prelude.rnf collectorHealth
+      `Prelude.seq` Prelude.rnf configurationSummary
+      `Prelude.seq` Prelude.rnf hostName
       `Prelude.seq` Prelude.rnf ipAddress
+      `Prelude.seq` Prelude.rnf lastActivityTimeStamp
+      `Prelude.seq` Prelude.rnf registeredTimeStamp

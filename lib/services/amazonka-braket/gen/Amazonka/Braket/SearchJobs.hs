@@ -29,8 +29,8 @@ module Amazonka.Braket.SearchJobs
     newSearchJobs,
 
     -- * Request Lenses
-    searchJobs_nextToken,
     searchJobs_maxResults,
+    searchJobs_nextToken,
     searchJobs_filters,
 
     -- * Destructuring the Response
@@ -54,12 +54,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSearchJobs' smart constructor.
 data SearchJobs = SearchJobs'
-  { -- | A token used for pagination of results returned in the response. Use the
+  { -- | The maximum number of results to return in the response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token used for pagination of results returned in the response. Use the
     -- token returned from the previous request to continue results where the
     -- previous request ended.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The filter values to use when searching for a job.
     filters :: [SearchJobsFilter]
   }
@@ -73,31 +73,31 @@ data SearchJobs = SearchJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'searchJobs_maxResults' - The maximum number of results to return in the response.
+--
 -- 'nextToken', 'searchJobs_nextToken' - A token used for pagination of results returned in the response. Use the
 -- token returned from the previous request to continue results where the
 -- previous request ended.
---
--- 'maxResults', 'searchJobs_maxResults' - The maximum number of results to return in the response.
 --
 -- 'filters', 'searchJobs_filters' - The filter values to use when searching for a job.
 newSearchJobs ::
   SearchJobs
 newSearchJobs =
   SearchJobs'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       filters = Prelude.mempty
     }
+
+-- | The maximum number of results to return in the response.
+searchJobs_maxResults :: Lens.Lens' SearchJobs (Prelude.Maybe Prelude.Natural)
+searchJobs_maxResults = Lens.lens (\SearchJobs' {maxResults} -> maxResults) (\s@SearchJobs' {} a -> s {maxResults = a} :: SearchJobs)
 
 -- | A token used for pagination of results returned in the response. Use the
 -- token returned from the previous request to continue results where the
 -- previous request ended.
 searchJobs_nextToken :: Lens.Lens' SearchJobs (Prelude.Maybe Prelude.Text)
 searchJobs_nextToken = Lens.lens (\SearchJobs' {nextToken} -> nextToken) (\s@SearchJobs' {} a -> s {nextToken = a} :: SearchJobs)
-
--- | The maximum number of results to return in the response.
-searchJobs_maxResults :: Lens.Lens' SearchJobs (Prelude.Maybe Prelude.Natural)
-searchJobs_maxResults = Lens.lens (\SearchJobs' {maxResults} -> maxResults) (\s@SearchJobs' {} a -> s {maxResults = a} :: SearchJobs)
 
 -- | The filter values to use when searching for a job.
 searchJobs_filters :: Lens.Lens' SearchJobs [SearchJobsFilter]
@@ -134,14 +134,14 @@ instance Core.AWSRequest SearchJobs where
 
 instance Prelude.Hashable SearchJobs where
   hashWithSalt _salt SearchJobs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` filters
 
 instance Prelude.NFData SearchJobs where
   rnf SearchJobs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf filters
 
 instance Data.ToHeaders SearchJobs where
@@ -159,8 +159,8 @@ instance Data.ToJSON SearchJobs where
   toJSON SearchJobs' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("filters" Data..= filters)
           ]
       )

@@ -36,11 +36,11 @@ module Amazonka.APIGateway.GetModel
     newModel,
 
     -- * Response Lenses
-    model_name,
+    model_contentType,
     model_description,
     model_id,
+    model_name,
     model_schema,
-    model_contentType,
   )
 where
 

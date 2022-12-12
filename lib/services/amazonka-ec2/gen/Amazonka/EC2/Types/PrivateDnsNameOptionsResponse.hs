@@ -31,11 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newPrivateDnsNameOptionsResponse' smart constructor.
 data PrivateDnsNameOptionsResponse = PrivateDnsNameOptionsResponse'
   { -- | Indicates whether to respond to DNS queries for instance hostnames with
-    -- DNS A records.
-    enableResourceNameDnsARecord :: Prelude.Maybe Prelude.Bool,
-    -- | Indicates whether to respond to DNS queries for instance hostnames with
     -- DNS AAAA records.
     enableResourceNameDnsAAAARecord :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates whether to respond to DNS queries for instance hostnames with
+    -- DNS A records.
+    enableResourceNameDnsARecord :: Prelude.Maybe Prelude.Bool,
     -- | The type of hostname to assign to an instance.
     hostnameType :: Prelude.Maybe HostnameType
   }
@@ -49,33 +49,33 @@ data PrivateDnsNameOptionsResponse = PrivateDnsNameOptionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enableResourceNameDnsARecord', 'privateDnsNameOptionsResponse_enableResourceNameDnsARecord' - Indicates whether to respond to DNS queries for instance hostnames with
--- DNS A records.
---
 -- 'enableResourceNameDnsAAAARecord', 'privateDnsNameOptionsResponse_enableResourceNameDnsAAAARecord' - Indicates whether to respond to DNS queries for instance hostnames with
 -- DNS AAAA records.
+--
+-- 'enableResourceNameDnsARecord', 'privateDnsNameOptionsResponse_enableResourceNameDnsARecord' - Indicates whether to respond to DNS queries for instance hostnames with
+-- DNS A records.
 --
 -- 'hostnameType', 'privateDnsNameOptionsResponse_hostnameType' - The type of hostname to assign to an instance.
 newPrivateDnsNameOptionsResponse ::
   PrivateDnsNameOptionsResponse
 newPrivateDnsNameOptionsResponse =
   PrivateDnsNameOptionsResponse'
-    { enableResourceNameDnsARecord =
+    { enableResourceNameDnsAAAARecord =
         Prelude.Nothing,
-      enableResourceNameDnsAAAARecord =
+      enableResourceNameDnsARecord =
         Prelude.Nothing,
       hostnameType = Prelude.Nothing
     }
 
 -- | Indicates whether to respond to DNS queries for instance hostnames with
--- DNS A records.
-privateDnsNameOptionsResponse_enableResourceNameDnsARecord :: Lens.Lens' PrivateDnsNameOptionsResponse (Prelude.Maybe Prelude.Bool)
-privateDnsNameOptionsResponse_enableResourceNameDnsARecord = Lens.lens (\PrivateDnsNameOptionsResponse' {enableResourceNameDnsARecord} -> enableResourceNameDnsARecord) (\s@PrivateDnsNameOptionsResponse' {} a -> s {enableResourceNameDnsARecord = a} :: PrivateDnsNameOptionsResponse)
-
--- | Indicates whether to respond to DNS queries for instance hostnames with
 -- DNS AAAA records.
 privateDnsNameOptionsResponse_enableResourceNameDnsAAAARecord :: Lens.Lens' PrivateDnsNameOptionsResponse (Prelude.Maybe Prelude.Bool)
 privateDnsNameOptionsResponse_enableResourceNameDnsAAAARecord = Lens.lens (\PrivateDnsNameOptionsResponse' {enableResourceNameDnsAAAARecord} -> enableResourceNameDnsAAAARecord) (\s@PrivateDnsNameOptionsResponse' {} a -> s {enableResourceNameDnsAAAARecord = a} :: PrivateDnsNameOptionsResponse)
+
+-- | Indicates whether to respond to DNS queries for instance hostnames with
+-- DNS A records.
+privateDnsNameOptionsResponse_enableResourceNameDnsARecord :: Lens.Lens' PrivateDnsNameOptionsResponse (Prelude.Maybe Prelude.Bool)
+privateDnsNameOptionsResponse_enableResourceNameDnsARecord = Lens.lens (\PrivateDnsNameOptionsResponse' {enableResourceNameDnsARecord} -> enableResourceNameDnsARecord) (\s@PrivateDnsNameOptionsResponse' {} a -> s {enableResourceNameDnsARecord = a} :: PrivateDnsNameOptionsResponse)
 
 -- | The type of hostname to assign to an instance.
 privateDnsNameOptionsResponse_hostnameType :: Lens.Lens' PrivateDnsNameOptionsResponse (Prelude.Maybe HostnameType)
@@ -84,8 +84,8 @@ privateDnsNameOptionsResponse_hostnameType = Lens.lens (\PrivateDnsNameOptionsRe
 instance Data.FromXML PrivateDnsNameOptionsResponse where
   parseXML x =
     PrivateDnsNameOptionsResponse'
-      Prelude.<$> (x Data..@? "enableResourceNameDnsARecord")
-      Prelude.<*> (x Data..@? "enableResourceNameDnsAAAARecord")
+      Prelude.<$> (x Data..@? "enableResourceNameDnsAAAARecord")
+      Prelude.<*> (x Data..@? "enableResourceNameDnsARecord")
       Prelude.<*> (x Data..@? "hostnameType")
 
 instance
@@ -94,12 +94,12 @@ instance
   where
   hashWithSalt _salt PrivateDnsNameOptionsResponse' {..} =
     _salt
-      `Prelude.hashWithSalt` enableResourceNameDnsARecord
       `Prelude.hashWithSalt` enableResourceNameDnsAAAARecord
+      `Prelude.hashWithSalt` enableResourceNameDnsARecord
       `Prelude.hashWithSalt` hostnameType
 
 instance Prelude.NFData PrivateDnsNameOptionsResponse where
   rnf PrivateDnsNameOptionsResponse' {..} =
-    Prelude.rnf enableResourceNameDnsARecord
-      `Prelude.seq` Prelude.rnf enableResourceNameDnsAAAARecord
+    Prelude.rnf enableResourceNameDnsAAAARecord
+      `Prelude.seq` Prelude.rnf enableResourceNameDnsARecord
       `Prelude.seq` Prelude.rnf hostnameType

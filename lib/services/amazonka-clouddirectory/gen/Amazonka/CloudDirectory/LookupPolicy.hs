@@ -36,8 +36,8 @@ module Amazonka.CloudDirectory.LookupPolicy
     newLookupPolicy,
 
     -- * Request Lenses
-    lookupPolicy_nextToken,
     lookupPolicy_maxResults,
+    lookupPolicy_nextToken,
     lookupPolicy_directoryArn,
     lookupPolicy_objectReference,
 
@@ -62,11 +62,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newLookupPolicy' smart constructor.
 data LookupPolicy = LookupPolicy'
-  { -- | The token to request the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to be retrieved in a single call. This is an
+  { -- | The maximum number of items to be retrieved in a single call. This is an
     -- approximate number.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to request the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) that is associated with the Directory.
     -- For more information, see arns.
     directoryArn :: Prelude.Text,
@@ -83,10 +83,10 @@ data LookupPolicy = LookupPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'lookupPolicy_nextToken' - The token to request the next page of results.
---
 -- 'maxResults', 'lookupPolicy_maxResults' - The maximum number of items to be retrieved in a single call. This is an
 -- approximate number.
+--
+-- 'nextToken', 'lookupPolicy_nextToken' - The token to request the next page of results.
 --
 -- 'directoryArn', 'lookupPolicy_directoryArn' - The Amazon Resource Name (ARN) that is associated with the Directory.
 -- For more information, see arns.
@@ -100,20 +100,20 @@ newLookupPolicy ::
   LookupPolicy
 newLookupPolicy pDirectoryArn_ pObjectReference_ =
   LookupPolicy'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       directoryArn = pDirectoryArn_,
       objectReference = pObjectReference_
     }
-
--- | The token to request the next page of results.
-lookupPolicy_nextToken :: Lens.Lens' LookupPolicy (Prelude.Maybe Prelude.Text)
-lookupPolicy_nextToken = Lens.lens (\LookupPolicy' {nextToken} -> nextToken) (\s@LookupPolicy' {} a -> s {nextToken = a} :: LookupPolicy)
 
 -- | The maximum number of items to be retrieved in a single call. This is an
 -- approximate number.
 lookupPolicy_maxResults :: Lens.Lens' LookupPolicy (Prelude.Maybe Prelude.Natural)
 lookupPolicy_maxResults = Lens.lens (\LookupPolicy' {maxResults} -> maxResults) (\s@LookupPolicy' {} a -> s {maxResults = a} :: LookupPolicy)
+
+-- | The token to request the next page of results.
+lookupPolicy_nextToken :: Lens.Lens' LookupPolicy (Prelude.Maybe Prelude.Text)
+lookupPolicy_nextToken = Lens.lens (\LookupPolicy' {nextToken} -> nextToken) (\s@LookupPolicy' {} a -> s {nextToken = a} :: LookupPolicy)
 
 -- | The Amazon Resource Name (ARN) that is associated with the Directory.
 -- For more information, see arns.
@@ -161,15 +161,15 @@ instance Core.AWSRequest LookupPolicy where
 
 instance Prelude.Hashable LookupPolicy where
   hashWithSalt _salt LookupPolicy' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` directoryArn
       `Prelude.hashWithSalt` objectReference
 
 instance Prelude.NFData LookupPolicy where
   rnf LookupPolicy' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf directoryArn
       `Prelude.seq` Prelude.rnf objectReference
 
@@ -182,8 +182,8 @@ instance Data.ToJSON LookupPolicy where
   toJSON LookupPolicy' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("ObjectReference" Data..= objectReference)
           ]

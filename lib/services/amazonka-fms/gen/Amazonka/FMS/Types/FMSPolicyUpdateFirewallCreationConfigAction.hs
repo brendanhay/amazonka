@@ -32,12 +32,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFMSPolicyUpdateFirewallCreationConfigAction' smart constructor.
 data FMSPolicyUpdateFirewallCreationConfigAction = FMSPolicyUpdateFirewallCreationConfigAction'
-  { -- | A @FirewallCreationConfig@ that you can copy into your current policy\'s
+  { -- | Describes the remedial action.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | A @FirewallCreationConfig@ that you can copy into your current policy\'s
     -- <https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html SecurityServiceData>
     -- in order to remedy scope violations.
-    firewallCreationConfig :: Prelude.Maybe Prelude.Text,
-    -- | Describes the remedial action.
-    description :: Prelude.Maybe Prelude.Text
+    firewallCreationConfig :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,29 +49,30 @@ data FMSPolicyUpdateFirewallCreationConfigAction = FMSPolicyUpdateFirewallCreati
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'fMSPolicyUpdateFirewallCreationConfigAction_description' - Describes the remedial action.
+--
 -- 'firewallCreationConfig', 'fMSPolicyUpdateFirewallCreationConfigAction_firewallCreationConfig' - A @FirewallCreationConfig@ that you can copy into your current policy\'s
 -- <https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html SecurityServiceData>
 -- in order to remedy scope violations.
---
--- 'description', 'fMSPolicyUpdateFirewallCreationConfigAction_description' - Describes the remedial action.
 newFMSPolicyUpdateFirewallCreationConfigAction ::
   FMSPolicyUpdateFirewallCreationConfigAction
 newFMSPolicyUpdateFirewallCreationConfigAction =
   FMSPolicyUpdateFirewallCreationConfigAction'
-    { firewallCreationConfig =
+    { description =
         Prelude.Nothing,
-      description = Prelude.Nothing
+      firewallCreationConfig =
+        Prelude.Nothing
     }
+
+-- | Describes the remedial action.
+fMSPolicyUpdateFirewallCreationConfigAction_description :: Lens.Lens' FMSPolicyUpdateFirewallCreationConfigAction (Prelude.Maybe Prelude.Text)
+fMSPolicyUpdateFirewallCreationConfigAction_description = Lens.lens (\FMSPolicyUpdateFirewallCreationConfigAction' {description} -> description) (\s@FMSPolicyUpdateFirewallCreationConfigAction' {} a -> s {description = a} :: FMSPolicyUpdateFirewallCreationConfigAction)
 
 -- | A @FirewallCreationConfig@ that you can copy into your current policy\'s
 -- <https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html SecurityServiceData>
 -- in order to remedy scope violations.
 fMSPolicyUpdateFirewallCreationConfigAction_firewallCreationConfig :: Lens.Lens' FMSPolicyUpdateFirewallCreationConfigAction (Prelude.Maybe Prelude.Text)
 fMSPolicyUpdateFirewallCreationConfigAction_firewallCreationConfig = Lens.lens (\FMSPolicyUpdateFirewallCreationConfigAction' {firewallCreationConfig} -> firewallCreationConfig) (\s@FMSPolicyUpdateFirewallCreationConfigAction' {} a -> s {firewallCreationConfig = a} :: FMSPolicyUpdateFirewallCreationConfigAction)
-
--- | Describes the remedial action.
-fMSPolicyUpdateFirewallCreationConfigAction_description :: Lens.Lens' FMSPolicyUpdateFirewallCreationConfigAction (Prelude.Maybe Prelude.Text)
-fMSPolicyUpdateFirewallCreationConfigAction_description = Lens.lens (\FMSPolicyUpdateFirewallCreationConfigAction' {description} -> description) (\s@FMSPolicyUpdateFirewallCreationConfigAction' {} a -> s {description = a} :: FMSPolicyUpdateFirewallCreationConfigAction)
 
 instance
   Data.FromJSON
@@ -82,8 +83,8 @@ instance
       "FMSPolicyUpdateFirewallCreationConfigAction"
       ( \x ->
           FMSPolicyUpdateFirewallCreationConfigAction'
-            Prelude.<$> (x Data..:? "FirewallCreationConfig")
-              Prelude.<*> (x Data..:? "Description")
+            Prelude.<$> (x Data..:? "Description")
+              Prelude.<*> (x Data..:? "FirewallCreationConfig")
       )
 
 instance
@@ -93,13 +94,13 @@ instance
   hashWithSalt
     _salt
     FMSPolicyUpdateFirewallCreationConfigAction' {..} =
-      _salt `Prelude.hashWithSalt` firewallCreationConfig
-        `Prelude.hashWithSalt` description
+      _salt `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` firewallCreationConfig
 
 instance
   Prelude.NFData
     FMSPolicyUpdateFirewallCreationConfigAction
   where
   rnf FMSPolicyUpdateFirewallCreationConfigAction' {..} =
-    Prelude.rnf firewallCreationConfig
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf firewallCreationConfig

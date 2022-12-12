@@ -35,35 +35,35 @@ module Amazonka.Synthetics
     -- * Errors
     -- $errors
 
+    -- ** BadRequestException
+    _BadRequestException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** InternalFailureException
+    _InternalFailureException,
+
     -- ** InternalServerException
     _InternalServerException,
 
     -- ** NotFoundException
     _NotFoundException,
 
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
+    -- ** RequestEntityTooLargeException
+    _RequestEntityTooLargeException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** BadRequestException
-    _BadRequestException,
-
-    -- ** ValidationException
-    _ValidationException,
-
-    -- ** RequestEntityTooLargeException
-    _RequestEntityTooLargeException,
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
 
     -- ** TooManyRequestsException
     _TooManyRequestsException,
 
-    -- ** InternalFailureException
-    _InternalFailureException,
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters

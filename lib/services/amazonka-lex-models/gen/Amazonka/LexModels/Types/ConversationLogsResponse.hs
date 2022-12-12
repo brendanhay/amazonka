@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConversationLogsResponse' smart constructor.
 data ConversationLogsResponse = ConversationLogsResponse'
-  { -- | The settings for your conversation logs. You can log text, audio, or
-    -- both.
-    logSettings :: Prelude.Maybe [LogSettingsResponse],
-    -- | The Amazon Resource Name (ARN) of the IAM role used to write your logs
+  { -- | The Amazon Resource Name (ARN) of the IAM role used to write your logs
     -- to CloudWatch Logs or an S3 bucket.
-    iamRoleArn :: Prelude.Maybe Prelude.Text
+    iamRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | The settings for your conversation logs. You can log text, audio, or
+    -- both.
+    logSettings :: Prelude.Maybe [LogSettingsResponse]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,29 +46,29 @@ data ConversationLogsResponse = ConversationLogsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'logSettings', 'conversationLogsResponse_logSettings' - The settings for your conversation logs. You can log text, audio, or
--- both.
---
 -- 'iamRoleArn', 'conversationLogsResponse_iamRoleArn' - The Amazon Resource Name (ARN) of the IAM role used to write your logs
 -- to CloudWatch Logs or an S3 bucket.
+--
+-- 'logSettings', 'conversationLogsResponse_logSettings' - The settings for your conversation logs. You can log text, audio, or
+-- both.
 newConversationLogsResponse ::
   ConversationLogsResponse
 newConversationLogsResponse =
   ConversationLogsResponse'
-    { logSettings =
+    { iamRoleArn =
         Prelude.Nothing,
-      iamRoleArn = Prelude.Nothing
+      logSettings = Prelude.Nothing
     }
-
--- | The settings for your conversation logs. You can log text, audio, or
--- both.
-conversationLogsResponse_logSettings :: Lens.Lens' ConversationLogsResponse (Prelude.Maybe [LogSettingsResponse])
-conversationLogsResponse_logSettings = Lens.lens (\ConversationLogsResponse' {logSettings} -> logSettings) (\s@ConversationLogsResponse' {} a -> s {logSettings = a} :: ConversationLogsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the IAM role used to write your logs
 -- to CloudWatch Logs or an S3 bucket.
 conversationLogsResponse_iamRoleArn :: Lens.Lens' ConversationLogsResponse (Prelude.Maybe Prelude.Text)
 conversationLogsResponse_iamRoleArn = Lens.lens (\ConversationLogsResponse' {iamRoleArn} -> iamRoleArn) (\s@ConversationLogsResponse' {} a -> s {iamRoleArn = a} :: ConversationLogsResponse)
+
+-- | The settings for your conversation logs. You can log text, audio, or
+-- both.
+conversationLogsResponse_logSettings :: Lens.Lens' ConversationLogsResponse (Prelude.Maybe [LogSettingsResponse])
+conversationLogsResponse_logSettings = Lens.lens (\ConversationLogsResponse' {logSettings} -> logSettings) (\s@ConversationLogsResponse' {} a -> s {logSettings = a} :: ConversationLogsResponse) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON ConversationLogsResponse where
   parseJSON =
@@ -76,16 +76,16 @@ instance Data.FromJSON ConversationLogsResponse where
       "ConversationLogsResponse"
       ( \x ->
           ConversationLogsResponse'
-            Prelude.<$> (x Data..:? "logSettings" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "iamRoleArn")
+            Prelude.<$> (x Data..:? "iamRoleArn")
+            Prelude.<*> (x Data..:? "logSettings" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ConversationLogsResponse where
   hashWithSalt _salt ConversationLogsResponse' {..} =
-    _salt `Prelude.hashWithSalt` logSettings
-      `Prelude.hashWithSalt` iamRoleArn
+    _salt `Prelude.hashWithSalt` iamRoleArn
+      `Prelude.hashWithSalt` logSettings
 
 instance Prelude.NFData ConversationLogsResponse where
   rnf ConversationLogsResponse' {..} =
-    Prelude.rnf logSettings
-      `Prelude.seq` Prelude.rnf iamRoleArn
+    Prelude.rnf iamRoleArn
+      `Prelude.seq` Prelude.rnf logSettings

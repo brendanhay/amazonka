@@ -33,8 +33,8 @@ module Amazonka.SNS.ListOriginationNumbers
     newListOriginationNumbers,
 
     -- * Request Lenses
-    listOriginationNumbers_nextToken,
     listOriginationNumbers_maxResults,
+    listOriginationNumbers_nextToken,
 
     -- * Destructuring the Response
     ListOriginationNumbersResponse (..),
@@ -57,10 +57,10 @@ import Amazonka.SNS.Types
 
 -- | /See:/ 'newListOriginationNumbers' smart constructor.
 data ListOriginationNumbers = ListOriginationNumbers'
-  { -- | Token that the previous @ListOriginationNumbers@ request returns.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of origination numbers to return.
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { -- | The maximum number of origination numbers to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Token that the previous @ListOriginationNumbers@ request returns.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,25 +72,25 @@ data ListOriginationNumbers = ListOriginationNumbers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listOriginationNumbers_nextToken' - Token that the previous @ListOriginationNumbers@ request returns.
---
 -- 'maxResults', 'listOriginationNumbers_maxResults' - The maximum number of origination numbers to return.
+--
+-- 'nextToken', 'listOriginationNumbers_nextToken' - Token that the previous @ListOriginationNumbers@ request returns.
 newListOriginationNumbers ::
   ListOriginationNumbers
 newListOriginationNumbers =
   ListOriginationNumbers'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | Token that the previous @ListOriginationNumbers@ request returns.
-listOriginationNumbers_nextToken :: Lens.Lens' ListOriginationNumbers (Prelude.Maybe Prelude.Text)
-listOriginationNumbers_nextToken = Lens.lens (\ListOriginationNumbers' {nextToken} -> nextToken) (\s@ListOriginationNumbers' {} a -> s {nextToken = a} :: ListOriginationNumbers)
 
 -- | The maximum number of origination numbers to return.
 listOriginationNumbers_maxResults :: Lens.Lens' ListOriginationNumbers (Prelude.Maybe Prelude.Natural)
 listOriginationNumbers_maxResults = Lens.lens (\ListOriginationNumbers' {maxResults} -> maxResults) (\s@ListOriginationNumbers' {} a -> s {maxResults = a} :: ListOriginationNumbers)
+
+-- | Token that the previous @ListOriginationNumbers@ request returns.
+listOriginationNumbers_nextToken :: Lens.Lens' ListOriginationNumbers (Prelude.Maybe Prelude.Text)
+listOriginationNumbers_nextToken = Lens.lens (\ListOriginationNumbers' {nextToken} -> nextToken) (\s@ListOriginationNumbers' {} a -> s {nextToken = a} :: ListOriginationNumbers)
 
 instance Core.AWSPager ListOriginationNumbers where
   page rq rs
@@ -134,13 +134,13 @@ instance Core.AWSRequest ListOriginationNumbers where
 
 instance Prelude.Hashable ListOriginationNumbers where
   hashWithSalt _salt ListOriginationNumbers' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListOriginationNumbers where
   rnf ListOriginationNumbers' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListOriginationNumbers where
   toHeaders = Prelude.const Prelude.mempty
@@ -155,8 +155,8 @@ instance Data.ToQuery ListOriginationNumbers where
           Data.=: ("ListOriginationNumbers" :: Prelude.ByteString),
         "Version"
           Data.=: ("2010-03-31" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
-        "MaxResults" Data.=: maxResults
+        "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListOriginationNumbersResponse' smart constructor.

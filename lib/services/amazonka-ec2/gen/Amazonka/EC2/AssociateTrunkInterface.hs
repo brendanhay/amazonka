@@ -38,8 +38,8 @@ module Amazonka.EC2.AssociateTrunkInterface
     -- * Request Lenses
     associateTrunkInterface_clientToken,
     associateTrunkInterface_dryRun,
-    associateTrunkInterface_vlanId,
     associateTrunkInterface_greKey,
+    associateTrunkInterface_vlanId,
     associateTrunkInterface_branchInterfaceId,
     associateTrunkInterface_trunkInterfaceId,
 
@@ -73,10 +73,10 @@ data AssociateTrunkInterface = AssociateTrunkInterface'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the VLAN. This applies to the VLAN protocol.
-    vlanId :: Prelude.Maybe Prelude.Int,
     -- | The application key. This applies to the GRE protocol.
     greKey :: Prelude.Maybe Prelude.Int,
+    -- | The ID of the VLAN. This applies to the VLAN protocol.
+    vlanId :: Prelude.Maybe Prelude.Int,
     -- | The ID of the branch network interface.
     branchInterfaceId :: Prelude.Text,
     -- | The ID of the trunk network interface.
@@ -101,9 +101,9 @@ data AssociateTrunkInterface = AssociateTrunkInterface'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'vlanId', 'associateTrunkInterface_vlanId' - The ID of the VLAN. This applies to the VLAN protocol.
---
 -- 'greKey', 'associateTrunkInterface_greKey' - The application key. This applies to the GRE protocol.
+--
+-- 'vlanId', 'associateTrunkInterface_vlanId' - The ID of the VLAN. This applies to the VLAN protocol.
 --
 -- 'branchInterfaceId', 'associateTrunkInterface_branchInterfaceId' - The ID of the branch network interface.
 --
@@ -121,8 +121,8 @@ newAssociateTrunkInterface
       { clientToken =
           Prelude.Nothing,
         dryRun = Prelude.Nothing,
-        vlanId = Prelude.Nothing,
         greKey = Prelude.Nothing,
+        vlanId = Prelude.Nothing,
         branchInterfaceId = pBranchInterfaceId_,
         trunkInterfaceId = pTrunkInterfaceId_
       }
@@ -140,13 +140,13 @@ associateTrunkInterface_clientToken = Lens.lens (\AssociateTrunkInterface' {clie
 associateTrunkInterface_dryRun :: Lens.Lens' AssociateTrunkInterface (Prelude.Maybe Prelude.Bool)
 associateTrunkInterface_dryRun = Lens.lens (\AssociateTrunkInterface' {dryRun} -> dryRun) (\s@AssociateTrunkInterface' {} a -> s {dryRun = a} :: AssociateTrunkInterface)
 
--- | The ID of the VLAN. This applies to the VLAN protocol.
-associateTrunkInterface_vlanId :: Lens.Lens' AssociateTrunkInterface (Prelude.Maybe Prelude.Int)
-associateTrunkInterface_vlanId = Lens.lens (\AssociateTrunkInterface' {vlanId} -> vlanId) (\s@AssociateTrunkInterface' {} a -> s {vlanId = a} :: AssociateTrunkInterface)
-
 -- | The application key. This applies to the GRE protocol.
 associateTrunkInterface_greKey :: Lens.Lens' AssociateTrunkInterface (Prelude.Maybe Prelude.Int)
 associateTrunkInterface_greKey = Lens.lens (\AssociateTrunkInterface' {greKey} -> greKey) (\s@AssociateTrunkInterface' {} a -> s {greKey = a} :: AssociateTrunkInterface)
+
+-- | The ID of the VLAN. This applies to the VLAN protocol.
+associateTrunkInterface_vlanId :: Lens.Lens' AssociateTrunkInterface (Prelude.Maybe Prelude.Int)
+associateTrunkInterface_vlanId = Lens.lens (\AssociateTrunkInterface' {vlanId} -> vlanId) (\s@AssociateTrunkInterface' {} a -> s {vlanId = a} :: AssociateTrunkInterface)
 
 -- | The ID of the branch network interface.
 associateTrunkInterface_branchInterfaceId :: Lens.Lens' AssociateTrunkInterface Prelude.Text
@@ -175,8 +175,8 @@ instance Prelude.Hashable AssociateTrunkInterface where
   hashWithSalt _salt AssociateTrunkInterface' {..} =
     _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` dryRun
-      `Prelude.hashWithSalt` vlanId
       `Prelude.hashWithSalt` greKey
+      `Prelude.hashWithSalt` vlanId
       `Prelude.hashWithSalt` branchInterfaceId
       `Prelude.hashWithSalt` trunkInterfaceId
 
@@ -184,8 +184,8 @@ instance Prelude.NFData AssociateTrunkInterface where
   rnf AssociateTrunkInterface' {..} =
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf vlanId
       `Prelude.seq` Prelude.rnf greKey
+      `Prelude.seq` Prelude.rnf vlanId
       `Prelude.seq` Prelude.rnf branchInterfaceId
       `Prelude.seq` Prelude.rnf trunkInterfaceId
 
@@ -204,8 +204,8 @@ instance Data.ToQuery AssociateTrunkInterface where
           Data.=: ("2016-11-15" :: Prelude.ByteString),
         "ClientToken" Data.=: clientToken,
         "DryRun" Data.=: dryRun,
-        "VlanId" Data.=: vlanId,
         "GreKey" Data.=: greKey,
+        "VlanId" Data.=: vlanId,
         "BranchInterfaceId" Data.=: branchInterfaceId,
         "TrunkInterfaceId" Data.=: trunkInterfaceId
       ]

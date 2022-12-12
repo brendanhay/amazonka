@@ -28,8 +28,9 @@ module Amazonka.EC2.StartNetworkInsightsAnalysis
     newStartNetworkInsightsAnalysis,
 
     -- * Request Lenses
-    startNetworkInsightsAnalysis_filterInArns,
+    startNetworkInsightsAnalysis_additionalAccounts,
     startNetworkInsightsAnalysis_dryRun,
+    startNetworkInsightsAnalysis_filterInArns,
     startNetworkInsightsAnalysis_tagSpecifications,
     startNetworkInsightsAnalysis_networkInsightsPathId,
     startNetworkInsightsAnalysis_clientToken,
@@ -54,14 +55,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartNetworkInsightsAnalysis' smart constructor.
 data StartNetworkInsightsAnalysis = StartNetworkInsightsAnalysis'
-  { -- | The Amazon Resource Names (ARN) of the resources that the path must
-    -- traverse.
-    filterInArns :: Prelude.Maybe [Prelude.Text],
+  { -- | The member accounts that contain resources that the path can traverse.
+    additionalAccounts :: Prelude.Maybe [Prelude.Text],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The Amazon Resource Names (ARN) of the resources that the path must
+    -- traverse.
+    filterInArns :: Prelude.Maybe [Prelude.Text],
     -- | The tags to apply.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | The ID of the path.
@@ -81,13 +84,15 @@ data StartNetworkInsightsAnalysis = StartNetworkInsightsAnalysis'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filterInArns', 'startNetworkInsightsAnalysis_filterInArns' - The Amazon Resource Names (ARN) of the resources that the path must
--- traverse.
+-- 'additionalAccounts', 'startNetworkInsightsAnalysis_additionalAccounts' - The member accounts that contain resources that the path can traverse.
 --
 -- 'dryRun', 'startNetworkInsightsAnalysis_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'filterInArns', 'startNetworkInsightsAnalysis_filterInArns' - The Amazon Resource Names (ARN) of the resources that the path must
+-- traverse.
 --
 -- 'tagSpecifications', 'startNetworkInsightsAnalysis_tagSpecifications' - The tags to apply.
 --
@@ -106,19 +111,19 @@ newStartNetworkInsightsAnalysis
   pNetworkInsightsPathId_
   pClientToken_ =
     StartNetworkInsightsAnalysis'
-      { filterInArns =
+      { additionalAccounts =
           Prelude.Nothing,
         dryRun = Prelude.Nothing,
+        filterInArns = Prelude.Nothing,
         tagSpecifications = Prelude.Nothing,
         networkInsightsPathId =
           pNetworkInsightsPathId_,
         clientToken = pClientToken_
       }
 
--- | The Amazon Resource Names (ARN) of the resources that the path must
--- traverse.
-startNetworkInsightsAnalysis_filterInArns :: Lens.Lens' StartNetworkInsightsAnalysis (Prelude.Maybe [Prelude.Text])
-startNetworkInsightsAnalysis_filterInArns = Lens.lens (\StartNetworkInsightsAnalysis' {filterInArns} -> filterInArns) (\s@StartNetworkInsightsAnalysis' {} a -> s {filterInArns = a} :: StartNetworkInsightsAnalysis) Prelude.. Lens.mapping Lens.coerced
+-- | The member accounts that contain resources that the path can traverse.
+startNetworkInsightsAnalysis_additionalAccounts :: Lens.Lens' StartNetworkInsightsAnalysis (Prelude.Maybe [Prelude.Text])
+startNetworkInsightsAnalysis_additionalAccounts = Lens.lens (\StartNetworkInsightsAnalysis' {additionalAccounts} -> additionalAccounts) (\s@StartNetworkInsightsAnalysis' {} a -> s {additionalAccounts = a} :: StartNetworkInsightsAnalysis) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -126,6 +131,11 @@ startNetworkInsightsAnalysis_filterInArns = Lens.lens (\StartNetworkInsightsAnal
 -- Otherwise, it is @UnauthorizedOperation@.
 startNetworkInsightsAnalysis_dryRun :: Lens.Lens' StartNetworkInsightsAnalysis (Prelude.Maybe Prelude.Bool)
 startNetworkInsightsAnalysis_dryRun = Lens.lens (\StartNetworkInsightsAnalysis' {dryRun} -> dryRun) (\s@StartNetworkInsightsAnalysis' {} a -> s {dryRun = a} :: StartNetworkInsightsAnalysis)
+
+-- | The Amazon Resource Names (ARN) of the resources that the path must
+-- traverse.
+startNetworkInsightsAnalysis_filterInArns :: Lens.Lens' StartNetworkInsightsAnalysis (Prelude.Maybe [Prelude.Text])
+startNetworkInsightsAnalysis_filterInArns = Lens.lens (\StartNetworkInsightsAnalysis' {filterInArns} -> filterInArns) (\s@StartNetworkInsightsAnalysis' {} a -> s {filterInArns = a} :: StartNetworkInsightsAnalysis) Prelude.. Lens.mapping Lens.coerced
 
 -- | The tags to apply.
 startNetworkInsightsAnalysis_tagSpecifications :: Lens.Lens' StartNetworkInsightsAnalysis (Prelude.Maybe [TagSpecification])
@@ -160,16 +170,18 @@ instance
     StartNetworkInsightsAnalysis
   where
   hashWithSalt _salt StartNetworkInsightsAnalysis' {..} =
-    _salt `Prelude.hashWithSalt` filterInArns
+    _salt `Prelude.hashWithSalt` additionalAccounts
       `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` filterInArns
       `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` networkInsightsPathId
       `Prelude.hashWithSalt` clientToken
 
 instance Prelude.NFData StartNetworkInsightsAnalysis where
   rnf StartNetworkInsightsAnalysis' {..} =
-    Prelude.rnf filterInArns
+    Prelude.rnf additionalAccounts
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf filterInArns
       `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf networkInsightsPathId
       `Prelude.seq` Prelude.rnf clientToken
@@ -190,10 +202,14 @@ instance Data.ToQuery StartNetworkInsightsAnalysis where
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
         Data.toQuery
+          ( Data.toQueryList "AdditionalAccount"
+              Prelude.<$> additionalAccounts
+          ),
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
           ( Data.toQueryList "FilterInArn"
               Prelude.<$> filterInArns
           ),
-        "DryRun" Data.=: dryRun,
         Data.toQuery
           ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications

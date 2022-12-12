@@ -30,10 +30,10 @@ module Amazonka.CodeBuild.ListReports
     newListReports,
 
     -- * Request Lenses
-    listReports_sortOrder,
-    listReports_nextToken,
     listReports_filter,
     listReports_maxResults,
+    listReports_nextToken,
+    listReports_sortOrder,
 
     -- * Destructuring the Response
     ListReportsResponse (..),
@@ -56,15 +56,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListReports' smart constructor.
 data ListReports = ListReports'
-  { -- | Specifies the sort order for the list of returned reports. Valid values
-    -- are:
-    --
-    -- -   @ASCENDING@: return reports in chronological order based on their
-    --     creation date.
-    --
-    -- -   @DESCENDING@: return reports in the reverse chronological order
-    --     based on their creation date.
-    sortOrder :: Prelude.Maybe SortOrderType,
+  { -- | A @ReportFilter@ object used to filter the returned reports.
+    filter' :: Prelude.Maybe ReportFilter,
+    -- | The maximum number of paginated reports returned per response. Use
+    -- @nextToken@ to iterate pages in the list of returned @Report@ objects.
+    -- The default value is 100.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | During a previous call, the maximum number of items that can be returned
     -- is the value specified in @maxResults@. If there more items in the list,
     -- then a unique string called a /nextToken/ is returned. To get the next
@@ -73,12 +70,15 @@ data ListReports = ListReports'
     -- this operation with each subsequent next token that is returned, until
     -- no more next tokens are returned.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A @ReportFilter@ object used to filter the returned reports.
-    filter' :: Prelude.Maybe ReportFilter,
-    -- | The maximum number of paginated reports returned per response. Use
-    -- @nextToken@ to iterate pages in the list of returned @Report@ objects.
-    -- The default value is 100.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    -- | Specifies the sort order for the list of returned reports. Valid values
+    -- are:
+    --
+    -- -   @ASCENDING@: return reports in chronological order based on their
+    --     creation date.
+    --
+    -- -   @DESCENDING@: return reports in the reverse chronological order
+    --     based on their creation date.
+    sortOrder :: Prelude.Maybe SortOrderType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -90,14 +90,11 @@ data ListReports = ListReports'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listReports_sortOrder' - Specifies the sort order for the list of returned reports. Valid values
--- are:
+-- 'filter'', 'listReports_filter' - A @ReportFilter@ object used to filter the returned reports.
 --
--- -   @ASCENDING@: return reports in chronological order based on their
---     creation date.
---
--- -   @DESCENDING@: return reports in the reverse chronological order
---     based on their creation date.
+-- 'maxResults', 'listReports_maxResults' - The maximum number of paginated reports returned per response. Use
+-- @nextToken@ to iterate pages in the list of returned @Report@ objects.
+-- The default value is 100.
 --
 -- 'nextToken', 'listReports_nextToken' - During a previous call, the maximum number of items that can be returned
 -- is the value specified in @maxResults@. If there more items in the list,
@@ -107,22 +104,7 @@ data ListReports = ListReports'
 -- this operation with each subsequent next token that is returned, until
 -- no more next tokens are returned.
 --
--- 'filter'', 'listReports_filter' - A @ReportFilter@ object used to filter the returned reports.
---
--- 'maxResults', 'listReports_maxResults' - The maximum number of paginated reports returned per response. Use
--- @nextToken@ to iterate pages in the list of returned @Report@ objects.
--- The default value is 100.
-newListReports ::
-  ListReports
-newListReports =
-  ListReports'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      filter' = Prelude.Nothing,
-      maxResults = Prelude.Nothing
-    }
-
--- | Specifies the sort order for the list of returned reports. Valid values
+-- 'sortOrder', 'listReports_sortOrder' - Specifies the sort order for the list of returned reports. Valid values
 -- are:
 --
 -- -   @ASCENDING@: return reports in chronological order based on their
@@ -130,8 +112,25 @@ newListReports =
 --
 -- -   @DESCENDING@: return reports in the reverse chronological order
 --     based on their creation date.
-listReports_sortOrder :: Lens.Lens' ListReports (Prelude.Maybe SortOrderType)
-listReports_sortOrder = Lens.lens (\ListReports' {sortOrder} -> sortOrder) (\s@ListReports' {} a -> s {sortOrder = a} :: ListReports)
+newListReports ::
+  ListReports
+newListReports =
+  ListReports'
+    { filter' = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing
+    }
+
+-- | A @ReportFilter@ object used to filter the returned reports.
+listReports_filter :: Lens.Lens' ListReports (Prelude.Maybe ReportFilter)
+listReports_filter = Lens.lens (\ListReports' {filter'} -> filter') (\s@ListReports' {} a -> s {filter' = a} :: ListReports)
+
+-- | The maximum number of paginated reports returned per response. Use
+-- @nextToken@ to iterate pages in the list of returned @Report@ objects.
+-- The default value is 100.
+listReports_maxResults :: Lens.Lens' ListReports (Prelude.Maybe Prelude.Natural)
+listReports_maxResults = Lens.lens (\ListReports' {maxResults} -> maxResults) (\s@ListReports' {} a -> s {maxResults = a} :: ListReports)
 
 -- | During a previous call, the maximum number of items that can be returned
 -- is the value specified in @maxResults@. If there more items in the list,
@@ -143,15 +142,16 @@ listReports_sortOrder = Lens.lens (\ListReports' {sortOrder} -> sortOrder) (\s@L
 listReports_nextToken :: Lens.Lens' ListReports (Prelude.Maybe Prelude.Text)
 listReports_nextToken = Lens.lens (\ListReports' {nextToken} -> nextToken) (\s@ListReports' {} a -> s {nextToken = a} :: ListReports)
 
--- | A @ReportFilter@ object used to filter the returned reports.
-listReports_filter :: Lens.Lens' ListReports (Prelude.Maybe ReportFilter)
-listReports_filter = Lens.lens (\ListReports' {filter'} -> filter') (\s@ListReports' {} a -> s {filter' = a} :: ListReports)
-
--- | The maximum number of paginated reports returned per response. Use
--- @nextToken@ to iterate pages in the list of returned @Report@ objects.
--- The default value is 100.
-listReports_maxResults :: Lens.Lens' ListReports (Prelude.Maybe Prelude.Natural)
-listReports_maxResults = Lens.lens (\ListReports' {maxResults} -> maxResults) (\s@ListReports' {} a -> s {maxResults = a} :: ListReports)
+-- | Specifies the sort order for the list of returned reports. Valid values
+-- are:
+--
+-- -   @ASCENDING@: return reports in chronological order based on their
+--     creation date.
+--
+-- -   @DESCENDING@: return reports in the reverse chronological order
+--     based on their creation date.
+listReports_sortOrder :: Lens.Lens' ListReports (Prelude.Maybe SortOrderType)
+listReports_sortOrder = Lens.lens (\ListReports' {sortOrder} -> sortOrder) (\s@ListReports' {} a -> s {sortOrder = a} :: ListReports)
 
 instance Core.AWSPager ListReports where
   page rq rs
@@ -188,17 +188,17 @@ instance Core.AWSRequest ListReports where
 
 instance Prelude.Hashable ListReports where
   hashWithSalt _salt ListReports' {..} =
-    _salt `Prelude.hashWithSalt` sortOrder
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filter'
+    _salt `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortOrder
 
 instance Prelude.NFData ListReports where
   rnf ListReports' {..} =
-    Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filter'
+    Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListReports where
   toHeaders =
@@ -219,10 +219,10 @@ instance Data.ToJSON ListReports where
   toJSON ListReports' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("sortOrder" Data..=) Prelude.<$> sortOrder,
+          [ ("filter" Data..=) Prelude.<$> filter',
+            ("maxResults" Data..=) Prelude.<$> maxResults,
             ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("filter" Data..=) Prelude.<$> filter',
-            ("maxResults" Data..=) Prelude.<$> maxResults
+            ("sortOrder" Data..=) Prelude.<$> sortOrder
           ]
       )
 

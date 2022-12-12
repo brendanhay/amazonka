@@ -36,9 +36,9 @@ module Amazonka.IdentityStore.DescribeGroup
     newDescribeGroupResponse,
 
     -- * Response Lenses
-    describeGroupResponse_externalIds,
-    describeGroupResponse_displayName,
     describeGroupResponse_description,
+    describeGroupResponse_displayName,
+    describeGroupResponse_externalIds,
     describeGroupResponse_httpStatus,
     describeGroupResponse_groupId,
     describeGroupResponse_identityStoreId,
@@ -115,9 +115,9 @@ instance Core.AWSRequest DescribeGroup where
     Response.receiveJSON
       ( \s h x ->
           DescribeGroupResponse'
-            Prelude.<$> (x Data..?> "ExternalIds")
+            Prelude.<$> (x Data..?> "Description")
             Prelude.<*> (x Data..?> "DisplayName")
-            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "ExternalIds")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "GroupId")
             Prelude.<*> (x Data..:> "IdentityStoreId")
@@ -166,9 +166,8 @@ instance Data.ToQuery DescribeGroup where
 
 -- | /See:/ 'newDescribeGroupResponse' smart constructor.
 data DescribeGroupResponse = DescribeGroupResponse'
-  { -- | A list of @ExternalId@ objects that contains the identifiers issued to
-    -- this resource by an external identity provider.
-    externalIds :: Prelude.Maybe (Prelude.NonEmpty ExternalId),
+  { -- | A string containing a description of the group.
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The group’s display name value. The length limit is 1,024 characters.
     -- This value can consist of letters, accented characters, symbols,
     -- numbers, punctuation, tab, new line, carriage return, space, and
@@ -176,8 +175,9 @@ data DescribeGroupResponse = DescribeGroupResponse'
     -- that the group is created and stored as an attribute of the group object
     -- in the identity store.
     displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | A string containing a description of the group.
-    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | A list of @ExternalId@ objects that contains the identifiers issued to
+    -- this resource by an external identity provider.
+    externalIds :: Prelude.Maybe (Prelude.NonEmpty ExternalId),
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The identifier for a group in the identity store.
@@ -195,8 +195,7 @@ data DescribeGroupResponse = DescribeGroupResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'externalIds', 'describeGroupResponse_externalIds' - A list of @ExternalId@ objects that contains the identifiers issued to
--- this resource by an external identity provider.
+-- 'description', 'describeGroupResponse_description' - A string containing a description of the group.
 --
 -- 'displayName', 'describeGroupResponse_displayName' - The group’s display name value. The length limit is 1,024 characters.
 -- This value can consist of letters, accented characters, symbols,
@@ -205,7 +204,8 @@ data DescribeGroupResponse = DescribeGroupResponse'
 -- that the group is created and stored as an attribute of the group object
 -- in the identity store.
 --
--- 'description', 'describeGroupResponse_description' - A string containing a description of the group.
+-- 'externalIds', 'describeGroupResponse_externalIds' - A list of @ExternalId@ objects that contains the identifiers issued to
+-- this resource by an external identity provider.
 --
 -- 'httpStatus', 'describeGroupResponse_httpStatus' - The response's http status code.
 --
@@ -225,19 +225,18 @@ newDescribeGroupResponse
   pGroupId_
   pIdentityStoreId_ =
     DescribeGroupResponse'
-      { externalIds =
+      { description =
           Prelude.Nothing,
         displayName = Prelude.Nothing,
-        description = Prelude.Nothing,
+        externalIds = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         groupId = pGroupId_,
         identityStoreId = pIdentityStoreId_
       }
 
--- | A list of @ExternalId@ objects that contains the identifiers issued to
--- this resource by an external identity provider.
-describeGroupResponse_externalIds :: Lens.Lens' DescribeGroupResponse (Prelude.Maybe (Prelude.NonEmpty ExternalId))
-describeGroupResponse_externalIds = Lens.lens (\DescribeGroupResponse' {externalIds} -> externalIds) (\s@DescribeGroupResponse' {} a -> s {externalIds = a} :: DescribeGroupResponse) Prelude.. Lens.mapping Lens.coerced
+-- | A string containing a description of the group.
+describeGroupResponse_description :: Lens.Lens' DescribeGroupResponse (Prelude.Maybe Prelude.Text)
+describeGroupResponse_description = Lens.lens (\DescribeGroupResponse' {description} -> description) (\s@DescribeGroupResponse' {} a -> s {description = a} :: DescribeGroupResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The group’s display name value. The length limit is 1,024 characters.
 -- This value can consist of letters, accented characters, symbols,
@@ -248,9 +247,10 @@ describeGroupResponse_externalIds = Lens.lens (\DescribeGroupResponse' {external
 describeGroupResponse_displayName :: Lens.Lens' DescribeGroupResponse (Prelude.Maybe Prelude.Text)
 describeGroupResponse_displayName = Lens.lens (\DescribeGroupResponse' {displayName} -> displayName) (\s@DescribeGroupResponse' {} a -> s {displayName = a} :: DescribeGroupResponse) Prelude.. Lens.mapping Data._Sensitive
 
--- | A string containing a description of the group.
-describeGroupResponse_description :: Lens.Lens' DescribeGroupResponse (Prelude.Maybe Prelude.Text)
-describeGroupResponse_description = Lens.lens (\DescribeGroupResponse' {description} -> description) (\s@DescribeGroupResponse' {} a -> s {description = a} :: DescribeGroupResponse) Prelude.. Lens.mapping Data._Sensitive
+-- | A list of @ExternalId@ objects that contains the identifiers issued to
+-- this resource by an external identity provider.
+describeGroupResponse_externalIds :: Lens.Lens' DescribeGroupResponse (Prelude.Maybe (Prelude.NonEmpty ExternalId))
+describeGroupResponse_externalIds = Lens.lens (\DescribeGroupResponse' {externalIds} -> externalIds) (\s@DescribeGroupResponse' {} a -> s {externalIds = a} :: DescribeGroupResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeGroupResponse_httpStatus :: Lens.Lens' DescribeGroupResponse Prelude.Int
@@ -266,9 +266,9 @@ describeGroupResponse_identityStoreId = Lens.lens (\DescribeGroupResponse' {iden
 
 instance Prelude.NFData DescribeGroupResponse where
   rnf DescribeGroupResponse' {..} =
-    Prelude.rnf externalIds
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf externalIds
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf groupId
       `Prelude.seq` Prelude.rnf identityStoreId

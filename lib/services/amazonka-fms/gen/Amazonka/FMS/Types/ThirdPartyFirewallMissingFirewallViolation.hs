@@ -29,16 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newThirdPartyFirewallMissingFirewallViolation' smart constructor.
 data ThirdPartyFirewallMissingFirewallViolation = ThirdPartyFirewallMissingFirewallViolation'
-  { -- | The resource ID of the VPC associated with a third-party firewall.
-    vpc :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the third-party firewall that\'s causing the violation.
-    violationTarget :: Prelude.Maybe Prelude.Text,
-    -- | The Availability Zone of the third-party firewall that\'s causing the
+  { -- | The Availability Zone of the third-party firewall that\'s causing the
     -- violation.
     availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The reason the resource is causing this violation, if a reason is
     -- available.
-    targetViolationReason :: Prelude.Maybe Prelude.Text
+    targetViolationReason :: Prelude.Maybe Prelude.Text,
+    -- | The resource ID of the VPC associated with a third-party firewall.
+    vpc :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the third-party firewall that\'s causing the violation.
+    violationTarget :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,36 +50,27 @@ data ThirdPartyFirewallMissingFirewallViolation = ThirdPartyFirewallMissingFirew
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vpc', 'thirdPartyFirewallMissingFirewallViolation_vpc' - The resource ID of the VPC associated with a third-party firewall.
---
--- 'violationTarget', 'thirdPartyFirewallMissingFirewallViolation_violationTarget' - The ID of the third-party firewall that\'s causing the violation.
---
 -- 'availabilityZone', 'thirdPartyFirewallMissingFirewallViolation_availabilityZone' - The Availability Zone of the third-party firewall that\'s causing the
 -- violation.
 --
 -- 'targetViolationReason', 'thirdPartyFirewallMissingFirewallViolation_targetViolationReason' - The reason the resource is causing this violation, if a reason is
 -- available.
+--
+-- 'vpc', 'thirdPartyFirewallMissingFirewallViolation_vpc' - The resource ID of the VPC associated with a third-party firewall.
+--
+-- 'violationTarget', 'thirdPartyFirewallMissingFirewallViolation_violationTarget' - The ID of the third-party firewall that\'s causing the violation.
 newThirdPartyFirewallMissingFirewallViolation ::
   ThirdPartyFirewallMissingFirewallViolation
 newThirdPartyFirewallMissingFirewallViolation =
   ThirdPartyFirewallMissingFirewallViolation'
-    { vpc =
-        Prelude.Nothing,
-      violationTarget =
-        Prelude.Nothing,
-      availabilityZone =
+    { availabilityZone =
         Prelude.Nothing,
       targetViolationReason =
+        Prelude.Nothing,
+      vpc = Prelude.Nothing,
+      violationTarget =
         Prelude.Nothing
     }
-
--- | The resource ID of the VPC associated with a third-party firewall.
-thirdPartyFirewallMissingFirewallViolation_vpc :: Lens.Lens' ThirdPartyFirewallMissingFirewallViolation (Prelude.Maybe Prelude.Text)
-thirdPartyFirewallMissingFirewallViolation_vpc = Lens.lens (\ThirdPartyFirewallMissingFirewallViolation' {vpc} -> vpc) (\s@ThirdPartyFirewallMissingFirewallViolation' {} a -> s {vpc = a} :: ThirdPartyFirewallMissingFirewallViolation)
-
--- | The ID of the third-party firewall that\'s causing the violation.
-thirdPartyFirewallMissingFirewallViolation_violationTarget :: Lens.Lens' ThirdPartyFirewallMissingFirewallViolation (Prelude.Maybe Prelude.Text)
-thirdPartyFirewallMissingFirewallViolation_violationTarget = Lens.lens (\ThirdPartyFirewallMissingFirewallViolation' {violationTarget} -> violationTarget) (\s@ThirdPartyFirewallMissingFirewallViolation' {} a -> s {violationTarget = a} :: ThirdPartyFirewallMissingFirewallViolation)
 
 -- | The Availability Zone of the third-party firewall that\'s causing the
 -- violation.
@@ -91,6 +82,14 @@ thirdPartyFirewallMissingFirewallViolation_availabilityZone = Lens.lens (\ThirdP
 thirdPartyFirewallMissingFirewallViolation_targetViolationReason :: Lens.Lens' ThirdPartyFirewallMissingFirewallViolation (Prelude.Maybe Prelude.Text)
 thirdPartyFirewallMissingFirewallViolation_targetViolationReason = Lens.lens (\ThirdPartyFirewallMissingFirewallViolation' {targetViolationReason} -> targetViolationReason) (\s@ThirdPartyFirewallMissingFirewallViolation' {} a -> s {targetViolationReason = a} :: ThirdPartyFirewallMissingFirewallViolation)
 
+-- | The resource ID of the VPC associated with a third-party firewall.
+thirdPartyFirewallMissingFirewallViolation_vpc :: Lens.Lens' ThirdPartyFirewallMissingFirewallViolation (Prelude.Maybe Prelude.Text)
+thirdPartyFirewallMissingFirewallViolation_vpc = Lens.lens (\ThirdPartyFirewallMissingFirewallViolation' {vpc} -> vpc) (\s@ThirdPartyFirewallMissingFirewallViolation' {} a -> s {vpc = a} :: ThirdPartyFirewallMissingFirewallViolation)
+
+-- | The ID of the third-party firewall that\'s causing the violation.
+thirdPartyFirewallMissingFirewallViolation_violationTarget :: Lens.Lens' ThirdPartyFirewallMissingFirewallViolation (Prelude.Maybe Prelude.Text)
+thirdPartyFirewallMissingFirewallViolation_violationTarget = Lens.lens (\ThirdPartyFirewallMissingFirewallViolation' {violationTarget} -> violationTarget) (\s@ThirdPartyFirewallMissingFirewallViolation' {} a -> s {violationTarget = a} :: ThirdPartyFirewallMissingFirewallViolation)
+
 instance
   Data.FromJSON
     ThirdPartyFirewallMissingFirewallViolation
@@ -100,10 +99,10 @@ instance
       "ThirdPartyFirewallMissingFirewallViolation"
       ( \x ->
           ThirdPartyFirewallMissingFirewallViolation'
-            Prelude.<$> (x Data..:? "VPC")
-              Prelude.<*> (x Data..:? "ViolationTarget")
-              Prelude.<*> (x Data..:? "AvailabilityZone")
+            Prelude.<$> (x Data..:? "AvailabilityZone")
               Prelude.<*> (x Data..:? "TargetViolationReason")
+              Prelude.<*> (x Data..:? "VPC")
+              Prelude.<*> (x Data..:? "ViolationTarget")
       )
 
 instance
@@ -113,17 +112,17 @@ instance
   hashWithSalt
     _salt
     ThirdPartyFirewallMissingFirewallViolation' {..} =
-      _salt `Prelude.hashWithSalt` vpc
-        `Prelude.hashWithSalt` violationTarget
-        `Prelude.hashWithSalt` availabilityZone
+      _salt `Prelude.hashWithSalt` availabilityZone
         `Prelude.hashWithSalt` targetViolationReason
+        `Prelude.hashWithSalt` vpc
+        `Prelude.hashWithSalt` violationTarget
 
 instance
   Prelude.NFData
     ThirdPartyFirewallMissingFirewallViolation
   where
   rnf ThirdPartyFirewallMissingFirewallViolation' {..} =
-    Prelude.rnf vpc
-      `Prelude.seq` Prelude.rnf violationTarget
-      `Prelude.seq` Prelude.rnf availabilityZone
+    Prelude.rnf availabilityZone
       `Prelude.seq` Prelude.rnf targetViolationReason
+      `Prelude.seq` Prelude.rnf vpc
+      `Prelude.seq` Prelude.rnf violationTarget

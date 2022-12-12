@@ -27,8 +27,8 @@ module Amazonka.ServiceCatalog.AcceptPortfolioShare
     newAcceptPortfolioShare,
 
     -- * Request Lenses
-    acceptPortfolioShare_portfolioShareType,
     acceptPortfolioShare_acceptLanguage,
+    acceptPortfolioShare_portfolioShareType,
     acceptPortfolioShare_portfolioId,
 
     -- * Destructuring the Response
@@ -50,7 +50,15 @@ import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newAcceptPortfolioShare' smart constructor.
 data AcceptPortfolioShare = AcceptPortfolioShare'
-  { -- | The type of shared portfolios to accept. The default is to accept
+  { -- | The language code.
+    --
+    -- -   @en@ - English (default)
+    --
+    -- -   @jp@ - Japanese
+    --
+    -- -   @zh@ - Chinese
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | The type of shared portfolios to accept. The default is to accept
     -- imported portfolios.
     --
     -- -   @AWS_ORGANIZATIONS@ - Accept portfolios shared by the management
@@ -64,14 +72,6 @@ data AcceptPortfolioShare = AcceptPortfolioShare'
     -- For example,
     -- @aws servicecatalog accept-portfolio-share --portfolio-id \"port-2qwzkwxt3y5fk\" --portfolio-share-type AWS_ORGANIZATIONS@
     portfolioShareType :: Prelude.Maybe PortfolioShareType,
-    -- | The language code.
-    --
-    -- -   @en@ - English (default)
-    --
-    -- -   @jp@ - Japanese
-    --
-    -- -   @zh@ - Chinese
-    acceptLanguage :: Prelude.Maybe Prelude.Text,
     -- | The portfolio identifier.
     portfolioId :: Prelude.Text
   }
@@ -84,6 +84,14 @@ data AcceptPortfolioShare = AcceptPortfolioShare'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'acceptLanguage', 'acceptPortfolioShare_acceptLanguage' - The language code.
+--
+-- -   @en@ - English (default)
+--
+-- -   @jp@ - Japanese
+--
+-- -   @zh@ - Chinese
 --
 -- 'portfolioShareType', 'acceptPortfolioShare_portfolioShareType' - The type of shared portfolios to accept. The default is to accept
 -- imported portfolios.
@@ -99,14 +107,6 @@ data AcceptPortfolioShare = AcceptPortfolioShare'
 -- For example,
 -- @aws servicecatalog accept-portfolio-share --portfolio-id \"port-2qwzkwxt3y5fk\" --portfolio-share-type AWS_ORGANIZATIONS@
 --
--- 'acceptLanguage', 'acceptPortfolioShare_acceptLanguage' - The language code.
---
--- -   @en@ - English (default)
---
--- -   @jp@ - Japanese
---
--- -   @zh@ - Chinese
---
 -- 'portfolioId', 'acceptPortfolioShare_portfolioId' - The portfolio identifier.
 newAcceptPortfolioShare ::
   -- | 'portfolioId'
@@ -114,11 +114,21 @@ newAcceptPortfolioShare ::
   AcceptPortfolioShare
 newAcceptPortfolioShare pPortfolioId_ =
   AcceptPortfolioShare'
-    { portfolioShareType =
+    { acceptLanguage =
         Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing,
+      portfolioShareType = Prelude.Nothing,
       portfolioId = pPortfolioId_
     }
+
+-- | The language code.
+--
+-- -   @en@ - English (default)
+--
+-- -   @jp@ - Japanese
+--
+-- -   @zh@ - Chinese
+acceptPortfolioShare_acceptLanguage :: Lens.Lens' AcceptPortfolioShare (Prelude.Maybe Prelude.Text)
+acceptPortfolioShare_acceptLanguage = Lens.lens (\AcceptPortfolioShare' {acceptLanguage} -> acceptLanguage) (\s@AcceptPortfolioShare' {} a -> s {acceptLanguage = a} :: AcceptPortfolioShare)
 
 -- | The type of shared portfolios to accept. The default is to accept
 -- imported portfolios.
@@ -135,16 +145,6 @@ newAcceptPortfolioShare pPortfolioId_ =
 -- @aws servicecatalog accept-portfolio-share --portfolio-id \"port-2qwzkwxt3y5fk\" --portfolio-share-type AWS_ORGANIZATIONS@
 acceptPortfolioShare_portfolioShareType :: Lens.Lens' AcceptPortfolioShare (Prelude.Maybe PortfolioShareType)
 acceptPortfolioShare_portfolioShareType = Lens.lens (\AcceptPortfolioShare' {portfolioShareType} -> portfolioShareType) (\s@AcceptPortfolioShare' {} a -> s {portfolioShareType = a} :: AcceptPortfolioShare)
-
--- | The language code.
---
--- -   @en@ - English (default)
---
--- -   @jp@ - Japanese
---
--- -   @zh@ - Chinese
-acceptPortfolioShare_acceptLanguage :: Lens.Lens' AcceptPortfolioShare (Prelude.Maybe Prelude.Text)
-acceptPortfolioShare_acceptLanguage = Lens.lens (\AcceptPortfolioShare' {acceptLanguage} -> acceptLanguage) (\s@AcceptPortfolioShare' {} a -> s {acceptLanguage = a} :: AcceptPortfolioShare)
 
 -- | The portfolio identifier.
 acceptPortfolioShare_portfolioId :: Lens.Lens' AcceptPortfolioShare Prelude.Text
@@ -165,14 +165,14 @@ instance Core.AWSRequest AcceptPortfolioShare where
 
 instance Prelude.Hashable AcceptPortfolioShare where
   hashWithSalt _salt AcceptPortfolioShare' {..} =
-    _salt `Prelude.hashWithSalt` portfolioShareType
-      `Prelude.hashWithSalt` acceptLanguage
+    _salt `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` portfolioShareType
       `Prelude.hashWithSalt` portfolioId
 
 instance Prelude.NFData AcceptPortfolioShare where
   rnf AcceptPortfolioShare' {..} =
-    Prelude.rnf portfolioShareType
-      `Prelude.seq` Prelude.rnf acceptLanguage
+    Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf portfolioShareType
       `Prelude.seq` Prelude.rnf portfolioId
 
 instance Data.ToHeaders AcceptPortfolioShare where
@@ -194,10 +194,10 @@ instance Data.ToJSON AcceptPortfolioShare where
   toJSON AcceptPortfolioShare' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("PortfolioShareType" Data..=)
-              Prelude.<$> portfolioShareType,
-            ("AcceptLanguage" Data..=)
+          [ ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
+            ("PortfolioShareType" Data..=)
+              Prelude.<$> portfolioShareType,
             Prelude.Just ("PortfolioId" Data..= portfolioId)
           ]
       )

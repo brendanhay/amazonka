@@ -34,8 +34,8 @@ module Amazonka.ImageBuilder.GetImagePipeline
     newGetImagePipelineResponse,
 
     -- * Response Lenses
-    getImagePipelineResponse_requestId,
     getImagePipelineResponse_imagePipeline,
+    getImagePipelineResponse_requestId,
     getImagePipelineResponse_httpStatus,
   )
 where
@@ -91,8 +91,8 @@ instance Core.AWSRequest GetImagePipeline where
     Response.receiveJSON
       ( \s h x ->
           GetImagePipelineResponse'
-            Prelude.<$> (x Data..?> "requestId")
-            Prelude.<*> (x Data..?> "imagePipeline")
+            Prelude.<$> (x Data..?> "imagePipeline")
+            Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -125,10 +125,10 @@ instance Data.ToQuery GetImagePipeline where
 
 -- | /See:/ 'newGetImagePipelineResponse' smart constructor.
 data GetImagePipelineResponse = GetImagePipelineResponse'
-  { -- | The request ID that uniquely identifies this request.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The image pipeline object.
+  { -- | The image pipeline object.
     imagePipeline :: Prelude.Maybe ImagePipeline,
+    -- | The request ID that uniquely identifies this request.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -142,9 +142,9 @@ data GetImagePipelineResponse = GetImagePipelineResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'getImagePipelineResponse_requestId' - The request ID that uniquely identifies this request.
---
 -- 'imagePipeline', 'getImagePipelineResponse_imagePipeline' - The image pipeline object.
+--
+-- 'requestId', 'getImagePipelineResponse_requestId' - The request ID that uniquely identifies this request.
 --
 -- 'httpStatus', 'getImagePipelineResponse_httpStatus' - The response's http status code.
 newGetImagePipelineResponse ::
@@ -153,19 +153,19 @@ newGetImagePipelineResponse ::
   GetImagePipelineResponse
 newGetImagePipelineResponse pHttpStatus_ =
   GetImagePipelineResponse'
-    { requestId =
+    { imagePipeline =
         Prelude.Nothing,
-      imagePipeline = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The request ID that uniquely identifies this request.
-getImagePipelineResponse_requestId :: Lens.Lens' GetImagePipelineResponse (Prelude.Maybe Prelude.Text)
-getImagePipelineResponse_requestId = Lens.lens (\GetImagePipelineResponse' {requestId} -> requestId) (\s@GetImagePipelineResponse' {} a -> s {requestId = a} :: GetImagePipelineResponse)
 
 -- | The image pipeline object.
 getImagePipelineResponse_imagePipeline :: Lens.Lens' GetImagePipelineResponse (Prelude.Maybe ImagePipeline)
 getImagePipelineResponse_imagePipeline = Lens.lens (\GetImagePipelineResponse' {imagePipeline} -> imagePipeline) (\s@GetImagePipelineResponse' {} a -> s {imagePipeline = a} :: GetImagePipelineResponse)
+
+-- | The request ID that uniquely identifies this request.
+getImagePipelineResponse_requestId :: Lens.Lens' GetImagePipelineResponse (Prelude.Maybe Prelude.Text)
+getImagePipelineResponse_requestId = Lens.lens (\GetImagePipelineResponse' {requestId} -> requestId) (\s@GetImagePipelineResponse' {} a -> s {requestId = a} :: GetImagePipelineResponse)
 
 -- | The response's http status code.
 getImagePipelineResponse_httpStatus :: Lens.Lens' GetImagePipelineResponse Prelude.Int
@@ -173,6 +173,6 @@ getImagePipelineResponse_httpStatus = Lens.lens (\GetImagePipelineResponse' {htt
 
 instance Prelude.NFData GetImagePipelineResponse where
   rnf GetImagePipelineResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf imagePipeline
+    Prelude.rnf imagePipeline
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf httpStatus

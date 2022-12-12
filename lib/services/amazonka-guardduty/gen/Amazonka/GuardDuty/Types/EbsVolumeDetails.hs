@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEbsVolumeDetails' smart constructor.
 data EbsVolumeDetails = EbsVolumeDetails'
-  { -- | List of EBS volumes that were skipped from the malware scan.
-    skippedVolumeDetails :: Prelude.Maybe [VolumeDetail],
-    -- | List of EBS volumes that were scanned.
-    scannedVolumeDetails :: Prelude.Maybe [VolumeDetail]
+  { -- | List of EBS volumes that were scanned.
+    scannedVolumeDetails :: Prelude.Maybe [VolumeDetail],
+    -- | List of EBS volumes that were skipped from the malware scan.
+    skippedVolumeDetails :: Prelude.Maybe [VolumeDetail]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data EbsVolumeDetails = EbsVolumeDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'skippedVolumeDetails', 'ebsVolumeDetails_skippedVolumeDetails' - List of EBS volumes that were skipped from the malware scan.
---
 -- 'scannedVolumeDetails', 'ebsVolumeDetails_scannedVolumeDetails' - List of EBS volumes that were scanned.
+--
+-- 'skippedVolumeDetails', 'ebsVolumeDetails_skippedVolumeDetails' - List of EBS volumes that were skipped from the malware scan.
 newEbsVolumeDetails ::
   EbsVolumeDetails
 newEbsVolumeDetails =
   EbsVolumeDetails'
-    { skippedVolumeDetails =
+    { scannedVolumeDetails =
         Prelude.Nothing,
-      scannedVolumeDetails = Prelude.Nothing
+      skippedVolumeDetails = Prelude.Nothing
     }
-
--- | List of EBS volumes that were skipped from the malware scan.
-ebsVolumeDetails_skippedVolumeDetails :: Lens.Lens' EbsVolumeDetails (Prelude.Maybe [VolumeDetail])
-ebsVolumeDetails_skippedVolumeDetails = Lens.lens (\EbsVolumeDetails' {skippedVolumeDetails} -> skippedVolumeDetails) (\s@EbsVolumeDetails' {} a -> s {skippedVolumeDetails = a} :: EbsVolumeDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | List of EBS volumes that were scanned.
 ebsVolumeDetails_scannedVolumeDetails :: Lens.Lens' EbsVolumeDetails (Prelude.Maybe [VolumeDetail])
 ebsVolumeDetails_scannedVolumeDetails = Lens.lens (\EbsVolumeDetails' {scannedVolumeDetails} -> scannedVolumeDetails) (\s@EbsVolumeDetails' {} a -> s {scannedVolumeDetails = a} :: EbsVolumeDetails) Prelude.. Lens.mapping Lens.coerced
+
+-- | List of EBS volumes that were skipped from the malware scan.
+ebsVolumeDetails_skippedVolumeDetails :: Lens.Lens' EbsVolumeDetails (Prelude.Maybe [VolumeDetail])
+ebsVolumeDetails_skippedVolumeDetails = Lens.lens (\EbsVolumeDetails' {skippedVolumeDetails} -> skippedVolumeDetails) (\s@EbsVolumeDetails' {} a -> s {skippedVolumeDetails = a} :: EbsVolumeDetails) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON EbsVolumeDetails where
   parseJSON =
@@ -70,20 +70,20 @@ instance Data.FromJSON EbsVolumeDetails where
       "EbsVolumeDetails"
       ( \x ->
           EbsVolumeDetails'
-            Prelude.<$> ( x Data..:? "skippedVolumeDetails"
+            Prelude.<$> ( x Data..:? "scannedVolumeDetails"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "scannedVolumeDetails"
+            Prelude.<*> ( x Data..:? "skippedVolumeDetails"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable EbsVolumeDetails where
   hashWithSalt _salt EbsVolumeDetails' {..} =
-    _salt `Prelude.hashWithSalt` skippedVolumeDetails
-      `Prelude.hashWithSalt` scannedVolumeDetails
+    _salt `Prelude.hashWithSalt` scannedVolumeDetails
+      `Prelude.hashWithSalt` skippedVolumeDetails
 
 instance Prelude.NFData EbsVolumeDetails where
   rnf EbsVolumeDetails' {..} =
-    Prelude.rnf skippedVolumeDetails
-      `Prelude.seq` Prelude.rnf scannedVolumeDetails
+    Prelude.rnf scannedVolumeDetails
+      `Prelude.seq` Prelude.rnf skippedVolumeDetails

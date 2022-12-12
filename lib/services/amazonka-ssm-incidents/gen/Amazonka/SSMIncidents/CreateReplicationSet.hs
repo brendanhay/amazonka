@@ -28,8 +28,8 @@ module Amazonka.SSMIncidents.CreateReplicationSet
     newCreateReplicationSet,
 
     -- * Request Lenses
-    createReplicationSet_tags,
     createReplicationSet_clientToken,
+    createReplicationSet_tags,
     createReplicationSet_regions,
 
     -- * Destructuring the Response
@@ -52,11 +52,11 @@ import Amazonka.SSMIncidents.Types
 
 -- | /See:/ 'newCreateReplicationSet' smart constructor.
 data CreateReplicationSet = CreateReplicationSet'
-  { -- | A list of tags to add to the replication set.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A token that ensures that the operation is called only once with the
+  { -- | A token that ensures that the operation is called only once with the
     -- specified details.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of tags to add to the replication set.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The Regions that Incident Manager replicates your data to. You can have
     -- up to three Regions in your replication set.
     regions :: Prelude.HashMap Prelude.Text RegionMapInputValue
@@ -71,10 +71,10 @@ data CreateReplicationSet = CreateReplicationSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createReplicationSet_tags' - A list of tags to add to the replication set.
---
 -- 'clientToken', 'createReplicationSet_clientToken' - A token that ensures that the operation is called only once with the
 -- specified details.
+--
+-- 'tags', 'createReplicationSet_tags' - A list of tags to add to the replication set.
 --
 -- 'regions', 'createReplicationSet_regions' - The Regions that Incident Manager replicates your data to. You can have
 -- up to three Regions in your replication set.
@@ -82,19 +82,20 @@ newCreateReplicationSet ::
   CreateReplicationSet
 newCreateReplicationSet =
   CreateReplicationSet'
-    { tags = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+    { clientToken =
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
       regions = Prelude.mempty
     }
-
--- | A list of tags to add to the replication set.
-createReplicationSet_tags :: Lens.Lens' CreateReplicationSet (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createReplicationSet_tags = Lens.lens (\CreateReplicationSet' {tags} -> tags) (\s@CreateReplicationSet' {} a -> s {tags = a} :: CreateReplicationSet) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that ensures that the operation is called only once with the
 -- specified details.
 createReplicationSet_clientToken :: Lens.Lens' CreateReplicationSet (Prelude.Maybe Prelude.Text)
 createReplicationSet_clientToken = Lens.lens (\CreateReplicationSet' {clientToken} -> clientToken) (\s@CreateReplicationSet' {} a -> s {clientToken = a} :: CreateReplicationSet)
+
+-- | A list of tags to add to the replication set.
+createReplicationSet_tags :: Lens.Lens' CreateReplicationSet (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createReplicationSet_tags = Lens.lens (\CreateReplicationSet' {tags} -> tags) (\s@CreateReplicationSet' {} a -> s {tags = a} :: CreateReplicationSet) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Regions that Incident Manager replicates your data to. You can have
 -- up to three Regions in your replication set.
@@ -117,14 +118,14 @@ instance Core.AWSRequest CreateReplicationSet where
 
 instance Prelude.Hashable CreateReplicationSet where
   hashWithSalt _salt CreateReplicationSet' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` regions
 
 instance Prelude.NFData CreateReplicationSet where
   rnf CreateReplicationSet' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf regions
 
 instance Data.ToHeaders CreateReplicationSet where
@@ -142,8 +143,8 @@ instance Data.ToJSON CreateReplicationSet where
   toJSON CreateReplicationSet' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("clientToken" Data..=) Prelude.<$> clientToken,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("regions" Data..= regions)
           ]
       )

@@ -51,12 +51,12 @@ module Amazonka.CloudWatchEvents.PutPermission
     newPutPermission,
 
     -- * Request Lenses
-    putPermission_principal,
-    putPermission_policy,
-    putPermission_eventBusName,
-    putPermission_statementId,
-    putPermission_condition,
     putPermission_action,
+    putPermission_condition,
+    putPermission_eventBusName,
+    putPermission_policy,
+    putPermission_principal,
+    putPermission_statementId,
 
     -- * Destructuring the Response
     PutPermissionResponse (..),
@@ -74,30 +74,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutPermission' smart constructor.
 data PutPermission = PutPermission'
-  { -- | The 12-digit Amazon Web Services account ID that you are permitting to
-    -- put events to your default event bus. Specify \"*\" to permit any
-    -- account to put events to your default event bus.
-    --
-    -- If you specify \"*\" without specifying @Condition@, avoid creating
-    -- rules that may match undesirable events. To create more secure rules,
-    -- make sure that the event pattern for each rule contains an @account@
-    -- field with a specific account ID from which to receive events. Rules
-    -- with an account field do not match any events sent from other accounts.
-    principal :: Prelude.Maybe Prelude.Text,
-    -- | A JSON string that describes the permission policy statement. You can
-    -- include a @Policy@ parameter in the request instead of using the
-    -- @StatementId@, @Action@, @Principal@, or @Condition@ parameters.
-    policy :: Prelude.Maybe Prelude.Text,
-    -- | The name of the event bus associated with the rule. If you omit this,
-    -- the default event bus is used.
-    eventBusName :: Prelude.Maybe Prelude.Text,
-    -- | An identifier string for the external account that you are granting
-    -- permissions to. If you later want to revoke the permission for this
-    -- external account, specify this @StatementId@ when you run
-    -- <https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_RemovePermission.html RemovePermission>.
-    --
-    -- Each @StatementId@ must be unique.
-    statementId :: Prelude.Maybe Prelude.Text,
+  { -- | The action that you are enabling the other account to perform.
+    action :: Prelude.Maybe Prelude.Text,
     -- | This parameter enables you to limit the permission to accounts that
     -- fulfill a certain condition, such as being a member of a certain Amazon
     -- Web Services organization. For more information about Amazon Web
@@ -112,8 +90,30 @@ data PutPermission = PutPermission'
     -- The @Condition@ is a JSON string which must contain @Type@, @Key@, and
     -- @Value@ fields.
     condition :: Prelude.Maybe Condition,
-    -- | The action that you are enabling the other account to perform.
-    action :: Prelude.Maybe Prelude.Text
+    -- | The name of the event bus associated with the rule. If you omit this,
+    -- the default event bus is used.
+    eventBusName :: Prelude.Maybe Prelude.Text,
+    -- | A JSON string that describes the permission policy statement. You can
+    -- include a @Policy@ parameter in the request instead of using the
+    -- @StatementId@, @Action@, @Principal@, or @Condition@ parameters.
+    policy :: Prelude.Maybe Prelude.Text,
+    -- | The 12-digit Amazon Web Services account ID that you are permitting to
+    -- put events to your default event bus. Specify \"*\" to permit any
+    -- account to put events to your default event bus.
+    --
+    -- If you specify \"*\" without specifying @Condition@, avoid creating
+    -- rules that may match undesirable events. To create more secure rules,
+    -- make sure that the event pattern for each rule contains an @account@
+    -- field with a specific account ID from which to receive events. Rules
+    -- with an account field do not match any events sent from other accounts.
+    principal :: Prelude.Maybe Prelude.Text,
+    -- | An identifier string for the external account that you are granting
+    -- permissions to. If you later want to revoke the permission for this
+    -- external account, specify this @StatementId@ when you run
+    -- <https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_RemovePermission.html RemovePermission>.
+    --
+    -- Each @StatementId@ must be unique.
+    statementId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -125,29 +125,7 @@ data PutPermission = PutPermission'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'principal', 'putPermission_principal' - The 12-digit Amazon Web Services account ID that you are permitting to
--- put events to your default event bus. Specify \"*\" to permit any
--- account to put events to your default event bus.
---
--- If you specify \"*\" without specifying @Condition@, avoid creating
--- rules that may match undesirable events. To create more secure rules,
--- make sure that the event pattern for each rule contains an @account@
--- field with a specific account ID from which to receive events. Rules
--- with an account field do not match any events sent from other accounts.
---
--- 'policy', 'putPermission_policy' - A JSON string that describes the permission policy statement. You can
--- include a @Policy@ parameter in the request instead of using the
--- @StatementId@, @Action@, @Principal@, or @Condition@ parameters.
---
--- 'eventBusName', 'putPermission_eventBusName' - The name of the event bus associated with the rule. If you omit this,
--- the default event bus is used.
---
--- 'statementId', 'putPermission_statementId' - An identifier string for the external account that you are granting
--- permissions to. If you later want to revoke the permission for this
--- external account, specify this @StatementId@ when you run
--- <https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_RemovePermission.html RemovePermission>.
---
--- Each @StatementId@ must be unique.
+-- 'action', 'putPermission_action' - The action that you are enabling the other account to perform.
 --
 -- 'condition', 'putPermission_condition' - This parameter enables you to limit the permission to accounts that
 -- fulfill a certain condition, such as being a member of a certain Amazon
@@ -163,20 +141,14 @@ data PutPermission = PutPermission'
 -- The @Condition@ is a JSON string which must contain @Type@, @Key@, and
 -- @Value@ fields.
 --
--- 'action', 'putPermission_action' - The action that you are enabling the other account to perform.
-newPutPermission ::
-  PutPermission
-newPutPermission =
-  PutPermission'
-    { principal = Prelude.Nothing,
-      policy = Prelude.Nothing,
-      eventBusName = Prelude.Nothing,
-      statementId = Prelude.Nothing,
-      condition = Prelude.Nothing,
-      action = Prelude.Nothing
-    }
-
--- | The 12-digit Amazon Web Services account ID that you are permitting to
+-- 'eventBusName', 'putPermission_eventBusName' - The name of the event bus associated with the rule. If you omit this,
+-- the default event bus is used.
+--
+-- 'policy', 'putPermission_policy' - A JSON string that describes the permission policy statement. You can
+-- include a @Policy@ parameter in the request instead of using the
+-- @StatementId@, @Action@, @Principal@, or @Condition@ parameters.
+--
+-- 'principal', 'putPermission_principal' - The 12-digit Amazon Web Services account ID that you are permitting to
 -- put events to your default event bus. Specify \"*\" to permit any
 -- account to put events to your default event bus.
 --
@@ -185,28 +157,28 @@ newPutPermission =
 -- make sure that the event pattern for each rule contains an @account@
 -- field with a specific account ID from which to receive events. Rules
 -- with an account field do not match any events sent from other accounts.
-putPermission_principal :: Lens.Lens' PutPermission (Prelude.Maybe Prelude.Text)
-putPermission_principal = Lens.lens (\PutPermission' {principal} -> principal) (\s@PutPermission' {} a -> s {principal = a} :: PutPermission)
-
--- | A JSON string that describes the permission policy statement. You can
--- include a @Policy@ parameter in the request instead of using the
--- @StatementId@, @Action@, @Principal@, or @Condition@ parameters.
-putPermission_policy :: Lens.Lens' PutPermission (Prelude.Maybe Prelude.Text)
-putPermission_policy = Lens.lens (\PutPermission' {policy} -> policy) (\s@PutPermission' {} a -> s {policy = a} :: PutPermission)
-
--- | The name of the event bus associated with the rule. If you omit this,
--- the default event bus is used.
-putPermission_eventBusName :: Lens.Lens' PutPermission (Prelude.Maybe Prelude.Text)
-putPermission_eventBusName = Lens.lens (\PutPermission' {eventBusName} -> eventBusName) (\s@PutPermission' {} a -> s {eventBusName = a} :: PutPermission)
-
--- | An identifier string for the external account that you are granting
+--
+-- 'statementId', 'putPermission_statementId' - An identifier string for the external account that you are granting
 -- permissions to. If you later want to revoke the permission for this
 -- external account, specify this @StatementId@ when you run
 -- <https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_RemovePermission.html RemovePermission>.
 --
 -- Each @StatementId@ must be unique.
-putPermission_statementId :: Lens.Lens' PutPermission (Prelude.Maybe Prelude.Text)
-putPermission_statementId = Lens.lens (\PutPermission' {statementId} -> statementId) (\s@PutPermission' {} a -> s {statementId = a} :: PutPermission)
+newPutPermission ::
+  PutPermission
+newPutPermission =
+  PutPermission'
+    { action = Prelude.Nothing,
+      condition = Prelude.Nothing,
+      eventBusName = Prelude.Nothing,
+      policy = Prelude.Nothing,
+      principal = Prelude.Nothing,
+      statementId = Prelude.Nothing
+    }
+
+-- | The action that you are enabling the other account to perform.
+putPermission_action :: Lens.Lens' PutPermission (Prelude.Maybe Prelude.Text)
+putPermission_action = Lens.lens (\PutPermission' {action} -> action) (\s@PutPermission' {} a -> s {action = a} :: PutPermission)
 
 -- | This parameter enables you to limit the permission to accounts that
 -- fulfill a certain condition, such as being a member of a certain Amazon
@@ -224,9 +196,37 @@ putPermission_statementId = Lens.lens (\PutPermission' {statementId} -> statemen
 putPermission_condition :: Lens.Lens' PutPermission (Prelude.Maybe Condition)
 putPermission_condition = Lens.lens (\PutPermission' {condition} -> condition) (\s@PutPermission' {} a -> s {condition = a} :: PutPermission)
 
--- | The action that you are enabling the other account to perform.
-putPermission_action :: Lens.Lens' PutPermission (Prelude.Maybe Prelude.Text)
-putPermission_action = Lens.lens (\PutPermission' {action} -> action) (\s@PutPermission' {} a -> s {action = a} :: PutPermission)
+-- | The name of the event bus associated with the rule. If you omit this,
+-- the default event bus is used.
+putPermission_eventBusName :: Lens.Lens' PutPermission (Prelude.Maybe Prelude.Text)
+putPermission_eventBusName = Lens.lens (\PutPermission' {eventBusName} -> eventBusName) (\s@PutPermission' {} a -> s {eventBusName = a} :: PutPermission)
+
+-- | A JSON string that describes the permission policy statement. You can
+-- include a @Policy@ parameter in the request instead of using the
+-- @StatementId@, @Action@, @Principal@, or @Condition@ parameters.
+putPermission_policy :: Lens.Lens' PutPermission (Prelude.Maybe Prelude.Text)
+putPermission_policy = Lens.lens (\PutPermission' {policy} -> policy) (\s@PutPermission' {} a -> s {policy = a} :: PutPermission)
+
+-- | The 12-digit Amazon Web Services account ID that you are permitting to
+-- put events to your default event bus. Specify \"*\" to permit any
+-- account to put events to your default event bus.
+--
+-- If you specify \"*\" without specifying @Condition@, avoid creating
+-- rules that may match undesirable events. To create more secure rules,
+-- make sure that the event pattern for each rule contains an @account@
+-- field with a specific account ID from which to receive events. Rules
+-- with an account field do not match any events sent from other accounts.
+putPermission_principal :: Lens.Lens' PutPermission (Prelude.Maybe Prelude.Text)
+putPermission_principal = Lens.lens (\PutPermission' {principal} -> principal) (\s@PutPermission' {} a -> s {principal = a} :: PutPermission)
+
+-- | An identifier string for the external account that you are granting
+-- permissions to. If you later want to revoke the permission for this
+-- external account, specify this @StatementId@ when you run
+-- <https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_RemovePermission.html RemovePermission>.
+--
+-- Each @StatementId@ must be unique.
+putPermission_statementId :: Lens.Lens' PutPermission (Prelude.Maybe Prelude.Text)
+putPermission_statementId = Lens.lens (\PutPermission' {statementId} -> statementId) (\s@PutPermission' {} a -> s {statementId = a} :: PutPermission)
 
 instance Core.AWSRequest PutPermission where
   type
@@ -239,21 +239,21 @@ instance Core.AWSRequest PutPermission where
 
 instance Prelude.Hashable PutPermission where
   hashWithSalt _salt PutPermission' {..} =
-    _salt `Prelude.hashWithSalt` principal
-      `Prelude.hashWithSalt` policy
-      `Prelude.hashWithSalt` eventBusName
-      `Prelude.hashWithSalt` statementId
+    _salt `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` condition
-      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` eventBusName
+      `Prelude.hashWithSalt` policy
+      `Prelude.hashWithSalt` principal
+      `Prelude.hashWithSalt` statementId
 
 instance Prelude.NFData PutPermission where
   rnf PutPermission' {..} =
-    Prelude.rnf principal
-      `Prelude.seq` Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf eventBusName
-      `Prelude.seq` Prelude.rnf statementId
+    Prelude.rnf action
       `Prelude.seq` Prelude.rnf condition
-      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf eventBusName
+      `Prelude.seq` Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf principal
+      `Prelude.seq` Prelude.rnf statementId
 
 instance Data.ToHeaders PutPermission where
   toHeaders =
@@ -272,12 +272,12 @@ instance Data.ToJSON PutPermission where
   toJSON PutPermission' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Principal" Data..=) Prelude.<$> principal,
-            ("Policy" Data..=) Prelude.<$> policy,
-            ("EventBusName" Data..=) Prelude.<$> eventBusName,
-            ("StatementId" Data..=) Prelude.<$> statementId,
+          [ ("Action" Data..=) Prelude.<$> action,
             ("Condition" Data..=) Prelude.<$> condition,
-            ("Action" Data..=) Prelude.<$> action
+            ("EventBusName" Data..=) Prelude.<$> eventBusName,
+            ("Policy" Data..=) Prelude.<$> policy,
+            ("Principal" Data..=) Prelude.<$> principal,
+            ("StatementId" Data..=) Prelude.<$> statementId
           ]
       )
 

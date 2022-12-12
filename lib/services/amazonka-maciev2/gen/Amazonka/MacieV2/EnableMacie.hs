@@ -29,8 +29,8 @@ module Amazonka.MacieV2.EnableMacie
 
     -- * Request Lenses
     enableMacie_clientToken,
-    enableMacie_status,
     enableMacie_findingPublishingFrequency,
+    enableMacie_status,
 
     -- * Destructuring the Response
     EnableMacieResponse (..),
@@ -54,13 +54,13 @@ data EnableMacie = EnableMacie'
   { -- | A unique, case-sensitive token that you provide to ensure the
     -- idempotency of the request.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the new status for the account. To enable Amazon Macie and
-    -- start all Macie activities for the account, set this value to ENABLED.
-    status :: Prelude.Maybe MacieStatus,
     -- | Specifies how often to publish updates to policy findings for the
     -- account. This includes publishing updates to Security Hub and Amazon
     -- EventBridge (formerly Amazon CloudWatch Events).
-    findingPublishingFrequency :: Prelude.Maybe FindingPublishingFrequency
+    findingPublishingFrequency :: Prelude.Maybe FindingPublishingFrequency,
+    -- | Specifies the new status for the account. To enable Amazon Macie and
+    -- start all Macie activities for the account, set this value to ENABLED.
+    status :: Prelude.Maybe MacieStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,19 +75,19 @@ data EnableMacie = EnableMacie'
 -- 'clientToken', 'enableMacie_clientToken' - A unique, case-sensitive token that you provide to ensure the
 -- idempotency of the request.
 --
--- 'status', 'enableMacie_status' - Specifies the new status for the account. To enable Amazon Macie and
--- start all Macie activities for the account, set this value to ENABLED.
---
 -- 'findingPublishingFrequency', 'enableMacie_findingPublishingFrequency' - Specifies how often to publish updates to policy findings for the
 -- account. This includes publishing updates to Security Hub and Amazon
 -- EventBridge (formerly Amazon CloudWatch Events).
+--
+-- 'status', 'enableMacie_status' - Specifies the new status for the account. To enable Amazon Macie and
+-- start all Macie activities for the account, set this value to ENABLED.
 newEnableMacie ::
   EnableMacie
 newEnableMacie =
   EnableMacie'
     { clientToken = Prelude.Nothing,
-      status = Prelude.Nothing,
-      findingPublishingFrequency = Prelude.Nothing
+      findingPublishingFrequency = Prelude.Nothing,
+      status = Prelude.Nothing
     }
 
 -- | A unique, case-sensitive token that you provide to ensure the
@@ -95,16 +95,16 @@ newEnableMacie =
 enableMacie_clientToken :: Lens.Lens' EnableMacie (Prelude.Maybe Prelude.Text)
 enableMacie_clientToken = Lens.lens (\EnableMacie' {clientToken} -> clientToken) (\s@EnableMacie' {} a -> s {clientToken = a} :: EnableMacie)
 
--- | Specifies the new status for the account. To enable Amazon Macie and
--- start all Macie activities for the account, set this value to ENABLED.
-enableMacie_status :: Lens.Lens' EnableMacie (Prelude.Maybe MacieStatus)
-enableMacie_status = Lens.lens (\EnableMacie' {status} -> status) (\s@EnableMacie' {} a -> s {status = a} :: EnableMacie)
-
 -- | Specifies how often to publish updates to policy findings for the
 -- account. This includes publishing updates to Security Hub and Amazon
 -- EventBridge (formerly Amazon CloudWatch Events).
 enableMacie_findingPublishingFrequency :: Lens.Lens' EnableMacie (Prelude.Maybe FindingPublishingFrequency)
 enableMacie_findingPublishingFrequency = Lens.lens (\EnableMacie' {findingPublishingFrequency} -> findingPublishingFrequency) (\s@EnableMacie' {} a -> s {findingPublishingFrequency = a} :: EnableMacie)
+
+-- | Specifies the new status for the account. To enable Amazon Macie and
+-- start all Macie activities for the account, set this value to ENABLED.
+enableMacie_status :: Lens.Lens' EnableMacie (Prelude.Maybe MacieStatus)
+enableMacie_status = Lens.lens (\EnableMacie' {status} -> status) (\s@EnableMacie' {} a -> s {status = a} :: EnableMacie)
 
 instance Core.AWSRequest EnableMacie where
   type AWSResponse EnableMacie = EnableMacieResponse
@@ -120,14 +120,14 @@ instance Core.AWSRequest EnableMacie where
 instance Prelude.Hashable EnableMacie where
   hashWithSalt _salt EnableMacie' {..} =
     _salt `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` findingPublishingFrequency
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData EnableMacie where
   rnf EnableMacie' {..} =
     Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf findingPublishingFrequency
+      `Prelude.seq` Prelude.rnf status
 
 instance Data.ToHeaders EnableMacie where
   toHeaders =
@@ -145,9 +145,9 @@ instance Data.ToJSON EnableMacie where
     Data.object
       ( Prelude.catMaybes
           [ ("clientToken" Data..=) Prelude.<$> clientToken,
-            ("status" Data..=) Prelude.<$> status,
             ("findingPublishingFrequency" Data..=)
-              Prelude.<$> findingPublishingFrequency
+              Prelude.<$> findingPublishingFrequency,
+            ("status" Data..=) Prelude.<$> status
           ]
       )
 

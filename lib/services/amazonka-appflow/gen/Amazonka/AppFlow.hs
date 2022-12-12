@@ -51,35 +51,35 @@ module Amazonka.AppFlow
     -- * Errors
     -- $errors
 
-    -- ** ConnectorAuthenticationException
-    _ConnectorAuthenticationException,
-
-    -- ** UnsupportedOperationException
-    _UnsupportedOperationException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** InternalServerException
-    _InternalServerException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
 
     -- ** ConflictException
     _ConflictException,
 
-    -- ** ThrottlingException
-    _ThrottlingException,
-
-    -- ** ValidationException
-    _ValidationException,
+    -- ** ConnectorAuthenticationException
+    _ConnectorAuthenticationException,
 
     -- ** ConnectorServerException
     _ConnectorServerException,
+
+    -- ** InternalServerException
+    _InternalServerException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** UnsupportedOperationException
+    _UnsupportedOperationException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters

@@ -28,9 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBucketState' smart constructor.
 data BucketState = BucketState'
-  { -- | A message that describes the state of the bucket.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The state code of the bucket.
+  { -- | The state code of the bucket.
     --
     -- The following codes are possible:
     --
@@ -38,7 +36,9 @@ data BucketState = BucketState'
     --
     -- -   @Unknown@ - Creation of the bucket might have timed-out. You might
     --     want to delete the bucket and create a new one.
-    code :: Prelude.Maybe Prelude.Text
+    code :: Prelude.Maybe Prelude.Text,
+    -- | A message that describes the state of the bucket.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,8 +50,6 @@ data BucketState = BucketState'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'bucketState_message' - A message that describes the state of the bucket.
---
 -- 'code', 'bucketState_code' - The state code of the bucket.
 --
 -- The following codes are possible:
@@ -60,17 +58,15 @@ data BucketState = BucketState'
 --
 -- -   @Unknown@ - Creation of the bucket might have timed-out. You might
 --     want to delete the bucket and create a new one.
+--
+-- 'message', 'bucketState_message' - A message that describes the state of the bucket.
 newBucketState ::
   BucketState
 newBucketState =
   BucketState'
-    { message = Prelude.Nothing,
-      code = Prelude.Nothing
+    { code = Prelude.Nothing,
+      message = Prelude.Nothing
     }
-
--- | A message that describes the state of the bucket.
-bucketState_message :: Lens.Lens' BucketState (Prelude.Maybe Prelude.Text)
-bucketState_message = Lens.lens (\BucketState' {message} -> message) (\s@BucketState' {} a -> s {message = a} :: BucketState)
 
 -- | The state code of the bucket.
 --
@@ -83,21 +79,25 @@ bucketState_message = Lens.lens (\BucketState' {message} -> message) (\s@BucketS
 bucketState_code :: Lens.Lens' BucketState (Prelude.Maybe Prelude.Text)
 bucketState_code = Lens.lens (\BucketState' {code} -> code) (\s@BucketState' {} a -> s {code = a} :: BucketState)
 
+-- | A message that describes the state of the bucket.
+bucketState_message :: Lens.Lens' BucketState (Prelude.Maybe Prelude.Text)
+bucketState_message = Lens.lens (\BucketState' {message} -> message) (\s@BucketState' {} a -> s {message = a} :: BucketState)
+
 instance Data.FromJSON BucketState where
   parseJSON =
     Data.withObject
       "BucketState"
       ( \x ->
           BucketState'
-            Prelude.<$> (x Data..:? "message")
-            Prelude.<*> (x Data..:? "code")
+            Prelude.<$> (x Data..:? "code")
+            Prelude.<*> (x Data..:? "message")
       )
 
 instance Prelude.Hashable BucketState where
   hashWithSalt _salt BucketState' {..} =
-    _salt `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` code
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` message
 
 instance Prelude.NFData BucketState where
   rnf BucketState' {..} =
-    Prelude.rnf message `Prelude.seq` Prelude.rnf code
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

@@ -30,10 +30,10 @@ import Amazonka.SageMaker.Types.ProductionVariantInstanceType
 --
 -- /See:/ 'newEndpointInputConfiguration' smart constructor.
 data EndpointInputConfiguration = EndpointInputConfiguration'
-  { -- | The inference specification name in the model package version.
-    inferenceSpecificationName :: Prelude.Maybe Prelude.Text,
-    -- | The parameter you want to benchmark against.
+  { -- | The parameter you want to benchmark against.
     environmentParameterRanges :: Prelude.Maybe EnvironmentParameterRanges,
+    -- | The inference specification name in the model package version.
+    inferenceSpecificationName :: Prelude.Maybe Prelude.Text,
     -- | The instance types to use for the load test.
     instanceType :: ProductionVariantInstanceType
   }
@@ -47,9 +47,9 @@ data EndpointInputConfiguration = EndpointInputConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'inferenceSpecificationName', 'endpointInputConfiguration_inferenceSpecificationName' - The inference specification name in the model package version.
---
 -- 'environmentParameterRanges', 'endpointInputConfiguration_environmentParameterRanges' - The parameter you want to benchmark against.
+--
+-- 'inferenceSpecificationName', 'endpointInputConfiguration_inferenceSpecificationName' - The inference specification name in the model package version.
 --
 -- 'instanceType', 'endpointInputConfiguration_instanceType' - The instance types to use for the load test.
 newEndpointInputConfiguration ::
@@ -58,19 +58,19 @@ newEndpointInputConfiguration ::
   EndpointInputConfiguration
 newEndpointInputConfiguration pInstanceType_ =
   EndpointInputConfiguration'
-    { inferenceSpecificationName =
+    { environmentParameterRanges =
         Prelude.Nothing,
-      environmentParameterRanges = Prelude.Nothing,
+      inferenceSpecificationName = Prelude.Nothing,
       instanceType = pInstanceType_
     }
-
--- | The inference specification name in the model package version.
-endpointInputConfiguration_inferenceSpecificationName :: Lens.Lens' EndpointInputConfiguration (Prelude.Maybe Prelude.Text)
-endpointInputConfiguration_inferenceSpecificationName = Lens.lens (\EndpointInputConfiguration' {inferenceSpecificationName} -> inferenceSpecificationName) (\s@EndpointInputConfiguration' {} a -> s {inferenceSpecificationName = a} :: EndpointInputConfiguration)
 
 -- | The parameter you want to benchmark against.
 endpointInputConfiguration_environmentParameterRanges :: Lens.Lens' EndpointInputConfiguration (Prelude.Maybe EnvironmentParameterRanges)
 endpointInputConfiguration_environmentParameterRanges = Lens.lens (\EndpointInputConfiguration' {environmentParameterRanges} -> environmentParameterRanges) (\s@EndpointInputConfiguration' {} a -> s {environmentParameterRanges = a} :: EndpointInputConfiguration)
+
+-- | The inference specification name in the model package version.
+endpointInputConfiguration_inferenceSpecificationName :: Lens.Lens' EndpointInputConfiguration (Prelude.Maybe Prelude.Text)
+endpointInputConfiguration_inferenceSpecificationName = Lens.lens (\EndpointInputConfiguration' {inferenceSpecificationName} -> inferenceSpecificationName) (\s@EndpointInputConfiguration' {} a -> s {inferenceSpecificationName = a} :: EndpointInputConfiguration)
 
 -- | The instance types to use for the load test.
 endpointInputConfiguration_instanceType :: Lens.Lens' EndpointInputConfiguration ProductionVariantInstanceType
@@ -82,32 +82,32 @@ instance Data.FromJSON EndpointInputConfiguration where
       "EndpointInputConfiguration"
       ( \x ->
           EndpointInputConfiguration'
-            Prelude.<$> (x Data..:? "InferenceSpecificationName")
-            Prelude.<*> (x Data..:? "EnvironmentParameterRanges")
+            Prelude.<$> (x Data..:? "EnvironmentParameterRanges")
+            Prelude.<*> (x Data..:? "InferenceSpecificationName")
             Prelude.<*> (x Data..: "InstanceType")
       )
 
 instance Prelude.Hashable EndpointInputConfiguration where
   hashWithSalt _salt EndpointInputConfiguration' {..} =
     _salt
-      `Prelude.hashWithSalt` inferenceSpecificationName
       `Prelude.hashWithSalt` environmentParameterRanges
+      `Prelude.hashWithSalt` inferenceSpecificationName
       `Prelude.hashWithSalt` instanceType
 
 instance Prelude.NFData EndpointInputConfiguration where
   rnf EndpointInputConfiguration' {..} =
-    Prelude.rnf inferenceSpecificationName
-      `Prelude.seq` Prelude.rnf environmentParameterRanges
+    Prelude.rnf environmentParameterRanges
+      `Prelude.seq` Prelude.rnf inferenceSpecificationName
       `Prelude.seq` Prelude.rnf instanceType
 
 instance Data.ToJSON EndpointInputConfiguration where
   toJSON EndpointInputConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("InferenceSpecificationName" Data..=)
-              Prelude.<$> inferenceSpecificationName,
-            ("EnvironmentParameterRanges" Data..=)
+          [ ("EnvironmentParameterRanges" Data..=)
               Prelude.<$> environmentParameterRanges,
+            ("InferenceSpecificationName" Data..=)
+              Prelude.<$> inferenceSpecificationName,
             Prelude.Just ("InstanceType" Data..= instanceType)
           ]
       )

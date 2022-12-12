@@ -30,8 +30,8 @@ module Amazonka.WorkMail.ListAliases
     newListAliases,
 
     -- * Request Lenses
-    listAliases_nextToken,
     listAliases_maxResults,
+    listAliases_nextToken,
     listAliases_organizationId,
     listAliases_entityId,
 
@@ -40,8 +40,8 @@ module Amazonka.WorkMail.ListAliases
     newListAliasesResponse,
 
     -- * Response Lenses
-    listAliasesResponse_nextToken,
     listAliasesResponse_aliases,
+    listAliasesResponse_nextToken,
     listAliasesResponse_httpStatus,
   )
 where
@@ -56,11 +56,11 @@ import Amazonka.WorkMail.Types
 
 -- | /See:/ 'newListAliases' smart constructor.
 data ListAliases = ListAliases'
-  { -- | The token to use to retrieve the next page of results. The first call
+  { -- | The maximum number of results to return in a single call.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to use to retrieve the next page of results. The first call
     -- does not contain any tokens.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in a single call.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier for the organization under which the entity exists.
     organizationId :: Prelude.Text,
     -- | The identifier for the entity for which to list the aliases.
@@ -76,10 +76,10 @@ data ListAliases = ListAliases'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listAliases_maxResults' - The maximum number of results to return in a single call.
+--
 -- 'nextToken', 'listAliases_nextToken' - The token to use to retrieve the next page of results. The first call
 -- does not contain any tokens.
---
--- 'maxResults', 'listAliases_maxResults' - The maximum number of results to return in a single call.
 --
 -- 'organizationId', 'listAliases_organizationId' - The identifier for the organization under which the entity exists.
 --
@@ -92,20 +92,20 @@ newListAliases ::
   ListAliases
 newListAliases pOrganizationId_ pEntityId_ =
   ListAliases'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       organizationId = pOrganizationId_,
       entityId = pEntityId_
     }
+
+-- | The maximum number of results to return in a single call.
+listAliases_maxResults :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Natural)
+listAliases_maxResults = Lens.lens (\ListAliases' {maxResults} -> maxResults) (\s@ListAliases' {} a -> s {maxResults = a} :: ListAliases)
 
 -- | The token to use to retrieve the next page of results. The first call
 -- does not contain any tokens.
 listAliases_nextToken :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Text)
 listAliases_nextToken = Lens.lens (\ListAliases' {nextToken} -> nextToken) (\s@ListAliases' {} a -> s {nextToken = a} :: ListAliases)
-
--- | The maximum number of results to return in a single call.
-listAliases_maxResults :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Natural)
-listAliases_maxResults = Lens.lens (\ListAliases' {maxResults} -> maxResults) (\s@ListAliases' {} a -> s {maxResults = a} :: ListAliases)
 
 -- | The identifier for the organization under which the entity exists.
 listAliases_organizationId :: Lens.Lens' ListAliases Prelude.Text
@@ -142,22 +142,22 @@ instance Core.AWSRequest ListAliases where
     Response.receiveJSON
       ( \s h x ->
           ListAliasesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Aliases" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Aliases" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListAliases where
   hashWithSalt _salt ListAliases' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` entityId
 
 instance Prelude.NFData ListAliases where
   rnf ListAliases' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf organizationId
       `Prelude.seq` Prelude.rnf entityId
 
@@ -180,8 +180,8 @@ instance Data.ToJSON ListAliases where
   toJSON ListAliases' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("OrganizationId" Data..= organizationId),
             Prelude.Just ("EntityId" Data..= entityId)
@@ -196,11 +196,11 @@ instance Data.ToQuery ListAliases where
 
 -- | /See:/ 'newListAliasesResponse' smart constructor.
 data ListAliasesResponse = ListAliasesResponse'
-  { -- | The token to use to retrieve the next page of results. The value is
+  { -- | The entity\'s paginated aliases.
+    aliases :: Prelude.Maybe [Prelude.Text],
+    -- | The token to use to retrieve the next page of results. The value is
     -- \"null\" when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The entity\'s paginated aliases.
-    aliases :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -214,10 +214,10 @@ data ListAliasesResponse = ListAliasesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'aliases', 'listAliasesResponse_aliases' - The entity\'s paginated aliases.
+--
 -- 'nextToken', 'listAliasesResponse_nextToken' - The token to use to retrieve the next page of results. The value is
 -- \"null\" when there are no more results to return.
---
--- 'aliases', 'listAliasesResponse_aliases' - The entity\'s paginated aliases.
 --
 -- 'httpStatus', 'listAliasesResponse_httpStatus' - The response's http status code.
 newListAliasesResponse ::
@@ -226,19 +226,19 @@ newListAliasesResponse ::
   ListAliasesResponse
 newListAliasesResponse pHttpStatus_ =
   ListAliasesResponse'
-    { nextToken = Prelude.Nothing,
-      aliases = Prelude.Nothing,
+    { aliases = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The entity\'s paginated aliases.
+listAliasesResponse_aliases :: Lens.Lens' ListAliasesResponse (Prelude.Maybe [Prelude.Text])
+listAliasesResponse_aliases = Lens.lens (\ListAliasesResponse' {aliases} -> aliases) (\s@ListAliasesResponse' {} a -> s {aliases = a} :: ListAliasesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. The value is
 -- \"null\" when there are no more results to return.
 listAliasesResponse_nextToken :: Lens.Lens' ListAliasesResponse (Prelude.Maybe Prelude.Text)
 listAliasesResponse_nextToken = Lens.lens (\ListAliasesResponse' {nextToken} -> nextToken) (\s@ListAliasesResponse' {} a -> s {nextToken = a} :: ListAliasesResponse)
-
--- | The entity\'s paginated aliases.
-listAliasesResponse_aliases :: Lens.Lens' ListAliasesResponse (Prelude.Maybe [Prelude.Text])
-listAliasesResponse_aliases = Lens.lens (\ListAliasesResponse' {aliases} -> aliases) (\s@ListAliasesResponse' {} a -> s {aliases = a} :: ListAliasesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAliasesResponse_httpStatus :: Lens.Lens' ListAliasesResponse Prelude.Int
@@ -246,6 +246,6 @@ listAliasesResponse_httpStatus = Lens.lens (\ListAliasesResponse' {httpStatus} -
 
 instance Prelude.NFData ListAliasesResponse where
   rnf ListAliasesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf aliases
+    Prelude.rnf aliases
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

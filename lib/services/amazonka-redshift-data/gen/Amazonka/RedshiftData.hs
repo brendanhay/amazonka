@@ -26,6 +26,12 @@ module Amazonka.RedshiftData
     -- * Errors
     -- $errors
 
+    -- ** ActiveStatementsExceededException
+    _ActiveStatementsExceededException,
+
+    -- ** BatchExecuteStatementException
+    _BatchExecuteStatementException,
+
     -- ** DatabaseConnectionException
     _DatabaseConnectionException,
 
@@ -37,12 +43,6 @@ module Amazonka.RedshiftData
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
-
-    -- ** ActiveStatementsExceededException
-    _ActiveStatementsExceededException,
-
-    -- ** BatchExecuteStatementException
-    _BatchExecuteStatementException,
 
     -- ** ValidationException
     _ValidationException,

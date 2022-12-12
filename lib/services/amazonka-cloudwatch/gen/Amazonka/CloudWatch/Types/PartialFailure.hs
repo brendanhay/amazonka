@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPartialFailure' smart constructor.
 data PartialFailure = PartialFailure'
-  { -- | A description of the error.
-    failureDescription :: Prelude.Maybe Prelude.Text,
+  { -- | The type of error.
+    exceptionType :: Prelude.Maybe Prelude.Text,
     -- | The code of the error.
     failureCode :: Prelude.Maybe Prelude.Text,
-    -- | The type of error.
-    exceptionType :: Prelude.Maybe Prelude.Text,
+    -- | A description of the error.
+    failureDescription :: Prelude.Maybe Prelude.Text,
     -- | The specified rule that could not be deleted.
     failureResource :: Prelude.Maybe Prelude.Text
   }
@@ -49,35 +49,34 @@ data PartialFailure = PartialFailure'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'failureDescription', 'partialFailure_failureDescription' - A description of the error.
+-- 'exceptionType', 'partialFailure_exceptionType' - The type of error.
 --
 -- 'failureCode', 'partialFailure_failureCode' - The code of the error.
 --
--- 'exceptionType', 'partialFailure_exceptionType' - The type of error.
+-- 'failureDescription', 'partialFailure_failureDescription' - A description of the error.
 --
 -- 'failureResource', 'partialFailure_failureResource' - The specified rule that could not be deleted.
 newPartialFailure ::
   PartialFailure
 newPartialFailure =
   PartialFailure'
-    { failureDescription =
-        Prelude.Nothing,
+    { exceptionType = Prelude.Nothing,
       failureCode = Prelude.Nothing,
-      exceptionType = Prelude.Nothing,
+      failureDescription = Prelude.Nothing,
       failureResource = Prelude.Nothing
     }
 
--- | A description of the error.
-partialFailure_failureDescription :: Lens.Lens' PartialFailure (Prelude.Maybe Prelude.Text)
-partialFailure_failureDescription = Lens.lens (\PartialFailure' {failureDescription} -> failureDescription) (\s@PartialFailure' {} a -> s {failureDescription = a} :: PartialFailure)
+-- | The type of error.
+partialFailure_exceptionType :: Lens.Lens' PartialFailure (Prelude.Maybe Prelude.Text)
+partialFailure_exceptionType = Lens.lens (\PartialFailure' {exceptionType} -> exceptionType) (\s@PartialFailure' {} a -> s {exceptionType = a} :: PartialFailure)
 
 -- | The code of the error.
 partialFailure_failureCode :: Lens.Lens' PartialFailure (Prelude.Maybe Prelude.Text)
 partialFailure_failureCode = Lens.lens (\PartialFailure' {failureCode} -> failureCode) (\s@PartialFailure' {} a -> s {failureCode = a} :: PartialFailure)
 
--- | The type of error.
-partialFailure_exceptionType :: Lens.Lens' PartialFailure (Prelude.Maybe Prelude.Text)
-partialFailure_exceptionType = Lens.lens (\PartialFailure' {exceptionType} -> exceptionType) (\s@PartialFailure' {} a -> s {exceptionType = a} :: PartialFailure)
+-- | A description of the error.
+partialFailure_failureDescription :: Lens.Lens' PartialFailure (Prelude.Maybe Prelude.Text)
+partialFailure_failureDescription = Lens.lens (\PartialFailure' {failureDescription} -> failureDescription) (\s@PartialFailure' {} a -> s {failureDescription = a} :: PartialFailure)
 
 -- | The specified rule that could not be deleted.
 partialFailure_failureResource :: Lens.Lens' PartialFailure (Prelude.Maybe Prelude.Text)
@@ -86,21 +85,21 @@ partialFailure_failureResource = Lens.lens (\PartialFailure' {failureResource} -
 instance Data.FromXML PartialFailure where
   parseXML x =
     PartialFailure'
-      Prelude.<$> (x Data..@? "FailureDescription")
+      Prelude.<$> (x Data..@? "ExceptionType")
       Prelude.<*> (x Data..@? "FailureCode")
-      Prelude.<*> (x Data..@? "ExceptionType")
+      Prelude.<*> (x Data..@? "FailureDescription")
       Prelude.<*> (x Data..@? "FailureResource")
 
 instance Prelude.Hashable PartialFailure where
   hashWithSalt _salt PartialFailure' {..} =
-    _salt `Prelude.hashWithSalt` failureDescription
+    _salt `Prelude.hashWithSalt` exceptionType
       `Prelude.hashWithSalt` failureCode
-      `Prelude.hashWithSalt` exceptionType
+      `Prelude.hashWithSalt` failureDescription
       `Prelude.hashWithSalt` failureResource
 
 instance Prelude.NFData PartialFailure where
   rnf PartialFailure' {..} =
-    Prelude.rnf failureDescription
+    Prelude.rnf exceptionType
       `Prelude.seq` Prelude.rnf failureCode
-      `Prelude.seq` Prelude.rnf exceptionType
+      `Prelude.seq` Prelude.rnf failureDescription
       `Prelude.seq` Prelude.rnf failureResource

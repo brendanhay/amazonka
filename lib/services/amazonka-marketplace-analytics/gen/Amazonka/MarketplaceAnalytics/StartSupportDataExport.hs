@@ -38,8 +38,8 @@ module Amazonka.MarketplaceAnalytics.StartSupportDataExport
     newStartSupportDataExport,
 
     -- * Request Lenses
-    startSupportDataExport_destinationS3Prefix,
     startSupportDataExport_customerDefinedValues,
+    startSupportDataExport_destinationS3Prefix,
     startSupportDataExport_dataSetType,
     startSupportDataExport_fromDate,
     startSupportDataExport_roleNameArn,
@@ -68,7 +68,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newStartSupportDataExport' smart constructor.
 data StartSupportDataExport = StartSupportDataExport'
-  { -- | (Optional) The desired S3 prefix for the published data set, similar to
+  { -- | (Optional) Key-value pairs which will be returned, unmodified, in the
+    -- Amazon SNS notification message and the data set metadata file.
+    customerDefinedValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | (Optional) The desired S3 prefix for the published data set, similar to
     -- a directory path in standard file systems. For example, if given the
     -- bucket name \"mybucket\" and the prefix \"myprefix\/mydatasets\", the
     -- output file \"outputfile\" would be published to
@@ -76,9 +79,6 @@ data StartSupportDataExport = StartSupportDataExport'
     -- directory structure does not exist, it will be created. If no prefix is
     -- provided, the data set will be published to the S3 bucket root.
     destinationS3Prefix :: Prelude.Maybe Prelude.Text,
-    -- | (Optional) Key-value pairs which will be returned, unmodified, in the
-    -- Amazon SNS notification message and the data set metadata file.
-    customerDefinedValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Specifies the data set type to be written to the output csv file. The
     -- data set types customer_support_contacts_data and
     -- test_customer_support_contacts_data both result in a csv file containing
@@ -117,6 +117,9 @@ data StartSupportDataExport = StartSupportDataExport'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'customerDefinedValues', 'startSupportDataExport_customerDefinedValues' - (Optional) Key-value pairs which will be returned, unmodified, in the
+-- Amazon SNS notification message and the data set metadata file.
+--
 -- 'destinationS3Prefix', 'startSupportDataExport_destinationS3Prefix' - (Optional) The desired S3 prefix for the published data set, similar to
 -- a directory path in standard file systems. For example, if given the
 -- bucket name \"mybucket\" and the prefix \"myprefix\/mydatasets\", the
@@ -124,9 +127,6 @@ data StartSupportDataExport = StartSupportDataExport'
 -- \"s3:\/\/mybucket\/myprefix\/mydatasets\/outputfile\". If the prefix
 -- directory structure does not exist, it will be created. If no prefix is
 -- provided, the data set will be published to the S3 bucket root.
---
--- 'customerDefinedValues', 'startSupportDataExport_customerDefinedValues' - (Optional) Key-value pairs which will be returned, unmodified, in the
--- Amazon SNS notification message and the data set metadata file.
 --
 -- 'dataSetType', 'startSupportDataExport_dataSetType' - Specifies the data set type to be written to the output csv file. The
 -- data set types customer_support_contacts_data and
@@ -173,15 +173,20 @@ newStartSupportDataExport
   pDestinationS3BucketName_
   pSnsTopicArn_ =
     StartSupportDataExport'
-      { destinationS3Prefix =
+      { customerDefinedValues =
           Prelude.Nothing,
-        customerDefinedValues = Prelude.Nothing,
+        destinationS3Prefix = Prelude.Nothing,
         dataSetType = pDataSetType_,
         fromDate = Data._Time Lens.# pFromDate_,
         roleNameArn = pRoleNameArn_,
         destinationS3BucketName = pDestinationS3BucketName_,
         snsTopicArn = pSnsTopicArn_
       }
+
+-- | (Optional) Key-value pairs which will be returned, unmodified, in the
+-- Amazon SNS notification message and the data set metadata file.
+startSupportDataExport_customerDefinedValues :: Lens.Lens' StartSupportDataExport (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+startSupportDataExport_customerDefinedValues = Lens.lens (\StartSupportDataExport' {customerDefinedValues} -> customerDefinedValues) (\s@StartSupportDataExport' {} a -> s {customerDefinedValues = a} :: StartSupportDataExport) Prelude.. Lens.mapping Lens.coerced
 
 -- | (Optional) The desired S3 prefix for the published data set, similar to
 -- a directory path in standard file systems. For example, if given the
@@ -192,11 +197,6 @@ newStartSupportDataExport
 -- provided, the data set will be published to the S3 bucket root.
 startSupportDataExport_destinationS3Prefix :: Lens.Lens' StartSupportDataExport (Prelude.Maybe Prelude.Text)
 startSupportDataExport_destinationS3Prefix = Lens.lens (\StartSupportDataExport' {destinationS3Prefix} -> destinationS3Prefix) (\s@StartSupportDataExport' {} a -> s {destinationS3Prefix = a} :: StartSupportDataExport)
-
--- | (Optional) Key-value pairs which will be returned, unmodified, in the
--- Amazon SNS notification message and the data set metadata file.
-startSupportDataExport_customerDefinedValues :: Lens.Lens' StartSupportDataExport (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-startSupportDataExport_customerDefinedValues = Lens.lens (\StartSupportDataExport' {customerDefinedValues} -> customerDefinedValues) (\s@StartSupportDataExport' {} a -> s {customerDefinedValues = a} :: StartSupportDataExport) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the data set type to be written to the output csv file. The
 -- data set types customer_support_contacts_data and
@@ -251,8 +251,8 @@ instance Core.AWSRequest StartSupportDataExport where
 
 instance Prelude.Hashable StartSupportDataExport where
   hashWithSalt _salt StartSupportDataExport' {..} =
-    _salt `Prelude.hashWithSalt` destinationS3Prefix
-      `Prelude.hashWithSalt` customerDefinedValues
+    _salt `Prelude.hashWithSalt` customerDefinedValues
+      `Prelude.hashWithSalt` destinationS3Prefix
       `Prelude.hashWithSalt` dataSetType
       `Prelude.hashWithSalt` fromDate
       `Prelude.hashWithSalt` roleNameArn
@@ -261,8 +261,8 @@ instance Prelude.Hashable StartSupportDataExport where
 
 instance Prelude.NFData StartSupportDataExport where
   rnf StartSupportDataExport' {..} =
-    Prelude.rnf destinationS3Prefix
-      `Prelude.seq` Prelude.rnf customerDefinedValues
+    Prelude.rnf customerDefinedValues
+      `Prelude.seq` Prelude.rnf destinationS3Prefix
       `Prelude.seq` Prelude.rnf dataSetType
       `Prelude.seq` Prelude.rnf fromDate
       `Prelude.seq` Prelude.rnf roleNameArn
@@ -288,10 +288,10 @@ instance Data.ToJSON StartSupportDataExport where
   toJSON StartSupportDataExport' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("destinationS3Prefix" Data..=)
-              Prelude.<$> destinationS3Prefix,
-            ("customerDefinedValues" Data..=)
+          [ ("customerDefinedValues" Data..=)
               Prelude.<$> customerDefinedValues,
+            ("destinationS3Prefix" Data..=)
+              Prelude.<$> destinationS3Prefix,
             Prelude.Just ("dataSetType" Data..= dataSetType),
             Prelude.Just ("fromDate" Data..= fromDate),
             Prelude.Just ("roleNameArn" Data..= roleNameArn),

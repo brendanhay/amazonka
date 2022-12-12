@@ -24,7 +24,7 @@
 --
 -- To view the status of the specified medical transcription job, check the
 -- @TranscriptionJobStatus@ field. If the status is @COMPLETED@, the job is
--- finished and you can find the results at the location specified in
+-- finished. You can find the results at the location specified in
 -- @TranscriptFileUri@. If the status is @FAILED@, @FailureReason@ provides
 -- details on why your transcription job failed.
 --

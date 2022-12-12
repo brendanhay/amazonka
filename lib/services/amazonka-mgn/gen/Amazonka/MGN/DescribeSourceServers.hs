@@ -29,9 +29,9 @@ module Amazonka.MGN.DescribeSourceServers
     newDescribeSourceServers,
 
     -- * Request Lenses
-    describeSourceServers_nextToken,
     describeSourceServers_filters,
     describeSourceServers_maxResults,
+    describeSourceServers_nextToken,
 
     -- * Destructuring the Response
     DescribeSourceServersResponse (..),
@@ -54,12 +54,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeSourceServers' smart constructor.
 data DescribeSourceServers = DescribeSourceServers'
-  { -- | Request to filter Source Servers list by next token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Request to filter Source Servers list.
+  { -- | Request to filter Source Servers list.
     filters :: Prelude.Maybe DescribeSourceServersRequestFilters,
     -- | Request to filter Source Servers list by maximum results.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Request to filter Source Servers list by next token.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,23 +71,19 @@ data DescribeSourceServers = DescribeSourceServers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeSourceServers_nextToken' - Request to filter Source Servers list by next token.
---
 -- 'filters', 'describeSourceServers_filters' - Request to filter Source Servers list.
 --
 -- 'maxResults', 'describeSourceServers_maxResults' - Request to filter Source Servers list by maximum results.
+--
+-- 'nextToken', 'describeSourceServers_nextToken' - Request to filter Source Servers list by next token.
 newDescribeSourceServers ::
   DescribeSourceServers
 newDescribeSourceServers =
   DescribeSourceServers'
-    { nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | Request to filter Source Servers list by next token.
-describeSourceServers_nextToken :: Lens.Lens' DescribeSourceServers (Prelude.Maybe Prelude.Text)
-describeSourceServers_nextToken = Lens.lens (\DescribeSourceServers' {nextToken} -> nextToken) (\s@DescribeSourceServers' {} a -> s {nextToken = a} :: DescribeSourceServers)
 
 -- | Request to filter Source Servers list.
 describeSourceServers_filters :: Lens.Lens' DescribeSourceServers (Prelude.Maybe DescribeSourceServersRequestFilters)
@@ -96,6 +92,10 @@ describeSourceServers_filters = Lens.lens (\DescribeSourceServers' {filters} -> 
 -- | Request to filter Source Servers list by maximum results.
 describeSourceServers_maxResults :: Lens.Lens' DescribeSourceServers (Prelude.Maybe Prelude.Natural)
 describeSourceServers_maxResults = Lens.lens (\DescribeSourceServers' {maxResults} -> maxResults) (\s@DescribeSourceServers' {} a -> s {maxResults = a} :: DescribeSourceServers)
+
+-- | Request to filter Source Servers list by next token.
+describeSourceServers_nextToken :: Lens.Lens' DescribeSourceServers (Prelude.Maybe Prelude.Text)
+describeSourceServers_nextToken = Lens.lens (\DescribeSourceServers' {nextToken} -> nextToken) (\s@DescribeSourceServers' {} a -> s {nextToken = a} :: DescribeSourceServers)
 
 instance Core.AWSPager DescribeSourceServers where
   page rq rs
@@ -136,15 +136,15 @@ instance Core.AWSRequest DescribeSourceServers where
 
 instance Prelude.Hashable DescribeSourceServers where
   hashWithSalt _salt DescribeSourceServers' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeSourceServers where
   rnf DescribeSourceServers' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeSourceServers where
   toHeaders =
@@ -161,9 +161,9 @@ instance Data.ToJSON DescribeSourceServers where
   toJSON DescribeSourceServers' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("filters" Data..=) Prelude.<$> filters,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("filters" Data..=) Prelude.<$> filters,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

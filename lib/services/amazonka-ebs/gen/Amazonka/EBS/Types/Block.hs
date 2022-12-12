@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBlock' smart constructor.
 data Block = Block'
-  { -- | The block token for the block index.
-    blockToken :: Prelude.Maybe Prelude.Text,
-    -- | The block index.
-    blockIndex :: Prelude.Maybe Prelude.Natural
+  { -- | The block index.
+    blockIndex :: Prelude.Maybe Prelude.Natural,
+    -- | The block token for the block index.
+    blockToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data Block = Block'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'blockToken', 'block_blockToken' - The block token for the block index.
---
 -- 'blockIndex', 'block_blockIndex' - The block index.
+--
+-- 'blockToken', 'block_blockToken' - The block token for the block index.
 newBlock ::
   Block
 newBlock =
   Block'
-    { blockToken = Prelude.Nothing,
-      blockIndex = Prelude.Nothing
+    { blockIndex = Prelude.Nothing,
+      blockToken = Prelude.Nothing
     }
-
--- | The block token for the block index.
-block_blockToken :: Lens.Lens' Block (Prelude.Maybe Prelude.Text)
-block_blockToken = Lens.lens (\Block' {blockToken} -> blockToken) (\s@Block' {} a -> s {blockToken = a} :: Block)
 
 -- | The block index.
 block_blockIndex :: Lens.Lens' Block (Prelude.Maybe Prelude.Natural)
 block_blockIndex = Lens.lens (\Block' {blockIndex} -> blockIndex) (\s@Block' {} a -> s {blockIndex = a} :: Block)
+
+-- | The block token for the block index.
+block_blockToken :: Lens.Lens' Block (Prelude.Maybe Prelude.Text)
+block_blockToken = Lens.lens (\Block' {blockToken} -> blockToken) (\s@Block' {} a -> s {blockToken = a} :: Block)
 
 instance Data.FromJSON Block where
   parseJSON =
@@ -68,16 +68,16 @@ instance Data.FromJSON Block where
       "Block"
       ( \x ->
           Block'
-            Prelude.<$> (x Data..:? "BlockToken")
-            Prelude.<*> (x Data..:? "BlockIndex")
+            Prelude.<$> (x Data..:? "BlockIndex")
+            Prelude.<*> (x Data..:? "BlockToken")
       )
 
 instance Prelude.Hashable Block where
   hashWithSalt _salt Block' {..} =
-    _salt `Prelude.hashWithSalt` blockToken
-      `Prelude.hashWithSalt` blockIndex
+    _salt `Prelude.hashWithSalt` blockIndex
+      `Prelude.hashWithSalt` blockToken
 
 instance Prelude.NFData Block where
   rnf Block' {..} =
-    Prelude.rnf blockToken
-      `Prelude.seq` Prelude.rnf blockIndex
+    Prelude.rnf blockIndex
+      `Prelude.seq` Prelude.rnf blockToken

@@ -24,20 +24,20 @@ module Amazonka.NetworkManager
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** InternalServerException
-    _InternalServerException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
+    -- ** ConflictException
+    _ConflictException,
 
     -- ** CoreNetworkPolicyException
     _CoreNetworkPolicyException,
 
-    -- ** ConflictException
-    _ConflictException,
+    -- ** InternalServerException
+    _InternalServerException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
 
     -- ** ThrottlingException
     _ThrottlingException,

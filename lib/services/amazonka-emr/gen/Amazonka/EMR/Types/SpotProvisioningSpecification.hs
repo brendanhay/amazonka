@@ -41,7 +41,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSpotProvisioningSpecification' smart constructor.
 data SpotProvisioningSpecification = SpotProvisioningSpecification'
-  { -- | The defined duration for Spot Instances (also known as Spot blocks) in
+  { -- | Specifies the strategy to use in launching Spot Instance fleets.
+    -- Currently, the only option is capacity-optimized (the default), which
+    -- launches instances from Spot Instance pools with optimal capacity for
+    -- the number of instances that are launching.
+    allocationStrategy :: Prelude.Maybe SpotProvisioningAllocationStrategy,
+    -- | The defined duration for Spot Instances (also known as Spot blocks) in
     -- minutes. When specified, the Spot Instance does not terminate before the
     -- defined duration expires, and defined duration pricing for Spot
     -- Instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The
@@ -55,11 +60,6 @@ data SpotProvisioningSpecification = SpotProvisioningSpecification'
     -- who have previously used the feature, we will continue to support Spot
     -- Instances with a defined duration until December 31, 2022.
     blockDurationMinutes :: Prelude.Maybe Prelude.Natural,
-    -- | Specifies the strategy to use in launching Spot Instance fleets.
-    -- Currently, the only option is capacity-optimized (the default), which
-    -- launches instances from Spot Instance pools with optimal capacity for
-    -- the number of instances that are launching.
-    allocationStrategy :: Prelude.Maybe SpotProvisioningAllocationStrategy,
     -- | The spot provisioning timeout period in minutes. If Spot Instances are
     -- not provisioned within this time period, the @TimeOutAction@ is taken.
     -- Minimum value is 5 and maximum value is 1440. The timeout applies only
@@ -84,6 +84,11 @@ data SpotProvisioningSpecification = SpotProvisioningSpecification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'allocationStrategy', 'spotProvisioningSpecification_allocationStrategy' - Specifies the strategy to use in launching Spot Instance fleets.
+-- Currently, the only option is capacity-optimized (the default), which
+-- launches instances from Spot Instance pools with optimal capacity for
+-- the number of instances that are launching.
+--
 -- 'blockDurationMinutes', 'spotProvisioningSpecification_blockDurationMinutes' - The defined duration for Spot Instances (also known as Spot blocks) in
 -- minutes. When specified, the Spot Instance does not terminate before the
 -- defined duration expires, and defined duration pricing for Spot
@@ -97,11 +102,6 @@ data SpotProvisioningSpecification = SpotProvisioningSpecification'
 -- no longer available to new customers from July 1, 2021. For customers
 -- who have previously used the feature, we will continue to support Spot
 -- Instances with a defined duration until December 31, 2022.
---
--- 'allocationStrategy', 'spotProvisioningSpecification_allocationStrategy' - Specifies the strategy to use in launching Spot Instance fleets.
--- Currently, the only option is capacity-optimized (the default), which
--- launches instances from Spot Instance pools with optimal capacity for
--- the number of instances that are launching.
 --
 -- 'timeoutDurationMinutes', 'spotProvisioningSpecification_timeoutDurationMinutes' - The spot provisioning timeout period in minutes. If Spot Instances are
 -- not provisioned within this time period, the @TimeOutAction@ is taken.
@@ -125,13 +125,20 @@ newSpotProvisioningSpecification
   pTimeoutDurationMinutes_
   pTimeoutAction_ =
     SpotProvisioningSpecification'
-      { blockDurationMinutes =
+      { allocationStrategy =
           Prelude.Nothing,
-        allocationStrategy = Prelude.Nothing,
+        blockDurationMinutes = Prelude.Nothing,
         timeoutDurationMinutes =
           pTimeoutDurationMinutes_,
         timeoutAction = pTimeoutAction_
       }
+
+-- | Specifies the strategy to use in launching Spot Instance fleets.
+-- Currently, the only option is capacity-optimized (the default), which
+-- launches instances from Spot Instance pools with optimal capacity for
+-- the number of instances that are launching.
+spotProvisioningSpecification_allocationStrategy :: Lens.Lens' SpotProvisioningSpecification (Prelude.Maybe SpotProvisioningAllocationStrategy)
+spotProvisioningSpecification_allocationStrategy = Lens.lens (\SpotProvisioningSpecification' {allocationStrategy} -> allocationStrategy) (\s@SpotProvisioningSpecification' {} a -> s {allocationStrategy = a} :: SpotProvisioningSpecification)
 
 -- | The defined duration for Spot Instances (also known as Spot blocks) in
 -- minutes. When specified, the Spot Instance does not terminate before the
@@ -148,13 +155,6 @@ newSpotProvisioningSpecification
 -- Instances with a defined duration until December 31, 2022.
 spotProvisioningSpecification_blockDurationMinutes :: Lens.Lens' SpotProvisioningSpecification (Prelude.Maybe Prelude.Natural)
 spotProvisioningSpecification_blockDurationMinutes = Lens.lens (\SpotProvisioningSpecification' {blockDurationMinutes} -> blockDurationMinutes) (\s@SpotProvisioningSpecification' {} a -> s {blockDurationMinutes = a} :: SpotProvisioningSpecification)
-
--- | Specifies the strategy to use in launching Spot Instance fleets.
--- Currently, the only option is capacity-optimized (the default), which
--- launches instances from Spot Instance pools with optimal capacity for
--- the number of instances that are launching.
-spotProvisioningSpecification_allocationStrategy :: Lens.Lens' SpotProvisioningSpecification (Prelude.Maybe SpotProvisioningAllocationStrategy)
-spotProvisioningSpecification_allocationStrategy = Lens.lens (\SpotProvisioningSpecification' {allocationStrategy} -> allocationStrategy) (\s@SpotProvisioningSpecification' {} a -> s {allocationStrategy = a} :: SpotProvisioningSpecification)
 
 -- | The spot provisioning timeout period in minutes. If Spot Instances are
 -- not provisioned within this time period, the @TimeOutAction@ is taken.
@@ -179,8 +179,8 @@ instance Data.FromJSON SpotProvisioningSpecification where
       "SpotProvisioningSpecification"
       ( \x ->
           SpotProvisioningSpecification'
-            Prelude.<$> (x Data..:? "BlockDurationMinutes")
-            Prelude.<*> (x Data..:? "AllocationStrategy")
+            Prelude.<$> (x Data..:? "AllocationStrategy")
+            Prelude.<*> (x Data..:? "BlockDurationMinutes")
             Prelude.<*> (x Data..: "TimeoutDurationMinutes")
             Prelude.<*> (x Data..: "TimeoutAction")
       )
@@ -190,15 +190,15 @@ instance
     SpotProvisioningSpecification
   where
   hashWithSalt _salt SpotProvisioningSpecification' {..} =
-    _salt `Prelude.hashWithSalt` blockDurationMinutes
-      `Prelude.hashWithSalt` allocationStrategy
+    _salt `Prelude.hashWithSalt` allocationStrategy
+      `Prelude.hashWithSalt` blockDurationMinutes
       `Prelude.hashWithSalt` timeoutDurationMinutes
       `Prelude.hashWithSalt` timeoutAction
 
 instance Prelude.NFData SpotProvisioningSpecification where
   rnf SpotProvisioningSpecification' {..} =
-    Prelude.rnf blockDurationMinutes
-      `Prelude.seq` Prelude.rnf allocationStrategy
+    Prelude.rnf allocationStrategy
+      `Prelude.seq` Prelude.rnf blockDurationMinutes
       `Prelude.seq` Prelude.rnf timeoutDurationMinutes
       `Prelude.seq` Prelude.rnf timeoutAction
 
@@ -206,10 +206,10 @@ instance Data.ToJSON SpotProvisioningSpecification where
   toJSON SpotProvisioningSpecification' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("BlockDurationMinutes" Data..=)
-              Prelude.<$> blockDurationMinutes,
-            ("AllocationStrategy" Data..=)
+          [ ("AllocationStrategy" Data..=)
               Prelude.<$> allocationStrategy,
+            ("BlockDurationMinutes" Data..=)
+              Prelude.<$> blockDurationMinutes,
             Prelude.Just
               ( "TimeoutDurationMinutes"
                   Data..= timeoutDurationMinutes

@@ -48,8 +48,8 @@ module Amazonka.Forecast.CreateWhatIfForecastExport
     newCreateWhatIfForecastExport,
 
     -- * Request Lenses
-    createWhatIfForecastExport_tags,
     createWhatIfForecastExport_format,
+    createWhatIfForecastExport_tags,
     createWhatIfForecastExport_whatIfForecastExportName,
     createWhatIfForecastExport_whatIfForecastArns,
     createWhatIfForecastExport_destination,
@@ -74,12 +74,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateWhatIfForecastExport' smart constructor.
 data CreateWhatIfForecastExport = CreateWhatIfForecastExport'
-  { -- | A list of
+  { -- | The format of the exported data, CSV or PARQUET.
+    format :: Prelude.Maybe Prelude.Text,
+    -- | A list of
     -- <https://docs.aws.amazon.com/forecast/latest/dg/tagging-forecast-resources.html tags>
     -- to apply to the what if forecast.
     tags :: Prelude.Maybe [Tag],
-    -- | The format of the exported data, CSV or PARQUET.
-    format :: Prelude.Maybe Prelude.Text,
     -- | The name of the what-if forecast to export.
     whatIfForecastExportName :: Prelude.Text,
     -- | The list of what-if forecast Amazon Resource Names (ARNs) to export.
@@ -103,11 +103,11 @@ data CreateWhatIfForecastExport = CreateWhatIfForecastExport'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'format', 'createWhatIfForecastExport_format' - The format of the exported data, CSV or PARQUET.
+--
 -- 'tags', 'createWhatIfForecastExport_tags' - A list of
 -- <https://docs.aws.amazon.com/forecast/latest/dg/tagging-forecast-resources.html tags>
 -- to apply to the what if forecast.
---
--- 'format', 'createWhatIfForecastExport_format' - The format of the exported data, CSV or PARQUET.
 --
 -- 'whatIfForecastExportName', 'createWhatIfForecastExport_whatIfForecastExportName' - The name of the what-if forecast to export.
 --
@@ -133,8 +133,9 @@ newCreateWhatIfForecastExport
   pWhatIfForecastArns_
   pDestination_ =
     CreateWhatIfForecastExport'
-      { tags = Prelude.Nothing,
-        format = Prelude.Nothing,
+      { format =
+          Prelude.Nothing,
+        tags = Prelude.Nothing,
         whatIfForecastExportName =
           pWhatIfForecastExportName_,
         whatIfForecastArns =
@@ -142,15 +143,15 @@ newCreateWhatIfForecastExport
         destination = pDestination_
       }
 
+-- | The format of the exported data, CSV or PARQUET.
+createWhatIfForecastExport_format :: Lens.Lens' CreateWhatIfForecastExport (Prelude.Maybe Prelude.Text)
+createWhatIfForecastExport_format = Lens.lens (\CreateWhatIfForecastExport' {format} -> format) (\s@CreateWhatIfForecastExport' {} a -> s {format = a} :: CreateWhatIfForecastExport)
+
 -- | A list of
 -- <https://docs.aws.amazon.com/forecast/latest/dg/tagging-forecast-resources.html tags>
 -- to apply to the what if forecast.
 createWhatIfForecastExport_tags :: Lens.Lens' CreateWhatIfForecastExport (Prelude.Maybe [Tag])
 createWhatIfForecastExport_tags = Lens.lens (\CreateWhatIfForecastExport' {tags} -> tags) (\s@CreateWhatIfForecastExport' {} a -> s {tags = a} :: CreateWhatIfForecastExport) Prelude.. Lens.mapping Lens.coerced
-
--- | The format of the exported data, CSV or PARQUET.
-createWhatIfForecastExport_format :: Lens.Lens' CreateWhatIfForecastExport (Prelude.Maybe Prelude.Text)
-createWhatIfForecastExport_format = Lens.lens (\CreateWhatIfForecastExport' {format} -> format) (\s@CreateWhatIfForecastExport' {} a -> s {format = a} :: CreateWhatIfForecastExport)
 
 -- | The name of the what-if forecast to export.
 createWhatIfForecastExport_whatIfForecastExportName :: Lens.Lens' CreateWhatIfForecastExport Prelude.Text
@@ -186,16 +187,16 @@ instance Core.AWSRequest CreateWhatIfForecastExport where
 
 instance Prelude.Hashable CreateWhatIfForecastExport where
   hashWithSalt _salt CreateWhatIfForecastExport' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` format
+    _salt `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` whatIfForecastExportName
       `Prelude.hashWithSalt` whatIfForecastArns
       `Prelude.hashWithSalt` destination
 
 instance Prelude.NFData CreateWhatIfForecastExport where
   rnf CreateWhatIfForecastExport' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf format
+    Prelude.rnf format
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf whatIfForecastExportName
       `Prelude.seq` Prelude.rnf whatIfForecastArns
       `Prelude.seq` Prelude.rnf destination
@@ -219,8 +220,8 @@ instance Data.ToJSON CreateWhatIfForecastExport where
   toJSON CreateWhatIfForecastExport' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Format" Data..=) Prelude.<$> format,
+          [ ("Format" Data..=) Prelude.<$> format,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ( "WhatIfForecastExportName"
                   Data..= whatIfForecastExportName

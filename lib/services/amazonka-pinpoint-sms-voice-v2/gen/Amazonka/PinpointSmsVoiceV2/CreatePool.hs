@@ -39,9 +39,9 @@ module Amazonka.PinpointSmsVoiceV2.CreatePool
     newCreatePool,
 
     -- * Request Lenses
+    createPool_clientToken,
     createPool_deletionProtectionEnabled,
     createPool_tags,
-    createPool_clientToken,
     createPool_originationIdentity,
     createPool_isoCountryCode,
     createPool_messageType,
@@ -51,18 +51,18 @@ module Amazonka.PinpointSmsVoiceV2.CreatePool
     newCreatePoolResponse,
 
     -- * Response Lenses
-    createPoolResponse_deletionProtectionEnabled,
-    createPoolResponse_tags,
-    createPoolResponse_poolArn,
-    createPoolResponse_messageType,
-    createPoolResponse_selfManagedOptOutsEnabled,
     createPoolResponse_createdTimestamp,
-    createPoolResponse_status,
-    createPoolResponse_twoWayEnabled,
+    createPoolResponse_deletionProtectionEnabled,
+    createPoolResponse_messageType,
     createPoolResponse_optOutListName,
+    createPoolResponse_poolArn,
     createPoolResponse_poolId,
-    createPoolResponse_twoWayChannelArn,
+    createPoolResponse_selfManagedOptOutsEnabled,
     createPoolResponse_sharedRoutesEnabled,
+    createPoolResponse_status,
+    createPoolResponse_tags,
+    createPoolResponse_twoWayChannelArn,
+    createPoolResponse_twoWayEnabled,
     createPoolResponse_httpStatus,
   )
 where
@@ -77,15 +77,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreatePool' smart constructor.
 data CreatePool = CreatePool'
-  { -- | By default this is set to false. When set to true the pool can\'t be
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request. If you don\'t specify a client token, a
+    -- randomly generated token is used for the request to ensure idempotency.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | By default this is set to false. When set to true the pool can\'t be
     -- deleted. You can change this value using the UpdatePool action.
     deletionProtectionEnabled :: Prelude.Maybe Prelude.Bool,
     -- | An array of tags (key and value pairs) associated with the pool.
     tags :: Prelude.Maybe [Tag],
-    -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request. If you don\'t specify a client token, a
-    -- randomly generated token is used for the request to ensure idempotency.
-    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The origination identity to use such as a PhoneNumberId, PhoneNumberArn,
     -- SenderId or SenderIdArn. You can use DescribePhoneNumbers to find the
     -- values for PhoneNumberId and PhoneNumberArn while DescribeSenderIds can
@@ -109,14 +109,14 @@ data CreatePool = CreatePool'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clientToken', 'createPool_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. If you don\'t specify a client token, a
+-- randomly generated token is used for the request to ensure idempotency.
+--
 -- 'deletionProtectionEnabled', 'createPool_deletionProtectionEnabled' - By default this is set to false. When set to true the pool can\'t be
 -- deleted. You can change this value using the UpdatePool action.
 --
 -- 'tags', 'createPool_tags' - An array of tags (key and value pairs) associated with the pool.
---
--- 'clientToken', 'createPool_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If you don\'t specify a client token, a
--- randomly generated token is used for the request to ensure idempotency.
 --
 -- 'originationIdentity', 'createPool_originationIdentity' - The origination identity to use such as a PhoneNumberId, PhoneNumberArn,
 -- SenderId or SenderIdArn. You can use DescribePhoneNumbers to find the
@@ -142,14 +142,19 @@ newCreatePool
   pIsoCountryCode_
   pMessageType_ =
     CreatePool'
-      { deletionProtectionEnabled =
-          Prelude.Nothing,
+      { clientToken = Prelude.Nothing,
+        deletionProtectionEnabled = Prelude.Nothing,
         tags = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
         originationIdentity = pOriginationIdentity_,
         isoCountryCode = pIsoCountryCode_,
         messageType = pMessageType_
       }
+
+-- | Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. If you don\'t specify a client token, a
+-- randomly generated token is used for the request to ensure idempotency.
+createPool_clientToken :: Lens.Lens' CreatePool (Prelude.Maybe Prelude.Text)
+createPool_clientToken = Lens.lens (\CreatePool' {clientToken} -> clientToken) (\s@CreatePool' {} a -> s {clientToken = a} :: CreatePool)
 
 -- | By default this is set to false. When set to true the pool can\'t be
 -- deleted. You can change this value using the UpdatePool action.
@@ -159,12 +164,6 @@ createPool_deletionProtectionEnabled = Lens.lens (\CreatePool' {deletionProtecti
 -- | An array of tags (key and value pairs) associated with the pool.
 createPool_tags :: Lens.Lens' CreatePool (Prelude.Maybe [Tag])
 createPool_tags = Lens.lens (\CreatePool' {tags} -> tags) (\s@CreatePool' {} a -> s {tags = a} :: CreatePool) Prelude.. Lens.mapping Lens.coerced
-
--- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. If you don\'t specify a client token, a
--- randomly generated token is used for the request to ensure idempotency.
-createPool_clientToken :: Lens.Lens' CreatePool (Prelude.Maybe Prelude.Text)
-createPool_clientToken = Lens.lens (\CreatePool' {clientToken} -> clientToken) (\s@CreatePool' {} a -> s {clientToken = a} :: CreatePool)
 
 -- | The origination identity to use such as a PhoneNumberId, PhoneNumberArn,
 -- SenderId or SenderIdArn. You can use DescribePhoneNumbers to find the
@@ -192,36 +191,35 @@ instance Core.AWSRequest CreatePool where
     Response.receiveJSON
       ( \s h x ->
           CreatePoolResponse'
-            Prelude.<$> (x Data..?> "DeletionProtectionEnabled")
-            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "PoolArn")
+            Prelude.<$> (x Data..?> "CreatedTimestamp")
+            Prelude.<*> (x Data..?> "DeletionProtectionEnabled")
             Prelude.<*> (x Data..?> "MessageType")
-            Prelude.<*> (x Data..?> "SelfManagedOptOutsEnabled")
-            Prelude.<*> (x Data..?> "CreatedTimestamp")
-            Prelude.<*> (x Data..?> "Status")
-            Prelude.<*> (x Data..?> "TwoWayEnabled")
             Prelude.<*> (x Data..?> "OptOutListName")
+            Prelude.<*> (x Data..?> "PoolArn")
             Prelude.<*> (x Data..?> "PoolId")
-            Prelude.<*> (x Data..?> "TwoWayChannelArn")
+            Prelude.<*> (x Data..?> "SelfManagedOptOutsEnabled")
             Prelude.<*> (x Data..?> "SharedRoutesEnabled")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "TwoWayChannelArn")
+            Prelude.<*> (x Data..?> "TwoWayEnabled")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreatePool where
   hashWithSalt _salt CreatePool' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` deletionProtectionEnabled
       `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` originationIdentity
       `Prelude.hashWithSalt` isoCountryCode
       `Prelude.hashWithSalt` messageType
 
 instance Prelude.NFData CreatePool where
   rnf CreatePool' {..} =
-    Prelude.rnf deletionProtectionEnabled
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf deletionProtectionEnabled
       `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf originationIdentity
       `Prelude.seq` Prelude.rnf isoCountryCode
       `Prelude.seq` Prelude.rnf messageType
@@ -245,10 +243,10 @@ instance Data.ToJSON CreatePool where
   toJSON CreatePool' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DeletionProtectionEnabled" Data..=)
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("DeletionProtectionEnabled" Data..=)
               Prelude.<$> deletionProtectionEnabled,
             ("Tags" Data..=) Prelude.<$> tags,
-            ("ClientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just
               ("OriginationIdentity" Data..= originationIdentity),
             Prelude.Just
@@ -265,15 +263,20 @@ instance Data.ToQuery CreatePool where
 
 -- | /See:/ 'newCreatePoolResponse' smart constructor.
 data CreatePoolResponse = CreatePoolResponse'
-  { -- | When set to true deletion protection is enabled. By default this is set
+  { -- | The time when the pool was created, in
+    -- <https://www.epochconverter.com/ UNIX epoch time> format.
+    createdTimestamp :: Prelude.Maybe Data.POSIX,
+    -- | When set to true deletion protection is enabled. By default this is set
     -- to false.
     deletionProtectionEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | An array of tags (key and value pairs) associated with the pool.
-    tags :: Prelude.Maybe [Tag],
-    -- | The Amazon Resource Name (ARN) for the pool.
-    poolArn :: Prelude.Maybe Prelude.Text,
     -- | The type of message for the pool to use.
     messageType :: Prelude.Maybe MessageType,
+    -- | The name of the OptOutList associated with the pool.
+    optOutListName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) for the pool.
+    poolArn :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier for the pool.
+    poolId :: Prelude.Maybe Prelude.Text,
     -- | By default this is set to false. When an end recipient sends a message
     -- that begins with HELP or STOP to one of your dedicated numbers, Amazon
     -- Pinpoint automatically replies with a customizable message and adds the
@@ -281,9 +284,8 @@ data CreatePoolResponse = CreatePoolResponse'
     -- for responding to HELP and STOP requests. You\'re also responsible for
     -- tracking and honoring opt-out requests.
     selfManagedOptOutsEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The time when the pool was created, in
-    -- <https://www.epochconverter.com/ UNIX epoch time> format.
-    createdTimestamp :: Prelude.Maybe Data.POSIX,
+    -- | Indicates whether shared routes are enabled for the pool.
+    sharedRoutesEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The current status of the pool.
     --
     -- -   CREATING: The pool is currently being created and isn\'t yet
@@ -293,17 +295,13 @@ data CreatePoolResponse = CreatePoolResponse'
     --
     -- -   DELETING: The pool is being deleted.
     status :: Prelude.Maybe PoolStatus,
+    -- | An array of tags (key and value pairs) associated with the pool.
+    tags :: Prelude.Maybe [Tag],
+    -- | The Amazon Resource Name (ARN) of the two way channel.
+    twoWayChannelArn :: Prelude.Maybe Prelude.Text,
     -- | By default this is set to false. When set to true you can receive
     -- incoming text messages from your end recipients.
     twoWayEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the OptOutList associated with the pool.
-    optOutListName :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the pool.
-    poolId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the two way channel.
-    twoWayChannelArn :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether shared routes are enabled for the pool.
-    sharedRoutesEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -317,14 +315,19 @@ data CreatePoolResponse = CreatePoolResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'createdTimestamp', 'createPoolResponse_createdTimestamp' - The time when the pool was created, in
+-- <https://www.epochconverter.com/ UNIX epoch time> format.
+--
 -- 'deletionProtectionEnabled', 'createPoolResponse_deletionProtectionEnabled' - When set to true deletion protection is enabled. By default this is set
 -- to false.
 --
--- 'tags', 'createPoolResponse_tags' - An array of tags (key and value pairs) associated with the pool.
+-- 'messageType', 'createPoolResponse_messageType' - The type of message for the pool to use.
+--
+-- 'optOutListName', 'createPoolResponse_optOutListName' - The name of the OptOutList associated with the pool.
 --
 -- 'poolArn', 'createPoolResponse_poolArn' - The Amazon Resource Name (ARN) for the pool.
 --
--- 'messageType', 'createPoolResponse_messageType' - The type of message for the pool to use.
+-- 'poolId', 'createPoolResponse_poolId' - The unique identifier for the pool.
 --
 -- 'selfManagedOptOutsEnabled', 'createPoolResponse_selfManagedOptOutsEnabled' - By default this is set to false. When an end recipient sends a message
 -- that begins with HELP or STOP to one of your dedicated numbers, Amazon
@@ -333,8 +336,7 @@ data CreatePoolResponse = CreatePoolResponse'
 -- for responding to HELP and STOP requests. You\'re also responsible for
 -- tracking and honoring opt-out requests.
 --
--- 'createdTimestamp', 'createPoolResponse_createdTimestamp' - The time when the pool was created, in
--- <https://www.epochconverter.com/ UNIX epoch time> format.
+-- 'sharedRoutesEnabled', 'createPoolResponse_sharedRoutesEnabled' - Indicates whether shared routes are enabled for the pool.
 --
 -- 'status', 'createPoolResponse_status' - The current status of the pool.
 --
@@ -345,16 +347,12 @@ data CreatePoolResponse = CreatePoolResponse'
 --
 -- -   DELETING: The pool is being deleted.
 --
--- 'twoWayEnabled', 'createPoolResponse_twoWayEnabled' - By default this is set to false. When set to true you can receive
--- incoming text messages from your end recipients.
---
--- 'optOutListName', 'createPoolResponse_optOutListName' - The name of the OptOutList associated with the pool.
---
--- 'poolId', 'createPoolResponse_poolId' - The unique identifier for the pool.
+-- 'tags', 'createPoolResponse_tags' - An array of tags (key and value pairs) associated with the pool.
 --
 -- 'twoWayChannelArn', 'createPoolResponse_twoWayChannelArn' - The Amazon Resource Name (ARN) of the two way channel.
 --
--- 'sharedRoutesEnabled', 'createPoolResponse_sharedRoutesEnabled' - Indicates whether shared routes are enabled for the pool.
+-- 'twoWayEnabled', 'createPoolResponse_twoWayEnabled' - By default this is set to false. When set to true you can receive
+-- incoming text messages from your end recipients.
 --
 -- 'httpStatus', 'createPoolResponse_httpStatus' - The response's http status code.
 newCreatePoolResponse ::
@@ -363,38 +361,47 @@ newCreatePoolResponse ::
   CreatePoolResponse
 newCreatePoolResponse pHttpStatus_ =
   CreatePoolResponse'
-    { deletionProtectionEnabled =
+    { createdTimestamp =
         Prelude.Nothing,
-      tags = Prelude.Nothing,
-      poolArn = Prelude.Nothing,
+      deletionProtectionEnabled = Prelude.Nothing,
       messageType = Prelude.Nothing,
-      selfManagedOptOutsEnabled = Prelude.Nothing,
-      createdTimestamp = Prelude.Nothing,
-      status = Prelude.Nothing,
-      twoWayEnabled = Prelude.Nothing,
       optOutListName = Prelude.Nothing,
+      poolArn = Prelude.Nothing,
       poolId = Prelude.Nothing,
-      twoWayChannelArn = Prelude.Nothing,
+      selfManagedOptOutsEnabled = Prelude.Nothing,
       sharedRoutesEnabled = Prelude.Nothing,
+      status = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      twoWayChannelArn = Prelude.Nothing,
+      twoWayEnabled = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The time when the pool was created, in
+-- <https://www.epochconverter.com/ UNIX epoch time> format.
+createPoolResponse_createdTimestamp :: Lens.Lens' CreatePoolResponse (Prelude.Maybe Prelude.UTCTime)
+createPoolResponse_createdTimestamp = Lens.lens (\CreatePoolResponse' {createdTimestamp} -> createdTimestamp) (\s@CreatePoolResponse' {} a -> s {createdTimestamp = a} :: CreatePoolResponse) Prelude.. Lens.mapping Data._Time
 
 -- | When set to true deletion protection is enabled. By default this is set
 -- to false.
 createPoolResponse_deletionProtectionEnabled :: Lens.Lens' CreatePoolResponse (Prelude.Maybe Prelude.Bool)
 createPoolResponse_deletionProtectionEnabled = Lens.lens (\CreatePoolResponse' {deletionProtectionEnabled} -> deletionProtectionEnabled) (\s@CreatePoolResponse' {} a -> s {deletionProtectionEnabled = a} :: CreatePoolResponse)
 
--- | An array of tags (key and value pairs) associated with the pool.
-createPoolResponse_tags :: Lens.Lens' CreatePoolResponse (Prelude.Maybe [Tag])
-createPoolResponse_tags = Lens.lens (\CreatePoolResponse' {tags} -> tags) (\s@CreatePoolResponse' {} a -> s {tags = a} :: CreatePoolResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The type of message for the pool to use.
+createPoolResponse_messageType :: Lens.Lens' CreatePoolResponse (Prelude.Maybe MessageType)
+createPoolResponse_messageType = Lens.lens (\CreatePoolResponse' {messageType} -> messageType) (\s@CreatePoolResponse' {} a -> s {messageType = a} :: CreatePoolResponse)
+
+-- | The name of the OptOutList associated with the pool.
+createPoolResponse_optOutListName :: Lens.Lens' CreatePoolResponse (Prelude.Maybe Prelude.Text)
+createPoolResponse_optOutListName = Lens.lens (\CreatePoolResponse' {optOutListName} -> optOutListName) (\s@CreatePoolResponse' {} a -> s {optOutListName = a} :: CreatePoolResponse)
 
 -- | The Amazon Resource Name (ARN) for the pool.
 createPoolResponse_poolArn :: Lens.Lens' CreatePoolResponse (Prelude.Maybe Prelude.Text)
 createPoolResponse_poolArn = Lens.lens (\CreatePoolResponse' {poolArn} -> poolArn) (\s@CreatePoolResponse' {} a -> s {poolArn = a} :: CreatePoolResponse)
 
--- | The type of message for the pool to use.
-createPoolResponse_messageType :: Lens.Lens' CreatePoolResponse (Prelude.Maybe MessageType)
-createPoolResponse_messageType = Lens.lens (\CreatePoolResponse' {messageType} -> messageType) (\s@CreatePoolResponse' {} a -> s {messageType = a} :: CreatePoolResponse)
+-- | The unique identifier for the pool.
+createPoolResponse_poolId :: Lens.Lens' CreatePoolResponse (Prelude.Maybe Prelude.Text)
+createPoolResponse_poolId = Lens.lens (\CreatePoolResponse' {poolId} -> poolId) (\s@CreatePoolResponse' {} a -> s {poolId = a} :: CreatePoolResponse)
 
 -- | By default this is set to false. When an end recipient sends a message
 -- that begins with HELP or STOP to one of your dedicated numbers, Amazon
@@ -405,10 +412,9 @@ createPoolResponse_messageType = Lens.lens (\CreatePoolResponse' {messageType} -
 createPoolResponse_selfManagedOptOutsEnabled :: Lens.Lens' CreatePoolResponse (Prelude.Maybe Prelude.Bool)
 createPoolResponse_selfManagedOptOutsEnabled = Lens.lens (\CreatePoolResponse' {selfManagedOptOutsEnabled} -> selfManagedOptOutsEnabled) (\s@CreatePoolResponse' {} a -> s {selfManagedOptOutsEnabled = a} :: CreatePoolResponse)
 
--- | The time when the pool was created, in
--- <https://www.epochconverter.com/ UNIX epoch time> format.
-createPoolResponse_createdTimestamp :: Lens.Lens' CreatePoolResponse (Prelude.Maybe Prelude.UTCTime)
-createPoolResponse_createdTimestamp = Lens.lens (\CreatePoolResponse' {createdTimestamp} -> createdTimestamp) (\s@CreatePoolResponse' {} a -> s {createdTimestamp = a} :: CreatePoolResponse) Prelude.. Lens.mapping Data._Time
+-- | Indicates whether shared routes are enabled for the pool.
+createPoolResponse_sharedRoutesEnabled :: Lens.Lens' CreatePoolResponse (Prelude.Maybe Prelude.Bool)
+createPoolResponse_sharedRoutesEnabled = Lens.lens (\CreatePoolResponse' {sharedRoutesEnabled} -> sharedRoutesEnabled) (\s@CreatePoolResponse' {} a -> s {sharedRoutesEnabled = a} :: CreatePoolResponse)
 
 -- | The current status of the pool.
 --
@@ -421,26 +427,18 @@ createPoolResponse_createdTimestamp = Lens.lens (\CreatePoolResponse' {createdTi
 createPoolResponse_status :: Lens.Lens' CreatePoolResponse (Prelude.Maybe PoolStatus)
 createPoolResponse_status = Lens.lens (\CreatePoolResponse' {status} -> status) (\s@CreatePoolResponse' {} a -> s {status = a} :: CreatePoolResponse)
 
--- | By default this is set to false. When set to true you can receive
--- incoming text messages from your end recipients.
-createPoolResponse_twoWayEnabled :: Lens.Lens' CreatePoolResponse (Prelude.Maybe Prelude.Bool)
-createPoolResponse_twoWayEnabled = Lens.lens (\CreatePoolResponse' {twoWayEnabled} -> twoWayEnabled) (\s@CreatePoolResponse' {} a -> s {twoWayEnabled = a} :: CreatePoolResponse)
-
--- | The name of the OptOutList associated with the pool.
-createPoolResponse_optOutListName :: Lens.Lens' CreatePoolResponse (Prelude.Maybe Prelude.Text)
-createPoolResponse_optOutListName = Lens.lens (\CreatePoolResponse' {optOutListName} -> optOutListName) (\s@CreatePoolResponse' {} a -> s {optOutListName = a} :: CreatePoolResponse)
-
--- | The unique identifier for the pool.
-createPoolResponse_poolId :: Lens.Lens' CreatePoolResponse (Prelude.Maybe Prelude.Text)
-createPoolResponse_poolId = Lens.lens (\CreatePoolResponse' {poolId} -> poolId) (\s@CreatePoolResponse' {} a -> s {poolId = a} :: CreatePoolResponse)
+-- | An array of tags (key and value pairs) associated with the pool.
+createPoolResponse_tags :: Lens.Lens' CreatePoolResponse (Prelude.Maybe [Tag])
+createPoolResponse_tags = Lens.lens (\CreatePoolResponse' {tags} -> tags) (\s@CreatePoolResponse' {} a -> s {tags = a} :: CreatePoolResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the two way channel.
 createPoolResponse_twoWayChannelArn :: Lens.Lens' CreatePoolResponse (Prelude.Maybe Prelude.Text)
 createPoolResponse_twoWayChannelArn = Lens.lens (\CreatePoolResponse' {twoWayChannelArn} -> twoWayChannelArn) (\s@CreatePoolResponse' {} a -> s {twoWayChannelArn = a} :: CreatePoolResponse)
 
--- | Indicates whether shared routes are enabled for the pool.
-createPoolResponse_sharedRoutesEnabled :: Lens.Lens' CreatePoolResponse (Prelude.Maybe Prelude.Bool)
-createPoolResponse_sharedRoutesEnabled = Lens.lens (\CreatePoolResponse' {sharedRoutesEnabled} -> sharedRoutesEnabled) (\s@CreatePoolResponse' {} a -> s {sharedRoutesEnabled = a} :: CreatePoolResponse)
+-- | By default this is set to false. When set to true you can receive
+-- incoming text messages from your end recipients.
+createPoolResponse_twoWayEnabled :: Lens.Lens' CreatePoolResponse (Prelude.Maybe Prelude.Bool)
+createPoolResponse_twoWayEnabled = Lens.lens (\CreatePoolResponse' {twoWayEnabled} -> twoWayEnabled) (\s@CreatePoolResponse' {} a -> s {twoWayEnabled = a} :: CreatePoolResponse)
 
 -- | The response's http status code.
 createPoolResponse_httpStatus :: Lens.Lens' CreatePoolResponse Prelude.Int
@@ -448,16 +446,16 @@ createPoolResponse_httpStatus = Lens.lens (\CreatePoolResponse' {httpStatus} -> 
 
 instance Prelude.NFData CreatePoolResponse where
   rnf CreatePoolResponse' {..} =
-    Prelude.rnf deletionProtectionEnabled
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf poolArn
+    Prelude.rnf createdTimestamp
+      `Prelude.seq` Prelude.rnf deletionProtectionEnabled
       `Prelude.seq` Prelude.rnf messageType
-      `Prelude.seq` Prelude.rnf selfManagedOptOutsEnabled
-      `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf twoWayEnabled
       `Prelude.seq` Prelude.rnf optOutListName
+      `Prelude.seq` Prelude.rnf poolArn
       `Prelude.seq` Prelude.rnf poolId
-      `Prelude.seq` Prelude.rnf twoWayChannelArn
+      `Prelude.seq` Prelude.rnf selfManagedOptOutsEnabled
       `Prelude.seq` Prelude.rnf sharedRoutesEnabled
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf twoWayChannelArn
+      `Prelude.seq` Prelude.rnf twoWayEnabled
       `Prelude.seq` Prelude.rnf httpStatus

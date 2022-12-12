@@ -28,6 +28,7 @@ module Amazonka.ECS.UpdateCluster
 
     -- * Request Lenses
     updateCluster_configuration,
+    updateCluster_serviceConnectDefaults,
     updateCluster_settings,
     updateCluster_cluster,
 
@@ -53,6 +54,24 @@ import qualified Amazonka.Response as Response
 data UpdateCluster = UpdateCluster'
   { -- | The execute command configuration for the cluster.
     configuration :: Prelude.Maybe ClusterConfiguration,
+    -- | Use this parameter to set a default Service Connect namespace. After you
+    -- set a default Service Connect namespace, any new services with Service
+    -- Connect turned on that are created in the cluster are added as client
+    -- services in the namespace. This setting only applies to new services
+    -- that set the @enabled@ parameter to @true@ in the
+    -- @ServiceConnectConfiguration@. You can set the namespace of each service
+    -- individually in the @ServiceConnectConfiguration@ to override this
+    -- default parameter.
+    --
+    -- Tasks that run in a namespace can use short names to connect to services
+    -- in the namespace. Tasks can connect to services across all of the
+    -- clusters in the namespace. Tasks connect through a managed proxy
+    -- container that collects logs and metrics for increased visibility. Only
+    -- the tasks that Amazon ECS services create are supported with Service
+    -- Connect. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html Service Connect>
+    -- in the /Amazon Elastic Container Service Developer Guide/.
+    serviceConnectDefaults :: Prelude.Maybe ClusterServiceConnectDefaultsRequest,
     -- | The cluster settings for your cluster.
     settings :: Prelude.Maybe [ClusterSetting],
     -- | The name of the cluster to modify the settings for.
@@ -70,6 +89,24 @@ data UpdateCluster = UpdateCluster'
 --
 -- 'configuration', 'updateCluster_configuration' - The execute command configuration for the cluster.
 --
+-- 'serviceConnectDefaults', 'updateCluster_serviceConnectDefaults' - Use this parameter to set a default Service Connect namespace. After you
+-- set a default Service Connect namespace, any new services with Service
+-- Connect turned on that are created in the cluster are added as client
+-- services in the namespace. This setting only applies to new services
+-- that set the @enabled@ parameter to @true@ in the
+-- @ServiceConnectConfiguration@. You can set the namespace of each service
+-- individually in the @ServiceConnectConfiguration@ to override this
+-- default parameter.
+--
+-- Tasks that run in a namespace can use short names to connect to services
+-- in the namespace. Tasks can connect to services across all of the
+-- clusters in the namespace. Tasks connect through a managed proxy
+-- container that collects logs and metrics for increased visibility. Only
+-- the tasks that Amazon ECS services create are supported with Service
+-- Connect. For more information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html Service Connect>
+-- in the /Amazon Elastic Container Service Developer Guide/.
+--
 -- 'settings', 'updateCluster_settings' - The cluster settings for your cluster.
 --
 -- 'cluster', 'updateCluster_cluster' - The name of the cluster to modify the settings for.
@@ -80,6 +117,7 @@ newUpdateCluster ::
 newUpdateCluster pCluster_ =
   UpdateCluster'
     { configuration = Prelude.Nothing,
+      serviceConnectDefaults = Prelude.Nothing,
       settings = Prelude.Nothing,
       cluster = pCluster_
     }
@@ -87,6 +125,26 @@ newUpdateCluster pCluster_ =
 -- | The execute command configuration for the cluster.
 updateCluster_configuration :: Lens.Lens' UpdateCluster (Prelude.Maybe ClusterConfiguration)
 updateCluster_configuration = Lens.lens (\UpdateCluster' {configuration} -> configuration) (\s@UpdateCluster' {} a -> s {configuration = a} :: UpdateCluster)
+
+-- | Use this parameter to set a default Service Connect namespace. After you
+-- set a default Service Connect namespace, any new services with Service
+-- Connect turned on that are created in the cluster are added as client
+-- services in the namespace. This setting only applies to new services
+-- that set the @enabled@ parameter to @true@ in the
+-- @ServiceConnectConfiguration@. You can set the namespace of each service
+-- individually in the @ServiceConnectConfiguration@ to override this
+-- default parameter.
+--
+-- Tasks that run in a namespace can use short names to connect to services
+-- in the namespace. Tasks can connect to services across all of the
+-- clusters in the namespace. Tasks connect through a managed proxy
+-- container that collects logs and metrics for increased visibility. Only
+-- the tasks that Amazon ECS services create are supported with Service
+-- Connect. For more information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html Service Connect>
+-- in the /Amazon Elastic Container Service Developer Guide/.
+updateCluster_serviceConnectDefaults :: Lens.Lens' UpdateCluster (Prelude.Maybe ClusterServiceConnectDefaultsRequest)
+updateCluster_serviceConnectDefaults = Lens.lens (\UpdateCluster' {serviceConnectDefaults} -> serviceConnectDefaults) (\s@UpdateCluster' {} a -> s {serviceConnectDefaults = a} :: UpdateCluster)
 
 -- | The cluster settings for your cluster.
 updateCluster_settings :: Lens.Lens' UpdateCluster (Prelude.Maybe [ClusterSetting])
@@ -113,12 +171,14 @@ instance Core.AWSRequest UpdateCluster where
 instance Prelude.Hashable UpdateCluster where
   hashWithSalt _salt UpdateCluster' {..} =
     _salt `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` serviceConnectDefaults
       `Prelude.hashWithSalt` settings
       `Prelude.hashWithSalt` cluster
 
 instance Prelude.NFData UpdateCluster where
   rnf UpdateCluster' {..} =
     Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf serviceConnectDefaults
       `Prelude.seq` Prelude.rnf settings
       `Prelude.seq` Prelude.rnf cluster
 
@@ -142,6 +202,8 @@ instance Data.ToJSON UpdateCluster where
     Data.object
       ( Prelude.catMaybes
           [ ("configuration" Data..=) Prelude.<$> configuration,
+            ("serviceConnectDefaults" Data..=)
+              Prelude.<$> serviceConnectDefaults,
             ("settings" Data..=) Prelude.<$> settings,
             Prelude.Just ("cluster" Data..= cluster)
           ]

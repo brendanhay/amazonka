@@ -31,12 +31,12 @@ module Amazonka.Neptune.DescribeOrderableDBInstanceOptions
 
     -- * Request Lenses
     describeOrderableDBInstanceOptions_dbInstanceClass,
-    describeOrderableDBInstanceOptions_marker,
-    describeOrderableDBInstanceOptions_vpc,
-    describeOrderableDBInstanceOptions_filters,
-    describeOrderableDBInstanceOptions_maxRecords,
     describeOrderableDBInstanceOptions_engineVersion,
+    describeOrderableDBInstanceOptions_filters,
     describeOrderableDBInstanceOptions_licenseModel,
+    describeOrderableDBInstanceOptions_marker,
+    describeOrderableDBInstanceOptions_maxRecords,
+    describeOrderableDBInstanceOptions_vpc,
     describeOrderableDBInstanceOptions_engine,
 
     -- * Destructuring the Response
@@ -63,16 +63,19 @@ data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions'
   { -- | The DB instance class filter value. Specify this parameter to show only
     -- the available offerings matching the specified DB instance class.
     dbInstanceClass :: Prelude.Maybe Prelude.Text,
+    -- | The engine version filter value. Specify this parameter to show only the
+    -- available offerings matching the specified engine version.
+    engineVersion :: Prelude.Maybe Prelude.Text,
+    -- | This parameter is not currently supported.
+    filters :: Prelude.Maybe [Filter],
+    -- | The license model filter value. Specify this parameter to show only the
+    -- available offerings matching the specified license model.
+    licenseModel :: Prelude.Maybe Prelude.Text,
     -- | An optional pagination token provided by a previous
     -- DescribeOrderableDBInstanceOptions request. If this parameter is
     -- specified, the response includes only records beyond the marker, up to
     -- the value specified by @MaxRecords@ .
     marker :: Prelude.Maybe Prelude.Text,
-    -- | The VPC filter value. Specify this parameter to show only the available
-    -- VPC or non-VPC offerings.
-    vpc :: Prelude.Maybe Prelude.Bool,
-    -- | This parameter is not currently supported.
-    filters :: Prelude.Maybe [Filter],
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that the remaining
@@ -82,12 +85,9 @@ data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions'
     --
     -- Constraints: Minimum 20, maximum 100.
     maxRecords :: Prelude.Maybe Prelude.Int,
-    -- | The engine version filter value. Specify this parameter to show only the
-    -- available offerings matching the specified engine version.
-    engineVersion :: Prelude.Maybe Prelude.Text,
-    -- | The license model filter value. Specify this parameter to show only the
-    -- available offerings matching the specified license model.
-    licenseModel :: Prelude.Maybe Prelude.Text,
+    -- | The VPC filter value. Specify this parameter to show only the available
+    -- VPC or non-VPC offerings.
+    vpc :: Prelude.Maybe Prelude.Bool,
     -- | The name of the engine to retrieve DB instance options for.
     engine :: Prelude.Text
   }
@@ -104,15 +104,18 @@ data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions'
 -- 'dbInstanceClass', 'describeOrderableDBInstanceOptions_dbInstanceClass' - The DB instance class filter value. Specify this parameter to show only
 -- the available offerings matching the specified DB instance class.
 --
+-- 'engineVersion', 'describeOrderableDBInstanceOptions_engineVersion' - The engine version filter value. Specify this parameter to show only the
+-- available offerings matching the specified engine version.
+--
+-- 'filters', 'describeOrderableDBInstanceOptions_filters' - This parameter is not currently supported.
+--
+-- 'licenseModel', 'describeOrderableDBInstanceOptions_licenseModel' - The license model filter value. Specify this parameter to show only the
+-- available offerings matching the specified license model.
+--
 -- 'marker', 'describeOrderableDBInstanceOptions_marker' - An optional pagination token provided by a previous
 -- DescribeOrderableDBInstanceOptions request. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
 -- the value specified by @MaxRecords@ .
---
--- 'vpc', 'describeOrderableDBInstanceOptions_vpc' - The VPC filter value. Specify this parameter to show only the available
--- VPC or non-VPC offerings.
---
--- 'filters', 'describeOrderableDBInstanceOptions_filters' - This parameter is not currently supported.
 --
 -- 'maxRecords', 'describeOrderableDBInstanceOptions_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -123,11 +126,8 @@ data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions'
 --
 -- Constraints: Minimum 20, maximum 100.
 --
--- 'engineVersion', 'describeOrderableDBInstanceOptions_engineVersion' - The engine version filter value. Specify this parameter to show only the
--- available offerings matching the specified engine version.
---
--- 'licenseModel', 'describeOrderableDBInstanceOptions_licenseModel' - The license model filter value. Specify this parameter to show only the
--- available offerings matching the specified license model.
+-- 'vpc', 'describeOrderableDBInstanceOptions_vpc' - The VPC filter value. Specify this parameter to show only the available
+-- VPC or non-VPC offerings.
 --
 -- 'engine', 'describeOrderableDBInstanceOptions_engine' - The name of the engine to retrieve DB instance options for.
 newDescribeOrderableDBInstanceOptions ::
@@ -138,12 +138,12 @@ newDescribeOrderableDBInstanceOptions pEngine_ =
   DescribeOrderableDBInstanceOptions'
     { dbInstanceClass =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
-      vpc = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxRecords = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
+      filters = Prelude.Nothing,
       licenseModel = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing,
+      vpc = Prelude.Nothing,
       engine = pEngine_
     }
 
@@ -152,21 +152,26 @@ newDescribeOrderableDBInstanceOptions pEngine_ =
 describeOrderableDBInstanceOptions_dbInstanceClass :: Lens.Lens' DescribeOrderableDBInstanceOptions (Prelude.Maybe Prelude.Text)
 describeOrderableDBInstanceOptions_dbInstanceClass = Lens.lens (\DescribeOrderableDBInstanceOptions' {dbInstanceClass} -> dbInstanceClass) (\s@DescribeOrderableDBInstanceOptions' {} a -> s {dbInstanceClass = a} :: DescribeOrderableDBInstanceOptions)
 
+-- | The engine version filter value. Specify this parameter to show only the
+-- available offerings matching the specified engine version.
+describeOrderableDBInstanceOptions_engineVersion :: Lens.Lens' DescribeOrderableDBInstanceOptions (Prelude.Maybe Prelude.Text)
+describeOrderableDBInstanceOptions_engineVersion = Lens.lens (\DescribeOrderableDBInstanceOptions' {engineVersion} -> engineVersion) (\s@DescribeOrderableDBInstanceOptions' {} a -> s {engineVersion = a} :: DescribeOrderableDBInstanceOptions)
+
+-- | This parameter is not currently supported.
+describeOrderableDBInstanceOptions_filters :: Lens.Lens' DescribeOrderableDBInstanceOptions (Prelude.Maybe [Filter])
+describeOrderableDBInstanceOptions_filters = Lens.lens (\DescribeOrderableDBInstanceOptions' {filters} -> filters) (\s@DescribeOrderableDBInstanceOptions' {} a -> s {filters = a} :: DescribeOrderableDBInstanceOptions) Prelude.. Lens.mapping Lens.coerced
+
+-- | The license model filter value. Specify this parameter to show only the
+-- available offerings matching the specified license model.
+describeOrderableDBInstanceOptions_licenseModel :: Lens.Lens' DescribeOrderableDBInstanceOptions (Prelude.Maybe Prelude.Text)
+describeOrderableDBInstanceOptions_licenseModel = Lens.lens (\DescribeOrderableDBInstanceOptions' {licenseModel} -> licenseModel) (\s@DescribeOrderableDBInstanceOptions' {} a -> s {licenseModel = a} :: DescribeOrderableDBInstanceOptions)
+
 -- | An optional pagination token provided by a previous
 -- DescribeOrderableDBInstanceOptions request. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
 -- the value specified by @MaxRecords@ .
 describeOrderableDBInstanceOptions_marker :: Lens.Lens' DescribeOrderableDBInstanceOptions (Prelude.Maybe Prelude.Text)
 describeOrderableDBInstanceOptions_marker = Lens.lens (\DescribeOrderableDBInstanceOptions' {marker} -> marker) (\s@DescribeOrderableDBInstanceOptions' {} a -> s {marker = a} :: DescribeOrderableDBInstanceOptions)
-
--- | The VPC filter value. Specify this parameter to show only the available
--- VPC or non-VPC offerings.
-describeOrderableDBInstanceOptions_vpc :: Lens.Lens' DescribeOrderableDBInstanceOptions (Prelude.Maybe Prelude.Bool)
-describeOrderableDBInstanceOptions_vpc = Lens.lens (\DescribeOrderableDBInstanceOptions' {vpc} -> vpc) (\s@DescribeOrderableDBInstanceOptions' {} a -> s {vpc = a} :: DescribeOrderableDBInstanceOptions)
-
--- | This parameter is not currently supported.
-describeOrderableDBInstanceOptions_filters :: Lens.Lens' DescribeOrderableDBInstanceOptions (Prelude.Maybe [Filter])
-describeOrderableDBInstanceOptions_filters = Lens.lens (\DescribeOrderableDBInstanceOptions' {filters} -> filters) (\s@DescribeOrderableDBInstanceOptions' {} a -> s {filters = a} :: DescribeOrderableDBInstanceOptions) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -179,15 +184,10 @@ describeOrderableDBInstanceOptions_filters = Lens.lens (\DescribeOrderableDBInst
 describeOrderableDBInstanceOptions_maxRecords :: Lens.Lens' DescribeOrderableDBInstanceOptions (Prelude.Maybe Prelude.Int)
 describeOrderableDBInstanceOptions_maxRecords = Lens.lens (\DescribeOrderableDBInstanceOptions' {maxRecords} -> maxRecords) (\s@DescribeOrderableDBInstanceOptions' {} a -> s {maxRecords = a} :: DescribeOrderableDBInstanceOptions)
 
--- | The engine version filter value. Specify this parameter to show only the
--- available offerings matching the specified engine version.
-describeOrderableDBInstanceOptions_engineVersion :: Lens.Lens' DescribeOrderableDBInstanceOptions (Prelude.Maybe Prelude.Text)
-describeOrderableDBInstanceOptions_engineVersion = Lens.lens (\DescribeOrderableDBInstanceOptions' {engineVersion} -> engineVersion) (\s@DescribeOrderableDBInstanceOptions' {} a -> s {engineVersion = a} :: DescribeOrderableDBInstanceOptions)
-
--- | The license model filter value. Specify this parameter to show only the
--- available offerings matching the specified license model.
-describeOrderableDBInstanceOptions_licenseModel :: Lens.Lens' DescribeOrderableDBInstanceOptions (Prelude.Maybe Prelude.Text)
-describeOrderableDBInstanceOptions_licenseModel = Lens.lens (\DescribeOrderableDBInstanceOptions' {licenseModel} -> licenseModel) (\s@DescribeOrderableDBInstanceOptions' {} a -> s {licenseModel = a} :: DescribeOrderableDBInstanceOptions)
+-- | The VPC filter value. Specify this parameter to show only the available
+-- VPC or non-VPC offerings.
+describeOrderableDBInstanceOptions_vpc :: Lens.Lens' DescribeOrderableDBInstanceOptions (Prelude.Maybe Prelude.Bool)
+describeOrderableDBInstanceOptions_vpc = Lens.lens (\DescribeOrderableDBInstanceOptions' {vpc} -> vpc) (\s@DescribeOrderableDBInstanceOptions' {} a -> s {vpc = a} :: DescribeOrderableDBInstanceOptions)
 
 -- | The name of the engine to retrieve DB instance options for.
 describeOrderableDBInstanceOptions_engine :: Lens.Lens' DescribeOrderableDBInstanceOptions Prelude.Text
@@ -249,12 +249,12 @@ instance
     _salt
     DescribeOrderableDBInstanceOptions' {..} =
       _salt `Prelude.hashWithSalt` dbInstanceClass
-        `Prelude.hashWithSalt` marker
-        `Prelude.hashWithSalt` vpc
-        `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` maxRecords
         `Prelude.hashWithSalt` engineVersion
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` licenseModel
+        `Prelude.hashWithSalt` marker
+        `Prelude.hashWithSalt` maxRecords
+        `Prelude.hashWithSalt` vpc
         `Prelude.hashWithSalt` engine
 
 instance
@@ -263,12 +263,12 @@ instance
   where
   rnf DescribeOrderableDBInstanceOptions' {..} =
     Prelude.rnf dbInstanceClass
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf vpc
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf licenseModel
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf vpc
       `Prelude.seq` Prelude.rnf engine
 
 instance
@@ -296,14 +296,14 @@ instance
         "Version"
           Data.=: ("2014-10-31" :: Prelude.ByteString),
         "DBInstanceClass" Data.=: dbInstanceClass,
-        "Marker" Data.=: marker,
-        "Vpc" Data.=: vpc,
+        "EngineVersion" Data.=: engineVersion,
         "Filters"
           Data.=: Data.toQuery
             (Data.toQueryList "Filter" Prelude.<$> filters),
-        "MaxRecords" Data.=: maxRecords,
-        "EngineVersion" Data.=: engineVersion,
         "LicenseModel" Data.=: licenseModel,
+        "Marker" Data.=: marker,
+        "MaxRecords" Data.=: maxRecords,
+        "Vpc" Data.=: vpc,
         "Engine" Data.=: engine
       ]
 

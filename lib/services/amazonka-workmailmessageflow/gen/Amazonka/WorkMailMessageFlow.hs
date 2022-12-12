@@ -23,14 +23,14 @@ module Amazonka.WorkMailMessageFlow
     -- ** InvalidContentLocation
     _InvalidContentLocation,
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
     -- ** MessageFrozen
     _MessageFrozen,
 
     -- ** MessageRejected
     _MessageRejected,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- * Waiters
     -- $waiters

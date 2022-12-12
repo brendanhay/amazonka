@@ -23,11 +23,11 @@ module Amazonka.EMR
     -- * Errors
     -- $errors
 
-    -- ** InternalServerException
-    _InternalServerException,
-
     -- ** InternalServerError
     _InternalServerError,
+
+    -- ** InternalServerException
+    _InternalServerException,
 
     -- ** InvalidRequestException
     _InvalidRequestException,
@@ -35,14 +35,14 @@ module Amazonka.EMR
     -- * Waiters
     -- $waiters
 
-    -- ** StepComplete
-    newStepComplete,
-
     -- ** ClusterRunning
     newClusterRunning,
 
     -- ** ClusterTerminated
     newClusterTerminated,
+
+    -- ** StepComplete
+    newStepComplete,
 
     -- * Operations
     -- $operations

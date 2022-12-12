@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIntegerHyperParameterRange' smart constructor.
 data IntegerHyperParameterRange = IntegerHyperParameterRange'
-  { -- | The name of the hyperparameter.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | The maximum allowable value for the hyperparameter.
+    maxValue :: Prelude.Maybe Prelude.Int,
     -- | The minimum allowable value for the hyperparameter.
     minValue :: Prelude.Maybe Prelude.Int,
-    -- | The maximum allowable value for the hyperparameter.
-    maxValue :: Prelude.Maybe Prelude.Int
+    -- | The name of the hyperparameter.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,31 +45,32 @@ data IntegerHyperParameterRange = IntegerHyperParameterRange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'integerHyperParameterRange_name' - The name of the hyperparameter.
+-- 'maxValue', 'integerHyperParameterRange_maxValue' - The maximum allowable value for the hyperparameter.
 --
 -- 'minValue', 'integerHyperParameterRange_minValue' - The minimum allowable value for the hyperparameter.
 --
--- 'maxValue', 'integerHyperParameterRange_maxValue' - The maximum allowable value for the hyperparameter.
+-- 'name', 'integerHyperParameterRange_name' - The name of the hyperparameter.
 newIntegerHyperParameterRange ::
   IntegerHyperParameterRange
 newIntegerHyperParameterRange =
   IntegerHyperParameterRange'
-    { name = Prelude.Nothing,
+    { maxValue =
+        Prelude.Nothing,
       minValue = Prelude.Nothing,
-      maxValue = Prelude.Nothing
+      name = Prelude.Nothing
     }
 
--- | The name of the hyperparameter.
-integerHyperParameterRange_name :: Lens.Lens' IntegerHyperParameterRange (Prelude.Maybe Prelude.Text)
-integerHyperParameterRange_name = Lens.lens (\IntegerHyperParameterRange' {name} -> name) (\s@IntegerHyperParameterRange' {} a -> s {name = a} :: IntegerHyperParameterRange)
+-- | The maximum allowable value for the hyperparameter.
+integerHyperParameterRange_maxValue :: Lens.Lens' IntegerHyperParameterRange (Prelude.Maybe Prelude.Int)
+integerHyperParameterRange_maxValue = Lens.lens (\IntegerHyperParameterRange' {maxValue} -> maxValue) (\s@IntegerHyperParameterRange' {} a -> s {maxValue = a} :: IntegerHyperParameterRange)
 
 -- | The minimum allowable value for the hyperparameter.
 integerHyperParameterRange_minValue :: Lens.Lens' IntegerHyperParameterRange (Prelude.Maybe Prelude.Int)
 integerHyperParameterRange_minValue = Lens.lens (\IntegerHyperParameterRange' {minValue} -> minValue) (\s@IntegerHyperParameterRange' {} a -> s {minValue = a} :: IntegerHyperParameterRange)
 
--- | The maximum allowable value for the hyperparameter.
-integerHyperParameterRange_maxValue :: Lens.Lens' IntegerHyperParameterRange (Prelude.Maybe Prelude.Int)
-integerHyperParameterRange_maxValue = Lens.lens (\IntegerHyperParameterRange' {maxValue} -> maxValue) (\s@IntegerHyperParameterRange' {} a -> s {maxValue = a} :: IntegerHyperParameterRange)
+-- | The name of the hyperparameter.
+integerHyperParameterRange_name :: Lens.Lens' IntegerHyperParameterRange (Prelude.Maybe Prelude.Text)
+integerHyperParameterRange_name = Lens.lens (\IntegerHyperParameterRange' {name} -> name) (\s@IntegerHyperParameterRange' {} a -> s {name = a} :: IntegerHyperParameterRange)
 
 instance Data.FromJSON IntegerHyperParameterRange where
   parseJSON =
@@ -77,29 +78,29 @@ instance Data.FromJSON IntegerHyperParameterRange where
       "IntegerHyperParameterRange"
       ( \x ->
           IntegerHyperParameterRange'
-            Prelude.<$> (x Data..:? "name")
+            Prelude.<$> (x Data..:? "maxValue")
             Prelude.<*> (x Data..:? "minValue")
-            Prelude.<*> (x Data..:? "maxValue")
+            Prelude.<*> (x Data..:? "name")
       )
 
 instance Prelude.Hashable IntegerHyperParameterRange where
   hashWithSalt _salt IntegerHyperParameterRange' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` maxValue
       `Prelude.hashWithSalt` minValue
-      `Prelude.hashWithSalt` maxValue
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData IntegerHyperParameterRange where
   rnf IntegerHyperParameterRange' {..} =
-    Prelude.rnf name
+    Prelude.rnf maxValue
       `Prelude.seq` Prelude.rnf minValue
-      `Prelude.seq` Prelude.rnf maxValue
+      `Prelude.seq` Prelude.rnf name
 
 instance Data.ToJSON IntegerHyperParameterRange where
   toJSON IntegerHyperParameterRange' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("name" Data..=) Prelude.<$> name,
+          [ ("maxValue" Data..=) Prelude.<$> maxValue,
             ("minValue" Data..=) Prelude.<$> minValue,
-            ("maxValue" Data..=) Prelude.<$> maxValue
+            ("name" Data..=) Prelude.<$> name
           ]
       )

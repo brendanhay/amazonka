@@ -27,12 +27,12 @@ import Amazonka.Schemas.Types.Type
 
 -- | /See:/ 'newSearchSchemaVersionSummary' smart constructor.
 data SearchSchemaVersionSummary = SearchSchemaVersionSummary'
-  { -- | The type of schema.
-    type' :: Prelude.Maybe Type,
+  { -- | The date the schema version was created.
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | The version number of the schema
     schemaVersion :: Prelude.Maybe Prelude.Text,
-    -- | The date the schema version was created.
-    createdDate :: Prelude.Maybe Data.POSIX
+    -- | The type of schema.
+    type' :: Prelude.Maybe Type
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,32 +44,32 @@ data SearchSchemaVersionSummary = SearchSchemaVersionSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'searchSchemaVersionSummary_type' - The type of schema.
+-- 'createdDate', 'searchSchemaVersionSummary_createdDate' - The date the schema version was created.
 --
 -- 'schemaVersion', 'searchSchemaVersionSummary_schemaVersion' - The version number of the schema
 --
--- 'createdDate', 'searchSchemaVersionSummary_createdDate' - The date the schema version was created.
+-- 'type'', 'searchSchemaVersionSummary_type' - The type of schema.
 newSearchSchemaVersionSummary ::
   SearchSchemaVersionSummary
 newSearchSchemaVersionSummary =
   SearchSchemaVersionSummary'
-    { type' =
+    { createdDate =
         Prelude.Nothing,
       schemaVersion = Prelude.Nothing,
-      createdDate = Prelude.Nothing
+      type' = Prelude.Nothing
     }
 
--- | The type of schema.
-searchSchemaVersionSummary_type :: Lens.Lens' SearchSchemaVersionSummary (Prelude.Maybe Type)
-searchSchemaVersionSummary_type = Lens.lens (\SearchSchemaVersionSummary' {type'} -> type') (\s@SearchSchemaVersionSummary' {} a -> s {type' = a} :: SearchSchemaVersionSummary)
+-- | The date the schema version was created.
+searchSchemaVersionSummary_createdDate :: Lens.Lens' SearchSchemaVersionSummary (Prelude.Maybe Prelude.UTCTime)
+searchSchemaVersionSummary_createdDate = Lens.lens (\SearchSchemaVersionSummary' {createdDate} -> createdDate) (\s@SearchSchemaVersionSummary' {} a -> s {createdDate = a} :: SearchSchemaVersionSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The version number of the schema
 searchSchemaVersionSummary_schemaVersion :: Lens.Lens' SearchSchemaVersionSummary (Prelude.Maybe Prelude.Text)
 searchSchemaVersionSummary_schemaVersion = Lens.lens (\SearchSchemaVersionSummary' {schemaVersion} -> schemaVersion) (\s@SearchSchemaVersionSummary' {} a -> s {schemaVersion = a} :: SearchSchemaVersionSummary)
 
--- | The date the schema version was created.
-searchSchemaVersionSummary_createdDate :: Lens.Lens' SearchSchemaVersionSummary (Prelude.Maybe Prelude.UTCTime)
-searchSchemaVersionSummary_createdDate = Lens.lens (\SearchSchemaVersionSummary' {createdDate} -> createdDate) (\s@SearchSchemaVersionSummary' {} a -> s {createdDate = a} :: SearchSchemaVersionSummary) Prelude.. Lens.mapping Data._Time
+-- | The type of schema.
+searchSchemaVersionSummary_type :: Lens.Lens' SearchSchemaVersionSummary (Prelude.Maybe Type)
+searchSchemaVersionSummary_type = Lens.lens (\SearchSchemaVersionSummary' {type'} -> type') (\s@SearchSchemaVersionSummary' {} a -> s {type' = a} :: SearchSchemaVersionSummary)
 
 instance Data.FromJSON SearchSchemaVersionSummary where
   parseJSON =
@@ -77,19 +77,19 @@ instance Data.FromJSON SearchSchemaVersionSummary where
       "SearchSchemaVersionSummary"
       ( \x ->
           SearchSchemaVersionSummary'
-            Prelude.<$> (x Data..:? "Type")
+            Prelude.<$> (x Data..:? "CreatedDate")
             Prelude.<*> (x Data..:? "SchemaVersion")
-            Prelude.<*> (x Data..:? "CreatedDate")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable SearchSchemaVersionSummary where
   hashWithSalt _salt SearchSchemaVersionSummary' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` schemaVersion
-      `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData SearchSchemaVersionSummary where
   rnf SearchSchemaVersionSummary' {..} =
-    Prelude.rnf type'
+    Prelude.rnf createdDate
       `Prelude.seq` Prelude.rnf schemaVersion
-      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf type'

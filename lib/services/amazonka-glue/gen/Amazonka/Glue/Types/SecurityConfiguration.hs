@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSecurityConfiguration' smart constructor.
 data SecurityConfiguration = SecurityConfiguration'
-  { -- | The name of the security configuration.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The time at which this security configuration was created.
+  { -- | The time at which this security configuration was created.
     createdTimeStamp :: Prelude.Maybe Data.POSIX,
     -- | The encryption configuration associated with this security
     -- configuration.
-    encryptionConfiguration :: Prelude.Maybe EncryptionConfiguration
+    encryptionConfiguration :: Prelude.Maybe EncryptionConfiguration,
+    -- | The name of the security configuration.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,24 +47,21 @@ data SecurityConfiguration = SecurityConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'securityConfiguration_name' - The name of the security configuration.
---
 -- 'createdTimeStamp', 'securityConfiguration_createdTimeStamp' - The time at which this security configuration was created.
 --
 -- 'encryptionConfiguration', 'securityConfiguration_encryptionConfiguration' - The encryption configuration associated with this security
 -- configuration.
+--
+-- 'name', 'securityConfiguration_name' - The name of the security configuration.
 newSecurityConfiguration ::
   SecurityConfiguration
 newSecurityConfiguration =
   SecurityConfiguration'
-    { name = Prelude.Nothing,
-      createdTimeStamp = Prelude.Nothing,
-      encryptionConfiguration = Prelude.Nothing
+    { createdTimeStamp =
+        Prelude.Nothing,
+      encryptionConfiguration = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | The name of the security configuration.
-securityConfiguration_name :: Lens.Lens' SecurityConfiguration (Prelude.Maybe Prelude.Text)
-securityConfiguration_name = Lens.lens (\SecurityConfiguration' {name} -> name) (\s@SecurityConfiguration' {} a -> s {name = a} :: SecurityConfiguration)
 
 -- | The time at which this security configuration was created.
 securityConfiguration_createdTimeStamp :: Lens.Lens' SecurityConfiguration (Prelude.Maybe Prelude.UTCTime)
@@ -75,25 +72,29 @@ securityConfiguration_createdTimeStamp = Lens.lens (\SecurityConfiguration' {cre
 securityConfiguration_encryptionConfiguration :: Lens.Lens' SecurityConfiguration (Prelude.Maybe EncryptionConfiguration)
 securityConfiguration_encryptionConfiguration = Lens.lens (\SecurityConfiguration' {encryptionConfiguration} -> encryptionConfiguration) (\s@SecurityConfiguration' {} a -> s {encryptionConfiguration = a} :: SecurityConfiguration)
 
+-- | The name of the security configuration.
+securityConfiguration_name :: Lens.Lens' SecurityConfiguration (Prelude.Maybe Prelude.Text)
+securityConfiguration_name = Lens.lens (\SecurityConfiguration' {name} -> name) (\s@SecurityConfiguration' {} a -> s {name = a} :: SecurityConfiguration)
+
 instance Data.FromJSON SecurityConfiguration where
   parseJSON =
     Data.withObject
       "SecurityConfiguration"
       ( \x ->
           SecurityConfiguration'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "CreatedTimeStamp")
+            Prelude.<$> (x Data..:? "CreatedTimeStamp")
             Prelude.<*> (x Data..:? "EncryptionConfiguration")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable SecurityConfiguration where
   hashWithSalt _salt SecurityConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` createdTimeStamp
+    _salt `Prelude.hashWithSalt` createdTimeStamp
       `Prelude.hashWithSalt` encryptionConfiguration
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData SecurityConfiguration where
   rnf SecurityConfiguration' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf createdTimeStamp
+    Prelude.rnf createdTimeStamp
       `Prelude.seq` Prelude.rnf encryptionConfiguration
+      `Prelude.seq` Prelude.rnf name

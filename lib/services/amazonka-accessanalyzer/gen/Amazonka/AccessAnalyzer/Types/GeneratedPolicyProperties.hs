@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGeneratedPolicyProperties' smart constructor.
 data GeneratedPolicyProperties = GeneratedPolicyProperties'
-  { -- | This value is set to @true@ if the generated policy contains all
+  { -- | Lists details about the @Trail@ used to generated policy.
+    cloudTrailProperties :: Prelude.Maybe CloudTrailProperties,
+    -- | This value is set to @true@ if the generated policy contains all
     -- possible actions for a service that IAM Access Analyzer identified from
     -- the CloudTrail trail that you specified, and @false@ otherwise.
     isComplete :: Prelude.Maybe Prelude.Bool,
-    -- | Lists details about the @Trail@ used to generated policy.
-    cloudTrailProperties :: Prelude.Maybe CloudTrailProperties,
     -- | The ARN of the IAM entity (user or role) for which you are generating a
     -- policy.
     principalArn :: Prelude.Text
@@ -49,11 +49,11 @@ data GeneratedPolicyProperties = GeneratedPolicyProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'cloudTrailProperties', 'generatedPolicyProperties_cloudTrailProperties' - Lists details about the @Trail@ used to generated policy.
+--
 -- 'isComplete', 'generatedPolicyProperties_isComplete' - This value is set to @true@ if the generated policy contains all
 -- possible actions for a service that IAM Access Analyzer identified from
 -- the CloudTrail trail that you specified, and @false@ otherwise.
---
--- 'cloudTrailProperties', 'generatedPolicyProperties_cloudTrailProperties' - Lists details about the @Trail@ used to generated policy.
 --
 -- 'principalArn', 'generatedPolicyProperties_principalArn' - The ARN of the IAM entity (user or role) for which you are generating a
 -- policy.
@@ -63,21 +63,21 @@ newGeneratedPolicyProperties ::
   GeneratedPolicyProperties
 newGeneratedPolicyProperties pPrincipalArn_ =
   GeneratedPolicyProperties'
-    { isComplete =
+    { cloudTrailProperties =
         Prelude.Nothing,
-      cloudTrailProperties = Prelude.Nothing,
+      isComplete = Prelude.Nothing,
       principalArn = pPrincipalArn_
     }
+
+-- | Lists details about the @Trail@ used to generated policy.
+generatedPolicyProperties_cloudTrailProperties :: Lens.Lens' GeneratedPolicyProperties (Prelude.Maybe CloudTrailProperties)
+generatedPolicyProperties_cloudTrailProperties = Lens.lens (\GeneratedPolicyProperties' {cloudTrailProperties} -> cloudTrailProperties) (\s@GeneratedPolicyProperties' {} a -> s {cloudTrailProperties = a} :: GeneratedPolicyProperties)
 
 -- | This value is set to @true@ if the generated policy contains all
 -- possible actions for a service that IAM Access Analyzer identified from
 -- the CloudTrail trail that you specified, and @false@ otherwise.
 generatedPolicyProperties_isComplete :: Lens.Lens' GeneratedPolicyProperties (Prelude.Maybe Prelude.Bool)
 generatedPolicyProperties_isComplete = Lens.lens (\GeneratedPolicyProperties' {isComplete} -> isComplete) (\s@GeneratedPolicyProperties' {} a -> s {isComplete = a} :: GeneratedPolicyProperties)
-
--- | Lists details about the @Trail@ used to generated policy.
-generatedPolicyProperties_cloudTrailProperties :: Lens.Lens' GeneratedPolicyProperties (Prelude.Maybe CloudTrailProperties)
-generatedPolicyProperties_cloudTrailProperties = Lens.lens (\GeneratedPolicyProperties' {cloudTrailProperties} -> cloudTrailProperties) (\s@GeneratedPolicyProperties' {} a -> s {cloudTrailProperties = a} :: GeneratedPolicyProperties)
 
 -- | The ARN of the IAM entity (user or role) for which you are generating a
 -- policy.
@@ -90,19 +90,19 @@ instance Data.FromJSON GeneratedPolicyProperties where
       "GeneratedPolicyProperties"
       ( \x ->
           GeneratedPolicyProperties'
-            Prelude.<$> (x Data..:? "isComplete")
-            Prelude.<*> (x Data..:? "cloudTrailProperties")
+            Prelude.<$> (x Data..:? "cloudTrailProperties")
+            Prelude.<*> (x Data..:? "isComplete")
             Prelude.<*> (x Data..: "principalArn")
       )
 
 instance Prelude.Hashable GeneratedPolicyProperties where
   hashWithSalt _salt GeneratedPolicyProperties' {..} =
-    _salt `Prelude.hashWithSalt` isComplete
-      `Prelude.hashWithSalt` cloudTrailProperties
+    _salt `Prelude.hashWithSalt` cloudTrailProperties
+      `Prelude.hashWithSalt` isComplete
       `Prelude.hashWithSalt` principalArn
 
 instance Prelude.NFData GeneratedPolicyProperties where
   rnf GeneratedPolicyProperties' {..} =
-    Prelude.rnf isComplete
-      `Prelude.seq` Prelude.rnf cloudTrailProperties
+    Prelude.rnf cloudTrailProperties
+      `Prelude.seq` Prelude.rnf isComplete
       `Prelude.seq` Prelude.rnf principalArn

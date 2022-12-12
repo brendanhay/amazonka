@@ -38,27 +38,27 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBackup' smart constructor.
 data Backup = Backup'
-  { -- | The tags associated with a particular file system.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | Specifies the resource type that\'s backed up.
-    resourceType :: Prelude.Maybe ResourceType,
-    ownerId :: Prelude.Maybe Prelude.Text,
-    -- | The source Region of the backup. Specifies the Region from where this
-    -- backup is copied.
-    sourceBackupRegion :: Prelude.Maybe Prelude.Text,
-    -- | Details explaining any failures that occurred when creating a backup.
-    failureDetails :: Prelude.Maybe BackupFailureDetails,
-    -- | The configuration of the self-managed Microsoft Active Directory
+  { -- | The configuration of the self-managed Microsoft Active Directory
     -- directory to which the Windows File Server instance is joined.
     directoryInformation :: Prelude.Maybe ActiveDirectoryBackupAttributes,
+    -- | Details explaining any failures that occurred when creating a backup.
+    failureDetails :: Prelude.Maybe BackupFailureDetails,
     -- | The ID of the Key Management Service (KMS) key used to encrypt the
     -- backup of the Amazon FSx file system\'s data at rest.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    volume :: Prelude.Maybe Volume,
+    ownerId :: Prelude.Maybe Prelude.Text,
+    progressPercent :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) for the backup resource.
     resourceARN :: Prelude.Maybe Prelude.Text,
-    progressPercent :: Prelude.Maybe Prelude.Natural,
+    -- | Specifies the resource type that\'s backed up.
+    resourceType :: Prelude.Maybe ResourceType,
     sourceBackupId :: Prelude.Maybe Prelude.Text,
+    -- | The source Region of the backup. Specifies the Region from where this
+    -- backup is copied.
+    sourceBackupRegion :: Prelude.Maybe Prelude.Text,
+    -- | The tags associated with a particular file system.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    volume :: Prelude.Maybe Volume,
     -- | The ID of the backup.
     backupId :: Prelude.Text,
     -- | The lifecycle status of the backup.
@@ -98,30 +98,30 @@ data Backup = Backup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'backup_tags' - The tags associated with a particular file system.
---
--- 'resourceType', 'backup_resourceType' - Specifies the resource type that\'s backed up.
---
--- 'ownerId', 'backup_ownerId' - Undocumented member.
---
--- 'sourceBackupRegion', 'backup_sourceBackupRegion' - The source Region of the backup. Specifies the Region from where this
--- backup is copied.
---
--- 'failureDetails', 'backup_failureDetails' - Details explaining any failures that occurred when creating a backup.
---
 -- 'directoryInformation', 'backup_directoryInformation' - The configuration of the self-managed Microsoft Active Directory
 -- directory to which the Windows File Server instance is joined.
+--
+-- 'failureDetails', 'backup_failureDetails' - Details explaining any failures that occurred when creating a backup.
 --
 -- 'kmsKeyId', 'backup_kmsKeyId' - The ID of the Key Management Service (KMS) key used to encrypt the
 -- backup of the Amazon FSx file system\'s data at rest.
 --
--- 'volume', 'backup_volume' - Undocumented member.
---
--- 'resourceARN', 'backup_resourceARN' - The Amazon Resource Name (ARN) for the backup resource.
+-- 'ownerId', 'backup_ownerId' - Undocumented member.
 --
 -- 'progressPercent', 'backup_progressPercent' - Undocumented member.
 --
+-- 'resourceARN', 'backup_resourceARN' - The Amazon Resource Name (ARN) for the backup resource.
+--
+-- 'resourceType', 'backup_resourceType' - Specifies the resource type that\'s backed up.
+--
 -- 'sourceBackupId', 'backup_sourceBackupId' - Undocumented member.
+--
+-- 'sourceBackupRegion', 'backup_sourceBackupRegion' - The source Region of the backup. Specifies the Region from where this
+-- backup is copied.
+--
+-- 'tags', 'backup_tags' - The tags associated with a particular file system.
+--
+-- 'volume', 'backup_volume' - Undocumented member.
 --
 -- 'backupId', 'backup_backupId' - The ID of the backup.
 --
@@ -169,17 +169,17 @@ newBackup
   pCreationTime_
   pFileSystem_ =
     Backup'
-      { tags = Prelude.Nothing,
-        resourceType = Prelude.Nothing,
-        ownerId = Prelude.Nothing,
-        sourceBackupRegion = Prelude.Nothing,
+      { directoryInformation = Prelude.Nothing,
         failureDetails = Prelude.Nothing,
-        directoryInformation = Prelude.Nothing,
         kmsKeyId = Prelude.Nothing,
-        volume = Prelude.Nothing,
-        resourceARN = Prelude.Nothing,
+        ownerId = Prelude.Nothing,
         progressPercent = Prelude.Nothing,
+        resourceARN = Prelude.Nothing,
+        resourceType = Prelude.Nothing,
         sourceBackupId = Prelude.Nothing,
+        sourceBackupRegion = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        volume = Prelude.Nothing,
         backupId = pBackupId_,
         lifecycle = pLifecycle_,
         type' = pType_,
@@ -187,31 +187,14 @@ newBackup
         fileSystem = pFileSystem_
       }
 
--- | The tags associated with a particular file system.
-backup_tags :: Lens.Lens' Backup (Prelude.Maybe (Prelude.NonEmpty Tag))
-backup_tags = Lens.lens (\Backup' {tags} -> tags) (\s@Backup' {} a -> s {tags = a} :: Backup) Prelude.. Lens.mapping Lens.coerced
-
--- | Specifies the resource type that\'s backed up.
-backup_resourceType :: Lens.Lens' Backup (Prelude.Maybe ResourceType)
-backup_resourceType = Lens.lens (\Backup' {resourceType} -> resourceType) (\s@Backup' {} a -> s {resourceType = a} :: Backup)
-
--- | Undocumented member.
-backup_ownerId :: Lens.Lens' Backup (Prelude.Maybe Prelude.Text)
-backup_ownerId = Lens.lens (\Backup' {ownerId} -> ownerId) (\s@Backup' {} a -> s {ownerId = a} :: Backup)
-
--- | The source Region of the backup. Specifies the Region from where this
--- backup is copied.
-backup_sourceBackupRegion :: Lens.Lens' Backup (Prelude.Maybe Prelude.Text)
-backup_sourceBackupRegion = Lens.lens (\Backup' {sourceBackupRegion} -> sourceBackupRegion) (\s@Backup' {} a -> s {sourceBackupRegion = a} :: Backup)
-
--- | Details explaining any failures that occurred when creating a backup.
-backup_failureDetails :: Lens.Lens' Backup (Prelude.Maybe BackupFailureDetails)
-backup_failureDetails = Lens.lens (\Backup' {failureDetails} -> failureDetails) (\s@Backup' {} a -> s {failureDetails = a} :: Backup)
-
 -- | The configuration of the self-managed Microsoft Active Directory
 -- directory to which the Windows File Server instance is joined.
 backup_directoryInformation :: Lens.Lens' Backup (Prelude.Maybe ActiveDirectoryBackupAttributes)
 backup_directoryInformation = Lens.lens (\Backup' {directoryInformation} -> directoryInformation) (\s@Backup' {} a -> s {directoryInformation = a} :: Backup)
+
+-- | Details explaining any failures that occurred when creating a backup.
+backup_failureDetails :: Lens.Lens' Backup (Prelude.Maybe BackupFailureDetails)
+backup_failureDetails = Lens.lens (\Backup' {failureDetails} -> failureDetails) (\s@Backup' {} a -> s {failureDetails = a} :: Backup)
 
 -- | The ID of the Key Management Service (KMS) key used to encrypt the
 -- backup of the Amazon FSx file system\'s data at rest.
@@ -219,20 +202,37 @@ backup_kmsKeyId :: Lens.Lens' Backup (Prelude.Maybe Prelude.Text)
 backup_kmsKeyId = Lens.lens (\Backup' {kmsKeyId} -> kmsKeyId) (\s@Backup' {} a -> s {kmsKeyId = a} :: Backup)
 
 -- | Undocumented member.
-backup_volume :: Lens.Lens' Backup (Prelude.Maybe Volume)
-backup_volume = Lens.lens (\Backup' {volume} -> volume) (\s@Backup' {} a -> s {volume = a} :: Backup)
-
--- | The Amazon Resource Name (ARN) for the backup resource.
-backup_resourceARN :: Lens.Lens' Backup (Prelude.Maybe Prelude.Text)
-backup_resourceARN = Lens.lens (\Backup' {resourceARN} -> resourceARN) (\s@Backup' {} a -> s {resourceARN = a} :: Backup)
+backup_ownerId :: Lens.Lens' Backup (Prelude.Maybe Prelude.Text)
+backup_ownerId = Lens.lens (\Backup' {ownerId} -> ownerId) (\s@Backup' {} a -> s {ownerId = a} :: Backup)
 
 -- | Undocumented member.
 backup_progressPercent :: Lens.Lens' Backup (Prelude.Maybe Prelude.Natural)
 backup_progressPercent = Lens.lens (\Backup' {progressPercent} -> progressPercent) (\s@Backup' {} a -> s {progressPercent = a} :: Backup)
 
+-- | The Amazon Resource Name (ARN) for the backup resource.
+backup_resourceARN :: Lens.Lens' Backup (Prelude.Maybe Prelude.Text)
+backup_resourceARN = Lens.lens (\Backup' {resourceARN} -> resourceARN) (\s@Backup' {} a -> s {resourceARN = a} :: Backup)
+
+-- | Specifies the resource type that\'s backed up.
+backup_resourceType :: Lens.Lens' Backup (Prelude.Maybe ResourceType)
+backup_resourceType = Lens.lens (\Backup' {resourceType} -> resourceType) (\s@Backup' {} a -> s {resourceType = a} :: Backup)
+
 -- | Undocumented member.
 backup_sourceBackupId :: Lens.Lens' Backup (Prelude.Maybe Prelude.Text)
 backup_sourceBackupId = Lens.lens (\Backup' {sourceBackupId} -> sourceBackupId) (\s@Backup' {} a -> s {sourceBackupId = a} :: Backup)
+
+-- | The source Region of the backup. Specifies the Region from where this
+-- backup is copied.
+backup_sourceBackupRegion :: Lens.Lens' Backup (Prelude.Maybe Prelude.Text)
+backup_sourceBackupRegion = Lens.lens (\Backup' {sourceBackupRegion} -> sourceBackupRegion) (\s@Backup' {} a -> s {sourceBackupRegion = a} :: Backup)
+
+-- | The tags associated with a particular file system.
+backup_tags :: Lens.Lens' Backup (Prelude.Maybe (Prelude.NonEmpty Tag))
+backup_tags = Lens.lens (\Backup' {tags} -> tags) (\s@Backup' {} a -> s {tags = a} :: Backup) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+backup_volume :: Lens.Lens' Backup (Prelude.Maybe Volume)
+backup_volume = Lens.lens (\Backup' {volume} -> volume) (\s@Backup' {} a -> s {volume = a} :: Backup)
 
 -- | The ID of the backup.
 backup_backupId :: Lens.Lens' Backup Prelude.Text
@@ -278,17 +278,17 @@ instance Data.FromJSON Backup where
       "Backup"
       ( \x ->
           Backup'
-            Prelude.<$> (x Data..:? "Tags")
-            Prelude.<*> (x Data..:? "ResourceType")
-            Prelude.<*> (x Data..:? "OwnerId")
-            Prelude.<*> (x Data..:? "SourceBackupRegion")
+            Prelude.<$> (x Data..:? "DirectoryInformation")
             Prelude.<*> (x Data..:? "FailureDetails")
-            Prelude.<*> (x Data..:? "DirectoryInformation")
             Prelude.<*> (x Data..:? "KmsKeyId")
-            Prelude.<*> (x Data..:? "Volume")
-            Prelude.<*> (x Data..:? "ResourceARN")
+            Prelude.<*> (x Data..:? "OwnerId")
             Prelude.<*> (x Data..:? "ProgressPercent")
+            Prelude.<*> (x Data..:? "ResourceARN")
+            Prelude.<*> (x Data..:? "ResourceType")
             Prelude.<*> (x Data..:? "SourceBackupId")
+            Prelude.<*> (x Data..:? "SourceBackupRegion")
+            Prelude.<*> (x Data..:? "Tags")
+            Prelude.<*> (x Data..:? "Volume")
             Prelude.<*> (x Data..: "BackupId")
             Prelude.<*> (x Data..: "Lifecycle")
             Prelude.<*> (x Data..: "Type")
@@ -298,17 +298,17 @@ instance Data.FromJSON Backup where
 
 instance Prelude.Hashable Backup where
   hashWithSalt _salt Backup' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` resourceType
-      `Prelude.hashWithSalt` ownerId
-      `Prelude.hashWithSalt` sourceBackupRegion
+    _salt `Prelude.hashWithSalt` directoryInformation
       `Prelude.hashWithSalt` failureDetails
-      `Prelude.hashWithSalt` directoryInformation
       `Prelude.hashWithSalt` kmsKeyId
-      `Prelude.hashWithSalt` volume
-      `Prelude.hashWithSalt` resourceARN
+      `Prelude.hashWithSalt` ownerId
       `Prelude.hashWithSalt` progressPercent
+      `Prelude.hashWithSalt` resourceARN
+      `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` sourceBackupId
+      `Prelude.hashWithSalt` sourceBackupRegion
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` volume
       `Prelude.hashWithSalt` backupId
       `Prelude.hashWithSalt` lifecycle
       `Prelude.hashWithSalt` type'
@@ -317,17 +317,17 @@ instance Prelude.Hashable Backup where
 
 instance Prelude.NFData Backup where
   rnf Backup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf ownerId
-      `Prelude.seq` Prelude.rnf sourceBackupRegion
+    Prelude.rnf directoryInformation
       `Prelude.seq` Prelude.rnf failureDetails
-      `Prelude.seq` Prelude.rnf directoryInformation
       `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf volume
-      `Prelude.seq` Prelude.rnf resourceARN
+      `Prelude.seq` Prelude.rnf ownerId
       `Prelude.seq` Prelude.rnf progressPercent
+      `Prelude.seq` Prelude.rnf resourceARN
+      `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf sourceBackupId
+      `Prelude.seq` Prelude.rnf sourceBackupRegion
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf volume
       `Prelude.seq` Prelude.rnf backupId
       `Prelude.seq` Prelude.rnf lifecycle
       `Prelude.seq` Prelude.rnf type'

@@ -34,9 +34,9 @@ module Amazonka.Forecast.ListWhatIfForecasts
     newListWhatIfForecasts,
 
     -- * Request Lenses
-    listWhatIfForecasts_nextToken,
     listWhatIfForecasts_filters,
     listWhatIfForecasts_maxResults,
+    listWhatIfForecasts_nextToken,
 
     -- * Destructuring the Response
     ListWhatIfForecastsResponse (..),
@@ -59,11 +59,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListWhatIfForecasts' smart constructor.
 data ListWhatIfForecasts = ListWhatIfForecasts'
-  { -- | If the result of the previous request was truncated, the response
-    -- includes a @NextToken@. To retrieve the next set of results, use the
-    -- token in the next  request. Tokens expire after 24 hours.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of filters. For each filter, you provide a condition and a
+  { -- | An array of filters. For each filter, you provide a condition and a
     -- match statement. The condition is either @IS@ or @IS_NOT@, which
     -- specifies whether to include or exclude the what-if forecast export jobs
     -- that match the statement from the list, respectively. The match
@@ -87,7 +83,11 @@ data ListWhatIfForecasts = ListWhatIfForecasts'
     -- @\"Filters\": [ { \"Condition\": \"IS\", \"Key\": \"WhatIfForecastArn\", \"Value\": \"arn:aws:forecast:us-west-2:\<acct-id>:forecast\/electricityWhatIfForecast\" } ]@
     filters :: Prelude.Maybe [Filter],
     -- | The number of items to return in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the result of the previous request was truncated, the response
+    -- includes a @NextToken@. To retrieve the next set of results, use the
+    -- token in the next  request. Tokens expire after 24 hours.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -98,10 +98,6 @@ data ListWhatIfForecasts = ListWhatIfForecasts'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'listWhatIfForecasts_nextToken' - If the result of the previous request was truncated, the response
--- includes a @NextToken@. To retrieve the next set of results, use the
--- token in the next  request. Tokens expire after 24 hours.
 --
 -- 'filters', 'listWhatIfForecasts_filters' - An array of filters. For each filter, you provide a condition and a
 -- match statement. The condition is either @IS@ or @IS_NOT@, which
@@ -127,20 +123,18 @@ data ListWhatIfForecasts = ListWhatIfForecasts'
 -- @\"Filters\": [ { \"Condition\": \"IS\", \"Key\": \"WhatIfForecastArn\", \"Value\": \"arn:aws:forecast:us-west-2:\<acct-id>:forecast\/electricityWhatIfForecast\" } ]@
 --
 -- 'maxResults', 'listWhatIfForecasts_maxResults' - The number of items to return in the response.
+--
+-- 'nextToken', 'listWhatIfForecasts_nextToken' - If the result of the previous request was truncated, the response
+-- includes a @NextToken@. To retrieve the next set of results, use the
+-- token in the next  request. Tokens expire after 24 hours.
 newListWhatIfForecasts ::
   ListWhatIfForecasts
 newListWhatIfForecasts =
   ListWhatIfForecasts'
-    { nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | If the result of the previous request was truncated, the response
--- includes a @NextToken@. To retrieve the next set of results, use the
--- token in the next  request. Tokens expire after 24 hours.
-listWhatIfForecasts_nextToken :: Lens.Lens' ListWhatIfForecasts (Prelude.Maybe Prelude.Text)
-listWhatIfForecasts_nextToken = Lens.lens (\ListWhatIfForecasts' {nextToken} -> nextToken) (\s@ListWhatIfForecasts' {} a -> s {nextToken = a} :: ListWhatIfForecasts)
 
 -- | An array of filters. For each filter, you provide a condition and a
 -- match statement. The condition is either @IS@ or @IS_NOT@, which
@@ -170,6 +164,12 @@ listWhatIfForecasts_filters = Lens.lens (\ListWhatIfForecasts' {filters} -> filt
 -- | The number of items to return in the response.
 listWhatIfForecasts_maxResults :: Lens.Lens' ListWhatIfForecasts (Prelude.Maybe Prelude.Natural)
 listWhatIfForecasts_maxResults = Lens.lens (\ListWhatIfForecasts' {maxResults} -> maxResults) (\s@ListWhatIfForecasts' {} a -> s {maxResults = a} :: ListWhatIfForecasts)
+
+-- | If the result of the previous request was truncated, the response
+-- includes a @NextToken@. To retrieve the next set of results, use the
+-- token in the next  request. Tokens expire after 24 hours.
+listWhatIfForecasts_nextToken :: Lens.Lens' ListWhatIfForecasts (Prelude.Maybe Prelude.Text)
+listWhatIfForecasts_nextToken = Lens.lens (\ListWhatIfForecasts' {nextToken} -> nextToken) (\s@ListWhatIfForecasts' {} a -> s {nextToken = a} :: ListWhatIfForecasts)
 
 instance Core.AWSPager ListWhatIfForecasts where
   page rq rs
@@ -212,15 +212,15 @@ instance Core.AWSRequest ListWhatIfForecasts where
 
 instance Prelude.Hashable ListWhatIfForecasts where
   hashWithSalt _salt ListWhatIfForecasts' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListWhatIfForecasts where
   rnf ListWhatIfForecasts' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListWhatIfForecasts where
   toHeaders =
@@ -241,9 +241,9 @@ instance Data.ToJSON ListWhatIfForecasts where
   toJSON ListWhatIfForecasts' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

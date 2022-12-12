@@ -32,10 +32,10 @@ data DirectoryVpcSettingsDescription = DirectoryVpcSettingsDescription'
     availabilityZones :: Prelude.Maybe [Prelude.Text],
     -- | The domain controller security group identifier for the directory.
     securityGroupId :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the VPC that the directory is in.
-    vpcId :: Prelude.Maybe Prelude.Text,
     -- | The identifiers of the subnets for the directory servers.
-    subnetIds :: Prelude.Maybe [Prelude.Text]
+    subnetIds :: Prelude.Maybe [Prelude.Text],
+    -- | The identifier of the VPC that the directory is in.
+    vpcId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,9 +51,9 @@ data DirectoryVpcSettingsDescription = DirectoryVpcSettingsDescription'
 --
 -- 'securityGroupId', 'directoryVpcSettingsDescription_securityGroupId' - The domain controller security group identifier for the directory.
 --
--- 'vpcId', 'directoryVpcSettingsDescription_vpcId' - The identifier of the VPC that the directory is in.
---
 -- 'subnetIds', 'directoryVpcSettingsDescription_subnetIds' - The identifiers of the subnets for the directory servers.
+--
+-- 'vpcId', 'directoryVpcSettingsDescription_vpcId' - The identifier of the VPC that the directory is in.
 newDirectoryVpcSettingsDescription ::
   DirectoryVpcSettingsDescription
 newDirectoryVpcSettingsDescription =
@@ -61,8 +61,8 @@ newDirectoryVpcSettingsDescription =
     { availabilityZones =
         Prelude.Nothing,
       securityGroupId = Prelude.Nothing,
-      vpcId = Prelude.Nothing,
-      subnetIds = Prelude.Nothing
+      subnetIds = Prelude.Nothing,
+      vpcId = Prelude.Nothing
     }
 
 -- | The list of Availability Zones that the directory is in.
@@ -73,13 +73,13 @@ directoryVpcSettingsDescription_availabilityZones = Lens.lens (\DirectoryVpcSett
 directoryVpcSettingsDescription_securityGroupId :: Lens.Lens' DirectoryVpcSettingsDescription (Prelude.Maybe Prelude.Text)
 directoryVpcSettingsDescription_securityGroupId = Lens.lens (\DirectoryVpcSettingsDescription' {securityGroupId} -> securityGroupId) (\s@DirectoryVpcSettingsDescription' {} a -> s {securityGroupId = a} :: DirectoryVpcSettingsDescription)
 
--- | The identifier of the VPC that the directory is in.
-directoryVpcSettingsDescription_vpcId :: Lens.Lens' DirectoryVpcSettingsDescription (Prelude.Maybe Prelude.Text)
-directoryVpcSettingsDescription_vpcId = Lens.lens (\DirectoryVpcSettingsDescription' {vpcId} -> vpcId) (\s@DirectoryVpcSettingsDescription' {} a -> s {vpcId = a} :: DirectoryVpcSettingsDescription)
-
 -- | The identifiers of the subnets for the directory servers.
 directoryVpcSettingsDescription_subnetIds :: Lens.Lens' DirectoryVpcSettingsDescription (Prelude.Maybe [Prelude.Text])
 directoryVpcSettingsDescription_subnetIds = Lens.lens (\DirectoryVpcSettingsDescription' {subnetIds} -> subnetIds) (\s@DirectoryVpcSettingsDescription' {} a -> s {subnetIds = a} :: DirectoryVpcSettingsDescription) Prelude.. Lens.mapping Lens.coerced
+
+-- | The identifier of the VPC that the directory is in.
+directoryVpcSettingsDescription_vpcId :: Lens.Lens' DirectoryVpcSettingsDescription (Prelude.Maybe Prelude.Text)
+directoryVpcSettingsDescription_vpcId = Lens.lens (\DirectoryVpcSettingsDescription' {vpcId} -> vpcId) (\s@DirectoryVpcSettingsDescription' {} a -> s {vpcId = a} :: DirectoryVpcSettingsDescription)
 
 instance
   Data.FromJSON
@@ -94,8 +94,8 @@ instance
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "SecurityGroupId")
-            Prelude.<*> (x Data..:? "VpcId")
             Prelude.<*> (x Data..:? "SubnetIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "VpcId")
       )
 
 instance
@@ -107,8 +107,8 @@ instance
     DirectoryVpcSettingsDescription' {..} =
       _salt `Prelude.hashWithSalt` availabilityZones
         `Prelude.hashWithSalt` securityGroupId
-        `Prelude.hashWithSalt` vpcId
         `Prelude.hashWithSalt` subnetIds
+        `Prelude.hashWithSalt` vpcId
 
 instance
   Prelude.NFData
@@ -117,5 +117,5 @@ instance
   rnf DirectoryVpcSettingsDescription' {..} =
     Prelude.rnf availabilityZones
       `Prelude.seq` Prelude.rnf securityGroupId
-      `Prelude.seq` Prelude.rnf vpcId
       `Prelude.seq` Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf vpcId

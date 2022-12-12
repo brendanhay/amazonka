@@ -33,11 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSourceTableDetails' smart constructor.
 data SourceTableDetails = SourceTableDetails'
-  { -- | ARN of the table for which backup was created.
-    tableArn :: Prelude.Maybe Prelude.Text,
-    -- | Size of the table in bytes. Note that this is an approximate value.
-    tableSizeBytes :: Prelude.Maybe Prelude.Integer,
-    -- | Controls how you are charged for read and write throughput and how you
+  { -- | Controls how you are charged for read and write throughput and how you
     -- manage capacity. This setting can be changed later.
     --
     -- -   @PROVISIONED@ - Sets the read\/write capacity mode to @PROVISIONED@.
@@ -49,6 +45,10 @@ data SourceTableDetails = SourceTableDetails'
     billingMode :: Prelude.Maybe BillingMode,
     -- | Number of items in the table. Note that this is an approximate value.
     itemCount :: Prelude.Maybe Prelude.Natural,
+    -- | ARN of the table for which backup was created.
+    tableArn :: Prelude.Maybe Prelude.Text,
+    -- | Size of the table in bytes. Note that this is an approximate value.
+    tableSizeBytes :: Prelude.Maybe Prelude.Integer,
     -- | The name of the table for which the backup was created.
     tableName :: Prelude.Text,
     -- | Unique identifier for the table for which the backup was created.
@@ -70,10 +70,6 @@ data SourceTableDetails = SourceTableDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tableArn', 'sourceTableDetails_tableArn' - ARN of the table for which backup was created.
---
--- 'tableSizeBytes', 'sourceTableDetails_tableSizeBytes' - Size of the table in bytes. Note that this is an approximate value.
---
 -- 'billingMode', 'sourceTableDetails_billingMode' - Controls how you are charged for read and write throughput and how you
 -- manage capacity. This setting can be changed later.
 --
@@ -85,6 +81,10 @@ data SourceTableDetails = SourceTableDetails'
 --     unpredictable workloads.
 --
 -- 'itemCount', 'sourceTableDetails_itemCount' - Number of items in the table. Note that this is an approximate value.
+--
+-- 'tableArn', 'sourceTableDetails_tableArn' - ARN of the table for which backup was created.
+--
+-- 'tableSizeBytes', 'sourceTableDetails_tableSizeBytes' - Size of the table in bytes. Note that this is an approximate value.
 --
 -- 'tableName', 'sourceTableDetails_tableName' - The name of the table for which the backup was created.
 --
@@ -114,10 +114,10 @@ newSourceTableDetails
   pTableCreationDateTime_
   pProvisionedThroughput_ =
     SourceTableDetails'
-      { tableArn = Prelude.Nothing,
-        tableSizeBytes = Prelude.Nothing,
-        billingMode = Prelude.Nothing,
+      { billingMode = Prelude.Nothing,
         itemCount = Prelude.Nothing,
+        tableArn = Prelude.Nothing,
+        tableSizeBytes = Prelude.Nothing,
         tableName = pTableName_,
         tableId = pTableId_,
         keySchema = Lens.coerced Lens.# pKeySchema_,
@@ -125,14 +125,6 @@ newSourceTableDetails
           Data._Time Lens.# pTableCreationDateTime_,
         provisionedThroughput = pProvisionedThroughput_
       }
-
--- | ARN of the table for which backup was created.
-sourceTableDetails_tableArn :: Lens.Lens' SourceTableDetails (Prelude.Maybe Prelude.Text)
-sourceTableDetails_tableArn = Lens.lens (\SourceTableDetails' {tableArn} -> tableArn) (\s@SourceTableDetails' {} a -> s {tableArn = a} :: SourceTableDetails)
-
--- | Size of the table in bytes. Note that this is an approximate value.
-sourceTableDetails_tableSizeBytes :: Lens.Lens' SourceTableDetails (Prelude.Maybe Prelude.Integer)
-sourceTableDetails_tableSizeBytes = Lens.lens (\SourceTableDetails' {tableSizeBytes} -> tableSizeBytes) (\s@SourceTableDetails' {} a -> s {tableSizeBytes = a} :: SourceTableDetails)
 
 -- | Controls how you are charged for read and write throughput and how you
 -- manage capacity. This setting can be changed later.
@@ -149,6 +141,14 @@ sourceTableDetails_billingMode = Lens.lens (\SourceTableDetails' {billingMode} -
 -- | Number of items in the table. Note that this is an approximate value.
 sourceTableDetails_itemCount :: Lens.Lens' SourceTableDetails (Prelude.Maybe Prelude.Natural)
 sourceTableDetails_itemCount = Lens.lens (\SourceTableDetails' {itemCount} -> itemCount) (\s@SourceTableDetails' {} a -> s {itemCount = a} :: SourceTableDetails)
+
+-- | ARN of the table for which backup was created.
+sourceTableDetails_tableArn :: Lens.Lens' SourceTableDetails (Prelude.Maybe Prelude.Text)
+sourceTableDetails_tableArn = Lens.lens (\SourceTableDetails' {tableArn} -> tableArn) (\s@SourceTableDetails' {} a -> s {tableArn = a} :: SourceTableDetails)
+
+-- | Size of the table in bytes. Note that this is an approximate value.
+sourceTableDetails_tableSizeBytes :: Lens.Lens' SourceTableDetails (Prelude.Maybe Prelude.Integer)
+sourceTableDetails_tableSizeBytes = Lens.lens (\SourceTableDetails' {tableSizeBytes} -> tableSizeBytes) (\s@SourceTableDetails' {} a -> s {tableSizeBytes = a} :: SourceTableDetails)
 
 -- | The name of the table for which the backup was created.
 sourceTableDetails_tableName :: Lens.Lens' SourceTableDetails Prelude.Text
@@ -176,10 +176,10 @@ instance Data.FromJSON SourceTableDetails where
       "SourceTableDetails"
       ( \x ->
           SourceTableDetails'
-            Prelude.<$> (x Data..:? "TableArn")
-            Prelude.<*> (x Data..:? "TableSizeBytes")
-            Prelude.<*> (x Data..:? "BillingMode")
+            Prelude.<$> (x Data..:? "BillingMode")
             Prelude.<*> (x Data..:? "ItemCount")
+            Prelude.<*> (x Data..:? "TableArn")
+            Prelude.<*> (x Data..:? "TableSizeBytes")
             Prelude.<*> (x Data..: "TableName")
             Prelude.<*> (x Data..: "TableId")
             Prelude.<*> (x Data..: "KeySchema")
@@ -189,10 +189,10 @@ instance Data.FromJSON SourceTableDetails where
 
 instance Prelude.Hashable SourceTableDetails where
   hashWithSalt _salt SourceTableDetails' {..} =
-    _salt `Prelude.hashWithSalt` tableArn
-      `Prelude.hashWithSalt` tableSizeBytes
-      `Prelude.hashWithSalt` billingMode
+    _salt `Prelude.hashWithSalt` billingMode
       `Prelude.hashWithSalt` itemCount
+      `Prelude.hashWithSalt` tableArn
+      `Prelude.hashWithSalt` tableSizeBytes
       `Prelude.hashWithSalt` tableName
       `Prelude.hashWithSalt` tableId
       `Prelude.hashWithSalt` keySchema
@@ -201,10 +201,10 @@ instance Prelude.Hashable SourceTableDetails where
 
 instance Prelude.NFData SourceTableDetails where
   rnf SourceTableDetails' {..} =
-    Prelude.rnf tableArn
-      `Prelude.seq` Prelude.rnf tableSizeBytes
-      `Prelude.seq` Prelude.rnf billingMode
+    Prelude.rnf billingMode
       `Prelude.seq` Prelude.rnf itemCount
+      `Prelude.seq` Prelude.rnf tableArn
+      `Prelude.seq` Prelude.rnf tableSizeBytes
       `Prelude.seq` Prelude.rnf tableName
       `Prelude.seq` Prelude.rnf tableId
       `Prelude.seq` Prelude.rnf keySchema

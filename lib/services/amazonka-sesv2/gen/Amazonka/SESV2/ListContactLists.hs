@@ -35,8 +35,8 @@ module Amazonka.SESV2.ListContactLists
     newListContactListsResponse,
 
     -- * Response Lenses
-    listContactListsResponse_nextToken,
     listContactListsResponse_contactLists,
+    listContactListsResponse_nextToken,
     listContactListsResponse_httpStatus,
   )
 where
@@ -113,8 +113,8 @@ instance Core.AWSRequest ListContactLists where
     Response.receiveJSON
       ( \s h x ->
           ListContactListsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "ContactLists" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "ContactLists" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,13 +151,13 @@ instance Data.ToQuery ListContactLists where
 
 -- | /See:/ 'newListContactListsResponse' smart constructor.
 data ListContactListsResponse = ListContactListsResponse'
-  { -- | A string token indicating that there might be additional contact lists
+  { -- | The available contact lists.
+    contactLists :: Prelude.Maybe [ContactList],
+    -- | A string token indicating that there might be additional contact lists
     -- available to be listed. Copy this token to a subsequent call to
     -- @ListContactLists@ with the same parameters to retrieve the next page of
     -- contact lists.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The available contact lists.
-    contactLists :: Prelude.Maybe [ContactList],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -171,12 +171,12 @@ data ListContactListsResponse = ListContactListsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'contactLists', 'listContactListsResponse_contactLists' - The available contact lists.
+--
 -- 'nextToken', 'listContactListsResponse_nextToken' - A string token indicating that there might be additional contact lists
 -- available to be listed. Copy this token to a subsequent call to
 -- @ListContactLists@ with the same parameters to retrieve the next page of
 -- contact lists.
---
--- 'contactLists', 'listContactListsResponse_contactLists' - The available contact lists.
 --
 -- 'httpStatus', 'listContactListsResponse_httpStatus' - The response's http status code.
 newListContactListsResponse ::
@@ -185,11 +185,15 @@ newListContactListsResponse ::
   ListContactListsResponse
 newListContactListsResponse pHttpStatus_ =
   ListContactListsResponse'
-    { nextToken =
+    { contactLists =
         Prelude.Nothing,
-      contactLists = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The available contact lists.
+listContactListsResponse_contactLists :: Lens.Lens' ListContactListsResponse (Prelude.Maybe [ContactList])
+listContactListsResponse_contactLists = Lens.lens (\ListContactListsResponse' {contactLists} -> contactLists) (\s@ListContactListsResponse' {} a -> s {contactLists = a} :: ListContactListsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A string token indicating that there might be additional contact lists
 -- available to be listed. Copy this token to a subsequent call to
@@ -198,16 +202,12 @@ newListContactListsResponse pHttpStatus_ =
 listContactListsResponse_nextToken :: Lens.Lens' ListContactListsResponse (Prelude.Maybe Prelude.Text)
 listContactListsResponse_nextToken = Lens.lens (\ListContactListsResponse' {nextToken} -> nextToken) (\s@ListContactListsResponse' {} a -> s {nextToken = a} :: ListContactListsResponse)
 
--- | The available contact lists.
-listContactListsResponse_contactLists :: Lens.Lens' ListContactListsResponse (Prelude.Maybe [ContactList])
-listContactListsResponse_contactLists = Lens.lens (\ListContactListsResponse' {contactLists} -> contactLists) (\s@ListContactListsResponse' {} a -> s {contactLists = a} :: ListContactListsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listContactListsResponse_httpStatus :: Lens.Lens' ListContactListsResponse Prelude.Int
 listContactListsResponse_httpStatus = Lens.lens (\ListContactListsResponse' {httpStatus} -> httpStatus) (\s@ListContactListsResponse' {} a -> s {httpStatus = a} :: ListContactListsResponse)
 
 instance Prelude.NFData ListContactListsResponse where
   rnf ListContactListsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf contactLists
+    Prelude.rnf contactLists
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

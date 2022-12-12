@@ -34,21 +34,21 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCreateControlMappingSource' smart constructor.
 data CreateControlMappingSource = CreateControlMappingSource'
-  { -- | The frequency of evidence collection for the control mapping source.
-    sourceFrequency :: Prelude.Maybe SourceFrequency,
-    -- | The description of the data source that determines where Audit Manager
+  { -- | The description of the data source that determines where Audit Manager
     -- collects evidence from for the control.
     sourceDescription :: Prelude.Maybe Prelude.Text,
+    -- | The frequency of evidence collection for the control mapping source.
+    sourceFrequency :: Prelude.Maybe SourceFrequency,
     sourceKeyword :: Prelude.Maybe SourceKeyword,
     -- | The name of the control mapping data source.
     sourceName :: Prelude.Maybe Prelude.Text,
     -- | The setup option for the data source, which reflects if the evidence
     -- collection is automated or manual.
     sourceSetUpOption :: Prelude.Maybe SourceSetUpOption,
-    -- | The instructions for troubleshooting the control.
-    troubleshootingText :: Prelude.Maybe Prelude.Text,
     -- | Specifies one of the five types of data sources for evidence collection.
-    sourceType :: Prelude.Maybe SourceType
+    sourceType :: Prelude.Maybe SourceType,
+    -- | The instructions for troubleshooting the control.
+    troubleshootingText :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,10 +60,10 @@ data CreateControlMappingSource = CreateControlMappingSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceFrequency', 'createControlMappingSource_sourceFrequency' - The frequency of evidence collection for the control mapping source.
---
 -- 'sourceDescription', 'createControlMappingSource_sourceDescription' - The description of the data source that determines where Audit Manager
 -- collects evidence from for the control.
+--
+-- 'sourceFrequency', 'createControlMappingSource_sourceFrequency' - The frequency of evidence collection for the control mapping source.
 --
 -- 'sourceKeyword', 'createControlMappingSource_sourceKeyword' - Undocumented member.
 --
@@ -72,31 +72,31 @@ data CreateControlMappingSource = CreateControlMappingSource'
 -- 'sourceSetUpOption', 'createControlMappingSource_sourceSetUpOption' - The setup option for the data source, which reflects if the evidence
 -- collection is automated or manual.
 --
--- 'troubleshootingText', 'createControlMappingSource_troubleshootingText' - The instructions for troubleshooting the control.
---
 -- 'sourceType', 'createControlMappingSource_sourceType' - Specifies one of the five types of data sources for evidence collection.
+--
+-- 'troubleshootingText', 'createControlMappingSource_troubleshootingText' - The instructions for troubleshooting the control.
 newCreateControlMappingSource ::
   CreateControlMappingSource
 newCreateControlMappingSource =
   CreateControlMappingSource'
-    { sourceFrequency =
+    { sourceDescription =
         Prelude.Nothing,
-      sourceDescription = Prelude.Nothing,
+      sourceFrequency = Prelude.Nothing,
       sourceKeyword = Prelude.Nothing,
       sourceName = Prelude.Nothing,
       sourceSetUpOption = Prelude.Nothing,
-      troubleshootingText = Prelude.Nothing,
-      sourceType = Prelude.Nothing
+      sourceType = Prelude.Nothing,
+      troubleshootingText = Prelude.Nothing
     }
-
--- | The frequency of evidence collection for the control mapping source.
-createControlMappingSource_sourceFrequency :: Lens.Lens' CreateControlMappingSource (Prelude.Maybe SourceFrequency)
-createControlMappingSource_sourceFrequency = Lens.lens (\CreateControlMappingSource' {sourceFrequency} -> sourceFrequency) (\s@CreateControlMappingSource' {} a -> s {sourceFrequency = a} :: CreateControlMappingSource)
 
 -- | The description of the data source that determines where Audit Manager
 -- collects evidence from for the control.
 createControlMappingSource_sourceDescription :: Lens.Lens' CreateControlMappingSource (Prelude.Maybe Prelude.Text)
 createControlMappingSource_sourceDescription = Lens.lens (\CreateControlMappingSource' {sourceDescription} -> sourceDescription) (\s@CreateControlMappingSource' {} a -> s {sourceDescription = a} :: CreateControlMappingSource)
+
+-- | The frequency of evidence collection for the control mapping source.
+createControlMappingSource_sourceFrequency :: Lens.Lens' CreateControlMappingSource (Prelude.Maybe SourceFrequency)
+createControlMappingSource_sourceFrequency = Lens.lens (\CreateControlMappingSource' {sourceFrequency} -> sourceFrequency) (\s@CreateControlMappingSource' {} a -> s {sourceFrequency = a} :: CreateControlMappingSource)
 
 -- | Undocumented member.
 createControlMappingSource_sourceKeyword :: Lens.Lens' CreateControlMappingSource (Prelude.Maybe SourceKeyword)
@@ -111,48 +111,48 @@ createControlMappingSource_sourceName = Lens.lens (\CreateControlMappingSource' 
 createControlMappingSource_sourceSetUpOption :: Lens.Lens' CreateControlMappingSource (Prelude.Maybe SourceSetUpOption)
 createControlMappingSource_sourceSetUpOption = Lens.lens (\CreateControlMappingSource' {sourceSetUpOption} -> sourceSetUpOption) (\s@CreateControlMappingSource' {} a -> s {sourceSetUpOption = a} :: CreateControlMappingSource)
 
--- | The instructions for troubleshooting the control.
-createControlMappingSource_troubleshootingText :: Lens.Lens' CreateControlMappingSource (Prelude.Maybe Prelude.Text)
-createControlMappingSource_troubleshootingText = Lens.lens (\CreateControlMappingSource' {troubleshootingText} -> troubleshootingText) (\s@CreateControlMappingSource' {} a -> s {troubleshootingText = a} :: CreateControlMappingSource)
-
 -- | Specifies one of the five types of data sources for evidence collection.
 createControlMappingSource_sourceType :: Lens.Lens' CreateControlMappingSource (Prelude.Maybe SourceType)
 createControlMappingSource_sourceType = Lens.lens (\CreateControlMappingSource' {sourceType} -> sourceType) (\s@CreateControlMappingSource' {} a -> s {sourceType = a} :: CreateControlMappingSource)
 
+-- | The instructions for troubleshooting the control.
+createControlMappingSource_troubleshootingText :: Lens.Lens' CreateControlMappingSource (Prelude.Maybe Prelude.Text)
+createControlMappingSource_troubleshootingText = Lens.lens (\CreateControlMappingSource' {troubleshootingText} -> troubleshootingText) (\s@CreateControlMappingSource' {} a -> s {troubleshootingText = a} :: CreateControlMappingSource)
+
 instance Prelude.Hashable CreateControlMappingSource where
   hashWithSalt _salt CreateControlMappingSource' {..} =
-    _salt `Prelude.hashWithSalt` sourceFrequency
-      `Prelude.hashWithSalt` sourceDescription
+    _salt `Prelude.hashWithSalt` sourceDescription
+      `Prelude.hashWithSalt` sourceFrequency
       `Prelude.hashWithSalt` sourceKeyword
       `Prelude.hashWithSalt` sourceName
       `Prelude.hashWithSalt` sourceSetUpOption
-      `Prelude.hashWithSalt` troubleshootingText
       `Prelude.hashWithSalt` sourceType
+      `Prelude.hashWithSalt` troubleshootingText
 
 instance Prelude.NFData CreateControlMappingSource where
   rnf CreateControlMappingSource' {..} =
-    Prelude.rnf sourceFrequency
-      `Prelude.seq` Prelude.rnf sourceDescription
+    Prelude.rnf sourceDescription
+      `Prelude.seq` Prelude.rnf sourceFrequency
       `Prelude.seq` Prelude.rnf sourceKeyword
       `Prelude.seq` Prelude.rnf sourceName
       `Prelude.seq` Prelude.rnf sourceSetUpOption
-      `Prelude.seq` Prelude.rnf troubleshootingText
       `Prelude.seq` Prelude.rnf sourceType
+      `Prelude.seq` Prelude.rnf troubleshootingText
 
 instance Data.ToJSON CreateControlMappingSource where
   toJSON CreateControlMappingSource' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("sourceFrequency" Data..=)
-              Prelude.<$> sourceFrequency,
-            ("sourceDescription" Data..=)
+          [ ("sourceDescription" Data..=)
               Prelude.<$> sourceDescription,
+            ("sourceFrequency" Data..=)
+              Prelude.<$> sourceFrequency,
             ("sourceKeyword" Data..=) Prelude.<$> sourceKeyword,
             ("sourceName" Data..=) Prelude.<$> sourceName,
             ("sourceSetUpOption" Data..=)
               Prelude.<$> sourceSetUpOption,
+            ("sourceType" Data..=) Prelude.<$> sourceType,
             ("troubleshootingText" Data..=)
-              Prelude.<$> troubleshootingText,
-            ("sourceType" Data..=) Prelude.<$> sourceType
+              Prelude.<$> troubleshootingText
           ]
       )

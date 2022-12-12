@@ -28,9 +28,9 @@ module Amazonka.SSMContacts.AcceptPage
     newAcceptPage,
 
     -- * Request Lenses
+    acceptPage_acceptCodeValidation,
     acceptPage_contactChannelId,
     acceptPage_note,
-    acceptPage_acceptCodeValidation,
     acceptPage_pageId,
     acceptPage_acceptType,
     acceptPage_acceptCode,
@@ -54,11 +54,7 @@ import Amazonka.SSMContacts.Types
 
 -- | /See:/ 'newAcceptPage' smart constructor.
 data AcceptPage = AcceptPage'
-  { -- | The ARN of the contact channel.
-    contactChannelId :: Prelude.Maybe Prelude.Text,
-    -- | Information provided by the user when the user acknowledges the page.
-    note :: Prelude.Maybe Prelude.Text,
-    -- | An optional field that Incident Manager uses to @ENFORCE@ @AcceptCode@
+  { -- | An optional field that Incident Manager uses to @ENFORCE@ @AcceptCode@
     -- validation when acknowledging an page. Acknowledgement can occur by
     -- replying to a page, or when entering the AcceptCode in the console.
     -- Enforcing AcceptCode validation causes Incident Manager to verify that
@@ -69,6 +65,10 @@ data AcceptPage = AcceptPage'
     -- @AcceptCode@ validation causes Incident Manager to accept any value
     -- entered for the @AcceptCode@.
     acceptCodeValidation :: Prelude.Maybe AcceptCodeValidation,
+    -- | The ARN of the contact channel.
+    contactChannelId :: Prelude.Maybe Prelude.Text,
+    -- | Information provided by the user when the user acknowledges the page.
+    note :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the engagement to a contact channel.
     pageId :: Prelude.Text,
     -- | The type indicates if the page was @DELIVERED@ or @READ@.
@@ -86,10 +86,6 @@ data AcceptPage = AcceptPage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'contactChannelId', 'acceptPage_contactChannelId' - The ARN of the contact channel.
---
--- 'note', 'acceptPage_note' - Information provided by the user when the user acknowledges the page.
---
 -- 'acceptCodeValidation', 'acceptPage_acceptCodeValidation' - An optional field that Incident Manager uses to @ENFORCE@ @AcceptCode@
 -- validation when acknowledging an page. Acknowledgement can occur by
 -- replying to a page, or when entering the AcceptCode in the console.
@@ -100,6 +96,10 @@ data AcceptPage = AcceptPage'
 -- Incident Manager can also @IGNORE@ @AcceptCode@ validation. Ignoring
 -- @AcceptCode@ validation causes Incident Manager to accept any value
 -- entered for the @AcceptCode@.
+--
+-- 'contactChannelId', 'acceptPage_contactChannelId' - The ARN of the contact channel.
+--
+-- 'note', 'acceptPage_note' - Information provided by the user when the user acknowledges the page.
 --
 -- 'pageId', 'acceptPage_pageId' - The Amazon Resource Name (ARN) of the engagement to a contact channel.
 --
@@ -116,21 +116,13 @@ newAcceptPage ::
   AcceptPage
 newAcceptPage pPageId_ pAcceptType_ pAcceptCode_ =
   AcceptPage'
-    { contactChannelId = Prelude.Nothing,
+    { acceptCodeValidation = Prelude.Nothing,
+      contactChannelId = Prelude.Nothing,
       note = Prelude.Nothing,
-      acceptCodeValidation = Prelude.Nothing,
       pageId = pPageId_,
       acceptType = pAcceptType_,
       acceptCode = pAcceptCode_
     }
-
--- | The ARN of the contact channel.
-acceptPage_contactChannelId :: Lens.Lens' AcceptPage (Prelude.Maybe Prelude.Text)
-acceptPage_contactChannelId = Lens.lens (\AcceptPage' {contactChannelId} -> contactChannelId) (\s@AcceptPage' {} a -> s {contactChannelId = a} :: AcceptPage)
-
--- | Information provided by the user when the user acknowledges the page.
-acceptPage_note :: Lens.Lens' AcceptPage (Prelude.Maybe Prelude.Text)
-acceptPage_note = Lens.lens (\AcceptPage' {note} -> note) (\s@AcceptPage' {} a -> s {note = a} :: AcceptPage)
 
 -- | An optional field that Incident Manager uses to @ENFORCE@ @AcceptCode@
 -- validation when acknowledging an page. Acknowledgement can occur by
@@ -144,6 +136,14 @@ acceptPage_note = Lens.lens (\AcceptPage' {note} -> note) (\s@AcceptPage' {} a -
 -- entered for the @AcceptCode@.
 acceptPage_acceptCodeValidation :: Lens.Lens' AcceptPage (Prelude.Maybe AcceptCodeValidation)
 acceptPage_acceptCodeValidation = Lens.lens (\AcceptPage' {acceptCodeValidation} -> acceptCodeValidation) (\s@AcceptPage' {} a -> s {acceptCodeValidation = a} :: AcceptPage)
+
+-- | The ARN of the contact channel.
+acceptPage_contactChannelId :: Lens.Lens' AcceptPage (Prelude.Maybe Prelude.Text)
+acceptPage_contactChannelId = Lens.lens (\AcceptPage' {contactChannelId} -> contactChannelId) (\s@AcceptPage' {} a -> s {contactChannelId = a} :: AcceptPage)
+
+-- | Information provided by the user when the user acknowledges the page.
+acceptPage_note :: Lens.Lens' AcceptPage (Prelude.Maybe Prelude.Text)
+acceptPage_note = Lens.lens (\AcceptPage' {note} -> note) (\s@AcceptPage' {} a -> s {note = a} :: AcceptPage)
 
 -- | The Amazon Resource Name (ARN) of the engagement to a contact channel.
 acceptPage_pageId :: Lens.Lens' AcceptPage Prelude.Text
@@ -170,18 +170,18 @@ instance Core.AWSRequest AcceptPage where
 
 instance Prelude.Hashable AcceptPage where
   hashWithSalt _salt AcceptPage' {..} =
-    _salt `Prelude.hashWithSalt` contactChannelId
+    _salt `Prelude.hashWithSalt` acceptCodeValidation
+      `Prelude.hashWithSalt` contactChannelId
       `Prelude.hashWithSalt` note
-      `Prelude.hashWithSalt` acceptCodeValidation
       `Prelude.hashWithSalt` pageId
       `Prelude.hashWithSalt` acceptType
       `Prelude.hashWithSalt` acceptCode
 
 instance Prelude.NFData AcceptPage where
   rnf AcceptPage' {..} =
-    Prelude.rnf contactChannelId
+    Prelude.rnf acceptCodeValidation
+      `Prelude.seq` Prelude.rnf contactChannelId
       `Prelude.seq` Prelude.rnf note
-      `Prelude.seq` Prelude.rnf acceptCodeValidation
       `Prelude.seq` Prelude.rnf pageId
       `Prelude.seq` Prelude.rnf acceptType
       `Prelude.seq` Prelude.rnf acceptCode
@@ -203,11 +203,11 @@ instance Data.ToJSON AcceptPage where
   toJSON AcceptPage' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ContactChannelId" Data..=)
+          [ ("AcceptCodeValidation" Data..=)
+              Prelude.<$> acceptCodeValidation,
+            ("ContactChannelId" Data..=)
               Prelude.<$> contactChannelId,
             ("Note" Data..=) Prelude.<$> note,
-            ("AcceptCodeValidation" Data..=)
-              Prelude.<$> acceptCodeValidation,
             Prelude.Just ("PageId" Data..= pageId),
             Prelude.Just ("AcceptType" Data..= acceptType),
             Prelude.Just ("AcceptCode" Data..= acceptCode)

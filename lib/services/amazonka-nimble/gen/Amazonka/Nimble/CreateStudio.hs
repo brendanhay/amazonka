@@ -56,9 +56,9 @@ module Amazonka.Nimble.CreateStudio
     newCreateStudio,
 
     -- * Request Lenses
-    createStudio_tags,
     createStudio_clientToken,
     createStudio_studioEncryptionConfiguration,
+    createStudio_tags,
     createStudio_adminRoleArn,
     createStudio_displayName,
     createStudio_studioName,
@@ -84,16 +84,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateStudio' smart constructor.
 data CreateStudio = CreateStudio'
-  { -- | A collection of labels, in the form of key:value pairs, that apply to
-    -- this resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Unique, case-sensitive identifier that you provide to ensure the
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. If you don’t specify a client token, the AWS
     -- SDK automatically generates a client token and uses it for the request
     -- to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The studio encryption configuration.
     studioEncryptionConfiguration :: Prelude.Maybe StudioEncryptionConfiguration,
+    -- | A collection of labels, in the form of key:value pairs, that apply to
+    -- this resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The IAM role that Studio Admins will assume when logging in to the
     -- Nimble Studio portal.
     adminRoleArn :: Prelude.Text,
@@ -116,15 +116,15 @@ data CreateStudio = CreateStudio'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createStudio_tags' - A collection of labels, in the form of key:value pairs, that apply to
--- this resource.
---
 -- 'clientToken', 'createStudio_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. If you don’t specify a client token, the AWS
 -- SDK automatically generates a client token and uses it for the request
 -- to ensure idempotency.
 --
 -- 'studioEncryptionConfiguration', 'createStudio_studioEncryptionConfiguration' - The studio encryption configuration.
+--
+-- 'tags', 'createStudio_tags' - A collection of labels, in the form of key:value pairs, that apply to
+-- this resource.
 --
 -- 'adminRoleArn', 'createStudio_adminRoleArn' - The IAM role that Studio Admins will assume when logging in to the
 -- Nimble Studio portal.
@@ -152,19 +152,14 @@ newCreateStudio
   pStudioName_
   pUserRoleArn_ =
     CreateStudio'
-      { tags = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+      { clientToken = Prelude.Nothing,
         studioEncryptionConfiguration = Prelude.Nothing,
+        tags = Prelude.Nothing,
         adminRoleArn = pAdminRoleArn_,
         displayName = Data._Sensitive Lens.# pDisplayName_,
         studioName = pStudioName_,
         userRoleArn = pUserRoleArn_
       }
-
--- | A collection of labels, in the form of key:value pairs, that apply to
--- this resource.
-createStudio_tags :: Lens.Lens' CreateStudio (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createStudio_tags = Lens.lens (\CreateStudio' {tags} -> tags) (\s@CreateStudio' {} a -> s {tags = a} :: CreateStudio) Prelude.. Lens.mapping Lens.coerced
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. If you don’t specify a client token, the AWS
@@ -176,6 +171,11 @@ createStudio_clientToken = Lens.lens (\CreateStudio' {clientToken} -> clientToke
 -- | The studio encryption configuration.
 createStudio_studioEncryptionConfiguration :: Lens.Lens' CreateStudio (Prelude.Maybe StudioEncryptionConfiguration)
 createStudio_studioEncryptionConfiguration = Lens.lens (\CreateStudio' {studioEncryptionConfiguration} -> studioEncryptionConfiguration) (\s@CreateStudio' {} a -> s {studioEncryptionConfiguration = a} :: CreateStudio)
+
+-- | A collection of labels, in the form of key:value pairs, that apply to
+-- this resource.
+createStudio_tags :: Lens.Lens' CreateStudio (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createStudio_tags = Lens.lens (\CreateStudio' {tags} -> tags) (\s@CreateStudio' {} a -> s {tags = a} :: CreateStudio) Prelude.. Lens.mapping Lens.coerced
 
 -- | The IAM role that Studio Admins will assume when logging in to the
 -- Nimble Studio portal.
@@ -210,9 +210,9 @@ instance Core.AWSRequest CreateStudio where
 
 instance Prelude.Hashable CreateStudio where
   hashWithSalt _salt CreateStudio' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` studioEncryptionConfiguration
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` adminRoleArn
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` studioName
@@ -220,9 +220,9 @@ instance Prelude.Hashable CreateStudio where
 
 instance Prelude.NFData CreateStudio where
   rnf CreateStudio' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf studioEncryptionConfiguration
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf adminRoleArn
       `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf studioName
@@ -240,9 +240,9 @@ instance Data.ToJSON CreateStudio where
   toJSON CreateStudio' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("studioEncryptionConfiguration" Data..=)
+          [ ("studioEncryptionConfiguration" Data..=)
               Prelude.<$> studioEncryptionConfiguration,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("adminRoleArn" Data..= adminRoleArn),
             Prelude.Just ("displayName" Data..= displayName),
             Prelude.Just ("studioName" Data..= studioName),

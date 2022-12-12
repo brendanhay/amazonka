@@ -27,8 +27,8 @@ module Amazonka.ResilienceHub.ListAppVersions
     newListAppVersions,
 
     -- * Request Lenses
-    listAppVersions_nextToken,
     listAppVersions_maxResults,
+    listAppVersions_nextToken,
     listAppVersions_appArn,
 
     -- * Destructuring the Response
@@ -52,12 +52,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAppVersions' smart constructor.
 data ListAppVersions = ListAppVersions'
-  { -- | Null, or the token from a previous call to get the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to include in the response. If more
+  { -- | The maximum number of results to include in the response. If more
     -- results exist than the specified @MaxResults@ value, a token is included
     -- in the response so that the remaining results can be retrieved.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Null, or the token from a previous call to get the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the application. The format for this
     -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
     -- For more information about ARNs, see
@@ -75,11 +75,11 @@ data ListAppVersions = ListAppVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAppVersions_nextToken' - Null, or the token from a previous call to get the next set of results.
---
 -- 'maxResults', 'listAppVersions_maxResults' - The maximum number of results to include in the response. If more
 -- results exist than the specified @MaxResults@ value, a token is included
 -- in the response so that the remaining results can be retrieved.
+--
+-- 'nextToken', 'listAppVersions_nextToken' - Null, or the token from a previous call to get the next set of results.
 --
 -- 'appArn', 'listAppVersions_appArn' - The Amazon Resource Name (ARN) of the application. The format for this
 -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
@@ -92,20 +92,20 @@ newListAppVersions ::
   ListAppVersions
 newListAppVersions pAppArn_ =
   ListAppVersions'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       appArn = pAppArn_
     }
-
--- | Null, or the token from a previous call to get the next set of results.
-listAppVersions_nextToken :: Lens.Lens' ListAppVersions (Prelude.Maybe Prelude.Text)
-listAppVersions_nextToken = Lens.lens (\ListAppVersions' {nextToken} -> nextToken) (\s@ListAppVersions' {} a -> s {nextToken = a} :: ListAppVersions)
 
 -- | The maximum number of results to include in the response. If more
 -- results exist than the specified @MaxResults@ value, a token is included
 -- in the response so that the remaining results can be retrieved.
 listAppVersions_maxResults :: Lens.Lens' ListAppVersions (Prelude.Maybe Prelude.Natural)
 listAppVersions_maxResults = Lens.lens (\ListAppVersions' {maxResults} -> maxResults) (\s@ListAppVersions' {} a -> s {maxResults = a} :: ListAppVersions)
+
+-- | Null, or the token from a previous call to get the next set of results.
+listAppVersions_nextToken :: Lens.Lens' ListAppVersions (Prelude.Maybe Prelude.Text)
+listAppVersions_nextToken = Lens.lens (\ListAppVersions' {nextToken} -> nextToken) (\s@ListAppVersions' {} a -> s {nextToken = a} :: ListAppVersions)
 
 -- | The Amazon Resource Name (ARN) of the application. The format for this
 -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
@@ -132,14 +132,14 @@ instance Core.AWSRequest ListAppVersions where
 
 instance Prelude.Hashable ListAppVersions where
   hashWithSalt _salt ListAppVersions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` appArn
 
 instance Prelude.NFData ListAppVersions where
   rnf ListAppVersions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf appArn
 
 instance Data.ToHeaders ListAppVersions where
@@ -157,8 +157,8 @@ instance Data.ToJSON ListAppVersions where
   toJSON ListAppVersions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("appArn" Data..= appArn)
           ]
       )

@@ -24,7 +24,8 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Configuration information for the Debugger output tensor collections.
+-- | Configuration information for the Amazon SageMaker Debugger output
+-- tensor collections.
 --
 -- /See:/ 'newCollectionConfiguration' smart constructor.
 data CollectionConfiguration = CollectionConfiguration'

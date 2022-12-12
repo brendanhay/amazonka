@@ -19,10 +19,10 @@ module Amazonka.GamesParks.Types
 
     -- * Errors
     _AccessDeniedException,
-    _InternalServerException,
-    _ServiceQuotaExceededException,
-    _ResourceNotFoundException,
     _ConflictException,
+    _InternalServerException,
+    _ResourceNotFoundException,
+    _ServiceQuotaExceededException,
     _ThrottlingException,
     _ValidationException,
 
@@ -66,60 +66,60 @@ module Amazonka.GamesParks.Types
     -- * ExtensionDetails
     ExtensionDetails (..),
     newExtensionDetails,
-    extensionDetails_name,
     extensionDetails_description,
+    extensionDetails_name,
     extensionDetails_namespace,
 
     -- * ExtensionVersionDetails
     ExtensionVersionDetails (..),
     newExtensionVersionDetails,
     extensionVersionDetails_name,
-    extensionVersionDetails_schema,
     extensionVersionDetails_namespace,
+    extensionVersionDetails_schema,
     extensionVersionDetails_version,
 
     -- * GameConfigurationDetails
     GameConfigurationDetails (..),
     newGameConfigurationDetails,
     gameConfigurationDetails_created,
-    gameConfigurationDetails_sections,
     gameConfigurationDetails_lastUpdated,
+    gameConfigurationDetails_sections,
 
     -- * GameDetails
     GameDetails (..),
     newGameDetails,
-    gameDetails_tags,
-    gameDetails_name,
-    gameDetails_enableTerminationProtection,
-    gameDetails_created,
     gameDetails_arn,
-    gameDetails_state,
+    gameDetails_created,
     gameDetails_description,
+    gameDetails_enableTerminationProtection,
     gameDetails_lastUpdated,
+    gameDetails_name,
+    gameDetails_state,
+    gameDetails_tags,
 
     -- * GameSummary
     GameSummary (..),
     newGameSummary,
-    gameSummary_tags,
+    gameSummary_description,
     gameSummary_name,
     gameSummary_state,
-    gameSummary_description,
+    gameSummary_tags,
 
     -- * GeneratedCodeJobDetails
     GeneratedCodeJobDetails (..),
     newGeneratedCodeJobDetails,
+    generatedCodeJobDetails_description,
     generatedCodeJobDetails_expirationTime,
     generatedCodeJobDetails_generatedCodeJobId,
-    generatedCodeJobDetails_status,
-    generatedCodeJobDetails_description,
     generatedCodeJobDetails_s3Url,
+    generatedCodeJobDetails_status,
 
     -- * Generator
     Generator (..),
     newGenerator,
-    generator_targetPlatform,
     generator_gameSdkVersion,
     generator_language,
+    generator_targetPlatform,
 
     -- * ImportGameConfigurationSource
     ImportGameConfigurationSource (..),
@@ -129,9 +129,9 @@ module Amazonka.GamesParks.Types
     -- * Section
     Section (..),
     newSection,
+    section_attributes,
     section_name,
     section_size,
-    section_attributes,
 
     -- * SectionModification
     SectionModification (..),
@@ -145,62 +145,62 @@ module Amazonka.GamesParks.Types
     SnapshotDetails (..),
     newSnapshotDetails,
     snapshotDetails_created,
-    snapshotDetails_sections,
-    snapshotDetails_id,
     snapshotDetails_description,
+    snapshotDetails_id,
     snapshotDetails_lastUpdated,
+    snapshotDetails_sections,
 
     -- * SnapshotSummary
     SnapshotSummary (..),
     newSnapshotSummary,
     snapshotSummary_created,
-    snapshotSummary_id,
     snapshotSummary_description,
+    snapshotSummary_id,
     snapshotSummary_lastUpdated,
 
     -- * StageDeploymentDetails
     StageDeploymentDetails (..),
     newStageDeploymentDetails,
-    stageDeploymentDetails_deploymentState,
+    stageDeploymentDetails_created,
     stageDeploymentDetails_deploymentAction,
     stageDeploymentDetails_deploymentId,
     stageDeploymentDetails_deploymentResult,
-    stageDeploymentDetails_created,
-    stageDeploymentDetails_snapshotId,
+    stageDeploymentDetails_deploymentState,
     stageDeploymentDetails_lastUpdated,
+    stageDeploymentDetails_snapshotId,
 
     -- * StageDeploymentSummary
     StageDeploymentSummary (..),
     newStageDeploymentSummary,
-    stageDeploymentSummary_deploymentState,
     stageDeploymentSummary_deploymentAction,
     stageDeploymentSummary_deploymentId,
     stageDeploymentSummary_deploymentResult,
-    stageDeploymentSummary_snapshotId,
+    stageDeploymentSummary_deploymentState,
     stageDeploymentSummary_lastUpdated,
+    stageDeploymentSummary_snapshotId,
 
     -- * StageDetails
     StageDetails (..),
     newStageDetails,
-    stageDetails_tags,
-    stageDetails_name,
-    stageDetails_logGroup,
-    stageDetails_created,
-    stageDetails_gameKey,
     stageDetails_arn,
-    stageDetails_state,
+    stageDetails_created,
     stageDetails_description,
+    stageDetails_gameKey,
     stageDetails_lastUpdated,
+    stageDetails_logGroup,
+    stageDetails_name,
     stageDetails_role,
+    stageDetails_state,
+    stageDetails_tags,
 
     -- * StageSummary
     StageSummary (..),
     newStageSummary,
-    stageSummary_tags,
-    stageSummary_name,
-    stageSummary_gameKey,
-    stageSummary_state,
     stageSummary_description,
+    stageSummary_gameKey,
+    stageSummary_name,
+    stageSummary_state,
+    stageSummary_tags,
   )
 where
 
@@ -260,28 +260,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -289,13 +283,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -303,6 +301,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient access to perform this action.
@@ -313,6 +313,14 @@ _AccessDeniedException =
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
+-- | The resource already exists, or another operation is in progress.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
 -- | The service encountered an internal error.
 _InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InternalServerException =
@@ -320,14 +328,6 @@ _InternalServerException =
     defaultService
     "InternalServerException"
     Prelude.. Core.hasStatus 500
-
--- | The request would result in exceeding service quota.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceQuotaExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceQuotaExceededException"
-    Prelude.. Core.hasStatus 402
 
 -- | The resource specified in the request does not exist.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -337,13 +337,13 @@ _ResourceNotFoundException =
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
 
--- | The resource already exists, or another operation is in progress.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
+-- | The request would result in exceeding service quota.
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
+    "ServiceQuotaExceededException"
+    Prelude.. Core.hasStatus 402
 
 -- | The request throughput limit was exceeded.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

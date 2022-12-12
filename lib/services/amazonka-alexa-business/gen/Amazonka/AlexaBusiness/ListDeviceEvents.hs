@@ -31,8 +31,8 @@ module Amazonka.AlexaBusiness.ListDeviceEvents
 
     -- * Request Lenses
     listDeviceEvents_eventType,
-    listDeviceEvents_nextToken,
     listDeviceEvents_maxResults,
+    listDeviceEvents_nextToken,
     listDeviceEvents_deviceArn,
 
     -- * Destructuring the Response
@@ -40,8 +40,8 @@ module Amazonka.AlexaBusiness.ListDeviceEvents
     newListDeviceEventsResponse,
 
     -- * Response Lenses
-    listDeviceEventsResponse_nextToken,
     listDeviceEventsResponse_deviceEvents,
+    listDeviceEventsResponse_nextToken,
     listDeviceEventsResponse_httpStatus,
   )
 where
@@ -61,17 +61,17 @@ data ListDeviceEvents = ListDeviceEvents'
     -- If EventType is specified, this returns a list of device events for that
     -- EventType in reverse chronological order.
     eventType :: Prelude.Maybe DeviceEventType,
+    -- | The maximum number of results to include in the response. The default
+    -- value is 50. If more results exist than the specified MaxResults value,
+    -- a token is included in the response so that the remaining results can be
+    -- retrieved.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | An optional token returned from a prior request. Use this token for
     -- pagination of results from this action. If this parameter is specified,
     -- the response only includes results beyond the token, up to the value
     -- specified by MaxResults. When the end of results is reached, the
     -- response has a value of null.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to include in the response. The default
-    -- value is 50. If more results exist than the specified MaxResults value,
-    -- a token is included in the response so that the remaining results can be
-    -- retrieved.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ARN of a device.
     deviceArn :: Prelude.Text
   }
@@ -90,16 +90,16 @@ data ListDeviceEvents = ListDeviceEvents'
 -- If EventType is specified, this returns a list of device events for that
 -- EventType in reverse chronological order.
 --
+-- 'maxResults', 'listDeviceEvents_maxResults' - The maximum number of results to include in the response. The default
+-- value is 50. If more results exist than the specified MaxResults value,
+-- a token is included in the response so that the remaining results can be
+-- retrieved.
+--
 -- 'nextToken', 'listDeviceEvents_nextToken' - An optional token returned from a prior request. Use this token for
 -- pagination of results from this action. If this parameter is specified,
 -- the response only includes results beyond the token, up to the value
 -- specified by MaxResults. When the end of results is reached, the
 -- response has a value of null.
---
--- 'maxResults', 'listDeviceEvents_maxResults' - The maximum number of results to include in the response. The default
--- value is 50. If more results exist than the specified MaxResults value,
--- a token is included in the response so that the remaining results can be
--- retrieved.
 --
 -- 'deviceArn', 'listDeviceEvents_deviceArn' - The ARN of a device.
 newListDeviceEvents ::
@@ -109,8 +109,8 @@ newListDeviceEvents ::
 newListDeviceEvents pDeviceArn_ =
   ListDeviceEvents'
     { eventType = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       deviceArn = pDeviceArn_
     }
 
@@ -121,6 +121,13 @@ newListDeviceEvents pDeviceArn_ =
 listDeviceEvents_eventType :: Lens.Lens' ListDeviceEvents (Prelude.Maybe DeviceEventType)
 listDeviceEvents_eventType = Lens.lens (\ListDeviceEvents' {eventType} -> eventType) (\s@ListDeviceEvents' {} a -> s {eventType = a} :: ListDeviceEvents)
 
+-- | The maximum number of results to include in the response. The default
+-- value is 50. If more results exist than the specified MaxResults value,
+-- a token is included in the response so that the remaining results can be
+-- retrieved.
+listDeviceEvents_maxResults :: Lens.Lens' ListDeviceEvents (Prelude.Maybe Prelude.Natural)
+listDeviceEvents_maxResults = Lens.lens (\ListDeviceEvents' {maxResults} -> maxResults) (\s@ListDeviceEvents' {} a -> s {maxResults = a} :: ListDeviceEvents)
+
 -- | An optional token returned from a prior request. Use this token for
 -- pagination of results from this action. If this parameter is specified,
 -- the response only includes results beyond the token, up to the value
@@ -128,13 +135,6 @@ listDeviceEvents_eventType = Lens.lens (\ListDeviceEvents' {eventType} -> eventT
 -- response has a value of null.
 listDeviceEvents_nextToken :: Lens.Lens' ListDeviceEvents (Prelude.Maybe Prelude.Text)
 listDeviceEvents_nextToken = Lens.lens (\ListDeviceEvents' {nextToken} -> nextToken) (\s@ListDeviceEvents' {} a -> s {nextToken = a} :: ListDeviceEvents)
-
--- | The maximum number of results to include in the response. The default
--- value is 50. If more results exist than the specified MaxResults value,
--- a token is included in the response so that the remaining results can be
--- retrieved.
-listDeviceEvents_maxResults :: Lens.Lens' ListDeviceEvents (Prelude.Maybe Prelude.Natural)
-listDeviceEvents_maxResults = Lens.lens (\ListDeviceEvents' {maxResults} -> maxResults) (\s@ListDeviceEvents' {} a -> s {maxResults = a} :: ListDeviceEvents)
 
 -- | The ARN of a device.
 listDeviceEvents_deviceArn :: Lens.Lens' ListDeviceEvents Prelude.Text
@@ -172,23 +172,23 @@ instance Core.AWSRequest ListDeviceEvents where
     Response.receiveJSON
       ( \s h x ->
           ListDeviceEventsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "DeviceEvents" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "DeviceEvents" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListDeviceEvents where
   hashWithSalt _salt ListDeviceEvents' {..} =
     _salt `Prelude.hashWithSalt` eventType
-      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` deviceArn
 
 instance Prelude.NFData ListDeviceEvents where
   rnf ListDeviceEvents' {..} =
     Prelude.rnf eventType
-      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf deviceArn
 
 instance Data.ToHeaders ListDeviceEvents where
@@ -211,8 +211,8 @@ instance Data.ToJSON ListDeviceEvents where
     Data.object
       ( Prelude.catMaybes
           [ ("EventType" Data..=) Prelude.<$> eventType,
-            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("DeviceArn" Data..= deviceArn)
           ]
       )
@@ -225,10 +225,10 @@ instance Data.ToQuery ListDeviceEvents where
 
 -- | /See:/ 'newListDeviceEventsResponse' smart constructor.
 data ListDeviceEventsResponse = ListDeviceEventsResponse'
-  { -- | The token returned to indicate that there is more data available.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The device events requested for the device ARN.
+  { -- | The device events requested for the device ARN.
     deviceEvents :: Prelude.Maybe [DeviceEvent],
+    -- | The token returned to indicate that there is more data available.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -242,9 +242,9 @@ data ListDeviceEventsResponse = ListDeviceEventsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listDeviceEventsResponse_nextToken' - The token returned to indicate that there is more data available.
---
 -- 'deviceEvents', 'listDeviceEventsResponse_deviceEvents' - The device events requested for the device ARN.
+--
+-- 'nextToken', 'listDeviceEventsResponse_nextToken' - The token returned to indicate that there is more data available.
 --
 -- 'httpStatus', 'listDeviceEventsResponse_httpStatus' - The response's http status code.
 newListDeviceEventsResponse ::
@@ -253,19 +253,19 @@ newListDeviceEventsResponse ::
   ListDeviceEventsResponse
 newListDeviceEventsResponse pHttpStatus_ =
   ListDeviceEventsResponse'
-    { nextToken =
+    { deviceEvents =
         Prelude.Nothing,
-      deviceEvents = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token returned to indicate that there is more data available.
-listDeviceEventsResponse_nextToken :: Lens.Lens' ListDeviceEventsResponse (Prelude.Maybe Prelude.Text)
-listDeviceEventsResponse_nextToken = Lens.lens (\ListDeviceEventsResponse' {nextToken} -> nextToken) (\s@ListDeviceEventsResponse' {} a -> s {nextToken = a} :: ListDeviceEventsResponse)
 
 -- | The device events requested for the device ARN.
 listDeviceEventsResponse_deviceEvents :: Lens.Lens' ListDeviceEventsResponse (Prelude.Maybe [DeviceEvent])
 listDeviceEventsResponse_deviceEvents = Lens.lens (\ListDeviceEventsResponse' {deviceEvents} -> deviceEvents) (\s@ListDeviceEventsResponse' {} a -> s {deviceEvents = a} :: ListDeviceEventsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token returned to indicate that there is more data available.
+listDeviceEventsResponse_nextToken :: Lens.Lens' ListDeviceEventsResponse (Prelude.Maybe Prelude.Text)
+listDeviceEventsResponse_nextToken = Lens.lens (\ListDeviceEventsResponse' {nextToken} -> nextToken) (\s@ListDeviceEventsResponse' {} a -> s {nextToken = a} :: ListDeviceEventsResponse)
 
 -- | The response's http status code.
 listDeviceEventsResponse_httpStatus :: Lens.Lens' ListDeviceEventsResponse Prelude.Int
@@ -273,6 +273,6 @@ listDeviceEventsResponse_httpStatus = Lens.lens (\ListDeviceEventsResponse' {htt
 
 instance Prelude.NFData ListDeviceEventsResponse where
   rnf ListDeviceEventsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf deviceEvents
+    Prelude.rnf deviceEvents
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -36,12 +36,12 @@ module Amazonka.DynamoDB.DescribeContributorInsights
     newDescribeContributorInsightsResponse,
 
     -- * Response Lenses
-    describeContributorInsightsResponse_contributorInsightsStatus,
-    describeContributorInsightsResponse_tableName,
     describeContributorInsightsResponse_contributorInsightsRuleList,
-    describeContributorInsightsResponse_lastUpdateDateTime,
+    describeContributorInsightsResponse_contributorInsightsStatus,
     describeContributorInsightsResponse_failureException,
     describeContributorInsightsResponse_indexName,
+    describeContributorInsightsResponse_lastUpdateDateTime,
+    describeContributorInsightsResponse_tableName,
     describeContributorInsightsResponse_httpStatus,
   )
 where
@@ -103,14 +103,14 @@ instance Core.AWSRequest DescribeContributorInsights where
     Response.receiveJSON
       ( \s h x ->
           DescribeContributorInsightsResponse'
-            Prelude.<$> (x Data..?> "ContributorInsightsStatus")
-            Prelude.<*> (x Data..?> "TableName")
-            Prelude.<*> ( x Data..?> "ContributorInsightsRuleList"
+            Prelude.<$> ( x Data..?> "ContributorInsightsRuleList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "LastUpdateDateTime")
+            Prelude.<*> (x Data..?> "ContributorInsightsStatus")
             Prelude.<*> (x Data..?> "FailureException")
             Prelude.<*> (x Data..?> "IndexName")
+            Prelude.<*> (x Data..?> "LastUpdateDateTime")
+            Prelude.<*> (x Data..?> "TableName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,14 +156,10 @@ instance Data.ToQuery DescribeContributorInsights where
 
 -- | /See:/ 'newDescribeContributorInsightsResponse' smart constructor.
 data DescribeContributorInsightsResponse = DescribeContributorInsightsResponse'
-  { -- | Current status of contributor insights.
-    contributorInsightsStatus :: Prelude.Maybe ContributorInsightsStatus,
-    -- | The name of the table being described.
-    tableName :: Prelude.Maybe Prelude.Text,
-    -- | List of names of the associated contributor insights rules.
+  { -- | List of names of the associated contributor insights rules.
     contributorInsightsRuleList :: Prelude.Maybe [Prelude.Text],
-    -- | Timestamp of the last time the status was changed.
-    lastUpdateDateTime :: Prelude.Maybe Data.POSIX,
+    -- | Current status of contributor insights.
+    contributorInsightsStatus :: Prelude.Maybe ContributorInsightsStatus,
     -- | Returns information about the last failure that was encountered.
     --
     -- The most common exceptions for a FAILED status are:
@@ -184,6 +180,10 @@ data DescribeContributorInsightsResponse = DescribeContributorInsightsResponse'
     failureException :: Prelude.Maybe FailureException,
     -- | The name of the global secondary index being described.
     indexName :: Prelude.Maybe Prelude.Text,
+    -- | Timestamp of the last time the status was changed.
+    lastUpdateDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The name of the table being described.
+    tableName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -197,13 +197,9 @@ data DescribeContributorInsightsResponse = DescribeContributorInsightsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'contributorInsightsStatus', 'describeContributorInsightsResponse_contributorInsightsStatus' - Current status of contributor insights.
---
--- 'tableName', 'describeContributorInsightsResponse_tableName' - The name of the table being described.
---
 -- 'contributorInsightsRuleList', 'describeContributorInsightsResponse_contributorInsightsRuleList' - List of names of the associated contributor insights rules.
 --
--- 'lastUpdateDateTime', 'describeContributorInsightsResponse_lastUpdateDateTime' - Timestamp of the last time the status was changed.
+-- 'contributorInsightsStatus', 'describeContributorInsightsResponse_contributorInsightsStatus' - Current status of contributor insights.
 --
 -- 'failureException', 'describeContributorInsightsResponse_failureException' - Returns information about the last failure that was encountered.
 --
@@ -225,6 +221,10 @@ data DescribeContributorInsightsResponse = DescribeContributorInsightsResponse'
 --
 -- 'indexName', 'describeContributorInsightsResponse_indexName' - The name of the global secondary index being described.
 --
+-- 'lastUpdateDateTime', 'describeContributorInsightsResponse_lastUpdateDateTime' - Timestamp of the last time the status was changed.
+--
+-- 'tableName', 'describeContributorInsightsResponse_tableName' - The name of the table being described.
+--
 -- 'httpStatus', 'describeContributorInsightsResponse_httpStatus' - The response's http status code.
 newDescribeContributorInsightsResponse ::
   -- | 'httpStatus'
@@ -232,32 +232,24 @@ newDescribeContributorInsightsResponse ::
   DescribeContributorInsightsResponse
 newDescribeContributorInsightsResponse pHttpStatus_ =
   DescribeContributorInsightsResponse'
-    { contributorInsightsStatus =
+    { contributorInsightsRuleList =
         Prelude.Nothing,
-      tableName = Prelude.Nothing,
-      contributorInsightsRuleList =
+      contributorInsightsStatus =
         Prelude.Nothing,
-      lastUpdateDateTime = Prelude.Nothing,
       failureException = Prelude.Nothing,
       indexName = Prelude.Nothing,
+      lastUpdateDateTime = Prelude.Nothing,
+      tableName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Current status of contributor insights.
-describeContributorInsightsResponse_contributorInsightsStatus :: Lens.Lens' DescribeContributorInsightsResponse (Prelude.Maybe ContributorInsightsStatus)
-describeContributorInsightsResponse_contributorInsightsStatus = Lens.lens (\DescribeContributorInsightsResponse' {contributorInsightsStatus} -> contributorInsightsStatus) (\s@DescribeContributorInsightsResponse' {} a -> s {contributorInsightsStatus = a} :: DescribeContributorInsightsResponse)
-
--- | The name of the table being described.
-describeContributorInsightsResponse_tableName :: Lens.Lens' DescribeContributorInsightsResponse (Prelude.Maybe Prelude.Text)
-describeContributorInsightsResponse_tableName = Lens.lens (\DescribeContributorInsightsResponse' {tableName} -> tableName) (\s@DescribeContributorInsightsResponse' {} a -> s {tableName = a} :: DescribeContributorInsightsResponse)
 
 -- | List of names of the associated contributor insights rules.
 describeContributorInsightsResponse_contributorInsightsRuleList :: Lens.Lens' DescribeContributorInsightsResponse (Prelude.Maybe [Prelude.Text])
 describeContributorInsightsResponse_contributorInsightsRuleList = Lens.lens (\DescribeContributorInsightsResponse' {contributorInsightsRuleList} -> contributorInsightsRuleList) (\s@DescribeContributorInsightsResponse' {} a -> s {contributorInsightsRuleList = a} :: DescribeContributorInsightsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Timestamp of the last time the status was changed.
-describeContributorInsightsResponse_lastUpdateDateTime :: Lens.Lens' DescribeContributorInsightsResponse (Prelude.Maybe Prelude.UTCTime)
-describeContributorInsightsResponse_lastUpdateDateTime = Lens.lens (\DescribeContributorInsightsResponse' {lastUpdateDateTime} -> lastUpdateDateTime) (\s@DescribeContributorInsightsResponse' {} a -> s {lastUpdateDateTime = a} :: DescribeContributorInsightsResponse) Prelude.. Lens.mapping Data._Time
+-- | Current status of contributor insights.
+describeContributorInsightsResponse_contributorInsightsStatus :: Lens.Lens' DescribeContributorInsightsResponse (Prelude.Maybe ContributorInsightsStatus)
+describeContributorInsightsResponse_contributorInsightsStatus = Lens.lens (\DescribeContributorInsightsResponse' {contributorInsightsStatus} -> contributorInsightsStatus) (\s@DescribeContributorInsightsResponse' {} a -> s {contributorInsightsStatus = a} :: DescribeContributorInsightsResponse)
 
 -- | Returns information about the last failure that was encountered.
 --
@@ -283,6 +275,14 @@ describeContributorInsightsResponse_failureException = Lens.lens (\DescribeContr
 describeContributorInsightsResponse_indexName :: Lens.Lens' DescribeContributorInsightsResponse (Prelude.Maybe Prelude.Text)
 describeContributorInsightsResponse_indexName = Lens.lens (\DescribeContributorInsightsResponse' {indexName} -> indexName) (\s@DescribeContributorInsightsResponse' {} a -> s {indexName = a} :: DescribeContributorInsightsResponse)
 
+-- | Timestamp of the last time the status was changed.
+describeContributorInsightsResponse_lastUpdateDateTime :: Lens.Lens' DescribeContributorInsightsResponse (Prelude.Maybe Prelude.UTCTime)
+describeContributorInsightsResponse_lastUpdateDateTime = Lens.lens (\DescribeContributorInsightsResponse' {lastUpdateDateTime} -> lastUpdateDateTime) (\s@DescribeContributorInsightsResponse' {} a -> s {lastUpdateDateTime = a} :: DescribeContributorInsightsResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The name of the table being described.
+describeContributorInsightsResponse_tableName :: Lens.Lens' DescribeContributorInsightsResponse (Prelude.Maybe Prelude.Text)
+describeContributorInsightsResponse_tableName = Lens.lens (\DescribeContributorInsightsResponse' {tableName} -> tableName) (\s@DescribeContributorInsightsResponse' {} a -> s {tableName = a} :: DescribeContributorInsightsResponse)
+
 -- | The response's http status code.
 describeContributorInsightsResponse_httpStatus :: Lens.Lens' DescribeContributorInsightsResponse Prelude.Int
 describeContributorInsightsResponse_httpStatus = Lens.lens (\DescribeContributorInsightsResponse' {httpStatus} -> httpStatus) (\s@DescribeContributorInsightsResponse' {} a -> s {httpStatus = a} :: DescribeContributorInsightsResponse)
@@ -292,10 +292,10 @@ instance
     DescribeContributorInsightsResponse
   where
   rnf DescribeContributorInsightsResponse' {..} =
-    Prelude.rnf contributorInsightsStatus
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf contributorInsightsRuleList
-      `Prelude.seq` Prelude.rnf lastUpdateDateTime
+    Prelude.rnf contributorInsightsRuleList
+      `Prelude.seq` Prelude.rnf contributorInsightsStatus
       `Prelude.seq` Prelude.rnf failureException
       `Prelude.seq` Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf lastUpdateDateTime
+      `Prelude.seq` Prelude.rnf tableName
       `Prelude.seq` Prelude.rnf httpStatus

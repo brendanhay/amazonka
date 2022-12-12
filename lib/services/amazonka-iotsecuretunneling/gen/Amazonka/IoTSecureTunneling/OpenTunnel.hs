@@ -32,9 +32,9 @@ module Amazonka.IoTSecureTunneling.OpenTunnel
     newOpenTunnel,
 
     -- * Request Lenses
-    openTunnel_tags,
     openTunnel_description,
     openTunnel_destinationConfig,
+    openTunnel_tags,
     openTunnel_timeoutConfig,
 
     -- * Destructuring the Response
@@ -42,10 +42,10 @@ module Amazonka.IoTSecureTunneling.OpenTunnel
     newOpenTunnelResponse,
 
     -- * Response Lenses
-    openTunnelResponse_sourceAccessToken,
     openTunnelResponse_destinationAccessToken,
-    openTunnelResponse_tunnelId,
+    openTunnelResponse_sourceAccessToken,
     openTunnelResponse_tunnelArn,
+    openTunnelResponse_tunnelId,
     openTunnelResponse_httpStatus,
   )
 where
@@ -60,12 +60,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newOpenTunnel' smart constructor.
 data OpenTunnel = OpenTunnel'
-  { -- | A collection of tag metadata.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | A short text description of the tunnel.
+  { -- | A short text description of the tunnel.
     description :: Prelude.Maybe Prelude.Text,
     -- | The destination configuration for the OpenTunnel request.
     destinationConfig :: Prelude.Maybe DestinationConfig,
+    -- | A collection of tag metadata.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | Timeout configuration for a tunnel.
     timeoutConfig :: Prelude.Maybe TimeoutConfig
   }
@@ -79,26 +79,22 @@ data OpenTunnel = OpenTunnel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'openTunnel_tags' - A collection of tag metadata.
---
 -- 'description', 'openTunnel_description' - A short text description of the tunnel.
 --
 -- 'destinationConfig', 'openTunnel_destinationConfig' - The destination configuration for the OpenTunnel request.
+--
+-- 'tags', 'openTunnel_tags' - A collection of tag metadata.
 --
 -- 'timeoutConfig', 'openTunnel_timeoutConfig' - Timeout configuration for a tunnel.
 newOpenTunnel ::
   OpenTunnel
 newOpenTunnel =
   OpenTunnel'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
       destinationConfig = Prelude.Nothing,
+      tags = Prelude.Nothing,
       timeoutConfig = Prelude.Nothing
     }
-
--- | A collection of tag metadata.
-openTunnel_tags :: Lens.Lens' OpenTunnel (Prelude.Maybe (Prelude.NonEmpty Tag))
-openTunnel_tags = Lens.lens (\OpenTunnel' {tags} -> tags) (\s@OpenTunnel' {} a -> s {tags = a} :: OpenTunnel) Prelude.. Lens.mapping Lens.coerced
 
 -- | A short text description of the tunnel.
 openTunnel_description :: Lens.Lens' OpenTunnel (Prelude.Maybe Prelude.Text)
@@ -107,6 +103,10 @@ openTunnel_description = Lens.lens (\OpenTunnel' {description} -> description) (
 -- | The destination configuration for the OpenTunnel request.
 openTunnel_destinationConfig :: Lens.Lens' OpenTunnel (Prelude.Maybe DestinationConfig)
 openTunnel_destinationConfig = Lens.lens (\OpenTunnel' {destinationConfig} -> destinationConfig) (\s@OpenTunnel' {} a -> s {destinationConfig = a} :: OpenTunnel)
+
+-- | A collection of tag metadata.
+openTunnel_tags :: Lens.Lens' OpenTunnel (Prelude.Maybe (Prelude.NonEmpty Tag))
+openTunnel_tags = Lens.lens (\OpenTunnel' {tags} -> tags) (\s@OpenTunnel' {} a -> s {tags = a} :: OpenTunnel) Prelude.. Lens.mapping Lens.coerced
 
 -- | Timeout configuration for a tunnel.
 openTunnel_timeoutConfig :: Lens.Lens' OpenTunnel (Prelude.Maybe TimeoutConfig)
@@ -120,25 +120,25 @@ instance Core.AWSRequest OpenTunnel where
     Response.receiveJSON
       ( \s h x ->
           OpenTunnelResponse'
-            Prelude.<$> (x Data..?> "sourceAccessToken")
-            Prelude.<*> (x Data..?> "destinationAccessToken")
-            Prelude.<*> (x Data..?> "tunnelId")
+            Prelude.<$> (x Data..?> "destinationAccessToken")
+            Prelude.<*> (x Data..?> "sourceAccessToken")
             Prelude.<*> (x Data..?> "tunnelArn")
+            Prelude.<*> (x Data..?> "tunnelId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable OpenTunnel where
   hashWithSalt _salt OpenTunnel' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` destinationConfig
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` timeoutConfig
 
 instance Prelude.NFData OpenTunnel where
   rnf OpenTunnel' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf destinationConfig
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf timeoutConfig
 
 instance Data.ToHeaders OpenTunnel where
@@ -160,10 +160,10 @@ instance Data.ToJSON OpenTunnel where
   toJSON OpenTunnel' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("description" Data..=) Prelude.<$> description,
+          [ ("description" Data..=) Prelude.<$> description,
             ("destinationConfig" Data..=)
               Prelude.<$> destinationConfig,
+            ("tags" Data..=) Prelude.<$> tags,
             ("timeoutConfig" Data..=) Prelude.<$> timeoutConfig
           ]
       )
@@ -176,16 +176,16 @@ instance Data.ToQuery OpenTunnel where
 
 -- | /See:/ 'newOpenTunnelResponse' smart constructor.
 data OpenTunnelResponse = OpenTunnelResponse'
-  { -- | The access token the source local proxy uses to connect to IoT Secure
-    -- Tunneling.
-    sourceAccessToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The access token the destination local proxy uses to connect to IoT
+  { -- | The access token the destination local proxy uses to connect to IoT
     -- Secure Tunneling.
     destinationAccessToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | A unique alpha-numeric tunnel ID.
-    tunnelId :: Prelude.Maybe Prelude.Text,
+    -- | The access token the source local proxy uses to connect to IoT Secure
+    -- Tunneling.
+    sourceAccessToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon Resource Name for the tunnel.
     tunnelArn :: Prelude.Maybe Prelude.Text,
+    -- | A unique alpha-numeric tunnel ID.
+    tunnelId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -199,15 +199,15 @@ data OpenTunnelResponse = OpenTunnelResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceAccessToken', 'openTunnelResponse_sourceAccessToken' - The access token the source local proxy uses to connect to IoT Secure
--- Tunneling.
---
 -- 'destinationAccessToken', 'openTunnelResponse_destinationAccessToken' - The access token the destination local proxy uses to connect to IoT
 -- Secure Tunneling.
 --
--- 'tunnelId', 'openTunnelResponse_tunnelId' - A unique alpha-numeric tunnel ID.
+-- 'sourceAccessToken', 'openTunnelResponse_sourceAccessToken' - The access token the source local proxy uses to connect to IoT Secure
+-- Tunneling.
 --
 -- 'tunnelArn', 'openTunnelResponse_tunnelArn' - The Amazon Resource Name for the tunnel.
+--
+-- 'tunnelId', 'openTunnelResponse_tunnelId' - A unique alpha-numeric tunnel ID.
 --
 -- 'httpStatus', 'openTunnelResponse_httpStatus' - The response's http status code.
 newOpenTunnelResponse ::
@@ -216,31 +216,31 @@ newOpenTunnelResponse ::
   OpenTunnelResponse
 newOpenTunnelResponse pHttpStatus_ =
   OpenTunnelResponse'
-    { sourceAccessToken =
+    { destinationAccessToken =
         Prelude.Nothing,
-      destinationAccessToken = Prelude.Nothing,
-      tunnelId = Prelude.Nothing,
+      sourceAccessToken = Prelude.Nothing,
       tunnelArn = Prelude.Nothing,
+      tunnelId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The access token the source local proxy uses to connect to IoT Secure
--- Tunneling.
-openTunnelResponse_sourceAccessToken :: Lens.Lens' OpenTunnelResponse (Prelude.Maybe Prelude.Text)
-openTunnelResponse_sourceAccessToken = Lens.lens (\OpenTunnelResponse' {sourceAccessToken} -> sourceAccessToken) (\s@OpenTunnelResponse' {} a -> s {sourceAccessToken = a} :: OpenTunnelResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The access token the destination local proxy uses to connect to IoT
 -- Secure Tunneling.
 openTunnelResponse_destinationAccessToken :: Lens.Lens' OpenTunnelResponse (Prelude.Maybe Prelude.Text)
 openTunnelResponse_destinationAccessToken = Lens.lens (\OpenTunnelResponse' {destinationAccessToken} -> destinationAccessToken) (\s@OpenTunnelResponse' {} a -> s {destinationAccessToken = a} :: OpenTunnelResponse) Prelude.. Lens.mapping Data._Sensitive
 
--- | A unique alpha-numeric tunnel ID.
-openTunnelResponse_tunnelId :: Lens.Lens' OpenTunnelResponse (Prelude.Maybe Prelude.Text)
-openTunnelResponse_tunnelId = Lens.lens (\OpenTunnelResponse' {tunnelId} -> tunnelId) (\s@OpenTunnelResponse' {} a -> s {tunnelId = a} :: OpenTunnelResponse)
+-- | The access token the source local proxy uses to connect to IoT Secure
+-- Tunneling.
+openTunnelResponse_sourceAccessToken :: Lens.Lens' OpenTunnelResponse (Prelude.Maybe Prelude.Text)
+openTunnelResponse_sourceAccessToken = Lens.lens (\OpenTunnelResponse' {sourceAccessToken} -> sourceAccessToken) (\s@OpenTunnelResponse' {} a -> s {sourceAccessToken = a} :: OpenTunnelResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon Resource Name for the tunnel.
 openTunnelResponse_tunnelArn :: Lens.Lens' OpenTunnelResponse (Prelude.Maybe Prelude.Text)
 openTunnelResponse_tunnelArn = Lens.lens (\OpenTunnelResponse' {tunnelArn} -> tunnelArn) (\s@OpenTunnelResponse' {} a -> s {tunnelArn = a} :: OpenTunnelResponse)
+
+-- | A unique alpha-numeric tunnel ID.
+openTunnelResponse_tunnelId :: Lens.Lens' OpenTunnelResponse (Prelude.Maybe Prelude.Text)
+openTunnelResponse_tunnelId = Lens.lens (\OpenTunnelResponse' {tunnelId} -> tunnelId) (\s@OpenTunnelResponse' {} a -> s {tunnelId = a} :: OpenTunnelResponse)
 
 -- | The response's http status code.
 openTunnelResponse_httpStatus :: Lens.Lens' OpenTunnelResponse Prelude.Int
@@ -248,8 +248,8 @@ openTunnelResponse_httpStatus = Lens.lens (\OpenTunnelResponse' {httpStatus} -> 
 
 instance Prelude.NFData OpenTunnelResponse where
   rnf OpenTunnelResponse' {..} =
-    Prelude.rnf sourceAccessToken
-      `Prelude.seq` Prelude.rnf destinationAccessToken
-      `Prelude.seq` Prelude.rnf tunnelId
+    Prelude.rnf destinationAccessToken
+      `Prelude.seq` Prelude.rnf sourceAccessToken
       `Prelude.seq` Prelude.rnf tunnelArn
+      `Prelude.seq` Prelude.rnf tunnelId
       `Prelude.seq` Prelude.rnf httpStatus

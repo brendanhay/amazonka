@@ -34,14 +34,14 @@ module Amazonka.MacieV2.GetAllowList
     newGetAllowListResponse,
 
     -- * Response Lenses
-    getAllowListResponse_tags,
-    getAllowListResponse_name,
-    getAllowListResponse_criteria,
     getAllowListResponse_arn,
-    getAllowListResponse_status,
+    getAllowListResponse_createdAt,
+    getAllowListResponse_criteria,
     getAllowListResponse_description,
     getAllowListResponse_id,
-    getAllowListResponse_createdAt,
+    getAllowListResponse_name,
+    getAllowListResponse_status,
+    getAllowListResponse_tags,
     getAllowListResponse_updatedAt,
     getAllowListResponse_httpStatus,
   )
@@ -92,14 +92,14 @@ instance Core.AWSRequest GetAllowList where
     Response.receiveJSON
       ( \s h x ->
           GetAllowListResponse'
-            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "name")
+            Prelude.<$> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "createdAt")
             Prelude.<*> (x Data..?> "criteria")
-            Prelude.<*> (x Data..?> "arn")
-            Prelude.<*> (x Data..?> "status")
             Prelude.<*> (x Data..?> "description")
             Prelude.<*> (x Data..?> "id")
-            Prelude.<*> (x Data..?> "createdAt")
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "updatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -131,28 +131,28 @@ instance Data.ToQuery GetAllowList where
 
 -- | /See:/ 'newGetAllowListResponse' smart constructor.
 data GetAllowListResponse = GetAllowListResponse'
-  { -- | A map of key-value pairs that specifies which tags (keys and values) are
-    -- associated with the allow list.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The custom name of the allow list.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | The Amazon Resource Name (ARN) of the allow list.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The date and time, in UTC and extended ISO 8601 format, when the allow
+    -- list was created in Amazon Macie.
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The criteria that specify the text or text pattern to ignore. The
     -- criteria can be the location and name of an S3 object that lists
     -- specific text to ignore (s3WordsList), or a regular expression (regex)
     -- that defines a text pattern to ignore.
     criteria :: Prelude.Maybe AllowListCriteria,
-    -- | The Amazon Resource Name (ARN) of the allow list.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The current status of the allow list, which indicates whether Amazon
-    -- Macie can access and use the list\'s criteria.
-    status :: Prelude.Maybe AllowListStatus,
     -- | The custom description of the allow list.
     description :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the allow list.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The date and time, in UTC and extended ISO 8601 format, when the allow
-    -- list was created in Amazon Macie.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | The custom name of the allow list.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the allow list, which indicates whether Amazon
+    -- Macie can access and use the list\'s criteria.
+    status :: Prelude.Maybe AllowListStatus,
+    -- | A map of key-value pairs that specifies which tags (keys and values) are
+    -- associated with the allow list.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The date and time, in UTC and extended ISO 8601 format, when the allow
     -- list\'s settings were most recently changed in Amazon Macie.
     updatedAt :: Prelude.Maybe Data.POSIX,
@@ -169,27 +169,27 @@ data GetAllowListResponse = GetAllowListResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'getAllowListResponse_tags' - A map of key-value pairs that specifies which tags (keys and values) are
--- associated with the allow list.
+-- 'arn', 'getAllowListResponse_arn' - The Amazon Resource Name (ARN) of the allow list.
 --
--- 'name', 'getAllowListResponse_name' - The custom name of the allow list.
+-- 'createdAt', 'getAllowListResponse_createdAt' - The date and time, in UTC and extended ISO 8601 format, when the allow
+-- list was created in Amazon Macie.
 --
 -- 'criteria', 'getAllowListResponse_criteria' - The criteria that specify the text or text pattern to ignore. The
 -- criteria can be the location and name of an S3 object that lists
 -- specific text to ignore (s3WordsList), or a regular expression (regex)
 -- that defines a text pattern to ignore.
 --
--- 'arn', 'getAllowListResponse_arn' - The Amazon Resource Name (ARN) of the allow list.
---
--- 'status', 'getAllowListResponse_status' - The current status of the allow list, which indicates whether Amazon
--- Macie can access and use the list\'s criteria.
---
 -- 'description', 'getAllowListResponse_description' - The custom description of the allow list.
 --
 -- 'id', 'getAllowListResponse_id' - The unique identifier for the allow list.
 --
--- 'createdAt', 'getAllowListResponse_createdAt' - The date and time, in UTC and extended ISO 8601 format, when the allow
--- list was created in Amazon Macie.
+-- 'name', 'getAllowListResponse_name' - The custom name of the allow list.
+--
+-- 'status', 'getAllowListResponse_status' - The current status of the allow list, which indicates whether Amazon
+-- Macie can access and use the list\'s criteria.
+--
+-- 'tags', 'getAllowListResponse_tags' - A map of key-value pairs that specifies which tags (keys and values) are
+-- associated with the allow list.
 --
 -- 'updatedAt', 'getAllowListResponse_updatedAt' - The date and time, in UTC and extended ISO 8601 format, when the allow
 -- list\'s settings were most recently changed in Amazon Macie.
@@ -201,26 +201,26 @@ newGetAllowListResponse ::
   GetAllowListResponse
 newGetAllowListResponse pHttpStatus_ =
   GetAllowListResponse'
-    { tags = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
       criteria = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      status = Prelude.Nothing,
       description = Prelude.Nothing,
       id = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
+      name = Prelude.Nothing,
+      status = Prelude.Nothing,
+      tags = Prelude.Nothing,
       updatedAt = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | A map of key-value pairs that specifies which tags (keys and values) are
--- associated with the allow list.
-getAllowListResponse_tags :: Lens.Lens' GetAllowListResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getAllowListResponse_tags = Lens.lens (\GetAllowListResponse' {tags} -> tags) (\s@GetAllowListResponse' {} a -> s {tags = a} :: GetAllowListResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The Amazon Resource Name (ARN) of the allow list.
+getAllowListResponse_arn :: Lens.Lens' GetAllowListResponse (Prelude.Maybe Prelude.Text)
+getAllowListResponse_arn = Lens.lens (\GetAllowListResponse' {arn} -> arn) (\s@GetAllowListResponse' {} a -> s {arn = a} :: GetAllowListResponse)
 
--- | The custom name of the allow list.
-getAllowListResponse_name :: Lens.Lens' GetAllowListResponse (Prelude.Maybe Prelude.Text)
-getAllowListResponse_name = Lens.lens (\GetAllowListResponse' {name} -> name) (\s@GetAllowListResponse' {} a -> s {name = a} :: GetAllowListResponse)
+-- | The date and time, in UTC and extended ISO 8601 format, when the allow
+-- list was created in Amazon Macie.
+getAllowListResponse_createdAt :: Lens.Lens' GetAllowListResponse (Prelude.Maybe Prelude.UTCTime)
+getAllowListResponse_createdAt = Lens.lens (\GetAllowListResponse' {createdAt} -> createdAt) (\s@GetAllowListResponse' {} a -> s {createdAt = a} :: GetAllowListResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The criteria that specify the text or text pattern to ignore. The
 -- criteria can be the location and name of an S3 object that lists
@@ -228,15 +228,6 @@ getAllowListResponse_name = Lens.lens (\GetAllowListResponse' {name} -> name) (\
 -- that defines a text pattern to ignore.
 getAllowListResponse_criteria :: Lens.Lens' GetAllowListResponse (Prelude.Maybe AllowListCriteria)
 getAllowListResponse_criteria = Lens.lens (\GetAllowListResponse' {criteria} -> criteria) (\s@GetAllowListResponse' {} a -> s {criteria = a} :: GetAllowListResponse)
-
--- | The Amazon Resource Name (ARN) of the allow list.
-getAllowListResponse_arn :: Lens.Lens' GetAllowListResponse (Prelude.Maybe Prelude.Text)
-getAllowListResponse_arn = Lens.lens (\GetAllowListResponse' {arn} -> arn) (\s@GetAllowListResponse' {} a -> s {arn = a} :: GetAllowListResponse)
-
--- | The current status of the allow list, which indicates whether Amazon
--- Macie can access and use the list\'s criteria.
-getAllowListResponse_status :: Lens.Lens' GetAllowListResponse (Prelude.Maybe AllowListStatus)
-getAllowListResponse_status = Lens.lens (\GetAllowListResponse' {status} -> status) (\s@GetAllowListResponse' {} a -> s {status = a} :: GetAllowListResponse)
 
 -- | The custom description of the allow list.
 getAllowListResponse_description :: Lens.Lens' GetAllowListResponse (Prelude.Maybe Prelude.Text)
@@ -246,10 +237,19 @@ getAllowListResponse_description = Lens.lens (\GetAllowListResponse' {descriptio
 getAllowListResponse_id :: Lens.Lens' GetAllowListResponse (Prelude.Maybe Prelude.Text)
 getAllowListResponse_id = Lens.lens (\GetAllowListResponse' {id} -> id) (\s@GetAllowListResponse' {} a -> s {id = a} :: GetAllowListResponse)
 
--- | The date and time, in UTC and extended ISO 8601 format, when the allow
--- list was created in Amazon Macie.
-getAllowListResponse_createdAt :: Lens.Lens' GetAllowListResponse (Prelude.Maybe Prelude.UTCTime)
-getAllowListResponse_createdAt = Lens.lens (\GetAllowListResponse' {createdAt} -> createdAt) (\s@GetAllowListResponse' {} a -> s {createdAt = a} :: GetAllowListResponse) Prelude.. Lens.mapping Data._Time
+-- | The custom name of the allow list.
+getAllowListResponse_name :: Lens.Lens' GetAllowListResponse (Prelude.Maybe Prelude.Text)
+getAllowListResponse_name = Lens.lens (\GetAllowListResponse' {name} -> name) (\s@GetAllowListResponse' {} a -> s {name = a} :: GetAllowListResponse)
+
+-- | The current status of the allow list, which indicates whether Amazon
+-- Macie can access and use the list\'s criteria.
+getAllowListResponse_status :: Lens.Lens' GetAllowListResponse (Prelude.Maybe AllowListStatus)
+getAllowListResponse_status = Lens.lens (\GetAllowListResponse' {status} -> status) (\s@GetAllowListResponse' {} a -> s {status = a} :: GetAllowListResponse)
+
+-- | A map of key-value pairs that specifies which tags (keys and values) are
+-- associated with the allow list.
+getAllowListResponse_tags :: Lens.Lens' GetAllowListResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getAllowListResponse_tags = Lens.lens (\GetAllowListResponse' {tags} -> tags) (\s@GetAllowListResponse' {} a -> s {tags = a} :: GetAllowListResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The date and time, in UTC and extended ISO 8601 format, when the allow
 -- list\'s settings were most recently changed in Amazon Macie.
@@ -262,13 +262,13 @@ getAllowListResponse_httpStatus = Lens.lens (\GetAllowListResponse' {httpStatus}
 
 instance Prelude.NFData GetAllowListResponse where
   rnf GetAllowListResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf criteria
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf updatedAt
       `Prelude.seq` Prelude.rnf httpStatus

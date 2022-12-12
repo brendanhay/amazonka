@@ -27,8 +27,6 @@
 --
 -- __Related actions__
 --
--- CreateAlias | ListAliases | DescribeAlias | UpdateAlias | DeleteAlias |
--- ResolveAlias |
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Amazonka.GameLift.DeleteAlias
   ( -- * Creating a Request
@@ -52,9 +50,7 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Represents the input for a request operation.
---
--- /See:/ 'newDeleteAlias' smart constructor.
+-- | /See:/ 'newDeleteAlias' smart constructor.
 data DeleteAlias = DeleteAlias'
   { -- | A unique identifier of the alias that you want to delete. You can use
     -- either the alias ID or ARN value.

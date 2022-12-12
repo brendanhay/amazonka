@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSession' smart constructor.
 data Session = Session'
-  { -- | An encrypted token value containing session and caller information.
-    -- It\'s used to authenticate the connection to the container.
-    tokenValue :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+  { -- | The ID of the execute command session.
+    sessionId :: Prelude.Maybe Prelude.Text,
     -- | A URL to the managed agent on the container that the SSM Session Manager
     -- client uses to send commands and receive output from the container.
     streamUrl :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the execute command session.
-    sessionId :: Prelude.Maybe Prelude.Text
+    -- | An encrypted token value containing session and caller information.
+    -- It\'s used to authenticate the connection to the container.
+    tokenValue :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -47,35 +47,35 @@ data Session = Session'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tokenValue', 'session_tokenValue' - An encrypted token value containing session and caller information.
--- It\'s used to authenticate the connection to the container.
+-- 'sessionId', 'session_sessionId' - The ID of the execute command session.
 --
 -- 'streamUrl', 'session_streamUrl' - A URL to the managed agent on the container that the SSM Session Manager
 -- client uses to send commands and receive output from the container.
 --
--- 'sessionId', 'session_sessionId' - The ID of the execute command session.
+-- 'tokenValue', 'session_tokenValue' - An encrypted token value containing session and caller information.
+-- It\'s used to authenticate the connection to the container.
 newSession ::
   Session
 newSession =
   Session'
-    { tokenValue = Prelude.Nothing,
+    { sessionId = Prelude.Nothing,
       streamUrl = Prelude.Nothing,
-      sessionId = Prelude.Nothing
+      tokenValue = Prelude.Nothing
     }
 
--- | An encrypted token value containing session and caller information.
--- It\'s used to authenticate the connection to the container.
-session_tokenValue :: Lens.Lens' Session (Prelude.Maybe Prelude.Text)
-session_tokenValue = Lens.lens (\Session' {tokenValue} -> tokenValue) (\s@Session' {} a -> s {tokenValue = a} :: Session) Prelude.. Lens.mapping Data._Sensitive
+-- | The ID of the execute command session.
+session_sessionId :: Lens.Lens' Session (Prelude.Maybe Prelude.Text)
+session_sessionId = Lens.lens (\Session' {sessionId} -> sessionId) (\s@Session' {} a -> s {sessionId = a} :: Session)
 
 -- | A URL to the managed agent on the container that the SSM Session Manager
 -- client uses to send commands and receive output from the container.
 session_streamUrl :: Lens.Lens' Session (Prelude.Maybe Prelude.Text)
 session_streamUrl = Lens.lens (\Session' {streamUrl} -> streamUrl) (\s@Session' {} a -> s {streamUrl = a} :: Session)
 
--- | The ID of the execute command session.
-session_sessionId :: Lens.Lens' Session (Prelude.Maybe Prelude.Text)
-session_sessionId = Lens.lens (\Session' {sessionId} -> sessionId) (\s@Session' {} a -> s {sessionId = a} :: Session)
+-- | An encrypted token value containing session and caller information.
+-- It\'s used to authenticate the connection to the container.
+session_tokenValue :: Lens.Lens' Session (Prelude.Maybe Prelude.Text)
+session_tokenValue = Lens.lens (\Session' {tokenValue} -> tokenValue) (\s@Session' {} a -> s {tokenValue = a} :: Session) Prelude.. Lens.mapping Data._Sensitive
 
 instance Data.FromJSON Session where
   parseJSON =
@@ -83,19 +83,19 @@ instance Data.FromJSON Session where
       "Session"
       ( \x ->
           Session'
-            Prelude.<$> (x Data..:? "tokenValue")
+            Prelude.<$> (x Data..:? "sessionId")
             Prelude.<*> (x Data..:? "streamUrl")
-            Prelude.<*> (x Data..:? "sessionId")
+            Prelude.<*> (x Data..:? "tokenValue")
       )
 
 instance Prelude.Hashable Session where
   hashWithSalt _salt Session' {..} =
-    _salt `Prelude.hashWithSalt` tokenValue
+    _salt `Prelude.hashWithSalt` sessionId
       `Prelude.hashWithSalt` streamUrl
-      `Prelude.hashWithSalt` sessionId
+      `Prelude.hashWithSalt` tokenValue
 
 instance Prelude.NFData Session where
   rnf Session' {..} =
-    Prelude.rnf tokenValue
+    Prelude.rnf sessionId
       `Prelude.seq` Prelude.rnf streamUrl
-      `Prelude.seq` Prelude.rnf sessionId
+      `Prelude.seq` Prelude.rnf tokenValue

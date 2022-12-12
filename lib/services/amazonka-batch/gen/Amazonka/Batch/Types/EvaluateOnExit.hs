@@ -32,13 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEvaluateOnExit' smart constructor.
 data EvaluateOnExit = EvaluateOnExit'
-  { -- | Contains a glob pattern to match against the @Reason@ returned for a
-    -- job. The pattern can contain up to 512 characters. It can contain
-    -- letters, numbers, periods (.), colons (:), and white space (including
-    -- spaces and tabs). It can optionally end with an asterisk (*) so that
-    -- only the start of the string needs to be an exact match.
-    onReason :: Prelude.Maybe Prelude.Text,
-    -- | Contains a glob pattern to match against the decimal representation of
+  { -- | Contains a glob pattern to match against the decimal representation of
     -- the @ExitCode@ returned for a job. The pattern can be up to 512
     -- characters long. It can contain only numbers, and can end with an
     -- asterisk (*) so that only the start of the string needs to be an exact
@@ -46,6 +40,12 @@ data EvaluateOnExit = EvaluateOnExit'
     --
     -- The string can contain up to 512 characters.
     onExitCode :: Prelude.Maybe Prelude.Text,
+    -- | Contains a glob pattern to match against the @Reason@ returned for a
+    -- job. The pattern can contain up to 512 characters. It can contain
+    -- letters, numbers, periods (.), colons (:), and white space (including
+    -- spaces and tabs). It can optionally end with an asterisk (*) so that
+    -- only the start of the string needs to be an exact match.
+    onReason :: Prelude.Maybe Prelude.Text,
     -- | Contains a glob pattern to match against the @StatusReason@ returned for
     -- a job. The pattern can contain up to 512 characters. It can contain
     -- letters, numbers, periods (.), colons (:), and white spaces (including
@@ -67,12 +67,6 @@ data EvaluateOnExit = EvaluateOnExit'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'onReason', 'evaluateOnExit_onReason' - Contains a glob pattern to match against the @Reason@ returned for a
--- job. The pattern can contain up to 512 characters. It can contain
--- letters, numbers, periods (.), colons (:), and white space (including
--- spaces and tabs). It can optionally end with an asterisk (*) so that
--- only the start of the string needs to be an exact match.
---
 -- 'onExitCode', 'evaluateOnExit_onExitCode' - Contains a glob pattern to match against the decimal representation of
 -- the @ExitCode@ returned for a job. The pattern can be up to 512
 -- characters long. It can contain only numbers, and can end with an
@@ -80,6 +74,12 @@ data EvaluateOnExit = EvaluateOnExit'
 -- match.
 --
 -- The string can contain up to 512 characters.
+--
+-- 'onReason', 'evaluateOnExit_onReason' - Contains a glob pattern to match against the @Reason@ returned for a
+-- job. The pattern can contain up to 512 characters. It can contain
+-- letters, numbers, periods (.), colons (:), and white space (including
+-- spaces and tabs). It can optionally end with an asterisk (*) so that
+-- only the start of the string needs to be an exact match.
 --
 -- 'onStatusReason', 'evaluateOnExit_onStatusReason' - Contains a glob pattern to match against the @StatusReason@ returned for
 -- a job. The pattern can contain up to 512 characters. It can contain
@@ -96,19 +96,11 @@ newEvaluateOnExit ::
   EvaluateOnExit
 newEvaluateOnExit pAction_ =
   EvaluateOnExit'
-    { onReason = Prelude.Nothing,
-      onExitCode = Prelude.Nothing,
+    { onExitCode = Prelude.Nothing,
+      onReason = Prelude.Nothing,
       onStatusReason = Prelude.Nothing,
       action = pAction_
     }
-
--- | Contains a glob pattern to match against the @Reason@ returned for a
--- job. The pattern can contain up to 512 characters. It can contain
--- letters, numbers, periods (.), colons (:), and white space (including
--- spaces and tabs). It can optionally end with an asterisk (*) so that
--- only the start of the string needs to be an exact match.
-evaluateOnExit_onReason :: Lens.Lens' EvaluateOnExit (Prelude.Maybe Prelude.Text)
-evaluateOnExit_onReason = Lens.lens (\EvaluateOnExit' {onReason} -> onReason) (\s@EvaluateOnExit' {} a -> s {onReason = a} :: EvaluateOnExit)
 
 -- | Contains a glob pattern to match against the decimal representation of
 -- the @ExitCode@ returned for a job. The pattern can be up to 512
@@ -119,6 +111,14 @@ evaluateOnExit_onReason = Lens.lens (\EvaluateOnExit' {onReason} -> onReason) (\
 -- The string can contain up to 512 characters.
 evaluateOnExit_onExitCode :: Lens.Lens' EvaluateOnExit (Prelude.Maybe Prelude.Text)
 evaluateOnExit_onExitCode = Lens.lens (\EvaluateOnExit' {onExitCode} -> onExitCode) (\s@EvaluateOnExit' {} a -> s {onExitCode = a} :: EvaluateOnExit)
+
+-- | Contains a glob pattern to match against the @Reason@ returned for a
+-- job. The pattern can contain up to 512 characters. It can contain
+-- letters, numbers, periods (.), colons (:), and white space (including
+-- spaces and tabs). It can optionally end with an asterisk (*) so that
+-- only the start of the string needs to be an exact match.
+evaluateOnExit_onReason :: Lens.Lens' EvaluateOnExit (Prelude.Maybe Prelude.Text)
+evaluateOnExit_onReason = Lens.lens (\EvaluateOnExit' {onReason} -> onReason) (\s@EvaluateOnExit' {} a -> s {onReason = a} :: EvaluateOnExit)
 
 -- | Contains a glob pattern to match against the @StatusReason@ returned for
 -- a job. The pattern can contain up to 512 characters. It can contain
@@ -140,23 +140,23 @@ instance Data.FromJSON EvaluateOnExit where
       "EvaluateOnExit"
       ( \x ->
           EvaluateOnExit'
-            Prelude.<$> (x Data..:? "onReason")
-            Prelude.<*> (x Data..:? "onExitCode")
+            Prelude.<$> (x Data..:? "onExitCode")
+            Prelude.<*> (x Data..:? "onReason")
             Prelude.<*> (x Data..:? "onStatusReason")
             Prelude.<*> (x Data..: "action")
       )
 
 instance Prelude.Hashable EvaluateOnExit where
   hashWithSalt _salt EvaluateOnExit' {..} =
-    _salt `Prelude.hashWithSalt` onReason
-      `Prelude.hashWithSalt` onExitCode
+    _salt `Prelude.hashWithSalt` onExitCode
+      `Prelude.hashWithSalt` onReason
       `Prelude.hashWithSalt` onStatusReason
       `Prelude.hashWithSalt` action
 
 instance Prelude.NFData EvaluateOnExit where
   rnf EvaluateOnExit' {..} =
-    Prelude.rnf onReason
-      `Prelude.seq` Prelude.rnf onExitCode
+    Prelude.rnf onExitCode
+      `Prelude.seq` Prelude.rnf onReason
       `Prelude.seq` Prelude.rnf onStatusReason
       `Prelude.seq` Prelude.rnf action
 
@@ -164,8 +164,8 @@ instance Data.ToJSON EvaluateOnExit where
   toJSON EvaluateOnExit' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("onReason" Data..=) Prelude.<$> onReason,
-            ("onExitCode" Data..=) Prelude.<$> onExitCode,
+          [ ("onExitCode" Data..=) Prelude.<$> onExitCode,
+            ("onReason" Data..=) Prelude.<$> onReason,
             ("onStatusReason" Data..=)
               Prelude.<$> onStatusReason,
             Prelude.Just ("action" Data..= action)

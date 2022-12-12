@@ -29,13 +29,13 @@ module Amazonka.SSMIncidents.CreateResponsePlan
     newCreateResponsePlan,
 
     -- * Request Lenses
-    createResponsePlan_tags,
-    createResponsePlan_clientToken,
-    createResponsePlan_integrations,
+    createResponsePlan_actions,
     createResponsePlan_chatChannel,
+    createResponsePlan_clientToken,
     createResponsePlan_displayName,
     createResponsePlan_engagements,
-    createResponsePlan_actions,
+    createResponsePlan_integrations,
+    createResponsePlan_tags,
     createResponsePlan_incidentTemplate,
     createResponsePlan_name,
 
@@ -59,25 +59,25 @@ import Amazonka.SSMIncidents.Types
 
 -- | /See:/ 'newCreateResponsePlan' smart constructor.
 data CreateResponsePlan = CreateResponsePlan'
-  { -- | A list of tags that you are adding to the response plan.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | The actions that the response plan starts at the beginning of an
+    -- incident.
+    actions :: Prelude.Maybe [Action],
+    -- | The Chatbot chat channel used for collaboration during an incident.
+    chatChannel :: Prelude.Maybe ChatChannel,
     -- | A token ensuring that the operation is called only once with the
     -- specified details.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about third-party services integrated into the response
-    -- plan.
-    integrations :: Prelude.Maybe [Integration],
-    -- | The Chatbot chat channel used for collaboration during an incident.
-    chatChannel :: Prelude.Maybe ChatChannel,
     -- | The long format of the response plan name. This field can contain
     -- spaces.
     displayName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the contacts and escalation plans
     -- that the response plan engages during an incident.
     engagements :: Prelude.Maybe [Prelude.Text],
-    -- | The actions that the response plan starts at the beginning of an
-    -- incident.
-    actions :: Prelude.Maybe [Action],
+    -- | Information about third-party services integrated into the response
+    -- plan.
+    integrations :: Prelude.Maybe [Integration],
+    -- | A list of tags that you are adding to the response plan.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Details used to create an incident when using this response plan.
     incidentTemplate :: IncidentTemplate,
     -- | The short format name of the response plan. Can\'t include spaces.
@@ -93,15 +93,13 @@ data CreateResponsePlan = CreateResponsePlan'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createResponsePlan_tags' - A list of tags that you are adding to the response plan.
+-- 'actions', 'createResponsePlan_actions' - The actions that the response plan starts at the beginning of an
+-- incident.
+--
+-- 'chatChannel', 'createResponsePlan_chatChannel' - The Chatbot chat channel used for collaboration during an incident.
 --
 -- 'clientToken', 'createResponsePlan_clientToken' - A token ensuring that the operation is called only once with the
 -- specified details.
---
--- 'integrations', 'createResponsePlan_integrations' - Information about third-party services integrated into the response
--- plan.
---
--- 'chatChannel', 'createResponsePlan_chatChannel' - The Chatbot chat channel used for collaboration during an incident.
 --
 -- 'displayName', 'createResponsePlan_displayName' - The long format of the response plan name. This field can contain
 -- spaces.
@@ -109,8 +107,10 @@ data CreateResponsePlan = CreateResponsePlan'
 -- 'engagements', 'createResponsePlan_engagements' - The Amazon Resource Name (ARN) for the contacts and escalation plans
 -- that the response plan engages during an incident.
 --
--- 'actions', 'createResponsePlan_actions' - The actions that the response plan starts at the beginning of an
--- incident.
+-- 'integrations', 'createResponsePlan_integrations' - Information about third-party services integrated into the response
+-- plan.
+--
+-- 'tags', 'createResponsePlan_tags' - A list of tags that you are adding to the response plan.
 --
 -- 'incidentTemplate', 'createResponsePlan_incidentTemplate' - Details used to create an incident when using this response plan.
 --
@@ -123,34 +123,30 @@ newCreateResponsePlan ::
   CreateResponsePlan
 newCreateResponsePlan pIncidentTemplate_ pName_ =
   CreateResponsePlan'
-    { tags = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
-      integrations = Prelude.Nothing,
+    { actions = Prelude.Nothing,
       chatChannel = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
       displayName = Prelude.Nothing,
       engagements = Prelude.Nothing,
-      actions = Prelude.Nothing,
+      integrations = Prelude.Nothing,
+      tags = Prelude.Nothing,
       incidentTemplate = pIncidentTemplate_,
       name = pName_
     }
 
--- | A list of tags that you are adding to the response plan.
-createResponsePlan_tags :: Lens.Lens' CreateResponsePlan (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createResponsePlan_tags = Lens.lens (\CreateResponsePlan' {tags} -> tags) (\s@CreateResponsePlan' {} a -> s {tags = a} :: CreateResponsePlan) Prelude.. Lens.mapping Lens.coerced
+-- | The actions that the response plan starts at the beginning of an
+-- incident.
+createResponsePlan_actions :: Lens.Lens' CreateResponsePlan (Prelude.Maybe [Action])
+createResponsePlan_actions = Lens.lens (\CreateResponsePlan' {actions} -> actions) (\s@CreateResponsePlan' {} a -> s {actions = a} :: CreateResponsePlan) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Chatbot chat channel used for collaboration during an incident.
+createResponsePlan_chatChannel :: Lens.Lens' CreateResponsePlan (Prelude.Maybe ChatChannel)
+createResponsePlan_chatChannel = Lens.lens (\CreateResponsePlan' {chatChannel} -> chatChannel) (\s@CreateResponsePlan' {} a -> s {chatChannel = a} :: CreateResponsePlan)
 
 -- | A token ensuring that the operation is called only once with the
 -- specified details.
 createResponsePlan_clientToken :: Lens.Lens' CreateResponsePlan (Prelude.Maybe Prelude.Text)
 createResponsePlan_clientToken = Lens.lens (\CreateResponsePlan' {clientToken} -> clientToken) (\s@CreateResponsePlan' {} a -> s {clientToken = a} :: CreateResponsePlan)
-
--- | Information about third-party services integrated into the response
--- plan.
-createResponsePlan_integrations :: Lens.Lens' CreateResponsePlan (Prelude.Maybe [Integration])
-createResponsePlan_integrations = Lens.lens (\CreateResponsePlan' {integrations} -> integrations) (\s@CreateResponsePlan' {} a -> s {integrations = a} :: CreateResponsePlan) Prelude.. Lens.mapping Lens.coerced
-
--- | The Chatbot chat channel used for collaboration during an incident.
-createResponsePlan_chatChannel :: Lens.Lens' CreateResponsePlan (Prelude.Maybe ChatChannel)
-createResponsePlan_chatChannel = Lens.lens (\CreateResponsePlan' {chatChannel} -> chatChannel) (\s@CreateResponsePlan' {} a -> s {chatChannel = a} :: CreateResponsePlan)
 
 -- | The long format of the response plan name. This field can contain
 -- spaces.
@@ -162,10 +158,14 @@ createResponsePlan_displayName = Lens.lens (\CreateResponsePlan' {displayName} -
 createResponsePlan_engagements :: Lens.Lens' CreateResponsePlan (Prelude.Maybe [Prelude.Text])
 createResponsePlan_engagements = Lens.lens (\CreateResponsePlan' {engagements} -> engagements) (\s@CreateResponsePlan' {} a -> s {engagements = a} :: CreateResponsePlan) Prelude.. Lens.mapping Lens.coerced
 
--- | The actions that the response plan starts at the beginning of an
--- incident.
-createResponsePlan_actions :: Lens.Lens' CreateResponsePlan (Prelude.Maybe [Action])
-createResponsePlan_actions = Lens.lens (\CreateResponsePlan' {actions} -> actions) (\s@CreateResponsePlan' {} a -> s {actions = a} :: CreateResponsePlan) Prelude.. Lens.mapping Lens.coerced
+-- | Information about third-party services integrated into the response
+-- plan.
+createResponsePlan_integrations :: Lens.Lens' CreateResponsePlan (Prelude.Maybe [Integration])
+createResponsePlan_integrations = Lens.lens (\CreateResponsePlan' {integrations} -> integrations) (\s@CreateResponsePlan' {} a -> s {integrations = a} :: CreateResponsePlan) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of tags that you are adding to the response plan.
+createResponsePlan_tags :: Lens.Lens' CreateResponsePlan (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createResponsePlan_tags = Lens.lens (\CreateResponsePlan' {tags} -> tags) (\s@CreateResponsePlan' {} a -> s {tags = a} :: CreateResponsePlan) Prelude.. Lens.mapping Lens.coerced
 
 -- | Details used to create an incident when using this response plan.
 createResponsePlan_incidentTemplate :: Lens.Lens' CreateResponsePlan IncidentTemplate
@@ -191,25 +191,25 @@ instance Core.AWSRequest CreateResponsePlan where
 
 instance Prelude.Hashable CreateResponsePlan where
   hashWithSalt _salt CreateResponsePlan' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` integrations
+    _salt `Prelude.hashWithSalt` actions
       `Prelude.hashWithSalt` chatChannel
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` engagements
-      `Prelude.hashWithSalt` actions
+      `Prelude.hashWithSalt` integrations
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` incidentTemplate
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateResponsePlan where
   rnf CreateResponsePlan' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf integrations
+    Prelude.rnf actions
       `Prelude.seq` Prelude.rnf chatChannel
+      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf engagements
-      `Prelude.seq` Prelude.rnf actions
+      `Prelude.seq` Prelude.rnf integrations
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf incidentTemplate
       `Prelude.seq` Prelude.rnf name
 
@@ -228,13 +228,13 @@ instance Data.ToJSON CreateResponsePlan where
   toJSON CreateResponsePlan' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("clientToken" Data..=) Prelude.<$> clientToken,
-            ("integrations" Data..=) Prelude.<$> integrations,
+          [ ("actions" Data..=) Prelude.<$> actions,
             ("chatChannel" Data..=) Prelude.<$> chatChannel,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
             ("displayName" Data..=) Prelude.<$> displayName,
             ("engagements" Data..=) Prelude.<$> engagements,
-            ("actions" Data..=) Prelude.<$> actions,
+            ("integrations" Data..=) Prelude.<$> integrations,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("incidentTemplate" Data..= incidentTemplate),
             Prelude.Just ("name" Data..= name)

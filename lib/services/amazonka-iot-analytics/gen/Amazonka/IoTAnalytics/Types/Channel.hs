@@ -32,23 +32,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newChannel' smart constructor.
 data Channel = Channel'
-  { -- | The name of the channel.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the channel.
+  { -- | The ARN of the channel.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | Where channel data is stored. You can choose one of @serviceManagedS3@
-    -- or @customerManagedS3@ storage. If not specified, the default is
-    -- @serviceManagedS3@. You can\'t change this storage option after the
-    -- channel is created.
-    storage :: Prelude.Maybe ChannelStorage,
-    -- | The status of the channel.
-    status :: Prelude.Maybe ChannelStatus,
-    -- | How long, in days, message data is kept for the channel.
-    retentionPeriod :: Prelude.Maybe RetentionPeriod,
     -- | When the channel was created.
     creationTime :: Prelude.Maybe Data.POSIX,
-    -- | When the channel was last updated.
-    lastUpdateTime :: Prelude.Maybe Data.POSIX,
     -- | The last time when a new message arrived in the channel.
     --
     -- IoT Analytics updates this value at most once per minute for one
@@ -56,7 +43,20 @@ data Channel = Channel'
     --
     -- This feature only applies to messages that arrived in the data store
     -- after October 23, 2020.
-    lastMessageArrivalTime :: Prelude.Maybe Data.POSIX
+    lastMessageArrivalTime :: Prelude.Maybe Data.POSIX,
+    -- | When the channel was last updated.
+    lastUpdateTime :: Prelude.Maybe Data.POSIX,
+    -- | The name of the channel.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | How long, in days, message data is kept for the channel.
+    retentionPeriod :: Prelude.Maybe RetentionPeriod,
+    -- | The status of the channel.
+    status :: Prelude.Maybe ChannelStatus,
+    -- | Where channel data is stored. You can choose one of @serviceManagedS3@
+    -- or @customerManagedS3@ storage. If not specified, the default is
+    -- @serviceManagedS3@. You can\'t change this storage option after the
+    -- channel is created.
+    storage :: Prelude.Maybe ChannelStorage
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,22 +68,9 @@ data Channel = Channel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'channel_name' - The name of the channel.
---
 -- 'arn', 'channel_arn' - The ARN of the channel.
 --
--- 'storage', 'channel_storage' - Where channel data is stored. You can choose one of @serviceManagedS3@
--- or @customerManagedS3@ storage. If not specified, the default is
--- @serviceManagedS3@. You can\'t change this storage option after the
--- channel is created.
---
--- 'status', 'channel_status' - The status of the channel.
---
--- 'retentionPeriod', 'channel_retentionPeriod' - How long, in days, message data is kept for the channel.
---
 -- 'creationTime', 'channel_creationTime' - When the channel was created.
---
--- 'lastUpdateTime', 'channel_lastUpdateTime' - When the channel was last updated.
 --
 -- 'lastMessageArrivalTime', 'channel_lastMessageArrivalTime' - The last time when a new message arrived in the channel.
 --
@@ -92,50 +79,40 @@ data Channel = Channel'
 --
 -- This feature only applies to messages that arrived in the data store
 -- after October 23, 2020.
+--
+-- 'lastUpdateTime', 'channel_lastUpdateTime' - When the channel was last updated.
+--
+-- 'name', 'channel_name' - The name of the channel.
+--
+-- 'retentionPeriod', 'channel_retentionPeriod' - How long, in days, message data is kept for the channel.
+--
+-- 'status', 'channel_status' - The status of the channel.
+--
+-- 'storage', 'channel_storage' - Where channel data is stored. You can choose one of @serviceManagedS3@
+-- or @customerManagedS3@ storage. If not specified, the default is
+-- @serviceManagedS3@. You can\'t change this storage option after the
+-- channel is created.
 newChannel ::
   Channel
 newChannel =
   Channel'
-    { name = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      storage = Prelude.Nothing,
-      status = Prelude.Nothing,
-      retentionPeriod = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       creationTime = Prelude.Nothing,
+      lastMessageArrivalTime = Prelude.Nothing,
       lastUpdateTime = Prelude.Nothing,
-      lastMessageArrivalTime = Prelude.Nothing
+      name = Prelude.Nothing,
+      retentionPeriod = Prelude.Nothing,
+      status = Prelude.Nothing,
+      storage = Prelude.Nothing
     }
-
--- | The name of the channel.
-channel_name :: Lens.Lens' Channel (Prelude.Maybe Prelude.Text)
-channel_name = Lens.lens (\Channel' {name} -> name) (\s@Channel' {} a -> s {name = a} :: Channel)
 
 -- | The ARN of the channel.
 channel_arn :: Lens.Lens' Channel (Prelude.Maybe Prelude.Text)
 channel_arn = Lens.lens (\Channel' {arn} -> arn) (\s@Channel' {} a -> s {arn = a} :: Channel)
 
--- | Where channel data is stored. You can choose one of @serviceManagedS3@
--- or @customerManagedS3@ storage. If not specified, the default is
--- @serviceManagedS3@. You can\'t change this storage option after the
--- channel is created.
-channel_storage :: Lens.Lens' Channel (Prelude.Maybe ChannelStorage)
-channel_storage = Lens.lens (\Channel' {storage} -> storage) (\s@Channel' {} a -> s {storage = a} :: Channel)
-
--- | The status of the channel.
-channel_status :: Lens.Lens' Channel (Prelude.Maybe ChannelStatus)
-channel_status = Lens.lens (\Channel' {status} -> status) (\s@Channel' {} a -> s {status = a} :: Channel)
-
--- | How long, in days, message data is kept for the channel.
-channel_retentionPeriod :: Lens.Lens' Channel (Prelude.Maybe RetentionPeriod)
-channel_retentionPeriod = Lens.lens (\Channel' {retentionPeriod} -> retentionPeriod) (\s@Channel' {} a -> s {retentionPeriod = a} :: Channel)
-
 -- | When the channel was created.
 channel_creationTime :: Lens.Lens' Channel (Prelude.Maybe Prelude.UTCTime)
 channel_creationTime = Lens.lens (\Channel' {creationTime} -> creationTime) (\s@Channel' {} a -> s {creationTime = a} :: Channel) Prelude.. Lens.mapping Data._Time
-
--- | When the channel was last updated.
-channel_lastUpdateTime :: Lens.Lens' Channel (Prelude.Maybe Prelude.UTCTime)
-channel_lastUpdateTime = Lens.lens (\Channel' {lastUpdateTime} -> lastUpdateTime) (\s@Channel' {} a -> s {lastUpdateTime = a} :: Channel) Prelude.. Lens.mapping Data._Time
 
 -- | The last time when a new message arrived in the channel.
 --
@@ -147,40 +124,63 @@ channel_lastUpdateTime = Lens.lens (\Channel' {lastUpdateTime} -> lastUpdateTime
 channel_lastMessageArrivalTime :: Lens.Lens' Channel (Prelude.Maybe Prelude.UTCTime)
 channel_lastMessageArrivalTime = Lens.lens (\Channel' {lastMessageArrivalTime} -> lastMessageArrivalTime) (\s@Channel' {} a -> s {lastMessageArrivalTime = a} :: Channel) Prelude.. Lens.mapping Data._Time
 
+-- | When the channel was last updated.
+channel_lastUpdateTime :: Lens.Lens' Channel (Prelude.Maybe Prelude.UTCTime)
+channel_lastUpdateTime = Lens.lens (\Channel' {lastUpdateTime} -> lastUpdateTime) (\s@Channel' {} a -> s {lastUpdateTime = a} :: Channel) Prelude.. Lens.mapping Data._Time
+
+-- | The name of the channel.
+channel_name :: Lens.Lens' Channel (Prelude.Maybe Prelude.Text)
+channel_name = Lens.lens (\Channel' {name} -> name) (\s@Channel' {} a -> s {name = a} :: Channel)
+
+-- | How long, in days, message data is kept for the channel.
+channel_retentionPeriod :: Lens.Lens' Channel (Prelude.Maybe RetentionPeriod)
+channel_retentionPeriod = Lens.lens (\Channel' {retentionPeriod} -> retentionPeriod) (\s@Channel' {} a -> s {retentionPeriod = a} :: Channel)
+
+-- | The status of the channel.
+channel_status :: Lens.Lens' Channel (Prelude.Maybe ChannelStatus)
+channel_status = Lens.lens (\Channel' {status} -> status) (\s@Channel' {} a -> s {status = a} :: Channel)
+
+-- | Where channel data is stored. You can choose one of @serviceManagedS3@
+-- or @customerManagedS3@ storage. If not specified, the default is
+-- @serviceManagedS3@. You can\'t change this storage option after the
+-- channel is created.
+channel_storage :: Lens.Lens' Channel (Prelude.Maybe ChannelStorage)
+channel_storage = Lens.lens (\Channel' {storage} -> storage) (\s@Channel' {} a -> s {storage = a} :: Channel)
+
 instance Data.FromJSON Channel where
   parseJSON =
     Data.withObject
       "Channel"
       ( \x ->
           Channel'
-            Prelude.<$> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "arn")
-            Prelude.<*> (x Data..:? "storage")
-            Prelude.<*> (x Data..:? "status")
-            Prelude.<*> (x Data..:? "retentionPeriod")
+            Prelude.<$> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "creationTime")
-            Prelude.<*> (x Data..:? "lastUpdateTime")
             Prelude.<*> (x Data..:? "lastMessageArrivalTime")
+            Prelude.<*> (x Data..:? "lastUpdateTime")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "retentionPeriod")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "storage")
       )
 
 instance Prelude.Hashable Channel where
   hashWithSalt _salt Channel' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` storage
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` retentionPeriod
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationTime
-      `Prelude.hashWithSalt` lastUpdateTime
       `Prelude.hashWithSalt` lastMessageArrivalTime
+      `Prelude.hashWithSalt` lastUpdateTime
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` retentionPeriod
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` storage
 
 instance Prelude.NFData Channel where
   rnf Channel' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf storage
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf retentionPeriod
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastUpdateTime
       `Prelude.seq` Prelude.rnf lastMessageArrivalTime
+      `Prelude.seq` Prelude.rnf lastUpdateTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf retentionPeriod
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf storage

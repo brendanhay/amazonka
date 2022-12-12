@@ -65,80 +65,80 @@ module Amazonka.WorkDocs
     -- * Errors
     -- $errors
 
-    -- ** RequestedEntityTooLargeException
-    _RequestedEntityTooLargeException,
-
-    -- ** InvalidArgumentException
-    _InvalidArgumentException,
-
-    -- ** EntityAlreadyExistsException
-    _EntityAlreadyExistsException,
-
-    -- ** TooManySubscriptionsException
-    _TooManySubscriptionsException,
-
-    -- ** InvalidOperationException
-    _InvalidOperationException,
-
-    -- ** EntityNotExistsException
-    _EntityNotExistsException,
-
-    -- ** ProhibitedStateException
-    _ProhibitedStateException,
-
     -- ** ConcurrentModificationException
     _ConcurrentModificationException,
 
     -- ** ConflictingOperationException
     _ConflictingOperationException,
 
-    -- ** IllegalUserStateException
-    _IllegalUserStateException,
-
-    -- ** InvalidCommentOperationException
-    _InvalidCommentOperationException,
-
-    -- ** UnauthorizedOperationException
-    _UnauthorizedOperationException,
-
     -- ** CustomMetadataLimitExceededException
     _CustomMetadataLimitExceededException,
 
-    -- ** TooManyLabelsException
-    _TooManyLabelsException,
+    -- ** DeactivatingLastSystemUserException
+    _DeactivatingLastSystemUserException,
 
     -- ** DocumentLockedForCommentsException
     _DocumentLockedForCommentsException,
 
-    -- ** UnauthorizedResourceAccessException
-    _UnauthorizedResourceAccessException,
+    -- ** DraftUploadOutOfSyncException
+    _DraftUploadOutOfSyncException,
+
+    -- ** EntityAlreadyExistsException
+    _EntityAlreadyExistsException,
+
+    -- ** EntityNotExistsException
+    _EntityNotExistsException,
 
     -- ** FailedDependencyException
     _FailedDependencyException,
 
+    -- ** IllegalUserStateException
+    _IllegalUserStateException,
+
+    -- ** InvalidArgumentException
+    _InvalidArgumentException,
+
+    -- ** InvalidCommentOperationException
+    _InvalidCommentOperationException,
+
+    -- ** InvalidOperationException
+    _InvalidOperationException,
+
     -- ** InvalidPasswordException
     _InvalidPasswordException,
-
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
-
-    -- ** DraftUploadOutOfSyncException
-    _DraftUploadOutOfSyncException,
 
     -- ** LimitExceededException
     _LimitExceededException,
 
+    -- ** ProhibitedStateException
+    _ProhibitedStateException,
+
+    -- ** RequestedEntityTooLargeException
+    _RequestedEntityTooLargeException,
+
     -- ** ResourceAlreadyCheckedOutException
     _ResourceAlreadyCheckedOutException,
 
-    -- ** DeactivatingLastSystemUserException
-    _DeactivatingLastSystemUserException,
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
 
     -- ** StorageLimitExceededException
     _StorageLimitExceededException,
 
     -- ** StorageLimitWillExceedException
     _StorageLimitWillExceedException,
+
+    -- ** TooManyLabelsException
+    _TooManyLabelsException,
+
+    -- ** TooManySubscriptionsException
+    _TooManySubscriptionsException,
+
+    -- ** UnauthorizedOperationException
+    _UnauthorizedOperationException,
+
+    -- ** UnauthorizedResourceAccessException
+    _UnauthorizedResourceAccessException,
 
     -- * Waiters
     -- $waiters

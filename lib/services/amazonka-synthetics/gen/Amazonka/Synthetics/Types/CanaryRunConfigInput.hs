@@ -38,13 +38,6 @@ data CanaryRunConfigInput = CanaryRunConfigInput'
     -- You can enable active tracing only for canaries that use version
     -- @syn-nodejs-2.0@ or later for their canary runtime.
     activeTracing :: Prelude.Maybe Prelude.Bool,
-    -- | How long the canary is allowed to run before it must stop. You can\'t
-    -- set this time to be longer than the frequency of the runs of this
-    -- canary.
-    --
-    -- If you omit this field, the frequency of the canary is used as this
-    -- value, up to a maximum of 14 minutes.
-    timeoutInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | Specifies the keys and values to use for any environment variables used
     -- in the canary script. Use the following format:
     --
@@ -61,7 +54,14 @@ data CanaryRunConfigInput = CanaryRunConfigInput'
     environmentVariables :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The maximum amount of memory available to the canary while it is
     -- running, in MB. This value must be a multiple of 64.
-    memoryInMB :: Prelude.Maybe Prelude.Natural
+    memoryInMB :: Prelude.Maybe Prelude.Natural,
+    -- | How long the canary is allowed to run before it must stop. You can\'t
+    -- set this time to be longer than the frequency of the runs of this
+    -- canary.
+    --
+    -- If you omit this field, the frequency of the canary is used as this
+    -- value, up to a maximum of 14 minutes.
+    timeoutInSeconds :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -83,13 +83,6 @@ data CanaryRunConfigInput = CanaryRunConfigInput'
 -- You can enable active tracing only for canaries that use version
 -- @syn-nodejs-2.0@ or later for their canary runtime.
 --
--- 'timeoutInSeconds', 'canaryRunConfigInput_timeoutInSeconds' - How long the canary is allowed to run before it must stop. You can\'t
--- set this time to be longer than the frequency of the runs of this
--- canary.
---
--- If you omit this field, the frequency of the canary is used as this
--- value, up to a maximum of 14 minutes.
---
 -- 'environmentVariables', 'canaryRunConfigInput_environmentVariables' - Specifies the keys and values to use for any environment variables used
 -- in the canary script. Use the following format:
 --
@@ -106,15 +99,22 @@ data CanaryRunConfigInput = CanaryRunConfigInput'
 --
 -- 'memoryInMB', 'canaryRunConfigInput_memoryInMB' - The maximum amount of memory available to the canary while it is
 -- running, in MB. This value must be a multiple of 64.
+--
+-- 'timeoutInSeconds', 'canaryRunConfigInput_timeoutInSeconds' - How long the canary is allowed to run before it must stop. You can\'t
+-- set this time to be longer than the frequency of the runs of this
+-- canary.
+--
+-- If you omit this field, the frequency of the canary is used as this
+-- value, up to a maximum of 14 minutes.
 newCanaryRunConfigInput ::
   CanaryRunConfigInput
 newCanaryRunConfigInput =
   CanaryRunConfigInput'
     { activeTracing =
         Prelude.Nothing,
-      timeoutInSeconds = Prelude.Nothing,
       environmentVariables = Prelude.Nothing,
-      memoryInMB = Prelude.Nothing
+      memoryInMB = Prelude.Nothing,
+      timeoutInSeconds = Prelude.Nothing
     }
 
 -- | Specifies whether this canary is to use active X-Ray tracing when it
@@ -128,15 +128,6 @@ newCanaryRunConfigInput =
 -- @syn-nodejs-2.0@ or later for their canary runtime.
 canaryRunConfigInput_activeTracing :: Lens.Lens' CanaryRunConfigInput (Prelude.Maybe Prelude.Bool)
 canaryRunConfigInput_activeTracing = Lens.lens (\CanaryRunConfigInput' {activeTracing} -> activeTracing) (\s@CanaryRunConfigInput' {} a -> s {activeTracing = a} :: CanaryRunConfigInput)
-
--- | How long the canary is allowed to run before it must stop. You can\'t
--- set this time to be longer than the frequency of the runs of this
--- canary.
---
--- If you omit this field, the frequency of the canary is used as this
--- value, up to a maximum of 14 minutes.
-canaryRunConfigInput_timeoutInSeconds :: Lens.Lens' CanaryRunConfigInput (Prelude.Maybe Prelude.Natural)
-canaryRunConfigInput_timeoutInSeconds = Lens.lens (\CanaryRunConfigInput' {timeoutInSeconds} -> timeoutInSeconds) (\s@CanaryRunConfigInput' {} a -> s {timeoutInSeconds = a} :: CanaryRunConfigInput)
 
 -- | Specifies the keys and values to use for any environment variables used
 -- in the canary script. Use the following format:
@@ -159,29 +150,38 @@ canaryRunConfigInput_environmentVariables = Lens.lens (\CanaryRunConfigInput' {e
 canaryRunConfigInput_memoryInMB :: Lens.Lens' CanaryRunConfigInput (Prelude.Maybe Prelude.Natural)
 canaryRunConfigInput_memoryInMB = Lens.lens (\CanaryRunConfigInput' {memoryInMB} -> memoryInMB) (\s@CanaryRunConfigInput' {} a -> s {memoryInMB = a} :: CanaryRunConfigInput)
 
+-- | How long the canary is allowed to run before it must stop. You can\'t
+-- set this time to be longer than the frequency of the runs of this
+-- canary.
+--
+-- If you omit this field, the frequency of the canary is used as this
+-- value, up to a maximum of 14 minutes.
+canaryRunConfigInput_timeoutInSeconds :: Lens.Lens' CanaryRunConfigInput (Prelude.Maybe Prelude.Natural)
+canaryRunConfigInput_timeoutInSeconds = Lens.lens (\CanaryRunConfigInput' {timeoutInSeconds} -> timeoutInSeconds) (\s@CanaryRunConfigInput' {} a -> s {timeoutInSeconds = a} :: CanaryRunConfigInput)
+
 instance Prelude.Hashable CanaryRunConfigInput where
   hashWithSalt _salt CanaryRunConfigInput' {..} =
     _salt `Prelude.hashWithSalt` activeTracing
-      `Prelude.hashWithSalt` timeoutInSeconds
       `Prelude.hashWithSalt` environmentVariables
       `Prelude.hashWithSalt` memoryInMB
+      `Prelude.hashWithSalt` timeoutInSeconds
 
 instance Prelude.NFData CanaryRunConfigInput where
   rnf CanaryRunConfigInput' {..} =
     Prelude.rnf activeTracing
-      `Prelude.seq` Prelude.rnf timeoutInSeconds
       `Prelude.seq` Prelude.rnf environmentVariables
       `Prelude.seq` Prelude.rnf memoryInMB
+      `Prelude.seq` Prelude.rnf timeoutInSeconds
 
 instance Data.ToJSON CanaryRunConfigInput where
   toJSON CanaryRunConfigInput' {..} =
     Data.object
       ( Prelude.catMaybes
           [ ("ActiveTracing" Data..=) Prelude.<$> activeTracing,
-            ("TimeoutInSeconds" Data..=)
-              Prelude.<$> timeoutInSeconds,
             ("EnvironmentVariables" Data..=)
               Prelude.<$> environmentVariables,
-            ("MemoryInMB" Data..=) Prelude.<$> memoryInMB
+            ("MemoryInMB" Data..=) Prelude.<$> memoryInMB,
+            ("TimeoutInSeconds" Data..=)
+              Prelude.<$> timeoutInSeconds
           ]
       )

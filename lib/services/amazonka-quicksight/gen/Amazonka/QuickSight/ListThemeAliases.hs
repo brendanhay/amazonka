@@ -27,8 +27,8 @@ module Amazonka.QuickSight.ListThemeAliases
     newListThemeAliases,
 
     -- * Request Lenses
-    listThemeAliases_nextToken,
     listThemeAliases_maxResults,
+    listThemeAliases_nextToken,
     listThemeAliases_awsAccountId,
     listThemeAliases_themeId,
 
@@ -54,11 +54,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListThemeAliases' smart constructor.
 data ListThemeAliases = ListThemeAliases'
-  { -- | The token for the next set of results, or null if there are no more
+  { -- | The maximum number of results to be returned per request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results, or null if there are no more
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be returned per request.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the Amazon Web Services account that contains the theme
     -- aliases that you\'re listing.
     awsAccountId :: Prelude.Text,
@@ -75,10 +75,10 @@ data ListThemeAliases = ListThemeAliases'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listThemeAliases_maxResults' - The maximum number of results to be returned per request.
+--
 -- 'nextToken', 'listThemeAliases_nextToken' - The token for the next set of results, or null if there are no more
 -- results.
---
--- 'maxResults', 'listThemeAliases_maxResults' - The maximum number of results to be returned per request.
 --
 -- 'awsAccountId', 'listThemeAliases_awsAccountId' - The ID of the Amazon Web Services account that contains the theme
 -- aliases that you\'re listing.
@@ -92,20 +92,20 @@ newListThemeAliases ::
   ListThemeAliases
 newListThemeAliases pAwsAccountId_ pThemeId_ =
   ListThemeAliases'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       awsAccountId = pAwsAccountId_,
       themeId = pThemeId_
     }
+
+-- | The maximum number of results to be returned per request.
+listThemeAliases_maxResults :: Lens.Lens' ListThemeAliases (Prelude.Maybe Prelude.Natural)
+listThemeAliases_maxResults = Lens.lens (\ListThemeAliases' {maxResults} -> maxResults) (\s@ListThemeAliases' {} a -> s {maxResults = a} :: ListThemeAliases)
 
 -- | The token for the next set of results, or null if there are no more
 -- results.
 listThemeAliases_nextToken :: Lens.Lens' ListThemeAliases (Prelude.Maybe Prelude.Text)
 listThemeAliases_nextToken = Lens.lens (\ListThemeAliases' {nextToken} -> nextToken) (\s@ListThemeAliases' {} a -> s {nextToken = a} :: ListThemeAliases)
-
--- | The maximum number of results to be returned per request.
-listThemeAliases_maxResults :: Lens.Lens' ListThemeAliases (Prelude.Maybe Prelude.Natural)
-listThemeAliases_maxResults = Lens.lens (\ListThemeAliases' {maxResults} -> maxResults) (\s@ListThemeAliases' {} a -> s {maxResults = a} :: ListThemeAliases)
 
 -- | The ID of the Amazon Web Services account that contains the theme
 -- aliases that you\'re listing.
@@ -134,15 +134,15 @@ instance Core.AWSRequest ListThemeAliases where
 
 instance Prelude.Hashable ListThemeAliases where
   hashWithSalt _salt ListThemeAliases' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` themeId
 
 instance Prelude.NFData ListThemeAliases where
   rnf ListThemeAliases' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf themeId
 
@@ -170,8 +170,8 @@ instance Data.ToPath ListThemeAliases where
 instance Data.ToQuery ListThemeAliases where
   toQuery ListThemeAliases' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
-        "max-result" Data.=: maxResults
+      [ "max-result" Data.=: maxResults,
+        "next-token" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListThemeAliasesResponse' smart constructor.

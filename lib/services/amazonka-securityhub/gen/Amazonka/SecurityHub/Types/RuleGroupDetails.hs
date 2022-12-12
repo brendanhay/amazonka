@@ -30,15 +30,15 @@ import Amazonka.SecurityHub.Types.RuleGroupVariables
 --
 -- /See:/ 'newRuleGroupDetails' smart constructor.
 data RuleGroupDetails = RuleGroupDetails'
-  { -- | The rules and actions for the rule group.
+  { -- | Additional settings to use in the specified rules.
+    ruleVariables :: Prelude.Maybe RuleGroupVariables,
+    -- | The rules and actions for the rule group.
     --
     -- For stateful rule groups, can contain @RulesString@, @RulesSourceList@,
     -- or @StatefulRules@.
     --
     -- For stateless rule groups, contains @StatelessRulesAndCustomActions@.
-    rulesSource :: Prelude.Maybe RuleGroupSource,
-    -- | Additional settings to use in the specified rules.
-    ruleVariables :: Prelude.Maybe RuleGroupVariables
+    rulesSource :: Prelude.Maybe RuleGroupSource
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,21 +50,25 @@ data RuleGroupDetails = RuleGroupDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ruleVariables', 'ruleGroupDetails_ruleVariables' - Additional settings to use in the specified rules.
+--
 -- 'rulesSource', 'ruleGroupDetails_rulesSource' - The rules and actions for the rule group.
 --
 -- For stateful rule groups, can contain @RulesString@, @RulesSourceList@,
 -- or @StatefulRules@.
 --
 -- For stateless rule groups, contains @StatelessRulesAndCustomActions@.
---
--- 'ruleVariables', 'ruleGroupDetails_ruleVariables' - Additional settings to use in the specified rules.
 newRuleGroupDetails ::
   RuleGroupDetails
 newRuleGroupDetails =
   RuleGroupDetails'
-    { rulesSource = Prelude.Nothing,
-      ruleVariables = Prelude.Nothing
+    { ruleVariables = Prelude.Nothing,
+      rulesSource = Prelude.Nothing
     }
+
+-- | Additional settings to use in the specified rules.
+ruleGroupDetails_ruleVariables :: Lens.Lens' RuleGroupDetails (Prelude.Maybe RuleGroupVariables)
+ruleGroupDetails_ruleVariables = Lens.lens (\RuleGroupDetails' {ruleVariables} -> ruleVariables) (\s@RuleGroupDetails' {} a -> s {ruleVariables = a} :: RuleGroupDetails)
 
 -- | The rules and actions for the rule group.
 --
@@ -75,35 +79,31 @@ newRuleGroupDetails =
 ruleGroupDetails_rulesSource :: Lens.Lens' RuleGroupDetails (Prelude.Maybe RuleGroupSource)
 ruleGroupDetails_rulesSource = Lens.lens (\RuleGroupDetails' {rulesSource} -> rulesSource) (\s@RuleGroupDetails' {} a -> s {rulesSource = a} :: RuleGroupDetails)
 
--- | Additional settings to use in the specified rules.
-ruleGroupDetails_ruleVariables :: Lens.Lens' RuleGroupDetails (Prelude.Maybe RuleGroupVariables)
-ruleGroupDetails_ruleVariables = Lens.lens (\RuleGroupDetails' {ruleVariables} -> ruleVariables) (\s@RuleGroupDetails' {} a -> s {ruleVariables = a} :: RuleGroupDetails)
-
 instance Data.FromJSON RuleGroupDetails where
   parseJSON =
     Data.withObject
       "RuleGroupDetails"
       ( \x ->
           RuleGroupDetails'
-            Prelude.<$> (x Data..:? "RulesSource")
-            Prelude.<*> (x Data..:? "RuleVariables")
+            Prelude.<$> (x Data..:? "RuleVariables")
+            Prelude.<*> (x Data..:? "RulesSource")
       )
 
 instance Prelude.Hashable RuleGroupDetails where
   hashWithSalt _salt RuleGroupDetails' {..} =
-    _salt `Prelude.hashWithSalt` rulesSource
-      `Prelude.hashWithSalt` ruleVariables
+    _salt `Prelude.hashWithSalt` ruleVariables
+      `Prelude.hashWithSalt` rulesSource
 
 instance Prelude.NFData RuleGroupDetails where
   rnf RuleGroupDetails' {..} =
-    Prelude.rnf rulesSource
-      `Prelude.seq` Prelude.rnf ruleVariables
+    Prelude.rnf ruleVariables
+      `Prelude.seq` Prelude.rnf rulesSource
 
 instance Data.ToJSON RuleGroupDetails where
   toJSON RuleGroupDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("RulesSource" Data..=) Prelude.<$> rulesSource,
-            ("RuleVariables" Data..=) Prelude.<$> ruleVariables
+          [ ("RuleVariables" Data..=) Prelude.<$> ruleVariables,
+            ("RulesSource" Data..=) Prelude.<$> rulesSource
           ]
       )

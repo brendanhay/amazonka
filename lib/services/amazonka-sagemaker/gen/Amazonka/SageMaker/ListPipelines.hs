@@ -29,13 +29,13 @@ module Amazonka.SageMaker.ListPipelines
     newListPipelines,
 
     -- * Request Lenses
-    listPipelines_sortOrder,
-    listPipelines_nextToken,
-    listPipelines_createdBefore,
-    listPipelines_sortBy,
-    listPipelines_maxResults,
-    listPipelines_pipelineNamePrefix,
     listPipelines_createdAfter,
+    listPipelines_createdBefore,
+    listPipelines_maxResults,
+    listPipelines_nextToken,
+    listPipelines_pipelineNamePrefix,
+    listPipelines_sortBy,
+    listPipelines_sortOrder,
 
     -- * Destructuring the Response
     ListPipelinesResponse (..),
@@ -58,24 +58,24 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newListPipelines' smart constructor.
 data ListPipelines = ListPipelines'
-  { -- | The sort order for results.
-    sortOrder :: Prelude.Maybe SortOrder,
+  { -- | A filter that returns the pipelines that were created after a specified
+    -- time.
+    createdAfter :: Prelude.Maybe Data.POSIX,
+    -- | A filter that returns the pipelines that were created before a specified
+    -- time.
+    createdBefore :: Prelude.Maybe Data.POSIX,
+    -- | The maximum number of pipelines to return in the response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | If the result of the previous @ListPipelines@ request was truncated, the
     -- response includes a @NextToken@. To retrieve the next set of pipelines,
     -- use the token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A filter that returns the pipelines that were created before a specified
-    -- time.
-    createdBefore :: Prelude.Maybe Data.POSIX,
-    -- | The field by which to sort results. The default is @CreatedTime@.
-    sortBy :: Prelude.Maybe SortPipelinesBy,
-    -- | The maximum number of pipelines to return in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The prefix of the pipeline name.
     pipelineNamePrefix :: Prelude.Maybe Prelude.Text,
-    -- | A filter that returns the pipelines that were created after a specified
-    -- time.
-    createdAfter :: Prelude.Maybe Data.POSIX
+    -- | The field by which to sort results. The default is @CreatedTime@.
+    sortBy :: Prelude.Maybe SortPipelinesBy,
+    -- | The sort order for results.
+    sortOrder :: Prelude.Maybe SortOrder
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,39 +87,49 @@ data ListPipelines = ListPipelines'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listPipelines_sortOrder' - The sort order for results.
+-- 'createdAfter', 'listPipelines_createdAfter' - A filter that returns the pipelines that were created after a specified
+-- time.
+--
+-- 'createdBefore', 'listPipelines_createdBefore' - A filter that returns the pipelines that were created before a specified
+-- time.
+--
+-- 'maxResults', 'listPipelines_maxResults' - The maximum number of pipelines to return in the response.
 --
 -- 'nextToken', 'listPipelines_nextToken' - If the result of the previous @ListPipelines@ request was truncated, the
 -- response includes a @NextToken@. To retrieve the next set of pipelines,
 -- use the token in the next request.
 --
--- 'createdBefore', 'listPipelines_createdBefore' - A filter that returns the pipelines that were created before a specified
--- time.
+-- 'pipelineNamePrefix', 'listPipelines_pipelineNamePrefix' - The prefix of the pipeline name.
 --
 -- 'sortBy', 'listPipelines_sortBy' - The field by which to sort results. The default is @CreatedTime@.
 --
--- 'maxResults', 'listPipelines_maxResults' - The maximum number of pipelines to return in the response.
---
--- 'pipelineNamePrefix', 'listPipelines_pipelineNamePrefix' - The prefix of the pipeline name.
---
--- 'createdAfter', 'listPipelines_createdAfter' - A filter that returns the pipelines that were created after a specified
--- time.
+-- 'sortOrder', 'listPipelines_sortOrder' - The sort order for results.
 newListPipelines ::
   ListPipelines
 newListPipelines =
   ListPipelines'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { createdAfter = Prelude.Nothing,
       createdBefore = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       pipelineNamePrefix = Prelude.Nothing,
-      createdAfter = Prelude.Nothing
+      sortBy = Prelude.Nothing,
+      sortOrder = Prelude.Nothing
     }
 
--- | The sort order for results.
-listPipelines_sortOrder :: Lens.Lens' ListPipelines (Prelude.Maybe SortOrder)
-listPipelines_sortOrder = Lens.lens (\ListPipelines' {sortOrder} -> sortOrder) (\s@ListPipelines' {} a -> s {sortOrder = a} :: ListPipelines)
+-- | A filter that returns the pipelines that were created after a specified
+-- time.
+listPipelines_createdAfter :: Lens.Lens' ListPipelines (Prelude.Maybe Prelude.UTCTime)
+listPipelines_createdAfter = Lens.lens (\ListPipelines' {createdAfter} -> createdAfter) (\s@ListPipelines' {} a -> s {createdAfter = a} :: ListPipelines) Prelude.. Lens.mapping Data._Time
+
+-- | A filter that returns the pipelines that were created before a specified
+-- time.
+listPipelines_createdBefore :: Lens.Lens' ListPipelines (Prelude.Maybe Prelude.UTCTime)
+listPipelines_createdBefore = Lens.lens (\ListPipelines' {createdBefore} -> createdBefore) (\s@ListPipelines' {} a -> s {createdBefore = a} :: ListPipelines) Prelude.. Lens.mapping Data._Time
+
+-- | The maximum number of pipelines to return in the response.
+listPipelines_maxResults :: Lens.Lens' ListPipelines (Prelude.Maybe Prelude.Natural)
+listPipelines_maxResults = Lens.lens (\ListPipelines' {maxResults} -> maxResults) (\s@ListPipelines' {} a -> s {maxResults = a} :: ListPipelines)
 
 -- | If the result of the previous @ListPipelines@ request was truncated, the
 -- response includes a @NextToken@. To retrieve the next set of pipelines,
@@ -127,27 +137,17 @@ listPipelines_sortOrder = Lens.lens (\ListPipelines' {sortOrder} -> sortOrder) (
 listPipelines_nextToken :: Lens.Lens' ListPipelines (Prelude.Maybe Prelude.Text)
 listPipelines_nextToken = Lens.lens (\ListPipelines' {nextToken} -> nextToken) (\s@ListPipelines' {} a -> s {nextToken = a} :: ListPipelines)
 
--- | A filter that returns the pipelines that were created before a specified
--- time.
-listPipelines_createdBefore :: Lens.Lens' ListPipelines (Prelude.Maybe Prelude.UTCTime)
-listPipelines_createdBefore = Lens.lens (\ListPipelines' {createdBefore} -> createdBefore) (\s@ListPipelines' {} a -> s {createdBefore = a} :: ListPipelines) Prelude.. Lens.mapping Data._Time
+-- | The prefix of the pipeline name.
+listPipelines_pipelineNamePrefix :: Lens.Lens' ListPipelines (Prelude.Maybe Prelude.Text)
+listPipelines_pipelineNamePrefix = Lens.lens (\ListPipelines' {pipelineNamePrefix} -> pipelineNamePrefix) (\s@ListPipelines' {} a -> s {pipelineNamePrefix = a} :: ListPipelines)
 
 -- | The field by which to sort results. The default is @CreatedTime@.
 listPipelines_sortBy :: Lens.Lens' ListPipelines (Prelude.Maybe SortPipelinesBy)
 listPipelines_sortBy = Lens.lens (\ListPipelines' {sortBy} -> sortBy) (\s@ListPipelines' {} a -> s {sortBy = a} :: ListPipelines)
 
--- | The maximum number of pipelines to return in the response.
-listPipelines_maxResults :: Lens.Lens' ListPipelines (Prelude.Maybe Prelude.Natural)
-listPipelines_maxResults = Lens.lens (\ListPipelines' {maxResults} -> maxResults) (\s@ListPipelines' {} a -> s {maxResults = a} :: ListPipelines)
-
--- | The prefix of the pipeline name.
-listPipelines_pipelineNamePrefix :: Lens.Lens' ListPipelines (Prelude.Maybe Prelude.Text)
-listPipelines_pipelineNamePrefix = Lens.lens (\ListPipelines' {pipelineNamePrefix} -> pipelineNamePrefix) (\s@ListPipelines' {} a -> s {pipelineNamePrefix = a} :: ListPipelines)
-
--- | A filter that returns the pipelines that were created after a specified
--- time.
-listPipelines_createdAfter :: Lens.Lens' ListPipelines (Prelude.Maybe Prelude.UTCTime)
-listPipelines_createdAfter = Lens.lens (\ListPipelines' {createdAfter} -> createdAfter) (\s@ListPipelines' {} a -> s {createdAfter = a} :: ListPipelines) Prelude.. Lens.mapping Data._Time
+-- | The sort order for results.
+listPipelines_sortOrder :: Lens.Lens' ListPipelines (Prelude.Maybe SortOrder)
+listPipelines_sortOrder = Lens.lens (\ListPipelines' {sortOrder} -> sortOrder) (\s@ListPipelines' {} a -> s {sortOrder = a} :: ListPipelines)
 
 instance Core.AWSPager ListPipelines where
   page rq rs
@@ -188,23 +188,23 @@ instance Core.AWSRequest ListPipelines where
 
 instance Prelude.Hashable ListPipelines where
   hashWithSalt _salt ListPipelines' {..} =
-    _salt `Prelude.hashWithSalt` sortOrder
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` createdAfter
       `Prelude.hashWithSalt` createdBefore
-      `Prelude.hashWithSalt` sortBy
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` pipelineNamePrefix
-      `Prelude.hashWithSalt` createdAfter
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` sortOrder
 
 instance Prelude.NFData ListPipelines where
   rnf ListPipelines' {..} =
-    Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf createdAfter
       `Prelude.seq` Prelude.rnf createdBefore
-      `Prelude.seq` Prelude.rnf sortBy
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf pipelineNamePrefix
-      `Prelude.seq` Prelude.rnf createdAfter
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListPipelines where
   toHeaders =
@@ -223,14 +223,14 @@ instance Data.ToJSON ListPipelines where
   toJSON ListPipelines' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
-            ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("CreatedAfter" Data..=) Prelude.<$> createdAfter,
             ("CreatedBefore" Data..=) Prelude.<$> createdBefore,
-            ("SortBy" Data..=) Prelude.<$> sortBy,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("PipelineNamePrefix" Data..=)
               Prelude.<$> pipelineNamePrefix,
-            ("CreatedAfter" Data..=) Prelude.<$> createdAfter
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("SortOrder" Data..=) Prelude.<$> sortOrder
           ]
       )
 

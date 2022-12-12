@@ -31,11 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRunConfigurationUpdate' smart constructor.
 data RunConfigurationUpdate = RunConfigurationUpdate'
-  { -- | Describes the starting parameters for a Flink-based Kinesis Data
+  { -- | Describes updates to the restore behavior of a restarting application.
+    applicationRestoreConfiguration :: Prelude.Maybe ApplicationRestoreConfiguration,
+    -- | Describes the starting parameters for a Flink-based Kinesis Data
     -- Analytics application.
-    flinkRunConfiguration :: Prelude.Maybe FlinkRunConfiguration,
-    -- | Describes updates to the restore behavior of a restarting application.
-    applicationRestoreConfiguration :: Prelude.Maybe ApplicationRestoreConfiguration
+    flinkRunConfiguration :: Prelude.Maybe FlinkRunConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,45 +47,46 @@ data RunConfigurationUpdate = RunConfigurationUpdate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'applicationRestoreConfiguration', 'runConfigurationUpdate_applicationRestoreConfiguration' - Describes updates to the restore behavior of a restarting application.
+--
 -- 'flinkRunConfiguration', 'runConfigurationUpdate_flinkRunConfiguration' - Describes the starting parameters for a Flink-based Kinesis Data
 -- Analytics application.
---
--- 'applicationRestoreConfiguration', 'runConfigurationUpdate_applicationRestoreConfiguration' - Describes updates to the restore behavior of a restarting application.
 newRunConfigurationUpdate ::
   RunConfigurationUpdate
 newRunConfigurationUpdate =
   RunConfigurationUpdate'
-    { flinkRunConfiguration =
+    { applicationRestoreConfiguration =
         Prelude.Nothing,
-      applicationRestoreConfiguration = Prelude.Nothing
+      flinkRunConfiguration = Prelude.Nothing
     }
+
+-- | Describes updates to the restore behavior of a restarting application.
+runConfigurationUpdate_applicationRestoreConfiguration :: Lens.Lens' RunConfigurationUpdate (Prelude.Maybe ApplicationRestoreConfiguration)
+runConfigurationUpdate_applicationRestoreConfiguration = Lens.lens (\RunConfigurationUpdate' {applicationRestoreConfiguration} -> applicationRestoreConfiguration) (\s@RunConfigurationUpdate' {} a -> s {applicationRestoreConfiguration = a} :: RunConfigurationUpdate)
 
 -- | Describes the starting parameters for a Flink-based Kinesis Data
 -- Analytics application.
 runConfigurationUpdate_flinkRunConfiguration :: Lens.Lens' RunConfigurationUpdate (Prelude.Maybe FlinkRunConfiguration)
 runConfigurationUpdate_flinkRunConfiguration = Lens.lens (\RunConfigurationUpdate' {flinkRunConfiguration} -> flinkRunConfiguration) (\s@RunConfigurationUpdate' {} a -> s {flinkRunConfiguration = a} :: RunConfigurationUpdate)
 
--- | Describes updates to the restore behavior of a restarting application.
-runConfigurationUpdate_applicationRestoreConfiguration :: Lens.Lens' RunConfigurationUpdate (Prelude.Maybe ApplicationRestoreConfiguration)
-runConfigurationUpdate_applicationRestoreConfiguration = Lens.lens (\RunConfigurationUpdate' {applicationRestoreConfiguration} -> applicationRestoreConfiguration) (\s@RunConfigurationUpdate' {} a -> s {applicationRestoreConfiguration = a} :: RunConfigurationUpdate)
-
 instance Prelude.Hashable RunConfigurationUpdate where
   hashWithSalt _salt RunConfigurationUpdate' {..} =
-    _salt `Prelude.hashWithSalt` flinkRunConfiguration
+    _salt
       `Prelude.hashWithSalt` applicationRestoreConfiguration
+      `Prelude.hashWithSalt` flinkRunConfiguration
 
 instance Prelude.NFData RunConfigurationUpdate where
   rnf RunConfigurationUpdate' {..} =
-    Prelude.rnf flinkRunConfiguration
-      `Prelude.seq` Prelude.rnf applicationRestoreConfiguration
+    Prelude.rnf applicationRestoreConfiguration
+      `Prelude.seq` Prelude.rnf flinkRunConfiguration
 
 instance Data.ToJSON RunConfigurationUpdate where
   toJSON RunConfigurationUpdate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("FlinkRunConfiguration" Data..=)
-              Prelude.<$> flinkRunConfiguration,
-            ("ApplicationRestoreConfiguration" Data..=)
-              Prelude.<$> applicationRestoreConfiguration
+          [ ("ApplicationRestoreConfiguration" Data..=)
+              Prelude.<$> applicationRestoreConfiguration,
+            ("FlinkRunConfiguration" Data..=)
+              Prelude.<$> flinkRunConfiguration
           ]
       )

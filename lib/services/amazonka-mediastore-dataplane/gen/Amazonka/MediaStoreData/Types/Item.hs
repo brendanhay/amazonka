@@ -29,18 +29,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newItem' smart constructor.
 data Item = Item'
-  { -- | The name of the item.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The item type (folder or object).
-    type' :: Prelude.Maybe ItemType,
-    -- | The length of the item in bytes.
+  { -- | The length of the item in bytes.
     contentLength :: Prelude.Maybe Prelude.Natural,
-    -- | The date and time that the item was last modified.
-    lastModified :: Prelude.Maybe Data.POSIX,
+    -- | The content type of the item.
+    contentType :: Prelude.Maybe Prelude.Text,
     -- | The ETag that represents a unique instance of the item.
     eTag :: Prelude.Maybe Prelude.Text,
-    -- | The content type of the item.
-    contentType :: Prelude.Maybe Prelude.Text
+    -- | The date and time that the item was last modified.
+    lastModified :: Prelude.Maybe Data.POSIX,
+    -- | The name of the item.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The item type (folder or object).
+    type' :: Prelude.Maybe ItemType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,28 +52,44 @@ data Item = Item'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'item_name' - The name of the item.
---
--- 'type'', 'item_type' - The item type (folder or object).
---
 -- 'contentLength', 'item_contentLength' - The length of the item in bytes.
 --
--- 'lastModified', 'item_lastModified' - The date and time that the item was last modified.
+-- 'contentType', 'item_contentType' - The content type of the item.
 --
 -- 'eTag', 'item_eTag' - The ETag that represents a unique instance of the item.
 --
--- 'contentType', 'item_contentType' - The content type of the item.
+-- 'lastModified', 'item_lastModified' - The date and time that the item was last modified.
+--
+-- 'name', 'item_name' - The name of the item.
+--
+-- 'type'', 'item_type' - The item type (folder or object).
 newItem ::
   Item
 newItem =
   Item'
-    { name = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      contentLength = Prelude.Nothing,
-      lastModified = Prelude.Nothing,
+    { contentLength = Prelude.Nothing,
+      contentType = Prelude.Nothing,
       eTag = Prelude.Nothing,
-      contentType = Prelude.Nothing
+      lastModified = Prelude.Nothing,
+      name = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
+
+-- | The length of the item in bytes.
+item_contentLength :: Lens.Lens' Item (Prelude.Maybe Prelude.Natural)
+item_contentLength = Lens.lens (\Item' {contentLength} -> contentLength) (\s@Item' {} a -> s {contentLength = a} :: Item)
+
+-- | The content type of the item.
+item_contentType :: Lens.Lens' Item (Prelude.Maybe Prelude.Text)
+item_contentType = Lens.lens (\Item' {contentType} -> contentType) (\s@Item' {} a -> s {contentType = a} :: Item)
+
+-- | The ETag that represents a unique instance of the item.
+item_eTag :: Lens.Lens' Item (Prelude.Maybe Prelude.Text)
+item_eTag = Lens.lens (\Item' {eTag} -> eTag) (\s@Item' {} a -> s {eTag = a} :: Item)
+
+-- | The date and time that the item was last modified.
+item_lastModified :: Lens.Lens' Item (Prelude.Maybe Prelude.UTCTime)
+item_lastModified = Lens.lens (\Item' {lastModified} -> lastModified) (\s@Item' {} a -> s {lastModified = a} :: Item) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the item.
 item_name :: Lens.Lens' Item (Prelude.Maybe Prelude.Text)
@@ -83,50 +99,34 @@ item_name = Lens.lens (\Item' {name} -> name) (\s@Item' {} a -> s {name = a} :: 
 item_type :: Lens.Lens' Item (Prelude.Maybe ItemType)
 item_type = Lens.lens (\Item' {type'} -> type') (\s@Item' {} a -> s {type' = a} :: Item)
 
--- | The length of the item in bytes.
-item_contentLength :: Lens.Lens' Item (Prelude.Maybe Prelude.Natural)
-item_contentLength = Lens.lens (\Item' {contentLength} -> contentLength) (\s@Item' {} a -> s {contentLength = a} :: Item)
-
--- | The date and time that the item was last modified.
-item_lastModified :: Lens.Lens' Item (Prelude.Maybe Prelude.UTCTime)
-item_lastModified = Lens.lens (\Item' {lastModified} -> lastModified) (\s@Item' {} a -> s {lastModified = a} :: Item) Prelude.. Lens.mapping Data._Time
-
--- | The ETag that represents a unique instance of the item.
-item_eTag :: Lens.Lens' Item (Prelude.Maybe Prelude.Text)
-item_eTag = Lens.lens (\Item' {eTag} -> eTag) (\s@Item' {} a -> s {eTag = a} :: Item)
-
--- | The content type of the item.
-item_contentType :: Lens.Lens' Item (Prelude.Maybe Prelude.Text)
-item_contentType = Lens.lens (\Item' {contentType} -> contentType) (\s@Item' {} a -> s {contentType = a} :: Item)
-
 instance Data.FromJSON Item where
   parseJSON =
     Data.withObject
       "Item"
       ( \x ->
           Item'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Type")
-            Prelude.<*> (x Data..:? "ContentLength")
-            Prelude.<*> (x Data..:? "LastModified")
-            Prelude.<*> (x Data..:? "ETag")
+            Prelude.<$> (x Data..:? "ContentLength")
             Prelude.<*> (x Data..:? "ContentType")
+            Prelude.<*> (x Data..:? "ETag")
+            Prelude.<*> (x Data..:? "LastModified")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable Item where
   hashWithSalt _salt Item' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` contentLength
-      `Prelude.hashWithSalt` lastModified
-      `Prelude.hashWithSalt` eTag
+    _salt `Prelude.hashWithSalt` contentLength
       `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` eTag
+      `Prelude.hashWithSalt` lastModified
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Item where
   rnf Item' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf contentLength
-      `Prelude.seq` Prelude.rnf lastModified
-      `Prelude.seq` Prelude.rnf eTag
+    Prelude.rnf contentLength
       `Prelude.seq` Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf lastModified
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf type'

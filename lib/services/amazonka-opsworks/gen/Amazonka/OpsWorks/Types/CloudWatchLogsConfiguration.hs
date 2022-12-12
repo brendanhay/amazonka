@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCloudWatchLogsConfiguration' smart constructor.
 data CloudWatchLogsConfiguration = CloudWatchLogsConfiguration'
-  { -- | A list of configuration options for CloudWatch Logs.
-    logStreams :: Prelude.Maybe [CloudWatchLogsLogStream],
-    -- | Whether CloudWatch Logs is enabled for a layer.
-    enabled :: Prelude.Maybe Prelude.Bool
+  { -- | Whether CloudWatch Logs is enabled for a layer.
+    enabled :: Prelude.Maybe Prelude.Bool,
+    -- | A list of configuration options for CloudWatch Logs.
+    logStreams :: Prelude.Maybe [CloudWatchLogsLogStream]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data CloudWatchLogsConfiguration = CloudWatchLogsConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'logStreams', 'cloudWatchLogsConfiguration_logStreams' - A list of configuration options for CloudWatch Logs.
---
 -- 'enabled', 'cloudWatchLogsConfiguration_enabled' - Whether CloudWatch Logs is enabled for a layer.
+--
+-- 'logStreams', 'cloudWatchLogsConfiguration_logStreams' - A list of configuration options for CloudWatch Logs.
 newCloudWatchLogsConfiguration ::
   CloudWatchLogsConfiguration
 newCloudWatchLogsConfiguration =
   CloudWatchLogsConfiguration'
-    { logStreams =
+    { enabled =
         Prelude.Nothing,
-      enabled = Prelude.Nothing
+      logStreams = Prelude.Nothing
     }
-
--- | A list of configuration options for CloudWatch Logs.
-cloudWatchLogsConfiguration_logStreams :: Lens.Lens' CloudWatchLogsConfiguration (Prelude.Maybe [CloudWatchLogsLogStream])
-cloudWatchLogsConfiguration_logStreams = Lens.lens (\CloudWatchLogsConfiguration' {logStreams} -> logStreams) (\s@CloudWatchLogsConfiguration' {} a -> s {logStreams = a} :: CloudWatchLogsConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | Whether CloudWatch Logs is enabled for a layer.
 cloudWatchLogsConfiguration_enabled :: Lens.Lens' CloudWatchLogsConfiguration (Prelude.Maybe Prelude.Bool)
 cloudWatchLogsConfiguration_enabled = Lens.lens (\CloudWatchLogsConfiguration' {enabled} -> enabled) (\s@CloudWatchLogsConfiguration' {} a -> s {enabled = a} :: CloudWatchLogsConfiguration)
+
+-- | A list of configuration options for CloudWatch Logs.
+cloudWatchLogsConfiguration_logStreams :: Lens.Lens' CloudWatchLogsConfiguration (Prelude.Maybe [CloudWatchLogsLogStream])
+cloudWatchLogsConfiguration_logStreams = Lens.lens (\CloudWatchLogsConfiguration' {logStreams} -> logStreams) (\s@CloudWatchLogsConfiguration' {} a -> s {logStreams = a} :: CloudWatchLogsConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON CloudWatchLogsConfiguration where
   parseJSON =
@@ -70,25 +70,25 @@ instance Data.FromJSON CloudWatchLogsConfiguration where
       "CloudWatchLogsConfiguration"
       ( \x ->
           CloudWatchLogsConfiguration'
-            Prelude.<$> (x Data..:? "LogStreams" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "Enabled")
+            Prelude.<$> (x Data..:? "Enabled")
+            Prelude.<*> (x Data..:? "LogStreams" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable CloudWatchLogsConfiguration where
   hashWithSalt _salt CloudWatchLogsConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` logStreams
-      `Prelude.hashWithSalt` enabled
+    _salt `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` logStreams
 
 instance Prelude.NFData CloudWatchLogsConfiguration where
   rnf CloudWatchLogsConfiguration' {..} =
-    Prelude.rnf logStreams
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf logStreams
 
 instance Data.ToJSON CloudWatchLogsConfiguration where
   toJSON CloudWatchLogsConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("LogStreams" Data..=) Prelude.<$> logStreams,
-            ("Enabled" Data..=) Prelude.<$> enabled
+          [ ("Enabled" Data..=) Prelude.<$> enabled,
+            ("LogStreams" Data..=) Prelude.<$> logStreams
           ]
       )

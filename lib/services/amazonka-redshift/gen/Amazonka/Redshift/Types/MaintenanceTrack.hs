@@ -34,11 +34,11 @@ import Amazonka.Redshift.Types.UpdateTarget
 --
 -- /See:/ 'newMaintenanceTrack' smart constructor.
 data MaintenanceTrack = MaintenanceTrack'
-  { -- | The name of the maintenance track. Possible values are @current@ and
+  { -- | The version number for the cluster release.
+    databaseVersion :: Prelude.Maybe Prelude.Text,
+    -- | The name of the maintenance track. Possible values are @current@ and
     -- @trailing@.
     maintenanceTrackName :: Prelude.Maybe Prelude.Text,
-    -- | The version number for the cluster release.
-    databaseVersion :: Prelude.Maybe Prelude.Text,
     -- | An array of UpdateTarget objects to update with the maintenance track.
     updateTargets :: Prelude.Maybe [UpdateTarget]
   }
@@ -52,30 +52,30 @@ data MaintenanceTrack = MaintenanceTrack'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'databaseVersion', 'maintenanceTrack_databaseVersion' - The version number for the cluster release.
+--
 -- 'maintenanceTrackName', 'maintenanceTrack_maintenanceTrackName' - The name of the maintenance track. Possible values are @current@ and
 -- @trailing@.
---
--- 'databaseVersion', 'maintenanceTrack_databaseVersion' - The version number for the cluster release.
 --
 -- 'updateTargets', 'maintenanceTrack_updateTargets' - An array of UpdateTarget objects to update with the maintenance track.
 newMaintenanceTrack ::
   MaintenanceTrack
 newMaintenanceTrack =
   MaintenanceTrack'
-    { maintenanceTrackName =
+    { databaseVersion =
         Prelude.Nothing,
-      databaseVersion = Prelude.Nothing,
+      maintenanceTrackName = Prelude.Nothing,
       updateTargets = Prelude.Nothing
     }
+
+-- | The version number for the cluster release.
+maintenanceTrack_databaseVersion :: Lens.Lens' MaintenanceTrack (Prelude.Maybe Prelude.Text)
+maintenanceTrack_databaseVersion = Lens.lens (\MaintenanceTrack' {databaseVersion} -> databaseVersion) (\s@MaintenanceTrack' {} a -> s {databaseVersion = a} :: MaintenanceTrack)
 
 -- | The name of the maintenance track. Possible values are @current@ and
 -- @trailing@.
 maintenanceTrack_maintenanceTrackName :: Lens.Lens' MaintenanceTrack (Prelude.Maybe Prelude.Text)
 maintenanceTrack_maintenanceTrackName = Lens.lens (\MaintenanceTrack' {maintenanceTrackName} -> maintenanceTrackName) (\s@MaintenanceTrack' {} a -> s {maintenanceTrackName = a} :: MaintenanceTrack)
-
--- | The version number for the cluster release.
-maintenanceTrack_databaseVersion :: Lens.Lens' MaintenanceTrack (Prelude.Maybe Prelude.Text)
-maintenanceTrack_databaseVersion = Lens.lens (\MaintenanceTrack' {databaseVersion} -> databaseVersion) (\s@MaintenanceTrack' {} a -> s {databaseVersion = a} :: MaintenanceTrack)
 
 -- | An array of UpdateTarget objects to update with the maintenance track.
 maintenanceTrack_updateTargets :: Lens.Lens' MaintenanceTrack (Prelude.Maybe [UpdateTarget])
@@ -84,20 +84,20 @@ maintenanceTrack_updateTargets = Lens.lens (\MaintenanceTrack' {updateTargets} -
 instance Data.FromXML MaintenanceTrack where
   parseXML x =
     MaintenanceTrack'
-      Prelude.<$> (x Data..@? "MaintenanceTrackName")
-      Prelude.<*> (x Data..@? "DatabaseVersion")
+      Prelude.<$> (x Data..@? "DatabaseVersion")
+      Prelude.<*> (x Data..@? "MaintenanceTrackName")
       Prelude.<*> ( x Data..@? "UpdateTargets" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "UpdateTarget")
                   )
 
 instance Prelude.Hashable MaintenanceTrack where
   hashWithSalt _salt MaintenanceTrack' {..} =
-    _salt `Prelude.hashWithSalt` maintenanceTrackName
-      `Prelude.hashWithSalt` databaseVersion
+    _salt `Prelude.hashWithSalt` databaseVersion
+      `Prelude.hashWithSalt` maintenanceTrackName
       `Prelude.hashWithSalt` updateTargets
 
 instance Prelude.NFData MaintenanceTrack where
   rnf MaintenanceTrack' {..} =
-    Prelude.rnf maintenanceTrackName
-      `Prelude.seq` Prelude.rnf databaseVersion
+    Prelude.rnf databaseVersion
+      `Prelude.seq` Prelude.rnf maintenanceTrackName
       `Prelude.seq` Prelude.rnf updateTargets

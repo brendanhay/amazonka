@@ -30,15 +30,15 @@ import Amazonka.SecurityHub.Types.AwsWafRuleGroupRulesDetails
 --
 -- /See:/ 'newAwsWafRuleGroupDetails' smart constructor.
 data AwsWafRuleGroupDetails = AwsWafRuleGroupDetails'
-  { -- | The name of the rule group.
+  { -- | The name of the metrics for this rule group.
+    metricName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the rule group.
     name :: Prelude.Maybe Prelude.Text,
-    -- | Provides information about the rules attached to the rule group. These
-    -- rules identify the web requests that you want to allow, block, or count.
-    rules :: Prelude.Maybe [AwsWafRuleGroupRulesDetails],
     -- | The ID of the rule group.
     ruleGroupId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the metrics for this rule group.
-    metricName :: Prelude.Maybe Prelude.Text
+    -- | Provides information about the rules attached to the rule group. These
+    -- rules identify the web requests that you want to allow, block, or count.
+    rules :: Prelude.Maybe [AwsWafRuleGroupRulesDetails]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,40 +50,41 @@ data AwsWafRuleGroupDetails = AwsWafRuleGroupDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'awsWafRuleGroupDetails_name' - The name of the rule group.
+-- 'metricName', 'awsWafRuleGroupDetails_metricName' - The name of the metrics for this rule group.
 --
--- 'rules', 'awsWafRuleGroupDetails_rules' - Provides information about the rules attached to the rule group. These
--- rules identify the web requests that you want to allow, block, or count.
+-- 'name', 'awsWafRuleGroupDetails_name' - The name of the rule group.
 --
 -- 'ruleGroupId', 'awsWafRuleGroupDetails_ruleGroupId' - The ID of the rule group.
 --
--- 'metricName', 'awsWafRuleGroupDetails_metricName' - The name of the metrics for this rule group.
+-- 'rules', 'awsWafRuleGroupDetails_rules' - Provides information about the rules attached to the rule group. These
+-- rules identify the web requests that you want to allow, block, or count.
 newAwsWafRuleGroupDetails ::
   AwsWafRuleGroupDetails
 newAwsWafRuleGroupDetails =
   AwsWafRuleGroupDetails'
-    { name = Prelude.Nothing,
-      rules = Prelude.Nothing,
+    { metricName =
+        Prelude.Nothing,
+      name = Prelude.Nothing,
       ruleGroupId = Prelude.Nothing,
-      metricName = Prelude.Nothing
+      rules = Prelude.Nothing
     }
+
+-- | The name of the metrics for this rule group.
+awsWafRuleGroupDetails_metricName :: Lens.Lens' AwsWafRuleGroupDetails (Prelude.Maybe Prelude.Text)
+awsWafRuleGroupDetails_metricName = Lens.lens (\AwsWafRuleGroupDetails' {metricName} -> metricName) (\s@AwsWafRuleGroupDetails' {} a -> s {metricName = a} :: AwsWafRuleGroupDetails)
 
 -- | The name of the rule group.
 awsWafRuleGroupDetails_name :: Lens.Lens' AwsWafRuleGroupDetails (Prelude.Maybe Prelude.Text)
 awsWafRuleGroupDetails_name = Lens.lens (\AwsWafRuleGroupDetails' {name} -> name) (\s@AwsWafRuleGroupDetails' {} a -> s {name = a} :: AwsWafRuleGroupDetails)
 
--- | Provides information about the rules attached to the rule group. These
--- rules identify the web requests that you want to allow, block, or count.
-awsWafRuleGroupDetails_rules :: Lens.Lens' AwsWafRuleGroupDetails (Prelude.Maybe [AwsWafRuleGroupRulesDetails])
-awsWafRuleGroupDetails_rules = Lens.lens (\AwsWafRuleGroupDetails' {rules} -> rules) (\s@AwsWafRuleGroupDetails' {} a -> s {rules = a} :: AwsWafRuleGroupDetails) Prelude.. Lens.mapping Lens.coerced
-
 -- | The ID of the rule group.
 awsWafRuleGroupDetails_ruleGroupId :: Lens.Lens' AwsWafRuleGroupDetails (Prelude.Maybe Prelude.Text)
 awsWafRuleGroupDetails_ruleGroupId = Lens.lens (\AwsWafRuleGroupDetails' {ruleGroupId} -> ruleGroupId) (\s@AwsWafRuleGroupDetails' {} a -> s {ruleGroupId = a} :: AwsWafRuleGroupDetails)
 
--- | The name of the metrics for this rule group.
-awsWafRuleGroupDetails_metricName :: Lens.Lens' AwsWafRuleGroupDetails (Prelude.Maybe Prelude.Text)
-awsWafRuleGroupDetails_metricName = Lens.lens (\AwsWafRuleGroupDetails' {metricName} -> metricName) (\s@AwsWafRuleGroupDetails' {} a -> s {metricName = a} :: AwsWafRuleGroupDetails)
+-- | Provides information about the rules attached to the rule group. These
+-- rules identify the web requests that you want to allow, block, or count.
+awsWafRuleGroupDetails_rules :: Lens.Lens' AwsWafRuleGroupDetails (Prelude.Maybe [AwsWafRuleGroupRulesDetails])
+awsWafRuleGroupDetails_rules = Lens.lens (\AwsWafRuleGroupDetails' {rules} -> rules) (\s@AwsWafRuleGroupDetails' {} a -> s {rules = a} :: AwsWafRuleGroupDetails) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON AwsWafRuleGroupDetails where
   parseJSON =
@@ -91,33 +92,33 @@ instance Data.FromJSON AwsWafRuleGroupDetails where
       "AwsWafRuleGroupDetails"
       ( \x ->
           AwsWafRuleGroupDetails'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Rules" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "MetricName")
+            Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "RuleGroupId")
-            Prelude.<*> (x Data..:? "MetricName")
+            Prelude.<*> (x Data..:? "Rules" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AwsWafRuleGroupDetails where
   hashWithSalt _salt AwsWafRuleGroupDetails' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` rules
+    _salt `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` ruleGroupId
-      `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` rules
 
 instance Prelude.NFData AwsWafRuleGroupDetails where
   rnf AwsWafRuleGroupDetails' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf rules
+    Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf ruleGroupId
-      `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf rules
 
 instance Data.ToJSON AwsWafRuleGroupDetails where
   toJSON AwsWafRuleGroupDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
-            ("Rules" Data..=) Prelude.<$> rules,
+          [ ("MetricName" Data..=) Prelude.<$> metricName,
+            ("Name" Data..=) Prelude.<$> name,
             ("RuleGroupId" Data..=) Prelude.<$> ruleGroupId,
-            ("MetricName" Data..=) Prelude.<$> metricName
+            ("Rules" Data..=) Prelude.<$> rules
           ]
       )

@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSourceConfig' smart constructor.
 data SourceConfig = SourceConfig'
-  { -- | Specifies whether the channel applies to a single region or to all
+  { -- | The advanced event selectors that are configured for the channel.
+    advancedEventSelectors :: Prelude.Maybe [AdvancedEventSelector],
+    -- | Specifies whether the channel applies to a single region or to all
     -- regions.
-    applyToAllRegions :: Prelude.Maybe Prelude.Bool,
-    -- | The advanced event selectors that are configured for the channel.
-    advancedEventSelectors :: Prelude.Maybe [AdvancedEventSelector]
+    applyToAllRegions :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,26 +45,27 @@ data SourceConfig = SourceConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'advancedEventSelectors', 'sourceConfig_advancedEventSelectors' - The advanced event selectors that are configured for the channel.
+--
 -- 'applyToAllRegions', 'sourceConfig_applyToAllRegions' - Specifies whether the channel applies to a single region or to all
 -- regions.
---
--- 'advancedEventSelectors', 'sourceConfig_advancedEventSelectors' - The advanced event selectors that are configured for the channel.
 newSourceConfig ::
   SourceConfig
 newSourceConfig =
   SourceConfig'
-    { applyToAllRegions = Prelude.Nothing,
-      advancedEventSelectors = Prelude.Nothing
+    { advancedEventSelectors =
+        Prelude.Nothing,
+      applyToAllRegions = Prelude.Nothing
     }
+
+-- | The advanced event selectors that are configured for the channel.
+sourceConfig_advancedEventSelectors :: Lens.Lens' SourceConfig (Prelude.Maybe [AdvancedEventSelector])
+sourceConfig_advancedEventSelectors = Lens.lens (\SourceConfig' {advancedEventSelectors} -> advancedEventSelectors) (\s@SourceConfig' {} a -> s {advancedEventSelectors = a} :: SourceConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies whether the channel applies to a single region or to all
 -- regions.
 sourceConfig_applyToAllRegions :: Lens.Lens' SourceConfig (Prelude.Maybe Prelude.Bool)
 sourceConfig_applyToAllRegions = Lens.lens (\SourceConfig' {applyToAllRegions} -> applyToAllRegions) (\s@SourceConfig' {} a -> s {applyToAllRegions = a} :: SourceConfig)
-
--- | The advanced event selectors that are configured for the channel.
-sourceConfig_advancedEventSelectors :: Lens.Lens' SourceConfig (Prelude.Maybe [AdvancedEventSelector])
-sourceConfig_advancedEventSelectors = Lens.lens (\SourceConfig' {advancedEventSelectors} -> advancedEventSelectors) (\s@SourceConfig' {} a -> s {advancedEventSelectors = a} :: SourceConfig) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON SourceConfig where
   parseJSON =
@@ -72,18 +73,18 @@ instance Data.FromJSON SourceConfig where
       "SourceConfig"
       ( \x ->
           SourceConfig'
-            Prelude.<$> (x Data..:? "ApplyToAllRegions")
-            Prelude.<*> ( x Data..:? "AdvancedEventSelectors"
+            Prelude.<$> ( x Data..:? "AdvancedEventSelectors"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "ApplyToAllRegions")
       )
 
 instance Prelude.Hashable SourceConfig where
   hashWithSalt _salt SourceConfig' {..} =
-    _salt `Prelude.hashWithSalt` applyToAllRegions
-      `Prelude.hashWithSalt` advancedEventSelectors
+    _salt `Prelude.hashWithSalt` advancedEventSelectors
+      `Prelude.hashWithSalt` applyToAllRegions
 
 instance Prelude.NFData SourceConfig where
   rnf SourceConfig' {..} =
-    Prelude.rnf applyToAllRegions
-      `Prelude.seq` Prelude.rnf advancedEventSelectors
+    Prelude.rnf advancedEventSelectors
+      `Prelude.seq` Prelude.rnf applyToAllRegions

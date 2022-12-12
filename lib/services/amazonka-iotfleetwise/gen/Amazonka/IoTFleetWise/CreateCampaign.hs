@@ -36,17 +36,17 @@ module Amazonka.IoTFleetWise.CreateCampaign
     newCreateCampaign,
 
     -- * Request Lenses
-    createCampaign_tags,
     createCampaign_compression,
     createCampaign_dataExtraDimensions,
-    createCampaign_expiryTime,
-    createCampaign_diagnosticsMode,
     createCampaign_description,
-    createCampaign_spoolingMode,
+    createCampaign_diagnosticsMode,
+    createCampaign_expiryTime,
     createCampaign_postTriggerCollectionDuration,
     createCampaign_priority,
-    createCampaign_startTime,
     createCampaign_signalsToCollect,
+    createCampaign_spoolingMode,
+    createCampaign_startTime,
+    createCampaign_tags,
     createCampaign_name,
     createCampaign_signalCatalogArn,
     createCampaign_targetArn,
@@ -57,8 +57,8 @@ module Amazonka.IoTFleetWise.CreateCampaign
     newCreateCampaignResponse,
 
     -- * Response Lenses
-    createCampaignResponse_name,
     createCampaignResponse_arn,
+    createCampaignResponse_name,
     createCampaignResponse_httpStatus,
   )
 where
@@ -73,9 +73,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateCampaign' smart constructor.
 data CreateCampaign = CreateCampaign'
-  { -- | Metadata that can be used to manage the campaign.
-    tags :: Prelude.Maybe [Tag],
-    -- | (Optional) Whether to compress signals before transmitting data to
+  { -- | (Optional) Whether to compress signals before transmitting data to
     -- Amazon Web Services IoT FleetWise. If you don\'t want to compress the
     -- signals, use @OFF@. If it\'s not specified, @SNAPPY@ is used.
     --
@@ -91,12 +89,8 @@ data CreateCampaign = CreateCampaign'
     --
     -- Default: An empty array
     dataExtraDimensions :: Prelude.Maybe [Prelude.Text],
-    -- | (Optional) The time the campaign expires, in seconds since epoch
-    -- (January 1, 1970 at midnight UTC time). Vehicle data won\'t be collected
-    -- after the campaign expires.
-    --
-    -- Default: 253402243200 (December 31, 9999, 00:00:00 UTC)
-    expiryTime :: Prelude.Maybe Data.POSIX,
+    -- | An optional description of the campaign to help identify its purpose.
+    description :: Prelude.Maybe Prelude.Text,
     -- | (Optional) Option for a vehicle to send diagnostic trouble codes to
     -- Amazon Web Services IoT FleetWise. If you want to send diagnostic
     -- trouble codes, use @SEND_ACTIVE_DTCS@. If it\'s not specified, @OFF@ is
@@ -104,16 +98,12 @@ data CreateCampaign = CreateCampaign'
     --
     -- Default: @OFF@
     diagnosticsMode :: Prelude.Maybe DiagnosticsMode,
-    -- | An optional description of the campaign to help identify its purpose.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | (Optional) Whether to store collected data after a vehicle lost a
-    -- connection with the cloud. After a connection is re-established, the
-    -- data is automatically forwarded to Amazon Web Services IoT FleetWise. If
-    -- you want to store collected data when a vehicle loses connection with
-    -- the cloud, use @TO_DISK@. If it\'s not specified, @OFF@ is used.
+    -- | (Optional) The time the campaign expires, in seconds since epoch
+    -- (January 1, 1970 at midnight UTC time). Vehicle data won\'t be collected
+    -- after the campaign expires.
     --
-    -- Default: @OFF@
-    spoolingMode :: Prelude.Maybe SpoolingMode,
+    -- Default: 253402243200 (December 31, 9999, 00:00:00 UTC)
+    expiryTime :: Prelude.Maybe Data.POSIX,
     -- | (Optional) How long (in milliseconds) to collect raw data after a
     -- triggering event initiates the collection. If it\'s not specified, @0@
     -- is used.
@@ -127,13 +117,23 @@ data CreateCampaign = CreateCampaign'
     --
     -- Default: @0@
     priority :: Prelude.Maybe Prelude.Natural,
+    -- | (Optional) A list of information about signals to collect.
+    signalsToCollect :: Prelude.Maybe [SignalInformation],
+    -- | (Optional) Whether to store collected data after a vehicle lost a
+    -- connection with the cloud. After a connection is re-established, the
+    -- data is automatically forwarded to Amazon Web Services IoT FleetWise. If
+    -- you want to store collected data when a vehicle loses connection with
+    -- the cloud, use @TO_DISK@. If it\'s not specified, @OFF@ is used.
+    --
+    -- Default: @OFF@
+    spoolingMode :: Prelude.Maybe SpoolingMode,
     -- | (Optional) The time, in milliseconds, to deliver a campaign after it was
     -- approved. If it\'s not specified, @0@ is used.
     --
     -- Default: @0@
     startTime :: Prelude.Maybe Data.POSIX,
-    -- | (Optional) A list of information about signals to collect.
-    signalsToCollect :: Prelude.Maybe [SignalInformation],
+    -- | Metadata that can be used to manage the campaign.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the campaign to create.
     name :: Prelude.Text,
     -- | (Optional) The Amazon Resource Name (ARN) of the signal catalog to
@@ -155,8 +155,6 @@ data CreateCampaign = CreateCampaign'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createCampaign_tags' - Metadata that can be used to manage the campaign.
---
 -- 'compression', 'createCampaign_compression' - (Optional) Whether to compress signals before transmitting data to
 -- Amazon Web Services IoT FleetWise. If you don\'t want to compress the
 -- signals, use @OFF@. If it\'s not specified, @SNAPPY@ is used.
@@ -173,11 +171,7 @@ data CreateCampaign = CreateCampaign'
 --
 -- Default: An empty array
 --
--- 'expiryTime', 'createCampaign_expiryTime' - (Optional) The time the campaign expires, in seconds since epoch
--- (January 1, 1970 at midnight UTC time). Vehicle data won\'t be collected
--- after the campaign expires.
---
--- Default: 253402243200 (December 31, 9999, 00:00:00 UTC)
+-- 'description', 'createCampaign_description' - An optional description of the campaign to help identify its purpose.
 --
 -- 'diagnosticsMode', 'createCampaign_diagnosticsMode' - (Optional) Option for a vehicle to send diagnostic trouble codes to
 -- Amazon Web Services IoT FleetWise. If you want to send diagnostic
@@ -186,15 +180,11 @@ data CreateCampaign = CreateCampaign'
 --
 -- Default: @OFF@
 --
--- 'description', 'createCampaign_description' - An optional description of the campaign to help identify its purpose.
+-- 'expiryTime', 'createCampaign_expiryTime' - (Optional) The time the campaign expires, in seconds since epoch
+-- (January 1, 1970 at midnight UTC time). Vehicle data won\'t be collected
+-- after the campaign expires.
 --
--- 'spoolingMode', 'createCampaign_spoolingMode' - (Optional) Whether to store collected data after a vehicle lost a
--- connection with the cloud. After a connection is re-established, the
--- data is automatically forwarded to Amazon Web Services IoT FleetWise. If
--- you want to store collected data when a vehicle loses connection with
--- the cloud, use @TO_DISK@. If it\'s not specified, @OFF@ is used.
---
--- Default: @OFF@
+-- Default: 253402243200 (December 31, 9999, 00:00:00 UTC)
 --
 -- 'postTriggerCollectionDuration', 'createCampaign_postTriggerCollectionDuration' - (Optional) How long (in milliseconds) to collect raw data after a
 -- triggering event initiates the collection. If it\'s not specified, @0@
@@ -209,12 +199,22 @@ data CreateCampaign = CreateCampaign'
 --
 -- Default: @0@
 --
+-- 'signalsToCollect', 'createCampaign_signalsToCollect' - (Optional) A list of information about signals to collect.
+--
+-- 'spoolingMode', 'createCampaign_spoolingMode' - (Optional) Whether to store collected data after a vehicle lost a
+-- connection with the cloud. After a connection is re-established, the
+-- data is automatically forwarded to Amazon Web Services IoT FleetWise. If
+-- you want to store collected data when a vehicle loses connection with
+-- the cloud, use @TO_DISK@. If it\'s not specified, @OFF@ is used.
+--
+-- Default: @OFF@
+--
 -- 'startTime', 'createCampaign_startTime' - (Optional) The time, in milliseconds, to deliver a campaign after it was
 -- approved. If it\'s not specified, @0@ is used.
 --
 -- Default: @0@
 --
--- 'signalsToCollect', 'createCampaign_signalsToCollect' - (Optional) A list of information about signals to collect.
+-- 'tags', 'createCampaign_tags' - Metadata that can be used to manage the campaign.
 --
 -- 'name', 'createCampaign_name' - The name of the campaign to create.
 --
@@ -241,26 +241,22 @@ newCreateCampaign
   pTargetArn_
   pCollectionScheme_ =
     CreateCampaign'
-      { tags = Prelude.Nothing,
-        compression = Prelude.Nothing,
+      { compression = Prelude.Nothing,
         dataExtraDimensions = Prelude.Nothing,
-        expiryTime = Prelude.Nothing,
-        diagnosticsMode = Prelude.Nothing,
         description = Prelude.Nothing,
-        spoolingMode = Prelude.Nothing,
+        diagnosticsMode = Prelude.Nothing,
+        expiryTime = Prelude.Nothing,
         postTriggerCollectionDuration = Prelude.Nothing,
         priority = Prelude.Nothing,
-        startTime = Prelude.Nothing,
         signalsToCollect = Prelude.Nothing,
+        spoolingMode = Prelude.Nothing,
+        startTime = Prelude.Nothing,
+        tags = Prelude.Nothing,
         name = pName_,
         signalCatalogArn = pSignalCatalogArn_,
         targetArn = pTargetArn_,
         collectionScheme = pCollectionScheme_
       }
-
--- | Metadata that can be used to manage the campaign.
-createCampaign_tags :: Lens.Lens' CreateCampaign (Prelude.Maybe [Tag])
-createCampaign_tags = Lens.lens (\CreateCampaign' {tags} -> tags) (\s@CreateCampaign' {} a -> s {tags = a} :: CreateCampaign) Prelude.. Lens.mapping Lens.coerced
 
 -- | (Optional) Whether to compress signals before transmitting data to
 -- Amazon Web Services IoT FleetWise. If you don\'t want to compress the
@@ -282,13 +278,9 @@ createCampaign_compression = Lens.lens (\CreateCampaign' {compression} -> compre
 createCampaign_dataExtraDimensions :: Lens.Lens' CreateCampaign (Prelude.Maybe [Prelude.Text])
 createCampaign_dataExtraDimensions = Lens.lens (\CreateCampaign' {dataExtraDimensions} -> dataExtraDimensions) (\s@CreateCampaign' {} a -> s {dataExtraDimensions = a} :: CreateCampaign) Prelude.. Lens.mapping Lens.coerced
 
--- | (Optional) The time the campaign expires, in seconds since epoch
--- (January 1, 1970 at midnight UTC time). Vehicle data won\'t be collected
--- after the campaign expires.
---
--- Default: 253402243200 (December 31, 9999, 00:00:00 UTC)
-createCampaign_expiryTime :: Lens.Lens' CreateCampaign (Prelude.Maybe Prelude.UTCTime)
-createCampaign_expiryTime = Lens.lens (\CreateCampaign' {expiryTime} -> expiryTime) (\s@CreateCampaign' {} a -> s {expiryTime = a} :: CreateCampaign) Prelude.. Lens.mapping Data._Time
+-- | An optional description of the campaign to help identify its purpose.
+createCampaign_description :: Lens.Lens' CreateCampaign (Prelude.Maybe Prelude.Text)
+createCampaign_description = Lens.lens (\CreateCampaign' {description} -> description) (\s@CreateCampaign' {} a -> s {description = a} :: CreateCampaign)
 
 -- | (Optional) Option for a vehicle to send diagnostic trouble codes to
 -- Amazon Web Services IoT FleetWise. If you want to send diagnostic
@@ -299,19 +291,13 @@ createCampaign_expiryTime = Lens.lens (\CreateCampaign' {expiryTime} -> expiryTi
 createCampaign_diagnosticsMode :: Lens.Lens' CreateCampaign (Prelude.Maybe DiagnosticsMode)
 createCampaign_diagnosticsMode = Lens.lens (\CreateCampaign' {diagnosticsMode} -> diagnosticsMode) (\s@CreateCampaign' {} a -> s {diagnosticsMode = a} :: CreateCampaign)
 
--- | An optional description of the campaign to help identify its purpose.
-createCampaign_description :: Lens.Lens' CreateCampaign (Prelude.Maybe Prelude.Text)
-createCampaign_description = Lens.lens (\CreateCampaign' {description} -> description) (\s@CreateCampaign' {} a -> s {description = a} :: CreateCampaign)
-
--- | (Optional) Whether to store collected data after a vehicle lost a
--- connection with the cloud. After a connection is re-established, the
--- data is automatically forwarded to Amazon Web Services IoT FleetWise. If
--- you want to store collected data when a vehicle loses connection with
--- the cloud, use @TO_DISK@. If it\'s not specified, @OFF@ is used.
+-- | (Optional) The time the campaign expires, in seconds since epoch
+-- (January 1, 1970 at midnight UTC time). Vehicle data won\'t be collected
+-- after the campaign expires.
 --
--- Default: @OFF@
-createCampaign_spoolingMode :: Lens.Lens' CreateCampaign (Prelude.Maybe SpoolingMode)
-createCampaign_spoolingMode = Lens.lens (\CreateCampaign' {spoolingMode} -> spoolingMode) (\s@CreateCampaign' {} a -> s {spoolingMode = a} :: CreateCampaign)
+-- Default: 253402243200 (December 31, 9999, 00:00:00 UTC)
+createCampaign_expiryTime :: Lens.Lens' CreateCampaign (Prelude.Maybe Prelude.UTCTime)
+createCampaign_expiryTime = Lens.lens (\CreateCampaign' {expiryTime} -> expiryTime) (\s@CreateCampaign' {} a -> s {expiryTime = a} :: CreateCampaign) Prelude.. Lens.mapping Data._Time
 
 -- | (Optional) How long (in milliseconds) to collect raw data after a
 -- triggering event initiates the collection. If it\'s not specified, @0@
@@ -330,6 +316,20 @@ createCampaign_postTriggerCollectionDuration = Lens.lens (\CreateCampaign' {post
 createCampaign_priority :: Lens.Lens' CreateCampaign (Prelude.Maybe Prelude.Natural)
 createCampaign_priority = Lens.lens (\CreateCampaign' {priority} -> priority) (\s@CreateCampaign' {} a -> s {priority = a} :: CreateCampaign)
 
+-- | (Optional) A list of information about signals to collect.
+createCampaign_signalsToCollect :: Lens.Lens' CreateCampaign (Prelude.Maybe [SignalInformation])
+createCampaign_signalsToCollect = Lens.lens (\CreateCampaign' {signalsToCollect} -> signalsToCollect) (\s@CreateCampaign' {} a -> s {signalsToCollect = a} :: CreateCampaign) Prelude.. Lens.mapping Lens.coerced
+
+-- | (Optional) Whether to store collected data after a vehicle lost a
+-- connection with the cloud. After a connection is re-established, the
+-- data is automatically forwarded to Amazon Web Services IoT FleetWise. If
+-- you want to store collected data when a vehicle loses connection with
+-- the cloud, use @TO_DISK@. If it\'s not specified, @OFF@ is used.
+--
+-- Default: @OFF@
+createCampaign_spoolingMode :: Lens.Lens' CreateCampaign (Prelude.Maybe SpoolingMode)
+createCampaign_spoolingMode = Lens.lens (\CreateCampaign' {spoolingMode} -> spoolingMode) (\s@CreateCampaign' {} a -> s {spoolingMode = a} :: CreateCampaign)
+
 -- | (Optional) The time, in milliseconds, to deliver a campaign after it was
 -- approved. If it\'s not specified, @0@ is used.
 --
@@ -337,9 +337,9 @@ createCampaign_priority = Lens.lens (\CreateCampaign' {priority} -> priority) (\
 createCampaign_startTime :: Lens.Lens' CreateCampaign (Prelude.Maybe Prelude.UTCTime)
 createCampaign_startTime = Lens.lens (\CreateCampaign' {startTime} -> startTime) (\s@CreateCampaign' {} a -> s {startTime = a} :: CreateCampaign) Prelude.. Lens.mapping Data._Time
 
--- | (Optional) A list of information about signals to collect.
-createCampaign_signalsToCollect :: Lens.Lens' CreateCampaign (Prelude.Maybe [SignalInformation])
-createCampaign_signalsToCollect = Lens.lens (\CreateCampaign' {signalsToCollect} -> signalsToCollect) (\s@CreateCampaign' {} a -> s {signalsToCollect = a} :: CreateCampaign) Prelude.. Lens.mapping Lens.coerced
+-- | Metadata that can be used to manage the campaign.
+createCampaign_tags :: Lens.Lens' CreateCampaign (Prelude.Maybe [Tag])
+createCampaign_tags = Lens.lens (\CreateCampaign' {tags} -> tags) (\s@CreateCampaign' {} a -> s {tags = a} :: CreateCampaign) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the campaign to create.
 createCampaign_name :: Lens.Lens' CreateCampaign Prelude.Text
@@ -369,24 +369,24 @@ instance Core.AWSRequest CreateCampaign where
     Response.receiveJSON
       ( \s h x ->
           CreateCampaignResponse'
-            Prelude.<$> (x Data..?> "name")
-            Prelude.<*> (x Data..?> "arn")
+            Prelude.<$> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateCampaign where
   hashWithSalt _salt CreateCampaign' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` compression
+    _salt `Prelude.hashWithSalt` compression
       `Prelude.hashWithSalt` dataExtraDimensions
-      `Prelude.hashWithSalt` expiryTime
-      `Prelude.hashWithSalt` diagnosticsMode
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` spoolingMode
+      `Prelude.hashWithSalt` diagnosticsMode
+      `Prelude.hashWithSalt` expiryTime
       `Prelude.hashWithSalt` postTriggerCollectionDuration
       `Prelude.hashWithSalt` priority
-      `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` signalsToCollect
+      `Prelude.hashWithSalt` spoolingMode
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` signalCatalogArn
       `Prelude.hashWithSalt` targetArn
@@ -394,17 +394,17 @@ instance Prelude.Hashable CreateCampaign where
 
 instance Prelude.NFData CreateCampaign where
   rnf CreateCampaign' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf compression
+    Prelude.rnf compression
       `Prelude.seq` Prelude.rnf dataExtraDimensions
-      `Prelude.seq` Prelude.rnf expiryTime
-      `Prelude.seq` Prelude.rnf diagnosticsMode
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf spoolingMode
+      `Prelude.seq` Prelude.rnf diagnosticsMode
+      `Prelude.seq` Prelude.rnf expiryTime
       `Prelude.seq` Prelude.rnf postTriggerCollectionDuration
       `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf signalsToCollect
+      `Prelude.seq` Prelude.rnf spoolingMode
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf signalCatalogArn
       `Prelude.seq` Prelude.rnf targetArn
@@ -429,21 +429,21 @@ instance Data.ToJSON CreateCampaign where
   toJSON CreateCampaign' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("compression" Data..=) Prelude.<$> compression,
+          [ ("compression" Data..=) Prelude.<$> compression,
             ("dataExtraDimensions" Data..=)
               Prelude.<$> dataExtraDimensions,
-            ("expiryTime" Data..=) Prelude.<$> expiryTime,
+            ("description" Data..=) Prelude.<$> description,
             ("diagnosticsMode" Data..=)
               Prelude.<$> diagnosticsMode,
-            ("description" Data..=) Prelude.<$> description,
-            ("spoolingMode" Data..=) Prelude.<$> spoolingMode,
+            ("expiryTime" Data..=) Prelude.<$> expiryTime,
             ("postTriggerCollectionDuration" Data..=)
               Prelude.<$> postTriggerCollectionDuration,
             ("priority" Data..=) Prelude.<$> priority,
-            ("startTime" Data..=) Prelude.<$> startTime,
             ("signalsToCollect" Data..=)
               Prelude.<$> signalsToCollect,
+            ("spoolingMode" Data..=) Prelude.<$> spoolingMode,
+            ("startTime" Data..=) Prelude.<$> startTime,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("name" Data..= name),
             Prelude.Just
               ("signalCatalogArn" Data..= signalCatalogArn),
@@ -461,10 +461,10 @@ instance Data.ToQuery CreateCampaign where
 
 -- | /See:/ 'newCreateCampaignResponse' smart constructor.
 data CreateCampaignResponse = CreateCampaignResponse'
-  { -- | The name of the created campaign.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the created campaign.
+  { -- | The ARN of the created campaign.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the created campaign.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -478,9 +478,9 @@ data CreateCampaignResponse = CreateCampaignResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'createCampaignResponse_name' - The name of the created campaign.
---
 -- 'arn', 'createCampaignResponse_arn' - The ARN of the created campaign.
+--
+-- 'name', 'createCampaignResponse_name' - The name of the created campaign.
 --
 -- 'httpStatus', 'createCampaignResponse_httpStatus' - The response's http status code.
 newCreateCampaignResponse ::
@@ -489,18 +489,18 @@ newCreateCampaignResponse ::
   CreateCampaignResponse
 newCreateCampaignResponse pHttpStatus_ =
   CreateCampaignResponse'
-    { name = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      name = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The name of the created campaign.
-createCampaignResponse_name :: Lens.Lens' CreateCampaignResponse (Prelude.Maybe Prelude.Text)
-createCampaignResponse_name = Lens.lens (\CreateCampaignResponse' {name} -> name) (\s@CreateCampaignResponse' {} a -> s {name = a} :: CreateCampaignResponse)
 
 -- | The ARN of the created campaign.
 createCampaignResponse_arn :: Lens.Lens' CreateCampaignResponse (Prelude.Maybe Prelude.Text)
 createCampaignResponse_arn = Lens.lens (\CreateCampaignResponse' {arn} -> arn) (\s@CreateCampaignResponse' {} a -> s {arn = a} :: CreateCampaignResponse)
+
+-- | The name of the created campaign.
+createCampaignResponse_name :: Lens.Lens' CreateCampaignResponse (Prelude.Maybe Prelude.Text)
+createCampaignResponse_name = Lens.lens (\CreateCampaignResponse' {name} -> name) (\s@CreateCampaignResponse' {} a -> s {name = a} :: CreateCampaignResponse)
 
 -- | The response's http status code.
 createCampaignResponse_httpStatus :: Lens.Lens' CreateCampaignResponse Prelude.Int
@@ -508,6 +508,6 @@ createCampaignResponse_httpStatus = Lens.lens (\CreateCampaignResponse' {httpSta
 
 instance Prelude.NFData CreateCampaignResponse where
   rnf CreateCampaignResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf httpStatus

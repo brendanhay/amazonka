@@ -37,11 +37,11 @@ module Amazonka.Evidently.CreateLaunch
     newCreateLaunch,
 
     -- * Request Lenses
-    createLaunch_tags,
     createLaunch_description,
-    createLaunch_scheduledSplitsConfig,
     createLaunch_metricMonitors,
     createLaunch_randomizationSalt,
+    createLaunch_scheduledSplitsConfig,
+    createLaunch_tags,
     createLaunch_groups,
     createLaunch_name,
     createLaunch_project,
@@ -66,7 +66,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateLaunch' smart constructor.
 data CreateLaunch = CreateLaunch'
-  { -- | Assigns one or more tags (key-value pairs) to the launch.
+  { -- | An optional description for the launch.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | An array of structures that define the metrics that will be used to
+    -- monitor the launch performance.
+    metricMonitors :: Prelude.Maybe [MetricMonitorConfig],
+    -- | When Evidently assigns a particular user session to a launch, it must
+    -- use a randomization ID to determine which variation the user session is
+    -- served. This randomization ID is a combination of the entity ID and
+    -- @randomizationSalt@. If you omit @randomizationSalt@, Evidently uses the
+    -- launch name as the @randomizationSalt@.
+    randomizationSalt :: Prelude.Maybe Prelude.Text,
+    -- | An array of structures that define the traffic allocation percentages
+    -- among the feature variations during each step of the launch.
+    scheduledSplitsConfig :: Prelude.Maybe ScheduledSplitsLaunchConfig,
+    -- | Assigns one or more tags (key-value pairs) to the launch.
     --
     -- Tags can help you organize and categorize your resources. You can also
     -- use them to scope user permissions by granting a user permission to
@@ -77,20 +91,6 @@ data CreateLaunch = CreateLaunch'
     --
     -- >  <p>You can associate as many as 50 tags with a launch.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | An optional description for the launch.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | An array of structures that define the traffic allocation percentages
-    -- among the feature variations during each step of the launch.
-    scheduledSplitsConfig :: Prelude.Maybe ScheduledSplitsLaunchConfig,
-    -- | An array of structures that define the metrics that will be used to
-    -- monitor the launch performance.
-    metricMonitors :: Prelude.Maybe [MetricMonitorConfig],
-    -- | When Evidently assigns a particular user session to a launch, it must
-    -- use a randomization ID to determine which variation the user session is
-    -- served. This randomization ID is a combination of the entity ID and
-    -- @randomizationSalt@. If you omit @randomizationSalt@, Evidently uses the
-    -- launch name as the @randomizationSalt@.
-    randomizationSalt :: Prelude.Maybe Prelude.Text,
     -- | An array of structures that contains the feature and variations that are
     -- to be used for the launch.
     groups :: Prelude.NonEmpty LaunchGroupConfig,
@@ -109,6 +109,20 @@ data CreateLaunch = CreateLaunch'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'createLaunch_description' - An optional description for the launch.
+--
+-- 'metricMonitors', 'createLaunch_metricMonitors' - An array of structures that define the metrics that will be used to
+-- monitor the launch performance.
+--
+-- 'randomizationSalt', 'createLaunch_randomizationSalt' - When Evidently assigns a particular user session to a launch, it must
+-- use a randomization ID to determine which variation the user session is
+-- served. This randomization ID is a combination of the entity ID and
+-- @randomizationSalt@. If you omit @randomizationSalt@, Evidently uses the
+-- launch name as the @randomizationSalt@.
+--
+-- 'scheduledSplitsConfig', 'createLaunch_scheduledSplitsConfig' - An array of structures that define the traffic allocation percentages
+-- among the feature variations during each step of the launch.
+--
 -- 'tags', 'createLaunch_tags' - Assigns one or more tags (key-value pairs) to the launch.
 --
 -- Tags can help you organize and categorize your resources. You can also
@@ -119,20 +133,6 @@ data CreateLaunch = CreateLaunch'
 -- interpreted strictly as strings of characters.
 --
 -- >  <p>You can associate as many as 50 tags with a launch.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
---
--- 'description', 'createLaunch_description' - An optional description for the launch.
---
--- 'scheduledSplitsConfig', 'createLaunch_scheduledSplitsConfig' - An array of structures that define the traffic allocation percentages
--- among the feature variations during each step of the launch.
---
--- 'metricMonitors', 'createLaunch_metricMonitors' - An array of structures that define the metrics that will be used to
--- monitor the launch performance.
---
--- 'randomizationSalt', 'createLaunch_randomizationSalt' - When Evidently assigns a particular user session to a launch, it must
--- use a randomization ID to determine which variation the user session is
--- served. This randomization ID is a combination of the entity ID and
--- @randomizationSalt@. If you omit @randomizationSalt@, Evidently uses the
--- launch name as the @randomizationSalt@.
 --
 -- 'groups', 'createLaunch_groups' - An array of structures that contains the feature and variations that are
 -- to be used for the launch.
@@ -150,37 +150,19 @@ newCreateLaunch ::
   CreateLaunch
 newCreateLaunch pGroups_ pName_ pProject_ =
   CreateLaunch'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing,
-      scheduledSplitsConfig = Prelude.Nothing,
+    { description = Prelude.Nothing,
       metricMonitors = Prelude.Nothing,
       randomizationSalt = Prelude.Nothing,
+      scheduledSplitsConfig = Prelude.Nothing,
+      tags = Prelude.Nothing,
       groups = Lens.coerced Lens.# pGroups_,
       name = pName_,
       project = pProject_
     }
 
--- | Assigns one or more tags (key-value pairs) to the launch.
---
--- Tags can help you organize and categorize your resources. You can also
--- use them to scope user permissions by granting a user permission to
--- access or change only resources with certain tag values.
---
--- Tags don\'t have any semantic meaning to Amazon Web Services and are
--- interpreted strictly as strings of characters.
---
--- >  <p>You can associate as many as 50 tags with a launch.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
-createLaunch_tags :: Lens.Lens' CreateLaunch (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createLaunch_tags = Lens.lens (\CreateLaunch' {tags} -> tags) (\s@CreateLaunch' {} a -> s {tags = a} :: CreateLaunch) Prelude.. Lens.mapping Lens.coerced
-
 -- | An optional description for the launch.
 createLaunch_description :: Lens.Lens' CreateLaunch (Prelude.Maybe Prelude.Text)
 createLaunch_description = Lens.lens (\CreateLaunch' {description} -> description) (\s@CreateLaunch' {} a -> s {description = a} :: CreateLaunch)
-
--- | An array of structures that define the traffic allocation percentages
--- among the feature variations during each step of the launch.
-createLaunch_scheduledSplitsConfig :: Lens.Lens' CreateLaunch (Prelude.Maybe ScheduledSplitsLaunchConfig)
-createLaunch_scheduledSplitsConfig = Lens.lens (\CreateLaunch' {scheduledSplitsConfig} -> scheduledSplitsConfig) (\s@CreateLaunch' {} a -> s {scheduledSplitsConfig = a} :: CreateLaunch)
 
 -- | An array of structures that define the metrics that will be used to
 -- monitor the launch performance.
@@ -194,6 +176,24 @@ createLaunch_metricMonitors = Lens.lens (\CreateLaunch' {metricMonitors} -> metr
 -- launch name as the @randomizationSalt@.
 createLaunch_randomizationSalt :: Lens.Lens' CreateLaunch (Prelude.Maybe Prelude.Text)
 createLaunch_randomizationSalt = Lens.lens (\CreateLaunch' {randomizationSalt} -> randomizationSalt) (\s@CreateLaunch' {} a -> s {randomizationSalt = a} :: CreateLaunch)
+
+-- | An array of structures that define the traffic allocation percentages
+-- among the feature variations during each step of the launch.
+createLaunch_scheduledSplitsConfig :: Lens.Lens' CreateLaunch (Prelude.Maybe ScheduledSplitsLaunchConfig)
+createLaunch_scheduledSplitsConfig = Lens.lens (\CreateLaunch' {scheduledSplitsConfig} -> scheduledSplitsConfig) (\s@CreateLaunch' {} a -> s {scheduledSplitsConfig = a} :: CreateLaunch)
+
+-- | Assigns one or more tags (key-value pairs) to the launch.
+--
+-- Tags can help you organize and categorize your resources. You can also
+-- use them to scope user permissions by granting a user permission to
+-- access or change only resources with certain tag values.
+--
+-- Tags don\'t have any semantic meaning to Amazon Web Services and are
+-- interpreted strictly as strings of characters.
+--
+-- >  <p>You can associate as many as 50 tags with a launch.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
+createLaunch_tags :: Lens.Lens' CreateLaunch (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createLaunch_tags = Lens.lens (\CreateLaunch' {tags} -> tags) (\s@CreateLaunch' {} a -> s {tags = a} :: CreateLaunch) Prelude.. Lens.mapping Lens.coerced
 
 -- | An array of structures that contains the feature and variations that are
 -- to be used for the launch.
@@ -222,22 +222,22 @@ instance Core.AWSRequest CreateLaunch where
 
 instance Prelude.Hashable CreateLaunch where
   hashWithSalt _salt CreateLaunch' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` scheduledSplitsConfig
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` metricMonitors
       `Prelude.hashWithSalt` randomizationSalt
+      `Prelude.hashWithSalt` scheduledSplitsConfig
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` groups
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` project
 
 instance Prelude.NFData CreateLaunch where
   rnf CreateLaunch' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf scheduledSplitsConfig
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf metricMonitors
       `Prelude.seq` Prelude.rnf randomizationSalt
+      `Prelude.seq` Prelude.rnf scheduledSplitsConfig
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf groups
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf project
@@ -257,14 +257,14 @@ instance Data.ToJSON CreateLaunch where
   toJSON CreateLaunch' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("description" Data..=) Prelude.<$> description,
-            ("scheduledSplitsConfig" Data..=)
-              Prelude.<$> scheduledSplitsConfig,
+          [ ("description" Data..=) Prelude.<$> description,
             ("metricMonitors" Data..=)
               Prelude.<$> metricMonitors,
             ("randomizationSalt" Data..=)
               Prelude.<$> randomizationSalt,
+            ("scheduledSplitsConfig" Data..=)
+              Prelude.<$> scheduledSplitsConfig,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("groups" Data..= groups),
             Prelude.Just ("name" Data..= name)
           ]

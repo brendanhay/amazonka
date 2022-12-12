@@ -48,8 +48,8 @@ module Amazonka.SWF.RegisterDomain
     newRegisterDomain,
 
     -- * Request Lenses
-    registerDomain_tags,
     registerDomain_description,
+    registerDomain_tags,
     registerDomain_name,
     registerDomain_workflowExecutionRetentionPeriodInDays,
 
@@ -69,13 +69,13 @@ import Amazonka.SWF.Types
 
 -- | /See:/ 'newRegisterDomain' smart constructor.
 data RegisterDomain = RegisterDomain'
-  { -- | Tags to be added when registering a domain.
+  { -- | A text description of the domain.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Tags to be added when registering a domain.
     --
     -- Tags may only contain unicode letters, digits, whitespace, or these
     -- symbols: @_ . : \/ = + - \@@.
     tags :: Prelude.Maybe [ResourceTag],
-    -- | A text description of the domain.
-    description :: Prelude.Maybe Prelude.Text,
     -- | Name of the domain to register. The name must be unique in the region
     -- that the domain is registered in.
     --
@@ -109,12 +109,12 @@ data RegisterDomain = RegisterDomain'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'registerDomain_description' - A text description of the domain.
+--
 -- 'tags', 'registerDomain_tags' - Tags to be added when registering a domain.
 --
 -- Tags may only contain unicode letters, digits, whitespace, or these
 -- symbols: @_ . : \/ = + - \@@.
---
--- 'description', 'registerDomain_description' - A text description of the domain.
 --
 -- 'name', 'registerDomain_name' - Name of the domain to register. The name must be unique in the region
 -- that the domain is registered in.
@@ -147,12 +147,16 @@ newRegisterDomain
   pName_
   pWorkflowExecutionRetentionPeriodInDays_ =
     RegisterDomain'
-      { tags = Prelude.Nothing,
-        description = Prelude.Nothing,
+      { description = Prelude.Nothing,
+        tags = Prelude.Nothing,
         name = pName_,
         workflowExecutionRetentionPeriodInDays =
           pWorkflowExecutionRetentionPeriodInDays_
       }
+
+-- | A text description of the domain.
+registerDomain_description :: Lens.Lens' RegisterDomain (Prelude.Maybe Prelude.Text)
+registerDomain_description = Lens.lens (\RegisterDomain' {description} -> description) (\s@RegisterDomain' {} a -> s {description = a} :: RegisterDomain)
 
 -- | Tags to be added when registering a domain.
 --
@@ -160,10 +164,6 @@ newRegisterDomain
 -- symbols: @_ . : \/ = + - \@@.
 registerDomain_tags :: Lens.Lens' RegisterDomain (Prelude.Maybe [ResourceTag])
 registerDomain_tags = Lens.lens (\RegisterDomain' {tags} -> tags) (\s@RegisterDomain' {} a -> s {tags = a} :: RegisterDomain) Prelude.. Lens.mapping Lens.coerced
-
--- | A text description of the domain.
-registerDomain_description :: Lens.Lens' RegisterDomain (Prelude.Maybe Prelude.Text)
-registerDomain_description = Lens.lens (\RegisterDomain' {description} -> description) (\s@RegisterDomain' {} a -> s {description = a} :: RegisterDomain)
 
 -- | Name of the domain to register. The name must be unique in the region
 -- that the domain is registered in.
@@ -202,15 +202,15 @@ instance Core.AWSRequest RegisterDomain where
 
 instance Prelude.Hashable RegisterDomain where
   hashWithSalt _salt RegisterDomain' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` workflowExecutionRetentionPeriodInDays
 
 instance Prelude.NFData RegisterDomain where
   rnf RegisterDomain' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf workflowExecutionRetentionPeriodInDays
 
@@ -233,8 +233,8 @@ instance Data.ToJSON RegisterDomain where
   toJSON RegisterDomain' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("description" Data..=) Prelude.<$> description,
+          [ ("description" Data..=) Prelude.<$> description,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("name" Data..= name),
             Prelude.Just
               ( "workflowExecutionRetentionPeriodInDays"

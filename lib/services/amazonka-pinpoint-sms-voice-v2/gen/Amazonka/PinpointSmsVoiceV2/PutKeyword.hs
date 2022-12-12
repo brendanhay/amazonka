@@ -46,11 +46,11 @@ module Amazonka.PinpointSmsVoiceV2.PutKeyword
     newPutKeywordResponse,
 
     -- * Response Lenses
-    putKeywordResponse_originationIdentity,
-    putKeywordResponse_keywordAction,
-    putKeywordResponse_originationIdentityArn,
     putKeywordResponse_keyword,
+    putKeywordResponse_keywordAction,
     putKeywordResponse_keywordMessage,
+    putKeywordResponse_originationIdentity,
+    putKeywordResponse_originationIdentityArn,
     putKeywordResponse_httpStatus,
   )
 where
@@ -161,11 +161,11 @@ instance Core.AWSRequest PutKeyword where
     Response.receiveJSON
       ( \s h x ->
           PutKeywordResponse'
-            Prelude.<$> (x Data..?> "OriginationIdentity")
+            Prelude.<$> (x Data..?> "Keyword")
             Prelude.<*> (x Data..?> "KeywordAction")
-            Prelude.<*> (x Data..?> "OriginationIdentityArn")
-            Prelude.<*> (x Data..?> "Keyword")
             Prelude.<*> (x Data..?> "KeywordMessage")
+            Prelude.<*> (x Data..?> "OriginationIdentity")
+            Prelude.<*> (x Data..?> "OriginationIdentityArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -219,16 +219,16 @@ instance Data.ToQuery PutKeyword where
 
 -- | /See:/ 'newPutKeywordResponse' smart constructor.
 data PutKeywordResponse = PutKeywordResponse'
-  { -- | The PhoneNumberId or PoolId that the keyword was associated with.
-    originationIdentity :: Prelude.Maybe Prelude.Text,
+  { -- | The keyword that was added.
+    keyword :: Prelude.Maybe Prelude.Text,
     -- | The action to perform when the keyword is used.
     keywordAction :: Prelude.Maybe KeywordAction,
-    -- | The PhoneNumberArn or PoolArn that the keyword was associated with.
-    originationIdentityArn :: Prelude.Maybe Prelude.Text,
-    -- | The keyword that was added.
-    keyword :: Prelude.Maybe Prelude.Text,
     -- | The message associated with the keyword.
     keywordMessage :: Prelude.Maybe Prelude.Text,
+    -- | The PhoneNumberId or PoolId that the keyword was associated with.
+    originationIdentity :: Prelude.Maybe Prelude.Text,
+    -- | The PhoneNumberArn or PoolArn that the keyword was associated with.
+    originationIdentityArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -242,15 +242,15 @@ data PutKeywordResponse = PutKeywordResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'originationIdentity', 'putKeywordResponse_originationIdentity' - The PhoneNumberId or PoolId that the keyword was associated with.
+-- 'keyword', 'putKeywordResponse_keyword' - The keyword that was added.
 --
 -- 'keywordAction', 'putKeywordResponse_keywordAction' - The action to perform when the keyword is used.
 --
--- 'originationIdentityArn', 'putKeywordResponse_originationIdentityArn' - The PhoneNumberArn or PoolArn that the keyword was associated with.
---
--- 'keyword', 'putKeywordResponse_keyword' - The keyword that was added.
---
 -- 'keywordMessage', 'putKeywordResponse_keywordMessage' - The message associated with the keyword.
+--
+-- 'originationIdentity', 'putKeywordResponse_originationIdentity' - The PhoneNumberId or PoolId that the keyword was associated with.
+--
+-- 'originationIdentityArn', 'putKeywordResponse_originationIdentityArn' - The PhoneNumberArn or PoolArn that the keyword was associated with.
 --
 -- 'httpStatus', 'putKeywordResponse_httpStatus' - The response's http status code.
 newPutKeywordResponse ::
@@ -259,34 +259,33 @@ newPutKeywordResponse ::
   PutKeywordResponse
 newPutKeywordResponse pHttpStatus_ =
   PutKeywordResponse'
-    { originationIdentity =
-        Prelude.Nothing,
+    { keyword = Prelude.Nothing,
       keywordAction = Prelude.Nothing,
-      originationIdentityArn = Prelude.Nothing,
-      keyword = Prelude.Nothing,
       keywordMessage = Prelude.Nothing,
+      originationIdentity = Prelude.Nothing,
+      originationIdentityArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The PhoneNumberId or PoolId that the keyword was associated with.
-putKeywordResponse_originationIdentity :: Lens.Lens' PutKeywordResponse (Prelude.Maybe Prelude.Text)
-putKeywordResponse_originationIdentity = Lens.lens (\PutKeywordResponse' {originationIdentity} -> originationIdentity) (\s@PutKeywordResponse' {} a -> s {originationIdentity = a} :: PutKeywordResponse)
-
--- | The action to perform when the keyword is used.
-putKeywordResponse_keywordAction :: Lens.Lens' PutKeywordResponse (Prelude.Maybe KeywordAction)
-putKeywordResponse_keywordAction = Lens.lens (\PutKeywordResponse' {keywordAction} -> keywordAction) (\s@PutKeywordResponse' {} a -> s {keywordAction = a} :: PutKeywordResponse)
-
--- | The PhoneNumberArn or PoolArn that the keyword was associated with.
-putKeywordResponse_originationIdentityArn :: Lens.Lens' PutKeywordResponse (Prelude.Maybe Prelude.Text)
-putKeywordResponse_originationIdentityArn = Lens.lens (\PutKeywordResponse' {originationIdentityArn} -> originationIdentityArn) (\s@PutKeywordResponse' {} a -> s {originationIdentityArn = a} :: PutKeywordResponse)
 
 -- | The keyword that was added.
 putKeywordResponse_keyword :: Lens.Lens' PutKeywordResponse (Prelude.Maybe Prelude.Text)
 putKeywordResponse_keyword = Lens.lens (\PutKeywordResponse' {keyword} -> keyword) (\s@PutKeywordResponse' {} a -> s {keyword = a} :: PutKeywordResponse)
 
+-- | The action to perform when the keyword is used.
+putKeywordResponse_keywordAction :: Lens.Lens' PutKeywordResponse (Prelude.Maybe KeywordAction)
+putKeywordResponse_keywordAction = Lens.lens (\PutKeywordResponse' {keywordAction} -> keywordAction) (\s@PutKeywordResponse' {} a -> s {keywordAction = a} :: PutKeywordResponse)
+
 -- | The message associated with the keyword.
 putKeywordResponse_keywordMessage :: Lens.Lens' PutKeywordResponse (Prelude.Maybe Prelude.Text)
 putKeywordResponse_keywordMessage = Lens.lens (\PutKeywordResponse' {keywordMessage} -> keywordMessage) (\s@PutKeywordResponse' {} a -> s {keywordMessage = a} :: PutKeywordResponse)
+
+-- | The PhoneNumberId or PoolId that the keyword was associated with.
+putKeywordResponse_originationIdentity :: Lens.Lens' PutKeywordResponse (Prelude.Maybe Prelude.Text)
+putKeywordResponse_originationIdentity = Lens.lens (\PutKeywordResponse' {originationIdentity} -> originationIdentity) (\s@PutKeywordResponse' {} a -> s {originationIdentity = a} :: PutKeywordResponse)
+
+-- | The PhoneNumberArn or PoolArn that the keyword was associated with.
+putKeywordResponse_originationIdentityArn :: Lens.Lens' PutKeywordResponse (Prelude.Maybe Prelude.Text)
+putKeywordResponse_originationIdentityArn = Lens.lens (\PutKeywordResponse' {originationIdentityArn} -> originationIdentityArn) (\s@PutKeywordResponse' {} a -> s {originationIdentityArn = a} :: PutKeywordResponse)
 
 -- | The response's http status code.
 putKeywordResponse_httpStatus :: Lens.Lens' PutKeywordResponse Prelude.Int
@@ -294,9 +293,9 @@ putKeywordResponse_httpStatus = Lens.lens (\PutKeywordResponse' {httpStatus} -> 
 
 instance Prelude.NFData PutKeywordResponse where
   rnf PutKeywordResponse' {..} =
-    Prelude.rnf originationIdentity
+    Prelude.rnf keyword
       `Prelude.seq` Prelude.rnf keywordAction
-      `Prelude.seq` Prelude.rnf originationIdentityArn
-      `Prelude.seq` Prelude.rnf keyword
       `Prelude.seq` Prelude.rnf keywordMessage
+      `Prelude.seq` Prelude.rnf originationIdentity
+      `Prelude.seq` Prelude.rnf originationIdentityArn
       `Prelude.seq` Prelude.rnf httpStatus

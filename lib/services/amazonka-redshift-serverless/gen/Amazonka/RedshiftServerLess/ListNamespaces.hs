@@ -29,8 +29,8 @@ module Amazonka.RedshiftServerLess.ListNamespaces
     newListNamespaces,
 
     -- * Request Lenses
-    listNamespaces_nextToken,
     listNamespaces_maxResults,
+    listNamespaces_nextToken,
 
     -- * Destructuring the Response
     ListNamespacesResponse (..),
@@ -53,13 +53,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListNamespaces' smart constructor.
 data ListNamespaces = ListNamespaces'
-  { -- | If your initial @ListNamespaces@ operation returns a @nextToken@, you
-    -- can include the returned @nextToken@ in subsequent @ListNamespaces@
+  { -- | An optional parameter that specifies the maximum number of results to
+    -- return. You can use @nextToken@ to display the next page of results.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If your initial @ListNamespaces@ operation returns a @nextToken@, you
+    -- can include the returned @nextToken@ in following @ListNamespaces@
     -- operations, which returns results in the next page.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An optional parameter that specifies the maximum number of results to
-    -- return. You can use @nextToken@ to get the next page of results.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,30 +71,30 @@ data ListNamespaces = ListNamespaces'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listNamespaces_nextToken' - If your initial @ListNamespaces@ operation returns a @nextToken@, you
--- can include the returned @nextToken@ in subsequent @ListNamespaces@
--- operations, which returns results in the next page.
---
 -- 'maxResults', 'listNamespaces_maxResults' - An optional parameter that specifies the maximum number of results to
--- return. You can use @nextToken@ to get the next page of results.
+-- return. You can use @nextToken@ to display the next page of results.
+--
+-- 'nextToken', 'listNamespaces_nextToken' - If your initial @ListNamespaces@ operation returns a @nextToken@, you
+-- can include the returned @nextToken@ in following @ListNamespaces@
+-- operations, which returns results in the next page.
 newListNamespaces ::
   ListNamespaces
 newListNamespaces =
   ListNamespaces'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
 
+-- | An optional parameter that specifies the maximum number of results to
+-- return. You can use @nextToken@ to display the next page of results.
+listNamespaces_maxResults :: Lens.Lens' ListNamespaces (Prelude.Maybe Prelude.Natural)
+listNamespaces_maxResults = Lens.lens (\ListNamespaces' {maxResults} -> maxResults) (\s@ListNamespaces' {} a -> s {maxResults = a} :: ListNamespaces)
+
 -- | If your initial @ListNamespaces@ operation returns a @nextToken@, you
--- can include the returned @nextToken@ in subsequent @ListNamespaces@
+-- can include the returned @nextToken@ in following @ListNamespaces@
 -- operations, which returns results in the next page.
 listNamespaces_nextToken :: Lens.Lens' ListNamespaces (Prelude.Maybe Prelude.Text)
 listNamespaces_nextToken = Lens.lens (\ListNamespaces' {nextToken} -> nextToken) (\s@ListNamespaces' {} a -> s {nextToken = a} :: ListNamespaces)
-
--- | An optional parameter that specifies the maximum number of results to
--- return. You can use @nextToken@ to get the next page of results.
-listNamespaces_maxResults :: Lens.Lens' ListNamespaces (Prelude.Maybe Prelude.Natural)
-listNamespaces_maxResults = Lens.lens (\ListNamespaces' {maxResults} -> maxResults) (\s@ListNamespaces' {} a -> s {maxResults = a} :: ListNamespaces)
 
 instance Core.AWSPager ListNamespaces where
   page rq rs
@@ -131,13 +131,13 @@ instance Core.AWSRequest ListNamespaces where
 
 instance Prelude.Hashable ListNamespaces where
   hashWithSalt _salt ListNamespaces' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListNamespaces where
   rnf ListNamespaces' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListNamespaces where
   toHeaders =
@@ -158,8 +158,8 @@ instance Data.ToJSON ListNamespaces where
   toJSON ListNamespaces' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

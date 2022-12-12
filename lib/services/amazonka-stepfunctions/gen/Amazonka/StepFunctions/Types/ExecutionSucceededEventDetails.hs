@@ -29,11 +29,11 @@ import Amazonka.StepFunctions.Types.HistoryEventExecutionDataDetails
 --
 -- /See:/ 'newExecutionSucceededEventDetails' smart constructor.
 data ExecutionSucceededEventDetails = ExecutionSucceededEventDetails'
-  { -- | Contains details about the output of an execution history event.
-    outputDetails :: Prelude.Maybe HistoryEventExecutionDataDetails,
-    -- | The JSON data output by the execution. Length constraints apply to the
+  { -- | The JSON data output by the execution. Length constraints apply to the
     -- payload size, and are expressed as bytes in UTF-8 encoding.
-    output :: Prelude.Maybe (Data.Sensitive Prelude.Text)
+    output :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | Contains details about the output of an execution history event.
+    outputDetails :: Prelude.Maybe HistoryEventExecutionDataDetails
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -45,27 +45,27 @@ data ExecutionSucceededEventDetails = ExecutionSucceededEventDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'outputDetails', 'executionSucceededEventDetails_outputDetails' - Contains details about the output of an execution history event.
---
 -- 'output', 'executionSucceededEventDetails_output' - The JSON data output by the execution. Length constraints apply to the
 -- payload size, and are expressed as bytes in UTF-8 encoding.
+--
+-- 'outputDetails', 'executionSucceededEventDetails_outputDetails' - Contains details about the output of an execution history event.
 newExecutionSucceededEventDetails ::
   ExecutionSucceededEventDetails
 newExecutionSucceededEventDetails =
   ExecutionSucceededEventDetails'
-    { outputDetails =
+    { output =
         Prelude.Nothing,
-      output = Prelude.Nothing
+      outputDetails = Prelude.Nothing
     }
-
--- | Contains details about the output of an execution history event.
-executionSucceededEventDetails_outputDetails :: Lens.Lens' ExecutionSucceededEventDetails (Prelude.Maybe HistoryEventExecutionDataDetails)
-executionSucceededEventDetails_outputDetails = Lens.lens (\ExecutionSucceededEventDetails' {outputDetails} -> outputDetails) (\s@ExecutionSucceededEventDetails' {} a -> s {outputDetails = a} :: ExecutionSucceededEventDetails)
 
 -- | The JSON data output by the execution. Length constraints apply to the
 -- payload size, and are expressed as bytes in UTF-8 encoding.
 executionSucceededEventDetails_output :: Lens.Lens' ExecutionSucceededEventDetails (Prelude.Maybe Prelude.Text)
 executionSucceededEventDetails_output = Lens.lens (\ExecutionSucceededEventDetails' {output} -> output) (\s@ExecutionSucceededEventDetails' {} a -> s {output = a} :: ExecutionSucceededEventDetails) Prelude.. Lens.mapping Data._Sensitive
+
+-- | Contains details about the output of an execution history event.
+executionSucceededEventDetails_outputDetails :: Lens.Lens' ExecutionSucceededEventDetails (Prelude.Maybe HistoryEventExecutionDataDetails)
+executionSucceededEventDetails_outputDetails = Lens.lens (\ExecutionSucceededEventDetails' {outputDetails} -> outputDetails) (\s@ExecutionSucceededEventDetails' {} a -> s {outputDetails = a} :: ExecutionSucceededEventDetails)
 
 instance Data.FromJSON ExecutionSucceededEventDetails where
   parseJSON =
@@ -73,8 +73,8 @@ instance Data.FromJSON ExecutionSucceededEventDetails where
       "ExecutionSucceededEventDetails"
       ( \x ->
           ExecutionSucceededEventDetails'
-            Prelude.<$> (x Data..:? "outputDetails")
-            Prelude.<*> (x Data..:? "output")
+            Prelude.<$> (x Data..:? "output")
+            Prelude.<*> (x Data..:? "outputDetails")
       )
 
 instance
@@ -84,13 +84,13 @@ instance
   hashWithSalt
     _salt
     ExecutionSucceededEventDetails' {..} =
-      _salt `Prelude.hashWithSalt` outputDetails
-        `Prelude.hashWithSalt` output
+      _salt `Prelude.hashWithSalt` output
+        `Prelude.hashWithSalt` outputDetails
 
 instance
   Prelude.NFData
     ExecutionSucceededEventDetails
   where
   rnf ExecutionSucceededEventDetails' {..} =
-    Prelude.rnf outputDetails
-      `Prelude.seq` Prelude.rnf output
+    Prelude.rnf output
+      `Prelude.seq` Prelude.rnf outputDetails

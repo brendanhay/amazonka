@@ -31,19 +31,19 @@ import Amazonka.SecurityHub.Types.AwsEcrRepositoryLifecyclePolicyDetails
 --
 -- /See:/ 'newAwsEcrRepositoryDetails' smart constructor.
 data AwsEcrRepositoryDetails = AwsEcrRepositoryDetails'
-  { -- | The name of the repository.
-    repositoryName :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the repository.
+  { -- | The ARN of the repository.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The text of the repository policy.
-    repositoryPolicyText :: Prelude.Maybe Prelude.Text,
-    -- | Information about the lifecycle policy for the repository.
-    lifecyclePolicy :: Prelude.Maybe AwsEcrRepositoryLifecyclePolicyDetails,
+    -- | The image scanning configuration for a repository.
+    imageScanningConfiguration :: Prelude.Maybe AwsEcrRepositoryImageScanningConfigurationDetails,
     -- | The tag mutability setting for the repository. Valid values are
     -- @IMMUTABLE@ or @MUTABLE@.
     imageTagMutability :: Prelude.Maybe Prelude.Text,
-    -- | The image scanning configuration for a repository.
-    imageScanningConfiguration :: Prelude.Maybe AwsEcrRepositoryImageScanningConfigurationDetails
+    -- | Information about the lifecycle policy for the repository.
+    lifecyclePolicy :: Prelude.Maybe AwsEcrRepositoryLifecyclePolicyDetails,
+    -- | The name of the repository.
+    repositoryName :: Prelude.Maybe Prelude.Text,
+    -- | The text of the repository policy.
+    repositoryPolicyText :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,55 +55,54 @@ data AwsEcrRepositoryDetails = AwsEcrRepositoryDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'repositoryName', 'awsEcrRepositoryDetails_repositoryName' - The name of the repository.
---
 -- 'arn', 'awsEcrRepositoryDetails_arn' - The ARN of the repository.
 --
--- 'repositoryPolicyText', 'awsEcrRepositoryDetails_repositoryPolicyText' - The text of the repository policy.
---
--- 'lifecyclePolicy', 'awsEcrRepositoryDetails_lifecyclePolicy' - Information about the lifecycle policy for the repository.
+-- 'imageScanningConfiguration', 'awsEcrRepositoryDetails_imageScanningConfiguration' - The image scanning configuration for a repository.
 --
 -- 'imageTagMutability', 'awsEcrRepositoryDetails_imageTagMutability' - The tag mutability setting for the repository. Valid values are
 -- @IMMUTABLE@ or @MUTABLE@.
 --
--- 'imageScanningConfiguration', 'awsEcrRepositoryDetails_imageScanningConfiguration' - The image scanning configuration for a repository.
+-- 'lifecyclePolicy', 'awsEcrRepositoryDetails_lifecyclePolicy' - Information about the lifecycle policy for the repository.
+--
+-- 'repositoryName', 'awsEcrRepositoryDetails_repositoryName' - The name of the repository.
+--
+-- 'repositoryPolicyText', 'awsEcrRepositoryDetails_repositoryPolicyText' - The text of the repository policy.
 newAwsEcrRepositoryDetails ::
   AwsEcrRepositoryDetails
 newAwsEcrRepositoryDetails =
   AwsEcrRepositoryDetails'
-    { repositoryName =
-        Prelude.Nothing,
-      arn = Prelude.Nothing,
-      repositoryPolicyText = Prelude.Nothing,
-      lifecyclePolicy = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      imageScanningConfiguration = Prelude.Nothing,
       imageTagMutability = Prelude.Nothing,
-      imageScanningConfiguration = Prelude.Nothing
+      lifecyclePolicy = Prelude.Nothing,
+      repositoryName = Prelude.Nothing,
+      repositoryPolicyText = Prelude.Nothing
     }
-
--- | The name of the repository.
-awsEcrRepositoryDetails_repositoryName :: Lens.Lens' AwsEcrRepositoryDetails (Prelude.Maybe Prelude.Text)
-awsEcrRepositoryDetails_repositoryName = Lens.lens (\AwsEcrRepositoryDetails' {repositoryName} -> repositoryName) (\s@AwsEcrRepositoryDetails' {} a -> s {repositoryName = a} :: AwsEcrRepositoryDetails)
 
 -- | The ARN of the repository.
 awsEcrRepositoryDetails_arn :: Lens.Lens' AwsEcrRepositoryDetails (Prelude.Maybe Prelude.Text)
 awsEcrRepositoryDetails_arn = Lens.lens (\AwsEcrRepositoryDetails' {arn} -> arn) (\s@AwsEcrRepositoryDetails' {} a -> s {arn = a} :: AwsEcrRepositoryDetails)
 
--- | The text of the repository policy.
-awsEcrRepositoryDetails_repositoryPolicyText :: Lens.Lens' AwsEcrRepositoryDetails (Prelude.Maybe Prelude.Text)
-awsEcrRepositoryDetails_repositoryPolicyText = Lens.lens (\AwsEcrRepositoryDetails' {repositoryPolicyText} -> repositoryPolicyText) (\s@AwsEcrRepositoryDetails' {} a -> s {repositoryPolicyText = a} :: AwsEcrRepositoryDetails)
-
--- | Information about the lifecycle policy for the repository.
-awsEcrRepositoryDetails_lifecyclePolicy :: Lens.Lens' AwsEcrRepositoryDetails (Prelude.Maybe AwsEcrRepositoryLifecyclePolicyDetails)
-awsEcrRepositoryDetails_lifecyclePolicy = Lens.lens (\AwsEcrRepositoryDetails' {lifecyclePolicy} -> lifecyclePolicy) (\s@AwsEcrRepositoryDetails' {} a -> s {lifecyclePolicy = a} :: AwsEcrRepositoryDetails)
+-- | The image scanning configuration for a repository.
+awsEcrRepositoryDetails_imageScanningConfiguration :: Lens.Lens' AwsEcrRepositoryDetails (Prelude.Maybe AwsEcrRepositoryImageScanningConfigurationDetails)
+awsEcrRepositoryDetails_imageScanningConfiguration = Lens.lens (\AwsEcrRepositoryDetails' {imageScanningConfiguration} -> imageScanningConfiguration) (\s@AwsEcrRepositoryDetails' {} a -> s {imageScanningConfiguration = a} :: AwsEcrRepositoryDetails)
 
 -- | The tag mutability setting for the repository. Valid values are
 -- @IMMUTABLE@ or @MUTABLE@.
 awsEcrRepositoryDetails_imageTagMutability :: Lens.Lens' AwsEcrRepositoryDetails (Prelude.Maybe Prelude.Text)
 awsEcrRepositoryDetails_imageTagMutability = Lens.lens (\AwsEcrRepositoryDetails' {imageTagMutability} -> imageTagMutability) (\s@AwsEcrRepositoryDetails' {} a -> s {imageTagMutability = a} :: AwsEcrRepositoryDetails)
 
--- | The image scanning configuration for a repository.
-awsEcrRepositoryDetails_imageScanningConfiguration :: Lens.Lens' AwsEcrRepositoryDetails (Prelude.Maybe AwsEcrRepositoryImageScanningConfigurationDetails)
-awsEcrRepositoryDetails_imageScanningConfiguration = Lens.lens (\AwsEcrRepositoryDetails' {imageScanningConfiguration} -> imageScanningConfiguration) (\s@AwsEcrRepositoryDetails' {} a -> s {imageScanningConfiguration = a} :: AwsEcrRepositoryDetails)
+-- | Information about the lifecycle policy for the repository.
+awsEcrRepositoryDetails_lifecyclePolicy :: Lens.Lens' AwsEcrRepositoryDetails (Prelude.Maybe AwsEcrRepositoryLifecyclePolicyDetails)
+awsEcrRepositoryDetails_lifecyclePolicy = Lens.lens (\AwsEcrRepositoryDetails' {lifecyclePolicy} -> lifecyclePolicy) (\s@AwsEcrRepositoryDetails' {} a -> s {lifecyclePolicy = a} :: AwsEcrRepositoryDetails)
+
+-- | The name of the repository.
+awsEcrRepositoryDetails_repositoryName :: Lens.Lens' AwsEcrRepositoryDetails (Prelude.Maybe Prelude.Text)
+awsEcrRepositoryDetails_repositoryName = Lens.lens (\AwsEcrRepositoryDetails' {repositoryName} -> repositoryName) (\s@AwsEcrRepositoryDetails' {} a -> s {repositoryName = a} :: AwsEcrRepositoryDetails)
+
+-- | The text of the repository policy.
+awsEcrRepositoryDetails_repositoryPolicyText :: Lens.Lens' AwsEcrRepositoryDetails (Prelude.Maybe Prelude.Text)
+awsEcrRepositoryDetails_repositoryPolicyText = Lens.lens (\AwsEcrRepositoryDetails' {repositoryPolicyText} -> repositoryPolicyText) (\s@AwsEcrRepositoryDetails' {} a -> s {repositoryPolicyText = a} :: AwsEcrRepositoryDetails)
 
 instance Data.FromJSON AwsEcrRepositoryDetails where
   parseJSON =
@@ -111,46 +110,46 @@ instance Data.FromJSON AwsEcrRepositoryDetails where
       "AwsEcrRepositoryDetails"
       ( \x ->
           AwsEcrRepositoryDetails'
-            Prelude.<$> (x Data..:? "RepositoryName")
-            Prelude.<*> (x Data..:? "Arn")
-            Prelude.<*> (x Data..:? "RepositoryPolicyText")
-            Prelude.<*> (x Data..:? "LifecyclePolicy")
-            Prelude.<*> (x Data..:? "ImageTagMutability")
+            Prelude.<$> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "ImageScanningConfiguration")
+            Prelude.<*> (x Data..:? "ImageTagMutability")
+            Prelude.<*> (x Data..:? "LifecyclePolicy")
+            Prelude.<*> (x Data..:? "RepositoryName")
+            Prelude.<*> (x Data..:? "RepositoryPolicyText")
       )
 
 instance Prelude.Hashable AwsEcrRepositoryDetails where
   hashWithSalt _salt AwsEcrRepositoryDetails' {..} =
-    _salt `Prelude.hashWithSalt` repositoryName
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` repositoryPolicyText
-      `Prelude.hashWithSalt` lifecyclePolicy
-      `Prelude.hashWithSalt` imageTagMutability
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` imageScanningConfiguration
+      `Prelude.hashWithSalt` imageTagMutability
+      `Prelude.hashWithSalt` lifecyclePolicy
+      `Prelude.hashWithSalt` repositoryName
+      `Prelude.hashWithSalt` repositoryPolicyText
 
 instance Prelude.NFData AwsEcrRepositoryDetails where
   rnf AwsEcrRepositoryDetails' {..} =
-    Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf repositoryPolicyText
-      `Prelude.seq` Prelude.rnf lifecyclePolicy
-      `Prelude.seq` Prelude.rnf imageTagMutability
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf imageScanningConfiguration
+      `Prelude.seq` Prelude.rnf imageTagMutability
+      `Prelude.seq` Prelude.rnf lifecyclePolicy
+      `Prelude.seq` Prelude.rnf repositoryName
+      `Prelude.seq` Prelude.rnf repositoryPolicyText
 
 instance Data.ToJSON AwsEcrRepositoryDetails where
   toJSON AwsEcrRepositoryDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("RepositoryName" Data..=)
-              Prelude.<$> repositoryName,
-            ("Arn" Data..=) Prelude.<$> arn,
-            ("RepositoryPolicyText" Data..=)
-              Prelude.<$> repositoryPolicyText,
-            ("LifecyclePolicy" Data..=)
-              Prelude.<$> lifecyclePolicy,
+          [ ("Arn" Data..=) Prelude.<$> arn,
+            ("ImageScanningConfiguration" Data..=)
+              Prelude.<$> imageScanningConfiguration,
             ("ImageTagMutability" Data..=)
               Prelude.<$> imageTagMutability,
-            ("ImageScanningConfiguration" Data..=)
-              Prelude.<$> imageScanningConfiguration
+            ("LifecyclePolicy" Data..=)
+              Prelude.<$> lifecyclePolicy,
+            ("RepositoryName" Data..=)
+              Prelude.<$> repositoryName,
+            ("RepositoryPolicyText" Data..=)
+              Prelude.<$> repositoryPolicyText
           ]
       )

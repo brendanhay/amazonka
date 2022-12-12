@@ -47,53 +47,23 @@ module Amazonka.WorkMail
     -- * Errors
     -- $errors
 
-    -- ** NameAvailabilityException
-    _NameAvailabilityException,
-
-    -- ** InvalidCustomSesConfigurationException
-    _InvalidCustomSesConfigurationException,
-
-    -- ** UnsupportedOperationException
-    _UnsupportedOperationException,
-
-    -- ** MailDomainStateException
-    _MailDomainStateException,
-
-    -- ** OrganizationStateException
-    _OrganizationStateException,
-
-    -- ** TooManyTagsException
-    _TooManyTagsException,
-
-    -- ** MailDomainNotFoundException
-    _MailDomainNotFoundException,
-
-    -- ** OrganizationNotFoundException
-    _OrganizationNotFoundException,
-
-    -- ** InvalidPasswordException
-    _InvalidPasswordException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** MailDomainInUseException
-    _MailDomainInUseException,
-
     -- ** DirectoryInUseException
     _DirectoryInUseException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
 
     -- ** DirectoryServiceAuthenticationFailedException
     _DirectoryServiceAuthenticationFailedException,
 
-    -- ** EntityNotFoundException
-    _EntityNotFoundException,
+    -- ** DirectoryUnavailableException
+    _DirectoryUnavailableException,
+
+    -- ** EmailAddressInUseException
+    _EmailAddressInUseException,
 
     -- ** EntityAlreadyRegisteredException
     _EntityAlreadyRegisteredException,
+
+    -- ** EntityNotFoundException
+    _EntityNotFoundException,
 
     -- ** EntityStateException
     _EntityStateException,
@@ -101,17 +71,47 @@ module Amazonka.WorkMail
     -- ** InvalidConfigurationException
     _InvalidConfigurationException,
 
-    -- ** EmailAddressInUseException
-    _EmailAddressInUseException,
+    -- ** InvalidCustomSesConfigurationException
+    _InvalidCustomSesConfigurationException,
 
-    -- ** DirectoryUnavailableException
-    _DirectoryUnavailableException,
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
+    -- ** InvalidPasswordException
+    _InvalidPasswordException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** MailDomainInUseException
+    _MailDomainInUseException,
+
+    -- ** MailDomainNotFoundException
+    _MailDomainNotFoundException,
+
+    -- ** MailDomainStateException
+    _MailDomainStateException,
+
+    -- ** NameAvailabilityException
+    _NameAvailabilityException,
+
+    -- ** OrganizationNotFoundException
+    _OrganizationNotFoundException,
+
+    -- ** OrganizationStateException
+    _OrganizationStateException,
 
     -- ** ReservedNameException
     _ReservedNameException,
 
-    -- ** InvalidParameterException
-    _InvalidParameterException,
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
+
+    -- ** UnsupportedOperationException
+    _UnsupportedOperationException,
 
     -- * Waiters
     -- $waiters

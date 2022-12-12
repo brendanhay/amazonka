@@ -28,10 +28,10 @@ module Amazonka.FSx.UpdateVolume
     newUpdateVolume,
 
     -- * Request Lenses
-    updateVolume_name,
     updateVolume_clientRequestToken,
-    updateVolume_openZFSConfiguration,
+    updateVolume_name,
     updateVolume_ontapConfiguration,
+    updateVolume_openZFSConfiguration,
     updateVolume_volumeId,
 
     -- * Destructuring the Response
@@ -54,16 +54,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateVolume' smart constructor.
 data UpdateVolume = UpdateVolume'
-  { -- | The name of the OpenZFS volume. OpenZFS root volumes are automatically
+  { clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | The name of the OpenZFS volume. OpenZFS root volumes are automatically
     -- named @FSX@. Child volume names must be unique among their parent
     -- volume\'s children. The name of the volume is part of the mount string
     -- for the OpenZFS volume.
     name :: Prelude.Maybe Prelude.Text,
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | The configuration of the OpenZFS volume that you are updating.
-    openZFSConfiguration :: Prelude.Maybe UpdateOpenZFSVolumeConfiguration,
     -- | The configuration of the ONTAP volume that you are updating.
     ontapConfiguration :: Prelude.Maybe UpdateOntapVolumeConfiguration,
+    -- | The configuration of the OpenZFS volume that you are updating.
+    openZFSConfiguration :: Prelude.Maybe UpdateOpenZFSVolumeConfiguration,
     -- | The ID of the volume that you want to update, in the format
     -- @fsvol-0123456789abcdef0@.
     volumeId :: Prelude.Text
@@ -78,16 +78,16 @@ data UpdateVolume = UpdateVolume'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clientRequestToken', 'updateVolume_clientRequestToken' - Undocumented member.
+--
 -- 'name', 'updateVolume_name' - The name of the OpenZFS volume. OpenZFS root volumes are automatically
 -- named @FSX@. Child volume names must be unique among their parent
 -- volume\'s children. The name of the volume is part of the mount string
 -- for the OpenZFS volume.
 --
--- 'clientRequestToken', 'updateVolume_clientRequestToken' - Undocumented member.
+-- 'ontapConfiguration', 'updateVolume_ontapConfiguration' - The configuration of the ONTAP volume that you are updating.
 --
 -- 'openZFSConfiguration', 'updateVolume_openZFSConfiguration' - The configuration of the OpenZFS volume that you are updating.
---
--- 'ontapConfiguration', 'updateVolume_ontapConfiguration' - The configuration of the ONTAP volume that you are updating.
 --
 -- 'volumeId', 'updateVolume_volumeId' - The ID of the volume that you want to update, in the format
 -- @fsvol-0123456789abcdef0@.
@@ -97,12 +97,16 @@ newUpdateVolume ::
   UpdateVolume
 newUpdateVolume pVolumeId_ =
   UpdateVolume'
-    { name = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
-      openZFSConfiguration = Prelude.Nothing,
+    { clientRequestToken = Prelude.Nothing,
+      name = Prelude.Nothing,
       ontapConfiguration = Prelude.Nothing,
+      openZFSConfiguration = Prelude.Nothing,
       volumeId = pVolumeId_
     }
+
+-- | Undocumented member.
+updateVolume_clientRequestToken :: Lens.Lens' UpdateVolume (Prelude.Maybe Prelude.Text)
+updateVolume_clientRequestToken = Lens.lens (\UpdateVolume' {clientRequestToken} -> clientRequestToken) (\s@UpdateVolume' {} a -> s {clientRequestToken = a} :: UpdateVolume)
 
 -- | The name of the OpenZFS volume. OpenZFS root volumes are automatically
 -- named @FSX@. Child volume names must be unique among their parent
@@ -111,17 +115,13 @@ newUpdateVolume pVolumeId_ =
 updateVolume_name :: Lens.Lens' UpdateVolume (Prelude.Maybe Prelude.Text)
 updateVolume_name = Lens.lens (\UpdateVolume' {name} -> name) (\s@UpdateVolume' {} a -> s {name = a} :: UpdateVolume)
 
--- | Undocumented member.
-updateVolume_clientRequestToken :: Lens.Lens' UpdateVolume (Prelude.Maybe Prelude.Text)
-updateVolume_clientRequestToken = Lens.lens (\UpdateVolume' {clientRequestToken} -> clientRequestToken) (\s@UpdateVolume' {} a -> s {clientRequestToken = a} :: UpdateVolume)
+-- | The configuration of the ONTAP volume that you are updating.
+updateVolume_ontapConfiguration :: Lens.Lens' UpdateVolume (Prelude.Maybe UpdateOntapVolumeConfiguration)
+updateVolume_ontapConfiguration = Lens.lens (\UpdateVolume' {ontapConfiguration} -> ontapConfiguration) (\s@UpdateVolume' {} a -> s {ontapConfiguration = a} :: UpdateVolume)
 
 -- | The configuration of the OpenZFS volume that you are updating.
 updateVolume_openZFSConfiguration :: Lens.Lens' UpdateVolume (Prelude.Maybe UpdateOpenZFSVolumeConfiguration)
 updateVolume_openZFSConfiguration = Lens.lens (\UpdateVolume' {openZFSConfiguration} -> openZFSConfiguration) (\s@UpdateVolume' {} a -> s {openZFSConfiguration = a} :: UpdateVolume)
-
--- | The configuration of the ONTAP volume that you are updating.
-updateVolume_ontapConfiguration :: Lens.Lens' UpdateVolume (Prelude.Maybe UpdateOntapVolumeConfiguration)
-updateVolume_ontapConfiguration = Lens.lens (\UpdateVolume' {ontapConfiguration} -> ontapConfiguration) (\s@UpdateVolume' {} a -> s {ontapConfiguration = a} :: UpdateVolume)
 
 -- | The ID of the volume that you want to update, in the format
 -- @fsvol-0123456789abcdef0@.
@@ -142,18 +142,18 @@ instance Core.AWSRequest UpdateVolume where
 
 instance Prelude.Hashable UpdateVolume where
   hashWithSalt _salt UpdateVolume' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` clientRequestToken
-      `Prelude.hashWithSalt` openZFSConfiguration
+    _salt `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` ontapConfiguration
+      `Prelude.hashWithSalt` openZFSConfiguration
       `Prelude.hashWithSalt` volumeId
 
 instance Prelude.NFData UpdateVolume where
   rnf UpdateVolume' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf openZFSConfiguration
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf ontapConfiguration
+      `Prelude.seq` Prelude.rnf openZFSConfiguration
       `Prelude.seq` Prelude.rnf volumeId
 
 instance Data.ToHeaders UpdateVolume where
@@ -175,13 +175,13 @@ instance Data.ToJSON UpdateVolume where
   toJSON UpdateVolume' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
-            ("ClientRequestToken" Data..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("OpenZFSConfiguration" Data..=)
-              Prelude.<$> openZFSConfiguration,
+            ("Name" Data..=) Prelude.<$> name,
             ("OntapConfiguration" Data..=)
               Prelude.<$> ontapConfiguration,
+            ("OpenZFSConfiguration" Data..=)
+              Prelude.<$> openZFSConfiguration,
             Prelude.Just ("VolumeId" Data..= volumeId)
           ]
       )

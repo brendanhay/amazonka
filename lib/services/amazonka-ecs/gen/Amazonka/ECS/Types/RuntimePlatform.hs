@@ -34,14 +34,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRuntimePlatform' smart constructor.
 data RuntimePlatform = RuntimePlatform'
-  { -- | The operating system.
-    operatingSystemFamily :: Prelude.Maybe OSFamily,
-    -- | The CPU architecture.
+  { -- | The CPU architecture.
     --
     -- You can run your Linux tasks on an ARM-based platform by setting the
-    -- value to @ARM64@. This option is avaiable for tasks that run on Linux
+    -- value to @ARM64@. This option is available for tasks that run on Linux
     -- Amazon EC2 instance or Linux containers on Fargate.
-    cpuArchitecture :: Prelude.Maybe CPUArchitecture
+    cpuArchitecture :: Prelude.Maybe CPUArchitecture,
+    -- | The operating system.
+    operatingSystemFamily :: Prelude.Maybe OSFamily
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,33 +53,32 @@ data RuntimePlatform = RuntimePlatform'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'operatingSystemFamily', 'runtimePlatform_operatingSystemFamily' - The operating system.
---
 -- 'cpuArchitecture', 'runtimePlatform_cpuArchitecture' - The CPU architecture.
 --
 -- You can run your Linux tasks on an ARM-based platform by setting the
--- value to @ARM64@. This option is avaiable for tasks that run on Linux
+-- value to @ARM64@. This option is available for tasks that run on Linux
 -- Amazon EC2 instance or Linux containers on Fargate.
+--
+-- 'operatingSystemFamily', 'runtimePlatform_operatingSystemFamily' - The operating system.
 newRuntimePlatform ::
   RuntimePlatform
 newRuntimePlatform =
   RuntimePlatform'
-    { operatingSystemFamily =
-        Prelude.Nothing,
-      cpuArchitecture = Prelude.Nothing
+    { cpuArchitecture = Prelude.Nothing,
+      operatingSystemFamily = Prelude.Nothing
     }
-
--- | The operating system.
-runtimePlatform_operatingSystemFamily :: Lens.Lens' RuntimePlatform (Prelude.Maybe OSFamily)
-runtimePlatform_operatingSystemFamily = Lens.lens (\RuntimePlatform' {operatingSystemFamily} -> operatingSystemFamily) (\s@RuntimePlatform' {} a -> s {operatingSystemFamily = a} :: RuntimePlatform)
 
 -- | The CPU architecture.
 --
 -- You can run your Linux tasks on an ARM-based platform by setting the
--- value to @ARM64@. This option is avaiable for tasks that run on Linux
+-- value to @ARM64@. This option is available for tasks that run on Linux
 -- Amazon EC2 instance or Linux containers on Fargate.
 runtimePlatform_cpuArchitecture :: Lens.Lens' RuntimePlatform (Prelude.Maybe CPUArchitecture)
 runtimePlatform_cpuArchitecture = Lens.lens (\RuntimePlatform' {cpuArchitecture} -> cpuArchitecture) (\s@RuntimePlatform' {} a -> s {cpuArchitecture = a} :: RuntimePlatform)
+
+-- | The operating system.
+runtimePlatform_operatingSystemFamily :: Lens.Lens' RuntimePlatform (Prelude.Maybe OSFamily)
+runtimePlatform_operatingSystemFamily = Lens.lens (\RuntimePlatform' {operatingSystemFamily} -> operatingSystemFamily) (\s@RuntimePlatform' {} a -> s {operatingSystemFamily = a} :: RuntimePlatform)
 
 instance Data.FromJSON RuntimePlatform where
   parseJSON =
@@ -87,27 +86,27 @@ instance Data.FromJSON RuntimePlatform where
       "RuntimePlatform"
       ( \x ->
           RuntimePlatform'
-            Prelude.<$> (x Data..:? "operatingSystemFamily")
-            Prelude.<*> (x Data..:? "cpuArchitecture")
+            Prelude.<$> (x Data..:? "cpuArchitecture")
+            Prelude.<*> (x Data..:? "operatingSystemFamily")
       )
 
 instance Prelude.Hashable RuntimePlatform where
   hashWithSalt _salt RuntimePlatform' {..} =
-    _salt `Prelude.hashWithSalt` operatingSystemFamily
-      `Prelude.hashWithSalt` cpuArchitecture
+    _salt `Prelude.hashWithSalt` cpuArchitecture
+      `Prelude.hashWithSalt` operatingSystemFamily
 
 instance Prelude.NFData RuntimePlatform where
   rnf RuntimePlatform' {..} =
-    Prelude.rnf operatingSystemFamily
-      `Prelude.seq` Prelude.rnf cpuArchitecture
+    Prelude.rnf cpuArchitecture
+      `Prelude.seq` Prelude.rnf operatingSystemFamily
 
 instance Data.ToJSON RuntimePlatform where
   toJSON RuntimePlatform' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("operatingSystemFamily" Data..=)
-              Prelude.<$> operatingSystemFamily,
-            ("cpuArchitecture" Data..=)
-              Prelude.<$> cpuArchitecture
+          [ ("cpuArchitecture" Data..=)
+              Prelude.<$> cpuArchitecture,
+            ("operatingSystemFamily" Data..=)
+              Prelude.<$> operatingSystemFamily
           ]
       )

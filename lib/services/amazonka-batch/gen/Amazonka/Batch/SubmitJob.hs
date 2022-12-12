@@ -41,18 +41,18 @@ module Amazonka.Batch.SubmitJob
     newSubmitJob,
 
     -- * Request Lenses
+    submitJob_arrayProperties,
+    submitJob_containerOverrides,
+    submitJob_dependsOn,
+    submitJob_eksPropertiesOverride,
+    submitJob_nodeOverrides,
+    submitJob_parameters,
+    submitJob_propagateTags,
+    submitJob_retryStrategy,
+    submitJob_schedulingPriorityOverride,
+    submitJob_shareIdentifier,
     submitJob_tags,
     submitJob_timeout,
-    submitJob_eksPropertiesOverride,
-    submitJob_dependsOn,
-    submitJob_shareIdentifier,
-    submitJob_schedulingPriorityOverride,
-    submitJob_nodeOverrides,
-    submitJob_retryStrategy,
-    submitJob_arrayProperties,
-    submitJob_propagateTags,
-    submitJob_containerOverrides,
-    submitJob_parameters,
     submitJob_jobName,
     submitJob_jobQueue,
     submitJob_jobDefinition,
@@ -81,7 +81,70 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newSubmitJob' smart constructor.
 data SubmitJob = SubmitJob'
-  { -- | The tags that you apply to the job request to help you categorize and
+  { -- | The array properties for the submitted job, such as the size of the
+    -- array. The array size can be between 2 and 10,000. If you specify array
+    -- properties for a job, it becomes an array job. For more information, see
+    -- <https://docs.aws.amazon.com/batch/latest/userguide/array_jobs.html Array Jobs>
+    -- in the /Batch User Guide/.
+    arrayProperties :: Prelude.Maybe ArrayProperties,
+    -- | An object with various properties that override the defaults for the job
+    -- definition that specify the name of a container in the specified job
+    -- definition and the overrides it should receive. You can override the
+    -- default command for a container, which is specified in the job
+    -- definition or the Docker image, with a @command@ override. You can also
+    -- override existing environment variables on a container or add new
+    -- environment variables to it with an @environment@ override.
+    containerOverrides :: Prelude.Maybe ContainerOverrides,
+    -- | A list of dependencies for the job. A job can depend upon a maximum of
+    -- 20 jobs. You can specify a @SEQUENTIAL@ type dependency without
+    -- specifying a job ID for array jobs so that each child array job
+    -- completes sequentially, starting at index 0. You can also specify an
+    -- @N_TO_N@ type dependency with a job ID for array jobs. In that case,
+    -- each index child of this job must wait for the corresponding index child
+    -- of each dependency to complete before it can begin.
+    dependsOn :: Prelude.Maybe [JobDependency],
+    -- | An object that can only be specified for jobs that are run on Amazon EKS
+    -- resources with various properties that override defaults for the job
+    -- definition.
+    eksPropertiesOverride :: Prelude.Maybe EksPropertiesOverride,
+    -- | A list of node overrides in JSON format that specify the node range to
+    -- target and the container overrides for that node range.
+    --
+    -- This parameter isn\'t applicable to jobs that are running on Fargate
+    -- resources; use @containerOverrides@ instead.
+    nodeOverrides :: Prelude.Maybe NodeOverrides,
+    -- | Additional parameters passed to the job that replace parameter
+    -- substitution placeholders that are set in the job definition. Parameters
+    -- are specified as a key and value pair mapping. Parameters in a
+    -- @SubmitJob@ request override any corresponding parameter defaults from
+    -- the job definition.
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Specifies whether to propagate the tags from the job or job definition
+    -- to the corresponding Amazon ECS task. If no value is specified, the tags
+    -- aren\'t propagated. Tags can only be propagated to the tasks during task
+    -- creation. For tags with the same name, job tags are given priority over
+    -- job definitions tags. If the total number of combined tags from the job
+    -- and job definition is over 50, the job is moved to the @FAILED@ state.
+    -- When specified, this overrides the tag propagation setting in the job
+    -- definition.
+    propagateTags :: Prelude.Maybe Prelude.Bool,
+    -- | The retry strategy to use for failed jobs from this SubmitJob operation.
+    -- When a retry strategy is specified here, it overrides the retry strategy
+    -- defined in the job definition.
+    retryStrategy :: Prelude.Maybe RetryStrategy,
+    -- | The scheduling priority for the job. This only affects jobs in job
+    -- queues with a fair share policy. Jobs with a higher scheduling priority
+    -- are scheduled before jobs with a lower scheduling priority. This
+    -- overrides any scheduling priority in the job definition.
+    --
+    -- The minimum supported value is 0 and the maximum supported value is
+    -- 9999.
+    schedulingPriorityOverride :: Prelude.Maybe Prelude.Int,
+    -- | The share identifier for the job. If the job queue doesn\'t have a
+    -- scheduling policy, then this parameter must not be specified. If the job
+    -- queue has a scheduling policy, then this parameter must be specified.
+    shareIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The tags that you apply to the job request to help you categorize and
     -- organize your resources. Each tag consists of a key and an optional
     -- value. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
@@ -97,69 +160,6 @@ data SubmitJob = SubmitJob'
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html Job Timeouts>
     -- in the /Amazon Elastic Container Service Developer Guide/.
     timeout :: Prelude.Maybe JobTimeout,
-    -- | An object that can only be specified for jobs that are run on Amazon EKS
-    -- resources with various properties that override defaults for the job
-    -- definition.
-    eksPropertiesOverride :: Prelude.Maybe EksPropertiesOverride,
-    -- | A list of dependencies for the job. A job can depend upon a maximum of
-    -- 20 jobs. You can specify a @SEQUENTIAL@ type dependency without
-    -- specifying a job ID for array jobs so that each child array job
-    -- completes sequentially, starting at index 0. You can also specify an
-    -- @N_TO_N@ type dependency with a job ID for array jobs. In that case,
-    -- each index child of this job must wait for the corresponding index child
-    -- of each dependency to complete before it can begin.
-    dependsOn :: Prelude.Maybe [JobDependency],
-    -- | The share identifier for the job. If the job queue doesn\'t have a
-    -- scheduling policy, then this parameter must not be specified. If the job
-    -- queue has a scheduling policy, then this parameter must be specified.
-    shareIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The scheduling priority for the job. This only affects jobs in job
-    -- queues with a fair share policy. Jobs with a higher scheduling priority
-    -- are scheduled before jobs with a lower scheduling priority. This
-    -- overrides any scheduling priority in the job definition.
-    --
-    -- The minimum supported value is 0 and the maximum supported value is
-    -- 9999.
-    schedulingPriorityOverride :: Prelude.Maybe Prelude.Int,
-    -- | A list of node overrides in JSON format that specify the node range to
-    -- target and the container overrides for that node range.
-    --
-    -- This parameter isn\'t applicable to jobs that are running on Fargate
-    -- resources; use @containerOverrides@ instead.
-    nodeOverrides :: Prelude.Maybe NodeOverrides,
-    -- | The retry strategy to use for failed jobs from this SubmitJob operation.
-    -- When a retry strategy is specified here, it overrides the retry strategy
-    -- defined in the job definition.
-    retryStrategy :: Prelude.Maybe RetryStrategy,
-    -- | The array properties for the submitted job, such as the size of the
-    -- array. The array size can be between 2 and 10,000. If you specify array
-    -- properties for a job, it becomes an array job. For more information, see
-    -- <https://docs.aws.amazon.com/batch/latest/userguide/array_jobs.html Array Jobs>
-    -- in the /Batch User Guide/.
-    arrayProperties :: Prelude.Maybe ArrayProperties,
-    -- | Specifies whether to propagate the tags from the job or job definition
-    -- to the corresponding Amazon ECS task. If no value is specified, the tags
-    -- aren\'t propagated. Tags can only be propagated to the tasks during task
-    -- creation. For tags with the same name, job tags are given priority over
-    -- job definitions tags. If the total number of combined tags from the job
-    -- and job definition is over 50, the job is moved to the @FAILED@ state.
-    -- When specified, this overrides the tag propagation setting in the job
-    -- definition.
-    propagateTags :: Prelude.Maybe Prelude.Bool,
-    -- | An object with various properties that override the defaults for the job
-    -- definition that specify the name of a container in the specified job
-    -- definition and the overrides it should receive. You can override the
-    -- default command for a container, which is specified in the job
-    -- definition or the Docker image, with a @command@ override. You can also
-    -- override existing environment variables on a container or add new
-    -- environment variables to it with an @environment@ override.
-    containerOverrides :: Prelude.Maybe ContainerOverrides,
-    -- | Additional parameters passed to the job that replace parameter
-    -- substitution placeholders that are set in the job definition. Parameters
-    -- are specified as a key and value pair mapping. Parameters in a
-    -- @SubmitJob@ request override any corresponding parameter defaults from
-    -- the job definition.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the job. It can be up to 128 letters long. The first
     -- character must be alphanumeric, can contain uppercase and lowercase
     -- letters, numbers, hyphens (-), and underscores (_).
@@ -183,6 +183,69 @@ data SubmitJob = SubmitJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'arrayProperties', 'submitJob_arrayProperties' - The array properties for the submitted job, such as the size of the
+-- array. The array size can be between 2 and 10,000. If you specify array
+-- properties for a job, it becomes an array job. For more information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/array_jobs.html Array Jobs>
+-- in the /Batch User Guide/.
+--
+-- 'containerOverrides', 'submitJob_containerOverrides' - An object with various properties that override the defaults for the job
+-- definition that specify the name of a container in the specified job
+-- definition and the overrides it should receive. You can override the
+-- default command for a container, which is specified in the job
+-- definition or the Docker image, with a @command@ override. You can also
+-- override existing environment variables on a container or add new
+-- environment variables to it with an @environment@ override.
+--
+-- 'dependsOn', 'submitJob_dependsOn' - A list of dependencies for the job. A job can depend upon a maximum of
+-- 20 jobs. You can specify a @SEQUENTIAL@ type dependency without
+-- specifying a job ID for array jobs so that each child array job
+-- completes sequentially, starting at index 0. You can also specify an
+-- @N_TO_N@ type dependency with a job ID for array jobs. In that case,
+-- each index child of this job must wait for the corresponding index child
+-- of each dependency to complete before it can begin.
+--
+-- 'eksPropertiesOverride', 'submitJob_eksPropertiesOverride' - An object that can only be specified for jobs that are run on Amazon EKS
+-- resources with various properties that override defaults for the job
+-- definition.
+--
+-- 'nodeOverrides', 'submitJob_nodeOverrides' - A list of node overrides in JSON format that specify the node range to
+-- target and the container overrides for that node range.
+--
+-- This parameter isn\'t applicable to jobs that are running on Fargate
+-- resources; use @containerOverrides@ instead.
+--
+-- 'parameters', 'submitJob_parameters' - Additional parameters passed to the job that replace parameter
+-- substitution placeholders that are set in the job definition. Parameters
+-- are specified as a key and value pair mapping. Parameters in a
+-- @SubmitJob@ request override any corresponding parameter defaults from
+-- the job definition.
+--
+-- 'propagateTags', 'submitJob_propagateTags' - Specifies whether to propagate the tags from the job or job definition
+-- to the corresponding Amazon ECS task. If no value is specified, the tags
+-- aren\'t propagated. Tags can only be propagated to the tasks during task
+-- creation. For tags with the same name, job tags are given priority over
+-- job definitions tags. If the total number of combined tags from the job
+-- and job definition is over 50, the job is moved to the @FAILED@ state.
+-- When specified, this overrides the tag propagation setting in the job
+-- definition.
+--
+-- 'retryStrategy', 'submitJob_retryStrategy' - The retry strategy to use for failed jobs from this SubmitJob operation.
+-- When a retry strategy is specified here, it overrides the retry strategy
+-- defined in the job definition.
+--
+-- 'schedulingPriorityOverride', 'submitJob_schedulingPriorityOverride' - The scheduling priority for the job. This only affects jobs in job
+-- queues with a fair share policy. Jobs with a higher scheduling priority
+-- are scheduled before jobs with a lower scheduling priority. This
+-- overrides any scheduling priority in the job definition.
+--
+-- The minimum supported value is 0 and the maximum supported value is
+-- 9999.
+--
+-- 'shareIdentifier', 'submitJob_shareIdentifier' - The share identifier for the job. If the job queue doesn\'t have a
+-- scheduling policy, then this parameter must not be specified. If the job
+-- queue has a scheduling policy, then this parameter must be specified.
+--
 -- 'tags', 'submitJob_tags' - The tags that you apply to the job request to help you categorize and
 -- organize your resources. Each tag consists of a key and an optional
 -- value. For more information, see
@@ -198,69 +261,6 @@ data SubmitJob = SubmitJob'
 -- configuration as the parent job. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html Job Timeouts>
 -- in the /Amazon Elastic Container Service Developer Guide/.
---
--- 'eksPropertiesOverride', 'submitJob_eksPropertiesOverride' - An object that can only be specified for jobs that are run on Amazon EKS
--- resources with various properties that override defaults for the job
--- definition.
---
--- 'dependsOn', 'submitJob_dependsOn' - A list of dependencies for the job. A job can depend upon a maximum of
--- 20 jobs. You can specify a @SEQUENTIAL@ type dependency without
--- specifying a job ID for array jobs so that each child array job
--- completes sequentially, starting at index 0. You can also specify an
--- @N_TO_N@ type dependency with a job ID for array jobs. In that case,
--- each index child of this job must wait for the corresponding index child
--- of each dependency to complete before it can begin.
---
--- 'shareIdentifier', 'submitJob_shareIdentifier' - The share identifier for the job. If the job queue doesn\'t have a
--- scheduling policy, then this parameter must not be specified. If the job
--- queue has a scheduling policy, then this parameter must be specified.
---
--- 'schedulingPriorityOverride', 'submitJob_schedulingPriorityOverride' - The scheduling priority for the job. This only affects jobs in job
--- queues with a fair share policy. Jobs with a higher scheduling priority
--- are scheduled before jobs with a lower scheduling priority. This
--- overrides any scheduling priority in the job definition.
---
--- The minimum supported value is 0 and the maximum supported value is
--- 9999.
---
--- 'nodeOverrides', 'submitJob_nodeOverrides' - A list of node overrides in JSON format that specify the node range to
--- target and the container overrides for that node range.
---
--- This parameter isn\'t applicable to jobs that are running on Fargate
--- resources; use @containerOverrides@ instead.
---
--- 'retryStrategy', 'submitJob_retryStrategy' - The retry strategy to use for failed jobs from this SubmitJob operation.
--- When a retry strategy is specified here, it overrides the retry strategy
--- defined in the job definition.
---
--- 'arrayProperties', 'submitJob_arrayProperties' - The array properties for the submitted job, such as the size of the
--- array. The array size can be between 2 and 10,000. If you specify array
--- properties for a job, it becomes an array job. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/array_jobs.html Array Jobs>
--- in the /Batch User Guide/.
---
--- 'propagateTags', 'submitJob_propagateTags' - Specifies whether to propagate the tags from the job or job definition
--- to the corresponding Amazon ECS task. If no value is specified, the tags
--- aren\'t propagated. Tags can only be propagated to the tasks during task
--- creation. For tags with the same name, job tags are given priority over
--- job definitions tags. If the total number of combined tags from the job
--- and job definition is over 50, the job is moved to the @FAILED@ state.
--- When specified, this overrides the tag propagation setting in the job
--- definition.
---
--- 'containerOverrides', 'submitJob_containerOverrides' - An object with various properties that override the defaults for the job
--- definition that specify the name of a container in the specified job
--- definition and the overrides it should receive. You can override the
--- default command for a container, which is specified in the job
--- definition or the Docker image, with a @command@ override. You can also
--- override existing environment variables on a container or add new
--- environment variables to it with an @environment@ override.
---
--- 'parameters', 'submitJob_parameters' - Additional parameters passed to the job that replace parameter
--- substitution placeholders that are set in the job definition. Parameters
--- are specified as a key and value pair mapping. Parameters in a
--- @SubmitJob@ request override any corresponding parameter defaults from
--- the job definition.
 --
 -- 'jobName', 'submitJob_jobName' - The name of the job. It can be up to 128 letters long. The first
 -- character must be alphanumeric, can contain uppercase and lowercase
@@ -283,22 +283,105 @@ newSubmitJob ::
   SubmitJob
 newSubmitJob pJobName_ pJobQueue_ pJobDefinition_ =
   SubmitJob'
-    { tags = Prelude.Nothing,
-      timeout = Prelude.Nothing,
-      eksPropertiesOverride = Prelude.Nothing,
-      dependsOn = Prelude.Nothing,
-      shareIdentifier = Prelude.Nothing,
-      schedulingPriorityOverride = Prelude.Nothing,
-      nodeOverrides = Prelude.Nothing,
-      retryStrategy = Prelude.Nothing,
-      arrayProperties = Prelude.Nothing,
-      propagateTags = Prelude.Nothing,
+    { arrayProperties = Prelude.Nothing,
       containerOverrides = Prelude.Nothing,
+      dependsOn = Prelude.Nothing,
+      eksPropertiesOverride = Prelude.Nothing,
+      nodeOverrides = Prelude.Nothing,
       parameters = Prelude.Nothing,
+      propagateTags = Prelude.Nothing,
+      retryStrategy = Prelude.Nothing,
+      schedulingPriorityOverride = Prelude.Nothing,
+      shareIdentifier = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      timeout = Prelude.Nothing,
       jobName = pJobName_,
       jobQueue = pJobQueue_,
       jobDefinition = pJobDefinition_
     }
+
+-- | The array properties for the submitted job, such as the size of the
+-- array. The array size can be between 2 and 10,000. If you specify array
+-- properties for a job, it becomes an array job. For more information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/array_jobs.html Array Jobs>
+-- in the /Batch User Guide/.
+submitJob_arrayProperties :: Lens.Lens' SubmitJob (Prelude.Maybe ArrayProperties)
+submitJob_arrayProperties = Lens.lens (\SubmitJob' {arrayProperties} -> arrayProperties) (\s@SubmitJob' {} a -> s {arrayProperties = a} :: SubmitJob)
+
+-- | An object with various properties that override the defaults for the job
+-- definition that specify the name of a container in the specified job
+-- definition and the overrides it should receive. You can override the
+-- default command for a container, which is specified in the job
+-- definition or the Docker image, with a @command@ override. You can also
+-- override existing environment variables on a container or add new
+-- environment variables to it with an @environment@ override.
+submitJob_containerOverrides :: Lens.Lens' SubmitJob (Prelude.Maybe ContainerOverrides)
+submitJob_containerOverrides = Lens.lens (\SubmitJob' {containerOverrides} -> containerOverrides) (\s@SubmitJob' {} a -> s {containerOverrides = a} :: SubmitJob)
+
+-- | A list of dependencies for the job. A job can depend upon a maximum of
+-- 20 jobs. You can specify a @SEQUENTIAL@ type dependency without
+-- specifying a job ID for array jobs so that each child array job
+-- completes sequentially, starting at index 0. You can also specify an
+-- @N_TO_N@ type dependency with a job ID for array jobs. In that case,
+-- each index child of this job must wait for the corresponding index child
+-- of each dependency to complete before it can begin.
+submitJob_dependsOn :: Lens.Lens' SubmitJob (Prelude.Maybe [JobDependency])
+submitJob_dependsOn = Lens.lens (\SubmitJob' {dependsOn} -> dependsOn) (\s@SubmitJob' {} a -> s {dependsOn = a} :: SubmitJob) Prelude.. Lens.mapping Lens.coerced
+
+-- | An object that can only be specified for jobs that are run on Amazon EKS
+-- resources with various properties that override defaults for the job
+-- definition.
+submitJob_eksPropertiesOverride :: Lens.Lens' SubmitJob (Prelude.Maybe EksPropertiesOverride)
+submitJob_eksPropertiesOverride = Lens.lens (\SubmitJob' {eksPropertiesOverride} -> eksPropertiesOverride) (\s@SubmitJob' {} a -> s {eksPropertiesOverride = a} :: SubmitJob)
+
+-- | A list of node overrides in JSON format that specify the node range to
+-- target and the container overrides for that node range.
+--
+-- This parameter isn\'t applicable to jobs that are running on Fargate
+-- resources; use @containerOverrides@ instead.
+submitJob_nodeOverrides :: Lens.Lens' SubmitJob (Prelude.Maybe NodeOverrides)
+submitJob_nodeOverrides = Lens.lens (\SubmitJob' {nodeOverrides} -> nodeOverrides) (\s@SubmitJob' {} a -> s {nodeOverrides = a} :: SubmitJob)
+
+-- | Additional parameters passed to the job that replace parameter
+-- substitution placeholders that are set in the job definition. Parameters
+-- are specified as a key and value pair mapping. Parameters in a
+-- @SubmitJob@ request override any corresponding parameter defaults from
+-- the job definition.
+submitJob_parameters :: Lens.Lens' SubmitJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+submitJob_parameters = Lens.lens (\SubmitJob' {parameters} -> parameters) (\s@SubmitJob' {} a -> s {parameters = a} :: SubmitJob) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specifies whether to propagate the tags from the job or job definition
+-- to the corresponding Amazon ECS task. If no value is specified, the tags
+-- aren\'t propagated. Tags can only be propagated to the tasks during task
+-- creation. For tags with the same name, job tags are given priority over
+-- job definitions tags. If the total number of combined tags from the job
+-- and job definition is over 50, the job is moved to the @FAILED@ state.
+-- When specified, this overrides the tag propagation setting in the job
+-- definition.
+submitJob_propagateTags :: Lens.Lens' SubmitJob (Prelude.Maybe Prelude.Bool)
+submitJob_propagateTags = Lens.lens (\SubmitJob' {propagateTags} -> propagateTags) (\s@SubmitJob' {} a -> s {propagateTags = a} :: SubmitJob)
+
+-- | The retry strategy to use for failed jobs from this SubmitJob operation.
+-- When a retry strategy is specified here, it overrides the retry strategy
+-- defined in the job definition.
+submitJob_retryStrategy :: Lens.Lens' SubmitJob (Prelude.Maybe RetryStrategy)
+submitJob_retryStrategy = Lens.lens (\SubmitJob' {retryStrategy} -> retryStrategy) (\s@SubmitJob' {} a -> s {retryStrategy = a} :: SubmitJob)
+
+-- | The scheduling priority for the job. This only affects jobs in job
+-- queues with a fair share policy. Jobs with a higher scheduling priority
+-- are scheduled before jobs with a lower scheduling priority. This
+-- overrides any scheduling priority in the job definition.
+--
+-- The minimum supported value is 0 and the maximum supported value is
+-- 9999.
+submitJob_schedulingPriorityOverride :: Lens.Lens' SubmitJob (Prelude.Maybe Prelude.Int)
+submitJob_schedulingPriorityOverride = Lens.lens (\SubmitJob' {schedulingPriorityOverride} -> schedulingPriorityOverride) (\s@SubmitJob' {} a -> s {schedulingPriorityOverride = a} :: SubmitJob)
+
+-- | The share identifier for the job. If the job queue doesn\'t have a
+-- scheduling policy, then this parameter must not be specified. If the job
+-- queue has a scheduling policy, then this parameter must be specified.
+submitJob_shareIdentifier :: Lens.Lens' SubmitJob (Prelude.Maybe Prelude.Text)
+submitJob_shareIdentifier = Lens.lens (\SubmitJob' {shareIdentifier} -> shareIdentifier) (\s@SubmitJob' {} a -> s {shareIdentifier = a} :: SubmitJob)
 
 -- | The tags that you apply to the job request to help you categorize and
 -- organize your resources. Each tag consists of a key and an optional
@@ -319,89 +402,6 @@ submitJob_tags = Lens.lens (\SubmitJob' {tags} -> tags) (\s@SubmitJob' {} a -> s
 -- in the /Amazon Elastic Container Service Developer Guide/.
 submitJob_timeout :: Lens.Lens' SubmitJob (Prelude.Maybe JobTimeout)
 submitJob_timeout = Lens.lens (\SubmitJob' {timeout} -> timeout) (\s@SubmitJob' {} a -> s {timeout = a} :: SubmitJob)
-
--- | An object that can only be specified for jobs that are run on Amazon EKS
--- resources with various properties that override defaults for the job
--- definition.
-submitJob_eksPropertiesOverride :: Lens.Lens' SubmitJob (Prelude.Maybe EksPropertiesOverride)
-submitJob_eksPropertiesOverride = Lens.lens (\SubmitJob' {eksPropertiesOverride} -> eksPropertiesOverride) (\s@SubmitJob' {} a -> s {eksPropertiesOverride = a} :: SubmitJob)
-
--- | A list of dependencies for the job. A job can depend upon a maximum of
--- 20 jobs. You can specify a @SEQUENTIAL@ type dependency without
--- specifying a job ID for array jobs so that each child array job
--- completes sequentially, starting at index 0. You can also specify an
--- @N_TO_N@ type dependency with a job ID for array jobs. In that case,
--- each index child of this job must wait for the corresponding index child
--- of each dependency to complete before it can begin.
-submitJob_dependsOn :: Lens.Lens' SubmitJob (Prelude.Maybe [JobDependency])
-submitJob_dependsOn = Lens.lens (\SubmitJob' {dependsOn} -> dependsOn) (\s@SubmitJob' {} a -> s {dependsOn = a} :: SubmitJob) Prelude.. Lens.mapping Lens.coerced
-
--- | The share identifier for the job. If the job queue doesn\'t have a
--- scheduling policy, then this parameter must not be specified. If the job
--- queue has a scheduling policy, then this parameter must be specified.
-submitJob_shareIdentifier :: Lens.Lens' SubmitJob (Prelude.Maybe Prelude.Text)
-submitJob_shareIdentifier = Lens.lens (\SubmitJob' {shareIdentifier} -> shareIdentifier) (\s@SubmitJob' {} a -> s {shareIdentifier = a} :: SubmitJob)
-
--- | The scheduling priority for the job. This only affects jobs in job
--- queues with a fair share policy. Jobs with a higher scheduling priority
--- are scheduled before jobs with a lower scheduling priority. This
--- overrides any scheduling priority in the job definition.
---
--- The minimum supported value is 0 and the maximum supported value is
--- 9999.
-submitJob_schedulingPriorityOverride :: Lens.Lens' SubmitJob (Prelude.Maybe Prelude.Int)
-submitJob_schedulingPriorityOverride = Lens.lens (\SubmitJob' {schedulingPriorityOverride} -> schedulingPriorityOverride) (\s@SubmitJob' {} a -> s {schedulingPriorityOverride = a} :: SubmitJob)
-
--- | A list of node overrides in JSON format that specify the node range to
--- target and the container overrides for that node range.
---
--- This parameter isn\'t applicable to jobs that are running on Fargate
--- resources; use @containerOverrides@ instead.
-submitJob_nodeOverrides :: Lens.Lens' SubmitJob (Prelude.Maybe NodeOverrides)
-submitJob_nodeOverrides = Lens.lens (\SubmitJob' {nodeOverrides} -> nodeOverrides) (\s@SubmitJob' {} a -> s {nodeOverrides = a} :: SubmitJob)
-
--- | The retry strategy to use for failed jobs from this SubmitJob operation.
--- When a retry strategy is specified here, it overrides the retry strategy
--- defined in the job definition.
-submitJob_retryStrategy :: Lens.Lens' SubmitJob (Prelude.Maybe RetryStrategy)
-submitJob_retryStrategy = Lens.lens (\SubmitJob' {retryStrategy} -> retryStrategy) (\s@SubmitJob' {} a -> s {retryStrategy = a} :: SubmitJob)
-
--- | The array properties for the submitted job, such as the size of the
--- array. The array size can be between 2 and 10,000. If you specify array
--- properties for a job, it becomes an array job. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/array_jobs.html Array Jobs>
--- in the /Batch User Guide/.
-submitJob_arrayProperties :: Lens.Lens' SubmitJob (Prelude.Maybe ArrayProperties)
-submitJob_arrayProperties = Lens.lens (\SubmitJob' {arrayProperties} -> arrayProperties) (\s@SubmitJob' {} a -> s {arrayProperties = a} :: SubmitJob)
-
--- | Specifies whether to propagate the tags from the job or job definition
--- to the corresponding Amazon ECS task. If no value is specified, the tags
--- aren\'t propagated. Tags can only be propagated to the tasks during task
--- creation. For tags with the same name, job tags are given priority over
--- job definitions tags. If the total number of combined tags from the job
--- and job definition is over 50, the job is moved to the @FAILED@ state.
--- When specified, this overrides the tag propagation setting in the job
--- definition.
-submitJob_propagateTags :: Lens.Lens' SubmitJob (Prelude.Maybe Prelude.Bool)
-submitJob_propagateTags = Lens.lens (\SubmitJob' {propagateTags} -> propagateTags) (\s@SubmitJob' {} a -> s {propagateTags = a} :: SubmitJob)
-
--- | An object with various properties that override the defaults for the job
--- definition that specify the name of a container in the specified job
--- definition and the overrides it should receive. You can override the
--- default command for a container, which is specified in the job
--- definition or the Docker image, with a @command@ override. You can also
--- override existing environment variables on a container or add new
--- environment variables to it with an @environment@ override.
-submitJob_containerOverrides :: Lens.Lens' SubmitJob (Prelude.Maybe ContainerOverrides)
-submitJob_containerOverrides = Lens.lens (\SubmitJob' {containerOverrides} -> containerOverrides) (\s@SubmitJob' {} a -> s {containerOverrides = a} :: SubmitJob)
-
--- | Additional parameters passed to the job that replace parameter
--- substitution placeholders that are set in the job definition. Parameters
--- are specified as a key and value pair mapping. Parameters in a
--- @SubmitJob@ request override any corresponding parameter defaults from
--- the job definition.
-submitJob_parameters :: Lens.Lens' SubmitJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-submitJob_parameters = Lens.lens (\SubmitJob' {parameters} -> parameters) (\s@SubmitJob' {} a -> s {parameters = a} :: SubmitJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the job. It can be up to 128 letters long. The first
 -- character must be alphanumeric, can contain uppercase and lowercase
@@ -437,36 +437,36 @@ instance Core.AWSRequest SubmitJob where
 
 instance Prelude.Hashable SubmitJob where
   hashWithSalt _salt SubmitJob' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` timeout
-      `Prelude.hashWithSalt` eksPropertiesOverride
-      `Prelude.hashWithSalt` dependsOn
-      `Prelude.hashWithSalt` shareIdentifier
-      `Prelude.hashWithSalt` schedulingPriorityOverride
-      `Prelude.hashWithSalt` nodeOverrides
-      `Prelude.hashWithSalt` retryStrategy
-      `Prelude.hashWithSalt` arrayProperties
-      `Prelude.hashWithSalt` propagateTags
+    _salt `Prelude.hashWithSalt` arrayProperties
       `Prelude.hashWithSalt` containerOverrides
+      `Prelude.hashWithSalt` dependsOn
+      `Prelude.hashWithSalt` eksPropertiesOverride
+      `Prelude.hashWithSalt` nodeOverrides
       `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` propagateTags
+      `Prelude.hashWithSalt` retryStrategy
+      `Prelude.hashWithSalt` schedulingPriorityOverride
+      `Prelude.hashWithSalt` shareIdentifier
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` timeout
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` jobQueue
       `Prelude.hashWithSalt` jobDefinition
 
 instance Prelude.NFData SubmitJob where
   rnf SubmitJob' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf timeout
-      `Prelude.seq` Prelude.rnf eksPropertiesOverride
-      `Prelude.seq` Prelude.rnf dependsOn
-      `Prelude.seq` Prelude.rnf shareIdentifier
-      `Prelude.seq` Prelude.rnf schedulingPriorityOverride
-      `Prelude.seq` Prelude.rnf nodeOverrides
-      `Prelude.seq` Prelude.rnf retryStrategy
-      `Prelude.seq` Prelude.rnf arrayProperties
-      `Prelude.seq` Prelude.rnf propagateTags
+    Prelude.rnf arrayProperties
       `Prelude.seq` Prelude.rnf containerOverrides
+      `Prelude.seq` Prelude.rnf dependsOn
+      `Prelude.seq` Prelude.rnf eksPropertiesOverride
+      `Prelude.seq` Prelude.rnf nodeOverrides
       `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf propagateTags
+      `Prelude.seq` Prelude.rnf retryStrategy
+      `Prelude.seq` Prelude.rnf schedulingPriorityOverride
+      `Prelude.seq` Prelude.rnf shareIdentifier
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf timeout
       `Prelude.seq` Prelude.rnf jobName
       `Prelude.seq` Prelude.rnf jobQueue
       `Prelude.seq` Prelude.rnf jobDefinition
@@ -486,23 +486,23 @@ instance Data.ToJSON SubmitJob where
   toJSON SubmitJob' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("timeout" Data..=) Prelude.<$> timeout,
-            ("eksPropertiesOverride" Data..=)
-              Prelude.<$> eksPropertiesOverride,
-            ("dependsOn" Data..=) Prelude.<$> dependsOn,
-            ("shareIdentifier" Data..=)
-              Prelude.<$> shareIdentifier,
-            ("schedulingPriorityOverride" Data..=)
-              Prelude.<$> schedulingPriorityOverride,
-            ("nodeOverrides" Data..=) Prelude.<$> nodeOverrides,
-            ("retryStrategy" Data..=) Prelude.<$> retryStrategy,
-            ("arrayProperties" Data..=)
+          [ ("arrayProperties" Data..=)
               Prelude.<$> arrayProperties,
-            ("propagateTags" Data..=) Prelude.<$> propagateTags,
             ("containerOverrides" Data..=)
               Prelude.<$> containerOverrides,
+            ("dependsOn" Data..=) Prelude.<$> dependsOn,
+            ("eksPropertiesOverride" Data..=)
+              Prelude.<$> eksPropertiesOverride,
+            ("nodeOverrides" Data..=) Prelude.<$> nodeOverrides,
             ("parameters" Data..=) Prelude.<$> parameters,
+            ("propagateTags" Data..=) Prelude.<$> propagateTags,
+            ("retryStrategy" Data..=) Prelude.<$> retryStrategy,
+            ("schedulingPriorityOverride" Data..=)
+              Prelude.<$> schedulingPriorityOverride,
+            ("shareIdentifier" Data..=)
+              Prelude.<$> shareIdentifier,
+            ("tags" Data..=) Prelude.<$> tags,
+            ("timeout" Data..=) Prelude.<$> timeout,
             Prelude.Just ("jobName" Data..= jobName),
             Prelude.Just ("jobQueue" Data..= jobQueue),
             Prelude.Just

@@ -28,12 +28,12 @@ module Amazonka.EMRServerless.UpdateApplication
     newUpdateApplication,
 
     -- * Request Lenses
+    updateApplication_architecture,
+    updateApplication_autoStartConfiguration,
     updateApplication_autoStopConfiguration,
     updateApplication_initialCapacity,
-    updateApplication_networkConfiguration,
-    updateApplication_autoStartConfiguration,
     updateApplication_maximumCapacity,
-    updateApplication_architecture,
+    updateApplication_networkConfiguration,
     updateApplication_applicationId,
     updateApplication_clientToken,
 
@@ -57,22 +57,22 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateApplication' smart constructor.
 data UpdateApplication = UpdateApplication'
-  { -- | The configuration for an application to automatically stop after a
+  { -- | The CPU architecture of an application.
+    architecture :: Prelude.Maybe Architecture,
+    -- | The configuration for an application to automatically start on job
+    -- submission.
+    autoStartConfiguration :: Prelude.Maybe AutoStartConfig,
+    -- | The configuration for an application to automatically stop after a
     -- certain amount of time being idle.
     autoStopConfiguration :: Prelude.Maybe AutoStopConfig,
     -- | The capacity to initialize when the application is updated.
     initialCapacity :: Prelude.Maybe (Prelude.HashMap Prelude.Text InitialCapacityConfig),
-    networkConfiguration :: Prelude.Maybe NetworkConfiguration,
-    -- | The configuration for an application to automatically start on job
-    -- submission.
-    autoStartConfiguration :: Prelude.Maybe AutoStartConfig,
     -- | The maximum capacity to allocate when the application is updated. This
     -- is cumulative across all workers at any given point in time during the
     -- lifespan of the application. No new resources will be created once any
     -- one of the defined limits is hit.
     maximumCapacity :: Prelude.Maybe MaximumAllowedResources,
-    -- | The CPU architecture of an application.
-    architecture :: Prelude.Maybe Architecture,
+    networkConfiguration :: Prelude.Maybe NetworkConfiguration,
     -- | The ID of the application to update.
     applicationId :: Prelude.Text,
     -- | The client idempotency token of the application to update. Its value
@@ -89,22 +89,22 @@ data UpdateApplication = UpdateApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'architecture', 'updateApplication_architecture' - The CPU architecture of an application.
+--
+-- 'autoStartConfiguration', 'updateApplication_autoStartConfiguration' - The configuration for an application to automatically start on job
+-- submission.
+--
 -- 'autoStopConfiguration', 'updateApplication_autoStopConfiguration' - The configuration for an application to automatically stop after a
 -- certain amount of time being idle.
 --
 -- 'initialCapacity', 'updateApplication_initialCapacity' - The capacity to initialize when the application is updated.
---
--- 'networkConfiguration', 'updateApplication_networkConfiguration' - Undocumented member.
---
--- 'autoStartConfiguration', 'updateApplication_autoStartConfiguration' - The configuration for an application to automatically start on job
--- submission.
 --
 -- 'maximumCapacity', 'updateApplication_maximumCapacity' - The maximum capacity to allocate when the application is updated. This
 -- is cumulative across all workers at any given point in time during the
 -- lifespan of the application. No new resources will be created once any
 -- one of the defined limits is hit.
 --
--- 'architecture', 'updateApplication_architecture' - The CPU architecture of an application.
+-- 'networkConfiguration', 'updateApplication_networkConfiguration' - Undocumented member.
 --
 -- 'applicationId', 'updateApplication_applicationId' - The ID of the application to update.
 --
@@ -118,16 +118,24 @@ newUpdateApplication ::
   UpdateApplication
 newUpdateApplication pApplicationId_ pClientToken_ =
   UpdateApplication'
-    { autoStopConfiguration =
-        Prelude.Nothing,
-      initialCapacity = Prelude.Nothing,
-      networkConfiguration = Prelude.Nothing,
+    { architecture = Prelude.Nothing,
       autoStartConfiguration = Prelude.Nothing,
+      autoStopConfiguration = Prelude.Nothing,
+      initialCapacity = Prelude.Nothing,
       maximumCapacity = Prelude.Nothing,
-      architecture = Prelude.Nothing,
+      networkConfiguration = Prelude.Nothing,
       applicationId = pApplicationId_,
       clientToken = pClientToken_
     }
+
+-- | The CPU architecture of an application.
+updateApplication_architecture :: Lens.Lens' UpdateApplication (Prelude.Maybe Architecture)
+updateApplication_architecture = Lens.lens (\UpdateApplication' {architecture} -> architecture) (\s@UpdateApplication' {} a -> s {architecture = a} :: UpdateApplication)
+
+-- | The configuration for an application to automatically start on job
+-- submission.
+updateApplication_autoStartConfiguration :: Lens.Lens' UpdateApplication (Prelude.Maybe AutoStartConfig)
+updateApplication_autoStartConfiguration = Lens.lens (\UpdateApplication' {autoStartConfiguration} -> autoStartConfiguration) (\s@UpdateApplication' {} a -> s {autoStartConfiguration = a} :: UpdateApplication)
 
 -- | The configuration for an application to automatically stop after a
 -- certain amount of time being idle.
@@ -138,15 +146,6 @@ updateApplication_autoStopConfiguration = Lens.lens (\UpdateApplication' {autoSt
 updateApplication_initialCapacity :: Lens.Lens' UpdateApplication (Prelude.Maybe (Prelude.HashMap Prelude.Text InitialCapacityConfig))
 updateApplication_initialCapacity = Lens.lens (\UpdateApplication' {initialCapacity} -> initialCapacity) (\s@UpdateApplication' {} a -> s {initialCapacity = a} :: UpdateApplication) Prelude.. Lens.mapping Lens.coerced
 
--- | Undocumented member.
-updateApplication_networkConfiguration :: Lens.Lens' UpdateApplication (Prelude.Maybe NetworkConfiguration)
-updateApplication_networkConfiguration = Lens.lens (\UpdateApplication' {networkConfiguration} -> networkConfiguration) (\s@UpdateApplication' {} a -> s {networkConfiguration = a} :: UpdateApplication)
-
--- | The configuration for an application to automatically start on job
--- submission.
-updateApplication_autoStartConfiguration :: Lens.Lens' UpdateApplication (Prelude.Maybe AutoStartConfig)
-updateApplication_autoStartConfiguration = Lens.lens (\UpdateApplication' {autoStartConfiguration} -> autoStartConfiguration) (\s@UpdateApplication' {} a -> s {autoStartConfiguration = a} :: UpdateApplication)
-
 -- | The maximum capacity to allocate when the application is updated. This
 -- is cumulative across all workers at any given point in time during the
 -- lifespan of the application. No new resources will be created once any
@@ -154,9 +153,9 @@ updateApplication_autoStartConfiguration = Lens.lens (\UpdateApplication' {autoS
 updateApplication_maximumCapacity :: Lens.Lens' UpdateApplication (Prelude.Maybe MaximumAllowedResources)
 updateApplication_maximumCapacity = Lens.lens (\UpdateApplication' {maximumCapacity} -> maximumCapacity) (\s@UpdateApplication' {} a -> s {maximumCapacity = a} :: UpdateApplication)
 
--- | The CPU architecture of an application.
-updateApplication_architecture :: Lens.Lens' UpdateApplication (Prelude.Maybe Architecture)
-updateApplication_architecture = Lens.lens (\UpdateApplication' {architecture} -> architecture) (\s@UpdateApplication' {} a -> s {architecture = a} :: UpdateApplication)
+-- | Undocumented member.
+updateApplication_networkConfiguration :: Lens.Lens' UpdateApplication (Prelude.Maybe NetworkConfiguration)
+updateApplication_networkConfiguration = Lens.lens (\UpdateApplication' {networkConfiguration} -> networkConfiguration) (\s@UpdateApplication' {} a -> s {networkConfiguration = a} :: UpdateApplication)
 
 -- | The ID of the application to update.
 updateApplication_applicationId :: Lens.Lens' UpdateApplication Prelude.Text
@@ -183,23 +182,23 @@ instance Core.AWSRequest UpdateApplication where
 
 instance Prelude.Hashable UpdateApplication where
   hashWithSalt _salt UpdateApplication' {..} =
-    _salt `Prelude.hashWithSalt` autoStopConfiguration
-      `Prelude.hashWithSalt` initialCapacity
-      `Prelude.hashWithSalt` networkConfiguration
+    _salt `Prelude.hashWithSalt` architecture
       `Prelude.hashWithSalt` autoStartConfiguration
+      `Prelude.hashWithSalt` autoStopConfiguration
+      `Prelude.hashWithSalt` initialCapacity
       `Prelude.hashWithSalt` maximumCapacity
-      `Prelude.hashWithSalt` architecture
+      `Prelude.hashWithSalt` networkConfiguration
       `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` clientToken
 
 instance Prelude.NFData UpdateApplication where
   rnf UpdateApplication' {..} =
-    Prelude.rnf autoStopConfiguration
-      `Prelude.seq` Prelude.rnf initialCapacity
-      `Prelude.seq` Prelude.rnf networkConfiguration
+    Prelude.rnf architecture
       `Prelude.seq` Prelude.rnf autoStartConfiguration
+      `Prelude.seq` Prelude.rnf autoStopConfiguration
+      `Prelude.seq` Prelude.rnf initialCapacity
       `Prelude.seq` Prelude.rnf maximumCapacity
-      `Prelude.seq` Prelude.rnf architecture
+      `Prelude.seq` Prelude.rnf networkConfiguration
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf clientToken
 
@@ -218,17 +217,17 @@ instance Data.ToJSON UpdateApplication where
   toJSON UpdateApplication' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("autoStopConfiguration" Data..=)
+          [ ("architecture" Data..=) Prelude.<$> architecture,
+            ("autoStartConfiguration" Data..=)
+              Prelude.<$> autoStartConfiguration,
+            ("autoStopConfiguration" Data..=)
               Prelude.<$> autoStopConfiguration,
             ("initialCapacity" Data..=)
               Prelude.<$> initialCapacity,
-            ("networkConfiguration" Data..=)
-              Prelude.<$> networkConfiguration,
-            ("autoStartConfiguration" Data..=)
-              Prelude.<$> autoStartConfiguration,
             ("maximumCapacity" Data..=)
               Prelude.<$> maximumCapacity,
-            ("architecture" Data..=) Prelude.<$> architecture,
+            ("networkConfiguration" Data..=)
+              Prelude.<$> networkConfiguration,
             Prelude.Just ("clientToken" Data..= clientToken)
           ]
       )

@@ -28,15 +28,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsIamPolicyVersion' smart constructor.
 data AwsIamPolicyVersion = AwsIamPolicyVersion'
-  { -- | Whether the version is the default version.
-    isDefaultVersion :: Prelude.Maybe Prelude.Bool,
-    -- | Indicates when the version was created.
+  { -- | Indicates when the version was created.
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
     -- The value cannot contain spaces. For example,
     -- @2020-03-22T13:22:13.933Z@.
     createDate :: Prelude.Maybe Prelude.Text,
+    -- | Whether the version is the default version.
+    isDefaultVersion :: Prelude.Maybe Prelude.Bool,
     -- | The identifier of the policy version.
     versionId :: Prelude.Maybe Prelude.Text
   }
@@ -50,8 +50,6 @@ data AwsIamPolicyVersion = AwsIamPolicyVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'isDefaultVersion', 'awsIamPolicyVersion_isDefaultVersion' - Whether the version is the default version.
---
 -- 'createDate', 'awsIamPolicyVersion_createDate' - Indicates when the version was created.
 --
 -- Uses the @date-time@ format specified in
@@ -59,20 +57,17 @@ data AwsIamPolicyVersion = AwsIamPolicyVersion'
 -- The value cannot contain spaces. For example,
 -- @2020-03-22T13:22:13.933Z@.
 --
+-- 'isDefaultVersion', 'awsIamPolicyVersion_isDefaultVersion' - Whether the version is the default version.
+--
 -- 'versionId', 'awsIamPolicyVersion_versionId' - The identifier of the policy version.
 newAwsIamPolicyVersion ::
   AwsIamPolicyVersion
 newAwsIamPolicyVersion =
   AwsIamPolicyVersion'
-    { isDefaultVersion =
-        Prelude.Nothing,
-      createDate = Prelude.Nothing,
+    { createDate = Prelude.Nothing,
+      isDefaultVersion = Prelude.Nothing,
       versionId = Prelude.Nothing
     }
-
--- | Whether the version is the default version.
-awsIamPolicyVersion_isDefaultVersion :: Lens.Lens' AwsIamPolicyVersion (Prelude.Maybe Prelude.Bool)
-awsIamPolicyVersion_isDefaultVersion = Lens.lens (\AwsIamPolicyVersion' {isDefaultVersion} -> isDefaultVersion) (\s@AwsIamPolicyVersion' {} a -> s {isDefaultVersion = a} :: AwsIamPolicyVersion)
 
 -- | Indicates when the version was created.
 --
@@ -82,6 +77,10 @@ awsIamPolicyVersion_isDefaultVersion = Lens.lens (\AwsIamPolicyVersion' {isDefau
 -- @2020-03-22T13:22:13.933Z@.
 awsIamPolicyVersion_createDate :: Lens.Lens' AwsIamPolicyVersion (Prelude.Maybe Prelude.Text)
 awsIamPolicyVersion_createDate = Lens.lens (\AwsIamPolicyVersion' {createDate} -> createDate) (\s@AwsIamPolicyVersion' {} a -> s {createDate = a} :: AwsIamPolicyVersion)
+
+-- | Whether the version is the default version.
+awsIamPolicyVersion_isDefaultVersion :: Lens.Lens' AwsIamPolicyVersion (Prelude.Maybe Prelude.Bool)
+awsIamPolicyVersion_isDefaultVersion = Lens.lens (\AwsIamPolicyVersion' {isDefaultVersion} -> isDefaultVersion) (\s@AwsIamPolicyVersion' {} a -> s {isDefaultVersion = a} :: AwsIamPolicyVersion)
 
 -- | The identifier of the policy version.
 awsIamPolicyVersion_versionId :: Lens.Lens' AwsIamPolicyVersion (Prelude.Maybe Prelude.Text)
@@ -93,30 +92,30 @@ instance Data.FromJSON AwsIamPolicyVersion where
       "AwsIamPolicyVersion"
       ( \x ->
           AwsIamPolicyVersion'
-            Prelude.<$> (x Data..:? "IsDefaultVersion")
-            Prelude.<*> (x Data..:? "CreateDate")
+            Prelude.<$> (x Data..:? "CreateDate")
+            Prelude.<*> (x Data..:? "IsDefaultVersion")
             Prelude.<*> (x Data..:? "VersionId")
       )
 
 instance Prelude.Hashable AwsIamPolicyVersion where
   hashWithSalt _salt AwsIamPolicyVersion' {..} =
-    _salt `Prelude.hashWithSalt` isDefaultVersion
-      `Prelude.hashWithSalt` createDate
+    _salt `Prelude.hashWithSalt` createDate
+      `Prelude.hashWithSalt` isDefaultVersion
       `Prelude.hashWithSalt` versionId
 
 instance Prelude.NFData AwsIamPolicyVersion where
   rnf AwsIamPolicyVersion' {..} =
-    Prelude.rnf isDefaultVersion
-      `Prelude.seq` Prelude.rnf createDate
+    Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf isDefaultVersion
       `Prelude.seq` Prelude.rnf versionId
 
 instance Data.ToJSON AwsIamPolicyVersion where
   toJSON AwsIamPolicyVersion' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("IsDefaultVersion" Data..=)
+          [ ("CreateDate" Data..=) Prelude.<$> createDate,
+            ("IsDefaultVersion" Data..=)
               Prelude.<$> isDefaultVersion,
-            ("CreateDate" Data..=) Prelude.<$> createDate,
             ("VersionId" Data..=) Prelude.<$> versionId
           ]
       )

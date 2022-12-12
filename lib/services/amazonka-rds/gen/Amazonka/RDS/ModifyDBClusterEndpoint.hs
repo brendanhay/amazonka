@@ -29,9 +29,9 @@ module Amazonka.RDS.ModifyDBClusterEndpoint
     newModifyDBClusterEndpoint,
 
     -- * Request Lenses
-    modifyDBClusterEndpoint_staticMembers,
-    modifyDBClusterEndpoint_excludedMembers,
     modifyDBClusterEndpoint_endpointType,
+    modifyDBClusterEndpoint_excludedMembers,
+    modifyDBClusterEndpoint_staticMembers,
     modifyDBClusterEndpoint_dbClusterEndpointIdentifier,
 
     -- * Destructuring the Response
@@ -39,16 +39,16 @@ module Amazonka.RDS.ModifyDBClusterEndpoint
     newDBClusterEndpoint,
 
     -- * Response Lenses
-    dbClusterEndpoint_dbClusterEndpointResourceIdentifier,
-    dbClusterEndpoint_staticMembers,
-    dbClusterEndpoint_dbClusterIdentifier,
-    dbClusterEndpoint_excludedMembers,
     dbClusterEndpoint_customEndpointType,
-    dbClusterEndpoint_status,
-    dbClusterEndpoint_endpointType,
-    dbClusterEndpoint_dbClusterEndpointIdentifier,
     dbClusterEndpoint_dbClusterEndpointArn,
+    dbClusterEndpoint_dbClusterEndpointIdentifier,
+    dbClusterEndpoint_dbClusterEndpointResourceIdentifier,
+    dbClusterEndpoint_dbClusterIdentifier,
     dbClusterEndpoint_endpoint,
+    dbClusterEndpoint_endpointType,
+    dbClusterEndpoint_excludedMembers,
+    dbClusterEndpoint_staticMembers,
+    dbClusterEndpoint_status,
   )
 where
 
@@ -62,15 +62,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newModifyDBClusterEndpoint' smart constructor.
 data ModifyDBClusterEndpoint = ModifyDBClusterEndpoint'
-  { -- | List of DB instance identifiers that are part of the custom endpoint
-    -- group.
-    staticMembers :: Prelude.Maybe [Prelude.Text],
+  { -- | The type of the endpoint. One of: @READER@, @WRITER@, @ANY@.
+    endpointType :: Prelude.Maybe Prelude.Text,
     -- | List of DB instance identifiers that aren\'t part of the custom endpoint
     -- group. All other eligible instances are reachable through the custom
     -- endpoint. Only relevant if the list of static members is empty.
     excludedMembers :: Prelude.Maybe [Prelude.Text],
-    -- | The type of the endpoint. One of: @READER@, @WRITER@, @ANY@.
-    endpointType :: Prelude.Maybe Prelude.Text,
+    -- | List of DB instance identifiers that are part of the custom endpoint
+    -- group.
+    staticMembers :: Prelude.Maybe [Prelude.Text],
     -- | The identifier of the endpoint to modify. This parameter is stored as a
     -- lowercase string.
     dbClusterEndpointIdentifier :: Prelude.Text
@@ -85,14 +85,14 @@ data ModifyDBClusterEndpoint = ModifyDBClusterEndpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'staticMembers', 'modifyDBClusterEndpoint_staticMembers' - List of DB instance identifiers that are part of the custom endpoint
--- group.
+-- 'endpointType', 'modifyDBClusterEndpoint_endpointType' - The type of the endpoint. One of: @READER@, @WRITER@, @ANY@.
 --
 -- 'excludedMembers', 'modifyDBClusterEndpoint_excludedMembers' - List of DB instance identifiers that aren\'t part of the custom endpoint
 -- group. All other eligible instances are reachable through the custom
 -- endpoint. Only relevant if the list of static members is empty.
 --
--- 'endpointType', 'modifyDBClusterEndpoint_endpointType' - The type of the endpoint. One of: @READER@, @WRITER@, @ANY@.
+-- 'staticMembers', 'modifyDBClusterEndpoint_staticMembers' - List of DB instance identifiers that are part of the custom endpoint
+-- group.
 --
 -- 'dbClusterEndpointIdentifier', 'modifyDBClusterEndpoint_dbClusterEndpointIdentifier' - The identifier of the endpoint to modify. This parameter is stored as a
 -- lowercase string.
@@ -103,18 +103,17 @@ newModifyDBClusterEndpoint ::
 newModifyDBClusterEndpoint
   pDBClusterEndpointIdentifier_ =
     ModifyDBClusterEndpoint'
-      { staticMembers =
+      { endpointType =
           Prelude.Nothing,
         excludedMembers = Prelude.Nothing,
-        endpointType = Prelude.Nothing,
+        staticMembers = Prelude.Nothing,
         dbClusterEndpointIdentifier =
           pDBClusterEndpointIdentifier_
       }
 
--- | List of DB instance identifiers that are part of the custom endpoint
--- group.
-modifyDBClusterEndpoint_staticMembers :: Lens.Lens' ModifyDBClusterEndpoint (Prelude.Maybe [Prelude.Text])
-modifyDBClusterEndpoint_staticMembers = Lens.lens (\ModifyDBClusterEndpoint' {staticMembers} -> staticMembers) (\s@ModifyDBClusterEndpoint' {} a -> s {staticMembers = a} :: ModifyDBClusterEndpoint) Prelude.. Lens.mapping Lens.coerced
+-- | The type of the endpoint. One of: @READER@, @WRITER@, @ANY@.
+modifyDBClusterEndpoint_endpointType :: Lens.Lens' ModifyDBClusterEndpoint (Prelude.Maybe Prelude.Text)
+modifyDBClusterEndpoint_endpointType = Lens.lens (\ModifyDBClusterEndpoint' {endpointType} -> endpointType) (\s@ModifyDBClusterEndpoint' {} a -> s {endpointType = a} :: ModifyDBClusterEndpoint)
 
 -- | List of DB instance identifiers that aren\'t part of the custom endpoint
 -- group. All other eligible instances are reachable through the custom
@@ -122,9 +121,10 @@ modifyDBClusterEndpoint_staticMembers = Lens.lens (\ModifyDBClusterEndpoint' {st
 modifyDBClusterEndpoint_excludedMembers :: Lens.Lens' ModifyDBClusterEndpoint (Prelude.Maybe [Prelude.Text])
 modifyDBClusterEndpoint_excludedMembers = Lens.lens (\ModifyDBClusterEndpoint' {excludedMembers} -> excludedMembers) (\s@ModifyDBClusterEndpoint' {} a -> s {excludedMembers = a} :: ModifyDBClusterEndpoint) Prelude.. Lens.mapping Lens.coerced
 
--- | The type of the endpoint. One of: @READER@, @WRITER@, @ANY@.
-modifyDBClusterEndpoint_endpointType :: Lens.Lens' ModifyDBClusterEndpoint (Prelude.Maybe Prelude.Text)
-modifyDBClusterEndpoint_endpointType = Lens.lens (\ModifyDBClusterEndpoint' {endpointType} -> endpointType) (\s@ModifyDBClusterEndpoint' {} a -> s {endpointType = a} :: ModifyDBClusterEndpoint)
+-- | List of DB instance identifiers that are part of the custom endpoint
+-- group.
+modifyDBClusterEndpoint_staticMembers :: Lens.Lens' ModifyDBClusterEndpoint (Prelude.Maybe [Prelude.Text])
+modifyDBClusterEndpoint_staticMembers = Lens.lens (\ModifyDBClusterEndpoint' {staticMembers} -> staticMembers) (\s@ModifyDBClusterEndpoint' {} a -> s {staticMembers = a} :: ModifyDBClusterEndpoint) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the endpoint to modify. This parameter is stored as a
 -- lowercase string.
@@ -144,16 +144,16 @@ instance Core.AWSRequest ModifyDBClusterEndpoint where
 
 instance Prelude.Hashable ModifyDBClusterEndpoint where
   hashWithSalt _salt ModifyDBClusterEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` staticMembers
+    _salt `Prelude.hashWithSalt` endpointType
       `Prelude.hashWithSalt` excludedMembers
-      `Prelude.hashWithSalt` endpointType
+      `Prelude.hashWithSalt` staticMembers
       `Prelude.hashWithSalt` dbClusterEndpointIdentifier
 
 instance Prelude.NFData ModifyDBClusterEndpoint where
   rnf ModifyDBClusterEndpoint' {..} =
-    Prelude.rnf staticMembers
+    Prelude.rnf endpointType
       `Prelude.seq` Prelude.rnf excludedMembers
-      `Prelude.seq` Prelude.rnf endpointType
+      `Prelude.seq` Prelude.rnf staticMembers
       `Prelude.seq` Prelude.rnf dbClusterEndpointIdentifier
 
 instance Data.ToHeaders ModifyDBClusterEndpoint where
@@ -169,17 +169,17 @@ instance Data.ToQuery ModifyDBClusterEndpoint where
           Data.=: ("ModifyDBClusterEndpoint" :: Prelude.ByteString),
         "Version"
           Data.=: ("2014-10-31" :: Prelude.ByteString),
-        "StaticMembers"
-          Data.=: Data.toQuery
-            ( Data.toQueryList "member"
-                Prelude.<$> staticMembers
-            ),
+        "EndpointType" Data.=: endpointType,
         "ExcludedMembers"
           Data.=: Data.toQuery
             ( Data.toQueryList "member"
                 Prelude.<$> excludedMembers
             ),
-        "EndpointType" Data.=: endpointType,
+        "StaticMembers"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
+                Prelude.<$> staticMembers
+            ),
         "DBClusterEndpointIdentifier"
           Data.=: dbClusterEndpointIdentifier
       ]

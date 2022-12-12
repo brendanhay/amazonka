@@ -33,9 +33,9 @@ module Amazonka.EC2.DescribeStaleSecurityGroups
     newDescribeStaleSecurityGroups,
 
     -- * Request Lenses
-    describeStaleSecurityGroups_nextToken,
     describeStaleSecurityGroups_dryRun,
     describeStaleSecurityGroups_maxResults,
+    describeStaleSecurityGroups_nextToken,
     describeStaleSecurityGroups_vpcId,
 
     -- * Destructuring the Response
@@ -59,10 +59,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeStaleSecurityGroups' smart constructor.
 data DescribeStaleSecurityGroups = DescribeStaleSecurityGroups'
-  { -- | The token for the next set of items to return. (You received this token
-    -- from a prior call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Checks whether you have the required permissions for the action, without
+  { -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
@@ -71,6 +68,9 @@ data DescribeStaleSecurityGroups = DescribeStaleSecurityGroups'
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of items to return. (You received this token
+    -- from a prior call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the VPC.
     vpcId :: Prelude.Text
   }
@@ -84,9 +84,6 @@ data DescribeStaleSecurityGroups = DescribeStaleSecurityGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeStaleSecurityGroups_nextToken' - The token for the next set of items to return. (You received this token
--- from a prior call.)
---
 -- 'dryRun', 'describeStaleSecurityGroups_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
@@ -96,6 +93,9 @@ data DescribeStaleSecurityGroups = DescribeStaleSecurityGroups'
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
 --
+-- 'nextToken', 'describeStaleSecurityGroups_nextToken' - The token for the next set of items to return. (You received this token
+-- from a prior call.)
+--
 -- 'vpcId', 'describeStaleSecurityGroups_vpcId' - The ID of the VPC.
 newDescribeStaleSecurityGroups ::
   -- | 'vpcId'
@@ -103,17 +103,12 @@ newDescribeStaleSecurityGroups ::
   DescribeStaleSecurityGroups
 newDescribeStaleSecurityGroups pVpcId_ =
   DescribeStaleSecurityGroups'
-    { nextToken =
+    { dryRun =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       vpcId = pVpcId_
     }
-
--- | The token for the next set of items to return. (You received this token
--- from a prior call.)
-describeStaleSecurityGroups_nextToken :: Lens.Lens' DescribeStaleSecurityGroups (Prelude.Maybe Prelude.Text)
-describeStaleSecurityGroups_nextToken = Lens.lens (\DescribeStaleSecurityGroups' {nextToken} -> nextToken) (\s@DescribeStaleSecurityGroups' {} a -> s {nextToken = a} :: DescribeStaleSecurityGroups)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -127,6 +122,11 @@ describeStaleSecurityGroups_dryRun = Lens.lens (\DescribeStaleSecurityGroups' {d
 -- next set of results.
 describeStaleSecurityGroups_maxResults :: Lens.Lens' DescribeStaleSecurityGroups (Prelude.Maybe Prelude.Natural)
 describeStaleSecurityGroups_maxResults = Lens.lens (\DescribeStaleSecurityGroups' {maxResults} -> maxResults) (\s@DescribeStaleSecurityGroups' {} a -> s {maxResults = a} :: DescribeStaleSecurityGroups)
+
+-- | The token for the next set of items to return. (You received this token
+-- from a prior call.)
+describeStaleSecurityGroups_nextToken :: Lens.Lens' DescribeStaleSecurityGroups (Prelude.Maybe Prelude.Text)
+describeStaleSecurityGroups_nextToken = Lens.lens (\DescribeStaleSecurityGroups' {nextToken} -> nextToken) (\s@DescribeStaleSecurityGroups' {} a -> s {nextToken = a} :: DescribeStaleSecurityGroups)
 
 -- | The ID of the VPC.
 describeStaleSecurityGroups_vpcId :: Lens.Lens' DescribeStaleSecurityGroups Prelude.Text
@@ -174,16 +174,16 @@ instance Core.AWSRequest DescribeStaleSecurityGroups where
 
 instance Prelude.Hashable DescribeStaleSecurityGroups where
   hashWithSalt _salt DescribeStaleSecurityGroups' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` dryRun
+    _salt `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` vpcId
 
 instance Prelude.NFData DescribeStaleSecurityGroups where
   rnf DescribeStaleSecurityGroups' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf dryRun
+    Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf vpcId
 
 instance Data.ToHeaders DescribeStaleSecurityGroups where
@@ -201,9 +201,9 @@ instance Data.ToQuery DescribeStaleSecurityGroups where
                   ),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
         "DryRun" Data.=: dryRun,
         "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken,
         "VpcId" Data.=: vpcId
       ]
 

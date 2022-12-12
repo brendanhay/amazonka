@@ -34,11 +34,11 @@ module Amazonka.Location.DescribeTracker
     newDescribeTrackerResponse,
 
     -- * Response Lenses
-    describeTrackerResponse_tags,
-    describeTrackerResponse_pricingPlanDataSource,
-    describeTrackerResponse_pricingPlan,
     describeTrackerResponse_kmsKeyId,
     describeTrackerResponse_positionFiltering,
+    describeTrackerResponse_pricingPlan,
+    describeTrackerResponse_pricingPlanDataSource,
+    describeTrackerResponse_tags,
     describeTrackerResponse_httpStatus,
     describeTrackerResponse_createTime,
     describeTrackerResponse_description,
@@ -93,11 +93,11 @@ instance Core.AWSRequest DescribeTracker where
     Response.receiveJSON
       ( \s h x ->
           DescribeTrackerResponse'
-            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "PricingPlanDataSource")
-            Prelude.<*> (x Data..?> "PricingPlan")
-            Prelude.<*> (x Data..?> "KmsKeyId")
+            Prelude.<$> (x Data..?> "KmsKeyId")
             Prelude.<*> (x Data..?> "PositionFiltering")
+            Prelude.<*> (x Data..?> "PricingPlan")
+            Prelude.<*> (x Data..?> "PricingPlanDataSource")
+            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "CreateTime")
             Prelude.<*> (x Data..:> "Description")
@@ -134,18 +134,18 @@ instance Data.ToQuery DescribeTracker where
 
 -- | /See:/ 'newDescribeTrackerResponse' smart constructor.
 data DescribeTrackerResponse = DescribeTrackerResponse'
-  { -- | The tags associated with the tracker resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | No longer used. Always returns an empty string.
-    pricingPlanDataSource :: Prelude.Maybe Prelude.Text,
-    -- | Always returns @RequestBasedUsage@.
-    pricingPlan :: Prelude.Maybe PricingPlan,
-    -- | A key identifier for an
+  { -- | A key identifier for an
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>
     -- assigned to the Amazon Location resource.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The position filtering method of the tracker resource.
     positionFiltering :: Prelude.Maybe PositionFiltering,
+    -- | Always returns @RequestBasedUsage@.
+    pricingPlan :: Prelude.Maybe PricingPlan,
+    -- | No longer used. Always returns an empty string.
+    pricingPlanDataSource :: Prelude.Maybe Prelude.Text,
+    -- | The tags associated with the tracker resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The timestamp for when the tracker resource was created in
@@ -177,17 +177,17 @@ data DescribeTrackerResponse = DescribeTrackerResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'describeTrackerResponse_tags' - The tags associated with the tracker resource.
---
--- 'pricingPlanDataSource', 'describeTrackerResponse_pricingPlanDataSource' - No longer used. Always returns an empty string.
---
--- 'pricingPlan', 'describeTrackerResponse_pricingPlan' - Always returns @RequestBasedUsage@.
---
 -- 'kmsKeyId', 'describeTrackerResponse_kmsKeyId' - A key identifier for an
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>
 -- assigned to the Amazon Location resource.
 --
 -- 'positionFiltering', 'describeTrackerResponse_positionFiltering' - The position filtering method of the tracker resource.
+--
+-- 'pricingPlan', 'describeTrackerResponse_pricingPlan' - Always returns @RequestBasedUsage@.
+--
+-- 'pricingPlanDataSource', 'describeTrackerResponse_pricingPlanDataSource' - No longer used. Always returns an empty string.
+--
+-- 'tags', 'describeTrackerResponse_tags' - The tags associated with the tracker resource.
 --
 -- 'httpStatus', 'describeTrackerResponse_httpStatus' - The response's http status code.
 --
@@ -230,11 +230,12 @@ newDescribeTrackerResponse
   pTrackerName_
   pUpdateTime_ =
     DescribeTrackerResponse'
-      { tags = Prelude.Nothing,
-        pricingPlanDataSource = Prelude.Nothing,
-        pricingPlan = Prelude.Nothing,
-        kmsKeyId = Prelude.Nothing,
+      { kmsKeyId =
+          Prelude.Nothing,
         positionFiltering = Prelude.Nothing,
+        pricingPlan = Prelude.Nothing,
+        pricingPlanDataSource = Prelude.Nothing,
+        tags = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         createTime = Data._Time Lens.# pCreateTime_,
         description = pDescription_,
@@ -242,18 +243,6 @@ newDescribeTrackerResponse
         trackerName = pTrackerName_,
         updateTime = Data._Time Lens.# pUpdateTime_
       }
-
--- | The tags associated with the tracker resource.
-describeTrackerResponse_tags :: Lens.Lens' DescribeTrackerResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-describeTrackerResponse_tags = Lens.lens (\DescribeTrackerResponse' {tags} -> tags) (\s@DescribeTrackerResponse' {} a -> s {tags = a} :: DescribeTrackerResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | No longer used. Always returns an empty string.
-describeTrackerResponse_pricingPlanDataSource :: Lens.Lens' DescribeTrackerResponse (Prelude.Maybe Prelude.Text)
-describeTrackerResponse_pricingPlanDataSource = Lens.lens (\DescribeTrackerResponse' {pricingPlanDataSource} -> pricingPlanDataSource) (\s@DescribeTrackerResponse' {} a -> s {pricingPlanDataSource = a} :: DescribeTrackerResponse)
-
--- | Always returns @RequestBasedUsage@.
-describeTrackerResponse_pricingPlan :: Lens.Lens' DescribeTrackerResponse (Prelude.Maybe PricingPlan)
-describeTrackerResponse_pricingPlan = Lens.lens (\DescribeTrackerResponse' {pricingPlan} -> pricingPlan) (\s@DescribeTrackerResponse' {} a -> s {pricingPlan = a} :: DescribeTrackerResponse)
 
 -- | A key identifier for an
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>
@@ -264,6 +253,18 @@ describeTrackerResponse_kmsKeyId = Lens.lens (\DescribeTrackerResponse' {kmsKeyI
 -- | The position filtering method of the tracker resource.
 describeTrackerResponse_positionFiltering :: Lens.Lens' DescribeTrackerResponse (Prelude.Maybe PositionFiltering)
 describeTrackerResponse_positionFiltering = Lens.lens (\DescribeTrackerResponse' {positionFiltering} -> positionFiltering) (\s@DescribeTrackerResponse' {} a -> s {positionFiltering = a} :: DescribeTrackerResponse)
+
+-- | Always returns @RequestBasedUsage@.
+describeTrackerResponse_pricingPlan :: Lens.Lens' DescribeTrackerResponse (Prelude.Maybe PricingPlan)
+describeTrackerResponse_pricingPlan = Lens.lens (\DescribeTrackerResponse' {pricingPlan} -> pricingPlan) (\s@DescribeTrackerResponse' {} a -> s {pricingPlan = a} :: DescribeTrackerResponse)
+
+-- | No longer used. Always returns an empty string.
+describeTrackerResponse_pricingPlanDataSource :: Lens.Lens' DescribeTrackerResponse (Prelude.Maybe Prelude.Text)
+describeTrackerResponse_pricingPlanDataSource = Lens.lens (\DescribeTrackerResponse' {pricingPlanDataSource} -> pricingPlanDataSource) (\s@DescribeTrackerResponse' {} a -> s {pricingPlanDataSource = a} :: DescribeTrackerResponse)
+
+-- | The tags associated with the tracker resource.
+describeTrackerResponse_tags :: Lens.Lens' DescribeTrackerResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+describeTrackerResponse_tags = Lens.lens (\DescribeTrackerResponse' {tags} -> tags) (\s@DescribeTrackerResponse' {} a -> s {tags = a} :: DescribeTrackerResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeTrackerResponse_httpStatus :: Lens.Lens' DescribeTrackerResponse Prelude.Int
@@ -299,11 +300,11 @@ describeTrackerResponse_updateTime = Lens.lens (\DescribeTrackerResponse' {updat
 
 instance Prelude.NFData DescribeTrackerResponse where
   rnf DescribeTrackerResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf pricingPlanDataSource
-      `Prelude.seq` Prelude.rnf pricingPlan
-      `Prelude.seq` Prelude.rnf kmsKeyId
+    Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf positionFiltering
+      `Prelude.seq` Prelude.rnf pricingPlan
+      `Prelude.seq` Prelude.rnf pricingPlanDataSource
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf createTime
       `Prelude.seq` Prelude.rnf description

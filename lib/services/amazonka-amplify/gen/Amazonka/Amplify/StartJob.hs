@@ -28,10 +28,10 @@ module Amazonka.Amplify.StartJob
 
     -- * Request Lenses
     startJob_commitId,
-    startJob_commitTime,
-    startJob_jobReason,
-    startJob_jobId,
     startJob_commitMessage,
+    startJob_commitTime,
+    startJob_jobId,
+    startJob_jobReason,
     startJob_appId,
     startJob_branchName,
     startJob_jobType,
@@ -60,15 +60,15 @@ import qualified Amazonka.Response as Response
 data StartJob = StartJob'
   { -- | The commit ID from a third-party repository provider for the job.
     commitId :: Prelude.Maybe Prelude.Text,
+    -- | The commit message from a third-party repository provider for the job.
+    commitMessage :: Prelude.Maybe Prelude.Text,
     -- | The commit date and time for the job.
     commitTime :: Prelude.Maybe Data.POSIX,
-    -- | A descriptive reason for starting this job.
-    jobReason :: Prelude.Maybe Prelude.Text,
     -- | The unique ID for an existing job. This is required if the value of
     -- @jobType@ is @RETRY@.
     jobId :: Prelude.Maybe Prelude.Text,
-    -- | The commit message from a third-party repository provider for the job.
-    commitMessage :: Prelude.Maybe Prelude.Text,
+    -- | A descriptive reason for starting this job.
+    jobReason :: Prelude.Maybe Prelude.Text,
     -- | The unique ID for an Amplify app.
     appId :: Prelude.Text,
     -- | The branch name for the job.
@@ -92,14 +92,14 @@ data StartJob = StartJob'
 --
 -- 'commitId', 'startJob_commitId' - The commit ID from a third-party repository provider for the job.
 --
--- 'commitTime', 'startJob_commitTime' - The commit date and time for the job.
+-- 'commitMessage', 'startJob_commitMessage' - The commit message from a third-party repository provider for the job.
 --
--- 'jobReason', 'startJob_jobReason' - A descriptive reason for starting this job.
+-- 'commitTime', 'startJob_commitTime' - The commit date and time for the job.
 --
 -- 'jobId', 'startJob_jobId' - The unique ID for an existing job. This is required if the value of
 -- @jobType@ is @RETRY@.
 --
--- 'commitMessage', 'startJob_commitMessage' - The commit message from a third-party repository provider for the job.
+-- 'jobReason', 'startJob_jobReason' - A descriptive reason for starting this job.
 --
 -- 'appId', 'startJob_appId' - The unique ID for an Amplify app.
 --
@@ -121,10 +121,10 @@ newStartJob ::
 newStartJob pAppId_ pBranchName_ pJobType_ =
   StartJob'
     { commitId = Prelude.Nothing,
-      commitTime = Prelude.Nothing,
-      jobReason = Prelude.Nothing,
-      jobId = Prelude.Nothing,
       commitMessage = Prelude.Nothing,
+      commitTime = Prelude.Nothing,
+      jobId = Prelude.Nothing,
+      jobReason = Prelude.Nothing,
       appId = pAppId_,
       branchName = pBranchName_,
       jobType = pJobType_
@@ -134,22 +134,22 @@ newStartJob pAppId_ pBranchName_ pJobType_ =
 startJob_commitId :: Lens.Lens' StartJob (Prelude.Maybe Prelude.Text)
 startJob_commitId = Lens.lens (\StartJob' {commitId} -> commitId) (\s@StartJob' {} a -> s {commitId = a} :: StartJob)
 
+-- | The commit message from a third-party repository provider for the job.
+startJob_commitMessage :: Lens.Lens' StartJob (Prelude.Maybe Prelude.Text)
+startJob_commitMessage = Lens.lens (\StartJob' {commitMessage} -> commitMessage) (\s@StartJob' {} a -> s {commitMessage = a} :: StartJob)
+
 -- | The commit date and time for the job.
 startJob_commitTime :: Lens.Lens' StartJob (Prelude.Maybe Prelude.UTCTime)
 startJob_commitTime = Lens.lens (\StartJob' {commitTime} -> commitTime) (\s@StartJob' {} a -> s {commitTime = a} :: StartJob) Prelude.. Lens.mapping Data._Time
-
--- | A descriptive reason for starting this job.
-startJob_jobReason :: Lens.Lens' StartJob (Prelude.Maybe Prelude.Text)
-startJob_jobReason = Lens.lens (\StartJob' {jobReason} -> jobReason) (\s@StartJob' {} a -> s {jobReason = a} :: StartJob)
 
 -- | The unique ID for an existing job. This is required if the value of
 -- @jobType@ is @RETRY@.
 startJob_jobId :: Lens.Lens' StartJob (Prelude.Maybe Prelude.Text)
 startJob_jobId = Lens.lens (\StartJob' {jobId} -> jobId) (\s@StartJob' {} a -> s {jobId = a} :: StartJob)
 
--- | The commit message from a third-party repository provider for the job.
-startJob_commitMessage :: Lens.Lens' StartJob (Prelude.Maybe Prelude.Text)
-startJob_commitMessage = Lens.lens (\StartJob' {commitMessage} -> commitMessage) (\s@StartJob' {} a -> s {commitMessage = a} :: StartJob)
+-- | A descriptive reason for starting this job.
+startJob_jobReason :: Lens.Lens' StartJob (Prelude.Maybe Prelude.Text)
+startJob_jobReason = Lens.lens (\StartJob' {jobReason} -> jobReason) (\s@StartJob' {} a -> s {jobReason = a} :: StartJob)
 
 -- | The unique ID for an Amplify app.
 startJob_appId :: Lens.Lens' StartJob Prelude.Text
@@ -182,10 +182,10 @@ instance Core.AWSRequest StartJob where
 instance Prelude.Hashable StartJob where
   hashWithSalt _salt StartJob' {..} =
     _salt `Prelude.hashWithSalt` commitId
-      `Prelude.hashWithSalt` commitTime
-      `Prelude.hashWithSalt` jobReason
-      `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` commitMessage
+      `Prelude.hashWithSalt` commitTime
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` jobReason
       `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` branchName
       `Prelude.hashWithSalt` jobType
@@ -193,10 +193,10 @@ instance Prelude.Hashable StartJob where
 instance Prelude.NFData StartJob where
   rnf StartJob' {..} =
     Prelude.rnf commitId
-      `Prelude.seq` Prelude.rnf commitTime
-      `Prelude.seq` Prelude.rnf jobReason
-      `Prelude.seq` Prelude.rnf jobId
       `Prelude.seq` Prelude.rnf commitMessage
+      `Prelude.seq` Prelude.rnf commitTime
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf jobReason
       `Prelude.seq` Prelude.rnf appId
       `Prelude.seq` Prelude.rnf branchName
       `Prelude.seq` Prelude.rnf jobType
@@ -217,10 +217,10 @@ instance Data.ToJSON StartJob where
     Data.object
       ( Prelude.catMaybes
           [ ("commitId" Data..=) Prelude.<$> commitId,
-            ("commitTime" Data..=) Prelude.<$> commitTime,
-            ("jobReason" Data..=) Prelude.<$> jobReason,
-            ("jobId" Data..=) Prelude.<$> jobId,
             ("commitMessage" Data..=) Prelude.<$> commitMessage,
+            ("commitTime" Data..=) Prelude.<$> commitTime,
+            ("jobId" Data..=) Prelude.<$> jobId,
+            ("jobReason" Data..=) Prelude.<$> jobReason,
             Prelude.Just ("jobType" Data..= jobType)
           ]
       )

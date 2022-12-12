@@ -61,12 +61,12 @@ module Amazonka.Location.CalculateRouteMatrix
     newCalculateRouteMatrix,
 
     -- * Request Lenses
-    calculateRouteMatrix_distanceUnit,
     calculateRouteMatrix_carModeOptions,
-    calculateRouteMatrix_travelMode,
-    calculateRouteMatrix_departureTime,
-    calculateRouteMatrix_truckModeOptions,
     calculateRouteMatrix_departNow,
+    calculateRouteMatrix_departureTime,
+    calculateRouteMatrix_distanceUnit,
+    calculateRouteMatrix_travelMode,
+    calculateRouteMatrix_truckModeOptions,
     calculateRouteMatrix_calculatorName,
     calculateRouteMatrix_departurePositions,
     calculateRouteMatrix_destinationPositions,
@@ -94,27 +94,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCalculateRouteMatrix' smart constructor.
 data CalculateRouteMatrix = CalculateRouteMatrix'
-  { -- | Set the unit system to specify the distance.
-    --
-    -- Default Value: @Kilometers@
-    distanceUnit :: Prelude.Maybe DistanceUnit,
-    -- | Specifies route preferences when traveling by @Car@, such as avoiding
+  { -- | Specifies route preferences when traveling by @Car@, such as avoiding
     -- routes that use ferries or tolls.
     --
     -- Requirements: @TravelMode@ must be specified as @Car@.
     carModeOptions :: Prelude.Maybe CalculateRouteCarModeOptions,
-    -- | Specifies the mode of transport when calculating a route. Used in
-    -- estimating the speed of travel and road compatibility.
+    -- | Sets the time of departure as the current time. Uses the current time to
+    -- calculate the route matrix. You can\'t set both @DepartureTime@ and
+    -- @DepartNow@. If neither is set, the best time of day to travel with the
+    -- best traffic conditions is used to calculate the route matrix.
     --
-    -- The @TravelMode@ you specify also determines how you specify route
-    -- preferences:
+    -- Default Value: @false@
     --
-    -- -   If traveling by @Car@ use the @CarModeOptions@ parameter.
-    --
-    -- -   If traveling by @Truck@ use the @TruckModeOptions@ parameter.
-    --
-    -- Default Value: @Car@
-    travelMode :: Prelude.Maybe TravelMode,
+    -- Valid Values: @false@ | @true@
+    departNow :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the desired time of departure. Uses the given time to
     -- calculate the route matrix. You can\'t set both @DepartureTime@ and
     -- @DepartNow@. If neither is set, the best time of day to travel with the
@@ -127,21 +120,28 @@ data CalculateRouteMatrix = CalculateRouteMatrix'
     --     format: @YYYY-MM-DDThh:mm:ss.sssZ@. For example,
     --     @2020–07-2T12:15:20.000Z+01:00@
     departureTime :: Prelude.Maybe Data.POSIX,
+    -- | Set the unit system to specify the distance.
+    --
+    -- Default Value: @Kilometers@
+    distanceUnit :: Prelude.Maybe DistanceUnit,
+    -- | Specifies the mode of transport when calculating a route. Used in
+    -- estimating the speed of travel and road compatibility.
+    --
+    -- The @TravelMode@ you specify also determines how you specify route
+    -- preferences:
+    --
+    -- -   If traveling by @Car@ use the @CarModeOptions@ parameter.
+    --
+    -- -   If traveling by @Truck@ use the @TruckModeOptions@ parameter.
+    --
+    -- Default Value: @Car@
+    travelMode :: Prelude.Maybe TravelMode,
     -- | Specifies route preferences when traveling by @Truck@, such as avoiding
     -- routes that use ferries or tolls, and truck specifications to consider
     -- when choosing an optimal road.
     --
     -- Requirements: @TravelMode@ must be specified as @Truck@.
     truckModeOptions :: Prelude.Maybe CalculateRouteTruckModeOptions,
-    -- | Sets the time of departure as the current time. Uses the current time to
-    -- calculate the route matrix. You can\'t set both @DepartureTime@ and
-    -- @DepartNow@. If neither is set, the best time of day to travel with the
-    -- best traffic conditions is used to calculate the route matrix.
-    --
-    -- Default Value: @false@
-    --
-    -- Valid Values: @false@ | @true@
-    departNow :: Prelude.Maybe Prelude.Bool,
     -- | The name of the route calculator resource that you want to use to
     -- calculate the route matrix.
     calculatorName :: Prelude.Text,
@@ -192,26 +192,19 @@ data CalculateRouteMatrix = CalculateRouteMatrix'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'distanceUnit', 'calculateRouteMatrix_distanceUnit' - Set the unit system to specify the distance.
---
--- Default Value: @Kilometers@
---
 -- 'carModeOptions', 'calculateRouteMatrix_carModeOptions' - Specifies route preferences when traveling by @Car@, such as avoiding
 -- routes that use ferries or tolls.
 --
 -- Requirements: @TravelMode@ must be specified as @Car@.
 --
--- 'travelMode', 'calculateRouteMatrix_travelMode' - Specifies the mode of transport when calculating a route. Used in
--- estimating the speed of travel and road compatibility.
+-- 'departNow', 'calculateRouteMatrix_departNow' - Sets the time of departure as the current time. Uses the current time to
+-- calculate the route matrix. You can\'t set both @DepartureTime@ and
+-- @DepartNow@. If neither is set, the best time of day to travel with the
+-- best traffic conditions is used to calculate the route matrix.
 --
--- The @TravelMode@ you specify also determines how you specify route
--- preferences:
+-- Default Value: @false@
 --
--- -   If traveling by @Car@ use the @CarModeOptions@ parameter.
---
--- -   If traveling by @Truck@ use the @TruckModeOptions@ parameter.
---
--- Default Value: @Car@
+-- Valid Values: @false@ | @true@
 --
 -- 'departureTime', 'calculateRouteMatrix_departureTime' - Specifies the desired time of departure. Uses the given time to
 -- calculate the route matrix. You can\'t set both @DepartureTime@ and
@@ -225,20 +218,27 @@ data CalculateRouteMatrix = CalculateRouteMatrix'
 --     format: @YYYY-MM-DDThh:mm:ss.sssZ@. For example,
 --     @2020–07-2T12:15:20.000Z+01:00@
 --
+-- 'distanceUnit', 'calculateRouteMatrix_distanceUnit' - Set the unit system to specify the distance.
+--
+-- Default Value: @Kilometers@
+--
+-- 'travelMode', 'calculateRouteMatrix_travelMode' - Specifies the mode of transport when calculating a route. Used in
+-- estimating the speed of travel and road compatibility.
+--
+-- The @TravelMode@ you specify also determines how you specify route
+-- preferences:
+--
+-- -   If traveling by @Car@ use the @CarModeOptions@ parameter.
+--
+-- -   If traveling by @Truck@ use the @TruckModeOptions@ parameter.
+--
+-- Default Value: @Car@
+--
 -- 'truckModeOptions', 'calculateRouteMatrix_truckModeOptions' - Specifies route preferences when traveling by @Truck@, such as avoiding
 -- routes that use ferries or tolls, and truck specifications to consider
 -- when choosing an optimal road.
 --
 -- Requirements: @TravelMode@ must be specified as @Truck@.
---
--- 'departNow', 'calculateRouteMatrix_departNow' - Sets the time of departure as the current time. Uses the current time to
--- calculate the route matrix. You can\'t set both @DepartureTime@ and
--- @DepartNow@. If neither is set, the best time of day to travel with the
--- best traffic conditions is used to calculate the route matrix.
---
--- Default Value: @false@
---
--- Valid Values: @false@ | @true@
 --
 -- 'calculatorName', 'calculateRouteMatrix_calculatorName' - The name of the route calculator resource that you want to use to
 -- calculate the route matrix.
@@ -291,25 +291,19 @@ newCalculateRouteMatrix
   pDeparturePositions_
   pDestinationPositions_ =
     CalculateRouteMatrix'
-      { distanceUnit =
+      { carModeOptions =
           Prelude.Nothing,
-        carModeOptions = Prelude.Nothing,
-        travelMode = Prelude.Nothing,
-        departureTime = Prelude.Nothing,
-        truckModeOptions = Prelude.Nothing,
         departNow = Prelude.Nothing,
+        departureTime = Prelude.Nothing,
+        distanceUnit = Prelude.Nothing,
+        travelMode = Prelude.Nothing,
+        truckModeOptions = Prelude.Nothing,
         calculatorName = pCalculatorName_,
         departurePositions =
           Lens.coerced Lens.# pDeparturePositions_,
         destinationPositions =
           Lens.coerced Lens.# pDestinationPositions_
       }
-
--- | Set the unit system to specify the distance.
---
--- Default Value: @Kilometers@
-calculateRouteMatrix_distanceUnit :: Lens.Lens' CalculateRouteMatrix (Prelude.Maybe DistanceUnit)
-calculateRouteMatrix_distanceUnit = Lens.lens (\CalculateRouteMatrix' {distanceUnit} -> distanceUnit) (\s@CalculateRouteMatrix' {} a -> s {distanceUnit = a} :: CalculateRouteMatrix)
 
 -- | Specifies route preferences when traveling by @Car@, such as avoiding
 -- routes that use ferries or tolls.
@@ -318,19 +312,16 @@ calculateRouteMatrix_distanceUnit = Lens.lens (\CalculateRouteMatrix' {distanceU
 calculateRouteMatrix_carModeOptions :: Lens.Lens' CalculateRouteMatrix (Prelude.Maybe CalculateRouteCarModeOptions)
 calculateRouteMatrix_carModeOptions = Lens.lens (\CalculateRouteMatrix' {carModeOptions} -> carModeOptions) (\s@CalculateRouteMatrix' {} a -> s {carModeOptions = a} :: CalculateRouteMatrix)
 
--- | Specifies the mode of transport when calculating a route. Used in
--- estimating the speed of travel and road compatibility.
+-- | Sets the time of departure as the current time. Uses the current time to
+-- calculate the route matrix. You can\'t set both @DepartureTime@ and
+-- @DepartNow@. If neither is set, the best time of day to travel with the
+-- best traffic conditions is used to calculate the route matrix.
 --
--- The @TravelMode@ you specify also determines how you specify route
--- preferences:
+-- Default Value: @false@
 --
--- -   If traveling by @Car@ use the @CarModeOptions@ parameter.
---
--- -   If traveling by @Truck@ use the @TruckModeOptions@ parameter.
---
--- Default Value: @Car@
-calculateRouteMatrix_travelMode :: Lens.Lens' CalculateRouteMatrix (Prelude.Maybe TravelMode)
-calculateRouteMatrix_travelMode = Lens.lens (\CalculateRouteMatrix' {travelMode} -> travelMode) (\s@CalculateRouteMatrix' {} a -> s {travelMode = a} :: CalculateRouteMatrix)
+-- Valid Values: @false@ | @true@
+calculateRouteMatrix_departNow :: Lens.Lens' CalculateRouteMatrix (Prelude.Maybe Prelude.Bool)
+calculateRouteMatrix_departNow = Lens.lens (\CalculateRouteMatrix' {departNow} -> departNow) (\s@CalculateRouteMatrix' {} a -> s {departNow = a} :: CalculateRouteMatrix)
 
 -- | Specifies the desired time of departure. Uses the given time to
 -- calculate the route matrix. You can\'t set both @DepartureTime@ and
@@ -346,6 +337,26 @@ calculateRouteMatrix_travelMode = Lens.lens (\CalculateRouteMatrix' {travelMode}
 calculateRouteMatrix_departureTime :: Lens.Lens' CalculateRouteMatrix (Prelude.Maybe Prelude.UTCTime)
 calculateRouteMatrix_departureTime = Lens.lens (\CalculateRouteMatrix' {departureTime} -> departureTime) (\s@CalculateRouteMatrix' {} a -> s {departureTime = a} :: CalculateRouteMatrix) Prelude.. Lens.mapping Data._Time
 
+-- | Set the unit system to specify the distance.
+--
+-- Default Value: @Kilometers@
+calculateRouteMatrix_distanceUnit :: Lens.Lens' CalculateRouteMatrix (Prelude.Maybe DistanceUnit)
+calculateRouteMatrix_distanceUnit = Lens.lens (\CalculateRouteMatrix' {distanceUnit} -> distanceUnit) (\s@CalculateRouteMatrix' {} a -> s {distanceUnit = a} :: CalculateRouteMatrix)
+
+-- | Specifies the mode of transport when calculating a route. Used in
+-- estimating the speed of travel and road compatibility.
+--
+-- The @TravelMode@ you specify also determines how you specify route
+-- preferences:
+--
+-- -   If traveling by @Car@ use the @CarModeOptions@ parameter.
+--
+-- -   If traveling by @Truck@ use the @TruckModeOptions@ parameter.
+--
+-- Default Value: @Car@
+calculateRouteMatrix_travelMode :: Lens.Lens' CalculateRouteMatrix (Prelude.Maybe TravelMode)
+calculateRouteMatrix_travelMode = Lens.lens (\CalculateRouteMatrix' {travelMode} -> travelMode) (\s@CalculateRouteMatrix' {} a -> s {travelMode = a} :: CalculateRouteMatrix)
+
 -- | Specifies route preferences when traveling by @Truck@, such as avoiding
 -- routes that use ferries or tolls, and truck specifications to consider
 -- when choosing an optimal road.
@@ -353,17 +364,6 @@ calculateRouteMatrix_departureTime = Lens.lens (\CalculateRouteMatrix' {departur
 -- Requirements: @TravelMode@ must be specified as @Truck@.
 calculateRouteMatrix_truckModeOptions :: Lens.Lens' CalculateRouteMatrix (Prelude.Maybe CalculateRouteTruckModeOptions)
 calculateRouteMatrix_truckModeOptions = Lens.lens (\CalculateRouteMatrix' {truckModeOptions} -> truckModeOptions) (\s@CalculateRouteMatrix' {} a -> s {truckModeOptions = a} :: CalculateRouteMatrix)
-
--- | Sets the time of departure as the current time. Uses the current time to
--- calculate the route matrix. You can\'t set both @DepartureTime@ and
--- @DepartNow@. If neither is set, the best time of day to travel with the
--- best traffic conditions is used to calculate the route matrix.
---
--- Default Value: @false@
---
--- Valid Values: @false@ | @true@
-calculateRouteMatrix_departNow :: Lens.Lens' CalculateRouteMatrix (Prelude.Maybe Prelude.Bool)
-calculateRouteMatrix_departNow = Lens.lens (\CalculateRouteMatrix' {departNow} -> departNow) (\s@CalculateRouteMatrix' {} a -> s {departNow = a} :: CalculateRouteMatrix)
 
 -- | The name of the route calculator resource that you want to use to
 -- calculate the route matrix.
@@ -429,24 +429,24 @@ instance Core.AWSRequest CalculateRouteMatrix where
 
 instance Prelude.Hashable CalculateRouteMatrix where
   hashWithSalt _salt CalculateRouteMatrix' {..} =
-    _salt `Prelude.hashWithSalt` distanceUnit
-      `Prelude.hashWithSalt` carModeOptions
-      `Prelude.hashWithSalt` travelMode
-      `Prelude.hashWithSalt` departureTime
-      `Prelude.hashWithSalt` truckModeOptions
+    _salt `Prelude.hashWithSalt` carModeOptions
       `Prelude.hashWithSalt` departNow
+      `Prelude.hashWithSalt` departureTime
+      `Prelude.hashWithSalt` distanceUnit
+      `Prelude.hashWithSalt` travelMode
+      `Prelude.hashWithSalt` truckModeOptions
       `Prelude.hashWithSalt` calculatorName
       `Prelude.hashWithSalt` departurePositions
       `Prelude.hashWithSalt` destinationPositions
 
 instance Prelude.NFData CalculateRouteMatrix where
   rnf CalculateRouteMatrix' {..} =
-    Prelude.rnf distanceUnit
-      `Prelude.seq` Prelude.rnf carModeOptions
-      `Prelude.seq` Prelude.rnf travelMode
-      `Prelude.seq` Prelude.rnf departureTime
-      `Prelude.seq` Prelude.rnf truckModeOptions
+    Prelude.rnf carModeOptions
       `Prelude.seq` Prelude.rnf departNow
+      `Prelude.seq` Prelude.rnf departureTime
+      `Prelude.seq` Prelude.rnf distanceUnit
+      `Prelude.seq` Prelude.rnf travelMode
+      `Prelude.seq` Prelude.rnf truckModeOptions
       `Prelude.seq` Prelude.rnf calculatorName
       `Prelude.seq` Prelude.rnf departurePositions
       `Prelude.seq` Prelude.rnf destinationPositions
@@ -466,14 +466,14 @@ instance Data.ToJSON CalculateRouteMatrix where
   toJSON CalculateRouteMatrix' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DistanceUnit" Data..=) Prelude.<$> distanceUnit,
-            ("CarModeOptions" Data..=)
+          [ ("CarModeOptions" Data..=)
               Prelude.<$> carModeOptions,
-            ("TravelMode" Data..=) Prelude.<$> travelMode,
+            ("DepartNow" Data..=) Prelude.<$> departNow,
             ("DepartureTime" Data..=) Prelude.<$> departureTime,
+            ("DistanceUnit" Data..=) Prelude.<$> distanceUnit,
+            ("TravelMode" Data..=) Prelude.<$> travelMode,
             ("TruckModeOptions" Data..=)
               Prelude.<$> truckModeOptions,
-            ("DepartNow" Data..=) Prelude.<$> departNow,
             Prelude.Just
               ("DeparturePositions" Data..= departurePositions),
             Prelude.Just

@@ -57,8 +57,8 @@ module Amazonka.Connect.TransferContact
     newTransferContactResponse,
 
     -- * Response Lenses
-    transferContactResponse_contactId,
     transferContactResponse_contactArn,
+    transferContactResponse_contactId,
     transferContactResponse_httpStatus,
   )
 where
@@ -174,8 +174,8 @@ instance Core.AWSRequest TransferContact where
     Response.receiveJSON
       ( \s h x ->
           TransferContactResponse'
-            Prelude.<$> (x Data..?> "ContactId")
-            Prelude.<*> (x Data..?> "ContactArn")
+            Prelude.<$> (x Data..?> "ContactArn")
+            Prelude.<*> (x Data..?> "ContactId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -230,10 +230,10 @@ instance Data.ToQuery TransferContact where
 
 -- | /See:/ 'newTransferContactResponse' smart constructor.
 data TransferContactResponse = TransferContactResponse'
-  { -- | The identifier of the contact in this instance of Amazon Connect.
-    contactId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the contact.
+  { -- | The Amazon Resource Name (ARN) of the contact.
     contactArn :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the contact in this instance of Amazon Connect.
+    contactId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -247,9 +247,9 @@ data TransferContactResponse = TransferContactResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'contactId', 'transferContactResponse_contactId' - The identifier of the contact in this instance of Amazon Connect.
---
 -- 'contactArn', 'transferContactResponse_contactArn' - The Amazon Resource Name (ARN) of the contact.
+--
+-- 'contactId', 'transferContactResponse_contactId' - The identifier of the contact in this instance of Amazon Connect.
 --
 -- 'httpStatus', 'transferContactResponse_httpStatus' - The response's http status code.
 newTransferContactResponse ::
@@ -258,19 +258,19 @@ newTransferContactResponse ::
   TransferContactResponse
 newTransferContactResponse pHttpStatus_ =
   TransferContactResponse'
-    { contactId =
+    { contactArn =
         Prelude.Nothing,
-      contactArn = Prelude.Nothing,
+      contactId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The identifier of the contact in this instance of Amazon Connect.
-transferContactResponse_contactId :: Lens.Lens' TransferContactResponse (Prelude.Maybe Prelude.Text)
-transferContactResponse_contactId = Lens.lens (\TransferContactResponse' {contactId} -> contactId) (\s@TransferContactResponse' {} a -> s {contactId = a} :: TransferContactResponse)
 
 -- | The Amazon Resource Name (ARN) of the contact.
 transferContactResponse_contactArn :: Lens.Lens' TransferContactResponse (Prelude.Maybe Prelude.Text)
 transferContactResponse_contactArn = Lens.lens (\TransferContactResponse' {contactArn} -> contactArn) (\s@TransferContactResponse' {} a -> s {contactArn = a} :: TransferContactResponse)
+
+-- | The identifier of the contact in this instance of Amazon Connect.
+transferContactResponse_contactId :: Lens.Lens' TransferContactResponse (Prelude.Maybe Prelude.Text)
+transferContactResponse_contactId = Lens.lens (\TransferContactResponse' {contactId} -> contactId) (\s@TransferContactResponse' {} a -> s {contactId = a} :: TransferContactResponse)
 
 -- | The response's http status code.
 transferContactResponse_httpStatus :: Lens.Lens' TransferContactResponse Prelude.Int
@@ -278,6 +278,6 @@ transferContactResponse_httpStatus = Lens.lens (\TransferContactResponse' {httpS
 
 instance Prelude.NFData TransferContactResponse where
   rnf TransferContactResponse' {..} =
-    Prelude.rnf contactId
-      `Prelude.seq` Prelude.rnf contactArn
+    Prelude.rnf contactArn
+      `Prelude.seq` Prelude.rnf contactId
       `Prelude.seq` Prelude.rnf httpStatus

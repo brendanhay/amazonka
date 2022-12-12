@@ -38,11 +38,11 @@ module Amazonka.KinesisVideo.CreateStream
     newCreateStream,
 
     -- * Request Lenses
-    createStream_tags,
-    createStream_deviceName,
-    createStream_mediaType,
-    createStream_kmsKeyId,
     createStream_dataRetentionInHours,
+    createStream_deviceName,
+    createStream_kmsKeyId,
+    createStream_mediaType,
+    createStream_tags,
     createStream_streamName,
 
     -- * Destructuring the Response
@@ -65,14 +65,32 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateStream' smart constructor.
 data CreateStream = CreateStream'
-  { -- | A list of tags to associate with the specified stream. Each tag is a
-    -- key-value pair (the value is optional).
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | The number of hours that you want to retain the data in the stream.
+    -- Kinesis Video Streams retains the data in a data store that is
+    -- associated with the stream.
+    --
+    -- The default value is 0, indicating that the stream does not persist
+    -- data.
+    --
+    -- When the @DataRetentionInHours@ value is 0, consumers can still consume
+    -- the fragments that remain in the service host buffer, which has a
+    -- retention time limit of 5 minutes and a retention memory limit of 200
+    -- MB. Fragments are removed from the buffer when either limit is reached.
+    dataRetentionInHours :: Prelude.Maybe Prelude.Natural,
     -- | The name of the device that is writing to the stream.
     --
     -- In the current implementation, Kinesis Video Streams does not use this
     -- name.
     deviceName :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Key Management Service (KMS) key that you want Kinesis
+    -- Video Streams to use to encrypt stream data.
+    --
+    -- If no key ID is specified, the default, Kinesis Video-managed key
+    -- (@aws\/kinesisvideo@) is used.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters DescribeKey>.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The media type of the stream. Consumers of the stream can use this
     -- information when processing the stream. For more information about media
     -- types, see
@@ -87,27 +105,9 @@ data CreateStream = CreateStream'
     -- This parameter is optional; the default value is @null@ (or empty in
     -- JSON).
     mediaType :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the Key Management Service (KMS) key that you want Kinesis
-    -- Video Streams to use to encrypt stream data.
-    --
-    -- If no key ID is specified, the default, Kinesis Video-managed key
-    -- (@aws\/kinesisvideo@) is used.
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters DescribeKey>.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The number of hours that you want to retain the data in the stream.
-    -- Kinesis Video Streams retains the data in a data store that is
-    -- associated with the stream.
-    --
-    -- The default value is 0, indicating that the stream does not persist
-    -- data.
-    --
-    -- When the @DataRetentionInHours@ value is 0, consumers can still consume
-    -- the fragments that remain in the service host buffer, which has a
-    -- retention time limit of 5 minutes and a retention memory limit of 200
-    -- MB. Fragments are removed from the buffer when either limit is reached.
-    dataRetentionInHours :: Prelude.Maybe Prelude.Natural,
+    -- | A list of tags to associate with the specified stream. Each tag is a
+    -- key-value pair (the value is optional).
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A name for the stream that you are creating.
     --
     -- The stream name is an identifier for the stream, and must be unique for
@@ -124,13 +124,31 @@ data CreateStream = CreateStream'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createStream_tags' - A list of tags to associate with the specified stream. Each tag is a
--- key-value pair (the value is optional).
+-- 'dataRetentionInHours', 'createStream_dataRetentionInHours' - The number of hours that you want to retain the data in the stream.
+-- Kinesis Video Streams retains the data in a data store that is
+-- associated with the stream.
+--
+-- The default value is 0, indicating that the stream does not persist
+-- data.
+--
+-- When the @DataRetentionInHours@ value is 0, consumers can still consume
+-- the fragments that remain in the service host buffer, which has a
+-- retention time limit of 5 minutes and a retention memory limit of 200
+-- MB. Fragments are removed from the buffer when either limit is reached.
 --
 -- 'deviceName', 'createStream_deviceName' - The name of the device that is writing to the stream.
 --
 -- In the current implementation, Kinesis Video Streams does not use this
 -- name.
+--
+-- 'kmsKeyId', 'createStream_kmsKeyId' - The ID of the Key Management Service (KMS) key that you want Kinesis
+-- Video Streams to use to encrypt stream data.
+--
+-- If no key ID is specified, the default, Kinesis Video-managed key
+-- (@aws\/kinesisvideo@) is used.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters DescribeKey>.
 --
 -- 'mediaType', 'createStream_mediaType' - The media type of the stream. Consumers of the stream can use this
 -- information when processing the stream. For more information about media
@@ -146,26 +164,8 @@ data CreateStream = CreateStream'
 -- This parameter is optional; the default value is @null@ (or empty in
 -- JSON).
 --
--- 'kmsKeyId', 'createStream_kmsKeyId' - The ID of the Key Management Service (KMS) key that you want Kinesis
--- Video Streams to use to encrypt stream data.
---
--- If no key ID is specified, the default, Kinesis Video-managed key
--- (@aws\/kinesisvideo@) is used.
---
--- For more information, see
--- <https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters DescribeKey>.
---
--- 'dataRetentionInHours', 'createStream_dataRetentionInHours' - The number of hours that you want to retain the data in the stream.
--- Kinesis Video Streams retains the data in a data store that is
--- associated with the stream.
---
--- The default value is 0, indicating that the stream does not persist
--- data.
---
--- When the @DataRetentionInHours@ value is 0, consumers can still consume
--- the fragments that remain in the service host buffer, which has a
--- retention time limit of 5 minutes and a retention memory limit of 200
--- MB. Fragments are removed from the buffer when either limit is reached.
+-- 'tags', 'createStream_tags' - A list of tags to associate with the specified stream. Each tag is a
+-- key-value pair (the value is optional).
 --
 -- 'streamName', 'createStream_streamName' - A name for the stream that you are creating.
 --
@@ -177,18 +177,28 @@ newCreateStream ::
   CreateStream
 newCreateStream pStreamName_ =
   CreateStream'
-    { tags = Prelude.Nothing,
+    { dataRetentionInHours =
+        Prelude.Nothing,
       deviceName = Prelude.Nothing,
-      mediaType = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
-      dataRetentionInHours = Prelude.Nothing,
+      mediaType = Prelude.Nothing,
+      tags = Prelude.Nothing,
       streamName = pStreamName_
     }
 
--- | A list of tags to associate with the specified stream. Each tag is a
--- key-value pair (the value is optional).
-createStream_tags :: Lens.Lens' CreateStream (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createStream_tags = Lens.lens (\CreateStream' {tags} -> tags) (\s@CreateStream' {} a -> s {tags = a} :: CreateStream) Prelude.. Lens.mapping Lens.coerced
+-- | The number of hours that you want to retain the data in the stream.
+-- Kinesis Video Streams retains the data in a data store that is
+-- associated with the stream.
+--
+-- The default value is 0, indicating that the stream does not persist
+-- data.
+--
+-- When the @DataRetentionInHours@ value is 0, consumers can still consume
+-- the fragments that remain in the service host buffer, which has a
+-- retention time limit of 5 minutes and a retention memory limit of 200
+-- MB. Fragments are removed from the buffer when either limit is reached.
+createStream_dataRetentionInHours :: Lens.Lens' CreateStream (Prelude.Maybe Prelude.Natural)
+createStream_dataRetentionInHours = Lens.lens (\CreateStream' {dataRetentionInHours} -> dataRetentionInHours) (\s@CreateStream' {} a -> s {dataRetentionInHours = a} :: CreateStream)
 
 -- | The name of the device that is writing to the stream.
 --
@@ -196,6 +206,17 @@ createStream_tags = Lens.lens (\CreateStream' {tags} -> tags) (\s@CreateStream' 
 -- name.
 createStream_deviceName :: Lens.Lens' CreateStream (Prelude.Maybe Prelude.Text)
 createStream_deviceName = Lens.lens (\CreateStream' {deviceName} -> deviceName) (\s@CreateStream' {} a -> s {deviceName = a} :: CreateStream)
+
+-- | The ID of the Key Management Service (KMS) key that you want Kinesis
+-- Video Streams to use to encrypt stream data.
+--
+-- If no key ID is specified, the default, Kinesis Video-managed key
+-- (@aws\/kinesisvideo@) is used.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters DescribeKey>.
+createStream_kmsKeyId :: Lens.Lens' CreateStream (Prelude.Maybe Prelude.Text)
+createStream_kmsKeyId = Lens.lens (\CreateStream' {kmsKeyId} -> kmsKeyId) (\s@CreateStream' {} a -> s {kmsKeyId = a} :: CreateStream)
 
 -- | The media type of the stream. Consumers of the stream can use this
 -- information when processing the stream. For more information about media
@@ -213,30 +234,10 @@ createStream_deviceName = Lens.lens (\CreateStream' {deviceName} -> deviceName) 
 createStream_mediaType :: Lens.Lens' CreateStream (Prelude.Maybe Prelude.Text)
 createStream_mediaType = Lens.lens (\CreateStream' {mediaType} -> mediaType) (\s@CreateStream' {} a -> s {mediaType = a} :: CreateStream)
 
--- | The ID of the Key Management Service (KMS) key that you want Kinesis
--- Video Streams to use to encrypt stream data.
---
--- If no key ID is specified, the default, Kinesis Video-managed key
--- (@aws\/kinesisvideo@) is used.
---
--- For more information, see
--- <https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters DescribeKey>.
-createStream_kmsKeyId :: Lens.Lens' CreateStream (Prelude.Maybe Prelude.Text)
-createStream_kmsKeyId = Lens.lens (\CreateStream' {kmsKeyId} -> kmsKeyId) (\s@CreateStream' {} a -> s {kmsKeyId = a} :: CreateStream)
-
--- | The number of hours that you want to retain the data in the stream.
--- Kinesis Video Streams retains the data in a data store that is
--- associated with the stream.
---
--- The default value is 0, indicating that the stream does not persist
--- data.
---
--- When the @DataRetentionInHours@ value is 0, consumers can still consume
--- the fragments that remain in the service host buffer, which has a
--- retention time limit of 5 minutes and a retention memory limit of 200
--- MB. Fragments are removed from the buffer when either limit is reached.
-createStream_dataRetentionInHours :: Lens.Lens' CreateStream (Prelude.Maybe Prelude.Natural)
-createStream_dataRetentionInHours = Lens.lens (\CreateStream' {dataRetentionInHours} -> dataRetentionInHours) (\s@CreateStream' {} a -> s {dataRetentionInHours = a} :: CreateStream)
+-- | A list of tags to associate with the specified stream. Each tag is a
+-- key-value pair (the value is optional).
+createStream_tags :: Lens.Lens' CreateStream (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createStream_tags = Lens.lens (\CreateStream' {tags} -> tags) (\s@CreateStream' {} a -> s {tags = a} :: CreateStream) Prelude.. Lens.mapping Lens.coerced
 
 -- | A name for the stream that you are creating.
 --
@@ -259,20 +260,20 @@ instance Core.AWSRequest CreateStream where
 
 instance Prelude.Hashable CreateStream where
   hashWithSalt _salt CreateStream' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` dataRetentionInHours
       `Prelude.hashWithSalt` deviceName
-      `Prelude.hashWithSalt` mediaType
       `Prelude.hashWithSalt` kmsKeyId
-      `Prelude.hashWithSalt` dataRetentionInHours
+      `Prelude.hashWithSalt` mediaType
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` streamName
 
 instance Prelude.NFData CreateStream where
   rnf CreateStream' {..} =
-    Prelude.rnf tags
+    Prelude.rnf dataRetentionInHours
       `Prelude.seq` Prelude.rnf deviceName
-      `Prelude.seq` Prelude.rnf mediaType
       `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf dataRetentionInHours
+      `Prelude.seq` Prelude.rnf mediaType
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf streamName
 
 instance Data.ToHeaders CreateStream where
@@ -282,12 +283,12 @@ instance Data.ToJSON CreateStream where
   toJSON CreateStream' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("DeviceName" Data..=) Prelude.<$> deviceName,
-            ("MediaType" Data..=) Prelude.<$> mediaType,
-            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
-            ("DataRetentionInHours" Data..=)
+          [ ("DataRetentionInHours" Data..=)
               Prelude.<$> dataRetentionInHours,
+            ("DeviceName" Data..=) Prelude.<$> deviceName,
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("MediaType" Data..=) Prelude.<$> mediaType,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("StreamName" Data..= streamName)
           ]
       )

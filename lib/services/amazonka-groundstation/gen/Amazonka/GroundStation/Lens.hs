@@ -22,9 +22,9 @@ module Amazonka.GroundStation.Lens
     createConfig_tags,
     createConfig_configData,
     createConfig_name,
+    configIdResponse_configArn,
     configIdResponse_configId,
     configIdResponse_configType,
-    configIdResponse_configArn,
 
     -- ** CreateDataflowEndpointGroup
     createDataflowEndpointGroup_tags,
@@ -32,20 +32,20 @@ module Amazonka.GroundStation.Lens
     dataflowEndpointGroupIdResponse_dataflowEndpointGroupId,
 
     -- ** CreateEphemeris
-    createEphemeris_tags,
-    createEphemeris_expirationTime,
     createEphemeris_enabled,
+    createEphemeris_ephemeris,
+    createEphemeris_expirationTime,
     createEphemeris_kmsKeyArn,
     createEphemeris_priority,
-    createEphemeris_ephemeris,
+    createEphemeris_tags,
     createEphemeris_name,
     createEphemeris_satelliteId,
     ephemerisIdResponse_ephemerisId,
 
     -- ** CreateMissionProfile
-    createMissionProfile_tags,
-    createMissionProfile_contactPrePassDurationSeconds,
     createMissionProfile_contactPostPassDurationSeconds,
+    createMissionProfile_contactPrePassDurationSeconds,
+    createMissionProfile_tags,
     createMissionProfile_dataflowEdges,
     createMissionProfile_minimumViableContactDurationSeconds,
     createMissionProfile_name,
@@ -55,9 +55,9 @@ module Amazonka.GroundStation.Lens
     -- ** DeleteConfig
     deleteConfig_configId,
     deleteConfig_configType,
+    configIdResponse_configArn,
     configIdResponse_configId,
     configIdResponse_configType,
-    configIdResponse_configArn,
 
     -- ** DeleteDataflowEndpointGroup
     deleteDataflowEndpointGroup_dataflowEndpointGroupId,
@@ -73,41 +73,41 @@ module Amazonka.GroundStation.Lens
 
     -- ** DescribeContact
     describeContact_contactId,
-    describeContactResponse_tags,
-    describeContactResponse_missionProfileArn,
-    describeContactResponse_dataflowList,
     describeContactResponse_contactId,
-    describeContactResponse_errorMessage,
-    describeContactResponse_postPassEndTime,
-    describeContactResponse_satelliteArn,
     describeContactResponse_contactStatus,
+    describeContactResponse_dataflowList,
     describeContactResponse_endTime,
-    describeContactResponse_region,
-    describeContactResponse_prePassStartTime,
+    describeContactResponse_errorMessage,
     describeContactResponse_groundStation,
-    describeContactResponse_startTime,
     describeContactResponse_maximumElevation,
+    describeContactResponse_missionProfileArn,
+    describeContactResponse_postPassEndTime,
+    describeContactResponse_prePassStartTime,
+    describeContactResponse_region,
+    describeContactResponse_satelliteArn,
+    describeContactResponse_startTime,
+    describeContactResponse_tags,
     describeContactResponse_httpStatus,
 
     -- ** DescribeEphemeris
     describeEphemeris_ephemerisId,
-    describeEphemerisResponse_tags,
-    describeEphemerisResponse_name,
-    describeEphemerisResponse_suppliedData,
-    describeEphemerisResponse_invalidReason,
-    describeEphemerisResponse_status,
+    describeEphemerisResponse_creationTime,
     describeEphemerisResponse_enabled,
+    describeEphemerisResponse_ephemerisId,
+    describeEphemerisResponse_invalidReason,
+    describeEphemerisResponse_name,
     describeEphemerisResponse_priority,
     describeEphemerisResponse_satelliteId,
-    describeEphemerisResponse_creationTime,
-    describeEphemerisResponse_ephemerisId,
+    describeEphemerisResponse_status,
+    describeEphemerisResponse_suppliedData,
+    describeEphemerisResponse_tags,
     describeEphemerisResponse_httpStatus,
 
     -- ** GetConfig
     getConfig_configId,
     getConfig_configType,
-    getConfigResponse_tags,
     getConfigResponse_configType,
+    getConfigResponse_tags,
     getConfigResponse_httpStatus,
     getConfigResponse_configArn,
     getConfigResponse_configData,
@@ -116,101 +116,101 @@ module Amazonka.GroundStation.Lens
 
     -- ** GetDataflowEndpointGroup
     getDataflowEndpointGroup_dataflowEndpointGroupId,
-    getDataflowEndpointGroupResponse_tags,
     getDataflowEndpointGroupResponse_dataflowEndpointGroupArn,
-    getDataflowEndpointGroupResponse_endpointsDetails,
     getDataflowEndpointGroupResponse_dataflowEndpointGroupId,
+    getDataflowEndpointGroupResponse_endpointsDetails,
+    getDataflowEndpointGroupResponse_tags,
     getDataflowEndpointGroupResponse_httpStatus,
 
     -- ** GetMinuteUsage
     getMinuteUsage_month,
     getMinuteUsage_year,
-    getMinuteUsageResponse_upcomingMinutesScheduled,
-    getMinuteUsageResponse_totalScheduledMinutes,
     getMinuteUsageResponse_estimatedMinutesRemaining,
-    getMinuteUsageResponse_totalReservedMinuteAllocation,
     getMinuteUsageResponse_isReservedMinutesCustomer,
+    getMinuteUsageResponse_totalReservedMinuteAllocation,
+    getMinuteUsageResponse_totalScheduledMinutes,
+    getMinuteUsageResponse_upcomingMinutesScheduled,
     getMinuteUsageResponse_httpStatus,
 
     -- ** GetMissionProfile
     getMissionProfile_missionProfileId,
-    getMissionProfileResponse_tags,
-    getMissionProfileResponse_missionProfileArn,
-    getMissionProfileResponse_name,
-    getMissionProfileResponse_minimumViableContactDurationSeconds,
+    getMissionProfileResponse_contactPostPassDurationSeconds,
     getMissionProfileResponse_contactPrePassDurationSeconds,
     getMissionProfileResponse_dataflowEdges,
-    getMissionProfileResponse_contactPostPassDurationSeconds,
+    getMissionProfileResponse_minimumViableContactDurationSeconds,
+    getMissionProfileResponse_missionProfileArn,
     getMissionProfileResponse_missionProfileId,
+    getMissionProfileResponse_name,
     getMissionProfileResponse_region,
+    getMissionProfileResponse_tags,
     getMissionProfileResponse_trackingConfigArn,
     getMissionProfileResponse_httpStatus,
 
     -- ** GetSatellite
     getSatellite_satelliteId,
-    getSatelliteResponse_satelliteArn,
     getSatelliteResponse_currentEphemeris,
-    getSatelliteResponse_satelliteId,
-    getSatelliteResponse_noradSatelliteID,
     getSatelliteResponse_groundStations,
+    getSatelliteResponse_noradSatelliteID,
+    getSatelliteResponse_satelliteArn,
+    getSatelliteResponse_satelliteId,
     getSatelliteResponse_httpStatus,
 
     -- ** ListConfigs
-    listConfigs_nextToken,
     listConfigs_maxResults,
-    listConfigsResponse_nextToken,
+    listConfigs_nextToken,
     listConfigsResponse_configList,
+    listConfigsResponse_nextToken,
     listConfigsResponse_httpStatus,
 
     -- ** ListContacts
+    listContacts_groundStation,
+    listContacts_maxResults,
     listContacts_missionProfileArn,
     listContacts_nextToken,
     listContacts_satelliteArn,
-    listContacts_maxResults,
-    listContacts_groundStation,
     listContacts_endTime,
     listContacts_startTime,
     listContacts_statusList,
-    listContactsResponse_nextToken,
     listContactsResponse_contactList,
+    listContactsResponse_nextToken,
     listContactsResponse_httpStatus,
 
     -- ** ListDataflowEndpointGroups
-    listDataflowEndpointGroups_nextToken,
     listDataflowEndpointGroups_maxResults,
-    listDataflowEndpointGroupsResponse_nextToken,
+    listDataflowEndpointGroups_nextToken,
     listDataflowEndpointGroupsResponse_dataflowEndpointGroupList,
+    listDataflowEndpointGroupsResponse_nextToken,
     listDataflowEndpointGroupsResponse_httpStatus,
 
     -- ** ListEphemerides
-    listEphemerides_nextToken,
     listEphemerides_maxResults,
+    listEphemerides_nextToken,
     listEphemerides_statusList,
     listEphemerides_endTime,
     listEphemerides_satelliteId,
     listEphemerides_startTime,
-    listEphemeridesResponse_nextToken,
     listEphemeridesResponse_ephemerides,
+    listEphemeridesResponse_nextToken,
     listEphemeridesResponse_httpStatus,
 
     -- ** ListGroundStations
-    listGroundStations_nextToken,
     listGroundStations_maxResults,
+    listGroundStations_nextToken,
     listGroundStations_satelliteId,
-    listGroundStationsResponse_nextToken,
     listGroundStationsResponse_groundStationList,
+    listGroundStationsResponse_nextToken,
     listGroundStationsResponse_httpStatus,
 
     -- ** ListMissionProfiles
-    listMissionProfiles_nextToken,
     listMissionProfiles_maxResults,
-    listMissionProfilesResponse_nextToken,
+    listMissionProfiles_nextToken,
     listMissionProfilesResponse_missionProfileList,
+    listMissionProfilesResponse_nextToken,
     listMissionProfilesResponse_httpStatus,
 
     -- ** ListSatellites
-    listSatellites_nextToken,
     listSatellites_maxResults,
+    listSatellites_nextToken,
     listSatellitesResponse_nextToken,
     listSatellitesResponse_satellites,
     listSatellitesResponse_httpStatus,
@@ -244,9 +244,9 @@ module Amazonka.GroundStation.Lens
     updateConfig_configId,
     updateConfig_configType,
     updateConfig_name,
+    configIdResponse_configArn,
     configIdResponse_configId,
     configIdResponse_configType,
-    configIdResponse_configArn,
 
     -- ** UpdateEphemeris
     updateEphemeris_name,
@@ -256,11 +256,11 @@ module Amazonka.GroundStation.Lens
     ephemerisIdResponse_ephemerisId,
 
     -- ** UpdateMissionProfile
-    updateMissionProfile_name,
-    updateMissionProfile_minimumViableContactDurationSeconds,
+    updateMissionProfile_contactPostPassDurationSeconds,
     updateMissionProfile_contactPrePassDurationSeconds,
     updateMissionProfile_dataflowEdges,
-    updateMissionProfile_contactPostPassDurationSeconds,
+    updateMissionProfile_minimumViableContactDurationSeconds,
+    updateMissionProfile_name,
     updateMissionProfile_trackingConfigArn,
     updateMissionProfile_missionProfileId,
     missionProfileIdResponse_missionProfileId,
@@ -284,44 +284,44 @@ module Amazonka.GroundStation.Lens
     antennaUplinkConfig_targetEirp,
 
     -- ** ConfigDetails
+    configDetails_antennaDemodDecodeDetails,
     configDetails_endpointDetails,
     configDetails_s3RecordingDetails,
-    configDetails_antennaDemodDecodeDetails,
 
     -- ** ConfigIdResponse
+    configIdResponse_configArn,
     configIdResponse_configId,
     configIdResponse_configType,
-    configIdResponse_configArn,
 
     -- ** ConfigListItem
-    configListItem_name,
+    configListItem_configArn,
     configListItem_configId,
     configListItem_configType,
-    configListItem_configArn,
+    configListItem_name,
 
     -- ** ConfigTypeData
-    configTypeData_trackingConfig,
-    configTypeData_dataflowEndpointConfig,
-    configTypeData_uplinkEchoConfig,
     configTypeData_antennaDownlinkConfig,
     configTypeData_antennaDownlinkDemodDecodeConfig,
     configTypeData_antennaUplinkConfig,
+    configTypeData_dataflowEndpointConfig,
     configTypeData_s3RecordingConfig,
+    configTypeData_trackingConfig,
+    configTypeData_uplinkEchoConfig,
 
     -- ** ContactData
-    contactData_tags,
-    contactData_missionProfileArn,
     contactData_contactId,
-    contactData_errorMessage,
-    contactData_postPassEndTime,
-    contactData_satelliteArn,
     contactData_contactStatus,
     contactData_endTime,
-    contactData_region,
-    contactData_prePassStartTime,
+    contactData_errorMessage,
     contactData_groundStation,
-    contactData_startTime,
     contactData_maximumElevation,
+    contactData_missionProfileArn,
+    contactData_postPassEndTime,
+    contactData_prePassStartTime,
+    contactData_region,
+    contactData_satelliteArn,
+    contactData_startTime,
+    contactData_tags,
 
     -- ** ContactIdResponse
     contactIdResponse_contactId,
@@ -332,10 +332,10 @@ module Amazonka.GroundStation.Lens
     dataflowDetail_source,
 
     -- ** DataflowEndpoint
-    dataflowEndpoint_name,
-    dataflowEndpoint_status,
     dataflowEndpoint_address,
     dataflowEndpoint_mtu,
+    dataflowEndpoint_name,
+    dataflowEndpoint_status,
 
     -- ** DataflowEndpointConfig
     dataflowEndpointConfig_dataflowEndpointRegion,
@@ -355,10 +355,10 @@ module Amazonka.GroundStation.Lens
     demodulationConfig_unvalidatedJSON,
 
     -- ** Destination
-    destination_dataflowDestinationRegion,
-    destination_configId,
     destination_configDetails,
+    destination_configId,
     destination_configType,
+    destination_dataflowDestinationRegion,
 
     -- ** Eirp
     eirp_units,
@@ -373,34 +373,34 @@ module Amazonka.GroundStation.Lens
     endpointDetails_securityDetails,
 
     -- ** EphemerisData
-    ephemerisData_tle,
     ephemerisData_oem,
+    ephemerisData_tle,
 
     -- ** EphemerisDescription
-    ephemerisDescription_sourceS3Object,
     ephemerisDescription_ephemerisData,
+    ephemerisDescription_sourceS3Object,
 
     -- ** EphemerisIdResponse
     ephemerisIdResponse_ephemerisId,
 
     -- ** EphemerisItem
+    ephemerisItem_creationTime,
+    ephemerisItem_enabled,
+    ephemerisItem_ephemerisId,
     ephemerisItem_name,
+    ephemerisItem_priority,
     ephemerisItem_sourceS3Object,
     ephemerisItem_status,
-    ephemerisItem_enabled,
-    ephemerisItem_priority,
-    ephemerisItem_creationTime,
-    ephemerisItem_ephemerisId,
 
     -- ** EphemerisMetaData
-    ephemerisMetaData_name,
-    ephemerisMetaData_epoch,
     ephemerisMetaData_ephemerisId,
+    ephemerisMetaData_epoch,
+    ephemerisMetaData_name,
     ephemerisMetaData_source,
 
     -- ** EphemerisTypeDescription
-    ephemerisTypeDescription_tle,
     ephemerisTypeDescription_oem,
+    ephemerisTypeDescription_tle,
 
     -- ** Frequency
     frequency_units,
@@ -411,17 +411,17 @@ module Amazonka.GroundStation.Lens
     frequencyBandwidth_value,
 
     -- ** GroundStationData
+    groundStationData_groundStationId,
     groundStationData_groundStationName,
     groundStationData_region,
-    groundStationData_groundStationId,
 
     -- ** MissionProfileIdResponse
     missionProfileIdResponse_missionProfileId,
 
     -- ** MissionProfileListItem
     missionProfileListItem_missionProfileArn,
-    missionProfileListItem_name,
     missionProfileListItem_missionProfileId,
+    missionProfileListItem_name,
     missionProfileListItem_region,
 
     -- ** OEMEphemeris
@@ -429,8 +429,8 @@ module Amazonka.GroundStation.Lens
     oEMEphemeris_s3Object,
 
     -- ** S3Object
-    s3Object_key,
     s3Object_bucket,
+    s3Object_key,
     s3Object_version,
 
     -- ** S3RecordingConfig
@@ -439,15 +439,15 @@ module Amazonka.GroundStation.Lens
     s3RecordingConfig_roleArn,
 
     -- ** S3RecordingDetails
-    s3RecordingDetails_keyTemplate,
     s3RecordingDetails_bucketArn,
+    s3RecordingDetails_keyTemplate,
 
     -- ** SatelliteListItem
-    satelliteListItem_satelliteArn,
     satelliteListItem_currentEphemeris,
-    satelliteListItem_satelliteId,
-    satelliteListItem_noradSatelliteID,
     satelliteListItem_groundStations,
+    satelliteListItem_noradSatelliteID,
+    satelliteListItem_satelliteArn,
+    satelliteListItem_satelliteId,
 
     -- ** SecurityDetails
     securityDetails_roleArn,
@@ -459,10 +459,10 @@ module Amazonka.GroundStation.Lens
     socketAddress_port,
 
     -- ** Source
-    source_dataflowSourceRegion,
-    source_configId,
     source_configDetails,
+    source_configId,
     source_configType,
+    source_dataflowSourceRegion,
 
     -- ** SpectrumConfig
     spectrumConfig_polarization,
@@ -475,8 +475,8 @@ module Amazonka.GroundStation.Lens
     tLEData_validTimeRange,
 
     -- ** TLEEphemeris
-    tLEEphemeris_tleData,
     tLEEphemeris_s3Object,
+    tLEEphemeris_tleData,
 
     -- ** TimeRange
     timeRange_endTime,

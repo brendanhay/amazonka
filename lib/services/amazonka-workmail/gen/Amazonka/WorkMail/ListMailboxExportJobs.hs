@@ -28,8 +28,8 @@ module Amazonka.WorkMail.ListMailboxExportJobs
     newListMailboxExportJobs,
 
     -- * Request Lenses
-    listMailboxExportJobs_nextToken,
     listMailboxExportJobs_maxResults,
+    listMailboxExportJobs_nextToken,
     listMailboxExportJobs_organizationId,
 
     -- * Destructuring the Response
@@ -37,8 +37,8 @@ module Amazonka.WorkMail.ListMailboxExportJobs
     newListMailboxExportJobsResponse,
 
     -- * Response Lenses
-    listMailboxExportJobsResponse_nextToken,
     listMailboxExportJobsResponse_jobs,
+    listMailboxExportJobsResponse_nextToken,
     listMailboxExportJobsResponse_httpStatus,
   )
 where
@@ -53,10 +53,10 @@ import Amazonka.WorkMail.Types
 
 -- | /See:/ 'newListMailboxExportJobs' smart constructor.
 data ListMailboxExportJobs = ListMailboxExportJobs'
-  { -- | The token to use to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in a single call.
+  { -- | The maximum number of results to return in a single call.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to use to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The organization ID.
     organizationId :: Prelude.Text
   }
@@ -70,9 +70,9 @@ data ListMailboxExportJobs = ListMailboxExportJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listMailboxExportJobs_nextToken' - The token to use to retrieve the next page of results.
---
 -- 'maxResults', 'listMailboxExportJobs_maxResults' - The maximum number of results to return in a single call.
+--
+-- 'nextToken', 'listMailboxExportJobs_nextToken' - The token to use to retrieve the next page of results.
 --
 -- 'organizationId', 'listMailboxExportJobs_organizationId' - The organization ID.
 newListMailboxExportJobs ::
@@ -81,18 +81,19 @@ newListMailboxExportJobs ::
   ListMailboxExportJobs
 newListMailboxExportJobs pOrganizationId_ =
   ListMailboxExportJobs'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       organizationId = pOrganizationId_
     }
-
--- | The token to use to retrieve the next page of results.
-listMailboxExportJobs_nextToken :: Lens.Lens' ListMailboxExportJobs (Prelude.Maybe Prelude.Text)
-listMailboxExportJobs_nextToken = Lens.lens (\ListMailboxExportJobs' {nextToken} -> nextToken) (\s@ListMailboxExportJobs' {} a -> s {nextToken = a} :: ListMailboxExportJobs)
 
 -- | The maximum number of results to return in a single call.
 listMailboxExportJobs_maxResults :: Lens.Lens' ListMailboxExportJobs (Prelude.Maybe Prelude.Natural)
 listMailboxExportJobs_maxResults = Lens.lens (\ListMailboxExportJobs' {maxResults} -> maxResults) (\s@ListMailboxExportJobs' {} a -> s {maxResults = a} :: ListMailboxExportJobs)
+
+-- | The token to use to retrieve the next page of results.
+listMailboxExportJobs_nextToken :: Lens.Lens' ListMailboxExportJobs (Prelude.Maybe Prelude.Text)
+listMailboxExportJobs_nextToken = Lens.lens (\ListMailboxExportJobs' {nextToken} -> nextToken) (\s@ListMailboxExportJobs' {} a -> s {nextToken = a} :: ListMailboxExportJobs)
 
 -- | The organization ID.
 listMailboxExportJobs_organizationId :: Lens.Lens' ListMailboxExportJobs Prelude.Text
@@ -108,21 +109,21 @@ instance Core.AWSRequest ListMailboxExportJobs where
     Response.receiveJSON
       ( \s h x ->
           ListMailboxExportJobsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Jobs" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Jobs" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListMailboxExportJobs where
   hashWithSalt _salt ListMailboxExportJobs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` organizationId
 
 instance Prelude.NFData ListMailboxExportJobs where
   rnf ListMailboxExportJobs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf organizationId
 
 instance Data.ToHeaders ListMailboxExportJobs where
@@ -144,8 +145,8 @@ instance Data.ToJSON ListMailboxExportJobs where
   toJSON ListMailboxExportJobs' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("OrganizationId" Data..= organizationId)
           ]
@@ -159,10 +160,10 @@ instance Data.ToQuery ListMailboxExportJobs where
 
 -- | /See:/ 'newListMailboxExportJobsResponse' smart constructor.
 data ListMailboxExportJobsResponse = ListMailboxExportJobsResponse'
-  { -- | The token to use to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The mailbox export job details.
+  { -- | The mailbox export job details.
     jobs :: Prelude.Maybe [MailboxExportJob],
+    -- | The token to use to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -176,9 +177,9 @@ data ListMailboxExportJobsResponse = ListMailboxExportJobsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listMailboxExportJobsResponse_nextToken' - The token to use to retrieve the next page of results.
---
 -- 'jobs', 'listMailboxExportJobsResponse_jobs' - The mailbox export job details.
+--
+-- 'nextToken', 'listMailboxExportJobsResponse_nextToken' - The token to use to retrieve the next page of results.
 --
 -- 'httpStatus', 'listMailboxExportJobsResponse_httpStatus' - The response's http status code.
 newListMailboxExportJobsResponse ::
@@ -187,19 +188,19 @@ newListMailboxExportJobsResponse ::
   ListMailboxExportJobsResponse
 newListMailboxExportJobsResponse pHttpStatus_ =
   ListMailboxExportJobsResponse'
-    { nextToken =
+    { jobs =
         Prelude.Nothing,
-      jobs = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token to use to retrieve the next page of results.
-listMailboxExportJobsResponse_nextToken :: Lens.Lens' ListMailboxExportJobsResponse (Prelude.Maybe Prelude.Text)
-listMailboxExportJobsResponse_nextToken = Lens.lens (\ListMailboxExportJobsResponse' {nextToken} -> nextToken) (\s@ListMailboxExportJobsResponse' {} a -> s {nextToken = a} :: ListMailboxExportJobsResponse)
 
 -- | The mailbox export job details.
 listMailboxExportJobsResponse_jobs :: Lens.Lens' ListMailboxExportJobsResponse (Prelude.Maybe [MailboxExportJob])
 listMailboxExportJobsResponse_jobs = Lens.lens (\ListMailboxExportJobsResponse' {jobs} -> jobs) (\s@ListMailboxExportJobsResponse' {} a -> s {jobs = a} :: ListMailboxExportJobsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token to use to retrieve the next page of results.
+listMailboxExportJobsResponse_nextToken :: Lens.Lens' ListMailboxExportJobsResponse (Prelude.Maybe Prelude.Text)
+listMailboxExportJobsResponse_nextToken = Lens.lens (\ListMailboxExportJobsResponse' {nextToken} -> nextToken) (\s@ListMailboxExportJobsResponse' {} a -> s {nextToken = a} :: ListMailboxExportJobsResponse)
 
 -- | The response's http status code.
 listMailboxExportJobsResponse_httpStatus :: Lens.Lens' ListMailboxExportJobsResponse Prelude.Int
@@ -207,6 +208,6 @@ listMailboxExportJobsResponse_httpStatus = Lens.lens (\ListMailboxExportJobsResp
 
 instance Prelude.NFData ListMailboxExportJobsResponse where
   rnf ListMailboxExportJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf jobs
+    Prelude.rnf jobs
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

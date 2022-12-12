@@ -33,10 +33,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newParameter' smart constructor.
 data Parameter = Parameter'
-  { -- | A parameter value must be specified in the extension association.
-    required :: Prelude.Maybe Prelude.Bool,
-    -- | Information about the parameter.
-    description :: Prelude.Maybe Prelude.Text
+  { -- | Information about the parameter.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | A parameter value must be specified in the extension association.
+    required :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,24 +48,24 @@ data Parameter = Parameter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'required', 'parameter_required' - A parameter value must be specified in the extension association.
---
 -- 'description', 'parameter_description' - Information about the parameter.
+--
+-- 'required', 'parameter_required' - A parameter value must be specified in the extension association.
 newParameter ::
   Parameter
 newParameter =
   Parameter'
-    { required = Prelude.Nothing,
-      description = Prelude.Nothing
+    { description = Prelude.Nothing,
+      required = Prelude.Nothing
     }
-
--- | A parameter value must be specified in the extension association.
-parameter_required :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Bool)
-parameter_required = Lens.lens (\Parameter' {required} -> required) (\s@Parameter' {} a -> s {required = a} :: Parameter)
 
 -- | Information about the parameter.
 parameter_description :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
 parameter_description = Lens.lens (\Parameter' {description} -> description) (\s@Parameter' {} a -> s {description = a} :: Parameter)
+
+-- | A parameter value must be specified in the extension association.
+parameter_required :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Bool)
+parameter_required = Lens.lens (\Parameter' {required} -> required) (\s@Parameter' {} a -> s {required = a} :: Parameter)
 
 instance Data.FromJSON Parameter where
   parseJSON =
@@ -73,25 +73,25 @@ instance Data.FromJSON Parameter where
       "Parameter"
       ( \x ->
           Parameter'
-            Prelude.<$> (x Data..:? "Required")
-            Prelude.<*> (x Data..:? "Description")
+            Prelude.<$> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Required")
       )
 
 instance Prelude.Hashable Parameter where
   hashWithSalt _salt Parameter' {..} =
-    _salt `Prelude.hashWithSalt` required
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` required
 
 instance Prelude.NFData Parameter where
   rnf Parameter' {..} =
-    Prelude.rnf required
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf required
 
 instance Data.ToJSON Parameter where
   toJSON Parameter' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Required" Data..=) Prelude.<$> required,
-            ("Description" Data..=) Prelude.<$> description
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("Required" Data..=) Prelude.<$> required
           ]
       )

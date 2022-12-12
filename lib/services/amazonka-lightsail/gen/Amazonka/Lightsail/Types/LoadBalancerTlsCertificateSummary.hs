@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLoadBalancerTlsCertificateSummary' smart constructor.
 data LoadBalancerTlsCertificateSummary = LoadBalancerTlsCertificateSummary'
-  { -- | The name of the SSL\/TLS certificate.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | When @true@, the SSL\/TLS certificate is attached to the Lightsail load
+  { -- | When @true@, the SSL\/TLS certificate is attached to the Lightsail load
     -- balancer.
-    isAttached :: Prelude.Maybe Prelude.Bool
+    isAttached :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the SSL\/TLS certificate.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,27 +44,27 @@ data LoadBalancerTlsCertificateSummary = LoadBalancerTlsCertificateSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'loadBalancerTlsCertificateSummary_name' - The name of the SSL\/TLS certificate.
---
 -- 'isAttached', 'loadBalancerTlsCertificateSummary_isAttached' - When @true@, the SSL\/TLS certificate is attached to the Lightsail load
 -- balancer.
+--
+-- 'name', 'loadBalancerTlsCertificateSummary_name' - The name of the SSL\/TLS certificate.
 newLoadBalancerTlsCertificateSummary ::
   LoadBalancerTlsCertificateSummary
 newLoadBalancerTlsCertificateSummary =
   LoadBalancerTlsCertificateSummary'
-    { name =
+    { isAttached =
         Prelude.Nothing,
-      isAttached = Prelude.Nothing
+      name = Prelude.Nothing
     }
-
--- | The name of the SSL\/TLS certificate.
-loadBalancerTlsCertificateSummary_name :: Lens.Lens' LoadBalancerTlsCertificateSummary (Prelude.Maybe Prelude.Text)
-loadBalancerTlsCertificateSummary_name = Lens.lens (\LoadBalancerTlsCertificateSummary' {name} -> name) (\s@LoadBalancerTlsCertificateSummary' {} a -> s {name = a} :: LoadBalancerTlsCertificateSummary)
 
 -- | When @true@, the SSL\/TLS certificate is attached to the Lightsail load
 -- balancer.
 loadBalancerTlsCertificateSummary_isAttached :: Lens.Lens' LoadBalancerTlsCertificateSummary (Prelude.Maybe Prelude.Bool)
 loadBalancerTlsCertificateSummary_isAttached = Lens.lens (\LoadBalancerTlsCertificateSummary' {isAttached} -> isAttached) (\s@LoadBalancerTlsCertificateSummary' {} a -> s {isAttached = a} :: LoadBalancerTlsCertificateSummary)
+
+-- | The name of the SSL\/TLS certificate.
+loadBalancerTlsCertificateSummary_name :: Lens.Lens' LoadBalancerTlsCertificateSummary (Prelude.Maybe Prelude.Text)
+loadBalancerTlsCertificateSummary_name = Lens.lens (\LoadBalancerTlsCertificateSummary' {name} -> name) (\s@LoadBalancerTlsCertificateSummary' {} a -> s {name = a} :: LoadBalancerTlsCertificateSummary)
 
 instance
   Data.FromJSON
@@ -75,8 +75,8 @@ instance
       "LoadBalancerTlsCertificateSummary"
       ( \x ->
           LoadBalancerTlsCertificateSummary'
-            Prelude.<$> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "isAttached")
+            Prelude.<$> (x Data..:? "isAttached")
+            Prelude.<*> (x Data..:? "name")
       )
 
 instance
@@ -86,13 +86,13 @@ instance
   hashWithSalt
     _salt
     LoadBalancerTlsCertificateSummary' {..} =
-      _salt `Prelude.hashWithSalt` name
-        `Prelude.hashWithSalt` isAttached
+      _salt `Prelude.hashWithSalt` isAttached
+        `Prelude.hashWithSalt` name
 
 instance
   Prelude.NFData
     LoadBalancerTlsCertificateSummary
   where
   rnf LoadBalancerTlsCertificateSummary' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf isAttached
+    Prelude.rnf isAttached
+      `Prelude.seq` Prelude.rnf name

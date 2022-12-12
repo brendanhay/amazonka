@@ -32,8 +32,8 @@ module Amazonka.Backup.CreateFramework
 
     -- * Request Lenses
     createFramework_frameworkDescription,
-    createFramework_idempotencyToken,
     createFramework_frameworkTags,
+    createFramework_idempotencyToken,
     createFramework_frameworkName,
     createFramework_frameworkControls,
 
@@ -61,14 +61,14 @@ data CreateFramework = CreateFramework'
   { -- | An optional description of the framework with a maximum of 1,024
     -- characters.
     frameworkDescription :: Prelude.Maybe Prelude.Text,
+    -- | Metadata that you can assign to help organize the frameworks that you
+    -- create. Each tag is a key-value pair.
+    frameworkTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A customer-chosen string that you can use to distinguish between
     -- otherwise identical calls to @CreateFrameworkInput@. Retrying a
     -- successful request with the same idempotency token results in a success
     -- message with no action taken.
     idempotencyToken :: Prelude.Maybe Prelude.Text,
-    -- | Metadata that you can assign to help organize the frameworks that you
-    -- create. Each tag is a key-value pair.
-    frameworkTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The unique name of the framework. The name must be between 1 and 256
     -- characters, starting with a letter, and consisting of letters (a-z,
     -- A-Z), numbers (0-9), and underscores (_).
@@ -90,13 +90,13 @@ data CreateFramework = CreateFramework'
 -- 'frameworkDescription', 'createFramework_frameworkDescription' - An optional description of the framework with a maximum of 1,024
 -- characters.
 --
+-- 'frameworkTags', 'createFramework_frameworkTags' - Metadata that you can assign to help organize the frameworks that you
+-- create. Each tag is a key-value pair.
+--
 -- 'idempotencyToken', 'createFramework_idempotencyToken' - A customer-chosen string that you can use to distinguish between
 -- otherwise identical calls to @CreateFrameworkInput@. Retrying a
 -- successful request with the same idempotency token results in a success
 -- message with no action taken.
---
--- 'frameworkTags', 'createFramework_frameworkTags' - Metadata that you can assign to help organize the frameworks that you
--- create. Each tag is a key-value pair.
 --
 -- 'frameworkName', 'createFramework_frameworkName' - The unique name of the framework. The name must be between 1 and 256
 -- characters, starting with a letter, and consisting of letters (a-z,
@@ -112,8 +112,8 @@ newCreateFramework pFrameworkName_ =
   CreateFramework'
     { frameworkDescription =
         Prelude.Nothing,
-      idempotencyToken = Prelude.Nothing,
       frameworkTags = Prelude.Nothing,
+      idempotencyToken = Prelude.Nothing,
       frameworkName = pFrameworkName_,
       frameworkControls = Prelude.mempty
     }
@@ -123,17 +123,17 @@ newCreateFramework pFrameworkName_ =
 createFramework_frameworkDescription :: Lens.Lens' CreateFramework (Prelude.Maybe Prelude.Text)
 createFramework_frameworkDescription = Lens.lens (\CreateFramework' {frameworkDescription} -> frameworkDescription) (\s@CreateFramework' {} a -> s {frameworkDescription = a} :: CreateFramework)
 
+-- | Metadata that you can assign to help organize the frameworks that you
+-- create. Each tag is a key-value pair.
+createFramework_frameworkTags :: Lens.Lens' CreateFramework (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createFramework_frameworkTags = Lens.lens (\CreateFramework' {frameworkTags} -> frameworkTags) (\s@CreateFramework' {} a -> s {frameworkTags = a} :: CreateFramework) Prelude.. Lens.mapping Lens.coerced
+
 -- | A customer-chosen string that you can use to distinguish between
 -- otherwise identical calls to @CreateFrameworkInput@. Retrying a
 -- successful request with the same idempotency token results in a success
 -- message with no action taken.
 createFramework_idempotencyToken :: Lens.Lens' CreateFramework (Prelude.Maybe Prelude.Text)
 createFramework_idempotencyToken = Lens.lens (\CreateFramework' {idempotencyToken} -> idempotencyToken) (\s@CreateFramework' {} a -> s {idempotencyToken = a} :: CreateFramework)
-
--- | Metadata that you can assign to help organize the frameworks that you
--- create. Each tag is a key-value pair.
-createFramework_frameworkTags :: Lens.Lens' CreateFramework (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createFramework_frameworkTags = Lens.lens (\CreateFramework' {frameworkTags} -> frameworkTags) (\s@CreateFramework' {} a -> s {frameworkTags = a} :: CreateFramework) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique name of the framework. The name must be between 1 and 256
 -- characters, starting with a letter, and consisting of letters (a-z,
@@ -164,16 +164,16 @@ instance Core.AWSRequest CreateFramework where
 instance Prelude.Hashable CreateFramework where
   hashWithSalt _salt CreateFramework' {..} =
     _salt `Prelude.hashWithSalt` frameworkDescription
-      `Prelude.hashWithSalt` idempotencyToken
       `Prelude.hashWithSalt` frameworkTags
+      `Prelude.hashWithSalt` idempotencyToken
       `Prelude.hashWithSalt` frameworkName
       `Prelude.hashWithSalt` frameworkControls
 
 instance Prelude.NFData CreateFramework where
   rnf CreateFramework' {..} =
     Prelude.rnf frameworkDescription
-      `Prelude.seq` Prelude.rnf idempotencyToken
       `Prelude.seq` Prelude.rnf frameworkTags
+      `Prelude.seq` Prelude.rnf idempotencyToken
       `Prelude.seq` Prelude.rnf frameworkName
       `Prelude.seq` Prelude.rnf frameworkControls
 
@@ -194,9 +194,9 @@ instance Data.ToJSON CreateFramework where
       ( Prelude.catMaybes
           [ ("FrameworkDescription" Data..=)
               Prelude.<$> frameworkDescription,
+            ("FrameworkTags" Data..=) Prelude.<$> frameworkTags,
             ("IdempotencyToken" Data..=)
               Prelude.<$> idempotencyToken,
-            ("FrameworkTags" Data..=) Prelude.<$> frameworkTags,
             Prelude.Just ("FrameworkName" Data..= frameworkName),
             Prelude.Just
               ("FrameworkControls" Data..= frameworkControls)

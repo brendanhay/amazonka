@@ -36,10 +36,10 @@ module Amazonka.IoTFleetWise.CreateDecoderManifest
     newCreateDecoderManifest,
 
     -- * Request Lenses
-    createDecoderManifest_tags,
-    createDecoderManifest_signalDecoders,
     createDecoderManifest_description,
     createDecoderManifest_networkInterfaces,
+    createDecoderManifest_signalDecoders,
+    createDecoderManifest_tags,
     createDecoderManifest_name,
     createDecoderManifest_modelManifestArn,
 
@@ -64,14 +64,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDecoderManifest' smart constructor.
 data CreateDecoderManifest = CreateDecoderManifest'
-  { -- | Metadata that can be used to manage the decoder manifest.
-    tags :: Prelude.Maybe [Tag],
-    -- | A list of information about signal decoders.
-    signalDecoders :: Prelude.Maybe (Prelude.NonEmpty SignalDecoder),
-    -- | A brief description of the decoder manifest.
+  { -- | A brief description of the decoder manifest.
     description :: Prelude.Maybe Prelude.Text,
     -- | A list of information about available network interfaces.
     networkInterfaces :: Prelude.Maybe (Prelude.NonEmpty NetworkInterface),
+    -- | A list of information about signal decoders.
+    signalDecoders :: Prelude.Maybe (Prelude.NonEmpty SignalDecoder),
+    -- | Metadata that can be used to manage the decoder manifest.
+    tags :: Prelude.Maybe [Tag],
     -- | The unique name of the decoder manifest to create.
     name :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the vehicle model (model manifest).
@@ -87,13 +87,13 @@ data CreateDecoderManifest = CreateDecoderManifest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createDecoderManifest_tags' - Metadata that can be used to manage the decoder manifest.
---
--- 'signalDecoders', 'createDecoderManifest_signalDecoders' - A list of information about signal decoders.
---
 -- 'description', 'createDecoderManifest_description' - A brief description of the decoder manifest.
 --
 -- 'networkInterfaces', 'createDecoderManifest_networkInterfaces' - A list of information about available network interfaces.
+--
+-- 'signalDecoders', 'createDecoderManifest_signalDecoders' - A list of information about signal decoders.
+--
+-- 'tags', 'createDecoderManifest_tags' - Metadata that can be used to manage the decoder manifest.
 --
 -- 'name', 'createDecoderManifest_name' - The unique name of the decoder manifest to create.
 --
@@ -106,21 +106,14 @@ newCreateDecoderManifest ::
   CreateDecoderManifest
 newCreateDecoderManifest pName_ pModelManifestArn_ =
   CreateDecoderManifest'
-    { tags = Prelude.Nothing,
-      signalDecoders = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description =
+        Prelude.Nothing,
       networkInterfaces = Prelude.Nothing,
+      signalDecoders = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_,
       modelManifestArn = pModelManifestArn_
     }
-
--- | Metadata that can be used to manage the decoder manifest.
-createDecoderManifest_tags :: Lens.Lens' CreateDecoderManifest (Prelude.Maybe [Tag])
-createDecoderManifest_tags = Lens.lens (\CreateDecoderManifest' {tags} -> tags) (\s@CreateDecoderManifest' {} a -> s {tags = a} :: CreateDecoderManifest) Prelude.. Lens.mapping Lens.coerced
-
--- | A list of information about signal decoders.
-createDecoderManifest_signalDecoders :: Lens.Lens' CreateDecoderManifest (Prelude.Maybe (Prelude.NonEmpty SignalDecoder))
-createDecoderManifest_signalDecoders = Lens.lens (\CreateDecoderManifest' {signalDecoders} -> signalDecoders) (\s@CreateDecoderManifest' {} a -> s {signalDecoders = a} :: CreateDecoderManifest) Prelude.. Lens.mapping Lens.coerced
 
 -- | A brief description of the decoder manifest.
 createDecoderManifest_description :: Lens.Lens' CreateDecoderManifest (Prelude.Maybe Prelude.Text)
@@ -129,6 +122,14 @@ createDecoderManifest_description = Lens.lens (\CreateDecoderManifest' {descript
 -- | A list of information about available network interfaces.
 createDecoderManifest_networkInterfaces :: Lens.Lens' CreateDecoderManifest (Prelude.Maybe (Prelude.NonEmpty NetworkInterface))
 createDecoderManifest_networkInterfaces = Lens.lens (\CreateDecoderManifest' {networkInterfaces} -> networkInterfaces) (\s@CreateDecoderManifest' {} a -> s {networkInterfaces = a} :: CreateDecoderManifest) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of information about signal decoders.
+createDecoderManifest_signalDecoders :: Lens.Lens' CreateDecoderManifest (Prelude.Maybe (Prelude.NonEmpty SignalDecoder))
+createDecoderManifest_signalDecoders = Lens.lens (\CreateDecoderManifest' {signalDecoders} -> signalDecoders) (\s@CreateDecoderManifest' {} a -> s {signalDecoders = a} :: CreateDecoderManifest) Prelude.. Lens.mapping Lens.coerced
+
+-- | Metadata that can be used to manage the decoder manifest.
+createDecoderManifest_tags :: Lens.Lens' CreateDecoderManifest (Prelude.Maybe [Tag])
+createDecoderManifest_tags = Lens.lens (\CreateDecoderManifest' {tags} -> tags) (\s@CreateDecoderManifest' {} a -> s {tags = a} :: CreateDecoderManifest) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique name of the decoder manifest to create.
 createDecoderManifest_name :: Lens.Lens' CreateDecoderManifest Prelude.Text
@@ -155,19 +156,19 @@ instance Core.AWSRequest CreateDecoderManifest where
 
 instance Prelude.Hashable CreateDecoderManifest where
   hashWithSalt _salt CreateDecoderManifest' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` signalDecoders
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` networkInterfaces
+      `Prelude.hashWithSalt` signalDecoders
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` modelManifestArn
 
 instance Prelude.NFData CreateDecoderManifest where
   rnf CreateDecoderManifest' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf signalDecoders
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf networkInterfaces
+      `Prelude.seq` Prelude.rnf signalDecoders
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf modelManifestArn
 
@@ -190,12 +191,12 @@ instance Data.ToJSON CreateDecoderManifest where
   toJSON CreateDecoderManifest' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("signalDecoders" Data..=)
-              Prelude.<$> signalDecoders,
-            ("description" Data..=) Prelude.<$> description,
+          [ ("description" Data..=) Prelude.<$> description,
             ("networkInterfaces" Data..=)
               Prelude.<$> networkInterfaces,
+            ("signalDecoders" Data..=)
+              Prelude.<$> signalDecoders,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("name" Data..= name),
             Prelude.Just
               ("modelManifestArn" Data..= modelManifestArn)

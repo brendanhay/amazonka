@@ -31,17 +31,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newWebACLSummary' smart constructor.
 data WebACLSummary = WebACLSummary'
-  { -- | The name of the web ACL. You cannot change the name of a web ACL after
-    -- you create it.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the entity.
+  { -- | The Amazon Resource Name (ARN) of the entity.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | A description of the web ACL that helps with identification.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the web ACL. This ID is returned in the
     -- responses to create and list commands. You provide it to operations like
     -- update and delete.
     id :: Prelude.Maybe Prelude.Text,
-    -- | A description of the web ACL that helps with identification.
-    description :: Prelude.Maybe Prelude.Text,
     -- | A token used for optimistic locking. WAF returns a token to your @get@
     -- and @list@ requests, to mark the state of the entity at the time of the
     -- request. To make changes to the entity associated with the token, you
@@ -50,7 +47,10 @@ data WebACLSummary = WebACLSummary'
     -- last retrieved it. If a change has been made, the update fails with a
     -- @WAFOptimisticLockException@. If this happens, perform another @get@,
     -- and use the new token returned by that operation.
-    lockToken :: Prelude.Maybe Prelude.Text
+    lockToken :: Prelude.Maybe Prelude.Text,
+    -- | The name of the web ACL. You cannot change the name of a web ACL after
+    -- you create it.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,16 +62,13 @@ data WebACLSummary = WebACLSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'webACLSummary_name' - The name of the web ACL. You cannot change the name of a web ACL after
--- you create it.
---
 -- 'arn', 'webACLSummary_arn' - The Amazon Resource Name (ARN) of the entity.
+--
+-- 'description', 'webACLSummary_description' - A description of the web ACL that helps with identification.
 --
 -- 'id', 'webACLSummary_id' - The unique identifier for the web ACL. This ID is returned in the
 -- responses to create and list commands. You provide it to operations like
 -- update and delete.
---
--- 'description', 'webACLSummary_description' - A description of the web ACL that helps with identification.
 --
 -- 'lockToken', 'webACLSummary_lockToken' - A token used for optimistic locking. WAF returns a token to your @get@
 -- and @list@ requests, to mark the state of the entity at the time of the
@@ -81,35 +78,33 @@ data WebACLSummary = WebACLSummary'
 -- last retrieved it. If a change has been made, the update fails with a
 -- @WAFOptimisticLockException@. If this happens, perform another @get@,
 -- and use the new token returned by that operation.
+--
+-- 'name', 'webACLSummary_name' - The name of the web ACL. You cannot change the name of a web ACL after
+-- you create it.
 newWebACLSummary ::
   WebACLSummary
 newWebACLSummary =
   WebACLSummary'
-    { name = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      id = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       description = Prelude.Nothing,
-      lockToken = Prelude.Nothing
+      id = Prelude.Nothing,
+      lockToken = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | The name of the web ACL. You cannot change the name of a web ACL after
--- you create it.
-webACLSummary_name :: Lens.Lens' WebACLSummary (Prelude.Maybe Prelude.Text)
-webACLSummary_name = Lens.lens (\WebACLSummary' {name} -> name) (\s@WebACLSummary' {} a -> s {name = a} :: WebACLSummary)
 
 -- | The Amazon Resource Name (ARN) of the entity.
 webACLSummary_arn :: Lens.Lens' WebACLSummary (Prelude.Maybe Prelude.Text)
 webACLSummary_arn = Lens.lens (\WebACLSummary' {arn} -> arn) (\s@WebACLSummary' {} a -> s {arn = a} :: WebACLSummary)
+
+-- | A description of the web ACL that helps with identification.
+webACLSummary_description :: Lens.Lens' WebACLSummary (Prelude.Maybe Prelude.Text)
+webACLSummary_description = Lens.lens (\WebACLSummary' {description} -> description) (\s@WebACLSummary' {} a -> s {description = a} :: WebACLSummary)
 
 -- | The unique identifier for the web ACL. This ID is returned in the
 -- responses to create and list commands. You provide it to operations like
 -- update and delete.
 webACLSummary_id :: Lens.Lens' WebACLSummary (Prelude.Maybe Prelude.Text)
 webACLSummary_id = Lens.lens (\WebACLSummary' {id} -> id) (\s@WebACLSummary' {} a -> s {id = a} :: WebACLSummary)
-
--- | A description of the web ACL that helps with identification.
-webACLSummary_description :: Lens.Lens' WebACLSummary (Prelude.Maybe Prelude.Text)
-webACLSummary_description = Lens.lens (\WebACLSummary' {description} -> description) (\s@WebACLSummary' {} a -> s {description = a} :: WebACLSummary)
 
 -- | A token used for optimistic locking. WAF returns a token to your @get@
 -- and @list@ requests, to mark the state of the entity at the time of the
@@ -122,31 +117,36 @@ webACLSummary_description = Lens.lens (\WebACLSummary' {description} -> descript
 webACLSummary_lockToken :: Lens.Lens' WebACLSummary (Prelude.Maybe Prelude.Text)
 webACLSummary_lockToken = Lens.lens (\WebACLSummary' {lockToken} -> lockToken) (\s@WebACLSummary' {} a -> s {lockToken = a} :: WebACLSummary)
 
+-- | The name of the web ACL. You cannot change the name of a web ACL after
+-- you create it.
+webACLSummary_name :: Lens.Lens' WebACLSummary (Prelude.Maybe Prelude.Text)
+webACLSummary_name = Lens.lens (\WebACLSummary' {name} -> name) (\s@WebACLSummary' {} a -> s {name = a} :: WebACLSummary)
+
 instance Data.FromJSON WebACLSummary where
   parseJSON =
     Data.withObject
       "WebACLSummary"
       ( \x ->
           WebACLSummary'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "ARN")
-            Prelude.<*> (x Data..:? "Id")
+            Prelude.<$> (x Data..:? "ARN")
             Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Id")
             Prelude.<*> (x Data..:? "LockToken")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable WebACLSummary where
   hashWithSalt _salt WebACLSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` id
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` lockToken
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData WebACLSummary where
   rnf WebACLSummary' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf lockToken
+      `Prelude.seq` Prelude.rnf name

@@ -32,8 +32,8 @@ module Amazonka.QuickSight.SearchAnalyses
     newSearchAnalyses,
 
     -- * Request Lenses
-    searchAnalyses_nextToken,
     searchAnalyses_maxResults,
+    searchAnalyses_nextToken,
     searchAnalyses_awsAccountId,
     searchAnalyses_filters,
 
@@ -59,10 +59,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSearchAnalyses' smart constructor.
 data SearchAnalyses = SearchAnalyses'
-  { -- | A pagination token that can be used in a subsequent request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return.
+  { -- | The maximum number of results to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A pagination token that can be used in a subsequent request.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Amazon Web Services account that contains the analyses
     -- that you\'re searching for.
     awsAccountId :: Prelude.Text,
@@ -80,9 +80,9 @@ data SearchAnalyses = SearchAnalyses'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'searchAnalyses_nextToken' - A pagination token that can be used in a subsequent request.
---
 -- 'maxResults', 'searchAnalyses_maxResults' - The maximum number of results to return.
+--
+-- 'nextToken', 'searchAnalyses_nextToken' - A pagination token that can be used in a subsequent request.
 --
 -- 'awsAccountId', 'searchAnalyses_awsAccountId' - The ID of the Amazon Web Services account that contains the analyses
 -- that you\'re searching for.
@@ -97,19 +97,19 @@ newSearchAnalyses ::
   SearchAnalyses
 newSearchAnalyses pAwsAccountId_ pFilters_ =
   SearchAnalyses'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       awsAccountId = pAwsAccountId_,
       filters = Lens.coerced Lens.# pFilters_
     }
 
--- | A pagination token that can be used in a subsequent request.
-searchAnalyses_nextToken :: Lens.Lens' SearchAnalyses (Prelude.Maybe Prelude.Text)
-searchAnalyses_nextToken = Lens.lens (\SearchAnalyses' {nextToken} -> nextToken) (\s@SearchAnalyses' {} a -> s {nextToken = a} :: SearchAnalyses)
-
 -- | The maximum number of results to return.
 searchAnalyses_maxResults :: Lens.Lens' SearchAnalyses (Prelude.Maybe Prelude.Natural)
 searchAnalyses_maxResults = Lens.lens (\SearchAnalyses' {maxResults} -> maxResults) (\s@SearchAnalyses' {} a -> s {maxResults = a} :: SearchAnalyses)
+
+-- | A pagination token that can be used in a subsequent request.
+searchAnalyses_nextToken :: Lens.Lens' SearchAnalyses (Prelude.Maybe Prelude.Text)
+searchAnalyses_nextToken = Lens.lens (\SearchAnalyses' {nextToken} -> nextToken) (\s@SearchAnalyses' {} a -> s {nextToken = a} :: SearchAnalyses)
 
 -- | The ID of the Amazon Web Services account that contains the analyses
 -- that you\'re searching for.
@@ -162,15 +162,15 @@ instance Core.AWSRequest SearchAnalyses where
 
 instance Prelude.Hashable SearchAnalyses where
   hashWithSalt _salt SearchAnalyses' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` filters
 
 instance Prelude.NFData SearchAnalyses where
   rnf SearchAnalyses' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf filters
 
@@ -189,8 +189,8 @@ instance Data.ToJSON SearchAnalyses where
   toJSON SearchAnalyses' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("Filters" Data..= filters)
           ]
       )

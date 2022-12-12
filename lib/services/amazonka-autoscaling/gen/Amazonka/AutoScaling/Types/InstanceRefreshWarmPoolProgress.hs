@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceRefreshWarmPoolProgress' smart constructor.
 data InstanceRefreshWarmPoolProgress = InstanceRefreshWarmPoolProgress'
-  { -- | The percentage of instances in the warm pool that have been replaced.
+  { -- | The number of instances remaining to update.
+    instancesToUpdate :: Prelude.Maybe Prelude.Natural,
+    -- | The percentage of instances in the warm pool that have been replaced.
     -- For each instance replacement, Amazon EC2 Auto Scaling tracks the
     -- instance\'s health status and warm-up time. When the instance\'s health
     -- status changes to healthy and the specified warm-up time passes, the
     -- instance is considered updated and is added to the percentage complete.
-    percentageComplete :: Prelude.Maybe Prelude.Natural,
-    -- | The number of instances remaining to update.
-    instancesToUpdate :: Prelude.Maybe Prelude.Natural
+    percentageComplete :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,21 +48,25 @@ data InstanceRefreshWarmPoolProgress = InstanceRefreshWarmPoolProgress'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'instancesToUpdate', 'instanceRefreshWarmPoolProgress_instancesToUpdate' - The number of instances remaining to update.
+--
 -- 'percentageComplete', 'instanceRefreshWarmPoolProgress_percentageComplete' - The percentage of instances in the warm pool that have been replaced.
 -- For each instance replacement, Amazon EC2 Auto Scaling tracks the
 -- instance\'s health status and warm-up time. When the instance\'s health
 -- status changes to healthy and the specified warm-up time passes, the
 -- instance is considered updated and is added to the percentage complete.
---
--- 'instancesToUpdate', 'instanceRefreshWarmPoolProgress_instancesToUpdate' - The number of instances remaining to update.
 newInstanceRefreshWarmPoolProgress ::
   InstanceRefreshWarmPoolProgress
 newInstanceRefreshWarmPoolProgress =
   InstanceRefreshWarmPoolProgress'
-    { percentageComplete =
+    { instancesToUpdate =
         Prelude.Nothing,
-      instancesToUpdate = Prelude.Nothing
+      percentageComplete = Prelude.Nothing
     }
+
+-- | The number of instances remaining to update.
+instanceRefreshWarmPoolProgress_instancesToUpdate :: Lens.Lens' InstanceRefreshWarmPoolProgress (Prelude.Maybe Prelude.Natural)
+instanceRefreshWarmPoolProgress_instancesToUpdate = Lens.lens (\InstanceRefreshWarmPoolProgress' {instancesToUpdate} -> instancesToUpdate) (\s@InstanceRefreshWarmPoolProgress' {} a -> s {instancesToUpdate = a} :: InstanceRefreshWarmPoolProgress)
 
 -- | The percentage of instances in the warm pool that have been replaced.
 -- For each instance replacement, Amazon EC2 Auto Scaling tracks the
@@ -72,15 +76,11 @@ newInstanceRefreshWarmPoolProgress =
 instanceRefreshWarmPoolProgress_percentageComplete :: Lens.Lens' InstanceRefreshWarmPoolProgress (Prelude.Maybe Prelude.Natural)
 instanceRefreshWarmPoolProgress_percentageComplete = Lens.lens (\InstanceRefreshWarmPoolProgress' {percentageComplete} -> percentageComplete) (\s@InstanceRefreshWarmPoolProgress' {} a -> s {percentageComplete = a} :: InstanceRefreshWarmPoolProgress)
 
--- | The number of instances remaining to update.
-instanceRefreshWarmPoolProgress_instancesToUpdate :: Lens.Lens' InstanceRefreshWarmPoolProgress (Prelude.Maybe Prelude.Natural)
-instanceRefreshWarmPoolProgress_instancesToUpdate = Lens.lens (\InstanceRefreshWarmPoolProgress' {instancesToUpdate} -> instancesToUpdate) (\s@InstanceRefreshWarmPoolProgress' {} a -> s {instancesToUpdate = a} :: InstanceRefreshWarmPoolProgress)
-
 instance Data.FromXML InstanceRefreshWarmPoolProgress where
   parseXML x =
     InstanceRefreshWarmPoolProgress'
-      Prelude.<$> (x Data..@? "PercentageComplete")
-      Prelude.<*> (x Data..@? "InstancesToUpdate")
+      Prelude.<$> (x Data..@? "InstancesToUpdate")
+      Prelude.<*> (x Data..@? "PercentageComplete")
 
 instance
   Prelude.Hashable
@@ -89,13 +89,13 @@ instance
   hashWithSalt
     _salt
     InstanceRefreshWarmPoolProgress' {..} =
-      _salt `Prelude.hashWithSalt` percentageComplete
-        `Prelude.hashWithSalt` instancesToUpdate
+      _salt `Prelude.hashWithSalt` instancesToUpdate
+        `Prelude.hashWithSalt` percentageComplete
 
 instance
   Prelude.NFData
     InstanceRefreshWarmPoolProgress
   where
   rnf InstanceRefreshWarmPoolProgress' {..} =
-    Prelude.rnf percentageComplete
-      `Prelude.seq` Prelude.rnf instancesToUpdate
+    Prelude.rnf instancesToUpdate
+      `Prelude.seq` Prelude.rnf percentageComplete

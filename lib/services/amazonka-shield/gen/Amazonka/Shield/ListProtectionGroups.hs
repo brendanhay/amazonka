@@ -29,9 +29,9 @@ module Amazonka.Shield.ListProtectionGroups
     newListProtectionGroups,
 
     -- * Request Lenses
-    listProtectionGroups_nextToken,
-    listProtectionGroups_maxResults,
     listProtectionGroups_inclusionFilters,
+    listProtectionGroups_maxResults,
+    listProtectionGroups_nextToken,
 
     -- * Destructuring the Response
     ListProtectionGroupsResponse (..),
@@ -54,7 +54,22 @@ import Amazonka.Shield.Types
 
 -- | /See:/ 'newListProtectionGroups' smart constructor.
 data ListProtectionGroups = ListProtectionGroups'
-  { -- | When you request a list of objects from Shield Advanced, if the response
+  { -- | Narrows the set of protection groups that the call retrieves. You can
+    -- retrieve a single protection group by its name and you can retrieve all
+    -- protection groups that are configured with specific pattern or
+    -- aggregation settings. You can provide up to one criteria per filter
+    -- type. Shield Advanced returns the protection groups that exactly match
+    -- all of the search criteria that you provide.
+    inclusionFilters :: Prelude.Maybe InclusionProtectionGroupFilters,
+    -- | The greatest number of objects that you want Shield Advanced to return
+    -- to the list request. Shield Advanced might return fewer objects than you
+    -- indicate in this setting, even if more objects are available. If there
+    -- are more objects remaining, Shield Advanced will always also return a
+    -- @NextToken@ value in the response.
+    --
+    -- The default setting is 20.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | When you request a list of objects from Shield Advanced, if the response
     -- does not include all of the remaining available objects, Shield Advanced
     -- includes a @NextToken@ value in the response. You can retrieve the next
     -- batch of objects by requesting the list again and providing the token
@@ -69,22 +84,7 @@ data ListProtectionGroups = ListProtectionGroups'
     -- to you, the response will include a @NextToken@ value.
     --
     -- On your first call to a list operation, leave this setting empty.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The greatest number of objects that you want Shield Advanced to return
-    -- to the list request. Shield Advanced might return fewer objects than you
-    -- indicate in this setting, even if more objects are available. If there
-    -- are more objects remaining, Shield Advanced will always also return a
-    -- @NextToken@ value in the response.
-    --
-    -- The default setting is 20.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Narrows the set of protection groups that the call retrieves. You can
-    -- retrieve a single protection group by its name and you can retrieve all
-    -- protection groups that are configured with specific pattern or
-    -- aggregation settings. You can provide up to one criteria per filter
-    -- type. Shield Advanced returns the protection groups that exactly match
-    -- all of the search criteria that you provide.
-    inclusionFilters :: Prelude.Maybe InclusionProtectionGroupFilters
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -95,6 +95,21 @@ data ListProtectionGroups = ListProtectionGroups'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'inclusionFilters', 'listProtectionGroups_inclusionFilters' - Narrows the set of protection groups that the call retrieves. You can
+-- retrieve a single protection group by its name and you can retrieve all
+-- protection groups that are configured with specific pattern or
+-- aggregation settings. You can provide up to one criteria per filter
+-- type. Shield Advanced returns the protection groups that exactly match
+-- all of the search criteria that you provide.
+--
+-- 'maxResults', 'listProtectionGroups_maxResults' - The greatest number of objects that you want Shield Advanced to return
+-- to the list request. Shield Advanced might return fewer objects than you
+-- indicate in this setting, even if more objects are available. If there
+-- are more objects remaining, Shield Advanced will always also return a
+-- @NextToken@ value in the response.
+--
+-- The default setting is 20.
 --
 -- 'nextToken', 'listProtectionGroups_nextToken' - When you request a list of objects from Shield Advanced, if the response
 -- does not include all of the remaining available objects, Shield Advanced
@@ -111,29 +126,34 @@ data ListProtectionGroups = ListProtectionGroups'
 -- to you, the response will include a @NextToken@ value.
 --
 -- On your first call to a list operation, leave this setting empty.
---
--- 'maxResults', 'listProtectionGroups_maxResults' - The greatest number of objects that you want Shield Advanced to return
+newListProtectionGroups ::
+  ListProtectionGroups
+newListProtectionGroups =
+  ListProtectionGroups'
+    { inclusionFilters =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
+    }
+
+-- | Narrows the set of protection groups that the call retrieves. You can
+-- retrieve a single protection group by its name and you can retrieve all
+-- protection groups that are configured with specific pattern or
+-- aggregation settings. You can provide up to one criteria per filter
+-- type. Shield Advanced returns the protection groups that exactly match
+-- all of the search criteria that you provide.
+listProtectionGroups_inclusionFilters :: Lens.Lens' ListProtectionGroups (Prelude.Maybe InclusionProtectionGroupFilters)
+listProtectionGroups_inclusionFilters = Lens.lens (\ListProtectionGroups' {inclusionFilters} -> inclusionFilters) (\s@ListProtectionGroups' {} a -> s {inclusionFilters = a} :: ListProtectionGroups)
+
+-- | The greatest number of objects that you want Shield Advanced to return
 -- to the list request. Shield Advanced might return fewer objects than you
 -- indicate in this setting, even if more objects are available. If there
 -- are more objects remaining, Shield Advanced will always also return a
 -- @NextToken@ value in the response.
 --
 -- The default setting is 20.
---
--- 'inclusionFilters', 'listProtectionGroups_inclusionFilters' - Narrows the set of protection groups that the call retrieves. You can
--- retrieve a single protection group by its name and you can retrieve all
--- protection groups that are configured with specific pattern or
--- aggregation settings. You can provide up to one criteria per filter
--- type. Shield Advanced returns the protection groups that exactly match
--- all of the search criteria that you provide.
-newListProtectionGroups ::
-  ListProtectionGroups
-newListProtectionGroups =
-  ListProtectionGroups'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      inclusionFilters = Prelude.Nothing
-    }
+listProtectionGroups_maxResults :: Lens.Lens' ListProtectionGroups (Prelude.Maybe Prelude.Natural)
+listProtectionGroups_maxResults = Lens.lens (\ListProtectionGroups' {maxResults} -> maxResults) (\s@ListProtectionGroups' {} a -> s {maxResults = a} :: ListProtectionGroups)
 
 -- | When you request a list of objects from Shield Advanced, if the response
 -- does not include all of the remaining available objects, Shield Advanced
@@ -152,25 +172,6 @@ newListProtectionGroups =
 -- On your first call to a list operation, leave this setting empty.
 listProtectionGroups_nextToken :: Lens.Lens' ListProtectionGroups (Prelude.Maybe Prelude.Text)
 listProtectionGroups_nextToken = Lens.lens (\ListProtectionGroups' {nextToken} -> nextToken) (\s@ListProtectionGroups' {} a -> s {nextToken = a} :: ListProtectionGroups)
-
--- | The greatest number of objects that you want Shield Advanced to return
--- to the list request. Shield Advanced might return fewer objects than you
--- indicate in this setting, even if more objects are available. If there
--- are more objects remaining, Shield Advanced will always also return a
--- @NextToken@ value in the response.
---
--- The default setting is 20.
-listProtectionGroups_maxResults :: Lens.Lens' ListProtectionGroups (Prelude.Maybe Prelude.Natural)
-listProtectionGroups_maxResults = Lens.lens (\ListProtectionGroups' {maxResults} -> maxResults) (\s@ListProtectionGroups' {} a -> s {maxResults = a} :: ListProtectionGroups)
-
--- | Narrows the set of protection groups that the call retrieves. You can
--- retrieve a single protection group by its name and you can retrieve all
--- protection groups that are configured with specific pattern or
--- aggregation settings. You can provide up to one criteria per filter
--- type. Shield Advanced returns the protection groups that exactly match
--- all of the search criteria that you provide.
-listProtectionGroups_inclusionFilters :: Lens.Lens' ListProtectionGroups (Prelude.Maybe InclusionProtectionGroupFilters)
-listProtectionGroups_inclusionFilters = Lens.lens (\ListProtectionGroups' {inclusionFilters} -> inclusionFilters) (\s@ListProtectionGroups' {} a -> s {inclusionFilters = a} :: ListProtectionGroups)
 
 instance Core.AWSRequest ListProtectionGroups where
   type
@@ -191,15 +192,15 @@ instance Core.AWSRequest ListProtectionGroups where
 
 instance Prelude.Hashable ListProtectionGroups where
   hashWithSalt _salt ListProtectionGroups' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` inclusionFilters
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` inclusionFilters
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListProtectionGroups where
   rnf ListProtectionGroups' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf inclusionFilters
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf inclusionFilters
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListProtectionGroups where
   toHeaders =
@@ -220,10 +221,10 @@ instance Data.ToJSON ListProtectionGroups where
   toJSON ListProtectionGroups' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("InclusionFilters" Data..=)
+              Prelude.<$> inclusionFilters,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("InclusionFilters" Data..=)
-              Prelude.<$> inclusionFilters
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

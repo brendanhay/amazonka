@@ -29,9 +29,9 @@ module Amazonka.IoTSiteWise.UpdatePortal
     -- * Request Lenses
     updatePortal_alarms,
     updatePortal_clientToken,
-    updatePortal_portalLogoImage,
-    updatePortal_portalDescription,
     updatePortal_notificationSenderEmail,
+    updatePortal_portalDescription,
+    updatePortal_portalLogoImage,
     updatePortal_portalId,
     updatePortal_portalName,
     updatePortal_portalContactEmail,
@@ -68,11 +68,11 @@ data UpdatePortal = UpdatePortal'
     -- idempotency of the request. Don\'t reuse this client token if a new
     -- idempotent request is required.
     clientToken :: Prelude.Maybe Prelude.Text,
-    portalLogoImage :: Prelude.Maybe Image,
-    -- | A new description for the portal.
-    portalDescription :: Prelude.Maybe Prelude.Text,
     -- | The email address that sends alarm notifications.
     notificationSenderEmail :: Prelude.Maybe Prelude.Text,
+    -- | A new description for the portal.
+    portalDescription :: Prelude.Maybe Prelude.Text,
+    portalLogoImage :: Prelude.Maybe Image,
     -- | The ID of the portal to update.
     portalId :: Prelude.Text,
     -- | A new friendly name for the portal.
@@ -108,11 +108,11 @@ data UpdatePortal = UpdatePortal'
 -- idempotency of the request. Don\'t reuse this client token if a new
 -- idempotent request is required.
 --
--- 'portalLogoImage', 'updatePortal_portalLogoImage' - Undocumented member.
+-- 'notificationSenderEmail', 'updatePortal_notificationSenderEmail' - The email address that sends alarm notifications.
 --
 -- 'portalDescription', 'updatePortal_portalDescription' - A new description for the portal.
 --
--- 'notificationSenderEmail', 'updatePortal_notificationSenderEmail' - The email address that sends alarm notifications.
+-- 'portalLogoImage', 'updatePortal_portalLogoImage' - Undocumented member.
 --
 -- 'portalId', 'updatePortal_portalId' - The ID of the portal to update.
 --
@@ -144,9 +144,9 @@ newUpdatePortal
     UpdatePortal'
       { alarms = Prelude.Nothing,
         clientToken = Prelude.Nothing,
-        portalLogoImage = Prelude.Nothing,
-        portalDescription = Prelude.Nothing,
         notificationSenderEmail = Prelude.Nothing,
+        portalDescription = Prelude.Nothing,
+        portalLogoImage = Prelude.Nothing,
         portalId = pPortalId_,
         portalName = pPortalName_,
         portalContactEmail = pPortalContactEmail_,
@@ -168,17 +168,17 @@ updatePortal_alarms = Lens.lens (\UpdatePortal' {alarms} -> alarms) (\s@UpdatePo
 updatePortal_clientToken :: Lens.Lens' UpdatePortal (Prelude.Maybe Prelude.Text)
 updatePortal_clientToken = Lens.lens (\UpdatePortal' {clientToken} -> clientToken) (\s@UpdatePortal' {} a -> s {clientToken = a} :: UpdatePortal)
 
--- | Undocumented member.
-updatePortal_portalLogoImage :: Lens.Lens' UpdatePortal (Prelude.Maybe Image)
-updatePortal_portalLogoImage = Lens.lens (\UpdatePortal' {portalLogoImage} -> portalLogoImage) (\s@UpdatePortal' {} a -> s {portalLogoImage = a} :: UpdatePortal)
+-- | The email address that sends alarm notifications.
+updatePortal_notificationSenderEmail :: Lens.Lens' UpdatePortal (Prelude.Maybe Prelude.Text)
+updatePortal_notificationSenderEmail = Lens.lens (\UpdatePortal' {notificationSenderEmail} -> notificationSenderEmail) (\s@UpdatePortal' {} a -> s {notificationSenderEmail = a} :: UpdatePortal)
 
 -- | A new description for the portal.
 updatePortal_portalDescription :: Lens.Lens' UpdatePortal (Prelude.Maybe Prelude.Text)
 updatePortal_portalDescription = Lens.lens (\UpdatePortal' {portalDescription} -> portalDescription) (\s@UpdatePortal' {} a -> s {portalDescription = a} :: UpdatePortal)
 
--- | The email address that sends alarm notifications.
-updatePortal_notificationSenderEmail :: Lens.Lens' UpdatePortal (Prelude.Maybe Prelude.Text)
-updatePortal_notificationSenderEmail = Lens.lens (\UpdatePortal' {notificationSenderEmail} -> notificationSenderEmail) (\s@UpdatePortal' {} a -> s {notificationSenderEmail = a} :: UpdatePortal)
+-- | Undocumented member.
+updatePortal_portalLogoImage :: Lens.Lens' UpdatePortal (Prelude.Maybe Image)
+updatePortal_portalLogoImage = Lens.lens (\UpdatePortal' {portalLogoImage} -> portalLogoImage) (\s@UpdatePortal' {} a -> s {portalLogoImage = a} :: UpdatePortal)
 
 -- | The ID of the portal to update.
 updatePortal_portalId :: Lens.Lens' UpdatePortal Prelude.Text
@@ -217,9 +217,9 @@ instance Prelude.Hashable UpdatePortal where
   hashWithSalt _salt UpdatePortal' {..} =
     _salt `Prelude.hashWithSalt` alarms
       `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` portalLogoImage
-      `Prelude.hashWithSalt` portalDescription
       `Prelude.hashWithSalt` notificationSenderEmail
+      `Prelude.hashWithSalt` portalDescription
+      `Prelude.hashWithSalt` portalLogoImage
       `Prelude.hashWithSalt` portalId
       `Prelude.hashWithSalt` portalName
       `Prelude.hashWithSalt` portalContactEmail
@@ -229,9 +229,9 @@ instance Prelude.NFData UpdatePortal where
   rnf UpdatePortal' {..} =
     Prelude.rnf alarms
       `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf portalLogoImage
-      `Prelude.seq` Prelude.rnf portalDescription
       `Prelude.seq` Prelude.rnf notificationSenderEmail
+      `Prelude.seq` Prelude.rnf portalDescription
+      `Prelude.seq` Prelude.rnf portalLogoImage
       `Prelude.seq` Prelude.rnf portalId
       `Prelude.seq` Prelude.rnf portalName
       `Prelude.seq` Prelude.rnf portalContactEmail
@@ -254,12 +254,12 @@ instance Data.ToJSON UpdatePortal where
       ( Prelude.catMaybes
           [ ("alarms" Data..=) Prelude.<$> alarms,
             ("clientToken" Data..=) Prelude.<$> clientToken,
-            ("portalLogoImage" Data..=)
-              Prelude.<$> portalLogoImage,
-            ("portalDescription" Data..=)
-              Prelude.<$> portalDescription,
             ("notificationSenderEmail" Data..=)
               Prelude.<$> notificationSenderEmail,
+            ("portalDescription" Data..=)
+              Prelude.<$> portalDescription,
+            ("portalLogoImage" Data..=)
+              Prelude.<$> portalLogoImage,
             Prelude.Just ("portalName" Data..= portalName),
             Prelude.Just
               ("portalContactEmail" Data..= portalContactEmail),

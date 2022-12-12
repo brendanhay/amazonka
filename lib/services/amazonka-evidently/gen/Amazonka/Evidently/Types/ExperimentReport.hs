@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newExperimentReport' smart constructor.
 data ExperimentReport = ExperimentReport'
-  { -- | The type of analysis used for this report.
-    reportName :: Prelude.Maybe ExperimentReportName,
-    -- | The name of the variation that this report pertains to.
-    treatmentName :: Prelude.Maybe Prelude.Text,
+  { -- | The content of the report.
+    content :: Prelude.Maybe Prelude.Text,
     -- | The name of the metric that is analyzed in this experiment report.
     metricName :: Prelude.Maybe Prelude.Text,
-    -- | The content of the report.
-    content :: Prelude.Maybe Prelude.Text
+    -- | The type of analysis used for this report.
+    reportName :: Prelude.Maybe ExperimentReportName,
+    -- | The name of the variation that this report pertains to.
+    treatmentName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,22 +48,30 @@ data ExperimentReport = ExperimentReport'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'reportName', 'experimentReport_reportName' - The type of analysis used for this report.
---
--- 'treatmentName', 'experimentReport_treatmentName' - The name of the variation that this report pertains to.
+-- 'content', 'experimentReport_content' - The content of the report.
 --
 -- 'metricName', 'experimentReport_metricName' - The name of the metric that is analyzed in this experiment report.
 --
--- 'content', 'experimentReport_content' - The content of the report.
+-- 'reportName', 'experimentReport_reportName' - The type of analysis used for this report.
+--
+-- 'treatmentName', 'experimentReport_treatmentName' - The name of the variation that this report pertains to.
 newExperimentReport ::
   ExperimentReport
 newExperimentReport =
   ExperimentReport'
-    { reportName = Prelude.Nothing,
-      treatmentName = Prelude.Nothing,
+    { content = Prelude.Nothing,
       metricName = Prelude.Nothing,
-      content = Prelude.Nothing
+      reportName = Prelude.Nothing,
+      treatmentName = Prelude.Nothing
     }
+
+-- | The content of the report.
+experimentReport_content :: Lens.Lens' ExperimentReport (Prelude.Maybe Prelude.Text)
+experimentReport_content = Lens.lens (\ExperimentReport' {content} -> content) (\s@ExperimentReport' {} a -> s {content = a} :: ExperimentReport)
+
+-- | The name of the metric that is analyzed in this experiment report.
+experimentReport_metricName :: Lens.Lens' ExperimentReport (Prelude.Maybe Prelude.Text)
+experimentReport_metricName = Lens.lens (\ExperimentReport' {metricName} -> metricName) (\s@ExperimentReport' {} a -> s {metricName = a} :: ExperimentReport)
 
 -- | The type of analysis used for this report.
 experimentReport_reportName :: Lens.Lens' ExperimentReport (Prelude.Maybe ExperimentReportName)
@@ -73,36 +81,28 @@ experimentReport_reportName = Lens.lens (\ExperimentReport' {reportName} -> repo
 experimentReport_treatmentName :: Lens.Lens' ExperimentReport (Prelude.Maybe Prelude.Text)
 experimentReport_treatmentName = Lens.lens (\ExperimentReport' {treatmentName} -> treatmentName) (\s@ExperimentReport' {} a -> s {treatmentName = a} :: ExperimentReport)
 
--- | The name of the metric that is analyzed in this experiment report.
-experimentReport_metricName :: Lens.Lens' ExperimentReport (Prelude.Maybe Prelude.Text)
-experimentReport_metricName = Lens.lens (\ExperimentReport' {metricName} -> metricName) (\s@ExperimentReport' {} a -> s {metricName = a} :: ExperimentReport)
-
--- | The content of the report.
-experimentReport_content :: Lens.Lens' ExperimentReport (Prelude.Maybe Prelude.Text)
-experimentReport_content = Lens.lens (\ExperimentReport' {content} -> content) (\s@ExperimentReport' {} a -> s {content = a} :: ExperimentReport)
-
 instance Data.FromJSON ExperimentReport where
   parseJSON =
     Data.withObject
       "ExperimentReport"
       ( \x ->
           ExperimentReport'
-            Prelude.<$> (x Data..:? "reportName")
-            Prelude.<*> (x Data..:? "treatmentName")
+            Prelude.<$> (x Data..:? "content")
             Prelude.<*> (x Data..:? "metricName")
-            Prelude.<*> (x Data..:? "content")
+            Prelude.<*> (x Data..:? "reportName")
+            Prelude.<*> (x Data..:? "treatmentName")
       )
 
 instance Prelude.Hashable ExperimentReport where
   hashWithSalt _salt ExperimentReport' {..} =
-    _salt `Prelude.hashWithSalt` reportName
-      `Prelude.hashWithSalt` treatmentName
+    _salt `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` metricName
-      `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` reportName
+      `Prelude.hashWithSalt` treatmentName
 
 instance Prelude.NFData ExperimentReport where
   rnf ExperimentReport' {..} =
-    Prelude.rnf reportName
-      `Prelude.seq` Prelude.rnf treatmentName
+    Prelude.rnf content
       `Prelude.seq` Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf content
+      `Prelude.seq` Prelude.rnf reportName
+      `Prelude.seq` Prelude.rnf treatmentName

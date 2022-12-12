@@ -31,8 +31,8 @@ module Amazonka.SecurityHub.ListFindingAggregators
     newListFindingAggregators,
 
     -- * Request Lenses
-    listFindingAggregators_nextToken,
     listFindingAggregators_maxResults,
+    listFindingAggregators_nextToken,
 
     -- * Destructuring the Response
     ListFindingAggregatorsResponse (..),
@@ -55,12 +55,12 @@ import Amazonka.SecurityHub.Types
 
 -- | /See:/ 'newListFindingAggregators' smart constructor.
 data ListFindingAggregators = ListFindingAggregators'
-  { -- | The token returned with the previous set of results. Identifies the next
-    -- set of results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return. This operation currently only
+  { -- | The maximum number of results to return. This operation currently only
     -- returns a single result.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token returned with the previous set of results. Identifies the next
+    -- set of results to return.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,29 +72,29 @@ data ListFindingAggregators = ListFindingAggregators'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listFindingAggregators_nextToken' - The token returned with the previous set of results. Identifies the next
--- set of results to return.
---
 -- 'maxResults', 'listFindingAggregators_maxResults' - The maximum number of results to return. This operation currently only
 -- returns a single result.
+--
+-- 'nextToken', 'listFindingAggregators_nextToken' - The token returned with the previous set of results. Identifies the next
+-- set of results to return.
 newListFindingAggregators ::
   ListFindingAggregators
 newListFindingAggregators =
   ListFindingAggregators'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | The token returned with the previous set of results. Identifies the next
--- set of results to return.
-listFindingAggregators_nextToken :: Lens.Lens' ListFindingAggregators (Prelude.Maybe Prelude.Text)
-listFindingAggregators_nextToken = Lens.lens (\ListFindingAggregators' {nextToken} -> nextToken) (\s@ListFindingAggregators' {} a -> s {nextToken = a} :: ListFindingAggregators)
 
 -- | The maximum number of results to return. This operation currently only
 -- returns a single result.
 listFindingAggregators_maxResults :: Lens.Lens' ListFindingAggregators (Prelude.Maybe Prelude.Natural)
 listFindingAggregators_maxResults = Lens.lens (\ListFindingAggregators' {maxResults} -> maxResults) (\s@ListFindingAggregators' {} a -> s {maxResults = a} :: ListFindingAggregators)
+
+-- | The token returned with the previous set of results. Identifies the next
+-- set of results to return.
+listFindingAggregators_nextToken :: Lens.Lens' ListFindingAggregators (Prelude.Maybe Prelude.Text)
+listFindingAggregators_nextToken = Lens.lens (\ListFindingAggregators' {nextToken} -> nextToken) (\s@ListFindingAggregators' {} a -> s {nextToken = a} :: ListFindingAggregators)
 
 instance Core.AWSPager ListFindingAggregators where
   page rq rs
@@ -137,13 +137,13 @@ instance Core.AWSRequest ListFindingAggregators where
 
 instance Prelude.Hashable ListFindingAggregators where
   hashWithSalt _salt ListFindingAggregators' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListFindingAggregators where
   rnf ListFindingAggregators' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListFindingAggregators where
   toHeaders =
@@ -162,8 +162,8 @@ instance Data.ToPath ListFindingAggregators where
 instance Data.ToQuery ListFindingAggregators where
   toQuery ListFindingAggregators' {..} =
     Prelude.mconcat
-      [ "NextToken" Data.=: nextToken,
-        "MaxResults" Data.=: maxResults
+      [ "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListFindingAggregatorsResponse' smart constructor.

@@ -27,8 +27,8 @@ module Amazonka.Transfer.UpdateCertificate
     newUpdateCertificate,
 
     -- * Request Lenses
-    updateCertificate_description,
     updateCertificate_activeDate,
+    updateCertificate_description,
     updateCertificate_inactiveDate,
     updateCertificate_certificateId,
 
@@ -52,10 +52,10 @@ import Amazonka.Transfer.Types
 
 -- | /See:/ 'newUpdateCertificate' smart constructor.
 data UpdateCertificate = UpdateCertificate'
-  { -- | A short description to help identify the certificate.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | An optional date that specifies when the certificate becomes active.
+  { -- | An optional date that specifies when the certificate becomes active.
     activeDate :: Prelude.Maybe Data.POSIX,
+    -- | A short description to help identify the certificate.
+    description :: Prelude.Maybe Prelude.Text,
     -- | An optional date that specifies when the certificate becomes inactive.
     inactiveDate :: Prelude.Maybe Data.POSIX,
     -- | The identifier of the certificate object that you are updating.
@@ -71,9 +71,9 @@ data UpdateCertificate = UpdateCertificate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'updateCertificate_description' - A short description to help identify the certificate.
---
 -- 'activeDate', 'updateCertificate_activeDate' - An optional date that specifies when the certificate becomes active.
+--
+-- 'description', 'updateCertificate_description' - A short description to help identify the certificate.
 --
 -- 'inactiveDate', 'updateCertificate_inactiveDate' - An optional date that specifies when the certificate becomes inactive.
 --
@@ -84,19 +84,19 @@ newUpdateCertificate ::
   UpdateCertificate
 newUpdateCertificate pCertificateId_ =
   UpdateCertificate'
-    { description = Prelude.Nothing,
-      activeDate = Prelude.Nothing,
+    { activeDate = Prelude.Nothing,
+      description = Prelude.Nothing,
       inactiveDate = Prelude.Nothing,
       certificateId = pCertificateId_
     }
 
--- | A short description to help identify the certificate.
-updateCertificate_description :: Lens.Lens' UpdateCertificate (Prelude.Maybe Prelude.Text)
-updateCertificate_description = Lens.lens (\UpdateCertificate' {description} -> description) (\s@UpdateCertificate' {} a -> s {description = a} :: UpdateCertificate)
-
 -- | An optional date that specifies when the certificate becomes active.
 updateCertificate_activeDate :: Lens.Lens' UpdateCertificate (Prelude.Maybe Prelude.UTCTime)
 updateCertificate_activeDate = Lens.lens (\UpdateCertificate' {activeDate} -> activeDate) (\s@UpdateCertificate' {} a -> s {activeDate = a} :: UpdateCertificate) Prelude.. Lens.mapping Data._Time
+
+-- | A short description to help identify the certificate.
+updateCertificate_description :: Lens.Lens' UpdateCertificate (Prelude.Maybe Prelude.Text)
+updateCertificate_description = Lens.lens (\UpdateCertificate' {description} -> description) (\s@UpdateCertificate' {} a -> s {description = a} :: UpdateCertificate)
 
 -- | An optional date that specifies when the certificate becomes inactive.
 updateCertificate_inactiveDate :: Lens.Lens' UpdateCertificate (Prelude.Maybe Prelude.UTCTime)
@@ -122,15 +122,15 @@ instance Core.AWSRequest UpdateCertificate where
 
 instance Prelude.Hashable UpdateCertificate where
   hashWithSalt _salt UpdateCertificate' {..} =
-    _salt `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` activeDate
+    _salt `Prelude.hashWithSalt` activeDate
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` inactiveDate
       `Prelude.hashWithSalt` certificateId
 
 instance Prelude.NFData UpdateCertificate where
   rnf UpdateCertificate' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf activeDate
+    Prelude.rnf activeDate
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf inactiveDate
       `Prelude.seq` Prelude.rnf certificateId
 
@@ -153,8 +153,8 @@ instance Data.ToJSON UpdateCertificate where
   toJSON UpdateCertificate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Description" Data..=) Prelude.<$> description,
-            ("ActiveDate" Data..=) Prelude.<$> activeDate,
+          [ ("ActiveDate" Data..=) Prelude.<$> activeDate,
+            ("Description" Data..=) Prelude.<$> description,
             ("InactiveDate" Data..=) Prelude.<$> inactiveDate,
             Prelude.Just
               ("CertificateId" Data..= certificateId)

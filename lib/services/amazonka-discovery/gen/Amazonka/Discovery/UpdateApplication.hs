@@ -27,8 +27,8 @@ module Amazonka.Discovery.UpdateApplication
     newUpdateApplication,
 
     -- * Request Lenses
-    updateApplication_name,
     updateApplication_description,
+    updateApplication_name,
     updateApplication_configurationId,
 
     -- * Destructuring the Response
@@ -50,10 +50,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateApplication' smart constructor.
 data UpdateApplication = UpdateApplication'
-  { -- | New name of the application to be updated.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | New description of the application to be updated.
+  { -- | New description of the application to be updated.
     description :: Prelude.Maybe Prelude.Text,
+    -- | New name of the application to be updated.
+    name :: Prelude.Maybe Prelude.Text,
     -- | Configuration ID of the application to be updated.
     configurationId :: Prelude.Text
   }
@@ -67,9 +67,9 @@ data UpdateApplication = UpdateApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateApplication_name' - New name of the application to be updated.
---
 -- 'description', 'updateApplication_description' - New description of the application to be updated.
+--
+-- 'name', 'updateApplication_name' - New name of the application to be updated.
 --
 -- 'configurationId', 'updateApplication_configurationId' - Configuration ID of the application to be updated.
 newUpdateApplication ::
@@ -78,18 +78,18 @@ newUpdateApplication ::
   UpdateApplication
 newUpdateApplication pConfigurationId_ =
   UpdateApplication'
-    { name = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      name = Prelude.Nothing,
       configurationId = pConfigurationId_
     }
-
--- | New name of the application to be updated.
-updateApplication_name :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Text)
-updateApplication_name = Lens.lens (\UpdateApplication' {name} -> name) (\s@UpdateApplication' {} a -> s {name = a} :: UpdateApplication)
 
 -- | New description of the application to be updated.
 updateApplication_description :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Text)
 updateApplication_description = Lens.lens (\UpdateApplication' {description} -> description) (\s@UpdateApplication' {} a -> s {description = a} :: UpdateApplication)
+
+-- | New name of the application to be updated.
+updateApplication_name :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Text)
+updateApplication_name = Lens.lens (\UpdateApplication' {name} -> name) (\s@UpdateApplication' {} a -> s {name = a} :: UpdateApplication)
 
 -- | Configuration ID of the application to be updated.
 updateApplication_configurationId :: Lens.Lens' UpdateApplication Prelude.Text
@@ -110,14 +110,14 @@ instance Core.AWSRequest UpdateApplication where
 
 instance Prelude.Hashable UpdateApplication where
   hashWithSalt _salt UpdateApplication' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` configurationId
 
 instance Prelude.NFData UpdateApplication where
   rnf UpdateApplication' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf configurationId
 
 instance Data.ToHeaders UpdateApplication where
@@ -139,8 +139,8 @@ instance Data.ToJSON UpdateApplication where
   toJSON UpdateApplication' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("name" Data..=) Prelude.<$> name,
-            ("description" Data..=) Prelude.<$> description,
+          [ ("description" Data..=) Prelude.<$> description,
+            ("name" Data..=) Prelude.<$> name,
             Prelude.Just
               ("configurationId" Data..= configurationId)
           ]

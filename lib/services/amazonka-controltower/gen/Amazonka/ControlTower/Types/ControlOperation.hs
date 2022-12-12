@@ -30,17 +30,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newControlOperation' smart constructor.
 data ControlOperation = ControlOperation'
-  { -- | One of @ENABLE_CONTROL@ or @DISABLE_CONTROL@.
+  { -- | The time that the operation finished.
+    endTime :: Prelude.Maybe Data.POSIX,
+    -- | One of @ENABLE_CONTROL@ or @DISABLE_CONTROL@.
     operationType :: Prelude.Maybe ControlOperationType,
+    -- | The time that the operation began.
+    startTime :: Prelude.Maybe Data.POSIX,
     -- | One of @IN_PROGRESS@, @SUCEEDED@, or @FAILED@.
     status :: Prelude.Maybe ControlOperationStatus,
-    -- | The time that the operation finished.
-    endTime :: Prelude.Maybe Data.POSIX,
     -- | If the operation result is @FAILED@, this string contains a message
     -- explaining why the operation failed.
-    statusMessage :: Prelude.Maybe Prelude.Text,
-    -- | The time that the operation began.
-    startTime :: Prelude.Maybe Data.POSIX
+    statusMessage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,47 +52,47 @@ data ControlOperation = ControlOperation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'endTime', 'controlOperation_endTime' - The time that the operation finished.
+--
 -- 'operationType', 'controlOperation_operationType' - One of @ENABLE_CONTROL@ or @DISABLE_CONTROL@.
+--
+-- 'startTime', 'controlOperation_startTime' - The time that the operation began.
 --
 -- 'status', 'controlOperation_status' - One of @IN_PROGRESS@, @SUCEEDED@, or @FAILED@.
 --
--- 'endTime', 'controlOperation_endTime' - The time that the operation finished.
---
 -- 'statusMessage', 'controlOperation_statusMessage' - If the operation result is @FAILED@, this string contains a message
 -- explaining why the operation failed.
---
--- 'startTime', 'controlOperation_startTime' - The time that the operation began.
 newControlOperation ::
   ControlOperation
 newControlOperation =
   ControlOperation'
-    { operationType = Prelude.Nothing,
+    { endTime = Prelude.Nothing,
+      operationType = Prelude.Nothing,
+      startTime = Prelude.Nothing,
       status = Prelude.Nothing,
-      endTime = Prelude.Nothing,
-      statusMessage = Prelude.Nothing,
-      startTime = Prelude.Nothing
+      statusMessage = Prelude.Nothing
     }
-
--- | One of @ENABLE_CONTROL@ or @DISABLE_CONTROL@.
-controlOperation_operationType :: Lens.Lens' ControlOperation (Prelude.Maybe ControlOperationType)
-controlOperation_operationType = Lens.lens (\ControlOperation' {operationType} -> operationType) (\s@ControlOperation' {} a -> s {operationType = a} :: ControlOperation)
-
--- | One of @IN_PROGRESS@, @SUCEEDED@, or @FAILED@.
-controlOperation_status :: Lens.Lens' ControlOperation (Prelude.Maybe ControlOperationStatus)
-controlOperation_status = Lens.lens (\ControlOperation' {status} -> status) (\s@ControlOperation' {} a -> s {status = a} :: ControlOperation)
 
 -- | The time that the operation finished.
 controlOperation_endTime :: Lens.Lens' ControlOperation (Prelude.Maybe Prelude.UTCTime)
 controlOperation_endTime = Lens.lens (\ControlOperation' {endTime} -> endTime) (\s@ControlOperation' {} a -> s {endTime = a} :: ControlOperation) Prelude.. Lens.mapping Data._Time
 
--- | If the operation result is @FAILED@, this string contains a message
--- explaining why the operation failed.
-controlOperation_statusMessage :: Lens.Lens' ControlOperation (Prelude.Maybe Prelude.Text)
-controlOperation_statusMessage = Lens.lens (\ControlOperation' {statusMessage} -> statusMessage) (\s@ControlOperation' {} a -> s {statusMessage = a} :: ControlOperation)
+-- | One of @ENABLE_CONTROL@ or @DISABLE_CONTROL@.
+controlOperation_operationType :: Lens.Lens' ControlOperation (Prelude.Maybe ControlOperationType)
+controlOperation_operationType = Lens.lens (\ControlOperation' {operationType} -> operationType) (\s@ControlOperation' {} a -> s {operationType = a} :: ControlOperation)
 
 -- | The time that the operation began.
 controlOperation_startTime :: Lens.Lens' ControlOperation (Prelude.Maybe Prelude.UTCTime)
 controlOperation_startTime = Lens.lens (\ControlOperation' {startTime} -> startTime) (\s@ControlOperation' {} a -> s {startTime = a} :: ControlOperation) Prelude.. Lens.mapping Data._Time
+
+-- | One of @IN_PROGRESS@, @SUCEEDED@, or @FAILED@.
+controlOperation_status :: Lens.Lens' ControlOperation (Prelude.Maybe ControlOperationStatus)
+controlOperation_status = Lens.lens (\ControlOperation' {status} -> status) (\s@ControlOperation' {} a -> s {status = a} :: ControlOperation)
+
+-- | If the operation result is @FAILED@, this string contains a message
+-- explaining why the operation failed.
+controlOperation_statusMessage :: Lens.Lens' ControlOperation (Prelude.Maybe Prelude.Text)
+controlOperation_statusMessage = Lens.lens (\ControlOperation' {statusMessage} -> statusMessage) (\s@ControlOperation' {} a -> s {statusMessage = a} :: ControlOperation)
 
 instance Data.FromJSON ControlOperation where
   parseJSON =
@@ -100,25 +100,25 @@ instance Data.FromJSON ControlOperation where
       "ControlOperation"
       ( \x ->
           ControlOperation'
-            Prelude.<$> (x Data..:? "operationType")
-            Prelude.<*> (x Data..:? "status")
-            Prelude.<*> (x Data..:? "endTime")
-            Prelude.<*> (x Data..:? "statusMessage")
+            Prelude.<$> (x Data..:? "endTime")
+            Prelude.<*> (x Data..:? "operationType")
             Prelude.<*> (x Data..:? "startTime")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "statusMessage")
       )
 
 instance Prelude.Hashable ControlOperation where
   hashWithSalt _salt ControlOperation' {..} =
-    _salt `Prelude.hashWithSalt` operationType
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` endTime
-      `Prelude.hashWithSalt` statusMessage
+    _salt `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` operationType
       `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` statusMessage
 
 instance Prelude.NFData ControlOperation where
   rnf ControlOperation' {..} =
-    Prelude.rnf operationType
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf statusMessage
+    Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf operationType
       `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf statusMessage

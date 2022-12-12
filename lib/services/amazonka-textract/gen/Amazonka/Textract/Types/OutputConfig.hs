@@ -30,8 +30,8 @@ import qualified Amazonka.Prelude as Prelude
 -- @OutputConfig@ is an optional parameter which lets you adjust where your
 -- output will be placed. By default, Amazon Textract will store the
 -- results internally and can only be accessed by the Get API operations.
--- With OutputConfig enabled, you can set the name of the bucket the output
--- will be sent to and the file prefix of the results where you can
+-- With @OutputConfig@ enabled, you can set the name of the bucket the
+-- output will be sent to the file prefix of the results where you can
 -- download your results. Additionally, you can set the @KMSKeyID@
 -- parameter to a customer master key (CMK) to encrypt your output. Without
 -- this parameter set Amazon Textract will encrypt server-side using the

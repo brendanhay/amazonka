@@ -22,7 +22,7 @@
 --
 -- Creates a new custom language model.
 --
--- When creating a new language model, you must specify:
+-- When creating a new custom language model, you must specify:
 --
 -- -   If you want a Wideband (audio sample rates over 16,000 Hz) or
 --     Narrowband (audio sample rates under 16,000 Hz) base model
@@ -33,9 +33,6 @@
 -- -   The language of your model
 --
 -- -   A unique name for your model
---
--- For more information, see
--- <https://docs.aws.amazon.com/transcribe/latest/dg/custom-language-models.html Custom language models>.
 module Amazonka.Transcribe.CreateLanguageModel
   ( -- * Creating a Request
     CreateLanguageModel (..),
@@ -53,11 +50,11 @@ module Amazonka.Transcribe.CreateLanguageModel
     newCreateLanguageModelResponse,
 
     -- * Response Lenses
-    createLanguageModelResponse_modelStatus,
-    createLanguageModelResponse_languageCode,
-    createLanguageModelResponse_modelName,
     createLanguageModelResponse_baseModelName,
     createLanguageModelResponse_inputDataConfig,
+    createLanguageModelResponse_languageCode,
+    createLanguageModelResponse_modelName,
+    createLanguageModelResponse_modelStatus,
     createLanguageModelResponse_httpStatus,
   )
 where
@@ -79,20 +76,20 @@ data CreateLanguageModel = CreateLanguageModel'
     -- <https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html Tagging resources>.
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The language code that represents the language of your model. Each
-    -- language model must contain terms in only one language, and the language
-    -- you select for your model must match the language of your training and
-    -- tuning data.
+    -- custom language model must contain terms in only one language, and the
+    -- language you select for your custom language model must match the
+    -- language of your training and tuning data.
     --
     -- For a list of supported languages and their associated language codes,
     -- refer to the
     -- <https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html Supported languages>
-    -- table. Note that U.S. English (@en-US@) is the only language supported
+    -- table. Note that US English (@en-US@) is the only language supported
     -- with Amazon Transcribe Medical.
     --
     -- A custom language model can only be used to transcribe files in the same
-    -- language as the model. For example, if you create a language model using
-    -- US English (@en-US@), you can only apply this model to files that
-    -- contain English audio.
+    -- language as the model. For example, if you create a custom language
+    -- model using US English (@en-US@), you can only apply this model to files
+    -- that contain English audio.
     languageCode :: CLMLanguageCode,
     -- | The Amazon Transcribe standard language model, or base model, used to
     -- create your custom language model. Amazon Transcribe offers two options
@@ -105,9 +102,9 @@ data CreateLanguageModel = CreateLanguageModel'
     -- | A unique name, chosen by you, for your custom language model.
     --
     -- This name is case sensitive, cannot contain spaces, and must be unique
-    -- within an Amazon Web Services account. If you try to create a new
-    -- language model with the same name as an existing language model, you get
-    -- a @ConflictException@ error.
+    -- within an Amazon Web Services account. If you try to create a new custom
+    -- language model with the same name as an existing custom language model,
+    -- you get a @ConflictException@ error.
     modelName :: Prelude.Text,
     -- | Contains the Amazon S3 location of the training data you want to use to
     -- create a new custom language model, and permissions to access this
@@ -140,20 +137,20 @@ data CreateLanguageModel = CreateLanguageModel'
 -- <https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html Tagging resources>.
 --
 -- 'languageCode', 'createLanguageModel_languageCode' - The language code that represents the language of your model. Each
--- language model must contain terms in only one language, and the language
--- you select for your model must match the language of your training and
--- tuning data.
+-- custom language model must contain terms in only one language, and the
+-- language you select for your custom language model must match the
+-- language of your training and tuning data.
 --
 -- For a list of supported languages and their associated language codes,
 -- refer to the
 -- <https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html Supported languages>
--- table. Note that U.S. English (@en-US@) is the only language supported
+-- table. Note that US English (@en-US@) is the only language supported
 -- with Amazon Transcribe Medical.
 --
 -- A custom language model can only be used to transcribe files in the same
--- language as the model. For example, if you create a language model using
--- US English (@en-US@), you can only apply this model to files that
--- contain English audio.
+-- language as the model. For example, if you create a custom language
+-- model using US English (@en-US@), you can only apply this model to files
+-- that contain English audio.
 --
 -- 'baseModelName', 'createLanguageModel_baseModelName' - The Amazon Transcribe standard language model, or base model, used to
 -- create your custom language model. Amazon Transcribe offers two options
@@ -166,9 +163,9 @@ data CreateLanguageModel = CreateLanguageModel'
 -- 'modelName', 'createLanguageModel_modelName' - A unique name, chosen by you, for your custom language model.
 --
 -- This name is case sensitive, cannot contain spaces, and must be unique
--- within an Amazon Web Services account. If you try to create a new
--- language model with the same name as an existing language model, you get
--- a @ConflictException@ error.
+-- within an Amazon Web Services account. If you try to create a new custom
+-- language model with the same name as an existing custom language model,
+-- you get a @ConflictException@ error.
 --
 -- 'inputDataConfig', 'createLanguageModel_inputDataConfig' - Contains the Amazon S3 location of the training data you want to use to
 -- create a new custom language model, and permissions to access this
@@ -214,20 +211,20 @@ createLanguageModel_tags :: Lens.Lens' CreateLanguageModel (Prelude.Maybe (Prelu
 createLanguageModel_tags = Lens.lens (\CreateLanguageModel' {tags} -> tags) (\s@CreateLanguageModel' {} a -> s {tags = a} :: CreateLanguageModel) Prelude.. Lens.mapping Lens.coerced
 
 -- | The language code that represents the language of your model. Each
--- language model must contain terms in only one language, and the language
--- you select for your model must match the language of your training and
--- tuning data.
+-- custom language model must contain terms in only one language, and the
+-- language you select for your custom language model must match the
+-- language of your training and tuning data.
 --
 -- For a list of supported languages and their associated language codes,
 -- refer to the
 -- <https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html Supported languages>
--- table. Note that U.S. English (@en-US@) is the only language supported
+-- table. Note that US English (@en-US@) is the only language supported
 -- with Amazon Transcribe Medical.
 --
 -- A custom language model can only be used to transcribe files in the same
--- language as the model. For example, if you create a language model using
--- US English (@en-US@), you can only apply this model to files that
--- contain English audio.
+-- language as the model. For example, if you create a custom language
+-- model using US English (@en-US@), you can only apply this model to files
+-- that contain English audio.
 createLanguageModel_languageCode :: Lens.Lens' CreateLanguageModel CLMLanguageCode
 createLanguageModel_languageCode = Lens.lens (\CreateLanguageModel' {languageCode} -> languageCode) (\s@CreateLanguageModel' {} a -> s {languageCode = a} :: CreateLanguageModel)
 
@@ -244,9 +241,9 @@ createLanguageModel_baseModelName = Lens.lens (\CreateLanguageModel' {baseModelN
 -- | A unique name, chosen by you, for your custom language model.
 --
 -- This name is case sensitive, cannot contain spaces, and must be unique
--- within an Amazon Web Services account. If you try to create a new
--- language model with the same name as an existing language model, you get
--- a @ConflictException@ error.
+-- within an Amazon Web Services account. If you try to create a new custom
+-- language model with the same name as an existing custom language model,
+-- you get a @ConflictException@ error.
 createLanguageModel_modelName :: Lens.Lens' CreateLanguageModel Prelude.Text
 createLanguageModel_modelName = Lens.lens (\CreateLanguageModel' {modelName} -> modelName) (\s@CreateLanguageModel' {} a -> s {modelName = a} :: CreateLanguageModel)
 
@@ -275,11 +272,11 @@ instance Core.AWSRequest CreateLanguageModel where
     Response.receiveJSON
       ( \s h x ->
           CreateLanguageModelResponse'
-            Prelude.<$> (x Data..?> "ModelStatus")
+            Prelude.<$> (x Data..?> "BaseModelName")
+            Prelude.<*> (x Data..?> "InputDataConfig")
             Prelude.<*> (x Data..?> "LanguageCode")
             Prelude.<*> (x Data..?> "ModelName")
-            Prelude.<*> (x Data..?> "BaseModelName")
-            Prelude.<*> (x Data..?> "InputDataConfig")
+            Prelude.<*> (x Data..?> "ModelStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -335,20 +332,20 @@ instance Data.ToQuery CreateLanguageModel where
 
 -- | /See:/ 'newCreateLanguageModelResponse' smart constructor.
 data CreateLanguageModelResponse = CreateLanguageModelResponse'
-  { -- | The status of your custom language model. When the status displays as
-    -- @COMPLETED@, your model is ready to use.
-    modelStatus :: Prelude.Maybe ModelStatus,
-    -- | The language code you selected for your custom language model.
-    languageCode :: Prelude.Maybe CLMLanguageCode,
-    -- | The name of your custom language model.
-    modelName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Transcribe standard language model, or base model, you
+  { -- | The Amazon Transcribe standard language model, or base model, you
     -- specified when creating your custom language model.
     baseModelName :: Prelude.Maybe BaseModelName,
     -- | Lists your data access role ARN (Amazon Resource Name) and the Amazon S3
     -- locations you provided for your training (@S3Uri@) and tuning
     -- (@TuningDataS3Uri@) data.
     inputDataConfig :: Prelude.Maybe InputDataConfig,
+    -- | The language code you selected for your custom language model.
+    languageCode :: Prelude.Maybe CLMLanguageCode,
+    -- | The name of your custom language model.
+    modelName :: Prelude.Maybe Prelude.Text,
+    -- | The status of your custom language model. When the status displays as
+    -- @COMPLETED@, your model is ready to use.
+    modelStatus :: Prelude.Maybe ModelStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -362,19 +359,19 @@ data CreateLanguageModelResponse = CreateLanguageModelResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'modelStatus', 'createLanguageModelResponse_modelStatus' - The status of your custom language model. When the status displays as
--- @COMPLETED@, your model is ready to use.
---
--- 'languageCode', 'createLanguageModelResponse_languageCode' - The language code you selected for your custom language model.
---
--- 'modelName', 'createLanguageModelResponse_modelName' - The name of your custom language model.
---
 -- 'baseModelName', 'createLanguageModelResponse_baseModelName' - The Amazon Transcribe standard language model, or base model, you
 -- specified when creating your custom language model.
 --
 -- 'inputDataConfig', 'createLanguageModelResponse_inputDataConfig' - Lists your data access role ARN (Amazon Resource Name) and the Amazon S3
 -- locations you provided for your training (@S3Uri@) and tuning
 -- (@TuningDataS3Uri@) data.
+--
+-- 'languageCode', 'createLanguageModelResponse_languageCode' - The language code you selected for your custom language model.
+--
+-- 'modelName', 'createLanguageModelResponse_modelName' - The name of your custom language model.
+--
+-- 'modelStatus', 'createLanguageModelResponse_modelStatus' - The status of your custom language model. When the status displays as
+-- @COMPLETED@, your model is ready to use.
 --
 -- 'httpStatus', 'createLanguageModelResponse_httpStatus' - The response's http status code.
 newCreateLanguageModelResponse ::
@@ -383,27 +380,14 @@ newCreateLanguageModelResponse ::
   CreateLanguageModelResponse
 newCreateLanguageModelResponse pHttpStatus_ =
   CreateLanguageModelResponse'
-    { modelStatus =
+    { baseModelName =
         Prelude.Nothing,
+      inputDataConfig = Prelude.Nothing,
       languageCode = Prelude.Nothing,
       modelName = Prelude.Nothing,
-      baseModelName = Prelude.Nothing,
-      inputDataConfig = Prelude.Nothing,
+      modelStatus = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The status of your custom language model. When the status displays as
--- @COMPLETED@, your model is ready to use.
-createLanguageModelResponse_modelStatus :: Lens.Lens' CreateLanguageModelResponse (Prelude.Maybe ModelStatus)
-createLanguageModelResponse_modelStatus = Lens.lens (\CreateLanguageModelResponse' {modelStatus} -> modelStatus) (\s@CreateLanguageModelResponse' {} a -> s {modelStatus = a} :: CreateLanguageModelResponse)
-
--- | The language code you selected for your custom language model.
-createLanguageModelResponse_languageCode :: Lens.Lens' CreateLanguageModelResponse (Prelude.Maybe CLMLanguageCode)
-createLanguageModelResponse_languageCode = Lens.lens (\CreateLanguageModelResponse' {languageCode} -> languageCode) (\s@CreateLanguageModelResponse' {} a -> s {languageCode = a} :: CreateLanguageModelResponse)
-
--- | The name of your custom language model.
-createLanguageModelResponse_modelName :: Lens.Lens' CreateLanguageModelResponse (Prelude.Maybe Prelude.Text)
-createLanguageModelResponse_modelName = Lens.lens (\CreateLanguageModelResponse' {modelName} -> modelName) (\s@CreateLanguageModelResponse' {} a -> s {modelName = a} :: CreateLanguageModelResponse)
 
 -- | The Amazon Transcribe standard language model, or base model, you
 -- specified when creating your custom language model.
@@ -416,15 +400,28 @@ createLanguageModelResponse_baseModelName = Lens.lens (\CreateLanguageModelRespo
 createLanguageModelResponse_inputDataConfig :: Lens.Lens' CreateLanguageModelResponse (Prelude.Maybe InputDataConfig)
 createLanguageModelResponse_inputDataConfig = Lens.lens (\CreateLanguageModelResponse' {inputDataConfig} -> inputDataConfig) (\s@CreateLanguageModelResponse' {} a -> s {inputDataConfig = a} :: CreateLanguageModelResponse)
 
+-- | The language code you selected for your custom language model.
+createLanguageModelResponse_languageCode :: Lens.Lens' CreateLanguageModelResponse (Prelude.Maybe CLMLanguageCode)
+createLanguageModelResponse_languageCode = Lens.lens (\CreateLanguageModelResponse' {languageCode} -> languageCode) (\s@CreateLanguageModelResponse' {} a -> s {languageCode = a} :: CreateLanguageModelResponse)
+
+-- | The name of your custom language model.
+createLanguageModelResponse_modelName :: Lens.Lens' CreateLanguageModelResponse (Prelude.Maybe Prelude.Text)
+createLanguageModelResponse_modelName = Lens.lens (\CreateLanguageModelResponse' {modelName} -> modelName) (\s@CreateLanguageModelResponse' {} a -> s {modelName = a} :: CreateLanguageModelResponse)
+
+-- | The status of your custom language model. When the status displays as
+-- @COMPLETED@, your model is ready to use.
+createLanguageModelResponse_modelStatus :: Lens.Lens' CreateLanguageModelResponse (Prelude.Maybe ModelStatus)
+createLanguageModelResponse_modelStatus = Lens.lens (\CreateLanguageModelResponse' {modelStatus} -> modelStatus) (\s@CreateLanguageModelResponse' {} a -> s {modelStatus = a} :: CreateLanguageModelResponse)
+
 -- | The response's http status code.
 createLanguageModelResponse_httpStatus :: Lens.Lens' CreateLanguageModelResponse Prelude.Int
 createLanguageModelResponse_httpStatus = Lens.lens (\CreateLanguageModelResponse' {httpStatus} -> httpStatus) (\s@CreateLanguageModelResponse' {} a -> s {httpStatus = a} :: CreateLanguageModelResponse)
 
 instance Prelude.NFData CreateLanguageModelResponse where
   rnf CreateLanguageModelResponse' {..} =
-    Prelude.rnf modelStatus
+    Prelude.rnf baseModelName
+      `Prelude.seq` Prelude.rnf inputDataConfig
       `Prelude.seq` Prelude.rnf languageCode
       `Prelude.seq` Prelude.rnf modelName
-      `Prelude.seq` Prelude.rnf baseModelName
-      `Prelude.seq` Prelude.rnf inputDataConfig
+      `Prelude.seq` Prelude.rnf modelStatus
       `Prelude.seq` Prelude.rnf httpStatus

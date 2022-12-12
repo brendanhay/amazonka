@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDBInstanceRole' smart constructor.
 data DBInstanceRole = DBInstanceRole'
-  { -- | The Amazon Resource Name (ARN) of the IAM role that is associated with
-    -- the DB instance.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the feature associated with the Amazon Web Services Identity
+  { -- | The name of the feature associated with the Amazon Web Services Identity
     -- and Access Management (IAM) role. For information about supported
     -- feature names, see @DBEngineVersion@.
     featureName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the IAM role that is associated with
+    -- the DB instance.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | Describes the state of association between the IAM role and the DB
     -- instance. The Status property returns one of the following values:
     --
@@ -61,12 +61,12 @@ data DBInstanceRole = DBInstanceRole'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'dbInstanceRole_roleArn' - The Amazon Resource Name (ARN) of the IAM role that is associated with
--- the DB instance.
---
 -- 'featureName', 'dbInstanceRole_featureName' - The name of the feature associated with the Amazon Web Services Identity
 -- and Access Management (IAM) role. For information about supported
 -- feature names, see @DBEngineVersion@.
+--
+-- 'roleArn', 'dbInstanceRole_roleArn' - The Amazon Resource Name (ARN) of the IAM role that is associated with
+-- the DB instance.
 --
 -- 'status', 'dbInstanceRole_status' - Describes the state of association between the IAM role and the DB
 -- instance. The Status property returns one of the following values:
@@ -85,21 +85,21 @@ newDBInstanceRole ::
   DBInstanceRole
 newDBInstanceRole =
   DBInstanceRole'
-    { roleArn = Prelude.Nothing,
-      featureName = Prelude.Nothing,
+    { featureName = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
       status = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the IAM role that is associated with
--- the DB instance.
-dbInstanceRole_roleArn :: Lens.Lens' DBInstanceRole (Prelude.Maybe Prelude.Text)
-dbInstanceRole_roleArn = Lens.lens (\DBInstanceRole' {roleArn} -> roleArn) (\s@DBInstanceRole' {} a -> s {roleArn = a} :: DBInstanceRole)
 
 -- | The name of the feature associated with the Amazon Web Services Identity
 -- and Access Management (IAM) role. For information about supported
 -- feature names, see @DBEngineVersion@.
 dbInstanceRole_featureName :: Lens.Lens' DBInstanceRole (Prelude.Maybe Prelude.Text)
 dbInstanceRole_featureName = Lens.lens (\DBInstanceRole' {featureName} -> featureName) (\s@DBInstanceRole' {} a -> s {featureName = a} :: DBInstanceRole)
+
+-- | The Amazon Resource Name (ARN) of the IAM role that is associated with
+-- the DB instance.
+dbInstanceRole_roleArn :: Lens.Lens' DBInstanceRole (Prelude.Maybe Prelude.Text)
+dbInstanceRole_roleArn = Lens.lens (\DBInstanceRole' {roleArn} -> roleArn) (\s@DBInstanceRole' {} a -> s {roleArn = a} :: DBInstanceRole)
 
 -- | Describes the state of association between the IAM role and the DB
 -- instance. The Status property returns one of the following values:
@@ -120,18 +120,18 @@ dbInstanceRole_status = Lens.lens (\DBInstanceRole' {status} -> status) (\s@DBIn
 instance Data.FromXML DBInstanceRole where
   parseXML x =
     DBInstanceRole'
-      Prelude.<$> (x Data..@? "RoleArn")
-      Prelude.<*> (x Data..@? "FeatureName")
+      Prelude.<$> (x Data..@? "FeatureName")
+      Prelude.<*> (x Data..@? "RoleArn")
       Prelude.<*> (x Data..@? "Status")
 
 instance Prelude.Hashable DBInstanceRole where
   hashWithSalt _salt DBInstanceRole' {..} =
-    _salt `Prelude.hashWithSalt` roleArn
-      `Prelude.hashWithSalt` featureName
+    _salt `Prelude.hashWithSalt` featureName
+      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData DBInstanceRole where
   rnf DBInstanceRole' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf featureName
+    Prelude.rnf featureName
+      `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf status

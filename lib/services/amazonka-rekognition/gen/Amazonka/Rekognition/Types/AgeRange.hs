@@ -33,10 +33,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAgeRange' smart constructor.
 data AgeRange = AgeRange'
-  { -- | The lowest estimated age.
-    low :: Prelude.Maybe Prelude.Natural,
-    -- | The highest estimated age.
-    high :: Prelude.Maybe Prelude.Natural
+  { -- | The highest estimated age.
+    high :: Prelude.Maybe Prelude.Natural,
+    -- | The lowest estimated age.
+    low :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,24 +48,24 @@ data AgeRange = AgeRange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'low', 'ageRange_low' - The lowest estimated age.
---
 -- 'high', 'ageRange_high' - The highest estimated age.
+--
+-- 'low', 'ageRange_low' - The lowest estimated age.
 newAgeRange ::
   AgeRange
 newAgeRange =
   AgeRange'
-    { low = Prelude.Nothing,
-      high = Prelude.Nothing
+    { high = Prelude.Nothing,
+      low = Prelude.Nothing
     }
-
--- | The lowest estimated age.
-ageRange_low :: Lens.Lens' AgeRange (Prelude.Maybe Prelude.Natural)
-ageRange_low = Lens.lens (\AgeRange' {low} -> low) (\s@AgeRange' {} a -> s {low = a} :: AgeRange)
 
 -- | The highest estimated age.
 ageRange_high :: Lens.Lens' AgeRange (Prelude.Maybe Prelude.Natural)
 ageRange_high = Lens.lens (\AgeRange' {high} -> high) (\s@AgeRange' {} a -> s {high = a} :: AgeRange)
+
+-- | The lowest estimated age.
+ageRange_low :: Lens.Lens' AgeRange (Prelude.Maybe Prelude.Natural)
+ageRange_low = Lens.lens (\AgeRange' {low} -> low) (\s@AgeRange' {} a -> s {low = a} :: AgeRange)
 
 instance Data.FromJSON AgeRange where
   parseJSON =
@@ -73,14 +73,14 @@ instance Data.FromJSON AgeRange where
       "AgeRange"
       ( \x ->
           AgeRange'
-            Prelude.<$> (x Data..:? "Low") Prelude.<*> (x Data..:? "High")
+            Prelude.<$> (x Data..:? "High") Prelude.<*> (x Data..:? "Low")
       )
 
 instance Prelude.Hashable AgeRange where
   hashWithSalt _salt AgeRange' {..} =
-    _salt `Prelude.hashWithSalt` low
-      `Prelude.hashWithSalt` high
+    _salt `Prelude.hashWithSalt` high
+      `Prelude.hashWithSalt` low
 
 instance Prelude.NFData AgeRange where
   rnf AgeRange' {..} =
-    Prelude.rnf low `Prelude.seq` Prelude.rnf high
+    Prelude.rnf high `Prelude.seq` Prelude.rnf low

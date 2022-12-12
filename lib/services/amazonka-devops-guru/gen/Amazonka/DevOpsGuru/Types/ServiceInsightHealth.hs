@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newServiceInsightHealth' smart constructor.
 data ServiceInsightHealth = ServiceInsightHealth'
-  { -- | The number of open reactive insights in the Amazon Web Services service
-    openReactiveInsights :: Prelude.Maybe Prelude.Int,
-    -- | The number of open proactive insights in the Amazon Web Services service
-    openProactiveInsights :: Prelude.Maybe Prelude.Int
+  { -- | The number of open proactive insights in the Amazon Web Services service
+    openProactiveInsights :: Prelude.Maybe Prelude.Int,
+    -- | The number of open reactive insights in the Amazon Web Services service
+    openReactiveInsights :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data ServiceInsightHealth = ServiceInsightHealth'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'openReactiveInsights', 'serviceInsightHealth_openReactiveInsights' - The number of open reactive insights in the Amazon Web Services service
---
 -- 'openProactiveInsights', 'serviceInsightHealth_openProactiveInsights' - The number of open proactive insights in the Amazon Web Services service
+--
+-- 'openReactiveInsights', 'serviceInsightHealth_openReactiveInsights' - The number of open reactive insights in the Amazon Web Services service
 newServiceInsightHealth ::
   ServiceInsightHealth
 newServiceInsightHealth =
   ServiceInsightHealth'
-    { openReactiveInsights =
+    { openProactiveInsights =
         Prelude.Nothing,
-      openProactiveInsights = Prelude.Nothing
+      openReactiveInsights = Prelude.Nothing
     }
-
--- | The number of open reactive insights in the Amazon Web Services service
-serviceInsightHealth_openReactiveInsights :: Lens.Lens' ServiceInsightHealth (Prelude.Maybe Prelude.Int)
-serviceInsightHealth_openReactiveInsights = Lens.lens (\ServiceInsightHealth' {openReactiveInsights} -> openReactiveInsights) (\s@ServiceInsightHealth' {} a -> s {openReactiveInsights = a} :: ServiceInsightHealth)
 
 -- | The number of open proactive insights in the Amazon Web Services service
 serviceInsightHealth_openProactiveInsights :: Lens.Lens' ServiceInsightHealth (Prelude.Maybe Prelude.Int)
 serviceInsightHealth_openProactiveInsights = Lens.lens (\ServiceInsightHealth' {openProactiveInsights} -> openProactiveInsights) (\s@ServiceInsightHealth' {} a -> s {openProactiveInsights = a} :: ServiceInsightHealth)
+
+-- | The number of open reactive insights in the Amazon Web Services service
+serviceInsightHealth_openReactiveInsights :: Lens.Lens' ServiceInsightHealth (Prelude.Maybe Prelude.Int)
+serviceInsightHealth_openReactiveInsights = Lens.lens (\ServiceInsightHealth' {openReactiveInsights} -> openReactiveInsights) (\s@ServiceInsightHealth' {} a -> s {openReactiveInsights = a} :: ServiceInsightHealth)
 
 instance Data.FromJSON ServiceInsightHealth where
   parseJSON =
@@ -70,16 +70,16 @@ instance Data.FromJSON ServiceInsightHealth where
       "ServiceInsightHealth"
       ( \x ->
           ServiceInsightHealth'
-            Prelude.<$> (x Data..:? "OpenReactiveInsights")
-            Prelude.<*> (x Data..:? "OpenProactiveInsights")
+            Prelude.<$> (x Data..:? "OpenProactiveInsights")
+            Prelude.<*> (x Data..:? "OpenReactiveInsights")
       )
 
 instance Prelude.Hashable ServiceInsightHealth where
   hashWithSalt _salt ServiceInsightHealth' {..} =
-    _salt `Prelude.hashWithSalt` openReactiveInsights
-      `Prelude.hashWithSalt` openProactiveInsights
+    _salt `Prelude.hashWithSalt` openProactiveInsights
+      `Prelude.hashWithSalt` openReactiveInsights
 
 instance Prelude.NFData ServiceInsightHealth where
   rnf ServiceInsightHealth' {..} =
-    Prelude.rnf openReactiveInsights
-      `Prelude.seq` Prelude.rnf openProactiveInsights
+    Prelude.rnf openProactiveInsights
+      `Prelude.seq` Prelude.rnf openReactiveInsights

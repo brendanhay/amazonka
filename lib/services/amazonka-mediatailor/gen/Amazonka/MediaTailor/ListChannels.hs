@@ -30,8 +30,8 @@ module Amazonka.MediaTailor.ListChannels
     newListChannels,
 
     -- * Request Lenses
-    listChannels_nextToken,
     listChannels_maxResults,
+    listChannels_nextToken,
 
     -- * Destructuring the Response
     ListChannelsResponse (..),
@@ -54,14 +54,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListChannels' smart constructor.
 data ListChannels = ListChannels'
-  { -- | Pagination token returned by the list request when results exceed the
-    -- maximum allowed. Use the token to fetch the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of channels that you want MediaTailor to return in
+  { -- | The maximum number of channels that you want MediaTailor to return in
     -- response to the current request. If there are more than @MaxResults@
     -- channels, use the value of @NextToken@ in the response to get the next
     -- page of results.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Pagination token returned by the list request when results exceed the
+    -- maximum allowed. Use the token to fetch the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,25 +73,20 @@ data ListChannels = ListChannels'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listChannels_nextToken' - Pagination token returned by the list request when results exceed the
--- maximum allowed. Use the token to fetch the next page of results.
---
 -- 'maxResults', 'listChannels_maxResults' - The maximum number of channels that you want MediaTailor to return in
 -- response to the current request. If there are more than @MaxResults@
 -- channels, use the value of @NextToken@ in the response to get the next
 -- page of results.
+--
+-- 'nextToken', 'listChannels_nextToken' - Pagination token returned by the list request when results exceed the
+-- maximum allowed. Use the token to fetch the next page of results.
 newListChannels ::
   ListChannels
 newListChannels =
   ListChannels'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | Pagination token returned by the list request when results exceed the
--- maximum allowed. Use the token to fetch the next page of results.
-listChannels_nextToken :: Lens.Lens' ListChannels (Prelude.Maybe Prelude.Text)
-listChannels_nextToken = Lens.lens (\ListChannels' {nextToken} -> nextToken) (\s@ListChannels' {} a -> s {nextToken = a} :: ListChannels)
 
 -- | The maximum number of channels that you want MediaTailor to return in
 -- response to the current request. If there are more than @MaxResults@
@@ -99,6 +94,11 @@ listChannels_nextToken = Lens.lens (\ListChannels' {nextToken} -> nextToken) (\s
 -- page of results.
 listChannels_maxResults :: Lens.Lens' ListChannels (Prelude.Maybe Prelude.Natural)
 listChannels_maxResults = Lens.lens (\ListChannels' {maxResults} -> maxResults) (\s@ListChannels' {} a -> s {maxResults = a} :: ListChannels)
+
+-- | Pagination token returned by the list request when results exceed the
+-- maximum allowed. Use the token to fetch the next page of results.
+listChannels_nextToken :: Lens.Lens' ListChannels (Prelude.Maybe Prelude.Text)
+listChannels_nextToken = Lens.lens (\ListChannels' {nextToken} -> nextToken) (\s@ListChannels' {} a -> s {nextToken = a} :: ListChannels)
 
 instance Core.AWSPager ListChannels where
   page rq rs
@@ -134,13 +134,13 @@ instance Core.AWSRequest ListChannels where
 
 instance Prelude.Hashable ListChannels where
   hashWithSalt _salt ListChannels' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListChannels where
   rnf ListChannels' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListChannels where
   toHeaders =
@@ -159,8 +159,8 @@ instance Data.ToPath ListChannels where
 instance Data.ToQuery ListChannels where
   toQuery ListChannels' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListChannelsResponse' smart constructor.

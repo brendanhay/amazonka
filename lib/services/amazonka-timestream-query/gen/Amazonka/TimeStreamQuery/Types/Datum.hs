@@ -30,17 +30,17 @@ import {-# SOURCE #-} Amazonka.TimeStreamQuery.Types.TimeSeriesDataPoint
 --
 -- /See:/ 'newDatum' smart constructor.
 data Datum = Datum'
-  { -- | Indicates if the data point is a scalar value such as integer, string,
+  { -- | Indicates if the data point is an array.
+    arrayValue :: Prelude.Maybe [Datum],
+    -- | Indicates if the data point is null.
+    nullValue :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates if the data point is a row.
+    rowValue :: Prelude.Maybe Row,
+    -- | Indicates if the data point is a scalar value such as integer, string,
     -- double, or Boolean.
     scalarValue :: Prelude.Maybe Prelude.Text,
     -- | Indicates if the data point is a timeseries data type.
-    timeSeriesValue :: Prelude.Maybe [TimeSeriesDataPoint],
-    -- | Indicates if the data point is a row.
-    rowValue :: Prelude.Maybe Row,
-    -- | Indicates if the data point is null.
-    nullValue :: Prelude.Maybe Prelude.Bool,
-    -- | Indicates if the data point is an array.
-    arrayValue :: Prelude.Maybe [Datum]
+    timeSeriesValue :: Prelude.Maybe [TimeSeriesDataPoint]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,26 +52,38 @@ data Datum = Datum'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'arrayValue', 'datum_arrayValue' - Indicates if the data point is an array.
+--
+-- 'nullValue', 'datum_nullValue' - Indicates if the data point is null.
+--
+-- 'rowValue', 'datum_rowValue' - Indicates if the data point is a row.
+--
 -- 'scalarValue', 'datum_scalarValue' - Indicates if the data point is a scalar value such as integer, string,
 -- double, or Boolean.
 --
 -- 'timeSeriesValue', 'datum_timeSeriesValue' - Indicates if the data point is a timeseries data type.
---
--- 'rowValue', 'datum_rowValue' - Indicates if the data point is a row.
---
--- 'nullValue', 'datum_nullValue' - Indicates if the data point is null.
---
--- 'arrayValue', 'datum_arrayValue' - Indicates if the data point is an array.
 newDatum ::
   Datum
 newDatum =
   Datum'
-    { scalarValue = Prelude.Nothing,
-      timeSeriesValue = Prelude.Nothing,
-      rowValue = Prelude.Nothing,
+    { arrayValue = Prelude.Nothing,
       nullValue = Prelude.Nothing,
-      arrayValue = Prelude.Nothing
+      rowValue = Prelude.Nothing,
+      scalarValue = Prelude.Nothing,
+      timeSeriesValue = Prelude.Nothing
     }
+
+-- | Indicates if the data point is an array.
+datum_arrayValue :: Lens.Lens' Datum (Prelude.Maybe [Datum])
+datum_arrayValue = Lens.lens (\Datum' {arrayValue} -> arrayValue) (\s@Datum' {} a -> s {arrayValue = a} :: Datum) Prelude.. Lens.mapping Lens.coerced
+
+-- | Indicates if the data point is null.
+datum_nullValue :: Lens.Lens' Datum (Prelude.Maybe Prelude.Bool)
+datum_nullValue = Lens.lens (\Datum' {nullValue} -> nullValue) (\s@Datum' {} a -> s {nullValue = a} :: Datum)
+
+-- | Indicates if the data point is a row.
+datum_rowValue :: Lens.Lens' Datum (Prelude.Maybe Row)
+datum_rowValue = Lens.lens (\Datum' {rowValue} -> rowValue) (\s@Datum' {} a -> s {rowValue = a} :: Datum)
 
 -- | Indicates if the data point is a scalar value such as integer, string,
 -- double, or Boolean.
@@ -82,45 +94,33 @@ datum_scalarValue = Lens.lens (\Datum' {scalarValue} -> scalarValue) (\s@Datum' 
 datum_timeSeriesValue :: Lens.Lens' Datum (Prelude.Maybe [TimeSeriesDataPoint])
 datum_timeSeriesValue = Lens.lens (\Datum' {timeSeriesValue} -> timeSeriesValue) (\s@Datum' {} a -> s {timeSeriesValue = a} :: Datum) Prelude.. Lens.mapping Lens.coerced
 
--- | Indicates if the data point is a row.
-datum_rowValue :: Lens.Lens' Datum (Prelude.Maybe Row)
-datum_rowValue = Lens.lens (\Datum' {rowValue} -> rowValue) (\s@Datum' {} a -> s {rowValue = a} :: Datum)
-
--- | Indicates if the data point is null.
-datum_nullValue :: Lens.Lens' Datum (Prelude.Maybe Prelude.Bool)
-datum_nullValue = Lens.lens (\Datum' {nullValue} -> nullValue) (\s@Datum' {} a -> s {nullValue = a} :: Datum)
-
--- | Indicates if the data point is an array.
-datum_arrayValue :: Lens.Lens' Datum (Prelude.Maybe [Datum])
-datum_arrayValue = Lens.lens (\Datum' {arrayValue} -> arrayValue) (\s@Datum' {} a -> s {arrayValue = a} :: Datum) Prelude.. Lens.mapping Lens.coerced
-
 instance Data.FromJSON Datum where
   parseJSON =
     Data.withObject
       "Datum"
       ( \x ->
           Datum'
-            Prelude.<$> (x Data..:? "ScalarValue")
+            Prelude.<$> (x Data..:? "ArrayValue" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "NullValue")
+            Prelude.<*> (x Data..:? "RowValue")
+            Prelude.<*> (x Data..:? "ScalarValue")
             Prelude.<*> ( x Data..:? "TimeSeriesValue"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "RowValue")
-            Prelude.<*> (x Data..:? "NullValue")
-            Prelude.<*> (x Data..:? "ArrayValue" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Datum where
   hashWithSalt _salt Datum' {..} =
-    _salt `Prelude.hashWithSalt` scalarValue
-      `Prelude.hashWithSalt` timeSeriesValue
-      `Prelude.hashWithSalt` rowValue
+    _salt `Prelude.hashWithSalt` arrayValue
       `Prelude.hashWithSalt` nullValue
-      `Prelude.hashWithSalt` arrayValue
+      `Prelude.hashWithSalt` rowValue
+      `Prelude.hashWithSalt` scalarValue
+      `Prelude.hashWithSalt` timeSeriesValue
 
 instance Prelude.NFData Datum where
   rnf Datum' {..} =
-    Prelude.rnf scalarValue
-      `Prelude.seq` Prelude.rnf timeSeriesValue
-      `Prelude.seq` Prelude.rnf rowValue
+    Prelude.rnf arrayValue
       `Prelude.seq` Prelude.rnf nullValue
-      `Prelude.seq` Prelude.rnf arrayValue
+      `Prelude.seq` Prelude.rnf rowValue
+      `Prelude.seq` Prelude.rnf scalarValue
+      `Prelude.seq` Prelude.rnf timeSeriesValue

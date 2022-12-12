@@ -36,46 +36,46 @@ module Amazonka.IoTJobsData.Lens
     startNextPendingJobExecutionResponse_httpStatus,
 
     -- ** UpdateJobExecution
-    updateJobExecution_includeJobExecutionState,
     updateJobExecution_executionNumber,
+    updateJobExecution_expectedVersion,
+    updateJobExecution_includeJobDocument,
+    updateJobExecution_includeJobExecutionState,
     updateJobExecution_statusDetails,
     updateJobExecution_stepTimeoutInMinutes,
-    updateJobExecution_includeJobDocument,
-    updateJobExecution_expectedVersion,
     updateJobExecution_jobId,
     updateJobExecution_thingName,
     updateJobExecution_status,
-    updateJobExecutionResponse_jobDocument,
     updateJobExecutionResponse_executionState,
+    updateJobExecutionResponse_jobDocument,
     updateJobExecutionResponse_httpStatus,
 
     -- * Types
 
     -- ** JobExecution
-    jobExecution_thingName,
+    jobExecution_approximateSecondsBeforeTimedOut,
     jobExecution_executionNumber,
     jobExecution_jobDocument,
-    jobExecution_lastUpdatedAt,
-    jobExecution_statusDetails,
     jobExecution_jobId,
-    jobExecution_status,
-    jobExecution_startedAt,
-    jobExecution_versionNumber,
+    jobExecution_lastUpdatedAt,
     jobExecution_queuedAt,
-    jobExecution_approximateSecondsBeforeTimedOut,
+    jobExecution_startedAt,
+    jobExecution_status,
+    jobExecution_statusDetails,
+    jobExecution_thingName,
+    jobExecution_versionNumber,
 
     -- ** JobExecutionState
-    jobExecutionState_statusDetails,
     jobExecutionState_status,
+    jobExecutionState_statusDetails,
     jobExecutionState_versionNumber,
 
     -- ** JobExecutionSummary
     jobExecutionSummary_executionNumber,
-    jobExecutionSummary_lastUpdatedAt,
     jobExecutionSummary_jobId,
+    jobExecutionSummary_lastUpdatedAt,
+    jobExecutionSummary_queuedAt,
     jobExecutionSummary_startedAt,
     jobExecutionSummary_versionNumber,
-    jobExecutionSummary_queuedAt,
   )
 where
 

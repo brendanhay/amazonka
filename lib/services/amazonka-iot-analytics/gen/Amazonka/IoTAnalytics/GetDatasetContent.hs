@@ -35,9 +35,9 @@ module Amazonka.IoTAnalytics.GetDatasetContent
     newGetDatasetContentResponse,
 
     -- * Response Lenses
-    getDatasetContentResponse_timestamp,
-    getDatasetContentResponse_status,
     getDatasetContentResponse_entries,
+    getDatasetContentResponse_status,
+    getDatasetContentResponse_timestamp,
     getDatasetContentResponse_httpStatus,
   )
 where
@@ -107,9 +107,9 @@ instance Core.AWSRequest GetDatasetContent where
     Response.receiveJSON
       ( \s h x ->
           GetDatasetContentResponse'
-            Prelude.<$> (x Data..?> "timestamp")
+            Prelude.<$> (x Data..?> "entries" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "status")
-            Prelude.<*> (x Data..?> "entries" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "timestamp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,12 +137,12 @@ instance Data.ToQuery GetDatasetContent where
 
 -- | /See:/ 'newGetDatasetContentResponse' smart constructor.
 data GetDatasetContentResponse = GetDatasetContentResponse'
-  { -- | The time when the request was made.
-    timestamp :: Prelude.Maybe Data.POSIX,
+  { -- | A list of @DatasetEntry@ objects.
+    entries :: Prelude.Maybe [DatasetEntry],
     -- | The status of the dataset content.
     status :: Prelude.Maybe DatasetContentStatus,
-    -- | A list of @DatasetEntry@ objects.
-    entries :: Prelude.Maybe [DatasetEntry],
+    -- | The time when the request was made.
+    timestamp :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -156,11 +156,11 @@ data GetDatasetContentResponse = GetDatasetContentResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'timestamp', 'getDatasetContentResponse_timestamp' - The time when the request was made.
+-- 'entries', 'getDatasetContentResponse_entries' - A list of @DatasetEntry@ objects.
 --
 -- 'status', 'getDatasetContentResponse_status' - The status of the dataset content.
 --
--- 'entries', 'getDatasetContentResponse_entries' - A list of @DatasetEntry@ objects.
+-- 'timestamp', 'getDatasetContentResponse_timestamp' - The time when the request was made.
 --
 -- 'httpStatus', 'getDatasetContentResponse_httpStatus' - The response's http status code.
 newGetDatasetContentResponse ::
@@ -169,24 +169,24 @@ newGetDatasetContentResponse ::
   GetDatasetContentResponse
 newGetDatasetContentResponse pHttpStatus_ =
   GetDatasetContentResponse'
-    { timestamp =
+    { entries =
         Prelude.Nothing,
       status = Prelude.Nothing,
-      entries = Prelude.Nothing,
+      timestamp = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The time when the request was made.
-getDatasetContentResponse_timestamp :: Lens.Lens' GetDatasetContentResponse (Prelude.Maybe Prelude.UTCTime)
-getDatasetContentResponse_timestamp = Lens.lens (\GetDatasetContentResponse' {timestamp} -> timestamp) (\s@GetDatasetContentResponse' {} a -> s {timestamp = a} :: GetDatasetContentResponse) Prelude.. Lens.mapping Data._Time
+-- | A list of @DatasetEntry@ objects.
+getDatasetContentResponse_entries :: Lens.Lens' GetDatasetContentResponse (Prelude.Maybe [DatasetEntry])
+getDatasetContentResponse_entries = Lens.lens (\GetDatasetContentResponse' {entries} -> entries) (\s@GetDatasetContentResponse' {} a -> s {entries = a} :: GetDatasetContentResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The status of the dataset content.
 getDatasetContentResponse_status :: Lens.Lens' GetDatasetContentResponse (Prelude.Maybe DatasetContentStatus)
 getDatasetContentResponse_status = Lens.lens (\GetDatasetContentResponse' {status} -> status) (\s@GetDatasetContentResponse' {} a -> s {status = a} :: GetDatasetContentResponse)
 
--- | A list of @DatasetEntry@ objects.
-getDatasetContentResponse_entries :: Lens.Lens' GetDatasetContentResponse (Prelude.Maybe [DatasetEntry])
-getDatasetContentResponse_entries = Lens.lens (\GetDatasetContentResponse' {entries} -> entries) (\s@GetDatasetContentResponse' {} a -> s {entries = a} :: GetDatasetContentResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The time when the request was made.
+getDatasetContentResponse_timestamp :: Lens.Lens' GetDatasetContentResponse (Prelude.Maybe Prelude.UTCTime)
+getDatasetContentResponse_timestamp = Lens.lens (\GetDatasetContentResponse' {timestamp} -> timestamp) (\s@GetDatasetContentResponse' {} a -> s {timestamp = a} :: GetDatasetContentResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 getDatasetContentResponse_httpStatus :: Lens.Lens' GetDatasetContentResponse Prelude.Int
@@ -194,7 +194,7 @@ getDatasetContentResponse_httpStatus = Lens.lens (\GetDatasetContentResponse' {h
 
 instance Prelude.NFData GetDatasetContentResponse where
   rnf GetDatasetContentResponse' {..} =
-    Prelude.rnf timestamp
+    Prelude.rnf entries
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf entries
+      `Prelude.seq` Prelude.rnf timestamp
       `Prelude.seq` Prelude.rnf httpStatus

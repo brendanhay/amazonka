@@ -30,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDestinationOptionsResponse' smart constructor.
 data DestinationOptionsResponse = DestinationOptionsResponse'
-  { -- | Indicates whether to partition the flow log per hour.
-    perHourPartition :: Prelude.Maybe Prelude.Bool,
+  { -- | The format for the flow log.
+    fileFormat :: Prelude.Maybe DestinationFileFormat,
     -- | Indicates whether to use Hive-compatible prefixes for flow logs stored
     -- in Amazon S3.
     hiveCompatiblePartitions :: Prelude.Maybe Prelude.Bool,
-    -- | The format for the flow log.
-    fileFormat :: Prelude.Maybe DestinationFileFormat
+    -- | Indicates whether to partition the flow log per hour.
+    perHourPartition :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,50 +48,50 @@ data DestinationOptionsResponse = DestinationOptionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'perHourPartition', 'destinationOptionsResponse_perHourPartition' - Indicates whether to partition the flow log per hour.
+-- 'fileFormat', 'destinationOptionsResponse_fileFormat' - The format for the flow log.
 --
 -- 'hiveCompatiblePartitions', 'destinationOptionsResponse_hiveCompatiblePartitions' - Indicates whether to use Hive-compatible prefixes for flow logs stored
 -- in Amazon S3.
 --
--- 'fileFormat', 'destinationOptionsResponse_fileFormat' - The format for the flow log.
+-- 'perHourPartition', 'destinationOptionsResponse_perHourPartition' - Indicates whether to partition the flow log per hour.
 newDestinationOptionsResponse ::
   DestinationOptionsResponse
 newDestinationOptionsResponse =
   DestinationOptionsResponse'
-    { perHourPartition =
+    { fileFormat =
         Prelude.Nothing,
       hiveCompatiblePartitions = Prelude.Nothing,
-      fileFormat = Prelude.Nothing
+      perHourPartition = Prelude.Nothing
     }
 
--- | Indicates whether to partition the flow log per hour.
-destinationOptionsResponse_perHourPartition :: Lens.Lens' DestinationOptionsResponse (Prelude.Maybe Prelude.Bool)
-destinationOptionsResponse_perHourPartition = Lens.lens (\DestinationOptionsResponse' {perHourPartition} -> perHourPartition) (\s@DestinationOptionsResponse' {} a -> s {perHourPartition = a} :: DestinationOptionsResponse)
+-- | The format for the flow log.
+destinationOptionsResponse_fileFormat :: Lens.Lens' DestinationOptionsResponse (Prelude.Maybe DestinationFileFormat)
+destinationOptionsResponse_fileFormat = Lens.lens (\DestinationOptionsResponse' {fileFormat} -> fileFormat) (\s@DestinationOptionsResponse' {} a -> s {fileFormat = a} :: DestinationOptionsResponse)
 
 -- | Indicates whether to use Hive-compatible prefixes for flow logs stored
 -- in Amazon S3.
 destinationOptionsResponse_hiveCompatiblePartitions :: Lens.Lens' DestinationOptionsResponse (Prelude.Maybe Prelude.Bool)
 destinationOptionsResponse_hiveCompatiblePartitions = Lens.lens (\DestinationOptionsResponse' {hiveCompatiblePartitions} -> hiveCompatiblePartitions) (\s@DestinationOptionsResponse' {} a -> s {hiveCompatiblePartitions = a} :: DestinationOptionsResponse)
 
--- | The format for the flow log.
-destinationOptionsResponse_fileFormat :: Lens.Lens' DestinationOptionsResponse (Prelude.Maybe DestinationFileFormat)
-destinationOptionsResponse_fileFormat = Lens.lens (\DestinationOptionsResponse' {fileFormat} -> fileFormat) (\s@DestinationOptionsResponse' {} a -> s {fileFormat = a} :: DestinationOptionsResponse)
+-- | Indicates whether to partition the flow log per hour.
+destinationOptionsResponse_perHourPartition :: Lens.Lens' DestinationOptionsResponse (Prelude.Maybe Prelude.Bool)
+destinationOptionsResponse_perHourPartition = Lens.lens (\DestinationOptionsResponse' {perHourPartition} -> perHourPartition) (\s@DestinationOptionsResponse' {} a -> s {perHourPartition = a} :: DestinationOptionsResponse)
 
 instance Data.FromXML DestinationOptionsResponse where
   parseXML x =
     DestinationOptionsResponse'
-      Prelude.<$> (x Data..@? "perHourPartition")
+      Prelude.<$> (x Data..@? "fileFormat")
       Prelude.<*> (x Data..@? "hiveCompatiblePartitions")
-      Prelude.<*> (x Data..@? "fileFormat")
+      Prelude.<*> (x Data..@? "perHourPartition")
 
 instance Prelude.Hashable DestinationOptionsResponse where
   hashWithSalt _salt DestinationOptionsResponse' {..} =
-    _salt `Prelude.hashWithSalt` perHourPartition
+    _salt `Prelude.hashWithSalt` fileFormat
       `Prelude.hashWithSalt` hiveCompatiblePartitions
-      `Prelude.hashWithSalt` fileFormat
+      `Prelude.hashWithSalt` perHourPartition
 
 instance Prelude.NFData DestinationOptionsResponse where
   rnf DestinationOptionsResponse' {..} =
-    Prelude.rnf perHourPartition
+    Prelude.rnf fileFormat
       `Prelude.seq` Prelude.rnf hiveCompatiblePartitions
-      `Prelude.seq` Prelude.rnf fileFormat
+      `Prelude.seq` Prelude.rnf perHourPartition

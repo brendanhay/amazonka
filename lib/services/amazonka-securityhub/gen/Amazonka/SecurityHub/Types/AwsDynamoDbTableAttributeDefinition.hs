@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsDynamoDbTableAttributeDefinition' smart constructor.
 data AwsDynamoDbTableAttributeDefinition = AwsDynamoDbTableAttributeDefinition'
-  { -- | The type of the attribute.
-    attributeType :: Prelude.Maybe Prelude.Text,
-    -- | The name of the attribute.
-    attributeName :: Prelude.Maybe Prelude.Text
+  { -- | The name of the attribute.
+    attributeName :: Prelude.Maybe Prelude.Text,
+    -- | The type of the attribute.
+    attributeType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data AwsDynamoDbTableAttributeDefinition = AwsDynamoDbTableAttributeDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'attributeType', 'awsDynamoDbTableAttributeDefinition_attributeType' - The type of the attribute.
---
 -- 'attributeName', 'awsDynamoDbTableAttributeDefinition_attributeName' - The name of the attribute.
+--
+-- 'attributeType', 'awsDynamoDbTableAttributeDefinition_attributeType' - The type of the attribute.
 newAwsDynamoDbTableAttributeDefinition ::
   AwsDynamoDbTableAttributeDefinition
 newAwsDynamoDbTableAttributeDefinition =
   AwsDynamoDbTableAttributeDefinition'
-    { attributeType =
+    { attributeName =
         Prelude.Nothing,
-      attributeName = Prelude.Nothing
+      attributeType = Prelude.Nothing
     }
-
--- | The type of the attribute.
-awsDynamoDbTableAttributeDefinition_attributeType :: Lens.Lens' AwsDynamoDbTableAttributeDefinition (Prelude.Maybe Prelude.Text)
-awsDynamoDbTableAttributeDefinition_attributeType = Lens.lens (\AwsDynamoDbTableAttributeDefinition' {attributeType} -> attributeType) (\s@AwsDynamoDbTableAttributeDefinition' {} a -> s {attributeType = a} :: AwsDynamoDbTableAttributeDefinition)
 
 -- | The name of the attribute.
 awsDynamoDbTableAttributeDefinition_attributeName :: Lens.Lens' AwsDynamoDbTableAttributeDefinition (Prelude.Maybe Prelude.Text)
 awsDynamoDbTableAttributeDefinition_attributeName = Lens.lens (\AwsDynamoDbTableAttributeDefinition' {attributeName} -> attributeName) (\s@AwsDynamoDbTableAttributeDefinition' {} a -> s {attributeName = a} :: AwsDynamoDbTableAttributeDefinition)
+
+-- | The type of the attribute.
+awsDynamoDbTableAttributeDefinition_attributeType :: Lens.Lens' AwsDynamoDbTableAttributeDefinition (Prelude.Maybe Prelude.Text)
+awsDynamoDbTableAttributeDefinition_attributeType = Lens.lens (\AwsDynamoDbTableAttributeDefinition' {attributeType} -> attributeType) (\s@AwsDynamoDbTableAttributeDefinition' {} a -> s {attributeType = a} :: AwsDynamoDbTableAttributeDefinition)
 
 instance
   Data.FromJSON
@@ -72,8 +72,8 @@ instance
       "AwsDynamoDbTableAttributeDefinition"
       ( \x ->
           AwsDynamoDbTableAttributeDefinition'
-            Prelude.<$> (x Data..:? "AttributeType")
-            Prelude.<*> (x Data..:? "AttributeName")
+            Prelude.<$> (x Data..:? "AttributeName")
+            Prelude.<*> (x Data..:? "AttributeType")
       )
 
 instance
@@ -83,16 +83,16 @@ instance
   hashWithSalt
     _salt
     AwsDynamoDbTableAttributeDefinition' {..} =
-      _salt `Prelude.hashWithSalt` attributeType
-        `Prelude.hashWithSalt` attributeName
+      _salt `Prelude.hashWithSalt` attributeName
+        `Prelude.hashWithSalt` attributeType
 
 instance
   Prelude.NFData
     AwsDynamoDbTableAttributeDefinition
   where
   rnf AwsDynamoDbTableAttributeDefinition' {..} =
-    Prelude.rnf attributeType
-      `Prelude.seq` Prelude.rnf attributeName
+    Prelude.rnf attributeName
+      `Prelude.seq` Prelude.rnf attributeType
 
 instance
   Data.ToJSON
@@ -101,7 +101,7 @@ instance
   toJSON AwsDynamoDbTableAttributeDefinition' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("AttributeType" Data..=) Prelude.<$> attributeType,
-            ("AttributeName" Data..=) Prelude.<$> attributeName
+          [ ("AttributeName" Data..=) Prelude.<$> attributeName,
+            ("AttributeType" Data..=) Prelude.<$> attributeType
           ]
       )

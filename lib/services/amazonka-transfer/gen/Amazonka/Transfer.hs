@@ -34,38 +34,38 @@ module Amazonka.Transfer
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** InvalidNextTokenException
-    _InvalidNextTokenException,
+    -- ** ConflictException
+    _ConflictException,
 
     -- ** InternalServiceError
     _InternalServiceError,
 
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
-
-    -- ** ResourceExistsException
-    _ResourceExistsException,
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
 
     -- ** InvalidRequestException
     _InvalidRequestException,
 
+    -- ** ResourceExistsException
+    _ResourceExistsException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
     -- * Waiters
     -- $waiters
 
-    -- ** ServerOnline
-    newServerOnline,
-
     -- ** ServerOffline
     newServerOffline,
+
+    -- ** ServerOnline
+    newServerOnline,
 
     -- * Operations
     -- $operations

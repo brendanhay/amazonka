@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSchemaReference' smart constructor.
 data SchemaReference = SchemaReference'
-  { -- | The version number of the schema.
-    schemaVersionNumber :: Prelude.Maybe Prelude.Natural,
+  { -- | A structure that contains schema identity fields. Either this or the
+    -- @SchemaVersionId@ has to be provided.
+    schemaId :: Prelude.Maybe SchemaId,
     -- | The unique ID assigned to a version of the schema. Either this or the
     -- @SchemaId@ has to be provided.
     schemaVersionId :: Prelude.Maybe Prelude.Text,
-    -- | A structure that contains schema identity fields. Either this or the
-    -- @SchemaVersionId@ has to be provided.
-    schemaId :: Prelude.Maybe SchemaId
+    -- | The version number of the schema.
+    schemaVersionNumber :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,36 +48,35 @@ data SchemaReference = SchemaReference'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'schemaVersionNumber', 'schemaReference_schemaVersionNumber' - The version number of the schema.
+-- 'schemaId', 'schemaReference_schemaId' - A structure that contains schema identity fields. Either this or the
+-- @SchemaVersionId@ has to be provided.
 --
 -- 'schemaVersionId', 'schemaReference_schemaVersionId' - The unique ID assigned to a version of the schema. Either this or the
 -- @SchemaId@ has to be provided.
 --
--- 'schemaId', 'schemaReference_schemaId' - A structure that contains schema identity fields. Either this or the
--- @SchemaVersionId@ has to be provided.
+-- 'schemaVersionNumber', 'schemaReference_schemaVersionNumber' - The version number of the schema.
 newSchemaReference ::
   SchemaReference
 newSchemaReference =
   SchemaReference'
-    { schemaVersionNumber =
-        Prelude.Nothing,
+    { schemaId = Prelude.Nothing,
       schemaVersionId = Prelude.Nothing,
-      schemaId = Prelude.Nothing
+      schemaVersionNumber = Prelude.Nothing
     }
 
--- | The version number of the schema.
-schemaReference_schemaVersionNumber :: Lens.Lens' SchemaReference (Prelude.Maybe Prelude.Natural)
-schemaReference_schemaVersionNumber = Lens.lens (\SchemaReference' {schemaVersionNumber} -> schemaVersionNumber) (\s@SchemaReference' {} a -> s {schemaVersionNumber = a} :: SchemaReference)
+-- | A structure that contains schema identity fields. Either this or the
+-- @SchemaVersionId@ has to be provided.
+schemaReference_schemaId :: Lens.Lens' SchemaReference (Prelude.Maybe SchemaId)
+schemaReference_schemaId = Lens.lens (\SchemaReference' {schemaId} -> schemaId) (\s@SchemaReference' {} a -> s {schemaId = a} :: SchemaReference)
 
 -- | The unique ID assigned to a version of the schema. Either this or the
 -- @SchemaId@ has to be provided.
 schemaReference_schemaVersionId :: Lens.Lens' SchemaReference (Prelude.Maybe Prelude.Text)
 schemaReference_schemaVersionId = Lens.lens (\SchemaReference' {schemaVersionId} -> schemaVersionId) (\s@SchemaReference' {} a -> s {schemaVersionId = a} :: SchemaReference)
 
--- | A structure that contains schema identity fields. Either this or the
--- @SchemaVersionId@ has to be provided.
-schemaReference_schemaId :: Lens.Lens' SchemaReference (Prelude.Maybe SchemaId)
-schemaReference_schemaId = Lens.lens (\SchemaReference' {schemaId} -> schemaId) (\s@SchemaReference' {} a -> s {schemaId = a} :: SchemaReference)
+-- | The version number of the schema.
+schemaReference_schemaVersionNumber :: Lens.Lens' SchemaReference (Prelude.Maybe Prelude.Natural)
+schemaReference_schemaVersionNumber = Lens.lens (\SchemaReference' {schemaVersionNumber} -> schemaVersionNumber) (\s@SchemaReference' {} a -> s {schemaVersionNumber = a} :: SchemaReference)
 
 instance Data.FromJSON SchemaReference where
   parseJSON =
@@ -85,31 +84,31 @@ instance Data.FromJSON SchemaReference where
       "SchemaReference"
       ( \x ->
           SchemaReference'
-            Prelude.<$> (x Data..:? "SchemaVersionNumber")
+            Prelude.<$> (x Data..:? "SchemaId")
             Prelude.<*> (x Data..:? "SchemaVersionId")
-            Prelude.<*> (x Data..:? "SchemaId")
+            Prelude.<*> (x Data..:? "SchemaVersionNumber")
       )
 
 instance Prelude.Hashable SchemaReference where
   hashWithSalt _salt SchemaReference' {..} =
-    _salt `Prelude.hashWithSalt` schemaVersionNumber
+    _salt `Prelude.hashWithSalt` schemaId
       `Prelude.hashWithSalt` schemaVersionId
-      `Prelude.hashWithSalt` schemaId
+      `Prelude.hashWithSalt` schemaVersionNumber
 
 instance Prelude.NFData SchemaReference where
   rnf SchemaReference' {..} =
-    Prelude.rnf schemaVersionNumber
+    Prelude.rnf schemaId
       `Prelude.seq` Prelude.rnf schemaVersionId
-      `Prelude.seq` Prelude.rnf schemaId
+      `Prelude.seq` Prelude.rnf schemaVersionNumber
 
 instance Data.ToJSON SchemaReference where
   toJSON SchemaReference' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SchemaVersionNumber" Data..=)
-              Prelude.<$> schemaVersionNumber,
+          [ ("SchemaId" Data..=) Prelude.<$> schemaId,
             ("SchemaVersionId" Data..=)
               Prelude.<$> schemaVersionId,
-            ("SchemaId" Data..=) Prelude.<$> schemaId
+            ("SchemaVersionNumber" Data..=)
+              Prelude.<$> schemaVersionNumber
           ]
       )

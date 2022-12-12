@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 data ProductUserSummary = ProductUserSummary'
   { -- | The domain name of the user.
     domain :: Prelude.Maybe Prelude.Text,
-    -- | The start date of a subscription.
-    subscriptionStartDate :: Prelude.Maybe Prelude.Text,
     -- | The status message for a product for a user.
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The end date of a subscription.
     subscriptionEndDate :: Prelude.Maybe Prelude.Text,
+    -- | The start date of a subscription.
+    subscriptionStartDate :: Prelude.Maybe Prelude.Text,
     -- | An object that specifies details for the identity provider.
     identityProvider :: IdentityProvider,
     -- | The name of the user-based subscription product.
@@ -58,11 +58,11 @@ data ProductUserSummary = ProductUserSummary'
 --
 -- 'domain', 'productUserSummary_domain' - The domain name of the user.
 --
--- 'subscriptionStartDate', 'productUserSummary_subscriptionStartDate' - The start date of a subscription.
---
 -- 'statusMessage', 'productUserSummary_statusMessage' - The status message for a product for a user.
 --
 -- 'subscriptionEndDate', 'productUserSummary_subscriptionEndDate' - The end date of a subscription.
+--
+-- 'subscriptionStartDate', 'productUserSummary_subscriptionStartDate' - The start date of a subscription.
 --
 -- 'identityProvider', 'productUserSummary_identityProvider' - An object that specifies details for the identity provider.
 --
@@ -88,9 +88,9 @@ newProductUserSummary
   pUsername_ =
     ProductUserSummary'
       { domain = Prelude.Nothing,
-        subscriptionStartDate = Prelude.Nothing,
         statusMessage = Prelude.Nothing,
         subscriptionEndDate = Prelude.Nothing,
+        subscriptionStartDate = Prelude.Nothing,
         identityProvider = pIdentityProvider_,
         product = pProduct_,
         status = pStatus_,
@@ -101,10 +101,6 @@ newProductUserSummary
 productUserSummary_domain :: Lens.Lens' ProductUserSummary (Prelude.Maybe Prelude.Text)
 productUserSummary_domain = Lens.lens (\ProductUserSummary' {domain} -> domain) (\s@ProductUserSummary' {} a -> s {domain = a} :: ProductUserSummary)
 
--- | The start date of a subscription.
-productUserSummary_subscriptionStartDate :: Lens.Lens' ProductUserSummary (Prelude.Maybe Prelude.Text)
-productUserSummary_subscriptionStartDate = Lens.lens (\ProductUserSummary' {subscriptionStartDate} -> subscriptionStartDate) (\s@ProductUserSummary' {} a -> s {subscriptionStartDate = a} :: ProductUserSummary)
-
 -- | The status message for a product for a user.
 productUserSummary_statusMessage :: Lens.Lens' ProductUserSummary (Prelude.Maybe Prelude.Text)
 productUserSummary_statusMessage = Lens.lens (\ProductUserSummary' {statusMessage} -> statusMessage) (\s@ProductUserSummary' {} a -> s {statusMessage = a} :: ProductUserSummary)
@@ -112,6 +108,10 @@ productUserSummary_statusMessage = Lens.lens (\ProductUserSummary' {statusMessag
 -- | The end date of a subscription.
 productUserSummary_subscriptionEndDate :: Lens.Lens' ProductUserSummary (Prelude.Maybe Prelude.Text)
 productUserSummary_subscriptionEndDate = Lens.lens (\ProductUserSummary' {subscriptionEndDate} -> subscriptionEndDate) (\s@ProductUserSummary' {} a -> s {subscriptionEndDate = a} :: ProductUserSummary)
+
+-- | The start date of a subscription.
+productUserSummary_subscriptionStartDate :: Lens.Lens' ProductUserSummary (Prelude.Maybe Prelude.Text)
+productUserSummary_subscriptionStartDate = Lens.lens (\ProductUserSummary' {subscriptionStartDate} -> subscriptionStartDate) (\s@ProductUserSummary' {} a -> s {subscriptionStartDate = a} :: ProductUserSummary)
 
 -- | An object that specifies details for the identity provider.
 productUserSummary_identityProvider :: Lens.Lens' ProductUserSummary IdentityProvider
@@ -136,9 +136,9 @@ instance Data.FromJSON ProductUserSummary where
       ( \x ->
           ProductUserSummary'
             Prelude.<$> (x Data..:? "Domain")
-            Prelude.<*> (x Data..:? "SubscriptionStartDate")
             Prelude.<*> (x Data..:? "StatusMessage")
             Prelude.<*> (x Data..:? "SubscriptionEndDate")
+            Prelude.<*> (x Data..:? "SubscriptionStartDate")
             Prelude.<*> (x Data..: "IdentityProvider")
             Prelude.<*> (x Data..: "Product")
             Prelude.<*> (x Data..: "Status")
@@ -148,9 +148,9 @@ instance Data.FromJSON ProductUserSummary where
 instance Prelude.Hashable ProductUserSummary where
   hashWithSalt _salt ProductUserSummary' {..} =
     _salt `Prelude.hashWithSalt` domain
-      `Prelude.hashWithSalt` subscriptionStartDate
       `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` subscriptionEndDate
+      `Prelude.hashWithSalt` subscriptionStartDate
       `Prelude.hashWithSalt` identityProvider
       `Prelude.hashWithSalt` product
       `Prelude.hashWithSalt` status
@@ -159,9 +159,9 @@ instance Prelude.Hashable ProductUserSummary where
 instance Prelude.NFData ProductUserSummary where
   rnf ProductUserSummary' {..} =
     Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf subscriptionStartDate
       `Prelude.seq` Prelude.rnf statusMessage
       `Prelude.seq` Prelude.rnf subscriptionEndDate
+      `Prelude.seq` Prelude.rnf subscriptionStartDate
       `Prelude.seq` Prelude.rnf identityProvider
       `Prelude.seq` Prelude.rnf product
       `Prelude.seq` Prelude.rnf status

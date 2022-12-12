@@ -32,14 +32,14 @@ import Amazonka.WorkSpaces.Types.WorkspaceState
 --
 -- /See:/ 'newRelatedWorkspaceProperties' smart constructor.
 data RelatedWorkspaceProperties = RelatedWorkspaceProperties'
-  { -- | Indicates the type of WorkSpace.
-    type' :: Prelude.Maybe StandbyWorkspaceRelationshipType,
+  { -- | The Region of the related WorkSpace.
+    region :: Prelude.Maybe Prelude.Text,
     -- | Indicates the state of the WorkSpace.
     state :: Prelude.Maybe WorkspaceState,
+    -- | Indicates the type of WorkSpace.
+    type' :: Prelude.Maybe StandbyWorkspaceRelationshipType,
     -- | The identifier of the related WorkSpace.
-    workspaceId :: Prelude.Maybe Prelude.Text,
-    -- | The Region of the related WorkSpace.
-    region :: Prelude.Maybe Prelude.Text
+    workspaceId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,39 +51,39 @@ data RelatedWorkspaceProperties = RelatedWorkspaceProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'relatedWorkspaceProperties_type' - Indicates the type of WorkSpace.
+-- 'region', 'relatedWorkspaceProperties_region' - The Region of the related WorkSpace.
 --
 -- 'state', 'relatedWorkspaceProperties_state' - Indicates the state of the WorkSpace.
 --
--- 'workspaceId', 'relatedWorkspaceProperties_workspaceId' - The identifier of the related WorkSpace.
+-- 'type'', 'relatedWorkspaceProperties_type' - Indicates the type of WorkSpace.
 --
--- 'region', 'relatedWorkspaceProperties_region' - The Region of the related WorkSpace.
+-- 'workspaceId', 'relatedWorkspaceProperties_workspaceId' - The identifier of the related WorkSpace.
 newRelatedWorkspaceProperties ::
   RelatedWorkspaceProperties
 newRelatedWorkspaceProperties =
   RelatedWorkspaceProperties'
-    { type' =
+    { region =
         Prelude.Nothing,
       state = Prelude.Nothing,
-      workspaceId = Prelude.Nothing,
-      region = Prelude.Nothing
+      type' = Prelude.Nothing,
+      workspaceId = Prelude.Nothing
     }
 
--- | Indicates the type of WorkSpace.
-relatedWorkspaceProperties_type :: Lens.Lens' RelatedWorkspaceProperties (Prelude.Maybe StandbyWorkspaceRelationshipType)
-relatedWorkspaceProperties_type = Lens.lens (\RelatedWorkspaceProperties' {type'} -> type') (\s@RelatedWorkspaceProperties' {} a -> s {type' = a} :: RelatedWorkspaceProperties)
+-- | The Region of the related WorkSpace.
+relatedWorkspaceProperties_region :: Lens.Lens' RelatedWorkspaceProperties (Prelude.Maybe Prelude.Text)
+relatedWorkspaceProperties_region = Lens.lens (\RelatedWorkspaceProperties' {region} -> region) (\s@RelatedWorkspaceProperties' {} a -> s {region = a} :: RelatedWorkspaceProperties)
 
 -- | Indicates the state of the WorkSpace.
 relatedWorkspaceProperties_state :: Lens.Lens' RelatedWorkspaceProperties (Prelude.Maybe WorkspaceState)
 relatedWorkspaceProperties_state = Lens.lens (\RelatedWorkspaceProperties' {state} -> state) (\s@RelatedWorkspaceProperties' {} a -> s {state = a} :: RelatedWorkspaceProperties)
 
+-- | Indicates the type of WorkSpace.
+relatedWorkspaceProperties_type :: Lens.Lens' RelatedWorkspaceProperties (Prelude.Maybe StandbyWorkspaceRelationshipType)
+relatedWorkspaceProperties_type = Lens.lens (\RelatedWorkspaceProperties' {type'} -> type') (\s@RelatedWorkspaceProperties' {} a -> s {type' = a} :: RelatedWorkspaceProperties)
+
 -- | The identifier of the related WorkSpace.
 relatedWorkspaceProperties_workspaceId :: Lens.Lens' RelatedWorkspaceProperties (Prelude.Maybe Prelude.Text)
 relatedWorkspaceProperties_workspaceId = Lens.lens (\RelatedWorkspaceProperties' {workspaceId} -> workspaceId) (\s@RelatedWorkspaceProperties' {} a -> s {workspaceId = a} :: RelatedWorkspaceProperties)
-
--- | The Region of the related WorkSpace.
-relatedWorkspaceProperties_region :: Lens.Lens' RelatedWorkspaceProperties (Prelude.Maybe Prelude.Text)
-relatedWorkspaceProperties_region = Lens.lens (\RelatedWorkspaceProperties' {region} -> region) (\s@RelatedWorkspaceProperties' {} a -> s {region = a} :: RelatedWorkspaceProperties)
 
 instance Data.FromJSON RelatedWorkspaceProperties where
   parseJSON =
@@ -91,22 +91,22 @@ instance Data.FromJSON RelatedWorkspaceProperties where
       "RelatedWorkspaceProperties"
       ( \x ->
           RelatedWorkspaceProperties'
-            Prelude.<$> (x Data..:? "Type")
+            Prelude.<$> (x Data..:? "Region")
             Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Type")
             Prelude.<*> (x Data..:? "WorkspaceId")
-            Prelude.<*> (x Data..:? "Region")
       )
 
 instance Prelude.Hashable RelatedWorkspaceProperties where
   hashWithSalt _salt RelatedWorkspaceProperties' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` region
       `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` workspaceId
-      `Prelude.hashWithSalt` region
 
 instance Prelude.NFData RelatedWorkspaceProperties where
   rnf RelatedWorkspaceProperties' {..} =
-    Prelude.rnf type'
+    Prelude.rnf region
       `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf workspaceId
-      `Prelude.seq` Prelude.rnf region

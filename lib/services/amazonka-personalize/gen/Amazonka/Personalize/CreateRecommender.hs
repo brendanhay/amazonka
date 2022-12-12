@@ -84,8 +84,8 @@ module Amazonka.Personalize.CreateRecommender
     newCreateRecommender,
 
     -- * Request Lenses
-    createRecommender_tags,
     createRecommender_recommenderConfig,
+    createRecommender_tags,
     createRecommender_name,
     createRecommender_datasetGroupArn,
     createRecommender_recipeArn,
@@ -110,12 +110,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateRecommender' smart constructor.
 data CreateRecommender = CreateRecommender'
-  { -- | A list of
+  { -- | The configuration details of the recommender.
+    recommenderConfig :: Prelude.Maybe RecommenderConfig,
+    -- | A list of
     -- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
     -- to apply to the recommender.
     tags :: Prelude.Maybe [Tag],
-    -- | The configuration details of the recommender.
-    recommenderConfig :: Prelude.Maybe RecommenderConfig,
     -- | The name of the recommender.
     name :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the destination domain dataset group
@@ -138,11 +138,11 @@ data CreateRecommender = CreateRecommender'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'recommenderConfig', 'createRecommender_recommenderConfig' - The configuration details of the recommender.
+--
 -- 'tags', 'createRecommender_tags' - A list of
 -- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
 -- to apply to the recommender.
---
--- 'recommenderConfig', 'createRecommender_recommenderConfig' - The configuration details of the recommender.
 --
 -- 'name', 'createRecommender_name' - The name of the recommender.
 --
@@ -167,22 +167,23 @@ newCreateRecommender
   pDatasetGroupArn_
   pRecipeArn_ =
     CreateRecommender'
-      { tags = Prelude.Nothing,
-        recommenderConfig = Prelude.Nothing,
+      { recommenderConfig =
+          Prelude.Nothing,
+        tags = Prelude.Nothing,
         name = pName_,
         datasetGroupArn = pDatasetGroupArn_,
         recipeArn = pRecipeArn_
       }
+
+-- | The configuration details of the recommender.
+createRecommender_recommenderConfig :: Lens.Lens' CreateRecommender (Prelude.Maybe RecommenderConfig)
+createRecommender_recommenderConfig = Lens.lens (\CreateRecommender' {recommenderConfig} -> recommenderConfig) (\s@CreateRecommender' {} a -> s {recommenderConfig = a} :: CreateRecommender)
 
 -- | A list of
 -- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
 -- to apply to the recommender.
 createRecommender_tags :: Lens.Lens' CreateRecommender (Prelude.Maybe [Tag])
 createRecommender_tags = Lens.lens (\CreateRecommender' {tags} -> tags) (\s@CreateRecommender' {} a -> s {tags = a} :: CreateRecommender) Prelude.. Lens.mapping Lens.coerced
-
--- | The configuration details of the recommender.
-createRecommender_recommenderConfig :: Lens.Lens' CreateRecommender (Prelude.Maybe RecommenderConfig)
-createRecommender_recommenderConfig = Lens.lens (\CreateRecommender' {recommenderConfig} -> recommenderConfig) (\s@CreateRecommender' {} a -> s {recommenderConfig = a} :: CreateRecommender)
 
 -- | The name of the recommender.
 createRecommender_name :: Lens.Lens' CreateRecommender Prelude.Text
@@ -217,16 +218,16 @@ instance Core.AWSRequest CreateRecommender where
 
 instance Prelude.Hashable CreateRecommender where
   hashWithSalt _salt CreateRecommender' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` recommenderConfig
+    _salt `Prelude.hashWithSalt` recommenderConfig
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` datasetGroupArn
       `Prelude.hashWithSalt` recipeArn
 
 instance Prelude.NFData CreateRecommender where
   rnf CreateRecommender' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf recommenderConfig
+    Prelude.rnf recommenderConfig
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf datasetGroupArn
       `Prelude.seq` Prelude.rnf recipeArn
@@ -250,9 +251,9 @@ instance Data.ToJSON CreateRecommender where
   toJSON CreateRecommender' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("recommenderConfig" Data..=)
+          [ ("recommenderConfig" Data..=)
               Prelude.<$> recommenderConfig,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("name" Data..= name),
             Prelude.Just
               ("datasetGroupArn" Data..= datasetGroupArn),

@@ -29,8 +29,8 @@ module Amazonka.Wisdom.CreateAssistantAssociation
     newCreateAssistantAssociation,
 
     -- * Request Lenses
-    createAssistantAssociation_tags,
     createAssistantAssociation_clientToken,
+    createAssistantAssociation_tags,
     createAssistantAssociation_assistantId,
     createAssistantAssociation_association,
     createAssistantAssociation_associationType,
@@ -55,11 +55,11 @@ import Amazonka.Wisdom.Types
 
 -- | /See:/ 'newCreateAssistantAssociation' smart constructor.
 data CreateAssistantAssociation = CreateAssistantAssociation'
-  { -- | The tags used to organize, track, or control access for this resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A unique, case-sensitive identifier that you provide to ensure the
+  { -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The tags used to organize, track, or control access for this resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The identifier of the Wisdom assistant. Can be either the ID or the ARN.
     -- URLs cannot contain the ARN.
     assistantId :: Prelude.Text,
@@ -78,10 +78,10 @@ data CreateAssistantAssociation = CreateAssistantAssociation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createAssistantAssociation_tags' - The tags used to organize, track, or control access for this resource.
---
 -- 'clientToken', 'createAssistantAssociation_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
+--
+-- 'tags', 'createAssistantAssociation_tags' - The tags used to organize, track, or control access for this resource.
 --
 -- 'assistantId', 'createAssistantAssociation_assistantId' - The identifier of the Wisdom assistant. Can be either the ID or the ARN.
 -- URLs cannot contain the ARN.
@@ -102,21 +102,22 @@ newCreateAssistantAssociation
   pAssociation_
   pAssociationType_ =
     CreateAssistantAssociation'
-      { tags = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+      { clientToken =
+          Prelude.Nothing,
+        tags = Prelude.Nothing,
         assistantId = pAssistantId_,
         association = pAssociation_,
         associationType = pAssociationType_
       }
 
--- | The tags used to organize, track, or control access for this resource.
-createAssistantAssociation_tags :: Lens.Lens' CreateAssistantAssociation (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createAssistantAssociation_tags = Lens.lens (\CreateAssistantAssociation' {tags} -> tags) (\s@CreateAssistantAssociation' {} a -> s {tags = a} :: CreateAssistantAssociation) Prelude.. Lens.mapping Lens.coerced
-
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
 createAssistantAssociation_clientToken :: Lens.Lens' CreateAssistantAssociation (Prelude.Maybe Prelude.Text)
 createAssistantAssociation_clientToken = Lens.lens (\CreateAssistantAssociation' {clientToken} -> clientToken) (\s@CreateAssistantAssociation' {} a -> s {clientToken = a} :: CreateAssistantAssociation)
+
+-- | The tags used to organize, track, or control access for this resource.
+createAssistantAssociation_tags :: Lens.Lens' CreateAssistantAssociation (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createAssistantAssociation_tags = Lens.lens (\CreateAssistantAssociation' {tags} -> tags) (\s@CreateAssistantAssociation' {} a -> s {tags = a} :: CreateAssistantAssociation) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the Wisdom assistant. Can be either the ID or the ARN.
 -- URLs cannot contain the ARN.
@@ -147,16 +148,16 @@ instance Core.AWSRequest CreateAssistantAssociation where
 
 instance Prelude.Hashable CreateAssistantAssociation where
   hashWithSalt _salt CreateAssistantAssociation' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` assistantId
       `Prelude.hashWithSalt` association
       `Prelude.hashWithSalt` associationType
 
 instance Prelude.NFData CreateAssistantAssociation where
   rnf CreateAssistantAssociation' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf assistantId
       `Prelude.seq` Prelude.rnf association
       `Prelude.seq` Prelude.rnf associationType
@@ -176,8 +177,8 @@ instance Data.ToJSON CreateAssistantAssociation where
   toJSON CreateAssistantAssociation' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("clientToken" Data..=) Prelude.<$> clientToken,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("association" Data..= association),
             Prelude.Just
               ("associationType" Data..= associationType)

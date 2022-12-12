@@ -27,9 +27,9 @@ module Amazonka.WAFV2.GetRuleGroup
     newGetRuleGroup,
 
     -- * Request Lenses
-    getRuleGroup_name,
     getRuleGroup_arn,
     getRuleGroup_id,
+    getRuleGroup_name,
     getRuleGroup_scope,
 
     -- * Destructuring the Response
@@ -37,8 +37,8 @@ module Amazonka.WAFV2.GetRuleGroup
     newGetRuleGroupResponse,
 
     -- * Response Lenses
-    getRuleGroupResponse_ruleGroup,
     getRuleGroupResponse_lockToken,
+    getRuleGroupResponse_ruleGroup,
     getRuleGroupResponse_httpStatus,
   )
 where
@@ -53,15 +53,15 @@ import Amazonka.WAFV2.Types
 
 -- | /See:/ 'newGetRuleGroup' smart constructor.
 data GetRuleGroup = GetRuleGroup'
-  { -- | The name of the rule group. You cannot change the name of a rule group
-    -- after you create it.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the entity.
+  { -- | The Amazon Resource Name (ARN) of the entity.
     arn :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the rule group. This ID is returned in the
     -- responses to create and list commands. You provide it to operations like
     -- update and delete.
     id :: Prelude.Maybe Prelude.Text,
+    -- | The name of the rule group. You cannot change the name of a rule group
+    -- after you create it.
+    name :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether this is for an Amazon CloudFront distribution or for a
     -- regional application. A regional application can be an Application Load
     -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
@@ -86,14 +86,14 @@ data GetRuleGroup = GetRuleGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'getRuleGroup_name' - The name of the rule group. You cannot change the name of a rule group
--- after you create it.
---
 -- 'arn', 'getRuleGroup_arn' - The Amazon Resource Name (ARN) of the entity.
 --
 -- 'id', 'getRuleGroup_id' - A unique identifier for the rule group. This ID is returned in the
 -- responses to create and list commands. You provide it to operations like
 -- update and delete.
+--
+-- 'name', 'getRuleGroup_name' - The name of the rule group. You cannot change the name of a rule group
+-- after you create it.
 --
 -- 'scope', 'getRuleGroup_scope' - Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
@@ -111,16 +111,11 @@ newGetRuleGroup ::
   GetRuleGroup
 newGetRuleGroup =
   GetRuleGroup'
-    { name = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       id = Prelude.Nothing,
+      name = Prelude.Nothing,
       scope = Prelude.Nothing
     }
-
--- | The name of the rule group. You cannot change the name of a rule group
--- after you create it.
-getRuleGroup_name :: Lens.Lens' GetRuleGroup (Prelude.Maybe Prelude.Text)
-getRuleGroup_name = Lens.lens (\GetRuleGroup' {name} -> name) (\s@GetRuleGroup' {} a -> s {name = a} :: GetRuleGroup)
 
 -- | The Amazon Resource Name (ARN) of the entity.
 getRuleGroup_arn :: Lens.Lens' GetRuleGroup (Prelude.Maybe Prelude.Text)
@@ -131,6 +126,11 @@ getRuleGroup_arn = Lens.lens (\GetRuleGroup' {arn} -> arn) (\s@GetRuleGroup' {} 
 -- update and delete.
 getRuleGroup_id :: Lens.Lens' GetRuleGroup (Prelude.Maybe Prelude.Text)
 getRuleGroup_id = Lens.lens (\GetRuleGroup' {id} -> id) (\s@GetRuleGroup' {} a -> s {id = a} :: GetRuleGroup)
+
+-- | The name of the rule group. You cannot change the name of a rule group
+-- after you create it.
+getRuleGroup_name :: Lens.Lens' GetRuleGroup (Prelude.Maybe Prelude.Text)
+getRuleGroup_name = Lens.lens (\GetRuleGroup' {name} -> name) (\s@GetRuleGroup' {} a -> s {name = a} :: GetRuleGroup)
 
 -- | Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
@@ -155,23 +155,23 @@ instance Core.AWSRequest GetRuleGroup where
     Response.receiveJSON
       ( \s h x ->
           GetRuleGroupResponse'
-            Prelude.<$> (x Data..?> "RuleGroup")
-            Prelude.<*> (x Data..?> "LockToken")
+            Prelude.<$> (x Data..?> "LockToken")
+            Prelude.<*> (x Data..?> "RuleGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetRuleGroup where
   hashWithSalt _salt GetRuleGroup' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` scope
 
 instance Prelude.NFData GetRuleGroup where
   rnf GetRuleGroup' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf scope
 
 instance Data.ToHeaders GetRuleGroup where
@@ -193,9 +193,9 @@ instance Data.ToJSON GetRuleGroup where
   toJSON GetRuleGroup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
-            ("ARN" Data..=) Prelude.<$> arn,
+          [ ("ARN" Data..=) Prelude.<$> arn,
             ("Id" Data..=) Prelude.<$> id,
+            ("Name" Data..=) Prelude.<$> name,
             ("Scope" Data..=) Prelude.<$> scope
           ]
       )
@@ -208,8 +208,7 @@ instance Data.ToQuery GetRuleGroup where
 
 -- | /See:/ 'newGetRuleGroupResponse' smart constructor.
 data GetRuleGroupResponse = GetRuleGroupResponse'
-  { ruleGroup :: Prelude.Maybe RuleGroup,
-    -- | A token used for optimistic locking. WAF returns a token to your @get@
+  { -- | A token used for optimistic locking. WAF returns a token to your @get@
     -- and @list@ requests, to mark the state of the entity at the time of the
     -- request. To make changes to the entity associated with the token, you
     -- provide the token to operations like @update@ and @delete@. WAF uses the
@@ -218,6 +217,7 @@ data GetRuleGroupResponse = GetRuleGroupResponse'
     -- @WAFOptimisticLockException@. If this happens, perform another @get@,
     -- and use the new token returned by that operation.
     lockToken :: Prelude.Maybe Prelude.Text,
+    ruleGroup :: Prelude.Maybe RuleGroup,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -231,8 +231,6 @@ data GetRuleGroupResponse = GetRuleGroupResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ruleGroup', 'getRuleGroupResponse_ruleGroup' -
---
 -- 'lockToken', 'getRuleGroupResponse_lockToken' - A token used for optimistic locking. WAF returns a token to your @get@
 -- and @list@ requests, to mark the state of the entity at the time of the
 -- request. To make changes to the entity associated with the token, you
@@ -242,6 +240,8 @@ data GetRuleGroupResponse = GetRuleGroupResponse'
 -- @WAFOptimisticLockException@. If this happens, perform another @get@,
 -- and use the new token returned by that operation.
 --
+-- 'ruleGroup', 'getRuleGroupResponse_ruleGroup' -
+--
 -- 'httpStatus', 'getRuleGroupResponse_httpStatus' - The response's http status code.
 newGetRuleGroupResponse ::
   -- | 'httpStatus'
@@ -249,14 +249,10 @@ newGetRuleGroupResponse ::
   GetRuleGroupResponse
 newGetRuleGroupResponse pHttpStatus_ =
   GetRuleGroupResponse'
-    { ruleGroup = Prelude.Nothing,
-      lockToken = Prelude.Nothing,
+    { lockToken = Prelude.Nothing,
+      ruleGroup = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- |
-getRuleGroupResponse_ruleGroup :: Lens.Lens' GetRuleGroupResponse (Prelude.Maybe RuleGroup)
-getRuleGroupResponse_ruleGroup = Lens.lens (\GetRuleGroupResponse' {ruleGroup} -> ruleGroup) (\s@GetRuleGroupResponse' {} a -> s {ruleGroup = a} :: GetRuleGroupResponse)
 
 -- | A token used for optimistic locking. WAF returns a token to your @get@
 -- and @list@ requests, to mark the state of the entity at the time of the
@@ -269,12 +265,16 @@ getRuleGroupResponse_ruleGroup = Lens.lens (\GetRuleGroupResponse' {ruleGroup} -
 getRuleGroupResponse_lockToken :: Lens.Lens' GetRuleGroupResponse (Prelude.Maybe Prelude.Text)
 getRuleGroupResponse_lockToken = Lens.lens (\GetRuleGroupResponse' {lockToken} -> lockToken) (\s@GetRuleGroupResponse' {} a -> s {lockToken = a} :: GetRuleGroupResponse)
 
+-- |
+getRuleGroupResponse_ruleGroup :: Lens.Lens' GetRuleGroupResponse (Prelude.Maybe RuleGroup)
+getRuleGroupResponse_ruleGroup = Lens.lens (\GetRuleGroupResponse' {ruleGroup} -> ruleGroup) (\s@GetRuleGroupResponse' {} a -> s {ruleGroup = a} :: GetRuleGroupResponse)
+
 -- | The response's http status code.
 getRuleGroupResponse_httpStatus :: Lens.Lens' GetRuleGroupResponse Prelude.Int
 getRuleGroupResponse_httpStatus = Lens.lens (\GetRuleGroupResponse' {httpStatus} -> httpStatus) (\s@GetRuleGroupResponse' {} a -> s {httpStatus = a} :: GetRuleGroupResponse)
 
 instance Prelude.NFData GetRuleGroupResponse where
   rnf GetRuleGroupResponse' {..} =
-    Prelude.rnf ruleGroup
-      `Prelude.seq` Prelude.rnf lockToken
+    Prelude.rnf lockToken
+      `Prelude.seq` Prelude.rnf ruleGroup
       `Prelude.seq` Prelude.rnf httpStatus

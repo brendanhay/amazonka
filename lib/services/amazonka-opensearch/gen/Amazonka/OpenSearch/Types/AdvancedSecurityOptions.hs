@@ -29,21 +29,21 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAdvancedSecurityOptions' smart constructor.
 data AdvancedSecurityOptions = AdvancedSecurityOptions'
-  { -- | True if the internal user database is enabled.
-    internalUserDatabaseEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | Container for information about the SAML configuration for OpenSearch
-    -- Dashboards.
-    sAMLOptions :: Prelude.Maybe SAMLOptionsOutput,
+  { -- | Date and time when the migration period will be disabled. Only necessary
+    -- when
+    -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing enabling fine-grained access control on an existing domain>.
+    anonymousAuthDisableDate :: Prelude.Maybe Data.POSIX,
     -- | True if a 30-day migration period is enabled, during which
     -- administrators can create role mappings. Only necessary when
     -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing enabling fine-grained access control on an existing domain>.
     anonymousAuthEnabled :: Prelude.Maybe Prelude.Bool,
     -- | True if fine-grained access control is enabled.
     enabled :: Prelude.Maybe Prelude.Bool,
-    -- | Date and time when the migration period will be disabled. Only necessary
-    -- when
-    -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing enabling fine-grained access control on an existing domain>.
-    anonymousAuthDisableDate :: Prelude.Maybe Data.POSIX
+    -- | True if the internal user database is enabled.
+    internalUserDatabaseEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | Container for information about the SAML configuration for OpenSearch
+    -- Dashboards.
+    sAMLOptions :: Prelude.Maybe SAMLOptionsOutput
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,10 +55,9 @@ data AdvancedSecurityOptions = AdvancedSecurityOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'internalUserDatabaseEnabled', 'advancedSecurityOptions_internalUserDatabaseEnabled' - True if the internal user database is enabled.
---
--- 'sAMLOptions', 'advancedSecurityOptions_sAMLOptions' - Container for information about the SAML configuration for OpenSearch
--- Dashboards.
+-- 'anonymousAuthDisableDate', 'advancedSecurityOptions_anonymousAuthDisableDate' - Date and time when the migration period will be disabled. Only necessary
+-- when
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing enabling fine-grained access control on an existing domain>.
 --
 -- 'anonymousAuthEnabled', 'advancedSecurityOptions_anonymousAuthEnabled' - True if a 30-day migration period is enabled, during which
 -- administrators can create role mappings. Only necessary when
@@ -66,29 +65,27 @@ data AdvancedSecurityOptions = AdvancedSecurityOptions'
 --
 -- 'enabled', 'advancedSecurityOptions_enabled' - True if fine-grained access control is enabled.
 --
--- 'anonymousAuthDisableDate', 'advancedSecurityOptions_anonymousAuthDisableDate' - Date and time when the migration period will be disabled. Only necessary
--- when
--- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing enabling fine-grained access control on an existing domain>.
+-- 'internalUserDatabaseEnabled', 'advancedSecurityOptions_internalUserDatabaseEnabled' - True if the internal user database is enabled.
+--
+-- 'sAMLOptions', 'advancedSecurityOptions_sAMLOptions' - Container for information about the SAML configuration for OpenSearch
+-- Dashboards.
 newAdvancedSecurityOptions ::
   AdvancedSecurityOptions
 newAdvancedSecurityOptions =
   AdvancedSecurityOptions'
-    { internalUserDatabaseEnabled =
+    { anonymousAuthDisableDate =
         Prelude.Nothing,
-      sAMLOptions = Prelude.Nothing,
       anonymousAuthEnabled = Prelude.Nothing,
       enabled = Prelude.Nothing,
-      anonymousAuthDisableDate = Prelude.Nothing
+      internalUserDatabaseEnabled = Prelude.Nothing,
+      sAMLOptions = Prelude.Nothing
     }
 
--- | True if the internal user database is enabled.
-advancedSecurityOptions_internalUserDatabaseEnabled :: Lens.Lens' AdvancedSecurityOptions (Prelude.Maybe Prelude.Bool)
-advancedSecurityOptions_internalUserDatabaseEnabled = Lens.lens (\AdvancedSecurityOptions' {internalUserDatabaseEnabled} -> internalUserDatabaseEnabled) (\s@AdvancedSecurityOptions' {} a -> s {internalUserDatabaseEnabled = a} :: AdvancedSecurityOptions)
-
--- | Container for information about the SAML configuration for OpenSearch
--- Dashboards.
-advancedSecurityOptions_sAMLOptions :: Lens.Lens' AdvancedSecurityOptions (Prelude.Maybe SAMLOptionsOutput)
-advancedSecurityOptions_sAMLOptions = Lens.lens (\AdvancedSecurityOptions' {sAMLOptions} -> sAMLOptions) (\s@AdvancedSecurityOptions' {} a -> s {sAMLOptions = a} :: AdvancedSecurityOptions)
+-- | Date and time when the migration period will be disabled. Only necessary
+-- when
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing enabling fine-grained access control on an existing domain>.
+advancedSecurityOptions_anonymousAuthDisableDate :: Lens.Lens' AdvancedSecurityOptions (Prelude.Maybe Prelude.UTCTime)
+advancedSecurityOptions_anonymousAuthDisableDate = Lens.lens (\AdvancedSecurityOptions' {anonymousAuthDisableDate} -> anonymousAuthDisableDate) (\s@AdvancedSecurityOptions' {} a -> s {anonymousAuthDisableDate = a} :: AdvancedSecurityOptions) Prelude.. Lens.mapping Data._Time
 
 -- | True if a 30-day migration period is enabled, during which
 -- administrators can create role mappings. Only necessary when
@@ -100,11 +97,14 @@ advancedSecurityOptions_anonymousAuthEnabled = Lens.lens (\AdvancedSecurityOptio
 advancedSecurityOptions_enabled :: Lens.Lens' AdvancedSecurityOptions (Prelude.Maybe Prelude.Bool)
 advancedSecurityOptions_enabled = Lens.lens (\AdvancedSecurityOptions' {enabled} -> enabled) (\s@AdvancedSecurityOptions' {} a -> s {enabled = a} :: AdvancedSecurityOptions)
 
--- | Date and time when the migration period will be disabled. Only necessary
--- when
--- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing enabling fine-grained access control on an existing domain>.
-advancedSecurityOptions_anonymousAuthDisableDate :: Lens.Lens' AdvancedSecurityOptions (Prelude.Maybe Prelude.UTCTime)
-advancedSecurityOptions_anonymousAuthDisableDate = Lens.lens (\AdvancedSecurityOptions' {anonymousAuthDisableDate} -> anonymousAuthDisableDate) (\s@AdvancedSecurityOptions' {} a -> s {anonymousAuthDisableDate = a} :: AdvancedSecurityOptions) Prelude.. Lens.mapping Data._Time
+-- | True if the internal user database is enabled.
+advancedSecurityOptions_internalUserDatabaseEnabled :: Lens.Lens' AdvancedSecurityOptions (Prelude.Maybe Prelude.Bool)
+advancedSecurityOptions_internalUserDatabaseEnabled = Lens.lens (\AdvancedSecurityOptions' {internalUserDatabaseEnabled} -> internalUserDatabaseEnabled) (\s@AdvancedSecurityOptions' {} a -> s {internalUserDatabaseEnabled = a} :: AdvancedSecurityOptions)
+
+-- | Container for information about the SAML configuration for OpenSearch
+-- Dashboards.
+advancedSecurityOptions_sAMLOptions :: Lens.Lens' AdvancedSecurityOptions (Prelude.Maybe SAMLOptionsOutput)
+advancedSecurityOptions_sAMLOptions = Lens.lens (\AdvancedSecurityOptions' {sAMLOptions} -> sAMLOptions) (\s@AdvancedSecurityOptions' {} a -> s {sAMLOptions = a} :: AdvancedSecurityOptions)
 
 instance Data.FromJSON AdvancedSecurityOptions where
   parseJSON =
@@ -112,26 +112,26 @@ instance Data.FromJSON AdvancedSecurityOptions where
       "AdvancedSecurityOptions"
       ( \x ->
           AdvancedSecurityOptions'
-            Prelude.<$> (x Data..:? "InternalUserDatabaseEnabled")
-            Prelude.<*> (x Data..:? "SAMLOptions")
+            Prelude.<$> (x Data..:? "AnonymousAuthDisableDate")
             Prelude.<*> (x Data..:? "AnonymousAuthEnabled")
             Prelude.<*> (x Data..:? "Enabled")
-            Prelude.<*> (x Data..:? "AnonymousAuthDisableDate")
+            Prelude.<*> (x Data..:? "InternalUserDatabaseEnabled")
+            Prelude.<*> (x Data..:? "SAMLOptions")
       )
 
 instance Prelude.Hashable AdvancedSecurityOptions where
   hashWithSalt _salt AdvancedSecurityOptions' {..} =
     _salt
-      `Prelude.hashWithSalt` internalUserDatabaseEnabled
-      `Prelude.hashWithSalt` sAMLOptions
+      `Prelude.hashWithSalt` anonymousAuthDisableDate
       `Prelude.hashWithSalt` anonymousAuthEnabled
       `Prelude.hashWithSalt` enabled
-      `Prelude.hashWithSalt` anonymousAuthDisableDate
+      `Prelude.hashWithSalt` internalUserDatabaseEnabled
+      `Prelude.hashWithSalt` sAMLOptions
 
 instance Prelude.NFData AdvancedSecurityOptions where
   rnf AdvancedSecurityOptions' {..} =
-    Prelude.rnf internalUserDatabaseEnabled
-      `Prelude.seq` Prelude.rnf sAMLOptions
+    Prelude.rnf anonymousAuthDisableDate
       `Prelude.seq` Prelude.rnf anonymousAuthEnabled
       `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf anonymousAuthDisableDate
+      `Prelude.seq` Prelude.rnf internalUserDatabaseEnabled
+      `Prelude.seq` Prelude.rnf sAMLOptions

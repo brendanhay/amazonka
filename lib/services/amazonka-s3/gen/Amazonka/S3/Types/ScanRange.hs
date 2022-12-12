@@ -33,19 +33,19 @@ import Amazonka.S3.Internal
 --
 -- /See:/ 'newScanRange' smart constructor.
 data ScanRange = ScanRange'
-  { -- | Specifies the start of the byte range. This parameter is optional. Valid
-    -- values: non-negative integers. The default value is 0. If only @start@
-    -- is supplied, it means scan from that point to the end of the file. For
-    -- example, @\<scanrange>\<start>50\<\/start>\<\/scanrange>@ means scan
-    -- from byte 50 until the end of the file.
-    start :: Prelude.Maybe Prelude.Integer,
-    -- | Specifies the end of the byte range. This parameter is optional. Valid
+  { -- | Specifies the end of the byte range. This parameter is optional. Valid
     -- values: non-negative integers. The default value is one less than the
     -- size of the object being queried. If only the End parameter is supplied,
     -- it is interpreted to mean scan the last N bytes of the file. For
     -- example, @\<scanrange>\<end>50\<\/end>\<\/scanrange>@ means scan the
     -- last 50 bytes.
-    end :: Prelude.Maybe Prelude.Integer
+    end :: Prelude.Maybe Prelude.Integer,
+    -- | Specifies the start of the byte range. This parameter is optional. Valid
+    -- values: non-negative integers. The default value is 0. If only @start@
+    -- is supplied, it means scan from that point to the end of the file. For
+    -- example, @\<scanrange>\<start>50\<\/start>\<\/scanrange>@ means scan
+    -- from byte 50 until the end of the file.
+    start :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,33 +57,25 @@ data ScanRange = ScanRange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'start', 'scanRange_start' - Specifies the start of the byte range. This parameter is optional. Valid
--- values: non-negative integers. The default value is 0. If only @start@
--- is supplied, it means scan from that point to the end of the file. For
--- example, @\<scanrange>\<start>50\<\/start>\<\/scanrange>@ means scan
--- from byte 50 until the end of the file.
---
 -- 'end', 'scanRange_end' - Specifies the end of the byte range. This parameter is optional. Valid
 -- values: non-negative integers. The default value is one less than the
 -- size of the object being queried. If only the End parameter is supplied,
 -- it is interpreted to mean scan the last N bytes of the file. For
 -- example, @\<scanrange>\<end>50\<\/end>\<\/scanrange>@ means scan the
 -- last 50 bytes.
-newScanRange ::
-  ScanRange
-newScanRange =
-  ScanRange'
-    { start = Prelude.Nothing,
-      end = Prelude.Nothing
-    }
-
--- | Specifies the start of the byte range. This parameter is optional. Valid
+--
+-- 'start', 'scanRange_start' - Specifies the start of the byte range. This parameter is optional. Valid
 -- values: non-negative integers. The default value is 0. If only @start@
 -- is supplied, it means scan from that point to the end of the file. For
 -- example, @\<scanrange>\<start>50\<\/start>\<\/scanrange>@ means scan
 -- from byte 50 until the end of the file.
-scanRange_start :: Lens.Lens' ScanRange (Prelude.Maybe Prelude.Integer)
-scanRange_start = Lens.lens (\ScanRange' {start} -> start) (\s@ScanRange' {} a -> s {start = a} :: ScanRange)
+newScanRange ::
+  ScanRange
+newScanRange =
+  ScanRange'
+    { end = Prelude.Nothing,
+      start = Prelude.Nothing
+    }
 
 -- | Specifies the end of the byte range. This parameter is optional. Valid
 -- values: non-negative integers. The default value is one less than the
@@ -94,16 +86,24 @@ scanRange_start = Lens.lens (\ScanRange' {start} -> start) (\s@ScanRange' {} a -
 scanRange_end :: Lens.Lens' ScanRange (Prelude.Maybe Prelude.Integer)
 scanRange_end = Lens.lens (\ScanRange' {end} -> end) (\s@ScanRange' {} a -> s {end = a} :: ScanRange)
 
+-- | Specifies the start of the byte range. This parameter is optional. Valid
+-- values: non-negative integers. The default value is 0. If only @start@
+-- is supplied, it means scan from that point to the end of the file. For
+-- example, @\<scanrange>\<start>50\<\/start>\<\/scanrange>@ means scan
+-- from byte 50 until the end of the file.
+scanRange_start :: Lens.Lens' ScanRange (Prelude.Maybe Prelude.Integer)
+scanRange_start = Lens.lens (\ScanRange' {start} -> start) (\s@ScanRange' {} a -> s {start = a} :: ScanRange)
+
 instance Prelude.Hashable ScanRange where
   hashWithSalt _salt ScanRange' {..} =
-    _salt `Prelude.hashWithSalt` start
-      `Prelude.hashWithSalt` end
+    _salt `Prelude.hashWithSalt` end
+      `Prelude.hashWithSalt` start
 
 instance Prelude.NFData ScanRange where
   rnf ScanRange' {..} =
-    Prelude.rnf start `Prelude.seq` Prelude.rnf end
+    Prelude.rnf end `Prelude.seq` Prelude.rnf start
 
 instance Data.ToXML ScanRange where
   toXML ScanRange' {..} =
     Prelude.mconcat
-      ["Start" Data.@= start, "End" Data.@= end]
+      ["End" Data.@= end, "Start" Data.@= start]

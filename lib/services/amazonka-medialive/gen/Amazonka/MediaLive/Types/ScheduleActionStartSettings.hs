@@ -32,12 +32,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newScheduleActionStartSettings' smart constructor.
 data ScheduleActionStartSettings = ScheduleActionStartSettings'
-  { -- | Option for specifying an action that should be applied immediately.
-    immediateModeScheduleActionStartSettings :: Prelude.Maybe ImmediateModeScheduleActionStartSettings,
-    -- | Option for specifying the start time for an action.
+  { -- | Option for specifying the start time for an action.
     fixedModeScheduleActionStartSettings :: Prelude.Maybe FixedModeScheduleActionStartSettings,
     -- | Option for specifying an action as relative to another action.
-    followModeScheduleActionStartSettings :: Prelude.Maybe FollowModeScheduleActionStartSettings
+    followModeScheduleActionStartSettings :: Prelude.Maybe FollowModeScheduleActionStartSettings,
+    -- | Option for specifying an action that should be applied immediately.
+    immediateModeScheduleActionStartSettings :: Prelude.Maybe ImmediateModeScheduleActionStartSettings
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,26 +49,22 @@ data ScheduleActionStartSettings = ScheduleActionStartSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'immediateModeScheduleActionStartSettings', 'scheduleActionStartSettings_immediateModeScheduleActionStartSettings' - Option for specifying an action that should be applied immediately.
---
 -- 'fixedModeScheduleActionStartSettings', 'scheduleActionStartSettings_fixedModeScheduleActionStartSettings' - Option for specifying the start time for an action.
 --
 -- 'followModeScheduleActionStartSettings', 'scheduleActionStartSettings_followModeScheduleActionStartSettings' - Option for specifying an action as relative to another action.
+--
+-- 'immediateModeScheduleActionStartSettings', 'scheduleActionStartSettings_immediateModeScheduleActionStartSettings' - Option for specifying an action that should be applied immediately.
 newScheduleActionStartSettings ::
   ScheduleActionStartSettings
 newScheduleActionStartSettings =
   ScheduleActionStartSettings'
-    { immediateModeScheduleActionStartSettings =
-        Prelude.Nothing,
-      fixedModeScheduleActionStartSettings =
+    { fixedModeScheduleActionStartSettings =
         Prelude.Nothing,
       followModeScheduleActionStartSettings =
+        Prelude.Nothing,
+      immediateModeScheduleActionStartSettings =
         Prelude.Nothing
     }
-
--- | Option for specifying an action that should be applied immediately.
-scheduleActionStartSettings_immediateModeScheduleActionStartSettings :: Lens.Lens' ScheduleActionStartSettings (Prelude.Maybe ImmediateModeScheduleActionStartSettings)
-scheduleActionStartSettings_immediateModeScheduleActionStartSettings = Lens.lens (\ScheduleActionStartSettings' {immediateModeScheduleActionStartSettings} -> immediateModeScheduleActionStartSettings) (\s@ScheduleActionStartSettings' {} a -> s {immediateModeScheduleActionStartSettings = a} :: ScheduleActionStartSettings)
 
 -- | Option for specifying the start time for an action.
 scheduleActionStartSettings_fixedModeScheduleActionStartSettings :: Lens.Lens' ScheduleActionStartSettings (Prelude.Maybe FixedModeScheduleActionStartSettings)
@@ -78,42 +74,45 @@ scheduleActionStartSettings_fixedModeScheduleActionStartSettings = Lens.lens (\S
 scheduleActionStartSettings_followModeScheduleActionStartSettings :: Lens.Lens' ScheduleActionStartSettings (Prelude.Maybe FollowModeScheduleActionStartSettings)
 scheduleActionStartSettings_followModeScheduleActionStartSettings = Lens.lens (\ScheduleActionStartSettings' {followModeScheduleActionStartSettings} -> followModeScheduleActionStartSettings) (\s@ScheduleActionStartSettings' {} a -> s {followModeScheduleActionStartSettings = a} :: ScheduleActionStartSettings)
 
+-- | Option for specifying an action that should be applied immediately.
+scheduleActionStartSettings_immediateModeScheduleActionStartSettings :: Lens.Lens' ScheduleActionStartSettings (Prelude.Maybe ImmediateModeScheduleActionStartSettings)
+scheduleActionStartSettings_immediateModeScheduleActionStartSettings = Lens.lens (\ScheduleActionStartSettings' {immediateModeScheduleActionStartSettings} -> immediateModeScheduleActionStartSettings) (\s@ScheduleActionStartSettings' {} a -> s {immediateModeScheduleActionStartSettings = a} :: ScheduleActionStartSettings)
+
 instance Data.FromJSON ScheduleActionStartSettings where
   parseJSON =
     Data.withObject
       "ScheduleActionStartSettings"
       ( \x ->
           ScheduleActionStartSettings'
-            Prelude.<$> ( x
+            Prelude.<$> (x Data..:? "fixedModeScheduleActionStartSettings")
+            Prelude.<*> (x Data..:? "followModeScheduleActionStartSettings")
+            Prelude.<*> ( x
                             Data..:? "immediateModeScheduleActionStartSettings"
                         )
-            Prelude.<*> (x Data..:? "fixedModeScheduleActionStartSettings")
-            Prelude.<*> (x Data..:? "followModeScheduleActionStartSettings")
       )
 
 instance Prelude.Hashable ScheduleActionStartSettings where
   hashWithSalt _salt ScheduleActionStartSettings' {..} =
     _salt
-      `Prelude.hashWithSalt` immediateModeScheduleActionStartSettings
       `Prelude.hashWithSalt` fixedModeScheduleActionStartSettings
       `Prelude.hashWithSalt` followModeScheduleActionStartSettings
+      `Prelude.hashWithSalt` immediateModeScheduleActionStartSettings
 
 instance Prelude.NFData ScheduleActionStartSettings where
   rnf ScheduleActionStartSettings' {..} =
-    Prelude.rnf
-      immediateModeScheduleActionStartSettings
-      `Prelude.seq` Prelude.rnf fixedModeScheduleActionStartSettings
+    Prelude.rnf fixedModeScheduleActionStartSettings
       `Prelude.seq` Prelude.rnf followModeScheduleActionStartSettings
+      `Prelude.seq` Prelude.rnf immediateModeScheduleActionStartSettings
 
 instance Data.ToJSON ScheduleActionStartSettings where
   toJSON ScheduleActionStartSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("immediateModeScheduleActionStartSettings" Data..=)
-              Prelude.<$> immediateModeScheduleActionStartSettings,
-            ("fixedModeScheduleActionStartSettings" Data..=)
+          [ ("fixedModeScheduleActionStartSettings" Data..=)
               Prelude.<$> fixedModeScheduleActionStartSettings,
             ("followModeScheduleActionStartSettings" Data..=)
-              Prelude.<$> followModeScheduleActionStartSettings
+              Prelude.<$> followModeScheduleActionStartSettings,
+            ("immediateModeScheduleActionStartSettings" Data..=)
+              Prelude.<$> immediateModeScheduleActionStartSettings
           ]
       )

@@ -57,12 +57,12 @@ module Amazonka.Glacier.DescribeVault
     newDescribeVaultOutput,
 
     -- * Response Lenses
-    describeVaultOutput_lastInventoryDate,
     describeVaultOutput_creationDate,
-    describeVaultOutput_vaultName,
+    describeVaultOutput_lastInventoryDate,
     describeVaultOutput_numberOfArchives,
     describeVaultOutput_sizeInBytes,
     describeVaultOutput_vaultARN,
+    describeVaultOutput_vaultName,
   )
 where
 

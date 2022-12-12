@@ -47,6 +47,8 @@ haskell_library(
         "gen/Amazonka/ComputeOptimizer/Types/ExportableInstanceField.hs",
         "gen/Amazonka/ComputeOptimizer/Types/ExportableLambdaFunctionField.hs",
         "gen/Amazonka/ComputeOptimizer/Types/ExportableVolumeField.hs",
+        "gen/Amazonka/ComputeOptimizer/Types/ExternalMetricsPreference.hs",
+        "gen/Amazonka/ComputeOptimizer/Types/ExternalMetricsSource.hs",
         "gen/Amazonka/ComputeOptimizer/Types/FileFormat.hs",
         "gen/Amazonka/ComputeOptimizer/Types/Filter.hs",
         "gen/Amazonka/ComputeOptimizer/Types/FilterName.hs",

@@ -34,17 +34,17 @@ import Amazonka.SecurityHub.Types.IpOrganizationDetails
 --
 -- /See:/ 'newActionRemoteIpDetails' smart constructor.
 data ActionRemoteIpDetails = ActionRemoteIpDetails'
-  { -- | The country where the remote IP address is located.
+  { -- | The city where the remote IP address is located.
+    city :: Prelude.Maybe City,
+    -- | The country where the remote IP address is located.
     country :: Prelude.Maybe Country,
+    -- | The coordinates of the location of the remote IP address.
+    geoLocation :: Prelude.Maybe GeoLocation,
     -- | The IP address.
     ipAddressV4 :: Prelude.Maybe Prelude.Text,
-    -- | The city where the remote IP address is located.
-    city :: Prelude.Maybe City,
     -- | The internet service provider (ISP) organization associated with the
     -- remote IP address.
-    organization :: Prelude.Maybe IpOrganizationDetails,
-    -- | The coordinates of the location of the remote IP address.
-    geoLocation :: Prelude.Maybe GeoLocation
+    organization :: Prelude.Maybe IpOrganizationDetails
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,47 +56,47 @@ data ActionRemoteIpDetails = ActionRemoteIpDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'city', 'actionRemoteIpDetails_city' - The city where the remote IP address is located.
+--
 -- 'country', 'actionRemoteIpDetails_country' - The country where the remote IP address is located.
+--
+-- 'geoLocation', 'actionRemoteIpDetails_geoLocation' - The coordinates of the location of the remote IP address.
 --
 -- 'ipAddressV4', 'actionRemoteIpDetails_ipAddressV4' - The IP address.
 --
--- 'city', 'actionRemoteIpDetails_city' - The city where the remote IP address is located.
---
 -- 'organization', 'actionRemoteIpDetails_organization' - The internet service provider (ISP) organization associated with the
 -- remote IP address.
---
--- 'geoLocation', 'actionRemoteIpDetails_geoLocation' - The coordinates of the location of the remote IP address.
 newActionRemoteIpDetails ::
   ActionRemoteIpDetails
 newActionRemoteIpDetails =
   ActionRemoteIpDetails'
-    { country = Prelude.Nothing,
+    { city = Prelude.Nothing,
+      country = Prelude.Nothing,
+      geoLocation = Prelude.Nothing,
       ipAddressV4 = Prelude.Nothing,
-      city = Prelude.Nothing,
-      organization = Prelude.Nothing,
-      geoLocation = Prelude.Nothing
+      organization = Prelude.Nothing
     }
-
--- | The country where the remote IP address is located.
-actionRemoteIpDetails_country :: Lens.Lens' ActionRemoteIpDetails (Prelude.Maybe Country)
-actionRemoteIpDetails_country = Lens.lens (\ActionRemoteIpDetails' {country} -> country) (\s@ActionRemoteIpDetails' {} a -> s {country = a} :: ActionRemoteIpDetails)
-
--- | The IP address.
-actionRemoteIpDetails_ipAddressV4 :: Lens.Lens' ActionRemoteIpDetails (Prelude.Maybe Prelude.Text)
-actionRemoteIpDetails_ipAddressV4 = Lens.lens (\ActionRemoteIpDetails' {ipAddressV4} -> ipAddressV4) (\s@ActionRemoteIpDetails' {} a -> s {ipAddressV4 = a} :: ActionRemoteIpDetails)
 
 -- | The city where the remote IP address is located.
 actionRemoteIpDetails_city :: Lens.Lens' ActionRemoteIpDetails (Prelude.Maybe City)
 actionRemoteIpDetails_city = Lens.lens (\ActionRemoteIpDetails' {city} -> city) (\s@ActionRemoteIpDetails' {} a -> s {city = a} :: ActionRemoteIpDetails)
 
--- | The internet service provider (ISP) organization associated with the
--- remote IP address.
-actionRemoteIpDetails_organization :: Lens.Lens' ActionRemoteIpDetails (Prelude.Maybe IpOrganizationDetails)
-actionRemoteIpDetails_organization = Lens.lens (\ActionRemoteIpDetails' {organization} -> organization) (\s@ActionRemoteIpDetails' {} a -> s {organization = a} :: ActionRemoteIpDetails)
+-- | The country where the remote IP address is located.
+actionRemoteIpDetails_country :: Lens.Lens' ActionRemoteIpDetails (Prelude.Maybe Country)
+actionRemoteIpDetails_country = Lens.lens (\ActionRemoteIpDetails' {country} -> country) (\s@ActionRemoteIpDetails' {} a -> s {country = a} :: ActionRemoteIpDetails)
 
 -- | The coordinates of the location of the remote IP address.
 actionRemoteIpDetails_geoLocation :: Lens.Lens' ActionRemoteIpDetails (Prelude.Maybe GeoLocation)
 actionRemoteIpDetails_geoLocation = Lens.lens (\ActionRemoteIpDetails' {geoLocation} -> geoLocation) (\s@ActionRemoteIpDetails' {} a -> s {geoLocation = a} :: ActionRemoteIpDetails)
+
+-- | The IP address.
+actionRemoteIpDetails_ipAddressV4 :: Lens.Lens' ActionRemoteIpDetails (Prelude.Maybe Prelude.Text)
+actionRemoteIpDetails_ipAddressV4 = Lens.lens (\ActionRemoteIpDetails' {ipAddressV4} -> ipAddressV4) (\s@ActionRemoteIpDetails' {} a -> s {ipAddressV4 = a} :: ActionRemoteIpDetails)
+
+-- | The internet service provider (ISP) organization associated with the
+-- remote IP address.
+actionRemoteIpDetails_organization :: Lens.Lens' ActionRemoteIpDetails (Prelude.Maybe IpOrganizationDetails)
+actionRemoteIpDetails_organization = Lens.lens (\ActionRemoteIpDetails' {organization} -> organization) (\s@ActionRemoteIpDetails' {} a -> s {organization = a} :: ActionRemoteIpDetails)
 
 instance Data.FromJSON ActionRemoteIpDetails where
   parseJSON =
@@ -104,37 +104,37 @@ instance Data.FromJSON ActionRemoteIpDetails where
       "ActionRemoteIpDetails"
       ( \x ->
           ActionRemoteIpDetails'
-            Prelude.<$> (x Data..:? "Country")
-            Prelude.<*> (x Data..:? "IpAddressV4")
-            Prelude.<*> (x Data..:? "City")
-            Prelude.<*> (x Data..:? "Organization")
+            Prelude.<$> (x Data..:? "City")
+            Prelude.<*> (x Data..:? "Country")
             Prelude.<*> (x Data..:? "GeoLocation")
+            Prelude.<*> (x Data..:? "IpAddressV4")
+            Prelude.<*> (x Data..:? "Organization")
       )
 
 instance Prelude.Hashable ActionRemoteIpDetails where
   hashWithSalt _salt ActionRemoteIpDetails' {..} =
-    _salt `Prelude.hashWithSalt` country
-      `Prelude.hashWithSalt` ipAddressV4
-      `Prelude.hashWithSalt` city
-      `Prelude.hashWithSalt` organization
+    _salt `Prelude.hashWithSalt` city
+      `Prelude.hashWithSalt` country
       `Prelude.hashWithSalt` geoLocation
+      `Prelude.hashWithSalt` ipAddressV4
+      `Prelude.hashWithSalt` organization
 
 instance Prelude.NFData ActionRemoteIpDetails where
   rnf ActionRemoteIpDetails' {..} =
-    Prelude.rnf country
-      `Prelude.seq` Prelude.rnf ipAddressV4
-      `Prelude.seq` Prelude.rnf city
-      `Prelude.seq` Prelude.rnf organization
+    Prelude.rnf city
+      `Prelude.seq` Prelude.rnf country
       `Prelude.seq` Prelude.rnf geoLocation
+      `Prelude.seq` Prelude.rnf ipAddressV4
+      `Prelude.seq` Prelude.rnf organization
 
 instance Data.ToJSON ActionRemoteIpDetails where
   toJSON ActionRemoteIpDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Country" Data..=) Prelude.<$> country,
+          [ ("City" Data..=) Prelude.<$> city,
+            ("Country" Data..=) Prelude.<$> country,
+            ("GeoLocation" Data..=) Prelude.<$> geoLocation,
             ("IpAddressV4" Data..=) Prelude.<$> ipAddressV4,
-            ("City" Data..=) Prelude.<$> city,
-            ("Organization" Data..=) Prelude.<$> organization,
-            ("GeoLocation" Data..=) Prelude.<$> geoLocation
+            ("Organization" Data..=) Prelude.<$> organization
           ]
       )

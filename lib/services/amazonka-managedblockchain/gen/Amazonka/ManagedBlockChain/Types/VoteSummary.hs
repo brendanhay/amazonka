@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVoteSummary' smart constructor.
 data VoteSummary = VoteSummary'
-  { -- | The name of the member that cast the vote.
-    memberName :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier of the member that cast the vote.
+  { -- | The unique identifier of the member that cast the vote.
     memberId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the member that cast the vote.
+    memberName :: Prelude.Maybe Prelude.Text,
     -- | The vote value, either @YES@ or @NO@.
     vote :: Prelude.Maybe VoteValue
   }
@@ -48,27 +48,27 @@ data VoteSummary = VoteSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'memberName', 'voteSummary_memberName' - The name of the member that cast the vote.
---
 -- 'memberId', 'voteSummary_memberId' - The unique identifier of the member that cast the vote.
+--
+-- 'memberName', 'voteSummary_memberName' - The name of the member that cast the vote.
 --
 -- 'vote', 'voteSummary_vote' - The vote value, either @YES@ or @NO@.
 newVoteSummary ::
   VoteSummary
 newVoteSummary =
   VoteSummary'
-    { memberName = Prelude.Nothing,
-      memberId = Prelude.Nothing,
+    { memberId = Prelude.Nothing,
+      memberName = Prelude.Nothing,
       vote = Prelude.Nothing
     }
-
--- | The name of the member that cast the vote.
-voteSummary_memberName :: Lens.Lens' VoteSummary (Prelude.Maybe Prelude.Text)
-voteSummary_memberName = Lens.lens (\VoteSummary' {memberName} -> memberName) (\s@VoteSummary' {} a -> s {memberName = a} :: VoteSummary)
 
 -- | The unique identifier of the member that cast the vote.
 voteSummary_memberId :: Lens.Lens' VoteSummary (Prelude.Maybe Prelude.Text)
 voteSummary_memberId = Lens.lens (\VoteSummary' {memberId} -> memberId) (\s@VoteSummary' {} a -> s {memberId = a} :: VoteSummary)
+
+-- | The name of the member that cast the vote.
+voteSummary_memberName :: Lens.Lens' VoteSummary (Prelude.Maybe Prelude.Text)
+voteSummary_memberName = Lens.lens (\VoteSummary' {memberName} -> memberName) (\s@VoteSummary' {} a -> s {memberName = a} :: VoteSummary)
 
 -- | The vote value, either @YES@ or @NO@.
 voteSummary_vote :: Lens.Lens' VoteSummary (Prelude.Maybe VoteValue)
@@ -80,19 +80,19 @@ instance Data.FromJSON VoteSummary where
       "VoteSummary"
       ( \x ->
           VoteSummary'
-            Prelude.<$> (x Data..:? "MemberName")
-            Prelude.<*> (x Data..:? "MemberId")
+            Prelude.<$> (x Data..:? "MemberId")
+            Prelude.<*> (x Data..:? "MemberName")
             Prelude.<*> (x Data..:? "Vote")
       )
 
 instance Prelude.Hashable VoteSummary where
   hashWithSalt _salt VoteSummary' {..} =
-    _salt `Prelude.hashWithSalt` memberName
-      `Prelude.hashWithSalt` memberId
+    _salt `Prelude.hashWithSalt` memberId
+      `Prelude.hashWithSalt` memberName
       `Prelude.hashWithSalt` vote
 
 instance Prelude.NFData VoteSummary where
   rnf VoteSummary' {..} =
-    Prelude.rnf memberName
-      `Prelude.seq` Prelude.rnf memberId
+    Prelude.rnf memberId
+      `Prelude.seq` Prelude.rnf memberName
       `Prelude.seq` Prelude.rnf vote

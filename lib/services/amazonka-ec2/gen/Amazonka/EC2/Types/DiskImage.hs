@@ -33,10 +33,10 @@ import qualified Amazonka.Prelude as Prelude
 data DiskImage = DiskImage'
   { -- | A description of the disk image.
     description :: Prelude.Maybe Prelude.Text,
-    -- | Information about the volume.
-    volume :: Prelude.Maybe VolumeDetail,
     -- | Information about the disk image.
-    image :: Prelude.Maybe DiskImageDetail
+    image :: Prelude.Maybe DiskImageDetail,
+    -- | Information about the volume.
+    volume :: Prelude.Maybe VolumeDetail
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,46 +50,46 @@ data DiskImage = DiskImage'
 --
 -- 'description', 'diskImage_description' - A description of the disk image.
 --
--- 'volume', 'diskImage_volume' - Information about the volume.
---
 -- 'image', 'diskImage_image' - Information about the disk image.
+--
+-- 'volume', 'diskImage_volume' - Information about the volume.
 newDiskImage ::
   DiskImage
 newDiskImage =
   DiskImage'
     { description = Prelude.Nothing,
-      volume = Prelude.Nothing,
-      image = Prelude.Nothing
+      image = Prelude.Nothing,
+      volume = Prelude.Nothing
     }
 
 -- | A description of the disk image.
 diskImage_description :: Lens.Lens' DiskImage (Prelude.Maybe Prelude.Text)
 diskImage_description = Lens.lens (\DiskImage' {description} -> description) (\s@DiskImage' {} a -> s {description = a} :: DiskImage)
 
--- | Information about the volume.
-diskImage_volume :: Lens.Lens' DiskImage (Prelude.Maybe VolumeDetail)
-diskImage_volume = Lens.lens (\DiskImage' {volume} -> volume) (\s@DiskImage' {} a -> s {volume = a} :: DiskImage)
-
 -- | Information about the disk image.
 diskImage_image :: Lens.Lens' DiskImage (Prelude.Maybe DiskImageDetail)
 diskImage_image = Lens.lens (\DiskImage' {image} -> image) (\s@DiskImage' {} a -> s {image = a} :: DiskImage)
 
+-- | Information about the volume.
+diskImage_volume :: Lens.Lens' DiskImage (Prelude.Maybe VolumeDetail)
+diskImage_volume = Lens.lens (\DiskImage' {volume} -> volume) (\s@DiskImage' {} a -> s {volume = a} :: DiskImage)
+
 instance Prelude.Hashable DiskImage where
   hashWithSalt _salt DiskImage' {..} =
     _salt `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` volume
       `Prelude.hashWithSalt` image
+      `Prelude.hashWithSalt` volume
 
 instance Prelude.NFData DiskImage where
   rnf DiskImage' {..} =
     Prelude.rnf description
-      `Prelude.seq` Prelude.rnf volume
       `Prelude.seq` Prelude.rnf image
+      `Prelude.seq` Prelude.rnf volume
 
 instance Data.ToQuery DiskImage where
   toQuery DiskImage' {..} =
     Prelude.mconcat
       [ "Description" Data.=: description,
-        "Volume" Data.=: volume,
-        "Image" Data.=: image
+        "Image" Data.=: image,
+        "Volume" Data.=: volume
       ]

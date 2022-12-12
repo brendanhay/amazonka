@@ -28,19 +28,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStaticKeyProvider' smart constructor.
 data StaticKeyProvider = StaticKeyProvider'
-  { -- | Relates to DRM implementation. Use a 32-character hexidecimal string to
-    -- specify Key Value (StaticKeyValue).
-    staticKeyValue :: Prelude.Maybe Prelude.Text,
-    -- | Relates to DRM implementation. The location of the license server used
-    -- for protecting content.
-    url :: Prelude.Maybe Prelude.Text,
-    -- | Relates to DRM implementation. Sets the value of the KEYFORMAT
+  { -- | Relates to DRM implementation. Sets the value of the KEYFORMAT
     -- attribute. Must be \'identity\' or a reverse DNS string. May be omitted
     -- to indicate an implicit value of \'identity\'.
     keyFormat :: Prelude.Maybe Prelude.Text,
     -- | Relates to DRM implementation. Either a single positive integer version
     -- value or a slash delimited list of version values (1\/2\/3).
-    keyFormatVersions :: Prelude.Maybe Prelude.Text
+    keyFormatVersions :: Prelude.Maybe Prelude.Text,
+    -- | Relates to DRM implementation. Use a 32-character hexidecimal string to
+    -- specify Key Value (StaticKeyValue).
+    staticKeyValue :: Prelude.Maybe Prelude.Text,
+    -- | Relates to DRM implementation. The location of the license server used
+    -- for protecting content.
+    url :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,38 +52,27 @@ data StaticKeyProvider = StaticKeyProvider'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'staticKeyValue', 'staticKeyProvider_staticKeyValue' - Relates to DRM implementation. Use a 32-character hexidecimal string to
--- specify Key Value (StaticKeyValue).
---
--- 'url', 'staticKeyProvider_url' - Relates to DRM implementation. The location of the license server used
--- for protecting content.
---
 -- 'keyFormat', 'staticKeyProvider_keyFormat' - Relates to DRM implementation. Sets the value of the KEYFORMAT
 -- attribute. Must be \'identity\' or a reverse DNS string. May be omitted
 -- to indicate an implicit value of \'identity\'.
 --
 -- 'keyFormatVersions', 'staticKeyProvider_keyFormatVersions' - Relates to DRM implementation. Either a single positive integer version
 -- value or a slash delimited list of version values (1\/2\/3).
+--
+-- 'staticKeyValue', 'staticKeyProvider_staticKeyValue' - Relates to DRM implementation. Use a 32-character hexidecimal string to
+-- specify Key Value (StaticKeyValue).
+--
+-- 'url', 'staticKeyProvider_url' - Relates to DRM implementation. The location of the license server used
+-- for protecting content.
 newStaticKeyProvider ::
   StaticKeyProvider
 newStaticKeyProvider =
   StaticKeyProvider'
-    { staticKeyValue =
-        Prelude.Nothing,
-      url = Prelude.Nothing,
-      keyFormat = Prelude.Nothing,
-      keyFormatVersions = Prelude.Nothing
+    { keyFormat = Prelude.Nothing,
+      keyFormatVersions = Prelude.Nothing,
+      staticKeyValue = Prelude.Nothing,
+      url = Prelude.Nothing
     }
-
--- | Relates to DRM implementation. Use a 32-character hexidecimal string to
--- specify Key Value (StaticKeyValue).
-staticKeyProvider_staticKeyValue :: Lens.Lens' StaticKeyProvider (Prelude.Maybe Prelude.Text)
-staticKeyProvider_staticKeyValue = Lens.lens (\StaticKeyProvider' {staticKeyValue} -> staticKeyValue) (\s@StaticKeyProvider' {} a -> s {staticKeyValue = a} :: StaticKeyProvider)
-
--- | Relates to DRM implementation. The location of the license server used
--- for protecting content.
-staticKeyProvider_url :: Lens.Lens' StaticKeyProvider (Prelude.Maybe Prelude.Text)
-staticKeyProvider_url = Lens.lens (\StaticKeyProvider' {url} -> url) (\s@StaticKeyProvider' {} a -> s {url = a} :: StaticKeyProvider)
 
 -- | Relates to DRM implementation. Sets the value of the KEYFORMAT
 -- attribute. Must be \'identity\' or a reverse DNS string. May be omitted
@@ -96,41 +85,51 @@ staticKeyProvider_keyFormat = Lens.lens (\StaticKeyProvider' {keyFormat} -> keyF
 staticKeyProvider_keyFormatVersions :: Lens.Lens' StaticKeyProvider (Prelude.Maybe Prelude.Text)
 staticKeyProvider_keyFormatVersions = Lens.lens (\StaticKeyProvider' {keyFormatVersions} -> keyFormatVersions) (\s@StaticKeyProvider' {} a -> s {keyFormatVersions = a} :: StaticKeyProvider)
 
+-- | Relates to DRM implementation. Use a 32-character hexidecimal string to
+-- specify Key Value (StaticKeyValue).
+staticKeyProvider_staticKeyValue :: Lens.Lens' StaticKeyProvider (Prelude.Maybe Prelude.Text)
+staticKeyProvider_staticKeyValue = Lens.lens (\StaticKeyProvider' {staticKeyValue} -> staticKeyValue) (\s@StaticKeyProvider' {} a -> s {staticKeyValue = a} :: StaticKeyProvider)
+
+-- | Relates to DRM implementation. The location of the license server used
+-- for protecting content.
+staticKeyProvider_url :: Lens.Lens' StaticKeyProvider (Prelude.Maybe Prelude.Text)
+staticKeyProvider_url = Lens.lens (\StaticKeyProvider' {url} -> url) (\s@StaticKeyProvider' {} a -> s {url = a} :: StaticKeyProvider)
+
 instance Data.FromJSON StaticKeyProvider where
   parseJSON =
     Data.withObject
       "StaticKeyProvider"
       ( \x ->
           StaticKeyProvider'
-            Prelude.<$> (x Data..:? "staticKeyValue")
-            Prelude.<*> (x Data..:? "url")
-            Prelude.<*> (x Data..:? "keyFormat")
+            Prelude.<$> (x Data..:? "keyFormat")
             Prelude.<*> (x Data..:? "keyFormatVersions")
+            Prelude.<*> (x Data..:? "staticKeyValue")
+            Prelude.<*> (x Data..:? "url")
       )
 
 instance Prelude.Hashable StaticKeyProvider where
   hashWithSalt _salt StaticKeyProvider' {..} =
-    _salt `Prelude.hashWithSalt` staticKeyValue
-      `Prelude.hashWithSalt` url
-      `Prelude.hashWithSalt` keyFormat
+    _salt `Prelude.hashWithSalt` keyFormat
       `Prelude.hashWithSalt` keyFormatVersions
+      `Prelude.hashWithSalt` staticKeyValue
+      `Prelude.hashWithSalt` url
 
 instance Prelude.NFData StaticKeyProvider where
   rnf StaticKeyProvider' {..} =
-    Prelude.rnf staticKeyValue
-      `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf keyFormat
+    Prelude.rnf keyFormat
       `Prelude.seq` Prelude.rnf keyFormatVersions
+      `Prelude.seq` Prelude.rnf staticKeyValue
+      `Prelude.seq` Prelude.rnf url
 
 instance Data.ToJSON StaticKeyProvider where
   toJSON StaticKeyProvider' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("staticKeyValue" Data..=)
-              Prelude.<$> staticKeyValue,
-            ("url" Data..=) Prelude.<$> url,
-            ("keyFormat" Data..=) Prelude.<$> keyFormat,
+          [ ("keyFormat" Data..=) Prelude.<$> keyFormat,
             ("keyFormatVersions" Data..=)
-              Prelude.<$> keyFormatVersions
+              Prelude.<$> keyFormatVersions,
+            ("staticKeyValue" Data..=)
+              Prelude.<$> staticKeyValue,
+            ("url" Data..=) Prelude.<$> url
           ]
       )

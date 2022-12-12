@@ -51,8 +51,8 @@ module Amazonka.Config.DescribeOrganizationConfigRules
     newDescribeOrganizationConfigRules,
 
     -- * Request Lenses
-    describeOrganizationConfigRules_nextToken,
     describeOrganizationConfigRules_limit,
+    describeOrganizationConfigRules_nextToken,
     describeOrganizationConfigRules_organizationConfigRuleNames,
 
     -- * Destructuring the Response
@@ -76,13 +76,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeOrganizationConfigRules' smart constructor.
 data DescribeOrganizationConfigRules = DescribeOrganizationConfigRules'
-  { -- | The @nextToken@ string returned on a previous page that you use to get
-    -- the next page of results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of organization Config rules returned on each page.
+  { -- | The maximum number of organization Config rules returned on each page.
     -- If you do no specify a number, Config uses the default. The default is
     -- 100.
     limit :: Prelude.Maybe Prelude.Natural,
+    -- | The @nextToken@ string returned on a previous page that you use to get
+    -- the next page of results in a paginated response.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The names of organization Config rules for which you want details. If
     -- you do not specify any names, Config returns details for all your
     -- organization Config rules.
@@ -98,12 +98,12 @@ data DescribeOrganizationConfigRules = DescribeOrganizationConfigRules'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeOrganizationConfigRules_nextToken' - The @nextToken@ string returned on a previous page that you use to get
--- the next page of results in a paginated response.
---
 -- 'limit', 'describeOrganizationConfigRules_limit' - The maximum number of organization Config rules returned on each page.
 -- If you do no specify a number, Config uses the default. The default is
 -- 100.
+--
+-- 'nextToken', 'describeOrganizationConfigRules_nextToken' - The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
 --
 -- 'organizationConfigRuleNames', 'describeOrganizationConfigRules_organizationConfigRuleNames' - The names of organization Config rules for which you want details. If
 -- you do not specify any names, Config returns details for all your
@@ -112,23 +112,23 @@ newDescribeOrganizationConfigRules ::
   DescribeOrganizationConfigRules
 newDescribeOrganizationConfigRules =
   DescribeOrganizationConfigRules'
-    { nextToken =
+    { limit =
         Prelude.Nothing,
-      limit = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       organizationConfigRuleNames =
         Prelude.Nothing
     }
-
--- | The @nextToken@ string returned on a previous page that you use to get
--- the next page of results in a paginated response.
-describeOrganizationConfigRules_nextToken :: Lens.Lens' DescribeOrganizationConfigRules (Prelude.Maybe Prelude.Text)
-describeOrganizationConfigRules_nextToken = Lens.lens (\DescribeOrganizationConfigRules' {nextToken} -> nextToken) (\s@DescribeOrganizationConfigRules' {} a -> s {nextToken = a} :: DescribeOrganizationConfigRules)
 
 -- | The maximum number of organization Config rules returned on each page.
 -- If you do no specify a number, Config uses the default. The default is
 -- 100.
 describeOrganizationConfigRules_limit :: Lens.Lens' DescribeOrganizationConfigRules (Prelude.Maybe Prelude.Natural)
 describeOrganizationConfigRules_limit = Lens.lens (\DescribeOrganizationConfigRules' {limit} -> limit) (\s@DescribeOrganizationConfigRules' {} a -> s {limit = a} :: DescribeOrganizationConfigRules)
+
+-- | The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
+describeOrganizationConfigRules_nextToken :: Lens.Lens' DescribeOrganizationConfigRules (Prelude.Maybe Prelude.Text)
+describeOrganizationConfigRules_nextToken = Lens.lens (\DescribeOrganizationConfigRules' {nextToken} -> nextToken) (\s@DescribeOrganizationConfigRules' {} a -> s {nextToken = a} :: DescribeOrganizationConfigRules)
 
 -- | The names of organization Config rules for which you want details. If
 -- you do not specify any names, Config returns details for all your
@@ -188,8 +188,8 @@ instance
   hashWithSalt
     _salt
     DescribeOrganizationConfigRules' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` limit
+      _salt `Prelude.hashWithSalt` limit
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` organizationConfigRuleNames
 
 instance
@@ -197,8 +197,8 @@ instance
     DescribeOrganizationConfigRules
   where
   rnf DescribeOrganizationConfigRules' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf organizationConfigRuleNames
 
 instance
@@ -223,8 +223,8 @@ instance Data.ToJSON DescribeOrganizationConfigRules where
   toJSON DescribeOrganizationConfigRules' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Limit" Data..=) Prelude.<$> limit,
+          [ ("Limit" Data..=) Prelude.<$> limit,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("OrganizationConfigRuleNames" Data..=)
               Prelude.<$> organizationConfigRuleNames
           ]

@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newChangeProgressStage' smart constructor.
 data ChangeProgressStage = ChangeProgressStage'
-  { -- | The name of the stage.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The status of the stage.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The description of the stage.
+  { -- | The description of the stage.
     description :: Prelude.Maybe Prelude.Text,
     -- | The most recent updated timestamp of the stage.
-    lastUpdated :: Prelude.Maybe Data.POSIX
+    lastUpdated :: Prelude.Maybe Data.POSIX,
+    -- | The name of the stage.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The status of the stage.
+    status :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,30 +47,22 @@ data ChangeProgressStage = ChangeProgressStage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'changeProgressStage_name' - The name of the stage.
---
--- 'status', 'changeProgressStage_status' - The status of the stage.
---
 -- 'description', 'changeProgressStage_description' - The description of the stage.
 --
 -- 'lastUpdated', 'changeProgressStage_lastUpdated' - The most recent updated timestamp of the stage.
+--
+-- 'name', 'changeProgressStage_name' - The name of the stage.
+--
+-- 'status', 'changeProgressStage_status' - The status of the stage.
 newChangeProgressStage ::
   ChangeProgressStage
 newChangeProgressStage =
   ChangeProgressStage'
-    { name = Prelude.Nothing,
-      status = Prelude.Nothing,
-      description = Prelude.Nothing,
-      lastUpdated = Prelude.Nothing
+    { description = Prelude.Nothing,
+      lastUpdated = Prelude.Nothing,
+      name = Prelude.Nothing,
+      status = Prelude.Nothing
     }
-
--- | The name of the stage.
-changeProgressStage_name :: Lens.Lens' ChangeProgressStage (Prelude.Maybe Prelude.Text)
-changeProgressStage_name = Lens.lens (\ChangeProgressStage' {name} -> name) (\s@ChangeProgressStage' {} a -> s {name = a} :: ChangeProgressStage)
-
--- | The status of the stage.
-changeProgressStage_status :: Lens.Lens' ChangeProgressStage (Prelude.Maybe Prelude.Text)
-changeProgressStage_status = Lens.lens (\ChangeProgressStage' {status} -> status) (\s@ChangeProgressStage' {} a -> s {status = a} :: ChangeProgressStage)
 
 -- | The description of the stage.
 changeProgressStage_description :: Lens.Lens' ChangeProgressStage (Prelude.Maybe Prelude.Text)
@@ -80,28 +72,36 @@ changeProgressStage_description = Lens.lens (\ChangeProgressStage' {description}
 changeProgressStage_lastUpdated :: Lens.Lens' ChangeProgressStage (Prelude.Maybe Prelude.UTCTime)
 changeProgressStage_lastUpdated = Lens.lens (\ChangeProgressStage' {lastUpdated} -> lastUpdated) (\s@ChangeProgressStage' {} a -> s {lastUpdated = a} :: ChangeProgressStage) Prelude.. Lens.mapping Data._Time
 
+-- | The name of the stage.
+changeProgressStage_name :: Lens.Lens' ChangeProgressStage (Prelude.Maybe Prelude.Text)
+changeProgressStage_name = Lens.lens (\ChangeProgressStage' {name} -> name) (\s@ChangeProgressStage' {} a -> s {name = a} :: ChangeProgressStage)
+
+-- | The status of the stage.
+changeProgressStage_status :: Lens.Lens' ChangeProgressStage (Prelude.Maybe Prelude.Text)
+changeProgressStage_status = Lens.lens (\ChangeProgressStage' {status} -> status) (\s@ChangeProgressStage' {} a -> s {status = a} :: ChangeProgressStage)
+
 instance Data.FromJSON ChangeProgressStage where
   parseJSON =
     Data.withObject
       "ChangeProgressStage"
       ( \x ->
           ChangeProgressStage'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "Description")
+            Prelude.<$> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "LastUpdated")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable ChangeProgressStage where
   hashWithSalt _salt ChangeProgressStage' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` lastUpdated
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ChangeProgressStage where
   rnf ChangeProgressStage' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf lastUpdated
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf status

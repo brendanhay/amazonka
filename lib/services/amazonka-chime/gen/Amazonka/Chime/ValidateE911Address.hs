@@ -44,10 +44,10 @@ module Amazonka.Chime.ValidateE911Address
     newValidateE911AddressResponse,
 
     -- * Response Lenses
-    validateE911AddressResponse_validationResult,
-    validateE911AddressResponse_candidateAddressList,
     validateE911AddressResponse_address,
     validateE911AddressResponse_addressExternalId,
+    validateE911AddressResponse_candidateAddressList,
+    validateE911AddressResponse_validationResult,
     validateE911AddressResponse_httpStatus,
   )
 where
@@ -172,12 +172,12 @@ instance Core.AWSRequest ValidateE911Address where
     Response.receiveJSON
       ( \s h x ->
           ValidateE911AddressResponse'
-            Prelude.<$> (x Data..?> "ValidationResult")
+            Prelude.<$> (x Data..?> "Address")
+            Prelude.<*> (x Data..?> "AddressExternalId")
             Prelude.<*> ( x Data..?> "CandidateAddressList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "Address")
-            Prelude.<*> (x Data..?> "AddressExternalId")
+            Prelude.<*> (x Data..?> "ValidationResult")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -226,17 +226,17 @@ instance Data.ToQuery ValidateE911Address where
 
 -- | /See:/ 'newValidateE911AddressResponse' smart constructor.
 data ValidateE911AddressResponse = ValidateE911AddressResponse'
-  { -- | Number indicating the result of address validation. @0@ means the
+  { -- | The validated address.
+    address :: Prelude.Maybe Address,
+    -- | The ID that represents the address.
+    addressExternalId :: Prelude.Maybe Prelude.Text,
+    -- | The list of address suggestions.
+    candidateAddressList :: Prelude.Maybe [CandidateAddress],
+    -- | Number indicating the result of address validation. @0@ means the
     -- address was perfect as is and successfully validated. @1@ means the
     -- address was corrected. @2@ means the address sent was not close enough
     -- and was not validated.
     validationResult :: Prelude.Maybe Prelude.Natural,
-    -- | The list of address suggestions.
-    candidateAddressList :: Prelude.Maybe [CandidateAddress],
-    -- | The validated address.
-    address :: Prelude.Maybe Address,
-    -- | The ID that represents the address.
-    addressExternalId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -250,16 +250,16 @@ data ValidateE911AddressResponse = ValidateE911AddressResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'address', 'validateE911AddressResponse_address' - The validated address.
+--
+-- 'addressExternalId', 'validateE911AddressResponse_addressExternalId' - The ID that represents the address.
+--
+-- 'candidateAddressList', 'validateE911AddressResponse_candidateAddressList' - The list of address suggestions.
+--
 -- 'validationResult', 'validateE911AddressResponse_validationResult' - Number indicating the result of address validation. @0@ means the
 -- address was perfect as is and successfully validated. @1@ means the
 -- address was corrected. @2@ means the address sent was not close enough
 -- and was not validated.
---
--- 'candidateAddressList', 'validateE911AddressResponse_candidateAddressList' - The list of address suggestions.
---
--- 'address', 'validateE911AddressResponse_address' - The validated address.
---
--- 'addressExternalId', 'validateE911AddressResponse_addressExternalId' - The ID that represents the address.
 --
 -- 'httpStatus', 'validateE911AddressResponse_httpStatus' - The response's http status code.
 newValidateE911AddressResponse ::
@@ -268,24 +268,13 @@ newValidateE911AddressResponse ::
   ValidateE911AddressResponse
 newValidateE911AddressResponse pHttpStatus_ =
   ValidateE911AddressResponse'
-    { validationResult =
+    { address =
         Prelude.Nothing,
-      candidateAddressList = Prelude.Nothing,
-      address = Prelude.Nothing,
       addressExternalId = Prelude.Nothing,
+      candidateAddressList = Prelude.Nothing,
+      validationResult = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Number indicating the result of address validation. @0@ means the
--- address was perfect as is and successfully validated. @1@ means the
--- address was corrected. @2@ means the address sent was not close enough
--- and was not validated.
-validateE911AddressResponse_validationResult :: Lens.Lens' ValidateE911AddressResponse (Prelude.Maybe Prelude.Natural)
-validateE911AddressResponse_validationResult = Lens.lens (\ValidateE911AddressResponse' {validationResult} -> validationResult) (\s@ValidateE911AddressResponse' {} a -> s {validationResult = a} :: ValidateE911AddressResponse)
-
--- | The list of address suggestions.
-validateE911AddressResponse_candidateAddressList :: Lens.Lens' ValidateE911AddressResponse (Prelude.Maybe [CandidateAddress])
-validateE911AddressResponse_candidateAddressList = Lens.lens (\ValidateE911AddressResponse' {candidateAddressList} -> candidateAddressList) (\s@ValidateE911AddressResponse' {} a -> s {candidateAddressList = a} :: ValidateE911AddressResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The validated address.
 validateE911AddressResponse_address :: Lens.Lens' ValidateE911AddressResponse (Prelude.Maybe Address)
@@ -295,14 +284,25 @@ validateE911AddressResponse_address = Lens.lens (\ValidateE911AddressResponse' {
 validateE911AddressResponse_addressExternalId :: Lens.Lens' ValidateE911AddressResponse (Prelude.Maybe Prelude.Text)
 validateE911AddressResponse_addressExternalId = Lens.lens (\ValidateE911AddressResponse' {addressExternalId} -> addressExternalId) (\s@ValidateE911AddressResponse' {} a -> s {addressExternalId = a} :: ValidateE911AddressResponse)
 
+-- | The list of address suggestions.
+validateE911AddressResponse_candidateAddressList :: Lens.Lens' ValidateE911AddressResponse (Prelude.Maybe [CandidateAddress])
+validateE911AddressResponse_candidateAddressList = Lens.lens (\ValidateE911AddressResponse' {candidateAddressList} -> candidateAddressList) (\s@ValidateE911AddressResponse' {} a -> s {candidateAddressList = a} :: ValidateE911AddressResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Number indicating the result of address validation. @0@ means the
+-- address was perfect as is and successfully validated. @1@ means the
+-- address was corrected. @2@ means the address sent was not close enough
+-- and was not validated.
+validateE911AddressResponse_validationResult :: Lens.Lens' ValidateE911AddressResponse (Prelude.Maybe Prelude.Natural)
+validateE911AddressResponse_validationResult = Lens.lens (\ValidateE911AddressResponse' {validationResult} -> validationResult) (\s@ValidateE911AddressResponse' {} a -> s {validationResult = a} :: ValidateE911AddressResponse)
+
 -- | The response's http status code.
 validateE911AddressResponse_httpStatus :: Lens.Lens' ValidateE911AddressResponse Prelude.Int
 validateE911AddressResponse_httpStatus = Lens.lens (\ValidateE911AddressResponse' {httpStatus} -> httpStatus) (\s@ValidateE911AddressResponse' {} a -> s {httpStatus = a} :: ValidateE911AddressResponse)
 
 instance Prelude.NFData ValidateE911AddressResponse where
   rnf ValidateE911AddressResponse' {..} =
-    Prelude.rnf validationResult
-      `Prelude.seq` Prelude.rnf candidateAddressList
-      `Prelude.seq` Prelude.rnf address
+    Prelude.rnf address
       `Prelude.seq` Prelude.rnf addressExternalId
+      `Prelude.seq` Prelude.rnf candidateAddressList
+      `Prelude.seq` Prelude.rnf validationResult
       `Prelude.seq` Prelude.rnf httpStatus

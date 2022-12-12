@@ -34,8 +34,8 @@ module Amazonka.SESV2.GetDeliverabilityTestReport
     newGetDeliverabilityTestReportResponse,
 
     -- * Response Lenses
-    getDeliverabilityTestReportResponse_tags,
     getDeliverabilityTestReportResponse_message,
+    getDeliverabilityTestReportResponse_tags,
     getDeliverabilityTestReportResponse_httpStatus,
     getDeliverabilityTestReportResponse_deliverabilityTestReport,
     getDeliverabilityTestReportResponse_overallPlacement,
@@ -90,8 +90,8 @@ instance Core.AWSRequest GetDeliverabilityTestReport where
     Response.receiveJSON
       ( \s h x ->
           GetDeliverabilityTestReportResponse'
-            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "Message")
+            Prelude.<$> (x Data..?> "Message")
+            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "DeliverabilityTestReport")
             Prelude.<*> (x Data..:> "OverallPlacement")
@@ -131,12 +131,12 @@ instance Data.ToQuery GetDeliverabilityTestReport where
 --
 -- /See:/ 'newGetDeliverabilityTestReportResponse' smart constructor.
 data GetDeliverabilityTestReportResponse = GetDeliverabilityTestReportResponse'
-  { -- | An array of objects that define the tags (keys and values) that are
-    -- associated with the predictive inbox placement test.
-    tags :: Prelude.Maybe [Tag],
-    -- | An object that contains the message that you sent when you performed
+  { -- | An object that contains the message that you sent when you performed
     -- this predictive inbox placement test.
     message :: Prelude.Maybe Prelude.Text,
+    -- | An array of objects that define the tags (keys and values) that are
+    -- associated with the predictive inbox placement test.
+    tags :: Prelude.Maybe [Tag],
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | An object that contains the results of the predictive inbox placement
@@ -161,11 +161,11 @@ data GetDeliverabilityTestReportResponse = GetDeliverabilityTestReportResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'getDeliverabilityTestReportResponse_tags' - An array of objects that define the tags (keys and values) that are
--- associated with the predictive inbox placement test.
---
 -- 'message', 'getDeliverabilityTestReportResponse_message' - An object that contains the message that you sent when you performed
 -- this predictive inbox placement test.
+--
+-- 'tags', 'getDeliverabilityTestReportResponse_tags' - An array of objects that define the tags (keys and values) that are
+-- associated with the predictive inbox placement test.
 --
 -- 'httpStatus', 'getDeliverabilityTestReportResponse_httpStatus' - The response's http status code.
 --
@@ -192,9 +192,9 @@ newGetDeliverabilityTestReportResponse
   pDeliverabilityTestReport_
   pOverallPlacement_ =
     GetDeliverabilityTestReportResponse'
-      { tags =
+      { message =
           Prelude.Nothing,
-        message = Prelude.Nothing,
+        tags = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         deliverabilityTestReport =
           pDeliverabilityTestReport_,
@@ -202,15 +202,15 @@ newGetDeliverabilityTestReportResponse
         ispPlacements = Prelude.mempty
       }
 
--- | An array of objects that define the tags (keys and values) that are
--- associated with the predictive inbox placement test.
-getDeliverabilityTestReportResponse_tags :: Lens.Lens' GetDeliverabilityTestReportResponse (Prelude.Maybe [Tag])
-getDeliverabilityTestReportResponse_tags = Lens.lens (\GetDeliverabilityTestReportResponse' {tags} -> tags) (\s@GetDeliverabilityTestReportResponse' {} a -> s {tags = a} :: GetDeliverabilityTestReportResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | An object that contains the message that you sent when you performed
 -- this predictive inbox placement test.
 getDeliverabilityTestReportResponse_message :: Lens.Lens' GetDeliverabilityTestReportResponse (Prelude.Maybe Prelude.Text)
 getDeliverabilityTestReportResponse_message = Lens.lens (\GetDeliverabilityTestReportResponse' {message} -> message) (\s@GetDeliverabilityTestReportResponse' {} a -> s {message = a} :: GetDeliverabilityTestReportResponse)
+
+-- | An array of objects that define the tags (keys and values) that are
+-- associated with the predictive inbox placement test.
+getDeliverabilityTestReportResponse_tags :: Lens.Lens' GetDeliverabilityTestReportResponse (Prelude.Maybe [Tag])
+getDeliverabilityTestReportResponse_tags = Lens.lens (\GetDeliverabilityTestReportResponse' {tags} -> tags) (\s@GetDeliverabilityTestReportResponse' {} a -> s {tags = a} :: GetDeliverabilityTestReportResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getDeliverabilityTestReportResponse_httpStatus :: Lens.Lens' GetDeliverabilityTestReportResponse Prelude.Int
@@ -238,8 +238,8 @@ instance
     GetDeliverabilityTestReportResponse
   where
   rnf GetDeliverabilityTestReportResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf message
+    Prelude.rnf message
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf deliverabilityTestReport
       `Prelude.seq` Prelude.rnf overallPlacement

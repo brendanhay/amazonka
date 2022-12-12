@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCustomerGateway' smart constructor.
 data CustomerGateway = CustomerGateway'
-  { -- | Any tags assigned to the customer gateway.
-    tags :: Prelude.Maybe [Tag],
+  { -- | The Amazon Resource Name (ARN) for the customer gateway certificate.
+    certificateArn :: Prelude.Maybe Prelude.Text,
     -- | The name of customer gateway device.
     deviceName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for the customer gateway certificate.
-    certificateArn :: Prelude.Maybe Prelude.Text,
+    -- | Any tags assigned to the customer gateway.
+    tags :: Prelude.Maybe [Tag],
     -- | The customer gateway\'s Border Gateway Protocol (BGP) Autonomous System
     -- Number (ASN).
     bgpAsn :: Prelude.Text,
@@ -59,11 +59,11 @@ data CustomerGateway = CustomerGateway'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'customerGateway_tags' - Any tags assigned to the customer gateway.
+-- 'certificateArn', 'customerGateway_certificateArn' - The Amazon Resource Name (ARN) for the customer gateway certificate.
 --
 -- 'deviceName', 'customerGateway_deviceName' - The name of customer gateway device.
 --
--- 'certificateArn', 'customerGateway_certificateArn' - The Amazon Resource Name (ARN) for the customer gateway certificate.
+-- 'tags', 'customerGateway_tags' - Any tags assigned to the customer gateway.
 --
 -- 'bgpAsn', 'customerGateway_bgpAsn' - The customer gateway\'s Border Gateway Protocol (BGP) Autonomous System
 -- Number (ASN).
@@ -95,9 +95,9 @@ newCustomerGateway
   pState_
   pType_ =
     CustomerGateway'
-      { tags = Prelude.Nothing,
+      { certificateArn = Prelude.Nothing,
         deviceName = Prelude.Nothing,
-        certificateArn = Prelude.Nothing,
+        tags = Prelude.Nothing,
         bgpAsn = pBgpAsn_,
         customerGatewayId = pCustomerGatewayId_,
         ipAddress = pIpAddress_,
@@ -105,17 +105,17 @@ newCustomerGateway
         type' = pType_
       }
 
--- | Any tags assigned to the customer gateway.
-customerGateway_tags :: Lens.Lens' CustomerGateway (Prelude.Maybe [Tag])
-customerGateway_tags = Lens.lens (\CustomerGateway' {tags} -> tags) (\s@CustomerGateway' {} a -> s {tags = a} :: CustomerGateway) Prelude.. Lens.mapping Lens.coerced
+-- | The Amazon Resource Name (ARN) for the customer gateway certificate.
+customerGateway_certificateArn :: Lens.Lens' CustomerGateway (Prelude.Maybe Prelude.Text)
+customerGateway_certificateArn = Lens.lens (\CustomerGateway' {certificateArn} -> certificateArn) (\s@CustomerGateway' {} a -> s {certificateArn = a} :: CustomerGateway)
 
 -- | The name of customer gateway device.
 customerGateway_deviceName :: Lens.Lens' CustomerGateway (Prelude.Maybe Prelude.Text)
 customerGateway_deviceName = Lens.lens (\CustomerGateway' {deviceName} -> deviceName) (\s@CustomerGateway' {} a -> s {deviceName = a} :: CustomerGateway)
 
--- | The Amazon Resource Name (ARN) for the customer gateway certificate.
-customerGateway_certificateArn :: Lens.Lens' CustomerGateway (Prelude.Maybe Prelude.Text)
-customerGateway_certificateArn = Lens.lens (\CustomerGateway' {certificateArn} -> certificateArn) (\s@CustomerGateway' {} a -> s {certificateArn = a} :: CustomerGateway)
+-- | Any tags assigned to the customer gateway.
+customerGateway_tags :: Lens.Lens' CustomerGateway (Prelude.Maybe [Tag])
+customerGateway_tags = Lens.lens (\CustomerGateway' {tags} -> tags) (\s@CustomerGateway' {} a -> s {tags = a} :: CustomerGateway) Prelude.. Lens.mapping Lens.coerced
 
 -- | The customer gateway\'s Border Gateway Protocol (BGP) Autonomous System
 -- Number (ASN).
@@ -142,11 +142,11 @@ customerGateway_type = Lens.lens (\CustomerGateway' {type'} -> type') (\s@Custom
 instance Data.FromXML CustomerGateway where
   parseXML x =
     CustomerGateway'
-      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<$> (x Data..@? "certificateArn")
+      Prelude.<*> (x Data..@? "deviceName")
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Data..@? "deviceName")
-      Prelude.<*> (x Data..@? "certificateArn")
       Prelude.<*> (x Data..@ "bgpAsn")
       Prelude.<*> (x Data..@ "customerGatewayId")
       Prelude.<*> (x Data..@ "ipAddress")
@@ -155,9 +155,9 @@ instance Data.FromXML CustomerGateway where
 
 instance Prelude.Hashable CustomerGateway where
   hashWithSalt _salt CustomerGateway' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` certificateArn
       `Prelude.hashWithSalt` deviceName
-      `Prelude.hashWithSalt` certificateArn
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` bgpAsn
       `Prelude.hashWithSalt` customerGatewayId
       `Prelude.hashWithSalt` ipAddress
@@ -166,9 +166,9 @@ instance Prelude.Hashable CustomerGateway where
 
 instance Prelude.NFData CustomerGateway where
   rnf CustomerGateway' {..} =
-    Prelude.rnf tags
+    Prelude.rnf certificateArn
       `Prelude.seq` Prelude.rnf deviceName
-      `Prelude.seq` Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf bgpAsn
       `Prelude.seq` Prelude.rnf customerGatewayId
       `Prelude.seq` Prelude.rnf ipAddress

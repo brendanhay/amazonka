@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 data RecoveryInstanceDisk = RecoveryInstanceDisk'
   { -- | The amount of storage on the disk in bytes.
     bytes :: Prelude.Maybe Prelude.Natural,
+    -- | The EBS Volume ID of this disk.
+    ebsVolumeID :: Prelude.Maybe Prelude.Text,
     -- | The internal device name of this disk. This is the name that is visible
     -- on the machine itself and not from the EC2 console.
-    internalDeviceName :: Prelude.Maybe Prelude.Text,
-    -- | The EBS Volume ID of this disk.
-    ebsVolumeID :: Prelude.Maybe Prelude.Text
+    internalDeviceName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,31 +48,31 @@ data RecoveryInstanceDisk = RecoveryInstanceDisk'
 --
 -- 'bytes', 'recoveryInstanceDisk_bytes' - The amount of storage on the disk in bytes.
 --
+-- 'ebsVolumeID', 'recoveryInstanceDisk_ebsVolumeID' - The EBS Volume ID of this disk.
+--
 -- 'internalDeviceName', 'recoveryInstanceDisk_internalDeviceName' - The internal device name of this disk. This is the name that is visible
 -- on the machine itself and not from the EC2 console.
---
--- 'ebsVolumeID', 'recoveryInstanceDisk_ebsVolumeID' - The EBS Volume ID of this disk.
 newRecoveryInstanceDisk ::
   RecoveryInstanceDisk
 newRecoveryInstanceDisk =
   RecoveryInstanceDisk'
     { bytes = Prelude.Nothing,
-      internalDeviceName = Prelude.Nothing,
-      ebsVolumeID = Prelude.Nothing
+      ebsVolumeID = Prelude.Nothing,
+      internalDeviceName = Prelude.Nothing
     }
 
 -- | The amount of storage on the disk in bytes.
 recoveryInstanceDisk_bytes :: Lens.Lens' RecoveryInstanceDisk (Prelude.Maybe Prelude.Natural)
 recoveryInstanceDisk_bytes = Lens.lens (\RecoveryInstanceDisk' {bytes} -> bytes) (\s@RecoveryInstanceDisk' {} a -> s {bytes = a} :: RecoveryInstanceDisk)
 
+-- | The EBS Volume ID of this disk.
+recoveryInstanceDisk_ebsVolumeID :: Lens.Lens' RecoveryInstanceDisk (Prelude.Maybe Prelude.Text)
+recoveryInstanceDisk_ebsVolumeID = Lens.lens (\RecoveryInstanceDisk' {ebsVolumeID} -> ebsVolumeID) (\s@RecoveryInstanceDisk' {} a -> s {ebsVolumeID = a} :: RecoveryInstanceDisk)
+
 -- | The internal device name of this disk. This is the name that is visible
 -- on the machine itself and not from the EC2 console.
 recoveryInstanceDisk_internalDeviceName :: Lens.Lens' RecoveryInstanceDisk (Prelude.Maybe Prelude.Text)
 recoveryInstanceDisk_internalDeviceName = Lens.lens (\RecoveryInstanceDisk' {internalDeviceName} -> internalDeviceName) (\s@RecoveryInstanceDisk' {} a -> s {internalDeviceName = a} :: RecoveryInstanceDisk)
-
--- | The EBS Volume ID of this disk.
-recoveryInstanceDisk_ebsVolumeID :: Lens.Lens' RecoveryInstanceDisk (Prelude.Maybe Prelude.Text)
-recoveryInstanceDisk_ebsVolumeID = Lens.lens (\RecoveryInstanceDisk' {ebsVolumeID} -> ebsVolumeID) (\s@RecoveryInstanceDisk' {} a -> s {ebsVolumeID = a} :: RecoveryInstanceDisk)
 
 instance Data.FromJSON RecoveryInstanceDisk where
   parseJSON =
@@ -81,18 +81,18 @@ instance Data.FromJSON RecoveryInstanceDisk where
       ( \x ->
           RecoveryInstanceDisk'
             Prelude.<$> (x Data..:? "bytes")
-            Prelude.<*> (x Data..:? "internalDeviceName")
             Prelude.<*> (x Data..:? "ebsVolumeID")
+            Prelude.<*> (x Data..:? "internalDeviceName")
       )
 
 instance Prelude.Hashable RecoveryInstanceDisk where
   hashWithSalt _salt RecoveryInstanceDisk' {..} =
     _salt `Prelude.hashWithSalt` bytes
-      `Prelude.hashWithSalt` internalDeviceName
       `Prelude.hashWithSalt` ebsVolumeID
+      `Prelude.hashWithSalt` internalDeviceName
 
 instance Prelude.NFData RecoveryInstanceDisk where
   rnf RecoveryInstanceDisk' {..} =
     Prelude.rnf bytes
-      `Prelude.seq` Prelude.rnf internalDeviceName
       `Prelude.seq` Prelude.rnf ebsVolumeID
+      `Prelude.seq` Prelude.rnf internalDeviceName

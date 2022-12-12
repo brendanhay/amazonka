@@ -27,8 +27,8 @@ module Amazonka.VoiceId.StartSpeakerEnrollmentJob
     newStartSpeakerEnrollmentJob,
 
     -- * Request Lenses
-    startSpeakerEnrollmentJob_enrollmentConfig,
     startSpeakerEnrollmentJob_clientToken,
+    startSpeakerEnrollmentJob_enrollmentConfig,
     startSpeakerEnrollmentJob_jobName,
     startSpeakerEnrollmentJob_dataAccessRoleArn,
     startSpeakerEnrollmentJob_domainId,
@@ -55,13 +55,13 @@ import Amazonka.VoiceId.Types
 
 -- | /See:/ 'newStartSpeakerEnrollmentJob' smart constructor.
 data StartSpeakerEnrollmentJob = StartSpeakerEnrollmentJob'
-  { -- | The enrollment config that contains details such as the action to take
+  { -- | The idempotency token for starting a new speaker enrollment Job. If not
+    -- provided, Amazon Web Services SDK populates this field.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The enrollment config that contains details such as the action to take
     -- when a speaker is already enrolled in Voice ID or when a speaker is
     -- identified as a fraudster.
     enrollmentConfig :: Prelude.Maybe EnrollmentConfig,
-    -- | The idempotency token for starting a new speaker enrollment Job. If not
-    -- provided, Amazon Web Services SDK populates this field.
-    clientToken :: Prelude.Maybe Prelude.Text,
     -- | A name for your speaker enrollment job.
     jobName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The IAM role Amazon Resource Name (ARN) that grants Voice ID permissions
@@ -91,12 +91,12 @@ data StartSpeakerEnrollmentJob = StartSpeakerEnrollmentJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clientToken', 'startSpeakerEnrollmentJob_clientToken' - The idempotency token for starting a new speaker enrollment Job. If not
+-- provided, Amazon Web Services SDK populates this field.
+--
 -- 'enrollmentConfig', 'startSpeakerEnrollmentJob_enrollmentConfig' - The enrollment config that contains details such as the action to take
 -- when a speaker is already enrolled in Voice ID or when a speaker is
 -- identified as a fraudster.
---
--- 'clientToken', 'startSpeakerEnrollmentJob_clientToken' - The idempotency token for starting a new speaker enrollment Job. If not
--- provided, Amazon Web Services SDK populates this field.
 --
 -- 'jobName', 'startSpeakerEnrollmentJob_jobName' - A name for your speaker enrollment job.
 --
@@ -131,9 +131,9 @@ newStartSpeakerEnrollmentJob
   pInputDataConfig_
   pOutputDataConfig_ =
     StartSpeakerEnrollmentJob'
-      { enrollmentConfig =
+      { clientToken =
           Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+        enrollmentConfig = Prelude.Nothing,
         jobName = Prelude.Nothing,
         dataAccessRoleArn = pDataAccessRoleArn_,
         domainId = pDomainId_,
@@ -141,16 +141,16 @@ newStartSpeakerEnrollmentJob
         outputDataConfig = pOutputDataConfig_
       }
 
+-- | The idempotency token for starting a new speaker enrollment Job. If not
+-- provided, Amazon Web Services SDK populates this field.
+startSpeakerEnrollmentJob_clientToken :: Lens.Lens' StartSpeakerEnrollmentJob (Prelude.Maybe Prelude.Text)
+startSpeakerEnrollmentJob_clientToken = Lens.lens (\StartSpeakerEnrollmentJob' {clientToken} -> clientToken) (\s@StartSpeakerEnrollmentJob' {} a -> s {clientToken = a} :: StartSpeakerEnrollmentJob)
+
 -- | The enrollment config that contains details such as the action to take
 -- when a speaker is already enrolled in Voice ID or when a speaker is
 -- identified as a fraudster.
 startSpeakerEnrollmentJob_enrollmentConfig :: Lens.Lens' StartSpeakerEnrollmentJob (Prelude.Maybe EnrollmentConfig)
 startSpeakerEnrollmentJob_enrollmentConfig = Lens.lens (\StartSpeakerEnrollmentJob' {enrollmentConfig} -> enrollmentConfig) (\s@StartSpeakerEnrollmentJob' {} a -> s {enrollmentConfig = a} :: StartSpeakerEnrollmentJob)
-
--- | The idempotency token for starting a new speaker enrollment Job. If not
--- provided, Amazon Web Services SDK populates this field.
-startSpeakerEnrollmentJob_clientToken :: Lens.Lens' StartSpeakerEnrollmentJob (Prelude.Maybe Prelude.Text)
-startSpeakerEnrollmentJob_clientToken = Lens.lens (\StartSpeakerEnrollmentJob' {clientToken} -> clientToken) (\s@StartSpeakerEnrollmentJob' {} a -> s {clientToken = a} :: StartSpeakerEnrollmentJob)
 
 -- | A name for your speaker enrollment job.
 startSpeakerEnrollmentJob_jobName :: Lens.Lens' StartSpeakerEnrollmentJob (Prelude.Maybe Prelude.Text)
@@ -196,8 +196,8 @@ instance Core.AWSRequest StartSpeakerEnrollmentJob where
 
 instance Prelude.Hashable StartSpeakerEnrollmentJob where
   hashWithSalt _salt StartSpeakerEnrollmentJob' {..} =
-    _salt `Prelude.hashWithSalt` enrollmentConfig
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` enrollmentConfig
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` dataAccessRoleArn
       `Prelude.hashWithSalt` domainId
@@ -206,8 +206,8 @@ instance Prelude.Hashable StartSpeakerEnrollmentJob where
 
 instance Prelude.NFData StartSpeakerEnrollmentJob where
   rnf StartSpeakerEnrollmentJob' {..} =
-    Prelude.rnf enrollmentConfig
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf enrollmentConfig
       `Prelude.seq` Prelude.rnf jobName
       `Prelude.seq` Prelude.rnf dataAccessRoleArn
       `Prelude.seq` Prelude.rnf domainId
@@ -233,9 +233,9 @@ instance Data.ToJSON StartSpeakerEnrollmentJob where
   toJSON StartSpeakerEnrollmentJob' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("EnrollmentConfig" Data..=)
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("EnrollmentConfig" Data..=)
               Prelude.<$> enrollmentConfig,
-            ("ClientToken" Data..=) Prelude.<$> clientToken,
             ("JobName" Data..=) Prelude.<$> jobName,
             Prelude.Just
               ("DataAccessRoleArn" Data..= dataAccessRoleArn),

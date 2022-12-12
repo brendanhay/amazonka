@@ -33,7 +33,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBufferingHints' smart constructor.
 data BufferingHints = BufferingHints'
-  { -- | Buffer incoming data to the specified size, in MiBs, before delivering
+  { -- | Buffer incoming data for the specified period of time, in seconds,
+    -- before delivering it to the destination. The default value is 300. This
+    -- parameter is optional but if you specify a value for it, you must also
+    -- specify a value for @SizeInMBs@, and vice versa.
+    intervalInSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | Buffer incoming data to the specified size, in MiBs, before delivering
     -- it to the destination. The default value is 5. This parameter is
     -- optional but if you specify a value for it, you must also specify a
     -- value for @IntervalInSeconds@, and vice versa.
@@ -42,12 +47,7 @@ data BufferingHints = BufferingHints'
     -- of data you typically ingest into the delivery stream in 10 seconds. For
     -- example, if you typically ingest data at 1 MiB\/sec, the value should be
     -- 10 MiB or higher.
-    sizeInMBs :: Prelude.Maybe Prelude.Natural,
-    -- | Buffer incoming data for the specified period of time, in seconds,
-    -- before delivering it to the destination. The default value is 300. This
-    -- parameter is optional but if you specify a value for it, you must also
-    -- specify a value for @SizeInMBs@, and vice versa.
-    intervalInSeconds :: Prelude.Maybe Prelude.Natural
+    sizeInMBs :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,6 +59,11 @@ data BufferingHints = BufferingHints'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'intervalInSeconds', 'bufferingHints_intervalInSeconds' - Buffer incoming data for the specified period of time, in seconds,
+-- before delivering it to the destination. The default value is 300. This
+-- parameter is optional but if you specify a value for it, you must also
+-- specify a value for @SizeInMBs@, and vice versa.
+--
 -- 'sizeInMBs', 'bufferingHints_sizeInMBs' - Buffer incoming data to the specified size, in MiBs, before delivering
 -- it to the destination. The default value is 5. This parameter is
 -- optional but if you specify a value for it, you must also specify a
@@ -68,18 +73,21 @@ data BufferingHints = BufferingHints'
 -- of data you typically ingest into the delivery stream in 10 seconds. For
 -- example, if you typically ingest data at 1 MiB\/sec, the value should be
 -- 10 MiB or higher.
---
--- 'intervalInSeconds', 'bufferingHints_intervalInSeconds' - Buffer incoming data for the specified period of time, in seconds,
--- before delivering it to the destination. The default value is 300. This
--- parameter is optional but if you specify a value for it, you must also
--- specify a value for @SizeInMBs@, and vice versa.
 newBufferingHints ::
   BufferingHints
 newBufferingHints =
   BufferingHints'
-    { sizeInMBs = Prelude.Nothing,
-      intervalInSeconds = Prelude.Nothing
+    { intervalInSeconds =
+        Prelude.Nothing,
+      sizeInMBs = Prelude.Nothing
     }
+
+-- | Buffer incoming data for the specified period of time, in seconds,
+-- before delivering it to the destination. The default value is 300. This
+-- parameter is optional but if you specify a value for it, you must also
+-- specify a value for @SizeInMBs@, and vice versa.
+bufferingHints_intervalInSeconds :: Lens.Lens' BufferingHints (Prelude.Maybe Prelude.Natural)
+bufferingHints_intervalInSeconds = Lens.lens (\BufferingHints' {intervalInSeconds} -> intervalInSeconds) (\s@BufferingHints' {} a -> s {intervalInSeconds = a} :: BufferingHints)
 
 -- | Buffer incoming data to the specified size, in MiBs, before delivering
 -- it to the destination. The default value is 5. This parameter is
@@ -93,39 +101,32 @@ newBufferingHints =
 bufferingHints_sizeInMBs :: Lens.Lens' BufferingHints (Prelude.Maybe Prelude.Natural)
 bufferingHints_sizeInMBs = Lens.lens (\BufferingHints' {sizeInMBs} -> sizeInMBs) (\s@BufferingHints' {} a -> s {sizeInMBs = a} :: BufferingHints)
 
--- | Buffer incoming data for the specified period of time, in seconds,
--- before delivering it to the destination. The default value is 300. This
--- parameter is optional but if you specify a value for it, you must also
--- specify a value for @SizeInMBs@, and vice versa.
-bufferingHints_intervalInSeconds :: Lens.Lens' BufferingHints (Prelude.Maybe Prelude.Natural)
-bufferingHints_intervalInSeconds = Lens.lens (\BufferingHints' {intervalInSeconds} -> intervalInSeconds) (\s@BufferingHints' {} a -> s {intervalInSeconds = a} :: BufferingHints)
-
 instance Data.FromJSON BufferingHints where
   parseJSON =
     Data.withObject
       "BufferingHints"
       ( \x ->
           BufferingHints'
-            Prelude.<$> (x Data..:? "SizeInMBs")
-            Prelude.<*> (x Data..:? "IntervalInSeconds")
+            Prelude.<$> (x Data..:? "IntervalInSeconds")
+            Prelude.<*> (x Data..:? "SizeInMBs")
       )
 
 instance Prelude.Hashable BufferingHints where
   hashWithSalt _salt BufferingHints' {..} =
-    _salt `Prelude.hashWithSalt` sizeInMBs
-      `Prelude.hashWithSalt` intervalInSeconds
+    _salt `Prelude.hashWithSalt` intervalInSeconds
+      `Prelude.hashWithSalt` sizeInMBs
 
 instance Prelude.NFData BufferingHints where
   rnf BufferingHints' {..} =
-    Prelude.rnf sizeInMBs
-      `Prelude.seq` Prelude.rnf intervalInSeconds
+    Prelude.rnf intervalInSeconds
+      `Prelude.seq` Prelude.rnf sizeInMBs
 
 instance Data.ToJSON BufferingHints where
   toJSON BufferingHints' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SizeInMBs" Data..=) Prelude.<$> sizeInMBs,
-            ("IntervalInSeconds" Data..=)
-              Prelude.<$> intervalInSeconds
+          [ ("IntervalInSeconds" Data..=)
+              Prelude.<$> intervalInSeconds,
+            ("SizeInMBs" Data..=) Prelude.<$> sizeInMBs
           ]
       )

@@ -29,16 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDimensionKeyDescription' smart constructor.
 data DimensionKeyDescription = DimensionKeyDescription'
-  { -- | The aggregated metric value for the dimensions, over the requested time
-    -- range.
-    total :: Prelude.Maybe Prelude.Double,
-    -- | A map that contains the value for each additional metric.
+  { -- | A map that contains the value for each additional metric.
     additionalMetrics :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double),
     -- | A map of name-value pairs for the dimensions in the group.
     dimensions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | If @PartitionBy@ was specified, @PartitionKeys@ contains the dimensions
     -- that were.
-    partitions :: Prelude.Maybe [Prelude.Double]
+    partitions :: Prelude.Maybe [Prelude.Double],
+    -- | The aggregated metric value for the dimensions, over the requested time
+    -- range.
+    total :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,29 +50,25 @@ data DimensionKeyDescription = DimensionKeyDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'total', 'dimensionKeyDescription_total' - The aggregated metric value for the dimensions, over the requested time
--- range.
---
 -- 'additionalMetrics', 'dimensionKeyDescription_additionalMetrics' - A map that contains the value for each additional metric.
 --
 -- 'dimensions', 'dimensionKeyDescription_dimensions' - A map of name-value pairs for the dimensions in the group.
 --
 -- 'partitions', 'dimensionKeyDescription_partitions' - If @PartitionBy@ was specified, @PartitionKeys@ contains the dimensions
 -- that were.
+--
+-- 'total', 'dimensionKeyDescription_total' - The aggregated metric value for the dimensions, over the requested time
+-- range.
 newDimensionKeyDescription ::
   DimensionKeyDescription
 newDimensionKeyDescription =
   DimensionKeyDescription'
-    { total = Prelude.Nothing,
-      additionalMetrics = Prelude.Nothing,
+    { additionalMetrics =
+        Prelude.Nothing,
       dimensions = Prelude.Nothing,
-      partitions = Prelude.Nothing
+      partitions = Prelude.Nothing,
+      total = Prelude.Nothing
     }
-
--- | The aggregated metric value for the dimensions, over the requested time
--- range.
-dimensionKeyDescription_total :: Lens.Lens' DimensionKeyDescription (Prelude.Maybe Prelude.Double)
-dimensionKeyDescription_total = Lens.lens (\DimensionKeyDescription' {total} -> total) (\s@DimensionKeyDescription' {} a -> s {total = a} :: DimensionKeyDescription)
 
 -- | A map that contains the value for each additional metric.
 dimensionKeyDescription_additionalMetrics :: Lens.Lens' DimensionKeyDescription (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double))
@@ -87,30 +83,35 @@ dimensionKeyDescription_dimensions = Lens.lens (\DimensionKeyDescription' {dimen
 dimensionKeyDescription_partitions :: Lens.Lens' DimensionKeyDescription (Prelude.Maybe [Prelude.Double])
 dimensionKeyDescription_partitions = Lens.lens (\DimensionKeyDescription' {partitions} -> partitions) (\s@DimensionKeyDescription' {} a -> s {partitions = a} :: DimensionKeyDescription) Prelude.. Lens.mapping Lens.coerced
 
+-- | The aggregated metric value for the dimensions, over the requested time
+-- range.
+dimensionKeyDescription_total :: Lens.Lens' DimensionKeyDescription (Prelude.Maybe Prelude.Double)
+dimensionKeyDescription_total = Lens.lens (\DimensionKeyDescription' {total} -> total) (\s@DimensionKeyDescription' {} a -> s {total = a} :: DimensionKeyDescription)
+
 instance Data.FromJSON DimensionKeyDescription where
   parseJSON =
     Data.withObject
       "DimensionKeyDescription"
       ( \x ->
           DimensionKeyDescription'
-            Prelude.<$> (x Data..:? "Total")
-            Prelude.<*> ( x Data..:? "AdditionalMetrics"
+            Prelude.<$> ( x Data..:? "AdditionalMetrics"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Dimensions" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Partitions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Total")
       )
 
 instance Prelude.Hashable DimensionKeyDescription where
   hashWithSalt _salt DimensionKeyDescription' {..} =
-    _salt `Prelude.hashWithSalt` total
-      `Prelude.hashWithSalt` additionalMetrics
+    _salt `Prelude.hashWithSalt` additionalMetrics
       `Prelude.hashWithSalt` dimensions
       `Prelude.hashWithSalt` partitions
+      `Prelude.hashWithSalt` total
 
 instance Prelude.NFData DimensionKeyDescription where
   rnf DimensionKeyDescription' {..} =
-    Prelude.rnf total
-      `Prelude.seq` Prelude.rnf additionalMetrics
+    Prelude.rnf additionalMetrics
       `Prelude.seq` Prelude.rnf dimensions
       `Prelude.seq` Prelude.rnf partitions
+      `Prelude.seq` Prelude.rnf total

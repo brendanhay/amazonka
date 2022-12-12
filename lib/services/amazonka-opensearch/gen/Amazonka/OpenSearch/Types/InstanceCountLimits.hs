@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceCountLimits' smart constructor.
 data InstanceCountLimits = InstanceCountLimits'
-  { -- | The maximum allowed number of instances.
-    minimumInstanceCount :: Prelude.Maybe Prelude.Int,
-    -- | The minimum allowed number of instances.
-    maximumInstanceCount :: Prelude.Maybe Prelude.Int
+  { -- | The minimum allowed number of instances.
+    maximumInstanceCount :: Prelude.Maybe Prelude.Int,
+    -- | The maximum allowed number of instances.
+    minimumInstanceCount :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data InstanceCountLimits = InstanceCountLimits'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'minimumInstanceCount', 'instanceCountLimits_minimumInstanceCount' - The maximum allowed number of instances.
---
 -- 'maximumInstanceCount', 'instanceCountLimits_maximumInstanceCount' - The minimum allowed number of instances.
+--
+-- 'minimumInstanceCount', 'instanceCountLimits_minimumInstanceCount' - The maximum allowed number of instances.
 newInstanceCountLimits ::
   InstanceCountLimits
 newInstanceCountLimits =
   InstanceCountLimits'
-    { minimumInstanceCount =
+    { maximumInstanceCount =
         Prelude.Nothing,
-      maximumInstanceCount = Prelude.Nothing
+      minimumInstanceCount = Prelude.Nothing
     }
-
--- | The maximum allowed number of instances.
-instanceCountLimits_minimumInstanceCount :: Lens.Lens' InstanceCountLimits (Prelude.Maybe Prelude.Int)
-instanceCountLimits_minimumInstanceCount = Lens.lens (\InstanceCountLimits' {minimumInstanceCount} -> minimumInstanceCount) (\s@InstanceCountLimits' {} a -> s {minimumInstanceCount = a} :: InstanceCountLimits)
 
 -- | The minimum allowed number of instances.
 instanceCountLimits_maximumInstanceCount :: Lens.Lens' InstanceCountLimits (Prelude.Maybe Prelude.Int)
 instanceCountLimits_maximumInstanceCount = Lens.lens (\InstanceCountLimits' {maximumInstanceCount} -> maximumInstanceCount) (\s@InstanceCountLimits' {} a -> s {maximumInstanceCount = a} :: InstanceCountLimits)
+
+-- | The maximum allowed number of instances.
+instanceCountLimits_minimumInstanceCount :: Lens.Lens' InstanceCountLimits (Prelude.Maybe Prelude.Int)
+instanceCountLimits_minimumInstanceCount = Lens.lens (\InstanceCountLimits' {minimumInstanceCount} -> minimumInstanceCount) (\s@InstanceCountLimits' {} a -> s {minimumInstanceCount = a} :: InstanceCountLimits)
 
 instance Data.FromJSON InstanceCountLimits where
   parseJSON =
@@ -70,16 +70,16 @@ instance Data.FromJSON InstanceCountLimits where
       "InstanceCountLimits"
       ( \x ->
           InstanceCountLimits'
-            Prelude.<$> (x Data..:? "MinimumInstanceCount")
-            Prelude.<*> (x Data..:? "MaximumInstanceCount")
+            Prelude.<$> (x Data..:? "MaximumInstanceCount")
+            Prelude.<*> (x Data..:? "MinimumInstanceCount")
       )
 
 instance Prelude.Hashable InstanceCountLimits where
   hashWithSalt _salt InstanceCountLimits' {..} =
-    _salt `Prelude.hashWithSalt` minimumInstanceCount
-      `Prelude.hashWithSalt` maximumInstanceCount
+    _salt `Prelude.hashWithSalt` maximumInstanceCount
+      `Prelude.hashWithSalt` minimumInstanceCount
 
 instance Prelude.NFData InstanceCountLimits where
   rnf InstanceCountLimits' {..} =
-    Prelude.rnf minimumInstanceCount
-      `Prelude.seq` Prelude.rnf maximumInstanceCount
+    Prelude.rnf maximumInstanceCount
+      `Prelude.seq` Prelude.rnf minimumInstanceCount

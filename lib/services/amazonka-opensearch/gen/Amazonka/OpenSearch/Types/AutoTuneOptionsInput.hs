@@ -31,15 +31,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAutoTuneOptionsInput' smart constructor.
 data AutoTuneOptionsInput = AutoTuneOptionsInput'
-  { -- | A list of maintenance schedules during which Auto-Tune can deploy
+  { -- | Whether Auto-Tune is enabled or disabled.
+    desiredState :: Prelude.Maybe AutoTuneDesiredState,
+    -- | A list of maintenance schedules during which Auto-Tune can deploy
     -- changes. Maintenance schedules are overwrite, not append. If your
     -- request includes no schedules, the request deletes all existing
     -- schedules. To preserve existing schedules, make a call to
     -- @DescribeDomainConfig@ first and use the @MaintenanceSchedules@ portion
     -- of the response as the basis for this section.
-    maintenanceSchedules :: Prelude.Maybe [AutoTuneMaintenanceSchedule],
-    -- | Whether Auto-Tune is enabled or disabled.
-    desiredState :: Prelude.Maybe AutoTuneDesiredState
+    maintenanceSchedules :: Prelude.Maybe [AutoTuneMaintenanceSchedule]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,22 +51,26 @@ data AutoTuneOptionsInput = AutoTuneOptionsInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'desiredState', 'autoTuneOptionsInput_desiredState' - Whether Auto-Tune is enabled or disabled.
+--
 -- 'maintenanceSchedules', 'autoTuneOptionsInput_maintenanceSchedules' - A list of maintenance schedules during which Auto-Tune can deploy
 -- changes. Maintenance schedules are overwrite, not append. If your
 -- request includes no schedules, the request deletes all existing
 -- schedules. To preserve existing schedules, make a call to
 -- @DescribeDomainConfig@ first and use the @MaintenanceSchedules@ portion
 -- of the response as the basis for this section.
---
--- 'desiredState', 'autoTuneOptionsInput_desiredState' - Whether Auto-Tune is enabled or disabled.
 newAutoTuneOptionsInput ::
   AutoTuneOptionsInput
 newAutoTuneOptionsInput =
   AutoTuneOptionsInput'
-    { maintenanceSchedules =
+    { desiredState =
         Prelude.Nothing,
-      desiredState = Prelude.Nothing
+      maintenanceSchedules = Prelude.Nothing
     }
+
+-- | Whether Auto-Tune is enabled or disabled.
+autoTuneOptionsInput_desiredState :: Lens.Lens' AutoTuneOptionsInput (Prelude.Maybe AutoTuneDesiredState)
+autoTuneOptionsInput_desiredState = Lens.lens (\AutoTuneOptionsInput' {desiredState} -> desiredState) (\s@AutoTuneOptionsInput' {} a -> s {desiredState = a} :: AutoTuneOptionsInput)
 
 -- | A list of maintenance schedules during which Auto-Tune can deploy
 -- changes. Maintenance schedules are overwrite, not append. If your
@@ -77,26 +81,22 @@ newAutoTuneOptionsInput =
 autoTuneOptionsInput_maintenanceSchedules :: Lens.Lens' AutoTuneOptionsInput (Prelude.Maybe [AutoTuneMaintenanceSchedule])
 autoTuneOptionsInput_maintenanceSchedules = Lens.lens (\AutoTuneOptionsInput' {maintenanceSchedules} -> maintenanceSchedules) (\s@AutoTuneOptionsInput' {} a -> s {maintenanceSchedules = a} :: AutoTuneOptionsInput) Prelude.. Lens.mapping Lens.coerced
 
--- | Whether Auto-Tune is enabled or disabled.
-autoTuneOptionsInput_desiredState :: Lens.Lens' AutoTuneOptionsInput (Prelude.Maybe AutoTuneDesiredState)
-autoTuneOptionsInput_desiredState = Lens.lens (\AutoTuneOptionsInput' {desiredState} -> desiredState) (\s@AutoTuneOptionsInput' {} a -> s {desiredState = a} :: AutoTuneOptionsInput)
-
 instance Prelude.Hashable AutoTuneOptionsInput where
   hashWithSalt _salt AutoTuneOptionsInput' {..} =
-    _salt `Prelude.hashWithSalt` maintenanceSchedules
-      `Prelude.hashWithSalt` desiredState
+    _salt `Prelude.hashWithSalt` desiredState
+      `Prelude.hashWithSalt` maintenanceSchedules
 
 instance Prelude.NFData AutoTuneOptionsInput where
   rnf AutoTuneOptionsInput' {..} =
-    Prelude.rnf maintenanceSchedules
-      `Prelude.seq` Prelude.rnf desiredState
+    Prelude.rnf desiredState
+      `Prelude.seq` Prelude.rnf maintenanceSchedules
 
 instance Data.ToJSON AutoTuneOptionsInput where
   toJSON AutoTuneOptionsInput' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("MaintenanceSchedules" Data..=)
-              Prelude.<$> maintenanceSchedules,
-            ("DesiredState" Data..=) Prelude.<$> desiredState
+          [ ("DesiredState" Data..=) Prelude.<$> desiredState,
+            ("MaintenanceSchedules" Data..=)
+              Prelude.<$> maintenanceSchedules
           ]
       )

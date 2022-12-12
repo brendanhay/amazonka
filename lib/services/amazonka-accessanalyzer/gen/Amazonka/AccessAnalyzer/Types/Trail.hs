@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTrail' smart constructor.
 data Trail = Trail'
-  { -- | A list of regions to get CloudTrail data from and analyze to generate a
-    -- policy.
-    regions :: Prelude.Maybe [Prelude.Text],
-    -- | Possible values are @true@ or @false@. If set to @true@, IAM Access
+  { -- | Possible values are @true@ or @false@. If set to @true@, IAM Access
     -- Analyzer retrieves CloudTrail data from all regions to analyze and
     -- generate a policy.
     allRegions :: Prelude.Maybe Prelude.Bool,
+    -- | A list of regions to get CloudTrail data from and analyze to generate a
+    -- policy.
+    regions :: Prelude.Maybe [Prelude.Text],
     -- | Specifies the ARN of the trail. The format of a trail ARN is
     -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@.
     cloudTrailArn :: Prelude.Text
@@ -50,12 +50,12 @@ data Trail = Trail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'regions', 'trail_regions' - A list of regions to get CloudTrail data from and analyze to generate a
--- policy.
---
 -- 'allRegions', 'trail_allRegions' - Possible values are @true@ or @false@. If set to @true@, IAM Access
 -- Analyzer retrieves CloudTrail data from all regions to analyze and
 -- generate a policy.
+--
+-- 'regions', 'trail_regions' - A list of regions to get CloudTrail data from and analyze to generate a
+-- policy.
 --
 -- 'cloudTrailArn', 'trail_cloudTrailArn' - Specifies the ARN of the trail. The format of a trail ARN is
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@.
@@ -65,21 +65,21 @@ newTrail ::
   Trail
 newTrail pCloudTrailArn_ =
   Trail'
-    { regions = Prelude.Nothing,
-      allRegions = Prelude.Nothing,
+    { allRegions = Prelude.Nothing,
+      regions = Prelude.Nothing,
       cloudTrailArn = pCloudTrailArn_
     }
-
--- | A list of regions to get CloudTrail data from and analyze to generate a
--- policy.
-trail_regions :: Lens.Lens' Trail (Prelude.Maybe [Prelude.Text])
-trail_regions = Lens.lens (\Trail' {regions} -> regions) (\s@Trail' {} a -> s {regions = a} :: Trail) Prelude.. Lens.mapping Lens.coerced
 
 -- | Possible values are @true@ or @false@. If set to @true@, IAM Access
 -- Analyzer retrieves CloudTrail data from all regions to analyze and
 -- generate a policy.
 trail_allRegions :: Lens.Lens' Trail (Prelude.Maybe Prelude.Bool)
 trail_allRegions = Lens.lens (\Trail' {allRegions} -> allRegions) (\s@Trail' {} a -> s {allRegions = a} :: Trail)
+
+-- | A list of regions to get CloudTrail data from and analyze to generate a
+-- policy.
+trail_regions :: Lens.Lens' Trail (Prelude.Maybe [Prelude.Text])
+trail_regions = Lens.lens (\Trail' {regions} -> regions) (\s@Trail' {} a -> s {regions = a} :: Trail) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the ARN of the trail. The format of a trail ARN is
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@.
@@ -88,22 +88,22 @@ trail_cloudTrailArn = Lens.lens (\Trail' {cloudTrailArn} -> cloudTrailArn) (\s@T
 
 instance Prelude.Hashable Trail where
   hashWithSalt _salt Trail' {..} =
-    _salt `Prelude.hashWithSalt` regions
-      `Prelude.hashWithSalt` allRegions
+    _salt `Prelude.hashWithSalt` allRegions
+      `Prelude.hashWithSalt` regions
       `Prelude.hashWithSalt` cloudTrailArn
 
 instance Prelude.NFData Trail where
   rnf Trail' {..} =
-    Prelude.rnf regions
-      `Prelude.seq` Prelude.rnf allRegions
+    Prelude.rnf allRegions
+      `Prelude.seq` Prelude.rnf regions
       `Prelude.seq` Prelude.rnf cloudTrailArn
 
 instance Data.ToJSON Trail where
   toJSON Trail' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("regions" Data..=) Prelude.<$> regions,
-            ("allRegions" Data..=) Prelude.<$> allRegions,
+          [ ("allRegions" Data..=) Prelude.<$> allRegions,
+            ("regions" Data..=) Prelude.<$> regions,
             Prelude.Just
               ("cloudTrailArn" Data..= cloudTrailArn)
           ]

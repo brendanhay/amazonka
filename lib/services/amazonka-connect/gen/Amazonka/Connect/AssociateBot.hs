@@ -31,8 +31,8 @@ module Amazonka.Connect.AssociateBot
     newAssociateBot,
 
     -- * Request Lenses
-    associateBot_lexV2Bot,
     associateBot_lexBot,
+    associateBot_lexV2Bot,
     associateBot_instanceId,
 
     -- * Destructuring the Response
@@ -51,9 +51,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAssociateBot' smart constructor.
 data AssociateBot = AssociateBot'
-  { -- | The Amazon Lex V2 bot to associate with the instance.
+  { lexBot :: Prelude.Maybe LexBot,
+    -- | The Amazon Lex V2 bot to associate with the instance.
     lexV2Bot :: Prelude.Maybe LexV2Bot,
-    lexBot :: Prelude.Maybe LexBot,
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
@@ -68,9 +68,9 @@ data AssociateBot = AssociateBot'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lexV2Bot', 'associateBot_lexV2Bot' - The Amazon Lex V2 bot to associate with the instance.
---
 -- 'lexBot', 'associateBot_lexBot' - Undocumented member.
+--
+-- 'lexV2Bot', 'associateBot_lexV2Bot' - The Amazon Lex V2 bot to associate with the instance.
 --
 -- 'instanceId', 'associateBot_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -80,18 +80,18 @@ newAssociateBot ::
   AssociateBot
 newAssociateBot pInstanceId_ =
   AssociateBot'
-    { lexV2Bot = Prelude.Nothing,
-      lexBot = Prelude.Nothing,
+    { lexBot = Prelude.Nothing,
+      lexV2Bot = Prelude.Nothing,
       instanceId = pInstanceId_
     }
-
--- | The Amazon Lex V2 bot to associate with the instance.
-associateBot_lexV2Bot :: Lens.Lens' AssociateBot (Prelude.Maybe LexV2Bot)
-associateBot_lexV2Bot = Lens.lens (\AssociateBot' {lexV2Bot} -> lexV2Bot) (\s@AssociateBot' {} a -> s {lexV2Bot = a} :: AssociateBot)
 
 -- | Undocumented member.
 associateBot_lexBot :: Lens.Lens' AssociateBot (Prelude.Maybe LexBot)
 associateBot_lexBot = Lens.lens (\AssociateBot' {lexBot} -> lexBot) (\s@AssociateBot' {} a -> s {lexBot = a} :: AssociateBot)
+
+-- | The Amazon Lex V2 bot to associate with the instance.
+associateBot_lexV2Bot :: Lens.Lens' AssociateBot (Prelude.Maybe LexV2Bot)
+associateBot_lexV2Bot = Lens.lens (\AssociateBot' {lexV2Bot} -> lexV2Bot) (\s@AssociateBot' {} a -> s {lexV2Bot = a} :: AssociateBot)
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -106,14 +106,14 @@ instance Core.AWSRequest AssociateBot where
 
 instance Prelude.Hashable AssociateBot where
   hashWithSalt _salt AssociateBot' {..} =
-    _salt `Prelude.hashWithSalt` lexV2Bot
-      `Prelude.hashWithSalt` lexBot
+    _salt `Prelude.hashWithSalt` lexBot
+      `Prelude.hashWithSalt` lexV2Bot
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData AssociateBot where
   rnf AssociateBot' {..} =
-    Prelude.rnf lexV2Bot
-      `Prelude.seq` Prelude.rnf lexBot
+    Prelude.rnf lexBot
+      `Prelude.seq` Prelude.rnf lexV2Bot
       `Prelude.seq` Prelude.rnf instanceId
 
 instance Data.ToHeaders AssociateBot where
@@ -131,8 +131,8 @@ instance Data.ToJSON AssociateBot where
   toJSON AssociateBot' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("LexV2Bot" Data..=) Prelude.<$> lexV2Bot,
-            ("LexBot" Data..=) Prelude.<$> lexBot
+          [ ("LexBot" Data..=) Prelude.<$> lexBot,
+            ("LexV2Bot" Data..=) Prelude.<$> lexV2Bot
           ]
       )
 

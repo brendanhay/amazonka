@@ -30,7 +30,11 @@ import Amazonka.RBin.Types.RetentionPeriod
 --
 -- /See:/ 'newRuleSummary' smart constructor.
 data RuleSummary = RuleSummary'
-  { -- | The lock state for the retention rule.
+  { -- | The retention rule description.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The unique ID of the retention rule.
+    identifier :: Prelude.Maybe Prelude.Text,
+    -- | The lock state for the retention rule.
     --
     -- -   @locked@ - The retention rule is locked and can\'t be modified or
     --     deleted.
@@ -46,13 +50,9 @@ data RuleSummary = RuleSummary'
     --     rule has been locked, it can transition between the @locked@ and
     --     @unlocked@ states only; it can never transition back to @null@.
     lockState :: Prelude.Maybe LockState,
-    -- | The retention rule description.
-    description :: Prelude.Maybe Prelude.Text,
     -- | Information about the retention period for which the retention rule is
     -- to retain resources.
-    retentionPeriod :: Prelude.Maybe RetentionPeriod,
-    -- | The unique ID of the retention rule.
-    identifier :: Prelude.Maybe Prelude.Text
+    retentionPeriod :: Prelude.Maybe RetentionPeriod
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,6 +63,10 @@ data RuleSummary = RuleSummary'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'description', 'ruleSummary_description' - The retention rule description.
+--
+-- 'identifier', 'ruleSummary_identifier' - The unique ID of the retention rule.
 --
 -- 'lockState', 'ruleSummary_lockState' - The lock state for the retention rule.
 --
@@ -80,21 +84,25 @@ data RuleSummary = RuleSummary'
 --     rule has been locked, it can transition between the @locked@ and
 --     @unlocked@ states only; it can never transition back to @null@.
 --
--- 'description', 'ruleSummary_description' - The retention rule description.
---
 -- 'retentionPeriod', 'ruleSummary_retentionPeriod' - Information about the retention period for which the retention rule is
 -- to retain resources.
---
--- 'identifier', 'ruleSummary_identifier' - The unique ID of the retention rule.
 newRuleSummary ::
   RuleSummary
 newRuleSummary =
   RuleSummary'
-    { lockState = Prelude.Nothing,
-      description = Prelude.Nothing,
-      retentionPeriod = Prelude.Nothing,
-      identifier = Prelude.Nothing
+    { description = Prelude.Nothing,
+      identifier = Prelude.Nothing,
+      lockState = Prelude.Nothing,
+      retentionPeriod = Prelude.Nothing
     }
+
+-- | The retention rule description.
+ruleSummary_description :: Lens.Lens' RuleSummary (Prelude.Maybe Prelude.Text)
+ruleSummary_description = Lens.lens (\RuleSummary' {description} -> description) (\s@RuleSummary' {} a -> s {description = a} :: RuleSummary)
+
+-- | The unique ID of the retention rule.
+ruleSummary_identifier :: Lens.Lens' RuleSummary (Prelude.Maybe Prelude.Text)
+ruleSummary_identifier = Lens.lens (\RuleSummary' {identifier} -> identifier) (\s@RuleSummary' {} a -> s {identifier = a} :: RuleSummary)
 
 -- | The lock state for the retention rule.
 --
@@ -114,18 +122,10 @@ newRuleSummary =
 ruleSummary_lockState :: Lens.Lens' RuleSummary (Prelude.Maybe LockState)
 ruleSummary_lockState = Lens.lens (\RuleSummary' {lockState} -> lockState) (\s@RuleSummary' {} a -> s {lockState = a} :: RuleSummary)
 
--- | The retention rule description.
-ruleSummary_description :: Lens.Lens' RuleSummary (Prelude.Maybe Prelude.Text)
-ruleSummary_description = Lens.lens (\RuleSummary' {description} -> description) (\s@RuleSummary' {} a -> s {description = a} :: RuleSummary)
-
 -- | Information about the retention period for which the retention rule is
 -- to retain resources.
 ruleSummary_retentionPeriod :: Lens.Lens' RuleSummary (Prelude.Maybe RetentionPeriod)
 ruleSummary_retentionPeriod = Lens.lens (\RuleSummary' {retentionPeriod} -> retentionPeriod) (\s@RuleSummary' {} a -> s {retentionPeriod = a} :: RuleSummary)
-
--- | The unique ID of the retention rule.
-ruleSummary_identifier :: Lens.Lens' RuleSummary (Prelude.Maybe Prelude.Text)
-ruleSummary_identifier = Lens.lens (\RuleSummary' {identifier} -> identifier) (\s@RuleSummary' {} a -> s {identifier = a} :: RuleSummary)
 
 instance Data.FromJSON RuleSummary where
   parseJSON =
@@ -133,22 +133,22 @@ instance Data.FromJSON RuleSummary where
       "RuleSummary"
       ( \x ->
           RuleSummary'
-            Prelude.<$> (x Data..:? "LockState")
-            Prelude.<*> (x Data..:? "Description")
-            Prelude.<*> (x Data..:? "RetentionPeriod")
+            Prelude.<$> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "Identifier")
+            Prelude.<*> (x Data..:? "LockState")
+            Prelude.<*> (x Data..:? "RetentionPeriod")
       )
 
 instance Prelude.Hashable RuleSummary where
   hashWithSalt _salt RuleSummary' {..} =
-    _salt `Prelude.hashWithSalt` lockState
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` retentionPeriod
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` identifier
+      `Prelude.hashWithSalt` lockState
+      `Prelude.hashWithSalt` retentionPeriod
 
 instance Prelude.NFData RuleSummary where
   rnf RuleSummary' {..} =
-    Prelude.rnf lockState
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf retentionPeriod
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf identifier
+      `Prelude.seq` Prelude.rnf lockState
+      `Prelude.seq` Prelude.rnf retentionPeriod

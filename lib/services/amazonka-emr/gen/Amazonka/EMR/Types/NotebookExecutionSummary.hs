@@ -30,7 +30,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNotebookExecutionSummary' smart constructor.
 data NotebookExecutionSummary = NotebookExecutionSummary'
-  { -- | The status of the notebook execution.
+  { -- | The unique identifier of the editor associated with the notebook
+    -- execution.
+    editorId :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp when notebook execution started.
+    endTime :: Prelude.Maybe Data.POSIX,
+    -- | The unique identifier of the notebook execution.
+    notebookExecutionId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the notebook execution.
+    notebookExecutionName :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp when notebook execution started.
+    startTime :: Prelude.Maybe Data.POSIX,
+    -- | The status of the notebook execution.
     --
     -- -   @START_PENDING@ indicates that the cluster has received the
     --     execution request but execution has not begun.
@@ -58,18 +69,7 @@ data NotebookExecutionSummary = NotebookExecutionSummary'
     --
     -- -   @STOPPED@ indicates that the execution stopped because of a
     --     @StopNotebookExecution@ request.
-    status :: Prelude.Maybe NotebookExecutionStatus,
-    -- | The name of the notebook execution.
-    notebookExecutionName :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp when notebook execution started.
-    endTime :: Prelude.Maybe Data.POSIX,
-    -- | The unique identifier of the editor associated with the notebook
-    -- execution.
-    editorId :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp when notebook execution started.
-    startTime :: Prelude.Maybe Data.POSIX,
-    -- | The unique identifier of the notebook execution.
-    notebookExecutionId :: Prelude.Maybe Prelude.Text
+    status :: Prelude.Maybe NotebookExecutionStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,6 +80,17 @@ data NotebookExecutionSummary = NotebookExecutionSummary'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'editorId', 'notebookExecutionSummary_editorId' - The unique identifier of the editor associated with the notebook
+-- execution.
+--
+-- 'endTime', 'notebookExecutionSummary_endTime' - The timestamp when notebook execution started.
+--
+-- 'notebookExecutionId', 'notebookExecutionSummary_notebookExecutionId' - The unique identifier of the notebook execution.
+--
+-- 'notebookExecutionName', 'notebookExecutionSummary_notebookExecutionName' - The name of the notebook execution.
+--
+-- 'startTime', 'notebookExecutionSummary_startTime' - The timestamp when notebook execution started.
 --
 -- 'status', 'notebookExecutionSummary_status' - The status of the notebook execution.
 --
@@ -109,28 +120,39 @@ data NotebookExecutionSummary = NotebookExecutionSummary'
 --
 -- -   @STOPPED@ indicates that the execution stopped because of a
 --     @StopNotebookExecution@ request.
---
--- 'notebookExecutionName', 'notebookExecutionSummary_notebookExecutionName' - The name of the notebook execution.
---
--- 'endTime', 'notebookExecutionSummary_endTime' - The timestamp when notebook execution started.
---
--- 'editorId', 'notebookExecutionSummary_editorId' - The unique identifier of the editor associated with the notebook
--- execution.
---
--- 'startTime', 'notebookExecutionSummary_startTime' - The timestamp when notebook execution started.
---
--- 'notebookExecutionId', 'notebookExecutionSummary_notebookExecutionId' - The unique identifier of the notebook execution.
 newNotebookExecutionSummary ::
   NotebookExecutionSummary
 newNotebookExecutionSummary =
   NotebookExecutionSummary'
-    { status = Prelude.Nothing,
-      notebookExecutionName = Prelude.Nothing,
+    { editorId =
+        Prelude.Nothing,
       endTime = Prelude.Nothing,
-      editorId = Prelude.Nothing,
+      notebookExecutionId = Prelude.Nothing,
+      notebookExecutionName = Prelude.Nothing,
       startTime = Prelude.Nothing,
-      notebookExecutionId = Prelude.Nothing
+      status = Prelude.Nothing
     }
+
+-- | The unique identifier of the editor associated with the notebook
+-- execution.
+notebookExecutionSummary_editorId :: Lens.Lens' NotebookExecutionSummary (Prelude.Maybe Prelude.Text)
+notebookExecutionSummary_editorId = Lens.lens (\NotebookExecutionSummary' {editorId} -> editorId) (\s@NotebookExecutionSummary' {} a -> s {editorId = a} :: NotebookExecutionSummary)
+
+-- | The timestamp when notebook execution started.
+notebookExecutionSummary_endTime :: Lens.Lens' NotebookExecutionSummary (Prelude.Maybe Prelude.UTCTime)
+notebookExecutionSummary_endTime = Lens.lens (\NotebookExecutionSummary' {endTime} -> endTime) (\s@NotebookExecutionSummary' {} a -> s {endTime = a} :: NotebookExecutionSummary) Prelude.. Lens.mapping Data._Time
+
+-- | The unique identifier of the notebook execution.
+notebookExecutionSummary_notebookExecutionId :: Lens.Lens' NotebookExecutionSummary (Prelude.Maybe Prelude.Text)
+notebookExecutionSummary_notebookExecutionId = Lens.lens (\NotebookExecutionSummary' {notebookExecutionId} -> notebookExecutionId) (\s@NotebookExecutionSummary' {} a -> s {notebookExecutionId = a} :: NotebookExecutionSummary)
+
+-- | The name of the notebook execution.
+notebookExecutionSummary_notebookExecutionName :: Lens.Lens' NotebookExecutionSummary (Prelude.Maybe Prelude.Text)
+notebookExecutionSummary_notebookExecutionName = Lens.lens (\NotebookExecutionSummary' {notebookExecutionName} -> notebookExecutionName) (\s@NotebookExecutionSummary' {} a -> s {notebookExecutionName = a} :: NotebookExecutionSummary)
+
+-- | The timestamp when notebook execution started.
+notebookExecutionSummary_startTime :: Lens.Lens' NotebookExecutionSummary (Prelude.Maybe Prelude.UTCTime)
+notebookExecutionSummary_startTime = Lens.lens (\NotebookExecutionSummary' {startTime} -> startTime) (\s@NotebookExecutionSummary' {} a -> s {startTime = a} :: NotebookExecutionSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The status of the notebook execution.
 --
@@ -163,55 +185,34 @@ newNotebookExecutionSummary =
 notebookExecutionSummary_status :: Lens.Lens' NotebookExecutionSummary (Prelude.Maybe NotebookExecutionStatus)
 notebookExecutionSummary_status = Lens.lens (\NotebookExecutionSummary' {status} -> status) (\s@NotebookExecutionSummary' {} a -> s {status = a} :: NotebookExecutionSummary)
 
--- | The name of the notebook execution.
-notebookExecutionSummary_notebookExecutionName :: Lens.Lens' NotebookExecutionSummary (Prelude.Maybe Prelude.Text)
-notebookExecutionSummary_notebookExecutionName = Lens.lens (\NotebookExecutionSummary' {notebookExecutionName} -> notebookExecutionName) (\s@NotebookExecutionSummary' {} a -> s {notebookExecutionName = a} :: NotebookExecutionSummary)
-
--- | The timestamp when notebook execution started.
-notebookExecutionSummary_endTime :: Lens.Lens' NotebookExecutionSummary (Prelude.Maybe Prelude.UTCTime)
-notebookExecutionSummary_endTime = Lens.lens (\NotebookExecutionSummary' {endTime} -> endTime) (\s@NotebookExecutionSummary' {} a -> s {endTime = a} :: NotebookExecutionSummary) Prelude.. Lens.mapping Data._Time
-
--- | The unique identifier of the editor associated with the notebook
--- execution.
-notebookExecutionSummary_editorId :: Lens.Lens' NotebookExecutionSummary (Prelude.Maybe Prelude.Text)
-notebookExecutionSummary_editorId = Lens.lens (\NotebookExecutionSummary' {editorId} -> editorId) (\s@NotebookExecutionSummary' {} a -> s {editorId = a} :: NotebookExecutionSummary)
-
--- | The timestamp when notebook execution started.
-notebookExecutionSummary_startTime :: Lens.Lens' NotebookExecutionSummary (Prelude.Maybe Prelude.UTCTime)
-notebookExecutionSummary_startTime = Lens.lens (\NotebookExecutionSummary' {startTime} -> startTime) (\s@NotebookExecutionSummary' {} a -> s {startTime = a} :: NotebookExecutionSummary) Prelude.. Lens.mapping Data._Time
-
--- | The unique identifier of the notebook execution.
-notebookExecutionSummary_notebookExecutionId :: Lens.Lens' NotebookExecutionSummary (Prelude.Maybe Prelude.Text)
-notebookExecutionSummary_notebookExecutionId = Lens.lens (\NotebookExecutionSummary' {notebookExecutionId} -> notebookExecutionId) (\s@NotebookExecutionSummary' {} a -> s {notebookExecutionId = a} :: NotebookExecutionSummary)
-
 instance Data.FromJSON NotebookExecutionSummary where
   parseJSON =
     Data.withObject
       "NotebookExecutionSummary"
       ( \x ->
           NotebookExecutionSummary'
-            Prelude.<$> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "NotebookExecutionName")
+            Prelude.<$> (x Data..:? "EditorId")
             Prelude.<*> (x Data..:? "EndTime")
-            Prelude.<*> (x Data..:? "EditorId")
-            Prelude.<*> (x Data..:? "StartTime")
             Prelude.<*> (x Data..:? "NotebookExecutionId")
+            Prelude.<*> (x Data..:? "NotebookExecutionName")
+            Prelude.<*> (x Data..:? "StartTime")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable NotebookExecutionSummary where
   hashWithSalt _salt NotebookExecutionSummary' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` notebookExecutionName
+    _salt `Prelude.hashWithSalt` editorId
       `Prelude.hashWithSalt` endTime
-      `Prelude.hashWithSalt` editorId
-      `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` notebookExecutionId
+      `Prelude.hashWithSalt` notebookExecutionName
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData NotebookExecutionSummary where
   rnf NotebookExecutionSummary' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf notebookExecutionName
+    Prelude.rnf editorId
       `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf editorId
-      `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf notebookExecutionId
+      `Prelude.seq` Prelude.rnf notebookExecutionName
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf status

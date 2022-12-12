@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBackendAPIAuthType' smart constructor.
 data BackendAPIAuthType = BackendAPIAuthType'
-  { -- | Describes settings for the authentication mode.
-    settings :: Prelude.Maybe BackendAPIAppSyncAuthSettings,
-    -- | Describes the authentication mode.
-    mode :: Prelude.Maybe Mode
+  { -- | Describes the authentication mode.
+    mode :: Prelude.Maybe Mode,
+    -- | Describes settings for the authentication mode.
+    settings :: Prelude.Maybe BackendAPIAppSyncAuthSettings
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,24 @@ data BackendAPIAuthType = BackendAPIAuthType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'settings', 'backendAPIAuthType_settings' - Describes settings for the authentication mode.
---
 -- 'mode', 'backendAPIAuthType_mode' - Describes the authentication mode.
+--
+-- 'settings', 'backendAPIAuthType_settings' - Describes settings for the authentication mode.
 newBackendAPIAuthType ::
   BackendAPIAuthType
 newBackendAPIAuthType =
   BackendAPIAuthType'
-    { settings = Prelude.Nothing,
-      mode = Prelude.Nothing
+    { mode = Prelude.Nothing,
+      settings = Prelude.Nothing
     }
-
--- | Describes settings for the authentication mode.
-backendAPIAuthType_settings :: Lens.Lens' BackendAPIAuthType (Prelude.Maybe BackendAPIAppSyncAuthSettings)
-backendAPIAuthType_settings = Lens.lens (\BackendAPIAuthType' {settings} -> settings) (\s@BackendAPIAuthType' {} a -> s {settings = a} :: BackendAPIAuthType)
 
 -- | Describes the authentication mode.
 backendAPIAuthType_mode :: Lens.Lens' BackendAPIAuthType (Prelude.Maybe Mode)
 backendAPIAuthType_mode = Lens.lens (\BackendAPIAuthType' {mode} -> mode) (\s@BackendAPIAuthType' {} a -> s {mode = a} :: BackendAPIAuthType)
+
+-- | Describes settings for the authentication mode.
+backendAPIAuthType_settings :: Lens.Lens' BackendAPIAuthType (Prelude.Maybe BackendAPIAppSyncAuthSettings)
+backendAPIAuthType_settings = Lens.lens (\BackendAPIAuthType' {settings} -> settings) (\s@BackendAPIAuthType' {} a -> s {settings = a} :: BackendAPIAuthType)
 
 instance Data.FromJSON BackendAPIAuthType where
   parseJSON =
@@ -70,24 +70,24 @@ instance Data.FromJSON BackendAPIAuthType where
       "BackendAPIAuthType"
       ( \x ->
           BackendAPIAuthType'
-            Prelude.<$> (x Data..:? "settings")
-            Prelude.<*> (x Data..:? "mode")
+            Prelude.<$> (x Data..:? "mode")
+            Prelude.<*> (x Data..:? "settings")
       )
 
 instance Prelude.Hashable BackendAPIAuthType where
   hashWithSalt _salt BackendAPIAuthType' {..} =
-    _salt `Prelude.hashWithSalt` settings
-      `Prelude.hashWithSalt` mode
+    _salt `Prelude.hashWithSalt` mode
+      `Prelude.hashWithSalt` settings
 
 instance Prelude.NFData BackendAPIAuthType where
   rnf BackendAPIAuthType' {..} =
-    Prelude.rnf settings `Prelude.seq` Prelude.rnf mode
+    Prelude.rnf mode `Prelude.seq` Prelude.rnf settings
 
 instance Data.ToJSON BackendAPIAuthType where
   toJSON BackendAPIAuthType' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("settings" Data..=) Prelude.<$> settings,
-            ("mode" Data..=) Prelude.<$> mode
+          [ ("mode" Data..=) Prelude.<$> mode,
+            ("settings" Data..=) Prelude.<$> settings
           ]
       )

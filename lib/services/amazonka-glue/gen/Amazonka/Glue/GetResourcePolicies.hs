@@ -35,8 +35,8 @@ module Amazonka.Glue.GetResourcePolicies
     newGetResourcePolicies,
 
     -- * Request Lenses
-    getResourcePolicies_nextToken,
     getResourcePolicies_maxResults,
+    getResourcePolicies_nextToken,
 
     -- * Destructuring the Response
     GetResourcePoliciesResponse (..),
@@ -59,10 +59,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetResourcePolicies' smart constructor.
 data GetResourcePolicies = GetResourcePolicies'
-  { -- | A continuation token, if this is a continuation request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum size of a list to return.
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { -- | The maximum size of a list to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A continuation token, if this is a continuation request.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,24 +74,24 @@ data GetResourcePolicies = GetResourcePolicies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getResourcePolicies_nextToken' - A continuation token, if this is a continuation request.
---
 -- 'maxResults', 'getResourcePolicies_maxResults' - The maximum size of a list to return.
+--
+-- 'nextToken', 'getResourcePolicies_nextToken' - A continuation token, if this is a continuation request.
 newGetResourcePolicies ::
   GetResourcePolicies
 newGetResourcePolicies =
   GetResourcePolicies'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | A continuation token, if this is a continuation request.
-getResourcePolicies_nextToken :: Lens.Lens' GetResourcePolicies (Prelude.Maybe Prelude.Text)
-getResourcePolicies_nextToken = Lens.lens (\GetResourcePolicies' {nextToken} -> nextToken) (\s@GetResourcePolicies' {} a -> s {nextToken = a} :: GetResourcePolicies)
 
 -- | The maximum size of a list to return.
 getResourcePolicies_maxResults :: Lens.Lens' GetResourcePolicies (Prelude.Maybe Prelude.Natural)
 getResourcePolicies_maxResults = Lens.lens (\GetResourcePolicies' {maxResults} -> maxResults) (\s@GetResourcePolicies' {} a -> s {maxResults = a} :: GetResourcePolicies)
+
+-- | A continuation token, if this is a continuation request.
+getResourcePolicies_nextToken :: Lens.Lens' GetResourcePolicies (Prelude.Maybe Prelude.Text)
+getResourcePolicies_nextToken = Lens.lens (\GetResourcePolicies' {nextToken} -> nextToken) (\s@GetResourcePolicies' {} a -> s {nextToken = a} :: GetResourcePolicies)
 
 instance Core.AWSPager GetResourcePolicies where
   page rq rs
@@ -134,13 +134,13 @@ instance Core.AWSRequest GetResourcePolicies where
 
 instance Prelude.Hashable GetResourcePolicies where
   hashWithSalt _salt GetResourcePolicies' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData GetResourcePolicies where
   rnf GetResourcePolicies' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders GetResourcePolicies where
   toHeaders =
@@ -161,8 +161,8 @@ instance Data.ToJSON GetResourcePolicies where
   toJSON GetResourcePolicies' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

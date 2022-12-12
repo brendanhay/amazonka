@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLabelCounters' smart constructor.
 data LabelCounters = LabelCounters'
-  { -- | The total number of objects labeled by automated data labeling.
+  { -- | The total number of objects that could not be labeled due to an error.
+    failedNonRetryableError :: Prelude.Maybe Prelude.Natural,
+    -- | The total number of objects labeled by a human worker.
+    humanLabeled :: Prelude.Maybe Prelude.Natural,
+    -- | The total number of objects labeled by automated data labeling.
     machineLabeled :: Prelude.Maybe Prelude.Natural,
     -- | The total number of objects labeled.
     totalLabeled :: Prelude.Maybe Prelude.Natural,
     -- | The total number of objects not yet labeled.
-    unlabeled :: Prelude.Maybe Prelude.Natural,
-    -- | The total number of objects that could not be labeled due to an error.
-    failedNonRetryableError :: Prelude.Maybe Prelude.Natural,
-    -- | The total number of objects labeled by a human worker.
-    humanLabeled :: Prelude.Maybe Prelude.Natural
+    unlabeled :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,25 +49,34 @@ data LabelCounters = LabelCounters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'failedNonRetryableError', 'labelCounters_failedNonRetryableError' - The total number of objects that could not be labeled due to an error.
+--
+-- 'humanLabeled', 'labelCounters_humanLabeled' - The total number of objects labeled by a human worker.
+--
 -- 'machineLabeled', 'labelCounters_machineLabeled' - The total number of objects labeled by automated data labeling.
 --
 -- 'totalLabeled', 'labelCounters_totalLabeled' - The total number of objects labeled.
 --
 -- 'unlabeled', 'labelCounters_unlabeled' - The total number of objects not yet labeled.
---
--- 'failedNonRetryableError', 'labelCounters_failedNonRetryableError' - The total number of objects that could not be labeled due to an error.
---
--- 'humanLabeled', 'labelCounters_humanLabeled' - The total number of objects labeled by a human worker.
 newLabelCounters ::
   LabelCounters
 newLabelCounters =
   LabelCounters'
-    { machineLabeled = Prelude.Nothing,
+    { failedNonRetryableError =
+        Prelude.Nothing,
+      humanLabeled = Prelude.Nothing,
+      machineLabeled = Prelude.Nothing,
       totalLabeled = Prelude.Nothing,
-      unlabeled = Prelude.Nothing,
-      failedNonRetryableError = Prelude.Nothing,
-      humanLabeled = Prelude.Nothing
+      unlabeled = Prelude.Nothing
     }
+
+-- | The total number of objects that could not be labeled due to an error.
+labelCounters_failedNonRetryableError :: Lens.Lens' LabelCounters (Prelude.Maybe Prelude.Natural)
+labelCounters_failedNonRetryableError = Lens.lens (\LabelCounters' {failedNonRetryableError} -> failedNonRetryableError) (\s@LabelCounters' {} a -> s {failedNonRetryableError = a} :: LabelCounters)
+
+-- | The total number of objects labeled by a human worker.
+labelCounters_humanLabeled :: Lens.Lens' LabelCounters (Prelude.Maybe Prelude.Natural)
+labelCounters_humanLabeled = Lens.lens (\LabelCounters' {humanLabeled} -> humanLabeled) (\s@LabelCounters' {} a -> s {humanLabeled = a} :: LabelCounters)
 
 -- | The total number of objects labeled by automated data labeling.
 labelCounters_machineLabeled :: Lens.Lens' LabelCounters (Prelude.Maybe Prelude.Natural)
@@ -81,39 +90,32 @@ labelCounters_totalLabeled = Lens.lens (\LabelCounters' {totalLabeled} -> totalL
 labelCounters_unlabeled :: Lens.Lens' LabelCounters (Prelude.Maybe Prelude.Natural)
 labelCounters_unlabeled = Lens.lens (\LabelCounters' {unlabeled} -> unlabeled) (\s@LabelCounters' {} a -> s {unlabeled = a} :: LabelCounters)
 
--- | The total number of objects that could not be labeled due to an error.
-labelCounters_failedNonRetryableError :: Lens.Lens' LabelCounters (Prelude.Maybe Prelude.Natural)
-labelCounters_failedNonRetryableError = Lens.lens (\LabelCounters' {failedNonRetryableError} -> failedNonRetryableError) (\s@LabelCounters' {} a -> s {failedNonRetryableError = a} :: LabelCounters)
-
--- | The total number of objects labeled by a human worker.
-labelCounters_humanLabeled :: Lens.Lens' LabelCounters (Prelude.Maybe Prelude.Natural)
-labelCounters_humanLabeled = Lens.lens (\LabelCounters' {humanLabeled} -> humanLabeled) (\s@LabelCounters' {} a -> s {humanLabeled = a} :: LabelCounters)
-
 instance Data.FromJSON LabelCounters where
   parseJSON =
     Data.withObject
       "LabelCounters"
       ( \x ->
           LabelCounters'
-            Prelude.<$> (x Data..:? "MachineLabeled")
+            Prelude.<$> (x Data..:? "FailedNonRetryableError")
+            Prelude.<*> (x Data..:? "HumanLabeled")
+            Prelude.<*> (x Data..:? "MachineLabeled")
             Prelude.<*> (x Data..:? "TotalLabeled")
             Prelude.<*> (x Data..:? "Unlabeled")
-            Prelude.<*> (x Data..:? "FailedNonRetryableError")
-            Prelude.<*> (x Data..:? "HumanLabeled")
       )
 
 instance Prelude.Hashable LabelCounters where
   hashWithSalt _salt LabelCounters' {..} =
-    _salt `Prelude.hashWithSalt` machineLabeled
-      `Prelude.hashWithSalt` totalLabeled
-      `Prelude.hashWithSalt` unlabeled
+    _salt
       `Prelude.hashWithSalt` failedNonRetryableError
       `Prelude.hashWithSalt` humanLabeled
+      `Prelude.hashWithSalt` machineLabeled
+      `Prelude.hashWithSalt` totalLabeled
+      `Prelude.hashWithSalt` unlabeled
 
 instance Prelude.NFData LabelCounters where
   rnf LabelCounters' {..} =
-    Prelude.rnf machineLabeled
+    Prelude.rnf failedNonRetryableError
+      `Prelude.seq` Prelude.rnf humanLabeled
+      `Prelude.seq` Prelude.rnf machineLabeled
       `Prelude.seq` Prelude.rnf totalLabeled
       `Prelude.seq` Prelude.rnf unlabeled
-      `Prelude.seq` Prelude.rnf failedNonRetryableError
-      `Prelude.seq` Prelude.rnf humanLabeled

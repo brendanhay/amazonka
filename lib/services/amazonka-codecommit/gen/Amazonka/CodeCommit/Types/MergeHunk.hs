@@ -29,7 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMergeHunk' smart constructor.
 data MergeHunk = MergeHunk'
-  { -- | Information about the merge hunk in the destination of a merge or pull
+  { -- | Information about the merge hunk in the base of a merge or pull request.
+    base :: Prelude.Maybe MergeHunkDetail,
+    -- | Information about the merge hunk in the destination of a merge or pull
     -- request.
     destination :: Prelude.Maybe MergeHunkDetail,
     -- | A Boolean value indicating whether a combination of hunks contains a
@@ -39,8 +41,6 @@ data MergeHunk = MergeHunk'
     -- represents a conflict and one or more files contains a line conflict.
     -- File mode conflicts in a merge do not set this to true.
     isConflict :: Prelude.Maybe Prelude.Bool,
-    -- | Information about the merge hunk in the base of a merge or pull request.
-    base :: Prelude.Maybe MergeHunkDetail,
     -- | Information about the merge hunk in the source of a merge or pull
     -- request.
     source :: Prelude.Maybe MergeHunkDetail
@@ -55,6 +55,8 @@ data MergeHunk = MergeHunk'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'base', 'mergeHunk_base' - Information about the merge hunk in the base of a merge or pull request.
+--
 -- 'destination', 'mergeHunk_destination' - Information about the merge hunk in the destination of a merge or pull
 -- request.
 --
@@ -65,19 +67,21 @@ data MergeHunk = MergeHunk'
 -- represents a conflict and one or more files contains a line conflict.
 -- File mode conflicts in a merge do not set this to true.
 --
--- 'base', 'mergeHunk_base' - Information about the merge hunk in the base of a merge or pull request.
---
 -- 'source', 'mergeHunk_source' - Information about the merge hunk in the source of a merge or pull
 -- request.
 newMergeHunk ::
   MergeHunk
 newMergeHunk =
   MergeHunk'
-    { destination = Prelude.Nothing,
+    { base = Prelude.Nothing,
+      destination = Prelude.Nothing,
       isConflict = Prelude.Nothing,
-      base = Prelude.Nothing,
       source = Prelude.Nothing
     }
+
+-- | Information about the merge hunk in the base of a merge or pull request.
+mergeHunk_base :: Lens.Lens' MergeHunk (Prelude.Maybe MergeHunkDetail)
+mergeHunk_base = Lens.lens (\MergeHunk' {base} -> base) (\s@MergeHunk' {} a -> s {base = a} :: MergeHunk)
 
 -- | Information about the merge hunk in the destination of a merge or pull
 -- request.
@@ -93,10 +97,6 @@ mergeHunk_destination = Lens.lens (\MergeHunk' {destination} -> destination) (\s
 mergeHunk_isConflict :: Lens.Lens' MergeHunk (Prelude.Maybe Prelude.Bool)
 mergeHunk_isConflict = Lens.lens (\MergeHunk' {isConflict} -> isConflict) (\s@MergeHunk' {} a -> s {isConflict = a} :: MergeHunk)
 
--- | Information about the merge hunk in the base of a merge or pull request.
-mergeHunk_base :: Lens.Lens' MergeHunk (Prelude.Maybe MergeHunkDetail)
-mergeHunk_base = Lens.lens (\MergeHunk' {base} -> base) (\s@MergeHunk' {} a -> s {base = a} :: MergeHunk)
-
 -- | Information about the merge hunk in the source of a merge or pull
 -- request.
 mergeHunk_source :: Lens.Lens' MergeHunk (Prelude.Maybe MergeHunkDetail)
@@ -108,22 +108,22 @@ instance Data.FromJSON MergeHunk where
       "MergeHunk"
       ( \x ->
           MergeHunk'
-            Prelude.<$> (x Data..:? "destination")
+            Prelude.<$> (x Data..:? "base")
+            Prelude.<*> (x Data..:? "destination")
             Prelude.<*> (x Data..:? "isConflict")
-            Prelude.<*> (x Data..:? "base")
             Prelude.<*> (x Data..:? "source")
       )
 
 instance Prelude.Hashable MergeHunk where
   hashWithSalt _salt MergeHunk' {..} =
-    _salt `Prelude.hashWithSalt` destination
+    _salt `Prelude.hashWithSalt` base
+      `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` isConflict
-      `Prelude.hashWithSalt` base
       `Prelude.hashWithSalt` source
 
 instance Prelude.NFData MergeHunk where
   rnf MergeHunk' {..} =
-    Prelude.rnf destination
+    Prelude.rnf base
+      `Prelude.seq` Prelude.rnf destination
       `Prelude.seq` Prelude.rnf isConflict
-      `Prelude.seq` Prelude.rnf base
       `Prelude.seq` Prelude.rnf source

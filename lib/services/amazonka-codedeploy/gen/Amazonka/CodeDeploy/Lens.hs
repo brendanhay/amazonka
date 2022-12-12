@@ -21,9 +21,9 @@ module Amazonka.CodeDeploy.Lens
     -- ** BatchGetApplicationRevisions
     batchGetApplicationRevisions_applicationName,
     batchGetApplicationRevisions_revisions,
+    batchGetApplicationRevisionsResponse_applicationName,
     batchGetApplicationRevisionsResponse_errorMessage,
     batchGetApplicationRevisionsResponse_revisions,
-    batchGetApplicationRevisionsResponse_applicationName,
     batchGetApplicationRevisionsResponse_httpStatus,
 
     -- ** BatchGetApplications
@@ -34,13 +34,13 @@ module Amazonka.CodeDeploy.Lens
     -- ** BatchGetDeploymentGroups
     batchGetDeploymentGroups_applicationName,
     batchGetDeploymentGroups_deploymentGroupNames,
-    batchGetDeploymentGroupsResponse_errorMessage,
     batchGetDeploymentGroupsResponse_deploymentGroupsInfo,
+    batchGetDeploymentGroupsResponse_errorMessage,
     batchGetDeploymentGroupsResponse_httpStatus,
 
     -- ** BatchGetDeploymentTargets
-    batchGetDeploymentTargets_targetIds,
     batchGetDeploymentTargets_deploymentId,
+    batchGetDeploymentTargets_targetIds,
     batchGetDeploymentTargetsResponse_deploymentTargets,
     batchGetDeploymentTargetsResponse_httpStatus,
 
@@ -59,51 +59,51 @@ module Amazonka.CodeDeploy.Lens
     continueDeployment_deploymentWaitType,
 
     -- ** CreateApplication
-    createApplication_tags,
     createApplication_computePlatform,
+    createApplication_tags,
     createApplication_applicationName,
     createApplicationResponse_applicationId,
     createApplicationResponse_httpStatus,
 
     -- ** CreateDeployment
-    createDeployment_overrideAlarmConfiguration,
-    createDeployment_deploymentGroupName,
-    createDeployment_fileExistsBehavior,
-    createDeployment_revision,
-    createDeployment_description,
-    createDeployment_updateOutdatedInstancesOnly,
     createDeployment_autoRollbackConfiguration,
-    createDeployment_targetInstances,
-    createDeployment_ignoreApplicationStopFailures,
     createDeployment_deploymentConfigName,
+    createDeployment_deploymentGroupName,
+    createDeployment_description,
+    createDeployment_fileExistsBehavior,
+    createDeployment_ignoreApplicationStopFailures,
+    createDeployment_overrideAlarmConfiguration,
+    createDeployment_revision,
+    createDeployment_targetInstances,
+    createDeployment_updateOutdatedInstancesOnly,
     createDeployment_applicationName,
     createDeploymentResponse_deploymentId,
     createDeploymentResponse_httpStatus,
 
     -- ** CreateDeploymentConfig
     createDeploymentConfig_computePlatform,
-    createDeploymentConfig_trafficRoutingConfig,
     createDeploymentConfig_minimumHealthyHosts,
+    createDeploymentConfig_trafficRoutingConfig,
     createDeploymentConfig_deploymentConfigName,
     createDeploymentConfigResponse_deploymentConfigId,
     createDeploymentConfigResponse_httpStatus,
 
     -- ** CreateDeploymentGroup
-    createDeploymentGroup_tags,
-    createDeploymentGroup_loadBalancerInfo,
-    createDeploymentGroup_autoScalingGroups,
-    createDeploymentGroup_triggerConfigurations,
-    createDeploymentGroup_ec2TagFilters,
-    createDeploymentGroup_autoRollbackConfiguration,
-    createDeploymentGroup_deploymentStyle,
-    createDeploymentGroup_blueGreenDeploymentConfiguration,
     createDeploymentGroup_alarmConfiguration,
+    createDeploymentGroup_autoRollbackConfiguration,
+    createDeploymentGroup_autoScalingGroups,
+    createDeploymentGroup_blueGreenDeploymentConfiguration,
+    createDeploymentGroup_deploymentConfigName,
+    createDeploymentGroup_deploymentStyle,
+    createDeploymentGroup_ec2TagFilters,
+    createDeploymentGroup_ec2TagSet,
     createDeploymentGroup_ecsServices,
+    createDeploymentGroup_loadBalancerInfo,
+    createDeploymentGroup_onPremisesInstanceTagFilters,
     createDeploymentGroup_onPremisesTagSet,
     createDeploymentGroup_outdatedInstancesStrategy,
-    createDeploymentGroup_onPremisesInstanceTagFilters,
-    createDeploymentGroup_ec2TagSet,
-    createDeploymentGroup_deploymentConfigName,
+    createDeploymentGroup_tags,
+    createDeploymentGroup_triggerConfigurations,
     createDeploymentGroup_applicationName,
     createDeploymentGroup_deploymentGroupName,
     createDeploymentGroup_serviceRoleArn,
@@ -142,9 +142,9 @@ module Amazonka.CodeDeploy.Lens
     -- ** GetApplicationRevision
     getApplicationRevision_applicationName,
     getApplicationRevision_revision,
+    getApplicationRevisionResponse_applicationName,
     getApplicationRevisionResponse_revision,
     getApplicationRevisionResponse_revisionInfo,
-    getApplicationRevisionResponse_applicationName,
     getApplicationRevisionResponse_httpStatus,
 
     -- ** GetDeployment
@@ -164,8 +164,8 @@ module Amazonka.CodeDeploy.Lens
     getDeploymentGroupResponse_httpStatus,
 
     -- ** GetDeploymentTarget
-    getDeploymentTarget_targetId,
     getDeploymentTarget_deploymentId,
+    getDeploymentTarget_targetId,
     getDeploymentTargetResponse_deploymentTarget,
     getDeploymentTargetResponse_httpStatus,
 
@@ -175,12 +175,12 @@ module Amazonka.CodeDeploy.Lens
     getOnPremisesInstanceResponse_httpStatus,
 
     -- ** ListApplicationRevisions
-    listApplicationRevisions_s3KeyPrefix,
-    listApplicationRevisions_s3Bucket,
-    listApplicationRevisions_sortOrder,
-    listApplicationRevisions_nextToken,
     listApplicationRevisions_deployed,
+    listApplicationRevisions_nextToken,
+    listApplicationRevisions_s3Bucket,
+    listApplicationRevisions_s3KeyPrefix,
     listApplicationRevisions_sortBy,
+    listApplicationRevisions_sortOrder,
     listApplicationRevisions_applicationName,
     listApplicationRevisionsResponse_nextToken,
     listApplicationRevisionsResponse_revisions,
@@ -188,41 +188,41 @@ module Amazonka.CodeDeploy.Lens
 
     -- ** ListApplications
     listApplications_nextToken,
-    listApplicationsResponse_nextToken,
     listApplicationsResponse_applications,
+    listApplicationsResponse_nextToken,
     listApplicationsResponse_httpStatus,
 
     -- ** ListDeploymentConfigs
     listDeploymentConfigs_nextToken,
-    listDeploymentConfigsResponse_nextToken,
     listDeploymentConfigsResponse_deploymentConfigsList,
+    listDeploymentConfigsResponse_nextToken,
     listDeploymentConfigsResponse_httpStatus,
 
     -- ** ListDeploymentGroups
     listDeploymentGroups_nextToken,
     listDeploymentGroups_applicationName,
+    listDeploymentGroupsResponse_applicationName,
     listDeploymentGroupsResponse_deploymentGroups,
     listDeploymentGroupsResponse_nextToken,
-    listDeploymentGroupsResponse_applicationName,
     listDeploymentGroupsResponse_httpStatus,
 
     -- ** ListDeploymentTargets
+    listDeploymentTargets_deploymentId,
     listDeploymentTargets_nextToken,
     listDeploymentTargets_targetFilters,
-    listDeploymentTargets_deploymentId,
     listDeploymentTargetsResponse_nextToken,
     listDeploymentTargetsResponse_targetIds,
     listDeploymentTargetsResponse_httpStatus,
 
     -- ** ListDeployments
-    listDeployments_nextToken,
+    listDeployments_applicationName,
+    listDeployments_createTimeRange,
     listDeployments_deploymentGroupName,
     listDeployments_externalId,
     listDeployments_includeOnlyStatuses,
-    listDeployments_createTimeRange,
-    listDeployments_applicationName,
-    listDeploymentsResponse_nextToken,
+    listDeployments_nextToken,
     listDeploymentsResponse_deployments,
+    listDeploymentsResponse_nextToken,
     listDeploymentsResponse_httpStatus,
 
     -- ** ListGitHubAccountTokenNames
@@ -235,21 +235,21 @@ module Amazonka.CodeDeploy.Lens
     listOnPremisesInstances_nextToken,
     listOnPremisesInstances_registrationStatus,
     listOnPremisesInstances_tagFilters,
-    listOnPremisesInstancesResponse_nextToken,
     listOnPremisesInstancesResponse_instanceNames,
+    listOnPremisesInstancesResponse_nextToken,
     listOnPremisesInstancesResponse_httpStatus,
 
     -- ** ListTagsForResource
     listTagsForResource_nextToken,
     listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
     listTagsForResourceResponse_nextToken,
+    listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
 
     -- ** PutLifecycleEventHookExecutionStatus
     putLifecycleEventHookExecutionStatus_deploymentId,
-    putLifecycleEventHookExecutionStatus_status,
     putLifecycleEventHookExecutionStatus_lifecycleEventHookExecutionId,
+    putLifecycleEventHookExecutionStatus_status,
     putLifecycleEventHookExecutionStatusResponse_lifecycleEventHookExecutionId,
     putLifecycleEventHookExecutionStatusResponse_httpStatus,
 
@@ -285,26 +285,26 @@ module Amazonka.CodeDeploy.Lens
     untagResourceResponse_httpStatus,
 
     -- ** UpdateApplication
-    updateApplication_newApplicationName,
     updateApplication_applicationName,
+    updateApplication_newApplicationName,
 
     -- ** UpdateDeploymentGroup
-    updateDeploymentGroup_loadBalancerInfo,
-    updateDeploymentGroup_autoScalingGroups,
-    updateDeploymentGroup_serviceRoleArn,
-    updateDeploymentGroup_triggerConfigurations,
-    updateDeploymentGroup_newDeploymentGroupName,
-    updateDeploymentGroup_ec2TagFilters,
-    updateDeploymentGroup_autoRollbackConfiguration,
-    updateDeploymentGroup_deploymentStyle,
-    updateDeploymentGroup_blueGreenDeploymentConfiguration,
     updateDeploymentGroup_alarmConfiguration,
+    updateDeploymentGroup_autoRollbackConfiguration,
+    updateDeploymentGroup_autoScalingGroups,
+    updateDeploymentGroup_blueGreenDeploymentConfiguration,
+    updateDeploymentGroup_deploymentConfigName,
+    updateDeploymentGroup_deploymentStyle,
+    updateDeploymentGroup_ec2TagFilters,
+    updateDeploymentGroup_ec2TagSet,
     updateDeploymentGroup_ecsServices,
+    updateDeploymentGroup_loadBalancerInfo,
+    updateDeploymentGroup_newDeploymentGroupName,
+    updateDeploymentGroup_onPremisesInstanceTagFilters,
     updateDeploymentGroup_onPremisesTagSet,
     updateDeploymentGroup_outdatedInstancesStrategy,
-    updateDeploymentGroup_onPremisesInstanceTagFilters,
-    updateDeploymentGroup_ec2TagSet,
-    updateDeploymentGroup_deploymentConfigName,
+    updateDeploymentGroup_serviceRoleArn,
+    updateDeploymentGroup_triggerConfigurations,
     updateDeploymentGroup_applicationName,
     updateDeploymentGroup_currentDeploymentGroupName,
     updateDeploymentGroupResponse_hooksNotCleanedUp,
@@ -317,138 +317,138 @@ module Amazonka.CodeDeploy.Lens
 
     -- ** AlarmConfiguration
     alarmConfiguration_alarms,
-    alarmConfiguration_ignorePollAlarmFailure,
     alarmConfiguration_enabled,
+    alarmConfiguration_ignorePollAlarmFailure,
 
     -- ** AppSpecContent
-    appSpecContent_sha256,
     appSpecContent_content,
+    appSpecContent_sha256,
 
     -- ** ApplicationInfo
-    applicationInfo_linkedToGitHub,
-    applicationInfo_gitHubAccountName,
-    applicationInfo_computePlatform,
-    applicationInfo_createTime,
     applicationInfo_applicationId,
     applicationInfo_applicationName,
+    applicationInfo_computePlatform,
+    applicationInfo_createTime,
+    applicationInfo_gitHubAccountName,
+    applicationInfo_linkedToGitHub,
 
     -- ** AutoRollbackConfiguration
     autoRollbackConfiguration_enabled,
     autoRollbackConfiguration_events,
 
     -- ** AutoScalingGroup
-    autoScalingGroup_name,
     autoScalingGroup_hook,
+    autoScalingGroup_name,
 
     -- ** BlueGreenDeploymentConfiguration
+    blueGreenDeploymentConfiguration_deploymentReadyOption,
     blueGreenDeploymentConfiguration_greenFleetProvisioningOption,
     blueGreenDeploymentConfiguration_terminateBlueInstancesOnDeploymentSuccess,
-    blueGreenDeploymentConfiguration_deploymentReadyOption,
 
     -- ** BlueInstanceTerminationOption
-    blueInstanceTerminationOption_terminationWaitTimeInMinutes,
     blueInstanceTerminationOption_action,
+    blueInstanceTerminationOption_terminationWaitTimeInMinutes,
 
     -- ** CloudFormationTarget
-    cloudFormationTarget_resourceType,
-    cloudFormationTarget_targetId,
-    cloudFormationTarget_lifecycleEvents,
-    cloudFormationTarget_lastUpdatedAt,
-    cloudFormationTarget_targetVersionWeight,
     cloudFormationTarget_deploymentId,
+    cloudFormationTarget_lastUpdatedAt,
+    cloudFormationTarget_lifecycleEvents,
+    cloudFormationTarget_resourceType,
     cloudFormationTarget_status,
+    cloudFormationTarget_targetId,
+    cloudFormationTarget_targetVersionWeight,
 
     -- ** DeploymentConfigInfo
-    deploymentConfigInfo_deploymentConfigId,
     deploymentConfigInfo_computePlatform,
-    deploymentConfigInfo_trafficRoutingConfig,
     deploymentConfigInfo_createTime,
-    deploymentConfigInfo_minimumHealthyHosts,
+    deploymentConfigInfo_deploymentConfigId,
     deploymentConfigInfo_deploymentConfigName,
+    deploymentConfigInfo_minimumHealthyHosts,
+    deploymentConfigInfo_trafficRoutingConfig,
 
     -- ** DeploymentGroupInfo
-    deploymentGroupInfo_targetRevision,
-    deploymentGroupInfo_loadBalancerInfo,
-    deploymentGroupInfo_autoScalingGroups,
-    deploymentGroupInfo_serviceRoleArn,
-    deploymentGroupInfo_lastSuccessfulDeployment,
-    deploymentGroupInfo_triggerConfigurations,
-    deploymentGroupInfo_deploymentGroupName,
-    deploymentGroupInfo_computePlatform,
-    deploymentGroupInfo_ec2TagFilters,
-    deploymentGroupInfo_autoRollbackConfiguration,
-    deploymentGroupInfo_deploymentStyle,
-    deploymentGroupInfo_blueGreenDeploymentConfiguration,
     deploymentGroupInfo_alarmConfiguration,
+    deploymentGroupInfo_applicationName,
+    deploymentGroupInfo_autoRollbackConfiguration,
+    deploymentGroupInfo_autoScalingGroups,
+    deploymentGroupInfo_blueGreenDeploymentConfiguration,
+    deploymentGroupInfo_computePlatform,
+    deploymentGroupInfo_deploymentConfigName,
+    deploymentGroupInfo_deploymentGroupId,
+    deploymentGroupInfo_deploymentGroupName,
+    deploymentGroupInfo_deploymentStyle,
+    deploymentGroupInfo_ec2TagFilters,
+    deploymentGroupInfo_ec2TagSet,
     deploymentGroupInfo_ecsServices,
+    deploymentGroupInfo_lastAttemptedDeployment,
+    deploymentGroupInfo_lastSuccessfulDeployment,
+    deploymentGroupInfo_loadBalancerInfo,
+    deploymentGroupInfo_onPremisesInstanceTagFilters,
     deploymentGroupInfo_onPremisesTagSet,
     deploymentGroupInfo_outdatedInstancesStrategy,
-    deploymentGroupInfo_onPremisesInstanceTagFilters,
-    deploymentGroupInfo_ec2TagSet,
-    deploymentGroupInfo_deploymentGroupId,
-    deploymentGroupInfo_lastAttemptedDeployment,
-    deploymentGroupInfo_deploymentConfigName,
-    deploymentGroupInfo_applicationName,
+    deploymentGroupInfo_serviceRoleArn,
+    deploymentGroupInfo_targetRevision,
+    deploymentGroupInfo_triggerConfigurations,
 
     -- ** DeploymentInfo
-    deploymentInfo_overrideAlarmConfiguration,
-    deploymentInfo_loadBalancerInfo,
+    deploymentInfo_additionalDeploymentStatusInfo,
+    deploymentInfo_applicationName,
+    deploymentInfo_autoRollbackConfiguration,
+    deploymentInfo_blueGreenDeploymentConfiguration,
+    deploymentInfo_completeTime,
+    deploymentInfo_computePlatform,
+    deploymentInfo_createTime,
+    deploymentInfo_creator,
+    deploymentInfo_deploymentConfigName,
     deploymentInfo_deploymentGroupName,
     deploymentInfo_deploymentId,
-    deploymentInfo_fileExistsBehavior,
     deploymentInfo_deploymentOverview,
-    deploymentInfo_revision,
-    deploymentInfo_rollbackInfo,
-    deploymentInfo_externalId,
-    deploymentInfo_status,
-    deploymentInfo_description,
-    deploymentInfo_computePlatform,
-    deploymentInfo_updateOutdatedInstancesOnly,
-    deploymentInfo_completeTime,
     deploymentInfo_deploymentStatusMessages,
-    deploymentInfo_autoRollbackConfiguration,
     deploymentInfo_deploymentStyle,
-    deploymentInfo_blueGreenDeploymentConfiguration,
+    deploymentInfo_description,
     deploymentInfo_errorInformation,
-    deploymentInfo_relatedDeployments,
-    deploymentInfo_targetInstances,
-    deploymentInfo_createTime,
-    deploymentInfo_additionalDeploymentStatusInfo,
-    deploymentInfo_creator,
-    deploymentInfo_previousRevision,
-    deploymentInfo_startTime,
+    deploymentInfo_externalId,
+    deploymentInfo_fileExistsBehavior,
     deploymentInfo_ignoreApplicationStopFailures,
     deploymentInfo_instanceTerminationWaitTimeStarted,
-    deploymentInfo_deploymentConfigName,
-    deploymentInfo_applicationName,
+    deploymentInfo_loadBalancerInfo,
+    deploymentInfo_overrideAlarmConfiguration,
+    deploymentInfo_previousRevision,
+    deploymentInfo_relatedDeployments,
+    deploymentInfo_revision,
+    deploymentInfo_rollbackInfo,
+    deploymentInfo_startTime,
+    deploymentInfo_status,
+    deploymentInfo_targetInstances,
+    deploymentInfo_updateOutdatedInstancesOnly,
 
     -- ** DeploymentOverview
     deploymentOverview_failed,
-    deploymentOverview_succeeded,
+    deploymentOverview_inProgress,
+    deploymentOverview_pending,
     deploymentOverview_ready,
     deploymentOverview_skipped,
-    deploymentOverview_pending,
-    deploymentOverview_inProgress,
+    deploymentOverview_succeeded,
 
     -- ** DeploymentReadyOption
-    deploymentReadyOption_waitTimeInMinutes,
     deploymentReadyOption_actionOnTimeout,
+    deploymentReadyOption_waitTimeInMinutes,
 
     -- ** DeploymentStyle
-    deploymentStyle_deploymentType,
     deploymentStyle_deploymentOption,
+    deploymentStyle_deploymentType,
 
     -- ** DeploymentTarget
-    deploymentTarget_instanceTarget,
-    deploymentTarget_ecsTarget,
-    deploymentTarget_deploymentTargetType,
-    deploymentTarget_lambdaTarget,
     deploymentTarget_cloudFormationTarget,
+    deploymentTarget_deploymentTargetType,
+    deploymentTarget_ecsTarget,
+    deploymentTarget_instanceTarget,
+    deploymentTarget_lambdaTarget,
 
     -- ** Diagnostics
-    diagnostics_message,
-    diagnostics_logTail,
     diagnostics_errorCode,
+    diagnostics_logTail,
+    diagnostics_message,
     diagnostics_scriptName,
 
     -- ** EC2TagFilter
@@ -460,25 +460,25 @@ module Amazonka.CodeDeploy.Lens
     eC2TagSet_ec2TagSetList,
 
     -- ** ECSService
-    eCSService_serviceName,
     eCSService_clusterName,
+    eCSService_serviceName,
 
     -- ** ECSTarget
-    eCSTarget_targetId,
-    eCSTarget_lifecycleEvents,
-    eCSTarget_lastUpdatedAt,
     eCSTarget_deploymentId,
-    eCSTarget_targetArn,
+    eCSTarget_lastUpdatedAt,
+    eCSTarget_lifecycleEvents,
     eCSTarget_status,
+    eCSTarget_targetArn,
+    eCSTarget_targetId,
     eCSTarget_taskSetsInfo,
 
     -- ** ECSTaskSet
-    eCSTaskSet_identifer,
-    eCSTaskSet_status,
-    eCSTaskSet_targetGroup,
     eCSTaskSet_desiredCount,
+    eCSTaskSet_identifer,
     eCSTaskSet_pendingCount,
     eCSTaskSet_runningCount,
+    eCSTaskSet_status,
+    eCSTaskSet_targetGroup,
     eCSTaskSet_taskSetLabel,
     eCSTaskSet_trafficWeight,
 
@@ -486,15 +486,15 @@ module Amazonka.CodeDeploy.Lens
     eLBInfo_name,
 
     -- ** ErrorInformation
-    errorInformation_message,
     errorInformation_code,
+    errorInformation_message,
 
     -- ** GenericRevisionInfo
     genericRevisionInfo_deploymentGroups,
-    genericRevisionInfo_registerTime,
     genericRevisionInfo_description,
     genericRevisionInfo_firstUsedTime,
     genericRevisionInfo_lastUsedTime,
+    genericRevisionInfo_registerTime,
 
     -- ** GitHubLocation
     gitHubLocation_commitId,
@@ -504,56 +504,56 @@ module Amazonka.CodeDeploy.Lens
     greenFleetProvisioningOption_action,
 
     -- ** InstanceInfo
-    instanceInfo_tags,
-    instanceInfo_iamSessionArn,
     instanceInfo_deregisterTime,
+    instanceInfo_iamSessionArn,
     instanceInfo_iamUserArn,
+    instanceInfo_instanceArn,
     instanceInfo_instanceName,
     instanceInfo_registerTime,
-    instanceInfo_instanceArn,
+    instanceInfo_tags,
 
     -- ** InstanceTarget
-    instanceTarget_targetId,
-    instanceTarget_instanceLabel,
-    instanceTarget_lifecycleEvents,
-    instanceTarget_lastUpdatedAt,
     instanceTarget_deploymentId,
-    instanceTarget_targetArn,
+    instanceTarget_instanceLabel,
+    instanceTarget_lastUpdatedAt,
+    instanceTarget_lifecycleEvents,
     instanceTarget_status,
+    instanceTarget_targetArn,
+    instanceTarget_targetId,
 
     -- ** LambdaFunctionInfo
-    lambdaFunctionInfo_targetVersionWeight,
-    lambdaFunctionInfo_functionName,
-    lambdaFunctionInfo_targetVersion,
     lambdaFunctionInfo_currentVersion,
     lambdaFunctionInfo_functionAlias,
+    lambdaFunctionInfo_functionName,
+    lambdaFunctionInfo_targetVersion,
+    lambdaFunctionInfo_targetVersionWeight,
 
     -- ** LambdaTarget
-    lambdaTarget_targetId,
-    lambdaTarget_lifecycleEvents,
+    lambdaTarget_deploymentId,
     lambdaTarget_lambdaFunctionInfo,
     lambdaTarget_lastUpdatedAt,
-    lambdaTarget_deploymentId,
-    lambdaTarget_targetArn,
+    lambdaTarget_lifecycleEvents,
     lambdaTarget_status,
+    lambdaTarget_targetArn,
+    lambdaTarget_targetId,
 
     -- ** LastDeploymentInfo
-    lastDeploymentInfo_deploymentId,
-    lastDeploymentInfo_status,
-    lastDeploymentInfo_endTime,
     lastDeploymentInfo_createTime,
+    lastDeploymentInfo_deploymentId,
+    lastDeploymentInfo_endTime,
+    lastDeploymentInfo_status,
 
     -- ** LifecycleEvent
-    lifecycleEvent_lifecycleEventName,
-    lifecycleEvent_status,
-    lifecycleEvent_endTime,
     lifecycleEvent_diagnostics,
+    lifecycleEvent_endTime,
+    lifecycleEvent_lifecycleEventName,
     lifecycleEvent_startTime,
+    lifecycleEvent_status,
 
     -- ** LoadBalancerInfo
-    loadBalancerInfo_targetGroupPairInfoList,
     loadBalancerInfo_elbInfoList,
     loadBalancerInfo_targetGroupInfoList,
+    loadBalancerInfo_targetGroupPairInfoList,
 
     -- ** MinimumHealthyHosts
     minimumHealthyHosts_type,
@@ -563,34 +563,34 @@ module Amazonka.CodeDeploy.Lens
     onPremisesTagSet_onPremisesTagSetList,
 
     -- ** RawString
-    rawString_sha256,
     rawString_content,
+    rawString_sha256,
 
     -- ** RelatedDeployments
     relatedDeployments_autoUpdateOutdatedInstancesDeploymentIds,
     relatedDeployments_autoUpdateOutdatedInstancesRootDeploymentId,
 
     -- ** RevisionInfo
-    revisionInfo_revisionLocation,
     revisionInfo_genericRevisionInfo,
+    revisionInfo_revisionLocation,
 
     -- ** RevisionLocation
-    revisionLocation_string,
     revisionLocation_appSpecContent,
-    revisionLocation_s3Location,
     revisionLocation_gitHubLocation,
     revisionLocation_revisionType,
+    revisionLocation_s3Location,
+    revisionLocation_string,
 
     -- ** RollbackInfo
-    rollbackInfo_rollbackMessage,
     rollbackInfo_rollbackDeploymentId,
+    rollbackInfo_rollbackMessage,
     rollbackInfo_rollbackTriggeringDeploymentId,
 
     -- ** S3Location
-    s3Location_key,
-    s3Location_bundleType,
     s3Location_bucket,
+    s3Location_bundleType,
     s3Location_eTag,
+    s3Location_key,
     s3Location_version,
 
     -- ** Tag
@@ -606,38 +606,38 @@ module Amazonka.CodeDeploy.Lens
     targetGroupInfo_name,
 
     -- ** TargetGroupPairInfo
-    targetGroupPairInfo_testTrafficRoute,
     targetGroupPairInfo_prodTrafficRoute,
     targetGroupPairInfo_targetGroups,
+    targetGroupPairInfo_testTrafficRoute,
 
     -- ** TargetInstances
     targetInstances_autoScalingGroups,
-    targetInstances_tagFilters,
     targetInstances_ec2TagSet,
+    targetInstances_tagFilters,
 
     -- ** TimeBasedCanary
-    timeBasedCanary_canaryPercentage,
     timeBasedCanary_canaryInterval,
+    timeBasedCanary_canaryPercentage,
 
     -- ** TimeBasedLinear
     timeBasedLinear_linearInterval,
     timeBasedLinear_linearPercentage,
 
     -- ** TimeRange
-    timeRange_start,
     timeRange_end,
+    timeRange_start,
 
     -- ** TrafficRoute
     trafficRoute_listenerArns,
 
     -- ** TrafficRoutingConfig
-    trafficRoutingConfig_type,
-    trafficRoutingConfig_timeBasedLinear,
     trafficRoutingConfig_timeBasedCanary,
+    trafficRoutingConfig_timeBasedLinear,
+    trafficRoutingConfig_type,
 
     -- ** TriggerConfig
-    triggerConfig_triggerName,
     triggerConfig_triggerEvents,
+    triggerConfig_triggerName,
     triggerConfig_triggerTargetArn,
   )
 where

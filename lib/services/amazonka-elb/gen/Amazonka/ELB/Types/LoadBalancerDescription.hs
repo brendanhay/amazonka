@@ -35,20 +35,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLoadBalancerDescription' smart constructor.
 data LoadBalancerDescription = LoadBalancerDescription'
-  { -- | The IDs of the instances for the load balancer.
-    instances :: Prelude.Maybe [Instance],
-    -- | Information about the health checks conducted on the load balancer.
-    healthCheck :: Prelude.Maybe HealthCheck,
-    -- | The type of load balancer. Valid only for load balancers in a VPC.
-    --
-    -- If @Scheme@ is @internet-facing@, the load balancer has a public DNS
-    -- name that resolves to a public IP address.
-    --
-    -- If @Scheme@ is @internal@, the load balancer has a public DNS name that
-    -- resolves to a private IP address.
-    scheme :: Prelude.Maybe Prelude.Text,
-    -- | The date and time the load balancer was created.
-    createdTime :: Prelude.Maybe Data.ISO8601,
+  { -- | The Availability Zones for the load balancer.
+    availabilityZones :: Prelude.Maybe [Prelude.Text],
+    -- | Information about your EC2 instances.
+    backendServerDescriptions :: Prelude.Maybe [BackendServerDescription],
     -- | The DNS name of the load balancer.
     --
     -- For more information, see
@@ -57,30 +47,40 @@ data LoadBalancerDescription = LoadBalancerDescription'
     canonicalHostedZoneName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Amazon Route 53 hosted zone for the load balancer.
     canonicalHostedZoneNameID :: Prelude.Maybe Prelude.Text,
+    -- | The date and time the load balancer was created.
+    createdTime :: Prelude.Maybe Data.ISO8601,
+    -- | The DNS name of the load balancer.
+    dNSName :: Prelude.Maybe Prelude.Text,
+    -- | Information about the health checks conducted on the load balancer.
+    healthCheck :: Prelude.Maybe HealthCheck,
+    -- | The IDs of the instances for the load balancer.
+    instances :: Prelude.Maybe [Instance],
+    -- | The listeners for the load balancer.
+    listenerDescriptions :: Prelude.Maybe [ListenerDescription],
     -- | The name of the load balancer.
     loadBalancerName :: Prelude.Maybe Prelude.Text,
-    -- | The IDs of the subnets for the load balancer.
-    subnets :: Prelude.Maybe [Prelude.Text],
+    -- | The policies defined for the load balancer.
+    policies :: Prelude.Maybe Policies,
+    -- | The type of load balancer. Valid only for load balancers in a VPC.
+    --
+    -- If @Scheme@ is @internet-facing@, the load balancer has a public DNS
+    -- name that resolves to a public IP address.
+    --
+    -- If @Scheme@ is @internal@, the load balancer has a public DNS name that
+    -- resolves to a private IP address.
+    scheme :: Prelude.Maybe Prelude.Text,
+    -- | The security groups for the load balancer. Valid only for load balancers
+    -- in a VPC.
+    securityGroups :: Prelude.Maybe [Prelude.Text],
     -- | The security group for the load balancer, which you can use as part of
     -- your inbound rules for your registered instances. To only allow traffic
     -- from load balancers, add a security group rule that specifies this
     -- source security group as the inbound source.
     sourceSecurityGroup :: Prelude.Maybe SourceSecurityGroup,
-    -- | The Availability Zones for the load balancer.
-    availabilityZones :: Prelude.Maybe [Prelude.Text],
-    -- | The listeners for the load balancer.
-    listenerDescriptions :: Prelude.Maybe [ListenerDescription],
-    -- | The policies defined for the load balancer.
-    policies :: Prelude.Maybe Policies,
-    -- | Information about your EC2 instances.
-    backendServerDescriptions :: Prelude.Maybe [BackendServerDescription],
-    -- | The security groups for the load balancer. Valid only for load balancers
-    -- in a VPC.
-    securityGroups :: Prelude.Maybe [Prelude.Text],
+    -- | The IDs of the subnets for the load balancer.
+    subnets :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the VPC for the load balancer.
-    vPCId :: Prelude.Maybe Prelude.Text,
-    -- | The DNS name of the load balancer.
-    dNSName :: Prelude.Maybe Prelude.Text
+    vPCId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -92,19 +92,9 @@ data LoadBalancerDescription = LoadBalancerDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instances', 'loadBalancerDescription_instances' - The IDs of the instances for the load balancer.
+-- 'availabilityZones', 'loadBalancerDescription_availabilityZones' - The Availability Zones for the load balancer.
 --
--- 'healthCheck', 'loadBalancerDescription_healthCheck' - Information about the health checks conducted on the load balancer.
---
--- 'scheme', 'loadBalancerDescription_scheme' - The type of load balancer. Valid only for load balancers in a VPC.
---
--- If @Scheme@ is @internet-facing@, the load balancer has a public DNS
--- name that resolves to a public IP address.
---
--- If @Scheme@ is @internal@, the load balancer has a public DNS name that
--- resolves to a private IP address.
---
--- 'createdTime', 'loadBalancerDescription_createdTime' - The date and time the load balancer was created.
+-- 'backendServerDescriptions', 'loadBalancerDescription_backendServerDescriptions' - Information about your EC2 instances.
 --
 -- 'canonicalHostedZoneName', 'loadBalancerDescription_canonicalHostedZoneName' - The DNS name of the load balancer.
 --
@@ -114,73 +104,69 @@ data LoadBalancerDescription = LoadBalancerDescription'
 --
 -- 'canonicalHostedZoneNameID', 'loadBalancerDescription_canonicalHostedZoneNameID' - The ID of the Amazon Route 53 hosted zone for the load balancer.
 --
--- 'loadBalancerName', 'loadBalancerDescription_loadBalancerName' - The name of the load balancer.
+-- 'createdTime', 'loadBalancerDescription_createdTime' - The date and time the load balancer was created.
 --
--- 'subnets', 'loadBalancerDescription_subnets' - The IDs of the subnets for the load balancer.
+-- 'dNSName', 'loadBalancerDescription_dNSName' - The DNS name of the load balancer.
 --
--- 'sourceSecurityGroup', 'loadBalancerDescription_sourceSecurityGroup' - The security group for the load balancer, which you can use as part of
--- your inbound rules for your registered instances. To only allow traffic
--- from load balancers, add a security group rule that specifies this
--- source security group as the inbound source.
+-- 'healthCheck', 'loadBalancerDescription_healthCheck' - Information about the health checks conducted on the load balancer.
 --
--- 'availabilityZones', 'loadBalancerDescription_availabilityZones' - The Availability Zones for the load balancer.
+-- 'instances', 'loadBalancerDescription_instances' - The IDs of the instances for the load balancer.
 --
 -- 'listenerDescriptions', 'loadBalancerDescription_listenerDescriptions' - The listeners for the load balancer.
 --
+-- 'loadBalancerName', 'loadBalancerDescription_loadBalancerName' - The name of the load balancer.
+--
 -- 'policies', 'loadBalancerDescription_policies' - The policies defined for the load balancer.
 --
--- 'backendServerDescriptions', 'loadBalancerDescription_backendServerDescriptions' - Information about your EC2 instances.
---
--- 'securityGroups', 'loadBalancerDescription_securityGroups' - The security groups for the load balancer. Valid only for load balancers
--- in a VPC.
---
--- 'vPCId', 'loadBalancerDescription_vPCId' - The ID of the VPC for the load balancer.
---
--- 'dNSName', 'loadBalancerDescription_dNSName' - The DNS name of the load balancer.
-newLoadBalancerDescription ::
-  LoadBalancerDescription
-newLoadBalancerDescription =
-  LoadBalancerDescription'
-    { instances =
-        Prelude.Nothing,
-      healthCheck = Prelude.Nothing,
-      scheme = Prelude.Nothing,
-      createdTime = Prelude.Nothing,
-      canonicalHostedZoneName = Prelude.Nothing,
-      canonicalHostedZoneNameID = Prelude.Nothing,
-      loadBalancerName = Prelude.Nothing,
-      subnets = Prelude.Nothing,
-      sourceSecurityGroup = Prelude.Nothing,
-      availabilityZones = Prelude.Nothing,
-      listenerDescriptions = Prelude.Nothing,
-      policies = Prelude.Nothing,
-      backendServerDescriptions = Prelude.Nothing,
-      securityGroups = Prelude.Nothing,
-      vPCId = Prelude.Nothing,
-      dNSName = Prelude.Nothing
-    }
-
--- | The IDs of the instances for the load balancer.
-loadBalancerDescription_instances :: Lens.Lens' LoadBalancerDescription (Prelude.Maybe [Instance])
-loadBalancerDescription_instances = Lens.lens (\LoadBalancerDescription' {instances} -> instances) (\s@LoadBalancerDescription' {} a -> s {instances = a} :: LoadBalancerDescription) Prelude.. Lens.mapping Lens.coerced
-
--- | Information about the health checks conducted on the load balancer.
-loadBalancerDescription_healthCheck :: Lens.Lens' LoadBalancerDescription (Prelude.Maybe HealthCheck)
-loadBalancerDescription_healthCheck = Lens.lens (\LoadBalancerDescription' {healthCheck} -> healthCheck) (\s@LoadBalancerDescription' {} a -> s {healthCheck = a} :: LoadBalancerDescription)
-
--- | The type of load balancer. Valid only for load balancers in a VPC.
+-- 'scheme', 'loadBalancerDescription_scheme' - The type of load balancer. Valid only for load balancers in a VPC.
 --
 -- If @Scheme@ is @internet-facing@, the load balancer has a public DNS
 -- name that resolves to a public IP address.
 --
 -- If @Scheme@ is @internal@, the load balancer has a public DNS name that
 -- resolves to a private IP address.
-loadBalancerDescription_scheme :: Lens.Lens' LoadBalancerDescription (Prelude.Maybe Prelude.Text)
-loadBalancerDescription_scheme = Lens.lens (\LoadBalancerDescription' {scheme} -> scheme) (\s@LoadBalancerDescription' {} a -> s {scheme = a} :: LoadBalancerDescription)
+--
+-- 'securityGroups', 'loadBalancerDescription_securityGroups' - The security groups for the load balancer. Valid only for load balancers
+-- in a VPC.
+--
+-- 'sourceSecurityGroup', 'loadBalancerDescription_sourceSecurityGroup' - The security group for the load balancer, which you can use as part of
+-- your inbound rules for your registered instances. To only allow traffic
+-- from load balancers, add a security group rule that specifies this
+-- source security group as the inbound source.
+--
+-- 'subnets', 'loadBalancerDescription_subnets' - The IDs of the subnets for the load balancer.
+--
+-- 'vPCId', 'loadBalancerDescription_vPCId' - The ID of the VPC for the load balancer.
+newLoadBalancerDescription ::
+  LoadBalancerDescription
+newLoadBalancerDescription =
+  LoadBalancerDescription'
+    { availabilityZones =
+        Prelude.Nothing,
+      backendServerDescriptions = Prelude.Nothing,
+      canonicalHostedZoneName = Prelude.Nothing,
+      canonicalHostedZoneNameID = Prelude.Nothing,
+      createdTime = Prelude.Nothing,
+      dNSName = Prelude.Nothing,
+      healthCheck = Prelude.Nothing,
+      instances = Prelude.Nothing,
+      listenerDescriptions = Prelude.Nothing,
+      loadBalancerName = Prelude.Nothing,
+      policies = Prelude.Nothing,
+      scheme = Prelude.Nothing,
+      securityGroups = Prelude.Nothing,
+      sourceSecurityGroup = Prelude.Nothing,
+      subnets = Prelude.Nothing,
+      vPCId = Prelude.Nothing
+    }
 
--- | The date and time the load balancer was created.
-loadBalancerDescription_createdTime :: Lens.Lens' LoadBalancerDescription (Prelude.Maybe Prelude.UTCTime)
-loadBalancerDescription_createdTime = Lens.lens (\LoadBalancerDescription' {createdTime} -> createdTime) (\s@LoadBalancerDescription' {} a -> s {createdTime = a} :: LoadBalancerDescription) Prelude.. Lens.mapping Data._Time
+-- | The Availability Zones for the load balancer.
+loadBalancerDescription_availabilityZones :: Lens.Lens' LoadBalancerDescription (Prelude.Maybe [Prelude.Text])
+loadBalancerDescription_availabilityZones = Lens.lens (\LoadBalancerDescription' {availabilityZones} -> availabilityZones) (\s@LoadBalancerDescription' {} a -> s {availabilityZones = a} :: LoadBalancerDescription) Prelude.. Lens.mapping Lens.coerced
+
+-- | Information about your EC2 instances.
+loadBalancerDescription_backendServerDescriptions :: Lens.Lens' LoadBalancerDescription (Prelude.Maybe [BackendServerDescription])
+loadBalancerDescription_backendServerDescriptions = Lens.lens (\LoadBalancerDescription' {backendServerDescriptions} -> backendServerDescriptions) (\s@LoadBalancerDescription' {} a -> s {backendServerDescriptions = a} :: LoadBalancerDescription) Prelude.. Lens.mapping Lens.coerced
 
 -- | The DNS name of the load balancer.
 --
@@ -194,13 +180,48 @@ loadBalancerDescription_canonicalHostedZoneName = Lens.lens (\LoadBalancerDescri
 loadBalancerDescription_canonicalHostedZoneNameID :: Lens.Lens' LoadBalancerDescription (Prelude.Maybe Prelude.Text)
 loadBalancerDescription_canonicalHostedZoneNameID = Lens.lens (\LoadBalancerDescription' {canonicalHostedZoneNameID} -> canonicalHostedZoneNameID) (\s@LoadBalancerDescription' {} a -> s {canonicalHostedZoneNameID = a} :: LoadBalancerDescription)
 
+-- | The date and time the load balancer was created.
+loadBalancerDescription_createdTime :: Lens.Lens' LoadBalancerDescription (Prelude.Maybe Prelude.UTCTime)
+loadBalancerDescription_createdTime = Lens.lens (\LoadBalancerDescription' {createdTime} -> createdTime) (\s@LoadBalancerDescription' {} a -> s {createdTime = a} :: LoadBalancerDescription) Prelude.. Lens.mapping Data._Time
+
+-- | The DNS name of the load balancer.
+loadBalancerDescription_dNSName :: Lens.Lens' LoadBalancerDescription (Prelude.Maybe Prelude.Text)
+loadBalancerDescription_dNSName = Lens.lens (\LoadBalancerDescription' {dNSName} -> dNSName) (\s@LoadBalancerDescription' {} a -> s {dNSName = a} :: LoadBalancerDescription)
+
+-- | Information about the health checks conducted on the load balancer.
+loadBalancerDescription_healthCheck :: Lens.Lens' LoadBalancerDescription (Prelude.Maybe HealthCheck)
+loadBalancerDescription_healthCheck = Lens.lens (\LoadBalancerDescription' {healthCheck} -> healthCheck) (\s@LoadBalancerDescription' {} a -> s {healthCheck = a} :: LoadBalancerDescription)
+
+-- | The IDs of the instances for the load balancer.
+loadBalancerDescription_instances :: Lens.Lens' LoadBalancerDescription (Prelude.Maybe [Instance])
+loadBalancerDescription_instances = Lens.lens (\LoadBalancerDescription' {instances} -> instances) (\s@LoadBalancerDescription' {} a -> s {instances = a} :: LoadBalancerDescription) Prelude.. Lens.mapping Lens.coerced
+
+-- | The listeners for the load balancer.
+loadBalancerDescription_listenerDescriptions :: Lens.Lens' LoadBalancerDescription (Prelude.Maybe [ListenerDescription])
+loadBalancerDescription_listenerDescriptions = Lens.lens (\LoadBalancerDescription' {listenerDescriptions} -> listenerDescriptions) (\s@LoadBalancerDescription' {} a -> s {listenerDescriptions = a} :: LoadBalancerDescription) Prelude.. Lens.mapping Lens.coerced
+
 -- | The name of the load balancer.
 loadBalancerDescription_loadBalancerName :: Lens.Lens' LoadBalancerDescription (Prelude.Maybe Prelude.Text)
 loadBalancerDescription_loadBalancerName = Lens.lens (\LoadBalancerDescription' {loadBalancerName} -> loadBalancerName) (\s@LoadBalancerDescription' {} a -> s {loadBalancerName = a} :: LoadBalancerDescription)
 
--- | The IDs of the subnets for the load balancer.
-loadBalancerDescription_subnets :: Lens.Lens' LoadBalancerDescription (Prelude.Maybe [Prelude.Text])
-loadBalancerDescription_subnets = Lens.lens (\LoadBalancerDescription' {subnets} -> subnets) (\s@LoadBalancerDescription' {} a -> s {subnets = a} :: LoadBalancerDescription) Prelude.. Lens.mapping Lens.coerced
+-- | The policies defined for the load balancer.
+loadBalancerDescription_policies :: Lens.Lens' LoadBalancerDescription (Prelude.Maybe Policies)
+loadBalancerDescription_policies = Lens.lens (\LoadBalancerDescription' {policies} -> policies) (\s@LoadBalancerDescription' {} a -> s {policies = a} :: LoadBalancerDescription)
+
+-- | The type of load balancer. Valid only for load balancers in a VPC.
+--
+-- If @Scheme@ is @internet-facing@, the load balancer has a public DNS
+-- name that resolves to a public IP address.
+--
+-- If @Scheme@ is @internal@, the load balancer has a public DNS name that
+-- resolves to a private IP address.
+loadBalancerDescription_scheme :: Lens.Lens' LoadBalancerDescription (Prelude.Maybe Prelude.Text)
+loadBalancerDescription_scheme = Lens.lens (\LoadBalancerDescription' {scheme} -> scheme) (\s@LoadBalancerDescription' {} a -> s {scheme = a} :: LoadBalancerDescription)
+
+-- | The security groups for the load balancer. Valid only for load balancers
+-- in a VPC.
+loadBalancerDescription_securityGroups :: Lens.Lens' LoadBalancerDescription (Prelude.Maybe [Prelude.Text])
+loadBalancerDescription_securityGroups = Lens.lens (\LoadBalancerDescription' {securityGroups} -> securityGroups) (\s@LoadBalancerDescription' {} a -> s {securityGroups = a} :: LoadBalancerDescription) Prelude.. Lens.mapping Lens.coerced
 
 -- | The security group for the load balancer, which you can use as part of
 -- your inbound rules for your registered instances. To only allow traffic
@@ -209,104 +230,83 @@ loadBalancerDescription_subnets = Lens.lens (\LoadBalancerDescription' {subnets}
 loadBalancerDescription_sourceSecurityGroup :: Lens.Lens' LoadBalancerDescription (Prelude.Maybe SourceSecurityGroup)
 loadBalancerDescription_sourceSecurityGroup = Lens.lens (\LoadBalancerDescription' {sourceSecurityGroup} -> sourceSecurityGroup) (\s@LoadBalancerDescription' {} a -> s {sourceSecurityGroup = a} :: LoadBalancerDescription)
 
--- | The Availability Zones for the load balancer.
-loadBalancerDescription_availabilityZones :: Lens.Lens' LoadBalancerDescription (Prelude.Maybe [Prelude.Text])
-loadBalancerDescription_availabilityZones = Lens.lens (\LoadBalancerDescription' {availabilityZones} -> availabilityZones) (\s@LoadBalancerDescription' {} a -> s {availabilityZones = a} :: LoadBalancerDescription) Prelude.. Lens.mapping Lens.coerced
-
--- | The listeners for the load balancer.
-loadBalancerDescription_listenerDescriptions :: Lens.Lens' LoadBalancerDescription (Prelude.Maybe [ListenerDescription])
-loadBalancerDescription_listenerDescriptions = Lens.lens (\LoadBalancerDescription' {listenerDescriptions} -> listenerDescriptions) (\s@LoadBalancerDescription' {} a -> s {listenerDescriptions = a} :: LoadBalancerDescription) Prelude.. Lens.mapping Lens.coerced
-
--- | The policies defined for the load balancer.
-loadBalancerDescription_policies :: Lens.Lens' LoadBalancerDescription (Prelude.Maybe Policies)
-loadBalancerDescription_policies = Lens.lens (\LoadBalancerDescription' {policies} -> policies) (\s@LoadBalancerDescription' {} a -> s {policies = a} :: LoadBalancerDescription)
-
--- | Information about your EC2 instances.
-loadBalancerDescription_backendServerDescriptions :: Lens.Lens' LoadBalancerDescription (Prelude.Maybe [BackendServerDescription])
-loadBalancerDescription_backendServerDescriptions = Lens.lens (\LoadBalancerDescription' {backendServerDescriptions} -> backendServerDescriptions) (\s@LoadBalancerDescription' {} a -> s {backendServerDescriptions = a} :: LoadBalancerDescription) Prelude.. Lens.mapping Lens.coerced
-
--- | The security groups for the load balancer. Valid only for load balancers
--- in a VPC.
-loadBalancerDescription_securityGroups :: Lens.Lens' LoadBalancerDescription (Prelude.Maybe [Prelude.Text])
-loadBalancerDescription_securityGroups = Lens.lens (\LoadBalancerDescription' {securityGroups} -> securityGroups) (\s@LoadBalancerDescription' {} a -> s {securityGroups = a} :: LoadBalancerDescription) Prelude.. Lens.mapping Lens.coerced
+-- | The IDs of the subnets for the load balancer.
+loadBalancerDescription_subnets :: Lens.Lens' LoadBalancerDescription (Prelude.Maybe [Prelude.Text])
+loadBalancerDescription_subnets = Lens.lens (\LoadBalancerDescription' {subnets} -> subnets) (\s@LoadBalancerDescription' {} a -> s {subnets = a} :: LoadBalancerDescription) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the VPC for the load balancer.
 loadBalancerDescription_vPCId :: Lens.Lens' LoadBalancerDescription (Prelude.Maybe Prelude.Text)
 loadBalancerDescription_vPCId = Lens.lens (\LoadBalancerDescription' {vPCId} -> vPCId) (\s@LoadBalancerDescription' {} a -> s {vPCId = a} :: LoadBalancerDescription)
 
--- | The DNS name of the load balancer.
-loadBalancerDescription_dNSName :: Lens.Lens' LoadBalancerDescription (Prelude.Maybe Prelude.Text)
-loadBalancerDescription_dNSName = Lens.lens (\LoadBalancerDescription' {dNSName} -> dNSName) (\s@LoadBalancerDescription' {} a -> s {dNSName = a} :: LoadBalancerDescription)
-
 instance Data.FromXML LoadBalancerDescription where
   parseXML x =
     LoadBalancerDescription'
-      Prelude.<$> ( x Data..@? "Instances" Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "AvailabilityZones"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Data..@? "HealthCheck")
-      Prelude.<*> (x Data..@? "Scheme")
-      Prelude.<*> (x Data..@? "CreatedTime")
+      Prelude.<*> ( x Data..@? "BackendServerDescriptions"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
+                  )
       Prelude.<*> (x Data..@? "CanonicalHostedZoneName")
       Prelude.<*> (x Data..@? "CanonicalHostedZoneNameID")
-      Prelude.<*> (x Data..@? "LoadBalancerName")
-      Prelude.<*> ( x Data..@? "Subnets" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Data.parseXMLList "member")
-                  )
-      Prelude.<*> (x Data..@? "SourceSecurityGroup")
-      Prelude.<*> ( x Data..@? "AvailabilityZones"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> (x Data..@? "CreatedTime")
+      Prelude.<*> (x Data..@? "DNSName")
+      Prelude.<*> (x Data..@? "HealthCheck")
+      Prelude.<*> ( x Data..@? "Instances" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> ( x Data..@? "ListenerDescriptions"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
+      Prelude.<*> (x Data..@? "LoadBalancerName")
       Prelude.<*> (x Data..@? "Policies")
-      Prelude.<*> ( x Data..@? "BackendServerDescriptions"
-                      Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Data.parseXMLList "member")
-                  )
+      Prelude.<*> (x Data..@? "Scheme")
       Prelude.<*> ( x Data..@? "SecurityGroups" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
+      Prelude.<*> (x Data..@? "SourceSecurityGroup")
+      Prelude.<*> ( x Data..@? "Subnets" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
+                  )
       Prelude.<*> (x Data..@? "VPCId")
-      Prelude.<*> (x Data..@? "DNSName")
 
 instance Prelude.Hashable LoadBalancerDescription where
   hashWithSalt _salt LoadBalancerDescription' {..} =
-    _salt `Prelude.hashWithSalt` instances
-      `Prelude.hashWithSalt` healthCheck
-      `Prelude.hashWithSalt` scheme
-      `Prelude.hashWithSalt` createdTime
+    _salt `Prelude.hashWithSalt` availabilityZones
+      `Prelude.hashWithSalt` backendServerDescriptions
       `Prelude.hashWithSalt` canonicalHostedZoneName
       `Prelude.hashWithSalt` canonicalHostedZoneNameID
-      `Prelude.hashWithSalt` loadBalancerName
-      `Prelude.hashWithSalt` subnets
-      `Prelude.hashWithSalt` sourceSecurityGroup
-      `Prelude.hashWithSalt` availabilityZones
-      `Prelude.hashWithSalt` listenerDescriptions
-      `Prelude.hashWithSalt` policies
-      `Prelude.hashWithSalt` backendServerDescriptions
-      `Prelude.hashWithSalt` securityGroups
-      `Prelude.hashWithSalt` vPCId
+      `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` dNSName
+      `Prelude.hashWithSalt` healthCheck
+      `Prelude.hashWithSalt` instances
+      `Prelude.hashWithSalt` listenerDescriptions
+      `Prelude.hashWithSalt` loadBalancerName
+      `Prelude.hashWithSalt` policies
+      `Prelude.hashWithSalt` scheme
+      `Prelude.hashWithSalt` securityGroups
+      `Prelude.hashWithSalt` sourceSecurityGroup
+      `Prelude.hashWithSalt` subnets
+      `Prelude.hashWithSalt` vPCId
 
 instance Prelude.NFData LoadBalancerDescription where
   rnf LoadBalancerDescription' {..} =
-    Prelude.rnf instances
-      `Prelude.seq` Prelude.rnf healthCheck
-      `Prelude.seq` Prelude.rnf scheme
-      `Prelude.seq` Prelude.rnf createdTime
+    Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf backendServerDescriptions
       `Prelude.seq` Prelude.rnf canonicalHostedZoneName
       `Prelude.seq` Prelude.rnf canonicalHostedZoneNameID
-      `Prelude.seq` Prelude.rnf loadBalancerName
-      `Prelude.seq` Prelude.rnf subnets
-      `Prelude.seq` Prelude.rnf sourceSecurityGroup
-      `Prelude.seq` Prelude.rnf availabilityZones
-      `Prelude.seq` Prelude.rnf listenerDescriptions
-      `Prelude.seq` Prelude.rnf policies
-      `Prelude.seq` Prelude.rnf backendServerDescriptions
-      `Prelude.seq` Prelude.rnf securityGroups
-      `Prelude.seq` Prelude.rnf vPCId
+      `Prelude.seq` Prelude.rnf createdTime
       `Prelude.seq` Prelude.rnf dNSName
+      `Prelude.seq` Prelude.rnf healthCheck
+      `Prelude.seq` Prelude.rnf instances
+      `Prelude.seq` Prelude.rnf listenerDescriptions
+      `Prelude.seq` Prelude.rnf loadBalancerName
+      `Prelude.seq` Prelude.rnf policies
+      `Prelude.seq` Prelude.rnf scheme
+      `Prelude.seq` Prelude.rnf securityGroups
+      `Prelude.seq` Prelude.rnf sourceSecurityGroup
+      `Prelude.seq` Prelude.rnf subnets
+      `Prelude.seq` Prelude.rnf vPCId

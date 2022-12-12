@@ -31,13 +31,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMessageResponse' smart constructor.
 data MessageResponse = MessageResponse'
-  { -- | The identifier for the original request that the message was delivered
-    -- for.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | A map that contains a multipart response for each address that the
+  { -- | A map that contains a multipart response for each address that the
     -- message was sent to. In the map, the endpoint ID is the key and the
     -- result is the value.
     endpointResult :: Prelude.Maybe (Prelude.HashMap Prelude.Text EndpointMessageResult),
+    -- | The identifier for the original request that the message was delivered
+    -- for.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | A map that contains a multipart response for each address (email
     -- address, phone number, or push notification token) that the message was
     -- sent to. In the map, the address is the key and the result is the value.
@@ -56,12 +56,12 @@ data MessageResponse = MessageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'messageResponse_requestId' - The identifier for the original request that the message was delivered
--- for.
---
 -- 'endpointResult', 'messageResponse_endpointResult' - A map that contains a multipart response for each address that the
 -- message was sent to. In the map, the endpoint ID is the key and the
 -- result is the value.
+--
+-- 'requestId', 'messageResponse_requestId' - The identifier for the original request that the message was delivered
+-- for.
 --
 -- 'result', 'messageResponse_result' - A map that contains a multipart response for each address (email
 -- address, phone number, or push notification token) that the message was
@@ -75,22 +75,22 @@ newMessageResponse ::
   MessageResponse
 newMessageResponse pApplicationId_ =
   MessageResponse'
-    { requestId = Prelude.Nothing,
-      endpointResult = Prelude.Nothing,
+    { endpointResult = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       result = Prelude.Nothing,
       applicationId = pApplicationId_
     }
-
--- | The identifier for the original request that the message was delivered
--- for.
-messageResponse_requestId :: Lens.Lens' MessageResponse (Prelude.Maybe Prelude.Text)
-messageResponse_requestId = Lens.lens (\MessageResponse' {requestId} -> requestId) (\s@MessageResponse' {} a -> s {requestId = a} :: MessageResponse)
 
 -- | A map that contains a multipart response for each address that the
 -- message was sent to. In the map, the endpoint ID is the key and the
 -- result is the value.
 messageResponse_endpointResult :: Lens.Lens' MessageResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text EndpointMessageResult))
 messageResponse_endpointResult = Lens.lens (\MessageResponse' {endpointResult} -> endpointResult) (\s@MessageResponse' {} a -> s {endpointResult = a} :: MessageResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The identifier for the original request that the message was delivered
+-- for.
+messageResponse_requestId :: Lens.Lens' MessageResponse (Prelude.Maybe Prelude.Text)
+messageResponse_requestId = Lens.lens (\MessageResponse' {requestId} -> requestId) (\s@MessageResponse' {} a -> s {requestId = a} :: MessageResponse)
 
 -- | A map that contains a multipart response for each address (email
 -- address, phone number, or push notification token) that the message was
@@ -109,22 +109,22 @@ instance Data.FromJSON MessageResponse where
       "MessageResponse"
       ( \x ->
           MessageResponse'
-            Prelude.<$> (x Data..:? "RequestId")
-            Prelude.<*> (x Data..:? "EndpointResult" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "EndpointResult" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "RequestId")
             Prelude.<*> (x Data..:? "Result" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "ApplicationId")
       )
 
 instance Prelude.Hashable MessageResponse where
   hashWithSalt _salt MessageResponse' {..} =
-    _salt `Prelude.hashWithSalt` requestId
-      `Prelude.hashWithSalt` endpointResult
+    _salt `Prelude.hashWithSalt` endpointResult
+      `Prelude.hashWithSalt` requestId
       `Prelude.hashWithSalt` result
       `Prelude.hashWithSalt` applicationId
 
 instance Prelude.NFData MessageResponse where
   rnf MessageResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf endpointResult
+    Prelude.rnf endpointResult
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf result
       `Prelude.seq` Prelude.rnf applicationId

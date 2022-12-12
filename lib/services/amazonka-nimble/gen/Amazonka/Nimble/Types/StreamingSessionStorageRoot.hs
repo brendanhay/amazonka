@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStreamingSessionStorageRoot' smart constructor.
 data StreamingSessionStorageRoot = StreamingSessionStorageRoot'
-  { -- | The folder path in Windows workstations where files are uploaded.
-    windows :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The folder path in Linux workstations where files are uploaded.
-    linux :: Prelude.Maybe (Data.Sensitive Prelude.Text)
+  { -- | The folder path in Linux workstations where files are uploaded.
+    linux :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The folder path in Windows workstations where files are uploaded.
+    windows :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data StreamingSessionStorageRoot = StreamingSessionStorageRoot'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'windows', 'streamingSessionStorageRoot_windows' - The folder path in Windows workstations where files are uploaded.
---
 -- 'linux', 'streamingSessionStorageRoot_linux' - The folder path in Linux workstations where files are uploaded.
+--
+-- 'windows', 'streamingSessionStorageRoot_windows' - The folder path in Windows workstations where files are uploaded.
 newStreamingSessionStorageRoot ::
   StreamingSessionStorageRoot
 newStreamingSessionStorageRoot =
   StreamingSessionStorageRoot'
-    { windows =
+    { linux =
         Prelude.Nothing,
-      linux = Prelude.Nothing
+      windows = Prelude.Nothing
     }
-
--- | The folder path in Windows workstations where files are uploaded.
-streamingSessionStorageRoot_windows :: Lens.Lens' StreamingSessionStorageRoot (Prelude.Maybe Prelude.Text)
-streamingSessionStorageRoot_windows = Lens.lens (\StreamingSessionStorageRoot' {windows} -> windows) (\s@StreamingSessionStorageRoot' {} a -> s {windows = a} :: StreamingSessionStorageRoot) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The folder path in Linux workstations where files are uploaded.
 streamingSessionStorageRoot_linux :: Lens.Lens' StreamingSessionStorageRoot (Prelude.Maybe Prelude.Text)
 streamingSessionStorageRoot_linux = Lens.lens (\StreamingSessionStorageRoot' {linux} -> linux) (\s@StreamingSessionStorageRoot' {} a -> s {linux = a} :: StreamingSessionStorageRoot) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The folder path in Windows workstations where files are uploaded.
+streamingSessionStorageRoot_windows :: Lens.Lens' StreamingSessionStorageRoot (Prelude.Maybe Prelude.Text)
+streamingSessionStorageRoot_windows = Lens.lens (\StreamingSessionStorageRoot' {windows} -> windows) (\s@StreamingSessionStorageRoot' {} a -> s {windows = a} :: StreamingSessionStorageRoot) Prelude.. Lens.mapping Data._Sensitive
 
 instance Data.FromJSON StreamingSessionStorageRoot where
   parseJSON =
@@ -70,24 +70,24 @@ instance Data.FromJSON StreamingSessionStorageRoot where
       "StreamingSessionStorageRoot"
       ( \x ->
           StreamingSessionStorageRoot'
-            Prelude.<$> (x Data..:? "windows")
-            Prelude.<*> (x Data..:? "linux")
+            Prelude.<$> (x Data..:? "linux")
+            Prelude.<*> (x Data..:? "windows")
       )
 
 instance Prelude.Hashable StreamingSessionStorageRoot where
   hashWithSalt _salt StreamingSessionStorageRoot' {..} =
-    _salt `Prelude.hashWithSalt` windows
-      `Prelude.hashWithSalt` linux
+    _salt `Prelude.hashWithSalt` linux
+      `Prelude.hashWithSalt` windows
 
 instance Prelude.NFData StreamingSessionStorageRoot where
   rnf StreamingSessionStorageRoot' {..} =
-    Prelude.rnf windows `Prelude.seq` Prelude.rnf linux
+    Prelude.rnf linux `Prelude.seq` Prelude.rnf windows
 
 instance Data.ToJSON StreamingSessionStorageRoot where
   toJSON StreamingSessionStorageRoot' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("windows" Data..=) Prelude.<$> windows,
-            ("linux" Data..=) Prelude.<$> linux
+          [ ("linux" Data..=) Prelude.<$> linux,
+            ("windows" Data..=) Prelude.<$> windows
           ]
       )

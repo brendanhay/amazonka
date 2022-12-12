@@ -28,9 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDomainSuggestion' smart constructor.
 data DomainSuggestion = DomainSuggestion'
-  { -- | A suggested domain name.
-    domainName :: Prelude.Maybe Prelude.Text,
-    -- | Whether the domain name is available for registering.
+  { -- | Whether the domain name is available for registering.
     --
     -- You can register only the domains that are designated as @AVAILABLE@.
     --
@@ -68,7 +66,9 @@ data DomainSuggestion = DomainSuggestion'
     --
     -- [UNAVAILABLE_RESTRICTED]
     --     The domain name is forbidden.
-    availability :: Prelude.Maybe Prelude.Text
+    availability :: Prelude.Maybe Prelude.Text,
+    -- | A suggested domain name.
+    domainName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,8 +79,6 @@ data DomainSuggestion = DomainSuggestion'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'domainName', 'domainSuggestion_domainName' - A suggested domain name.
 --
 -- 'availability', 'domainSuggestion_availability' - Whether the domain name is available for registering.
 --
@@ -120,17 +118,15 @@ data DomainSuggestion = DomainSuggestion'
 --
 -- [UNAVAILABLE_RESTRICTED]
 --     The domain name is forbidden.
+--
+-- 'domainName', 'domainSuggestion_domainName' - A suggested domain name.
 newDomainSuggestion ::
   DomainSuggestion
 newDomainSuggestion =
   DomainSuggestion'
-    { domainName = Prelude.Nothing,
-      availability = Prelude.Nothing
+    { availability = Prelude.Nothing,
+      domainName = Prelude.Nothing
     }
-
--- | A suggested domain name.
-domainSuggestion_domainName :: Lens.Lens' DomainSuggestion (Prelude.Maybe Prelude.Text)
-domainSuggestion_domainName = Lens.lens (\DomainSuggestion' {domainName} -> domainName) (\s@DomainSuggestion' {} a -> s {domainName = a} :: DomainSuggestion)
 
 -- | Whether the domain name is available for registering.
 --
@@ -173,22 +169,26 @@ domainSuggestion_domainName = Lens.lens (\DomainSuggestion' {domainName} -> doma
 domainSuggestion_availability :: Lens.Lens' DomainSuggestion (Prelude.Maybe Prelude.Text)
 domainSuggestion_availability = Lens.lens (\DomainSuggestion' {availability} -> availability) (\s@DomainSuggestion' {} a -> s {availability = a} :: DomainSuggestion)
 
+-- | A suggested domain name.
+domainSuggestion_domainName :: Lens.Lens' DomainSuggestion (Prelude.Maybe Prelude.Text)
+domainSuggestion_domainName = Lens.lens (\DomainSuggestion' {domainName} -> domainName) (\s@DomainSuggestion' {} a -> s {domainName = a} :: DomainSuggestion)
+
 instance Data.FromJSON DomainSuggestion where
   parseJSON =
     Data.withObject
       "DomainSuggestion"
       ( \x ->
           DomainSuggestion'
-            Prelude.<$> (x Data..:? "DomainName")
-            Prelude.<*> (x Data..:? "Availability")
+            Prelude.<$> (x Data..:? "Availability")
+            Prelude.<*> (x Data..:? "DomainName")
       )
 
 instance Prelude.Hashable DomainSuggestion where
   hashWithSalt _salt DomainSuggestion' {..} =
-    _salt `Prelude.hashWithSalt` domainName
-      `Prelude.hashWithSalt` availability
+    _salt `Prelude.hashWithSalt` availability
+      `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData DomainSuggestion where
   rnf DomainSuggestion' {..} =
-    Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf availability
+    Prelude.rnf availability
+      `Prelude.seq` Prelude.rnf domainName

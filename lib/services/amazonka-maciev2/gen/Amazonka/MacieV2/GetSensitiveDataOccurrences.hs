@@ -34,9 +34,9 @@ module Amazonka.MacieV2.GetSensitiveDataOccurrences
     newGetSensitiveDataOccurrencesResponse,
 
     -- * Response Lenses
+    getSensitiveDataOccurrencesResponse_error,
     getSensitiveDataOccurrencesResponse_sensitiveDataOccurrences,
     getSensitiveDataOccurrencesResponse_status,
-    getSensitiveDataOccurrencesResponse_error,
     getSensitiveDataOccurrencesResponse_httpStatus,
   )
 where
@@ -89,11 +89,11 @@ instance Core.AWSRequest GetSensitiveDataOccurrences where
     Response.receiveJSON
       ( \s h x ->
           GetSensitiveDataOccurrencesResponse'
-            Prelude.<$> ( x Data..?> "sensitiveDataOccurrences"
+            Prelude.<$> (x Data..?> "error")
+            Prelude.<*> ( x Data..?> "sensitiveDataOccurrences"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "status")
-            Prelude.<*> (x Data..?> "error")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,7 +126,12 @@ instance Data.ToQuery GetSensitiveDataOccurrences where
 
 -- | /See:/ 'newGetSensitiveDataOccurrencesResponse' smart constructor.
 data GetSensitiveDataOccurrencesResponse = GetSensitiveDataOccurrencesResponse'
-  { -- | A map that specifies 1-100 types of sensitive data reported by the
+  { -- | If an error occurred when Amazon Macie attempted to retrieve occurrences
+    -- of sensitive data reported by the finding, a description of the error
+    -- that occurred. This value is null if the status (status) of the request
+    -- is PROCESSING or SUCCESS.
+    error :: Prelude.Maybe Prelude.Text,
+    -- | A map that specifies 1-100 types of sensitive data reported by the
     -- finding and, for each type, 1-10 occurrences of sensitive data.
     sensitiveDataOccurrences :: Prelude.Maybe (Prelude.HashMap Prelude.Text [DetectedDataDetails]),
     -- | The status of the request to retrieve occurrences of sensitive data
@@ -141,11 +146,6 @@ data GetSensitiveDataOccurrencesResponse = GetSensitiveDataOccurrencesResponse'
     -- -   SUCCESS - Macie successfully located, retrieved, and encrypted the
     --     sensitive data.
     status :: Prelude.Maybe RevealRequestStatus,
-    -- | If an error occurred when Amazon Macie attempted to retrieve occurrences
-    -- of sensitive data reported by the finding, a description of the error
-    -- that occurred. This value is null if the status (status) of the request
-    -- is PROCESSING or SUCCESS.
-    error :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -158,6 +158,11 @@ data GetSensitiveDataOccurrencesResponse = GetSensitiveDataOccurrencesResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'error', 'getSensitiveDataOccurrencesResponse_error' - If an error occurred when Amazon Macie attempted to retrieve occurrences
+-- of sensitive data reported by the finding, a description of the error
+-- that occurred. This value is null if the status (status) of the request
+-- is PROCESSING or SUCCESS.
 --
 -- 'sensitiveDataOccurrences', 'getSensitiveDataOccurrencesResponse_sensitiveDataOccurrences' - A map that specifies 1-100 types of sensitive data reported by the
 -- finding and, for each type, 1-10 occurrences of sensitive data.
@@ -174,11 +179,6 @@ data GetSensitiveDataOccurrencesResponse = GetSensitiveDataOccurrencesResponse'
 -- -   SUCCESS - Macie successfully located, retrieved, and encrypted the
 --     sensitive data.
 --
--- 'error', 'getSensitiveDataOccurrencesResponse_error' - If an error occurred when Amazon Macie attempted to retrieve occurrences
--- of sensitive data reported by the finding, a description of the error
--- that occurred. This value is null if the status (status) of the request
--- is PROCESSING or SUCCESS.
---
 -- 'httpStatus', 'getSensitiveDataOccurrencesResponse_httpStatus' - The response's http status code.
 newGetSensitiveDataOccurrencesResponse ::
   -- | 'httpStatus'
@@ -186,12 +186,20 @@ newGetSensitiveDataOccurrencesResponse ::
   GetSensitiveDataOccurrencesResponse
 newGetSensitiveDataOccurrencesResponse pHttpStatus_ =
   GetSensitiveDataOccurrencesResponse'
-    { sensitiveDataOccurrences =
+    { error =
+        Prelude.Nothing,
+      sensitiveDataOccurrences =
         Prelude.Nothing,
       status = Prelude.Nothing,
-      error = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | If an error occurred when Amazon Macie attempted to retrieve occurrences
+-- of sensitive data reported by the finding, a description of the error
+-- that occurred. This value is null if the status (status) of the request
+-- is PROCESSING or SUCCESS.
+getSensitiveDataOccurrencesResponse_error :: Lens.Lens' GetSensitiveDataOccurrencesResponse (Prelude.Maybe Prelude.Text)
+getSensitiveDataOccurrencesResponse_error = Lens.lens (\GetSensitiveDataOccurrencesResponse' {error} -> error) (\s@GetSensitiveDataOccurrencesResponse' {} a -> s {error = a} :: GetSensitiveDataOccurrencesResponse)
 
 -- | A map that specifies 1-100 types of sensitive data reported by the
 -- finding and, for each type, 1-10 occurrences of sensitive data.
@@ -212,13 +220,6 @@ getSensitiveDataOccurrencesResponse_sensitiveDataOccurrences = Lens.lens (\GetSe
 getSensitiveDataOccurrencesResponse_status :: Lens.Lens' GetSensitiveDataOccurrencesResponse (Prelude.Maybe RevealRequestStatus)
 getSensitiveDataOccurrencesResponse_status = Lens.lens (\GetSensitiveDataOccurrencesResponse' {status} -> status) (\s@GetSensitiveDataOccurrencesResponse' {} a -> s {status = a} :: GetSensitiveDataOccurrencesResponse)
 
--- | If an error occurred when Amazon Macie attempted to retrieve occurrences
--- of sensitive data reported by the finding, a description of the error
--- that occurred. This value is null if the status (status) of the request
--- is PROCESSING or SUCCESS.
-getSensitiveDataOccurrencesResponse_error :: Lens.Lens' GetSensitiveDataOccurrencesResponse (Prelude.Maybe Prelude.Text)
-getSensitiveDataOccurrencesResponse_error = Lens.lens (\GetSensitiveDataOccurrencesResponse' {error} -> error) (\s@GetSensitiveDataOccurrencesResponse' {} a -> s {error = a} :: GetSensitiveDataOccurrencesResponse)
-
 -- | The response's http status code.
 getSensitiveDataOccurrencesResponse_httpStatus :: Lens.Lens' GetSensitiveDataOccurrencesResponse Prelude.Int
 getSensitiveDataOccurrencesResponse_httpStatus = Lens.lens (\GetSensitiveDataOccurrencesResponse' {httpStatus} -> httpStatus) (\s@GetSensitiveDataOccurrencesResponse' {} a -> s {httpStatus = a} :: GetSensitiveDataOccurrencesResponse)
@@ -228,7 +229,7 @@ instance
     GetSensitiveDataOccurrencesResponse
   where
   rnf GetSensitiveDataOccurrencesResponse' {..} =
-    Prelude.rnf sensitiveDataOccurrences
+    Prelude.rnf error
+      `Prelude.seq` Prelude.rnf sensitiveDataOccurrences
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf error
       `Prelude.seq` Prelude.rnf httpStatus

@@ -32,11 +32,11 @@ data AssociationOverview = AssociationOverview'
     -- if you created an association with two managed nodes, and one of them
     -- was successful, this would return the count of managed nodes by status.
     associationStatusAggregatedCount :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Int),
+    -- | A detailed status of the association.
+    detailedStatus :: Prelude.Maybe Prelude.Text,
     -- | The status of the association. Status can be: Pending, Success, or
     -- Failed.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | A detailed status of the association.
-    detailedStatus :: Prelude.Maybe Prelude.Text
+    status :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,18 +52,18 @@ data AssociationOverview = AssociationOverview'
 -- if you created an association with two managed nodes, and one of them
 -- was successful, this would return the count of managed nodes by status.
 --
+-- 'detailedStatus', 'associationOverview_detailedStatus' - A detailed status of the association.
+--
 -- 'status', 'associationOverview_status' - The status of the association. Status can be: Pending, Success, or
 -- Failed.
---
--- 'detailedStatus', 'associationOverview_detailedStatus' - A detailed status of the association.
 newAssociationOverview ::
   AssociationOverview
 newAssociationOverview =
   AssociationOverview'
     { associationStatusAggregatedCount =
         Prelude.Nothing,
-      status = Prelude.Nothing,
-      detailedStatus = Prelude.Nothing
+      detailedStatus = Prelude.Nothing,
+      status = Prelude.Nothing
     }
 
 -- | Returns the number of targets for the association status. For example,
@@ -72,14 +72,14 @@ newAssociationOverview =
 associationOverview_associationStatusAggregatedCount :: Lens.Lens' AssociationOverview (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Int))
 associationOverview_associationStatusAggregatedCount = Lens.lens (\AssociationOverview' {associationStatusAggregatedCount} -> associationStatusAggregatedCount) (\s@AssociationOverview' {} a -> s {associationStatusAggregatedCount = a} :: AssociationOverview) Prelude.. Lens.mapping Lens.coerced
 
+-- | A detailed status of the association.
+associationOverview_detailedStatus :: Lens.Lens' AssociationOverview (Prelude.Maybe Prelude.Text)
+associationOverview_detailedStatus = Lens.lens (\AssociationOverview' {detailedStatus} -> detailedStatus) (\s@AssociationOverview' {} a -> s {detailedStatus = a} :: AssociationOverview)
+
 -- | The status of the association. Status can be: Pending, Success, or
 -- Failed.
 associationOverview_status :: Lens.Lens' AssociationOverview (Prelude.Maybe Prelude.Text)
 associationOverview_status = Lens.lens (\AssociationOverview' {status} -> status) (\s@AssociationOverview' {} a -> s {status = a} :: AssociationOverview)
-
--- | A detailed status of the association.
-associationOverview_detailedStatus :: Lens.Lens' AssociationOverview (Prelude.Maybe Prelude.Text)
-associationOverview_detailedStatus = Lens.lens (\AssociationOverview' {detailedStatus} -> detailedStatus) (\s@AssociationOverview' {} a -> s {detailedStatus = a} :: AssociationOverview)
 
 instance Data.FromJSON AssociationOverview where
   parseJSON =
@@ -90,19 +90,19 @@ instance Data.FromJSON AssociationOverview where
             Prelude.<$> ( x Data..:? "AssociationStatusAggregatedCount"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "Status")
             Prelude.<*> (x Data..:? "DetailedStatus")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable AssociationOverview where
   hashWithSalt _salt AssociationOverview' {..} =
     _salt
       `Prelude.hashWithSalt` associationStatusAggregatedCount
-      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` detailedStatus
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData AssociationOverview where
   rnf AssociationOverview' {..} =
     Prelude.rnf associationStatusAggregatedCount
-      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf detailedStatus
+      `Prelude.seq` Prelude.rnf status

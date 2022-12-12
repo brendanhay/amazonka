@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCwLog' smart constructor.
 data CwLog = CwLog'
-  { -- | The name of the log group where the copies are stored.
-    cwLogGroup :: Prelude.Maybe Prelude.Text,
-    -- | Indicated whether the app monitor stores copies of the data that RUM
+  { -- | Indicated whether the app monitor stores copies of the data that RUM
     -- collects in CloudWatch Logs.
-    cwLogEnabled :: Prelude.Maybe Prelude.Bool
+    cwLogEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the log group where the copies are stored.
+    cwLogGroup :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,26 +46,26 @@ data CwLog = CwLog'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'cwLogGroup', 'cwLog_cwLogGroup' - The name of the log group where the copies are stored.
---
 -- 'cwLogEnabled', 'cwLog_cwLogEnabled' - Indicated whether the app monitor stores copies of the data that RUM
 -- collects in CloudWatch Logs.
+--
+-- 'cwLogGroup', 'cwLog_cwLogGroup' - The name of the log group where the copies are stored.
 newCwLog ::
   CwLog
 newCwLog =
   CwLog'
-    { cwLogGroup = Prelude.Nothing,
-      cwLogEnabled = Prelude.Nothing
+    { cwLogEnabled = Prelude.Nothing,
+      cwLogGroup = Prelude.Nothing
     }
-
--- | The name of the log group where the copies are stored.
-cwLog_cwLogGroup :: Lens.Lens' CwLog (Prelude.Maybe Prelude.Text)
-cwLog_cwLogGroup = Lens.lens (\CwLog' {cwLogGroup} -> cwLogGroup) (\s@CwLog' {} a -> s {cwLogGroup = a} :: CwLog)
 
 -- | Indicated whether the app monitor stores copies of the data that RUM
 -- collects in CloudWatch Logs.
 cwLog_cwLogEnabled :: Lens.Lens' CwLog (Prelude.Maybe Prelude.Bool)
 cwLog_cwLogEnabled = Lens.lens (\CwLog' {cwLogEnabled} -> cwLogEnabled) (\s@CwLog' {} a -> s {cwLogEnabled = a} :: CwLog)
+
+-- | The name of the log group where the copies are stored.
+cwLog_cwLogGroup :: Lens.Lens' CwLog (Prelude.Maybe Prelude.Text)
+cwLog_cwLogGroup = Lens.lens (\CwLog' {cwLogGroup} -> cwLogGroup) (\s@CwLog' {} a -> s {cwLogGroup = a} :: CwLog)
 
 instance Data.FromJSON CwLog where
   parseJSON =
@@ -73,16 +73,16 @@ instance Data.FromJSON CwLog where
       "CwLog"
       ( \x ->
           CwLog'
-            Prelude.<$> (x Data..:? "CwLogGroup")
-            Prelude.<*> (x Data..:? "CwLogEnabled")
+            Prelude.<$> (x Data..:? "CwLogEnabled")
+            Prelude.<*> (x Data..:? "CwLogGroup")
       )
 
 instance Prelude.Hashable CwLog where
   hashWithSalt _salt CwLog' {..} =
-    _salt `Prelude.hashWithSalt` cwLogGroup
-      `Prelude.hashWithSalt` cwLogEnabled
+    _salt `Prelude.hashWithSalt` cwLogEnabled
+      `Prelude.hashWithSalt` cwLogGroup
 
 instance Prelude.NFData CwLog where
   rnf CwLog' {..} =
-    Prelude.rnf cwLogGroup
-      `Prelude.seq` Prelude.rnf cwLogEnabled
+    Prelude.rnf cwLogEnabled
+      `Prelude.seq` Prelude.rnf cwLogGroup

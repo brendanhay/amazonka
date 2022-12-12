@@ -21,6 +21,7 @@ module Amazonka.MigrationHubStrategy.Types.StrategyRecommendation
   ( StrategyRecommendation
       ( ..,
         StrategyRecommendation_NotRecommended,
+        StrategyRecommendation_Potential,
         StrategyRecommendation_Recommended,
         StrategyRecommendation_ViableOption
       ),
@@ -62,6 +63,9 @@ newtype StrategyRecommendation = StrategyRecommendation'
 pattern StrategyRecommendation_NotRecommended :: StrategyRecommendation
 pattern StrategyRecommendation_NotRecommended = StrategyRecommendation' "notRecommended"
 
+pattern StrategyRecommendation_Potential :: StrategyRecommendation
+pattern StrategyRecommendation_Potential = StrategyRecommendation' "potential"
+
 pattern StrategyRecommendation_Recommended :: StrategyRecommendation
 pattern StrategyRecommendation_Recommended = StrategyRecommendation' "recommended"
 
@@ -70,6 +74,7 @@ pattern StrategyRecommendation_ViableOption = StrategyRecommendation' "viableOpt
 
 {-# COMPLETE
   StrategyRecommendation_NotRecommended,
+  StrategyRecommendation_Potential,
   StrategyRecommendation_Recommended,
   StrategyRecommendation_ViableOption,
   StrategyRecommendation'

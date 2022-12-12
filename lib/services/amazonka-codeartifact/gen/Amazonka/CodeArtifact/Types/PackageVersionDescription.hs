@@ -32,31 +32,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPackageVersionDescription' smart constructor.
 data PackageVersionDescription = PackageVersionDescription'
-  { -- | A timestamp that contains the date and time the package version was
-    -- published.
-    publishedTime :: Prelude.Maybe Data.POSIX,
-    -- | The homepage associated with the package.
-    homePage :: Prelude.Maybe Prelude.Text,
-    -- | The name of the requested package.
-    packageName :: Prelude.Maybe Prelude.Text,
-    -- | The format of the package version.
-    format :: Prelude.Maybe PackageFormat,
-    -- | The revision of the package version.
-    revision :: Prelude.Maybe Prelude.Text,
-    -- | The name of the package that is displayed. The @displayName@ varies
+  { -- | The name of the package that is displayed. The @displayName@ varies
     -- depending on the package version\'s format. For example, if an npm
     -- package is named @ui@, is in the namespace @vue@, and has the format
     -- @npm@, then the @displayName@ is @\@vue\/ui@.
     displayName :: Prelude.Maybe Prelude.Text,
-    -- | A summary of the package version. The summary is extracted from the
-    -- package. The information in and detail level of the summary depends on
-    -- the package version\'s format.
-    summary :: Prelude.Maybe Prelude.Text,
-    -- | A string that contains the status of the package version.
-    status :: Prelude.Maybe PackageVersionStatus,
-    -- | The repository for the source code in the package version, or the source
-    -- code used to build it.
-    sourceCodeRepository :: Prelude.Maybe Prelude.Text,
+    -- | The format of the package version.
+    format :: Prelude.Maybe PackageFormat,
+    -- | The homepage associated with the package.
+    homePage :: Prelude.Maybe Prelude.Text,
+    -- | Information about licenses associated with the package version.
+    licenses :: Prelude.Maybe [LicenseInfo],
     -- | The namespace of the package version. The package version component that
     -- specifies its namespace depends on its type. For example:
     --
@@ -73,10 +59,24 @@ data PackageVersionDescription = PackageVersionDescription'
     -- object that contains information about how the package version was added
     -- to the repository.
     origin :: Prelude.Maybe PackageVersionOrigin,
+    -- | The name of the requested package.
+    packageName :: Prelude.Maybe Prelude.Text,
+    -- | A timestamp that contains the date and time the package version was
+    -- published.
+    publishedTime :: Prelude.Maybe Data.POSIX,
+    -- | The revision of the package version.
+    revision :: Prelude.Maybe Prelude.Text,
+    -- | The repository for the source code in the package version, or the source
+    -- code used to build it.
+    sourceCodeRepository :: Prelude.Maybe Prelude.Text,
+    -- | A string that contains the status of the package version.
+    status :: Prelude.Maybe PackageVersionStatus,
+    -- | A summary of the package version. The summary is extracted from the
+    -- package. The information in and detail level of the summary depends on
+    -- the package version\'s format.
+    summary :: Prelude.Maybe Prelude.Text,
     -- | The version of the package.
-    version :: Prelude.Maybe Prelude.Text,
-    -- | Information about licenses associated with the package version.
-    licenses :: Prelude.Maybe [LicenseInfo]
+    version :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -88,30 +88,16 @@ data PackageVersionDescription = PackageVersionDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'publishedTime', 'packageVersionDescription_publishedTime' - A timestamp that contains the date and time the package version was
--- published.
---
--- 'homePage', 'packageVersionDescription_homePage' - The homepage associated with the package.
---
--- 'packageName', 'packageVersionDescription_packageName' - The name of the requested package.
---
--- 'format', 'packageVersionDescription_format' - The format of the package version.
---
--- 'revision', 'packageVersionDescription_revision' - The revision of the package version.
---
 -- 'displayName', 'packageVersionDescription_displayName' - The name of the package that is displayed. The @displayName@ varies
 -- depending on the package version\'s format. For example, if an npm
 -- package is named @ui@, is in the namespace @vue@, and has the format
 -- @npm@, then the @displayName@ is @\@vue\/ui@.
 --
--- 'summary', 'packageVersionDescription_summary' - A summary of the package version. The summary is extracted from the
--- package. The information in and detail level of the summary depends on
--- the package version\'s format.
+-- 'format', 'packageVersionDescription_format' - The format of the package version.
 --
--- 'status', 'packageVersionDescription_status' - A string that contains the status of the package version.
+-- 'homePage', 'packageVersionDescription_homePage' - The homepage associated with the package.
 --
--- 'sourceCodeRepository', 'packageVersionDescription_sourceCodeRepository' - The repository for the source code in the package version, or the source
--- code used to build it.
+-- 'licenses', 'packageVersionDescription_licenses' - Information about licenses associated with the package version.
 --
 -- 'namespace', 'packageVersionDescription_namespace' - The namespace of the package version. The package version component that
 -- specifies its namespace depends on its type. For example:
@@ -129,49 +115,42 @@ data PackageVersionDescription = PackageVersionDescription'
 -- object that contains information about how the package version was added
 -- to the repository.
 --
--- 'version', 'packageVersionDescription_version' - The version of the package.
+-- 'packageName', 'packageVersionDescription_packageName' - The name of the requested package.
 --
--- 'licenses', 'packageVersionDescription_licenses' - Information about licenses associated with the package version.
+-- 'publishedTime', 'packageVersionDescription_publishedTime' - A timestamp that contains the date and time the package version was
+-- published.
+--
+-- 'revision', 'packageVersionDescription_revision' - The revision of the package version.
+--
+-- 'sourceCodeRepository', 'packageVersionDescription_sourceCodeRepository' - The repository for the source code in the package version, or the source
+-- code used to build it.
+--
+-- 'status', 'packageVersionDescription_status' - A string that contains the status of the package version.
+--
+-- 'summary', 'packageVersionDescription_summary' - A summary of the package version. The summary is extracted from the
+-- package. The information in and detail level of the summary depends on
+-- the package version\'s format.
+--
+-- 'version', 'packageVersionDescription_version' - The version of the package.
 newPackageVersionDescription ::
   PackageVersionDescription
 newPackageVersionDescription =
   PackageVersionDescription'
-    { publishedTime =
+    { displayName =
         Prelude.Nothing,
-      homePage = Prelude.Nothing,
-      packageName = Prelude.Nothing,
       format = Prelude.Nothing,
-      revision = Prelude.Nothing,
-      displayName = Prelude.Nothing,
-      summary = Prelude.Nothing,
-      status = Prelude.Nothing,
-      sourceCodeRepository = Prelude.Nothing,
+      homePage = Prelude.Nothing,
+      licenses = Prelude.Nothing,
       namespace = Prelude.Nothing,
       origin = Prelude.Nothing,
-      version = Prelude.Nothing,
-      licenses = Prelude.Nothing
+      packageName = Prelude.Nothing,
+      publishedTime = Prelude.Nothing,
+      revision = Prelude.Nothing,
+      sourceCodeRepository = Prelude.Nothing,
+      status = Prelude.Nothing,
+      summary = Prelude.Nothing,
+      version = Prelude.Nothing
     }
-
--- | A timestamp that contains the date and time the package version was
--- published.
-packageVersionDescription_publishedTime :: Lens.Lens' PackageVersionDescription (Prelude.Maybe Prelude.UTCTime)
-packageVersionDescription_publishedTime = Lens.lens (\PackageVersionDescription' {publishedTime} -> publishedTime) (\s@PackageVersionDescription' {} a -> s {publishedTime = a} :: PackageVersionDescription) Prelude.. Lens.mapping Data._Time
-
--- | The homepage associated with the package.
-packageVersionDescription_homePage :: Lens.Lens' PackageVersionDescription (Prelude.Maybe Prelude.Text)
-packageVersionDescription_homePage = Lens.lens (\PackageVersionDescription' {homePage} -> homePage) (\s@PackageVersionDescription' {} a -> s {homePage = a} :: PackageVersionDescription)
-
--- | The name of the requested package.
-packageVersionDescription_packageName :: Lens.Lens' PackageVersionDescription (Prelude.Maybe Prelude.Text)
-packageVersionDescription_packageName = Lens.lens (\PackageVersionDescription' {packageName} -> packageName) (\s@PackageVersionDescription' {} a -> s {packageName = a} :: PackageVersionDescription)
-
--- | The format of the package version.
-packageVersionDescription_format :: Lens.Lens' PackageVersionDescription (Prelude.Maybe PackageFormat)
-packageVersionDescription_format = Lens.lens (\PackageVersionDescription' {format} -> format) (\s@PackageVersionDescription' {} a -> s {format = a} :: PackageVersionDescription)
-
--- | The revision of the package version.
-packageVersionDescription_revision :: Lens.Lens' PackageVersionDescription (Prelude.Maybe Prelude.Text)
-packageVersionDescription_revision = Lens.lens (\PackageVersionDescription' {revision} -> revision) (\s@PackageVersionDescription' {} a -> s {revision = a} :: PackageVersionDescription)
 
 -- | The name of the package that is displayed. The @displayName@ varies
 -- depending on the package version\'s format. For example, if an npm
@@ -180,20 +159,17 @@ packageVersionDescription_revision = Lens.lens (\PackageVersionDescription' {rev
 packageVersionDescription_displayName :: Lens.Lens' PackageVersionDescription (Prelude.Maybe Prelude.Text)
 packageVersionDescription_displayName = Lens.lens (\PackageVersionDescription' {displayName} -> displayName) (\s@PackageVersionDescription' {} a -> s {displayName = a} :: PackageVersionDescription)
 
--- | A summary of the package version. The summary is extracted from the
--- package. The information in and detail level of the summary depends on
--- the package version\'s format.
-packageVersionDescription_summary :: Lens.Lens' PackageVersionDescription (Prelude.Maybe Prelude.Text)
-packageVersionDescription_summary = Lens.lens (\PackageVersionDescription' {summary} -> summary) (\s@PackageVersionDescription' {} a -> s {summary = a} :: PackageVersionDescription)
+-- | The format of the package version.
+packageVersionDescription_format :: Lens.Lens' PackageVersionDescription (Prelude.Maybe PackageFormat)
+packageVersionDescription_format = Lens.lens (\PackageVersionDescription' {format} -> format) (\s@PackageVersionDescription' {} a -> s {format = a} :: PackageVersionDescription)
 
--- | A string that contains the status of the package version.
-packageVersionDescription_status :: Lens.Lens' PackageVersionDescription (Prelude.Maybe PackageVersionStatus)
-packageVersionDescription_status = Lens.lens (\PackageVersionDescription' {status} -> status) (\s@PackageVersionDescription' {} a -> s {status = a} :: PackageVersionDescription)
+-- | The homepage associated with the package.
+packageVersionDescription_homePage :: Lens.Lens' PackageVersionDescription (Prelude.Maybe Prelude.Text)
+packageVersionDescription_homePage = Lens.lens (\PackageVersionDescription' {homePage} -> homePage) (\s@PackageVersionDescription' {} a -> s {homePage = a} :: PackageVersionDescription)
 
--- | The repository for the source code in the package version, or the source
--- code used to build it.
-packageVersionDescription_sourceCodeRepository :: Lens.Lens' PackageVersionDescription (Prelude.Maybe Prelude.Text)
-packageVersionDescription_sourceCodeRepository = Lens.lens (\PackageVersionDescription' {sourceCodeRepository} -> sourceCodeRepository) (\s@PackageVersionDescription' {} a -> s {sourceCodeRepository = a} :: PackageVersionDescription)
+-- | Information about licenses associated with the package version.
+packageVersionDescription_licenses :: Lens.Lens' PackageVersionDescription (Prelude.Maybe [LicenseInfo])
+packageVersionDescription_licenses = Lens.lens (\PackageVersionDescription' {licenses} -> licenses) (\s@PackageVersionDescription' {} a -> s {licenses = a} :: PackageVersionDescription) Prelude.. Lens.mapping Lens.coerced
 
 -- | The namespace of the package version. The package version component that
 -- specifies its namespace depends on its type. For example:
@@ -215,13 +191,37 @@ packageVersionDescription_namespace = Lens.lens (\PackageVersionDescription' {na
 packageVersionDescription_origin :: Lens.Lens' PackageVersionDescription (Prelude.Maybe PackageVersionOrigin)
 packageVersionDescription_origin = Lens.lens (\PackageVersionDescription' {origin} -> origin) (\s@PackageVersionDescription' {} a -> s {origin = a} :: PackageVersionDescription)
 
+-- | The name of the requested package.
+packageVersionDescription_packageName :: Lens.Lens' PackageVersionDescription (Prelude.Maybe Prelude.Text)
+packageVersionDescription_packageName = Lens.lens (\PackageVersionDescription' {packageName} -> packageName) (\s@PackageVersionDescription' {} a -> s {packageName = a} :: PackageVersionDescription)
+
+-- | A timestamp that contains the date and time the package version was
+-- published.
+packageVersionDescription_publishedTime :: Lens.Lens' PackageVersionDescription (Prelude.Maybe Prelude.UTCTime)
+packageVersionDescription_publishedTime = Lens.lens (\PackageVersionDescription' {publishedTime} -> publishedTime) (\s@PackageVersionDescription' {} a -> s {publishedTime = a} :: PackageVersionDescription) Prelude.. Lens.mapping Data._Time
+
+-- | The revision of the package version.
+packageVersionDescription_revision :: Lens.Lens' PackageVersionDescription (Prelude.Maybe Prelude.Text)
+packageVersionDescription_revision = Lens.lens (\PackageVersionDescription' {revision} -> revision) (\s@PackageVersionDescription' {} a -> s {revision = a} :: PackageVersionDescription)
+
+-- | The repository for the source code in the package version, or the source
+-- code used to build it.
+packageVersionDescription_sourceCodeRepository :: Lens.Lens' PackageVersionDescription (Prelude.Maybe Prelude.Text)
+packageVersionDescription_sourceCodeRepository = Lens.lens (\PackageVersionDescription' {sourceCodeRepository} -> sourceCodeRepository) (\s@PackageVersionDescription' {} a -> s {sourceCodeRepository = a} :: PackageVersionDescription)
+
+-- | A string that contains the status of the package version.
+packageVersionDescription_status :: Lens.Lens' PackageVersionDescription (Prelude.Maybe PackageVersionStatus)
+packageVersionDescription_status = Lens.lens (\PackageVersionDescription' {status} -> status) (\s@PackageVersionDescription' {} a -> s {status = a} :: PackageVersionDescription)
+
+-- | A summary of the package version. The summary is extracted from the
+-- package. The information in and detail level of the summary depends on
+-- the package version\'s format.
+packageVersionDescription_summary :: Lens.Lens' PackageVersionDescription (Prelude.Maybe Prelude.Text)
+packageVersionDescription_summary = Lens.lens (\PackageVersionDescription' {summary} -> summary) (\s@PackageVersionDescription' {} a -> s {summary = a} :: PackageVersionDescription)
+
 -- | The version of the package.
 packageVersionDescription_version :: Lens.Lens' PackageVersionDescription (Prelude.Maybe Prelude.Text)
 packageVersionDescription_version = Lens.lens (\PackageVersionDescription' {version} -> version) (\s@PackageVersionDescription' {} a -> s {version = a} :: PackageVersionDescription)
-
--- | Information about licenses associated with the package version.
-packageVersionDescription_licenses :: Lens.Lens' PackageVersionDescription (Prelude.Maybe [LicenseInfo])
-packageVersionDescription_licenses = Lens.lens (\PackageVersionDescription' {licenses} -> licenses) (\s@PackageVersionDescription' {} a -> s {licenses = a} :: PackageVersionDescription) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON PackageVersionDescription where
   parseJSON =
@@ -229,49 +229,49 @@ instance Data.FromJSON PackageVersionDescription where
       "PackageVersionDescription"
       ( \x ->
           PackageVersionDescription'
-            Prelude.<$> (x Data..:? "publishedTime")
-            Prelude.<*> (x Data..:? "homePage")
-            Prelude.<*> (x Data..:? "packageName")
+            Prelude.<$> (x Data..:? "displayName")
             Prelude.<*> (x Data..:? "format")
-            Prelude.<*> (x Data..:? "revision")
-            Prelude.<*> (x Data..:? "displayName")
-            Prelude.<*> (x Data..:? "summary")
-            Prelude.<*> (x Data..:? "status")
-            Prelude.<*> (x Data..:? "sourceCodeRepository")
+            Prelude.<*> (x Data..:? "homePage")
+            Prelude.<*> (x Data..:? "licenses" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "namespace")
             Prelude.<*> (x Data..:? "origin")
+            Prelude.<*> (x Data..:? "packageName")
+            Prelude.<*> (x Data..:? "publishedTime")
+            Prelude.<*> (x Data..:? "revision")
+            Prelude.<*> (x Data..:? "sourceCodeRepository")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "summary")
             Prelude.<*> (x Data..:? "version")
-            Prelude.<*> (x Data..:? "licenses" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable PackageVersionDescription where
   hashWithSalt _salt PackageVersionDescription' {..} =
-    _salt `Prelude.hashWithSalt` publishedTime
-      `Prelude.hashWithSalt` homePage
-      `Prelude.hashWithSalt` packageName
+    _salt `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` format
-      `Prelude.hashWithSalt` revision
-      `Prelude.hashWithSalt` displayName
-      `Prelude.hashWithSalt` summary
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` sourceCodeRepository
+      `Prelude.hashWithSalt` homePage
+      `Prelude.hashWithSalt` licenses
       `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` origin
+      `Prelude.hashWithSalt` packageName
+      `Prelude.hashWithSalt` publishedTime
+      `Prelude.hashWithSalt` revision
+      `Prelude.hashWithSalt` sourceCodeRepository
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` summary
       `Prelude.hashWithSalt` version
-      `Prelude.hashWithSalt` licenses
 
 instance Prelude.NFData PackageVersionDescription where
   rnf PackageVersionDescription' {..} =
-    Prelude.rnf publishedTime
-      `Prelude.seq` Prelude.rnf homePage
-      `Prelude.seq` Prelude.rnf packageName
+    Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf revision
-      `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf summary
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf sourceCodeRepository
+      `Prelude.seq` Prelude.rnf homePage
+      `Prelude.seq` Prelude.rnf licenses
       `Prelude.seq` Prelude.rnf namespace
       `Prelude.seq` Prelude.rnf origin
+      `Prelude.seq` Prelude.rnf packageName
+      `Prelude.seq` Prelude.rnf publishedTime
+      `Prelude.seq` Prelude.rnf revision
+      `Prelude.seq` Prelude.rnf sourceCodeRepository
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf summary
       `Prelude.seq` Prelude.rnf version
-      `Prelude.seq` Prelude.rnf licenses

@@ -58,8 +58,8 @@ module Amazonka.LookoutVision.StartModelPackagingJob
 
     -- * Request Lenses
     startModelPackagingJob_clientToken,
-    startModelPackagingJob_jobName,
     startModelPackagingJob_description,
+    startModelPackagingJob_jobName,
     startModelPackagingJob_projectName,
     startModelPackagingJob_modelVersion,
     startModelPackagingJob_configuration,
@@ -101,11 +101,11 @@ data StartModelPackagingJob = StartModelPackagingJob'
     -- new call to @StartModelPackagingJob@. An idempotency token is active for
     -- 8 hours.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | A description for the model packaging job.
+    description :: Prelude.Maybe Prelude.Text,
     -- | A name for the model packaging job. If you don\'t supply a value, the
     -- service creates a job name for you.
     jobName :: Prelude.Maybe Prelude.Text,
-    -- | A description for the model packaging job.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the project which contains the version of the model that you
     -- want to package.
     projectName :: Prelude.Text,
@@ -141,10 +141,10 @@ data StartModelPackagingJob = StartModelPackagingJob'
 -- new call to @StartModelPackagingJob@. An idempotency token is active for
 -- 8 hours.
 --
+-- 'description', 'startModelPackagingJob_description' - A description for the model packaging job.
+--
 -- 'jobName', 'startModelPackagingJob_jobName' - A name for the model packaging job. If you don\'t supply a value, the
 -- service creates a job name for you.
---
--- 'description', 'startModelPackagingJob_description' - A description for the model packaging job.
 --
 -- 'projectName', 'startModelPackagingJob_projectName' - The name of the project which contains the version of the model that you
 -- want to package.
@@ -167,8 +167,8 @@ newStartModelPackagingJob
     StartModelPackagingJob'
       { clientToken =
           Prelude.Nothing,
-        jobName = Prelude.Nothing,
         description = Prelude.Nothing,
+        jobName = Prelude.Nothing,
         projectName = pProjectName_,
         modelVersion = pModelVersion_,
         configuration = pConfiguration_
@@ -193,14 +193,14 @@ newStartModelPackagingJob
 startModelPackagingJob_clientToken :: Lens.Lens' StartModelPackagingJob (Prelude.Maybe Prelude.Text)
 startModelPackagingJob_clientToken = Lens.lens (\StartModelPackagingJob' {clientToken} -> clientToken) (\s@StartModelPackagingJob' {} a -> s {clientToken = a} :: StartModelPackagingJob)
 
+-- | A description for the model packaging job.
+startModelPackagingJob_description :: Lens.Lens' StartModelPackagingJob (Prelude.Maybe Prelude.Text)
+startModelPackagingJob_description = Lens.lens (\StartModelPackagingJob' {description} -> description) (\s@StartModelPackagingJob' {} a -> s {description = a} :: StartModelPackagingJob)
+
 -- | A name for the model packaging job. If you don\'t supply a value, the
 -- service creates a job name for you.
 startModelPackagingJob_jobName :: Lens.Lens' StartModelPackagingJob (Prelude.Maybe Prelude.Text)
 startModelPackagingJob_jobName = Lens.lens (\StartModelPackagingJob' {jobName} -> jobName) (\s@StartModelPackagingJob' {} a -> s {jobName = a} :: StartModelPackagingJob)
-
--- | A description for the model packaging job.
-startModelPackagingJob_description :: Lens.Lens' StartModelPackagingJob (Prelude.Maybe Prelude.Text)
-startModelPackagingJob_description = Lens.lens (\StartModelPackagingJob' {description} -> description) (\s@StartModelPackagingJob' {} a -> s {description = a} :: StartModelPackagingJob)
 
 -- | The name of the project which contains the version of the model that you
 -- want to package.
@@ -232,8 +232,8 @@ instance Core.AWSRequest StartModelPackagingJob where
 instance Prelude.Hashable StartModelPackagingJob where
   hashWithSalt _salt StartModelPackagingJob' {..} =
     _salt `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` projectName
       `Prelude.hashWithSalt` modelVersion
       `Prelude.hashWithSalt` configuration
@@ -241,8 +241,8 @@ instance Prelude.Hashable StartModelPackagingJob where
 instance Prelude.NFData StartModelPackagingJob where
   rnf StartModelPackagingJob' {..} =
     Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf jobName
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf jobName
       `Prelude.seq` Prelude.rnf projectName
       `Prelude.seq` Prelude.rnf modelVersion
       `Prelude.seq` Prelude.rnf configuration
@@ -259,8 +259,8 @@ instance Data.ToJSON StartModelPackagingJob where
   toJSON StartModelPackagingJob' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("JobName" Data..=) Prelude.<$> jobName,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("JobName" Data..=) Prelude.<$> jobName,
             Prelude.Just ("ModelVersion" Data..= modelVersion),
             Prelude.Just
               ("Configuration" Data..= configuration)

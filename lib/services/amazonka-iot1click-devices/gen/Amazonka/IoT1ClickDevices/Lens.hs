@@ -16,8 +16,8 @@ module Amazonka.IoT1ClickDevices.Lens
 
     -- ** ClaimDevicesByClaimCode
     claimDevicesByClaimCode_claimCode,
-    claimDevicesByClaimCodeResponse_total,
     claimDevicesByClaimCodeResponse_claimCode,
+    claimDevicesByClaimCodeResponse_total,
     claimDevicesByClaimCodeResponse_httpStatus,
 
     -- ** DescribeDevice
@@ -42,26 +42,26 @@ module Amazonka.IoT1ClickDevices.Lens
     initiateDeviceClaimResponse_httpStatus,
 
     -- ** InvokeDeviceMethod
-    invokeDeviceMethod_deviceMethodParameters,
     invokeDeviceMethod_deviceMethod,
+    invokeDeviceMethod_deviceMethodParameters,
     invokeDeviceMethod_deviceId,
     invokeDeviceMethodResponse_deviceMethodResponse,
     invokeDeviceMethodResponse_httpStatus,
 
     -- ** ListDeviceEvents
-    listDeviceEvents_nextToken,
     listDeviceEvents_maxResults,
+    listDeviceEvents_nextToken,
     listDeviceEvents_deviceId,
     listDeviceEvents_fromTimeStamp,
     listDeviceEvents_toTimeStamp,
-    listDeviceEventsResponse_nextToken,
     listDeviceEventsResponse_events,
+    listDeviceEventsResponse_nextToken,
     listDeviceEventsResponse_httpStatus,
 
     -- ** ListDevices
-    listDevices_nextToken,
-    listDevices_maxResults,
     listDevices_deviceType,
+    listDevices_maxResults,
+    listDevices_nextToken,
     listDevicesResponse_devices,
     listDevicesResponse_nextToken,
     listDevicesResponse_httpStatus,
@@ -94,26 +94,26 @@ module Amazonka.IoT1ClickDevices.Lens
     -- ** Attributes
 
     -- ** Device
-    device_type,
-    device_deviceId,
     device_attributes,
+    device_deviceId,
+    device_type,
 
     -- ** DeviceDescription
+    deviceDescription_arn,
+    deviceDescription_attributes,
+    deviceDescription_deviceId,
+    deviceDescription_enabled,
+    deviceDescription_remainingLife,
     deviceDescription_tags,
     deviceDescription_type,
-    deviceDescription_remainingLife,
-    deviceDescription_deviceId,
-    deviceDescription_arn,
-    deviceDescription_enabled,
-    deviceDescription_attributes,
 
     -- ** DeviceEvent
     deviceEvent_device,
     deviceEvent_stdEvent,
 
     -- ** DeviceMethod
-    deviceMethod_methodName,
     deviceMethod_deviceType,
+    deviceMethod_methodName,
   )
 where
 

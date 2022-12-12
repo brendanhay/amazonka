@@ -38,12 +38,12 @@ module Amazonka.AppConfig.UpdateExtensionAssociation
     newExtensionAssociation,
 
     -- * Response Lenses
-    extensionAssociation_extensionVersionNumber,
     extensionAssociation_arn,
-    extensionAssociation_id,
-    extensionAssociation_resourceArn,
     extensionAssociation_extensionArn,
+    extensionAssociation_extensionVersionNumber,
+    extensionAssociation_id,
     extensionAssociation_parameters,
+    extensionAssociation_resourceArn,
   )
 where
 

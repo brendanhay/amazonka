@@ -29,8 +29,8 @@ module Amazonka.Kafka.ListConfigurationRevisions
     newListConfigurationRevisions,
 
     -- * Request Lenses
-    listConfigurationRevisions_nextToken,
     listConfigurationRevisions_maxResults,
+    listConfigurationRevisions_nextToken,
     listConfigurationRevisions_arn,
 
     -- * Destructuring the Response
@@ -54,13 +54,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListConfigurationRevisions' smart constructor.
 data ListConfigurationRevisions = ListConfigurationRevisions'
-  { -- | The paginated results marker. When the result of the operation is
+  { -- | The maximum number of results to return in the response. If there are
+    -- more results, the response includes a NextToken parameter.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The paginated results marker. When the result of the operation is
     -- truncated, the call returns NextToken in the response. To get the next
     -- batch, provide this token in your next request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in the response. If there are
-    -- more results, the response includes a NextToken parameter.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) that uniquely identifies an MSK
     -- configuration and all of its revisions.
     arn :: Prelude.Text
@@ -75,12 +75,12 @@ data ListConfigurationRevisions = ListConfigurationRevisions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listConfigurationRevisions_maxResults' - The maximum number of results to return in the response. If there are
+-- more results, the response includes a NextToken parameter.
+--
 -- 'nextToken', 'listConfigurationRevisions_nextToken' - The paginated results marker. When the result of the operation is
 -- truncated, the call returns NextToken in the response. To get the next
 -- batch, provide this token in your next request.
---
--- 'maxResults', 'listConfigurationRevisions_maxResults' - The maximum number of results to return in the response. If there are
--- more results, the response includes a NextToken parameter.
 --
 -- 'arn', 'listConfigurationRevisions_arn' - The Amazon Resource Name (ARN) that uniquely identifies an MSK
 -- configuration and all of its revisions.
@@ -90,22 +90,22 @@ newListConfigurationRevisions ::
   ListConfigurationRevisions
 newListConfigurationRevisions pArn_ =
   ListConfigurationRevisions'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       arn = pArn_
     }
+
+-- | The maximum number of results to return in the response. If there are
+-- more results, the response includes a NextToken parameter.
+listConfigurationRevisions_maxResults :: Lens.Lens' ListConfigurationRevisions (Prelude.Maybe Prelude.Natural)
+listConfigurationRevisions_maxResults = Lens.lens (\ListConfigurationRevisions' {maxResults} -> maxResults) (\s@ListConfigurationRevisions' {} a -> s {maxResults = a} :: ListConfigurationRevisions)
 
 -- | The paginated results marker. When the result of the operation is
 -- truncated, the call returns NextToken in the response. To get the next
 -- batch, provide this token in your next request.
 listConfigurationRevisions_nextToken :: Lens.Lens' ListConfigurationRevisions (Prelude.Maybe Prelude.Text)
 listConfigurationRevisions_nextToken = Lens.lens (\ListConfigurationRevisions' {nextToken} -> nextToken) (\s@ListConfigurationRevisions' {} a -> s {nextToken = a} :: ListConfigurationRevisions)
-
--- | The maximum number of results to return in the response. If there are
--- more results, the response includes a NextToken parameter.
-listConfigurationRevisions_maxResults :: Lens.Lens' ListConfigurationRevisions (Prelude.Maybe Prelude.Natural)
-listConfigurationRevisions_maxResults = Lens.lens (\ListConfigurationRevisions' {maxResults} -> maxResults) (\s@ListConfigurationRevisions' {} a -> s {maxResults = a} :: ListConfigurationRevisions)
 
 -- | The Amazon Resource Name (ARN) that uniquely identifies an MSK
 -- configuration and all of its revisions.
@@ -151,14 +151,14 @@ instance Core.AWSRequest ListConfigurationRevisions where
 
 instance Prelude.Hashable ListConfigurationRevisions where
   hashWithSalt _salt ListConfigurationRevisions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData ListConfigurationRevisions where
   rnf ListConfigurationRevisions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf arn
 
 instance Data.ToHeaders ListConfigurationRevisions where
@@ -180,8 +180,8 @@ instance Data.ToPath ListConfigurationRevisions where
 instance Data.ToQuery ListConfigurationRevisions where
   toQuery ListConfigurationRevisions' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListConfigurationRevisionsResponse' smart constructor.

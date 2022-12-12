@@ -30,7 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRecord' smart constructor.
 data Record = Record'
-  { -- | The encryption type used on the record. This parameter can be one of the
+  { -- | The approximate time that the record was inserted into the stream.
+    approximateArrivalTimestamp :: Prelude.Maybe Data.POSIX,
+    -- | The encryption type used on the record. This parameter can be one of the
     -- following values:
     --
     -- -   @NONE@: Do not encrypt the records in the stream.
@@ -38,8 +40,6 @@ data Record = Record'
     -- -   @KMS@: Use server-side encryption on the records in the stream using
     --     a customer-managed Amazon Web Services KMS key.
     encryptionType :: Prelude.Maybe EncryptionType,
-    -- | The approximate time that the record was inserted into the stream.
-    approximateArrivalTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The unique identifier of the record within its shard.
     sequenceNumber :: Prelude.Text,
     -- | The data blob. The data in the blob is both opaque and immutable to
@@ -61,6 +61,8 @@ data Record = Record'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'approximateArrivalTimestamp', 'record_approximateArrivalTimestamp' - The approximate time that the record was inserted into the stream.
+--
 -- 'encryptionType', 'record_encryptionType' - The encryption type used on the record. This parameter can be one of the
 -- following values:
 --
@@ -68,8 +70,6 @@ data Record = Record'
 --
 -- -   @KMS@: Use server-side encryption on the records in the stream using
 --     a customer-managed Amazon Web Services KMS key.
---
--- 'approximateArrivalTimestamp', 'record_approximateArrivalTimestamp' - The approximate time that the record was inserted into the stream.
 --
 -- 'sequenceNumber', 'record_sequenceNumber' - The unique identifier of the record within its shard.
 --
@@ -94,12 +94,17 @@ newRecord ::
   Record
 newRecord pSequenceNumber_ pData_ pPartitionKey_ =
   Record'
-    { encryptionType = Prelude.Nothing,
-      approximateArrivalTimestamp = Prelude.Nothing,
+    { approximateArrivalTimestamp =
+        Prelude.Nothing,
+      encryptionType = Prelude.Nothing,
       sequenceNumber = pSequenceNumber_,
       data' = Data._Base64 Lens.# pData_,
       partitionKey = pPartitionKey_
     }
+
+-- | The approximate time that the record was inserted into the stream.
+record_approximateArrivalTimestamp :: Lens.Lens' Record (Prelude.Maybe Prelude.UTCTime)
+record_approximateArrivalTimestamp = Lens.lens (\Record' {approximateArrivalTimestamp} -> approximateArrivalTimestamp) (\s@Record' {} a -> s {approximateArrivalTimestamp = a} :: Record) Prelude.. Lens.mapping Data._Time
 
 -- | The encryption type used on the record. This parameter can be one of the
 -- following values:
@@ -110,10 +115,6 @@ newRecord pSequenceNumber_ pData_ pPartitionKey_ =
 --     a customer-managed Amazon Web Services KMS key.
 record_encryptionType :: Lens.Lens' Record (Prelude.Maybe EncryptionType)
 record_encryptionType = Lens.lens (\Record' {encryptionType} -> encryptionType) (\s@Record' {} a -> s {encryptionType = a} :: Record)
-
--- | The approximate time that the record was inserted into the stream.
-record_approximateArrivalTimestamp :: Lens.Lens' Record (Prelude.Maybe Prelude.UTCTime)
-record_approximateArrivalTimestamp = Lens.lens (\Record' {approximateArrivalTimestamp} -> approximateArrivalTimestamp) (\s@Record' {} a -> s {approximateArrivalTimestamp = a} :: Record) Prelude.. Lens.mapping Data._Time
 
 -- | The unique identifier of the record within its shard.
 record_sequenceNumber :: Lens.Lens' Record Prelude.Text
@@ -141,8 +142,8 @@ instance Data.FromJSON Record where
       "Record"
       ( \x ->
           Record'
-            Prelude.<$> (x Data..:? "EncryptionType")
-            Prelude.<*> (x Data..:? "ApproximateArrivalTimestamp")
+            Prelude.<$> (x Data..:? "ApproximateArrivalTimestamp")
+            Prelude.<*> (x Data..:? "EncryptionType")
             Prelude.<*> (x Data..: "SequenceNumber")
             Prelude.<*> (x Data..: "Data")
             Prelude.<*> (x Data..: "PartitionKey")
@@ -150,16 +151,17 @@ instance Data.FromJSON Record where
 
 instance Prelude.Hashable Record where
   hashWithSalt _salt Record' {..} =
-    _salt `Prelude.hashWithSalt` encryptionType
+    _salt
       `Prelude.hashWithSalt` approximateArrivalTimestamp
+      `Prelude.hashWithSalt` encryptionType
       `Prelude.hashWithSalt` sequenceNumber
       `Prelude.hashWithSalt` data'
       `Prelude.hashWithSalt` partitionKey
 
 instance Prelude.NFData Record where
   rnf Record' {..} =
-    Prelude.rnf encryptionType
-      `Prelude.seq` Prelude.rnf approximateArrivalTimestamp
+    Prelude.rnf approximateArrivalTimestamp
+      `Prelude.seq` Prelude.rnf encryptionType
       `Prelude.seq` Prelude.rnf sequenceNumber
       `Prelude.seq` Prelude.rnf data'
       `Prelude.seq` Prelude.rnf partitionKey

@@ -38,11 +38,11 @@ module Amazonka.Proton.UpdateComponent
     newUpdateComponent,
 
     -- * Request Lenses
+    updateComponent_description,
+    updateComponent_serviceInstanceName,
+    updateComponent_serviceName,
     updateComponent_serviceSpec,
     updateComponent_templateFile,
-    updateComponent_description,
-    updateComponent_serviceName,
-    updateComponent_serviceInstanceName,
     updateComponent_deploymentType,
     updateComponent_name,
 
@@ -66,7 +66,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateComponent' smart constructor.
 data UpdateComponent = UpdateComponent'
-  { -- | The service spec that you want the component to use to access service
+  { -- | An optional customer-provided description of the component.
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The name of the service instance that you want to attach this component
+    -- to. Don\'t specify to keep the component\'s current service instance
+    -- attachment. Specify an empty string to detach the component from the
+    -- service instance it\'s attached to. Specify non-empty values for both
+    -- @serviceInstanceName@ and @serviceName@ or for neither of them.
+    serviceInstanceName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the service that @serviceInstanceName@ is associated with.
+    -- Don\'t specify to keep the component\'s current service instance
+    -- attachment. Specify an empty string to detach the component from the
+    -- service instance it\'s attached to. Specify non-empty values for both
+    -- @serviceInstanceName@ and @serviceName@ or for neither of them.
+    serviceName :: Prelude.Maybe Prelude.Text,
+    -- | The service spec that you want the component to use to access service
     -- inputs. Set this only when the component is attached to a service
     -- instance.
     serviceSpec :: Prelude.Maybe (Data.Sensitive Prelude.Text),
@@ -76,20 +90,6 @@ data UpdateComponent = UpdateComponent'
     -- Components support a single IaC file, even if you use Terraform as your
     -- template language.
     templateFile :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | An optional customer-provided description of the component.
-    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The name of the service that @serviceInstanceName@ is associated with.
-    -- Don\'t specify to keep the component\'s current service instance
-    -- attachment. Specify an empty string to detach the component from the
-    -- service instance it\'s attached to. Specify non-empty values for both
-    -- @serviceInstanceName@ and @serviceName@ or for neither of them.
-    serviceName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the service instance that you want to attach this component
-    -- to. Don\'t specify to keep the component\'s current service instance
-    -- attachment. Specify an empty string to detach the component from the
-    -- service instance it\'s attached to. Specify non-empty values for both
-    -- @serviceInstanceName@ and @serviceName@ or for neither of them.
-    serviceInstanceName :: Prelude.Maybe Prelude.Text,
     -- | The deployment type. It defines the mode for updating a component, as
     -- follows:
     --
@@ -120,6 +120,20 @@ data UpdateComponent = UpdateComponent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'updateComponent_description' - An optional customer-provided description of the component.
+--
+-- 'serviceInstanceName', 'updateComponent_serviceInstanceName' - The name of the service instance that you want to attach this component
+-- to. Don\'t specify to keep the component\'s current service instance
+-- attachment. Specify an empty string to detach the component from the
+-- service instance it\'s attached to. Specify non-empty values for both
+-- @serviceInstanceName@ and @serviceName@ or for neither of them.
+--
+-- 'serviceName', 'updateComponent_serviceName' - The name of the service that @serviceInstanceName@ is associated with.
+-- Don\'t specify to keep the component\'s current service instance
+-- attachment. Specify an empty string to detach the component from the
+-- service instance it\'s attached to. Specify non-empty values for both
+-- @serviceInstanceName@ and @serviceName@ or for neither of them.
+--
 -- 'serviceSpec', 'updateComponent_serviceSpec' - The service spec that you want the component to use to access service
 -- inputs. Set this only when the component is attached to a service
 -- instance.
@@ -129,20 +143,6 @@ data UpdateComponent = UpdateComponent'
 --
 -- Components support a single IaC file, even if you use Terraform as your
 -- template language.
---
--- 'description', 'updateComponent_description' - An optional customer-provided description of the component.
---
--- 'serviceName', 'updateComponent_serviceName' - The name of the service that @serviceInstanceName@ is associated with.
--- Don\'t specify to keep the component\'s current service instance
--- attachment. Specify an empty string to detach the component from the
--- service instance it\'s attached to. Specify non-empty values for both
--- @serviceInstanceName@ and @serviceName@ or for neither of them.
---
--- 'serviceInstanceName', 'updateComponent_serviceInstanceName' - The name of the service instance that you want to attach this component
--- to. Don\'t specify to keep the component\'s current service instance
--- attachment. Specify an empty string to detach the component from the
--- service instance it\'s attached to. Specify non-empty values for both
--- @serviceInstanceName@ and @serviceName@ or for neither of them.
 --
 -- 'deploymentType', 'updateComponent_deploymentType' - The deployment type. It defines the mode for updating a component, as
 -- follows:
@@ -170,14 +170,34 @@ newUpdateComponent ::
   UpdateComponent
 newUpdateComponent pDeploymentType_ pName_ =
   UpdateComponent'
-    { serviceSpec = Prelude.Nothing,
-      templateFile = Prelude.Nothing,
-      description = Prelude.Nothing,
-      serviceName = Prelude.Nothing,
+    { description = Prelude.Nothing,
       serviceInstanceName = Prelude.Nothing,
+      serviceName = Prelude.Nothing,
+      serviceSpec = Prelude.Nothing,
+      templateFile = Prelude.Nothing,
       deploymentType = pDeploymentType_,
       name = pName_
     }
+
+-- | An optional customer-provided description of the component.
+updateComponent_description :: Lens.Lens' UpdateComponent (Prelude.Maybe Prelude.Text)
+updateComponent_description = Lens.lens (\UpdateComponent' {description} -> description) (\s@UpdateComponent' {} a -> s {description = a} :: UpdateComponent) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The name of the service instance that you want to attach this component
+-- to. Don\'t specify to keep the component\'s current service instance
+-- attachment. Specify an empty string to detach the component from the
+-- service instance it\'s attached to. Specify non-empty values for both
+-- @serviceInstanceName@ and @serviceName@ or for neither of them.
+updateComponent_serviceInstanceName :: Lens.Lens' UpdateComponent (Prelude.Maybe Prelude.Text)
+updateComponent_serviceInstanceName = Lens.lens (\UpdateComponent' {serviceInstanceName} -> serviceInstanceName) (\s@UpdateComponent' {} a -> s {serviceInstanceName = a} :: UpdateComponent)
+
+-- | The name of the service that @serviceInstanceName@ is associated with.
+-- Don\'t specify to keep the component\'s current service instance
+-- attachment. Specify an empty string to detach the component from the
+-- service instance it\'s attached to. Specify non-empty values for both
+-- @serviceInstanceName@ and @serviceName@ or for neither of them.
+updateComponent_serviceName :: Lens.Lens' UpdateComponent (Prelude.Maybe Prelude.Text)
+updateComponent_serviceName = Lens.lens (\UpdateComponent' {serviceName} -> serviceName) (\s@UpdateComponent' {} a -> s {serviceName = a} :: UpdateComponent)
 
 -- | The service spec that you want the component to use to access service
 -- inputs. Set this only when the component is attached to a service
@@ -192,26 +212,6 @@ updateComponent_serviceSpec = Lens.lens (\UpdateComponent' {serviceSpec} -> serv
 -- template language.
 updateComponent_templateFile :: Lens.Lens' UpdateComponent (Prelude.Maybe Prelude.Text)
 updateComponent_templateFile = Lens.lens (\UpdateComponent' {templateFile} -> templateFile) (\s@UpdateComponent' {} a -> s {templateFile = a} :: UpdateComponent) Prelude.. Lens.mapping Data._Sensitive
-
--- | An optional customer-provided description of the component.
-updateComponent_description :: Lens.Lens' UpdateComponent (Prelude.Maybe Prelude.Text)
-updateComponent_description = Lens.lens (\UpdateComponent' {description} -> description) (\s@UpdateComponent' {} a -> s {description = a} :: UpdateComponent) Prelude.. Lens.mapping Data._Sensitive
-
--- | The name of the service that @serviceInstanceName@ is associated with.
--- Don\'t specify to keep the component\'s current service instance
--- attachment. Specify an empty string to detach the component from the
--- service instance it\'s attached to. Specify non-empty values for both
--- @serviceInstanceName@ and @serviceName@ or for neither of them.
-updateComponent_serviceName :: Lens.Lens' UpdateComponent (Prelude.Maybe Prelude.Text)
-updateComponent_serviceName = Lens.lens (\UpdateComponent' {serviceName} -> serviceName) (\s@UpdateComponent' {} a -> s {serviceName = a} :: UpdateComponent)
-
--- | The name of the service instance that you want to attach this component
--- to. Don\'t specify to keep the component\'s current service instance
--- attachment. Specify an empty string to detach the component from the
--- service instance it\'s attached to. Specify non-empty values for both
--- @serviceInstanceName@ and @serviceName@ or for neither of them.
-updateComponent_serviceInstanceName :: Lens.Lens' UpdateComponent (Prelude.Maybe Prelude.Text)
-updateComponent_serviceInstanceName = Lens.lens (\UpdateComponent' {serviceInstanceName} -> serviceInstanceName) (\s@UpdateComponent' {} a -> s {serviceInstanceName = a} :: UpdateComponent)
 
 -- | The deployment type. It defines the mode for updating a component, as
 -- follows:
@@ -252,21 +252,21 @@ instance Core.AWSRequest UpdateComponent where
 
 instance Prelude.Hashable UpdateComponent where
   hashWithSalt _salt UpdateComponent' {..} =
-    _salt `Prelude.hashWithSalt` serviceSpec
-      `Prelude.hashWithSalt` templateFile
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` serviceName
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` serviceInstanceName
+      `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` serviceSpec
+      `Prelude.hashWithSalt` templateFile
       `Prelude.hashWithSalt` deploymentType
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData UpdateComponent where
   rnf UpdateComponent' {..} =
-    Prelude.rnf serviceSpec
-      `Prelude.seq` Prelude.rnf templateFile
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf serviceName
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf serviceInstanceName
+      `Prelude.seq` Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf serviceSpec
+      `Prelude.seq` Prelude.rnf templateFile
       `Prelude.seq` Prelude.rnf deploymentType
       `Prelude.seq` Prelude.rnf name
 
@@ -289,12 +289,12 @@ instance Data.ToJSON UpdateComponent where
   toJSON UpdateComponent' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("serviceSpec" Data..=) Prelude.<$> serviceSpec,
-            ("templateFile" Data..=) Prelude.<$> templateFile,
-            ("description" Data..=) Prelude.<$> description,
-            ("serviceName" Data..=) Prelude.<$> serviceName,
+          [ ("description" Data..=) Prelude.<$> description,
             ("serviceInstanceName" Data..=)
               Prelude.<$> serviceInstanceName,
+            ("serviceName" Data..=) Prelude.<$> serviceName,
+            ("serviceSpec" Data..=) Prelude.<$> serviceSpec,
+            ("templateFile" Data..=) Prelude.<$> templateFile,
             Prelude.Just
               ("deploymentType" Data..= deploymentType),
             Prelude.Just ("name" Data..= name)

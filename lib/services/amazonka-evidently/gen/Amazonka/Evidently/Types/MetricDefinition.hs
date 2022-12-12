@@ -29,20 +29,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMetricDefinition' smart constructor.
 data MetricDefinition = MetricDefinition'
-  { -- | The name of the metric.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The value that is tracked to produce the metric.
-    valueKey :: Prelude.Maybe Prelude.Text,
-    -- | The label for the units that the metric is measuring.
-    unitLabel :: Prelude.Maybe Prelude.Text,
+  { -- | The entity, such as a user or session, that does an action that causes a
+    -- metric value to be recorded.
+    entityIdKey :: Prelude.Maybe Prelude.Text,
     -- | The EventBridge event pattern that defines how the metric is recorded.
     --
     -- For more information about EventBridge event patterns, see
     -- <https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html Amazon EventBridge event patterns>.
     eventPattern :: Prelude.Maybe Prelude.Text,
-    -- | The entity, such as a user or session, that does an action that causes a
-    -- metric value to be recorded.
-    entityIdKey :: Prelude.Maybe Prelude.Text
+    -- | The name of the metric.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The label for the units that the metric is measuring.
+    unitLabel :: Prelude.Maybe Prelude.Text,
+    -- | The value that is tracked to produce the metric.
+    valueKey :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,41 +54,34 @@ data MetricDefinition = MetricDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'metricDefinition_name' - The name of the metric.
---
--- 'valueKey', 'metricDefinition_valueKey' - The value that is tracked to produce the metric.
---
--- 'unitLabel', 'metricDefinition_unitLabel' - The label for the units that the metric is measuring.
+-- 'entityIdKey', 'metricDefinition_entityIdKey' - The entity, such as a user or session, that does an action that causes a
+-- metric value to be recorded.
 --
 -- 'eventPattern', 'metricDefinition_eventPattern' - The EventBridge event pattern that defines how the metric is recorded.
 --
 -- For more information about EventBridge event patterns, see
 -- <https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html Amazon EventBridge event patterns>.
 --
--- 'entityIdKey', 'metricDefinition_entityIdKey' - The entity, such as a user or session, that does an action that causes a
--- metric value to be recorded.
+-- 'name', 'metricDefinition_name' - The name of the metric.
+--
+-- 'unitLabel', 'metricDefinition_unitLabel' - The label for the units that the metric is measuring.
+--
+-- 'valueKey', 'metricDefinition_valueKey' - The value that is tracked to produce the metric.
 newMetricDefinition ::
   MetricDefinition
 newMetricDefinition =
   MetricDefinition'
-    { name = Prelude.Nothing,
-      valueKey = Prelude.Nothing,
-      unitLabel = Prelude.Nothing,
+    { entityIdKey = Prelude.Nothing,
       eventPattern = Prelude.Nothing,
-      entityIdKey = Prelude.Nothing
+      name = Prelude.Nothing,
+      unitLabel = Prelude.Nothing,
+      valueKey = Prelude.Nothing
     }
 
--- | The name of the metric.
-metricDefinition_name :: Lens.Lens' MetricDefinition (Prelude.Maybe Prelude.Text)
-metricDefinition_name = Lens.lens (\MetricDefinition' {name} -> name) (\s@MetricDefinition' {} a -> s {name = a} :: MetricDefinition)
-
--- | The value that is tracked to produce the metric.
-metricDefinition_valueKey :: Lens.Lens' MetricDefinition (Prelude.Maybe Prelude.Text)
-metricDefinition_valueKey = Lens.lens (\MetricDefinition' {valueKey} -> valueKey) (\s@MetricDefinition' {} a -> s {valueKey = a} :: MetricDefinition)
-
--- | The label for the units that the metric is measuring.
-metricDefinition_unitLabel :: Lens.Lens' MetricDefinition (Prelude.Maybe Prelude.Text)
-metricDefinition_unitLabel = Lens.lens (\MetricDefinition' {unitLabel} -> unitLabel) (\s@MetricDefinition' {} a -> s {unitLabel = a} :: MetricDefinition)
+-- | The entity, such as a user or session, that does an action that causes a
+-- metric value to be recorded.
+metricDefinition_entityIdKey :: Lens.Lens' MetricDefinition (Prelude.Maybe Prelude.Text)
+metricDefinition_entityIdKey = Lens.lens (\MetricDefinition' {entityIdKey} -> entityIdKey) (\s@MetricDefinition' {} a -> s {entityIdKey = a} :: MetricDefinition)
 
 -- | The EventBridge event pattern that defines how the metric is recorded.
 --
@@ -97,10 +90,17 @@ metricDefinition_unitLabel = Lens.lens (\MetricDefinition' {unitLabel} -> unitLa
 metricDefinition_eventPattern :: Lens.Lens' MetricDefinition (Prelude.Maybe Prelude.Text)
 metricDefinition_eventPattern = Lens.lens (\MetricDefinition' {eventPattern} -> eventPattern) (\s@MetricDefinition' {} a -> s {eventPattern = a} :: MetricDefinition)
 
--- | The entity, such as a user or session, that does an action that causes a
--- metric value to be recorded.
-metricDefinition_entityIdKey :: Lens.Lens' MetricDefinition (Prelude.Maybe Prelude.Text)
-metricDefinition_entityIdKey = Lens.lens (\MetricDefinition' {entityIdKey} -> entityIdKey) (\s@MetricDefinition' {} a -> s {entityIdKey = a} :: MetricDefinition)
+-- | The name of the metric.
+metricDefinition_name :: Lens.Lens' MetricDefinition (Prelude.Maybe Prelude.Text)
+metricDefinition_name = Lens.lens (\MetricDefinition' {name} -> name) (\s@MetricDefinition' {} a -> s {name = a} :: MetricDefinition)
+
+-- | The label for the units that the metric is measuring.
+metricDefinition_unitLabel :: Lens.Lens' MetricDefinition (Prelude.Maybe Prelude.Text)
+metricDefinition_unitLabel = Lens.lens (\MetricDefinition' {unitLabel} -> unitLabel) (\s@MetricDefinition' {} a -> s {unitLabel = a} :: MetricDefinition)
+
+-- | The value that is tracked to produce the metric.
+metricDefinition_valueKey :: Lens.Lens' MetricDefinition (Prelude.Maybe Prelude.Text)
+metricDefinition_valueKey = Lens.lens (\MetricDefinition' {valueKey} -> valueKey) (\s@MetricDefinition' {} a -> s {valueKey = a} :: MetricDefinition)
 
 instance Data.FromJSON MetricDefinition where
   parseJSON =
@@ -108,25 +108,25 @@ instance Data.FromJSON MetricDefinition where
       "MetricDefinition"
       ( \x ->
           MetricDefinition'
-            Prelude.<$> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "valueKey")
-            Prelude.<*> (x Data..:? "unitLabel")
+            Prelude.<$> (x Data..:? "entityIdKey")
             Prelude.<*> (x Data..:? "eventPattern")
-            Prelude.<*> (x Data..:? "entityIdKey")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "unitLabel")
+            Prelude.<*> (x Data..:? "valueKey")
       )
 
 instance Prelude.Hashable MetricDefinition where
   hashWithSalt _salt MetricDefinition' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` valueKey
-      `Prelude.hashWithSalt` unitLabel
+    _salt `Prelude.hashWithSalt` entityIdKey
       `Prelude.hashWithSalt` eventPattern
-      `Prelude.hashWithSalt` entityIdKey
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` unitLabel
+      `Prelude.hashWithSalt` valueKey
 
 instance Prelude.NFData MetricDefinition where
   rnf MetricDefinition' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf valueKey
-      `Prelude.seq` Prelude.rnf unitLabel
+    Prelude.rnf entityIdKey
       `Prelude.seq` Prelude.rnf eventPattern
-      `Prelude.seq` Prelude.rnf entityIdKey
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf unitLabel
+      `Prelude.seq` Prelude.rnf valueKey

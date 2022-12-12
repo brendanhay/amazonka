@@ -27,8 +27,8 @@ module Amazonka.BackupGateway.PutMaintenanceStartTime
     newPutMaintenanceStartTime,
 
     -- * Request Lenses
-    putMaintenanceStartTime_dayOfWeek,
     putMaintenanceStartTime_dayOfMonth,
+    putMaintenanceStartTime_dayOfWeek,
     putMaintenanceStartTime_gatewayArn,
     putMaintenanceStartTime_hourOfDay,
     putMaintenanceStartTime_minuteOfHour,
@@ -53,12 +53,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutMaintenanceStartTime' smart constructor.
 data PutMaintenanceStartTime = PutMaintenanceStartTime'
-  { -- | The day of the week to start maintenance on a gateway.
-    dayOfWeek :: Prelude.Maybe Prelude.Natural,
-    -- | The day of the month start maintenance on a gateway.
+  { -- | The day of the month start maintenance on a gateway.
     --
     -- Valid values range from @Sunday@ to @Saturday@.
     dayOfMonth :: Prelude.Maybe Prelude.Natural,
+    -- | The day of the week to start maintenance on a gateway.
+    dayOfWeek :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) for the gateway, used to specify its
     -- maintenance start time.
     gatewayArn :: Prelude.Text,
@@ -77,11 +77,11 @@ data PutMaintenanceStartTime = PutMaintenanceStartTime'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dayOfWeek', 'putMaintenanceStartTime_dayOfWeek' - The day of the week to start maintenance on a gateway.
---
 -- 'dayOfMonth', 'putMaintenanceStartTime_dayOfMonth' - The day of the month start maintenance on a gateway.
 --
 -- Valid values range from @Sunday@ to @Saturday@.
+--
+-- 'dayOfWeek', 'putMaintenanceStartTime_dayOfWeek' - The day of the week to start maintenance on a gateway.
 --
 -- 'gatewayArn', 'putMaintenanceStartTime_gatewayArn' - The Amazon Resource Name (ARN) for the gateway, used to specify its
 -- maintenance start time.
@@ -102,23 +102,23 @@ newPutMaintenanceStartTime
   pHourOfDay_
   pMinuteOfHour_ =
     PutMaintenanceStartTime'
-      { dayOfWeek =
+      { dayOfMonth =
           Prelude.Nothing,
-        dayOfMonth = Prelude.Nothing,
+        dayOfWeek = Prelude.Nothing,
         gatewayArn = pGatewayArn_,
         hourOfDay = pHourOfDay_,
         minuteOfHour = pMinuteOfHour_
       }
-
--- | The day of the week to start maintenance on a gateway.
-putMaintenanceStartTime_dayOfWeek :: Lens.Lens' PutMaintenanceStartTime (Prelude.Maybe Prelude.Natural)
-putMaintenanceStartTime_dayOfWeek = Lens.lens (\PutMaintenanceStartTime' {dayOfWeek} -> dayOfWeek) (\s@PutMaintenanceStartTime' {} a -> s {dayOfWeek = a} :: PutMaintenanceStartTime)
 
 -- | The day of the month start maintenance on a gateway.
 --
 -- Valid values range from @Sunday@ to @Saturday@.
 putMaintenanceStartTime_dayOfMonth :: Lens.Lens' PutMaintenanceStartTime (Prelude.Maybe Prelude.Natural)
 putMaintenanceStartTime_dayOfMonth = Lens.lens (\PutMaintenanceStartTime' {dayOfMonth} -> dayOfMonth) (\s@PutMaintenanceStartTime' {} a -> s {dayOfMonth = a} :: PutMaintenanceStartTime)
+
+-- | The day of the week to start maintenance on a gateway.
+putMaintenanceStartTime_dayOfWeek :: Lens.Lens' PutMaintenanceStartTime (Prelude.Maybe Prelude.Natural)
+putMaintenanceStartTime_dayOfWeek = Lens.lens (\PutMaintenanceStartTime' {dayOfWeek} -> dayOfWeek) (\s@PutMaintenanceStartTime' {} a -> s {dayOfWeek = a} :: PutMaintenanceStartTime)
 
 -- | The Amazon Resource Name (ARN) for the gateway, used to specify its
 -- maintenance start time.
@@ -149,16 +149,16 @@ instance Core.AWSRequest PutMaintenanceStartTime where
 
 instance Prelude.Hashable PutMaintenanceStartTime where
   hashWithSalt _salt PutMaintenanceStartTime' {..} =
-    _salt `Prelude.hashWithSalt` dayOfWeek
-      `Prelude.hashWithSalt` dayOfMonth
+    _salt `Prelude.hashWithSalt` dayOfMonth
+      `Prelude.hashWithSalt` dayOfWeek
       `Prelude.hashWithSalt` gatewayArn
       `Prelude.hashWithSalt` hourOfDay
       `Prelude.hashWithSalt` minuteOfHour
 
 instance Prelude.NFData PutMaintenanceStartTime where
   rnf PutMaintenanceStartTime' {..} =
-    Prelude.rnf dayOfWeek
-      `Prelude.seq` Prelude.rnf dayOfMonth
+    Prelude.rnf dayOfMonth
+      `Prelude.seq` Prelude.rnf dayOfWeek
       `Prelude.seq` Prelude.rnf gatewayArn
       `Prelude.seq` Prelude.rnf hourOfDay
       `Prelude.seq` Prelude.rnf minuteOfHour
@@ -182,8 +182,8 @@ instance Data.ToJSON PutMaintenanceStartTime where
   toJSON PutMaintenanceStartTime' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DayOfWeek" Data..=) Prelude.<$> dayOfWeek,
-            ("DayOfMonth" Data..=) Prelude.<$> dayOfMonth,
+          [ ("DayOfMonth" Data..=) Prelude.<$> dayOfMonth,
+            ("DayOfWeek" Data..=) Prelude.<$> dayOfWeek,
             Prelude.Just ("GatewayArn" Data..= gatewayArn),
             Prelude.Just ("HourOfDay" Data..= hourOfDay),
             Prelude.Just ("MinuteOfHour" Data..= minuteOfHour)

@@ -30,18 +30,18 @@ module Amazonka.Route53Resolver.ListResolverEndpoints
     newListResolverEndpoints,
 
     -- * Request Lenses
-    listResolverEndpoints_nextToken,
     listResolverEndpoints_filters,
     listResolverEndpoints_maxResults,
+    listResolverEndpoints_nextToken,
 
     -- * Destructuring the Response
     ListResolverEndpointsResponse (..),
     newListResolverEndpointsResponse,
 
     -- * Response Lenses
+    listResolverEndpointsResponse_maxResults,
     listResolverEndpointsResponse_nextToken,
     listResolverEndpointsResponse_resolverEndpoints,
-    listResolverEndpointsResponse_maxResults,
     listResolverEndpointsResponse_httpStatus,
   )
 where
@@ -56,14 +56,7 @@ import Amazonka.Route53Resolver.Types
 
 -- | /See:/ 'newListResolverEndpoints' smart constructor.
 data ListResolverEndpoints = ListResolverEndpoints'
-  { -- | For the first @ListResolverEndpoints@ request, omit this value.
-    --
-    -- If you have more than @MaxResults@ Resolver endpoints, you can submit
-    -- another @ListResolverEndpoints@ request to get the next group of
-    -- Resolver endpoints. In the next request, specify the value of
-    -- @NextToken@ from the previous response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An optional specification to return a subset of Resolver endpoints, such
+  { -- | An optional specification to return a subset of Resolver endpoints, such
     -- as all inbound Resolver endpoints.
     --
     -- If you submit a second or subsequent @ListResolverEndpoints@ request and
@@ -73,7 +66,14 @@ data ListResolverEndpoints = ListResolverEndpoints'
     -- | The maximum number of Resolver endpoints that you want to return in the
     -- response to a @ListResolverEndpoints@ request. If you don\'t specify a
     -- value for @MaxResults@, Resolver returns up to 100 Resolver endpoints.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | For the first @ListResolverEndpoints@ request, omit this value.
+    --
+    -- If you have more than @MaxResults@ Resolver endpoints, you can submit
+    -- another @ListResolverEndpoints@ request to get the next group of
+    -- Resolver endpoints. In the next request, specify the value of
+    -- @NextToken@ from the previous response.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,13 +85,6 @@ data ListResolverEndpoints = ListResolverEndpoints'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listResolverEndpoints_nextToken' - For the first @ListResolverEndpoints@ request, omit this value.
---
--- If you have more than @MaxResults@ Resolver endpoints, you can submit
--- another @ListResolverEndpoints@ request to get the next group of
--- Resolver endpoints. In the next request, specify the value of
--- @NextToken@ from the previous response.
---
 -- 'filters', 'listResolverEndpoints_filters' - An optional specification to return a subset of Resolver endpoints, such
 -- as all inbound Resolver endpoints.
 --
@@ -102,23 +95,21 @@ data ListResolverEndpoints = ListResolverEndpoints'
 -- 'maxResults', 'listResolverEndpoints_maxResults' - The maximum number of Resolver endpoints that you want to return in the
 -- response to a @ListResolverEndpoints@ request. If you don\'t specify a
 -- value for @MaxResults@, Resolver returns up to 100 Resolver endpoints.
-newListResolverEndpoints ::
-  ListResolverEndpoints
-newListResolverEndpoints =
-  ListResolverEndpoints'
-    { nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
-    }
-
--- | For the first @ListResolverEndpoints@ request, omit this value.
+--
+-- 'nextToken', 'listResolverEndpoints_nextToken' - For the first @ListResolverEndpoints@ request, omit this value.
 --
 -- If you have more than @MaxResults@ Resolver endpoints, you can submit
 -- another @ListResolverEndpoints@ request to get the next group of
 -- Resolver endpoints. In the next request, specify the value of
 -- @NextToken@ from the previous response.
-listResolverEndpoints_nextToken :: Lens.Lens' ListResolverEndpoints (Prelude.Maybe Prelude.Text)
-listResolverEndpoints_nextToken = Lens.lens (\ListResolverEndpoints' {nextToken} -> nextToken) (\s@ListResolverEndpoints' {} a -> s {nextToken = a} :: ListResolverEndpoints)
+newListResolverEndpoints ::
+  ListResolverEndpoints
+newListResolverEndpoints =
+  ListResolverEndpoints'
+    { filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
+    }
 
 -- | An optional specification to return a subset of Resolver endpoints, such
 -- as all inbound Resolver endpoints.
@@ -134,6 +125,15 @@ listResolverEndpoints_filters = Lens.lens (\ListResolverEndpoints' {filters} -> 
 -- value for @MaxResults@, Resolver returns up to 100 Resolver endpoints.
 listResolverEndpoints_maxResults :: Lens.Lens' ListResolverEndpoints (Prelude.Maybe Prelude.Natural)
 listResolverEndpoints_maxResults = Lens.lens (\ListResolverEndpoints' {maxResults} -> maxResults) (\s@ListResolverEndpoints' {} a -> s {maxResults = a} :: ListResolverEndpoints)
+
+-- | For the first @ListResolverEndpoints@ request, omit this value.
+--
+-- If you have more than @MaxResults@ Resolver endpoints, you can submit
+-- another @ListResolverEndpoints@ request to get the next group of
+-- Resolver endpoints. In the next request, specify the value of
+-- @NextToken@ from the previous response.
+listResolverEndpoints_nextToken :: Lens.Lens' ListResolverEndpoints (Prelude.Maybe Prelude.Text)
+listResolverEndpoints_nextToken = Lens.lens (\ListResolverEndpoints' {nextToken} -> nextToken) (\s@ListResolverEndpoints' {} a -> s {nextToken = a} :: ListResolverEndpoints)
 
 instance Core.AWSPager ListResolverEndpoints where
   page rq rs
@@ -167,25 +167,25 @@ instance Core.AWSRequest ListResolverEndpoints where
     Response.receiveJSON
       ( \s h x ->
           ListResolverEndpointsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<$> (x Data..?> "MaxResults")
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> ( x Data..?> "ResolverEndpoints"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "MaxResults")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListResolverEndpoints where
   hashWithSalt _salt ListResolverEndpoints' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListResolverEndpoints where
   rnf ListResolverEndpoints' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListResolverEndpoints where
   toHeaders =
@@ -206,9 +206,9 @@ instance Data.ToJSON ListResolverEndpoints where
   toJSON ListResolverEndpoints' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -220,7 +220,9 @@ instance Data.ToQuery ListResolverEndpoints where
 
 -- | /See:/ 'newListResolverEndpointsResponse' smart constructor.
 data ListResolverEndpointsResponse = ListResolverEndpointsResponse'
-  { -- | If more than @MaxResults@ IP addresses match the specified criteria, you
+  { -- | The value that you specified for @MaxResults@ in the request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If more than @MaxResults@ IP addresses match the specified criteria, you
     -- can submit another @ListResolverEndpoint@ request to get the next group
     -- of results. In the next request, specify the value of @NextToken@ from
     -- the previous response.
@@ -228,8 +230,6 @@ data ListResolverEndpointsResponse = ListResolverEndpointsResponse'
     -- | The Resolver endpoints that were created by using the current Amazon Web
     -- Services account, and that match the specified filters, if any.
     resolverEndpoints :: Prelude.Maybe [ResolverEndpoint],
-    -- | The value that you specified for @MaxResults@ in the request.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -243,6 +243,8 @@ data ListResolverEndpointsResponse = ListResolverEndpointsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listResolverEndpointsResponse_maxResults' - The value that you specified for @MaxResults@ in the request.
+--
 -- 'nextToken', 'listResolverEndpointsResponse_nextToken' - If more than @MaxResults@ IP addresses match the specified criteria, you
 -- can submit another @ListResolverEndpoint@ request to get the next group
 -- of results. In the next request, specify the value of @NextToken@ from
@@ -251,8 +253,6 @@ data ListResolverEndpointsResponse = ListResolverEndpointsResponse'
 -- 'resolverEndpoints', 'listResolverEndpointsResponse_resolverEndpoints' - The Resolver endpoints that were created by using the current Amazon Web
 -- Services account, and that match the specified filters, if any.
 --
--- 'maxResults', 'listResolverEndpointsResponse_maxResults' - The value that you specified for @MaxResults@ in the request.
---
 -- 'httpStatus', 'listResolverEndpointsResponse_httpStatus' - The response's http status code.
 newListResolverEndpointsResponse ::
   -- | 'httpStatus'
@@ -260,12 +260,16 @@ newListResolverEndpointsResponse ::
   ListResolverEndpointsResponse
 newListResolverEndpointsResponse pHttpStatus_ =
   ListResolverEndpointsResponse'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       resolverEndpoints = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The value that you specified for @MaxResults@ in the request.
+listResolverEndpointsResponse_maxResults :: Lens.Lens' ListResolverEndpointsResponse (Prelude.Maybe Prelude.Natural)
+listResolverEndpointsResponse_maxResults = Lens.lens (\ListResolverEndpointsResponse' {maxResults} -> maxResults) (\s@ListResolverEndpointsResponse' {} a -> s {maxResults = a} :: ListResolverEndpointsResponse)
 
 -- | If more than @MaxResults@ IP addresses match the specified criteria, you
 -- can submit another @ListResolverEndpoint@ request to get the next group
@@ -279,17 +283,13 @@ listResolverEndpointsResponse_nextToken = Lens.lens (\ListResolverEndpointsRespo
 listResolverEndpointsResponse_resolverEndpoints :: Lens.Lens' ListResolverEndpointsResponse (Prelude.Maybe [ResolverEndpoint])
 listResolverEndpointsResponse_resolverEndpoints = Lens.lens (\ListResolverEndpointsResponse' {resolverEndpoints} -> resolverEndpoints) (\s@ListResolverEndpointsResponse' {} a -> s {resolverEndpoints = a} :: ListResolverEndpointsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The value that you specified for @MaxResults@ in the request.
-listResolverEndpointsResponse_maxResults :: Lens.Lens' ListResolverEndpointsResponse (Prelude.Maybe Prelude.Natural)
-listResolverEndpointsResponse_maxResults = Lens.lens (\ListResolverEndpointsResponse' {maxResults} -> maxResults) (\s@ListResolverEndpointsResponse' {} a -> s {maxResults = a} :: ListResolverEndpointsResponse)
-
 -- | The response's http status code.
 listResolverEndpointsResponse_httpStatus :: Lens.Lens' ListResolverEndpointsResponse Prelude.Int
 listResolverEndpointsResponse_httpStatus = Lens.lens (\ListResolverEndpointsResponse' {httpStatus} -> httpStatus) (\s@ListResolverEndpointsResponse' {} a -> s {httpStatus = a} :: ListResolverEndpointsResponse)
 
 instance Prelude.NFData ListResolverEndpointsResponse where
   rnf ListResolverEndpointsResponse' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf resolverEndpoints
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf httpStatus

@@ -35,8 +35,8 @@ module Amazonka.EMR.ListSteps
 
     -- * Request Lenses
     listSteps_marker,
-    listSteps_stepStates,
     listSteps_stepIds,
+    listSteps_stepStates,
     listSteps_clusterId,
 
     -- * Destructuring the Response
@@ -67,12 +67,12 @@ data ListSteps = ListSteps'
     -- along with the @Marker@ parameter, which is a pagination token that
     -- indicates the next set of results to retrieve.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | The filter to limit the step list based on certain states.
-    stepStates :: Prelude.Maybe [StepState],
     -- | The filter to limit the step list based on the identifier of the steps.
     -- You can specify a maximum of ten Step IDs. The character constraint
     -- applies to the overall length of the array.
     stepIds :: Prelude.Maybe [Prelude.Text],
+    -- | The filter to limit the step list based on certain states.
+    stepStates :: Prelude.Maybe [StepState],
     -- | The identifier of the cluster for which to list the steps.
     clusterId :: Prelude.Text
   }
@@ -91,11 +91,11 @@ data ListSteps = ListSteps'
 -- along with the @Marker@ parameter, which is a pagination token that
 -- indicates the next set of results to retrieve.
 --
--- 'stepStates', 'listSteps_stepStates' - The filter to limit the step list based on certain states.
---
 -- 'stepIds', 'listSteps_stepIds' - The filter to limit the step list based on the identifier of the steps.
 -- You can specify a maximum of ten Step IDs. The character constraint
 -- applies to the overall length of the array.
+--
+-- 'stepStates', 'listSteps_stepStates' - The filter to limit the step list based on certain states.
 --
 -- 'clusterId', 'listSteps_clusterId' - The identifier of the cluster for which to list the steps.
 newListSteps ::
@@ -105,8 +105,8 @@ newListSteps ::
 newListSteps pClusterId_ =
   ListSteps'
     { marker = Prelude.Nothing,
-      stepStates = Prelude.Nothing,
       stepIds = Prelude.Nothing,
+      stepStates = Prelude.Nothing,
       clusterId = pClusterId_
     }
 
@@ -117,15 +117,15 @@ newListSteps pClusterId_ =
 listSteps_marker :: Lens.Lens' ListSteps (Prelude.Maybe Prelude.Text)
 listSteps_marker = Lens.lens (\ListSteps' {marker} -> marker) (\s@ListSteps' {} a -> s {marker = a} :: ListSteps)
 
--- | The filter to limit the step list based on certain states.
-listSteps_stepStates :: Lens.Lens' ListSteps (Prelude.Maybe [StepState])
-listSteps_stepStates = Lens.lens (\ListSteps' {stepStates} -> stepStates) (\s@ListSteps' {} a -> s {stepStates = a} :: ListSteps) Prelude.. Lens.mapping Lens.coerced
-
 -- | The filter to limit the step list based on the identifier of the steps.
 -- You can specify a maximum of ten Step IDs. The character constraint
 -- applies to the overall length of the array.
 listSteps_stepIds :: Lens.Lens' ListSteps (Prelude.Maybe [Prelude.Text])
 listSteps_stepIds = Lens.lens (\ListSteps' {stepIds} -> stepIds) (\s@ListSteps' {} a -> s {stepIds = a} :: ListSteps) Prelude.. Lens.mapping Lens.coerced
+
+-- | The filter to limit the step list based on certain states.
+listSteps_stepStates :: Lens.Lens' ListSteps (Prelude.Maybe [StepState])
+listSteps_stepStates = Lens.lens (\ListSteps' {stepStates} -> stepStates) (\s@ListSteps' {} a -> s {stepStates = a} :: ListSteps) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the cluster for which to list the steps.
 listSteps_clusterId :: Lens.Lens' ListSteps Prelude.Text
@@ -166,15 +166,15 @@ instance Core.AWSRequest ListSteps where
 instance Prelude.Hashable ListSteps where
   hashWithSalt _salt ListSteps' {..} =
     _salt `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` stepStates
       `Prelude.hashWithSalt` stepIds
+      `Prelude.hashWithSalt` stepStates
       `Prelude.hashWithSalt` clusterId
 
 instance Prelude.NFData ListSteps where
   rnf ListSteps' {..} =
     Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf stepStates
       `Prelude.seq` Prelude.rnf stepIds
+      `Prelude.seq` Prelude.rnf stepStates
       `Prelude.seq` Prelude.rnf clusterId
 
 instance Data.ToHeaders ListSteps where
@@ -195,8 +195,8 @@ instance Data.ToJSON ListSteps where
     Data.object
       ( Prelude.catMaybes
           [ ("Marker" Data..=) Prelude.<$> marker,
-            ("StepStates" Data..=) Prelude.<$> stepStates,
             ("StepIds" Data..=) Prelude.<$> stepIds,
+            ("StepStates" Data..=) Prelude.<$> stepStates,
             Prelude.Just ("ClusterId" Data..= clusterId)
           ]
       )

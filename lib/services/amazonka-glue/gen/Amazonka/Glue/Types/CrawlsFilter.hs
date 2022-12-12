@@ -31,9 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCrawlsFilter' smart constructor.
 data CrawlsFilter = CrawlsFilter'
-  { -- | The value provided for comparison on the crawl field.
-    fieldValue :: Prelude.Maybe Prelude.Text,
-    -- | A key used to filter the crawler runs for a specified crawler. Valid
+  { -- | A key used to filter the crawler runs for a specified crawler. Valid
     -- values for each of the field names are:
     --
     -- -   @CRAWL_ID@: A string representing the UUID identifier for a crawl.
@@ -45,6 +43,8 @@ data CrawlsFilter = CrawlsFilter'
     -- -   @DPU_HOUR@: The number of data processing unit (DPU) hours used for
     --     the crawl.
     fieldName :: Prelude.Maybe FieldName,
+    -- | The value provided for comparison on the crawl field.
+    fieldValue :: Prelude.Maybe Prelude.Text,
     -- | A defined comparator that operates on the value. The available operators
     -- are:
     --
@@ -71,8 +71,6 @@ data CrawlsFilter = CrawlsFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fieldValue', 'crawlsFilter_fieldValue' - The value provided for comparison on the crawl field.
---
 -- 'fieldName', 'crawlsFilter_fieldName' - A key used to filter the crawler runs for a specified crawler. Valid
 -- values for each of the field names are:
 --
@@ -84,6 +82,8 @@ data CrawlsFilter = CrawlsFilter'
 --
 -- -   @DPU_HOUR@: The number of data processing unit (DPU) hours used for
 --     the crawl.
+--
+-- 'fieldValue', 'crawlsFilter_fieldValue' - The value provided for comparison on the crawl field.
 --
 -- 'filterOperator', 'crawlsFilter_filterOperator' - A defined comparator that operates on the value. The available operators
 -- are:
@@ -103,14 +103,10 @@ newCrawlsFilter ::
   CrawlsFilter
 newCrawlsFilter =
   CrawlsFilter'
-    { fieldValue = Prelude.Nothing,
-      fieldName = Prelude.Nothing,
+    { fieldName = Prelude.Nothing,
+      fieldValue = Prelude.Nothing,
       filterOperator = Prelude.Nothing
     }
-
--- | The value provided for comparison on the crawl field.
-crawlsFilter_fieldValue :: Lens.Lens' CrawlsFilter (Prelude.Maybe Prelude.Text)
-crawlsFilter_fieldValue = Lens.lens (\CrawlsFilter' {fieldValue} -> fieldValue) (\s@CrawlsFilter' {} a -> s {fieldValue = a} :: CrawlsFilter)
 
 -- | A key used to filter the crawler runs for a specified crawler. Valid
 -- values for each of the field names are:
@@ -125,6 +121,10 @@ crawlsFilter_fieldValue = Lens.lens (\CrawlsFilter' {fieldValue} -> fieldValue) 
 --     the crawl.
 crawlsFilter_fieldName :: Lens.Lens' CrawlsFilter (Prelude.Maybe FieldName)
 crawlsFilter_fieldName = Lens.lens (\CrawlsFilter' {fieldName} -> fieldName) (\s@CrawlsFilter' {} a -> s {fieldName = a} :: CrawlsFilter)
+
+-- | The value provided for comparison on the crawl field.
+crawlsFilter_fieldValue :: Lens.Lens' CrawlsFilter (Prelude.Maybe Prelude.Text)
+crawlsFilter_fieldValue = Lens.lens (\CrawlsFilter' {fieldValue} -> fieldValue) (\s@CrawlsFilter' {} a -> s {fieldValue = a} :: CrawlsFilter)
 
 -- | A defined comparator that operates on the value. The available operators
 -- are:
@@ -145,22 +145,22 @@ crawlsFilter_filterOperator = Lens.lens (\CrawlsFilter' {filterOperator} -> filt
 
 instance Prelude.Hashable CrawlsFilter where
   hashWithSalt _salt CrawlsFilter' {..} =
-    _salt `Prelude.hashWithSalt` fieldValue
-      `Prelude.hashWithSalt` fieldName
+    _salt `Prelude.hashWithSalt` fieldName
+      `Prelude.hashWithSalt` fieldValue
       `Prelude.hashWithSalt` filterOperator
 
 instance Prelude.NFData CrawlsFilter where
   rnf CrawlsFilter' {..} =
-    Prelude.rnf fieldValue
-      `Prelude.seq` Prelude.rnf fieldName
+    Prelude.rnf fieldName
+      `Prelude.seq` Prelude.rnf fieldValue
       `Prelude.seq` Prelude.rnf filterOperator
 
 instance Data.ToJSON CrawlsFilter where
   toJSON CrawlsFilter' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("FieldValue" Data..=) Prelude.<$> fieldValue,
-            ("FieldName" Data..=) Prelude.<$> fieldName,
+          [ ("FieldName" Data..=) Prelude.<$> fieldName,
+            ("FieldValue" Data..=) Prelude.<$> fieldValue,
             ("FilterOperator" Data..=)
               Prelude.<$> filterOperator
           ]

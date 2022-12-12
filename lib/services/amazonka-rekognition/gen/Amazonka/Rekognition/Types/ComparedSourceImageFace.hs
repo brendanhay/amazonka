@@ -33,10 +33,10 @@ import Amazonka.Rekognition.Types.BoundingBox
 --
 -- /See:/ 'newComparedSourceImageFace' smart constructor.
 data ComparedSourceImageFace = ComparedSourceImageFace'
-  { -- | Confidence level that the selected bounding box contains a face.
-    confidence :: Prelude.Maybe Prelude.Double,
-    -- | Bounding box of the face.
-    boundingBox :: Prelude.Maybe BoundingBox
+  { -- | Bounding box of the face.
+    boundingBox :: Prelude.Maybe BoundingBox,
+    -- | Confidence level that the selected bounding box contains a face.
+    confidence :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,25 +48,25 @@ data ComparedSourceImageFace = ComparedSourceImageFace'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'confidence', 'comparedSourceImageFace_confidence' - Confidence level that the selected bounding box contains a face.
---
 -- 'boundingBox', 'comparedSourceImageFace_boundingBox' - Bounding box of the face.
+--
+-- 'confidence', 'comparedSourceImageFace_confidence' - Confidence level that the selected bounding box contains a face.
 newComparedSourceImageFace ::
   ComparedSourceImageFace
 newComparedSourceImageFace =
   ComparedSourceImageFace'
-    { confidence =
+    { boundingBox =
         Prelude.Nothing,
-      boundingBox = Prelude.Nothing
+      confidence = Prelude.Nothing
     }
-
--- | Confidence level that the selected bounding box contains a face.
-comparedSourceImageFace_confidence :: Lens.Lens' ComparedSourceImageFace (Prelude.Maybe Prelude.Double)
-comparedSourceImageFace_confidence = Lens.lens (\ComparedSourceImageFace' {confidence} -> confidence) (\s@ComparedSourceImageFace' {} a -> s {confidence = a} :: ComparedSourceImageFace)
 
 -- | Bounding box of the face.
 comparedSourceImageFace_boundingBox :: Lens.Lens' ComparedSourceImageFace (Prelude.Maybe BoundingBox)
 comparedSourceImageFace_boundingBox = Lens.lens (\ComparedSourceImageFace' {boundingBox} -> boundingBox) (\s@ComparedSourceImageFace' {} a -> s {boundingBox = a} :: ComparedSourceImageFace)
+
+-- | Confidence level that the selected bounding box contains a face.
+comparedSourceImageFace_confidence :: Lens.Lens' ComparedSourceImageFace (Prelude.Maybe Prelude.Double)
+comparedSourceImageFace_confidence = Lens.lens (\ComparedSourceImageFace' {confidence} -> confidence) (\s@ComparedSourceImageFace' {} a -> s {confidence = a} :: ComparedSourceImageFace)
 
 instance Data.FromJSON ComparedSourceImageFace where
   parseJSON =
@@ -74,16 +74,16 @@ instance Data.FromJSON ComparedSourceImageFace where
       "ComparedSourceImageFace"
       ( \x ->
           ComparedSourceImageFace'
-            Prelude.<$> (x Data..:? "Confidence")
-            Prelude.<*> (x Data..:? "BoundingBox")
+            Prelude.<$> (x Data..:? "BoundingBox")
+            Prelude.<*> (x Data..:? "Confidence")
       )
 
 instance Prelude.Hashable ComparedSourceImageFace where
   hashWithSalt _salt ComparedSourceImageFace' {..} =
-    _salt `Prelude.hashWithSalt` confidence
-      `Prelude.hashWithSalt` boundingBox
+    _salt `Prelude.hashWithSalt` boundingBox
+      `Prelude.hashWithSalt` confidence
 
 instance Prelude.NFData ComparedSourceImageFace where
   rnf ComparedSourceImageFace' {..} =
-    Prelude.rnf confidence
-      `Prelude.seq` Prelude.rnf boundingBox
+    Prelude.rnf boundingBox
+      `Prelude.seq` Prelude.rnf confidence

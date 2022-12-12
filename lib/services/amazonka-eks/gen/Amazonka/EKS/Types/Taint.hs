@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTaint' smart constructor.
 data Taint = Taint'
-  { -- | The key of the taint.
-    key :: Prelude.Maybe Prelude.Text,
-    -- | The effect of the taint.
+  { -- | The effect of the taint.
     effect :: Prelude.Maybe TaintEffect,
+    -- | The key of the taint.
+    key :: Prelude.Maybe Prelude.Text,
     -- | The value of the taint.
     value :: Prelude.Maybe Prelude.Text
   }
@@ -48,27 +48,27 @@ data Taint = Taint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 'taint_key' - The key of the taint.
---
 -- 'effect', 'taint_effect' - The effect of the taint.
+--
+-- 'key', 'taint_key' - The key of the taint.
 --
 -- 'value', 'taint_value' - The value of the taint.
 newTaint ::
   Taint
 newTaint =
   Taint'
-    { key = Prelude.Nothing,
-      effect = Prelude.Nothing,
+    { effect = Prelude.Nothing,
+      key = Prelude.Nothing,
       value = Prelude.Nothing
     }
-
--- | The key of the taint.
-taint_key :: Lens.Lens' Taint (Prelude.Maybe Prelude.Text)
-taint_key = Lens.lens (\Taint' {key} -> key) (\s@Taint' {} a -> s {key = a} :: Taint)
 
 -- | The effect of the taint.
 taint_effect :: Lens.Lens' Taint (Prelude.Maybe TaintEffect)
 taint_effect = Lens.lens (\Taint' {effect} -> effect) (\s@Taint' {} a -> s {effect = a} :: Taint)
+
+-- | The key of the taint.
+taint_key :: Lens.Lens' Taint (Prelude.Maybe Prelude.Text)
+taint_key = Lens.lens (\Taint' {key} -> key) (\s@Taint' {} a -> s {key = a} :: Taint)
 
 -- | The value of the taint.
 taint_value :: Lens.Lens' Taint (Prelude.Maybe Prelude.Text)
@@ -80,29 +80,29 @@ instance Data.FromJSON Taint where
       "Taint"
       ( \x ->
           Taint'
-            Prelude.<$> (x Data..:? "key")
-            Prelude.<*> (x Data..:? "effect")
+            Prelude.<$> (x Data..:? "effect")
+            Prelude.<*> (x Data..:? "key")
             Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable Taint where
   hashWithSalt _salt Taint' {..} =
-    _salt `Prelude.hashWithSalt` key
-      `Prelude.hashWithSalt` effect
+    _salt `Prelude.hashWithSalt` effect
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Taint where
   rnf Taint' {..} =
-    Prelude.rnf key
-      `Prelude.seq` Prelude.rnf effect
+    Prelude.rnf effect
+      `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf value
 
 instance Data.ToJSON Taint where
   toJSON Taint' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("key" Data..=) Prelude.<$> key,
-            ("effect" Data..=) Prelude.<$> effect,
+          [ ("effect" Data..=) Prelude.<$> effect,
+            ("key" Data..=) Prelude.<$> key,
             ("value" Data..=) Prelude.<$> value
           ]
       )

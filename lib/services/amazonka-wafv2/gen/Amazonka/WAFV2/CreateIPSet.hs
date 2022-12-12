@@ -31,8 +31,8 @@ module Amazonka.WAFV2.CreateIPSet
     newCreateIPSet,
 
     -- * Request Lenses
-    createIPSet_tags,
     createIPSet_description,
+    createIPSet_tags,
     createIPSet_name,
     createIPSet_scope,
     createIPSet_iPAddressVersion,
@@ -58,10 +58,10 @@ import Amazonka.WAFV2.Types
 
 -- | /See:/ 'newCreateIPSet' smart constructor.
 data CreateIPSet = CreateIPSet'
-  { -- | An array of key:value pairs to associate with the resource.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | A description of the IP set that helps with identification.
+  { -- | A description of the IP set that helps with identification.
     description :: Prelude.Maybe Prelude.Text,
+    -- | An array of key:value pairs to associate with the resource.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The name of the IP set. You cannot change the name of an @IPSet@ after
     -- you create it.
     name :: Prelude.Text,
@@ -128,9 +128,9 @@ data CreateIPSet = CreateIPSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createIPSet_tags' - An array of key:value pairs to associate with the resource.
---
 -- 'description', 'createIPSet_description' - A description of the IP set that helps with identification.
+--
+-- 'tags', 'createIPSet_tags' - An array of key:value pairs to associate with the resource.
 --
 -- 'name', 'createIPSet_name' - The name of the IP set. You cannot change the name of an @IPSet@ after
 -- you create it.
@@ -196,21 +196,21 @@ newCreateIPSet ::
   CreateIPSet
 newCreateIPSet pName_ pScope_ pIPAddressVersion_ =
   CreateIPSet'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_,
       scope = pScope_,
       iPAddressVersion = pIPAddressVersion_,
       addresses = Prelude.mempty
     }
 
--- | An array of key:value pairs to associate with the resource.
-createIPSet_tags :: Lens.Lens' CreateIPSet (Prelude.Maybe (Prelude.NonEmpty Tag))
-createIPSet_tags = Lens.lens (\CreateIPSet' {tags} -> tags) (\s@CreateIPSet' {} a -> s {tags = a} :: CreateIPSet) Prelude.. Lens.mapping Lens.coerced
-
 -- | A description of the IP set that helps with identification.
 createIPSet_description :: Lens.Lens' CreateIPSet (Prelude.Maybe Prelude.Text)
 createIPSet_description = Lens.lens (\CreateIPSet' {description} -> description) (\s@CreateIPSet' {} a -> s {description = a} :: CreateIPSet)
+
+-- | An array of key:value pairs to associate with the resource.
+createIPSet_tags :: Lens.Lens' CreateIPSet (Prelude.Maybe (Prelude.NonEmpty Tag))
+createIPSet_tags = Lens.lens (\CreateIPSet' {tags} -> tags) (\s@CreateIPSet' {} a -> s {tags = a} :: CreateIPSet) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the IP set. You cannot change the name of an @IPSet@ after
 -- you create it.
@@ -289,8 +289,8 @@ instance Core.AWSRequest CreateIPSet where
 
 instance Prelude.Hashable CreateIPSet where
   hashWithSalt _salt CreateIPSet' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` scope
       `Prelude.hashWithSalt` iPAddressVersion
@@ -298,8 +298,8 @@ instance Prelude.Hashable CreateIPSet where
 
 instance Prelude.NFData CreateIPSet where
   rnf CreateIPSet' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf scope
       `Prelude.seq` Prelude.rnf iPAddressVersion
@@ -324,8 +324,8 @@ instance Data.ToJSON CreateIPSet where
   toJSON CreateIPSet' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("Scope" Data..= scope),
             Prelude.Just

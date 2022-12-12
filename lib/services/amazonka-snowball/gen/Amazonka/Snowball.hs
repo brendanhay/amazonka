@@ -29,38 +29,38 @@ module Amazonka.Snowball
     -- * Errors
     -- $errors
 
-    -- ** InvalidAddressException
-    _InvalidAddressException,
-
-    -- ** UnsupportedAddressException
-    _UnsupportedAddressException,
-
-    -- ** InvalidResourceException
-    _InvalidResourceException,
-
-    -- ** InvalidJobStateException
-    _InvalidJobStateException,
-
-    -- ** InvalidInputCombinationException
-    _InvalidInputCombinationException,
-
-    -- ** InvalidNextTokenException
-    _InvalidNextTokenException,
+    -- ** ClusterLimitExceededException
+    _ClusterLimitExceededException,
 
     -- ** ConflictException
     _ConflictException,
 
-    -- ** KMSRequestFailedException
-    _KMSRequestFailedException,
-
     -- ** Ec2RequestFailedException
     _Ec2RequestFailedException,
 
-    -- ** ClusterLimitExceededException
-    _ClusterLimitExceededException,
+    -- ** InvalidAddressException
+    _InvalidAddressException,
+
+    -- ** InvalidInputCombinationException
+    _InvalidInputCombinationException,
+
+    -- ** InvalidJobStateException
+    _InvalidJobStateException,
+
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
+    -- ** InvalidResourceException
+    _InvalidResourceException,
+
+    -- ** KMSRequestFailedException
+    _KMSRequestFailedException,
 
     -- ** ReturnShippingLabelAlreadyExistsException
     _ReturnShippingLabelAlreadyExistsException,
+
+    -- ** UnsupportedAddressException
+    _UnsupportedAddressException,
 
     -- * Waiters
     -- $waiters

@@ -31,8 +31,8 @@ module Amazonka.AppConfig.CreateApplication
     newCreateApplication,
 
     -- * Request Lenses
-    createApplication_tags,
     createApplication_description,
+    createApplication_tags,
     createApplication_name,
 
     -- * Destructuring the Response
@@ -40,9 +40,9 @@ module Amazonka.AppConfig.CreateApplication
     newApplication,
 
     -- * Response Lenses
-    application_name,
-    application_id,
     application_description,
+    application_id,
+    application_name,
   )
 where
 
@@ -56,12 +56,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateApplication' smart constructor.
 data CreateApplication = CreateApplication'
-  { -- | Metadata to assign to the application. Tags help organize and categorize
+  { -- | A description of the application.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Metadata to assign to the application. Tags help organize and categorize
     -- your AppConfig resources. Each tag consists of a key and an optional
     -- value, both of which you define.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A description of the application.
-    description :: Prelude.Maybe Prelude.Text,
     -- | A name for the application.
     name :: Prelude.Text
   }
@@ -75,11 +75,11 @@ data CreateApplication = CreateApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'createApplication_description' - A description of the application.
+--
 -- 'tags', 'createApplication_tags' - Metadata to assign to the application. Tags help organize and categorize
 -- your AppConfig resources. Each tag consists of a key and an optional
 -- value, both of which you define.
---
--- 'description', 'createApplication_description' - A description of the application.
 --
 -- 'name', 'createApplication_name' - A name for the application.
 newCreateApplication ::
@@ -88,20 +88,20 @@ newCreateApplication ::
   CreateApplication
 newCreateApplication pName_ =
   CreateApplication'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_
     }
+
+-- | A description of the application.
+createApplication_description :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Text)
+createApplication_description = Lens.lens (\CreateApplication' {description} -> description) (\s@CreateApplication' {} a -> s {description = a} :: CreateApplication)
 
 -- | Metadata to assign to the application. Tags help organize and categorize
 -- your AppConfig resources. Each tag consists of a key and an optional
 -- value, both of which you define.
 createApplication_tags :: Lens.Lens' CreateApplication (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createApplication_tags = Lens.lens (\CreateApplication' {tags} -> tags) (\s@CreateApplication' {} a -> s {tags = a} :: CreateApplication) Prelude.. Lens.mapping Lens.coerced
-
--- | A description of the application.
-createApplication_description :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Text)
-createApplication_description = Lens.lens (\CreateApplication' {description} -> description) (\s@CreateApplication' {} a -> s {description = a} :: CreateApplication)
 
 -- | A name for the application.
 createApplication_name :: Lens.Lens' CreateApplication Prelude.Text
@@ -117,14 +117,14 @@ instance Core.AWSRequest CreateApplication where
 
 instance Prelude.Hashable CreateApplication where
   hashWithSalt _salt CreateApplication' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateApplication where
   rnf CreateApplication' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders CreateApplication where
@@ -142,8 +142,8 @@ instance Data.ToJSON CreateApplication where
   toJSON CreateApplication' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Name" Data..= name)
           ]
       )

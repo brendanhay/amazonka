@@ -45,8 +45,8 @@ module Amazonka.Lightsail.GetBucketMetricData
     newGetBucketMetricDataResponse,
 
     -- * Response Lenses
-    getBucketMetricDataResponse_metricName,
     getBucketMetricDataResponse_metricData,
+    getBucketMetricDataResponse_metricName,
     getBucketMetricDataResponse_httpStatus,
   )
 where
@@ -327,8 +327,8 @@ instance Core.AWSRequest GetBucketMetricData where
     Response.receiveJSON
       ( \s h x ->
           GetBucketMetricDataResponse'
-            Prelude.<$> (x Data..?> "metricName")
-            Prelude.<*> (x Data..?> "metricData" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "metricData" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "metricName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -389,10 +389,10 @@ instance Data.ToQuery GetBucketMetricData where
 
 -- | /See:/ 'newGetBucketMetricDataResponse' smart constructor.
 data GetBucketMetricDataResponse = GetBucketMetricDataResponse'
-  { -- | The name of the metric returned.
-    metricName :: Prelude.Maybe BucketMetricName,
-    -- | An array of objects that describe the metric data returned.
+  { -- | An array of objects that describe the metric data returned.
     metricData :: Prelude.Maybe [MetricDatapoint],
+    -- | The name of the metric returned.
+    metricName :: Prelude.Maybe BucketMetricName,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -406,9 +406,9 @@ data GetBucketMetricDataResponse = GetBucketMetricDataResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metricName', 'getBucketMetricDataResponse_metricName' - The name of the metric returned.
---
 -- 'metricData', 'getBucketMetricDataResponse_metricData' - An array of objects that describe the metric data returned.
+--
+-- 'metricName', 'getBucketMetricDataResponse_metricName' - The name of the metric returned.
 --
 -- 'httpStatus', 'getBucketMetricDataResponse_httpStatus' - The response's http status code.
 newGetBucketMetricDataResponse ::
@@ -417,19 +417,19 @@ newGetBucketMetricDataResponse ::
   GetBucketMetricDataResponse
 newGetBucketMetricDataResponse pHttpStatus_ =
   GetBucketMetricDataResponse'
-    { metricName =
+    { metricData =
         Prelude.Nothing,
-      metricData = Prelude.Nothing,
+      metricName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The name of the metric returned.
-getBucketMetricDataResponse_metricName :: Lens.Lens' GetBucketMetricDataResponse (Prelude.Maybe BucketMetricName)
-getBucketMetricDataResponse_metricName = Lens.lens (\GetBucketMetricDataResponse' {metricName} -> metricName) (\s@GetBucketMetricDataResponse' {} a -> s {metricName = a} :: GetBucketMetricDataResponse)
 
 -- | An array of objects that describe the metric data returned.
 getBucketMetricDataResponse_metricData :: Lens.Lens' GetBucketMetricDataResponse (Prelude.Maybe [MetricDatapoint])
 getBucketMetricDataResponse_metricData = Lens.lens (\GetBucketMetricDataResponse' {metricData} -> metricData) (\s@GetBucketMetricDataResponse' {} a -> s {metricData = a} :: GetBucketMetricDataResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of the metric returned.
+getBucketMetricDataResponse_metricName :: Lens.Lens' GetBucketMetricDataResponse (Prelude.Maybe BucketMetricName)
+getBucketMetricDataResponse_metricName = Lens.lens (\GetBucketMetricDataResponse' {metricName} -> metricName) (\s@GetBucketMetricDataResponse' {} a -> s {metricName = a} :: GetBucketMetricDataResponse)
 
 -- | The response's http status code.
 getBucketMetricDataResponse_httpStatus :: Lens.Lens' GetBucketMetricDataResponse Prelude.Int
@@ -437,6 +437,6 @@ getBucketMetricDataResponse_httpStatus = Lens.lens (\GetBucketMetricDataResponse
 
 instance Prelude.NFData GetBucketMetricDataResponse where
   rnf GetBucketMetricDataResponse' {..} =
-    Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf metricData
+    Prelude.rnf metricData
+      `Prelude.seq` Prelude.rnf metricName
       `Prelude.seq` Prelude.rnf httpStatus

@@ -28,10 +28,10 @@ module Amazonka.BillingConductor.CreatePricingPlan
     newCreatePricingPlan,
 
     -- * Request Lenses
-    createPricingPlan_tags,
     createPricingPlan_clientToken,
     createPricingPlan_description,
     createPricingPlan_pricingRuleArns,
+    createPricingPlan_tags,
     createPricingPlan_name,
 
     -- * Destructuring the Response
@@ -54,10 +54,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreatePricingPlan' smart constructor.
 data CreatePricingPlan = CreatePricingPlan'
-  { -- | A map that contains tag keys and tag values that are attached to a
-    -- pricing plan.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The token that is needed to support idempotency. Idempotency isn\'t
+  { -- | The token that is needed to support idempotency. Idempotency isn\'t
     -- currently supported, but will be implemented in a future update.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The description of the pricing plan.
@@ -65,6 +62,9 @@ data CreatePricingPlan = CreatePricingPlan'
     -- | A list of Amazon Resource Names (ARNs) that define the pricing plan
     -- parameters.
     pricingRuleArns :: Prelude.Maybe [Prelude.Text],
+    -- | A map that contains tag keys and tag values that are attached to a
+    -- pricing plan.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the pricing plan. The names must be unique to each pricing
     -- plan.
     name :: Data.Sensitive Prelude.Text
@@ -79,9 +79,6 @@ data CreatePricingPlan = CreatePricingPlan'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createPricingPlan_tags' - A map that contains tag keys and tag values that are attached to a
--- pricing plan.
---
 -- 'clientToken', 'createPricingPlan_clientToken' - The token that is needed to support idempotency. Idempotency isn\'t
 -- currently supported, but will be implemented in a future update.
 --
@@ -89,6 +86,9 @@ data CreatePricingPlan = CreatePricingPlan'
 --
 -- 'pricingRuleArns', 'createPricingPlan_pricingRuleArns' - A list of Amazon Resource Names (ARNs) that define the pricing plan
 -- parameters.
+--
+-- 'tags', 'createPricingPlan_tags' - A map that contains tag keys and tag values that are attached to a
+-- pricing plan.
 --
 -- 'name', 'createPricingPlan_name' - The name of the pricing plan. The names must be unique to each pricing
 -- plan.
@@ -98,17 +98,12 @@ newCreatePricingPlan ::
   CreatePricingPlan
 newCreatePricingPlan pName_ =
   CreatePricingPlan'
-    { tags = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+    { clientToken = Prelude.Nothing,
       description = Prelude.Nothing,
       pricingRuleArns = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = Data._Sensitive Lens.# pName_
     }
-
--- | A map that contains tag keys and tag values that are attached to a
--- pricing plan.
-createPricingPlan_tags :: Lens.Lens' CreatePricingPlan (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createPricingPlan_tags = Lens.lens (\CreatePricingPlan' {tags} -> tags) (\s@CreatePricingPlan' {} a -> s {tags = a} :: CreatePricingPlan) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token that is needed to support idempotency. Idempotency isn\'t
 -- currently supported, but will be implemented in a future update.
@@ -123,6 +118,11 @@ createPricingPlan_description = Lens.lens (\CreatePricingPlan' {description} -> 
 -- parameters.
 createPricingPlan_pricingRuleArns :: Lens.Lens' CreatePricingPlan (Prelude.Maybe [Prelude.Text])
 createPricingPlan_pricingRuleArns = Lens.lens (\CreatePricingPlan' {pricingRuleArns} -> pricingRuleArns) (\s@CreatePricingPlan' {} a -> s {pricingRuleArns = a} :: CreatePricingPlan) Prelude.. Lens.mapping Lens.coerced
+
+-- | A map that contains tag keys and tag values that are attached to a
+-- pricing plan.
+createPricingPlan_tags :: Lens.Lens' CreatePricingPlan (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createPricingPlan_tags = Lens.lens (\CreatePricingPlan' {tags} -> tags) (\s@CreatePricingPlan' {} a -> s {tags = a} :: CreatePricingPlan) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the pricing plan. The names must be unique to each pricing
 -- plan.
@@ -145,18 +145,18 @@ instance Core.AWSRequest CreatePricingPlan where
 
 instance Prelude.Hashable CreatePricingPlan where
   hashWithSalt _salt CreatePricingPlan' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` pricingRuleArns
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreatePricingPlan where
   rnf CreatePricingPlan' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf pricingRuleArns
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders CreatePricingPlan where
@@ -171,10 +171,10 @@ instance Data.ToJSON CreatePricingPlan where
   toJSON CreatePricingPlan' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
             ("PricingRuleArns" Data..=)
               Prelude.<$> pricingRuleArns,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Name" Data..= name)
           ]
       )

@@ -28,8 +28,8 @@ module Amazonka.Pinpoint.GetApplicationDateRangeKpi
     newGetApplicationDateRangeKpi,
 
     -- * Request Lenses
-    getApplicationDateRangeKpi_nextToken,
     getApplicationDateRangeKpi_endTime,
+    getApplicationDateRangeKpi_nextToken,
     getApplicationDateRangeKpi_pageSize,
     getApplicationDateRangeKpi_startTime,
     getApplicationDateRangeKpi_applicationId,
@@ -55,15 +55,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetApplicationDateRangeKpi' smart constructor.
 data GetApplicationDateRangeKpi = GetApplicationDateRangeKpi'
-  { -- | The string that specifies which page of results to return in a paginated
-    -- response. This parameter is not supported for application, campaign, and
-    -- journey metrics.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The last date and time to retrieve data for, as part of an inclusive
+  { -- | The last date and time to retrieve data for, as part of an inclusive
     -- date range that filters the query results. This value should be in
     -- extended ISO 8601 format and use Coordinated Universal Time (UTC), for
     -- example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
     endTime :: Prelude.Maybe Data.POSIX,
+    -- | The string that specifies which page of results to return in a paginated
+    -- response. This parameter is not supported for application, campaign, and
+    -- journey metrics.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to include in each page of a paginated
     -- response. This parameter is not supported for application, campaign, and
     -- journey metrics.
@@ -96,14 +96,14 @@ data GetApplicationDateRangeKpi = GetApplicationDateRangeKpi'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getApplicationDateRangeKpi_nextToken' - The string that specifies which page of results to return in a paginated
--- response. This parameter is not supported for application, campaign, and
--- journey metrics.
---
 -- 'endTime', 'getApplicationDateRangeKpi_endTime' - The last date and time to retrieve data for, as part of an inclusive
 -- date range that filters the query results. This value should be in
 -- extended ISO 8601 format and use Coordinated Universal Time (UTC), for
 -- example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
+--
+-- 'nextToken', 'getApplicationDateRangeKpi_nextToken' - The string that specifies which page of results to return in a paginated
+-- response. This parameter is not supported for application, campaign, and
+-- journey metrics.
 --
 -- 'pageSize', 'getApplicationDateRangeKpi_pageSize' - The maximum number of items to include in each page of a paginated
 -- response. This parameter is not supported for application, campaign, and
@@ -135,20 +135,14 @@ newGetApplicationDateRangeKpi
   pApplicationId_
   pKpiName_ =
     GetApplicationDateRangeKpi'
-      { nextToken =
+      { endTime =
           Prelude.Nothing,
-        endTime = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         pageSize = Prelude.Nothing,
         startTime = Prelude.Nothing,
         applicationId = pApplicationId_,
         kpiName = pKpiName_
       }
-
--- | The string that specifies which page of results to return in a paginated
--- response. This parameter is not supported for application, campaign, and
--- journey metrics.
-getApplicationDateRangeKpi_nextToken :: Lens.Lens' GetApplicationDateRangeKpi (Prelude.Maybe Prelude.Text)
-getApplicationDateRangeKpi_nextToken = Lens.lens (\GetApplicationDateRangeKpi' {nextToken} -> nextToken) (\s@GetApplicationDateRangeKpi' {} a -> s {nextToken = a} :: GetApplicationDateRangeKpi)
 
 -- | The last date and time to retrieve data for, as part of an inclusive
 -- date range that filters the query results. This value should be in
@@ -156,6 +150,12 @@ getApplicationDateRangeKpi_nextToken = Lens.lens (\GetApplicationDateRangeKpi' {
 -- example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
 getApplicationDateRangeKpi_endTime :: Lens.Lens' GetApplicationDateRangeKpi (Prelude.Maybe Prelude.UTCTime)
 getApplicationDateRangeKpi_endTime = Lens.lens (\GetApplicationDateRangeKpi' {endTime} -> endTime) (\s@GetApplicationDateRangeKpi' {} a -> s {endTime = a} :: GetApplicationDateRangeKpi) Prelude.. Lens.mapping Data._Time
+
+-- | The string that specifies which page of results to return in a paginated
+-- response. This parameter is not supported for application, campaign, and
+-- journey metrics.
+getApplicationDateRangeKpi_nextToken :: Lens.Lens' GetApplicationDateRangeKpi (Prelude.Maybe Prelude.Text)
+getApplicationDateRangeKpi_nextToken = Lens.lens (\GetApplicationDateRangeKpi' {nextToken} -> nextToken) (\s@GetApplicationDateRangeKpi' {} a -> s {nextToken = a} :: GetApplicationDateRangeKpi)
 
 -- | The maximum number of items to include in each page of a paginated
 -- response. This parameter is not supported for application, campaign, and
@@ -202,8 +202,8 @@ instance Core.AWSRequest GetApplicationDateRangeKpi where
 
 instance Prelude.Hashable GetApplicationDateRangeKpi where
   hashWithSalt _salt GetApplicationDateRangeKpi' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` endTime
+    _salt `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` pageSize
       `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` applicationId
@@ -211,8 +211,8 @@ instance Prelude.Hashable GetApplicationDateRangeKpi where
 
 instance Prelude.NFData GetApplicationDateRangeKpi where
   rnf GetApplicationDateRangeKpi' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf pageSize
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf applicationId
@@ -241,8 +241,8 @@ instance Data.ToPath GetApplicationDateRangeKpi where
 instance Data.ToQuery GetApplicationDateRangeKpi where
   toQuery GetApplicationDateRangeKpi' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
-        "end-time" Data.=: endTime,
+      [ "end-time" Data.=: endTime,
+        "next-token" Data.=: nextToken,
         "page-size" Data.=: pageSize,
         "start-time" Data.=: startTime
       ]

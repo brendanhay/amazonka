@@ -31,11 +31,11 @@ module Amazonka.EMRContainers.ListJobRuns
     newListJobRuns,
 
     -- * Request Lenses
-    listJobRuns_name,
-    listJobRuns_nextToken,
+    listJobRuns_createdAfter,
     listJobRuns_createdBefore,
     listJobRuns_maxResults,
-    listJobRuns_createdAfter,
+    listJobRuns_name,
+    listJobRuns_nextToken,
     listJobRuns_states,
     listJobRuns_virtualClusterId,
 
@@ -44,8 +44,8 @@ module Amazonka.EMRContainers.ListJobRuns
     newListJobRunsResponse,
 
     -- * Response Lenses
-    listJobRunsResponse_nextToken,
     listJobRunsResponse_jobRuns,
+    listJobRunsResponse_nextToken,
     listJobRunsResponse_httpStatus,
   )
 where
@@ -60,16 +60,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListJobRuns' smart constructor.
 data ListJobRuns = ListJobRuns'
-  { -- | The name of the job run.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The token for the next set of job runs to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The date and time after which the job runs were submitted.
+    createdAfter :: Prelude.Maybe Data.POSIX,
     -- | The date and time before which the job runs were submitted.
     createdBefore :: Prelude.Maybe Data.POSIX,
     -- | The maximum number of job runs that can be listed.
     maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The date and time after which the job runs were submitted.
-    createdAfter :: Prelude.Maybe Data.POSIX,
+    -- | The name of the job run.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The token for the next set of job runs to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The states of the job run.
     states :: Prelude.Maybe [JobRunState],
     -- | The ID of the virtual cluster for which to list the job run.
@@ -85,15 +85,15 @@ data ListJobRuns = ListJobRuns'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'listJobRuns_name' - The name of the job run.
---
--- 'nextToken', 'listJobRuns_nextToken' - The token for the next set of job runs to return.
+-- 'createdAfter', 'listJobRuns_createdAfter' - The date and time after which the job runs were submitted.
 --
 -- 'createdBefore', 'listJobRuns_createdBefore' - The date and time before which the job runs were submitted.
 --
 -- 'maxResults', 'listJobRuns_maxResults' - The maximum number of job runs that can be listed.
 --
--- 'createdAfter', 'listJobRuns_createdAfter' - The date and time after which the job runs were submitted.
+-- 'name', 'listJobRuns_name' - The name of the job run.
+--
+-- 'nextToken', 'listJobRuns_nextToken' - The token for the next set of job runs to return.
 --
 -- 'states', 'listJobRuns_states' - The states of the job run.
 --
@@ -104,22 +104,18 @@ newListJobRuns ::
   ListJobRuns
 newListJobRuns pVirtualClusterId_ =
   ListJobRuns'
-    { name = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { createdAfter = Prelude.Nothing,
       createdBefore = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      createdAfter = Prelude.Nothing,
+      name = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       states = Prelude.Nothing,
       virtualClusterId = pVirtualClusterId_
     }
 
--- | The name of the job run.
-listJobRuns_name :: Lens.Lens' ListJobRuns (Prelude.Maybe Prelude.Text)
-listJobRuns_name = Lens.lens (\ListJobRuns' {name} -> name) (\s@ListJobRuns' {} a -> s {name = a} :: ListJobRuns)
-
--- | The token for the next set of job runs to return.
-listJobRuns_nextToken :: Lens.Lens' ListJobRuns (Prelude.Maybe Prelude.Text)
-listJobRuns_nextToken = Lens.lens (\ListJobRuns' {nextToken} -> nextToken) (\s@ListJobRuns' {} a -> s {nextToken = a} :: ListJobRuns)
+-- | The date and time after which the job runs were submitted.
+listJobRuns_createdAfter :: Lens.Lens' ListJobRuns (Prelude.Maybe Prelude.UTCTime)
+listJobRuns_createdAfter = Lens.lens (\ListJobRuns' {createdAfter} -> createdAfter) (\s@ListJobRuns' {} a -> s {createdAfter = a} :: ListJobRuns) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time before which the job runs were submitted.
 listJobRuns_createdBefore :: Lens.Lens' ListJobRuns (Prelude.Maybe Prelude.UTCTime)
@@ -129,9 +125,13 @@ listJobRuns_createdBefore = Lens.lens (\ListJobRuns' {createdBefore} -> createdB
 listJobRuns_maxResults :: Lens.Lens' ListJobRuns (Prelude.Maybe Prelude.Int)
 listJobRuns_maxResults = Lens.lens (\ListJobRuns' {maxResults} -> maxResults) (\s@ListJobRuns' {} a -> s {maxResults = a} :: ListJobRuns)
 
--- | The date and time after which the job runs were submitted.
-listJobRuns_createdAfter :: Lens.Lens' ListJobRuns (Prelude.Maybe Prelude.UTCTime)
-listJobRuns_createdAfter = Lens.lens (\ListJobRuns' {createdAfter} -> createdAfter) (\s@ListJobRuns' {} a -> s {createdAfter = a} :: ListJobRuns) Prelude.. Lens.mapping Data._Time
+-- | The name of the job run.
+listJobRuns_name :: Lens.Lens' ListJobRuns (Prelude.Maybe Prelude.Text)
+listJobRuns_name = Lens.lens (\ListJobRuns' {name} -> name) (\s@ListJobRuns' {} a -> s {name = a} :: ListJobRuns)
+
+-- | The token for the next set of job runs to return.
+listJobRuns_nextToken :: Lens.Lens' ListJobRuns (Prelude.Maybe Prelude.Text)
+listJobRuns_nextToken = Lens.lens (\ListJobRuns' {nextToken} -> nextToken) (\s@ListJobRuns' {} a -> s {nextToken = a} :: ListJobRuns)
 
 -- | The states of the job run.
 listJobRuns_states :: Lens.Lens' ListJobRuns (Prelude.Maybe [JobRunState])
@@ -168,28 +168,28 @@ instance Core.AWSRequest ListJobRuns where
     Response.receiveJSON
       ( \s h x ->
           ListJobRunsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "jobRuns" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "jobRuns" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListJobRuns where
   hashWithSalt _salt ListJobRuns' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` createdAfter
       `Prelude.hashWithSalt` createdBefore
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` createdAfter
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` states
       `Prelude.hashWithSalt` virtualClusterId
 
 instance Prelude.NFData ListJobRuns where
   rnf ListJobRuns' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf createdAfter
       `Prelude.seq` Prelude.rnf createdBefore
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf createdAfter
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf states
       `Prelude.seq` Prelude.rnf virtualClusterId
 
@@ -215,11 +215,11 @@ instance Data.ToPath ListJobRuns where
 instance Data.ToQuery ListJobRuns where
   toQuery ListJobRuns' {..} =
     Prelude.mconcat
-      [ "name" Data.=: name,
-        "nextToken" Data.=: nextToken,
+      [ "createdAfter" Data.=: createdAfter,
         "createdBefore" Data.=: createdBefore,
         "maxResults" Data.=: maxResults,
-        "createdAfter" Data.=: createdAfter,
+        "name" Data.=: name,
+        "nextToken" Data.=: nextToken,
         "states"
           Data.=: Data.toQuery
             (Data.toQueryList "member" Prelude.<$> states)
@@ -227,10 +227,10 @@ instance Data.ToQuery ListJobRuns where
 
 -- | /See:/ 'newListJobRunsResponse' smart constructor.
 data ListJobRunsResponse = ListJobRunsResponse'
-  { -- | This output displays the token for the next set of job runs.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | This output lists information about the specified job runs.
+  { -- | This output lists information about the specified job runs.
     jobRuns :: Prelude.Maybe [JobRun],
+    -- | This output displays the token for the next set of job runs.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -244,9 +244,9 @@ data ListJobRunsResponse = ListJobRunsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listJobRunsResponse_nextToken' - This output displays the token for the next set of job runs.
---
 -- 'jobRuns', 'listJobRunsResponse_jobRuns' - This output lists information about the specified job runs.
+--
+-- 'nextToken', 'listJobRunsResponse_nextToken' - This output displays the token for the next set of job runs.
 --
 -- 'httpStatus', 'listJobRunsResponse_httpStatus' - The response's http status code.
 newListJobRunsResponse ::
@@ -255,18 +255,18 @@ newListJobRunsResponse ::
   ListJobRunsResponse
 newListJobRunsResponse pHttpStatus_ =
   ListJobRunsResponse'
-    { nextToken = Prelude.Nothing,
-      jobRuns = Prelude.Nothing,
+    { jobRuns = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | This output displays the token for the next set of job runs.
-listJobRunsResponse_nextToken :: Lens.Lens' ListJobRunsResponse (Prelude.Maybe Prelude.Text)
-listJobRunsResponse_nextToken = Lens.lens (\ListJobRunsResponse' {nextToken} -> nextToken) (\s@ListJobRunsResponse' {} a -> s {nextToken = a} :: ListJobRunsResponse)
 
 -- | This output lists information about the specified job runs.
 listJobRunsResponse_jobRuns :: Lens.Lens' ListJobRunsResponse (Prelude.Maybe [JobRun])
 listJobRunsResponse_jobRuns = Lens.lens (\ListJobRunsResponse' {jobRuns} -> jobRuns) (\s@ListJobRunsResponse' {} a -> s {jobRuns = a} :: ListJobRunsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | This output displays the token for the next set of job runs.
+listJobRunsResponse_nextToken :: Lens.Lens' ListJobRunsResponse (Prelude.Maybe Prelude.Text)
+listJobRunsResponse_nextToken = Lens.lens (\ListJobRunsResponse' {nextToken} -> nextToken) (\s@ListJobRunsResponse' {} a -> s {nextToken = a} :: ListJobRunsResponse)
 
 -- | The response's http status code.
 listJobRunsResponse_httpStatus :: Lens.Lens' ListJobRunsResponse Prelude.Int
@@ -274,6 +274,6 @@ listJobRunsResponse_httpStatus = Lens.lens (\ListJobRunsResponse' {httpStatus} -
 
 instance Prelude.NFData ListJobRunsResponse where
   rnf ListJobRunsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf jobRuns
+    Prelude.rnf jobRuns
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

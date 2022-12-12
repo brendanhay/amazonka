@@ -19,10 +19,10 @@ module Amazonka.SSOAdmin.Types
 
     -- * Errors
     _AccessDeniedException,
-    _InternalServerException,
-    _ServiceQuotaExceededException,
-    _ResourceNotFoundException,
     _ConflictException,
+    _InternalServerException,
+    _ResourceNotFoundException,
+    _ServiceQuotaExceededException,
     _ThrottlingException,
     _ValidationException,
 
@@ -58,36 +58,36 @@ module Amazonka.SSOAdmin.Types
     -- * AccountAssignment
     AccountAssignment (..),
     newAccountAssignment,
-    accountAssignment_principalId,
     accountAssignment_accountId,
     accountAssignment_permissionSetArn,
+    accountAssignment_principalId,
     accountAssignment_principalType,
 
     -- * AccountAssignmentOperationStatus
     AccountAssignmentOperationStatus (..),
     newAccountAssignmentOperationStatus,
-    accountAssignmentOperationStatus_principalId,
-    accountAssignmentOperationStatus_targetId,
-    accountAssignmentOperationStatus_requestId,
-    accountAssignmentOperationStatus_status,
-    accountAssignmentOperationStatus_targetType,
-    accountAssignmentOperationStatus_permissionSetArn,
-    accountAssignmentOperationStatus_principalType,
     accountAssignmentOperationStatus_createdDate,
     accountAssignmentOperationStatus_failureReason,
+    accountAssignmentOperationStatus_permissionSetArn,
+    accountAssignmentOperationStatus_principalId,
+    accountAssignmentOperationStatus_principalType,
+    accountAssignmentOperationStatus_requestId,
+    accountAssignmentOperationStatus_status,
+    accountAssignmentOperationStatus_targetId,
+    accountAssignmentOperationStatus_targetType,
 
     -- * AccountAssignmentOperationStatusMetadata
     AccountAssignmentOperationStatusMetadata (..),
     newAccountAssignmentOperationStatusMetadata,
+    accountAssignmentOperationStatusMetadata_createdDate,
     accountAssignmentOperationStatusMetadata_requestId,
     accountAssignmentOperationStatusMetadata_status,
-    accountAssignmentOperationStatusMetadata_createdDate,
 
     -- * AttachedManagedPolicy
     AttachedManagedPolicy (..),
     newAttachedManagedPolicy,
-    attachedManagedPolicy_name,
     attachedManagedPolicy_arn,
+    attachedManagedPolicy_name,
 
     -- * CustomerManagedPolicyReference
     CustomerManagedPolicyReference (..),
@@ -103,8 +103,8 @@ module Amazonka.SSOAdmin.Types
     -- * InstanceMetadata
     InstanceMetadata (..),
     newInstanceMetadata,
-    instanceMetadata_instanceArn,
     instanceMetadata_identityStoreId,
+    instanceMetadata_instanceArn,
 
     -- * OperationStatusFilter
     OperationStatusFilter (..),
@@ -114,35 +114,35 @@ module Amazonka.SSOAdmin.Types
     -- * PermissionSet
     PermissionSet (..),
     newPermissionSet,
-    permissionSet_name,
-    permissionSet_description,
-    permissionSet_sessionDuration,
-    permissionSet_relayState,
-    permissionSet_permissionSetArn,
     permissionSet_createdDate,
+    permissionSet_description,
+    permissionSet_name,
+    permissionSet_permissionSetArn,
+    permissionSet_relayState,
+    permissionSet_sessionDuration,
 
     -- * PermissionSetProvisioningStatus
     PermissionSetProvisioningStatus (..),
     newPermissionSetProvisioningStatus,
-    permissionSetProvisioningStatus_requestId,
-    permissionSetProvisioningStatus_status,
     permissionSetProvisioningStatus_accountId,
-    permissionSetProvisioningStatus_permissionSetArn,
     permissionSetProvisioningStatus_createdDate,
     permissionSetProvisioningStatus_failureReason,
+    permissionSetProvisioningStatus_permissionSetArn,
+    permissionSetProvisioningStatus_requestId,
+    permissionSetProvisioningStatus_status,
 
     -- * PermissionSetProvisioningStatusMetadata
     PermissionSetProvisioningStatusMetadata (..),
     newPermissionSetProvisioningStatusMetadata,
+    permissionSetProvisioningStatusMetadata_createdDate,
     permissionSetProvisioningStatusMetadata_requestId,
     permissionSetProvisioningStatusMetadata_status,
-    permissionSetProvisioningStatusMetadata_createdDate,
 
     -- * PermissionsBoundary
     PermissionsBoundary (..),
     newPermissionsBoundary,
-    permissionsBoundary_managedPolicyArn,
     permissionsBoundary_customerManagedPolicyReference,
+    permissionsBoundary_managedPolicyArn,
 
     -- * Tag
     Tag (..),
@@ -203,28 +203,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -232,13 +226,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -246,6 +244,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient access to perform this action.
@@ -254,29 +254,6 @@ _AccessDeniedException =
   Core._MatchServiceError
     defaultService
     "AccessDeniedException"
-
--- | The request processing has failed because of an unknown error,
--- exception, or failure with an internal server.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServerException"
-
--- | Indicates that the principal has crossed the permitted number of
--- resources that can be created.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceQuotaExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceQuotaExceededException"
-
--- | Indicates that a requested resource is not found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
 
 -- | Occurs when a conflict with a previous successful write is detected.
 -- This generally occurs when the previous write did not have time to
@@ -288,6 +265,29 @@ _ConflictException =
   Core._MatchServiceError
     defaultService
     "ConflictException"
+
+-- | The request processing has failed because of an unknown error,
+-- exception, or failure with an internal server.
+_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServerException"
+
+-- | Indicates that a requested resource is not found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+
+-- | Indicates that the principal has crossed the permitted number of
+-- resources that can be created.
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceQuotaExceededException"
 
 -- | Indicates that the principal has crossed the throttling limits of the
 -- API operations.

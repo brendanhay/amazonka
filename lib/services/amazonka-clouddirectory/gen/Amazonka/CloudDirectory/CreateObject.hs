@@ -31,9 +31,9 @@ module Amazonka.CloudDirectory.CreateObject
     newCreateObject,
 
     -- * Request Lenses
+    createObject_linkName,
     createObject_objectAttributeList,
     createObject_parentReference,
-    createObject_linkName,
     createObject_directoryArn,
     createObject_schemaFacets,
 
@@ -57,14 +57,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateObject' smart constructor.
 data CreateObject = CreateObject'
-  { -- | The attribute map whose attribute ARN contains the key and attribute
+  { -- | The name of link that is used to attach this object to a parent.
+    linkName :: Prelude.Maybe Prelude.Text,
+    -- | The attribute map whose attribute ARN contains the key and attribute
     -- value as the map value.
     objectAttributeList :: Prelude.Maybe [AttributeKeyAndValue],
     -- | If specified, the parent reference to which this object will be
     -- attached.
     parentReference :: Prelude.Maybe ObjectReference,
-    -- | The name of link that is used to attach this object to a parent.
-    linkName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) that is associated with the Directory in
     -- which the object will be created. For more information, see arns.
     directoryArn :: Prelude.Text,
@@ -82,13 +82,13 @@ data CreateObject = CreateObject'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'linkName', 'createObject_linkName' - The name of link that is used to attach this object to a parent.
+--
 -- 'objectAttributeList', 'createObject_objectAttributeList' - The attribute map whose attribute ARN contains the key and attribute
 -- value as the map value.
 --
 -- 'parentReference', 'createObject_parentReference' - If specified, the parent reference to which this object will be
 -- attached.
---
--- 'linkName', 'createObject_linkName' - The name of link that is used to attach this object to a parent.
 --
 -- 'directoryArn', 'createObject_directoryArn' - The Amazon Resource Name (ARN) that is associated with the Directory in
 -- which the object will be created. For more information, see arns.
@@ -101,13 +101,16 @@ newCreateObject ::
   CreateObject
 newCreateObject pDirectoryArn_ =
   CreateObject'
-    { objectAttributeList =
-        Prelude.Nothing,
+    { linkName = Prelude.Nothing,
+      objectAttributeList = Prelude.Nothing,
       parentReference = Prelude.Nothing,
-      linkName = Prelude.Nothing,
       directoryArn = pDirectoryArn_,
       schemaFacets = Prelude.mempty
     }
+
+-- | The name of link that is used to attach this object to a parent.
+createObject_linkName :: Lens.Lens' CreateObject (Prelude.Maybe Prelude.Text)
+createObject_linkName = Lens.lens (\CreateObject' {linkName} -> linkName) (\s@CreateObject' {} a -> s {linkName = a} :: CreateObject)
 
 -- | The attribute map whose attribute ARN contains the key and attribute
 -- value as the map value.
@@ -118,10 +121,6 @@ createObject_objectAttributeList = Lens.lens (\CreateObject' {objectAttributeLis
 -- attached.
 createObject_parentReference :: Lens.Lens' CreateObject (Prelude.Maybe ObjectReference)
 createObject_parentReference = Lens.lens (\CreateObject' {parentReference} -> parentReference) (\s@CreateObject' {} a -> s {parentReference = a} :: CreateObject)
-
--- | The name of link that is used to attach this object to a parent.
-createObject_linkName :: Lens.Lens' CreateObject (Prelude.Maybe Prelude.Text)
-createObject_linkName = Lens.lens (\CreateObject' {linkName} -> linkName) (\s@CreateObject' {} a -> s {linkName = a} :: CreateObject)
 
 -- | The Amazon Resource Name (ARN) that is associated with the Directory in
 -- which the object will be created. For more information, see arns.
@@ -147,17 +146,17 @@ instance Core.AWSRequest CreateObject where
 
 instance Prelude.Hashable CreateObject where
   hashWithSalt _salt CreateObject' {..} =
-    _salt `Prelude.hashWithSalt` objectAttributeList
+    _salt `Prelude.hashWithSalt` linkName
+      `Prelude.hashWithSalt` objectAttributeList
       `Prelude.hashWithSalt` parentReference
-      `Prelude.hashWithSalt` linkName
       `Prelude.hashWithSalt` directoryArn
       `Prelude.hashWithSalt` schemaFacets
 
 instance Prelude.NFData CreateObject where
   rnf CreateObject' {..} =
-    Prelude.rnf objectAttributeList
+    Prelude.rnf linkName
+      `Prelude.seq` Prelude.rnf objectAttributeList
       `Prelude.seq` Prelude.rnf parentReference
-      `Prelude.seq` Prelude.rnf linkName
       `Prelude.seq` Prelude.rnf directoryArn
       `Prelude.seq` Prelude.rnf schemaFacets
 
@@ -170,11 +169,11 @@ instance Data.ToJSON CreateObject where
   toJSON CreateObject' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ObjectAttributeList" Data..=)
+          [ ("LinkName" Data..=) Prelude.<$> linkName,
+            ("ObjectAttributeList" Data..=)
               Prelude.<$> objectAttributeList,
             ("ParentReference" Data..=)
               Prelude.<$> parentReference,
-            ("LinkName" Data..=) Prelude.<$> linkName,
             Prelude.Just ("SchemaFacets" Data..= schemaFacets)
           ]
       )

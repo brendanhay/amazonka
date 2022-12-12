@@ -18,12 +18,12 @@ module Amazonka.AutoScalingPlans.Types
     defaultService,
 
     -- * Errors
-    _ObjectNotFoundException,
     _ConcurrentUpdateException,
-    _LimitExceededException,
-    _InvalidNextTokenException,
-    _ValidationException,
     _InternalServiceException,
+    _InvalidNextTokenException,
+    _LimitExceededException,
+    _ObjectNotFoundException,
+    _ValidationException,
 
     -- * ForecastDataType
     ForecastDataType (..),
@@ -112,14 +112,14 @@ module Amazonka.AutoScalingPlans.Types
     -- * ScalingInstruction
     ScalingInstruction (..),
     newScalingInstruction,
-    scalingInstruction_scalingPolicyUpdateBehavior,
-    scalingInstruction_predefinedLoadMetricSpecification,
     scalingInstruction_customizedLoadMetricSpecification,
+    scalingInstruction_disableDynamicScaling,
+    scalingInstruction_predefinedLoadMetricSpecification,
     scalingInstruction_predictiveScalingMaxCapacityBehavior,
     scalingInstruction_predictiveScalingMaxCapacityBuffer,
-    scalingInstruction_scheduledActionBufferTime,
     scalingInstruction_predictiveScalingMode,
-    scalingInstruction_disableDynamicScaling,
+    scalingInstruction_scalingPolicyUpdateBehavior,
+    scalingInstruction_scheduledActionBufferTime,
     scalingInstruction_serviceNamespace,
     scalingInstruction_resourceId,
     scalingInstruction_scalableDimension,
@@ -130,9 +130,9 @@ module Amazonka.AutoScalingPlans.Types
     -- * ScalingPlan
     ScalingPlan (..),
     newScalingPlan,
-    scalingPlan_statusStartTime,
     scalingPlan_creationTime,
     scalingPlan_statusMessage,
+    scalingPlan_statusStartTime,
     scalingPlan_scalingPlanName,
     scalingPlan_scalingPlanVersion,
     scalingPlan_applicationSource,
@@ -142,8 +142,8 @@ module Amazonka.AutoScalingPlans.Types
     -- * ScalingPlanResource
     ScalingPlanResource (..),
     newScalingPlanResource,
-    scalingPlanResource_scalingStatusMessage,
     scalingPlanResource_scalingPolicies,
+    scalingPlanResource_scalingStatusMessage,
     scalingPlanResource_scalingPlanName,
     scalingPlanResource_scalingPlanVersion,
     scalingPlanResource_serviceNamespace,
@@ -167,12 +167,12 @@ module Amazonka.AutoScalingPlans.Types
     -- * TargetTrackingConfiguration
     TargetTrackingConfiguration (..),
     newTargetTrackingConfiguration,
-    targetTrackingConfiguration_disableScaleIn,
     targetTrackingConfiguration_customizedScalingMetricSpecification,
+    targetTrackingConfiguration_disableScaleIn,
     targetTrackingConfiguration_estimatedInstanceWarmup,
+    targetTrackingConfiguration_predefinedScalingMetricSpecification,
     targetTrackingConfiguration_scaleInCooldown,
     targetTrackingConfiguration_scaleOutCooldown,
-    targetTrackingConfiguration_predefinedScalingMetricSpecification,
     targetTrackingConfiguration_targetValue,
   )
 where
@@ -232,28 +232,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -261,13 +255,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -275,14 +273,9 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The specified object could not be found.
-_ObjectNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ObjectNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ObjectNotFoundException"
 
 -- | Concurrent updates caused an exception, for example, if you request an
 -- update to a scaling plan that already has a pending update.
@@ -292,13 +285,12 @@ _ConcurrentUpdateException =
     defaultService
     "ConcurrentUpdateException"
 
--- | Your account exceeded a limit. This exception is thrown when a
--- per-account resource limit is exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
+-- | The service encountered an internal error.
+_InternalServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServiceException =
   Core._MatchServiceError
     defaultService
-    "LimitExceededException"
+    "InternalServiceException"
 
 -- | The token provided is not valid.
 _InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -307,6 +299,21 @@ _InvalidNextTokenException =
     defaultService
     "InvalidNextTokenException"
 
+-- | Your account exceeded a limit. This exception is thrown when a
+-- per-account resource limit is exceeded.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
+
+-- | The specified object could not be found.
+_ObjectNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ObjectNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ObjectNotFoundException"
+
 -- | An exception was thrown for a validation issue. Review the parameters
 -- provided.
 _ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -314,10 +321,3 @@ _ValidationException =
   Core._MatchServiceError
     defaultService
     "ValidationException"
-
--- | The service encountered an internal error.
-_InternalServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServiceException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServiceException"

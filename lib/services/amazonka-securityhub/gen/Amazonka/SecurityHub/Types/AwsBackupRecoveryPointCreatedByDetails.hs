@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsBackupRecoveryPointCreatedByDetails' smart constructor.
 data AwsBackupRecoveryPointCreatedByDetails = AwsBackupRecoveryPointCreatedByDetails'
-  { -- | Unique, randomly generated, Unicode, UTF-8 encoded strings that are at
-    -- most 1,024 bytes long. Version IDs cannot be edited.
-    backupPlanVersion :: Prelude.Maybe Prelude.Text,
-    -- | An Amazon Resource Name (ARN) that uniquely identifies a backup plan.
+  { -- | An Amazon Resource Name (ARN) that uniquely identifies a backup plan.
     backupPlanArn :: Prelude.Maybe Prelude.Text,
     -- | Uniquely identifies a backup plan.
     backupPlanId :: Prelude.Maybe Prelude.Text,
+    -- | Unique, randomly generated, Unicode, UTF-8 encoded strings that are at
+    -- most 1,024 bytes long. Version IDs cannot be edited.
+    backupPlanVersion :: Prelude.Maybe Prelude.Text,
     -- | Uniquely identifies a rule used to schedule the backup of a selection of
     -- resources.
     backupRuleId :: Prelude.Maybe Prelude.Text
@@ -50,12 +50,12 @@ data AwsBackupRecoveryPointCreatedByDetails = AwsBackupRecoveryPointCreatedByDet
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'backupPlanVersion', 'awsBackupRecoveryPointCreatedByDetails_backupPlanVersion' - Unique, randomly generated, Unicode, UTF-8 encoded strings that are at
--- most 1,024 bytes long. Version IDs cannot be edited.
---
 -- 'backupPlanArn', 'awsBackupRecoveryPointCreatedByDetails_backupPlanArn' - An Amazon Resource Name (ARN) that uniquely identifies a backup plan.
 --
 -- 'backupPlanId', 'awsBackupRecoveryPointCreatedByDetails_backupPlanId' - Uniquely identifies a backup plan.
+--
+-- 'backupPlanVersion', 'awsBackupRecoveryPointCreatedByDetails_backupPlanVersion' - Unique, randomly generated, Unicode, UTF-8 encoded strings that are at
+-- most 1,024 bytes long. Version IDs cannot be edited.
 --
 -- 'backupRuleId', 'awsBackupRecoveryPointCreatedByDetails_backupRuleId' - Uniquely identifies a rule used to schedule the backup of a selection of
 -- resources.
@@ -63,17 +63,12 @@ newAwsBackupRecoveryPointCreatedByDetails ::
   AwsBackupRecoveryPointCreatedByDetails
 newAwsBackupRecoveryPointCreatedByDetails =
   AwsBackupRecoveryPointCreatedByDetails'
-    { backupPlanVersion =
+    { backupPlanArn =
         Prelude.Nothing,
-      backupPlanArn = Prelude.Nothing,
       backupPlanId = Prelude.Nothing,
+      backupPlanVersion = Prelude.Nothing,
       backupRuleId = Prelude.Nothing
     }
-
--- | Unique, randomly generated, Unicode, UTF-8 encoded strings that are at
--- most 1,024 bytes long. Version IDs cannot be edited.
-awsBackupRecoveryPointCreatedByDetails_backupPlanVersion :: Lens.Lens' AwsBackupRecoveryPointCreatedByDetails (Prelude.Maybe Prelude.Text)
-awsBackupRecoveryPointCreatedByDetails_backupPlanVersion = Lens.lens (\AwsBackupRecoveryPointCreatedByDetails' {backupPlanVersion} -> backupPlanVersion) (\s@AwsBackupRecoveryPointCreatedByDetails' {} a -> s {backupPlanVersion = a} :: AwsBackupRecoveryPointCreatedByDetails)
 
 -- | An Amazon Resource Name (ARN) that uniquely identifies a backup plan.
 awsBackupRecoveryPointCreatedByDetails_backupPlanArn :: Lens.Lens' AwsBackupRecoveryPointCreatedByDetails (Prelude.Maybe Prelude.Text)
@@ -82,6 +77,11 @@ awsBackupRecoveryPointCreatedByDetails_backupPlanArn = Lens.lens (\AwsBackupReco
 -- | Uniquely identifies a backup plan.
 awsBackupRecoveryPointCreatedByDetails_backupPlanId :: Lens.Lens' AwsBackupRecoveryPointCreatedByDetails (Prelude.Maybe Prelude.Text)
 awsBackupRecoveryPointCreatedByDetails_backupPlanId = Lens.lens (\AwsBackupRecoveryPointCreatedByDetails' {backupPlanId} -> backupPlanId) (\s@AwsBackupRecoveryPointCreatedByDetails' {} a -> s {backupPlanId = a} :: AwsBackupRecoveryPointCreatedByDetails)
+
+-- | Unique, randomly generated, Unicode, UTF-8 encoded strings that are at
+-- most 1,024 bytes long. Version IDs cannot be edited.
+awsBackupRecoveryPointCreatedByDetails_backupPlanVersion :: Lens.Lens' AwsBackupRecoveryPointCreatedByDetails (Prelude.Maybe Prelude.Text)
+awsBackupRecoveryPointCreatedByDetails_backupPlanVersion = Lens.lens (\AwsBackupRecoveryPointCreatedByDetails' {backupPlanVersion} -> backupPlanVersion) (\s@AwsBackupRecoveryPointCreatedByDetails' {} a -> s {backupPlanVersion = a} :: AwsBackupRecoveryPointCreatedByDetails)
 
 -- | Uniquely identifies a rule used to schedule the backup of a selection of
 -- resources.
@@ -97,9 +97,9 @@ instance
       "AwsBackupRecoveryPointCreatedByDetails"
       ( \x ->
           AwsBackupRecoveryPointCreatedByDetails'
-            Prelude.<$> (x Data..:? "BackupPlanVersion")
-            Prelude.<*> (x Data..:? "BackupPlanArn")
+            Prelude.<$> (x Data..:? "BackupPlanArn")
             Prelude.<*> (x Data..:? "BackupPlanId")
+            Prelude.<*> (x Data..:? "BackupPlanVersion")
             Prelude.<*> (x Data..:? "BackupRuleId")
       )
 
@@ -110,9 +110,9 @@ instance
   hashWithSalt
     _salt
     AwsBackupRecoveryPointCreatedByDetails' {..} =
-      _salt `Prelude.hashWithSalt` backupPlanVersion
-        `Prelude.hashWithSalt` backupPlanArn
+      _salt `Prelude.hashWithSalt` backupPlanArn
         `Prelude.hashWithSalt` backupPlanId
+        `Prelude.hashWithSalt` backupPlanVersion
         `Prelude.hashWithSalt` backupRuleId
 
 instance
@@ -120,9 +120,9 @@ instance
     AwsBackupRecoveryPointCreatedByDetails
   where
   rnf AwsBackupRecoveryPointCreatedByDetails' {..} =
-    Prelude.rnf backupPlanVersion
-      `Prelude.seq` Prelude.rnf backupPlanArn
+    Prelude.rnf backupPlanArn
       `Prelude.seq` Prelude.rnf backupPlanId
+      `Prelude.seq` Prelude.rnf backupPlanVersion
       `Prelude.seq` Prelude.rnf backupRuleId
 
 instance
@@ -132,10 +132,10 @@ instance
   toJSON AwsBackupRecoveryPointCreatedByDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("BackupPlanVersion" Data..=)
-              Prelude.<$> backupPlanVersion,
-            ("BackupPlanArn" Data..=) Prelude.<$> backupPlanArn,
+          [ ("BackupPlanArn" Data..=) Prelude.<$> backupPlanArn,
             ("BackupPlanId" Data..=) Prelude.<$> backupPlanId,
+            ("BackupPlanVersion" Data..=)
+              Prelude.<$> backupPlanVersion,
             ("BackupRuleId" Data..=) Prelude.<$> backupRuleId
           ]
       )

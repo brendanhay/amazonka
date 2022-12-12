@@ -22,20 +22,20 @@
 --
 -- Creates a new custom medical vocabulary.
 --
--- Prior to creating a new medical vocabulary, you must first upload a text
--- file that contains your new entries, phrases, and terms into an Amazon
--- S3 bucket. Note that this differs from , where you can include a list of
--- terms within your request using the @Phrases@ flag;
+-- Before creating a new custom medical vocabulary, you must first upload a
+-- text file that contains your new entries, phrases, and terms into an
+-- Amazon S3 bucket. Note that this differs from , where you can include a
+-- list of terms within your request using the @Phrases@ flag;
 -- @CreateMedicalVocabulary@ does not support the @Phrases@ flag.
 --
 -- Each language has a character set that contains all allowed characters
 -- for that specific language. If you use unsupported characters, your
--- vocabulary request fails. Refer to
+-- custom vocabulary request fails. Refer to
 -- <https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html Character Sets for Custom Vocabularies>
 -- to get the character set for your language.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary-create.html Creating a custom vocabulary>.
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html Custom vocabularies>.
 module Amazonka.Transcribe.CreateMedicalVocabulary
   ( -- * Creating a Request
     CreateMedicalVocabulary (..),
@@ -52,11 +52,11 @@ module Amazonka.Transcribe.CreateMedicalVocabulary
     newCreateMedicalVocabularyResponse,
 
     -- * Response Lenses
+    createMedicalVocabularyResponse_failureReason,
+    createMedicalVocabularyResponse_languageCode,
+    createMedicalVocabularyResponse_lastModifiedTime,
     createMedicalVocabularyResponse_vocabularyName,
     createMedicalVocabularyResponse_vocabularyState,
-    createMedicalVocabularyResponse_lastModifiedTime,
-    createMedicalVocabularyResponse_languageCode,
-    createMedicalVocabularyResponse_failureReason,
     createMedicalVocabularyResponse_httpStatus,
   )
 where
@@ -72,7 +72,8 @@ import Amazonka.Transcribe.Types
 -- | /See:/ 'newCreateMedicalVocabulary' smart constructor.
 data CreateMedicalVocabulary = CreateMedicalVocabulary'
   { -- | Adds one or more custom tags, each in the form of a key:value pair, to a
-    -- new medical vocabulary at the time you create this new vocabulary.
+    -- new custom medical vocabulary at the time you create this new custom
+    -- vocabulary.
     --
     -- To learn more about using tags with Amazon Transcribe, refer to
     -- <https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html Tagging resources>.
@@ -80,9 +81,9 @@ data CreateMedicalVocabulary = CreateMedicalVocabulary'
     -- | A unique name, chosen by you, for your new custom medical vocabulary.
     --
     -- This name is case sensitive, cannot contain spaces, and must be unique
-    -- within an Amazon Web Services account. If you try to create a new
-    -- medical vocabulary with the same name as an existing medical vocabulary,
-    -- you get a @ConflictException@ error.
+    -- within an Amazon Web Services account. If you try to create a new custom
+    -- medical vocabulary with the same name as an existing custom medical
+    -- vocabulary, you get a @ConflictException@ error.
     vocabularyName :: Prelude.Text,
     -- | The language code that represents the language of the entries in your
     -- custom vocabulary. US English (@en-US@) is the only language supported
@@ -107,7 +108,8 @@ data CreateMedicalVocabulary = CreateMedicalVocabulary'
 -- for backwards compatibility:
 --
 -- 'tags', 'createMedicalVocabulary_tags' - Adds one or more custom tags, each in the form of a key:value pair, to a
--- new medical vocabulary at the time you create this new vocabulary.
+-- new custom medical vocabulary at the time you create this new custom
+-- vocabulary.
 --
 -- To learn more about using tags with Amazon Transcribe, refer to
 -- <https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html Tagging resources>.
@@ -115,9 +117,9 @@ data CreateMedicalVocabulary = CreateMedicalVocabulary'
 -- 'vocabularyName', 'createMedicalVocabulary_vocabularyName' - A unique name, chosen by you, for your new custom medical vocabulary.
 --
 -- This name is case sensitive, cannot contain spaces, and must be unique
--- within an Amazon Web Services account. If you try to create a new
--- medical vocabulary with the same name as an existing medical vocabulary,
--- you get a @ConflictException@ error.
+-- within an Amazon Web Services account. If you try to create a new custom
+-- medical vocabulary with the same name as an existing custom medical
+-- vocabulary, you get a @ConflictException@ error.
 --
 -- 'languageCode', 'createMedicalVocabulary_languageCode' - The language code that represents the language of the entries in your
 -- custom vocabulary. US English (@en-US@) is the only language supported
@@ -149,7 +151,8 @@ newCreateMedicalVocabulary
       }
 
 -- | Adds one or more custom tags, each in the form of a key:value pair, to a
--- new medical vocabulary at the time you create this new vocabulary.
+-- new custom medical vocabulary at the time you create this new custom
+-- vocabulary.
 --
 -- To learn more about using tags with Amazon Transcribe, refer to
 -- <https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html Tagging resources>.
@@ -159,9 +162,9 @@ createMedicalVocabulary_tags = Lens.lens (\CreateMedicalVocabulary' {tags} -> ta
 -- | A unique name, chosen by you, for your new custom medical vocabulary.
 --
 -- This name is case sensitive, cannot contain spaces, and must be unique
--- within an Amazon Web Services account. If you try to create a new
--- medical vocabulary with the same name as an existing medical vocabulary,
--- you get a @ConflictException@ error.
+-- within an Amazon Web Services account. If you try to create a new custom
+-- medical vocabulary with the same name as an existing custom medical
+-- vocabulary, you get a @ConflictException@ error.
 createMedicalVocabulary_vocabularyName :: Lens.Lens' CreateMedicalVocabulary Prelude.Text
 createMedicalVocabulary_vocabularyName = Lens.lens (\CreateMedicalVocabulary' {vocabularyName} -> vocabularyName) (\s@CreateMedicalVocabulary' {} a -> s {vocabularyName = a} :: CreateMedicalVocabulary)
 
@@ -190,11 +193,11 @@ instance Core.AWSRequest CreateMedicalVocabulary where
     Response.receiveJSON
       ( \s h x ->
           CreateMedicalVocabularyResponse'
-            Prelude.<$> (x Data..?> "VocabularyName")
-            Prelude.<*> (x Data..?> "VocabularyState")
-            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<$> (x Data..?> "FailureReason")
             Prelude.<*> (x Data..?> "LanguageCode")
-            Prelude.<*> (x Data..?> "FailureReason")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "VocabularyName")
+            Prelude.<*> (x Data..?> "VocabularyState")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -248,25 +251,26 @@ instance Data.ToQuery CreateMedicalVocabulary where
 
 -- | /See:/ 'newCreateMedicalVocabularyResponse' smart constructor.
 data CreateMedicalVocabularyResponse = CreateMedicalVocabularyResponse'
-  { -- | The name you chose for your custom medical vocabulary.
-    vocabularyName :: Prelude.Maybe Prelude.Text,
-    -- | The processing state of your custom medical vocabulary. If the state is
-    -- @READY@, you can use the vocabulary in a @StartMedicalTranscriptionJob@
-    -- request.
-    vocabularyState :: Prelude.Maybe VocabularyState,
+  { -- | If @VocabularyState@ is @FAILED@, @FailureReason@ contains information
+    -- about why the medical transcription job request failed. See also:
+    -- <https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html Common Errors>.
+    failureReason :: Prelude.Maybe Prelude.Text,
+    -- | The language code you selected for your custom medical vocabulary. US
+    -- English (@en-US@) is the only language supported with Amazon Transcribe
+    -- Medical.
+    languageCode :: Prelude.Maybe LanguageCode,
     -- | The date and time you created your custom medical vocabulary.
     --
     -- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
     -- example, @2022-05-04T12:32:58.761000-07:00@ represents 12:32 PM UTC-7 on
     -- May 4, 2022.
     lastModifiedTime :: Prelude.Maybe Data.POSIX,
-    -- | The language code you selected for your medical vocabulary. US English
-    -- (@en-US@) is the only language supported with Amazon Transcribe Medical.
-    languageCode :: Prelude.Maybe LanguageCode,
-    -- | If @VocabularyState@ is @FAILED@, @FailureReason@ contains information
-    -- about why the medical transcription job request failed. See also:
-    -- <https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html Common Errors>.
-    failureReason :: Prelude.Maybe Prelude.Text,
+    -- | The name you chose for your custom medical vocabulary.
+    vocabularyName :: Prelude.Maybe Prelude.Text,
+    -- | The processing state of your custom medical vocabulary. If the state is
+    -- @READY@, you can use the custom vocabulary in a
+    -- @StartMedicalTranscriptionJob@ request.
+    vocabularyState :: Prelude.Maybe VocabularyState,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -280,11 +284,13 @@ data CreateMedicalVocabularyResponse = CreateMedicalVocabularyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vocabularyName', 'createMedicalVocabularyResponse_vocabularyName' - The name you chose for your custom medical vocabulary.
+-- 'failureReason', 'createMedicalVocabularyResponse_failureReason' - If @VocabularyState@ is @FAILED@, @FailureReason@ contains information
+-- about why the medical transcription job request failed. See also:
+-- <https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html Common Errors>.
 --
--- 'vocabularyState', 'createMedicalVocabularyResponse_vocabularyState' - The processing state of your custom medical vocabulary. If the state is
--- @READY@, you can use the vocabulary in a @StartMedicalTranscriptionJob@
--- request.
+-- 'languageCode', 'createMedicalVocabularyResponse_languageCode' - The language code you selected for your custom medical vocabulary. US
+-- English (@en-US@) is the only language supported with Amazon Transcribe
+-- Medical.
 --
 -- 'lastModifiedTime', 'createMedicalVocabularyResponse_lastModifiedTime' - The date and time you created your custom medical vocabulary.
 --
@@ -292,12 +298,11 @@ data CreateMedicalVocabularyResponse = CreateMedicalVocabularyResponse'
 -- example, @2022-05-04T12:32:58.761000-07:00@ represents 12:32 PM UTC-7 on
 -- May 4, 2022.
 --
--- 'languageCode', 'createMedicalVocabularyResponse_languageCode' - The language code you selected for your medical vocabulary. US English
--- (@en-US@) is the only language supported with Amazon Transcribe Medical.
+-- 'vocabularyName', 'createMedicalVocabularyResponse_vocabularyName' - The name you chose for your custom medical vocabulary.
 --
--- 'failureReason', 'createMedicalVocabularyResponse_failureReason' - If @VocabularyState@ is @FAILED@, @FailureReason@ contains information
--- about why the medical transcription job request failed. See also:
--- <https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html Common Errors>.
+-- 'vocabularyState', 'createMedicalVocabularyResponse_vocabularyState' - The processing state of your custom medical vocabulary. If the state is
+-- @READY@, you can use the custom vocabulary in a
+-- @StartMedicalTranscriptionJob@ request.
 --
 -- 'httpStatus', 'createMedicalVocabularyResponse_httpStatus' - The response's http status code.
 newCreateMedicalVocabularyResponse ::
@@ -306,24 +311,26 @@ newCreateMedicalVocabularyResponse ::
   CreateMedicalVocabularyResponse
 newCreateMedicalVocabularyResponse pHttpStatus_ =
   CreateMedicalVocabularyResponse'
-    { vocabularyName =
+    { failureReason =
         Prelude.Nothing,
-      vocabularyState = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
       languageCode = Prelude.Nothing,
-      failureReason = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing,
+      vocabularyName = Prelude.Nothing,
+      vocabularyState = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The name you chose for your custom medical vocabulary.
-createMedicalVocabularyResponse_vocabularyName :: Lens.Lens' CreateMedicalVocabularyResponse (Prelude.Maybe Prelude.Text)
-createMedicalVocabularyResponse_vocabularyName = Lens.lens (\CreateMedicalVocabularyResponse' {vocabularyName} -> vocabularyName) (\s@CreateMedicalVocabularyResponse' {} a -> s {vocabularyName = a} :: CreateMedicalVocabularyResponse)
+-- | If @VocabularyState@ is @FAILED@, @FailureReason@ contains information
+-- about why the medical transcription job request failed. See also:
+-- <https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html Common Errors>.
+createMedicalVocabularyResponse_failureReason :: Lens.Lens' CreateMedicalVocabularyResponse (Prelude.Maybe Prelude.Text)
+createMedicalVocabularyResponse_failureReason = Lens.lens (\CreateMedicalVocabularyResponse' {failureReason} -> failureReason) (\s@CreateMedicalVocabularyResponse' {} a -> s {failureReason = a} :: CreateMedicalVocabularyResponse)
 
--- | The processing state of your custom medical vocabulary. If the state is
--- @READY@, you can use the vocabulary in a @StartMedicalTranscriptionJob@
--- request.
-createMedicalVocabularyResponse_vocabularyState :: Lens.Lens' CreateMedicalVocabularyResponse (Prelude.Maybe VocabularyState)
-createMedicalVocabularyResponse_vocabularyState = Lens.lens (\CreateMedicalVocabularyResponse' {vocabularyState} -> vocabularyState) (\s@CreateMedicalVocabularyResponse' {} a -> s {vocabularyState = a} :: CreateMedicalVocabularyResponse)
+-- | The language code you selected for your custom medical vocabulary. US
+-- English (@en-US@) is the only language supported with Amazon Transcribe
+-- Medical.
+createMedicalVocabularyResponse_languageCode :: Lens.Lens' CreateMedicalVocabularyResponse (Prelude.Maybe LanguageCode)
+createMedicalVocabularyResponse_languageCode = Lens.lens (\CreateMedicalVocabularyResponse' {languageCode} -> languageCode) (\s@CreateMedicalVocabularyResponse' {} a -> s {languageCode = a} :: CreateMedicalVocabularyResponse)
 
 -- | The date and time you created your custom medical vocabulary.
 --
@@ -333,16 +340,15 @@ createMedicalVocabularyResponse_vocabularyState = Lens.lens (\CreateMedicalVocab
 createMedicalVocabularyResponse_lastModifiedTime :: Lens.Lens' CreateMedicalVocabularyResponse (Prelude.Maybe Prelude.UTCTime)
 createMedicalVocabularyResponse_lastModifiedTime = Lens.lens (\CreateMedicalVocabularyResponse' {lastModifiedTime} -> lastModifiedTime) (\s@CreateMedicalVocabularyResponse' {} a -> s {lastModifiedTime = a} :: CreateMedicalVocabularyResponse) Prelude.. Lens.mapping Data._Time
 
--- | The language code you selected for your medical vocabulary. US English
--- (@en-US@) is the only language supported with Amazon Transcribe Medical.
-createMedicalVocabularyResponse_languageCode :: Lens.Lens' CreateMedicalVocabularyResponse (Prelude.Maybe LanguageCode)
-createMedicalVocabularyResponse_languageCode = Lens.lens (\CreateMedicalVocabularyResponse' {languageCode} -> languageCode) (\s@CreateMedicalVocabularyResponse' {} a -> s {languageCode = a} :: CreateMedicalVocabularyResponse)
+-- | The name you chose for your custom medical vocabulary.
+createMedicalVocabularyResponse_vocabularyName :: Lens.Lens' CreateMedicalVocabularyResponse (Prelude.Maybe Prelude.Text)
+createMedicalVocabularyResponse_vocabularyName = Lens.lens (\CreateMedicalVocabularyResponse' {vocabularyName} -> vocabularyName) (\s@CreateMedicalVocabularyResponse' {} a -> s {vocabularyName = a} :: CreateMedicalVocabularyResponse)
 
--- | If @VocabularyState@ is @FAILED@, @FailureReason@ contains information
--- about why the medical transcription job request failed. See also:
--- <https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html Common Errors>.
-createMedicalVocabularyResponse_failureReason :: Lens.Lens' CreateMedicalVocabularyResponse (Prelude.Maybe Prelude.Text)
-createMedicalVocabularyResponse_failureReason = Lens.lens (\CreateMedicalVocabularyResponse' {failureReason} -> failureReason) (\s@CreateMedicalVocabularyResponse' {} a -> s {failureReason = a} :: CreateMedicalVocabularyResponse)
+-- | The processing state of your custom medical vocabulary. If the state is
+-- @READY@, you can use the custom vocabulary in a
+-- @StartMedicalTranscriptionJob@ request.
+createMedicalVocabularyResponse_vocabularyState :: Lens.Lens' CreateMedicalVocabularyResponse (Prelude.Maybe VocabularyState)
+createMedicalVocabularyResponse_vocabularyState = Lens.lens (\CreateMedicalVocabularyResponse' {vocabularyState} -> vocabularyState) (\s@CreateMedicalVocabularyResponse' {} a -> s {vocabularyState = a} :: CreateMedicalVocabularyResponse)
 
 -- | The response's http status code.
 createMedicalVocabularyResponse_httpStatus :: Lens.Lens' CreateMedicalVocabularyResponse Prelude.Int
@@ -353,9 +359,9 @@ instance
     CreateMedicalVocabularyResponse
   where
   rnf CreateMedicalVocabularyResponse' {..} =
-    Prelude.rnf vocabularyName
-      `Prelude.seq` Prelude.rnf vocabularyState
-      `Prelude.seq` Prelude.rnf lastModifiedTime
+    Prelude.rnf failureReason
       `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf vocabularyName
+      `Prelude.seq` Prelude.rnf vocabularyState
       `Prelude.seq` Prelude.rnf httpStatus

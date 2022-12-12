@@ -29,9 +29,9 @@ module Amazonka.LicenseManager.ListResourceInventory
     newListResourceInventory,
 
     -- * Request Lenses
-    listResourceInventory_nextToken,
     listResourceInventory_filters,
     listResourceInventory_maxResults,
+    listResourceInventory_nextToken,
 
     -- * Destructuring the Response
     ListResourceInventoryResponse (..),
@@ -54,9 +54,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListResourceInventory' smart constructor.
 data ListResourceInventory = ListResourceInventory'
-  { -- | Token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters to scope the results. The following filters and logical
+  { -- | Filters to scope the results. The following filters and logical
     -- operators are supported:
     --
     -- -   @account_id@ - The ID of the Amazon Web Services account that owns
@@ -81,7 +79,9 @@ data ListResourceInventory = ListResourceInventory'
     --     @EQUALS@ | @NOT_EQUALS@ (cross account).
     filters :: Prelude.Maybe [InventoryFilter],
     -- | Maximum number of results to return in a single call.
-    maxResults :: Prelude.Maybe Prelude.Int
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | Token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -92,8 +92,6 @@ data ListResourceInventory = ListResourceInventory'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'listResourceInventory_nextToken' - Token for the next set of results.
 --
 -- 'filters', 'listResourceInventory_filters' - Filters to scope the results. The following filters and logical
 -- operators are supported:
@@ -120,18 +118,16 @@ data ListResourceInventory = ListResourceInventory'
 --     @EQUALS@ | @NOT_EQUALS@ (cross account).
 --
 -- 'maxResults', 'listResourceInventory_maxResults' - Maximum number of results to return in a single call.
+--
+-- 'nextToken', 'listResourceInventory_nextToken' - Token for the next set of results.
 newListResourceInventory ::
   ListResourceInventory
 newListResourceInventory =
   ListResourceInventory'
-    { nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | Token for the next set of results.
-listResourceInventory_nextToken :: Lens.Lens' ListResourceInventory (Prelude.Maybe Prelude.Text)
-listResourceInventory_nextToken = Lens.lens (\ListResourceInventory' {nextToken} -> nextToken) (\s@ListResourceInventory' {} a -> s {nextToken = a} :: ListResourceInventory)
 
 -- | Filters to scope the results. The following filters and logical
 -- operators are supported:
@@ -162,6 +158,10 @@ listResourceInventory_filters = Lens.lens (\ListResourceInventory' {filters} -> 
 -- | Maximum number of results to return in a single call.
 listResourceInventory_maxResults :: Lens.Lens' ListResourceInventory (Prelude.Maybe Prelude.Int)
 listResourceInventory_maxResults = Lens.lens (\ListResourceInventory' {maxResults} -> maxResults) (\s@ListResourceInventory' {} a -> s {maxResults = a} :: ListResourceInventory)
+
+-- | Token for the next set of results.
+listResourceInventory_nextToken :: Lens.Lens' ListResourceInventory (Prelude.Maybe Prelude.Text)
+listResourceInventory_nextToken = Lens.lens (\ListResourceInventory' {nextToken} -> nextToken) (\s@ListResourceInventory' {} a -> s {nextToken = a} :: ListResourceInventory)
 
 instance Core.AWSPager ListResourceInventory where
   page rq rs
@@ -204,15 +204,15 @@ instance Core.AWSRequest ListResourceInventory where
 
 instance Prelude.Hashable ListResourceInventory where
   hashWithSalt _salt ListResourceInventory' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListResourceInventory where
   rnf ListResourceInventory' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListResourceInventory where
   toHeaders =
@@ -233,9 +233,9 @@ instance Data.ToJSON ListResourceInventory where
   toJSON ListResourceInventory' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

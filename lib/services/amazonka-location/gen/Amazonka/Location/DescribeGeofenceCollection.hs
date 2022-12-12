@@ -34,10 +34,10 @@ module Amazonka.Location.DescribeGeofenceCollection
     newDescribeGeofenceCollectionResponse,
 
     -- * Response Lenses
-    describeGeofenceCollectionResponse_tags,
-    describeGeofenceCollectionResponse_pricingPlanDataSource,
-    describeGeofenceCollectionResponse_pricingPlan,
     describeGeofenceCollectionResponse_kmsKeyId,
+    describeGeofenceCollectionResponse_pricingPlan,
+    describeGeofenceCollectionResponse_pricingPlanDataSource,
+    describeGeofenceCollectionResponse_tags,
     describeGeofenceCollectionResponse_httpStatus,
     describeGeofenceCollectionResponse_collectionArn,
     describeGeofenceCollectionResponse_collectionName,
@@ -95,10 +95,10 @@ instance Core.AWSRequest DescribeGeofenceCollection where
     Response.receiveJSON
       ( \s h x ->
           DescribeGeofenceCollectionResponse'
-            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "PricingPlanDataSource")
+            Prelude.<$> (x Data..?> "KmsKeyId")
             Prelude.<*> (x Data..?> "PricingPlan")
-            Prelude.<*> (x Data..?> "KmsKeyId")
+            Prelude.<*> (x Data..?> "PricingPlanDataSource")
+            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "CollectionArn")
             Prelude.<*> (x Data..:> "CollectionName")
@@ -138,16 +138,16 @@ instance Data.ToQuery DescribeGeofenceCollection where
 
 -- | /See:/ 'newDescribeGeofenceCollectionResponse' smart constructor.
 data DescribeGeofenceCollectionResponse = DescribeGeofenceCollectionResponse'
-  { -- | Displays the key, value pairs of tags associated with this resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | No longer used. Always returns an empty string.
-    pricingPlanDataSource :: Prelude.Maybe Prelude.Text,
-    -- | No longer used. Always returns @RequestBasedUsage@.
-    pricingPlan :: Prelude.Maybe PricingPlan,
-    -- | A key identifier for an
+  { -- | A key identifier for an
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>
     -- assigned to the Amazon Location resource
     kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | No longer used. Always returns @RequestBasedUsage@.
+    pricingPlan :: Prelude.Maybe PricingPlan,
+    -- | No longer used. Always returns an empty string.
+    pricingPlanDataSource :: Prelude.Maybe Prelude.Text,
+    -- | Displays the key, value pairs of tags associated with this resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) for the geofence collection resource.
@@ -179,15 +179,15 @@ data DescribeGeofenceCollectionResponse = DescribeGeofenceCollectionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'describeGeofenceCollectionResponse_tags' - Displays the key, value pairs of tags associated with this resource.
---
--- 'pricingPlanDataSource', 'describeGeofenceCollectionResponse_pricingPlanDataSource' - No longer used. Always returns an empty string.
---
--- 'pricingPlan', 'describeGeofenceCollectionResponse_pricingPlan' - No longer used. Always returns @RequestBasedUsage@.
---
 -- 'kmsKeyId', 'describeGeofenceCollectionResponse_kmsKeyId' - A key identifier for an
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>
 -- assigned to the Amazon Location resource
+--
+-- 'pricingPlan', 'describeGeofenceCollectionResponse_pricingPlan' - No longer used. Always returns @RequestBasedUsage@.
+--
+-- 'pricingPlanDataSource', 'describeGeofenceCollectionResponse_pricingPlanDataSource' - No longer used. Always returns an empty string.
+--
+-- 'tags', 'describeGeofenceCollectionResponse_tags' - Displays the key, value pairs of tags associated with this resource.
 --
 -- 'httpStatus', 'describeGeofenceCollectionResponse_httpStatus' - The response's http status code.
 --
@@ -230,11 +230,11 @@ newDescribeGeofenceCollectionResponse
   pDescription_
   pUpdateTime_ =
     DescribeGeofenceCollectionResponse'
-      { tags =
+      { kmsKeyId =
           Prelude.Nothing,
-        pricingPlanDataSource = Prelude.Nothing,
         pricingPlan = Prelude.Nothing,
-        kmsKeyId = Prelude.Nothing,
+        pricingPlanDataSource = Prelude.Nothing,
+        tags = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         collectionArn = pCollectionArn_,
         collectionName = pCollectionName_,
@@ -245,23 +245,23 @@ newDescribeGeofenceCollectionResponse
           Data._Time Lens.# pUpdateTime_
       }
 
--- | Displays the key, value pairs of tags associated with this resource.
-describeGeofenceCollectionResponse_tags :: Lens.Lens' DescribeGeofenceCollectionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-describeGeofenceCollectionResponse_tags = Lens.lens (\DescribeGeofenceCollectionResponse' {tags} -> tags) (\s@DescribeGeofenceCollectionResponse' {} a -> s {tags = a} :: DescribeGeofenceCollectionResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | No longer used. Always returns an empty string.
-describeGeofenceCollectionResponse_pricingPlanDataSource :: Lens.Lens' DescribeGeofenceCollectionResponse (Prelude.Maybe Prelude.Text)
-describeGeofenceCollectionResponse_pricingPlanDataSource = Lens.lens (\DescribeGeofenceCollectionResponse' {pricingPlanDataSource} -> pricingPlanDataSource) (\s@DescribeGeofenceCollectionResponse' {} a -> s {pricingPlanDataSource = a} :: DescribeGeofenceCollectionResponse)
-
--- | No longer used. Always returns @RequestBasedUsage@.
-describeGeofenceCollectionResponse_pricingPlan :: Lens.Lens' DescribeGeofenceCollectionResponse (Prelude.Maybe PricingPlan)
-describeGeofenceCollectionResponse_pricingPlan = Lens.lens (\DescribeGeofenceCollectionResponse' {pricingPlan} -> pricingPlan) (\s@DescribeGeofenceCollectionResponse' {} a -> s {pricingPlan = a} :: DescribeGeofenceCollectionResponse)
-
 -- | A key identifier for an
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>
 -- assigned to the Amazon Location resource
 describeGeofenceCollectionResponse_kmsKeyId :: Lens.Lens' DescribeGeofenceCollectionResponse (Prelude.Maybe Prelude.Text)
 describeGeofenceCollectionResponse_kmsKeyId = Lens.lens (\DescribeGeofenceCollectionResponse' {kmsKeyId} -> kmsKeyId) (\s@DescribeGeofenceCollectionResponse' {} a -> s {kmsKeyId = a} :: DescribeGeofenceCollectionResponse)
+
+-- | No longer used. Always returns @RequestBasedUsage@.
+describeGeofenceCollectionResponse_pricingPlan :: Lens.Lens' DescribeGeofenceCollectionResponse (Prelude.Maybe PricingPlan)
+describeGeofenceCollectionResponse_pricingPlan = Lens.lens (\DescribeGeofenceCollectionResponse' {pricingPlan} -> pricingPlan) (\s@DescribeGeofenceCollectionResponse' {} a -> s {pricingPlan = a} :: DescribeGeofenceCollectionResponse)
+
+-- | No longer used. Always returns an empty string.
+describeGeofenceCollectionResponse_pricingPlanDataSource :: Lens.Lens' DescribeGeofenceCollectionResponse (Prelude.Maybe Prelude.Text)
+describeGeofenceCollectionResponse_pricingPlanDataSource = Lens.lens (\DescribeGeofenceCollectionResponse' {pricingPlanDataSource} -> pricingPlanDataSource) (\s@DescribeGeofenceCollectionResponse' {} a -> s {pricingPlanDataSource = a} :: DescribeGeofenceCollectionResponse)
+
+-- | Displays the key, value pairs of tags associated with this resource.
+describeGeofenceCollectionResponse_tags :: Lens.Lens' DescribeGeofenceCollectionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+describeGeofenceCollectionResponse_tags = Lens.lens (\DescribeGeofenceCollectionResponse' {tags} -> tags) (\s@DescribeGeofenceCollectionResponse' {} a -> s {tags = a} :: DescribeGeofenceCollectionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeGeofenceCollectionResponse_httpStatus :: Lens.Lens' DescribeGeofenceCollectionResponse Prelude.Int
@@ -300,10 +300,10 @@ instance
     DescribeGeofenceCollectionResponse
   where
   rnf DescribeGeofenceCollectionResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf pricingPlanDataSource
+    Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf pricingPlan
-      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf pricingPlanDataSource
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf collectionArn
       `Prelude.seq` Prelude.rnf collectionName

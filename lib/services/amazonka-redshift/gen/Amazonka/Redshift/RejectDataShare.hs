@@ -34,11 +34,11 @@ module Amazonka.Redshift.RejectDataShare
     newDataShare,
 
     -- * Response Lenses
-    dataShare_dataShareAssociations,
-    dataShare_producerArn,
     dataShare_allowPubliclyAccessibleConsumers,
     dataShare_dataShareArn,
+    dataShare_dataShareAssociations,
     dataShare_managedBy,
+    dataShare_producerArn,
   )
 where
 

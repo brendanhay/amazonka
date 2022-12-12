@@ -30,12 +30,7 @@ import Amazonka.SageMaker.Types.AppInstanceType
 --
 -- /See:/ 'newResourceSpec' smart constructor.
 data ResourceSpec = ResourceSpec'
-  { -- | The Amazon Resource Name (ARN) of the Lifecycle Configuration attached
-    -- to the Resource.
-    lifecycleConfigArn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the image version created on the instance.
-    sageMakerImageVersionArn :: Prelude.Maybe Prelude.Text,
-    -- | The instance type that the image version runs on.
+  { -- | The instance type that the image version runs on.
     --
     -- __JupyterServer apps__ only support the @system@ value.
     --
@@ -43,8 +38,13 @@ data ResourceSpec = ResourceSpec'
     -- @ml.t3.medium@. KernelGateway apps also support all other values for
     -- available instance types.
     instanceType :: Prelude.Maybe AppInstanceType,
+    -- | The Amazon Resource Name (ARN) of the Lifecycle Configuration attached
+    -- to the Resource.
+    lifecycleConfigArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the SageMaker image that the image version belongs to.
-    sageMakerImageArn :: Prelude.Maybe Prelude.Text
+    sageMakerImageArn :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the image version created on the instance.
+    sageMakerImageVersionArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,11 +56,6 @@ data ResourceSpec = ResourceSpec'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lifecycleConfigArn', 'resourceSpec_lifecycleConfigArn' - The Amazon Resource Name (ARN) of the Lifecycle Configuration attached
--- to the Resource.
---
--- 'sageMakerImageVersionArn', 'resourceSpec_sageMakerImageVersionArn' - The ARN of the image version created on the instance.
---
 -- 'instanceType', 'resourceSpec_instanceType' - The instance type that the image version runs on.
 --
 -- __JupyterServer apps__ only support the @system@ value.
@@ -69,25 +64,21 @@ data ResourceSpec = ResourceSpec'
 -- @ml.t3.medium@. KernelGateway apps also support all other values for
 -- available instance types.
 --
+-- 'lifecycleConfigArn', 'resourceSpec_lifecycleConfigArn' - The Amazon Resource Name (ARN) of the Lifecycle Configuration attached
+-- to the Resource.
+--
 -- 'sageMakerImageArn', 'resourceSpec_sageMakerImageArn' - The ARN of the SageMaker image that the image version belongs to.
+--
+-- 'sageMakerImageVersionArn', 'resourceSpec_sageMakerImageVersionArn' - The ARN of the image version created on the instance.
 newResourceSpec ::
   ResourceSpec
 newResourceSpec =
   ResourceSpec'
-    { lifecycleConfigArn = Prelude.Nothing,
-      sageMakerImageVersionArn = Prelude.Nothing,
-      instanceType = Prelude.Nothing,
-      sageMakerImageArn = Prelude.Nothing
+    { instanceType = Prelude.Nothing,
+      lifecycleConfigArn = Prelude.Nothing,
+      sageMakerImageArn = Prelude.Nothing,
+      sageMakerImageVersionArn = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the Lifecycle Configuration attached
--- to the Resource.
-resourceSpec_lifecycleConfigArn :: Lens.Lens' ResourceSpec (Prelude.Maybe Prelude.Text)
-resourceSpec_lifecycleConfigArn = Lens.lens (\ResourceSpec' {lifecycleConfigArn} -> lifecycleConfigArn) (\s@ResourceSpec' {} a -> s {lifecycleConfigArn = a} :: ResourceSpec)
-
--- | The ARN of the image version created on the instance.
-resourceSpec_sageMakerImageVersionArn :: Lens.Lens' ResourceSpec (Prelude.Maybe Prelude.Text)
-resourceSpec_sageMakerImageVersionArn = Lens.lens (\ResourceSpec' {sageMakerImageVersionArn} -> sageMakerImageVersionArn) (\s@ResourceSpec' {} a -> s {sageMakerImageVersionArn = a} :: ResourceSpec)
 
 -- | The instance type that the image version runs on.
 --
@@ -99,9 +90,18 @@ resourceSpec_sageMakerImageVersionArn = Lens.lens (\ResourceSpec' {sageMakerImag
 resourceSpec_instanceType :: Lens.Lens' ResourceSpec (Prelude.Maybe AppInstanceType)
 resourceSpec_instanceType = Lens.lens (\ResourceSpec' {instanceType} -> instanceType) (\s@ResourceSpec' {} a -> s {instanceType = a} :: ResourceSpec)
 
+-- | The Amazon Resource Name (ARN) of the Lifecycle Configuration attached
+-- to the Resource.
+resourceSpec_lifecycleConfigArn :: Lens.Lens' ResourceSpec (Prelude.Maybe Prelude.Text)
+resourceSpec_lifecycleConfigArn = Lens.lens (\ResourceSpec' {lifecycleConfigArn} -> lifecycleConfigArn) (\s@ResourceSpec' {} a -> s {lifecycleConfigArn = a} :: ResourceSpec)
+
 -- | The ARN of the SageMaker image that the image version belongs to.
 resourceSpec_sageMakerImageArn :: Lens.Lens' ResourceSpec (Prelude.Maybe Prelude.Text)
 resourceSpec_sageMakerImageArn = Lens.lens (\ResourceSpec' {sageMakerImageArn} -> sageMakerImageArn) (\s@ResourceSpec' {} a -> s {sageMakerImageArn = a} :: ResourceSpec)
+
+-- | The ARN of the image version created on the instance.
+resourceSpec_sageMakerImageVersionArn :: Lens.Lens' ResourceSpec (Prelude.Maybe Prelude.Text)
+resourceSpec_sageMakerImageVersionArn = Lens.lens (\ResourceSpec' {sageMakerImageVersionArn} -> sageMakerImageVersionArn) (\s@ResourceSpec' {} a -> s {sageMakerImageVersionArn = a} :: ResourceSpec)
 
 instance Data.FromJSON ResourceSpec where
   parseJSON =
@@ -109,36 +109,36 @@ instance Data.FromJSON ResourceSpec where
       "ResourceSpec"
       ( \x ->
           ResourceSpec'
-            Prelude.<$> (x Data..:? "LifecycleConfigArn")
-            Prelude.<*> (x Data..:? "SageMakerImageVersionArn")
-            Prelude.<*> (x Data..:? "InstanceType")
+            Prelude.<$> (x Data..:? "InstanceType")
+            Prelude.<*> (x Data..:? "LifecycleConfigArn")
             Prelude.<*> (x Data..:? "SageMakerImageArn")
+            Prelude.<*> (x Data..:? "SageMakerImageVersionArn")
       )
 
 instance Prelude.Hashable ResourceSpec where
   hashWithSalt _salt ResourceSpec' {..} =
-    _salt `Prelude.hashWithSalt` lifecycleConfigArn
-      `Prelude.hashWithSalt` sageMakerImageVersionArn
-      `Prelude.hashWithSalt` instanceType
+    _salt `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` lifecycleConfigArn
       `Prelude.hashWithSalt` sageMakerImageArn
+      `Prelude.hashWithSalt` sageMakerImageVersionArn
 
 instance Prelude.NFData ResourceSpec where
   rnf ResourceSpec' {..} =
-    Prelude.rnf lifecycleConfigArn
-      `Prelude.seq` Prelude.rnf sageMakerImageVersionArn
-      `Prelude.seq` Prelude.rnf instanceType
+    Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf lifecycleConfigArn
       `Prelude.seq` Prelude.rnf sageMakerImageArn
+      `Prelude.seq` Prelude.rnf sageMakerImageVersionArn
 
 instance Data.ToJSON ResourceSpec where
   toJSON ResourceSpec' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("LifecycleConfigArn" Data..=)
+          [ ("InstanceType" Data..=) Prelude.<$> instanceType,
+            ("LifecycleConfigArn" Data..=)
               Prelude.<$> lifecycleConfigArn,
-            ("SageMakerImageVersionArn" Data..=)
-              Prelude.<$> sageMakerImageVersionArn,
-            ("InstanceType" Data..=) Prelude.<$> instanceType,
             ("SageMakerImageArn" Data..=)
-              Prelude.<$> sageMakerImageArn
+              Prelude.<$> sageMakerImageArn,
+            ("SageMakerImageVersionArn" Data..=)
+              Prelude.<$> sageMakerImageVersionArn
           ]
       )

@@ -36,8 +36,8 @@ module Amazonka.Polly.GetLexicon
     newGetLexiconResponse,
 
     -- * Response Lenses
-    getLexiconResponse_lexiconAttributes,
     getLexiconResponse_lexicon,
+    getLexiconResponse_lexiconAttributes,
     getLexiconResponse_httpStatus,
   )
 where
@@ -84,8 +84,8 @@ instance Core.AWSRequest GetLexicon where
     Response.receiveJSON
       ( \s h x ->
           GetLexiconResponse'
-            Prelude.<$> (x Data..?> "LexiconAttributes")
-            Prelude.<*> (x Data..?> "Lexicon")
+            Prelude.<$> (x Data..?> "Lexicon")
+            Prelude.<*> (x Data..?> "LexiconAttributes")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -108,12 +108,12 @@ instance Data.ToQuery GetLexicon where
 
 -- | /See:/ 'newGetLexiconResponse' smart constructor.
 data GetLexiconResponse = GetLexiconResponse'
-  { -- | Metadata of the lexicon, including phonetic alphabetic used, language
+  { -- | Lexicon object that provides name and the string content of the lexicon.
+    lexicon :: Prelude.Maybe Lexicon,
+    -- | Metadata of the lexicon, including phonetic alphabetic used, language
     -- code, lexicon ARN, number of lexemes defined in the lexicon, and size of
     -- lexicon in bytes.
     lexiconAttributes :: Prelude.Maybe LexiconAttributes,
-    -- | Lexicon object that provides name and the string content of the lexicon.
-    lexicon :: Prelude.Maybe Lexicon,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -127,11 +127,11 @@ data GetLexiconResponse = GetLexiconResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'lexicon', 'getLexiconResponse_lexicon' - Lexicon object that provides name and the string content of the lexicon.
+--
 -- 'lexiconAttributes', 'getLexiconResponse_lexiconAttributes' - Metadata of the lexicon, including phonetic alphabetic used, language
 -- code, lexicon ARN, number of lexemes defined in the lexicon, and size of
 -- lexicon in bytes.
---
--- 'lexicon', 'getLexiconResponse_lexicon' - Lexicon object that provides name and the string content of the lexicon.
 --
 -- 'httpStatus', 'getLexiconResponse_httpStatus' - The response's http status code.
 newGetLexiconResponse ::
@@ -140,11 +140,14 @@ newGetLexiconResponse ::
   GetLexiconResponse
 newGetLexiconResponse pHttpStatus_ =
   GetLexiconResponse'
-    { lexiconAttributes =
-        Prelude.Nothing,
-      lexicon = Prelude.Nothing,
+    { lexicon = Prelude.Nothing,
+      lexiconAttributes = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Lexicon object that provides name and the string content of the lexicon.
+getLexiconResponse_lexicon :: Lens.Lens' GetLexiconResponse (Prelude.Maybe Lexicon)
+getLexiconResponse_lexicon = Lens.lens (\GetLexiconResponse' {lexicon} -> lexicon) (\s@GetLexiconResponse' {} a -> s {lexicon = a} :: GetLexiconResponse)
 
 -- | Metadata of the lexicon, including phonetic alphabetic used, language
 -- code, lexicon ARN, number of lexemes defined in the lexicon, and size of
@@ -152,16 +155,12 @@ newGetLexiconResponse pHttpStatus_ =
 getLexiconResponse_lexiconAttributes :: Lens.Lens' GetLexiconResponse (Prelude.Maybe LexiconAttributes)
 getLexiconResponse_lexiconAttributes = Lens.lens (\GetLexiconResponse' {lexiconAttributes} -> lexiconAttributes) (\s@GetLexiconResponse' {} a -> s {lexiconAttributes = a} :: GetLexiconResponse)
 
--- | Lexicon object that provides name and the string content of the lexicon.
-getLexiconResponse_lexicon :: Lens.Lens' GetLexiconResponse (Prelude.Maybe Lexicon)
-getLexiconResponse_lexicon = Lens.lens (\GetLexiconResponse' {lexicon} -> lexicon) (\s@GetLexiconResponse' {} a -> s {lexicon = a} :: GetLexiconResponse)
-
 -- | The response's http status code.
 getLexiconResponse_httpStatus :: Lens.Lens' GetLexiconResponse Prelude.Int
 getLexiconResponse_httpStatus = Lens.lens (\GetLexiconResponse' {httpStatus} -> httpStatus) (\s@GetLexiconResponse' {} a -> s {httpStatus = a} :: GetLexiconResponse)
 
 instance Prelude.NFData GetLexiconResponse where
   rnf GetLexiconResponse' {..} =
-    Prelude.rnf lexiconAttributes
-      `Prelude.seq` Prelude.rnf lexicon
+    Prelude.rnf lexicon
+      `Prelude.seq` Prelude.rnf lexiconAttributes
       `Prelude.seq` Prelude.rnf httpStatus

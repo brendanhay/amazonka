@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUrlEndpointConfig' smart constructor.
 data UrlEndpointConfig = UrlEndpointConfig'
-  { -- | The HTTP URL endpoint.
-    url :: Prelude.Maybe Prelude.Text,
-    -- | The health check URL of the URL endpoint type.
-    healthUrl :: Prelude.Maybe Prelude.Text
+  { -- | The health check URL of the URL endpoint type.
+    healthUrl :: Prelude.Maybe Prelude.Text,
+    -- | The HTTP URL endpoint.
+    url :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data UrlEndpointConfig = UrlEndpointConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'url', 'urlEndpointConfig_url' - The HTTP URL endpoint.
---
 -- 'healthUrl', 'urlEndpointConfig_healthUrl' - The health check URL of the URL endpoint type.
+--
+-- 'url', 'urlEndpointConfig_url' - The HTTP URL endpoint.
 newUrlEndpointConfig ::
   UrlEndpointConfig
 newUrlEndpointConfig =
   UrlEndpointConfig'
-    { url = Prelude.Nothing,
-      healthUrl = Prelude.Nothing
+    { healthUrl = Prelude.Nothing,
+      url = Prelude.Nothing
     }
-
--- | The HTTP URL endpoint.
-urlEndpointConfig_url :: Lens.Lens' UrlEndpointConfig (Prelude.Maybe Prelude.Text)
-urlEndpointConfig_url = Lens.lens (\UrlEndpointConfig' {url} -> url) (\s@UrlEndpointConfig' {} a -> s {url = a} :: UrlEndpointConfig)
 
 -- | The health check URL of the URL endpoint type.
 urlEndpointConfig_healthUrl :: Lens.Lens' UrlEndpointConfig (Prelude.Maybe Prelude.Text)
 urlEndpointConfig_healthUrl = Lens.lens (\UrlEndpointConfig' {healthUrl} -> healthUrl) (\s@UrlEndpointConfig' {} a -> s {healthUrl = a} :: UrlEndpointConfig)
+
+-- | The HTTP URL endpoint.
+urlEndpointConfig_url :: Lens.Lens' UrlEndpointConfig (Prelude.Maybe Prelude.Text)
+urlEndpointConfig_url = Lens.lens (\UrlEndpointConfig' {url} -> url) (\s@UrlEndpointConfig' {} a -> s {url = a} :: UrlEndpointConfig)
 
 instance Data.FromJSON UrlEndpointConfig where
   parseJSON =
@@ -68,15 +68,15 @@ instance Data.FromJSON UrlEndpointConfig where
       "UrlEndpointConfig"
       ( \x ->
           UrlEndpointConfig'
-            Prelude.<$> (x Data..:? "Url")
-            Prelude.<*> (x Data..:? "HealthUrl")
+            Prelude.<$> (x Data..:? "HealthUrl")
+            Prelude.<*> (x Data..:? "Url")
       )
 
 instance Prelude.Hashable UrlEndpointConfig where
   hashWithSalt _salt UrlEndpointConfig' {..} =
-    _salt `Prelude.hashWithSalt` url
-      `Prelude.hashWithSalt` healthUrl
+    _salt `Prelude.hashWithSalt` healthUrl
+      `Prelude.hashWithSalt` url
 
 instance Prelude.NFData UrlEndpointConfig where
   rnf UrlEndpointConfig' {..} =
-    Prelude.rnf url `Prelude.seq` Prelude.rnf healthUrl
+    Prelude.rnf healthUrl `Prelude.seq` Prelude.rnf url

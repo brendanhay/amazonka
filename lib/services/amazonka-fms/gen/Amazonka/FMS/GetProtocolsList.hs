@@ -35,8 +35,8 @@ module Amazonka.FMS.GetProtocolsList
     newGetProtocolsListResponse,
 
     -- * Response Lenses
-    getProtocolsListResponse_protocolsListArn,
     getProtocolsListResponse_protocolsList,
+    getProtocolsListResponse_protocolsListArn,
     getProtocolsListResponse_httpStatus,
   )
 where
@@ -103,8 +103,8 @@ instance Core.AWSRequest GetProtocolsList where
     Response.receiveJSON
       ( \s h x ->
           GetProtocolsListResponse'
-            Prelude.<$> (x Data..?> "ProtocolsListArn")
-            Prelude.<*> (x Data..?> "ProtocolsList")
+            Prelude.<$> (x Data..?> "ProtocolsList")
+            Prelude.<*> (x Data..?> "ProtocolsListArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -150,10 +150,10 @@ instance Data.ToQuery GetProtocolsList where
 
 -- | /See:/ 'newGetProtocolsListResponse' smart constructor.
 data GetProtocolsListResponse = GetProtocolsListResponse'
-  { -- | The Amazon Resource Name (ARN) of the specified protocols list.
-    protocolsListArn :: Prelude.Maybe Prelude.Text,
-    -- | Information about the specified Firewall Manager protocols list.
+  { -- | Information about the specified Firewall Manager protocols list.
     protocolsList :: Prelude.Maybe ProtocolsListData,
+    -- | The Amazon Resource Name (ARN) of the specified protocols list.
+    protocolsListArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -167,9 +167,9 @@ data GetProtocolsListResponse = GetProtocolsListResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'protocolsListArn', 'getProtocolsListResponse_protocolsListArn' - The Amazon Resource Name (ARN) of the specified protocols list.
---
 -- 'protocolsList', 'getProtocolsListResponse_protocolsList' - Information about the specified Firewall Manager protocols list.
+--
+-- 'protocolsListArn', 'getProtocolsListResponse_protocolsListArn' - The Amazon Resource Name (ARN) of the specified protocols list.
 --
 -- 'httpStatus', 'getProtocolsListResponse_httpStatus' - The response's http status code.
 newGetProtocolsListResponse ::
@@ -178,19 +178,19 @@ newGetProtocolsListResponse ::
   GetProtocolsListResponse
 newGetProtocolsListResponse pHttpStatus_ =
   GetProtocolsListResponse'
-    { protocolsListArn =
+    { protocolsList =
         Prelude.Nothing,
-      protocolsList = Prelude.Nothing,
+      protocolsListArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The Amazon Resource Name (ARN) of the specified protocols list.
-getProtocolsListResponse_protocolsListArn :: Lens.Lens' GetProtocolsListResponse (Prelude.Maybe Prelude.Text)
-getProtocolsListResponse_protocolsListArn = Lens.lens (\GetProtocolsListResponse' {protocolsListArn} -> protocolsListArn) (\s@GetProtocolsListResponse' {} a -> s {protocolsListArn = a} :: GetProtocolsListResponse)
 
 -- | Information about the specified Firewall Manager protocols list.
 getProtocolsListResponse_protocolsList :: Lens.Lens' GetProtocolsListResponse (Prelude.Maybe ProtocolsListData)
 getProtocolsListResponse_protocolsList = Lens.lens (\GetProtocolsListResponse' {protocolsList} -> protocolsList) (\s@GetProtocolsListResponse' {} a -> s {protocolsList = a} :: GetProtocolsListResponse)
+
+-- | The Amazon Resource Name (ARN) of the specified protocols list.
+getProtocolsListResponse_protocolsListArn :: Lens.Lens' GetProtocolsListResponse (Prelude.Maybe Prelude.Text)
+getProtocolsListResponse_protocolsListArn = Lens.lens (\GetProtocolsListResponse' {protocolsListArn} -> protocolsListArn) (\s@GetProtocolsListResponse' {} a -> s {protocolsListArn = a} :: GetProtocolsListResponse)
 
 -- | The response's http status code.
 getProtocolsListResponse_httpStatus :: Lens.Lens' GetProtocolsListResponse Prelude.Int
@@ -198,6 +198,6 @@ getProtocolsListResponse_httpStatus = Lens.lens (\GetProtocolsListResponse' {htt
 
 instance Prelude.NFData GetProtocolsListResponse where
   rnf GetProtocolsListResponse' {..} =
-    Prelude.rnf protocolsListArn
-      `Prelude.seq` Prelude.rnf protocolsList
+    Prelude.rnf protocolsList
+      `Prelude.seq` Prelude.rnf protocolsListArn
       `Prelude.seq` Prelude.rnf httpStatus

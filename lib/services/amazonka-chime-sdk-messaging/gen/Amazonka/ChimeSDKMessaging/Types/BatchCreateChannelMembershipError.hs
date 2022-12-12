@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBatchCreateChannelMembershipError' smart constructor.
 data BatchCreateChannelMembershipError = BatchCreateChannelMembershipError'
-  { -- | The @AppInstanceUserArn@ of the member that the service couldn\'t add.
-    memberArn :: Prelude.Maybe Prelude.Text,
+  { -- | The error code.
+    errorCode :: Prelude.Maybe ErrorCode,
     -- | The error message.
     errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | The error code.
-    errorCode :: Prelude.Maybe ErrorCode
+    -- | The @AppInstanceUserArn@ of the member that the service couldn\'t add.
+    memberArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,32 +46,32 @@ data BatchCreateChannelMembershipError = BatchCreateChannelMembershipError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'memberArn', 'batchCreateChannelMembershipError_memberArn' - The @AppInstanceUserArn@ of the member that the service couldn\'t add.
+-- 'errorCode', 'batchCreateChannelMembershipError_errorCode' - The error code.
 --
 -- 'errorMessage', 'batchCreateChannelMembershipError_errorMessage' - The error message.
 --
--- 'errorCode', 'batchCreateChannelMembershipError_errorCode' - The error code.
+-- 'memberArn', 'batchCreateChannelMembershipError_memberArn' - The @AppInstanceUserArn@ of the member that the service couldn\'t add.
 newBatchCreateChannelMembershipError ::
   BatchCreateChannelMembershipError
 newBatchCreateChannelMembershipError =
   BatchCreateChannelMembershipError'
-    { memberArn =
+    { errorCode =
         Prelude.Nothing,
       errorMessage = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+      memberArn = Prelude.Nothing
     }
 
--- | The @AppInstanceUserArn@ of the member that the service couldn\'t add.
-batchCreateChannelMembershipError_memberArn :: Lens.Lens' BatchCreateChannelMembershipError (Prelude.Maybe Prelude.Text)
-batchCreateChannelMembershipError_memberArn = Lens.lens (\BatchCreateChannelMembershipError' {memberArn} -> memberArn) (\s@BatchCreateChannelMembershipError' {} a -> s {memberArn = a} :: BatchCreateChannelMembershipError)
+-- | The error code.
+batchCreateChannelMembershipError_errorCode :: Lens.Lens' BatchCreateChannelMembershipError (Prelude.Maybe ErrorCode)
+batchCreateChannelMembershipError_errorCode = Lens.lens (\BatchCreateChannelMembershipError' {errorCode} -> errorCode) (\s@BatchCreateChannelMembershipError' {} a -> s {errorCode = a} :: BatchCreateChannelMembershipError)
 
 -- | The error message.
 batchCreateChannelMembershipError_errorMessage :: Lens.Lens' BatchCreateChannelMembershipError (Prelude.Maybe Prelude.Text)
 batchCreateChannelMembershipError_errorMessage = Lens.lens (\BatchCreateChannelMembershipError' {errorMessage} -> errorMessage) (\s@BatchCreateChannelMembershipError' {} a -> s {errorMessage = a} :: BatchCreateChannelMembershipError)
 
--- | The error code.
-batchCreateChannelMembershipError_errorCode :: Lens.Lens' BatchCreateChannelMembershipError (Prelude.Maybe ErrorCode)
-batchCreateChannelMembershipError_errorCode = Lens.lens (\BatchCreateChannelMembershipError' {errorCode} -> errorCode) (\s@BatchCreateChannelMembershipError' {} a -> s {errorCode = a} :: BatchCreateChannelMembershipError)
+-- | The @AppInstanceUserArn@ of the member that the service couldn\'t add.
+batchCreateChannelMembershipError_memberArn :: Lens.Lens' BatchCreateChannelMembershipError (Prelude.Maybe Prelude.Text)
+batchCreateChannelMembershipError_memberArn = Lens.lens (\BatchCreateChannelMembershipError' {memberArn} -> memberArn) (\s@BatchCreateChannelMembershipError' {} a -> s {memberArn = a} :: BatchCreateChannelMembershipError)
 
 instance
   Data.FromJSON
@@ -82,9 +82,9 @@ instance
       "BatchCreateChannelMembershipError"
       ( \x ->
           BatchCreateChannelMembershipError'
-            Prelude.<$> (x Data..:? "MemberArn")
+            Prelude.<$> (x Data..:? "ErrorCode")
             Prelude.<*> (x Data..:? "ErrorMessage")
-            Prelude.<*> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "MemberArn")
       )
 
 instance
@@ -94,15 +94,15 @@ instance
   hashWithSalt
     _salt
     BatchCreateChannelMembershipError' {..} =
-      _salt `Prelude.hashWithSalt` memberArn
+      _salt `Prelude.hashWithSalt` errorCode
         `Prelude.hashWithSalt` errorMessage
-        `Prelude.hashWithSalt` errorCode
+        `Prelude.hashWithSalt` memberArn
 
 instance
   Prelude.NFData
     BatchCreateChannelMembershipError
   where
   rnf BatchCreateChannelMembershipError' {..} =
-    Prelude.rnf memberArn
+    Prelude.rnf errorCode
       `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf memberArn

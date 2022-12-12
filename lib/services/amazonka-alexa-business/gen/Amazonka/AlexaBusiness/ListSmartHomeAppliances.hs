@@ -29,8 +29,8 @@ module Amazonka.AlexaBusiness.ListSmartHomeAppliances
     newListSmartHomeAppliances,
 
     -- * Request Lenses
-    listSmartHomeAppliances_nextToken,
     listSmartHomeAppliances_maxResults,
+    listSmartHomeAppliances_nextToken,
     listSmartHomeAppliances_roomArn,
 
     -- * Destructuring the Response
@@ -54,10 +54,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListSmartHomeAppliances' smart constructor.
 data ListSmartHomeAppliances = ListSmartHomeAppliances'
-  { -- | The tokens used for pagination.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of appliances to be returned, per paginated calls.
+  { -- | The maximum number of appliances to be returned, per paginated calls.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The tokens used for pagination.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The room that the appliances are associated with.
     roomArn :: Prelude.Text
   }
@@ -71,9 +71,9 @@ data ListSmartHomeAppliances = ListSmartHomeAppliances'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listSmartHomeAppliances_nextToken' - The tokens used for pagination.
---
 -- 'maxResults', 'listSmartHomeAppliances_maxResults' - The maximum number of appliances to be returned, per paginated calls.
+--
+-- 'nextToken', 'listSmartHomeAppliances_nextToken' - The tokens used for pagination.
 --
 -- 'roomArn', 'listSmartHomeAppliances_roomArn' - The room that the appliances are associated with.
 newListSmartHomeAppliances ::
@@ -82,19 +82,19 @@ newListSmartHomeAppliances ::
   ListSmartHomeAppliances
 newListSmartHomeAppliances pRoomArn_ =
   ListSmartHomeAppliances'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       roomArn = pRoomArn_
     }
-
--- | The tokens used for pagination.
-listSmartHomeAppliances_nextToken :: Lens.Lens' ListSmartHomeAppliances (Prelude.Maybe Prelude.Text)
-listSmartHomeAppliances_nextToken = Lens.lens (\ListSmartHomeAppliances' {nextToken} -> nextToken) (\s@ListSmartHomeAppliances' {} a -> s {nextToken = a} :: ListSmartHomeAppliances)
 
 -- | The maximum number of appliances to be returned, per paginated calls.
 listSmartHomeAppliances_maxResults :: Lens.Lens' ListSmartHomeAppliances (Prelude.Maybe Prelude.Natural)
 listSmartHomeAppliances_maxResults = Lens.lens (\ListSmartHomeAppliances' {maxResults} -> maxResults) (\s@ListSmartHomeAppliances' {} a -> s {maxResults = a} :: ListSmartHomeAppliances)
+
+-- | The tokens used for pagination.
+listSmartHomeAppliances_nextToken :: Lens.Lens' ListSmartHomeAppliances (Prelude.Maybe Prelude.Text)
+listSmartHomeAppliances_nextToken = Lens.lens (\ListSmartHomeAppliances' {nextToken} -> nextToken) (\s@ListSmartHomeAppliances' {} a -> s {nextToken = a} :: ListSmartHomeAppliances)
 
 -- | The room that the appliances are associated with.
 listSmartHomeAppliances_roomArn :: Lens.Lens' ListSmartHomeAppliances Prelude.Text
@@ -141,14 +141,14 @@ instance Core.AWSRequest ListSmartHomeAppliances where
 
 instance Prelude.Hashable ListSmartHomeAppliances where
   hashWithSalt _salt ListSmartHomeAppliances' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` roomArn
 
 instance Prelude.NFData ListSmartHomeAppliances where
   rnf ListSmartHomeAppliances' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf roomArn
 
 instance Data.ToHeaders ListSmartHomeAppliances where
@@ -170,8 +170,8 @@ instance Data.ToJSON ListSmartHomeAppliances where
   toJSON ListSmartHomeAppliances' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("RoomArn" Data..= roomArn)
           ]
       )

@@ -30,16 +30,16 @@ module Amazonka.MacieV2.ListFindingsFilters
     newListFindingsFilters,
 
     -- * Request Lenses
-    listFindingsFilters_nextToken,
     listFindingsFilters_maxResults,
+    listFindingsFilters_nextToken,
 
     -- * Destructuring the Response
     ListFindingsFiltersResponse (..),
     newListFindingsFiltersResponse,
 
     -- * Response Lenses
-    listFindingsFiltersResponse_nextToken,
     listFindingsFiltersResponse_findingsFilterListItems,
+    listFindingsFiltersResponse_nextToken,
     listFindingsFiltersResponse_httpStatus,
   )
 where
@@ -54,12 +54,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListFindingsFilters' smart constructor.
 data ListFindingsFilters = ListFindingsFilters'
-  { -- | The nextToken string that specifies which page of results to return in a
-    -- paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to include in each page of a paginated
+  { -- | The maximum number of items to include in each page of a paginated
     -- response.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The nextToken string that specifies which page of results to return in a
+    -- paginated response.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,28 +71,28 @@ data ListFindingsFilters = ListFindingsFilters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listFindingsFilters_nextToken' - The nextToken string that specifies which page of results to return in a
--- paginated response.
---
 -- 'maxResults', 'listFindingsFilters_maxResults' - The maximum number of items to include in each page of a paginated
 -- response.
+--
+-- 'nextToken', 'listFindingsFilters_nextToken' - The nextToken string that specifies which page of results to return in a
+-- paginated response.
 newListFindingsFilters ::
   ListFindingsFilters
 newListFindingsFilters =
   ListFindingsFilters'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The nextToken string that specifies which page of results to return in a
--- paginated response.
-listFindingsFilters_nextToken :: Lens.Lens' ListFindingsFilters (Prelude.Maybe Prelude.Text)
-listFindingsFilters_nextToken = Lens.lens (\ListFindingsFilters' {nextToken} -> nextToken) (\s@ListFindingsFilters' {} a -> s {nextToken = a} :: ListFindingsFilters)
 
 -- | The maximum number of items to include in each page of a paginated
 -- response.
 listFindingsFilters_maxResults :: Lens.Lens' ListFindingsFilters (Prelude.Maybe Prelude.Natural)
 listFindingsFilters_maxResults = Lens.lens (\ListFindingsFilters' {maxResults} -> maxResults) (\s@ListFindingsFilters' {} a -> s {maxResults = a} :: ListFindingsFilters)
+
+-- | The nextToken string that specifies which page of results to return in a
+-- paginated response.
+listFindingsFilters_nextToken :: Lens.Lens' ListFindingsFilters (Prelude.Maybe Prelude.Text)
+listFindingsFilters_nextToken = Lens.lens (\ListFindingsFilters' {nextToken} -> nextToken) (\s@ListFindingsFilters' {} a -> s {nextToken = a} :: ListFindingsFilters)
 
 instance Core.AWSPager ListFindingsFilters where
   page rq rs
@@ -126,22 +126,22 @@ instance Core.AWSRequest ListFindingsFilters where
     Response.receiveJSON
       ( \s h x ->
           ListFindingsFiltersResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "findingsFilterListItems"
+            Prelude.<$> ( x Data..?> "findingsFilterListItems"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListFindingsFilters where
   hashWithSalt _salt ListFindingsFilters' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListFindingsFilters where
   rnf ListFindingsFilters' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListFindingsFilters where
   toHeaders =
@@ -160,19 +160,19 @@ instance Data.ToPath ListFindingsFilters where
 instance Data.ToQuery ListFindingsFilters where
   toQuery ListFindingsFilters' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListFindingsFiltersResponse' smart constructor.
 data ListFindingsFiltersResponse = ListFindingsFiltersResponse'
-  { -- | The string to use in a subsequent request to get the next page of
+  { -- | An array of objects, one for each filter that\'s associated with the
+    -- account.
+    findingsFilterListItems :: Prelude.Maybe [FindingsFilterListItem],
+    -- | The string to use in a subsequent request to get the next page of
     -- results in a paginated response. This value is null if there are no
     -- additional pages.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of objects, one for each filter that\'s associated with the
-    -- account.
-    findingsFilterListItems :: Prelude.Maybe [FindingsFilterListItem],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -186,12 +186,12 @@ data ListFindingsFiltersResponse = ListFindingsFiltersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'findingsFilterListItems', 'listFindingsFiltersResponse_findingsFilterListItems' - An array of objects, one for each filter that\'s associated with the
+-- account.
+--
 -- 'nextToken', 'listFindingsFiltersResponse_nextToken' - The string to use in a subsequent request to get the next page of
 -- results in a paginated response. This value is null if there are no
 -- additional pages.
---
--- 'findingsFilterListItems', 'listFindingsFiltersResponse_findingsFilterListItems' - An array of objects, one for each filter that\'s associated with the
--- account.
 --
 -- 'httpStatus', 'listFindingsFiltersResponse_httpStatus' - The response's http status code.
 newListFindingsFiltersResponse ::
@@ -200,11 +200,16 @@ newListFindingsFiltersResponse ::
   ListFindingsFiltersResponse
 newListFindingsFiltersResponse pHttpStatus_ =
   ListFindingsFiltersResponse'
-    { nextToken =
+    { findingsFilterListItems =
         Prelude.Nothing,
-      findingsFilterListItems = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array of objects, one for each filter that\'s associated with the
+-- account.
+listFindingsFiltersResponse_findingsFilterListItems :: Lens.Lens' ListFindingsFiltersResponse (Prelude.Maybe [FindingsFilterListItem])
+listFindingsFiltersResponse_findingsFilterListItems = Lens.lens (\ListFindingsFiltersResponse' {findingsFilterListItems} -> findingsFilterListItems) (\s@ListFindingsFiltersResponse' {} a -> s {findingsFilterListItems = a} :: ListFindingsFiltersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The string to use in a subsequent request to get the next page of
 -- results in a paginated response. This value is null if there are no
@@ -212,17 +217,12 @@ newListFindingsFiltersResponse pHttpStatus_ =
 listFindingsFiltersResponse_nextToken :: Lens.Lens' ListFindingsFiltersResponse (Prelude.Maybe Prelude.Text)
 listFindingsFiltersResponse_nextToken = Lens.lens (\ListFindingsFiltersResponse' {nextToken} -> nextToken) (\s@ListFindingsFiltersResponse' {} a -> s {nextToken = a} :: ListFindingsFiltersResponse)
 
--- | An array of objects, one for each filter that\'s associated with the
--- account.
-listFindingsFiltersResponse_findingsFilterListItems :: Lens.Lens' ListFindingsFiltersResponse (Prelude.Maybe [FindingsFilterListItem])
-listFindingsFiltersResponse_findingsFilterListItems = Lens.lens (\ListFindingsFiltersResponse' {findingsFilterListItems} -> findingsFilterListItems) (\s@ListFindingsFiltersResponse' {} a -> s {findingsFilterListItems = a} :: ListFindingsFiltersResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listFindingsFiltersResponse_httpStatus :: Lens.Lens' ListFindingsFiltersResponse Prelude.Int
 listFindingsFiltersResponse_httpStatus = Lens.lens (\ListFindingsFiltersResponse' {httpStatus} -> httpStatus) (\s@ListFindingsFiltersResponse' {} a -> s {httpStatus = a} :: ListFindingsFiltersResponse)
 
 instance Prelude.NFData ListFindingsFiltersResponse where
   rnf ListFindingsFiltersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf findingsFilterListItems
+    Prelude.rnf findingsFilterListItems
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

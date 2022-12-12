@@ -29,8 +29,8 @@ module Amazonka.QuickSight.ListTemplateAliases
     newListTemplateAliases,
 
     -- * Request Lenses
-    listTemplateAliases_nextToken,
     listTemplateAliases_maxResults,
+    listTemplateAliases_nextToken,
     listTemplateAliases_awsAccountId,
     listTemplateAliases_templateId,
 
@@ -56,11 +56,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTemplateAliases' smart constructor.
 data ListTemplateAliases = ListTemplateAliases'
-  { -- | The token for the next set of results, or null if there are no more
+  { -- | The maximum number of results to be returned per request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results, or null if there are no more
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be returned per request.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the Amazon Web Services account that contains the template
     -- aliases that you\'re listing.
     awsAccountId :: Prelude.Text,
@@ -77,10 +77,10 @@ data ListTemplateAliases = ListTemplateAliases'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listTemplateAliases_maxResults' - The maximum number of results to be returned per request.
+--
 -- 'nextToken', 'listTemplateAliases_nextToken' - The token for the next set of results, or null if there are no more
 -- results.
---
--- 'maxResults', 'listTemplateAliases_maxResults' - The maximum number of results to be returned per request.
 --
 -- 'awsAccountId', 'listTemplateAliases_awsAccountId' - The ID of the Amazon Web Services account that contains the template
 -- aliases that you\'re listing.
@@ -94,20 +94,20 @@ newListTemplateAliases ::
   ListTemplateAliases
 newListTemplateAliases pAwsAccountId_ pTemplateId_ =
   ListTemplateAliases'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       awsAccountId = pAwsAccountId_,
       templateId = pTemplateId_
     }
+
+-- | The maximum number of results to be returned per request.
+listTemplateAliases_maxResults :: Lens.Lens' ListTemplateAliases (Prelude.Maybe Prelude.Natural)
+listTemplateAliases_maxResults = Lens.lens (\ListTemplateAliases' {maxResults} -> maxResults) (\s@ListTemplateAliases' {} a -> s {maxResults = a} :: ListTemplateAliases)
 
 -- | The token for the next set of results, or null if there are no more
 -- results.
 listTemplateAliases_nextToken :: Lens.Lens' ListTemplateAliases (Prelude.Maybe Prelude.Text)
 listTemplateAliases_nextToken = Lens.lens (\ListTemplateAliases' {nextToken} -> nextToken) (\s@ListTemplateAliases' {} a -> s {nextToken = a} :: ListTemplateAliases)
-
--- | The maximum number of results to be returned per request.
-listTemplateAliases_maxResults :: Lens.Lens' ListTemplateAliases (Prelude.Maybe Prelude.Natural)
-listTemplateAliases_maxResults = Lens.lens (\ListTemplateAliases' {maxResults} -> maxResults) (\s@ListTemplateAliases' {} a -> s {maxResults = a} :: ListTemplateAliases)
 
 -- | The ID of the Amazon Web Services account that contains the template
 -- aliases that you\'re listing.
@@ -160,15 +160,15 @@ instance Core.AWSRequest ListTemplateAliases where
 
 instance Prelude.Hashable ListTemplateAliases where
   hashWithSalt _salt ListTemplateAliases' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` templateId
 
 instance Prelude.NFData ListTemplateAliases where
   rnf ListTemplateAliases' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf templateId
 
@@ -196,8 +196,8 @@ instance Data.ToPath ListTemplateAliases where
 instance Data.ToQuery ListTemplateAliases where
   toQuery ListTemplateAliases' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
-        "max-result" Data.=: maxResults
+      [ "max-result" Data.=: maxResults,
+        "next-token" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListTemplateAliasesResponse' smart constructor.

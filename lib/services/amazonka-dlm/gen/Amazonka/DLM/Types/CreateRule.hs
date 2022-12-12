@@ -37,9 +37,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCreateRule' smart constructor.
 data CreateRule = CreateRule'
-  { -- | The interval between snapshots. The supported values are 1, 2, 3, 4, 6,
+  { -- | The schedule, as a Cron expression. The schedule interval must be
+    -- between 1 hour and 1 year. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions Cron expressions>
+    -- in the /Amazon CloudWatch User Guide/.
+    cronExpression :: Prelude.Maybe Prelude.Text,
+    -- | The interval between snapshots. The supported values are 1, 2, 3, 4, 6,
     -- 8, 12, and 24.
     interval :: Prelude.Maybe Prelude.Natural,
+    -- | The interval unit.
+    intervalUnit :: Prelude.Maybe IntervalUnitValues,
     -- | __[Snapshot policies only]__ Specifies the destination for snapshots
     -- created by the policy. To create snapshots in the same Region as the
     -- source resource, specify @CLOUD@. To create snapshots on the same
@@ -52,19 +59,12 @@ data CreateRule = CreateRule'
     -- snapshots on the same Outpost as the source resource, or in the Region
     -- of that Outpost.
     location :: Prelude.Maybe LocationValues,
-    -- | The interval unit.
-    intervalUnit :: Prelude.Maybe IntervalUnitValues,
     -- | The time, in UTC, to start the operation. The supported format is hh:mm.
     --
     -- The operation occurs within a one-hour window following the specified
     -- time. If you do not specify a time, Amazon Data Lifecycle Manager
     -- selects a time within the next 24 hours.
-    times :: Prelude.Maybe [Prelude.Text],
-    -- | The schedule, as a Cron expression. The schedule interval must be
-    -- between 1 hour and 1 year. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions Cron expressions>
-    -- in the /Amazon CloudWatch User Guide/.
-    cronExpression :: Prelude.Maybe Prelude.Text
+    times :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,8 +76,15 @@ data CreateRule = CreateRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'cronExpression', 'createRule_cronExpression' - The schedule, as a Cron expression. The schedule interval must be
+-- between 1 hour and 1 year. For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions Cron expressions>
+-- in the /Amazon CloudWatch User Guide/.
+--
 -- 'interval', 'createRule_interval' - The interval between snapshots. The supported values are 1, 2, 3, 4, 6,
 -- 8, 12, and 24.
+--
+-- 'intervalUnit', 'createRule_intervalUnit' - The interval unit.
 --
 -- 'location', 'createRule_location' - __[Snapshot policies only]__ Specifies the destination for snapshots
 -- created by the policy. To create snapshots in the same Region as the
@@ -91,33 +98,37 @@ data CreateRule = CreateRule'
 -- snapshots on the same Outpost as the source resource, or in the Region
 -- of that Outpost.
 --
--- 'intervalUnit', 'createRule_intervalUnit' - The interval unit.
---
 -- 'times', 'createRule_times' - The time, in UTC, to start the operation. The supported format is hh:mm.
 --
 -- The operation occurs within a one-hour window following the specified
 -- time. If you do not specify a time, Amazon Data Lifecycle Manager
 -- selects a time within the next 24 hours.
---
--- 'cronExpression', 'createRule_cronExpression' - The schedule, as a Cron expression. The schedule interval must be
--- between 1 hour and 1 year. For more information, see
--- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions Cron expressions>
--- in the /Amazon CloudWatch User Guide/.
 newCreateRule ::
   CreateRule
 newCreateRule =
   CreateRule'
-    { interval = Prelude.Nothing,
-      location = Prelude.Nothing,
+    { cronExpression = Prelude.Nothing,
+      interval = Prelude.Nothing,
       intervalUnit = Prelude.Nothing,
-      times = Prelude.Nothing,
-      cronExpression = Prelude.Nothing
+      location = Prelude.Nothing,
+      times = Prelude.Nothing
     }
+
+-- | The schedule, as a Cron expression. The schedule interval must be
+-- between 1 hour and 1 year. For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions Cron expressions>
+-- in the /Amazon CloudWatch User Guide/.
+createRule_cronExpression :: Lens.Lens' CreateRule (Prelude.Maybe Prelude.Text)
+createRule_cronExpression = Lens.lens (\CreateRule' {cronExpression} -> cronExpression) (\s@CreateRule' {} a -> s {cronExpression = a} :: CreateRule)
 
 -- | The interval between snapshots. The supported values are 1, 2, 3, 4, 6,
 -- 8, 12, and 24.
 createRule_interval :: Lens.Lens' CreateRule (Prelude.Maybe Prelude.Natural)
 createRule_interval = Lens.lens (\CreateRule' {interval} -> interval) (\s@CreateRule' {} a -> s {interval = a} :: CreateRule)
+
+-- | The interval unit.
+createRule_intervalUnit :: Lens.Lens' CreateRule (Prelude.Maybe IntervalUnitValues)
+createRule_intervalUnit = Lens.lens (\CreateRule' {intervalUnit} -> intervalUnit) (\s@CreateRule' {} a -> s {intervalUnit = a} :: CreateRule)
 
 -- | __[Snapshot policies only]__ Specifies the destination for snapshots
 -- created by the policy. To create snapshots in the same Region as the
@@ -133,10 +144,6 @@ createRule_interval = Lens.lens (\CreateRule' {interval} -> interval) (\s@Create
 createRule_location :: Lens.Lens' CreateRule (Prelude.Maybe LocationValues)
 createRule_location = Lens.lens (\CreateRule' {location} -> location) (\s@CreateRule' {} a -> s {location = a} :: CreateRule)
 
--- | The interval unit.
-createRule_intervalUnit :: Lens.Lens' CreateRule (Prelude.Maybe IntervalUnitValues)
-createRule_intervalUnit = Lens.lens (\CreateRule' {intervalUnit} -> intervalUnit) (\s@CreateRule' {} a -> s {intervalUnit = a} :: CreateRule)
-
 -- | The time, in UTC, to start the operation. The supported format is hh:mm.
 --
 -- The operation occurs within a one-hour window following the specified
@@ -145,51 +152,44 @@ createRule_intervalUnit = Lens.lens (\CreateRule' {intervalUnit} -> intervalUnit
 createRule_times :: Lens.Lens' CreateRule (Prelude.Maybe [Prelude.Text])
 createRule_times = Lens.lens (\CreateRule' {times} -> times) (\s@CreateRule' {} a -> s {times = a} :: CreateRule) Prelude.. Lens.mapping Lens.coerced
 
--- | The schedule, as a Cron expression. The schedule interval must be
--- between 1 hour and 1 year. For more information, see
--- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions Cron expressions>
--- in the /Amazon CloudWatch User Guide/.
-createRule_cronExpression :: Lens.Lens' CreateRule (Prelude.Maybe Prelude.Text)
-createRule_cronExpression = Lens.lens (\CreateRule' {cronExpression} -> cronExpression) (\s@CreateRule' {} a -> s {cronExpression = a} :: CreateRule)
-
 instance Data.FromJSON CreateRule where
   parseJSON =
     Data.withObject
       "CreateRule"
       ( \x ->
           CreateRule'
-            Prelude.<$> (x Data..:? "Interval")
-            Prelude.<*> (x Data..:? "Location")
+            Prelude.<$> (x Data..:? "CronExpression")
+            Prelude.<*> (x Data..:? "Interval")
             Prelude.<*> (x Data..:? "IntervalUnit")
+            Prelude.<*> (x Data..:? "Location")
             Prelude.<*> (x Data..:? "Times" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "CronExpression")
       )
 
 instance Prelude.Hashable CreateRule where
   hashWithSalt _salt CreateRule' {..} =
-    _salt `Prelude.hashWithSalt` interval
-      `Prelude.hashWithSalt` location
+    _salt `Prelude.hashWithSalt` cronExpression
+      `Prelude.hashWithSalt` interval
       `Prelude.hashWithSalt` intervalUnit
+      `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` times
-      `Prelude.hashWithSalt` cronExpression
 
 instance Prelude.NFData CreateRule where
   rnf CreateRule' {..} =
-    Prelude.rnf interval
-      `Prelude.seq` Prelude.rnf location
+    Prelude.rnf cronExpression
+      `Prelude.seq` Prelude.rnf interval
       `Prelude.seq` Prelude.rnf intervalUnit
+      `Prelude.seq` Prelude.rnf location
       `Prelude.seq` Prelude.rnf times
-      `Prelude.seq` Prelude.rnf cronExpression
 
 instance Data.ToJSON CreateRule where
   toJSON CreateRule' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Interval" Data..=) Prelude.<$> interval,
-            ("Location" Data..=) Prelude.<$> location,
+          [ ("CronExpression" Data..=)
+              Prelude.<$> cronExpression,
+            ("Interval" Data..=) Prelude.<$> interval,
             ("IntervalUnit" Data..=) Prelude.<$> intervalUnit,
-            ("Times" Data..=) Prelude.<$> times,
-            ("CronExpression" Data..=)
-              Prelude.<$> cronExpression
+            ("Location" Data..=) Prelude.<$> location,
+            ("Times" Data..=) Prelude.<$> times
           ]
       )

@@ -30,19 +30,19 @@ import Amazonka.SSMIncidents.Types.NotificationTargetItem
 --
 -- /See:/ 'newIncidentTemplate' smart constructor.
 data IncidentTemplate = IncidentTemplate'
-  { -- | Tags to assign to the template. When the @StartIncident@ API action is
+  { -- | Used to stop Incident Manager from creating multiple incident records
+    -- for the same incident.
+    dedupeString :: Prelude.Maybe Prelude.Text,
+    -- | Tags to assign to the template. When the @StartIncident@ API action is
     -- called, Incident Manager assigns the tags specified in the template to
     -- the incident.
     incidentTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The summary of the incident. The summary is a brief synopsis of what
-    -- occurred, what\'s currently happening, and context.
-    summary :: Prelude.Maybe Prelude.Text,
     -- | The Amazon SNS targets that are notified when updates are made to an
     -- incident.
     notificationTargets :: Prelude.Maybe [NotificationTargetItem],
-    -- | Used to stop Incident Manager from creating multiple incident records
-    -- for the same incident.
-    dedupeString :: Prelude.Maybe Prelude.Text,
+    -- | The summary of the incident. The summary is a brief synopsis of what
+    -- occurred, what\'s currently happening, and context.
+    summary :: Prelude.Maybe Prelude.Text,
     -- | The impact of the incident on your customers and applications.
     impact :: Prelude.Natural,
     -- | The title of the incident.
@@ -58,18 +58,18 @@ data IncidentTemplate = IncidentTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dedupeString', 'incidentTemplate_dedupeString' - Used to stop Incident Manager from creating multiple incident records
+-- for the same incident.
+--
 -- 'incidentTags', 'incidentTemplate_incidentTags' - Tags to assign to the template. When the @StartIncident@ API action is
 -- called, Incident Manager assigns the tags specified in the template to
 -- the incident.
 --
--- 'summary', 'incidentTemplate_summary' - The summary of the incident. The summary is a brief synopsis of what
--- occurred, what\'s currently happening, and context.
---
 -- 'notificationTargets', 'incidentTemplate_notificationTargets' - The Amazon SNS targets that are notified when updates are made to an
 -- incident.
 --
--- 'dedupeString', 'incidentTemplate_dedupeString' - Used to stop Incident Manager from creating multiple incident records
--- for the same incident.
+-- 'summary', 'incidentTemplate_summary' - The summary of the incident. The summary is a brief synopsis of what
+-- occurred, what\'s currently happening, and context.
 --
 -- 'impact', 'incidentTemplate_impact' - The impact of the incident on your customers and applications.
 --
@@ -82,13 +82,18 @@ newIncidentTemplate ::
   IncidentTemplate
 newIncidentTemplate pImpact_ pTitle_ =
   IncidentTemplate'
-    { incidentTags = Prelude.Nothing,
-      summary = Prelude.Nothing,
+    { dedupeString = Prelude.Nothing,
+      incidentTags = Prelude.Nothing,
       notificationTargets = Prelude.Nothing,
-      dedupeString = Prelude.Nothing,
+      summary = Prelude.Nothing,
       impact = pImpact_,
       title = pTitle_
     }
+
+-- | Used to stop Incident Manager from creating multiple incident records
+-- for the same incident.
+incidentTemplate_dedupeString :: Lens.Lens' IncidentTemplate (Prelude.Maybe Prelude.Text)
+incidentTemplate_dedupeString = Lens.lens (\IncidentTemplate' {dedupeString} -> dedupeString) (\s@IncidentTemplate' {} a -> s {dedupeString = a} :: IncidentTemplate)
 
 -- | Tags to assign to the template. When the @StartIncident@ API action is
 -- called, Incident Manager assigns the tags specified in the template to
@@ -96,20 +101,15 @@ newIncidentTemplate pImpact_ pTitle_ =
 incidentTemplate_incidentTags :: Lens.Lens' IncidentTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 incidentTemplate_incidentTags = Lens.lens (\IncidentTemplate' {incidentTags} -> incidentTags) (\s@IncidentTemplate' {} a -> s {incidentTags = a} :: IncidentTemplate) Prelude.. Lens.mapping Lens.coerced
 
--- | The summary of the incident. The summary is a brief synopsis of what
--- occurred, what\'s currently happening, and context.
-incidentTemplate_summary :: Lens.Lens' IncidentTemplate (Prelude.Maybe Prelude.Text)
-incidentTemplate_summary = Lens.lens (\IncidentTemplate' {summary} -> summary) (\s@IncidentTemplate' {} a -> s {summary = a} :: IncidentTemplate)
-
 -- | The Amazon SNS targets that are notified when updates are made to an
 -- incident.
 incidentTemplate_notificationTargets :: Lens.Lens' IncidentTemplate (Prelude.Maybe [NotificationTargetItem])
 incidentTemplate_notificationTargets = Lens.lens (\IncidentTemplate' {notificationTargets} -> notificationTargets) (\s@IncidentTemplate' {} a -> s {notificationTargets = a} :: IncidentTemplate) Prelude.. Lens.mapping Lens.coerced
 
--- | Used to stop Incident Manager from creating multiple incident records
--- for the same incident.
-incidentTemplate_dedupeString :: Lens.Lens' IncidentTemplate (Prelude.Maybe Prelude.Text)
-incidentTemplate_dedupeString = Lens.lens (\IncidentTemplate' {dedupeString} -> dedupeString) (\s@IncidentTemplate' {} a -> s {dedupeString = a} :: IncidentTemplate)
+-- | The summary of the incident. The summary is a brief synopsis of what
+-- occurred, what\'s currently happening, and context.
+incidentTemplate_summary :: Lens.Lens' IncidentTemplate (Prelude.Maybe Prelude.Text)
+incidentTemplate_summary = Lens.lens (\IncidentTemplate' {summary} -> summary) (\s@IncidentTemplate' {} a -> s {summary = a} :: IncidentTemplate)
 
 -- | The impact of the incident on your customers and applications.
 incidentTemplate_impact :: Lens.Lens' IncidentTemplate Prelude.Natural
@@ -125,31 +125,31 @@ instance Data.FromJSON IncidentTemplate where
       "IncidentTemplate"
       ( \x ->
           IncidentTemplate'
-            Prelude.<$> (x Data..:? "incidentTags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "summary")
+            Prelude.<$> (x Data..:? "dedupeString")
+            Prelude.<*> (x Data..:? "incidentTags" Data..!= Prelude.mempty)
             Prelude.<*> ( x Data..:? "notificationTargets"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "dedupeString")
+            Prelude.<*> (x Data..:? "summary")
             Prelude.<*> (x Data..: "impact")
             Prelude.<*> (x Data..: "title")
       )
 
 instance Prelude.Hashable IncidentTemplate where
   hashWithSalt _salt IncidentTemplate' {..} =
-    _salt `Prelude.hashWithSalt` incidentTags
-      `Prelude.hashWithSalt` summary
+    _salt `Prelude.hashWithSalt` dedupeString
+      `Prelude.hashWithSalt` incidentTags
       `Prelude.hashWithSalt` notificationTargets
-      `Prelude.hashWithSalt` dedupeString
+      `Prelude.hashWithSalt` summary
       `Prelude.hashWithSalt` impact
       `Prelude.hashWithSalt` title
 
 instance Prelude.NFData IncidentTemplate where
   rnf IncidentTemplate' {..} =
-    Prelude.rnf incidentTags
-      `Prelude.seq` Prelude.rnf summary
+    Prelude.rnf dedupeString
+      `Prelude.seq` Prelude.rnf incidentTags
       `Prelude.seq` Prelude.rnf notificationTargets
-      `Prelude.seq` Prelude.rnf dedupeString
+      `Prelude.seq` Prelude.rnf summary
       `Prelude.seq` Prelude.rnf impact
       `Prelude.seq` Prelude.rnf title
 
@@ -157,11 +157,11 @@ instance Data.ToJSON IncidentTemplate where
   toJSON IncidentTemplate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("incidentTags" Data..=) Prelude.<$> incidentTags,
-            ("summary" Data..=) Prelude.<$> summary,
+          [ ("dedupeString" Data..=) Prelude.<$> dedupeString,
+            ("incidentTags" Data..=) Prelude.<$> incidentTags,
             ("notificationTargets" Data..=)
               Prelude.<$> notificationTargets,
-            ("dedupeString" Data..=) Prelude.<$> dedupeString,
+            ("summary" Data..=) Prelude.<$> summary,
             Prelude.Just ("impact" Data..= impact),
             Prelude.Just ("title" Data..= title)
           ]

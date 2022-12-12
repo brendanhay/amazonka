@@ -29,17 +29,17 @@ module Amazonka.Discovery.DescribeImportTasks
     newDescribeImportTasks,
 
     -- * Request Lenses
-    describeImportTasks_nextToken,
     describeImportTasks_filters,
     describeImportTasks_maxResults,
+    describeImportTasks_nextToken,
 
     -- * Destructuring the Response
     DescribeImportTasksResponse (..),
     newDescribeImportTasksResponse,
 
     -- * Response Lenses
-    describeImportTasksResponse_tasks,
     describeImportTasksResponse_nextToken,
+    describeImportTasksResponse_tasks,
     describeImportTasksResponse_httpStatus,
   )
 where
@@ -54,15 +54,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeImportTasks' smart constructor.
 data DescribeImportTasks = DescribeImportTasks'
-  { -- | The token to request a specific page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of name-value pairs that you provide to filter the results for
+  { -- | An array of name-value pairs that you provide to filter the results for
     -- the @DescribeImportTask@ request to a specific subset of results.
     -- Currently, wildcard values aren\'t supported for filters.
     filters :: Prelude.Maybe [ImportTaskFilter],
     -- | The maximum number of results that you want this request to return, up
     -- to 100.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to request a specific page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,26 +74,22 @@ data DescribeImportTasks = DescribeImportTasks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeImportTasks_nextToken' - The token to request a specific page of results.
---
 -- 'filters', 'describeImportTasks_filters' - An array of name-value pairs that you provide to filter the results for
 -- the @DescribeImportTask@ request to a specific subset of results.
 -- Currently, wildcard values aren\'t supported for filters.
 --
 -- 'maxResults', 'describeImportTasks_maxResults' - The maximum number of results that you want this request to return, up
 -- to 100.
+--
+-- 'nextToken', 'describeImportTasks_nextToken' - The token to request a specific page of results.
 newDescribeImportTasks ::
   DescribeImportTasks
 newDescribeImportTasks =
   DescribeImportTasks'
-    { nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token to request a specific page of results.
-describeImportTasks_nextToken :: Lens.Lens' DescribeImportTasks (Prelude.Maybe Prelude.Text)
-describeImportTasks_nextToken = Lens.lens (\DescribeImportTasks' {nextToken} -> nextToken) (\s@DescribeImportTasks' {} a -> s {nextToken = a} :: DescribeImportTasks)
 
 -- | An array of name-value pairs that you provide to filter the results for
 -- the @DescribeImportTask@ request to a specific subset of results.
@@ -106,6 +102,10 @@ describeImportTasks_filters = Lens.lens (\DescribeImportTasks' {filters} -> filt
 describeImportTasks_maxResults :: Lens.Lens' DescribeImportTasks (Prelude.Maybe Prelude.Natural)
 describeImportTasks_maxResults = Lens.lens (\DescribeImportTasks' {maxResults} -> maxResults) (\s@DescribeImportTasks' {} a -> s {maxResults = a} :: DescribeImportTasks)
 
+-- | The token to request a specific page of results.
+describeImportTasks_nextToken :: Lens.Lens' DescribeImportTasks (Prelude.Maybe Prelude.Text)
+describeImportTasks_nextToken = Lens.lens (\DescribeImportTasks' {nextToken} -> nextToken) (\s@DescribeImportTasks' {} a -> s {nextToken = a} :: DescribeImportTasks)
+
 instance Core.AWSRequest DescribeImportTasks where
   type
     AWSResponse DescribeImportTasks =
@@ -116,22 +116,22 @@ instance Core.AWSRequest DescribeImportTasks where
     Response.receiveJSON
       ( \s h x ->
           DescribeImportTasksResponse'
-            Prelude.<$> (x Data..?> "tasks" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "tasks" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeImportTasks where
   hashWithSalt _salt DescribeImportTasks' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeImportTasks where
   rnf DescribeImportTasks' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeImportTasks where
   toHeaders =
@@ -152,9 +152,9 @@ instance Data.ToJSON DescribeImportTasks where
   toJSON DescribeImportTasks' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("filters" Data..=) Prelude.<$> filters,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("filters" Data..=) Prelude.<$> filters,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -166,11 +166,11 @@ instance Data.ToQuery DescribeImportTasks where
 
 -- | /See:/ 'newDescribeImportTasksResponse' smart constructor.
 data DescribeImportTasksResponse = DescribeImportTasksResponse'
-  { -- | A returned array of import tasks that match any applied filters, up to
+  { -- | The token to request the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A returned array of import tasks that match any applied filters, up to
     -- the specified number of maximum results.
     tasks :: Prelude.Maybe [ImportTask],
-    -- | The token to request the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -184,10 +184,10 @@ data DescribeImportTasksResponse = DescribeImportTasksResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'describeImportTasksResponse_nextToken' - The token to request the next page of results.
+--
 -- 'tasks', 'describeImportTasksResponse_tasks' - A returned array of import tasks that match any applied filters, up to
 -- the specified number of maximum results.
---
--- 'nextToken', 'describeImportTasksResponse_nextToken' - The token to request the next page of results.
 --
 -- 'httpStatus', 'describeImportTasksResponse_httpStatus' - The response's http status code.
 newDescribeImportTasksResponse ::
@@ -196,20 +196,20 @@ newDescribeImportTasksResponse ::
   DescribeImportTasksResponse
 newDescribeImportTasksResponse pHttpStatus_ =
   DescribeImportTasksResponse'
-    { tasks =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      tasks = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The token to request the next page of results.
+describeImportTasksResponse_nextToken :: Lens.Lens' DescribeImportTasksResponse (Prelude.Maybe Prelude.Text)
+describeImportTasksResponse_nextToken = Lens.lens (\DescribeImportTasksResponse' {nextToken} -> nextToken) (\s@DescribeImportTasksResponse' {} a -> s {nextToken = a} :: DescribeImportTasksResponse)
 
 -- | A returned array of import tasks that match any applied filters, up to
 -- the specified number of maximum results.
 describeImportTasksResponse_tasks :: Lens.Lens' DescribeImportTasksResponse (Prelude.Maybe [ImportTask])
 describeImportTasksResponse_tasks = Lens.lens (\DescribeImportTasksResponse' {tasks} -> tasks) (\s@DescribeImportTasksResponse' {} a -> s {tasks = a} :: DescribeImportTasksResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The token to request the next page of results.
-describeImportTasksResponse_nextToken :: Lens.Lens' DescribeImportTasksResponse (Prelude.Maybe Prelude.Text)
-describeImportTasksResponse_nextToken = Lens.lens (\DescribeImportTasksResponse' {nextToken} -> nextToken) (\s@DescribeImportTasksResponse' {} a -> s {nextToken = a} :: DescribeImportTasksResponse)
 
 -- | The response's http status code.
 describeImportTasksResponse_httpStatus :: Lens.Lens' DescribeImportTasksResponse Prelude.Int
@@ -217,6 +217,6 @@ describeImportTasksResponse_httpStatus = Lens.lens (\DescribeImportTasksResponse
 
 instance Prelude.NFData DescribeImportTasksResponse where
   rnf DescribeImportTasksResponse' {..} =
-    Prelude.rnf tasks
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf tasks
       `Prelude.seq` Prelude.rnf httpStatus

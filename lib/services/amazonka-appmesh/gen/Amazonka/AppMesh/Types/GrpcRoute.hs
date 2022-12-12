@@ -32,10 +32,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGrpcRoute' smart constructor.
 data GrpcRoute = GrpcRoute'
-  { -- | An object that represents types of timeouts.
-    timeout :: Prelude.Maybe GrpcTimeout,
-    -- | An object that represents a retry policy.
+  { -- | An object that represents a retry policy.
     retryPolicy :: Prelude.Maybe GrpcRetryPolicy,
+    -- | An object that represents types of timeouts.
+    timeout :: Prelude.Maybe GrpcTimeout,
     -- | An object that represents the action to take if a match is determined.
     action :: GrpcRouteAction,
     -- | An object that represents the criteria for determining a request match.
@@ -51,9 +51,9 @@ data GrpcRoute = GrpcRoute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'timeout', 'grpcRoute_timeout' - An object that represents types of timeouts.
---
 -- 'retryPolicy', 'grpcRoute_retryPolicy' - An object that represents a retry policy.
+--
+-- 'timeout', 'grpcRoute_timeout' - An object that represents types of timeouts.
 --
 -- 'action', 'grpcRoute_action' - An object that represents the action to take if a match is determined.
 --
@@ -66,19 +66,19 @@ newGrpcRoute ::
   GrpcRoute
 newGrpcRoute pAction_ pMatch_ =
   GrpcRoute'
-    { timeout = Prelude.Nothing,
-      retryPolicy = Prelude.Nothing,
+    { retryPolicy = Prelude.Nothing,
+      timeout = Prelude.Nothing,
       action = pAction_,
       match = pMatch_
     }
 
--- | An object that represents types of timeouts.
-grpcRoute_timeout :: Lens.Lens' GrpcRoute (Prelude.Maybe GrpcTimeout)
-grpcRoute_timeout = Lens.lens (\GrpcRoute' {timeout} -> timeout) (\s@GrpcRoute' {} a -> s {timeout = a} :: GrpcRoute)
-
 -- | An object that represents a retry policy.
 grpcRoute_retryPolicy :: Lens.Lens' GrpcRoute (Prelude.Maybe GrpcRetryPolicy)
 grpcRoute_retryPolicy = Lens.lens (\GrpcRoute' {retryPolicy} -> retryPolicy) (\s@GrpcRoute' {} a -> s {retryPolicy = a} :: GrpcRoute)
+
+-- | An object that represents types of timeouts.
+grpcRoute_timeout :: Lens.Lens' GrpcRoute (Prelude.Maybe GrpcTimeout)
+grpcRoute_timeout = Lens.lens (\GrpcRoute' {timeout} -> timeout) (\s@GrpcRoute' {} a -> s {timeout = a} :: GrpcRoute)
 
 -- | An object that represents the action to take if a match is determined.
 grpcRoute_action :: Lens.Lens' GrpcRoute GrpcRouteAction
@@ -94,23 +94,23 @@ instance Data.FromJSON GrpcRoute where
       "GrpcRoute"
       ( \x ->
           GrpcRoute'
-            Prelude.<$> (x Data..:? "timeout")
-            Prelude.<*> (x Data..:? "retryPolicy")
+            Prelude.<$> (x Data..:? "retryPolicy")
+            Prelude.<*> (x Data..:? "timeout")
             Prelude.<*> (x Data..: "action")
             Prelude.<*> (x Data..: "match")
       )
 
 instance Prelude.Hashable GrpcRoute where
   hashWithSalt _salt GrpcRoute' {..} =
-    _salt `Prelude.hashWithSalt` timeout
-      `Prelude.hashWithSalt` retryPolicy
+    _salt `Prelude.hashWithSalt` retryPolicy
+      `Prelude.hashWithSalt` timeout
       `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` match
 
 instance Prelude.NFData GrpcRoute where
   rnf GrpcRoute' {..} =
-    Prelude.rnf timeout
-      `Prelude.seq` Prelude.rnf retryPolicy
+    Prelude.rnf retryPolicy
+      `Prelude.seq` Prelude.rnf timeout
       `Prelude.seq` Prelude.rnf action
       `Prelude.seq` Prelude.rnf match
 
@@ -118,8 +118,8 @@ instance Data.ToJSON GrpcRoute where
   toJSON GrpcRoute' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("timeout" Data..=) Prelude.<$> timeout,
-            ("retryPolicy" Data..=) Prelude.<$> retryPolicy,
+          [ ("retryPolicy" Data..=) Prelude.<$> retryPolicy,
+            ("timeout" Data..=) Prelude.<$> timeout,
             Prelude.Just ("action" Data..= action),
             Prelude.Just ("match" Data..= match)
           ]

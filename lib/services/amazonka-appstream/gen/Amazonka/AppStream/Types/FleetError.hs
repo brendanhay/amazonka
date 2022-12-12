@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFleetError' smart constructor.
 data FleetError = FleetError'
-  { -- | The error message.
-    errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | The error code.
-    errorCode :: Prelude.Maybe FleetErrorCode
+  { -- | The error code.
+    errorCode :: Prelude.Maybe FleetErrorCode,
+    -- | The error message.
+    errorMessage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data FleetError = FleetError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'errorMessage', 'fleetError_errorMessage' - The error message.
---
 -- 'errorCode', 'fleetError_errorCode' - The error code.
+--
+-- 'errorMessage', 'fleetError_errorMessage' - The error message.
 newFleetError ::
   FleetError
 newFleetError =
   FleetError'
-    { errorMessage = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+    { errorCode = Prelude.Nothing,
+      errorMessage = Prelude.Nothing
     }
-
--- | The error message.
-fleetError_errorMessage :: Lens.Lens' FleetError (Prelude.Maybe Prelude.Text)
-fleetError_errorMessage = Lens.lens (\FleetError' {errorMessage} -> errorMessage) (\s@FleetError' {} a -> s {errorMessage = a} :: FleetError)
 
 -- | The error code.
 fleetError_errorCode :: Lens.Lens' FleetError (Prelude.Maybe FleetErrorCode)
 fleetError_errorCode = Lens.lens (\FleetError' {errorCode} -> errorCode) (\s@FleetError' {} a -> s {errorCode = a} :: FleetError)
+
+-- | The error message.
+fleetError_errorMessage :: Lens.Lens' FleetError (Prelude.Maybe Prelude.Text)
+fleetError_errorMessage = Lens.lens (\FleetError' {errorMessage} -> errorMessage) (\s@FleetError' {} a -> s {errorMessage = a} :: FleetError)
 
 instance Data.FromJSON FleetError where
   parseJSON =
@@ -69,16 +69,16 @@ instance Data.FromJSON FleetError where
       "FleetError"
       ( \x ->
           FleetError'
-            Prelude.<$> (x Data..:? "ErrorMessage")
-            Prelude.<*> (x Data..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "ErrorMessage")
       )
 
 instance Prelude.Hashable FleetError where
   hashWithSalt _salt FleetError' {..} =
-    _salt `Prelude.hashWithSalt` errorMessage
-      `Prelude.hashWithSalt` errorCode
+    _salt `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` errorMessage
 
 instance Prelude.NFData FleetError where
   rnf FleetError' {..} =
-    Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf errorCode
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage

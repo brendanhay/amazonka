@@ -27,9 +27,9 @@ module Amazonka.NetworkManager.CreateVpcAttachment
     newCreateVpcAttachment,
 
     -- * Request Lenses
-    createVpcAttachment_tags,
     createVpcAttachment_clientToken,
     createVpcAttachment_options,
+    createVpcAttachment_tags,
     createVpcAttachment_coreNetworkId,
     createVpcAttachment_vpcArn,
     createVpcAttachment_subnetArns,
@@ -54,12 +54,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateVpcAttachment' smart constructor.
 data CreateVpcAttachment = CreateVpcAttachment'
-  { -- | The key-value tags associated with the request.
-    tags :: Prelude.Maybe [Tag],
-    -- | The client token associated with the request.
+  { -- | The client token associated with the request.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | Options for the VPC attachment.
     options :: Prelude.Maybe VpcOptions,
+    -- | The key-value tags associated with the request.
+    tags :: Prelude.Maybe [Tag],
     -- | The ID of a core network for the VPC attachment.
     coreNetworkId :: Prelude.Text,
     -- | The ARN of the VPC.
@@ -77,11 +77,11 @@ data CreateVpcAttachment = CreateVpcAttachment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createVpcAttachment_tags' - The key-value tags associated with the request.
---
 -- 'clientToken', 'createVpcAttachment_clientToken' - The client token associated with the request.
 --
 -- 'options', 'createVpcAttachment_options' - Options for the VPC attachment.
+--
+-- 'tags', 'createVpcAttachment_tags' - The key-value tags associated with the request.
 --
 -- 'coreNetworkId', 'createVpcAttachment_coreNetworkId' - The ID of a core network for the VPC attachment.
 --
@@ -96,17 +96,13 @@ newCreateVpcAttachment ::
   CreateVpcAttachment
 newCreateVpcAttachment pCoreNetworkId_ pVpcArn_ =
   CreateVpcAttachment'
-    { tags = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+    { clientToken = Prelude.Nothing,
       options = Prelude.Nothing,
+      tags = Prelude.Nothing,
       coreNetworkId = pCoreNetworkId_,
       vpcArn = pVpcArn_,
       subnetArns = Prelude.mempty
     }
-
--- | The key-value tags associated with the request.
-createVpcAttachment_tags :: Lens.Lens' CreateVpcAttachment (Prelude.Maybe [Tag])
-createVpcAttachment_tags = Lens.lens (\CreateVpcAttachment' {tags} -> tags) (\s@CreateVpcAttachment' {} a -> s {tags = a} :: CreateVpcAttachment) Prelude.. Lens.mapping Lens.coerced
 
 -- | The client token associated with the request.
 createVpcAttachment_clientToken :: Lens.Lens' CreateVpcAttachment (Prelude.Maybe Prelude.Text)
@@ -115,6 +111,10 @@ createVpcAttachment_clientToken = Lens.lens (\CreateVpcAttachment' {clientToken}
 -- | Options for the VPC attachment.
 createVpcAttachment_options :: Lens.Lens' CreateVpcAttachment (Prelude.Maybe VpcOptions)
 createVpcAttachment_options = Lens.lens (\CreateVpcAttachment' {options} -> options) (\s@CreateVpcAttachment' {} a -> s {options = a} :: CreateVpcAttachment)
+
+-- | The key-value tags associated with the request.
+createVpcAttachment_tags :: Lens.Lens' CreateVpcAttachment (Prelude.Maybe [Tag])
+createVpcAttachment_tags = Lens.lens (\CreateVpcAttachment' {tags} -> tags) (\s@CreateVpcAttachment' {} a -> s {tags = a} :: CreateVpcAttachment) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of a core network for the VPC attachment.
 createVpcAttachment_coreNetworkId :: Lens.Lens' CreateVpcAttachment Prelude.Text
@@ -144,18 +144,18 @@ instance Core.AWSRequest CreateVpcAttachment where
 
 instance Prelude.Hashable CreateVpcAttachment where
   hashWithSalt _salt CreateVpcAttachment' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` options
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` coreNetworkId
       `Prelude.hashWithSalt` vpcArn
       `Prelude.hashWithSalt` subnetArns
 
 instance Prelude.NFData CreateVpcAttachment where
   rnf CreateVpcAttachment' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf options
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf coreNetworkId
       `Prelude.seq` Prelude.rnf vpcArn
       `Prelude.seq` Prelude.rnf subnetArns
@@ -175,9 +175,9 @@ instance Data.ToJSON CreateVpcAttachment where
   toJSON CreateVpcAttachment' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ClientToken" Data..=) Prelude.<$> clientToken,
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
             ("Options" Data..=) Prelude.<$> options,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("CoreNetworkId" Data..= coreNetworkId),
             Prelude.Just ("VpcArn" Data..= vpcArn),
             Prelude.Just ("SubnetArns" Data..= subnetArns)

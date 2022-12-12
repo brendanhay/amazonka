@@ -34,10 +34,10 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newH265ColorSpaceSettings' smart constructor.
 data H265ColorSpaceSettings = H265ColorSpaceSettings'
   { colorSpacePassthroughSettings :: Prelude.Maybe ColorSpacePassthroughSettings,
-    rec601Settings :: Prelude.Maybe Rec601Settings,
+    dolbyVision81Settings :: Prelude.Maybe DolbyVision81Settings,
     hdr10Settings :: Prelude.Maybe Hdr10Settings,
-    rec709Settings :: Prelude.Maybe Rec709Settings,
-    dolbyVision81Settings :: Prelude.Maybe DolbyVision81Settings
+    rec601Settings :: Prelude.Maybe Rec601Settings,
+    rec709Settings :: Prelude.Maybe Rec709Settings
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,23 +51,23 @@ data H265ColorSpaceSettings = H265ColorSpaceSettings'
 --
 -- 'colorSpacePassthroughSettings', 'h265ColorSpaceSettings_colorSpacePassthroughSettings' - Undocumented member.
 --
--- 'rec601Settings', 'h265ColorSpaceSettings_rec601Settings' - Undocumented member.
+-- 'dolbyVision81Settings', 'h265ColorSpaceSettings_dolbyVision81Settings' - Undocumented member.
 --
 -- 'hdr10Settings', 'h265ColorSpaceSettings_hdr10Settings' - Undocumented member.
 --
--- 'rec709Settings', 'h265ColorSpaceSettings_rec709Settings' - Undocumented member.
+-- 'rec601Settings', 'h265ColorSpaceSettings_rec601Settings' - Undocumented member.
 --
--- 'dolbyVision81Settings', 'h265ColorSpaceSettings_dolbyVision81Settings' - Undocumented member.
+-- 'rec709Settings', 'h265ColorSpaceSettings_rec709Settings' - Undocumented member.
 newH265ColorSpaceSettings ::
   H265ColorSpaceSettings
 newH265ColorSpaceSettings =
   H265ColorSpaceSettings'
     { colorSpacePassthroughSettings =
         Prelude.Nothing,
-      rec601Settings = Prelude.Nothing,
+      dolbyVision81Settings = Prelude.Nothing,
       hdr10Settings = Prelude.Nothing,
-      rec709Settings = Prelude.Nothing,
-      dolbyVision81Settings = Prelude.Nothing
+      rec601Settings = Prelude.Nothing,
+      rec709Settings = Prelude.Nothing
     }
 
 -- | Undocumented member.
@@ -75,20 +75,20 @@ h265ColorSpaceSettings_colorSpacePassthroughSettings :: Lens.Lens' H265ColorSpac
 h265ColorSpaceSettings_colorSpacePassthroughSettings = Lens.lens (\H265ColorSpaceSettings' {colorSpacePassthroughSettings} -> colorSpacePassthroughSettings) (\s@H265ColorSpaceSettings' {} a -> s {colorSpacePassthroughSettings = a} :: H265ColorSpaceSettings)
 
 -- | Undocumented member.
-h265ColorSpaceSettings_rec601Settings :: Lens.Lens' H265ColorSpaceSettings (Prelude.Maybe Rec601Settings)
-h265ColorSpaceSettings_rec601Settings = Lens.lens (\H265ColorSpaceSettings' {rec601Settings} -> rec601Settings) (\s@H265ColorSpaceSettings' {} a -> s {rec601Settings = a} :: H265ColorSpaceSettings)
+h265ColorSpaceSettings_dolbyVision81Settings :: Lens.Lens' H265ColorSpaceSettings (Prelude.Maybe DolbyVision81Settings)
+h265ColorSpaceSettings_dolbyVision81Settings = Lens.lens (\H265ColorSpaceSettings' {dolbyVision81Settings} -> dolbyVision81Settings) (\s@H265ColorSpaceSettings' {} a -> s {dolbyVision81Settings = a} :: H265ColorSpaceSettings)
 
 -- | Undocumented member.
 h265ColorSpaceSettings_hdr10Settings :: Lens.Lens' H265ColorSpaceSettings (Prelude.Maybe Hdr10Settings)
 h265ColorSpaceSettings_hdr10Settings = Lens.lens (\H265ColorSpaceSettings' {hdr10Settings} -> hdr10Settings) (\s@H265ColorSpaceSettings' {} a -> s {hdr10Settings = a} :: H265ColorSpaceSettings)
 
 -- | Undocumented member.
-h265ColorSpaceSettings_rec709Settings :: Lens.Lens' H265ColorSpaceSettings (Prelude.Maybe Rec709Settings)
-h265ColorSpaceSettings_rec709Settings = Lens.lens (\H265ColorSpaceSettings' {rec709Settings} -> rec709Settings) (\s@H265ColorSpaceSettings' {} a -> s {rec709Settings = a} :: H265ColorSpaceSettings)
+h265ColorSpaceSettings_rec601Settings :: Lens.Lens' H265ColorSpaceSettings (Prelude.Maybe Rec601Settings)
+h265ColorSpaceSettings_rec601Settings = Lens.lens (\H265ColorSpaceSettings' {rec601Settings} -> rec601Settings) (\s@H265ColorSpaceSettings' {} a -> s {rec601Settings = a} :: H265ColorSpaceSettings)
 
 -- | Undocumented member.
-h265ColorSpaceSettings_dolbyVision81Settings :: Lens.Lens' H265ColorSpaceSettings (Prelude.Maybe DolbyVision81Settings)
-h265ColorSpaceSettings_dolbyVision81Settings = Lens.lens (\H265ColorSpaceSettings' {dolbyVision81Settings} -> dolbyVision81Settings) (\s@H265ColorSpaceSettings' {} a -> s {dolbyVision81Settings = a} :: H265ColorSpaceSettings)
+h265ColorSpaceSettings_rec709Settings :: Lens.Lens' H265ColorSpaceSettings (Prelude.Maybe Rec709Settings)
+h265ColorSpaceSettings_rec709Settings = Lens.lens (\H265ColorSpaceSettings' {rec709Settings} -> rec709Settings) (\s@H265ColorSpaceSettings' {} a -> s {rec709Settings = a} :: H265ColorSpaceSettings)
 
 instance Data.FromJSON H265ColorSpaceSettings where
   parseJSON =
@@ -97,28 +97,28 @@ instance Data.FromJSON H265ColorSpaceSettings where
       ( \x ->
           H265ColorSpaceSettings'
             Prelude.<$> (x Data..:? "colorSpacePassthroughSettings")
-            Prelude.<*> (x Data..:? "rec601Settings")
-            Prelude.<*> (x Data..:? "hdr10Settings")
-            Prelude.<*> (x Data..:? "rec709Settings")
             Prelude.<*> (x Data..:? "dolbyVision81Settings")
+            Prelude.<*> (x Data..:? "hdr10Settings")
+            Prelude.<*> (x Data..:? "rec601Settings")
+            Prelude.<*> (x Data..:? "rec709Settings")
       )
 
 instance Prelude.Hashable H265ColorSpaceSettings where
   hashWithSalt _salt H265ColorSpaceSettings' {..} =
     _salt
       `Prelude.hashWithSalt` colorSpacePassthroughSettings
-      `Prelude.hashWithSalt` rec601Settings
-      `Prelude.hashWithSalt` hdr10Settings
-      `Prelude.hashWithSalt` rec709Settings
       `Prelude.hashWithSalt` dolbyVision81Settings
+      `Prelude.hashWithSalt` hdr10Settings
+      `Prelude.hashWithSalt` rec601Settings
+      `Prelude.hashWithSalt` rec709Settings
 
 instance Prelude.NFData H265ColorSpaceSettings where
   rnf H265ColorSpaceSettings' {..} =
     Prelude.rnf colorSpacePassthroughSettings
-      `Prelude.seq` Prelude.rnf rec601Settings
-      `Prelude.seq` Prelude.rnf hdr10Settings
-      `Prelude.seq` Prelude.rnf rec709Settings
       `Prelude.seq` Prelude.rnf dolbyVision81Settings
+      `Prelude.seq` Prelude.rnf hdr10Settings
+      `Prelude.seq` Prelude.rnf rec601Settings
+      `Prelude.seq` Prelude.rnf rec709Settings
 
 instance Data.ToJSON H265ColorSpaceSettings where
   toJSON H265ColorSpaceSettings' {..} =
@@ -126,12 +126,12 @@ instance Data.ToJSON H265ColorSpaceSettings where
       ( Prelude.catMaybes
           [ ("colorSpacePassthroughSettings" Data..=)
               Prelude.<$> colorSpacePassthroughSettings,
+            ("dolbyVision81Settings" Data..=)
+              Prelude.<$> dolbyVision81Settings,
+            ("hdr10Settings" Data..=) Prelude.<$> hdr10Settings,
             ("rec601Settings" Data..=)
               Prelude.<$> rec601Settings,
-            ("hdr10Settings" Data..=) Prelude.<$> hdr10Settings,
             ("rec709Settings" Data..=)
-              Prelude.<$> rec709Settings,
-            ("dolbyVision81Settings" Data..=)
-              Prelude.<$> dolbyVision81Settings
+              Prelude.<$> rec709Settings
           ]
       )

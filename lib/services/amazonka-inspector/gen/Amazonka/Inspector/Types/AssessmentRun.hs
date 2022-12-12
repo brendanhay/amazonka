@@ -36,11 +36,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAssessmentRun' smart constructor.
 data AssessmentRun = AssessmentRun'
-  { -- | The time when StartAssessmentRun was called.
-    startedAt :: Prelude.Maybe Data.POSIX,
-    -- | The assessment run completion time that corresponds to the rules
+  { -- | The assessment run completion time that corresponds to the rules
     -- packages evaluation completion time or failure.
     completedAt :: Prelude.Maybe Data.POSIX,
+    -- | The time when StartAssessmentRun was called.
+    startedAt :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the assessment run.
     arn :: Prelude.Text,
     -- | The auto-generated name for the assessment run.
@@ -82,10 +82,10 @@ data AssessmentRun = AssessmentRun'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'startedAt', 'assessmentRun_startedAt' - The time when StartAssessmentRun was called.
---
 -- 'completedAt', 'assessmentRun_completedAt' - The assessment run completion time that corresponds to the rules
 -- packages evaluation completion time or failure.
+--
+-- 'startedAt', 'assessmentRun_startedAt' - The time when StartAssessmentRun was called.
 --
 -- 'arn', 'assessmentRun_arn' - The ARN of the assessment run.
 --
@@ -147,8 +147,8 @@ newAssessmentRun
   pStateChangedAt_
   pDataCollected_ =
     AssessmentRun'
-      { startedAt = Prelude.Nothing,
-        completedAt = Prelude.Nothing,
+      { completedAt = Prelude.Nothing,
+        startedAt = Prelude.Nothing,
         arn = pArn_,
         name = pName_,
         assessmentTemplateArn = pAssessmentTemplateArn_,
@@ -165,14 +165,14 @@ newAssessmentRun
         findingCounts = Prelude.mempty
       }
 
--- | The time when StartAssessmentRun was called.
-assessmentRun_startedAt :: Lens.Lens' AssessmentRun (Prelude.Maybe Prelude.UTCTime)
-assessmentRun_startedAt = Lens.lens (\AssessmentRun' {startedAt} -> startedAt) (\s@AssessmentRun' {} a -> s {startedAt = a} :: AssessmentRun) Prelude.. Lens.mapping Data._Time
-
 -- | The assessment run completion time that corresponds to the rules
 -- packages evaluation completion time or failure.
 assessmentRun_completedAt :: Lens.Lens' AssessmentRun (Prelude.Maybe Prelude.UTCTime)
 assessmentRun_completedAt = Lens.lens (\AssessmentRun' {completedAt} -> completedAt) (\s@AssessmentRun' {} a -> s {completedAt = a} :: AssessmentRun) Prelude.. Lens.mapping Data._Time
+
+-- | The time when StartAssessmentRun was called.
+assessmentRun_startedAt :: Lens.Lens' AssessmentRun (Prelude.Maybe Prelude.UTCTime)
+assessmentRun_startedAt = Lens.lens (\AssessmentRun' {startedAt} -> startedAt) (\s@AssessmentRun' {} a -> s {startedAt = a} :: AssessmentRun) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the assessment run.
 assessmentRun_arn :: Lens.Lens' AssessmentRun Prelude.Text
@@ -236,8 +236,8 @@ instance Data.FromJSON AssessmentRun where
       "AssessmentRun"
       ( \x ->
           AssessmentRun'
-            Prelude.<$> (x Data..:? "startedAt")
-            Prelude.<*> (x Data..:? "completedAt")
+            Prelude.<$> (x Data..:? "completedAt")
+            Prelude.<*> (x Data..:? "startedAt")
             Prelude.<*> (x Data..: "arn")
             Prelude.<*> (x Data..: "name")
             Prelude.<*> (x Data..: "assessmentTemplateArn")
@@ -257,8 +257,8 @@ instance Data.FromJSON AssessmentRun where
 
 instance Prelude.Hashable AssessmentRun where
   hashWithSalt _salt AssessmentRun' {..} =
-    _salt `Prelude.hashWithSalt` startedAt
-      `Prelude.hashWithSalt` completedAt
+    _salt `Prelude.hashWithSalt` completedAt
+      `Prelude.hashWithSalt` startedAt
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` assessmentTemplateArn
@@ -275,8 +275,8 @@ instance Prelude.Hashable AssessmentRun where
 
 instance Prelude.NFData AssessmentRun where
   rnf AssessmentRun' {..} =
-    Prelude.rnf startedAt
-      `Prelude.seq` Prelude.rnf completedAt
+    Prelude.rnf completedAt
+      `Prelude.seq` Prelude.rnf startedAt
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf assessmentTemplateArn

@@ -50,9 +50,9 @@ module Amazonka.IoT.AssociateTargetsWithJob
     newAssociateTargetsWithJobResponse,
 
     -- * Response Lenses
-    associateTargetsWithJobResponse_jobId,
     associateTargetsWithJobResponse_description,
     associateTargetsWithJobResponse_jobArn,
+    associateTargetsWithJobResponse_jobId,
     associateTargetsWithJobResponse_httpStatus,
   )
 where
@@ -160,9 +160,9 @@ instance Core.AWSRequest AssociateTargetsWithJob where
     Response.receiveJSON
       ( \s h x ->
           AssociateTargetsWithJobResponse'
-            Prelude.<$> (x Data..?> "jobId")
-            Prelude.<*> (x Data..?> "description")
+            Prelude.<$> (x Data..?> "description")
             Prelude.<*> (x Data..?> "jobArn")
+            Prelude.<*> (x Data..?> "jobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -203,12 +203,12 @@ instance Data.ToQuery AssociateTargetsWithJob where
 
 -- | /See:/ 'newAssociateTargetsWithJobResponse' smart constructor.
 data AssociateTargetsWithJobResponse = AssociateTargetsWithJobResponse'
-  { -- | The unique identifier you assigned to this job when it was created.
-    jobId :: Prelude.Maybe Prelude.Text,
-    -- | A short text description of the job.
+  { -- | A short text description of the job.
     description :: Prelude.Maybe Prelude.Text,
     -- | An ARN identifying the job.
     jobArn :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier you assigned to this job when it was created.
+    jobId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -222,11 +222,11 @@ data AssociateTargetsWithJobResponse = AssociateTargetsWithJobResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobId', 'associateTargetsWithJobResponse_jobId' - The unique identifier you assigned to this job when it was created.
---
 -- 'description', 'associateTargetsWithJobResponse_description' - A short text description of the job.
 --
 -- 'jobArn', 'associateTargetsWithJobResponse_jobArn' - An ARN identifying the job.
+--
+-- 'jobId', 'associateTargetsWithJobResponse_jobId' - The unique identifier you assigned to this job when it was created.
 --
 -- 'httpStatus', 'associateTargetsWithJobResponse_httpStatus' - The response's http status code.
 newAssociateTargetsWithJobResponse ::
@@ -235,16 +235,12 @@ newAssociateTargetsWithJobResponse ::
   AssociateTargetsWithJobResponse
 newAssociateTargetsWithJobResponse pHttpStatus_ =
   AssociateTargetsWithJobResponse'
-    { jobId =
+    { description =
         Prelude.Nothing,
-      description = Prelude.Nothing,
       jobArn = Prelude.Nothing,
+      jobId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The unique identifier you assigned to this job when it was created.
-associateTargetsWithJobResponse_jobId :: Lens.Lens' AssociateTargetsWithJobResponse (Prelude.Maybe Prelude.Text)
-associateTargetsWithJobResponse_jobId = Lens.lens (\AssociateTargetsWithJobResponse' {jobId} -> jobId) (\s@AssociateTargetsWithJobResponse' {} a -> s {jobId = a} :: AssociateTargetsWithJobResponse)
 
 -- | A short text description of the job.
 associateTargetsWithJobResponse_description :: Lens.Lens' AssociateTargetsWithJobResponse (Prelude.Maybe Prelude.Text)
@@ -253,6 +249,10 @@ associateTargetsWithJobResponse_description = Lens.lens (\AssociateTargetsWithJo
 -- | An ARN identifying the job.
 associateTargetsWithJobResponse_jobArn :: Lens.Lens' AssociateTargetsWithJobResponse (Prelude.Maybe Prelude.Text)
 associateTargetsWithJobResponse_jobArn = Lens.lens (\AssociateTargetsWithJobResponse' {jobArn} -> jobArn) (\s@AssociateTargetsWithJobResponse' {} a -> s {jobArn = a} :: AssociateTargetsWithJobResponse)
+
+-- | The unique identifier you assigned to this job when it was created.
+associateTargetsWithJobResponse_jobId :: Lens.Lens' AssociateTargetsWithJobResponse (Prelude.Maybe Prelude.Text)
+associateTargetsWithJobResponse_jobId = Lens.lens (\AssociateTargetsWithJobResponse' {jobId} -> jobId) (\s@AssociateTargetsWithJobResponse' {} a -> s {jobId = a} :: AssociateTargetsWithJobResponse)
 
 -- | The response's http status code.
 associateTargetsWithJobResponse_httpStatus :: Lens.Lens' AssociateTargetsWithJobResponse Prelude.Int
@@ -263,7 +263,7 @@ instance
     AssociateTargetsWithJobResponse
   where
   rnf AssociateTargetsWithJobResponse' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf jobArn
+      `Prelude.seq` Prelude.rnf jobId
       `Prelude.seq` Prelude.rnf httpStatus

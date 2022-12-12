@@ -37,9 +37,9 @@ module Amazonka.LexModels.GetSlotTypes
     newGetSlotTypes,
 
     -- * Request Lenses
-    getSlotTypes_nextToken,
-    getSlotTypes_nameContains,
     getSlotTypes_maxResults,
+    getSlotTypes_nameContains,
+    getSlotTypes_nextToken,
 
     -- * Destructuring the Response
     GetSlotTypesResponse (..),
@@ -62,18 +62,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetSlotTypes' smart constructor.
 data GetSlotTypes = GetSlotTypes'
-  { -- | A pagination token that fetches the next page of slot types. If the
-    -- response to this API call is truncated, Amazon Lex returns a pagination
-    -- token in the response. To fetch next page of slot types, specify the
-    -- pagination token in the next request.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The maximum number of slot types to return in the response. The default
+    -- is 10.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Substring to match in slot type names. A slot type will be returned if
     -- any part of its name matches the substring. For example, \"xyz\" matches
     -- both \"xyzabc\" and \"abcxyz.\"
     nameContains :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of slot types to return in the response. The default
-    -- is 10.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    -- | A pagination token that fetches the next page of slot types. If the
+    -- response to this API call is truncated, Amazon Lex returns a pagination
+    -- token in the response. To fetch next page of slot types, specify the
+    -- pagination token in the next request.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,32 +85,30 @@ data GetSlotTypes = GetSlotTypes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getSlotTypes_nextToken' - A pagination token that fetches the next page of slot types. If the
--- response to this API call is truncated, Amazon Lex returns a pagination
--- token in the response. To fetch next page of slot types, specify the
--- pagination token in the next request.
+-- 'maxResults', 'getSlotTypes_maxResults' - The maximum number of slot types to return in the response. The default
+-- is 10.
 --
 -- 'nameContains', 'getSlotTypes_nameContains' - Substring to match in slot type names. A slot type will be returned if
 -- any part of its name matches the substring. For example, \"xyz\" matches
 -- both \"xyzabc\" and \"abcxyz.\"
 --
--- 'maxResults', 'getSlotTypes_maxResults' - The maximum number of slot types to return in the response. The default
--- is 10.
+-- 'nextToken', 'getSlotTypes_nextToken' - A pagination token that fetches the next page of slot types. If the
+-- response to this API call is truncated, Amazon Lex returns a pagination
+-- token in the response. To fetch next page of slot types, specify the
+-- pagination token in the next request.
 newGetSlotTypes ::
   GetSlotTypes
 newGetSlotTypes =
   GetSlotTypes'
-    { nextToken = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
       nameContains = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
 
--- | A pagination token that fetches the next page of slot types. If the
--- response to this API call is truncated, Amazon Lex returns a pagination
--- token in the response. To fetch next page of slot types, specify the
--- pagination token in the next request.
-getSlotTypes_nextToken :: Lens.Lens' GetSlotTypes (Prelude.Maybe Prelude.Text)
-getSlotTypes_nextToken = Lens.lens (\GetSlotTypes' {nextToken} -> nextToken) (\s@GetSlotTypes' {} a -> s {nextToken = a} :: GetSlotTypes)
+-- | The maximum number of slot types to return in the response. The default
+-- is 10.
+getSlotTypes_maxResults :: Lens.Lens' GetSlotTypes (Prelude.Maybe Prelude.Natural)
+getSlotTypes_maxResults = Lens.lens (\GetSlotTypes' {maxResults} -> maxResults) (\s@GetSlotTypes' {} a -> s {maxResults = a} :: GetSlotTypes)
 
 -- | Substring to match in slot type names. A slot type will be returned if
 -- any part of its name matches the substring. For example, \"xyz\" matches
@@ -118,10 +116,12 @@ getSlotTypes_nextToken = Lens.lens (\GetSlotTypes' {nextToken} -> nextToken) (\s
 getSlotTypes_nameContains :: Lens.Lens' GetSlotTypes (Prelude.Maybe Prelude.Text)
 getSlotTypes_nameContains = Lens.lens (\GetSlotTypes' {nameContains} -> nameContains) (\s@GetSlotTypes' {} a -> s {nameContains = a} :: GetSlotTypes)
 
--- | The maximum number of slot types to return in the response. The default
--- is 10.
-getSlotTypes_maxResults :: Lens.Lens' GetSlotTypes (Prelude.Maybe Prelude.Natural)
-getSlotTypes_maxResults = Lens.lens (\GetSlotTypes' {maxResults} -> maxResults) (\s@GetSlotTypes' {} a -> s {maxResults = a} :: GetSlotTypes)
+-- | A pagination token that fetches the next page of slot types. If the
+-- response to this API call is truncated, Amazon Lex returns a pagination
+-- token in the response. To fetch next page of slot types, specify the
+-- pagination token in the next request.
+getSlotTypes_nextToken :: Lens.Lens' GetSlotTypes (Prelude.Maybe Prelude.Text)
+getSlotTypes_nextToken = Lens.lens (\GetSlotTypes' {nextToken} -> nextToken) (\s@GetSlotTypes' {} a -> s {nextToken = a} :: GetSlotTypes)
 
 instance Core.AWSPager GetSlotTypes where
   page rq rs
@@ -157,15 +157,15 @@ instance Core.AWSRequest GetSlotTypes where
 
 instance Prelude.Hashable GetSlotTypes where
   hashWithSalt _salt GetSlotTypes' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nameContains
-      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData GetSlotTypes where
   rnf GetSlotTypes' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders GetSlotTypes where
   toHeaders =
@@ -184,9 +184,9 @@ instance Data.ToPath GetSlotTypes where
 instance Data.ToQuery GetSlotTypes where
   toQuery GetSlotTypes' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
+      [ "maxResults" Data.=: maxResults,
         "nameContains" Data.=: nameContains,
-        "maxResults" Data.=: maxResults
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newGetSlotTypesResponse' smart constructor.

@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTransitGatewayPeering' smart constructor.
 data TransitGatewayPeering = TransitGatewayPeering'
-  { -- | The ARN of the transit gateway.
+  { -- | Describes a transit gateway peer connection.
+    peering :: Prelude.Maybe Peering,
+    -- | The ARN of the transit gateway.
     transitGatewayArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the transit gateway peering attachment.
-    transitGatewayPeeringAttachmentId :: Prelude.Maybe Prelude.Text,
-    -- | Describes a transit gateway peer connection.
-    peering :: Prelude.Maybe Peering
+    transitGatewayPeeringAttachmentId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,20 +46,23 @@ data TransitGatewayPeering = TransitGatewayPeering'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'peering', 'transitGatewayPeering_peering' - Describes a transit gateway peer connection.
+--
 -- 'transitGatewayArn', 'transitGatewayPeering_transitGatewayArn' - The ARN of the transit gateway.
 --
 -- 'transitGatewayPeeringAttachmentId', 'transitGatewayPeering_transitGatewayPeeringAttachmentId' - The ID of the transit gateway peering attachment.
---
--- 'peering', 'transitGatewayPeering_peering' - Describes a transit gateway peer connection.
 newTransitGatewayPeering ::
   TransitGatewayPeering
 newTransitGatewayPeering =
   TransitGatewayPeering'
-    { transitGatewayArn =
-        Prelude.Nothing,
-      transitGatewayPeeringAttachmentId = Prelude.Nothing,
-      peering = Prelude.Nothing
+    { peering = Prelude.Nothing,
+      transitGatewayArn = Prelude.Nothing,
+      transitGatewayPeeringAttachmentId = Prelude.Nothing
     }
+
+-- | Describes a transit gateway peer connection.
+transitGatewayPeering_peering :: Lens.Lens' TransitGatewayPeering (Prelude.Maybe Peering)
+transitGatewayPeering_peering = Lens.lens (\TransitGatewayPeering' {peering} -> peering) (\s@TransitGatewayPeering' {} a -> s {peering = a} :: TransitGatewayPeering)
 
 -- | The ARN of the transit gateway.
 transitGatewayPeering_transitGatewayArn :: Lens.Lens' TransitGatewayPeering (Prelude.Maybe Prelude.Text)
@@ -69,29 +72,25 @@ transitGatewayPeering_transitGatewayArn = Lens.lens (\TransitGatewayPeering' {tr
 transitGatewayPeering_transitGatewayPeeringAttachmentId :: Lens.Lens' TransitGatewayPeering (Prelude.Maybe Prelude.Text)
 transitGatewayPeering_transitGatewayPeeringAttachmentId = Lens.lens (\TransitGatewayPeering' {transitGatewayPeeringAttachmentId} -> transitGatewayPeeringAttachmentId) (\s@TransitGatewayPeering' {} a -> s {transitGatewayPeeringAttachmentId = a} :: TransitGatewayPeering)
 
--- | Describes a transit gateway peer connection.
-transitGatewayPeering_peering :: Lens.Lens' TransitGatewayPeering (Prelude.Maybe Peering)
-transitGatewayPeering_peering = Lens.lens (\TransitGatewayPeering' {peering} -> peering) (\s@TransitGatewayPeering' {} a -> s {peering = a} :: TransitGatewayPeering)
-
 instance Data.FromJSON TransitGatewayPeering where
   parseJSON =
     Data.withObject
       "TransitGatewayPeering"
       ( \x ->
           TransitGatewayPeering'
-            Prelude.<$> (x Data..:? "TransitGatewayArn")
+            Prelude.<$> (x Data..:? "Peering")
+            Prelude.<*> (x Data..:? "TransitGatewayArn")
             Prelude.<*> (x Data..:? "TransitGatewayPeeringAttachmentId")
-            Prelude.<*> (x Data..:? "Peering")
       )
 
 instance Prelude.Hashable TransitGatewayPeering where
   hashWithSalt _salt TransitGatewayPeering' {..} =
-    _salt `Prelude.hashWithSalt` transitGatewayArn
+    _salt `Prelude.hashWithSalt` peering
+      `Prelude.hashWithSalt` transitGatewayArn
       `Prelude.hashWithSalt` transitGatewayPeeringAttachmentId
-      `Prelude.hashWithSalt` peering
 
 instance Prelude.NFData TransitGatewayPeering where
   rnf TransitGatewayPeering' {..} =
-    Prelude.rnf transitGatewayArn
+    Prelude.rnf peering
+      `Prelude.seq` Prelude.rnf transitGatewayArn
       `Prelude.seq` Prelude.rnf transitGatewayPeeringAttachmentId
-      `Prelude.seq` Prelude.rnf peering

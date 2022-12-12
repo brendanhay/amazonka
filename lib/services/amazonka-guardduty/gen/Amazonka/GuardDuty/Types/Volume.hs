@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVolume' smart constructor.
 data Volume = Volume'
-  { -- | Volume name.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Represents a pre-existing file or directory on the host machine that the
+  { -- | Represents a pre-existing file or directory on the host machine that the
     -- volume maps to.
-    hostPath :: Prelude.Maybe HostPath
+    hostPath :: Prelude.Maybe HostPath,
+    -- | Volume name.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,26 +45,26 @@ data Volume = Volume'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'volume_name' - Volume name.
---
 -- 'hostPath', 'volume_hostPath' - Represents a pre-existing file or directory on the host machine that the
 -- volume maps to.
+--
+-- 'name', 'volume_name' - Volume name.
 newVolume ::
   Volume
 newVolume =
   Volume'
-    { name = Prelude.Nothing,
-      hostPath = Prelude.Nothing
+    { hostPath = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | Volume name.
-volume_name :: Lens.Lens' Volume (Prelude.Maybe Prelude.Text)
-volume_name = Lens.lens (\Volume' {name} -> name) (\s@Volume' {} a -> s {name = a} :: Volume)
 
 -- | Represents a pre-existing file or directory on the host machine that the
 -- volume maps to.
 volume_hostPath :: Lens.Lens' Volume (Prelude.Maybe HostPath)
 volume_hostPath = Lens.lens (\Volume' {hostPath} -> hostPath) (\s@Volume' {} a -> s {hostPath = a} :: Volume)
+
+-- | Volume name.
+volume_name :: Lens.Lens' Volume (Prelude.Maybe Prelude.Text)
+volume_name = Lens.lens (\Volume' {name} -> name) (\s@Volume' {} a -> s {name = a} :: Volume)
 
 instance Data.FromJSON Volume where
   parseJSON =
@@ -72,15 +72,15 @@ instance Data.FromJSON Volume where
       "Volume"
       ( \x ->
           Volume'
-            Prelude.<$> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "hostPath")
+            Prelude.<$> (x Data..:? "hostPath")
+            Prelude.<*> (x Data..:? "name")
       )
 
 instance Prelude.Hashable Volume where
   hashWithSalt _salt Volume' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` hostPath
+    _salt `Prelude.hashWithSalt` hostPath
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData Volume where
   rnf Volume' {..} =
-    Prelude.rnf name `Prelude.seq` Prelude.rnf hostPath
+    Prelude.rnf hostPath `Prelude.seq` Prelude.rnf name

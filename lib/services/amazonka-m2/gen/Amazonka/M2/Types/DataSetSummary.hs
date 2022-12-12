@@ -28,17 +28,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDataSetSummary' smart constructor.
 data DataSetSummary = DataSetSummary'
-  { -- | The format of the data set.
-    format :: Prelude.Maybe Prelude.Text,
-    -- | The last time the data set was updated.
-    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
+  { -- | The timestamp when the data set was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The type of data set. Possible values include VSAM, IS, PS, GDG, PO, PS,
     -- or unknown.
     dataSetOrg :: Prelude.Maybe Prelude.Text,
+    -- | The format of the data set.
+    format :: Prelude.Maybe Prelude.Text,
     -- | The last time the data set was referenced.
     lastReferencedTime :: Prelude.Maybe Data.POSIX,
-    -- | The timestamp when the data set was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The last time the data set was updated.
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the data set.
     dataSetName :: Prelude.Text
   }
@@ -52,16 +52,16 @@ data DataSetSummary = DataSetSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'format', 'dataSetSummary_format' - The format of the data set.
---
--- 'lastUpdatedTime', 'dataSetSummary_lastUpdatedTime' - The last time the data set was updated.
+-- 'creationTime', 'dataSetSummary_creationTime' - The timestamp when the data set was created.
 --
 -- 'dataSetOrg', 'dataSetSummary_dataSetOrg' - The type of data set. Possible values include VSAM, IS, PS, GDG, PO, PS,
 -- or unknown.
 --
+-- 'format', 'dataSetSummary_format' - The format of the data set.
+--
 -- 'lastReferencedTime', 'dataSetSummary_lastReferencedTime' - The last time the data set was referenced.
 --
--- 'creationTime', 'dataSetSummary_creationTime' - The timestamp when the data set was created.
+-- 'lastUpdatedTime', 'dataSetSummary_lastUpdatedTime' - The last time the data set was updated.
 --
 -- 'dataSetName', 'dataSetSummary_dataSetName' - The name of the data set.
 newDataSetSummary ::
@@ -70,34 +70,34 @@ newDataSetSummary ::
   DataSetSummary
 newDataSetSummary pDataSetName_ =
   DataSetSummary'
-    { format = Prelude.Nothing,
-      lastUpdatedTime = Prelude.Nothing,
+    { creationTime = Prelude.Nothing,
       dataSetOrg = Prelude.Nothing,
+      format = Prelude.Nothing,
       lastReferencedTime = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
+      lastUpdatedTime = Prelude.Nothing,
       dataSetName = pDataSetName_
     }
 
--- | The format of the data set.
-dataSetSummary_format :: Lens.Lens' DataSetSummary (Prelude.Maybe Prelude.Text)
-dataSetSummary_format = Lens.lens (\DataSetSummary' {format} -> format) (\s@DataSetSummary' {} a -> s {format = a} :: DataSetSummary)
-
--- | The last time the data set was updated.
-dataSetSummary_lastUpdatedTime :: Lens.Lens' DataSetSummary (Prelude.Maybe Prelude.UTCTime)
-dataSetSummary_lastUpdatedTime = Lens.lens (\DataSetSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@DataSetSummary' {} a -> s {lastUpdatedTime = a} :: DataSetSummary) Prelude.. Lens.mapping Data._Time
+-- | The timestamp when the data set was created.
+dataSetSummary_creationTime :: Lens.Lens' DataSetSummary (Prelude.Maybe Prelude.UTCTime)
+dataSetSummary_creationTime = Lens.lens (\DataSetSummary' {creationTime} -> creationTime) (\s@DataSetSummary' {} a -> s {creationTime = a} :: DataSetSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The type of data set. Possible values include VSAM, IS, PS, GDG, PO, PS,
 -- or unknown.
 dataSetSummary_dataSetOrg :: Lens.Lens' DataSetSummary (Prelude.Maybe Prelude.Text)
 dataSetSummary_dataSetOrg = Lens.lens (\DataSetSummary' {dataSetOrg} -> dataSetOrg) (\s@DataSetSummary' {} a -> s {dataSetOrg = a} :: DataSetSummary)
 
+-- | The format of the data set.
+dataSetSummary_format :: Lens.Lens' DataSetSummary (Prelude.Maybe Prelude.Text)
+dataSetSummary_format = Lens.lens (\DataSetSummary' {format} -> format) (\s@DataSetSummary' {} a -> s {format = a} :: DataSetSummary)
+
 -- | The last time the data set was referenced.
 dataSetSummary_lastReferencedTime :: Lens.Lens' DataSetSummary (Prelude.Maybe Prelude.UTCTime)
 dataSetSummary_lastReferencedTime = Lens.lens (\DataSetSummary' {lastReferencedTime} -> lastReferencedTime) (\s@DataSetSummary' {} a -> s {lastReferencedTime = a} :: DataSetSummary) Prelude.. Lens.mapping Data._Time
 
--- | The timestamp when the data set was created.
-dataSetSummary_creationTime :: Lens.Lens' DataSetSummary (Prelude.Maybe Prelude.UTCTime)
-dataSetSummary_creationTime = Lens.lens (\DataSetSummary' {creationTime} -> creationTime) (\s@DataSetSummary' {} a -> s {creationTime = a} :: DataSetSummary) Prelude.. Lens.mapping Data._Time
+-- | The last time the data set was updated.
+dataSetSummary_lastUpdatedTime :: Lens.Lens' DataSetSummary (Prelude.Maybe Prelude.UTCTime)
+dataSetSummary_lastUpdatedTime = Lens.lens (\DataSetSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@DataSetSummary' {} a -> s {lastUpdatedTime = a} :: DataSetSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the data set.
 dataSetSummary_dataSetName :: Lens.Lens' DataSetSummary Prelude.Text
@@ -109,28 +109,28 @@ instance Data.FromJSON DataSetSummary where
       "DataSetSummary"
       ( \x ->
           DataSetSummary'
-            Prelude.<$> (x Data..:? "format")
-            Prelude.<*> (x Data..:? "lastUpdatedTime")
+            Prelude.<$> (x Data..:? "creationTime")
             Prelude.<*> (x Data..:? "dataSetOrg")
+            Prelude.<*> (x Data..:? "format")
             Prelude.<*> (x Data..:? "lastReferencedTime")
-            Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "lastUpdatedTime")
             Prelude.<*> (x Data..: "dataSetName")
       )
 
 instance Prelude.Hashable DataSetSummary where
   hashWithSalt _salt DataSetSummary' {..} =
-    _salt `Prelude.hashWithSalt` format
-      `Prelude.hashWithSalt` lastUpdatedTime
+    _salt `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` dataSetOrg
+      `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` lastReferencedTime
-      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` lastUpdatedTime
       `Prelude.hashWithSalt` dataSetName
 
 instance Prelude.NFData DataSetSummary where
   rnf DataSetSummary' {..} =
-    Prelude.rnf format
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
+    Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf dataSetOrg
+      `Prelude.seq` Prelude.rnf format
       `Prelude.seq` Prelude.rnf lastReferencedTime
-      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
       `Prelude.seq` Prelude.rnf dataSetName

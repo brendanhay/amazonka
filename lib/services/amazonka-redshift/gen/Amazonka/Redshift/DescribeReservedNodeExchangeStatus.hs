@@ -32,9 +32,9 @@ module Amazonka.Redshift.DescribeReservedNodeExchangeStatus
 
     -- * Request Lenses
     describeReservedNodeExchangeStatus_marker,
+    describeReservedNodeExchangeStatus_maxRecords,
     describeReservedNodeExchangeStatus_reservedNodeExchangeRequestId,
     describeReservedNodeExchangeStatus_reservedNodeId,
-    describeReservedNodeExchangeStatus_maxRecords,
 
     -- * Destructuring the Response
     DescribeReservedNodeExchangeStatusResponse (..),
@@ -64,17 +64,17 @@ data DescribeReservedNodeExchangeStatus = DescribeReservedNodeExchangeStatus'
     -- next set of response records by providing the returned marker value in
     -- the @Marker@ parameter and retrying the request.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the reserved-node exchange request.
-    reservedNodeExchangeRequestId :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the source reserved node in a reserved-node exchange
-    -- request.
-    reservedNodeId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @Marker@ field of the response. You can
     -- retrieve the next set of records by retrying the command with the
     -- returned marker value.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | The identifier of the reserved-node exchange request.
+    reservedNodeExchangeRequestId :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the source reserved node in a reserved-node exchange
+    -- request.
+    reservedNodeId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -93,26 +93,26 @@ data DescribeReservedNodeExchangeStatus = DescribeReservedNodeExchangeStatus'
 -- next set of response records by providing the returned marker value in
 -- the @Marker@ parameter and retrying the request.
 --
--- 'reservedNodeExchangeRequestId', 'describeReservedNodeExchangeStatus_reservedNodeExchangeRequestId' - The identifier of the reserved-node exchange request.
---
--- 'reservedNodeId', 'describeReservedNodeExchangeStatus_reservedNodeId' - The identifier of the source reserved node in a reserved-node exchange
--- request.
---
 -- 'maxRecords', 'describeReservedNodeExchangeStatus_maxRecords' - The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
 -- value, a value is returned in a @Marker@ field of the response. You can
 -- retrieve the next set of records by retrying the command with the
 -- returned marker value.
+--
+-- 'reservedNodeExchangeRequestId', 'describeReservedNodeExchangeStatus_reservedNodeExchangeRequestId' - The identifier of the reserved-node exchange request.
+--
+-- 'reservedNodeId', 'describeReservedNodeExchangeStatus_reservedNodeId' - The identifier of the source reserved node in a reserved-node exchange
+-- request.
 newDescribeReservedNodeExchangeStatus ::
   DescribeReservedNodeExchangeStatus
 newDescribeReservedNodeExchangeStatus =
   DescribeReservedNodeExchangeStatus'
     { marker =
         Prelude.Nothing,
+      maxRecords = Prelude.Nothing,
       reservedNodeExchangeRequestId =
         Prelude.Nothing,
-      reservedNodeId = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      reservedNodeId = Prelude.Nothing
     }
 
 -- | An optional pagination token provided by a previous
@@ -124,6 +124,14 @@ newDescribeReservedNodeExchangeStatus =
 describeReservedNodeExchangeStatus_marker :: Lens.Lens' DescribeReservedNodeExchangeStatus (Prelude.Maybe Prelude.Text)
 describeReservedNodeExchangeStatus_marker = Lens.lens (\DescribeReservedNodeExchangeStatus' {marker} -> marker) (\s@DescribeReservedNodeExchangeStatus' {} a -> s {marker = a} :: DescribeReservedNodeExchangeStatus)
 
+-- | The maximum number of response records to return in each call. If the
+-- number of remaining response records exceeds the specified @MaxRecords@
+-- value, a value is returned in a @Marker@ field of the response. You can
+-- retrieve the next set of records by retrying the command with the
+-- returned marker value.
+describeReservedNodeExchangeStatus_maxRecords :: Lens.Lens' DescribeReservedNodeExchangeStatus (Prelude.Maybe Prelude.Int)
+describeReservedNodeExchangeStatus_maxRecords = Lens.lens (\DescribeReservedNodeExchangeStatus' {maxRecords} -> maxRecords) (\s@DescribeReservedNodeExchangeStatus' {} a -> s {maxRecords = a} :: DescribeReservedNodeExchangeStatus)
+
 -- | The identifier of the reserved-node exchange request.
 describeReservedNodeExchangeStatus_reservedNodeExchangeRequestId :: Lens.Lens' DescribeReservedNodeExchangeStatus (Prelude.Maybe Prelude.Text)
 describeReservedNodeExchangeStatus_reservedNodeExchangeRequestId = Lens.lens (\DescribeReservedNodeExchangeStatus' {reservedNodeExchangeRequestId} -> reservedNodeExchangeRequestId) (\s@DescribeReservedNodeExchangeStatus' {} a -> s {reservedNodeExchangeRequestId = a} :: DescribeReservedNodeExchangeStatus)
@@ -132,14 +140,6 @@ describeReservedNodeExchangeStatus_reservedNodeExchangeRequestId = Lens.lens (\D
 -- request.
 describeReservedNodeExchangeStatus_reservedNodeId :: Lens.Lens' DescribeReservedNodeExchangeStatus (Prelude.Maybe Prelude.Text)
 describeReservedNodeExchangeStatus_reservedNodeId = Lens.lens (\DescribeReservedNodeExchangeStatus' {reservedNodeId} -> reservedNodeId) (\s@DescribeReservedNodeExchangeStatus' {} a -> s {reservedNodeId = a} :: DescribeReservedNodeExchangeStatus)
-
--- | The maximum number of response records to return in each call. If the
--- number of remaining response records exceeds the specified @MaxRecords@
--- value, a value is returned in a @Marker@ field of the response. You can
--- retrieve the next set of records by retrying the command with the
--- returned marker value.
-describeReservedNodeExchangeStatus_maxRecords :: Lens.Lens' DescribeReservedNodeExchangeStatus (Prelude.Maybe Prelude.Int)
-describeReservedNodeExchangeStatus_maxRecords = Lens.lens (\DescribeReservedNodeExchangeStatus' {maxRecords} -> maxRecords) (\s@DescribeReservedNodeExchangeStatus' {} a -> s {maxRecords = a} :: DescribeReservedNodeExchangeStatus)
 
 instance
   Core.AWSPager
@@ -197,9 +197,9 @@ instance
     _salt
     DescribeReservedNodeExchangeStatus' {..} =
       _salt `Prelude.hashWithSalt` marker
+        `Prelude.hashWithSalt` maxRecords
         `Prelude.hashWithSalt` reservedNodeExchangeRequestId
         `Prelude.hashWithSalt` reservedNodeId
-        `Prelude.hashWithSalt` maxRecords
 
 instance
   Prelude.NFData
@@ -207,9 +207,9 @@ instance
   where
   rnf DescribeReservedNodeExchangeStatus' {..} =
     Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf reservedNodeExchangeRequestId
       `Prelude.seq` Prelude.rnf reservedNodeId
-      `Prelude.seq` Prelude.rnf maxRecords
 
 instance
   Data.ToHeaders
@@ -236,10 +236,10 @@ instance
         "Version"
           Data.=: ("2012-12-01" :: Prelude.ByteString),
         "Marker" Data.=: marker,
+        "MaxRecords" Data.=: maxRecords,
         "ReservedNodeExchangeRequestId"
           Data.=: reservedNodeExchangeRequestId,
-        "ReservedNodeId" Data.=: reservedNodeId,
-        "MaxRecords" Data.=: maxRecords
+        "ReservedNodeId" Data.=: reservedNodeId
       ]
 
 -- | /See:/ 'newDescribeReservedNodeExchangeStatusResponse' smart constructor.

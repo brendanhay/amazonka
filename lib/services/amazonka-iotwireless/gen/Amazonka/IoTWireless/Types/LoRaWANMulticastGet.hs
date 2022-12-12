@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLoRaWANMulticastGet' smart constructor.
 data LoRaWANMulticastGet = LoRaWANMulticastGet'
-  { rfRegion :: Prelude.Maybe SupportedRfRegion,
+  { dlClass :: Prelude.Maybe DlClass,
     numberOfDevicesInGroup :: Prelude.Maybe Prelude.Int,
-    dlClass :: Prelude.Maybe DlClass,
-    numberOfDevicesRequested :: Prelude.Maybe Prelude.Int
+    numberOfDevicesRequested :: Prelude.Maybe Prelude.Int,
+    rfRegion :: Prelude.Maybe SupportedRfRegion
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,38 +46,38 @@ data LoRaWANMulticastGet = LoRaWANMulticastGet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'rfRegion', 'loRaWANMulticastGet_rfRegion' - Undocumented member.
+-- 'dlClass', 'loRaWANMulticastGet_dlClass' - Undocumented member.
 --
 -- 'numberOfDevicesInGroup', 'loRaWANMulticastGet_numberOfDevicesInGroup' - Undocumented member.
 --
--- 'dlClass', 'loRaWANMulticastGet_dlClass' - Undocumented member.
---
 -- 'numberOfDevicesRequested', 'loRaWANMulticastGet_numberOfDevicesRequested' - Undocumented member.
+--
+-- 'rfRegion', 'loRaWANMulticastGet_rfRegion' - Undocumented member.
 newLoRaWANMulticastGet ::
   LoRaWANMulticastGet
 newLoRaWANMulticastGet =
   LoRaWANMulticastGet'
-    { rfRegion = Prelude.Nothing,
+    { dlClass = Prelude.Nothing,
       numberOfDevicesInGroup = Prelude.Nothing,
-      dlClass = Prelude.Nothing,
-      numberOfDevicesRequested = Prelude.Nothing
+      numberOfDevicesRequested = Prelude.Nothing,
+      rfRegion = Prelude.Nothing
     }
-
--- | Undocumented member.
-loRaWANMulticastGet_rfRegion :: Lens.Lens' LoRaWANMulticastGet (Prelude.Maybe SupportedRfRegion)
-loRaWANMulticastGet_rfRegion = Lens.lens (\LoRaWANMulticastGet' {rfRegion} -> rfRegion) (\s@LoRaWANMulticastGet' {} a -> s {rfRegion = a} :: LoRaWANMulticastGet)
-
--- | Undocumented member.
-loRaWANMulticastGet_numberOfDevicesInGroup :: Lens.Lens' LoRaWANMulticastGet (Prelude.Maybe Prelude.Int)
-loRaWANMulticastGet_numberOfDevicesInGroup = Lens.lens (\LoRaWANMulticastGet' {numberOfDevicesInGroup} -> numberOfDevicesInGroup) (\s@LoRaWANMulticastGet' {} a -> s {numberOfDevicesInGroup = a} :: LoRaWANMulticastGet)
 
 -- | Undocumented member.
 loRaWANMulticastGet_dlClass :: Lens.Lens' LoRaWANMulticastGet (Prelude.Maybe DlClass)
 loRaWANMulticastGet_dlClass = Lens.lens (\LoRaWANMulticastGet' {dlClass} -> dlClass) (\s@LoRaWANMulticastGet' {} a -> s {dlClass = a} :: LoRaWANMulticastGet)
 
 -- | Undocumented member.
+loRaWANMulticastGet_numberOfDevicesInGroup :: Lens.Lens' LoRaWANMulticastGet (Prelude.Maybe Prelude.Int)
+loRaWANMulticastGet_numberOfDevicesInGroup = Lens.lens (\LoRaWANMulticastGet' {numberOfDevicesInGroup} -> numberOfDevicesInGroup) (\s@LoRaWANMulticastGet' {} a -> s {numberOfDevicesInGroup = a} :: LoRaWANMulticastGet)
+
+-- | Undocumented member.
 loRaWANMulticastGet_numberOfDevicesRequested :: Lens.Lens' LoRaWANMulticastGet (Prelude.Maybe Prelude.Int)
 loRaWANMulticastGet_numberOfDevicesRequested = Lens.lens (\LoRaWANMulticastGet' {numberOfDevicesRequested} -> numberOfDevicesRequested) (\s@LoRaWANMulticastGet' {} a -> s {numberOfDevicesRequested = a} :: LoRaWANMulticastGet)
+
+-- | Undocumented member.
+loRaWANMulticastGet_rfRegion :: Lens.Lens' LoRaWANMulticastGet (Prelude.Maybe SupportedRfRegion)
+loRaWANMulticastGet_rfRegion = Lens.lens (\LoRaWANMulticastGet' {rfRegion} -> rfRegion) (\s@LoRaWANMulticastGet' {} a -> s {rfRegion = a} :: LoRaWANMulticastGet)
 
 instance Data.FromJSON LoRaWANMulticastGet where
   parseJSON =
@@ -85,22 +85,22 @@ instance Data.FromJSON LoRaWANMulticastGet where
       "LoRaWANMulticastGet"
       ( \x ->
           LoRaWANMulticastGet'
-            Prelude.<$> (x Data..:? "RfRegion")
+            Prelude.<$> (x Data..:? "DlClass")
             Prelude.<*> (x Data..:? "NumberOfDevicesInGroup")
-            Prelude.<*> (x Data..:? "DlClass")
             Prelude.<*> (x Data..:? "NumberOfDevicesRequested")
+            Prelude.<*> (x Data..:? "RfRegion")
       )
 
 instance Prelude.Hashable LoRaWANMulticastGet where
   hashWithSalt _salt LoRaWANMulticastGet' {..} =
-    _salt `Prelude.hashWithSalt` rfRegion
+    _salt `Prelude.hashWithSalt` dlClass
       `Prelude.hashWithSalt` numberOfDevicesInGroup
-      `Prelude.hashWithSalt` dlClass
       `Prelude.hashWithSalt` numberOfDevicesRequested
+      `Prelude.hashWithSalt` rfRegion
 
 instance Prelude.NFData LoRaWANMulticastGet where
   rnf LoRaWANMulticastGet' {..} =
-    Prelude.rnf rfRegion
+    Prelude.rnf dlClass
       `Prelude.seq` Prelude.rnf numberOfDevicesInGroup
-      `Prelude.seq` Prelude.rnf dlClass
       `Prelude.seq` Prelude.rnf numberOfDevicesRequested
+      `Prelude.seq` Prelude.rnf rfRegion

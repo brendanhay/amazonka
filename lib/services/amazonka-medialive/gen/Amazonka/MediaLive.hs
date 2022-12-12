@@ -19,44 +19,50 @@ module Amazonka.MediaLive
     -- * Errors
     -- $errors
 
-    -- ** NotFoundException
-    _NotFoundException,
-
-    -- ** InternalServerErrorException
-    _InternalServerErrorException,
-
-    -- ** UnprocessableEntityException
-    _UnprocessableEntityException,
-
-    -- ** ForbiddenException
-    _ForbiddenException,
-
-    -- ** ConflictException
-    _ConflictException,
-
     -- ** BadGatewayException
     _BadGatewayException,
 
     -- ** BadRequestException
     _BadRequestException,
 
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ForbiddenException
+    _ForbiddenException,
+
     -- ** GatewayTimeoutException
     _GatewayTimeoutException,
+
+    -- ** InternalServerErrorException
+    _InternalServerErrorException,
+
+    -- ** NotFoundException
+    _NotFoundException,
 
     -- ** TooManyRequestsException
     _TooManyRequestsException,
 
+    -- ** UnprocessableEntityException
+    _UnprocessableEntityException,
+
     -- * Waiters
     -- $waiters
+
+    -- ** ChannelCreated
+    newChannelCreated,
 
     -- ** ChannelDeleted
     newChannelDeleted,
 
-    -- ** MultiplexDeleted
-    newMultiplexDeleted,
+    -- ** ChannelRunning
+    newChannelRunning,
 
-    -- ** ChannelCreated
-    newChannelCreated,
+    -- ** ChannelStopped
+    newChannelStopped,
+
+    -- ** InputAttached
+    newInputAttached,
 
     -- ** InputDeleted
     newInputDeleted,
@@ -64,23 +70,17 @@ module Amazonka.MediaLive
     -- ** InputDetached
     newInputDetached,
 
-    -- ** MultiplexStopped
-    newMultiplexStopped,
+    -- ** MultiplexCreated
+    newMultiplexCreated,
 
-    -- ** ChannelRunning
-    newChannelRunning,
+    -- ** MultiplexDeleted
+    newMultiplexDeleted,
 
     -- ** MultiplexRunning
     newMultiplexRunning,
 
-    -- ** MultiplexCreated
-    newMultiplexCreated,
-
-    -- ** ChannelStopped
-    newChannelStopped,
-
-    -- ** InputAttached
-    newInputAttached,
+    -- ** MultiplexStopped
+    newMultiplexStopped,
 
     -- * Operations
     -- $operations

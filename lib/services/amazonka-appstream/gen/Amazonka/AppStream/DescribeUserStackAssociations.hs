@@ -35,11 +35,11 @@ module Amazonka.AppStream.DescribeUserStackAssociations
     newDescribeUserStackAssociations,
 
     -- * Request Lenses
-    describeUserStackAssociations_nextToken,
     describeUserStackAssociations_authenticationType,
-    describeUserStackAssociations_userName,
-    describeUserStackAssociations_stackName,
     describeUserStackAssociations_maxResults,
+    describeUserStackAssociations_nextToken,
+    describeUserStackAssociations_stackName,
+    describeUserStackAssociations_userName,
 
     -- * Destructuring the Response
     DescribeUserStackAssociationsResponse (..),
@@ -62,20 +62,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeUserStackAssociations' smart constructor.
 data DescribeUserStackAssociations = DescribeUserStackAssociations'
-  { -- | The pagination token to use to retrieve the next page of results for
-    -- this operation. If this value is null, it retrieves the first page.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The authentication type for the user who is associated with the stack.
+  { -- | The authentication type for the user who is associated with the stack.
     -- You must specify USERPOOL.
     authenticationType :: Prelude.Maybe AuthenticationType,
+    -- | The maximum size of each page of results.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token to use to retrieve the next page of results for
+    -- this operation. If this value is null, it retrieves the first page.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The name of the stack that is associated with the user.
+    stackName :: Prelude.Maybe Prelude.Text,
     -- | The email address of the user who is associated with the stack.
     --
     -- Users\' email addresses are case-sensitive.
-    userName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The name of the stack that is associated with the user.
-    stackName :: Prelude.Maybe Prelude.Text,
-    -- | The maximum size of each page of results.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    userName :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -87,54 +87,54 @@ data DescribeUserStackAssociations = DescribeUserStackAssociations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'authenticationType', 'describeUserStackAssociations_authenticationType' - The authentication type for the user who is associated with the stack.
+-- You must specify USERPOOL.
+--
+-- 'maxResults', 'describeUserStackAssociations_maxResults' - The maximum size of each page of results.
+--
 -- 'nextToken', 'describeUserStackAssociations_nextToken' - The pagination token to use to retrieve the next page of results for
 -- this operation. If this value is null, it retrieves the first page.
 --
--- 'authenticationType', 'describeUserStackAssociations_authenticationType' - The authentication type for the user who is associated with the stack.
--- You must specify USERPOOL.
+-- 'stackName', 'describeUserStackAssociations_stackName' - The name of the stack that is associated with the user.
 --
 -- 'userName', 'describeUserStackAssociations_userName' - The email address of the user who is associated with the stack.
 --
 -- Users\' email addresses are case-sensitive.
---
--- 'stackName', 'describeUserStackAssociations_stackName' - The name of the stack that is associated with the user.
---
--- 'maxResults', 'describeUserStackAssociations_maxResults' - The maximum size of each page of results.
 newDescribeUserStackAssociations ::
   DescribeUserStackAssociations
 newDescribeUserStackAssociations =
   DescribeUserStackAssociations'
-    { nextToken =
+    { authenticationType =
         Prelude.Nothing,
-      authenticationType = Prelude.Nothing,
-      userName = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       stackName = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      userName = Prelude.Nothing
     }
-
--- | The pagination token to use to retrieve the next page of results for
--- this operation. If this value is null, it retrieves the first page.
-describeUserStackAssociations_nextToken :: Lens.Lens' DescribeUserStackAssociations (Prelude.Maybe Prelude.Text)
-describeUserStackAssociations_nextToken = Lens.lens (\DescribeUserStackAssociations' {nextToken} -> nextToken) (\s@DescribeUserStackAssociations' {} a -> s {nextToken = a} :: DescribeUserStackAssociations)
 
 -- | The authentication type for the user who is associated with the stack.
 -- You must specify USERPOOL.
 describeUserStackAssociations_authenticationType :: Lens.Lens' DescribeUserStackAssociations (Prelude.Maybe AuthenticationType)
 describeUserStackAssociations_authenticationType = Lens.lens (\DescribeUserStackAssociations' {authenticationType} -> authenticationType) (\s@DescribeUserStackAssociations' {} a -> s {authenticationType = a} :: DescribeUserStackAssociations)
 
--- | The email address of the user who is associated with the stack.
---
--- Users\' email addresses are case-sensitive.
-describeUserStackAssociations_userName :: Lens.Lens' DescribeUserStackAssociations (Prelude.Maybe Prelude.Text)
-describeUserStackAssociations_userName = Lens.lens (\DescribeUserStackAssociations' {userName} -> userName) (\s@DescribeUserStackAssociations' {} a -> s {userName = a} :: DescribeUserStackAssociations) Prelude.. Lens.mapping Data._Sensitive
+-- | The maximum size of each page of results.
+describeUserStackAssociations_maxResults :: Lens.Lens' DescribeUserStackAssociations (Prelude.Maybe Prelude.Natural)
+describeUserStackAssociations_maxResults = Lens.lens (\DescribeUserStackAssociations' {maxResults} -> maxResults) (\s@DescribeUserStackAssociations' {} a -> s {maxResults = a} :: DescribeUserStackAssociations)
+
+-- | The pagination token to use to retrieve the next page of results for
+-- this operation. If this value is null, it retrieves the first page.
+describeUserStackAssociations_nextToken :: Lens.Lens' DescribeUserStackAssociations (Prelude.Maybe Prelude.Text)
+describeUserStackAssociations_nextToken = Lens.lens (\DescribeUserStackAssociations' {nextToken} -> nextToken) (\s@DescribeUserStackAssociations' {} a -> s {nextToken = a} :: DescribeUserStackAssociations)
 
 -- | The name of the stack that is associated with the user.
 describeUserStackAssociations_stackName :: Lens.Lens' DescribeUserStackAssociations (Prelude.Maybe Prelude.Text)
 describeUserStackAssociations_stackName = Lens.lens (\DescribeUserStackAssociations' {stackName} -> stackName) (\s@DescribeUserStackAssociations' {} a -> s {stackName = a} :: DescribeUserStackAssociations)
 
--- | The maximum size of each page of results.
-describeUserStackAssociations_maxResults :: Lens.Lens' DescribeUserStackAssociations (Prelude.Maybe Prelude.Natural)
-describeUserStackAssociations_maxResults = Lens.lens (\DescribeUserStackAssociations' {maxResults} -> maxResults) (\s@DescribeUserStackAssociations' {} a -> s {maxResults = a} :: DescribeUserStackAssociations)
+-- | The email address of the user who is associated with the stack.
+--
+-- Users\' email addresses are case-sensitive.
+describeUserStackAssociations_userName :: Lens.Lens' DescribeUserStackAssociations (Prelude.Maybe Prelude.Text)
+describeUserStackAssociations_userName = Lens.lens (\DescribeUserStackAssociations' {userName} -> userName) (\s@DescribeUserStackAssociations' {} a -> s {userName = a} :: DescribeUserStackAssociations) Prelude.. Lens.mapping Data._Sensitive
 
 instance Core.AWSPager DescribeUserStackAssociations where
   page rq rs
@@ -182,19 +182,19 @@ instance
     DescribeUserStackAssociations
   where
   hashWithSalt _salt DescribeUserStackAssociations' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` authenticationType
-      `Prelude.hashWithSalt` userName
-      `Prelude.hashWithSalt` stackName
+    _salt `Prelude.hashWithSalt` authenticationType
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` stackName
+      `Prelude.hashWithSalt` userName
 
 instance Prelude.NFData DescribeUserStackAssociations where
   rnf DescribeUserStackAssociations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf authenticationType
-      `Prelude.seq` Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf stackName
+    Prelude.rnf authenticationType
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf stackName
+      `Prelude.seq` Prelude.rnf userName
 
 instance Data.ToHeaders DescribeUserStackAssociations where
   toHeaders =
@@ -215,12 +215,12 @@ instance Data.ToJSON DescribeUserStackAssociations where
   toJSON DescribeUserStackAssociations' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("AuthenticationType" Data..=)
+          [ ("AuthenticationType" Data..=)
               Prelude.<$> authenticationType,
-            ("UserName" Data..=) Prelude.<$> userName,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("StackName" Data..=) Prelude.<$> stackName,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+            ("UserName" Data..=) Prelude.<$> userName
           ]
       )
 

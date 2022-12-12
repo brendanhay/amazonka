@@ -40,8 +40,8 @@ module Amazonka.ElasticTranscoder.ListJobsByStatus
     newListJobsByStatusResponse,
 
     -- * Response Lenses
-    listJobsByStatusResponse_nextPageToken,
     listJobsByStatusResponse_jobs,
+    listJobsByStatusResponse_nextPageToken,
     listJobsByStatusResponse_httpStatus,
   )
 where
@@ -152,8 +152,8 @@ instance Core.AWSRequest ListJobsByStatus where
     Response.receiveJSON
       ( \s h x ->
           ListJobsByStatusResponse'
-            Prelude.<$> (x Data..?> "NextPageToken")
-            Prelude.<*> (x Data..?> "Jobs" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Jobs" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -188,13 +188,13 @@ instance Data.ToQuery ListJobsByStatus where
 --
 -- /See:/ 'newListJobsByStatusResponse' smart constructor.
 data ListJobsByStatusResponse = ListJobsByStatusResponse'
-  { -- | A value that you use to access the second and subsequent pages of
+  { -- | An array of @Job@ objects that have the specified status.
+    jobs :: Prelude.Maybe [Job],
+    -- | A value that you use to access the second and subsequent pages of
     -- results, if any. When the jobs in the specified pipeline fit on one page
     -- or when you\'ve reached the last page of results, the value of
     -- @NextPageToken@ is @null@.
     nextPageToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of @Job@ objects that have the specified status.
-    jobs :: Prelude.Maybe [Job],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -208,12 +208,12 @@ data ListJobsByStatusResponse = ListJobsByStatusResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'jobs', 'listJobsByStatusResponse_jobs' - An array of @Job@ objects that have the specified status.
+--
 -- 'nextPageToken', 'listJobsByStatusResponse_nextPageToken' - A value that you use to access the second and subsequent pages of
 -- results, if any. When the jobs in the specified pipeline fit on one page
 -- or when you\'ve reached the last page of results, the value of
 -- @NextPageToken@ is @null@.
---
--- 'jobs', 'listJobsByStatusResponse_jobs' - An array of @Job@ objects that have the specified status.
 --
 -- 'httpStatus', 'listJobsByStatusResponse_httpStatus' - The response's http status code.
 newListJobsByStatusResponse ::
@@ -222,11 +222,14 @@ newListJobsByStatusResponse ::
   ListJobsByStatusResponse
 newListJobsByStatusResponse pHttpStatus_ =
   ListJobsByStatusResponse'
-    { nextPageToken =
-        Prelude.Nothing,
-      jobs = Prelude.Nothing,
+    { jobs = Prelude.Nothing,
+      nextPageToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array of @Job@ objects that have the specified status.
+listJobsByStatusResponse_jobs :: Lens.Lens' ListJobsByStatusResponse (Prelude.Maybe [Job])
+listJobsByStatusResponse_jobs = Lens.lens (\ListJobsByStatusResponse' {jobs} -> jobs) (\s@ListJobsByStatusResponse' {} a -> s {jobs = a} :: ListJobsByStatusResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A value that you use to access the second and subsequent pages of
 -- results, if any. When the jobs in the specified pipeline fit on one page
@@ -235,16 +238,12 @@ newListJobsByStatusResponse pHttpStatus_ =
 listJobsByStatusResponse_nextPageToken :: Lens.Lens' ListJobsByStatusResponse (Prelude.Maybe Prelude.Text)
 listJobsByStatusResponse_nextPageToken = Lens.lens (\ListJobsByStatusResponse' {nextPageToken} -> nextPageToken) (\s@ListJobsByStatusResponse' {} a -> s {nextPageToken = a} :: ListJobsByStatusResponse)
 
--- | An array of @Job@ objects that have the specified status.
-listJobsByStatusResponse_jobs :: Lens.Lens' ListJobsByStatusResponse (Prelude.Maybe [Job])
-listJobsByStatusResponse_jobs = Lens.lens (\ListJobsByStatusResponse' {jobs} -> jobs) (\s@ListJobsByStatusResponse' {} a -> s {jobs = a} :: ListJobsByStatusResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listJobsByStatusResponse_httpStatus :: Lens.Lens' ListJobsByStatusResponse Prelude.Int
 listJobsByStatusResponse_httpStatus = Lens.lens (\ListJobsByStatusResponse' {httpStatus} -> httpStatus) (\s@ListJobsByStatusResponse' {} a -> s {httpStatus = a} :: ListJobsByStatusResponse)
 
 instance Prelude.NFData ListJobsByStatusResponse where
   rnf ListJobsByStatusResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf jobs
+    Prelude.rnf jobs
+      `Prelude.seq` Prelude.rnf nextPageToken
       `Prelude.seq` Prelude.rnf httpStatus

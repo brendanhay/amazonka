@@ -32,12 +32,12 @@ module Amazonka.EMR.ListInstances
     newListInstances,
 
     -- * Request Lenses
-    listInstances_marker,
     listInstances_instanceFleetId,
     listInstances_instanceFleetType,
-    listInstances_instanceGroupTypes,
     listInstances_instanceGroupId,
+    listInstances_instanceGroupTypes,
     listInstances_instanceStates,
+    listInstances_marker,
     listInstances_clusterId,
 
     -- * Destructuring the Response
@@ -63,19 +63,19 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListInstances' smart constructor.
 data ListInstances = ListInstances'
-  { -- | The pagination token that indicates the next set of results to retrieve.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier of the instance fleet.
+  { -- | The unique identifier of the instance fleet.
     instanceFleetId :: Prelude.Maybe Prelude.Text,
     -- | The node type of the instance fleet. For example MASTER, CORE, or TASK.
     instanceFleetType :: Prelude.Maybe InstanceFleetType,
-    -- | The type of instance group for which to list the instances.
-    instanceGroupTypes :: Prelude.Maybe [InstanceGroupType],
     -- | The identifier of the instance group for which to list the instances.
     instanceGroupId :: Prelude.Maybe Prelude.Text,
+    -- | The type of instance group for which to list the instances.
+    instanceGroupTypes :: Prelude.Maybe [InstanceGroupType],
     -- | A list of instance states that will filter the instances returned with
     -- this request.
     instanceStates :: Prelude.Maybe [InstanceState],
+    -- | The pagination token that indicates the next set of results to retrieve.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the cluster for which to list the instances.
     clusterId :: Prelude.Text
   }
@@ -89,18 +89,18 @@ data ListInstances = ListInstances'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'marker', 'listInstances_marker' - The pagination token that indicates the next set of results to retrieve.
---
 -- 'instanceFleetId', 'listInstances_instanceFleetId' - The unique identifier of the instance fleet.
 --
 -- 'instanceFleetType', 'listInstances_instanceFleetType' - The node type of the instance fleet. For example MASTER, CORE, or TASK.
 --
--- 'instanceGroupTypes', 'listInstances_instanceGroupTypes' - The type of instance group for which to list the instances.
---
 -- 'instanceGroupId', 'listInstances_instanceGroupId' - The identifier of the instance group for which to list the instances.
+--
+-- 'instanceGroupTypes', 'listInstances_instanceGroupTypes' - The type of instance group for which to list the instances.
 --
 -- 'instanceStates', 'listInstances_instanceStates' - A list of instance states that will filter the instances returned with
 -- this request.
+--
+-- 'marker', 'listInstances_marker' - The pagination token that indicates the next set of results to retrieve.
 --
 -- 'clusterId', 'listInstances_clusterId' - The identifier of the cluster for which to list the instances.
 newListInstances ::
@@ -109,18 +109,14 @@ newListInstances ::
   ListInstances
 newListInstances pClusterId_ =
   ListInstances'
-    { marker = Prelude.Nothing,
-      instanceFleetId = Prelude.Nothing,
+    { instanceFleetId = Prelude.Nothing,
       instanceFleetType = Prelude.Nothing,
-      instanceGroupTypes = Prelude.Nothing,
       instanceGroupId = Prelude.Nothing,
+      instanceGroupTypes = Prelude.Nothing,
       instanceStates = Prelude.Nothing,
+      marker = Prelude.Nothing,
       clusterId = pClusterId_
     }
-
--- | The pagination token that indicates the next set of results to retrieve.
-listInstances_marker :: Lens.Lens' ListInstances (Prelude.Maybe Prelude.Text)
-listInstances_marker = Lens.lens (\ListInstances' {marker} -> marker) (\s@ListInstances' {} a -> s {marker = a} :: ListInstances)
 
 -- | The unique identifier of the instance fleet.
 listInstances_instanceFleetId :: Lens.Lens' ListInstances (Prelude.Maybe Prelude.Text)
@@ -130,18 +126,22 @@ listInstances_instanceFleetId = Lens.lens (\ListInstances' {instanceFleetId} -> 
 listInstances_instanceFleetType :: Lens.Lens' ListInstances (Prelude.Maybe InstanceFleetType)
 listInstances_instanceFleetType = Lens.lens (\ListInstances' {instanceFleetType} -> instanceFleetType) (\s@ListInstances' {} a -> s {instanceFleetType = a} :: ListInstances)
 
--- | The type of instance group for which to list the instances.
-listInstances_instanceGroupTypes :: Lens.Lens' ListInstances (Prelude.Maybe [InstanceGroupType])
-listInstances_instanceGroupTypes = Lens.lens (\ListInstances' {instanceGroupTypes} -> instanceGroupTypes) (\s@ListInstances' {} a -> s {instanceGroupTypes = a} :: ListInstances) Prelude.. Lens.mapping Lens.coerced
-
 -- | The identifier of the instance group for which to list the instances.
 listInstances_instanceGroupId :: Lens.Lens' ListInstances (Prelude.Maybe Prelude.Text)
 listInstances_instanceGroupId = Lens.lens (\ListInstances' {instanceGroupId} -> instanceGroupId) (\s@ListInstances' {} a -> s {instanceGroupId = a} :: ListInstances)
+
+-- | The type of instance group for which to list the instances.
+listInstances_instanceGroupTypes :: Lens.Lens' ListInstances (Prelude.Maybe [InstanceGroupType])
+listInstances_instanceGroupTypes = Lens.lens (\ListInstances' {instanceGroupTypes} -> instanceGroupTypes) (\s@ListInstances' {} a -> s {instanceGroupTypes = a} :: ListInstances) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of instance states that will filter the instances returned with
 -- this request.
 listInstances_instanceStates :: Lens.Lens' ListInstances (Prelude.Maybe [InstanceState])
 listInstances_instanceStates = Lens.lens (\ListInstances' {instanceStates} -> instanceStates) (\s@ListInstances' {} a -> s {instanceStates = a} :: ListInstances) Prelude.. Lens.mapping Lens.coerced
+
+-- | The pagination token that indicates the next set of results to retrieve.
+listInstances_marker :: Lens.Lens' ListInstances (Prelude.Maybe Prelude.Text)
+listInstances_marker = Lens.lens (\ListInstances' {marker} -> marker) (\s@ListInstances' {} a -> s {marker = a} :: ListInstances)
 
 -- | The identifier of the cluster for which to list the instances.
 listInstances_clusterId :: Lens.Lens' ListInstances Prelude.Text
@@ -183,22 +183,22 @@ instance Core.AWSRequest ListInstances where
 
 instance Prelude.Hashable ListInstances where
   hashWithSalt _salt ListInstances' {..} =
-    _salt `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` instanceFleetId
+    _salt `Prelude.hashWithSalt` instanceFleetId
       `Prelude.hashWithSalt` instanceFleetType
-      `Prelude.hashWithSalt` instanceGroupTypes
       `Prelude.hashWithSalt` instanceGroupId
+      `Prelude.hashWithSalt` instanceGroupTypes
       `Prelude.hashWithSalt` instanceStates
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` clusterId
 
 instance Prelude.NFData ListInstances where
   rnf ListInstances' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf instanceFleetId
+    Prelude.rnf instanceFleetId
       `Prelude.seq` Prelude.rnf instanceFleetType
-      `Prelude.seq` Prelude.rnf instanceGroupTypes
       `Prelude.seq` Prelude.rnf instanceGroupId
+      `Prelude.seq` Prelude.rnf instanceGroupTypes
       `Prelude.seq` Prelude.rnf instanceStates
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf clusterId
 
 instance Data.ToHeaders ListInstances where
@@ -220,17 +220,17 @@ instance Data.ToJSON ListInstances where
   toJSON ListInstances' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Data..=) Prelude.<$> marker,
-            ("InstanceFleetId" Data..=)
+          [ ("InstanceFleetId" Data..=)
               Prelude.<$> instanceFleetId,
             ("InstanceFleetType" Data..=)
               Prelude.<$> instanceFleetType,
-            ("InstanceGroupTypes" Data..=)
-              Prelude.<$> instanceGroupTypes,
             ("InstanceGroupId" Data..=)
               Prelude.<$> instanceGroupId,
+            ("InstanceGroupTypes" Data..=)
+              Prelude.<$> instanceGroupTypes,
             ("InstanceStates" Data..=)
               Prelude.<$> instanceStates,
+            ("Marker" Data..=) Prelude.<$> marker,
             Prelude.Just ("ClusterId" Data..= clusterId)
           ]
       )

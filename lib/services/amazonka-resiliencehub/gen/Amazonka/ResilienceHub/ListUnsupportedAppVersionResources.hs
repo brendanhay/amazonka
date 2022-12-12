@@ -29,9 +29,9 @@ module Amazonka.ResilienceHub.ListUnsupportedAppVersionResources
     newListUnsupportedAppVersionResources,
 
     -- * Request Lenses
+    listUnsupportedAppVersionResources_maxResults,
     listUnsupportedAppVersionResources_nextToken,
     listUnsupportedAppVersionResources_resolutionId,
-    listUnsupportedAppVersionResources_maxResults,
     listUnsupportedAppVersionResources_appArn,
     listUnsupportedAppVersionResources_appVersion,
 
@@ -57,14 +57,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListUnsupportedAppVersionResources' smart constructor.
 data ListUnsupportedAppVersionResources = ListUnsupportedAppVersionResources'
-  { -- | Null, or the token from a previous call to get the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The identifier for a specific resolution.
-    resolutionId :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to include in the response. If more
+  { -- | The maximum number of results to include in the response. If more
     -- results exist than the specified @MaxResults@ value, a token is included
     -- in the response so that the remaining results can be retrieved.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Null, or the token from a previous call to get the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The identifier for a specific resolution.
+    resolutionId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the application. The format for this
     -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
     -- For more information about ARNs, see
@@ -84,13 +84,13 @@ data ListUnsupportedAppVersionResources = ListUnsupportedAppVersionResources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listUnsupportedAppVersionResources_nextToken' - Null, or the token from a previous call to get the next set of results.
---
--- 'resolutionId', 'listUnsupportedAppVersionResources_resolutionId' - The identifier for a specific resolution.
---
 -- 'maxResults', 'listUnsupportedAppVersionResources_maxResults' - The maximum number of results to include in the response. If more
 -- results exist than the specified @MaxResults@ value, a token is included
 -- in the response so that the remaining results can be retrieved.
+--
+-- 'nextToken', 'listUnsupportedAppVersionResources_nextToken' - Null, or the token from a previous call to get the next set of results.
+--
+-- 'resolutionId', 'listUnsupportedAppVersionResources_resolutionId' - The identifier for a specific resolution.
 --
 -- 'appArn', 'listUnsupportedAppVersionResources_appArn' - The Amazon Resource Name (ARN) of the application. The format for this
 -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
@@ -109,13 +109,19 @@ newListUnsupportedAppVersionResources
   pAppArn_
   pAppVersion_ =
     ListUnsupportedAppVersionResources'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         resolutionId = Prelude.Nothing,
-        maxResults = Prelude.Nothing,
         appArn = pAppArn_,
         appVersion = pAppVersion_
       }
+
+-- | The maximum number of results to include in the response. If more
+-- results exist than the specified @MaxResults@ value, a token is included
+-- in the response so that the remaining results can be retrieved.
+listUnsupportedAppVersionResources_maxResults :: Lens.Lens' ListUnsupportedAppVersionResources (Prelude.Maybe Prelude.Natural)
+listUnsupportedAppVersionResources_maxResults = Lens.lens (\ListUnsupportedAppVersionResources' {maxResults} -> maxResults) (\s@ListUnsupportedAppVersionResources' {} a -> s {maxResults = a} :: ListUnsupportedAppVersionResources)
 
 -- | Null, or the token from a previous call to get the next set of results.
 listUnsupportedAppVersionResources_nextToken :: Lens.Lens' ListUnsupportedAppVersionResources (Prelude.Maybe Prelude.Text)
@@ -124,12 +130,6 @@ listUnsupportedAppVersionResources_nextToken = Lens.lens (\ListUnsupportedAppVer
 -- | The identifier for a specific resolution.
 listUnsupportedAppVersionResources_resolutionId :: Lens.Lens' ListUnsupportedAppVersionResources (Prelude.Maybe Prelude.Text)
 listUnsupportedAppVersionResources_resolutionId = Lens.lens (\ListUnsupportedAppVersionResources' {resolutionId} -> resolutionId) (\s@ListUnsupportedAppVersionResources' {} a -> s {resolutionId = a} :: ListUnsupportedAppVersionResources)
-
--- | The maximum number of results to include in the response. If more
--- results exist than the specified @MaxResults@ value, a token is included
--- in the response so that the remaining results can be retrieved.
-listUnsupportedAppVersionResources_maxResults :: Lens.Lens' ListUnsupportedAppVersionResources (Prelude.Maybe Prelude.Natural)
-listUnsupportedAppVersionResources_maxResults = Lens.lens (\ListUnsupportedAppVersionResources' {maxResults} -> maxResults) (\s@ListUnsupportedAppVersionResources' {} a -> s {maxResults = a} :: ListUnsupportedAppVersionResources)
 
 -- | The Amazon Resource Name (ARN) of the application. The format for this
 -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
@@ -171,9 +171,9 @@ instance
   hashWithSalt
     _salt
     ListUnsupportedAppVersionResources' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` resolutionId
-        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` appArn
         `Prelude.hashWithSalt` appVersion
 
@@ -182,9 +182,9 @@ instance
     ListUnsupportedAppVersionResources
   where
   rnf ListUnsupportedAppVersionResources' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf resolutionId
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf appArn
       `Prelude.seq` Prelude.rnf appVersion
 
@@ -209,9 +209,9 @@ instance
   toJSON ListUnsupportedAppVersionResources' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             ("resolutionId" Data..=) Prelude.<$> resolutionId,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just ("appArn" Data..= appArn),
             Prelude.Just ("appVersion" Data..= appVersion)
           ]

@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStringFilter' smart constructor.
 data StringFilter = StringFilter'
-  { -- | The operator to use when comparing values in the filter
+  { -- | The operator to use when comparing values in the filter.
     comparison :: StringComparison,
     -- | The value to filter on.
     value :: Prelude.Text
@@ -44,7 +44,7 @@ data StringFilter = StringFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'comparison', 'stringFilter_comparison' - The operator to use when comparing values in the filter
+-- 'comparison', 'stringFilter_comparison' - The operator to use when comparing values in the filter.
 --
 -- 'value', 'stringFilter_value' - The value to filter on.
 newStringFilter ::
@@ -59,7 +59,7 @@ newStringFilter pComparison_ pValue_ =
       value = pValue_
     }
 
--- | The operator to use when comparing values in the filter
+-- | The operator to use when comparing values in the filter.
 stringFilter_comparison :: Lens.Lens' StringFilter StringComparison
 stringFilter_comparison = Lens.lens (\StringFilter' {comparison} -> comparison) (\s@StringFilter' {} a -> s {comparison = a} :: StringFilter)
 

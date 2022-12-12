@@ -30,8 +30,8 @@ module Amazonka.Personalize.ListBatchSegmentJobs
     newListBatchSegmentJobs,
 
     -- * Request Lenses
-    listBatchSegmentJobs_nextToken,
     listBatchSegmentJobs_maxResults,
+    listBatchSegmentJobs_nextToken,
     listBatchSegmentJobs_solutionVersionArn,
 
     -- * Destructuring the Response
@@ -39,8 +39,8 @@ module Amazonka.Personalize.ListBatchSegmentJobs
     newListBatchSegmentJobsResponse,
 
     -- * Response Lenses
-    listBatchSegmentJobsResponse_nextToken,
     listBatchSegmentJobsResponse_batchSegmentJobs,
+    listBatchSegmentJobsResponse_nextToken,
     listBatchSegmentJobsResponse_httpStatus,
   )
 where
@@ -55,11 +55,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListBatchSegmentJobs' smart constructor.
 data ListBatchSegmentJobs = ListBatchSegmentJobs'
-  { -- | The token to request the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of batch segment job results to return in each page.
+  { -- | The maximum number of batch segment job results to return in each page.
     -- The default value is 100.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to request the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the solution version that the batch
     -- segment jobs used to generate batch segments.
     solutionVersionArn :: Prelude.Maybe Prelude.Text
@@ -74,10 +74,10 @@ data ListBatchSegmentJobs = ListBatchSegmentJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listBatchSegmentJobs_nextToken' - The token to request the next page of results.
---
 -- 'maxResults', 'listBatchSegmentJobs_maxResults' - The maximum number of batch segment job results to return in each page.
 -- The default value is 100.
+--
+-- 'nextToken', 'listBatchSegmentJobs_nextToken' - The token to request the next page of results.
 --
 -- 'solutionVersionArn', 'listBatchSegmentJobs_solutionVersionArn' - The Amazon Resource Name (ARN) of the solution version that the batch
 -- segment jobs used to generate batch segments.
@@ -85,19 +85,19 @@ newListBatchSegmentJobs ::
   ListBatchSegmentJobs
 newListBatchSegmentJobs =
   ListBatchSegmentJobs'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       solutionVersionArn = Prelude.Nothing
     }
-
--- | The token to request the next page of results.
-listBatchSegmentJobs_nextToken :: Lens.Lens' ListBatchSegmentJobs (Prelude.Maybe Prelude.Text)
-listBatchSegmentJobs_nextToken = Lens.lens (\ListBatchSegmentJobs' {nextToken} -> nextToken) (\s@ListBatchSegmentJobs' {} a -> s {nextToken = a} :: ListBatchSegmentJobs)
 
 -- | The maximum number of batch segment job results to return in each page.
 -- The default value is 100.
 listBatchSegmentJobs_maxResults :: Lens.Lens' ListBatchSegmentJobs (Prelude.Maybe Prelude.Natural)
 listBatchSegmentJobs_maxResults = Lens.lens (\ListBatchSegmentJobs' {maxResults} -> maxResults) (\s@ListBatchSegmentJobs' {} a -> s {maxResults = a} :: ListBatchSegmentJobs)
+
+-- | The token to request the next page of results.
+listBatchSegmentJobs_nextToken :: Lens.Lens' ListBatchSegmentJobs (Prelude.Maybe Prelude.Text)
+listBatchSegmentJobs_nextToken = Lens.lens (\ListBatchSegmentJobs' {nextToken} -> nextToken) (\s@ListBatchSegmentJobs' {} a -> s {nextToken = a} :: ListBatchSegmentJobs)
 
 -- | The Amazon Resource Name (ARN) of the solution version that the batch
 -- segment jobs used to generate batch segments.
@@ -136,23 +136,23 @@ instance Core.AWSRequest ListBatchSegmentJobs where
     Response.receiveJSON
       ( \s h x ->
           ListBatchSegmentJobsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "batchSegmentJobs"
+            Prelude.<$> ( x Data..?> "batchSegmentJobs"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListBatchSegmentJobs where
   hashWithSalt _salt ListBatchSegmentJobs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` solutionVersionArn
 
 instance Prelude.NFData ListBatchSegmentJobs where
   rnf ListBatchSegmentJobs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf solutionVersionArn
 
 instance Data.ToHeaders ListBatchSegmentJobs where
@@ -174,8 +174,8 @@ instance Data.ToJSON ListBatchSegmentJobs where
   toJSON ListBatchSegmentJobs' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             ("solutionVersionArn" Data..=)
               Prelude.<$> solutionVersionArn
           ]
@@ -189,11 +189,11 @@ instance Data.ToQuery ListBatchSegmentJobs where
 
 -- | /See:/ 'newListBatchSegmentJobsResponse' smart constructor.
 data ListBatchSegmentJobsResponse = ListBatchSegmentJobsResponse'
-  { -- | The token to use to retrieve the next page of results. The value is
+  { -- | A list containing information on each job that is returned.
+    batchSegmentJobs :: Prelude.Maybe [BatchSegmentJobSummary],
+    -- | The token to use to retrieve the next page of results. The value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list containing information on each job that is returned.
-    batchSegmentJobs :: Prelude.Maybe [BatchSegmentJobSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -207,10 +207,10 @@ data ListBatchSegmentJobsResponse = ListBatchSegmentJobsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'batchSegmentJobs', 'listBatchSegmentJobsResponse_batchSegmentJobs' - A list containing information on each job that is returned.
+--
 -- 'nextToken', 'listBatchSegmentJobsResponse_nextToken' - The token to use to retrieve the next page of results. The value is
 -- @null@ when there are no more results to return.
---
--- 'batchSegmentJobs', 'listBatchSegmentJobsResponse_batchSegmentJobs' - A list containing information on each job that is returned.
 --
 -- 'httpStatus', 'listBatchSegmentJobsResponse_httpStatus' - The response's http status code.
 newListBatchSegmentJobsResponse ::
@@ -219,20 +219,20 @@ newListBatchSegmentJobsResponse ::
   ListBatchSegmentJobsResponse
 newListBatchSegmentJobsResponse pHttpStatus_ =
   ListBatchSegmentJobsResponse'
-    { nextToken =
+    { batchSegmentJobs =
         Prelude.Nothing,
-      batchSegmentJobs = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list containing information on each job that is returned.
+listBatchSegmentJobsResponse_batchSegmentJobs :: Lens.Lens' ListBatchSegmentJobsResponse (Prelude.Maybe [BatchSegmentJobSummary])
+listBatchSegmentJobsResponse_batchSegmentJobs = Lens.lens (\ListBatchSegmentJobsResponse' {batchSegmentJobs} -> batchSegmentJobs) (\s@ListBatchSegmentJobsResponse' {} a -> s {batchSegmentJobs = a} :: ListBatchSegmentJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. The value is
 -- @null@ when there are no more results to return.
 listBatchSegmentJobsResponse_nextToken :: Lens.Lens' ListBatchSegmentJobsResponse (Prelude.Maybe Prelude.Text)
 listBatchSegmentJobsResponse_nextToken = Lens.lens (\ListBatchSegmentJobsResponse' {nextToken} -> nextToken) (\s@ListBatchSegmentJobsResponse' {} a -> s {nextToken = a} :: ListBatchSegmentJobsResponse)
-
--- | A list containing information on each job that is returned.
-listBatchSegmentJobsResponse_batchSegmentJobs :: Lens.Lens' ListBatchSegmentJobsResponse (Prelude.Maybe [BatchSegmentJobSummary])
-listBatchSegmentJobsResponse_batchSegmentJobs = Lens.lens (\ListBatchSegmentJobsResponse' {batchSegmentJobs} -> batchSegmentJobs) (\s@ListBatchSegmentJobsResponse' {} a -> s {batchSegmentJobs = a} :: ListBatchSegmentJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listBatchSegmentJobsResponse_httpStatus :: Lens.Lens' ListBatchSegmentJobsResponse Prelude.Int
@@ -240,6 +240,6 @@ listBatchSegmentJobsResponse_httpStatus = Lens.lens (\ListBatchSegmentJobsRespon
 
 instance Prelude.NFData ListBatchSegmentJobsResponse where
   rnf ListBatchSegmentJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf batchSegmentJobs
+    Prelude.rnf batchSegmentJobs
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

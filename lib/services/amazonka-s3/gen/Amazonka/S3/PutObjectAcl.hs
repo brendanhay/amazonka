@@ -174,17 +174,17 @@ module Amazonka.S3.PutObjectAcl
     newPutObjectAcl,
 
     -- * Request Lenses
-    putObjectAcl_checksumAlgorithm,
-    putObjectAcl_grantWriteACP,
-    putObjectAcl_grantFullControl,
     putObjectAcl_acl,
+    putObjectAcl_accessControlPolicy,
+    putObjectAcl_checksumAlgorithm,
     putObjectAcl_contentMD5,
     putObjectAcl_expectedBucketOwner,
-    putObjectAcl_requestPayer,
+    putObjectAcl_grantFullControl,
     putObjectAcl_grantRead,
-    putObjectAcl_accessControlPolicy,
-    putObjectAcl_grantWrite,
     putObjectAcl_grantReadACP,
+    putObjectAcl_grantWrite,
+    putObjectAcl_grantWriteACP,
+    putObjectAcl_requestPayer,
     putObjectAcl_versionId,
     putObjectAcl_bucket,
     putObjectAcl_key,
@@ -209,7 +209,13 @@ import Amazonka.S3.Types
 
 -- | /See:/ 'newPutObjectAcl' smart constructor.
 data PutObjectAcl = PutObjectAcl'
-  { -- | Indicates the algorithm used to create the checksum for the object when
+  { -- | The canned ACL to apply to the object. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL Canned ACL>.
+    acl :: Prelude.Maybe ObjectCannedACL,
+    -- | Contains the elements that set the ACL permissions for an object per
+    -- grantee.
+    accessControlPolicy :: Prelude.Maybe AccessControlPolicy,
+    -- | Indicates the algorithm used to create the checksum for the object when
     -- using the SDK. This header will not provide any additional functionality
     -- if not using the SDK. When sending this header, there must be a
     -- corresponding @x-amz-checksum@ or @x-amz-trailer@ header sent.
@@ -221,18 +227,6 @@ data PutObjectAcl = PutObjectAcl'
     -- If you provide an individual checksum, Amazon S3 ignores any provided
     -- @ChecksumAlgorithm@ parameter.
     checksumAlgorithm :: Prelude.Maybe ChecksumAlgorithm,
-    -- | Allows grantee to write the ACL for the applicable bucket.
-    --
-    -- This action is not supported by Amazon S3 on Outposts.
-    grantWriteACP :: Prelude.Maybe Prelude.Text,
-    -- | Allows grantee the read, write, read ACP, and write ACP permissions on
-    -- the bucket.
-    --
-    -- This action is not supported by Amazon S3 on Outposts.
-    grantFullControl :: Prelude.Maybe Prelude.Text,
-    -- | The canned ACL to apply to the object. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL Canned ACL>.
-    acl :: Prelude.Maybe ObjectCannedACL,
     -- | The base64-encoded 128-bit MD5 digest of the data. This header must be
     -- used as a message integrity check to verify that the request body was
     -- not corrupted in transit. For more information, go to
@@ -246,23 +240,29 @@ data PutObjectAcl = PutObjectAcl'
     -- different account, the request fails with the HTTP status code
     -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
-    requestPayer :: Prelude.Maybe RequestPayer,
+    -- | Allows grantee the read, write, read ACP, and write ACP permissions on
+    -- the bucket.
+    --
+    -- This action is not supported by Amazon S3 on Outposts.
+    grantFullControl :: Prelude.Maybe Prelude.Text,
     -- | Allows grantee to list the objects in the bucket.
     --
     -- This action is not supported by Amazon S3 on Outposts.
     grantRead :: Prelude.Maybe Prelude.Text,
-    -- | Contains the elements that set the ACL permissions for an object per
-    -- grantee.
-    accessControlPolicy :: Prelude.Maybe AccessControlPolicy,
+    -- | Allows grantee to read the bucket ACL.
+    --
+    -- This action is not supported by Amazon S3 on Outposts.
+    grantReadACP :: Prelude.Maybe Prelude.Text,
     -- | Allows grantee to create new objects in the bucket.
     --
     -- For the bucket and object owners of existing objects, also allows
     -- deletions and overwrites of those objects.
     grantWrite :: Prelude.Maybe Prelude.Text,
-    -- | Allows grantee to read the bucket ACL.
+    -- | Allows grantee to write the ACL for the applicable bucket.
     --
     -- This action is not supported by Amazon S3 on Outposts.
-    grantReadACP :: Prelude.Maybe Prelude.Text,
+    grantWriteACP :: Prelude.Maybe Prelude.Text,
+    requestPayer :: Prelude.Maybe RequestPayer,
     -- | VersionId used to reference a specific version of the object.
     versionId :: Prelude.Maybe ObjectVersionId,
     -- | The bucket name that contains the object to which you want to attach the
@@ -309,6 +309,12 @@ data PutObjectAcl = PutObjectAcl'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'acl', 'putObjectAcl_acl' - The canned ACL to apply to the object. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL Canned ACL>.
+--
+-- 'accessControlPolicy', 'putObjectAcl_accessControlPolicy' - Contains the elements that set the ACL permissions for an object per
+-- grantee.
+--
 -- 'checksumAlgorithm', 'putObjectAcl_checksumAlgorithm' - Indicates the algorithm used to create the checksum for the object when
 -- using the SDK. This header will not provide any additional functionality
 -- if not using the SDK. When sending this header, there must be a
@@ -320,18 +326,6 @@ data PutObjectAcl = PutObjectAcl'
 --
 -- If you provide an individual checksum, Amazon S3 ignores any provided
 -- @ChecksumAlgorithm@ parameter.
---
--- 'grantWriteACP', 'putObjectAcl_grantWriteACP' - Allows grantee to write the ACL for the applicable bucket.
---
--- This action is not supported by Amazon S3 on Outposts.
---
--- 'grantFullControl', 'putObjectAcl_grantFullControl' - Allows grantee the read, write, read ACP, and write ACP permissions on
--- the bucket.
---
--- This action is not supported by Amazon S3 on Outposts.
---
--- 'acl', 'putObjectAcl_acl' - The canned ACL to apply to the object. For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL Canned ACL>.
 --
 -- 'contentMD5', 'putObjectAcl_contentMD5' - The base64-encoded 128-bit MD5 digest of the data. This header must be
 -- used as a message integrity check to verify that the request body was
@@ -346,23 +340,29 @@ data PutObjectAcl = PutObjectAcl'
 -- different account, the request fails with the HTTP status code
 -- @403 Forbidden@ (access denied).
 --
--- 'requestPayer', 'putObjectAcl_requestPayer' - Undocumented member.
+-- 'grantFullControl', 'putObjectAcl_grantFullControl' - Allows grantee the read, write, read ACP, and write ACP permissions on
+-- the bucket.
+--
+-- This action is not supported by Amazon S3 on Outposts.
 --
 -- 'grantRead', 'putObjectAcl_grantRead' - Allows grantee to list the objects in the bucket.
 --
 -- This action is not supported by Amazon S3 on Outposts.
 --
--- 'accessControlPolicy', 'putObjectAcl_accessControlPolicy' - Contains the elements that set the ACL permissions for an object per
--- grantee.
+-- 'grantReadACP', 'putObjectAcl_grantReadACP' - Allows grantee to read the bucket ACL.
+--
+-- This action is not supported by Amazon S3 on Outposts.
 --
 -- 'grantWrite', 'putObjectAcl_grantWrite' - Allows grantee to create new objects in the bucket.
 --
 -- For the bucket and object owners of existing objects, also allows
 -- deletions and overwrites of those objects.
 --
--- 'grantReadACP', 'putObjectAcl_grantReadACP' - Allows grantee to read the bucket ACL.
+-- 'grantWriteACP', 'putObjectAcl_grantWriteACP' - Allows grantee to write the ACL for the applicable bucket.
 --
 -- This action is not supported by Amazon S3 on Outposts.
+--
+-- 'requestPayer', 'putObjectAcl_requestPayer' - Undocumented member.
 --
 -- 'versionId', 'putObjectAcl_versionId' - VersionId used to reference a specific version of the object.
 --
@@ -406,21 +406,31 @@ newPutObjectAcl ::
   PutObjectAcl
 newPutObjectAcl pBucket_ pKey_ =
   PutObjectAcl'
-    { checksumAlgorithm = Prelude.Nothing,
-      grantWriteACP = Prelude.Nothing,
-      grantFullControl = Prelude.Nothing,
-      acl = Prelude.Nothing,
+    { acl = Prelude.Nothing,
+      accessControlPolicy = Prelude.Nothing,
+      checksumAlgorithm = Prelude.Nothing,
       contentMD5 = Prelude.Nothing,
       expectedBucketOwner = Prelude.Nothing,
-      requestPayer = Prelude.Nothing,
+      grantFullControl = Prelude.Nothing,
       grantRead = Prelude.Nothing,
-      accessControlPolicy = Prelude.Nothing,
-      grantWrite = Prelude.Nothing,
       grantReadACP = Prelude.Nothing,
+      grantWrite = Prelude.Nothing,
+      grantWriteACP = Prelude.Nothing,
+      requestPayer = Prelude.Nothing,
       versionId = Prelude.Nothing,
       bucket = pBucket_,
       key = pKey_
     }
+
+-- | The canned ACL to apply to the object. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL Canned ACL>.
+putObjectAcl_acl :: Lens.Lens' PutObjectAcl (Prelude.Maybe ObjectCannedACL)
+putObjectAcl_acl = Lens.lens (\PutObjectAcl' {acl} -> acl) (\s@PutObjectAcl' {} a -> s {acl = a} :: PutObjectAcl)
+
+-- | Contains the elements that set the ACL permissions for an object per
+-- grantee.
+putObjectAcl_accessControlPolicy :: Lens.Lens' PutObjectAcl (Prelude.Maybe AccessControlPolicy)
+putObjectAcl_accessControlPolicy = Lens.lens (\PutObjectAcl' {accessControlPolicy} -> accessControlPolicy) (\s@PutObjectAcl' {} a -> s {accessControlPolicy = a} :: PutObjectAcl)
 
 -- | Indicates the algorithm used to create the checksum for the object when
 -- using the SDK. This header will not provide any additional functionality
@@ -435,24 +445,6 @@ newPutObjectAcl pBucket_ pKey_ =
 -- @ChecksumAlgorithm@ parameter.
 putObjectAcl_checksumAlgorithm :: Lens.Lens' PutObjectAcl (Prelude.Maybe ChecksumAlgorithm)
 putObjectAcl_checksumAlgorithm = Lens.lens (\PutObjectAcl' {checksumAlgorithm} -> checksumAlgorithm) (\s@PutObjectAcl' {} a -> s {checksumAlgorithm = a} :: PutObjectAcl)
-
--- | Allows grantee to write the ACL for the applicable bucket.
---
--- This action is not supported by Amazon S3 on Outposts.
-putObjectAcl_grantWriteACP :: Lens.Lens' PutObjectAcl (Prelude.Maybe Prelude.Text)
-putObjectAcl_grantWriteACP = Lens.lens (\PutObjectAcl' {grantWriteACP} -> grantWriteACP) (\s@PutObjectAcl' {} a -> s {grantWriteACP = a} :: PutObjectAcl)
-
--- | Allows grantee the read, write, read ACP, and write ACP permissions on
--- the bucket.
---
--- This action is not supported by Amazon S3 on Outposts.
-putObjectAcl_grantFullControl :: Lens.Lens' PutObjectAcl (Prelude.Maybe Prelude.Text)
-putObjectAcl_grantFullControl = Lens.lens (\PutObjectAcl' {grantFullControl} -> grantFullControl) (\s@PutObjectAcl' {} a -> s {grantFullControl = a} :: PutObjectAcl)
-
--- | The canned ACL to apply to the object. For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL Canned ACL>.
-putObjectAcl_acl :: Lens.Lens' PutObjectAcl (Prelude.Maybe ObjectCannedACL)
-putObjectAcl_acl = Lens.lens (\PutObjectAcl' {acl} -> acl) (\s@PutObjectAcl' {} a -> s {acl = a} :: PutObjectAcl)
 
 -- | The base64-encoded 128-bit MD5 digest of the data. This header must be
 -- used as a message integrity check to verify that the request body was
@@ -471,9 +463,12 @@ putObjectAcl_contentMD5 = Lens.lens (\PutObjectAcl' {contentMD5} -> contentMD5) 
 putObjectAcl_expectedBucketOwner :: Lens.Lens' PutObjectAcl (Prelude.Maybe Prelude.Text)
 putObjectAcl_expectedBucketOwner = Lens.lens (\PutObjectAcl' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutObjectAcl' {} a -> s {expectedBucketOwner = a} :: PutObjectAcl)
 
--- | Undocumented member.
-putObjectAcl_requestPayer :: Lens.Lens' PutObjectAcl (Prelude.Maybe RequestPayer)
-putObjectAcl_requestPayer = Lens.lens (\PutObjectAcl' {requestPayer} -> requestPayer) (\s@PutObjectAcl' {} a -> s {requestPayer = a} :: PutObjectAcl)
+-- | Allows grantee the read, write, read ACP, and write ACP permissions on
+-- the bucket.
+--
+-- This action is not supported by Amazon S3 on Outposts.
+putObjectAcl_grantFullControl :: Lens.Lens' PutObjectAcl (Prelude.Maybe Prelude.Text)
+putObjectAcl_grantFullControl = Lens.lens (\PutObjectAcl' {grantFullControl} -> grantFullControl) (\s@PutObjectAcl' {} a -> s {grantFullControl = a} :: PutObjectAcl)
 
 -- | Allows grantee to list the objects in the bucket.
 --
@@ -481,10 +476,11 @@ putObjectAcl_requestPayer = Lens.lens (\PutObjectAcl' {requestPayer} -> requestP
 putObjectAcl_grantRead :: Lens.Lens' PutObjectAcl (Prelude.Maybe Prelude.Text)
 putObjectAcl_grantRead = Lens.lens (\PutObjectAcl' {grantRead} -> grantRead) (\s@PutObjectAcl' {} a -> s {grantRead = a} :: PutObjectAcl)
 
--- | Contains the elements that set the ACL permissions for an object per
--- grantee.
-putObjectAcl_accessControlPolicy :: Lens.Lens' PutObjectAcl (Prelude.Maybe AccessControlPolicy)
-putObjectAcl_accessControlPolicy = Lens.lens (\PutObjectAcl' {accessControlPolicy} -> accessControlPolicy) (\s@PutObjectAcl' {} a -> s {accessControlPolicy = a} :: PutObjectAcl)
+-- | Allows grantee to read the bucket ACL.
+--
+-- This action is not supported by Amazon S3 on Outposts.
+putObjectAcl_grantReadACP :: Lens.Lens' PutObjectAcl (Prelude.Maybe Prelude.Text)
+putObjectAcl_grantReadACP = Lens.lens (\PutObjectAcl' {grantReadACP} -> grantReadACP) (\s@PutObjectAcl' {} a -> s {grantReadACP = a} :: PutObjectAcl)
 
 -- | Allows grantee to create new objects in the bucket.
 --
@@ -493,11 +489,15 @@ putObjectAcl_accessControlPolicy = Lens.lens (\PutObjectAcl' {accessControlPolic
 putObjectAcl_grantWrite :: Lens.Lens' PutObjectAcl (Prelude.Maybe Prelude.Text)
 putObjectAcl_grantWrite = Lens.lens (\PutObjectAcl' {grantWrite} -> grantWrite) (\s@PutObjectAcl' {} a -> s {grantWrite = a} :: PutObjectAcl)
 
--- | Allows grantee to read the bucket ACL.
+-- | Allows grantee to write the ACL for the applicable bucket.
 --
 -- This action is not supported by Amazon S3 on Outposts.
-putObjectAcl_grantReadACP :: Lens.Lens' PutObjectAcl (Prelude.Maybe Prelude.Text)
-putObjectAcl_grantReadACP = Lens.lens (\PutObjectAcl' {grantReadACP} -> grantReadACP) (\s@PutObjectAcl' {} a -> s {grantReadACP = a} :: PutObjectAcl)
+putObjectAcl_grantWriteACP :: Lens.Lens' PutObjectAcl (Prelude.Maybe Prelude.Text)
+putObjectAcl_grantWriteACP = Lens.lens (\PutObjectAcl' {grantWriteACP} -> grantWriteACP) (\s@PutObjectAcl' {} a -> s {grantWriteACP = a} :: PutObjectAcl)
+
+-- | Undocumented member.
+putObjectAcl_requestPayer :: Lens.Lens' PutObjectAcl (Prelude.Maybe RequestPayer)
+putObjectAcl_requestPayer = Lens.lens (\PutObjectAcl' {requestPayer} -> requestPayer) (\s@PutObjectAcl' {} a -> s {requestPayer = a} :: PutObjectAcl)
 
 -- | VersionId used to reference a specific version of the object.
 putObjectAcl_versionId :: Lens.Lens' PutObjectAcl (Prelude.Maybe ObjectVersionId)
@@ -555,34 +555,34 @@ instance Core.AWSRequest PutObjectAcl where
 
 instance Prelude.Hashable PutObjectAcl where
   hashWithSalt _salt PutObjectAcl' {..} =
-    _salt `Prelude.hashWithSalt` checksumAlgorithm
-      `Prelude.hashWithSalt` grantWriteACP
-      `Prelude.hashWithSalt` grantFullControl
-      `Prelude.hashWithSalt` acl
+    _salt `Prelude.hashWithSalt` acl
+      `Prelude.hashWithSalt` accessControlPolicy
+      `Prelude.hashWithSalt` checksumAlgorithm
       `Prelude.hashWithSalt` contentMD5
       `Prelude.hashWithSalt` expectedBucketOwner
-      `Prelude.hashWithSalt` requestPayer
+      `Prelude.hashWithSalt` grantFullControl
       `Prelude.hashWithSalt` grantRead
-      `Prelude.hashWithSalt` accessControlPolicy
-      `Prelude.hashWithSalt` grantWrite
       `Prelude.hashWithSalt` grantReadACP
+      `Prelude.hashWithSalt` grantWrite
+      `Prelude.hashWithSalt` grantWriteACP
+      `Prelude.hashWithSalt` requestPayer
       `Prelude.hashWithSalt` versionId
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` key
 
 instance Prelude.NFData PutObjectAcl where
   rnf PutObjectAcl' {..} =
-    Prelude.rnf checksumAlgorithm
-      `Prelude.seq` Prelude.rnf grantWriteACP
-      `Prelude.seq` Prelude.rnf grantFullControl
-      `Prelude.seq` Prelude.rnf acl
+    Prelude.rnf acl
+      `Prelude.seq` Prelude.rnf accessControlPolicy
+      `Prelude.seq` Prelude.rnf checksumAlgorithm
       `Prelude.seq` Prelude.rnf contentMD5
       `Prelude.seq` Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf requestPayer
+      `Prelude.seq` Prelude.rnf grantFullControl
       `Prelude.seq` Prelude.rnf grantRead
-      `Prelude.seq` Prelude.rnf accessControlPolicy
-      `Prelude.seq` Prelude.rnf grantWrite
       `Prelude.seq` Prelude.rnf grantReadACP
+      `Prelude.seq` Prelude.rnf grantWrite
+      `Prelude.seq` Prelude.rnf grantWriteACP
+      `Prelude.seq` Prelude.rnf requestPayer
       `Prelude.seq` Prelude.rnf versionId
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf key
@@ -596,18 +596,18 @@ instance Data.ToElement PutObjectAcl where
 instance Data.ToHeaders PutObjectAcl where
   toHeaders PutObjectAcl' {..} =
     Prelude.mconcat
-      [ "x-amz-sdk-checksum-algorithm"
+      [ "x-amz-acl" Data.=# acl,
+        "x-amz-sdk-checksum-algorithm"
           Data.=# checksumAlgorithm,
-        "x-amz-grant-write-acp" Data.=# grantWriteACP,
-        "x-amz-grant-full-control" Data.=# grantFullControl,
-        "x-amz-acl" Data.=# acl,
         "Content-MD5" Data.=# contentMD5,
         "x-amz-expected-bucket-owner"
           Data.=# expectedBucketOwner,
-        "x-amz-request-payer" Data.=# requestPayer,
+        "x-amz-grant-full-control" Data.=# grantFullControl,
         "x-amz-grant-read" Data.=# grantRead,
+        "x-amz-grant-read-acp" Data.=# grantReadACP,
         "x-amz-grant-write" Data.=# grantWrite,
-        "x-amz-grant-read-acp" Data.=# grantReadACP
+        "x-amz-grant-write-acp" Data.=# grantWriteACP,
+        "x-amz-request-payer" Data.=# requestPayer
       ]
 
 instance Data.ToPath PutObjectAcl where

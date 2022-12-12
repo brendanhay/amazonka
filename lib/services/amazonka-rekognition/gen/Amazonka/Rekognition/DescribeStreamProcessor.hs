@@ -37,20 +37,20 @@ module Amazonka.Rekognition.DescribeStreamProcessor
     newDescribeStreamProcessorResponse,
 
     -- * Response Lenses
-    describeStreamProcessorResponse_streamProcessorArn,
-    describeStreamProcessorResponse_regionsOfInterest,
-    describeStreamProcessorResponse_name,
-    describeStreamProcessorResponse_lastUpdateTimestamp,
-    describeStreamProcessorResponse_roleArn,
-    describeStreamProcessorResponse_status,
     describeStreamProcessorResponse_creationTimestamp,
-    describeStreamProcessorResponse_input,
-    describeStreamProcessorResponse_settings,
-    describeStreamProcessorResponse_output,
-    describeStreamProcessorResponse_kmsKeyId,
     describeStreamProcessorResponse_dataSharingPreference,
-    describeStreamProcessorResponse_statusMessage,
+    describeStreamProcessorResponse_input,
+    describeStreamProcessorResponse_kmsKeyId,
+    describeStreamProcessorResponse_lastUpdateTimestamp,
+    describeStreamProcessorResponse_name,
     describeStreamProcessorResponse_notificationChannel,
+    describeStreamProcessorResponse_output,
+    describeStreamProcessorResponse_regionsOfInterest,
+    describeStreamProcessorResponse_roleArn,
+    describeStreamProcessorResponse_settings,
+    describeStreamProcessorResponse_status,
+    describeStreamProcessorResponse_statusMessage,
+    describeStreamProcessorResponse_streamProcessorArn,
     describeStreamProcessorResponse_httpStatus,
   )
 where
@@ -100,22 +100,22 @@ instance Core.AWSRequest DescribeStreamProcessor where
     Response.receiveJSON
       ( \s h x ->
           DescribeStreamProcessorResponse'
-            Prelude.<$> (x Data..?> "StreamProcessorArn")
+            Prelude.<$> (x Data..?> "CreationTimestamp")
+            Prelude.<*> (x Data..?> "DataSharingPreference")
+            Prelude.<*> (x Data..?> "Input")
+            Prelude.<*> (x Data..?> "KmsKeyId")
+            Prelude.<*> (x Data..?> "LastUpdateTimestamp")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "NotificationChannel")
+            Prelude.<*> (x Data..?> "Output")
             Prelude.<*> ( x Data..?> "RegionsOfInterest"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "Name")
-            Prelude.<*> (x Data..?> "LastUpdateTimestamp")
             Prelude.<*> (x Data..?> "RoleArn")
-            Prelude.<*> (x Data..?> "Status")
-            Prelude.<*> (x Data..?> "CreationTimestamp")
-            Prelude.<*> (x Data..?> "Input")
             Prelude.<*> (x Data..?> "Settings")
-            Prelude.<*> (x Data..?> "Output")
-            Prelude.<*> (x Data..?> "KmsKeyId")
-            Prelude.<*> (x Data..?> "DataSharingPreference")
+            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (x Data..?> "StatusMessage")
-            Prelude.<*> (x Data..?> "NotificationChannel")
+            Prelude.<*> (x Data..?> "StreamProcessorArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,44 +156,44 @@ instance Data.ToQuery DescribeStreamProcessor where
 
 -- | /See:/ 'newDescribeStreamProcessorResponse' smart constructor.
 data DescribeStreamProcessorResponse = DescribeStreamProcessorResponse'
-  { -- | ARN of the stream processor.
-    streamProcessorArn :: Prelude.Maybe Prelude.Text,
-    -- | Specifies locations in the frames where Amazon Rekognition checks for
-    -- objects or people. This is an optional parameter for label detection
-    -- stream processors.
-    regionsOfInterest :: Prelude.Maybe [RegionOfInterest],
-    -- | Name of the stream processor.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The time, in Unix format, the stream processor was last updated. For
-    -- example, when the stream processor moves from a running state to a
-    -- failed state, or when the user starts or stops the stream processor.
-    lastUpdateTimestamp :: Prelude.Maybe Data.POSIX,
-    -- | ARN of the IAM role that allows access to the stream processor.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | Current status of the stream processor.
-    status :: Prelude.Maybe StreamProcessorStatus,
-    -- | Date and time the stream processor was created
+  { -- | Date and time the stream processor was created
     creationTimestamp :: Prelude.Maybe Data.POSIX,
-    -- | Kinesis video stream that provides the source streaming video.
-    input :: Prelude.Maybe StreamProcessorInput,
-    -- | Input parameters used in a streaming video analyzed by a stream
-    -- processor. You can use @FaceSearch@ to recognize faces in a streaming
-    -- video, or you can use @ConnectedHome@ to detect labels.
-    settings :: Prelude.Maybe StreamProcessorSettings,
-    -- | Kinesis data stream to which Amazon Rekognition Video puts the analysis
-    -- results.
-    output :: Prelude.Maybe StreamProcessorOutput,
-    -- | The identifier for your AWS Key Management Service key (AWS KMS key).
-    -- This is an optional parameter for label detection stream processors.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | Shows whether you are sharing data with Rekognition to improve model
     -- performance. You can choose this option at the account level or on a
     -- per-stream basis. Note that if you opt out at the account level this
     -- setting is ignored on individual streams.
     dataSharingPreference :: Prelude.Maybe StreamProcessorDataSharingPreference,
+    -- | Kinesis video stream that provides the source streaming video.
+    input :: Prelude.Maybe StreamProcessorInput,
+    -- | The identifier for your AWS Key Management Service key (AWS KMS key).
+    -- This is an optional parameter for label detection stream processors.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The time, in Unix format, the stream processor was last updated. For
+    -- example, when the stream processor moves from a running state to a
+    -- failed state, or when the user starts or stops the stream processor.
+    lastUpdateTimestamp :: Prelude.Maybe Data.POSIX,
+    -- | Name of the stream processor.
+    name :: Prelude.Maybe Prelude.Text,
+    notificationChannel :: Prelude.Maybe StreamProcessorNotificationChannel,
+    -- | Kinesis data stream to which Amazon Rekognition Video puts the analysis
+    -- results.
+    output :: Prelude.Maybe StreamProcessorOutput,
+    -- | Specifies locations in the frames where Amazon Rekognition checks for
+    -- objects or people. This is an optional parameter for label detection
+    -- stream processors.
+    regionsOfInterest :: Prelude.Maybe [RegionOfInterest],
+    -- | ARN of the IAM role that allows access to the stream processor.
+    roleArn :: Prelude.Maybe Prelude.Text,
+    -- | Input parameters used in a streaming video analyzed by a stream
+    -- processor. You can use @FaceSearch@ to recognize faces in a streaming
+    -- video, or you can use @ConnectedHome@ to detect labels.
+    settings :: Prelude.Maybe StreamProcessorSettings,
+    -- | Current status of the stream processor.
+    status :: Prelude.Maybe StreamProcessorStatus,
     -- | Detailed status message about the stream processor.
     statusMessage :: Prelude.Maybe Prelude.Text,
-    notificationChannel :: Prelude.Maybe StreamProcessorNotificationChannel,
+    -- | ARN of the stream processor.
+    streamProcessorArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -207,44 +207,44 @@ data DescribeStreamProcessorResponse = DescribeStreamProcessorResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'streamProcessorArn', 'describeStreamProcessorResponse_streamProcessorArn' - ARN of the stream processor.
---
--- 'regionsOfInterest', 'describeStreamProcessorResponse_regionsOfInterest' - Specifies locations in the frames where Amazon Rekognition checks for
--- objects or people. This is an optional parameter for label detection
--- stream processors.
---
--- 'name', 'describeStreamProcessorResponse_name' - Name of the stream processor.
---
--- 'lastUpdateTimestamp', 'describeStreamProcessorResponse_lastUpdateTimestamp' - The time, in Unix format, the stream processor was last updated. For
--- example, when the stream processor moves from a running state to a
--- failed state, or when the user starts or stops the stream processor.
---
--- 'roleArn', 'describeStreamProcessorResponse_roleArn' - ARN of the IAM role that allows access to the stream processor.
---
--- 'status', 'describeStreamProcessorResponse_status' - Current status of the stream processor.
---
 -- 'creationTimestamp', 'describeStreamProcessorResponse_creationTimestamp' - Date and time the stream processor was created
---
--- 'input', 'describeStreamProcessorResponse_input' - Kinesis video stream that provides the source streaming video.
---
--- 'settings', 'describeStreamProcessorResponse_settings' - Input parameters used in a streaming video analyzed by a stream
--- processor. You can use @FaceSearch@ to recognize faces in a streaming
--- video, or you can use @ConnectedHome@ to detect labels.
---
--- 'output', 'describeStreamProcessorResponse_output' - Kinesis data stream to which Amazon Rekognition Video puts the analysis
--- results.
---
--- 'kmsKeyId', 'describeStreamProcessorResponse_kmsKeyId' - The identifier for your AWS Key Management Service key (AWS KMS key).
--- This is an optional parameter for label detection stream processors.
 --
 -- 'dataSharingPreference', 'describeStreamProcessorResponse_dataSharingPreference' - Shows whether you are sharing data with Rekognition to improve model
 -- performance. You can choose this option at the account level or on a
 -- per-stream basis. Note that if you opt out at the account level this
 -- setting is ignored on individual streams.
 --
--- 'statusMessage', 'describeStreamProcessorResponse_statusMessage' - Detailed status message about the stream processor.
+-- 'input', 'describeStreamProcessorResponse_input' - Kinesis video stream that provides the source streaming video.
+--
+-- 'kmsKeyId', 'describeStreamProcessorResponse_kmsKeyId' - The identifier for your AWS Key Management Service key (AWS KMS key).
+-- This is an optional parameter for label detection stream processors.
+--
+-- 'lastUpdateTimestamp', 'describeStreamProcessorResponse_lastUpdateTimestamp' - The time, in Unix format, the stream processor was last updated. For
+-- example, when the stream processor moves from a running state to a
+-- failed state, or when the user starts or stops the stream processor.
+--
+-- 'name', 'describeStreamProcessorResponse_name' - Name of the stream processor.
 --
 -- 'notificationChannel', 'describeStreamProcessorResponse_notificationChannel' - Undocumented member.
+--
+-- 'output', 'describeStreamProcessorResponse_output' - Kinesis data stream to which Amazon Rekognition Video puts the analysis
+-- results.
+--
+-- 'regionsOfInterest', 'describeStreamProcessorResponse_regionsOfInterest' - Specifies locations in the frames where Amazon Rekognition checks for
+-- objects or people. This is an optional parameter for label detection
+-- stream processors.
+--
+-- 'roleArn', 'describeStreamProcessorResponse_roleArn' - ARN of the IAM role that allows access to the stream processor.
+--
+-- 'settings', 'describeStreamProcessorResponse_settings' - Input parameters used in a streaming video analyzed by a stream
+-- processor. You can use @FaceSearch@ to recognize faces in a streaming
+-- video, or you can use @ConnectedHome@ to detect labels.
+--
+-- 'status', 'describeStreamProcessorResponse_status' - Current status of the stream processor.
+--
+-- 'statusMessage', 'describeStreamProcessorResponse_statusMessage' - Detailed status message about the stream processor.
+--
+-- 'streamProcessorArn', 'describeStreamProcessorResponse_streamProcessorArn' - ARN of the stream processor.
 --
 -- 'httpStatus', 'describeStreamProcessorResponse_httpStatus' - The response's http status code.
 newDescribeStreamProcessorResponse ::
@@ -253,75 +253,27 @@ newDescribeStreamProcessorResponse ::
   DescribeStreamProcessorResponse
 newDescribeStreamProcessorResponse pHttpStatus_ =
   DescribeStreamProcessorResponse'
-    { streamProcessorArn =
+    { creationTimestamp =
         Prelude.Nothing,
-      regionsOfInterest = Prelude.Nothing,
-      name = Prelude.Nothing,
-      lastUpdateTimestamp = Prelude.Nothing,
-      roleArn = Prelude.Nothing,
-      status = Prelude.Nothing,
-      creationTimestamp = Prelude.Nothing,
-      input = Prelude.Nothing,
-      settings = Prelude.Nothing,
-      output = Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing,
       dataSharingPreference = Prelude.Nothing,
-      statusMessage = Prelude.Nothing,
+      input = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
+      lastUpdateTimestamp = Prelude.Nothing,
+      name = Prelude.Nothing,
       notificationChannel = Prelude.Nothing,
+      output = Prelude.Nothing,
+      regionsOfInterest = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
+      settings = Prelude.Nothing,
+      status = Prelude.Nothing,
+      statusMessage = Prelude.Nothing,
+      streamProcessorArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | ARN of the stream processor.
-describeStreamProcessorResponse_streamProcessorArn :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe Prelude.Text)
-describeStreamProcessorResponse_streamProcessorArn = Lens.lens (\DescribeStreamProcessorResponse' {streamProcessorArn} -> streamProcessorArn) (\s@DescribeStreamProcessorResponse' {} a -> s {streamProcessorArn = a} :: DescribeStreamProcessorResponse)
-
--- | Specifies locations in the frames where Amazon Rekognition checks for
--- objects or people. This is an optional parameter for label detection
--- stream processors.
-describeStreamProcessorResponse_regionsOfInterest :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe [RegionOfInterest])
-describeStreamProcessorResponse_regionsOfInterest = Lens.lens (\DescribeStreamProcessorResponse' {regionsOfInterest} -> regionsOfInterest) (\s@DescribeStreamProcessorResponse' {} a -> s {regionsOfInterest = a} :: DescribeStreamProcessorResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Name of the stream processor.
-describeStreamProcessorResponse_name :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe Prelude.Text)
-describeStreamProcessorResponse_name = Lens.lens (\DescribeStreamProcessorResponse' {name} -> name) (\s@DescribeStreamProcessorResponse' {} a -> s {name = a} :: DescribeStreamProcessorResponse)
-
--- | The time, in Unix format, the stream processor was last updated. For
--- example, when the stream processor moves from a running state to a
--- failed state, or when the user starts or stops the stream processor.
-describeStreamProcessorResponse_lastUpdateTimestamp :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe Prelude.UTCTime)
-describeStreamProcessorResponse_lastUpdateTimestamp = Lens.lens (\DescribeStreamProcessorResponse' {lastUpdateTimestamp} -> lastUpdateTimestamp) (\s@DescribeStreamProcessorResponse' {} a -> s {lastUpdateTimestamp = a} :: DescribeStreamProcessorResponse) Prelude.. Lens.mapping Data._Time
-
--- | ARN of the IAM role that allows access to the stream processor.
-describeStreamProcessorResponse_roleArn :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe Prelude.Text)
-describeStreamProcessorResponse_roleArn = Lens.lens (\DescribeStreamProcessorResponse' {roleArn} -> roleArn) (\s@DescribeStreamProcessorResponse' {} a -> s {roleArn = a} :: DescribeStreamProcessorResponse)
-
--- | Current status of the stream processor.
-describeStreamProcessorResponse_status :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe StreamProcessorStatus)
-describeStreamProcessorResponse_status = Lens.lens (\DescribeStreamProcessorResponse' {status} -> status) (\s@DescribeStreamProcessorResponse' {} a -> s {status = a} :: DescribeStreamProcessorResponse)
 
 -- | Date and time the stream processor was created
 describeStreamProcessorResponse_creationTimestamp :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe Prelude.UTCTime)
 describeStreamProcessorResponse_creationTimestamp = Lens.lens (\DescribeStreamProcessorResponse' {creationTimestamp} -> creationTimestamp) (\s@DescribeStreamProcessorResponse' {} a -> s {creationTimestamp = a} :: DescribeStreamProcessorResponse) Prelude.. Lens.mapping Data._Time
-
--- | Kinesis video stream that provides the source streaming video.
-describeStreamProcessorResponse_input :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe StreamProcessorInput)
-describeStreamProcessorResponse_input = Lens.lens (\DescribeStreamProcessorResponse' {input} -> input) (\s@DescribeStreamProcessorResponse' {} a -> s {input = a} :: DescribeStreamProcessorResponse)
-
--- | Input parameters used in a streaming video analyzed by a stream
--- processor. You can use @FaceSearch@ to recognize faces in a streaming
--- video, or you can use @ConnectedHome@ to detect labels.
-describeStreamProcessorResponse_settings :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe StreamProcessorSettings)
-describeStreamProcessorResponse_settings = Lens.lens (\DescribeStreamProcessorResponse' {settings} -> settings) (\s@DescribeStreamProcessorResponse' {} a -> s {settings = a} :: DescribeStreamProcessorResponse)
-
--- | Kinesis data stream to which Amazon Rekognition Video puts the analysis
--- results.
-describeStreamProcessorResponse_output :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe StreamProcessorOutput)
-describeStreamProcessorResponse_output = Lens.lens (\DescribeStreamProcessorResponse' {output} -> output) (\s@DescribeStreamProcessorResponse' {} a -> s {output = a} :: DescribeStreamProcessorResponse)
-
--- | The identifier for your AWS Key Management Service key (AWS KMS key).
--- This is an optional parameter for label detection stream processors.
-describeStreamProcessorResponse_kmsKeyId :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe Prelude.Text)
-describeStreamProcessorResponse_kmsKeyId = Lens.lens (\DescribeStreamProcessorResponse' {kmsKeyId} -> kmsKeyId) (\s@DescribeStreamProcessorResponse' {} a -> s {kmsKeyId = a} :: DescribeStreamProcessorResponse)
 
 -- | Shows whether you are sharing data with Rekognition to improve model
 -- performance. You can choose this option at the account level or on a
@@ -330,13 +282,61 @@ describeStreamProcessorResponse_kmsKeyId = Lens.lens (\DescribeStreamProcessorRe
 describeStreamProcessorResponse_dataSharingPreference :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe StreamProcessorDataSharingPreference)
 describeStreamProcessorResponse_dataSharingPreference = Lens.lens (\DescribeStreamProcessorResponse' {dataSharingPreference} -> dataSharingPreference) (\s@DescribeStreamProcessorResponse' {} a -> s {dataSharingPreference = a} :: DescribeStreamProcessorResponse)
 
--- | Detailed status message about the stream processor.
-describeStreamProcessorResponse_statusMessage :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe Prelude.Text)
-describeStreamProcessorResponse_statusMessage = Lens.lens (\DescribeStreamProcessorResponse' {statusMessage} -> statusMessage) (\s@DescribeStreamProcessorResponse' {} a -> s {statusMessage = a} :: DescribeStreamProcessorResponse)
+-- | Kinesis video stream that provides the source streaming video.
+describeStreamProcessorResponse_input :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe StreamProcessorInput)
+describeStreamProcessorResponse_input = Lens.lens (\DescribeStreamProcessorResponse' {input} -> input) (\s@DescribeStreamProcessorResponse' {} a -> s {input = a} :: DescribeStreamProcessorResponse)
+
+-- | The identifier for your AWS Key Management Service key (AWS KMS key).
+-- This is an optional parameter for label detection stream processors.
+describeStreamProcessorResponse_kmsKeyId :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe Prelude.Text)
+describeStreamProcessorResponse_kmsKeyId = Lens.lens (\DescribeStreamProcessorResponse' {kmsKeyId} -> kmsKeyId) (\s@DescribeStreamProcessorResponse' {} a -> s {kmsKeyId = a} :: DescribeStreamProcessorResponse)
+
+-- | The time, in Unix format, the stream processor was last updated. For
+-- example, when the stream processor moves from a running state to a
+-- failed state, or when the user starts or stops the stream processor.
+describeStreamProcessorResponse_lastUpdateTimestamp :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe Prelude.UTCTime)
+describeStreamProcessorResponse_lastUpdateTimestamp = Lens.lens (\DescribeStreamProcessorResponse' {lastUpdateTimestamp} -> lastUpdateTimestamp) (\s@DescribeStreamProcessorResponse' {} a -> s {lastUpdateTimestamp = a} :: DescribeStreamProcessorResponse) Prelude.. Lens.mapping Data._Time
+
+-- | Name of the stream processor.
+describeStreamProcessorResponse_name :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe Prelude.Text)
+describeStreamProcessorResponse_name = Lens.lens (\DescribeStreamProcessorResponse' {name} -> name) (\s@DescribeStreamProcessorResponse' {} a -> s {name = a} :: DescribeStreamProcessorResponse)
 
 -- | Undocumented member.
 describeStreamProcessorResponse_notificationChannel :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe StreamProcessorNotificationChannel)
 describeStreamProcessorResponse_notificationChannel = Lens.lens (\DescribeStreamProcessorResponse' {notificationChannel} -> notificationChannel) (\s@DescribeStreamProcessorResponse' {} a -> s {notificationChannel = a} :: DescribeStreamProcessorResponse)
+
+-- | Kinesis data stream to which Amazon Rekognition Video puts the analysis
+-- results.
+describeStreamProcessorResponse_output :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe StreamProcessorOutput)
+describeStreamProcessorResponse_output = Lens.lens (\DescribeStreamProcessorResponse' {output} -> output) (\s@DescribeStreamProcessorResponse' {} a -> s {output = a} :: DescribeStreamProcessorResponse)
+
+-- | Specifies locations in the frames where Amazon Rekognition checks for
+-- objects or people. This is an optional parameter for label detection
+-- stream processors.
+describeStreamProcessorResponse_regionsOfInterest :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe [RegionOfInterest])
+describeStreamProcessorResponse_regionsOfInterest = Lens.lens (\DescribeStreamProcessorResponse' {regionsOfInterest} -> regionsOfInterest) (\s@DescribeStreamProcessorResponse' {} a -> s {regionsOfInterest = a} :: DescribeStreamProcessorResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | ARN of the IAM role that allows access to the stream processor.
+describeStreamProcessorResponse_roleArn :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe Prelude.Text)
+describeStreamProcessorResponse_roleArn = Lens.lens (\DescribeStreamProcessorResponse' {roleArn} -> roleArn) (\s@DescribeStreamProcessorResponse' {} a -> s {roleArn = a} :: DescribeStreamProcessorResponse)
+
+-- | Input parameters used in a streaming video analyzed by a stream
+-- processor. You can use @FaceSearch@ to recognize faces in a streaming
+-- video, or you can use @ConnectedHome@ to detect labels.
+describeStreamProcessorResponse_settings :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe StreamProcessorSettings)
+describeStreamProcessorResponse_settings = Lens.lens (\DescribeStreamProcessorResponse' {settings} -> settings) (\s@DescribeStreamProcessorResponse' {} a -> s {settings = a} :: DescribeStreamProcessorResponse)
+
+-- | Current status of the stream processor.
+describeStreamProcessorResponse_status :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe StreamProcessorStatus)
+describeStreamProcessorResponse_status = Lens.lens (\DescribeStreamProcessorResponse' {status} -> status) (\s@DescribeStreamProcessorResponse' {} a -> s {status = a} :: DescribeStreamProcessorResponse)
+
+-- | Detailed status message about the stream processor.
+describeStreamProcessorResponse_statusMessage :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe Prelude.Text)
+describeStreamProcessorResponse_statusMessage = Lens.lens (\DescribeStreamProcessorResponse' {statusMessage} -> statusMessage) (\s@DescribeStreamProcessorResponse' {} a -> s {statusMessage = a} :: DescribeStreamProcessorResponse)
+
+-- | ARN of the stream processor.
+describeStreamProcessorResponse_streamProcessorArn :: Lens.Lens' DescribeStreamProcessorResponse (Prelude.Maybe Prelude.Text)
+describeStreamProcessorResponse_streamProcessorArn = Lens.lens (\DescribeStreamProcessorResponse' {streamProcessorArn} -> streamProcessorArn) (\s@DescribeStreamProcessorResponse' {} a -> s {streamProcessorArn = a} :: DescribeStreamProcessorResponse)
 
 -- | The response's http status code.
 describeStreamProcessorResponse_httpStatus :: Lens.Lens' DescribeStreamProcessorResponse Prelude.Int
@@ -347,18 +347,18 @@ instance
     DescribeStreamProcessorResponse
   where
   rnf DescribeStreamProcessorResponse' {..} =
-    Prelude.rnf streamProcessorArn
-      `Prelude.seq` Prelude.rnf regionsOfInterest
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf lastUpdateTimestamp
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf input
-      `Prelude.seq` Prelude.rnf settings
-      `Prelude.seq` Prelude.rnf output
-      `Prelude.seq` Prelude.rnf kmsKeyId
+    Prelude.rnf creationTimestamp
       `Prelude.seq` Prelude.rnf dataSharingPreference
-      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf input
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf lastUpdateTimestamp
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf notificationChannel
+      `Prelude.seq` Prelude.rnf output
+      `Prelude.seq` Prelude.rnf regionsOfInterest
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf settings
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf streamProcessorArn
       `Prelude.seq` Prelude.rnf httpStatus

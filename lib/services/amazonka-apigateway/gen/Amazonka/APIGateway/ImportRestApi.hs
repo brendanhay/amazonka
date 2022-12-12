@@ -37,19 +37,19 @@ module Amazonka.APIGateway.ImportRestApi
     newRestApi,
 
     -- * Response Lenses
-    restApi_tags,
-    restApi_policy,
-    restApi_name,
-    restApi_description,
-    restApi_id,
+    restApi_apiKeySource,
     restApi_binaryMediaTypes,
-    restApi_warnings,
+    restApi_createdDate,
+    restApi_description,
     restApi_disableExecuteApiEndpoint,
     restApi_endpointConfiguration,
-    restApi_createdDate,
-    restApi_apiKeySource,
+    restApi_id,
     restApi_minimumCompressionSize,
+    restApi_name,
+    restApi_policy,
+    restApi_tags,
     restApi_version,
+    restApi_warnings,
   )
 where
 

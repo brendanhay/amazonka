@@ -56,9 +56,14 @@ module Amazonka.Comprehend.Lens
     batchDetectTargetedSentimentResponse_errorList,
 
     -- ** ClassifyDocument
+    classifyDocument_bytes,
+    classifyDocument_documentReaderConfig,
     classifyDocument_text,
     classifyDocument_endpointArn,
     classifyDocumentResponse_classes,
+    classifyDocumentResponse_documentMetadata,
+    classifyDocumentResponse_documentType,
+    classifyDocumentResponse_errors,
     classifyDocumentResponse_labels,
     classifyDocumentResponse_httpStatus,
 
@@ -69,15 +74,15 @@ module Amazonka.Comprehend.Lens
     containsPiiEntitiesResponse_httpStatus,
 
     -- ** CreateDocumentClassifier
-    createDocumentClassifier_tags,
-    createDocumentClassifier_outputDataConfig,
-    createDocumentClassifier_modelPolicy,
-    createDocumentClassifier_modelKmsKeyId,
     createDocumentClassifier_clientRequestToken,
-    createDocumentClassifier_vpcConfig,
-    createDocumentClassifier_volumeKmsKeyId,
-    createDocumentClassifier_versionName,
     createDocumentClassifier_mode,
+    createDocumentClassifier_modelKmsKeyId,
+    createDocumentClassifier_modelPolicy,
+    createDocumentClassifier_outputDataConfig,
+    createDocumentClassifier_tags,
+    createDocumentClassifier_versionName,
+    createDocumentClassifier_volumeKmsKeyId,
+    createDocumentClassifier_vpcConfig,
     createDocumentClassifier_documentClassifierName,
     createDocumentClassifier_dataAccessRoleArn,
     createDocumentClassifier_inputDataConfig,
@@ -86,9 +91,9 @@ module Amazonka.Comprehend.Lens
     createDocumentClassifierResponse_httpStatus,
 
     -- ** CreateEndpoint
-    createEndpoint_tags,
     createEndpoint_clientRequestToken,
     createEndpoint_dataAccessRoleArn,
+    createEndpoint_tags,
     createEndpoint_endpointName,
     createEndpoint_modelArn,
     createEndpoint_desiredInferenceUnits,
@@ -96,13 +101,13 @@ module Amazonka.Comprehend.Lens
     createEndpointResponse_httpStatus,
 
     -- ** CreateEntityRecognizer
-    createEntityRecognizer_tags,
-    createEntityRecognizer_modelPolicy,
-    createEntityRecognizer_modelKmsKeyId,
     createEntityRecognizer_clientRequestToken,
-    createEntityRecognizer_vpcConfig,
-    createEntityRecognizer_volumeKmsKeyId,
+    createEntityRecognizer_modelKmsKeyId,
+    createEntityRecognizer_modelPolicy,
+    createEntityRecognizer_tags,
     createEntityRecognizer_versionName,
+    createEntityRecognizer_volumeKmsKeyId,
+    createEntityRecognizer_vpcConfig,
     createEntityRecognizer_recognizerName,
     createEntityRecognizer_dataAccessRoleArn,
     createEntityRecognizer_inputDataConfig,
@@ -174,10 +179,10 @@ module Amazonka.Comprehend.Lens
 
     -- ** DescribeResourcePolicy
     describeResourcePolicy_resourceArn,
+    describeResourcePolicyResponse_creationTime,
     describeResourcePolicyResponse_lastModifiedTime,
     describeResourcePolicyResponse_policyRevisionId,
     describeResourcePolicyResponse_resourcePolicy,
-    describeResourcePolicyResponse_creationTime,
     describeResourcePolicyResponse_httpStatus,
 
     -- ** DescribeSentimentDetectionJob
@@ -201,10 +206,16 @@ module Amazonka.Comprehend.Lens
     detectDominantLanguageResponse_httpStatus,
 
     -- ** DetectEntities
-    detectEntities_languageCode,
+    detectEntities_bytes,
+    detectEntities_documentReaderConfig,
     detectEntities_endpointArn,
+    detectEntities_languageCode,
     detectEntities_text,
+    detectEntitiesResponse_blocks,
+    detectEntitiesResponse_documentMetadata,
+    detectEntitiesResponse_documentType,
     detectEntitiesResponse_entities,
+    detectEntitiesResponse_errors,
     detectEntitiesResponse_httpStatus,
 
     -- ** DetectKeyPhrases
@@ -222,8 +233,8 @@ module Amazonka.Comprehend.Lens
     -- ** DetectSentiment
     detectSentiment_text,
     detectSentiment_languageCode,
-    detectSentimentResponse_sentimentScore,
     detectSentimentResponse_sentiment,
+    detectSentimentResponse_sentimentScore,
     detectSentimentResponse_httpStatus,
 
     -- ** DetectSyntax
@@ -239,127 +250,127 @@ module Amazonka.Comprehend.Lens
     detectTargetedSentimentResponse_httpStatus,
 
     -- ** ImportModel
-    importModel_tags,
-    importModel_modelKmsKeyId,
     importModel_dataAccessRoleArn,
-    importModel_versionName,
+    importModel_modelKmsKeyId,
     importModel_modelName,
+    importModel_tags,
+    importModel_versionName,
     importModel_sourceModelArn,
     importModelResponse_modelArn,
     importModelResponse_httpStatus,
 
     -- ** ListDocumentClassificationJobs
-    listDocumentClassificationJobs_nextToken,
     listDocumentClassificationJobs_filter,
     listDocumentClassificationJobs_maxResults,
-    listDocumentClassificationJobsResponse_nextToken,
+    listDocumentClassificationJobs_nextToken,
     listDocumentClassificationJobsResponse_documentClassificationJobPropertiesList,
+    listDocumentClassificationJobsResponse_nextToken,
     listDocumentClassificationJobsResponse_httpStatus,
 
     -- ** ListDocumentClassifierSummaries
-    listDocumentClassifierSummaries_nextToken,
     listDocumentClassifierSummaries_maxResults,
-    listDocumentClassifierSummariesResponse_nextToken,
+    listDocumentClassifierSummaries_nextToken,
     listDocumentClassifierSummariesResponse_documentClassifierSummariesList,
+    listDocumentClassifierSummariesResponse_nextToken,
     listDocumentClassifierSummariesResponse_httpStatus,
 
     -- ** ListDocumentClassifiers
-    listDocumentClassifiers_nextToken,
     listDocumentClassifiers_filter,
     listDocumentClassifiers_maxResults,
-    listDocumentClassifiersResponse_nextToken,
+    listDocumentClassifiers_nextToken,
     listDocumentClassifiersResponse_documentClassifierPropertiesList,
+    listDocumentClassifiersResponse_nextToken,
     listDocumentClassifiersResponse_httpStatus,
 
     -- ** ListDominantLanguageDetectionJobs
-    listDominantLanguageDetectionJobs_nextToken,
     listDominantLanguageDetectionJobs_filter,
     listDominantLanguageDetectionJobs_maxResults,
-    listDominantLanguageDetectionJobsResponse_nextToken,
+    listDominantLanguageDetectionJobs_nextToken,
     listDominantLanguageDetectionJobsResponse_dominantLanguageDetectionJobPropertiesList,
+    listDominantLanguageDetectionJobsResponse_nextToken,
     listDominantLanguageDetectionJobsResponse_httpStatus,
 
     -- ** ListEndpoints
-    listEndpoints_nextToken,
     listEndpoints_filter,
     listEndpoints_maxResults,
-    listEndpointsResponse_nextToken,
+    listEndpoints_nextToken,
     listEndpointsResponse_endpointPropertiesList,
+    listEndpointsResponse_nextToken,
     listEndpointsResponse_httpStatus,
 
     -- ** ListEntitiesDetectionJobs
-    listEntitiesDetectionJobs_nextToken,
     listEntitiesDetectionJobs_filter,
     listEntitiesDetectionJobs_maxResults,
-    listEntitiesDetectionJobsResponse_nextToken,
+    listEntitiesDetectionJobs_nextToken,
     listEntitiesDetectionJobsResponse_entitiesDetectionJobPropertiesList,
+    listEntitiesDetectionJobsResponse_nextToken,
     listEntitiesDetectionJobsResponse_httpStatus,
 
     -- ** ListEntityRecognizerSummaries
-    listEntityRecognizerSummaries_nextToken,
     listEntityRecognizerSummaries_maxResults,
-    listEntityRecognizerSummariesResponse_nextToken,
+    listEntityRecognizerSummaries_nextToken,
     listEntityRecognizerSummariesResponse_entityRecognizerSummariesList,
+    listEntityRecognizerSummariesResponse_nextToken,
     listEntityRecognizerSummariesResponse_httpStatus,
 
     -- ** ListEntityRecognizers
-    listEntityRecognizers_nextToken,
     listEntityRecognizers_filter,
     listEntityRecognizers_maxResults,
-    listEntityRecognizersResponse_nextToken,
+    listEntityRecognizers_nextToken,
     listEntityRecognizersResponse_entityRecognizerPropertiesList,
+    listEntityRecognizersResponse_nextToken,
     listEntityRecognizersResponse_httpStatus,
 
     -- ** ListEventsDetectionJobs
-    listEventsDetectionJobs_nextToken,
     listEventsDetectionJobs_filter,
     listEventsDetectionJobs_maxResults,
-    listEventsDetectionJobsResponse_nextToken,
+    listEventsDetectionJobs_nextToken,
     listEventsDetectionJobsResponse_eventsDetectionJobPropertiesList,
+    listEventsDetectionJobsResponse_nextToken,
     listEventsDetectionJobsResponse_httpStatus,
 
     -- ** ListKeyPhrasesDetectionJobs
-    listKeyPhrasesDetectionJobs_nextToken,
     listKeyPhrasesDetectionJobs_filter,
     listKeyPhrasesDetectionJobs_maxResults,
-    listKeyPhrasesDetectionJobsResponse_nextToken,
+    listKeyPhrasesDetectionJobs_nextToken,
     listKeyPhrasesDetectionJobsResponse_keyPhrasesDetectionJobPropertiesList,
+    listKeyPhrasesDetectionJobsResponse_nextToken,
     listKeyPhrasesDetectionJobsResponse_httpStatus,
 
     -- ** ListPiiEntitiesDetectionJobs
-    listPiiEntitiesDetectionJobs_nextToken,
     listPiiEntitiesDetectionJobs_filter,
     listPiiEntitiesDetectionJobs_maxResults,
+    listPiiEntitiesDetectionJobs_nextToken,
     listPiiEntitiesDetectionJobsResponse_nextToken,
     listPiiEntitiesDetectionJobsResponse_piiEntitiesDetectionJobPropertiesList,
     listPiiEntitiesDetectionJobsResponse_httpStatus,
 
     -- ** ListSentimentDetectionJobs
-    listSentimentDetectionJobs_nextToken,
     listSentimentDetectionJobs_filter,
     listSentimentDetectionJobs_maxResults,
-    listSentimentDetectionJobsResponse_sentimentDetectionJobPropertiesList,
+    listSentimentDetectionJobs_nextToken,
     listSentimentDetectionJobsResponse_nextToken,
+    listSentimentDetectionJobsResponse_sentimentDetectionJobPropertiesList,
     listSentimentDetectionJobsResponse_httpStatus,
 
     -- ** ListTagsForResource
     listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
     listTagsForResourceResponse_resourceArn,
+    listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
 
     -- ** ListTargetedSentimentDetectionJobs
-    listTargetedSentimentDetectionJobs_nextToken,
     listTargetedSentimentDetectionJobs_filter,
     listTargetedSentimentDetectionJobs_maxResults,
+    listTargetedSentimentDetectionJobs_nextToken,
     listTargetedSentimentDetectionJobsResponse_nextToken,
     listTargetedSentimentDetectionJobsResponse_targetedSentimentDetectionJobPropertiesList,
     listTargetedSentimentDetectionJobsResponse_httpStatus,
 
     -- ** ListTopicsDetectionJobs
-    listTopicsDetectionJobs_nextToken,
     listTopicsDetectionJobs_filter,
     listTopicsDetectionJobs_maxResults,
+    listTopicsDetectionJobs_nextToken,
     listTopicsDetectionJobsResponse_nextToken,
     listTopicsDetectionJobsResponse_topicsDetectionJobPropertiesList,
     listTopicsDetectionJobsResponse_httpStatus,
@@ -372,179 +383,179 @@ module Amazonka.Comprehend.Lens
     putResourcePolicyResponse_httpStatus,
 
     -- ** StartDocumentClassificationJob
-    startDocumentClassificationJob_tags,
     startDocumentClassificationJob_clientRequestToken,
-    startDocumentClassificationJob_vpcConfig,
     startDocumentClassificationJob_jobName,
+    startDocumentClassificationJob_tags,
     startDocumentClassificationJob_volumeKmsKeyId,
+    startDocumentClassificationJob_vpcConfig,
     startDocumentClassificationJob_documentClassifierArn,
     startDocumentClassificationJob_inputDataConfig,
     startDocumentClassificationJob_outputDataConfig,
     startDocumentClassificationJob_dataAccessRoleArn,
-    startDocumentClassificationJobResponse_jobStatus,
-    startDocumentClassificationJobResponse_jobId,
     startDocumentClassificationJobResponse_jobArn,
+    startDocumentClassificationJobResponse_jobId,
+    startDocumentClassificationJobResponse_jobStatus,
     startDocumentClassificationJobResponse_httpStatus,
 
     -- ** StartDominantLanguageDetectionJob
-    startDominantLanguageDetectionJob_tags,
     startDominantLanguageDetectionJob_clientRequestToken,
-    startDominantLanguageDetectionJob_vpcConfig,
     startDominantLanguageDetectionJob_jobName,
+    startDominantLanguageDetectionJob_tags,
     startDominantLanguageDetectionJob_volumeKmsKeyId,
+    startDominantLanguageDetectionJob_vpcConfig,
     startDominantLanguageDetectionJob_inputDataConfig,
     startDominantLanguageDetectionJob_outputDataConfig,
     startDominantLanguageDetectionJob_dataAccessRoleArn,
-    startDominantLanguageDetectionJobResponse_jobStatus,
-    startDominantLanguageDetectionJobResponse_jobId,
     startDominantLanguageDetectionJobResponse_jobArn,
+    startDominantLanguageDetectionJobResponse_jobId,
+    startDominantLanguageDetectionJobResponse_jobStatus,
     startDominantLanguageDetectionJobResponse_httpStatus,
 
     -- ** StartEntitiesDetectionJob
-    startEntitiesDetectionJob_tags,
     startEntitiesDetectionJob_clientRequestToken,
-    startEntitiesDetectionJob_vpcConfig,
-    startEntitiesDetectionJob_jobName,
     startEntitiesDetectionJob_entityRecognizerArn,
+    startEntitiesDetectionJob_jobName,
+    startEntitiesDetectionJob_tags,
     startEntitiesDetectionJob_volumeKmsKeyId,
+    startEntitiesDetectionJob_vpcConfig,
     startEntitiesDetectionJob_inputDataConfig,
     startEntitiesDetectionJob_outputDataConfig,
     startEntitiesDetectionJob_dataAccessRoleArn,
     startEntitiesDetectionJob_languageCode,
-    startEntitiesDetectionJobResponse_jobStatus,
-    startEntitiesDetectionJobResponse_jobId,
     startEntitiesDetectionJobResponse_jobArn,
+    startEntitiesDetectionJobResponse_jobId,
+    startEntitiesDetectionJobResponse_jobStatus,
     startEntitiesDetectionJobResponse_httpStatus,
 
     -- ** StartEventsDetectionJob
-    startEventsDetectionJob_tags,
     startEventsDetectionJob_clientRequestToken,
     startEventsDetectionJob_jobName,
+    startEventsDetectionJob_tags,
     startEventsDetectionJob_inputDataConfig,
     startEventsDetectionJob_outputDataConfig,
     startEventsDetectionJob_dataAccessRoleArn,
     startEventsDetectionJob_languageCode,
     startEventsDetectionJob_targetEventTypes,
-    startEventsDetectionJobResponse_jobStatus,
-    startEventsDetectionJobResponse_jobId,
     startEventsDetectionJobResponse_jobArn,
+    startEventsDetectionJobResponse_jobId,
+    startEventsDetectionJobResponse_jobStatus,
     startEventsDetectionJobResponse_httpStatus,
 
     -- ** StartKeyPhrasesDetectionJob
-    startKeyPhrasesDetectionJob_tags,
     startKeyPhrasesDetectionJob_clientRequestToken,
-    startKeyPhrasesDetectionJob_vpcConfig,
     startKeyPhrasesDetectionJob_jobName,
+    startKeyPhrasesDetectionJob_tags,
     startKeyPhrasesDetectionJob_volumeKmsKeyId,
+    startKeyPhrasesDetectionJob_vpcConfig,
     startKeyPhrasesDetectionJob_inputDataConfig,
     startKeyPhrasesDetectionJob_outputDataConfig,
     startKeyPhrasesDetectionJob_dataAccessRoleArn,
     startKeyPhrasesDetectionJob_languageCode,
-    startKeyPhrasesDetectionJobResponse_jobStatus,
-    startKeyPhrasesDetectionJobResponse_jobId,
     startKeyPhrasesDetectionJobResponse_jobArn,
+    startKeyPhrasesDetectionJobResponse_jobId,
+    startKeyPhrasesDetectionJobResponse_jobStatus,
     startKeyPhrasesDetectionJobResponse_httpStatus,
 
     -- ** StartPiiEntitiesDetectionJob
-    startPiiEntitiesDetectionJob_tags,
     startPiiEntitiesDetectionJob_clientRequestToken,
     startPiiEntitiesDetectionJob_jobName,
     startPiiEntitiesDetectionJob_redactionConfig,
+    startPiiEntitiesDetectionJob_tags,
     startPiiEntitiesDetectionJob_inputDataConfig,
     startPiiEntitiesDetectionJob_outputDataConfig,
     startPiiEntitiesDetectionJob_mode,
     startPiiEntitiesDetectionJob_dataAccessRoleArn,
     startPiiEntitiesDetectionJob_languageCode,
-    startPiiEntitiesDetectionJobResponse_jobStatus,
-    startPiiEntitiesDetectionJobResponse_jobId,
     startPiiEntitiesDetectionJobResponse_jobArn,
+    startPiiEntitiesDetectionJobResponse_jobId,
+    startPiiEntitiesDetectionJobResponse_jobStatus,
     startPiiEntitiesDetectionJobResponse_httpStatus,
 
     -- ** StartSentimentDetectionJob
-    startSentimentDetectionJob_tags,
     startSentimentDetectionJob_clientRequestToken,
-    startSentimentDetectionJob_vpcConfig,
     startSentimentDetectionJob_jobName,
+    startSentimentDetectionJob_tags,
     startSentimentDetectionJob_volumeKmsKeyId,
+    startSentimentDetectionJob_vpcConfig,
     startSentimentDetectionJob_inputDataConfig,
     startSentimentDetectionJob_outputDataConfig,
     startSentimentDetectionJob_dataAccessRoleArn,
     startSentimentDetectionJob_languageCode,
-    startSentimentDetectionJobResponse_jobStatus,
-    startSentimentDetectionJobResponse_jobId,
     startSentimentDetectionJobResponse_jobArn,
+    startSentimentDetectionJobResponse_jobId,
+    startSentimentDetectionJobResponse_jobStatus,
     startSentimentDetectionJobResponse_httpStatus,
 
     -- ** StartTargetedSentimentDetectionJob
-    startTargetedSentimentDetectionJob_tags,
     startTargetedSentimentDetectionJob_clientRequestToken,
-    startTargetedSentimentDetectionJob_vpcConfig,
     startTargetedSentimentDetectionJob_jobName,
+    startTargetedSentimentDetectionJob_tags,
     startTargetedSentimentDetectionJob_volumeKmsKeyId,
+    startTargetedSentimentDetectionJob_vpcConfig,
     startTargetedSentimentDetectionJob_inputDataConfig,
     startTargetedSentimentDetectionJob_outputDataConfig,
     startTargetedSentimentDetectionJob_dataAccessRoleArn,
     startTargetedSentimentDetectionJob_languageCode,
-    startTargetedSentimentDetectionJobResponse_jobStatus,
-    startTargetedSentimentDetectionJobResponse_jobId,
     startTargetedSentimentDetectionJobResponse_jobArn,
+    startTargetedSentimentDetectionJobResponse_jobId,
+    startTargetedSentimentDetectionJobResponse_jobStatus,
     startTargetedSentimentDetectionJobResponse_httpStatus,
 
     -- ** StartTopicsDetectionJob
-    startTopicsDetectionJob_tags,
     startTopicsDetectionJob_clientRequestToken,
-    startTopicsDetectionJob_vpcConfig,
     startTopicsDetectionJob_jobName,
     startTopicsDetectionJob_numberOfTopics,
+    startTopicsDetectionJob_tags,
     startTopicsDetectionJob_volumeKmsKeyId,
+    startTopicsDetectionJob_vpcConfig,
     startTopicsDetectionJob_inputDataConfig,
     startTopicsDetectionJob_outputDataConfig,
     startTopicsDetectionJob_dataAccessRoleArn,
-    startTopicsDetectionJobResponse_jobStatus,
-    startTopicsDetectionJobResponse_jobId,
     startTopicsDetectionJobResponse_jobArn,
+    startTopicsDetectionJobResponse_jobId,
+    startTopicsDetectionJobResponse_jobStatus,
     startTopicsDetectionJobResponse_httpStatus,
 
     -- ** StopDominantLanguageDetectionJob
     stopDominantLanguageDetectionJob_jobId,
-    stopDominantLanguageDetectionJobResponse_jobStatus,
     stopDominantLanguageDetectionJobResponse_jobId,
+    stopDominantLanguageDetectionJobResponse_jobStatus,
     stopDominantLanguageDetectionJobResponse_httpStatus,
 
     -- ** StopEntitiesDetectionJob
     stopEntitiesDetectionJob_jobId,
-    stopEntitiesDetectionJobResponse_jobStatus,
     stopEntitiesDetectionJobResponse_jobId,
+    stopEntitiesDetectionJobResponse_jobStatus,
     stopEntitiesDetectionJobResponse_httpStatus,
 
     -- ** StopEventsDetectionJob
     stopEventsDetectionJob_jobId,
-    stopEventsDetectionJobResponse_jobStatus,
     stopEventsDetectionJobResponse_jobId,
+    stopEventsDetectionJobResponse_jobStatus,
     stopEventsDetectionJobResponse_httpStatus,
 
     -- ** StopKeyPhrasesDetectionJob
     stopKeyPhrasesDetectionJob_jobId,
-    stopKeyPhrasesDetectionJobResponse_jobStatus,
     stopKeyPhrasesDetectionJobResponse_jobId,
+    stopKeyPhrasesDetectionJobResponse_jobStatus,
     stopKeyPhrasesDetectionJobResponse_httpStatus,
 
     -- ** StopPiiEntitiesDetectionJob
     stopPiiEntitiesDetectionJob_jobId,
-    stopPiiEntitiesDetectionJobResponse_jobStatus,
     stopPiiEntitiesDetectionJobResponse_jobId,
+    stopPiiEntitiesDetectionJobResponse_jobStatus,
     stopPiiEntitiesDetectionJobResponse_httpStatus,
 
     -- ** StopSentimentDetectionJob
     stopSentimentDetectionJob_jobId,
-    stopSentimentDetectionJobResponse_jobStatus,
     stopSentimentDetectionJobResponse_jobId,
+    stopSentimentDetectionJobResponse_jobStatus,
     stopSentimentDetectionJobResponse_httpStatus,
 
     -- ** StopTargetedSentimentDetectionJob
     stopTargetedSentimentDetectionJob_jobId,
-    stopTargetedSentimentDetectionJobResponse_jobStatus,
     stopTargetedSentimentDetectionJobResponse_jobId,
+    stopTargetedSentimentDetectionJobResponse_jobStatus,
     stopTargetedSentimentDetectionJobResponse_httpStatus,
 
     -- ** StopTrainingDocumentClassifier
@@ -566,8 +577,8 @@ module Amazonka.Comprehend.Lens
     untagResourceResponse_httpStatus,
 
     -- ** UpdateEndpoint
-    updateEndpoint_desiredInferenceUnits,
     updateEndpoint_desiredDataAccessRoleArn,
+    updateEndpoint_desiredInferenceUnits,
     updateEndpoint_desiredModelArn,
     updateEndpoint_endpointArn,
     updateEndpointResponse_httpStatus,
@@ -575,8 +586,8 @@ module Amazonka.Comprehend.Lens
     -- * Types
 
     -- ** AugmentedManifestsListItem
-    augmentedManifestsListItem_documentType,
     augmentedManifestsListItem_annotationDataS3Uri,
+    augmentedManifestsListItem_documentType,
     augmentedManifestsListItem_sourceDocumentsS3Uri,
     augmentedManifestsListItem_split,
     augmentedManifestsListItem_s3Uri,
@@ -596,8 +607,8 @@ module Amazonka.Comprehend.Lens
 
     -- ** BatchDetectSentimentItemResult
     batchDetectSentimentItemResult_index,
-    batchDetectSentimentItemResult_sentimentScore,
     batchDetectSentimentItemResult_sentiment,
+    batchDetectSentimentItemResult_sentimentScore,
 
     -- ** BatchDetectSyntaxItemResult
     batchDetectSyntaxItemResult_index,
@@ -608,175 +619,211 @@ module Amazonka.Comprehend.Lens
     batchDetectTargetedSentimentItemResult_index,
 
     -- ** BatchItemError
+    batchItemError_errorCode,
     batchItemError_errorMessage,
     batchItemError_index,
-    batchItemError_errorCode,
+
+    -- ** Block
+    block_blockType,
+    block_geometry,
+    block_id,
+    block_page,
+    block_relationships,
+    block_text,
+
+    -- ** BlockReference
+    blockReference_beginOffset,
+    blockReference_blockId,
+    blockReference_childBlocks,
+    blockReference_endOffset,
+
+    -- ** BoundingBox
+    boundingBox_height,
+    boundingBox_left,
+    boundingBox_top,
+    boundingBox_width,
+
+    -- ** ChildBlock
+    childBlock_beginOffset,
+    childBlock_childBlockId,
+    childBlock_endOffset,
 
     -- ** ClassifierEvaluationMetrics
-    classifierEvaluationMetrics_microF1Score,
-    classifierEvaluationMetrics_f1Score,
-    classifierEvaluationMetrics_microPrecision,
     classifierEvaluationMetrics_accuracy,
+    classifierEvaluationMetrics_f1Score,
     classifierEvaluationMetrics_hammingLoss,
-    classifierEvaluationMetrics_recall,
-    classifierEvaluationMetrics_precision,
+    classifierEvaluationMetrics_microF1Score,
+    classifierEvaluationMetrics_microPrecision,
     classifierEvaluationMetrics_microRecall,
+    classifierEvaluationMetrics_precision,
+    classifierEvaluationMetrics_recall,
 
     -- ** ClassifierMetadata
     classifierMetadata_evaluationMetrics,
-    classifierMetadata_numberOfTestDocuments,
     classifierMetadata_numberOfLabels,
+    classifierMetadata_numberOfTestDocuments,
     classifierMetadata_numberOfTrainedDocuments,
 
     -- ** DocumentClass
     documentClass_name,
+    documentClass_page,
     documentClass_score,
 
     -- ** DocumentClassificationJobFilter
-    documentClassificationJobFilter_jobStatus,
     documentClassificationJobFilter_jobName,
-    documentClassificationJobFilter_submitTimeBefore,
+    documentClassificationJobFilter_jobStatus,
     documentClassificationJobFilter_submitTimeAfter,
+    documentClassificationJobFilter_submitTimeBefore,
 
     -- ** DocumentClassificationJobProperties
-    documentClassificationJobProperties_outputDataConfig,
-    documentClassificationJobProperties_message,
-    documentClassificationJobProperties_jobStatus,
-    documentClassificationJobProperties_vpcConfig,
-    documentClassificationJobProperties_jobName,
-    documentClassificationJobProperties_submitTime,
-    documentClassificationJobProperties_jobId,
-    documentClassificationJobProperties_volumeKmsKeyId,
     documentClassificationJobProperties_dataAccessRoleArn,
-    documentClassificationJobProperties_endTime,
     documentClassificationJobProperties_documentClassifierArn,
-    documentClassificationJobProperties_jobArn,
+    documentClassificationJobProperties_endTime,
     documentClassificationJobProperties_inputDataConfig,
+    documentClassificationJobProperties_jobArn,
+    documentClassificationJobProperties_jobId,
+    documentClassificationJobProperties_jobName,
+    documentClassificationJobProperties_jobStatus,
+    documentClassificationJobProperties_message,
+    documentClassificationJobProperties_outputDataConfig,
+    documentClassificationJobProperties_submitTime,
+    documentClassificationJobProperties_volumeKmsKeyId,
+    documentClassificationJobProperties_vpcConfig,
 
     -- ** DocumentClassifierFilter
-    documentClassifierFilter_status,
-    documentClassifierFilter_submitTimeBefore,
     documentClassifierFilter_documentClassifierName,
+    documentClassifierFilter_status,
     documentClassifierFilter_submitTimeAfter,
+    documentClassifierFilter_submitTimeBefore,
 
     -- ** DocumentClassifierInputDataConfig
-    documentClassifierInputDataConfig_dataFormat,
-    documentClassifierInputDataConfig_testS3Uri,
-    documentClassifierInputDataConfig_s3Uri,
     documentClassifierInputDataConfig_augmentedManifests,
+    documentClassifierInputDataConfig_dataFormat,
     documentClassifierInputDataConfig_labelDelimiter,
+    documentClassifierInputDataConfig_s3Uri,
+    documentClassifierInputDataConfig_testS3Uri,
 
     -- ** DocumentClassifierOutputDataConfig
     documentClassifierOutputDataConfig_kmsKeyId,
     documentClassifierOutputDataConfig_s3Uri,
 
     -- ** DocumentClassifierProperties
-    documentClassifierProperties_outputDataConfig,
-    documentClassifierProperties_message,
-    documentClassifierProperties_modelKmsKeyId,
-    documentClassifierProperties_vpcConfig,
-    documentClassifierProperties_submitTime,
-    documentClassifierProperties_volumeKmsKeyId,
-    documentClassifierProperties_trainingStartTime,
-    documentClassifierProperties_dataAccessRoleArn,
-    documentClassifierProperties_status,
-    documentClassifierProperties_endTime,
-    documentClassifierProperties_languageCode,
-    documentClassifierProperties_versionName,
-    documentClassifierProperties_mode,
-    documentClassifierProperties_documentClassifierArn,
-    documentClassifierProperties_sourceModelArn,
-    documentClassifierProperties_inputDataConfig,
-    documentClassifierProperties_trainingEndTime,
     documentClassifierProperties_classifierMetadata,
+    documentClassifierProperties_dataAccessRoleArn,
+    documentClassifierProperties_documentClassifierArn,
+    documentClassifierProperties_endTime,
+    documentClassifierProperties_inputDataConfig,
+    documentClassifierProperties_languageCode,
+    documentClassifierProperties_message,
+    documentClassifierProperties_mode,
+    documentClassifierProperties_modelKmsKeyId,
+    documentClassifierProperties_outputDataConfig,
+    documentClassifierProperties_sourceModelArn,
+    documentClassifierProperties_status,
+    documentClassifierProperties_submitTime,
+    documentClassifierProperties_trainingEndTime,
+    documentClassifierProperties_trainingStartTime,
+    documentClassifierProperties_versionName,
+    documentClassifierProperties_volumeKmsKeyId,
+    documentClassifierProperties_vpcConfig,
 
     -- ** DocumentClassifierSummary
-    documentClassifierSummary_numberOfVersions,
-    documentClassifierSummary_latestVersionName,
-    documentClassifierSummary_latestVersionStatus,
     documentClassifierSummary_documentClassifierName,
     documentClassifierSummary_latestVersionCreatedAt,
+    documentClassifierSummary_latestVersionName,
+    documentClassifierSummary_latestVersionStatus,
+    documentClassifierSummary_numberOfVersions,
 
     -- ** DocumentLabel
     documentLabel_name,
+    documentLabel_page,
     documentLabel_score,
+
+    -- ** DocumentMetadata
+    documentMetadata_extractedCharacters,
+    documentMetadata_pages,
 
     -- ** DocumentReaderConfig
     documentReaderConfig_documentReadMode,
     documentReaderConfig_featureTypes,
     documentReaderConfig_documentReadAction,
 
+    -- ** DocumentTypeListItem
+    documentTypeListItem_page,
+    documentTypeListItem_type,
+
     -- ** DominantLanguage
-    dominantLanguage_score,
     dominantLanguage_languageCode,
+    dominantLanguage_score,
 
     -- ** DominantLanguageDetectionJobFilter
-    dominantLanguageDetectionJobFilter_jobStatus,
     dominantLanguageDetectionJobFilter_jobName,
-    dominantLanguageDetectionJobFilter_submitTimeBefore,
+    dominantLanguageDetectionJobFilter_jobStatus,
     dominantLanguageDetectionJobFilter_submitTimeAfter,
+    dominantLanguageDetectionJobFilter_submitTimeBefore,
 
     -- ** DominantLanguageDetectionJobProperties
-    dominantLanguageDetectionJobProperties_outputDataConfig,
-    dominantLanguageDetectionJobProperties_message,
-    dominantLanguageDetectionJobProperties_jobStatus,
-    dominantLanguageDetectionJobProperties_vpcConfig,
-    dominantLanguageDetectionJobProperties_jobName,
-    dominantLanguageDetectionJobProperties_submitTime,
-    dominantLanguageDetectionJobProperties_jobId,
-    dominantLanguageDetectionJobProperties_volumeKmsKeyId,
     dominantLanguageDetectionJobProperties_dataAccessRoleArn,
     dominantLanguageDetectionJobProperties_endTime,
-    dominantLanguageDetectionJobProperties_jobArn,
     dominantLanguageDetectionJobProperties_inputDataConfig,
+    dominantLanguageDetectionJobProperties_jobArn,
+    dominantLanguageDetectionJobProperties_jobId,
+    dominantLanguageDetectionJobProperties_jobName,
+    dominantLanguageDetectionJobProperties_jobStatus,
+    dominantLanguageDetectionJobProperties_message,
+    dominantLanguageDetectionJobProperties_outputDataConfig,
+    dominantLanguageDetectionJobProperties_submitTime,
+    dominantLanguageDetectionJobProperties_volumeKmsKeyId,
+    dominantLanguageDetectionJobProperties_vpcConfig,
 
     -- ** EndpointFilter
-    endpointFilter_status,
+    endpointFilter_creationTimeAfter,
     endpointFilter_creationTimeBefore,
     endpointFilter_modelArn,
-    endpointFilter_creationTimeAfter,
+    endpointFilter_status,
 
     -- ** EndpointProperties
-    endpointProperties_desiredInferenceUnits,
-    endpointProperties_message,
-    endpointProperties_currentInferenceUnits,
-    endpointProperties_desiredDataAccessRoleArn,
-    endpointProperties_dataAccessRoleArn,
-    endpointProperties_status,
-    endpointProperties_desiredModelArn,
-    endpointProperties_lastModifiedTime,
-    endpointProperties_modelArn,
     endpointProperties_creationTime,
+    endpointProperties_currentInferenceUnits,
+    endpointProperties_dataAccessRoleArn,
+    endpointProperties_desiredDataAccessRoleArn,
+    endpointProperties_desiredInferenceUnits,
+    endpointProperties_desiredModelArn,
     endpointProperties_endpointArn,
+    endpointProperties_lastModifiedTime,
+    endpointProperties_message,
+    endpointProperties_modelArn,
+    endpointProperties_status,
 
     -- ** EntitiesDetectionJobFilter
-    entitiesDetectionJobFilter_jobStatus,
     entitiesDetectionJobFilter_jobName,
-    entitiesDetectionJobFilter_submitTimeBefore,
+    entitiesDetectionJobFilter_jobStatus,
     entitiesDetectionJobFilter_submitTimeAfter,
+    entitiesDetectionJobFilter_submitTimeBefore,
 
     -- ** EntitiesDetectionJobProperties
-    entitiesDetectionJobProperties_outputDataConfig,
-    entitiesDetectionJobProperties_message,
-    entitiesDetectionJobProperties_jobStatus,
-    entitiesDetectionJobProperties_vpcConfig,
-    entitiesDetectionJobProperties_jobName,
-    entitiesDetectionJobProperties_submitTime,
-    entitiesDetectionJobProperties_jobId,
-    entitiesDetectionJobProperties_entityRecognizerArn,
-    entitiesDetectionJobProperties_volumeKmsKeyId,
     entitiesDetectionJobProperties_dataAccessRoleArn,
     entitiesDetectionJobProperties_endTime,
-    entitiesDetectionJobProperties_languageCode,
-    entitiesDetectionJobProperties_jobArn,
+    entitiesDetectionJobProperties_entityRecognizerArn,
     entitiesDetectionJobProperties_inputDataConfig,
+    entitiesDetectionJobProperties_jobArn,
+    entitiesDetectionJobProperties_jobId,
+    entitiesDetectionJobProperties_jobName,
+    entitiesDetectionJobProperties_jobStatus,
+    entitiesDetectionJobProperties_languageCode,
+    entitiesDetectionJobProperties_message,
+    entitiesDetectionJobProperties_outputDataConfig,
+    entitiesDetectionJobProperties_submitTime,
+    entitiesDetectionJobProperties_volumeKmsKeyId,
+    entitiesDetectionJobProperties_vpcConfig,
 
     -- ** Entity
     entity_beginOffset,
-    entity_type,
-    entity_score,
+    entity_blockReferences,
     entity_endOffset,
+    entity_score,
     entity_text,
+    entity_type,
 
     -- ** EntityLabel
     entityLabel_name,
@@ -787,8 +834,8 @@ module Amazonka.Comprehend.Lens
     entityRecognizerAnnotations_s3Uri,
 
     -- ** EntityRecognizerDocuments
-    entityRecognizerDocuments_testS3Uri,
     entityRecognizerDocuments_inputFormat,
+    entityRecognizerDocuments_testS3Uri,
     entityRecognizerDocuments_s3Uri,
 
     -- ** EntityRecognizerEntityList
@@ -796,86 +843,99 @@ module Amazonka.Comprehend.Lens
 
     -- ** EntityRecognizerEvaluationMetrics
     entityRecognizerEvaluationMetrics_f1Score,
-    entityRecognizerEvaluationMetrics_recall,
     entityRecognizerEvaluationMetrics_precision,
+    entityRecognizerEvaluationMetrics_recall,
 
     -- ** EntityRecognizerFilter
     entityRecognizerFilter_recognizerName,
     entityRecognizerFilter_status,
-    entityRecognizerFilter_submitTimeBefore,
     entityRecognizerFilter_submitTimeAfter,
+    entityRecognizerFilter_submitTimeBefore,
 
     -- ** EntityRecognizerInputDataConfig
-    entityRecognizerInputDataConfig_dataFormat,
-    entityRecognizerInputDataConfig_entityList,
     entityRecognizerInputDataConfig_annotations,
-    entityRecognizerInputDataConfig_documents,
     entityRecognizerInputDataConfig_augmentedManifests,
+    entityRecognizerInputDataConfig_dataFormat,
+    entityRecognizerInputDataConfig_documents,
+    entityRecognizerInputDataConfig_entityList,
     entityRecognizerInputDataConfig_entityTypes,
 
     -- ** EntityRecognizerMetadata
+    entityRecognizerMetadata_entityTypes,
     entityRecognizerMetadata_evaluationMetrics,
     entityRecognizerMetadata_numberOfTestDocuments,
-    entityRecognizerMetadata_entityTypes,
     entityRecognizerMetadata_numberOfTrainedDocuments,
 
     -- ** EntityRecognizerMetadataEntityTypesListItem
     entityRecognizerMetadataEntityTypesListItem_evaluationMetrics,
-    entityRecognizerMetadataEntityTypesListItem_type,
     entityRecognizerMetadataEntityTypesListItem_numberOfTrainMentions,
+    entityRecognizerMetadataEntityTypesListItem_type,
 
     -- ** EntityRecognizerProperties
+    entityRecognizerProperties_dataAccessRoleArn,
+    entityRecognizerProperties_endTime,
+    entityRecognizerProperties_entityRecognizerArn,
+    entityRecognizerProperties_inputDataConfig,
+    entityRecognizerProperties_languageCode,
     entityRecognizerProperties_message,
     entityRecognizerProperties_modelKmsKeyId,
     entityRecognizerProperties_recognizerMetadata,
-    entityRecognizerProperties_vpcConfig,
-    entityRecognizerProperties_submitTime,
-    entityRecognizerProperties_entityRecognizerArn,
-    entityRecognizerProperties_volumeKmsKeyId,
-    entityRecognizerProperties_trainingStartTime,
-    entityRecognizerProperties_dataAccessRoleArn,
-    entityRecognizerProperties_status,
-    entityRecognizerProperties_endTime,
-    entityRecognizerProperties_languageCode,
-    entityRecognizerProperties_versionName,
     entityRecognizerProperties_sourceModelArn,
-    entityRecognizerProperties_inputDataConfig,
+    entityRecognizerProperties_status,
+    entityRecognizerProperties_submitTime,
     entityRecognizerProperties_trainingEndTime,
+    entityRecognizerProperties_trainingStartTime,
+    entityRecognizerProperties_versionName,
+    entityRecognizerProperties_volumeKmsKeyId,
+    entityRecognizerProperties_vpcConfig,
 
     -- ** EntityRecognizerSummary
-    entityRecognizerSummary_numberOfVersions,
-    entityRecognizerSummary_latestVersionName,
-    entityRecognizerSummary_recognizerName,
-    entityRecognizerSummary_latestVersionStatus,
     entityRecognizerSummary_latestVersionCreatedAt,
+    entityRecognizerSummary_latestVersionName,
+    entityRecognizerSummary_latestVersionStatus,
+    entityRecognizerSummary_numberOfVersions,
+    entityRecognizerSummary_recognizerName,
 
     -- ** EntityTypesEvaluationMetrics
     entityTypesEvaluationMetrics_f1Score,
-    entityTypesEvaluationMetrics_recall,
     entityTypesEvaluationMetrics_precision,
+    entityTypesEvaluationMetrics_recall,
 
     -- ** EntityTypesListItem
     entityTypesListItem_type,
 
+    -- ** ErrorsListItem
+    errorsListItem_errorCode,
+    errorsListItem_errorMessage,
+    errorsListItem_page,
+
     -- ** EventsDetectionJobFilter
-    eventsDetectionJobFilter_jobStatus,
     eventsDetectionJobFilter_jobName,
-    eventsDetectionJobFilter_submitTimeBefore,
+    eventsDetectionJobFilter_jobStatus,
     eventsDetectionJobFilter_submitTimeAfter,
+    eventsDetectionJobFilter_submitTimeBefore,
 
     -- ** EventsDetectionJobProperties
-    eventsDetectionJobProperties_outputDataConfig,
-    eventsDetectionJobProperties_message,
-    eventsDetectionJobProperties_jobStatus,
-    eventsDetectionJobProperties_jobName,
-    eventsDetectionJobProperties_submitTime,
-    eventsDetectionJobProperties_jobId,
     eventsDetectionJobProperties_dataAccessRoleArn,
     eventsDetectionJobProperties_endTime,
-    eventsDetectionJobProperties_targetEventTypes,
-    eventsDetectionJobProperties_languageCode,
-    eventsDetectionJobProperties_jobArn,
     eventsDetectionJobProperties_inputDataConfig,
+    eventsDetectionJobProperties_jobArn,
+    eventsDetectionJobProperties_jobId,
+    eventsDetectionJobProperties_jobName,
+    eventsDetectionJobProperties_jobStatus,
+    eventsDetectionJobProperties_languageCode,
+    eventsDetectionJobProperties_message,
+    eventsDetectionJobProperties_outputDataConfig,
+    eventsDetectionJobProperties_submitTime,
+    eventsDetectionJobProperties_targetEventTypes,
+
+    -- ** ExtractedCharactersListItem
+    extractedCharactersListItem_count,
+    extractedCharactersListItem_page,
+
+    -- ** Geometry
+    geometry_boundingBox,
+    geometry_polygon,
 
     -- ** InputDataConfig
     inputDataConfig_documentReaderConfig,
@@ -884,137 +944,145 @@ module Amazonka.Comprehend.Lens
 
     -- ** KeyPhrase
     keyPhrase_beginOffset,
-    keyPhrase_score,
     keyPhrase_endOffset,
+    keyPhrase_score,
     keyPhrase_text,
 
     -- ** KeyPhrasesDetectionJobFilter
-    keyPhrasesDetectionJobFilter_jobStatus,
     keyPhrasesDetectionJobFilter_jobName,
-    keyPhrasesDetectionJobFilter_submitTimeBefore,
+    keyPhrasesDetectionJobFilter_jobStatus,
     keyPhrasesDetectionJobFilter_submitTimeAfter,
+    keyPhrasesDetectionJobFilter_submitTimeBefore,
 
     -- ** KeyPhrasesDetectionJobProperties
-    keyPhrasesDetectionJobProperties_outputDataConfig,
-    keyPhrasesDetectionJobProperties_message,
-    keyPhrasesDetectionJobProperties_jobStatus,
-    keyPhrasesDetectionJobProperties_vpcConfig,
-    keyPhrasesDetectionJobProperties_jobName,
-    keyPhrasesDetectionJobProperties_submitTime,
-    keyPhrasesDetectionJobProperties_jobId,
-    keyPhrasesDetectionJobProperties_volumeKmsKeyId,
     keyPhrasesDetectionJobProperties_dataAccessRoleArn,
     keyPhrasesDetectionJobProperties_endTime,
-    keyPhrasesDetectionJobProperties_languageCode,
-    keyPhrasesDetectionJobProperties_jobArn,
     keyPhrasesDetectionJobProperties_inputDataConfig,
+    keyPhrasesDetectionJobProperties_jobArn,
+    keyPhrasesDetectionJobProperties_jobId,
+    keyPhrasesDetectionJobProperties_jobName,
+    keyPhrasesDetectionJobProperties_jobStatus,
+    keyPhrasesDetectionJobProperties_languageCode,
+    keyPhrasesDetectionJobProperties_message,
+    keyPhrasesDetectionJobProperties_outputDataConfig,
+    keyPhrasesDetectionJobProperties_submitTime,
+    keyPhrasesDetectionJobProperties_volumeKmsKeyId,
+    keyPhrasesDetectionJobProperties_vpcConfig,
 
     -- ** MentionSentiment
-    mentionSentiment_sentimentScore,
     mentionSentiment_sentiment,
+    mentionSentiment_sentimentScore,
 
     -- ** OutputDataConfig
     outputDataConfig_kmsKeyId,
     outputDataConfig_s3Uri,
 
     -- ** PartOfSpeechTag
-    partOfSpeechTag_tag,
     partOfSpeechTag_score,
+    partOfSpeechTag_tag,
 
     -- ** PiiEntitiesDetectionJobFilter
-    piiEntitiesDetectionJobFilter_jobStatus,
     piiEntitiesDetectionJobFilter_jobName,
-    piiEntitiesDetectionJobFilter_submitTimeBefore,
+    piiEntitiesDetectionJobFilter_jobStatus,
     piiEntitiesDetectionJobFilter_submitTimeAfter,
+    piiEntitiesDetectionJobFilter_submitTimeBefore,
 
     -- ** PiiEntitiesDetectionJobProperties
-    piiEntitiesDetectionJobProperties_outputDataConfig,
-    piiEntitiesDetectionJobProperties_message,
-    piiEntitiesDetectionJobProperties_jobStatus,
-    piiEntitiesDetectionJobProperties_jobName,
-    piiEntitiesDetectionJobProperties_submitTime,
-    piiEntitiesDetectionJobProperties_jobId,
-    piiEntitiesDetectionJobProperties_redactionConfig,
     piiEntitiesDetectionJobProperties_dataAccessRoleArn,
     piiEntitiesDetectionJobProperties_endTime,
-    piiEntitiesDetectionJobProperties_languageCode,
-    piiEntitiesDetectionJobProperties_mode,
-    piiEntitiesDetectionJobProperties_jobArn,
     piiEntitiesDetectionJobProperties_inputDataConfig,
+    piiEntitiesDetectionJobProperties_jobArn,
+    piiEntitiesDetectionJobProperties_jobId,
+    piiEntitiesDetectionJobProperties_jobName,
+    piiEntitiesDetectionJobProperties_jobStatus,
+    piiEntitiesDetectionJobProperties_languageCode,
+    piiEntitiesDetectionJobProperties_message,
+    piiEntitiesDetectionJobProperties_mode,
+    piiEntitiesDetectionJobProperties_outputDataConfig,
+    piiEntitiesDetectionJobProperties_redactionConfig,
+    piiEntitiesDetectionJobProperties_submitTime,
 
     -- ** PiiEntity
     piiEntity_beginOffset,
-    piiEntity_type,
-    piiEntity_score,
     piiEntity_endOffset,
+    piiEntity_score,
+    piiEntity_type,
 
     -- ** PiiOutputDataConfig
     piiOutputDataConfig_kmsKeyId,
     piiOutputDataConfig_s3Uri,
 
+    -- ** Point
+    point_x,
+    point_y,
+
     -- ** RedactionConfig
+    redactionConfig_maskCharacter,
     redactionConfig_maskMode,
     redactionConfig_piiEntityTypes,
-    redactionConfig_maskCharacter,
+
+    -- ** RelationshipsListItem
+    relationshipsListItem_ids,
+    relationshipsListItem_type,
 
     -- ** SentimentDetectionJobFilter
-    sentimentDetectionJobFilter_jobStatus,
     sentimentDetectionJobFilter_jobName,
-    sentimentDetectionJobFilter_submitTimeBefore,
+    sentimentDetectionJobFilter_jobStatus,
     sentimentDetectionJobFilter_submitTimeAfter,
+    sentimentDetectionJobFilter_submitTimeBefore,
 
     -- ** SentimentDetectionJobProperties
-    sentimentDetectionJobProperties_outputDataConfig,
-    sentimentDetectionJobProperties_message,
-    sentimentDetectionJobProperties_jobStatus,
-    sentimentDetectionJobProperties_vpcConfig,
-    sentimentDetectionJobProperties_jobName,
-    sentimentDetectionJobProperties_submitTime,
-    sentimentDetectionJobProperties_jobId,
-    sentimentDetectionJobProperties_volumeKmsKeyId,
     sentimentDetectionJobProperties_dataAccessRoleArn,
     sentimentDetectionJobProperties_endTime,
-    sentimentDetectionJobProperties_languageCode,
-    sentimentDetectionJobProperties_jobArn,
     sentimentDetectionJobProperties_inputDataConfig,
+    sentimentDetectionJobProperties_jobArn,
+    sentimentDetectionJobProperties_jobId,
+    sentimentDetectionJobProperties_jobName,
+    sentimentDetectionJobProperties_jobStatus,
+    sentimentDetectionJobProperties_languageCode,
+    sentimentDetectionJobProperties_message,
+    sentimentDetectionJobProperties_outputDataConfig,
+    sentimentDetectionJobProperties_submitTime,
+    sentimentDetectionJobProperties_volumeKmsKeyId,
+    sentimentDetectionJobProperties_vpcConfig,
 
     -- ** SentimentScore
-    sentimentScore_positive,
+    sentimentScore_mixed,
     sentimentScore_negative,
     sentimentScore_neutral,
-    sentimentScore_mixed,
+    sentimentScore_positive,
 
     -- ** SyntaxToken
     syntaxToken_beginOffset,
-    syntaxToken_partOfSpeech,
     syntaxToken_endOffset,
-    syntaxToken_tokenId,
+    syntaxToken_partOfSpeech,
     syntaxToken_text,
+    syntaxToken_tokenId,
 
     -- ** Tag
     tag_value,
     tag_key,
 
     -- ** TargetedSentimentDetectionJobFilter
-    targetedSentimentDetectionJobFilter_jobStatus,
     targetedSentimentDetectionJobFilter_jobName,
-    targetedSentimentDetectionJobFilter_submitTimeBefore,
+    targetedSentimentDetectionJobFilter_jobStatus,
     targetedSentimentDetectionJobFilter_submitTimeAfter,
+    targetedSentimentDetectionJobFilter_submitTimeBefore,
 
     -- ** TargetedSentimentDetectionJobProperties
-    targetedSentimentDetectionJobProperties_outputDataConfig,
-    targetedSentimentDetectionJobProperties_message,
-    targetedSentimentDetectionJobProperties_jobStatus,
-    targetedSentimentDetectionJobProperties_vpcConfig,
-    targetedSentimentDetectionJobProperties_jobName,
-    targetedSentimentDetectionJobProperties_submitTime,
-    targetedSentimentDetectionJobProperties_jobId,
-    targetedSentimentDetectionJobProperties_volumeKmsKeyId,
     targetedSentimentDetectionJobProperties_dataAccessRoleArn,
     targetedSentimentDetectionJobProperties_endTime,
-    targetedSentimentDetectionJobProperties_languageCode,
-    targetedSentimentDetectionJobProperties_jobArn,
     targetedSentimentDetectionJobProperties_inputDataConfig,
+    targetedSentimentDetectionJobProperties_jobArn,
+    targetedSentimentDetectionJobProperties_jobId,
+    targetedSentimentDetectionJobProperties_jobName,
+    targetedSentimentDetectionJobProperties_jobStatus,
+    targetedSentimentDetectionJobProperties_languageCode,
+    targetedSentimentDetectionJobProperties_message,
+    targetedSentimentDetectionJobProperties_outputDataConfig,
+    targetedSentimentDetectionJobProperties_submitTime,
+    targetedSentimentDetectionJobProperties_volumeKmsKeyId,
+    targetedSentimentDetectionJobProperties_vpcConfig,
 
     -- ** TargetedSentimentEntity
     targetedSentimentEntity_descriptiveMentionIndex,
@@ -1022,33 +1090,33 @@ module Amazonka.Comprehend.Lens
 
     -- ** TargetedSentimentMention
     targetedSentimentMention_beginOffset,
-    targetedSentimentMention_type,
-    targetedSentimentMention_score,
     targetedSentimentMention_endOffset,
-    targetedSentimentMention_mentionSentiment,
     targetedSentimentMention_groupScore,
+    targetedSentimentMention_mentionSentiment,
+    targetedSentimentMention_score,
     targetedSentimentMention_text,
+    targetedSentimentMention_type,
 
     -- ** TopicsDetectionJobFilter
-    topicsDetectionJobFilter_jobStatus,
     topicsDetectionJobFilter_jobName,
-    topicsDetectionJobFilter_submitTimeBefore,
+    topicsDetectionJobFilter_jobStatus,
     topicsDetectionJobFilter_submitTimeAfter,
+    topicsDetectionJobFilter_submitTimeBefore,
 
     -- ** TopicsDetectionJobProperties
-    topicsDetectionJobProperties_outputDataConfig,
-    topicsDetectionJobProperties_message,
-    topicsDetectionJobProperties_jobStatus,
-    topicsDetectionJobProperties_vpcConfig,
-    topicsDetectionJobProperties_jobName,
-    topicsDetectionJobProperties_numberOfTopics,
-    topicsDetectionJobProperties_submitTime,
-    topicsDetectionJobProperties_jobId,
-    topicsDetectionJobProperties_volumeKmsKeyId,
     topicsDetectionJobProperties_dataAccessRoleArn,
     topicsDetectionJobProperties_endTime,
-    topicsDetectionJobProperties_jobArn,
     topicsDetectionJobProperties_inputDataConfig,
+    topicsDetectionJobProperties_jobArn,
+    topicsDetectionJobProperties_jobId,
+    topicsDetectionJobProperties_jobName,
+    topicsDetectionJobProperties_jobStatus,
+    topicsDetectionJobProperties_message,
+    topicsDetectionJobProperties_numberOfTopics,
+    topicsDetectionJobProperties_outputDataConfig,
+    topicsDetectionJobProperties_submitTime,
+    topicsDetectionJobProperties_volumeKmsKeyId,
+    topicsDetectionJobProperties_vpcConfig,
 
     -- ** VpcConfig
     vpcConfig_securityGroupIds,
@@ -1135,6 +1203,10 @@ import Amazonka.Comprehend.Types.BatchDetectSentimentItemResult
 import Amazonka.Comprehend.Types.BatchDetectSyntaxItemResult
 import Amazonka.Comprehend.Types.BatchDetectTargetedSentimentItemResult
 import Amazonka.Comprehend.Types.BatchItemError
+import Amazonka.Comprehend.Types.Block
+import Amazonka.Comprehend.Types.BlockReference
+import Amazonka.Comprehend.Types.BoundingBox
+import Amazonka.Comprehend.Types.ChildBlock
 import Amazonka.Comprehend.Types.ClassifierEvaluationMetrics
 import Amazonka.Comprehend.Types.ClassifierMetadata
 import Amazonka.Comprehend.Types.DocumentClass
@@ -1146,7 +1218,9 @@ import Amazonka.Comprehend.Types.DocumentClassifierOutputDataConfig
 import Amazonka.Comprehend.Types.DocumentClassifierProperties
 import Amazonka.Comprehend.Types.DocumentClassifierSummary
 import Amazonka.Comprehend.Types.DocumentLabel
+import Amazonka.Comprehend.Types.DocumentMetadata
 import Amazonka.Comprehend.Types.DocumentReaderConfig
+import Amazonka.Comprehend.Types.DocumentTypeListItem
 import Amazonka.Comprehend.Types.DominantLanguage
 import Amazonka.Comprehend.Types.DominantLanguageDetectionJobFilter
 import Amazonka.Comprehend.Types.DominantLanguageDetectionJobProperties
@@ -1168,8 +1242,11 @@ import Amazonka.Comprehend.Types.EntityRecognizerProperties
 import Amazonka.Comprehend.Types.EntityRecognizerSummary
 import Amazonka.Comprehend.Types.EntityTypesEvaluationMetrics
 import Amazonka.Comprehend.Types.EntityTypesListItem
+import Amazonka.Comprehend.Types.ErrorsListItem
 import Amazonka.Comprehend.Types.EventsDetectionJobFilter
 import Amazonka.Comprehend.Types.EventsDetectionJobProperties
+import Amazonka.Comprehend.Types.ExtractedCharactersListItem
+import Amazonka.Comprehend.Types.Geometry
 import Amazonka.Comprehend.Types.InputDataConfig
 import Amazonka.Comprehend.Types.KeyPhrase
 import Amazonka.Comprehend.Types.KeyPhrasesDetectionJobFilter
@@ -1181,7 +1258,9 @@ import Amazonka.Comprehend.Types.PiiEntitiesDetectionJobFilter
 import Amazonka.Comprehend.Types.PiiEntitiesDetectionJobProperties
 import Amazonka.Comprehend.Types.PiiEntity
 import Amazonka.Comprehend.Types.PiiOutputDataConfig
+import Amazonka.Comprehend.Types.Point
 import Amazonka.Comprehend.Types.RedactionConfig
+import Amazonka.Comprehend.Types.RelationshipsListItem
 import Amazonka.Comprehend.Types.SentimentDetectionJobFilter
 import Amazonka.Comprehend.Types.SentimentDetectionJobProperties
 import Amazonka.Comprehend.Types.SentimentScore

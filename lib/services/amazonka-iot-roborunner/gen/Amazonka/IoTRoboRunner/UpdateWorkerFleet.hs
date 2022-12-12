@@ -27,8 +27,8 @@ module Amazonka.IoTRoboRunner.UpdateWorkerFleet
     newUpdateWorkerFleet,
 
     -- * Request Lenses
-    updateWorkerFleet_name,
     updateWorkerFleet_additionalFixedProperties,
+    updateWorkerFleet_name,
     updateWorkerFleet_id,
 
     -- * Destructuring the Response
@@ -55,8 +55,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateWorkerFleet' smart constructor.
 data UpdateWorkerFleet = UpdateWorkerFleet'
-  { name :: Prelude.Maybe Prelude.Text,
-    additionalFixedProperties :: Prelude.Maybe Prelude.Text,
+  { additionalFixedProperties :: Prelude.Maybe Prelude.Text,
+    name :: Prelude.Maybe Prelude.Text,
     id :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,9 +69,9 @@ data UpdateWorkerFleet = UpdateWorkerFleet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateWorkerFleet_name' - Undocumented member.
---
 -- 'additionalFixedProperties', 'updateWorkerFleet_additionalFixedProperties' - Undocumented member.
+--
+-- 'name', 'updateWorkerFleet_name' - Undocumented member.
 --
 -- 'id', 'updateWorkerFleet_id' - Undocumented member.
 newUpdateWorkerFleet ::
@@ -80,18 +80,19 @@ newUpdateWorkerFleet ::
   UpdateWorkerFleet
 newUpdateWorkerFleet pId_ =
   UpdateWorkerFleet'
-    { name = Prelude.Nothing,
-      additionalFixedProperties = Prelude.Nothing,
+    { additionalFixedProperties =
+        Prelude.Nothing,
+      name = Prelude.Nothing,
       id = pId_
     }
 
 -- | Undocumented member.
-updateWorkerFleet_name :: Lens.Lens' UpdateWorkerFleet (Prelude.Maybe Prelude.Text)
-updateWorkerFleet_name = Lens.lens (\UpdateWorkerFleet' {name} -> name) (\s@UpdateWorkerFleet' {} a -> s {name = a} :: UpdateWorkerFleet)
-
--- | Undocumented member.
 updateWorkerFleet_additionalFixedProperties :: Lens.Lens' UpdateWorkerFleet (Prelude.Maybe Prelude.Text)
 updateWorkerFleet_additionalFixedProperties = Lens.lens (\UpdateWorkerFleet' {additionalFixedProperties} -> additionalFixedProperties) (\s@UpdateWorkerFleet' {} a -> s {additionalFixedProperties = a} :: UpdateWorkerFleet)
+
+-- | Undocumented member.
+updateWorkerFleet_name :: Lens.Lens' UpdateWorkerFleet (Prelude.Maybe Prelude.Text)
+updateWorkerFleet_name = Lens.lens (\UpdateWorkerFleet' {name} -> name) (\s@UpdateWorkerFleet' {} a -> s {name = a} :: UpdateWorkerFleet)
 
 -- | Undocumented member.
 updateWorkerFleet_id :: Lens.Lens' UpdateWorkerFleet Prelude.Text
@@ -117,14 +118,15 @@ instance Core.AWSRequest UpdateWorkerFleet where
 
 instance Prelude.Hashable UpdateWorkerFleet where
   hashWithSalt _salt UpdateWorkerFleet' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
       `Prelude.hashWithSalt` additionalFixedProperties
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData UpdateWorkerFleet where
   rnf UpdateWorkerFleet' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf additionalFixedProperties
+    Prelude.rnf additionalFixedProperties
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf id
 
 instance Data.ToHeaders UpdateWorkerFleet where
@@ -142,9 +144,9 @@ instance Data.ToJSON UpdateWorkerFleet where
   toJSON UpdateWorkerFleet' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("name" Data..=) Prelude.<$> name,
-            ("additionalFixedProperties" Data..=)
+          [ ("additionalFixedProperties" Data..=)
               Prelude.<$> additionalFixedProperties,
+            ("name" Data..=) Prelude.<$> name,
             Prelude.Just ("id" Data..= id)
           ]
       )

@@ -30,9 +30,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBackupRule' smart constructor.
 data BackupRule = BackupRule'
-  { -- | A value in minutes after a backup is scheduled before a job will be
-    -- canceled if it doesn\'t start successfully. This value is optional.
-    startWindowMinutes :: Prelude.Maybe Prelude.Integer,
+  { -- | A value in minutes after a backup job is successfully started before it
+    -- must be completed or it will be canceled by Backup. This value is
+    -- optional.
+    completionWindowMinutes :: Prelude.Maybe Prelude.Integer,
+    -- | An array of @CopyAction@ objects, which contains the details of the copy
+    -- operation.
+    copyActions :: Prelude.Maybe [CopyAction],
+    -- | Specifies whether Backup creates continuous backups. True causes Backup
+    -- to create continuous backups capable of point-in-time restore (PITR).
+    -- False (or not specified) causes Backup to create snapshot backups.
+    enableContinuousBackup :: Prelude.Maybe Prelude.Bool,
     -- | The lifecycle defines when a protected resource is transitioned to cold
     -- storage and when it expires. Backup transitions and expires backups
     -- automatically according to the lifecycle that you define.
@@ -48,12 +56,12 @@ data BackupRule = BackupRule'
     -- <https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource Feature availability by resource>
     -- table. Backup ignores this expression for other resource types.
     lifecycle :: Prelude.Maybe Lifecycle,
+    -- | An array of key-value pair strings that are assigned to resources that
+    -- are associated with this rule when restored from backup.
+    recoveryPointTags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | Uniquely identifies a rule that is used to schedule the backup of a
     -- selection of resources.
     ruleId :: Prelude.Maybe Prelude.Text,
-    -- | An array of @CopyAction@ objects, which contains the details of the copy
-    -- operation.
-    copyActions :: Prelude.Maybe [CopyAction],
     -- | A cron expression in UTC specifying when Backup initiates a backup job.
     -- For more information about Amazon Web Services cron expressions, see
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html Schedule Expressions for Rules>
@@ -63,17 +71,10 @@ data BackupRule = BackupRule'
     -- every day at 12 noon UTC). For a table of examples, click the preceding
     -- link and scroll down the page.
     scheduleExpression :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether Backup creates continuous backups. True causes Backup
-    -- to create continuous backups capable of point-in-time restore (PITR).
-    -- False (or not specified) causes Backup to create snapshot backups.
-    enableContinuousBackup :: Prelude.Maybe Prelude.Bool,
-    -- | A value in minutes after a backup job is successfully started before it
-    -- must be completed or it will be canceled by Backup. This value is
-    -- optional.
-    completionWindowMinutes :: Prelude.Maybe Prelude.Integer,
-    -- | An array of key-value pair strings that are assigned to resources that
-    -- are associated with this rule when restored from backup.
-    recoveryPointTags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    -- | A value in minutes after a backup is scheduled before a job will be
+    -- canceled if it doesn\'t start successfully. This value is optional. If
+    -- this value is included, it must be at least 60 minutes to avoid errors.
+    startWindowMinutes :: Prelude.Maybe Prelude.Integer,
     -- | A display name for a backup rule. Must contain 1 to 50 alphanumeric or
     -- \'-_.\' characters.
     ruleName :: Prelude.Text,
@@ -93,8 +94,16 @@ data BackupRule = BackupRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'startWindowMinutes', 'backupRule_startWindowMinutes' - A value in minutes after a backup is scheduled before a job will be
--- canceled if it doesn\'t start successfully. This value is optional.
+-- 'completionWindowMinutes', 'backupRule_completionWindowMinutes' - A value in minutes after a backup job is successfully started before it
+-- must be completed or it will be canceled by Backup. This value is
+-- optional.
+--
+-- 'copyActions', 'backupRule_copyActions' - An array of @CopyAction@ objects, which contains the details of the copy
+-- operation.
+--
+-- 'enableContinuousBackup', 'backupRule_enableContinuousBackup' - Specifies whether Backup creates continuous backups. True causes Backup
+-- to create continuous backups capable of point-in-time restore (PITR).
+-- False (or not specified) causes Backup to create snapshot backups.
 --
 -- 'lifecycle', 'backupRule_lifecycle' - The lifecycle defines when a protected resource is transitioned to cold
 -- storage and when it expires. Backup transitions and expires backups
@@ -111,11 +120,11 @@ data BackupRule = BackupRule'
 -- <https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource Feature availability by resource>
 -- table. Backup ignores this expression for other resource types.
 --
+-- 'recoveryPointTags', 'backupRule_recoveryPointTags' - An array of key-value pair strings that are assigned to resources that
+-- are associated with this rule when restored from backup.
+--
 -- 'ruleId', 'backupRule_ruleId' - Uniquely identifies a rule that is used to schedule the backup of a
 -- selection of resources.
---
--- 'copyActions', 'backupRule_copyActions' - An array of @CopyAction@ objects, which contains the details of the copy
--- operation.
 --
 -- 'scheduleExpression', 'backupRule_scheduleExpression' - A cron expression in UTC specifying when Backup initiates a backup job.
 -- For more information about Amazon Web Services cron expressions, see
@@ -126,16 +135,9 @@ data BackupRule = BackupRule'
 -- every day at 12 noon UTC). For a table of examples, click the preceding
 -- link and scroll down the page.
 --
--- 'enableContinuousBackup', 'backupRule_enableContinuousBackup' - Specifies whether Backup creates continuous backups. True causes Backup
--- to create continuous backups capable of point-in-time restore (PITR).
--- False (or not specified) causes Backup to create snapshot backups.
---
--- 'completionWindowMinutes', 'backupRule_completionWindowMinutes' - A value in minutes after a backup job is successfully started before it
--- must be completed or it will be canceled by Backup. This value is
--- optional.
---
--- 'recoveryPointTags', 'backupRule_recoveryPointTags' - An array of key-value pair strings that are assigned to resources that
--- are associated with this rule when restored from backup.
+-- 'startWindowMinutes', 'backupRule_startWindowMinutes' - A value in minutes after a backup is scheduled before a job will be
+-- canceled if it doesn\'t start successfully. This value is optional. If
+-- this value is included, it must be at least 60 minutes to avoid errors.
 --
 -- 'ruleName', 'backupRule_ruleName' - A display name for a backup rule. Must contain 1 to 50 alphanumeric or
 -- \'-_.\' characters.
@@ -152,22 +154,35 @@ newBackupRule ::
   BackupRule
 newBackupRule pRuleName_ pTargetBackupVaultName_ =
   BackupRule'
-    { startWindowMinutes = Prelude.Nothing,
-      lifecycle = Prelude.Nothing,
-      ruleId = Prelude.Nothing,
+    { completionWindowMinutes =
+        Prelude.Nothing,
       copyActions = Prelude.Nothing,
-      scheduleExpression = Prelude.Nothing,
       enableContinuousBackup = Prelude.Nothing,
-      completionWindowMinutes = Prelude.Nothing,
+      lifecycle = Prelude.Nothing,
       recoveryPointTags = Prelude.Nothing,
+      ruleId = Prelude.Nothing,
+      scheduleExpression = Prelude.Nothing,
+      startWindowMinutes = Prelude.Nothing,
       ruleName = pRuleName_,
       targetBackupVaultName = pTargetBackupVaultName_
     }
 
--- | A value in minutes after a backup is scheduled before a job will be
--- canceled if it doesn\'t start successfully. This value is optional.
-backupRule_startWindowMinutes :: Lens.Lens' BackupRule (Prelude.Maybe Prelude.Integer)
-backupRule_startWindowMinutes = Lens.lens (\BackupRule' {startWindowMinutes} -> startWindowMinutes) (\s@BackupRule' {} a -> s {startWindowMinutes = a} :: BackupRule)
+-- | A value in minutes after a backup job is successfully started before it
+-- must be completed or it will be canceled by Backup. This value is
+-- optional.
+backupRule_completionWindowMinutes :: Lens.Lens' BackupRule (Prelude.Maybe Prelude.Integer)
+backupRule_completionWindowMinutes = Lens.lens (\BackupRule' {completionWindowMinutes} -> completionWindowMinutes) (\s@BackupRule' {} a -> s {completionWindowMinutes = a} :: BackupRule)
+
+-- | An array of @CopyAction@ objects, which contains the details of the copy
+-- operation.
+backupRule_copyActions :: Lens.Lens' BackupRule (Prelude.Maybe [CopyAction])
+backupRule_copyActions = Lens.lens (\BackupRule' {copyActions} -> copyActions) (\s@BackupRule' {} a -> s {copyActions = a} :: BackupRule) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specifies whether Backup creates continuous backups. True causes Backup
+-- to create continuous backups capable of point-in-time restore (PITR).
+-- False (or not specified) causes Backup to create snapshot backups.
+backupRule_enableContinuousBackup :: Lens.Lens' BackupRule (Prelude.Maybe Prelude.Bool)
+backupRule_enableContinuousBackup = Lens.lens (\BackupRule' {enableContinuousBackup} -> enableContinuousBackup) (\s@BackupRule' {} a -> s {enableContinuousBackup = a} :: BackupRule)
 
 -- | The lifecycle defines when a protected resource is transitioned to cold
 -- storage and when it expires. Backup transitions and expires backups
@@ -186,15 +201,15 @@ backupRule_startWindowMinutes = Lens.lens (\BackupRule' {startWindowMinutes} -> 
 backupRule_lifecycle :: Lens.Lens' BackupRule (Prelude.Maybe Lifecycle)
 backupRule_lifecycle = Lens.lens (\BackupRule' {lifecycle} -> lifecycle) (\s@BackupRule' {} a -> s {lifecycle = a} :: BackupRule)
 
+-- | An array of key-value pair strings that are assigned to resources that
+-- are associated with this rule when restored from backup.
+backupRule_recoveryPointTags :: Lens.Lens' BackupRule (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+backupRule_recoveryPointTags = Lens.lens (\BackupRule' {recoveryPointTags} -> recoveryPointTags) (\s@BackupRule' {} a -> s {recoveryPointTags = a} :: BackupRule) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
+
 -- | Uniquely identifies a rule that is used to schedule the backup of a
 -- selection of resources.
 backupRule_ruleId :: Lens.Lens' BackupRule (Prelude.Maybe Prelude.Text)
 backupRule_ruleId = Lens.lens (\BackupRule' {ruleId} -> ruleId) (\s@BackupRule' {} a -> s {ruleId = a} :: BackupRule)
-
--- | An array of @CopyAction@ objects, which contains the details of the copy
--- operation.
-backupRule_copyActions :: Lens.Lens' BackupRule (Prelude.Maybe [CopyAction])
-backupRule_copyActions = Lens.lens (\BackupRule' {copyActions} -> copyActions) (\s@BackupRule' {} a -> s {copyActions = a} :: BackupRule) Prelude.. Lens.mapping Lens.coerced
 
 -- | A cron expression in UTC specifying when Backup initiates a backup job.
 -- For more information about Amazon Web Services cron expressions, see
@@ -207,22 +222,11 @@ backupRule_copyActions = Lens.lens (\BackupRule' {copyActions} -> copyActions) (
 backupRule_scheduleExpression :: Lens.Lens' BackupRule (Prelude.Maybe Prelude.Text)
 backupRule_scheduleExpression = Lens.lens (\BackupRule' {scheduleExpression} -> scheduleExpression) (\s@BackupRule' {} a -> s {scheduleExpression = a} :: BackupRule)
 
--- | Specifies whether Backup creates continuous backups. True causes Backup
--- to create continuous backups capable of point-in-time restore (PITR).
--- False (or not specified) causes Backup to create snapshot backups.
-backupRule_enableContinuousBackup :: Lens.Lens' BackupRule (Prelude.Maybe Prelude.Bool)
-backupRule_enableContinuousBackup = Lens.lens (\BackupRule' {enableContinuousBackup} -> enableContinuousBackup) (\s@BackupRule' {} a -> s {enableContinuousBackup = a} :: BackupRule)
-
--- | A value in minutes after a backup job is successfully started before it
--- must be completed or it will be canceled by Backup. This value is
--- optional.
-backupRule_completionWindowMinutes :: Lens.Lens' BackupRule (Prelude.Maybe Prelude.Integer)
-backupRule_completionWindowMinutes = Lens.lens (\BackupRule' {completionWindowMinutes} -> completionWindowMinutes) (\s@BackupRule' {} a -> s {completionWindowMinutes = a} :: BackupRule)
-
--- | An array of key-value pair strings that are assigned to resources that
--- are associated with this rule when restored from backup.
-backupRule_recoveryPointTags :: Lens.Lens' BackupRule (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-backupRule_recoveryPointTags = Lens.lens (\BackupRule' {recoveryPointTags} -> recoveryPointTags) (\s@BackupRule' {} a -> s {recoveryPointTags = a} :: BackupRule) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
+-- | A value in minutes after a backup is scheduled before a job will be
+-- canceled if it doesn\'t start successfully. This value is optional. If
+-- this value is included, it must be at least 60 minutes to avoid errors.
+backupRule_startWindowMinutes :: Lens.Lens' BackupRule (Prelude.Maybe Prelude.Integer)
+backupRule_startWindowMinutes = Lens.lens (\BackupRule' {startWindowMinutes} -> startWindowMinutes) (\s@BackupRule' {} a -> s {startWindowMinutes = a} :: BackupRule)
 
 -- | A display name for a backup rule. Must contain 1 to 50 alphanumeric or
 -- \'-_.\' characters.
@@ -242,42 +246,43 @@ instance Data.FromJSON BackupRule where
       "BackupRule"
       ( \x ->
           BackupRule'
-            Prelude.<$> (x Data..:? "StartWindowMinutes")
-            Prelude.<*> (x Data..:? "Lifecycle")
-            Prelude.<*> (x Data..:? "RuleId")
+            Prelude.<$> (x Data..:? "CompletionWindowMinutes")
             Prelude.<*> (x Data..:? "CopyActions" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "ScheduleExpression")
             Prelude.<*> (x Data..:? "EnableContinuousBackup")
-            Prelude.<*> (x Data..:? "CompletionWindowMinutes")
+            Prelude.<*> (x Data..:? "Lifecycle")
             Prelude.<*> ( x Data..:? "RecoveryPointTags"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "RuleId")
+            Prelude.<*> (x Data..:? "ScheduleExpression")
+            Prelude.<*> (x Data..:? "StartWindowMinutes")
             Prelude.<*> (x Data..: "RuleName")
             Prelude.<*> (x Data..: "TargetBackupVaultName")
       )
 
 instance Prelude.Hashable BackupRule where
   hashWithSalt _salt BackupRule' {..} =
-    _salt `Prelude.hashWithSalt` startWindowMinutes
-      `Prelude.hashWithSalt` lifecycle
-      `Prelude.hashWithSalt` ruleId
-      `Prelude.hashWithSalt` copyActions
-      `Prelude.hashWithSalt` scheduleExpression
-      `Prelude.hashWithSalt` enableContinuousBackup
+    _salt
       `Prelude.hashWithSalt` completionWindowMinutes
+      `Prelude.hashWithSalt` copyActions
+      `Prelude.hashWithSalt` enableContinuousBackup
+      `Prelude.hashWithSalt` lifecycle
       `Prelude.hashWithSalt` recoveryPointTags
+      `Prelude.hashWithSalt` ruleId
+      `Prelude.hashWithSalt` scheduleExpression
+      `Prelude.hashWithSalt` startWindowMinutes
       `Prelude.hashWithSalt` ruleName
       `Prelude.hashWithSalt` targetBackupVaultName
 
 instance Prelude.NFData BackupRule where
   rnf BackupRule' {..} =
-    Prelude.rnf startWindowMinutes
-      `Prelude.seq` Prelude.rnf lifecycle
-      `Prelude.seq` Prelude.rnf ruleId
+    Prelude.rnf completionWindowMinutes
       `Prelude.seq` Prelude.rnf copyActions
-      `Prelude.seq` Prelude.rnf scheduleExpression
       `Prelude.seq` Prelude.rnf enableContinuousBackup
-      `Prelude.seq` Prelude.rnf completionWindowMinutes
+      `Prelude.seq` Prelude.rnf lifecycle
       `Prelude.seq` Prelude.rnf recoveryPointTags
+      `Prelude.seq` Prelude.rnf ruleId
+      `Prelude.seq` Prelude.rnf scheduleExpression
+      `Prelude.seq` Prelude.rnf startWindowMinutes
       `Prelude.seq` Prelude.rnf ruleName
       `Prelude.seq` Prelude.rnf targetBackupVaultName

@@ -34,17 +34,17 @@ import Amazonka.Route53RecoveryControlConfig.Types.Status
 data Cluster = Cluster'
   { -- | The Amazon Resource Name (ARN) of the cluster.
     clusterArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the cluster.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Deployment status of a resource. Status can be one of the following:
-    -- PENDING, DEPLOYED, PENDING_DELETION.
-    status :: Prelude.Maybe Status,
     -- | Endpoints for a cluster. Specify one of these endpoints when you want to
     -- set or retrieve a routing control state in the cluster.
     --
     -- To get or update the routing control state, see the Amazon Route 53
     -- Application Recovery Controller Routing Control Actions.
-    clusterEndpoints :: Prelude.Maybe [ClusterEndpoint]
+    clusterEndpoints :: Prelude.Maybe [ClusterEndpoint],
+    -- | The name of the cluster.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Deployment status of a resource. Status can be one of the following:
+    -- PENDING, DEPLOYED, PENDING_DELETION.
+    status :: Prelude.Maybe Status
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,29 +58,37 @@ data Cluster = Cluster'
 --
 -- 'clusterArn', 'cluster_clusterArn' - The Amazon Resource Name (ARN) of the cluster.
 --
--- 'name', 'cluster_name' - The name of the cluster.
---
--- 'status', 'cluster_status' - Deployment status of a resource. Status can be one of the following:
--- PENDING, DEPLOYED, PENDING_DELETION.
---
 -- 'clusterEndpoints', 'cluster_clusterEndpoints' - Endpoints for a cluster. Specify one of these endpoints when you want to
 -- set or retrieve a routing control state in the cluster.
 --
 -- To get or update the routing control state, see the Amazon Route 53
 -- Application Recovery Controller Routing Control Actions.
+--
+-- 'name', 'cluster_name' - The name of the cluster.
+--
+-- 'status', 'cluster_status' - Deployment status of a resource. Status can be one of the following:
+-- PENDING, DEPLOYED, PENDING_DELETION.
 newCluster ::
   Cluster
 newCluster =
   Cluster'
     { clusterArn = Prelude.Nothing,
+      clusterEndpoints = Prelude.Nothing,
       name = Prelude.Nothing,
-      status = Prelude.Nothing,
-      clusterEndpoints = Prelude.Nothing
+      status = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the cluster.
 cluster_clusterArn :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
 cluster_clusterArn = Lens.lens (\Cluster' {clusterArn} -> clusterArn) (\s@Cluster' {} a -> s {clusterArn = a} :: Cluster)
+
+-- | Endpoints for a cluster. Specify one of these endpoints when you want to
+-- set or retrieve a routing control state in the cluster.
+--
+-- To get or update the routing control state, see the Amazon Route 53
+-- Application Recovery Controller Routing Control Actions.
+cluster_clusterEndpoints :: Lens.Lens' Cluster (Prelude.Maybe [ClusterEndpoint])
+cluster_clusterEndpoints = Lens.lens (\Cluster' {clusterEndpoints} -> clusterEndpoints) (\s@Cluster' {} a -> s {clusterEndpoints = a} :: Cluster) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the cluster.
 cluster_name :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
@@ -91,14 +99,6 @@ cluster_name = Lens.lens (\Cluster' {name} -> name) (\s@Cluster' {} a -> s {name
 cluster_status :: Lens.Lens' Cluster (Prelude.Maybe Status)
 cluster_status = Lens.lens (\Cluster' {status} -> status) (\s@Cluster' {} a -> s {status = a} :: Cluster)
 
--- | Endpoints for a cluster. Specify one of these endpoints when you want to
--- set or retrieve a routing control state in the cluster.
---
--- To get or update the routing control state, see the Amazon Route 53
--- Application Recovery Controller Routing Control Actions.
-cluster_clusterEndpoints :: Lens.Lens' Cluster (Prelude.Maybe [ClusterEndpoint])
-cluster_clusterEndpoints = Lens.lens (\Cluster' {clusterEndpoints} -> clusterEndpoints) (\s@Cluster' {} a -> s {clusterEndpoints = a} :: Cluster) Prelude.. Lens.mapping Lens.coerced
-
 instance Data.FromJSON Cluster where
   parseJSON =
     Data.withObject
@@ -106,23 +106,23 @@ instance Data.FromJSON Cluster where
       ( \x ->
           Cluster'
             Prelude.<$> (x Data..:? "ClusterArn")
-            Prelude.<*> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Status")
             Prelude.<*> ( x Data..:? "ClusterEndpoints"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable Cluster where
   hashWithSalt _salt Cluster' {..} =
     _salt `Prelude.hashWithSalt` clusterArn
+      `Prelude.hashWithSalt` clusterEndpoints
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` clusterEndpoints
 
 instance Prelude.NFData Cluster where
   rnf Cluster' {..} =
     Prelude.rnf clusterArn
+      `Prelude.seq` Prelude.rnf clusterEndpoints
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf clusterEndpoints

@@ -29,8 +29,8 @@ module Amazonka.Translate.ListTerminologies
     newListTerminologies,
 
     -- * Request Lenses
-    listTerminologies_nextToken,
     listTerminologies_maxResults,
+    listTerminologies_nextToken,
 
     -- * Destructuring the Response
     ListTerminologiesResponse (..),
@@ -53,11 +53,11 @@ import Amazonka.Translate.Types
 
 -- | /See:/ 'newListTerminologies' smart constructor.
 data ListTerminologies = ListTerminologies'
-  { -- | If the result of the request to ListTerminologies was truncated, include
+  { -- | The maximum number of custom terminologies returned per list request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the result of the request to ListTerminologies was truncated, include
     -- the NextToken to fetch the next group of custom terminologies.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of custom terminologies returned per list request.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,26 +69,26 @@ data ListTerminologies = ListTerminologies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listTerminologies_maxResults' - The maximum number of custom terminologies returned per list request.
+--
 -- 'nextToken', 'listTerminologies_nextToken' - If the result of the request to ListTerminologies was truncated, include
 -- the NextToken to fetch the next group of custom terminologies.
---
--- 'maxResults', 'listTerminologies_maxResults' - The maximum number of custom terminologies returned per list request.
 newListTerminologies ::
   ListTerminologies
 newListTerminologies =
   ListTerminologies'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of custom terminologies returned per list request.
+listTerminologies_maxResults :: Lens.Lens' ListTerminologies (Prelude.Maybe Prelude.Natural)
+listTerminologies_maxResults = Lens.lens (\ListTerminologies' {maxResults} -> maxResults) (\s@ListTerminologies' {} a -> s {maxResults = a} :: ListTerminologies)
 
 -- | If the result of the request to ListTerminologies was truncated, include
 -- the NextToken to fetch the next group of custom terminologies.
 listTerminologies_nextToken :: Lens.Lens' ListTerminologies (Prelude.Maybe Prelude.Text)
 listTerminologies_nextToken = Lens.lens (\ListTerminologies' {nextToken} -> nextToken) (\s@ListTerminologies' {} a -> s {nextToken = a} :: ListTerminologies)
-
--- | The maximum number of custom terminologies returned per list request.
-listTerminologies_maxResults :: Lens.Lens' ListTerminologies (Prelude.Maybe Prelude.Natural)
-listTerminologies_maxResults = Lens.lens (\ListTerminologies' {maxResults} -> maxResults) (\s@ListTerminologies' {} a -> s {maxResults = a} :: ListTerminologies)
 
 instance Core.AWSPager ListTerminologies where
   page rq rs
@@ -131,13 +131,13 @@ instance Core.AWSRequest ListTerminologies where
 
 instance Prelude.Hashable ListTerminologies where
   hashWithSalt _salt ListTerminologies' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListTerminologies where
   rnf ListTerminologies' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListTerminologies where
   toHeaders =
@@ -158,8 +158,8 @@ instance Data.ToJSON ListTerminologies where
   toJSON ListTerminologies' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

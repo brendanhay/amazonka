@@ -28,25 +28,25 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newDeploymentStrategy' smart constructor.
 data DeploymentStrategy = DeploymentStrategy'
-  { -- | The name of the deployment strategy.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The algorithm used to define how percentage grew over time.
-    growthType :: Prelude.Maybe GrowthType,
-    -- | Total amount of time the deployment lasted.
+  { -- | Total amount of time the deployment lasted.
     deploymentDurationInMinutes :: Prelude.Maybe Prelude.Natural,
-    -- | The deployment strategy ID.
-    id :: Prelude.Maybe Prelude.Text,
     -- | The description of the deployment strategy.
     description :: Prelude.Maybe Prelude.Text,
     -- | The amount of time that AppConfig monitored for alarms before
     -- considering the deployment to be complete and no longer eligible for
     -- automatic rollback.
     finalBakeTimeInMinutes :: Prelude.Maybe Prelude.Natural,
-    -- | Save the deployment strategy to a Systems Manager (SSM) document.
-    replicateTo :: Prelude.Maybe ReplicateTo,
     -- | The percentage of targets that received a deployed configuration during
     -- each interval.
-    growthFactor :: Prelude.Maybe Prelude.Double
+    growthFactor :: Prelude.Maybe Prelude.Double,
+    -- | The algorithm used to define how percentage grew over time.
+    growthType :: Prelude.Maybe GrowthType,
+    -- | The deployment strategy ID.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The name of the deployment strategy.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Save the deployment strategy to a Systems Manager (SSM) document.
+    replicateTo :: Prelude.Maybe ReplicateTo
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,13 +58,7 @@ data DeploymentStrategy = DeploymentStrategy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'deploymentStrategy_name' - The name of the deployment strategy.
---
--- 'growthType', 'deploymentStrategy_growthType' - The algorithm used to define how percentage grew over time.
---
 -- 'deploymentDurationInMinutes', 'deploymentStrategy_deploymentDurationInMinutes' - Total amount of time the deployment lasted.
---
--- 'id', 'deploymentStrategy_id' - The deployment strategy ID.
 --
 -- 'description', 'deploymentStrategy_description' - The description of the deployment strategy.
 --
@@ -72,39 +66,34 @@ data DeploymentStrategy = DeploymentStrategy'
 -- considering the deployment to be complete and no longer eligible for
 -- automatic rollback.
 --
--- 'replicateTo', 'deploymentStrategy_replicateTo' - Save the deployment strategy to a Systems Manager (SSM) document.
---
 -- 'growthFactor', 'deploymentStrategy_growthFactor' - The percentage of targets that received a deployed configuration during
 -- each interval.
+--
+-- 'growthType', 'deploymentStrategy_growthType' - The algorithm used to define how percentage grew over time.
+--
+-- 'id', 'deploymentStrategy_id' - The deployment strategy ID.
+--
+-- 'name', 'deploymentStrategy_name' - The name of the deployment strategy.
+--
+-- 'replicateTo', 'deploymentStrategy_replicateTo' - Save the deployment strategy to a Systems Manager (SSM) document.
 newDeploymentStrategy ::
   DeploymentStrategy
 newDeploymentStrategy =
   DeploymentStrategy'
-    { name = Prelude.Nothing,
-      growthType = Prelude.Nothing,
-      deploymentDurationInMinutes = Prelude.Nothing,
-      id = Prelude.Nothing,
+    { deploymentDurationInMinutes =
+        Prelude.Nothing,
       description = Prelude.Nothing,
       finalBakeTimeInMinutes = Prelude.Nothing,
-      replicateTo = Prelude.Nothing,
-      growthFactor = Prelude.Nothing
+      growthFactor = Prelude.Nothing,
+      growthType = Prelude.Nothing,
+      id = Prelude.Nothing,
+      name = Prelude.Nothing,
+      replicateTo = Prelude.Nothing
     }
-
--- | The name of the deployment strategy.
-deploymentStrategy_name :: Lens.Lens' DeploymentStrategy (Prelude.Maybe Prelude.Text)
-deploymentStrategy_name = Lens.lens (\DeploymentStrategy' {name} -> name) (\s@DeploymentStrategy' {} a -> s {name = a} :: DeploymentStrategy)
-
--- | The algorithm used to define how percentage grew over time.
-deploymentStrategy_growthType :: Lens.Lens' DeploymentStrategy (Prelude.Maybe GrowthType)
-deploymentStrategy_growthType = Lens.lens (\DeploymentStrategy' {growthType} -> growthType) (\s@DeploymentStrategy' {} a -> s {growthType = a} :: DeploymentStrategy)
 
 -- | Total amount of time the deployment lasted.
 deploymentStrategy_deploymentDurationInMinutes :: Lens.Lens' DeploymentStrategy (Prelude.Maybe Prelude.Natural)
 deploymentStrategy_deploymentDurationInMinutes = Lens.lens (\DeploymentStrategy' {deploymentDurationInMinutes} -> deploymentDurationInMinutes) (\s@DeploymentStrategy' {} a -> s {deploymentDurationInMinutes = a} :: DeploymentStrategy)
-
--- | The deployment strategy ID.
-deploymentStrategy_id :: Lens.Lens' DeploymentStrategy (Prelude.Maybe Prelude.Text)
-deploymentStrategy_id = Lens.lens (\DeploymentStrategy' {id} -> id) (\s@DeploymentStrategy' {} a -> s {id = a} :: DeploymentStrategy)
 
 -- | The description of the deployment strategy.
 deploymentStrategy_description :: Lens.Lens' DeploymentStrategy (Prelude.Maybe Prelude.Text)
@@ -116,14 +105,26 @@ deploymentStrategy_description = Lens.lens (\DeploymentStrategy' {description} -
 deploymentStrategy_finalBakeTimeInMinutes :: Lens.Lens' DeploymentStrategy (Prelude.Maybe Prelude.Natural)
 deploymentStrategy_finalBakeTimeInMinutes = Lens.lens (\DeploymentStrategy' {finalBakeTimeInMinutes} -> finalBakeTimeInMinutes) (\s@DeploymentStrategy' {} a -> s {finalBakeTimeInMinutes = a} :: DeploymentStrategy)
 
--- | Save the deployment strategy to a Systems Manager (SSM) document.
-deploymentStrategy_replicateTo :: Lens.Lens' DeploymentStrategy (Prelude.Maybe ReplicateTo)
-deploymentStrategy_replicateTo = Lens.lens (\DeploymentStrategy' {replicateTo} -> replicateTo) (\s@DeploymentStrategy' {} a -> s {replicateTo = a} :: DeploymentStrategy)
-
 -- | The percentage of targets that received a deployed configuration during
 -- each interval.
 deploymentStrategy_growthFactor :: Lens.Lens' DeploymentStrategy (Prelude.Maybe Prelude.Double)
 deploymentStrategy_growthFactor = Lens.lens (\DeploymentStrategy' {growthFactor} -> growthFactor) (\s@DeploymentStrategy' {} a -> s {growthFactor = a} :: DeploymentStrategy)
+
+-- | The algorithm used to define how percentage grew over time.
+deploymentStrategy_growthType :: Lens.Lens' DeploymentStrategy (Prelude.Maybe GrowthType)
+deploymentStrategy_growthType = Lens.lens (\DeploymentStrategy' {growthType} -> growthType) (\s@DeploymentStrategy' {} a -> s {growthType = a} :: DeploymentStrategy)
+
+-- | The deployment strategy ID.
+deploymentStrategy_id :: Lens.Lens' DeploymentStrategy (Prelude.Maybe Prelude.Text)
+deploymentStrategy_id = Lens.lens (\DeploymentStrategy' {id} -> id) (\s@DeploymentStrategy' {} a -> s {id = a} :: DeploymentStrategy)
+
+-- | The name of the deployment strategy.
+deploymentStrategy_name :: Lens.Lens' DeploymentStrategy (Prelude.Maybe Prelude.Text)
+deploymentStrategy_name = Lens.lens (\DeploymentStrategy' {name} -> name) (\s@DeploymentStrategy' {} a -> s {name = a} :: DeploymentStrategy)
+
+-- | Save the deployment strategy to a Systems Manager (SSM) document.
+deploymentStrategy_replicateTo :: Lens.Lens' DeploymentStrategy (Prelude.Maybe ReplicateTo)
+deploymentStrategy_replicateTo = Lens.lens (\DeploymentStrategy' {replicateTo} -> replicateTo) (\s@DeploymentStrategy' {} a -> s {replicateTo = a} :: DeploymentStrategy)
 
 instance Data.FromJSON DeploymentStrategy where
   parseJSON =
@@ -131,34 +132,35 @@ instance Data.FromJSON DeploymentStrategy where
       "DeploymentStrategy"
       ( \x ->
           DeploymentStrategy'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "GrowthType")
-            Prelude.<*> (x Data..:? "DeploymentDurationInMinutes")
-            Prelude.<*> (x Data..:? "Id")
+            Prelude.<$> (x Data..:? "DeploymentDurationInMinutes")
             Prelude.<*> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "FinalBakeTimeInMinutes")
-            Prelude.<*> (x Data..:? "ReplicateTo")
             Prelude.<*> (x Data..:? "GrowthFactor")
+            Prelude.<*> (x Data..:? "GrowthType")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ReplicateTo")
       )
 
 instance Prelude.Hashable DeploymentStrategy where
   hashWithSalt _salt DeploymentStrategy' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` growthType
+    _salt
       `Prelude.hashWithSalt` deploymentDurationInMinutes
-      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` finalBakeTimeInMinutes
-      `Prelude.hashWithSalt` replicateTo
       `Prelude.hashWithSalt` growthFactor
+      `Prelude.hashWithSalt` growthType
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` replicateTo
 
 instance Prelude.NFData DeploymentStrategy where
   rnf DeploymentStrategy' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf growthType
-      `Prelude.seq` Prelude.rnf deploymentDurationInMinutes
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf deploymentDurationInMinutes
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf finalBakeTimeInMinutes
-      `Prelude.seq` Prelude.rnf replicateTo
       `Prelude.seq` Prelude.rnf growthFactor
+      `Prelude.seq` Prelude.rnf growthType
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf replicateTo

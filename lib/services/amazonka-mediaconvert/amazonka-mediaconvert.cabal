@@ -169,12 +169,14 @@ library
     Amazonka.MediaConvert.Types.CmafKeyProviderType
     Amazonka.MediaConvert.Types.CmafManifestCompression
     Amazonka.MediaConvert.Types.CmafManifestDurationFormat
+    Amazonka.MediaConvert.Types.CmafMpdManifestBandwidthType
     Amazonka.MediaConvert.Types.CmafMpdProfile
     Amazonka.MediaConvert.Types.CmafPtsOffsetHandlingForBFrames
     Amazonka.MediaConvert.Types.CmafSegmentControl
     Amazonka.MediaConvert.Types.CmafSegmentLengthControl
     Amazonka.MediaConvert.Types.CmafStreamInfResolution
     Amazonka.MediaConvert.Types.CmafTargetDurationCompatibilityMode
+    Amazonka.MediaConvert.Types.CmafVideoCompositionOffsets
     Amazonka.MediaConvert.Types.CmafWriteDASHManifest
     Amazonka.MediaConvert.Types.CmafWriteHLSManifest
     Amazonka.MediaConvert.Types.CmafWriteSegmentTimelineInRepresentation
@@ -183,10 +185,12 @@ library
     Amazonka.MediaConvert.Types.CmfcDescriptiveVideoServiceFlag
     Amazonka.MediaConvert.Types.CmfcIFrameOnlyManifest
     Amazonka.MediaConvert.Types.CmfcKlvMetadata
+    Amazonka.MediaConvert.Types.CmfcManifestMetadataSignaling
     Amazonka.MediaConvert.Types.CmfcScte35Esam
     Amazonka.MediaConvert.Types.CmfcScte35Source
     Amazonka.MediaConvert.Types.CmfcSettings
     Amazonka.MediaConvert.Types.CmfcTimedMetadata
+    Amazonka.MediaConvert.Types.CmfcTimedMetadataBoxVersion
     Amazonka.MediaConvert.Types.ColorCorrector
     Amazonka.MediaConvert.Types.ColorMetadata
     Amazonka.MediaConvert.Types.ColorSpace
@@ -204,11 +208,13 @@ library
     Amazonka.MediaConvert.Types.DashIsoImageBasedTrickPlay
     Amazonka.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings
     Amazonka.MediaConvert.Types.DashIsoIntervalCadence
+    Amazonka.MediaConvert.Types.DashIsoMpdManifestBandwidthType
     Amazonka.MediaConvert.Types.DashIsoMpdProfile
     Amazonka.MediaConvert.Types.DashIsoPlaybackDeviceCompatibility
     Amazonka.MediaConvert.Types.DashIsoPtsOffsetHandlingForBFrames
     Amazonka.MediaConvert.Types.DashIsoSegmentControl
     Amazonka.MediaConvert.Types.DashIsoSegmentLengthControl
+    Amazonka.MediaConvert.Types.DashIsoVideoCompositionOffsets
     Amazonka.MediaConvert.Types.DashIsoWriteSegmentTimelineInRepresentation
     Amazonka.MediaConvert.Types.DecryptionMode
     Amazonka.MediaConvert.Types.DeinterlaceAlgorithm
@@ -450,10 +456,12 @@ library
     Amazonka.MediaConvert.Types.MpdAudioDuration
     Amazonka.MediaConvert.Types.MpdCaptionContainerType
     Amazonka.MediaConvert.Types.MpdKlvMetadata
+    Amazonka.MediaConvert.Types.MpdManifestMetadataSignaling
     Amazonka.MediaConvert.Types.MpdScte35Esam
     Amazonka.MediaConvert.Types.MpdScte35Source
     Amazonka.MediaConvert.Types.MpdSettings
     Amazonka.MediaConvert.Types.MpdTimedMetadata
+    Amazonka.MediaConvert.Types.MpdTimedMetadataBoxVersion
     Amazonka.MediaConvert.Types.Mpeg2AdaptiveQuantization
     Amazonka.MediaConvert.Types.Mpeg2CodecLevel
     Amazonka.MediaConvert.Types.Mpeg2CodecProfile

@@ -30,12 +30,14 @@ import Amazonka.Route53Resolver.Types.ResolverDNSSECValidationStatus
 --
 -- /See:/ 'newResolverDnssecConfig' smart constructor.
 data ResolverDnssecConfig = ResolverDnssecConfig'
-  { -- | The ID of the virtual private cloud (VPC) that you\'re configuring the
-    -- DNSSEC validation status for.
-    resourceId :: Prelude.Maybe Prelude.Text,
+  { -- | The ID for a configuration for DNSSEC validation.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The owner account ID of the virtual private cloud (VPC) for a
     -- configuration for DNSSEC validation.
     ownerId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the virtual private cloud (VPC) that you\'re configuring the
+    -- DNSSEC validation status for.
+    resourceId :: Prelude.Maybe Prelude.Text,
     -- | The validation status for a DNSSEC configuration. The status can be one
     -- of the following:
     --
@@ -48,9 +50,7 @@ data ResolverDnssecConfig = ResolverDnssecConfig'
     --     complete.
     --
     -- -   __DISABLED__ DNSSEC validation is disabled.
-    validationStatus :: Prelude.Maybe ResolverDNSSECValidationStatus,
-    -- | The ID for a configuration for DNSSEC validation.
-    id :: Prelude.Maybe Prelude.Text
+    validationStatus :: Prelude.Maybe ResolverDNSSECValidationStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,11 +62,13 @@ data ResolverDnssecConfig = ResolverDnssecConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceId', 'resolverDnssecConfig_resourceId' - The ID of the virtual private cloud (VPC) that you\'re configuring the
--- DNSSEC validation status for.
+-- 'id', 'resolverDnssecConfig_id' - The ID for a configuration for DNSSEC validation.
 --
 -- 'ownerId', 'resolverDnssecConfig_ownerId' - The owner account ID of the virtual private cloud (VPC) for a
 -- configuration for DNSSEC validation.
+--
+-- 'resourceId', 'resolverDnssecConfig_resourceId' - The ID of the virtual private cloud (VPC) that you\'re configuring the
+-- DNSSEC validation status for.
 --
 -- 'validationStatus', 'resolverDnssecConfig_validationStatus' - The validation status for a DNSSEC configuration. The status can be one
 -- of the following:
@@ -80,27 +82,29 @@ data ResolverDnssecConfig = ResolverDnssecConfig'
 --     complete.
 --
 -- -   __DISABLED__ DNSSEC validation is disabled.
---
--- 'id', 'resolverDnssecConfig_id' - The ID for a configuration for DNSSEC validation.
 newResolverDnssecConfig ::
   ResolverDnssecConfig
 newResolverDnssecConfig =
   ResolverDnssecConfig'
-    { resourceId = Prelude.Nothing,
+    { id = Prelude.Nothing,
       ownerId = Prelude.Nothing,
-      validationStatus = Prelude.Nothing,
-      id = Prelude.Nothing
+      resourceId = Prelude.Nothing,
+      validationStatus = Prelude.Nothing
     }
 
--- | The ID of the virtual private cloud (VPC) that you\'re configuring the
--- DNSSEC validation status for.
-resolverDnssecConfig_resourceId :: Lens.Lens' ResolverDnssecConfig (Prelude.Maybe Prelude.Text)
-resolverDnssecConfig_resourceId = Lens.lens (\ResolverDnssecConfig' {resourceId} -> resourceId) (\s@ResolverDnssecConfig' {} a -> s {resourceId = a} :: ResolverDnssecConfig)
+-- | The ID for a configuration for DNSSEC validation.
+resolverDnssecConfig_id :: Lens.Lens' ResolverDnssecConfig (Prelude.Maybe Prelude.Text)
+resolverDnssecConfig_id = Lens.lens (\ResolverDnssecConfig' {id} -> id) (\s@ResolverDnssecConfig' {} a -> s {id = a} :: ResolverDnssecConfig)
 
 -- | The owner account ID of the virtual private cloud (VPC) for a
 -- configuration for DNSSEC validation.
 resolverDnssecConfig_ownerId :: Lens.Lens' ResolverDnssecConfig (Prelude.Maybe Prelude.Text)
 resolverDnssecConfig_ownerId = Lens.lens (\ResolverDnssecConfig' {ownerId} -> ownerId) (\s@ResolverDnssecConfig' {} a -> s {ownerId = a} :: ResolverDnssecConfig)
+
+-- | The ID of the virtual private cloud (VPC) that you\'re configuring the
+-- DNSSEC validation status for.
+resolverDnssecConfig_resourceId :: Lens.Lens' ResolverDnssecConfig (Prelude.Maybe Prelude.Text)
+resolverDnssecConfig_resourceId = Lens.lens (\ResolverDnssecConfig' {resourceId} -> resourceId) (\s@ResolverDnssecConfig' {} a -> s {resourceId = a} :: ResolverDnssecConfig)
 
 -- | The validation status for a DNSSEC configuration. The status can be one
 -- of the following:
@@ -117,32 +121,28 @@ resolverDnssecConfig_ownerId = Lens.lens (\ResolverDnssecConfig' {ownerId} -> ow
 resolverDnssecConfig_validationStatus :: Lens.Lens' ResolverDnssecConfig (Prelude.Maybe ResolverDNSSECValidationStatus)
 resolverDnssecConfig_validationStatus = Lens.lens (\ResolverDnssecConfig' {validationStatus} -> validationStatus) (\s@ResolverDnssecConfig' {} a -> s {validationStatus = a} :: ResolverDnssecConfig)
 
--- | The ID for a configuration for DNSSEC validation.
-resolverDnssecConfig_id :: Lens.Lens' ResolverDnssecConfig (Prelude.Maybe Prelude.Text)
-resolverDnssecConfig_id = Lens.lens (\ResolverDnssecConfig' {id} -> id) (\s@ResolverDnssecConfig' {} a -> s {id = a} :: ResolverDnssecConfig)
-
 instance Data.FromJSON ResolverDnssecConfig where
   parseJSON =
     Data.withObject
       "ResolverDnssecConfig"
       ( \x ->
           ResolverDnssecConfig'
-            Prelude.<$> (x Data..:? "ResourceId")
+            Prelude.<$> (x Data..:? "Id")
             Prelude.<*> (x Data..:? "OwnerId")
+            Prelude.<*> (x Data..:? "ResourceId")
             Prelude.<*> (x Data..:? "ValidationStatus")
-            Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable ResolverDnssecConfig where
   hashWithSalt _salt ResolverDnssecConfig' {..} =
-    _salt `Prelude.hashWithSalt` resourceId
+    _salt `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` validationStatus
-      `Prelude.hashWithSalt` id
 
 instance Prelude.NFData ResolverDnssecConfig where
   rnf ResolverDnssecConfig' {..} =
-    Prelude.rnf resourceId
+    Prelude.rnf id
       `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf validationStatus
-      `Prelude.seq` Prelude.rnf id

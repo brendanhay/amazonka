@@ -29,16 +29,16 @@ module Amazonka.ServiceCatalogAppRegistry.ListApplications
     newListApplications,
 
     -- * Request Lenses
-    listApplications_nextToken,
     listApplications_maxResults,
+    listApplications_nextToken,
 
     -- * Destructuring the Response
     ListApplicationsResponse (..),
     newListApplicationsResponse,
 
     -- * Response Lenses
-    listApplicationsResponse_nextToken,
     listApplicationsResponse_applications,
+    listApplicationsResponse_nextToken,
     listApplicationsResponse_httpStatus,
   )
 where
@@ -53,12 +53,12 @@ import Amazonka.ServiceCatalogAppRegistry.Types
 
 -- | /See:/ 'newListApplications' smart constructor.
 data ListApplications = ListApplications'
-  { -- | The token to use to get the next page of results after a previous API
-    -- call.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The upper bound of the number of results to return (cannot exceed 25).
+  { -- | The upper bound of the number of results to return (cannot exceed 25).
     -- If this parameter is omitted, it defaults to 25. This value is optional.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to use to get the next page of results after a previous API
+    -- call.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,28 +70,28 @@ data ListApplications = ListApplications'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listApplications_nextToken' - The token to use to get the next page of results after a previous API
--- call.
---
 -- 'maxResults', 'listApplications_maxResults' - The upper bound of the number of results to return (cannot exceed 25).
 -- If this parameter is omitted, it defaults to 25. This value is optional.
+--
+-- 'nextToken', 'listApplications_nextToken' - The token to use to get the next page of results after a previous API
+-- call.
 newListApplications ::
   ListApplications
 newListApplications =
   ListApplications'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token to use to get the next page of results after a previous API
--- call.
-listApplications_nextToken :: Lens.Lens' ListApplications (Prelude.Maybe Prelude.Text)
-listApplications_nextToken = Lens.lens (\ListApplications' {nextToken} -> nextToken) (\s@ListApplications' {} a -> s {nextToken = a} :: ListApplications)
 
 -- | The upper bound of the number of results to return (cannot exceed 25).
 -- If this parameter is omitted, it defaults to 25. This value is optional.
 listApplications_maxResults :: Lens.Lens' ListApplications (Prelude.Maybe Prelude.Natural)
 listApplications_maxResults = Lens.lens (\ListApplications' {maxResults} -> maxResults) (\s@ListApplications' {} a -> s {maxResults = a} :: ListApplications)
+
+-- | The token to use to get the next page of results after a previous API
+-- call.
+listApplications_nextToken :: Lens.Lens' ListApplications (Prelude.Maybe Prelude.Text)
+listApplications_nextToken = Lens.lens (\ListApplications' {nextToken} -> nextToken) (\s@ListApplications' {} a -> s {nextToken = a} :: ListApplications)
 
 instance Core.AWSPager ListApplications where
   page rq rs
@@ -125,20 +125,20 @@ instance Core.AWSRequest ListApplications where
     Response.receiveJSON
       ( \s h x ->
           ListApplicationsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "applications" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "applications" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListApplications where
   hashWithSalt _salt ListApplications' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListApplications where
   rnf ListApplications' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListApplications where
   toHeaders =
@@ -157,17 +157,17 @@ instance Data.ToPath ListApplications where
 instance Data.ToQuery ListApplications where
   toQuery ListApplications' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListApplicationsResponse' smart constructor.
 data ListApplicationsResponse = ListApplicationsResponse'
-  { -- | The token to use to get the next page of results after a previous API
+  { -- | This list of applications.
+    applications :: Prelude.Maybe [ApplicationSummary],
+    -- | The token to use to get the next page of results after a previous API
     -- call.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | This list of applications.
-    applications :: Prelude.Maybe [ApplicationSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -181,10 +181,10 @@ data ListApplicationsResponse = ListApplicationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'applications', 'listApplicationsResponse_applications' - This list of applications.
+--
 -- 'nextToken', 'listApplicationsResponse_nextToken' - The token to use to get the next page of results after a previous API
 -- call.
---
--- 'applications', 'listApplicationsResponse_applications' - This list of applications.
 --
 -- 'httpStatus', 'listApplicationsResponse_httpStatus' - The response's http status code.
 newListApplicationsResponse ::
@@ -193,20 +193,20 @@ newListApplicationsResponse ::
   ListApplicationsResponse
 newListApplicationsResponse pHttpStatus_ =
   ListApplicationsResponse'
-    { nextToken =
+    { applications =
         Prelude.Nothing,
-      applications = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | This list of applications.
+listApplicationsResponse_applications :: Lens.Lens' ListApplicationsResponse (Prelude.Maybe [ApplicationSummary])
+listApplicationsResponse_applications = Lens.lens (\ListApplicationsResponse' {applications} -> applications) (\s@ListApplicationsResponse' {} a -> s {applications = a} :: ListApplicationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to get the next page of results after a previous API
 -- call.
 listApplicationsResponse_nextToken :: Lens.Lens' ListApplicationsResponse (Prelude.Maybe Prelude.Text)
 listApplicationsResponse_nextToken = Lens.lens (\ListApplicationsResponse' {nextToken} -> nextToken) (\s@ListApplicationsResponse' {} a -> s {nextToken = a} :: ListApplicationsResponse)
-
--- | This list of applications.
-listApplicationsResponse_applications :: Lens.Lens' ListApplicationsResponse (Prelude.Maybe [ApplicationSummary])
-listApplicationsResponse_applications = Lens.lens (\ListApplicationsResponse' {applications} -> applications) (\s@ListApplicationsResponse' {} a -> s {applications = a} :: ListApplicationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listApplicationsResponse_httpStatus :: Lens.Lens' ListApplicationsResponse Prelude.Int
@@ -214,6 +214,6 @@ listApplicationsResponse_httpStatus = Lens.lens (\ListApplicationsResponse' {htt
 
 instance Prelude.NFData ListApplicationsResponse where
   rnf ListApplicationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf applications
+    Prelude.rnf applications
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -32,21 +32,13 @@
 -- matchmaking ticket status. This practice can cause you to exceed your
 -- API limit, which results in errors. Instead, as a best practice, set up
 -- an Amazon Simple Notification Service to receive notifications, and
--- provide the topic ARN in the matchmaking configuration. Continuously
--- polling ticket status with DescribeMatchmaking should only be used for
--- games in development with low matchmaking usage.
+-- provide the topic ARN in the matchmaking configuration.
 --
 -- __Learn more__
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-client.html Add FlexMatch to a game client>
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-notification.html Set Up FlexMatch event notification>
---
--- __Related actions__
---
--- StartMatchmaking | DescribeMatchmaking | StopMatchmaking | AcceptMatch |
--- StartMatchBackfill |
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Amazonka.GameLift.DescribeMatchmaking
   ( -- * Creating a Request
     DescribeMatchmaking (..),
@@ -73,9 +65,7 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Represents the input for a request operation.
---
--- /See:/ 'newDescribeMatchmaking' smart constructor.
+-- | /See:/ 'newDescribeMatchmaking' smart constructor.
 data DescribeMatchmaking = DescribeMatchmaking'
   { -- | A unique identifier for a matchmaking ticket. You can include up to 10
     -- ID values.
@@ -152,9 +142,7 @@ instance Data.ToPath DescribeMatchmaking where
 instance Data.ToQuery DescribeMatchmaking where
   toQuery = Prelude.const Prelude.mempty
 
--- | Represents the returned data in response to a request operation.
---
--- /See:/ 'newDescribeMatchmakingResponse' smart constructor.
+-- | /See:/ 'newDescribeMatchmakingResponse' smart constructor.
 data DescribeMatchmakingResponse = DescribeMatchmakingResponse'
   { -- | A collection of existing matchmaking ticket objects matching the
     -- request.

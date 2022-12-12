@@ -39,14 +39,6 @@
 -- __Learn more__
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up GameLift fleets>
---
--- __Related actions__
---
--- CreateFleetLocations | UpdateFleetAttributes | UpdateFleetCapacity |
--- UpdateFleetPortSettings | UpdateRuntimeConfiguration | StopFleetActions
--- | StartFleetActions | PutScalingPolicy | DeleteFleet |
--- DeleteFleetLocations | DeleteScalingPolicy |
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Amazonka.GameLift.UpdateRuntimeConfiguration
   ( -- * Creating a Request
     UpdateRuntimeConfiguration (..),
@@ -74,14 +66,12 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Represents the input for a request operation.
---
--- /See:/ 'newUpdateRuntimeConfiguration' smart constructor.
+-- | /See:/ 'newUpdateRuntimeConfiguration' smart constructor.
 data UpdateRuntimeConfiguration = UpdateRuntimeConfiguration'
   { -- | A unique identifier for the fleet to update runtime configuration for.
     -- You can use either the fleet ID or ARN value.
     fleetId :: Prelude.Text,
-    -- | Instructions for launching server processes on each instance in the
+    -- | Instructions for alaunching server processes on each instance in the
     -- fleet. Server processes run either a custom game build executable or a
     -- Realtime Servers script. The runtime configuration lists the types of
     -- server processes to run on an instance, how to launch them, and the
@@ -101,7 +91,7 @@ data UpdateRuntimeConfiguration = UpdateRuntimeConfiguration'
 -- 'fleetId', 'updateRuntimeConfiguration_fleetId' - A unique identifier for the fleet to update runtime configuration for.
 -- You can use either the fleet ID or ARN value.
 --
--- 'runtimeConfiguration', 'updateRuntimeConfiguration_runtimeConfiguration' - Instructions for launching server processes on each instance in the
+-- 'runtimeConfiguration', 'updateRuntimeConfiguration_runtimeConfiguration' - Instructions for alaunching server processes on each instance in the
 -- fleet. Server processes run either a custom game build executable or a
 -- Realtime Servers script. The runtime configuration lists the types of
 -- server processes to run on an instance, how to launch them, and the
@@ -125,7 +115,7 @@ newUpdateRuntimeConfiguration
 updateRuntimeConfiguration_fleetId :: Lens.Lens' UpdateRuntimeConfiguration Prelude.Text
 updateRuntimeConfiguration_fleetId = Lens.lens (\UpdateRuntimeConfiguration' {fleetId} -> fleetId) (\s@UpdateRuntimeConfiguration' {} a -> s {fleetId = a} :: UpdateRuntimeConfiguration)
 
--- | Instructions for launching server processes on each instance in the
+-- | Instructions for alaunching server processes on each instance in the
 -- fleet. Server processes run either a custom game build executable or a
 -- Realtime Servers script. The runtime configuration lists the types of
 -- server processes to run on an instance, how to launch them, and the
@@ -190,9 +180,7 @@ instance Data.ToPath UpdateRuntimeConfiguration where
 instance Data.ToQuery UpdateRuntimeConfiguration where
   toQuery = Prelude.const Prelude.mempty
 
--- | Represents the returned data in response to a request operation.
---
--- /See:/ 'newUpdateRuntimeConfigurationResponse' smart constructor.
+-- | /See:/ 'newUpdateRuntimeConfigurationResponse' smart constructor.
 data UpdateRuntimeConfigurationResponse = UpdateRuntimeConfigurationResponse'
   { -- | The runtime configuration currently in use by all instances in the
     -- fleet. If the update was successful, all property changes are shown.

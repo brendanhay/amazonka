@@ -31,9 +31,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVirtualGatewaySpec' smart constructor.
 data VirtualGatewaySpec = VirtualGatewaySpec'
-  { logging :: Prelude.Maybe VirtualGatewayLogging,
-    -- | A reference to an object that represents the defaults for backends.
+  { -- | A reference to an object that represents the defaults for backends.
     backendDefaults :: Prelude.Maybe VirtualGatewayBackendDefaults,
+    logging :: Prelude.Maybe VirtualGatewayLogging,
     -- | The listeners that the mesh endpoint is expected to receive inbound
     -- traffic from. You can specify one listener.
     listeners :: [VirtualGatewayListener]
@@ -48,9 +48,9 @@ data VirtualGatewaySpec = VirtualGatewaySpec'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'logging', 'virtualGatewaySpec_logging' - Undocumented member.
---
 -- 'backendDefaults', 'virtualGatewaySpec_backendDefaults' - A reference to an object that represents the defaults for backends.
+--
+-- 'logging', 'virtualGatewaySpec_logging' - Undocumented member.
 --
 -- 'listeners', 'virtualGatewaySpec_listeners' - The listeners that the mesh endpoint is expected to receive inbound
 -- traffic from. You can specify one listener.
@@ -58,18 +58,19 @@ newVirtualGatewaySpec ::
   VirtualGatewaySpec
 newVirtualGatewaySpec =
   VirtualGatewaySpec'
-    { logging = Prelude.Nothing,
-      backendDefaults = Prelude.Nothing,
+    { backendDefaults =
+        Prelude.Nothing,
+      logging = Prelude.Nothing,
       listeners = Prelude.mempty
     }
-
--- | Undocumented member.
-virtualGatewaySpec_logging :: Lens.Lens' VirtualGatewaySpec (Prelude.Maybe VirtualGatewayLogging)
-virtualGatewaySpec_logging = Lens.lens (\VirtualGatewaySpec' {logging} -> logging) (\s@VirtualGatewaySpec' {} a -> s {logging = a} :: VirtualGatewaySpec)
 
 -- | A reference to an object that represents the defaults for backends.
 virtualGatewaySpec_backendDefaults :: Lens.Lens' VirtualGatewaySpec (Prelude.Maybe VirtualGatewayBackendDefaults)
 virtualGatewaySpec_backendDefaults = Lens.lens (\VirtualGatewaySpec' {backendDefaults} -> backendDefaults) (\s@VirtualGatewaySpec' {} a -> s {backendDefaults = a} :: VirtualGatewaySpec)
+
+-- | Undocumented member.
+virtualGatewaySpec_logging :: Lens.Lens' VirtualGatewaySpec (Prelude.Maybe VirtualGatewayLogging)
+virtualGatewaySpec_logging = Lens.lens (\VirtualGatewaySpec' {logging} -> logging) (\s@VirtualGatewaySpec' {} a -> s {logging = a} :: VirtualGatewaySpec)
 
 -- | The listeners that the mesh endpoint is expected to receive inbound
 -- traffic from. You can specify one listener.
@@ -82,30 +83,30 @@ instance Data.FromJSON VirtualGatewaySpec where
       "VirtualGatewaySpec"
       ( \x ->
           VirtualGatewaySpec'
-            Prelude.<$> (x Data..:? "logging")
-            Prelude.<*> (x Data..:? "backendDefaults")
+            Prelude.<$> (x Data..:? "backendDefaults")
+            Prelude.<*> (x Data..:? "logging")
             Prelude.<*> (x Data..:? "listeners" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable VirtualGatewaySpec where
   hashWithSalt _salt VirtualGatewaySpec' {..} =
-    _salt `Prelude.hashWithSalt` logging
-      `Prelude.hashWithSalt` backendDefaults
+    _salt `Prelude.hashWithSalt` backendDefaults
+      `Prelude.hashWithSalt` logging
       `Prelude.hashWithSalt` listeners
 
 instance Prelude.NFData VirtualGatewaySpec where
   rnf VirtualGatewaySpec' {..} =
-    Prelude.rnf logging
-      `Prelude.seq` Prelude.rnf backendDefaults
+    Prelude.rnf backendDefaults
+      `Prelude.seq` Prelude.rnf logging
       `Prelude.seq` Prelude.rnf listeners
 
 instance Data.ToJSON VirtualGatewaySpec where
   toJSON VirtualGatewaySpec' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("logging" Data..=) Prelude.<$> logging,
-            ("backendDefaults" Data..=)
+          [ ("backendDefaults" Data..=)
               Prelude.<$> backendDefaults,
+            ("logging" Data..=) Prelude.<$> logging,
             Prelude.Just ("listeners" Data..= listeners)
           ]
       )

@@ -34,11 +34,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTransformEncryption' smart constructor.
 data TransformEncryption = TransformEncryption'
-  { -- | The name of the security configuration.
-    taskRunSecurityConfigurationName :: Prelude.Maybe Prelude.Text,
-    -- | An @MLUserDataEncryption@ object containing the encryption mode and
+  { -- | An @MLUserDataEncryption@ object containing the encryption mode and
     -- customer-provided KMS key ID.
-    mlUserDataEncryption :: Prelude.Maybe MLUserDataEncryption
+    mlUserDataEncryption :: Prelude.Maybe MLUserDataEncryption,
+    -- | The name of the security configuration.
+    taskRunSecurityConfigurationName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,27 +50,27 @@ data TransformEncryption = TransformEncryption'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'taskRunSecurityConfigurationName', 'transformEncryption_taskRunSecurityConfigurationName' - The name of the security configuration.
---
 -- 'mlUserDataEncryption', 'transformEncryption_mlUserDataEncryption' - An @MLUserDataEncryption@ object containing the encryption mode and
 -- customer-provided KMS key ID.
+--
+-- 'taskRunSecurityConfigurationName', 'transformEncryption_taskRunSecurityConfigurationName' - The name of the security configuration.
 newTransformEncryption ::
   TransformEncryption
 newTransformEncryption =
   TransformEncryption'
-    { taskRunSecurityConfigurationName =
+    { mlUserDataEncryption =
         Prelude.Nothing,
-      mlUserDataEncryption = Prelude.Nothing
+      taskRunSecurityConfigurationName = Prelude.Nothing
     }
-
--- | The name of the security configuration.
-transformEncryption_taskRunSecurityConfigurationName :: Lens.Lens' TransformEncryption (Prelude.Maybe Prelude.Text)
-transformEncryption_taskRunSecurityConfigurationName = Lens.lens (\TransformEncryption' {taskRunSecurityConfigurationName} -> taskRunSecurityConfigurationName) (\s@TransformEncryption' {} a -> s {taskRunSecurityConfigurationName = a} :: TransformEncryption)
 
 -- | An @MLUserDataEncryption@ object containing the encryption mode and
 -- customer-provided KMS key ID.
 transformEncryption_mlUserDataEncryption :: Lens.Lens' TransformEncryption (Prelude.Maybe MLUserDataEncryption)
 transformEncryption_mlUserDataEncryption = Lens.lens (\TransformEncryption' {mlUserDataEncryption} -> mlUserDataEncryption) (\s@TransformEncryption' {} a -> s {mlUserDataEncryption = a} :: TransformEncryption)
+
+-- | The name of the security configuration.
+transformEncryption_taskRunSecurityConfigurationName :: Lens.Lens' TransformEncryption (Prelude.Maybe Prelude.Text)
+transformEncryption_taskRunSecurityConfigurationName = Lens.lens (\TransformEncryption' {taskRunSecurityConfigurationName} -> taskRunSecurityConfigurationName) (\s@TransformEncryption' {} a -> s {taskRunSecurityConfigurationName = a} :: TransformEncryption)
 
 instance Data.FromJSON TransformEncryption where
   parseJSON =
@@ -78,28 +78,27 @@ instance Data.FromJSON TransformEncryption where
       "TransformEncryption"
       ( \x ->
           TransformEncryption'
-            Prelude.<$> (x Data..:? "TaskRunSecurityConfigurationName")
-            Prelude.<*> (x Data..:? "MlUserDataEncryption")
+            Prelude.<$> (x Data..:? "MlUserDataEncryption")
+            Prelude.<*> (x Data..:? "TaskRunSecurityConfigurationName")
       )
 
 instance Prelude.Hashable TransformEncryption where
   hashWithSalt _salt TransformEncryption' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` mlUserDataEncryption
       `Prelude.hashWithSalt` taskRunSecurityConfigurationName
-      `Prelude.hashWithSalt` mlUserDataEncryption
 
 instance Prelude.NFData TransformEncryption where
   rnf TransformEncryption' {..} =
-    Prelude.rnf taskRunSecurityConfigurationName
-      `Prelude.seq` Prelude.rnf mlUserDataEncryption
+    Prelude.rnf mlUserDataEncryption
+      `Prelude.seq` Prelude.rnf taskRunSecurityConfigurationName
 
 instance Data.ToJSON TransformEncryption where
   toJSON TransformEncryption' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("TaskRunSecurityConfigurationName" Data..=)
-              Prelude.<$> taskRunSecurityConfigurationName,
-            ("MlUserDataEncryption" Data..=)
-              Prelude.<$> mlUserDataEncryption
+          [ ("MlUserDataEncryption" Data..=)
+              Prelude.<$> mlUserDataEncryption,
+            ("TaskRunSecurityConfigurationName" Data..=)
+              Prelude.<$> taskRunSecurityConfigurationName
           ]
       )

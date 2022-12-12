@@ -28,20 +28,20 @@ module Amazonka.NetworkFirewall.UpdateFirewallDescription
     newUpdateFirewallDescription,
 
     -- * Request Lenses
-    updateFirewallDescription_updateToken,
     updateFirewallDescription_description,
     updateFirewallDescription_firewallArn,
     updateFirewallDescription_firewallName,
+    updateFirewallDescription_updateToken,
 
     -- * Destructuring the Response
     UpdateFirewallDescriptionResponse (..),
     newUpdateFirewallDescriptionResponse,
 
     -- * Response Lenses
-    updateFirewallDescriptionResponse_updateToken,
     updateFirewallDescriptionResponse_description,
     updateFirewallDescriptionResponse_firewallArn,
     updateFirewallDescriptionResponse_firewallName,
+    updateFirewallDescriptionResponse_updateToken,
     updateFirewallDescriptionResponse_httpStatus,
   )
 where
@@ -56,7 +56,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateFirewallDescription' smart constructor.
 data UpdateFirewallDescription = UpdateFirewallDescription'
-  { -- | An optional token that you can use for optimistic locking. Network
+  { -- | The new description for the firewall. If you omit this setting, Network
+    -- Firewall removes the description for the firewall.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the firewall.
+    --
+    -- You must specify the ARN or the name, and you can specify both.
+    firewallArn :: Prelude.Maybe Prelude.Text,
+    -- | The descriptive name of the firewall. You can\'t change the name of a
+    -- firewall after you create it.
+    --
+    -- You must specify the ARN or the name, and you can specify both.
+    firewallName :: Prelude.Maybe Prelude.Text,
+    -- | An optional token that you can use for optimistic locking. Network
     -- Firewall returns a token to your requests that access the firewall. The
     -- token marks the state of the firewall resource at the time of the
     -- request.
@@ -73,19 +85,7 @@ data UpdateFirewallDescription = UpdateFirewallDescription'
     -- retrieve the firewall again to get a current copy of it with a new
     -- token. Reapply your changes as needed, then try the operation again
     -- using the new token.
-    updateToken :: Prelude.Maybe Prelude.Text,
-    -- | The new description for the firewall. If you omit this setting, Network
-    -- Firewall removes the description for the firewall.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the firewall.
-    --
-    -- You must specify the ARN or the name, and you can specify both.
-    firewallArn :: Prelude.Maybe Prelude.Text,
-    -- | The descriptive name of the firewall. You can\'t change the name of a
-    -- firewall after you create it.
-    --
-    -- You must specify the ARN or the name, and you can specify both.
-    firewallName :: Prelude.Maybe Prelude.Text
+    updateToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -96,6 +96,18 @@ data UpdateFirewallDescription = UpdateFirewallDescription'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'description', 'updateFirewallDescription_description' - The new description for the firewall. If you omit this setting, Network
+-- Firewall removes the description for the firewall.
+--
+-- 'firewallArn', 'updateFirewallDescription_firewallArn' - The Amazon Resource Name (ARN) of the firewall.
+--
+-- You must specify the ARN or the name, and you can specify both.
+--
+-- 'firewallName', 'updateFirewallDescription_firewallName' - The descriptive name of the firewall. You can\'t change the name of a
+-- firewall after you create it.
+--
+-- You must specify the ARN or the name, and you can specify both.
 --
 -- 'updateToken', 'updateFirewallDescription_updateToken' - An optional token that you can use for optimistic locking. Network
 -- Firewall returns a token to your requests that access the firewall. The
@@ -114,28 +126,34 @@ data UpdateFirewallDescription = UpdateFirewallDescription'
 -- retrieve the firewall again to get a current copy of it with a new
 -- token. Reapply your changes as needed, then try the operation again
 -- using the new token.
---
--- 'description', 'updateFirewallDescription_description' - The new description for the firewall. If you omit this setting, Network
--- Firewall removes the description for the firewall.
---
--- 'firewallArn', 'updateFirewallDescription_firewallArn' - The Amazon Resource Name (ARN) of the firewall.
---
--- You must specify the ARN or the name, and you can specify both.
---
--- 'firewallName', 'updateFirewallDescription_firewallName' - The descriptive name of the firewall. You can\'t change the name of a
--- firewall after you create it.
---
--- You must specify the ARN or the name, and you can specify both.
 newUpdateFirewallDescription ::
   UpdateFirewallDescription
 newUpdateFirewallDescription =
   UpdateFirewallDescription'
-    { updateToken =
+    { description =
         Prelude.Nothing,
-      description = Prelude.Nothing,
       firewallArn = Prelude.Nothing,
-      firewallName = Prelude.Nothing
+      firewallName = Prelude.Nothing,
+      updateToken = Prelude.Nothing
     }
+
+-- | The new description for the firewall. If you omit this setting, Network
+-- Firewall removes the description for the firewall.
+updateFirewallDescription_description :: Lens.Lens' UpdateFirewallDescription (Prelude.Maybe Prelude.Text)
+updateFirewallDescription_description = Lens.lens (\UpdateFirewallDescription' {description} -> description) (\s@UpdateFirewallDescription' {} a -> s {description = a} :: UpdateFirewallDescription)
+
+-- | The Amazon Resource Name (ARN) of the firewall.
+--
+-- You must specify the ARN or the name, and you can specify both.
+updateFirewallDescription_firewallArn :: Lens.Lens' UpdateFirewallDescription (Prelude.Maybe Prelude.Text)
+updateFirewallDescription_firewallArn = Lens.lens (\UpdateFirewallDescription' {firewallArn} -> firewallArn) (\s@UpdateFirewallDescription' {} a -> s {firewallArn = a} :: UpdateFirewallDescription)
+
+-- | The descriptive name of the firewall. You can\'t change the name of a
+-- firewall after you create it.
+--
+-- You must specify the ARN or the name, and you can specify both.
+updateFirewallDescription_firewallName :: Lens.Lens' UpdateFirewallDescription (Prelude.Maybe Prelude.Text)
+updateFirewallDescription_firewallName = Lens.lens (\UpdateFirewallDescription' {firewallName} -> firewallName) (\s@UpdateFirewallDescription' {} a -> s {firewallName = a} :: UpdateFirewallDescription)
 
 -- | An optional token that you can use for optimistic locking. Network
 -- Firewall returns a token to your requests that access the firewall. The
@@ -157,24 +175,6 @@ newUpdateFirewallDescription =
 updateFirewallDescription_updateToken :: Lens.Lens' UpdateFirewallDescription (Prelude.Maybe Prelude.Text)
 updateFirewallDescription_updateToken = Lens.lens (\UpdateFirewallDescription' {updateToken} -> updateToken) (\s@UpdateFirewallDescription' {} a -> s {updateToken = a} :: UpdateFirewallDescription)
 
--- | The new description for the firewall. If you omit this setting, Network
--- Firewall removes the description for the firewall.
-updateFirewallDescription_description :: Lens.Lens' UpdateFirewallDescription (Prelude.Maybe Prelude.Text)
-updateFirewallDescription_description = Lens.lens (\UpdateFirewallDescription' {description} -> description) (\s@UpdateFirewallDescription' {} a -> s {description = a} :: UpdateFirewallDescription)
-
--- | The Amazon Resource Name (ARN) of the firewall.
---
--- You must specify the ARN or the name, and you can specify both.
-updateFirewallDescription_firewallArn :: Lens.Lens' UpdateFirewallDescription (Prelude.Maybe Prelude.Text)
-updateFirewallDescription_firewallArn = Lens.lens (\UpdateFirewallDescription' {firewallArn} -> firewallArn) (\s@UpdateFirewallDescription' {} a -> s {firewallArn = a} :: UpdateFirewallDescription)
-
--- | The descriptive name of the firewall. You can\'t change the name of a
--- firewall after you create it.
---
--- You must specify the ARN or the name, and you can specify both.
-updateFirewallDescription_firewallName :: Lens.Lens' UpdateFirewallDescription (Prelude.Maybe Prelude.Text)
-updateFirewallDescription_firewallName = Lens.lens (\UpdateFirewallDescription' {firewallName} -> firewallName) (\s@UpdateFirewallDescription' {} a -> s {firewallName = a} :: UpdateFirewallDescription)
-
 instance Core.AWSRequest UpdateFirewallDescription where
   type
     AWSResponse UpdateFirewallDescription =
@@ -185,26 +185,26 @@ instance Core.AWSRequest UpdateFirewallDescription where
     Response.receiveJSON
       ( \s h x ->
           UpdateFirewallDescriptionResponse'
-            Prelude.<$> (x Data..?> "UpdateToken")
-            Prelude.<*> (x Data..?> "Description")
+            Prelude.<$> (x Data..?> "Description")
             Prelude.<*> (x Data..?> "FirewallArn")
             Prelude.<*> (x Data..?> "FirewallName")
+            Prelude.<*> (x Data..?> "UpdateToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateFirewallDescription where
   hashWithSalt _salt UpdateFirewallDescription' {..} =
-    _salt `Prelude.hashWithSalt` updateToken
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` firewallArn
       `Prelude.hashWithSalt` firewallName
+      `Prelude.hashWithSalt` updateToken
 
 instance Prelude.NFData UpdateFirewallDescription where
   rnf UpdateFirewallDescription' {..} =
-    Prelude.rnf updateToken
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf firewallArn
       `Prelude.seq` Prelude.rnf firewallName
+      `Prelude.seq` Prelude.rnf updateToken
 
 instance Data.ToHeaders UpdateFirewallDescription where
   toHeaders =
@@ -225,10 +225,10 @@ instance Data.ToJSON UpdateFirewallDescription where
   toJSON UpdateFirewallDescription' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("UpdateToken" Data..=) Prelude.<$> updateToken,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
             ("FirewallArn" Data..=) Prelude.<$> firewallArn,
-            ("FirewallName" Data..=) Prelude.<$> firewallName
+            ("FirewallName" Data..=) Prelude.<$> firewallName,
+            ("UpdateToken" Data..=) Prelude.<$> updateToken
           ]
       )
 
@@ -240,7 +240,14 @@ instance Data.ToQuery UpdateFirewallDescription where
 
 -- | /See:/ 'newUpdateFirewallDescriptionResponse' smart constructor.
 data UpdateFirewallDescriptionResponse = UpdateFirewallDescriptionResponse'
-  { -- | An optional token that you can use for optimistic locking. Network
+  { -- | A description of the firewall.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the firewall.
+    firewallArn :: Prelude.Maybe Prelude.Text,
+    -- | The descriptive name of the firewall. You can\'t change the name of a
+    -- firewall after you create it.
+    firewallName :: Prelude.Maybe Prelude.Text,
+    -- | An optional token that you can use for optimistic locking. Network
     -- Firewall returns a token to your requests that access the firewall. The
     -- token marks the state of the firewall resource at the time of the
     -- request.
@@ -258,13 +265,6 @@ data UpdateFirewallDescriptionResponse = UpdateFirewallDescriptionResponse'
     -- token. Reapply your changes as needed, then try the operation again
     -- using the new token.
     updateToken :: Prelude.Maybe Prelude.Text,
-    -- | A description of the firewall.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the firewall.
-    firewallArn :: Prelude.Maybe Prelude.Text,
-    -- | The descriptive name of the firewall. You can\'t change the name of a
-    -- firewall after you create it.
-    firewallName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -277,6 +277,13 @@ data UpdateFirewallDescriptionResponse = UpdateFirewallDescriptionResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'description', 'updateFirewallDescriptionResponse_description' - A description of the firewall.
+--
+-- 'firewallArn', 'updateFirewallDescriptionResponse_firewallArn' - The Amazon Resource Name (ARN) of the firewall.
+--
+-- 'firewallName', 'updateFirewallDescriptionResponse_firewallName' - The descriptive name of the firewall. You can\'t change the name of a
+-- firewall after you create it.
 --
 -- 'updateToken', 'updateFirewallDescriptionResponse_updateToken' - An optional token that you can use for optimistic locking. Network
 -- Firewall returns a token to your requests that access the firewall. The
@@ -296,13 +303,6 @@ data UpdateFirewallDescriptionResponse = UpdateFirewallDescriptionResponse'
 -- token. Reapply your changes as needed, then try the operation again
 -- using the new token.
 --
--- 'description', 'updateFirewallDescriptionResponse_description' - A description of the firewall.
---
--- 'firewallArn', 'updateFirewallDescriptionResponse_firewallArn' - The Amazon Resource Name (ARN) of the firewall.
---
--- 'firewallName', 'updateFirewallDescriptionResponse_firewallName' - The descriptive name of the firewall. You can\'t change the name of a
--- firewall after you create it.
---
 -- 'httpStatus', 'updateFirewallDescriptionResponse_httpStatus' - The response's http status code.
 newUpdateFirewallDescriptionResponse ::
   -- | 'httpStatus'
@@ -310,13 +310,26 @@ newUpdateFirewallDescriptionResponse ::
   UpdateFirewallDescriptionResponse
 newUpdateFirewallDescriptionResponse pHttpStatus_ =
   UpdateFirewallDescriptionResponse'
-    { updateToken =
+    { description =
         Prelude.Nothing,
-      description = Prelude.Nothing,
       firewallArn = Prelude.Nothing,
       firewallName = Prelude.Nothing,
+      updateToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A description of the firewall.
+updateFirewallDescriptionResponse_description :: Lens.Lens' UpdateFirewallDescriptionResponse (Prelude.Maybe Prelude.Text)
+updateFirewallDescriptionResponse_description = Lens.lens (\UpdateFirewallDescriptionResponse' {description} -> description) (\s@UpdateFirewallDescriptionResponse' {} a -> s {description = a} :: UpdateFirewallDescriptionResponse)
+
+-- | The Amazon Resource Name (ARN) of the firewall.
+updateFirewallDescriptionResponse_firewallArn :: Lens.Lens' UpdateFirewallDescriptionResponse (Prelude.Maybe Prelude.Text)
+updateFirewallDescriptionResponse_firewallArn = Lens.lens (\UpdateFirewallDescriptionResponse' {firewallArn} -> firewallArn) (\s@UpdateFirewallDescriptionResponse' {} a -> s {firewallArn = a} :: UpdateFirewallDescriptionResponse)
+
+-- | The descriptive name of the firewall. You can\'t change the name of a
+-- firewall after you create it.
+updateFirewallDescriptionResponse_firewallName :: Lens.Lens' UpdateFirewallDescriptionResponse (Prelude.Maybe Prelude.Text)
+updateFirewallDescriptionResponse_firewallName = Lens.lens (\UpdateFirewallDescriptionResponse' {firewallName} -> firewallName) (\s@UpdateFirewallDescriptionResponse' {} a -> s {firewallName = a} :: UpdateFirewallDescriptionResponse)
 
 -- | An optional token that you can use for optimistic locking. Network
 -- Firewall returns a token to your requests that access the firewall. The
@@ -338,19 +351,6 @@ newUpdateFirewallDescriptionResponse pHttpStatus_ =
 updateFirewallDescriptionResponse_updateToken :: Lens.Lens' UpdateFirewallDescriptionResponse (Prelude.Maybe Prelude.Text)
 updateFirewallDescriptionResponse_updateToken = Lens.lens (\UpdateFirewallDescriptionResponse' {updateToken} -> updateToken) (\s@UpdateFirewallDescriptionResponse' {} a -> s {updateToken = a} :: UpdateFirewallDescriptionResponse)
 
--- | A description of the firewall.
-updateFirewallDescriptionResponse_description :: Lens.Lens' UpdateFirewallDescriptionResponse (Prelude.Maybe Prelude.Text)
-updateFirewallDescriptionResponse_description = Lens.lens (\UpdateFirewallDescriptionResponse' {description} -> description) (\s@UpdateFirewallDescriptionResponse' {} a -> s {description = a} :: UpdateFirewallDescriptionResponse)
-
--- | The Amazon Resource Name (ARN) of the firewall.
-updateFirewallDescriptionResponse_firewallArn :: Lens.Lens' UpdateFirewallDescriptionResponse (Prelude.Maybe Prelude.Text)
-updateFirewallDescriptionResponse_firewallArn = Lens.lens (\UpdateFirewallDescriptionResponse' {firewallArn} -> firewallArn) (\s@UpdateFirewallDescriptionResponse' {} a -> s {firewallArn = a} :: UpdateFirewallDescriptionResponse)
-
--- | The descriptive name of the firewall. You can\'t change the name of a
--- firewall after you create it.
-updateFirewallDescriptionResponse_firewallName :: Lens.Lens' UpdateFirewallDescriptionResponse (Prelude.Maybe Prelude.Text)
-updateFirewallDescriptionResponse_firewallName = Lens.lens (\UpdateFirewallDescriptionResponse' {firewallName} -> firewallName) (\s@UpdateFirewallDescriptionResponse' {} a -> s {firewallName = a} :: UpdateFirewallDescriptionResponse)
-
 -- | The response's http status code.
 updateFirewallDescriptionResponse_httpStatus :: Lens.Lens' UpdateFirewallDescriptionResponse Prelude.Int
 updateFirewallDescriptionResponse_httpStatus = Lens.lens (\UpdateFirewallDescriptionResponse' {httpStatus} -> httpStatus) (\s@UpdateFirewallDescriptionResponse' {} a -> s {httpStatus = a} :: UpdateFirewallDescriptionResponse)
@@ -360,8 +360,8 @@ instance
     UpdateFirewallDescriptionResponse
   where
   rnf UpdateFirewallDescriptionResponse' {..} =
-    Prelude.rnf updateToken
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf firewallArn
       `Prelude.seq` Prelude.rnf firewallName
+      `Prelude.seq` Prelude.rnf updateToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -31,18 +31,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDateOptions' smart constructor.
 data DateOptions = DateOptions'
-  { sourceField :: Prelude.Maybe Prelude.Text,
+  { -- | A value to use for the field if the field isn\'t specified for a
+    -- document.
+    defaultValue :: Prelude.Maybe Prelude.Text,
     -- | Whether facet information can be returned for the field.
     facetEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | Whether the contents of the field can be returned in the search results.
+    returnEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Whether the contents of the field are searchable.
     searchEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Whether the field can be used to sort the search results.
     sortEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | A value to use for the field if the field isn\'t specified for a
-    -- document.
-    defaultValue :: Prelude.Maybe Prelude.Text,
-    -- | Whether the contents of the field can be returned in the search results.
-    returnEnabled :: Prelude.Maybe Prelude.Bool
+    sourceField :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,37 +54,42 @@ data DateOptions = DateOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceField', 'dateOptions_sourceField' - Undocumented member.
+-- 'defaultValue', 'dateOptions_defaultValue' - A value to use for the field if the field isn\'t specified for a
+-- document.
 --
 -- 'facetEnabled', 'dateOptions_facetEnabled' - Whether facet information can be returned for the field.
+--
+-- 'returnEnabled', 'dateOptions_returnEnabled' - Whether the contents of the field can be returned in the search results.
 --
 -- 'searchEnabled', 'dateOptions_searchEnabled' - Whether the contents of the field are searchable.
 --
 -- 'sortEnabled', 'dateOptions_sortEnabled' - Whether the field can be used to sort the search results.
 --
--- 'defaultValue', 'dateOptions_defaultValue' - A value to use for the field if the field isn\'t specified for a
--- document.
---
--- 'returnEnabled', 'dateOptions_returnEnabled' - Whether the contents of the field can be returned in the search results.
+-- 'sourceField', 'dateOptions_sourceField' - Undocumented member.
 newDateOptions ::
   DateOptions
 newDateOptions =
   DateOptions'
-    { sourceField = Prelude.Nothing,
+    { defaultValue = Prelude.Nothing,
       facetEnabled = Prelude.Nothing,
+      returnEnabled = Prelude.Nothing,
       searchEnabled = Prelude.Nothing,
       sortEnabled = Prelude.Nothing,
-      defaultValue = Prelude.Nothing,
-      returnEnabled = Prelude.Nothing
+      sourceField = Prelude.Nothing
     }
 
--- | Undocumented member.
-dateOptions_sourceField :: Lens.Lens' DateOptions (Prelude.Maybe Prelude.Text)
-dateOptions_sourceField = Lens.lens (\DateOptions' {sourceField} -> sourceField) (\s@DateOptions' {} a -> s {sourceField = a} :: DateOptions)
+-- | A value to use for the field if the field isn\'t specified for a
+-- document.
+dateOptions_defaultValue :: Lens.Lens' DateOptions (Prelude.Maybe Prelude.Text)
+dateOptions_defaultValue = Lens.lens (\DateOptions' {defaultValue} -> defaultValue) (\s@DateOptions' {} a -> s {defaultValue = a} :: DateOptions)
 
 -- | Whether facet information can be returned for the field.
 dateOptions_facetEnabled :: Lens.Lens' DateOptions (Prelude.Maybe Prelude.Bool)
 dateOptions_facetEnabled = Lens.lens (\DateOptions' {facetEnabled} -> facetEnabled) (\s@DateOptions' {} a -> s {facetEnabled = a} :: DateOptions)
+
+-- | Whether the contents of the field can be returned in the search results.
+dateOptions_returnEnabled :: Lens.Lens' DateOptions (Prelude.Maybe Prelude.Bool)
+dateOptions_returnEnabled = Lens.lens (\DateOptions' {returnEnabled} -> returnEnabled) (\s@DateOptions' {} a -> s {returnEnabled = a} :: DateOptions)
 
 -- | Whether the contents of the field are searchable.
 dateOptions_searchEnabled :: Lens.Lens' DateOptions (Prelude.Maybe Prelude.Bool)
@@ -94,50 +99,45 @@ dateOptions_searchEnabled = Lens.lens (\DateOptions' {searchEnabled} -> searchEn
 dateOptions_sortEnabled :: Lens.Lens' DateOptions (Prelude.Maybe Prelude.Bool)
 dateOptions_sortEnabled = Lens.lens (\DateOptions' {sortEnabled} -> sortEnabled) (\s@DateOptions' {} a -> s {sortEnabled = a} :: DateOptions)
 
--- | A value to use for the field if the field isn\'t specified for a
--- document.
-dateOptions_defaultValue :: Lens.Lens' DateOptions (Prelude.Maybe Prelude.Text)
-dateOptions_defaultValue = Lens.lens (\DateOptions' {defaultValue} -> defaultValue) (\s@DateOptions' {} a -> s {defaultValue = a} :: DateOptions)
-
--- | Whether the contents of the field can be returned in the search results.
-dateOptions_returnEnabled :: Lens.Lens' DateOptions (Prelude.Maybe Prelude.Bool)
-dateOptions_returnEnabled = Lens.lens (\DateOptions' {returnEnabled} -> returnEnabled) (\s@DateOptions' {} a -> s {returnEnabled = a} :: DateOptions)
+-- | Undocumented member.
+dateOptions_sourceField :: Lens.Lens' DateOptions (Prelude.Maybe Prelude.Text)
+dateOptions_sourceField = Lens.lens (\DateOptions' {sourceField} -> sourceField) (\s@DateOptions' {} a -> s {sourceField = a} :: DateOptions)
 
 instance Data.FromXML DateOptions where
   parseXML x =
     DateOptions'
-      Prelude.<$> (x Data..@? "SourceField")
+      Prelude.<$> (x Data..@? "DefaultValue")
       Prelude.<*> (x Data..@? "FacetEnabled")
+      Prelude.<*> (x Data..@? "ReturnEnabled")
       Prelude.<*> (x Data..@? "SearchEnabled")
       Prelude.<*> (x Data..@? "SortEnabled")
-      Prelude.<*> (x Data..@? "DefaultValue")
-      Prelude.<*> (x Data..@? "ReturnEnabled")
+      Prelude.<*> (x Data..@? "SourceField")
 
 instance Prelude.Hashable DateOptions where
   hashWithSalt _salt DateOptions' {..} =
-    _salt `Prelude.hashWithSalt` sourceField
+    _salt `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` facetEnabled
+      `Prelude.hashWithSalt` returnEnabled
       `Prelude.hashWithSalt` searchEnabled
       `Prelude.hashWithSalt` sortEnabled
-      `Prelude.hashWithSalt` defaultValue
-      `Prelude.hashWithSalt` returnEnabled
+      `Prelude.hashWithSalt` sourceField
 
 instance Prelude.NFData DateOptions where
   rnf DateOptions' {..} =
-    Prelude.rnf sourceField
+    Prelude.rnf defaultValue
       `Prelude.seq` Prelude.rnf facetEnabled
+      `Prelude.seq` Prelude.rnf returnEnabled
       `Prelude.seq` Prelude.rnf searchEnabled
       `Prelude.seq` Prelude.rnf sortEnabled
-      `Prelude.seq` Prelude.rnf defaultValue
-      `Prelude.seq` Prelude.rnf returnEnabled
+      `Prelude.seq` Prelude.rnf sourceField
 
 instance Data.ToQuery DateOptions where
   toQuery DateOptions' {..} =
     Prelude.mconcat
-      [ "SourceField" Data.=: sourceField,
+      [ "DefaultValue" Data.=: defaultValue,
         "FacetEnabled" Data.=: facetEnabled,
+        "ReturnEnabled" Data.=: returnEnabled,
         "SearchEnabled" Data.=: searchEnabled,
         "SortEnabled" Data.=: sortEnabled,
-        "DefaultValue" Data.=: defaultValue,
-        "ReturnEnabled" Data.=: returnEnabled
+        "SourceField" Data.=: sourceField
       ]

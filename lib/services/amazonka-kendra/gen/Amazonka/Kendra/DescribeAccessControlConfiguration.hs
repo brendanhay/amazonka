@@ -40,8 +40,8 @@ module Amazonka.Kendra.DescribeAccessControlConfiguration
 
     -- * Response Lenses
     describeAccessControlConfigurationResponse_accessControlList,
-    describeAccessControlConfigurationResponse_errorMessage,
     describeAccessControlConfigurationResponse_description,
+    describeAccessControlConfigurationResponse_errorMessage,
     describeAccessControlConfigurationResponse_hierarchicalAccessControlList,
     describeAccessControlConfigurationResponse_httpStatus,
     describeAccessControlConfigurationResponse_name,
@@ -116,8 +116,8 @@ instance
             Prelude.<$> ( x Data..?> "AccessControlList"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (x Data..?> "ErrorMessage")
               Prelude.<*> (x Data..?> "Description")
+              Prelude.<*> (x Data..?> "ErrorMessage")
               Prelude.<*> (x Data..?> "HierarchicalAccessControlList")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
               Prelude.<*> (x Data..:> "Name")
@@ -189,11 +189,11 @@ data DescribeAccessControlConfigurationResponse = DescribeAccessControlConfigura
     -- where search results are filtered based on the user or their group
     -- access to documents.
     accessControlList :: Prelude.Maybe [Principal],
+    -- | The description for the access control configuration.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The error message containing details if there are issues processing the
     -- access control configuration.
     errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | The description for the access control configuration.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The list of
     -- <https://docs.aws.amazon.com/kendra/latest/dg/API_Principal.html principal>
     -- lists that define the hierarchy for which documents users should have
@@ -219,10 +219,10 @@ data DescribeAccessControlConfigurationResponse = DescribeAccessControlConfigura
 -- where search results are filtered based on the user or their group
 -- access to documents.
 --
+-- 'description', 'describeAccessControlConfigurationResponse_description' - The description for the access control configuration.
+--
 -- 'errorMessage', 'describeAccessControlConfigurationResponse_errorMessage' - The error message containing details if there are issues processing the
 -- access control configuration.
---
--- 'description', 'describeAccessControlConfigurationResponse_description' - The description for the access control configuration.
 --
 -- 'hierarchicalAccessControlList', 'describeAccessControlConfigurationResponse_hierarchicalAccessControlList' - The list of
 -- <https://docs.aws.amazon.com/kendra/latest/dg/API_Principal.html principal>
@@ -244,8 +244,8 @@ newDescribeAccessControlConfigurationResponse
     DescribeAccessControlConfigurationResponse'
       { accessControlList =
           Prelude.Nothing,
-        errorMessage = Prelude.Nothing,
         description = Prelude.Nothing,
+        errorMessage = Prelude.Nothing,
         hierarchicalAccessControlList =
           Prelude.Nothing,
         httpStatus = pHttpStatus_,
@@ -259,14 +259,14 @@ newDescribeAccessControlConfigurationResponse
 describeAccessControlConfigurationResponse_accessControlList :: Lens.Lens' DescribeAccessControlConfigurationResponse (Prelude.Maybe [Principal])
 describeAccessControlConfigurationResponse_accessControlList = Lens.lens (\DescribeAccessControlConfigurationResponse' {accessControlList} -> accessControlList) (\s@DescribeAccessControlConfigurationResponse' {} a -> s {accessControlList = a} :: DescribeAccessControlConfigurationResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The description for the access control configuration.
+describeAccessControlConfigurationResponse_description :: Lens.Lens' DescribeAccessControlConfigurationResponse (Prelude.Maybe Prelude.Text)
+describeAccessControlConfigurationResponse_description = Lens.lens (\DescribeAccessControlConfigurationResponse' {description} -> description) (\s@DescribeAccessControlConfigurationResponse' {} a -> s {description = a} :: DescribeAccessControlConfigurationResponse)
+
 -- | The error message containing details if there are issues processing the
 -- access control configuration.
 describeAccessControlConfigurationResponse_errorMessage :: Lens.Lens' DescribeAccessControlConfigurationResponse (Prelude.Maybe Prelude.Text)
 describeAccessControlConfigurationResponse_errorMessage = Lens.lens (\DescribeAccessControlConfigurationResponse' {errorMessage} -> errorMessage) (\s@DescribeAccessControlConfigurationResponse' {} a -> s {errorMessage = a} :: DescribeAccessControlConfigurationResponse)
-
--- | The description for the access control configuration.
-describeAccessControlConfigurationResponse_description :: Lens.Lens' DescribeAccessControlConfigurationResponse (Prelude.Maybe Prelude.Text)
-describeAccessControlConfigurationResponse_description = Lens.lens (\DescribeAccessControlConfigurationResponse' {description} -> description) (\s@DescribeAccessControlConfigurationResponse' {} a -> s {description = a} :: DescribeAccessControlConfigurationResponse)
 
 -- | The list of
 -- <https://docs.aws.amazon.com/kendra/latest/dg/API_Principal.html principal>
@@ -289,8 +289,8 @@ instance
   where
   rnf DescribeAccessControlConfigurationResponse' {..} =
     Prelude.rnf accessControlList
-      `Prelude.seq` Prelude.rnf errorMessage
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf errorMessage
       `Prelude.seq` Prelude.rnf hierarchicalAccessControlList
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf name

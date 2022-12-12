@@ -32,56 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newWebCrawlerConfiguration' smart constructor.
 data WebCrawlerConfiguration = WebCrawlerConfiguration'
-  { -- | Configuration information required to connect to your internal websites
-    -- via a web proxy.
-    --
-    -- You must provide the website host name and port number. For example, the
-    -- host name of https:\/\/a.example.com\/page1.html is \"a.example.com\"
-    -- and the port is 443, the standard port for HTTPS.
-    --
-    -- Web proxy credentials are optional and you can use them to connect to a
-    -- web proxy server that requires basic authentication. To store web proxy
-    -- credentials, you use a secret in
-    -- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html Secrets Manager>.
-    proxyConfiguration :: Prelude.Maybe ProxyConfiguration,
-    -- | The maximum size (in MB) of a webpage or attachment to crawl.
-    --
-    -- Files larger than this size (in MB) are skipped\/not crawled.
-    --
-    -- The default maximum size of a webpage or attachment is set to 50 MB.
-    maxContentSizePerPageInMegaBytes :: Prelude.Maybe Prelude.Double,
-    -- | The maximum number of URLs crawled per website host per minute.
-    --
-    -- A minimum of one URL is required.
-    --
-    -- The default maximum number of URLs crawled per website host per minute
-    -- is 300.
-    maxUrlsPerMinuteCrawlRate :: Prelude.Maybe Prelude.Natural,
-    -- | A list of regular expression patterns to exclude certain URLs to crawl.
-    -- URLs that match the patterns are excluded from the index. URLs that
-    -- don\'t match the patterns are included in the index. If a URL matches
-    -- both an inclusion and exclusion pattern, the exclusion pattern takes
-    -- precedence and the URL file isn\'t included in the index.
-    urlExclusionPatterns :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of URLs on a webpage to include when crawling a
-    -- website. This number is per webpage.
-    --
-    -- As a website’s webpages are crawled, any URLs the webpages link to are
-    -- also crawled. URLs on a webpage are crawled in order of appearance.
-    --
-    -- The default maximum links per page is 100.
-    maxLinksPerPage :: Prelude.Maybe Prelude.Natural,
-    -- | Specifies the number of levels in a website that you want to crawl.
-    --
-    -- The first level begins from the website seed or starting point URL. For
-    -- example, if a website has 3 levels – index level (i.e. seed in this
-    -- example), sections level, and subsections level – and you are only
-    -- interested in crawling information up to the sections level (i.e. levels
-    -- 0-1), you can set your depth to 1.
-    --
-    -- The default crawl depth is set to 2.
-    crawlDepth :: Prelude.Maybe Prelude.Natural,
-    -- | Configuration information required to connect to websites using
+  { -- | Configuration information required to connect to websites using
     -- authentication.
     --
     -- You can connect to websites using basic authentication of user name and
@@ -93,6 +44,55 @@ data WebCrawlerConfiguration = WebCrawlerConfiguration'
     -- host name of https:\/\/a.example.com\/page1.html is \"a.example.com\"
     -- and the port is 443, the standard port for HTTPS.
     authenticationConfiguration :: Prelude.Maybe AuthenticationConfiguration,
+    -- | Specifies the number of levels in a website that you want to crawl.
+    --
+    -- The first level begins from the website seed or starting point URL. For
+    -- example, if a website has 3 levels – index level (i.e. seed in this
+    -- example), sections level, and subsections level – and you are only
+    -- interested in crawling information up to the sections level (i.e. levels
+    -- 0-1), you can set your depth to 1.
+    --
+    -- The default crawl depth is set to 2.
+    crawlDepth :: Prelude.Maybe Prelude.Natural,
+    -- | The maximum size (in MB) of a webpage or attachment to crawl.
+    --
+    -- Files larger than this size (in MB) are skipped\/not crawled.
+    --
+    -- The default maximum size of a webpage or attachment is set to 50 MB.
+    maxContentSizePerPageInMegaBytes :: Prelude.Maybe Prelude.Double,
+    -- | The maximum number of URLs on a webpage to include when crawling a
+    -- website. This number is per webpage.
+    --
+    -- As a website’s webpages are crawled, any URLs the webpages link to are
+    -- also crawled. URLs on a webpage are crawled in order of appearance.
+    --
+    -- The default maximum links per page is 100.
+    maxLinksPerPage :: Prelude.Maybe Prelude.Natural,
+    -- | The maximum number of URLs crawled per website host per minute.
+    --
+    -- A minimum of one URL is required.
+    --
+    -- The default maximum number of URLs crawled per website host per minute
+    -- is 300.
+    maxUrlsPerMinuteCrawlRate :: Prelude.Maybe Prelude.Natural,
+    -- | Configuration information required to connect to your internal websites
+    -- via a web proxy.
+    --
+    -- You must provide the website host name and port number. For example, the
+    -- host name of https:\/\/a.example.com\/page1.html is \"a.example.com\"
+    -- and the port is 443, the standard port for HTTPS.
+    --
+    -- Web proxy credentials are optional and you can use them to connect to a
+    -- web proxy server that requires basic authentication. To store web proxy
+    -- credentials, you use a secret in
+    -- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html Secrets Manager>.
+    proxyConfiguration :: Prelude.Maybe ProxyConfiguration,
+    -- | A list of regular expression patterns to exclude certain URLs to crawl.
+    -- URLs that match the patterns are excluded from the index. URLs that
+    -- don\'t match the patterns are included in the index. If a URL matches
+    -- both an inclusion and exclusion pattern, the exclusion pattern takes
+    -- precedence and the URL file isn\'t included in the index.
+    urlExclusionPatterns :: Prelude.Maybe [Prelude.Text],
     -- | A list of regular expression patterns to include certain URLs to crawl.
     -- URLs that match the patterns are included in the index. URLs that don\'t
     -- match the patterns are excluded from the index. If a URL matches both an
@@ -127,6 +127,49 @@ data WebCrawlerConfiguration = WebCrawlerConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'authenticationConfiguration', 'webCrawlerConfiguration_authenticationConfiguration' - Configuration information required to connect to websites using
+-- authentication.
+--
+-- You can connect to websites using basic authentication of user name and
+-- password. You use a secret in
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html Secrets Manager>
+-- to store your authentication credentials.
+--
+-- You must provide the website host name and port number. For example, the
+-- host name of https:\/\/a.example.com\/page1.html is \"a.example.com\"
+-- and the port is 443, the standard port for HTTPS.
+--
+-- 'crawlDepth', 'webCrawlerConfiguration_crawlDepth' - Specifies the number of levels in a website that you want to crawl.
+--
+-- The first level begins from the website seed or starting point URL. For
+-- example, if a website has 3 levels – index level (i.e. seed in this
+-- example), sections level, and subsections level – and you are only
+-- interested in crawling information up to the sections level (i.e. levels
+-- 0-1), you can set your depth to 1.
+--
+-- The default crawl depth is set to 2.
+--
+-- 'maxContentSizePerPageInMegaBytes', 'webCrawlerConfiguration_maxContentSizePerPageInMegaBytes' - The maximum size (in MB) of a webpage or attachment to crawl.
+--
+-- Files larger than this size (in MB) are skipped\/not crawled.
+--
+-- The default maximum size of a webpage or attachment is set to 50 MB.
+--
+-- 'maxLinksPerPage', 'webCrawlerConfiguration_maxLinksPerPage' - The maximum number of URLs on a webpage to include when crawling a
+-- website. This number is per webpage.
+--
+-- As a website’s webpages are crawled, any URLs the webpages link to are
+-- also crawled. URLs on a webpage are crawled in order of appearance.
+--
+-- The default maximum links per page is 100.
+--
+-- 'maxUrlsPerMinuteCrawlRate', 'webCrawlerConfiguration_maxUrlsPerMinuteCrawlRate' - The maximum number of URLs crawled per website host per minute.
+--
+-- A minimum of one URL is required.
+--
+-- The default maximum number of URLs crawled per website host per minute
+-- is 300.
+--
 -- 'proxyConfiguration', 'webCrawlerConfiguration_proxyConfiguration' - Configuration information required to connect to your internal websites
 -- via a web proxy.
 --
@@ -139,54 +182,11 @@ data WebCrawlerConfiguration = WebCrawlerConfiguration'
 -- credentials, you use a secret in
 -- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html Secrets Manager>.
 --
--- 'maxContentSizePerPageInMegaBytes', 'webCrawlerConfiguration_maxContentSizePerPageInMegaBytes' - The maximum size (in MB) of a webpage or attachment to crawl.
---
--- Files larger than this size (in MB) are skipped\/not crawled.
---
--- The default maximum size of a webpage or attachment is set to 50 MB.
---
--- 'maxUrlsPerMinuteCrawlRate', 'webCrawlerConfiguration_maxUrlsPerMinuteCrawlRate' - The maximum number of URLs crawled per website host per minute.
---
--- A minimum of one URL is required.
---
--- The default maximum number of URLs crawled per website host per minute
--- is 300.
---
 -- 'urlExclusionPatterns', 'webCrawlerConfiguration_urlExclusionPatterns' - A list of regular expression patterns to exclude certain URLs to crawl.
 -- URLs that match the patterns are excluded from the index. URLs that
 -- don\'t match the patterns are included in the index. If a URL matches
 -- both an inclusion and exclusion pattern, the exclusion pattern takes
 -- precedence and the URL file isn\'t included in the index.
---
--- 'maxLinksPerPage', 'webCrawlerConfiguration_maxLinksPerPage' - The maximum number of URLs on a webpage to include when crawling a
--- website. This number is per webpage.
---
--- As a website’s webpages are crawled, any URLs the webpages link to are
--- also crawled. URLs on a webpage are crawled in order of appearance.
---
--- The default maximum links per page is 100.
---
--- 'crawlDepth', 'webCrawlerConfiguration_crawlDepth' - Specifies the number of levels in a website that you want to crawl.
---
--- The first level begins from the website seed or starting point URL. For
--- example, if a website has 3 levels – index level (i.e. seed in this
--- example), sections level, and subsections level – and you are only
--- interested in crawling information up to the sections level (i.e. levels
--- 0-1), you can set your depth to 1.
---
--- The default crawl depth is set to 2.
---
--- 'authenticationConfiguration', 'webCrawlerConfiguration_authenticationConfiguration' - Configuration information required to connect to websites using
--- authentication.
---
--- You can connect to websites using basic authentication of user name and
--- password. You use a secret in
--- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html Secrets Manager>
--- to store your authentication credentials.
---
--- You must provide the website host name and port number. For example, the
--- host name of https:\/\/a.example.com\/page1.html is \"a.example.com\"
--- and the port is 443, the standard port for HTTPS.
 --
 -- 'urlInclusionPatterns', 'webCrawlerConfiguration_urlInclusionPatterns' - A list of regular expression patterns to include certain URLs to crawl.
 -- URLs that match the patterns are included in the index. URLs that don\'t
@@ -216,17 +216,70 @@ newWebCrawlerConfiguration ::
   WebCrawlerConfiguration
 newWebCrawlerConfiguration pUrls_ =
   WebCrawlerConfiguration'
-    { proxyConfiguration =
+    { authenticationConfiguration =
         Prelude.Nothing,
-      maxContentSizePerPageInMegaBytes = Prelude.Nothing,
-      maxUrlsPerMinuteCrawlRate = Prelude.Nothing,
-      urlExclusionPatterns = Prelude.Nothing,
-      maxLinksPerPage = Prelude.Nothing,
       crawlDepth = Prelude.Nothing,
-      authenticationConfiguration = Prelude.Nothing,
+      maxContentSizePerPageInMegaBytes = Prelude.Nothing,
+      maxLinksPerPage = Prelude.Nothing,
+      maxUrlsPerMinuteCrawlRate = Prelude.Nothing,
+      proxyConfiguration = Prelude.Nothing,
+      urlExclusionPatterns = Prelude.Nothing,
       urlInclusionPatterns = Prelude.Nothing,
       urls = pUrls_
     }
+
+-- | Configuration information required to connect to websites using
+-- authentication.
+--
+-- You can connect to websites using basic authentication of user name and
+-- password. You use a secret in
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html Secrets Manager>
+-- to store your authentication credentials.
+--
+-- You must provide the website host name and port number. For example, the
+-- host name of https:\/\/a.example.com\/page1.html is \"a.example.com\"
+-- and the port is 443, the standard port for HTTPS.
+webCrawlerConfiguration_authenticationConfiguration :: Lens.Lens' WebCrawlerConfiguration (Prelude.Maybe AuthenticationConfiguration)
+webCrawlerConfiguration_authenticationConfiguration = Lens.lens (\WebCrawlerConfiguration' {authenticationConfiguration} -> authenticationConfiguration) (\s@WebCrawlerConfiguration' {} a -> s {authenticationConfiguration = a} :: WebCrawlerConfiguration)
+
+-- | Specifies the number of levels in a website that you want to crawl.
+--
+-- The first level begins from the website seed or starting point URL. For
+-- example, if a website has 3 levels – index level (i.e. seed in this
+-- example), sections level, and subsections level – and you are only
+-- interested in crawling information up to the sections level (i.e. levels
+-- 0-1), you can set your depth to 1.
+--
+-- The default crawl depth is set to 2.
+webCrawlerConfiguration_crawlDepth :: Lens.Lens' WebCrawlerConfiguration (Prelude.Maybe Prelude.Natural)
+webCrawlerConfiguration_crawlDepth = Lens.lens (\WebCrawlerConfiguration' {crawlDepth} -> crawlDepth) (\s@WebCrawlerConfiguration' {} a -> s {crawlDepth = a} :: WebCrawlerConfiguration)
+
+-- | The maximum size (in MB) of a webpage or attachment to crawl.
+--
+-- Files larger than this size (in MB) are skipped\/not crawled.
+--
+-- The default maximum size of a webpage or attachment is set to 50 MB.
+webCrawlerConfiguration_maxContentSizePerPageInMegaBytes :: Lens.Lens' WebCrawlerConfiguration (Prelude.Maybe Prelude.Double)
+webCrawlerConfiguration_maxContentSizePerPageInMegaBytes = Lens.lens (\WebCrawlerConfiguration' {maxContentSizePerPageInMegaBytes} -> maxContentSizePerPageInMegaBytes) (\s@WebCrawlerConfiguration' {} a -> s {maxContentSizePerPageInMegaBytes = a} :: WebCrawlerConfiguration)
+
+-- | The maximum number of URLs on a webpage to include when crawling a
+-- website. This number is per webpage.
+--
+-- As a website’s webpages are crawled, any URLs the webpages link to are
+-- also crawled. URLs on a webpage are crawled in order of appearance.
+--
+-- The default maximum links per page is 100.
+webCrawlerConfiguration_maxLinksPerPage :: Lens.Lens' WebCrawlerConfiguration (Prelude.Maybe Prelude.Natural)
+webCrawlerConfiguration_maxLinksPerPage = Lens.lens (\WebCrawlerConfiguration' {maxLinksPerPage} -> maxLinksPerPage) (\s@WebCrawlerConfiguration' {} a -> s {maxLinksPerPage = a} :: WebCrawlerConfiguration)
+
+-- | The maximum number of URLs crawled per website host per minute.
+--
+-- A minimum of one URL is required.
+--
+-- The default maximum number of URLs crawled per website host per minute
+-- is 300.
+webCrawlerConfiguration_maxUrlsPerMinuteCrawlRate :: Lens.Lens' WebCrawlerConfiguration (Prelude.Maybe Prelude.Natural)
+webCrawlerConfiguration_maxUrlsPerMinuteCrawlRate = Lens.lens (\WebCrawlerConfiguration' {maxUrlsPerMinuteCrawlRate} -> maxUrlsPerMinuteCrawlRate) (\s@WebCrawlerConfiguration' {} a -> s {maxUrlsPerMinuteCrawlRate = a} :: WebCrawlerConfiguration)
 
 -- | Configuration information required to connect to your internal websites
 -- via a web proxy.
@@ -242,23 +295,6 @@ newWebCrawlerConfiguration pUrls_ =
 webCrawlerConfiguration_proxyConfiguration :: Lens.Lens' WebCrawlerConfiguration (Prelude.Maybe ProxyConfiguration)
 webCrawlerConfiguration_proxyConfiguration = Lens.lens (\WebCrawlerConfiguration' {proxyConfiguration} -> proxyConfiguration) (\s@WebCrawlerConfiguration' {} a -> s {proxyConfiguration = a} :: WebCrawlerConfiguration)
 
--- | The maximum size (in MB) of a webpage or attachment to crawl.
---
--- Files larger than this size (in MB) are skipped\/not crawled.
---
--- The default maximum size of a webpage or attachment is set to 50 MB.
-webCrawlerConfiguration_maxContentSizePerPageInMegaBytes :: Lens.Lens' WebCrawlerConfiguration (Prelude.Maybe Prelude.Double)
-webCrawlerConfiguration_maxContentSizePerPageInMegaBytes = Lens.lens (\WebCrawlerConfiguration' {maxContentSizePerPageInMegaBytes} -> maxContentSizePerPageInMegaBytes) (\s@WebCrawlerConfiguration' {} a -> s {maxContentSizePerPageInMegaBytes = a} :: WebCrawlerConfiguration)
-
--- | The maximum number of URLs crawled per website host per minute.
---
--- A minimum of one URL is required.
---
--- The default maximum number of URLs crawled per website host per minute
--- is 300.
-webCrawlerConfiguration_maxUrlsPerMinuteCrawlRate :: Lens.Lens' WebCrawlerConfiguration (Prelude.Maybe Prelude.Natural)
-webCrawlerConfiguration_maxUrlsPerMinuteCrawlRate = Lens.lens (\WebCrawlerConfiguration' {maxUrlsPerMinuteCrawlRate} -> maxUrlsPerMinuteCrawlRate) (\s@WebCrawlerConfiguration' {} a -> s {maxUrlsPerMinuteCrawlRate = a} :: WebCrawlerConfiguration)
-
 -- | A list of regular expression patterns to exclude certain URLs to crawl.
 -- URLs that match the patterns are excluded from the index. URLs that
 -- don\'t match the patterns are included in the index. If a URL matches
@@ -266,42 +302,6 @@ webCrawlerConfiguration_maxUrlsPerMinuteCrawlRate = Lens.lens (\WebCrawlerConfig
 -- precedence and the URL file isn\'t included in the index.
 webCrawlerConfiguration_urlExclusionPatterns :: Lens.Lens' WebCrawlerConfiguration (Prelude.Maybe [Prelude.Text])
 webCrawlerConfiguration_urlExclusionPatterns = Lens.lens (\WebCrawlerConfiguration' {urlExclusionPatterns} -> urlExclusionPatterns) (\s@WebCrawlerConfiguration' {} a -> s {urlExclusionPatterns = a} :: WebCrawlerConfiguration) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum number of URLs on a webpage to include when crawling a
--- website. This number is per webpage.
---
--- As a website’s webpages are crawled, any URLs the webpages link to are
--- also crawled. URLs on a webpage are crawled in order of appearance.
---
--- The default maximum links per page is 100.
-webCrawlerConfiguration_maxLinksPerPage :: Lens.Lens' WebCrawlerConfiguration (Prelude.Maybe Prelude.Natural)
-webCrawlerConfiguration_maxLinksPerPage = Lens.lens (\WebCrawlerConfiguration' {maxLinksPerPage} -> maxLinksPerPage) (\s@WebCrawlerConfiguration' {} a -> s {maxLinksPerPage = a} :: WebCrawlerConfiguration)
-
--- | Specifies the number of levels in a website that you want to crawl.
---
--- The first level begins from the website seed or starting point URL. For
--- example, if a website has 3 levels – index level (i.e. seed in this
--- example), sections level, and subsections level – and you are only
--- interested in crawling information up to the sections level (i.e. levels
--- 0-1), you can set your depth to 1.
---
--- The default crawl depth is set to 2.
-webCrawlerConfiguration_crawlDepth :: Lens.Lens' WebCrawlerConfiguration (Prelude.Maybe Prelude.Natural)
-webCrawlerConfiguration_crawlDepth = Lens.lens (\WebCrawlerConfiguration' {crawlDepth} -> crawlDepth) (\s@WebCrawlerConfiguration' {} a -> s {crawlDepth = a} :: WebCrawlerConfiguration)
-
--- | Configuration information required to connect to websites using
--- authentication.
---
--- You can connect to websites using basic authentication of user name and
--- password. You use a secret in
--- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html Secrets Manager>
--- to store your authentication credentials.
---
--- You must provide the website host name and port number. For example, the
--- host name of https:\/\/a.example.com\/page1.html is \"a.example.com\"
--- and the port is 443, the standard port for HTTPS.
-webCrawlerConfiguration_authenticationConfiguration :: Lens.Lens' WebCrawlerConfiguration (Prelude.Maybe AuthenticationConfiguration)
-webCrawlerConfiguration_authenticationConfiguration = Lens.lens (\WebCrawlerConfiguration' {authenticationConfiguration} -> authenticationConfiguration) (\s@WebCrawlerConfiguration' {} a -> s {authenticationConfiguration = a} :: WebCrawlerConfiguration)
 
 -- | A list of regular expression patterns to include certain URLs to crawl.
 -- URLs that match the patterns are included in the index. URLs that don\'t
@@ -336,15 +336,15 @@ instance Data.FromJSON WebCrawlerConfiguration where
       "WebCrawlerConfiguration"
       ( \x ->
           WebCrawlerConfiguration'
-            Prelude.<$> (x Data..:? "ProxyConfiguration")
+            Prelude.<$> (x Data..:? "AuthenticationConfiguration")
+            Prelude.<*> (x Data..:? "CrawlDepth")
             Prelude.<*> (x Data..:? "MaxContentSizePerPageInMegaBytes")
+            Prelude.<*> (x Data..:? "MaxLinksPerPage")
             Prelude.<*> (x Data..:? "MaxUrlsPerMinuteCrawlRate")
+            Prelude.<*> (x Data..:? "ProxyConfiguration")
             Prelude.<*> ( x Data..:? "UrlExclusionPatterns"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "MaxLinksPerPage")
-            Prelude.<*> (x Data..:? "CrawlDepth")
-            Prelude.<*> (x Data..:? "AuthenticationConfiguration")
             Prelude.<*> ( x Data..:? "UrlInclusionPatterns"
                             Data..!= Prelude.mempty
                         )
@@ -353,25 +353,26 @@ instance Data.FromJSON WebCrawlerConfiguration where
 
 instance Prelude.Hashable WebCrawlerConfiguration where
   hashWithSalt _salt WebCrawlerConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` proxyConfiguration
-      `Prelude.hashWithSalt` maxContentSizePerPageInMegaBytes
-      `Prelude.hashWithSalt` maxUrlsPerMinuteCrawlRate
-      `Prelude.hashWithSalt` urlExclusionPatterns
-      `Prelude.hashWithSalt` maxLinksPerPage
-      `Prelude.hashWithSalt` crawlDepth
+    _salt
       `Prelude.hashWithSalt` authenticationConfiguration
+      `Prelude.hashWithSalt` crawlDepth
+      `Prelude.hashWithSalt` maxContentSizePerPageInMegaBytes
+      `Prelude.hashWithSalt` maxLinksPerPage
+      `Prelude.hashWithSalt` maxUrlsPerMinuteCrawlRate
+      `Prelude.hashWithSalt` proxyConfiguration
+      `Prelude.hashWithSalt` urlExclusionPatterns
       `Prelude.hashWithSalt` urlInclusionPatterns
       `Prelude.hashWithSalt` urls
 
 instance Prelude.NFData WebCrawlerConfiguration where
   rnf WebCrawlerConfiguration' {..} =
-    Prelude.rnf proxyConfiguration
-      `Prelude.seq` Prelude.rnf maxContentSizePerPageInMegaBytes
-      `Prelude.seq` Prelude.rnf maxUrlsPerMinuteCrawlRate
-      `Prelude.seq` Prelude.rnf urlExclusionPatterns
-      `Prelude.seq` Prelude.rnf maxLinksPerPage
+    Prelude.rnf authenticationConfiguration
       `Prelude.seq` Prelude.rnf crawlDepth
-      `Prelude.seq` Prelude.rnf authenticationConfiguration
+      `Prelude.seq` Prelude.rnf maxContentSizePerPageInMegaBytes
+      `Prelude.seq` Prelude.rnf maxLinksPerPage
+      `Prelude.seq` Prelude.rnf maxUrlsPerMinuteCrawlRate
+      `Prelude.seq` Prelude.rnf proxyConfiguration
+      `Prelude.seq` Prelude.rnf urlExclusionPatterns
       `Prelude.seq` Prelude.rnf urlInclusionPatterns
       `Prelude.seq` Prelude.rnf urls
 
@@ -379,19 +380,19 @@ instance Data.ToJSON WebCrawlerConfiguration where
   toJSON WebCrawlerConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ProxyConfiguration" Data..=)
-              Prelude.<$> proxyConfiguration,
+          [ ("AuthenticationConfiguration" Data..=)
+              Prelude.<$> authenticationConfiguration,
+            ("CrawlDepth" Data..=) Prelude.<$> crawlDepth,
             ("MaxContentSizePerPageInMegaBytes" Data..=)
               Prelude.<$> maxContentSizePerPageInMegaBytes,
-            ("MaxUrlsPerMinuteCrawlRate" Data..=)
-              Prelude.<$> maxUrlsPerMinuteCrawlRate,
-            ("UrlExclusionPatterns" Data..=)
-              Prelude.<$> urlExclusionPatterns,
             ("MaxLinksPerPage" Data..=)
               Prelude.<$> maxLinksPerPage,
-            ("CrawlDepth" Data..=) Prelude.<$> crawlDepth,
-            ("AuthenticationConfiguration" Data..=)
-              Prelude.<$> authenticationConfiguration,
+            ("MaxUrlsPerMinuteCrawlRate" Data..=)
+              Prelude.<$> maxUrlsPerMinuteCrawlRate,
+            ("ProxyConfiguration" Data..=)
+              Prelude.<$> proxyConfiguration,
+            ("UrlExclusionPatterns" Data..=)
+              Prelude.<$> urlExclusionPatterns,
             ("UrlInclusionPatterns" Data..=)
               Prelude.<$> urlInclusionPatterns,
             Prelude.Just ("Urls" Data..= urls)

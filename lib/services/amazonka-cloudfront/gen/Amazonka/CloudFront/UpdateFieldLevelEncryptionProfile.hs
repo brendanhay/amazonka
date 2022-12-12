@@ -36,8 +36,8 @@ module Amazonka.CloudFront.UpdateFieldLevelEncryptionProfile
     newUpdateFieldLevelEncryptionProfileResponse,
 
     -- * Response Lenses
-    updateFieldLevelEncryptionProfileResponse_fieldLevelEncryptionProfile,
     updateFieldLevelEncryptionProfileResponse_eTag,
+    updateFieldLevelEncryptionProfileResponse_fieldLevelEncryptionProfile,
     updateFieldLevelEncryptionProfileResponse_httpStatus,
   )
 where
@@ -119,7 +119,7 @@ instance
     Response.receiveXML
       ( \s h x ->
           UpdateFieldLevelEncryptionProfileResponse'
-            Prelude.<$> (Data.parseXML x) Prelude.<*> (h Data..#? "ETag")
+            Prelude.<$> (h Data..#? "ETag") Prelude.<*> (Data.parseXML x)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -178,10 +178,10 @@ instance
 
 -- | /See:/ 'newUpdateFieldLevelEncryptionProfileResponse' smart constructor.
 data UpdateFieldLevelEncryptionProfileResponse = UpdateFieldLevelEncryptionProfileResponse'
-  { -- | Return the results of updating the profile.
-    fieldLevelEncryptionProfile :: Prelude.Maybe FieldLevelEncryptionProfile,
-    -- | The result of the field-level encryption profile request.
+  { -- | The result of the field-level encryption profile request.
     eTag :: Prelude.Maybe Prelude.Text,
+    -- | Return the results of updating the profile.
+    fieldLevelEncryptionProfile :: Prelude.Maybe FieldLevelEncryptionProfile,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -195,9 +195,9 @@ data UpdateFieldLevelEncryptionProfileResponse = UpdateFieldLevelEncryptionProfi
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fieldLevelEncryptionProfile', 'updateFieldLevelEncryptionProfileResponse_fieldLevelEncryptionProfile' - Return the results of updating the profile.
---
 -- 'eTag', 'updateFieldLevelEncryptionProfileResponse_eTag' - The result of the field-level encryption profile request.
+--
+-- 'fieldLevelEncryptionProfile', 'updateFieldLevelEncryptionProfileResponse_fieldLevelEncryptionProfile' - Return the results of updating the profile.
 --
 -- 'httpStatus', 'updateFieldLevelEncryptionProfileResponse_httpStatus' - The response's http status code.
 newUpdateFieldLevelEncryptionProfileResponse ::
@@ -207,19 +207,20 @@ newUpdateFieldLevelEncryptionProfileResponse ::
 newUpdateFieldLevelEncryptionProfileResponse
   pHttpStatus_ =
     UpdateFieldLevelEncryptionProfileResponse'
-      { fieldLevelEncryptionProfile =
+      { eTag =
           Prelude.Nothing,
-        eTag = Prelude.Nothing,
+        fieldLevelEncryptionProfile =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | Return the results of updating the profile.
-updateFieldLevelEncryptionProfileResponse_fieldLevelEncryptionProfile :: Lens.Lens' UpdateFieldLevelEncryptionProfileResponse (Prelude.Maybe FieldLevelEncryptionProfile)
-updateFieldLevelEncryptionProfileResponse_fieldLevelEncryptionProfile = Lens.lens (\UpdateFieldLevelEncryptionProfileResponse' {fieldLevelEncryptionProfile} -> fieldLevelEncryptionProfile) (\s@UpdateFieldLevelEncryptionProfileResponse' {} a -> s {fieldLevelEncryptionProfile = a} :: UpdateFieldLevelEncryptionProfileResponse)
 
 -- | The result of the field-level encryption profile request.
 updateFieldLevelEncryptionProfileResponse_eTag :: Lens.Lens' UpdateFieldLevelEncryptionProfileResponse (Prelude.Maybe Prelude.Text)
 updateFieldLevelEncryptionProfileResponse_eTag = Lens.lens (\UpdateFieldLevelEncryptionProfileResponse' {eTag} -> eTag) (\s@UpdateFieldLevelEncryptionProfileResponse' {} a -> s {eTag = a} :: UpdateFieldLevelEncryptionProfileResponse)
+
+-- | Return the results of updating the profile.
+updateFieldLevelEncryptionProfileResponse_fieldLevelEncryptionProfile :: Lens.Lens' UpdateFieldLevelEncryptionProfileResponse (Prelude.Maybe FieldLevelEncryptionProfile)
+updateFieldLevelEncryptionProfileResponse_fieldLevelEncryptionProfile = Lens.lens (\UpdateFieldLevelEncryptionProfileResponse' {fieldLevelEncryptionProfile} -> fieldLevelEncryptionProfile) (\s@UpdateFieldLevelEncryptionProfileResponse' {} a -> s {fieldLevelEncryptionProfile = a} :: UpdateFieldLevelEncryptionProfileResponse)
 
 -- | The response's http status code.
 updateFieldLevelEncryptionProfileResponse_httpStatus :: Lens.Lens' UpdateFieldLevelEncryptionProfileResponse Prelude.Int
@@ -230,6 +231,6 @@ instance
     UpdateFieldLevelEncryptionProfileResponse
   where
   rnf UpdateFieldLevelEncryptionProfileResponse' {..} =
-    Prelude.rnf fieldLevelEncryptionProfile
-      `Prelude.seq` Prelude.rnf eTag
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf fieldLevelEncryptionProfile
       `Prelude.seq` Prelude.rnf httpStatus

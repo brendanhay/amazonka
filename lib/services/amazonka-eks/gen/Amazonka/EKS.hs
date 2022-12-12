@@ -31,23 +31,23 @@ module Amazonka.EKS
     -- * Errors
     -- $errors
 
-    -- ** ClientException
-    _ClientException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
 
+    -- ** BadRequestException
+    _BadRequestException,
+
+    -- ** ClientException
+    _ClientException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
     -- ** NotFoundException
     _NotFoundException,
-
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** UnsupportedAvailabilityZoneException
-    _UnsupportedAvailabilityZoneException,
 
     -- ** ResourceInUseException
     _ResourceInUseException,
@@ -55,20 +55,20 @@ module Amazonka.EKS
     -- ** ResourceLimitExceededException
     _ResourceLimitExceededException,
 
-    -- ** BadRequestException
-    _BadRequestException,
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- ** ResourcePropagationDelayException
     _ResourcePropagationDelayException,
 
-    -- ** InvalidRequestException
-    _InvalidRequestException,
-
     -- ** ServerException
     _ServerException,
 
-    -- ** InvalidParameterException
-    _InvalidParameterException,
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
+
+    -- ** UnsupportedAvailabilityZoneException
+    _UnsupportedAvailabilityZoneException,
 
     -- * Waiters
     -- $waiters
@@ -79,12 +79,6 @@ module Amazonka.EKS
     -- ** AddonDeleted
     newAddonDeleted,
 
-    -- ** NodegroupActive
-    newNodegroupActive,
-
-    -- ** FargateProfileDeleted
-    newFargateProfileDeleted,
-
     -- ** ClusterActive
     newClusterActive,
 
@@ -93,6 +87,12 @@ module Amazonka.EKS
 
     -- ** FargateProfileActive
     newFargateProfileActive,
+
+    -- ** FargateProfileDeleted
+    newFargateProfileDeleted,
+
+    -- ** NodegroupActive
+    newNodegroupActive,
 
     -- ** NodegroupDeleted
     newNodegroupDeleted,
@@ -171,6 +171,12 @@ module Amazonka.EKS
     newDescribeAddon,
     DescribeAddonResponse (DescribeAddonResponse'),
     newDescribeAddonResponse,
+
+    -- ** DescribeAddonConfiguration
+    DescribeAddonConfiguration (DescribeAddonConfiguration'),
+    newDescribeAddonConfiguration,
+    DescribeAddonConfigurationResponse (DescribeAddonConfigurationResponse'),
+    newDescribeAddonConfigurationResponse,
 
     -- ** DescribeAddonVersions (Paginated)
     DescribeAddonVersions (DescribeAddonVersions'),
@@ -475,6 +481,10 @@ module Amazonka.EKS
     Logging (Logging'),
     newLogging,
 
+    -- ** MarketplaceInformation
+    MarketplaceInformation (MarketplaceInformation'),
+    newMarketplaceInformation,
+
     -- ** Nodegroup
     Nodegroup (Nodegroup'),
     newNodegroup,
@@ -565,6 +575,7 @@ import Amazonka.EKS.DeleteFargateProfile
 import Amazonka.EKS.DeleteNodegroup
 import Amazonka.EKS.DeregisterCluster
 import Amazonka.EKS.DescribeAddon
+import Amazonka.EKS.DescribeAddonConfiguration
 import Amazonka.EKS.DescribeAddonVersions
 import Amazonka.EKS.DescribeCluster
 import Amazonka.EKS.DescribeFargateProfile

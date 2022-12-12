@@ -38,8 +38,8 @@ module Amazonka.Glue.GetUnfilteredTableMetadata
     newGetUnfilteredTableMetadataResponse,
 
     -- * Response Lenses
-    getUnfilteredTableMetadataResponse_cellFilters,
     getUnfilteredTableMetadataResponse_authorizedColumns,
+    getUnfilteredTableMetadataResponse_cellFilters,
     getUnfilteredTableMetadataResponse_isRegisteredWithLakeFormation,
     getUnfilteredTableMetadataResponse_table,
     getUnfilteredTableMetadataResponse_httpStatus,
@@ -137,10 +137,10 @@ instance Core.AWSRequest GetUnfilteredTableMetadata where
     Response.receiveJSON
       ( \s h x ->
           GetUnfilteredTableMetadataResponse'
-            Prelude.<$> (x Data..?> "CellFilters" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "AuthorizedColumns"
+            Prelude.<$> ( x Data..?> "AuthorizedColumns"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "CellFilters" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "IsRegisteredWithLakeFormation")
             Prelude.<*> (x Data..?> "Table")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -200,8 +200,8 @@ instance Data.ToQuery GetUnfilteredTableMetadata where
 
 -- | /See:/ 'newGetUnfilteredTableMetadataResponse' smart constructor.
 data GetUnfilteredTableMetadataResponse = GetUnfilteredTableMetadataResponse'
-  { cellFilters :: Prelude.Maybe [ColumnRowFilter],
-    authorizedColumns :: Prelude.Maybe [Prelude.Text],
+  { authorizedColumns :: Prelude.Maybe [Prelude.Text],
+    cellFilters :: Prelude.Maybe [ColumnRowFilter],
     isRegisteredWithLakeFormation :: Prelude.Maybe Prelude.Bool,
     table :: Prelude.Maybe Table,
     -- | The response's http status code.
@@ -217,9 +217,9 @@ data GetUnfilteredTableMetadataResponse = GetUnfilteredTableMetadataResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'cellFilters', 'getUnfilteredTableMetadataResponse_cellFilters' - Undocumented member.
---
 -- 'authorizedColumns', 'getUnfilteredTableMetadataResponse_authorizedColumns' - Undocumented member.
+--
+-- 'cellFilters', 'getUnfilteredTableMetadataResponse_cellFilters' - Undocumented member.
 --
 -- 'isRegisteredWithLakeFormation', 'getUnfilteredTableMetadataResponse_isRegisteredWithLakeFormation' - Undocumented member.
 --
@@ -232,9 +232,9 @@ newGetUnfilteredTableMetadataResponse ::
   GetUnfilteredTableMetadataResponse
 newGetUnfilteredTableMetadataResponse pHttpStatus_ =
   GetUnfilteredTableMetadataResponse'
-    { cellFilters =
+    { authorizedColumns =
         Prelude.Nothing,
-      authorizedColumns = Prelude.Nothing,
+      cellFilters = Prelude.Nothing,
       isRegisteredWithLakeFormation =
         Prelude.Nothing,
       table = Prelude.Nothing,
@@ -242,12 +242,12 @@ newGetUnfilteredTableMetadataResponse pHttpStatus_ =
     }
 
 -- | Undocumented member.
-getUnfilteredTableMetadataResponse_cellFilters :: Lens.Lens' GetUnfilteredTableMetadataResponse (Prelude.Maybe [ColumnRowFilter])
-getUnfilteredTableMetadataResponse_cellFilters = Lens.lens (\GetUnfilteredTableMetadataResponse' {cellFilters} -> cellFilters) (\s@GetUnfilteredTableMetadataResponse' {} a -> s {cellFilters = a} :: GetUnfilteredTableMetadataResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Undocumented member.
 getUnfilteredTableMetadataResponse_authorizedColumns :: Lens.Lens' GetUnfilteredTableMetadataResponse (Prelude.Maybe [Prelude.Text])
 getUnfilteredTableMetadataResponse_authorizedColumns = Lens.lens (\GetUnfilteredTableMetadataResponse' {authorizedColumns} -> authorizedColumns) (\s@GetUnfilteredTableMetadataResponse' {} a -> s {authorizedColumns = a} :: GetUnfilteredTableMetadataResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+getUnfilteredTableMetadataResponse_cellFilters :: Lens.Lens' GetUnfilteredTableMetadataResponse (Prelude.Maybe [ColumnRowFilter])
+getUnfilteredTableMetadataResponse_cellFilters = Lens.lens (\GetUnfilteredTableMetadataResponse' {cellFilters} -> cellFilters) (\s@GetUnfilteredTableMetadataResponse' {} a -> s {cellFilters = a} :: GetUnfilteredTableMetadataResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 getUnfilteredTableMetadataResponse_isRegisteredWithLakeFormation :: Lens.Lens' GetUnfilteredTableMetadataResponse (Prelude.Maybe Prelude.Bool)
@@ -266,8 +266,8 @@ instance
     GetUnfilteredTableMetadataResponse
   where
   rnf GetUnfilteredTableMetadataResponse' {..} =
-    Prelude.rnf cellFilters
-      `Prelude.seq` Prelude.rnf authorizedColumns
+    Prelude.rnf authorizedColumns
+      `Prelude.seq` Prelude.rnf cellFilters
       `Prelude.seq` Prelude.rnf isRegisteredWithLakeFormation
       `Prelude.seq` Prelude.rnf table
       `Prelude.seq` Prelude.rnf httpStatus

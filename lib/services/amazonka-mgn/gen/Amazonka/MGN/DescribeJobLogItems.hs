@@ -29,8 +29,8 @@ module Amazonka.MGN.DescribeJobLogItems
     newDescribeJobLogItems,
 
     -- * Request Lenses
-    describeJobLogItems_nextToken,
     describeJobLogItems_maxResults,
+    describeJobLogItems_nextToken,
     describeJobLogItems_jobID,
 
     -- * Destructuring the Response
@@ -54,10 +54,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeJobLogItems' smart constructor.
 data DescribeJobLogItems = DescribeJobLogItems'
-  { -- | Request to describe Job log next token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Request to describe Job log item maximum results.
+  { -- | Request to describe Job log item maximum results.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Request to describe Job log next token.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Request to describe Job log job ID.
     jobID :: Prelude.Text
   }
@@ -71,9 +71,9 @@ data DescribeJobLogItems = DescribeJobLogItems'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeJobLogItems_nextToken' - Request to describe Job log next token.
---
 -- 'maxResults', 'describeJobLogItems_maxResults' - Request to describe Job log item maximum results.
+--
+-- 'nextToken', 'describeJobLogItems_nextToken' - Request to describe Job log next token.
 --
 -- 'jobID', 'describeJobLogItems_jobID' - Request to describe Job log job ID.
 newDescribeJobLogItems ::
@@ -82,18 +82,18 @@ newDescribeJobLogItems ::
   DescribeJobLogItems
 newDescribeJobLogItems pJobID_ =
   DescribeJobLogItems'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       jobID = pJobID_
     }
-
--- | Request to describe Job log next token.
-describeJobLogItems_nextToken :: Lens.Lens' DescribeJobLogItems (Prelude.Maybe Prelude.Text)
-describeJobLogItems_nextToken = Lens.lens (\DescribeJobLogItems' {nextToken} -> nextToken) (\s@DescribeJobLogItems' {} a -> s {nextToken = a} :: DescribeJobLogItems)
 
 -- | Request to describe Job log item maximum results.
 describeJobLogItems_maxResults :: Lens.Lens' DescribeJobLogItems (Prelude.Maybe Prelude.Natural)
 describeJobLogItems_maxResults = Lens.lens (\DescribeJobLogItems' {maxResults} -> maxResults) (\s@DescribeJobLogItems' {} a -> s {maxResults = a} :: DescribeJobLogItems)
+
+-- | Request to describe Job log next token.
+describeJobLogItems_nextToken :: Lens.Lens' DescribeJobLogItems (Prelude.Maybe Prelude.Text)
+describeJobLogItems_nextToken = Lens.lens (\DescribeJobLogItems' {nextToken} -> nextToken) (\s@DescribeJobLogItems' {} a -> s {nextToken = a} :: DescribeJobLogItems)
 
 -- | Request to describe Job log job ID.
 describeJobLogItems_jobID :: Lens.Lens' DescribeJobLogItems Prelude.Text
@@ -138,14 +138,14 @@ instance Core.AWSRequest DescribeJobLogItems where
 
 instance Prelude.Hashable DescribeJobLogItems where
   hashWithSalt _salt DescribeJobLogItems' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` jobID
 
 instance Prelude.NFData DescribeJobLogItems where
   rnf DescribeJobLogItems' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf jobID
 
 instance Data.ToHeaders DescribeJobLogItems where
@@ -163,8 +163,8 @@ instance Data.ToJSON DescribeJobLogItems where
   toJSON DescribeJobLogItems' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("jobID" Data..= jobID)
           ]
       )

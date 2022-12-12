@@ -29,17 +29,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFirewallSubnetIsOutOfScopeViolation' smart constructor.
 data FirewallSubnetIsOutOfScopeViolation = FirewallSubnetIsOutOfScopeViolation'
-  { -- | The Availability Zone ID of the firewall subnet that violates the policy
+  { -- | The ID of the firewall subnet that violates the policy scope.
+    firewallSubnetId :: Prelude.Maybe Prelude.Text,
+    -- | The Availability Zone of the firewall subnet that violates the policy
+    -- scope.
+    subnetAvailabilityZone :: Prelude.Maybe Prelude.Text,
+    -- | The Availability Zone ID of the firewall subnet that violates the policy
     -- scope.
     subnetAvailabilityZoneId :: Prelude.Maybe Prelude.Text,
     -- | The VPC endpoint ID of the firewall subnet that violates the policy
     -- scope.
     vpcEndpointId :: Prelude.Maybe Prelude.Text,
-    -- | The Availability Zone of the firewall subnet that violates the policy
-    -- scope.
-    subnetAvailabilityZone :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the firewall subnet that violates the policy scope.
-    firewallSubnetId :: Prelude.Maybe Prelude.Text,
     -- | The VPC ID of the firewall subnet that violates the policy scope.
     vpcId :: Prelude.Maybe Prelude.Text
   }
@@ -53,30 +53,40 @@ data FirewallSubnetIsOutOfScopeViolation = FirewallSubnetIsOutOfScopeViolation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'firewallSubnetId', 'firewallSubnetIsOutOfScopeViolation_firewallSubnetId' - The ID of the firewall subnet that violates the policy scope.
+--
+-- 'subnetAvailabilityZone', 'firewallSubnetIsOutOfScopeViolation_subnetAvailabilityZone' - The Availability Zone of the firewall subnet that violates the policy
+-- scope.
+--
 -- 'subnetAvailabilityZoneId', 'firewallSubnetIsOutOfScopeViolation_subnetAvailabilityZoneId' - The Availability Zone ID of the firewall subnet that violates the policy
 -- scope.
 --
 -- 'vpcEndpointId', 'firewallSubnetIsOutOfScopeViolation_vpcEndpointId' - The VPC endpoint ID of the firewall subnet that violates the policy
 -- scope.
 --
--- 'subnetAvailabilityZone', 'firewallSubnetIsOutOfScopeViolation_subnetAvailabilityZone' - The Availability Zone of the firewall subnet that violates the policy
--- scope.
---
--- 'firewallSubnetId', 'firewallSubnetIsOutOfScopeViolation_firewallSubnetId' - The ID of the firewall subnet that violates the policy scope.
---
 -- 'vpcId', 'firewallSubnetIsOutOfScopeViolation_vpcId' - The VPC ID of the firewall subnet that violates the policy scope.
 newFirewallSubnetIsOutOfScopeViolation ::
   FirewallSubnetIsOutOfScopeViolation
 newFirewallSubnetIsOutOfScopeViolation =
   FirewallSubnetIsOutOfScopeViolation'
-    { subnetAvailabilityZoneId =
+    { firewallSubnetId =
         Prelude.Nothing,
-      vpcEndpointId = Prelude.Nothing,
       subnetAvailabilityZone =
         Prelude.Nothing,
-      firewallSubnetId = Prelude.Nothing,
+      subnetAvailabilityZoneId =
+        Prelude.Nothing,
+      vpcEndpointId = Prelude.Nothing,
       vpcId = Prelude.Nothing
     }
+
+-- | The ID of the firewall subnet that violates the policy scope.
+firewallSubnetIsOutOfScopeViolation_firewallSubnetId :: Lens.Lens' FirewallSubnetIsOutOfScopeViolation (Prelude.Maybe Prelude.Text)
+firewallSubnetIsOutOfScopeViolation_firewallSubnetId = Lens.lens (\FirewallSubnetIsOutOfScopeViolation' {firewallSubnetId} -> firewallSubnetId) (\s@FirewallSubnetIsOutOfScopeViolation' {} a -> s {firewallSubnetId = a} :: FirewallSubnetIsOutOfScopeViolation)
+
+-- | The Availability Zone of the firewall subnet that violates the policy
+-- scope.
+firewallSubnetIsOutOfScopeViolation_subnetAvailabilityZone :: Lens.Lens' FirewallSubnetIsOutOfScopeViolation (Prelude.Maybe Prelude.Text)
+firewallSubnetIsOutOfScopeViolation_subnetAvailabilityZone = Lens.lens (\FirewallSubnetIsOutOfScopeViolation' {subnetAvailabilityZone} -> subnetAvailabilityZone) (\s@FirewallSubnetIsOutOfScopeViolation' {} a -> s {subnetAvailabilityZone = a} :: FirewallSubnetIsOutOfScopeViolation)
 
 -- | The Availability Zone ID of the firewall subnet that violates the policy
 -- scope.
@@ -87,15 +97,6 @@ firewallSubnetIsOutOfScopeViolation_subnetAvailabilityZoneId = Lens.lens (\Firew
 -- scope.
 firewallSubnetIsOutOfScopeViolation_vpcEndpointId :: Lens.Lens' FirewallSubnetIsOutOfScopeViolation (Prelude.Maybe Prelude.Text)
 firewallSubnetIsOutOfScopeViolation_vpcEndpointId = Lens.lens (\FirewallSubnetIsOutOfScopeViolation' {vpcEndpointId} -> vpcEndpointId) (\s@FirewallSubnetIsOutOfScopeViolation' {} a -> s {vpcEndpointId = a} :: FirewallSubnetIsOutOfScopeViolation)
-
--- | The Availability Zone of the firewall subnet that violates the policy
--- scope.
-firewallSubnetIsOutOfScopeViolation_subnetAvailabilityZone :: Lens.Lens' FirewallSubnetIsOutOfScopeViolation (Prelude.Maybe Prelude.Text)
-firewallSubnetIsOutOfScopeViolation_subnetAvailabilityZone = Lens.lens (\FirewallSubnetIsOutOfScopeViolation' {subnetAvailabilityZone} -> subnetAvailabilityZone) (\s@FirewallSubnetIsOutOfScopeViolation' {} a -> s {subnetAvailabilityZone = a} :: FirewallSubnetIsOutOfScopeViolation)
-
--- | The ID of the firewall subnet that violates the policy scope.
-firewallSubnetIsOutOfScopeViolation_firewallSubnetId :: Lens.Lens' FirewallSubnetIsOutOfScopeViolation (Prelude.Maybe Prelude.Text)
-firewallSubnetIsOutOfScopeViolation_firewallSubnetId = Lens.lens (\FirewallSubnetIsOutOfScopeViolation' {firewallSubnetId} -> firewallSubnetId) (\s@FirewallSubnetIsOutOfScopeViolation' {} a -> s {firewallSubnetId = a} :: FirewallSubnetIsOutOfScopeViolation)
 
 -- | The VPC ID of the firewall subnet that violates the policy scope.
 firewallSubnetIsOutOfScopeViolation_vpcId :: Lens.Lens' FirewallSubnetIsOutOfScopeViolation (Prelude.Maybe Prelude.Text)
@@ -110,10 +111,10 @@ instance
       "FirewallSubnetIsOutOfScopeViolation"
       ( \x ->
           FirewallSubnetIsOutOfScopeViolation'
-            Prelude.<$> (x Data..:? "SubnetAvailabilityZoneId")
-            Prelude.<*> (x Data..:? "VpcEndpointId")
+            Prelude.<$> (x Data..:? "FirewallSubnetId")
             Prelude.<*> (x Data..:? "SubnetAvailabilityZone")
-            Prelude.<*> (x Data..:? "FirewallSubnetId")
+            Prelude.<*> (x Data..:? "SubnetAvailabilityZoneId")
+            Prelude.<*> (x Data..:? "VpcEndpointId")
             Prelude.<*> (x Data..:? "VpcId")
       )
 
@@ -124,11 +125,10 @@ instance
   hashWithSalt
     _salt
     FirewallSubnetIsOutOfScopeViolation' {..} =
-      _salt
+      _salt `Prelude.hashWithSalt` firewallSubnetId
+        `Prelude.hashWithSalt` subnetAvailabilityZone
         `Prelude.hashWithSalt` subnetAvailabilityZoneId
         `Prelude.hashWithSalt` vpcEndpointId
-        `Prelude.hashWithSalt` subnetAvailabilityZone
-        `Prelude.hashWithSalt` firewallSubnetId
         `Prelude.hashWithSalt` vpcId
 
 instance
@@ -136,8 +136,8 @@ instance
     FirewallSubnetIsOutOfScopeViolation
   where
   rnf FirewallSubnetIsOutOfScopeViolation' {..} =
-    Prelude.rnf subnetAvailabilityZoneId
-      `Prelude.seq` Prelude.rnf vpcEndpointId
+    Prelude.rnf firewallSubnetId
       `Prelude.seq` Prelude.rnf subnetAvailabilityZone
-      `Prelude.seq` Prelude.rnf firewallSubnetId
+      `Prelude.seq` Prelude.rnf subnetAvailabilityZoneId
+      `Prelude.seq` Prelude.rnf vpcEndpointId
       `Prelude.seq` Prelude.rnf vpcId

@@ -64,15 +64,15 @@ module Amazonka.Kendra.Lens
     createAccessControlConfigurationResponse_id,
 
     -- ** CreateDataSource
-    createDataSource_tags,
-    createDataSource_schedule,
-    createDataSource_vpcConfiguration,
-    createDataSource_customDocumentEnrichmentConfiguration,
     createDataSource_clientToken,
-    createDataSource_roleArn,
     createDataSource_configuration,
+    createDataSource_customDocumentEnrichmentConfiguration,
     createDataSource_description,
     createDataSource_languageCode,
+    createDataSource_roleArn,
+    createDataSource_schedule,
+    createDataSource_tags,
+    createDataSource_vpcConfiguration,
     createDataSource_name,
     createDataSource_indexId,
     createDataSource_type,
@@ -81,20 +81,20 @@ module Amazonka.Kendra.Lens
 
     -- ** CreateExperience
     createExperience_clientToken,
-    createExperience_roleArn,
     createExperience_configuration,
     createExperience_description,
+    createExperience_roleArn,
     createExperience_name,
     createExperience_indexId,
     createExperienceResponse_httpStatus,
     createExperienceResponse_id,
 
     -- ** CreateFaq
-    createFaq_tags,
     createFaq_clientToken,
     createFaq_description,
-    createFaq_languageCode,
     createFaq_fileFormat,
+    createFaq_languageCode,
+    createFaq_tags,
     createFaq_indexId,
     createFaq_name,
     createFaq_s3Path,
@@ -103,23 +103,23 @@ module Amazonka.Kendra.Lens
     createFaqResponse_httpStatus,
 
     -- ** CreateIndex
-    createIndex_tags,
     createIndex_clientToken,
-    createIndex_userGroupResolutionConfiguration,
-    createIndex_serverSideEncryptionConfiguration,
-    createIndex_edition,
     createIndex_description,
-    createIndex_userTokenConfigurations,
+    createIndex_edition,
+    createIndex_serverSideEncryptionConfiguration,
+    createIndex_tags,
     createIndex_userContextPolicy,
+    createIndex_userGroupResolutionConfiguration,
+    createIndex_userTokenConfigurations,
     createIndex_name,
     createIndex_roleArn,
     createIndexResponse_id,
     createIndexResponse_httpStatus,
 
     -- ** CreateQuerySuggestionsBlockList
-    createQuerySuggestionsBlockList_tags,
     createQuerySuggestionsBlockList_clientToken,
     createQuerySuggestionsBlockList_description,
+    createQuerySuggestionsBlockList_tags,
     createQuerySuggestionsBlockList_indexId,
     createQuerySuggestionsBlockList_name,
     createQuerySuggestionsBlockList_sourceS3Path,
@@ -128,9 +128,9 @@ module Amazonka.Kendra.Lens
     createQuerySuggestionsBlockListResponse_httpStatus,
 
     -- ** CreateThesaurus
-    createThesaurus_tags,
     createThesaurus_clientToken,
     createThesaurus_description,
+    createThesaurus_tags,
     createThesaurus_indexId,
     createThesaurus_name,
     createThesaurus_roleArn,
@@ -177,8 +177,8 @@ module Amazonka.Kendra.Lens
     describeAccessControlConfiguration_indexId,
     describeAccessControlConfiguration_id,
     describeAccessControlConfigurationResponse_accessControlList,
-    describeAccessControlConfigurationResponse_errorMessage,
     describeAccessControlConfigurationResponse_description,
+    describeAccessControlConfigurationResponse_errorMessage,
     describeAccessControlConfigurationResponse_hierarchicalAccessControlList,
     describeAccessControlConfigurationResponse_httpStatus,
     describeAccessControlConfigurationResponse_name,
@@ -186,131 +186,131 @@ module Amazonka.Kendra.Lens
     -- ** DescribeDataSource
     describeDataSource_id,
     describeDataSource_indexId,
-    describeDataSourceResponse_schedule,
-    describeDataSourceResponse_vpcConfiguration,
-    describeDataSourceResponse_customDocumentEnrichmentConfiguration,
-    describeDataSourceResponse_indexId,
-    describeDataSourceResponse_name,
-    describeDataSourceResponse_type,
-    describeDataSourceResponse_roleArn,
-    describeDataSourceResponse_errorMessage,
     describeDataSourceResponse_configuration,
-    describeDataSourceResponse_status,
-    describeDataSourceResponse_id,
-    describeDataSourceResponse_description,
-    describeDataSourceResponse_languageCode,
     describeDataSourceResponse_createdAt,
+    describeDataSourceResponse_customDocumentEnrichmentConfiguration,
+    describeDataSourceResponse_description,
+    describeDataSourceResponse_errorMessage,
+    describeDataSourceResponse_id,
+    describeDataSourceResponse_indexId,
+    describeDataSourceResponse_languageCode,
+    describeDataSourceResponse_name,
+    describeDataSourceResponse_roleArn,
+    describeDataSourceResponse_schedule,
+    describeDataSourceResponse_status,
+    describeDataSourceResponse_type,
     describeDataSourceResponse_updatedAt,
+    describeDataSourceResponse_vpcConfiguration,
     describeDataSourceResponse_httpStatus,
 
     -- ** DescribeExperience
     describeExperience_id,
     describeExperience_indexId,
+    describeExperienceResponse_configuration,
+    describeExperienceResponse_createdAt,
+    describeExperienceResponse_description,
+    describeExperienceResponse_endpoints,
+    describeExperienceResponse_errorMessage,
+    describeExperienceResponse_id,
     describeExperienceResponse_indexId,
     describeExperienceResponse_name,
     describeExperienceResponse_roleArn,
-    describeExperienceResponse_errorMessage,
-    describeExperienceResponse_configuration,
     describeExperienceResponse_status,
-    describeExperienceResponse_endpoints,
-    describeExperienceResponse_id,
-    describeExperienceResponse_description,
-    describeExperienceResponse_createdAt,
     describeExperienceResponse_updatedAt,
     describeExperienceResponse_httpStatus,
 
     -- ** DescribeFaq
     describeFaq_id,
     describeFaq_indexId,
+    describeFaqResponse_createdAt,
+    describeFaqResponse_description,
+    describeFaqResponse_errorMessage,
+    describeFaqResponse_fileFormat,
+    describeFaqResponse_id,
     describeFaqResponse_indexId,
+    describeFaqResponse_languageCode,
     describeFaqResponse_name,
     describeFaqResponse_roleArn,
-    describeFaqResponse_errorMessage,
-    describeFaqResponse_status,
-    describeFaqResponse_id,
-    describeFaqResponse_description,
-    describeFaqResponse_languageCode,
     describeFaqResponse_s3Path,
-    describeFaqResponse_createdAt,
+    describeFaqResponse_status,
     describeFaqResponse_updatedAt,
-    describeFaqResponse_fileFormat,
     describeFaqResponse_httpStatus,
 
     -- ** DescribeIndex
     describeIndex_id,
+    describeIndexResponse_capacityUnits,
+    describeIndexResponse_createdAt,
+    describeIndexResponse_description,
+    describeIndexResponse_documentMetadataConfigurations,
+    describeIndexResponse_edition,
+    describeIndexResponse_errorMessage,
+    describeIndexResponse_id,
+    describeIndexResponse_indexStatistics,
     describeIndexResponse_name,
     describeIndexResponse_roleArn,
-    describeIndexResponse_capacityUnits,
-    describeIndexResponse_errorMessage,
-    describeIndexResponse_userGroupResolutionConfiguration,
     describeIndexResponse_serverSideEncryptionConfiguration,
-    describeIndexResponse_edition,
     describeIndexResponse_status,
-    describeIndexResponse_id,
-    describeIndexResponse_description,
-    describeIndexResponse_userTokenConfigurations,
-    describeIndexResponse_userContextPolicy,
-    describeIndexResponse_indexStatistics,
-    describeIndexResponse_createdAt,
     describeIndexResponse_updatedAt,
-    describeIndexResponse_documentMetadataConfigurations,
+    describeIndexResponse_userContextPolicy,
+    describeIndexResponse_userGroupResolutionConfiguration,
+    describeIndexResponse_userTokenConfigurations,
     describeIndexResponse_httpStatus,
 
     -- ** DescribePrincipalMapping
     describePrincipalMapping_dataSourceId,
     describePrincipalMapping_indexId,
     describePrincipalMapping_groupId,
-    describePrincipalMappingResponse_groupOrderingIdSummaries,
-    describePrincipalMappingResponse_indexId,
     describePrincipalMappingResponse_dataSourceId,
     describePrincipalMappingResponse_groupId,
+    describePrincipalMappingResponse_groupOrderingIdSummaries,
+    describePrincipalMappingResponse_indexId,
     describePrincipalMappingResponse_httpStatus,
 
     -- ** DescribeQuerySuggestionsBlockList
     describeQuerySuggestionsBlockList_indexId,
     describeQuerySuggestionsBlockList_id,
+    describeQuerySuggestionsBlockListResponse_createdAt,
+    describeQuerySuggestionsBlockListResponse_description,
+    describeQuerySuggestionsBlockListResponse_errorMessage,
+    describeQuerySuggestionsBlockListResponse_fileSizeBytes,
+    describeQuerySuggestionsBlockListResponse_id,
     describeQuerySuggestionsBlockListResponse_indexId,
+    describeQuerySuggestionsBlockListResponse_itemCount,
     describeQuerySuggestionsBlockListResponse_name,
     describeQuerySuggestionsBlockListResponse_roleArn,
-    describeQuerySuggestionsBlockListResponse_errorMessage,
-    describeQuerySuggestionsBlockListResponse_itemCount,
-    describeQuerySuggestionsBlockListResponse_status,
-    describeQuerySuggestionsBlockListResponse_id,
-    describeQuerySuggestionsBlockListResponse_description,
     describeQuerySuggestionsBlockListResponse_sourceS3Path,
-    describeQuerySuggestionsBlockListResponse_fileSizeBytes,
-    describeQuerySuggestionsBlockListResponse_createdAt,
+    describeQuerySuggestionsBlockListResponse_status,
     describeQuerySuggestionsBlockListResponse_updatedAt,
     describeQuerySuggestionsBlockListResponse_httpStatus,
 
     -- ** DescribeQuerySuggestionsConfig
     describeQuerySuggestionsConfig_indexId,
-    describeQuerySuggestionsConfigResponse_status,
-    describeQuerySuggestionsConfigResponse_minimumNumberOfQueryingUsers,
-    describeQuerySuggestionsConfigResponse_totalSuggestionsCount,
-    describeQuerySuggestionsConfigResponse_lastSuggestionsBuildTime,
-    describeQuerySuggestionsConfigResponse_queryLogLookBackWindowInDays,
-    describeQuerySuggestionsConfigResponse_mode,
-    describeQuerySuggestionsConfigResponse_minimumQueryCount,
     describeQuerySuggestionsConfigResponse_includeQueriesWithoutUserInformation,
     describeQuerySuggestionsConfigResponse_lastClearTime,
+    describeQuerySuggestionsConfigResponse_lastSuggestionsBuildTime,
+    describeQuerySuggestionsConfigResponse_minimumNumberOfQueryingUsers,
+    describeQuerySuggestionsConfigResponse_minimumQueryCount,
+    describeQuerySuggestionsConfigResponse_mode,
+    describeQuerySuggestionsConfigResponse_queryLogLookBackWindowInDays,
+    describeQuerySuggestionsConfigResponse_status,
+    describeQuerySuggestionsConfigResponse_totalSuggestionsCount,
     describeQuerySuggestionsConfigResponse_httpStatus,
 
     -- ** DescribeThesaurus
     describeThesaurus_id,
     describeThesaurus_indexId,
+    describeThesaurusResponse_createdAt,
+    describeThesaurusResponse_description,
+    describeThesaurusResponse_errorMessage,
+    describeThesaurusResponse_fileSizeBytes,
+    describeThesaurusResponse_id,
     describeThesaurusResponse_indexId,
     describeThesaurusResponse_name,
     describeThesaurusResponse_roleArn,
-    describeThesaurusResponse_termCount,
-    describeThesaurusResponse_errorMessage,
-    describeThesaurusResponse_status,
-    describeThesaurusResponse_id,
-    describeThesaurusResponse_description,
-    describeThesaurusResponse_synonymRuleCount,
     describeThesaurusResponse_sourceS3Path,
-    describeThesaurusResponse_fileSizeBytes,
-    describeThesaurusResponse_createdAt,
+    describeThesaurusResponse_status,
+    describeThesaurusResponse_synonymRuleCount,
+    describeThesaurusResponse_termCount,
     describeThesaurusResponse_updatedAt,
     describeThesaurusResponse_httpStatus,
 
@@ -337,47 +337,47 @@ module Amazonka.Kendra.Lens
     getQuerySuggestionsResponse_httpStatus,
 
     -- ** GetSnapshots
-    getSnapshots_nextToken,
     getSnapshots_maxResults,
+    getSnapshots_nextToken,
     getSnapshots_indexId,
     getSnapshots_interval,
     getSnapshots_metricType,
-    getSnapshotsResponse_snapShotTimeFilter,
     getSnapshotsResponse_nextToken,
-    getSnapshotsResponse_snapshotsDataHeader,
+    getSnapshotsResponse_snapShotTimeFilter,
     getSnapshotsResponse_snapshotsData,
+    getSnapshotsResponse_snapshotsDataHeader,
     getSnapshotsResponse_httpStatus,
 
     -- ** ListAccessControlConfigurations
-    listAccessControlConfigurations_nextToken,
     listAccessControlConfigurations_maxResults,
+    listAccessControlConfigurations_nextToken,
     listAccessControlConfigurations_indexId,
     listAccessControlConfigurationsResponse_nextToken,
     listAccessControlConfigurationsResponse_httpStatus,
     listAccessControlConfigurationsResponse_accessControlConfigurations,
 
     -- ** ListDataSourceSyncJobs
-    listDataSourceSyncJobs_nextToken,
     listDataSourceSyncJobs_maxResults,
+    listDataSourceSyncJobs_nextToken,
     listDataSourceSyncJobs_startTimeFilter,
     listDataSourceSyncJobs_statusFilter,
     listDataSourceSyncJobs_id,
     listDataSourceSyncJobs_indexId,
-    listDataSourceSyncJobsResponse_nextToken,
     listDataSourceSyncJobsResponse_history,
+    listDataSourceSyncJobsResponse_nextToken,
     listDataSourceSyncJobsResponse_httpStatus,
 
     -- ** ListDataSources
-    listDataSources_nextToken,
     listDataSources_maxResults,
+    listDataSources_nextToken,
     listDataSources_indexId,
     listDataSourcesResponse_nextToken,
     listDataSourcesResponse_summaryItems,
     listDataSourcesResponse_httpStatus,
 
     -- ** ListEntityPersonas
-    listEntityPersonas_nextToken,
     listEntityPersonas_maxResults,
+    listEntityPersonas_nextToken,
     listEntityPersonas_id,
     listEntityPersonas_indexId,
     listEntityPersonasResponse_nextToken,
@@ -393,44 +393,44 @@ module Amazonka.Kendra.Lens
     listExperienceEntitiesResponse_httpStatus,
 
     -- ** ListExperiences
-    listExperiences_nextToken,
     listExperiences_maxResults,
+    listExperiences_nextToken,
     listExperiences_indexId,
     listExperiencesResponse_nextToken,
     listExperiencesResponse_summaryItems,
     listExperiencesResponse_httpStatus,
 
     -- ** ListFaqs
-    listFaqs_nextToken,
     listFaqs_maxResults,
+    listFaqs_nextToken,
     listFaqs_indexId,
-    listFaqsResponse_nextToken,
     listFaqsResponse_faqSummaryItems,
+    listFaqsResponse_nextToken,
     listFaqsResponse_httpStatus,
 
     -- ** ListGroupsOlderThanOrderingId
-    listGroupsOlderThanOrderingId_nextToken,
     listGroupsOlderThanOrderingId_dataSourceId,
     listGroupsOlderThanOrderingId_maxResults,
+    listGroupsOlderThanOrderingId_nextToken,
     listGroupsOlderThanOrderingId_indexId,
     listGroupsOlderThanOrderingId_orderingId,
-    listGroupsOlderThanOrderingIdResponse_nextToken,
     listGroupsOlderThanOrderingIdResponse_groupsSummaries,
+    listGroupsOlderThanOrderingIdResponse_nextToken,
     listGroupsOlderThanOrderingIdResponse_httpStatus,
 
     -- ** ListIndices
-    listIndices_nextToken,
     listIndices_maxResults,
-    listIndicesResponse_nextToken,
+    listIndices_nextToken,
     listIndicesResponse_indexConfigurationSummaryItems,
+    listIndicesResponse_nextToken,
     listIndicesResponse_httpStatus,
 
     -- ** ListQuerySuggestionsBlockLists
-    listQuerySuggestionsBlockLists_nextToken,
     listQuerySuggestionsBlockLists_maxResults,
+    listQuerySuggestionsBlockLists_nextToken,
     listQuerySuggestionsBlockLists_indexId,
-    listQuerySuggestionsBlockListsResponse_nextToken,
     listQuerySuggestionsBlockListsResponse_blockListSummaryItems,
+    listQuerySuggestionsBlockListsResponse_nextToken,
     listQuerySuggestionsBlockListsResponse_httpStatus,
 
     -- ** ListTagsForResource
@@ -439,8 +439,8 @@ module Amazonka.Kendra.Lens
     listTagsForResourceResponse_httpStatus,
 
     -- ** ListThesauri
-    listThesauri_nextToken,
     listThesauri_maxResults,
+    listThesauri_nextToken,
     listThesauri_indexId,
     listThesauriResponse_nextToken,
     listThesauriResponse_thesaurusSummaryItems,
@@ -448,32 +448,32 @@ module Amazonka.Kendra.Lens
 
     -- ** PutPrincipalMapping
     putPrincipalMapping_dataSourceId,
-    putPrincipalMapping_roleArn,
     putPrincipalMapping_orderingId,
+    putPrincipalMapping_roleArn,
     putPrincipalMapping_indexId,
     putPrincipalMapping_groupId,
     putPrincipalMapping_groupMembers,
 
     -- ** Query
+    query_attributeFilter,
     query_documentRelevanceOverrideConfigurations,
-    query_requestedDocumentAttributes,
-    query_userContext,
-    query_queryText,
-    query_queryResultTypeFilter,
     query_facets,
     query_pageNumber,
     query_pageSize,
-    query_spellCorrectionConfiguration,
+    query_queryResultTypeFilter,
+    query_queryText,
+    query_requestedDocumentAttributes,
     query_sortingConfiguration,
+    query_spellCorrectionConfiguration,
+    query_userContext,
     query_visitorId,
-    query_attributeFilter,
     query_indexId,
-    queryResponse_spellCorrectedQueries,
     queryResponse_facetResults,
     queryResponse_queryId,
     queryResponse_resultItems,
-    queryResponse_warnings,
+    queryResponse_spellCorrectedQueries,
     queryResponse_totalNumberOfResults,
+    queryResponse_warnings,
     queryResponse_httpStatus,
 
     -- ** StartDataSourceSyncJob
@@ -504,64 +504,64 @@ module Amazonka.Kendra.Lens
 
     -- ** UpdateAccessControlConfiguration
     updateAccessControlConfiguration_accessControlList,
-    updateAccessControlConfiguration_name,
     updateAccessControlConfiguration_description,
     updateAccessControlConfiguration_hierarchicalAccessControlList,
+    updateAccessControlConfiguration_name,
     updateAccessControlConfiguration_indexId,
     updateAccessControlConfiguration_id,
     updateAccessControlConfigurationResponse_httpStatus,
 
     -- ** UpdateDataSource
-    updateDataSource_schedule,
-    updateDataSource_vpcConfiguration,
-    updateDataSource_customDocumentEnrichmentConfiguration,
-    updateDataSource_name,
-    updateDataSource_roleArn,
     updateDataSource_configuration,
+    updateDataSource_customDocumentEnrichmentConfiguration,
     updateDataSource_description,
     updateDataSource_languageCode,
+    updateDataSource_name,
+    updateDataSource_roleArn,
+    updateDataSource_schedule,
+    updateDataSource_vpcConfiguration,
     updateDataSource_id,
     updateDataSource_indexId,
 
     -- ** UpdateExperience
-    updateExperience_name,
-    updateExperience_roleArn,
     updateExperience_configuration,
     updateExperience_description,
+    updateExperience_name,
+    updateExperience_roleArn,
     updateExperience_id,
     updateExperience_indexId,
 
     -- ** UpdateIndex
+    updateIndex_capacityUnits,
+    updateIndex_description,
+    updateIndex_documentMetadataConfigurationUpdates,
     updateIndex_name,
     updateIndex_roleArn,
-    updateIndex_capacityUnits,
-    updateIndex_userGroupResolutionConfiguration,
-    updateIndex_documentMetadataConfigurationUpdates,
-    updateIndex_description,
-    updateIndex_userTokenConfigurations,
     updateIndex_userContextPolicy,
+    updateIndex_userGroupResolutionConfiguration,
+    updateIndex_userTokenConfigurations,
     updateIndex_id,
 
     -- ** UpdateQuerySuggestionsBlockList
+    updateQuerySuggestionsBlockList_description,
     updateQuerySuggestionsBlockList_name,
     updateQuerySuggestionsBlockList_roleArn,
-    updateQuerySuggestionsBlockList_description,
     updateQuerySuggestionsBlockList_sourceS3Path,
     updateQuerySuggestionsBlockList_indexId,
     updateQuerySuggestionsBlockList_id,
 
     -- ** UpdateQuerySuggestionsConfig
-    updateQuerySuggestionsConfig_minimumNumberOfQueryingUsers,
-    updateQuerySuggestionsConfig_queryLogLookBackWindowInDays,
-    updateQuerySuggestionsConfig_mode,
-    updateQuerySuggestionsConfig_minimumQueryCount,
     updateQuerySuggestionsConfig_includeQueriesWithoutUserInformation,
+    updateQuerySuggestionsConfig_minimumNumberOfQueryingUsers,
+    updateQuerySuggestionsConfig_minimumQueryCount,
+    updateQuerySuggestionsConfig_mode,
+    updateQuerySuggestionsConfig_queryLogLookBackWindowInDays,
     updateQuerySuggestionsConfig_indexId,
 
     -- ** UpdateThesaurus
+    updateThesaurus_description,
     updateThesaurus_name,
     updateThesaurus_roleArn,
-    updateThesaurus_description,
     updateThesaurus_sourceS3Path,
     updateThesaurus_id,
     updateThesaurus_indexId,
@@ -586,31 +586,31 @@ module Amazonka.Kendra.Lens
     additionalResultAttributeValue_textWithHighlightsValue,
 
     -- ** AlfrescoConfiguration
+    alfrescoConfiguration_blogFieldMappings,
+    alfrescoConfiguration_crawlComments,
+    alfrescoConfiguration_crawlSystemFolders,
+    alfrescoConfiguration_documentLibraryFieldMappings,
+    alfrescoConfiguration_entityFilter,
+    alfrescoConfiguration_exclusionPatterns,
+    alfrescoConfiguration_inclusionPatterns,
     alfrescoConfiguration_vpcConfiguration,
     alfrescoConfiguration_wikiFieldMappings,
-    alfrescoConfiguration_documentLibraryFieldMappings,
-    alfrescoConfiguration_crawlSystemFolders,
-    alfrescoConfiguration_inclusionPatterns,
-    alfrescoConfiguration_entityFilter,
-    alfrescoConfiguration_crawlComments,
-    alfrescoConfiguration_blogFieldMappings,
-    alfrescoConfiguration_exclusionPatterns,
     alfrescoConfiguration_siteUrl,
     alfrescoConfiguration_siteId,
     alfrescoConfiguration_secretArn,
     alfrescoConfiguration_sslCertificateS3Path,
 
     -- ** AttributeFilter
+    attributeFilter_andAllFilters,
     attributeFilter_containsAll,
     attributeFilter_containsAny,
-    attributeFilter_lessThan,
-    attributeFilter_andAllFilters,
-    attributeFilter_orAllFilters,
-    attributeFilter_notFilter,
-    attributeFilter_greaterThanOrEquals,
     attributeFilter_equalsTo,
     attributeFilter_greaterThan,
+    attributeFilter_greaterThanOrEquals,
+    attributeFilter_lessThan,
     attributeFilter_lessThanOrEquals,
+    attributeFilter_notFilter,
+    attributeFilter_orAllFilters,
 
     -- ** AuthenticationConfiguration
     authenticationConfiguration_basicAuthentication,
@@ -621,32 +621,32 @@ module Amazonka.Kendra.Lens
     basicAuthenticationConfiguration_credentials,
 
     -- ** BatchDeleteDocumentResponseFailedDocument
+    batchDeleteDocumentResponseFailedDocument_errorCode,
     batchDeleteDocumentResponseFailedDocument_errorMessage,
     batchDeleteDocumentResponseFailedDocument_id,
-    batchDeleteDocumentResponseFailedDocument_errorCode,
 
     -- ** BatchGetDocumentStatusResponseError
-    batchGetDocumentStatusResponseError_errorMessage,
-    batchGetDocumentStatusResponseError_errorCode,
     batchGetDocumentStatusResponseError_documentId,
+    batchGetDocumentStatusResponseError_errorCode,
+    batchGetDocumentStatusResponseError_errorMessage,
 
     -- ** BatchPutDocumentResponseFailedDocument
+    batchPutDocumentResponseFailedDocument_errorCode,
     batchPutDocumentResponseFailedDocument_errorMessage,
     batchPutDocumentResponseFailedDocument_id,
-    batchPutDocumentResponseFailedDocument_errorCode,
 
     -- ** BoxConfiguration
+    boxConfiguration_commentFieldMappings,
+    boxConfiguration_crawlComments,
+    boxConfiguration_crawlTasks,
+    boxConfiguration_crawlWebLinks,
+    boxConfiguration_exclusionPatterns,
+    boxConfiguration_fileFieldMappings,
+    boxConfiguration_inclusionPatterns,
+    boxConfiguration_taskFieldMappings,
     boxConfiguration_useChangeLog,
     boxConfiguration_vpcConfiguration,
-    boxConfiguration_fileFieldMappings,
-    boxConfiguration_crawlWebLinks,
-    boxConfiguration_commentFieldMappings,
-    boxConfiguration_inclusionPatterns,
     boxConfiguration_webLinkFieldMappings,
-    boxConfiguration_crawlTasks,
-    boxConfiguration_crawlComments,
-    boxConfiguration_taskFieldMappings,
-    boxConfiguration_exclusionPatterns,
     boxConfiguration_enterpriseId,
     boxConfiguration_secretArn,
 
@@ -659,8 +659,8 @@ module Amazonka.Kendra.Lens
     clickFeedback_clickTime,
 
     -- ** ColumnConfiguration
-    columnConfiguration_fieldMappings,
     columnConfiguration_documentTitleColumnName,
+    columnConfiguration_fieldMappings,
     columnConfiguration_documentIdColumnName,
     columnConfiguration_documentDataColumnName,
     columnConfiguration_changeDetectingColumns,
@@ -671,27 +671,27 @@ module Amazonka.Kendra.Lens
 
     -- ** ConfluenceAttachmentToIndexFieldMapping
     confluenceAttachmentToIndexFieldMapping_dataSourceFieldName,
-    confluenceAttachmentToIndexFieldMapping_indexFieldName,
     confluenceAttachmentToIndexFieldMapping_dateFieldFormat,
+    confluenceAttachmentToIndexFieldMapping_indexFieldName,
 
     -- ** ConfluenceBlogConfiguration
     confluenceBlogConfiguration_blogFieldMappings,
 
     -- ** ConfluenceBlogToIndexFieldMapping
     confluenceBlogToIndexFieldMapping_dataSourceFieldName,
-    confluenceBlogToIndexFieldMapping_indexFieldName,
     confluenceBlogToIndexFieldMapping_dateFieldFormat,
+    confluenceBlogToIndexFieldMapping_indexFieldName,
 
     -- ** ConfluenceConfiguration
-    confluenceConfiguration_vpcConfiguration,
-    confluenceConfiguration_proxyConfiguration,
-    confluenceConfiguration_pageConfiguration,
-    confluenceConfiguration_authenticationType,
-    confluenceConfiguration_inclusionPatterns,
-    confluenceConfiguration_spaceConfiguration,
-    confluenceConfiguration_blogConfiguration,
     confluenceConfiguration_attachmentConfiguration,
+    confluenceConfiguration_authenticationType,
+    confluenceConfiguration_blogConfiguration,
     confluenceConfiguration_exclusionPatterns,
+    confluenceConfiguration_inclusionPatterns,
+    confluenceConfiguration_pageConfiguration,
+    confluenceConfiguration_proxyConfiguration,
+    confluenceConfiguration_spaceConfiguration,
+    confluenceConfiguration_vpcConfiguration,
     confluenceConfiguration_serverUrl,
     confluenceConfiguration_secretArn,
     confluenceConfiguration_version,
@@ -701,20 +701,20 @@ module Amazonka.Kendra.Lens
 
     -- ** ConfluencePageToIndexFieldMapping
     confluencePageToIndexFieldMapping_dataSourceFieldName,
-    confluencePageToIndexFieldMapping_indexFieldName,
     confluencePageToIndexFieldMapping_dateFieldFormat,
+    confluencePageToIndexFieldMapping_indexFieldName,
 
     -- ** ConfluenceSpaceConfiguration
-    confluenceSpaceConfiguration_crawlPersonalSpaces,
     confluenceSpaceConfiguration_crawlArchivedSpaces,
+    confluenceSpaceConfiguration_crawlPersonalSpaces,
     confluenceSpaceConfiguration_excludeSpaces,
-    confluenceSpaceConfiguration_spaceFieldMappings,
     confluenceSpaceConfiguration_includeSpaces,
+    confluenceSpaceConfiguration_spaceFieldMappings,
 
     -- ** ConfluenceSpaceToIndexFieldMapping
     confluenceSpaceToIndexFieldMapping_dataSourceFieldName,
-    confluenceSpaceToIndexFieldMapping_indexFieldName,
     confluenceSpaceToIndexFieldMapping_dateFieldFormat,
+    confluenceSpaceToIndexFieldMapping_indexFieldName,
 
     -- ** ConnectionConfiguration
     connectionConfiguration_databaseHost,
@@ -724,75 +724,75 @@ module Amazonka.Kendra.Lens
     connectionConfiguration_secretArn,
 
     -- ** ContentSourceConfiguration
+    contentSourceConfiguration_dataSourceIds,
     contentSourceConfiguration_directPutContent,
     contentSourceConfiguration_faqIds,
-    contentSourceConfiguration_dataSourceIds,
 
     -- ** Correction
     correction_beginOffset,
+    correction_correctedTerm,
     correction_endOffset,
     correction_term,
-    correction_correctedTerm,
 
     -- ** CustomDocumentEnrichmentConfiguration
-    customDocumentEnrichmentConfiguration_roleArn,
     customDocumentEnrichmentConfiguration_inlineConfigurations,
     customDocumentEnrichmentConfiguration_postExtractionHookConfiguration,
     customDocumentEnrichmentConfiguration_preExtractionHookConfiguration,
+    customDocumentEnrichmentConfiguration_roleArn,
 
     -- ** DataSourceConfiguration
-    dataSourceConfiguration_googleDriveConfiguration,
-    dataSourceConfiguration_s3Configuration,
-    dataSourceConfiguration_gitHubConfiguration,
-    dataSourceConfiguration_workDocsConfiguration,
-    dataSourceConfiguration_quipConfiguration,
-    dataSourceConfiguration_jiraConfiguration,
-    dataSourceConfiguration_confluenceConfiguration,
-    dataSourceConfiguration_boxConfiguration,
-    dataSourceConfiguration_oneDriveConfiguration,
-    dataSourceConfiguration_sharePointConfiguration,
-    dataSourceConfiguration_fsxConfiguration,
-    dataSourceConfiguration_salesforceConfiguration,
-    dataSourceConfiguration_databaseConfiguration,
-    dataSourceConfiguration_serviceNowConfiguration,
-    dataSourceConfiguration_templateConfiguration,
-    dataSourceConfiguration_slackConfiguration,
-    dataSourceConfiguration_webCrawlerConfiguration,
     dataSourceConfiguration_alfrescoConfiguration,
+    dataSourceConfiguration_boxConfiguration,
+    dataSourceConfiguration_confluenceConfiguration,
+    dataSourceConfiguration_databaseConfiguration,
+    dataSourceConfiguration_fsxConfiguration,
+    dataSourceConfiguration_gitHubConfiguration,
+    dataSourceConfiguration_googleDriveConfiguration,
+    dataSourceConfiguration_jiraConfiguration,
+    dataSourceConfiguration_oneDriveConfiguration,
+    dataSourceConfiguration_quipConfiguration,
+    dataSourceConfiguration_s3Configuration,
+    dataSourceConfiguration_salesforceConfiguration,
+    dataSourceConfiguration_serviceNowConfiguration,
+    dataSourceConfiguration_sharePointConfiguration,
+    dataSourceConfiguration_slackConfiguration,
+    dataSourceConfiguration_templateConfiguration,
+    dataSourceConfiguration_webCrawlerConfiguration,
+    dataSourceConfiguration_workDocsConfiguration,
 
     -- ** DataSourceGroup
     dataSourceGroup_groupId,
     dataSourceGroup_dataSourceId,
 
     -- ** DataSourceSummary
-    dataSourceSummary_name,
-    dataSourceSummary_type,
-    dataSourceSummary_status,
+    dataSourceSummary_createdAt,
     dataSourceSummary_id,
     dataSourceSummary_languageCode,
-    dataSourceSummary_createdAt,
+    dataSourceSummary_name,
+    dataSourceSummary_status,
+    dataSourceSummary_type,
     dataSourceSummary_updatedAt,
 
     -- ** DataSourceSyncJob
     dataSourceSyncJob_dataSourceErrorCode,
-    dataSourceSyncJob_errorMessage,
-    dataSourceSyncJob_status,
-    dataSourceSyncJob_metrics,
     dataSourceSyncJob_endTime,
-    dataSourceSyncJob_executionId,
     dataSourceSyncJob_errorCode,
+    dataSourceSyncJob_errorMessage,
+    dataSourceSyncJob_executionId,
+    dataSourceSyncJob_metrics,
     dataSourceSyncJob_startTime,
+    dataSourceSyncJob_status,
 
     -- ** DataSourceSyncJobMetricTarget
     dataSourceSyncJobMetricTarget_dataSourceSyncJobId,
     dataSourceSyncJobMetricTarget_dataSourceId,
 
     -- ** DataSourceSyncJobMetrics
-    dataSourceSyncJobMetrics_documentsScanned,
     dataSourceSyncJobMetrics_documentsAdded,
-    dataSourceSyncJobMetrics_documentsModified,
-    dataSourceSyncJobMetrics_documentsFailed,
     dataSourceSyncJobMetrics_documentsDeleted,
+    dataSourceSyncJobMetrics_documentsFailed,
+    dataSourceSyncJobMetrics_documentsModified,
+    dataSourceSyncJobMetrics_documentsScanned,
 
     -- ** DataSourceToIndexFieldMapping
     dataSourceToIndexFieldMapping_dateFieldFormat,
@@ -804,22 +804,22 @@ module Amazonka.Kendra.Lens
     dataSourceVpcConfiguration_securityGroupIds,
 
     -- ** DatabaseConfiguration
-    databaseConfiguration_vpcConfiguration,
     databaseConfiguration_aclConfiguration,
     databaseConfiguration_sqlConfiguration,
+    databaseConfiguration_vpcConfiguration,
     databaseConfiguration_databaseEngineType,
     databaseConfiguration_connectionConfiguration,
     databaseConfiguration_columnConfiguration,
 
     -- ** Document
-    document_accessControlList,
-    document_blob,
-    document_title,
-    document_s3Path,
-    document_attributes,
-    document_hierarchicalAccessControlList,
     document_accessControlConfigurationId,
+    document_accessControlList,
+    document_attributes,
+    document_blob,
     document_contentType,
+    document_hierarchicalAccessControlList,
+    document_s3Path,
+    document_title,
     document_id,
 
     -- ** DocumentAttribute
@@ -832,20 +832,20 @@ module Amazonka.Kendra.Lens
     documentAttributeCondition_operator,
 
     -- ** DocumentAttributeTarget
-    documentAttributeTarget_targetDocumentAttributeValue,
     documentAttributeTarget_targetDocumentAttributeKey,
+    documentAttributeTarget_targetDocumentAttributeValue,
     documentAttributeTarget_targetDocumentAttributeValueDeletion,
 
     -- ** DocumentAttributeValue
-    documentAttributeValue_stringValue,
     documentAttributeValue_dateValue,
     documentAttributeValue_longValue,
     documentAttributeValue_stringListValue,
+    documentAttributeValue_stringValue,
 
     -- ** DocumentAttributeValueCountPair
-    documentAttributeValueCountPair_facetResults,
     documentAttributeValueCountPair_count,
     documentAttributeValueCountPair_documentAttributeValue,
+    documentAttributeValueCountPair_facetResults,
 
     -- ** DocumentInfo
     documentInfo_attributes,
@@ -869,11 +869,11 @@ module Amazonka.Kendra.Lens
     entityConfiguration_entityType,
 
     -- ** EntityDisplayData
-    entityDisplayData_identifiedUserName,
     entityDisplayData_firstName,
-    entityDisplayData_userName,
     entityDisplayData_groupName,
+    entityDisplayData_identifiedUserName,
     entityDisplayData_lastName,
+    entityDisplayData_userName,
 
     -- ** EntityPersonaConfiguration
     entityPersonaConfiguration_entityId,
@@ -884,30 +884,30 @@ module Amazonka.Kendra.Lens
     experienceConfiguration_userIdentityConfiguration,
 
     -- ** ExperienceEndpoint
-    experienceEndpoint_endpointType,
     experienceEndpoint_endpoint,
+    experienceEndpoint_endpointType,
 
     -- ** ExperienceEntitiesSummary
-    experienceEntitiesSummary_entityId,
     experienceEntitiesSummary_displayData,
+    experienceEntitiesSummary_entityId,
     experienceEntitiesSummary_entityType,
 
     -- ** ExperiencesSummary
-    experiencesSummary_name,
-    experiencesSummary_status,
+    experiencesSummary_createdAt,
     experiencesSummary_endpoints,
     experiencesSummary_id,
-    experiencesSummary_createdAt,
+    experiencesSummary_name,
+    experiencesSummary_status,
 
     -- ** Facet
+    facet_documentAttributeKey,
     facet_facets,
     facet_maxResults,
-    facet_documentAttributeKey,
 
     -- ** FacetResult
+    facetResult_documentAttributeKey,
     facetResult_documentAttributeValueCountPairs,
     facetResult_documentAttributeValueType,
-    facetResult_documentAttributeKey,
 
     -- ** FailedEntity
     failedEntity_entityId,
@@ -917,87 +917,87 @@ module Amazonka.Kendra.Lens
     faqStatistics_indexedQuestionAnswersCount,
 
     -- ** FaqSummary
-    faqSummary_name,
-    faqSummary_status,
+    faqSummary_createdAt,
+    faqSummary_fileFormat,
     faqSummary_id,
     faqSummary_languageCode,
-    faqSummary_createdAt,
+    faqSummary_name,
+    faqSummary_status,
     faqSummary_updatedAt,
-    faqSummary_fileFormat,
 
     -- ** FsxConfiguration
-    fsxConfiguration_inclusionPatterns,
-    fsxConfiguration_fieldMappings,
-    fsxConfiguration_secretArn,
     fsxConfiguration_exclusionPatterns,
+    fsxConfiguration_fieldMappings,
+    fsxConfiguration_inclusionPatterns,
+    fsxConfiguration_secretArn,
     fsxConfiguration_fileSystemId,
     fsxConfiguration_fileSystemType,
     fsxConfiguration_vpcConfiguration,
 
     -- ** GitHubConfiguration
-    gitHubConfiguration_gitHubIssueAttachmentConfigurationFieldMappings,
-    gitHubConfiguration_useChangeLog,
-    gitHubConfiguration_vpcConfiguration,
-    gitHubConfiguration_type,
-    gitHubConfiguration_repositoryFilter,
-    gitHubConfiguration_saaSConfiguration,
-    gitHubConfiguration_gitHubRepositoryConfigurationFieldMappings,
-    gitHubConfiguration_gitHubPullRequestCommentConfigurationFieldMappings,
-    gitHubConfiguration_gitHubIssueCommentConfigurationFieldMappings,
-    gitHubConfiguration_onPremiseConfiguration,
+    gitHubConfiguration_exclusionFileNamePatterns,
+    gitHubConfiguration_exclusionFileTypePatterns,
+    gitHubConfiguration_exclusionFolderNamePatterns,
     gitHubConfiguration_gitHubCommitConfigurationFieldMappings,
     gitHubConfiguration_gitHubDocumentCrawlProperties,
-    gitHubConfiguration_gitHubPullRequestDocumentConfigurationFieldMappings,
-    gitHubConfiguration_exclusionFolderNamePatterns,
+    gitHubConfiguration_gitHubIssueAttachmentConfigurationFieldMappings,
+    gitHubConfiguration_gitHubIssueCommentConfigurationFieldMappings,
     gitHubConfiguration_gitHubIssueDocumentConfigurationFieldMappings,
-    gitHubConfiguration_inclusionFolderNamePatterns,
-    gitHubConfiguration_exclusionFileTypePatterns,
+    gitHubConfiguration_gitHubPullRequestCommentConfigurationFieldMappings,
+    gitHubConfiguration_gitHubPullRequestDocumentAttachmentConfigurationFieldMappings,
+    gitHubConfiguration_gitHubPullRequestDocumentConfigurationFieldMappings,
+    gitHubConfiguration_gitHubRepositoryConfigurationFieldMappings,
     gitHubConfiguration_inclusionFileNamePatterns,
     gitHubConfiguration_inclusionFileTypePatterns,
-    gitHubConfiguration_exclusionFileNamePatterns,
-    gitHubConfiguration_gitHubPullRequestDocumentAttachmentConfigurationFieldMappings,
+    gitHubConfiguration_inclusionFolderNamePatterns,
+    gitHubConfiguration_onPremiseConfiguration,
+    gitHubConfiguration_repositoryFilter,
+    gitHubConfiguration_saaSConfiguration,
+    gitHubConfiguration_type,
+    gitHubConfiguration_useChangeLog,
+    gitHubConfiguration_vpcConfiguration,
     gitHubConfiguration_secretArn,
 
     -- ** GitHubDocumentCrawlProperties
-    gitHubDocumentCrawlProperties_crawlPullRequestComment,
-    gitHubDocumentCrawlProperties_crawlRepositoryDocuments,
-    gitHubDocumentCrawlProperties_crawlPullRequestCommentAttachment,
-    gitHubDocumentCrawlProperties_crawlPullRequest,
+    gitHubDocumentCrawlProperties_crawlIssue,
     gitHubDocumentCrawlProperties_crawlIssueComment,
     gitHubDocumentCrawlProperties_crawlIssueCommentAttachment,
-    gitHubDocumentCrawlProperties_crawlIssue,
+    gitHubDocumentCrawlProperties_crawlPullRequest,
+    gitHubDocumentCrawlProperties_crawlPullRequestComment,
+    gitHubDocumentCrawlProperties_crawlPullRequestCommentAttachment,
+    gitHubDocumentCrawlProperties_crawlRepositoryDocuments,
 
     -- ** GoogleDriveConfiguration
-    googleDriveConfiguration_inclusionPatterns,
-    googleDriveConfiguration_fieldMappings,
+    googleDriveConfiguration_excludeMimeTypes,
     googleDriveConfiguration_excludeSharedDrives,
     googleDriveConfiguration_excludeUserAccounts,
-    googleDriveConfiguration_excludeMimeTypes,
     googleDriveConfiguration_exclusionPatterns,
+    googleDriveConfiguration_fieldMappings,
+    googleDriveConfiguration_inclusionPatterns,
     googleDriveConfiguration_secretArn,
 
     -- ** GroupMembers
-    groupMembers_memberUsers,
     groupMembers_memberGroups,
+    groupMembers_memberUsers,
     groupMembers_s3PathforGroupMembers,
 
     -- ** GroupOrderingIdSummary
-    groupOrderingIdSummary_lastUpdatedAt,
-    groupOrderingIdSummary_status,
-    groupOrderingIdSummary_receivedAt,
-    groupOrderingIdSummary_orderingId,
     groupOrderingIdSummary_failureReason,
+    groupOrderingIdSummary_lastUpdatedAt,
+    groupOrderingIdSummary_orderingId,
+    groupOrderingIdSummary_receivedAt,
+    groupOrderingIdSummary_status,
 
     -- ** GroupSummary
-    groupSummary_orderingId,
     groupSummary_groupId,
+    groupSummary_orderingId,
 
     -- ** HierarchicalPrincipal
     hierarchicalPrincipal_principalList,
 
     -- ** Highlight
-    highlight_type,
     highlight_topAnswer,
+    highlight_type,
     highlight_beginOffset,
     highlight_endOffset,
 
@@ -1007,9 +1007,9 @@ module Amazonka.Kendra.Lens
     hookConfiguration_s3Bucket,
 
     -- ** IndexConfigurationSummary
-    indexConfigurationSummary_name,
     indexConfigurationSummary_edition,
     indexConfigurationSummary_id,
+    indexConfigurationSummary_name,
     indexConfigurationSummary_createdAt,
     indexConfigurationSummary_updatedAt,
     indexConfigurationSummary_status,
@@ -1019,24 +1019,24 @@ module Amazonka.Kendra.Lens
     indexStatistics_textDocumentStatistics,
 
     -- ** InlineCustomDocumentEnrichmentConfiguration
-    inlineCustomDocumentEnrichmentConfiguration_target,
     inlineCustomDocumentEnrichmentConfiguration_condition,
     inlineCustomDocumentEnrichmentConfiguration_documentContentDeletion,
+    inlineCustomDocumentEnrichmentConfiguration_target,
 
     -- ** JiraConfiguration
+    jiraConfiguration_attachmentFieldMappings,
+    jiraConfiguration_commentFieldMappings,
+    jiraConfiguration_exclusionPatterns,
+    jiraConfiguration_inclusionPatterns,
+    jiraConfiguration_issueFieldMappings,
+    jiraConfiguration_issueSubEntityFilter,
+    jiraConfiguration_issueType,
+    jiraConfiguration_project,
+    jiraConfiguration_projectFieldMappings,
+    jiraConfiguration_status,
     jiraConfiguration_useChangeLog,
     jiraConfiguration_vpcConfiguration,
-    jiraConfiguration_projectFieldMappings,
-    jiraConfiguration_attachmentFieldMappings,
-    jiraConfiguration_issueType,
-    jiraConfiguration_commentFieldMappings,
-    jiraConfiguration_issueSubEntityFilter,
-    jiraConfiguration_inclusionPatterns,
-    jiraConfiguration_status,
-    jiraConfiguration_project,
     jiraConfiguration_workLogFieldMappings,
-    jiraConfiguration_issueFieldMappings,
-    jiraConfiguration_exclusionPatterns,
     jiraConfiguration_jiraAccountUrl,
     jiraConfiguration_secretArn,
 
@@ -1045,12 +1045,12 @@ module Amazonka.Kendra.Lens
     jsonTokenTypeConfiguration_groupAttributeField,
 
     -- ** JwtTokenTypeConfiguration
-    jwtTokenTypeConfiguration_issuer,
-    jwtTokenTypeConfiguration_userNameAttributeField,
-    jwtTokenTypeConfiguration_url,
-    jwtTokenTypeConfiguration_groupAttributeField,
-    jwtTokenTypeConfiguration_secretManagerArn,
     jwtTokenTypeConfiguration_claimRegex,
+    jwtTokenTypeConfiguration_groupAttributeField,
+    jwtTokenTypeConfiguration_issuer,
+    jwtTokenTypeConfiguration_secretManagerArn,
+    jwtTokenTypeConfiguration_url,
+    jwtTokenTypeConfiguration_userNameAttributeField,
     jwtTokenTypeConfiguration_keyLocation,
 
     -- ** MemberGroup
@@ -1066,10 +1066,10 @@ module Amazonka.Kendra.Lens
     onPremiseConfiguration_sslCertificateS3Path,
 
     -- ** OneDriveConfiguration
-    oneDriveConfiguration_inclusionPatterns,
-    oneDriveConfiguration_fieldMappings,
     oneDriveConfiguration_disableLocalGroups,
     oneDriveConfiguration_exclusionPatterns,
+    oneDriveConfiguration_fieldMappings,
+    oneDriveConfiguration_inclusionPatterns,
     oneDriveConfiguration_tenantDomain,
     oneDriveConfiguration_secretArn,
     oneDriveConfiguration_oneDriveUsers,
@@ -1079,9 +1079,9 @@ module Amazonka.Kendra.Lens
     oneDriveUsers_oneDriveUserS3Path,
 
     -- ** PersonasSummary
+    personasSummary_createdAt,
     personasSummary_entityId,
     personasSummary_persona,
-    personasSummary_createdAt,
     personasSummary_updatedAt,
 
     -- ** Principal
@@ -1096,43 +1096,45 @@ module Amazonka.Kendra.Lens
     proxyConfiguration_port,
 
     -- ** QueryResultItem
-    queryResultItem_type,
-    queryResultItem_documentTitle,
-    queryResultItem_documentAttributes,
-    queryResultItem_scoreAttributes,
-    queryResultItem_id,
-    queryResultItem_feedbackToken,
     queryResultItem_additionalAttributes,
+    queryResultItem_documentAttributes,
     queryResultItem_documentExcerpt,
     queryResultItem_documentId,
+    queryResultItem_documentTitle,
     queryResultItem_documentURI,
+    queryResultItem_feedbackToken,
+    queryResultItem_format,
+    queryResultItem_id,
+    queryResultItem_scoreAttributes,
+    queryResultItem_tableExcerpt,
+    queryResultItem_type,
 
     -- ** QuerySuggestionsBlockListSummary
-    querySuggestionsBlockListSummary_name,
-    querySuggestionsBlockListSummary_itemCount,
-    querySuggestionsBlockListSummary_status,
-    querySuggestionsBlockListSummary_id,
     querySuggestionsBlockListSummary_createdAt,
+    querySuggestionsBlockListSummary_id,
+    querySuggestionsBlockListSummary_itemCount,
+    querySuggestionsBlockListSummary_name,
+    querySuggestionsBlockListSummary_status,
     querySuggestionsBlockListSummary_updatedAt,
 
     -- ** QuipConfiguration
-    quipConfiguration_vpcConfiguration,
     quipConfiguration_attachmentFieldMappings,
     quipConfiguration_crawlAttachments,
-    quipConfiguration_messageFieldMappings,
-    quipConfiguration_inclusionPatterns,
-    quipConfiguration_crawlFileComments,
-    quipConfiguration_folderIds,
     quipConfiguration_crawlChatRooms,
-    quipConfiguration_threadFieldMappings,
+    quipConfiguration_crawlFileComments,
     quipConfiguration_exclusionPatterns,
+    quipConfiguration_folderIds,
+    quipConfiguration_inclusionPatterns,
+    quipConfiguration_messageFieldMappings,
+    quipConfiguration_threadFieldMappings,
+    quipConfiguration_vpcConfiguration,
     quipConfiguration_domain,
     quipConfiguration_secretArn,
 
     -- ** Relevance
-    relevance_importance,
-    relevance_freshness,
     relevance_duration,
+    relevance_freshness,
+    relevance_importance,
     relevance_rankOrder,
     relevance_valueImportanceMap,
 
@@ -1141,11 +1143,11 @@ module Amazonka.Kendra.Lens
     relevanceFeedback_relevanceValue,
 
     -- ** S3DataSourceConfiguration
-    s3DataSourceConfiguration_inclusionPatterns,
-    s3DataSourceConfiguration_documentsMetadataConfiguration,
     s3DataSourceConfiguration_accessControlListConfiguration,
-    s3DataSourceConfiguration_inclusionPrefixes,
+    s3DataSourceConfiguration_documentsMetadataConfiguration,
     s3DataSourceConfiguration_exclusionPatterns,
+    s3DataSourceConfiguration_inclusionPatterns,
+    s3DataSourceConfiguration_inclusionPrefixes,
     s3DataSourceConfiguration_bucketName,
 
     -- ** S3Path
@@ -1157,45 +1159,45 @@ module Amazonka.Kendra.Lens
     saaSConfiguration_hostUrl,
 
     -- ** SalesforceChatterFeedConfiguration
-    salesforceChatterFeedConfiguration_includeFilterTypes,
-    salesforceChatterFeedConfiguration_fieldMappings,
     salesforceChatterFeedConfiguration_documentTitleFieldName,
+    salesforceChatterFeedConfiguration_fieldMappings,
+    salesforceChatterFeedConfiguration_includeFilterTypes,
     salesforceChatterFeedConfiguration_documentDataFieldName,
 
     -- ** SalesforceConfiguration
-    salesforceConfiguration_includeAttachmentFilePatterns,
+    salesforceConfiguration_chatterFeedConfiguration,
     salesforceConfiguration_crawlAttachments,
     salesforceConfiguration_excludeAttachmentFilePatterns,
-    salesforceConfiguration_standardObjectAttachmentConfiguration,
-    salesforceConfiguration_chatterFeedConfiguration,
+    salesforceConfiguration_includeAttachmentFilePatterns,
     salesforceConfiguration_knowledgeArticleConfiguration,
+    salesforceConfiguration_standardObjectAttachmentConfiguration,
     salesforceConfiguration_standardObjectConfigurations,
     salesforceConfiguration_serverUrl,
     salesforceConfiguration_secretArn,
 
     -- ** SalesforceCustomKnowledgeArticleTypeConfiguration
-    salesforceCustomKnowledgeArticleTypeConfiguration_fieldMappings,
     salesforceCustomKnowledgeArticleTypeConfiguration_documentTitleFieldName,
+    salesforceCustomKnowledgeArticleTypeConfiguration_fieldMappings,
     salesforceCustomKnowledgeArticleTypeConfiguration_name,
     salesforceCustomKnowledgeArticleTypeConfiguration_documentDataFieldName,
 
     -- ** SalesforceKnowledgeArticleConfiguration
-    salesforceKnowledgeArticleConfiguration_standardKnowledgeArticleTypeConfiguration,
     salesforceKnowledgeArticleConfiguration_customKnowledgeArticleTypeConfigurations,
+    salesforceKnowledgeArticleConfiguration_standardKnowledgeArticleTypeConfiguration,
     salesforceKnowledgeArticleConfiguration_includedStates,
 
     -- ** SalesforceStandardKnowledgeArticleTypeConfiguration
-    salesforceStandardKnowledgeArticleTypeConfiguration_fieldMappings,
     salesforceStandardKnowledgeArticleTypeConfiguration_documentTitleFieldName,
+    salesforceStandardKnowledgeArticleTypeConfiguration_fieldMappings,
     salesforceStandardKnowledgeArticleTypeConfiguration_documentDataFieldName,
 
     -- ** SalesforceStandardObjectAttachmentConfiguration
-    salesforceStandardObjectAttachmentConfiguration_fieldMappings,
     salesforceStandardObjectAttachmentConfiguration_documentTitleFieldName,
+    salesforceStandardObjectAttachmentConfiguration_fieldMappings,
 
     -- ** SalesforceStandardObjectConfiguration
-    salesforceStandardObjectConfiguration_fieldMappings,
     salesforceStandardObjectConfiguration_documentTitleFieldName,
+    salesforceStandardObjectConfiguration_fieldMappings,
     salesforceStandardObjectConfiguration_name,
     salesforceStandardObjectConfiguration_documentDataFieldName,
 
@@ -1204,9 +1206,9 @@ module Amazonka.Kendra.Lens
 
     -- ** Search
     search_displayable,
-    search_sortable,
-    search_searchable,
     search_facetable,
+    search_searchable,
+    search_sortable,
 
     -- ** SeedUrlConfiguration
     seedUrlConfiguration_webCrawlerMode,
@@ -1217,41 +1219,41 @@ module Amazonka.Kendra.Lens
 
     -- ** ServiceNowConfiguration
     serviceNowConfiguration_authenticationType,
-    serviceNowConfiguration_serviceCatalogConfiguration,
     serviceNowConfiguration_knowledgeArticleConfiguration,
+    serviceNowConfiguration_serviceCatalogConfiguration,
     serviceNowConfiguration_hostUrl,
     serviceNowConfiguration_secretArn,
     serviceNowConfiguration_serviceNowBuildVersion,
 
     -- ** ServiceNowKnowledgeArticleConfiguration
-    serviceNowKnowledgeArticleConfiguration_filterQuery,
-    serviceNowKnowledgeArticleConfiguration_includeAttachmentFilePatterns,
     serviceNowKnowledgeArticleConfiguration_crawlAttachments,
+    serviceNowKnowledgeArticleConfiguration_documentTitleFieldName,
     serviceNowKnowledgeArticleConfiguration_excludeAttachmentFilePatterns,
     serviceNowKnowledgeArticleConfiguration_fieldMappings,
-    serviceNowKnowledgeArticleConfiguration_documentTitleFieldName,
+    serviceNowKnowledgeArticleConfiguration_filterQuery,
+    serviceNowKnowledgeArticleConfiguration_includeAttachmentFilePatterns,
     serviceNowKnowledgeArticleConfiguration_documentDataFieldName,
 
     -- ** ServiceNowServiceCatalogConfiguration
-    serviceNowServiceCatalogConfiguration_includeAttachmentFilePatterns,
     serviceNowServiceCatalogConfiguration_crawlAttachments,
+    serviceNowServiceCatalogConfiguration_documentTitleFieldName,
     serviceNowServiceCatalogConfiguration_excludeAttachmentFilePatterns,
     serviceNowServiceCatalogConfiguration_fieldMappings,
-    serviceNowServiceCatalogConfiguration_documentTitleFieldName,
+    serviceNowServiceCatalogConfiguration_includeAttachmentFilePatterns,
     serviceNowServiceCatalogConfiguration_documentDataFieldName,
 
     -- ** SharePointConfiguration
+    sharePointConfiguration_authenticationType,
+    sharePointConfiguration_crawlAttachments,
+    sharePointConfiguration_disableLocalGroups,
+    sharePointConfiguration_documentTitleFieldName,
+    sharePointConfiguration_exclusionPatterns,
+    sharePointConfiguration_fieldMappings,
+    sharePointConfiguration_inclusionPatterns,
+    sharePointConfiguration_proxyConfiguration,
+    sharePointConfiguration_sslCertificateS3Path,
     sharePointConfiguration_useChangeLog,
     sharePointConfiguration_vpcConfiguration,
-    sharePointConfiguration_proxyConfiguration,
-    sharePointConfiguration_authenticationType,
-    sharePointConfiguration_sslCertificateS3Path,
-    sharePointConfiguration_crawlAttachments,
-    sharePointConfiguration_inclusionPatterns,
-    sharePointConfiguration_fieldMappings,
-    sharePointConfiguration_documentTitleFieldName,
-    sharePointConfiguration_disableLocalGroups,
-    sharePointConfiguration_exclusionPatterns,
     sharePointConfiguration_sharePointVersion,
     sharePointConfiguration_urls,
     sharePointConfiguration_secretArn,
@@ -1260,16 +1262,16 @@ module Amazonka.Kendra.Lens
     siteMapsConfiguration_siteMaps,
 
     -- ** SlackConfiguration
-    slackConfiguration_useChangeLog,
-    slackConfiguration_vpcConfiguration,
     slackConfiguration_crawlBotMessage,
+    slackConfiguration_excludeArchived,
+    slackConfiguration_exclusionPatterns,
+    slackConfiguration_fieldMappings,
     slackConfiguration_inclusionPatterns,
     slackConfiguration_lookBackPeriod,
-    slackConfiguration_excludeArchived,
-    slackConfiguration_fieldMappings,
-    slackConfiguration_publicChannelFilter,
     slackConfiguration_privateChannelFilter,
-    slackConfiguration_exclusionPatterns,
+    slackConfiguration_publicChannelFilter,
+    slackConfiguration_useChangeLog,
+    slackConfiguration_vpcConfiguration,
     slackConfiguration_teamId,
     slackConfiguration_secretArn,
     slackConfiguration_slackEntityList,
@@ -1280,8 +1282,8 @@ module Amazonka.Kendra.Lens
     sortingConfiguration_sortOrder,
 
     -- ** SpellCorrectedQuery
-    spellCorrectedQuery_suggestedQueryText,
     spellCorrectedQuery_corrections,
+    spellCorrectedQuery_suggestedQueryText,
 
     -- ** SpellCorrectionConfiguration
     spellCorrectionConfiguration_includeQuerySpellCheckSuggestions,
@@ -1290,9 +1292,9 @@ module Amazonka.Kendra.Lens
     sqlConfiguration_queryIdentifiersEnclosingOption,
 
     -- ** Status
-    status_failureCode,
     status_documentId,
     status_documentStatus,
+    status_failureCode,
     status_failureReason,
 
     -- ** Suggestion
@@ -1309,6 +1311,19 @@ module Amazonka.Kendra.Lens
 
     -- ** SuggestionValue
     suggestionValue_text,
+
+    -- ** TableCell
+    tableCell_header,
+    tableCell_highlighted,
+    tableCell_topAnswer,
+    tableCell_value,
+
+    -- ** TableExcerpt
+    tableExcerpt_rows,
+    tableExcerpt_totalNumberOfRows,
+
+    -- ** TableRow
+    tableRow_cells,
 
     -- ** Tag
     tag_key,
@@ -1328,10 +1343,10 @@ module Amazonka.Kendra.Lens
     textWithHighlights_text,
 
     -- ** ThesaurusSummary
+    thesaurusSummary_createdAt,
+    thesaurusSummary_id,
     thesaurusSummary_name,
     thesaurusSummary_status,
-    thesaurusSummary_id,
-    thesaurusSummary_createdAt,
     thesaurusSummary_updatedAt,
 
     -- ** TimeRange
@@ -1344,9 +1359,9 @@ module Amazonka.Kendra.Lens
 
     -- ** UserContext
     userContext_dataSourceGroups,
-    userContext_userId,
     userContext_groups,
     userContext_token,
+    userContext_userId,
 
     -- ** UserGroupResolutionConfiguration
     userGroupResolutionConfiguration_userGroupResolutionMode,
@@ -1355,30 +1370,30 @@ module Amazonka.Kendra.Lens
     userIdentityConfiguration_identityAttributeName,
 
     -- ** UserTokenConfiguration
-    userTokenConfiguration_jwtTokenTypeConfiguration,
     userTokenConfiguration_jsonTokenTypeConfiguration,
+    userTokenConfiguration_jwtTokenTypeConfiguration,
 
     -- ** Warning
-    warning_message,
     warning_code,
+    warning_message,
 
     -- ** WebCrawlerConfiguration
-    webCrawlerConfiguration_proxyConfiguration,
-    webCrawlerConfiguration_maxContentSizePerPageInMegaBytes,
-    webCrawlerConfiguration_maxUrlsPerMinuteCrawlRate,
-    webCrawlerConfiguration_urlExclusionPatterns,
-    webCrawlerConfiguration_maxLinksPerPage,
-    webCrawlerConfiguration_crawlDepth,
     webCrawlerConfiguration_authenticationConfiguration,
+    webCrawlerConfiguration_crawlDepth,
+    webCrawlerConfiguration_maxContentSizePerPageInMegaBytes,
+    webCrawlerConfiguration_maxLinksPerPage,
+    webCrawlerConfiguration_maxUrlsPerMinuteCrawlRate,
+    webCrawlerConfiguration_proxyConfiguration,
+    webCrawlerConfiguration_urlExclusionPatterns,
     webCrawlerConfiguration_urlInclusionPatterns,
     webCrawlerConfiguration_urls,
 
     -- ** WorkDocsConfiguration
-    workDocsConfiguration_useChangeLog,
-    workDocsConfiguration_inclusionPatterns,
-    workDocsConfiguration_fieldMappings,
     workDocsConfiguration_crawlComments,
     workDocsConfiguration_exclusionPatterns,
+    workDocsConfiguration_fieldMappings,
+    workDocsConfiguration_inclusionPatterns,
+    workDocsConfiguration_useChangeLog,
     workDocsConfiguration_organizationId,
   )
 where
@@ -1553,6 +1568,9 @@ import Amazonka.Kendra.Types.Suggestion
 import Amazonka.Kendra.Types.SuggestionHighlight
 import Amazonka.Kendra.Types.SuggestionTextWithHighlights
 import Amazonka.Kendra.Types.SuggestionValue
+import Amazonka.Kendra.Types.TableCell
+import Amazonka.Kendra.Types.TableExcerpt
+import Amazonka.Kendra.Types.TableRow
 import Amazonka.Kendra.Types.Tag
 import Amazonka.Kendra.Types.Template
 import Amazonka.Kendra.Types.TemplateConfiguration

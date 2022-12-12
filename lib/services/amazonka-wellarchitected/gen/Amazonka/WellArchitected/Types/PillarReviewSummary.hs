@@ -29,10 +29,10 @@ import Amazonka.WellArchitected.Types.Risk
 --
 -- /See:/ 'newPillarReviewSummary' smart constructor.
 data PillarReviewSummary = PillarReviewSummary'
-  { riskCounts :: Prelude.Maybe (Prelude.HashMap Risk Prelude.Natural),
-    notes :: Prelude.Maybe Prelude.Text,
+  { notes :: Prelude.Maybe Prelude.Text,
     pillarId :: Prelude.Maybe Prelude.Text,
-    pillarName :: Prelude.Maybe Prelude.Text
+    pillarName :: Prelude.Maybe Prelude.Text,
+    riskCounts :: Prelude.Maybe (Prelude.HashMap Risk Prelude.Natural)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,26 +44,22 @@ data PillarReviewSummary = PillarReviewSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'riskCounts', 'pillarReviewSummary_riskCounts' - Undocumented member.
---
 -- 'notes', 'pillarReviewSummary_notes' - Undocumented member.
 --
 -- 'pillarId', 'pillarReviewSummary_pillarId' - Undocumented member.
 --
 -- 'pillarName', 'pillarReviewSummary_pillarName' - Undocumented member.
+--
+-- 'riskCounts', 'pillarReviewSummary_riskCounts' - Undocumented member.
 newPillarReviewSummary ::
   PillarReviewSummary
 newPillarReviewSummary =
   PillarReviewSummary'
-    { riskCounts = Prelude.Nothing,
-      notes = Prelude.Nothing,
+    { notes = Prelude.Nothing,
       pillarId = Prelude.Nothing,
-      pillarName = Prelude.Nothing
+      pillarName = Prelude.Nothing,
+      riskCounts = Prelude.Nothing
     }
-
--- | Undocumented member.
-pillarReviewSummary_riskCounts :: Lens.Lens' PillarReviewSummary (Prelude.Maybe (Prelude.HashMap Risk Prelude.Natural))
-pillarReviewSummary_riskCounts = Lens.lens (\PillarReviewSummary' {riskCounts} -> riskCounts) (\s@PillarReviewSummary' {} a -> s {riskCounts = a} :: PillarReviewSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 pillarReviewSummary_notes :: Lens.Lens' PillarReviewSummary (Prelude.Maybe Prelude.Text)
@@ -77,28 +73,32 @@ pillarReviewSummary_pillarId = Lens.lens (\PillarReviewSummary' {pillarId} -> pi
 pillarReviewSummary_pillarName :: Lens.Lens' PillarReviewSummary (Prelude.Maybe Prelude.Text)
 pillarReviewSummary_pillarName = Lens.lens (\PillarReviewSummary' {pillarName} -> pillarName) (\s@PillarReviewSummary' {} a -> s {pillarName = a} :: PillarReviewSummary)
 
+-- | Undocumented member.
+pillarReviewSummary_riskCounts :: Lens.Lens' PillarReviewSummary (Prelude.Maybe (Prelude.HashMap Risk Prelude.Natural))
+pillarReviewSummary_riskCounts = Lens.lens (\PillarReviewSummary' {riskCounts} -> riskCounts) (\s@PillarReviewSummary' {} a -> s {riskCounts = a} :: PillarReviewSummary) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON PillarReviewSummary where
   parseJSON =
     Data.withObject
       "PillarReviewSummary"
       ( \x ->
           PillarReviewSummary'
-            Prelude.<$> (x Data..:? "RiskCounts" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "Notes")
+            Prelude.<$> (x Data..:? "Notes")
             Prelude.<*> (x Data..:? "PillarId")
             Prelude.<*> (x Data..:? "PillarName")
+            Prelude.<*> (x Data..:? "RiskCounts" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable PillarReviewSummary where
   hashWithSalt _salt PillarReviewSummary' {..} =
-    _salt `Prelude.hashWithSalt` riskCounts
-      `Prelude.hashWithSalt` notes
+    _salt `Prelude.hashWithSalt` notes
       `Prelude.hashWithSalt` pillarId
       `Prelude.hashWithSalt` pillarName
+      `Prelude.hashWithSalt` riskCounts
 
 instance Prelude.NFData PillarReviewSummary where
   rnf PillarReviewSummary' {..} =
-    Prelude.rnf riskCounts
-      `Prelude.seq` Prelude.rnf notes
+    Prelude.rnf notes
       `Prelude.seq` Prelude.rnf pillarId
       `Prelude.seq` Prelude.rnf pillarName
+      `Prelude.seq` Prelude.rnf riskCounts

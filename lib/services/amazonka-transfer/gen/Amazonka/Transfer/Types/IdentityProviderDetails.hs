@@ -33,14 +33,14 @@ data IdentityProviderDetails = IdentityProviderDetails'
   { -- | The identifier of the Directory Service directory that you want to stop
     -- sharing.
     directoryId :: Prelude.Maybe Prelude.Text,
-    -- | Provides the location of the service endpoint used to authenticate
-    -- users.
-    url :: Prelude.Maybe Prelude.Text,
+    -- | The ARN for a lambda function to use for the Identity provider.
+    function :: Prelude.Maybe Prelude.Text,
     -- | Provides the type of @InvocationRole@ used to authenticate the user
     -- account.
     invocationRole :: Prelude.Maybe Prelude.Text,
-    -- | The ARN for a lambda function to use for the Identity provider.
-    function :: Prelude.Maybe Prelude.Text
+    -- | Provides the location of the service endpoint used to authenticate
+    -- users.
+    url :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,22 +55,22 @@ data IdentityProviderDetails = IdentityProviderDetails'
 -- 'directoryId', 'identityProviderDetails_directoryId' - The identifier of the Directory Service directory that you want to stop
 -- sharing.
 --
--- 'url', 'identityProviderDetails_url' - Provides the location of the service endpoint used to authenticate
--- users.
+-- 'function', 'identityProviderDetails_function' - The ARN for a lambda function to use for the Identity provider.
 --
 -- 'invocationRole', 'identityProviderDetails_invocationRole' - Provides the type of @InvocationRole@ used to authenticate the user
 -- account.
 --
--- 'function', 'identityProviderDetails_function' - The ARN for a lambda function to use for the Identity provider.
+-- 'url', 'identityProviderDetails_url' - Provides the location of the service endpoint used to authenticate
+-- users.
 newIdentityProviderDetails ::
   IdentityProviderDetails
 newIdentityProviderDetails =
   IdentityProviderDetails'
     { directoryId =
         Prelude.Nothing,
-      url = Prelude.Nothing,
+      function = Prelude.Nothing,
       invocationRole = Prelude.Nothing,
-      function = Prelude.Nothing
+      url = Prelude.Nothing
     }
 
 -- | The identifier of the Directory Service directory that you want to stop
@@ -78,19 +78,19 @@ newIdentityProviderDetails =
 identityProviderDetails_directoryId :: Lens.Lens' IdentityProviderDetails (Prelude.Maybe Prelude.Text)
 identityProviderDetails_directoryId = Lens.lens (\IdentityProviderDetails' {directoryId} -> directoryId) (\s@IdentityProviderDetails' {} a -> s {directoryId = a} :: IdentityProviderDetails)
 
--- | Provides the location of the service endpoint used to authenticate
--- users.
-identityProviderDetails_url :: Lens.Lens' IdentityProviderDetails (Prelude.Maybe Prelude.Text)
-identityProviderDetails_url = Lens.lens (\IdentityProviderDetails' {url} -> url) (\s@IdentityProviderDetails' {} a -> s {url = a} :: IdentityProviderDetails)
+-- | The ARN for a lambda function to use for the Identity provider.
+identityProviderDetails_function :: Lens.Lens' IdentityProviderDetails (Prelude.Maybe Prelude.Text)
+identityProviderDetails_function = Lens.lens (\IdentityProviderDetails' {function} -> function) (\s@IdentityProviderDetails' {} a -> s {function = a} :: IdentityProviderDetails)
 
 -- | Provides the type of @InvocationRole@ used to authenticate the user
 -- account.
 identityProviderDetails_invocationRole :: Lens.Lens' IdentityProviderDetails (Prelude.Maybe Prelude.Text)
 identityProviderDetails_invocationRole = Lens.lens (\IdentityProviderDetails' {invocationRole} -> invocationRole) (\s@IdentityProviderDetails' {} a -> s {invocationRole = a} :: IdentityProviderDetails)
 
--- | The ARN for a lambda function to use for the Identity provider.
-identityProviderDetails_function :: Lens.Lens' IdentityProviderDetails (Prelude.Maybe Prelude.Text)
-identityProviderDetails_function = Lens.lens (\IdentityProviderDetails' {function} -> function) (\s@IdentityProviderDetails' {} a -> s {function = a} :: IdentityProviderDetails)
+-- | Provides the location of the service endpoint used to authenticate
+-- users.
+identityProviderDetails_url :: Lens.Lens' IdentityProviderDetails (Prelude.Maybe Prelude.Text)
+identityProviderDetails_url = Lens.lens (\IdentityProviderDetails' {url} -> url) (\s@IdentityProviderDetails' {} a -> s {url = a} :: IdentityProviderDetails)
 
 instance Data.FromJSON IdentityProviderDetails where
   parseJSON =
@@ -99,33 +99,33 @@ instance Data.FromJSON IdentityProviderDetails where
       ( \x ->
           IdentityProviderDetails'
             Prelude.<$> (x Data..:? "DirectoryId")
-            Prelude.<*> (x Data..:? "Url")
-            Prelude.<*> (x Data..:? "InvocationRole")
             Prelude.<*> (x Data..:? "Function")
+            Prelude.<*> (x Data..:? "InvocationRole")
+            Prelude.<*> (x Data..:? "Url")
       )
 
 instance Prelude.Hashable IdentityProviderDetails where
   hashWithSalt _salt IdentityProviderDetails' {..} =
     _salt `Prelude.hashWithSalt` directoryId
-      `Prelude.hashWithSalt` url
-      `Prelude.hashWithSalt` invocationRole
       `Prelude.hashWithSalt` function
+      `Prelude.hashWithSalt` invocationRole
+      `Prelude.hashWithSalt` url
 
 instance Prelude.NFData IdentityProviderDetails where
   rnf IdentityProviderDetails' {..} =
     Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf invocationRole
       `Prelude.seq` Prelude.rnf function
+      `Prelude.seq` Prelude.rnf invocationRole
+      `Prelude.seq` Prelude.rnf url
 
 instance Data.ToJSON IdentityProviderDetails where
   toJSON IdentityProviderDetails' {..} =
     Data.object
       ( Prelude.catMaybes
           [ ("DirectoryId" Data..=) Prelude.<$> directoryId,
-            ("Url" Data..=) Prelude.<$> url,
+            ("Function" Data..=) Prelude.<$> function,
             ("InvocationRole" Data..=)
               Prelude.<$> invocationRole,
-            ("Function" Data..=) Prelude.<$> function
+            ("Url" Data..=) Prelude.<$> url
           ]
       )

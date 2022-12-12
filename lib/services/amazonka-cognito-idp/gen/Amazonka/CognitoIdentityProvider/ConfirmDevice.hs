@@ -28,8 +28,8 @@ module Amazonka.CognitoIdentityProvider.ConfirmDevice
     newConfirmDevice,
 
     -- * Request Lenses
-    confirmDevice_deviceSecretVerifierConfig,
     confirmDevice_deviceName,
+    confirmDevice_deviceSecretVerifierConfig,
     confirmDevice_accessToken,
     confirmDevice_deviceKey,
 
@@ -55,10 +55,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newConfirmDevice' smart constructor.
 data ConfirmDevice = ConfirmDevice'
-  { -- | The configuration of the device secret verifier.
-    deviceSecretVerifierConfig :: Prelude.Maybe DeviceSecretVerifierConfigType,
-    -- | The device name.
+  { -- | The device name.
     deviceName :: Prelude.Maybe Prelude.Text,
+    -- | The configuration of the device secret verifier.
+    deviceSecretVerifierConfig :: Prelude.Maybe DeviceSecretVerifierConfigType,
     -- | A valid access token that Amazon Cognito issued to the user whose device
     -- you want to confirm.
     accessToken :: Data.Sensitive Prelude.Text,
@@ -75,9 +75,9 @@ data ConfirmDevice = ConfirmDevice'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deviceSecretVerifierConfig', 'confirmDevice_deviceSecretVerifierConfig' - The configuration of the device secret verifier.
---
 -- 'deviceName', 'confirmDevice_deviceName' - The device name.
+--
+-- 'deviceSecretVerifierConfig', 'confirmDevice_deviceSecretVerifierConfig' - The configuration of the device secret verifier.
 --
 -- 'accessToken', 'confirmDevice_accessToken' - A valid access token that Amazon Cognito issued to the user whose device
 -- you want to confirm.
@@ -91,20 +91,19 @@ newConfirmDevice ::
   ConfirmDevice
 newConfirmDevice pAccessToken_ pDeviceKey_ =
   ConfirmDevice'
-    { deviceSecretVerifierConfig =
-        Prelude.Nothing,
-      deviceName = Prelude.Nothing,
+    { deviceName = Prelude.Nothing,
+      deviceSecretVerifierConfig = Prelude.Nothing,
       accessToken = Data._Sensitive Lens.# pAccessToken_,
       deviceKey = pDeviceKey_
     }
 
--- | The configuration of the device secret verifier.
-confirmDevice_deviceSecretVerifierConfig :: Lens.Lens' ConfirmDevice (Prelude.Maybe DeviceSecretVerifierConfigType)
-confirmDevice_deviceSecretVerifierConfig = Lens.lens (\ConfirmDevice' {deviceSecretVerifierConfig} -> deviceSecretVerifierConfig) (\s@ConfirmDevice' {} a -> s {deviceSecretVerifierConfig = a} :: ConfirmDevice)
-
 -- | The device name.
 confirmDevice_deviceName :: Lens.Lens' ConfirmDevice (Prelude.Maybe Prelude.Text)
 confirmDevice_deviceName = Lens.lens (\ConfirmDevice' {deviceName} -> deviceName) (\s@ConfirmDevice' {} a -> s {deviceName = a} :: ConfirmDevice)
+
+-- | The configuration of the device secret verifier.
+confirmDevice_deviceSecretVerifierConfig :: Lens.Lens' ConfirmDevice (Prelude.Maybe DeviceSecretVerifierConfigType)
+confirmDevice_deviceSecretVerifierConfig = Lens.lens (\ConfirmDevice' {deviceSecretVerifierConfig} -> deviceSecretVerifierConfig) (\s@ConfirmDevice' {} a -> s {deviceSecretVerifierConfig = a} :: ConfirmDevice)
 
 -- | A valid access token that Amazon Cognito issued to the user whose device
 -- you want to confirm.
@@ -131,16 +130,15 @@ instance Core.AWSRequest ConfirmDevice where
 
 instance Prelude.Hashable ConfirmDevice where
   hashWithSalt _salt ConfirmDevice' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` deviceName
       `Prelude.hashWithSalt` deviceSecretVerifierConfig
-      `Prelude.hashWithSalt` deviceName
       `Prelude.hashWithSalt` accessToken
       `Prelude.hashWithSalt` deviceKey
 
 instance Prelude.NFData ConfirmDevice where
   rnf ConfirmDevice' {..} =
-    Prelude.rnf deviceSecretVerifierConfig
-      `Prelude.seq` Prelude.rnf deviceName
+    Prelude.rnf deviceName
+      `Prelude.seq` Prelude.rnf deviceSecretVerifierConfig
       `Prelude.seq` Prelude.rnf accessToken
       `Prelude.seq` Prelude.rnf deviceKey
 
@@ -163,9 +161,9 @@ instance Data.ToJSON ConfirmDevice where
   toJSON ConfirmDevice' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DeviceSecretVerifierConfig" Data..=)
+          [ ("DeviceName" Data..=) Prelude.<$> deviceName,
+            ("DeviceSecretVerifierConfig" Data..=)
               Prelude.<$> deviceSecretVerifierConfig,
-            ("DeviceName" Data..=) Prelude.<$> deviceName,
             Prelude.Just ("AccessToken" Data..= accessToken),
             Prelude.Just ("DeviceKey" Data..= deviceKey)
           ]

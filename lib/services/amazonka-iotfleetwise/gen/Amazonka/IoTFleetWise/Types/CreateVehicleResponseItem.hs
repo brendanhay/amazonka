@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCreateVehicleResponseItem' smart constructor.
 data CreateVehicleResponseItem = CreateVehicleResponseItem'
-  { -- | The ARN of a created or validated Amazon Web Services IoT thing.
-    thingArn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the created vehicle.
+  { -- | The ARN of the created vehicle.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of a created or validated Amazon Web Services IoT thing.
+    thingArn :: Prelude.Maybe Prelude.Text,
     -- | The unique ID of the vehicle to create.
     vehicleName :: Prelude.Maybe Prelude.Text
   }
@@ -45,28 +45,27 @@ data CreateVehicleResponseItem = CreateVehicleResponseItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'thingArn', 'createVehicleResponseItem_thingArn' - The ARN of a created or validated Amazon Web Services IoT thing.
---
 -- 'arn', 'createVehicleResponseItem_arn' - The ARN of the created vehicle.
+--
+-- 'thingArn', 'createVehicleResponseItem_thingArn' - The ARN of a created or validated Amazon Web Services IoT thing.
 --
 -- 'vehicleName', 'createVehicleResponseItem_vehicleName' - The unique ID of the vehicle to create.
 newCreateVehicleResponseItem ::
   CreateVehicleResponseItem
 newCreateVehicleResponseItem =
   CreateVehicleResponseItem'
-    { thingArn =
-        Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      thingArn = Prelude.Nothing,
       vehicleName = Prelude.Nothing
     }
-
--- | The ARN of a created or validated Amazon Web Services IoT thing.
-createVehicleResponseItem_thingArn :: Lens.Lens' CreateVehicleResponseItem (Prelude.Maybe Prelude.Text)
-createVehicleResponseItem_thingArn = Lens.lens (\CreateVehicleResponseItem' {thingArn} -> thingArn) (\s@CreateVehicleResponseItem' {} a -> s {thingArn = a} :: CreateVehicleResponseItem)
 
 -- | The ARN of the created vehicle.
 createVehicleResponseItem_arn :: Lens.Lens' CreateVehicleResponseItem (Prelude.Maybe Prelude.Text)
 createVehicleResponseItem_arn = Lens.lens (\CreateVehicleResponseItem' {arn} -> arn) (\s@CreateVehicleResponseItem' {} a -> s {arn = a} :: CreateVehicleResponseItem)
+
+-- | The ARN of a created or validated Amazon Web Services IoT thing.
+createVehicleResponseItem_thingArn :: Lens.Lens' CreateVehicleResponseItem (Prelude.Maybe Prelude.Text)
+createVehicleResponseItem_thingArn = Lens.lens (\CreateVehicleResponseItem' {thingArn} -> thingArn) (\s@CreateVehicleResponseItem' {} a -> s {thingArn = a} :: CreateVehicleResponseItem)
 
 -- | The unique ID of the vehicle to create.
 createVehicleResponseItem_vehicleName :: Lens.Lens' CreateVehicleResponseItem (Prelude.Maybe Prelude.Text)
@@ -78,19 +77,19 @@ instance Data.FromJSON CreateVehicleResponseItem where
       "CreateVehicleResponseItem"
       ( \x ->
           CreateVehicleResponseItem'
-            Prelude.<$> (x Data..:? "thingArn")
-            Prelude.<*> (x Data..:? "arn")
+            Prelude.<$> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "thingArn")
             Prelude.<*> (x Data..:? "vehicleName")
       )
 
 instance Prelude.Hashable CreateVehicleResponseItem where
   hashWithSalt _salt CreateVehicleResponseItem' {..} =
-    _salt `Prelude.hashWithSalt` thingArn
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` thingArn
       `Prelude.hashWithSalt` vehicleName
 
 instance Prelude.NFData CreateVehicleResponseItem where
   rnf CreateVehicleResponseItem' {..} =
-    Prelude.rnf thingArn
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf thingArn
       `Prelude.seq` Prelude.rnf vehicleName

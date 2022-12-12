@@ -31,10 +31,10 @@ module Amazonka.Route53Domains.ListDomains
     newListDomains,
 
     -- * Request Lenses
+    listDomains_filterConditions,
     listDomains_marker,
     listDomains_maxItems,
     listDomains_sortCondition,
-    listDomains_filterConditions,
 
     -- * Destructuring the Response
     ListDomainsResponse (..),
@@ -59,7 +59,11 @@ import Amazonka.Route53Domains.Types
 --
 -- /See:/ 'newListDomains' smart constructor.
 data ListDomains = ListDomains'
-  { -- | For an initial request for a list of domains, omit this element. If the
+  { -- | A complex type that contains information about the filters applied
+    -- during the @ListDomains@ request. The filter conditions can include
+    -- domain name and domain expiration.
+    filterConditions :: Prelude.Maybe [FilterCondition],
+    -- | For an initial request for a list of domains, omit this element. If the
     -- number of domains that are associated with the current Amazon Web
     -- Services account is greater than the value that you specified for
     -- @MaxItems@, you can use @Marker@ to return additional domains. Get the
@@ -76,11 +80,7 @@ data ListDomains = ListDomains'
     maxItems :: Prelude.Maybe Prelude.Int,
     -- | A complex type that contains information about the requested ordering of
     -- domains in the returned list.
-    sortCondition :: Prelude.Maybe SortCondition,
-    -- | A complex type that contains information about the filters applied
-    -- during the @ListDomains@ request. The filter conditions can include
-    -- domain name and domain expiration.
-    filterConditions :: Prelude.Maybe [FilterCondition]
+    sortCondition :: Prelude.Maybe SortCondition
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -91,6 +91,10 @@ data ListDomains = ListDomains'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'filterConditions', 'listDomains_filterConditions' - A complex type that contains information about the filters applied
+-- during the @ListDomains@ request. The filter conditions can include
+-- domain name and domain expiration.
 --
 -- 'marker', 'listDomains_marker' - For an initial request for a list of domains, omit this element. If the
 -- number of domains that are associated with the current Amazon Web
@@ -109,19 +113,21 @@ data ListDomains = ListDomains'
 --
 -- 'sortCondition', 'listDomains_sortCondition' - A complex type that contains information about the requested ordering of
 -- domains in the returned list.
---
--- 'filterConditions', 'listDomains_filterConditions' - A complex type that contains information about the filters applied
--- during the @ListDomains@ request. The filter conditions can include
--- domain name and domain expiration.
 newListDomains ::
   ListDomains
 newListDomains =
   ListDomains'
-    { marker = Prelude.Nothing,
+    { filterConditions = Prelude.Nothing,
+      marker = Prelude.Nothing,
       maxItems = Prelude.Nothing,
-      sortCondition = Prelude.Nothing,
-      filterConditions = Prelude.Nothing
+      sortCondition = Prelude.Nothing
     }
+
+-- | A complex type that contains information about the filters applied
+-- during the @ListDomains@ request. The filter conditions can include
+-- domain name and domain expiration.
+listDomains_filterConditions :: Lens.Lens' ListDomains (Prelude.Maybe [FilterCondition])
+listDomains_filterConditions = Lens.lens (\ListDomains' {filterConditions} -> filterConditions) (\s@ListDomains' {} a -> s {filterConditions = a} :: ListDomains) Prelude.. Lens.mapping Lens.coerced
 
 -- | For an initial request for a list of domains, omit this element. If the
 -- number of domains that are associated with the current Amazon Web
@@ -146,12 +152,6 @@ listDomains_maxItems = Lens.lens (\ListDomains' {maxItems} -> maxItems) (\s@List
 -- domains in the returned list.
 listDomains_sortCondition :: Lens.Lens' ListDomains (Prelude.Maybe SortCondition)
 listDomains_sortCondition = Lens.lens (\ListDomains' {sortCondition} -> sortCondition) (\s@ListDomains' {} a -> s {sortCondition = a} :: ListDomains)
-
--- | A complex type that contains information about the filters applied
--- during the @ListDomains@ request. The filter conditions can include
--- domain name and domain expiration.
-listDomains_filterConditions :: Lens.Lens' ListDomains (Prelude.Maybe [FilterCondition])
-listDomains_filterConditions = Lens.lens (\ListDomains' {filterConditions} -> filterConditions) (\s@ListDomains' {} a -> s {filterConditions = a} :: ListDomains) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSPager ListDomains where
   page rq rs
@@ -186,17 +186,17 @@ instance Core.AWSRequest ListDomains where
 
 instance Prelude.Hashable ListDomains where
   hashWithSalt _salt ListDomains' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt `Prelude.hashWithSalt` filterConditions
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` sortCondition
-      `Prelude.hashWithSalt` filterConditions
 
 instance Prelude.NFData ListDomains where
   rnf ListDomains' {..} =
-    Prelude.rnf marker
+    Prelude.rnf filterConditions
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxItems
       `Prelude.seq` Prelude.rnf sortCondition
-      `Prelude.seq` Prelude.rnf filterConditions
 
 instance Data.ToHeaders ListDomains where
   toHeaders =
@@ -217,11 +217,11 @@ instance Data.ToJSON ListDomains where
   toJSON ListDomains' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Data..=) Prelude.<$> marker,
+          [ ("FilterConditions" Data..=)
+              Prelude.<$> filterConditions,
+            ("Marker" Data..=) Prelude.<$> marker,
             ("MaxItems" Data..=) Prelude.<$> maxItems,
-            ("SortCondition" Data..=) Prelude.<$> sortCondition,
-            ("FilterConditions" Data..=)
-              Prelude.<$> filterConditions
+            ("SortCondition" Data..=) Prelude.<$> sortCondition
           ]
       )
 

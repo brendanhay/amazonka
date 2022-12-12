@@ -50,6 +50,7 @@ library
     Amazonka.StepFunctions.DeleteStateMachine
     Amazonka.StepFunctions.DescribeActivity
     Amazonka.StepFunctions.DescribeExecution
+    Amazonka.StepFunctions.DescribeMapRun
     Amazonka.StepFunctions.DescribeStateMachine
     Amazonka.StepFunctions.DescribeStateMachineForExecution
     Amazonka.StepFunctions.GetActivityTask
@@ -57,6 +58,7 @@ library
     Amazonka.StepFunctions.Lens
     Amazonka.StepFunctions.ListActivities
     Amazonka.StepFunctions.ListExecutions
+    Amazonka.StepFunctions.ListMapRuns
     Amazonka.StepFunctions.ListStateMachines
     Amazonka.StepFunctions.ListTagsForResource
     Amazonka.StepFunctions.SendTaskFailure
@@ -97,6 +99,12 @@ library
     Amazonka.StepFunctions.Types.LoggingConfiguration
     Amazonka.StepFunctions.Types.LogLevel
     Amazonka.StepFunctions.Types.MapIterationEventDetails
+    Amazonka.StepFunctions.Types.MapRunExecutionCounts
+    Amazonka.StepFunctions.Types.MapRunFailedEventDetails
+    Amazonka.StepFunctions.Types.MapRunItemCounts
+    Amazonka.StepFunctions.Types.MapRunListItem
+    Amazonka.StepFunctions.Types.MapRunStartedEventDetails
+    Amazonka.StepFunctions.Types.MapRunStatus
     Amazonka.StepFunctions.Types.MapStateStartedEventDetails
     Amazonka.StepFunctions.Types.StateEnteredEventDetails
     Amazonka.StepFunctions.Types.StateExitedEventDetails
@@ -116,6 +124,7 @@ library
     Amazonka.StepFunctions.Types.TaskTimedOutEventDetails
     Amazonka.StepFunctions.Types.TracingConfiguration
     Amazonka.StepFunctions.UntagResource
+    Amazonka.StepFunctions.UpdateMapRun
     Amazonka.StepFunctions.UpdateStateMachine
     Amazonka.StepFunctions.Waiters
 

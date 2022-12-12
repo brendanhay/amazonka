@@ -35,8 +35,8 @@ module Amazonka.ResourceGroups.DeleteGroup
     newDeleteGroup,
 
     -- * Request Lenses
-    deleteGroup_groupName,
     deleteGroup_group,
+    deleteGroup_groupName,
 
     -- * Destructuring the Response
     DeleteGroupResponse (..),
@@ -58,10 +58,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteGroup' smart constructor.
 data DeleteGroup = DeleteGroup'
-  { -- | Deprecated - don\'t use this parameter. Use @Group@ instead.
-    groupName :: Prelude.Maybe Prelude.Text,
-    -- | The name or the ARN of the resource group to delete.
-    group' :: Prelude.Maybe Prelude.Text
+  { -- | The name or the ARN of the resource group to delete.
+    group' :: Prelude.Maybe Prelude.Text,
+    -- | Deprecated - don\'t use this parameter. Use @Group@ instead.
+    groupName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,24 +73,24 @@ data DeleteGroup = DeleteGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'groupName', 'deleteGroup_groupName' - Deprecated - don\'t use this parameter. Use @Group@ instead.
---
 -- 'group'', 'deleteGroup_group' - The name or the ARN of the resource group to delete.
+--
+-- 'groupName', 'deleteGroup_groupName' - Deprecated - don\'t use this parameter. Use @Group@ instead.
 newDeleteGroup ::
   DeleteGroup
 newDeleteGroup =
   DeleteGroup'
-    { groupName = Prelude.Nothing,
-      group' = Prelude.Nothing
+    { group' = Prelude.Nothing,
+      groupName = Prelude.Nothing
     }
-
--- | Deprecated - don\'t use this parameter. Use @Group@ instead.
-deleteGroup_groupName :: Lens.Lens' DeleteGroup (Prelude.Maybe Prelude.Text)
-deleteGroup_groupName = Lens.lens (\DeleteGroup' {groupName} -> groupName) (\s@DeleteGroup' {} a -> s {groupName = a} :: DeleteGroup)
 
 -- | The name or the ARN of the resource group to delete.
 deleteGroup_group :: Lens.Lens' DeleteGroup (Prelude.Maybe Prelude.Text)
 deleteGroup_group = Lens.lens (\DeleteGroup' {group'} -> group') (\s@DeleteGroup' {} a -> s {group' = a} :: DeleteGroup)
+
+-- | Deprecated - don\'t use this parameter. Use @Group@ instead.
+deleteGroup_groupName :: Lens.Lens' DeleteGroup (Prelude.Maybe Prelude.Text)
+deleteGroup_groupName = Lens.lens (\DeleteGroup' {groupName} -> groupName) (\s@DeleteGroup' {} a -> s {groupName = a} :: DeleteGroup)
 
 instance Core.AWSRequest DeleteGroup where
   type AWSResponse DeleteGroup = DeleteGroupResponse
@@ -106,13 +106,13 @@ instance Core.AWSRequest DeleteGroup where
 
 instance Prelude.Hashable DeleteGroup where
   hashWithSalt _salt DeleteGroup' {..} =
-    _salt `Prelude.hashWithSalt` groupName
-      `Prelude.hashWithSalt` group'
+    _salt `Prelude.hashWithSalt` group'
+      `Prelude.hashWithSalt` groupName
 
 instance Prelude.NFData DeleteGroup where
   rnf DeleteGroup' {..} =
-    Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf group'
+    Prelude.rnf group'
+      `Prelude.seq` Prelude.rnf groupName
 
 instance Data.ToHeaders DeleteGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -121,8 +121,8 @@ instance Data.ToJSON DeleteGroup where
   toJSON DeleteGroup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("GroupName" Data..=) Prelude.<$> groupName,
-            ("Group" Data..=) Prelude.<$> group'
+          [ ("Group" Data..=) Prelude.<$> group',
+            ("GroupName" Data..=) Prelude.<$> groupName
           ]
       )
 

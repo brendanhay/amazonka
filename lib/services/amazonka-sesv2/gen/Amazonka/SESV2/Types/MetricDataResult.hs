@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMetricDataResult' smart constructor.
 data MetricDataResult = MetricDataResult'
-  { -- | A list of timestamps for the metric data results.
-    timestamps :: Prelude.Maybe [Data.POSIX],
-    -- | The query identifier.
+  { -- | The query identifier.
     id :: Prelude.Maybe Prelude.Text,
+    -- | A list of timestamps for the metric data results.
+    timestamps :: Prelude.Maybe [Data.POSIX],
     -- | A list of values (cumulative \/ sum) for the metric data results.
     values :: Prelude.Maybe [Prelude.Integer]
   }
@@ -45,27 +45,27 @@ data MetricDataResult = MetricDataResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'timestamps', 'metricDataResult_timestamps' - A list of timestamps for the metric data results.
---
 -- 'id', 'metricDataResult_id' - The query identifier.
+--
+-- 'timestamps', 'metricDataResult_timestamps' - A list of timestamps for the metric data results.
 --
 -- 'values', 'metricDataResult_values' - A list of values (cumulative \/ sum) for the metric data results.
 newMetricDataResult ::
   MetricDataResult
 newMetricDataResult =
   MetricDataResult'
-    { timestamps = Prelude.Nothing,
-      id = Prelude.Nothing,
+    { id = Prelude.Nothing,
+      timestamps = Prelude.Nothing,
       values = Prelude.Nothing
     }
-
--- | A list of timestamps for the metric data results.
-metricDataResult_timestamps :: Lens.Lens' MetricDataResult (Prelude.Maybe [Prelude.UTCTime])
-metricDataResult_timestamps = Lens.lens (\MetricDataResult' {timestamps} -> timestamps) (\s@MetricDataResult' {} a -> s {timestamps = a} :: MetricDataResult) Prelude.. Lens.mapping Lens.coerced
 
 -- | The query identifier.
 metricDataResult_id :: Lens.Lens' MetricDataResult (Prelude.Maybe Prelude.Text)
 metricDataResult_id = Lens.lens (\MetricDataResult' {id} -> id) (\s@MetricDataResult' {} a -> s {id = a} :: MetricDataResult)
+
+-- | A list of timestamps for the metric data results.
+metricDataResult_timestamps :: Lens.Lens' MetricDataResult (Prelude.Maybe [Prelude.UTCTime])
+metricDataResult_timestamps = Lens.lens (\MetricDataResult' {timestamps} -> timestamps) (\s@MetricDataResult' {} a -> s {timestamps = a} :: MetricDataResult) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of values (cumulative \/ sum) for the metric data results.
 metricDataResult_values :: Lens.Lens' MetricDataResult (Prelude.Maybe [Prelude.Integer])
@@ -77,19 +77,19 @@ instance Data.FromJSON MetricDataResult where
       "MetricDataResult"
       ( \x ->
           MetricDataResult'
-            Prelude.<$> (x Data..:? "Timestamps" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "Id")
+            Prelude.<$> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Timestamps" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Values" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable MetricDataResult where
   hashWithSalt _salt MetricDataResult' {..} =
-    _salt `Prelude.hashWithSalt` timestamps
-      `Prelude.hashWithSalt` id
+    _salt `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` timestamps
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData MetricDataResult where
   rnf MetricDataResult' {..} =
-    Prelude.rnf timestamps
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf timestamps
       `Prelude.seq` Prelude.rnf values

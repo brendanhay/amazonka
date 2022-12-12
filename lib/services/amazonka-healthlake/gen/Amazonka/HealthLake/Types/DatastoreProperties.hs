@@ -33,16 +33,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDatastoreProperties' smart constructor.
 data DatastoreProperties = DatastoreProperties'
-  { -- | The user-generated name for the Data Store.
+  { -- | The time that a Data Store was created.
+    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | The user-generated name for the Data Store.
     datastoreName :: Prelude.Maybe Prelude.Text,
-    -- | The server-side encryption key configuration for a customer provided
-    -- encryption key (CMK).
-    sseConfiguration :: Prelude.Maybe SseConfiguration,
     -- | The preloaded data configuration for the Data Store. Only data preloaded
     -- from Synthea is supported.
     preloadDataConfig :: Prelude.Maybe PreloadDataConfig,
-    -- | The time that a Data Store was created.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | The server-side encryption key configuration for a customer provided
+    -- encryption key (CMK).
+    sseConfiguration :: Prelude.Maybe SseConfiguration,
     -- | The AWS-generated ID number for the Data Store.
     datastoreId :: Prelude.Text,
     -- | The Amazon Resource Name used in the creation of the Data Store.
@@ -66,15 +66,15 @@ data DatastoreProperties = DatastoreProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'datastoreName', 'datastoreProperties_datastoreName' - The user-generated name for the Data Store.
+-- 'createdAt', 'datastoreProperties_createdAt' - The time that a Data Store was created.
 --
--- 'sseConfiguration', 'datastoreProperties_sseConfiguration' - The server-side encryption key configuration for a customer provided
--- encryption key (CMK).
+-- 'datastoreName', 'datastoreProperties_datastoreName' - The user-generated name for the Data Store.
 --
 -- 'preloadDataConfig', 'datastoreProperties_preloadDataConfig' - The preloaded data configuration for the Data Store. Only data preloaded
 -- from Synthea is supported.
 --
--- 'createdAt', 'datastoreProperties_createdAt' - The time that a Data Store was created.
+-- 'sseConfiguration', 'datastoreProperties_sseConfiguration' - The server-side encryption key configuration for a customer provided
+-- encryption key (CMK).
 --
 -- 'datastoreId', 'datastoreProperties_datastoreId' - The AWS-generated ID number for the Data Store.
 --
@@ -106,11 +106,10 @@ newDatastoreProperties
   pDatastoreTypeVersion_
   pDatastoreEndpoint_ =
     DatastoreProperties'
-      { datastoreName =
-          Prelude.Nothing,
-        sseConfiguration = Prelude.Nothing,
+      { createdAt = Prelude.Nothing,
+        datastoreName = Prelude.Nothing,
         preloadDataConfig = Prelude.Nothing,
-        createdAt = Prelude.Nothing,
+        sseConfiguration = Prelude.Nothing,
         datastoreId = pDatastoreId_,
         datastoreArn = pDatastoreArn_,
         datastoreStatus = pDatastoreStatus_,
@@ -118,23 +117,23 @@ newDatastoreProperties
         datastoreEndpoint = pDatastoreEndpoint_
       }
 
+-- | The time that a Data Store was created.
+datastoreProperties_createdAt :: Lens.Lens' DatastoreProperties (Prelude.Maybe Prelude.UTCTime)
+datastoreProperties_createdAt = Lens.lens (\DatastoreProperties' {createdAt} -> createdAt) (\s@DatastoreProperties' {} a -> s {createdAt = a} :: DatastoreProperties) Prelude.. Lens.mapping Data._Time
+
 -- | The user-generated name for the Data Store.
 datastoreProperties_datastoreName :: Lens.Lens' DatastoreProperties (Prelude.Maybe Prelude.Text)
 datastoreProperties_datastoreName = Lens.lens (\DatastoreProperties' {datastoreName} -> datastoreName) (\s@DatastoreProperties' {} a -> s {datastoreName = a} :: DatastoreProperties)
-
--- | The server-side encryption key configuration for a customer provided
--- encryption key (CMK).
-datastoreProperties_sseConfiguration :: Lens.Lens' DatastoreProperties (Prelude.Maybe SseConfiguration)
-datastoreProperties_sseConfiguration = Lens.lens (\DatastoreProperties' {sseConfiguration} -> sseConfiguration) (\s@DatastoreProperties' {} a -> s {sseConfiguration = a} :: DatastoreProperties)
 
 -- | The preloaded data configuration for the Data Store. Only data preloaded
 -- from Synthea is supported.
 datastoreProperties_preloadDataConfig :: Lens.Lens' DatastoreProperties (Prelude.Maybe PreloadDataConfig)
 datastoreProperties_preloadDataConfig = Lens.lens (\DatastoreProperties' {preloadDataConfig} -> preloadDataConfig) (\s@DatastoreProperties' {} a -> s {preloadDataConfig = a} :: DatastoreProperties)
 
--- | The time that a Data Store was created.
-datastoreProperties_createdAt :: Lens.Lens' DatastoreProperties (Prelude.Maybe Prelude.UTCTime)
-datastoreProperties_createdAt = Lens.lens (\DatastoreProperties' {createdAt} -> createdAt) (\s@DatastoreProperties' {} a -> s {createdAt = a} :: DatastoreProperties) Prelude.. Lens.mapping Data._Time
+-- | The server-side encryption key configuration for a customer provided
+-- encryption key (CMK).
+datastoreProperties_sseConfiguration :: Lens.Lens' DatastoreProperties (Prelude.Maybe SseConfiguration)
+datastoreProperties_sseConfiguration = Lens.lens (\DatastoreProperties' {sseConfiguration} -> sseConfiguration) (\s@DatastoreProperties' {} a -> s {sseConfiguration = a} :: DatastoreProperties)
 
 -- | The AWS-generated ID number for the Data Store.
 datastoreProperties_datastoreId :: Lens.Lens' DatastoreProperties Prelude.Text
@@ -164,10 +163,10 @@ instance Data.FromJSON DatastoreProperties where
       "DatastoreProperties"
       ( \x ->
           DatastoreProperties'
-            Prelude.<$> (x Data..:? "DatastoreName")
-            Prelude.<*> (x Data..:? "SseConfiguration")
+            Prelude.<$> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "DatastoreName")
             Prelude.<*> (x Data..:? "PreloadDataConfig")
-            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "SseConfiguration")
             Prelude.<*> (x Data..: "DatastoreId")
             Prelude.<*> (x Data..: "DatastoreArn")
             Prelude.<*> (x Data..: "DatastoreStatus")
@@ -177,10 +176,10 @@ instance Data.FromJSON DatastoreProperties where
 
 instance Prelude.Hashable DatastoreProperties where
   hashWithSalt _salt DatastoreProperties' {..} =
-    _salt `Prelude.hashWithSalt` datastoreName
-      `Prelude.hashWithSalt` sseConfiguration
+    _salt `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` datastoreName
       `Prelude.hashWithSalt` preloadDataConfig
-      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` sseConfiguration
       `Prelude.hashWithSalt` datastoreId
       `Prelude.hashWithSalt` datastoreArn
       `Prelude.hashWithSalt` datastoreStatus
@@ -189,10 +188,10 @@ instance Prelude.Hashable DatastoreProperties where
 
 instance Prelude.NFData DatastoreProperties where
   rnf DatastoreProperties' {..} =
-    Prelude.rnf datastoreName
-      `Prelude.seq` Prelude.rnf sseConfiguration
+    Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf datastoreName
       `Prelude.seq` Prelude.rnf preloadDataConfig
-      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf sseConfiguration
       `Prelude.seq` Prelude.rnf datastoreId
       `Prelude.seq` Prelude.rnf datastoreArn
       `Prelude.seq` Prelude.rnf datastoreStatus

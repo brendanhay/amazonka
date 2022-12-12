@@ -32,8 +32,8 @@ module Amazonka.IoTFleetWise.CreateModelManifest
     newCreateModelManifest,
 
     -- * Request Lenses
-    createModelManifest_tags,
     createModelManifest_description,
+    createModelManifest_tags,
     createModelManifest_name,
     createModelManifest_nodes,
     createModelManifest_signalCatalogArn,
@@ -59,10 +59,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateModelManifest' smart constructor.
 data CreateModelManifest = CreateModelManifest'
-  { -- | Metadata that can be used to manage the vehicle model.
-    tags :: Prelude.Maybe [Tag],
-    -- | A brief description of the vehicle model.
+  { -- | A brief description of the vehicle model.
     description :: Prelude.Maybe Prelude.Text,
+    -- | Metadata that can be used to manage the vehicle model.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the vehicle model to create.
     name :: Prelude.Text,
     -- | A list of nodes, which are a general abstraction of signals.
@@ -80,9 +80,9 @@ data CreateModelManifest = CreateModelManifest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createModelManifest_tags' - Metadata that can be used to manage the vehicle model.
---
 -- 'description', 'createModelManifest_description' - A brief description of the vehicle model.
+--
+-- 'tags', 'createModelManifest_tags' - Metadata that can be used to manage the vehicle model.
 --
 -- 'name', 'createModelManifest_name' - The name of the vehicle model to create.
 --
@@ -97,20 +97,20 @@ newCreateModelManifest ::
   CreateModelManifest
 newCreateModelManifest pName_ pSignalCatalogArn_ =
   CreateModelManifest'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_,
       nodes = Prelude.mempty,
       signalCatalogArn = pSignalCatalogArn_
     }
 
--- | Metadata that can be used to manage the vehicle model.
-createModelManifest_tags :: Lens.Lens' CreateModelManifest (Prelude.Maybe [Tag])
-createModelManifest_tags = Lens.lens (\CreateModelManifest' {tags} -> tags) (\s@CreateModelManifest' {} a -> s {tags = a} :: CreateModelManifest) Prelude.. Lens.mapping Lens.coerced
-
 -- | A brief description of the vehicle model.
 createModelManifest_description :: Lens.Lens' CreateModelManifest (Prelude.Maybe Prelude.Text)
 createModelManifest_description = Lens.lens (\CreateModelManifest' {description} -> description) (\s@CreateModelManifest' {} a -> s {description = a} :: CreateModelManifest)
+
+-- | Metadata that can be used to manage the vehicle model.
+createModelManifest_tags :: Lens.Lens' CreateModelManifest (Prelude.Maybe [Tag])
+createModelManifest_tags = Lens.lens (\CreateModelManifest' {tags} -> tags) (\s@CreateModelManifest' {} a -> s {tags = a} :: CreateModelManifest) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the vehicle model to create.
 createModelManifest_name :: Lens.Lens' CreateModelManifest Prelude.Text
@@ -141,16 +141,16 @@ instance Core.AWSRequest CreateModelManifest where
 
 instance Prelude.Hashable CreateModelManifest where
   hashWithSalt _salt CreateModelManifest' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` nodes
       `Prelude.hashWithSalt` signalCatalogArn
 
 instance Prelude.NFData CreateModelManifest where
   rnf CreateModelManifest' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf nodes
       `Prelude.seq` Prelude.rnf signalCatalogArn
@@ -174,8 +174,8 @@ instance Data.ToJSON CreateModelManifest where
   toJSON CreateModelManifest' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("description" Data..=) Prelude.<$> description,
+          [ ("description" Data..=) Prelude.<$> description,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("name" Data..= name),
             Prelude.Just ("nodes" Data..= nodes),
             Prelude.Just

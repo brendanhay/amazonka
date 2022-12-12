@@ -32,9 +32,9 @@ module Amazonka.Proton.UpdateEnvironmentAccountConnection
     newUpdateEnvironmentAccountConnection,
 
     -- * Request Lenses
-    updateEnvironmentAccountConnection_roleArn,
     updateEnvironmentAccountConnection_codebuildRoleArn,
     updateEnvironmentAccountConnection_componentRoleArn,
+    updateEnvironmentAccountConnection_roleArn,
     updateEnvironmentAccountConnection_id,
 
     -- * Destructuring the Response
@@ -57,10 +57,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateEnvironmentAccountConnection' smart constructor.
 data UpdateEnvironmentAccountConnection = UpdateEnvironmentAccountConnection'
-  { -- | The Amazon Resource Name (ARN) of the IAM service role that\'s
-    -- associated with the environment account connection to update.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of an IAM service role in the environment
+  { -- | The Amazon Resource Name (ARN) of an IAM service role in the environment
     -- account. Proton uses this role to provision infrastructure resources
     -- using CodeBuild-based provisioning in the associated environment
     -- account.
@@ -78,6 +75,9 @@ data UpdateEnvironmentAccountConnection = UpdateEnvironmentAccountConnection'
     -- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
     -- in the /Proton User Guide/.
     componentRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the IAM service role that\'s
+    -- associated with the environment account connection to update.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the environment account connection to update.
     id :: Prelude.Text
   }
@@ -90,9 +90,6 @@ data UpdateEnvironmentAccountConnection = UpdateEnvironmentAccountConnection'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'roleArn', 'updateEnvironmentAccountConnection_roleArn' - The Amazon Resource Name (ARN) of the IAM service role that\'s
--- associated with the environment account connection to update.
 --
 -- 'codebuildRoleArn', 'updateEnvironmentAccountConnection_codebuildRoleArn' - The Amazon Resource Name (ARN) of an IAM service role in the environment
 -- account. Proton uses this role to provision infrastructure resources
@@ -112,6 +109,9 @@ data UpdateEnvironmentAccountConnection = UpdateEnvironmentAccountConnection'
 -- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
 -- in the /Proton User Guide/.
 --
+-- 'roleArn', 'updateEnvironmentAccountConnection_roleArn' - The Amazon Resource Name (ARN) of the IAM service role that\'s
+-- associated with the environment account connection to update.
+--
 -- 'id', 'updateEnvironmentAccountConnection_id' - The ID of the environment account connection to update.
 newUpdateEnvironmentAccountConnection ::
   -- | 'id'
@@ -119,17 +119,12 @@ newUpdateEnvironmentAccountConnection ::
   UpdateEnvironmentAccountConnection
 newUpdateEnvironmentAccountConnection pId_ =
   UpdateEnvironmentAccountConnection'
-    { roleArn =
+    { codebuildRoleArn =
         Prelude.Nothing,
-      codebuildRoleArn = Prelude.Nothing,
       componentRoleArn = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
       id = pId_
     }
-
--- | The Amazon Resource Name (ARN) of the IAM service role that\'s
--- associated with the environment account connection to update.
-updateEnvironmentAccountConnection_roleArn :: Lens.Lens' UpdateEnvironmentAccountConnection (Prelude.Maybe Prelude.Text)
-updateEnvironmentAccountConnection_roleArn = Lens.lens (\UpdateEnvironmentAccountConnection' {roleArn} -> roleArn) (\s@UpdateEnvironmentAccountConnection' {} a -> s {roleArn = a} :: UpdateEnvironmentAccountConnection)
 
 -- | The Amazon Resource Name (ARN) of an IAM service role in the environment
 -- account. Proton uses this role to provision infrastructure resources
@@ -152,6 +147,11 @@ updateEnvironmentAccountConnection_codebuildRoleArn = Lens.lens (\UpdateEnvironm
 -- in the /Proton User Guide/.
 updateEnvironmentAccountConnection_componentRoleArn :: Lens.Lens' UpdateEnvironmentAccountConnection (Prelude.Maybe Prelude.Text)
 updateEnvironmentAccountConnection_componentRoleArn = Lens.lens (\UpdateEnvironmentAccountConnection' {componentRoleArn} -> componentRoleArn) (\s@UpdateEnvironmentAccountConnection' {} a -> s {componentRoleArn = a} :: UpdateEnvironmentAccountConnection)
+
+-- | The Amazon Resource Name (ARN) of the IAM service role that\'s
+-- associated with the environment account connection to update.
+updateEnvironmentAccountConnection_roleArn :: Lens.Lens' UpdateEnvironmentAccountConnection (Prelude.Maybe Prelude.Text)
+updateEnvironmentAccountConnection_roleArn = Lens.lens (\UpdateEnvironmentAccountConnection' {roleArn} -> roleArn) (\s@UpdateEnvironmentAccountConnection' {} a -> s {roleArn = a} :: UpdateEnvironmentAccountConnection)
 
 -- | The ID of the environment account connection to update.
 updateEnvironmentAccountConnection_id :: Lens.Lens' UpdateEnvironmentAccountConnection Prelude.Text
@@ -181,9 +181,9 @@ instance
   hashWithSalt
     _salt
     UpdateEnvironmentAccountConnection' {..} =
-      _salt `Prelude.hashWithSalt` roleArn
-        `Prelude.hashWithSalt` codebuildRoleArn
+      _salt `Prelude.hashWithSalt` codebuildRoleArn
         `Prelude.hashWithSalt` componentRoleArn
+        `Prelude.hashWithSalt` roleArn
         `Prelude.hashWithSalt` id
 
 instance
@@ -191,9 +191,9 @@ instance
     UpdateEnvironmentAccountConnection
   where
   rnf UpdateEnvironmentAccountConnection' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf codebuildRoleArn
+    Prelude.rnf codebuildRoleArn
       `Prelude.seq` Prelude.rnf componentRoleArn
+      `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf id
 
 instance
@@ -221,11 +221,11 @@ instance
   toJSON UpdateEnvironmentAccountConnection' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("roleArn" Data..=) Prelude.<$> roleArn,
-            ("codebuildRoleArn" Data..=)
+          [ ("codebuildRoleArn" Data..=)
               Prelude.<$> codebuildRoleArn,
             ("componentRoleArn" Data..=)
               Prelude.<$> componentRoleArn,
+            ("roleArn" Data..=) Prelude.<$> roleArn,
             Prelude.Just ("id" Data..= id)
           ]
       )

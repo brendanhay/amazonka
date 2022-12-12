@@ -29,8 +29,8 @@ module Amazonka.AlexaBusiness.ListSkillsStoreCategories
     newListSkillsStoreCategories,
 
     -- * Request Lenses
-    listSkillsStoreCategories_nextToken,
     listSkillsStoreCategories_maxResults,
+    listSkillsStoreCategories_nextToken,
 
     -- * Destructuring the Response
     ListSkillsStoreCategoriesResponse (..),
@@ -53,10 +53,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListSkillsStoreCategories' smart constructor.
 data ListSkillsStoreCategories = ListSkillsStoreCategories'
-  { -- | The tokens used for pagination.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of categories returned, per paginated calls.
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { -- | The maximum number of categories returned, per paginated calls.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The tokens used for pagination.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,25 +68,25 @@ data ListSkillsStoreCategories = ListSkillsStoreCategories'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listSkillsStoreCategories_nextToken' - The tokens used for pagination.
---
 -- 'maxResults', 'listSkillsStoreCategories_maxResults' - The maximum number of categories returned, per paginated calls.
+--
+-- 'nextToken', 'listSkillsStoreCategories_nextToken' - The tokens used for pagination.
 newListSkillsStoreCategories ::
   ListSkillsStoreCategories
 newListSkillsStoreCategories =
   ListSkillsStoreCategories'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | The tokens used for pagination.
-listSkillsStoreCategories_nextToken :: Lens.Lens' ListSkillsStoreCategories (Prelude.Maybe Prelude.Text)
-listSkillsStoreCategories_nextToken = Lens.lens (\ListSkillsStoreCategories' {nextToken} -> nextToken) (\s@ListSkillsStoreCategories' {} a -> s {nextToken = a} :: ListSkillsStoreCategories)
 
 -- | The maximum number of categories returned, per paginated calls.
 listSkillsStoreCategories_maxResults :: Lens.Lens' ListSkillsStoreCategories (Prelude.Maybe Prelude.Natural)
 listSkillsStoreCategories_maxResults = Lens.lens (\ListSkillsStoreCategories' {maxResults} -> maxResults) (\s@ListSkillsStoreCategories' {} a -> s {maxResults = a} :: ListSkillsStoreCategories)
+
+-- | The tokens used for pagination.
+listSkillsStoreCategories_nextToken :: Lens.Lens' ListSkillsStoreCategories (Prelude.Maybe Prelude.Text)
+listSkillsStoreCategories_nextToken = Lens.lens (\ListSkillsStoreCategories' {nextToken} -> nextToken) (\s@ListSkillsStoreCategories' {} a -> s {nextToken = a} :: ListSkillsStoreCategories)
 
 instance Core.AWSPager ListSkillsStoreCategories where
   page rq rs
@@ -127,13 +127,13 @@ instance Core.AWSRequest ListSkillsStoreCategories where
 
 instance Prelude.Hashable ListSkillsStoreCategories where
   hashWithSalt _salt ListSkillsStoreCategories' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListSkillsStoreCategories where
   rnf ListSkillsStoreCategories' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListSkillsStoreCategories where
   toHeaders =
@@ -154,8 +154,8 @@ instance Data.ToJSON ListSkillsStoreCategories where
   toJSON ListSkillsStoreCategories' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

@@ -97,11 +97,11 @@ module Amazonka.Rekognition.CompareFaces
     newCompareFacesResponse,
 
     -- * Response Lenses
-    compareFacesResponse_targetImageOrientationCorrection,
-    compareFacesResponse_sourceImageOrientationCorrection,
     compareFacesResponse_faceMatches,
-    compareFacesResponse_unmatchedFaces,
     compareFacesResponse_sourceImageFace,
+    compareFacesResponse_sourceImageOrientationCorrection,
+    compareFacesResponse_targetImageOrientationCorrection,
+    compareFacesResponse_unmatchedFaces,
     compareFacesResponse_httpStatus,
   )
 where
@@ -252,11 +252,11 @@ instance Core.AWSRequest CompareFaces where
     Response.receiveJSON
       ( \s h x ->
           CompareFacesResponse'
-            Prelude.<$> (x Data..?> "TargetImageOrientationCorrection")
-            Prelude.<*> (x Data..?> "SourceImageOrientationCorrection")
-            Prelude.<*> (x Data..?> "FaceMatches" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "UnmatchedFaces" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "FaceMatches" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "SourceImageFace")
+            Prelude.<*> (x Data..?> "SourceImageOrientationCorrection")
+            Prelude.<*> (x Data..?> "TargetImageOrientationCorrection")
+            Prelude.<*> (x Data..?> "UnmatchedFaces" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -309,21 +309,14 @@ instance Data.ToQuery CompareFaces where
 
 -- | /See:/ 'newCompareFacesResponse' smart constructor.
 data CompareFacesResponse = CompareFacesResponse'
-  { -- | The value of @TargetImageOrientationCorrection@ is always null.
-    --
-    -- If the input image is in .jpeg format, it might contain exchangeable
-    -- image file format (Exif) metadata that includes the image\'s
-    -- orientation. Amazon Rekognition uses this orientation information to
-    -- perform image correction. The bounding box coordinates are translated to
-    -- represent object locations after the orientation information in the Exif
-    -- metadata is used to correct the image orientation. Images in .png format
-    -- don\'t contain Exif metadata.
-    --
-    -- Amazon Rekognition doesn’t perform image correction for images in .png
-    -- format and .jpeg images without orientation information in the image
-    -- Exif metadata. The bounding box coordinates aren\'t translated and
-    -- represent the object locations before the image is rotated.
-    targetImageOrientationCorrection :: Prelude.Maybe OrientationCorrection,
+  { -- | An array of faces in the target image that match the source image face.
+    -- Each @CompareFacesMatch@ object provides the bounding box, the
+    -- confidence level that the bounding box contains a face, and the
+    -- similarity score for the face in the bounding box and the face in the
+    -- source image.
+    faceMatches :: Prelude.Maybe [CompareFacesMatch],
+    -- | The face in the source image that was used for comparison.
+    sourceImageFace :: Prelude.Maybe ComparedSourceImageFace,
     -- | The value of @SourceImageOrientationCorrection@ is always null.
     --
     -- If the input image is in .jpeg format, it might contain exchangeable
@@ -339,17 +332,24 @@ data CompareFacesResponse = CompareFacesResponse'
     -- Exif metadata. The bounding box coordinates aren\'t translated and
     -- represent the object locations before the image is rotated.
     sourceImageOrientationCorrection :: Prelude.Maybe OrientationCorrection,
-    -- | An array of faces in the target image that match the source image face.
-    -- Each @CompareFacesMatch@ object provides the bounding box, the
-    -- confidence level that the bounding box contains a face, and the
-    -- similarity score for the face in the bounding box and the face in the
-    -- source image.
-    faceMatches :: Prelude.Maybe [CompareFacesMatch],
+    -- | The value of @TargetImageOrientationCorrection@ is always null.
+    --
+    -- If the input image is in .jpeg format, it might contain exchangeable
+    -- image file format (Exif) metadata that includes the image\'s
+    -- orientation. Amazon Rekognition uses this orientation information to
+    -- perform image correction. The bounding box coordinates are translated to
+    -- represent object locations after the orientation information in the Exif
+    -- metadata is used to correct the image orientation. Images in .png format
+    -- don\'t contain Exif metadata.
+    --
+    -- Amazon Rekognition doesn’t perform image correction for images in .png
+    -- format and .jpeg images without orientation information in the image
+    -- Exif metadata. The bounding box coordinates aren\'t translated and
+    -- represent the object locations before the image is rotated.
+    targetImageOrientationCorrection :: Prelude.Maybe OrientationCorrection,
     -- | An array of faces in the target image that did not match the source
     -- image face.
     unmatchedFaces :: Prelude.Maybe [ComparedFace],
-    -- | The face in the source image that was used for comparison.
-    sourceImageFace :: Prelude.Maybe ComparedSourceImageFace,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -363,20 +363,13 @@ data CompareFacesResponse = CompareFacesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetImageOrientationCorrection', 'compareFacesResponse_targetImageOrientationCorrection' - The value of @TargetImageOrientationCorrection@ is always null.
+-- 'faceMatches', 'compareFacesResponse_faceMatches' - An array of faces in the target image that match the source image face.
+-- Each @CompareFacesMatch@ object provides the bounding box, the
+-- confidence level that the bounding box contains a face, and the
+-- similarity score for the face in the bounding box and the face in the
+-- source image.
 --
--- If the input image is in .jpeg format, it might contain exchangeable
--- image file format (Exif) metadata that includes the image\'s
--- orientation. Amazon Rekognition uses this orientation information to
--- perform image correction. The bounding box coordinates are translated to
--- represent object locations after the orientation information in the Exif
--- metadata is used to correct the image orientation. Images in .png format
--- don\'t contain Exif metadata.
---
--- Amazon Rekognition doesn’t perform image correction for images in .png
--- format and .jpeg images without orientation information in the image
--- Exif metadata. The bounding box coordinates aren\'t translated and
--- represent the object locations before the image is rotated.
+-- 'sourceImageFace', 'compareFacesResponse_sourceImageFace' - The face in the source image that was used for comparison.
 --
 -- 'sourceImageOrientationCorrection', 'compareFacesResponse_sourceImageOrientationCorrection' - The value of @SourceImageOrientationCorrection@ is always null.
 --
@@ -393,34 +386,7 @@ data CompareFacesResponse = CompareFacesResponse'
 -- Exif metadata. The bounding box coordinates aren\'t translated and
 -- represent the object locations before the image is rotated.
 --
--- 'faceMatches', 'compareFacesResponse_faceMatches' - An array of faces in the target image that match the source image face.
--- Each @CompareFacesMatch@ object provides the bounding box, the
--- confidence level that the bounding box contains a face, and the
--- similarity score for the face in the bounding box and the face in the
--- source image.
---
--- 'unmatchedFaces', 'compareFacesResponse_unmatchedFaces' - An array of faces in the target image that did not match the source
--- image face.
---
--- 'sourceImageFace', 'compareFacesResponse_sourceImageFace' - The face in the source image that was used for comparison.
---
--- 'httpStatus', 'compareFacesResponse_httpStatus' - The response's http status code.
-newCompareFacesResponse ::
-  -- | 'httpStatus'
-  Prelude.Int ->
-  CompareFacesResponse
-newCompareFacesResponse pHttpStatus_ =
-  CompareFacesResponse'
-    { targetImageOrientationCorrection =
-        Prelude.Nothing,
-      sourceImageOrientationCorrection = Prelude.Nothing,
-      faceMatches = Prelude.Nothing,
-      unmatchedFaces = Prelude.Nothing,
-      sourceImageFace = Prelude.Nothing,
-      httpStatus = pHttpStatus_
-    }
-
--- | The value of @TargetImageOrientationCorrection@ is always null.
+-- 'targetImageOrientationCorrection', 'compareFacesResponse_targetImageOrientationCorrection' - The value of @TargetImageOrientationCorrection@ is always null.
 --
 -- If the input image is in .jpeg format, it might contain exchangeable
 -- image file format (Exif) metadata that includes the image\'s
@@ -434,8 +400,37 @@ newCompareFacesResponse pHttpStatus_ =
 -- format and .jpeg images without orientation information in the image
 -- Exif metadata. The bounding box coordinates aren\'t translated and
 -- represent the object locations before the image is rotated.
-compareFacesResponse_targetImageOrientationCorrection :: Lens.Lens' CompareFacesResponse (Prelude.Maybe OrientationCorrection)
-compareFacesResponse_targetImageOrientationCorrection = Lens.lens (\CompareFacesResponse' {targetImageOrientationCorrection} -> targetImageOrientationCorrection) (\s@CompareFacesResponse' {} a -> s {targetImageOrientationCorrection = a} :: CompareFacesResponse)
+--
+-- 'unmatchedFaces', 'compareFacesResponse_unmatchedFaces' - An array of faces in the target image that did not match the source
+-- image face.
+--
+-- 'httpStatus', 'compareFacesResponse_httpStatus' - The response's http status code.
+newCompareFacesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CompareFacesResponse
+newCompareFacesResponse pHttpStatus_ =
+  CompareFacesResponse'
+    { faceMatches =
+        Prelude.Nothing,
+      sourceImageFace = Prelude.Nothing,
+      sourceImageOrientationCorrection = Prelude.Nothing,
+      targetImageOrientationCorrection = Prelude.Nothing,
+      unmatchedFaces = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | An array of faces in the target image that match the source image face.
+-- Each @CompareFacesMatch@ object provides the bounding box, the
+-- confidence level that the bounding box contains a face, and the
+-- similarity score for the face in the bounding box and the face in the
+-- source image.
+compareFacesResponse_faceMatches :: Lens.Lens' CompareFacesResponse (Prelude.Maybe [CompareFacesMatch])
+compareFacesResponse_faceMatches = Lens.lens (\CompareFacesResponse' {faceMatches} -> faceMatches) (\s@CompareFacesResponse' {} a -> s {faceMatches = a} :: CompareFacesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The face in the source image that was used for comparison.
+compareFacesResponse_sourceImageFace :: Lens.Lens' CompareFacesResponse (Prelude.Maybe ComparedSourceImageFace)
+compareFacesResponse_sourceImageFace = Lens.lens (\CompareFacesResponse' {sourceImageFace} -> sourceImageFace) (\s@CompareFacesResponse' {} a -> s {sourceImageFace = a} :: CompareFacesResponse)
 
 -- | The value of @SourceImageOrientationCorrection@ is always null.
 --
@@ -454,22 +449,27 @@ compareFacesResponse_targetImageOrientationCorrection = Lens.lens (\CompareFaces
 compareFacesResponse_sourceImageOrientationCorrection :: Lens.Lens' CompareFacesResponse (Prelude.Maybe OrientationCorrection)
 compareFacesResponse_sourceImageOrientationCorrection = Lens.lens (\CompareFacesResponse' {sourceImageOrientationCorrection} -> sourceImageOrientationCorrection) (\s@CompareFacesResponse' {} a -> s {sourceImageOrientationCorrection = a} :: CompareFacesResponse)
 
--- | An array of faces in the target image that match the source image face.
--- Each @CompareFacesMatch@ object provides the bounding box, the
--- confidence level that the bounding box contains a face, and the
--- similarity score for the face in the bounding box and the face in the
--- source image.
-compareFacesResponse_faceMatches :: Lens.Lens' CompareFacesResponse (Prelude.Maybe [CompareFacesMatch])
-compareFacesResponse_faceMatches = Lens.lens (\CompareFacesResponse' {faceMatches} -> faceMatches) (\s@CompareFacesResponse' {} a -> s {faceMatches = a} :: CompareFacesResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The value of @TargetImageOrientationCorrection@ is always null.
+--
+-- If the input image is in .jpeg format, it might contain exchangeable
+-- image file format (Exif) metadata that includes the image\'s
+-- orientation. Amazon Rekognition uses this orientation information to
+-- perform image correction. The bounding box coordinates are translated to
+-- represent object locations after the orientation information in the Exif
+-- metadata is used to correct the image orientation. Images in .png format
+-- don\'t contain Exif metadata.
+--
+-- Amazon Rekognition doesn’t perform image correction for images in .png
+-- format and .jpeg images without orientation information in the image
+-- Exif metadata. The bounding box coordinates aren\'t translated and
+-- represent the object locations before the image is rotated.
+compareFacesResponse_targetImageOrientationCorrection :: Lens.Lens' CompareFacesResponse (Prelude.Maybe OrientationCorrection)
+compareFacesResponse_targetImageOrientationCorrection = Lens.lens (\CompareFacesResponse' {targetImageOrientationCorrection} -> targetImageOrientationCorrection) (\s@CompareFacesResponse' {} a -> s {targetImageOrientationCorrection = a} :: CompareFacesResponse)
 
 -- | An array of faces in the target image that did not match the source
 -- image face.
 compareFacesResponse_unmatchedFaces :: Lens.Lens' CompareFacesResponse (Prelude.Maybe [ComparedFace])
 compareFacesResponse_unmatchedFaces = Lens.lens (\CompareFacesResponse' {unmatchedFaces} -> unmatchedFaces) (\s@CompareFacesResponse' {} a -> s {unmatchedFaces = a} :: CompareFacesResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The face in the source image that was used for comparison.
-compareFacesResponse_sourceImageFace :: Lens.Lens' CompareFacesResponse (Prelude.Maybe ComparedSourceImageFace)
-compareFacesResponse_sourceImageFace = Lens.lens (\CompareFacesResponse' {sourceImageFace} -> sourceImageFace) (\s@CompareFacesResponse' {} a -> s {sourceImageFace = a} :: CompareFacesResponse)
 
 -- | The response's http status code.
 compareFacesResponse_httpStatus :: Lens.Lens' CompareFacesResponse Prelude.Int
@@ -477,9 +477,9 @@ compareFacesResponse_httpStatus = Lens.lens (\CompareFacesResponse' {httpStatus}
 
 instance Prelude.NFData CompareFacesResponse where
   rnf CompareFacesResponse' {..} =
-    Prelude.rnf targetImageOrientationCorrection
-      `Prelude.seq` Prelude.rnf sourceImageOrientationCorrection
-      `Prelude.seq` Prelude.rnf faceMatches
-      `Prelude.seq` Prelude.rnf unmatchedFaces
+    Prelude.rnf faceMatches
       `Prelude.seq` Prelude.rnf sourceImageFace
+      `Prelude.seq` Prelude.rnf sourceImageOrientationCorrection
+      `Prelude.seq` Prelude.rnf targetImageOrientationCorrection
+      `Prelude.seq` Prelude.rnf unmatchedFaces
       `Prelude.seq` Prelude.rnf httpStatus

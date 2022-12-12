@@ -35,8 +35,8 @@ module Amazonka.QuickSight.DescribeNamespace
     newDescribeNamespaceResponse,
 
     -- * Response Lenses
-    describeNamespaceResponse_requestId,
     describeNamespaceResponse_namespace,
+    describeNamespaceResponse_requestId,
     describeNamespaceResponse_status,
   )
 where
@@ -102,8 +102,8 @@ instance Core.AWSRequest DescribeNamespace where
     Response.receiveJSON
       ( \s h x ->
           DescribeNamespaceResponse'
-            Prelude.<$> (x Data..?> "RequestId")
-            Prelude.<*> (x Data..?> "Namespace")
+            Prelude.<$> (x Data..?> "Namespace")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -142,15 +142,15 @@ instance Data.ToQuery DescribeNamespace where
 
 -- | /See:/ 'newDescribeNamespaceResponse' smart constructor.
 data DescribeNamespaceResponse = DescribeNamespaceResponse'
-  { -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The information about the namespace that you\'re describing. The
+  { -- | The information about the namespace that you\'re describing. The
     -- response includes the namespace ARN, name, Amazon Web Services Region,
     -- creation status, and identity store. @DescribeNamespace@ also works for
     -- namespaces that are in the process of being created. For incomplete
     -- namespaces, this API operation lists the namespace error types and
     -- messages associated with the creation process.
     namespace :: Prelude.Maybe NamespaceInfoV2,
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -164,14 +164,14 @@ data DescribeNamespaceResponse = DescribeNamespaceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'describeNamespaceResponse_requestId' - The Amazon Web Services request ID for this operation.
---
 -- 'namespace', 'describeNamespaceResponse_namespace' - The information about the namespace that you\'re describing. The
 -- response includes the namespace ARN, name, Amazon Web Services Region,
 -- creation status, and identity store. @DescribeNamespace@ also works for
 -- namespaces that are in the process of being created. For incomplete
 -- namespaces, this API operation lists the namespace error types and
 -- messages associated with the creation process.
+--
+-- 'requestId', 'describeNamespaceResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'status', 'describeNamespaceResponse_status' - The HTTP status of the request.
 newDescribeNamespaceResponse ::
@@ -180,15 +180,11 @@ newDescribeNamespaceResponse ::
   DescribeNamespaceResponse
 newDescribeNamespaceResponse pStatus_ =
   DescribeNamespaceResponse'
-    { requestId =
+    { namespace =
         Prelude.Nothing,
-      namespace = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       status = pStatus_
     }
-
--- | The Amazon Web Services request ID for this operation.
-describeNamespaceResponse_requestId :: Lens.Lens' DescribeNamespaceResponse (Prelude.Maybe Prelude.Text)
-describeNamespaceResponse_requestId = Lens.lens (\DescribeNamespaceResponse' {requestId} -> requestId) (\s@DescribeNamespaceResponse' {} a -> s {requestId = a} :: DescribeNamespaceResponse)
 
 -- | The information about the namespace that you\'re describing. The
 -- response includes the namespace ARN, name, Amazon Web Services Region,
@@ -199,12 +195,16 @@ describeNamespaceResponse_requestId = Lens.lens (\DescribeNamespaceResponse' {re
 describeNamespaceResponse_namespace :: Lens.Lens' DescribeNamespaceResponse (Prelude.Maybe NamespaceInfoV2)
 describeNamespaceResponse_namespace = Lens.lens (\DescribeNamespaceResponse' {namespace} -> namespace) (\s@DescribeNamespaceResponse' {} a -> s {namespace = a} :: DescribeNamespaceResponse)
 
+-- | The Amazon Web Services request ID for this operation.
+describeNamespaceResponse_requestId :: Lens.Lens' DescribeNamespaceResponse (Prelude.Maybe Prelude.Text)
+describeNamespaceResponse_requestId = Lens.lens (\DescribeNamespaceResponse' {requestId} -> requestId) (\s@DescribeNamespaceResponse' {} a -> s {requestId = a} :: DescribeNamespaceResponse)
+
 -- | The HTTP status of the request.
 describeNamespaceResponse_status :: Lens.Lens' DescribeNamespaceResponse Prelude.Int
 describeNamespaceResponse_status = Lens.lens (\DescribeNamespaceResponse' {status} -> status) (\s@DescribeNamespaceResponse' {} a -> s {status = a} :: DescribeNamespaceResponse)
 
 instance Prelude.NFData DescribeNamespaceResponse where
   rnf DescribeNamespaceResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf namespace
+    Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf status

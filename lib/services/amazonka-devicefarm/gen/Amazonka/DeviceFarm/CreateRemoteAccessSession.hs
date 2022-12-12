@@ -27,16 +27,16 @@ module Amazonka.DeviceFarm.CreateRemoteAccessSession
     newCreateRemoteAccessSession,
 
     -- * Request Lenses
-    createRemoteAccessSession_name,
     createRemoteAccessSession_clientId,
+    createRemoteAccessSession_configuration,
+    createRemoteAccessSession_instanceArn,
+    createRemoteAccessSession_interactionMode,
+    createRemoteAccessSession_name,
     createRemoteAccessSession_remoteDebugEnabled,
     createRemoteAccessSession_remoteRecordAppArn,
     createRemoteAccessSession_remoteRecordEnabled,
-    createRemoteAccessSession_configuration,
-    createRemoteAccessSession_sshPublicKey,
-    createRemoteAccessSession_instanceArn,
-    createRemoteAccessSession_interactionMode,
     createRemoteAccessSession_skipAppResign,
+    createRemoteAccessSession_sshPublicKey,
     createRemoteAccessSession_projectArn,
     createRemoteAccessSession_deviceArn,
 
@@ -62,9 +62,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateRemoteAccessSession' smart constructor.
 data CreateRemoteAccessSession = CreateRemoteAccessSession'
-  { -- | The name of the remote access session to create.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Unique identifier for the client. If you want access to multiple devices
+  { -- | Unique identifier for the client. If you want access to multiple devices
     -- on the same client, you should pass the same @clientId@ value in each
     -- call to @CreateRemoteAccessSession@. This identifier is required only if
     -- @remoteDebugEnabled@ is set to @true@.
@@ -72,26 +70,8 @@ data CreateRemoteAccessSession = CreateRemoteAccessSession'
     -- Remote debugging is
     -- <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported>.
     clientId :: Prelude.Maybe Prelude.Text,
-    -- | Set to @true@ if you want to access devices remotely for debugging in
-    -- your remote access session.
-    --
-    -- Remote debugging is
-    -- <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported>.
-    remoteDebugEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The Amazon Resource Name (ARN) for the app to be recorded in the remote
-    -- access session.
-    remoteRecordAppArn :: Prelude.Maybe Prelude.Text,
-    -- | Set to @true@ to enable remote recording for the remote access session.
-    remoteRecordEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The configuration information for the remote access session request.
     configuration :: Prelude.Maybe CreateRemoteAccessSessionConfiguration,
-    -- | Ignored. The public key of the @ssh@ key pair you want to use for
-    -- connecting to remote devices in your remote debugging session. This key
-    -- is required only if @remoteDebugEnabled@ is set to @true@.
-    --
-    -- Remote debugging is
-    -- <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported>.
-    sshPublicKey :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the device instance for which you want
     -- to create a remote access session.
     instanceArn :: Prelude.Maybe Prelude.Text,
@@ -109,6 +89,19 @@ data CreateRemoteAccessSession = CreateRemoteAccessSession'
     --     You can run XCUITest framework-based tests and watch the screen in
     --     this mode.
     interactionMode :: Prelude.Maybe InteractionMode,
+    -- | The name of the remote access session to create.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Set to @true@ if you want to access devices remotely for debugging in
+    -- your remote access session.
+    --
+    -- Remote debugging is
+    -- <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported>.
+    remoteDebugEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The Amazon Resource Name (ARN) for the app to be recorded in the remote
+    -- access session.
+    remoteRecordAppArn :: Prelude.Maybe Prelude.Text,
+    -- | Set to @true@ to enable remote recording for the remote access session.
+    remoteRecordEnabled :: Prelude.Maybe Prelude.Bool,
     -- | When set to @true@, for private devices, Device Farm does not sign your
     -- app again. For public devices, Device Farm always signs your apps again.
     --
@@ -116,6 +109,13 @@ data CreateRemoteAccessSession = CreateRemoteAccessSession'
     -- tests, see
     -- <http://aws.amazon.com/device-farm/faqs/ Do you modify my app?>
     skipAppResign :: Prelude.Maybe Prelude.Bool,
+    -- | Ignored. The public key of the @ssh@ key pair you want to use for
+    -- connecting to remote devices in your remote debugging session. This key
+    -- is required only if @remoteDebugEnabled@ is set to @true@.
+    --
+    -- Remote debugging is
+    -- <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported>.
+    sshPublicKey :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the project for which you want to
     -- create a remote access session.
     projectArn :: Prelude.Text,
@@ -133,8 +133,6 @@ data CreateRemoteAccessSession = CreateRemoteAccessSession'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'createRemoteAccessSession_name' - The name of the remote access session to create.
---
 -- 'clientId', 'createRemoteAccessSession_clientId' - Unique identifier for the client. If you want access to multiple devices
 -- on the same client, you should pass the same @clientId@ value in each
 -- call to @CreateRemoteAccessSession@. This identifier is required only if
@@ -143,25 +141,7 @@ data CreateRemoteAccessSession = CreateRemoteAccessSession'
 -- Remote debugging is
 -- <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported>.
 --
--- 'remoteDebugEnabled', 'createRemoteAccessSession_remoteDebugEnabled' - Set to @true@ if you want to access devices remotely for debugging in
--- your remote access session.
---
--- Remote debugging is
--- <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported>.
---
--- 'remoteRecordAppArn', 'createRemoteAccessSession_remoteRecordAppArn' - The Amazon Resource Name (ARN) for the app to be recorded in the remote
--- access session.
---
--- 'remoteRecordEnabled', 'createRemoteAccessSession_remoteRecordEnabled' - Set to @true@ to enable remote recording for the remote access session.
---
 -- 'configuration', 'createRemoteAccessSession_configuration' - The configuration information for the remote access session request.
---
--- 'sshPublicKey', 'createRemoteAccessSession_sshPublicKey' - Ignored. The public key of the @ssh@ key pair you want to use for
--- connecting to remote devices in your remote debugging session. This key
--- is required only if @remoteDebugEnabled@ is set to @true@.
---
--- Remote debugging is
--- <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported>.
 --
 -- 'instanceArn', 'createRemoteAccessSession_instanceArn' - The Amazon Resource Name (ARN) of the device instance for which you want
 -- to create a remote access session.
@@ -180,12 +160,32 @@ data CreateRemoteAccessSession = CreateRemoteAccessSession'
 --     You can run XCUITest framework-based tests and watch the screen in
 --     this mode.
 --
+-- 'name', 'createRemoteAccessSession_name' - The name of the remote access session to create.
+--
+-- 'remoteDebugEnabled', 'createRemoteAccessSession_remoteDebugEnabled' - Set to @true@ if you want to access devices remotely for debugging in
+-- your remote access session.
+--
+-- Remote debugging is
+-- <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported>.
+--
+-- 'remoteRecordAppArn', 'createRemoteAccessSession_remoteRecordAppArn' - The Amazon Resource Name (ARN) for the app to be recorded in the remote
+-- access session.
+--
+-- 'remoteRecordEnabled', 'createRemoteAccessSession_remoteRecordEnabled' - Set to @true@ to enable remote recording for the remote access session.
+--
 -- 'skipAppResign', 'createRemoteAccessSession_skipAppResign' - When set to @true@, for private devices, Device Farm does not sign your
 -- app again. For public devices, Device Farm always signs your apps again.
 --
 -- For more information on how Device Farm modifies your uploads during
 -- tests, see
 -- <http://aws.amazon.com/device-farm/faqs/ Do you modify my app?>
+--
+-- 'sshPublicKey', 'createRemoteAccessSession_sshPublicKey' - Ignored. The public key of the @ssh@ key pair you want to use for
+-- connecting to remote devices in your remote debugging session. This key
+-- is required only if @remoteDebugEnabled@ is set to @true@.
+--
+-- Remote debugging is
+-- <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported>.
 --
 -- 'projectArn', 'createRemoteAccessSession_projectArn' - The Amazon Resource Name (ARN) of the project for which you want to
 -- create a remote access session.
@@ -200,23 +200,20 @@ newCreateRemoteAccessSession ::
   CreateRemoteAccessSession
 newCreateRemoteAccessSession pProjectArn_ pDeviceArn_ =
   CreateRemoteAccessSession'
-    { name = Prelude.Nothing,
-      clientId = Prelude.Nothing,
+    { clientId =
+        Prelude.Nothing,
+      configuration = Prelude.Nothing,
+      instanceArn = Prelude.Nothing,
+      interactionMode = Prelude.Nothing,
+      name = Prelude.Nothing,
       remoteDebugEnabled = Prelude.Nothing,
       remoteRecordAppArn = Prelude.Nothing,
       remoteRecordEnabled = Prelude.Nothing,
-      configuration = Prelude.Nothing,
-      sshPublicKey = Prelude.Nothing,
-      instanceArn = Prelude.Nothing,
-      interactionMode = Prelude.Nothing,
       skipAppResign = Prelude.Nothing,
+      sshPublicKey = Prelude.Nothing,
       projectArn = pProjectArn_,
       deviceArn = pDeviceArn_
     }
-
--- | The name of the remote access session to create.
-createRemoteAccessSession_name :: Lens.Lens' CreateRemoteAccessSession (Prelude.Maybe Prelude.Text)
-createRemoteAccessSession_name = Lens.lens (\CreateRemoteAccessSession' {name} -> name) (\s@CreateRemoteAccessSession' {} a -> s {name = a} :: CreateRemoteAccessSession)
 
 -- | Unique identifier for the client. If you want access to multiple devices
 -- on the same client, you should pass the same @clientId@ value in each
@@ -228,35 +225,9 @@ createRemoteAccessSession_name = Lens.lens (\CreateRemoteAccessSession' {name} -
 createRemoteAccessSession_clientId :: Lens.Lens' CreateRemoteAccessSession (Prelude.Maybe Prelude.Text)
 createRemoteAccessSession_clientId = Lens.lens (\CreateRemoteAccessSession' {clientId} -> clientId) (\s@CreateRemoteAccessSession' {} a -> s {clientId = a} :: CreateRemoteAccessSession)
 
--- | Set to @true@ if you want to access devices remotely for debugging in
--- your remote access session.
---
--- Remote debugging is
--- <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported>.
-createRemoteAccessSession_remoteDebugEnabled :: Lens.Lens' CreateRemoteAccessSession (Prelude.Maybe Prelude.Bool)
-createRemoteAccessSession_remoteDebugEnabled = Lens.lens (\CreateRemoteAccessSession' {remoteDebugEnabled} -> remoteDebugEnabled) (\s@CreateRemoteAccessSession' {} a -> s {remoteDebugEnabled = a} :: CreateRemoteAccessSession)
-
--- | The Amazon Resource Name (ARN) for the app to be recorded in the remote
--- access session.
-createRemoteAccessSession_remoteRecordAppArn :: Lens.Lens' CreateRemoteAccessSession (Prelude.Maybe Prelude.Text)
-createRemoteAccessSession_remoteRecordAppArn = Lens.lens (\CreateRemoteAccessSession' {remoteRecordAppArn} -> remoteRecordAppArn) (\s@CreateRemoteAccessSession' {} a -> s {remoteRecordAppArn = a} :: CreateRemoteAccessSession)
-
--- | Set to @true@ to enable remote recording for the remote access session.
-createRemoteAccessSession_remoteRecordEnabled :: Lens.Lens' CreateRemoteAccessSession (Prelude.Maybe Prelude.Bool)
-createRemoteAccessSession_remoteRecordEnabled = Lens.lens (\CreateRemoteAccessSession' {remoteRecordEnabled} -> remoteRecordEnabled) (\s@CreateRemoteAccessSession' {} a -> s {remoteRecordEnabled = a} :: CreateRemoteAccessSession)
-
 -- | The configuration information for the remote access session request.
 createRemoteAccessSession_configuration :: Lens.Lens' CreateRemoteAccessSession (Prelude.Maybe CreateRemoteAccessSessionConfiguration)
 createRemoteAccessSession_configuration = Lens.lens (\CreateRemoteAccessSession' {configuration} -> configuration) (\s@CreateRemoteAccessSession' {} a -> s {configuration = a} :: CreateRemoteAccessSession)
-
--- | Ignored. The public key of the @ssh@ key pair you want to use for
--- connecting to remote devices in your remote debugging session. This key
--- is required only if @remoteDebugEnabled@ is set to @true@.
---
--- Remote debugging is
--- <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported>.
-createRemoteAccessSession_sshPublicKey :: Lens.Lens' CreateRemoteAccessSession (Prelude.Maybe Prelude.Text)
-createRemoteAccessSession_sshPublicKey = Lens.lens (\CreateRemoteAccessSession' {sshPublicKey} -> sshPublicKey) (\s@CreateRemoteAccessSession' {} a -> s {sshPublicKey = a} :: CreateRemoteAccessSession)
 
 -- | The Amazon Resource Name (ARN) of the device instance for which you want
 -- to create a remote access session.
@@ -279,6 +250,27 @@ createRemoteAccessSession_instanceArn = Lens.lens (\CreateRemoteAccessSession' {
 createRemoteAccessSession_interactionMode :: Lens.Lens' CreateRemoteAccessSession (Prelude.Maybe InteractionMode)
 createRemoteAccessSession_interactionMode = Lens.lens (\CreateRemoteAccessSession' {interactionMode} -> interactionMode) (\s@CreateRemoteAccessSession' {} a -> s {interactionMode = a} :: CreateRemoteAccessSession)
 
+-- | The name of the remote access session to create.
+createRemoteAccessSession_name :: Lens.Lens' CreateRemoteAccessSession (Prelude.Maybe Prelude.Text)
+createRemoteAccessSession_name = Lens.lens (\CreateRemoteAccessSession' {name} -> name) (\s@CreateRemoteAccessSession' {} a -> s {name = a} :: CreateRemoteAccessSession)
+
+-- | Set to @true@ if you want to access devices remotely for debugging in
+-- your remote access session.
+--
+-- Remote debugging is
+-- <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported>.
+createRemoteAccessSession_remoteDebugEnabled :: Lens.Lens' CreateRemoteAccessSession (Prelude.Maybe Prelude.Bool)
+createRemoteAccessSession_remoteDebugEnabled = Lens.lens (\CreateRemoteAccessSession' {remoteDebugEnabled} -> remoteDebugEnabled) (\s@CreateRemoteAccessSession' {} a -> s {remoteDebugEnabled = a} :: CreateRemoteAccessSession)
+
+-- | The Amazon Resource Name (ARN) for the app to be recorded in the remote
+-- access session.
+createRemoteAccessSession_remoteRecordAppArn :: Lens.Lens' CreateRemoteAccessSession (Prelude.Maybe Prelude.Text)
+createRemoteAccessSession_remoteRecordAppArn = Lens.lens (\CreateRemoteAccessSession' {remoteRecordAppArn} -> remoteRecordAppArn) (\s@CreateRemoteAccessSession' {} a -> s {remoteRecordAppArn = a} :: CreateRemoteAccessSession)
+
+-- | Set to @true@ to enable remote recording for the remote access session.
+createRemoteAccessSession_remoteRecordEnabled :: Lens.Lens' CreateRemoteAccessSession (Prelude.Maybe Prelude.Bool)
+createRemoteAccessSession_remoteRecordEnabled = Lens.lens (\CreateRemoteAccessSession' {remoteRecordEnabled} -> remoteRecordEnabled) (\s@CreateRemoteAccessSession' {} a -> s {remoteRecordEnabled = a} :: CreateRemoteAccessSession)
+
 -- | When set to @true@, for private devices, Device Farm does not sign your
 -- app again. For public devices, Device Farm always signs your apps again.
 --
@@ -287,6 +279,15 @@ createRemoteAccessSession_interactionMode = Lens.lens (\CreateRemoteAccessSessio
 -- <http://aws.amazon.com/device-farm/faqs/ Do you modify my app?>
 createRemoteAccessSession_skipAppResign :: Lens.Lens' CreateRemoteAccessSession (Prelude.Maybe Prelude.Bool)
 createRemoteAccessSession_skipAppResign = Lens.lens (\CreateRemoteAccessSession' {skipAppResign} -> skipAppResign) (\s@CreateRemoteAccessSession' {} a -> s {skipAppResign = a} :: CreateRemoteAccessSession)
+
+-- | Ignored. The public key of the @ssh@ key pair you want to use for
+-- connecting to remote devices in your remote debugging session. This key
+-- is required only if @remoteDebugEnabled@ is set to @true@.
+--
+-- Remote debugging is
+-- <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported>.
+createRemoteAccessSession_sshPublicKey :: Lens.Lens' CreateRemoteAccessSession (Prelude.Maybe Prelude.Text)
+createRemoteAccessSession_sshPublicKey = Lens.lens (\CreateRemoteAccessSession' {sshPublicKey} -> sshPublicKey) (\s@CreateRemoteAccessSession' {} a -> s {sshPublicKey = a} :: CreateRemoteAccessSession)
 
 -- | The Amazon Resource Name (ARN) of the project for which you want to
 -- create a remote access session.
@@ -314,31 +315,31 @@ instance Core.AWSRequest CreateRemoteAccessSession where
 
 instance Prelude.Hashable CreateRemoteAccessSession where
   hashWithSalt _salt CreateRemoteAccessSession' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` clientId
+    _salt `Prelude.hashWithSalt` clientId
+      `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` instanceArn
+      `Prelude.hashWithSalt` interactionMode
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` remoteDebugEnabled
       `Prelude.hashWithSalt` remoteRecordAppArn
       `Prelude.hashWithSalt` remoteRecordEnabled
-      `Prelude.hashWithSalt` configuration
-      `Prelude.hashWithSalt` sshPublicKey
-      `Prelude.hashWithSalt` instanceArn
-      `Prelude.hashWithSalt` interactionMode
       `Prelude.hashWithSalt` skipAppResign
+      `Prelude.hashWithSalt` sshPublicKey
       `Prelude.hashWithSalt` projectArn
       `Prelude.hashWithSalt` deviceArn
 
 instance Prelude.NFData CreateRemoteAccessSession where
   rnf CreateRemoteAccessSession' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf clientId
+    Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf instanceArn
+      `Prelude.seq` Prelude.rnf interactionMode
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf remoteDebugEnabled
       `Prelude.seq` Prelude.rnf remoteRecordAppArn
       `Prelude.seq` Prelude.rnf remoteRecordEnabled
-      `Prelude.seq` Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf sshPublicKey
-      `Prelude.seq` Prelude.rnf instanceArn
-      `Prelude.seq` Prelude.rnf interactionMode
       `Prelude.seq` Prelude.rnf skipAppResign
+      `Prelude.seq` Prelude.rnf sshPublicKey
       `Prelude.seq` Prelude.rnf projectArn
       `Prelude.seq` Prelude.rnf deviceArn
 
@@ -361,20 +362,20 @@ instance Data.ToJSON CreateRemoteAccessSession where
   toJSON CreateRemoteAccessSession' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("name" Data..=) Prelude.<$> name,
-            ("clientId" Data..=) Prelude.<$> clientId,
+          [ ("clientId" Data..=) Prelude.<$> clientId,
+            ("configuration" Data..=) Prelude.<$> configuration,
+            ("instanceArn" Data..=) Prelude.<$> instanceArn,
+            ("interactionMode" Data..=)
+              Prelude.<$> interactionMode,
+            ("name" Data..=) Prelude.<$> name,
             ("remoteDebugEnabled" Data..=)
               Prelude.<$> remoteDebugEnabled,
             ("remoteRecordAppArn" Data..=)
               Prelude.<$> remoteRecordAppArn,
             ("remoteRecordEnabled" Data..=)
               Prelude.<$> remoteRecordEnabled,
-            ("configuration" Data..=) Prelude.<$> configuration,
-            ("sshPublicKey" Data..=) Prelude.<$> sshPublicKey,
-            ("instanceArn" Data..=) Prelude.<$> instanceArn,
-            ("interactionMode" Data..=)
-              Prelude.<$> interactionMode,
             ("skipAppResign" Data..=) Prelude.<$> skipAppResign,
+            ("sshPublicKey" Data..=) Prelude.<$> sshPublicKey,
             Prelude.Just ("projectArn" Data..= projectArn),
             Prelude.Just ("deviceArn" Data..= deviceArn)
           ]

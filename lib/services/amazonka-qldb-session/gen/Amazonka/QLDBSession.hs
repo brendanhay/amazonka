@@ -34,23 +34,23 @@ module Amazonka.QLDBSession
     -- * Errors
     -- $errors
 
-    -- ** OccConflictException
-    _OccConflictException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
+    -- ** BadRequestException
+    _BadRequestException,
 
     -- ** CapacityExceededException
     _CapacityExceededException,
 
-    -- ** BadRequestException
-    _BadRequestException,
+    -- ** InvalidSessionException
+    _InvalidSessionException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** OccConflictException
+    _OccConflictException,
 
     -- ** RateExceededException
     _RateExceededException,
-
-    -- ** InvalidSessionException
-    _InvalidSessionException,
 
     -- * Waiters
     -- $waiters

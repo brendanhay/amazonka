@@ -29,8 +29,8 @@ module Amazonka.SSMIncidents.ListReplicationSets
     newListReplicationSets,
 
     -- * Request Lenses
-    listReplicationSets_nextToken,
     listReplicationSets_maxResults,
+    listReplicationSets_nextToken,
 
     -- * Destructuring the Response
     ListReplicationSetsResponse (..),
@@ -53,10 +53,10 @@ import Amazonka.SSMIncidents.Types
 
 -- | /See:/ 'newListReplicationSets' smart constructor.
 data ListReplicationSets = ListReplicationSets'
-  { -- | The pagination token to continue to the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results per page.
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { -- | The maximum number of results per page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token to continue to the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,24 +68,24 @@ data ListReplicationSets = ListReplicationSets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listReplicationSets_nextToken' - The pagination token to continue to the next page of results.
---
 -- 'maxResults', 'listReplicationSets_maxResults' - The maximum number of results per page.
+--
+-- 'nextToken', 'listReplicationSets_nextToken' - The pagination token to continue to the next page of results.
 newListReplicationSets ::
   ListReplicationSets
 newListReplicationSets =
   ListReplicationSets'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The pagination token to continue to the next page of results.
-listReplicationSets_nextToken :: Lens.Lens' ListReplicationSets (Prelude.Maybe Prelude.Text)
-listReplicationSets_nextToken = Lens.lens (\ListReplicationSets' {nextToken} -> nextToken) (\s@ListReplicationSets' {} a -> s {nextToken = a} :: ListReplicationSets)
 
 -- | The maximum number of results per page.
 listReplicationSets_maxResults :: Lens.Lens' ListReplicationSets (Prelude.Maybe Prelude.Natural)
 listReplicationSets_maxResults = Lens.lens (\ListReplicationSets' {maxResults} -> maxResults) (\s@ListReplicationSets' {} a -> s {maxResults = a} :: ListReplicationSets)
+
+-- | The pagination token to continue to the next page of results.
+listReplicationSets_nextToken :: Lens.Lens' ListReplicationSets (Prelude.Maybe Prelude.Text)
+listReplicationSets_nextToken = Lens.lens (\ListReplicationSets' {nextToken} -> nextToken) (\s@ListReplicationSets' {} a -> s {nextToken = a} :: ListReplicationSets)
 
 instance Core.AWSPager ListReplicationSets where
   page rq rs
@@ -127,13 +127,13 @@ instance Core.AWSRequest ListReplicationSets where
 
 instance Prelude.Hashable ListReplicationSets where
   hashWithSalt _salt ListReplicationSets' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListReplicationSets where
   rnf ListReplicationSets' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListReplicationSets where
   toHeaders =
@@ -150,8 +150,8 @@ instance Data.ToJSON ListReplicationSets where
   toJSON ListReplicationSets' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

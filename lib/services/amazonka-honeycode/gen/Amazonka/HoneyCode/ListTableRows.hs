@@ -30,9 +30,9 @@ module Amazonka.HoneyCode.ListTableRows
     newListTableRows,
 
     -- * Request Lenses
+    listTableRows_maxResults,
     listTableRows_nextToken,
     listTableRows_rowIds,
-    listTableRows_maxResults,
     listTableRows_workbookId,
     listTableRows_tableId,
 
@@ -60,7 +60,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTableRows' smart constructor.
 data ListTableRows = ListTableRows'
-  { -- | This parameter is optional. If a nextToken is not specified, the API
+  { -- | The maximum number of rows to return in each page of the results.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | This parameter is optional. If a nextToken is not specified, the API
     -- returns the first page of data.
     --
     -- Pagination tokens expire after 1 hour. If you use a token that was
@@ -70,8 +72,6 @@ data ListTableRows = ListTableRows'
     -- list, then only the specified row ids are returned in the result. If no
     -- row ids are specified here, then all the rows in the table are returned.
     rowIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The maximum number of rows to return in each page of the results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the workbook that contains the table whose rows are being
     -- retrieved.
     --
@@ -94,6 +94,8 @@ data ListTableRows = ListTableRows'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listTableRows_maxResults' - The maximum number of rows to return in each page of the results.
+--
 -- 'nextToken', 'listTableRows_nextToken' - This parameter is optional. If a nextToken is not specified, the API
 -- returns the first page of data.
 --
@@ -103,8 +105,6 @@ data ListTableRows = ListTableRows'
 -- 'rowIds', 'listTableRows_rowIds' - This parameter is optional. If one or more row ids are specified in this
 -- list, then only the specified row ids are returned in the result. If no
 -- row ids are specified here, then all the rows in the table are returned.
---
--- 'maxResults', 'listTableRows_maxResults' - The maximum number of rows to return in each page of the results.
 --
 -- 'workbookId', 'listTableRows_workbookId' - The ID of the workbook that contains the table whose rows are being
 -- retrieved.
@@ -124,12 +124,16 @@ newListTableRows ::
   ListTableRows
 newListTableRows pWorkbookId_ pTableId_ =
   ListTableRows'
-    { nextToken = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       rowIds = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       workbookId = pWorkbookId_,
       tableId = pTableId_
     }
+
+-- | The maximum number of rows to return in each page of the results.
+listTableRows_maxResults :: Lens.Lens' ListTableRows (Prelude.Maybe Prelude.Natural)
+listTableRows_maxResults = Lens.lens (\ListTableRows' {maxResults} -> maxResults) (\s@ListTableRows' {} a -> s {maxResults = a} :: ListTableRows)
 
 -- | This parameter is optional. If a nextToken is not specified, the API
 -- returns the first page of data.
@@ -144,10 +148,6 @@ listTableRows_nextToken = Lens.lens (\ListTableRows' {nextToken} -> nextToken) (
 -- row ids are specified here, then all the rows in the table are returned.
 listTableRows_rowIds :: Lens.Lens' ListTableRows (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 listTableRows_rowIds = Lens.lens (\ListTableRows' {rowIds} -> rowIds) (\s@ListTableRows' {} a -> s {rowIds = a} :: ListTableRows) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum number of rows to return in each page of the results.
-listTableRows_maxResults :: Lens.Lens' ListTableRows (Prelude.Maybe Prelude.Natural)
-listTableRows_maxResults = Lens.lens (\ListTableRows' {maxResults} -> maxResults) (\s@ListTableRows' {} a -> s {maxResults = a} :: ListTableRows)
 
 -- | The ID of the workbook that contains the table whose rows are being
 -- retrieved.
@@ -200,17 +200,17 @@ instance Core.AWSRequest ListTableRows where
 
 instance Prelude.Hashable ListTableRows where
   hashWithSalt _salt ListTableRows' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` rowIds
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` workbookId
       `Prelude.hashWithSalt` tableId
 
 instance Prelude.NFData ListTableRows where
   rnf ListTableRows' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf rowIds
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf workbookId
       `Prelude.seq` Prelude.rnf tableId
 
@@ -229,9 +229,9 @@ instance Data.ToJSON ListTableRows where
   toJSON ListTableRows' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("rowIds" Data..=) Prelude.<$> rowIds,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("rowIds" Data..=) Prelude.<$> rowIds
           ]
       )
 

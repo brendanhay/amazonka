@@ -34,8 +34,8 @@ module Amazonka.ImageBuilder.GetImage
     newGetImageResponse,
 
     -- * Response Lenses
-    getImageResponse_requestId,
     getImageResponse_image,
+    getImageResponse_requestId,
     getImageResponse_httpStatus,
   )
 where
@@ -86,8 +86,8 @@ instance Core.AWSRequest GetImage where
     Response.receiveJSON
       ( \s h x ->
           GetImageResponse'
-            Prelude.<$> (x Data..?> "requestId")
-            Prelude.<*> (x Data..?> "image")
+            Prelude.<$> (x Data..?> "image")
+            Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,10 +119,10 @@ instance Data.ToQuery GetImage where
 
 -- | /See:/ 'newGetImageResponse' smart constructor.
 data GetImageResponse = GetImageResponse'
-  { -- | The request ID that uniquely identifies this request.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The image object.
+  { -- | The image object.
     image :: Prelude.Maybe Image,
+    -- | The request ID that uniquely identifies this request.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -136,9 +136,9 @@ data GetImageResponse = GetImageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'getImageResponse_requestId' - The request ID that uniquely identifies this request.
---
 -- 'image', 'getImageResponse_image' - The image object.
+--
+-- 'requestId', 'getImageResponse_requestId' - The request ID that uniquely identifies this request.
 --
 -- 'httpStatus', 'getImageResponse_httpStatus' - The response's http status code.
 newGetImageResponse ::
@@ -147,18 +147,18 @@ newGetImageResponse ::
   GetImageResponse
 newGetImageResponse pHttpStatus_ =
   GetImageResponse'
-    { requestId = Prelude.Nothing,
-      image = Prelude.Nothing,
+    { image = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The request ID that uniquely identifies this request.
-getImageResponse_requestId :: Lens.Lens' GetImageResponse (Prelude.Maybe Prelude.Text)
-getImageResponse_requestId = Lens.lens (\GetImageResponse' {requestId} -> requestId) (\s@GetImageResponse' {} a -> s {requestId = a} :: GetImageResponse)
 
 -- | The image object.
 getImageResponse_image :: Lens.Lens' GetImageResponse (Prelude.Maybe Image)
 getImageResponse_image = Lens.lens (\GetImageResponse' {image} -> image) (\s@GetImageResponse' {} a -> s {image = a} :: GetImageResponse)
+
+-- | The request ID that uniquely identifies this request.
+getImageResponse_requestId :: Lens.Lens' GetImageResponse (Prelude.Maybe Prelude.Text)
+getImageResponse_requestId = Lens.lens (\GetImageResponse' {requestId} -> requestId) (\s@GetImageResponse' {} a -> s {requestId = a} :: GetImageResponse)
 
 -- | The response's http status code.
 getImageResponse_httpStatus :: Lens.Lens' GetImageResponse Prelude.Int
@@ -166,6 +166,6 @@ getImageResponse_httpStatus = Lens.lens (\GetImageResponse' {httpStatus} -> http
 
 instance Prelude.NFData GetImageResponse where
   rnf GetImageResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf image
+    Prelude.rnf image
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf httpStatus

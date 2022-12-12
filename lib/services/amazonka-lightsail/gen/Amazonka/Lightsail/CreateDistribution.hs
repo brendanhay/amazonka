@@ -32,10 +32,10 @@ module Amazonka.Lightsail.CreateDistribution
     newCreateDistribution,
 
     -- * Request Lenses
-    createDistribution_tags,
     createDistribution_cacheBehaviorSettings,
     createDistribution_cacheBehaviors,
     createDistribution_ipAddressType,
+    createDistribution_tags,
     createDistribution_distributionName,
     createDistribution_origin,
     createDistribution_defaultCacheBehavior,
@@ -62,12 +62,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDistribution' smart constructor.
 data CreateDistribution = CreateDistribution'
-  { -- | The tag keys and optional values to add to the distribution during
-    -- create.
-    --
-    -- Use the @TagResource@ action to tag a resource after it\'s created.
-    tags :: Prelude.Maybe [Tag],
-    -- | An object that describes the cache behavior settings for the
+  { -- | An object that describes the cache behavior settings for the
     -- distribution.
     cacheBehaviorSettings :: Prelude.Maybe CacheSettings,
     -- | An array of objects that describe the per-path cache behavior for the
@@ -80,6 +75,11 @@ data CreateDistribution = CreateDistribution'
     --
     -- The default value is @dualstack@.
     ipAddressType :: Prelude.Maybe IpAddressType,
+    -- | The tag keys and optional values to add to the distribution during
+    -- create.
+    --
+    -- Use the @TagResource@ action to tag a resource after it\'s created.
+    tags :: Prelude.Maybe [Tag],
     -- | The name for the distribution.
     distributionName :: Prelude.Text,
     -- | An object that describes the origin resource for the distribution, such
@@ -109,11 +109,6 @@ data CreateDistribution = CreateDistribution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createDistribution_tags' - The tag keys and optional values to add to the distribution during
--- create.
---
--- Use the @TagResource@ action to tag a resource after it\'s created.
---
 -- 'cacheBehaviorSettings', 'createDistribution_cacheBehaviorSettings' - An object that describes the cache behavior settings for the
 -- distribution.
 --
@@ -126,6 +121,11 @@ data CreateDistribution = CreateDistribution'
 -- and IPv6.
 --
 -- The default value is @dualstack@.
+--
+-- 'tags', 'createDistribution_tags' - The tag keys and optional values to add to the distribution during
+-- create.
+--
+-- Use the @TagResource@ action to tag a resource after it\'s created.
 --
 -- 'distributionName', 'createDistribution_distributionName' - The name for the distribution.
 --
@@ -160,22 +160,16 @@ newCreateDistribution
   pDefaultCacheBehavior_
   pBundleId_ =
     CreateDistribution'
-      { tags = Prelude.Nothing,
-        cacheBehaviorSettings = Prelude.Nothing,
+      { cacheBehaviorSettings =
+          Prelude.Nothing,
         cacheBehaviors = Prelude.Nothing,
         ipAddressType = Prelude.Nothing,
+        tags = Prelude.Nothing,
         distributionName = pDistributionName_,
         origin = pOrigin_,
         defaultCacheBehavior = pDefaultCacheBehavior_,
         bundleId = pBundleId_
       }
-
--- | The tag keys and optional values to add to the distribution during
--- create.
---
--- Use the @TagResource@ action to tag a resource after it\'s created.
-createDistribution_tags :: Lens.Lens' CreateDistribution (Prelude.Maybe [Tag])
-createDistribution_tags = Lens.lens (\CreateDistribution' {tags} -> tags) (\s@CreateDistribution' {} a -> s {tags = a} :: CreateDistribution) Prelude.. Lens.mapping Lens.coerced
 
 -- | An object that describes the cache behavior settings for the
 -- distribution.
@@ -195,6 +189,13 @@ createDistribution_cacheBehaviors = Lens.lens (\CreateDistribution' {cacheBehavi
 -- The default value is @dualstack@.
 createDistribution_ipAddressType :: Lens.Lens' CreateDistribution (Prelude.Maybe IpAddressType)
 createDistribution_ipAddressType = Lens.lens (\CreateDistribution' {ipAddressType} -> ipAddressType) (\s@CreateDistribution' {} a -> s {ipAddressType = a} :: CreateDistribution)
+
+-- | The tag keys and optional values to add to the distribution during
+-- create.
+--
+-- Use the @TagResource@ action to tag a resource after it\'s created.
+createDistribution_tags :: Lens.Lens' CreateDistribution (Prelude.Maybe [Tag])
+createDistribution_tags = Lens.lens (\CreateDistribution' {tags} -> tags) (\s@CreateDistribution' {} a -> s {tags = a} :: CreateDistribution) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name for the distribution.
 createDistribution_distributionName :: Lens.Lens' CreateDistribution Prelude.Text
@@ -239,10 +240,10 @@ instance Core.AWSRequest CreateDistribution where
 
 instance Prelude.Hashable CreateDistribution where
   hashWithSalt _salt CreateDistribution' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` cacheBehaviorSettings
+    _salt `Prelude.hashWithSalt` cacheBehaviorSettings
       `Prelude.hashWithSalt` cacheBehaviors
       `Prelude.hashWithSalt` ipAddressType
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` distributionName
       `Prelude.hashWithSalt` origin
       `Prelude.hashWithSalt` defaultCacheBehavior
@@ -250,10 +251,10 @@ instance Prelude.Hashable CreateDistribution where
 
 instance Prelude.NFData CreateDistribution where
   rnf CreateDistribution' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf cacheBehaviorSettings
+    Prelude.rnf cacheBehaviorSettings
       `Prelude.seq` Prelude.rnf cacheBehaviors
       `Prelude.seq` Prelude.rnf ipAddressType
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf distributionName
       `Prelude.seq` Prelude.rnf origin
       `Prelude.seq` Prelude.rnf defaultCacheBehavior
@@ -278,12 +279,12 @@ instance Data.ToJSON CreateDistribution where
   toJSON CreateDistribution' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("cacheBehaviorSettings" Data..=)
+          [ ("cacheBehaviorSettings" Data..=)
               Prelude.<$> cacheBehaviorSettings,
             ("cacheBehaviors" Data..=)
               Prelude.<$> cacheBehaviors,
             ("ipAddressType" Data..=) Prelude.<$> ipAddressType,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("distributionName" Data..= distributionName),
             Prelude.Just ("origin" Data..= origin),

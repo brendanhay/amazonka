@@ -30,11 +30,11 @@ import Amazonka.SageMaker.Types.EnvironmentParameter
 --
 -- /See:/ 'newModelConfiguration' smart constructor.
 data ModelConfiguration = ModelConfiguration'
-  { -- | The inference specification name in the model package version.
-    inferenceSpecificationName :: Prelude.Maybe Prelude.Text,
-    -- | Defines the environment parameters that includes key, value types, and
+  { -- | Defines the environment parameters that includes key, value types, and
     -- values.
-    environmentParameters :: Prelude.Maybe (Prelude.NonEmpty EnvironmentParameter)
+    environmentParameters :: Prelude.Maybe (Prelude.NonEmpty EnvironmentParameter),
+    -- | The inference specification name in the model package version.
+    inferenceSpecificationName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,27 +46,27 @@ data ModelConfiguration = ModelConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'inferenceSpecificationName', 'modelConfiguration_inferenceSpecificationName' - The inference specification name in the model package version.
---
 -- 'environmentParameters', 'modelConfiguration_environmentParameters' - Defines the environment parameters that includes key, value types, and
 -- values.
+--
+-- 'inferenceSpecificationName', 'modelConfiguration_inferenceSpecificationName' - The inference specification name in the model package version.
 newModelConfiguration ::
   ModelConfiguration
 newModelConfiguration =
   ModelConfiguration'
-    { inferenceSpecificationName =
+    { environmentParameters =
         Prelude.Nothing,
-      environmentParameters = Prelude.Nothing
+      inferenceSpecificationName = Prelude.Nothing
     }
-
--- | The inference specification name in the model package version.
-modelConfiguration_inferenceSpecificationName :: Lens.Lens' ModelConfiguration (Prelude.Maybe Prelude.Text)
-modelConfiguration_inferenceSpecificationName = Lens.lens (\ModelConfiguration' {inferenceSpecificationName} -> inferenceSpecificationName) (\s@ModelConfiguration' {} a -> s {inferenceSpecificationName = a} :: ModelConfiguration)
 
 -- | Defines the environment parameters that includes key, value types, and
 -- values.
 modelConfiguration_environmentParameters :: Lens.Lens' ModelConfiguration (Prelude.Maybe (Prelude.NonEmpty EnvironmentParameter))
 modelConfiguration_environmentParameters = Lens.lens (\ModelConfiguration' {environmentParameters} -> environmentParameters) (\s@ModelConfiguration' {} a -> s {environmentParameters = a} :: ModelConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | The inference specification name in the model package version.
+modelConfiguration_inferenceSpecificationName :: Lens.Lens' ModelConfiguration (Prelude.Maybe Prelude.Text)
+modelConfiguration_inferenceSpecificationName = Lens.lens (\ModelConfiguration' {inferenceSpecificationName} -> inferenceSpecificationName) (\s@ModelConfiguration' {} a -> s {inferenceSpecificationName = a} :: ModelConfiguration)
 
 instance Data.FromJSON ModelConfiguration where
   parseJSON =
@@ -74,17 +74,16 @@ instance Data.FromJSON ModelConfiguration where
       "ModelConfiguration"
       ( \x ->
           ModelConfiguration'
-            Prelude.<$> (x Data..:? "InferenceSpecificationName")
-            Prelude.<*> (x Data..:? "EnvironmentParameters")
+            Prelude.<$> (x Data..:? "EnvironmentParameters")
+            Prelude.<*> (x Data..:? "InferenceSpecificationName")
       )
 
 instance Prelude.Hashable ModelConfiguration where
   hashWithSalt _salt ModelConfiguration' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` environmentParameters
       `Prelude.hashWithSalt` inferenceSpecificationName
-      `Prelude.hashWithSalt` environmentParameters
 
 instance Prelude.NFData ModelConfiguration where
   rnf ModelConfiguration' {..} =
-    Prelude.rnf inferenceSpecificationName
-      `Prelude.seq` Prelude.rnf environmentParameters
+    Prelude.rnf environmentParameters
+      `Prelude.seq` Prelude.rnf inferenceSpecificationName

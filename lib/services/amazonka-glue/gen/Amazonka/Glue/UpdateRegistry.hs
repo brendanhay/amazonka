@@ -37,8 +37,8 @@ module Amazonka.Glue.UpdateRegistry
     newUpdateRegistryResponse,
 
     -- * Response Lenses
-    updateRegistryResponse_registryName,
     updateRegistryResponse_registryArn,
+    updateRegistryResponse_registryName,
     updateRegistryResponse_httpStatus,
   )
 where
@@ -107,8 +107,8 @@ instance Core.AWSRequest UpdateRegistry where
     Response.receiveJSON
       ( \s h x ->
           UpdateRegistryResponse'
-            Prelude.<$> (x Data..?> "RegistryName")
-            Prelude.<*> (x Data..?> "RegistryArn")
+            Prelude.<$> (x Data..?> "RegistryArn")
+            Prelude.<*> (x Data..?> "RegistryName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,10 +152,10 @@ instance Data.ToQuery UpdateRegistry where
 
 -- | /See:/ 'newUpdateRegistryResponse' smart constructor.
 data UpdateRegistryResponse = UpdateRegistryResponse'
-  { -- | The name of the updated registry.
-    registryName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource name (ARN) of the updated registry.
+  { -- | The Amazon Resource name (ARN) of the updated registry.
     registryArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the updated registry.
+    registryName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -169,9 +169,9 @@ data UpdateRegistryResponse = UpdateRegistryResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'registryName', 'updateRegistryResponse_registryName' - The name of the updated registry.
---
 -- 'registryArn', 'updateRegistryResponse_registryArn' - The Amazon Resource name (ARN) of the updated registry.
+--
+-- 'registryName', 'updateRegistryResponse_registryName' - The name of the updated registry.
 --
 -- 'httpStatus', 'updateRegistryResponse_httpStatus' - The response's http status code.
 newUpdateRegistryResponse ::
@@ -180,19 +180,19 @@ newUpdateRegistryResponse ::
   UpdateRegistryResponse
 newUpdateRegistryResponse pHttpStatus_ =
   UpdateRegistryResponse'
-    { registryName =
+    { registryArn =
         Prelude.Nothing,
-      registryArn = Prelude.Nothing,
+      registryName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The name of the updated registry.
-updateRegistryResponse_registryName :: Lens.Lens' UpdateRegistryResponse (Prelude.Maybe Prelude.Text)
-updateRegistryResponse_registryName = Lens.lens (\UpdateRegistryResponse' {registryName} -> registryName) (\s@UpdateRegistryResponse' {} a -> s {registryName = a} :: UpdateRegistryResponse)
 
 -- | The Amazon Resource name (ARN) of the updated registry.
 updateRegistryResponse_registryArn :: Lens.Lens' UpdateRegistryResponse (Prelude.Maybe Prelude.Text)
 updateRegistryResponse_registryArn = Lens.lens (\UpdateRegistryResponse' {registryArn} -> registryArn) (\s@UpdateRegistryResponse' {} a -> s {registryArn = a} :: UpdateRegistryResponse)
+
+-- | The name of the updated registry.
+updateRegistryResponse_registryName :: Lens.Lens' UpdateRegistryResponse (Prelude.Maybe Prelude.Text)
+updateRegistryResponse_registryName = Lens.lens (\UpdateRegistryResponse' {registryName} -> registryName) (\s@UpdateRegistryResponse' {} a -> s {registryName = a} :: UpdateRegistryResponse)
 
 -- | The response's http status code.
 updateRegistryResponse_httpStatus :: Lens.Lens' UpdateRegistryResponse Prelude.Int
@@ -200,6 +200,6 @@ updateRegistryResponse_httpStatus = Lens.lens (\UpdateRegistryResponse' {httpSta
 
 instance Prelude.NFData UpdateRegistryResponse where
   rnf UpdateRegistryResponse' {..} =
-    Prelude.rnf registryName
-      `Prelude.seq` Prelude.rnf registryArn
+    Prelude.rnf registryArn
+      `Prelude.seq` Prelude.rnf registryName
       `Prelude.seq` Prelude.rnf httpStatus

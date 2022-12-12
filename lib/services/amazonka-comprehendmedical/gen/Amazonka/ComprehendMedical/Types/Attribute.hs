@@ -38,31 +38,31 @@ data Attribute = Attribute'
   { -- | The 0-based character offset in the input text that shows where the
     -- attribute begins. The offset returns the UTF-8 code point in the string.
     beginOffset :: Prelude.Maybe Prelude.Int,
-    -- | The level of confidence that Comprehend Medical; has that this attribute
-    -- is correctly related to this entity.
-    relationshipScore :: Prelude.Maybe Prelude.Double,
-    -- | The type of attribute.
-    type' :: Prelude.Maybe EntitySubType,
-    -- | Contextual information for this attribute.
-    traits :: Prelude.Maybe [Trait],
-    -- | The level of confidence that Comprehend Medical; has that the segment of
-    -- text is correctly recognized as an attribute.
-    score :: Prelude.Maybe Prelude.Double,
+    -- | The category of attribute.
+    category :: Prelude.Maybe EntityType,
+    -- | The 0-based character offset in the input text that shows where the
+    -- attribute ends. The offset returns the UTF-8 code point in the string.
+    endOffset :: Prelude.Maybe Prelude.Int,
     -- | The numeric identifier for this attribute. This is a monotonically
     -- increasing id unique within this response rather than a global unique
     -- identifier.
     id :: Prelude.Maybe Prelude.Int,
-    -- | The 0-based character offset in the input text that shows where the
-    -- attribute ends. The offset returns the UTF-8 code point in the string.
-    endOffset :: Prelude.Maybe Prelude.Int,
+    -- | The level of confidence that Comprehend Medical; has that this attribute
+    -- is correctly related to this entity.
+    relationshipScore :: Prelude.Maybe Prelude.Double,
     -- | The type of relationship between the entity and attribute. Type for the
     -- relationship is @OVERLAP@, indicating that the entity occurred at the
     -- same time as the @Date_Expression@.
     relationshipType :: Prelude.Maybe RelationshipType,
-    -- | The category of attribute.
-    category :: Prelude.Maybe EntityType,
+    -- | The level of confidence that Comprehend Medical; has that the segment of
+    -- text is correctly recognized as an attribute.
+    score :: Prelude.Maybe Prelude.Double,
     -- | The segment of input text extracted as this attribute.
-    text :: Prelude.Maybe Prelude.Text
+    text :: Prelude.Maybe Prelude.Text,
+    -- | Contextual information for this attribute.
+    traits :: Prelude.Maybe [Trait],
+    -- | The type of attribute.
+    type' :: Prelude.Maybe EntitySubType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,44 +77,44 @@ data Attribute = Attribute'
 -- 'beginOffset', 'attribute_beginOffset' - The 0-based character offset in the input text that shows where the
 -- attribute begins. The offset returns the UTF-8 code point in the string.
 --
--- 'relationshipScore', 'attribute_relationshipScore' - The level of confidence that Comprehend Medical; has that this attribute
--- is correctly related to this entity.
+-- 'category', 'attribute_category' - The category of attribute.
 --
--- 'type'', 'attribute_type' - The type of attribute.
---
--- 'traits', 'attribute_traits' - Contextual information for this attribute.
---
--- 'score', 'attribute_score' - The level of confidence that Comprehend Medical; has that the segment of
--- text is correctly recognized as an attribute.
+-- 'endOffset', 'attribute_endOffset' - The 0-based character offset in the input text that shows where the
+-- attribute ends. The offset returns the UTF-8 code point in the string.
 --
 -- 'id', 'attribute_id' - The numeric identifier for this attribute. This is a monotonically
 -- increasing id unique within this response rather than a global unique
 -- identifier.
 --
--- 'endOffset', 'attribute_endOffset' - The 0-based character offset in the input text that shows where the
--- attribute ends. The offset returns the UTF-8 code point in the string.
+-- 'relationshipScore', 'attribute_relationshipScore' - The level of confidence that Comprehend Medical; has that this attribute
+-- is correctly related to this entity.
 --
 -- 'relationshipType', 'attribute_relationshipType' - The type of relationship between the entity and attribute. Type for the
 -- relationship is @OVERLAP@, indicating that the entity occurred at the
 -- same time as the @Date_Expression@.
 --
--- 'category', 'attribute_category' - The category of attribute.
+-- 'score', 'attribute_score' - The level of confidence that Comprehend Medical; has that the segment of
+-- text is correctly recognized as an attribute.
 --
 -- 'text', 'attribute_text' - The segment of input text extracted as this attribute.
+--
+-- 'traits', 'attribute_traits' - Contextual information for this attribute.
+--
+-- 'type'', 'attribute_type' - The type of attribute.
 newAttribute ::
   Attribute
 newAttribute =
   Attribute'
     { beginOffset = Prelude.Nothing,
-      relationshipScore = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      traits = Prelude.Nothing,
-      score = Prelude.Nothing,
-      id = Prelude.Nothing,
-      endOffset = Prelude.Nothing,
-      relationshipType = Prelude.Nothing,
       category = Prelude.Nothing,
-      text = Prelude.Nothing
+      endOffset = Prelude.Nothing,
+      id = Prelude.Nothing,
+      relationshipScore = Prelude.Nothing,
+      relationshipType = Prelude.Nothing,
+      score = Prelude.Nothing,
+      text = Prelude.Nothing,
+      traits = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | The 0-based character offset in the input text that shows where the
@@ -122,23 +122,14 @@ newAttribute =
 attribute_beginOffset :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Int)
 attribute_beginOffset = Lens.lens (\Attribute' {beginOffset} -> beginOffset) (\s@Attribute' {} a -> s {beginOffset = a} :: Attribute)
 
--- | The level of confidence that Comprehend Medical; has that this attribute
--- is correctly related to this entity.
-attribute_relationshipScore :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Double)
-attribute_relationshipScore = Lens.lens (\Attribute' {relationshipScore} -> relationshipScore) (\s@Attribute' {} a -> s {relationshipScore = a} :: Attribute)
+-- | The category of attribute.
+attribute_category :: Lens.Lens' Attribute (Prelude.Maybe EntityType)
+attribute_category = Lens.lens (\Attribute' {category} -> category) (\s@Attribute' {} a -> s {category = a} :: Attribute)
 
--- | The type of attribute.
-attribute_type :: Lens.Lens' Attribute (Prelude.Maybe EntitySubType)
-attribute_type = Lens.lens (\Attribute' {type'} -> type') (\s@Attribute' {} a -> s {type' = a} :: Attribute)
-
--- | Contextual information for this attribute.
-attribute_traits :: Lens.Lens' Attribute (Prelude.Maybe [Trait])
-attribute_traits = Lens.lens (\Attribute' {traits} -> traits) (\s@Attribute' {} a -> s {traits = a} :: Attribute) Prelude.. Lens.mapping Lens.coerced
-
--- | The level of confidence that Comprehend Medical; has that the segment of
--- text is correctly recognized as an attribute.
-attribute_score :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Double)
-attribute_score = Lens.lens (\Attribute' {score} -> score) (\s@Attribute' {} a -> s {score = a} :: Attribute)
+-- | The 0-based character offset in the input text that shows where the
+-- attribute ends. The offset returns the UTF-8 code point in the string.
+attribute_endOffset :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Int)
+attribute_endOffset = Lens.lens (\Attribute' {endOffset} -> endOffset) (\s@Attribute' {} a -> s {endOffset = a} :: Attribute)
 
 -- | The numeric identifier for this attribute. This is a monotonically
 -- increasing id unique within this response rather than a global unique
@@ -146,10 +137,10 @@ attribute_score = Lens.lens (\Attribute' {score} -> score) (\s@Attribute' {} a -
 attribute_id :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Int)
 attribute_id = Lens.lens (\Attribute' {id} -> id) (\s@Attribute' {} a -> s {id = a} :: Attribute)
 
--- | The 0-based character offset in the input text that shows where the
--- attribute ends. The offset returns the UTF-8 code point in the string.
-attribute_endOffset :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Int)
-attribute_endOffset = Lens.lens (\Attribute' {endOffset} -> endOffset) (\s@Attribute' {} a -> s {endOffset = a} :: Attribute)
+-- | The level of confidence that Comprehend Medical; has that this attribute
+-- is correctly related to this entity.
+attribute_relationshipScore :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Double)
+attribute_relationshipScore = Lens.lens (\Attribute' {relationshipScore} -> relationshipScore) (\s@Attribute' {} a -> s {relationshipScore = a} :: Attribute)
 
 -- | The type of relationship between the entity and attribute. Type for the
 -- relationship is @OVERLAP@, indicating that the entity occurred at the
@@ -157,13 +148,22 @@ attribute_endOffset = Lens.lens (\Attribute' {endOffset} -> endOffset) (\s@Attri
 attribute_relationshipType :: Lens.Lens' Attribute (Prelude.Maybe RelationshipType)
 attribute_relationshipType = Lens.lens (\Attribute' {relationshipType} -> relationshipType) (\s@Attribute' {} a -> s {relationshipType = a} :: Attribute)
 
--- | The category of attribute.
-attribute_category :: Lens.Lens' Attribute (Prelude.Maybe EntityType)
-attribute_category = Lens.lens (\Attribute' {category} -> category) (\s@Attribute' {} a -> s {category = a} :: Attribute)
+-- | The level of confidence that Comprehend Medical; has that the segment of
+-- text is correctly recognized as an attribute.
+attribute_score :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Double)
+attribute_score = Lens.lens (\Attribute' {score} -> score) (\s@Attribute' {} a -> s {score = a} :: Attribute)
 
 -- | The segment of input text extracted as this attribute.
 attribute_text :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Text)
 attribute_text = Lens.lens (\Attribute' {text} -> text) (\s@Attribute' {} a -> s {text = a} :: Attribute)
+
+-- | Contextual information for this attribute.
+attribute_traits :: Lens.Lens' Attribute (Prelude.Maybe [Trait])
+attribute_traits = Lens.lens (\Attribute' {traits} -> traits) (\s@Attribute' {} a -> s {traits = a} :: Attribute) Prelude.. Lens.mapping Lens.coerced
+
+-- | The type of attribute.
+attribute_type :: Lens.Lens' Attribute (Prelude.Maybe EntitySubType)
+attribute_type = Lens.lens (\Attribute' {type'} -> type') (\s@Attribute' {} a -> s {type' = a} :: Attribute)
 
 instance Data.FromJSON Attribute where
   parseJSON =
@@ -172,39 +172,39 @@ instance Data.FromJSON Attribute where
       ( \x ->
           Attribute'
             Prelude.<$> (x Data..:? "BeginOffset")
-            Prelude.<*> (x Data..:? "RelationshipScore")
-            Prelude.<*> (x Data..:? "Type")
-            Prelude.<*> (x Data..:? "Traits" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "Score")
-            Prelude.<*> (x Data..:? "Id")
-            Prelude.<*> (x Data..:? "EndOffset")
-            Prelude.<*> (x Data..:? "RelationshipType")
             Prelude.<*> (x Data..:? "Category")
+            Prelude.<*> (x Data..:? "EndOffset")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "RelationshipScore")
+            Prelude.<*> (x Data..:? "RelationshipType")
+            Prelude.<*> (x Data..:? "Score")
             Prelude.<*> (x Data..:? "Text")
+            Prelude.<*> (x Data..:? "Traits" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable Attribute where
   hashWithSalt _salt Attribute' {..} =
     _salt `Prelude.hashWithSalt` beginOffset
-      `Prelude.hashWithSalt` relationshipScore
-      `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` traits
-      `Prelude.hashWithSalt` score
-      `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` endOffset
-      `Prelude.hashWithSalt` relationshipType
       `Prelude.hashWithSalt` category
+      `Prelude.hashWithSalt` endOffset
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` relationshipScore
+      `Prelude.hashWithSalt` relationshipType
+      `Prelude.hashWithSalt` score
       `Prelude.hashWithSalt` text
+      `Prelude.hashWithSalt` traits
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Attribute where
   rnf Attribute' {..} =
     Prelude.rnf beginOffset
-      `Prelude.seq` Prelude.rnf relationshipScore
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf traits
-      `Prelude.seq` Prelude.rnf score
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf endOffset
-      `Prelude.seq` Prelude.rnf relationshipType
       `Prelude.seq` Prelude.rnf category
+      `Prelude.seq` Prelude.rnf endOffset
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf relationshipScore
+      `Prelude.seq` Prelude.rnf relationshipType
+      `Prelude.seq` Prelude.rnf score
       `Prelude.seq` Prelude.rnf text
+      `Prelude.seq` Prelude.rnf traits
+      `Prelude.seq` Prelude.rnf type'

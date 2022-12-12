@@ -38,10 +38,10 @@ module Amazonka.PinpointSmsVoiceV2.DescribeKeywords
     newDescribeKeywords,
 
     -- * Request Lenses
-    describeKeywords_nextToken,
     describeKeywords_filters,
     describeKeywords_keywords,
     describeKeywords_maxResults,
+    describeKeywords_nextToken,
     describeKeywords_originationIdentity,
 
     -- * Destructuring the Response
@@ -49,10 +49,10 @@ module Amazonka.PinpointSmsVoiceV2.DescribeKeywords
     newDescribeKeywordsResponse,
 
     -- * Response Lenses
-    describeKeywordsResponse_originationIdentity,
-    describeKeywordsResponse_nextToken,
-    describeKeywordsResponse_originationIdentityArn,
     describeKeywordsResponse_keywords,
+    describeKeywordsResponse_nextToken,
+    describeKeywordsResponse_originationIdentity,
+    describeKeywordsResponse_originationIdentityArn,
     describeKeywordsResponse_httpStatus,
   )
 where
@@ -67,15 +67,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeKeywords' smart constructor.
 data DescribeKeywords = DescribeKeywords'
-  { -- | The token to be used for the next set of paginated results. You don\'t
-    -- need to supply a value for this field in the initial request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of keyword filters to filter the results.
+  { -- | An array of keyword filters to filter the results.
     filters :: Prelude.Maybe [KeywordFilter],
     -- | An array of keywords to search for.
     keywords :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of results to return per each request.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to be used for the next set of paginated results. You don\'t
+    -- need to supply a value for this field in the initial request.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The origination identity to use such as a PhoneNumberId, PhoneNumberArn,
     -- SenderId or SenderIdArn. You can use DescribePhoneNumbers to find the
     -- values for PhoneNumberId and PhoneNumberArn while DescribeSenderIds can
@@ -92,14 +92,14 @@ data DescribeKeywords = DescribeKeywords'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeKeywords_nextToken' - The token to be used for the next set of paginated results. You don\'t
--- need to supply a value for this field in the initial request.
---
 -- 'filters', 'describeKeywords_filters' - An array of keyword filters to filter the results.
 --
 -- 'keywords', 'describeKeywords_keywords' - An array of keywords to search for.
 --
 -- 'maxResults', 'describeKeywords_maxResults' - The maximum number of results to return per each request.
+--
+-- 'nextToken', 'describeKeywords_nextToken' - The token to be used for the next set of paginated results. You don\'t
+-- need to supply a value for this field in the initial request.
 --
 -- 'originationIdentity', 'describeKeywords_originationIdentity' - The origination identity to use such as a PhoneNumberId, PhoneNumberArn,
 -- SenderId or SenderIdArn. You can use DescribePhoneNumbers to find the
@@ -111,17 +111,12 @@ newDescribeKeywords ::
   DescribeKeywords
 newDescribeKeywords pOriginationIdentity_ =
   DescribeKeywords'
-    { nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
+    { filters = Prelude.Nothing,
       keywords = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       originationIdentity = pOriginationIdentity_
     }
-
--- | The token to be used for the next set of paginated results. You don\'t
--- need to supply a value for this field in the initial request.
-describeKeywords_nextToken :: Lens.Lens' DescribeKeywords (Prelude.Maybe Prelude.Text)
-describeKeywords_nextToken = Lens.lens (\DescribeKeywords' {nextToken} -> nextToken) (\s@DescribeKeywords' {} a -> s {nextToken = a} :: DescribeKeywords)
 
 -- | An array of keyword filters to filter the results.
 describeKeywords_filters :: Lens.Lens' DescribeKeywords (Prelude.Maybe [KeywordFilter])
@@ -134,6 +129,11 @@ describeKeywords_keywords = Lens.lens (\DescribeKeywords' {keywords} -> keywords
 -- | The maximum number of results to return per each request.
 describeKeywords_maxResults :: Lens.Lens' DescribeKeywords (Prelude.Maybe Prelude.Natural)
 describeKeywords_maxResults = Lens.lens (\DescribeKeywords' {maxResults} -> maxResults) (\s@DescribeKeywords' {} a -> s {maxResults = a} :: DescribeKeywords)
+
+-- | The token to be used for the next set of paginated results. You don\'t
+-- need to supply a value for this field in the initial request.
+describeKeywords_nextToken :: Lens.Lens' DescribeKeywords (Prelude.Maybe Prelude.Text)
+describeKeywords_nextToken = Lens.lens (\DescribeKeywords' {nextToken} -> nextToken) (\s@DescribeKeywords' {} a -> s {nextToken = a} :: DescribeKeywords)
 
 -- | The origination identity to use such as a PhoneNumberId, PhoneNumberArn,
 -- SenderId or SenderIdArn. You can use DescribePhoneNumbers to find the
@@ -174,27 +174,27 @@ instance Core.AWSRequest DescribeKeywords where
     Response.receiveJSON
       ( \s h x ->
           DescribeKeywordsResponse'
-            Prelude.<$> (x Data..?> "OriginationIdentity")
+            Prelude.<$> (x Data..?> "Keywords" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "OriginationIdentity")
             Prelude.<*> (x Data..?> "OriginationIdentityArn")
-            Prelude.<*> (x Data..?> "Keywords" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeKeywords where
   hashWithSalt _salt DescribeKeywords' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` keywords
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` originationIdentity
 
 instance Prelude.NFData DescribeKeywords where
   rnf DescribeKeywords' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf keywords
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf originationIdentity
 
 instance Data.ToHeaders DescribeKeywords where
@@ -216,10 +216,10 @@ instance Data.ToJSON DescribeKeywords where
   toJSON DescribeKeywords' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
+          [ ("Filters" Data..=) Prelude.<$> filters,
             ("Keywords" Data..=) Prelude.<$> keywords,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("OriginationIdentity" Data..= originationIdentity)
           ]
@@ -233,17 +233,17 @@ instance Data.ToQuery DescribeKeywords where
 
 -- | /See:/ 'newDescribeKeywordsResponse' smart constructor.
 data DescribeKeywordsResponse = DescribeKeywordsResponse'
-  { -- | The PhoneNumberId or PoolId that is associated with the
-    -- OriginationIdentity.
-    originationIdentity :: Prelude.Maybe Prelude.Text,
+  { -- | An array of KeywordInformation objects that contain the results.
+    keywords :: Prelude.Maybe [KeywordInformation],
     -- | The token to be used for the next set of paginated results. If this
     -- field is empty then there are no more results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The PhoneNumberId or PoolId that is associated with the
+    -- OriginationIdentity.
+    originationIdentity :: Prelude.Maybe Prelude.Text,
     -- | The PhoneNumberArn or PoolArn that is associated with the
     -- OriginationIdentity.
     originationIdentityArn :: Prelude.Maybe Prelude.Text,
-    -- | An array of KeywordInformation objects that contain the results.
-    keywords :: Prelude.Maybe [KeywordInformation],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -257,16 +257,16 @@ data DescribeKeywordsResponse = DescribeKeywordsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'originationIdentity', 'describeKeywordsResponse_originationIdentity' - The PhoneNumberId or PoolId that is associated with the
--- OriginationIdentity.
+-- 'keywords', 'describeKeywordsResponse_keywords' - An array of KeywordInformation objects that contain the results.
 --
 -- 'nextToken', 'describeKeywordsResponse_nextToken' - The token to be used for the next set of paginated results. If this
 -- field is empty then there are no more results.
 --
--- 'originationIdentityArn', 'describeKeywordsResponse_originationIdentityArn' - The PhoneNumberArn or PoolArn that is associated with the
+-- 'originationIdentity', 'describeKeywordsResponse_originationIdentity' - The PhoneNumberId or PoolId that is associated with the
 -- OriginationIdentity.
 --
--- 'keywords', 'describeKeywordsResponse_keywords' - An array of KeywordInformation objects that contain the results.
+-- 'originationIdentityArn', 'describeKeywordsResponse_originationIdentityArn' - The PhoneNumberArn or PoolArn that is associated with the
+-- OriginationIdentity.
 --
 -- 'httpStatus', 'describeKeywordsResponse_httpStatus' - The response's http status code.
 newDescribeKeywordsResponse ::
@@ -275,32 +275,32 @@ newDescribeKeywordsResponse ::
   DescribeKeywordsResponse
 newDescribeKeywordsResponse pHttpStatus_ =
   DescribeKeywordsResponse'
-    { originationIdentity =
+    { keywords =
         Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      originationIdentity = Prelude.Nothing,
       originationIdentityArn = Prelude.Nothing,
-      keywords = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The PhoneNumberId or PoolId that is associated with the
--- OriginationIdentity.
-describeKeywordsResponse_originationIdentity :: Lens.Lens' DescribeKeywordsResponse (Prelude.Maybe Prelude.Text)
-describeKeywordsResponse_originationIdentity = Lens.lens (\DescribeKeywordsResponse' {originationIdentity} -> originationIdentity) (\s@DescribeKeywordsResponse' {} a -> s {originationIdentity = a} :: DescribeKeywordsResponse)
+-- | An array of KeywordInformation objects that contain the results.
+describeKeywordsResponse_keywords :: Lens.Lens' DescribeKeywordsResponse (Prelude.Maybe [KeywordInformation])
+describeKeywordsResponse_keywords = Lens.lens (\DescribeKeywordsResponse' {keywords} -> keywords) (\s@DescribeKeywordsResponse' {} a -> s {keywords = a} :: DescribeKeywordsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to be used for the next set of paginated results. If this
 -- field is empty then there are no more results.
 describeKeywordsResponse_nextToken :: Lens.Lens' DescribeKeywordsResponse (Prelude.Maybe Prelude.Text)
 describeKeywordsResponse_nextToken = Lens.lens (\DescribeKeywordsResponse' {nextToken} -> nextToken) (\s@DescribeKeywordsResponse' {} a -> s {nextToken = a} :: DescribeKeywordsResponse)
 
+-- | The PhoneNumberId or PoolId that is associated with the
+-- OriginationIdentity.
+describeKeywordsResponse_originationIdentity :: Lens.Lens' DescribeKeywordsResponse (Prelude.Maybe Prelude.Text)
+describeKeywordsResponse_originationIdentity = Lens.lens (\DescribeKeywordsResponse' {originationIdentity} -> originationIdentity) (\s@DescribeKeywordsResponse' {} a -> s {originationIdentity = a} :: DescribeKeywordsResponse)
+
 -- | The PhoneNumberArn or PoolArn that is associated with the
 -- OriginationIdentity.
 describeKeywordsResponse_originationIdentityArn :: Lens.Lens' DescribeKeywordsResponse (Prelude.Maybe Prelude.Text)
 describeKeywordsResponse_originationIdentityArn = Lens.lens (\DescribeKeywordsResponse' {originationIdentityArn} -> originationIdentityArn) (\s@DescribeKeywordsResponse' {} a -> s {originationIdentityArn = a} :: DescribeKeywordsResponse)
-
--- | An array of KeywordInformation objects that contain the results.
-describeKeywordsResponse_keywords :: Lens.Lens' DescribeKeywordsResponse (Prelude.Maybe [KeywordInformation])
-describeKeywordsResponse_keywords = Lens.lens (\DescribeKeywordsResponse' {keywords} -> keywords) (\s@DescribeKeywordsResponse' {} a -> s {keywords = a} :: DescribeKeywordsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeKeywordsResponse_httpStatus :: Lens.Lens' DescribeKeywordsResponse Prelude.Int
@@ -308,8 +308,8 @@ describeKeywordsResponse_httpStatus = Lens.lens (\DescribeKeywordsResponse' {htt
 
 instance Prelude.NFData DescribeKeywordsResponse where
   rnf DescribeKeywordsResponse' {..} =
-    Prelude.rnf originationIdentity
+    Prelude.rnf keywords
       `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf originationIdentity
       `Prelude.seq` Prelude.rnf originationIdentityArn
-      `Prelude.seq` Prelude.rnf keywords
       `Prelude.seq` Prelude.rnf httpStatus

@@ -30,17 +30,17 @@ module Amazonka.Macie
     -- * Errors
     -- $errors
 
-    -- ** InvalidInputException
-    _InvalidInputException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
-
     -- ** InternalException
     _InternalException,
+
+    -- ** InvalidInputException
+    _InvalidInputException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters

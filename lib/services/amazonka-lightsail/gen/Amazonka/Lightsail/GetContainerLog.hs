@@ -37,9 +37,9 @@ module Amazonka.Lightsail.GetContainerLog
     newGetContainerLog,
 
     -- * Request Lenses
-    getContainerLog_pageToken,
     getContainerLog_endTime,
     getContainerLog_filterPattern,
+    getContainerLog_pageToken,
     getContainerLog_startTime,
     getContainerLog_serviceName,
     getContainerLog_containerName,
@@ -65,13 +65,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetContainerLog' smart constructor.
 data GetContainerLog = GetContainerLog'
-  { -- | The token to advance to the next page of results from your request.
-    --
-    -- To get a page token, perform an initial @GetContainerLog@ request. If
-    -- your results are paginated, the response will return a next page token
-    -- that you can specify as the page token in a subsequent request.
-    pageToken :: Prelude.Maybe Prelude.Text,
-    -- | The end of the time interval for which to get log data.
+  { -- | The end of the time interval for which to get log data.
     --
     -- Constraints:
     --
@@ -104,6 +98,12 @@ data GetContainerLog = GetContainerLog'
     -- -   To return log events that contain the @ERROR@ /or/ the @Exception@
     --     term, specify a filter pattern of @\"?ERROR ?Exception\"@.
     filterPattern :: Prelude.Maybe Prelude.Text,
+    -- | The token to advance to the next page of results from your request.
+    --
+    -- To get a page token, perform an initial @GetContainerLog@ request. If
+    -- your results are paginated, the response will return a next page token
+    -- that you can specify as the page token in a subsequent request.
+    pageToken :: Prelude.Maybe Prelude.Text,
     -- | The start of the time interval for which to get log data.
     --
     -- Constraints:
@@ -133,12 +133,6 @@ data GetContainerLog = GetContainerLog'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'pageToken', 'getContainerLog_pageToken' - The token to advance to the next page of results from your request.
---
--- To get a page token, perform an initial @GetContainerLog@ request. If
--- your results are paginated, the response will return a next page token
--- that you can specify as the page token in a subsequent request.
 --
 -- 'endTime', 'getContainerLog_endTime' - The end of the time interval for which to get log data.
 --
@@ -173,6 +167,12 @@ data GetContainerLog = GetContainerLog'
 -- -   To return log events that contain the @ERROR@ /or/ the @Exception@
 --     term, specify a filter pattern of @\"?ERROR ?Exception\"@.
 --
+-- 'pageToken', 'getContainerLog_pageToken' - The token to advance to the next page of results from your request.
+--
+-- To get a page token, perform an initial @GetContainerLog@ request. If
+-- your results are paginated, the response will return a next page token
+-- that you can specify as the page token in a subsequent request.
+--
 -- 'startTime', 'getContainerLog_startTime' - The start of the time interval for which to get log data.
 --
 -- Constraints:
@@ -199,21 +199,13 @@ newGetContainerLog ::
   GetContainerLog
 newGetContainerLog pServiceName_ pContainerName_ =
   GetContainerLog'
-    { pageToken = Prelude.Nothing,
-      endTime = Prelude.Nothing,
+    { endTime = Prelude.Nothing,
       filterPattern = Prelude.Nothing,
+      pageToken = Prelude.Nothing,
       startTime = Prelude.Nothing,
       serviceName = pServiceName_,
       containerName = pContainerName_
     }
-
--- | The token to advance to the next page of results from your request.
---
--- To get a page token, perform an initial @GetContainerLog@ request. If
--- your results are paginated, the response will return a next page token
--- that you can specify as the page token in a subsequent request.
-getContainerLog_pageToken :: Lens.Lens' GetContainerLog (Prelude.Maybe Prelude.Text)
-getContainerLog_pageToken = Lens.lens (\GetContainerLog' {pageToken} -> pageToken) (\s@GetContainerLog' {} a -> s {pageToken = a} :: GetContainerLog)
 
 -- | The end of the time interval for which to get log data.
 --
@@ -251,6 +243,14 @@ getContainerLog_endTime = Lens.lens (\GetContainerLog' {endTime} -> endTime) (\s
 --     term, specify a filter pattern of @\"?ERROR ?Exception\"@.
 getContainerLog_filterPattern :: Lens.Lens' GetContainerLog (Prelude.Maybe Prelude.Text)
 getContainerLog_filterPattern = Lens.lens (\GetContainerLog' {filterPattern} -> filterPattern) (\s@GetContainerLog' {} a -> s {filterPattern = a} :: GetContainerLog)
+
+-- | The token to advance to the next page of results from your request.
+--
+-- To get a page token, perform an initial @GetContainerLog@ request. If
+-- your results are paginated, the response will return a next page token
+-- that you can specify as the page token in a subsequent request.
+getContainerLog_pageToken :: Lens.Lens' GetContainerLog (Prelude.Maybe Prelude.Text)
+getContainerLog_pageToken = Lens.lens (\GetContainerLog' {pageToken} -> pageToken) (\s@GetContainerLog' {} a -> s {pageToken = a} :: GetContainerLog)
 
 -- | The start of the time interval for which to get log data.
 --
@@ -294,18 +294,18 @@ instance Core.AWSRequest GetContainerLog where
 
 instance Prelude.Hashable GetContainerLog where
   hashWithSalt _salt GetContainerLog' {..} =
-    _salt `Prelude.hashWithSalt` pageToken
-      `Prelude.hashWithSalt` endTime
+    _salt `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` filterPattern
+      `Prelude.hashWithSalt` pageToken
       `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` serviceName
       `Prelude.hashWithSalt` containerName
 
 instance Prelude.NFData GetContainerLog where
   rnf GetContainerLog' {..} =
-    Prelude.rnf pageToken
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf filterPattern
+      `Prelude.seq` Prelude.rnf pageToken
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf serviceName
       `Prelude.seq` Prelude.rnf containerName
@@ -329,9 +329,9 @@ instance Data.ToJSON GetContainerLog where
   toJSON GetContainerLog' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("pageToken" Data..=) Prelude.<$> pageToken,
-            ("endTime" Data..=) Prelude.<$> endTime,
+          [ ("endTime" Data..=) Prelude.<$> endTime,
             ("filterPattern" Data..=) Prelude.<$> filterPattern,
+            ("pageToken" Data..=) Prelude.<$> pageToken,
             ("startTime" Data..=) Prelude.<$> startTime,
             Prelude.Just ("serviceName" Data..= serviceName),
             Prelude.Just

@@ -18,17 +18,17 @@ module Amazonka.CloudWatchEvents.Types
     defaultService,
 
     -- * Errors
-    _ResourceAlreadyExistsException,
-    _PolicyLengthExceededException,
-    _InvalidStateException,
     _ConcurrentModificationException,
-    _ResourceNotFoundException,
-    _LimitExceededException,
-    _OperationDisabledException,
-    _ManagedRuleException,
+    _IllegalStatusException,
     _InternalException,
     _InvalidEventPatternException,
-    _IllegalStatusException,
+    _InvalidStateException,
+    _LimitExceededException,
+    _ManagedRuleException,
+    _OperationDisabledException,
+    _PolicyLengthExceededException,
+    _ResourceAlreadyExistsException,
+    _ResourceNotFoundException,
 
     -- * ApiDestinationHttpMethod
     ApiDestinationHttpMethod (..),
@@ -81,33 +81,33 @@ module Amazonka.CloudWatchEvents.Types
     -- * ApiDestination
     ApiDestination (..),
     newApiDestination,
-    apiDestination_name,
-    apiDestination_invocationRateLimitPerSecond,
-    apiDestination_invocationEndpoint,
-    apiDestination_connectionArn,
-    apiDestination_httpMethod,
-    apiDestination_lastModifiedTime,
-    apiDestination_apiDestinationState,
-    apiDestination_creationTime,
     apiDestination_apiDestinationArn,
+    apiDestination_apiDestinationState,
+    apiDestination_connectionArn,
+    apiDestination_creationTime,
+    apiDestination_httpMethod,
+    apiDestination_invocationEndpoint,
+    apiDestination_invocationRateLimitPerSecond,
+    apiDestination_lastModifiedTime,
+    apiDestination_name,
 
     -- * Archive
     Archive (..),
     newArchive,
+    archive_archiveName,
+    archive_creationTime,
+    archive_eventCount,
+    archive_eventSourceArn,
     archive_retentionDays,
     archive_sizeBytes,
     archive_state,
-    archive_eventCount,
-    archive_archiveName,
-    archive_eventSourceArn,
-    archive_creationTime,
     archive_stateReason,
 
     -- * AwsVpcConfiguration
     AwsVpcConfiguration (..),
     newAwsVpcConfiguration,
-    awsVpcConfiguration_securityGroups,
     awsVpcConfiguration_assignPublicIp,
+    awsVpcConfiguration_securityGroups,
     awsVpcConfiguration_subnets,
 
     -- * BatchArrayProperties
@@ -118,8 +118,8 @@ module Amazonka.CloudWatchEvents.Types
     -- * BatchParameters
     BatchParameters (..),
     newBatchParameters,
-    batchParameters_retryStrategy,
     batchParameters_arrayProperties,
+    batchParameters_retryStrategy,
     batchParameters_jobDefinition,
     batchParameters_jobName,
 
@@ -145,13 +145,13 @@ module Amazonka.CloudWatchEvents.Types
     -- * Connection
     Connection (..),
     newConnection,
-    connection_name,
-    connection_connectionState,
-    connection_connectionArn,
-    connection_lastModifiedTime,
-    connection_lastAuthorizedTime,
-    connection_creationTime,
     connection_authorizationType,
+    connection_connectionArn,
+    connection_connectionState,
+    connection_creationTime,
+    connection_lastAuthorizedTime,
+    connection_lastModifiedTime,
+    connection_name,
     connection_stateReason,
 
     -- * ConnectionApiKeyAuthResponseParameters
@@ -162,10 +162,10 @@ module Amazonka.CloudWatchEvents.Types
     -- * ConnectionAuthResponseParameters
     ConnectionAuthResponseParameters (..),
     newConnectionAuthResponseParameters,
-    connectionAuthResponseParameters_oAuthParameters,
-    connectionAuthResponseParameters_invocationHttpParameters,
-    connectionAuthResponseParameters_basicAuthParameters,
     connectionAuthResponseParameters_apiKeyAuthParameters,
+    connectionAuthResponseParameters_basicAuthParameters,
+    connectionAuthResponseParameters_invocationHttpParameters,
+    connectionAuthResponseParameters_oAuthParameters,
 
     -- * ConnectionBasicAuthResponseParameters
     ConnectionBasicAuthResponseParameters (..),
@@ -175,23 +175,23 @@ module Amazonka.CloudWatchEvents.Types
     -- * ConnectionBodyParameter
     ConnectionBodyParameter (..),
     newConnectionBodyParameter,
-    connectionBodyParameter_key,
     connectionBodyParameter_isValueSecret,
+    connectionBodyParameter_key,
     connectionBodyParameter_value,
 
     -- * ConnectionHeaderParameter
     ConnectionHeaderParameter (..),
     newConnectionHeaderParameter,
-    connectionHeaderParameter_key,
     connectionHeaderParameter_isValueSecret,
+    connectionHeaderParameter_key,
     connectionHeaderParameter_value,
 
     -- * ConnectionHttpParameters
     ConnectionHttpParameters (..),
     newConnectionHttpParameters,
-    connectionHttpParameters_queryStringParameters,
-    connectionHttpParameters_headerParameters,
     connectionHttpParameters_bodyParameters,
+    connectionHttpParameters_headerParameters,
+    connectionHttpParameters_queryStringParameters,
 
     -- * ConnectionOAuthClientResponseParameters
     ConnectionOAuthClientResponseParameters (..),
@@ -202,15 +202,15 @@ module Amazonka.CloudWatchEvents.Types
     ConnectionOAuthResponseParameters (..),
     newConnectionOAuthResponseParameters,
     connectionOAuthResponseParameters_authorizationEndpoint,
-    connectionOAuthResponseParameters_oAuthHttpParameters,
     connectionOAuthResponseParameters_clientParameters,
     connectionOAuthResponseParameters_httpMethod,
+    connectionOAuthResponseParameters_oAuthHttpParameters,
 
     -- * ConnectionQueryStringParameter
     ConnectionQueryStringParameter (..),
     newConnectionQueryStringParameter,
-    connectionQueryStringParameter_key,
     connectionQueryStringParameter_isValueSecret,
+    connectionQueryStringParameter_key,
     connectionQueryStringParameter_value,
 
     -- * CreateConnectionApiKeyAuthRequestParameters
@@ -222,10 +222,10 @@ module Amazonka.CloudWatchEvents.Types
     -- * CreateConnectionAuthRequestParameters
     CreateConnectionAuthRequestParameters (..),
     newCreateConnectionAuthRequestParameters,
-    createConnectionAuthRequestParameters_oAuthParameters,
-    createConnectionAuthRequestParameters_invocationHttpParameters,
-    createConnectionAuthRequestParameters_basicAuthParameters,
     createConnectionAuthRequestParameters_apiKeyAuthParameters,
+    createConnectionAuthRequestParameters_basicAuthParameters,
+    createConnectionAuthRequestParameters_invocationHttpParameters,
+    createConnectionAuthRequestParameters_oAuthParameters,
 
     -- * CreateConnectionBasicAuthRequestParameters
     CreateConnectionBasicAuthRequestParameters (..),
@@ -255,36 +255,36 @@ module Amazonka.CloudWatchEvents.Types
     -- * EcsParameters
     EcsParameters (..),
     newEcsParameters,
-    ecsParameters_tags,
-    ecsParameters_placementStrategy,
-    ecsParameters_networkConfiguration,
-    ecsParameters_enableExecuteCommand,
     ecsParameters_capacityProviderStrategy,
+    ecsParameters_enableECSManagedTags,
+    ecsParameters_enableExecuteCommand,
+    ecsParameters_group,
+    ecsParameters_launchType,
+    ecsParameters_networkConfiguration,
     ecsParameters_placementConstraints,
+    ecsParameters_placementStrategy,
+    ecsParameters_platformVersion,
     ecsParameters_propagateTags,
     ecsParameters_referenceId,
-    ecsParameters_launchType,
-    ecsParameters_platformVersion,
-    ecsParameters_enableECSManagedTags,
-    ecsParameters_group,
+    ecsParameters_tags,
     ecsParameters_taskCount,
     ecsParameters_taskDefinitionArn,
 
     -- * Endpoint
     Endpoint (..),
     newEndpoint,
-    endpoint_name,
+    endpoint_arn,
+    endpoint_creationTime,
+    endpoint_description,
     endpoint_endpointId,
+    endpoint_endpointUrl,
+    endpoint_eventBuses,
+    endpoint_lastModifiedTime,
+    endpoint_name,
+    endpoint_replicationConfig,
     endpoint_roleArn,
     endpoint_routingConfig,
-    endpoint_arn,
     endpoint_state,
-    endpoint_replicationConfig,
-    endpoint_description,
-    endpoint_lastModifiedTime,
-    endpoint_endpointUrl,
-    endpoint_creationTime,
-    endpoint_eventBuses,
     endpoint_stateReason,
 
     -- * EndpointEventBus
@@ -295,19 +295,19 @@ module Amazonka.CloudWatchEvents.Types
     -- * EventBus
     EventBus (..),
     newEventBus,
-    eventBus_policy,
-    eventBus_name,
     eventBus_arn,
+    eventBus_name,
+    eventBus_policy,
 
     -- * EventSource
     EventSource (..),
     newEventSource,
-    eventSource_name,
-    eventSource_expirationTime,
     eventSource_arn,
-    eventSource_state,
-    eventSource_creationTime,
     eventSource_createdBy,
+    eventSource_creationTime,
+    eventSource_expirationTime,
+    eventSource_name,
+    eventSource_state,
 
     -- * FailoverConfig
     FailoverConfig (..),
@@ -318,9 +318,9 @@ module Amazonka.CloudWatchEvents.Types
     -- * HttpParameters
     HttpParameters (..),
     newHttpParameters,
-    httpParameters_queryStringParameters,
     httpParameters_headerParameters,
     httpParameters_pathParameterValues,
+    httpParameters_queryStringParameters,
 
     -- * InputTransformer
     InputTransformer (..),
@@ -341,28 +341,28 @@ module Amazonka.CloudWatchEvents.Types
     -- * PartnerEventSource
     PartnerEventSource (..),
     newPartnerEventSource,
-    partnerEventSource_name,
     partnerEventSource_arn,
+    partnerEventSource_name,
 
     -- * PartnerEventSourceAccount
     PartnerEventSourceAccount (..),
     newPartnerEventSourceAccount,
-    partnerEventSourceAccount_expirationTime,
     partnerEventSourceAccount_account,
-    partnerEventSourceAccount_state,
     partnerEventSourceAccount_creationTime,
+    partnerEventSourceAccount_expirationTime,
+    partnerEventSourceAccount_state,
 
     -- * PlacementConstraint
     PlacementConstraint (..),
     newPlacementConstraint,
-    placementConstraint_type,
     placementConstraint_expression,
+    placementConstraint_type,
 
     -- * PlacementStrategy
     PlacementStrategy (..),
     newPlacementStrategy,
-    placementStrategy_type,
     placementStrategy_field,
+    placementStrategy_type,
 
     -- * Primary
     Primary (..),
@@ -372,73 +372,73 @@ module Amazonka.CloudWatchEvents.Types
     -- * PutEventsRequestEntry
     PutEventsRequestEntry (..),
     newPutEventsRequestEntry,
+    putEventsRequestEntry_detail,
     putEventsRequestEntry_detailType,
     putEventsRequestEntry_eventBusName,
-    putEventsRequestEntry_time,
-    putEventsRequestEntry_source,
     putEventsRequestEntry_resources,
+    putEventsRequestEntry_source,
+    putEventsRequestEntry_time,
     putEventsRequestEntry_traceHeader,
-    putEventsRequestEntry_detail,
 
     -- * PutEventsResultEntry
     PutEventsResultEntry (..),
     newPutEventsResultEntry,
+    putEventsResultEntry_errorCode,
     putEventsResultEntry_errorMessage,
     putEventsResultEntry_eventId,
-    putEventsResultEntry_errorCode,
 
     -- * PutPartnerEventsRequestEntry
     PutPartnerEventsRequestEntry (..),
     newPutPartnerEventsRequestEntry,
-    putPartnerEventsRequestEntry_detailType,
-    putPartnerEventsRequestEntry_time,
-    putPartnerEventsRequestEntry_source,
-    putPartnerEventsRequestEntry_resources,
     putPartnerEventsRequestEntry_detail,
+    putPartnerEventsRequestEntry_detailType,
+    putPartnerEventsRequestEntry_resources,
+    putPartnerEventsRequestEntry_source,
+    putPartnerEventsRequestEntry_time,
 
     -- * PutPartnerEventsResultEntry
     PutPartnerEventsResultEntry (..),
     newPutPartnerEventsResultEntry,
+    putPartnerEventsResultEntry_errorCode,
     putPartnerEventsResultEntry_errorMessage,
     putPartnerEventsResultEntry_eventId,
-    putPartnerEventsResultEntry_errorCode,
 
     -- * PutTargetsResultEntry
     PutTargetsResultEntry (..),
     newPutTargetsResultEntry,
-    putTargetsResultEntry_targetId,
-    putTargetsResultEntry_errorMessage,
     putTargetsResultEntry_errorCode,
+    putTargetsResultEntry_errorMessage,
+    putTargetsResultEntry_targetId,
 
     -- * RedshiftDataParameters
     RedshiftDataParameters (..),
     newRedshiftDataParameters,
+    redshiftDataParameters_dbUser,
     redshiftDataParameters_secretManagerArn,
     redshiftDataParameters_statementName,
     redshiftDataParameters_withEvent,
-    redshiftDataParameters_dbUser,
     redshiftDataParameters_database,
     redshiftDataParameters_sql,
 
     -- * RemoveTargetsResultEntry
     RemoveTargetsResultEntry (..),
     newRemoveTargetsResultEntry,
-    removeTargetsResultEntry_targetId,
-    removeTargetsResultEntry_errorMessage,
     removeTargetsResultEntry_errorCode,
+    removeTargetsResultEntry_errorMessage,
+    removeTargetsResultEntry_targetId,
 
     -- * Replay
     Replay (..),
     newReplay,
-    replay_state,
-    replay_eventLastReplayedTime,
     replay_eventEndTime,
+    replay_eventLastReplayedTime,
     replay_eventSourceArn,
+    replay_eventStartTime,
     replay_replayEndTime,
     replay_replayName,
     replay_replayStartTime,
+    replay_state,
     replay_stateReason,
-    replay_eventStartTime,
 
     -- * ReplayDestination
     ReplayDestination (..),
@@ -465,15 +465,15 @@ module Amazonka.CloudWatchEvents.Types
     -- * Rule
     Rule (..),
     newRule,
+    rule_arn,
+    rule_description,
+    rule_eventBusName,
+    rule_eventPattern,
+    rule_managedBy,
     rule_name,
     rule_roleArn,
-    rule_eventPattern,
-    rule_eventBusName,
-    rule_arn,
-    rule_state,
-    rule_description,
     rule_scheduleExpression,
-    rule_managedBy,
+    rule_state,
 
     -- * RunCommandParameters
     RunCommandParameters (..),
@@ -516,36 +516,36 @@ module Amazonka.CloudWatchEvents.Types
     -- * Target
     Target (..),
     newTarget,
-    target_kinesisParameters,
-    target_httpParameters,
-    target_roleArn,
-    target_inputPath,
-    target_sageMakerPipelineParameters,
-    target_runCommandParameters,
-    target_input,
-    target_redshiftDataParameters,
-    target_sqsParameters,
-    target_inputTransformer,
     target_batchParameters,
-    target_ecsParameters,
-    target_retryPolicy,
     target_deadLetterConfig,
+    target_ecsParameters,
+    target_httpParameters,
+    target_input,
+    target_inputPath,
+    target_inputTransformer,
+    target_kinesisParameters,
+    target_redshiftDataParameters,
+    target_retryPolicy,
+    target_roleArn,
+    target_runCommandParameters,
+    target_sageMakerPipelineParameters,
+    target_sqsParameters,
     target_id,
     target_arn,
 
     -- * UpdateConnectionApiKeyAuthRequestParameters
     UpdateConnectionApiKeyAuthRequestParameters (..),
     newUpdateConnectionApiKeyAuthRequestParameters,
-    updateConnectionApiKeyAuthRequestParameters_apiKeyValue,
     updateConnectionApiKeyAuthRequestParameters_apiKeyName,
+    updateConnectionApiKeyAuthRequestParameters_apiKeyValue,
 
     -- * UpdateConnectionAuthRequestParameters
     UpdateConnectionAuthRequestParameters (..),
     newUpdateConnectionAuthRequestParameters,
-    updateConnectionAuthRequestParameters_oAuthParameters,
-    updateConnectionAuthRequestParameters_invocationHttpParameters,
-    updateConnectionAuthRequestParameters_basicAuthParameters,
     updateConnectionAuthRequestParameters_apiKeyAuthParameters,
+    updateConnectionAuthRequestParameters_basicAuthParameters,
+    updateConnectionAuthRequestParameters_invocationHttpParameters,
+    updateConnectionAuthRequestParameters_oAuthParameters,
 
     -- * UpdateConnectionBasicAuthRequestParameters
     UpdateConnectionBasicAuthRequestParameters (..),
@@ -556,16 +556,16 @@ module Amazonka.CloudWatchEvents.Types
     -- * UpdateConnectionOAuthClientRequestParameters
     UpdateConnectionOAuthClientRequestParameters (..),
     newUpdateConnectionOAuthClientRequestParameters,
-    updateConnectionOAuthClientRequestParameters_clientSecret,
     updateConnectionOAuthClientRequestParameters_clientID,
+    updateConnectionOAuthClientRequestParameters_clientSecret,
 
     -- * UpdateConnectionOAuthRequestParameters
     UpdateConnectionOAuthRequestParameters (..),
     newUpdateConnectionOAuthRequestParameters,
     updateConnectionOAuthRequestParameters_authorizationEndpoint,
-    updateConnectionOAuthRequestParameters_oAuthHttpParameters,
     updateConnectionOAuthRequestParameters_clientParameters,
     updateConnectionOAuthRequestParameters_httpMethod,
+    updateConnectionOAuthRequestParameters_oAuthHttpParameters,
   )
 where
 
@@ -680,28 +680,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -709,13 +703,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -723,28 +721,9 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The resource you are trying to create already exists.
-_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceAlreadyExistsException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceAlreadyExistsException"
-
--- | The event bus policy is too long. For more information, see the limits.
-_PolicyLengthExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_PolicyLengthExceededException =
-  Core._MatchServiceError
-    defaultService
-    "PolicyLengthExceededException"
-
--- | The specified state is not a valid state for an event source.
-_InvalidStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidStateException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidStateException"
 
 -- | There is concurrent modification on a rule, target, archive, or replay.
 _ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -753,40 +732,13 @@ _ConcurrentModificationException =
     defaultService
     "ConcurrentModificationException"
 
--- | An entity that you specified does not exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
+-- | An error occurred because a replay can be canceled only when the state
+-- is Running or Starting.
+_IllegalStatusException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IllegalStatusException =
   Core._MatchServiceError
     defaultService
-    "ResourceNotFoundException"
-
--- | The request failed because it attempted to create resource beyond the
--- allowed service quota.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "LimitExceededException"
-
--- | The operation you are attempting is not available in this region.
-_OperationDisabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OperationDisabledException =
-  Core._MatchServiceError
-    defaultService
-    "OperationDisabledException"
-
--- | This rule was created by an Amazon Web Services service on behalf of
--- your account. It is managed by that service. If you see this error in
--- response to @DeleteRule@ or @RemoveTargets@, you can use the @Force@
--- parameter in those calls to delete the rule or remove targets from the
--- rule. You cannot modify these managed rules by using @DisableRule@,
--- @EnableRule@, @PutTargets@, @PutRule@, @TagResource@, or
--- @UntagResource@.
-_ManagedRuleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ManagedRuleException =
-  Core._MatchServiceError
-    defaultService
-    "ManagedRuleException"
+    "IllegalStatusException"
 
 -- | This exception occurs due to unexpected causes.
 _InternalException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -802,10 +754,58 @@ _InvalidEventPatternException =
     defaultService
     "InvalidEventPatternException"
 
--- | An error occurred because a replay can be canceled only when the state
--- is Running or Starting.
-_IllegalStatusException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_IllegalStatusException =
+-- | The specified state is not a valid state for an event source.
+_InvalidStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidStateException =
   Core._MatchServiceError
     defaultService
-    "IllegalStatusException"
+    "InvalidStateException"
+
+-- | The request failed because it attempted to create resource beyond the
+-- allowed service quota.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
+
+-- | This rule was created by an Amazon Web Services service on behalf of
+-- your account. It is managed by that service. If you see this error in
+-- response to @DeleteRule@ or @RemoveTargets@, you can use the @Force@
+-- parameter in those calls to delete the rule or remove targets from the
+-- rule. You cannot modify these managed rules by using @DisableRule@,
+-- @EnableRule@, @PutTargets@, @PutRule@, @TagResource@, or
+-- @UntagResource@.
+_ManagedRuleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ManagedRuleException =
+  Core._MatchServiceError
+    defaultService
+    "ManagedRuleException"
+
+-- | The operation you are attempting is not available in this region.
+_OperationDisabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OperationDisabledException =
+  Core._MatchServiceError
+    defaultService
+    "OperationDisabledException"
+
+-- | The event bus policy is too long. For more information, see the limits.
+_PolicyLengthExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PolicyLengthExceededException =
+  Core._MatchServiceError
+    defaultService
+    "PolicyLengthExceededException"
+
+-- | The resource you are trying to create already exists.
+_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceAlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceAlreadyExistsException"
+
+-- | An entity that you specified does not exist.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"

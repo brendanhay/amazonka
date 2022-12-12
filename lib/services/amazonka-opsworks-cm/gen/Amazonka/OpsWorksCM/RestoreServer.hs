@@ -45,8 +45,8 @@ module Amazonka.OpsWorksCM.RestoreServer
     newRestoreServer,
 
     -- * Request Lenses
-    restoreServer_keyPair,
     restoreServer_instanceType,
+    restoreServer_keyPair,
     restoreServer_backupId,
     restoreServer_serverName,
 
@@ -70,15 +70,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRestoreServer' smart constructor.
 data RestoreServer = RestoreServer'
-  { -- | The name of the key pair to set on the new EC2 instance. This can be
-    -- helpful if the administrator no longer has the SSH key.
-    keyPair :: Prelude.Maybe Prelude.Text,
-    -- | The type of instance to restore. Valid values must be specified in the
+  { -- | The type of instance to restore. Valid values must be specified in the
     -- following format: @^([cm][34]|t2).*@ For example, @m5.large@. Valid
     -- values are @m5.large@, @r5.xlarge@, and @r5.2xlarge@. If you do not
     -- specify this parameter, RestoreServer uses the instance type from the
     -- specified backup.
     instanceType :: Prelude.Maybe Prelude.Text,
+    -- | The name of the key pair to set on the new EC2 instance. This can be
+    -- helpful if the administrator no longer has the SSH key.
+    keyPair :: Prelude.Maybe Prelude.Text,
     -- | The ID of the backup that you want to use to restore a server.
     backupId :: Prelude.Text,
     -- | The name of the server that you want to restore.
@@ -94,14 +94,14 @@ data RestoreServer = RestoreServer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'keyPair', 'restoreServer_keyPair' - The name of the key pair to set on the new EC2 instance. This can be
--- helpful if the administrator no longer has the SSH key.
---
 -- 'instanceType', 'restoreServer_instanceType' - The type of instance to restore. Valid values must be specified in the
 -- following format: @^([cm][34]|t2).*@ For example, @m5.large@. Valid
 -- values are @m5.large@, @r5.xlarge@, and @r5.2xlarge@. If you do not
 -- specify this parameter, RestoreServer uses the instance type from the
 -- specified backup.
+--
+-- 'keyPair', 'restoreServer_keyPair' - The name of the key pair to set on the new EC2 instance. This can be
+-- helpful if the administrator no longer has the SSH key.
 --
 -- 'backupId', 'restoreServer_backupId' - The ID of the backup that you want to use to restore a server.
 --
@@ -114,16 +114,11 @@ newRestoreServer ::
   RestoreServer
 newRestoreServer pBackupId_ pServerName_ =
   RestoreServer'
-    { keyPair = Prelude.Nothing,
-      instanceType = Prelude.Nothing,
+    { instanceType = Prelude.Nothing,
+      keyPair = Prelude.Nothing,
       backupId = pBackupId_,
       serverName = pServerName_
     }
-
--- | The name of the key pair to set on the new EC2 instance. This can be
--- helpful if the administrator no longer has the SSH key.
-restoreServer_keyPair :: Lens.Lens' RestoreServer (Prelude.Maybe Prelude.Text)
-restoreServer_keyPair = Lens.lens (\RestoreServer' {keyPair} -> keyPair) (\s@RestoreServer' {} a -> s {keyPair = a} :: RestoreServer)
 
 -- | The type of instance to restore. Valid values must be specified in the
 -- following format: @^([cm][34]|t2).*@ For example, @m5.large@. Valid
@@ -132,6 +127,11 @@ restoreServer_keyPair = Lens.lens (\RestoreServer' {keyPair} -> keyPair) (\s@Res
 -- specified backup.
 restoreServer_instanceType :: Lens.Lens' RestoreServer (Prelude.Maybe Prelude.Text)
 restoreServer_instanceType = Lens.lens (\RestoreServer' {instanceType} -> instanceType) (\s@RestoreServer' {} a -> s {instanceType = a} :: RestoreServer)
+
+-- | The name of the key pair to set on the new EC2 instance. This can be
+-- helpful if the administrator no longer has the SSH key.
+restoreServer_keyPair :: Lens.Lens' RestoreServer (Prelude.Maybe Prelude.Text)
+restoreServer_keyPair = Lens.lens (\RestoreServer' {keyPair} -> keyPair) (\s@RestoreServer' {} a -> s {keyPair = a} :: RestoreServer)
 
 -- | The ID of the backup that you want to use to restore a server.
 restoreServer_backupId :: Lens.Lens' RestoreServer Prelude.Text
@@ -157,15 +157,15 @@ instance Core.AWSRequest RestoreServer where
 
 instance Prelude.Hashable RestoreServer where
   hashWithSalt _salt RestoreServer' {..} =
-    _salt `Prelude.hashWithSalt` keyPair
-      `Prelude.hashWithSalt` instanceType
+    _salt `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` keyPair
       `Prelude.hashWithSalt` backupId
       `Prelude.hashWithSalt` serverName
 
 instance Prelude.NFData RestoreServer where
   rnf RestoreServer' {..} =
-    Prelude.rnf keyPair
-      `Prelude.seq` Prelude.rnf instanceType
+    Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf keyPair
       `Prelude.seq` Prelude.rnf backupId
       `Prelude.seq` Prelude.rnf serverName
 
@@ -188,8 +188,8 @@ instance Data.ToJSON RestoreServer where
   toJSON RestoreServer' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("KeyPair" Data..=) Prelude.<$> keyPair,
-            ("InstanceType" Data..=) Prelude.<$> instanceType,
+          [ ("InstanceType" Data..=) Prelude.<$> instanceType,
+            ("KeyPair" Data..=) Prelude.<$> keyPair,
             Prelude.Just ("BackupId" Data..= backupId),
             Prelude.Just ("ServerName" Data..= serverName)
           ]

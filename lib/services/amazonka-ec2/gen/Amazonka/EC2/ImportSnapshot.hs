@@ -31,25 +31,25 @@ module Amazonka.EC2.ImportSnapshot
     newImportSnapshot,
 
     -- * Request Lenses
-    importSnapshot_roleName,
+    importSnapshot_clientData,
     importSnapshot_clientToken,
-    importSnapshot_diskContainer,
     importSnapshot_description,
+    importSnapshot_diskContainer,
     importSnapshot_dryRun,
     importSnapshot_encrypted,
     importSnapshot_kmsKeyId,
+    importSnapshot_roleName,
     importSnapshot_tagSpecifications,
-    importSnapshot_clientData,
 
     -- * Destructuring the Response
     ImportSnapshotResponse (..),
     newImportSnapshotResponse,
 
     -- * Response Lenses
-    importSnapshotResponse_tags,
-    importSnapshotResponse_importTaskId,
     importSnapshotResponse_description,
+    importSnapshotResponse_importTaskId,
     importSnapshotResponse_snapshotTaskDetail,
+    importSnapshotResponse_tags,
     importSnapshotResponse_httpStatus,
   )
 where
@@ -64,15 +64,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newImportSnapshot' smart constructor.
 data ImportSnapshot = ImportSnapshot'
-  { -- | The name of the role to use when not using the default role,
-    -- \'vmimport\'.
-    roleName :: Prelude.Maybe Prelude.Text,
+  { -- | The client-specific data.
+    clientData :: Prelude.Maybe ClientData,
     -- | Token to enable idempotency for VM import requests.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the disk container.
-    diskContainer :: Prelude.Maybe SnapshotDiskContainer,
     -- | The description string for the import snapshot task.
     description :: Prelude.Maybe Prelude.Text,
+    -- | Information about the disk container.
+    diskContainer :: Prelude.Maybe SnapshotDiskContainer,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -121,10 +120,11 @@ data ImportSnapshot = ImportSnapshot'
     --
     -- Amazon EBS does not support asymmetric KMS keys.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the role to use when not using the default role,
+    -- \'vmimport\'.
+    roleName :: Prelude.Maybe Prelude.Text,
     -- | The tags to apply to the import snapshot task during creation.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
-    -- | The client-specific data.
-    clientData :: Prelude.Maybe ClientData
+    tagSpecifications :: Prelude.Maybe [TagSpecification]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -136,14 +136,13 @@ data ImportSnapshot = ImportSnapshot'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleName', 'importSnapshot_roleName' - The name of the role to use when not using the default role,
--- \'vmimport\'.
+-- 'clientData', 'importSnapshot_clientData' - The client-specific data.
 --
 -- 'clientToken', 'importSnapshot_clientToken' - Token to enable idempotency for VM import requests.
 --
--- 'diskContainer', 'importSnapshot_diskContainer' - Information about the disk container.
---
 -- 'description', 'importSnapshot_description' - The description string for the import snapshot task.
+--
+-- 'diskContainer', 'importSnapshot_diskContainer' - Information about the disk container.
 --
 -- 'dryRun', 'importSnapshot_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -193,40 +192,40 @@ data ImportSnapshot = ImportSnapshot'
 --
 -- Amazon EBS does not support asymmetric KMS keys.
 --
--- 'tagSpecifications', 'importSnapshot_tagSpecifications' - The tags to apply to the import snapshot task during creation.
+-- 'roleName', 'importSnapshot_roleName' - The name of the role to use when not using the default role,
+-- \'vmimport\'.
 --
--- 'clientData', 'importSnapshot_clientData' - The client-specific data.
+-- 'tagSpecifications', 'importSnapshot_tagSpecifications' - The tags to apply to the import snapshot task during creation.
 newImportSnapshot ::
   ImportSnapshot
 newImportSnapshot =
   ImportSnapshot'
-    { roleName = Prelude.Nothing,
+    { clientData = Prelude.Nothing,
       clientToken = Prelude.Nothing,
-      diskContainer = Prelude.Nothing,
       description = Prelude.Nothing,
+      diskContainer = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       encrypted = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
-      tagSpecifications = Prelude.Nothing,
-      clientData = Prelude.Nothing
+      roleName = Prelude.Nothing,
+      tagSpecifications = Prelude.Nothing
     }
 
--- | The name of the role to use when not using the default role,
--- \'vmimport\'.
-importSnapshot_roleName :: Lens.Lens' ImportSnapshot (Prelude.Maybe Prelude.Text)
-importSnapshot_roleName = Lens.lens (\ImportSnapshot' {roleName} -> roleName) (\s@ImportSnapshot' {} a -> s {roleName = a} :: ImportSnapshot)
+-- | The client-specific data.
+importSnapshot_clientData :: Lens.Lens' ImportSnapshot (Prelude.Maybe ClientData)
+importSnapshot_clientData = Lens.lens (\ImportSnapshot' {clientData} -> clientData) (\s@ImportSnapshot' {} a -> s {clientData = a} :: ImportSnapshot)
 
 -- | Token to enable idempotency for VM import requests.
 importSnapshot_clientToken :: Lens.Lens' ImportSnapshot (Prelude.Maybe Prelude.Text)
 importSnapshot_clientToken = Lens.lens (\ImportSnapshot' {clientToken} -> clientToken) (\s@ImportSnapshot' {} a -> s {clientToken = a} :: ImportSnapshot)
 
--- | Information about the disk container.
-importSnapshot_diskContainer :: Lens.Lens' ImportSnapshot (Prelude.Maybe SnapshotDiskContainer)
-importSnapshot_diskContainer = Lens.lens (\ImportSnapshot' {diskContainer} -> diskContainer) (\s@ImportSnapshot' {} a -> s {diskContainer = a} :: ImportSnapshot)
-
 -- | The description string for the import snapshot task.
 importSnapshot_description :: Lens.Lens' ImportSnapshot (Prelude.Maybe Prelude.Text)
 importSnapshot_description = Lens.lens (\ImportSnapshot' {description} -> description) (\s@ImportSnapshot' {} a -> s {description = a} :: ImportSnapshot)
+
+-- | Information about the disk container.
+importSnapshot_diskContainer :: Lens.Lens' ImportSnapshot (Prelude.Maybe SnapshotDiskContainer)
+importSnapshot_diskContainer = Lens.lens (\ImportSnapshot' {diskContainer} -> diskContainer) (\s@ImportSnapshot' {} a -> s {diskContainer = a} :: ImportSnapshot)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -282,13 +281,14 @@ importSnapshot_encrypted = Lens.lens (\ImportSnapshot' {encrypted} -> encrypted)
 importSnapshot_kmsKeyId :: Lens.Lens' ImportSnapshot (Prelude.Maybe Prelude.Text)
 importSnapshot_kmsKeyId = Lens.lens (\ImportSnapshot' {kmsKeyId} -> kmsKeyId) (\s@ImportSnapshot' {} a -> s {kmsKeyId = a} :: ImportSnapshot)
 
+-- | The name of the role to use when not using the default role,
+-- \'vmimport\'.
+importSnapshot_roleName :: Lens.Lens' ImportSnapshot (Prelude.Maybe Prelude.Text)
+importSnapshot_roleName = Lens.lens (\ImportSnapshot' {roleName} -> roleName) (\s@ImportSnapshot' {} a -> s {roleName = a} :: ImportSnapshot)
+
 -- | The tags to apply to the import snapshot task during creation.
 importSnapshot_tagSpecifications :: Lens.Lens' ImportSnapshot (Prelude.Maybe [TagSpecification])
 importSnapshot_tagSpecifications = Lens.lens (\ImportSnapshot' {tagSpecifications} -> tagSpecifications) (\s@ImportSnapshot' {} a -> s {tagSpecifications = a} :: ImportSnapshot) Prelude.. Lens.mapping Lens.coerced
-
--- | The client-specific data.
-importSnapshot_clientData :: Lens.Lens' ImportSnapshot (Prelude.Maybe ClientData)
-importSnapshot_clientData = Lens.lens (\ImportSnapshot' {clientData} -> clientData) (\s@ImportSnapshot' {} a -> s {clientData = a} :: ImportSnapshot)
 
 instance Core.AWSRequest ImportSnapshot where
   type
@@ -300,38 +300,38 @@ instance Core.AWSRequest ImportSnapshot where
     Response.receiveXML
       ( \s h x ->
           ImportSnapshotResponse'
-            Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+            Prelude.<$> (x Data..@? "description")
+            Prelude.<*> (x Data..@? "importTaskId")
+            Prelude.<*> (x Data..@? "snapshotTaskDetail")
+            Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> (x Data..@? "importTaskId")
-            Prelude.<*> (x Data..@? "description")
-            Prelude.<*> (x Data..@? "snapshotTaskDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ImportSnapshot where
   hashWithSalt _salt ImportSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` roleName
+    _salt `Prelude.hashWithSalt` clientData
       `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` diskContainer
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` diskContainer
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` encrypted
       `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` roleName
       `Prelude.hashWithSalt` tagSpecifications
-      `Prelude.hashWithSalt` clientData
 
 instance Prelude.NFData ImportSnapshot where
   rnf ImportSnapshot' {..} =
-    Prelude.rnf roleName
+    Prelude.rnf clientData
       `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf diskContainer
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf diskContainer
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf encrypted
       `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf roleName
       `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf clientData
 
 instance Data.ToHeaders ImportSnapshot where
   toHeaders = Prelude.const Prelude.mempty
@@ -346,30 +346,30 @@ instance Data.ToQuery ImportSnapshot where
           Data.=: ("ImportSnapshot" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "RoleName" Data.=: roleName,
+        "ClientData" Data.=: clientData,
         "ClientToken" Data.=: clientToken,
-        "DiskContainer" Data.=: diskContainer,
         "Description" Data.=: description,
+        "DiskContainer" Data.=: diskContainer,
         "DryRun" Data.=: dryRun,
         "Encrypted" Data.=: encrypted,
         "KmsKeyId" Data.=: kmsKeyId,
+        "RoleName" Data.=: roleName,
         Data.toQuery
           ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
-          ),
-        "ClientData" Data.=: clientData
+          )
       ]
 
 -- | /See:/ 'newImportSnapshotResponse' smart constructor.
 data ImportSnapshotResponse = ImportSnapshotResponse'
-  { -- | Any tags assigned to the import snapshot task.
-    tags :: Prelude.Maybe [Tag],
+  { -- | A description of the import snapshot task.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The ID of the import snapshot task.
     importTaskId :: Prelude.Maybe Prelude.Text,
-    -- | A description of the import snapshot task.
-    description :: Prelude.Maybe Prelude.Text,
     -- | Information about the import snapshot task.
     snapshotTaskDetail :: Prelude.Maybe SnapshotTaskDetail,
+    -- | Any tags assigned to the import snapshot task.
+    tags :: Prelude.Maybe [Tag],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -383,13 +383,13 @@ data ImportSnapshotResponse = ImportSnapshotResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'importSnapshotResponse_tags' - Any tags assigned to the import snapshot task.
+-- 'description', 'importSnapshotResponse_description' - A description of the import snapshot task.
 --
 -- 'importTaskId', 'importSnapshotResponse_importTaskId' - The ID of the import snapshot task.
 --
--- 'description', 'importSnapshotResponse_description' - A description of the import snapshot task.
---
 -- 'snapshotTaskDetail', 'importSnapshotResponse_snapshotTaskDetail' - Information about the import snapshot task.
+--
+-- 'tags', 'importSnapshotResponse_tags' - Any tags assigned to the import snapshot task.
 --
 -- 'httpStatus', 'importSnapshotResponse_httpStatus' - The response's http status code.
 newImportSnapshotResponse ::
@@ -398,28 +398,29 @@ newImportSnapshotResponse ::
   ImportSnapshotResponse
 newImportSnapshotResponse pHttpStatus_ =
   ImportSnapshotResponse'
-    { tags = Prelude.Nothing,
+    { description =
+        Prelude.Nothing,
       importTaskId = Prelude.Nothing,
-      description = Prelude.Nothing,
       snapshotTaskDetail = Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Any tags assigned to the import snapshot task.
-importSnapshotResponse_tags :: Lens.Lens' ImportSnapshotResponse (Prelude.Maybe [Tag])
-importSnapshotResponse_tags = Lens.lens (\ImportSnapshotResponse' {tags} -> tags) (\s@ImportSnapshotResponse' {} a -> s {tags = a} :: ImportSnapshotResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The ID of the import snapshot task.
-importSnapshotResponse_importTaskId :: Lens.Lens' ImportSnapshotResponse (Prelude.Maybe Prelude.Text)
-importSnapshotResponse_importTaskId = Lens.lens (\ImportSnapshotResponse' {importTaskId} -> importTaskId) (\s@ImportSnapshotResponse' {} a -> s {importTaskId = a} :: ImportSnapshotResponse)
 
 -- | A description of the import snapshot task.
 importSnapshotResponse_description :: Lens.Lens' ImportSnapshotResponse (Prelude.Maybe Prelude.Text)
 importSnapshotResponse_description = Lens.lens (\ImportSnapshotResponse' {description} -> description) (\s@ImportSnapshotResponse' {} a -> s {description = a} :: ImportSnapshotResponse)
 
+-- | The ID of the import snapshot task.
+importSnapshotResponse_importTaskId :: Lens.Lens' ImportSnapshotResponse (Prelude.Maybe Prelude.Text)
+importSnapshotResponse_importTaskId = Lens.lens (\ImportSnapshotResponse' {importTaskId} -> importTaskId) (\s@ImportSnapshotResponse' {} a -> s {importTaskId = a} :: ImportSnapshotResponse)
+
 -- | Information about the import snapshot task.
 importSnapshotResponse_snapshotTaskDetail :: Lens.Lens' ImportSnapshotResponse (Prelude.Maybe SnapshotTaskDetail)
 importSnapshotResponse_snapshotTaskDetail = Lens.lens (\ImportSnapshotResponse' {snapshotTaskDetail} -> snapshotTaskDetail) (\s@ImportSnapshotResponse' {} a -> s {snapshotTaskDetail = a} :: ImportSnapshotResponse)
+
+-- | Any tags assigned to the import snapshot task.
+importSnapshotResponse_tags :: Lens.Lens' ImportSnapshotResponse (Prelude.Maybe [Tag])
+importSnapshotResponse_tags = Lens.lens (\ImportSnapshotResponse' {tags} -> tags) (\s@ImportSnapshotResponse' {} a -> s {tags = a} :: ImportSnapshotResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 importSnapshotResponse_httpStatus :: Lens.Lens' ImportSnapshotResponse Prelude.Int
@@ -427,8 +428,8 @@ importSnapshotResponse_httpStatus = Lens.lens (\ImportSnapshotResponse' {httpSta
 
 instance Prelude.NFData ImportSnapshotResponse where
   rnf ImportSnapshotResponse' {..} =
-    Prelude.rnf tags
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf importTaskId
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf snapshotTaskDetail
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

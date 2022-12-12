@@ -33,21 +33,27 @@ import Amazonka.SageMaker.Types.Tag
 --
 -- /See:/ 'newEndpoint' smart constructor.
 data Endpoint = Endpoint'
-  { -- | A list of the tags associated with the endpoint. For more information,
-    -- see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
-    -- in the /Amazon Web Services General Reference Guide/.
-    tags :: Prelude.Maybe [Tag],
+  { dataCaptureConfig :: Prelude.Maybe DataCaptureConfigSummary,
+    -- | If the endpoint failed, the reason it failed.
+    failureReason :: Prelude.Maybe Prelude.Text,
     -- | A list of monitoring schedules for the endpoint. For information about
     -- model monitoring, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html Amazon SageMaker Model Monitor>.
     monitoringSchedules :: Prelude.Maybe [MonitoringSchedule],
-    dataCaptureConfig :: Prelude.Maybe DataCaptureConfigSummary,
     -- | A list of the production variants hosted on the endpoint. Each
     -- production variant is a model.
     productionVariants :: Prelude.Maybe (Prelude.NonEmpty ProductionVariantSummary),
-    -- | If the endpoint failed, the reason it failed.
-    failureReason :: Prelude.Maybe Prelude.Text,
+    -- | Array of @ProductionVariant@ objects, one for each model that you want
+    -- to host at this endpoint in shadow mode with production traffic
+    -- replicated from the model specified on @ProductionVariants@.If you use
+    -- this field, you can only specify one variant for @ProductionVariants@
+    -- and one variant for @ShadowProductionVariants@.
+    shadowProductionVariants :: Prelude.Maybe (Prelude.NonEmpty ProductionVariantSummary),
+    -- | A list of the tags associated with the endpoint. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+    -- in the /Amazon Web Services General Reference Guide/.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the endpoint.
     endpointName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the endpoint.
@@ -71,21 +77,27 @@ data Endpoint = Endpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'endpoint_tags' - A list of the tags associated with the endpoint. For more information,
--- see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
--- in the /Amazon Web Services General Reference Guide/.
+-- 'dataCaptureConfig', 'endpoint_dataCaptureConfig' - Undocumented member.
+--
+-- 'failureReason', 'endpoint_failureReason' - If the endpoint failed, the reason it failed.
 --
 -- 'monitoringSchedules', 'endpoint_monitoringSchedules' - A list of monitoring schedules for the endpoint. For information about
 -- model monitoring, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html Amazon SageMaker Model Monitor>.
 --
--- 'dataCaptureConfig', 'endpoint_dataCaptureConfig' - Undocumented member.
---
 -- 'productionVariants', 'endpoint_productionVariants' - A list of the production variants hosted on the endpoint. Each
 -- production variant is a model.
 --
--- 'failureReason', 'endpoint_failureReason' - If the endpoint failed, the reason it failed.
+-- 'shadowProductionVariants', 'endpoint_shadowProductionVariants' - Array of @ProductionVariant@ objects, one for each model that you want
+-- to host at this endpoint in shadow mode with production traffic
+-- replicated from the model specified on @ProductionVariants@.If you use
+-- this field, you can only specify one variant for @ProductionVariants@
+-- and one variant for @ShadowProductionVariants@.
+--
+-- 'tags', 'endpoint_tags' - A list of the tags associated with the endpoint. For more information,
+-- see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+-- in the /Amazon Web Services General Reference Guide/.
 --
 -- 'endpointName', 'endpoint_endpointName' - The name of the endpoint.
 --
@@ -120,11 +132,12 @@ newEndpoint
   pCreationTime_
   pLastModifiedTime_ =
     Endpoint'
-      { tags = Prelude.Nothing,
-        monitoringSchedules = Prelude.Nothing,
-        dataCaptureConfig = Prelude.Nothing,
-        productionVariants = Prelude.Nothing,
+      { dataCaptureConfig = Prelude.Nothing,
         failureReason = Prelude.Nothing,
+        monitoringSchedules = Prelude.Nothing,
+        productionVariants = Prelude.Nothing,
+        shadowProductionVariants = Prelude.Nothing,
+        tags = Prelude.Nothing,
         endpointName = pEndpointName_,
         endpointArn = pEndpointArn_,
         endpointConfigName = pEndpointConfigName_,
@@ -134,12 +147,13 @@ newEndpoint
           Data._Time Lens.# pLastModifiedTime_
       }
 
--- | A list of the tags associated with the endpoint. For more information,
--- see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
--- in the /Amazon Web Services General Reference Guide/.
-endpoint_tags :: Lens.Lens' Endpoint (Prelude.Maybe [Tag])
-endpoint_tags = Lens.lens (\Endpoint' {tags} -> tags) (\s@Endpoint' {} a -> s {tags = a} :: Endpoint) Prelude.. Lens.mapping Lens.coerced
+-- | Undocumented member.
+endpoint_dataCaptureConfig :: Lens.Lens' Endpoint (Prelude.Maybe DataCaptureConfigSummary)
+endpoint_dataCaptureConfig = Lens.lens (\Endpoint' {dataCaptureConfig} -> dataCaptureConfig) (\s@Endpoint' {} a -> s {dataCaptureConfig = a} :: Endpoint)
+
+-- | If the endpoint failed, the reason it failed.
+endpoint_failureReason :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
+endpoint_failureReason = Lens.lens (\Endpoint' {failureReason} -> failureReason) (\s@Endpoint' {} a -> s {failureReason = a} :: Endpoint)
 
 -- | A list of monitoring schedules for the endpoint. For information about
 -- model monitoring, see
@@ -147,18 +161,25 @@ endpoint_tags = Lens.lens (\Endpoint' {tags} -> tags) (\s@Endpoint' {} a -> s {t
 endpoint_monitoringSchedules :: Lens.Lens' Endpoint (Prelude.Maybe [MonitoringSchedule])
 endpoint_monitoringSchedules = Lens.lens (\Endpoint' {monitoringSchedules} -> monitoringSchedules) (\s@Endpoint' {} a -> s {monitoringSchedules = a} :: Endpoint) Prelude.. Lens.mapping Lens.coerced
 
--- | Undocumented member.
-endpoint_dataCaptureConfig :: Lens.Lens' Endpoint (Prelude.Maybe DataCaptureConfigSummary)
-endpoint_dataCaptureConfig = Lens.lens (\Endpoint' {dataCaptureConfig} -> dataCaptureConfig) (\s@Endpoint' {} a -> s {dataCaptureConfig = a} :: Endpoint)
-
 -- | A list of the production variants hosted on the endpoint. Each
 -- production variant is a model.
 endpoint_productionVariants :: Lens.Lens' Endpoint (Prelude.Maybe (Prelude.NonEmpty ProductionVariantSummary))
 endpoint_productionVariants = Lens.lens (\Endpoint' {productionVariants} -> productionVariants) (\s@Endpoint' {} a -> s {productionVariants = a} :: Endpoint) Prelude.. Lens.mapping Lens.coerced
 
--- | If the endpoint failed, the reason it failed.
-endpoint_failureReason :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
-endpoint_failureReason = Lens.lens (\Endpoint' {failureReason} -> failureReason) (\s@Endpoint' {} a -> s {failureReason = a} :: Endpoint)
+-- | Array of @ProductionVariant@ objects, one for each model that you want
+-- to host at this endpoint in shadow mode with production traffic
+-- replicated from the model specified on @ProductionVariants@.If you use
+-- this field, you can only specify one variant for @ProductionVariants@
+-- and one variant for @ShadowProductionVariants@.
+endpoint_shadowProductionVariants :: Lens.Lens' Endpoint (Prelude.Maybe (Prelude.NonEmpty ProductionVariantSummary))
+endpoint_shadowProductionVariants = Lens.lens (\Endpoint' {shadowProductionVariants} -> shadowProductionVariants) (\s@Endpoint' {} a -> s {shadowProductionVariants = a} :: Endpoint) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of the tags associated with the endpoint. For more information,
+-- see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+-- in the /Amazon Web Services General Reference Guide/.
+endpoint_tags :: Lens.Lens' Endpoint (Prelude.Maybe [Tag])
+endpoint_tags = Lens.lens (\Endpoint' {tags} -> tags) (\s@Endpoint' {} a -> s {tags = a} :: Endpoint) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the endpoint.
 endpoint_endpointName :: Lens.Lens' Endpoint Prelude.Text
@@ -190,13 +211,14 @@ instance Data.FromJSON Endpoint where
       "Endpoint"
       ( \x ->
           Endpoint'
-            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "DataCaptureConfig")
+            Prelude.<*> (x Data..:? "FailureReason")
             Prelude.<*> ( x Data..:? "MonitoringSchedules"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "DataCaptureConfig")
             Prelude.<*> (x Data..:? "ProductionVariants")
-            Prelude.<*> (x Data..:? "FailureReason")
+            Prelude.<*> (x Data..:? "ShadowProductionVariants")
+            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "EndpointName")
             Prelude.<*> (x Data..: "EndpointArn")
             Prelude.<*> (x Data..: "EndpointConfigName")
@@ -207,11 +229,12 @@ instance Data.FromJSON Endpoint where
 
 instance Prelude.Hashable Endpoint where
   hashWithSalt _salt Endpoint' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` monitoringSchedules
-      `Prelude.hashWithSalt` dataCaptureConfig
-      `Prelude.hashWithSalt` productionVariants
+    _salt `Prelude.hashWithSalt` dataCaptureConfig
       `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` monitoringSchedules
+      `Prelude.hashWithSalt` productionVariants
+      `Prelude.hashWithSalt` shadowProductionVariants
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` endpointName
       `Prelude.hashWithSalt` endpointArn
       `Prelude.hashWithSalt` endpointConfigName
@@ -221,11 +244,12 @@ instance Prelude.Hashable Endpoint where
 
 instance Prelude.NFData Endpoint where
   rnf Endpoint' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf monitoringSchedules
-      `Prelude.seq` Prelude.rnf dataCaptureConfig
-      `Prelude.seq` Prelude.rnf productionVariants
+    Prelude.rnf dataCaptureConfig
       `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf monitoringSchedules
+      `Prelude.seq` Prelude.rnf productionVariants
+      `Prelude.seq` Prelude.rnf shadowProductionVariants
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf endpointName
       `Prelude.seq` Prelude.rnf endpointArn
       `Prelude.seq` Prelude.rnf endpointConfigName

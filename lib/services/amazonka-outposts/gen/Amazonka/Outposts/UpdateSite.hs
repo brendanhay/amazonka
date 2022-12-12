@@ -27,8 +27,8 @@ module Amazonka.Outposts.UpdateSite
     newUpdateSite,
 
     -- * Request Lenses
-    updateSite_name,
     updateSite_description,
+    updateSite_name,
     updateSite_notes,
     updateSite_siteId,
 
@@ -52,8 +52,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateSite' smart constructor.
 data UpdateSite = UpdateSite'
-  { name :: Prelude.Maybe Prelude.Text,
-    description :: Prelude.Maybe Prelude.Text,
+  { description :: Prelude.Maybe Prelude.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | Notes about a site.
     notes :: Prelude.Maybe Prelude.Text,
     -- | The ID or the Amazon Resource Name (ARN) of the site.
@@ -69,9 +69,9 @@ data UpdateSite = UpdateSite'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateSite_name' - Undocumented member.
---
 -- 'description', 'updateSite_description' - Undocumented member.
+--
+-- 'name', 'updateSite_name' - Undocumented member.
 --
 -- 'notes', 'updateSite_notes' - Notes about a site.
 --
@@ -82,19 +82,19 @@ newUpdateSite ::
   UpdateSite
 newUpdateSite pSiteId_ =
   UpdateSite'
-    { name = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      name = Prelude.Nothing,
       notes = Prelude.Nothing,
       siteId = pSiteId_
     }
 
 -- | Undocumented member.
-updateSite_name :: Lens.Lens' UpdateSite (Prelude.Maybe Prelude.Text)
-updateSite_name = Lens.lens (\UpdateSite' {name} -> name) (\s@UpdateSite' {} a -> s {name = a} :: UpdateSite)
-
--- | Undocumented member.
 updateSite_description :: Lens.Lens' UpdateSite (Prelude.Maybe Prelude.Text)
 updateSite_description = Lens.lens (\UpdateSite' {description} -> description) (\s@UpdateSite' {} a -> s {description = a} :: UpdateSite)
+
+-- | Undocumented member.
+updateSite_name :: Lens.Lens' UpdateSite (Prelude.Maybe Prelude.Text)
+updateSite_name = Lens.lens (\UpdateSite' {name} -> name) (\s@UpdateSite' {} a -> s {name = a} :: UpdateSite)
 
 -- | Notes about a site.
 updateSite_notes :: Lens.Lens' UpdateSite (Prelude.Maybe Prelude.Text)
@@ -118,15 +118,15 @@ instance Core.AWSRequest UpdateSite where
 
 instance Prelude.Hashable UpdateSite where
   hashWithSalt _salt UpdateSite' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` notes
       `Prelude.hashWithSalt` siteId
 
 instance Prelude.NFData UpdateSite where
   rnf UpdateSite' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf notes
       `Prelude.seq` Prelude.rnf siteId
 
@@ -145,8 +145,8 @@ instance Data.ToJSON UpdateSite where
   toJSON UpdateSite' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("Name" Data..=) Prelude.<$> name,
             ("Notes" Data..=) Prelude.<$> notes
           ]
       )

@@ -27,9 +27,9 @@ module Amazonka.Braket.CreateQuantumTask
     newCreateQuantumTask,
 
     -- * Request Lenses
-    createQuantumTask_tags,
-    createQuantumTask_jobToken,
     createQuantumTask_deviceParameters,
+    createQuantumTask_jobToken,
+    createQuantumTask_tags,
     createQuantumTask_action,
     createQuantumTask_clientToken,
     createQuantumTask_deviceArn,
@@ -57,13 +57,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateQuantumTask' smart constructor.
 data CreateQuantumTask = CreateQuantumTask'
-  { -- | Tags to be added to the quantum task you\'re creating.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | The parameters for the device to run the task on.
+    deviceParameters :: Prelude.Maybe Prelude.Text,
     -- | The token for an Amazon Braket job that associates it with the quantum
     -- task.
     jobToken :: Prelude.Maybe Prelude.Text,
-    -- | The parameters for the device to run the task on.
-    deviceParameters :: Prelude.Maybe Prelude.Text,
+    -- | Tags to be added to the quantum task you\'re creating.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The action associated with the task.
     action :: Prelude.Text,
     -- | The client token associated with the request.
@@ -88,12 +88,12 @@ data CreateQuantumTask = CreateQuantumTask'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createQuantumTask_tags' - Tags to be added to the quantum task you\'re creating.
+-- 'deviceParameters', 'createQuantumTask_deviceParameters' - The parameters for the device to run the task on.
 --
 -- 'jobToken', 'createQuantumTask_jobToken' - The token for an Amazon Braket job that associates it with the quantum
 -- task.
 --
--- 'deviceParameters', 'createQuantumTask_deviceParameters' - The parameters for the device to run the task on.
+-- 'tags', 'createQuantumTask_tags' - Tags to be added to the quantum task you\'re creating.
 --
 -- 'action', 'createQuantumTask_action' - The action associated with the task.
 --
@@ -129,9 +129,10 @@ newCreateQuantumTask
   pOutputS3KeyPrefix_
   pShots_ =
     CreateQuantumTask'
-      { tags = Prelude.Nothing,
+      { deviceParameters =
+          Prelude.Nothing,
         jobToken = Prelude.Nothing,
-        deviceParameters = Prelude.Nothing,
+        tags = Prelude.Nothing,
         action = pAction_,
         clientToken = pClientToken_,
         deviceArn = pDeviceArn_,
@@ -140,18 +141,18 @@ newCreateQuantumTask
         shots = pShots_
       }
 
--- | Tags to be added to the quantum task you\'re creating.
-createQuantumTask_tags :: Lens.Lens' CreateQuantumTask (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createQuantumTask_tags = Lens.lens (\CreateQuantumTask' {tags} -> tags) (\s@CreateQuantumTask' {} a -> s {tags = a} :: CreateQuantumTask) Prelude.. Lens.mapping Lens.coerced
+-- | The parameters for the device to run the task on.
+createQuantumTask_deviceParameters :: Lens.Lens' CreateQuantumTask (Prelude.Maybe Prelude.Text)
+createQuantumTask_deviceParameters = Lens.lens (\CreateQuantumTask' {deviceParameters} -> deviceParameters) (\s@CreateQuantumTask' {} a -> s {deviceParameters = a} :: CreateQuantumTask)
 
 -- | The token for an Amazon Braket job that associates it with the quantum
 -- task.
 createQuantumTask_jobToken :: Lens.Lens' CreateQuantumTask (Prelude.Maybe Prelude.Text)
 createQuantumTask_jobToken = Lens.lens (\CreateQuantumTask' {jobToken} -> jobToken) (\s@CreateQuantumTask' {} a -> s {jobToken = a} :: CreateQuantumTask)
 
--- | The parameters for the device to run the task on.
-createQuantumTask_deviceParameters :: Lens.Lens' CreateQuantumTask (Prelude.Maybe Prelude.Text)
-createQuantumTask_deviceParameters = Lens.lens (\CreateQuantumTask' {deviceParameters} -> deviceParameters) (\s@CreateQuantumTask' {} a -> s {deviceParameters = a} :: CreateQuantumTask)
+-- | Tags to be added to the quantum task you\'re creating.
+createQuantumTask_tags :: Lens.Lens' CreateQuantumTask (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createQuantumTask_tags = Lens.lens (\CreateQuantumTask' {tags} -> tags) (\s@CreateQuantumTask' {} a -> s {tags = a} :: CreateQuantumTask) Prelude.. Lens.mapping Lens.coerced
 
 -- | The action associated with the task.
 createQuantumTask_action :: Lens.Lens' CreateQuantumTask Prelude.Text
@@ -194,9 +195,9 @@ instance Core.AWSRequest CreateQuantumTask where
 
 instance Prelude.Hashable CreateQuantumTask where
   hashWithSalt _salt CreateQuantumTask' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` deviceParameters
       `Prelude.hashWithSalt` jobToken
-      `Prelude.hashWithSalt` deviceParameters
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` deviceArn
@@ -206,9 +207,9 @@ instance Prelude.Hashable CreateQuantumTask where
 
 instance Prelude.NFData CreateQuantumTask where
   rnf CreateQuantumTask' {..} =
-    Prelude.rnf tags
+    Prelude.rnf deviceParameters
       `Prelude.seq` Prelude.rnf jobToken
-      `Prelude.seq` Prelude.rnf deviceParameters
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf action
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf deviceArn
@@ -231,10 +232,10 @@ instance Data.ToJSON CreateQuantumTask where
   toJSON CreateQuantumTask' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("jobToken" Data..=) Prelude.<$> jobToken,
-            ("deviceParameters" Data..=)
+          [ ("deviceParameters" Data..=)
               Prelude.<$> deviceParameters,
+            ("jobToken" Data..=) Prelude.<$> jobToken,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("action" Data..= action),
             Prelude.Just ("clientToken" Data..= clientToken),
             Prelude.Just ("deviceArn" Data..= deviceArn),

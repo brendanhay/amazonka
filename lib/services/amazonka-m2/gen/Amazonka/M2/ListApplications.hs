@@ -32,10 +32,10 @@ module Amazonka.M2.ListApplications
     newListApplications,
 
     -- * Request Lenses
-    listApplications_nextToken,
-    listApplications_names,
-    listApplications_maxResults,
     listApplications_environmentId,
+    listApplications_maxResults,
+    listApplications_names,
+    listApplications_nextToken,
 
     -- * Destructuring the Response
     ListApplicationsResponse (..),
@@ -58,16 +58,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListApplications' smart constructor.
 data ListApplications = ListApplications'
-  { -- | A pagination token to control the number of applications displayed in
-    -- the list.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The names of the applications.
-    names :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+  { -- | The unique identifier of the runtime environment where the applications
+    -- are deployed.
+    environmentId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of applications to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The unique identifier of the runtime environment where the applications
-    -- are deployed.
-    environmentId :: Prelude.Maybe Prelude.Text
+    -- | The names of the applications.
+    names :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | A pagination token to control the number of applications displayed in
+    -- the list.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,42 +79,42 @@ data ListApplications = ListApplications'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listApplications_nextToken' - A pagination token to control the number of applications displayed in
--- the list.
---
--- 'names', 'listApplications_names' - The names of the applications.
+-- 'environmentId', 'listApplications_environmentId' - The unique identifier of the runtime environment where the applications
+-- are deployed.
 --
 -- 'maxResults', 'listApplications_maxResults' - The maximum number of applications to return.
 --
--- 'environmentId', 'listApplications_environmentId' - The unique identifier of the runtime environment where the applications
--- are deployed.
+-- 'names', 'listApplications_names' - The names of the applications.
+--
+-- 'nextToken', 'listApplications_nextToken' - A pagination token to control the number of applications displayed in
+-- the list.
 newListApplications ::
   ListApplications
 newListApplications =
   ListApplications'
-    { nextToken = Prelude.Nothing,
-      names = Prelude.Nothing,
+    { environmentId = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      environmentId = Prelude.Nothing
+      names = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | A pagination token to control the number of applications displayed in
--- the list.
-listApplications_nextToken :: Lens.Lens' ListApplications (Prelude.Maybe Prelude.Text)
-listApplications_nextToken = Lens.lens (\ListApplications' {nextToken} -> nextToken) (\s@ListApplications' {} a -> s {nextToken = a} :: ListApplications)
-
--- | The names of the applications.
-listApplications_names :: Lens.Lens' ListApplications (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-listApplications_names = Lens.lens (\ListApplications' {names} -> names) (\s@ListApplications' {} a -> s {names = a} :: ListApplications) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum number of applications to return.
-listApplications_maxResults :: Lens.Lens' ListApplications (Prelude.Maybe Prelude.Natural)
-listApplications_maxResults = Lens.lens (\ListApplications' {maxResults} -> maxResults) (\s@ListApplications' {} a -> s {maxResults = a} :: ListApplications)
 
 -- | The unique identifier of the runtime environment where the applications
 -- are deployed.
 listApplications_environmentId :: Lens.Lens' ListApplications (Prelude.Maybe Prelude.Text)
 listApplications_environmentId = Lens.lens (\ListApplications' {environmentId} -> environmentId) (\s@ListApplications' {} a -> s {environmentId = a} :: ListApplications)
+
+-- | The maximum number of applications to return.
+listApplications_maxResults :: Lens.Lens' ListApplications (Prelude.Maybe Prelude.Natural)
+listApplications_maxResults = Lens.lens (\ListApplications' {maxResults} -> maxResults) (\s@ListApplications' {} a -> s {maxResults = a} :: ListApplications)
+
+-- | The names of the applications.
+listApplications_names :: Lens.Lens' ListApplications (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+listApplications_names = Lens.lens (\ListApplications' {names} -> names) (\s@ListApplications' {} a -> s {names = a} :: ListApplications) Prelude.. Lens.mapping Lens.coerced
+
+-- | A pagination token to control the number of applications displayed in
+-- the list.
+listApplications_nextToken :: Lens.Lens' ListApplications (Prelude.Maybe Prelude.Text)
+listApplications_nextToken = Lens.lens (\ListApplications' {nextToken} -> nextToken) (\s@ListApplications' {} a -> s {nextToken = a} :: ListApplications)
 
 instance Core.AWSPager ListApplications where
   page rq rs
@@ -152,17 +152,17 @@ instance Core.AWSRequest ListApplications where
 
 instance Prelude.Hashable ListApplications where
   hashWithSalt _salt ListApplications' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` names
+    _salt `Prelude.hashWithSalt` environmentId
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` environmentId
+      `Prelude.hashWithSalt` names
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListApplications where
   rnf ListApplications' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf names
+    Prelude.rnf environmentId
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf environmentId
+      `Prelude.seq` Prelude.rnf names
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListApplications where
   toHeaders =
@@ -181,12 +181,12 @@ instance Data.ToPath ListApplications where
 instance Data.ToQuery ListApplications where
   toQuery ListApplications' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
+      [ "environmentId" Data.=: environmentId,
+        "maxResults" Data.=: maxResults,
         "names"
           Data.=: Data.toQuery
             (Data.toQueryList "member" Prelude.<$> names),
-        "maxResults" Data.=: maxResults,
-        "environmentId" Data.=: environmentId
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListApplicationsResponse' smart constructor.

@@ -34,19 +34,19 @@ data SolutionVersionSummary = SolutionVersionSummary'
   { -- | The date and time (in Unix time) that this version of a solution was
     -- created.
     creationDateTime :: Prelude.Maybe Data.POSIX,
+    -- | If a solution version fails, the reason behind the failure.
+    failureReason :: Prelude.Maybe Prelude.Text,
+    -- | The date and time (in Unix time) that the solution version was last
+    -- updated.
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The Amazon Resource Name (ARN) of the solution version.
+    solutionVersionArn :: Prelude.Maybe Prelude.Text,
     -- | The status of the solution version.
     --
     -- A solution version can be in one of the following states:
     --
     -- -   CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the solution version.
-    solutionVersionArn :: Prelude.Maybe Prelude.Text,
-    -- | The date and time (in Unix time) that the solution version was last
-    -- updated.
-    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
-    -- | If a solution version fails, the reason behind the failure.
-    failureReason :: Prelude.Maybe Prelude.Text
+    status :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,34 +61,47 @@ data SolutionVersionSummary = SolutionVersionSummary'
 -- 'creationDateTime', 'solutionVersionSummary_creationDateTime' - The date and time (in Unix time) that this version of a solution was
 -- created.
 --
+-- 'failureReason', 'solutionVersionSummary_failureReason' - If a solution version fails, the reason behind the failure.
+--
+-- 'lastUpdatedDateTime', 'solutionVersionSummary_lastUpdatedDateTime' - The date and time (in Unix time) that the solution version was last
+-- updated.
+--
+-- 'solutionVersionArn', 'solutionVersionSummary_solutionVersionArn' - The Amazon Resource Name (ARN) of the solution version.
+--
 -- 'status', 'solutionVersionSummary_status' - The status of the solution version.
 --
 -- A solution version can be in one of the following states:
 --
 -- -   CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
---
--- 'solutionVersionArn', 'solutionVersionSummary_solutionVersionArn' - The Amazon Resource Name (ARN) of the solution version.
---
--- 'lastUpdatedDateTime', 'solutionVersionSummary_lastUpdatedDateTime' - The date and time (in Unix time) that the solution version was last
--- updated.
---
--- 'failureReason', 'solutionVersionSummary_failureReason' - If a solution version fails, the reason behind the failure.
 newSolutionVersionSummary ::
   SolutionVersionSummary
 newSolutionVersionSummary =
   SolutionVersionSummary'
     { creationDateTime =
         Prelude.Nothing,
-      status = Prelude.Nothing,
-      solutionVersionArn = Prelude.Nothing,
+      failureReason = Prelude.Nothing,
       lastUpdatedDateTime = Prelude.Nothing,
-      failureReason = Prelude.Nothing
+      solutionVersionArn = Prelude.Nothing,
+      status = Prelude.Nothing
     }
 
 -- | The date and time (in Unix time) that this version of a solution was
 -- created.
 solutionVersionSummary_creationDateTime :: Lens.Lens' SolutionVersionSummary (Prelude.Maybe Prelude.UTCTime)
 solutionVersionSummary_creationDateTime = Lens.lens (\SolutionVersionSummary' {creationDateTime} -> creationDateTime) (\s@SolutionVersionSummary' {} a -> s {creationDateTime = a} :: SolutionVersionSummary) Prelude.. Lens.mapping Data._Time
+
+-- | If a solution version fails, the reason behind the failure.
+solutionVersionSummary_failureReason :: Lens.Lens' SolutionVersionSummary (Prelude.Maybe Prelude.Text)
+solutionVersionSummary_failureReason = Lens.lens (\SolutionVersionSummary' {failureReason} -> failureReason) (\s@SolutionVersionSummary' {} a -> s {failureReason = a} :: SolutionVersionSummary)
+
+-- | The date and time (in Unix time) that the solution version was last
+-- updated.
+solutionVersionSummary_lastUpdatedDateTime :: Lens.Lens' SolutionVersionSummary (Prelude.Maybe Prelude.UTCTime)
+solutionVersionSummary_lastUpdatedDateTime = Lens.lens (\SolutionVersionSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@SolutionVersionSummary' {} a -> s {lastUpdatedDateTime = a} :: SolutionVersionSummary) Prelude.. Lens.mapping Data._Time
+
+-- | The Amazon Resource Name (ARN) of the solution version.
+solutionVersionSummary_solutionVersionArn :: Lens.Lens' SolutionVersionSummary (Prelude.Maybe Prelude.Text)
+solutionVersionSummary_solutionVersionArn = Lens.lens (\SolutionVersionSummary' {solutionVersionArn} -> solutionVersionArn) (\s@SolutionVersionSummary' {} a -> s {solutionVersionArn = a} :: SolutionVersionSummary)
 
 -- | The status of the solution version.
 --
@@ -98,19 +111,6 @@ solutionVersionSummary_creationDateTime = Lens.lens (\SolutionVersionSummary' {c
 solutionVersionSummary_status :: Lens.Lens' SolutionVersionSummary (Prelude.Maybe Prelude.Text)
 solutionVersionSummary_status = Lens.lens (\SolutionVersionSummary' {status} -> status) (\s@SolutionVersionSummary' {} a -> s {status = a} :: SolutionVersionSummary)
 
--- | The Amazon Resource Name (ARN) of the solution version.
-solutionVersionSummary_solutionVersionArn :: Lens.Lens' SolutionVersionSummary (Prelude.Maybe Prelude.Text)
-solutionVersionSummary_solutionVersionArn = Lens.lens (\SolutionVersionSummary' {solutionVersionArn} -> solutionVersionArn) (\s@SolutionVersionSummary' {} a -> s {solutionVersionArn = a} :: SolutionVersionSummary)
-
--- | The date and time (in Unix time) that the solution version was last
--- updated.
-solutionVersionSummary_lastUpdatedDateTime :: Lens.Lens' SolutionVersionSummary (Prelude.Maybe Prelude.UTCTime)
-solutionVersionSummary_lastUpdatedDateTime = Lens.lens (\SolutionVersionSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@SolutionVersionSummary' {} a -> s {lastUpdatedDateTime = a} :: SolutionVersionSummary) Prelude.. Lens.mapping Data._Time
-
--- | If a solution version fails, the reason behind the failure.
-solutionVersionSummary_failureReason :: Lens.Lens' SolutionVersionSummary (Prelude.Maybe Prelude.Text)
-solutionVersionSummary_failureReason = Lens.lens (\SolutionVersionSummary' {failureReason} -> failureReason) (\s@SolutionVersionSummary' {} a -> s {failureReason = a} :: SolutionVersionSummary)
-
 instance Data.FromJSON SolutionVersionSummary where
   parseJSON =
     Data.withObject
@@ -118,24 +118,24 @@ instance Data.FromJSON SolutionVersionSummary where
       ( \x ->
           SolutionVersionSummary'
             Prelude.<$> (x Data..:? "creationDateTime")
-            Prelude.<*> (x Data..:? "status")
-            Prelude.<*> (x Data..:? "solutionVersionArn")
-            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
             Prelude.<*> (x Data..:? "failureReason")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
+            Prelude.<*> (x Data..:? "solutionVersionArn")
+            Prelude.<*> (x Data..:? "status")
       )
 
 instance Prelude.Hashable SolutionVersionSummary where
   hashWithSalt _salt SolutionVersionSummary' {..} =
     _salt `Prelude.hashWithSalt` creationDateTime
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` solutionVersionArn
-      `Prelude.hashWithSalt` lastUpdatedDateTime
       `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` lastUpdatedDateTime
+      `Prelude.hashWithSalt` solutionVersionArn
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData SolutionVersionSummary where
   rnf SolutionVersionSummary' {..} =
     Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf solutionVersionArn
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
       `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf solutionVersionArn
+      `Prelude.seq` Prelude.rnf status

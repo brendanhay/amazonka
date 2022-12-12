@@ -36,14 +36,6 @@
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/matchmaker-build.html Setting up FlexMatch matchmakers>
 --
--- __Related actions__
---
--- CreateMatchmakingConfiguration | DescribeMatchmakingConfigurations |
--- UpdateMatchmakingConfiguration | DeleteMatchmakingConfiguration |
--- CreateMatchmakingRuleSet | DescribeMatchmakingRuleSets |
--- ValidateMatchmakingRuleSet | DeleteMatchmakingRuleSet |
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
---
 -- This operation returns paginated results.
 module Amazonka.GameLift.DescribeMatchmakingConfigurations
   ( -- * Creating a Request
@@ -51,18 +43,18 @@ module Amazonka.GameLift.DescribeMatchmakingConfigurations
     newDescribeMatchmakingConfigurations,
 
     -- * Request Lenses
+    describeMatchmakingConfigurations_limit,
+    describeMatchmakingConfigurations_names,
     describeMatchmakingConfigurations_nextToken,
     describeMatchmakingConfigurations_ruleSetName,
-    describeMatchmakingConfigurations_names,
-    describeMatchmakingConfigurations_limit,
 
     -- * Destructuring the Response
     DescribeMatchmakingConfigurationsResponse (..),
     newDescribeMatchmakingConfigurationsResponse,
 
     -- * Response Lenses
-    describeMatchmakingConfigurationsResponse_nextToken,
     describeMatchmakingConfigurationsResponse_configurations,
+    describeMatchmakingConfigurationsResponse_nextToken,
     describeMatchmakingConfigurationsResponse_httpStatus,
   )
 where
@@ -75,26 +67,24 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Represents the input for a request operation.
---
--- /See:/ 'newDescribeMatchmakingConfigurations' smart constructor.
+-- | /See:/ 'newDescribeMatchmakingConfigurations' smart constructor.
 data DescribeMatchmakingConfigurations = DescribeMatchmakingConfigurations'
-  { -- | A token that indicates the start of the next sequential page of results.
+  { -- | The maximum number of results to return. Use this parameter with
+    -- @NextToken@ to get results as a set of sequential pages. This parameter
+    -- is limited to 10.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | A unique identifier for the matchmaking configuration(s) to retrieve.
+    -- You can use either the configuration name or ARN value. To request all
+    -- existing configurations, leave this parameter empty.
+    names :: Prelude.Maybe [Prelude.Text],
+    -- | A token that indicates the start of the next sequential page of results.
     -- Use the token that is returned with a previous call to this operation.
     -- To start at the beginning of the result set, do not specify a value.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the matchmaking rule set. You can use either the
     -- rule set name or ARN value. Use this parameter to retrieve all
     -- matchmaking configurations that use this rule set.
-    ruleSetName :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for the matchmaking configuration(s) to retrieve.
-    -- You can use either the configuration name or ARN value. To request all
-    -- existing configurations, leave this parameter empty.
-    names :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of results to return. Use this parameter with
-    -- @NextToken@ to get results as a set of sequential pages. This parameter
-    -- is limited to 10.
-    limit :: Prelude.Maybe Prelude.Natural
+    ruleSetName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -106,6 +96,14 @@ data DescribeMatchmakingConfigurations = DescribeMatchmakingConfigurations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'limit', 'describeMatchmakingConfigurations_limit' - The maximum number of results to return. Use this parameter with
+-- @NextToken@ to get results as a set of sequential pages. This parameter
+-- is limited to 10.
+--
+-- 'names', 'describeMatchmakingConfigurations_names' - A unique identifier for the matchmaking configuration(s) to retrieve.
+-- You can use either the configuration name or ARN value. To request all
+-- existing configurations, leave this parameter empty.
+--
 -- 'nextToken', 'describeMatchmakingConfigurations_nextToken' - A token that indicates the start of the next sequential page of results.
 -- Use the token that is returned with a previous call to this operation.
 -- To start at the beginning of the result set, do not specify a value.
@@ -113,24 +111,28 @@ data DescribeMatchmakingConfigurations = DescribeMatchmakingConfigurations'
 -- 'ruleSetName', 'describeMatchmakingConfigurations_ruleSetName' - A unique identifier for the matchmaking rule set. You can use either the
 -- rule set name or ARN value. Use this parameter to retrieve all
 -- matchmaking configurations that use this rule set.
---
--- 'names', 'describeMatchmakingConfigurations_names' - A unique identifier for the matchmaking configuration(s) to retrieve.
--- You can use either the configuration name or ARN value. To request all
--- existing configurations, leave this parameter empty.
---
--- 'limit', 'describeMatchmakingConfigurations_limit' - The maximum number of results to return. Use this parameter with
--- @NextToken@ to get results as a set of sequential pages. This parameter
--- is limited to 10.
 newDescribeMatchmakingConfigurations ::
   DescribeMatchmakingConfigurations
 newDescribeMatchmakingConfigurations =
   DescribeMatchmakingConfigurations'
-    { nextToken =
+    { limit =
         Prelude.Nothing,
-      ruleSetName = Prelude.Nothing,
       names = Prelude.Nothing,
-      limit = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      ruleSetName = Prelude.Nothing
     }
+
+-- | The maximum number of results to return. Use this parameter with
+-- @NextToken@ to get results as a set of sequential pages. This parameter
+-- is limited to 10.
+describeMatchmakingConfigurations_limit :: Lens.Lens' DescribeMatchmakingConfigurations (Prelude.Maybe Prelude.Natural)
+describeMatchmakingConfigurations_limit = Lens.lens (\DescribeMatchmakingConfigurations' {limit} -> limit) (\s@DescribeMatchmakingConfigurations' {} a -> s {limit = a} :: DescribeMatchmakingConfigurations)
+
+-- | A unique identifier for the matchmaking configuration(s) to retrieve.
+-- You can use either the configuration name or ARN value. To request all
+-- existing configurations, leave this parameter empty.
+describeMatchmakingConfigurations_names :: Lens.Lens' DescribeMatchmakingConfigurations (Prelude.Maybe [Prelude.Text])
+describeMatchmakingConfigurations_names = Lens.lens (\DescribeMatchmakingConfigurations' {names} -> names) (\s@DescribeMatchmakingConfigurations' {} a -> s {names = a} :: DescribeMatchmakingConfigurations) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that indicates the start of the next sequential page of results.
 -- Use the token that is returned with a previous call to this operation.
@@ -143,18 +145,6 @@ describeMatchmakingConfigurations_nextToken = Lens.lens (\DescribeMatchmakingCon
 -- matchmaking configurations that use this rule set.
 describeMatchmakingConfigurations_ruleSetName :: Lens.Lens' DescribeMatchmakingConfigurations (Prelude.Maybe Prelude.Text)
 describeMatchmakingConfigurations_ruleSetName = Lens.lens (\DescribeMatchmakingConfigurations' {ruleSetName} -> ruleSetName) (\s@DescribeMatchmakingConfigurations' {} a -> s {ruleSetName = a} :: DescribeMatchmakingConfigurations)
-
--- | A unique identifier for the matchmaking configuration(s) to retrieve.
--- You can use either the configuration name or ARN value. To request all
--- existing configurations, leave this parameter empty.
-describeMatchmakingConfigurations_names :: Lens.Lens' DescribeMatchmakingConfigurations (Prelude.Maybe [Prelude.Text])
-describeMatchmakingConfigurations_names = Lens.lens (\DescribeMatchmakingConfigurations' {names} -> names) (\s@DescribeMatchmakingConfigurations' {} a -> s {names = a} :: DescribeMatchmakingConfigurations) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum number of results to return. Use this parameter with
--- @NextToken@ to get results as a set of sequential pages. This parameter
--- is limited to 10.
-describeMatchmakingConfigurations_limit :: Lens.Lens' DescribeMatchmakingConfigurations (Prelude.Maybe Prelude.Natural)
-describeMatchmakingConfigurations_limit = Lens.lens (\DescribeMatchmakingConfigurations' {limit} -> limit) (\s@DescribeMatchmakingConfigurations' {} a -> s {limit = a} :: DescribeMatchmakingConfigurations)
 
 instance
   Core.AWSPager
@@ -194,8 +184,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeMatchmakingConfigurationsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-              Prelude.<*> (x Data..?> "Configurations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Configurations" Core..!@ Prelude.mempty)
+              Prelude.<*> (x Data..?> "NextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -206,20 +196,20 @@ instance
   hashWithSalt
     _salt
     DescribeMatchmakingConfigurations' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` ruleSetName
+      _salt `Prelude.hashWithSalt` limit
         `Prelude.hashWithSalt` names
-        `Prelude.hashWithSalt` limit
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` ruleSetName
 
 instance
   Prelude.NFData
     DescribeMatchmakingConfigurations
   where
   rnf DescribeMatchmakingConfigurations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf ruleSetName
+    Prelude.rnf limit
       `Prelude.seq` Prelude.rnf names
-      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf ruleSetName
 
 instance
   Data.ToHeaders
@@ -246,10 +236,10 @@ instance
   toJSON DescribeMatchmakingConfigurations' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("RuleSetName" Data..=) Prelude.<$> ruleSetName,
+          [ ("Limit" Data..=) Prelude.<$> limit,
             ("Names" Data..=) Prelude.<$> names,
-            ("Limit" Data..=) Prelude.<$> limit
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("RuleSetName" Data..=) Prelude.<$> ruleSetName
           ]
       )
 
@@ -265,16 +255,14 @@ instance
   where
   toQuery = Prelude.const Prelude.mempty
 
--- | Represents the returned data in response to a request operation.
---
--- /See:/ 'newDescribeMatchmakingConfigurationsResponse' smart constructor.
+-- | /See:/ 'newDescribeMatchmakingConfigurationsResponse' smart constructor.
 data DescribeMatchmakingConfigurationsResponse = DescribeMatchmakingConfigurationsResponse'
-  { -- | A token that indicates where to resume retrieving results on the next
+  { -- | A collection of requested matchmaking configurations.
+    configurations :: Prelude.Maybe [MatchmakingConfiguration],
+    -- | A token that indicates where to resume retrieving results on the next
     -- call to this operation. If no token is returned, these results represent
     -- the end of the list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A collection of requested matchmaking configurations.
-    configurations :: Prelude.Maybe [MatchmakingConfiguration],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -288,11 +276,11 @@ data DescribeMatchmakingConfigurationsResponse = DescribeMatchmakingConfiguratio
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'configurations', 'describeMatchmakingConfigurationsResponse_configurations' - A collection of requested matchmaking configurations.
+--
 -- 'nextToken', 'describeMatchmakingConfigurationsResponse_nextToken' - A token that indicates where to resume retrieving results on the next
 -- call to this operation. If no token is returned, these results represent
 -- the end of the list.
---
--- 'configurations', 'describeMatchmakingConfigurationsResponse_configurations' - A collection of requested matchmaking configurations.
 --
 -- 'httpStatus', 'describeMatchmakingConfigurationsResponse_httpStatus' - The response's http status code.
 newDescribeMatchmakingConfigurationsResponse ::
@@ -302,21 +290,21 @@ newDescribeMatchmakingConfigurationsResponse ::
 newDescribeMatchmakingConfigurationsResponse
   pHttpStatus_ =
     DescribeMatchmakingConfigurationsResponse'
-      { nextToken =
+      { configurations =
           Prelude.Nothing,
-        configurations = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | A collection of requested matchmaking configurations.
+describeMatchmakingConfigurationsResponse_configurations :: Lens.Lens' DescribeMatchmakingConfigurationsResponse (Prelude.Maybe [MatchmakingConfiguration])
+describeMatchmakingConfigurationsResponse_configurations = Lens.lens (\DescribeMatchmakingConfigurationsResponse' {configurations} -> configurations) (\s@DescribeMatchmakingConfigurationsResponse' {} a -> s {configurations = a} :: DescribeMatchmakingConfigurationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that indicates where to resume retrieving results on the next
 -- call to this operation. If no token is returned, these results represent
 -- the end of the list.
 describeMatchmakingConfigurationsResponse_nextToken :: Lens.Lens' DescribeMatchmakingConfigurationsResponse (Prelude.Maybe Prelude.Text)
 describeMatchmakingConfigurationsResponse_nextToken = Lens.lens (\DescribeMatchmakingConfigurationsResponse' {nextToken} -> nextToken) (\s@DescribeMatchmakingConfigurationsResponse' {} a -> s {nextToken = a} :: DescribeMatchmakingConfigurationsResponse)
-
--- | A collection of requested matchmaking configurations.
-describeMatchmakingConfigurationsResponse_configurations :: Lens.Lens' DescribeMatchmakingConfigurationsResponse (Prelude.Maybe [MatchmakingConfiguration])
-describeMatchmakingConfigurationsResponse_configurations = Lens.lens (\DescribeMatchmakingConfigurationsResponse' {configurations} -> configurations) (\s@DescribeMatchmakingConfigurationsResponse' {} a -> s {configurations = a} :: DescribeMatchmakingConfigurationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeMatchmakingConfigurationsResponse_httpStatus :: Lens.Lens' DescribeMatchmakingConfigurationsResponse Prelude.Int
@@ -327,6 +315,6 @@ instance
     DescribeMatchmakingConfigurationsResponse
   where
   rnf DescribeMatchmakingConfigurationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf configurations
+    Prelude.rnf configurations
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

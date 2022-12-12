@@ -28,8 +28,8 @@ module Amazonka.MacieV2.UpdateMacieSession
     newUpdateMacieSession,
 
     -- * Request Lenses
-    updateMacieSession_status,
     updateMacieSession_findingPublishingFrequency,
+    updateMacieSession_status,
 
     -- * Destructuring the Response
     UpdateMacieSessionResponse (..),
@@ -50,14 +50,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateMacieSession' smart constructor.
 data UpdateMacieSession = UpdateMacieSession'
-  { -- | Specifies a new status for the account. Valid values are: ENABLED,
-    -- resume all Amazon Macie activities for the account; and, PAUSED, suspend
-    -- all Macie activities for the account.
-    status :: Prelude.Maybe MacieStatus,
-    -- | Specifies how often to publish updates to policy findings for the
+  { -- | Specifies how often to publish updates to policy findings for the
     -- account. This includes publishing updates to Security Hub and Amazon
     -- EventBridge (formerly Amazon CloudWatch Events).
-    findingPublishingFrequency :: Prelude.Maybe FindingPublishingFrequency
+    findingPublishingFrequency :: Prelude.Maybe FindingPublishingFrequency,
+    -- | Specifies a new status for the account. Valid values are: ENABLED,
+    -- resume all Amazon Macie activities for the account; and, PAUSED, suspend
+    -- all Macie activities for the account.
+    status :: Prelude.Maybe MacieStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,32 +69,33 @@ data UpdateMacieSession = UpdateMacieSession'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'updateMacieSession_status' - Specifies a new status for the account. Valid values are: ENABLED,
--- resume all Amazon Macie activities for the account; and, PAUSED, suspend
--- all Macie activities for the account.
---
 -- 'findingPublishingFrequency', 'updateMacieSession_findingPublishingFrequency' - Specifies how often to publish updates to policy findings for the
 -- account. This includes publishing updates to Security Hub and Amazon
 -- EventBridge (formerly Amazon CloudWatch Events).
+--
+-- 'status', 'updateMacieSession_status' - Specifies a new status for the account. Valid values are: ENABLED,
+-- resume all Amazon Macie activities for the account; and, PAUSED, suspend
+-- all Macie activities for the account.
 newUpdateMacieSession ::
   UpdateMacieSession
 newUpdateMacieSession =
   UpdateMacieSession'
-    { status = Prelude.Nothing,
-      findingPublishingFrequency = Prelude.Nothing
+    { findingPublishingFrequency =
+        Prelude.Nothing,
+      status = Prelude.Nothing
     }
-
--- | Specifies a new status for the account. Valid values are: ENABLED,
--- resume all Amazon Macie activities for the account; and, PAUSED, suspend
--- all Macie activities for the account.
-updateMacieSession_status :: Lens.Lens' UpdateMacieSession (Prelude.Maybe MacieStatus)
-updateMacieSession_status = Lens.lens (\UpdateMacieSession' {status} -> status) (\s@UpdateMacieSession' {} a -> s {status = a} :: UpdateMacieSession)
 
 -- | Specifies how often to publish updates to policy findings for the
 -- account. This includes publishing updates to Security Hub and Amazon
 -- EventBridge (formerly Amazon CloudWatch Events).
 updateMacieSession_findingPublishingFrequency :: Lens.Lens' UpdateMacieSession (Prelude.Maybe FindingPublishingFrequency)
 updateMacieSession_findingPublishingFrequency = Lens.lens (\UpdateMacieSession' {findingPublishingFrequency} -> findingPublishingFrequency) (\s@UpdateMacieSession' {} a -> s {findingPublishingFrequency = a} :: UpdateMacieSession)
+
+-- | Specifies a new status for the account. Valid values are: ENABLED,
+-- resume all Amazon Macie activities for the account; and, PAUSED, suspend
+-- all Macie activities for the account.
+updateMacieSession_status :: Lens.Lens' UpdateMacieSession (Prelude.Maybe MacieStatus)
+updateMacieSession_status = Lens.lens (\UpdateMacieSession' {status} -> status) (\s@UpdateMacieSession' {} a -> s {status = a} :: UpdateMacieSession)
 
 instance Core.AWSRequest UpdateMacieSession where
   type
@@ -111,13 +112,14 @@ instance Core.AWSRequest UpdateMacieSession where
 
 instance Prelude.Hashable UpdateMacieSession where
   hashWithSalt _salt UpdateMacieSession' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt
       `Prelude.hashWithSalt` findingPublishingFrequency
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData UpdateMacieSession where
   rnf UpdateMacieSession' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf findingPublishingFrequency
+    Prelude.rnf findingPublishingFrequency
+      `Prelude.seq` Prelude.rnf status
 
 instance Data.ToHeaders UpdateMacieSession where
   toHeaders =
@@ -134,9 +136,9 @@ instance Data.ToJSON UpdateMacieSession where
   toJSON UpdateMacieSession' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("status" Data..=) Prelude.<$> status,
-            ("findingPublishingFrequency" Data..=)
-              Prelude.<$> findingPublishingFrequency
+          [ ("findingPublishingFrequency" Data..=)
+              Prelude.<$> findingPublishingFrequency,
+            ("status" Data..=) Prelude.<$> status
           ]
       )
 

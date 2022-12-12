@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUiTemplateInfo' smart constructor.
 data UiTemplateInfo = UiTemplateInfo'
-  { -- | The URL for the user interface template.
-    url :: Prelude.Maybe Prelude.Text,
-    -- | The SHA-256 digest of the contents of the template.
-    contentSha256 :: Prelude.Maybe Prelude.Text
+  { -- | The SHA-256 digest of the contents of the template.
+    contentSha256 :: Prelude.Maybe Prelude.Text,
+    -- | The URL for the user interface template.
+    url :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data UiTemplateInfo = UiTemplateInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'url', 'uiTemplateInfo_url' - The URL for the user interface template.
---
 -- 'contentSha256', 'uiTemplateInfo_contentSha256' - The SHA-256 digest of the contents of the template.
+--
+-- 'url', 'uiTemplateInfo_url' - The URL for the user interface template.
 newUiTemplateInfo ::
   UiTemplateInfo
 newUiTemplateInfo =
   UiTemplateInfo'
-    { url = Prelude.Nothing,
-      contentSha256 = Prelude.Nothing
+    { contentSha256 = Prelude.Nothing,
+      url = Prelude.Nothing
     }
-
--- | The URL for the user interface template.
-uiTemplateInfo_url :: Lens.Lens' UiTemplateInfo (Prelude.Maybe Prelude.Text)
-uiTemplateInfo_url = Lens.lens (\UiTemplateInfo' {url} -> url) (\s@UiTemplateInfo' {} a -> s {url = a} :: UiTemplateInfo)
 
 -- | The SHA-256 digest of the contents of the template.
 uiTemplateInfo_contentSha256 :: Lens.Lens' UiTemplateInfo (Prelude.Maybe Prelude.Text)
 uiTemplateInfo_contentSha256 = Lens.lens (\UiTemplateInfo' {contentSha256} -> contentSha256) (\s@UiTemplateInfo' {} a -> s {contentSha256 = a} :: UiTemplateInfo)
+
+-- | The URL for the user interface template.
+uiTemplateInfo_url :: Lens.Lens' UiTemplateInfo (Prelude.Maybe Prelude.Text)
+uiTemplateInfo_url = Lens.lens (\UiTemplateInfo' {url} -> url) (\s@UiTemplateInfo' {} a -> s {url = a} :: UiTemplateInfo)
 
 instance Data.FromJSON UiTemplateInfo where
   parseJSON =
@@ -68,16 +68,16 @@ instance Data.FromJSON UiTemplateInfo where
       "UiTemplateInfo"
       ( \x ->
           UiTemplateInfo'
-            Prelude.<$> (x Data..:? "Url")
-            Prelude.<*> (x Data..:? "ContentSha256")
+            Prelude.<$> (x Data..:? "ContentSha256")
+            Prelude.<*> (x Data..:? "Url")
       )
 
 instance Prelude.Hashable UiTemplateInfo where
   hashWithSalt _salt UiTemplateInfo' {..} =
-    _salt `Prelude.hashWithSalt` url
-      `Prelude.hashWithSalt` contentSha256
+    _salt `Prelude.hashWithSalt` contentSha256
+      `Prelude.hashWithSalt` url
 
 instance Prelude.NFData UiTemplateInfo where
   rnf UiTemplateInfo' {..} =
-    Prelude.rnf url
-      `Prelude.seq` Prelude.rnf contentSha256
+    Prelude.rnf contentSha256
+      `Prelude.seq` Prelude.rnf url

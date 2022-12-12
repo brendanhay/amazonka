@@ -28,9 +28,9 @@ module Amazonka.Location.UpdateTracker
 
     -- * Request Lenses
     updateTracker_description,
-    updateTracker_pricingPlanDataSource,
-    updateTracker_pricingPlan,
     updateTracker_positionFiltering,
+    updateTracker_pricingPlan,
+    updateTracker_pricingPlanDataSource,
     updateTracker_trackerName,
 
     -- * Destructuring the Response
@@ -57,11 +57,6 @@ import qualified Amazonka.Response as Response
 data UpdateTracker = UpdateTracker'
   { -- | Updates the description for the tracker resource.
     description :: Prelude.Maybe Prelude.Text,
-    -- | This parameter is no longer used.
-    pricingPlanDataSource :: Prelude.Maybe Prelude.Text,
-    -- | No longer used. If included, the only allowed value is
-    -- @RequestBasedUsage@.
-    pricingPlan :: Prelude.Maybe PricingPlan,
     -- | Updates the position filtering for the tracker resource.
     --
     -- Valid values:
@@ -89,6 +84,11 @@ data UpdateTracker = UpdateTracker'
     --     and can help control costs by reducing the number of geofence
     --     evaluations.
     positionFiltering :: Prelude.Maybe PositionFiltering,
+    -- | No longer used. If included, the only allowed value is
+    -- @RequestBasedUsage@.
+    pricingPlan :: Prelude.Maybe PricingPlan,
+    -- | This parameter is no longer used.
+    pricingPlanDataSource :: Prelude.Maybe Prelude.Text,
     -- | The name of the tracker resource to update.
     trackerName :: Prelude.Text
   }
@@ -103,11 +103,6 @@ data UpdateTracker = UpdateTracker'
 -- for backwards compatibility:
 --
 -- 'description', 'updateTracker_description' - Updates the description for the tracker resource.
---
--- 'pricingPlanDataSource', 'updateTracker_pricingPlanDataSource' - This parameter is no longer used.
---
--- 'pricingPlan', 'updateTracker_pricingPlan' - No longer used. If included, the only allowed value is
--- @RequestBasedUsage@.
 --
 -- 'positionFiltering', 'updateTracker_positionFiltering' - Updates the position filtering for the tracker resource.
 --
@@ -136,6 +131,11 @@ data UpdateTracker = UpdateTracker'
 --     and can help control costs by reducing the number of geofence
 --     evaluations.
 --
+-- 'pricingPlan', 'updateTracker_pricingPlan' - No longer used. If included, the only allowed value is
+-- @RequestBasedUsage@.
+--
+-- 'pricingPlanDataSource', 'updateTracker_pricingPlanDataSource' - This parameter is no longer used.
+--
 -- 'trackerName', 'updateTracker_trackerName' - The name of the tracker resource to update.
 newUpdateTracker ::
   -- | 'trackerName'
@@ -144,24 +144,15 @@ newUpdateTracker ::
 newUpdateTracker pTrackerName_ =
   UpdateTracker'
     { description = Prelude.Nothing,
-      pricingPlanDataSource = Prelude.Nothing,
-      pricingPlan = Prelude.Nothing,
       positionFiltering = Prelude.Nothing,
+      pricingPlan = Prelude.Nothing,
+      pricingPlanDataSource = Prelude.Nothing,
       trackerName = pTrackerName_
     }
 
 -- | Updates the description for the tracker resource.
 updateTracker_description :: Lens.Lens' UpdateTracker (Prelude.Maybe Prelude.Text)
 updateTracker_description = Lens.lens (\UpdateTracker' {description} -> description) (\s@UpdateTracker' {} a -> s {description = a} :: UpdateTracker)
-
--- | This parameter is no longer used.
-updateTracker_pricingPlanDataSource :: Lens.Lens' UpdateTracker (Prelude.Maybe Prelude.Text)
-updateTracker_pricingPlanDataSource = Lens.lens (\UpdateTracker' {pricingPlanDataSource} -> pricingPlanDataSource) (\s@UpdateTracker' {} a -> s {pricingPlanDataSource = a} :: UpdateTracker)
-
--- | No longer used. If included, the only allowed value is
--- @RequestBasedUsage@.
-updateTracker_pricingPlan :: Lens.Lens' UpdateTracker (Prelude.Maybe PricingPlan)
-updateTracker_pricingPlan = Lens.lens (\UpdateTracker' {pricingPlan} -> pricingPlan) (\s@UpdateTracker' {} a -> s {pricingPlan = a} :: UpdateTracker)
 
 -- | Updates the position filtering for the tracker resource.
 --
@@ -192,6 +183,15 @@ updateTracker_pricingPlan = Lens.lens (\UpdateTracker' {pricingPlan} -> pricingP
 updateTracker_positionFiltering :: Lens.Lens' UpdateTracker (Prelude.Maybe PositionFiltering)
 updateTracker_positionFiltering = Lens.lens (\UpdateTracker' {positionFiltering} -> positionFiltering) (\s@UpdateTracker' {} a -> s {positionFiltering = a} :: UpdateTracker)
 
+-- | No longer used. If included, the only allowed value is
+-- @RequestBasedUsage@.
+updateTracker_pricingPlan :: Lens.Lens' UpdateTracker (Prelude.Maybe PricingPlan)
+updateTracker_pricingPlan = Lens.lens (\UpdateTracker' {pricingPlan} -> pricingPlan) (\s@UpdateTracker' {} a -> s {pricingPlan = a} :: UpdateTracker)
+
+-- | This parameter is no longer used.
+updateTracker_pricingPlanDataSource :: Lens.Lens' UpdateTracker (Prelude.Maybe Prelude.Text)
+updateTracker_pricingPlanDataSource = Lens.lens (\UpdateTracker' {pricingPlanDataSource} -> pricingPlanDataSource) (\s@UpdateTracker' {} a -> s {pricingPlanDataSource = a} :: UpdateTracker)
+
 -- | The name of the tracker resource to update.
 updateTracker_trackerName :: Lens.Lens' UpdateTracker Prelude.Text
 updateTracker_trackerName = Lens.lens (\UpdateTracker' {trackerName} -> trackerName) (\s@UpdateTracker' {} a -> s {trackerName = a} :: UpdateTracker)
@@ -215,17 +215,17 @@ instance Core.AWSRequest UpdateTracker where
 instance Prelude.Hashable UpdateTracker where
   hashWithSalt _salt UpdateTracker' {..} =
     _salt `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` pricingPlanDataSource
-      `Prelude.hashWithSalt` pricingPlan
       `Prelude.hashWithSalt` positionFiltering
+      `Prelude.hashWithSalt` pricingPlan
+      `Prelude.hashWithSalt` pricingPlanDataSource
       `Prelude.hashWithSalt` trackerName
 
 instance Prelude.NFData UpdateTracker where
   rnf UpdateTracker' {..} =
     Prelude.rnf description
-      `Prelude.seq` Prelude.rnf pricingPlanDataSource
-      `Prelude.seq` Prelude.rnf pricingPlan
       `Prelude.seq` Prelude.rnf positionFiltering
+      `Prelude.seq` Prelude.rnf pricingPlan
+      `Prelude.seq` Prelude.rnf pricingPlanDataSource
       `Prelude.seq` Prelude.rnf trackerName
 
 instance Data.ToHeaders UpdateTracker where
@@ -244,11 +244,11 @@ instance Data.ToJSON UpdateTracker where
     Data.object
       ( Prelude.catMaybes
           [ ("Description" Data..=) Prelude.<$> description,
-            ("PricingPlanDataSource" Data..=)
-              Prelude.<$> pricingPlanDataSource,
-            ("PricingPlan" Data..=) Prelude.<$> pricingPlan,
             ("PositionFiltering" Data..=)
-              Prelude.<$> positionFiltering
+              Prelude.<$> positionFiltering,
+            ("PricingPlan" Data..=) Prelude.<$> pricingPlan,
+            ("PricingPlanDataSource" Data..=)
+              Prelude.<$> pricingPlanDataSource
           ]
       )
 

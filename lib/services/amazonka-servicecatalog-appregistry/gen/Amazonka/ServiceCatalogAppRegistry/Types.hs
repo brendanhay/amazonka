@@ -18,10 +18,10 @@ module Amazonka.ServiceCatalogAppRegistry.Types
     defaultService,
 
     -- * Errors
-    _InternalServerException,
-    _ServiceQuotaExceededException,
-    _ResourceNotFoundException,
     _ConflictException,
+    _InternalServerException,
+    _ResourceNotFoundException,
+    _ServiceQuotaExceededException,
     _ValidationException,
 
     -- * ResourceGroupState
@@ -41,51 +41,51 @@ module Amazonka.ServiceCatalogAppRegistry.Types
     -- * Application
     Application (..),
     newApplication,
-    application_tags,
-    application_name,
     application_arn,
+    application_creationTime,
     application_description,
     application_id,
-    application_creationTime,
     application_lastUpdateTime,
+    application_name,
+    application_tags,
 
     -- * ApplicationSummary
     ApplicationSummary (..),
     newApplicationSummary,
-    applicationSummary_name,
     applicationSummary_arn,
+    applicationSummary_creationTime,
     applicationSummary_description,
     applicationSummary_id,
-    applicationSummary_creationTime,
     applicationSummary_lastUpdateTime,
+    applicationSummary_name,
 
     -- * AttributeGroup
     AttributeGroup (..),
     newAttributeGroup,
-    attributeGroup_tags,
-    attributeGroup_name,
     attributeGroup_arn,
+    attributeGroup_creationTime,
     attributeGroup_description,
     attributeGroup_id,
-    attributeGroup_creationTime,
     attributeGroup_lastUpdateTime,
+    attributeGroup_name,
+    attributeGroup_tags,
 
     -- * AttributeGroupDetails
     AttributeGroupDetails (..),
     newAttributeGroupDetails,
-    attributeGroupDetails_name,
     attributeGroupDetails_arn,
     attributeGroupDetails_id,
+    attributeGroupDetails_name,
 
     -- * AttributeGroupSummary
     AttributeGroupSummary (..),
     newAttributeGroupSummary,
-    attributeGroupSummary_name,
     attributeGroupSummary_arn,
+    attributeGroupSummary_creationTime,
     attributeGroupSummary_description,
     attributeGroupSummary_id,
-    attributeGroupSummary_creationTime,
     attributeGroupSummary_lastUpdateTime,
+    attributeGroupSummary_name,
 
     -- * Integrations
     Integrations (..),
@@ -95,10 +95,10 @@ module Amazonka.ServiceCatalogAppRegistry.Types
     -- * Resource
     Resource (..),
     newResource,
-    resource_name,
-    resource_integrations,
     resource_arn,
     resource_associationTime,
+    resource_integrations,
+    resource_name,
 
     -- * ResourceDetails
     ResourceDetails (..),
@@ -108,17 +108,17 @@ module Amazonka.ServiceCatalogAppRegistry.Types
     -- * ResourceGroup
     ResourceGroup (..),
     newResourceGroup,
-    resourceGroup_errorMessage,
     resourceGroup_arn,
+    resourceGroup_errorMessage,
     resourceGroup_state,
 
     -- * ResourceInfo
     ResourceInfo (..),
     newResourceInfo,
-    resourceInfo_resourceType,
-    resourceInfo_name,
     resourceInfo_arn,
+    resourceInfo_name,
     resourceInfo_resourceDetails,
+    resourceInfo_resourceType,
 
     -- * ResourceIntegrations
     ResourceIntegrations (..),
@@ -180,28 +180,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -209,13 +203,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -223,31 +221,9 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The service is experiencing internal problems.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServerException"
-    Prelude.. Core.hasStatus 500
-
--- | The maximum number of resources per account has been reached.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceQuotaExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceQuotaExceededException"
-    Prelude.. Core.hasStatus 402
-
--- | The specified resource does not exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
 
 -- | There was a conflict when processing the request (for example, a
 -- resource with the given name already exists within the account).
@@ -257,6 +233,30 @@ _ConflictException =
     defaultService
     "ConflictException"
     Prelude.. Core.hasStatus 409
+
+-- | The service is experiencing internal problems.
+_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServerException"
+    Prelude.. Core.hasStatus 500
+
+-- | The specified resource does not exist.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
+
+-- | The maximum number of resources per account has been reached.
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceQuotaExceededException"
+    Prelude.. Core.hasStatus 402
 
 -- | The request has invalid or missing parameters.
 _ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

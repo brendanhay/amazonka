@@ -38,33 +38,33 @@ data ICD10CMAttribute = ICD10CMAttribute'
   { -- | The 0-based character offset in the input text that shows where the
     -- attribute begins. The offset returns the UTF-8 code point in the string.
     beginOffset :: Prelude.Maybe Prelude.Int,
-    -- | The level of confidence that Amazon Comprehend Medical has that this
-    -- attribute is correctly related to this entity.
-    relationshipScore :: Prelude.Maybe Prelude.Double,
-    -- | The type of attribute. InferICD10CM detects entities of the type
-    -- @DX_NAME@.
-    type' :: Prelude.Maybe ICD10CMAttributeType,
-    -- | The contextual information for the attribute. The traits recognized by
-    -- InferICD10CM are @DIAGNOSIS@, @SIGN@, @SYMPTOM@, and @NEGATION@.
-    traits :: Prelude.Maybe [ICD10CMTrait],
-    -- | The level of confidence that Amazon Comprehend Medical has that the
-    -- segment of text is correctly recognized as an attribute.
-    score :: Prelude.Maybe Prelude.Double,
+    -- | The category of attribute. Can be either of @DX_NAME@ or
+    -- @TIME_EXPRESSION@.
+    category :: Prelude.Maybe ICD10CMEntityType,
+    -- | The 0-based character offset in the input text that shows where the
+    -- attribute ends. The offset returns the UTF-8 code point in the string.
+    endOffset :: Prelude.Maybe Prelude.Int,
     -- | The numeric identifier for this attribute. This is a monotonically
     -- increasing id unique within this response rather than a global unique
     -- identifier.
     id :: Prelude.Maybe Prelude.Int,
-    -- | The 0-based character offset in the input text that shows where the
-    -- attribute ends. The offset returns the UTF-8 code point in the string.
-    endOffset :: Prelude.Maybe Prelude.Int,
+    -- | The level of confidence that Amazon Comprehend Medical has that this
+    -- attribute is correctly related to this entity.
+    relationshipScore :: Prelude.Maybe Prelude.Double,
     -- | The type of relationship between the entity and attribute. Type for the
     -- relationship can be either of @OVERLAP@ or @SYSTEM_ORGAN_SITE@.
     relationshipType :: Prelude.Maybe ICD10CMRelationshipType,
-    -- | The category of attribute. Can be either of @DX_NAME@ or
-    -- @TIME_EXPRESSION@.
-    category :: Prelude.Maybe ICD10CMEntityType,
+    -- | The level of confidence that Amazon Comprehend Medical has that the
+    -- segment of text is correctly recognized as an attribute.
+    score :: Prelude.Maybe Prelude.Double,
     -- | The segment of input text which contains the detected attribute.
-    text :: Prelude.Maybe Prelude.Text
+    text :: Prelude.Maybe Prelude.Text,
+    -- | The contextual information for the attribute. The traits recognized by
+    -- InferICD10CM are @DIAGNOSIS@, @SIGN@, @SYMPTOM@, and @NEGATION@.
+    traits :: Prelude.Maybe [ICD10CMTrait],
+    -- | The type of attribute. InferICD10CM detects entities of the type
+    -- @DX_NAME@.
+    type' :: Prelude.Maybe ICD10CMAttributeType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,46 +79,46 @@ data ICD10CMAttribute = ICD10CMAttribute'
 -- 'beginOffset', 'iCD10CMAttribute_beginOffset' - The 0-based character offset in the input text that shows where the
 -- attribute begins. The offset returns the UTF-8 code point in the string.
 --
--- 'relationshipScore', 'iCD10CMAttribute_relationshipScore' - The level of confidence that Amazon Comprehend Medical has that this
--- attribute is correctly related to this entity.
+-- 'category', 'iCD10CMAttribute_category' - The category of attribute. Can be either of @DX_NAME@ or
+-- @TIME_EXPRESSION@.
 --
--- 'type'', 'iCD10CMAttribute_type' - The type of attribute. InferICD10CM detects entities of the type
--- @DX_NAME@.
---
--- 'traits', 'iCD10CMAttribute_traits' - The contextual information for the attribute. The traits recognized by
--- InferICD10CM are @DIAGNOSIS@, @SIGN@, @SYMPTOM@, and @NEGATION@.
---
--- 'score', 'iCD10CMAttribute_score' - The level of confidence that Amazon Comprehend Medical has that the
--- segment of text is correctly recognized as an attribute.
+-- 'endOffset', 'iCD10CMAttribute_endOffset' - The 0-based character offset in the input text that shows where the
+-- attribute ends. The offset returns the UTF-8 code point in the string.
 --
 -- 'id', 'iCD10CMAttribute_id' - The numeric identifier for this attribute. This is a monotonically
 -- increasing id unique within this response rather than a global unique
 -- identifier.
 --
--- 'endOffset', 'iCD10CMAttribute_endOffset' - The 0-based character offset in the input text that shows where the
--- attribute ends. The offset returns the UTF-8 code point in the string.
+-- 'relationshipScore', 'iCD10CMAttribute_relationshipScore' - The level of confidence that Amazon Comprehend Medical has that this
+-- attribute is correctly related to this entity.
 --
 -- 'relationshipType', 'iCD10CMAttribute_relationshipType' - The type of relationship between the entity and attribute. Type for the
 -- relationship can be either of @OVERLAP@ or @SYSTEM_ORGAN_SITE@.
 --
--- 'category', 'iCD10CMAttribute_category' - The category of attribute. Can be either of @DX_NAME@ or
--- @TIME_EXPRESSION@.
+-- 'score', 'iCD10CMAttribute_score' - The level of confidence that Amazon Comprehend Medical has that the
+-- segment of text is correctly recognized as an attribute.
 --
 -- 'text', 'iCD10CMAttribute_text' - The segment of input text which contains the detected attribute.
+--
+-- 'traits', 'iCD10CMAttribute_traits' - The contextual information for the attribute. The traits recognized by
+-- InferICD10CM are @DIAGNOSIS@, @SIGN@, @SYMPTOM@, and @NEGATION@.
+--
+-- 'type'', 'iCD10CMAttribute_type' - The type of attribute. InferICD10CM detects entities of the type
+-- @DX_NAME@.
 newICD10CMAttribute ::
   ICD10CMAttribute
 newICD10CMAttribute =
   ICD10CMAttribute'
     { beginOffset = Prelude.Nothing,
-      relationshipScore = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      traits = Prelude.Nothing,
-      score = Prelude.Nothing,
-      id = Prelude.Nothing,
-      endOffset = Prelude.Nothing,
-      relationshipType = Prelude.Nothing,
       category = Prelude.Nothing,
-      text = Prelude.Nothing
+      endOffset = Prelude.Nothing,
+      id = Prelude.Nothing,
+      relationshipScore = Prelude.Nothing,
+      relationshipType = Prelude.Nothing,
+      score = Prelude.Nothing,
+      text = Prelude.Nothing,
+      traits = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | The 0-based character offset in the input text that shows where the
@@ -126,25 +126,15 @@ newICD10CMAttribute =
 iCD10CMAttribute_beginOffset :: Lens.Lens' ICD10CMAttribute (Prelude.Maybe Prelude.Int)
 iCD10CMAttribute_beginOffset = Lens.lens (\ICD10CMAttribute' {beginOffset} -> beginOffset) (\s@ICD10CMAttribute' {} a -> s {beginOffset = a} :: ICD10CMAttribute)
 
--- | The level of confidence that Amazon Comprehend Medical has that this
--- attribute is correctly related to this entity.
-iCD10CMAttribute_relationshipScore :: Lens.Lens' ICD10CMAttribute (Prelude.Maybe Prelude.Double)
-iCD10CMAttribute_relationshipScore = Lens.lens (\ICD10CMAttribute' {relationshipScore} -> relationshipScore) (\s@ICD10CMAttribute' {} a -> s {relationshipScore = a} :: ICD10CMAttribute)
+-- | The category of attribute. Can be either of @DX_NAME@ or
+-- @TIME_EXPRESSION@.
+iCD10CMAttribute_category :: Lens.Lens' ICD10CMAttribute (Prelude.Maybe ICD10CMEntityType)
+iCD10CMAttribute_category = Lens.lens (\ICD10CMAttribute' {category} -> category) (\s@ICD10CMAttribute' {} a -> s {category = a} :: ICD10CMAttribute)
 
--- | The type of attribute. InferICD10CM detects entities of the type
--- @DX_NAME@.
-iCD10CMAttribute_type :: Lens.Lens' ICD10CMAttribute (Prelude.Maybe ICD10CMAttributeType)
-iCD10CMAttribute_type = Lens.lens (\ICD10CMAttribute' {type'} -> type') (\s@ICD10CMAttribute' {} a -> s {type' = a} :: ICD10CMAttribute)
-
--- | The contextual information for the attribute. The traits recognized by
--- InferICD10CM are @DIAGNOSIS@, @SIGN@, @SYMPTOM@, and @NEGATION@.
-iCD10CMAttribute_traits :: Lens.Lens' ICD10CMAttribute (Prelude.Maybe [ICD10CMTrait])
-iCD10CMAttribute_traits = Lens.lens (\ICD10CMAttribute' {traits} -> traits) (\s@ICD10CMAttribute' {} a -> s {traits = a} :: ICD10CMAttribute) Prelude.. Lens.mapping Lens.coerced
-
--- | The level of confidence that Amazon Comprehend Medical has that the
--- segment of text is correctly recognized as an attribute.
-iCD10CMAttribute_score :: Lens.Lens' ICD10CMAttribute (Prelude.Maybe Prelude.Double)
-iCD10CMAttribute_score = Lens.lens (\ICD10CMAttribute' {score} -> score) (\s@ICD10CMAttribute' {} a -> s {score = a} :: ICD10CMAttribute)
+-- | The 0-based character offset in the input text that shows where the
+-- attribute ends. The offset returns the UTF-8 code point in the string.
+iCD10CMAttribute_endOffset :: Lens.Lens' ICD10CMAttribute (Prelude.Maybe Prelude.Int)
+iCD10CMAttribute_endOffset = Lens.lens (\ICD10CMAttribute' {endOffset} -> endOffset) (\s@ICD10CMAttribute' {} a -> s {endOffset = a} :: ICD10CMAttribute)
 
 -- | The numeric identifier for this attribute. This is a monotonically
 -- increasing id unique within this response rather than a global unique
@@ -152,24 +142,34 @@ iCD10CMAttribute_score = Lens.lens (\ICD10CMAttribute' {score} -> score) (\s@ICD
 iCD10CMAttribute_id :: Lens.Lens' ICD10CMAttribute (Prelude.Maybe Prelude.Int)
 iCD10CMAttribute_id = Lens.lens (\ICD10CMAttribute' {id} -> id) (\s@ICD10CMAttribute' {} a -> s {id = a} :: ICD10CMAttribute)
 
--- | The 0-based character offset in the input text that shows where the
--- attribute ends. The offset returns the UTF-8 code point in the string.
-iCD10CMAttribute_endOffset :: Lens.Lens' ICD10CMAttribute (Prelude.Maybe Prelude.Int)
-iCD10CMAttribute_endOffset = Lens.lens (\ICD10CMAttribute' {endOffset} -> endOffset) (\s@ICD10CMAttribute' {} a -> s {endOffset = a} :: ICD10CMAttribute)
+-- | The level of confidence that Amazon Comprehend Medical has that this
+-- attribute is correctly related to this entity.
+iCD10CMAttribute_relationshipScore :: Lens.Lens' ICD10CMAttribute (Prelude.Maybe Prelude.Double)
+iCD10CMAttribute_relationshipScore = Lens.lens (\ICD10CMAttribute' {relationshipScore} -> relationshipScore) (\s@ICD10CMAttribute' {} a -> s {relationshipScore = a} :: ICD10CMAttribute)
 
 -- | The type of relationship between the entity and attribute. Type for the
 -- relationship can be either of @OVERLAP@ or @SYSTEM_ORGAN_SITE@.
 iCD10CMAttribute_relationshipType :: Lens.Lens' ICD10CMAttribute (Prelude.Maybe ICD10CMRelationshipType)
 iCD10CMAttribute_relationshipType = Lens.lens (\ICD10CMAttribute' {relationshipType} -> relationshipType) (\s@ICD10CMAttribute' {} a -> s {relationshipType = a} :: ICD10CMAttribute)
 
--- | The category of attribute. Can be either of @DX_NAME@ or
--- @TIME_EXPRESSION@.
-iCD10CMAttribute_category :: Lens.Lens' ICD10CMAttribute (Prelude.Maybe ICD10CMEntityType)
-iCD10CMAttribute_category = Lens.lens (\ICD10CMAttribute' {category} -> category) (\s@ICD10CMAttribute' {} a -> s {category = a} :: ICD10CMAttribute)
+-- | The level of confidence that Amazon Comprehend Medical has that the
+-- segment of text is correctly recognized as an attribute.
+iCD10CMAttribute_score :: Lens.Lens' ICD10CMAttribute (Prelude.Maybe Prelude.Double)
+iCD10CMAttribute_score = Lens.lens (\ICD10CMAttribute' {score} -> score) (\s@ICD10CMAttribute' {} a -> s {score = a} :: ICD10CMAttribute)
 
 -- | The segment of input text which contains the detected attribute.
 iCD10CMAttribute_text :: Lens.Lens' ICD10CMAttribute (Prelude.Maybe Prelude.Text)
 iCD10CMAttribute_text = Lens.lens (\ICD10CMAttribute' {text} -> text) (\s@ICD10CMAttribute' {} a -> s {text = a} :: ICD10CMAttribute)
+
+-- | The contextual information for the attribute. The traits recognized by
+-- InferICD10CM are @DIAGNOSIS@, @SIGN@, @SYMPTOM@, and @NEGATION@.
+iCD10CMAttribute_traits :: Lens.Lens' ICD10CMAttribute (Prelude.Maybe [ICD10CMTrait])
+iCD10CMAttribute_traits = Lens.lens (\ICD10CMAttribute' {traits} -> traits) (\s@ICD10CMAttribute' {} a -> s {traits = a} :: ICD10CMAttribute) Prelude.. Lens.mapping Lens.coerced
+
+-- | The type of attribute. InferICD10CM detects entities of the type
+-- @DX_NAME@.
+iCD10CMAttribute_type :: Lens.Lens' ICD10CMAttribute (Prelude.Maybe ICD10CMAttributeType)
+iCD10CMAttribute_type = Lens.lens (\ICD10CMAttribute' {type'} -> type') (\s@ICD10CMAttribute' {} a -> s {type' = a} :: ICD10CMAttribute)
 
 instance Data.FromJSON ICD10CMAttribute where
   parseJSON =
@@ -178,39 +178,39 @@ instance Data.FromJSON ICD10CMAttribute where
       ( \x ->
           ICD10CMAttribute'
             Prelude.<$> (x Data..:? "BeginOffset")
-            Prelude.<*> (x Data..:? "RelationshipScore")
-            Prelude.<*> (x Data..:? "Type")
-            Prelude.<*> (x Data..:? "Traits" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "Score")
-            Prelude.<*> (x Data..:? "Id")
-            Prelude.<*> (x Data..:? "EndOffset")
-            Prelude.<*> (x Data..:? "RelationshipType")
             Prelude.<*> (x Data..:? "Category")
+            Prelude.<*> (x Data..:? "EndOffset")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "RelationshipScore")
+            Prelude.<*> (x Data..:? "RelationshipType")
+            Prelude.<*> (x Data..:? "Score")
             Prelude.<*> (x Data..:? "Text")
+            Prelude.<*> (x Data..:? "Traits" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable ICD10CMAttribute where
   hashWithSalt _salt ICD10CMAttribute' {..} =
     _salt `Prelude.hashWithSalt` beginOffset
-      `Prelude.hashWithSalt` relationshipScore
-      `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` traits
-      `Prelude.hashWithSalt` score
-      `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` endOffset
-      `Prelude.hashWithSalt` relationshipType
       `Prelude.hashWithSalt` category
+      `Prelude.hashWithSalt` endOffset
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` relationshipScore
+      `Prelude.hashWithSalt` relationshipType
+      `Prelude.hashWithSalt` score
       `Prelude.hashWithSalt` text
+      `Prelude.hashWithSalt` traits
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData ICD10CMAttribute where
   rnf ICD10CMAttribute' {..} =
     Prelude.rnf beginOffset
-      `Prelude.seq` Prelude.rnf relationshipScore
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf traits
-      `Prelude.seq` Prelude.rnf score
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf endOffset
-      `Prelude.seq` Prelude.rnf relationshipType
       `Prelude.seq` Prelude.rnf category
+      `Prelude.seq` Prelude.rnf endOffset
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf relationshipScore
+      `Prelude.seq` Prelude.rnf relationshipType
+      `Prelude.seq` Prelude.rnf score
       `Prelude.seq` Prelude.rnf text
+      `Prelude.seq` Prelude.rnf traits
+      `Prelude.seq` Prelude.rnf type'

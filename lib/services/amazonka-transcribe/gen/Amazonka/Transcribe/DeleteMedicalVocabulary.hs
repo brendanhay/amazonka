@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a custom medical vocabulary. To use this operation, specify the
--- name of the vocabulary you want to delete using @VocabularyName@.
--- Vocabulary names are case sensitive.
+-- name of the custom vocabulary you want to delete using @VocabularyName@.
+-- Custom vocabulary names are case sensitive.
 module Amazonka.Transcribe.DeleteMedicalVocabulary
   ( -- * Creating a Request
     DeleteMedicalVocabulary (..),
@@ -47,8 +47,8 @@ import Amazonka.Transcribe.Types
 
 -- | /See:/ 'newDeleteMedicalVocabulary' smart constructor.
 data DeleteMedicalVocabulary = DeleteMedicalVocabulary'
-  { -- | The name of the custom medical vocabulary you want to delete. Vocabulary
-    -- names are case sensitive.
+  { -- | The name of the custom medical vocabulary you want to delete. Custom
+    -- medical vocabulary names are case sensitive.
     vocabularyName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,8 +61,8 @@ data DeleteMedicalVocabulary = DeleteMedicalVocabulary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vocabularyName', 'deleteMedicalVocabulary_vocabularyName' - The name of the custom medical vocabulary you want to delete. Vocabulary
--- names are case sensitive.
+-- 'vocabularyName', 'deleteMedicalVocabulary_vocabularyName' - The name of the custom medical vocabulary you want to delete. Custom
+-- medical vocabulary names are case sensitive.
 newDeleteMedicalVocabulary ::
   -- | 'vocabularyName'
   Prelude.Text ->
@@ -73,8 +73,8 @@ newDeleteMedicalVocabulary pVocabularyName_ =
         pVocabularyName_
     }
 
--- | The name of the custom medical vocabulary you want to delete. Vocabulary
--- names are case sensitive.
+-- | The name of the custom medical vocabulary you want to delete. Custom
+-- medical vocabulary names are case sensitive.
 deleteMedicalVocabulary_vocabularyName :: Lens.Lens' DeleteMedicalVocabulary Prelude.Text
 deleteMedicalVocabulary_vocabularyName = Lens.lens (\DeleteMedicalVocabulary' {vocabularyName} -> vocabularyName) (\s@DeleteMedicalVocabulary' {} a -> s {vocabularyName = a} :: DeleteMedicalVocabulary)
 

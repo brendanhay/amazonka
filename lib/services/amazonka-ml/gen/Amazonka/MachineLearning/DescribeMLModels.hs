@@ -30,17 +30,17 @@ module Amazonka.MachineLearning.DescribeMLModels
     newDescribeMLModels,
 
     -- * Request Lenses
-    describeMLModels_sortOrder,
-    describeMLModels_nextToken,
+    describeMLModels_eq,
     describeMLModels_filterVariable,
-    describeMLModels_limit,
+    describeMLModels_ge,
+    describeMLModels_gt,
     describeMLModels_le,
     describeMLModels_lt,
-    describeMLModels_eq,
-    describeMLModels_prefix,
-    describeMLModels_gt,
+    describeMLModels_limit,
     describeMLModels_ne,
-    describeMLModels_ge,
+    describeMLModels_nextToken,
+    describeMLModels_prefix,
+    describeMLModels_sortOrder,
 
     -- * Destructuring the Response
     DescribeMLModelsResponse (..),
@@ -63,17 +63,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeMLModels' smart constructor.
 data DescribeMLModels = DescribeMLModels'
-  { -- | A two-value parameter that determines the sequence of the resulting list
-    -- of @MLModel@.
-    --
-    -- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
-    --
-    -- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
-    --
-    -- Results are sorted by @FilterVariable@.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | The ID of the page in the paginated results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The equal to operator. The @MLModel@ results will have @FilterVariable@
+    -- values that exactly match the value specified with @EQ@.
+    eq :: Prelude.Maybe Prelude.Text,
     -- | Use one of the following variables to filter a list of @MLModel@:
     --
     -- -   @CreatedAt@ - Sets the search criteria to @MLModel@ creation date.
@@ -102,9 +94,14 @@ data DescribeMLModels = DescribeMLModels'
     --     used in training a @MLModel@. The URL can identify either a file or
     --     an Amazon Simple Storage Service (Amazon S3) bucket or directory.
     filterVariable :: Prelude.Maybe MLModelFilterVariable,
-    -- | The number of pages of information to include in the result. The range
-    -- of acceptable values is @1@ through @100@. The default value is @100@.
-    limit :: Prelude.Maybe Prelude.Natural,
+    -- | The greater than or equal to operator. The @MLModel@ results will have
+    -- @FilterVariable@ values that are greater than or equal to the value
+    -- specified with @GE@.
+    ge :: Prelude.Maybe Prelude.Text,
+    -- | The greater than operator. The @MLModel@ results will have
+    -- @FilterVariable@ values that are greater than the value specified with
+    -- @GT@.
+    gt :: Prelude.Maybe Prelude.Text,
     -- | The less than or equal to operator. The @MLModel@ results will have
     -- @FilterVariable@ values that are less than or equal to the value
     -- specified with @LE@.
@@ -112,9 +109,14 @@ data DescribeMLModels = DescribeMLModels'
     -- | The less than operator. The @MLModel@ results will have @FilterVariable@
     -- values that are less than the value specified with @LT@.
     lt :: Prelude.Maybe Prelude.Text,
-    -- | The equal to operator. The @MLModel@ results will have @FilterVariable@
-    -- values that exactly match the value specified with @EQ@.
-    eq :: Prelude.Maybe Prelude.Text,
+    -- | The number of pages of information to include in the result. The range
+    -- of acceptable values is @1@ through @100@. The default value is @100@.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | The not equal to operator. The @MLModel@ results will have
+    -- @FilterVariable@ values not equal to the value specified with @NE@.
+    ne :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the page in the paginated results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A string that is found at the beginning of a variable, such as @Name@ or
     -- @Id@.
     --
@@ -129,17 +131,15 @@ data DescribeMLModels = DescribeMLModels'
     --
     -- -   2014-09-09-Holiday
     prefix :: Prelude.Maybe Prelude.Text,
-    -- | The greater than operator. The @MLModel@ results will have
-    -- @FilterVariable@ values that are greater than the value specified with
-    -- @GT@.
-    gt :: Prelude.Maybe Prelude.Text,
-    -- | The not equal to operator. The @MLModel@ results will have
-    -- @FilterVariable@ values not equal to the value specified with @NE@.
-    ne :: Prelude.Maybe Prelude.Text,
-    -- | The greater than or equal to operator. The @MLModel@ results will have
-    -- @FilterVariable@ values that are greater than or equal to the value
-    -- specified with @GE@.
-    ge :: Prelude.Maybe Prelude.Text
+    -- | A two-value parameter that determines the sequence of the resulting list
+    -- of @MLModel@.
+    --
+    -- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
+    --
+    -- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
+    --
+    -- Results are sorted by @FilterVariable@.
+    sortOrder :: Prelude.Maybe SortOrder
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -151,16 +151,8 @@ data DescribeMLModels = DescribeMLModels'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'describeMLModels_sortOrder' - A two-value parameter that determines the sequence of the resulting list
--- of @MLModel@.
---
--- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
---
--- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
---
--- Results are sorted by @FilterVariable@.
---
--- 'nextToken', 'describeMLModels_nextToken' - The ID of the page in the paginated results.
+-- 'eq', 'describeMLModels_eq' - The equal to operator. The @MLModel@ results will have @FilterVariable@
+-- values that exactly match the value specified with @EQ@.
 --
 -- 'filterVariable', 'describeMLModels_filterVariable' - Use one of the following variables to filter a list of @MLModel@:
 --
@@ -190,8 +182,13 @@ data DescribeMLModels = DescribeMLModels'
 --     used in training a @MLModel@. The URL can identify either a file or
 --     an Amazon Simple Storage Service (Amazon S3) bucket or directory.
 --
--- 'limit', 'describeMLModels_limit' - The number of pages of information to include in the result. The range
--- of acceptable values is @1@ through @100@. The default value is @100@.
+-- 'ge', 'describeMLModels_ge' - The greater than or equal to operator. The @MLModel@ results will have
+-- @FilterVariable@ values that are greater than or equal to the value
+-- specified with @GE@.
+--
+-- 'gt', 'describeMLModels_gt' - The greater than operator. The @MLModel@ results will have
+-- @FilterVariable@ values that are greater than the value specified with
+-- @GT@.
 --
 -- 'le', 'describeMLModels_le' - The less than or equal to operator. The @MLModel@ results will have
 -- @FilterVariable@ values that are less than or equal to the value
@@ -200,8 +197,13 @@ data DescribeMLModels = DescribeMLModels'
 -- 'lt', 'describeMLModels_lt' - The less than operator. The @MLModel@ results will have @FilterVariable@
 -- values that are less than the value specified with @LT@.
 --
--- 'eq', 'describeMLModels_eq' - The equal to operator. The @MLModel@ results will have @FilterVariable@
--- values that exactly match the value specified with @EQ@.
+-- 'limit', 'describeMLModels_limit' - The number of pages of information to include in the result. The range
+-- of acceptable values is @1@ through @100@. The default value is @100@.
+--
+-- 'ne', 'describeMLModels_ne' - The not equal to operator. The @MLModel@ results will have
+-- @FilterVariable@ values not equal to the value specified with @NE@.
+--
+-- 'nextToken', 'describeMLModels_nextToken' - The ID of the page in the paginated results.
 --
 -- 'prefix', 'describeMLModels_prefix' - A string that is found at the beginning of a variable, such as @Name@ or
 -- @Id@.
@@ -217,34 +219,7 @@ data DescribeMLModels = DescribeMLModels'
 --
 -- -   2014-09-09-Holiday
 --
--- 'gt', 'describeMLModels_gt' - The greater than operator. The @MLModel@ results will have
--- @FilterVariable@ values that are greater than the value specified with
--- @GT@.
---
--- 'ne', 'describeMLModels_ne' - The not equal to operator. The @MLModel@ results will have
--- @FilterVariable@ values not equal to the value specified with @NE@.
---
--- 'ge', 'describeMLModels_ge' - The greater than or equal to operator. The @MLModel@ results will have
--- @FilterVariable@ values that are greater than or equal to the value
--- specified with @GE@.
-newDescribeMLModels ::
-  DescribeMLModels
-newDescribeMLModels =
-  DescribeMLModels'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      filterVariable = Prelude.Nothing,
-      limit = Prelude.Nothing,
-      le = Prelude.Nothing,
-      lt = Prelude.Nothing,
-      eq = Prelude.Nothing,
-      prefix = Prelude.Nothing,
-      gt = Prelude.Nothing,
-      ne = Prelude.Nothing,
-      ge = Prelude.Nothing
-    }
-
--- | A two-value parameter that determines the sequence of the resulting list
+-- 'sortOrder', 'describeMLModels_sortOrder' - A two-value parameter that determines the sequence of the resulting list
 -- of @MLModel@.
 --
 -- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
@@ -252,12 +227,27 @@ newDescribeMLModels =
 -- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
 --
 -- Results are sorted by @FilterVariable@.
-describeMLModels_sortOrder :: Lens.Lens' DescribeMLModels (Prelude.Maybe SortOrder)
-describeMLModels_sortOrder = Lens.lens (\DescribeMLModels' {sortOrder} -> sortOrder) (\s@DescribeMLModels' {} a -> s {sortOrder = a} :: DescribeMLModels)
+newDescribeMLModels ::
+  DescribeMLModels
+newDescribeMLModels =
+  DescribeMLModels'
+    { eq = Prelude.Nothing,
+      filterVariable = Prelude.Nothing,
+      ge = Prelude.Nothing,
+      gt = Prelude.Nothing,
+      le = Prelude.Nothing,
+      lt = Prelude.Nothing,
+      limit = Prelude.Nothing,
+      ne = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      prefix = Prelude.Nothing,
+      sortOrder = Prelude.Nothing
+    }
 
--- | The ID of the page in the paginated results.
-describeMLModels_nextToken :: Lens.Lens' DescribeMLModels (Prelude.Maybe Prelude.Text)
-describeMLModels_nextToken = Lens.lens (\DescribeMLModels' {nextToken} -> nextToken) (\s@DescribeMLModels' {} a -> s {nextToken = a} :: DescribeMLModels)
+-- | The equal to operator. The @MLModel@ results will have @FilterVariable@
+-- values that exactly match the value specified with @EQ@.
+describeMLModels_eq :: Lens.Lens' DescribeMLModels (Prelude.Maybe Prelude.Text)
+describeMLModels_eq = Lens.lens (\DescribeMLModels' {eq} -> eq) (\s@DescribeMLModels' {} a -> s {eq = a} :: DescribeMLModels)
 
 -- | Use one of the following variables to filter a list of @MLModel@:
 --
@@ -289,10 +279,17 @@ describeMLModels_nextToken = Lens.lens (\DescribeMLModels' {nextToken} -> nextTo
 describeMLModels_filterVariable :: Lens.Lens' DescribeMLModels (Prelude.Maybe MLModelFilterVariable)
 describeMLModels_filterVariable = Lens.lens (\DescribeMLModels' {filterVariable} -> filterVariable) (\s@DescribeMLModels' {} a -> s {filterVariable = a} :: DescribeMLModels)
 
--- | The number of pages of information to include in the result. The range
--- of acceptable values is @1@ through @100@. The default value is @100@.
-describeMLModels_limit :: Lens.Lens' DescribeMLModels (Prelude.Maybe Prelude.Natural)
-describeMLModels_limit = Lens.lens (\DescribeMLModels' {limit} -> limit) (\s@DescribeMLModels' {} a -> s {limit = a} :: DescribeMLModels)
+-- | The greater than or equal to operator. The @MLModel@ results will have
+-- @FilterVariable@ values that are greater than or equal to the value
+-- specified with @GE@.
+describeMLModels_ge :: Lens.Lens' DescribeMLModels (Prelude.Maybe Prelude.Text)
+describeMLModels_ge = Lens.lens (\DescribeMLModels' {ge} -> ge) (\s@DescribeMLModels' {} a -> s {ge = a} :: DescribeMLModels)
+
+-- | The greater than operator. The @MLModel@ results will have
+-- @FilterVariable@ values that are greater than the value specified with
+-- @GT@.
+describeMLModels_gt :: Lens.Lens' DescribeMLModels (Prelude.Maybe Prelude.Text)
+describeMLModels_gt = Lens.lens (\DescribeMLModels' {gt} -> gt) (\s@DescribeMLModels' {} a -> s {gt = a} :: DescribeMLModels)
 
 -- | The less than or equal to operator. The @MLModel@ results will have
 -- @FilterVariable@ values that are less than or equal to the value
@@ -305,10 +302,19 @@ describeMLModels_le = Lens.lens (\DescribeMLModels' {le} -> le) (\s@DescribeMLMo
 describeMLModels_lt :: Lens.Lens' DescribeMLModels (Prelude.Maybe Prelude.Text)
 describeMLModels_lt = Lens.lens (\DescribeMLModels' {lt} -> lt) (\s@DescribeMLModels' {} a -> s {lt = a} :: DescribeMLModels)
 
--- | The equal to operator. The @MLModel@ results will have @FilterVariable@
--- values that exactly match the value specified with @EQ@.
-describeMLModels_eq :: Lens.Lens' DescribeMLModels (Prelude.Maybe Prelude.Text)
-describeMLModels_eq = Lens.lens (\DescribeMLModels' {eq} -> eq) (\s@DescribeMLModels' {} a -> s {eq = a} :: DescribeMLModels)
+-- | The number of pages of information to include in the result. The range
+-- of acceptable values is @1@ through @100@. The default value is @100@.
+describeMLModels_limit :: Lens.Lens' DescribeMLModels (Prelude.Maybe Prelude.Natural)
+describeMLModels_limit = Lens.lens (\DescribeMLModels' {limit} -> limit) (\s@DescribeMLModels' {} a -> s {limit = a} :: DescribeMLModels)
+
+-- | The not equal to operator. The @MLModel@ results will have
+-- @FilterVariable@ values not equal to the value specified with @NE@.
+describeMLModels_ne :: Lens.Lens' DescribeMLModels (Prelude.Maybe Prelude.Text)
+describeMLModels_ne = Lens.lens (\DescribeMLModels' {ne} -> ne) (\s@DescribeMLModels' {} a -> s {ne = a} :: DescribeMLModels)
+
+-- | The ID of the page in the paginated results.
+describeMLModels_nextToken :: Lens.Lens' DescribeMLModels (Prelude.Maybe Prelude.Text)
+describeMLModels_nextToken = Lens.lens (\DescribeMLModels' {nextToken} -> nextToken) (\s@DescribeMLModels' {} a -> s {nextToken = a} :: DescribeMLModels)
 
 -- | A string that is found at the beginning of a variable, such as @Name@ or
 -- @Id@.
@@ -326,22 +332,16 @@ describeMLModels_eq = Lens.lens (\DescribeMLModels' {eq} -> eq) (\s@DescribeMLMo
 describeMLModels_prefix :: Lens.Lens' DescribeMLModels (Prelude.Maybe Prelude.Text)
 describeMLModels_prefix = Lens.lens (\DescribeMLModels' {prefix} -> prefix) (\s@DescribeMLModels' {} a -> s {prefix = a} :: DescribeMLModels)
 
--- | The greater than operator. The @MLModel@ results will have
--- @FilterVariable@ values that are greater than the value specified with
--- @GT@.
-describeMLModels_gt :: Lens.Lens' DescribeMLModels (Prelude.Maybe Prelude.Text)
-describeMLModels_gt = Lens.lens (\DescribeMLModels' {gt} -> gt) (\s@DescribeMLModels' {} a -> s {gt = a} :: DescribeMLModels)
-
--- | The not equal to operator. The @MLModel@ results will have
--- @FilterVariable@ values not equal to the value specified with @NE@.
-describeMLModels_ne :: Lens.Lens' DescribeMLModels (Prelude.Maybe Prelude.Text)
-describeMLModels_ne = Lens.lens (\DescribeMLModels' {ne} -> ne) (\s@DescribeMLModels' {} a -> s {ne = a} :: DescribeMLModels)
-
--- | The greater than or equal to operator. The @MLModel@ results will have
--- @FilterVariable@ values that are greater than or equal to the value
--- specified with @GE@.
-describeMLModels_ge :: Lens.Lens' DescribeMLModels (Prelude.Maybe Prelude.Text)
-describeMLModels_ge = Lens.lens (\DescribeMLModels' {ge} -> ge) (\s@DescribeMLModels' {} a -> s {ge = a} :: DescribeMLModels)
+-- | A two-value parameter that determines the sequence of the resulting list
+-- of @MLModel@.
+--
+-- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
+--
+-- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
+--
+-- Results are sorted by @FilterVariable@.
+describeMLModels_sortOrder :: Lens.Lens' DescribeMLModels (Prelude.Maybe SortOrder)
+describeMLModels_sortOrder = Lens.lens (\DescribeMLModels' {sortOrder} -> sortOrder) (\s@DescribeMLModels' {} a -> s {sortOrder = a} :: DescribeMLModels)
 
 instance Core.AWSPager DescribeMLModels where
   page rq rs
@@ -382,31 +382,31 @@ instance Core.AWSRequest DescribeMLModels where
 
 instance Prelude.Hashable DescribeMLModels where
   hashWithSalt _salt DescribeMLModels' {..} =
-    _salt `Prelude.hashWithSalt` sortOrder
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` eq
       `Prelude.hashWithSalt` filterVariable
-      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` ge
+      `Prelude.hashWithSalt` gt
       `Prelude.hashWithSalt` le
       `Prelude.hashWithSalt` lt
-      `Prelude.hashWithSalt` eq
-      `Prelude.hashWithSalt` prefix
-      `Prelude.hashWithSalt` gt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` ne
-      `Prelude.hashWithSalt` ge
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` sortOrder
 
 instance Prelude.NFData DescribeMLModels where
   rnf DescribeMLModels' {..} =
-    Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf eq
       `Prelude.seq` Prelude.rnf filterVariable
-      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf ge
+      `Prelude.seq` Prelude.rnf gt
       `Prelude.seq` Prelude.rnf le
       `Prelude.seq` Prelude.rnf lt
-      `Prelude.seq` Prelude.rnf eq
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf gt
+      `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf ne
-      `Prelude.seq` Prelude.rnf ge
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf sortOrder
 
 instance Data.ToHeaders DescribeMLModels where
   toHeaders =
@@ -427,18 +427,18 @@ instance Data.ToJSON DescribeMLModels where
   toJSON DescribeMLModels' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
-            ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("EQ" Data..=) Prelude.<$> eq,
             ("FilterVariable" Data..=)
               Prelude.<$> filterVariable,
-            ("Limit" Data..=) Prelude.<$> limit,
+            ("GE" Data..=) Prelude.<$> ge,
+            ("GT" Data..=) Prelude.<$> gt,
             ("LE" Data..=) Prelude.<$> le,
             ("LT" Data..=) Prelude.<$> lt,
-            ("EQ" Data..=) Prelude.<$> eq,
-            ("Prefix" Data..=) Prelude.<$> prefix,
-            ("GT" Data..=) Prelude.<$> gt,
+            ("Limit" Data..=) Prelude.<$> limit,
             ("NE" Data..=) Prelude.<$> ne,
-            ("GE" Data..=) Prelude.<$> ge
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Prefix" Data..=) Prelude.<$> prefix,
+            ("SortOrder" Data..=) Prelude.<$> sortOrder
           ]
       )
 

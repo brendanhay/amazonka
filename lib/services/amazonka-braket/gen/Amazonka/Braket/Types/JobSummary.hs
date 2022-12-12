@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJobSummary' smart constructor.
 data JobSummary = JobSummary'
-  { -- | A tag object that consists of a key and an optional value, used to
-    -- manage metadata for Amazon Braket resources.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The date and time that the Amazon Braket job ended.
+  { -- | The date and time that the Amazon Braket job ended.
     endedAt :: Prelude.Maybe Data.POSIX,
     -- | The date and time that the Amazon Braket job was started.
     startedAt :: Prelude.Maybe Data.POSIX,
+    -- | A tag object that consists of a key and an optional value, used to
+    -- manage metadata for Amazon Braket resources.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The date and time that the Amazon Braket job was created.
     createdAt :: Data.POSIX,
     -- | Provides summary information about the primary device used by an Amazon
@@ -58,12 +58,12 @@ data JobSummary = JobSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'jobSummary_tags' - A tag object that consists of a key and an optional value, used to
--- manage metadata for Amazon Braket resources.
---
 -- 'endedAt', 'jobSummary_endedAt' - The date and time that the Amazon Braket job ended.
 --
 -- 'startedAt', 'jobSummary_startedAt' - The date and time that the Amazon Braket job was started.
+--
+-- 'tags', 'jobSummary_tags' - A tag object that consists of a key and an optional value, used to
+-- manage metadata for Amazon Braket resources.
 --
 -- 'createdAt', 'jobSummary_createdAt' - The date and time that the Amazon Braket job was created.
 --
@@ -94,20 +94,15 @@ newJobSummary
   pJobName_
   pStatus_ =
     JobSummary'
-      { tags = Prelude.Nothing,
-        endedAt = Prelude.Nothing,
+      { endedAt = Prelude.Nothing,
         startedAt = Prelude.Nothing,
+        tags = Prelude.Nothing,
         createdAt = Data._Time Lens.# pCreatedAt_,
         device = pDevice_,
         jobArn = pJobArn_,
         jobName = pJobName_,
         status = pStatus_
       }
-
--- | A tag object that consists of a key and an optional value, used to
--- manage metadata for Amazon Braket resources.
-jobSummary_tags :: Lens.Lens' JobSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-jobSummary_tags = Lens.lens (\JobSummary' {tags} -> tags) (\s@JobSummary' {} a -> s {tags = a} :: JobSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | The date and time that the Amazon Braket job ended.
 jobSummary_endedAt :: Lens.Lens' JobSummary (Prelude.Maybe Prelude.UTCTime)
@@ -116,6 +111,11 @@ jobSummary_endedAt = Lens.lens (\JobSummary' {endedAt} -> endedAt) (\s@JobSummar
 -- | The date and time that the Amazon Braket job was started.
 jobSummary_startedAt :: Lens.Lens' JobSummary (Prelude.Maybe Prelude.UTCTime)
 jobSummary_startedAt = Lens.lens (\JobSummary' {startedAt} -> startedAt) (\s@JobSummary' {} a -> s {startedAt = a} :: JobSummary) Prelude.. Lens.mapping Data._Time
+
+-- | A tag object that consists of a key and an optional value, used to
+-- manage metadata for Amazon Braket resources.
+jobSummary_tags :: Lens.Lens' JobSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+jobSummary_tags = Lens.lens (\JobSummary' {tags} -> tags) (\s@JobSummary' {} a -> s {tags = a} :: JobSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | The date and time that the Amazon Braket job was created.
 jobSummary_createdAt :: Lens.Lens' JobSummary Prelude.UTCTime
@@ -144,9 +144,9 @@ instance Data.FromJSON JobSummary where
       "JobSummary"
       ( \x ->
           JobSummary'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "endedAt")
+            Prelude.<$> (x Data..:? "endedAt")
             Prelude.<*> (x Data..:? "startedAt")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "createdAt")
             Prelude.<*> (x Data..: "device")
             Prelude.<*> (x Data..: "jobArn")
@@ -156,9 +156,9 @@ instance Data.FromJSON JobSummary where
 
 instance Prelude.Hashable JobSummary where
   hashWithSalt _salt JobSummary' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` endedAt
+    _salt `Prelude.hashWithSalt` endedAt
       `Prelude.hashWithSalt` startedAt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` device
       `Prelude.hashWithSalt` jobArn
@@ -167,9 +167,9 @@ instance Prelude.Hashable JobSummary where
 
 instance Prelude.NFData JobSummary where
   rnf JobSummary' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf endedAt
+    Prelude.rnf endedAt
       `Prelude.seq` Prelude.rnf startedAt
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf device
       `Prelude.seq` Prelude.rnf jobArn

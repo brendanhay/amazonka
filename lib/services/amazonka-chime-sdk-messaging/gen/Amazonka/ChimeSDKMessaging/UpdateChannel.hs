@@ -33,9 +33,9 @@ module Amazonka.ChimeSDKMessaging.UpdateChannel
     newUpdateChannel,
 
     -- * Request Lenses
-    updateChannel_name,
     updateChannel_metadata,
     updateChannel_mode,
+    updateChannel_name,
     updateChannel_channelArn,
     updateChannel_chimeBearer,
 
@@ -59,12 +59,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateChannel' smart constructor.
 data UpdateChannel = UpdateChannel'
-  { -- | The name of the channel.
-    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The metadata for the update request.
+  { -- | The metadata for the update request.
     metadata :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The mode of the update request.
     mode :: Prelude.Maybe ChannelMode,
+    -- | The name of the channel.
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ARN of the channel.
     channelArn :: Prelude.Text,
     -- | The @AppInstanceUserArn@ of the user that makes the API call.
@@ -80,11 +80,11 @@ data UpdateChannel = UpdateChannel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateChannel_name' - The name of the channel.
---
 -- 'metadata', 'updateChannel_metadata' - The metadata for the update request.
 --
 -- 'mode', 'updateChannel_mode' - The mode of the update request.
+--
+-- 'name', 'updateChannel_name' - The name of the channel.
 --
 -- 'channelArn', 'updateChannel_channelArn' - The ARN of the channel.
 --
@@ -97,16 +97,12 @@ newUpdateChannel ::
   UpdateChannel
 newUpdateChannel pChannelArn_ pChimeBearer_ =
   UpdateChannel'
-    { name = Prelude.Nothing,
-      metadata = Prelude.Nothing,
+    { metadata = Prelude.Nothing,
       mode = Prelude.Nothing,
+      name = Prelude.Nothing,
       channelArn = pChannelArn_,
       chimeBearer = pChimeBearer_
     }
-
--- | The name of the channel.
-updateChannel_name :: Lens.Lens' UpdateChannel (Prelude.Maybe Prelude.Text)
-updateChannel_name = Lens.lens (\UpdateChannel' {name} -> name) (\s@UpdateChannel' {} a -> s {name = a} :: UpdateChannel) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The metadata for the update request.
 updateChannel_metadata :: Lens.Lens' UpdateChannel (Prelude.Maybe Prelude.Text)
@@ -115,6 +111,10 @@ updateChannel_metadata = Lens.lens (\UpdateChannel' {metadata} -> metadata) (\s@
 -- | The mode of the update request.
 updateChannel_mode :: Lens.Lens' UpdateChannel (Prelude.Maybe ChannelMode)
 updateChannel_mode = Lens.lens (\UpdateChannel' {mode} -> mode) (\s@UpdateChannel' {} a -> s {mode = a} :: UpdateChannel)
+
+-- | The name of the channel.
+updateChannel_name :: Lens.Lens' UpdateChannel (Prelude.Maybe Prelude.Text)
+updateChannel_name = Lens.lens (\UpdateChannel' {name} -> name) (\s@UpdateChannel' {} a -> s {name = a} :: UpdateChannel) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ARN of the channel.
 updateChannel_channelArn :: Lens.Lens' UpdateChannel Prelude.Text
@@ -140,17 +140,17 @@ instance Core.AWSRequest UpdateChannel where
 
 instance Prelude.Hashable UpdateChannel where
   hashWithSalt _salt UpdateChannel' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` metadata
+    _salt `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` mode
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` chimeBearer
 
 instance Prelude.NFData UpdateChannel where
   rnf UpdateChannel' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf metadata
+    Prelude.rnf metadata
       `Prelude.seq` Prelude.rnf mode
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf channelArn
       `Prelude.seq` Prelude.rnf chimeBearer
 
@@ -163,9 +163,9 @@ instance Data.ToJSON UpdateChannel where
   toJSON UpdateChannel' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
-            ("Metadata" Data..=) Prelude.<$> metadata,
-            ("Mode" Data..=) Prelude.<$> mode
+          [ ("Metadata" Data..=) Prelude.<$> metadata,
+            ("Mode" Data..=) Prelude.<$> mode,
+            ("Name" Data..=) Prelude.<$> name
           ]
       )
 

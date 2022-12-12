@@ -32,20 +32,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newControlDomainInsights' smart constructor.
 data ControlDomainInsights = ControlDomainInsights'
-  { -- | A breakdown of the compliance check status for the evidence that’s
+  { -- | The number of controls in the control domain that collected
+    -- non-compliant evidence on the @lastUpdated@ date.
+    controlsCountByNoncompliantEvidence :: Prelude.Maybe Prelude.Int,
+    -- | A breakdown of the compliance check status for the evidence that’s
     -- associated with the control domain.
     evidenceInsights :: Prelude.Maybe EvidenceInsights,
-    -- | The name of the control domain.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The total number of controls in the control domain.
-    totalControlsCount :: Prelude.Maybe Prelude.Int,
     -- | The unique identifier for the control domain.
     id :: Prelude.Maybe Prelude.Text,
     -- | The time when the control domain insights were last updated.
     lastUpdated :: Prelude.Maybe Data.POSIX,
-    -- | The number of controls in the control domain that collected
-    -- non-compliant evidence on the @lastUpdated@ date.
-    controlsCountByNoncompliantEvidence :: Prelude.Maybe Prelude.Int
+    -- | The name of the control domain.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The total number of controls in the control domain.
+    totalControlsCount :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,45 +57,41 @@ data ControlDomainInsights = ControlDomainInsights'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'controlsCountByNoncompliantEvidence', 'controlDomainInsights_controlsCountByNoncompliantEvidence' - The number of controls in the control domain that collected
+-- non-compliant evidence on the @lastUpdated@ date.
+--
 -- 'evidenceInsights', 'controlDomainInsights_evidenceInsights' - A breakdown of the compliance check status for the evidence that’s
 -- associated with the control domain.
---
--- 'name', 'controlDomainInsights_name' - The name of the control domain.
---
--- 'totalControlsCount', 'controlDomainInsights_totalControlsCount' - The total number of controls in the control domain.
 --
 -- 'id', 'controlDomainInsights_id' - The unique identifier for the control domain.
 --
 -- 'lastUpdated', 'controlDomainInsights_lastUpdated' - The time when the control domain insights were last updated.
 --
--- 'controlsCountByNoncompliantEvidence', 'controlDomainInsights_controlsCountByNoncompliantEvidence' - The number of controls in the control domain that collected
--- non-compliant evidence on the @lastUpdated@ date.
+-- 'name', 'controlDomainInsights_name' - The name of the control domain.
+--
+-- 'totalControlsCount', 'controlDomainInsights_totalControlsCount' - The total number of controls in the control domain.
 newControlDomainInsights ::
   ControlDomainInsights
 newControlDomainInsights =
   ControlDomainInsights'
-    { evidenceInsights =
+    { controlsCountByNoncompliantEvidence =
         Prelude.Nothing,
-      name = Prelude.Nothing,
-      totalControlsCount = Prelude.Nothing,
+      evidenceInsights = Prelude.Nothing,
       id = Prelude.Nothing,
       lastUpdated = Prelude.Nothing,
-      controlsCountByNoncompliantEvidence =
-        Prelude.Nothing
+      name = Prelude.Nothing,
+      totalControlsCount = Prelude.Nothing
     }
+
+-- | The number of controls in the control domain that collected
+-- non-compliant evidence on the @lastUpdated@ date.
+controlDomainInsights_controlsCountByNoncompliantEvidence :: Lens.Lens' ControlDomainInsights (Prelude.Maybe Prelude.Int)
+controlDomainInsights_controlsCountByNoncompliantEvidence = Lens.lens (\ControlDomainInsights' {controlsCountByNoncompliantEvidence} -> controlsCountByNoncompliantEvidence) (\s@ControlDomainInsights' {} a -> s {controlsCountByNoncompliantEvidence = a} :: ControlDomainInsights)
 
 -- | A breakdown of the compliance check status for the evidence that’s
 -- associated with the control domain.
 controlDomainInsights_evidenceInsights :: Lens.Lens' ControlDomainInsights (Prelude.Maybe EvidenceInsights)
 controlDomainInsights_evidenceInsights = Lens.lens (\ControlDomainInsights' {evidenceInsights} -> evidenceInsights) (\s@ControlDomainInsights' {} a -> s {evidenceInsights = a} :: ControlDomainInsights)
-
--- | The name of the control domain.
-controlDomainInsights_name :: Lens.Lens' ControlDomainInsights (Prelude.Maybe Prelude.Text)
-controlDomainInsights_name = Lens.lens (\ControlDomainInsights' {name} -> name) (\s@ControlDomainInsights' {} a -> s {name = a} :: ControlDomainInsights)
-
--- | The total number of controls in the control domain.
-controlDomainInsights_totalControlsCount :: Lens.Lens' ControlDomainInsights (Prelude.Maybe Prelude.Int)
-controlDomainInsights_totalControlsCount = Lens.lens (\ControlDomainInsights' {totalControlsCount} -> totalControlsCount) (\s@ControlDomainInsights' {} a -> s {totalControlsCount = a} :: ControlDomainInsights)
 
 -- | The unique identifier for the control domain.
 controlDomainInsights_id :: Lens.Lens' ControlDomainInsights (Prelude.Maybe Prelude.Text)
@@ -105,10 +101,13 @@ controlDomainInsights_id = Lens.lens (\ControlDomainInsights' {id} -> id) (\s@Co
 controlDomainInsights_lastUpdated :: Lens.Lens' ControlDomainInsights (Prelude.Maybe Prelude.UTCTime)
 controlDomainInsights_lastUpdated = Lens.lens (\ControlDomainInsights' {lastUpdated} -> lastUpdated) (\s@ControlDomainInsights' {} a -> s {lastUpdated = a} :: ControlDomainInsights) Prelude.. Lens.mapping Data._Time
 
--- | The number of controls in the control domain that collected
--- non-compliant evidence on the @lastUpdated@ date.
-controlDomainInsights_controlsCountByNoncompliantEvidence :: Lens.Lens' ControlDomainInsights (Prelude.Maybe Prelude.Int)
-controlDomainInsights_controlsCountByNoncompliantEvidence = Lens.lens (\ControlDomainInsights' {controlsCountByNoncompliantEvidence} -> controlsCountByNoncompliantEvidence) (\s@ControlDomainInsights' {} a -> s {controlsCountByNoncompliantEvidence = a} :: ControlDomainInsights)
+-- | The name of the control domain.
+controlDomainInsights_name :: Lens.Lens' ControlDomainInsights (Prelude.Maybe Prelude.Text)
+controlDomainInsights_name = Lens.lens (\ControlDomainInsights' {name} -> name) (\s@ControlDomainInsights' {} a -> s {name = a} :: ControlDomainInsights)
+
+-- | The total number of controls in the control domain.
+controlDomainInsights_totalControlsCount :: Lens.Lens' ControlDomainInsights (Prelude.Maybe Prelude.Int)
+controlDomainInsights_totalControlsCount = Lens.lens (\ControlDomainInsights' {totalControlsCount} -> totalControlsCount) (\s@ControlDomainInsights' {} a -> s {totalControlsCount = a} :: ControlDomainInsights)
 
 instance Data.FromJSON ControlDomainInsights where
   parseJSON =
@@ -116,28 +115,29 @@ instance Data.FromJSON ControlDomainInsights where
       "ControlDomainInsights"
       ( \x ->
           ControlDomainInsights'
-            Prelude.<$> (x Data..:? "evidenceInsights")
-            Prelude.<*> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "totalControlsCount")
+            Prelude.<$> (x Data..:? "controlsCountByNoncompliantEvidence")
+            Prelude.<*> (x Data..:? "evidenceInsights")
             Prelude.<*> (x Data..:? "id")
             Prelude.<*> (x Data..:? "lastUpdated")
-            Prelude.<*> (x Data..:? "controlsCountByNoncompliantEvidence")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "totalControlsCount")
       )
 
 instance Prelude.Hashable ControlDomainInsights where
   hashWithSalt _salt ControlDomainInsights' {..} =
-    _salt `Prelude.hashWithSalt` evidenceInsights
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` totalControlsCount
+    _salt
+      `Prelude.hashWithSalt` controlsCountByNoncompliantEvidence
+      `Prelude.hashWithSalt` evidenceInsights
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` lastUpdated
-      `Prelude.hashWithSalt` controlsCountByNoncompliantEvidence
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` totalControlsCount
 
 instance Prelude.NFData ControlDomainInsights where
   rnf ControlDomainInsights' {..} =
-    Prelude.rnf evidenceInsights
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf totalControlsCount
+    Prelude.rnf controlsCountByNoncompliantEvidence
+      `Prelude.seq` Prelude.rnf evidenceInsights
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf lastUpdated
-      `Prelude.seq` Prelude.rnf controlsCountByNoncompliantEvidence
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf totalControlsCount

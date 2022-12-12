@@ -38,10 +38,10 @@ module Amazonka.FSx.CreateDataRepositoryTask
     newCreateDataRepositoryTask,
 
     -- * Request Lenses
-    createDataRepositoryTask_tags,
-    createDataRepositoryTask_clientRequestToken,
     createDataRepositoryTask_capacityToRelease,
+    createDataRepositoryTask_clientRequestToken,
     createDataRepositoryTask_paths,
+    createDataRepositoryTask_tags,
     createDataRepositoryTask_type,
     createDataRepositoryTask_fileSystemId,
     createDataRepositoryTask_report,
@@ -66,12 +66,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDataRepositoryTask' smart constructor.
 data CreateDataRepositoryTask = CreateDataRepositoryTask'
-  { tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the amount of data to release, in GiB, by an Amazon File Cache
+  { -- | Specifies the amount of data to release, in GiB, by an Amazon File Cache
     -- @AUTO_RELEASE_DATA@ task that automatically releases files from the
     -- cache.
     capacityToRelease :: Prelude.Maybe Prelude.Natural,
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | A list of paths for the data repository task to use when the task is
     -- processed. If a path that you provide isn\'t valid, the task fails.
     --
@@ -88,6 +87,7 @@ data CreateDataRepositoryTask = CreateDataRepositoryTask'
     --     file system. The path can be an S3 bucket or prefix in the format
     --     @s3:\/\/myBucket\/myPrefix@ (where @myPrefix@ is optional).
     paths :: Prelude.Maybe [Prelude.Text],
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | Specifies the type of data repository task to create.
     type' :: DataRepositoryTaskType,
     fileSystemId :: Prelude.Text,
@@ -108,13 +108,11 @@ data CreateDataRepositoryTask = CreateDataRepositoryTask'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createDataRepositoryTask_tags' - Undocumented member.
---
--- 'clientRequestToken', 'createDataRepositoryTask_clientRequestToken' - Undocumented member.
---
 -- 'capacityToRelease', 'createDataRepositoryTask_capacityToRelease' - Specifies the amount of data to release, in GiB, by an Amazon File Cache
 -- @AUTO_RELEASE_DATA@ task that automatically releases files from the
 -- cache.
+--
+-- 'clientRequestToken', 'createDataRepositoryTask_clientRequestToken' - Undocumented member.
 --
 -- 'paths', 'createDataRepositoryTask_paths' - A list of paths for the data repository task to use when the task is
 -- processed. If a path that you provide isn\'t valid, the task fails.
@@ -131,6 +129,8 @@ data CreateDataRepositoryTask = CreateDataRepositoryTask'
 --     from which POSIX metadata changes are imported to the Amazon FSx
 --     file system. The path can be an S3 bucket or prefix in the format
 --     @s3:\/\/myBucket\/myPrefix@ (where @myPrefix@ is optional).
+--
+-- 'tags', 'createDataRepositoryTask_tags' - Undocumented member.
 --
 -- 'type'', 'createDataRepositoryTask_type' - Specifies the type of data repository task to create.
 --
@@ -154,28 +154,25 @@ newCreateDataRepositoryTask
   pFileSystemId_
   pReport_ =
     CreateDataRepositoryTask'
-      { tags = Prelude.Nothing,
+      { capacityToRelease =
+          Prelude.Nothing,
         clientRequestToken = Prelude.Nothing,
-        capacityToRelease = Prelude.Nothing,
         paths = Prelude.Nothing,
+        tags = Prelude.Nothing,
         type' = pType_,
         fileSystemId = pFileSystemId_,
         report = pReport_
       }
-
--- | Undocumented member.
-createDataRepositoryTask_tags :: Lens.Lens' CreateDataRepositoryTask (Prelude.Maybe (Prelude.NonEmpty Tag))
-createDataRepositoryTask_tags = Lens.lens (\CreateDataRepositoryTask' {tags} -> tags) (\s@CreateDataRepositoryTask' {} a -> s {tags = a} :: CreateDataRepositoryTask) Prelude.. Lens.mapping Lens.coerced
-
--- | Undocumented member.
-createDataRepositoryTask_clientRequestToken :: Lens.Lens' CreateDataRepositoryTask (Prelude.Maybe Prelude.Text)
-createDataRepositoryTask_clientRequestToken = Lens.lens (\CreateDataRepositoryTask' {clientRequestToken} -> clientRequestToken) (\s@CreateDataRepositoryTask' {} a -> s {clientRequestToken = a} :: CreateDataRepositoryTask)
 
 -- | Specifies the amount of data to release, in GiB, by an Amazon File Cache
 -- @AUTO_RELEASE_DATA@ task that automatically releases files from the
 -- cache.
 createDataRepositoryTask_capacityToRelease :: Lens.Lens' CreateDataRepositoryTask (Prelude.Maybe Prelude.Natural)
 createDataRepositoryTask_capacityToRelease = Lens.lens (\CreateDataRepositoryTask' {capacityToRelease} -> capacityToRelease) (\s@CreateDataRepositoryTask' {} a -> s {capacityToRelease = a} :: CreateDataRepositoryTask)
+
+-- | Undocumented member.
+createDataRepositoryTask_clientRequestToken :: Lens.Lens' CreateDataRepositoryTask (Prelude.Maybe Prelude.Text)
+createDataRepositoryTask_clientRequestToken = Lens.lens (\CreateDataRepositoryTask' {clientRequestToken} -> clientRequestToken) (\s@CreateDataRepositoryTask' {} a -> s {clientRequestToken = a} :: CreateDataRepositoryTask)
 
 -- | A list of paths for the data repository task to use when the task is
 -- processed. If a path that you provide isn\'t valid, the task fails.
@@ -194,6 +191,10 @@ createDataRepositoryTask_capacityToRelease = Lens.lens (\CreateDataRepositoryTas
 --     @s3:\/\/myBucket\/myPrefix@ (where @myPrefix@ is optional).
 createDataRepositoryTask_paths :: Lens.Lens' CreateDataRepositoryTask (Prelude.Maybe [Prelude.Text])
 createDataRepositoryTask_paths = Lens.lens (\CreateDataRepositoryTask' {paths} -> paths) (\s@CreateDataRepositoryTask' {} a -> s {paths = a} :: CreateDataRepositoryTask) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+createDataRepositoryTask_tags :: Lens.Lens' CreateDataRepositoryTask (Prelude.Maybe (Prelude.NonEmpty Tag))
+createDataRepositoryTask_tags = Lens.lens (\CreateDataRepositoryTask' {tags} -> tags) (\s@CreateDataRepositoryTask' {} a -> s {tags = a} :: CreateDataRepositoryTask) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the type of data repository task to create.
 createDataRepositoryTask_type :: Lens.Lens' CreateDataRepositoryTask DataRepositoryTaskType
@@ -227,20 +228,20 @@ instance Core.AWSRequest CreateDataRepositoryTask where
 
 instance Prelude.Hashable CreateDataRepositoryTask where
   hashWithSalt _salt CreateDataRepositoryTask' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` capacityToRelease
       `Prelude.hashWithSalt` clientRequestToken
-      `Prelude.hashWithSalt` capacityToRelease
       `Prelude.hashWithSalt` paths
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` fileSystemId
       `Prelude.hashWithSalt` report
 
 instance Prelude.NFData CreateDataRepositoryTask where
   rnf CreateDataRepositoryTask' {..} =
-    Prelude.rnf tags
+    Prelude.rnf capacityToRelease
       `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf capacityToRelease
       `Prelude.seq` Prelude.rnf paths
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf fileSystemId
       `Prelude.seq` Prelude.rnf report
@@ -264,12 +265,12 @@ instance Data.ToJSON CreateDataRepositoryTask where
   toJSON CreateDataRepositoryTask' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
+          [ ("CapacityToRelease" Data..=)
+              Prelude.<$> capacityToRelease,
             ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("CapacityToRelease" Data..=)
-              Prelude.<$> capacityToRelease,
             ("Paths" Data..=) Prelude.<$> paths,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Type" Data..= type'),
             Prelude.Just ("FileSystemId" Data..= fileSystemId),
             Prelude.Just ("Report" Data..= report)

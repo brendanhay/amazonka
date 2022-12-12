@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPackageListItem' smart constructor.
 data PackageListItem = PackageListItem'
-  { -- | The package\'s tags.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The package\'s name.
-    packageName :: Prelude.Maybe Prelude.Text,
+  { -- | The package\'s ARN.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | When the package was created.
     createdTime :: Prelude.Maybe Data.POSIX,
-    -- | The package\'s ARN.
-    arn :: Prelude.Maybe Prelude.Text,
     -- | The package\'s ID.
-    packageId :: Prelude.Maybe Prelude.Text
+    packageId :: Prelude.Maybe Prelude.Text,
+    -- | The package\'s name.
+    packageName :: Prelude.Maybe Prelude.Text,
+    -- | The package\'s tags.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,45 +49,45 @@ data PackageListItem = PackageListItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'packageListItem_tags' - The package\'s tags.
---
--- 'packageName', 'packageListItem_packageName' - The package\'s name.
+-- 'arn', 'packageListItem_arn' - The package\'s ARN.
 --
 -- 'createdTime', 'packageListItem_createdTime' - When the package was created.
 --
--- 'arn', 'packageListItem_arn' - The package\'s ARN.
---
 -- 'packageId', 'packageListItem_packageId' - The package\'s ID.
+--
+-- 'packageName', 'packageListItem_packageName' - The package\'s name.
+--
+-- 'tags', 'packageListItem_tags' - The package\'s tags.
 newPackageListItem ::
   PackageListItem
 newPackageListItem =
   PackageListItem'
-    { tags = Prelude.Nothing,
-      packageName = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       createdTime = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      packageId = Prelude.Nothing
+      packageId = Prelude.Nothing,
+      packageName = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
-
--- | The package\'s tags.
-packageListItem_tags :: Lens.Lens' PackageListItem (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-packageListItem_tags = Lens.lens (\PackageListItem' {tags} -> tags) (\s@PackageListItem' {} a -> s {tags = a} :: PackageListItem) Prelude.. Lens.mapping Lens.coerced
-
--- | The package\'s name.
-packageListItem_packageName :: Lens.Lens' PackageListItem (Prelude.Maybe Prelude.Text)
-packageListItem_packageName = Lens.lens (\PackageListItem' {packageName} -> packageName) (\s@PackageListItem' {} a -> s {packageName = a} :: PackageListItem)
-
--- | When the package was created.
-packageListItem_createdTime :: Lens.Lens' PackageListItem (Prelude.Maybe Prelude.UTCTime)
-packageListItem_createdTime = Lens.lens (\PackageListItem' {createdTime} -> createdTime) (\s@PackageListItem' {} a -> s {createdTime = a} :: PackageListItem) Prelude.. Lens.mapping Data._Time
 
 -- | The package\'s ARN.
 packageListItem_arn :: Lens.Lens' PackageListItem (Prelude.Maybe Prelude.Text)
 packageListItem_arn = Lens.lens (\PackageListItem' {arn} -> arn) (\s@PackageListItem' {} a -> s {arn = a} :: PackageListItem)
 
+-- | When the package was created.
+packageListItem_createdTime :: Lens.Lens' PackageListItem (Prelude.Maybe Prelude.UTCTime)
+packageListItem_createdTime = Lens.lens (\PackageListItem' {createdTime} -> createdTime) (\s@PackageListItem' {} a -> s {createdTime = a} :: PackageListItem) Prelude.. Lens.mapping Data._Time
+
 -- | The package\'s ID.
 packageListItem_packageId :: Lens.Lens' PackageListItem (Prelude.Maybe Prelude.Text)
 packageListItem_packageId = Lens.lens (\PackageListItem' {packageId} -> packageId) (\s@PackageListItem' {} a -> s {packageId = a} :: PackageListItem)
+
+-- | The package\'s name.
+packageListItem_packageName :: Lens.Lens' PackageListItem (Prelude.Maybe Prelude.Text)
+packageListItem_packageName = Lens.lens (\PackageListItem' {packageName} -> packageName) (\s@PackageListItem' {} a -> s {packageName = a} :: PackageListItem)
+
+-- | The package\'s tags.
+packageListItem_tags :: Lens.Lens' PackageListItem (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+packageListItem_tags = Lens.lens (\PackageListItem' {tags} -> tags) (\s@PackageListItem' {} a -> s {tags = a} :: PackageListItem) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON PackageListItem where
   parseJSON =
@@ -95,25 +95,25 @@ instance Data.FromJSON PackageListItem where
       "PackageListItem"
       ( \x ->
           PackageListItem'
-            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "PackageName")
+            Prelude.<$> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "CreatedTime")
-            Prelude.<*> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "PackageId")
+            Prelude.<*> (x Data..:? "PackageName")
+            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable PackageListItem where
   hashWithSalt _salt PackageListItem' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` packageName
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
-      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` packageId
+      `Prelude.hashWithSalt` packageName
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData PackageListItem where
   rnf PackageListItem' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf packageName
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf packageId
+      `Prelude.seq` Prelude.rnf packageName
+      `Prelude.seq` Prelude.rnf tags

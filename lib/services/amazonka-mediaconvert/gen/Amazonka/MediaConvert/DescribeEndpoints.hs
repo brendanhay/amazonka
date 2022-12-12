@@ -30,17 +30,17 @@ module Amazonka.MediaConvert.DescribeEndpoints
     newDescribeEndpoints,
 
     -- * Request Lenses
-    describeEndpoints_nextToken,
     describeEndpoints_maxResults,
     describeEndpoints_mode,
+    describeEndpoints_nextToken,
 
     -- * Destructuring the Response
     DescribeEndpointsResponse (..),
     newDescribeEndpointsResponse,
 
     -- * Response Lenses
-    describeEndpointsResponse_nextToken,
     describeEndpointsResponse_endpoints,
+    describeEndpointsResponse_nextToken,
     describeEndpointsResponse_httpStatus,
   )
 where
@@ -57,17 +57,17 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeEndpoints' smart constructor.
 data DescribeEndpoints = DescribeEndpoints'
-  { -- | Use this string, provided with the response to a previous request, to
-    -- request the next batch of endpoints.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Optional. Max number of endpoints, up to twenty, that will be returned
+  { -- | Optional. Max number of endpoints, up to twenty, that will be returned
     -- at one time.
     maxResults :: Prelude.Maybe Prelude.Int,
     -- | Optional field, defaults to DEFAULT. Specify DEFAULT for this operation
     -- to return your endpoints if any exist, or to create an endpoint for you
     -- and return it if one doesn\'t already exist. Specify GET_ONLY to return
     -- your endpoints if any exist, or an empty list if none exist.
-    mode :: Prelude.Maybe DescribeEndpointsMode
+    mode :: Prelude.Maybe DescribeEndpointsMode,
+    -- | Use this string, provided with the response to a previous request, to
+    -- request the next batch of endpoints.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,9 +79,6 @@ data DescribeEndpoints = DescribeEndpoints'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeEndpoints_nextToken' - Use this string, provided with the response to a previous request, to
--- request the next batch of endpoints.
---
 -- 'maxResults', 'describeEndpoints_maxResults' - Optional. Max number of endpoints, up to twenty, that will be returned
 -- at one time.
 --
@@ -89,19 +86,17 @@ data DescribeEndpoints = DescribeEndpoints'
 -- to return your endpoints if any exist, or to create an endpoint for you
 -- and return it if one doesn\'t already exist. Specify GET_ONLY to return
 -- your endpoints if any exist, or an empty list if none exist.
+--
+-- 'nextToken', 'describeEndpoints_nextToken' - Use this string, provided with the response to a previous request, to
+-- request the next batch of endpoints.
 newDescribeEndpoints ::
   DescribeEndpoints
 newDescribeEndpoints =
   DescribeEndpoints'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      mode = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      mode = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | Use this string, provided with the response to a previous request, to
--- request the next batch of endpoints.
-describeEndpoints_nextToken :: Lens.Lens' DescribeEndpoints (Prelude.Maybe Prelude.Text)
-describeEndpoints_nextToken = Lens.lens (\DescribeEndpoints' {nextToken} -> nextToken) (\s@DescribeEndpoints' {} a -> s {nextToken = a} :: DescribeEndpoints)
 
 -- | Optional. Max number of endpoints, up to twenty, that will be returned
 -- at one time.
@@ -114,6 +109,11 @@ describeEndpoints_maxResults = Lens.lens (\DescribeEndpoints' {maxResults} -> ma
 -- your endpoints if any exist, or an empty list if none exist.
 describeEndpoints_mode :: Lens.Lens' DescribeEndpoints (Prelude.Maybe DescribeEndpointsMode)
 describeEndpoints_mode = Lens.lens (\DescribeEndpoints' {mode} -> mode) (\s@DescribeEndpoints' {} a -> s {mode = a} :: DescribeEndpoints)
+
+-- | Use this string, provided with the response to a previous request, to
+-- request the next batch of endpoints.
+describeEndpoints_nextToken :: Lens.Lens' DescribeEndpoints (Prelude.Maybe Prelude.Text)
+describeEndpoints_nextToken = Lens.lens (\DescribeEndpoints' {nextToken} -> nextToken) (\s@DescribeEndpoints' {} a -> s {nextToken = a} :: DescribeEndpoints)
 
 instance Core.AWSPager DescribeEndpoints where
   page rq rs
@@ -147,22 +147,22 @@ instance Core.AWSRequest DescribeEndpoints where
     Response.receiveJSON
       ( \s h x ->
           DescribeEndpointsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "endpoints" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "endpoints" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeEndpoints where
   hashWithSalt _salt DescribeEndpoints' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` mode
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeEndpoints where
   rnf DescribeEndpoints' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf mode
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeEndpoints where
   toHeaders =
@@ -179,9 +179,9 @@ instance Data.ToJSON DescribeEndpoints where
   toJSON DescribeEndpoints' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
-            ("mode" Data..=) Prelude.<$> mode
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("mode" Data..=) Prelude.<$> mode,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -193,10 +193,10 @@ instance Data.ToQuery DescribeEndpoints where
 
 -- | /See:/ 'newDescribeEndpointsResponse' smart constructor.
 data DescribeEndpointsResponse = DescribeEndpointsResponse'
-  { -- | Use this string to request the next batch of endpoints.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | List of endpoints
+  { -- | List of endpoints
     endpoints :: Prelude.Maybe [Endpoint],
+    -- | Use this string to request the next batch of endpoints.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -210,9 +210,9 @@ data DescribeEndpointsResponse = DescribeEndpointsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeEndpointsResponse_nextToken' - Use this string to request the next batch of endpoints.
---
 -- 'endpoints', 'describeEndpointsResponse_endpoints' - List of endpoints
+--
+-- 'nextToken', 'describeEndpointsResponse_nextToken' - Use this string to request the next batch of endpoints.
 --
 -- 'httpStatus', 'describeEndpointsResponse_httpStatus' - The response's http status code.
 newDescribeEndpointsResponse ::
@@ -221,19 +221,19 @@ newDescribeEndpointsResponse ::
   DescribeEndpointsResponse
 newDescribeEndpointsResponse pHttpStatus_ =
   DescribeEndpointsResponse'
-    { nextToken =
+    { endpoints =
         Prelude.Nothing,
-      endpoints = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Use this string to request the next batch of endpoints.
-describeEndpointsResponse_nextToken :: Lens.Lens' DescribeEndpointsResponse (Prelude.Maybe Prelude.Text)
-describeEndpointsResponse_nextToken = Lens.lens (\DescribeEndpointsResponse' {nextToken} -> nextToken) (\s@DescribeEndpointsResponse' {} a -> s {nextToken = a} :: DescribeEndpointsResponse)
 
 -- | List of endpoints
 describeEndpointsResponse_endpoints :: Lens.Lens' DescribeEndpointsResponse (Prelude.Maybe [Endpoint])
 describeEndpointsResponse_endpoints = Lens.lens (\DescribeEndpointsResponse' {endpoints} -> endpoints) (\s@DescribeEndpointsResponse' {} a -> s {endpoints = a} :: DescribeEndpointsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Use this string to request the next batch of endpoints.
+describeEndpointsResponse_nextToken :: Lens.Lens' DescribeEndpointsResponse (Prelude.Maybe Prelude.Text)
+describeEndpointsResponse_nextToken = Lens.lens (\DescribeEndpointsResponse' {nextToken} -> nextToken) (\s@DescribeEndpointsResponse' {} a -> s {nextToken = a} :: DescribeEndpointsResponse)
 
 -- | The response's http status code.
 describeEndpointsResponse_httpStatus :: Lens.Lens' DescribeEndpointsResponse Prelude.Int
@@ -241,6 +241,6 @@ describeEndpointsResponse_httpStatus = Lens.lens (\DescribeEndpointsResponse' {h
 
 instance Prelude.NFData DescribeEndpointsResponse where
   rnf DescribeEndpointsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf endpoints
+    Prelude.rnf endpoints
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

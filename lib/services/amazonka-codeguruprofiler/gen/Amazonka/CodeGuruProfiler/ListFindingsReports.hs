@@ -27,9 +27,9 @@ module Amazonka.CodeGuruProfiler.ListFindingsReports
     newListFindingsReports,
 
     -- * Request Lenses
-    listFindingsReports_nextToken,
-    listFindingsReports_maxResults,
     listFindingsReports_dailyReportsOnly,
+    listFindingsReports_maxResults,
+    listFindingsReports_nextToken,
     listFindingsReports_endTime,
     listFindingsReports_profilingGroupName,
     listFindingsReports_startTime,
@@ -57,7 +57,19 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListFindingsReports' smart constructor.
 data ListFindingsReports = ListFindingsReports'
-  { -- | The @nextToken@ value returned from a previous paginated
+  { -- | A @Boolean@ value indicating whether to only return reports from daily
+    -- profiles. If set to @True@, only analysis data from daily profiles is
+    -- returned. If set to @False@, analysis data is returned from smaller time
+    -- windows (for example, one hour).
+    dailyReportsOnly :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of report results returned by @ListFindingsReports@
+    -- in paginated output. When this parameter is used, @ListFindingsReports@
+    -- only returns @maxResults@ results in a single page along with a
+    -- @nextToken@ response element. The remaining results of the initial
+    -- request can be seen by sending another @ListFindingsReports@ request
+    -- with the returned @nextToken@ value.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The @nextToken@ value returned from a previous paginated
     -- @ListFindingsReportsRequest@ request where @maxResults@ was used and the
     -- results exceeded the value of that parameter. Pagination continues from
     -- the end of the previous results that returned the @nextToken@ value.
@@ -66,18 +78,6 @@ data ListFindingsReports = ListFindingsReports'
     -- to retrieve the next items in a list and not for other programmatic
     -- purposes.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of report results returned by @ListFindingsReports@
-    -- in paginated output. When this parameter is used, @ListFindingsReports@
-    -- only returns @maxResults@ results in a single page along with a
-    -- @nextToken@ response element. The remaining results of the initial
-    -- request can be seen by sending another @ListFindingsReports@ request
-    -- with the returned @nextToken@ value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | A @Boolean@ value indicating whether to only return reports from daily
-    -- profiles. If set to @True@, only analysis data from daily profiles is
-    -- returned. If set to @False@, analysis data is returned from smaller time
-    -- windows (for example, one hour).
-    dailyReportsOnly :: Prelude.Maybe Prelude.Bool,
     -- | The end time of the profile to get analysis data about. You must specify
     -- @startTime@ and @endTime@. This is specified using the ISO 8601 format.
     -- For example, 2020-06-01T13:15:02.001Z represents 1 millisecond past June
@@ -101,14 +101,10 @@ data ListFindingsReports = ListFindingsReports'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listFindingsReports_nextToken' - The @nextToken@ value returned from a previous paginated
--- @ListFindingsReportsRequest@ request where @maxResults@ was used and the
--- results exceeded the value of that parameter. Pagination continues from
--- the end of the previous results that returned the @nextToken@ value.
---
--- This token should be treated as an opaque identifier that is only used
--- to retrieve the next items in a list and not for other programmatic
--- purposes.
+-- 'dailyReportsOnly', 'listFindingsReports_dailyReportsOnly' - A @Boolean@ value indicating whether to only return reports from daily
+-- profiles. If set to @True@, only analysis data from daily profiles is
+-- returned. If set to @False@, analysis data is returned from smaller time
+-- windows (for example, one hour).
 --
 -- 'maxResults', 'listFindingsReports_maxResults' - The maximum number of report results returned by @ListFindingsReports@
 -- in paginated output. When this parameter is used, @ListFindingsReports@
@@ -117,10 +113,14 @@ data ListFindingsReports = ListFindingsReports'
 -- request can be seen by sending another @ListFindingsReports@ request
 -- with the returned @nextToken@ value.
 --
--- 'dailyReportsOnly', 'listFindingsReports_dailyReportsOnly' - A @Boolean@ value indicating whether to only return reports from daily
--- profiles. If set to @True@, only analysis data from daily profiles is
--- returned. If set to @False@, analysis data is returned from smaller time
--- windows (for example, one hour).
+-- 'nextToken', 'listFindingsReports_nextToken' - The @nextToken@ value returned from a previous paginated
+-- @ListFindingsReportsRequest@ request where @maxResults@ was used and the
+-- results exceeded the value of that parameter. Pagination continues from
+-- the end of the previous results that returned the @nextToken@ value.
+--
+-- This token should be treated as an opaque identifier that is only used
+-- to retrieve the next items in a list and not for other programmatic
+-- purposes.
 --
 -- 'endTime', 'listFindingsReports_endTime' - The end time of the profile to get analysis data about. You must specify
 -- @startTime@ and @endTime@. This is specified using the ISO 8601 format.
@@ -146,13 +146,30 @@ newListFindingsReports
   pProfilingGroupName_
   pStartTime_ =
     ListFindingsReports'
-      { nextToken = Prelude.Nothing,
+      { dailyReportsOnly =
+          Prelude.Nothing,
         maxResults = Prelude.Nothing,
-        dailyReportsOnly = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         endTime = Data._Time Lens.# pEndTime_,
         profilingGroupName = pProfilingGroupName_,
         startTime = Data._Time Lens.# pStartTime_
       }
+
+-- | A @Boolean@ value indicating whether to only return reports from daily
+-- profiles. If set to @True@, only analysis data from daily profiles is
+-- returned. If set to @False@, analysis data is returned from smaller time
+-- windows (for example, one hour).
+listFindingsReports_dailyReportsOnly :: Lens.Lens' ListFindingsReports (Prelude.Maybe Prelude.Bool)
+listFindingsReports_dailyReportsOnly = Lens.lens (\ListFindingsReports' {dailyReportsOnly} -> dailyReportsOnly) (\s@ListFindingsReports' {} a -> s {dailyReportsOnly = a} :: ListFindingsReports)
+
+-- | The maximum number of report results returned by @ListFindingsReports@
+-- in paginated output. When this parameter is used, @ListFindingsReports@
+-- only returns @maxResults@ results in a single page along with a
+-- @nextToken@ response element. The remaining results of the initial
+-- request can be seen by sending another @ListFindingsReports@ request
+-- with the returned @nextToken@ value.
+listFindingsReports_maxResults :: Lens.Lens' ListFindingsReports (Prelude.Maybe Prelude.Natural)
+listFindingsReports_maxResults = Lens.lens (\ListFindingsReports' {maxResults} -> maxResults) (\s@ListFindingsReports' {} a -> s {maxResults = a} :: ListFindingsReports)
 
 -- | The @nextToken@ value returned from a previous paginated
 -- @ListFindingsReportsRequest@ request where @maxResults@ was used and the
@@ -164,22 +181,6 @@ newListFindingsReports
 -- purposes.
 listFindingsReports_nextToken :: Lens.Lens' ListFindingsReports (Prelude.Maybe Prelude.Text)
 listFindingsReports_nextToken = Lens.lens (\ListFindingsReports' {nextToken} -> nextToken) (\s@ListFindingsReports' {} a -> s {nextToken = a} :: ListFindingsReports)
-
--- | The maximum number of report results returned by @ListFindingsReports@
--- in paginated output. When this parameter is used, @ListFindingsReports@
--- only returns @maxResults@ results in a single page along with a
--- @nextToken@ response element. The remaining results of the initial
--- request can be seen by sending another @ListFindingsReports@ request
--- with the returned @nextToken@ value.
-listFindingsReports_maxResults :: Lens.Lens' ListFindingsReports (Prelude.Maybe Prelude.Natural)
-listFindingsReports_maxResults = Lens.lens (\ListFindingsReports' {maxResults} -> maxResults) (\s@ListFindingsReports' {} a -> s {maxResults = a} :: ListFindingsReports)
-
--- | A @Boolean@ value indicating whether to only return reports from daily
--- profiles. If set to @True@, only analysis data from daily profiles is
--- returned. If set to @False@, analysis data is returned from smaller time
--- windows (for example, one hour).
-listFindingsReports_dailyReportsOnly :: Lens.Lens' ListFindingsReports (Prelude.Maybe Prelude.Bool)
-listFindingsReports_dailyReportsOnly = Lens.lens (\ListFindingsReports' {dailyReportsOnly} -> dailyReportsOnly) (\s@ListFindingsReports' {} a -> s {dailyReportsOnly = a} :: ListFindingsReports)
 
 -- | The end time of the profile to get analysis data about. You must specify
 -- @startTime@ and @endTime@. This is specified using the ISO 8601 format.
@@ -218,18 +219,18 @@ instance Core.AWSRequest ListFindingsReports where
 
 instance Prelude.Hashable ListFindingsReports where
   hashWithSalt _salt ListFindingsReports' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` dailyReportsOnly
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` dailyReportsOnly
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` profilingGroupName
       `Prelude.hashWithSalt` startTime
 
 instance Prelude.NFData ListFindingsReports where
   rnf ListFindingsReports' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf dailyReportsOnly
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf dailyReportsOnly
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf profilingGroupName
       `Prelude.seq` Prelude.rnf startTime
@@ -256,9 +257,9 @@ instance Data.ToPath ListFindingsReports where
 instance Data.ToQuery ListFindingsReports where
   toQuery ListFindingsReports' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
+      [ "dailyReportsOnly" Data.=: dailyReportsOnly,
         "maxResults" Data.=: maxResults,
-        "dailyReportsOnly" Data.=: dailyReportsOnly,
+        "nextToken" Data.=: nextToken,
         "endTime" Data.=: endTime,
         "startTime" Data.=: startTime
       ]

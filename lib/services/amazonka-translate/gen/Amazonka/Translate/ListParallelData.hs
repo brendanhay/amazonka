@@ -27,8 +27,8 @@ module Amazonka.Translate.ListParallelData
     newListParallelData,
 
     -- * Request Lenses
-    listParallelData_nextToken,
     listParallelData_maxResults,
+    listParallelData_nextToken,
 
     -- * Destructuring the Response
     ListParallelDataResponse (..),
@@ -51,11 +51,11 @@ import Amazonka.Translate.Types
 
 -- | /See:/ 'newListParallelData' smart constructor.
 data ListParallelData = ListParallelData'
-  { -- | A string that specifies the next page of results to return in a
+  { -- | The maximum number of parallel data resources returned for each request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A string that specifies the next page of results to return in a
     -- paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of parallel data resources returned for each request.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,26 +67,26 @@ data ListParallelData = ListParallelData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listParallelData_maxResults' - The maximum number of parallel data resources returned for each request.
+--
 -- 'nextToken', 'listParallelData_nextToken' - A string that specifies the next page of results to return in a
 -- paginated response.
---
--- 'maxResults', 'listParallelData_maxResults' - The maximum number of parallel data resources returned for each request.
 newListParallelData ::
   ListParallelData
 newListParallelData =
   ListParallelData'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of parallel data resources returned for each request.
+listParallelData_maxResults :: Lens.Lens' ListParallelData (Prelude.Maybe Prelude.Natural)
+listParallelData_maxResults = Lens.lens (\ListParallelData' {maxResults} -> maxResults) (\s@ListParallelData' {} a -> s {maxResults = a} :: ListParallelData)
 
 -- | A string that specifies the next page of results to return in a
 -- paginated response.
 listParallelData_nextToken :: Lens.Lens' ListParallelData (Prelude.Maybe Prelude.Text)
 listParallelData_nextToken = Lens.lens (\ListParallelData' {nextToken} -> nextToken) (\s@ListParallelData' {} a -> s {nextToken = a} :: ListParallelData)
-
--- | The maximum number of parallel data resources returned for each request.
-listParallelData_maxResults :: Lens.Lens' ListParallelData (Prelude.Maybe Prelude.Natural)
-listParallelData_maxResults = Lens.lens (\ListParallelData' {maxResults} -> maxResults) (\s@ListParallelData' {} a -> s {maxResults = a} :: ListParallelData)
 
 instance Core.AWSRequest ListParallelData where
   type
@@ -107,13 +107,13 @@ instance Core.AWSRequest ListParallelData where
 
 instance Prelude.Hashable ListParallelData where
   hashWithSalt _salt ListParallelData' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListParallelData where
   rnf ListParallelData' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListParallelData where
   toHeaders =
@@ -134,8 +134,8 @@ instance Data.ToJSON ListParallelData where
   toJSON ListParallelData' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

@@ -30,9 +30,9 @@ module Amazonka.Evidently.ListLaunches
     newListLaunches,
 
     -- * Request Lenses
+    listLaunches_maxResults,
     listLaunches_nextToken,
     listLaunches_status,
-    listLaunches_maxResults,
     listLaunches_project,
 
     -- * Destructuring the Response
@@ -40,8 +40,8 @@ module Amazonka.Evidently.ListLaunches
     newListLaunchesResponse,
 
     -- * Response Lenses
-    listLaunchesResponse_nextToken,
     listLaunchesResponse_launches,
+    listLaunchesResponse_nextToken,
     listLaunchesResponse_httpStatus,
   )
 where
@@ -56,14 +56,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListLaunches' smart constructor.
 data ListLaunches = ListLaunches'
-  { -- | The token to use when requesting the next set of results. You received
+  { -- | The maximum number of results to include in the response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to use when requesting the next set of results. You received
     -- this token from a previous @ListLaunches@ operation.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Use this optional parameter to limit the returned results to only the
     -- launches with the status that you specify here.
     status :: Prelude.Maybe LaunchStatus,
-    -- | The maximum number of results to include in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name or ARN of the project to return the launch list from.
     project :: Prelude.Text
   }
@@ -77,13 +77,13 @@ data ListLaunches = ListLaunches'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listLaunches_maxResults' - The maximum number of results to include in the response.
+--
 -- 'nextToken', 'listLaunches_nextToken' - The token to use when requesting the next set of results. You received
 -- this token from a previous @ListLaunches@ operation.
 --
 -- 'status', 'listLaunches_status' - Use this optional parameter to limit the returned results to only the
 -- launches with the status that you specify here.
---
--- 'maxResults', 'listLaunches_maxResults' - The maximum number of results to include in the response.
 --
 -- 'project', 'listLaunches_project' - The name or ARN of the project to return the launch list from.
 newListLaunches ::
@@ -92,11 +92,15 @@ newListLaunches ::
   ListLaunches
 newListLaunches pProject_ =
   ListLaunches'
-    { nextToken = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       status = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       project = pProject_
     }
+
+-- | The maximum number of results to include in the response.
+listLaunches_maxResults :: Lens.Lens' ListLaunches (Prelude.Maybe Prelude.Natural)
+listLaunches_maxResults = Lens.lens (\ListLaunches' {maxResults} -> maxResults) (\s@ListLaunches' {} a -> s {maxResults = a} :: ListLaunches)
 
 -- | The token to use when requesting the next set of results. You received
 -- this token from a previous @ListLaunches@ operation.
@@ -107,10 +111,6 @@ listLaunches_nextToken = Lens.lens (\ListLaunches' {nextToken} -> nextToken) (\s
 -- launches with the status that you specify here.
 listLaunches_status :: Lens.Lens' ListLaunches (Prelude.Maybe LaunchStatus)
 listLaunches_status = Lens.lens (\ListLaunches' {status} -> status) (\s@ListLaunches' {} a -> s {status = a} :: ListLaunches)
-
--- | The maximum number of results to include in the response.
-listLaunches_maxResults :: Lens.Lens' ListLaunches (Prelude.Maybe Prelude.Natural)
-listLaunches_maxResults = Lens.lens (\ListLaunches' {maxResults} -> maxResults) (\s@ListLaunches' {} a -> s {maxResults = a} :: ListLaunches)
 
 -- | The name or ARN of the project to return the launch list from.
 listLaunches_project :: Lens.Lens' ListLaunches Prelude.Text
@@ -143,23 +143,23 @@ instance Core.AWSRequest ListLaunches where
     Response.receiveJSON
       ( \s h x ->
           ListLaunchesResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "launches" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "launches" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListLaunches where
   hashWithSalt _salt ListLaunches' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` project
 
 instance Prelude.NFData ListLaunches where
   rnf ListLaunches' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf project
 
 instance Data.ToHeaders ListLaunches where
@@ -181,19 +181,19 @@ instance Data.ToPath ListLaunches where
 instance Data.ToQuery ListLaunches where
   toQuery ListLaunches' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "status" Data.=: status,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
+        "status" Data.=: status
       ]
 
 -- | /See:/ 'newListLaunchesResponse' smart constructor.
 data ListLaunchesResponse = ListLaunchesResponse'
-  { -- | The token to use in a subsequent @ListLaunches@ operation to return the
-    -- next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of structures that contain the configuration details of the
+  { -- | An array of structures that contain the configuration details of the
     -- launches in the specified project.
     launches :: Prelude.Maybe [Launch],
+    -- | The token to use in a subsequent @ListLaunches@ operation to return the
+    -- next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -207,11 +207,11 @@ data ListLaunchesResponse = ListLaunchesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listLaunchesResponse_nextToken' - The token to use in a subsequent @ListLaunches@ operation to return the
--- next set of results.
---
 -- 'launches', 'listLaunchesResponse_launches' - An array of structures that contain the configuration details of the
 -- launches in the specified project.
+--
+-- 'nextToken', 'listLaunchesResponse_nextToken' - The token to use in a subsequent @ListLaunches@ operation to return the
+-- next set of results.
 --
 -- 'httpStatus', 'listLaunchesResponse_httpStatus' - The response's http status code.
 newListLaunchesResponse ::
@@ -220,20 +220,20 @@ newListLaunchesResponse ::
   ListLaunchesResponse
 newListLaunchesResponse pHttpStatus_ =
   ListLaunchesResponse'
-    { nextToken = Prelude.Nothing,
-      launches = Prelude.Nothing,
+    { launches = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token to use in a subsequent @ListLaunches@ operation to return the
--- next set of results.
-listLaunchesResponse_nextToken :: Lens.Lens' ListLaunchesResponse (Prelude.Maybe Prelude.Text)
-listLaunchesResponse_nextToken = Lens.lens (\ListLaunchesResponse' {nextToken} -> nextToken) (\s@ListLaunchesResponse' {} a -> s {nextToken = a} :: ListLaunchesResponse)
 
 -- | An array of structures that contain the configuration details of the
 -- launches in the specified project.
 listLaunchesResponse_launches :: Lens.Lens' ListLaunchesResponse (Prelude.Maybe [Launch])
 listLaunchesResponse_launches = Lens.lens (\ListLaunchesResponse' {launches} -> launches) (\s@ListLaunchesResponse' {} a -> s {launches = a} :: ListLaunchesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token to use in a subsequent @ListLaunches@ operation to return the
+-- next set of results.
+listLaunchesResponse_nextToken :: Lens.Lens' ListLaunchesResponse (Prelude.Maybe Prelude.Text)
+listLaunchesResponse_nextToken = Lens.lens (\ListLaunchesResponse' {nextToken} -> nextToken) (\s@ListLaunchesResponse' {} a -> s {nextToken = a} :: ListLaunchesResponse)
 
 -- | The response's http status code.
 listLaunchesResponse_httpStatus :: Lens.Lens' ListLaunchesResponse Prelude.Int
@@ -241,6 +241,6 @@ listLaunchesResponse_httpStatus = Lens.lens (\ListLaunchesResponse' {httpStatus}
 
 instance Prelude.NFData ListLaunchesResponse where
   rnf ListLaunchesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf launches
+    Prelude.rnf launches
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

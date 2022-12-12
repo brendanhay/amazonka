@@ -36,7 +36,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLustreRootSquashConfiguration' smart constructor.
 data LustreRootSquashConfiguration = LustreRootSquashConfiguration'
-  { -- | You enable root squash by setting a user ID (UID) and group ID (GID) for
+  { -- | When root squash is enabled, you can optionally specify an array of NIDs
+    -- of clients for which root squash does not apply. A client NID is a
+    -- Lustre Network Identifier used to uniquely identify a client. You can
+    -- specify the NID as either a single address or a range of addresses:
+    --
+    -- -   A single address is described in standard Lustre NID format by
+    --     specifying the client’s IP address followed by the Lustre network ID
+    --     (for example, @10.0.1.6\@tcp@).
+    --
+    -- -   An address range is described using a dash to separate the range
+    --     (for example, @10.0.[2-10].[1-255]\@tcp@).
+    noSquashNids :: Prelude.Maybe [Prelude.Text],
+    -- | You enable root squash by setting a user ID (UID) and group ID (GID) for
     -- the file system in the format @UID:GID@ (for example, @365534:65534@).
     -- The UID and GID values can range from @0@ to @4294967294@:
     --
@@ -48,19 +60,7 @@ data LustreRootSquashConfiguration = LustreRootSquashConfiguration'
     --
     -- When root squash is enabled, the user ID and group ID of a root user
     -- accessing the file system are re-mapped to the UID and GID you provide.
-    rootSquash :: Prelude.Maybe Prelude.Text,
-    -- | When root squash is enabled, you can optionally specify an array of NIDs
-    -- of clients for which root squash does not apply. A client NID is a
-    -- Lustre Network Identifier used to uniquely identify a client. You can
-    -- specify the NID as either a single address or a range of addresses:
-    --
-    -- -   A single address is described in standard Lustre NID format by
-    --     specifying the client’s IP address followed by the Lustre network ID
-    --     (for example, @10.0.1.6\@tcp@).
-    --
-    -- -   An address range is described using a dash to separate the range
-    --     (for example, @10.0.[2-10].[1-255]\@tcp@).
-    noSquashNids :: Prelude.Maybe [Prelude.Text]
+    rootSquash :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,6 +71,18 @@ data LustreRootSquashConfiguration = LustreRootSquashConfiguration'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'noSquashNids', 'lustreRootSquashConfiguration_noSquashNids' - When root squash is enabled, you can optionally specify an array of NIDs
+-- of clients for which root squash does not apply. A client NID is a
+-- Lustre Network Identifier used to uniquely identify a client. You can
+-- specify the NID as either a single address or a range of addresses:
+--
+-- -   A single address is described in standard Lustre NID format by
+--     specifying the client’s IP address followed by the Lustre network ID
+--     (for example, @10.0.1.6\@tcp@).
+--
+-- -   An address range is described using a dash to separate the range
+--     (for example, @10.0.[2-10].[1-255]\@tcp@).
 --
 -- 'rootSquash', 'lustreRootSquashConfiguration_rootSquash' - You enable root squash by setting a user ID (UID) and group ID (GID) for
 -- the file system in the format @UID:GID@ (for example, @365534:65534@).
@@ -84,8 +96,16 @@ data LustreRootSquashConfiguration = LustreRootSquashConfiguration'
 --
 -- When root squash is enabled, the user ID and group ID of a root user
 -- accessing the file system are re-mapped to the UID and GID you provide.
---
--- 'noSquashNids', 'lustreRootSquashConfiguration_noSquashNids' - When root squash is enabled, you can optionally specify an array of NIDs
+newLustreRootSquashConfiguration ::
+  LustreRootSquashConfiguration
+newLustreRootSquashConfiguration =
+  LustreRootSquashConfiguration'
+    { noSquashNids =
+        Prelude.Nothing,
+      rootSquash = Prelude.Nothing
+    }
+
+-- | When root squash is enabled, you can optionally specify an array of NIDs
 -- of clients for which root squash does not apply. A client NID is a
 -- Lustre Network Identifier used to uniquely identify a client. You can
 -- specify the NID as either a single address or a range of addresses:
@@ -96,14 +116,8 @@ data LustreRootSquashConfiguration = LustreRootSquashConfiguration'
 --
 -- -   An address range is described using a dash to separate the range
 --     (for example, @10.0.[2-10].[1-255]\@tcp@).
-newLustreRootSquashConfiguration ::
-  LustreRootSquashConfiguration
-newLustreRootSquashConfiguration =
-  LustreRootSquashConfiguration'
-    { rootSquash =
-        Prelude.Nothing,
-      noSquashNids = Prelude.Nothing
-    }
+lustreRootSquashConfiguration_noSquashNids :: Lens.Lens' LustreRootSquashConfiguration (Prelude.Maybe [Prelude.Text])
+lustreRootSquashConfiguration_noSquashNids = Lens.lens (\LustreRootSquashConfiguration' {noSquashNids} -> noSquashNids) (\s@LustreRootSquashConfiguration' {} a -> s {noSquashNids = a} :: LustreRootSquashConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | You enable root squash by setting a user ID (UID) and group ID (GID) for
 -- the file system in the format @UID:GID@ (for example, @365534:65534@).
@@ -120,28 +134,14 @@ newLustreRootSquashConfiguration =
 lustreRootSquashConfiguration_rootSquash :: Lens.Lens' LustreRootSquashConfiguration (Prelude.Maybe Prelude.Text)
 lustreRootSquashConfiguration_rootSquash = Lens.lens (\LustreRootSquashConfiguration' {rootSquash} -> rootSquash) (\s@LustreRootSquashConfiguration' {} a -> s {rootSquash = a} :: LustreRootSquashConfiguration)
 
--- | When root squash is enabled, you can optionally specify an array of NIDs
--- of clients for which root squash does not apply. A client NID is a
--- Lustre Network Identifier used to uniquely identify a client. You can
--- specify the NID as either a single address or a range of addresses:
---
--- -   A single address is described in standard Lustre NID format by
---     specifying the client’s IP address followed by the Lustre network ID
---     (for example, @10.0.1.6\@tcp@).
---
--- -   An address range is described using a dash to separate the range
---     (for example, @10.0.[2-10].[1-255]\@tcp@).
-lustreRootSquashConfiguration_noSquashNids :: Lens.Lens' LustreRootSquashConfiguration (Prelude.Maybe [Prelude.Text])
-lustreRootSquashConfiguration_noSquashNids = Lens.lens (\LustreRootSquashConfiguration' {noSquashNids} -> noSquashNids) (\s@LustreRootSquashConfiguration' {} a -> s {noSquashNids = a} :: LustreRootSquashConfiguration) Prelude.. Lens.mapping Lens.coerced
-
 instance Data.FromJSON LustreRootSquashConfiguration where
   parseJSON =
     Data.withObject
       "LustreRootSquashConfiguration"
       ( \x ->
           LustreRootSquashConfiguration'
-            Prelude.<$> (x Data..:? "RootSquash")
-            Prelude.<*> (x Data..:? "NoSquashNids" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "NoSquashNids" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "RootSquash")
       )
 
 instance
@@ -149,19 +149,19 @@ instance
     LustreRootSquashConfiguration
   where
   hashWithSalt _salt LustreRootSquashConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` rootSquash
-      `Prelude.hashWithSalt` noSquashNids
+    _salt `Prelude.hashWithSalt` noSquashNids
+      `Prelude.hashWithSalt` rootSquash
 
 instance Prelude.NFData LustreRootSquashConfiguration where
   rnf LustreRootSquashConfiguration' {..} =
-    Prelude.rnf rootSquash
-      `Prelude.seq` Prelude.rnf noSquashNids
+    Prelude.rnf noSquashNids
+      `Prelude.seq` Prelude.rnf rootSquash
 
 instance Data.ToJSON LustreRootSquashConfiguration where
   toJSON LustreRootSquashConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("RootSquash" Data..=) Prelude.<$> rootSquash,
-            ("NoSquashNids" Data..=) Prelude.<$> noSquashNids
+          [ ("NoSquashNids" Data..=) Prelude.<$> noSquashNids,
+            ("RootSquash" Data..=) Prelude.<$> rootSquash
           ]
       )

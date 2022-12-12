@@ -30,9 +30,9 @@ module Amazonka.Transfer.UpdateConnector
 
     -- * Request Lenses
     updateConnector_accessRole,
-    updateConnector_url,
     updateConnector_as2Config,
     updateConnector_loggingRole,
+    updateConnector_url,
     updateConnector_connectorId,
 
     -- * Destructuring the Response
@@ -67,8 +67,6 @@ data UpdateConnector = UpdateConnector'
     -- Additionally, you need to provide read and write access to the parent
     -- directory of the files that you intend to send with @StartFileTransfer@.
     accessRole :: Prelude.Maybe Prelude.Text,
-    -- | The URL of the partner\'s AS2 endpoint.
-    url :: Prelude.Maybe Prelude.Text,
     -- | A structure that contains the parameters for a connector object.
     as2Config :: Prelude.Maybe As2ConnectorConfig,
     -- | The Amazon Resource Name (ARN) of the Identity and Access Management
@@ -76,6 +74,8 @@ data UpdateConnector = UpdateConnector'
     -- Amazon S3 events. When set, you can view connector activity in your
     -- CloudWatch logs.
     loggingRole :: Prelude.Maybe Prelude.Text,
+    -- | The URL of the partner\'s AS2 endpoint.
+    url :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the connector.
     connectorId :: Prelude.Text
   }
@@ -101,14 +101,14 @@ data UpdateConnector = UpdateConnector'
 -- Additionally, you need to provide read and write access to the parent
 -- directory of the files that you intend to send with @StartFileTransfer@.
 --
--- 'url', 'updateConnector_url' - The URL of the partner\'s AS2 endpoint.
---
 -- 'as2Config', 'updateConnector_as2Config' - A structure that contains the parameters for a connector object.
 --
 -- 'loggingRole', 'updateConnector_loggingRole' - The Amazon Resource Name (ARN) of the Identity and Access Management
 -- (IAM) role that allows a connector to turn on CloudWatch logging for
 -- Amazon S3 events. When set, you can view connector activity in your
 -- CloudWatch logs.
+--
+-- 'url', 'updateConnector_url' - The URL of the partner\'s AS2 endpoint.
 --
 -- 'connectorId', 'updateConnector_connectorId' - The unique identifier for the connector.
 newUpdateConnector ::
@@ -118,9 +118,9 @@ newUpdateConnector ::
 newUpdateConnector pConnectorId_ =
   UpdateConnector'
     { accessRole = Prelude.Nothing,
-      url = Prelude.Nothing,
       as2Config = Prelude.Nothing,
       loggingRole = Prelude.Nothing,
+      url = Prelude.Nothing,
       connectorId = pConnectorId_
     }
 
@@ -138,10 +138,6 @@ newUpdateConnector pConnectorId_ =
 updateConnector_accessRole :: Lens.Lens' UpdateConnector (Prelude.Maybe Prelude.Text)
 updateConnector_accessRole = Lens.lens (\UpdateConnector' {accessRole} -> accessRole) (\s@UpdateConnector' {} a -> s {accessRole = a} :: UpdateConnector)
 
--- | The URL of the partner\'s AS2 endpoint.
-updateConnector_url :: Lens.Lens' UpdateConnector (Prelude.Maybe Prelude.Text)
-updateConnector_url = Lens.lens (\UpdateConnector' {url} -> url) (\s@UpdateConnector' {} a -> s {url = a} :: UpdateConnector)
-
 -- | A structure that contains the parameters for a connector object.
 updateConnector_as2Config :: Lens.Lens' UpdateConnector (Prelude.Maybe As2ConnectorConfig)
 updateConnector_as2Config = Lens.lens (\UpdateConnector' {as2Config} -> as2Config) (\s@UpdateConnector' {} a -> s {as2Config = a} :: UpdateConnector)
@@ -152,6 +148,10 @@ updateConnector_as2Config = Lens.lens (\UpdateConnector' {as2Config} -> as2Confi
 -- CloudWatch logs.
 updateConnector_loggingRole :: Lens.Lens' UpdateConnector (Prelude.Maybe Prelude.Text)
 updateConnector_loggingRole = Lens.lens (\UpdateConnector' {loggingRole} -> loggingRole) (\s@UpdateConnector' {} a -> s {loggingRole = a} :: UpdateConnector)
+
+-- | The URL of the partner\'s AS2 endpoint.
+updateConnector_url :: Lens.Lens' UpdateConnector (Prelude.Maybe Prelude.Text)
+updateConnector_url = Lens.lens (\UpdateConnector' {url} -> url) (\s@UpdateConnector' {} a -> s {url = a} :: UpdateConnector)
 
 -- | The unique identifier for the connector.
 updateConnector_connectorId :: Lens.Lens' UpdateConnector Prelude.Text
@@ -174,17 +174,17 @@ instance Core.AWSRequest UpdateConnector where
 instance Prelude.Hashable UpdateConnector where
   hashWithSalt _salt UpdateConnector' {..} =
     _salt `Prelude.hashWithSalt` accessRole
-      `Prelude.hashWithSalt` url
       `Prelude.hashWithSalt` as2Config
       `Prelude.hashWithSalt` loggingRole
+      `Prelude.hashWithSalt` url
       `Prelude.hashWithSalt` connectorId
 
 instance Prelude.NFData UpdateConnector where
   rnf UpdateConnector' {..} =
     Prelude.rnf accessRole
-      `Prelude.seq` Prelude.rnf url
       `Prelude.seq` Prelude.rnf as2Config
       `Prelude.seq` Prelude.rnf loggingRole
+      `Prelude.seq` Prelude.rnf url
       `Prelude.seq` Prelude.rnf connectorId
 
 instance Data.ToHeaders UpdateConnector where
@@ -207,9 +207,9 @@ instance Data.ToJSON UpdateConnector where
     Data.object
       ( Prelude.catMaybes
           [ ("AccessRole" Data..=) Prelude.<$> accessRole,
-            ("Url" Data..=) Prelude.<$> url,
             ("As2Config" Data..=) Prelude.<$> as2Config,
             ("LoggingRole" Data..=) Prelude.<$> loggingRole,
+            ("Url" Data..=) Prelude.<$> url,
             Prelude.Just ("ConnectorId" Data..= connectorId)
           ]
       )

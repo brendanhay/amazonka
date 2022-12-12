@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes a root volume replacement task. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html#replace-root Replace a root volume>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replace-root.html Replace a root volume>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- This operation returns paginated results.
@@ -31,11 +31,11 @@ module Amazonka.EC2.DescribeReplaceRootVolumeTasks
     newDescribeReplaceRootVolumeTasks,
 
     -- * Request Lenses
+    describeReplaceRootVolumeTasks_dryRun,
+    describeReplaceRootVolumeTasks_filters,
+    describeReplaceRootVolumeTasks_maxResults,
     describeReplaceRootVolumeTasks_nextToken,
     describeReplaceRootVolumeTasks_replaceRootVolumeTaskIds,
-    describeReplaceRootVolumeTasks_filters,
-    describeReplaceRootVolumeTasks_dryRun,
-    describeReplaceRootVolumeTasks_maxResults,
 
     -- * Destructuring the Response
     DescribeReplaceRootVolumeTasksResponse (..),
@@ -58,24 +58,24 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeReplaceRootVolumeTasks' smart constructor.
 data DescribeReplaceRootVolumeTasks = DescribeReplaceRootVolumeTasks'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the root volume replacement task to view.
-    replaceRootVolumeTaskIds :: Prelude.Maybe [Prelude.Text],
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | Filter to use:
     --
     -- -   @instance-id@ - The ID of the instance for which the root volume
     --     replacement task was created.
     filters :: Prelude.Maybe [Filter],
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the root volume replacement task to view.
+    replaceRootVolumeTaskIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,49 +87,34 @@ data DescribeReplaceRootVolumeTasks = DescribeReplaceRootVolumeTasks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeReplaceRootVolumeTasks_nextToken' - The token for the next page of results.
---
--- 'replaceRootVolumeTaskIds', 'describeReplaceRootVolumeTasks_replaceRootVolumeTaskIds' - The ID of the root volume replacement task to view.
+-- 'dryRun', 'describeReplaceRootVolumeTasks_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'filters', 'describeReplaceRootVolumeTasks_filters' - Filter to use:
 --
 -- -   @instance-id@ - The ID of the instance for which the root volume
 --     replacement task was created.
 --
--- 'dryRun', 'describeReplaceRootVolumeTasks_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'maxResults', 'describeReplaceRootVolumeTasks_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
+--
+-- 'nextToken', 'describeReplaceRootVolumeTasks_nextToken' - The token for the next page of results.
+--
+-- 'replaceRootVolumeTaskIds', 'describeReplaceRootVolumeTasks_replaceRootVolumeTaskIds' - The ID of the root volume replacement task to view.
 newDescribeReplaceRootVolumeTasks ::
   DescribeReplaceRootVolumeTasks
 newDescribeReplaceRootVolumeTasks =
   DescribeReplaceRootVolumeTasks'
-    { nextToken =
+    { dryRun =
         Prelude.Nothing,
-      replaceRootVolumeTaskIds = Prelude.Nothing,
       filters = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      replaceRootVolumeTaskIds = Prelude.Nothing
     }
-
--- | The token for the next page of results.
-describeReplaceRootVolumeTasks_nextToken :: Lens.Lens' DescribeReplaceRootVolumeTasks (Prelude.Maybe Prelude.Text)
-describeReplaceRootVolumeTasks_nextToken = Lens.lens (\DescribeReplaceRootVolumeTasks' {nextToken} -> nextToken) (\s@DescribeReplaceRootVolumeTasks' {} a -> s {nextToken = a} :: DescribeReplaceRootVolumeTasks)
-
--- | The ID of the root volume replacement task to view.
-describeReplaceRootVolumeTasks_replaceRootVolumeTaskIds :: Lens.Lens' DescribeReplaceRootVolumeTasks (Prelude.Maybe [Prelude.Text])
-describeReplaceRootVolumeTasks_replaceRootVolumeTaskIds = Lens.lens (\DescribeReplaceRootVolumeTasks' {replaceRootVolumeTaskIds} -> replaceRootVolumeTaskIds) (\s@DescribeReplaceRootVolumeTasks' {} a -> s {replaceRootVolumeTaskIds = a} :: DescribeReplaceRootVolumeTasks) Prelude.. Lens.mapping Lens.coerced
-
--- | Filter to use:
---
--- -   @instance-id@ - The ID of the instance for which the root volume
---     replacement task was created.
-describeReplaceRootVolumeTasks_filters :: Lens.Lens' DescribeReplaceRootVolumeTasks (Prelude.Maybe [Filter])
-describeReplaceRootVolumeTasks_filters = Lens.lens (\DescribeReplaceRootVolumeTasks' {filters} -> filters) (\s@DescribeReplaceRootVolumeTasks' {} a -> s {filters = a} :: DescribeReplaceRootVolumeTasks) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -138,11 +123,26 @@ describeReplaceRootVolumeTasks_filters = Lens.lens (\DescribeReplaceRootVolumeTa
 describeReplaceRootVolumeTasks_dryRun :: Lens.Lens' DescribeReplaceRootVolumeTasks (Prelude.Maybe Prelude.Bool)
 describeReplaceRootVolumeTasks_dryRun = Lens.lens (\DescribeReplaceRootVolumeTasks' {dryRun} -> dryRun) (\s@DescribeReplaceRootVolumeTasks' {} a -> s {dryRun = a} :: DescribeReplaceRootVolumeTasks)
 
+-- | Filter to use:
+--
+-- -   @instance-id@ - The ID of the instance for which the root volume
+--     replacement task was created.
+describeReplaceRootVolumeTasks_filters :: Lens.Lens' DescribeReplaceRootVolumeTasks (Prelude.Maybe [Filter])
+describeReplaceRootVolumeTasks_filters = Lens.lens (\DescribeReplaceRootVolumeTasks' {filters} -> filters) (\s@DescribeReplaceRootVolumeTasks' {} a -> s {filters = a} :: DescribeReplaceRootVolumeTasks) Prelude.. Lens.mapping Lens.coerced
+
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
 describeReplaceRootVolumeTasks_maxResults :: Lens.Lens' DescribeReplaceRootVolumeTasks (Prelude.Maybe Prelude.Natural)
 describeReplaceRootVolumeTasks_maxResults = Lens.lens (\DescribeReplaceRootVolumeTasks' {maxResults} -> maxResults) (\s@DescribeReplaceRootVolumeTasks' {} a -> s {maxResults = a} :: DescribeReplaceRootVolumeTasks)
+
+-- | The token for the next page of results.
+describeReplaceRootVolumeTasks_nextToken :: Lens.Lens' DescribeReplaceRootVolumeTasks (Prelude.Maybe Prelude.Text)
+describeReplaceRootVolumeTasks_nextToken = Lens.lens (\DescribeReplaceRootVolumeTasks' {nextToken} -> nextToken) (\s@DescribeReplaceRootVolumeTasks' {} a -> s {nextToken = a} :: DescribeReplaceRootVolumeTasks)
+
+-- | The ID of the root volume replacement task to view.
+describeReplaceRootVolumeTasks_replaceRootVolumeTaskIds :: Lens.Lens' DescribeReplaceRootVolumeTasks (Prelude.Maybe [Prelude.Text])
+describeReplaceRootVolumeTasks_replaceRootVolumeTaskIds = Lens.lens (\DescribeReplaceRootVolumeTasks' {replaceRootVolumeTaskIds} -> replaceRootVolumeTaskIds) (\s@DescribeReplaceRootVolumeTasks' {} a -> s {replaceRootVolumeTaskIds = a} :: DescribeReplaceRootVolumeTasks) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSPager DescribeReplaceRootVolumeTasks where
   page rq rs
@@ -194,22 +194,22 @@ instance
   hashWithSalt
     _salt
     DescribeReplaceRootVolumeTasks' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` replaceRootVolumeTaskIds
+      _salt `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` replaceRootVolumeTaskIds
 
 instance
   Prelude.NFData
     DescribeReplaceRootVolumeTasks
   where
   rnf DescribeReplaceRootVolumeTasks' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf replaceRootVolumeTaskIds
+    Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf replaceRootVolumeTaskIds
 
 instance
   Data.ToHeaders
@@ -229,15 +229,15 @@ instance Data.ToQuery DescribeReplaceRootVolumeTasks where
                   ),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "MaxResults" Data.=: maxResults,
         "NextToken" Data.=: nextToken,
         Data.toQuery
           ( Data.toQueryList "ReplaceRootVolumeTaskId"
               Prelude.<$> replaceRootVolumeTaskIds
-          ),
-        Data.toQuery
-          (Data.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Data.=: dryRun,
-        "MaxResults" Data.=: maxResults
+          )
       ]
 
 -- | /See:/ 'newDescribeReplaceRootVolumeTasksResponse' smart constructor.

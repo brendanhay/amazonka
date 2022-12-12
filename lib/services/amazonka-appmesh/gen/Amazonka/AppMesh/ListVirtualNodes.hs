@@ -29,9 +29,9 @@ module Amazonka.AppMesh.ListVirtualNodes
     newListVirtualNodes,
 
     -- * Request Lenses
-    listVirtualNodes_nextToken,
-    listVirtualNodes_meshOwner,
     listVirtualNodes_limit,
+    listVirtualNodes_meshOwner,
+    listVirtualNodes_nextToken,
     listVirtualNodes_meshName,
 
     -- * Destructuring the Response
@@ -57,17 +57,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListVirtualNodes' smart constructor.
 data ListVirtualNodes = ListVirtualNodes'
-  { -- | The @nextToken@ value returned from a previous paginated
-    -- @ListVirtualNodes@ request where @limit@ was used and the results
-    -- exceeded the value of that parameter. Pagination continues from the end
-    -- of the previous results that returned the @nextToken@ value.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services IAM account ID of the service mesh owner. If the
-    -- account ID is not your own, then it\'s the ID of the account that shared
-    -- the mesh with your account. For more information about mesh sharing, see
-    -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
-    meshOwner :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results returned by @ListVirtualNodes@ in
+  { -- | The maximum number of results returned by @ListVirtualNodes@ in
     -- paginated output. When you use this parameter, @ListVirtualNodes@
     -- returns only @limit@ results in a single page along with a @nextToken@
     -- response element. You can see the remaining results of the initial
@@ -76,6 +66,16 @@ data ListVirtualNodes = ListVirtualNodes'
     -- use this parameter, @ListVirtualNodes@ returns up to 100 results and a
     -- @nextToken@ value if applicable.
     limit :: Prelude.Maybe Prelude.Natural,
+    -- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+    -- account ID is not your own, then it\'s the ID of the account that shared
+    -- the mesh with your account. For more information about mesh sharing, see
+    -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
+    meshOwner :: Prelude.Maybe Prelude.Text,
+    -- | The @nextToken@ value returned from a previous paginated
+    -- @ListVirtualNodes@ request where @limit@ was used and the results
+    -- exceeded the value of that parameter. Pagination continues from the end
+    -- of the previous results that returned the @nextToken@ value.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the service mesh to list virtual nodes in.
     meshName :: Prelude.Text
   }
@@ -89,16 +89,6 @@ data ListVirtualNodes = ListVirtualNodes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listVirtualNodes_nextToken' - The @nextToken@ value returned from a previous paginated
--- @ListVirtualNodes@ request where @limit@ was used and the results
--- exceeded the value of that parameter. Pagination continues from the end
--- of the previous results that returned the @nextToken@ value.
---
--- 'meshOwner', 'listVirtualNodes_meshOwner' - The Amazon Web Services IAM account ID of the service mesh owner. If the
--- account ID is not your own, then it\'s the ID of the account that shared
--- the mesh with your account. For more information about mesh sharing, see
--- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
---
 -- 'limit', 'listVirtualNodes_limit' - The maximum number of results returned by @ListVirtualNodes@ in
 -- paginated output. When you use this parameter, @ListVirtualNodes@
 -- returns only @limit@ results in a single page along with a @nextToken@
@@ -108,6 +98,16 @@ data ListVirtualNodes = ListVirtualNodes'
 -- use this parameter, @ListVirtualNodes@ returns up to 100 results and a
 -- @nextToken@ value if applicable.
 --
+-- 'meshOwner', 'listVirtualNodes_meshOwner' - The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then it\'s the ID of the account that shared
+-- the mesh with your account. For more information about mesh sharing, see
+-- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
+--
+-- 'nextToken', 'listVirtualNodes_nextToken' - The @nextToken@ value returned from a previous paginated
+-- @ListVirtualNodes@ request where @limit@ was used and the results
+-- exceeded the value of that parameter. Pagination continues from the end
+-- of the previous results that returned the @nextToken@ value.
+--
 -- 'meshName', 'listVirtualNodes_meshName' - The name of the service mesh to list virtual nodes in.
 newListVirtualNodes ::
   -- | 'meshName'
@@ -115,25 +115,11 @@ newListVirtualNodes ::
   ListVirtualNodes
 newListVirtualNodes pMeshName_ =
   ListVirtualNodes'
-    { nextToken = Prelude.Nothing,
+    { limit = Prelude.Nothing,
       meshOwner = Prelude.Nothing,
-      limit = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       meshName = pMeshName_
     }
-
--- | The @nextToken@ value returned from a previous paginated
--- @ListVirtualNodes@ request where @limit@ was used and the results
--- exceeded the value of that parameter. Pagination continues from the end
--- of the previous results that returned the @nextToken@ value.
-listVirtualNodes_nextToken :: Lens.Lens' ListVirtualNodes (Prelude.Maybe Prelude.Text)
-listVirtualNodes_nextToken = Lens.lens (\ListVirtualNodes' {nextToken} -> nextToken) (\s@ListVirtualNodes' {} a -> s {nextToken = a} :: ListVirtualNodes)
-
--- | The Amazon Web Services IAM account ID of the service mesh owner. If the
--- account ID is not your own, then it\'s the ID of the account that shared
--- the mesh with your account. For more information about mesh sharing, see
--- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
-listVirtualNodes_meshOwner :: Lens.Lens' ListVirtualNodes (Prelude.Maybe Prelude.Text)
-listVirtualNodes_meshOwner = Lens.lens (\ListVirtualNodes' {meshOwner} -> meshOwner) (\s@ListVirtualNodes' {} a -> s {meshOwner = a} :: ListVirtualNodes)
 
 -- | The maximum number of results returned by @ListVirtualNodes@ in
 -- paginated output. When you use this parameter, @ListVirtualNodes@
@@ -145,6 +131,20 @@ listVirtualNodes_meshOwner = Lens.lens (\ListVirtualNodes' {meshOwner} -> meshOw
 -- @nextToken@ value if applicable.
 listVirtualNodes_limit :: Lens.Lens' ListVirtualNodes (Prelude.Maybe Prelude.Natural)
 listVirtualNodes_limit = Lens.lens (\ListVirtualNodes' {limit} -> limit) (\s@ListVirtualNodes' {} a -> s {limit = a} :: ListVirtualNodes)
+
+-- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then it\'s the ID of the account that shared
+-- the mesh with your account. For more information about mesh sharing, see
+-- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
+listVirtualNodes_meshOwner :: Lens.Lens' ListVirtualNodes (Prelude.Maybe Prelude.Text)
+listVirtualNodes_meshOwner = Lens.lens (\ListVirtualNodes' {meshOwner} -> meshOwner) (\s@ListVirtualNodes' {} a -> s {meshOwner = a} :: ListVirtualNodes)
+
+-- | The @nextToken@ value returned from a previous paginated
+-- @ListVirtualNodes@ request where @limit@ was used and the results
+-- exceeded the value of that parameter. Pagination continues from the end
+-- of the previous results that returned the @nextToken@ value.
+listVirtualNodes_nextToken :: Lens.Lens' ListVirtualNodes (Prelude.Maybe Prelude.Text)
+listVirtualNodes_nextToken = Lens.lens (\ListVirtualNodes' {nextToken} -> nextToken) (\s@ListVirtualNodes' {} a -> s {nextToken = a} :: ListVirtualNodes)
 
 -- | The name of the service mesh to list virtual nodes in.
 listVirtualNodes_meshName :: Lens.Lens' ListVirtualNodes Prelude.Text
@@ -186,16 +186,16 @@ instance Core.AWSRequest ListVirtualNodes where
 
 instance Prelude.Hashable ListVirtualNodes where
   hashWithSalt _salt ListVirtualNodes' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` meshOwner
-      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` meshName
 
 instance Prelude.NFData ListVirtualNodes where
   rnf ListVirtualNodes' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf limit
       `Prelude.seq` Prelude.rnf meshOwner
-      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf meshName
 
 instance Data.ToHeaders ListVirtualNodes where
@@ -220,9 +220,9 @@ instance Data.ToPath ListVirtualNodes where
 instance Data.ToQuery ListVirtualNodes where
   toQuery ListVirtualNodes' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
+      [ "limit" Data.=: limit,
         "meshOwner" Data.=: meshOwner,
-        "limit" Data.=: limit
+        "nextToken" Data.=: nextToken
       ]
 
 -- |

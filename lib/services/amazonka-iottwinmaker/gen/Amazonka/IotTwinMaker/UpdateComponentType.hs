@@ -27,12 +27,13 @@ module Amazonka.IotTwinMaker.UpdateComponentType
     newUpdateComponentType,
 
     -- * Request Lenses
-    updateComponentType_functions,
-    updateComponentType_propertyDefinitions,
+    updateComponentType_componentTypeName,
     updateComponentType_description,
-    updateComponentType_propertyGroups,
-    updateComponentType_isSingleton,
     updateComponentType_extendsFrom,
+    updateComponentType_functions,
+    updateComponentType_isSingleton,
+    updateComponentType_propertyDefinitions,
+    updateComponentType_propertyGroups,
     updateComponentType_workspaceId,
     updateComponentType_componentTypeId,
 
@@ -59,22 +60,24 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateComponentType' smart constructor.
 data UpdateComponentType = UpdateComponentType'
-  { -- | An object that maps strings to the functions in the component type. Each
-    -- string in the mapping must be unique to this object.
-    functions :: Prelude.Maybe (Prelude.HashMap Prelude.Text FunctionRequest),
-    -- | An object that maps strings to the property definitions in the component
-    -- type. Each string in the mapping must be unique to this object.
-    propertyDefinitions :: Prelude.Maybe (Prelude.HashMap Prelude.Text PropertyDefinitionRequest),
+  { -- | The component type name.
+    componentTypeName :: Prelude.Maybe Prelude.Text,
     -- | The description of the component type.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The property groups
-    propertyGroups :: Prelude.Maybe (Prelude.HashMap Prelude.Text PropertyGroupRequest),
+    -- | Specifies the component type that this component type extends.
+    extendsFrom :: Prelude.Maybe [Prelude.Text],
+    -- | An object that maps strings to the functions in the component type. Each
+    -- string in the mapping must be unique to this object.
+    functions :: Prelude.Maybe (Prelude.HashMap Prelude.Text FunctionRequest),
     -- | A Boolean value that specifies whether an entity can have more than one
     -- component of this type.
     isSingleton :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies the component type that this component type extends.
-    extendsFrom :: Prelude.Maybe [Prelude.Text],
-    -- | The ID of the workspace that contains the component type.
+    -- | An object that maps strings to the property definitions in the component
+    -- type. Each string in the mapping must be unique to this object.
+    propertyDefinitions :: Prelude.Maybe (Prelude.HashMap Prelude.Text PropertyDefinitionRequest),
+    -- | The property groups
+    propertyGroups :: Prelude.Maybe (Prelude.HashMap Prelude.Text PropertyGroupRequest),
+    -- | The ID of the workspace.
     workspaceId :: Prelude.Text,
     -- | The ID of the component type.
     componentTypeId :: Prelude.Text
@@ -89,22 +92,24 @@ data UpdateComponentType = UpdateComponentType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'functions', 'updateComponentType_functions' - An object that maps strings to the functions in the component type. Each
--- string in the mapping must be unique to this object.
---
--- 'propertyDefinitions', 'updateComponentType_propertyDefinitions' - An object that maps strings to the property definitions in the component
--- type. Each string in the mapping must be unique to this object.
+-- 'componentTypeName', 'updateComponentType_componentTypeName' - The component type name.
 --
 -- 'description', 'updateComponentType_description' - The description of the component type.
 --
--- 'propertyGroups', 'updateComponentType_propertyGroups' - The property groups
+-- 'extendsFrom', 'updateComponentType_extendsFrom' - Specifies the component type that this component type extends.
+--
+-- 'functions', 'updateComponentType_functions' - An object that maps strings to the functions in the component type. Each
+-- string in the mapping must be unique to this object.
 --
 -- 'isSingleton', 'updateComponentType_isSingleton' - A Boolean value that specifies whether an entity can have more than one
 -- component of this type.
 --
--- 'extendsFrom', 'updateComponentType_extendsFrom' - Specifies the component type that this component type extends.
+-- 'propertyDefinitions', 'updateComponentType_propertyDefinitions' - An object that maps strings to the property definitions in the component
+-- type. Each string in the mapping must be unique to this object.
 --
--- 'workspaceId', 'updateComponentType_workspaceId' - The ID of the workspace that contains the component type.
+-- 'propertyGroups', 'updateComponentType_propertyGroups' - The property groups
+--
+-- 'workspaceId', 'updateComponentType_workspaceId' - The ID of the workspace.
 --
 -- 'componentTypeId', 'updateComponentType_componentTypeId' - The ID of the component type.
 newUpdateComponentType ::
@@ -117,44 +122,50 @@ newUpdateComponentType
   pWorkspaceId_
   pComponentTypeId_ =
     UpdateComponentType'
-      { functions = Prelude.Nothing,
-        propertyDefinitions = Prelude.Nothing,
+      { componentTypeName =
+          Prelude.Nothing,
         description = Prelude.Nothing,
-        propertyGroups = Prelude.Nothing,
-        isSingleton = Prelude.Nothing,
         extendsFrom = Prelude.Nothing,
+        functions = Prelude.Nothing,
+        isSingleton = Prelude.Nothing,
+        propertyDefinitions = Prelude.Nothing,
+        propertyGroups = Prelude.Nothing,
         workspaceId = pWorkspaceId_,
         componentTypeId = pComponentTypeId_
       }
+
+-- | The component type name.
+updateComponentType_componentTypeName :: Lens.Lens' UpdateComponentType (Prelude.Maybe Prelude.Text)
+updateComponentType_componentTypeName = Lens.lens (\UpdateComponentType' {componentTypeName} -> componentTypeName) (\s@UpdateComponentType' {} a -> s {componentTypeName = a} :: UpdateComponentType)
+
+-- | The description of the component type.
+updateComponentType_description :: Lens.Lens' UpdateComponentType (Prelude.Maybe Prelude.Text)
+updateComponentType_description = Lens.lens (\UpdateComponentType' {description} -> description) (\s@UpdateComponentType' {} a -> s {description = a} :: UpdateComponentType)
+
+-- | Specifies the component type that this component type extends.
+updateComponentType_extendsFrom :: Lens.Lens' UpdateComponentType (Prelude.Maybe [Prelude.Text])
+updateComponentType_extendsFrom = Lens.lens (\UpdateComponentType' {extendsFrom} -> extendsFrom) (\s@UpdateComponentType' {} a -> s {extendsFrom = a} :: UpdateComponentType) Prelude.. Lens.mapping Lens.coerced
 
 -- | An object that maps strings to the functions in the component type. Each
 -- string in the mapping must be unique to this object.
 updateComponentType_functions :: Lens.Lens' UpdateComponentType (Prelude.Maybe (Prelude.HashMap Prelude.Text FunctionRequest))
 updateComponentType_functions = Lens.lens (\UpdateComponentType' {functions} -> functions) (\s@UpdateComponentType' {} a -> s {functions = a} :: UpdateComponentType) Prelude.. Lens.mapping Lens.coerced
 
--- | An object that maps strings to the property definitions in the component
--- type. Each string in the mapping must be unique to this object.
-updateComponentType_propertyDefinitions :: Lens.Lens' UpdateComponentType (Prelude.Maybe (Prelude.HashMap Prelude.Text PropertyDefinitionRequest))
-updateComponentType_propertyDefinitions = Lens.lens (\UpdateComponentType' {propertyDefinitions} -> propertyDefinitions) (\s@UpdateComponentType' {} a -> s {propertyDefinitions = a} :: UpdateComponentType) Prelude.. Lens.mapping Lens.coerced
-
--- | The description of the component type.
-updateComponentType_description :: Lens.Lens' UpdateComponentType (Prelude.Maybe Prelude.Text)
-updateComponentType_description = Lens.lens (\UpdateComponentType' {description} -> description) (\s@UpdateComponentType' {} a -> s {description = a} :: UpdateComponentType)
-
--- | The property groups
-updateComponentType_propertyGroups :: Lens.Lens' UpdateComponentType (Prelude.Maybe (Prelude.HashMap Prelude.Text PropertyGroupRequest))
-updateComponentType_propertyGroups = Lens.lens (\UpdateComponentType' {propertyGroups} -> propertyGroups) (\s@UpdateComponentType' {} a -> s {propertyGroups = a} :: UpdateComponentType) Prelude.. Lens.mapping Lens.coerced
-
 -- | A Boolean value that specifies whether an entity can have more than one
 -- component of this type.
 updateComponentType_isSingleton :: Lens.Lens' UpdateComponentType (Prelude.Maybe Prelude.Bool)
 updateComponentType_isSingleton = Lens.lens (\UpdateComponentType' {isSingleton} -> isSingleton) (\s@UpdateComponentType' {} a -> s {isSingleton = a} :: UpdateComponentType)
 
--- | Specifies the component type that this component type extends.
-updateComponentType_extendsFrom :: Lens.Lens' UpdateComponentType (Prelude.Maybe [Prelude.Text])
-updateComponentType_extendsFrom = Lens.lens (\UpdateComponentType' {extendsFrom} -> extendsFrom) (\s@UpdateComponentType' {} a -> s {extendsFrom = a} :: UpdateComponentType) Prelude.. Lens.mapping Lens.coerced
+-- | An object that maps strings to the property definitions in the component
+-- type. Each string in the mapping must be unique to this object.
+updateComponentType_propertyDefinitions :: Lens.Lens' UpdateComponentType (Prelude.Maybe (Prelude.HashMap Prelude.Text PropertyDefinitionRequest))
+updateComponentType_propertyDefinitions = Lens.lens (\UpdateComponentType' {propertyDefinitions} -> propertyDefinitions) (\s@UpdateComponentType' {} a -> s {propertyDefinitions = a} :: UpdateComponentType) Prelude.. Lens.mapping Lens.coerced
 
--- | The ID of the workspace that contains the component type.
+-- | The property groups
+updateComponentType_propertyGroups :: Lens.Lens' UpdateComponentType (Prelude.Maybe (Prelude.HashMap Prelude.Text PropertyGroupRequest))
+updateComponentType_propertyGroups = Lens.lens (\UpdateComponentType' {propertyGroups} -> propertyGroups) (\s@UpdateComponentType' {} a -> s {propertyGroups = a} :: UpdateComponentType) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ID of the workspace.
 updateComponentType_workspaceId :: Lens.Lens' UpdateComponentType Prelude.Text
 updateComponentType_workspaceId = Lens.lens (\UpdateComponentType' {workspaceId} -> workspaceId) (\s@UpdateComponentType' {} a -> s {workspaceId = a} :: UpdateComponentType)
 
@@ -181,23 +192,25 @@ instance Core.AWSRequest UpdateComponentType where
 
 instance Prelude.Hashable UpdateComponentType where
   hashWithSalt _salt UpdateComponentType' {..} =
-    _salt `Prelude.hashWithSalt` functions
-      `Prelude.hashWithSalt` propertyDefinitions
+    _salt `Prelude.hashWithSalt` componentTypeName
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` propertyGroups
-      `Prelude.hashWithSalt` isSingleton
       `Prelude.hashWithSalt` extendsFrom
+      `Prelude.hashWithSalt` functions
+      `Prelude.hashWithSalt` isSingleton
+      `Prelude.hashWithSalt` propertyDefinitions
+      `Prelude.hashWithSalt` propertyGroups
       `Prelude.hashWithSalt` workspaceId
       `Prelude.hashWithSalt` componentTypeId
 
 instance Prelude.NFData UpdateComponentType where
   rnf UpdateComponentType' {..} =
-    Prelude.rnf functions
-      `Prelude.seq` Prelude.rnf propertyDefinitions
+    Prelude.rnf componentTypeName
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf propertyGroups
-      `Prelude.seq` Prelude.rnf isSingleton
       `Prelude.seq` Prelude.rnf extendsFrom
+      `Prelude.seq` Prelude.rnf functions
+      `Prelude.seq` Prelude.rnf isSingleton
+      `Prelude.seq` Prelude.rnf propertyDefinitions
+      `Prelude.seq` Prelude.rnf propertyGroups
       `Prelude.seq` Prelude.rnf workspaceId
       `Prelude.seq` Prelude.rnf componentTypeId
 
@@ -216,14 +229,16 @@ instance Data.ToJSON UpdateComponentType where
   toJSON UpdateComponentType' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("functions" Data..=) Prelude.<$> functions,
+          [ ("componentTypeName" Data..=)
+              Prelude.<$> componentTypeName,
+            ("description" Data..=) Prelude.<$> description,
+            ("extendsFrom" Data..=) Prelude.<$> extendsFrom,
+            ("functions" Data..=) Prelude.<$> functions,
+            ("isSingleton" Data..=) Prelude.<$> isSingleton,
             ("propertyDefinitions" Data..=)
               Prelude.<$> propertyDefinitions,
-            ("description" Data..=) Prelude.<$> description,
             ("propertyGroups" Data..=)
-              Prelude.<$> propertyGroups,
-            ("isSingleton" Data..=) Prelude.<$> isSingleton,
-            ("extendsFrom" Data..=) Prelude.<$> extendsFrom
+              Prelude.<$> propertyGroups
           ]
       )
 

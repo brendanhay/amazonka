@@ -35,9 +35,9 @@ module Amazonka.EMR.DescribeSecurityConfiguration
     newDescribeSecurityConfigurationResponse,
 
     -- * Response Lenses
-    describeSecurityConfigurationResponse_securityConfiguration,
-    describeSecurityConfigurationResponse_name,
     describeSecurityConfigurationResponse_creationDateTime,
+    describeSecurityConfigurationResponse_name,
+    describeSecurityConfigurationResponse_securityConfiguration,
     describeSecurityConfigurationResponse_httpStatus,
   )
 where
@@ -90,9 +90,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeSecurityConfigurationResponse'
-            Prelude.<$> (x Data..?> "SecurityConfiguration")
+            Prelude.<$> (x Data..?> "CreationDateTime")
             Prelude.<*> (x Data..?> "Name")
-            Prelude.<*> (x Data..?> "CreationDateTime")
+            Prelude.<*> (x Data..?> "SecurityConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,12 +137,12 @@ instance Data.ToQuery DescribeSecurityConfiguration where
 
 -- | /See:/ 'newDescribeSecurityConfigurationResponse' smart constructor.
 data DescribeSecurityConfigurationResponse = DescribeSecurityConfigurationResponse'
-  { -- | The security configuration details in JSON format.
-    securityConfiguration :: Prelude.Maybe Prelude.Text,
+  { -- | The date and time the security configuration was created
+    creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the security configuration.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The date and time the security configuration was created
-    creationDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The security configuration details in JSON format.
+    securityConfiguration :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -156,11 +156,11 @@ data DescribeSecurityConfigurationResponse = DescribeSecurityConfigurationRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'securityConfiguration', 'describeSecurityConfigurationResponse_securityConfiguration' - The security configuration details in JSON format.
+-- 'creationDateTime', 'describeSecurityConfigurationResponse_creationDateTime' - The date and time the security configuration was created
 --
 -- 'name', 'describeSecurityConfigurationResponse_name' - The name of the security configuration.
 --
--- 'creationDateTime', 'describeSecurityConfigurationResponse_creationDateTime' - The date and time the security configuration was created
+-- 'securityConfiguration', 'describeSecurityConfigurationResponse_securityConfiguration' - The security configuration details in JSON format.
 --
 -- 'httpStatus', 'describeSecurityConfigurationResponse_httpStatus' - The response's http status code.
 newDescribeSecurityConfigurationResponse ::
@@ -169,24 +169,25 @@ newDescribeSecurityConfigurationResponse ::
   DescribeSecurityConfigurationResponse
 newDescribeSecurityConfigurationResponse pHttpStatus_ =
   DescribeSecurityConfigurationResponse'
-    { securityConfiguration =
+    { creationDateTime =
         Prelude.Nothing,
       name = Prelude.Nothing,
-      creationDateTime = Prelude.Nothing,
+      securityConfiguration =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The security configuration details in JSON format.
-describeSecurityConfigurationResponse_securityConfiguration :: Lens.Lens' DescribeSecurityConfigurationResponse (Prelude.Maybe Prelude.Text)
-describeSecurityConfigurationResponse_securityConfiguration = Lens.lens (\DescribeSecurityConfigurationResponse' {securityConfiguration} -> securityConfiguration) (\s@DescribeSecurityConfigurationResponse' {} a -> s {securityConfiguration = a} :: DescribeSecurityConfigurationResponse)
+-- | The date and time the security configuration was created
+describeSecurityConfigurationResponse_creationDateTime :: Lens.Lens' DescribeSecurityConfigurationResponse (Prelude.Maybe Prelude.UTCTime)
+describeSecurityConfigurationResponse_creationDateTime = Lens.lens (\DescribeSecurityConfigurationResponse' {creationDateTime} -> creationDateTime) (\s@DescribeSecurityConfigurationResponse' {} a -> s {creationDateTime = a} :: DescribeSecurityConfigurationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the security configuration.
 describeSecurityConfigurationResponse_name :: Lens.Lens' DescribeSecurityConfigurationResponse (Prelude.Maybe Prelude.Text)
 describeSecurityConfigurationResponse_name = Lens.lens (\DescribeSecurityConfigurationResponse' {name} -> name) (\s@DescribeSecurityConfigurationResponse' {} a -> s {name = a} :: DescribeSecurityConfigurationResponse)
 
--- | The date and time the security configuration was created
-describeSecurityConfigurationResponse_creationDateTime :: Lens.Lens' DescribeSecurityConfigurationResponse (Prelude.Maybe Prelude.UTCTime)
-describeSecurityConfigurationResponse_creationDateTime = Lens.lens (\DescribeSecurityConfigurationResponse' {creationDateTime} -> creationDateTime) (\s@DescribeSecurityConfigurationResponse' {} a -> s {creationDateTime = a} :: DescribeSecurityConfigurationResponse) Prelude.. Lens.mapping Data._Time
+-- | The security configuration details in JSON format.
+describeSecurityConfigurationResponse_securityConfiguration :: Lens.Lens' DescribeSecurityConfigurationResponse (Prelude.Maybe Prelude.Text)
+describeSecurityConfigurationResponse_securityConfiguration = Lens.lens (\DescribeSecurityConfigurationResponse' {securityConfiguration} -> securityConfiguration) (\s@DescribeSecurityConfigurationResponse' {} a -> s {securityConfiguration = a} :: DescribeSecurityConfigurationResponse)
 
 -- | The response's http status code.
 describeSecurityConfigurationResponse_httpStatus :: Lens.Lens' DescribeSecurityConfigurationResponse Prelude.Int
@@ -197,7 +198,7 @@ instance
     DescribeSecurityConfigurationResponse
   where
   rnf DescribeSecurityConfigurationResponse' {..} =
-    Prelude.rnf securityConfiguration
+    Prelude.rnf creationDateTime
       `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf securityConfiguration
       `Prelude.seq` Prelude.rnf httpStatus

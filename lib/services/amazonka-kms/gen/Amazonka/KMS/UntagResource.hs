@@ -26,7 +26,7 @@
 --
 -- Tagging or untagging a KMS key can allow or deny permission to the KMS
 -- key. For details, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/abac.html ABAC in KMS>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/abac.html ABAC for KMS>
 -- in the /Key Management Service Developer Guide/.
 --
 -- When it succeeds, the @UntagResource@ operation doesn\'t return any

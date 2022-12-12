@@ -32,16 +32,16 @@ import Amazonka.SecurityHub.Types.AwsEc2VpcPeeringConnectionVpcInfoDetails
 --
 -- /See:/ 'newAwsEc2VpcPeeringConnectionDetails' smart constructor.
 data AwsEc2VpcPeeringConnectionDetails = AwsEc2VpcPeeringConnectionDetails'
-  { -- | Information about the requester VPC.
-    requesterVpcInfo :: Prelude.Maybe AwsEc2VpcPeeringConnectionVpcInfoDetails,
+  { -- | Information about the accepter VPC.
+    accepterVpcInfo :: Prelude.Maybe AwsEc2VpcPeeringConnectionVpcInfoDetails,
     -- | The time at which an unaccepted VPC peering connection will expire.
     expirationTime :: Prelude.Maybe Prelude.Text,
-    -- | Information about the accepter VPC.
-    accepterVpcInfo :: Prelude.Maybe AwsEc2VpcPeeringConnectionVpcInfoDetails,
-    -- | The ID of the VPC peering connection.
-    vpcPeeringConnectionId :: Prelude.Maybe Prelude.Text,
+    -- | Information about the requester VPC.
+    requesterVpcInfo :: Prelude.Maybe AwsEc2VpcPeeringConnectionVpcInfoDetails,
     -- | The status of the VPC peering connection.
-    status :: Prelude.Maybe AwsEc2VpcPeeringConnectionStatusDetails
+    status :: Prelude.Maybe AwsEc2VpcPeeringConnectionStatusDetails,
+    -- | The ID of the VPC peering connection.
+    vpcPeeringConnectionId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,46 +53,46 @@ data AwsEc2VpcPeeringConnectionDetails = AwsEc2VpcPeeringConnectionDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requesterVpcInfo', 'awsEc2VpcPeeringConnectionDetails_requesterVpcInfo' - Information about the requester VPC.
+-- 'accepterVpcInfo', 'awsEc2VpcPeeringConnectionDetails_accepterVpcInfo' - Information about the accepter VPC.
 --
 -- 'expirationTime', 'awsEc2VpcPeeringConnectionDetails_expirationTime' - The time at which an unaccepted VPC peering connection will expire.
 --
--- 'accepterVpcInfo', 'awsEc2VpcPeeringConnectionDetails_accepterVpcInfo' - Information about the accepter VPC.
---
--- 'vpcPeeringConnectionId', 'awsEc2VpcPeeringConnectionDetails_vpcPeeringConnectionId' - The ID of the VPC peering connection.
+-- 'requesterVpcInfo', 'awsEc2VpcPeeringConnectionDetails_requesterVpcInfo' - Information about the requester VPC.
 --
 -- 'status', 'awsEc2VpcPeeringConnectionDetails_status' - The status of the VPC peering connection.
+--
+-- 'vpcPeeringConnectionId', 'awsEc2VpcPeeringConnectionDetails_vpcPeeringConnectionId' - The ID of the VPC peering connection.
 newAwsEc2VpcPeeringConnectionDetails ::
   AwsEc2VpcPeeringConnectionDetails
 newAwsEc2VpcPeeringConnectionDetails =
   AwsEc2VpcPeeringConnectionDetails'
-    { requesterVpcInfo =
+    { accepterVpcInfo =
         Prelude.Nothing,
       expirationTime = Prelude.Nothing,
-      accepterVpcInfo = Prelude.Nothing,
-      vpcPeeringConnectionId = Prelude.Nothing,
-      status = Prelude.Nothing
+      requesterVpcInfo = Prelude.Nothing,
+      status = Prelude.Nothing,
+      vpcPeeringConnectionId = Prelude.Nothing
     }
-
--- | Information about the requester VPC.
-awsEc2VpcPeeringConnectionDetails_requesterVpcInfo :: Lens.Lens' AwsEc2VpcPeeringConnectionDetails (Prelude.Maybe AwsEc2VpcPeeringConnectionVpcInfoDetails)
-awsEc2VpcPeeringConnectionDetails_requesterVpcInfo = Lens.lens (\AwsEc2VpcPeeringConnectionDetails' {requesterVpcInfo} -> requesterVpcInfo) (\s@AwsEc2VpcPeeringConnectionDetails' {} a -> s {requesterVpcInfo = a} :: AwsEc2VpcPeeringConnectionDetails)
-
--- | The time at which an unaccepted VPC peering connection will expire.
-awsEc2VpcPeeringConnectionDetails_expirationTime :: Lens.Lens' AwsEc2VpcPeeringConnectionDetails (Prelude.Maybe Prelude.Text)
-awsEc2VpcPeeringConnectionDetails_expirationTime = Lens.lens (\AwsEc2VpcPeeringConnectionDetails' {expirationTime} -> expirationTime) (\s@AwsEc2VpcPeeringConnectionDetails' {} a -> s {expirationTime = a} :: AwsEc2VpcPeeringConnectionDetails)
 
 -- | Information about the accepter VPC.
 awsEc2VpcPeeringConnectionDetails_accepterVpcInfo :: Lens.Lens' AwsEc2VpcPeeringConnectionDetails (Prelude.Maybe AwsEc2VpcPeeringConnectionVpcInfoDetails)
 awsEc2VpcPeeringConnectionDetails_accepterVpcInfo = Lens.lens (\AwsEc2VpcPeeringConnectionDetails' {accepterVpcInfo} -> accepterVpcInfo) (\s@AwsEc2VpcPeeringConnectionDetails' {} a -> s {accepterVpcInfo = a} :: AwsEc2VpcPeeringConnectionDetails)
 
--- | The ID of the VPC peering connection.
-awsEc2VpcPeeringConnectionDetails_vpcPeeringConnectionId :: Lens.Lens' AwsEc2VpcPeeringConnectionDetails (Prelude.Maybe Prelude.Text)
-awsEc2VpcPeeringConnectionDetails_vpcPeeringConnectionId = Lens.lens (\AwsEc2VpcPeeringConnectionDetails' {vpcPeeringConnectionId} -> vpcPeeringConnectionId) (\s@AwsEc2VpcPeeringConnectionDetails' {} a -> s {vpcPeeringConnectionId = a} :: AwsEc2VpcPeeringConnectionDetails)
+-- | The time at which an unaccepted VPC peering connection will expire.
+awsEc2VpcPeeringConnectionDetails_expirationTime :: Lens.Lens' AwsEc2VpcPeeringConnectionDetails (Prelude.Maybe Prelude.Text)
+awsEc2VpcPeeringConnectionDetails_expirationTime = Lens.lens (\AwsEc2VpcPeeringConnectionDetails' {expirationTime} -> expirationTime) (\s@AwsEc2VpcPeeringConnectionDetails' {} a -> s {expirationTime = a} :: AwsEc2VpcPeeringConnectionDetails)
+
+-- | Information about the requester VPC.
+awsEc2VpcPeeringConnectionDetails_requesterVpcInfo :: Lens.Lens' AwsEc2VpcPeeringConnectionDetails (Prelude.Maybe AwsEc2VpcPeeringConnectionVpcInfoDetails)
+awsEc2VpcPeeringConnectionDetails_requesterVpcInfo = Lens.lens (\AwsEc2VpcPeeringConnectionDetails' {requesterVpcInfo} -> requesterVpcInfo) (\s@AwsEc2VpcPeeringConnectionDetails' {} a -> s {requesterVpcInfo = a} :: AwsEc2VpcPeeringConnectionDetails)
 
 -- | The status of the VPC peering connection.
 awsEc2VpcPeeringConnectionDetails_status :: Lens.Lens' AwsEc2VpcPeeringConnectionDetails (Prelude.Maybe AwsEc2VpcPeeringConnectionStatusDetails)
 awsEc2VpcPeeringConnectionDetails_status = Lens.lens (\AwsEc2VpcPeeringConnectionDetails' {status} -> status) (\s@AwsEc2VpcPeeringConnectionDetails' {} a -> s {status = a} :: AwsEc2VpcPeeringConnectionDetails)
+
+-- | The ID of the VPC peering connection.
+awsEc2VpcPeeringConnectionDetails_vpcPeeringConnectionId :: Lens.Lens' AwsEc2VpcPeeringConnectionDetails (Prelude.Maybe Prelude.Text)
+awsEc2VpcPeeringConnectionDetails_vpcPeeringConnectionId = Lens.lens (\AwsEc2VpcPeeringConnectionDetails' {vpcPeeringConnectionId} -> vpcPeeringConnectionId) (\s@AwsEc2VpcPeeringConnectionDetails' {} a -> s {vpcPeeringConnectionId = a} :: AwsEc2VpcPeeringConnectionDetails)
 
 instance
   Data.FromJSON
@@ -103,11 +103,11 @@ instance
       "AwsEc2VpcPeeringConnectionDetails"
       ( \x ->
           AwsEc2VpcPeeringConnectionDetails'
-            Prelude.<$> (x Data..:? "RequesterVpcInfo")
+            Prelude.<$> (x Data..:? "AccepterVpcInfo")
             Prelude.<*> (x Data..:? "ExpirationTime")
-            Prelude.<*> (x Data..:? "AccepterVpcInfo")
-            Prelude.<*> (x Data..:? "VpcPeeringConnectionId")
+            Prelude.<*> (x Data..:? "RequesterVpcInfo")
             Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "VpcPeeringConnectionId")
       )
 
 instance
@@ -117,22 +117,22 @@ instance
   hashWithSalt
     _salt
     AwsEc2VpcPeeringConnectionDetails' {..} =
-      _salt `Prelude.hashWithSalt` requesterVpcInfo
+      _salt `Prelude.hashWithSalt` accepterVpcInfo
         `Prelude.hashWithSalt` expirationTime
-        `Prelude.hashWithSalt` accepterVpcInfo
-        `Prelude.hashWithSalt` vpcPeeringConnectionId
+        `Prelude.hashWithSalt` requesterVpcInfo
         `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` vpcPeeringConnectionId
 
 instance
   Prelude.NFData
     AwsEc2VpcPeeringConnectionDetails
   where
   rnf AwsEc2VpcPeeringConnectionDetails' {..} =
-    Prelude.rnf requesterVpcInfo
+    Prelude.rnf accepterVpcInfo
       `Prelude.seq` Prelude.rnf expirationTime
-      `Prelude.seq` Prelude.rnf accepterVpcInfo
-      `Prelude.seq` Prelude.rnf vpcPeeringConnectionId
+      `Prelude.seq` Prelude.rnf requesterVpcInfo
       `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf vpcPeeringConnectionId
 
 instance
   Data.ToJSON
@@ -141,14 +141,14 @@ instance
   toJSON AwsEc2VpcPeeringConnectionDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("RequesterVpcInfo" Data..=)
-              Prelude.<$> requesterVpcInfo,
+          [ ("AccepterVpcInfo" Data..=)
+              Prelude.<$> accepterVpcInfo,
             ("ExpirationTime" Data..=)
               Prelude.<$> expirationTime,
-            ("AccepterVpcInfo" Data..=)
-              Prelude.<$> accepterVpcInfo,
+            ("RequesterVpcInfo" Data..=)
+              Prelude.<$> requesterVpcInfo,
+            ("Status" Data..=) Prelude.<$> status,
             ("VpcPeeringConnectionId" Data..=)
-              Prelude.<$> vpcPeeringConnectionId,
-            ("Status" Data..=) Prelude.<$> status
+              Prelude.<$> vpcPeeringConnectionId
           ]
       )

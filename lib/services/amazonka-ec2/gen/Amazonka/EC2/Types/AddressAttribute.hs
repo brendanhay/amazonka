@@ -30,14 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAddressAttribute' smart constructor.
 data AddressAttribute = AddressAttribute'
-  { -- | The pointer (PTR) record for the IP address.
-    ptrRecord :: Prelude.Maybe Prelude.Text,
-    -- | [EC2-VPC] The allocation ID.
+  { -- | [EC2-VPC] The allocation ID.
     allocationId :: Prelude.Maybe Prelude.Text,
-    -- | The public IP address.
-    publicIp :: Prelude.Maybe Prelude.Text,
+    -- | The pointer (PTR) record for the IP address.
+    ptrRecord :: Prelude.Maybe Prelude.Text,
     -- | The updated PTR record for the IP address.
-    ptrRecordUpdate :: Prelude.Maybe PtrUpdateStatus
+    ptrRecordUpdate :: Prelude.Maybe PtrUpdateStatus,
+    -- | The public IP address.
+    publicIp :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,57 +49,57 @@ data AddressAttribute = AddressAttribute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ptrRecord', 'addressAttribute_ptrRecord' - The pointer (PTR) record for the IP address.
---
 -- 'allocationId', 'addressAttribute_allocationId' - [EC2-VPC] The allocation ID.
 --
--- 'publicIp', 'addressAttribute_publicIp' - The public IP address.
+-- 'ptrRecord', 'addressAttribute_ptrRecord' - The pointer (PTR) record for the IP address.
 --
 -- 'ptrRecordUpdate', 'addressAttribute_ptrRecordUpdate' - The updated PTR record for the IP address.
+--
+-- 'publicIp', 'addressAttribute_publicIp' - The public IP address.
 newAddressAttribute ::
   AddressAttribute
 newAddressAttribute =
   AddressAttribute'
-    { ptrRecord = Prelude.Nothing,
-      allocationId = Prelude.Nothing,
-      publicIp = Prelude.Nothing,
-      ptrRecordUpdate = Prelude.Nothing
+    { allocationId = Prelude.Nothing,
+      ptrRecord = Prelude.Nothing,
+      ptrRecordUpdate = Prelude.Nothing,
+      publicIp = Prelude.Nothing
     }
-
--- | The pointer (PTR) record for the IP address.
-addressAttribute_ptrRecord :: Lens.Lens' AddressAttribute (Prelude.Maybe Prelude.Text)
-addressAttribute_ptrRecord = Lens.lens (\AddressAttribute' {ptrRecord} -> ptrRecord) (\s@AddressAttribute' {} a -> s {ptrRecord = a} :: AddressAttribute)
 
 -- | [EC2-VPC] The allocation ID.
 addressAttribute_allocationId :: Lens.Lens' AddressAttribute (Prelude.Maybe Prelude.Text)
 addressAttribute_allocationId = Lens.lens (\AddressAttribute' {allocationId} -> allocationId) (\s@AddressAttribute' {} a -> s {allocationId = a} :: AddressAttribute)
 
--- | The public IP address.
-addressAttribute_publicIp :: Lens.Lens' AddressAttribute (Prelude.Maybe Prelude.Text)
-addressAttribute_publicIp = Lens.lens (\AddressAttribute' {publicIp} -> publicIp) (\s@AddressAttribute' {} a -> s {publicIp = a} :: AddressAttribute)
+-- | The pointer (PTR) record for the IP address.
+addressAttribute_ptrRecord :: Lens.Lens' AddressAttribute (Prelude.Maybe Prelude.Text)
+addressAttribute_ptrRecord = Lens.lens (\AddressAttribute' {ptrRecord} -> ptrRecord) (\s@AddressAttribute' {} a -> s {ptrRecord = a} :: AddressAttribute)
 
 -- | The updated PTR record for the IP address.
 addressAttribute_ptrRecordUpdate :: Lens.Lens' AddressAttribute (Prelude.Maybe PtrUpdateStatus)
 addressAttribute_ptrRecordUpdate = Lens.lens (\AddressAttribute' {ptrRecordUpdate} -> ptrRecordUpdate) (\s@AddressAttribute' {} a -> s {ptrRecordUpdate = a} :: AddressAttribute)
 
+-- | The public IP address.
+addressAttribute_publicIp :: Lens.Lens' AddressAttribute (Prelude.Maybe Prelude.Text)
+addressAttribute_publicIp = Lens.lens (\AddressAttribute' {publicIp} -> publicIp) (\s@AddressAttribute' {} a -> s {publicIp = a} :: AddressAttribute)
+
 instance Data.FromXML AddressAttribute where
   parseXML x =
     AddressAttribute'
-      Prelude.<$> (x Data..@? "ptrRecord")
-      Prelude.<*> (x Data..@? "allocationId")
-      Prelude.<*> (x Data..@? "publicIp")
+      Prelude.<$> (x Data..@? "allocationId")
+      Prelude.<*> (x Data..@? "ptrRecord")
       Prelude.<*> (x Data..@? "ptrRecordUpdate")
+      Prelude.<*> (x Data..@? "publicIp")
 
 instance Prelude.Hashable AddressAttribute where
   hashWithSalt _salt AddressAttribute' {..} =
-    _salt `Prelude.hashWithSalt` ptrRecord
-      `Prelude.hashWithSalt` allocationId
-      `Prelude.hashWithSalt` publicIp
+    _salt `Prelude.hashWithSalt` allocationId
+      `Prelude.hashWithSalt` ptrRecord
       `Prelude.hashWithSalt` ptrRecordUpdate
+      `Prelude.hashWithSalt` publicIp
 
 instance Prelude.NFData AddressAttribute where
   rnf AddressAttribute' {..} =
-    Prelude.rnf ptrRecord
-      `Prelude.seq` Prelude.rnf allocationId
-      `Prelude.seq` Prelude.rnf publicIp
+    Prelude.rnf allocationId
+      `Prelude.seq` Prelude.rnf ptrRecord
       `Prelude.seq` Prelude.rnf ptrRecordUpdate
+      `Prelude.seq` Prelude.rnf publicIp

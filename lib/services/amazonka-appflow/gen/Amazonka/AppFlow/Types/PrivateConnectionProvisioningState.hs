@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPrivateConnectionProvisioningState' smart constructor.
 data PrivateConnectionProvisioningState = PrivateConnectionProvisioningState'
-  { -- | Specifies the private connection provisioning status.
-    status :: Prelude.Maybe PrivateConnectionProvisioningStatus,
+  { -- | Specifies the private connection provisioning failure cause.
+    failureCause :: Prelude.Maybe PrivateConnectionProvisioningFailureCause,
     -- | Specifies the private connection provisioning failure reason.
     failureMessage :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the private connection provisioning failure cause.
-    failureCause :: Prelude.Maybe PrivateConnectionProvisioningFailureCause
+    -- | Specifies the private connection provisioning status.
+    status :: Prelude.Maybe PrivateConnectionProvisioningStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,32 +47,32 @@ data PrivateConnectionProvisioningState = PrivateConnectionProvisioningState'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'privateConnectionProvisioningState_status' - Specifies the private connection provisioning status.
+-- 'failureCause', 'privateConnectionProvisioningState_failureCause' - Specifies the private connection provisioning failure cause.
 --
 -- 'failureMessage', 'privateConnectionProvisioningState_failureMessage' - Specifies the private connection provisioning failure reason.
 --
--- 'failureCause', 'privateConnectionProvisioningState_failureCause' - Specifies the private connection provisioning failure cause.
+-- 'status', 'privateConnectionProvisioningState_status' - Specifies the private connection provisioning status.
 newPrivateConnectionProvisioningState ::
   PrivateConnectionProvisioningState
 newPrivateConnectionProvisioningState =
   PrivateConnectionProvisioningState'
-    { status =
+    { failureCause =
         Prelude.Nothing,
       failureMessage = Prelude.Nothing,
-      failureCause = Prelude.Nothing
+      status = Prelude.Nothing
     }
 
--- | Specifies the private connection provisioning status.
-privateConnectionProvisioningState_status :: Lens.Lens' PrivateConnectionProvisioningState (Prelude.Maybe PrivateConnectionProvisioningStatus)
-privateConnectionProvisioningState_status = Lens.lens (\PrivateConnectionProvisioningState' {status} -> status) (\s@PrivateConnectionProvisioningState' {} a -> s {status = a} :: PrivateConnectionProvisioningState)
+-- | Specifies the private connection provisioning failure cause.
+privateConnectionProvisioningState_failureCause :: Lens.Lens' PrivateConnectionProvisioningState (Prelude.Maybe PrivateConnectionProvisioningFailureCause)
+privateConnectionProvisioningState_failureCause = Lens.lens (\PrivateConnectionProvisioningState' {failureCause} -> failureCause) (\s@PrivateConnectionProvisioningState' {} a -> s {failureCause = a} :: PrivateConnectionProvisioningState)
 
 -- | Specifies the private connection provisioning failure reason.
 privateConnectionProvisioningState_failureMessage :: Lens.Lens' PrivateConnectionProvisioningState (Prelude.Maybe Prelude.Text)
 privateConnectionProvisioningState_failureMessage = Lens.lens (\PrivateConnectionProvisioningState' {failureMessage} -> failureMessage) (\s@PrivateConnectionProvisioningState' {} a -> s {failureMessage = a} :: PrivateConnectionProvisioningState)
 
--- | Specifies the private connection provisioning failure cause.
-privateConnectionProvisioningState_failureCause :: Lens.Lens' PrivateConnectionProvisioningState (Prelude.Maybe PrivateConnectionProvisioningFailureCause)
-privateConnectionProvisioningState_failureCause = Lens.lens (\PrivateConnectionProvisioningState' {failureCause} -> failureCause) (\s@PrivateConnectionProvisioningState' {} a -> s {failureCause = a} :: PrivateConnectionProvisioningState)
+-- | Specifies the private connection provisioning status.
+privateConnectionProvisioningState_status :: Lens.Lens' PrivateConnectionProvisioningState (Prelude.Maybe PrivateConnectionProvisioningStatus)
+privateConnectionProvisioningState_status = Lens.lens (\PrivateConnectionProvisioningState' {status} -> status) (\s@PrivateConnectionProvisioningState' {} a -> s {status = a} :: PrivateConnectionProvisioningState)
 
 instance
   Data.FromJSON
@@ -83,9 +83,9 @@ instance
       "PrivateConnectionProvisioningState"
       ( \x ->
           PrivateConnectionProvisioningState'
-            Prelude.<$> (x Data..:? "status")
+            Prelude.<$> (x Data..:? "failureCause")
             Prelude.<*> (x Data..:? "failureMessage")
-            Prelude.<*> (x Data..:? "failureCause")
+            Prelude.<*> (x Data..:? "status")
       )
 
 instance
@@ -95,15 +95,15 @@ instance
   hashWithSalt
     _salt
     PrivateConnectionProvisioningState' {..} =
-      _salt `Prelude.hashWithSalt` status
+      _salt `Prelude.hashWithSalt` failureCause
         `Prelude.hashWithSalt` failureMessage
-        `Prelude.hashWithSalt` failureCause
+        `Prelude.hashWithSalt` status
 
 instance
   Prelude.NFData
     PrivateConnectionProvisioningState
   where
   rnf PrivateConnectionProvisioningState' {..} =
-    Prelude.rnf status
+    Prelude.rnf failureCause
       `Prelude.seq` Prelude.rnf failureMessage
-      `Prelude.seq` Prelude.rnf failureCause
+      `Prelude.seq` Prelude.rnf status

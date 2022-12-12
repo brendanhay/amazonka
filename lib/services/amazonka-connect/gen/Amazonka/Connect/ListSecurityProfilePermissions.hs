@@ -32,8 +32,8 @@ module Amazonka.Connect.ListSecurityProfilePermissions
     newListSecurityProfilePermissions,
 
     -- * Request Lenses
-    listSecurityProfilePermissions_nextToken,
     listSecurityProfilePermissions_maxResults,
+    listSecurityProfilePermissions_nextToken,
     listSecurityProfilePermissions_securityProfileId,
     listSecurityProfilePermissions_instanceId,
 
@@ -58,12 +58,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListSecurityProfilePermissions' smart constructor.
 data ListSecurityProfilePermissions = ListSecurityProfilePermissions'
-  { -- | The token for the next set of results. Use the value returned in the
+  { -- | The maximum number of results to return per page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier for the security profle.
     securityProfileId :: Prelude.Text,
     -- | The identifier of the Amazon Connect instance. You can find the
@@ -80,11 +80,11 @@ data ListSecurityProfilePermissions = ListSecurityProfilePermissions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listSecurityProfilePermissions_maxResults' - The maximum number of results to return per page.
+--
 -- 'nextToken', 'listSecurityProfilePermissions_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
---
--- 'maxResults', 'listSecurityProfilePermissions_maxResults' - The maximum number of results to return per page.
 --
 -- 'securityProfileId', 'listSecurityProfilePermissions_securityProfileId' - The identifier for the security profle.
 --
@@ -100,22 +100,22 @@ newListSecurityProfilePermissions
   pSecurityProfileId_
   pInstanceId_ =
     ListSecurityProfilePermissions'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         securityProfileId = pSecurityProfileId_,
         instanceId = pInstanceId_
       }
+
+-- | The maximum number of results to return per page.
+listSecurityProfilePermissions_maxResults :: Lens.Lens' ListSecurityProfilePermissions (Prelude.Maybe Prelude.Natural)
+listSecurityProfilePermissions_maxResults = Lens.lens (\ListSecurityProfilePermissions' {maxResults} -> maxResults) (\s@ListSecurityProfilePermissions' {} a -> s {maxResults = a} :: ListSecurityProfilePermissions)
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
 listSecurityProfilePermissions_nextToken :: Lens.Lens' ListSecurityProfilePermissions (Prelude.Maybe Prelude.Text)
 listSecurityProfilePermissions_nextToken = Lens.lens (\ListSecurityProfilePermissions' {nextToken} -> nextToken) (\s@ListSecurityProfilePermissions' {} a -> s {nextToken = a} :: ListSecurityProfilePermissions)
-
--- | The maximum number of results to return per page.
-listSecurityProfilePermissions_maxResults :: Lens.Lens' ListSecurityProfilePermissions (Prelude.Maybe Prelude.Natural)
-listSecurityProfilePermissions_maxResults = Lens.lens (\ListSecurityProfilePermissions' {maxResults} -> maxResults) (\s@ListSecurityProfilePermissions' {} a -> s {maxResults = a} :: ListSecurityProfilePermissions)
 
 -- | The identifier for the security profle.
 listSecurityProfilePermissions_securityProfileId :: Lens.Lens' ListSecurityProfilePermissions Prelude.Text
@@ -173,8 +173,8 @@ instance
   hashWithSalt
     _salt
     ListSecurityProfilePermissions' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` securityProfileId
         `Prelude.hashWithSalt` instanceId
 
@@ -183,8 +183,8 @@ instance
     ListSecurityProfilePermissions
   where
   rnf ListSecurityProfilePermissions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf securityProfileId
       `Prelude.seq` Prelude.rnf instanceId
 
@@ -214,8 +214,8 @@ instance Data.ToPath ListSecurityProfilePermissions where
 instance Data.ToQuery ListSecurityProfilePermissions where
   toQuery ListSecurityProfilePermissions' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListSecurityProfilePermissionsResponse' smart constructor.

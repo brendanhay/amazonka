@@ -30,17 +30,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSkillSummary' smart constructor.
 data SkillSummary = SkillSummary'
-  { -- | The name of the skill.
-    skillName :: Prelude.Maybe Prelude.Text,
-    -- | Linking support for a skill.
-    supportsLinking :: Prelude.Maybe Prelude.Bool,
-    -- | Whether the skill is enabled under the user\'s account, or if it
+  { -- | Whether the skill is enabled under the user\'s account, or if it
     -- requires linking to be used.
     enablementType :: Prelude.Maybe EnablementType,
+    -- | The ARN of the skill summary.
+    skillId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the skill.
+    skillName :: Prelude.Maybe Prelude.Text,
     -- | Whether the skill is publicly available or is a private skill.
     skillType :: Prelude.Maybe SkillType,
-    -- | The ARN of the skill summary.
-    skillId :: Prelude.Maybe Prelude.Text
+    -- | Linking support for a skill.
+    supportsLinking :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,47 +52,47 @@ data SkillSummary = SkillSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'skillName', 'skillSummary_skillName' - The name of the skill.
---
--- 'supportsLinking', 'skillSummary_supportsLinking' - Linking support for a skill.
---
 -- 'enablementType', 'skillSummary_enablementType' - Whether the skill is enabled under the user\'s account, or if it
 -- requires linking to be used.
 --
+-- 'skillId', 'skillSummary_skillId' - The ARN of the skill summary.
+--
+-- 'skillName', 'skillSummary_skillName' - The name of the skill.
+--
 -- 'skillType', 'skillSummary_skillType' - Whether the skill is publicly available or is a private skill.
 --
--- 'skillId', 'skillSummary_skillId' - The ARN of the skill summary.
+-- 'supportsLinking', 'skillSummary_supportsLinking' - Linking support for a skill.
 newSkillSummary ::
   SkillSummary
 newSkillSummary =
   SkillSummary'
-    { skillName = Prelude.Nothing,
-      supportsLinking = Prelude.Nothing,
-      enablementType = Prelude.Nothing,
+    { enablementType = Prelude.Nothing,
+      skillId = Prelude.Nothing,
+      skillName = Prelude.Nothing,
       skillType = Prelude.Nothing,
-      skillId = Prelude.Nothing
+      supportsLinking = Prelude.Nothing
     }
-
--- | The name of the skill.
-skillSummary_skillName :: Lens.Lens' SkillSummary (Prelude.Maybe Prelude.Text)
-skillSummary_skillName = Lens.lens (\SkillSummary' {skillName} -> skillName) (\s@SkillSummary' {} a -> s {skillName = a} :: SkillSummary)
-
--- | Linking support for a skill.
-skillSummary_supportsLinking :: Lens.Lens' SkillSummary (Prelude.Maybe Prelude.Bool)
-skillSummary_supportsLinking = Lens.lens (\SkillSummary' {supportsLinking} -> supportsLinking) (\s@SkillSummary' {} a -> s {supportsLinking = a} :: SkillSummary)
 
 -- | Whether the skill is enabled under the user\'s account, or if it
 -- requires linking to be used.
 skillSummary_enablementType :: Lens.Lens' SkillSummary (Prelude.Maybe EnablementType)
 skillSummary_enablementType = Lens.lens (\SkillSummary' {enablementType} -> enablementType) (\s@SkillSummary' {} a -> s {enablementType = a} :: SkillSummary)
 
+-- | The ARN of the skill summary.
+skillSummary_skillId :: Lens.Lens' SkillSummary (Prelude.Maybe Prelude.Text)
+skillSummary_skillId = Lens.lens (\SkillSummary' {skillId} -> skillId) (\s@SkillSummary' {} a -> s {skillId = a} :: SkillSummary)
+
+-- | The name of the skill.
+skillSummary_skillName :: Lens.Lens' SkillSummary (Prelude.Maybe Prelude.Text)
+skillSummary_skillName = Lens.lens (\SkillSummary' {skillName} -> skillName) (\s@SkillSummary' {} a -> s {skillName = a} :: SkillSummary)
+
 -- | Whether the skill is publicly available or is a private skill.
 skillSummary_skillType :: Lens.Lens' SkillSummary (Prelude.Maybe SkillType)
 skillSummary_skillType = Lens.lens (\SkillSummary' {skillType} -> skillType) (\s@SkillSummary' {} a -> s {skillType = a} :: SkillSummary)
 
--- | The ARN of the skill summary.
-skillSummary_skillId :: Lens.Lens' SkillSummary (Prelude.Maybe Prelude.Text)
-skillSummary_skillId = Lens.lens (\SkillSummary' {skillId} -> skillId) (\s@SkillSummary' {} a -> s {skillId = a} :: SkillSummary)
+-- | Linking support for a skill.
+skillSummary_supportsLinking :: Lens.Lens' SkillSummary (Prelude.Maybe Prelude.Bool)
+skillSummary_supportsLinking = Lens.lens (\SkillSummary' {supportsLinking} -> supportsLinking) (\s@SkillSummary' {} a -> s {supportsLinking = a} :: SkillSummary)
 
 instance Data.FromJSON SkillSummary where
   parseJSON =
@@ -100,25 +100,25 @@ instance Data.FromJSON SkillSummary where
       "SkillSummary"
       ( \x ->
           SkillSummary'
-            Prelude.<$> (x Data..:? "SkillName")
-            Prelude.<*> (x Data..:? "SupportsLinking")
-            Prelude.<*> (x Data..:? "EnablementType")
-            Prelude.<*> (x Data..:? "SkillType")
+            Prelude.<$> (x Data..:? "EnablementType")
             Prelude.<*> (x Data..:? "SkillId")
+            Prelude.<*> (x Data..:? "SkillName")
+            Prelude.<*> (x Data..:? "SkillType")
+            Prelude.<*> (x Data..:? "SupportsLinking")
       )
 
 instance Prelude.Hashable SkillSummary where
   hashWithSalt _salt SkillSummary' {..} =
-    _salt `Prelude.hashWithSalt` skillName
-      `Prelude.hashWithSalt` supportsLinking
-      `Prelude.hashWithSalt` enablementType
-      `Prelude.hashWithSalt` skillType
+    _salt `Prelude.hashWithSalt` enablementType
       `Prelude.hashWithSalt` skillId
+      `Prelude.hashWithSalt` skillName
+      `Prelude.hashWithSalt` skillType
+      `Prelude.hashWithSalt` supportsLinking
 
 instance Prelude.NFData SkillSummary where
   rnf SkillSummary' {..} =
-    Prelude.rnf skillName
-      `Prelude.seq` Prelude.rnf supportsLinking
-      `Prelude.seq` Prelude.rnf enablementType
-      `Prelude.seq` Prelude.rnf skillType
+    Prelude.rnf enablementType
       `Prelude.seq` Prelude.rnf skillId
+      `Prelude.seq` Prelude.rnf skillName
+      `Prelude.seq` Prelude.rnf skillType
+      `Prelude.seq` Prelude.rnf supportsLinking

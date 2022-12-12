@@ -39,8 +39,8 @@ module Amazonka.ElasticBeanstalk.DescribeConfigurationSettings
     newDescribeConfigurationSettings,
 
     -- * Request Lenses
-    describeConfigurationSettings_templateName,
     describeConfigurationSettings_environmentName,
+    describeConfigurationSettings_templateName,
     describeConfigurationSettings_applicationName,
 
     -- * Destructuring the Response
@@ -66,7 +66,14 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeConfigurationSettings' smart constructor.
 data DescribeConfigurationSettings = DescribeConfigurationSettings'
-  { -- | The name of the configuration template to describe.
+  { -- | The name of the environment to describe.
+    --
+    -- Condition: You must specify either this or a TemplateName, but not both.
+    -- If you specify both, AWS Elastic Beanstalk returns an
+    -- @InvalidParameterCombination@ error. If you do not specify either, AWS
+    -- Elastic Beanstalk returns @MissingRequiredParameter@ error.
+    environmentName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the configuration template to describe.
     --
     -- Conditional: You must specify either this parameter or an
     -- EnvironmentName, but not both. If you specify both, AWS Elastic
@@ -74,13 +81,6 @@ data DescribeConfigurationSettings = DescribeConfigurationSettings'
     -- specify either, AWS Elastic Beanstalk returns a
     -- @MissingRequiredParameter@ error.
     templateName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the environment to describe.
-    --
-    -- Condition: You must specify either this or a TemplateName, but not both.
-    -- If you specify both, AWS Elastic Beanstalk returns an
-    -- @InvalidParameterCombination@ error. If you do not specify either, AWS
-    -- Elastic Beanstalk returns @MissingRequiredParameter@ error.
-    environmentName :: Prelude.Maybe Prelude.Text,
     -- | The application for the environment or configuration template.
     applicationName :: Prelude.Text
   }
@@ -94,6 +94,13 @@ data DescribeConfigurationSettings = DescribeConfigurationSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'environmentName', 'describeConfigurationSettings_environmentName' - The name of the environment to describe.
+--
+-- Condition: You must specify either this or a TemplateName, but not both.
+-- If you specify both, AWS Elastic Beanstalk returns an
+-- @InvalidParameterCombination@ error. If you do not specify either, AWS
+-- Elastic Beanstalk returns @MissingRequiredParameter@ error.
+--
 -- 'templateName', 'describeConfigurationSettings_templateName' - The name of the configuration template to describe.
 --
 -- Conditional: You must specify either this parameter or an
@@ -102,13 +109,6 @@ data DescribeConfigurationSettings = DescribeConfigurationSettings'
 -- specify either, AWS Elastic Beanstalk returns a
 -- @MissingRequiredParameter@ error.
 --
--- 'environmentName', 'describeConfigurationSettings_environmentName' - The name of the environment to describe.
---
--- Condition: You must specify either this or a TemplateName, but not both.
--- If you specify both, AWS Elastic Beanstalk returns an
--- @InvalidParameterCombination@ error. If you do not specify either, AWS
--- Elastic Beanstalk returns @MissingRequiredParameter@ error.
---
 -- 'applicationName', 'describeConfigurationSettings_applicationName' - The application for the environment or configuration template.
 newDescribeConfigurationSettings ::
   -- | 'applicationName'
@@ -116,11 +116,20 @@ newDescribeConfigurationSettings ::
   DescribeConfigurationSettings
 newDescribeConfigurationSettings pApplicationName_ =
   DescribeConfigurationSettings'
-    { templateName =
+    { environmentName =
         Prelude.Nothing,
-      environmentName = Prelude.Nothing,
+      templateName = Prelude.Nothing,
       applicationName = pApplicationName_
     }
+
+-- | The name of the environment to describe.
+--
+-- Condition: You must specify either this or a TemplateName, but not both.
+-- If you specify both, AWS Elastic Beanstalk returns an
+-- @InvalidParameterCombination@ error. If you do not specify either, AWS
+-- Elastic Beanstalk returns @MissingRequiredParameter@ error.
+describeConfigurationSettings_environmentName :: Lens.Lens' DescribeConfigurationSettings (Prelude.Maybe Prelude.Text)
+describeConfigurationSettings_environmentName = Lens.lens (\DescribeConfigurationSettings' {environmentName} -> environmentName) (\s@DescribeConfigurationSettings' {} a -> s {environmentName = a} :: DescribeConfigurationSettings)
 
 -- | The name of the configuration template to describe.
 --
@@ -131,15 +140,6 @@ newDescribeConfigurationSettings pApplicationName_ =
 -- @MissingRequiredParameter@ error.
 describeConfigurationSettings_templateName :: Lens.Lens' DescribeConfigurationSettings (Prelude.Maybe Prelude.Text)
 describeConfigurationSettings_templateName = Lens.lens (\DescribeConfigurationSettings' {templateName} -> templateName) (\s@DescribeConfigurationSettings' {} a -> s {templateName = a} :: DescribeConfigurationSettings)
-
--- | The name of the environment to describe.
---
--- Condition: You must specify either this or a TemplateName, but not both.
--- If you specify both, AWS Elastic Beanstalk returns an
--- @InvalidParameterCombination@ error. If you do not specify either, AWS
--- Elastic Beanstalk returns @MissingRequiredParameter@ error.
-describeConfigurationSettings_environmentName :: Lens.Lens' DescribeConfigurationSettings (Prelude.Maybe Prelude.Text)
-describeConfigurationSettings_environmentName = Lens.lens (\DescribeConfigurationSettings' {environmentName} -> environmentName) (\s@DescribeConfigurationSettings' {} a -> s {environmentName = a} :: DescribeConfigurationSettings)
 
 -- | The application for the environment or configuration template.
 describeConfigurationSettings_applicationName :: Lens.Lens' DescribeConfigurationSettings Prelude.Text
@@ -171,14 +171,14 @@ instance
     DescribeConfigurationSettings
   where
   hashWithSalt _salt DescribeConfigurationSettings' {..} =
-    _salt `Prelude.hashWithSalt` templateName
-      `Prelude.hashWithSalt` environmentName
+    _salt `Prelude.hashWithSalt` environmentName
+      `Prelude.hashWithSalt` templateName
       `Prelude.hashWithSalt` applicationName
 
 instance Prelude.NFData DescribeConfigurationSettings where
   rnf DescribeConfigurationSettings' {..} =
-    Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf environmentName
+    Prelude.rnf environmentName
+      `Prelude.seq` Prelude.rnf templateName
       `Prelude.seq` Prelude.rnf applicationName
 
 instance Data.ToHeaders DescribeConfigurationSettings where
@@ -196,8 +196,8 @@ instance Data.ToQuery DescribeConfigurationSettings where
                   ),
         "Version"
           Data.=: ("2010-12-01" :: Prelude.ByteString),
-        "TemplateName" Data.=: templateName,
         "EnvironmentName" Data.=: environmentName,
+        "TemplateName" Data.=: templateName,
         "ApplicationName" Data.=: applicationName
       ]
 

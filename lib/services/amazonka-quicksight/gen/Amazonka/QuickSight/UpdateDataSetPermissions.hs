@@ -40,9 +40,9 @@ module Amazonka.QuickSight.UpdateDataSetPermissions
     newUpdateDataSetPermissionsResponse,
 
     -- * Response Lenses
-    updateDataSetPermissionsResponse_requestId,
     updateDataSetPermissionsResponse_dataSetArn,
     updateDataSetPermissionsResponse_dataSetId,
+    updateDataSetPermissionsResponse_requestId,
     updateDataSetPermissionsResponse_status,
   )
 where
@@ -132,9 +132,9 @@ instance Core.AWSRequest UpdateDataSetPermissions where
     Response.receiveJSON
       ( \s h x ->
           UpdateDataSetPermissionsResponse'
-            Prelude.<$> (x Data..?> "RequestId")
-            Prelude.<*> (x Data..?> "DataSetArn")
+            Prelude.<$> (x Data..?> "DataSetArn")
             Prelude.<*> (x Data..?> "DataSetId")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -189,14 +189,14 @@ instance Data.ToQuery UpdateDataSetPermissions where
 
 -- | /See:/ 'newUpdateDataSetPermissionsResponse' smart constructor.
 data UpdateDataSetPermissionsResponse = UpdateDataSetPermissionsResponse'
-  { -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the dataset.
+  { -- | The Amazon Resource Name (ARN) of the dataset.
     dataSetArn :: Prelude.Maybe Prelude.Text,
     -- | The ID for the dataset whose permissions you want to update. This ID is
     -- unique per Amazon Web Services Region for each Amazon Web Services
     -- account.
     dataSetId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -210,13 +210,13 @@ data UpdateDataSetPermissionsResponse = UpdateDataSetPermissionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'updateDataSetPermissionsResponse_requestId' - The Amazon Web Services request ID for this operation.
---
 -- 'dataSetArn', 'updateDataSetPermissionsResponse_dataSetArn' - The Amazon Resource Name (ARN) of the dataset.
 --
 -- 'dataSetId', 'updateDataSetPermissionsResponse_dataSetId' - The ID for the dataset whose permissions you want to update. This ID is
 -- unique per Amazon Web Services Region for each Amazon Web Services
 -- account.
+--
+-- 'requestId', 'updateDataSetPermissionsResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'status', 'updateDataSetPermissionsResponse_status' - The HTTP status of the request.
 newUpdateDataSetPermissionsResponse ::
@@ -225,16 +225,12 @@ newUpdateDataSetPermissionsResponse ::
   UpdateDataSetPermissionsResponse
 newUpdateDataSetPermissionsResponse pStatus_ =
   UpdateDataSetPermissionsResponse'
-    { requestId =
+    { dataSetArn =
         Prelude.Nothing,
-      dataSetArn = Prelude.Nothing,
       dataSetId = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       status = pStatus_
     }
-
--- | The Amazon Web Services request ID for this operation.
-updateDataSetPermissionsResponse_requestId :: Lens.Lens' UpdateDataSetPermissionsResponse (Prelude.Maybe Prelude.Text)
-updateDataSetPermissionsResponse_requestId = Lens.lens (\UpdateDataSetPermissionsResponse' {requestId} -> requestId) (\s@UpdateDataSetPermissionsResponse' {} a -> s {requestId = a} :: UpdateDataSetPermissionsResponse)
 
 -- | The Amazon Resource Name (ARN) of the dataset.
 updateDataSetPermissionsResponse_dataSetArn :: Lens.Lens' UpdateDataSetPermissionsResponse (Prelude.Maybe Prelude.Text)
@@ -246,6 +242,10 @@ updateDataSetPermissionsResponse_dataSetArn = Lens.lens (\UpdateDataSetPermissio
 updateDataSetPermissionsResponse_dataSetId :: Lens.Lens' UpdateDataSetPermissionsResponse (Prelude.Maybe Prelude.Text)
 updateDataSetPermissionsResponse_dataSetId = Lens.lens (\UpdateDataSetPermissionsResponse' {dataSetId} -> dataSetId) (\s@UpdateDataSetPermissionsResponse' {} a -> s {dataSetId = a} :: UpdateDataSetPermissionsResponse)
 
+-- | The Amazon Web Services request ID for this operation.
+updateDataSetPermissionsResponse_requestId :: Lens.Lens' UpdateDataSetPermissionsResponse (Prelude.Maybe Prelude.Text)
+updateDataSetPermissionsResponse_requestId = Lens.lens (\UpdateDataSetPermissionsResponse' {requestId} -> requestId) (\s@UpdateDataSetPermissionsResponse' {} a -> s {requestId = a} :: UpdateDataSetPermissionsResponse)
+
 -- | The HTTP status of the request.
 updateDataSetPermissionsResponse_status :: Lens.Lens' UpdateDataSetPermissionsResponse Prelude.Int
 updateDataSetPermissionsResponse_status = Lens.lens (\UpdateDataSetPermissionsResponse' {status} -> status) (\s@UpdateDataSetPermissionsResponse' {} a -> s {status = a} :: UpdateDataSetPermissionsResponse)
@@ -255,7 +255,7 @@ instance
     UpdateDataSetPermissionsResponse
   where
   rnf UpdateDataSetPermissionsResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf dataSetArn
+    Prelude.rnf dataSetArn
       `Prelude.seq` Prelude.rnf dataSetId
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf status

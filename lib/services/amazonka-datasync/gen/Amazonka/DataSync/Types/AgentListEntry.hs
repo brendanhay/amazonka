@@ -32,12 +32,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAgentListEntry' smart constructor.
 data AgentListEntry = AgentListEntry'
-  { -- | The name of the agent.
+  { -- | The Amazon Resource Name (ARN) of the agent.
+    agentArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the agent.
     name :: Prelude.Maybe Prelude.Text,
     -- | The status of the agent.
-    status :: Prelude.Maybe AgentStatus,
-    -- | The Amazon Resource Name (ARN) of the agent.
-    agentArn :: Prelude.Maybe Prelude.Text
+    status :: Prelude.Maybe AgentStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,19 +49,23 @@ data AgentListEntry = AgentListEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'agentArn', 'agentListEntry_agentArn' - The Amazon Resource Name (ARN) of the agent.
+--
 -- 'name', 'agentListEntry_name' - The name of the agent.
 --
 -- 'status', 'agentListEntry_status' - The status of the agent.
---
--- 'agentArn', 'agentListEntry_agentArn' - The Amazon Resource Name (ARN) of the agent.
 newAgentListEntry ::
   AgentListEntry
 newAgentListEntry =
   AgentListEntry'
-    { name = Prelude.Nothing,
-      status = Prelude.Nothing,
-      agentArn = Prelude.Nothing
+    { agentArn = Prelude.Nothing,
+      name = Prelude.Nothing,
+      status = Prelude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the agent.
+agentListEntry_agentArn :: Lens.Lens' AgentListEntry (Prelude.Maybe Prelude.Text)
+agentListEntry_agentArn = Lens.lens (\AgentListEntry' {agentArn} -> agentArn) (\s@AgentListEntry' {} a -> s {agentArn = a} :: AgentListEntry)
 
 -- | The name of the agent.
 agentListEntry_name :: Lens.Lens' AgentListEntry (Prelude.Maybe Prelude.Text)
@@ -71,29 +75,25 @@ agentListEntry_name = Lens.lens (\AgentListEntry' {name} -> name) (\s@AgentListE
 agentListEntry_status :: Lens.Lens' AgentListEntry (Prelude.Maybe AgentStatus)
 agentListEntry_status = Lens.lens (\AgentListEntry' {status} -> status) (\s@AgentListEntry' {} a -> s {status = a} :: AgentListEntry)
 
--- | The Amazon Resource Name (ARN) of the agent.
-agentListEntry_agentArn :: Lens.Lens' AgentListEntry (Prelude.Maybe Prelude.Text)
-agentListEntry_agentArn = Lens.lens (\AgentListEntry' {agentArn} -> agentArn) (\s@AgentListEntry' {} a -> s {agentArn = a} :: AgentListEntry)
-
 instance Data.FromJSON AgentListEntry where
   parseJSON =
     Data.withObject
       "AgentListEntry"
       ( \x ->
           AgentListEntry'
-            Prelude.<$> (x Data..:? "Name")
+            Prelude.<$> (x Data..:? "AgentArn")
+            Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "AgentArn")
       )
 
 instance Prelude.Hashable AgentListEntry where
   hashWithSalt _salt AgentListEntry' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` agentArn
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` agentArn
 
 instance Prelude.NFData AgentListEntry where
   rnf AgentListEntry' {..} =
-    Prelude.rnf name
+    Prelude.rnf agentArn
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf agentArn

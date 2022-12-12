@@ -29,8 +29,8 @@ module Amazonka.VoiceId.ListSpeakers
     newListSpeakers,
 
     -- * Request Lenses
-    listSpeakers_nextToken,
     listSpeakers_maxResults,
+    listSpeakers_nextToken,
     listSpeakers_domainId,
 
     -- * Destructuring the Response
@@ -54,15 +54,15 @@ import Amazonka.VoiceId.Types
 
 -- | /See:/ 'newListSpeakers' smart constructor.
 data ListSpeakers = ListSpeakers'
-  { -- | If @NextToken@ is returned, there are more results available. The value
+  { -- | The maximum number of results that are returned per call. You can use
+    -- @NextToken@ to obtain further pages of results. The default is 100; the
+    -- maximum allowed page size is also 100.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If @NextToken@ is returned, there are more results available. The value
     -- of @NextToken@ is a unique pagination token for each page. Make the call
     -- again using the returned token to retrieve the next page. Keep all other
     -- arguments unchanged. Each pagination token expires after 24 hours.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results that are returned per call. You can use
-    -- @NextToken@ to obtain further pages of results. The default is 100; the
-    -- maximum allowed page size is also 100.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the domain.
     domainId :: Prelude.Text
   }
@@ -76,14 +76,14 @@ data ListSpeakers = ListSpeakers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listSpeakers_maxResults' - The maximum number of results that are returned per call. You can use
+-- @NextToken@ to obtain further pages of results. The default is 100; the
+-- maximum allowed page size is also 100.
+--
 -- 'nextToken', 'listSpeakers_nextToken' - If @NextToken@ is returned, there are more results available. The value
 -- of @NextToken@ is a unique pagination token for each page. Make the call
 -- again using the returned token to retrieve the next page. Keep all other
 -- arguments unchanged. Each pagination token expires after 24 hours.
---
--- 'maxResults', 'listSpeakers_maxResults' - The maximum number of results that are returned per call. You can use
--- @NextToken@ to obtain further pages of results. The default is 100; the
--- maximum allowed page size is also 100.
 --
 -- 'domainId', 'listSpeakers_domainId' - The identifier of the domain.
 newListSpeakers ::
@@ -92,10 +92,16 @@ newListSpeakers ::
   ListSpeakers
 newListSpeakers pDomainId_ =
   ListSpeakers'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       domainId = pDomainId_
     }
+
+-- | The maximum number of results that are returned per call. You can use
+-- @NextToken@ to obtain further pages of results. The default is 100; the
+-- maximum allowed page size is also 100.
+listSpeakers_maxResults :: Lens.Lens' ListSpeakers (Prelude.Maybe Prelude.Natural)
+listSpeakers_maxResults = Lens.lens (\ListSpeakers' {maxResults} -> maxResults) (\s@ListSpeakers' {} a -> s {maxResults = a} :: ListSpeakers)
 
 -- | If @NextToken@ is returned, there are more results available. The value
 -- of @NextToken@ is a unique pagination token for each page. Make the call
@@ -103,12 +109,6 @@ newListSpeakers pDomainId_ =
 -- arguments unchanged. Each pagination token expires after 24 hours.
 listSpeakers_nextToken :: Lens.Lens' ListSpeakers (Prelude.Maybe Prelude.Text)
 listSpeakers_nextToken = Lens.lens (\ListSpeakers' {nextToken} -> nextToken) (\s@ListSpeakers' {} a -> s {nextToken = a} :: ListSpeakers)
-
--- | The maximum number of results that are returned per call. You can use
--- @NextToken@ to obtain further pages of results. The default is 100; the
--- maximum allowed page size is also 100.
-listSpeakers_maxResults :: Lens.Lens' ListSpeakers (Prelude.Maybe Prelude.Natural)
-listSpeakers_maxResults = Lens.lens (\ListSpeakers' {maxResults} -> maxResults) (\s@ListSpeakers' {} a -> s {maxResults = a} :: ListSpeakers)
 
 -- | The identifier of the domain.
 listSpeakers_domainId :: Lens.Lens' ListSpeakers Prelude.Text
@@ -151,14 +151,14 @@ instance Core.AWSRequest ListSpeakers where
 
 instance Prelude.Hashable ListSpeakers where
   hashWithSalt _salt ListSpeakers' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` domainId
 
 instance Prelude.NFData ListSpeakers where
   rnf ListSpeakers' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf domainId
 
 instance Data.ToHeaders ListSpeakers where
@@ -178,8 +178,8 @@ instance Data.ToJSON ListSpeakers where
   toJSON ListSpeakers' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("DomainId" Data..= domainId)
           ]
       )

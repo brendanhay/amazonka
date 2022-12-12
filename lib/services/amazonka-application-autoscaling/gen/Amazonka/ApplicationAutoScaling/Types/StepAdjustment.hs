@@ -58,7 +58,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStepAdjustment' smart constructor.
 data StepAdjustment = StepAdjustment'
-  { -- | The upper bound for the difference between the alarm threshold and the
+  { -- | The lower bound for the difference between the alarm threshold and the
+    -- CloudWatch metric. If the metric value is above the breach threshold,
+    -- the lower bound is inclusive (the metric must be greater than or equal
+    -- to the threshold plus the lower bound). Otherwise, it is exclusive (the
+    -- metric must be greater than the threshold plus the lower bound). A null
+    -- value indicates negative infinity.
+    metricIntervalLowerBound :: Prelude.Maybe Prelude.Double,
+    -- | The upper bound for the difference between the alarm threshold and the
     -- CloudWatch metric. If the metric value is above the breach threshold,
     -- the upper bound is exclusive (the metric must be less than the threshold
     -- plus the upper bound). Otherwise, it is inclusive (the metric must be
@@ -67,13 +74,6 @@ data StepAdjustment = StepAdjustment'
     --
     -- The upper bound must be greater than the lower bound.
     metricIntervalUpperBound :: Prelude.Maybe Prelude.Double,
-    -- | The lower bound for the difference between the alarm threshold and the
-    -- CloudWatch metric. If the metric value is above the breach threshold,
-    -- the lower bound is inclusive (the metric must be greater than or equal
-    -- to the threshold plus the lower bound). Otherwise, it is exclusive (the
-    -- metric must be greater than the threshold plus the lower bound). A null
-    -- value indicates negative infinity.
-    metricIntervalLowerBound :: Prelude.Maybe Prelude.Double,
     -- | The amount by which to scale, based on the specified adjustment type. A
     -- positive value adds to the current capacity while a negative number
     -- removes from the current capacity. For exact capacity, you must specify
@@ -90,6 +90,13 @@ data StepAdjustment = StepAdjustment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'metricIntervalLowerBound', 'stepAdjustment_metricIntervalLowerBound' - The lower bound for the difference between the alarm threshold and the
+-- CloudWatch metric. If the metric value is above the breach threshold,
+-- the lower bound is inclusive (the metric must be greater than or equal
+-- to the threshold plus the lower bound). Otherwise, it is exclusive (the
+-- metric must be greater than the threshold plus the lower bound). A null
+-- value indicates negative infinity.
+--
 -- 'metricIntervalUpperBound', 'stepAdjustment_metricIntervalUpperBound' - The upper bound for the difference between the alarm threshold and the
 -- CloudWatch metric. If the metric value is above the breach threshold,
 -- the upper bound is exclusive (the metric must be less than the threshold
@@ -98,13 +105,6 @@ data StepAdjustment = StepAdjustment'
 -- indicates positive infinity.
 --
 -- The upper bound must be greater than the lower bound.
---
--- 'metricIntervalLowerBound', 'stepAdjustment_metricIntervalLowerBound' - The lower bound for the difference between the alarm threshold and the
--- CloudWatch metric. If the metric value is above the breach threshold,
--- the lower bound is inclusive (the metric must be greater than or equal
--- to the threshold plus the lower bound). Otherwise, it is exclusive (the
--- metric must be greater than the threshold plus the lower bound). A null
--- value indicates negative infinity.
 --
 -- 'scalingAdjustment', 'stepAdjustment_scalingAdjustment' - The amount by which to scale, based on the specified adjustment type. A
 -- positive value adds to the current capacity while a negative number
@@ -116,11 +116,20 @@ newStepAdjustment ::
   StepAdjustment
 newStepAdjustment pScalingAdjustment_ =
   StepAdjustment'
-    { metricIntervalUpperBound =
+    { metricIntervalLowerBound =
         Prelude.Nothing,
-      metricIntervalLowerBound = Prelude.Nothing,
+      metricIntervalUpperBound = Prelude.Nothing,
       scalingAdjustment = pScalingAdjustment_
     }
+
+-- | The lower bound for the difference between the alarm threshold and the
+-- CloudWatch metric. If the metric value is above the breach threshold,
+-- the lower bound is inclusive (the metric must be greater than or equal
+-- to the threshold plus the lower bound). Otherwise, it is exclusive (the
+-- metric must be greater than the threshold plus the lower bound). A null
+-- value indicates negative infinity.
+stepAdjustment_metricIntervalLowerBound :: Lens.Lens' StepAdjustment (Prelude.Maybe Prelude.Double)
+stepAdjustment_metricIntervalLowerBound = Lens.lens (\StepAdjustment' {metricIntervalLowerBound} -> metricIntervalLowerBound) (\s@StepAdjustment' {} a -> s {metricIntervalLowerBound = a} :: StepAdjustment)
 
 -- | The upper bound for the difference between the alarm threshold and the
 -- CloudWatch metric. If the metric value is above the breach threshold,
@@ -132,15 +141,6 @@ newStepAdjustment pScalingAdjustment_ =
 -- The upper bound must be greater than the lower bound.
 stepAdjustment_metricIntervalUpperBound :: Lens.Lens' StepAdjustment (Prelude.Maybe Prelude.Double)
 stepAdjustment_metricIntervalUpperBound = Lens.lens (\StepAdjustment' {metricIntervalUpperBound} -> metricIntervalUpperBound) (\s@StepAdjustment' {} a -> s {metricIntervalUpperBound = a} :: StepAdjustment)
-
--- | The lower bound for the difference between the alarm threshold and the
--- CloudWatch metric. If the metric value is above the breach threshold,
--- the lower bound is inclusive (the metric must be greater than or equal
--- to the threshold plus the lower bound). Otherwise, it is exclusive (the
--- metric must be greater than the threshold plus the lower bound). A null
--- value indicates negative infinity.
-stepAdjustment_metricIntervalLowerBound :: Lens.Lens' StepAdjustment (Prelude.Maybe Prelude.Double)
-stepAdjustment_metricIntervalLowerBound = Lens.lens (\StepAdjustment' {metricIntervalLowerBound} -> metricIntervalLowerBound) (\s@StepAdjustment' {} a -> s {metricIntervalLowerBound = a} :: StepAdjustment)
 
 -- | The amount by which to scale, based on the specified adjustment type. A
 -- positive value adds to the current capacity while a negative number
@@ -155,32 +155,32 @@ instance Data.FromJSON StepAdjustment where
       "StepAdjustment"
       ( \x ->
           StepAdjustment'
-            Prelude.<$> (x Data..:? "MetricIntervalUpperBound")
-            Prelude.<*> (x Data..:? "MetricIntervalLowerBound")
+            Prelude.<$> (x Data..:? "MetricIntervalLowerBound")
+            Prelude.<*> (x Data..:? "MetricIntervalUpperBound")
             Prelude.<*> (x Data..: "ScalingAdjustment")
       )
 
 instance Prelude.Hashable StepAdjustment where
   hashWithSalt _salt StepAdjustment' {..} =
     _salt
-      `Prelude.hashWithSalt` metricIntervalUpperBound
       `Prelude.hashWithSalt` metricIntervalLowerBound
+      `Prelude.hashWithSalt` metricIntervalUpperBound
       `Prelude.hashWithSalt` scalingAdjustment
 
 instance Prelude.NFData StepAdjustment where
   rnf StepAdjustment' {..} =
-    Prelude.rnf metricIntervalUpperBound
-      `Prelude.seq` Prelude.rnf metricIntervalLowerBound
+    Prelude.rnf metricIntervalLowerBound
+      `Prelude.seq` Prelude.rnf metricIntervalUpperBound
       `Prelude.seq` Prelude.rnf scalingAdjustment
 
 instance Data.ToJSON StepAdjustment where
   toJSON StepAdjustment' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("MetricIntervalUpperBound" Data..=)
-              Prelude.<$> metricIntervalUpperBound,
-            ("MetricIntervalLowerBound" Data..=)
+          [ ("MetricIntervalLowerBound" Data..=)
               Prelude.<$> metricIntervalLowerBound,
+            ("MetricIntervalUpperBound" Data..=)
+              Prelude.<$> metricIntervalUpperBound,
             Prelude.Just
               ("ScalingAdjustment" Data..= scalingAdjustment)
           ]

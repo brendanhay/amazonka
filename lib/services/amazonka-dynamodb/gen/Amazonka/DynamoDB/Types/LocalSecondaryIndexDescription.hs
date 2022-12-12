@@ -32,18 +32,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLocalSecondaryIndexDescription' smart constructor.
 data LocalSecondaryIndexDescription = LocalSecondaryIndexDescription'
-  { -- | The number of items in the specified index. DynamoDB updates this value
-    -- approximately every six hours. Recent changes might not be reflected in
-    -- this value.
-    itemCount :: Prelude.Maybe Prelude.Integer,
+  { -- | The Amazon Resource Name (ARN) that uniquely identifies the index.
+    indexArn :: Prelude.Maybe Prelude.Text,
     -- | Represents the name of the local secondary index.
     indexName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) that uniquely identifies the index.
-    indexArn :: Prelude.Maybe Prelude.Text,
     -- | The total size of the specified index, in bytes. DynamoDB updates this
     -- value approximately every six hours. Recent changes might not be
     -- reflected in this value.
     indexSizeBytes :: Prelude.Maybe Prelude.Integer,
+    -- | The number of items in the specified index. DynamoDB updates this value
+    -- approximately every six hours. Recent changes might not be reflected in
+    -- this value.
+    itemCount :: Prelude.Maybe Prelude.Integer,
     -- | The complete key schema for the local secondary index, consisting of one
     -- or more pairs of attribute names and key types:
     --
@@ -76,17 +76,17 @@ data LocalSecondaryIndexDescription = LocalSecondaryIndexDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'itemCount', 'localSecondaryIndexDescription_itemCount' - The number of items in the specified index. DynamoDB updates this value
--- approximately every six hours. Recent changes might not be reflected in
--- this value.
+-- 'indexArn', 'localSecondaryIndexDescription_indexArn' - The Amazon Resource Name (ARN) that uniquely identifies the index.
 --
 -- 'indexName', 'localSecondaryIndexDescription_indexName' - Represents the name of the local secondary index.
---
--- 'indexArn', 'localSecondaryIndexDescription_indexArn' - The Amazon Resource Name (ARN) that uniquely identifies the index.
 --
 -- 'indexSizeBytes', 'localSecondaryIndexDescription_indexSizeBytes' - The total size of the specified index, in bytes. DynamoDB updates this
 -- value approximately every six hours. Recent changes might not be
 -- reflected in this value.
+--
+-- 'itemCount', 'localSecondaryIndexDescription_itemCount' - The number of items in the specified index. DynamoDB updates this value
+-- approximately every six hours. Recent changes might not be reflected in
+-- this value.
 --
 -- 'keySchema', 'localSecondaryIndexDescription_keySchema' - The complete key schema for the local secondary index, consisting of one
 -- or more pairs of attribute names and key types:
@@ -112,34 +112,34 @@ newLocalSecondaryIndexDescription ::
   LocalSecondaryIndexDescription
 newLocalSecondaryIndexDescription =
   LocalSecondaryIndexDescription'
-    { itemCount =
+    { indexArn =
         Prelude.Nothing,
       indexName = Prelude.Nothing,
-      indexArn = Prelude.Nothing,
       indexSizeBytes = Prelude.Nothing,
+      itemCount = Prelude.Nothing,
       keySchema = Prelude.Nothing,
       projection = Prelude.Nothing
     }
 
--- | The number of items in the specified index. DynamoDB updates this value
--- approximately every six hours. Recent changes might not be reflected in
--- this value.
-localSecondaryIndexDescription_itemCount :: Lens.Lens' LocalSecondaryIndexDescription (Prelude.Maybe Prelude.Integer)
-localSecondaryIndexDescription_itemCount = Lens.lens (\LocalSecondaryIndexDescription' {itemCount} -> itemCount) (\s@LocalSecondaryIndexDescription' {} a -> s {itemCount = a} :: LocalSecondaryIndexDescription)
+-- | The Amazon Resource Name (ARN) that uniquely identifies the index.
+localSecondaryIndexDescription_indexArn :: Lens.Lens' LocalSecondaryIndexDescription (Prelude.Maybe Prelude.Text)
+localSecondaryIndexDescription_indexArn = Lens.lens (\LocalSecondaryIndexDescription' {indexArn} -> indexArn) (\s@LocalSecondaryIndexDescription' {} a -> s {indexArn = a} :: LocalSecondaryIndexDescription)
 
 -- | Represents the name of the local secondary index.
 localSecondaryIndexDescription_indexName :: Lens.Lens' LocalSecondaryIndexDescription (Prelude.Maybe Prelude.Text)
 localSecondaryIndexDescription_indexName = Lens.lens (\LocalSecondaryIndexDescription' {indexName} -> indexName) (\s@LocalSecondaryIndexDescription' {} a -> s {indexName = a} :: LocalSecondaryIndexDescription)
-
--- | The Amazon Resource Name (ARN) that uniquely identifies the index.
-localSecondaryIndexDescription_indexArn :: Lens.Lens' LocalSecondaryIndexDescription (Prelude.Maybe Prelude.Text)
-localSecondaryIndexDescription_indexArn = Lens.lens (\LocalSecondaryIndexDescription' {indexArn} -> indexArn) (\s@LocalSecondaryIndexDescription' {} a -> s {indexArn = a} :: LocalSecondaryIndexDescription)
 
 -- | The total size of the specified index, in bytes. DynamoDB updates this
 -- value approximately every six hours. Recent changes might not be
 -- reflected in this value.
 localSecondaryIndexDescription_indexSizeBytes :: Lens.Lens' LocalSecondaryIndexDescription (Prelude.Maybe Prelude.Integer)
 localSecondaryIndexDescription_indexSizeBytes = Lens.lens (\LocalSecondaryIndexDescription' {indexSizeBytes} -> indexSizeBytes) (\s@LocalSecondaryIndexDescription' {} a -> s {indexSizeBytes = a} :: LocalSecondaryIndexDescription)
+
+-- | The number of items in the specified index. DynamoDB updates this value
+-- approximately every six hours. Recent changes might not be reflected in
+-- this value.
+localSecondaryIndexDescription_itemCount :: Lens.Lens' LocalSecondaryIndexDescription (Prelude.Maybe Prelude.Integer)
+localSecondaryIndexDescription_itemCount = Lens.lens (\LocalSecondaryIndexDescription' {itemCount} -> itemCount) (\s@LocalSecondaryIndexDescription' {} a -> s {itemCount = a} :: LocalSecondaryIndexDescription)
 
 -- | The complete key schema for the local secondary index, consisting of one
 -- or more pairs of attribute names and key types:
@@ -172,10 +172,10 @@ instance Data.FromJSON LocalSecondaryIndexDescription where
       "LocalSecondaryIndexDescription"
       ( \x ->
           LocalSecondaryIndexDescription'
-            Prelude.<$> (x Data..:? "ItemCount")
+            Prelude.<$> (x Data..:? "IndexArn")
             Prelude.<*> (x Data..:? "IndexName")
-            Prelude.<*> (x Data..:? "IndexArn")
             Prelude.<*> (x Data..:? "IndexSizeBytes")
+            Prelude.<*> (x Data..:? "ItemCount")
             Prelude.<*> (x Data..:? "KeySchema")
             Prelude.<*> (x Data..:? "Projection")
       )
@@ -187,10 +187,10 @@ instance
   hashWithSalt
     _salt
     LocalSecondaryIndexDescription' {..} =
-      _salt `Prelude.hashWithSalt` itemCount
+      _salt `Prelude.hashWithSalt` indexArn
         `Prelude.hashWithSalt` indexName
-        `Prelude.hashWithSalt` indexArn
         `Prelude.hashWithSalt` indexSizeBytes
+        `Prelude.hashWithSalt` itemCount
         `Prelude.hashWithSalt` keySchema
         `Prelude.hashWithSalt` projection
 
@@ -199,9 +199,9 @@ instance
     LocalSecondaryIndexDescription
   where
   rnf LocalSecondaryIndexDescription' {..} =
-    Prelude.rnf itemCount
+    Prelude.rnf indexArn
       `Prelude.seq` Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf indexArn
       `Prelude.seq` Prelude.rnf indexSizeBytes
+      `Prelude.seq` Prelude.rnf itemCount
       `Prelude.seq` Prelude.rnf keySchema
       `Prelude.seq` Prelude.rnf projection

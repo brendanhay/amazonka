@@ -43,19 +43,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBatchGetAssetPropertyAggregatesEntry' smart constructor.
 data BatchGetAssetPropertyAggregatesEntry = BatchGetAssetPropertyAggregatesEntry'
-  { -- | The alias that identifies the property, such as an OPC-UA server data
+  { -- | The ID of the asset in which the asset property was created.
+    assetId :: Prelude.Maybe Prelude.Text,
+    -- | The alias that identifies the property, such as an OPC-UA server data
     -- stream path (for example,
     -- @\/company\/windfarm\/3\/turbine\/7\/temperature@). For more
     -- information, see
     -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html Mapping industrial data streams to asset properties>
     -- in the /IoT SiteWise User Guide/.
     propertyAlias :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the asset in which the asset property was created.
-    assetId :: Prelude.Maybe Prelude.Text,
-    -- | The quality by which to filter asset data.
-    qualities :: Prelude.Maybe (Prelude.NonEmpty Quality),
     -- | The ID of the asset property.
     propertyId :: Prelude.Maybe Prelude.Text,
+    -- | The quality by which to filter asset data.
+    qualities :: Prelude.Maybe (Prelude.NonEmpty Quality),
     -- | The chronological sorting order of the requested information.
     --
     -- Default: @ASCENDING@
@@ -83,6 +83,8 @@ data BatchGetAssetPropertyAggregatesEntry = BatchGetAssetPropertyAggregatesEntry
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'assetId', 'batchGetAssetPropertyAggregatesEntry_assetId' - The ID of the asset in which the asset property was created.
+--
 -- 'propertyAlias', 'batchGetAssetPropertyAggregatesEntry_propertyAlias' - The alias that identifies the property, such as an OPC-UA server data
 -- stream path (for example,
 -- @\/company\/windfarm\/3\/turbine\/7\/temperature@). For more
@@ -90,11 +92,9 @@ data BatchGetAssetPropertyAggregatesEntry = BatchGetAssetPropertyAggregatesEntry
 -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html Mapping industrial data streams to asset properties>
 -- in the /IoT SiteWise User Guide/.
 --
--- 'assetId', 'batchGetAssetPropertyAggregatesEntry_assetId' - The ID of the asset in which the asset property was created.
+-- 'propertyId', 'batchGetAssetPropertyAggregatesEntry_propertyId' - The ID of the asset property.
 --
 -- 'qualities', 'batchGetAssetPropertyAggregatesEntry_qualities' - The quality by which to filter asset data.
---
--- 'propertyId', 'batchGetAssetPropertyAggregatesEntry_propertyId' - The ID of the asset property.
 --
 -- 'timeOrdering', 'batchGetAssetPropertyAggregatesEntry_timeOrdering' - The chronological sorting order of the requested information.
 --
@@ -130,11 +130,11 @@ newBatchGetAssetPropertyAggregatesEntry
   pStartDate_
   pEndDate_ =
     BatchGetAssetPropertyAggregatesEntry'
-      { propertyAlias =
+      { assetId =
           Prelude.Nothing,
-        assetId = Prelude.Nothing,
-        qualities = Prelude.Nothing,
+        propertyAlias = Prelude.Nothing,
         propertyId = Prelude.Nothing,
+        qualities = Prelude.Nothing,
         timeOrdering = Prelude.Nothing,
         entryId = pEntryId_,
         aggregateTypes =
@@ -146,6 +146,10 @@ newBatchGetAssetPropertyAggregatesEntry
         endDate = Data._Time Lens.# pEndDate_
       }
 
+-- | The ID of the asset in which the asset property was created.
+batchGetAssetPropertyAggregatesEntry_assetId :: Lens.Lens' BatchGetAssetPropertyAggregatesEntry (Prelude.Maybe Prelude.Text)
+batchGetAssetPropertyAggregatesEntry_assetId = Lens.lens (\BatchGetAssetPropertyAggregatesEntry' {assetId} -> assetId) (\s@BatchGetAssetPropertyAggregatesEntry' {} a -> s {assetId = a} :: BatchGetAssetPropertyAggregatesEntry)
+
 -- | The alias that identifies the property, such as an OPC-UA server data
 -- stream path (for example,
 -- @\/company\/windfarm\/3\/turbine\/7\/temperature@). For more
@@ -155,17 +159,13 @@ newBatchGetAssetPropertyAggregatesEntry
 batchGetAssetPropertyAggregatesEntry_propertyAlias :: Lens.Lens' BatchGetAssetPropertyAggregatesEntry (Prelude.Maybe Prelude.Text)
 batchGetAssetPropertyAggregatesEntry_propertyAlias = Lens.lens (\BatchGetAssetPropertyAggregatesEntry' {propertyAlias} -> propertyAlias) (\s@BatchGetAssetPropertyAggregatesEntry' {} a -> s {propertyAlias = a} :: BatchGetAssetPropertyAggregatesEntry)
 
--- | The ID of the asset in which the asset property was created.
-batchGetAssetPropertyAggregatesEntry_assetId :: Lens.Lens' BatchGetAssetPropertyAggregatesEntry (Prelude.Maybe Prelude.Text)
-batchGetAssetPropertyAggregatesEntry_assetId = Lens.lens (\BatchGetAssetPropertyAggregatesEntry' {assetId} -> assetId) (\s@BatchGetAssetPropertyAggregatesEntry' {} a -> s {assetId = a} :: BatchGetAssetPropertyAggregatesEntry)
+-- | The ID of the asset property.
+batchGetAssetPropertyAggregatesEntry_propertyId :: Lens.Lens' BatchGetAssetPropertyAggregatesEntry (Prelude.Maybe Prelude.Text)
+batchGetAssetPropertyAggregatesEntry_propertyId = Lens.lens (\BatchGetAssetPropertyAggregatesEntry' {propertyId} -> propertyId) (\s@BatchGetAssetPropertyAggregatesEntry' {} a -> s {propertyId = a} :: BatchGetAssetPropertyAggregatesEntry)
 
 -- | The quality by which to filter asset data.
 batchGetAssetPropertyAggregatesEntry_qualities :: Lens.Lens' BatchGetAssetPropertyAggregatesEntry (Prelude.Maybe (Prelude.NonEmpty Quality))
 batchGetAssetPropertyAggregatesEntry_qualities = Lens.lens (\BatchGetAssetPropertyAggregatesEntry' {qualities} -> qualities) (\s@BatchGetAssetPropertyAggregatesEntry' {} a -> s {qualities = a} :: BatchGetAssetPropertyAggregatesEntry) Prelude.. Lens.mapping Lens.coerced
-
--- | The ID of the asset property.
-batchGetAssetPropertyAggregatesEntry_propertyId :: Lens.Lens' BatchGetAssetPropertyAggregatesEntry (Prelude.Maybe Prelude.Text)
-batchGetAssetPropertyAggregatesEntry_propertyId = Lens.lens (\BatchGetAssetPropertyAggregatesEntry' {propertyId} -> propertyId) (\s@BatchGetAssetPropertyAggregatesEntry' {} a -> s {propertyId = a} :: BatchGetAssetPropertyAggregatesEntry)
 
 -- | The chronological sorting order of the requested information.
 --
@@ -202,10 +202,10 @@ instance
   hashWithSalt
     _salt
     BatchGetAssetPropertyAggregatesEntry' {..} =
-      _salt `Prelude.hashWithSalt` propertyAlias
-        `Prelude.hashWithSalt` assetId
-        `Prelude.hashWithSalt` qualities
+      _salt `Prelude.hashWithSalt` assetId
+        `Prelude.hashWithSalt` propertyAlias
         `Prelude.hashWithSalt` propertyId
+        `Prelude.hashWithSalt` qualities
         `Prelude.hashWithSalt` timeOrdering
         `Prelude.hashWithSalt` entryId
         `Prelude.hashWithSalt` aggregateTypes
@@ -218,10 +218,10 @@ instance
     BatchGetAssetPropertyAggregatesEntry
   where
   rnf BatchGetAssetPropertyAggregatesEntry' {..} =
-    Prelude.rnf propertyAlias
-      `Prelude.seq` Prelude.rnf assetId
-      `Prelude.seq` Prelude.rnf qualities
+    Prelude.rnf assetId
+      `Prelude.seq` Prelude.rnf propertyAlias
       `Prelude.seq` Prelude.rnf propertyId
+      `Prelude.seq` Prelude.rnf qualities
       `Prelude.seq` Prelude.rnf timeOrdering
       `Prelude.seq` Prelude.rnf entryId
       `Prelude.seq` Prelude.rnf aggregateTypes
@@ -236,10 +236,10 @@ instance
   toJSON BatchGetAssetPropertyAggregatesEntry' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("propertyAlias" Data..=) Prelude.<$> propertyAlias,
-            ("assetId" Data..=) Prelude.<$> assetId,
-            ("qualities" Data..=) Prelude.<$> qualities,
+          [ ("assetId" Data..=) Prelude.<$> assetId,
+            ("propertyAlias" Data..=) Prelude.<$> propertyAlias,
             ("propertyId" Data..=) Prelude.<$> propertyId,
+            ("qualities" Data..=) Prelude.<$> qualities,
             ("timeOrdering" Data..=) Prelude.<$> timeOrdering,
             Prelude.Just ("entryId" Data..= entryId),
             Prelude.Just

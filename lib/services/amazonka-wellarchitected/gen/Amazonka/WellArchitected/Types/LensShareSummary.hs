@@ -29,9 +29,9 @@ import Amazonka.WellArchitected.Types.ShareStatus
 --
 -- /See:/ 'newLensShareSummary' smart constructor.
 data LensShareSummary = LensShareSummary'
-  { sharedWith :: Prelude.Maybe Prelude.Text,
+  { shareId :: Prelude.Maybe Prelude.Text,
+    sharedWith :: Prelude.Maybe Prelude.Text,
     status :: Prelude.Maybe ShareStatus,
-    shareId :: Prelude.Maybe Prelude.Text,
     -- | Optional message to compliment the Status field.
     statusMessage :: Prelude.Maybe Prelude.Text
   }
@@ -45,22 +45,26 @@ data LensShareSummary = LensShareSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'shareId', 'lensShareSummary_shareId' - Undocumented member.
+--
 -- 'sharedWith', 'lensShareSummary_sharedWith' - Undocumented member.
 --
 -- 'status', 'lensShareSummary_status' - Undocumented member.
---
--- 'shareId', 'lensShareSummary_shareId' - Undocumented member.
 --
 -- 'statusMessage', 'lensShareSummary_statusMessage' - Optional message to compliment the Status field.
 newLensShareSummary ::
   LensShareSummary
 newLensShareSummary =
   LensShareSummary'
-    { sharedWith = Prelude.Nothing,
+    { shareId = Prelude.Nothing,
+      sharedWith = Prelude.Nothing,
       status = Prelude.Nothing,
-      shareId = Prelude.Nothing,
       statusMessage = Prelude.Nothing
     }
+
+-- | Undocumented member.
+lensShareSummary_shareId :: Lens.Lens' LensShareSummary (Prelude.Maybe Prelude.Text)
+lensShareSummary_shareId = Lens.lens (\LensShareSummary' {shareId} -> shareId) (\s@LensShareSummary' {} a -> s {shareId = a} :: LensShareSummary)
 
 -- | Undocumented member.
 lensShareSummary_sharedWith :: Lens.Lens' LensShareSummary (Prelude.Maybe Prelude.Text)
@@ -69,10 +73,6 @@ lensShareSummary_sharedWith = Lens.lens (\LensShareSummary' {sharedWith} -> shar
 -- | Undocumented member.
 lensShareSummary_status :: Lens.Lens' LensShareSummary (Prelude.Maybe ShareStatus)
 lensShareSummary_status = Lens.lens (\LensShareSummary' {status} -> status) (\s@LensShareSummary' {} a -> s {status = a} :: LensShareSummary)
-
--- | Undocumented member.
-lensShareSummary_shareId :: Lens.Lens' LensShareSummary (Prelude.Maybe Prelude.Text)
-lensShareSummary_shareId = Lens.lens (\LensShareSummary' {shareId} -> shareId) (\s@LensShareSummary' {} a -> s {shareId = a} :: LensShareSummary)
 
 -- | Optional message to compliment the Status field.
 lensShareSummary_statusMessage :: Lens.Lens' LensShareSummary (Prelude.Maybe Prelude.Text)
@@ -84,22 +84,22 @@ instance Data.FromJSON LensShareSummary where
       "LensShareSummary"
       ( \x ->
           LensShareSummary'
-            Prelude.<$> (x Data..:? "SharedWith")
+            Prelude.<$> (x Data..:? "ShareId")
+            Prelude.<*> (x Data..:? "SharedWith")
             Prelude.<*> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "ShareId")
             Prelude.<*> (x Data..:? "StatusMessage")
       )
 
 instance Prelude.Hashable LensShareSummary where
   hashWithSalt _salt LensShareSummary' {..} =
-    _salt `Prelude.hashWithSalt` sharedWith
+    _salt `Prelude.hashWithSalt` shareId
+      `Prelude.hashWithSalt` sharedWith
       `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` shareId
       `Prelude.hashWithSalt` statusMessage
 
 instance Prelude.NFData LensShareSummary where
   rnf LensShareSummary' {..} =
-    Prelude.rnf sharedWith
+    Prelude.rnf shareId
+      `Prelude.seq` Prelude.rnf sharedWith
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf shareId
       `Prelude.seq` Prelude.rnf statusMessage

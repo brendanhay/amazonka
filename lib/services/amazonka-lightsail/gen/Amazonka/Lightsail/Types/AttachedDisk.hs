@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAttachedDisk' smart constructor.
 data AttachedDisk = AttachedDisk'
-  { -- | The size of the disk in GB.
-    sizeInGb :: Prelude.Maybe Prelude.Int,
-    -- | The path of the disk (e.g., @\/dev\/xvdf@).
-    path :: Prelude.Maybe Prelude.Text
+  { -- | The path of the disk (e.g., @\/dev\/xvdf@).
+    path :: Prelude.Maybe Prelude.Text,
+    -- | The size of the disk in GB.
+    sizeInGb :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data AttachedDisk = AttachedDisk'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sizeInGb', 'attachedDisk_sizeInGb' - The size of the disk in GB.
---
 -- 'path', 'attachedDisk_path' - The path of the disk (e.g., @\/dev\/xvdf@).
+--
+-- 'sizeInGb', 'attachedDisk_sizeInGb' - The size of the disk in GB.
 newAttachedDisk ::
   AttachedDisk
 newAttachedDisk =
   AttachedDisk'
-    { sizeInGb = Prelude.Nothing,
-      path = Prelude.Nothing
+    { path = Prelude.Nothing,
+      sizeInGb = Prelude.Nothing
     }
-
--- | The size of the disk in GB.
-attachedDisk_sizeInGb :: Lens.Lens' AttachedDisk (Prelude.Maybe Prelude.Int)
-attachedDisk_sizeInGb = Lens.lens (\AttachedDisk' {sizeInGb} -> sizeInGb) (\s@AttachedDisk' {} a -> s {sizeInGb = a} :: AttachedDisk)
 
 -- | The path of the disk (e.g., @\/dev\/xvdf@).
 attachedDisk_path :: Lens.Lens' AttachedDisk (Prelude.Maybe Prelude.Text)
 attachedDisk_path = Lens.lens (\AttachedDisk' {path} -> path) (\s@AttachedDisk' {} a -> s {path = a} :: AttachedDisk)
+
+-- | The size of the disk in GB.
+attachedDisk_sizeInGb :: Lens.Lens' AttachedDisk (Prelude.Maybe Prelude.Int)
+attachedDisk_sizeInGb = Lens.lens (\AttachedDisk' {sizeInGb} -> sizeInGb) (\s@AttachedDisk' {} a -> s {sizeInGb = a} :: AttachedDisk)
 
 instance Data.FromJSON AttachedDisk where
   parseJSON =
@@ -69,15 +69,15 @@ instance Data.FromJSON AttachedDisk where
       "AttachedDisk"
       ( \x ->
           AttachedDisk'
-            Prelude.<$> (x Data..:? "sizeInGb")
-            Prelude.<*> (x Data..:? "path")
+            Prelude.<$> (x Data..:? "path")
+            Prelude.<*> (x Data..:? "sizeInGb")
       )
 
 instance Prelude.Hashable AttachedDisk where
   hashWithSalt _salt AttachedDisk' {..} =
-    _salt `Prelude.hashWithSalt` sizeInGb
-      `Prelude.hashWithSalt` path
+    _salt `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` sizeInGb
 
 instance Prelude.NFData AttachedDisk where
   rnf AttachedDisk' {..} =
-    Prelude.rnf sizeInGb `Prelude.seq` Prelude.rnf path
+    Prelude.rnf path `Prelude.seq` Prelude.rnf sizeInGb

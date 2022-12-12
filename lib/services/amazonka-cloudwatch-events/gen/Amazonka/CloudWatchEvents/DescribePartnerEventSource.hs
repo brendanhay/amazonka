@@ -38,8 +38,8 @@ module Amazonka.CloudWatchEvents.DescribePartnerEventSource
     newDescribePartnerEventSourceResponse,
 
     -- * Response Lenses
-    describePartnerEventSourceResponse_name,
     describePartnerEventSourceResponse_arn,
+    describePartnerEventSourceResponse_name,
     describePartnerEventSourceResponse_httpStatus,
   )
 where
@@ -89,8 +89,8 @@ instance Core.AWSRequest DescribePartnerEventSource where
     Response.receiveJSON
       ( \s h x ->
           DescribePartnerEventSourceResponse'
-            Prelude.<$> (x Data..?> "Name")
-            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<$> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,10 +132,10 @@ instance Data.ToQuery DescribePartnerEventSource where
 
 -- | /See:/ 'newDescribePartnerEventSourceResponse' smart constructor.
 data DescribePartnerEventSourceResponse = DescribePartnerEventSourceResponse'
-  { -- | The name of the event source.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the event source.
+  { -- | The ARN of the event source.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the event source.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -149,9 +149,9 @@ data DescribePartnerEventSourceResponse = DescribePartnerEventSourceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'describePartnerEventSourceResponse_name' - The name of the event source.
---
 -- 'arn', 'describePartnerEventSourceResponse_arn' - The ARN of the event source.
+--
+-- 'name', 'describePartnerEventSourceResponse_name' - The name of the event source.
 --
 -- 'httpStatus', 'describePartnerEventSourceResponse_httpStatus' - The response's http status code.
 newDescribePartnerEventSourceResponse ::
@@ -160,19 +160,19 @@ newDescribePartnerEventSourceResponse ::
   DescribePartnerEventSourceResponse
 newDescribePartnerEventSourceResponse pHttpStatus_ =
   DescribePartnerEventSourceResponse'
-    { name =
+    { arn =
         Prelude.Nothing,
-      arn = Prelude.Nothing,
+      name = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The name of the event source.
-describePartnerEventSourceResponse_name :: Lens.Lens' DescribePartnerEventSourceResponse (Prelude.Maybe Prelude.Text)
-describePartnerEventSourceResponse_name = Lens.lens (\DescribePartnerEventSourceResponse' {name} -> name) (\s@DescribePartnerEventSourceResponse' {} a -> s {name = a} :: DescribePartnerEventSourceResponse)
 
 -- | The ARN of the event source.
 describePartnerEventSourceResponse_arn :: Lens.Lens' DescribePartnerEventSourceResponse (Prelude.Maybe Prelude.Text)
 describePartnerEventSourceResponse_arn = Lens.lens (\DescribePartnerEventSourceResponse' {arn} -> arn) (\s@DescribePartnerEventSourceResponse' {} a -> s {arn = a} :: DescribePartnerEventSourceResponse)
+
+-- | The name of the event source.
+describePartnerEventSourceResponse_name :: Lens.Lens' DescribePartnerEventSourceResponse (Prelude.Maybe Prelude.Text)
+describePartnerEventSourceResponse_name = Lens.lens (\DescribePartnerEventSourceResponse' {name} -> name) (\s@DescribePartnerEventSourceResponse' {} a -> s {name = a} :: DescribePartnerEventSourceResponse)
 
 -- | The response's http status code.
 describePartnerEventSourceResponse_httpStatus :: Lens.Lens' DescribePartnerEventSourceResponse Prelude.Int
@@ -183,6 +183,6 @@ instance
     DescribePartnerEventSourceResponse
   where
   rnf DescribePartnerEventSourceResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf httpStatus

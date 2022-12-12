@@ -32,17 +32,17 @@ module Amazonka.LookoutMetrics.ListMetricSets
     newListMetricSets,
 
     -- * Request Lenses
-    listMetricSets_nextToken,
     listMetricSets_anomalyDetectorArn,
     listMetricSets_maxResults,
+    listMetricSets_nextToken,
 
     -- * Destructuring the Response
     ListMetricSetsResponse (..),
     newListMetricSetsResponse,
 
     -- * Response Lenses
-    listMetricSetsResponse_nextToken,
     listMetricSetsResponse_metricSetSummaryList,
+    listMetricSetsResponse_nextToken,
     listMetricSetsResponse_httpStatus,
   )
 where
@@ -57,14 +57,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListMetricSets' smart constructor.
 data ListMetricSets = ListMetricSets'
-  { -- | If the result of the previous request was truncated, the response
-    -- includes a @NextToken@. To retrieve the next set of results, use the
-    -- token in the next request. Tokens expire after 24 hours.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the anomaly detector containing the metrics sets to list.
+  { -- | The ARN of the anomaly detector containing the metrics sets to list.
     anomalyDetectorArn :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the result of the previous request was truncated, the response
+    -- includes a @NextToken@. To retrieve the next set of results, use the
+    -- token in the next request. Tokens expire after 24 hours.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,27 +76,22 @@ data ListMetricSets = ListMetricSets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listMetricSets_nextToken' - If the result of the previous request was truncated, the response
--- includes a @NextToken@. To retrieve the next set of results, use the
--- token in the next request. Tokens expire after 24 hours.
---
 -- 'anomalyDetectorArn', 'listMetricSets_anomalyDetectorArn' - The ARN of the anomaly detector containing the metrics sets to list.
 --
 -- 'maxResults', 'listMetricSets_maxResults' - The maximum number of results to return.
+--
+-- 'nextToken', 'listMetricSets_nextToken' - If the result of the previous request was truncated, the response
+-- includes a @NextToken@. To retrieve the next set of results, use the
+-- token in the next request. Tokens expire after 24 hours.
 newListMetricSets ::
   ListMetricSets
 newListMetricSets =
   ListMetricSets'
-    { nextToken = Prelude.Nothing,
-      anomalyDetectorArn = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { anomalyDetectorArn =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | If the result of the previous request was truncated, the response
--- includes a @NextToken@. To retrieve the next set of results, use the
--- token in the next request. Tokens expire after 24 hours.
-listMetricSets_nextToken :: Lens.Lens' ListMetricSets (Prelude.Maybe Prelude.Text)
-listMetricSets_nextToken = Lens.lens (\ListMetricSets' {nextToken} -> nextToken) (\s@ListMetricSets' {} a -> s {nextToken = a} :: ListMetricSets)
 
 -- | The ARN of the anomaly detector containing the metrics sets to list.
 listMetricSets_anomalyDetectorArn :: Lens.Lens' ListMetricSets (Prelude.Maybe Prelude.Text)
@@ -105,6 +100,12 @@ listMetricSets_anomalyDetectorArn = Lens.lens (\ListMetricSets' {anomalyDetector
 -- | The maximum number of results to return.
 listMetricSets_maxResults :: Lens.Lens' ListMetricSets (Prelude.Maybe Prelude.Natural)
 listMetricSets_maxResults = Lens.lens (\ListMetricSets' {maxResults} -> maxResults) (\s@ListMetricSets' {} a -> s {maxResults = a} :: ListMetricSets)
+
+-- | If the result of the previous request was truncated, the response
+-- includes a @NextToken@. To retrieve the next set of results, use the
+-- token in the next request. Tokens expire after 24 hours.
+listMetricSets_nextToken :: Lens.Lens' ListMetricSets (Prelude.Maybe Prelude.Text)
+listMetricSets_nextToken = Lens.lens (\ListMetricSets' {nextToken} -> nextToken) (\s@ListMetricSets' {} a -> s {nextToken = a} :: ListMetricSets)
 
 instance Core.AWSRequest ListMetricSets where
   type
@@ -116,24 +117,24 @@ instance Core.AWSRequest ListMetricSets where
     Response.receiveJSON
       ( \s h x ->
           ListMetricSetsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "MetricSetSummaryList"
+            Prelude.<$> ( x Data..?> "MetricSetSummaryList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListMetricSets where
   hashWithSalt _salt ListMetricSets' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` anomalyDetectorArn
+    _salt `Prelude.hashWithSalt` anomalyDetectorArn
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListMetricSets where
   rnf ListMetricSets' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf anomalyDetectorArn
+    Prelude.rnf anomalyDetectorArn
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListMetricSets where
   toHeaders =
@@ -150,10 +151,10 @@ instance Data.ToJSON ListMetricSets where
   toJSON ListMetricSets' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("AnomalyDetectorArn" Data..=)
+          [ ("AnomalyDetectorArn" Data..=)
               Prelude.<$> anomalyDetectorArn,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -165,13 +166,13 @@ instance Data.ToQuery ListMetricSets where
 
 -- | /See:/ 'newListMetricSetsResponse' smart constructor.
 data ListMetricSetsResponse = ListMetricSetsResponse'
-  { -- | If the response is truncated, the list call returns this token. To
+  { -- | A list of the datasets in the AWS Region, with configuration details for
+    -- each.
+    metricSetSummaryList :: Prelude.Maybe [MetricSetSummary],
+    -- | If the response is truncated, the list call returns this token. To
     -- retrieve the next set of results, use the token in the next list
     -- request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of the datasets in the AWS Region, with configuration details for
-    -- each.
-    metricSetSummaryList :: Prelude.Maybe [MetricSetSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -185,12 +186,12 @@ data ListMetricSetsResponse = ListMetricSetsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'metricSetSummaryList', 'listMetricSetsResponse_metricSetSummaryList' - A list of the datasets in the AWS Region, with configuration details for
+-- each.
+--
 -- 'nextToken', 'listMetricSetsResponse_nextToken' - If the response is truncated, the list call returns this token. To
 -- retrieve the next set of results, use the token in the next list
 -- request.
---
--- 'metricSetSummaryList', 'listMetricSetsResponse_metricSetSummaryList' - A list of the datasets in the AWS Region, with configuration details for
--- each.
 --
 -- 'httpStatus', 'listMetricSetsResponse_httpStatus' - The response's http status code.
 newListMetricSetsResponse ::
@@ -199,11 +200,16 @@ newListMetricSetsResponse ::
   ListMetricSetsResponse
 newListMetricSetsResponse pHttpStatus_ =
   ListMetricSetsResponse'
-    { nextToken =
+    { metricSetSummaryList =
         Prelude.Nothing,
-      metricSetSummaryList = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of the datasets in the AWS Region, with configuration details for
+-- each.
+listMetricSetsResponse_metricSetSummaryList :: Lens.Lens' ListMetricSetsResponse (Prelude.Maybe [MetricSetSummary])
+listMetricSetsResponse_metricSetSummaryList = Lens.lens (\ListMetricSetsResponse' {metricSetSummaryList} -> metricSetSummaryList) (\s@ListMetricSetsResponse' {} a -> s {metricSetSummaryList = a} :: ListMetricSetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the response is truncated, the list call returns this token. To
 -- retrieve the next set of results, use the token in the next list
@@ -211,17 +217,12 @@ newListMetricSetsResponse pHttpStatus_ =
 listMetricSetsResponse_nextToken :: Lens.Lens' ListMetricSetsResponse (Prelude.Maybe Prelude.Text)
 listMetricSetsResponse_nextToken = Lens.lens (\ListMetricSetsResponse' {nextToken} -> nextToken) (\s@ListMetricSetsResponse' {} a -> s {nextToken = a} :: ListMetricSetsResponse)
 
--- | A list of the datasets in the AWS Region, with configuration details for
--- each.
-listMetricSetsResponse_metricSetSummaryList :: Lens.Lens' ListMetricSetsResponse (Prelude.Maybe [MetricSetSummary])
-listMetricSetsResponse_metricSetSummaryList = Lens.lens (\ListMetricSetsResponse' {metricSetSummaryList} -> metricSetSummaryList) (\s@ListMetricSetsResponse' {} a -> s {metricSetSummaryList = a} :: ListMetricSetsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listMetricSetsResponse_httpStatus :: Lens.Lens' ListMetricSetsResponse Prelude.Int
 listMetricSetsResponse_httpStatus = Lens.lens (\ListMetricSetsResponse' {httpStatus} -> httpStatus) (\s@ListMetricSetsResponse' {} a -> s {httpStatus = a} :: ListMetricSetsResponse)
 
 instance Prelude.NFData ListMetricSetsResponse where
   rnf ListMetricSetsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf metricSetSummaryList
+    Prelude.rnf metricSetSummaryList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

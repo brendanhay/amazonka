@@ -29,8 +29,8 @@ module Amazonka.AppStream.CreateDirectoryConfig
     newCreateDirectoryConfig,
 
     -- * Request Lenses
-    createDirectoryConfig_serviceAccountCredentials,
     createDirectoryConfig_certificateBasedAuthProperties,
+    createDirectoryConfig_serviceAccountCredentials,
     createDirectoryConfig_directoryName,
     createDirectoryConfig_organizationalUnitDistinguishedNames,
 
@@ -54,10 +54,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDirectoryConfig' smart constructor.
 data CreateDirectoryConfig = CreateDirectoryConfig'
-  { -- | The credentials for the service account used by the fleet or image
-    -- builder to connect to the directory.
-    serviceAccountCredentials :: Prelude.Maybe ServiceAccountCredentials,
-    -- | The certificate-based authentication properties used to authenticate
+  { -- | The certificate-based authentication properties used to authenticate
     -- SAML 2.0 Identity Provider (IdP) user identities to Active Directory
     -- domain-joined streaming instances. Fallback is turned on by default when
     -- certificate-based authentication is __Enabled__ . Fallback allows users
@@ -68,6 +65,9 @@ data CreateDirectoryConfig = CreateDirectoryConfig'
     -- password. Users will be disconnected to re-authenticate using
     -- certificates.
     certificateBasedAuthProperties :: Prelude.Maybe CertificateBasedAuthProperties,
+    -- | The credentials for the service account used by the fleet or image
+    -- builder to connect to the directory.
+    serviceAccountCredentials :: Prelude.Maybe ServiceAccountCredentials,
     -- | The fully qualified name of the directory (for example,
     -- corp.example.com).
     directoryName :: Prelude.Text,
@@ -85,9 +85,6 @@ data CreateDirectoryConfig = CreateDirectoryConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serviceAccountCredentials', 'createDirectoryConfig_serviceAccountCredentials' - The credentials for the service account used by the fleet or image
--- builder to connect to the directory.
---
 -- 'certificateBasedAuthProperties', 'createDirectoryConfig_certificateBasedAuthProperties' - The certificate-based authentication properties used to authenticate
 -- SAML 2.0 Identity Provider (IdP) user identities to Active Directory
 -- domain-joined streaming instances. Fallback is turned on by default when
@@ -98,6 +95,9 @@ data CreateDirectoryConfig = CreateDirectoryConfig'
 -- authentication, but does not allow users to log in using their AD domain
 -- password. Users will be disconnected to re-authenticate using
 -- certificates.
+--
+-- 'serviceAccountCredentials', 'createDirectoryConfig_serviceAccountCredentials' - The credentials for the service account used by the fleet or image
+-- builder to connect to the directory.
 --
 -- 'directoryName', 'createDirectoryConfig_directoryName' - The fully qualified name of the directory (for example,
 -- corp.example.com).
@@ -110,18 +110,13 @@ newCreateDirectoryConfig ::
   CreateDirectoryConfig
 newCreateDirectoryConfig pDirectoryName_ =
   CreateDirectoryConfig'
-    { serviceAccountCredentials =
+    { certificateBasedAuthProperties =
         Prelude.Nothing,
-      certificateBasedAuthProperties = Prelude.Nothing,
+      serviceAccountCredentials = Prelude.Nothing,
       directoryName = pDirectoryName_,
       organizationalUnitDistinguishedNames =
         Prelude.mempty
     }
-
--- | The credentials for the service account used by the fleet or image
--- builder to connect to the directory.
-createDirectoryConfig_serviceAccountCredentials :: Lens.Lens' CreateDirectoryConfig (Prelude.Maybe ServiceAccountCredentials)
-createDirectoryConfig_serviceAccountCredentials = Lens.lens (\CreateDirectoryConfig' {serviceAccountCredentials} -> serviceAccountCredentials) (\s@CreateDirectoryConfig' {} a -> s {serviceAccountCredentials = a} :: CreateDirectoryConfig)
 
 -- | The certificate-based authentication properties used to authenticate
 -- SAML 2.0 Identity Provider (IdP) user identities to Active Directory
@@ -135,6 +130,11 @@ createDirectoryConfig_serviceAccountCredentials = Lens.lens (\CreateDirectoryCon
 -- certificates.
 createDirectoryConfig_certificateBasedAuthProperties :: Lens.Lens' CreateDirectoryConfig (Prelude.Maybe CertificateBasedAuthProperties)
 createDirectoryConfig_certificateBasedAuthProperties = Lens.lens (\CreateDirectoryConfig' {certificateBasedAuthProperties} -> certificateBasedAuthProperties) (\s@CreateDirectoryConfig' {} a -> s {certificateBasedAuthProperties = a} :: CreateDirectoryConfig)
+
+-- | The credentials for the service account used by the fleet or image
+-- builder to connect to the directory.
+createDirectoryConfig_serviceAccountCredentials :: Lens.Lens' CreateDirectoryConfig (Prelude.Maybe ServiceAccountCredentials)
+createDirectoryConfig_serviceAccountCredentials = Lens.lens (\CreateDirectoryConfig' {serviceAccountCredentials} -> serviceAccountCredentials) (\s@CreateDirectoryConfig' {} a -> s {serviceAccountCredentials = a} :: CreateDirectoryConfig)
 
 -- | The fully qualified name of the directory (for example,
 -- corp.example.com).
@@ -163,15 +163,15 @@ instance Core.AWSRequest CreateDirectoryConfig where
 instance Prelude.Hashable CreateDirectoryConfig where
   hashWithSalt _salt CreateDirectoryConfig' {..} =
     _salt
-      `Prelude.hashWithSalt` serviceAccountCredentials
       `Prelude.hashWithSalt` certificateBasedAuthProperties
+      `Prelude.hashWithSalt` serviceAccountCredentials
       `Prelude.hashWithSalt` directoryName
       `Prelude.hashWithSalt` organizationalUnitDistinguishedNames
 
 instance Prelude.NFData CreateDirectoryConfig where
   rnf CreateDirectoryConfig' {..} =
-    Prelude.rnf serviceAccountCredentials
-      `Prelude.seq` Prelude.rnf certificateBasedAuthProperties
+    Prelude.rnf certificateBasedAuthProperties
+      `Prelude.seq` Prelude.rnf serviceAccountCredentials
       `Prelude.seq` Prelude.rnf directoryName
       `Prelude.seq` Prelude.rnf organizationalUnitDistinguishedNames
 
@@ -194,10 +194,10 @@ instance Data.ToJSON CreateDirectoryConfig where
   toJSON CreateDirectoryConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ServiceAccountCredentials" Data..=)
-              Prelude.<$> serviceAccountCredentials,
-            ("CertificateBasedAuthProperties" Data..=)
+          [ ("CertificateBasedAuthProperties" Data..=)
               Prelude.<$> certificateBasedAuthProperties,
+            ("ServiceAccountCredentials" Data..=)
+              Prelude.<$> serviceAccountCredentials,
             Prelude.Just ("DirectoryName" Data..= directoryName),
             Prelude.Just
               ( "OrganizationalUnitDistinguishedNames"

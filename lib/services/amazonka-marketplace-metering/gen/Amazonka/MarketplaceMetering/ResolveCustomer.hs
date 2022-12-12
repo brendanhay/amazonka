@@ -46,9 +46,9 @@ module Amazonka.MarketplaceMetering.ResolveCustomer
     newResolveCustomerResponse,
 
     -- * Response Lenses
+    resolveCustomerResponse_customerAWSAccountId,
     resolveCustomerResponse_customerIdentifier,
     resolveCustomerResponse_productCode,
-    resolveCustomerResponse_customerAWSAccountId,
     resolveCustomerResponse_httpStatus,
   )
 where
@@ -112,9 +112,9 @@ instance Core.AWSRequest ResolveCustomer where
     Response.receiveJSON
       ( \s h x ->
           ResolveCustomerResponse'
-            Prelude.<$> (x Data..?> "CustomerIdentifier")
+            Prelude.<$> (x Data..?> "CustomerAWSAccountId")
+            Prelude.<*> (x Data..?> "CustomerIdentifier")
             Prelude.<*> (x Data..?> "ProductCode")
-            Prelude.<*> (x Data..?> "CustomerAWSAccountId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -162,7 +162,10 @@ instance Data.ToQuery ResolveCustomer where
 --
 -- /See:/ 'newResolveCustomerResponse' smart constructor.
 data ResolveCustomerResponse = ResolveCustomerResponse'
-  { -- | The @CustomerIdentifier@ is used to identify an individual customer in
+  { -- | The @CustomerAWSAccountId@ provides the AWS account ID associated with
+    -- the @CustomerIdentifier@ for the individual customer.
+    customerAWSAccountId :: Prelude.Maybe Prelude.Text,
+    -- | The @CustomerIdentifier@ is used to identify an individual customer in
     -- your application. Calls to @BatchMeterUsage@ require
     -- @CustomerIdentifiers@ for each @UsageRecord@.
     customerIdentifier :: Prelude.Maybe Prelude.Text,
@@ -170,9 +173,6 @@ data ResolveCustomerResponse = ResolveCustomerResponse'
     -- for your product. Subsequent @BatchMeterUsage@ calls should be made
     -- using this product code.
     productCode :: Prelude.Maybe Prelude.Text,
-    -- | The @CustomerAWSAccountId@ provides the AWS account ID associated with
-    -- the @CustomerIdentifier@ for the individual customer.
-    customerAWSAccountId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -186,6 +186,9 @@ data ResolveCustomerResponse = ResolveCustomerResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'customerAWSAccountId', 'resolveCustomerResponse_customerAWSAccountId' - The @CustomerAWSAccountId@ provides the AWS account ID associated with
+-- the @CustomerIdentifier@ for the individual customer.
+--
 -- 'customerIdentifier', 'resolveCustomerResponse_customerIdentifier' - The @CustomerIdentifier@ is used to identify an individual customer in
 -- your application. Calls to @BatchMeterUsage@ require
 -- @CustomerIdentifiers@ for each @UsageRecord@.
@@ -194,9 +197,6 @@ data ResolveCustomerResponse = ResolveCustomerResponse'
 -- for your product. Subsequent @BatchMeterUsage@ calls should be made
 -- using this product code.
 --
--- 'customerAWSAccountId', 'resolveCustomerResponse_customerAWSAccountId' - The @CustomerAWSAccountId@ provides the AWS account ID associated with
--- the @CustomerIdentifier@ for the individual customer.
---
 -- 'httpStatus', 'resolveCustomerResponse_httpStatus' - The response's http status code.
 newResolveCustomerResponse ::
   -- | 'httpStatus'
@@ -204,12 +204,17 @@ newResolveCustomerResponse ::
   ResolveCustomerResponse
 newResolveCustomerResponse pHttpStatus_ =
   ResolveCustomerResponse'
-    { customerIdentifier =
+    { customerAWSAccountId =
         Prelude.Nothing,
+      customerIdentifier = Prelude.Nothing,
       productCode = Prelude.Nothing,
-      customerAWSAccountId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The @CustomerAWSAccountId@ provides the AWS account ID associated with
+-- the @CustomerIdentifier@ for the individual customer.
+resolveCustomerResponse_customerAWSAccountId :: Lens.Lens' ResolveCustomerResponse (Prelude.Maybe Prelude.Text)
+resolveCustomerResponse_customerAWSAccountId = Lens.lens (\ResolveCustomerResponse' {customerAWSAccountId} -> customerAWSAccountId) (\s@ResolveCustomerResponse' {} a -> s {customerAWSAccountId = a} :: ResolveCustomerResponse)
 
 -- | The @CustomerIdentifier@ is used to identify an individual customer in
 -- your application. Calls to @BatchMeterUsage@ require
@@ -223,18 +228,13 @@ resolveCustomerResponse_customerIdentifier = Lens.lens (\ResolveCustomerResponse
 resolveCustomerResponse_productCode :: Lens.Lens' ResolveCustomerResponse (Prelude.Maybe Prelude.Text)
 resolveCustomerResponse_productCode = Lens.lens (\ResolveCustomerResponse' {productCode} -> productCode) (\s@ResolveCustomerResponse' {} a -> s {productCode = a} :: ResolveCustomerResponse)
 
--- | The @CustomerAWSAccountId@ provides the AWS account ID associated with
--- the @CustomerIdentifier@ for the individual customer.
-resolveCustomerResponse_customerAWSAccountId :: Lens.Lens' ResolveCustomerResponse (Prelude.Maybe Prelude.Text)
-resolveCustomerResponse_customerAWSAccountId = Lens.lens (\ResolveCustomerResponse' {customerAWSAccountId} -> customerAWSAccountId) (\s@ResolveCustomerResponse' {} a -> s {customerAWSAccountId = a} :: ResolveCustomerResponse)
-
 -- | The response's http status code.
 resolveCustomerResponse_httpStatus :: Lens.Lens' ResolveCustomerResponse Prelude.Int
 resolveCustomerResponse_httpStatus = Lens.lens (\ResolveCustomerResponse' {httpStatus} -> httpStatus) (\s@ResolveCustomerResponse' {} a -> s {httpStatus = a} :: ResolveCustomerResponse)
 
 instance Prelude.NFData ResolveCustomerResponse where
   rnf ResolveCustomerResponse' {..} =
-    Prelude.rnf customerIdentifier
+    Prelude.rnf customerAWSAccountId
+      `Prelude.seq` Prelude.rnf customerIdentifier
       `Prelude.seq` Prelude.rnf productCode
-      `Prelude.seq` Prelude.rnf customerAWSAccountId
       `Prelude.seq` Prelude.rnf httpStatus

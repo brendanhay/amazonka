@@ -30,8 +30,8 @@ module Amazonka.KafkaConnect.ListWorkerConfigurations
     newListWorkerConfigurations,
 
     -- * Request Lenses
-    listWorkerConfigurations_nextToken,
     listWorkerConfigurations_maxResults,
+    listWorkerConfigurations_nextToken,
 
     -- * Destructuring the Response
     ListWorkerConfigurationsResponse (..),
@@ -54,12 +54,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListWorkerConfigurations' smart constructor.
 data ListWorkerConfigurations = ListWorkerConfigurations'
-  { -- | If the response of a ListWorkerConfigurations operation is truncated, it
+  { -- | The maximum number of worker configurations to list in one response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the response of a ListWorkerConfigurations operation is truncated, it
     -- will include a NextToken. Send this NextToken in a subsequent request to
     -- continue listing from where the previous operation left off.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of worker configurations to list in one response.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,29 +71,29 @@ data ListWorkerConfigurations = ListWorkerConfigurations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listWorkerConfigurations_maxResults' - The maximum number of worker configurations to list in one response.
+--
 -- 'nextToken', 'listWorkerConfigurations_nextToken' - If the response of a ListWorkerConfigurations operation is truncated, it
 -- will include a NextToken. Send this NextToken in a subsequent request to
 -- continue listing from where the previous operation left off.
---
--- 'maxResults', 'listWorkerConfigurations_maxResults' - The maximum number of worker configurations to list in one response.
 newListWorkerConfigurations ::
   ListWorkerConfigurations
 newListWorkerConfigurations =
   ListWorkerConfigurations'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of worker configurations to list in one response.
+listWorkerConfigurations_maxResults :: Lens.Lens' ListWorkerConfigurations (Prelude.Maybe Prelude.Natural)
+listWorkerConfigurations_maxResults = Lens.lens (\ListWorkerConfigurations' {maxResults} -> maxResults) (\s@ListWorkerConfigurations' {} a -> s {maxResults = a} :: ListWorkerConfigurations)
 
 -- | If the response of a ListWorkerConfigurations operation is truncated, it
 -- will include a NextToken. Send this NextToken in a subsequent request to
 -- continue listing from where the previous operation left off.
 listWorkerConfigurations_nextToken :: Lens.Lens' ListWorkerConfigurations (Prelude.Maybe Prelude.Text)
 listWorkerConfigurations_nextToken = Lens.lens (\ListWorkerConfigurations' {nextToken} -> nextToken) (\s@ListWorkerConfigurations' {} a -> s {nextToken = a} :: ListWorkerConfigurations)
-
--- | The maximum number of worker configurations to list in one response.
-listWorkerConfigurations_maxResults :: Lens.Lens' ListWorkerConfigurations (Prelude.Maybe Prelude.Natural)
-listWorkerConfigurations_maxResults = Lens.lens (\ListWorkerConfigurations' {maxResults} -> maxResults) (\s@ListWorkerConfigurations' {} a -> s {maxResults = a} :: ListWorkerConfigurations)
 
 instance Core.AWSPager ListWorkerConfigurations where
   page rq rs
@@ -136,13 +136,13 @@ instance Core.AWSRequest ListWorkerConfigurations where
 
 instance Prelude.Hashable ListWorkerConfigurations where
   hashWithSalt _salt ListWorkerConfigurations' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListWorkerConfigurations where
   rnf ListWorkerConfigurations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListWorkerConfigurations where
   toHeaders =
@@ -161,8 +161,8 @@ instance Data.ToPath ListWorkerConfigurations where
 instance Data.ToQuery ListWorkerConfigurations where
   toQuery ListWorkerConfigurations' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListWorkerConfigurationsResponse' smart constructor.

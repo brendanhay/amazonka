@@ -33,15 +33,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMonitoredResourceInfo' smart constructor.
 data MonitoredResourceInfo = MonitoredResourceInfo'
-  { -- | The Lightsail resource type of the resource being monitored.
+  { -- | The Amazon Resource Name (ARN) of the resource being monitored.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the Lightsail resource being monitored.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The Lightsail resource type of the resource being monitored.
     --
     -- Instances, load balancers, and relational databases are the only
     -- Lightsail resources that can currently be monitored by alarms.
-    resourceType :: Prelude.Maybe ResourceType,
-    -- | The name of the Lightsail resource being monitored.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the resource being monitored.
-    arn :: Prelude.Maybe Prelude.Text
+    resourceType :: Prelude.Maybe ResourceType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,23 +53,30 @@ data MonitoredResourceInfo = MonitoredResourceInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'arn', 'monitoredResourceInfo_arn' - The Amazon Resource Name (ARN) of the resource being monitored.
+--
+-- 'name', 'monitoredResourceInfo_name' - The name of the Lightsail resource being monitored.
+--
 -- 'resourceType', 'monitoredResourceInfo_resourceType' - The Lightsail resource type of the resource being monitored.
 --
 -- Instances, load balancers, and relational databases are the only
 -- Lightsail resources that can currently be monitored by alarms.
---
--- 'name', 'monitoredResourceInfo_name' - The name of the Lightsail resource being monitored.
---
--- 'arn', 'monitoredResourceInfo_arn' - The Amazon Resource Name (ARN) of the resource being monitored.
 newMonitoredResourceInfo ::
   MonitoredResourceInfo
 newMonitoredResourceInfo =
   MonitoredResourceInfo'
-    { resourceType =
-        Prelude.Nothing,
+    { arn = Prelude.Nothing,
       name = Prelude.Nothing,
-      arn = Prelude.Nothing
+      resourceType = Prelude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the resource being monitored.
+monitoredResourceInfo_arn :: Lens.Lens' MonitoredResourceInfo (Prelude.Maybe Prelude.Text)
+monitoredResourceInfo_arn = Lens.lens (\MonitoredResourceInfo' {arn} -> arn) (\s@MonitoredResourceInfo' {} a -> s {arn = a} :: MonitoredResourceInfo)
+
+-- | The name of the Lightsail resource being monitored.
+monitoredResourceInfo_name :: Lens.Lens' MonitoredResourceInfo (Prelude.Maybe Prelude.Text)
+monitoredResourceInfo_name = Lens.lens (\MonitoredResourceInfo' {name} -> name) (\s@MonitoredResourceInfo' {} a -> s {name = a} :: MonitoredResourceInfo)
 
 -- | The Lightsail resource type of the resource being monitored.
 --
@@ -78,33 +85,25 @@ newMonitoredResourceInfo =
 monitoredResourceInfo_resourceType :: Lens.Lens' MonitoredResourceInfo (Prelude.Maybe ResourceType)
 monitoredResourceInfo_resourceType = Lens.lens (\MonitoredResourceInfo' {resourceType} -> resourceType) (\s@MonitoredResourceInfo' {} a -> s {resourceType = a} :: MonitoredResourceInfo)
 
--- | The name of the Lightsail resource being monitored.
-monitoredResourceInfo_name :: Lens.Lens' MonitoredResourceInfo (Prelude.Maybe Prelude.Text)
-monitoredResourceInfo_name = Lens.lens (\MonitoredResourceInfo' {name} -> name) (\s@MonitoredResourceInfo' {} a -> s {name = a} :: MonitoredResourceInfo)
-
--- | The Amazon Resource Name (ARN) of the resource being monitored.
-monitoredResourceInfo_arn :: Lens.Lens' MonitoredResourceInfo (Prelude.Maybe Prelude.Text)
-monitoredResourceInfo_arn = Lens.lens (\MonitoredResourceInfo' {arn} -> arn) (\s@MonitoredResourceInfo' {} a -> s {arn = a} :: MonitoredResourceInfo)
-
 instance Data.FromJSON MonitoredResourceInfo where
   parseJSON =
     Data.withObject
       "MonitoredResourceInfo"
       ( \x ->
           MonitoredResourceInfo'
-            Prelude.<$> (x Data..:? "resourceType")
+            Prelude.<$> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "resourceType")
       )
 
 instance Prelude.Hashable MonitoredResourceInfo where
   hashWithSalt _salt MonitoredResourceInfo' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` resourceType
 
 instance Prelude.NFData MonitoredResourceInfo where
   rnf MonitoredResourceInfo' {..} =
-    Prelude.rnf resourceType
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf resourceType

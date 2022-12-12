@@ -32,8 +32,8 @@ module Amazonka.RolesAnywhere.ImportCrl
     newImportCrl,
 
     -- * Request Lenses
-    importCrl_tags,
     importCrl_enabled,
+    importCrl_tags,
     importCrl_crlData,
     importCrl_name,
     importCrl_trustAnchorArn,
@@ -57,10 +57,10 @@ import Amazonka.RolesAnywhere.Types
 
 -- | /See:/ 'newImportCrl' smart constructor.
 data ImportCrl = ImportCrl'
-  { -- | A list of tags to attach to the certificate revocation list (CRL).
-    tags :: Prelude.Maybe [Tag],
-    -- | Specifies whether the certificate revocation list (CRL) is enabled.
+  { -- | Specifies whether the certificate revocation list (CRL) is enabled.
     enabled :: Prelude.Maybe Prelude.Bool,
+    -- | A list of tags to attach to the certificate revocation list (CRL).
+    tags :: Prelude.Maybe [Tag],
     -- | The x509 v3 specified certificate revocation list
     crlData :: Data.Base64,
     -- | The name of the certificate revocation list (CRL).
@@ -79,9 +79,9 @@ data ImportCrl = ImportCrl'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'importCrl_tags' - A list of tags to attach to the certificate revocation list (CRL).
---
 -- 'enabled', 'importCrl_enabled' - Specifies whether the certificate revocation list (CRL) is enabled.
+--
+-- 'tags', 'importCrl_tags' - A list of tags to attach to the certificate revocation list (CRL).
 --
 -- 'crlData', 'importCrl_crlData' - The x509 v3 specified certificate revocation list--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -103,20 +103,20 @@ newImportCrl ::
   ImportCrl
 newImportCrl pCrlData_ pName_ pTrustAnchorArn_ =
   ImportCrl'
-    { tags = Prelude.Nothing,
-      enabled = Prelude.Nothing,
+    { enabled = Prelude.Nothing,
+      tags = Prelude.Nothing,
       crlData = Data._Base64 Lens.# pCrlData_,
       name = pName_,
       trustAnchorArn = pTrustAnchorArn_
     }
 
--- | A list of tags to attach to the certificate revocation list (CRL).
-importCrl_tags :: Lens.Lens' ImportCrl (Prelude.Maybe [Tag])
-importCrl_tags = Lens.lens (\ImportCrl' {tags} -> tags) (\s@ImportCrl' {} a -> s {tags = a} :: ImportCrl) Prelude.. Lens.mapping Lens.coerced
-
 -- | Specifies whether the certificate revocation list (CRL) is enabled.
 importCrl_enabled :: Lens.Lens' ImportCrl (Prelude.Maybe Prelude.Bool)
 importCrl_enabled = Lens.lens (\ImportCrl' {enabled} -> enabled) (\s@ImportCrl' {} a -> s {enabled = a} :: ImportCrl)
+
+-- | A list of tags to attach to the certificate revocation list (CRL).
+importCrl_tags :: Lens.Lens' ImportCrl (Prelude.Maybe [Tag])
+importCrl_tags = Lens.lens (\ImportCrl' {tags} -> tags) (\s@ImportCrl' {} a -> s {tags = a} :: ImportCrl) Prelude.. Lens.mapping Lens.coerced
 
 -- | The x509 v3 specified certificate revocation list--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -145,16 +145,16 @@ instance Core.AWSRequest ImportCrl where
 
 instance Prelude.Hashable ImportCrl where
   hashWithSalt _salt ImportCrl' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` enabled
+    _salt `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` crlData
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` trustAnchorArn
 
 instance Prelude.NFData ImportCrl where
   rnf ImportCrl' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf crlData
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf trustAnchorArn
@@ -174,8 +174,8 @@ instance Data.ToJSON ImportCrl where
   toJSON ImportCrl' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("enabled" Data..=) Prelude.<$> enabled,
+          [ ("enabled" Data..=) Prelude.<$> enabled,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("crlData" Data..= crlData),
             Prelude.Just ("name" Data..= name),
             Prelude.Just

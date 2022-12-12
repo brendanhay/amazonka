@@ -29,9 +29,9 @@ module Amazonka.CodeGuruProfiler.ListProfilingGroups
     newListProfilingGroups,
 
     -- * Request Lenses
-    listProfilingGroups_nextToken,
-    listProfilingGroups_maxResults,
     listProfilingGroups_includeDescription,
+    listProfilingGroups_maxResults,
+    listProfilingGroups_nextToken,
 
     -- * Destructuring the Response
     ListProfilingGroupsResponse (..),
@@ -57,15 +57,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListProfilingGroups' smart constructor.
 data ListProfilingGroups = ListProfilingGroups'
-  { -- | The @nextToken@ value returned from a previous paginated
-    -- @ListProfilingGroups@ request where @maxResults@ was used and the
-    -- results exceeded the value of that parameter. Pagination continues from
-    -- the end of the previous results that returned the @nextToken@ value.
-    --
-    -- This token should be treated as an opaque identifier that is only used
-    -- to retrieve the next items in a list and not for other programmatic
-    -- purposes.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | A @Boolean@ value indicating whether to include a description. If
+    -- @true@, then a list of
+    -- <https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html ProfilingGroupDescription>
+    -- objects that contain detailed information about profiling groups is
+    -- returned. If @false@, then a list of profiling group names is returned.
+    includeDescription :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of profiling groups results returned by
     -- @ListProfilingGroups@ in paginated output. When this parameter is used,
     -- @ListProfilingGroups@ only returns @maxResults@ results in a single page
@@ -73,12 +70,15 @@ data ListProfilingGroups = ListProfilingGroups'
     -- initial request can be seen by sending another @ListProfilingGroups@
     -- request with the returned @nextToken@ value.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | A @Boolean@ value indicating whether to include a description. If
-    -- @true@, then a list of
-    -- <https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html ProfilingGroupDescription>
-    -- objects that contain detailed information about profiling groups is
-    -- returned. If @false@, then a list of profiling group names is returned.
-    includeDescription :: Prelude.Maybe Prelude.Bool
+    -- | The @nextToken@ value returned from a previous paginated
+    -- @ListProfilingGroups@ request where @maxResults@ was used and the
+    -- results exceeded the value of that parameter. Pagination continues from
+    -- the end of the previous results that returned the @nextToken@ value.
+    --
+    -- This token should be treated as an opaque identifier that is only used
+    -- to retrieve the next items in a list and not for other programmatic
+    -- purposes.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -90,14 +90,11 @@ data ListProfilingGroups = ListProfilingGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listProfilingGroups_nextToken' - The @nextToken@ value returned from a previous paginated
--- @ListProfilingGroups@ request where @maxResults@ was used and the
--- results exceeded the value of that parameter. Pagination continues from
--- the end of the previous results that returned the @nextToken@ value.
---
--- This token should be treated as an opaque identifier that is only used
--- to retrieve the next items in a list and not for other programmatic
--- purposes.
+-- 'includeDescription', 'listProfilingGroups_includeDescription' - A @Boolean@ value indicating whether to include a description. If
+-- @true@, then a list of
+-- <https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html ProfilingGroupDescription>
+-- objects that contain detailed information about profiling groups is
+-- returned. If @false@, then a list of profiling group names is returned.
 --
 -- 'maxResults', 'listProfilingGroups_maxResults' - The maximum number of profiling groups results returned by
 -- @ListProfilingGroups@ in paginated output. When this parameter is used,
@@ -106,19 +103,40 @@ data ListProfilingGroups = ListProfilingGroups'
 -- initial request can be seen by sending another @ListProfilingGroups@
 -- request with the returned @nextToken@ value.
 --
--- 'includeDescription', 'listProfilingGroups_includeDescription' - A @Boolean@ value indicating whether to include a description. If
--- @true@, then a list of
--- <https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html ProfilingGroupDescription>
--- objects that contain detailed information about profiling groups is
--- returned. If @false@, then a list of profiling group names is returned.
+-- 'nextToken', 'listProfilingGroups_nextToken' - The @nextToken@ value returned from a previous paginated
+-- @ListProfilingGroups@ request where @maxResults@ was used and the
+-- results exceeded the value of that parameter. Pagination continues from
+-- the end of the previous results that returned the @nextToken@ value.
+--
+-- This token should be treated as an opaque identifier that is only used
+-- to retrieve the next items in a list and not for other programmatic
+-- purposes.
 newListProfilingGroups ::
   ListProfilingGroups
 newListProfilingGroups =
   ListProfilingGroups'
-    { nextToken = Prelude.Nothing,
+    { includeDescription =
+        Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      includeDescription = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
+
+-- | A @Boolean@ value indicating whether to include a description. If
+-- @true@, then a list of
+-- <https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html ProfilingGroupDescription>
+-- objects that contain detailed information about profiling groups is
+-- returned. If @false@, then a list of profiling group names is returned.
+listProfilingGroups_includeDescription :: Lens.Lens' ListProfilingGroups (Prelude.Maybe Prelude.Bool)
+listProfilingGroups_includeDescription = Lens.lens (\ListProfilingGroups' {includeDescription} -> includeDescription) (\s@ListProfilingGroups' {} a -> s {includeDescription = a} :: ListProfilingGroups)
+
+-- | The maximum number of profiling groups results returned by
+-- @ListProfilingGroups@ in paginated output. When this parameter is used,
+-- @ListProfilingGroups@ only returns @maxResults@ results in a single page
+-- along with a @nextToken@ response element. The remaining results of the
+-- initial request can be seen by sending another @ListProfilingGroups@
+-- request with the returned @nextToken@ value.
+listProfilingGroups_maxResults :: Lens.Lens' ListProfilingGroups (Prelude.Maybe Prelude.Natural)
+listProfilingGroups_maxResults = Lens.lens (\ListProfilingGroups' {maxResults} -> maxResults) (\s@ListProfilingGroups' {} a -> s {maxResults = a} :: ListProfilingGroups)
 
 -- | The @nextToken@ value returned from a previous paginated
 -- @ListProfilingGroups@ request where @maxResults@ was used and the
@@ -130,23 +148,6 @@ newListProfilingGroups =
 -- purposes.
 listProfilingGroups_nextToken :: Lens.Lens' ListProfilingGroups (Prelude.Maybe Prelude.Text)
 listProfilingGroups_nextToken = Lens.lens (\ListProfilingGroups' {nextToken} -> nextToken) (\s@ListProfilingGroups' {} a -> s {nextToken = a} :: ListProfilingGroups)
-
--- | The maximum number of profiling groups results returned by
--- @ListProfilingGroups@ in paginated output. When this parameter is used,
--- @ListProfilingGroups@ only returns @maxResults@ results in a single page
--- along with a @nextToken@ response element. The remaining results of the
--- initial request can be seen by sending another @ListProfilingGroups@
--- request with the returned @nextToken@ value.
-listProfilingGroups_maxResults :: Lens.Lens' ListProfilingGroups (Prelude.Maybe Prelude.Natural)
-listProfilingGroups_maxResults = Lens.lens (\ListProfilingGroups' {maxResults} -> maxResults) (\s@ListProfilingGroups' {} a -> s {maxResults = a} :: ListProfilingGroups)
-
--- | A @Boolean@ value indicating whether to include a description. If
--- @true@, then a list of
--- <https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html ProfilingGroupDescription>
--- objects that contain detailed information about profiling groups is
--- returned. If @false@, then a list of profiling group names is returned.
-listProfilingGroups_includeDescription :: Lens.Lens' ListProfilingGroups (Prelude.Maybe Prelude.Bool)
-listProfilingGroups_includeDescription = Lens.lens (\ListProfilingGroups' {includeDescription} -> includeDescription) (\s@ListProfilingGroups' {} a -> s {includeDescription = a} :: ListProfilingGroups)
 
 instance Core.AWSRequest ListProfilingGroups where
   type
@@ -170,15 +171,15 @@ instance Core.AWSRequest ListProfilingGroups where
 
 instance Prelude.Hashable ListProfilingGroups where
   hashWithSalt _salt ListProfilingGroups' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` includeDescription
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` includeDescription
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListProfilingGroups where
   rnf ListProfilingGroups' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf includeDescription
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf includeDescription
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListProfilingGroups where
   toHeaders =
@@ -197,9 +198,9 @@ instance Data.ToPath ListProfilingGroups where
 instance Data.ToQuery ListProfilingGroups where
   toQuery ListProfilingGroups' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
+      [ "includeDescription" Data.=: includeDescription,
         "maxResults" Data.=: maxResults,
-        "includeDescription" Data.=: includeDescription
+        "nextToken" Data.=: nextToken
       ]
 
 -- | The structure representing the listProfilingGroupsResponse.

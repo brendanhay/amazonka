@@ -41,9 +41,9 @@ module Amazonka.EC2.DescribeSnapshotAttribute
     newDescribeSnapshotAttributeResponse,
 
     -- * Response Lenses
-    describeSnapshotAttributeResponse_snapshotId,
-    describeSnapshotAttributeResponse_productCodes,
     describeSnapshotAttributeResponse_createVolumePermissions,
+    describeSnapshotAttributeResponse_productCodes,
+    describeSnapshotAttributeResponse_snapshotId,
     describeSnapshotAttributeResponse_httpStatus,
   )
 where
@@ -125,14 +125,14 @@ instance Core.AWSRequest DescribeSnapshotAttribute where
     Response.receiveXML
       ( \s h x ->
           DescribeSnapshotAttributeResponse'
-            Prelude.<$> (x Data..@? "snapshotId")
-            Prelude.<*> ( x Data..@? "productCodes" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Data.parseXMLList "item")
-                        )
-            Prelude.<*> ( x Data..@? "createVolumePermission"
+            Prelude.<$> ( x Data..@? "createVolumePermission"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
+            Prelude.<*> ( x Data..@? "productCodes" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
+                        )
+            Prelude.<*> (x Data..@? "snapshotId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,13 +168,13 @@ instance Data.ToQuery DescribeSnapshotAttribute where
 
 -- | /See:/ 'newDescribeSnapshotAttributeResponse' smart constructor.
 data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse'
-  { -- | The ID of the EBS snapshot.
-    snapshotId :: Prelude.Maybe Prelude.Text,
-    -- | The product codes.
-    productCodes :: Prelude.Maybe [ProductCode],
-    -- | The users and groups that have the permissions for creating volumes from
+  { -- | The users and groups that have the permissions for creating volumes from
     -- the snapshot.
     createVolumePermissions :: Prelude.Maybe [CreateVolumePermission],
+    -- | The product codes.
+    productCodes :: Prelude.Maybe [ProductCode],
+    -- | The ID of the EBS snapshot.
+    snapshotId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -188,12 +188,12 @@ data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'snapshotId', 'describeSnapshotAttributeResponse_snapshotId' - The ID of the EBS snapshot.
+-- 'createVolumePermissions', 'describeSnapshotAttributeResponse_createVolumePermissions' - The users and groups that have the permissions for creating volumes from
+-- the snapshot.
 --
 -- 'productCodes', 'describeSnapshotAttributeResponse_productCodes' - The product codes.
 --
--- 'createVolumePermissions', 'describeSnapshotAttributeResponse_createVolumePermissions' - The users and groups that have the permissions for creating volumes from
--- the snapshot.
+-- 'snapshotId', 'describeSnapshotAttributeResponse_snapshotId' - The ID of the EBS snapshot.
 --
 -- 'httpStatus', 'describeSnapshotAttributeResponse_httpStatus' - The response's http status code.
 newDescribeSnapshotAttributeResponse ::
@@ -202,26 +202,25 @@ newDescribeSnapshotAttributeResponse ::
   DescribeSnapshotAttributeResponse
 newDescribeSnapshotAttributeResponse pHttpStatus_ =
   DescribeSnapshotAttributeResponse'
-    { snapshotId =
+    { createVolumePermissions =
         Prelude.Nothing,
       productCodes = Prelude.Nothing,
-      createVolumePermissions =
-        Prelude.Nothing,
+      snapshotId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ID of the EBS snapshot.
-describeSnapshotAttributeResponse_snapshotId :: Lens.Lens' DescribeSnapshotAttributeResponse (Prelude.Maybe Prelude.Text)
-describeSnapshotAttributeResponse_snapshotId = Lens.lens (\DescribeSnapshotAttributeResponse' {snapshotId} -> snapshotId) (\s@DescribeSnapshotAttributeResponse' {} a -> s {snapshotId = a} :: DescribeSnapshotAttributeResponse)
-
--- | The product codes.
-describeSnapshotAttributeResponse_productCodes :: Lens.Lens' DescribeSnapshotAttributeResponse (Prelude.Maybe [ProductCode])
-describeSnapshotAttributeResponse_productCodes = Lens.lens (\DescribeSnapshotAttributeResponse' {productCodes} -> productCodes) (\s@DescribeSnapshotAttributeResponse' {} a -> s {productCodes = a} :: DescribeSnapshotAttributeResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The users and groups that have the permissions for creating volumes from
 -- the snapshot.
 describeSnapshotAttributeResponse_createVolumePermissions :: Lens.Lens' DescribeSnapshotAttributeResponse (Prelude.Maybe [CreateVolumePermission])
 describeSnapshotAttributeResponse_createVolumePermissions = Lens.lens (\DescribeSnapshotAttributeResponse' {createVolumePermissions} -> createVolumePermissions) (\s@DescribeSnapshotAttributeResponse' {} a -> s {createVolumePermissions = a} :: DescribeSnapshotAttributeResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The product codes.
+describeSnapshotAttributeResponse_productCodes :: Lens.Lens' DescribeSnapshotAttributeResponse (Prelude.Maybe [ProductCode])
+describeSnapshotAttributeResponse_productCodes = Lens.lens (\DescribeSnapshotAttributeResponse' {productCodes} -> productCodes) (\s@DescribeSnapshotAttributeResponse' {} a -> s {productCodes = a} :: DescribeSnapshotAttributeResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ID of the EBS snapshot.
+describeSnapshotAttributeResponse_snapshotId :: Lens.Lens' DescribeSnapshotAttributeResponse (Prelude.Maybe Prelude.Text)
+describeSnapshotAttributeResponse_snapshotId = Lens.lens (\DescribeSnapshotAttributeResponse' {snapshotId} -> snapshotId) (\s@DescribeSnapshotAttributeResponse' {} a -> s {snapshotId = a} :: DescribeSnapshotAttributeResponse)
 
 -- | The response's http status code.
 describeSnapshotAttributeResponse_httpStatus :: Lens.Lens' DescribeSnapshotAttributeResponse Prelude.Int
@@ -232,7 +231,7 @@ instance
     DescribeSnapshotAttributeResponse
   where
   rnf DescribeSnapshotAttributeResponse' {..} =
-    Prelude.rnf snapshotId
+    Prelude.rnf createVolumePermissions
       `Prelude.seq` Prelude.rnf productCodes
-      `Prelude.seq` Prelude.rnf createVolumePermissions
+      `Prelude.seq` Prelude.rnf snapshotId
       `Prelude.seq` Prelude.rnf httpStatus

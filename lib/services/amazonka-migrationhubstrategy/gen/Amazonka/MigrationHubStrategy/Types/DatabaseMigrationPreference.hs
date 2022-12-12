@@ -31,14 +31,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDatabaseMigrationPreference' smart constructor.
 data DatabaseMigrationPreference = DatabaseMigrationPreference'
-  { -- | Indicates whether you are interested in moving to the same type of
-    -- database into AWS. For example, from SQL Server in your environment to
-    -- SQL Server on AWS.
-    homogeneous :: Prelude.Maybe Homogeneous,
-    -- | Indicates whether you are interested in moving from one type of database
+  { -- | Indicates whether you are interested in moving from one type of database
     -- to another. For example, from SQL Server to Amazon Aurora
     -- MySQL-Compatible Edition.
     heterogeneous :: Prelude.Maybe Heterogeneous,
+    -- | Indicates whether you are interested in moving to the same type of
+    -- database into AWS. For example, from SQL Server in your environment to
+    -- SQL Server on AWS.
+    homogeneous :: Prelude.Maybe Homogeneous,
     -- | Indicated that you do not prefer heterogeneous or homogeneous.
     noPreference :: Prelude.Maybe NoDatabaseMigrationPreference
   }
@@ -52,36 +52,36 @@ data DatabaseMigrationPreference = DatabaseMigrationPreference'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'homogeneous', 'databaseMigrationPreference_homogeneous' - Indicates whether you are interested in moving to the same type of
--- database into AWS. For example, from SQL Server in your environment to
--- SQL Server on AWS.
---
 -- 'heterogeneous', 'databaseMigrationPreference_heterogeneous' - Indicates whether you are interested in moving from one type of database
 -- to another. For example, from SQL Server to Amazon Aurora
 -- MySQL-Compatible Edition.
+--
+-- 'homogeneous', 'databaseMigrationPreference_homogeneous' - Indicates whether you are interested in moving to the same type of
+-- database into AWS. For example, from SQL Server in your environment to
+-- SQL Server on AWS.
 --
 -- 'noPreference', 'databaseMigrationPreference_noPreference' - Indicated that you do not prefer heterogeneous or homogeneous.
 newDatabaseMigrationPreference ::
   DatabaseMigrationPreference
 newDatabaseMigrationPreference =
   DatabaseMigrationPreference'
-    { homogeneous =
+    { heterogeneous =
         Prelude.Nothing,
-      heterogeneous = Prelude.Nothing,
+      homogeneous = Prelude.Nothing,
       noPreference = Prelude.Nothing
     }
-
--- | Indicates whether you are interested in moving to the same type of
--- database into AWS. For example, from SQL Server in your environment to
--- SQL Server on AWS.
-databaseMigrationPreference_homogeneous :: Lens.Lens' DatabaseMigrationPreference (Prelude.Maybe Homogeneous)
-databaseMigrationPreference_homogeneous = Lens.lens (\DatabaseMigrationPreference' {homogeneous} -> homogeneous) (\s@DatabaseMigrationPreference' {} a -> s {homogeneous = a} :: DatabaseMigrationPreference)
 
 -- | Indicates whether you are interested in moving from one type of database
 -- to another. For example, from SQL Server to Amazon Aurora
 -- MySQL-Compatible Edition.
 databaseMigrationPreference_heterogeneous :: Lens.Lens' DatabaseMigrationPreference (Prelude.Maybe Heterogeneous)
 databaseMigrationPreference_heterogeneous = Lens.lens (\DatabaseMigrationPreference' {heterogeneous} -> heterogeneous) (\s@DatabaseMigrationPreference' {} a -> s {heterogeneous = a} :: DatabaseMigrationPreference)
+
+-- | Indicates whether you are interested in moving to the same type of
+-- database into AWS. For example, from SQL Server in your environment to
+-- SQL Server on AWS.
+databaseMigrationPreference_homogeneous :: Lens.Lens' DatabaseMigrationPreference (Prelude.Maybe Homogeneous)
+databaseMigrationPreference_homogeneous = Lens.lens (\DatabaseMigrationPreference' {homogeneous} -> homogeneous) (\s@DatabaseMigrationPreference' {} a -> s {homogeneous = a} :: DatabaseMigrationPreference)
 
 -- | Indicated that you do not prefer heterogeneous or homogeneous.
 databaseMigrationPreference_noPreference :: Lens.Lens' DatabaseMigrationPreference (Prelude.Maybe NoDatabaseMigrationPreference)
@@ -93,29 +93,29 @@ instance Data.FromJSON DatabaseMigrationPreference where
       "DatabaseMigrationPreference"
       ( \x ->
           DatabaseMigrationPreference'
-            Prelude.<$> (x Data..:? "homogeneous")
-            Prelude.<*> (x Data..:? "heterogeneous")
+            Prelude.<$> (x Data..:? "heterogeneous")
+            Prelude.<*> (x Data..:? "homogeneous")
             Prelude.<*> (x Data..:? "noPreference")
       )
 
 instance Prelude.Hashable DatabaseMigrationPreference where
   hashWithSalt _salt DatabaseMigrationPreference' {..} =
-    _salt `Prelude.hashWithSalt` homogeneous
-      `Prelude.hashWithSalt` heterogeneous
+    _salt `Prelude.hashWithSalt` heterogeneous
+      `Prelude.hashWithSalt` homogeneous
       `Prelude.hashWithSalt` noPreference
 
 instance Prelude.NFData DatabaseMigrationPreference where
   rnf DatabaseMigrationPreference' {..} =
-    Prelude.rnf homogeneous
-      `Prelude.seq` Prelude.rnf heterogeneous
+    Prelude.rnf heterogeneous
+      `Prelude.seq` Prelude.rnf homogeneous
       `Prelude.seq` Prelude.rnf noPreference
 
 instance Data.ToJSON DatabaseMigrationPreference where
   toJSON DatabaseMigrationPreference' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("homogeneous" Data..=) Prelude.<$> homogeneous,
-            ("heterogeneous" Data..=) Prelude.<$> heterogeneous,
+          [ ("heterogeneous" Data..=) Prelude.<$> heterogeneous,
+            ("homogeneous" Data..=) Prelude.<$> homogeneous,
             ("noPreference" Data..=) Prelude.<$> noPreference
           ]
       )

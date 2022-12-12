@@ -22,6 +22,7 @@ module Amazonka.Inspector2.Types.ScanStatusReason
       ( ..,
         ScanStatusReason_ACCESS_DENIED,
         ScanStatusReason_EC2_INSTANCE_STOPPED,
+        ScanStatusReason_EXCLUDED_BY_TAG,
         ScanStatusReason_IMAGE_SIZE_EXCEEDED,
         ScanStatusReason_INTERNAL_ERROR,
         ScanStatusReason_NO_INVENTORY,
@@ -35,7 +36,8 @@ module Amazonka.Inspector2.Types.ScanStatusReason
         ScanStatusReason_STALE_INVENTORY,
         ScanStatusReason_SUCCESSFUL,
         ScanStatusReason_UNMANAGED_EC2_INSTANCE,
-        ScanStatusReason_UNSUPPORTED_OS
+        ScanStatusReason_UNSUPPORTED_OS,
+        ScanStatusReason_UNSUPPORTED_RUNTIME
       ),
   )
 where
@@ -77,6 +79,9 @@ pattern ScanStatusReason_ACCESS_DENIED = ScanStatusReason' "ACCESS_DENIED"
 
 pattern ScanStatusReason_EC2_INSTANCE_STOPPED :: ScanStatusReason
 pattern ScanStatusReason_EC2_INSTANCE_STOPPED = ScanStatusReason' "EC2_INSTANCE_STOPPED"
+
+pattern ScanStatusReason_EXCLUDED_BY_TAG :: ScanStatusReason
+pattern ScanStatusReason_EXCLUDED_BY_TAG = ScanStatusReason' "EXCLUDED_BY_TAG"
 
 pattern ScanStatusReason_IMAGE_SIZE_EXCEEDED :: ScanStatusReason
 pattern ScanStatusReason_IMAGE_SIZE_EXCEEDED = ScanStatusReason' "IMAGE_SIZE_EXCEEDED"
@@ -120,9 +125,13 @@ pattern ScanStatusReason_UNMANAGED_EC2_INSTANCE = ScanStatusReason' "UNMANAGED_E
 pattern ScanStatusReason_UNSUPPORTED_OS :: ScanStatusReason
 pattern ScanStatusReason_UNSUPPORTED_OS = ScanStatusReason' "UNSUPPORTED_OS"
 
+pattern ScanStatusReason_UNSUPPORTED_RUNTIME :: ScanStatusReason
+pattern ScanStatusReason_UNSUPPORTED_RUNTIME = ScanStatusReason' "UNSUPPORTED_RUNTIME"
+
 {-# COMPLETE
   ScanStatusReason_ACCESS_DENIED,
   ScanStatusReason_EC2_INSTANCE_STOPPED,
+  ScanStatusReason_EXCLUDED_BY_TAG,
   ScanStatusReason_IMAGE_SIZE_EXCEEDED,
   ScanStatusReason_INTERNAL_ERROR,
   ScanStatusReason_NO_INVENTORY,
@@ -137,5 +146,6 @@ pattern ScanStatusReason_UNSUPPORTED_OS = ScanStatusReason' "UNSUPPORTED_OS"
   ScanStatusReason_SUCCESSFUL,
   ScanStatusReason_UNMANAGED_EC2_INSTANCE,
   ScanStatusReason_UNSUPPORTED_OS,
+  ScanStatusReason_UNSUPPORTED_RUNTIME,
   ScanStatusReason'
   #-}

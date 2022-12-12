@@ -32,9 +32,9 @@ module Amazonka.SageMaker.CreateArtifact
 
     -- * Request Lenses
     createArtifact_artifactName,
-    createArtifact_tags,
     createArtifact_metadataProperties,
     createArtifact_properties,
+    createArtifact_tags,
     createArtifact_source,
     createArtifact_artifactType,
 
@@ -61,11 +61,11 @@ data CreateArtifact = CreateArtifact'
   { -- | The name of the artifact. Must be unique to your account in an Amazon
     -- Web Services Region.
     artifactName :: Prelude.Maybe Prelude.Text,
-    -- | A list of tags to apply to the artifact.
-    tags :: Prelude.Maybe [Tag],
     metadataProperties :: Prelude.Maybe MetadataProperties,
     -- | A list of properties to add to the artifact.
     properties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A list of tags to apply to the artifact.
+    tags :: Prelude.Maybe [Tag],
     -- | The ID, ID type, and URI of the source.
     source :: ArtifactSource,
     -- | The artifact type.
@@ -84,11 +84,11 @@ data CreateArtifact = CreateArtifact'
 -- 'artifactName', 'createArtifact_artifactName' - The name of the artifact. Must be unique to your account in an Amazon
 -- Web Services Region.
 --
--- 'tags', 'createArtifact_tags' - A list of tags to apply to the artifact.
---
 -- 'metadataProperties', 'createArtifact_metadataProperties' - Undocumented member.
 --
 -- 'properties', 'createArtifact_properties' - A list of properties to add to the artifact.
+--
+-- 'tags', 'createArtifact_tags' - A list of tags to apply to the artifact.
 --
 -- 'source', 'createArtifact_source' - The ID, ID type, and URI of the source.
 --
@@ -102,9 +102,9 @@ newCreateArtifact ::
 newCreateArtifact pSource_ pArtifactType_ =
   CreateArtifact'
     { artifactName = Prelude.Nothing,
-      tags = Prelude.Nothing,
       metadataProperties = Prelude.Nothing,
       properties = Prelude.Nothing,
+      tags = Prelude.Nothing,
       source = pSource_,
       artifactType = pArtifactType_
     }
@@ -114,10 +114,6 @@ newCreateArtifact pSource_ pArtifactType_ =
 createArtifact_artifactName :: Lens.Lens' CreateArtifact (Prelude.Maybe Prelude.Text)
 createArtifact_artifactName = Lens.lens (\CreateArtifact' {artifactName} -> artifactName) (\s@CreateArtifact' {} a -> s {artifactName = a} :: CreateArtifact)
 
--- | A list of tags to apply to the artifact.
-createArtifact_tags :: Lens.Lens' CreateArtifact (Prelude.Maybe [Tag])
-createArtifact_tags = Lens.lens (\CreateArtifact' {tags} -> tags) (\s@CreateArtifact' {} a -> s {tags = a} :: CreateArtifact) Prelude.. Lens.mapping Lens.coerced
-
 -- | Undocumented member.
 createArtifact_metadataProperties :: Lens.Lens' CreateArtifact (Prelude.Maybe MetadataProperties)
 createArtifact_metadataProperties = Lens.lens (\CreateArtifact' {metadataProperties} -> metadataProperties) (\s@CreateArtifact' {} a -> s {metadataProperties = a} :: CreateArtifact)
@@ -125,6 +121,10 @@ createArtifact_metadataProperties = Lens.lens (\CreateArtifact' {metadataPropert
 -- | A list of properties to add to the artifact.
 createArtifact_properties :: Lens.Lens' CreateArtifact (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createArtifact_properties = Lens.lens (\CreateArtifact' {properties} -> properties) (\s@CreateArtifact' {} a -> s {properties = a} :: CreateArtifact) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of tags to apply to the artifact.
+createArtifact_tags :: Lens.Lens' CreateArtifact (Prelude.Maybe [Tag])
+createArtifact_tags = Lens.lens (\CreateArtifact' {tags} -> tags) (\s@CreateArtifact' {} a -> s {tags = a} :: CreateArtifact) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID, ID type, and URI of the source.
 createArtifact_source :: Lens.Lens' CreateArtifact ArtifactSource
@@ -151,18 +151,18 @@ instance Core.AWSRequest CreateArtifact where
 instance Prelude.Hashable CreateArtifact where
   hashWithSalt _salt CreateArtifact' {..} =
     _salt `Prelude.hashWithSalt` artifactName
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` metadataProperties
       `Prelude.hashWithSalt` properties
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` artifactType
 
 instance Prelude.NFData CreateArtifact where
   rnf CreateArtifact' {..} =
     Prelude.rnf artifactName
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf metadataProperties
       `Prelude.seq` Prelude.rnf properties
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf artifactType
 
@@ -184,10 +184,10 @@ instance Data.ToJSON CreateArtifact where
     Data.object
       ( Prelude.catMaybes
           [ ("ArtifactName" Data..=) Prelude.<$> artifactName,
-            ("Tags" Data..=) Prelude.<$> tags,
             ("MetadataProperties" Data..=)
               Prelude.<$> metadataProperties,
             ("Properties" Data..=) Prelude.<$> properties,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Source" Data..= source),
             Prelude.Just ("ArtifactType" Data..= artifactType)
           ]

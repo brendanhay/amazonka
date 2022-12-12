@@ -30,64 +30,60 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPlacement' smart constructor.
 data Placement = Placement'
-  { -- | Reserved for future use.
+  { -- | The affinity setting for the instance on the Dedicated Host.
     --
-    -- This parameter is not supported by
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet>.
-    spreadDomain :: Prelude.Maybe Prelude.Text,
-    -- | The number of the partition that the instance is in. Valid only if the
-    -- placement group strategy is set to @partition@.
-    --
-    -- This parameter is not supported by
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet>.
-    partitionNumber :: Prelude.Maybe Prelude.Int,
-    -- | The ARN of the host resource group in which to launch the instances. If
-    -- you specify a host resource group ARN, omit the __Tenancy__ parameter or
-    -- set it to @host@.
-    --
-    -- This parameter is not supported by
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet>.
-    hostResourceGroupArn :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the Dedicated Host on which the instance resides. This
-    -- parameter is not supported for the
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html ImportInstance>
-    -- command.
-    --
-    -- This parameter is not supported by
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet>.
-    hostId :: Prelude.Maybe Prelude.Text,
+    -- This parameter is not supported for
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet>
+    -- or
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html ImportInstance>.
+    affinity :: Prelude.Maybe Prelude.Text,
     -- | The Availability Zone of the instance.
     --
     -- If not specified, an Availability Zone will be automatically chosen for
     -- you based on the load balancing criteria for the Region.
     --
-    -- This parameter is not supported by
+    -- This parameter is not supported for
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet>.
     availabilityZone :: Prelude.Maybe Prelude.Text,
-    -- | The name of the placement group the instance is in.
+    -- | The ID of the placement group that the instance is in. If you specify
+    -- @GroupId@, you can\'t specify @GroupName@.
+    groupId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the placement group that the instance is in. If you specify
+    -- @GroupName@, you can\'t specify @GroupId@.
     groupName :: Prelude.Maybe Prelude.Text,
-    -- | The affinity setting for the instance on the Dedicated Host. This
-    -- parameter is not supported for the
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html ImportInstance>
-    -- command.
+    -- | The ID of the Dedicated Host on which the instance resides.
     --
-    -- This parameter is not supported by
+    -- This parameter is not supported for
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet>
+    -- or
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html ImportInstance>.
+    hostId :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the host resource group in which to launch the instances.
+    --
+    -- If you specify this parameter, either omit the __Tenancy__ parameter or
+    -- set it to @host@.
+    --
+    -- This parameter is not supported for
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet>.
-    affinity :: Prelude.Maybe Prelude.Text,
+    hostResourceGroupArn :: Prelude.Maybe Prelude.Text,
+    -- | The number of the partition that the instance is in. Valid only if the
+    -- placement group strategy is set to @partition@.
+    --
+    -- This parameter is not supported for
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet>.
+    partitionNumber :: Prelude.Maybe Prelude.Int,
+    -- | Reserved for future use.
+    spreadDomain :: Prelude.Maybe Prelude.Text,
     -- | The tenancy of the instance (if the instance is running in a VPC). An
     -- instance with a tenancy of @dedicated@ runs on single-tenant hardware.
-    -- The @host@ tenancy is not supported for the
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html ImportInstance>
-    -- command.
     --
-    -- This parameter is not supported by
+    -- This parameter is not supported for
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet>.
-    --
-    -- T3 instances that use the @unlimited@ CPU credit option do not support
-    -- @host@ tenancy.
-    tenancy :: Prelude.Maybe Tenancy,
-    -- | The Group Id of the placement group.
-    groupId :: Prelude.Maybe Prelude.Text
+    -- The @host@ tenancy is not supported for
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html ImportInstance>
+    -- or for T3 instances that are configured for the @unlimited@ CPU credit
+    -- option.
+    tenancy :: Prelude.Maybe Tenancy
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -99,201 +95,193 @@ data Placement = Placement'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'spreadDomain', 'placement_spreadDomain' - Reserved for future use.
+-- 'affinity', 'placement_affinity' - The affinity setting for the instance on the Dedicated Host.
 --
--- This parameter is not supported by
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet>.
---
--- 'partitionNumber', 'placement_partitionNumber' - The number of the partition that the instance is in. Valid only if the
--- placement group strategy is set to @partition@.
---
--- This parameter is not supported by
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet>.
---
--- 'hostResourceGroupArn', 'placement_hostResourceGroupArn' - The ARN of the host resource group in which to launch the instances. If
--- you specify a host resource group ARN, omit the __Tenancy__ parameter or
--- set it to @host@.
---
--- This parameter is not supported by
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet>.
---
--- 'hostId', 'placement_hostId' - The ID of the Dedicated Host on which the instance resides. This
--- parameter is not supported for the
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html ImportInstance>
--- command.
---
--- This parameter is not supported by
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet>.
+-- This parameter is not supported for
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet>
+-- or
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html ImportInstance>.
 --
 -- 'availabilityZone', 'placement_availabilityZone' - The Availability Zone of the instance.
 --
 -- If not specified, an Availability Zone will be automatically chosen for
 -- you based on the load balancing criteria for the Region.
 --
--- This parameter is not supported by
+-- This parameter is not supported for
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet>.
 --
--- 'groupName', 'placement_groupName' - The name of the placement group the instance is in.
+-- 'groupId', 'placement_groupId' - The ID of the placement group that the instance is in. If you specify
+-- @GroupId@, you can\'t specify @GroupName@.
 --
--- 'affinity', 'placement_affinity' - The affinity setting for the instance on the Dedicated Host. This
--- parameter is not supported for the
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html ImportInstance>
--- command.
+-- 'groupName', 'placement_groupName' - The name of the placement group that the instance is in. If you specify
+-- @GroupName@, you can\'t specify @GroupId@.
 --
--- This parameter is not supported by
+-- 'hostId', 'placement_hostId' - The ID of the Dedicated Host on which the instance resides.
+--
+-- This parameter is not supported for
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet>
+-- or
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html ImportInstance>.
+--
+-- 'hostResourceGroupArn', 'placement_hostResourceGroupArn' - The ARN of the host resource group in which to launch the instances.
+--
+-- If you specify this parameter, either omit the __Tenancy__ parameter or
+-- set it to @host@.
+--
+-- This parameter is not supported for
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet>.
+--
+-- 'partitionNumber', 'placement_partitionNumber' - The number of the partition that the instance is in. Valid only if the
+-- placement group strategy is set to @partition@.
+--
+-- This parameter is not supported for
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet>.
+--
+-- 'spreadDomain', 'placement_spreadDomain' - Reserved for future use.
 --
 -- 'tenancy', 'placement_tenancy' - The tenancy of the instance (if the instance is running in a VPC). An
 -- instance with a tenancy of @dedicated@ runs on single-tenant hardware.
--- The @host@ tenancy is not supported for the
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html ImportInstance>
--- command.
 --
--- This parameter is not supported by
+-- This parameter is not supported for
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet>.
---
--- T3 instances that use the @unlimited@ CPU credit option do not support
--- @host@ tenancy.
---
--- 'groupId', 'placement_groupId' - The Group Id of the placement group.
+-- The @host@ tenancy is not supported for
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html ImportInstance>
+-- or for T3 instances that are configured for the @unlimited@ CPU credit
+-- option.
 newPlacement ::
   Placement
 newPlacement =
   Placement'
-    { spreadDomain = Prelude.Nothing,
-      partitionNumber = Prelude.Nothing,
-      hostResourceGroupArn = Prelude.Nothing,
-      hostId = Prelude.Nothing,
+    { affinity = Prelude.Nothing,
       availabilityZone = Prelude.Nothing,
+      groupId = Prelude.Nothing,
       groupName = Prelude.Nothing,
-      affinity = Prelude.Nothing,
-      tenancy = Prelude.Nothing,
-      groupId = Prelude.Nothing
+      hostId = Prelude.Nothing,
+      hostResourceGroupArn = Prelude.Nothing,
+      partitionNumber = Prelude.Nothing,
+      spreadDomain = Prelude.Nothing,
+      tenancy = Prelude.Nothing
     }
 
--- | Reserved for future use.
+-- | The affinity setting for the instance on the Dedicated Host.
 --
--- This parameter is not supported by
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet>.
-placement_spreadDomain :: Lens.Lens' Placement (Prelude.Maybe Prelude.Text)
-placement_spreadDomain = Lens.lens (\Placement' {spreadDomain} -> spreadDomain) (\s@Placement' {} a -> s {spreadDomain = a} :: Placement)
-
--- | The number of the partition that the instance is in. Valid only if the
--- placement group strategy is set to @partition@.
---
--- This parameter is not supported by
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet>.
-placement_partitionNumber :: Lens.Lens' Placement (Prelude.Maybe Prelude.Int)
-placement_partitionNumber = Lens.lens (\Placement' {partitionNumber} -> partitionNumber) (\s@Placement' {} a -> s {partitionNumber = a} :: Placement)
-
--- | The ARN of the host resource group in which to launch the instances. If
--- you specify a host resource group ARN, omit the __Tenancy__ parameter or
--- set it to @host@.
---
--- This parameter is not supported by
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet>.
-placement_hostResourceGroupArn :: Lens.Lens' Placement (Prelude.Maybe Prelude.Text)
-placement_hostResourceGroupArn = Lens.lens (\Placement' {hostResourceGroupArn} -> hostResourceGroupArn) (\s@Placement' {} a -> s {hostResourceGroupArn = a} :: Placement)
-
--- | The ID of the Dedicated Host on which the instance resides. This
--- parameter is not supported for the
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html ImportInstance>
--- command.
---
--- This parameter is not supported by
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet>.
-placement_hostId :: Lens.Lens' Placement (Prelude.Maybe Prelude.Text)
-placement_hostId = Lens.lens (\Placement' {hostId} -> hostId) (\s@Placement' {} a -> s {hostId = a} :: Placement)
+-- This parameter is not supported for
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet>
+-- or
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html ImportInstance>.
+placement_affinity :: Lens.Lens' Placement (Prelude.Maybe Prelude.Text)
+placement_affinity = Lens.lens (\Placement' {affinity} -> affinity) (\s@Placement' {} a -> s {affinity = a} :: Placement)
 
 -- | The Availability Zone of the instance.
 --
 -- If not specified, an Availability Zone will be automatically chosen for
 -- you based on the load balancing criteria for the Region.
 --
--- This parameter is not supported by
+-- This parameter is not supported for
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet>.
 placement_availabilityZone :: Lens.Lens' Placement (Prelude.Maybe Prelude.Text)
 placement_availabilityZone = Lens.lens (\Placement' {availabilityZone} -> availabilityZone) (\s@Placement' {} a -> s {availabilityZone = a} :: Placement)
 
--- | The name of the placement group the instance is in.
+-- | The ID of the placement group that the instance is in. If you specify
+-- @GroupId@, you can\'t specify @GroupName@.
+placement_groupId :: Lens.Lens' Placement (Prelude.Maybe Prelude.Text)
+placement_groupId = Lens.lens (\Placement' {groupId} -> groupId) (\s@Placement' {} a -> s {groupId = a} :: Placement)
+
+-- | The name of the placement group that the instance is in. If you specify
+-- @GroupName@, you can\'t specify @GroupId@.
 placement_groupName :: Lens.Lens' Placement (Prelude.Maybe Prelude.Text)
 placement_groupName = Lens.lens (\Placement' {groupName} -> groupName) (\s@Placement' {} a -> s {groupName = a} :: Placement)
 
--- | The affinity setting for the instance on the Dedicated Host. This
--- parameter is not supported for the
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html ImportInstance>
--- command.
+-- | The ID of the Dedicated Host on which the instance resides.
 --
--- This parameter is not supported by
+-- This parameter is not supported for
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet>
+-- or
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html ImportInstance>.
+placement_hostId :: Lens.Lens' Placement (Prelude.Maybe Prelude.Text)
+placement_hostId = Lens.lens (\Placement' {hostId} -> hostId) (\s@Placement' {} a -> s {hostId = a} :: Placement)
+
+-- | The ARN of the host resource group in which to launch the instances.
+--
+-- If you specify this parameter, either omit the __Tenancy__ parameter or
+-- set it to @host@.
+--
+-- This parameter is not supported for
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet>.
-placement_affinity :: Lens.Lens' Placement (Prelude.Maybe Prelude.Text)
-placement_affinity = Lens.lens (\Placement' {affinity} -> affinity) (\s@Placement' {} a -> s {affinity = a} :: Placement)
+placement_hostResourceGroupArn :: Lens.Lens' Placement (Prelude.Maybe Prelude.Text)
+placement_hostResourceGroupArn = Lens.lens (\Placement' {hostResourceGroupArn} -> hostResourceGroupArn) (\s@Placement' {} a -> s {hostResourceGroupArn = a} :: Placement)
+
+-- | The number of the partition that the instance is in. Valid only if the
+-- placement group strategy is set to @partition@.
+--
+-- This parameter is not supported for
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet>.
+placement_partitionNumber :: Lens.Lens' Placement (Prelude.Maybe Prelude.Int)
+placement_partitionNumber = Lens.lens (\Placement' {partitionNumber} -> partitionNumber) (\s@Placement' {} a -> s {partitionNumber = a} :: Placement)
+
+-- | Reserved for future use.
+placement_spreadDomain :: Lens.Lens' Placement (Prelude.Maybe Prelude.Text)
+placement_spreadDomain = Lens.lens (\Placement' {spreadDomain} -> spreadDomain) (\s@Placement' {} a -> s {spreadDomain = a} :: Placement)
 
 -- | The tenancy of the instance (if the instance is running in a VPC). An
 -- instance with a tenancy of @dedicated@ runs on single-tenant hardware.
--- The @host@ tenancy is not supported for the
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html ImportInstance>
--- command.
 --
--- This parameter is not supported by
+-- This parameter is not supported for
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet>.
---
--- T3 instances that use the @unlimited@ CPU credit option do not support
--- @host@ tenancy.
+-- The @host@ tenancy is not supported for
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html ImportInstance>
+-- or for T3 instances that are configured for the @unlimited@ CPU credit
+-- option.
 placement_tenancy :: Lens.Lens' Placement (Prelude.Maybe Tenancy)
 placement_tenancy = Lens.lens (\Placement' {tenancy} -> tenancy) (\s@Placement' {} a -> s {tenancy = a} :: Placement)
-
--- | The Group Id of the placement group.
-placement_groupId :: Lens.Lens' Placement (Prelude.Maybe Prelude.Text)
-placement_groupId = Lens.lens (\Placement' {groupId} -> groupId) (\s@Placement' {} a -> s {groupId = a} :: Placement)
 
 instance Data.FromXML Placement where
   parseXML x =
     Placement'
-      Prelude.<$> (x Data..@? "spreadDomain")
-      Prelude.<*> (x Data..@? "partitionNumber")
-      Prelude.<*> (x Data..@? "hostResourceGroupArn")
-      Prelude.<*> (x Data..@? "hostId")
+      Prelude.<$> (x Data..@? "affinity")
       Prelude.<*> (x Data..@? "availabilityZone")
-      Prelude.<*> (x Data..@? "groupName")
-      Prelude.<*> (x Data..@? "affinity")
-      Prelude.<*> (x Data..@? "tenancy")
       Prelude.<*> (x Data..@? "groupId")
+      Prelude.<*> (x Data..@? "groupName")
+      Prelude.<*> (x Data..@? "hostId")
+      Prelude.<*> (x Data..@? "hostResourceGroupArn")
+      Prelude.<*> (x Data..@? "partitionNumber")
+      Prelude.<*> (x Data..@? "spreadDomain")
+      Prelude.<*> (x Data..@? "tenancy")
 
 instance Prelude.Hashable Placement where
   hashWithSalt _salt Placement' {..} =
-    _salt `Prelude.hashWithSalt` spreadDomain
-      `Prelude.hashWithSalt` partitionNumber
-      `Prelude.hashWithSalt` hostResourceGroupArn
-      `Prelude.hashWithSalt` hostId
+    _salt `Prelude.hashWithSalt` affinity
       `Prelude.hashWithSalt` availabilityZone
-      `Prelude.hashWithSalt` groupName
-      `Prelude.hashWithSalt` affinity
-      `Prelude.hashWithSalt` tenancy
       `Prelude.hashWithSalt` groupId
+      `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` hostId
+      `Prelude.hashWithSalt` hostResourceGroupArn
+      `Prelude.hashWithSalt` partitionNumber
+      `Prelude.hashWithSalt` spreadDomain
+      `Prelude.hashWithSalt` tenancy
 
 instance Prelude.NFData Placement where
   rnf Placement' {..} =
-    Prelude.rnf spreadDomain
-      `Prelude.seq` Prelude.rnf partitionNumber
-      `Prelude.seq` Prelude.rnf hostResourceGroupArn
-      `Prelude.seq` Prelude.rnf hostId
+    Prelude.rnf affinity
       `Prelude.seq` Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf affinity
-      `Prelude.seq` Prelude.rnf tenancy
       `Prelude.seq` Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf hostId
+      `Prelude.seq` Prelude.rnf hostResourceGroupArn
+      `Prelude.seq` Prelude.rnf partitionNumber
+      `Prelude.seq` Prelude.rnf spreadDomain
+      `Prelude.seq` Prelude.rnf tenancy
 
 instance Data.ToQuery Placement where
   toQuery Placement' {..} =
     Prelude.mconcat
-      [ "SpreadDomain" Data.=: spreadDomain,
-        "PartitionNumber" Data.=: partitionNumber,
-        "HostResourceGroupArn" Data.=: hostResourceGroupArn,
-        "HostId" Data.=: hostId,
+      [ "Affinity" Data.=: affinity,
         "AvailabilityZone" Data.=: availabilityZone,
+        "GroupId" Data.=: groupId,
         "GroupName" Data.=: groupName,
-        "Affinity" Data.=: affinity,
-        "Tenancy" Data.=: tenancy,
-        "GroupId" Data.=: groupId
+        "HostId" Data.=: hostId,
+        "HostResourceGroupArn" Data.=: hostResourceGroupArn,
+        "PartitionNumber" Data.=: partitionNumber,
+        "SpreadDomain" Data.=: spreadDomain,
+        "Tenancy" Data.=: tenancy
       ]

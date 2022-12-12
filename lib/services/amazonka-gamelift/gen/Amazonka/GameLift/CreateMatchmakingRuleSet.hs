@@ -23,16 +23,16 @@
 -- Creates a new rule set for FlexMatch matchmaking. A rule set describes
 -- the type of match to create, such as the number and size of teams. It
 -- also sets the parameters for acceptable player matches, such as minimum
--- skill level or character type. A rule set is used by a
--- MatchmakingConfiguration.
+-- skill level or character type.
 --
 -- To create a matchmaking rule set, provide unique rule set name and the
 -- rule set body in JSON format. Rule sets must be defined in the same
 -- Region as the matchmaking configuration they are used with.
 --
 -- Since matchmaking rule sets cannot be edited, it is a good idea to check
--- the rule set syntax using ValidateMatchmakingRuleSet before creating a
--- new rule set.
+-- the rule set syntax using
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_ValidateMatchmakingRuleSet.html ValidateMatchmakingRuleSet>
+-- before creating a new rule set.
 --
 -- __Learn more__
 --
@@ -41,14 +41,6 @@
 -- -   <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-configuration.html Design a matchmaker>
 --
 -- -   <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-intro.html Matchmaking with FlexMatch>
---
--- __Related actions__
---
--- CreateMatchmakingConfiguration | DescribeMatchmakingConfigurations |
--- UpdateMatchmakingConfiguration | DeleteMatchmakingConfiguration |
--- CreateMatchmakingRuleSet | DescribeMatchmakingRuleSets |
--- ValidateMatchmakingRuleSet | DeleteMatchmakingRuleSet |
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Amazonka.GameLift.CreateMatchmakingRuleSet
   ( -- * Creating a Request
     CreateMatchmakingRuleSet (..),
@@ -77,20 +69,14 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Represents the input for a request operation.
---
--- /See:/ 'newCreateMatchmakingRuleSet' smart constructor.
+-- | /See:/ 'newCreateMatchmakingRuleSet' smart constructor.
 data CreateMatchmakingRuleSet = CreateMatchmakingRuleSet'
   { -- | A list of labels to assign to the new matchmaking rule set resource.
     -- Tags are developer-defined key-value pairs. Tagging Amazon Web Services
     -- resources are useful for resource management, access management and cost
     -- allocation. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
-    -- in the /Amazon Web Services General Reference/. Once the resource is
-    -- created, you can use TagResource, UntagResource, and ListTagsForResource
-    -- to add, remove, and view tags. The maximum tag limit may be lower than
-    -- stated. See the Amazon Web Services General Reference for actual tagging
-    -- limits.
+    -- in the /Amazon Web Services General Reference/.
     tags :: Prelude.Maybe [Tag],
     -- | A unique identifier for the matchmaking rule set. A matchmaking
     -- configuration identifies the rule set it uses by this name value. Note
@@ -116,11 +102,7 @@ data CreateMatchmakingRuleSet = CreateMatchmakingRuleSet'
 -- resources are useful for resource management, access management and cost
 -- allocation. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
--- in the /Amazon Web Services General Reference/. Once the resource is
--- created, you can use TagResource, UntagResource, and ListTagsForResource
--- to add, remove, and view tags. The maximum tag limit may be lower than
--- stated. See the Amazon Web Services General Reference for actual tagging
--- limits.
+-- in the /Amazon Web Services General Reference/.
 --
 -- 'name', 'createMatchmakingRuleSet_name' - A unique identifier for the matchmaking rule set. A matchmaking
 -- configuration identifies the rule set it uses by this name value. Note
@@ -147,11 +129,7 @@ newCreateMatchmakingRuleSet pName_ pRuleSetBody_ =
 -- resources are useful for resource management, access management and cost
 -- allocation. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
--- in the /Amazon Web Services General Reference/. Once the resource is
--- created, you can use TagResource, UntagResource, and ListTagsForResource
--- to add, remove, and view tags. The maximum tag limit may be lower than
--- stated. See the Amazon Web Services General Reference for actual tagging
--- limits.
+-- in the /Amazon Web Services General Reference/.
 createMatchmakingRuleSet_tags :: Lens.Lens' CreateMatchmakingRuleSet (Prelude.Maybe [Tag])
 createMatchmakingRuleSet_tags = Lens.lens (\CreateMatchmakingRuleSet' {tags} -> tags) (\s@CreateMatchmakingRuleSet' {} a -> s {tags = a} :: CreateMatchmakingRuleSet) Prelude.. Lens.mapping Lens.coerced
 
@@ -224,9 +202,7 @@ instance Data.ToPath CreateMatchmakingRuleSet where
 instance Data.ToQuery CreateMatchmakingRuleSet where
   toQuery = Prelude.const Prelude.mempty
 
--- | Represents the returned data in response to a request operation.
---
--- /See:/ 'newCreateMatchmakingRuleSetResponse' smart constructor.
+-- | /See:/ 'newCreateMatchmakingRuleSetResponse' smart constructor.
 data CreateMatchmakingRuleSetResponse = CreateMatchmakingRuleSetResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,

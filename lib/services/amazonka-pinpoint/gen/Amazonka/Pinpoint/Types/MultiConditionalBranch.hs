@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMultiConditionalBranch' smart constructor.
 data MultiConditionalBranch = MultiConditionalBranch'
-  { -- | The unique identifier for the next activity to perform, after completing
+  { -- | The condition to evaluate for the activity path.
+    condition :: Prelude.Maybe SimpleCondition,
+    -- | The unique identifier for the next activity to perform, after completing
     -- the activity for the path.
-    nextActivity :: Prelude.Maybe Prelude.Text,
-    -- | The condition to evaluate for the activity path.
-    condition :: Prelude.Maybe SimpleCondition
+    nextActivity :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,27 +45,27 @@ data MultiConditionalBranch = MultiConditionalBranch'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'condition', 'multiConditionalBranch_condition' - The condition to evaluate for the activity path.
+--
 -- 'nextActivity', 'multiConditionalBranch_nextActivity' - The unique identifier for the next activity to perform, after completing
 -- the activity for the path.
---
--- 'condition', 'multiConditionalBranch_condition' - The condition to evaluate for the activity path.
 newMultiConditionalBranch ::
   MultiConditionalBranch
 newMultiConditionalBranch =
   MultiConditionalBranch'
-    { nextActivity =
+    { condition =
         Prelude.Nothing,
-      condition = Prelude.Nothing
+      nextActivity = Prelude.Nothing
     }
+
+-- | The condition to evaluate for the activity path.
+multiConditionalBranch_condition :: Lens.Lens' MultiConditionalBranch (Prelude.Maybe SimpleCondition)
+multiConditionalBranch_condition = Lens.lens (\MultiConditionalBranch' {condition} -> condition) (\s@MultiConditionalBranch' {} a -> s {condition = a} :: MultiConditionalBranch)
 
 -- | The unique identifier for the next activity to perform, after completing
 -- the activity for the path.
 multiConditionalBranch_nextActivity :: Lens.Lens' MultiConditionalBranch (Prelude.Maybe Prelude.Text)
 multiConditionalBranch_nextActivity = Lens.lens (\MultiConditionalBranch' {nextActivity} -> nextActivity) (\s@MultiConditionalBranch' {} a -> s {nextActivity = a} :: MultiConditionalBranch)
-
--- | The condition to evaluate for the activity path.
-multiConditionalBranch_condition :: Lens.Lens' MultiConditionalBranch (Prelude.Maybe SimpleCondition)
-multiConditionalBranch_condition = Lens.lens (\MultiConditionalBranch' {condition} -> condition) (\s@MultiConditionalBranch' {} a -> s {condition = a} :: MultiConditionalBranch)
 
 instance Data.FromJSON MultiConditionalBranch where
   parseJSON =
@@ -73,25 +73,25 @@ instance Data.FromJSON MultiConditionalBranch where
       "MultiConditionalBranch"
       ( \x ->
           MultiConditionalBranch'
-            Prelude.<$> (x Data..:? "NextActivity")
-            Prelude.<*> (x Data..:? "Condition")
+            Prelude.<$> (x Data..:? "Condition")
+            Prelude.<*> (x Data..:? "NextActivity")
       )
 
 instance Prelude.Hashable MultiConditionalBranch where
   hashWithSalt _salt MultiConditionalBranch' {..} =
-    _salt `Prelude.hashWithSalt` nextActivity
-      `Prelude.hashWithSalt` condition
+    _salt `Prelude.hashWithSalt` condition
+      `Prelude.hashWithSalt` nextActivity
 
 instance Prelude.NFData MultiConditionalBranch where
   rnf MultiConditionalBranch' {..} =
-    Prelude.rnf nextActivity
-      `Prelude.seq` Prelude.rnf condition
+    Prelude.rnf condition
+      `Prelude.seq` Prelude.rnf nextActivity
 
 instance Data.ToJSON MultiConditionalBranch where
   toJSON MultiConditionalBranch' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextActivity" Data..=) Prelude.<$> nextActivity,
-            ("Condition" Data..=) Prelude.<$> condition
+          [ ("Condition" Data..=) Prelude.<$> condition,
+            ("NextActivity" Data..=) Prelude.<$> nextActivity
           ]
       )

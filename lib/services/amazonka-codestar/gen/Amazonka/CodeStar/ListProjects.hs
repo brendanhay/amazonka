@@ -29,8 +29,8 @@ module Amazonka.CodeStar.ListProjects
     newListProjects,
 
     -- * Request Lenses
-    listProjects_nextToken,
     listProjects_maxResults,
+    listProjects_nextToken,
 
     -- * Destructuring the Response
     ListProjectsResponse (..),
@@ -53,12 +53,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListProjects' smart constructor.
 data ListProjects = ListProjects'
-  { -- | The continuation token to be used to return the next set of results, if
-    -- the results cannot be returned in one response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum amount of data that can be contained in a single set of
+  { -- | The maximum amount of data that can be contained in a single set of
     -- results.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The continuation token to be used to return the next set of results, if
+    -- the results cannot be returned in one response.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,28 +70,28 @@ data ListProjects = ListProjects'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listProjects_nextToken' - The continuation token to be used to return the next set of results, if
--- the results cannot be returned in one response.
---
 -- 'maxResults', 'listProjects_maxResults' - The maximum amount of data that can be contained in a single set of
 -- results.
+--
+-- 'nextToken', 'listProjects_nextToken' - The continuation token to be used to return the next set of results, if
+-- the results cannot be returned in one response.
 newListProjects ::
   ListProjects
 newListProjects =
   ListProjects'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The continuation token to be used to return the next set of results, if
--- the results cannot be returned in one response.
-listProjects_nextToken :: Lens.Lens' ListProjects (Prelude.Maybe Prelude.Text)
-listProjects_nextToken = Lens.lens (\ListProjects' {nextToken} -> nextToken) (\s@ListProjects' {} a -> s {nextToken = a} :: ListProjects)
 
 -- | The maximum amount of data that can be contained in a single set of
 -- results.
 listProjects_maxResults :: Lens.Lens' ListProjects (Prelude.Maybe Prelude.Natural)
 listProjects_maxResults = Lens.lens (\ListProjects' {maxResults} -> maxResults) (\s@ListProjects' {} a -> s {maxResults = a} :: ListProjects)
+
+-- | The continuation token to be used to return the next set of results, if
+-- the results cannot be returned in one response.
+listProjects_nextToken :: Lens.Lens' ListProjects (Prelude.Maybe Prelude.Text)
+listProjects_nextToken = Lens.lens (\ListProjects' {nextToken} -> nextToken) (\s@ListProjects' {} a -> s {nextToken = a} :: ListProjects)
 
 instance Core.AWSPager ListProjects where
   page rq rs
@@ -125,13 +125,13 @@ instance Core.AWSRequest ListProjects where
 
 instance Prelude.Hashable ListProjects where
   hashWithSalt _salt ListProjects' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListProjects where
   rnf ListProjects' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListProjects where
   toHeaders =
@@ -152,8 +152,8 @@ instance Data.ToJSON ListProjects where
   toJSON ListProjects' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

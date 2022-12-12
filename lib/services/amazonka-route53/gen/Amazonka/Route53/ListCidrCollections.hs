@@ -30,16 +30,16 @@ module Amazonka.Route53.ListCidrCollections
     newListCidrCollections,
 
     -- * Request Lenses
-    listCidrCollections_nextToken,
     listCidrCollections_maxResults,
+    listCidrCollections_nextToken,
 
     -- * Destructuring the Response
     ListCidrCollectionsResponse (..),
     newListCidrCollectionsResponse,
 
     -- * Response Lenses
-    listCidrCollectionsResponse_nextToken,
     listCidrCollectionsResponse_cidrCollections,
+    listCidrCollectionsResponse_nextToken,
     listCidrCollectionsResponse_httpStatus,
   )
 where
@@ -54,14 +54,14 @@ import Amazonka.Route53.Types
 
 -- | /See:/ 'newListCidrCollections' smart constructor.
 data ListCidrCollections = ListCidrCollections'
-  { -- | An opaque pagination token to indicate where the service is to begin
+  { -- | The maximum number of CIDR collections to return in the response.
+    maxResults :: Prelude.Maybe Prelude.Text,
+    -- | An opaque pagination token to indicate where the service is to begin
     -- enumerating results.
     --
     -- If no value is provided, the listing of results starts from the
     -- beginning.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of CIDR collections to return in the response.
-    maxResults :: Prelude.Maybe Prelude.Text
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,20 +73,24 @@ data ListCidrCollections = ListCidrCollections'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listCidrCollections_maxResults' - The maximum number of CIDR collections to return in the response.
+--
 -- 'nextToken', 'listCidrCollections_nextToken' - An opaque pagination token to indicate where the service is to begin
 -- enumerating results.
 --
 -- If no value is provided, the listing of results starts from the
 -- beginning.
---
--- 'maxResults', 'listCidrCollections_maxResults' - The maximum number of CIDR collections to return in the response.
 newListCidrCollections ::
   ListCidrCollections
 newListCidrCollections =
   ListCidrCollections'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of CIDR collections to return in the response.
+listCidrCollections_maxResults :: Lens.Lens' ListCidrCollections (Prelude.Maybe Prelude.Text)
+listCidrCollections_maxResults = Lens.lens (\ListCidrCollections' {maxResults} -> maxResults) (\s@ListCidrCollections' {} a -> s {maxResults = a} :: ListCidrCollections)
 
 -- | An opaque pagination token to indicate where the service is to begin
 -- enumerating results.
@@ -95,10 +99,6 @@ newListCidrCollections =
 -- beginning.
 listCidrCollections_nextToken :: Lens.Lens' ListCidrCollections (Prelude.Maybe Prelude.Text)
 listCidrCollections_nextToken = Lens.lens (\ListCidrCollections' {nextToken} -> nextToken) (\s@ListCidrCollections' {} a -> s {nextToken = a} :: ListCidrCollections)
-
--- | The maximum number of CIDR collections to return in the response.
-listCidrCollections_maxResults :: Lens.Lens' ListCidrCollections (Prelude.Maybe Prelude.Text)
-listCidrCollections_maxResults = Lens.lens (\ListCidrCollections' {maxResults} -> maxResults) (\s@ListCidrCollections' {} a -> s {maxResults = a} :: ListCidrCollections)
 
 instance Core.AWSPager ListCidrCollections where
   page rq rs
@@ -132,22 +132,22 @@ instance Core.AWSRequest ListCidrCollections where
     Response.receiveXML
       ( \s h x ->
           ListCidrCollectionsResponse'
-            Prelude.<$> (x Data..@? "NextToken")
-            Prelude.<*> ( x Data..@? "CidrCollections" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "CidrCollections" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
+            Prelude.<*> (x Data..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListCidrCollections where
   hashWithSalt _salt ListCidrCollections' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListCidrCollections where
   rnf ListCidrCollections' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListCidrCollections where
   toHeaders = Prelude.const Prelude.mempty
@@ -158,20 +158,20 @@ instance Data.ToPath ListCidrCollections where
 instance Data.ToQuery ListCidrCollections where
   toQuery ListCidrCollections' {..} =
     Prelude.mconcat
-      [ "nexttoken" Data.=: nextToken,
-        "maxresults" Data.=: maxResults
+      [ "maxresults" Data.=: maxResults,
+        "nexttoken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListCidrCollectionsResponse' smart constructor.
 data ListCidrCollectionsResponse = ListCidrCollectionsResponse'
-  { -- | An opaque pagination token to indicate where the service is to begin
+  { -- | A complex type with information about the CIDR collection.
+    cidrCollections :: Prelude.Maybe [CollectionSummary],
+    -- | An opaque pagination token to indicate where the service is to begin
     -- enumerating results.
     --
     -- If no value is provided, the listing of results starts from the
     -- beginning.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A complex type with information about the CIDR collection.
-    cidrCollections :: Prelude.Maybe [CollectionSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -185,13 +185,13 @@ data ListCidrCollectionsResponse = ListCidrCollectionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'cidrCollections', 'listCidrCollectionsResponse_cidrCollections' - A complex type with information about the CIDR collection.
+--
 -- 'nextToken', 'listCidrCollectionsResponse_nextToken' - An opaque pagination token to indicate where the service is to begin
 -- enumerating results.
 --
 -- If no value is provided, the listing of results starts from the
 -- beginning.
---
--- 'cidrCollections', 'listCidrCollectionsResponse_cidrCollections' - A complex type with information about the CIDR collection.
 --
 -- 'httpStatus', 'listCidrCollectionsResponse_httpStatus' - The response's http status code.
 newListCidrCollectionsResponse ::
@@ -200,11 +200,15 @@ newListCidrCollectionsResponse ::
   ListCidrCollectionsResponse
 newListCidrCollectionsResponse pHttpStatus_ =
   ListCidrCollectionsResponse'
-    { nextToken =
+    { cidrCollections =
         Prelude.Nothing,
-      cidrCollections = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A complex type with information about the CIDR collection.
+listCidrCollectionsResponse_cidrCollections :: Lens.Lens' ListCidrCollectionsResponse (Prelude.Maybe [CollectionSummary])
+listCidrCollectionsResponse_cidrCollections = Lens.lens (\ListCidrCollectionsResponse' {cidrCollections} -> cidrCollections) (\s@ListCidrCollectionsResponse' {} a -> s {cidrCollections = a} :: ListCidrCollectionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An opaque pagination token to indicate where the service is to begin
 -- enumerating results.
@@ -214,16 +218,12 @@ newListCidrCollectionsResponse pHttpStatus_ =
 listCidrCollectionsResponse_nextToken :: Lens.Lens' ListCidrCollectionsResponse (Prelude.Maybe Prelude.Text)
 listCidrCollectionsResponse_nextToken = Lens.lens (\ListCidrCollectionsResponse' {nextToken} -> nextToken) (\s@ListCidrCollectionsResponse' {} a -> s {nextToken = a} :: ListCidrCollectionsResponse)
 
--- | A complex type with information about the CIDR collection.
-listCidrCollectionsResponse_cidrCollections :: Lens.Lens' ListCidrCollectionsResponse (Prelude.Maybe [CollectionSummary])
-listCidrCollectionsResponse_cidrCollections = Lens.lens (\ListCidrCollectionsResponse' {cidrCollections} -> cidrCollections) (\s@ListCidrCollectionsResponse' {} a -> s {cidrCollections = a} :: ListCidrCollectionsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listCidrCollectionsResponse_httpStatus :: Lens.Lens' ListCidrCollectionsResponse Prelude.Int
 listCidrCollectionsResponse_httpStatus = Lens.lens (\ListCidrCollectionsResponse' {httpStatus} -> httpStatus) (\s@ListCidrCollectionsResponse' {} a -> s {httpStatus = a} :: ListCidrCollectionsResponse)
 
 instance Prelude.NFData ListCidrCollectionsResponse where
   rnf ListCidrCollectionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf cidrCollections
+    Prelude.rnf cidrCollections
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

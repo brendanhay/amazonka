@@ -27,8 +27,8 @@ module Amazonka.ServiceCatalogAppRegistry.UpdateApplication
     newUpdateApplication,
 
     -- * Request Lenses
-    updateApplication_name,
     updateApplication_description,
+    updateApplication_name,
     updateApplication_application,
 
     -- * Destructuring the Response
@@ -51,12 +51,12 @@ import Amazonka.ServiceCatalogAppRegistry.Types
 
 -- | /See:/ 'newUpdateApplication' smart constructor.
 data UpdateApplication = UpdateApplication'
-  { -- | Deprecated: The new name of the application. The name must be unique in
+  { -- | The new description of the application.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Deprecated: The new name of the application. The name must be unique in
     -- the region in which you are updating the application. Please do not use
     -- this field as we have stopped supporting name updates.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The new description of the application.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The name or ID of the application that will be updated.
     application :: Prelude.Text
   }
@@ -70,11 +70,11 @@ data UpdateApplication = UpdateApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'updateApplication_description' - The new description of the application.
+--
 -- 'name', 'updateApplication_name' - Deprecated: The new name of the application. The name must be unique in
 -- the region in which you are updating the application. Please do not use
 -- this field as we have stopped supporting name updates.
---
--- 'description', 'updateApplication_description' - The new description of the application.
 --
 -- 'application', 'updateApplication_application' - The name or ID of the application that will be updated.
 newUpdateApplication ::
@@ -83,20 +83,20 @@ newUpdateApplication ::
   UpdateApplication
 newUpdateApplication pApplication_ =
   UpdateApplication'
-    { name = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      name = Prelude.Nothing,
       application = pApplication_
     }
+
+-- | The new description of the application.
+updateApplication_description :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Text)
+updateApplication_description = Lens.lens (\UpdateApplication' {description} -> description) (\s@UpdateApplication' {} a -> s {description = a} :: UpdateApplication)
 
 -- | Deprecated: The new name of the application. The name must be unique in
 -- the region in which you are updating the application. Please do not use
 -- this field as we have stopped supporting name updates.
 updateApplication_name :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Text)
 updateApplication_name = Lens.lens (\UpdateApplication' {name} -> name) (\s@UpdateApplication' {} a -> s {name = a} :: UpdateApplication)
-
--- | The new description of the application.
-updateApplication_description :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Text)
-updateApplication_description = Lens.lens (\UpdateApplication' {description} -> description) (\s@UpdateApplication' {} a -> s {description = a} :: UpdateApplication)
 
 -- | The name or ID of the application that will be updated.
 updateApplication_application :: Lens.Lens' UpdateApplication Prelude.Text
@@ -118,14 +118,14 @@ instance Core.AWSRequest UpdateApplication where
 
 instance Prelude.Hashable UpdateApplication where
   hashWithSalt _salt UpdateApplication' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` application
 
 instance Prelude.NFData UpdateApplication where
   rnf UpdateApplication' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf application
 
 instance Data.ToHeaders UpdateApplication where
@@ -143,8 +143,8 @@ instance Data.ToJSON UpdateApplication where
   toJSON UpdateApplication' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("name" Data..=) Prelude.<$> name,
-            ("description" Data..=) Prelude.<$> description
+          [ ("description" Data..=) Prelude.<$> description,
+            ("name" Data..=) Prelude.<$> name
           ]
       )
 

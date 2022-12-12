@@ -36,8 +36,8 @@ module Amazonka.SSMSAP.GetApplication
     newGetApplicationResponse,
 
     -- * Response Lenses
-    getApplicationResponse_tags,
     getApplicationResponse_application,
+    getApplicationResponse_tags,
     getApplicationResponse_httpStatus,
   )
 where
@@ -94,8 +94,8 @@ instance Core.AWSRequest GetApplication where
     Response.receiveJSON
       ( \s h x ->
           GetApplicationResponse'
-            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "Application")
+            Prelude.<$> (x Data..?> "Application")
+            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -138,8 +138,8 @@ instance Data.ToQuery GetApplication where
 
 -- | /See:/ 'newGetApplicationResponse' smart constructor.
 data GetApplicationResponse = GetApplicationResponse'
-  { tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    application :: Prelude.Maybe Application,
+  { application :: Prelude.Maybe Application,
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -153,9 +153,9 @@ data GetApplicationResponse = GetApplicationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'getApplicationResponse_tags' -
---
 -- 'application', 'getApplicationResponse_application' -
+--
+-- 'tags', 'getApplicationResponse_tags' -
 --
 -- 'httpStatus', 'getApplicationResponse_httpStatus' - The response's http status code.
 newGetApplicationResponse ::
@@ -164,18 +164,19 @@ newGetApplicationResponse ::
   GetApplicationResponse
 newGetApplicationResponse pHttpStatus_ =
   GetApplicationResponse'
-    { tags = Prelude.Nothing,
-      application = Prelude.Nothing,
+    { application =
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- |
-getApplicationResponse_tags :: Lens.Lens' GetApplicationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getApplicationResponse_tags = Lens.lens (\GetApplicationResponse' {tags} -> tags) (\s@GetApplicationResponse' {} a -> s {tags = a} :: GetApplicationResponse) Prelude.. Lens.mapping Lens.coerced
-
--- |
 getApplicationResponse_application :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Application)
 getApplicationResponse_application = Lens.lens (\GetApplicationResponse' {application} -> application) (\s@GetApplicationResponse' {} a -> s {application = a} :: GetApplicationResponse)
+
+-- |
+getApplicationResponse_tags :: Lens.Lens' GetApplicationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getApplicationResponse_tags = Lens.lens (\GetApplicationResponse' {tags} -> tags) (\s@GetApplicationResponse' {} a -> s {tags = a} :: GetApplicationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getApplicationResponse_httpStatus :: Lens.Lens' GetApplicationResponse Prelude.Int
@@ -183,6 +184,6 @@ getApplicationResponse_httpStatus = Lens.lens (\GetApplicationResponse' {httpSta
 
 instance Prelude.NFData GetApplicationResponse where
   rnf GetApplicationResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf application
+    Prelude.rnf application
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

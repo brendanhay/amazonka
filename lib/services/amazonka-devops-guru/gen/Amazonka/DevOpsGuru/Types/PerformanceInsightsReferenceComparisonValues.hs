@@ -33,14 +33,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPerformanceInsightsReferenceComparisonValues' smart constructor.
 data PerformanceInsightsReferenceComparisonValues = PerformanceInsightsReferenceComparisonValues'
-  { -- | A scalar value DevOps Guru for a metric that DevOps Guru compares to
-    -- actual metric values. This reference value is used to determine if an
-    -- actual metric value should be considered anomalous.
-    referenceScalar :: Prelude.Maybe PerformanceInsightsReferenceScalar,
-    -- | A metric that DevOps Guru compares to actual metric values. This
+  { -- | A metric that DevOps Guru compares to actual metric values. This
     -- reference metric is used to determine if an actual metric should be
     -- considered anomalous.
-    referenceMetric :: Prelude.Maybe PerformanceInsightsReferenceMetric
+    referenceMetric :: Prelude.Maybe PerformanceInsightsReferenceMetric,
+    -- | A scalar value DevOps Guru for a metric that DevOps Guru compares to
+    -- actual metric values. This reference value is used to determine if an
+    -- actual metric value should be considered anomalous.
+    referenceScalar :: Prelude.Maybe PerformanceInsightsReferenceScalar
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,34 +52,34 @@ data PerformanceInsightsReferenceComparisonValues = PerformanceInsightsReference
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'referenceScalar', 'performanceInsightsReferenceComparisonValues_referenceScalar' - A scalar value DevOps Guru for a metric that DevOps Guru compares to
--- actual metric values. This reference value is used to determine if an
--- actual metric value should be considered anomalous.
---
 -- 'referenceMetric', 'performanceInsightsReferenceComparisonValues_referenceMetric' - A metric that DevOps Guru compares to actual metric values. This
 -- reference metric is used to determine if an actual metric should be
 -- considered anomalous.
+--
+-- 'referenceScalar', 'performanceInsightsReferenceComparisonValues_referenceScalar' - A scalar value DevOps Guru for a metric that DevOps Guru compares to
+-- actual metric values. This reference value is used to determine if an
+-- actual metric value should be considered anomalous.
 newPerformanceInsightsReferenceComparisonValues ::
   PerformanceInsightsReferenceComparisonValues
 newPerformanceInsightsReferenceComparisonValues =
   PerformanceInsightsReferenceComparisonValues'
-    { referenceScalar =
+    { referenceMetric =
         Prelude.Nothing,
-      referenceMetric =
+      referenceScalar =
         Prelude.Nothing
     }
-
--- | A scalar value DevOps Guru for a metric that DevOps Guru compares to
--- actual metric values. This reference value is used to determine if an
--- actual metric value should be considered anomalous.
-performanceInsightsReferenceComparisonValues_referenceScalar :: Lens.Lens' PerformanceInsightsReferenceComparisonValues (Prelude.Maybe PerformanceInsightsReferenceScalar)
-performanceInsightsReferenceComparisonValues_referenceScalar = Lens.lens (\PerformanceInsightsReferenceComparisonValues' {referenceScalar} -> referenceScalar) (\s@PerformanceInsightsReferenceComparisonValues' {} a -> s {referenceScalar = a} :: PerformanceInsightsReferenceComparisonValues)
 
 -- | A metric that DevOps Guru compares to actual metric values. This
 -- reference metric is used to determine if an actual metric should be
 -- considered anomalous.
 performanceInsightsReferenceComparisonValues_referenceMetric :: Lens.Lens' PerformanceInsightsReferenceComparisonValues (Prelude.Maybe PerformanceInsightsReferenceMetric)
 performanceInsightsReferenceComparisonValues_referenceMetric = Lens.lens (\PerformanceInsightsReferenceComparisonValues' {referenceMetric} -> referenceMetric) (\s@PerformanceInsightsReferenceComparisonValues' {} a -> s {referenceMetric = a} :: PerformanceInsightsReferenceComparisonValues)
+
+-- | A scalar value DevOps Guru for a metric that DevOps Guru compares to
+-- actual metric values. This reference value is used to determine if an
+-- actual metric value should be considered anomalous.
+performanceInsightsReferenceComparisonValues_referenceScalar :: Lens.Lens' PerformanceInsightsReferenceComparisonValues (Prelude.Maybe PerformanceInsightsReferenceScalar)
+performanceInsightsReferenceComparisonValues_referenceScalar = Lens.lens (\PerformanceInsightsReferenceComparisonValues' {referenceScalar} -> referenceScalar) (\s@PerformanceInsightsReferenceComparisonValues' {} a -> s {referenceScalar = a} :: PerformanceInsightsReferenceComparisonValues)
 
 instance
   Data.FromJSON
@@ -90,8 +90,8 @@ instance
       "PerformanceInsightsReferenceComparisonValues"
       ( \x ->
           PerformanceInsightsReferenceComparisonValues'
-            Prelude.<$> (x Data..:? "ReferenceScalar")
-              Prelude.<*> (x Data..:? "ReferenceMetric")
+            Prelude.<$> (x Data..:? "ReferenceMetric")
+              Prelude.<*> (x Data..:? "ReferenceScalar")
       )
 
 instance
@@ -101,13 +101,13 @@ instance
   hashWithSalt
     _salt
     PerformanceInsightsReferenceComparisonValues' {..} =
-      _salt `Prelude.hashWithSalt` referenceScalar
-        `Prelude.hashWithSalt` referenceMetric
+      _salt `Prelude.hashWithSalt` referenceMetric
+        `Prelude.hashWithSalt` referenceScalar
 
 instance
   Prelude.NFData
     PerformanceInsightsReferenceComparisonValues
   where
   rnf PerformanceInsightsReferenceComparisonValues' {..} =
-    Prelude.rnf referenceScalar
-      `Prelude.seq` Prelude.rnf referenceMetric
+    Prelude.rnf referenceMetric
+      `Prelude.seq` Prelude.rnf referenceScalar

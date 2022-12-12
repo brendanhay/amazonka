@@ -40,18 +40,18 @@ module Amazonka.SSM.DescribeInstanceInformation
     newDescribeInstanceInformation,
 
     -- * Request Lenses
-    describeInstanceInformation_nextToken,
     describeInstanceInformation_filters,
-    describeInstanceInformation_maxResults,
     describeInstanceInformation_instanceInformationFilterList,
+    describeInstanceInformation_maxResults,
+    describeInstanceInformation_nextToken,
 
     -- * Destructuring the Response
     DescribeInstanceInformationResponse (..),
     newDescribeInstanceInformationResponse,
 
     -- * Response Lenses
-    describeInstanceInformationResponse_nextToken,
     describeInstanceInformationResponse_instanceInformationList,
+    describeInstanceInformationResponse_nextToken,
     describeInstanceInformationResponse_httpStatus,
   )
 where
@@ -66,25 +66,25 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newDescribeInstanceInformation' smart constructor.
 data DescribeInstanceInformation = DescribeInstanceInformation'
-  { -- | The token for the next set of items to return. (You received this token
-    -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | One or more filters. Use a filter to return a more specific list of
+  { -- | One or more filters. Use a filter to return a more specific list of
     -- managed nodes. You can filter based on tags applied to your managed
     -- nodes. Use this @Filters@ data type instead of
     -- @InstanceInformationFilterList@, which is deprecated.
     filters :: Prelude.Maybe [InstanceInformationStringFilter],
-    -- | The maximum number of items to return for this call. The call also
-    -- returns a token that you can specify in a subsequent call to get the
-    -- next set of results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | This is a legacy method. We recommend that you don\'t use this method.
     -- Instead, use the @Filters@ data type. @Filters@ enables you to return
     -- node information by filtering based on tags applied to managed nodes.
     --
     -- Attempting to use @InstanceInformationFilterList@ and @Filters@ leads to
     -- an exception error.
-    instanceInformationFilterList :: Prelude.Maybe [InstanceInformationFilter]
+    instanceInformationFilterList :: Prelude.Maybe [InstanceInformationFilter],
+    -- | The maximum number of items to return for this call. The call also
+    -- returns a token that you can specify in a subsequent call to get the
+    -- next set of results.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -96,17 +96,10 @@ data DescribeInstanceInformation = DescribeInstanceInformation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeInstanceInformation_nextToken' - The token for the next set of items to return. (You received this token
--- from a previous call.)
---
 -- 'filters', 'describeInstanceInformation_filters' - One or more filters. Use a filter to return a more specific list of
 -- managed nodes. You can filter based on tags applied to your managed
 -- nodes. Use this @Filters@ data type instead of
 -- @InstanceInformationFilterList@, which is deprecated.
---
--- 'maxResults', 'describeInstanceInformation_maxResults' - The maximum number of items to return for this call. The call also
--- returns a token that you can specify in a subsequent call to get the
--- next set of results.
 --
 -- 'instanceInformationFilterList', 'describeInstanceInformation_instanceInformationFilterList' - This is a legacy method. We recommend that you don\'t use this method.
 -- Instead, use the @Filters@ data type. @Filters@ enables you to return
@@ -114,22 +107,24 @@ data DescribeInstanceInformation = DescribeInstanceInformation'
 --
 -- Attempting to use @InstanceInformationFilterList@ and @Filters@ leads to
 -- an exception error.
+--
+-- 'maxResults', 'describeInstanceInformation_maxResults' - The maximum number of items to return for this call. The call also
+-- returns a token that you can specify in a subsequent call to get the
+-- next set of results.
+--
+-- 'nextToken', 'describeInstanceInformation_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
 newDescribeInstanceInformation ::
   DescribeInstanceInformation
 newDescribeInstanceInformation =
   DescribeInstanceInformation'
-    { nextToken =
+    { filters =
         Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       instanceInformationFilterList =
-        Prelude.Nothing
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
-describeInstanceInformation_nextToken :: Lens.Lens' DescribeInstanceInformation (Prelude.Maybe Prelude.Text)
-describeInstanceInformation_nextToken = Lens.lens (\DescribeInstanceInformation' {nextToken} -> nextToken) (\s@DescribeInstanceInformation' {} a -> s {nextToken = a} :: DescribeInstanceInformation)
 
 -- | One or more filters. Use a filter to return a more specific list of
 -- managed nodes. You can filter based on tags applied to your managed
@@ -137,12 +132,6 @@ describeInstanceInformation_nextToken = Lens.lens (\DescribeInstanceInformation'
 -- @InstanceInformationFilterList@, which is deprecated.
 describeInstanceInformation_filters :: Lens.Lens' DescribeInstanceInformation (Prelude.Maybe [InstanceInformationStringFilter])
 describeInstanceInformation_filters = Lens.lens (\DescribeInstanceInformation' {filters} -> filters) (\s@DescribeInstanceInformation' {} a -> s {filters = a} :: DescribeInstanceInformation) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum number of items to return for this call. The call also
--- returns a token that you can specify in a subsequent call to get the
--- next set of results.
-describeInstanceInformation_maxResults :: Lens.Lens' DescribeInstanceInformation (Prelude.Maybe Prelude.Natural)
-describeInstanceInformation_maxResults = Lens.lens (\DescribeInstanceInformation' {maxResults} -> maxResults) (\s@DescribeInstanceInformation' {} a -> s {maxResults = a} :: DescribeInstanceInformation)
 
 -- | This is a legacy method. We recommend that you don\'t use this method.
 -- Instead, use the @Filters@ data type. @Filters@ enables you to return
@@ -152,6 +141,17 @@ describeInstanceInformation_maxResults = Lens.lens (\DescribeInstanceInformation
 -- an exception error.
 describeInstanceInformation_instanceInformationFilterList :: Lens.Lens' DescribeInstanceInformation (Prelude.Maybe [InstanceInformationFilter])
 describeInstanceInformation_instanceInformationFilterList = Lens.lens (\DescribeInstanceInformation' {instanceInformationFilterList} -> instanceInformationFilterList) (\s@DescribeInstanceInformation' {} a -> s {instanceInformationFilterList = a} :: DescribeInstanceInformation) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum number of items to return for this call. The call also
+-- returns a token that you can specify in a subsequent call to get the
+-- next set of results.
+describeInstanceInformation_maxResults :: Lens.Lens' DescribeInstanceInformation (Prelude.Maybe Prelude.Natural)
+describeInstanceInformation_maxResults = Lens.lens (\DescribeInstanceInformation' {maxResults} -> maxResults) (\s@DescribeInstanceInformation' {} a -> s {maxResults = a} :: DescribeInstanceInformation)
+
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+describeInstanceInformation_nextToken :: Lens.Lens' DescribeInstanceInformation (Prelude.Maybe Prelude.Text)
+describeInstanceInformation_nextToken = Lens.lens (\DescribeInstanceInformation' {nextToken} -> nextToken) (\s@DescribeInstanceInformation' {} a -> s {nextToken = a} :: DescribeInstanceInformation)
 
 instance Core.AWSPager DescribeInstanceInformation where
   page rq rs
@@ -185,26 +185,26 @@ instance Core.AWSRequest DescribeInstanceInformation where
     Response.receiveJSON
       ( \s h x ->
           DescribeInstanceInformationResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "InstanceInformationList"
+            Prelude.<$> ( x Data..?> "InstanceInformationList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeInstanceInformation where
   hashWithSalt _salt DescribeInstanceInformation' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` instanceInformationFilterList
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeInstanceInformation where
   rnf DescribeInstanceInformation' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf instanceInformationFilterList
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeInstanceInformation where
   toHeaders =
@@ -225,11 +225,11 @@ instance Data.ToJSON DescribeInstanceInformation where
   toJSON DescribeInstanceInformation' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("Filters" Data..=) Prelude.<$> filters,
             ("InstanceInformationFilterList" Data..=)
-              Prelude.<$> instanceInformationFilterList
+              Prelude.<$> instanceInformationFilterList,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -241,11 +241,11 @@ instance Data.ToQuery DescribeInstanceInformation where
 
 -- | /See:/ 'newDescribeInstanceInformationResponse' smart constructor.
 data DescribeInstanceInformationResponse = DescribeInstanceInformationResponse'
-  { -- | The token to use when requesting the next set of items. If there are no
+  { -- | The managed node information list.
+    instanceInformationList :: Prelude.Maybe [InstanceInformation],
+    -- | The token to use when requesting the next set of items. If there are no
     -- additional items to return, the string is empty.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The managed node information list.
-    instanceInformationList :: Prelude.Maybe [InstanceInformation],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -259,10 +259,10 @@ data DescribeInstanceInformationResponse = DescribeInstanceInformationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'instanceInformationList', 'describeInstanceInformationResponse_instanceInformationList' - The managed node information list.
+--
 -- 'nextToken', 'describeInstanceInformationResponse_nextToken' - The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
---
--- 'instanceInformationList', 'describeInstanceInformationResponse_instanceInformationList' - The managed node information list.
 --
 -- 'httpStatus', 'describeInstanceInformationResponse_httpStatus' - The response's http status code.
 newDescribeInstanceInformationResponse ::
@@ -271,21 +271,20 @@ newDescribeInstanceInformationResponse ::
   DescribeInstanceInformationResponse
 newDescribeInstanceInformationResponse pHttpStatus_ =
   DescribeInstanceInformationResponse'
-    { nextToken =
+    { instanceInformationList =
         Prelude.Nothing,
-      instanceInformationList =
-        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The managed node information list.
+describeInstanceInformationResponse_instanceInformationList :: Lens.Lens' DescribeInstanceInformationResponse (Prelude.Maybe [InstanceInformation])
+describeInstanceInformationResponse_instanceInformationList = Lens.lens (\DescribeInstanceInformationResponse' {instanceInformationList} -> instanceInformationList) (\s@DescribeInstanceInformationResponse' {} a -> s {instanceInformationList = a} :: DescribeInstanceInformationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
 describeInstanceInformationResponse_nextToken :: Lens.Lens' DescribeInstanceInformationResponse (Prelude.Maybe Prelude.Text)
 describeInstanceInformationResponse_nextToken = Lens.lens (\DescribeInstanceInformationResponse' {nextToken} -> nextToken) (\s@DescribeInstanceInformationResponse' {} a -> s {nextToken = a} :: DescribeInstanceInformationResponse)
-
--- | The managed node information list.
-describeInstanceInformationResponse_instanceInformationList :: Lens.Lens' DescribeInstanceInformationResponse (Prelude.Maybe [InstanceInformation])
-describeInstanceInformationResponse_instanceInformationList = Lens.lens (\DescribeInstanceInformationResponse' {instanceInformationList} -> instanceInformationList) (\s@DescribeInstanceInformationResponse' {} a -> s {instanceInformationList = a} :: DescribeInstanceInformationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeInstanceInformationResponse_httpStatus :: Lens.Lens' DescribeInstanceInformationResponse Prelude.Int
@@ -296,6 +295,6 @@ instance
     DescribeInstanceInformationResponse
   where
   rnf DescribeInstanceInformationResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instanceInformationList
+    Prelude.rnf instanceInformationList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -30,9 +30,9 @@ module Amazonka.Glue.GetTableVersions
     newGetTableVersions,
 
     -- * Request Lenses
-    getTableVersions_nextToken,
-    getTableVersions_maxResults,
     getTableVersions_catalogId,
+    getTableVersions_maxResults,
+    getTableVersions_nextToken,
     getTableVersions_databaseName,
     getTableVersions_tableName,
 
@@ -57,13 +57,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetTableVersions' smart constructor.
 data GetTableVersions = GetTableVersions'
-  { -- | A continuation token, if this is not the first call.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of table versions to return in one response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The ID of the Data Catalog where the tables reside. If none is provided,
+  { -- | The ID of the Data Catalog where the tables reside. If none is provided,
     -- the Amazon Web Services account ID is used by default.
     catalogId :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of table versions to return in one response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A continuation token, if this is not the first call.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The database in the catalog in which the table resides. For Hive
     -- compatibility, this name is entirely lowercase.
     databaseName :: Prelude.Text,
@@ -81,12 +81,12 @@ data GetTableVersions = GetTableVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getTableVersions_nextToken' - A continuation token, if this is not the first call.
+-- 'catalogId', 'getTableVersions_catalogId' - The ID of the Data Catalog where the tables reside. If none is provided,
+-- the Amazon Web Services account ID is used by default.
 --
 -- 'maxResults', 'getTableVersions_maxResults' - The maximum number of table versions to return in one response.
 --
--- 'catalogId', 'getTableVersions_catalogId' - The ID of the Data Catalog where the tables reside. If none is provided,
--- the Amazon Web Services account ID is used by default.
+-- 'nextToken', 'getTableVersions_nextToken' - A continuation token, if this is not the first call.
 --
 -- 'databaseName', 'getTableVersions_databaseName' - The database in the catalog in which the table resides. For Hive
 -- compatibility, this name is entirely lowercase.
@@ -101,25 +101,25 @@ newGetTableVersions ::
   GetTableVersions
 newGetTableVersions pDatabaseName_ pTableName_ =
   GetTableVersions'
-    { nextToken = Prelude.Nothing,
+    { catalogId = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      catalogId = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       databaseName = pDatabaseName_,
       tableName = pTableName_
     }
-
--- | A continuation token, if this is not the first call.
-getTableVersions_nextToken :: Lens.Lens' GetTableVersions (Prelude.Maybe Prelude.Text)
-getTableVersions_nextToken = Lens.lens (\GetTableVersions' {nextToken} -> nextToken) (\s@GetTableVersions' {} a -> s {nextToken = a} :: GetTableVersions)
-
--- | The maximum number of table versions to return in one response.
-getTableVersions_maxResults :: Lens.Lens' GetTableVersions (Prelude.Maybe Prelude.Natural)
-getTableVersions_maxResults = Lens.lens (\GetTableVersions' {maxResults} -> maxResults) (\s@GetTableVersions' {} a -> s {maxResults = a} :: GetTableVersions)
 
 -- | The ID of the Data Catalog where the tables reside. If none is provided,
 -- the Amazon Web Services account ID is used by default.
 getTableVersions_catalogId :: Lens.Lens' GetTableVersions (Prelude.Maybe Prelude.Text)
 getTableVersions_catalogId = Lens.lens (\GetTableVersions' {catalogId} -> catalogId) (\s@GetTableVersions' {} a -> s {catalogId = a} :: GetTableVersions)
+
+-- | The maximum number of table versions to return in one response.
+getTableVersions_maxResults :: Lens.Lens' GetTableVersions (Prelude.Maybe Prelude.Natural)
+getTableVersions_maxResults = Lens.lens (\GetTableVersions' {maxResults} -> maxResults) (\s@GetTableVersions' {} a -> s {maxResults = a} :: GetTableVersions)
+
+-- | A continuation token, if this is not the first call.
+getTableVersions_nextToken :: Lens.Lens' GetTableVersions (Prelude.Maybe Prelude.Text)
+getTableVersions_nextToken = Lens.lens (\GetTableVersions' {nextToken} -> nextToken) (\s@GetTableVersions' {} a -> s {nextToken = a} :: GetTableVersions)
 
 -- | The database in the catalog in which the table resides. For Hive
 -- compatibility, this name is entirely lowercase.
@@ -170,17 +170,17 @@ instance Core.AWSRequest GetTableVersions where
 
 instance Prelude.Hashable GetTableVersions where
   hashWithSalt _salt GetTableVersions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tableName
 
 instance Prelude.NFData GetTableVersions where
   rnf GetTableVersions' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf catalogId
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf tableName
 
@@ -201,9 +201,9 @@ instance Data.ToJSON GetTableVersions where
   toJSON GetTableVersions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("CatalogId" Data..=) Prelude.<$> catalogId,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("DatabaseName" Data..= databaseName),
             Prelude.Just ("TableName" Data..= tableName)
           ]

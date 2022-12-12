@@ -28,12 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsBackupBackupPlanAdvancedBackupSettingsDetails' smart constructor.
 data AwsBackupBackupPlanAdvancedBackupSettingsDetails = AwsBackupBackupPlanAdvancedBackupSettingsDetails'
-  { -- | The name of a resource type. The only supported resource type is Amazon
-    -- EC2 instances with Windows VSS.
-    --
-    -- The only valid value is @EC2@.
-    resourceType :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the backup option for a selected resource. This option is only
+  { -- | Specifies the backup option for a selected resource. This option is only
     -- available for Windows Volume Shadow Copy Service (VSS) backup jobs.
     -- Valid values are as follows:
     --
@@ -42,7 +37,12 @@ data AwsBackupBackupPlanAdvancedBackupSettingsDetails = AwsBackupBackupPlanAdvan
     --
     -- -   Set to @WindowsVSS: disabled@ to create a regular backup. The
     --     @WindowsVSS@ option is not enabled by default.
-    backupOptions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    backupOptions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The name of a resource type. The only supported resource type is Amazon
+    -- EC2 instances with Windows VSS.
+    --
+    -- The only valid value is @EC2@.
+    resourceType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,11 +54,6 @@ data AwsBackupBackupPlanAdvancedBackupSettingsDetails = AwsBackupBackupPlanAdvan
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceType', 'awsBackupBackupPlanAdvancedBackupSettingsDetails_resourceType' - The name of a resource type. The only supported resource type is Amazon
--- EC2 instances with Windows VSS.
---
--- The only valid value is @EC2@.
---
 -- 'backupOptions', 'awsBackupBackupPlanAdvancedBackupSettingsDetails_backupOptions' - Specifies the backup option for a selected resource. This option is only
 -- available for Windows Volume Shadow Copy Service (VSS) backup jobs.
 -- Valid values are as follows:
@@ -68,22 +63,20 @@ data AwsBackupBackupPlanAdvancedBackupSettingsDetails = AwsBackupBackupPlanAdvan
 --
 -- -   Set to @WindowsVSS: disabled@ to create a regular backup. The
 --     @WindowsVSS@ option is not enabled by default.
+--
+-- 'resourceType', 'awsBackupBackupPlanAdvancedBackupSettingsDetails_resourceType' - The name of a resource type. The only supported resource type is Amazon
+-- EC2 instances with Windows VSS.
+--
+-- The only valid value is @EC2@.
 newAwsBackupBackupPlanAdvancedBackupSettingsDetails ::
   AwsBackupBackupPlanAdvancedBackupSettingsDetails
 newAwsBackupBackupPlanAdvancedBackupSettingsDetails =
   AwsBackupBackupPlanAdvancedBackupSettingsDetails'
-    { resourceType =
+    { backupOptions =
         Prelude.Nothing,
-      backupOptions =
+      resourceType =
         Prelude.Nothing
     }
-
--- | The name of a resource type. The only supported resource type is Amazon
--- EC2 instances with Windows VSS.
---
--- The only valid value is @EC2@.
-awsBackupBackupPlanAdvancedBackupSettingsDetails_resourceType :: Lens.Lens' AwsBackupBackupPlanAdvancedBackupSettingsDetails (Prelude.Maybe Prelude.Text)
-awsBackupBackupPlanAdvancedBackupSettingsDetails_resourceType = Lens.lens (\AwsBackupBackupPlanAdvancedBackupSettingsDetails' {resourceType} -> resourceType) (\s@AwsBackupBackupPlanAdvancedBackupSettingsDetails' {} a -> s {resourceType = a} :: AwsBackupBackupPlanAdvancedBackupSettingsDetails)
 
 -- | Specifies the backup option for a selected resource. This option is only
 -- available for Windows Volume Shadow Copy Service (VSS) backup jobs.
@@ -97,6 +90,13 @@ awsBackupBackupPlanAdvancedBackupSettingsDetails_resourceType = Lens.lens (\AwsB
 awsBackupBackupPlanAdvancedBackupSettingsDetails_backupOptions :: Lens.Lens' AwsBackupBackupPlanAdvancedBackupSettingsDetails (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 awsBackupBackupPlanAdvancedBackupSettingsDetails_backupOptions = Lens.lens (\AwsBackupBackupPlanAdvancedBackupSettingsDetails' {backupOptions} -> backupOptions) (\s@AwsBackupBackupPlanAdvancedBackupSettingsDetails' {} a -> s {backupOptions = a} :: AwsBackupBackupPlanAdvancedBackupSettingsDetails) Prelude.. Lens.mapping Lens.coerced
 
+-- | The name of a resource type. The only supported resource type is Amazon
+-- EC2 instances with Windows VSS.
+--
+-- The only valid value is @EC2@.
+awsBackupBackupPlanAdvancedBackupSettingsDetails_resourceType :: Lens.Lens' AwsBackupBackupPlanAdvancedBackupSettingsDetails (Prelude.Maybe Prelude.Text)
+awsBackupBackupPlanAdvancedBackupSettingsDetails_resourceType = Lens.lens (\AwsBackupBackupPlanAdvancedBackupSettingsDetails' {resourceType} -> resourceType) (\s@AwsBackupBackupPlanAdvancedBackupSettingsDetails' {} a -> s {resourceType = a} :: AwsBackupBackupPlanAdvancedBackupSettingsDetails)
+
 instance
   Data.FromJSON
     AwsBackupBackupPlanAdvancedBackupSettingsDetails
@@ -106,8 +106,8 @@ instance
       "AwsBackupBackupPlanAdvancedBackupSettingsDetails"
       ( \x ->
           AwsBackupBackupPlanAdvancedBackupSettingsDetails'
-            Prelude.<$> (x Data..:? "ResourceType")
-              Prelude.<*> (x Data..:? "BackupOptions" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "BackupOptions" Data..!= Prelude.mempty)
+              Prelude.<*> (x Data..:? "ResourceType")
       )
 
 instance
@@ -117,8 +117,8 @@ instance
   hashWithSalt
     _salt
     AwsBackupBackupPlanAdvancedBackupSettingsDetails' {..} =
-      _salt `Prelude.hashWithSalt` resourceType
-        `Prelude.hashWithSalt` backupOptions
+      _salt `Prelude.hashWithSalt` backupOptions
+        `Prelude.hashWithSalt` resourceType
 
 instance
   Prelude.NFData
@@ -126,8 +126,8 @@ instance
   where
   rnf
     AwsBackupBackupPlanAdvancedBackupSettingsDetails' {..} =
-      Prelude.rnf resourceType
-        `Prelude.seq` Prelude.rnf backupOptions
+      Prelude.rnf backupOptions
+        `Prelude.seq` Prelude.rnf resourceType
 
 instance
   Data.ToJSON
@@ -137,7 +137,7 @@ instance
     AwsBackupBackupPlanAdvancedBackupSettingsDetails' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("ResourceType" Data..=) Prelude.<$> resourceType,
-              ("BackupOptions" Data..=) Prelude.<$> backupOptions
+            [ ("BackupOptions" Data..=) Prelude.<$> backupOptions,
+              ("ResourceType" Data..=) Prelude.<$> resourceType
             ]
         )

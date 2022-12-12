@@ -40,101 +40,101 @@ module Amazonka.SNS
     -- * Errors
     -- $errors
 
+    -- ** AuthorizationErrorException
+    _AuthorizationErrorException,
+
     -- ** BatchEntryIdsNotDistinctException
     _BatchEntryIdsNotDistinctException,
-
-    -- ** EmptyBatchRequestException
-    _EmptyBatchRequestException,
-
-    -- ** PlatformApplicationDisabledException
-    _PlatformApplicationDisabledException,
-
-    -- ** InternalErrorException
-    _InternalErrorException,
-
-    -- ** NotFoundException
-    _NotFoundException,
-
-    -- ** UserErrorException
-    _UserErrorException,
-
-    -- ** OptedOutException
-    _OptedOutException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** TopicLimitExceededException
-    _TopicLimitExceededException,
-
-    -- ** KMSAccessDeniedException
-    _KMSAccessDeniedException,
-
-    -- ** ConcurrentAccessException
-    _ConcurrentAccessException,
-
-    -- ** InvalidBatchEntryIdException
-    _InvalidBatchEntryIdException,
 
     -- ** BatchRequestTooLongException
     _BatchRequestTooLongException,
 
-    -- ** SubscriptionLimitExceededException
-    _SubscriptionLimitExceededException,
+    -- ** ConcurrentAccessException
+    _ConcurrentAccessException,
 
-    -- ** InvalidSecurityException
-    _InvalidSecurityException,
+    -- ** EmptyBatchRequestException
+    _EmptyBatchRequestException,
 
-    -- ** AuthorizationErrorException
-    _AuthorizationErrorException,
-
-    -- ** KMSDisabledException
-    _KMSDisabledException,
-
-    -- ** TooManyEntriesInBatchRequestException
-    _TooManyEntriesInBatchRequestException,
+    -- ** EndpointDisabledException
+    _EndpointDisabledException,
 
     -- ** FilterPolicyLimitExceededException
     _FilterPolicyLimitExceededException,
 
-    -- ** TagLimitExceededException
-    _TagLimitExceededException,
+    -- ** InternalErrorException
+    _InternalErrorException,
+
+    -- ** InvalidBatchEntryIdException
+    _InvalidBatchEntryIdException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
+    -- ** InvalidParameterValueException
+    _InvalidParameterValueException,
+
+    -- ** InvalidSecurityException
+    _InvalidSecurityException,
+
+    -- ** KMSAccessDeniedException
+    _KMSAccessDeniedException,
+
+    -- ** KMSDisabledException
+    _KMSDisabledException,
 
     -- ** KMSInvalidStateException
     _KMSInvalidStateException,
+
+    -- ** KMSNotFoundException
+    _KMSNotFoundException,
+
+    -- ** KMSOptInRequired
+    _KMSOptInRequired,
+
+    -- ** KMSThrottlingException
+    _KMSThrottlingException,
+
+    -- ** NotFoundException
+    _NotFoundException,
+
+    -- ** OptedOutException
+    _OptedOutException,
+
+    -- ** PlatformApplicationDisabledException
+    _PlatformApplicationDisabledException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** StaleTagException
+    _StaleTagException,
+
+    -- ** SubscriptionLimitExceededException
+    _SubscriptionLimitExceededException,
+
+    -- ** TagLimitExceededException
+    _TagLimitExceededException,
+
+    -- ** TagPolicyException
+    _TagPolicyException,
+
+    -- ** ThrottledException
+    _ThrottledException,
+
+    -- ** TooManyEntriesInBatchRequestException
+    _TooManyEntriesInBatchRequestException,
+
+    -- ** TopicLimitExceededException
+    _TopicLimitExceededException,
+
+    -- ** UserErrorException
+    _UserErrorException,
 
     -- ** ValidationException
     _ValidationException,
 
     -- ** VerificationException
     _VerificationException,
-
-    -- ** KMSNotFoundException
-    _KMSNotFoundException,
-
-    -- ** StaleTagException
-    _StaleTagException,
-
-    -- ** EndpointDisabledException
-    _EndpointDisabledException,
-
-    -- ** ThrottledException
-    _ThrottledException,
-
-    -- ** KMSThrottlingException
-    _KMSThrottlingException,
-
-    -- ** InvalidParameterValueException
-    _InvalidParameterValueException,
-
-    -- ** TagPolicyException
-    _TagPolicyException,
-
-    -- ** KMSOptInRequired
-    _KMSOptInRequired,
-
-    -- ** InvalidParameterException
-    _InvalidParameterException,
 
     -- * Waiters
     -- $waiters

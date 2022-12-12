@@ -40,20 +40,20 @@ import Amazonka.ServiceCatalog.Types.LastSyncStatus
 --
 -- /See:/ 'newLastSync' smart constructor.
 data LastSync = LastSync'
-  { -- | The time of the last attempted sync from the repository to the Service
-    -- Catalog product.
-    lastSyncTime :: Prelude.Maybe Data.POSIX,
+  { -- | The ProvisioningArtifactID of the ProvisioningArtifact created from the
+    -- latest successful sync.
+    lastSuccessfulSyncProvisioningArtifactId :: Prelude.Maybe Prelude.Text,
     -- | The time of the latest successful sync from the source repo artifact to
     -- the Service Catalog product.
     lastSuccessfulSyncTime :: Prelude.Maybe Data.POSIX,
-    -- | The ProvisioningArtifactID of the ProvisioningArtifact created from the
-    -- latest successful sync.
-    lastSuccessfulSyncProvisioningArtifactId :: Prelude.Maybe Prelude.Text,
     -- | The current status of the sync. Responses include @SUCCEEDED@ or
     -- @FAILED@.
     lastSyncStatus :: Prelude.Maybe LastSyncStatus,
     -- | The sync\'s status message.
-    lastSyncStatusMessage :: Prelude.Maybe Prelude.Text
+    lastSyncStatusMessage :: Prelude.Maybe Prelude.Text,
+    -- | The time of the last attempted sync from the repository to the Service
+    -- Catalog product.
+    lastSyncTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,45 +65,40 @@ data LastSync = LastSync'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastSyncTime', 'lastSync_lastSyncTime' - The time of the last attempted sync from the repository to the Service
--- Catalog product.
+-- 'lastSuccessfulSyncProvisioningArtifactId', 'lastSync_lastSuccessfulSyncProvisioningArtifactId' - The ProvisioningArtifactID of the ProvisioningArtifact created from the
+-- latest successful sync.
 --
 -- 'lastSuccessfulSyncTime', 'lastSync_lastSuccessfulSyncTime' - The time of the latest successful sync from the source repo artifact to
 -- the Service Catalog product.
---
--- 'lastSuccessfulSyncProvisioningArtifactId', 'lastSync_lastSuccessfulSyncProvisioningArtifactId' - The ProvisioningArtifactID of the ProvisioningArtifact created from the
--- latest successful sync.
 --
 -- 'lastSyncStatus', 'lastSync_lastSyncStatus' - The current status of the sync. Responses include @SUCCEEDED@ or
 -- @FAILED@.
 --
 -- 'lastSyncStatusMessage', 'lastSync_lastSyncStatusMessage' - The sync\'s status message.
+--
+-- 'lastSyncTime', 'lastSync_lastSyncTime' - The time of the last attempted sync from the repository to the Service
+-- Catalog product.
 newLastSync ::
   LastSync
 newLastSync =
   LastSync'
-    { lastSyncTime = Prelude.Nothing,
-      lastSuccessfulSyncTime = Prelude.Nothing,
-      lastSuccessfulSyncProvisioningArtifactId =
+    { lastSuccessfulSyncProvisioningArtifactId =
         Prelude.Nothing,
+      lastSuccessfulSyncTime = Prelude.Nothing,
       lastSyncStatus = Prelude.Nothing,
-      lastSyncStatusMessage = Prelude.Nothing
+      lastSyncStatusMessage = Prelude.Nothing,
+      lastSyncTime = Prelude.Nothing
     }
-
--- | The time of the last attempted sync from the repository to the Service
--- Catalog product.
-lastSync_lastSyncTime :: Lens.Lens' LastSync (Prelude.Maybe Prelude.UTCTime)
-lastSync_lastSyncTime = Lens.lens (\LastSync' {lastSyncTime} -> lastSyncTime) (\s@LastSync' {} a -> s {lastSyncTime = a} :: LastSync) Prelude.. Lens.mapping Data._Time
-
--- | The time of the latest successful sync from the source repo artifact to
--- the Service Catalog product.
-lastSync_lastSuccessfulSyncTime :: Lens.Lens' LastSync (Prelude.Maybe Prelude.UTCTime)
-lastSync_lastSuccessfulSyncTime = Lens.lens (\LastSync' {lastSuccessfulSyncTime} -> lastSuccessfulSyncTime) (\s@LastSync' {} a -> s {lastSuccessfulSyncTime = a} :: LastSync) Prelude.. Lens.mapping Data._Time
 
 -- | The ProvisioningArtifactID of the ProvisioningArtifact created from the
 -- latest successful sync.
 lastSync_lastSuccessfulSyncProvisioningArtifactId :: Lens.Lens' LastSync (Prelude.Maybe Prelude.Text)
 lastSync_lastSuccessfulSyncProvisioningArtifactId = Lens.lens (\LastSync' {lastSuccessfulSyncProvisioningArtifactId} -> lastSuccessfulSyncProvisioningArtifactId) (\s@LastSync' {} a -> s {lastSuccessfulSyncProvisioningArtifactId = a} :: LastSync)
+
+-- | The time of the latest successful sync from the source repo artifact to
+-- the Service Catalog product.
+lastSync_lastSuccessfulSyncTime :: Lens.Lens' LastSync (Prelude.Maybe Prelude.UTCTime)
+lastSync_lastSuccessfulSyncTime = Lens.lens (\LastSync' {lastSuccessfulSyncTime} -> lastSuccessfulSyncTime) (\s@LastSync' {} a -> s {lastSuccessfulSyncTime = a} :: LastSync) Prelude.. Lens.mapping Data._Time
 
 -- | The current status of the sync. Responses include @SUCCEEDED@ or
 -- @FAILED@.
@@ -114,33 +109,40 @@ lastSync_lastSyncStatus = Lens.lens (\LastSync' {lastSyncStatus} -> lastSyncStat
 lastSync_lastSyncStatusMessage :: Lens.Lens' LastSync (Prelude.Maybe Prelude.Text)
 lastSync_lastSyncStatusMessage = Lens.lens (\LastSync' {lastSyncStatusMessage} -> lastSyncStatusMessage) (\s@LastSync' {} a -> s {lastSyncStatusMessage = a} :: LastSync)
 
+-- | The time of the last attempted sync from the repository to the Service
+-- Catalog product.
+lastSync_lastSyncTime :: Lens.Lens' LastSync (Prelude.Maybe Prelude.UTCTime)
+lastSync_lastSyncTime = Lens.lens (\LastSync' {lastSyncTime} -> lastSyncTime) (\s@LastSync' {} a -> s {lastSyncTime = a} :: LastSync) Prelude.. Lens.mapping Data._Time
+
 instance Data.FromJSON LastSync where
   parseJSON =
     Data.withObject
       "LastSync"
       ( \x ->
           LastSync'
-            Prelude.<$> (x Data..:? "LastSyncTime")
-            Prelude.<*> (x Data..:? "LastSuccessfulSyncTime")
-            Prelude.<*> ( x
+            Prelude.<$> ( x
                             Data..:? "LastSuccessfulSyncProvisioningArtifactId"
                         )
+            Prelude.<*> (x Data..:? "LastSuccessfulSyncTime")
             Prelude.<*> (x Data..:? "LastSyncStatus")
             Prelude.<*> (x Data..:? "LastSyncStatusMessage")
+            Prelude.<*> (x Data..:? "LastSyncTime")
       )
 
 instance Prelude.Hashable LastSync where
   hashWithSalt _salt LastSync' {..} =
-    _salt `Prelude.hashWithSalt` lastSyncTime
-      `Prelude.hashWithSalt` lastSuccessfulSyncTime
+    _salt
       `Prelude.hashWithSalt` lastSuccessfulSyncProvisioningArtifactId
+      `Prelude.hashWithSalt` lastSuccessfulSyncTime
       `Prelude.hashWithSalt` lastSyncStatus
       `Prelude.hashWithSalt` lastSyncStatusMessage
+      `Prelude.hashWithSalt` lastSyncTime
 
 instance Prelude.NFData LastSync where
   rnf LastSync' {..} =
-    Prelude.rnf lastSyncTime
+    Prelude.rnf
+      lastSuccessfulSyncProvisioningArtifactId
       `Prelude.seq` Prelude.rnf lastSuccessfulSyncTime
-      `Prelude.seq` Prelude.rnf lastSuccessfulSyncProvisioningArtifactId
       `Prelude.seq` Prelude.rnf lastSyncStatus
       `Prelude.seq` Prelude.rnf lastSyncStatusMessage
+      `Prelude.seq` Prelude.rnf lastSyncTime

@@ -40,14 +40,14 @@ module Amazonka.Kendra.CreateIndex
     newCreateIndex,
 
     -- * Request Lenses
-    createIndex_tags,
     createIndex_clientToken,
-    createIndex_userGroupResolutionConfiguration,
-    createIndex_serverSideEncryptionConfiguration,
-    createIndex_edition,
     createIndex_description,
-    createIndex_userTokenConfigurations,
+    createIndex_edition,
+    createIndex_serverSideEncryptionConfiguration,
+    createIndex_tags,
     createIndex_userContextPolicy,
+    createIndex_userGroupResolutionConfiguration,
+    createIndex_userTokenConfigurations,
     createIndex_name,
     createIndex_roleArn,
 
@@ -71,23 +71,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateIndex' smart constructor.
 data CreateIndex = CreateIndex'
-  { -- | A list of key-value pairs that identify the index. You can use the tags
-    -- to identify and organize your resources and to control access to
-    -- resources.
-    tags :: Prelude.Maybe [Tag],
-    -- | A token that you provide to identify the request to create an index.
+  { -- | A token that you provide to identify the request to create an index.
     -- Multiple calls to the @CreateIndex@ API with the same client token will
     -- create only one index.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | Enables fetching access levels of groups and users from an IAM Identity
-    -- Center (successor to Single Sign-On) identity source. To configure this,
-    -- see
-    -- <https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html UserGroupResolutionConfiguration>.
-    userGroupResolutionConfiguration :: Prelude.Maybe UserGroupResolutionConfiguration,
-    -- | The identifier of the KMS customer managed key (CMK) that\'s used to
-    -- encrypt data indexed by Amazon Kendra. Amazon Kendra doesn\'t support
-    -- asymmetric CMKs.
-    serverSideEncryptionConfiguration :: Prelude.Maybe ServerSideEncryptionConfiguration,
+    -- | A description for the index.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Kendra edition to use for the index. Choose
     -- @DEVELOPER_EDITION@ for indexes intended for development, testing, or
     -- proof of concept. Use @ENTERPRISE_EDITION@ for your production
@@ -100,10 +89,14 @@ data CreateIndex = CreateIndex'
     -- editions, see
     -- <https://docs.aws.amazon.com/kendra/latest/dg/quotas.html Quotas>.
     edition :: Prelude.Maybe IndexEdition,
-    -- | A description for the index.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The user token configuration.
-    userTokenConfigurations :: Prelude.Maybe [UserTokenConfiguration],
+    -- | The identifier of the KMS customer managed key (CMK) that\'s used to
+    -- encrypt data indexed by Amazon Kendra. Amazon Kendra doesn\'t support
+    -- asymmetric CMKs.
+    serverSideEncryptionConfiguration :: Prelude.Maybe ServerSideEncryptionConfiguration,
+    -- | A list of key-value pairs that identify the index. You can use the tags
+    -- to identify and organize your resources and to control access to
+    -- resources.
+    tags :: Prelude.Maybe [Tag],
     -- | The user context policy.
     --
     -- [ATTRIBUTE_FILTER]
@@ -117,6 +110,13 @@ data CreateIndex = CreateIndex'
     --     user context. All documents with no access control and all documents
     --     accessible to the user will be searchable and displayable.
     userContextPolicy :: Prelude.Maybe UserContextPolicy,
+    -- | Enables fetching access levels of groups and users from an IAM Identity
+    -- Center (successor to Single Sign-On) identity source. To configure this,
+    -- see
+    -- <https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html UserGroupResolutionConfiguration>.
+    userGroupResolutionConfiguration :: Prelude.Maybe UserGroupResolutionConfiguration,
+    -- | The user token configuration.
+    userTokenConfigurations :: Prelude.Maybe [UserTokenConfiguration],
     -- | A name for the index.
     name :: Prelude.Text,
     -- | An Identity and Access Management (IAM) role that gives Amazon Kendra
@@ -135,22 +135,11 @@ data CreateIndex = CreateIndex'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createIndex_tags' - A list of key-value pairs that identify the index. You can use the tags
--- to identify and organize your resources and to control access to
--- resources.
---
 -- 'clientToken', 'createIndex_clientToken' - A token that you provide to identify the request to create an index.
 -- Multiple calls to the @CreateIndex@ API with the same client token will
 -- create only one index.
 --
--- 'userGroupResolutionConfiguration', 'createIndex_userGroupResolutionConfiguration' - Enables fetching access levels of groups and users from an IAM Identity
--- Center (successor to Single Sign-On) identity source. To configure this,
--- see
--- <https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html UserGroupResolutionConfiguration>.
---
--- 'serverSideEncryptionConfiguration', 'createIndex_serverSideEncryptionConfiguration' - The identifier of the KMS customer managed key (CMK) that\'s used to
--- encrypt data indexed by Amazon Kendra. Amazon Kendra doesn\'t support
--- asymmetric CMKs.
+-- 'description', 'createIndex_description' - A description for the index.
 --
 -- 'edition', 'createIndex_edition' - The Amazon Kendra edition to use for the index. Choose
 -- @DEVELOPER_EDITION@ for indexes intended for development, testing, or
@@ -164,9 +153,13 @@ data CreateIndex = CreateIndex'
 -- editions, see
 -- <https://docs.aws.amazon.com/kendra/latest/dg/quotas.html Quotas>.
 --
--- 'description', 'createIndex_description' - A description for the index.
+-- 'serverSideEncryptionConfiguration', 'createIndex_serverSideEncryptionConfiguration' - The identifier of the KMS customer managed key (CMK) that\'s used to
+-- encrypt data indexed by Amazon Kendra. Amazon Kendra doesn\'t support
+-- asymmetric CMKs.
 --
--- 'userTokenConfigurations', 'createIndex_userTokenConfigurations' - The user token configuration.
+-- 'tags', 'createIndex_tags' - A list of key-value pairs that identify the index. You can use the tags
+-- to identify and organize your resources and to control access to
+-- resources.
 --
 -- 'userContextPolicy', 'createIndex_userContextPolicy' - The user context policy.
 --
@@ -180,6 +173,13 @@ data CreateIndex = CreateIndex'
 --     Enables token-based user access control to filter search results on
 --     user context. All documents with no access control and all documents
 --     accessible to the user will be searchable and displayable.
+--
+-- 'userGroupResolutionConfiguration', 'createIndex_userGroupResolutionConfiguration' - Enables fetching access levels of groups and users from an IAM Identity
+-- Center (successor to Single Sign-On) identity source. To configure this,
+-- see
+-- <https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html UserGroupResolutionConfiguration>.
+--
+-- 'userTokenConfigurations', 'createIndex_userTokenConfigurations' - The user token configuration.
 --
 -- 'name', 'createIndex_name' - A name for the index.
 --
@@ -195,23 +195,17 @@ newCreateIndex ::
   CreateIndex
 newCreateIndex pName_ pRoleArn_ =
   CreateIndex'
-    { tags = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
-      userGroupResolutionConfiguration = Prelude.Nothing,
-      serverSideEncryptionConfiguration = Prelude.Nothing,
-      edition = Prelude.Nothing,
+    { clientToken = Prelude.Nothing,
       description = Prelude.Nothing,
-      userTokenConfigurations = Prelude.Nothing,
+      edition = Prelude.Nothing,
+      serverSideEncryptionConfiguration = Prelude.Nothing,
+      tags = Prelude.Nothing,
       userContextPolicy = Prelude.Nothing,
+      userGroupResolutionConfiguration = Prelude.Nothing,
+      userTokenConfigurations = Prelude.Nothing,
       name = pName_,
       roleArn = pRoleArn_
     }
-
--- | A list of key-value pairs that identify the index. You can use the tags
--- to identify and organize your resources and to control access to
--- resources.
-createIndex_tags :: Lens.Lens' CreateIndex (Prelude.Maybe [Tag])
-createIndex_tags = Lens.lens (\CreateIndex' {tags} -> tags) (\s@CreateIndex' {} a -> s {tags = a} :: CreateIndex) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that you provide to identify the request to create an index.
 -- Multiple calls to the @CreateIndex@ API with the same client token will
@@ -219,18 +213,9 @@ createIndex_tags = Lens.lens (\CreateIndex' {tags} -> tags) (\s@CreateIndex' {} 
 createIndex_clientToken :: Lens.Lens' CreateIndex (Prelude.Maybe Prelude.Text)
 createIndex_clientToken = Lens.lens (\CreateIndex' {clientToken} -> clientToken) (\s@CreateIndex' {} a -> s {clientToken = a} :: CreateIndex)
 
--- | Enables fetching access levels of groups and users from an IAM Identity
--- Center (successor to Single Sign-On) identity source. To configure this,
--- see
--- <https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html UserGroupResolutionConfiguration>.
-createIndex_userGroupResolutionConfiguration :: Lens.Lens' CreateIndex (Prelude.Maybe UserGroupResolutionConfiguration)
-createIndex_userGroupResolutionConfiguration = Lens.lens (\CreateIndex' {userGroupResolutionConfiguration} -> userGroupResolutionConfiguration) (\s@CreateIndex' {} a -> s {userGroupResolutionConfiguration = a} :: CreateIndex)
-
--- | The identifier of the KMS customer managed key (CMK) that\'s used to
--- encrypt data indexed by Amazon Kendra. Amazon Kendra doesn\'t support
--- asymmetric CMKs.
-createIndex_serverSideEncryptionConfiguration :: Lens.Lens' CreateIndex (Prelude.Maybe ServerSideEncryptionConfiguration)
-createIndex_serverSideEncryptionConfiguration = Lens.lens (\CreateIndex' {serverSideEncryptionConfiguration} -> serverSideEncryptionConfiguration) (\s@CreateIndex' {} a -> s {serverSideEncryptionConfiguration = a} :: CreateIndex)
+-- | A description for the index.
+createIndex_description :: Lens.Lens' CreateIndex (Prelude.Maybe Prelude.Text)
+createIndex_description = Lens.lens (\CreateIndex' {description} -> description) (\s@CreateIndex' {} a -> s {description = a} :: CreateIndex)
 
 -- | The Amazon Kendra edition to use for the index. Choose
 -- @DEVELOPER_EDITION@ for indexes intended for development, testing, or
@@ -246,13 +231,17 @@ createIndex_serverSideEncryptionConfiguration = Lens.lens (\CreateIndex' {server
 createIndex_edition :: Lens.Lens' CreateIndex (Prelude.Maybe IndexEdition)
 createIndex_edition = Lens.lens (\CreateIndex' {edition} -> edition) (\s@CreateIndex' {} a -> s {edition = a} :: CreateIndex)
 
--- | A description for the index.
-createIndex_description :: Lens.Lens' CreateIndex (Prelude.Maybe Prelude.Text)
-createIndex_description = Lens.lens (\CreateIndex' {description} -> description) (\s@CreateIndex' {} a -> s {description = a} :: CreateIndex)
+-- | The identifier of the KMS customer managed key (CMK) that\'s used to
+-- encrypt data indexed by Amazon Kendra. Amazon Kendra doesn\'t support
+-- asymmetric CMKs.
+createIndex_serverSideEncryptionConfiguration :: Lens.Lens' CreateIndex (Prelude.Maybe ServerSideEncryptionConfiguration)
+createIndex_serverSideEncryptionConfiguration = Lens.lens (\CreateIndex' {serverSideEncryptionConfiguration} -> serverSideEncryptionConfiguration) (\s@CreateIndex' {} a -> s {serverSideEncryptionConfiguration = a} :: CreateIndex)
 
--- | The user token configuration.
-createIndex_userTokenConfigurations :: Lens.Lens' CreateIndex (Prelude.Maybe [UserTokenConfiguration])
-createIndex_userTokenConfigurations = Lens.lens (\CreateIndex' {userTokenConfigurations} -> userTokenConfigurations) (\s@CreateIndex' {} a -> s {userTokenConfigurations = a} :: CreateIndex) Prelude.. Lens.mapping Lens.coerced
+-- | A list of key-value pairs that identify the index. You can use the tags
+-- to identify and organize your resources and to control access to
+-- resources.
+createIndex_tags :: Lens.Lens' CreateIndex (Prelude.Maybe [Tag])
+createIndex_tags = Lens.lens (\CreateIndex' {tags} -> tags) (\s@CreateIndex' {} a -> s {tags = a} :: CreateIndex) Prelude.. Lens.mapping Lens.coerced
 
 -- | The user context policy.
 --
@@ -268,6 +257,17 @@ createIndex_userTokenConfigurations = Lens.lens (\CreateIndex' {userTokenConfigu
 --     accessible to the user will be searchable and displayable.
 createIndex_userContextPolicy :: Lens.Lens' CreateIndex (Prelude.Maybe UserContextPolicy)
 createIndex_userContextPolicy = Lens.lens (\CreateIndex' {userContextPolicy} -> userContextPolicy) (\s@CreateIndex' {} a -> s {userContextPolicy = a} :: CreateIndex)
+
+-- | Enables fetching access levels of groups and users from an IAM Identity
+-- Center (successor to Single Sign-On) identity source. To configure this,
+-- see
+-- <https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html UserGroupResolutionConfiguration>.
+createIndex_userGroupResolutionConfiguration :: Lens.Lens' CreateIndex (Prelude.Maybe UserGroupResolutionConfiguration)
+createIndex_userGroupResolutionConfiguration = Lens.lens (\CreateIndex' {userGroupResolutionConfiguration} -> userGroupResolutionConfiguration) (\s@CreateIndex' {} a -> s {userGroupResolutionConfiguration = a} :: CreateIndex)
+
+-- | The user token configuration.
+createIndex_userTokenConfigurations :: Lens.Lens' CreateIndex (Prelude.Maybe [UserTokenConfiguration])
+createIndex_userTokenConfigurations = Lens.lens (\CreateIndex' {userTokenConfigurations} -> userTokenConfigurations) (\s@CreateIndex' {} a -> s {userTokenConfigurations = a} :: CreateIndex) Prelude.. Lens.mapping Lens.coerced
 
 -- | A name for the index.
 createIndex_name :: Lens.Lens' CreateIndex Prelude.Text
@@ -294,27 +294,27 @@ instance Core.AWSRequest CreateIndex where
 
 instance Prelude.Hashable CreateIndex where
   hashWithSalt _salt CreateIndex' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` userGroupResolutionConfiguration
-      `Prelude.hashWithSalt` serverSideEncryptionConfiguration
-      `Prelude.hashWithSalt` edition
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` userTokenConfigurations
+      `Prelude.hashWithSalt` edition
+      `Prelude.hashWithSalt` serverSideEncryptionConfiguration
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` userContextPolicy
+      `Prelude.hashWithSalt` userGroupResolutionConfiguration
+      `Prelude.hashWithSalt` userTokenConfigurations
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` roleArn
 
 instance Prelude.NFData CreateIndex where
   rnf CreateIndex' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf userGroupResolutionConfiguration
-      `Prelude.seq` Prelude.rnf serverSideEncryptionConfiguration
-      `Prelude.seq` Prelude.rnf edition
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf userTokenConfigurations
+      `Prelude.seq` Prelude.rnf edition
+      `Prelude.seq` Prelude.rnf serverSideEncryptionConfiguration
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf userContextPolicy
+      `Prelude.seq` Prelude.rnf userGroupResolutionConfiguration
+      `Prelude.seq` Prelude.rnf userTokenConfigurations
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf roleArn
 
@@ -337,18 +337,18 @@ instance Data.ToJSON CreateIndex where
   toJSON CreateIndex' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ClientToken" Data..=) Prelude.<$> clientToken,
-            ("UserGroupResolutionConfiguration" Data..=)
-              Prelude.<$> userGroupResolutionConfiguration,
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("Description" Data..=) Prelude.<$> description,
+            ("Edition" Data..=) Prelude.<$> edition,
             ("ServerSideEncryptionConfiguration" Data..=)
               Prelude.<$> serverSideEncryptionConfiguration,
-            ("Edition" Data..=) Prelude.<$> edition,
-            ("Description" Data..=) Prelude.<$> description,
-            ("UserTokenConfigurations" Data..=)
-              Prelude.<$> userTokenConfigurations,
+            ("Tags" Data..=) Prelude.<$> tags,
             ("UserContextPolicy" Data..=)
               Prelude.<$> userContextPolicy,
+            ("UserGroupResolutionConfiguration" Data..=)
+              Prelude.<$> userGroupResolutionConfiguration,
+            ("UserTokenConfigurations" Data..=)
+              Prelude.<$> userTokenConfigurations,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("RoleArn" Data..= roleArn)
           ]
@@ -362,8 +362,8 @@ instance Data.ToQuery CreateIndex where
 
 -- | /See:/ 'newCreateIndexResponse' smart constructor.
 data CreateIndexResponse = CreateIndexResponse'
-  { -- | The unique identifier of the index. Use this identifier when you query
-    -- an index, set up a data source, or index a document.
+  { -- | The identifier of the index. Use this identifier when you query an
+    -- index, set up a data source, or index a document.
     id :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -378,8 +378,8 @@ data CreateIndexResponse = CreateIndexResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'createIndexResponse_id' - The unique identifier of the index. Use this identifier when you query
--- an index, set up a data source, or index a document.
+-- 'id', 'createIndexResponse_id' - The identifier of the index. Use this identifier when you query an
+-- index, set up a data source, or index a document.
 --
 -- 'httpStatus', 'createIndexResponse_httpStatus' - The response's http status code.
 newCreateIndexResponse ::
@@ -392,8 +392,8 @@ newCreateIndexResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The unique identifier of the index. Use this identifier when you query
--- an index, set up a data source, or index a document.
+-- | The identifier of the index. Use this identifier when you query an
+-- index, set up a data source, or index a document.
 createIndexResponse_id :: Lens.Lens' CreateIndexResponse (Prelude.Maybe Prelude.Text)
 createIndexResponse_id = Lens.lens (\CreateIndexResponse' {id} -> id) (\s@CreateIndexResponse' {} a -> s {id = a} :: CreateIndexResponse)
 

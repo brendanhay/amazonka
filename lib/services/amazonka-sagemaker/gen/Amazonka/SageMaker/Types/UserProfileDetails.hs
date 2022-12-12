@@ -29,16 +29,16 @@ import Amazonka.SageMaker.Types.UserProfileStatus
 --
 -- /See:/ 'newUserProfileDetails' smart constructor.
 data UserProfileDetails = UserProfileDetails'
-  { -- | The status.
-    status :: Prelude.Maybe UserProfileStatus,
-    -- | The last modified time.
-    lastModifiedTime :: Prelude.Maybe Data.POSIX,
-    -- | The user profile name.
-    userProfileName :: Prelude.Maybe Prelude.Text,
-    -- | The creation time.
+  { -- | The creation time.
     creationTime :: Prelude.Maybe Data.POSIX,
     -- | The domain ID.
-    domainId :: Prelude.Maybe Prelude.Text
+    domainId :: Prelude.Maybe Prelude.Text,
+    -- | The last modified time.
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
+    -- | The status.
+    status :: Prelude.Maybe UserProfileStatus,
+    -- | The user profile name.
+    userProfileName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,37 +50,25 @@ data UserProfileDetails = UserProfileDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'userProfileDetails_status' - The status.
---
--- 'lastModifiedTime', 'userProfileDetails_lastModifiedTime' - The last modified time.
---
--- 'userProfileName', 'userProfileDetails_userProfileName' - The user profile name.
---
 -- 'creationTime', 'userProfileDetails_creationTime' - The creation time.
 --
 -- 'domainId', 'userProfileDetails_domainId' - The domain ID.
+--
+-- 'lastModifiedTime', 'userProfileDetails_lastModifiedTime' - The last modified time.
+--
+-- 'status', 'userProfileDetails_status' - The status.
+--
+-- 'userProfileName', 'userProfileDetails_userProfileName' - The user profile name.
 newUserProfileDetails ::
   UserProfileDetails
 newUserProfileDetails =
   UserProfileDetails'
-    { status = Prelude.Nothing,
+    { creationTime = Prelude.Nothing,
+      domainId = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
-      userProfileName = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      domainId = Prelude.Nothing
+      status = Prelude.Nothing,
+      userProfileName = Prelude.Nothing
     }
-
--- | The status.
-userProfileDetails_status :: Lens.Lens' UserProfileDetails (Prelude.Maybe UserProfileStatus)
-userProfileDetails_status = Lens.lens (\UserProfileDetails' {status} -> status) (\s@UserProfileDetails' {} a -> s {status = a} :: UserProfileDetails)
-
--- | The last modified time.
-userProfileDetails_lastModifiedTime :: Lens.Lens' UserProfileDetails (Prelude.Maybe Prelude.UTCTime)
-userProfileDetails_lastModifiedTime = Lens.lens (\UserProfileDetails' {lastModifiedTime} -> lastModifiedTime) (\s@UserProfileDetails' {} a -> s {lastModifiedTime = a} :: UserProfileDetails) Prelude.. Lens.mapping Data._Time
-
--- | The user profile name.
-userProfileDetails_userProfileName :: Lens.Lens' UserProfileDetails (Prelude.Maybe Prelude.Text)
-userProfileDetails_userProfileName = Lens.lens (\UserProfileDetails' {userProfileName} -> userProfileName) (\s@UserProfileDetails' {} a -> s {userProfileName = a} :: UserProfileDetails)
 
 -- | The creation time.
 userProfileDetails_creationTime :: Lens.Lens' UserProfileDetails (Prelude.Maybe Prelude.UTCTime)
@@ -90,31 +78,43 @@ userProfileDetails_creationTime = Lens.lens (\UserProfileDetails' {creationTime}
 userProfileDetails_domainId :: Lens.Lens' UserProfileDetails (Prelude.Maybe Prelude.Text)
 userProfileDetails_domainId = Lens.lens (\UserProfileDetails' {domainId} -> domainId) (\s@UserProfileDetails' {} a -> s {domainId = a} :: UserProfileDetails)
 
+-- | The last modified time.
+userProfileDetails_lastModifiedTime :: Lens.Lens' UserProfileDetails (Prelude.Maybe Prelude.UTCTime)
+userProfileDetails_lastModifiedTime = Lens.lens (\UserProfileDetails' {lastModifiedTime} -> lastModifiedTime) (\s@UserProfileDetails' {} a -> s {lastModifiedTime = a} :: UserProfileDetails) Prelude.. Lens.mapping Data._Time
+
+-- | The status.
+userProfileDetails_status :: Lens.Lens' UserProfileDetails (Prelude.Maybe UserProfileStatus)
+userProfileDetails_status = Lens.lens (\UserProfileDetails' {status} -> status) (\s@UserProfileDetails' {} a -> s {status = a} :: UserProfileDetails)
+
+-- | The user profile name.
+userProfileDetails_userProfileName :: Lens.Lens' UserProfileDetails (Prelude.Maybe Prelude.Text)
+userProfileDetails_userProfileName = Lens.lens (\UserProfileDetails' {userProfileName} -> userProfileName) (\s@UserProfileDetails' {} a -> s {userProfileName = a} :: UserProfileDetails)
+
 instance Data.FromJSON UserProfileDetails where
   parseJSON =
     Data.withObject
       "UserProfileDetails"
       ( \x ->
           UserProfileDetails'
-            Prelude.<$> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "LastModifiedTime")
-            Prelude.<*> (x Data..:? "UserProfileName")
-            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<$> (x Data..:? "CreationTime")
             Prelude.<*> (x Data..:? "DomainId")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "UserProfileName")
       )
 
 instance Prelude.Hashable UserProfileDetails where
   hashWithSalt _salt UserProfileDetails' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` lastModifiedTime
-      `Prelude.hashWithSalt` userProfileName
-      `Prelude.hashWithSalt` creationTime
+    _salt `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` domainId
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` userProfileName
 
 instance Prelude.NFData UserProfileDetails where
   rnf UserProfileDetails' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf userProfileName
-      `Prelude.seq` Prelude.rnf creationTime
+    Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf domainId
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf userProfileName

@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSecurityConfigurationSummary' smart constructor.
 data SecurityConfigurationSummary = SecurityConfigurationSummary'
-  { -- | The name of the security configuration.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The date and time the security configuration was created.
-    creationDateTime :: Prelude.Maybe Data.POSIX
+  { -- | The date and time the security configuration was created.
+    creationDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The name of the security configuration.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data SecurityConfigurationSummary = SecurityConfigurationSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'securityConfigurationSummary_name' - The name of the security configuration.
---
 -- 'creationDateTime', 'securityConfigurationSummary_creationDateTime' - The date and time the security configuration was created.
+--
+-- 'name', 'securityConfigurationSummary_name' - The name of the security configuration.
 newSecurityConfigurationSummary ::
   SecurityConfigurationSummary
 newSecurityConfigurationSummary =
   SecurityConfigurationSummary'
-    { name =
+    { creationDateTime =
         Prelude.Nothing,
-      creationDateTime = Prelude.Nothing
+      name = Prelude.Nothing
     }
-
--- | The name of the security configuration.
-securityConfigurationSummary_name :: Lens.Lens' SecurityConfigurationSummary (Prelude.Maybe Prelude.Text)
-securityConfigurationSummary_name = Lens.lens (\SecurityConfigurationSummary' {name} -> name) (\s@SecurityConfigurationSummary' {} a -> s {name = a} :: SecurityConfigurationSummary)
 
 -- | The date and time the security configuration was created.
 securityConfigurationSummary_creationDateTime :: Lens.Lens' SecurityConfigurationSummary (Prelude.Maybe Prelude.UTCTime)
 securityConfigurationSummary_creationDateTime = Lens.lens (\SecurityConfigurationSummary' {creationDateTime} -> creationDateTime) (\s@SecurityConfigurationSummary' {} a -> s {creationDateTime = a} :: SecurityConfigurationSummary) Prelude.. Lens.mapping Data._Time
+
+-- | The name of the security configuration.
+securityConfigurationSummary_name :: Lens.Lens' SecurityConfigurationSummary (Prelude.Maybe Prelude.Text)
+securityConfigurationSummary_name = Lens.lens (\SecurityConfigurationSummary' {name} -> name) (\s@SecurityConfigurationSummary' {} a -> s {name = a} :: SecurityConfigurationSummary)
 
 instance Data.FromJSON SecurityConfigurationSummary where
   parseJSON =
@@ -69,8 +69,8 @@ instance Data.FromJSON SecurityConfigurationSummary where
       "SecurityConfigurationSummary"
       ( \x ->
           SecurityConfigurationSummary'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "CreationDateTime")
+            Prelude.<$> (x Data..:? "CreationDateTime")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance
@@ -78,10 +78,10 @@ instance
     SecurityConfigurationSummary
   where
   hashWithSalt _salt SecurityConfigurationSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` creationDateTime
+    _salt `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData SecurityConfigurationSummary where
   rnf SecurityConfigurationSummary' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf creationDateTime
+    Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf name

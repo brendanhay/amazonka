@@ -35,10 +35,10 @@ data ServiceCatalogProvisioningDetails = ServiceCatalogProvisioningDetails'
     -- product has a default path, and required if the product has more than
     -- one path.
     pathId :: Prelude.Maybe Prelude.Text,
-    -- | A list of key value pairs that you specify when you provision a product.
-    provisioningParameters :: Prelude.Maybe [ProvisioningParameter],
     -- | The ID of the provisioning artifact.
     provisioningArtifactId :: Prelude.Maybe Prelude.Text,
+    -- | A list of key value pairs that you specify when you provision a product.
+    provisioningParameters :: Prelude.Maybe [ProvisioningParameter],
     -- | The ID of the product to provision.
     productId :: Prelude.Text
   }
@@ -56,9 +56,9 @@ data ServiceCatalogProvisioningDetails = ServiceCatalogProvisioningDetails'
 -- product has a default path, and required if the product has more than
 -- one path.
 --
--- 'provisioningParameters', 'serviceCatalogProvisioningDetails_provisioningParameters' - A list of key value pairs that you specify when you provision a product.
---
 -- 'provisioningArtifactId', 'serviceCatalogProvisioningDetails_provisioningArtifactId' - The ID of the provisioning artifact.
+--
+-- 'provisioningParameters', 'serviceCatalogProvisioningDetails_provisioningParameters' - A list of key value pairs that you specify when you provision a product.
 --
 -- 'productId', 'serviceCatalogProvisioningDetails_productId' - The ID of the product to provision.
 newServiceCatalogProvisioningDetails ::
@@ -69,8 +69,8 @@ newServiceCatalogProvisioningDetails pProductId_ =
   ServiceCatalogProvisioningDetails'
     { pathId =
         Prelude.Nothing,
-      provisioningParameters = Prelude.Nothing,
       provisioningArtifactId = Prelude.Nothing,
+      provisioningParameters = Prelude.Nothing,
       productId = pProductId_
     }
 
@@ -80,13 +80,13 @@ newServiceCatalogProvisioningDetails pProductId_ =
 serviceCatalogProvisioningDetails_pathId :: Lens.Lens' ServiceCatalogProvisioningDetails (Prelude.Maybe Prelude.Text)
 serviceCatalogProvisioningDetails_pathId = Lens.lens (\ServiceCatalogProvisioningDetails' {pathId} -> pathId) (\s@ServiceCatalogProvisioningDetails' {} a -> s {pathId = a} :: ServiceCatalogProvisioningDetails)
 
--- | A list of key value pairs that you specify when you provision a product.
-serviceCatalogProvisioningDetails_provisioningParameters :: Lens.Lens' ServiceCatalogProvisioningDetails (Prelude.Maybe [ProvisioningParameter])
-serviceCatalogProvisioningDetails_provisioningParameters = Lens.lens (\ServiceCatalogProvisioningDetails' {provisioningParameters} -> provisioningParameters) (\s@ServiceCatalogProvisioningDetails' {} a -> s {provisioningParameters = a} :: ServiceCatalogProvisioningDetails) Prelude.. Lens.mapping Lens.coerced
-
 -- | The ID of the provisioning artifact.
 serviceCatalogProvisioningDetails_provisioningArtifactId :: Lens.Lens' ServiceCatalogProvisioningDetails (Prelude.Maybe Prelude.Text)
 serviceCatalogProvisioningDetails_provisioningArtifactId = Lens.lens (\ServiceCatalogProvisioningDetails' {provisioningArtifactId} -> provisioningArtifactId) (\s@ServiceCatalogProvisioningDetails' {} a -> s {provisioningArtifactId = a} :: ServiceCatalogProvisioningDetails)
+
+-- | A list of key value pairs that you specify when you provision a product.
+serviceCatalogProvisioningDetails_provisioningParameters :: Lens.Lens' ServiceCatalogProvisioningDetails (Prelude.Maybe [ProvisioningParameter])
+serviceCatalogProvisioningDetails_provisioningParameters = Lens.lens (\ServiceCatalogProvisioningDetails' {provisioningParameters} -> provisioningParameters) (\s@ServiceCatalogProvisioningDetails' {} a -> s {provisioningParameters = a} :: ServiceCatalogProvisioningDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the product to provision.
 serviceCatalogProvisioningDetails_productId :: Lens.Lens' ServiceCatalogProvisioningDetails Prelude.Text
@@ -102,10 +102,10 @@ instance
       ( \x ->
           ServiceCatalogProvisioningDetails'
             Prelude.<$> (x Data..:? "PathId")
+            Prelude.<*> (x Data..:? "ProvisioningArtifactId")
             Prelude.<*> ( x Data..:? "ProvisioningParameters"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "ProvisioningArtifactId")
             Prelude.<*> (x Data..: "ProductId")
       )
 
@@ -117,8 +117,8 @@ instance
     _salt
     ServiceCatalogProvisioningDetails' {..} =
       _salt `Prelude.hashWithSalt` pathId
-        `Prelude.hashWithSalt` provisioningParameters
         `Prelude.hashWithSalt` provisioningArtifactId
+        `Prelude.hashWithSalt` provisioningParameters
         `Prelude.hashWithSalt` productId
 
 instance
@@ -127,8 +127,8 @@ instance
   where
   rnf ServiceCatalogProvisioningDetails' {..} =
     Prelude.rnf pathId
-      `Prelude.seq` Prelude.rnf provisioningParameters
       `Prelude.seq` Prelude.rnf provisioningArtifactId
+      `Prelude.seq` Prelude.rnf provisioningParameters
       `Prelude.seq` Prelude.rnf productId
 
 instance
@@ -139,10 +139,10 @@ instance
     Data.object
       ( Prelude.catMaybes
           [ ("PathId" Data..=) Prelude.<$> pathId,
-            ("ProvisioningParameters" Data..=)
-              Prelude.<$> provisioningParameters,
             ("ProvisioningArtifactId" Data..=)
               Prelude.<$> provisioningArtifactId,
+            ("ProvisioningParameters" Data..=)
+              Prelude.<$> provisioningParameters,
             Prelude.Just ("ProductId" Data..= productId)
           ]
       )

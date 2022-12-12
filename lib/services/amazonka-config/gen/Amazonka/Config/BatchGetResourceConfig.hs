@@ -43,8 +43,8 @@ module Amazonka.Config.BatchGetResourceConfig
     newBatchGetResourceConfigResponse,
 
     -- * Response Lenses
-    batchGetResourceConfigResponse_unprocessedResourceKeys,
     batchGetResourceConfigResponse_baseConfigurationItems,
+    batchGetResourceConfigResponse_unprocessedResourceKeys,
     batchGetResourceConfigResponse_httpStatus,
   )
 where
@@ -100,10 +100,10 @@ instance Core.AWSRequest BatchGetResourceConfig where
     Response.receiveJSON
       ( \s h x ->
           BatchGetResourceConfigResponse'
-            Prelude.<$> (x Data..?> "unprocessedResourceKeys")
-            Prelude.<*> ( x Data..?> "baseConfigurationItems"
+            Prelude.<$> ( x Data..?> "baseConfigurationItems"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "unprocessedResourceKeys")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,14 +145,14 @@ instance Data.ToQuery BatchGetResourceConfig where
 
 -- | /See:/ 'newBatchGetResourceConfigResponse' smart constructor.
 data BatchGetResourceConfigResponse = BatchGetResourceConfigResponse'
-  { -- | A list of resource keys that were not processed with the current
+  { -- | A list that contains the current configuration of one or more resources.
+    baseConfigurationItems :: Prelude.Maybe [BaseConfigurationItem],
+    -- | A list of resource keys that were not processed with the current
     -- response. The unprocessesResourceKeys value is in the same form as
     -- ResourceKeys, so the value can be directly provided to a subsequent
     -- BatchGetResourceConfig operation. If there are no unprocessed resource
     -- keys, the response contains an empty unprocessedResourceKeys list.
     unprocessedResourceKeys :: Prelude.Maybe (Prelude.NonEmpty ResourceKey),
-    -- | A list that contains the current configuration of one or more resources.
-    baseConfigurationItems :: Prelude.Maybe [BaseConfigurationItem],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -166,13 +166,13 @@ data BatchGetResourceConfigResponse = BatchGetResourceConfigResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'baseConfigurationItems', 'batchGetResourceConfigResponse_baseConfigurationItems' - A list that contains the current configuration of one or more resources.
+--
 -- 'unprocessedResourceKeys', 'batchGetResourceConfigResponse_unprocessedResourceKeys' - A list of resource keys that were not processed with the current
 -- response. The unprocessesResourceKeys value is in the same form as
 -- ResourceKeys, so the value can be directly provided to a subsequent
 -- BatchGetResourceConfig operation. If there are no unprocessed resource
 -- keys, the response contains an empty unprocessedResourceKeys list.
---
--- 'baseConfigurationItems', 'batchGetResourceConfigResponse_baseConfigurationItems' - A list that contains the current configuration of one or more resources.
 --
 -- 'httpStatus', 'batchGetResourceConfigResponse_httpStatus' - The response's http status code.
 newBatchGetResourceConfigResponse ::
@@ -181,11 +181,15 @@ newBatchGetResourceConfigResponse ::
   BatchGetResourceConfigResponse
 newBatchGetResourceConfigResponse pHttpStatus_ =
   BatchGetResourceConfigResponse'
-    { unprocessedResourceKeys =
+    { baseConfigurationItems =
         Prelude.Nothing,
-      baseConfigurationItems = Prelude.Nothing,
+      unprocessedResourceKeys = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list that contains the current configuration of one or more resources.
+batchGetResourceConfigResponse_baseConfigurationItems :: Lens.Lens' BatchGetResourceConfigResponse (Prelude.Maybe [BaseConfigurationItem])
+batchGetResourceConfigResponse_baseConfigurationItems = Lens.lens (\BatchGetResourceConfigResponse' {baseConfigurationItems} -> baseConfigurationItems) (\s@BatchGetResourceConfigResponse' {} a -> s {baseConfigurationItems = a} :: BatchGetResourceConfigResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of resource keys that were not processed with the current
 -- response. The unprocessesResourceKeys value is in the same form as
@@ -194,10 +198,6 @@ newBatchGetResourceConfigResponse pHttpStatus_ =
 -- keys, the response contains an empty unprocessedResourceKeys list.
 batchGetResourceConfigResponse_unprocessedResourceKeys :: Lens.Lens' BatchGetResourceConfigResponse (Prelude.Maybe (Prelude.NonEmpty ResourceKey))
 batchGetResourceConfigResponse_unprocessedResourceKeys = Lens.lens (\BatchGetResourceConfigResponse' {unprocessedResourceKeys} -> unprocessedResourceKeys) (\s@BatchGetResourceConfigResponse' {} a -> s {unprocessedResourceKeys = a} :: BatchGetResourceConfigResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | A list that contains the current configuration of one or more resources.
-batchGetResourceConfigResponse_baseConfigurationItems :: Lens.Lens' BatchGetResourceConfigResponse (Prelude.Maybe [BaseConfigurationItem])
-batchGetResourceConfigResponse_baseConfigurationItems = Lens.lens (\BatchGetResourceConfigResponse' {baseConfigurationItems} -> baseConfigurationItems) (\s@BatchGetResourceConfigResponse' {} a -> s {baseConfigurationItems = a} :: BatchGetResourceConfigResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchGetResourceConfigResponse_httpStatus :: Lens.Lens' BatchGetResourceConfigResponse Prelude.Int
@@ -208,6 +208,6 @@ instance
     BatchGetResourceConfigResponse
   where
   rnf BatchGetResourceConfigResponse' {..} =
-    Prelude.rnf unprocessedResourceKeys
-      `Prelude.seq` Prelude.rnf baseConfigurationItems
+    Prelude.rnf baseConfigurationItems
+      `Prelude.seq` Prelude.rnf unprocessedResourceKeys
       `Prelude.seq` Prelude.rnf httpStatus

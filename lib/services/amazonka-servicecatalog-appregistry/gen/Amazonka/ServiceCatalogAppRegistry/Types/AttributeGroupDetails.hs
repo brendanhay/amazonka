@@ -28,15 +28,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAttributeGroupDetails' smart constructor.
 data AttributeGroupDetails = AttributeGroupDetails'
-  { -- | This field is no longer supported. We recommend you don\'t use the field
+  { -- | The Amazon resource name (ARN) that specifies the attribute group.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier of the attribute group.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | This field is no longer supported. We recommend you don\'t use the field
     -- when using @ListAttributeGroupsForApplication@.
     --
     -- The name of the attribute group.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon resource name (ARN) that specifies the attribute group.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier of the attribute group.
-    id :: Prelude.Maybe Prelude.Text
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,29 +48,22 @@ data AttributeGroupDetails = AttributeGroupDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'arn', 'attributeGroupDetails_arn' - The Amazon resource name (ARN) that specifies the attribute group.
+--
+-- 'id', 'attributeGroupDetails_id' - The unique identifier of the attribute group.
+--
 -- 'name', 'attributeGroupDetails_name' - This field is no longer supported. We recommend you don\'t use the field
 -- when using @ListAttributeGroupsForApplication@.
 --
 -- The name of the attribute group.
---
--- 'arn', 'attributeGroupDetails_arn' - The Amazon resource name (ARN) that specifies the attribute group.
---
--- 'id', 'attributeGroupDetails_id' - The unique identifier of the attribute group.
 newAttributeGroupDetails ::
   AttributeGroupDetails
 newAttributeGroupDetails =
   AttributeGroupDetails'
-    { name = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      id = Prelude.Nothing
+    { arn = Prelude.Nothing,
+      id = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | This field is no longer supported. We recommend you don\'t use the field
--- when using @ListAttributeGroupsForApplication@.
---
--- The name of the attribute group.
-attributeGroupDetails_name :: Lens.Lens' AttributeGroupDetails (Prelude.Maybe Prelude.Text)
-attributeGroupDetails_name = Lens.lens (\AttributeGroupDetails' {name} -> name) (\s@AttributeGroupDetails' {} a -> s {name = a} :: AttributeGroupDetails)
 
 -- | The Amazon resource name (ARN) that specifies the attribute group.
 attributeGroupDetails_arn :: Lens.Lens' AttributeGroupDetails (Prelude.Maybe Prelude.Text)
@@ -80,25 +73,32 @@ attributeGroupDetails_arn = Lens.lens (\AttributeGroupDetails' {arn} -> arn) (\s
 attributeGroupDetails_id :: Lens.Lens' AttributeGroupDetails (Prelude.Maybe Prelude.Text)
 attributeGroupDetails_id = Lens.lens (\AttributeGroupDetails' {id} -> id) (\s@AttributeGroupDetails' {} a -> s {id = a} :: AttributeGroupDetails)
 
+-- | This field is no longer supported. We recommend you don\'t use the field
+-- when using @ListAttributeGroupsForApplication@.
+--
+-- The name of the attribute group.
+attributeGroupDetails_name :: Lens.Lens' AttributeGroupDetails (Prelude.Maybe Prelude.Text)
+attributeGroupDetails_name = Lens.lens (\AttributeGroupDetails' {name} -> name) (\s@AttributeGroupDetails' {} a -> s {name = a} :: AttributeGroupDetails)
+
 instance Data.FromJSON AttributeGroupDetails where
   parseJSON =
     Data.withObject
       "AttributeGroupDetails"
       ( \x ->
           AttributeGroupDetails'
-            Prelude.<$> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "arn")
+            Prelude.<$> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "name")
       )
 
 instance Prelude.Hashable AttributeGroupDetails where
   hashWithSalt _salt AttributeGroupDetails' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData AttributeGroupDetails where
   rnf AttributeGroupDetails' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name

@@ -32,17 +32,17 @@ module Amazonka.SSMIncidents
     -- ** AccessDeniedException
     _AccessDeniedException,
 
+    -- ** ConflictException
+    _ConflictException,
+
     -- ** InternalServerException
     _InternalServerException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** ConflictException
-    _ConflictException,
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
 
     -- ** ThrottlingException
     _ThrottlingException,
@@ -53,11 +53,11 @@ module Amazonka.SSMIncidents
     -- * Waiters
     -- $waiters
 
-    -- ** WaitForReplicationSetDeleted
-    newWaitForReplicationSetDeleted,
-
     -- ** WaitForReplicationSetActive
     newWaitForReplicationSetActive,
+
+    -- ** WaitForReplicationSetDeleted
+    newWaitForReplicationSetDeleted,
 
     -- * Operations
     -- $operations

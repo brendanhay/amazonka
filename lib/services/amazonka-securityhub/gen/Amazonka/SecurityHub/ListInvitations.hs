@@ -34,8 +34,8 @@ module Amazonka.SecurityHub.ListInvitations
     newListInvitations,
 
     -- * Request Lenses
-    listInvitations_nextToken,
     listInvitations_maxResults,
+    listInvitations_nextToken,
 
     -- * Destructuring the Response
     ListInvitationsResponse (..),
@@ -58,15 +58,15 @@ import Amazonka.SecurityHub.Types
 
 -- | /See:/ 'newListInvitations' smart constructor.
 data ListInvitations = ListInvitations'
-  { -- | The token that is required for pagination. On your first call to the
+  { -- | The maximum number of items to return in the response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token that is required for pagination. On your first call to the
     -- @ListInvitations@ operation, set the value of this parameter to @NULL@.
     --
     -- For subsequent calls to the operation, to continue listing data, set the
     -- value of this parameter to the value returned from the previous
     -- response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,21 +78,25 @@ data ListInvitations = ListInvitations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listInvitations_maxResults' - The maximum number of items to return in the response.
+--
 -- 'nextToken', 'listInvitations_nextToken' - The token that is required for pagination. On your first call to the
 -- @ListInvitations@ operation, set the value of this parameter to @NULL@.
 --
 -- For subsequent calls to the operation, to continue listing data, set the
 -- value of this parameter to the value returned from the previous
 -- response.
---
--- 'maxResults', 'listInvitations_maxResults' - The maximum number of items to return in the response.
 newListInvitations ::
   ListInvitations
 newListInvitations =
   ListInvitations'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of items to return in the response.
+listInvitations_maxResults :: Lens.Lens' ListInvitations (Prelude.Maybe Prelude.Natural)
+listInvitations_maxResults = Lens.lens (\ListInvitations' {maxResults} -> maxResults) (\s@ListInvitations' {} a -> s {maxResults = a} :: ListInvitations)
 
 -- | The token that is required for pagination. On your first call to the
 -- @ListInvitations@ operation, set the value of this parameter to @NULL@.
@@ -102,10 +106,6 @@ newListInvitations =
 -- response.
 listInvitations_nextToken :: Lens.Lens' ListInvitations (Prelude.Maybe Prelude.Text)
 listInvitations_nextToken = Lens.lens (\ListInvitations' {nextToken} -> nextToken) (\s@ListInvitations' {} a -> s {nextToken = a} :: ListInvitations)
-
--- | The maximum number of items to return in the response.
-listInvitations_maxResults :: Lens.Lens' ListInvitations (Prelude.Maybe Prelude.Natural)
-listInvitations_maxResults = Lens.lens (\ListInvitations' {maxResults} -> maxResults) (\s@ListInvitations' {} a -> s {maxResults = a} :: ListInvitations)
 
 instance Core.AWSPager ListInvitations where
   page rq rs
@@ -146,13 +146,13 @@ instance Core.AWSRequest ListInvitations where
 
 instance Prelude.Hashable ListInvitations where
   hashWithSalt _salt ListInvitations' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListInvitations where
   rnf ListInvitations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListInvitations where
   toHeaders =
@@ -171,8 +171,8 @@ instance Data.ToPath ListInvitations where
 instance Data.ToQuery ListInvitations where
   toQuery ListInvitations' {..} =
     Prelude.mconcat
-      [ "NextToken" Data.=: nextToken,
-        "MaxResults" Data.=: maxResults
+      [ "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListInvitationsResponse' smart constructor.

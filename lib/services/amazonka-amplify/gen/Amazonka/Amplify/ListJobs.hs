@@ -29,8 +29,8 @@ module Amazonka.Amplify.ListJobs
     newListJobs,
 
     -- * Request Lenses
-    listJobs_nextToken,
     listJobs_maxResults,
+    listJobs_nextToken,
     listJobs_appId,
     listJobs_branchName,
 
@@ -57,12 +57,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListJobs' smart constructor.
 data ListJobs = ListJobs'
-  { -- | A pagination token. Set to null to start listing steps from the start.
+  { -- | The maximum number of records to list in a single response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A pagination token. Set to null to start listing steps from the start.
     -- If a non-null pagination token is returned in a result, pass its value
     -- in here to list more steps.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of records to list in a single response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The unique ID for an Amplify app.
     appId :: Prelude.Text,
     -- | The name for a branch.
@@ -78,11 +78,11 @@ data ListJobs = ListJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listJobs_maxResults' - The maximum number of records to list in a single response.
+--
 -- 'nextToken', 'listJobs_nextToken' - A pagination token. Set to null to start listing steps from the start.
 -- If a non-null pagination token is returned in a result, pass its value
 -- in here to list more steps.
---
--- 'maxResults', 'listJobs_maxResults' - The maximum number of records to list in a single response.
 --
 -- 'appId', 'listJobs_appId' - The unique ID for an Amplify app.
 --
@@ -95,21 +95,21 @@ newListJobs ::
   ListJobs
 newListJobs pAppId_ pBranchName_ =
   ListJobs'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       appId = pAppId_,
       branchName = pBranchName_
     }
+
+-- | The maximum number of records to list in a single response.
+listJobs_maxResults :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Natural)
+listJobs_maxResults = Lens.lens (\ListJobs' {maxResults} -> maxResults) (\s@ListJobs' {} a -> s {maxResults = a} :: ListJobs)
 
 -- | A pagination token. Set to null to start listing steps from the start.
 -- If a non-null pagination token is returned in a result, pass its value
 -- in here to list more steps.
 listJobs_nextToken :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
 listJobs_nextToken = Lens.lens (\ListJobs' {nextToken} -> nextToken) (\s@ListJobs' {} a -> s {nextToken = a} :: ListJobs)
-
--- | The maximum number of records to list in a single response.
-listJobs_maxResults :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Natural)
-listJobs_maxResults = Lens.lens (\ListJobs' {maxResults} -> maxResults) (\s@ListJobs' {} a -> s {maxResults = a} :: ListJobs)
 
 -- | The unique ID for an Amplify app.
 listJobs_appId :: Lens.Lens' ListJobs Prelude.Text
@@ -151,15 +151,15 @@ instance Core.AWSRequest ListJobs where
 
 instance Prelude.Hashable ListJobs where
   hashWithSalt _salt ListJobs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` branchName
 
 instance Prelude.NFData ListJobs where
   rnf ListJobs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf appId
       `Prelude.seq` Prelude.rnf branchName
 
@@ -187,8 +187,8 @@ instance Data.ToPath ListJobs where
 instance Data.ToQuery ListJobs where
   toQuery ListJobs' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | The maximum number of records to list in a single response.

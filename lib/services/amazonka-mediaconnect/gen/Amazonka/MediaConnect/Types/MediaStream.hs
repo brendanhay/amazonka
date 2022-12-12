@@ -34,15 +34,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMediaStream' smart constructor.
 data MediaStream = MediaStream'
-  { -- | The resolution of the video.
-    videoFormat :: Prelude.Maybe Prelude.Text,
+  { -- | Attributes that are related to the media stream.
+    attributes :: Prelude.Maybe MediaStreamAttributes,
+    -- | The sample rate for the stream. This value is measured in Hz.
+    clockRate :: Prelude.Maybe Prelude.Int,
     -- | A description that can help you quickly identify what your media stream
     -- is used for.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The sample rate for the stream. This value is measured in Hz.
-    clockRate :: Prelude.Maybe Prelude.Int,
-    -- | Attributes that are related to the media stream.
-    attributes :: Prelude.Maybe MediaStreamAttributes,
+    -- | The resolution of the video.
+    videoFormat :: Prelude.Maybe Prelude.Text,
     -- | The type of media stream.
     mediaStreamType :: MediaStreamType,
     -- | A unique identifier for the media stream.
@@ -65,14 +65,14 @@ data MediaStream = MediaStream'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'videoFormat', 'mediaStream_videoFormat' - The resolution of the video.
+-- 'attributes', 'mediaStream_attributes' - Attributes that are related to the media stream.
+--
+-- 'clockRate', 'mediaStream_clockRate' - The sample rate for the stream. This value is measured in Hz.
 --
 -- 'description', 'mediaStream_description' - A description that can help you quickly identify what your media stream
 -- is used for.
 --
--- 'clockRate', 'mediaStream_clockRate' - The sample rate for the stream. This value is measured in Hz.
---
--- 'attributes', 'mediaStream_attributes' - Attributes that are related to the media stream.
+-- 'videoFormat', 'mediaStream_videoFormat' - The resolution of the video.
 --
 -- 'mediaStreamType', 'mediaStream_mediaStreamType' - The type of media stream.
 --
@@ -100,32 +100,32 @@ newMediaStream
   pMediaStreamName_
   pFmt_ =
     MediaStream'
-      { videoFormat = Prelude.Nothing,
-        description = Prelude.Nothing,
+      { attributes = Prelude.Nothing,
         clockRate = Prelude.Nothing,
-        attributes = Prelude.Nothing,
+        description = Prelude.Nothing,
+        videoFormat = Prelude.Nothing,
         mediaStreamType = pMediaStreamType_,
         mediaStreamId = pMediaStreamId_,
         mediaStreamName = pMediaStreamName_,
         fmt = pFmt_
       }
 
--- | The resolution of the video.
-mediaStream_videoFormat :: Lens.Lens' MediaStream (Prelude.Maybe Prelude.Text)
-mediaStream_videoFormat = Lens.lens (\MediaStream' {videoFormat} -> videoFormat) (\s@MediaStream' {} a -> s {videoFormat = a} :: MediaStream)
+-- | Attributes that are related to the media stream.
+mediaStream_attributes :: Lens.Lens' MediaStream (Prelude.Maybe MediaStreamAttributes)
+mediaStream_attributes = Lens.lens (\MediaStream' {attributes} -> attributes) (\s@MediaStream' {} a -> s {attributes = a} :: MediaStream)
+
+-- | The sample rate for the stream. This value is measured in Hz.
+mediaStream_clockRate :: Lens.Lens' MediaStream (Prelude.Maybe Prelude.Int)
+mediaStream_clockRate = Lens.lens (\MediaStream' {clockRate} -> clockRate) (\s@MediaStream' {} a -> s {clockRate = a} :: MediaStream)
 
 -- | A description that can help you quickly identify what your media stream
 -- is used for.
 mediaStream_description :: Lens.Lens' MediaStream (Prelude.Maybe Prelude.Text)
 mediaStream_description = Lens.lens (\MediaStream' {description} -> description) (\s@MediaStream' {} a -> s {description = a} :: MediaStream)
 
--- | The sample rate for the stream. This value is measured in Hz.
-mediaStream_clockRate :: Lens.Lens' MediaStream (Prelude.Maybe Prelude.Int)
-mediaStream_clockRate = Lens.lens (\MediaStream' {clockRate} -> clockRate) (\s@MediaStream' {} a -> s {clockRate = a} :: MediaStream)
-
--- | Attributes that are related to the media stream.
-mediaStream_attributes :: Lens.Lens' MediaStream (Prelude.Maybe MediaStreamAttributes)
-mediaStream_attributes = Lens.lens (\MediaStream' {attributes} -> attributes) (\s@MediaStream' {} a -> s {attributes = a} :: MediaStream)
+-- | The resolution of the video.
+mediaStream_videoFormat :: Lens.Lens' MediaStream (Prelude.Maybe Prelude.Text)
+mediaStream_videoFormat = Lens.lens (\MediaStream' {videoFormat} -> videoFormat) (\s@MediaStream' {} a -> s {videoFormat = a} :: MediaStream)
 
 -- | The type of media stream.
 mediaStream_mediaStreamType :: Lens.Lens' MediaStream MediaStreamType
@@ -152,10 +152,10 @@ instance Data.FromJSON MediaStream where
       "MediaStream"
       ( \x ->
           MediaStream'
-            Prelude.<$> (x Data..:? "videoFormat")
-            Prelude.<*> (x Data..:? "description")
+            Prelude.<$> (x Data..:? "attributes")
             Prelude.<*> (x Data..:? "clockRate")
-            Prelude.<*> (x Data..:? "attributes")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "videoFormat")
             Prelude.<*> (x Data..: "mediaStreamType")
             Prelude.<*> (x Data..: "mediaStreamId")
             Prelude.<*> (x Data..: "mediaStreamName")
@@ -164,10 +164,10 @@ instance Data.FromJSON MediaStream where
 
 instance Prelude.Hashable MediaStream where
   hashWithSalt _salt MediaStream' {..} =
-    _salt `Prelude.hashWithSalt` videoFormat
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` clockRate
-      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` videoFormat
       `Prelude.hashWithSalt` mediaStreamType
       `Prelude.hashWithSalt` mediaStreamId
       `Prelude.hashWithSalt` mediaStreamName
@@ -175,10 +175,10 @@ instance Prelude.Hashable MediaStream where
 
 instance Prelude.NFData MediaStream where
   rnf MediaStream' {..} =
-    Prelude.rnf videoFormat
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf attributes
       `Prelude.seq` Prelude.rnf clockRate
-      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf videoFormat
       `Prelude.seq` Prelude.rnf mediaStreamType
       `Prelude.seq` Prelude.rnf mediaStreamId
       `Prelude.seq` Prelude.rnf mediaStreamName

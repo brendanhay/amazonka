@@ -30,15 +30,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHlsOutputSettings' smart constructor.
 data HlsOutputSettings = HlsOutputSettings'
-  { -- | String concatenated to the end of the destination filename. Accepts
+  { -- | Only applicable when this output is referencing an H.265 video
+    -- description. Specifies whether MP4 segments should be packaged as HEV1
+    -- or HVC1.
+    h265PackagingType :: Prelude.Maybe HlsH265PackagingType,
+    -- | String concatenated to the end of the destination filename. Accepts
     -- \\\"Format Identifiers\\\":#formatIdentifierParameters.
     nameModifier :: Prelude.Maybe Prelude.Text,
     -- | String concatenated to end of segment filenames.
     segmentModifier :: Prelude.Maybe Prelude.Text,
-    -- | Only applicable when this output is referencing an H.265 video
-    -- description. Specifies whether MP4 segments should be packaged as HEV1
-    -- or HVC1.
-    h265PackagingType :: Prelude.Maybe HlsH265PackagingType,
     -- | Settings regarding the underlying stream. These settings are different
     -- for audio-only outputs.
     hlsSettings :: HlsSettings
@@ -53,14 +53,14 @@ data HlsOutputSettings = HlsOutputSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'h265PackagingType', 'hlsOutputSettings_h265PackagingType' - Only applicable when this output is referencing an H.265 video
+-- description. Specifies whether MP4 segments should be packaged as HEV1
+-- or HVC1.
+--
 -- 'nameModifier', 'hlsOutputSettings_nameModifier' - String concatenated to the end of the destination filename. Accepts
 -- \\\"Format Identifiers\\\":#formatIdentifierParameters.
 --
 -- 'segmentModifier', 'hlsOutputSettings_segmentModifier' - String concatenated to end of segment filenames.
---
--- 'h265PackagingType', 'hlsOutputSettings_h265PackagingType' - Only applicable when this output is referencing an H.265 video
--- description. Specifies whether MP4 segments should be packaged as HEV1
--- or HVC1.
 --
 -- 'hlsSettings', 'hlsOutputSettings_hlsSettings' - Settings regarding the underlying stream. These settings are different
 -- for audio-only outputs.
@@ -70,11 +70,18 @@ newHlsOutputSettings ::
   HlsOutputSettings
 newHlsOutputSettings pHlsSettings_ =
   HlsOutputSettings'
-    { nameModifier = Prelude.Nothing,
+    { h265PackagingType =
+        Prelude.Nothing,
+      nameModifier = Prelude.Nothing,
       segmentModifier = Prelude.Nothing,
-      h265PackagingType = Prelude.Nothing,
       hlsSettings = pHlsSettings_
     }
+
+-- | Only applicable when this output is referencing an H.265 video
+-- description. Specifies whether MP4 segments should be packaged as HEV1
+-- or HVC1.
+hlsOutputSettings_h265PackagingType :: Lens.Lens' HlsOutputSettings (Prelude.Maybe HlsH265PackagingType)
+hlsOutputSettings_h265PackagingType = Lens.lens (\HlsOutputSettings' {h265PackagingType} -> h265PackagingType) (\s@HlsOutputSettings' {} a -> s {h265PackagingType = a} :: HlsOutputSettings)
 
 -- | String concatenated to the end of the destination filename. Accepts
 -- \\\"Format Identifiers\\\":#formatIdentifierParameters.
@@ -84,12 +91,6 @@ hlsOutputSettings_nameModifier = Lens.lens (\HlsOutputSettings' {nameModifier} -
 -- | String concatenated to end of segment filenames.
 hlsOutputSettings_segmentModifier :: Lens.Lens' HlsOutputSettings (Prelude.Maybe Prelude.Text)
 hlsOutputSettings_segmentModifier = Lens.lens (\HlsOutputSettings' {segmentModifier} -> segmentModifier) (\s@HlsOutputSettings' {} a -> s {segmentModifier = a} :: HlsOutputSettings)
-
--- | Only applicable when this output is referencing an H.265 video
--- description. Specifies whether MP4 segments should be packaged as HEV1
--- or HVC1.
-hlsOutputSettings_h265PackagingType :: Lens.Lens' HlsOutputSettings (Prelude.Maybe HlsH265PackagingType)
-hlsOutputSettings_h265PackagingType = Lens.lens (\HlsOutputSettings' {h265PackagingType} -> h265PackagingType) (\s@HlsOutputSettings' {} a -> s {h265PackagingType = a} :: HlsOutputSettings)
 
 -- | Settings regarding the underlying stream. These settings are different
 -- for audio-only outputs.
@@ -102,35 +103,35 @@ instance Data.FromJSON HlsOutputSettings where
       "HlsOutputSettings"
       ( \x ->
           HlsOutputSettings'
-            Prelude.<$> (x Data..:? "nameModifier")
+            Prelude.<$> (x Data..:? "h265PackagingType")
+            Prelude.<*> (x Data..:? "nameModifier")
             Prelude.<*> (x Data..:? "segmentModifier")
-            Prelude.<*> (x Data..:? "h265PackagingType")
             Prelude.<*> (x Data..: "hlsSettings")
       )
 
 instance Prelude.Hashable HlsOutputSettings where
   hashWithSalt _salt HlsOutputSettings' {..} =
-    _salt `Prelude.hashWithSalt` nameModifier
+    _salt `Prelude.hashWithSalt` h265PackagingType
+      `Prelude.hashWithSalt` nameModifier
       `Prelude.hashWithSalt` segmentModifier
-      `Prelude.hashWithSalt` h265PackagingType
       `Prelude.hashWithSalt` hlsSettings
 
 instance Prelude.NFData HlsOutputSettings where
   rnf HlsOutputSettings' {..} =
-    Prelude.rnf nameModifier
+    Prelude.rnf h265PackagingType
+      `Prelude.seq` Prelude.rnf nameModifier
       `Prelude.seq` Prelude.rnf segmentModifier
-      `Prelude.seq` Prelude.rnf h265PackagingType
       `Prelude.seq` Prelude.rnf hlsSettings
 
 instance Data.ToJSON HlsOutputSettings where
   toJSON HlsOutputSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nameModifier" Data..=) Prelude.<$> nameModifier,
+          [ ("h265PackagingType" Data..=)
+              Prelude.<$> h265PackagingType,
+            ("nameModifier" Data..=) Prelude.<$> nameModifier,
             ("segmentModifier" Data..=)
               Prelude.<$> segmentModifier,
-            ("h265PackagingType" Data..=)
-              Prelude.<$> h265PackagingType,
             Prelude.Just ("hlsSettings" Data..= hlsSettings)
           ]
       )

@@ -31,20 +31,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newListPhoneNumbersSummary' smart constructor.
 data ListPhoneNumbersSummary = ListPhoneNumbersSummary'
-  { -- | The ISO country code.
-    phoneNumberCountryCode :: Prelude.Maybe PhoneNumberCountryCode,
+  { -- | The phone number. Phone numbers are formatted
+    -- @[+] [country code] [subscriber number including area code]@.
+    phoneNumber :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the phone number.
     phoneNumberArn :: Prelude.Maybe Prelude.Text,
+    -- | The ISO country code.
+    phoneNumberCountryCode :: Prelude.Maybe PhoneNumberCountryCode,
+    -- | A unique identifier for the phone number.
+    phoneNumberId :: Prelude.Maybe Prelude.Text,
     -- | The type of phone number.
     phoneNumberType :: Prelude.Maybe PhoneNumberType,
     -- | The Amazon Resource Name (ARN) for Amazon Connect instances or traffic
     -- distribution groups that phone numbers are claimed to.
-    targetArn :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for the phone number.
-    phoneNumberId :: Prelude.Maybe Prelude.Text,
-    -- | The phone number. Phone numbers are formatted
-    -- @[+] [country code] [subscriber number including area code]@.
-    phoneNumber :: Prelude.Maybe Prelude.Text
+    targetArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,39 +56,48 @@ data ListPhoneNumbersSummary = ListPhoneNumbersSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'phoneNumberCountryCode', 'listPhoneNumbersSummary_phoneNumberCountryCode' - The ISO country code.
+-- 'phoneNumber', 'listPhoneNumbersSummary_phoneNumber' - The phone number. Phone numbers are formatted
+-- @[+] [country code] [subscriber number including area code]@.
 --
 -- 'phoneNumberArn', 'listPhoneNumbersSummary_phoneNumberArn' - The Amazon Resource Name (ARN) of the phone number.
+--
+-- 'phoneNumberCountryCode', 'listPhoneNumbersSummary_phoneNumberCountryCode' - The ISO country code.
+--
+-- 'phoneNumberId', 'listPhoneNumbersSummary_phoneNumberId' - A unique identifier for the phone number.
 --
 -- 'phoneNumberType', 'listPhoneNumbersSummary_phoneNumberType' - The type of phone number.
 --
 -- 'targetArn', 'listPhoneNumbersSummary_targetArn' - The Amazon Resource Name (ARN) for Amazon Connect instances or traffic
 -- distribution groups that phone numbers are claimed to.
---
--- 'phoneNumberId', 'listPhoneNumbersSummary_phoneNumberId' - A unique identifier for the phone number.
---
--- 'phoneNumber', 'listPhoneNumbersSummary_phoneNumber' - The phone number. Phone numbers are formatted
--- @[+] [country code] [subscriber number including area code]@.
 newListPhoneNumbersSummary ::
   ListPhoneNumbersSummary
 newListPhoneNumbersSummary =
   ListPhoneNumbersSummary'
-    { phoneNumberCountryCode =
+    { phoneNumber =
         Prelude.Nothing,
       phoneNumberArn = Prelude.Nothing,
-      phoneNumberType = Prelude.Nothing,
-      targetArn = Prelude.Nothing,
+      phoneNumberCountryCode = Prelude.Nothing,
       phoneNumberId = Prelude.Nothing,
-      phoneNumber = Prelude.Nothing
+      phoneNumberType = Prelude.Nothing,
+      targetArn = Prelude.Nothing
     }
+
+-- | The phone number. Phone numbers are formatted
+-- @[+] [country code] [subscriber number including area code]@.
+listPhoneNumbersSummary_phoneNumber :: Lens.Lens' ListPhoneNumbersSummary (Prelude.Maybe Prelude.Text)
+listPhoneNumbersSummary_phoneNumber = Lens.lens (\ListPhoneNumbersSummary' {phoneNumber} -> phoneNumber) (\s@ListPhoneNumbersSummary' {} a -> s {phoneNumber = a} :: ListPhoneNumbersSummary)
+
+-- | The Amazon Resource Name (ARN) of the phone number.
+listPhoneNumbersSummary_phoneNumberArn :: Lens.Lens' ListPhoneNumbersSummary (Prelude.Maybe Prelude.Text)
+listPhoneNumbersSummary_phoneNumberArn = Lens.lens (\ListPhoneNumbersSummary' {phoneNumberArn} -> phoneNumberArn) (\s@ListPhoneNumbersSummary' {} a -> s {phoneNumberArn = a} :: ListPhoneNumbersSummary)
 
 -- | The ISO country code.
 listPhoneNumbersSummary_phoneNumberCountryCode :: Lens.Lens' ListPhoneNumbersSummary (Prelude.Maybe PhoneNumberCountryCode)
 listPhoneNumbersSummary_phoneNumberCountryCode = Lens.lens (\ListPhoneNumbersSummary' {phoneNumberCountryCode} -> phoneNumberCountryCode) (\s@ListPhoneNumbersSummary' {} a -> s {phoneNumberCountryCode = a} :: ListPhoneNumbersSummary)
 
--- | The Amazon Resource Name (ARN) of the phone number.
-listPhoneNumbersSummary_phoneNumberArn :: Lens.Lens' ListPhoneNumbersSummary (Prelude.Maybe Prelude.Text)
-listPhoneNumbersSummary_phoneNumberArn = Lens.lens (\ListPhoneNumbersSummary' {phoneNumberArn} -> phoneNumberArn) (\s@ListPhoneNumbersSummary' {} a -> s {phoneNumberArn = a} :: ListPhoneNumbersSummary)
+-- | A unique identifier for the phone number.
+listPhoneNumbersSummary_phoneNumberId :: Lens.Lens' ListPhoneNumbersSummary (Prelude.Maybe Prelude.Text)
+listPhoneNumbersSummary_phoneNumberId = Lens.lens (\ListPhoneNumbersSummary' {phoneNumberId} -> phoneNumberId) (\s@ListPhoneNumbersSummary' {} a -> s {phoneNumberId = a} :: ListPhoneNumbersSummary)
 
 -- | The type of phone number.
 listPhoneNumbersSummary_phoneNumberType :: Lens.Lens' ListPhoneNumbersSummary (Prelude.Maybe PhoneNumberType)
@@ -99,43 +108,34 @@ listPhoneNumbersSummary_phoneNumberType = Lens.lens (\ListPhoneNumbersSummary' {
 listPhoneNumbersSummary_targetArn :: Lens.Lens' ListPhoneNumbersSummary (Prelude.Maybe Prelude.Text)
 listPhoneNumbersSummary_targetArn = Lens.lens (\ListPhoneNumbersSummary' {targetArn} -> targetArn) (\s@ListPhoneNumbersSummary' {} a -> s {targetArn = a} :: ListPhoneNumbersSummary)
 
--- | A unique identifier for the phone number.
-listPhoneNumbersSummary_phoneNumberId :: Lens.Lens' ListPhoneNumbersSummary (Prelude.Maybe Prelude.Text)
-listPhoneNumbersSummary_phoneNumberId = Lens.lens (\ListPhoneNumbersSummary' {phoneNumberId} -> phoneNumberId) (\s@ListPhoneNumbersSummary' {} a -> s {phoneNumberId = a} :: ListPhoneNumbersSummary)
-
--- | The phone number. Phone numbers are formatted
--- @[+] [country code] [subscriber number including area code]@.
-listPhoneNumbersSummary_phoneNumber :: Lens.Lens' ListPhoneNumbersSummary (Prelude.Maybe Prelude.Text)
-listPhoneNumbersSummary_phoneNumber = Lens.lens (\ListPhoneNumbersSummary' {phoneNumber} -> phoneNumber) (\s@ListPhoneNumbersSummary' {} a -> s {phoneNumber = a} :: ListPhoneNumbersSummary)
-
 instance Data.FromJSON ListPhoneNumbersSummary where
   parseJSON =
     Data.withObject
       "ListPhoneNumbersSummary"
       ( \x ->
           ListPhoneNumbersSummary'
-            Prelude.<$> (x Data..:? "PhoneNumberCountryCode")
+            Prelude.<$> (x Data..:? "PhoneNumber")
             Prelude.<*> (x Data..:? "PhoneNumberArn")
+            Prelude.<*> (x Data..:? "PhoneNumberCountryCode")
+            Prelude.<*> (x Data..:? "PhoneNumberId")
             Prelude.<*> (x Data..:? "PhoneNumberType")
             Prelude.<*> (x Data..:? "TargetArn")
-            Prelude.<*> (x Data..:? "PhoneNumberId")
-            Prelude.<*> (x Data..:? "PhoneNumber")
       )
 
 instance Prelude.Hashable ListPhoneNumbersSummary where
   hashWithSalt _salt ListPhoneNumbersSummary' {..} =
-    _salt `Prelude.hashWithSalt` phoneNumberCountryCode
+    _salt `Prelude.hashWithSalt` phoneNumber
       `Prelude.hashWithSalt` phoneNumberArn
+      `Prelude.hashWithSalt` phoneNumberCountryCode
+      `Prelude.hashWithSalt` phoneNumberId
       `Prelude.hashWithSalt` phoneNumberType
       `Prelude.hashWithSalt` targetArn
-      `Prelude.hashWithSalt` phoneNumberId
-      `Prelude.hashWithSalt` phoneNumber
 
 instance Prelude.NFData ListPhoneNumbersSummary where
   rnf ListPhoneNumbersSummary' {..} =
-    Prelude.rnf phoneNumberCountryCode
+    Prelude.rnf phoneNumber
       `Prelude.seq` Prelude.rnf phoneNumberArn
+      `Prelude.seq` Prelude.rnf phoneNumberCountryCode
+      `Prelude.seq` Prelude.rnf phoneNumberId
       `Prelude.seq` Prelude.rnf phoneNumberType
       `Prelude.seq` Prelude.rnf targetArn
-      `Prelude.seq` Prelude.rnf phoneNumberId
-      `Prelude.seq` Prelude.rnf phoneNumber

@@ -27,8 +27,8 @@ module Amazonka.MediaLive.CreatePartnerInput
     newCreatePartnerInput',
 
     -- * Request Lenses
-    createPartnerInput'_tags,
     createPartnerInput'_requestId,
+    createPartnerInput'_tags,
     createPartnerInput'_inputId,
 
     -- * Destructuring the Response
@@ -53,11 +53,11 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreatePartnerInput'' smart constructor.
 data CreatePartnerInput' = CreatePartnerInput''
-  { -- | A collection of key-value pairs.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Unique identifier of the request to ensure the request is handled
+  { -- | Unique identifier of the request to ensure the request is handled
     -- exactly once in case of retries.
     requestId :: Prelude.Maybe Prelude.Text,
+    -- | A collection of key-value pairs.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Unique ID of the input.
     inputId :: Prelude.Text
   }
@@ -71,10 +71,10 @@ data CreatePartnerInput' = CreatePartnerInput''
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createPartnerInput'_tags' - A collection of key-value pairs.
---
 -- 'requestId', 'createPartnerInput'_requestId' - Unique identifier of the request to ensure the request is handled
 -- exactly once in case of retries.
+--
+-- 'tags', 'createPartnerInput'_tags' - A collection of key-value pairs.
 --
 -- 'inputId', 'createPartnerInput'_inputId' - Unique ID of the input.
 newCreatePartnerInput' ::
@@ -83,19 +83,19 @@ newCreatePartnerInput' ::
   CreatePartnerInput'
 newCreatePartnerInput' pInputId_ =
   CreatePartnerInput''
-    { tags = Prelude.Nothing,
-      requestId = Prelude.Nothing,
+    { requestId = Prelude.Nothing,
+      tags = Prelude.Nothing,
       inputId = pInputId_
     }
-
--- | A collection of key-value pairs.
-createPartnerInput'_tags :: Lens.Lens' CreatePartnerInput' (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createPartnerInput'_tags = Lens.lens (\CreatePartnerInput'' {tags} -> tags) (\s@CreatePartnerInput'' {} a -> s {tags = a} :: CreatePartnerInput') Prelude.. Lens.mapping Lens.coerced
 
 -- | Unique identifier of the request to ensure the request is handled
 -- exactly once in case of retries.
 createPartnerInput'_requestId :: Lens.Lens' CreatePartnerInput' (Prelude.Maybe Prelude.Text)
 createPartnerInput'_requestId = Lens.lens (\CreatePartnerInput'' {requestId} -> requestId) (\s@CreatePartnerInput'' {} a -> s {requestId = a} :: CreatePartnerInput')
+
+-- | A collection of key-value pairs.
+createPartnerInput'_tags :: Lens.Lens' CreatePartnerInput' (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createPartnerInput'_tags = Lens.lens (\CreatePartnerInput'' {tags} -> tags) (\s@CreatePartnerInput'' {} a -> s {tags = a} :: CreatePartnerInput') Prelude.. Lens.mapping Lens.coerced
 
 -- | Unique ID of the input.
 createPartnerInput'_inputId :: Lens.Lens' CreatePartnerInput' Prelude.Text
@@ -117,14 +117,14 @@ instance Core.AWSRequest CreatePartnerInput' where
 
 instance Prelude.Hashable CreatePartnerInput' where
   hashWithSalt _salt CreatePartnerInput'' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` requestId
+    _salt `Prelude.hashWithSalt` requestId
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` inputId
 
 instance Prelude.NFData CreatePartnerInput' where
   rnf CreatePartnerInput'' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf requestId
+    Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf inputId
 
 instance Data.ToHeaders CreatePartnerInput' where
@@ -142,8 +142,8 @@ instance Data.ToJSON CreatePartnerInput' where
   toJSON CreatePartnerInput'' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("requestId" Data..=) Prelude.<$> requestId
+          [ ("requestId" Data..=) Prelude.<$> requestId,
+            ("tags" Data..=) Prelude.<$> tags
           ]
       )
 

@@ -31,15 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVoiceTemplateResponse' smart constructor.
 data VoiceTemplateResponse = VoiceTemplateResponse'
-  { -- | A string-to-string map of key-value pairs that identifies the tags that
-    -- are associated with the message template. Each tag consists of a
-    -- required tag key and an associated tag value.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The name of the voice that\'s used when delivering messages that are
-    -- based on the message template. For a list of supported voices, see the
-    -- <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide>.
-    voiceId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the message template.
+  { -- | The Amazon Resource Name (ARN) of the message template.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The text of the script that\'s used in messages that are based on the
     -- message template, in plain text format.
@@ -60,6 +52,14 @@ data VoiceTemplateResponse = VoiceTemplateResponse'
     -- message template, or the version of the template that you specified by
     -- using the version parameter in your request.
     version :: Prelude.Maybe Prelude.Text,
+    -- | The name of the voice that\'s used when delivering messages that are
+    -- based on the message template. For a list of supported voices, see the
+    -- <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide>.
+    voiceId :: Prelude.Maybe Prelude.Text,
+    -- | A string-to-string map of key-value pairs that identifies the tags that
+    -- are associated with the message template. Each tag consists of a
+    -- required tag key and an associated tag value.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The date, in ISO 8601 format, when the message template was last
     -- modified.
     lastModifiedDate :: Prelude.Text,
@@ -81,14 +81,6 @@ data VoiceTemplateResponse = VoiceTemplateResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'voiceTemplateResponse_tags' - A string-to-string map of key-value pairs that identifies the tags that
--- are associated with the message template. Each tag consists of a
--- required tag key and an associated tag value.
---
--- 'voiceId', 'voiceTemplateResponse_voiceId' - The name of the voice that\'s used when delivering messages that are
--- based on the message template. For a list of supported voices, see the
--- <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide>.
---
 -- 'arn', 'voiceTemplateResponse_arn' - The Amazon Resource Name (ARN) of the message template.
 --
 -- 'body', 'voiceTemplateResponse_body' - The text of the script that\'s used in messages that are based on the
@@ -109,6 +101,14 @@ data VoiceTemplateResponse = VoiceTemplateResponse'
 -- 'version', 'voiceTemplateResponse_version' - The unique identifier, as an integer, for the active version of the
 -- message template, or the version of the template that you specified by
 -- using the version parameter in your request.
+--
+-- 'voiceId', 'voiceTemplateResponse_voiceId' - The name of the voice that\'s used when delivering messages that are
+-- based on the message template. For a list of supported voices, see the
+-- <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide>.
+--
+-- 'tags', 'voiceTemplateResponse_tags' - A string-to-string map of key-value pairs that identifies the tags that
+-- are associated with the message template. Each tag consists of a
+-- required tag key and an associated tag value.
 --
 -- 'lastModifiedDate', 'voiceTemplateResponse_lastModifiedDate' - The date, in ISO 8601 format, when the message template was last
 -- modified.
@@ -135,31 +135,19 @@ newVoiceTemplateResponse
   pTemplateName_
   pTemplateType_ =
     VoiceTemplateResponse'
-      { tags = Prelude.Nothing,
-        voiceId = Prelude.Nothing,
-        arn = Prelude.Nothing,
+      { arn = Prelude.Nothing,
         body = Prelude.Nothing,
         defaultSubstitutions = Prelude.Nothing,
         languageCode = Prelude.Nothing,
         templateDescription = Prelude.Nothing,
         version = Prelude.Nothing,
+        voiceId = Prelude.Nothing,
+        tags = Prelude.Nothing,
         lastModifiedDate = pLastModifiedDate_,
         creationDate = pCreationDate_,
         templateName = pTemplateName_,
         templateType = pTemplateType_
       }
-
--- | A string-to-string map of key-value pairs that identifies the tags that
--- are associated with the message template. Each tag consists of a
--- required tag key and an associated tag value.
-voiceTemplateResponse_tags :: Lens.Lens' VoiceTemplateResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-voiceTemplateResponse_tags = Lens.lens (\VoiceTemplateResponse' {tags} -> tags) (\s@VoiceTemplateResponse' {} a -> s {tags = a} :: VoiceTemplateResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the voice that\'s used when delivering messages that are
--- based on the message template. For a list of supported voices, see the
--- <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide>.
-voiceTemplateResponse_voiceId :: Lens.Lens' VoiceTemplateResponse (Prelude.Maybe Prelude.Text)
-voiceTemplateResponse_voiceId = Lens.lens (\VoiceTemplateResponse' {voiceId} -> voiceId) (\s@VoiceTemplateResponse' {} a -> s {voiceId = a} :: VoiceTemplateResponse)
 
 -- | The Amazon Resource Name (ARN) of the message template.
 voiceTemplateResponse_arn :: Lens.Lens' VoiceTemplateResponse (Prelude.Maybe Prelude.Text)
@@ -194,6 +182,18 @@ voiceTemplateResponse_templateDescription = Lens.lens (\VoiceTemplateResponse' {
 voiceTemplateResponse_version :: Lens.Lens' VoiceTemplateResponse (Prelude.Maybe Prelude.Text)
 voiceTemplateResponse_version = Lens.lens (\VoiceTemplateResponse' {version} -> version) (\s@VoiceTemplateResponse' {} a -> s {version = a} :: VoiceTemplateResponse)
 
+-- | The name of the voice that\'s used when delivering messages that are
+-- based on the message template. For a list of supported voices, see the
+-- <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide>.
+voiceTemplateResponse_voiceId :: Lens.Lens' VoiceTemplateResponse (Prelude.Maybe Prelude.Text)
+voiceTemplateResponse_voiceId = Lens.lens (\VoiceTemplateResponse' {voiceId} -> voiceId) (\s@VoiceTemplateResponse' {} a -> s {voiceId = a} :: VoiceTemplateResponse)
+
+-- | A string-to-string map of key-value pairs that identifies the tags that
+-- are associated with the message template. Each tag consists of a
+-- required tag key and an associated tag value.
+voiceTemplateResponse_tags :: Lens.Lens' VoiceTemplateResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+voiceTemplateResponse_tags = Lens.lens (\VoiceTemplateResponse' {tags} -> tags) (\s@VoiceTemplateResponse' {} a -> s {tags = a} :: VoiceTemplateResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The date, in ISO 8601 format, when the message template was last
 -- modified.
 voiceTemplateResponse_lastModifiedDate :: Lens.Lens' VoiceTemplateResponse Prelude.Text
@@ -218,14 +218,14 @@ instance Data.FromJSON VoiceTemplateResponse where
       "VoiceTemplateResponse"
       ( \x ->
           VoiceTemplateResponse'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "VoiceId")
-            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<$> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "Body")
             Prelude.<*> (x Data..:? "DefaultSubstitutions")
             Prelude.<*> (x Data..:? "LanguageCode")
             Prelude.<*> (x Data..:? "TemplateDescription")
             Prelude.<*> (x Data..:? "Version")
+            Prelude.<*> (x Data..:? "VoiceId")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "LastModifiedDate")
             Prelude.<*> (x Data..: "CreationDate")
             Prelude.<*> (x Data..: "TemplateName")
@@ -234,14 +234,14 @@ instance Data.FromJSON VoiceTemplateResponse where
 
 instance Prelude.Hashable VoiceTemplateResponse where
   hashWithSalt _salt VoiceTemplateResponse' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` voiceId
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` body
       `Prelude.hashWithSalt` defaultSubstitutions
       `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` templateDescription
       `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` voiceId
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` lastModifiedDate
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` templateName
@@ -249,14 +249,14 @@ instance Prelude.Hashable VoiceTemplateResponse where
 
 instance Prelude.NFData VoiceTemplateResponse where
   rnf VoiceTemplateResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf voiceId
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf body
       `Prelude.seq` Prelude.rnf defaultSubstitutions
       `Prelude.seq` Prelude.rnf languageCode
       `Prelude.seq` Prelude.rnf templateDescription
       `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf voiceId
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf lastModifiedDate
       `Prelude.seq` Prelude.rnf creationDate
       `Prelude.seq` Prelude.rnf templateName

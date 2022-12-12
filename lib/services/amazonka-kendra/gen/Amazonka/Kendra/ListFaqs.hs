@@ -27,8 +27,8 @@ module Amazonka.Kendra.ListFaqs
     newListFaqs,
 
     -- * Request Lenses
-    listFaqs_nextToken,
     listFaqs_maxResults,
+    listFaqs_nextToken,
     listFaqs_indexId,
 
     -- * Destructuring the Response
@@ -36,8 +36,8 @@ module Amazonka.Kendra.ListFaqs
     newListFaqsResponse,
 
     -- * Response Lenses
-    listFaqsResponse_nextToken,
     listFaqsResponse_faqSummaryItems,
+    listFaqsResponse_nextToken,
     listFaqsResponse_httpStatus,
   )
 where
@@ -52,13 +52,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListFaqs' smart constructor.
 data ListFaqs = ListFaqs'
-  { -- | If the previous response was incomplete (because there is more data to
+  { -- | The maximum number of FAQs to return in the response. If there are fewer
+    -- results in the list, this response contains only the actual results.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the previous response was incomplete (because there is more data to
     -- retrieve), Amazon Kendra returns a pagination token in the response. You
     -- can use this pagination token to retrieve the next set of FAQs.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of FAQs to return in the response. If there are fewer
-    -- results in the list, this response contains only the actual results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The index that contains the FAQ lists.
     indexId :: Prelude.Text
   }
@@ -72,12 +72,12 @@ data ListFaqs = ListFaqs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listFaqs_maxResults' - The maximum number of FAQs to return in the response. If there are fewer
+-- results in the list, this response contains only the actual results.
+--
 -- 'nextToken', 'listFaqs_nextToken' - If the previous response was incomplete (because there is more data to
 -- retrieve), Amazon Kendra returns a pagination token in the response. You
 -- can use this pagination token to retrieve the next set of FAQs.
---
--- 'maxResults', 'listFaqs_maxResults' - The maximum number of FAQs to return in the response. If there are fewer
--- results in the list, this response contains only the actual results.
 --
 -- 'indexId', 'listFaqs_indexId' - The index that contains the FAQ lists.
 newListFaqs ::
@@ -86,21 +86,21 @@ newListFaqs ::
   ListFaqs
 newListFaqs pIndexId_ =
   ListFaqs'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       indexId = pIndexId_
     }
+
+-- | The maximum number of FAQs to return in the response. If there are fewer
+-- results in the list, this response contains only the actual results.
+listFaqs_maxResults :: Lens.Lens' ListFaqs (Prelude.Maybe Prelude.Natural)
+listFaqs_maxResults = Lens.lens (\ListFaqs' {maxResults} -> maxResults) (\s@ListFaqs' {} a -> s {maxResults = a} :: ListFaqs)
 
 -- | If the previous response was incomplete (because there is more data to
 -- retrieve), Amazon Kendra returns a pagination token in the response. You
 -- can use this pagination token to retrieve the next set of FAQs.
 listFaqs_nextToken :: Lens.Lens' ListFaqs (Prelude.Maybe Prelude.Text)
 listFaqs_nextToken = Lens.lens (\ListFaqs' {nextToken} -> nextToken) (\s@ListFaqs' {} a -> s {nextToken = a} :: ListFaqs)
-
--- | The maximum number of FAQs to return in the response. If there are fewer
--- results in the list, this response contains only the actual results.
-listFaqs_maxResults :: Lens.Lens' ListFaqs (Prelude.Maybe Prelude.Natural)
-listFaqs_maxResults = Lens.lens (\ListFaqs' {maxResults} -> maxResults) (\s@ListFaqs' {} a -> s {maxResults = a} :: ListFaqs)
 
 -- | The index that contains the FAQ lists.
 listFaqs_indexId :: Lens.Lens' ListFaqs Prelude.Text
@@ -114,23 +114,23 @@ instance Core.AWSRequest ListFaqs where
     Response.receiveJSON
       ( \s h x ->
           ListFaqsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "FaqSummaryItems"
+            Prelude.<$> ( x Data..?> "FaqSummaryItems"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListFaqs where
   hashWithSalt _salt ListFaqs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` indexId
 
 instance Prelude.NFData ListFaqs where
   rnf ListFaqs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf indexId
 
 instance Data.ToHeaders ListFaqs where
@@ -152,8 +152,8 @@ instance Data.ToJSON ListFaqs where
   toJSON ListFaqs' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("IndexId" Data..= indexId)
           ]
       )
@@ -166,11 +166,11 @@ instance Data.ToQuery ListFaqs where
 
 -- | /See:/ 'newListFaqsResponse' smart constructor.
 data ListFaqsResponse = ListFaqsResponse'
-  { -- | If the response is truncated, Amazon Kendra returns this token that you
+  { -- | information about the FAQs associated with the specified index.
+    faqSummaryItems :: Prelude.Maybe [FaqSummary],
+    -- | If the response is truncated, Amazon Kendra returns this token that you
     -- can use in the subsequent request to retrieve the next set of FAQs.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | information about the FAQs associated with the specified index.
-    faqSummaryItems :: Prelude.Maybe [FaqSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -184,10 +184,10 @@ data ListFaqsResponse = ListFaqsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'faqSummaryItems', 'listFaqsResponse_faqSummaryItems' - information about the FAQs associated with the specified index.
+--
 -- 'nextToken', 'listFaqsResponse_nextToken' - If the response is truncated, Amazon Kendra returns this token that you
 -- can use in the subsequent request to retrieve the next set of FAQs.
---
--- 'faqSummaryItems', 'listFaqsResponse_faqSummaryItems' - information about the FAQs associated with the specified index.
 --
 -- 'httpStatus', 'listFaqsResponse_httpStatus' - The response's http status code.
 newListFaqsResponse ::
@@ -196,19 +196,20 @@ newListFaqsResponse ::
   ListFaqsResponse
 newListFaqsResponse pHttpStatus_ =
   ListFaqsResponse'
-    { nextToken = Prelude.Nothing,
-      faqSummaryItems = Prelude.Nothing,
+    { faqSummaryItems =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | information about the FAQs associated with the specified index.
+listFaqsResponse_faqSummaryItems :: Lens.Lens' ListFaqsResponse (Prelude.Maybe [FaqSummary])
+listFaqsResponse_faqSummaryItems = Lens.lens (\ListFaqsResponse' {faqSummaryItems} -> faqSummaryItems) (\s@ListFaqsResponse' {} a -> s {faqSummaryItems = a} :: ListFaqsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the response is truncated, Amazon Kendra returns this token that you
 -- can use in the subsequent request to retrieve the next set of FAQs.
 listFaqsResponse_nextToken :: Lens.Lens' ListFaqsResponse (Prelude.Maybe Prelude.Text)
 listFaqsResponse_nextToken = Lens.lens (\ListFaqsResponse' {nextToken} -> nextToken) (\s@ListFaqsResponse' {} a -> s {nextToken = a} :: ListFaqsResponse)
-
--- | information about the FAQs associated with the specified index.
-listFaqsResponse_faqSummaryItems :: Lens.Lens' ListFaqsResponse (Prelude.Maybe [FaqSummary])
-listFaqsResponse_faqSummaryItems = Lens.lens (\ListFaqsResponse' {faqSummaryItems} -> faqSummaryItems) (\s@ListFaqsResponse' {} a -> s {faqSummaryItems = a} :: ListFaqsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listFaqsResponse_httpStatus :: Lens.Lens' ListFaqsResponse Prelude.Int
@@ -216,6 +217,6 @@ listFaqsResponse_httpStatus = Lens.lens (\ListFaqsResponse' {httpStatus} -> http
 
 instance Prelude.NFData ListFaqsResponse where
   rnf ListFaqsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf faqSummaryItems
+    Prelude.rnf faqSummaryItems
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

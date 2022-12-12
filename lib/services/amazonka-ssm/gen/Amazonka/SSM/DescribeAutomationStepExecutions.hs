@@ -30,9 +30,9 @@ module Amazonka.SSM.DescribeAutomationStepExecutions
     newDescribeAutomationStepExecutions,
 
     -- * Request Lenses
-    describeAutomationStepExecutions_nextToken,
     describeAutomationStepExecutions_filters,
     describeAutomationStepExecutions_maxResults,
+    describeAutomationStepExecutions_nextToken,
     describeAutomationStepExecutions_reverseOrder,
     describeAutomationStepExecutions_automationExecutionId,
 
@@ -57,16 +57,16 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newDescribeAutomationStepExecutions' smart constructor.
 data DescribeAutomationStepExecutions = DescribeAutomationStepExecutions'
-  { -- | The token for the next set of items to return. (You received this token
-    -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | One or more filters to limit the number of step executions returned by
+  { -- | One or more filters to limit the number of step executions returned by
     -- the request.
     filters :: Prelude.Maybe (Prelude.NonEmpty StepExecutionFilter),
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether to list step executions in reverse order by start
     -- time. The default value is \'false\'.
     reverseOrder :: Prelude.Maybe Prelude.Bool,
@@ -84,15 +84,15 @@ data DescribeAutomationStepExecutions = DescribeAutomationStepExecutions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeAutomationStepExecutions_nextToken' - The token for the next set of items to return. (You received this token
--- from a previous call.)
---
 -- 'filters', 'describeAutomationStepExecutions_filters' - One or more filters to limit the number of step executions returned by
 -- the request.
 --
 -- 'maxResults', 'describeAutomationStepExecutions_maxResults' - The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
+--
+-- 'nextToken', 'describeAutomationStepExecutions_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
 --
 -- 'reverseOrder', 'describeAutomationStepExecutions_reverseOrder' - Indicates whether to list step executions in reverse order by start
 -- time. The default value is \'false\'.
@@ -106,19 +106,14 @@ newDescribeAutomationStepExecutions ::
 newDescribeAutomationStepExecutions
   pAutomationExecutionId_ =
     DescribeAutomationStepExecutions'
-      { nextToken =
+      { filters =
           Prelude.Nothing,
-        filters = Prelude.Nothing,
         maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         reverseOrder = Prelude.Nothing,
         automationExecutionId =
           pAutomationExecutionId_
       }
-
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
-describeAutomationStepExecutions_nextToken :: Lens.Lens' DescribeAutomationStepExecutions (Prelude.Maybe Prelude.Text)
-describeAutomationStepExecutions_nextToken = Lens.lens (\DescribeAutomationStepExecutions' {nextToken} -> nextToken) (\s@DescribeAutomationStepExecutions' {} a -> s {nextToken = a} :: DescribeAutomationStepExecutions)
 
 -- | One or more filters to limit the number of step executions returned by
 -- the request.
@@ -130,6 +125,11 @@ describeAutomationStepExecutions_filters = Lens.lens (\DescribeAutomationStepExe
 -- next set of results.
 describeAutomationStepExecutions_maxResults :: Lens.Lens' DescribeAutomationStepExecutions (Prelude.Maybe Prelude.Natural)
 describeAutomationStepExecutions_maxResults = Lens.lens (\DescribeAutomationStepExecutions' {maxResults} -> maxResults) (\s@DescribeAutomationStepExecutions' {} a -> s {maxResults = a} :: DescribeAutomationStepExecutions)
+
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+describeAutomationStepExecutions_nextToken :: Lens.Lens' DescribeAutomationStepExecutions (Prelude.Maybe Prelude.Text)
+describeAutomationStepExecutions_nextToken = Lens.lens (\DescribeAutomationStepExecutions' {nextToken} -> nextToken) (\s@DescribeAutomationStepExecutions' {} a -> s {nextToken = a} :: DescribeAutomationStepExecutions)
 
 -- | Indicates whether to list step executions in reverse order by start
 -- time. The default value is \'false\'.
@@ -191,9 +191,9 @@ instance
   hashWithSalt
     _salt
     DescribeAutomationStepExecutions' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` filters
+      _salt `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` reverseOrder
         `Prelude.hashWithSalt` automationExecutionId
 
@@ -202,9 +202,9 @@ instance
     DescribeAutomationStepExecutions
   where
   rnf DescribeAutomationStepExecutions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf reverseOrder
       `Prelude.seq` Prelude.rnf automationExecutionId
 
@@ -230,9 +230,9 @@ instance Data.ToJSON DescribeAutomationStepExecutions where
   toJSON DescribeAutomationStepExecutions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
+          [ ("Filters" Data..=) Prelude.<$> filters,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("ReverseOrder" Data..=) Prelude.<$> reverseOrder,
             Prelude.Just
               ( "AutomationExecutionId"

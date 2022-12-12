@@ -32,9 +32,9 @@ module Amazonka.OpsWorks.UpdateUserProfile
     newUpdateUserProfile,
 
     -- * Request Lenses
+    updateUserProfile_allowSelfManagement,
     updateUserProfile_sshPublicKey,
     updateUserProfile_sshUsername,
-    updateUserProfile_allowSelfManagement,
     updateUserProfile_iamUserArn,
 
     -- * Destructuring the Response
@@ -53,7 +53,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateUserProfile' smart constructor.
 data UpdateUserProfile = UpdateUserProfile'
-  { -- | The user\'s new SSH public key.
+  { -- | Whether users can specify their own SSH public key through the My
+    -- Settings page. For more information, see
+    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Managing User Permissions>.
+    allowSelfManagement :: Prelude.Maybe Prelude.Bool,
+    -- | The user\'s new SSH public key.
     sshPublicKey :: Prelude.Maybe Prelude.Text,
     -- | The user\'s SSH user name. The allowable characters are [a-z], [A-Z],
     -- [0-9], \'-\', and \'_\'. If the specified name includes other
@@ -61,10 +65,6 @@ data UpdateUserProfile = UpdateUserProfile'
     -- @my.name@ will be changed to @myname@. If you do not specify an SSH user
     -- name, AWS OpsWorks Stacks generates one from the IAM user name.
     sshUsername :: Prelude.Maybe Prelude.Text,
-    -- | Whether users can specify their own SSH public key through the My
-    -- Settings page. For more information, see
-    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Managing User Permissions>.
-    allowSelfManagement :: Prelude.Maybe Prelude.Bool,
     -- | The user IAM ARN. This can also be a federated user\'s ARN.
     iamUserArn :: Prelude.Text
   }
@@ -78,6 +78,10 @@ data UpdateUserProfile = UpdateUserProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'allowSelfManagement', 'updateUserProfile_allowSelfManagement' - Whether users can specify their own SSH public key through the My
+-- Settings page. For more information, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Managing User Permissions>.
+--
 -- 'sshPublicKey', 'updateUserProfile_sshPublicKey' - The user\'s new SSH public key.
 --
 -- 'sshUsername', 'updateUserProfile_sshUsername' - The user\'s SSH user name. The allowable characters are [a-z], [A-Z],
@@ -86,10 +90,6 @@ data UpdateUserProfile = UpdateUserProfile'
 -- @my.name@ will be changed to @myname@. If you do not specify an SSH user
 -- name, AWS OpsWorks Stacks generates one from the IAM user name.
 --
--- 'allowSelfManagement', 'updateUserProfile_allowSelfManagement' - Whether users can specify their own SSH public key through the My
--- Settings page. For more information, see
--- <https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Managing User Permissions>.
---
 -- 'iamUserArn', 'updateUserProfile_iamUserArn' - The user IAM ARN. This can also be a federated user\'s ARN.
 newUpdateUserProfile ::
   -- | 'iamUserArn'
@@ -97,11 +97,18 @@ newUpdateUserProfile ::
   UpdateUserProfile
 newUpdateUserProfile pIamUserArn_ =
   UpdateUserProfile'
-    { sshPublicKey = Prelude.Nothing,
+    { allowSelfManagement =
+        Prelude.Nothing,
+      sshPublicKey = Prelude.Nothing,
       sshUsername = Prelude.Nothing,
-      allowSelfManagement = Prelude.Nothing,
       iamUserArn = pIamUserArn_
     }
+
+-- | Whether users can specify their own SSH public key through the My
+-- Settings page. For more information, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Managing User Permissions>.
+updateUserProfile_allowSelfManagement :: Lens.Lens' UpdateUserProfile (Prelude.Maybe Prelude.Bool)
+updateUserProfile_allowSelfManagement = Lens.lens (\UpdateUserProfile' {allowSelfManagement} -> allowSelfManagement) (\s@UpdateUserProfile' {} a -> s {allowSelfManagement = a} :: UpdateUserProfile)
 
 -- | The user\'s new SSH public key.
 updateUserProfile_sshPublicKey :: Lens.Lens' UpdateUserProfile (Prelude.Maybe Prelude.Text)
@@ -114,12 +121,6 @@ updateUserProfile_sshPublicKey = Lens.lens (\UpdateUserProfile' {sshPublicKey} -
 -- name, AWS OpsWorks Stacks generates one from the IAM user name.
 updateUserProfile_sshUsername :: Lens.Lens' UpdateUserProfile (Prelude.Maybe Prelude.Text)
 updateUserProfile_sshUsername = Lens.lens (\UpdateUserProfile' {sshUsername} -> sshUsername) (\s@UpdateUserProfile' {} a -> s {sshUsername = a} :: UpdateUserProfile)
-
--- | Whether users can specify their own SSH public key through the My
--- Settings page. For more information, see
--- <https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Managing User Permissions>.
-updateUserProfile_allowSelfManagement :: Lens.Lens' UpdateUserProfile (Prelude.Maybe Prelude.Bool)
-updateUserProfile_allowSelfManagement = Lens.lens (\UpdateUserProfile' {allowSelfManagement} -> allowSelfManagement) (\s@UpdateUserProfile' {} a -> s {allowSelfManagement = a} :: UpdateUserProfile)
 
 -- | The user IAM ARN. This can also be a federated user\'s ARN.
 updateUserProfile_iamUserArn :: Lens.Lens' UpdateUserProfile Prelude.Text
@@ -136,16 +137,16 @@ instance Core.AWSRequest UpdateUserProfile where
 
 instance Prelude.Hashable UpdateUserProfile where
   hashWithSalt _salt UpdateUserProfile' {..} =
-    _salt `Prelude.hashWithSalt` sshPublicKey
+    _salt `Prelude.hashWithSalt` allowSelfManagement
+      `Prelude.hashWithSalt` sshPublicKey
       `Prelude.hashWithSalt` sshUsername
-      `Prelude.hashWithSalt` allowSelfManagement
       `Prelude.hashWithSalt` iamUserArn
 
 instance Prelude.NFData UpdateUserProfile where
   rnf UpdateUserProfile' {..} =
-    Prelude.rnf sshPublicKey
+    Prelude.rnf allowSelfManagement
+      `Prelude.seq` Prelude.rnf sshPublicKey
       `Prelude.seq` Prelude.rnf sshUsername
-      `Prelude.seq` Prelude.rnf allowSelfManagement
       `Prelude.seq` Prelude.rnf iamUserArn
 
 instance Data.ToHeaders UpdateUserProfile where
@@ -167,10 +168,10 @@ instance Data.ToJSON UpdateUserProfile where
   toJSON UpdateUserProfile' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SshPublicKey" Data..=) Prelude.<$> sshPublicKey,
-            ("SshUsername" Data..=) Prelude.<$> sshUsername,
-            ("AllowSelfManagement" Data..=)
+          [ ("AllowSelfManagement" Data..=)
               Prelude.<$> allowSelfManagement,
+            ("SshPublicKey" Data..=) Prelude.<$> sshPublicKey,
+            ("SshUsername" Data..=) Prelude.<$> sshUsername,
             Prelude.Just ("IamUserArn" Data..= iamUserArn)
           ]
       )

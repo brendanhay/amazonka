@@ -31,8 +31,8 @@ module Amazonka.Transfer.CreateConnector
     newCreateConnector,
 
     -- * Request Lenses
-    createConnector_tags,
     createConnector_loggingRole,
+    createConnector_tags,
     createConnector_url,
     createConnector_as2Config,
     createConnector_accessRole,
@@ -57,14 +57,14 @@ import Amazonka.Transfer.Types
 
 -- | /See:/ 'newCreateConnector' smart constructor.
 data CreateConnector = CreateConnector'
-  { -- | Key-value pairs that can be used to group and search for connectors.
-    -- Tags are metadata attached to connectors for any purpose.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | The Amazon Resource Name (ARN) of the Identity and Access Management
+  { -- | The Amazon Resource Name (ARN) of the Identity and Access Management
     -- (IAM) role that allows a connector to turn on CloudWatch logging for
     -- Amazon S3 events. When set, you can view connector activity in your
     -- CloudWatch logs.
     loggingRole :: Prelude.Maybe Prelude.Text,
+    -- | Key-value pairs that can be used to group and search for connectors.
+    -- Tags are metadata attached to connectors for any purpose.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The URL of the partner\'s AS2 endpoint.
     url :: Prelude.Text,
     -- | A structure that contains the parameters for a connector object.
@@ -92,13 +92,13 @@ data CreateConnector = CreateConnector'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createConnector_tags' - Key-value pairs that can be used to group and search for connectors.
--- Tags are metadata attached to connectors for any purpose.
---
 -- 'loggingRole', 'createConnector_loggingRole' - The Amazon Resource Name (ARN) of the Identity and Access Management
 -- (IAM) role that allows a connector to turn on CloudWatch logging for
 -- Amazon S3 events. When set, you can view connector activity in your
 -- CloudWatch logs.
+--
+-- 'tags', 'createConnector_tags' - Key-value pairs that can be used to group and search for connectors.
+-- Tags are metadata attached to connectors for any purpose.
 --
 -- 'url', 'createConnector_url' - The URL of the partner\'s AS2 endpoint.
 --
@@ -125,17 +125,12 @@ newCreateConnector ::
   CreateConnector
 newCreateConnector pUrl_ pAs2Config_ pAccessRole_ =
   CreateConnector'
-    { tags = Prelude.Nothing,
-      loggingRole = Prelude.Nothing,
+    { loggingRole = Prelude.Nothing,
+      tags = Prelude.Nothing,
       url = pUrl_,
       as2Config = pAs2Config_,
       accessRole = pAccessRole_
     }
-
--- | Key-value pairs that can be used to group and search for connectors.
--- Tags are metadata attached to connectors for any purpose.
-createConnector_tags :: Lens.Lens' CreateConnector (Prelude.Maybe (Prelude.NonEmpty Tag))
-createConnector_tags = Lens.lens (\CreateConnector' {tags} -> tags) (\s@CreateConnector' {} a -> s {tags = a} :: CreateConnector) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the Identity and Access Management
 -- (IAM) role that allows a connector to turn on CloudWatch logging for
@@ -143,6 +138,11 @@ createConnector_tags = Lens.lens (\CreateConnector' {tags} -> tags) (\s@CreateCo
 -- CloudWatch logs.
 createConnector_loggingRole :: Lens.Lens' CreateConnector (Prelude.Maybe Prelude.Text)
 createConnector_loggingRole = Lens.lens (\CreateConnector' {loggingRole} -> loggingRole) (\s@CreateConnector' {} a -> s {loggingRole = a} :: CreateConnector)
+
+-- | Key-value pairs that can be used to group and search for connectors.
+-- Tags are metadata attached to connectors for any purpose.
+createConnector_tags :: Lens.Lens' CreateConnector (Prelude.Maybe (Prelude.NonEmpty Tag))
+createConnector_tags = Lens.lens (\CreateConnector' {tags} -> tags) (\s@CreateConnector' {} a -> s {tags = a} :: CreateConnector) Prelude.. Lens.mapping Lens.coerced
 
 -- | The URL of the partner\'s AS2 endpoint.
 createConnector_url :: Lens.Lens' CreateConnector Prelude.Text
@@ -182,16 +182,16 @@ instance Core.AWSRequest CreateConnector where
 
 instance Prelude.Hashable CreateConnector where
   hashWithSalt _salt CreateConnector' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` loggingRole
+    _salt `Prelude.hashWithSalt` loggingRole
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` url
       `Prelude.hashWithSalt` as2Config
       `Prelude.hashWithSalt` accessRole
 
 instance Prelude.NFData CreateConnector where
   rnf CreateConnector' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf loggingRole
+    Prelude.rnf loggingRole
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf url
       `Prelude.seq` Prelude.rnf as2Config
       `Prelude.seq` Prelude.rnf accessRole
@@ -215,8 +215,8 @@ instance Data.ToJSON CreateConnector where
   toJSON CreateConnector' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("LoggingRole" Data..=) Prelude.<$> loggingRole,
+          [ ("LoggingRole" Data..=) Prelude.<$> loggingRole,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Url" Data..= url),
             Prelude.Just ("As2Config" Data..= as2Config),
             Prelude.Just ("AccessRole" Data..= accessRole)

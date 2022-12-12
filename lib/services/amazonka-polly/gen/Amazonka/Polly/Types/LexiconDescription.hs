@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLexiconDescription' smart constructor.
 data LexiconDescription = LexiconDescription'
-  { -- | Name of the lexicon.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Provides lexicon metadata.
-    attributes :: Prelude.Maybe LexiconAttributes
+  { -- | Provides lexicon metadata.
+    attributes :: Prelude.Maybe LexiconAttributes,
+    -- | Name of the lexicon.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data LexiconDescription = LexiconDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'lexiconDescription_name' - Name of the lexicon.
---
 -- 'attributes', 'lexiconDescription_attributes' - Provides lexicon metadata.
+--
+-- 'name', 'lexiconDescription_name' - Name of the lexicon.
 newLexiconDescription ::
   LexiconDescription
 newLexiconDescription =
   LexiconDescription'
-    { name = Prelude.Nothing,
-      attributes = Prelude.Nothing
+    { attributes = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | Name of the lexicon.
-lexiconDescription_name :: Lens.Lens' LexiconDescription (Prelude.Maybe Prelude.Text)
-lexiconDescription_name = Lens.lens (\LexiconDescription' {name} -> name) (\s@LexiconDescription' {} a -> s {name = a} :: LexiconDescription)
 
 -- | Provides lexicon metadata.
 lexiconDescription_attributes :: Lens.Lens' LexiconDescription (Prelude.Maybe LexiconAttributes)
 lexiconDescription_attributes = Lens.lens (\LexiconDescription' {attributes} -> attributes) (\s@LexiconDescription' {} a -> s {attributes = a} :: LexiconDescription)
+
+-- | Name of the lexicon.
+lexiconDescription_name :: Lens.Lens' LexiconDescription (Prelude.Maybe Prelude.Text)
+lexiconDescription_name = Lens.lens (\LexiconDescription' {name} -> name) (\s@LexiconDescription' {} a -> s {name = a} :: LexiconDescription)
 
 instance Data.FromJSON LexiconDescription where
   parseJSON =
@@ -69,16 +69,16 @@ instance Data.FromJSON LexiconDescription where
       "LexiconDescription"
       ( \x ->
           LexiconDescription'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Attributes")
+            Prelude.<$> (x Data..:? "Attributes")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable LexiconDescription where
   hashWithSalt _salt LexiconDescription' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` attributes
+    _salt `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData LexiconDescription where
   rnf LexiconDescription' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf attributes
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf name

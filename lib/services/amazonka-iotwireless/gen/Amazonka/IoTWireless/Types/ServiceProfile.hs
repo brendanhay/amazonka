@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newServiceProfile' smart constructor.
 data ServiceProfile = ServiceProfile'
-  { -- | The name of the resource.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name of the resource.
+  { -- | The Amazon Resource Name of the resource.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the service profile.
-    id :: Prelude.Maybe Prelude.Text
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The name of the resource.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,23 +45,19 @@ data ServiceProfile = ServiceProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'serviceProfile_name' - The name of the resource.
---
 -- 'arn', 'serviceProfile_arn' - The Amazon Resource Name of the resource.
 --
 -- 'id', 'serviceProfile_id' - The ID of the service profile.
+--
+-- 'name', 'serviceProfile_name' - The name of the resource.
 newServiceProfile ::
   ServiceProfile
 newServiceProfile =
   ServiceProfile'
-    { name = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      id = Prelude.Nothing
+    { arn = Prelude.Nothing,
+      id = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | The name of the resource.
-serviceProfile_name :: Lens.Lens' ServiceProfile (Prelude.Maybe Prelude.Text)
-serviceProfile_name = Lens.lens (\ServiceProfile' {name} -> name) (\s@ServiceProfile' {} a -> s {name = a} :: ServiceProfile)
 
 -- | The Amazon Resource Name of the resource.
 serviceProfile_arn :: Lens.Lens' ServiceProfile (Prelude.Maybe Prelude.Text)
@@ -71,25 +67,29 @@ serviceProfile_arn = Lens.lens (\ServiceProfile' {arn} -> arn) (\s@ServiceProfil
 serviceProfile_id :: Lens.Lens' ServiceProfile (Prelude.Maybe Prelude.Text)
 serviceProfile_id = Lens.lens (\ServiceProfile' {id} -> id) (\s@ServiceProfile' {} a -> s {id = a} :: ServiceProfile)
 
+-- | The name of the resource.
+serviceProfile_name :: Lens.Lens' ServiceProfile (Prelude.Maybe Prelude.Text)
+serviceProfile_name = Lens.lens (\ServiceProfile' {name} -> name) (\s@ServiceProfile' {} a -> s {name = a} :: ServiceProfile)
+
 instance Data.FromJSON ServiceProfile where
   parseJSON =
     Data.withObject
       "ServiceProfile"
       ( \x ->
           ServiceProfile'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<$> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable ServiceProfile where
   hashWithSalt _salt ServiceProfile' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData ServiceProfile where
   rnf ServiceProfile' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name

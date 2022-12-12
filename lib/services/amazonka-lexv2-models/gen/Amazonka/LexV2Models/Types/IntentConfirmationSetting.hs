@@ -39,34 +39,34 @@ data IntentConfirmationSetting = IntentConfirmationSetting'
     -- this field is false, confirmation and declination responses aren\'t
     -- sent. If the @active@ field isn\'t specified, the default is true.
     active :: Prelude.Maybe Prelude.Bool,
-    -- | The next step to take in the conversation if the confirmation step
-    -- fails.
-    failureNextStep :: Prelude.Maybe DialogState,
     -- | The @DialogCodeHookInvocationSetting@ object associated with intent\'s
     -- confirmation step. The dialog code hook is triggered based on these
     -- invocation settings when the confirmation next step or declination next
     -- step or failure next step is @InvokeDialogCodeHook@.
     codeHook :: Prelude.Maybe DialogCodeHookInvocationSetting,
-    -- | The @DialogCodeHookInvocationSetting@ used when the code hook is invoked
-    -- during confirmation prompt retries.
-    elicitationCodeHook :: Prelude.Maybe ElicitationCodeHookInvocationSetting,
+    -- | A list of conditional branches to evaluate after the intent is closed.
+    confirmationConditional :: Prelude.Maybe ConditionalSpecification,
+    -- | Specifies the next step that the bot executes when the customer confirms
+    -- the intent.
+    confirmationNextStep :: Prelude.Maybe DialogState,
+    confirmationResponse :: Prelude.Maybe ResponseSpecification,
+    -- | A list of conditional branches to evaluate after the intent is declined.
+    declinationConditional :: Prelude.Maybe ConditionalSpecification,
+    -- | Specifies the next step that the bot executes when the customer declines
+    -- the intent.
+    declinationNextStep :: Prelude.Maybe DialogState,
     -- | When the user answers \"no\" to the question defined in
     -- @promptSpecification@, Amazon Lex responds with this response to
     -- acknowledge that the intent was canceled.
     declinationResponse :: Prelude.Maybe ResponseSpecification,
-    -- | A list of conditional branches to evaluate after the intent is declined.
-    declinationConditional :: Prelude.Maybe ConditionalSpecification,
+    -- | The @DialogCodeHookInvocationSetting@ used when the code hook is invoked
+    -- during confirmation prompt retries.
+    elicitationCodeHook :: Prelude.Maybe ElicitationCodeHookInvocationSetting,
     failureConditional :: Prelude.Maybe ConditionalSpecification,
-    confirmationResponse :: Prelude.Maybe ResponseSpecification,
-    -- | Specifies the next step that the bot executes when the customer confirms
-    -- the intent.
-    confirmationNextStep :: Prelude.Maybe DialogState,
+    -- | The next step to take in the conversation if the confirmation step
+    -- fails.
+    failureNextStep :: Prelude.Maybe DialogState,
     failureResponse :: Prelude.Maybe ResponseSpecification,
-    -- | A list of conditional branches to evaluate after the intent is closed.
-    confirmationConditional :: Prelude.Maybe ConditionalSpecification,
-    -- | Specifies the next step that the bot executes when the customer declines
-    -- the intent.
-    declinationNextStep :: Prelude.Maybe DialogState,
     -- | Prompts the user to confirm the intent. This question should have a yes
     -- or no answer.
     --
@@ -92,36 +92,36 @@ data IntentConfirmationSetting = IntentConfirmationSetting'
 -- this field is false, confirmation and declination responses aren\'t
 -- sent. If the @active@ field isn\'t specified, the default is true.
 --
--- 'failureNextStep', 'intentConfirmationSetting_failureNextStep' - The next step to take in the conversation if the confirmation step
--- fails.
---
 -- 'codeHook', 'intentConfirmationSetting_codeHook' - The @DialogCodeHookInvocationSetting@ object associated with intent\'s
 -- confirmation step. The dialog code hook is triggered based on these
 -- invocation settings when the confirmation next step or declination next
 -- step or failure next step is @InvokeDialogCodeHook@.
 --
--- 'elicitationCodeHook', 'intentConfirmationSetting_elicitationCodeHook' - The @DialogCodeHookInvocationSetting@ used when the code hook is invoked
--- during confirmation prompt retries.
+-- 'confirmationConditional', 'intentConfirmationSetting_confirmationConditional' - A list of conditional branches to evaluate after the intent is closed.
+--
+-- 'confirmationNextStep', 'intentConfirmationSetting_confirmationNextStep' - Specifies the next step that the bot executes when the customer confirms
+-- the intent.
+--
+-- 'confirmationResponse', 'intentConfirmationSetting_confirmationResponse' - Undocumented member.
+--
+-- 'declinationConditional', 'intentConfirmationSetting_declinationConditional' - A list of conditional branches to evaluate after the intent is declined.
+--
+-- 'declinationNextStep', 'intentConfirmationSetting_declinationNextStep' - Specifies the next step that the bot executes when the customer declines
+-- the intent.
 --
 -- 'declinationResponse', 'intentConfirmationSetting_declinationResponse' - When the user answers \"no\" to the question defined in
 -- @promptSpecification@, Amazon Lex responds with this response to
 -- acknowledge that the intent was canceled.
 --
--- 'declinationConditional', 'intentConfirmationSetting_declinationConditional' - A list of conditional branches to evaluate after the intent is declined.
+-- 'elicitationCodeHook', 'intentConfirmationSetting_elicitationCodeHook' - The @DialogCodeHookInvocationSetting@ used when the code hook is invoked
+-- during confirmation prompt retries.
 --
 -- 'failureConditional', 'intentConfirmationSetting_failureConditional' - Undocumented member.
 --
--- 'confirmationResponse', 'intentConfirmationSetting_confirmationResponse' - Undocumented member.
---
--- 'confirmationNextStep', 'intentConfirmationSetting_confirmationNextStep' - Specifies the next step that the bot executes when the customer confirms
--- the intent.
+-- 'failureNextStep', 'intentConfirmationSetting_failureNextStep' - The next step to take in the conversation if the confirmation step
+-- fails.
 --
 -- 'failureResponse', 'intentConfirmationSetting_failureResponse' - Undocumented member.
---
--- 'confirmationConditional', 'intentConfirmationSetting_confirmationConditional' - A list of conditional branches to evaluate after the intent is closed.
---
--- 'declinationNextStep', 'intentConfirmationSetting_declinationNextStep' - Specifies the next step that the bot executes when the customer declines
--- the intent.
 --
 -- 'promptSpecification', 'intentConfirmationSetting_promptSpecification' - Prompts the user to confirm the intent. This question should have a yes
 -- or no answer.
@@ -140,17 +140,17 @@ newIntentConfirmationSetting pPromptSpecification_ =
   IntentConfirmationSetting'
     { active =
         Prelude.Nothing,
-      failureNextStep = Prelude.Nothing,
       codeHook = Prelude.Nothing,
-      elicitationCodeHook = Prelude.Nothing,
-      declinationResponse = Prelude.Nothing,
-      declinationConditional = Prelude.Nothing,
-      failureConditional = Prelude.Nothing,
-      confirmationResponse = Prelude.Nothing,
-      confirmationNextStep = Prelude.Nothing,
-      failureResponse = Prelude.Nothing,
       confirmationConditional = Prelude.Nothing,
+      confirmationNextStep = Prelude.Nothing,
+      confirmationResponse = Prelude.Nothing,
+      declinationConditional = Prelude.Nothing,
       declinationNextStep = Prelude.Nothing,
+      declinationResponse = Prelude.Nothing,
+      elicitationCodeHook = Prelude.Nothing,
+      failureConditional = Prelude.Nothing,
+      failureNextStep = Prelude.Nothing,
+      failureResponse = Prelude.Nothing,
       promptSpecification = pPromptSpecification_
     }
 
@@ -160,11 +160,6 @@ newIntentConfirmationSetting pPromptSpecification_ =
 intentConfirmationSetting_active :: Lens.Lens' IntentConfirmationSetting (Prelude.Maybe Prelude.Bool)
 intentConfirmationSetting_active = Lens.lens (\IntentConfirmationSetting' {active} -> active) (\s@IntentConfirmationSetting' {} a -> s {active = a} :: IntentConfirmationSetting)
 
--- | The next step to take in the conversation if the confirmation step
--- fails.
-intentConfirmationSetting_failureNextStep :: Lens.Lens' IntentConfirmationSetting (Prelude.Maybe DialogState)
-intentConfirmationSetting_failureNextStep = Lens.lens (\IntentConfirmationSetting' {failureNextStep} -> failureNextStep) (\s@IntentConfirmationSetting' {} a -> s {failureNextStep = a} :: IntentConfirmationSetting)
-
 -- | The @DialogCodeHookInvocationSetting@ object associated with intent\'s
 -- confirmation step. The dialog code hook is triggered based on these
 -- invocation settings when the confirmation next step or declination next
@@ -172,28 +167,9 @@ intentConfirmationSetting_failureNextStep = Lens.lens (\IntentConfirmationSettin
 intentConfirmationSetting_codeHook :: Lens.Lens' IntentConfirmationSetting (Prelude.Maybe DialogCodeHookInvocationSetting)
 intentConfirmationSetting_codeHook = Lens.lens (\IntentConfirmationSetting' {codeHook} -> codeHook) (\s@IntentConfirmationSetting' {} a -> s {codeHook = a} :: IntentConfirmationSetting)
 
--- | The @DialogCodeHookInvocationSetting@ used when the code hook is invoked
--- during confirmation prompt retries.
-intentConfirmationSetting_elicitationCodeHook :: Lens.Lens' IntentConfirmationSetting (Prelude.Maybe ElicitationCodeHookInvocationSetting)
-intentConfirmationSetting_elicitationCodeHook = Lens.lens (\IntentConfirmationSetting' {elicitationCodeHook} -> elicitationCodeHook) (\s@IntentConfirmationSetting' {} a -> s {elicitationCodeHook = a} :: IntentConfirmationSetting)
-
--- | When the user answers \"no\" to the question defined in
--- @promptSpecification@, Amazon Lex responds with this response to
--- acknowledge that the intent was canceled.
-intentConfirmationSetting_declinationResponse :: Lens.Lens' IntentConfirmationSetting (Prelude.Maybe ResponseSpecification)
-intentConfirmationSetting_declinationResponse = Lens.lens (\IntentConfirmationSetting' {declinationResponse} -> declinationResponse) (\s@IntentConfirmationSetting' {} a -> s {declinationResponse = a} :: IntentConfirmationSetting)
-
--- | A list of conditional branches to evaluate after the intent is declined.
-intentConfirmationSetting_declinationConditional :: Lens.Lens' IntentConfirmationSetting (Prelude.Maybe ConditionalSpecification)
-intentConfirmationSetting_declinationConditional = Lens.lens (\IntentConfirmationSetting' {declinationConditional} -> declinationConditional) (\s@IntentConfirmationSetting' {} a -> s {declinationConditional = a} :: IntentConfirmationSetting)
-
--- | Undocumented member.
-intentConfirmationSetting_failureConditional :: Lens.Lens' IntentConfirmationSetting (Prelude.Maybe ConditionalSpecification)
-intentConfirmationSetting_failureConditional = Lens.lens (\IntentConfirmationSetting' {failureConditional} -> failureConditional) (\s@IntentConfirmationSetting' {} a -> s {failureConditional = a} :: IntentConfirmationSetting)
-
--- | Undocumented member.
-intentConfirmationSetting_confirmationResponse :: Lens.Lens' IntentConfirmationSetting (Prelude.Maybe ResponseSpecification)
-intentConfirmationSetting_confirmationResponse = Lens.lens (\IntentConfirmationSetting' {confirmationResponse} -> confirmationResponse) (\s@IntentConfirmationSetting' {} a -> s {confirmationResponse = a} :: IntentConfirmationSetting)
+-- | A list of conditional branches to evaluate after the intent is closed.
+intentConfirmationSetting_confirmationConditional :: Lens.Lens' IntentConfirmationSetting (Prelude.Maybe ConditionalSpecification)
+intentConfirmationSetting_confirmationConditional = Lens.lens (\IntentConfirmationSetting' {confirmationConditional} -> confirmationConditional) (\s@IntentConfirmationSetting' {} a -> s {confirmationConditional = a} :: IntentConfirmationSetting)
 
 -- | Specifies the next step that the bot executes when the customer confirms
 -- the intent.
@@ -201,17 +177,41 @@ intentConfirmationSetting_confirmationNextStep :: Lens.Lens' IntentConfirmationS
 intentConfirmationSetting_confirmationNextStep = Lens.lens (\IntentConfirmationSetting' {confirmationNextStep} -> confirmationNextStep) (\s@IntentConfirmationSetting' {} a -> s {confirmationNextStep = a} :: IntentConfirmationSetting)
 
 -- | Undocumented member.
-intentConfirmationSetting_failureResponse :: Lens.Lens' IntentConfirmationSetting (Prelude.Maybe ResponseSpecification)
-intentConfirmationSetting_failureResponse = Lens.lens (\IntentConfirmationSetting' {failureResponse} -> failureResponse) (\s@IntentConfirmationSetting' {} a -> s {failureResponse = a} :: IntentConfirmationSetting)
+intentConfirmationSetting_confirmationResponse :: Lens.Lens' IntentConfirmationSetting (Prelude.Maybe ResponseSpecification)
+intentConfirmationSetting_confirmationResponse = Lens.lens (\IntentConfirmationSetting' {confirmationResponse} -> confirmationResponse) (\s@IntentConfirmationSetting' {} a -> s {confirmationResponse = a} :: IntentConfirmationSetting)
 
--- | A list of conditional branches to evaluate after the intent is closed.
-intentConfirmationSetting_confirmationConditional :: Lens.Lens' IntentConfirmationSetting (Prelude.Maybe ConditionalSpecification)
-intentConfirmationSetting_confirmationConditional = Lens.lens (\IntentConfirmationSetting' {confirmationConditional} -> confirmationConditional) (\s@IntentConfirmationSetting' {} a -> s {confirmationConditional = a} :: IntentConfirmationSetting)
+-- | A list of conditional branches to evaluate after the intent is declined.
+intentConfirmationSetting_declinationConditional :: Lens.Lens' IntentConfirmationSetting (Prelude.Maybe ConditionalSpecification)
+intentConfirmationSetting_declinationConditional = Lens.lens (\IntentConfirmationSetting' {declinationConditional} -> declinationConditional) (\s@IntentConfirmationSetting' {} a -> s {declinationConditional = a} :: IntentConfirmationSetting)
 
 -- | Specifies the next step that the bot executes when the customer declines
 -- the intent.
 intentConfirmationSetting_declinationNextStep :: Lens.Lens' IntentConfirmationSetting (Prelude.Maybe DialogState)
 intentConfirmationSetting_declinationNextStep = Lens.lens (\IntentConfirmationSetting' {declinationNextStep} -> declinationNextStep) (\s@IntentConfirmationSetting' {} a -> s {declinationNextStep = a} :: IntentConfirmationSetting)
+
+-- | When the user answers \"no\" to the question defined in
+-- @promptSpecification@, Amazon Lex responds with this response to
+-- acknowledge that the intent was canceled.
+intentConfirmationSetting_declinationResponse :: Lens.Lens' IntentConfirmationSetting (Prelude.Maybe ResponseSpecification)
+intentConfirmationSetting_declinationResponse = Lens.lens (\IntentConfirmationSetting' {declinationResponse} -> declinationResponse) (\s@IntentConfirmationSetting' {} a -> s {declinationResponse = a} :: IntentConfirmationSetting)
+
+-- | The @DialogCodeHookInvocationSetting@ used when the code hook is invoked
+-- during confirmation prompt retries.
+intentConfirmationSetting_elicitationCodeHook :: Lens.Lens' IntentConfirmationSetting (Prelude.Maybe ElicitationCodeHookInvocationSetting)
+intentConfirmationSetting_elicitationCodeHook = Lens.lens (\IntentConfirmationSetting' {elicitationCodeHook} -> elicitationCodeHook) (\s@IntentConfirmationSetting' {} a -> s {elicitationCodeHook = a} :: IntentConfirmationSetting)
+
+-- | Undocumented member.
+intentConfirmationSetting_failureConditional :: Lens.Lens' IntentConfirmationSetting (Prelude.Maybe ConditionalSpecification)
+intentConfirmationSetting_failureConditional = Lens.lens (\IntentConfirmationSetting' {failureConditional} -> failureConditional) (\s@IntentConfirmationSetting' {} a -> s {failureConditional = a} :: IntentConfirmationSetting)
+
+-- | The next step to take in the conversation if the confirmation step
+-- fails.
+intentConfirmationSetting_failureNextStep :: Lens.Lens' IntentConfirmationSetting (Prelude.Maybe DialogState)
+intentConfirmationSetting_failureNextStep = Lens.lens (\IntentConfirmationSetting' {failureNextStep} -> failureNextStep) (\s@IntentConfirmationSetting' {} a -> s {failureNextStep = a} :: IntentConfirmationSetting)
+
+-- | Undocumented member.
+intentConfirmationSetting_failureResponse :: Lens.Lens' IntentConfirmationSetting (Prelude.Maybe ResponseSpecification)
+intentConfirmationSetting_failureResponse = Lens.lens (\IntentConfirmationSetting' {failureResponse} -> failureResponse) (\s@IntentConfirmationSetting' {} a -> s {failureResponse = a} :: IntentConfirmationSetting)
 
 -- | Prompts the user to confirm the intent. This question should have a yes
 -- or no answer.
@@ -232,50 +232,50 @@ instance Data.FromJSON IntentConfirmationSetting where
       ( \x ->
           IntentConfirmationSetting'
             Prelude.<$> (x Data..:? "active")
-            Prelude.<*> (x Data..:? "failureNextStep")
             Prelude.<*> (x Data..:? "codeHook")
-            Prelude.<*> (x Data..:? "elicitationCodeHook")
-            Prelude.<*> (x Data..:? "declinationResponse")
-            Prelude.<*> (x Data..:? "declinationConditional")
-            Prelude.<*> (x Data..:? "failureConditional")
-            Prelude.<*> (x Data..:? "confirmationResponse")
-            Prelude.<*> (x Data..:? "confirmationNextStep")
-            Prelude.<*> (x Data..:? "failureResponse")
             Prelude.<*> (x Data..:? "confirmationConditional")
+            Prelude.<*> (x Data..:? "confirmationNextStep")
+            Prelude.<*> (x Data..:? "confirmationResponse")
+            Prelude.<*> (x Data..:? "declinationConditional")
             Prelude.<*> (x Data..:? "declinationNextStep")
+            Prelude.<*> (x Data..:? "declinationResponse")
+            Prelude.<*> (x Data..:? "elicitationCodeHook")
+            Prelude.<*> (x Data..:? "failureConditional")
+            Prelude.<*> (x Data..:? "failureNextStep")
+            Prelude.<*> (x Data..:? "failureResponse")
             Prelude.<*> (x Data..: "promptSpecification")
       )
 
 instance Prelude.Hashable IntentConfirmationSetting where
   hashWithSalt _salt IntentConfirmationSetting' {..} =
     _salt `Prelude.hashWithSalt` active
-      `Prelude.hashWithSalt` failureNextStep
       `Prelude.hashWithSalt` codeHook
-      `Prelude.hashWithSalt` elicitationCodeHook
-      `Prelude.hashWithSalt` declinationResponse
-      `Prelude.hashWithSalt` declinationConditional
-      `Prelude.hashWithSalt` failureConditional
-      `Prelude.hashWithSalt` confirmationResponse
-      `Prelude.hashWithSalt` confirmationNextStep
-      `Prelude.hashWithSalt` failureResponse
       `Prelude.hashWithSalt` confirmationConditional
+      `Prelude.hashWithSalt` confirmationNextStep
+      `Prelude.hashWithSalt` confirmationResponse
+      `Prelude.hashWithSalt` declinationConditional
       `Prelude.hashWithSalt` declinationNextStep
+      `Prelude.hashWithSalt` declinationResponse
+      `Prelude.hashWithSalt` elicitationCodeHook
+      `Prelude.hashWithSalt` failureConditional
+      `Prelude.hashWithSalt` failureNextStep
+      `Prelude.hashWithSalt` failureResponse
       `Prelude.hashWithSalt` promptSpecification
 
 instance Prelude.NFData IntentConfirmationSetting where
   rnf IntentConfirmationSetting' {..} =
     Prelude.rnf active
-      `Prelude.seq` Prelude.rnf failureNextStep
       `Prelude.seq` Prelude.rnf codeHook
-      `Prelude.seq` Prelude.rnf elicitationCodeHook
-      `Prelude.seq` Prelude.rnf declinationResponse
-      `Prelude.seq` Prelude.rnf declinationConditional
-      `Prelude.seq` Prelude.rnf failureConditional
-      `Prelude.seq` Prelude.rnf confirmationResponse
-      `Prelude.seq` Prelude.rnf confirmationNextStep
-      `Prelude.seq` Prelude.rnf failureResponse
       `Prelude.seq` Prelude.rnf confirmationConditional
+      `Prelude.seq` Prelude.rnf confirmationNextStep
+      `Prelude.seq` Prelude.rnf confirmationResponse
+      `Prelude.seq` Prelude.rnf declinationConditional
       `Prelude.seq` Prelude.rnf declinationNextStep
+      `Prelude.seq` Prelude.rnf declinationResponse
+      `Prelude.seq` Prelude.rnf elicitationCodeHook
+      `Prelude.seq` Prelude.rnf failureConditional
+      `Prelude.seq` Prelude.rnf failureNextStep
+      `Prelude.seq` Prelude.rnf failureResponse
       `Prelude.seq` Prelude.rnf promptSpecification
 
 instance Data.ToJSON IntentConfirmationSetting where
@@ -283,27 +283,27 @@ instance Data.ToJSON IntentConfirmationSetting where
     Data.object
       ( Prelude.catMaybes
           [ ("active" Data..=) Prelude.<$> active,
-            ("failureNextStep" Data..=)
-              Prelude.<$> failureNextStep,
             ("codeHook" Data..=) Prelude.<$> codeHook,
-            ("elicitationCodeHook" Data..=)
-              Prelude.<$> elicitationCodeHook,
-            ("declinationResponse" Data..=)
-              Prelude.<$> declinationResponse,
-            ("declinationConditional" Data..=)
-              Prelude.<$> declinationConditional,
-            ("failureConditional" Data..=)
-              Prelude.<$> failureConditional,
-            ("confirmationResponse" Data..=)
-              Prelude.<$> confirmationResponse,
-            ("confirmationNextStep" Data..=)
-              Prelude.<$> confirmationNextStep,
-            ("failureResponse" Data..=)
-              Prelude.<$> failureResponse,
             ("confirmationConditional" Data..=)
               Prelude.<$> confirmationConditional,
+            ("confirmationNextStep" Data..=)
+              Prelude.<$> confirmationNextStep,
+            ("confirmationResponse" Data..=)
+              Prelude.<$> confirmationResponse,
+            ("declinationConditional" Data..=)
+              Prelude.<$> declinationConditional,
             ("declinationNextStep" Data..=)
               Prelude.<$> declinationNextStep,
+            ("declinationResponse" Data..=)
+              Prelude.<$> declinationResponse,
+            ("elicitationCodeHook" Data..=)
+              Prelude.<$> elicitationCodeHook,
+            ("failureConditional" Data..=)
+              Prelude.<$> failureConditional,
+            ("failureNextStep" Data..=)
+              Prelude.<$> failureNextStep,
+            ("failureResponse" Data..=)
+              Prelude.<$> failureResponse,
             Prelude.Just
               ("promptSpecification" Data..= promptSpecification)
           ]

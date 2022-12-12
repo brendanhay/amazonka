@@ -29,16 +29,16 @@ module Amazonka.SageMaker.ListEndpoints
     newListEndpoints,
 
     -- * Request Lenses
-    listEndpoints_sortOrder,
-    listEndpoints_nextToken,
-    listEndpoints_lastModifiedTimeAfter,
-    listEndpoints_nameContains,
-    listEndpoints_lastModifiedTimeBefore,
-    listEndpoints_creationTimeBefore,
-    listEndpoints_sortBy,
-    listEndpoints_maxResults,
-    listEndpoints_statusEquals,
     listEndpoints_creationTimeAfter,
+    listEndpoints_creationTimeBefore,
+    listEndpoints_lastModifiedTimeAfter,
+    listEndpoints_lastModifiedTimeBefore,
+    listEndpoints_maxResults,
+    listEndpoints_nameContains,
+    listEndpoints_nextToken,
+    listEndpoints_sortBy,
+    listEndpoints_sortOrder,
+    listEndpoints_statusEquals,
 
     -- * Destructuring the Response
     ListEndpointsResponse (..),
@@ -61,34 +61,34 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newListEndpoints' smart constructor.
 data ListEndpoints = ListEndpoints'
-  { -- | The sort order for results. The default is @Descending@.
-    sortOrder :: Prelude.Maybe OrderKey,
+  { -- | A filter that returns only endpoints with a creation time greater than
+    -- or equal to the specified time (timestamp).
+    creationTimeAfter :: Prelude.Maybe Data.POSIX,
+    -- | A filter that returns only endpoints that were created before the
+    -- specified time (timestamp).
+    creationTimeBefore :: Prelude.Maybe Data.POSIX,
+    -- | A filter that returns only endpoints that were modified after the
+    -- specified timestamp.
+    lastModifiedTimeAfter :: Prelude.Maybe Data.POSIX,
+    -- | A filter that returns only endpoints that were modified before the
+    -- specified timestamp.
+    lastModifiedTimeBefore :: Prelude.Maybe Data.POSIX,
+    -- | The maximum number of endpoints to return in the response. This value
+    -- defaults to 10.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A string in endpoint names. This filter returns only endpoints whose
+    -- name contains the specified string.
+    nameContains :: Prelude.Maybe Prelude.Text,
     -- | If the result of a @ListEndpoints@ request was truncated, the response
     -- includes a @NextToken@. To retrieve the next set of endpoints, use the
     -- token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A filter that returns only endpoints that were modified after the
-    -- specified timestamp.
-    lastModifiedTimeAfter :: Prelude.Maybe Data.POSIX,
-    -- | A string in endpoint names. This filter returns only endpoints whose
-    -- name contains the specified string.
-    nameContains :: Prelude.Maybe Prelude.Text,
-    -- | A filter that returns only endpoints that were modified before the
-    -- specified timestamp.
-    lastModifiedTimeBefore :: Prelude.Maybe Data.POSIX,
-    -- | A filter that returns only endpoints that were created before the
-    -- specified time (timestamp).
-    creationTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | Sorts the list of results. The default is @CreationTime@.
     sortBy :: Prelude.Maybe EndpointSortKey,
-    -- | The maximum number of endpoints to return in the response. This value
-    -- defaults to 10.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The sort order for results. The default is @Descending@.
+    sortOrder :: Prelude.Maybe OrderKey,
     -- | A filter that returns only endpoints with the specified status.
-    statusEquals :: Prelude.Maybe EndpointStatus,
-    -- | A filter that returns only endpoints with a creation time greater than
-    -- or equal to the specified time (timestamp).
-    creationTimeAfter :: Prelude.Maybe Data.POSIX
+    statusEquals :: Prelude.Maybe EndpointStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -100,52 +100,78 @@ data ListEndpoints = ListEndpoints'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listEndpoints_sortOrder' - The sort order for results. The default is @Descending@.
+-- 'creationTimeAfter', 'listEndpoints_creationTimeAfter' - A filter that returns only endpoints with a creation time greater than
+-- or equal to the specified time (timestamp).
+--
+-- 'creationTimeBefore', 'listEndpoints_creationTimeBefore' - A filter that returns only endpoints that were created before the
+-- specified time (timestamp).
+--
+-- 'lastModifiedTimeAfter', 'listEndpoints_lastModifiedTimeAfter' - A filter that returns only endpoints that were modified after the
+-- specified timestamp.
+--
+-- 'lastModifiedTimeBefore', 'listEndpoints_lastModifiedTimeBefore' - A filter that returns only endpoints that were modified before the
+-- specified timestamp.
+--
+-- 'maxResults', 'listEndpoints_maxResults' - The maximum number of endpoints to return in the response. This value
+-- defaults to 10.
+--
+-- 'nameContains', 'listEndpoints_nameContains' - A string in endpoint names. This filter returns only endpoints whose
+-- name contains the specified string.
 --
 -- 'nextToken', 'listEndpoints_nextToken' - If the result of a @ListEndpoints@ request was truncated, the response
 -- includes a @NextToken@. To retrieve the next set of endpoints, use the
 -- token in the next request.
 --
--- 'lastModifiedTimeAfter', 'listEndpoints_lastModifiedTimeAfter' - A filter that returns only endpoints that were modified after the
--- specified timestamp.
---
--- 'nameContains', 'listEndpoints_nameContains' - A string in endpoint names. This filter returns only endpoints whose
--- name contains the specified string.
---
--- 'lastModifiedTimeBefore', 'listEndpoints_lastModifiedTimeBefore' - A filter that returns only endpoints that were modified before the
--- specified timestamp.
---
--- 'creationTimeBefore', 'listEndpoints_creationTimeBefore' - A filter that returns only endpoints that were created before the
--- specified time (timestamp).
---
 -- 'sortBy', 'listEndpoints_sortBy' - Sorts the list of results. The default is @CreationTime@.
 --
--- 'maxResults', 'listEndpoints_maxResults' - The maximum number of endpoints to return in the response. This value
--- defaults to 10.
+-- 'sortOrder', 'listEndpoints_sortOrder' - The sort order for results. The default is @Descending@.
 --
 -- 'statusEquals', 'listEndpoints_statusEquals' - A filter that returns only endpoints with the specified status.
---
--- 'creationTimeAfter', 'listEndpoints_creationTimeAfter' - A filter that returns only endpoints with a creation time greater than
--- or equal to the specified time (timestamp).
 newListEndpoints ::
   ListEndpoints
 newListEndpoints =
   ListEndpoints'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      lastModifiedTimeAfter = Prelude.Nothing,
-      nameContains = Prelude.Nothing,
-      lastModifiedTimeBefore = Prelude.Nothing,
+    { creationTimeAfter = Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
+      lastModifiedTimeAfter = Prelude.Nothing,
+      lastModifiedTimeBefore = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      statusEquals = Prelude.Nothing,
-      creationTimeAfter = Prelude.Nothing
+      nameContains = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
+      statusEquals = Prelude.Nothing
     }
 
--- | The sort order for results. The default is @Descending@.
-listEndpoints_sortOrder :: Lens.Lens' ListEndpoints (Prelude.Maybe OrderKey)
-listEndpoints_sortOrder = Lens.lens (\ListEndpoints' {sortOrder} -> sortOrder) (\s@ListEndpoints' {} a -> s {sortOrder = a} :: ListEndpoints)
+-- | A filter that returns only endpoints with a creation time greater than
+-- or equal to the specified time (timestamp).
+listEndpoints_creationTimeAfter :: Lens.Lens' ListEndpoints (Prelude.Maybe Prelude.UTCTime)
+listEndpoints_creationTimeAfter = Lens.lens (\ListEndpoints' {creationTimeAfter} -> creationTimeAfter) (\s@ListEndpoints' {} a -> s {creationTimeAfter = a} :: ListEndpoints) Prelude.. Lens.mapping Data._Time
+
+-- | A filter that returns only endpoints that were created before the
+-- specified time (timestamp).
+listEndpoints_creationTimeBefore :: Lens.Lens' ListEndpoints (Prelude.Maybe Prelude.UTCTime)
+listEndpoints_creationTimeBefore = Lens.lens (\ListEndpoints' {creationTimeBefore} -> creationTimeBefore) (\s@ListEndpoints' {} a -> s {creationTimeBefore = a} :: ListEndpoints) Prelude.. Lens.mapping Data._Time
+
+-- | A filter that returns only endpoints that were modified after the
+-- specified timestamp.
+listEndpoints_lastModifiedTimeAfter :: Lens.Lens' ListEndpoints (Prelude.Maybe Prelude.UTCTime)
+listEndpoints_lastModifiedTimeAfter = Lens.lens (\ListEndpoints' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListEndpoints' {} a -> s {lastModifiedTimeAfter = a} :: ListEndpoints) Prelude.. Lens.mapping Data._Time
+
+-- | A filter that returns only endpoints that were modified before the
+-- specified timestamp.
+listEndpoints_lastModifiedTimeBefore :: Lens.Lens' ListEndpoints (Prelude.Maybe Prelude.UTCTime)
+listEndpoints_lastModifiedTimeBefore = Lens.lens (\ListEndpoints' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListEndpoints' {} a -> s {lastModifiedTimeBefore = a} :: ListEndpoints) Prelude.. Lens.mapping Data._Time
+
+-- | The maximum number of endpoints to return in the response. This value
+-- defaults to 10.
+listEndpoints_maxResults :: Lens.Lens' ListEndpoints (Prelude.Maybe Prelude.Natural)
+listEndpoints_maxResults = Lens.lens (\ListEndpoints' {maxResults} -> maxResults) (\s@ListEndpoints' {} a -> s {maxResults = a} :: ListEndpoints)
+
+-- | A string in endpoint names. This filter returns only endpoints whose
+-- name contains the specified string.
+listEndpoints_nameContains :: Lens.Lens' ListEndpoints (Prelude.Maybe Prelude.Text)
+listEndpoints_nameContains = Lens.lens (\ListEndpoints' {nameContains} -> nameContains) (\s@ListEndpoints' {} a -> s {nameContains = a} :: ListEndpoints)
 
 -- | If the result of a @ListEndpoints@ request was truncated, the response
 -- includes a @NextToken@. To retrieve the next set of endpoints, use the
@@ -153,43 +179,17 @@ listEndpoints_sortOrder = Lens.lens (\ListEndpoints' {sortOrder} -> sortOrder) (
 listEndpoints_nextToken :: Lens.Lens' ListEndpoints (Prelude.Maybe Prelude.Text)
 listEndpoints_nextToken = Lens.lens (\ListEndpoints' {nextToken} -> nextToken) (\s@ListEndpoints' {} a -> s {nextToken = a} :: ListEndpoints)
 
--- | A filter that returns only endpoints that were modified after the
--- specified timestamp.
-listEndpoints_lastModifiedTimeAfter :: Lens.Lens' ListEndpoints (Prelude.Maybe Prelude.UTCTime)
-listEndpoints_lastModifiedTimeAfter = Lens.lens (\ListEndpoints' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListEndpoints' {} a -> s {lastModifiedTimeAfter = a} :: ListEndpoints) Prelude.. Lens.mapping Data._Time
-
--- | A string in endpoint names. This filter returns only endpoints whose
--- name contains the specified string.
-listEndpoints_nameContains :: Lens.Lens' ListEndpoints (Prelude.Maybe Prelude.Text)
-listEndpoints_nameContains = Lens.lens (\ListEndpoints' {nameContains} -> nameContains) (\s@ListEndpoints' {} a -> s {nameContains = a} :: ListEndpoints)
-
--- | A filter that returns only endpoints that were modified before the
--- specified timestamp.
-listEndpoints_lastModifiedTimeBefore :: Lens.Lens' ListEndpoints (Prelude.Maybe Prelude.UTCTime)
-listEndpoints_lastModifiedTimeBefore = Lens.lens (\ListEndpoints' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListEndpoints' {} a -> s {lastModifiedTimeBefore = a} :: ListEndpoints) Prelude.. Lens.mapping Data._Time
-
--- | A filter that returns only endpoints that were created before the
--- specified time (timestamp).
-listEndpoints_creationTimeBefore :: Lens.Lens' ListEndpoints (Prelude.Maybe Prelude.UTCTime)
-listEndpoints_creationTimeBefore = Lens.lens (\ListEndpoints' {creationTimeBefore} -> creationTimeBefore) (\s@ListEndpoints' {} a -> s {creationTimeBefore = a} :: ListEndpoints) Prelude.. Lens.mapping Data._Time
-
 -- | Sorts the list of results. The default is @CreationTime@.
 listEndpoints_sortBy :: Lens.Lens' ListEndpoints (Prelude.Maybe EndpointSortKey)
 listEndpoints_sortBy = Lens.lens (\ListEndpoints' {sortBy} -> sortBy) (\s@ListEndpoints' {} a -> s {sortBy = a} :: ListEndpoints)
 
--- | The maximum number of endpoints to return in the response. This value
--- defaults to 10.
-listEndpoints_maxResults :: Lens.Lens' ListEndpoints (Prelude.Maybe Prelude.Natural)
-listEndpoints_maxResults = Lens.lens (\ListEndpoints' {maxResults} -> maxResults) (\s@ListEndpoints' {} a -> s {maxResults = a} :: ListEndpoints)
+-- | The sort order for results. The default is @Descending@.
+listEndpoints_sortOrder :: Lens.Lens' ListEndpoints (Prelude.Maybe OrderKey)
+listEndpoints_sortOrder = Lens.lens (\ListEndpoints' {sortOrder} -> sortOrder) (\s@ListEndpoints' {} a -> s {sortOrder = a} :: ListEndpoints)
 
 -- | A filter that returns only endpoints with the specified status.
 listEndpoints_statusEquals :: Lens.Lens' ListEndpoints (Prelude.Maybe EndpointStatus)
 listEndpoints_statusEquals = Lens.lens (\ListEndpoints' {statusEquals} -> statusEquals) (\s@ListEndpoints' {} a -> s {statusEquals = a} :: ListEndpoints)
-
--- | A filter that returns only endpoints with a creation time greater than
--- or equal to the specified time (timestamp).
-listEndpoints_creationTimeAfter :: Lens.Lens' ListEndpoints (Prelude.Maybe Prelude.UTCTime)
-listEndpoints_creationTimeAfter = Lens.lens (\ListEndpoints' {creationTimeAfter} -> creationTimeAfter) (\s@ListEndpoints' {} a -> s {creationTimeAfter = a} :: ListEndpoints) Prelude.. Lens.mapping Data._Time
 
 instance Core.AWSPager ListEndpoints where
   page rq rs
@@ -225,29 +225,29 @@ instance Core.AWSRequest ListEndpoints where
 
 instance Prelude.Hashable ListEndpoints where
   hashWithSalt _salt ListEndpoints' {..} =
-    _salt `Prelude.hashWithSalt` sortOrder
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` lastModifiedTimeAfter
-      `Prelude.hashWithSalt` nameContains
-      `Prelude.hashWithSalt` lastModifiedTimeBefore
+    _salt `Prelude.hashWithSalt` creationTimeAfter
       `Prelude.hashWithSalt` creationTimeBefore
-      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` lastModifiedTimeAfter
+      `Prelude.hashWithSalt` lastModifiedTimeBefore
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nameContains
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` sortOrder
       `Prelude.hashWithSalt` statusEquals
-      `Prelude.hashWithSalt` creationTimeAfter
 
 instance Prelude.NFData ListEndpoints where
   rnf ListEndpoints' {..} =
-    Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
+    Prelude.rnf creationTimeAfter
       `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
+      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf sortOrder
       `Prelude.seq` Prelude.rnf statusEquals
-      `Prelude.seq` Prelude.rnf creationTimeAfter
 
 instance Data.ToHeaders ListEndpoints where
   toHeaders =
@@ -266,20 +266,20 @@ instance Data.ToJSON ListEndpoints where
   toJSON ListEndpoints' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
-            ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("LastModifiedTimeAfter" Data..=)
-              Prelude.<$> lastModifiedTimeAfter,
-            ("NameContains" Data..=) Prelude.<$> nameContains,
-            ("LastModifiedTimeBefore" Data..=)
-              Prelude.<$> lastModifiedTimeBefore,
+          [ ("CreationTimeAfter" Data..=)
+              Prelude.<$> creationTimeAfter,
             ("CreationTimeBefore" Data..=)
               Prelude.<$> creationTimeBefore,
-            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("LastModifiedTimeAfter" Data..=)
+              Prelude.<$> lastModifiedTimeAfter,
+            ("LastModifiedTimeBefore" Data..=)
+              Prelude.<$> lastModifiedTimeBefore,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("StatusEquals" Data..=) Prelude.<$> statusEquals,
-            ("CreationTimeAfter" Data..=)
-              Prelude.<$> creationTimeAfter
+            ("NameContains" Data..=) Prelude.<$> nameContains,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("StatusEquals" Data..=) Prelude.<$> statusEquals
           ]
       )
 

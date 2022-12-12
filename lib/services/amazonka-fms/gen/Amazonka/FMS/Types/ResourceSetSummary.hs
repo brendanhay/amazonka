@@ -28,17 +28,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResourceSetSummary' smart constructor.
 data ResourceSetSummary = ResourceSetSummary'
-  { -- | The descriptive name of the resource set. You can\'t change the name of
-    -- a resource set after you create it.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | A description of the resource set.
+    description :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the resource set. This ID is returned in the
     -- responses to create and list commands. You provide it to operations like
     -- update and delete.
     id :: Prelude.Maybe Prelude.Text,
-    -- | A description of the resource set.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The last time that the resource set was changed.
-    lastUpdateTime :: Prelude.Maybe Data.POSIX
+    lastUpdateTime :: Prelude.Maybe Data.POSIX,
+    -- | The descriptive name of the resource set. You can\'t change the name of
+    -- a resource set after you create it.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,30 +50,29 @@ data ResourceSetSummary = ResourceSetSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'resourceSetSummary_name' - The descriptive name of the resource set. You can\'t change the name of
--- a resource set after you create it.
+-- 'description', 'resourceSetSummary_description' - A description of the resource set.
 --
 -- 'id', 'resourceSetSummary_id' - A unique identifier for the resource set. This ID is returned in the
 -- responses to create and list commands. You provide it to operations like
 -- update and delete.
 --
--- 'description', 'resourceSetSummary_description' - A description of the resource set.
---
 -- 'lastUpdateTime', 'resourceSetSummary_lastUpdateTime' - The last time that the resource set was changed.
+--
+-- 'name', 'resourceSetSummary_name' - The descriptive name of the resource set. You can\'t change the name of
+-- a resource set after you create it.
 newResourceSetSummary ::
   ResourceSetSummary
 newResourceSetSummary =
   ResourceSetSummary'
-    { name = Prelude.Nothing,
+    { description = Prelude.Nothing,
       id = Prelude.Nothing,
-      description = Prelude.Nothing,
-      lastUpdateTime = Prelude.Nothing
+      lastUpdateTime = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
--- | The descriptive name of the resource set. You can\'t change the name of
--- a resource set after you create it.
-resourceSetSummary_name :: Lens.Lens' ResourceSetSummary (Prelude.Maybe Prelude.Text)
-resourceSetSummary_name = Lens.lens (\ResourceSetSummary' {name} -> name) (\s@ResourceSetSummary' {} a -> s {name = a} :: ResourceSetSummary)
+-- | A description of the resource set.
+resourceSetSummary_description :: Lens.Lens' ResourceSetSummary (Prelude.Maybe Prelude.Text)
+resourceSetSummary_description = Lens.lens (\ResourceSetSummary' {description} -> description) (\s@ResourceSetSummary' {} a -> s {description = a} :: ResourceSetSummary)
 
 -- | A unique identifier for the resource set. This ID is returned in the
 -- responses to create and list commands. You provide it to operations like
@@ -81,13 +80,14 @@ resourceSetSummary_name = Lens.lens (\ResourceSetSummary' {name} -> name) (\s@Re
 resourceSetSummary_id :: Lens.Lens' ResourceSetSummary (Prelude.Maybe Prelude.Text)
 resourceSetSummary_id = Lens.lens (\ResourceSetSummary' {id} -> id) (\s@ResourceSetSummary' {} a -> s {id = a} :: ResourceSetSummary)
 
--- | A description of the resource set.
-resourceSetSummary_description :: Lens.Lens' ResourceSetSummary (Prelude.Maybe Prelude.Text)
-resourceSetSummary_description = Lens.lens (\ResourceSetSummary' {description} -> description) (\s@ResourceSetSummary' {} a -> s {description = a} :: ResourceSetSummary)
-
 -- | The last time that the resource set was changed.
 resourceSetSummary_lastUpdateTime :: Lens.Lens' ResourceSetSummary (Prelude.Maybe Prelude.UTCTime)
 resourceSetSummary_lastUpdateTime = Lens.lens (\ResourceSetSummary' {lastUpdateTime} -> lastUpdateTime) (\s@ResourceSetSummary' {} a -> s {lastUpdateTime = a} :: ResourceSetSummary) Prelude.. Lens.mapping Data._Time
+
+-- | The descriptive name of the resource set. You can\'t change the name of
+-- a resource set after you create it.
+resourceSetSummary_name :: Lens.Lens' ResourceSetSummary (Prelude.Maybe Prelude.Text)
+resourceSetSummary_name = Lens.lens (\ResourceSetSummary' {name} -> name) (\s@ResourceSetSummary' {} a -> s {name = a} :: ResourceSetSummary)
 
 instance Data.FromJSON ResourceSetSummary where
   parseJSON =
@@ -95,22 +95,22 @@ instance Data.FromJSON ResourceSetSummary where
       "ResourceSetSummary"
       ( \x ->
           ResourceSetSummary'
-            Prelude.<$> (x Data..:? "Name")
+            Prelude.<$> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "Id")
-            Prelude.<*> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "LastUpdateTime")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable ResourceSetSummary where
   hashWithSalt _salt ResourceSetSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` lastUpdateTime
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData ResourceSetSummary where
   rnf ResourceSetSummary' {..} =
-    Prelude.rnf name
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf lastUpdateTime
+      `Prelude.seq` Prelude.rnf name

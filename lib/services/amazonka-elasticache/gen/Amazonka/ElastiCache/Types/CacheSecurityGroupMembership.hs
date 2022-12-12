@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCacheSecurityGroupMembership' smart constructor.
 data CacheSecurityGroupMembership = CacheSecurityGroupMembership'
-  { -- | The membership status in the cache security group. The status changes
+  { -- | The name of the cache security group.
+    cacheSecurityGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The membership status in the cache security group. The status changes
     -- when a cache security group is modified, or when the cache security
     -- groups assigned to a cluster are modified.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The name of the cache security group.
-    cacheSecurityGroupName :: Prelude.Maybe Prelude.Text
+    status :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,19 +45,23 @@ data CacheSecurityGroupMembership = CacheSecurityGroupMembership'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'cacheSecurityGroupName', 'cacheSecurityGroupMembership_cacheSecurityGroupName' - The name of the cache security group.
+--
 -- 'status', 'cacheSecurityGroupMembership_status' - The membership status in the cache security group. The status changes
 -- when a cache security group is modified, or when the cache security
 -- groups assigned to a cluster are modified.
---
--- 'cacheSecurityGroupName', 'cacheSecurityGroupMembership_cacheSecurityGroupName' - The name of the cache security group.
 newCacheSecurityGroupMembership ::
   CacheSecurityGroupMembership
 newCacheSecurityGroupMembership =
   CacheSecurityGroupMembership'
-    { status =
+    { cacheSecurityGroupName =
         Prelude.Nothing,
-      cacheSecurityGroupName = Prelude.Nothing
+      status = Prelude.Nothing
     }
+
+-- | The name of the cache security group.
+cacheSecurityGroupMembership_cacheSecurityGroupName :: Lens.Lens' CacheSecurityGroupMembership (Prelude.Maybe Prelude.Text)
+cacheSecurityGroupMembership_cacheSecurityGroupName = Lens.lens (\CacheSecurityGroupMembership' {cacheSecurityGroupName} -> cacheSecurityGroupName) (\s@CacheSecurityGroupMembership' {} a -> s {cacheSecurityGroupName = a} :: CacheSecurityGroupMembership)
 
 -- | The membership status in the cache security group. The status changes
 -- when a cache security group is modified, or when the cache security
@@ -65,25 +69,21 @@ newCacheSecurityGroupMembership =
 cacheSecurityGroupMembership_status :: Lens.Lens' CacheSecurityGroupMembership (Prelude.Maybe Prelude.Text)
 cacheSecurityGroupMembership_status = Lens.lens (\CacheSecurityGroupMembership' {status} -> status) (\s@CacheSecurityGroupMembership' {} a -> s {status = a} :: CacheSecurityGroupMembership)
 
--- | The name of the cache security group.
-cacheSecurityGroupMembership_cacheSecurityGroupName :: Lens.Lens' CacheSecurityGroupMembership (Prelude.Maybe Prelude.Text)
-cacheSecurityGroupMembership_cacheSecurityGroupName = Lens.lens (\CacheSecurityGroupMembership' {cacheSecurityGroupName} -> cacheSecurityGroupName) (\s@CacheSecurityGroupMembership' {} a -> s {cacheSecurityGroupName = a} :: CacheSecurityGroupMembership)
-
 instance Data.FromXML CacheSecurityGroupMembership where
   parseXML x =
     CacheSecurityGroupMembership'
-      Prelude.<$> (x Data..@? "Status")
-      Prelude.<*> (x Data..@? "CacheSecurityGroupName")
+      Prelude.<$> (x Data..@? "CacheSecurityGroupName")
+      Prelude.<*> (x Data..@? "Status")
 
 instance
   Prelude.Hashable
     CacheSecurityGroupMembership
   where
   hashWithSalt _salt CacheSecurityGroupMembership' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` cacheSecurityGroupName
+    _salt `Prelude.hashWithSalt` cacheSecurityGroupName
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData CacheSecurityGroupMembership where
   rnf CacheSecurityGroupMembership' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf cacheSecurityGroupName
+    Prelude.rnf cacheSecurityGroupName
+      `Prelude.seq` Prelude.rnf status

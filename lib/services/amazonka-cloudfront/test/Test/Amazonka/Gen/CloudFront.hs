@@ -312,6 +312,9 @@ import Test.Tasty
 --         , requestUpdateDistribution $
 --             newUpdateDistribution
 --
+--         , requestUpdateDistributionWithStagingConfig $
+--             newUpdateDistributionWithStagingConfig
+--
 --         , requestUpdateFieldLevelEncryptionConfig $
 --             newUpdateFieldLevelEncryptionConfig
 --
@@ -629,6 +632,9 @@ import Test.Tasty
 --
 --         , responseUpdateDistribution $
 --             newUpdateDistributionResponse
+--
+--         , responseUpdateDistributionWithStagingConfig $
+--             newUpdateDistributionWithStagingConfigResponse
 --
 --         , responseUpdateFieldLevelEncryptionConfig $
 --             newUpdateFieldLevelEncryptionConfigResponse
@@ -1234,6 +1240,12 @@ requestUpdateDistribution =
   req
     "UpdateDistribution"
     "fixture/UpdateDistribution.yaml"
+
+requestUpdateDistributionWithStagingConfig :: UpdateDistributionWithStagingConfig -> TestTree
+requestUpdateDistributionWithStagingConfig =
+  req
+    "UpdateDistributionWithStagingConfig"
+    "fixture/UpdateDistributionWithStagingConfig.yaml"
 
 requestUpdateFieldLevelEncryptionConfig :: UpdateFieldLevelEncryptionConfig -> TestTree
 requestUpdateFieldLevelEncryptionConfig =
@@ -2056,6 +2068,14 @@ responseUpdateDistribution =
     "fixture/UpdateDistributionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateDistribution)
+
+responseUpdateDistributionWithStagingConfig :: UpdateDistributionWithStagingConfigResponse -> TestTree
+responseUpdateDistributionWithStagingConfig =
+  res
+    "UpdateDistributionWithStagingConfigResponse"
+    "fixture/UpdateDistributionWithStagingConfigResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateDistributionWithStagingConfig)
 
 responseUpdateFieldLevelEncryptionConfig :: UpdateFieldLevelEncryptionConfigResponse -> TestTree
 responseUpdateFieldLevelEncryptionConfig =

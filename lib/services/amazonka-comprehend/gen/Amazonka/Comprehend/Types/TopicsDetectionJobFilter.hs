@@ -30,18 +30,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTopicsDetectionJobFilter' smart constructor.
 data TopicsDetectionJobFilter = TopicsDetectionJobFilter'
-  { -- | Filters the list of topic detection jobs based on job status. Returns
+  { jobName :: Prelude.Maybe Prelude.Text,
+    -- | Filters the list of topic detection jobs based on job status. Returns
     -- only jobs with the specified status.
     jobStatus :: Prelude.Maybe JobStatus,
-    jobName :: Prelude.Maybe Prelude.Text,
-    -- | Filters the list of jobs based on the time that the job was submitted
-    -- for processing. Only returns jobs submitted before the specified time.
-    -- Jobs are returned in descending order, newest to oldest.
-    submitTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | Filters the list of jobs based on the time that the job was submitted
     -- for processing. Only returns jobs submitted after the specified time.
     -- Jobs are returned in ascending order, oldest to newest.
-    submitTimeAfter :: Prelude.Maybe Data.POSIX
+    submitTimeAfter :: Prelude.Maybe Data.POSIX,
+    -- | Filters the list of jobs based on the time that the job was submitted
+    -- for processing. Only returns jobs submitted before the specified time.
+    -- Jobs are returned in descending order, newest to oldest.
+    submitTimeBefore :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,43 +53,37 @@ data TopicsDetectionJobFilter = TopicsDetectionJobFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobStatus', 'topicsDetectionJobFilter_jobStatus' - Filters the list of topic detection jobs based on job status. Returns
--- only jobs with the specified status.
---
 -- 'jobName', 'topicsDetectionJobFilter_jobName' -
 --
--- 'submitTimeBefore', 'topicsDetectionJobFilter_submitTimeBefore' - Filters the list of jobs based on the time that the job was submitted
--- for processing. Only returns jobs submitted before the specified time.
--- Jobs are returned in descending order, newest to oldest.
+-- 'jobStatus', 'topicsDetectionJobFilter_jobStatus' - Filters the list of topic detection jobs based on job status. Returns
+-- only jobs with the specified status.
 --
 -- 'submitTimeAfter', 'topicsDetectionJobFilter_submitTimeAfter' - Filters the list of jobs based on the time that the job was submitted
 -- for processing. Only returns jobs submitted after the specified time.
 -- Jobs are returned in ascending order, oldest to newest.
+--
+-- 'submitTimeBefore', 'topicsDetectionJobFilter_submitTimeBefore' - Filters the list of jobs based on the time that the job was submitted
+-- for processing. Only returns jobs submitted before the specified time.
+-- Jobs are returned in descending order, newest to oldest.
 newTopicsDetectionJobFilter ::
   TopicsDetectionJobFilter
 newTopicsDetectionJobFilter =
   TopicsDetectionJobFilter'
-    { jobStatus =
+    { jobName =
         Prelude.Nothing,
-      jobName = Prelude.Nothing,
-      submitTimeBefore = Prelude.Nothing,
-      submitTimeAfter = Prelude.Nothing
+      jobStatus = Prelude.Nothing,
+      submitTimeAfter = Prelude.Nothing,
+      submitTimeBefore = Prelude.Nothing
     }
-
--- | Filters the list of topic detection jobs based on job status. Returns
--- only jobs with the specified status.
-topicsDetectionJobFilter_jobStatus :: Lens.Lens' TopicsDetectionJobFilter (Prelude.Maybe JobStatus)
-topicsDetectionJobFilter_jobStatus = Lens.lens (\TopicsDetectionJobFilter' {jobStatus} -> jobStatus) (\s@TopicsDetectionJobFilter' {} a -> s {jobStatus = a} :: TopicsDetectionJobFilter)
 
 -- |
 topicsDetectionJobFilter_jobName :: Lens.Lens' TopicsDetectionJobFilter (Prelude.Maybe Prelude.Text)
 topicsDetectionJobFilter_jobName = Lens.lens (\TopicsDetectionJobFilter' {jobName} -> jobName) (\s@TopicsDetectionJobFilter' {} a -> s {jobName = a} :: TopicsDetectionJobFilter)
 
--- | Filters the list of jobs based on the time that the job was submitted
--- for processing. Only returns jobs submitted before the specified time.
--- Jobs are returned in descending order, newest to oldest.
-topicsDetectionJobFilter_submitTimeBefore :: Lens.Lens' TopicsDetectionJobFilter (Prelude.Maybe Prelude.UTCTime)
-topicsDetectionJobFilter_submitTimeBefore = Lens.lens (\TopicsDetectionJobFilter' {submitTimeBefore} -> submitTimeBefore) (\s@TopicsDetectionJobFilter' {} a -> s {submitTimeBefore = a} :: TopicsDetectionJobFilter) Prelude.. Lens.mapping Data._Time
+-- | Filters the list of topic detection jobs based on job status. Returns
+-- only jobs with the specified status.
+topicsDetectionJobFilter_jobStatus :: Lens.Lens' TopicsDetectionJobFilter (Prelude.Maybe JobStatus)
+topicsDetectionJobFilter_jobStatus = Lens.lens (\TopicsDetectionJobFilter' {jobStatus} -> jobStatus) (\s@TopicsDetectionJobFilter' {} a -> s {jobStatus = a} :: TopicsDetectionJobFilter)
 
 -- | Filters the list of jobs based on the time that the job was submitted
 -- for processing. Only returns jobs submitted after the specified time.
@@ -97,29 +91,35 @@ topicsDetectionJobFilter_submitTimeBefore = Lens.lens (\TopicsDetectionJobFilter
 topicsDetectionJobFilter_submitTimeAfter :: Lens.Lens' TopicsDetectionJobFilter (Prelude.Maybe Prelude.UTCTime)
 topicsDetectionJobFilter_submitTimeAfter = Lens.lens (\TopicsDetectionJobFilter' {submitTimeAfter} -> submitTimeAfter) (\s@TopicsDetectionJobFilter' {} a -> s {submitTimeAfter = a} :: TopicsDetectionJobFilter) Prelude.. Lens.mapping Data._Time
 
+-- | Filters the list of jobs based on the time that the job was submitted
+-- for processing. Only returns jobs submitted before the specified time.
+-- Jobs are returned in descending order, newest to oldest.
+topicsDetectionJobFilter_submitTimeBefore :: Lens.Lens' TopicsDetectionJobFilter (Prelude.Maybe Prelude.UTCTime)
+topicsDetectionJobFilter_submitTimeBefore = Lens.lens (\TopicsDetectionJobFilter' {submitTimeBefore} -> submitTimeBefore) (\s@TopicsDetectionJobFilter' {} a -> s {submitTimeBefore = a} :: TopicsDetectionJobFilter) Prelude.. Lens.mapping Data._Time
+
 instance Prelude.Hashable TopicsDetectionJobFilter where
   hashWithSalt _salt TopicsDetectionJobFilter' {..} =
-    _salt `Prelude.hashWithSalt` jobStatus
-      `Prelude.hashWithSalt` jobName
-      `Prelude.hashWithSalt` submitTimeBefore
+    _salt `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` jobStatus
       `Prelude.hashWithSalt` submitTimeAfter
+      `Prelude.hashWithSalt` submitTimeBefore
 
 instance Prelude.NFData TopicsDetectionJobFilter where
   rnf TopicsDetectionJobFilter' {..} =
-    Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf submitTimeBefore
+    Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf jobStatus
       `Prelude.seq` Prelude.rnf submitTimeAfter
+      `Prelude.seq` Prelude.rnf submitTimeBefore
 
 instance Data.ToJSON TopicsDetectionJobFilter where
   toJSON TopicsDetectionJobFilter' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("JobStatus" Data..=) Prelude.<$> jobStatus,
-            ("JobName" Data..=) Prelude.<$> jobName,
-            ("SubmitTimeBefore" Data..=)
-              Prelude.<$> submitTimeBefore,
+          [ ("JobName" Data..=) Prelude.<$> jobName,
+            ("JobStatus" Data..=) Prelude.<$> jobStatus,
             ("SubmitTimeAfter" Data..=)
-              Prelude.<$> submitTimeAfter
+              Prelude.<$> submitTimeAfter,
+            ("SubmitTimeBefore" Data..=)
+              Prelude.<$> submitTimeBefore
           ]
       )

@@ -19,11 +19,11 @@ module Amazonka.Evidently.Types
 
     -- * Errors
     _AccessDeniedException,
+    _ConflictException,
     _InternalServerException,
+    _ResourceNotFoundException,
     _ServiceQuotaExceededException,
     _ServiceUnavailableException,
-    _ResourceNotFoundException,
-    _ConflictException,
     _ThrottlingException,
     _ValidationException,
 
@@ -98,11 +98,11 @@ module Amazonka.Evidently.Types
     -- * EvaluationResult
     EvaluationResult (..),
     newEvaluationResult,
-    evaluationResult_variation,
     evaluationResult_details,
     evaluationResult_project,
     evaluationResult_reason,
     evaluationResult_value,
+    evaluationResult_variation,
     evaluationResult_entityId,
     evaluationResult_feature,
 
@@ -122,18 +122,18 @@ module Amazonka.Evidently.Types
     -- * Experiment
     Experiment (..),
     newExperiment,
-    experiment_schedule,
-    experiment_tags,
-    experiment_onlineAbDefinition,
-    experiment_statusReason,
     experiment_description,
-    experiment_project,
     experiment_execution,
-    experiment_treatments,
-    experiment_samplingRate,
-    experiment_segment,
     experiment_metricGoals,
+    experiment_onlineAbDefinition,
+    experiment_project,
     experiment_randomizationSalt,
+    experiment_samplingRate,
+    experiment_schedule,
+    experiment_segment,
+    experiment_statusReason,
+    experiment_tags,
+    experiment_treatments,
     experiment_arn,
     experiment_createdTime,
     experiment_lastUpdatedTime,
@@ -150,18 +150,18 @@ module Amazonka.Evidently.Types
     -- * ExperimentReport
     ExperimentReport (..),
     newExperimentReport,
+    experimentReport_content,
+    experimentReport_metricName,
     experimentReport_reportName,
     experimentReport_treatmentName,
-    experimentReport_metricName,
-    experimentReport_content,
 
     -- * ExperimentResultsData
     ExperimentResultsData (..),
     newExperimentResultsData,
-    experimentResultsData_treatmentName,
     experimentResultsData_metricName,
-    experimentResultsData_values,
     experimentResultsData_resultStat,
+    experimentResultsData_treatmentName,
+    experimentResultsData_values,
 
     -- * ExperimentSchedule
     ExperimentSchedule (..),
@@ -171,12 +171,12 @@ module Amazonka.Evidently.Types
     -- * Feature
     Feature (..),
     newFeature,
-    feature_tags,
-    feature_description,
-    feature_project,
-    feature_evaluationRules,
-    feature_entityOverrides,
     feature_defaultVariation,
+    feature_description,
+    feature_entityOverrides,
+    feature_evaluationRules,
+    feature_project,
+    feature_tags,
     feature_arn,
     feature_createdTime,
     feature_evaluationStrategy,
@@ -189,10 +189,10 @@ module Amazonka.Evidently.Types
     -- * FeatureSummary
     FeatureSummary (..),
     newFeatureSummary,
-    featureSummary_tags,
-    featureSummary_project,
-    featureSummary_evaluationRules,
     featureSummary_defaultVariation,
+    featureSummary_evaluationRules,
+    featureSummary_project,
+    featureSummary_tags,
     featureSummary_arn,
     featureSummary_createdTime,
     featureSummary_evaluationStrategy,
@@ -203,15 +203,15 @@ module Amazonka.Evidently.Types
     -- * Launch
     Launch (..),
     newLaunch,
-    launch_tags,
+    launch_description,
+    launch_execution,
+    launch_groups,
+    launch_metricMonitors,
+    launch_project,
+    launch_randomizationSalt,
     launch_scheduledSplitsDefinition,
     launch_statusReason,
-    launch_description,
-    launch_project,
-    launch_execution,
-    launch_metricMonitors,
-    launch_groups,
-    launch_randomizationSalt,
+    launch_tags,
     launch_arn,
     launch_createdTime,
     launch_lastUpdatedTime,
@@ -243,17 +243,17 @@ module Amazonka.Evidently.Types
     -- * MetricDefinition
     MetricDefinition (..),
     newMetricDefinition,
-    metricDefinition_name,
-    metricDefinition_valueKey,
-    metricDefinition_unitLabel,
-    metricDefinition_eventPattern,
     metricDefinition_entityIdKey,
+    metricDefinition_eventPattern,
+    metricDefinition_name,
+    metricDefinition_unitLabel,
+    metricDefinition_valueKey,
 
     -- * MetricDefinitionConfig
     MetricDefinitionConfig (..),
     newMetricDefinitionConfig,
-    metricDefinitionConfig_unitLabel,
     metricDefinitionConfig_eventPattern,
+    metricDefinitionConfig_unitLabel,
     metricDefinitionConfig_entityIdKey,
     metricDefinitionConfig_name,
     metricDefinitionConfig_valueKey,
@@ -295,15 +295,15 @@ module Amazonka.Evidently.Types
     -- * Project
     Project (..),
     newProject,
-    project_tags,
-    project_dataDelivery,
-    project_appConfigResource,
-    project_description,
+    project_activeExperimentCount,
     project_activeLaunchCount,
+    project_appConfigResource,
+    project_dataDelivery,
+    project_description,
+    project_experimentCount,
     project_featureCount,
     project_launchCount,
-    project_experimentCount,
-    project_activeExperimentCount,
+    project_tags,
     project_arn,
     project_createdTime,
     project_lastUpdatedTime,
@@ -320,8 +320,8 @@ module Amazonka.Evidently.Types
     -- * ProjectAppConfigResourceConfig
     ProjectAppConfigResourceConfig (..),
     newProjectAppConfigResourceConfig,
-    projectAppConfigResourceConfig_environmentId,
     projectAppConfigResourceConfig_applicationId,
+    projectAppConfigResourceConfig_environmentId,
 
     -- * ProjectDataDelivery
     ProjectDataDelivery (..),
@@ -338,13 +338,13 @@ module Amazonka.Evidently.Types
     -- * ProjectSummary
     ProjectSummary (..),
     newProjectSummary,
-    projectSummary_tags,
-    projectSummary_description,
+    projectSummary_activeExperimentCount,
     projectSummary_activeLaunchCount,
+    projectSummary_description,
+    projectSummary_experimentCount,
     projectSummary_featureCount,
     projectSummary_launchCount,
-    projectSummary_experimentCount,
-    projectSummary_activeExperimentCount,
+    projectSummary_tags,
     projectSummary_arn,
     projectSummary_createdTime,
     projectSummary_lastUpdatedTime,
@@ -354,18 +354,18 @@ module Amazonka.Evidently.Types
     -- * PutProjectEventsResultEntry
     PutProjectEventsResultEntry (..),
     newPutProjectEventsResultEntry,
+    putProjectEventsResultEntry_errorCode,
     putProjectEventsResultEntry_errorMessage,
     putProjectEventsResultEntry_eventId,
-    putProjectEventsResultEntry_errorCode,
 
     -- * RefResource
     RefResource (..),
     newRefResource,
     refResource_arn,
-    refResource_status,
     refResource_endTime,
     refResource_lastUpdatedOn,
     refResource_startTime,
+    refResource_status,
     refResource_name,
     refResource_type,
 
@@ -408,10 +408,10 @@ module Amazonka.Evidently.Types
     -- * Segment
     Segment (..),
     newSegment,
-    segment_tags,
     segment_description,
-    segment_launchCount,
     segment_experimentCount,
+    segment_launchCount,
+    segment_tags,
     segment_arn,
     segment_createdTime,
     segment_lastUpdatedTime,
@@ -443,10 +443,10 @@ module Amazonka.Evidently.Types
     -- * VariableValue
     VariableValue (..),
     newVariableValue,
-    variableValue_doubleValue,
-    variableValue_stringValue,
-    variableValue_longValue,
     variableValue_boolValue,
+    variableValue_doubleValue,
+    variableValue_longValue,
+    variableValue_stringValue,
 
     -- * Variation
     Variation (..),
@@ -555,28 +555,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -584,13 +578,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -598,6 +596,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient permissions to perform this action.
@@ -608,6 +608,14 @@ _AccessDeniedException =
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
+-- | A resource was in an inconsistent state during an update or a deletion.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
 -- | Unexpected error while processing the request. Retry the request.
 _InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InternalServerException =
@@ -615,6 +623,14 @@ _InternalServerException =
     defaultService
     "InternalServerException"
     Prelude.. Core.hasStatus 500
+
+-- | The request references a resource that does not exist.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
 
 -- | The request would cause a service quota to be exceeded.
 _ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -631,22 +647,6 @@ _ServiceUnavailableException =
     defaultService
     "ServiceUnavailableException"
     Prelude.. Core.hasStatus 503
-
--- | The request references a resource that does not exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
-
--- | A resource was in an inconsistent state during an update or a deletion.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
 
 -- | The request was denied because of request throttling. Retry the request.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

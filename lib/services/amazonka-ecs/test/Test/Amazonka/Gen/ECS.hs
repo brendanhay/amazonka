@@ -108,6 +108,9 @@ import Test.Tasty
 --         , requestListServices $
 --             newListServices
 --
+--         , requestListServicesByNamespace $
+--             newListServicesByNamespace
+--
 --         , requestListTagsForResource $
 --             newListTagsForResource
 --
@@ -272,6 +275,9 @@ import Test.Tasty
 --
 --         , responseListServices $
 --             newListServicesResponse
+--
+--         , responseListServicesByNamespace $
+--             newListServicesByNamespaceResponse
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
@@ -520,6 +526,12 @@ requestListServices =
   req
     "ListServices"
     "fixture/ListServices.yaml"
+
+requestListServicesByNamespace :: ListServicesByNamespace -> TestTree
+requestListServicesByNamespace =
+  req
+    "ListServicesByNamespace"
+    "fixture/ListServicesByNamespace.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
 requestListTagsForResource =
@@ -900,6 +912,14 @@ responseListServices =
     "fixture/ListServicesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListServices)
+
+responseListServicesByNamespace :: ListServicesByNamespaceResponse -> TestTree
+responseListServicesByNamespace =
+  res
+    "ListServicesByNamespaceResponse"
+    "fixture/ListServicesByNamespaceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListServicesByNamespace)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =

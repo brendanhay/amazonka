@@ -28,10 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSearchPlaceIndexForSuggestionsSummary' smart constructor.
 data SearchPlaceIndexForSuggestionsSummary = SearchPlaceIndexForSuggestionsSummary'
-  { -- | Contains the coordinates for the optional bounding box specified in the
-    -- request.
-    filterBBox :: Prelude.Maybe (Data.Sensitive (Prelude.NonEmpty Prelude.Double)),
-    -- | Contains the coordinates for the optional bias position specified in the
+  { -- | Contains the coordinates for the optional bias position specified in the
     -- request.
     --
     -- This parameter contains a pair of numbers. The first number represents
@@ -41,15 +38,18 @@ data SearchPlaceIndexForSuggestionsSummary = SearchPlaceIndexForSuggestionsSumma
     -- For example, @[-123.1174, 49.2847]@ represents the position with
     -- longitude @-123.1174@ and latitude @49.2847@.
     biasPosition :: Prelude.Maybe (Data.Sensitive (Prelude.NonEmpty Prelude.Double)),
+    -- | Contains the coordinates for the optional bounding box specified in the
+    -- request.
+    filterBBox :: Prelude.Maybe (Data.Sensitive (Prelude.NonEmpty Prelude.Double)),
     -- | Contains the optional country filter specified in the request.
     filterCountries :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | Contains the optional result count limit specified in the request.
-    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The preferred language used to return results. Matches the language in
     -- the request. The value is a valid
     -- <https://tools.ietf.org/search/bcp47 BCP 47> language tag, for example,
     -- @en@ for English.
     language :: Prelude.Maybe Prelude.Text,
+    -- | Contains the optional result count limit specified in the request.
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The geospatial data provider attached to the place index resource
     -- specified in the request. Values can be one of the following:
     --
@@ -73,9 +73,6 @@ data SearchPlaceIndexForSuggestionsSummary = SearchPlaceIndexForSuggestionsSumma
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filterBBox', 'searchPlaceIndexForSuggestionsSummary_filterBBox' - Contains the coordinates for the optional bounding box specified in the
--- request.
---
 -- 'biasPosition', 'searchPlaceIndexForSuggestionsSummary_biasPosition' - Contains the coordinates for the optional bias position specified in the
 -- request.
 --
@@ -86,14 +83,17 @@ data SearchPlaceIndexForSuggestionsSummary = SearchPlaceIndexForSuggestionsSumma
 -- For example, @[-123.1174, 49.2847]@ represents the position with
 -- longitude @-123.1174@ and latitude @49.2847@.
 --
--- 'filterCountries', 'searchPlaceIndexForSuggestionsSummary_filterCountries' - Contains the optional country filter specified in the request.
+-- 'filterBBox', 'searchPlaceIndexForSuggestionsSummary_filterBBox' - Contains the coordinates for the optional bounding box specified in the
+-- request.
 --
--- 'maxResults', 'searchPlaceIndexForSuggestionsSummary_maxResults' - Contains the optional result count limit specified in the request.
+-- 'filterCountries', 'searchPlaceIndexForSuggestionsSummary_filterCountries' - Contains the optional country filter specified in the request.
 --
 -- 'language', 'searchPlaceIndexForSuggestionsSummary_language' - The preferred language used to return results. Matches the language in
 -- the request. The value is a valid
 -- <https://tools.ietf.org/search/bcp47 BCP 47> language tag, for example,
 -- @en@ for English.
+--
+-- 'maxResults', 'searchPlaceIndexForSuggestionsSummary_maxResults' - Contains the optional result count limit specified in the request.
 --
 -- 'dataSource', 'searchPlaceIndexForSuggestionsSummary_dataSource' - The geospatial data provider attached to the place index resource
 -- specified in the request. Values can be one of the following:
@@ -116,20 +116,15 @@ newSearchPlaceIndexForSuggestionsSummary
   pDataSource_
   pText_ =
     SearchPlaceIndexForSuggestionsSummary'
-      { filterBBox =
+      { biasPosition =
           Prelude.Nothing,
-        biasPosition = Prelude.Nothing,
+        filterBBox = Prelude.Nothing,
         filterCountries = Prelude.Nothing,
-        maxResults = Prelude.Nothing,
         language = Prelude.Nothing,
+        maxResults = Prelude.Nothing,
         dataSource = pDataSource_,
         text = Data._Sensitive Lens.# pText_
       }
-
--- | Contains the coordinates for the optional bounding box specified in the
--- request.
-searchPlaceIndexForSuggestionsSummary_filterBBox :: Lens.Lens' SearchPlaceIndexForSuggestionsSummary (Prelude.Maybe (Prelude.NonEmpty Prelude.Double))
-searchPlaceIndexForSuggestionsSummary_filterBBox = Lens.lens (\SearchPlaceIndexForSuggestionsSummary' {filterBBox} -> filterBBox) (\s@SearchPlaceIndexForSuggestionsSummary' {} a -> s {filterBBox = a} :: SearchPlaceIndexForSuggestionsSummary) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Contains the coordinates for the optional bias position specified in the
 -- request.
@@ -143,13 +138,14 @@ searchPlaceIndexForSuggestionsSummary_filterBBox = Lens.lens (\SearchPlaceIndexF
 searchPlaceIndexForSuggestionsSummary_biasPosition :: Lens.Lens' SearchPlaceIndexForSuggestionsSummary (Prelude.Maybe (Prelude.NonEmpty Prelude.Double))
 searchPlaceIndexForSuggestionsSummary_biasPosition = Lens.lens (\SearchPlaceIndexForSuggestionsSummary' {biasPosition} -> biasPosition) (\s@SearchPlaceIndexForSuggestionsSummary' {} a -> s {biasPosition = a} :: SearchPlaceIndexForSuggestionsSummary) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
+-- | Contains the coordinates for the optional bounding box specified in the
+-- request.
+searchPlaceIndexForSuggestionsSummary_filterBBox :: Lens.Lens' SearchPlaceIndexForSuggestionsSummary (Prelude.Maybe (Prelude.NonEmpty Prelude.Double))
+searchPlaceIndexForSuggestionsSummary_filterBBox = Lens.lens (\SearchPlaceIndexForSuggestionsSummary' {filterBBox} -> filterBBox) (\s@SearchPlaceIndexForSuggestionsSummary' {} a -> s {filterBBox = a} :: SearchPlaceIndexForSuggestionsSummary) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
+
 -- | Contains the optional country filter specified in the request.
 searchPlaceIndexForSuggestionsSummary_filterCountries :: Lens.Lens' SearchPlaceIndexForSuggestionsSummary (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 searchPlaceIndexForSuggestionsSummary_filterCountries = Lens.lens (\SearchPlaceIndexForSuggestionsSummary' {filterCountries} -> filterCountries) (\s@SearchPlaceIndexForSuggestionsSummary' {} a -> s {filterCountries = a} :: SearchPlaceIndexForSuggestionsSummary) Prelude.. Lens.mapping Lens.coerced
-
--- | Contains the optional result count limit specified in the request.
-searchPlaceIndexForSuggestionsSummary_maxResults :: Lens.Lens' SearchPlaceIndexForSuggestionsSummary (Prelude.Maybe Prelude.Int)
-searchPlaceIndexForSuggestionsSummary_maxResults = Lens.lens (\SearchPlaceIndexForSuggestionsSummary' {maxResults} -> maxResults) (\s@SearchPlaceIndexForSuggestionsSummary' {} a -> s {maxResults = a} :: SearchPlaceIndexForSuggestionsSummary)
 
 -- | The preferred language used to return results. Matches the language in
 -- the request. The value is a valid
@@ -157,6 +153,10 @@ searchPlaceIndexForSuggestionsSummary_maxResults = Lens.lens (\SearchPlaceIndexF
 -- @en@ for English.
 searchPlaceIndexForSuggestionsSummary_language :: Lens.Lens' SearchPlaceIndexForSuggestionsSummary (Prelude.Maybe Prelude.Text)
 searchPlaceIndexForSuggestionsSummary_language = Lens.lens (\SearchPlaceIndexForSuggestionsSummary' {language} -> language) (\s@SearchPlaceIndexForSuggestionsSummary' {} a -> s {language = a} :: SearchPlaceIndexForSuggestionsSummary)
+
+-- | Contains the optional result count limit specified in the request.
+searchPlaceIndexForSuggestionsSummary_maxResults :: Lens.Lens' SearchPlaceIndexForSuggestionsSummary (Prelude.Maybe Prelude.Int)
+searchPlaceIndexForSuggestionsSummary_maxResults = Lens.lens (\SearchPlaceIndexForSuggestionsSummary' {maxResults} -> maxResults) (\s@SearchPlaceIndexForSuggestionsSummary' {} a -> s {maxResults = a} :: SearchPlaceIndexForSuggestionsSummary)
 
 -- | The geospatial data provider attached to the place index resource
 -- specified in the request. Values can be one of the following:
@@ -183,11 +183,11 @@ instance
       "SearchPlaceIndexForSuggestionsSummary"
       ( \x ->
           SearchPlaceIndexForSuggestionsSummary'
-            Prelude.<$> (x Data..:? "FilterBBox")
-            Prelude.<*> (x Data..:? "BiasPosition")
+            Prelude.<$> (x Data..:? "BiasPosition")
+            Prelude.<*> (x Data..:? "FilterBBox")
             Prelude.<*> (x Data..:? "FilterCountries")
-            Prelude.<*> (x Data..:? "MaxResults")
             Prelude.<*> (x Data..:? "Language")
+            Prelude.<*> (x Data..:? "MaxResults")
             Prelude.<*> (x Data..: "DataSource")
             Prelude.<*> (x Data..: "Text")
       )
@@ -199,11 +199,11 @@ instance
   hashWithSalt
     _salt
     SearchPlaceIndexForSuggestionsSummary' {..} =
-      _salt `Prelude.hashWithSalt` filterBBox
-        `Prelude.hashWithSalt` biasPosition
+      _salt `Prelude.hashWithSalt` biasPosition
+        `Prelude.hashWithSalt` filterBBox
         `Prelude.hashWithSalt` filterCountries
-        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` language
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` dataSource
         `Prelude.hashWithSalt` text
 
@@ -212,10 +212,10 @@ instance
     SearchPlaceIndexForSuggestionsSummary
   where
   rnf SearchPlaceIndexForSuggestionsSummary' {..} =
-    Prelude.rnf filterBBox
-      `Prelude.seq` Prelude.rnf biasPosition
+    Prelude.rnf biasPosition
+      `Prelude.seq` Prelude.rnf filterBBox
       `Prelude.seq` Prelude.rnf filterCountries
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf language
+      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf dataSource
       `Prelude.seq` Prelude.rnf text

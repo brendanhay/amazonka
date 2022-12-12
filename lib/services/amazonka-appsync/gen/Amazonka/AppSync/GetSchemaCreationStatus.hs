@@ -34,8 +34,8 @@ module Amazonka.AppSync.GetSchemaCreationStatus
     newGetSchemaCreationStatusResponse,
 
     -- * Response Lenses
-    getSchemaCreationStatusResponse_status,
     getSchemaCreationStatusResponse_details,
+    getSchemaCreationStatusResponse_status,
     getSchemaCreationStatusResponse_httpStatus,
   )
 where
@@ -85,8 +85,8 @@ instance Core.AWSRequest GetSchemaCreationStatus where
     Response.receiveJSON
       ( \s h x ->
           GetSchemaCreationStatusResponse'
-            Prelude.<$> (x Data..?> "status")
-            Prelude.<*> (x Data..?> "details")
+            Prelude.<$> (x Data..?> "details")
+            Prelude.<*> (x Data..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,12 +118,12 @@ instance Data.ToQuery GetSchemaCreationStatus where
 
 -- | /See:/ 'newGetSchemaCreationStatusResponse' smart constructor.
 data GetSchemaCreationStatusResponse = GetSchemaCreationStatusResponse'
-  { -- | The current state of the schema (PROCESSING, FAILED, SUCCESS, or
+  { -- | Detailed information about the status of the schema creation operation.
+    details :: Prelude.Maybe Prelude.Text,
+    -- | The current state of the schema (PROCESSING, FAILED, SUCCESS, or
     -- NOT_APPLICABLE). When the schema is in the ACTIVE state, you can add
     -- data.
     status :: Prelude.Maybe SchemaStatus,
-    -- | Detailed information about the status of the schema creation operation.
-    details :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -137,11 +137,11 @@ data GetSchemaCreationStatusResponse = GetSchemaCreationStatusResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'details', 'getSchemaCreationStatusResponse_details' - Detailed information about the status of the schema creation operation.
+--
 -- 'status', 'getSchemaCreationStatusResponse_status' - The current state of the schema (PROCESSING, FAILED, SUCCESS, or
 -- NOT_APPLICABLE). When the schema is in the ACTIVE state, you can add
 -- data.
---
--- 'details', 'getSchemaCreationStatusResponse_details' - Detailed information about the status of the schema creation operation.
 --
 -- 'httpStatus', 'getSchemaCreationStatusResponse_httpStatus' - The response's http status code.
 newGetSchemaCreationStatusResponse ::
@@ -150,21 +150,21 @@ newGetSchemaCreationStatusResponse ::
   GetSchemaCreationStatusResponse
 newGetSchemaCreationStatusResponse pHttpStatus_ =
   GetSchemaCreationStatusResponse'
-    { status =
+    { details =
         Prelude.Nothing,
-      details = Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Detailed information about the status of the schema creation operation.
+getSchemaCreationStatusResponse_details :: Lens.Lens' GetSchemaCreationStatusResponse (Prelude.Maybe Prelude.Text)
+getSchemaCreationStatusResponse_details = Lens.lens (\GetSchemaCreationStatusResponse' {details} -> details) (\s@GetSchemaCreationStatusResponse' {} a -> s {details = a} :: GetSchemaCreationStatusResponse)
 
 -- | The current state of the schema (PROCESSING, FAILED, SUCCESS, or
 -- NOT_APPLICABLE). When the schema is in the ACTIVE state, you can add
 -- data.
 getSchemaCreationStatusResponse_status :: Lens.Lens' GetSchemaCreationStatusResponse (Prelude.Maybe SchemaStatus)
 getSchemaCreationStatusResponse_status = Lens.lens (\GetSchemaCreationStatusResponse' {status} -> status) (\s@GetSchemaCreationStatusResponse' {} a -> s {status = a} :: GetSchemaCreationStatusResponse)
-
--- | Detailed information about the status of the schema creation operation.
-getSchemaCreationStatusResponse_details :: Lens.Lens' GetSchemaCreationStatusResponse (Prelude.Maybe Prelude.Text)
-getSchemaCreationStatusResponse_details = Lens.lens (\GetSchemaCreationStatusResponse' {details} -> details) (\s@GetSchemaCreationStatusResponse' {} a -> s {details = a} :: GetSchemaCreationStatusResponse)
 
 -- | The response's http status code.
 getSchemaCreationStatusResponse_httpStatus :: Lens.Lens' GetSchemaCreationStatusResponse Prelude.Int
@@ -175,6 +175,6 @@ instance
     GetSchemaCreationStatusResponse
   where
   rnf GetSchemaCreationStatusResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf details
+    Prelude.rnf details
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

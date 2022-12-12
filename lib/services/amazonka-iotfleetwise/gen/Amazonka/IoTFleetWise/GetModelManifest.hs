@@ -34,9 +34,9 @@ module Amazonka.IoTFleetWise.GetModelManifest
     newGetModelManifestResponse,
 
     -- * Response Lenses
-    getModelManifestResponse_status,
     getModelManifestResponse_description,
     getModelManifestResponse_signalCatalogArn,
+    getModelManifestResponse_status,
     getModelManifestResponse_httpStatus,
     getModelManifestResponse_name,
     getModelManifestResponse_arn,
@@ -90,9 +90,9 @@ instance Core.AWSRequest GetModelManifest where
     Response.receiveJSON
       ( \s h x ->
           GetModelManifestResponse'
-            Prelude.<$> (x Data..?> "status")
-            Prelude.<*> (x Data..?> "description")
+            Prelude.<$> (x Data..?> "description")
             Prelude.<*> (x Data..?> "signalCatalogArn")
+            Prelude.<*> (x Data..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "name")
             Prelude.<*> (x Data..:> "arn")
@@ -137,14 +137,14 @@ instance Data.ToQuery GetModelManifest where
 
 -- | /See:/ 'newGetModelManifestResponse' smart constructor.
 data GetModelManifestResponse = GetModelManifestResponse'
-  { -- | The state of the vehicle model. If the status is @ACTIVE@, the vehicle
-    -- model can\'t be edited. You can edit the vehicle model if the status is
-    -- marked @DRAFT@.
-    status :: Prelude.Maybe ManifestStatus,
-    -- | A brief description of the vehicle model.
+  { -- | A brief description of the vehicle model.
     description :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the signal catalog associated with the vehicle model.
     signalCatalogArn :: Prelude.Maybe Prelude.Text,
+    -- | The state of the vehicle model. If the status is @ACTIVE@, the vehicle
+    -- model can\'t be edited. You can edit the vehicle model if the status is
+    -- marked @DRAFT@.
+    status :: Prelude.Maybe ManifestStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The name of the vehicle model.
@@ -167,13 +167,13 @@ data GetModelManifestResponse = GetModelManifestResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'getModelManifestResponse_status' - The state of the vehicle model. If the status is @ACTIVE@, the vehicle
--- model can\'t be edited. You can edit the vehicle model if the status is
--- marked @DRAFT@.
---
 -- 'description', 'getModelManifestResponse_description' - A brief description of the vehicle model.
 --
 -- 'signalCatalogArn', 'getModelManifestResponse_signalCatalogArn' - The ARN of the signal catalog associated with the vehicle model.
+--
+-- 'status', 'getModelManifestResponse_status' - The state of the vehicle model. If the status is @ACTIVE@, the vehicle
+-- model can\'t be edited. You can edit the vehicle model if the status is
+-- marked @DRAFT@.
 --
 -- 'httpStatus', 'getModelManifestResponse_httpStatus' - The response's http status code.
 --
@@ -204,9 +204,10 @@ newGetModelManifestResponse
   pCreationTime_
   pLastModificationTime_ =
     GetModelManifestResponse'
-      { status = Prelude.Nothing,
-        description = Prelude.Nothing,
+      { description =
+          Prelude.Nothing,
         signalCatalogArn = Prelude.Nothing,
+        status = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         name = pName_,
         arn = pArn_,
@@ -215,12 +216,6 @@ newGetModelManifestResponse
           Data._Time Lens.# pLastModificationTime_
       }
 
--- | The state of the vehicle model. If the status is @ACTIVE@, the vehicle
--- model can\'t be edited. You can edit the vehicle model if the status is
--- marked @DRAFT@.
-getModelManifestResponse_status :: Lens.Lens' GetModelManifestResponse (Prelude.Maybe ManifestStatus)
-getModelManifestResponse_status = Lens.lens (\GetModelManifestResponse' {status} -> status) (\s@GetModelManifestResponse' {} a -> s {status = a} :: GetModelManifestResponse)
-
 -- | A brief description of the vehicle model.
 getModelManifestResponse_description :: Lens.Lens' GetModelManifestResponse (Prelude.Maybe Prelude.Text)
 getModelManifestResponse_description = Lens.lens (\GetModelManifestResponse' {description} -> description) (\s@GetModelManifestResponse' {} a -> s {description = a} :: GetModelManifestResponse)
@@ -228,6 +223,12 @@ getModelManifestResponse_description = Lens.lens (\GetModelManifestResponse' {de
 -- | The ARN of the signal catalog associated with the vehicle model.
 getModelManifestResponse_signalCatalogArn :: Lens.Lens' GetModelManifestResponse (Prelude.Maybe Prelude.Text)
 getModelManifestResponse_signalCatalogArn = Lens.lens (\GetModelManifestResponse' {signalCatalogArn} -> signalCatalogArn) (\s@GetModelManifestResponse' {} a -> s {signalCatalogArn = a} :: GetModelManifestResponse)
+
+-- | The state of the vehicle model. If the status is @ACTIVE@, the vehicle
+-- model can\'t be edited. You can edit the vehicle model if the status is
+-- marked @DRAFT@.
+getModelManifestResponse_status :: Lens.Lens' GetModelManifestResponse (Prelude.Maybe ManifestStatus)
+getModelManifestResponse_status = Lens.lens (\GetModelManifestResponse' {status} -> status) (\s@GetModelManifestResponse' {} a -> s {status = a} :: GetModelManifestResponse)
 
 -- | The response's http status code.
 getModelManifestResponse_httpStatus :: Lens.Lens' GetModelManifestResponse Prelude.Int
@@ -252,9 +253,9 @@ getModelManifestResponse_lastModificationTime = Lens.lens (\GetModelManifestResp
 
 instance Prelude.NFData GetModelManifestResponse where
   rnf GetModelManifestResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf signalCatalogArn
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf arn

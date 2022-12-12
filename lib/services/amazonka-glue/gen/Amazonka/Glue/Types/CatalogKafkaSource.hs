@@ -30,15 +30,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCatalogKafkaSource' smart constructor.
 data CatalogKafkaSource = CatalogKafkaSource'
-  { -- | The amount of time to spend processing each micro batch.
-    windowSize :: Prelude.Maybe Prelude.Natural,
-    -- | Specifies the streaming options.
-    streamingOptions :: Prelude.Maybe KafkaStreamingSourceOptions,
-    -- | Whether to automatically determine the schema from the incoming data.
-    detectSchema :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies options related to data preview for viewing a sample of your
+  { -- | Specifies options related to data preview for viewing a sample of your
     -- data.
     dataPreviewOptions :: Prelude.Maybe StreamingDataPreviewOptions,
+    -- | Whether to automatically determine the schema from the incoming data.
+    detectSchema :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies the streaming options.
+    streamingOptions :: Prelude.Maybe KafkaStreamingSourceOptions,
+    -- | The amount of time to spend processing each micro batch.
+    windowSize :: Prelude.Maybe Prelude.Natural,
     -- | The name of the data store.
     name :: Prelude.Text,
     -- | The name of the table in the database to read from.
@@ -56,14 +56,14 @@ data CatalogKafkaSource = CatalogKafkaSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'windowSize', 'catalogKafkaSource_windowSize' - The amount of time to spend processing each micro batch.
---
--- 'streamingOptions', 'catalogKafkaSource_streamingOptions' - Specifies the streaming options.
+-- 'dataPreviewOptions', 'catalogKafkaSource_dataPreviewOptions' - Specifies options related to data preview for viewing a sample of your
+-- data.
 --
 -- 'detectSchema', 'catalogKafkaSource_detectSchema' - Whether to automatically determine the schema from the incoming data.
 --
--- 'dataPreviewOptions', 'catalogKafkaSource_dataPreviewOptions' - Specifies options related to data preview for viewing a sample of your
--- data.
+-- 'streamingOptions', 'catalogKafkaSource_streamingOptions' - Specifies the streaming options.
+--
+-- 'windowSize', 'catalogKafkaSource_windowSize' - The amount of time to spend processing each micro batch.
 --
 -- 'name', 'catalogKafkaSource_name' - The name of the data store.
 --
@@ -80,31 +80,32 @@ newCatalogKafkaSource ::
   CatalogKafkaSource
 newCatalogKafkaSource pName_ pTable_ pDatabase_ =
   CatalogKafkaSource'
-    { windowSize = Prelude.Nothing,
-      streamingOptions = Prelude.Nothing,
+    { dataPreviewOptions =
+        Prelude.Nothing,
       detectSchema = Prelude.Nothing,
-      dataPreviewOptions = Prelude.Nothing,
+      streamingOptions = Prelude.Nothing,
+      windowSize = Prelude.Nothing,
       name = pName_,
       table = pTable_,
       database = pDatabase_
     }
 
--- | The amount of time to spend processing each micro batch.
-catalogKafkaSource_windowSize :: Lens.Lens' CatalogKafkaSource (Prelude.Maybe Prelude.Natural)
-catalogKafkaSource_windowSize = Lens.lens (\CatalogKafkaSource' {windowSize} -> windowSize) (\s@CatalogKafkaSource' {} a -> s {windowSize = a} :: CatalogKafkaSource)
-
--- | Specifies the streaming options.
-catalogKafkaSource_streamingOptions :: Lens.Lens' CatalogKafkaSource (Prelude.Maybe KafkaStreamingSourceOptions)
-catalogKafkaSource_streamingOptions = Lens.lens (\CatalogKafkaSource' {streamingOptions} -> streamingOptions) (\s@CatalogKafkaSource' {} a -> s {streamingOptions = a} :: CatalogKafkaSource)
+-- | Specifies options related to data preview for viewing a sample of your
+-- data.
+catalogKafkaSource_dataPreviewOptions :: Lens.Lens' CatalogKafkaSource (Prelude.Maybe StreamingDataPreviewOptions)
+catalogKafkaSource_dataPreviewOptions = Lens.lens (\CatalogKafkaSource' {dataPreviewOptions} -> dataPreviewOptions) (\s@CatalogKafkaSource' {} a -> s {dataPreviewOptions = a} :: CatalogKafkaSource)
 
 -- | Whether to automatically determine the schema from the incoming data.
 catalogKafkaSource_detectSchema :: Lens.Lens' CatalogKafkaSource (Prelude.Maybe Prelude.Bool)
 catalogKafkaSource_detectSchema = Lens.lens (\CatalogKafkaSource' {detectSchema} -> detectSchema) (\s@CatalogKafkaSource' {} a -> s {detectSchema = a} :: CatalogKafkaSource)
 
--- | Specifies options related to data preview for viewing a sample of your
--- data.
-catalogKafkaSource_dataPreviewOptions :: Lens.Lens' CatalogKafkaSource (Prelude.Maybe StreamingDataPreviewOptions)
-catalogKafkaSource_dataPreviewOptions = Lens.lens (\CatalogKafkaSource' {dataPreviewOptions} -> dataPreviewOptions) (\s@CatalogKafkaSource' {} a -> s {dataPreviewOptions = a} :: CatalogKafkaSource)
+-- | Specifies the streaming options.
+catalogKafkaSource_streamingOptions :: Lens.Lens' CatalogKafkaSource (Prelude.Maybe KafkaStreamingSourceOptions)
+catalogKafkaSource_streamingOptions = Lens.lens (\CatalogKafkaSource' {streamingOptions} -> streamingOptions) (\s@CatalogKafkaSource' {} a -> s {streamingOptions = a} :: CatalogKafkaSource)
+
+-- | The amount of time to spend processing each micro batch.
+catalogKafkaSource_windowSize :: Lens.Lens' CatalogKafkaSource (Prelude.Maybe Prelude.Natural)
+catalogKafkaSource_windowSize = Lens.lens (\CatalogKafkaSource' {windowSize} -> windowSize) (\s@CatalogKafkaSource' {} a -> s {windowSize = a} :: CatalogKafkaSource)
 
 -- | The name of the data store.
 catalogKafkaSource_name :: Lens.Lens' CatalogKafkaSource Prelude.Text
@@ -124,10 +125,10 @@ instance Data.FromJSON CatalogKafkaSource where
       "CatalogKafkaSource"
       ( \x ->
           CatalogKafkaSource'
-            Prelude.<$> (x Data..:? "WindowSize")
-            Prelude.<*> (x Data..:? "StreamingOptions")
+            Prelude.<$> (x Data..:? "DataPreviewOptions")
             Prelude.<*> (x Data..:? "DetectSchema")
-            Prelude.<*> (x Data..:? "DataPreviewOptions")
+            Prelude.<*> (x Data..:? "StreamingOptions")
+            Prelude.<*> (x Data..:? "WindowSize")
             Prelude.<*> (x Data..: "Name")
             Prelude.<*> (x Data..: "Table")
             Prelude.<*> (x Data..: "Database")
@@ -135,20 +136,20 @@ instance Data.FromJSON CatalogKafkaSource where
 
 instance Prelude.Hashable CatalogKafkaSource where
   hashWithSalt _salt CatalogKafkaSource' {..} =
-    _salt `Prelude.hashWithSalt` windowSize
-      `Prelude.hashWithSalt` streamingOptions
+    _salt `Prelude.hashWithSalt` dataPreviewOptions
       `Prelude.hashWithSalt` detectSchema
-      `Prelude.hashWithSalt` dataPreviewOptions
+      `Prelude.hashWithSalt` streamingOptions
+      `Prelude.hashWithSalt` windowSize
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` table
       `Prelude.hashWithSalt` database
 
 instance Prelude.NFData CatalogKafkaSource where
   rnf CatalogKafkaSource' {..} =
-    Prelude.rnf windowSize
-      `Prelude.seq` Prelude.rnf streamingOptions
+    Prelude.rnf dataPreviewOptions
       `Prelude.seq` Prelude.rnf detectSchema
-      `Prelude.seq` Prelude.rnf dataPreviewOptions
+      `Prelude.seq` Prelude.rnf streamingOptions
+      `Prelude.seq` Prelude.rnf windowSize
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf table
       `Prelude.seq` Prelude.rnf database
@@ -157,12 +158,12 @@ instance Data.ToJSON CatalogKafkaSource where
   toJSON CatalogKafkaSource' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("WindowSize" Data..=) Prelude.<$> windowSize,
+          [ ("DataPreviewOptions" Data..=)
+              Prelude.<$> dataPreviewOptions,
+            ("DetectSchema" Data..=) Prelude.<$> detectSchema,
             ("StreamingOptions" Data..=)
               Prelude.<$> streamingOptions,
-            ("DetectSchema" Data..=) Prelude.<$> detectSchema,
-            ("DataPreviewOptions" Data..=)
-              Prelude.<$> dataPreviewOptions,
+            ("WindowSize" Data..=) Prelude.<$> windowSize,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("Table" Data..= table),
             Prelude.Just ("Database" Data..= database)

@@ -41,8 +41,8 @@ module Amazonka.LexModels.GetIntentVersions
     newGetIntentVersions,
 
     -- * Request Lenses
-    getIntentVersions_nextToken,
     getIntentVersions_maxResults,
+    getIntentVersions_nextToken,
     getIntentVersions_name,
 
     -- * Destructuring the Response
@@ -50,8 +50,8 @@ module Amazonka.LexModels.GetIntentVersions
     newGetIntentVersionsResponse,
 
     -- * Response Lenses
-    getIntentVersionsResponse_nextToken,
     getIntentVersionsResponse_intents,
+    getIntentVersionsResponse_nextToken,
     getIntentVersionsResponse_httpStatus,
   )
 where
@@ -66,14 +66,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetIntentVersions' smart constructor.
 data GetIntentVersions = GetIntentVersions'
-  { -- | A pagination token for fetching the next page of intent versions. If the
+  { -- | The maximum number of intent versions to return in the response. The
+    -- default is 10.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A pagination token for fetching the next page of intent versions. If the
     -- response to this call is truncated, Amazon Lex returns a pagination
     -- token in the response. To fetch the next page of versions, specify the
     -- pagination token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of intent versions to return in the response. The
-    -- default is 10.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the intent for which versions should be returned.
     name :: Prelude.Text
   }
@@ -87,13 +87,13 @@ data GetIntentVersions = GetIntentVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'getIntentVersions_maxResults' - The maximum number of intent versions to return in the response. The
+-- default is 10.
+--
 -- 'nextToken', 'getIntentVersions_nextToken' - A pagination token for fetching the next page of intent versions. If the
 -- response to this call is truncated, Amazon Lex returns a pagination
 -- token in the response. To fetch the next page of versions, specify the
 -- pagination token in the next request.
---
--- 'maxResults', 'getIntentVersions_maxResults' - The maximum number of intent versions to return in the response. The
--- default is 10.
 --
 -- 'name', 'getIntentVersions_name' - The name of the intent for which versions should be returned.
 newGetIntentVersions ::
@@ -102,10 +102,15 @@ newGetIntentVersions ::
   GetIntentVersions
 newGetIntentVersions pName_ =
   GetIntentVersions'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       name = pName_
     }
+
+-- | The maximum number of intent versions to return in the response. The
+-- default is 10.
+getIntentVersions_maxResults :: Lens.Lens' GetIntentVersions (Prelude.Maybe Prelude.Natural)
+getIntentVersions_maxResults = Lens.lens (\GetIntentVersions' {maxResults} -> maxResults) (\s@GetIntentVersions' {} a -> s {maxResults = a} :: GetIntentVersions)
 
 -- | A pagination token for fetching the next page of intent versions. If the
 -- response to this call is truncated, Amazon Lex returns a pagination
@@ -113,11 +118,6 @@ newGetIntentVersions pName_ =
 -- pagination token in the next request.
 getIntentVersions_nextToken :: Lens.Lens' GetIntentVersions (Prelude.Maybe Prelude.Text)
 getIntentVersions_nextToken = Lens.lens (\GetIntentVersions' {nextToken} -> nextToken) (\s@GetIntentVersions' {} a -> s {nextToken = a} :: GetIntentVersions)
-
--- | The maximum number of intent versions to return in the response. The
--- default is 10.
-getIntentVersions_maxResults :: Lens.Lens' GetIntentVersions (Prelude.Maybe Prelude.Natural)
-getIntentVersions_maxResults = Lens.lens (\GetIntentVersions' {maxResults} -> maxResults) (\s@GetIntentVersions' {} a -> s {maxResults = a} :: GetIntentVersions)
 
 -- | The name of the intent for which versions should be returned.
 getIntentVersions_name :: Lens.Lens' GetIntentVersions Prelude.Text
@@ -155,21 +155,21 @@ instance Core.AWSRequest GetIntentVersions where
     Response.receiveJSON
       ( \s h x ->
           GetIntentVersionsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "intents" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "intents" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetIntentVersions where
   hashWithSalt _salt GetIntentVersions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData GetIntentVersions where
   rnf GetIntentVersions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders GetIntentVersions where
@@ -191,20 +191,20 @@ instance Data.ToPath GetIntentVersions where
 instance Data.ToQuery GetIntentVersions where
   toQuery GetIntentVersions' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newGetIntentVersionsResponse' smart constructor.
 data GetIntentVersionsResponse = GetIntentVersionsResponse'
-  { -- | A pagination token for fetching the next page of intent versions. If the
+  { -- | An array of @IntentMetadata@ objects, one for each numbered version of
+    -- the intent plus one for the @$LATEST@ version.
+    intents :: Prelude.Maybe [IntentMetadata],
+    -- | A pagination token for fetching the next page of intent versions. If the
     -- response to this call is truncated, Amazon Lex returns a pagination
     -- token in the response. To fetch the next page of versions, specify the
     -- pagination token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of @IntentMetadata@ objects, one for each numbered version of
-    -- the intent plus one for the @$LATEST@ version.
-    intents :: Prelude.Maybe [IntentMetadata],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -218,13 +218,13 @@ data GetIntentVersionsResponse = GetIntentVersionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'intents', 'getIntentVersionsResponse_intents' - An array of @IntentMetadata@ objects, one for each numbered version of
+-- the intent plus one for the @$LATEST@ version.
+--
 -- 'nextToken', 'getIntentVersionsResponse_nextToken' - A pagination token for fetching the next page of intent versions. If the
 -- response to this call is truncated, Amazon Lex returns a pagination
 -- token in the response. To fetch the next page of versions, specify the
 -- pagination token in the next request.
---
--- 'intents', 'getIntentVersionsResponse_intents' - An array of @IntentMetadata@ objects, one for each numbered version of
--- the intent plus one for the @$LATEST@ version.
 --
 -- 'httpStatus', 'getIntentVersionsResponse_httpStatus' - The response's http status code.
 newGetIntentVersionsResponse ::
@@ -233,11 +233,16 @@ newGetIntentVersionsResponse ::
   GetIntentVersionsResponse
 newGetIntentVersionsResponse pHttpStatus_ =
   GetIntentVersionsResponse'
-    { nextToken =
+    { intents =
         Prelude.Nothing,
-      intents = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array of @IntentMetadata@ objects, one for each numbered version of
+-- the intent plus one for the @$LATEST@ version.
+getIntentVersionsResponse_intents :: Lens.Lens' GetIntentVersionsResponse (Prelude.Maybe [IntentMetadata])
+getIntentVersionsResponse_intents = Lens.lens (\GetIntentVersionsResponse' {intents} -> intents) (\s@GetIntentVersionsResponse' {} a -> s {intents = a} :: GetIntentVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A pagination token for fetching the next page of intent versions. If the
 -- response to this call is truncated, Amazon Lex returns a pagination
@@ -246,17 +251,12 @@ newGetIntentVersionsResponse pHttpStatus_ =
 getIntentVersionsResponse_nextToken :: Lens.Lens' GetIntentVersionsResponse (Prelude.Maybe Prelude.Text)
 getIntentVersionsResponse_nextToken = Lens.lens (\GetIntentVersionsResponse' {nextToken} -> nextToken) (\s@GetIntentVersionsResponse' {} a -> s {nextToken = a} :: GetIntentVersionsResponse)
 
--- | An array of @IntentMetadata@ objects, one for each numbered version of
--- the intent plus one for the @$LATEST@ version.
-getIntentVersionsResponse_intents :: Lens.Lens' GetIntentVersionsResponse (Prelude.Maybe [IntentMetadata])
-getIntentVersionsResponse_intents = Lens.lens (\GetIntentVersionsResponse' {intents} -> intents) (\s@GetIntentVersionsResponse' {} a -> s {intents = a} :: GetIntentVersionsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 getIntentVersionsResponse_httpStatus :: Lens.Lens' GetIntentVersionsResponse Prelude.Int
 getIntentVersionsResponse_httpStatus = Lens.lens (\GetIntentVersionsResponse' {httpStatus} -> httpStatus) (\s@GetIntentVersionsResponse' {} a -> s {httpStatus = a} :: GetIntentVersionsResponse)
 
 instance Prelude.NFData GetIntentVersionsResponse where
   rnf GetIntentVersionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf intents
+    Prelude.rnf intents
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -31,12 +31,12 @@ import Amazonka.SESV2.Types.SuppressionListDestination
 --
 -- /See:/ 'newImportDestination' smart constructor.
 data ImportDestination = ImportDestination'
-  { -- | An object that contains the action of the import job towards suppression
+  { -- | An object that contains the action of the import job towards a contact
     -- list.
-    suppressionListDestination :: Prelude.Maybe SuppressionListDestination,
-    -- | An object that contains the action of the import job towards a contact
+    contactListDestination :: Prelude.Maybe ContactListDestination,
+    -- | An object that contains the action of the import job towards suppression
     -- list.
-    contactListDestination :: Prelude.Maybe ContactListDestination
+    suppressionListDestination :: Prelude.Maybe SuppressionListDestination
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,29 +48,29 @@ data ImportDestination = ImportDestination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'suppressionListDestination', 'importDestination_suppressionListDestination' - An object that contains the action of the import job towards suppression
+-- 'contactListDestination', 'importDestination_contactListDestination' - An object that contains the action of the import job towards a contact
 -- list.
 --
--- 'contactListDestination', 'importDestination_contactListDestination' - An object that contains the action of the import job towards a contact
+-- 'suppressionListDestination', 'importDestination_suppressionListDestination' - An object that contains the action of the import job towards suppression
 -- list.
 newImportDestination ::
   ImportDestination
 newImportDestination =
   ImportDestination'
-    { suppressionListDestination =
+    { contactListDestination =
         Prelude.Nothing,
-      contactListDestination = Prelude.Nothing
+      suppressionListDestination = Prelude.Nothing
     }
-
--- | An object that contains the action of the import job towards suppression
--- list.
-importDestination_suppressionListDestination :: Lens.Lens' ImportDestination (Prelude.Maybe SuppressionListDestination)
-importDestination_suppressionListDestination = Lens.lens (\ImportDestination' {suppressionListDestination} -> suppressionListDestination) (\s@ImportDestination' {} a -> s {suppressionListDestination = a} :: ImportDestination)
 
 -- | An object that contains the action of the import job towards a contact
 -- list.
 importDestination_contactListDestination :: Lens.Lens' ImportDestination (Prelude.Maybe ContactListDestination)
 importDestination_contactListDestination = Lens.lens (\ImportDestination' {contactListDestination} -> contactListDestination) (\s@ImportDestination' {} a -> s {contactListDestination = a} :: ImportDestination)
+
+-- | An object that contains the action of the import job towards suppression
+-- list.
+importDestination_suppressionListDestination :: Lens.Lens' ImportDestination (Prelude.Maybe SuppressionListDestination)
+importDestination_suppressionListDestination = Lens.lens (\ImportDestination' {suppressionListDestination} -> suppressionListDestination) (\s@ImportDestination' {} a -> s {suppressionListDestination = a} :: ImportDestination)
 
 instance Data.FromJSON ImportDestination where
   parseJSON =
@@ -78,28 +78,27 @@ instance Data.FromJSON ImportDestination where
       "ImportDestination"
       ( \x ->
           ImportDestination'
-            Prelude.<$> (x Data..:? "SuppressionListDestination")
-            Prelude.<*> (x Data..:? "ContactListDestination")
+            Prelude.<$> (x Data..:? "ContactListDestination")
+            Prelude.<*> (x Data..:? "SuppressionListDestination")
       )
 
 instance Prelude.Hashable ImportDestination where
   hashWithSalt _salt ImportDestination' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` contactListDestination
       `Prelude.hashWithSalt` suppressionListDestination
-      `Prelude.hashWithSalt` contactListDestination
 
 instance Prelude.NFData ImportDestination where
   rnf ImportDestination' {..} =
-    Prelude.rnf suppressionListDestination
-      `Prelude.seq` Prelude.rnf contactListDestination
+    Prelude.rnf contactListDestination
+      `Prelude.seq` Prelude.rnf suppressionListDestination
 
 instance Data.ToJSON ImportDestination where
   toJSON ImportDestination' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SuppressionListDestination" Data..=)
-              Prelude.<$> suppressionListDestination,
-            ("ContactListDestination" Data..=)
-              Prelude.<$> contactListDestination
+          [ ("ContactListDestination" Data..=)
+              Prelude.<$> contactListDestination,
+            ("SuppressionListDestination" Data..=)
+              Prelude.<$> suppressionListDestination
           ]
       )

@@ -30,8 +30,8 @@ module Amazonka.NetworkManager.PutCoreNetworkPolicy
 
     -- * Request Lenses
     putCoreNetworkPolicy_clientToken,
-    putCoreNetworkPolicy_latestVersionId,
     putCoreNetworkPolicy_description,
+    putCoreNetworkPolicy_latestVersionId,
     putCoreNetworkPolicy_coreNetworkId,
     putCoreNetworkPolicy_policyDocument,
 
@@ -57,10 +57,10 @@ import qualified Amazonka.Response as Response
 data PutCoreNetworkPolicy = PutCoreNetworkPolicy'
   { -- | The client token associated with the request.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The ID of a core network policy.
-    latestVersionId :: Prelude.Maybe Prelude.Int,
     -- | a core network policy description.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The ID of a core network policy.
+    latestVersionId :: Prelude.Maybe Prelude.Int,
     -- | The ID of a core network.
     coreNetworkId :: Prelude.Text,
     -- | The policy document.
@@ -78,9 +78,9 @@ data PutCoreNetworkPolicy = PutCoreNetworkPolicy'
 --
 -- 'clientToken', 'putCoreNetworkPolicy_clientToken' - The client token associated with the request.
 --
--- 'latestVersionId', 'putCoreNetworkPolicy_latestVersionId' - The ID of a core network policy.
---
 -- 'description', 'putCoreNetworkPolicy_description' - a core network policy description.
+--
+-- 'latestVersionId', 'putCoreNetworkPolicy_latestVersionId' - The ID of a core network policy.
 --
 -- 'coreNetworkId', 'putCoreNetworkPolicy_coreNetworkId' - The ID of a core network.
 --
@@ -97,8 +97,8 @@ newPutCoreNetworkPolicy
     PutCoreNetworkPolicy'
       { clientToken =
           Prelude.Nothing,
-        latestVersionId = Prelude.Nothing,
         description = Prelude.Nothing,
+        latestVersionId = Prelude.Nothing,
         coreNetworkId = pCoreNetworkId_,
         policyDocument = pPolicyDocument_
       }
@@ -107,13 +107,13 @@ newPutCoreNetworkPolicy
 putCoreNetworkPolicy_clientToken :: Lens.Lens' PutCoreNetworkPolicy (Prelude.Maybe Prelude.Text)
 putCoreNetworkPolicy_clientToken = Lens.lens (\PutCoreNetworkPolicy' {clientToken} -> clientToken) (\s@PutCoreNetworkPolicy' {} a -> s {clientToken = a} :: PutCoreNetworkPolicy)
 
--- | The ID of a core network policy.
-putCoreNetworkPolicy_latestVersionId :: Lens.Lens' PutCoreNetworkPolicy (Prelude.Maybe Prelude.Int)
-putCoreNetworkPolicy_latestVersionId = Lens.lens (\PutCoreNetworkPolicy' {latestVersionId} -> latestVersionId) (\s@PutCoreNetworkPolicy' {} a -> s {latestVersionId = a} :: PutCoreNetworkPolicy)
-
 -- | a core network policy description.
 putCoreNetworkPolicy_description :: Lens.Lens' PutCoreNetworkPolicy (Prelude.Maybe Prelude.Text)
 putCoreNetworkPolicy_description = Lens.lens (\PutCoreNetworkPolicy' {description} -> description) (\s@PutCoreNetworkPolicy' {} a -> s {description = a} :: PutCoreNetworkPolicy)
+
+-- | The ID of a core network policy.
+putCoreNetworkPolicy_latestVersionId :: Lens.Lens' PutCoreNetworkPolicy (Prelude.Maybe Prelude.Int)
+putCoreNetworkPolicy_latestVersionId = Lens.lens (\PutCoreNetworkPolicy' {latestVersionId} -> latestVersionId) (\s@PutCoreNetworkPolicy' {} a -> s {latestVersionId = a} :: PutCoreNetworkPolicy)
 
 -- | The ID of a core network.
 putCoreNetworkPolicy_coreNetworkId :: Lens.Lens' PutCoreNetworkPolicy Prelude.Text
@@ -140,16 +140,16 @@ instance Core.AWSRequest PutCoreNetworkPolicy where
 instance Prelude.Hashable PutCoreNetworkPolicy where
   hashWithSalt _salt PutCoreNetworkPolicy' {..} =
     _salt `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` latestVersionId
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` latestVersionId
       `Prelude.hashWithSalt` coreNetworkId
       `Prelude.hashWithSalt` policyDocument
 
 instance Prelude.NFData PutCoreNetworkPolicy where
   rnf PutCoreNetworkPolicy' {..} =
     Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf latestVersionId
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf latestVersionId
       `Prelude.seq` Prelude.rnf coreNetworkId
       `Prelude.seq` Prelude.rnf policyDocument
 
@@ -169,9 +169,9 @@ instance Data.ToJSON PutCoreNetworkPolicy where
     Data.object
       ( Prelude.catMaybes
           [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("Description" Data..=) Prelude.<$> description,
             ("LatestVersionId" Data..=)
               Prelude.<$> latestVersionId,
-            ("Description" Data..=) Prelude.<$> description,
             Prelude.Just
               ("PolicyDocument" Data..= policyDocument)
           ]

@@ -32,12 +32,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUpdateBackendAuthForgotPasswordConfig' smart constructor.
 data UpdateBackendAuthForgotPasswordConfig = UpdateBackendAuthForgotPasswordConfig'
-  { -- | __(DEPRECATED)__ The configuration for the email sent when an app user
-    -- forgets their password.
-    emailSettings :: Prelude.Maybe EmailSettings,
-    -- | __(DEPRECATED)__ Describes which mode to use (either SMS or email) to
+  { -- | __(DEPRECATED)__ Describes which mode to use (either SMS or email) to
     -- deliver messages to app users that want to recover their password.
     deliveryMethod :: Prelude.Maybe DeliveryMethod,
+    -- | __(DEPRECATED)__ The configuration for the email sent when an app user
+    -- forgets their password.
+    emailSettings :: Prelude.Maybe EmailSettings,
     -- | __(DEPRECATED)__ The configuration for the SMS message sent when an
     -- Amplify app user forgets their password.
     smsSettings :: Prelude.Maybe SmsSettings
@@ -52,11 +52,11 @@ data UpdateBackendAuthForgotPasswordConfig = UpdateBackendAuthForgotPasswordConf
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'emailSettings', 'updateBackendAuthForgotPasswordConfig_emailSettings' - __(DEPRECATED)__ The configuration for the email sent when an app user
--- forgets their password.
---
 -- 'deliveryMethod', 'updateBackendAuthForgotPasswordConfig_deliveryMethod' - __(DEPRECATED)__ Describes which mode to use (either SMS or email) to
 -- deliver messages to app users that want to recover their password.
+--
+-- 'emailSettings', 'updateBackendAuthForgotPasswordConfig_emailSettings' - __(DEPRECATED)__ The configuration for the email sent when an app user
+-- forgets their password.
 --
 -- 'smsSettings', 'updateBackendAuthForgotPasswordConfig_smsSettings' - __(DEPRECATED)__ The configuration for the SMS message sent when an
 -- Amplify app user forgets their password.
@@ -64,21 +64,21 @@ newUpdateBackendAuthForgotPasswordConfig ::
   UpdateBackendAuthForgotPasswordConfig
 newUpdateBackendAuthForgotPasswordConfig =
   UpdateBackendAuthForgotPasswordConfig'
-    { emailSettings =
+    { deliveryMethod =
         Prelude.Nothing,
-      deliveryMethod = Prelude.Nothing,
+      emailSettings = Prelude.Nothing,
       smsSettings = Prelude.Nothing
     }
-
--- | __(DEPRECATED)__ The configuration for the email sent when an app user
--- forgets their password.
-updateBackendAuthForgotPasswordConfig_emailSettings :: Lens.Lens' UpdateBackendAuthForgotPasswordConfig (Prelude.Maybe EmailSettings)
-updateBackendAuthForgotPasswordConfig_emailSettings = Lens.lens (\UpdateBackendAuthForgotPasswordConfig' {emailSettings} -> emailSettings) (\s@UpdateBackendAuthForgotPasswordConfig' {} a -> s {emailSettings = a} :: UpdateBackendAuthForgotPasswordConfig)
 
 -- | __(DEPRECATED)__ Describes which mode to use (either SMS or email) to
 -- deliver messages to app users that want to recover their password.
 updateBackendAuthForgotPasswordConfig_deliveryMethod :: Lens.Lens' UpdateBackendAuthForgotPasswordConfig (Prelude.Maybe DeliveryMethod)
 updateBackendAuthForgotPasswordConfig_deliveryMethod = Lens.lens (\UpdateBackendAuthForgotPasswordConfig' {deliveryMethod} -> deliveryMethod) (\s@UpdateBackendAuthForgotPasswordConfig' {} a -> s {deliveryMethod = a} :: UpdateBackendAuthForgotPasswordConfig)
+
+-- | __(DEPRECATED)__ The configuration for the email sent when an app user
+-- forgets their password.
+updateBackendAuthForgotPasswordConfig_emailSettings :: Lens.Lens' UpdateBackendAuthForgotPasswordConfig (Prelude.Maybe EmailSettings)
+updateBackendAuthForgotPasswordConfig_emailSettings = Lens.lens (\UpdateBackendAuthForgotPasswordConfig' {emailSettings} -> emailSettings) (\s@UpdateBackendAuthForgotPasswordConfig' {} a -> s {emailSettings = a} :: UpdateBackendAuthForgotPasswordConfig)
 
 -- | __(DEPRECATED)__ The configuration for the SMS message sent when an
 -- Amplify app user forgets their password.
@@ -92,8 +92,8 @@ instance
   hashWithSalt
     _salt
     UpdateBackendAuthForgotPasswordConfig' {..} =
-      _salt `Prelude.hashWithSalt` emailSettings
-        `Prelude.hashWithSalt` deliveryMethod
+      _salt `Prelude.hashWithSalt` deliveryMethod
+        `Prelude.hashWithSalt` emailSettings
         `Prelude.hashWithSalt` smsSettings
 
 instance
@@ -101,8 +101,8 @@ instance
     UpdateBackendAuthForgotPasswordConfig
   where
   rnf UpdateBackendAuthForgotPasswordConfig' {..} =
-    Prelude.rnf emailSettings
-      `Prelude.seq` Prelude.rnf deliveryMethod
+    Prelude.rnf deliveryMethod
+      `Prelude.seq` Prelude.rnf emailSettings
       `Prelude.seq` Prelude.rnf smsSettings
 
 instance
@@ -112,9 +112,9 @@ instance
   toJSON UpdateBackendAuthForgotPasswordConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("emailSettings" Data..=) Prelude.<$> emailSettings,
-            ("deliveryMethod" Data..=)
+          [ ("deliveryMethod" Data..=)
               Prelude.<$> deliveryMethod,
+            ("emailSettings" Data..=) Prelude.<$> emailSettings,
             ("smsSettings" Data..=) Prelude.<$> smsSettings
           ]
       )

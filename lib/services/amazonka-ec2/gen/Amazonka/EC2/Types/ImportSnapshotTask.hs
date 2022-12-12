@@ -31,14 +31,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newImportSnapshotTask' smart constructor.
 data ImportSnapshotTask = ImportSnapshotTask'
-  { -- | The tags for the import snapshot task.
-    tags :: Prelude.Maybe [Tag],
+  { -- | A description of the import snapshot task.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The ID of the import snapshot task.
     importTaskId :: Prelude.Maybe Prelude.Text,
-    -- | A description of the import snapshot task.
-    description :: Prelude.Maybe Prelude.Text,
     -- | Describes an import snapshot task.
-    snapshotTaskDetail :: Prelude.Maybe SnapshotTaskDetail
+    snapshotTaskDetail :: Prelude.Maybe SnapshotTaskDetail,
+    -- | The tags for the import snapshot task.
+    tags :: Prelude.Maybe [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,59 +50,59 @@ data ImportSnapshotTask = ImportSnapshotTask'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'importSnapshotTask_tags' - The tags for the import snapshot task.
+-- 'description', 'importSnapshotTask_description' - A description of the import snapshot task.
 --
 -- 'importTaskId', 'importSnapshotTask_importTaskId' - The ID of the import snapshot task.
 --
--- 'description', 'importSnapshotTask_description' - A description of the import snapshot task.
---
 -- 'snapshotTaskDetail', 'importSnapshotTask_snapshotTaskDetail' - Describes an import snapshot task.
+--
+-- 'tags', 'importSnapshotTask_tags' - The tags for the import snapshot task.
 newImportSnapshotTask ::
   ImportSnapshotTask
 newImportSnapshotTask =
   ImportSnapshotTask'
-    { tags = Prelude.Nothing,
+    { description = Prelude.Nothing,
       importTaskId = Prelude.Nothing,
-      description = Prelude.Nothing,
-      snapshotTaskDetail = Prelude.Nothing
+      snapshotTaskDetail = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
-
--- | The tags for the import snapshot task.
-importSnapshotTask_tags :: Lens.Lens' ImportSnapshotTask (Prelude.Maybe [Tag])
-importSnapshotTask_tags = Lens.lens (\ImportSnapshotTask' {tags} -> tags) (\s@ImportSnapshotTask' {} a -> s {tags = a} :: ImportSnapshotTask) Prelude.. Lens.mapping Lens.coerced
-
--- | The ID of the import snapshot task.
-importSnapshotTask_importTaskId :: Lens.Lens' ImportSnapshotTask (Prelude.Maybe Prelude.Text)
-importSnapshotTask_importTaskId = Lens.lens (\ImportSnapshotTask' {importTaskId} -> importTaskId) (\s@ImportSnapshotTask' {} a -> s {importTaskId = a} :: ImportSnapshotTask)
 
 -- | A description of the import snapshot task.
 importSnapshotTask_description :: Lens.Lens' ImportSnapshotTask (Prelude.Maybe Prelude.Text)
 importSnapshotTask_description = Lens.lens (\ImportSnapshotTask' {description} -> description) (\s@ImportSnapshotTask' {} a -> s {description = a} :: ImportSnapshotTask)
 
+-- | The ID of the import snapshot task.
+importSnapshotTask_importTaskId :: Lens.Lens' ImportSnapshotTask (Prelude.Maybe Prelude.Text)
+importSnapshotTask_importTaskId = Lens.lens (\ImportSnapshotTask' {importTaskId} -> importTaskId) (\s@ImportSnapshotTask' {} a -> s {importTaskId = a} :: ImportSnapshotTask)
+
 -- | Describes an import snapshot task.
 importSnapshotTask_snapshotTaskDetail :: Lens.Lens' ImportSnapshotTask (Prelude.Maybe SnapshotTaskDetail)
 importSnapshotTask_snapshotTaskDetail = Lens.lens (\ImportSnapshotTask' {snapshotTaskDetail} -> snapshotTaskDetail) (\s@ImportSnapshotTask' {} a -> s {snapshotTaskDetail = a} :: ImportSnapshotTask)
 
+-- | The tags for the import snapshot task.
+importSnapshotTask_tags :: Lens.Lens' ImportSnapshotTask (Prelude.Maybe [Tag])
+importSnapshotTask_tags = Lens.lens (\ImportSnapshotTask' {tags} -> tags) (\s@ImportSnapshotTask' {} a -> s {tags = a} :: ImportSnapshotTask) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromXML ImportSnapshotTask where
   parseXML x =
     ImportSnapshotTask'
-      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<$> (x Data..@? "description")
+      Prelude.<*> (x Data..@? "importTaskId")
+      Prelude.<*> (x Data..@? "snapshotTaskDetail")
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Data..@? "importTaskId")
-      Prelude.<*> (x Data..@? "description")
-      Prelude.<*> (x Data..@? "snapshotTaskDetail")
 
 instance Prelude.Hashable ImportSnapshotTask where
   hashWithSalt _salt ImportSnapshotTask' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` importTaskId
-      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` snapshotTaskDetail
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData ImportSnapshotTask where
   rnf ImportSnapshotTask' {..} =
-    Prelude.rnf tags
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf importTaskId
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf snapshotTaskDetail
+      `Prelude.seq` Prelude.rnf tags

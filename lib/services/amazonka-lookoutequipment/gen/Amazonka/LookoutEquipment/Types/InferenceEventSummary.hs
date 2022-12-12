@@ -29,20 +29,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInferenceEventSummary' smart constructor.
 data InferenceEventSummary = InferenceEventSummary'
-  { -- | The name of the inference scheduler being used for the inference events.
-    inferenceSchedulerName :: Prelude.Maybe Prelude.Text,
-    -- | Indicates the ending time of an inference event.
-    eventEndTime :: Prelude.Maybe Data.POSIX,
-    -- | Indicates the size of an inference event in seconds.
-    eventDurationInSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | An array which specifies the names and values of all sensors
+  { -- | An array which specifies the names and values of all sensors
     -- contributing to an inference event.
     diagnostics :: Prelude.Maybe Prelude.Text,
+    -- | Indicates the size of an inference event in seconds.
+    eventDurationInSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | Indicates the ending time of an inference event.
+    eventEndTime :: Prelude.Maybe Data.POSIX,
+    -- | Indicates the starting time of an inference event.
+    eventStartTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the inference scheduler being used for
     -- the inference event.
     inferenceSchedulerArn :: Prelude.Maybe Prelude.Text,
-    -- | Indicates the starting time of an inference event.
-    eventStartTime :: Prelude.Maybe Data.POSIX
+    -- | The name of the inference scheduler being used for the inference events.
+    inferenceSchedulerName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,57 +54,57 @@ data InferenceEventSummary = InferenceEventSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'inferenceSchedulerName', 'inferenceEventSummary_inferenceSchedulerName' - The name of the inference scheduler being used for the inference events.
---
--- 'eventEndTime', 'inferenceEventSummary_eventEndTime' - Indicates the ending time of an inference event.
+-- 'diagnostics', 'inferenceEventSummary_diagnostics' - An array which specifies the names and values of all sensors
+-- contributing to an inference event.
 --
 -- 'eventDurationInSeconds', 'inferenceEventSummary_eventDurationInSeconds' - Indicates the size of an inference event in seconds.
 --
--- 'diagnostics', 'inferenceEventSummary_diagnostics' - An array which specifies the names and values of all sensors
--- contributing to an inference event.
+-- 'eventEndTime', 'inferenceEventSummary_eventEndTime' - Indicates the ending time of an inference event.
+--
+-- 'eventStartTime', 'inferenceEventSummary_eventStartTime' - Indicates the starting time of an inference event.
 --
 -- 'inferenceSchedulerArn', 'inferenceEventSummary_inferenceSchedulerArn' - The Amazon Resource Name (ARN) of the inference scheduler being used for
 -- the inference event.
 --
--- 'eventStartTime', 'inferenceEventSummary_eventStartTime' - Indicates the starting time of an inference event.
+-- 'inferenceSchedulerName', 'inferenceEventSummary_inferenceSchedulerName' - The name of the inference scheduler being used for the inference events.
 newInferenceEventSummary ::
   InferenceEventSummary
 newInferenceEventSummary =
   InferenceEventSummary'
-    { inferenceSchedulerName =
+    { diagnostics =
         Prelude.Nothing,
-      eventEndTime = Prelude.Nothing,
       eventDurationInSeconds = Prelude.Nothing,
-      diagnostics = Prelude.Nothing,
+      eventEndTime = Prelude.Nothing,
+      eventStartTime = Prelude.Nothing,
       inferenceSchedulerArn = Prelude.Nothing,
-      eventStartTime = Prelude.Nothing
+      inferenceSchedulerName = Prelude.Nothing
     }
-
--- | The name of the inference scheduler being used for the inference events.
-inferenceEventSummary_inferenceSchedulerName :: Lens.Lens' InferenceEventSummary (Prelude.Maybe Prelude.Text)
-inferenceEventSummary_inferenceSchedulerName = Lens.lens (\InferenceEventSummary' {inferenceSchedulerName} -> inferenceSchedulerName) (\s@InferenceEventSummary' {} a -> s {inferenceSchedulerName = a} :: InferenceEventSummary)
-
--- | Indicates the ending time of an inference event.
-inferenceEventSummary_eventEndTime :: Lens.Lens' InferenceEventSummary (Prelude.Maybe Prelude.UTCTime)
-inferenceEventSummary_eventEndTime = Lens.lens (\InferenceEventSummary' {eventEndTime} -> eventEndTime) (\s@InferenceEventSummary' {} a -> s {eventEndTime = a} :: InferenceEventSummary) Prelude.. Lens.mapping Data._Time
-
--- | Indicates the size of an inference event in seconds.
-inferenceEventSummary_eventDurationInSeconds :: Lens.Lens' InferenceEventSummary (Prelude.Maybe Prelude.Natural)
-inferenceEventSummary_eventDurationInSeconds = Lens.lens (\InferenceEventSummary' {eventDurationInSeconds} -> eventDurationInSeconds) (\s@InferenceEventSummary' {} a -> s {eventDurationInSeconds = a} :: InferenceEventSummary)
 
 -- | An array which specifies the names and values of all sensors
 -- contributing to an inference event.
 inferenceEventSummary_diagnostics :: Lens.Lens' InferenceEventSummary (Prelude.Maybe Prelude.Text)
 inferenceEventSummary_diagnostics = Lens.lens (\InferenceEventSummary' {diagnostics} -> diagnostics) (\s@InferenceEventSummary' {} a -> s {diagnostics = a} :: InferenceEventSummary)
 
+-- | Indicates the size of an inference event in seconds.
+inferenceEventSummary_eventDurationInSeconds :: Lens.Lens' InferenceEventSummary (Prelude.Maybe Prelude.Natural)
+inferenceEventSummary_eventDurationInSeconds = Lens.lens (\InferenceEventSummary' {eventDurationInSeconds} -> eventDurationInSeconds) (\s@InferenceEventSummary' {} a -> s {eventDurationInSeconds = a} :: InferenceEventSummary)
+
+-- | Indicates the ending time of an inference event.
+inferenceEventSummary_eventEndTime :: Lens.Lens' InferenceEventSummary (Prelude.Maybe Prelude.UTCTime)
+inferenceEventSummary_eventEndTime = Lens.lens (\InferenceEventSummary' {eventEndTime} -> eventEndTime) (\s@InferenceEventSummary' {} a -> s {eventEndTime = a} :: InferenceEventSummary) Prelude.. Lens.mapping Data._Time
+
+-- | Indicates the starting time of an inference event.
+inferenceEventSummary_eventStartTime :: Lens.Lens' InferenceEventSummary (Prelude.Maybe Prelude.UTCTime)
+inferenceEventSummary_eventStartTime = Lens.lens (\InferenceEventSummary' {eventStartTime} -> eventStartTime) (\s@InferenceEventSummary' {} a -> s {eventStartTime = a} :: InferenceEventSummary) Prelude.. Lens.mapping Data._Time
+
 -- | The Amazon Resource Name (ARN) of the inference scheduler being used for
 -- the inference event.
 inferenceEventSummary_inferenceSchedulerArn :: Lens.Lens' InferenceEventSummary (Prelude.Maybe Prelude.Text)
 inferenceEventSummary_inferenceSchedulerArn = Lens.lens (\InferenceEventSummary' {inferenceSchedulerArn} -> inferenceSchedulerArn) (\s@InferenceEventSummary' {} a -> s {inferenceSchedulerArn = a} :: InferenceEventSummary)
 
--- | Indicates the starting time of an inference event.
-inferenceEventSummary_eventStartTime :: Lens.Lens' InferenceEventSummary (Prelude.Maybe Prelude.UTCTime)
-inferenceEventSummary_eventStartTime = Lens.lens (\InferenceEventSummary' {eventStartTime} -> eventStartTime) (\s@InferenceEventSummary' {} a -> s {eventStartTime = a} :: InferenceEventSummary) Prelude.. Lens.mapping Data._Time
+-- | The name of the inference scheduler being used for the inference events.
+inferenceEventSummary_inferenceSchedulerName :: Lens.Lens' InferenceEventSummary (Prelude.Maybe Prelude.Text)
+inferenceEventSummary_inferenceSchedulerName = Lens.lens (\InferenceEventSummary' {inferenceSchedulerName} -> inferenceSchedulerName) (\s@InferenceEventSummary' {} a -> s {inferenceSchedulerName = a} :: InferenceEventSummary)
 
 instance Data.FromJSON InferenceEventSummary where
   parseJSON =
@@ -112,28 +112,28 @@ instance Data.FromJSON InferenceEventSummary where
       "InferenceEventSummary"
       ( \x ->
           InferenceEventSummary'
-            Prelude.<$> (x Data..:? "InferenceSchedulerName")
-            Prelude.<*> (x Data..:? "EventEndTime")
+            Prelude.<$> (x Data..:? "Diagnostics")
             Prelude.<*> (x Data..:? "EventDurationInSeconds")
-            Prelude.<*> (x Data..:? "Diagnostics")
-            Prelude.<*> (x Data..:? "InferenceSchedulerArn")
+            Prelude.<*> (x Data..:? "EventEndTime")
             Prelude.<*> (x Data..:? "EventStartTime")
+            Prelude.<*> (x Data..:? "InferenceSchedulerArn")
+            Prelude.<*> (x Data..:? "InferenceSchedulerName")
       )
 
 instance Prelude.Hashable InferenceEventSummary where
   hashWithSalt _salt InferenceEventSummary' {..} =
-    _salt `Prelude.hashWithSalt` inferenceSchedulerName
-      `Prelude.hashWithSalt` eventEndTime
+    _salt `Prelude.hashWithSalt` diagnostics
       `Prelude.hashWithSalt` eventDurationInSeconds
-      `Prelude.hashWithSalt` diagnostics
-      `Prelude.hashWithSalt` inferenceSchedulerArn
+      `Prelude.hashWithSalt` eventEndTime
       `Prelude.hashWithSalt` eventStartTime
+      `Prelude.hashWithSalt` inferenceSchedulerArn
+      `Prelude.hashWithSalt` inferenceSchedulerName
 
 instance Prelude.NFData InferenceEventSummary where
   rnf InferenceEventSummary' {..} =
-    Prelude.rnf inferenceSchedulerName
-      `Prelude.seq` Prelude.rnf eventEndTime
+    Prelude.rnf diagnostics
       `Prelude.seq` Prelude.rnf eventDurationInSeconds
-      `Prelude.seq` Prelude.rnf diagnostics
-      `Prelude.seq` Prelude.rnf inferenceSchedulerArn
+      `Prelude.seq` Prelude.rnf eventEndTime
       `Prelude.seq` Prelude.rnf eventStartTime
+      `Prelude.seq` Prelude.rnf inferenceSchedulerArn
+      `Prelude.seq` Prelude.rnf inferenceSchedulerName

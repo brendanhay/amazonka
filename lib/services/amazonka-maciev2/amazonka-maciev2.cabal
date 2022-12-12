@@ -71,8 +71,10 @@ library
     Amazonka.MacieV2.EnableOrganizationAdminAccount
     Amazonka.MacieV2.GetAdministratorAccount
     Amazonka.MacieV2.GetAllowList
+    Amazonka.MacieV2.GetAutomatedDiscoveryConfiguration
     Amazonka.MacieV2.GetBucketStatistics
     Amazonka.MacieV2.GetClassificationExportConfiguration
+    Amazonka.MacieV2.GetClassificationScope
     Amazonka.MacieV2.GetCustomDataIdentifier
     Amazonka.MacieV2.GetFindings
     Amazonka.MacieV2.GetFindingsFilter
@@ -82,14 +84,17 @@ library
     Amazonka.MacieV2.GetMacieSession
     Amazonka.MacieV2.GetMasterAccount
     Amazonka.MacieV2.GetMember
+    Amazonka.MacieV2.GetResourceProfile
     Amazonka.MacieV2.GetRevealConfiguration
     Amazonka.MacieV2.GetSensitiveDataOccurrences
     Amazonka.MacieV2.GetSensitiveDataOccurrencesAvailability
+    Amazonka.MacieV2.GetSensitivityInspectionTemplate
     Amazonka.MacieV2.GetUsageStatistics
     Amazonka.MacieV2.GetUsageTotals
     Amazonka.MacieV2.Lens
     Amazonka.MacieV2.ListAllowLists
     Amazonka.MacieV2.ListClassificationJobs
+    Amazonka.MacieV2.ListClassificationScopes
     Amazonka.MacieV2.ListCustomDataIdentifiers
     Amazonka.MacieV2.ListFindings
     Amazonka.MacieV2.ListFindingsFilters
@@ -97,6 +102,9 @@ library
     Amazonka.MacieV2.ListManagedDataIdentifiers
     Amazonka.MacieV2.ListMembers
     Amazonka.MacieV2.ListOrganizationAdminAccounts
+    Amazonka.MacieV2.ListResourceProfileArtifacts
+    Amazonka.MacieV2.ListResourceProfileDetections
+    Amazonka.MacieV2.ListSensitivityInspectionTemplates
     Amazonka.MacieV2.ListTagsForResource
     Amazonka.MacieV2.PutClassificationExportConfiguration
     Amazonka.MacieV2.PutFindingsPublicationConfiguration
@@ -116,6 +124,7 @@ library
     Amazonka.MacieV2.Types.AllowsUnencryptedObjectUploads
     Amazonka.MacieV2.Types.ApiCallDetails
     Amazonka.MacieV2.Types.AssumedRole
+    Amazonka.MacieV2.Types.AutomatedDiscoveryStatus
     Amazonka.MacieV2.Types.AvailabilityCode
     Amazonka.MacieV2.Types.AwsAccount
     Amazonka.MacieV2.Types.AwsService
@@ -134,11 +143,14 @@ library
     Amazonka.MacieV2.Types.BucketPublicAccess
     Amazonka.MacieV2.Types.BucketServerSideEncryption
     Amazonka.MacieV2.Types.BucketSortCriteria
+    Amazonka.MacieV2.Types.BucketStatisticsBySensitivity
     Amazonka.MacieV2.Types.Cell
     Amazonka.MacieV2.Types.ClassificationDetails
     Amazonka.MacieV2.Types.ClassificationExportConfiguration
     Amazonka.MacieV2.Types.ClassificationResult
     Amazonka.MacieV2.Types.ClassificationResultStatus
+    Amazonka.MacieV2.Types.ClassificationScopeSummary
+    Amazonka.MacieV2.Types.ClassificationScopeUpdateOperation
     Amazonka.MacieV2.Types.CriteriaBlockForJob
     Amazonka.MacieV2.Types.CriteriaForJob
     Amazonka.MacieV2.Types.CriterionAdditionalProperties
@@ -148,9 +160,11 @@ library
     Amazonka.MacieV2.Types.CustomDetection
     Amazonka.MacieV2.Types.DailySchedule
     Amazonka.MacieV2.Types.DataIdentifierSeverity
+    Amazonka.MacieV2.Types.DataIdentifierType
     Amazonka.MacieV2.Types.DayOfWeek
     Amazonka.MacieV2.Types.DefaultDetection
     Amazonka.MacieV2.Types.DetectedDataDetails
+    Amazonka.MacieV2.Types.Detection
     Amazonka.MacieV2.Types.DomainDetails
     Amazonka.MacieV2.Types.EffectivePermission
     Amazonka.MacieV2.Types.EncryptionType
@@ -213,7 +227,9 @@ library
     Amazonka.MacieV2.Types.Record
     Amazonka.MacieV2.Types.RelationshipStatus
     Amazonka.MacieV2.Types.ReplicationDetails
+    Amazonka.MacieV2.Types.ResourceProfileArtifact
     Amazonka.MacieV2.Types.ResourcesAffected
+    Amazonka.MacieV2.Types.ResourceStatistics
     Amazonka.MacieV2.Types.RevealConfiguration
     Amazonka.MacieV2.Types.RevealRequestStatus
     Amazonka.MacieV2.Types.RevealStatus
@@ -221,6 +237,10 @@ library
     Amazonka.MacieV2.Types.S3BucketCriteriaForJob
     Amazonka.MacieV2.Types.S3BucketDefinitionForJob
     Amazonka.MacieV2.Types.S3BucketOwner
+    Amazonka.MacieV2.Types.S3ClassificationScope
+    Amazonka.MacieV2.Types.S3ClassificationScopeExclusion
+    Amazonka.MacieV2.Types.S3ClassificationScopeExclusionUpdate
+    Amazonka.MacieV2.Types.S3ClassificationScopeUpdate
     Amazonka.MacieV2.Types.S3Destination
     Amazonka.MacieV2.Types.S3JobDefinition
     Amazonka.MacieV2.Types.S3Object
@@ -240,6 +260,10 @@ library
     Amazonka.MacieV2.Types.SecurityHubConfiguration
     Amazonka.MacieV2.Types.SensitiveDataItem
     Amazonka.MacieV2.Types.SensitiveDataItemCategory
+    Amazonka.MacieV2.Types.SensitivityAggregations
+    Amazonka.MacieV2.Types.SensitivityInspectionTemplateExcludes
+    Amazonka.MacieV2.Types.SensitivityInspectionTemplateIncludes
+    Amazonka.MacieV2.Types.SensitivityInspectionTemplatesEntry
     Amazonka.MacieV2.Types.ServerSideEncryption
     Amazonka.MacieV2.Types.ServiceLimit
     Amazonka.MacieV2.Types.SessionContext
@@ -255,6 +279,7 @@ library
     Amazonka.MacieV2.Types.SortCriteria
     Amazonka.MacieV2.Types.Statistics
     Amazonka.MacieV2.Types.StorageClass
+    Amazonka.MacieV2.Types.SuppressDataIdentifier
     Amazonka.MacieV2.Types.TagCriterionForJob
     Amazonka.MacieV2.Types.TagCriterionPairForJob
     Amazonka.MacieV2.Types.TagScopeTerm
@@ -281,12 +306,17 @@ library
     Amazonka.MacieV2.Types.WeeklySchedule
     Amazonka.MacieV2.UntagResource
     Amazonka.MacieV2.UpdateAllowList
+    Amazonka.MacieV2.UpdateAutomatedDiscoveryConfiguration
     Amazonka.MacieV2.UpdateClassificationJob
+    Amazonka.MacieV2.UpdateClassificationScope
     Amazonka.MacieV2.UpdateFindingsFilter
     Amazonka.MacieV2.UpdateMacieSession
     Amazonka.MacieV2.UpdateMemberSession
     Amazonka.MacieV2.UpdateOrganizationConfiguration
+    Amazonka.MacieV2.UpdateResourceProfile
+    Amazonka.MacieV2.UpdateResourceProfileDetections
     Amazonka.MacieV2.UpdateRevealConfiguration
+    Amazonka.MacieV2.UpdateSensitivityInspectionTemplate
     Amazonka.MacieV2.Waiters
 
   build-depends:

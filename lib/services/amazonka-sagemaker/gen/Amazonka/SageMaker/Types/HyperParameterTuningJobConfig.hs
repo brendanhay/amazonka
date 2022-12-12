@@ -35,8 +35,16 @@ import Amazonka.SageMaker.Types.TuningJobCompletionCriteria
 --
 -- /See:/ 'newHyperParameterTuningJobConfig' smart constructor.
 data HyperParameterTuningJobConfig = HyperParameterTuningJobConfig'
-  { -- | The tuning job\'s completion criteria.
-    tuningJobCompletionCriteria :: Prelude.Maybe TuningJobCompletionCriteria,
+  { -- | The HyperParameterTuningJobObjective object that specifies the objective
+    -- metric for this tuning job.
+    hyperParameterTuningJobObjective :: Prelude.Maybe HyperParameterTuningJobObjective,
+    -- | The ParameterRanges object that specifies the ranges of hyperparameters
+    -- that this tuning job searches.
+    parameterRanges :: Prelude.Maybe ParameterRanges,
+    -- | The configuration for the @Hyperband@ optimization strategy. This
+    -- parameter should be provided only if @Hyperband@ is selected as the
+    -- strategy for @HyperParameterTuningJobConfig@.
+    strategyConfig :: Prelude.Maybe HyperParameterTuningJobStrategyConfig,
     -- | Specifies whether to use early stopping for training jobs launched by
     -- the hyperparameter tuning job. Because the @Hyperband@ strategy has its
     -- own advanced internal early stopping mechanism,
@@ -54,16 +62,8 @@ data HyperParameterTuningJobConfig = HyperParameterTuningJobConfig'
     --     completed training jobs. For more information, see
     --     <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-early-stopping.html Stop Training Jobs Early>.
     trainingJobEarlyStoppingType :: Prelude.Maybe TrainingJobEarlyStoppingType,
-    -- | The HyperParameterTuningJobObjective object that specifies the objective
-    -- metric for this tuning job.
-    hyperParameterTuningJobObjective :: Prelude.Maybe HyperParameterTuningJobObjective,
-    -- | The ParameterRanges object that specifies the ranges of hyperparameters
-    -- that this tuning job searches.
-    parameterRanges :: Prelude.Maybe ParameterRanges,
-    -- | The configuration for the @Hyperband@ optimization strategy. This
-    -- parameter should be provided only if @Hyperband@ is selected as the
-    -- strategy for @HyperParameterTuningJobConfig@.
-    strategyConfig :: Prelude.Maybe HyperParameterTuningJobStrategyConfig,
+    -- | The tuning job\'s completion criteria.
+    tuningJobCompletionCriteria :: Prelude.Maybe TuningJobCompletionCriteria,
     -- | Specifies how hyperparameter tuning chooses the combinations of
     -- hyperparameter values to use for the training job it launches. For
     -- information about search strategies, see
@@ -83,7 +83,15 @@ data HyperParameterTuningJobConfig = HyperParameterTuningJobConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tuningJobCompletionCriteria', 'hyperParameterTuningJobConfig_tuningJobCompletionCriteria' - The tuning job\'s completion criteria.
+-- 'hyperParameterTuningJobObjective', 'hyperParameterTuningJobConfig_hyperParameterTuningJobObjective' - The HyperParameterTuningJobObjective object that specifies the objective
+-- metric for this tuning job.
+--
+-- 'parameterRanges', 'hyperParameterTuningJobConfig_parameterRanges' - The ParameterRanges object that specifies the ranges of hyperparameters
+-- that this tuning job searches.
+--
+-- 'strategyConfig', 'hyperParameterTuningJobConfig_strategyConfig' - The configuration for the @Hyperband@ optimization strategy. This
+-- parameter should be provided only if @Hyperband@ is selected as the
+-- strategy for @HyperParameterTuningJobConfig@.
 --
 -- 'trainingJobEarlyStoppingType', 'hyperParameterTuningJobConfig_trainingJobEarlyStoppingType' - Specifies whether to use early stopping for training jobs launched by
 -- the hyperparameter tuning job. Because the @Hyperband@ strategy has its
@@ -102,15 +110,7 @@ data HyperParameterTuningJobConfig = HyperParameterTuningJobConfig'
 --     completed training jobs. For more information, see
 --     <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-early-stopping.html Stop Training Jobs Early>.
 --
--- 'hyperParameterTuningJobObjective', 'hyperParameterTuningJobConfig_hyperParameterTuningJobObjective' - The HyperParameterTuningJobObjective object that specifies the objective
--- metric for this tuning job.
---
--- 'parameterRanges', 'hyperParameterTuningJobConfig_parameterRanges' - The ParameterRanges object that specifies the ranges of hyperparameters
--- that this tuning job searches.
---
--- 'strategyConfig', 'hyperParameterTuningJobConfig_strategyConfig' - The configuration for the @Hyperband@ optimization strategy. This
--- parameter should be provided only if @Hyperband@ is selected as the
--- strategy for @HyperParameterTuningJobConfig@.
+-- 'tuningJobCompletionCriteria', 'hyperParameterTuningJobConfig_tuningJobCompletionCriteria' - The tuning job\'s completion criteria.
 --
 -- 'strategy', 'hyperParameterTuningJobConfig_strategy' - Specifies how hyperparameter tuning chooses the combinations of
 -- hyperparameter values to use for the training job it launches. For
@@ -129,21 +129,33 @@ newHyperParameterTuningJobConfig
   pStrategy_
   pResourceLimits_ =
     HyperParameterTuningJobConfig'
-      { tuningJobCompletionCriteria =
-          Prelude.Nothing,
-        trainingJobEarlyStoppingType =
-          Prelude.Nothing,
-        hyperParameterTuningJobObjective =
+      { hyperParameterTuningJobObjective =
           Prelude.Nothing,
         parameterRanges = Prelude.Nothing,
         strategyConfig = Prelude.Nothing,
+        trainingJobEarlyStoppingType =
+          Prelude.Nothing,
+        tuningJobCompletionCriteria =
+          Prelude.Nothing,
         strategy = pStrategy_,
         resourceLimits = pResourceLimits_
       }
 
--- | The tuning job\'s completion criteria.
-hyperParameterTuningJobConfig_tuningJobCompletionCriteria :: Lens.Lens' HyperParameterTuningJobConfig (Prelude.Maybe TuningJobCompletionCriteria)
-hyperParameterTuningJobConfig_tuningJobCompletionCriteria = Lens.lens (\HyperParameterTuningJobConfig' {tuningJobCompletionCriteria} -> tuningJobCompletionCriteria) (\s@HyperParameterTuningJobConfig' {} a -> s {tuningJobCompletionCriteria = a} :: HyperParameterTuningJobConfig)
+-- | The HyperParameterTuningJobObjective object that specifies the objective
+-- metric for this tuning job.
+hyperParameterTuningJobConfig_hyperParameterTuningJobObjective :: Lens.Lens' HyperParameterTuningJobConfig (Prelude.Maybe HyperParameterTuningJobObjective)
+hyperParameterTuningJobConfig_hyperParameterTuningJobObjective = Lens.lens (\HyperParameterTuningJobConfig' {hyperParameterTuningJobObjective} -> hyperParameterTuningJobObjective) (\s@HyperParameterTuningJobConfig' {} a -> s {hyperParameterTuningJobObjective = a} :: HyperParameterTuningJobConfig)
+
+-- | The ParameterRanges object that specifies the ranges of hyperparameters
+-- that this tuning job searches.
+hyperParameterTuningJobConfig_parameterRanges :: Lens.Lens' HyperParameterTuningJobConfig (Prelude.Maybe ParameterRanges)
+hyperParameterTuningJobConfig_parameterRanges = Lens.lens (\HyperParameterTuningJobConfig' {parameterRanges} -> parameterRanges) (\s@HyperParameterTuningJobConfig' {} a -> s {parameterRanges = a} :: HyperParameterTuningJobConfig)
+
+-- | The configuration for the @Hyperband@ optimization strategy. This
+-- parameter should be provided only if @Hyperband@ is selected as the
+-- strategy for @HyperParameterTuningJobConfig@.
+hyperParameterTuningJobConfig_strategyConfig :: Lens.Lens' HyperParameterTuningJobConfig (Prelude.Maybe HyperParameterTuningJobStrategyConfig)
+hyperParameterTuningJobConfig_strategyConfig = Lens.lens (\HyperParameterTuningJobConfig' {strategyConfig} -> strategyConfig) (\s@HyperParameterTuningJobConfig' {} a -> s {strategyConfig = a} :: HyperParameterTuningJobConfig)
 
 -- | Specifies whether to use early stopping for training jobs launched by
 -- the hyperparameter tuning job. Because the @Hyperband@ strategy has its
@@ -164,21 +176,9 @@ hyperParameterTuningJobConfig_tuningJobCompletionCriteria = Lens.lens (\HyperPar
 hyperParameterTuningJobConfig_trainingJobEarlyStoppingType :: Lens.Lens' HyperParameterTuningJobConfig (Prelude.Maybe TrainingJobEarlyStoppingType)
 hyperParameterTuningJobConfig_trainingJobEarlyStoppingType = Lens.lens (\HyperParameterTuningJobConfig' {trainingJobEarlyStoppingType} -> trainingJobEarlyStoppingType) (\s@HyperParameterTuningJobConfig' {} a -> s {trainingJobEarlyStoppingType = a} :: HyperParameterTuningJobConfig)
 
--- | The HyperParameterTuningJobObjective object that specifies the objective
--- metric for this tuning job.
-hyperParameterTuningJobConfig_hyperParameterTuningJobObjective :: Lens.Lens' HyperParameterTuningJobConfig (Prelude.Maybe HyperParameterTuningJobObjective)
-hyperParameterTuningJobConfig_hyperParameterTuningJobObjective = Lens.lens (\HyperParameterTuningJobConfig' {hyperParameterTuningJobObjective} -> hyperParameterTuningJobObjective) (\s@HyperParameterTuningJobConfig' {} a -> s {hyperParameterTuningJobObjective = a} :: HyperParameterTuningJobConfig)
-
--- | The ParameterRanges object that specifies the ranges of hyperparameters
--- that this tuning job searches.
-hyperParameterTuningJobConfig_parameterRanges :: Lens.Lens' HyperParameterTuningJobConfig (Prelude.Maybe ParameterRanges)
-hyperParameterTuningJobConfig_parameterRanges = Lens.lens (\HyperParameterTuningJobConfig' {parameterRanges} -> parameterRanges) (\s@HyperParameterTuningJobConfig' {} a -> s {parameterRanges = a} :: HyperParameterTuningJobConfig)
-
--- | The configuration for the @Hyperband@ optimization strategy. This
--- parameter should be provided only if @Hyperband@ is selected as the
--- strategy for @HyperParameterTuningJobConfig@.
-hyperParameterTuningJobConfig_strategyConfig :: Lens.Lens' HyperParameterTuningJobConfig (Prelude.Maybe HyperParameterTuningJobStrategyConfig)
-hyperParameterTuningJobConfig_strategyConfig = Lens.lens (\HyperParameterTuningJobConfig' {strategyConfig} -> strategyConfig) (\s@HyperParameterTuningJobConfig' {} a -> s {strategyConfig = a} :: HyperParameterTuningJobConfig)
+-- | The tuning job\'s completion criteria.
+hyperParameterTuningJobConfig_tuningJobCompletionCriteria :: Lens.Lens' HyperParameterTuningJobConfig (Prelude.Maybe TuningJobCompletionCriteria)
+hyperParameterTuningJobConfig_tuningJobCompletionCriteria = Lens.lens (\HyperParameterTuningJobConfig' {tuningJobCompletionCriteria} -> tuningJobCompletionCriteria) (\s@HyperParameterTuningJobConfig' {} a -> s {tuningJobCompletionCriteria = a} :: HyperParameterTuningJobConfig)
 
 -- | Specifies how hyperparameter tuning chooses the combinations of
 -- hyperparameter values to use for the training job it launches. For
@@ -198,11 +198,11 @@ instance Data.FromJSON HyperParameterTuningJobConfig where
       "HyperParameterTuningJobConfig"
       ( \x ->
           HyperParameterTuningJobConfig'
-            Prelude.<$> (x Data..:? "TuningJobCompletionCriteria")
-            Prelude.<*> (x Data..:? "TrainingJobEarlyStoppingType")
-            Prelude.<*> (x Data..:? "HyperParameterTuningJobObjective")
+            Prelude.<$> (x Data..:? "HyperParameterTuningJobObjective")
             Prelude.<*> (x Data..:? "ParameterRanges")
             Prelude.<*> (x Data..:? "StrategyConfig")
+            Prelude.<*> (x Data..:? "TrainingJobEarlyStoppingType")
+            Prelude.<*> (x Data..:? "TuningJobCompletionCriteria")
             Prelude.<*> (x Data..: "Strategy")
             Prelude.<*> (x Data..: "ResourceLimits")
       )
@@ -213,21 +213,21 @@ instance
   where
   hashWithSalt _salt HyperParameterTuningJobConfig' {..} =
     _salt
-      `Prelude.hashWithSalt` tuningJobCompletionCriteria
-      `Prelude.hashWithSalt` trainingJobEarlyStoppingType
       `Prelude.hashWithSalt` hyperParameterTuningJobObjective
       `Prelude.hashWithSalt` parameterRanges
       `Prelude.hashWithSalt` strategyConfig
+      `Prelude.hashWithSalt` trainingJobEarlyStoppingType
+      `Prelude.hashWithSalt` tuningJobCompletionCriteria
       `Prelude.hashWithSalt` strategy
       `Prelude.hashWithSalt` resourceLimits
 
 instance Prelude.NFData HyperParameterTuningJobConfig where
   rnf HyperParameterTuningJobConfig' {..} =
-    Prelude.rnf tuningJobCompletionCriteria
-      `Prelude.seq` Prelude.rnf trainingJobEarlyStoppingType
-      `Prelude.seq` Prelude.rnf hyperParameterTuningJobObjective
+    Prelude.rnf hyperParameterTuningJobObjective
       `Prelude.seq` Prelude.rnf parameterRanges
       `Prelude.seq` Prelude.rnf strategyConfig
+      `Prelude.seq` Prelude.rnf trainingJobEarlyStoppingType
+      `Prelude.seq` Prelude.rnf tuningJobCompletionCriteria
       `Prelude.seq` Prelude.rnf strategy
       `Prelude.seq` Prelude.rnf resourceLimits
 
@@ -235,16 +235,16 @@ instance Data.ToJSON HyperParameterTuningJobConfig where
   toJSON HyperParameterTuningJobConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("TuningJobCompletionCriteria" Data..=)
-              Prelude.<$> tuningJobCompletionCriteria,
-            ("TrainingJobEarlyStoppingType" Data..=)
-              Prelude.<$> trainingJobEarlyStoppingType,
-            ("HyperParameterTuningJobObjective" Data..=)
+          [ ("HyperParameterTuningJobObjective" Data..=)
               Prelude.<$> hyperParameterTuningJobObjective,
             ("ParameterRanges" Data..=)
               Prelude.<$> parameterRanges,
             ("StrategyConfig" Data..=)
               Prelude.<$> strategyConfig,
+            ("TrainingJobEarlyStoppingType" Data..=)
+              Prelude.<$> trainingJobEarlyStoppingType,
+            ("TuningJobCompletionCriteria" Data..=)
+              Prelude.<$> tuningJobCompletionCriteria,
             Prelude.Just ("Strategy" Data..= strategy),
             Prelude.Just
               ("ResourceLimits" Data..= resourceLimits)

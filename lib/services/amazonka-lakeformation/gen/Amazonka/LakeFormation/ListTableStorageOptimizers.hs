@@ -28,10 +28,10 @@ module Amazonka.LakeFormation.ListTableStorageOptimizers
     newListTableStorageOptimizers,
 
     -- * Request Lenses
-    listTableStorageOptimizers_storageOptimizerType,
-    listTableStorageOptimizers_nextToken,
-    listTableStorageOptimizers_maxResults,
     listTableStorageOptimizers_catalogId,
+    listTableStorageOptimizers_maxResults,
+    listTableStorageOptimizers_nextToken,
+    listTableStorageOptimizers_storageOptimizerType,
     listTableStorageOptimizers_databaseName,
     listTableStorageOptimizers_tableName,
 
@@ -56,15 +56,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTableStorageOptimizers' smart constructor.
 data ListTableStorageOptimizers = ListTableStorageOptimizers'
-  { -- | The specific type of storage optimizers to list. The supported value is
-    -- @compaction@.
-    storageOptimizerType :: Prelude.Maybe OptimizerType,
-    -- | A continuation token, if this is a continuation call.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The Catalog ID of the table.
+    catalogId :: Prelude.Maybe Prelude.Text,
     -- | The number of storage optimizers to return on each call.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The Catalog ID of the table.
-    catalogId :: Prelude.Maybe Prelude.Text,
+    -- | A continuation token, if this is a continuation call.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The specific type of storage optimizers to list. The supported value is
+    -- @compaction@.
+    storageOptimizerType :: Prelude.Maybe OptimizerType,
     -- | Name of the database where the table is present.
     databaseName :: Prelude.Text,
     -- | Name of the table.
@@ -80,14 +80,14 @@ data ListTableStorageOptimizers = ListTableStorageOptimizers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'storageOptimizerType', 'listTableStorageOptimizers_storageOptimizerType' - The specific type of storage optimizers to list. The supported value is
--- @compaction@.
---
--- 'nextToken', 'listTableStorageOptimizers_nextToken' - A continuation token, if this is a continuation call.
+-- 'catalogId', 'listTableStorageOptimizers_catalogId' - The Catalog ID of the table.
 --
 -- 'maxResults', 'listTableStorageOptimizers_maxResults' - The number of storage optimizers to return on each call.
 --
--- 'catalogId', 'listTableStorageOptimizers_catalogId' - The Catalog ID of the table.
+-- 'nextToken', 'listTableStorageOptimizers_nextToken' - A continuation token, if this is a continuation call.
+--
+-- 'storageOptimizerType', 'listTableStorageOptimizers_storageOptimizerType' - The specific type of storage optimizers to list. The supported value is
+-- @compaction@.
 --
 -- 'databaseName', 'listTableStorageOptimizers_databaseName' - Name of the database where the table is present.
 --
@@ -102,31 +102,31 @@ newListTableStorageOptimizers
   pDatabaseName_
   pTableName_ =
     ListTableStorageOptimizers'
-      { storageOptimizerType =
+      { catalogId =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
         maxResults = Prelude.Nothing,
-        catalogId = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
+        storageOptimizerType = Prelude.Nothing,
         databaseName = pDatabaseName_,
         tableName = pTableName_
       }
 
--- | The specific type of storage optimizers to list. The supported value is
--- @compaction@.
-listTableStorageOptimizers_storageOptimizerType :: Lens.Lens' ListTableStorageOptimizers (Prelude.Maybe OptimizerType)
-listTableStorageOptimizers_storageOptimizerType = Lens.lens (\ListTableStorageOptimizers' {storageOptimizerType} -> storageOptimizerType) (\s@ListTableStorageOptimizers' {} a -> s {storageOptimizerType = a} :: ListTableStorageOptimizers)
-
--- | A continuation token, if this is a continuation call.
-listTableStorageOptimizers_nextToken :: Lens.Lens' ListTableStorageOptimizers (Prelude.Maybe Prelude.Text)
-listTableStorageOptimizers_nextToken = Lens.lens (\ListTableStorageOptimizers' {nextToken} -> nextToken) (\s@ListTableStorageOptimizers' {} a -> s {nextToken = a} :: ListTableStorageOptimizers)
+-- | The Catalog ID of the table.
+listTableStorageOptimizers_catalogId :: Lens.Lens' ListTableStorageOptimizers (Prelude.Maybe Prelude.Text)
+listTableStorageOptimizers_catalogId = Lens.lens (\ListTableStorageOptimizers' {catalogId} -> catalogId) (\s@ListTableStorageOptimizers' {} a -> s {catalogId = a} :: ListTableStorageOptimizers)
 
 -- | The number of storage optimizers to return on each call.
 listTableStorageOptimizers_maxResults :: Lens.Lens' ListTableStorageOptimizers (Prelude.Maybe Prelude.Natural)
 listTableStorageOptimizers_maxResults = Lens.lens (\ListTableStorageOptimizers' {maxResults} -> maxResults) (\s@ListTableStorageOptimizers' {} a -> s {maxResults = a} :: ListTableStorageOptimizers)
 
--- | The Catalog ID of the table.
-listTableStorageOptimizers_catalogId :: Lens.Lens' ListTableStorageOptimizers (Prelude.Maybe Prelude.Text)
-listTableStorageOptimizers_catalogId = Lens.lens (\ListTableStorageOptimizers' {catalogId} -> catalogId) (\s@ListTableStorageOptimizers' {} a -> s {catalogId = a} :: ListTableStorageOptimizers)
+-- | A continuation token, if this is a continuation call.
+listTableStorageOptimizers_nextToken :: Lens.Lens' ListTableStorageOptimizers (Prelude.Maybe Prelude.Text)
+listTableStorageOptimizers_nextToken = Lens.lens (\ListTableStorageOptimizers' {nextToken} -> nextToken) (\s@ListTableStorageOptimizers' {} a -> s {nextToken = a} :: ListTableStorageOptimizers)
+
+-- | The specific type of storage optimizers to list. The supported value is
+-- @compaction@.
+listTableStorageOptimizers_storageOptimizerType :: Lens.Lens' ListTableStorageOptimizers (Prelude.Maybe OptimizerType)
+listTableStorageOptimizers_storageOptimizerType = Lens.lens (\ListTableStorageOptimizers' {storageOptimizerType} -> storageOptimizerType) (\s@ListTableStorageOptimizers' {} a -> s {storageOptimizerType = a} :: ListTableStorageOptimizers)
 
 -- | Name of the database where the table is present.
 listTableStorageOptimizers_databaseName :: Lens.Lens' ListTableStorageOptimizers Prelude.Text
@@ -155,19 +155,19 @@ instance Core.AWSRequest ListTableStorageOptimizers where
 
 instance Prelude.Hashable ListTableStorageOptimizers where
   hashWithSalt _salt ListTableStorageOptimizers' {..} =
-    _salt `Prelude.hashWithSalt` storageOptimizerType
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` storageOptimizerType
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tableName
 
 instance Prelude.NFData ListTableStorageOptimizers where
   rnf ListTableStorageOptimizers' {..} =
-    Prelude.rnf storageOptimizerType
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf catalogId
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf storageOptimizerType
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf tableName
 
@@ -186,11 +186,11 @@ instance Data.ToJSON ListTableStorageOptimizers where
   toJSON ListTableStorageOptimizers' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("StorageOptimizerType" Data..=)
-              Prelude.<$> storageOptimizerType,
-            ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("CatalogId" Data..=) Prelude.<$> catalogId,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("StorageOptimizerType" Data..=)
+              Prelude.<$> storageOptimizerType,
             Prelude.Just ("DatabaseName" Data..= databaseName),
             Prelude.Just ("TableName" Data..= tableName)
           ]

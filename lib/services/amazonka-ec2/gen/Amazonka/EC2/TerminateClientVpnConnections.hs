@@ -29,9 +29,9 @@ module Amazonka.EC2.TerminateClientVpnConnections
     newTerminateClientVpnConnections,
 
     -- * Request Lenses
-    terminateClientVpnConnections_username,
     terminateClientVpnConnections_connectionId,
     terminateClientVpnConnections_dryRun,
+    terminateClientVpnConnections_username,
     terminateClientVpnConnections_clientVpnEndpointId,
 
     -- * Destructuring the Response
@@ -39,9 +39,9 @@ module Amazonka.EC2.TerminateClientVpnConnections
     newTerminateClientVpnConnectionsResponse,
 
     -- * Response Lenses
+    terminateClientVpnConnectionsResponse_clientVpnEndpointId,
     terminateClientVpnConnectionsResponse_connectionStatuses,
     terminateClientVpnConnectionsResponse_username,
-    terminateClientVpnConnectionsResponse_clientVpnEndpointId,
     terminateClientVpnConnectionsResponse_httpStatus,
   )
 where
@@ -56,17 +56,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newTerminateClientVpnConnections' smart constructor.
 data TerminateClientVpnConnections = TerminateClientVpnConnections'
-  { -- | The name of the user who initiated the connection. Use this option to
-    -- terminate all active connections for the specified user. This option can
-    -- only be used if the user has established up to five connections.
-    username :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the client connection to be terminated.
+  { -- | The ID of the client connection to be terminated.
     connectionId :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the user who initiated the connection. Use this option to
+    -- terminate all active connections for the specified user. This option can
+    -- only be used if the user has established up to five connections.
+    username :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Client VPN endpoint to which the client is connected.
     clientVpnEndpointId :: Prelude.Text
   }
@@ -80,16 +80,16 @@ data TerminateClientVpnConnections = TerminateClientVpnConnections'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'username', 'terminateClientVpnConnections_username' - The name of the user who initiated the connection. Use this option to
--- terminate all active connections for the specified user. This option can
--- only be used if the user has established up to five connections.
---
 -- 'connectionId', 'terminateClientVpnConnections_connectionId' - The ID of the client connection to be terminated.
 --
 -- 'dryRun', 'terminateClientVpnConnections_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'username', 'terminateClientVpnConnections_username' - The name of the user who initiated the connection. Use this option to
+-- terminate all active connections for the specified user. This option can
+-- only be used if the user has established up to five connections.
 --
 -- 'clientVpnEndpointId', 'terminateClientVpnConnections_clientVpnEndpointId' - The ID of the Client VPN endpoint to which the client is connected.
 newTerminateClientVpnConnections ::
@@ -99,18 +99,12 @@ newTerminateClientVpnConnections ::
 newTerminateClientVpnConnections
   pClientVpnEndpointId_ =
     TerminateClientVpnConnections'
-      { username =
+      { connectionId =
           Prelude.Nothing,
-        connectionId = Prelude.Nothing,
         dryRun = Prelude.Nothing,
+        username = Prelude.Nothing,
         clientVpnEndpointId = pClientVpnEndpointId_
       }
-
--- | The name of the user who initiated the connection. Use this option to
--- terminate all active connections for the specified user. This option can
--- only be used if the user has established up to five connections.
-terminateClientVpnConnections_username :: Lens.Lens' TerminateClientVpnConnections (Prelude.Maybe Prelude.Text)
-terminateClientVpnConnections_username = Lens.lens (\TerminateClientVpnConnections' {username} -> username) (\s@TerminateClientVpnConnections' {} a -> s {username = a} :: TerminateClientVpnConnections)
 
 -- | The ID of the client connection to be terminated.
 terminateClientVpnConnections_connectionId :: Lens.Lens' TerminateClientVpnConnections (Prelude.Maybe Prelude.Text)
@@ -122,6 +116,12 @@ terminateClientVpnConnections_connectionId = Lens.lens (\TerminateClientVpnConne
 -- Otherwise, it is @UnauthorizedOperation@.
 terminateClientVpnConnections_dryRun :: Lens.Lens' TerminateClientVpnConnections (Prelude.Maybe Prelude.Bool)
 terminateClientVpnConnections_dryRun = Lens.lens (\TerminateClientVpnConnections' {dryRun} -> dryRun) (\s@TerminateClientVpnConnections' {} a -> s {dryRun = a} :: TerminateClientVpnConnections)
+
+-- | The name of the user who initiated the connection. Use this option to
+-- terminate all active connections for the specified user. This option can
+-- only be used if the user has established up to five connections.
+terminateClientVpnConnections_username :: Lens.Lens' TerminateClientVpnConnections (Prelude.Maybe Prelude.Text)
+terminateClientVpnConnections_username = Lens.lens (\TerminateClientVpnConnections' {username} -> username) (\s@TerminateClientVpnConnections' {} a -> s {username = a} :: TerminateClientVpnConnections)
 
 -- | The ID of the Client VPN endpoint to which the client is connected.
 terminateClientVpnConnections_clientVpnEndpointId :: Lens.Lens' TerminateClientVpnConnections Prelude.Text
@@ -140,12 +140,12 @@ instance
     Response.receiveXML
       ( \s h x ->
           TerminateClientVpnConnectionsResponse'
-            Prelude.<$> ( x Data..@? "connectionStatuses"
+            Prelude.<$> (x Data..@? "clientVpnEndpointId")
+            Prelude.<*> ( x Data..@? "connectionStatuses"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "username")
-            Prelude.<*> (x Data..@? "clientVpnEndpointId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,16 +154,16 @@ instance
     TerminateClientVpnConnections
   where
   hashWithSalt _salt TerminateClientVpnConnections' {..} =
-    _salt `Prelude.hashWithSalt` username
-      `Prelude.hashWithSalt` connectionId
+    _salt `Prelude.hashWithSalt` connectionId
       `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` clientVpnEndpointId
 
 instance Prelude.NFData TerminateClientVpnConnections where
   rnf TerminateClientVpnConnections' {..} =
-    Prelude.rnf username
-      `Prelude.seq` Prelude.rnf connectionId
+    Prelude.rnf connectionId
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf username
       `Prelude.seq` Prelude.rnf clientVpnEndpointId
 
 instance Data.ToHeaders TerminateClientVpnConnections where
@@ -181,20 +181,20 @@ instance Data.ToQuery TerminateClientVpnConnections where
                   ),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "Username" Data.=: username,
         "ConnectionId" Data.=: connectionId,
         "DryRun" Data.=: dryRun,
+        "Username" Data.=: username,
         "ClientVpnEndpointId" Data.=: clientVpnEndpointId
       ]
 
 -- | /See:/ 'newTerminateClientVpnConnectionsResponse' smart constructor.
 data TerminateClientVpnConnectionsResponse = TerminateClientVpnConnectionsResponse'
-  { -- | The current state of the client connections.
+  { -- | The ID of the Client VPN endpoint.
+    clientVpnEndpointId :: Prelude.Maybe Prelude.Text,
+    -- | The current state of the client connections.
     connectionStatuses :: Prelude.Maybe [TerminateConnectionStatus],
     -- | The user who established the terminated client connections.
     username :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the Client VPN endpoint.
-    clientVpnEndpointId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -208,11 +208,11 @@ data TerminateClientVpnConnectionsResponse = TerminateClientVpnConnectionsRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clientVpnEndpointId', 'terminateClientVpnConnectionsResponse_clientVpnEndpointId' - The ID of the Client VPN endpoint.
+--
 -- 'connectionStatuses', 'terminateClientVpnConnectionsResponse_connectionStatuses' - The current state of the client connections.
 --
 -- 'username', 'terminateClientVpnConnectionsResponse_username' - The user who established the terminated client connections.
---
--- 'clientVpnEndpointId', 'terminateClientVpnConnectionsResponse_clientVpnEndpointId' - The ID of the Client VPN endpoint.
 --
 -- 'httpStatus', 'terminateClientVpnConnectionsResponse_httpStatus' - The response's http status code.
 newTerminateClientVpnConnectionsResponse ::
@@ -221,13 +221,16 @@ newTerminateClientVpnConnectionsResponse ::
   TerminateClientVpnConnectionsResponse
 newTerminateClientVpnConnectionsResponse pHttpStatus_ =
   TerminateClientVpnConnectionsResponse'
-    { connectionStatuses =
+    { clientVpnEndpointId =
         Prelude.Nothing,
+      connectionStatuses = Prelude.Nothing,
       username = Prelude.Nothing,
-      clientVpnEndpointId =
-        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The ID of the Client VPN endpoint.
+terminateClientVpnConnectionsResponse_clientVpnEndpointId :: Lens.Lens' TerminateClientVpnConnectionsResponse (Prelude.Maybe Prelude.Text)
+terminateClientVpnConnectionsResponse_clientVpnEndpointId = Lens.lens (\TerminateClientVpnConnectionsResponse' {clientVpnEndpointId} -> clientVpnEndpointId) (\s@TerminateClientVpnConnectionsResponse' {} a -> s {clientVpnEndpointId = a} :: TerminateClientVpnConnectionsResponse)
 
 -- | The current state of the client connections.
 terminateClientVpnConnectionsResponse_connectionStatuses :: Lens.Lens' TerminateClientVpnConnectionsResponse (Prelude.Maybe [TerminateConnectionStatus])
@@ -236,10 +239,6 @@ terminateClientVpnConnectionsResponse_connectionStatuses = Lens.lens (\Terminate
 -- | The user who established the terminated client connections.
 terminateClientVpnConnectionsResponse_username :: Lens.Lens' TerminateClientVpnConnectionsResponse (Prelude.Maybe Prelude.Text)
 terminateClientVpnConnectionsResponse_username = Lens.lens (\TerminateClientVpnConnectionsResponse' {username} -> username) (\s@TerminateClientVpnConnectionsResponse' {} a -> s {username = a} :: TerminateClientVpnConnectionsResponse)
-
--- | The ID of the Client VPN endpoint.
-terminateClientVpnConnectionsResponse_clientVpnEndpointId :: Lens.Lens' TerminateClientVpnConnectionsResponse (Prelude.Maybe Prelude.Text)
-terminateClientVpnConnectionsResponse_clientVpnEndpointId = Lens.lens (\TerminateClientVpnConnectionsResponse' {clientVpnEndpointId} -> clientVpnEndpointId) (\s@TerminateClientVpnConnectionsResponse' {} a -> s {clientVpnEndpointId = a} :: TerminateClientVpnConnectionsResponse)
 
 -- | The response's http status code.
 terminateClientVpnConnectionsResponse_httpStatus :: Lens.Lens' TerminateClientVpnConnectionsResponse Prelude.Int
@@ -250,7 +249,7 @@ instance
     TerminateClientVpnConnectionsResponse
   where
   rnf TerminateClientVpnConnectionsResponse' {..} =
-    Prelude.rnf connectionStatuses
+    Prelude.rnf clientVpnEndpointId
+      `Prelude.seq` Prelude.rnf connectionStatuses
       `Prelude.seq` Prelude.rnf username
-      `Prelude.seq` Prelude.rnf clientVpnEndpointId
       `Prelude.seq` Prelude.rnf httpStatus

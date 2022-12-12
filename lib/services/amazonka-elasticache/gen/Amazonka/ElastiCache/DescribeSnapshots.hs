@@ -34,13 +34,13 @@ module Amazonka.ElastiCache.DescribeSnapshots
     newDescribeSnapshots,
 
     -- * Request Lenses
+    describeSnapshots_cacheClusterId,
     describeSnapshots_marker,
+    describeSnapshots_maxRecords,
+    describeSnapshots_replicationGroupId,
+    describeSnapshots_showNodeGroupConfig,
     describeSnapshots_snapshotName,
     describeSnapshots_snapshotSource,
-    describeSnapshots_showNodeGroupConfig,
-    describeSnapshots_maxRecords,
-    describeSnapshots_cacheClusterId,
-    describeSnapshots_replicationGroupId,
 
     -- * Destructuring the Response
     DescribeSnapshotsResponse (..),
@@ -65,22 +65,14 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeSnapshots' smart constructor.
 data DescribeSnapshots = DescribeSnapshots'
-  { -- | An optional marker returned from a prior request. Use this marker for
+  { -- | A user-supplied cluster identifier. If this parameter is specified, only
+    -- snapshots associated with that specific cluster are described.
+    cacheClusterId :: Prelude.Maybe Prelude.Text,
+    -- | An optional marker returned from a prior request. Use this marker for
     -- pagination of results from this operation. If this parameter is
     -- specified, the response includes only records beyond the marker, up to
     -- the value specified by @MaxRecords@.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | A user-supplied name of the snapshot. If this parameter is specified,
-    -- only this snapshot are described.
-    snapshotName :: Prelude.Maybe Prelude.Text,
-    -- | If set to @system@, the output shows snapshots that were automatically
-    -- created by ElastiCache. If set to @user@ the output shows snapshots that
-    -- were manually created. If omitted, the output shows both automatically
-    -- and manually created snapshots.
-    snapshotSource :: Prelude.Maybe Prelude.Text,
-    -- | A Boolean value which if true, the node group (shard) configuration is
-    -- included in the snapshot description.
-    showNodeGroupConfig :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a marker is
     -- included in the response so that the remaining results can be retrieved.
@@ -89,13 +81,21 @@ data DescribeSnapshots = DescribeSnapshots'
     --
     -- Constraints: minimum 20; maximum 50.
     maxRecords :: Prelude.Maybe Prelude.Int,
-    -- | A user-supplied cluster identifier. If this parameter is specified, only
-    -- snapshots associated with that specific cluster are described.
-    cacheClusterId :: Prelude.Maybe Prelude.Text,
     -- | A user-supplied replication group identifier. If this parameter is
     -- specified, only snapshots associated with that specific replication
     -- group are described.
-    replicationGroupId :: Prelude.Maybe Prelude.Text
+    replicationGroupId :: Prelude.Maybe Prelude.Text,
+    -- | A Boolean value which if true, the node group (shard) configuration is
+    -- included in the snapshot description.
+    showNodeGroupConfig :: Prelude.Maybe Prelude.Bool,
+    -- | A user-supplied name of the snapshot. If this parameter is specified,
+    -- only this snapshot are described.
+    snapshotName :: Prelude.Maybe Prelude.Text,
+    -- | If set to @system@, the output shows snapshots that were automatically
+    -- created by ElastiCache. If set to @user@ the output shows snapshots that
+    -- were manually created. If omitted, the output shows both automatically
+    -- and manually created snapshots.
+    snapshotSource :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -107,21 +107,13 @@ data DescribeSnapshots = DescribeSnapshots'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'cacheClusterId', 'describeSnapshots_cacheClusterId' - A user-supplied cluster identifier. If this parameter is specified, only
+-- snapshots associated with that specific cluster are described.
+--
 -- 'marker', 'describeSnapshots_marker' - An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
 -- the value specified by @MaxRecords@.
---
--- 'snapshotName', 'describeSnapshots_snapshotName' - A user-supplied name of the snapshot. If this parameter is specified,
--- only this snapshot are described.
---
--- 'snapshotSource', 'describeSnapshots_snapshotSource' - If set to @system@, the output shows snapshots that were automatically
--- created by ElastiCache. If set to @user@ the output shows snapshots that
--- were manually created. If omitted, the output shows both automatically
--- and manually created snapshots.
---
--- 'showNodeGroupConfig', 'describeSnapshots_showNodeGroupConfig' - A Boolean value which if true, the node group (shard) configuration is
--- included in the snapshot description.
 --
 -- 'maxRecords', 'describeSnapshots_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a marker is
@@ -131,24 +123,38 @@ data DescribeSnapshots = DescribeSnapshots'
 --
 -- Constraints: minimum 20; maximum 50.
 --
--- 'cacheClusterId', 'describeSnapshots_cacheClusterId' - A user-supplied cluster identifier. If this parameter is specified, only
--- snapshots associated with that specific cluster are described.
---
 -- 'replicationGroupId', 'describeSnapshots_replicationGroupId' - A user-supplied replication group identifier. If this parameter is
 -- specified, only snapshots associated with that specific replication
 -- group are described.
+--
+-- 'showNodeGroupConfig', 'describeSnapshots_showNodeGroupConfig' - A Boolean value which if true, the node group (shard) configuration is
+-- included in the snapshot description.
+--
+-- 'snapshotName', 'describeSnapshots_snapshotName' - A user-supplied name of the snapshot. If this parameter is specified,
+-- only this snapshot are described.
+--
+-- 'snapshotSource', 'describeSnapshots_snapshotSource' - If set to @system@, the output shows snapshots that were automatically
+-- created by ElastiCache. If set to @user@ the output shows snapshots that
+-- were manually created. If omitted, the output shows both automatically
+-- and manually created snapshots.
 newDescribeSnapshots ::
   DescribeSnapshots
 newDescribeSnapshots =
   DescribeSnapshots'
-    { marker = Prelude.Nothing,
-      snapshotName = Prelude.Nothing,
-      snapshotSource = Prelude.Nothing,
-      showNodeGroupConfig = Prelude.Nothing,
+    { cacheClusterId =
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
       maxRecords = Prelude.Nothing,
-      cacheClusterId = Prelude.Nothing,
-      replicationGroupId = Prelude.Nothing
+      replicationGroupId = Prelude.Nothing,
+      showNodeGroupConfig = Prelude.Nothing,
+      snapshotName = Prelude.Nothing,
+      snapshotSource = Prelude.Nothing
     }
+
+-- | A user-supplied cluster identifier. If this parameter is specified, only
+-- snapshots associated with that specific cluster are described.
+describeSnapshots_cacheClusterId :: Lens.Lens' DescribeSnapshots (Prelude.Maybe Prelude.Text)
+describeSnapshots_cacheClusterId = Lens.lens (\DescribeSnapshots' {cacheClusterId} -> cacheClusterId) (\s@DescribeSnapshots' {} a -> s {cacheClusterId = a} :: DescribeSnapshots)
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
@@ -156,6 +162,27 @@ newDescribeSnapshots =
 -- the value specified by @MaxRecords@.
 describeSnapshots_marker :: Lens.Lens' DescribeSnapshots (Prelude.Maybe Prelude.Text)
 describeSnapshots_marker = Lens.lens (\DescribeSnapshots' {marker} -> marker) (\s@DescribeSnapshots' {} a -> s {marker = a} :: DescribeSnapshots)
+
+-- | The maximum number of records to include in the response. If more
+-- records exist than the specified @MaxRecords@ value, a marker is
+-- included in the response so that the remaining results can be retrieved.
+--
+-- Default: 50
+--
+-- Constraints: minimum 20; maximum 50.
+describeSnapshots_maxRecords :: Lens.Lens' DescribeSnapshots (Prelude.Maybe Prelude.Int)
+describeSnapshots_maxRecords = Lens.lens (\DescribeSnapshots' {maxRecords} -> maxRecords) (\s@DescribeSnapshots' {} a -> s {maxRecords = a} :: DescribeSnapshots)
+
+-- | A user-supplied replication group identifier. If this parameter is
+-- specified, only snapshots associated with that specific replication
+-- group are described.
+describeSnapshots_replicationGroupId :: Lens.Lens' DescribeSnapshots (Prelude.Maybe Prelude.Text)
+describeSnapshots_replicationGroupId = Lens.lens (\DescribeSnapshots' {replicationGroupId} -> replicationGroupId) (\s@DescribeSnapshots' {} a -> s {replicationGroupId = a} :: DescribeSnapshots)
+
+-- | A Boolean value which if true, the node group (shard) configuration is
+-- included in the snapshot description.
+describeSnapshots_showNodeGroupConfig :: Lens.Lens' DescribeSnapshots (Prelude.Maybe Prelude.Bool)
+describeSnapshots_showNodeGroupConfig = Lens.lens (\DescribeSnapshots' {showNodeGroupConfig} -> showNodeGroupConfig) (\s@DescribeSnapshots' {} a -> s {showNodeGroupConfig = a} :: DescribeSnapshots)
 
 -- | A user-supplied name of the snapshot. If this parameter is specified,
 -- only this snapshot are described.
@@ -168,32 +195,6 @@ describeSnapshots_snapshotName = Lens.lens (\DescribeSnapshots' {snapshotName} -
 -- and manually created snapshots.
 describeSnapshots_snapshotSource :: Lens.Lens' DescribeSnapshots (Prelude.Maybe Prelude.Text)
 describeSnapshots_snapshotSource = Lens.lens (\DescribeSnapshots' {snapshotSource} -> snapshotSource) (\s@DescribeSnapshots' {} a -> s {snapshotSource = a} :: DescribeSnapshots)
-
--- | A Boolean value which if true, the node group (shard) configuration is
--- included in the snapshot description.
-describeSnapshots_showNodeGroupConfig :: Lens.Lens' DescribeSnapshots (Prelude.Maybe Prelude.Bool)
-describeSnapshots_showNodeGroupConfig = Lens.lens (\DescribeSnapshots' {showNodeGroupConfig} -> showNodeGroupConfig) (\s@DescribeSnapshots' {} a -> s {showNodeGroupConfig = a} :: DescribeSnapshots)
-
--- | The maximum number of records to include in the response. If more
--- records exist than the specified @MaxRecords@ value, a marker is
--- included in the response so that the remaining results can be retrieved.
---
--- Default: 50
---
--- Constraints: minimum 20; maximum 50.
-describeSnapshots_maxRecords :: Lens.Lens' DescribeSnapshots (Prelude.Maybe Prelude.Int)
-describeSnapshots_maxRecords = Lens.lens (\DescribeSnapshots' {maxRecords} -> maxRecords) (\s@DescribeSnapshots' {} a -> s {maxRecords = a} :: DescribeSnapshots)
-
--- | A user-supplied cluster identifier. If this parameter is specified, only
--- snapshots associated with that specific cluster are described.
-describeSnapshots_cacheClusterId :: Lens.Lens' DescribeSnapshots (Prelude.Maybe Prelude.Text)
-describeSnapshots_cacheClusterId = Lens.lens (\DescribeSnapshots' {cacheClusterId} -> cacheClusterId) (\s@DescribeSnapshots' {} a -> s {cacheClusterId = a} :: DescribeSnapshots)
-
--- | A user-supplied replication group identifier. If this parameter is
--- specified, only snapshots associated with that specific replication
--- group are described.
-describeSnapshots_replicationGroupId :: Lens.Lens' DescribeSnapshots (Prelude.Maybe Prelude.Text)
-describeSnapshots_replicationGroupId = Lens.lens (\DescribeSnapshots' {replicationGroupId} -> replicationGroupId) (\s@DescribeSnapshots' {} a -> s {replicationGroupId = a} :: DescribeSnapshots)
 
 instance Core.AWSPager DescribeSnapshots where
   page rq rs
@@ -236,23 +237,23 @@ instance Core.AWSRequest DescribeSnapshots where
 
 instance Prelude.Hashable DescribeSnapshots where
   hashWithSalt _salt DescribeSnapshots' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt `Prelude.hashWithSalt` cacheClusterId
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` replicationGroupId
+      `Prelude.hashWithSalt` showNodeGroupConfig
       `Prelude.hashWithSalt` snapshotName
       `Prelude.hashWithSalt` snapshotSource
-      `Prelude.hashWithSalt` showNodeGroupConfig
-      `Prelude.hashWithSalt` maxRecords
-      `Prelude.hashWithSalt` cacheClusterId
-      `Prelude.hashWithSalt` replicationGroupId
 
 instance Prelude.NFData DescribeSnapshots where
   rnf DescribeSnapshots' {..} =
-    Prelude.rnf marker
+    Prelude.rnf cacheClusterId
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf replicationGroupId
+      `Prelude.seq` Prelude.rnf showNodeGroupConfig
       `Prelude.seq` Prelude.rnf snapshotName
       `Prelude.seq` Prelude.rnf snapshotSource
-      `Prelude.seq` Prelude.rnf showNodeGroupConfig
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf cacheClusterId
-      `Prelude.seq` Prelude.rnf replicationGroupId
 
 instance Data.ToHeaders DescribeSnapshots where
   toHeaders = Prelude.const Prelude.mempty
@@ -267,13 +268,13 @@ instance Data.ToQuery DescribeSnapshots where
           Data.=: ("DescribeSnapshots" :: Prelude.ByteString),
         "Version"
           Data.=: ("2015-02-02" :: Prelude.ByteString),
-        "Marker" Data.=: marker,
-        "SnapshotName" Data.=: snapshotName,
-        "SnapshotSource" Data.=: snapshotSource,
-        "ShowNodeGroupConfig" Data.=: showNodeGroupConfig,
-        "MaxRecords" Data.=: maxRecords,
         "CacheClusterId" Data.=: cacheClusterId,
-        "ReplicationGroupId" Data.=: replicationGroupId
+        "Marker" Data.=: marker,
+        "MaxRecords" Data.=: maxRecords,
+        "ReplicationGroupId" Data.=: replicationGroupId,
+        "ShowNodeGroupConfig" Data.=: showNodeGroupConfig,
+        "SnapshotName" Data.=: snapshotName,
+        "SnapshotSource" Data.=: snapshotSource
       ]
 
 -- | Represents the output of a @DescribeSnapshots@ operation.

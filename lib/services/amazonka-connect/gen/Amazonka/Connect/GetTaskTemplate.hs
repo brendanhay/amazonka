@@ -37,16 +37,16 @@ module Amazonka.Connect.GetTaskTemplate
     newGetTaskTemplateResponse,
 
     -- * Response Lenses
-    getTaskTemplateResponse_tags,
-    getTaskTemplateResponse_createdTime,
     getTaskTemplateResponse_constraints,
-    getTaskTemplateResponse_status,
-    getTaskTemplateResponse_fields,
-    getTaskTemplateResponse_description,
-    getTaskTemplateResponse_lastModifiedTime,
-    getTaskTemplateResponse_instanceId,
-    getTaskTemplateResponse_defaults,
     getTaskTemplateResponse_contactFlowId,
+    getTaskTemplateResponse_createdTime,
+    getTaskTemplateResponse_defaults,
+    getTaskTemplateResponse_description,
+    getTaskTemplateResponse_fields,
+    getTaskTemplateResponse_instanceId,
+    getTaskTemplateResponse_lastModifiedTime,
+    getTaskTemplateResponse_status,
+    getTaskTemplateResponse_tags,
     getTaskTemplateResponse_httpStatus,
     getTaskTemplateResponse_id,
     getTaskTemplateResponse_arn,
@@ -127,16 +127,16 @@ instance Core.AWSRequest GetTaskTemplate where
     Response.receiveJSON
       ( \s h x ->
           GetTaskTemplateResponse'
-            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "CreatedTime")
-            Prelude.<*> (x Data..?> "Constraints")
-            Prelude.<*> (x Data..?> "Status")
-            Prelude.<*> (x Data..?> "Fields" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "Description")
-            Prelude.<*> (x Data..?> "LastModifiedTime")
-            Prelude.<*> (x Data..?> "InstanceId")
-            Prelude.<*> (x Data..?> "Defaults")
+            Prelude.<$> (x Data..?> "Constraints")
             Prelude.<*> (x Data..?> "ContactFlowId")
+            Prelude.<*> (x Data..?> "CreatedTime")
+            Prelude.<*> (x Data..?> "Defaults")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "Fields" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "InstanceId")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "Id")
             Prelude.<*> (x Data..:> "Arn")
@@ -182,33 +182,33 @@ instance Data.ToQuery GetTaskTemplate where
 
 -- | /See:/ 'newGetTaskTemplateResponse' smart constructor.
 data GetTaskTemplateResponse = GetTaskTemplateResponse'
-  { -- | The tags used to organize, track, or control access for this resource.
-    -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | Constraints that are applicable to the fields listed.
+    constraints :: Prelude.Maybe TaskTemplateConstraints,
+    -- | The identifier of the flow that runs by default when a task is created
+    -- by referencing this template.
+    contactFlowId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the task template was created.
     createdTime :: Prelude.Maybe Data.POSIX,
-    -- | Constraints that are applicable to the fields listed.
-    constraints :: Prelude.Maybe TaskTemplateConstraints,
+    -- | The default values for fields when a task is created by referencing this
+    -- template.
+    defaults :: Prelude.Maybe TaskTemplateDefaults,
+    -- | The description of the task template.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Fields that are part of the template.
+    fields :: Prelude.Maybe [TaskTemplateField],
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
+    instanceId :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp when the task template was last modified.
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | Marks a template as @ACTIVE@ or @INACTIVE@ for a task to refer to it.
     -- Tasks can only be created from @ACTIVE@ templates. If a template is
     -- marked as @INACTIVE@, then a task that refers to this template cannot be
     -- created.
     status :: Prelude.Maybe TaskTemplateStatus,
-    -- | Fields that are part of the template.
-    fields :: Prelude.Maybe [TaskTemplateField],
-    -- | The description of the task template.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp when the task template was last modified.
-    lastModifiedTime :: Prelude.Maybe Data.POSIX,
-    -- | The identifier of the Amazon Connect instance. You can find the
-    -- instanceId in the ARN of the instance.
-    instanceId :: Prelude.Maybe Prelude.Text,
-    -- | The default values for fields when a task is created by referencing this
-    -- template.
-    defaults :: Prelude.Maybe TaskTemplateDefaults,
-    -- | The identifier of the flow that runs by default when a task is created
-    -- by referencing this template.
-    contactFlowId :: Prelude.Maybe Prelude.Text,
+    -- | The tags used to organize, track, or control access for this resource.
+    -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | A unique identifier for the task template.
@@ -228,32 +228,32 @@ data GetTaskTemplateResponse = GetTaskTemplateResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'getTaskTemplateResponse_tags' - The tags used to organize, track, or control access for this resource.
--- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
+-- 'constraints', 'getTaskTemplateResponse_constraints' - Constraints that are applicable to the fields listed.
+--
+-- 'contactFlowId', 'getTaskTemplateResponse_contactFlowId' - The identifier of the flow that runs by default when a task is created
+-- by referencing this template.
 --
 -- 'createdTime', 'getTaskTemplateResponse_createdTime' - The timestamp when the task template was created.
 --
--- 'constraints', 'getTaskTemplateResponse_constraints' - Constraints that are applicable to the fields listed.
+-- 'defaults', 'getTaskTemplateResponse_defaults' - The default values for fields when a task is created by referencing this
+-- template.
+--
+-- 'description', 'getTaskTemplateResponse_description' - The description of the task template.
+--
+-- 'fields', 'getTaskTemplateResponse_fields' - Fields that are part of the template.
+--
+-- 'instanceId', 'getTaskTemplateResponse_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
+--
+-- 'lastModifiedTime', 'getTaskTemplateResponse_lastModifiedTime' - The timestamp when the task template was last modified.
 --
 -- 'status', 'getTaskTemplateResponse_status' - Marks a template as @ACTIVE@ or @INACTIVE@ for a task to refer to it.
 -- Tasks can only be created from @ACTIVE@ templates. If a template is
 -- marked as @INACTIVE@, then a task that refers to this template cannot be
 -- created.
 --
--- 'fields', 'getTaskTemplateResponse_fields' - Fields that are part of the template.
---
--- 'description', 'getTaskTemplateResponse_description' - The description of the task template.
---
--- 'lastModifiedTime', 'getTaskTemplateResponse_lastModifiedTime' - The timestamp when the task template was last modified.
---
--- 'instanceId', 'getTaskTemplateResponse_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
---
--- 'defaults', 'getTaskTemplateResponse_defaults' - The default values for fields when a task is created by referencing this
--- template.
---
--- 'contactFlowId', 'getTaskTemplateResponse_contactFlowId' - The identifier of the flow that runs by default when a task is created
--- by referencing this template.
+-- 'tags', 'getTaskTemplateResponse_tags' - The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 --
 -- 'httpStatus', 'getTaskTemplateResponse_httpStatus' - The response's http status code.
 --
@@ -278,34 +278,57 @@ newGetTaskTemplateResponse
   pArn_
   pName_ =
     GetTaskTemplateResponse'
-      { tags = Prelude.Nothing,
-        createdTime = Prelude.Nothing,
-        constraints = Prelude.Nothing,
-        status = Prelude.Nothing,
-        fields = Prelude.Nothing,
-        description = Prelude.Nothing,
-        lastModifiedTime = Prelude.Nothing,
-        instanceId = Prelude.Nothing,
-        defaults = Prelude.Nothing,
+      { constraints =
+          Prelude.Nothing,
         contactFlowId = Prelude.Nothing,
+        createdTime = Prelude.Nothing,
+        defaults = Prelude.Nothing,
+        description = Prelude.Nothing,
+        fields = Prelude.Nothing,
+        instanceId = Prelude.Nothing,
+        lastModifiedTime = Prelude.Nothing,
+        status = Prelude.Nothing,
+        tags = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         id = pId_,
         arn = pArn_,
         name = pName_
       }
 
--- | The tags used to organize, track, or control access for this resource.
--- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
-getTaskTemplateResponse_tags :: Lens.Lens' GetTaskTemplateResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getTaskTemplateResponse_tags = Lens.lens (\GetTaskTemplateResponse' {tags} -> tags) (\s@GetTaskTemplateResponse' {} a -> s {tags = a} :: GetTaskTemplateResponse) Prelude.. Lens.mapping Lens.coerced
+-- | Constraints that are applicable to the fields listed.
+getTaskTemplateResponse_constraints :: Lens.Lens' GetTaskTemplateResponse (Prelude.Maybe TaskTemplateConstraints)
+getTaskTemplateResponse_constraints = Lens.lens (\GetTaskTemplateResponse' {constraints} -> constraints) (\s@GetTaskTemplateResponse' {} a -> s {constraints = a} :: GetTaskTemplateResponse)
+
+-- | The identifier of the flow that runs by default when a task is created
+-- by referencing this template.
+getTaskTemplateResponse_contactFlowId :: Lens.Lens' GetTaskTemplateResponse (Prelude.Maybe Prelude.Text)
+getTaskTemplateResponse_contactFlowId = Lens.lens (\GetTaskTemplateResponse' {contactFlowId} -> contactFlowId) (\s@GetTaskTemplateResponse' {} a -> s {contactFlowId = a} :: GetTaskTemplateResponse)
 
 -- | The timestamp when the task template was created.
 getTaskTemplateResponse_createdTime :: Lens.Lens' GetTaskTemplateResponse (Prelude.Maybe Prelude.UTCTime)
 getTaskTemplateResponse_createdTime = Lens.lens (\GetTaskTemplateResponse' {createdTime} -> createdTime) (\s@GetTaskTemplateResponse' {} a -> s {createdTime = a} :: GetTaskTemplateResponse) Prelude.. Lens.mapping Data._Time
 
--- | Constraints that are applicable to the fields listed.
-getTaskTemplateResponse_constraints :: Lens.Lens' GetTaskTemplateResponse (Prelude.Maybe TaskTemplateConstraints)
-getTaskTemplateResponse_constraints = Lens.lens (\GetTaskTemplateResponse' {constraints} -> constraints) (\s@GetTaskTemplateResponse' {} a -> s {constraints = a} :: GetTaskTemplateResponse)
+-- | The default values for fields when a task is created by referencing this
+-- template.
+getTaskTemplateResponse_defaults :: Lens.Lens' GetTaskTemplateResponse (Prelude.Maybe TaskTemplateDefaults)
+getTaskTemplateResponse_defaults = Lens.lens (\GetTaskTemplateResponse' {defaults} -> defaults) (\s@GetTaskTemplateResponse' {} a -> s {defaults = a} :: GetTaskTemplateResponse)
+
+-- | The description of the task template.
+getTaskTemplateResponse_description :: Lens.Lens' GetTaskTemplateResponse (Prelude.Maybe Prelude.Text)
+getTaskTemplateResponse_description = Lens.lens (\GetTaskTemplateResponse' {description} -> description) (\s@GetTaskTemplateResponse' {} a -> s {description = a} :: GetTaskTemplateResponse)
+
+-- | Fields that are part of the template.
+getTaskTemplateResponse_fields :: Lens.Lens' GetTaskTemplateResponse (Prelude.Maybe [TaskTemplateField])
+getTaskTemplateResponse_fields = Lens.lens (\GetTaskTemplateResponse' {fields} -> fields) (\s@GetTaskTemplateResponse' {} a -> s {fields = a} :: GetTaskTemplateResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
+getTaskTemplateResponse_instanceId :: Lens.Lens' GetTaskTemplateResponse (Prelude.Maybe Prelude.Text)
+getTaskTemplateResponse_instanceId = Lens.lens (\GetTaskTemplateResponse' {instanceId} -> instanceId) (\s@GetTaskTemplateResponse' {} a -> s {instanceId = a} :: GetTaskTemplateResponse)
+
+-- | The timestamp when the task template was last modified.
+getTaskTemplateResponse_lastModifiedTime :: Lens.Lens' GetTaskTemplateResponse (Prelude.Maybe Prelude.UTCTime)
+getTaskTemplateResponse_lastModifiedTime = Lens.lens (\GetTaskTemplateResponse' {lastModifiedTime} -> lastModifiedTime) (\s@GetTaskTemplateResponse' {} a -> s {lastModifiedTime = a} :: GetTaskTemplateResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Marks a template as @ACTIVE@ or @INACTIVE@ for a task to refer to it.
 -- Tasks can only be created from @ACTIVE@ templates. If a template is
@@ -314,32 +337,10 @@ getTaskTemplateResponse_constraints = Lens.lens (\GetTaskTemplateResponse' {cons
 getTaskTemplateResponse_status :: Lens.Lens' GetTaskTemplateResponse (Prelude.Maybe TaskTemplateStatus)
 getTaskTemplateResponse_status = Lens.lens (\GetTaskTemplateResponse' {status} -> status) (\s@GetTaskTemplateResponse' {} a -> s {status = a} :: GetTaskTemplateResponse)
 
--- | Fields that are part of the template.
-getTaskTemplateResponse_fields :: Lens.Lens' GetTaskTemplateResponse (Prelude.Maybe [TaskTemplateField])
-getTaskTemplateResponse_fields = Lens.lens (\GetTaskTemplateResponse' {fields} -> fields) (\s@GetTaskTemplateResponse' {} a -> s {fields = a} :: GetTaskTemplateResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The description of the task template.
-getTaskTemplateResponse_description :: Lens.Lens' GetTaskTemplateResponse (Prelude.Maybe Prelude.Text)
-getTaskTemplateResponse_description = Lens.lens (\GetTaskTemplateResponse' {description} -> description) (\s@GetTaskTemplateResponse' {} a -> s {description = a} :: GetTaskTemplateResponse)
-
--- | The timestamp when the task template was last modified.
-getTaskTemplateResponse_lastModifiedTime :: Lens.Lens' GetTaskTemplateResponse (Prelude.Maybe Prelude.UTCTime)
-getTaskTemplateResponse_lastModifiedTime = Lens.lens (\GetTaskTemplateResponse' {lastModifiedTime} -> lastModifiedTime) (\s@GetTaskTemplateResponse' {} a -> s {lastModifiedTime = a} :: GetTaskTemplateResponse) Prelude.. Lens.mapping Data._Time
-
--- | The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
-getTaskTemplateResponse_instanceId :: Lens.Lens' GetTaskTemplateResponse (Prelude.Maybe Prelude.Text)
-getTaskTemplateResponse_instanceId = Lens.lens (\GetTaskTemplateResponse' {instanceId} -> instanceId) (\s@GetTaskTemplateResponse' {} a -> s {instanceId = a} :: GetTaskTemplateResponse)
-
--- | The default values for fields when a task is created by referencing this
--- template.
-getTaskTemplateResponse_defaults :: Lens.Lens' GetTaskTemplateResponse (Prelude.Maybe TaskTemplateDefaults)
-getTaskTemplateResponse_defaults = Lens.lens (\GetTaskTemplateResponse' {defaults} -> defaults) (\s@GetTaskTemplateResponse' {} a -> s {defaults = a} :: GetTaskTemplateResponse)
-
--- | The identifier of the flow that runs by default when a task is created
--- by referencing this template.
-getTaskTemplateResponse_contactFlowId :: Lens.Lens' GetTaskTemplateResponse (Prelude.Maybe Prelude.Text)
-getTaskTemplateResponse_contactFlowId = Lens.lens (\GetTaskTemplateResponse' {contactFlowId} -> contactFlowId) (\s@GetTaskTemplateResponse' {} a -> s {contactFlowId = a} :: GetTaskTemplateResponse)
+-- | The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
+getTaskTemplateResponse_tags :: Lens.Lens' GetTaskTemplateResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getTaskTemplateResponse_tags = Lens.lens (\GetTaskTemplateResponse' {tags} -> tags) (\s@GetTaskTemplateResponse' {} a -> s {tags = a} :: GetTaskTemplateResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getTaskTemplateResponse_httpStatus :: Lens.Lens' GetTaskTemplateResponse Prelude.Int
@@ -359,16 +360,16 @@ getTaskTemplateResponse_name = Lens.lens (\GetTaskTemplateResponse' {name} -> na
 
 instance Prelude.NFData GetTaskTemplateResponse where
   rnf GetTaskTemplateResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf constraints
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf fields
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf defaults
+    Prelude.rnf constraints
       `Prelude.seq` Prelude.rnf contactFlowId
+      `Prelude.seq` Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf defaults
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf fields
+      `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf arn

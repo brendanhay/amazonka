@@ -57,9 +57,9 @@ module Amazonka.CloudFront.CreateCachePolicy
     newCreateCachePolicyResponse,
 
     -- * Response Lenses
-    createCachePolicyResponse_location,
     createCachePolicyResponse_cachePolicy,
     createCachePolicyResponse_eTag,
+    createCachePolicyResponse_location,
     createCachePolicyResponse_httpStatus,
   )
 where
@@ -112,9 +112,9 @@ instance Core.AWSRequest CreateCachePolicy where
     Response.receiveXML
       ( \s h x ->
           CreateCachePolicyResponse'
-            Prelude.<$> (h Data..#? "Location")
-            Prelude.<*> (Data.parseXML x)
+            Prelude.<$> (Data.parseXML x)
             Prelude.<*> (h Data..#? "ETag")
+            Prelude.<*> (h Data..#? "Location")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,12 +143,12 @@ instance Data.ToQuery CreateCachePolicy where
 
 -- | /See:/ 'newCreateCachePolicyResponse' smart constructor.
 data CreateCachePolicyResponse = CreateCachePolicyResponse'
-  { -- | The fully qualified URI of the cache policy just created.
-    location :: Prelude.Maybe Prelude.Text,
-    -- | A cache policy.
+  { -- | A cache policy.
     cachePolicy :: Prelude.Maybe CachePolicy,
     -- | The current version of the cache policy.
     eTag :: Prelude.Maybe Prelude.Text,
+    -- | The fully qualified URI of the cache policy just created.
+    location :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -162,11 +162,11 @@ data CreateCachePolicyResponse = CreateCachePolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'location', 'createCachePolicyResponse_location' - The fully qualified URI of the cache policy just created.
---
 -- 'cachePolicy', 'createCachePolicyResponse_cachePolicy' - A cache policy.
 --
 -- 'eTag', 'createCachePolicyResponse_eTag' - The current version of the cache policy.
+--
+-- 'location', 'createCachePolicyResponse_location' - The fully qualified URI of the cache policy just created.
 --
 -- 'httpStatus', 'createCachePolicyResponse_httpStatus' - The response's http status code.
 newCreateCachePolicyResponse ::
@@ -175,16 +175,12 @@ newCreateCachePolicyResponse ::
   CreateCachePolicyResponse
 newCreateCachePolicyResponse pHttpStatus_ =
   CreateCachePolicyResponse'
-    { location =
+    { cachePolicy =
         Prelude.Nothing,
-      cachePolicy = Prelude.Nothing,
       eTag = Prelude.Nothing,
+      location = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The fully qualified URI of the cache policy just created.
-createCachePolicyResponse_location :: Lens.Lens' CreateCachePolicyResponse (Prelude.Maybe Prelude.Text)
-createCachePolicyResponse_location = Lens.lens (\CreateCachePolicyResponse' {location} -> location) (\s@CreateCachePolicyResponse' {} a -> s {location = a} :: CreateCachePolicyResponse)
 
 -- | A cache policy.
 createCachePolicyResponse_cachePolicy :: Lens.Lens' CreateCachePolicyResponse (Prelude.Maybe CachePolicy)
@@ -194,13 +190,17 @@ createCachePolicyResponse_cachePolicy = Lens.lens (\CreateCachePolicyResponse' {
 createCachePolicyResponse_eTag :: Lens.Lens' CreateCachePolicyResponse (Prelude.Maybe Prelude.Text)
 createCachePolicyResponse_eTag = Lens.lens (\CreateCachePolicyResponse' {eTag} -> eTag) (\s@CreateCachePolicyResponse' {} a -> s {eTag = a} :: CreateCachePolicyResponse)
 
+-- | The fully qualified URI of the cache policy just created.
+createCachePolicyResponse_location :: Lens.Lens' CreateCachePolicyResponse (Prelude.Maybe Prelude.Text)
+createCachePolicyResponse_location = Lens.lens (\CreateCachePolicyResponse' {location} -> location) (\s@CreateCachePolicyResponse' {} a -> s {location = a} :: CreateCachePolicyResponse)
+
 -- | The response's http status code.
 createCachePolicyResponse_httpStatus :: Lens.Lens' CreateCachePolicyResponse Prelude.Int
 createCachePolicyResponse_httpStatus = Lens.lens (\CreateCachePolicyResponse' {httpStatus} -> httpStatus) (\s@CreateCachePolicyResponse' {} a -> s {httpStatus = a} :: CreateCachePolicyResponse)
 
 instance Prelude.NFData CreateCachePolicyResponse where
   rnf CreateCachePolicyResponse' {..} =
-    Prelude.rnf location
-      `Prelude.seq` Prelude.rnf cachePolicy
+    Prelude.rnf cachePolicy
       `Prelude.seq` Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf location
       `Prelude.seq` Prelude.rnf httpStatus

@@ -29,14 +29,14 @@ import Amazonka.WorkMail.Types.AccessEffect
 --
 -- /See:/ 'newImpersonationRule' smart constructor.
 data ImpersonationRule = ImpersonationRule'
-  { -- | The rule name.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | A list of user IDs that match the rule.
-    targetUsers :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The rule description.
+  { -- | The rule description.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The rule name.
+    name :: Prelude.Maybe Prelude.Text,
     -- | A list of user IDs that don\'t match the rule.
     notTargetUsers :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | A list of user IDs that match the rule.
+    targetUsers :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The identifier of the rule.
     impersonationRuleId :: Prelude.Text,
     -- | The effect of the rule when it matches the input. Allowed effect values
@@ -53,13 +53,13 @@ data ImpersonationRule = ImpersonationRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'impersonationRule_name' - The rule name.
---
--- 'targetUsers', 'impersonationRule_targetUsers' - A list of user IDs that match the rule.
---
 -- 'description', 'impersonationRule_description' - The rule description.
 --
+-- 'name', 'impersonationRule_name' - The rule name.
+--
 -- 'notTargetUsers', 'impersonationRule_notTargetUsers' - A list of user IDs that don\'t match the rule.
+--
+-- 'targetUsers', 'impersonationRule_targetUsers' - A list of user IDs that match the rule.
 --
 -- 'impersonationRuleId', 'impersonationRule_impersonationRuleId' - The identifier of the rule.
 --
@@ -73,29 +73,29 @@ newImpersonationRule ::
   ImpersonationRule
 newImpersonationRule pImpersonationRuleId_ pEffect_ =
   ImpersonationRule'
-    { name = Prelude.Nothing,
-      targetUsers = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      name = Prelude.Nothing,
       notTargetUsers = Prelude.Nothing,
+      targetUsers = Prelude.Nothing,
       impersonationRuleId = pImpersonationRuleId_,
       effect = pEffect_
     }
-
--- | The rule name.
-impersonationRule_name :: Lens.Lens' ImpersonationRule (Prelude.Maybe Prelude.Text)
-impersonationRule_name = Lens.lens (\ImpersonationRule' {name} -> name) (\s@ImpersonationRule' {} a -> s {name = a} :: ImpersonationRule)
-
--- | A list of user IDs that match the rule.
-impersonationRule_targetUsers :: Lens.Lens' ImpersonationRule (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-impersonationRule_targetUsers = Lens.lens (\ImpersonationRule' {targetUsers} -> targetUsers) (\s@ImpersonationRule' {} a -> s {targetUsers = a} :: ImpersonationRule) Prelude.. Lens.mapping Lens.coerced
 
 -- | The rule description.
 impersonationRule_description :: Lens.Lens' ImpersonationRule (Prelude.Maybe Prelude.Text)
 impersonationRule_description = Lens.lens (\ImpersonationRule' {description} -> description) (\s@ImpersonationRule' {} a -> s {description = a} :: ImpersonationRule)
 
+-- | The rule name.
+impersonationRule_name :: Lens.Lens' ImpersonationRule (Prelude.Maybe Prelude.Text)
+impersonationRule_name = Lens.lens (\ImpersonationRule' {name} -> name) (\s@ImpersonationRule' {} a -> s {name = a} :: ImpersonationRule)
+
 -- | A list of user IDs that don\'t match the rule.
 impersonationRule_notTargetUsers :: Lens.Lens' ImpersonationRule (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 impersonationRule_notTargetUsers = Lens.lens (\ImpersonationRule' {notTargetUsers} -> notTargetUsers) (\s@ImpersonationRule' {} a -> s {notTargetUsers = a} :: ImpersonationRule) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of user IDs that match the rule.
+impersonationRule_targetUsers :: Lens.Lens' ImpersonationRule (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+impersonationRule_targetUsers = Lens.lens (\ImpersonationRule' {targetUsers} -> targetUsers) (\s@ImpersonationRule' {} a -> s {targetUsers = a} :: ImpersonationRule) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the rule.
 impersonationRule_impersonationRuleId :: Lens.Lens' ImpersonationRule Prelude.Text
@@ -112,29 +112,29 @@ instance Data.FromJSON ImpersonationRule where
       "ImpersonationRule"
       ( \x ->
           ImpersonationRule'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "TargetUsers")
-            Prelude.<*> (x Data..:? "Description")
+            Prelude.<$> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "NotTargetUsers")
+            Prelude.<*> (x Data..:? "TargetUsers")
             Prelude.<*> (x Data..: "ImpersonationRuleId")
             Prelude.<*> (x Data..: "Effect")
       )
 
 instance Prelude.Hashable ImpersonationRule where
   hashWithSalt _salt ImpersonationRule' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` targetUsers
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` notTargetUsers
+      `Prelude.hashWithSalt` targetUsers
       `Prelude.hashWithSalt` impersonationRuleId
       `Prelude.hashWithSalt` effect
 
 instance Prelude.NFData ImpersonationRule where
   rnf ImpersonationRule' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf targetUsers
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf notTargetUsers
+      `Prelude.seq` Prelude.rnf targetUsers
       `Prelude.seq` Prelude.rnf impersonationRuleId
       `Prelude.seq` Prelude.rnf effect
 
@@ -142,11 +142,11 @@ instance Data.ToJSON ImpersonationRule where
   toJSON ImpersonationRule' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
-            ("TargetUsers" Data..=) Prelude.<$> targetUsers,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("Name" Data..=) Prelude.<$> name,
             ("NotTargetUsers" Data..=)
               Prelude.<$> notTargetUsers,
+            ("TargetUsers" Data..=) Prelude.<$> targetUsers,
             Prelude.Just
               ("ImpersonationRuleId" Data..= impersonationRuleId),
             Prelude.Just ("Effect" Data..= effect)

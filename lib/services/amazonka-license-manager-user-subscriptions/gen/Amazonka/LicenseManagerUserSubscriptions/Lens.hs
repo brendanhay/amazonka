@@ -37,24 +37,24 @@ module Amazonka.LicenseManagerUserSubscriptions.Lens
     disassociateUserResponse_instanceUserSummary,
 
     -- ** ListIdentityProviders
-    listIdentityProviders_nextToken,
     listIdentityProviders_maxResults,
+    listIdentityProviders_nextToken,
     listIdentityProvidersResponse_nextToken,
     listIdentityProvidersResponse_httpStatus,
     listIdentityProvidersResponse_identityProviderSummaries,
 
     -- ** ListInstances
-    listInstances_nextToken,
     listInstances_filters,
     listInstances_maxResults,
-    listInstancesResponse_nextToken,
+    listInstances_nextToken,
     listInstancesResponse_instanceSummaries,
+    listInstancesResponse_nextToken,
     listInstancesResponse_httpStatus,
 
     -- ** ListProductSubscriptions
-    listProductSubscriptions_nextToken,
     listProductSubscriptions_filters,
     listProductSubscriptions_maxResults,
+    listProductSubscriptions_nextToken,
     listProductSubscriptions_identityProvider,
     listProductSubscriptions_product,
     listProductSubscriptionsResponse_nextToken,
@@ -62,16 +62,17 @@ module Amazonka.LicenseManagerUserSubscriptions.Lens
     listProductSubscriptionsResponse_httpStatus,
 
     -- ** ListUserAssociations
-    listUserAssociations_nextToken,
     listUserAssociations_filters,
     listUserAssociations_maxResults,
+    listUserAssociations_nextToken,
     listUserAssociations_identityProvider,
     listUserAssociations_instanceId,
-    listUserAssociationsResponse_nextToken,
     listUserAssociationsResponse_instanceUserSummaries,
+    listUserAssociationsResponse_nextToken,
     listUserAssociationsResponse_httpStatus,
 
     -- ** RegisterIdentityProvider
+    registerIdentityProvider_settings,
     registerIdentityProvider_identityProvider,
     registerIdentityProvider_product,
     registerIdentityProviderResponse_httpStatus,
@@ -93,6 +94,13 @@ module Amazonka.LicenseManagerUserSubscriptions.Lens
     stopProductSubscriptionResponse_httpStatus,
     stopProductSubscriptionResponse_productUserSummary,
 
+    -- ** UpdateIdentityProviderSettings
+    updateIdentityProviderSettings_identityProvider,
+    updateIdentityProviderSettings_product,
+    updateIdentityProviderSettings_updateSettings,
+    updateIdentityProviderSettingsResponse_httpStatus,
+    updateIdentityProviderSettingsResponse_identityProviderSummary,
+
     -- * Types
 
     -- ** ActiveDirectoryIdentityProvider
@@ -110,6 +118,7 @@ module Amazonka.LicenseManagerUserSubscriptions.Lens
     identityProviderSummary_failureMessage,
     identityProviderSummary_identityProvider,
     identityProviderSummary_product,
+    identityProviderSummary_settings,
     identityProviderSummary_status,
 
     -- ** InstanceSummary
@@ -121,8 +130,8 @@ module Amazonka.LicenseManagerUserSubscriptions.Lens
 
     -- ** InstanceUserSummary
     instanceUserSummary_associationDate,
-    instanceUserSummary_domain,
     instanceUserSummary_disassociationDate,
+    instanceUserSummary_domain,
     instanceUserSummary_statusMessage,
     instanceUserSummary_identityProvider,
     instanceUserSummary_instanceId,
@@ -131,13 +140,22 @@ module Amazonka.LicenseManagerUserSubscriptions.Lens
 
     -- ** ProductUserSummary
     productUserSummary_domain,
-    productUserSummary_subscriptionStartDate,
     productUserSummary_statusMessage,
     productUserSummary_subscriptionEndDate,
+    productUserSummary_subscriptionStartDate,
     productUserSummary_identityProvider,
     productUserSummary_product,
     productUserSummary_status,
     productUserSummary_username,
+
+    -- ** Settings
+    settings_securityGroupId,
+    settings_subnets,
+
+    -- ** UpdateSettings
+    updateSettings_securityGroupId,
+    updateSettings_addSubnets,
+    updateSettings_removeSubnets,
   )
 where
 
@@ -158,3 +176,6 @@ import Amazonka.LicenseManagerUserSubscriptions.Types.IdentityProviderSummary
 import Amazonka.LicenseManagerUserSubscriptions.Types.InstanceSummary
 import Amazonka.LicenseManagerUserSubscriptions.Types.InstanceUserSummary
 import Amazonka.LicenseManagerUserSubscriptions.Types.ProductUserSummary
+import Amazonka.LicenseManagerUserSubscriptions.Types.Settings
+import Amazonka.LicenseManagerUserSubscriptions.Types.UpdateSettings
+import Amazonka.LicenseManagerUserSubscriptions.UpdateIdentityProviderSettings

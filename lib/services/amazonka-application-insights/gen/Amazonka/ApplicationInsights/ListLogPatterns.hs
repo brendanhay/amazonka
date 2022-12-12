@@ -27,8 +27,8 @@ module Amazonka.ApplicationInsights.ListLogPatterns
     newListLogPatterns,
 
     -- * Request Lenses
-    listLogPatterns_nextToken,
     listLogPatterns_maxResults,
+    listLogPatterns_nextToken,
     listLogPatterns_patternSetName,
     listLogPatterns_resourceGroupName,
 
@@ -37,9 +37,9 @@ module Amazonka.ApplicationInsights.ListLogPatterns
     newListLogPatternsResponse,
 
     -- * Response Lenses
+    listLogPatternsResponse_logPatterns,
     listLogPatternsResponse_nextToken,
     listLogPatternsResponse_resourceGroupName,
-    listLogPatternsResponse_logPatterns,
     listLogPatternsResponse_httpStatus,
   )
 where
@@ -54,12 +54,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListLogPatterns' smart constructor.
 data ListLogPatterns = ListLogPatterns'
-  { -- | The token to request the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in a single call. To retrieve
+  { -- | The maximum number of results to return in a single call. To retrieve
     -- the remaining results, make another call with the returned @NextToken@
     -- value.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to request the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the log pattern set.
     patternSetName :: Prelude.Maybe Prelude.Text,
     -- | The name of the resource group.
@@ -75,11 +75,11 @@ data ListLogPatterns = ListLogPatterns'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listLogPatterns_nextToken' - The token to request the next page of results.
---
 -- 'maxResults', 'listLogPatterns_maxResults' - The maximum number of results to return in a single call. To retrieve
 -- the remaining results, make another call with the returned @NextToken@
 -- value.
+--
+-- 'nextToken', 'listLogPatterns_nextToken' - The token to request the next page of results.
 --
 -- 'patternSetName', 'listLogPatterns_patternSetName' - The name of the log pattern set.
 --
@@ -90,21 +90,21 @@ newListLogPatterns ::
   ListLogPatterns
 newListLogPatterns pResourceGroupName_ =
   ListLogPatterns'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       patternSetName = Prelude.Nothing,
       resourceGroupName = pResourceGroupName_
     }
-
--- | The token to request the next page of results.
-listLogPatterns_nextToken :: Lens.Lens' ListLogPatterns (Prelude.Maybe Prelude.Text)
-listLogPatterns_nextToken = Lens.lens (\ListLogPatterns' {nextToken} -> nextToken) (\s@ListLogPatterns' {} a -> s {nextToken = a} :: ListLogPatterns)
 
 -- | The maximum number of results to return in a single call. To retrieve
 -- the remaining results, make another call with the returned @NextToken@
 -- value.
 listLogPatterns_maxResults :: Lens.Lens' ListLogPatterns (Prelude.Maybe Prelude.Natural)
 listLogPatterns_maxResults = Lens.lens (\ListLogPatterns' {maxResults} -> maxResults) (\s@ListLogPatterns' {} a -> s {maxResults = a} :: ListLogPatterns)
+
+-- | The token to request the next page of results.
+listLogPatterns_nextToken :: Lens.Lens' ListLogPatterns (Prelude.Maybe Prelude.Text)
+listLogPatterns_nextToken = Lens.lens (\ListLogPatterns' {nextToken} -> nextToken) (\s@ListLogPatterns' {} a -> s {nextToken = a} :: ListLogPatterns)
 
 -- | The name of the log pattern set.
 listLogPatterns_patternSetName :: Lens.Lens' ListLogPatterns (Prelude.Maybe Prelude.Text)
@@ -124,23 +124,23 @@ instance Core.AWSRequest ListLogPatterns where
     Response.receiveJSON
       ( \s h x ->
           ListLogPatternsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<$> (x Data..?> "LogPatterns" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "ResourceGroupName")
-            Prelude.<*> (x Data..?> "LogPatterns" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListLogPatterns where
   hashWithSalt _salt ListLogPatterns' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` patternSetName
       `Prelude.hashWithSalt` resourceGroupName
 
 instance Prelude.NFData ListLogPatterns where
   rnf ListLogPatterns' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf patternSetName
       `Prelude.seq` Prelude.rnf resourceGroupName
 
@@ -163,8 +163,8 @@ instance Data.ToJSON ListLogPatterns where
   toJSON ListLogPatterns' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("PatternSetName" Data..=)
               Prelude.<$> patternSetName,
             Prelude.Just
@@ -180,13 +180,13 @@ instance Data.ToQuery ListLogPatterns where
 
 -- | /See:/ 'newListLogPatternsResponse' smart constructor.
 data ListLogPatternsResponse = ListLogPatternsResponse'
-  { -- | The token used to retrieve the next page of results. This value is
+  { -- | The list of log patterns.
+    logPatterns :: Prelude.Maybe [LogPattern],
+    -- | The token used to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the resource group.
     resourceGroupName :: Prelude.Maybe Prelude.Text,
-    -- | The list of log patterns.
-    logPatterns :: Prelude.Maybe [LogPattern],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -200,12 +200,12 @@ data ListLogPatternsResponse = ListLogPatternsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'logPatterns', 'listLogPatternsResponse_logPatterns' - The list of log patterns.
+--
 -- 'nextToken', 'listLogPatternsResponse_nextToken' - The token used to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 --
 -- 'resourceGroupName', 'listLogPatternsResponse_resourceGroupName' - The name of the resource group.
---
--- 'logPatterns', 'listLogPatternsResponse_logPatterns' - The list of log patterns.
 --
 -- 'httpStatus', 'listLogPatternsResponse_httpStatus' - The response's http status code.
 newListLogPatternsResponse ::
@@ -214,12 +214,16 @@ newListLogPatternsResponse ::
   ListLogPatternsResponse
 newListLogPatternsResponse pHttpStatus_ =
   ListLogPatternsResponse'
-    { nextToken =
+    { logPatterns =
         Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       resourceGroupName = Prelude.Nothing,
-      logPatterns = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of log patterns.
+listLogPatternsResponse_logPatterns :: Lens.Lens' ListLogPatternsResponse (Prelude.Maybe [LogPattern])
+listLogPatternsResponse_logPatterns = Lens.lens (\ListLogPatternsResponse' {logPatterns} -> logPatterns) (\s@ListLogPatternsResponse' {} a -> s {logPatterns = a} :: ListLogPatternsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token used to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
@@ -230,17 +234,13 @@ listLogPatternsResponse_nextToken = Lens.lens (\ListLogPatternsResponse' {nextTo
 listLogPatternsResponse_resourceGroupName :: Lens.Lens' ListLogPatternsResponse (Prelude.Maybe Prelude.Text)
 listLogPatternsResponse_resourceGroupName = Lens.lens (\ListLogPatternsResponse' {resourceGroupName} -> resourceGroupName) (\s@ListLogPatternsResponse' {} a -> s {resourceGroupName = a} :: ListLogPatternsResponse)
 
--- | The list of log patterns.
-listLogPatternsResponse_logPatterns :: Lens.Lens' ListLogPatternsResponse (Prelude.Maybe [LogPattern])
-listLogPatternsResponse_logPatterns = Lens.lens (\ListLogPatternsResponse' {logPatterns} -> logPatterns) (\s@ListLogPatternsResponse' {} a -> s {logPatterns = a} :: ListLogPatternsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listLogPatternsResponse_httpStatus :: Lens.Lens' ListLogPatternsResponse Prelude.Int
 listLogPatternsResponse_httpStatus = Lens.lens (\ListLogPatternsResponse' {httpStatus} -> httpStatus) (\s@ListLogPatternsResponse' {} a -> s {httpStatus = a} :: ListLogPatternsResponse)
 
 instance Prelude.NFData ListLogPatternsResponse where
   rnf ListLogPatternsResponse' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf logPatterns
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf resourceGroupName
-      `Prelude.seq` Prelude.rnf logPatterns
       `Prelude.seq` Prelude.rnf httpStatus

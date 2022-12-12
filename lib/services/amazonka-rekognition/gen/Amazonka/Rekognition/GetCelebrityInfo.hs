@@ -43,8 +43,8 @@ module Amazonka.Rekognition.GetCelebrityInfo
     newGetCelebrityInfoResponse,
 
     -- * Response Lenses
-    getCelebrityInfoResponse_name,
     getCelebrityInfoResponse_knownGender,
+    getCelebrityInfoResponse_name,
     getCelebrityInfoResponse_urls,
     getCelebrityInfoResponse_httpStatus,
   )
@@ -101,8 +101,8 @@ instance Core.AWSRequest GetCelebrityInfo where
     Response.receiveJSON
       ( \s h x ->
           GetCelebrityInfoResponse'
-            Prelude.<$> (x Data..?> "Name")
-            Prelude.<*> (x Data..?> "KnownGender")
+            Prelude.<$> (x Data..?> "KnownGender")
+            Prelude.<*> (x Data..?> "Name")
             Prelude.<*> (x Data..?> "Urls" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -142,10 +142,10 @@ instance Data.ToQuery GetCelebrityInfo where
 
 -- | /See:/ 'newGetCelebrityInfoResponse' smart constructor.
 data GetCelebrityInfoResponse = GetCelebrityInfoResponse'
-  { -- | The name of the celebrity.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Retrieves the known gender for the celebrity.
+  { -- | Retrieves the known gender for the celebrity.
     knownGender :: Prelude.Maybe KnownGender,
+    -- | The name of the celebrity.
+    name :: Prelude.Maybe Prelude.Text,
     -- | An array of URLs pointing to additional celebrity information.
     urls :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
@@ -161,9 +161,9 @@ data GetCelebrityInfoResponse = GetCelebrityInfoResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'getCelebrityInfoResponse_name' - The name of the celebrity.
---
 -- 'knownGender', 'getCelebrityInfoResponse_knownGender' - Retrieves the known gender for the celebrity.
+--
+-- 'name', 'getCelebrityInfoResponse_name' - The name of the celebrity.
 --
 -- 'urls', 'getCelebrityInfoResponse_urls' - An array of URLs pointing to additional celebrity information.
 --
@@ -174,19 +174,20 @@ newGetCelebrityInfoResponse ::
   GetCelebrityInfoResponse
 newGetCelebrityInfoResponse pHttpStatus_ =
   GetCelebrityInfoResponse'
-    { name = Prelude.Nothing,
-      knownGender = Prelude.Nothing,
+    { knownGender =
+        Prelude.Nothing,
+      name = Prelude.Nothing,
       urls = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The name of the celebrity.
-getCelebrityInfoResponse_name :: Lens.Lens' GetCelebrityInfoResponse (Prelude.Maybe Prelude.Text)
-getCelebrityInfoResponse_name = Lens.lens (\GetCelebrityInfoResponse' {name} -> name) (\s@GetCelebrityInfoResponse' {} a -> s {name = a} :: GetCelebrityInfoResponse)
-
 -- | Retrieves the known gender for the celebrity.
 getCelebrityInfoResponse_knownGender :: Lens.Lens' GetCelebrityInfoResponse (Prelude.Maybe KnownGender)
 getCelebrityInfoResponse_knownGender = Lens.lens (\GetCelebrityInfoResponse' {knownGender} -> knownGender) (\s@GetCelebrityInfoResponse' {} a -> s {knownGender = a} :: GetCelebrityInfoResponse)
+
+-- | The name of the celebrity.
+getCelebrityInfoResponse_name :: Lens.Lens' GetCelebrityInfoResponse (Prelude.Maybe Prelude.Text)
+getCelebrityInfoResponse_name = Lens.lens (\GetCelebrityInfoResponse' {name} -> name) (\s@GetCelebrityInfoResponse' {} a -> s {name = a} :: GetCelebrityInfoResponse)
 
 -- | An array of URLs pointing to additional celebrity information.
 getCelebrityInfoResponse_urls :: Lens.Lens' GetCelebrityInfoResponse (Prelude.Maybe [Prelude.Text])
@@ -198,7 +199,7 @@ getCelebrityInfoResponse_httpStatus = Lens.lens (\GetCelebrityInfoResponse' {htt
 
 instance Prelude.NFData GetCelebrityInfoResponse where
   rnf GetCelebrityInfoResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf knownGender
+    Prelude.rnf knownGender
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf urls
       `Prelude.seq` Prelude.rnf httpStatus

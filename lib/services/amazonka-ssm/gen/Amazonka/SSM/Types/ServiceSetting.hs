@@ -45,15 +45,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newServiceSetting' smart constructor.
 data ServiceSetting = ServiceSetting'
-  { -- | The ARN of the last modified user. This field is populated only if the
-    -- setting value was overwritten.
-    lastModifiedUser :: Prelude.Maybe Prelude.Text,
+  { -- | The ARN of the service setting.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The last time the service setting was modified.
     lastModifiedDate :: Prelude.Maybe Data.POSIX,
-    -- | The ARN of the service setting.
-    arn :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the last modified user. This field is populated only if the
+    -- setting value was overwritten.
+    lastModifiedUser :: Prelude.Maybe Prelude.Text,
     -- | The ID of the service setting.
     settingId :: Prelude.Maybe Prelude.Text,
+    -- | The value of the service setting.
+    settingValue :: Prelude.Maybe Prelude.Text,
     -- | The status of the service setting. The value can be Default, Customized
     -- or PendingUpdate.
     --
@@ -65,9 +67,7 @@ data ServiceSetting = ServiceSetting'
     --
     -- -   PendingUpdate: The current setting uses a default or custom value,
     --     but a setting change request is pending approval.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The value of the service setting.
-    settingValue :: Prelude.Maybe Prelude.Text
+    status :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,14 +79,16 @@ data ServiceSetting = ServiceSetting'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastModifiedUser', 'serviceSetting_lastModifiedUser' - The ARN of the last modified user. This field is populated only if the
--- setting value was overwritten.
+-- 'arn', 'serviceSetting_arn' - The ARN of the service setting.
 --
 -- 'lastModifiedDate', 'serviceSetting_lastModifiedDate' - The last time the service setting was modified.
 --
--- 'arn', 'serviceSetting_arn' - The ARN of the service setting.
+-- 'lastModifiedUser', 'serviceSetting_lastModifiedUser' - The ARN of the last modified user. This field is populated only if the
+-- setting value was overwritten.
 --
 -- 'settingId', 'serviceSetting_settingId' - The ID of the service setting.
+--
+-- 'settingValue', 'serviceSetting_settingValue' - The value of the service setting.
 --
 -- 'status', 'serviceSetting_status' - The status of the service setting. The value can be Default, Customized
 -- or PendingUpdate.
@@ -99,36 +101,38 @@ data ServiceSetting = ServiceSetting'
 --
 -- -   PendingUpdate: The current setting uses a default or custom value,
 --     but a setting change request is pending approval.
---
--- 'settingValue', 'serviceSetting_settingValue' - The value of the service setting.
 newServiceSetting ::
   ServiceSetting
 newServiceSetting =
   ServiceSetting'
-    { lastModifiedUser = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       lastModifiedDate = Prelude.Nothing,
-      arn = Prelude.Nothing,
+      lastModifiedUser = Prelude.Nothing,
       settingId = Prelude.Nothing,
-      status = Prelude.Nothing,
-      settingValue = Prelude.Nothing
+      settingValue = Prelude.Nothing,
+      status = Prelude.Nothing
     }
+
+-- | The ARN of the service setting.
+serviceSetting_arn :: Lens.Lens' ServiceSetting (Prelude.Maybe Prelude.Text)
+serviceSetting_arn = Lens.lens (\ServiceSetting' {arn} -> arn) (\s@ServiceSetting' {} a -> s {arn = a} :: ServiceSetting)
+
+-- | The last time the service setting was modified.
+serviceSetting_lastModifiedDate :: Lens.Lens' ServiceSetting (Prelude.Maybe Prelude.UTCTime)
+serviceSetting_lastModifiedDate = Lens.lens (\ServiceSetting' {lastModifiedDate} -> lastModifiedDate) (\s@ServiceSetting' {} a -> s {lastModifiedDate = a} :: ServiceSetting) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the last modified user. This field is populated only if the
 -- setting value was overwritten.
 serviceSetting_lastModifiedUser :: Lens.Lens' ServiceSetting (Prelude.Maybe Prelude.Text)
 serviceSetting_lastModifiedUser = Lens.lens (\ServiceSetting' {lastModifiedUser} -> lastModifiedUser) (\s@ServiceSetting' {} a -> s {lastModifiedUser = a} :: ServiceSetting)
 
--- | The last time the service setting was modified.
-serviceSetting_lastModifiedDate :: Lens.Lens' ServiceSetting (Prelude.Maybe Prelude.UTCTime)
-serviceSetting_lastModifiedDate = Lens.lens (\ServiceSetting' {lastModifiedDate} -> lastModifiedDate) (\s@ServiceSetting' {} a -> s {lastModifiedDate = a} :: ServiceSetting) Prelude.. Lens.mapping Data._Time
-
--- | The ARN of the service setting.
-serviceSetting_arn :: Lens.Lens' ServiceSetting (Prelude.Maybe Prelude.Text)
-serviceSetting_arn = Lens.lens (\ServiceSetting' {arn} -> arn) (\s@ServiceSetting' {} a -> s {arn = a} :: ServiceSetting)
-
 -- | The ID of the service setting.
 serviceSetting_settingId :: Lens.Lens' ServiceSetting (Prelude.Maybe Prelude.Text)
 serviceSetting_settingId = Lens.lens (\ServiceSetting' {settingId} -> settingId) (\s@ServiceSetting' {} a -> s {settingId = a} :: ServiceSetting)
+
+-- | The value of the service setting.
+serviceSetting_settingValue :: Lens.Lens' ServiceSetting (Prelude.Maybe Prelude.Text)
+serviceSetting_settingValue = Lens.lens (\ServiceSetting' {settingValue} -> settingValue) (\s@ServiceSetting' {} a -> s {settingValue = a} :: ServiceSetting)
 
 -- | The status of the service setting. The value can be Default, Customized
 -- or PendingUpdate.
@@ -144,38 +148,34 @@ serviceSetting_settingId = Lens.lens (\ServiceSetting' {settingId} -> settingId)
 serviceSetting_status :: Lens.Lens' ServiceSetting (Prelude.Maybe Prelude.Text)
 serviceSetting_status = Lens.lens (\ServiceSetting' {status} -> status) (\s@ServiceSetting' {} a -> s {status = a} :: ServiceSetting)
 
--- | The value of the service setting.
-serviceSetting_settingValue :: Lens.Lens' ServiceSetting (Prelude.Maybe Prelude.Text)
-serviceSetting_settingValue = Lens.lens (\ServiceSetting' {settingValue} -> settingValue) (\s@ServiceSetting' {} a -> s {settingValue = a} :: ServiceSetting)
-
 instance Data.FromJSON ServiceSetting where
   parseJSON =
     Data.withObject
       "ServiceSetting"
       ( \x ->
           ServiceSetting'
-            Prelude.<$> (x Data..:? "LastModifiedUser")
+            Prelude.<$> (x Data..:? "ARN")
             Prelude.<*> (x Data..:? "LastModifiedDate")
-            Prelude.<*> (x Data..:? "ARN")
+            Prelude.<*> (x Data..:? "LastModifiedUser")
             Prelude.<*> (x Data..:? "SettingId")
-            Prelude.<*> (x Data..:? "Status")
             Prelude.<*> (x Data..:? "SettingValue")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable ServiceSetting where
   hashWithSalt _salt ServiceSetting' {..} =
-    _salt `Prelude.hashWithSalt` lastModifiedUser
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` lastModifiedDate
-      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` lastModifiedUser
       `Prelude.hashWithSalt` settingId
-      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` settingValue
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ServiceSetting where
   rnf ServiceSetting' {..} =
-    Prelude.rnf lastModifiedUser
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf lastModifiedUser
       `Prelude.seq` Prelude.rnf settingId
-      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf settingValue
+      `Prelude.seq` Prelude.rnf status

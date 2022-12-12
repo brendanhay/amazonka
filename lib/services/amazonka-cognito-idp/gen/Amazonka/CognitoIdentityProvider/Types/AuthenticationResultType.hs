@@ -38,10 +38,10 @@ data AuthenticationResultType = AuthenticationResultType'
     idToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The new device metadata from an authentication result.
     newDeviceMetadata' :: Prelude.Maybe NewDeviceMetadataType,
-    -- | The token type.
-    tokenType :: Prelude.Maybe Prelude.Text,
     -- | The refresh token.
-    refreshToken :: Prelude.Maybe (Data.Sensitive Prelude.Text)
+    refreshToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The token type.
+    tokenType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -62,9 +62,9 @@ data AuthenticationResultType = AuthenticationResultType'
 --
 -- 'newDeviceMetadata'', 'authenticationResultType_newDeviceMetadata' - The new device metadata from an authentication result.
 --
--- 'tokenType', 'authenticationResultType_tokenType' - The token type.
---
 -- 'refreshToken', 'authenticationResultType_refreshToken' - The refresh token.
+--
+-- 'tokenType', 'authenticationResultType_tokenType' - The token type.
 newAuthenticationResultType ::
   AuthenticationResultType
 newAuthenticationResultType =
@@ -74,8 +74,8 @@ newAuthenticationResultType =
       expiresIn = Prelude.Nothing,
       idToken = Prelude.Nothing,
       newDeviceMetadata' = Prelude.Nothing,
-      tokenType = Prelude.Nothing,
-      refreshToken = Prelude.Nothing
+      refreshToken = Prelude.Nothing,
+      tokenType = Prelude.Nothing
     }
 
 -- | A valid access token that Amazon Cognito issued to the user who you want
@@ -95,13 +95,13 @@ authenticationResultType_idToken = Lens.lens (\AuthenticationResultType' {idToke
 authenticationResultType_newDeviceMetadata :: Lens.Lens' AuthenticationResultType (Prelude.Maybe NewDeviceMetadataType)
 authenticationResultType_newDeviceMetadata = Lens.lens (\AuthenticationResultType' {newDeviceMetadata'} -> newDeviceMetadata') (\s@AuthenticationResultType' {} a -> s {newDeviceMetadata' = a} :: AuthenticationResultType)
 
--- | The token type.
-authenticationResultType_tokenType :: Lens.Lens' AuthenticationResultType (Prelude.Maybe Prelude.Text)
-authenticationResultType_tokenType = Lens.lens (\AuthenticationResultType' {tokenType} -> tokenType) (\s@AuthenticationResultType' {} a -> s {tokenType = a} :: AuthenticationResultType)
-
 -- | The refresh token.
 authenticationResultType_refreshToken :: Lens.Lens' AuthenticationResultType (Prelude.Maybe Prelude.Text)
 authenticationResultType_refreshToken = Lens.lens (\AuthenticationResultType' {refreshToken} -> refreshToken) (\s@AuthenticationResultType' {} a -> s {refreshToken = a} :: AuthenticationResultType) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The token type.
+authenticationResultType_tokenType :: Lens.Lens' AuthenticationResultType (Prelude.Maybe Prelude.Text)
+authenticationResultType_tokenType = Lens.lens (\AuthenticationResultType' {tokenType} -> tokenType) (\s@AuthenticationResultType' {} a -> s {tokenType = a} :: AuthenticationResultType)
 
 instance Data.FromJSON AuthenticationResultType where
   parseJSON =
@@ -113,8 +113,8 @@ instance Data.FromJSON AuthenticationResultType where
             Prelude.<*> (x Data..:? "ExpiresIn")
             Prelude.<*> (x Data..:? "IdToken")
             Prelude.<*> (x Data..:? "NewDeviceMetadata")
-            Prelude.<*> (x Data..:? "TokenType")
             Prelude.<*> (x Data..:? "RefreshToken")
+            Prelude.<*> (x Data..:? "TokenType")
       )
 
 instance Prelude.Hashable AuthenticationResultType where
@@ -123,8 +123,8 @@ instance Prelude.Hashable AuthenticationResultType where
       `Prelude.hashWithSalt` expiresIn
       `Prelude.hashWithSalt` idToken
       `Prelude.hashWithSalt` newDeviceMetadata'
-      `Prelude.hashWithSalt` tokenType
       `Prelude.hashWithSalt` refreshToken
+      `Prelude.hashWithSalt` tokenType
 
 instance Prelude.NFData AuthenticationResultType where
   rnf AuthenticationResultType' {..} =
@@ -132,5 +132,5 @@ instance Prelude.NFData AuthenticationResultType where
       `Prelude.seq` Prelude.rnf expiresIn
       `Prelude.seq` Prelude.rnf idToken
       `Prelude.seq` Prelude.rnf newDeviceMetadata'
-      `Prelude.seq` Prelude.rnf tokenType
       `Prelude.seq` Prelude.rnf refreshToken
+      `Prelude.seq` Prelude.rnf tokenType

@@ -82,10 +82,10 @@ module Amazonka.Config.PutOrganizationConfigRule
     newPutOrganizationConfigRule,
 
     -- * Request Lenses
-    putOrganizationConfigRule_organizationCustomPolicyRuleMetadata,
     putOrganizationConfigRule_excludedAccounts,
-    putOrganizationConfigRule_organizationManagedRuleMetadata,
+    putOrganizationConfigRule_organizationCustomPolicyRuleMetadata,
     putOrganizationConfigRule_organizationCustomRuleMetadata,
+    putOrganizationConfigRule_organizationManagedRuleMetadata,
     putOrganizationConfigRule_organizationConfigRuleName,
 
     -- * Destructuring the Response
@@ -108,7 +108,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutOrganizationConfigRule' smart constructor.
 data PutOrganizationConfigRule = PutOrganizationConfigRule'
-  { -- | An @OrganizationCustomPolicyRuleMetadata@ object. This object specifies
+  { -- | A comma-separated list of accounts that you want to exclude from an
+    -- organization Config rule.
+    excludedAccounts :: Prelude.Maybe [Prelude.Text],
+    -- | An @OrganizationCustomPolicyRuleMetadata@ object. This object specifies
     -- metadata for your organization\'s Config Custom Policy rule. The
     -- metadata includes the runtime system in use, which accounts have debug
     -- logging enabled, and other custom rule metadata, such as resource type,
@@ -116,15 +119,6 @@ data PutOrganizationConfigRule = PutOrganizationConfigRule'
     -- types that initiate Config to evaluate Amazon Web Services resources
     -- against a rule.
     organizationCustomPolicyRuleMetadata :: Prelude.Maybe OrganizationCustomPolicyRuleMetadata,
-    -- | A comma-separated list of accounts that you want to exclude from an
-    -- organization Config rule.
-    excludedAccounts :: Prelude.Maybe [Prelude.Text],
-    -- | An @OrganizationManagedRuleMetadata@ object. This object specifies
-    -- organization managed rule metadata such as resource type and ID of
-    -- Amazon Web Services resource along with the rule identifier. It also
-    -- provides the frequency with which you want Config to run evaluations for
-    -- the rule if the trigger type is periodic.
-    organizationManagedRuleMetadata :: Prelude.Maybe OrganizationManagedRuleMetadata,
     -- | An @OrganizationCustomRuleMetadata@ object. This object specifies
     -- organization custom rule metadata such as resource type, resource ID of
     -- Amazon Web Services resource, Lambda function ARN, and organization
@@ -133,6 +127,12 @@ data PutOrganizationConfigRule = PutOrganizationConfigRule'
     -- want Config to run evaluations for the rule if the trigger type is
     -- periodic.
     organizationCustomRuleMetadata :: Prelude.Maybe OrganizationCustomRuleMetadata,
+    -- | An @OrganizationManagedRuleMetadata@ object. This object specifies
+    -- organization managed rule metadata such as resource type and ID of
+    -- Amazon Web Services resource along with the rule identifier. It also
+    -- provides the frequency with which you want Config to run evaluations for
+    -- the rule if the trigger type is periodic.
+    organizationManagedRuleMetadata :: Prelude.Maybe OrganizationManagedRuleMetadata,
     -- | The name that you assign to an organization Config rule.
     organizationConfigRuleName :: Prelude.Text
   }
@@ -146,6 +146,9 @@ data PutOrganizationConfigRule = PutOrganizationConfigRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'excludedAccounts', 'putOrganizationConfigRule_excludedAccounts' - A comma-separated list of accounts that you want to exclude from an
+-- organization Config rule.
+--
 -- 'organizationCustomPolicyRuleMetadata', 'putOrganizationConfigRule_organizationCustomPolicyRuleMetadata' - An @OrganizationCustomPolicyRuleMetadata@ object. This object specifies
 -- metadata for your organization\'s Config Custom Policy rule. The
 -- metadata includes the runtime system in use, which accounts have debug
@@ -153,15 +156,6 @@ data PutOrganizationConfigRule = PutOrganizationConfigRule'
 -- resource ID of Amazon Web Services resource, and organization trigger
 -- types that initiate Config to evaluate Amazon Web Services resources
 -- against a rule.
---
--- 'excludedAccounts', 'putOrganizationConfigRule_excludedAccounts' - A comma-separated list of accounts that you want to exclude from an
--- organization Config rule.
---
--- 'organizationManagedRuleMetadata', 'putOrganizationConfigRule_organizationManagedRuleMetadata' - An @OrganizationManagedRuleMetadata@ object. This object specifies
--- organization managed rule metadata such as resource type and ID of
--- Amazon Web Services resource along with the rule identifier. It also
--- provides the frequency with which you want Config to run evaluations for
--- the rule if the trigger type is periodic.
 --
 -- 'organizationCustomRuleMetadata', 'putOrganizationConfigRule_organizationCustomRuleMetadata' - An @OrganizationCustomRuleMetadata@ object. This object specifies
 -- organization custom rule metadata such as resource type, resource ID of
@@ -171,6 +165,12 @@ data PutOrganizationConfigRule = PutOrganizationConfigRule'
 -- want Config to run evaluations for the rule if the trigger type is
 -- periodic.
 --
+-- 'organizationManagedRuleMetadata', 'putOrganizationConfigRule_organizationManagedRuleMetadata' - An @OrganizationManagedRuleMetadata@ object. This object specifies
+-- organization managed rule metadata such as resource type and ID of
+-- Amazon Web Services resource along with the rule identifier. It also
+-- provides the frequency with which you want Config to run evaluations for
+-- the rule if the trigger type is periodic.
+--
 -- 'organizationConfigRuleName', 'putOrganizationConfigRule_organizationConfigRuleName' - The name that you assign to an organization Config rule.
 newPutOrganizationConfigRule ::
   -- | 'organizationConfigRuleName'
@@ -179,15 +179,21 @@ newPutOrganizationConfigRule ::
 newPutOrganizationConfigRule
   pOrganizationConfigRuleName_ =
     PutOrganizationConfigRule'
-      { organizationCustomPolicyRuleMetadata =
+      { excludedAccounts =
           Prelude.Nothing,
-        excludedAccounts = Prelude.Nothing,
-        organizationManagedRuleMetadata =
+        organizationCustomPolicyRuleMetadata =
           Prelude.Nothing,
         organizationCustomRuleMetadata = Prelude.Nothing,
+        organizationManagedRuleMetadata =
+          Prelude.Nothing,
         organizationConfigRuleName =
           pOrganizationConfigRuleName_
       }
+
+-- | A comma-separated list of accounts that you want to exclude from an
+-- organization Config rule.
+putOrganizationConfigRule_excludedAccounts :: Lens.Lens' PutOrganizationConfigRule (Prelude.Maybe [Prelude.Text])
+putOrganizationConfigRule_excludedAccounts = Lens.lens (\PutOrganizationConfigRule' {excludedAccounts} -> excludedAccounts) (\s@PutOrganizationConfigRule' {} a -> s {excludedAccounts = a} :: PutOrganizationConfigRule) Prelude.. Lens.mapping Lens.coerced
 
 -- | An @OrganizationCustomPolicyRuleMetadata@ object. This object specifies
 -- metadata for your organization\'s Config Custom Policy rule. The
@@ -199,19 +205,6 @@ newPutOrganizationConfigRule
 putOrganizationConfigRule_organizationCustomPolicyRuleMetadata :: Lens.Lens' PutOrganizationConfigRule (Prelude.Maybe OrganizationCustomPolicyRuleMetadata)
 putOrganizationConfigRule_organizationCustomPolicyRuleMetadata = Lens.lens (\PutOrganizationConfigRule' {organizationCustomPolicyRuleMetadata} -> organizationCustomPolicyRuleMetadata) (\s@PutOrganizationConfigRule' {} a -> s {organizationCustomPolicyRuleMetadata = a} :: PutOrganizationConfigRule)
 
--- | A comma-separated list of accounts that you want to exclude from an
--- organization Config rule.
-putOrganizationConfigRule_excludedAccounts :: Lens.Lens' PutOrganizationConfigRule (Prelude.Maybe [Prelude.Text])
-putOrganizationConfigRule_excludedAccounts = Lens.lens (\PutOrganizationConfigRule' {excludedAccounts} -> excludedAccounts) (\s@PutOrganizationConfigRule' {} a -> s {excludedAccounts = a} :: PutOrganizationConfigRule) Prelude.. Lens.mapping Lens.coerced
-
--- | An @OrganizationManagedRuleMetadata@ object. This object specifies
--- organization managed rule metadata such as resource type and ID of
--- Amazon Web Services resource along with the rule identifier. It also
--- provides the frequency with which you want Config to run evaluations for
--- the rule if the trigger type is periodic.
-putOrganizationConfigRule_organizationManagedRuleMetadata :: Lens.Lens' PutOrganizationConfigRule (Prelude.Maybe OrganizationManagedRuleMetadata)
-putOrganizationConfigRule_organizationManagedRuleMetadata = Lens.lens (\PutOrganizationConfigRule' {organizationManagedRuleMetadata} -> organizationManagedRuleMetadata) (\s@PutOrganizationConfigRule' {} a -> s {organizationManagedRuleMetadata = a} :: PutOrganizationConfigRule)
-
 -- | An @OrganizationCustomRuleMetadata@ object. This object specifies
 -- organization custom rule metadata such as resource type, resource ID of
 -- Amazon Web Services resource, Lambda function ARN, and organization
@@ -221,6 +214,14 @@ putOrganizationConfigRule_organizationManagedRuleMetadata = Lens.lens (\PutOrgan
 -- periodic.
 putOrganizationConfigRule_organizationCustomRuleMetadata :: Lens.Lens' PutOrganizationConfigRule (Prelude.Maybe OrganizationCustomRuleMetadata)
 putOrganizationConfigRule_organizationCustomRuleMetadata = Lens.lens (\PutOrganizationConfigRule' {organizationCustomRuleMetadata} -> organizationCustomRuleMetadata) (\s@PutOrganizationConfigRule' {} a -> s {organizationCustomRuleMetadata = a} :: PutOrganizationConfigRule)
+
+-- | An @OrganizationManagedRuleMetadata@ object. This object specifies
+-- organization managed rule metadata such as resource type and ID of
+-- Amazon Web Services resource along with the rule identifier. It also
+-- provides the frequency with which you want Config to run evaluations for
+-- the rule if the trigger type is periodic.
+putOrganizationConfigRule_organizationManagedRuleMetadata :: Lens.Lens' PutOrganizationConfigRule (Prelude.Maybe OrganizationManagedRuleMetadata)
+putOrganizationConfigRule_organizationManagedRuleMetadata = Lens.lens (\PutOrganizationConfigRule' {organizationManagedRuleMetadata} -> organizationManagedRuleMetadata) (\s@PutOrganizationConfigRule' {} a -> s {organizationManagedRuleMetadata = a} :: PutOrganizationConfigRule)
 
 -- | The name that you assign to an organization Config rule.
 putOrganizationConfigRule_organizationConfigRuleName :: Lens.Lens' PutOrganizationConfigRule Prelude.Text
@@ -242,19 +243,18 @@ instance Core.AWSRequest PutOrganizationConfigRule where
 
 instance Prelude.Hashable PutOrganizationConfigRule where
   hashWithSalt _salt PutOrganizationConfigRule' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` excludedAccounts
       `Prelude.hashWithSalt` organizationCustomPolicyRuleMetadata
-      `Prelude.hashWithSalt` excludedAccounts
-      `Prelude.hashWithSalt` organizationManagedRuleMetadata
       `Prelude.hashWithSalt` organizationCustomRuleMetadata
+      `Prelude.hashWithSalt` organizationManagedRuleMetadata
       `Prelude.hashWithSalt` organizationConfigRuleName
 
 instance Prelude.NFData PutOrganizationConfigRule where
   rnf PutOrganizationConfigRule' {..} =
-    Prelude.rnf organizationCustomPolicyRuleMetadata
-      `Prelude.seq` Prelude.rnf excludedAccounts
-      `Prelude.seq` Prelude.rnf organizationManagedRuleMetadata
+    Prelude.rnf excludedAccounts
+      `Prelude.seq` Prelude.rnf organizationCustomPolicyRuleMetadata
       `Prelude.seq` Prelude.rnf organizationCustomRuleMetadata
+      `Prelude.seq` Prelude.rnf organizationManagedRuleMetadata
       `Prelude.seq` Prelude.rnf organizationConfigRuleName
 
 instance Data.ToHeaders PutOrganizationConfigRule where
@@ -276,14 +276,14 @@ instance Data.ToJSON PutOrganizationConfigRule where
   toJSON PutOrganizationConfigRule' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("OrganizationCustomPolicyRuleMetadata" Data..=)
-              Prelude.<$> organizationCustomPolicyRuleMetadata,
-            ("ExcludedAccounts" Data..=)
+          [ ("ExcludedAccounts" Data..=)
               Prelude.<$> excludedAccounts,
-            ("OrganizationManagedRuleMetadata" Data..=)
-              Prelude.<$> organizationManagedRuleMetadata,
+            ("OrganizationCustomPolicyRuleMetadata" Data..=)
+              Prelude.<$> organizationCustomPolicyRuleMetadata,
             ("OrganizationCustomRuleMetadata" Data..=)
               Prelude.<$> organizationCustomRuleMetadata,
+            ("OrganizationManagedRuleMetadata" Data..=)
+              Prelude.<$> organizationManagedRuleMetadata,
             Prelude.Just
               ( "OrganizationConfigRuleName"
                   Data..= organizationConfigRuleName

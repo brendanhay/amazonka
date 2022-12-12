@@ -31,17 +31,21 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIdentityResolutionJob' smart constructor.
 data IdentityResolutionJob = IdentityResolutionJob'
-  { -- | The S3 location where the Identity Resolution Job writes result files.
+  { -- | The unique name of the domain.
+    domainName :: Prelude.Maybe Prelude.Text,
+    -- | The S3 location where the Identity Resolution Job writes result files.
     exportingLocation :: Prelude.Maybe ExportingLocation,
+    -- | The timestamp of when the job was completed.
+    jobEndTime :: Prelude.Maybe Data.POSIX,
+    -- | The unique identifier of the Identity Resolution Job.
+    jobId :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp of when the job was started or will be started.
+    jobStartTime :: Prelude.Maybe Data.POSIX,
     -- | Statistics about an Identity Resolution Job.
     jobStats :: Prelude.Maybe JobStats,
     -- | The error messages that are generated when the Identity Resolution Job
     -- runs.
     message :: Prelude.Maybe Prelude.Text,
-    -- | The unique name of the domain.
-    domainName :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier of the Identity Resolution Job.
-    jobId :: Prelude.Maybe Prelude.Text,
     -- | The status of the Identity Resolution Job.
     --
     -- -   @PENDING@: The Identity Resolution Job is scheduled but has not
@@ -65,11 +69,7 @@ data IdentityResolutionJob = IdentityResolutionJob'
     --
     -- -   @FAILED@: The Identity Resolution Job did not merge any data. It
     --     writes a message indicating the source of the problem.
-    status :: Prelude.Maybe IdentityResolutionJobStatus,
-    -- | The timestamp of when the job was started or will be started.
-    jobStartTime :: Prelude.Maybe Data.POSIX,
-    -- | The timestamp of when the job was completed.
-    jobEndTime :: Prelude.Maybe Data.POSIX
+    status :: Prelude.Maybe IdentityResolutionJobStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,16 +81,20 @@ data IdentityResolutionJob = IdentityResolutionJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'domainName', 'identityResolutionJob_domainName' - The unique name of the domain.
+--
 -- 'exportingLocation', 'identityResolutionJob_exportingLocation' - The S3 location where the Identity Resolution Job writes result files.
+--
+-- 'jobEndTime', 'identityResolutionJob_jobEndTime' - The timestamp of when the job was completed.
+--
+-- 'jobId', 'identityResolutionJob_jobId' - The unique identifier of the Identity Resolution Job.
+--
+-- 'jobStartTime', 'identityResolutionJob_jobStartTime' - The timestamp of when the job was started or will be started.
 --
 -- 'jobStats', 'identityResolutionJob_jobStats' - Statistics about an Identity Resolution Job.
 --
 -- 'message', 'identityResolutionJob_message' - The error messages that are generated when the Identity Resolution Job
 -- runs.
---
--- 'domainName', 'identityResolutionJob_domainName' - The unique name of the domain.
---
--- 'jobId', 'identityResolutionJob_jobId' - The unique identifier of the Identity Resolution Job.
 --
 -- 'status', 'identityResolutionJob_status' - The status of the Identity Resolution Job.
 --
@@ -115,28 +119,40 @@ data IdentityResolutionJob = IdentityResolutionJob'
 --
 -- -   @FAILED@: The Identity Resolution Job did not merge any data. It
 --     writes a message indicating the source of the problem.
---
--- 'jobStartTime', 'identityResolutionJob_jobStartTime' - The timestamp of when the job was started or will be started.
---
--- 'jobEndTime', 'identityResolutionJob_jobEndTime' - The timestamp of when the job was completed.
 newIdentityResolutionJob ::
   IdentityResolutionJob
 newIdentityResolutionJob =
   IdentityResolutionJob'
-    { exportingLocation =
+    { domainName =
         Prelude.Nothing,
+      exportingLocation = Prelude.Nothing,
+      jobEndTime = Prelude.Nothing,
+      jobId = Prelude.Nothing,
+      jobStartTime = Prelude.Nothing,
       jobStats = Prelude.Nothing,
       message = Prelude.Nothing,
-      domainName = Prelude.Nothing,
-      jobId = Prelude.Nothing,
-      status = Prelude.Nothing,
-      jobStartTime = Prelude.Nothing,
-      jobEndTime = Prelude.Nothing
+      status = Prelude.Nothing
     }
+
+-- | The unique name of the domain.
+identityResolutionJob_domainName :: Lens.Lens' IdentityResolutionJob (Prelude.Maybe Prelude.Text)
+identityResolutionJob_domainName = Lens.lens (\IdentityResolutionJob' {domainName} -> domainName) (\s@IdentityResolutionJob' {} a -> s {domainName = a} :: IdentityResolutionJob)
 
 -- | The S3 location where the Identity Resolution Job writes result files.
 identityResolutionJob_exportingLocation :: Lens.Lens' IdentityResolutionJob (Prelude.Maybe ExportingLocation)
 identityResolutionJob_exportingLocation = Lens.lens (\IdentityResolutionJob' {exportingLocation} -> exportingLocation) (\s@IdentityResolutionJob' {} a -> s {exportingLocation = a} :: IdentityResolutionJob)
+
+-- | The timestamp of when the job was completed.
+identityResolutionJob_jobEndTime :: Lens.Lens' IdentityResolutionJob (Prelude.Maybe Prelude.UTCTime)
+identityResolutionJob_jobEndTime = Lens.lens (\IdentityResolutionJob' {jobEndTime} -> jobEndTime) (\s@IdentityResolutionJob' {} a -> s {jobEndTime = a} :: IdentityResolutionJob) Prelude.. Lens.mapping Data._Time
+
+-- | The unique identifier of the Identity Resolution Job.
+identityResolutionJob_jobId :: Lens.Lens' IdentityResolutionJob (Prelude.Maybe Prelude.Text)
+identityResolutionJob_jobId = Lens.lens (\IdentityResolutionJob' {jobId} -> jobId) (\s@IdentityResolutionJob' {} a -> s {jobId = a} :: IdentityResolutionJob)
+
+-- | The timestamp of when the job was started or will be started.
+identityResolutionJob_jobStartTime :: Lens.Lens' IdentityResolutionJob (Prelude.Maybe Prelude.UTCTime)
+identityResolutionJob_jobStartTime = Lens.lens (\IdentityResolutionJob' {jobStartTime} -> jobStartTime) (\s@IdentityResolutionJob' {} a -> s {jobStartTime = a} :: IdentityResolutionJob) Prelude.. Lens.mapping Data._Time
 
 -- | Statistics about an Identity Resolution Job.
 identityResolutionJob_jobStats :: Lens.Lens' IdentityResolutionJob (Prelude.Maybe JobStats)
@@ -146,14 +162,6 @@ identityResolutionJob_jobStats = Lens.lens (\IdentityResolutionJob' {jobStats} -
 -- runs.
 identityResolutionJob_message :: Lens.Lens' IdentityResolutionJob (Prelude.Maybe Prelude.Text)
 identityResolutionJob_message = Lens.lens (\IdentityResolutionJob' {message} -> message) (\s@IdentityResolutionJob' {} a -> s {message = a} :: IdentityResolutionJob)
-
--- | The unique name of the domain.
-identityResolutionJob_domainName :: Lens.Lens' IdentityResolutionJob (Prelude.Maybe Prelude.Text)
-identityResolutionJob_domainName = Lens.lens (\IdentityResolutionJob' {domainName} -> domainName) (\s@IdentityResolutionJob' {} a -> s {domainName = a} :: IdentityResolutionJob)
-
--- | The unique identifier of the Identity Resolution Job.
-identityResolutionJob_jobId :: Lens.Lens' IdentityResolutionJob (Prelude.Maybe Prelude.Text)
-identityResolutionJob_jobId = Lens.lens (\IdentityResolutionJob' {jobId} -> jobId) (\s@IdentityResolutionJob' {} a -> s {jobId = a} :: IdentityResolutionJob)
 
 -- | The status of the Identity Resolution Job.
 --
@@ -181,48 +189,40 @@ identityResolutionJob_jobId = Lens.lens (\IdentityResolutionJob' {jobId} -> jobI
 identityResolutionJob_status :: Lens.Lens' IdentityResolutionJob (Prelude.Maybe IdentityResolutionJobStatus)
 identityResolutionJob_status = Lens.lens (\IdentityResolutionJob' {status} -> status) (\s@IdentityResolutionJob' {} a -> s {status = a} :: IdentityResolutionJob)
 
--- | The timestamp of when the job was started or will be started.
-identityResolutionJob_jobStartTime :: Lens.Lens' IdentityResolutionJob (Prelude.Maybe Prelude.UTCTime)
-identityResolutionJob_jobStartTime = Lens.lens (\IdentityResolutionJob' {jobStartTime} -> jobStartTime) (\s@IdentityResolutionJob' {} a -> s {jobStartTime = a} :: IdentityResolutionJob) Prelude.. Lens.mapping Data._Time
-
--- | The timestamp of when the job was completed.
-identityResolutionJob_jobEndTime :: Lens.Lens' IdentityResolutionJob (Prelude.Maybe Prelude.UTCTime)
-identityResolutionJob_jobEndTime = Lens.lens (\IdentityResolutionJob' {jobEndTime} -> jobEndTime) (\s@IdentityResolutionJob' {} a -> s {jobEndTime = a} :: IdentityResolutionJob) Prelude.. Lens.mapping Data._Time
-
 instance Data.FromJSON IdentityResolutionJob where
   parseJSON =
     Data.withObject
       "IdentityResolutionJob"
       ( \x ->
           IdentityResolutionJob'
-            Prelude.<$> (x Data..:? "ExportingLocation")
+            Prelude.<$> (x Data..:? "DomainName")
+            Prelude.<*> (x Data..:? "ExportingLocation")
+            Prelude.<*> (x Data..:? "JobEndTime")
+            Prelude.<*> (x Data..:? "JobId")
+            Prelude.<*> (x Data..:? "JobStartTime")
             Prelude.<*> (x Data..:? "JobStats")
             Prelude.<*> (x Data..:? "Message")
-            Prelude.<*> (x Data..:? "DomainName")
-            Prelude.<*> (x Data..:? "JobId")
             Prelude.<*> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "JobStartTime")
-            Prelude.<*> (x Data..:? "JobEndTime")
       )
 
 instance Prelude.Hashable IdentityResolutionJob where
   hashWithSalt _salt IdentityResolutionJob' {..} =
-    _salt `Prelude.hashWithSalt` exportingLocation
+    _salt `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` exportingLocation
+      `Prelude.hashWithSalt` jobEndTime
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` jobStartTime
       `Prelude.hashWithSalt` jobStats
       `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` domainName
-      `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` jobStartTime
-      `Prelude.hashWithSalt` jobEndTime
 
 instance Prelude.NFData IdentityResolutionJob where
   rnf IdentityResolutionJob' {..} =
-    Prelude.rnf exportingLocation
+    Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf exportingLocation
+      `Prelude.seq` Prelude.rnf jobEndTime
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf jobStartTime
       `Prelude.seq` Prelude.rnf jobStats
       `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf jobId
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf jobStartTime
-      `Prelude.seq` Prelude.rnf jobEndTime

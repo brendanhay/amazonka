@@ -30,8 +30,8 @@ module Amazonka.Route53RecoveryReadiness.GetCellReadinessSummary
     newGetCellReadinessSummary,
 
     -- * Request Lenses
-    getCellReadinessSummary_nextToken,
     getCellReadinessSummary_maxResults,
+    getCellReadinessSummary_nextToken,
     getCellReadinessSummary_cellName,
 
     -- * Destructuring the Response
@@ -56,10 +56,10 @@ import Amazonka.Route53RecoveryReadiness.Types
 
 -- | /See:/ 'newGetCellReadinessSummary' smart constructor.
 data GetCellReadinessSummary = GetCellReadinessSummary'
-  { -- | The token that identifies which batch of results you want to see.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The number of objects that you want to return with this call.
+  { -- | The number of objects that you want to return with this call.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token that identifies which batch of results you want to see.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the cell.
     cellName :: Prelude.Text
   }
@@ -73,9 +73,9 @@ data GetCellReadinessSummary = GetCellReadinessSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getCellReadinessSummary_nextToken' - The token that identifies which batch of results you want to see.
---
 -- 'maxResults', 'getCellReadinessSummary_maxResults' - The number of objects that you want to return with this call.
+--
+-- 'nextToken', 'getCellReadinessSummary_nextToken' - The token that identifies which batch of results you want to see.
 --
 -- 'cellName', 'getCellReadinessSummary_cellName' - The name of the cell.
 newGetCellReadinessSummary ::
@@ -84,19 +84,19 @@ newGetCellReadinessSummary ::
   GetCellReadinessSummary
 newGetCellReadinessSummary pCellName_ =
   GetCellReadinessSummary'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       cellName = pCellName_
     }
-
--- | The token that identifies which batch of results you want to see.
-getCellReadinessSummary_nextToken :: Lens.Lens' GetCellReadinessSummary (Prelude.Maybe Prelude.Text)
-getCellReadinessSummary_nextToken = Lens.lens (\GetCellReadinessSummary' {nextToken} -> nextToken) (\s@GetCellReadinessSummary' {} a -> s {nextToken = a} :: GetCellReadinessSummary)
 
 -- | The number of objects that you want to return with this call.
 getCellReadinessSummary_maxResults :: Lens.Lens' GetCellReadinessSummary (Prelude.Maybe Prelude.Natural)
 getCellReadinessSummary_maxResults = Lens.lens (\GetCellReadinessSummary' {maxResults} -> maxResults) (\s@GetCellReadinessSummary' {} a -> s {maxResults = a} :: GetCellReadinessSummary)
+
+-- | The token that identifies which batch of results you want to see.
+getCellReadinessSummary_nextToken :: Lens.Lens' GetCellReadinessSummary (Prelude.Maybe Prelude.Text)
+getCellReadinessSummary_nextToken = Lens.lens (\GetCellReadinessSummary' {nextToken} -> nextToken) (\s@GetCellReadinessSummary' {} a -> s {nextToken = a} :: GetCellReadinessSummary)
 
 -- | The name of the cell.
 getCellReadinessSummary_cellName :: Lens.Lens' GetCellReadinessSummary Prelude.Text
@@ -144,14 +144,14 @@ instance Core.AWSRequest GetCellReadinessSummary where
 
 instance Prelude.Hashable GetCellReadinessSummary where
   hashWithSalt _salt GetCellReadinessSummary' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` cellName
 
 instance Prelude.NFData GetCellReadinessSummary where
   rnf GetCellReadinessSummary' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf cellName
 
 instance Data.ToHeaders GetCellReadinessSummary where
@@ -173,8 +173,8 @@ instance Data.ToPath GetCellReadinessSummary where
 instance Data.ToQuery GetCellReadinessSummary where
   toQuery GetCellReadinessSummary' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newGetCellReadinessSummaryResponse' smart constructor.

@@ -25,11 +25,11 @@ module Amazonka.PersonalizeEvents
     -- ** InvalidInputException
     _InvalidInputException,
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
     -- ** ResourceInUseException
     _ResourceInUseException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- * Waiters
     -- $waiters

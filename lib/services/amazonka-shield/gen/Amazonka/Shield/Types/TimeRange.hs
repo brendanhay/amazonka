@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTimeRange' smart constructor.
 data TimeRange = TimeRange'
-  { -- | The end time, in Unix time in seconds.
-    toExclusive :: Prelude.Maybe Data.POSIX,
-    -- | The start time, in Unix time in seconds.
-    fromInclusive :: Prelude.Maybe Data.POSIX
+  { -- | The start time, in Unix time in seconds.
+    fromInclusive :: Prelude.Maybe Data.POSIX,
+    -- | The end time, in Unix time in seconds.
+    toExclusive :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data TimeRange = TimeRange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'toExclusive', 'timeRange_toExclusive' - The end time, in Unix time in seconds.
---
 -- 'fromInclusive', 'timeRange_fromInclusive' - The start time, in Unix time in seconds.
+--
+-- 'toExclusive', 'timeRange_toExclusive' - The end time, in Unix time in seconds.
 newTimeRange ::
   TimeRange
 newTimeRange =
   TimeRange'
-    { toExclusive = Prelude.Nothing,
-      fromInclusive = Prelude.Nothing
+    { fromInclusive = Prelude.Nothing,
+      toExclusive = Prelude.Nothing
     }
-
--- | The end time, in Unix time in seconds.
-timeRange_toExclusive :: Lens.Lens' TimeRange (Prelude.Maybe Prelude.UTCTime)
-timeRange_toExclusive = Lens.lens (\TimeRange' {toExclusive} -> toExclusive) (\s@TimeRange' {} a -> s {toExclusive = a} :: TimeRange) Prelude.. Lens.mapping Data._Time
 
 -- | The start time, in Unix time in seconds.
 timeRange_fromInclusive :: Lens.Lens' TimeRange (Prelude.Maybe Prelude.UTCTime)
 timeRange_fromInclusive = Lens.lens (\TimeRange' {fromInclusive} -> fromInclusive) (\s@TimeRange' {} a -> s {fromInclusive = a} :: TimeRange) Prelude.. Lens.mapping Data._Time
+
+-- | The end time, in Unix time in seconds.
+timeRange_toExclusive :: Lens.Lens' TimeRange (Prelude.Maybe Prelude.UTCTime)
+timeRange_toExclusive = Lens.lens (\TimeRange' {toExclusive} -> toExclusive) (\s@TimeRange' {} a -> s {toExclusive = a} :: TimeRange) Prelude.. Lens.mapping Data._Time
 
 instance Data.FromJSON TimeRange where
   parseJSON =
@@ -68,25 +68,25 @@ instance Data.FromJSON TimeRange where
       "TimeRange"
       ( \x ->
           TimeRange'
-            Prelude.<$> (x Data..:? "ToExclusive")
-            Prelude.<*> (x Data..:? "FromInclusive")
+            Prelude.<$> (x Data..:? "FromInclusive")
+            Prelude.<*> (x Data..:? "ToExclusive")
       )
 
 instance Prelude.Hashable TimeRange where
   hashWithSalt _salt TimeRange' {..} =
-    _salt `Prelude.hashWithSalt` toExclusive
-      `Prelude.hashWithSalt` fromInclusive
+    _salt `Prelude.hashWithSalt` fromInclusive
+      `Prelude.hashWithSalt` toExclusive
 
 instance Prelude.NFData TimeRange where
   rnf TimeRange' {..} =
-    Prelude.rnf toExclusive
-      `Prelude.seq` Prelude.rnf fromInclusive
+    Prelude.rnf fromInclusive
+      `Prelude.seq` Prelude.rnf toExclusive
 
 instance Data.ToJSON TimeRange where
   toJSON TimeRange' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ToExclusive" Data..=) Prelude.<$> toExclusive,
-            ("FromInclusive" Data..=) Prelude.<$> fromInclusive
+          [ ("FromInclusive" Data..=) Prelude.<$> fromInclusive,
+            ("ToExclusive" Data..=) Prelude.<$> toExclusive
           ]
       )

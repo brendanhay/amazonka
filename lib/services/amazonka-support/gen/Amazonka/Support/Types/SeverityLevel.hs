@@ -32,7 +32,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSeverityLevel' smart constructor.
 data SeverityLevel = SeverityLevel'
-  { -- | The name of the severity level that corresponds to the severity level
+  { -- | The code for case severity level.
+    --
+    -- Valid values: @low@ | @normal@ | @high@ | @urgent@ | @critical@
+    code :: Prelude.Maybe Prelude.Text,
+    -- | The name of the severity level that corresponds to the severity level
     -- code.
     --
     -- The values returned by the API are different from the values that appear
@@ -54,11 +58,7 @@ data SeverityLevel = SeverityLevel'
     -- For more information, see
     -- <https://docs.aws.amazon.com/awssupport/latest/user/case-management.html#choosing-severity Choosing a severity>
     -- in the /Amazon Web Services Support User Guide/.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The code for case severity level.
-    --
-    -- Valid values: @low@ | @normal@ | @high@ | @urgent@ | @critical@
-    code :: Prelude.Maybe Prelude.Text
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,6 +69,10 @@ data SeverityLevel = SeverityLevel'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'code', 'severityLevel_code' - The code for case severity level.
+--
+-- Valid values: @low@ | @normal@ | @high@ | @urgent@ | @critical@
 --
 -- 'name', 'severityLevel_name' - The name of the severity level that corresponds to the severity level
 -- code.
@@ -92,17 +96,19 @@ data SeverityLevel = SeverityLevel'
 -- For more information, see
 -- <https://docs.aws.amazon.com/awssupport/latest/user/case-management.html#choosing-severity Choosing a severity>
 -- in the /Amazon Web Services Support User Guide/.
---
--- 'code', 'severityLevel_code' - The code for case severity level.
---
--- Valid values: @low@ | @normal@ | @high@ | @urgent@ | @critical@
 newSeverityLevel ::
   SeverityLevel
 newSeverityLevel =
   SeverityLevel'
-    { name = Prelude.Nothing,
-      code = Prelude.Nothing
+    { code = Prelude.Nothing,
+      name = Prelude.Nothing
     }
+
+-- | The code for case severity level.
+--
+-- Valid values: @low@ | @normal@ | @high@ | @urgent@ | @critical@
+severityLevel_code :: Lens.Lens' SeverityLevel (Prelude.Maybe Prelude.Text)
+severityLevel_code = Lens.lens (\SeverityLevel' {code} -> code) (\s@SeverityLevel' {} a -> s {code = a} :: SeverityLevel)
 
 -- | The name of the severity level that corresponds to the severity level
 -- code.
@@ -129,26 +135,20 @@ newSeverityLevel =
 severityLevel_name :: Lens.Lens' SeverityLevel (Prelude.Maybe Prelude.Text)
 severityLevel_name = Lens.lens (\SeverityLevel' {name} -> name) (\s@SeverityLevel' {} a -> s {name = a} :: SeverityLevel)
 
--- | The code for case severity level.
---
--- Valid values: @low@ | @normal@ | @high@ | @urgent@ | @critical@
-severityLevel_code :: Lens.Lens' SeverityLevel (Prelude.Maybe Prelude.Text)
-severityLevel_code = Lens.lens (\SeverityLevel' {code} -> code) (\s@SeverityLevel' {} a -> s {code = a} :: SeverityLevel)
-
 instance Data.FromJSON SeverityLevel where
   parseJSON =
     Data.withObject
       "SeverityLevel"
       ( \x ->
           SeverityLevel'
-            Prelude.<$> (x Data..:? "name") Prelude.<*> (x Data..:? "code")
+            Prelude.<$> (x Data..:? "code") Prelude.<*> (x Data..:? "name")
       )
 
 instance Prelude.Hashable SeverityLevel where
   hashWithSalt _salt SeverityLevel' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` code
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData SeverityLevel where
   rnf SeverityLevel' {..} =
-    Prelude.rnf name `Prelude.seq` Prelude.rnf code
+    Prelude.rnf code `Prelude.seq` Prelude.rnf name

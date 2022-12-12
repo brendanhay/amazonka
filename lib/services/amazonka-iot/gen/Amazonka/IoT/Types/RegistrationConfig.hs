@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRegistrationConfig' smart constructor.
 data RegistrationConfig = RegistrationConfig'
-  { -- | The name of the provisioning template.
-    templateName :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the role.
+  { -- | The ARN of the role.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The template body.
-    templateBody :: Prelude.Maybe Prelude.Text
+    templateBody :: Prelude.Maybe Prelude.Text,
+    -- | The name of the provisioning template.
+    templateName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,23 +45,19 @@ data RegistrationConfig = RegistrationConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'templateName', 'registrationConfig_templateName' - The name of the provisioning template.
---
 -- 'roleArn', 'registrationConfig_roleArn' - The ARN of the role.
 --
 -- 'templateBody', 'registrationConfig_templateBody' - The template body.
+--
+-- 'templateName', 'registrationConfig_templateName' - The name of the provisioning template.
 newRegistrationConfig ::
   RegistrationConfig
 newRegistrationConfig =
   RegistrationConfig'
-    { templateName = Prelude.Nothing,
-      roleArn = Prelude.Nothing,
-      templateBody = Prelude.Nothing
+    { roleArn = Prelude.Nothing,
+      templateBody = Prelude.Nothing,
+      templateName = Prelude.Nothing
     }
-
--- | The name of the provisioning template.
-registrationConfig_templateName :: Lens.Lens' RegistrationConfig (Prelude.Maybe Prelude.Text)
-registrationConfig_templateName = Lens.lens (\RegistrationConfig' {templateName} -> templateName) (\s@RegistrationConfig' {} a -> s {templateName = a} :: RegistrationConfig)
 
 -- | The ARN of the role.
 registrationConfig_roleArn :: Lens.Lens' RegistrationConfig (Prelude.Maybe Prelude.Text)
@@ -71,35 +67,39 @@ registrationConfig_roleArn = Lens.lens (\RegistrationConfig' {roleArn} -> roleAr
 registrationConfig_templateBody :: Lens.Lens' RegistrationConfig (Prelude.Maybe Prelude.Text)
 registrationConfig_templateBody = Lens.lens (\RegistrationConfig' {templateBody} -> templateBody) (\s@RegistrationConfig' {} a -> s {templateBody = a} :: RegistrationConfig)
 
+-- | The name of the provisioning template.
+registrationConfig_templateName :: Lens.Lens' RegistrationConfig (Prelude.Maybe Prelude.Text)
+registrationConfig_templateName = Lens.lens (\RegistrationConfig' {templateName} -> templateName) (\s@RegistrationConfig' {} a -> s {templateName = a} :: RegistrationConfig)
+
 instance Data.FromJSON RegistrationConfig where
   parseJSON =
     Data.withObject
       "RegistrationConfig"
       ( \x ->
           RegistrationConfig'
-            Prelude.<$> (x Data..:? "templateName")
-            Prelude.<*> (x Data..:? "roleArn")
+            Prelude.<$> (x Data..:? "roleArn")
             Prelude.<*> (x Data..:? "templateBody")
+            Prelude.<*> (x Data..:? "templateName")
       )
 
 instance Prelude.Hashable RegistrationConfig where
   hashWithSalt _salt RegistrationConfig' {..} =
-    _salt `Prelude.hashWithSalt` templateName
-      `Prelude.hashWithSalt` roleArn
+    _salt `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` templateBody
+      `Prelude.hashWithSalt` templateName
 
 instance Prelude.NFData RegistrationConfig where
   rnf RegistrationConfig' {..} =
-    Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf templateBody
+      `Prelude.seq` Prelude.rnf templateName
 
 instance Data.ToJSON RegistrationConfig where
   toJSON RegistrationConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("templateName" Data..=) Prelude.<$> templateName,
-            ("roleArn" Data..=) Prelude.<$> roleArn,
-            ("templateBody" Data..=) Prelude.<$> templateBody
+          [ ("roleArn" Data..=) Prelude.<$> roleArn,
+            ("templateBody" Data..=) Prelude.<$> templateBody,
+            ("templateName" Data..=) Prelude.<$> templateName
           ]
       )

@@ -38,35 +38,38 @@ module Amazonka.Connect
     -- * Errors
     -- $errors
 
-    -- ** InvalidContactFlowException
-    _InvalidContactFlowException,
-
-    -- ** ResourceNotReadyException
-    _ResourceNotReadyException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** DuplicateResourceException
-    _DuplicateResourceException,
-
-    -- ** UserNotFoundException
-    _UserNotFoundException,
-
-    -- ** IdempotencyException
-    _IdempotencyException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
+    -- ** ContactFlowNotPublishedException
+    _ContactFlowNotPublishedException,
 
     -- ** ContactNotFoundException
     _ContactNotFoundException,
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
+    -- ** DestinationNotAllowedException
+    _DestinationNotAllowedException,
 
-    -- ** ResourceInUseException
-    _ResourceInUseException,
+    -- ** DuplicateResourceException
+    _DuplicateResourceException,
+
+    -- ** IdempotencyException
+    _IdempotencyException,
+
+    -- ** InternalServiceException
+    _InternalServiceException,
+
+    -- ** InvalidContactFlowException
+    _InvalidContactFlowException,
+
+    -- ** InvalidContactFlowModuleException
+    _InvalidContactFlowModuleException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
 
     -- ** LimitExceededException
     _LimitExceededException,
@@ -74,32 +77,29 @@ module Amazonka.Connect
     -- ** OutboundContactNotPermittedException
     _OutboundContactNotPermittedException,
 
-    -- ** ThrottlingException
-    _ThrottlingException,
+    -- ** PropertyValidationException
+    _PropertyValidationException,
 
     -- ** ResourceConflictException
     _ResourceConflictException,
 
-    -- ** InternalServiceException
-    _InternalServiceException,
+    -- ** ResourceInUseException
+    _ResourceInUseException,
 
-    -- ** InvalidContactFlowModuleException
-    _InvalidContactFlowModuleException,
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
-    -- ** PropertyValidationException
-    _PropertyValidationException,
+    -- ** ResourceNotReadyException
+    _ResourceNotReadyException,
 
-    -- ** InvalidRequestException
-    _InvalidRequestException,
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
 
-    -- ** DestinationNotAllowedException
-    _DestinationNotAllowedException,
+    -- ** ThrottlingException
+    _ThrottlingException,
 
-    -- ** ContactFlowNotPublishedException
-    _ContactFlowNotPublishedException,
-
-    -- ** InvalidParameterException
-    _InvalidParameterException,
+    -- ** UserNotFoundException
+    _UserNotFoundException,
 
     -- * Waiters
     -- $waiters
@@ -227,6 +227,12 @@ module Amazonka.Connect
     CreateRoutingProfileResponse (CreateRoutingProfileResponse'),
     newCreateRoutingProfileResponse,
 
+    -- ** CreateRule
+    CreateRule (CreateRule'),
+    newCreateRule,
+    CreateRuleResponse (CreateRuleResponse'),
+    newCreateRuleResponse,
+
     -- ** CreateSecurityProfile
     CreateSecurityProfile (CreateSecurityProfile'),
     newCreateSecurityProfile,
@@ -304,6 +310,12 @@ module Amazonka.Connect
     newDeleteQuickConnect,
     DeleteQuickConnectResponse (DeleteQuickConnectResponse'),
     newDeleteQuickConnectResponse,
+
+    -- ** DeleteRule
+    DeleteRule (DeleteRule'),
+    newDeleteRule,
+    DeleteRuleResponse (DeleteRuleResponse'),
+    newDeleteRuleResponse,
 
     -- ** DeleteSecurityProfile
     DeleteSecurityProfile (DeleteSecurityProfile'),
@@ -418,6 +430,12 @@ module Amazonka.Connect
     newDescribeRoutingProfile,
     DescribeRoutingProfileResponse (DescribeRoutingProfileResponse'),
     newDescribeRoutingProfileResponse,
+
+    -- ** DescribeRule
+    DescribeRule (DescribeRule'),
+    newDescribeRule,
+    DescribeRuleResponse (DescribeRuleResponse'),
+    newDescribeRuleResponse,
 
     -- ** DescribeSecurityProfile
     DescribeSecurityProfile (DescribeSecurityProfile'),
@@ -688,6 +706,12 @@ module Amazonka.Connect
     newListRoutingProfiles,
     ListRoutingProfilesResponse (ListRoutingProfilesResponse'),
     newListRoutingProfilesResponse,
+
+    -- ** ListRules (Paginated)
+    ListRules (ListRules'),
+    newListRules,
+    ListRulesResponse (ListRulesResponse'),
+    newListRulesResponse,
 
     -- ** ListSecurityKeys (Paginated)
     ListSecurityKeys (ListSecurityKeys'),
@@ -1025,6 +1049,12 @@ module Amazonka.Connect
     UpdateRoutingProfileQueuesResponse (UpdateRoutingProfileQueuesResponse'),
     newUpdateRoutingProfileQueuesResponse,
 
+    -- ** UpdateRule
+    UpdateRule (UpdateRule'),
+    newUpdateRule,
+    UpdateRuleResponse (UpdateRuleResponse'),
+    newUpdateRuleResponse,
+
     -- ** UpdateSecurityProfile
     UpdateSecurityProfile (UpdateSecurityProfile'),
     newUpdateSecurityProfile,
@@ -1087,6 +1117,9 @@ module Amazonka.Connect
 
     -- * Types
 
+    -- ** ActionType
+    ActionType (..),
+
     -- ** AgentStatusState
     AgentStatusState (..),
 
@@ -1126,6 +1159,9 @@ module Amazonka.Connect
     -- ** EncryptionType
     EncryptionType (..),
 
+    -- ** EventSourceName
+    EventSourceName (..),
+
     -- ** Grouping
     Grouping (..),
 
@@ -1156,6 +1192,12 @@ module Amazonka.Connect
     -- ** MonitorCapability
     MonitorCapability (..),
 
+    -- ** NotificationContentType
+    NotificationContentType (..),
+
+    -- ** NotificationDeliveryType
+    NotificationDeliveryType (..),
+
     -- ** PhoneNumberCountryCode
     PhoneNumberCountryCode (..),
 
@@ -1182,6 +1224,9 @@ module Amazonka.Connect
 
     -- ** ReferenceType
     ReferenceType (..),
+
+    -- ** RulePublishStatus
+    RulePublishStatus (..),
 
     -- ** SearchableQueueType
     SearchableQueueType (..),
@@ -1225,6 +1270,10 @@ module Amazonka.Connect
     -- ** VoiceRecordingTrack
     VoiceRecordingTrack (..),
 
+    -- ** ActionSummary
+    ActionSummary (ActionSummary'),
+    newActionSummary,
+
     -- ** AgentContactReference
     AgentContactReference (AgentContactReference'),
     newAgentContactReference,
@@ -1248,6 +1297,10 @@ module Amazonka.Connect
     -- ** AnswerMachineDetectionConfig
     AnswerMachineDetectionConfig (AnswerMachineDetectionConfig'),
     newAnswerMachineDetectionConfig,
+
+    -- ** AssignContactCategoryActionDefinition
+    AssignContactCategoryActionDefinition (AssignContactCategoryActionDefinition'),
+    newAssignContactCategoryActionDefinition,
 
     -- ** AttachmentReference
     AttachmentReference (AttachmentReference'),
@@ -1340,6 +1393,10 @@ module Amazonka.Connect
     -- ** EncryptionConfig
     EncryptionConfig (EncryptionConfig'),
     newEncryptionConfig,
+
+    -- ** EventBridgeActionDefinition
+    EventBridgeActionDefinition (EventBridgeActionDefinition'),
+    newEventBridgeActionDefinition,
 
     -- ** Filters
     Filters (Filters'),
@@ -1469,6 +1526,10 @@ module Amazonka.Connect
     MediaConcurrency (MediaConcurrency'),
     newMediaConcurrency,
 
+    -- ** NotificationRecipientType
+    NotificationRecipientType (NotificationRecipientType'),
+    newNotificationRecipientType,
+
     -- ** NumberReference
     NumberReference (NumberReference'),
     newNumberReference,
@@ -1585,6 +1646,22 @@ module Amazonka.Connect
     RoutingProfileSummary (RoutingProfileSummary'),
     newRoutingProfileSummary,
 
+    -- ** Rule
+    Rule (Rule'),
+    newRule,
+
+    -- ** RuleAction
+    RuleAction (RuleAction'),
+    newRuleAction,
+
+    -- ** RuleSummary
+    RuleSummary (RuleSummary'),
+    newRuleSummary,
+
+    -- ** RuleTriggerEventSource
+    RuleTriggerEventSource (RuleTriggerEventSource'),
+    newRuleTriggerEventSource,
+
     -- ** S3Config
     S3Config (S3Config'),
     newS3Config,
@@ -1613,6 +1690,10 @@ module Amazonka.Connect
     SecurityProfilesSearchFilter (SecurityProfilesSearchFilter'),
     newSecurityProfilesSearchFilter,
 
+    -- ** SendNotificationActionDefinition
+    SendNotificationActionDefinition (SendNotificationActionDefinition'),
+    newSendNotificationActionDefinition,
+
     -- ** StringCondition
     StringCondition (StringCondition'),
     newStringCondition,
@@ -1624,6 +1705,10 @@ module Amazonka.Connect
     -- ** TagCondition
     TagCondition (TagCondition'),
     newTagCondition,
+
+    -- ** TaskActionDefinition
+    TaskActionDefinition (TaskActionDefinition'),
+    newTaskActionDefinition,
 
     -- ** TaskTemplateConstraints
     TaskTemplateConstraints (TaskTemplateConstraints'),
@@ -1755,6 +1840,7 @@ import Amazonka.Connect.CreateIntegrationAssociation
 import Amazonka.Connect.CreateQueue
 import Amazonka.Connect.CreateQuickConnect
 import Amazonka.Connect.CreateRoutingProfile
+import Amazonka.Connect.CreateRule
 import Amazonka.Connect.CreateSecurityProfile
 import Amazonka.Connect.CreateTaskTemplate
 import Amazonka.Connect.CreateTrafficDistributionGroup
@@ -1768,6 +1854,7 @@ import Amazonka.Connect.DeleteHoursOfOperation
 import Amazonka.Connect.DeleteInstance
 import Amazonka.Connect.DeleteIntegrationAssociation
 import Amazonka.Connect.DeleteQuickConnect
+import Amazonka.Connect.DeleteRule
 import Amazonka.Connect.DeleteSecurityProfile
 import Amazonka.Connect.DeleteTaskTemplate
 import Amazonka.Connect.DeleteTrafficDistributionGroup
@@ -1787,6 +1874,7 @@ import Amazonka.Connect.DescribePhoneNumber
 import Amazonka.Connect.DescribeQueue
 import Amazonka.Connect.DescribeQuickConnect
 import Amazonka.Connect.DescribeRoutingProfile
+import Amazonka.Connect.DescribeRule
 import Amazonka.Connect.DescribeSecurityProfile
 import Amazonka.Connect.DescribeTrafficDistributionGroup
 import Amazonka.Connect.DescribeUser
@@ -1833,6 +1921,7 @@ import Amazonka.Connect.ListQueues
 import Amazonka.Connect.ListQuickConnects
 import Amazonka.Connect.ListRoutingProfileQueues
 import Amazonka.Connect.ListRoutingProfiles
+import Amazonka.Connect.ListRules
 import Amazonka.Connect.ListSecurityKeys
 import Amazonka.Connect.ListSecurityProfilePermissions
 import Amazonka.Connect.ListSecurityProfiles
@@ -1890,6 +1979,7 @@ import Amazonka.Connect.UpdateRoutingProfileConcurrency
 import Amazonka.Connect.UpdateRoutingProfileDefaultOutboundQueue
 import Amazonka.Connect.UpdateRoutingProfileName
 import Amazonka.Connect.UpdateRoutingProfileQueues
+import Amazonka.Connect.UpdateRule
 import Amazonka.Connect.UpdateSecurityProfile
 import Amazonka.Connect.UpdateTaskTemplate
 import Amazonka.Connect.UpdateTrafficDistribution

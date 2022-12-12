@@ -29,9 +29,9 @@ import Amazonka.SecurityHub.Types.AwsElasticsearchDomainLogPublishingOptionsLogC
 --
 -- /See:/ 'newAwsElasticsearchDomainLogPublishingOptions' smart constructor.
 data AwsElasticsearchDomainLogPublishingOptions = AwsElasticsearchDomainLogPublishingOptions'
-  { -- | Configures the OpenSearch index logs publishing.
+  { auditLogs :: Prelude.Maybe AwsElasticsearchDomainLogPublishingOptionsLogConfig,
+    -- | Configures the OpenSearch index logs publishing.
     indexSlowLogs :: Prelude.Maybe AwsElasticsearchDomainLogPublishingOptionsLogConfig,
-    auditLogs :: Prelude.Maybe AwsElasticsearchDomainLogPublishingOptionsLogConfig,
     -- | Configures the OpenSearch search slow log publishing.
     searchSlowLogs :: Prelude.Maybe AwsElasticsearchDomainLogPublishingOptionsLogConfig
   }
@@ -45,29 +45,29 @@ data AwsElasticsearchDomainLogPublishingOptions = AwsElasticsearchDomainLogPubli
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'indexSlowLogs', 'awsElasticsearchDomainLogPublishingOptions_indexSlowLogs' - Configures the OpenSearch index logs publishing.
---
 -- 'auditLogs', 'awsElasticsearchDomainLogPublishingOptions_auditLogs' - Undocumented member.
+--
+-- 'indexSlowLogs', 'awsElasticsearchDomainLogPublishingOptions_indexSlowLogs' - Configures the OpenSearch index logs publishing.
 --
 -- 'searchSlowLogs', 'awsElasticsearchDomainLogPublishingOptions_searchSlowLogs' - Configures the OpenSearch search slow log publishing.
 newAwsElasticsearchDomainLogPublishingOptions ::
   AwsElasticsearchDomainLogPublishingOptions
 newAwsElasticsearchDomainLogPublishingOptions =
   AwsElasticsearchDomainLogPublishingOptions'
-    { indexSlowLogs =
+    { auditLogs =
         Prelude.Nothing,
-      auditLogs = Prelude.Nothing,
+      indexSlowLogs = Prelude.Nothing,
       searchSlowLogs =
         Prelude.Nothing
     }
 
--- | Configures the OpenSearch index logs publishing.
-awsElasticsearchDomainLogPublishingOptions_indexSlowLogs :: Lens.Lens' AwsElasticsearchDomainLogPublishingOptions (Prelude.Maybe AwsElasticsearchDomainLogPublishingOptionsLogConfig)
-awsElasticsearchDomainLogPublishingOptions_indexSlowLogs = Lens.lens (\AwsElasticsearchDomainLogPublishingOptions' {indexSlowLogs} -> indexSlowLogs) (\s@AwsElasticsearchDomainLogPublishingOptions' {} a -> s {indexSlowLogs = a} :: AwsElasticsearchDomainLogPublishingOptions)
-
 -- | Undocumented member.
 awsElasticsearchDomainLogPublishingOptions_auditLogs :: Lens.Lens' AwsElasticsearchDomainLogPublishingOptions (Prelude.Maybe AwsElasticsearchDomainLogPublishingOptionsLogConfig)
 awsElasticsearchDomainLogPublishingOptions_auditLogs = Lens.lens (\AwsElasticsearchDomainLogPublishingOptions' {auditLogs} -> auditLogs) (\s@AwsElasticsearchDomainLogPublishingOptions' {} a -> s {auditLogs = a} :: AwsElasticsearchDomainLogPublishingOptions)
+
+-- | Configures the OpenSearch index logs publishing.
+awsElasticsearchDomainLogPublishingOptions_indexSlowLogs :: Lens.Lens' AwsElasticsearchDomainLogPublishingOptions (Prelude.Maybe AwsElasticsearchDomainLogPublishingOptionsLogConfig)
+awsElasticsearchDomainLogPublishingOptions_indexSlowLogs = Lens.lens (\AwsElasticsearchDomainLogPublishingOptions' {indexSlowLogs} -> indexSlowLogs) (\s@AwsElasticsearchDomainLogPublishingOptions' {} a -> s {indexSlowLogs = a} :: AwsElasticsearchDomainLogPublishingOptions)
 
 -- | Configures the OpenSearch search slow log publishing.
 awsElasticsearchDomainLogPublishingOptions_searchSlowLogs :: Lens.Lens' AwsElasticsearchDomainLogPublishingOptions (Prelude.Maybe AwsElasticsearchDomainLogPublishingOptionsLogConfig)
@@ -82,8 +82,8 @@ instance
       "AwsElasticsearchDomainLogPublishingOptions"
       ( \x ->
           AwsElasticsearchDomainLogPublishingOptions'
-            Prelude.<$> (x Data..:? "IndexSlowLogs")
-              Prelude.<*> (x Data..:? "AuditLogs")
+            Prelude.<$> (x Data..:? "AuditLogs")
+              Prelude.<*> (x Data..:? "IndexSlowLogs")
               Prelude.<*> (x Data..:? "SearchSlowLogs")
       )
 
@@ -94,8 +94,8 @@ instance
   hashWithSalt
     _salt
     AwsElasticsearchDomainLogPublishingOptions' {..} =
-      _salt `Prelude.hashWithSalt` indexSlowLogs
-        `Prelude.hashWithSalt` auditLogs
+      _salt `Prelude.hashWithSalt` auditLogs
+        `Prelude.hashWithSalt` indexSlowLogs
         `Prelude.hashWithSalt` searchSlowLogs
 
 instance
@@ -103,8 +103,8 @@ instance
     AwsElasticsearchDomainLogPublishingOptions
   where
   rnf AwsElasticsearchDomainLogPublishingOptions' {..} =
-    Prelude.rnf indexSlowLogs
-      `Prelude.seq` Prelude.rnf auditLogs
+    Prelude.rnf auditLogs
+      `Prelude.seq` Prelude.rnf indexSlowLogs
       `Prelude.seq` Prelude.rnf searchSlowLogs
 
 instance
@@ -115,8 +115,8 @@ instance
     AwsElasticsearchDomainLogPublishingOptions' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("IndexSlowLogs" Data..=) Prelude.<$> indexSlowLogs,
-              ("AuditLogs" Data..=) Prelude.<$> auditLogs,
+            [ ("AuditLogs" Data..=) Prelude.<$> auditLogs,
+              ("IndexSlowLogs" Data..=) Prelude.<$> indexSlowLogs,
               ("SearchSlowLogs" Data..=)
                 Prelude.<$> searchSlowLogs
             ]

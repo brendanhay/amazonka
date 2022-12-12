@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLineItemAssetInformation' smart constructor.
 data LineItemAssetInformation = LineItemAssetInformation'
-  { -- | The MAC addresses of the asset.
-    macAddressList :: Prelude.Maybe [Prelude.Text],
-    -- | The ID of the asset.
-    assetId :: Prelude.Maybe Prelude.Text
+  { -- | The ID of the asset.
+    assetId :: Prelude.Maybe Prelude.Text,
+    -- | The MAC addresses of the asset.
+    macAddressList :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data LineItemAssetInformation = LineItemAssetInformation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'macAddressList', 'lineItemAssetInformation_macAddressList' - The MAC addresses of the asset.
---
 -- 'assetId', 'lineItemAssetInformation_assetId' - The ID of the asset.
+--
+-- 'macAddressList', 'lineItemAssetInformation_macAddressList' - The MAC addresses of the asset.
 newLineItemAssetInformation ::
   LineItemAssetInformation
 newLineItemAssetInformation =
   LineItemAssetInformation'
-    { macAddressList =
+    { assetId =
         Prelude.Nothing,
-      assetId = Prelude.Nothing
+      macAddressList = Prelude.Nothing
     }
-
--- | The MAC addresses of the asset.
-lineItemAssetInformation_macAddressList :: Lens.Lens' LineItemAssetInformation (Prelude.Maybe [Prelude.Text])
-lineItemAssetInformation_macAddressList = Lens.lens (\LineItemAssetInformation' {macAddressList} -> macAddressList) (\s@LineItemAssetInformation' {} a -> s {macAddressList = a} :: LineItemAssetInformation) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the asset.
 lineItemAssetInformation_assetId :: Lens.Lens' LineItemAssetInformation (Prelude.Maybe Prelude.Text)
 lineItemAssetInformation_assetId = Lens.lens (\LineItemAssetInformation' {assetId} -> assetId) (\s@LineItemAssetInformation' {} a -> s {assetId = a} :: LineItemAssetInformation)
+
+-- | The MAC addresses of the asset.
+lineItemAssetInformation_macAddressList :: Lens.Lens' LineItemAssetInformation (Prelude.Maybe [Prelude.Text])
+lineItemAssetInformation_macAddressList = Lens.lens (\LineItemAssetInformation' {macAddressList} -> macAddressList) (\s@LineItemAssetInformation' {} a -> s {macAddressList = a} :: LineItemAssetInformation) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON LineItemAssetInformation where
   parseJSON =
@@ -69,16 +69,18 @@ instance Data.FromJSON LineItemAssetInformation where
       "LineItemAssetInformation"
       ( \x ->
           LineItemAssetInformation'
-            Prelude.<$> (x Data..:? "MacAddressList" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "AssetId")
+            Prelude.<$> (x Data..:? "AssetId")
+            Prelude.<*> ( x Data..:? "MacAddressList"
+                            Data..!= Prelude.mempty
+                        )
       )
 
 instance Prelude.Hashable LineItemAssetInformation where
   hashWithSalt _salt LineItemAssetInformation' {..} =
-    _salt `Prelude.hashWithSalt` macAddressList
-      `Prelude.hashWithSalt` assetId
+    _salt `Prelude.hashWithSalt` assetId
+      `Prelude.hashWithSalt` macAddressList
 
 instance Prelude.NFData LineItemAssetInformation where
   rnf LineItemAssetInformation' {..} =
-    Prelude.rnf macAddressList
-      `Prelude.seq` Prelude.rnf assetId
+    Prelude.rnf assetId
+      `Prelude.seq` Prelude.rnf macAddressList

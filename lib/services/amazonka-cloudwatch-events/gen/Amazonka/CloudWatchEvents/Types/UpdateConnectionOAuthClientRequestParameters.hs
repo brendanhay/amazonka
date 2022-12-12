@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUpdateConnectionOAuthClientRequestParameters' smart constructor.
 data UpdateConnectionOAuthClientRequestParameters = UpdateConnectionOAuthClientRequestParameters'
-  { -- | The client secret assciated with the client ID to use for OAuth
+  { -- | The client ID to use for OAuth authorization.
+    clientID :: Prelude.Maybe Prelude.Text,
+    -- | The client secret assciated with the client ID to use for OAuth
     -- authorization.
-    clientSecret :: Prelude.Maybe Prelude.Text,
-    -- | The client ID to use for OAuth authorization.
-    clientID :: Prelude.Maybe Prelude.Text
+    clientSecret :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,27 +44,28 @@ data UpdateConnectionOAuthClientRequestParameters = UpdateConnectionOAuthClientR
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clientID', 'updateConnectionOAuthClientRequestParameters_clientID' - The client ID to use for OAuth authorization.
+--
 -- 'clientSecret', 'updateConnectionOAuthClientRequestParameters_clientSecret' - The client secret assciated with the client ID to use for OAuth
 -- authorization.
---
--- 'clientID', 'updateConnectionOAuthClientRequestParameters_clientID' - The client ID to use for OAuth authorization.
 newUpdateConnectionOAuthClientRequestParameters ::
   UpdateConnectionOAuthClientRequestParameters
 newUpdateConnectionOAuthClientRequestParameters =
   UpdateConnectionOAuthClientRequestParameters'
-    { clientSecret =
+    { clientID =
         Prelude.Nothing,
-      clientID = Prelude.Nothing
+      clientSecret =
+        Prelude.Nothing
     }
+
+-- | The client ID to use for OAuth authorization.
+updateConnectionOAuthClientRequestParameters_clientID :: Lens.Lens' UpdateConnectionOAuthClientRequestParameters (Prelude.Maybe Prelude.Text)
+updateConnectionOAuthClientRequestParameters_clientID = Lens.lens (\UpdateConnectionOAuthClientRequestParameters' {clientID} -> clientID) (\s@UpdateConnectionOAuthClientRequestParameters' {} a -> s {clientID = a} :: UpdateConnectionOAuthClientRequestParameters)
 
 -- | The client secret assciated with the client ID to use for OAuth
 -- authorization.
 updateConnectionOAuthClientRequestParameters_clientSecret :: Lens.Lens' UpdateConnectionOAuthClientRequestParameters (Prelude.Maybe Prelude.Text)
 updateConnectionOAuthClientRequestParameters_clientSecret = Lens.lens (\UpdateConnectionOAuthClientRequestParameters' {clientSecret} -> clientSecret) (\s@UpdateConnectionOAuthClientRequestParameters' {} a -> s {clientSecret = a} :: UpdateConnectionOAuthClientRequestParameters)
-
--- | The client ID to use for OAuth authorization.
-updateConnectionOAuthClientRequestParameters_clientID :: Lens.Lens' UpdateConnectionOAuthClientRequestParameters (Prelude.Maybe Prelude.Text)
-updateConnectionOAuthClientRequestParameters_clientID = Lens.lens (\UpdateConnectionOAuthClientRequestParameters' {clientID} -> clientID) (\s@UpdateConnectionOAuthClientRequestParameters' {} a -> s {clientID = a} :: UpdateConnectionOAuthClientRequestParameters)
 
 instance
   Prelude.Hashable
@@ -73,16 +74,16 @@ instance
   hashWithSalt
     _salt
     UpdateConnectionOAuthClientRequestParameters' {..} =
-      _salt `Prelude.hashWithSalt` clientSecret
-        `Prelude.hashWithSalt` clientID
+      _salt `Prelude.hashWithSalt` clientID
+        `Prelude.hashWithSalt` clientSecret
 
 instance
   Prelude.NFData
     UpdateConnectionOAuthClientRequestParameters
   where
   rnf UpdateConnectionOAuthClientRequestParameters' {..} =
-    Prelude.rnf clientSecret
-      `Prelude.seq` Prelude.rnf clientID
+    Prelude.rnf clientID
+      `Prelude.seq` Prelude.rnf clientSecret
 
 instance
   Data.ToJSON
@@ -92,7 +93,7 @@ instance
     UpdateConnectionOAuthClientRequestParameters' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("ClientSecret" Data..=) Prelude.<$> clientSecret,
-              ("ClientID" Data..=) Prelude.<$> clientID
+            [ ("ClientID" Data..=) Prelude.<$> clientID,
+              ("ClientSecret" Data..=) Prelude.<$> clientSecret
             ]
         )

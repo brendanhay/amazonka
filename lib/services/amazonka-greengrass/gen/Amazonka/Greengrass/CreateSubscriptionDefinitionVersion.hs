@@ -28,8 +28,8 @@ module Amazonka.Greengrass.CreateSubscriptionDefinitionVersion
     newCreateSubscriptionDefinitionVersion,
 
     -- * Request Lenses
-    createSubscriptionDefinitionVersion_subscriptions,
     createSubscriptionDefinitionVersion_amznClientToken,
+    createSubscriptionDefinitionVersion_subscriptions,
     createSubscriptionDefinitionVersion_subscriptionDefinitionId,
 
     -- * Destructuring the Response
@@ -38,8 +38,8 @@ module Amazonka.Greengrass.CreateSubscriptionDefinitionVersion
 
     -- * Response Lenses
     createSubscriptionDefinitionVersionResponse_arn,
-    createSubscriptionDefinitionVersionResponse_id,
     createSubscriptionDefinitionVersionResponse_creationTimestamp,
+    createSubscriptionDefinitionVersionResponse_id,
     createSubscriptionDefinitionVersionResponse_version,
     createSubscriptionDefinitionVersionResponse_httpStatus,
   )
@@ -55,10 +55,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateSubscriptionDefinitionVersion' smart constructor.
 data CreateSubscriptionDefinitionVersion = CreateSubscriptionDefinitionVersion'
-  { -- | A list of subscriptions.
-    subscriptions :: Prelude.Maybe [Subscription],
-    -- | A client token used to correlate requests and responses.
+  { -- | A client token used to correlate requests and responses.
     amznClientToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of subscriptions.
+    subscriptions :: Prelude.Maybe [Subscription],
     -- | The ID of the subscription definition.
     subscriptionDefinitionId :: Prelude.Text
   }
@@ -72,9 +72,9 @@ data CreateSubscriptionDefinitionVersion = CreateSubscriptionDefinitionVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'subscriptions', 'createSubscriptionDefinitionVersion_subscriptions' - A list of subscriptions.
---
 -- 'amznClientToken', 'createSubscriptionDefinitionVersion_amznClientToken' - A client token used to correlate requests and responses.
+--
+-- 'subscriptions', 'createSubscriptionDefinitionVersion_subscriptions' - A list of subscriptions.
 --
 -- 'subscriptionDefinitionId', 'createSubscriptionDefinitionVersion_subscriptionDefinitionId' - The ID of the subscription definition.
 newCreateSubscriptionDefinitionVersion ::
@@ -84,20 +84,20 @@ newCreateSubscriptionDefinitionVersion ::
 newCreateSubscriptionDefinitionVersion
   pSubscriptionDefinitionId_ =
     CreateSubscriptionDefinitionVersion'
-      { subscriptions =
+      { amznClientToken =
           Prelude.Nothing,
-        amznClientToken = Prelude.Nothing,
+        subscriptions = Prelude.Nothing,
         subscriptionDefinitionId =
           pSubscriptionDefinitionId_
       }
 
--- | A list of subscriptions.
-createSubscriptionDefinitionVersion_subscriptions :: Lens.Lens' CreateSubscriptionDefinitionVersion (Prelude.Maybe [Subscription])
-createSubscriptionDefinitionVersion_subscriptions = Lens.lens (\CreateSubscriptionDefinitionVersion' {subscriptions} -> subscriptions) (\s@CreateSubscriptionDefinitionVersion' {} a -> s {subscriptions = a} :: CreateSubscriptionDefinitionVersion) Prelude.. Lens.mapping Lens.coerced
-
 -- | A client token used to correlate requests and responses.
 createSubscriptionDefinitionVersion_amznClientToken :: Lens.Lens' CreateSubscriptionDefinitionVersion (Prelude.Maybe Prelude.Text)
 createSubscriptionDefinitionVersion_amznClientToken = Lens.lens (\CreateSubscriptionDefinitionVersion' {amznClientToken} -> amznClientToken) (\s@CreateSubscriptionDefinitionVersion' {} a -> s {amznClientToken = a} :: CreateSubscriptionDefinitionVersion)
+
+-- | A list of subscriptions.
+createSubscriptionDefinitionVersion_subscriptions :: Lens.Lens' CreateSubscriptionDefinitionVersion (Prelude.Maybe [Subscription])
+createSubscriptionDefinitionVersion_subscriptions = Lens.lens (\CreateSubscriptionDefinitionVersion' {subscriptions} -> subscriptions) (\s@CreateSubscriptionDefinitionVersion' {} a -> s {subscriptions = a} :: CreateSubscriptionDefinitionVersion) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the subscription definition.
 createSubscriptionDefinitionVersion_subscriptionDefinitionId :: Lens.Lens' CreateSubscriptionDefinitionVersion Prelude.Text
@@ -116,8 +116,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateSubscriptionDefinitionVersionResponse'
-            Prelude.<$> (x Data..?> "Arn") Prelude.<*> (x Data..?> "Id")
+            Prelude.<$> (x Data..?> "Arn")
               Prelude.<*> (x Data..?> "CreationTimestamp")
+              Prelude.<*> (x Data..?> "Id")
               Prelude.<*> (x Data..?> "Version")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -129,8 +130,8 @@ instance
   hashWithSalt
     _salt
     CreateSubscriptionDefinitionVersion' {..} =
-      _salt `Prelude.hashWithSalt` subscriptions
-        `Prelude.hashWithSalt` amznClientToken
+      _salt `Prelude.hashWithSalt` amznClientToken
+        `Prelude.hashWithSalt` subscriptions
         `Prelude.hashWithSalt` subscriptionDefinitionId
 
 instance
@@ -138,8 +139,8 @@ instance
     CreateSubscriptionDefinitionVersion
   where
   rnf CreateSubscriptionDefinitionVersion' {..} =
-    Prelude.rnf subscriptions
-      `Prelude.seq` Prelude.rnf amznClientToken
+    Prelude.rnf amznClientToken
+      `Prelude.seq` Prelude.rnf subscriptions
       `Prelude.seq` Prelude.rnf subscriptionDefinitionId
 
 instance
@@ -186,10 +187,10 @@ instance
 data CreateSubscriptionDefinitionVersionResponse = CreateSubscriptionDefinitionVersionResponse'
   { -- | The ARN of the version.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the parent definition that the version is associated with.
-    id :: Prelude.Maybe Prelude.Text,
     -- | The time, in milliseconds since the epoch, when the version was created.
     creationTimestamp :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the parent definition that the version is associated with.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The ID of the version.
     version :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -207,9 +208,9 @@ data CreateSubscriptionDefinitionVersionResponse = CreateSubscriptionDefinitionV
 --
 -- 'arn', 'createSubscriptionDefinitionVersionResponse_arn' - The ARN of the version.
 --
--- 'id', 'createSubscriptionDefinitionVersionResponse_id' - The ID of the parent definition that the version is associated with.
---
 -- 'creationTimestamp', 'createSubscriptionDefinitionVersionResponse_creationTimestamp' - The time, in milliseconds since the epoch, when the version was created.
+--
+-- 'id', 'createSubscriptionDefinitionVersionResponse_id' - The ID of the parent definition that the version is associated with.
 --
 -- 'version', 'createSubscriptionDefinitionVersionResponse_version' - The ID of the version.
 --
@@ -223,9 +224,9 @@ newCreateSubscriptionDefinitionVersionResponse
     CreateSubscriptionDefinitionVersionResponse'
       { arn =
           Prelude.Nothing,
-        id = Prelude.Nothing,
         creationTimestamp =
           Prelude.Nothing,
+        id = Prelude.Nothing,
         version = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
@@ -234,13 +235,13 @@ newCreateSubscriptionDefinitionVersionResponse
 createSubscriptionDefinitionVersionResponse_arn :: Lens.Lens' CreateSubscriptionDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
 createSubscriptionDefinitionVersionResponse_arn = Lens.lens (\CreateSubscriptionDefinitionVersionResponse' {arn} -> arn) (\s@CreateSubscriptionDefinitionVersionResponse' {} a -> s {arn = a} :: CreateSubscriptionDefinitionVersionResponse)
 
--- | The ID of the parent definition that the version is associated with.
-createSubscriptionDefinitionVersionResponse_id :: Lens.Lens' CreateSubscriptionDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
-createSubscriptionDefinitionVersionResponse_id = Lens.lens (\CreateSubscriptionDefinitionVersionResponse' {id} -> id) (\s@CreateSubscriptionDefinitionVersionResponse' {} a -> s {id = a} :: CreateSubscriptionDefinitionVersionResponse)
-
 -- | The time, in milliseconds since the epoch, when the version was created.
 createSubscriptionDefinitionVersionResponse_creationTimestamp :: Lens.Lens' CreateSubscriptionDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
 createSubscriptionDefinitionVersionResponse_creationTimestamp = Lens.lens (\CreateSubscriptionDefinitionVersionResponse' {creationTimestamp} -> creationTimestamp) (\s@CreateSubscriptionDefinitionVersionResponse' {} a -> s {creationTimestamp = a} :: CreateSubscriptionDefinitionVersionResponse)
+
+-- | The ID of the parent definition that the version is associated with.
+createSubscriptionDefinitionVersionResponse_id :: Lens.Lens' CreateSubscriptionDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
+createSubscriptionDefinitionVersionResponse_id = Lens.lens (\CreateSubscriptionDefinitionVersionResponse' {id} -> id) (\s@CreateSubscriptionDefinitionVersionResponse' {} a -> s {id = a} :: CreateSubscriptionDefinitionVersionResponse)
 
 -- | The ID of the version.
 createSubscriptionDefinitionVersionResponse_version :: Lens.Lens' CreateSubscriptionDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
@@ -256,7 +257,7 @@ instance
   where
   rnf CreateSubscriptionDefinitionVersionResponse' {..} =
     Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf creationTimestamp
+      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf httpStatus

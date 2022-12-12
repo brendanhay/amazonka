@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAppSpecification' smart constructor.
 data AppSpecification = AppSpecification'
-  { -- | The entrypoint for a container used to run a processing job.
-    containerEntrypoint :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The arguments for a container used to run a processing job.
+  { -- | The arguments for a container used to run a processing job.
     containerArguments :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The entrypoint for a container used to run a processing job.
+    containerEntrypoint :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The container image to be run by the processing job.
     imageUri :: Prelude.Text
   }
@@ -45,9 +45,9 @@ data AppSpecification = AppSpecification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'containerEntrypoint', 'appSpecification_containerEntrypoint' - The entrypoint for a container used to run a processing job.
---
 -- 'containerArguments', 'appSpecification_containerArguments' - The arguments for a container used to run a processing job.
+--
+-- 'containerEntrypoint', 'appSpecification_containerEntrypoint' - The entrypoint for a container used to run a processing job.
 --
 -- 'imageUri', 'appSpecification_imageUri' - The container image to be run by the processing job.
 newAppSpecification ::
@@ -56,19 +56,19 @@ newAppSpecification ::
   AppSpecification
 newAppSpecification pImageUri_ =
   AppSpecification'
-    { containerEntrypoint =
+    { containerArguments =
         Prelude.Nothing,
-      containerArguments = Prelude.Nothing,
+      containerEntrypoint = Prelude.Nothing,
       imageUri = pImageUri_
     }
-
--- | The entrypoint for a container used to run a processing job.
-appSpecification_containerEntrypoint :: Lens.Lens' AppSpecification (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-appSpecification_containerEntrypoint = Lens.lens (\AppSpecification' {containerEntrypoint} -> containerEntrypoint) (\s@AppSpecification' {} a -> s {containerEntrypoint = a} :: AppSpecification) Prelude.. Lens.mapping Lens.coerced
 
 -- | The arguments for a container used to run a processing job.
 appSpecification_containerArguments :: Lens.Lens' AppSpecification (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 appSpecification_containerArguments = Lens.lens (\AppSpecification' {containerArguments} -> containerArguments) (\s@AppSpecification' {} a -> s {containerArguments = a} :: AppSpecification) Prelude.. Lens.mapping Lens.coerced
+
+-- | The entrypoint for a container used to run a processing job.
+appSpecification_containerEntrypoint :: Lens.Lens' AppSpecification (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+appSpecification_containerEntrypoint = Lens.lens (\AppSpecification' {containerEntrypoint} -> containerEntrypoint) (\s@AppSpecification' {} a -> s {containerEntrypoint = a} :: AppSpecification) Prelude.. Lens.mapping Lens.coerced
 
 -- | The container image to be run by the processing job.
 appSpecification_imageUri :: Lens.Lens' AppSpecification Prelude.Text
@@ -80,31 +80,31 @@ instance Data.FromJSON AppSpecification where
       "AppSpecification"
       ( \x ->
           AppSpecification'
-            Prelude.<$> (x Data..:? "ContainerEntrypoint")
-            Prelude.<*> (x Data..:? "ContainerArguments")
+            Prelude.<$> (x Data..:? "ContainerArguments")
+            Prelude.<*> (x Data..:? "ContainerEntrypoint")
             Prelude.<*> (x Data..: "ImageUri")
       )
 
 instance Prelude.Hashable AppSpecification where
   hashWithSalt _salt AppSpecification' {..} =
-    _salt `Prelude.hashWithSalt` containerEntrypoint
-      `Prelude.hashWithSalt` containerArguments
+    _salt `Prelude.hashWithSalt` containerArguments
+      `Prelude.hashWithSalt` containerEntrypoint
       `Prelude.hashWithSalt` imageUri
 
 instance Prelude.NFData AppSpecification where
   rnf AppSpecification' {..} =
-    Prelude.rnf containerEntrypoint
-      `Prelude.seq` Prelude.rnf containerArguments
+    Prelude.rnf containerArguments
+      `Prelude.seq` Prelude.rnf containerEntrypoint
       `Prelude.seq` Prelude.rnf imageUri
 
 instance Data.ToJSON AppSpecification where
   toJSON AppSpecification' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ContainerEntrypoint" Data..=)
-              Prelude.<$> containerEntrypoint,
-            ("ContainerArguments" Data..=)
+          [ ("ContainerArguments" Data..=)
               Prelude.<$> containerArguments,
+            ("ContainerEntrypoint" Data..=)
+              Prelude.<$> containerEntrypoint,
             Prelude.Just ("ImageUri" Data..= imageUri)
           ]
       )

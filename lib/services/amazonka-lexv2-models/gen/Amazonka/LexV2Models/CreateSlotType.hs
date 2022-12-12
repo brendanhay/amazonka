@@ -31,11 +31,11 @@ module Amazonka.LexV2Models.CreateSlotType
 
     -- * Request Lenses
     createSlotType_compositeSlotTypeSetting,
-    createSlotType_externalSourceSetting,
-    createSlotType_valueSelectionSetting,
     createSlotType_description,
-    createSlotType_slotTypeValues,
+    createSlotType_externalSourceSetting,
     createSlotType_parentSlotTypeSignature,
+    createSlotType_slotTypeValues,
+    createSlotType_valueSelectionSetting,
     createSlotType_slotTypeName,
     createSlotType_botId,
     createSlotType_botVersion,
@@ -46,18 +46,18 @@ module Amazonka.LexV2Models.CreateSlotType
     newCreateSlotTypeResponse,
 
     -- * Response Lenses
+    createSlotTypeResponse_botId,
     createSlotTypeResponse_botVersion,
     createSlotTypeResponse_compositeSlotTypeSetting,
     createSlotTypeResponse_creationDateTime,
-    createSlotTypeResponse_localeId,
-    createSlotTypeResponse_externalSourceSetting,
-    createSlotTypeResponse_valueSelectionSetting,
     createSlotTypeResponse_description,
-    createSlotTypeResponse_botId,
-    createSlotTypeResponse_slotTypeValues,
-    createSlotTypeResponse_slotTypeName,
-    createSlotTypeResponse_slotTypeId,
+    createSlotTypeResponse_externalSourceSetting,
+    createSlotTypeResponse_localeId,
     createSlotTypeResponse_parentSlotTypeSignature,
+    createSlotTypeResponse_slotTypeId,
+    createSlotTypeResponse_slotTypeName,
+    createSlotTypeResponse_slotTypeValues,
+    createSlotTypeResponse_valueSelectionSetting,
     createSlotTypeResponse_httpStatus,
   )
 where
@@ -74,8 +74,22 @@ import qualified Amazonka.Response as Response
 data CreateSlotType = CreateSlotType'
   { -- | Specifications for a composite slot type.
     compositeSlotTypeSetting :: Prelude.Maybe CompositeSlotTypeSetting,
+    -- | A description of the slot type. Use the description to help identify the
+    -- slot type in lists.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Sets the type of external information used to create the slot type.
     externalSourceSetting :: Prelude.Maybe ExternalSourceSetting,
+    -- | The built-in slot type used as a parent of this slot type. When you
+    -- define a parent slot type, the new slot type has the configuration of
+    -- the parent slot type.
+    --
+    -- Only @AMAZON.AlphaNumeric@ is supported.
+    parentSlotTypeSignature :: Prelude.Maybe Prelude.Text,
+    -- | A list of @SlotTypeValue@ objects that defines the values that the slot
+    -- type can take. Each value can have a list of synonyms, additional values
+    -- that help train the machine learning model about the values that it
+    -- resolves for a slot.
+    slotTypeValues :: Prelude.Maybe (Prelude.NonEmpty SlotTypeValue),
     -- | Determines the strategy that Amazon Lex uses to select a value from the
     -- list of possible values. The field can be set to one of the following
     -- values:
@@ -90,20 +104,6 @@ data CreateSlotType = CreateSlotType'
     -- If you don\'t specify the @valueSelectionSetting@ parameter, the default
     -- is @OriginalValue@.
     valueSelectionSetting :: Prelude.Maybe SlotValueSelectionSetting,
-    -- | A description of the slot type. Use the description to help identify the
-    -- slot type in lists.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | A list of @SlotTypeValue@ objects that defines the values that the slot
-    -- type can take. Each value can have a list of synonyms, additional values
-    -- that help train the machine learning model about the values that it
-    -- resolves for a slot.
-    slotTypeValues :: Prelude.Maybe (Prelude.NonEmpty SlotTypeValue),
-    -- | The built-in slot type used as a parent of this slot type. When you
-    -- define a parent slot type, the new slot type has the configuration of
-    -- the parent slot type.
-    --
-    -- Only @AMAZON.AlphaNumeric@ is supported.
-    parentSlotTypeSignature :: Prelude.Maybe Prelude.Text,
     -- | The name for the slot. A slot type name must be unique within the
     -- account.
     slotTypeName :: Prelude.Text,
@@ -130,7 +130,21 @@ data CreateSlotType = CreateSlotType'
 --
 -- 'compositeSlotTypeSetting', 'createSlotType_compositeSlotTypeSetting' - Specifications for a composite slot type.
 --
+-- 'description', 'createSlotType_description' - A description of the slot type. Use the description to help identify the
+-- slot type in lists.
+--
 -- 'externalSourceSetting', 'createSlotType_externalSourceSetting' - Sets the type of external information used to create the slot type.
+--
+-- 'parentSlotTypeSignature', 'createSlotType_parentSlotTypeSignature' - The built-in slot type used as a parent of this slot type. When you
+-- define a parent slot type, the new slot type has the configuration of
+-- the parent slot type.
+--
+-- Only @AMAZON.AlphaNumeric@ is supported.
+--
+-- 'slotTypeValues', 'createSlotType_slotTypeValues' - A list of @SlotTypeValue@ objects that defines the values that the slot
+-- type can take. Each value can have a list of synonyms, additional values
+-- that help train the machine learning model about the values that it
+-- resolves for a slot.
 --
 -- 'valueSelectionSetting', 'createSlotType_valueSelectionSetting' - Determines the strategy that Amazon Lex uses to select a value from the
 -- list of possible values. The field can be set to one of the following
@@ -145,20 +159,6 @@ data CreateSlotType = CreateSlotType'
 --
 -- If you don\'t specify the @valueSelectionSetting@ parameter, the default
 -- is @OriginalValue@.
---
--- 'description', 'createSlotType_description' - A description of the slot type. Use the description to help identify the
--- slot type in lists.
---
--- 'slotTypeValues', 'createSlotType_slotTypeValues' - A list of @SlotTypeValue@ objects that defines the values that the slot
--- type can take. Each value can have a list of synonyms, additional values
--- that help train the machine learning model about the values that it
--- resolves for a slot.
---
--- 'parentSlotTypeSignature', 'createSlotType_parentSlotTypeSignature' - The built-in slot type used as a parent of this slot type. When you
--- define a parent slot type, the new slot type has the configuration of
--- the parent slot type.
---
--- Only @AMAZON.AlphaNumeric@ is supported.
 --
 -- 'slotTypeName', 'createSlotType_slotTypeName' - The name for the slot. A slot type name must be unique within the
 -- account.
@@ -190,11 +190,11 @@ newCreateSlotType
     CreateSlotType'
       { compositeSlotTypeSetting =
           Prelude.Nothing,
-        externalSourceSetting = Prelude.Nothing,
-        valueSelectionSetting = Prelude.Nothing,
         description = Prelude.Nothing,
-        slotTypeValues = Prelude.Nothing,
+        externalSourceSetting = Prelude.Nothing,
         parentSlotTypeSignature = Prelude.Nothing,
+        slotTypeValues = Prelude.Nothing,
+        valueSelectionSetting = Prelude.Nothing,
         slotTypeName = pSlotTypeName_,
         botId = pBotId_,
         botVersion = pBotVersion_,
@@ -205,9 +205,29 @@ newCreateSlotType
 createSlotType_compositeSlotTypeSetting :: Lens.Lens' CreateSlotType (Prelude.Maybe CompositeSlotTypeSetting)
 createSlotType_compositeSlotTypeSetting = Lens.lens (\CreateSlotType' {compositeSlotTypeSetting} -> compositeSlotTypeSetting) (\s@CreateSlotType' {} a -> s {compositeSlotTypeSetting = a} :: CreateSlotType)
 
+-- | A description of the slot type. Use the description to help identify the
+-- slot type in lists.
+createSlotType_description :: Lens.Lens' CreateSlotType (Prelude.Maybe Prelude.Text)
+createSlotType_description = Lens.lens (\CreateSlotType' {description} -> description) (\s@CreateSlotType' {} a -> s {description = a} :: CreateSlotType)
+
 -- | Sets the type of external information used to create the slot type.
 createSlotType_externalSourceSetting :: Lens.Lens' CreateSlotType (Prelude.Maybe ExternalSourceSetting)
 createSlotType_externalSourceSetting = Lens.lens (\CreateSlotType' {externalSourceSetting} -> externalSourceSetting) (\s@CreateSlotType' {} a -> s {externalSourceSetting = a} :: CreateSlotType)
+
+-- | The built-in slot type used as a parent of this slot type. When you
+-- define a parent slot type, the new slot type has the configuration of
+-- the parent slot type.
+--
+-- Only @AMAZON.AlphaNumeric@ is supported.
+createSlotType_parentSlotTypeSignature :: Lens.Lens' CreateSlotType (Prelude.Maybe Prelude.Text)
+createSlotType_parentSlotTypeSignature = Lens.lens (\CreateSlotType' {parentSlotTypeSignature} -> parentSlotTypeSignature) (\s@CreateSlotType' {} a -> s {parentSlotTypeSignature = a} :: CreateSlotType)
+
+-- | A list of @SlotTypeValue@ objects that defines the values that the slot
+-- type can take. Each value can have a list of synonyms, additional values
+-- that help train the machine learning model about the values that it
+-- resolves for a slot.
+createSlotType_slotTypeValues :: Lens.Lens' CreateSlotType (Prelude.Maybe (Prelude.NonEmpty SlotTypeValue))
+createSlotType_slotTypeValues = Lens.lens (\CreateSlotType' {slotTypeValues} -> slotTypeValues) (\s@CreateSlotType' {} a -> s {slotTypeValues = a} :: CreateSlotType) Prelude.. Lens.mapping Lens.coerced
 
 -- | Determines the strategy that Amazon Lex uses to select a value from the
 -- list of possible values. The field can be set to one of the following
@@ -224,26 +244,6 @@ createSlotType_externalSourceSetting = Lens.lens (\CreateSlotType' {externalSour
 -- is @OriginalValue@.
 createSlotType_valueSelectionSetting :: Lens.Lens' CreateSlotType (Prelude.Maybe SlotValueSelectionSetting)
 createSlotType_valueSelectionSetting = Lens.lens (\CreateSlotType' {valueSelectionSetting} -> valueSelectionSetting) (\s@CreateSlotType' {} a -> s {valueSelectionSetting = a} :: CreateSlotType)
-
--- | A description of the slot type. Use the description to help identify the
--- slot type in lists.
-createSlotType_description :: Lens.Lens' CreateSlotType (Prelude.Maybe Prelude.Text)
-createSlotType_description = Lens.lens (\CreateSlotType' {description} -> description) (\s@CreateSlotType' {} a -> s {description = a} :: CreateSlotType)
-
--- | A list of @SlotTypeValue@ objects that defines the values that the slot
--- type can take. Each value can have a list of synonyms, additional values
--- that help train the machine learning model about the values that it
--- resolves for a slot.
-createSlotType_slotTypeValues :: Lens.Lens' CreateSlotType (Prelude.Maybe (Prelude.NonEmpty SlotTypeValue))
-createSlotType_slotTypeValues = Lens.lens (\CreateSlotType' {slotTypeValues} -> slotTypeValues) (\s@CreateSlotType' {} a -> s {slotTypeValues = a} :: CreateSlotType) Prelude.. Lens.mapping Lens.coerced
-
--- | The built-in slot type used as a parent of this slot type. When you
--- define a parent slot type, the new slot type has the configuration of
--- the parent slot type.
---
--- Only @AMAZON.AlphaNumeric@ is supported.
-createSlotType_parentSlotTypeSignature :: Lens.Lens' CreateSlotType (Prelude.Maybe Prelude.Text)
-createSlotType_parentSlotTypeSignature = Lens.lens (\CreateSlotType' {parentSlotTypeSignature} -> parentSlotTypeSignature) (\s@CreateSlotType' {} a -> s {parentSlotTypeSignature = a} :: CreateSlotType)
 
 -- | The name for the slot. A slot type name must be unique within the
 -- account.
@@ -276,18 +276,18 @@ instance Core.AWSRequest CreateSlotType where
     Response.receiveJSON
       ( \s h x ->
           CreateSlotTypeResponse'
-            Prelude.<$> (x Data..?> "botVersion")
+            Prelude.<$> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "botVersion")
             Prelude.<*> (x Data..?> "compositeSlotTypeSetting")
             Prelude.<*> (x Data..?> "creationDateTime")
-            Prelude.<*> (x Data..?> "localeId")
-            Prelude.<*> (x Data..?> "externalSourceSetting")
-            Prelude.<*> (x Data..?> "valueSelectionSetting")
             Prelude.<*> (x Data..?> "description")
-            Prelude.<*> (x Data..?> "botId")
-            Prelude.<*> (x Data..?> "slotTypeValues")
-            Prelude.<*> (x Data..?> "slotTypeName")
-            Prelude.<*> (x Data..?> "slotTypeId")
+            Prelude.<*> (x Data..?> "externalSourceSetting")
+            Prelude.<*> (x Data..?> "localeId")
             Prelude.<*> (x Data..?> "parentSlotTypeSignature")
+            Prelude.<*> (x Data..?> "slotTypeId")
+            Prelude.<*> (x Data..?> "slotTypeName")
+            Prelude.<*> (x Data..?> "slotTypeValues")
+            Prelude.<*> (x Data..?> "valueSelectionSetting")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -295,11 +295,11 @@ instance Prelude.Hashable CreateSlotType where
   hashWithSalt _salt CreateSlotType' {..} =
     _salt
       `Prelude.hashWithSalt` compositeSlotTypeSetting
-      `Prelude.hashWithSalt` externalSourceSetting
-      `Prelude.hashWithSalt` valueSelectionSetting
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` slotTypeValues
+      `Prelude.hashWithSalt` externalSourceSetting
       `Prelude.hashWithSalt` parentSlotTypeSignature
+      `Prelude.hashWithSalt` slotTypeValues
+      `Prelude.hashWithSalt` valueSelectionSetting
       `Prelude.hashWithSalt` slotTypeName
       `Prelude.hashWithSalt` botId
       `Prelude.hashWithSalt` botVersion
@@ -308,11 +308,11 @@ instance Prelude.Hashable CreateSlotType where
 instance Prelude.NFData CreateSlotType where
   rnf CreateSlotType' {..} =
     Prelude.rnf compositeSlotTypeSetting
-      `Prelude.seq` Prelude.rnf externalSourceSetting
-      `Prelude.seq` Prelude.rnf valueSelectionSetting
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf slotTypeValues
+      `Prelude.seq` Prelude.rnf externalSourceSetting
       `Prelude.seq` Prelude.rnf parentSlotTypeSignature
+      `Prelude.seq` Prelude.rnf slotTypeValues
+      `Prelude.seq` Prelude.rnf valueSelectionSetting
       `Prelude.seq` Prelude.rnf slotTypeName
       `Prelude.seq` Prelude.rnf botId
       `Prelude.seq` Prelude.rnf botVersion
@@ -335,15 +335,15 @@ instance Data.ToJSON CreateSlotType where
       ( Prelude.catMaybes
           [ ("compositeSlotTypeSetting" Data..=)
               Prelude.<$> compositeSlotTypeSetting,
+            ("description" Data..=) Prelude.<$> description,
             ("externalSourceSetting" Data..=)
               Prelude.<$> externalSourceSetting,
-            ("valueSelectionSetting" Data..=)
-              Prelude.<$> valueSelectionSetting,
-            ("description" Data..=) Prelude.<$> description,
-            ("slotTypeValues" Data..=)
-              Prelude.<$> slotTypeValues,
             ("parentSlotTypeSignature" Data..=)
               Prelude.<$> parentSlotTypeSignature,
+            ("slotTypeValues" Data..=)
+              Prelude.<$> slotTypeValues,
+            ("valueSelectionSetting" Data..=)
+              Prelude.<$> valueSelectionSetting,
             Prelude.Just ("slotTypeName" Data..= slotTypeName)
           ]
       )
@@ -365,32 +365,32 @@ instance Data.ToQuery CreateSlotType where
 
 -- | /See:/ 'newCreateSlotTypeResponse' smart constructor.
 data CreateSlotTypeResponse = CreateSlotTypeResponse'
-  { -- | The version of the bot associated with the slot type.
+  { -- | The identifier for the bot associated with the slot type.
+    botId :: Prelude.Maybe Prelude.Text,
+    -- | The version of the bot associated with the slot type.
     botVersion :: Prelude.Maybe Prelude.Text,
     -- | Specifications for a composite slot type.
     compositeSlotTypeSetting :: Prelude.Maybe CompositeSlotTypeSetting,
     -- | A timestamp of the date and time that the slot type was created.
     creationDateTime :: Prelude.Maybe Data.POSIX,
-    -- | The specified language and local specified for the slot type.
-    localeId :: Prelude.Maybe Prelude.Text,
-    -- | The type of external information used to create the slot type.
-    externalSourceSetting :: Prelude.Maybe ExternalSourceSetting,
-    -- | The strategy that Amazon Lex uses to select a value from the list of
-    -- possible values.
-    valueSelectionSetting :: Prelude.Maybe SlotValueSelectionSetting,
     -- | The description specified for the slot type.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The identifier for the bot associated with the slot type.
-    botId :: Prelude.Maybe Prelude.Text,
-    -- | The list of values that the slot type can assume.
-    slotTypeValues :: Prelude.Maybe (Prelude.NonEmpty SlotTypeValue),
-    -- | The name specified for the slot type.
-    slotTypeName :: Prelude.Maybe Prelude.Text,
+    -- | The type of external information used to create the slot type.
+    externalSourceSetting :: Prelude.Maybe ExternalSourceSetting,
+    -- | The specified language and local specified for the slot type.
+    localeId :: Prelude.Maybe Prelude.Text,
+    -- | The signature of the base slot type specified for the slot type.
+    parentSlotTypeSignature :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier assigned to the slot type. Use this to identify
     -- the slot type in the @UpdateSlotType@ and @DeleteSlotType@ operations.
     slotTypeId :: Prelude.Maybe Prelude.Text,
-    -- | The signature of the base slot type specified for the slot type.
-    parentSlotTypeSignature :: Prelude.Maybe Prelude.Text,
+    -- | The name specified for the slot type.
+    slotTypeName :: Prelude.Maybe Prelude.Text,
+    -- | The list of values that the slot type can assume.
+    slotTypeValues :: Prelude.Maybe (Prelude.NonEmpty SlotTypeValue),
+    -- | The strategy that Amazon Lex uses to select a value from the list of
+    -- possible values.
+    valueSelectionSetting :: Prelude.Maybe SlotValueSelectionSetting,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -404,31 +404,31 @@ data CreateSlotTypeResponse = CreateSlotTypeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'botId', 'createSlotTypeResponse_botId' - The identifier for the bot associated with the slot type.
+--
 -- 'botVersion', 'createSlotTypeResponse_botVersion' - The version of the bot associated with the slot type.
 --
 -- 'compositeSlotTypeSetting', 'createSlotTypeResponse_compositeSlotTypeSetting' - Specifications for a composite slot type.
 --
 -- 'creationDateTime', 'createSlotTypeResponse_creationDateTime' - A timestamp of the date and time that the slot type was created.
 --
--- 'localeId', 'createSlotTypeResponse_localeId' - The specified language and local specified for the slot type.
+-- 'description', 'createSlotTypeResponse_description' - The description specified for the slot type.
 --
 -- 'externalSourceSetting', 'createSlotTypeResponse_externalSourceSetting' - The type of external information used to create the slot type.
 --
--- 'valueSelectionSetting', 'createSlotTypeResponse_valueSelectionSetting' - The strategy that Amazon Lex uses to select a value from the list of
--- possible values.
+-- 'localeId', 'createSlotTypeResponse_localeId' - The specified language and local specified for the slot type.
 --
--- 'description', 'createSlotTypeResponse_description' - The description specified for the slot type.
---
--- 'botId', 'createSlotTypeResponse_botId' - The identifier for the bot associated with the slot type.
---
--- 'slotTypeValues', 'createSlotTypeResponse_slotTypeValues' - The list of values that the slot type can assume.
---
--- 'slotTypeName', 'createSlotTypeResponse_slotTypeName' - The name specified for the slot type.
+-- 'parentSlotTypeSignature', 'createSlotTypeResponse_parentSlotTypeSignature' - The signature of the base slot type specified for the slot type.
 --
 -- 'slotTypeId', 'createSlotTypeResponse_slotTypeId' - The unique identifier assigned to the slot type. Use this to identify
 -- the slot type in the @UpdateSlotType@ and @DeleteSlotType@ operations.
 --
--- 'parentSlotTypeSignature', 'createSlotTypeResponse_parentSlotTypeSignature' - The signature of the base slot type specified for the slot type.
+-- 'slotTypeName', 'createSlotTypeResponse_slotTypeName' - The name specified for the slot type.
+--
+-- 'slotTypeValues', 'createSlotTypeResponse_slotTypeValues' - The list of values that the slot type can assume.
+--
+-- 'valueSelectionSetting', 'createSlotTypeResponse_valueSelectionSetting' - The strategy that Amazon Lex uses to select a value from the list of
+-- possible values.
 --
 -- 'httpStatus', 'createSlotTypeResponse_httpStatus' - The response's http status code.
 newCreateSlotTypeResponse ::
@@ -437,21 +437,24 @@ newCreateSlotTypeResponse ::
   CreateSlotTypeResponse
 newCreateSlotTypeResponse pHttpStatus_ =
   CreateSlotTypeResponse'
-    { botVersion =
-        Prelude.Nothing,
+    { botId = Prelude.Nothing,
+      botVersion = Prelude.Nothing,
       compositeSlotTypeSetting = Prelude.Nothing,
       creationDateTime = Prelude.Nothing,
-      localeId = Prelude.Nothing,
-      externalSourceSetting = Prelude.Nothing,
-      valueSelectionSetting = Prelude.Nothing,
       description = Prelude.Nothing,
-      botId = Prelude.Nothing,
-      slotTypeValues = Prelude.Nothing,
-      slotTypeName = Prelude.Nothing,
-      slotTypeId = Prelude.Nothing,
+      externalSourceSetting = Prelude.Nothing,
+      localeId = Prelude.Nothing,
       parentSlotTypeSignature = Prelude.Nothing,
+      slotTypeId = Prelude.Nothing,
+      slotTypeName = Prelude.Nothing,
+      slotTypeValues = Prelude.Nothing,
+      valueSelectionSetting = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The identifier for the bot associated with the slot type.
+createSlotTypeResponse_botId :: Lens.Lens' CreateSlotTypeResponse (Prelude.Maybe Prelude.Text)
+createSlotTypeResponse_botId = Lens.lens (\CreateSlotTypeResponse' {botId} -> botId) (\s@CreateSlotTypeResponse' {} a -> s {botId = a} :: CreateSlotTypeResponse)
 
 -- | The version of the bot associated with the slot type.
 createSlotTypeResponse_botVersion :: Lens.Lens' CreateSlotTypeResponse (Prelude.Maybe Prelude.Text)
@@ -465,43 +468,39 @@ createSlotTypeResponse_compositeSlotTypeSetting = Lens.lens (\CreateSlotTypeResp
 createSlotTypeResponse_creationDateTime :: Lens.Lens' CreateSlotTypeResponse (Prelude.Maybe Prelude.UTCTime)
 createSlotTypeResponse_creationDateTime = Lens.lens (\CreateSlotTypeResponse' {creationDateTime} -> creationDateTime) (\s@CreateSlotTypeResponse' {} a -> s {creationDateTime = a} :: CreateSlotTypeResponse) Prelude.. Lens.mapping Data._Time
 
--- | The specified language and local specified for the slot type.
-createSlotTypeResponse_localeId :: Lens.Lens' CreateSlotTypeResponse (Prelude.Maybe Prelude.Text)
-createSlotTypeResponse_localeId = Lens.lens (\CreateSlotTypeResponse' {localeId} -> localeId) (\s@CreateSlotTypeResponse' {} a -> s {localeId = a} :: CreateSlotTypeResponse)
+-- | The description specified for the slot type.
+createSlotTypeResponse_description :: Lens.Lens' CreateSlotTypeResponse (Prelude.Maybe Prelude.Text)
+createSlotTypeResponse_description = Lens.lens (\CreateSlotTypeResponse' {description} -> description) (\s@CreateSlotTypeResponse' {} a -> s {description = a} :: CreateSlotTypeResponse)
 
 -- | The type of external information used to create the slot type.
 createSlotTypeResponse_externalSourceSetting :: Lens.Lens' CreateSlotTypeResponse (Prelude.Maybe ExternalSourceSetting)
 createSlotTypeResponse_externalSourceSetting = Lens.lens (\CreateSlotTypeResponse' {externalSourceSetting} -> externalSourceSetting) (\s@CreateSlotTypeResponse' {} a -> s {externalSourceSetting = a} :: CreateSlotTypeResponse)
 
--- | The strategy that Amazon Lex uses to select a value from the list of
--- possible values.
-createSlotTypeResponse_valueSelectionSetting :: Lens.Lens' CreateSlotTypeResponse (Prelude.Maybe SlotValueSelectionSetting)
-createSlotTypeResponse_valueSelectionSetting = Lens.lens (\CreateSlotTypeResponse' {valueSelectionSetting} -> valueSelectionSetting) (\s@CreateSlotTypeResponse' {} a -> s {valueSelectionSetting = a} :: CreateSlotTypeResponse)
+-- | The specified language and local specified for the slot type.
+createSlotTypeResponse_localeId :: Lens.Lens' CreateSlotTypeResponse (Prelude.Maybe Prelude.Text)
+createSlotTypeResponse_localeId = Lens.lens (\CreateSlotTypeResponse' {localeId} -> localeId) (\s@CreateSlotTypeResponse' {} a -> s {localeId = a} :: CreateSlotTypeResponse)
 
--- | The description specified for the slot type.
-createSlotTypeResponse_description :: Lens.Lens' CreateSlotTypeResponse (Prelude.Maybe Prelude.Text)
-createSlotTypeResponse_description = Lens.lens (\CreateSlotTypeResponse' {description} -> description) (\s@CreateSlotTypeResponse' {} a -> s {description = a} :: CreateSlotTypeResponse)
-
--- | The identifier for the bot associated with the slot type.
-createSlotTypeResponse_botId :: Lens.Lens' CreateSlotTypeResponse (Prelude.Maybe Prelude.Text)
-createSlotTypeResponse_botId = Lens.lens (\CreateSlotTypeResponse' {botId} -> botId) (\s@CreateSlotTypeResponse' {} a -> s {botId = a} :: CreateSlotTypeResponse)
-
--- | The list of values that the slot type can assume.
-createSlotTypeResponse_slotTypeValues :: Lens.Lens' CreateSlotTypeResponse (Prelude.Maybe (Prelude.NonEmpty SlotTypeValue))
-createSlotTypeResponse_slotTypeValues = Lens.lens (\CreateSlotTypeResponse' {slotTypeValues} -> slotTypeValues) (\s@CreateSlotTypeResponse' {} a -> s {slotTypeValues = a} :: CreateSlotTypeResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The name specified for the slot type.
-createSlotTypeResponse_slotTypeName :: Lens.Lens' CreateSlotTypeResponse (Prelude.Maybe Prelude.Text)
-createSlotTypeResponse_slotTypeName = Lens.lens (\CreateSlotTypeResponse' {slotTypeName} -> slotTypeName) (\s@CreateSlotTypeResponse' {} a -> s {slotTypeName = a} :: CreateSlotTypeResponse)
+-- | The signature of the base slot type specified for the slot type.
+createSlotTypeResponse_parentSlotTypeSignature :: Lens.Lens' CreateSlotTypeResponse (Prelude.Maybe Prelude.Text)
+createSlotTypeResponse_parentSlotTypeSignature = Lens.lens (\CreateSlotTypeResponse' {parentSlotTypeSignature} -> parentSlotTypeSignature) (\s@CreateSlotTypeResponse' {} a -> s {parentSlotTypeSignature = a} :: CreateSlotTypeResponse)
 
 -- | The unique identifier assigned to the slot type. Use this to identify
 -- the slot type in the @UpdateSlotType@ and @DeleteSlotType@ operations.
 createSlotTypeResponse_slotTypeId :: Lens.Lens' CreateSlotTypeResponse (Prelude.Maybe Prelude.Text)
 createSlotTypeResponse_slotTypeId = Lens.lens (\CreateSlotTypeResponse' {slotTypeId} -> slotTypeId) (\s@CreateSlotTypeResponse' {} a -> s {slotTypeId = a} :: CreateSlotTypeResponse)
 
--- | The signature of the base slot type specified for the slot type.
-createSlotTypeResponse_parentSlotTypeSignature :: Lens.Lens' CreateSlotTypeResponse (Prelude.Maybe Prelude.Text)
-createSlotTypeResponse_parentSlotTypeSignature = Lens.lens (\CreateSlotTypeResponse' {parentSlotTypeSignature} -> parentSlotTypeSignature) (\s@CreateSlotTypeResponse' {} a -> s {parentSlotTypeSignature = a} :: CreateSlotTypeResponse)
+-- | The name specified for the slot type.
+createSlotTypeResponse_slotTypeName :: Lens.Lens' CreateSlotTypeResponse (Prelude.Maybe Prelude.Text)
+createSlotTypeResponse_slotTypeName = Lens.lens (\CreateSlotTypeResponse' {slotTypeName} -> slotTypeName) (\s@CreateSlotTypeResponse' {} a -> s {slotTypeName = a} :: CreateSlotTypeResponse)
+
+-- | The list of values that the slot type can assume.
+createSlotTypeResponse_slotTypeValues :: Lens.Lens' CreateSlotTypeResponse (Prelude.Maybe (Prelude.NonEmpty SlotTypeValue))
+createSlotTypeResponse_slotTypeValues = Lens.lens (\CreateSlotTypeResponse' {slotTypeValues} -> slotTypeValues) (\s@CreateSlotTypeResponse' {} a -> s {slotTypeValues = a} :: CreateSlotTypeResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The strategy that Amazon Lex uses to select a value from the list of
+-- possible values.
+createSlotTypeResponse_valueSelectionSetting :: Lens.Lens' CreateSlotTypeResponse (Prelude.Maybe SlotValueSelectionSetting)
+createSlotTypeResponse_valueSelectionSetting = Lens.lens (\CreateSlotTypeResponse' {valueSelectionSetting} -> valueSelectionSetting) (\s@CreateSlotTypeResponse' {} a -> s {valueSelectionSetting = a} :: CreateSlotTypeResponse)
 
 -- | The response's http status code.
 createSlotTypeResponse_httpStatus :: Lens.Lens' CreateSlotTypeResponse Prelude.Int
@@ -509,16 +508,16 @@ createSlotTypeResponse_httpStatus = Lens.lens (\CreateSlotTypeResponse' {httpSta
 
 instance Prelude.NFData CreateSlotTypeResponse where
   rnf CreateSlotTypeResponse' {..} =
-    Prelude.rnf botVersion
+    Prelude.rnf botId
+      `Prelude.seq` Prelude.rnf botVersion
       `Prelude.seq` Prelude.rnf compositeSlotTypeSetting
       `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf externalSourceSetting
-      `Prelude.seq` Prelude.rnf valueSelectionSetting
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf slotTypeValues
-      `Prelude.seq` Prelude.rnf slotTypeName
-      `Prelude.seq` Prelude.rnf slotTypeId
+      `Prelude.seq` Prelude.rnf externalSourceSetting
+      `Prelude.seq` Prelude.rnf localeId
       `Prelude.seq` Prelude.rnf parentSlotTypeSignature
+      `Prelude.seq` Prelude.rnf slotTypeId
+      `Prelude.seq` Prelude.rnf slotTypeName
+      `Prelude.seq` Prelude.rnf slotTypeValues
+      `Prelude.seq` Prelude.rnf valueSelectionSetting
       `Prelude.seq` Prelude.rnf httpStatus

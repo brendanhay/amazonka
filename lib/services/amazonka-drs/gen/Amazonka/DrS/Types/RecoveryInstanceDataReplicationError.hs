@@ -30,9 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newRecoveryInstanceDataReplicationError' smart constructor.
 data RecoveryInstanceDataReplicationError = RecoveryInstanceDataReplicationError'
   { -- | Error in data replication.
-    rawError :: Prelude.Maybe Prelude.Text,
+    error :: Prelude.Maybe FailbackReplicationError,
     -- | Error in data replication.
-    error :: Prelude.Maybe FailbackReplicationError
+    rawError :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data RecoveryInstanceDataReplicationError = RecoveryInstanceDataReplicationError
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'rawError', 'recoveryInstanceDataReplicationError_rawError' - Error in data replication.
---
 -- 'error', 'recoveryInstanceDataReplicationError_error' - Error in data replication.
+--
+-- 'rawError', 'recoveryInstanceDataReplicationError_rawError' - Error in data replication.
 newRecoveryInstanceDataReplicationError ::
   RecoveryInstanceDataReplicationError
 newRecoveryInstanceDataReplicationError =
   RecoveryInstanceDataReplicationError'
-    { rawError =
+    { error =
         Prelude.Nothing,
-      error = Prelude.Nothing
+      rawError = Prelude.Nothing
     }
-
--- | Error in data replication.
-recoveryInstanceDataReplicationError_rawError :: Lens.Lens' RecoveryInstanceDataReplicationError (Prelude.Maybe Prelude.Text)
-recoveryInstanceDataReplicationError_rawError = Lens.lens (\RecoveryInstanceDataReplicationError' {rawError} -> rawError) (\s@RecoveryInstanceDataReplicationError' {} a -> s {rawError = a} :: RecoveryInstanceDataReplicationError)
 
 -- | Error in data replication.
 recoveryInstanceDataReplicationError_error :: Lens.Lens' RecoveryInstanceDataReplicationError (Prelude.Maybe FailbackReplicationError)
 recoveryInstanceDataReplicationError_error = Lens.lens (\RecoveryInstanceDataReplicationError' {error} -> error) (\s@RecoveryInstanceDataReplicationError' {} a -> s {error = a} :: RecoveryInstanceDataReplicationError)
+
+-- | Error in data replication.
+recoveryInstanceDataReplicationError_rawError :: Lens.Lens' RecoveryInstanceDataReplicationError (Prelude.Maybe Prelude.Text)
+recoveryInstanceDataReplicationError_rawError = Lens.lens (\RecoveryInstanceDataReplicationError' {rawError} -> rawError) (\s@RecoveryInstanceDataReplicationError' {} a -> s {rawError = a} :: RecoveryInstanceDataReplicationError)
 
 instance
   Data.FromJSON
@@ -73,8 +73,8 @@ instance
       "RecoveryInstanceDataReplicationError"
       ( \x ->
           RecoveryInstanceDataReplicationError'
-            Prelude.<$> (x Data..:? "rawError")
-            Prelude.<*> (x Data..:? "error")
+            Prelude.<$> (x Data..:? "error")
+            Prelude.<*> (x Data..:? "rawError")
       )
 
 instance
@@ -84,13 +84,13 @@ instance
   hashWithSalt
     _salt
     RecoveryInstanceDataReplicationError' {..} =
-      _salt `Prelude.hashWithSalt` rawError
-        `Prelude.hashWithSalt` error
+      _salt `Prelude.hashWithSalt` error
+        `Prelude.hashWithSalt` rawError
 
 instance
   Prelude.NFData
     RecoveryInstanceDataReplicationError
   where
   rnf RecoveryInstanceDataReplicationError' {..} =
-    Prelude.rnf rawError
-      `Prelude.seq` Prelude.rnf error
+    Prelude.rnf error
+      `Prelude.seq` Prelude.rnf rawError

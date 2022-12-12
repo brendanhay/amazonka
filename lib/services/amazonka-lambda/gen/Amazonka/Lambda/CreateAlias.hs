@@ -34,8 +34,8 @@ module Amazonka.Lambda.CreateAlias
     newCreateAlias,
 
     -- * Request Lenses
-    createAlias_routingConfig,
     createAlias_description,
+    createAlias_routingConfig,
     createAlias_functionName,
     createAlias_name,
     createAlias_functionVersion,
@@ -45,12 +45,12 @@ module Amazonka.Lambda.CreateAlias
     newAliasConfiguration,
 
     -- * Response Lenses
-    aliasConfiguration_name,
-    aliasConfiguration_routingConfig,
-    aliasConfiguration_functionVersion,
     aliasConfiguration_aliasArn,
     aliasConfiguration_description,
+    aliasConfiguration_functionVersion,
+    aliasConfiguration_name,
     aliasConfiguration_revisionId,
+    aliasConfiguration_routingConfig,
   )
 where
 
@@ -64,12 +64,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateAlias' smart constructor.
 data CreateAlias = CreateAlias'
-  { -- | The
+  { -- | A description of the alias.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The
     -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing routing configuration>
     -- of the alias.
     routingConfig :: Prelude.Maybe AliasRoutingConfiguration,
-    -- | A description of the alias.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the Lambda function.
     --
     -- __Name formats__
@@ -99,11 +99,11 @@ data CreateAlias = CreateAlias'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'createAlias_description' - A description of the alias.
+--
 -- 'routingConfig', 'createAlias_routingConfig' - The
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing routing configuration>
 -- of the alias.
---
--- 'description', 'createAlias_description' - A description of the alias.
 --
 -- 'functionName', 'createAlias_functionName' - The name of the Lambda function.
 --
@@ -135,22 +135,22 @@ newCreateAlias
   pName_
   pFunctionVersion_ =
     CreateAlias'
-      { routingConfig = Prelude.Nothing,
-        description = Prelude.Nothing,
+      { description = Prelude.Nothing,
+        routingConfig = Prelude.Nothing,
         functionName = pFunctionName_,
         name = pName_,
         functionVersion = pFunctionVersion_
       }
+
+-- | A description of the alias.
+createAlias_description :: Lens.Lens' CreateAlias (Prelude.Maybe Prelude.Text)
+createAlias_description = Lens.lens (\CreateAlias' {description} -> description) (\s@CreateAlias' {} a -> s {description = a} :: CreateAlias)
 
 -- | The
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing routing configuration>
 -- of the alias.
 createAlias_routingConfig :: Lens.Lens' CreateAlias (Prelude.Maybe AliasRoutingConfiguration)
 createAlias_routingConfig = Lens.lens (\CreateAlias' {routingConfig} -> routingConfig) (\s@CreateAlias' {} a -> s {routingConfig = a} :: CreateAlias)
-
--- | A description of the alias.
-createAlias_description :: Lens.Lens' CreateAlias (Prelude.Maybe Prelude.Text)
-createAlias_description = Lens.lens (\CreateAlias' {description} -> description) (\s@CreateAlias' {} a -> s {description = a} :: CreateAlias)
 
 -- | The name of the Lambda function.
 --
@@ -186,16 +186,16 @@ instance Core.AWSRequest CreateAlias where
 
 instance Prelude.Hashable CreateAlias where
   hashWithSalt _salt CreateAlias' {..} =
-    _salt `Prelude.hashWithSalt` routingConfig
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` routingConfig
       `Prelude.hashWithSalt` functionName
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` functionVersion
 
 instance Prelude.NFData CreateAlias where
   rnf CreateAlias' {..} =
-    Prelude.rnf routingConfig
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf routingConfig
       `Prelude.seq` Prelude.rnf functionName
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf functionVersion
@@ -207,8 +207,8 @@ instance Data.ToJSON CreateAlias where
   toJSON CreateAlias' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("RoutingConfig" Data..=) Prelude.<$> routingConfig,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("RoutingConfig" Data..=) Prelude.<$> routingConfig,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just
               ("FunctionVersion" Data..= functionVersion)

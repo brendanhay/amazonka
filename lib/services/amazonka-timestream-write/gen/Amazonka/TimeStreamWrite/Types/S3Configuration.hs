@@ -29,16 +29,16 @@ import Amazonka.TimeStreamWrite.Types.S3EncryptionOption
 --
 -- /See:/ 'newS3Configuration' smart constructor.
 data S3Configuration = S3Configuration'
-  { -- | Object key preview for the customer S3 location.
-    objectKeyPrefix :: Prelude.Maybe Prelude.Text,
+  { -- | >Bucket name of the customer S3 bucket.
+    bucketName :: Prelude.Maybe Prelude.Text,
     -- | Encryption option for the customer s3 location. Options are S3 server
     -- side encryption with an S3-managed key or KMS managed key.
     encryptionOption :: Prelude.Maybe S3EncryptionOption,
-    -- | >Bucket name of the customer S3 bucket.
-    bucketName :: Prelude.Maybe Prelude.Text,
     -- | KMS key id for the customer s3 location when encrypting with a KMS
     -- managed key.
-    kmsKeyId :: Prelude.Maybe Prelude.Text
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | Object key preview for the customer S3 location.
+    objectKeyPrefix :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,42 +50,42 @@ data S3Configuration = S3Configuration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'objectKeyPrefix', 's3Configuration_objectKeyPrefix' - Object key preview for the customer S3 location.
+-- 'bucketName', 's3Configuration_bucketName' - >Bucket name of the customer S3 bucket.
 --
 -- 'encryptionOption', 's3Configuration_encryptionOption' - Encryption option for the customer s3 location. Options are S3 server
 -- side encryption with an S3-managed key or KMS managed key.
 --
--- 'bucketName', 's3Configuration_bucketName' - >Bucket name of the customer S3 bucket.
---
 -- 'kmsKeyId', 's3Configuration_kmsKeyId' - KMS key id for the customer s3 location when encrypting with a KMS
 -- managed key.
+--
+-- 'objectKeyPrefix', 's3Configuration_objectKeyPrefix' - Object key preview for the customer S3 location.
 newS3Configuration ::
   S3Configuration
 newS3Configuration =
   S3Configuration'
-    { objectKeyPrefix = Prelude.Nothing,
+    { bucketName = Prelude.Nothing,
       encryptionOption = Prelude.Nothing,
-      bucketName = Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing
+      kmsKeyId = Prelude.Nothing,
+      objectKeyPrefix = Prelude.Nothing
     }
 
--- | Object key preview for the customer S3 location.
-s3Configuration_objectKeyPrefix :: Lens.Lens' S3Configuration (Prelude.Maybe Prelude.Text)
-s3Configuration_objectKeyPrefix = Lens.lens (\S3Configuration' {objectKeyPrefix} -> objectKeyPrefix) (\s@S3Configuration' {} a -> s {objectKeyPrefix = a} :: S3Configuration)
+-- | >Bucket name of the customer S3 bucket.
+s3Configuration_bucketName :: Lens.Lens' S3Configuration (Prelude.Maybe Prelude.Text)
+s3Configuration_bucketName = Lens.lens (\S3Configuration' {bucketName} -> bucketName) (\s@S3Configuration' {} a -> s {bucketName = a} :: S3Configuration)
 
 -- | Encryption option for the customer s3 location. Options are S3 server
 -- side encryption with an S3-managed key or KMS managed key.
 s3Configuration_encryptionOption :: Lens.Lens' S3Configuration (Prelude.Maybe S3EncryptionOption)
 s3Configuration_encryptionOption = Lens.lens (\S3Configuration' {encryptionOption} -> encryptionOption) (\s@S3Configuration' {} a -> s {encryptionOption = a} :: S3Configuration)
 
--- | >Bucket name of the customer S3 bucket.
-s3Configuration_bucketName :: Lens.Lens' S3Configuration (Prelude.Maybe Prelude.Text)
-s3Configuration_bucketName = Lens.lens (\S3Configuration' {bucketName} -> bucketName) (\s@S3Configuration' {} a -> s {bucketName = a} :: S3Configuration)
-
 -- | KMS key id for the customer s3 location when encrypting with a KMS
 -- managed key.
 s3Configuration_kmsKeyId :: Lens.Lens' S3Configuration (Prelude.Maybe Prelude.Text)
 s3Configuration_kmsKeyId = Lens.lens (\S3Configuration' {kmsKeyId} -> kmsKeyId) (\s@S3Configuration' {} a -> s {kmsKeyId = a} :: S3Configuration)
+
+-- | Object key preview for the customer S3 location.
+s3Configuration_objectKeyPrefix :: Lens.Lens' S3Configuration (Prelude.Maybe Prelude.Text)
+s3Configuration_objectKeyPrefix = Lens.lens (\S3Configuration' {objectKeyPrefix} -> objectKeyPrefix) (\s@S3Configuration' {} a -> s {objectKeyPrefix = a} :: S3Configuration)
 
 instance Data.FromJSON S3Configuration where
   parseJSON =
@@ -93,35 +93,35 @@ instance Data.FromJSON S3Configuration where
       "S3Configuration"
       ( \x ->
           S3Configuration'
-            Prelude.<$> (x Data..:? "ObjectKeyPrefix")
+            Prelude.<$> (x Data..:? "BucketName")
             Prelude.<*> (x Data..:? "EncryptionOption")
-            Prelude.<*> (x Data..:? "BucketName")
             Prelude.<*> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..:? "ObjectKeyPrefix")
       )
 
 instance Prelude.Hashable S3Configuration where
   hashWithSalt _salt S3Configuration' {..} =
-    _salt `Prelude.hashWithSalt` objectKeyPrefix
+    _salt `Prelude.hashWithSalt` bucketName
       `Prelude.hashWithSalt` encryptionOption
-      `Prelude.hashWithSalt` bucketName
       `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` objectKeyPrefix
 
 instance Prelude.NFData S3Configuration where
   rnf S3Configuration' {..} =
-    Prelude.rnf objectKeyPrefix
+    Prelude.rnf bucketName
       `Prelude.seq` Prelude.rnf encryptionOption
-      `Prelude.seq` Prelude.rnf bucketName
       `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf objectKeyPrefix
 
 instance Data.ToJSON S3Configuration where
   toJSON S3Configuration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ObjectKeyPrefix" Data..=)
-              Prelude.<$> objectKeyPrefix,
+          [ ("BucketName" Data..=) Prelude.<$> bucketName,
             ("EncryptionOption" Data..=)
               Prelude.<$> encryptionOption,
-            ("BucketName" Data..=) Prelude.<$> bucketName,
-            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("ObjectKeyPrefix" Data..=)
+              Prelude.<$> objectKeyPrefix
           ]
       )

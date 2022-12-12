@@ -32,8 +32,8 @@ module Amazonka.ControlTower.Lens
     getControlOperationResponse_controlOperation,
 
     -- ** ListEnabledControls
-    listEnabledControls_nextToken,
     listEnabledControls_maxResults,
+    listEnabledControls_nextToken,
     listEnabledControls_targetIdentifier,
     listEnabledControlsResponse_nextToken,
     listEnabledControlsResponse_httpStatus,
@@ -42,11 +42,11 @@ module Amazonka.ControlTower.Lens
     -- * Types
 
     -- ** ControlOperation
-    controlOperation_operationType,
-    controlOperation_status,
     controlOperation_endTime,
-    controlOperation_statusMessage,
+    controlOperation_operationType,
     controlOperation_startTime,
+    controlOperation_status,
+    controlOperation_statusMessage,
 
     -- ** EnabledControlSummary
     enabledControlSummary_controlIdentifier,

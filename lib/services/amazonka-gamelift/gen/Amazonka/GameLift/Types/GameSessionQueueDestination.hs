@@ -28,8 +28,6 @@ import qualified Amazonka.Prelude as Prelude
 -- requests for new game sessions by placing a new game session on any of
 -- the queue\'s destinations.
 --
--- Destinations are part of a GameSessionQueue.
---
 -- /See:/ 'newGameSessionQueueDestination' smart constructor.
 data GameSessionQueueDestination = GameSessionQueueDestination'
   { -- | The Amazon Resource Name (ARN) that is assigned to fleet or fleet alias.

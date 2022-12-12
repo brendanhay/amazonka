@@ -27,8 +27,8 @@ module Amazonka.LexV2Models.ListBotAliases
     newListBotAliases,
 
     -- * Request Lenses
-    listBotAliases_nextToken,
     listBotAliases_maxResults,
+    listBotAliases_nextToken,
     listBotAliases_botId,
 
     -- * Destructuring the Response
@@ -36,9 +36,9 @@ module Amazonka.LexV2Models.ListBotAliases
     newListBotAliasesResponse,
 
     -- * Response Lenses
-    listBotAliasesResponse_nextToken,
-    listBotAliasesResponse_botId,
     listBotAliasesResponse_botAliasSummaries,
+    listBotAliasesResponse_botId,
+    listBotAliasesResponse_nextToken,
     listBotAliasesResponse_httpStatus,
   )
 where
@@ -53,15 +53,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListBotAliases' smart constructor.
 data ListBotAliases = ListBotAliases'
-  { -- | If the response from the @ListBotAliases@ operation contains more
+  { -- | The maximum number of aliases to return in each page of results. If
+    -- there are fewer results than the max page size, only the actual number
+    -- of results are returned.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the response from the @ListBotAliases@ operation contains more
     -- results than specified in the @maxResults@ parameter, a token is
     -- returned in the response. Use that token in the @nextToken@ parameter to
     -- return the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of aliases to return in each page of results. If
-    -- there are fewer results than the max page size, only the actual number
-    -- of results are returned.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the bot to list aliases for.
     botId :: Prelude.Text
   }
@@ -75,14 +75,14 @@ data ListBotAliases = ListBotAliases'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listBotAliases_maxResults' - The maximum number of aliases to return in each page of results. If
+-- there are fewer results than the max page size, only the actual number
+-- of results are returned.
+--
 -- 'nextToken', 'listBotAliases_nextToken' - If the response from the @ListBotAliases@ operation contains more
 -- results than specified in the @maxResults@ parameter, a token is
 -- returned in the response. Use that token in the @nextToken@ parameter to
 -- return the next page of results.
---
--- 'maxResults', 'listBotAliases_maxResults' - The maximum number of aliases to return in each page of results. If
--- there are fewer results than the max page size, only the actual number
--- of results are returned.
 --
 -- 'botId', 'listBotAliases_botId' - The identifier of the bot to list aliases for.
 newListBotAliases ::
@@ -91,10 +91,16 @@ newListBotAliases ::
   ListBotAliases
 newListBotAliases pBotId_ =
   ListBotAliases'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       botId = pBotId_
     }
+
+-- | The maximum number of aliases to return in each page of results. If
+-- there are fewer results than the max page size, only the actual number
+-- of results are returned.
+listBotAliases_maxResults :: Lens.Lens' ListBotAliases (Prelude.Maybe Prelude.Natural)
+listBotAliases_maxResults = Lens.lens (\ListBotAliases' {maxResults} -> maxResults) (\s@ListBotAliases' {} a -> s {maxResults = a} :: ListBotAliases)
 
 -- | If the response from the @ListBotAliases@ operation contains more
 -- results than specified in the @maxResults@ parameter, a token is
@@ -102,12 +108,6 @@ newListBotAliases pBotId_ =
 -- return the next page of results.
 listBotAliases_nextToken :: Lens.Lens' ListBotAliases (Prelude.Maybe Prelude.Text)
 listBotAliases_nextToken = Lens.lens (\ListBotAliases' {nextToken} -> nextToken) (\s@ListBotAliases' {} a -> s {nextToken = a} :: ListBotAliases)
-
--- | The maximum number of aliases to return in each page of results. If
--- there are fewer results than the max page size, only the actual number
--- of results are returned.
-listBotAliases_maxResults :: Lens.Lens' ListBotAliases (Prelude.Maybe Prelude.Natural)
-listBotAliases_maxResults = Lens.lens (\ListBotAliases' {maxResults} -> maxResults) (\s@ListBotAliases' {} a -> s {maxResults = a} :: ListBotAliases)
 
 -- | The identifier of the bot to list aliases for.
 listBotAliases_botId :: Lens.Lens' ListBotAliases Prelude.Text
@@ -123,24 +123,24 @@ instance Core.AWSRequest ListBotAliases where
     Response.receiveJSON
       ( \s h x ->
           ListBotAliasesResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "botId")
-            Prelude.<*> ( x Data..?> "botAliasSummaries"
+            Prelude.<$> ( x Data..?> "botAliasSummaries"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListBotAliases where
   hashWithSalt _salt ListBotAliases' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` botId
 
 instance Prelude.NFData ListBotAliases where
   rnf ListBotAliases' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf botId
 
 instance Data.ToHeaders ListBotAliases where
@@ -158,8 +158,8 @@ instance Data.ToJSON ListBotAliases where
   toJSON ListBotAliases' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -173,19 +173,19 @@ instance Data.ToQuery ListBotAliases where
 
 -- | /See:/ 'newListBotAliasesResponse' smart constructor.
 data ListBotAliasesResponse = ListBotAliasesResponse'
-  { -- | A token that indicates whether there are more results to return in a
-    -- response to the @ListBotAliases@ operation. If the @nextToken@ field is
-    -- present, you send the contents as the @nextToken@ parameter of a
-    -- @ListBotAliases@ operation request to get the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the bot associated with the aliases.
-    botId :: Prelude.Maybe Prelude.Text,
-    -- | Summary information for the bot aliases that meet the filter criteria
+  { -- | Summary information for the bot aliases that meet the filter criteria
     -- specified in the request. The length of the list is specified in the
     -- @maxResults@ parameter of the request. If there are more aliases
     -- available, the @nextToken@ field contains a token to get the next page
     -- of results.
     botAliasSummaries :: Prelude.Maybe [BotAliasSummary],
+    -- | The identifier of the bot associated with the aliases.
+    botId :: Prelude.Maybe Prelude.Text,
+    -- | A token that indicates whether there are more results to return in a
+    -- response to the @ListBotAliases@ operation. If the @nextToken@ field is
+    -- present, you send the contents as the @nextToken@ parameter of a
+    -- @ListBotAliases@ operation request to get the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -199,18 +199,18 @@ data ListBotAliasesResponse = ListBotAliasesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listBotAliasesResponse_nextToken' - A token that indicates whether there are more results to return in a
--- response to the @ListBotAliases@ operation. If the @nextToken@ field is
--- present, you send the contents as the @nextToken@ parameter of a
--- @ListBotAliases@ operation request to get the next page of results.
---
--- 'botId', 'listBotAliasesResponse_botId' - The identifier of the bot associated with the aliases.
---
 -- 'botAliasSummaries', 'listBotAliasesResponse_botAliasSummaries' - Summary information for the bot aliases that meet the filter criteria
 -- specified in the request. The length of the list is specified in the
 -- @maxResults@ parameter of the request. If there are more aliases
 -- available, the @nextToken@ field contains a token to get the next page
 -- of results.
+--
+-- 'botId', 'listBotAliasesResponse_botId' - The identifier of the bot associated with the aliases.
+--
+-- 'nextToken', 'listBotAliasesResponse_nextToken' - A token that indicates whether there are more results to return in a
+-- response to the @ListBotAliases@ operation. If the @nextToken@ field is
+-- present, you send the contents as the @nextToken@ parameter of a
+-- @ListBotAliases@ operation request to get the next page of results.
 --
 -- 'httpStatus', 'listBotAliasesResponse_httpStatus' - The response's http status code.
 newListBotAliasesResponse ::
@@ -219,23 +219,12 @@ newListBotAliasesResponse ::
   ListBotAliasesResponse
 newListBotAliasesResponse pHttpStatus_ =
   ListBotAliasesResponse'
-    { nextToken =
+    { botAliasSummaries =
         Prelude.Nothing,
       botId = Prelude.Nothing,
-      botAliasSummaries = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A token that indicates whether there are more results to return in a
--- response to the @ListBotAliases@ operation. If the @nextToken@ field is
--- present, you send the contents as the @nextToken@ parameter of a
--- @ListBotAliases@ operation request to get the next page of results.
-listBotAliasesResponse_nextToken :: Lens.Lens' ListBotAliasesResponse (Prelude.Maybe Prelude.Text)
-listBotAliasesResponse_nextToken = Lens.lens (\ListBotAliasesResponse' {nextToken} -> nextToken) (\s@ListBotAliasesResponse' {} a -> s {nextToken = a} :: ListBotAliasesResponse)
-
--- | The identifier of the bot associated with the aliases.
-listBotAliasesResponse_botId :: Lens.Lens' ListBotAliasesResponse (Prelude.Maybe Prelude.Text)
-listBotAliasesResponse_botId = Lens.lens (\ListBotAliasesResponse' {botId} -> botId) (\s@ListBotAliasesResponse' {} a -> s {botId = a} :: ListBotAliasesResponse)
 
 -- | Summary information for the bot aliases that meet the filter criteria
 -- specified in the request. The length of the list is specified in the
@@ -245,13 +234,24 @@ listBotAliasesResponse_botId = Lens.lens (\ListBotAliasesResponse' {botId} -> bo
 listBotAliasesResponse_botAliasSummaries :: Lens.Lens' ListBotAliasesResponse (Prelude.Maybe [BotAliasSummary])
 listBotAliasesResponse_botAliasSummaries = Lens.lens (\ListBotAliasesResponse' {botAliasSummaries} -> botAliasSummaries) (\s@ListBotAliasesResponse' {} a -> s {botAliasSummaries = a} :: ListBotAliasesResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The identifier of the bot associated with the aliases.
+listBotAliasesResponse_botId :: Lens.Lens' ListBotAliasesResponse (Prelude.Maybe Prelude.Text)
+listBotAliasesResponse_botId = Lens.lens (\ListBotAliasesResponse' {botId} -> botId) (\s@ListBotAliasesResponse' {} a -> s {botId = a} :: ListBotAliasesResponse)
+
+-- | A token that indicates whether there are more results to return in a
+-- response to the @ListBotAliases@ operation. If the @nextToken@ field is
+-- present, you send the contents as the @nextToken@ parameter of a
+-- @ListBotAliases@ operation request to get the next page of results.
+listBotAliasesResponse_nextToken :: Lens.Lens' ListBotAliasesResponse (Prelude.Maybe Prelude.Text)
+listBotAliasesResponse_nextToken = Lens.lens (\ListBotAliasesResponse' {nextToken} -> nextToken) (\s@ListBotAliasesResponse' {} a -> s {nextToken = a} :: ListBotAliasesResponse)
+
 -- | The response's http status code.
 listBotAliasesResponse_httpStatus :: Lens.Lens' ListBotAliasesResponse Prelude.Int
 listBotAliasesResponse_httpStatus = Lens.lens (\ListBotAliasesResponse' {httpStatus} -> httpStatus) (\s@ListBotAliasesResponse' {} a -> s {httpStatus = a} :: ListBotAliasesResponse)
 
 instance Prelude.NFData ListBotAliasesResponse where
   rnf ListBotAliasesResponse' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf botAliasSummaries
       `Prelude.seq` Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botAliasSummaries
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

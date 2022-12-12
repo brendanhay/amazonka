@@ -33,7 +33,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newQueryStringObject' smart constructor.
 data QueryStringObject = QueryStringObject'
-  { -- | The specific query strings that the distribution forwards to the origin.
+  { -- | Indicates whether the distribution forwards and caches based on query
+    -- strings.
+    option :: Prelude.Maybe Prelude.Bool,
+    -- | The specific query strings that the distribution forwards to the origin.
     --
     -- Your distribution will cache content based on the specified query
     -- strings.
@@ -41,10 +44,7 @@ data QueryStringObject = QueryStringObject'
     -- If the @option@ parameter is true, then your distribution forwards all
     -- query strings, regardless of what you specify using the
     -- @queryStringsAllowList@ parameter.
-    queryStringsAllowList :: Prelude.Maybe [Prelude.Text],
-    -- | Indicates whether the distribution forwards and caches based on query
-    -- strings.
-    option :: Prelude.Maybe Prelude.Bool
+    queryStringsAllowList :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,6 +56,9 @@ data QueryStringObject = QueryStringObject'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'option', 'queryStringObject_option' - Indicates whether the distribution forwards and caches based on query
+-- strings.
+--
 -- 'queryStringsAllowList', 'queryStringObject_queryStringsAllowList' - The specific query strings that the distribution forwards to the origin.
 --
 -- Your distribution will cache content based on the specified query
@@ -64,17 +67,18 @@ data QueryStringObject = QueryStringObject'
 -- If the @option@ parameter is true, then your distribution forwards all
 -- query strings, regardless of what you specify using the
 -- @queryStringsAllowList@ parameter.
---
--- 'option', 'queryStringObject_option' - Indicates whether the distribution forwards and caches based on query
--- strings.
 newQueryStringObject ::
   QueryStringObject
 newQueryStringObject =
   QueryStringObject'
-    { queryStringsAllowList =
-        Prelude.Nothing,
-      option = Prelude.Nothing
+    { option = Prelude.Nothing,
+      queryStringsAllowList = Prelude.Nothing
     }
+
+-- | Indicates whether the distribution forwards and caches based on query
+-- strings.
+queryStringObject_option :: Lens.Lens' QueryStringObject (Prelude.Maybe Prelude.Bool)
+queryStringObject_option = Lens.lens (\QueryStringObject' {option} -> option) (\s@QueryStringObject' {} a -> s {option = a} :: QueryStringObject)
 
 -- | The specific query strings that the distribution forwards to the origin.
 --
@@ -87,39 +91,34 @@ newQueryStringObject =
 queryStringObject_queryStringsAllowList :: Lens.Lens' QueryStringObject (Prelude.Maybe [Prelude.Text])
 queryStringObject_queryStringsAllowList = Lens.lens (\QueryStringObject' {queryStringsAllowList} -> queryStringsAllowList) (\s@QueryStringObject' {} a -> s {queryStringsAllowList = a} :: QueryStringObject) Prelude.. Lens.mapping Lens.coerced
 
--- | Indicates whether the distribution forwards and caches based on query
--- strings.
-queryStringObject_option :: Lens.Lens' QueryStringObject (Prelude.Maybe Prelude.Bool)
-queryStringObject_option = Lens.lens (\QueryStringObject' {option} -> option) (\s@QueryStringObject' {} a -> s {option = a} :: QueryStringObject)
-
 instance Data.FromJSON QueryStringObject where
   parseJSON =
     Data.withObject
       "QueryStringObject"
       ( \x ->
           QueryStringObject'
-            Prelude.<$> ( x Data..:? "queryStringsAllowList"
+            Prelude.<$> (x Data..:? "option")
+            Prelude.<*> ( x Data..:? "queryStringsAllowList"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "option")
       )
 
 instance Prelude.Hashable QueryStringObject where
   hashWithSalt _salt QueryStringObject' {..} =
-    _salt `Prelude.hashWithSalt` queryStringsAllowList
-      `Prelude.hashWithSalt` option
+    _salt `Prelude.hashWithSalt` option
+      `Prelude.hashWithSalt` queryStringsAllowList
 
 instance Prelude.NFData QueryStringObject where
   rnf QueryStringObject' {..} =
-    Prelude.rnf queryStringsAllowList
-      `Prelude.seq` Prelude.rnf option
+    Prelude.rnf option
+      `Prelude.seq` Prelude.rnf queryStringsAllowList
 
 instance Data.ToJSON QueryStringObject where
   toJSON QueryStringObject' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("queryStringsAllowList" Data..=)
-              Prelude.<$> queryStringsAllowList,
-            ("option" Data..=) Prelude.<$> option
+          [ ("option" Data..=) Prelude.<$> option,
+            ("queryStringsAllowList" Data..=)
+              Prelude.<$> queryStringsAllowList
           ]
       )

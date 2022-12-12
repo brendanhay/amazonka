@@ -30,8 +30,8 @@ module Amazonka.MigrationHubReFactorSpaces.ListRoutes
     newListRoutes,
 
     -- * Request Lenses
-    listRoutes_nextToken,
     listRoutes_maxResults,
+    listRoutes_nextToken,
     listRoutes_applicationIdentifier,
     listRoutes_environmentIdentifier,
 
@@ -56,12 +56,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListRoutes' smart constructor.
 data ListRoutes = ListRoutes'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return with a single call. To retrieve
+  { -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the application.
     applicationIdentifier :: Prelude.Text,
     -- | The ID of the environment.
@@ -77,11 +77,11 @@ data ListRoutes = ListRoutes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listRoutes_nextToken' - The token for the next page of results.
---
 -- 'maxResults', 'listRoutes_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
+--
+-- 'nextToken', 'listRoutes_nextToken' - The token for the next page of results.
 --
 -- 'applicationIdentifier', 'listRoutes_applicationIdentifier' - The ID of the application.
 --
@@ -96,21 +96,21 @@ newListRoutes
   pApplicationIdentifier_
   pEnvironmentIdentifier_ =
     ListRoutes'
-      { nextToken = Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+      { maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         applicationIdentifier = pApplicationIdentifier_,
         environmentIdentifier = pEnvironmentIdentifier_
       }
-
--- | The token for the next page of results.
-listRoutes_nextToken :: Lens.Lens' ListRoutes (Prelude.Maybe Prelude.Text)
-listRoutes_nextToken = Lens.lens (\ListRoutes' {nextToken} -> nextToken) (\s@ListRoutes' {} a -> s {nextToken = a} :: ListRoutes)
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
 listRoutes_maxResults :: Lens.Lens' ListRoutes (Prelude.Maybe Prelude.Natural)
 listRoutes_maxResults = Lens.lens (\ListRoutes' {maxResults} -> maxResults) (\s@ListRoutes' {} a -> s {maxResults = a} :: ListRoutes)
+
+-- | The token for the next page of results.
+listRoutes_nextToken :: Lens.Lens' ListRoutes (Prelude.Maybe Prelude.Text)
+listRoutes_nextToken = Lens.lens (\ListRoutes' {nextToken} -> nextToken) (\s@ListRoutes' {} a -> s {nextToken = a} :: ListRoutes)
 
 -- | The ID of the application.
 listRoutes_applicationIdentifier :: Lens.Lens' ListRoutes Prelude.Text
@@ -157,15 +157,15 @@ instance Core.AWSRequest ListRoutes where
 
 instance Prelude.Hashable ListRoutes where
   hashWithSalt _salt ListRoutes' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` applicationIdentifier
       `Prelude.hashWithSalt` environmentIdentifier
 
 instance Prelude.NFData ListRoutes where
   rnf ListRoutes' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf applicationIdentifier
       `Prelude.seq` Prelude.rnf environmentIdentifier
 
@@ -193,8 +193,8 @@ instance Data.ToPath ListRoutes where
 instance Data.ToQuery ListRoutes where
   toQuery ListRoutes' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListRoutesResponse' smart constructor.

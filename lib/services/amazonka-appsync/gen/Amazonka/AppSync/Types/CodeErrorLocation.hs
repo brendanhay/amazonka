@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCodeErrorLocation' smart constructor.
 data CodeErrorLocation = CodeErrorLocation'
-  { -- | The line number in the code. Defaults to @0@ if unknown.
+  { -- | The column number in the code. Defaults to @0@ if unknown.
+    column :: Prelude.Maybe Prelude.Int,
+    -- | The line number in the code. Defaults to @0@ if unknown.
     line :: Prelude.Maybe Prelude.Int,
     -- | The span\/length of the error. Defaults to @-1@ if unknown.
-    span :: Prelude.Maybe Prelude.Int,
-    -- | The column number in the code. Defaults to @0@ if unknown.
-    column :: Prelude.Maybe Prelude.Int
+    span :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,19 +45,23 @@ data CodeErrorLocation = CodeErrorLocation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'column', 'codeErrorLocation_column' - The column number in the code. Defaults to @0@ if unknown.
+--
 -- 'line', 'codeErrorLocation_line' - The line number in the code. Defaults to @0@ if unknown.
 --
 -- 'span', 'codeErrorLocation_span' - The span\/length of the error. Defaults to @-1@ if unknown.
---
--- 'column', 'codeErrorLocation_column' - The column number in the code. Defaults to @0@ if unknown.
 newCodeErrorLocation ::
   CodeErrorLocation
 newCodeErrorLocation =
   CodeErrorLocation'
-    { line = Prelude.Nothing,
-      span = Prelude.Nothing,
-      column = Prelude.Nothing
+    { column = Prelude.Nothing,
+      line = Prelude.Nothing,
+      span = Prelude.Nothing
     }
+
+-- | The column number in the code. Defaults to @0@ if unknown.
+codeErrorLocation_column :: Lens.Lens' CodeErrorLocation (Prelude.Maybe Prelude.Int)
+codeErrorLocation_column = Lens.lens (\CodeErrorLocation' {column} -> column) (\s@CodeErrorLocation' {} a -> s {column = a} :: CodeErrorLocation)
 
 -- | The line number in the code. Defaults to @0@ if unknown.
 codeErrorLocation_line :: Lens.Lens' CodeErrorLocation (Prelude.Maybe Prelude.Int)
@@ -67,29 +71,25 @@ codeErrorLocation_line = Lens.lens (\CodeErrorLocation' {line} -> line) (\s@Code
 codeErrorLocation_span :: Lens.Lens' CodeErrorLocation (Prelude.Maybe Prelude.Int)
 codeErrorLocation_span = Lens.lens (\CodeErrorLocation' {span} -> span) (\s@CodeErrorLocation' {} a -> s {span = a} :: CodeErrorLocation)
 
--- | The column number in the code. Defaults to @0@ if unknown.
-codeErrorLocation_column :: Lens.Lens' CodeErrorLocation (Prelude.Maybe Prelude.Int)
-codeErrorLocation_column = Lens.lens (\CodeErrorLocation' {column} -> column) (\s@CodeErrorLocation' {} a -> s {column = a} :: CodeErrorLocation)
-
 instance Data.FromJSON CodeErrorLocation where
   parseJSON =
     Data.withObject
       "CodeErrorLocation"
       ( \x ->
           CodeErrorLocation'
-            Prelude.<$> (x Data..:? "line")
+            Prelude.<$> (x Data..:? "column")
+            Prelude.<*> (x Data..:? "line")
             Prelude.<*> (x Data..:? "span")
-            Prelude.<*> (x Data..:? "column")
       )
 
 instance Prelude.Hashable CodeErrorLocation where
   hashWithSalt _salt CodeErrorLocation' {..} =
-    _salt `Prelude.hashWithSalt` line
+    _salt `Prelude.hashWithSalt` column
+      `Prelude.hashWithSalt` line
       `Prelude.hashWithSalt` span
-      `Prelude.hashWithSalt` column
 
 instance Prelude.NFData CodeErrorLocation where
   rnf CodeErrorLocation' {..} =
-    Prelude.rnf line
+    Prelude.rnf column
+      `Prelude.seq` Prelude.rnf line
       `Prelude.seq` Prelude.rnf span
-      `Prelude.seq` Prelude.rnf column

@@ -45,11 +45,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSecretsManagerSecretConfiguration' smart constructor.
 data SecretsManagerSecretConfiguration = SecretsManagerSecretConfiguration'
-  { -- | The proposed resource policy defining who can access or manage the
+  { -- | The proposed ARN, key ID, or alias of the KMS key.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The proposed resource policy defining who can access or manage the
     -- secret.
-    secretPolicy :: Prelude.Maybe Prelude.Text,
-    -- | The proposed ARN, key ID, or alias of the KMS key.
-    kmsKeyId :: Prelude.Maybe Prelude.Text
+    secretPolicy :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,27 +61,27 @@ data SecretsManagerSecretConfiguration = SecretsManagerSecretConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'kmsKeyId', 'secretsManagerSecretConfiguration_kmsKeyId' - The proposed ARN, key ID, or alias of the KMS key.
+--
 -- 'secretPolicy', 'secretsManagerSecretConfiguration_secretPolicy' - The proposed resource policy defining who can access or manage the
 -- secret.
---
--- 'kmsKeyId', 'secretsManagerSecretConfiguration_kmsKeyId' - The proposed ARN, key ID, or alias of the KMS key.
 newSecretsManagerSecretConfiguration ::
   SecretsManagerSecretConfiguration
 newSecretsManagerSecretConfiguration =
   SecretsManagerSecretConfiguration'
-    { secretPolicy =
+    { kmsKeyId =
         Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing
+      secretPolicy = Prelude.Nothing
     }
+
+-- | The proposed ARN, key ID, or alias of the KMS key.
+secretsManagerSecretConfiguration_kmsKeyId :: Lens.Lens' SecretsManagerSecretConfiguration (Prelude.Maybe Prelude.Text)
+secretsManagerSecretConfiguration_kmsKeyId = Lens.lens (\SecretsManagerSecretConfiguration' {kmsKeyId} -> kmsKeyId) (\s@SecretsManagerSecretConfiguration' {} a -> s {kmsKeyId = a} :: SecretsManagerSecretConfiguration)
 
 -- | The proposed resource policy defining who can access or manage the
 -- secret.
 secretsManagerSecretConfiguration_secretPolicy :: Lens.Lens' SecretsManagerSecretConfiguration (Prelude.Maybe Prelude.Text)
 secretsManagerSecretConfiguration_secretPolicy = Lens.lens (\SecretsManagerSecretConfiguration' {secretPolicy} -> secretPolicy) (\s@SecretsManagerSecretConfiguration' {} a -> s {secretPolicy = a} :: SecretsManagerSecretConfiguration)
-
--- | The proposed ARN, key ID, or alias of the KMS key.
-secretsManagerSecretConfiguration_kmsKeyId :: Lens.Lens' SecretsManagerSecretConfiguration (Prelude.Maybe Prelude.Text)
-secretsManagerSecretConfiguration_kmsKeyId = Lens.lens (\SecretsManagerSecretConfiguration' {kmsKeyId} -> kmsKeyId) (\s@SecretsManagerSecretConfiguration' {} a -> s {kmsKeyId = a} :: SecretsManagerSecretConfiguration)
 
 instance
   Data.FromJSON
@@ -92,8 +92,8 @@ instance
       "SecretsManagerSecretConfiguration"
       ( \x ->
           SecretsManagerSecretConfiguration'
-            Prelude.<$> (x Data..:? "secretPolicy")
-            Prelude.<*> (x Data..:? "kmsKeyId")
+            Prelude.<$> (x Data..:? "kmsKeyId")
+            Prelude.<*> (x Data..:? "secretPolicy")
       )
 
 instance
@@ -103,16 +103,16 @@ instance
   hashWithSalt
     _salt
     SecretsManagerSecretConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` secretPolicy
-        `Prelude.hashWithSalt` kmsKeyId
+      _salt `Prelude.hashWithSalt` kmsKeyId
+        `Prelude.hashWithSalt` secretPolicy
 
 instance
   Prelude.NFData
     SecretsManagerSecretConfiguration
   where
   rnf SecretsManagerSecretConfiguration' {..} =
-    Prelude.rnf secretPolicy
-      `Prelude.seq` Prelude.rnf kmsKeyId
+    Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf secretPolicy
 
 instance
   Data.ToJSON
@@ -121,7 +121,7 @@ instance
   toJSON SecretsManagerSecretConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("secretPolicy" Data..=) Prelude.<$> secretPolicy,
-            ("kmsKeyId" Data..=) Prelude.<$> kmsKeyId
+          [ ("kmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("secretPolicy" Data..=) Prelude.<$> secretPolicy
           ]
       )

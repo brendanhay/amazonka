@@ -42,8 +42,8 @@ module Amazonka.IoT.ListTargetsForPolicy
     newListTargetsForPolicyResponse,
 
     -- * Response Lenses
-    listTargetsForPolicyResponse_targets,
     listTargetsForPolicyResponse_nextMarker,
+    listTargetsForPolicyResponse_targets,
     listTargetsForPolicyResponse_httpStatus,
   )
 where
@@ -135,8 +135,8 @@ instance Core.AWSRequest ListTargetsForPolicy where
     Response.receiveJSON
       ( \s h x ->
           ListTargetsForPolicyResponse'
-            Prelude.<$> (x Data..?> "targets" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "nextMarker")
+            Prelude.<$> (x Data..?> "nextMarker")
+            Prelude.<*> (x Data..?> "targets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,10 +172,10 @@ instance Data.ToQuery ListTargetsForPolicy where
 
 -- | /See:/ 'newListTargetsForPolicyResponse' smart constructor.
 data ListTargetsForPolicyResponse = ListTargetsForPolicyResponse'
-  { -- | The policy targets.
-    targets :: Prelude.Maybe [Prelude.Text],
-    -- | A marker used to get the next set of results.
+  { -- | A marker used to get the next set of results.
     nextMarker :: Prelude.Maybe Prelude.Text,
+    -- | The policy targets.
+    targets :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -189,9 +189,9 @@ data ListTargetsForPolicyResponse = ListTargetsForPolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targets', 'listTargetsForPolicyResponse_targets' - The policy targets.
---
 -- 'nextMarker', 'listTargetsForPolicyResponse_nextMarker' - A marker used to get the next set of results.
+--
+-- 'targets', 'listTargetsForPolicyResponse_targets' - The policy targets.
 --
 -- 'httpStatus', 'listTargetsForPolicyResponse_httpStatus' - The response's http status code.
 newListTargetsForPolicyResponse ::
@@ -200,19 +200,19 @@ newListTargetsForPolicyResponse ::
   ListTargetsForPolicyResponse
 newListTargetsForPolicyResponse pHttpStatus_ =
   ListTargetsForPolicyResponse'
-    { targets =
+    { nextMarker =
         Prelude.Nothing,
-      nextMarker = Prelude.Nothing,
+      targets = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The policy targets.
-listTargetsForPolicyResponse_targets :: Lens.Lens' ListTargetsForPolicyResponse (Prelude.Maybe [Prelude.Text])
-listTargetsForPolicyResponse_targets = Lens.lens (\ListTargetsForPolicyResponse' {targets} -> targets) (\s@ListTargetsForPolicyResponse' {} a -> s {targets = a} :: ListTargetsForPolicyResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A marker used to get the next set of results.
 listTargetsForPolicyResponse_nextMarker :: Lens.Lens' ListTargetsForPolicyResponse (Prelude.Maybe Prelude.Text)
 listTargetsForPolicyResponse_nextMarker = Lens.lens (\ListTargetsForPolicyResponse' {nextMarker} -> nextMarker) (\s@ListTargetsForPolicyResponse' {} a -> s {nextMarker = a} :: ListTargetsForPolicyResponse)
+
+-- | The policy targets.
+listTargetsForPolicyResponse_targets :: Lens.Lens' ListTargetsForPolicyResponse (Prelude.Maybe [Prelude.Text])
+listTargetsForPolicyResponse_targets = Lens.lens (\ListTargetsForPolicyResponse' {targets} -> targets) (\s@ListTargetsForPolicyResponse' {} a -> s {targets = a} :: ListTargetsForPolicyResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listTargetsForPolicyResponse_httpStatus :: Lens.Lens' ListTargetsForPolicyResponse Prelude.Int
@@ -220,6 +220,6 @@ listTargetsForPolicyResponse_httpStatus = Lens.lens (\ListTargetsForPolicyRespon
 
 instance Prelude.NFData ListTargetsForPolicyResponse where
   rnf ListTargetsForPolicyResponse' {..} =
-    Prelude.rnf targets
-      `Prelude.seq` Prelude.rnf nextMarker
+    Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf targets
       `Prelude.seq` Prelude.rnf httpStatus

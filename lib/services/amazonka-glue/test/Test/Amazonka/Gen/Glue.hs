@@ -51,6 +51,9 @@ import Test.Tasty
 --         , requestBatchGetCustomEntityTypes $
 --             newBatchGetCustomEntityTypes
 --
+--         , requestBatchGetDataQualityResult $
+--             newBatchGetDataQualityResult
+--
 --         , requestBatchGetDevEndpoints $
 --             newBatchGetDevEndpoints
 --
@@ -71,6 +74,12 @@ import Test.Tasty
 --
 --         , requestBatchUpdatePartition $
 --             newBatchUpdatePartition
+--
+--         , requestCancelDataQualityRuleRecommendationRun $
+--             newCancelDataQualityRuleRecommendationRun
+--
+--         , requestCancelDataQualityRulesetEvaluationRun $
+--             newCancelDataQualityRulesetEvaluationRun
 --
 --         , requestCancelMLTaskRun $
 --             newCancelMLTaskRun
@@ -95,6 +104,9 @@ import Test.Tasty
 --
 --         , requestCreateCustomEntityType $
 --             newCreateCustomEntityType
+--
+--         , requestCreateDataQualityRuleset $
+--             newCreateDataQualityRuleset
 --
 --         , requestCreateDatabase $
 --             newCreateDatabase
@@ -161,6 +173,9 @@ import Test.Tasty
 --
 --         , requestDeleteCustomEntityType $
 --             newDeleteCustomEntityType
+--
+--         , requestDeleteDataQualityRuleset $
+--             newDeleteDataQualityRuleset
 --
 --         , requestDeleteDatabase $
 --             newDeleteDatabase
@@ -257,6 +272,18 @@ import Test.Tasty
 --
 --         , requestGetDataCatalogEncryptionSettings $
 --             newGetDataCatalogEncryptionSettings
+--
+--         , requestGetDataQualityResult $
+--             newGetDataQualityResult
+--
+--         , requestGetDataQualityRuleRecommendationRun $
+--             newGetDataQualityRuleRecommendationRun
+--
+--         , requestGetDataQualityRuleset $
+--             newGetDataQualityRuleset
+--
+--         , requestGetDataQualityRulesetEvaluationRun $
+--             newGetDataQualityRulesetEvaluationRun
 --
 --         , requestGetDatabase $
 --             newGetDatabase
@@ -411,6 +438,18 @@ import Test.Tasty
 --         , requestListCustomEntityTypes $
 --             newListCustomEntityTypes
 --
+--         , requestListDataQualityResults $
+--             newListDataQualityResults
+--
+--         , requestListDataQualityRuleRecommendationRuns $
+--             newListDataQualityRuleRecommendationRuns
+--
+--         , requestListDataQualityRulesetEvaluationRuns $
+--             newListDataQualityRulesetEvaluationRuns
+--
+--         , requestListDataQualityRulesets $
+--             newListDataQualityRulesets
+--
 --         , requestListDevEndpoints $
 --             newListDevEndpoints
 --
@@ -483,6 +522,12 @@ import Test.Tasty
 --         , requestStartCrawlerSchedule $
 --             newStartCrawlerSchedule
 --
+--         , requestStartDataQualityRuleRecommendationRun $
+--             newStartDataQualityRuleRecommendationRun
+--
+--         , requestStartDataQualityRulesetEvaluationRun $
+--             newStartDataQualityRulesetEvaluationRun
+--
 --         , requestStartExportLabelsTaskRun $
 --             newStartExportLabelsTaskRun
 --
@@ -545,6 +590,9 @@ import Test.Tasty
 --
 --         , requestUpdateCrawlerSchedule $
 --             newUpdateCrawlerSchedule
+--
+--         , requestUpdateDataQualityRuleset $
+--             newUpdateDataQualityRuleset
 --
 --         , requestUpdateDatabase $
 --             newUpdateDatabase
@@ -612,6 +660,9 @@ import Test.Tasty
 --         , responseBatchGetCustomEntityTypes $
 --             newBatchGetCustomEntityTypesResponse
 --
+--         , responseBatchGetDataQualityResult $
+--             newBatchGetDataQualityResultResponse
+--
 --         , responseBatchGetDevEndpoints $
 --             newBatchGetDevEndpointsResponse
 --
@@ -632,6 +683,12 @@ import Test.Tasty
 --
 --         , responseBatchUpdatePartition $
 --             newBatchUpdatePartitionResponse
+--
+--         , responseCancelDataQualityRuleRecommendationRun $
+--             newCancelDataQualityRuleRecommendationRunResponse
+--
+--         , responseCancelDataQualityRulesetEvaluationRun $
+--             newCancelDataQualityRulesetEvaluationRunResponse
 --
 --         , responseCancelMLTaskRun $
 --             newCancelMLTaskRunResponse
@@ -656,6 +713,9 @@ import Test.Tasty
 --
 --         , responseCreateCustomEntityType $
 --             newCreateCustomEntityTypeResponse
+--
+--         , responseCreateDataQualityRuleset $
+--             newCreateDataQualityRulesetResponse
 --
 --         , responseCreateDatabase $
 --             newCreateDatabaseResponse
@@ -722,6 +782,9 @@ import Test.Tasty
 --
 --         , responseDeleteCustomEntityType $
 --             newDeleteCustomEntityTypeResponse
+--
+--         , responseDeleteDataQualityRuleset $
+--             newDeleteDataQualityRulesetResponse
 --
 --         , responseDeleteDatabase $
 --             newDeleteDatabaseResponse
@@ -818,6 +881,18 @@ import Test.Tasty
 --
 --         , responseGetDataCatalogEncryptionSettings $
 --             newGetDataCatalogEncryptionSettingsResponse
+--
+--         , responseGetDataQualityResult $
+--             newGetDataQualityResultResponse
+--
+--         , responseGetDataQualityRuleRecommendationRun $
+--             newGetDataQualityRuleRecommendationRunResponse
+--
+--         , responseGetDataQualityRuleset $
+--             newGetDataQualityRulesetResponse
+--
+--         , responseGetDataQualityRulesetEvaluationRun $
+--             newGetDataQualityRulesetEvaluationRunResponse
 --
 --         , responseGetDatabase $
 --             newGetDatabaseResponse
@@ -972,6 +1047,18 @@ import Test.Tasty
 --         , responseListCustomEntityTypes $
 --             newListCustomEntityTypesResponse
 --
+--         , responseListDataQualityResults $
+--             newListDataQualityResultsResponse
+--
+--         , responseListDataQualityRuleRecommendationRuns $
+--             newListDataQualityRuleRecommendationRunsResponse
+--
+--         , responseListDataQualityRulesetEvaluationRuns $
+--             newListDataQualityRulesetEvaluationRunsResponse
+--
+--         , responseListDataQualityRulesets $
+--             newListDataQualityRulesetsResponse
+--
 --         , responseListDevEndpoints $
 --             newListDevEndpointsResponse
 --
@@ -1044,6 +1131,12 @@ import Test.Tasty
 --         , responseStartCrawlerSchedule $
 --             newStartCrawlerScheduleResponse
 --
+--         , responseStartDataQualityRuleRecommendationRun $
+--             newStartDataQualityRuleRecommendationRunResponse
+--
+--         , responseStartDataQualityRulesetEvaluationRun $
+--             newStartDataQualityRulesetEvaluationRunResponse
+--
 --         , responseStartExportLabelsTaskRun $
 --             newStartExportLabelsTaskRunResponse
 --
@@ -1106,6 +1199,9 @@ import Test.Tasty
 --
 --         , responseUpdateCrawlerSchedule $
 --             newUpdateCrawlerScheduleResponse
+--
+--         , responseUpdateDataQualityRuleset $
+--             newUpdateDataQualityRulesetResponse
 --
 --         , responseUpdateDatabase $
 --             newUpdateDatabaseResponse
@@ -1199,6 +1295,12 @@ requestBatchGetCustomEntityTypes =
     "BatchGetCustomEntityTypes"
     "fixture/BatchGetCustomEntityTypes.yaml"
 
+requestBatchGetDataQualityResult :: BatchGetDataQualityResult -> TestTree
+requestBatchGetDataQualityResult =
+  req
+    "BatchGetDataQualityResult"
+    "fixture/BatchGetDataQualityResult.yaml"
+
 requestBatchGetDevEndpoints :: BatchGetDevEndpoints -> TestTree
 requestBatchGetDevEndpoints =
   req
@@ -1240,6 +1342,18 @@ requestBatchUpdatePartition =
   req
     "BatchUpdatePartition"
     "fixture/BatchUpdatePartition.yaml"
+
+requestCancelDataQualityRuleRecommendationRun :: CancelDataQualityRuleRecommendationRun -> TestTree
+requestCancelDataQualityRuleRecommendationRun =
+  req
+    "CancelDataQualityRuleRecommendationRun"
+    "fixture/CancelDataQualityRuleRecommendationRun.yaml"
+
+requestCancelDataQualityRulesetEvaluationRun :: CancelDataQualityRulesetEvaluationRun -> TestTree
+requestCancelDataQualityRulesetEvaluationRun =
+  req
+    "CancelDataQualityRulesetEvaluationRun"
+    "fixture/CancelDataQualityRulesetEvaluationRun.yaml"
 
 requestCancelMLTaskRun :: CancelMLTaskRun -> TestTree
 requestCancelMLTaskRun =
@@ -1288,6 +1402,12 @@ requestCreateCustomEntityType =
   req
     "CreateCustomEntityType"
     "fixture/CreateCustomEntityType.yaml"
+
+requestCreateDataQualityRuleset :: CreateDataQualityRuleset -> TestTree
+requestCreateDataQualityRuleset =
+  req
+    "CreateDataQualityRuleset"
+    "fixture/CreateDataQualityRuleset.yaml"
 
 requestCreateDatabase :: CreateDatabase -> TestTree
 requestCreateDatabase =
@@ -1420,6 +1540,12 @@ requestDeleteCustomEntityType =
   req
     "DeleteCustomEntityType"
     "fixture/DeleteCustomEntityType.yaml"
+
+requestDeleteDataQualityRuleset :: DeleteDataQualityRuleset -> TestTree
+requestDeleteDataQualityRuleset =
+  req
+    "DeleteDataQualityRuleset"
+    "fixture/DeleteDataQualityRuleset.yaml"
 
 requestDeleteDatabase :: DeleteDatabase -> TestTree
 requestDeleteDatabase =
@@ -1612,6 +1738,30 @@ requestGetDataCatalogEncryptionSettings =
   req
     "GetDataCatalogEncryptionSettings"
     "fixture/GetDataCatalogEncryptionSettings.yaml"
+
+requestGetDataQualityResult :: GetDataQualityResult -> TestTree
+requestGetDataQualityResult =
+  req
+    "GetDataQualityResult"
+    "fixture/GetDataQualityResult.yaml"
+
+requestGetDataQualityRuleRecommendationRun :: GetDataQualityRuleRecommendationRun -> TestTree
+requestGetDataQualityRuleRecommendationRun =
+  req
+    "GetDataQualityRuleRecommendationRun"
+    "fixture/GetDataQualityRuleRecommendationRun.yaml"
+
+requestGetDataQualityRuleset :: GetDataQualityRuleset -> TestTree
+requestGetDataQualityRuleset =
+  req
+    "GetDataQualityRuleset"
+    "fixture/GetDataQualityRuleset.yaml"
+
+requestGetDataQualityRulesetEvaluationRun :: GetDataQualityRulesetEvaluationRun -> TestTree
+requestGetDataQualityRulesetEvaluationRun =
+  req
+    "GetDataQualityRulesetEvaluationRun"
+    "fixture/GetDataQualityRulesetEvaluationRun.yaml"
 
 requestGetDatabase :: GetDatabase -> TestTree
 requestGetDatabase =
@@ -1919,6 +2069,30 @@ requestListCustomEntityTypes =
     "ListCustomEntityTypes"
     "fixture/ListCustomEntityTypes.yaml"
 
+requestListDataQualityResults :: ListDataQualityResults -> TestTree
+requestListDataQualityResults =
+  req
+    "ListDataQualityResults"
+    "fixture/ListDataQualityResults.yaml"
+
+requestListDataQualityRuleRecommendationRuns :: ListDataQualityRuleRecommendationRuns -> TestTree
+requestListDataQualityRuleRecommendationRuns =
+  req
+    "ListDataQualityRuleRecommendationRuns"
+    "fixture/ListDataQualityRuleRecommendationRuns.yaml"
+
+requestListDataQualityRulesetEvaluationRuns :: ListDataQualityRulesetEvaluationRuns -> TestTree
+requestListDataQualityRulesetEvaluationRuns =
+  req
+    "ListDataQualityRulesetEvaluationRuns"
+    "fixture/ListDataQualityRulesetEvaluationRuns.yaml"
+
+requestListDataQualityRulesets :: ListDataQualityRulesets -> TestTree
+requestListDataQualityRulesets =
+  req
+    "ListDataQualityRulesets"
+    "fixture/ListDataQualityRulesets.yaml"
+
 requestListDevEndpoints :: ListDevEndpoints -> TestTree
 requestListDevEndpoints =
   req
@@ -2063,6 +2237,18 @@ requestStartCrawlerSchedule =
     "StartCrawlerSchedule"
     "fixture/StartCrawlerSchedule.yaml"
 
+requestStartDataQualityRuleRecommendationRun :: StartDataQualityRuleRecommendationRun -> TestTree
+requestStartDataQualityRuleRecommendationRun =
+  req
+    "StartDataQualityRuleRecommendationRun"
+    "fixture/StartDataQualityRuleRecommendationRun.yaml"
+
+requestStartDataQualityRulesetEvaluationRun :: StartDataQualityRulesetEvaluationRun -> TestTree
+requestStartDataQualityRulesetEvaluationRun =
+  req
+    "StartDataQualityRulesetEvaluationRun"
+    "fixture/StartDataQualityRulesetEvaluationRun.yaml"
+
 requestStartExportLabelsTaskRun :: StartExportLabelsTaskRun -> TestTree
 requestStartExportLabelsTaskRun =
   req
@@ -2188,6 +2374,12 @@ requestUpdateCrawlerSchedule =
   req
     "UpdateCrawlerSchedule"
     "fixture/UpdateCrawlerSchedule.yaml"
+
+requestUpdateDataQualityRuleset :: UpdateDataQualityRuleset -> TestTree
+requestUpdateDataQualityRuleset =
+  req
+    "UpdateDataQualityRuleset"
+    "fixture/UpdateDataQualityRuleset.yaml"
 
 requestUpdateDatabase :: UpdateDatabase -> TestTree
 requestUpdateDatabase =
@@ -2333,6 +2525,14 @@ responseBatchGetCustomEntityTypes =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy BatchGetCustomEntityTypes)
 
+responseBatchGetDataQualityResult :: BatchGetDataQualityResultResponse -> TestTree
+responseBatchGetDataQualityResult =
+  res
+    "BatchGetDataQualityResultResponse"
+    "fixture/BatchGetDataQualityResultResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchGetDataQualityResult)
+
 responseBatchGetDevEndpoints :: BatchGetDevEndpointsResponse -> TestTree
 responseBatchGetDevEndpoints =
   res
@@ -2388,6 +2588,22 @@ responseBatchUpdatePartition =
     "fixture/BatchUpdatePartitionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy BatchUpdatePartition)
+
+responseCancelDataQualityRuleRecommendationRun :: CancelDataQualityRuleRecommendationRunResponse -> TestTree
+responseCancelDataQualityRuleRecommendationRun =
+  res
+    "CancelDataQualityRuleRecommendationRunResponse"
+    "fixture/CancelDataQualityRuleRecommendationRunResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CancelDataQualityRuleRecommendationRun)
+
+responseCancelDataQualityRulesetEvaluationRun :: CancelDataQualityRulesetEvaluationRunResponse -> TestTree
+responseCancelDataQualityRulesetEvaluationRun =
+  res
+    "CancelDataQualityRulesetEvaluationRunResponse"
+    "fixture/CancelDataQualityRulesetEvaluationRunResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CancelDataQualityRulesetEvaluationRun)
 
 responseCancelMLTaskRun :: CancelMLTaskRunResponse -> TestTree
 responseCancelMLTaskRun =
@@ -2452,6 +2668,14 @@ responseCreateCustomEntityType =
     "fixture/CreateCustomEntityTypeResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateCustomEntityType)
+
+responseCreateDataQualityRuleset :: CreateDataQualityRulesetResponse -> TestTree
+responseCreateDataQualityRuleset =
+  res
+    "CreateDataQualityRulesetResponse"
+    "fixture/CreateDataQualityRulesetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateDataQualityRuleset)
 
 responseCreateDatabase :: CreateDatabaseResponse -> TestTree
 responseCreateDatabase =
@@ -2628,6 +2852,14 @@ responseDeleteCustomEntityType =
     "fixture/DeleteCustomEntityTypeResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteCustomEntityType)
+
+responseDeleteDataQualityRuleset :: DeleteDataQualityRulesetResponse -> TestTree
+responseDeleteDataQualityRuleset =
+  res
+    "DeleteDataQualityRulesetResponse"
+    "fixture/DeleteDataQualityRulesetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteDataQualityRuleset)
 
 responseDeleteDatabase :: DeleteDatabaseResponse -> TestTree
 responseDeleteDatabase =
@@ -2884,6 +3116,38 @@ responseGetDataCatalogEncryptionSettings =
     "fixture/GetDataCatalogEncryptionSettingsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetDataCatalogEncryptionSettings)
+
+responseGetDataQualityResult :: GetDataQualityResultResponse -> TestTree
+responseGetDataQualityResult =
+  res
+    "GetDataQualityResultResponse"
+    "fixture/GetDataQualityResultResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetDataQualityResult)
+
+responseGetDataQualityRuleRecommendationRun :: GetDataQualityRuleRecommendationRunResponse -> TestTree
+responseGetDataQualityRuleRecommendationRun =
+  res
+    "GetDataQualityRuleRecommendationRunResponse"
+    "fixture/GetDataQualityRuleRecommendationRunResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetDataQualityRuleRecommendationRun)
+
+responseGetDataQualityRuleset :: GetDataQualityRulesetResponse -> TestTree
+responseGetDataQualityRuleset =
+  res
+    "GetDataQualityRulesetResponse"
+    "fixture/GetDataQualityRulesetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetDataQualityRuleset)
+
+responseGetDataQualityRulesetEvaluationRun :: GetDataQualityRulesetEvaluationRunResponse -> TestTree
+responseGetDataQualityRulesetEvaluationRun =
+  res
+    "GetDataQualityRulesetEvaluationRunResponse"
+    "fixture/GetDataQualityRulesetEvaluationRunResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetDataQualityRulesetEvaluationRun)
 
 responseGetDatabase :: GetDatabaseResponse -> TestTree
 responseGetDatabase =
@@ -3293,6 +3557,38 @@ responseListCustomEntityTypes =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListCustomEntityTypes)
 
+responseListDataQualityResults :: ListDataQualityResultsResponse -> TestTree
+responseListDataQualityResults =
+  res
+    "ListDataQualityResultsResponse"
+    "fixture/ListDataQualityResultsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListDataQualityResults)
+
+responseListDataQualityRuleRecommendationRuns :: ListDataQualityRuleRecommendationRunsResponse -> TestTree
+responseListDataQualityRuleRecommendationRuns =
+  res
+    "ListDataQualityRuleRecommendationRunsResponse"
+    "fixture/ListDataQualityRuleRecommendationRunsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListDataQualityRuleRecommendationRuns)
+
+responseListDataQualityRulesetEvaluationRuns :: ListDataQualityRulesetEvaluationRunsResponse -> TestTree
+responseListDataQualityRulesetEvaluationRuns =
+  res
+    "ListDataQualityRulesetEvaluationRunsResponse"
+    "fixture/ListDataQualityRulesetEvaluationRunsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListDataQualityRulesetEvaluationRuns)
+
+responseListDataQualityRulesets :: ListDataQualityRulesetsResponse -> TestTree
+responseListDataQualityRulesets =
+  res
+    "ListDataQualityRulesetsResponse"
+    "fixture/ListDataQualityRulesetsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListDataQualityRulesets)
+
 responseListDevEndpoints :: ListDevEndpointsResponse -> TestTree
 responseListDevEndpoints =
   res
@@ -3485,6 +3781,22 @@ responseStartCrawlerSchedule =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StartCrawlerSchedule)
 
+responseStartDataQualityRuleRecommendationRun :: StartDataQualityRuleRecommendationRunResponse -> TestTree
+responseStartDataQualityRuleRecommendationRun =
+  res
+    "StartDataQualityRuleRecommendationRunResponse"
+    "fixture/StartDataQualityRuleRecommendationRunResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartDataQualityRuleRecommendationRun)
+
+responseStartDataQualityRulesetEvaluationRun :: StartDataQualityRulesetEvaluationRunResponse -> TestTree
+responseStartDataQualityRulesetEvaluationRun =
+  res
+    "StartDataQualityRulesetEvaluationRunResponse"
+    "fixture/StartDataQualityRulesetEvaluationRunResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartDataQualityRulesetEvaluationRun)
+
 responseStartExportLabelsTaskRun :: StartExportLabelsTaskRunResponse -> TestTree
 responseStartExportLabelsTaskRun =
   res
@@ -3652,6 +3964,14 @@ responseUpdateCrawlerSchedule =
     "fixture/UpdateCrawlerScheduleResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateCrawlerSchedule)
+
+responseUpdateDataQualityRuleset :: UpdateDataQualityRulesetResponse -> TestTree
+responseUpdateDataQualityRuleset =
+  res
+    "UpdateDataQualityRulesetResponse"
+    "fixture/UpdateDataQualityRulesetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateDataQualityRuleset)
 
 responseUpdateDatabase :: UpdateDatabaseResponse -> TestTree
 responseUpdateDatabase =

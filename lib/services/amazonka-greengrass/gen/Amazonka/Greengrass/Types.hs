@@ -18,8 +18,8 @@ module Amazonka.Greengrass.Types
     defaultService,
 
     -- * Errors
-    _InternalServerErrorException,
     _BadRequestException,
+    _InternalServerErrorException,
 
     -- * BulkDeploymentStatus
     BulkDeploymentStatus (..),
@@ -73,29 +73,29 @@ module Amazonka.Greengrass.Types
     -- * BulkDeploymentMetrics
     BulkDeploymentMetrics (..),
     newBulkDeploymentMetrics,
+    bulkDeploymentMetrics_invalidInputRecords,
     bulkDeploymentMetrics_recordsProcessed,
     bulkDeploymentMetrics_retryAttempts,
-    bulkDeploymentMetrics_invalidInputRecords,
 
     -- * BulkDeploymentResult
     BulkDeploymentResult (..),
     newBulkDeploymentResult,
-    bulkDeploymentResult_deploymentStatus,
-    bulkDeploymentResult_errorMessage,
-    bulkDeploymentResult_deploymentId,
-    bulkDeploymentResult_errorDetails,
-    bulkDeploymentResult_deploymentType,
-    bulkDeploymentResult_deploymentArn,
-    bulkDeploymentResult_groupArn,
     bulkDeploymentResult_createdAt,
+    bulkDeploymentResult_deploymentArn,
+    bulkDeploymentResult_deploymentId,
+    bulkDeploymentResult_deploymentStatus,
+    bulkDeploymentResult_deploymentType,
+    bulkDeploymentResult_errorDetails,
+    bulkDeploymentResult_errorMessage,
+    bulkDeploymentResult_groupArn,
 
     -- * ConnectivityInfo
     ConnectivityInfo (..),
     newConnectivityInfo,
-    connectivityInfo_portNumber,
-    connectivityInfo_metadata,
-    connectivityInfo_id,
     connectivityInfo_hostAddress,
+    connectivityInfo_id,
+    connectivityInfo_metadata,
+    connectivityInfo_portNumber,
 
     -- * Connector
     Connector (..),
@@ -125,23 +125,23 @@ module Amazonka.Greengrass.Types
     -- * DefinitionInformation
     DefinitionInformation (..),
     newDefinitionInformation,
-    definitionInformation_tags,
-    definitionInformation_lastUpdatedTimestamp,
-    definitionInformation_name,
     definitionInformation_arn,
-    definitionInformation_latestVersion,
-    definitionInformation_id,
     definitionInformation_creationTimestamp,
+    definitionInformation_id,
+    definitionInformation_lastUpdatedTimestamp,
+    definitionInformation_latestVersion,
     definitionInformation_latestVersionArn,
+    definitionInformation_name,
+    definitionInformation_tags,
 
     -- * Deployment
     Deployment (..),
     newDeployment,
+    deployment_createdAt,
+    deployment_deploymentArn,
     deployment_deploymentId,
     deployment_deploymentType,
-    deployment_deploymentArn,
     deployment_groupArn,
-    deployment_createdAt,
 
     -- * Device
     Device (..),
@@ -172,21 +172,21 @@ module Amazonka.Greengrass.Types
     -- * FunctionConfiguration
     FunctionConfiguration (..),
     newFunctionConfiguration,
-    functionConfiguration_timeout,
-    functionConfiguration_memorySize,
-    functionConfiguration_execArgs,
-    functionConfiguration_environment,
-    functionConfiguration_functionRuntimeOverride,
-    functionConfiguration_executable,
-    functionConfiguration_pinned,
     functionConfiguration_encodingType,
+    functionConfiguration_environment,
+    functionConfiguration_execArgs,
+    functionConfiguration_executable,
+    functionConfiguration_functionRuntimeOverride,
+    functionConfiguration_memorySize,
+    functionConfiguration_pinned,
+    functionConfiguration_timeout,
 
     -- * FunctionConfigurationEnvironment
     FunctionConfigurationEnvironment (..),
     newFunctionConfigurationEnvironment,
-    functionConfigurationEnvironment_resourceAccessPolicies,
-    functionConfigurationEnvironment_execution,
     functionConfigurationEnvironment_accessSysfs,
+    functionConfigurationEnvironment_execution,
+    functionConfigurationEnvironment_resourceAccessPolicies,
     functionConfigurationEnvironment_variables,
 
     -- * FunctionDefaultConfig
@@ -203,8 +203,8 @@ module Amazonka.Greengrass.Types
     -- * FunctionDefinitionVersion
     FunctionDefinitionVersion (..),
     newFunctionDefinitionVersion,
-    functionDefinitionVersion_functions,
     functionDefinitionVersion_defaultConfig,
+    functionDefinitionVersion_functions,
 
     -- * FunctionExecutionConfig
     FunctionExecutionConfig (..),
@@ -236,13 +236,13 @@ module Amazonka.Greengrass.Types
     -- * GroupInformation
     GroupInformation (..),
     newGroupInformation,
-    groupInformation_lastUpdatedTimestamp,
-    groupInformation_name,
     groupInformation_arn,
-    groupInformation_latestVersion,
-    groupInformation_id,
     groupInformation_creationTimestamp,
+    groupInformation_id,
+    groupInformation_lastUpdatedTimestamp,
+    groupInformation_latestVersion,
     groupInformation_latestVersionArn,
+    groupInformation_name,
 
     -- * GroupOwnerSetting
     GroupOwnerSetting (..),
@@ -253,13 +253,13 @@ module Amazonka.Greengrass.Types
     -- * GroupVersion
     GroupVersion (..),
     newGroupVersion,
-    groupVersion_resourceDefinitionVersionArn,
-    groupVersion_functionDefinitionVersionArn,
-    groupVersion_subscriptionDefinitionVersionArn,
     groupVersion_connectorDefinitionVersionArn,
-    groupVersion_loggerDefinitionVersionArn,
     groupVersion_coreDefinitionVersionArn,
     groupVersion_deviceDefinitionVersionArn,
+    groupVersion_functionDefinitionVersionArn,
+    groupVersion_loggerDefinitionVersionArn,
+    groupVersion_resourceDefinitionVersionArn,
+    groupVersion_subscriptionDefinitionVersionArn,
 
     -- * LocalDeviceResourceData
     LocalDeviceResourceData (..),
@@ -295,11 +295,11 @@ module Amazonka.Greengrass.Types
     -- * ResourceDataContainer
     ResourceDataContainer (..),
     newResourceDataContainer,
+    resourceDataContainer_localDeviceResourceData,
     resourceDataContainer_localVolumeResourceData,
-    resourceDataContainer_secretsManagerSecretResourceData,
     resourceDataContainer_s3MachineLearningModelResourceData,
     resourceDataContainer_sageMakerMachineLearningModelResourceData,
-    resourceDataContainer_localDeviceResourceData,
+    resourceDataContainer_secretsManagerSecretResourceData,
 
     -- * ResourceDefinitionVersion
     ResourceDefinitionVersion (..),
@@ -328,14 +328,14 @@ module Amazonka.Greengrass.Types
     SageMakerMachineLearningModelResourceData (..),
     newSageMakerMachineLearningModelResourceData,
     sageMakerMachineLearningModelResourceData_destinationPath,
-    sageMakerMachineLearningModelResourceData_sageMakerJobArn,
     sageMakerMachineLearningModelResourceData_ownerSetting,
+    sageMakerMachineLearningModelResourceData_sageMakerJobArn,
 
     -- * SecretsManagerSecretResourceData
     SecretsManagerSecretResourceData (..),
     newSecretsManagerSecretResourceData,
-    secretsManagerSecretResourceData_additionalStagingLabelsToDownload,
     secretsManagerSecretResourceData_arn,
+    secretsManagerSecretResourceData_additionalStagingLabelsToDownload,
 
     -- * Subscription
     Subscription (..),
@@ -365,8 +365,8 @@ module Amazonka.Greengrass.Types
     VersionInformation (..),
     newVersionInformation,
     versionInformation_arn,
-    versionInformation_id,
     versionInformation_creationTimestamp,
+    versionInformation_id,
     versionInformation_version,
   )
 where
@@ -458,28 +458,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -487,13 +481,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -501,15 +499,9 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
-
--- | General error information.
-_InternalServerErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerErrorException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServerErrorException"
-    Prelude.. Core.hasStatus 500
 
 -- | General error information.
 _BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -518,3 +510,11 @@ _BadRequestException =
     defaultService
     "BadRequestException"
     Prelude.. Core.hasStatus 400
+
+-- | General error information.
+_InternalServerErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerErrorException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServerErrorException"
+    Prelude.. Core.hasStatus 500

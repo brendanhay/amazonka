@@ -35,10 +35,10 @@ module Amazonka.QuickSight.DescribeFolderPermissions
     newDescribeFolderPermissionsResponse,
 
     -- * Response Lenses
-    describeFolderPermissionsResponse_requestId,
     describeFolderPermissionsResponse_arn,
-    describeFolderPermissionsResponse_permissions,
     describeFolderPermissionsResponse_folderId,
+    describeFolderPermissionsResponse_permissions,
+    describeFolderPermissionsResponse_requestId,
     describeFolderPermissionsResponse_status,
   )
 where
@@ -104,10 +104,10 @@ instance Core.AWSRequest DescribeFolderPermissions where
     Response.receiveJSON
       ( \s h x ->
           DescribeFolderPermissionsResponse'
-            Prelude.<$> (x Data..?> "RequestId")
-            Prelude.<*> (x Data..?> "Arn")
-            Prelude.<*> (x Data..?> "Permissions")
+            Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (x Data..?> "FolderId")
+            Prelude.<*> (x Data..?> "Permissions")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,14 +147,14 @@ instance Data.ToQuery DescribeFolderPermissions where
 
 -- | /See:/ 'newDescribeFolderPermissionsResponse' smart constructor.
 data DescribeFolderPermissionsResponse = DescribeFolderPermissionsResponse'
-  { -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for the folder.
+  { -- | The Amazon Resource Name (ARN) for the folder.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | Information about the permissions on the folder.
-    permissions :: Prelude.Maybe (Prelude.NonEmpty ResourcePermission),
     -- | The ID of the folder.
     folderId :: Prelude.Maybe Prelude.Text,
+    -- | Information about the permissions on the folder.
+    permissions :: Prelude.Maybe (Prelude.NonEmpty ResourcePermission),
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -168,13 +168,13 @@ data DescribeFolderPermissionsResponse = DescribeFolderPermissionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'describeFolderPermissionsResponse_requestId' - The Amazon Web Services request ID for this operation.
---
 -- 'arn', 'describeFolderPermissionsResponse_arn' - The Amazon Resource Name (ARN) for the folder.
+--
+-- 'folderId', 'describeFolderPermissionsResponse_folderId' - The ID of the folder.
 --
 -- 'permissions', 'describeFolderPermissionsResponse_permissions' - Information about the permissions on the folder.
 --
--- 'folderId', 'describeFolderPermissionsResponse_folderId' - The ID of the folder.
+-- 'requestId', 'describeFolderPermissionsResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'status', 'describeFolderPermissionsResponse_status' - The HTTP status of the request.
 newDescribeFolderPermissionsResponse ::
@@ -183,29 +183,29 @@ newDescribeFolderPermissionsResponse ::
   DescribeFolderPermissionsResponse
 newDescribeFolderPermissionsResponse pStatus_ =
   DescribeFolderPermissionsResponse'
-    { requestId =
+    { arn =
         Prelude.Nothing,
-      arn = Prelude.Nothing,
-      permissions = Prelude.Nothing,
       folderId = Prelude.Nothing,
+      permissions = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       status = pStatus_
     }
-
--- | The Amazon Web Services request ID for this operation.
-describeFolderPermissionsResponse_requestId :: Lens.Lens' DescribeFolderPermissionsResponse (Prelude.Maybe Prelude.Text)
-describeFolderPermissionsResponse_requestId = Lens.lens (\DescribeFolderPermissionsResponse' {requestId} -> requestId) (\s@DescribeFolderPermissionsResponse' {} a -> s {requestId = a} :: DescribeFolderPermissionsResponse)
 
 -- | The Amazon Resource Name (ARN) for the folder.
 describeFolderPermissionsResponse_arn :: Lens.Lens' DescribeFolderPermissionsResponse (Prelude.Maybe Prelude.Text)
 describeFolderPermissionsResponse_arn = Lens.lens (\DescribeFolderPermissionsResponse' {arn} -> arn) (\s@DescribeFolderPermissionsResponse' {} a -> s {arn = a} :: DescribeFolderPermissionsResponse)
 
+-- | The ID of the folder.
+describeFolderPermissionsResponse_folderId :: Lens.Lens' DescribeFolderPermissionsResponse (Prelude.Maybe Prelude.Text)
+describeFolderPermissionsResponse_folderId = Lens.lens (\DescribeFolderPermissionsResponse' {folderId} -> folderId) (\s@DescribeFolderPermissionsResponse' {} a -> s {folderId = a} :: DescribeFolderPermissionsResponse)
+
 -- | Information about the permissions on the folder.
 describeFolderPermissionsResponse_permissions :: Lens.Lens' DescribeFolderPermissionsResponse (Prelude.Maybe (Prelude.NonEmpty ResourcePermission))
 describeFolderPermissionsResponse_permissions = Lens.lens (\DescribeFolderPermissionsResponse' {permissions} -> permissions) (\s@DescribeFolderPermissionsResponse' {} a -> s {permissions = a} :: DescribeFolderPermissionsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The ID of the folder.
-describeFolderPermissionsResponse_folderId :: Lens.Lens' DescribeFolderPermissionsResponse (Prelude.Maybe Prelude.Text)
-describeFolderPermissionsResponse_folderId = Lens.lens (\DescribeFolderPermissionsResponse' {folderId} -> folderId) (\s@DescribeFolderPermissionsResponse' {} a -> s {folderId = a} :: DescribeFolderPermissionsResponse)
+-- | The Amazon Web Services request ID for this operation.
+describeFolderPermissionsResponse_requestId :: Lens.Lens' DescribeFolderPermissionsResponse (Prelude.Maybe Prelude.Text)
+describeFolderPermissionsResponse_requestId = Lens.lens (\DescribeFolderPermissionsResponse' {requestId} -> requestId) (\s@DescribeFolderPermissionsResponse' {} a -> s {requestId = a} :: DescribeFolderPermissionsResponse)
 
 -- | The HTTP status of the request.
 describeFolderPermissionsResponse_status :: Lens.Lens' DescribeFolderPermissionsResponse Prelude.Int
@@ -216,8 +216,8 @@ instance
     DescribeFolderPermissionsResponse
   where
   rnf DescribeFolderPermissionsResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf permissions
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf folderId
+      `Prelude.seq` Prelude.rnf permissions
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf status

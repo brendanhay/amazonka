@@ -35,9 +35,9 @@ module Amazonka.QuickSight.DeleteDataSet
     newDeleteDataSetResponse,
 
     -- * Response Lenses
-    deleteDataSetResponse_requestId,
     deleteDataSetResponse_arn,
     deleteDataSetResponse_dataSetId,
+    deleteDataSetResponse_requestId,
     deleteDataSetResponse_status,
   )
 where
@@ -103,9 +103,9 @@ instance Core.AWSRequest DeleteDataSet where
     Response.receiveJSON
       ( \s h x ->
           DeleteDataSetResponse'
-            Prelude.<$> (x Data..?> "RequestId")
-            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (x Data..?> "DataSetId")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,13 +144,13 @@ instance Data.ToQuery DeleteDataSet where
 
 -- | /See:/ 'newDeleteDataSetResponse' smart constructor.
 data DeleteDataSetResponse = DeleteDataSetResponse'
-  { -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the dataset.
+  { -- | The Amazon Resource Name (ARN) of the dataset.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The ID for the dataset that you want to create. This ID is unique per
     -- Amazon Web Services Region for each Amazon Web Services account.
     dataSetId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -164,12 +164,12 @@ data DeleteDataSetResponse = DeleteDataSetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'deleteDataSetResponse_requestId' - The Amazon Web Services request ID for this operation.
---
 -- 'arn', 'deleteDataSetResponse_arn' - The Amazon Resource Name (ARN) of the dataset.
 --
 -- 'dataSetId', 'deleteDataSetResponse_dataSetId' - The ID for the dataset that you want to create. This ID is unique per
 -- Amazon Web Services Region for each Amazon Web Services account.
+--
+-- 'requestId', 'deleteDataSetResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'status', 'deleteDataSetResponse_status' - The HTTP status of the request.
 newDeleteDataSetResponse ::
@@ -178,15 +178,11 @@ newDeleteDataSetResponse ::
   DeleteDataSetResponse
 newDeleteDataSetResponse pStatus_ =
   DeleteDataSetResponse'
-    { requestId = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       dataSetId = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       status = pStatus_
     }
-
--- | The Amazon Web Services request ID for this operation.
-deleteDataSetResponse_requestId :: Lens.Lens' DeleteDataSetResponse (Prelude.Maybe Prelude.Text)
-deleteDataSetResponse_requestId = Lens.lens (\DeleteDataSetResponse' {requestId} -> requestId) (\s@DeleteDataSetResponse' {} a -> s {requestId = a} :: DeleteDataSetResponse)
 
 -- | The Amazon Resource Name (ARN) of the dataset.
 deleteDataSetResponse_arn :: Lens.Lens' DeleteDataSetResponse (Prelude.Maybe Prelude.Text)
@@ -197,13 +193,17 @@ deleteDataSetResponse_arn = Lens.lens (\DeleteDataSetResponse' {arn} -> arn) (\s
 deleteDataSetResponse_dataSetId :: Lens.Lens' DeleteDataSetResponse (Prelude.Maybe Prelude.Text)
 deleteDataSetResponse_dataSetId = Lens.lens (\DeleteDataSetResponse' {dataSetId} -> dataSetId) (\s@DeleteDataSetResponse' {} a -> s {dataSetId = a} :: DeleteDataSetResponse)
 
+-- | The Amazon Web Services request ID for this operation.
+deleteDataSetResponse_requestId :: Lens.Lens' DeleteDataSetResponse (Prelude.Maybe Prelude.Text)
+deleteDataSetResponse_requestId = Lens.lens (\DeleteDataSetResponse' {requestId} -> requestId) (\s@DeleteDataSetResponse' {} a -> s {requestId = a} :: DeleteDataSetResponse)
+
 -- | The HTTP status of the request.
 deleteDataSetResponse_status :: Lens.Lens' DeleteDataSetResponse Prelude.Int
 deleteDataSetResponse_status = Lens.lens (\DeleteDataSetResponse' {status} -> status) (\s@DeleteDataSetResponse' {} a -> s {status = a} :: DeleteDataSetResponse)
 
 instance Prelude.NFData DeleteDataSetResponse where
   rnf DeleteDataSetResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf dataSetId
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf status

@@ -41,9 +41,9 @@ module Amazonka.EC2.DescribeVolumeAttribute
     newDescribeVolumeAttributeResponse,
 
     -- * Response Lenses
+    describeVolumeAttributeResponse_autoEnableIO,
     describeVolumeAttributeResponse_productCodes,
     describeVolumeAttributeResponse_volumeId,
-    describeVolumeAttributeResponse_autoEnableIO,
     describeVolumeAttributeResponse_httpStatus,
   )
 where
@@ -124,11 +124,11 @@ instance Core.AWSRequest DescribeVolumeAttribute where
     Response.receiveXML
       ( \s h x ->
           DescribeVolumeAttributeResponse'
-            Prelude.<$> ( x Data..@? "productCodes" Core..!@ Prelude.mempty
+            Prelude.<$> (x Data..@? "autoEnableIO")
+            Prelude.<*> ( x Data..@? "productCodes" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "volumeId")
-            Prelude.<*> (x Data..@? "autoEnableIO")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -164,12 +164,12 @@ instance Data.ToQuery DescribeVolumeAttribute where
 
 -- | /See:/ 'newDescribeVolumeAttributeResponse' smart constructor.
 data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse'
-  { -- | A list of product codes.
+  { -- | The state of @autoEnableIO@ attribute.
+    autoEnableIO :: Prelude.Maybe AttributeBooleanValue,
+    -- | A list of product codes.
     productCodes :: Prelude.Maybe [ProductCode],
     -- | The ID of the volume.
     volumeId :: Prelude.Maybe Prelude.Text,
-    -- | The state of @autoEnableIO@ attribute.
-    autoEnableIO :: Prelude.Maybe AttributeBooleanValue,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -183,11 +183,11 @@ data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'autoEnableIO', 'describeVolumeAttributeResponse_autoEnableIO' - The state of @autoEnableIO@ attribute.
+--
 -- 'productCodes', 'describeVolumeAttributeResponse_productCodes' - A list of product codes.
 --
 -- 'volumeId', 'describeVolumeAttributeResponse_volumeId' - The ID of the volume.
---
--- 'autoEnableIO', 'describeVolumeAttributeResponse_autoEnableIO' - The state of @autoEnableIO@ attribute.
 --
 -- 'httpStatus', 'describeVolumeAttributeResponse_httpStatus' - The response's http status code.
 newDescribeVolumeAttributeResponse ::
@@ -196,12 +196,16 @@ newDescribeVolumeAttributeResponse ::
   DescribeVolumeAttributeResponse
 newDescribeVolumeAttributeResponse pHttpStatus_ =
   DescribeVolumeAttributeResponse'
-    { productCodes =
+    { autoEnableIO =
         Prelude.Nothing,
+      productCodes = Prelude.Nothing,
       volumeId = Prelude.Nothing,
-      autoEnableIO = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The state of @autoEnableIO@ attribute.
+describeVolumeAttributeResponse_autoEnableIO :: Lens.Lens' DescribeVolumeAttributeResponse (Prelude.Maybe AttributeBooleanValue)
+describeVolumeAttributeResponse_autoEnableIO = Lens.lens (\DescribeVolumeAttributeResponse' {autoEnableIO} -> autoEnableIO) (\s@DescribeVolumeAttributeResponse' {} a -> s {autoEnableIO = a} :: DescribeVolumeAttributeResponse)
 
 -- | A list of product codes.
 describeVolumeAttributeResponse_productCodes :: Lens.Lens' DescribeVolumeAttributeResponse (Prelude.Maybe [ProductCode])
@@ -210,10 +214,6 @@ describeVolumeAttributeResponse_productCodes = Lens.lens (\DescribeVolumeAttribu
 -- | The ID of the volume.
 describeVolumeAttributeResponse_volumeId :: Lens.Lens' DescribeVolumeAttributeResponse (Prelude.Maybe Prelude.Text)
 describeVolumeAttributeResponse_volumeId = Lens.lens (\DescribeVolumeAttributeResponse' {volumeId} -> volumeId) (\s@DescribeVolumeAttributeResponse' {} a -> s {volumeId = a} :: DescribeVolumeAttributeResponse)
-
--- | The state of @autoEnableIO@ attribute.
-describeVolumeAttributeResponse_autoEnableIO :: Lens.Lens' DescribeVolumeAttributeResponse (Prelude.Maybe AttributeBooleanValue)
-describeVolumeAttributeResponse_autoEnableIO = Lens.lens (\DescribeVolumeAttributeResponse' {autoEnableIO} -> autoEnableIO) (\s@DescribeVolumeAttributeResponse' {} a -> s {autoEnableIO = a} :: DescribeVolumeAttributeResponse)
 
 -- | The response's http status code.
 describeVolumeAttributeResponse_httpStatus :: Lens.Lens' DescribeVolumeAttributeResponse Prelude.Int
@@ -224,7 +224,7 @@ instance
     DescribeVolumeAttributeResponse
   where
   rnf DescribeVolumeAttributeResponse' {..} =
-    Prelude.rnf productCodes
+    Prelude.rnf autoEnableIO
+      `Prelude.seq` Prelude.rnf productCodes
       `Prelude.seq` Prelude.rnf volumeId
-      `Prelude.seq` Prelude.rnf autoEnableIO
       `Prelude.seq` Prelude.rnf httpStatus

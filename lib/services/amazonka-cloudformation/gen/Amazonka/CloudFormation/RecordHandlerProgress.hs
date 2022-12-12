@@ -31,10 +31,10 @@ module Amazonka.CloudFormation.RecordHandlerProgress
     newRecordHandlerProgress,
 
     -- * Request Lenses
-    recordHandlerProgress_resourceModel,
-    recordHandlerProgress_currentOperationStatus,
     recordHandlerProgress_clientRequestToken,
+    recordHandlerProgress_currentOperationStatus,
     recordHandlerProgress_errorCode,
+    recordHandlerProgress_resourceModel,
     recordHandlerProgress_statusMessage,
     recordHandlerProgress_bearerToken,
     recordHandlerProgress_operationStatus,
@@ -60,16 +60,16 @@ import qualified Amazonka.Response as Response
 data RecordHandlerProgress = RecordHandlerProgress'
   { -- | Reserved for use by the
     -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI>.
-    resourceModel :: Prelude.Maybe Prelude.Text,
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | Reserved for use by the
     -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI>.
     currentOperationStatus :: Prelude.Maybe OperationStatus,
     -- | Reserved for use by the
     -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI>.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    errorCode :: Prelude.Maybe HandlerErrorCode,
     -- | Reserved for use by the
     -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI>.
-    errorCode :: Prelude.Maybe HandlerErrorCode,
+    resourceModel :: Prelude.Maybe Prelude.Text,
     -- | Reserved for use by the
     -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI>.
     statusMessage :: Prelude.Maybe Prelude.Text,
@@ -90,16 +90,16 @@ data RecordHandlerProgress = RecordHandlerProgress'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceModel', 'recordHandlerProgress_resourceModel' - Reserved for use by the
+-- 'clientRequestToken', 'recordHandlerProgress_clientRequestToken' - Reserved for use by the
 -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI>.
 --
 -- 'currentOperationStatus', 'recordHandlerProgress_currentOperationStatus' - Reserved for use by the
 -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI>.
 --
--- 'clientRequestToken', 'recordHandlerProgress_clientRequestToken' - Reserved for use by the
+-- 'errorCode', 'recordHandlerProgress_errorCode' - Reserved for use by the
 -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI>.
 --
--- 'errorCode', 'recordHandlerProgress_errorCode' - Reserved for use by the
+-- 'resourceModel', 'recordHandlerProgress_resourceModel' - Reserved for use by the
 -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI>.
 --
 -- 'statusMessage', 'recordHandlerProgress_statusMessage' - Reserved for use by the
@@ -120,25 +120,15 @@ newRecordHandlerProgress
   pBearerToken_
   pOperationStatus_ =
     RecordHandlerProgress'
-      { resourceModel =
+      { clientRequestToken =
           Prelude.Nothing,
         currentOperationStatus = Prelude.Nothing,
-        clientRequestToken = Prelude.Nothing,
         errorCode = Prelude.Nothing,
+        resourceModel = Prelude.Nothing,
         statusMessage = Prelude.Nothing,
         bearerToken = pBearerToken_,
         operationStatus = pOperationStatus_
       }
-
--- | Reserved for use by the
--- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI>.
-recordHandlerProgress_resourceModel :: Lens.Lens' RecordHandlerProgress (Prelude.Maybe Prelude.Text)
-recordHandlerProgress_resourceModel = Lens.lens (\RecordHandlerProgress' {resourceModel} -> resourceModel) (\s@RecordHandlerProgress' {} a -> s {resourceModel = a} :: RecordHandlerProgress)
-
--- | Reserved for use by the
--- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI>.
-recordHandlerProgress_currentOperationStatus :: Lens.Lens' RecordHandlerProgress (Prelude.Maybe OperationStatus)
-recordHandlerProgress_currentOperationStatus = Lens.lens (\RecordHandlerProgress' {currentOperationStatus} -> currentOperationStatus) (\s@RecordHandlerProgress' {} a -> s {currentOperationStatus = a} :: RecordHandlerProgress)
 
 -- | Reserved for use by the
 -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI>.
@@ -147,8 +137,18 @@ recordHandlerProgress_clientRequestToken = Lens.lens (\RecordHandlerProgress' {c
 
 -- | Reserved for use by the
 -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI>.
+recordHandlerProgress_currentOperationStatus :: Lens.Lens' RecordHandlerProgress (Prelude.Maybe OperationStatus)
+recordHandlerProgress_currentOperationStatus = Lens.lens (\RecordHandlerProgress' {currentOperationStatus} -> currentOperationStatus) (\s@RecordHandlerProgress' {} a -> s {currentOperationStatus = a} :: RecordHandlerProgress)
+
+-- | Reserved for use by the
+-- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI>.
 recordHandlerProgress_errorCode :: Lens.Lens' RecordHandlerProgress (Prelude.Maybe HandlerErrorCode)
 recordHandlerProgress_errorCode = Lens.lens (\RecordHandlerProgress' {errorCode} -> errorCode) (\s@RecordHandlerProgress' {} a -> s {errorCode = a} :: RecordHandlerProgress)
+
+-- | Reserved for use by the
+-- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI>.
+recordHandlerProgress_resourceModel :: Lens.Lens' RecordHandlerProgress (Prelude.Maybe Prelude.Text)
+recordHandlerProgress_resourceModel = Lens.lens (\RecordHandlerProgress' {resourceModel} -> resourceModel) (\s@RecordHandlerProgress' {} a -> s {resourceModel = a} :: RecordHandlerProgress)
 
 -- | Reserved for use by the
 -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI>.
@@ -181,20 +181,20 @@ instance Core.AWSRequest RecordHandlerProgress where
 
 instance Prelude.Hashable RecordHandlerProgress where
   hashWithSalt _salt RecordHandlerProgress' {..} =
-    _salt `Prelude.hashWithSalt` resourceModel
+    _salt `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` currentOperationStatus
-      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` resourceModel
       `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` bearerToken
       `Prelude.hashWithSalt` operationStatus
 
 instance Prelude.NFData RecordHandlerProgress where
   rnf RecordHandlerProgress' {..} =
-    Prelude.rnf resourceModel
+    Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf currentOperationStatus
-      `Prelude.seq` Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf resourceModel
       `Prelude.seq` Prelude.rnf statusMessage
       `Prelude.seq` Prelude.rnf bearerToken
       `Prelude.seq` Prelude.rnf operationStatus
@@ -212,11 +212,11 @@ instance Data.ToQuery RecordHandlerProgress where
           Data.=: ("RecordHandlerProgress" :: Prelude.ByteString),
         "Version"
           Data.=: ("2010-05-15" :: Prelude.ByteString),
-        "ResourceModel" Data.=: resourceModel,
+        "ClientRequestToken" Data.=: clientRequestToken,
         "CurrentOperationStatus"
           Data.=: currentOperationStatus,
-        "ClientRequestToken" Data.=: clientRequestToken,
         "ErrorCode" Data.=: errorCode,
+        "ResourceModel" Data.=: resourceModel,
         "StatusMessage" Data.=: statusMessage,
         "BearerToken" Data.=: bearerToken,
         "OperationStatus" Data.=: operationStatus

@@ -41,19 +41,19 @@ module Amazonka.CloudHSM.DescribeLunaClient
     newDescribeLunaClient,
 
     -- * Request Lenses
-    describeLunaClient_clientArn,
     describeLunaClient_certificateFingerprint,
+    describeLunaClient_clientArn,
 
     -- * Destructuring the Response
     DescribeLunaClientResponse (..),
     newDescribeLunaClientResponse,
 
     -- * Response Lenses
-    describeLunaClientResponse_label,
-    describeLunaClientResponse_lastModifiedTimestamp,
-    describeLunaClientResponse_clientArn,
     describeLunaClientResponse_certificate,
     describeLunaClientResponse_certificateFingerprint,
+    describeLunaClientResponse_clientArn,
+    describeLunaClientResponse_label,
+    describeLunaClientResponse_lastModifiedTimestamp,
     describeLunaClientResponse_httpStatus,
   )
 where
@@ -68,10 +68,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeLunaClient' smart constructor.
 data DescribeLunaClient = DescribeLunaClient'
-  { -- | The ARN of the client.
-    clientArn :: Prelude.Maybe Prelude.Text,
-    -- | The certificate fingerprint.
-    certificateFingerprint :: Prelude.Maybe Prelude.Text
+  { -- | The certificate fingerprint.
+    certificateFingerprint :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the client.
+    clientArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -83,24 +83,25 @@ data DescribeLunaClient = DescribeLunaClient'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientArn', 'describeLunaClient_clientArn' - The ARN of the client.
---
 -- 'certificateFingerprint', 'describeLunaClient_certificateFingerprint' - The certificate fingerprint.
+--
+-- 'clientArn', 'describeLunaClient_clientArn' - The ARN of the client.
 newDescribeLunaClient ::
   DescribeLunaClient
 newDescribeLunaClient =
   DescribeLunaClient'
-    { clientArn = Prelude.Nothing,
-      certificateFingerprint = Prelude.Nothing
+    { certificateFingerprint =
+        Prelude.Nothing,
+      clientArn = Prelude.Nothing
     }
-
--- | The ARN of the client.
-describeLunaClient_clientArn :: Lens.Lens' DescribeLunaClient (Prelude.Maybe Prelude.Text)
-describeLunaClient_clientArn = Lens.lens (\DescribeLunaClient' {clientArn} -> clientArn) (\s@DescribeLunaClient' {} a -> s {clientArn = a} :: DescribeLunaClient)
 
 -- | The certificate fingerprint.
 describeLunaClient_certificateFingerprint :: Lens.Lens' DescribeLunaClient (Prelude.Maybe Prelude.Text)
 describeLunaClient_certificateFingerprint = Lens.lens (\DescribeLunaClient' {certificateFingerprint} -> certificateFingerprint) (\s@DescribeLunaClient' {} a -> s {certificateFingerprint = a} :: DescribeLunaClient)
+
+-- | The ARN of the client.
+describeLunaClient_clientArn :: Lens.Lens' DescribeLunaClient (Prelude.Maybe Prelude.Text)
+describeLunaClient_clientArn = Lens.lens (\DescribeLunaClient' {clientArn} -> clientArn) (\s@DescribeLunaClient' {} a -> s {clientArn = a} :: DescribeLunaClient)
 
 instance Core.AWSRequest DescribeLunaClient where
   type
@@ -112,23 +113,23 @@ instance Core.AWSRequest DescribeLunaClient where
     Response.receiveJSON
       ( \s h x ->
           DescribeLunaClientResponse'
-            Prelude.<$> (x Data..?> "Label")
-            Prelude.<*> (x Data..?> "LastModifiedTimestamp")
-            Prelude.<*> (x Data..?> "ClientArn")
-            Prelude.<*> (x Data..?> "Certificate")
+            Prelude.<$> (x Data..?> "Certificate")
             Prelude.<*> (x Data..?> "CertificateFingerprint")
+            Prelude.<*> (x Data..?> "ClientArn")
+            Prelude.<*> (x Data..?> "Label")
+            Prelude.<*> (x Data..?> "LastModifiedTimestamp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeLunaClient where
   hashWithSalt _salt DescribeLunaClient' {..} =
-    _salt `Prelude.hashWithSalt` clientArn
-      `Prelude.hashWithSalt` certificateFingerprint
+    _salt `Prelude.hashWithSalt` certificateFingerprint
+      `Prelude.hashWithSalt` clientArn
 
 instance Prelude.NFData DescribeLunaClient where
   rnf DescribeLunaClient' {..} =
-    Prelude.rnf clientArn
-      `Prelude.seq` Prelude.rnf certificateFingerprint
+    Prelude.rnf certificateFingerprint
+      `Prelude.seq` Prelude.rnf clientArn
 
 instance Data.ToHeaders DescribeLunaClient where
   toHeaders =
@@ -149,9 +150,9 @@ instance Data.ToJSON DescribeLunaClient where
   toJSON DescribeLunaClient' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ClientArn" Data..=) Prelude.<$> clientArn,
-            ("CertificateFingerprint" Data..=)
-              Prelude.<$> certificateFingerprint
+          [ ("CertificateFingerprint" Data..=)
+              Prelude.<$> certificateFingerprint,
+            ("ClientArn" Data..=) Prelude.<$> clientArn
           ]
       )
 
@@ -163,16 +164,16 @@ instance Data.ToQuery DescribeLunaClient where
 
 -- | /See:/ 'newDescribeLunaClientResponse' smart constructor.
 data DescribeLunaClientResponse = DescribeLunaClientResponse'
-  { -- | The label of the client.
-    label :: Prelude.Maybe Prelude.Text,
-    -- | The date and time the client was last modified.
-    lastModifiedTimestamp :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the client.
-    clientArn :: Prelude.Maybe Prelude.Text,
-    -- | The certificate installed on the HSMs used by this client.
+  { -- | The certificate installed on the HSMs used by this client.
     certificate :: Prelude.Maybe Prelude.Text,
     -- | The certificate fingerprint.
     certificateFingerprint :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the client.
+    clientArn :: Prelude.Maybe Prelude.Text,
+    -- | The label of the client.
+    label :: Prelude.Maybe Prelude.Text,
+    -- | The date and time the client was last modified.
+    lastModifiedTimestamp :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -186,15 +187,15 @@ data DescribeLunaClientResponse = DescribeLunaClientResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'label', 'describeLunaClientResponse_label' - The label of the client.
---
--- 'lastModifiedTimestamp', 'describeLunaClientResponse_lastModifiedTimestamp' - The date and time the client was last modified.
---
--- 'clientArn', 'describeLunaClientResponse_clientArn' - The ARN of the client.
---
 -- 'certificate', 'describeLunaClientResponse_certificate' - The certificate installed on the HSMs used by this client.
 --
 -- 'certificateFingerprint', 'describeLunaClientResponse_certificateFingerprint' - The certificate fingerprint.
+--
+-- 'clientArn', 'describeLunaClientResponse_clientArn' - The ARN of the client.
+--
+-- 'label', 'describeLunaClientResponse_label' - The label of the client.
+--
+-- 'lastModifiedTimestamp', 'describeLunaClientResponse_lastModifiedTimestamp' - The date and time the client was last modified.
 --
 -- 'httpStatus', 'describeLunaClientResponse_httpStatus' - The response's http status code.
 newDescribeLunaClientResponse ::
@@ -203,26 +204,14 @@ newDescribeLunaClientResponse ::
   DescribeLunaClientResponse
 newDescribeLunaClientResponse pHttpStatus_ =
   DescribeLunaClientResponse'
-    { label =
+    { certificate =
         Prelude.Nothing,
-      lastModifiedTimestamp = Prelude.Nothing,
-      clientArn = Prelude.Nothing,
-      certificate = Prelude.Nothing,
       certificateFingerprint = Prelude.Nothing,
+      clientArn = Prelude.Nothing,
+      label = Prelude.Nothing,
+      lastModifiedTimestamp = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The label of the client.
-describeLunaClientResponse_label :: Lens.Lens' DescribeLunaClientResponse (Prelude.Maybe Prelude.Text)
-describeLunaClientResponse_label = Lens.lens (\DescribeLunaClientResponse' {label} -> label) (\s@DescribeLunaClientResponse' {} a -> s {label = a} :: DescribeLunaClientResponse)
-
--- | The date and time the client was last modified.
-describeLunaClientResponse_lastModifiedTimestamp :: Lens.Lens' DescribeLunaClientResponse (Prelude.Maybe Prelude.Text)
-describeLunaClientResponse_lastModifiedTimestamp = Lens.lens (\DescribeLunaClientResponse' {lastModifiedTimestamp} -> lastModifiedTimestamp) (\s@DescribeLunaClientResponse' {} a -> s {lastModifiedTimestamp = a} :: DescribeLunaClientResponse)
-
--- | The ARN of the client.
-describeLunaClientResponse_clientArn :: Lens.Lens' DescribeLunaClientResponse (Prelude.Maybe Prelude.Text)
-describeLunaClientResponse_clientArn = Lens.lens (\DescribeLunaClientResponse' {clientArn} -> clientArn) (\s@DescribeLunaClientResponse' {} a -> s {clientArn = a} :: DescribeLunaClientResponse)
 
 -- | The certificate installed on the HSMs used by this client.
 describeLunaClientResponse_certificate :: Lens.Lens' DescribeLunaClientResponse (Prelude.Maybe Prelude.Text)
@@ -232,15 +221,27 @@ describeLunaClientResponse_certificate = Lens.lens (\DescribeLunaClientResponse'
 describeLunaClientResponse_certificateFingerprint :: Lens.Lens' DescribeLunaClientResponse (Prelude.Maybe Prelude.Text)
 describeLunaClientResponse_certificateFingerprint = Lens.lens (\DescribeLunaClientResponse' {certificateFingerprint} -> certificateFingerprint) (\s@DescribeLunaClientResponse' {} a -> s {certificateFingerprint = a} :: DescribeLunaClientResponse)
 
+-- | The ARN of the client.
+describeLunaClientResponse_clientArn :: Lens.Lens' DescribeLunaClientResponse (Prelude.Maybe Prelude.Text)
+describeLunaClientResponse_clientArn = Lens.lens (\DescribeLunaClientResponse' {clientArn} -> clientArn) (\s@DescribeLunaClientResponse' {} a -> s {clientArn = a} :: DescribeLunaClientResponse)
+
+-- | The label of the client.
+describeLunaClientResponse_label :: Lens.Lens' DescribeLunaClientResponse (Prelude.Maybe Prelude.Text)
+describeLunaClientResponse_label = Lens.lens (\DescribeLunaClientResponse' {label} -> label) (\s@DescribeLunaClientResponse' {} a -> s {label = a} :: DescribeLunaClientResponse)
+
+-- | The date and time the client was last modified.
+describeLunaClientResponse_lastModifiedTimestamp :: Lens.Lens' DescribeLunaClientResponse (Prelude.Maybe Prelude.Text)
+describeLunaClientResponse_lastModifiedTimestamp = Lens.lens (\DescribeLunaClientResponse' {lastModifiedTimestamp} -> lastModifiedTimestamp) (\s@DescribeLunaClientResponse' {} a -> s {lastModifiedTimestamp = a} :: DescribeLunaClientResponse)
+
 -- | The response's http status code.
 describeLunaClientResponse_httpStatus :: Lens.Lens' DescribeLunaClientResponse Prelude.Int
 describeLunaClientResponse_httpStatus = Lens.lens (\DescribeLunaClientResponse' {httpStatus} -> httpStatus) (\s@DescribeLunaClientResponse' {} a -> s {httpStatus = a} :: DescribeLunaClientResponse)
 
 instance Prelude.NFData DescribeLunaClientResponse where
   rnf DescribeLunaClientResponse' {..} =
-    Prelude.rnf label
-      `Prelude.seq` Prelude.rnf lastModifiedTimestamp
-      `Prelude.seq` Prelude.rnf clientArn
-      `Prelude.seq` Prelude.rnf certificate
+    Prelude.rnf certificate
       `Prelude.seq` Prelude.rnf certificateFingerprint
+      `Prelude.seq` Prelude.rnf clientArn
+      `Prelude.seq` Prelude.rnf label
+      `Prelude.seq` Prelude.rnf lastModifiedTimestamp
       `Prelude.seq` Prelude.rnf httpStatus

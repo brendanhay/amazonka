@@ -27,9 +27,9 @@ module Amazonka.AppConfig.UpdateConfigurationProfile
     newUpdateConfigurationProfile,
 
     -- * Request Lenses
+    updateConfigurationProfile_description,
     updateConfigurationProfile_name,
     updateConfigurationProfile_retrievalRoleArn,
-    updateConfigurationProfile_description,
     updateConfigurationProfile_validators,
     updateConfigurationProfile_applicationId,
     updateConfigurationProfile_configurationProfileId,
@@ -39,13 +39,13 @@ module Amazonka.AppConfig.UpdateConfigurationProfile
     newConfigurationProfile,
 
     -- * Response Lenses
-    configurationProfile_name,
-    configurationProfile_type,
-    configurationProfile_retrievalRoleArn,
-    configurationProfile_id,
-    configurationProfile_description,
-    configurationProfile_locationUri,
     configurationProfile_applicationId,
+    configurationProfile_description,
+    configurationProfile_id,
+    configurationProfile_locationUri,
+    configurationProfile_name,
+    configurationProfile_retrievalRoleArn,
+    configurationProfile_type,
     configurationProfile_validators,
   )
 where
@@ -60,13 +60,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateConfigurationProfile' smart constructor.
 data UpdateConfigurationProfile = UpdateConfigurationProfile'
-  { -- | The name of the configuration profile.
+  { -- | A description of the configuration profile.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The name of the configuration profile.
     name :: Prelude.Maybe Prelude.Text,
     -- | The ARN of an IAM role with permission to access the configuration at
     -- the specified @LocationUri@.
     retrievalRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | A description of the configuration profile.
-    description :: Prelude.Maybe Prelude.Text,
     -- | A list of methods for validating the configuration.
     validators :: Prelude.Maybe [Validator],
     -- | The application ID.
@@ -84,12 +84,12 @@ data UpdateConfigurationProfile = UpdateConfigurationProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'updateConfigurationProfile_description' - A description of the configuration profile.
+--
 -- 'name', 'updateConfigurationProfile_name' - The name of the configuration profile.
 --
 -- 'retrievalRoleArn', 'updateConfigurationProfile_retrievalRoleArn' - The ARN of an IAM role with permission to access the configuration at
 -- the specified @LocationUri@.
---
--- 'description', 'updateConfigurationProfile_description' - A description of the configuration profile.
 --
 -- 'validators', 'updateConfigurationProfile_validators' - A list of methods for validating the configuration.
 --
@@ -106,14 +106,19 @@ newUpdateConfigurationProfile
   pApplicationId_
   pConfigurationProfileId_ =
     UpdateConfigurationProfile'
-      { name = Prelude.Nothing,
+      { description =
+          Prelude.Nothing,
+        name = Prelude.Nothing,
         retrievalRoleArn = Prelude.Nothing,
-        description = Prelude.Nothing,
         validators = Prelude.Nothing,
         applicationId = pApplicationId_,
         configurationProfileId =
           pConfigurationProfileId_
       }
+
+-- | A description of the configuration profile.
+updateConfigurationProfile_description :: Lens.Lens' UpdateConfigurationProfile (Prelude.Maybe Prelude.Text)
+updateConfigurationProfile_description = Lens.lens (\UpdateConfigurationProfile' {description} -> description) (\s@UpdateConfigurationProfile' {} a -> s {description = a} :: UpdateConfigurationProfile)
 
 -- | The name of the configuration profile.
 updateConfigurationProfile_name :: Lens.Lens' UpdateConfigurationProfile (Prelude.Maybe Prelude.Text)
@@ -123,10 +128,6 @@ updateConfigurationProfile_name = Lens.lens (\UpdateConfigurationProfile' {name}
 -- the specified @LocationUri@.
 updateConfigurationProfile_retrievalRoleArn :: Lens.Lens' UpdateConfigurationProfile (Prelude.Maybe Prelude.Text)
 updateConfigurationProfile_retrievalRoleArn = Lens.lens (\UpdateConfigurationProfile' {retrievalRoleArn} -> retrievalRoleArn) (\s@UpdateConfigurationProfile' {} a -> s {retrievalRoleArn = a} :: UpdateConfigurationProfile)
-
--- | A description of the configuration profile.
-updateConfigurationProfile_description :: Lens.Lens' UpdateConfigurationProfile (Prelude.Maybe Prelude.Text)
-updateConfigurationProfile_description = Lens.lens (\UpdateConfigurationProfile' {description} -> description) (\s@UpdateConfigurationProfile' {} a -> s {description = a} :: UpdateConfigurationProfile)
 
 -- | A list of methods for validating the configuration.
 updateConfigurationProfile_validators :: Lens.Lens' UpdateConfigurationProfile (Prelude.Maybe [Validator])
@@ -152,18 +153,18 @@ instance Core.AWSRequest UpdateConfigurationProfile where
 
 instance Prelude.Hashable UpdateConfigurationProfile where
   hashWithSalt _salt UpdateConfigurationProfile' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` retrievalRoleArn
-      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` validators
       `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` configurationProfileId
 
 instance Prelude.NFData UpdateConfigurationProfile where
   rnf UpdateConfigurationProfile' {..} =
-    Prelude.rnf name
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf retrievalRoleArn
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf validators
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf configurationProfileId
@@ -183,10 +184,10 @@ instance Data.ToJSON UpdateConfigurationProfile where
   toJSON UpdateConfigurationProfile' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("Name" Data..=) Prelude.<$> name,
             ("RetrievalRoleArn" Data..=)
               Prelude.<$> retrievalRoleArn,
-            ("Description" Data..=) Prelude.<$> description,
             ("Validators" Data..=) Prelude.<$> validators
           ]
       )

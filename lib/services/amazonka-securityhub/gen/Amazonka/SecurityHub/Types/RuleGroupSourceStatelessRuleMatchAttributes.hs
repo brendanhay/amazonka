@@ -35,18 +35,18 @@ import Amazonka.SecurityHub.Types.RuleGroupSourceStatelessRuleMatchAttributesTcp
 data RuleGroupSourceStatelessRuleMatchAttributes = RuleGroupSourceStatelessRuleMatchAttributes'
   { -- | A list of port ranges to specify the destination ports to inspect for.
     destinationPorts :: Prelude.Maybe [RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts],
-    -- | The source IP addresses and address ranges to inspect for, in CIDR
+    -- | The destination IP addresses and address ranges to inspect for, in CIDR
     -- notation.
-    sources :: Prelude.Maybe [RuleGroupSourceStatelessRuleMatchAttributesSources],
-    -- | The TCP flags and masks to inspect for.
-    tcpFlags :: Prelude.Maybe [RuleGroupSourceStatelessRuleMatchAttributesTcpFlags],
+    destinations :: Prelude.Maybe [RuleGroupSourceStatelessRuleMatchAttributesDestinations],
     -- | The protocols to inspect for.
     protocols :: Prelude.Maybe [Prelude.Int],
     -- | A list of port ranges to specify the source ports to inspect for.
     sourcePorts :: Prelude.Maybe [RuleGroupSourceStatelessRuleMatchAttributesSourcePorts],
-    -- | The destination IP addresses and address ranges to inspect for, in CIDR
+    -- | The source IP addresses and address ranges to inspect for, in CIDR
     -- notation.
-    destinations :: Prelude.Maybe [RuleGroupSourceStatelessRuleMatchAttributesDestinations]
+    sources :: Prelude.Maybe [RuleGroupSourceStatelessRuleMatchAttributesSources],
+    -- | The TCP flags and masks to inspect for.
+    tcpFlags :: Prelude.Maybe [RuleGroupSourceStatelessRuleMatchAttributesTcpFlags]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,42 +60,38 @@ data RuleGroupSourceStatelessRuleMatchAttributes = RuleGroupSourceStatelessRuleM
 --
 -- 'destinationPorts', 'ruleGroupSourceStatelessRuleMatchAttributes_destinationPorts' - A list of port ranges to specify the destination ports to inspect for.
 --
--- 'sources', 'ruleGroupSourceStatelessRuleMatchAttributes_sources' - The source IP addresses and address ranges to inspect for, in CIDR
+-- 'destinations', 'ruleGroupSourceStatelessRuleMatchAttributes_destinations' - The destination IP addresses and address ranges to inspect for, in CIDR
 -- notation.
---
--- 'tcpFlags', 'ruleGroupSourceStatelessRuleMatchAttributes_tcpFlags' - The TCP flags and masks to inspect for.
 --
 -- 'protocols', 'ruleGroupSourceStatelessRuleMatchAttributes_protocols' - The protocols to inspect for.
 --
 -- 'sourcePorts', 'ruleGroupSourceStatelessRuleMatchAttributes_sourcePorts' - A list of port ranges to specify the source ports to inspect for.
 --
--- 'destinations', 'ruleGroupSourceStatelessRuleMatchAttributes_destinations' - The destination IP addresses and address ranges to inspect for, in CIDR
+-- 'sources', 'ruleGroupSourceStatelessRuleMatchAttributes_sources' - The source IP addresses and address ranges to inspect for, in CIDR
 -- notation.
+--
+-- 'tcpFlags', 'ruleGroupSourceStatelessRuleMatchAttributes_tcpFlags' - The TCP flags and masks to inspect for.
 newRuleGroupSourceStatelessRuleMatchAttributes ::
   RuleGroupSourceStatelessRuleMatchAttributes
 newRuleGroupSourceStatelessRuleMatchAttributes =
   RuleGroupSourceStatelessRuleMatchAttributes'
     { destinationPorts =
         Prelude.Nothing,
-      sources = Prelude.Nothing,
-      tcpFlags = Prelude.Nothing,
+      destinations = Prelude.Nothing,
       protocols = Prelude.Nothing,
       sourcePorts = Prelude.Nothing,
-      destinations = Prelude.Nothing
+      sources = Prelude.Nothing,
+      tcpFlags = Prelude.Nothing
     }
 
 -- | A list of port ranges to specify the destination ports to inspect for.
 ruleGroupSourceStatelessRuleMatchAttributes_destinationPorts :: Lens.Lens' RuleGroupSourceStatelessRuleMatchAttributes (Prelude.Maybe [RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts])
 ruleGroupSourceStatelessRuleMatchAttributes_destinationPorts = Lens.lens (\RuleGroupSourceStatelessRuleMatchAttributes' {destinationPorts} -> destinationPorts) (\s@RuleGroupSourceStatelessRuleMatchAttributes' {} a -> s {destinationPorts = a} :: RuleGroupSourceStatelessRuleMatchAttributes) Prelude.. Lens.mapping Lens.coerced
 
--- | The source IP addresses and address ranges to inspect for, in CIDR
+-- | The destination IP addresses and address ranges to inspect for, in CIDR
 -- notation.
-ruleGroupSourceStatelessRuleMatchAttributes_sources :: Lens.Lens' RuleGroupSourceStatelessRuleMatchAttributes (Prelude.Maybe [RuleGroupSourceStatelessRuleMatchAttributesSources])
-ruleGroupSourceStatelessRuleMatchAttributes_sources = Lens.lens (\RuleGroupSourceStatelessRuleMatchAttributes' {sources} -> sources) (\s@RuleGroupSourceStatelessRuleMatchAttributes' {} a -> s {sources = a} :: RuleGroupSourceStatelessRuleMatchAttributes) Prelude.. Lens.mapping Lens.coerced
-
--- | The TCP flags and masks to inspect for.
-ruleGroupSourceStatelessRuleMatchAttributes_tcpFlags :: Lens.Lens' RuleGroupSourceStatelessRuleMatchAttributes (Prelude.Maybe [RuleGroupSourceStatelessRuleMatchAttributesTcpFlags])
-ruleGroupSourceStatelessRuleMatchAttributes_tcpFlags = Lens.lens (\RuleGroupSourceStatelessRuleMatchAttributes' {tcpFlags} -> tcpFlags) (\s@RuleGroupSourceStatelessRuleMatchAttributes' {} a -> s {tcpFlags = a} :: RuleGroupSourceStatelessRuleMatchAttributes) Prelude.. Lens.mapping Lens.coerced
+ruleGroupSourceStatelessRuleMatchAttributes_destinations :: Lens.Lens' RuleGroupSourceStatelessRuleMatchAttributes (Prelude.Maybe [RuleGroupSourceStatelessRuleMatchAttributesDestinations])
+ruleGroupSourceStatelessRuleMatchAttributes_destinations = Lens.lens (\RuleGroupSourceStatelessRuleMatchAttributes' {destinations} -> destinations) (\s@RuleGroupSourceStatelessRuleMatchAttributes' {} a -> s {destinations = a} :: RuleGroupSourceStatelessRuleMatchAttributes) Prelude.. Lens.mapping Lens.coerced
 
 -- | The protocols to inspect for.
 ruleGroupSourceStatelessRuleMatchAttributes_protocols :: Lens.Lens' RuleGroupSourceStatelessRuleMatchAttributes (Prelude.Maybe [Prelude.Int])
@@ -105,10 +101,14 @@ ruleGroupSourceStatelessRuleMatchAttributes_protocols = Lens.lens (\RuleGroupSou
 ruleGroupSourceStatelessRuleMatchAttributes_sourcePorts :: Lens.Lens' RuleGroupSourceStatelessRuleMatchAttributes (Prelude.Maybe [RuleGroupSourceStatelessRuleMatchAttributesSourcePorts])
 ruleGroupSourceStatelessRuleMatchAttributes_sourcePorts = Lens.lens (\RuleGroupSourceStatelessRuleMatchAttributes' {sourcePorts} -> sourcePorts) (\s@RuleGroupSourceStatelessRuleMatchAttributes' {} a -> s {sourcePorts = a} :: RuleGroupSourceStatelessRuleMatchAttributes) Prelude.. Lens.mapping Lens.coerced
 
--- | The destination IP addresses and address ranges to inspect for, in CIDR
+-- | The source IP addresses and address ranges to inspect for, in CIDR
 -- notation.
-ruleGroupSourceStatelessRuleMatchAttributes_destinations :: Lens.Lens' RuleGroupSourceStatelessRuleMatchAttributes (Prelude.Maybe [RuleGroupSourceStatelessRuleMatchAttributesDestinations])
-ruleGroupSourceStatelessRuleMatchAttributes_destinations = Lens.lens (\RuleGroupSourceStatelessRuleMatchAttributes' {destinations} -> destinations) (\s@RuleGroupSourceStatelessRuleMatchAttributes' {} a -> s {destinations = a} :: RuleGroupSourceStatelessRuleMatchAttributes) Prelude.. Lens.mapping Lens.coerced
+ruleGroupSourceStatelessRuleMatchAttributes_sources :: Lens.Lens' RuleGroupSourceStatelessRuleMatchAttributes (Prelude.Maybe [RuleGroupSourceStatelessRuleMatchAttributesSources])
+ruleGroupSourceStatelessRuleMatchAttributes_sources = Lens.lens (\RuleGroupSourceStatelessRuleMatchAttributes' {sources} -> sources) (\s@RuleGroupSourceStatelessRuleMatchAttributes' {} a -> s {sources = a} :: RuleGroupSourceStatelessRuleMatchAttributes) Prelude.. Lens.mapping Lens.coerced
+
+-- | The TCP flags and masks to inspect for.
+ruleGroupSourceStatelessRuleMatchAttributes_tcpFlags :: Lens.Lens' RuleGroupSourceStatelessRuleMatchAttributes (Prelude.Maybe [RuleGroupSourceStatelessRuleMatchAttributesTcpFlags])
+ruleGroupSourceStatelessRuleMatchAttributes_tcpFlags = Lens.lens (\RuleGroupSourceStatelessRuleMatchAttributes' {tcpFlags} -> tcpFlags) (\s@RuleGroupSourceStatelessRuleMatchAttributes' {} a -> s {tcpFlags = a} :: RuleGroupSourceStatelessRuleMatchAttributes) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Data.FromJSON
@@ -122,11 +122,11 @@ instance
             Prelude.<$> ( x Data..:? "DestinationPorts"
                             Data..!= Prelude.mempty
                         )
-              Prelude.<*> (x Data..:? "Sources" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "TcpFlags" Data..!= Prelude.mempty)
+              Prelude.<*> (x Data..:? "Destinations" Data..!= Prelude.mempty)
               Prelude.<*> (x Data..:? "Protocols" Data..!= Prelude.mempty)
               Prelude.<*> (x Data..:? "SourcePorts" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "Destinations" Data..!= Prelude.mempty)
+              Prelude.<*> (x Data..:? "Sources" Data..!= Prelude.mempty)
+              Prelude.<*> (x Data..:? "TcpFlags" Data..!= Prelude.mempty)
       )
 
 instance
@@ -137,11 +137,11 @@ instance
     _salt
     RuleGroupSourceStatelessRuleMatchAttributes' {..} =
       _salt `Prelude.hashWithSalt` destinationPorts
-        `Prelude.hashWithSalt` sources
-        `Prelude.hashWithSalt` tcpFlags
+        `Prelude.hashWithSalt` destinations
         `Prelude.hashWithSalt` protocols
         `Prelude.hashWithSalt` sourcePorts
-        `Prelude.hashWithSalt` destinations
+        `Prelude.hashWithSalt` sources
+        `Prelude.hashWithSalt` tcpFlags
 
 instance
   Prelude.NFData
@@ -149,11 +149,11 @@ instance
   where
   rnf RuleGroupSourceStatelessRuleMatchAttributes' {..} =
     Prelude.rnf destinationPorts
-      `Prelude.seq` Prelude.rnf sources
-      `Prelude.seq` Prelude.rnf tcpFlags
+      `Prelude.seq` Prelude.rnf destinations
       `Prelude.seq` Prelude.rnf protocols
       `Prelude.seq` Prelude.rnf sourcePorts
-      `Prelude.seq` Prelude.rnf destinations
+      `Prelude.seq` Prelude.rnf sources
+      `Prelude.seq` Prelude.rnf tcpFlags
 
 instance
   Data.ToJSON
@@ -165,10 +165,10 @@ instance
         ( Prelude.catMaybes
             [ ("DestinationPorts" Data..=)
                 Prelude.<$> destinationPorts,
-              ("Sources" Data..=) Prelude.<$> sources,
-              ("TcpFlags" Data..=) Prelude.<$> tcpFlags,
+              ("Destinations" Data..=) Prelude.<$> destinations,
               ("Protocols" Data..=) Prelude.<$> protocols,
               ("SourcePorts" Data..=) Prelude.<$> sourcePorts,
-              ("Destinations" Data..=) Prelude.<$> destinations
+              ("Sources" Data..=) Prelude.<$> sources,
+              ("TcpFlags" Data..=) Prelude.<$> tcpFlags
             ]
         )

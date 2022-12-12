@@ -58,10 +58,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRegisteredDomainDelegationInfo' smart constructor.
 data RegisteredDomainDelegationInfo = RegisteredDomainDelegationInfo'
-  { r53HostedZoneDeletionState :: Prelude.Maybe R53HostedZoneDeletionState,
-    -- | An object that describes the state of the name server records that are
+  { -- | An object that describes the state of the name server records that are
     -- automatically added to the Route 53 domain by Lightsail.
-    nameServersUpdateState :: Prelude.Maybe NameServersUpdateState
+    nameServersUpdateState :: Prelude.Maybe NameServersUpdateState,
+    r53HostedZoneDeletionState :: Prelude.Maybe R53HostedZoneDeletionState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,27 +73,28 @@ data RegisteredDomainDelegationInfo = RegisteredDomainDelegationInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'r53HostedZoneDeletionState', 'registeredDomainDelegationInfo_r53HostedZoneDeletionState' - Undocumented member.
---
 -- 'nameServersUpdateState', 'registeredDomainDelegationInfo_nameServersUpdateState' - An object that describes the state of the name server records that are
 -- automatically added to the Route 53 domain by Lightsail.
+--
+-- 'r53HostedZoneDeletionState', 'registeredDomainDelegationInfo_r53HostedZoneDeletionState' - Undocumented member.
 newRegisteredDomainDelegationInfo ::
   RegisteredDomainDelegationInfo
 newRegisteredDomainDelegationInfo =
   RegisteredDomainDelegationInfo'
-    { r53HostedZoneDeletionState =
+    { nameServersUpdateState =
         Prelude.Nothing,
-      nameServersUpdateState = Prelude.Nothing
+      r53HostedZoneDeletionState =
+        Prelude.Nothing
     }
-
--- | Undocumented member.
-registeredDomainDelegationInfo_r53HostedZoneDeletionState :: Lens.Lens' RegisteredDomainDelegationInfo (Prelude.Maybe R53HostedZoneDeletionState)
-registeredDomainDelegationInfo_r53HostedZoneDeletionState = Lens.lens (\RegisteredDomainDelegationInfo' {r53HostedZoneDeletionState} -> r53HostedZoneDeletionState) (\s@RegisteredDomainDelegationInfo' {} a -> s {r53HostedZoneDeletionState = a} :: RegisteredDomainDelegationInfo)
 
 -- | An object that describes the state of the name server records that are
 -- automatically added to the Route 53 domain by Lightsail.
 registeredDomainDelegationInfo_nameServersUpdateState :: Lens.Lens' RegisteredDomainDelegationInfo (Prelude.Maybe NameServersUpdateState)
 registeredDomainDelegationInfo_nameServersUpdateState = Lens.lens (\RegisteredDomainDelegationInfo' {nameServersUpdateState} -> nameServersUpdateState) (\s@RegisteredDomainDelegationInfo' {} a -> s {nameServersUpdateState = a} :: RegisteredDomainDelegationInfo)
+
+-- | Undocumented member.
+registeredDomainDelegationInfo_r53HostedZoneDeletionState :: Lens.Lens' RegisteredDomainDelegationInfo (Prelude.Maybe R53HostedZoneDeletionState)
+registeredDomainDelegationInfo_r53HostedZoneDeletionState = Lens.lens (\RegisteredDomainDelegationInfo' {r53HostedZoneDeletionState} -> r53HostedZoneDeletionState) (\s@RegisteredDomainDelegationInfo' {} a -> s {r53HostedZoneDeletionState = a} :: RegisteredDomainDelegationInfo)
 
 instance Data.FromJSON RegisteredDomainDelegationInfo where
   parseJSON =
@@ -101,8 +102,8 @@ instance Data.FromJSON RegisteredDomainDelegationInfo where
       "RegisteredDomainDelegationInfo"
       ( \x ->
           RegisteredDomainDelegationInfo'
-            Prelude.<$> (x Data..:? "r53HostedZoneDeletionState")
-            Prelude.<*> (x Data..:? "nameServersUpdateState")
+            Prelude.<$> (x Data..:? "nameServersUpdateState")
+            Prelude.<*> (x Data..:? "r53HostedZoneDeletionState")
       )
 
 instance
@@ -112,14 +113,13 @@ instance
   hashWithSalt
     _salt
     RegisteredDomainDelegationInfo' {..} =
-      _salt
+      _salt `Prelude.hashWithSalt` nameServersUpdateState
         `Prelude.hashWithSalt` r53HostedZoneDeletionState
-        `Prelude.hashWithSalt` nameServersUpdateState
 
 instance
   Prelude.NFData
     RegisteredDomainDelegationInfo
   where
   rnf RegisteredDomainDelegationInfo' {..} =
-    Prelude.rnf r53HostedZoneDeletionState
-      `Prelude.seq` Prelude.rnf nameServersUpdateState
+    Prelude.rnf nameServersUpdateState
+      `Prelude.seq` Prelude.rnf r53HostedZoneDeletionState

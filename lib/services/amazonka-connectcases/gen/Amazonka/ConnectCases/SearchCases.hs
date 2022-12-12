@@ -30,10 +30,10 @@ module Amazonka.ConnectCases.SearchCases
     newSearchCases,
 
     -- * Request Lenses
-    searchCases_nextToken,
     searchCases_fields,
     searchCases_filter,
     searchCases_maxResults,
+    searchCases_nextToken,
     searchCases_searchTerm,
     searchCases_sorts,
     searchCases_domainId,
@@ -59,11 +59,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSearchCases' smart constructor.
 data SearchCases = SearchCases'
-  { -- | The token for the next set of results. Use the value returned in the
-    -- previous response in the next request to retrieve the next set of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of field identifiers to be returned as part of the response.
+  { -- | The list of field identifiers to be returned as part of the response.
     fields :: Prelude.Maybe [FieldIdentifier],
     -- | A list of filter objects.
     filter' :: Prelude.Maybe CaseFilter,
@@ -71,6 +67,10 @@ data SearchCases = SearchCases'
     -- value is 25. This is also the default value when no other value is
     -- provided.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. Use the value returned in the
+    -- previous response in the next request to retrieve the next set of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A word or phrase used to perform a quick search.
     searchTerm :: Prelude.Maybe Prelude.Text,
     -- | A list of sorts where each sort specifies a field and their sort order
@@ -89,10 +89,6 @@ data SearchCases = SearchCases'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'searchCases_nextToken' - The token for the next set of results. Use the value returned in the
--- previous response in the next request to retrieve the next set of
--- results.
---
 -- 'fields', 'searchCases_fields' - The list of field identifiers to be returned as part of the response.
 --
 -- 'filter'', 'searchCases_filter' - A list of filter objects.
@@ -100,6 +96,10 @@ data SearchCases = SearchCases'
 -- 'maxResults', 'searchCases_maxResults' - The maximum number of cases to return. The current maximum supported
 -- value is 25. This is also the default value when no other value is
 -- provided.
+--
+-- 'nextToken', 'searchCases_nextToken' - The token for the next set of results. Use the value returned in the
+-- previous response in the next request to retrieve the next set of
+-- results.
 --
 -- 'searchTerm', 'searchCases_searchTerm' - A word or phrase used to perform a quick search.
 --
@@ -113,20 +113,14 @@ newSearchCases ::
   SearchCases
 newSearchCases pDomainId_ =
   SearchCases'
-    { nextToken = Prelude.Nothing,
-      fields = Prelude.Nothing,
+    { fields = Prelude.Nothing,
       filter' = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       searchTerm = Prelude.Nothing,
       sorts = Prelude.Nothing,
       domainId = pDomainId_
     }
-
--- | The token for the next set of results. Use the value returned in the
--- previous response in the next request to retrieve the next set of
--- results.
-searchCases_nextToken :: Lens.Lens' SearchCases (Prelude.Maybe Prelude.Text)
-searchCases_nextToken = Lens.lens (\SearchCases' {nextToken} -> nextToken) (\s@SearchCases' {} a -> s {nextToken = a} :: SearchCases)
 
 -- | The list of field identifiers to be returned as part of the response.
 searchCases_fields :: Lens.Lens' SearchCases (Prelude.Maybe [FieldIdentifier])
@@ -141,6 +135,12 @@ searchCases_filter = Lens.lens (\SearchCases' {filter'} -> filter') (\s@SearchCa
 -- provided.
 searchCases_maxResults :: Lens.Lens' SearchCases (Prelude.Maybe Prelude.Natural)
 searchCases_maxResults = Lens.lens (\SearchCases' {maxResults} -> maxResults) (\s@SearchCases' {} a -> s {maxResults = a} :: SearchCases)
+
+-- | The token for the next set of results. Use the value returned in the
+-- previous response in the next request to retrieve the next set of
+-- results.
+searchCases_nextToken :: Lens.Lens' SearchCases (Prelude.Maybe Prelude.Text)
+searchCases_nextToken = Lens.lens (\SearchCases' {nextToken} -> nextToken) (\s@SearchCases' {} a -> s {nextToken = a} :: SearchCases)
 
 -- | A word or phrase used to perform a quick search.
 searchCases_searchTerm :: Lens.Lens' SearchCases (Prelude.Maybe Prelude.Text)
@@ -186,20 +186,20 @@ instance Core.AWSRequest SearchCases where
 
 instance Prelude.Hashable SearchCases where
   hashWithSalt _salt SearchCases' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` fields
+    _salt `Prelude.hashWithSalt` fields
       `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` searchTerm
       `Prelude.hashWithSalt` sorts
       `Prelude.hashWithSalt` domainId
 
 instance Prelude.NFData SearchCases where
   rnf SearchCases' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf fields
+    Prelude.rnf fields
       `Prelude.seq` Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf searchTerm
       `Prelude.seq` Prelude.rnf sorts
       `Prelude.seq` Prelude.rnf domainId
@@ -219,10 +219,10 @@ instance Data.ToJSON SearchCases where
   toJSON SearchCases' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("fields" Data..=) Prelude.<$> fields,
+          [ ("fields" Data..=) Prelude.<$> fields,
             ("filter" Data..=) Prelude.<$> filter',
             ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             ("searchTerm" Data..=) Prelude.<$> searchTerm,
             ("sorts" Data..=) Prelude.<$> sorts
           ]

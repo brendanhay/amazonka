@@ -30,9 +30,9 @@ module Amazonka.Connect.ListDefaultVocabularies
     newListDefaultVocabularies,
 
     -- * Request Lenses
-    listDefaultVocabularies_nextToken,
     listDefaultVocabularies_languageCode,
     listDefaultVocabularies_maxResults,
+    listDefaultVocabularies_nextToken,
     listDefaultVocabularies_instanceId,
 
     -- * Destructuring the Response
@@ -56,16 +56,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDefaultVocabularies' smart constructor.
 data ListDefaultVocabularies = ListDefaultVocabularies'
-  { -- | The token for the next set of results. Use the value returned in the
-    -- previous response in the next request to retrieve the next set of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The language code of the vocabulary entries. For a list of languages and
+  { -- | The language code of the vocabulary entries. For a list of languages and
     -- their corresponding language codes, see
     -- <https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html What is Amazon Transcribe?>
     languageCode :: Prelude.Maybe VocabularyLanguageCode,
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. Use the value returned in the
+    -- previous response in the next request to retrieve the next set of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
@@ -80,15 +80,15 @@ data ListDefaultVocabularies = ListDefaultVocabularies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listDefaultVocabularies_nextToken' - The token for the next set of results. Use the value returned in the
--- previous response in the next request to retrieve the next set of
--- results.
---
 -- 'languageCode', 'listDefaultVocabularies_languageCode' - The language code of the vocabulary entries. For a list of languages and
 -- their corresponding language codes, see
 -- <https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html What is Amazon Transcribe?>
 --
 -- 'maxResults', 'listDefaultVocabularies_maxResults' - The maximum number of results to return per page.
+--
+-- 'nextToken', 'listDefaultVocabularies_nextToken' - The token for the next set of results. Use the value returned in the
+-- previous response in the next request to retrieve the next set of
+-- results.
 --
 -- 'instanceId', 'listDefaultVocabularies_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -98,18 +98,12 @@ newListDefaultVocabularies ::
   ListDefaultVocabularies
 newListDefaultVocabularies pInstanceId_ =
   ListDefaultVocabularies'
-    { nextToken =
+    { languageCode =
         Prelude.Nothing,
-      languageCode = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       instanceId = pInstanceId_
     }
-
--- | The token for the next set of results. Use the value returned in the
--- previous response in the next request to retrieve the next set of
--- results.
-listDefaultVocabularies_nextToken :: Lens.Lens' ListDefaultVocabularies (Prelude.Maybe Prelude.Text)
-listDefaultVocabularies_nextToken = Lens.lens (\ListDefaultVocabularies' {nextToken} -> nextToken) (\s@ListDefaultVocabularies' {} a -> s {nextToken = a} :: ListDefaultVocabularies)
 
 -- | The language code of the vocabulary entries. For a list of languages and
 -- their corresponding language codes, see
@@ -120,6 +114,12 @@ listDefaultVocabularies_languageCode = Lens.lens (\ListDefaultVocabularies' {lan
 -- | The maximum number of results to return per page.
 listDefaultVocabularies_maxResults :: Lens.Lens' ListDefaultVocabularies (Prelude.Maybe Prelude.Natural)
 listDefaultVocabularies_maxResults = Lens.lens (\ListDefaultVocabularies' {maxResults} -> maxResults) (\s@ListDefaultVocabularies' {} a -> s {maxResults = a} :: ListDefaultVocabularies)
+
+-- | The token for the next set of results. Use the value returned in the
+-- previous response in the next request to retrieve the next set of
+-- results.
+listDefaultVocabularies_nextToken :: Lens.Lens' ListDefaultVocabularies (Prelude.Maybe Prelude.Text)
+listDefaultVocabularies_nextToken = Lens.lens (\ListDefaultVocabularies' {nextToken} -> nextToken) (\s@ListDefaultVocabularies' {} a -> s {nextToken = a} :: ListDefaultVocabularies)
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -166,16 +166,16 @@ instance Core.AWSRequest ListDefaultVocabularies where
 
 instance Prelude.Hashable ListDefaultVocabularies where
   hashWithSalt _salt ListDefaultVocabularies' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` languageCode
+    _salt `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData ListDefaultVocabularies where
   rnf ListDefaultVocabularies' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf languageCode
+    Prelude.rnf languageCode
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf instanceId
 
 instance Data.ToHeaders ListDefaultVocabularies where
@@ -193,9 +193,9 @@ instance Data.ToJSON ListDefaultVocabularies where
   toJSON ListDefaultVocabularies' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("LanguageCode" Data..=) Prelude.<$> languageCode,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("LanguageCode" Data..=) Prelude.<$> languageCode,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

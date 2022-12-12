@@ -76,11 +76,11 @@ module Amazonka.StorageGateway
     -- * Errors
     -- $errors
 
-    -- ** InvalidGatewayRequestException
-    _InvalidGatewayRequestException,
-
     -- ** InternalServerError
     _InternalServerError,
+
+    -- ** InvalidGatewayRequestException
+    _InvalidGatewayRequestException,
 
     -- ** ServiceUnavailableError
     _ServiceUnavailableError,

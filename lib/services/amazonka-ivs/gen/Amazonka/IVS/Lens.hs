@@ -27,21 +27,21 @@ module Amazonka.IVS.Lens
     batchGetStreamKeyResponse_httpStatus,
 
     -- ** CreateChannel
-    createChannel_tags,
-    createChannel_name,
-    createChannel_type,
-    createChannel_latencyMode,
     createChannel_authorized,
+    createChannel_latencyMode,
+    createChannel_name,
     createChannel_recordingConfigurationArn,
+    createChannel_tags,
+    createChannel_type,
     createChannelResponse_channel,
     createChannelResponse_streamKey,
     createChannelResponse_httpStatus,
 
     -- ** CreateRecordingConfiguration
-    createRecordingConfiguration_tags,
     createRecordingConfiguration_name,
-    createRecordingConfiguration_thumbnailConfiguration,
     createRecordingConfiguration_recordingReconnectWindowSeconds,
+    createRecordingConfiguration_tags,
+    createRecordingConfiguration_thumbnailConfiguration,
     createRecordingConfiguration_destinationConfiguration,
     createRecordingConfigurationResponse_recordingConfiguration,
     createRecordingConfigurationResponse_httpStatus,
@@ -97,55 +97,55 @@ module Amazonka.IVS.Lens
     getStreamSessionResponse_httpStatus,
 
     -- ** ImportPlaybackKeyPair
-    importPlaybackKeyPair_tags,
     importPlaybackKeyPair_name,
+    importPlaybackKeyPair_tags,
     importPlaybackKeyPair_publicKeyMaterial,
     importPlaybackKeyPairResponse_keyPair,
     importPlaybackKeyPairResponse_httpStatus,
 
     -- ** ListChannels
-    listChannels_nextToken,
     listChannels_filterByName,
-    listChannels_maxResults,
     listChannels_filterByRecordingConfigurationArn,
+    listChannels_maxResults,
+    listChannels_nextToken,
     listChannelsResponse_nextToken,
     listChannelsResponse_httpStatus,
     listChannelsResponse_channels,
 
     -- ** ListPlaybackKeyPairs
-    listPlaybackKeyPairs_nextToken,
     listPlaybackKeyPairs_maxResults,
+    listPlaybackKeyPairs_nextToken,
     listPlaybackKeyPairsResponse_nextToken,
     listPlaybackKeyPairsResponse_httpStatus,
     listPlaybackKeyPairsResponse_keyPairs,
 
     -- ** ListRecordingConfigurations
-    listRecordingConfigurations_nextToken,
     listRecordingConfigurations_maxResults,
+    listRecordingConfigurations_nextToken,
     listRecordingConfigurationsResponse_nextToken,
     listRecordingConfigurationsResponse_httpStatus,
     listRecordingConfigurationsResponse_recordingConfigurations,
 
     -- ** ListStreamKeys
-    listStreamKeys_nextToken,
     listStreamKeys_maxResults,
+    listStreamKeys_nextToken,
     listStreamKeys_channelArn,
     listStreamKeysResponse_nextToken,
     listStreamKeysResponse_httpStatus,
     listStreamKeysResponse_streamKeys,
 
     -- ** ListStreamSessions
-    listStreamSessions_nextToken,
     listStreamSessions_maxResults,
+    listStreamSessions_nextToken,
     listStreamSessions_channelArn,
     listStreamSessionsResponse_nextToken,
     listStreamSessionsResponse_httpStatus,
     listStreamSessionsResponse_streamSessions,
 
     -- ** ListStreams
-    listStreams_nextToken,
     listStreams_filterBy,
     listStreams_maxResults,
+    listStreams_nextToken,
     listStreamsResponse_nextToken,
     listStreamsResponse_httpStatus,
     listStreamsResponse_streams,
@@ -174,11 +174,11 @@ module Amazonka.IVS.Lens
     untagResourceResponse_httpStatus,
 
     -- ** UpdateChannel
-    updateChannel_name,
-    updateChannel_type,
-    updateChannel_latencyMode,
     updateChannel_authorized,
+    updateChannel_latencyMode,
+    updateChannel_name,
     updateChannel_recordingConfigurationArn,
+    updateChannel_type,
     updateChannel_arn,
     updateChannelResponse_channel,
     updateChannelResponse_httpStatus,
@@ -186,34 +186,34 @@ module Amazonka.IVS.Lens
     -- * Types
 
     -- ** AudioConfiguration
-    audioConfiguration_targetBitrate,
     audioConfiguration_channels,
-    audioConfiguration_sampleRate,
     audioConfiguration_codec,
+    audioConfiguration_sampleRate,
+    audioConfiguration_targetBitrate,
 
     -- ** BatchError
-    batchError_message,
-    batchError_code,
     batchError_arn,
+    batchError_code,
+    batchError_message,
 
     -- ** Channel
-    channel_tags,
-    channel_name,
-    channel_type,
-    channel_latencyMode,
     channel_arn,
     channel_authorized,
-    channel_playbackUrl,
     channel_ingestEndpoint,
+    channel_latencyMode,
+    channel_name,
+    channel_playbackUrl,
     channel_recordingConfigurationArn,
+    channel_tags,
+    channel_type,
 
     -- ** ChannelSummary
-    channelSummary_tags,
-    channelSummary_name,
-    channelSummary_latencyMode,
     channelSummary_arn,
     channelSummary_authorized,
+    channelSummary_latencyMode,
+    channelSummary_name,
     channelSummary_recordingConfigurationArn,
+    channelSummary_tags,
 
     -- ** DestinationConfiguration
     destinationConfiguration_s3,
@@ -223,28 +223,28 @@ module Amazonka.IVS.Lens
     ingestConfiguration_video,
 
     -- ** PlaybackKeyPair
-    playbackKeyPair_tags,
-    playbackKeyPair_name,
     playbackKeyPair_arn,
     playbackKeyPair_fingerprint,
+    playbackKeyPair_name,
+    playbackKeyPair_tags,
 
     -- ** PlaybackKeyPairSummary
-    playbackKeyPairSummary_tags,
-    playbackKeyPairSummary_name,
     playbackKeyPairSummary_arn,
+    playbackKeyPairSummary_name,
+    playbackKeyPairSummary_tags,
 
     -- ** RecordingConfiguration
-    recordingConfiguration_tags,
     recordingConfiguration_name,
-    recordingConfiguration_thumbnailConfiguration,
     recordingConfiguration_recordingReconnectWindowSeconds,
+    recordingConfiguration_tags,
+    recordingConfiguration_thumbnailConfiguration,
     recordingConfiguration_arn,
     recordingConfiguration_destinationConfiguration,
     recordingConfiguration_state,
 
     -- ** RecordingConfigurationSummary
-    recordingConfigurationSummary_tags,
     recordingConfigurationSummary_name,
+    recordingConfigurationSummary_tags,
     recordingConfigurationSummary_arn,
     recordingConfigurationSummary_destinationConfiguration,
     recordingConfigurationSummary_state,
@@ -253,68 +253,68 @@ module Amazonka.IVS.Lens
     s3DestinationConfiguration_bucketName,
 
     -- ** Stream
-    stream_viewerCount,
     stream_channelArn,
+    stream_health,
+    stream_playbackUrl,
+    stream_startTime,
     stream_state,
     stream_streamId,
-    stream_playbackUrl,
-    stream_health,
-    stream_startTime,
+    stream_viewerCount,
 
     -- ** StreamEvent
+    streamEvent_eventTime,
     streamEvent_name,
     streamEvent_type,
-    streamEvent_eventTime,
 
     -- ** StreamFilters
     streamFilters_health,
 
     -- ** StreamKey
-    streamKey_tags,
     streamKey_arn,
     streamKey_channelArn,
+    streamKey_tags,
     streamKey_value,
 
     -- ** StreamKeySummary
-    streamKeySummary_tags,
     streamKeySummary_arn,
     streamKeySummary_channelArn,
+    streamKeySummary_tags,
 
     -- ** StreamSession
-    streamSession_ingestConfiguration,
     streamSession_channel,
-    streamSession_streamId,
     streamSession_endTime,
+    streamSession_ingestConfiguration,
     streamSession_recordingConfiguration,
     streamSession_startTime,
+    streamSession_streamId,
     streamSession_truncatedEvents,
 
     -- ** StreamSessionSummary
-    streamSessionSummary_streamId,
     streamSessionSummary_endTime,
     streamSessionSummary_hasErrorEvent,
     streamSessionSummary_startTime,
+    streamSessionSummary_streamId,
 
     -- ** StreamSummary
-    streamSummary_viewerCount,
     streamSummary_channelArn,
-    streamSummary_state,
-    streamSummary_streamId,
     streamSummary_health,
     streamSummary_startTime,
+    streamSummary_state,
+    streamSummary_streamId,
+    streamSummary_viewerCount,
 
     -- ** ThumbnailConfiguration
     thumbnailConfiguration_recordingMode,
     thumbnailConfiguration_targetIntervalSeconds,
 
     -- ** VideoConfiguration
-    videoConfiguration_targetFramerate,
+    videoConfiguration_avcLevel,
+    videoConfiguration_avcProfile,
+    videoConfiguration_codec,
     videoConfiguration_encoder,
     videoConfiguration_targetBitrate,
-    videoConfiguration_avcProfile,
-    videoConfiguration_avcLevel,
+    videoConfiguration_targetFramerate,
     videoConfiguration_videoHeight,
-    videoConfiguration_codec,
     videoConfiguration_videoWidth,
   )
 where

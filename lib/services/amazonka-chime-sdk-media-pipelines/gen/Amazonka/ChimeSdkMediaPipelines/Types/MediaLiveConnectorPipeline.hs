@@ -31,20 +31,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMediaLiveConnectorPipeline' smart constructor.
 data MediaLiveConnectorPipeline = MediaLiveConnectorPipeline'
-  { -- | The connector pipeline\'s data sources.
-    sources :: Prelude.Maybe (Prelude.NonEmpty LiveConnectorSourceConfiguration),
-    -- | Thetime at which the connector pipeline was created.
+  { -- | Thetime at which the connector pipeline was created.
     createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The connector pipeline\'s ARN.
     mediaPipelineArn :: Prelude.Maybe Prelude.Text,
-    -- | The time at which the connector pipeline was last updated.
-    updatedTimestamp :: Prelude.Maybe Data.POSIX,
-    -- | The connector pipeline\'s status.
-    status :: Prelude.Maybe MediaPipelineStatus,
+    -- | The connector pipeline\'s ID.
+    mediaPipelineId :: Prelude.Maybe Prelude.Text,
     -- | The connector pipeline\'s data sinks.
     sinks :: Prelude.Maybe (Prelude.NonEmpty LiveConnectorSinkConfiguration),
-    -- | The connector pipeline\'s ID.
-    mediaPipelineId :: Prelude.Maybe Prelude.Text
+    -- | The connector pipeline\'s data sources.
+    sources :: Prelude.Maybe (Prelude.NonEmpty LiveConnectorSourceConfiguration),
+    -- | The connector pipeline\'s status.
+    status :: Prelude.Maybe MediaPipelineStatus,
+    -- | The time at which the connector pipeline was last updated.
+    updatedTimestamp :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -56,36 +56,32 @@ data MediaLiveConnectorPipeline = MediaLiveConnectorPipeline'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sources', 'mediaLiveConnectorPipeline_sources' - The connector pipeline\'s data sources.
---
 -- 'createdTimestamp', 'mediaLiveConnectorPipeline_createdTimestamp' - Thetime at which the connector pipeline was created.
 --
 -- 'mediaPipelineArn', 'mediaLiveConnectorPipeline_mediaPipelineArn' - The connector pipeline\'s ARN.
 --
--- 'updatedTimestamp', 'mediaLiveConnectorPipeline_updatedTimestamp' - The time at which the connector pipeline was last updated.
---
--- 'status', 'mediaLiveConnectorPipeline_status' - The connector pipeline\'s status.
+-- 'mediaPipelineId', 'mediaLiveConnectorPipeline_mediaPipelineId' - The connector pipeline\'s ID.
 --
 -- 'sinks', 'mediaLiveConnectorPipeline_sinks' - The connector pipeline\'s data sinks.
 --
--- 'mediaPipelineId', 'mediaLiveConnectorPipeline_mediaPipelineId' - The connector pipeline\'s ID.
+-- 'sources', 'mediaLiveConnectorPipeline_sources' - The connector pipeline\'s data sources.
+--
+-- 'status', 'mediaLiveConnectorPipeline_status' - The connector pipeline\'s status.
+--
+-- 'updatedTimestamp', 'mediaLiveConnectorPipeline_updatedTimestamp' - The time at which the connector pipeline was last updated.
 newMediaLiveConnectorPipeline ::
   MediaLiveConnectorPipeline
 newMediaLiveConnectorPipeline =
   MediaLiveConnectorPipeline'
-    { sources =
+    { createdTimestamp =
         Prelude.Nothing,
-      createdTimestamp = Prelude.Nothing,
       mediaPipelineArn = Prelude.Nothing,
-      updatedTimestamp = Prelude.Nothing,
-      status = Prelude.Nothing,
+      mediaPipelineId = Prelude.Nothing,
       sinks = Prelude.Nothing,
-      mediaPipelineId = Prelude.Nothing
+      sources = Prelude.Nothing,
+      status = Prelude.Nothing,
+      updatedTimestamp = Prelude.Nothing
     }
-
--- | The connector pipeline\'s data sources.
-mediaLiveConnectorPipeline_sources :: Lens.Lens' MediaLiveConnectorPipeline (Prelude.Maybe (Prelude.NonEmpty LiveConnectorSourceConfiguration))
-mediaLiveConnectorPipeline_sources = Lens.lens (\MediaLiveConnectorPipeline' {sources} -> sources) (\s@MediaLiveConnectorPipeline' {} a -> s {sources = a} :: MediaLiveConnectorPipeline) Prelude.. Lens.mapping Lens.coerced
 
 -- | Thetime at which the connector pipeline was created.
 mediaLiveConnectorPipeline_createdTimestamp :: Lens.Lens' MediaLiveConnectorPipeline (Prelude.Maybe Prelude.UTCTime)
@@ -95,21 +91,25 @@ mediaLiveConnectorPipeline_createdTimestamp = Lens.lens (\MediaLiveConnectorPipe
 mediaLiveConnectorPipeline_mediaPipelineArn :: Lens.Lens' MediaLiveConnectorPipeline (Prelude.Maybe Prelude.Text)
 mediaLiveConnectorPipeline_mediaPipelineArn = Lens.lens (\MediaLiveConnectorPipeline' {mediaPipelineArn} -> mediaPipelineArn) (\s@MediaLiveConnectorPipeline' {} a -> s {mediaPipelineArn = a} :: MediaLiveConnectorPipeline)
 
--- | The time at which the connector pipeline was last updated.
-mediaLiveConnectorPipeline_updatedTimestamp :: Lens.Lens' MediaLiveConnectorPipeline (Prelude.Maybe Prelude.UTCTime)
-mediaLiveConnectorPipeline_updatedTimestamp = Lens.lens (\MediaLiveConnectorPipeline' {updatedTimestamp} -> updatedTimestamp) (\s@MediaLiveConnectorPipeline' {} a -> s {updatedTimestamp = a} :: MediaLiveConnectorPipeline) Prelude.. Lens.mapping Data._Time
-
--- | The connector pipeline\'s status.
-mediaLiveConnectorPipeline_status :: Lens.Lens' MediaLiveConnectorPipeline (Prelude.Maybe MediaPipelineStatus)
-mediaLiveConnectorPipeline_status = Lens.lens (\MediaLiveConnectorPipeline' {status} -> status) (\s@MediaLiveConnectorPipeline' {} a -> s {status = a} :: MediaLiveConnectorPipeline)
+-- | The connector pipeline\'s ID.
+mediaLiveConnectorPipeline_mediaPipelineId :: Lens.Lens' MediaLiveConnectorPipeline (Prelude.Maybe Prelude.Text)
+mediaLiveConnectorPipeline_mediaPipelineId = Lens.lens (\MediaLiveConnectorPipeline' {mediaPipelineId} -> mediaPipelineId) (\s@MediaLiveConnectorPipeline' {} a -> s {mediaPipelineId = a} :: MediaLiveConnectorPipeline)
 
 -- | The connector pipeline\'s data sinks.
 mediaLiveConnectorPipeline_sinks :: Lens.Lens' MediaLiveConnectorPipeline (Prelude.Maybe (Prelude.NonEmpty LiveConnectorSinkConfiguration))
 mediaLiveConnectorPipeline_sinks = Lens.lens (\MediaLiveConnectorPipeline' {sinks} -> sinks) (\s@MediaLiveConnectorPipeline' {} a -> s {sinks = a} :: MediaLiveConnectorPipeline) Prelude.. Lens.mapping Lens.coerced
 
--- | The connector pipeline\'s ID.
-mediaLiveConnectorPipeline_mediaPipelineId :: Lens.Lens' MediaLiveConnectorPipeline (Prelude.Maybe Prelude.Text)
-mediaLiveConnectorPipeline_mediaPipelineId = Lens.lens (\MediaLiveConnectorPipeline' {mediaPipelineId} -> mediaPipelineId) (\s@MediaLiveConnectorPipeline' {} a -> s {mediaPipelineId = a} :: MediaLiveConnectorPipeline)
+-- | The connector pipeline\'s data sources.
+mediaLiveConnectorPipeline_sources :: Lens.Lens' MediaLiveConnectorPipeline (Prelude.Maybe (Prelude.NonEmpty LiveConnectorSourceConfiguration))
+mediaLiveConnectorPipeline_sources = Lens.lens (\MediaLiveConnectorPipeline' {sources} -> sources) (\s@MediaLiveConnectorPipeline' {} a -> s {sources = a} :: MediaLiveConnectorPipeline) Prelude.. Lens.mapping Lens.coerced
+
+-- | The connector pipeline\'s status.
+mediaLiveConnectorPipeline_status :: Lens.Lens' MediaLiveConnectorPipeline (Prelude.Maybe MediaPipelineStatus)
+mediaLiveConnectorPipeline_status = Lens.lens (\MediaLiveConnectorPipeline' {status} -> status) (\s@MediaLiveConnectorPipeline' {} a -> s {status = a} :: MediaLiveConnectorPipeline)
+
+-- | The time at which the connector pipeline was last updated.
+mediaLiveConnectorPipeline_updatedTimestamp :: Lens.Lens' MediaLiveConnectorPipeline (Prelude.Maybe Prelude.UTCTime)
+mediaLiveConnectorPipeline_updatedTimestamp = Lens.lens (\MediaLiveConnectorPipeline' {updatedTimestamp} -> updatedTimestamp) (\s@MediaLiveConnectorPipeline' {} a -> s {updatedTimestamp = a} :: MediaLiveConnectorPipeline) Prelude.. Lens.mapping Data._Time
 
 instance Data.FromJSON MediaLiveConnectorPipeline where
   parseJSON =
@@ -117,31 +117,31 @@ instance Data.FromJSON MediaLiveConnectorPipeline where
       "MediaLiveConnectorPipeline"
       ( \x ->
           MediaLiveConnectorPipeline'
-            Prelude.<$> (x Data..:? "Sources")
-            Prelude.<*> (x Data..:? "CreatedTimestamp")
+            Prelude.<$> (x Data..:? "CreatedTimestamp")
             Prelude.<*> (x Data..:? "MediaPipelineArn")
-            Prelude.<*> (x Data..:? "UpdatedTimestamp")
-            Prelude.<*> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "Sinks")
             Prelude.<*> (x Data..:? "MediaPipelineId")
+            Prelude.<*> (x Data..:? "Sinks")
+            Prelude.<*> (x Data..:? "Sources")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "UpdatedTimestamp")
       )
 
 instance Prelude.Hashable MediaLiveConnectorPipeline where
   hashWithSalt _salt MediaLiveConnectorPipeline' {..} =
-    _salt `Prelude.hashWithSalt` sources
-      `Prelude.hashWithSalt` createdTimestamp
+    _salt `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` mediaPipelineArn
-      `Prelude.hashWithSalt` updatedTimestamp
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` sinks
       `Prelude.hashWithSalt` mediaPipelineId
+      `Prelude.hashWithSalt` sinks
+      `Prelude.hashWithSalt` sources
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` updatedTimestamp
 
 instance Prelude.NFData MediaLiveConnectorPipeline where
   rnf MediaLiveConnectorPipeline' {..} =
-    Prelude.rnf sources
-      `Prelude.seq` Prelude.rnf createdTimestamp
+    Prelude.rnf createdTimestamp
       `Prelude.seq` Prelude.rnf mediaPipelineArn
-      `Prelude.seq` Prelude.rnf updatedTimestamp
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf sinks
       `Prelude.seq` Prelude.rnf mediaPipelineId
+      `Prelude.seq` Prelude.rnf sinks
+      `Prelude.seq` Prelude.rnf sources
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf updatedTimestamp

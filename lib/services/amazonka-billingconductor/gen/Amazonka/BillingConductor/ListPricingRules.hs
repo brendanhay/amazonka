@@ -30,19 +30,19 @@ module Amazonka.BillingConductor.ListPricingRules
     newListPricingRules,
 
     -- * Request Lenses
-    listPricingRules_nextToken,
     listPricingRules_billingPeriod,
     listPricingRules_filters,
     listPricingRules_maxResults,
+    listPricingRules_nextToken,
 
     -- * Destructuring the Response
     ListPricingRulesResponse (..),
     newListPricingRulesResponse,
 
     -- * Response Lenses
+    listPricingRulesResponse_billingPeriod,
     listPricingRulesResponse_nextToken,
     listPricingRulesResponse_pricingRules,
-    listPricingRulesResponse_billingPeriod,
     listPricingRulesResponse_httpStatus,
   )
 where
@@ -57,16 +57,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPricingRules' smart constructor.
 data ListPricingRules = ListPricingRules'
-  { -- | The pagination token that\'s used on subsequent call to get pricing
-    -- rules.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The preferred billing period to get the pricing plan.
+  { -- | The preferred billing period to get the pricing plan.
     billingPeriod :: Prelude.Maybe Prelude.Text,
     -- | A @DescribePricingRuleFilter@ that specifies the Amazon Resource Name
     -- (ARNs) of pricing rules to retrieve pricing rules information.
     filters :: Prelude.Maybe ListPricingRulesFilter,
     -- | The maximum number of pricing rules to retrieve.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token that\'s used on subsequent call to get pricing
+    -- rules.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,29 +78,24 @@ data ListPricingRules = ListPricingRules'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPricingRules_nextToken' - The pagination token that\'s used on subsequent call to get pricing
--- rules.
---
 -- 'billingPeriod', 'listPricingRules_billingPeriod' - The preferred billing period to get the pricing plan.
 --
 -- 'filters', 'listPricingRules_filters' - A @DescribePricingRuleFilter@ that specifies the Amazon Resource Name
 -- (ARNs) of pricing rules to retrieve pricing rules information.
 --
 -- 'maxResults', 'listPricingRules_maxResults' - The maximum number of pricing rules to retrieve.
+--
+-- 'nextToken', 'listPricingRules_nextToken' - The pagination token that\'s used on subsequent call to get pricing
+-- rules.
 newListPricingRules ::
   ListPricingRules
 newListPricingRules =
   ListPricingRules'
-    { nextToken = Prelude.Nothing,
-      billingPeriod = Prelude.Nothing,
+    { billingPeriod = Prelude.Nothing,
       filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The pagination token that\'s used on subsequent call to get pricing
--- rules.
-listPricingRules_nextToken :: Lens.Lens' ListPricingRules (Prelude.Maybe Prelude.Text)
-listPricingRules_nextToken = Lens.lens (\ListPricingRules' {nextToken} -> nextToken) (\s@ListPricingRules' {} a -> s {nextToken = a} :: ListPricingRules)
 
 -- | The preferred billing period to get the pricing plan.
 listPricingRules_billingPeriod :: Lens.Lens' ListPricingRules (Prelude.Maybe Prelude.Text)
@@ -114,6 +109,11 @@ listPricingRules_filters = Lens.lens (\ListPricingRules' {filters} -> filters) (
 -- | The maximum number of pricing rules to retrieve.
 listPricingRules_maxResults :: Lens.Lens' ListPricingRules (Prelude.Maybe Prelude.Natural)
 listPricingRules_maxResults = Lens.lens (\ListPricingRules' {maxResults} -> maxResults) (\s@ListPricingRules' {} a -> s {maxResults = a} :: ListPricingRules)
+
+-- | The pagination token that\'s used on subsequent call to get pricing
+-- rules.
+listPricingRules_nextToken :: Lens.Lens' ListPricingRules (Prelude.Maybe Prelude.Text)
+listPricingRules_nextToken = Lens.lens (\ListPricingRules' {nextToken} -> nextToken) (\s@ListPricingRules' {} a -> s {nextToken = a} :: ListPricingRules)
 
 instance Core.AWSPager ListPricingRules where
   page rq rs
@@ -147,25 +147,25 @@ instance Core.AWSRequest ListPricingRules where
     Response.receiveJSON
       ( \s h x ->
           ListPricingRulesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<$> (x Data..?> "BillingPeriod")
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "PricingRules" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "BillingPeriod")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListPricingRules where
   hashWithSalt _salt ListPricingRules' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` billingPeriod
+    _salt `Prelude.hashWithSalt` billingPeriod
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListPricingRules where
   rnf ListPricingRules' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf billingPeriod
+    Prelude.rnf billingPeriod
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListPricingRules where
   toHeaders =
@@ -182,10 +182,10 @@ instance Data.ToJSON ListPricingRules where
   toJSON ListPricingRules' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("BillingPeriod" Data..=) Prelude.<$> billingPeriod,
+          [ ("BillingPeriod" Data..=) Prelude.<$> billingPeriod,
             ("Filters" Data..=) Prelude.<$> filters,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -197,13 +197,13 @@ instance Data.ToQuery ListPricingRules where
 
 -- | /See:/ 'newListPricingRulesResponse' smart constructor.
 data ListPricingRulesResponse = ListPricingRulesResponse'
-  { -- | The pagination token that\'s used on subsequent calls to get pricing
+  { -- | The billing period for which the described pricing rules are applicable.
+    billingPeriod :: Prelude.Maybe Prelude.Text,
+    -- | The pagination token that\'s used on subsequent calls to get pricing
     -- rules.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list containing the described pricing rules.
     pricingRules :: Prelude.Maybe [PricingRuleListElement],
-    -- | The billing period for which the described pricing rules are applicable.
-    billingPeriod :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -217,12 +217,12 @@ data ListPricingRulesResponse = ListPricingRulesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'billingPeriod', 'listPricingRulesResponse_billingPeriod' - The billing period for which the described pricing rules are applicable.
+--
 -- 'nextToken', 'listPricingRulesResponse_nextToken' - The pagination token that\'s used on subsequent calls to get pricing
 -- rules.
 --
 -- 'pricingRules', 'listPricingRulesResponse_pricingRules' - A list containing the described pricing rules.
---
--- 'billingPeriod', 'listPricingRulesResponse_billingPeriod' - The billing period for which the described pricing rules are applicable.
 --
 -- 'httpStatus', 'listPricingRulesResponse_httpStatus' - The response's http status code.
 newListPricingRulesResponse ::
@@ -231,12 +231,16 @@ newListPricingRulesResponse ::
   ListPricingRulesResponse
 newListPricingRulesResponse pHttpStatus_ =
   ListPricingRulesResponse'
-    { nextToken =
+    { billingPeriod =
         Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       pricingRules = Prelude.Nothing,
-      billingPeriod = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The billing period for which the described pricing rules are applicable.
+listPricingRulesResponse_billingPeriod :: Lens.Lens' ListPricingRulesResponse (Prelude.Maybe Prelude.Text)
+listPricingRulesResponse_billingPeriod = Lens.lens (\ListPricingRulesResponse' {billingPeriod} -> billingPeriod) (\s@ListPricingRulesResponse' {} a -> s {billingPeriod = a} :: ListPricingRulesResponse)
 
 -- | The pagination token that\'s used on subsequent calls to get pricing
 -- rules.
@@ -247,17 +251,13 @@ listPricingRulesResponse_nextToken = Lens.lens (\ListPricingRulesResponse' {next
 listPricingRulesResponse_pricingRules :: Lens.Lens' ListPricingRulesResponse (Prelude.Maybe [PricingRuleListElement])
 listPricingRulesResponse_pricingRules = Lens.lens (\ListPricingRulesResponse' {pricingRules} -> pricingRules) (\s@ListPricingRulesResponse' {} a -> s {pricingRules = a} :: ListPricingRulesResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The billing period for which the described pricing rules are applicable.
-listPricingRulesResponse_billingPeriod :: Lens.Lens' ListPricingRulesResponse (Prelude.Maybe Prelude.Text)
-listPricingRulesResponse_billingPeriod = Lens.lens (\ListPricingRulesResponse' {billingPeriod} -> billingPeriod) (\s@ListPricingRulesResponse' {} a -> s {billingPeriod = a} :: ListPricingRulesResponse)
-
 -- | The response's http status code.
 listPricingRulesResponse_httpStatus :: Lens.Lens' ListPricingRulesResponse Prelude.Int
 listPricingRulesResponse_httpStatus = Lens.lens (\ListPricingRulesResponse' {httpStatus} -> httpStatus) (\s@ListPricingRulesResponse' {} a -> s {httpStatus = a} :: ListPricingRulesResponse)
 
 instance Prelude.NFData ListPricingRulesResponse where
   rnf ListPricingRulesResponse' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf billingPeriod
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf pricingRules
-      `Prelude.seq` Prelude.rnf billingPeriod
       `Prelude.seq` Prelude.rnf httpStatus

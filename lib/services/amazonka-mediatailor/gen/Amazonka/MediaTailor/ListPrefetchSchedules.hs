@@ -29,9 +29,9 @@ module Amazonka.MediaTailor.ListPrefetchSchedules
     newListPrefetchSchedules,
 
     -- * Request Lenses
+    listPrefetchSchedules_maxResults,
     listPrefetchSchedules_nextToken,
     listPrefetchSchedules_streamId,
-    listPrefetchSchedules_maxResults,
     listPrefetchSchedules_playbackConfigurationName,
 
     -- * Destructuring the Response
@@ -55,7 +55,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPrefetchSchedules' smart constructor.
 data ListPrefetchSchedules = ListPrefetchSchedules'
-  { -- | (Optional) If the playback configuration has more than @MaxResults@
+  { -- | The maximum number of prefetch schedules that you want MediaTailor to
+    -- return in response to the current request. If there are more than
+    -- @MaxResults@ prefetch schedules, use the value of @NextToken@ in the
+    -- response to get the next page of results.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | (Optional) If the playback configuration has more than @MaxResults@
     -- prefetch schedules, use @NextToken@ to get the second and subsequent
     -- pages of results.
     --
@@ -71,11 +76,6 @@ data ListPrefetchSchedules = ListPrefetchSchedules'
     -- | An optional filtering parameter whereby MediaTailor filters the prefetch
     -- schedules to include only specific streams.
     streamId :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of prefetch schedules that you want MediaTailor to
-    -- return in response to the current request. If there are more than
-    -- @MaxResults@ prefetch schedules, use the value of @NextToken@ in the
-    -- response to get the next page of results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Retrieves the prefetch schedule(s) for a specific playback
     -- configuration.
     playbackConfigurationName :: Prelude.Text
@@ -89,6 +89,11 @@ data ListPrefetchSchedules = ListPrefetchSchedules'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'maxResults', 'listPrefetchSchedules_maxResults' - The maximum number of prefetch schedules that you want MediaTailor to
+-- return in response to the current request. If there are more than
+-- @MaxResults@ prefetch schedules, use the value of @NextToken@ in the
+-- response to get the next page of results.
 --
 -- 'nextToken', 'listPrefetchSchedules_nextToken' - (Optional) If the playback configuration has more than @MaxResults@
 -- prefetch schedules, use @NextToken@ to get the second and subsequent
@@ -106,11 +111,6 @@ data ListPrefetchSchedules = ListPrefetchSchedules'
 -- 'streamId', 'listPrefetchSchedules_streamId' - An optional filtering parameter whereby MediaTailor filters the prefetch
 -- schedules to include only specific streams.
 --
--- 'maxResults', 'listPrefetchSchedules_maxResults' - The maximum number of prefetch schedules that you want MediaTailor to
--- return in response to the current request. If there are more than
--- @MaxResults@ prefetch schedules, use the value of @NextToken@ in the
--- response to get the next page of results.
---
 -- 'playbackConfigurationName', 'listPrefetchSchedules_playbackConfigurationName' - Retrieves the prefetch schedule(s) for a specific playback
 -- configuration.
 newListPrefetchSchedules ::
@@ -119,12 +119,20 @@ newListPrefetchSchedules ::
   ListPrefetchSchedules
 newListPrefetchSchedules pPlaybackConfigurationName_ =
   ListPrefetchSchedules'
-    { nextToken = Prelude.Nothing,
+    { maxResults =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       streamId = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       playbackConfigurationName =
         pPlaybackConfigurationName_
     }
+
+-- | The maximum number of prefetch schedules that you want MediaTailor to
+-- return in response to the current request. If there are more than
+-- @MaxResults@ prefetch schedules, use the value of @NextToken@ in the
+-- response to get the next page of results.
+listPrefetchSchedules_maxResults :: Lens.Lens' ListPrefetchSchedules (Prelude.Maybe Prelude.Natural)
+listPrefetchSchedules_maxResults = Lens.lens (\ListPrefetchSchedules' {maxResults} -> maxResults) (\s@ListPrefetchSchedules' {} a -> s {maxResults = a} :: ListPrefetchSchedules)
 
 -- | (Optional) If the playback configuration has more than @MaxResults@
 -- prefetch schedules, use @NextToken@ to get the second and subsequent
@@ -145,13 +153,6 @@ listPrefetchSchedules_nextToken = Lens.lens (\ListPrefetchSchedules' {nextToken}
 -- schedules to include only specific streams.
 listPrefetchSchedules_streamId :: Lens.Lens' ListPrefetchSchedules (Prelude.Maybe Prelude.Text)
 listPrefetchSchedules_streamId = Lens.lens (\ListPrefetchSchedules' {streamId} -> streamId) (\s@ListPrefetchSchedules' {} a -> s {streamId = a} :: ListPrefetchSchedules)
-
--- | The maximum number of prefetch schedules that you want MediaTailor to
--- return in response to the current request. If there are more than
--- @MaxResults@ prefetch schedules, use the value of @NextToken@ in the
--- response to get the next page of results.
-listPrefetchSchedules_maxResults :: Lens.Lens' ListPrefetchSchedules (Prelude.Maybe Prelude.Natural)
-listPrefetchSchedules_maxResults = Lens.lens (\ListPrefetchSchedules' {maxResults} -> maxResults) (\s@ListPrefetchSchedules' {} a -> s {maxResults = a} :: ListPrefetchSchedules)
 
 -- | Retrieves the prefetch schedule(s) for a specific playback
 -- configuration.
@@ -197,16 +198,16 @@ instance Core.AWSRequest ListPrefetchSchedules where
 
 instance Prelude.Hashable ListPrefetchSchedules where
   hashWithSalt _salt ListPrefetchSchedules' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` streamId
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` playbackConfigurationName
 
 instance Prelude.NFData ListPrefetchSchedules where
   rnf ListPrefetchSchedules' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf streamId
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf playbackConfigurationName
 
 instance Data.ToHeaders ListPrefetchSchedules where
@@ -224,9 +225,9 @@ instance Data.ToJSON ListPrefetchSchedules where
   toJSON ListPrefetchSchedules' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("StreamId" Data..=) Prelude.<$> streamId,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("StreamId" Data..=) Prelude.<$> streamId
           ]
       )
 

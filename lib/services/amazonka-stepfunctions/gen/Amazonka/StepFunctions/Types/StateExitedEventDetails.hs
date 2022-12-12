@@ -29,11 +29,11 @@ import Amazonka.StepFunctions.Types.HistoryEventExecutionDataDetails
 --
 -- /See:/ 'newStateExitedEventDetails' smart constructor.
 data StateExitedEventDetails = StateExitedEventDetails'
-  { -- | Contains details about the output of an execution history event.
-    outputDetails :: Prelude.Maybe HistoryEventExecutionDataDetails,
-    -- | The JSON output data of the state. Length constraints apply to the
+  { -- | The JSON output data of the state. Length constraints apply to the
     -- payload size, and are expressed as bytes in UTF-8 encoding.
     output :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | Contains details about the output of an execution history event.
+    outputDetails :: Prelude.Maybe HistoryEventExecutionDataDetails,
     -- | The name of the state.
     --
     -- A name must /not/ contain:
@@ -62,10 +62,10 @@ data StateExitedEventDetails = StateExitedEventDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'outputDetails', 'stateExitedEventDetails_outputDetails' - Contains details about the output of an execution history event.
---
 -- 'output', 'stateExitedEventDetails_output' - The JSON output data of the state. Length constraints apply to the
 -- payload size, and are expressed as bytes in UTF-8 encoding.
+--
+-- 'outputDetails', 'stateExitedEventDetails_outputDetails' - Contains details about the output of an execution history event.
 --
 -- 'name', 'stateExitedEventDetails_name' - The name of the state.
 --
@@ -89,20 +89,19 @@ newStateExitedEventDetails ::
   StateExitedEventDetails
 newStateExitedEventDetails pName_ =
   StateExitedEventDetails'
-    { outputDetails =
-        Prelude.Nothing,
-      output = Prelude.Nothing,
+    { output = Prelude.Nothing,
+      outputDetails = Prelude.Nothing,
       name = pName_
     }
-
--- | Contains details about the output of an execution history event.
-stateExitedEventDetails_outputDetails :: Lens.Lens' StateExitedEventDetails (Prelude.Maybe HistoryEventExecutionDataDetails)
-stateExitedEventDetails_outputDetails = Lens.lens (\StateExitedEventDetails' {outputDetails} -> outputDetails) (\s@StateExitedEventDetails' {} a -> s {outputDetails = a} :: StateExitedEventDetails)
 
 -- | The JSON output data of the state. Length constraints apply to the
 -- payload size, and are expressed as bytes in UTF-8 encoding.
 stateExitedEventDetails_output :: Lens.Lens' StateExitedEventDetails (Prelude.Maybe Prelude.Text)
 stateExitedEventDetails_output = Lens.lens (\StateExitedEventDetails' {output} -> output) (\s@StateExitedEventDetails' {} a -> s {output = a} :: StateExitedEventDetails) Prelude.. Lens.mapping Data._Sensitive
+
+-- | Contains details about the output of an execution history event.
+stateExitedEventDetails_outputDetails :: Lens.Lens' StateExitedEventDetails (Prelude.Maybe HistoryEventExecutionDataDetails)
+stateExitedEventDetails_outputDetails = Lens.lens (\StateExitedEventDetails' {outputDetails} -> outputDetails) (\s@StateExitedEventDetails' {} a -> s {outputDetails = a} :: StateExitedEventDetails)
 
 -- | The name of the state.
 --
@@ -129,19 +128,19 @@ instance Data.FromJSON StateExitedEventDetails where
       "StateExitedEventDetails"
       ( \x ->
           StateExitedEventDetails'
-            Prelude.<$> (x Data..:? "outputDetails")
-            Prelude.<*> (x Data..:? "output")
+            Prelude.<$> (x Data..:? "output")
+            Prelude.<*> (x Data..:? "outputDetails")
             Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable StateExitedEventDetails where
   hashWithSalt _salt StateExitedEventDetails' {..} =
-    _salt `Prelude.hashWithSalt` outputDetails
-      `Prelude.hashWithSalt` output
+    _salt `Prelude.hashWithSalt` output
+      `Prelude.hashWithSalt` outputDetails
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData StateExitedEventDetails where
   rnf StateExitedEventDetails' {..} =
-    Prelude.rnf outputDetails
-      `Prelude.seq` Prelude.rnf output
+    Prelude.rnf output
+      `Prelude.seq` Prelude.rnf outputDetails
       `Prelude.seq` Prelude.rnf name

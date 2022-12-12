@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newKinesisStreamingDestinationOutput' smart constructor.
 data KinesisStreamingDestinationOutput = KinesisStreamingDestinationOutput'
-  { -- | The name of the table being modified.
-    tableName :: Prelude.Maybe Prelude.Text,
+  { -- | The current status of the replication.
+    destinationStatus :: Prelude.Maybe DestinationStatus,
     -- | The ARN for the specific Kinesis data stream.
     streamArn :: Prelude.Maybe Prelude.Text,
-    -- | The current status of the replication.
-    destinationStatus :: Prelude.Maybe DestinationStatus
+    -- | The name of the table being modified.
+    tableName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,32 +46,32 @@ data KinesisStreamingDestinationOutput = KinesisStreamingDestinationOutput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tableName', 'kinesisStreamingDestinationOutput_tableName' - The name of the table being modified.
+-- 'destinationStatus', 'kinesisStreamingDestinationOutput_destinationStatus' - The current status of the replication.
 --
 -- 'streamArn', 'kinesisStreamingDestinationOutput_streamArn' - The ARN for the specific Kinesis data stream.
 --
--- 'destinationStatus', 'kinesisStreamingDestinationOutput_destinationStatus' - The current status of the replication.
+-- 'tableName', 'kinesisStreamingDestinationOutput_tableName' - The name of the table being modified.
 newKinesisStreamingDestinationOutput ::
   KinesisStreamingDestinationOutput
 newKinesisStreamingDestinationOutput =
   KinesisStreamingDestinationOutput'
-    { tableName =
+    { destinationStatus =
         Prelude.Nothing,
       streamArn = Prelude.Nothing,
-      destinationStatus = Prelude.Nothing
+      tableName = Prelude.Nothing
     }
 
--- | The name of the table being modified.
-kinesisStreamingDestinationOutput_tableName :: Lens.Lens' KinesisStreamingDestinationOutput (Prelude.Maybe Prelude.Text)
-kinesisStreamingDestinationOutput_tableName = Lens.lens (\KinesisStreamingDestinationOutput' {tableName} -> tableName) (\s@KinesisStreamingDestinationOutput' {} a -> s {tableName = a} :: KinesisStreamingDestinationOutput)
+-- | The current status of the replication.
+kinesisStreamingDestinationOutput_destinationStatus :: Lens.Lens' KinesisStreamingDestinationOutput (Prelude.Maybe DestinationStatus)
+kinesisStreamingDestinationOutput_destinationStatus = Lens.lens (\KinesisStreamingDestinationOutput' {destinationStatus} -> destinationStatus) (\s@KinesisStreamingDestinationOutput' {} a -> s {destinationStatus = a} :: KinesisStreamingDestinationOutput)
 
 -- | The ARN for the specific Kinesis data stream.
 kinesisStreamingDestinationOutput_streamArn :: Lens.Lens' KinesisStreamingDestinationOutput (Prelude.Maybe Prelude.Text)
 kinesisStreamingDestinationOutput_streamArn = Lens.lens (\KinesisStreamingDestinationOutput' {streamArn} -> streamArn) (\s@KinesisStreamingDestinationOutput' {} a -> s {streamArn = a} :: KinesisStreamingDestinationOutput)
 
--- | The current status of the replication.
-kinesisStreamingDestinationOutput_destinationStatus :: Lens.Lens' KinesisStreamingDestinationOutput (Prelude.Maybe DestinationStatus)
-kinesisStreamingDestinationOutput_destinationStatus = Lens.lens (\KinesisStreamingDestinationOutput' {destinationStatus} -> destinationStatus) (\s@KinesisStreamingDestinationOutput' {} a -> s {destinationStatus = a} :: KinesisStreamingDestinationOutput)
+-- | The name of the table being modified.
+kinesisStreamingDestinationOutput_tableName :: Lens.Lens' KinesisStreamingDestinationOutput (Prelude.Maybe Prelude.Text)
+kinesisStreamingDestinationOutput_tableName = Lens.lens (\KinesisStreamingDestinationOutput' {tableName} -> tableName) (\s@KinesisStreamingDestinationOutput' {} a -> s {tableName = a} :: KinesisStreamingDestinationOutput)
 
 instance
   Data.FromJSON
@@ -82,9 +82,9 @@ instance
       "KinesisStreamingDestinationOutput"
       ( \x ->
           KinesisStreamingDestinationOutput'
-            Prelude.<$> (x Data..:? "TableName")
+            Prelude.<$> (x Data..:? "DestinationStatus")
             Prelude.<*> (x Data..:? "StreamArn")
-            Prelude.<*> (x Data..:? "DestinationStatus")
+            Prelude.<*> (x Data..:? "TableName")
       )
 
 instance
@@ -94,15 +94,15 @@ instance
   hashWithSalt
     _salt
     KinesisStreamingDestinationOutput' {..} =
-      _salt `Prelude.hashWithSalt` tableName
+      _salt `Prelude.hashWithSalt` destinationStatus
         `Prelude.hashWithSalt` streamArn
-        `Prelude.hashWithSalt` destinationStatus
+        `Prelude.hashWithSalt` tableName
 
 instance
   Prelude.NFData
     KinesisStreamingDestinationOutput
   where
   rnf KinesisStreamingDestinationOutput' {..} =
-    Prelude.rnf tableName
+    Prelude.rnf destinationStatus
       `Prelude.seq` Prelude.rnf streamArn
-      `Prelude.seq` Prelude.rnf destinationStatus
+      `Prelude.seq` Prelude.rnf tableName

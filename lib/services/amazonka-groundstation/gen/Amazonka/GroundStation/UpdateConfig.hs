@@ -40,9 +40,9 @@ module Amazonka.GroundStation.UpdateConfig
     newConfigIdResponse,
 
     -- * Response Lenses
+    configIdResponse_configArn,
     configIdResponse_configId,
     configIdResponse_configType,
-    configIdResponse_configArn,
   )
 where
 

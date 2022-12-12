@@ -28,9 +28,9 @@ module Amazonka.Neptune.CreateDBClusterEndpoint
     newCreateDBClusterEndpoint,
 
     -- * Request Lenses
-    createDBClusterEndpoint_tags,
-    createDBClusterEndpoint_staticMembers,
     createDBClusterEndpoint_excludedMembers,
+    createDBClusterEndpoint_staticMembers,
+    createDBClusterEndpoint_tags,
     createDBClusterEndpoint_dbClusterIdentifier,
     createDBClusterEndpoint_dbClusterEndpointIdentifier,
     createDBClusterEndpoint_endpointType,
@@ -40,16 +40,16 @@ module Amazonka.Neptune.CreateDBClusterEndpoint
     newCreateDBClusterEndpointResponse,
 
     -- * Response Lenses
-    createDBClusterEndpointResponse_dbClusterEndpointResourceIdentifier,
-    createDBClusterEndpointResponse_staticMembers,
-    createDBClusterEndpointResponse_dbClusterIdentifier,
-    createDBClusterEndpointResponse_excludedMembers,
     createDBClusterEndpointResponse_customEndpointType,
-    createDBClusterEndpointResponse_status,
-    createDBClusterEndpointResponse_endpointType,
-    createDBClusterEndpointResponse_dbClusterEndpointIdentifier,
     createDBClusterEndpointResponse_dbClusterEndpointArn,
+    createDBClusterEndpointResponse_dbClusterEndpointIdentifier,
+    createDBClusterEndpointResponse_dbClusterEndpointResourceIdentifier,
+    createDBClusterEndpointResponse_dbClusterIdentifier,
     createDBClusterEndpointResponse_endpoint,
+    createDBClusterEndpointResponse_endpointType,
+    createDBClusterEndpointResponse_excludedMembers,
+    createDBClusterEndpointResponse_staticMembers,
+    createDBClusterEndpointResponse_status,
     createDBClusterEndpointResponse_httpStatus,
   )
 where
@@ -64,15 +64,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDBClusterEndpoint' smart constructor.
 data CreateDBClusterEndpoint = CreateDBClusterEndpoint'
-  { -- | The tags to be assigned to the Amazon Neptune resource.
-    tags :: Prelude.Maybe [Tag],
-    -- | List of DB instance identifiers that are part of the custom endpoint
-    -- group.
-    staticMembers :: Prelude.Maybe [Prelude.Text],
-    -- | List of DB instance identifiers that aren\'t part of the custom endpoint
+  { -- | List of DB instance identifiers that aren\'t part of the custom endpoint
     -- group. All other eligible instances are reachable through the custom
     -- endpoint. Only relevant if the list of static members is empty.
     excludedMembers :: Prelude.Maybe [Prelude.Text],
+    -- | List of DB instance identifiers that are part of the custom endpoint
+    -- group.
+    staticMembers :: Prelude.Maybe [Prelude.Text],
+    -- | The tags to be assigned to the Amazon Neptune resource.
+    tags :: Prelude.Maybe [Tag],
     -- | The DB cluster identifier of the DB cluster associated with the
     -- endpoint. This parameter is stored as a lowercase string.
     dbClusterIdentifier :: Prelude.Text,
@@ -92,14 +92,14 @@ data CreateDBClusterEndpoint = CreateDBClusterEndpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createDBClusterEndpoint_tags' - The tags to be assigned to the Amazon Neptune resource.
+-- 'excludedMembers', 'createDBClusterEndpoint_excludedMembers' - List of DB instance identifiers that aren\'t part of the custom endpoint
+-- group. All other eligible instances are reachable through the custom
+-- endpoint. Only relevant if the list of static members is empty.
 --
 -- 'staticMembers', 'createDBClusterEndpoint_staticMembers' - List of DB instance identifiers that are part of the custom endpoint
 -- group.
 --
--- 'excludedMembers', 'createDBClusterEndpoint_excludedMembers' - List of DB instance identifiers that aren\'t part of the custom endpoint
--- group. All other eligible instances are reachable through the custom
--- endpoint. Only relevant if the list of static members is empty.
+-- 'tags', 'createDBClusterEndpoint_tags' - The tags to be assigned to the Amazon Neptune resource.
 --
 -- 'dbClusterIdentifier', 'createDBClusterEndpoint_dbClusterIdentifier' - The DB cluster identifier of the DB cluster associated with the
 -- endpoint. This parameter is stored as a lowercase string.
@@ -121,29 +121,30 @@ newCreateDBClusterEndpoint
   pDBClusterEndpointIdentifier_
   pEndpointType_ =
     CreateDBClusterEndpoint'
-      { tags = Prelude.Nothing,
+      { excludedMembers =
+          Prelude.Nothing,
         staticMembers = Prelude.Nothing,
-        excludedMembers = Prelude.Nothing,
+        tags = Prelude.Nothing,
         dbClusterIdentifier = pDBClusterIdentifier_,
         dbClusterEndpointIdentifier =
           pDBClusterEndpointIdentifier_,
         endpointType = pEndpointType_
       }
 
--- | The tags to be assigned to the Amazon Neptune resource.
-createDBClusterEndpoint_tags :: Lens.Lens' CreateDBClusterEndpoint (Prelude.Maybe [Tag])
-createDBClusterEndpoint_tags = Lens.lens (\CreateDBClusterEndpoint' {tags} -> tags) (\s@CreateDBClusterEndpoint' {} a -> s {tags = a} :: CreateDBClusterEndpoint) Prelude.. Lens.mapping Lens.coerced
+-- | List of DB instance identifiers that aren\'t part of the custom endpoint
+-- group. All other eligible instances are reachable through the custom
+-- endpoint. Only relevant if the list of static members is empty.
+createDBClusterEndpoint_excludedMembers :: Lens.Lens' CreateDBClusterEndpoint (Prelude.Maybe [Prelude.Text])
+createDBClusterEndpoint_excludedMembers = Lens.lens (\CreateDBClusterEndpoint' {excludedMembers} -> excludedMembers) (\s@CreateDBClusterEndpoint' {} a -> s {excludedMembers = a} :: CreateDBClusterEndpoint) Prelude.. Lens.mapping Lens.coerced
 
 -- | List of DB instance identifiers that are part of the custom endpoint
 -- group.
 createDBClusterEndpoint_staticMembers :: Lens.Lens' CreateDBClusterEndpoint (Prelude.Maybe [Prelude.Text])
 createDBClusterEndpoint_staticMembers = Lens.lens (\CreateDBClusterEndpoint' {staticMembers} -> staticMembers) (\s@CreateDBClusterEndpoint' {} a -> s {staticMembers = a} :: CreateDBClusterEndpoint) Prelude.. Lens.mapping Lens.coerced
 
--- | List of DB instance identifiers that aren\'t part of the custom endpoint
--- group. All other eligible instances are reachable through the custom
--- endpoint. Only relevant if the list of static members is empty.
-createDBClusterEndpoint_excludedMembers :: Lens.Lens' CreateDBClusterEndpoint (Prelude.Maybe [Prelude.Text])
-createDBClusterEndpoint_excludedMembers = Lens.lens (\CreateDBClusterEndpoint' {excludedMembers} -> excludedMembers) (\s@CreateDBClusterEndpoint' {} a -> s {excludedMembers = a} :: CreateDBClusterEndpoint) Prelude.. Lens.mapping Lens.coerced
+-- | The tags to be assigned to the Amazon Neptune resource.
+createDBClusterEndpoint_tags :: Lens.Lens' CreateDBClusterEndpoint (Prelude.Maybe [Tag])
+createDBClusterEndpoint_tags = Lens.lens (\CreateDBClusterEndpoint' {tags} -> tags) (\s@CreateDBClusterEndpoint' {} a -> s {tags = a} :: CreateDBClusterEndpoint) Prelude.. Lens.mapping Lens.coerced
 
 -- | The DB cluster identifier of the DB cluster associated with the
 -- endpoint. This parameter is stored as a lowercase string.
@@ -170,37 +171,37 @@ instance Core.AWSRequest CreateDBClusterEndpoint where
       "CreateDBClusterEndpointResult"
       ( \s h x ->
           CreateDBClusterEndpointResponse'
-            Prelude.<$> (x Data..@? "DBClusterEndpointResourceIdentifier")
-            Prelude.<*> ( x Data..@? "StaticMembers" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Data.parseXMLList "member")
-                        )
+            Prelude.<$> (x Data..@? "CustomEndpointType")
+            Prelude.<*> (x Data..@? "DBClusterEndpointArn")
+            Prelude.<*> (x Data..@? "DBClusterEndpointIdentifier")
+            Prelude.<*> (x Data..@? "DBClusterEndpointResourceIdentifier")
             Prelude.<*> (x Data..@? "DBClusterIdentifier")
+            Prelude.<*> (x Data..@? "Endpoint")
+            Prelude.<*> (x Data..@? "EndpointType")
             Prelude.<*> ( x Data..@? "ExcludedMembers" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> (x Data..@? "CustomEndpointType")
+            Prelude.<*> ( x Data..@? "StaticMembers" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
+                        )
             Prelude.<*> (x Data..@? "Status")
-            Prelude.<*> (x Data..@? "EndpointType")
-            Prelude.<*> (x Data..@? "DBClusterEndpointIdentifier")
-            Prelude.<*> (x Data..@? "DBClusterEndpointArn")
-            Prelude.<*> (x Data..@? "Endpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateDBClusterEndpoint where
   hashWithSalt _salt CreateDBClusterEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` excludedMembers
       `Prelude.hashWithSalt` staticMembers
-      `Prelude.hashWithSalt` excludedMembers
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` dbClusterIdentifier
       `Prelude.hashWithSalt` dbClusterEndpointIdentifier
       `Prelude.hashWithSalt` endpointType
 
 instance Prelude.NFData CreateDBClusterEndpoint where
   rnf CreateDBClusterEndpoint' {..} =
-    Prelude.rnf tags
+    Prelude.rnf excludedMembers
       `Prelude.seq` Prelude.rnf staticMembers
-      `Prelude.seq` Prelude.rnf excludedMembers
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf dbClusterIdentifier
       `Prelude.seq` Prelude.rnf dbClusterEndpointIdentifier
       `Prelude.seq` Prelude.rnf endpointType
@@ -218,19 +219,19 @@ instance Data.ToQuery CreateDBClusterEndpoint where
           Data.=: ("CreateDBClusterEndpoint" :: Prelude.ByteString),
         "Version"
           Data.=: ("2014-10-31" :: Prelude.ByteString),
-        "Tags"
-          Data.=: Data.toQuery
-            (Data.toQueryList "Tag" Prelude.<$> tags),
-        "StaticMembers"
-          Data.=: Data.toQuery
-            ( Data.toQueryList "member"
-                Prelude.<$> staticMembers
-            ),
         "ExcludedMembers"
           Data.=: Data.toQuery
             ( Data.toQueryList "member"
                 Prelude.<$> excludedMembers
             ),
+        "StaticMembers"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
+                Prelude.<$> staticMembers
+            ),
+        "Tags"
+          Data.=: Data.toQuery
+            (Data.toQueryList "Tag" Prelude.<$> tags),
         "DBClusterIdentifier" Data.=: dbClusterIdentifier,
         "DBClusterEndpointIdentifier"
           Data.=: dbClusterEndpointIdentifier,
@@ -254,37 +255,37 @@ instance Data.ToQuery CreateDBClusterEndpoint where
 --
 -- /See:/ 'newCreateDBClusterEndpointResponse' smart constructor.
 data CreateDBClusterEndpointResponse = CreateDBClusterEndpointResponse'
-  { -- | A unique system-generated identifier for an endpoint. It remains the
+  { -- | The type associated with a custom endpoint. One of: @READER@, @WRITER@,
+    -- @ANY@.
+    customEndpointType :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) for the endpoint.
+    dbClusterEndpointArn :: Prelude.Maybe Prelude.Text,
+    -- | The identifier associated with the endpoint. This parameter is stored as
+    -- a lowercase string.
+    dbClusterEndpointIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | A unique system-generated identifier for an endpoint. It remains the
     -- same for the whole life of the endpoint.
     dbClusterEndpointResourceIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | List of DB instance identifiers that are part of the custom endpoint
-    -- group.
-    staticMembers :: Prelude.Maybe [Prelude.Text],
     -- | The DB cluster identifier of the DB cluster associated with the
     -- endpoint. This parameter is stored as a lowercase string.
     dbClusterIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The DNS address of the endpoint.
+    endpoint :: Prelude.Maybe Prelude.Text,
+    -- | The type of the endpoint. One of: @READER@, @WRITER@, @CUSTOM@.
+    endpointType :: Prelude.Maybe Prelude.Text,
     -- | List of DB instance identifiers that aren\'t part of the custom endpoint
     -- group. All other eligible instances are reachable through the custom
     -- endpoint. Only relevant if the list of static members is empty.
     excludedMembers :: Prelude.Maybe [Prelude.Text],
-    -- | The type associated with a custom endpoint. One of: @READER@, @WRITER@,
-    -- @ANY@.
-    customEndpointType :: Prelude.Maybe Prelude.Text,
+    -- | List of DB instance identifiers that are part of the custom endpoint
+    -- group.
+    staticMembers :: Prelude.Maybe [Prelude.Text],
     -- | The current status of the endpoint. One of: @creating@, @available@,
     -- @deleting@, @inactive@, @modifying@. The @inactive@ state applies to an
     -- endpoint that cannot be used for a certain kind of cluster, such as a
     -- @writer@ endpoint for a read-only secondary cluster in a global
     -- database.
     status :: Prelude.Maybe Prelude.Text,
-    -- | The type of the endpoint. One of: @READER@, @WRITER@, @CUSTOM@.
-    endpointType :: Prelude.Maybe Prelude.Text,
-    -- | The identifier associated with the endpoint. This parameter is stored as
-    -- a lowercase string.
-    dbClusterEndpointIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for the endpoint.
-    dbClusterEndpointArn :: Prelude.Maybe Prelude.Text,
-    -- | The DNS address of the endpoint.
-    endpoint :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -298,36 +299,36 @@ data CreateDBClusterEndpointResponse = CreateDBClusterEndpointResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'customEndpointType', 'createDBClusterEndpointResponse_customEndpointType' - The type associated with a custom endpoint. One of: @READER@, @WRITER@,
+-- @ANY@.
+--
+-- 'dbClusterEndpointArn', 'createDBClusterEndpointResponse_dbClusterEndpointArn' - The Amazon Resource Name (ARN) for the endpoint.
+--
+-- 'dbClusterEndpointIdentifier', 'createDBClusterEndpointResponse_dbClusterEndpointIdentifier' - The identifier associated with the endpoint. This parameter is stored as
+-- a lowercase string.
+--
 -- 'dbClusterEndpointResourceIdentifier', 'createDBClusterEndpointResponse_dbClusterEndpointResourceIdentifier' - A unique system-generated identifier for an endpoint. It remains the
 -- same for the whole life of the endpoint.
 --
--- 'staticMembers', 'createDBClusterEndpointResponse_staticMembers' - List of DB instance identifiers that are part of the custom endpoint
--- group.
---
 -- 'dbClusterIdentifier', 'createDBClusterEndpointResponse_dbClusterIdentifier' - The DB cluster identifier of the DB cluster associated with the
 -- endpoint. This parameter is stored as a lowercase string.
+--
+-- 'endpoint', 'createDBClusterEndpointResponse_endpoint' - The DNS address of the endpoint.
+--
+-- 'endpointType', 'createDBClusterEndpointResponse_endpointType' - The type of the endpoint. One of: @READER@, @WRITER@, @CUSTOM@.
 --
 -- 'excludedMembers', 'createDBClusterEndpointResponse_excludedMembers' - List of DB instance identifiers that aren\'t part of the custom endpoint
 -- group. All other eligible instances are reachable through the custom
 -- endpoint. Only relevant if the list of static members is empty.
 --
--- 'customEndpointType', 'createDBClusterEndpointResponse_customEndpointType' - The type associated with a custom endpoint. One of: @READER@, @WRITER@,
--- @ANY@.
+-- 'staticMembers', 'createDBClusterEndpointResponse_staticMembers' - List of DB instance identifiers that are part of the custom endpoint
+-- group.
 --
 -- 'status', 'createDBClusterEndpointResponse_status' - The current status of the endpoint. One of: @creating@, @available@,
 -- @deleting@, @inactive@, @modifying@. The @inactive@ state applies to an
 -- endpoint that cannot be used for a certain kind of cluster, such as a
 -- @writer@ endpoint for a read-only secondary cluster in a global
 -- database.
---
--- 'endpointType', 'createDBClusterEndpointResponse_endpointType' - The type of the endpoint. One of: @READER@, @WRITER@, @CUSTOM@.
---
--- 'dbClusterEndpointIdentifier', 'createDBClusterEndpointResponse_dbClusterEndpointIdentifier' - The identifier associated with the endpoint. This parameter is stored as
--- a lowercase string.
---
--- 'dbClusterEndpointArn', 'createDBClusterEndpointResponse_dbClusterEndpointArn' - The Amazon Resource Name (ARN) for the endpoint.
---
--- 'endpoint', 'createDBClusterEndpointResponse_endpoint' - The DNS address of the endpoint.
 --
 -- 'httpStatus', 'createDBClusterEndpointResponse_httpStatus' - The response's http status code.
 newCreateDBClusterEndpointResponse ::
@@ -336,35 +337,53 @@ newCreateDBClusterEndpointResponse ::
   CreateDBClusterEndpointResponse
 newCreateDBClusterEndpointResponse pHttpStatus_ =
   CreateDBClusterEndpointResponse'
-    { dbClusterEndpointResourceIdentifier =
-        Prelude.Nothing,
-      staticMembers = Prelude.Nothing,
-      dbClusterIdentifier = Prelude.Nothing,
-      excludedMembers = Prelude.Nothing,
-      customEndpointType = Prelude.Nothing,
-      status = Prelude.Nothing,
-      endpointType = Prelude.Nothing,
-      dbClusterEndpointIdentifier =
+    { customEndpointType =
         Prelude.Nothing,
       dbClusterEndpointArn = Prelude.Nothing,
+      dbClusterEndpointIdentifier =
+        Prelude.Nothing,
+      dbClusterEndpointResourceIdentifier =
+        Prelude.Nothing,
+      dbClusterIdentifier = Prelude.Nothing,
       endpoint = Prelude.Nothing,
+      endpointType = Prelude.Nothing,
+      excludedMembers = Prelude.Nothing,
+      staticMembers = Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The type associated with a custom endpoint. One of: @READER@, @WRITER@,
+-- @ANY@.
+createDBClusterEndpointResponse_customEndpointType :: Lens.Lens' CreateDBClusterEndpointResponse (Prelude.Maybe Prelude.Text)
+createDBClusterEndpointResponse_customEndpointType = Lens.lens (\CreateDBClusterEndpointResponse' {customEndpointType} -> customEndpointType) (\s@CreateDBClusterEndpointResponse' {} a -> s {customEndpointType = a} :: CreateDBClusterEndpointResponse)
+
+-- | The Amazon Resource Name (ARN) for the endpoint.
+createDBClusterEndpointResponse_dbClusterEndpointArn :: Lens.Lens' CreateDBClusterEndpointResponse (Prelude.Maybe Prelude.Text)
+createDBClusterEndpointResponse_dbClusterEndpointArn = Lens.lens (\CreateDBClusterEndpointResponse' {dbClusterEndpointArn} -> dbClusterEndpointArn) (\s@CreateDBClusterEndpointResponse' {} a -> s {dbClusterEndpointArn = a} :: CreateDBClusterEndpointResponse)
+
+-- | The identifier associated with the endpoint. This parameter is stored as
+-- a lowercase string.
+createDBClusterEndpointResponse_dbClusterEndpointIdentifier :: Lens.Lens' CreateDBClusterEndpointResponse (Prelude.Maybe Prelude.Text)
+createDBClusterEndpointResponse_dbClusterEndpointIdentifier = Lens.lens (\CreateDBClusterEndpointResponse' {dbClusterEndpointIdentifier} -> dbClusterEndpointIdentifier) (\s@CreateDBClusterEndpointResponse' {} a -> s {dbClusterEndpointIdentifier = a} :: CreateDBClusterEndpointResponse)
 
 -- | A unique system-generated identifier for an endpoint. It remains the
 -- same for the whole life of the endpoint.
 createDBClusterEndpointResponse_dbClusterEndpointResourceIdentifier :: Lens.Lens' CreateDBClusterEndpointResponse (Prelude.Maybe Prelude.Text)
 createDBClusterEndpointResponse_dbClusterEndpointResourceIdentifier = Lens.lens (\CreateDBClusterEndpointResponse' {dbClusterEndpointResourceIdentifier} -> dbClusterEndpointResourceIdentifier) (\s@CreateDBClusterEndpointResponse' {} a -> s {dbClusterEndpointResourceIdentifier = a} :: CreateDBClusterEndpointResponse)
 
--- | List of DB instance identifiers that are part of the custom endpoint
--- group.
-createDBClusterEndpointResponse_staticMembers :: Lens.Lens' CreateDBClusterEndpointResponse (Prelude.Maybe [Prelude.Text])
-createDBClusterEndpointResponse_staticMembers = Lens.lens (\CreateDBClusterEndpointResponse' {staticMembers} -> staticMembers) (\s@CreateDBClusterEndpointResponse' {} a -> s {staticMembers = a} :: CreateDBClusterEndpointResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The DB cluster identifier of the DB cluster associated with the
 -- endpoint. This parameter is stored as a lowercase string.
 createDBClusterEndpointResponse_dbClusterIdentifier :: Lens.Lens' CreateDBClusterEndpointResponse (Prelude.Maybe Prelude.Text)
 createDBClusterEndpointResponse_dbClusterIdentifier = Lens.lens (\CreateDBClusterEndpointResponse' {dbClusterIdentifier} -> dbClusterIdentifier) (\s@CreateDBClusterEndpointResponse' {} a -> s {dbClusterIdentifier = a} :: CreateDBClusterEndpointResponse)
+
+-- | The DNS address of the endpoint.
+createDBClusterEndpointResponse_endpoint :: Lens.Lens' CreateDBClusterEndpointResponse (Prelude.Maybe Prelude.Text)
+createDBClusterEndpointResponse_endpoint = Lens.lens (\CreateDBClusterEndpointResponse' {endpoint} -> endpoint) (\s@CreateDBClusterEndpointResponse' {} a -> s {endpoint = a} :: CreateDBClusterEndpointResponse)
+
+-- | The type of the endpoint. One of: @READER@, @WRITER@, @CUSTOM@.
+createDBClusterEndpointResponse_endpointType :: Lens.Lens' CreateDBClusterEndpointResponse (Prelude.Maybe Prelude.Text)
+createDBClusterEndpointResponse_endpointType = Lens.lens (\CreateDBClusterEndpointResponse' {endpointType} -> endpointType) (\s@CreateDBClusterEndpointResponse' {} a -> s {endpointType = a} :: CreateDBClusterEndpointResponse)
 
 -- | List of DB instance identifiers that aren\'t part of the custom endpoint
 -- group. All other eligible instances are reachable through the custom
@@ -372,10 +391,10 @@ createDBClusterEndpointResponse_dbClusterIdentifier = Lens.lens (\CreateDBCluste
 createDBClusterEndpointResponse_excludedMembers :: Lens.Lens' CreateDBClusterEndpointResponse (Prelude.Maybe [Prelude.Text])
 createDBClusterEndpointResponse_excludedMembers = Lens.lens (\CreateDBClusterEndpointResponse' {excludedMembers} -> excludedMembers) (\s@CreateDBClusterEndpointResponse' {} a -> s {excludedMembers = a} :: CreateDBClusterEndpointResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The type associated with a custom endpoint. One of: @READER@, @WRITER@,
--- @ANY@.
-createDBClusterEndpointResponse_customEndpointType :: Lens.Lens' CreateDBClusterEndpointResponse (Prelude.Maybe Prelude.Text)
-createDBClusterEndpointResponse_customEndpointType = Lens.lens (\CreateDBClusterEndpointResponse' {customEndpointType} -> customEndpointType) (\s@CreateDBClusterEndpointResponse' {} a -> s {customEndpointType = a} :: CreateDBClusterEndpointResponse)
+-- | List of DB instance identifiers that are part of the custom endpoint
+-- group.
+createDBClusterEndpointResponse_staticMembers :: Lens.Lens' CreateDBClusterEndpointResponse (Prelude.Maybe [Prelude.Text])
+createDBClusterEndpointResponse_staticMembers = Lens.lens (\CreateDBClusterEndpointResponse' {staticMembers} -> staticMembers) (\s@CreateDBClusterEndpointResponse' {} a -> s {staticMembers = a} :: CreateDBClusterEndpointResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The current status of the endpoint. One of: @creating@, @available@,
 -- @deleting@, @inactive@, @modifying@. The @inactive@ state applies to an
@@ -384,23 +403,6 @@ createDBClusterEndpointResponse_customEndpointType = Lens.lens (\CreateDBCluster
 -- database.
 createDBClusterEndpointResponse_status :: Lens.Lens' CreateDBClusterEndpointResponse (Prelude.Maybe Prelude.Text)
 createDBClusterEndpointResponse_status = Lens.lens (\CreateDBClusterEndpointResponse' {status} -> status) (\s@CreateDBClusterEndpointResponse' {} a -> s {status = a} :: CreateDBClusterEndpointResponse)
-
--- | The type of the endpoint. One of: @READER@, @WRITER@, @CUSTOM@.
-createDBClusterEndpointResponse_endpointType :: Lens.Lens' CreateDBClusterEndpointResponse (Prelude.Maybe Prelude.Text)
-createDBClusterEndpointResponse_endpointType = Lens.lens (\CreateDBClusterEndpointResponse' {endpointType} -> endpointType) (\s@CreateDBClusterEndpointResponse' {} a -> s {endpointType = a} :: CreateDBClusterEndpointResponse)
-
--- | The identifier associated with the endpoint. This parameter is stored as
--- a lowercase string.
-createDBClusterEndpointResponse_dbClusterEndpointIdentifier :: Lens.Lens' CreateDBClusterEndpointResponse (Prelude.Maybe Prelude.Text)
-createDBClusterEndpointResponse_dbClusterEndpointIdentifier = Lens.lens (\CreateDBClusterEndpointResponse' {dbClusterEndpointIdentifier} -> dbClusterEndpointIdentifier) (\s@CreateDBClusterEndpointResponse' {} a -> s {dbClusterEndpointIdentifier = a} :: CreateDBClusterEndpointResponse)
-
--- | The Amazon Resource Name (ARN) for the endpoint.
-createDBClusterEndpointResponse_dbClusterEndpointArn :: Lens.Lens' CreateDBClusterEndpointResponse (Prelude.Maybe Prelude.Text)
-createDBClusterEndpointResponse_dbClusterEndpointArn = Lens.lens (\CreateDBClusterEndpointResponse' {dbClusterEndpointArn} -> dbClusterEndpointArn) (\s@CreateDBClusterEndpointResponse' {} a -> s {dbClusterEndpointArn = a} :: CreateDBClusterEndpointResponse)
-
--- | The DNS address of the endpoint.
-createDBClusterEndpointResponse_endpoint :: Lens.Lens' CreateDBClusterEndpointResponse (Prelude.Maybe Prelude.Text)
-createDBClusterEndpointResponse_endpoint = Lens.lens (\CreateDBClusterEndpointResponse' {endpoint} -> endpoint) (\s@CreateDBClusterEndpointResponse' {} a -> s {endpoint = a} :: CreateDBClusterEndpointResponse)
 
 -- | The response's http status code.
 createDBClusterEndpointResponse_httpStatus :: Lens.Lens' CreateDBClusterEndpointResponse Prelude.Int
@@ -411,14 +413,14 @@ instance
     CreateDBClusterEndpointResponse
   where
   rnf CreateDBClusterEndpointResponse' {..} =
-    Prelude.rnf dbClusterEndpointResourceIdentifier
-      `Prelude.seq` Prelude.rnf staticMembers
-      `Prelude.seq` Prelude.rnf dbClusterIdentifier
-      `Prelude.seq` Prelude.rnf excludedMembers
-      `Prelude.seq` Prelude.rnf customEndpointType
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf endpointType
-      `Prelude.seq` Prelude.rnf dbClusterEndpointIdentifier
+    Prelude.rnf customEndpointType
       `Prelude.seq` Prelude.rnf dbClusterEndpointArn
+      `Prelude.seq` Prelude.rnf dbClusterEndpointIdentifier
+      `Prelude.seq` Prelude.rnf dbClusterEndpointResourceIdentifier
+      `Prelude.seq` Prelude.rnf dbClusterIdentifier
       `Prelude.seq` Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf endpointType
+      `Prelude.seq` Prelude.rnf excludedMembers
+      `Prelude.seq` Prelude.rnf staticMembers
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

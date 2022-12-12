@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDataConnector' smart constructor.
 data DataConnector = DataConnector'
-  { -- | The Lambda function associated with this data connector.
-    lambda :: Prelude.Maybe LambdaFunction,
-    -- | A Boolean value that specifies whether the data connector is native to
+  { -- | A Boolean value that specifies whether the data connector is native to
     -- IoT TwinMaker.
-    isNative :: Prelude.Maybe Prelude.Bool
+    isNative :: Prelude.Maybe Prelude.Bool,
+    -- | The Lambda function associated with this data connector.
+    lambda :: Prelude.Maybe LambdaFunction
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,26 +45,26 @@ data DataConnector = DataConnector'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lambda', 'dataConnector_lambda' - The Lambda function associated with this data connector.
---
 -- 'isNative', 'dataConnector_isNative' - A Boolean value that specifies whether the data connector is native to
 -- IoT TwinMaker.
+--
+-- 'lambda', 'dataConnector_lambda' - The Lambda function associated with this data connector.
 newDataConnector ::
   DataConnector
 newDataConnector =
   DataConnector'
-    { lambda = Prelude.Nothing,
-      isNative = Prelude.Nothing
+    { isNative = Prelude.Nothing,
+      lambda = Prelude.Nothing
     }
-
--- | The Lambda function associated with this data connector.
-dataConnector_lambda :: Lens.Lens' DataConnector (Prelude.Maybe LambdaFunction)
-dataConnector_lambda = Lens.lens (\DataConnector' {lambda} -> lambda) (\s@DataConnector' {} a -> s {lambda = a} :: DataConnector)
 
 -- | A Boolean value that specifies whether the data connector is native to
 -- IoT TwinMaker.
 dataConnector_isNative :: Lens.Lens' DataConnector (Prelude.Maybe Prelude.Bool)
 dataConnector_isNative = Lens.lens (\DataConnector' {isNative} -> isNative) (\s@DataConnector' {} a -> s {isNative = a} :: DataConnector)
+
+-- | The Lambda function associated with this data connector.
+dataConnector_lambda :: Lens.Lens' DataConnector (Prelude.Maybe LambdaFunction)
+dataConnector_lambda = Lens.lens (\DataConnector' {lambda} -> lambda) (\s@DataConnector' {} a -> s {lambda = a} :: DataConnector)
 
 instance Data.FromJSON DataConnector where
   parseJSON =
@@ -72,25 +72,25 @@ instance Data.FromJSON DataConnector where
       "DataConnector"
       ( \x ->
           DataConnector'
-            Prelude.<$> (x Data..:? "lambda")
-            Prelude.<*> (x Data..:? "isNative")
+            Prelude.<$> (x Data..:? "isNative")
+            Prelude.<*> (x Data..:? "lambda")
       )
 
 instance Prelude.Hashable DataConnector where
   hashWithSalt _salt DataConnector' {..} =
-    _salt `Prelude.hashWithSalt` lambda
-      `Prelude.hashWithSalt` isNative
+    _salt `Prelude.hashWithSalt` isNative
+      `Prelude.hashWithSalt` lambda
 
 instance Prelude.NFData DataConnector where
   rnf DataConnector' {..} =
-    Prelude.rnf lambda
-      `Prelude.seq` Prelude.rnf isNative
+    Prelude.rnf isNative
+      `Prelude.seq` Prelude.rnf lambda
 
 instance Data.ToJSON DataConnector where
   toJSON DataConnector' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("lambda" Data..=) Prelude.<$> lambda,
-            ("isNative" Data..=) Prelude.<$> isNative
+          [ ("isNative" Data..=) Prelude.<$> isNative,
+            ("lambda" Data..=) Prelude.<$> lambda
           ]
       )

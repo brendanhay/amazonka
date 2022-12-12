@@ -30,10 +30,10 @@ module Amazonka.EC2.GetTransitGatewayPrefixListReferences
     newGetTransitGatewayPrefixListReferences,
 
     -- * Request Lenses
-    getTransitGatewayPrefixListReferences_nextToken,
-    getTransitGatewayPrefixListReferences_filters,
     getTransitGatewayPrefixListReferences_dryRun,
+    getTransitGatewayPrefixListReferences_filters,
     getTransitGatewayPrefixListReferences_maxResults,
+    getTransitGatewayPrefixListReferences_nextToken,
     getTransitGatewayPrefixListReferences_transitGatewayRouteTableId,
 
     -- * Destructuring the Response
@@ -57,8 +57,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetTransitGatewayPrefixListReferences' smart constructor.
 data GetTransitGatewayPrefixListReferences = GetTransitGatewayPrefixListReferences'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | One or more filters. The possible values are:
     --
     -- -   @attachment.resource-id@ - The ID of the resource for the
@@ -81,15 +84,12 @@ data GetTransitGatewayPrefixListReferences = GetTransitGatewayPrefixListReferenc
     -- -   @state@ - The state of the prefix list reference (@pending@ |
     --     @available@ | @modifying@ | @deleting@).
     filters :: Prelude.Maybe [Filter],
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the transit gateway route table.
     transitGatewayRouteTableId :: Prelude.Text
   }
@@ -103,7 +103,10 @@ data GetTransitGatewayPrefixListReferences = GetTransitGatewayPrefixListReferenc
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getTransitGatewayPrefixListReferences_nextToken' - The token for the next page of results.
+-- 'dryRun', 'getTransitGatewayPrefixListReferences_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'filters', 'getTransitGatewayPrefixListReferences_filters' - One or more filters. The possible values are:
 --
@@ -127,14 +130,11 @@ data GetTransitGatewayPrefixListReferences = GetTransitGatewayPrefixListReferenc
 -- -   @state@ - The state of the prefix list reference (@pending@ |
 --     @available@ | @modifying@ | @deleting@).
 --
--- 'dryRun', 'getTransitGatewayPrefixListReferences_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'maxResults', 'getTransitGatewayPrefixListReferences_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
+--
+-- 'nextToken', 'getTransitGatewayPrefixListReferences_nextToken' - The token for the next page of results.
 --
 -- 'transitGatewayRouteTableId', 'getTransitGatewayPrefixListReferences_transitGatewayRouteTableId' - The ID of the transit gateway route table.
 newGetTransitGatewayPrefixListReferences ::
@@ -144,18 +144,21 @@ newGetTransitGatewayPrefixListReferences ::
 newGetTransitGatewayPrefixListReferences
   pTransitGatewayRouteTableId_ =
     GetTransitGatewayPrefixListReferences'
-      { nextToken =
+      { dryRun =
           Prelude.Nothing,
         filters = Prelude.Nothing,
-        dryRun = Prelude.Nothing,
         maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         transitGatewayRouteTableId =
           pTransitGatewayRouteTableId_
       }
 
--- | The token for the next page of results.
-getTransitGatewayPrefixListReferences_nextToken :: Lens.Lens' GetTransitGatewayPrefixListReferences (Prelude.Maybe Prelude.Text)
-getTransitGatewayPrefixListReferences_nextToken = Lens.lens (\GetTransitGatewayPrefixListReferences' {nextToken} -> nextToken) (\s@GetTransitGatewayPrefixListReferences' {} a -> s {nextToken = a} :: GetTransitGatewayPrefixListReferences)
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+getTransitGatewayPrefixListReferences_dryRun :: Lens.Lens' GetTransitGatewayPrefixListReferences (Prelude.Maybe Prelude.Bool)
+getTransitGatewayPrefixListReferences_dryRun = Lens.lens (\GetTransitGatewayPrefixListReferences' {dryRun} -> dryRun) (\s@GetTransitGatewayPrefixListReferences' {} a -> s {dryRun = a} :: GetTransitGatewayPrefixListReferences)
 
 -- | One or more filters. The possible values are:
 --
@@ -181,18 +184,15 @@ getTransitGatewayPrefixListReferences_nextToken = Lens.lens (\GetTransitGatewayP
 getTransitGatewayPrefixListReferences_filters :: Lens.Lens' GetTransitGatewayPrefixListReferences (Prelude.Maybe [Filter])
 getTransitGatewayPrefixListReferences_filters = Lens.lens (\GetTransitGatewayPrefixListReferences' {filters} -> filters) (\s@GetTransitGatewayPrefixListReferences' {} a -> s {filters = a} :: GetTransitGatewayPrefixListReferences) Prelude.. Lens.mapping Lens.coerced
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-getTransitGatewayPrefixListReferences_dryRun :: Lens.Lens' GetTransitGatewayPrefixListReferences (Prelude.Maybe Prelude.Bool)
-getTransitGatewayPrefixListReferences_dryRun = Lens.lens (\GetTransitGatewayPrefixListReferences' {dryRun} -> dryRun) (\s@GetTransitGatewayPrefixListReferences' {} a -> s {dryRun = a} :: GetTransitGatewayPrefixListReferences)
-
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
 getTransitGatewayPrefixListReferences_maxResults :: Lens.Lens' GetTransitGatewayPrefixListReferences (Prelude.Maybe Prelude.Natural)
 getTransitGatewayPrefixListReferences_maxResults = Lens.lens (\GetTransitGatewayPrefixListReferences' {maxResults} -> maxResults) (\s@GetTransitGatewayPrefixListReferences' {} a -> s {maxResults = a} :: GetTransitGatewayPrefixListReferences)
+
+-- | The token for the next page of results.
+getTransitGatewayPrefixListReferences_nextToken :: Lens.Lens' GetTransitGatewayPrefixListReferences (Prelude.Maybe Prelude.Text)
+getTransitGatewayPrefixListReferences_nextToken = Lens.lens (\GetTransitGatewayPrefixListReferences' {nextToken} -> nextToken) (\s@GetTransitGatewayPrefixListReferences' {} a -> s {nextToken = a} :: GetTransitGatewayPrefixListReferences)
 
 -- | The ID of the transit gateway route table.
 getTransitGatewayPrefixListReferences_transitGatewayRouteTableId :: Lens.Lens' GetTransitGatewayPrefixListReferences Prelude.Text
@@ -252,10 +252,10 @@ instance
   hashWithSalt
     _salt
     GetTransitGatewayPrefixListReferences' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
+      _salt `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` transitGatewayRouteTableId
 
 instance
@@ -263,10 +263,10 @@ instance
     GetTransitGatewayPrefixListReferences
   where
   rnf GetTransitGatewayPrefixListReferences' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf transitGatewayRouteTableId
 
 instance
@@ -293,11 +293,11 @@ instance
                   ),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
+        "DryRun" Data.=: dryRun,
         Data.toQuery
           (Data.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Data.=: dryRun,
         "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken,
         "TransitGatewayRouteTableId"
           Data.=: transitGatewayRouteTableId
       ]

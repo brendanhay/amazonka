@@ -30,14 +30,14 @@ import Amazonka.WellArchitected.Types.ChoiceStatus
 --
 -- /See:/ 'newChoiceAnswer' smart constructor.
 data ChoiceAnswer = ChoiceAnswer'
-  { -- | The status of a choice.
-    status :: Prelude.Maybe ChoiceStatus,
-    choiceId :: Prelude.Maybe Prelude.Text,
+  { choiceId :: Prelude.Maybe Prelude.Text,
+    -- | The notes associated with a choice.
+    notes :: Prelude.Maybe Prelude.Text,
     -- | The reason why a choice is non-applicable to a question in your
     -- workload.
     reason :: Prelude.Maybe ChoiceReason,
-    -- | The notes associated with a choice.
-    notes :: Prelude.Maybe Prelude.Text
+    -- | The status of a choice.
+    status :: Prelude.Maybe ChoiceStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,40 +49,40 @@ data ChoiceAnswer = ChoiceAnswer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'choiceAnswer_status' - The status of a choice.
---
 -- 'choiceId', 'choiceAnswer_choiceId' - Undocumented member.
+--
+-- 'notes', 'choiceAnswer_notes' - The notes associated with a choice.
 --
 -- 'reason', 'choiceAnswer_reason' - The reason why a choice is non-applicable to a question in your
 -- workload.
 --
--- 'notes', 'choiceAnswer_notes' - The notes associated with a choice.
+-- 'status', 'choiceAnswer_status' - The status of a choice.
 newChoiceAnswer ::
   ChoiceAnswer
 newChoiceAnswer =
   ChoiceAnswer'
-    { status = Prelude.Nothing,
-      choiceId = Prelude.Nothing,
+    { choiceId = Prelude.Nothing,
+      notes = Prelude.Nothing,
       reason = Prelude.Nothing,
-      notes = Prelude.Nothing
+      status = Prelude.Nothing
     }
-
--- | The status of a choice.
-choiceAnswer_status :: Lens.Lens' ChoiceAnswer (Prelude.Maybe ChoiceStatus)
-choiceAnswer_status = Lens.lens (\ChoiceAnswer' {status} -> status) (\s@ChoiceAnswer' {} a -> s {status = a} :: ChoiceAnswer)
 
 -- | Undocumented member.
 choiceAnswer_choiceId :: Lens.Lens' ChoiceAnswer (Prelude.Maybe Prelude.Text)
 choiceAnswer_choiceId = Lens.lens (\ChoiceAnswer' {choiceId} -> choiceId) (\s@ChoiceAnswer' {} a -> s {choiceId = a} :: ChoiceAnswer)
+
+-- | The notes associated with a choice.
+choiceAnswer_notes :: Lens.Lens' ChoiceAnswer (Prelude.Maybe Prelude.Text)
+choiceAnswer_notes = Lens.lens (\ChoiceAnswer' {notes} -> notes) (\s@ChoiceAnswer' {} a -> s {notes = a} :: ChoiceAnswer)
 
 -- | The reason why a choice is non-applicable to a question in your
 -- workload.
 choiceAnswer_reason :: Lens.Lens' ChoiceAnswer (Prelude.Maybe ChoiceReason)
 choiceAnswer_reason = Lens.lens (\ChoiceAnswer' {reason} -> reason) (\s@ChoiceAnswer' {} a -> s {reason = a} :: ChoiceAnswer)
 
--- | The notes associated with a choice.
-choiceAnswer_notes :: Lens.Lens' ChoiceAnswer (Prelude.Maybe Prelude.Text)
-choiceAnswer_notes = Lens.lens (\ChoiceAnswer' {notes} -> notes) (\s@ChoiceAnswer' {} a -> s {notes = a} :: ChoiceAnswer)
+-- | The status of a choice.
+choiceAnswer_status :: Lens.Lens' ChoiceAnswer (Prelude.Maybe ChoiceStatus)
+choiceAnswer_status = Lens.lens (\ChoiceAnswer' {status} -> status) (\s@ChoiceAnswer' {} a -> s {status = a} :: ChoiceAnswer)
 
 instance Data.FromJSON ChoiceAnswer where
   parseJSON =
@@ -90,22 +90,22 @@ instance Data.FromJSON ChoiceAnswer where
       "ChoiceAnswer"
       ( \x ->
           ChoiceAnswer'
-            Prelude.<$> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "ChoiceId")
-            Prelude.<*> (x Data..:? "Reason")
+            Prelude.<$> (x Data..:? "ChoiceId")
             Prelude.<*> (x Data..:? "Notes")
+            Prelude.<*> (x Data..:? "Reason")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable ChoiceAnswer where
   hashWithSalt _salt ChoiceAnswer' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` choiceId
-      `Prelude.hashWithSalt` reason
+    _salt `Prelude.hashWithSalt` choiceId
       `Prelude.hashWithSalt` notes
+      `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ChoiceAnswer where
   rnf ChoiceAnswer' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf choiceId
-      `Prelude.seq` Prelude.rnf reason
+    Prelude.rnf choiceId
       `Prelude.seq` Prelude.rnf notes
+      `Prelude.seq` Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf status

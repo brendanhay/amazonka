@@ -26,9 +26,8 @@
 -- random byte string. There is no default value for string length.
 --
 -- By default, the random byte string is generated in KMS. To generate the
--- byte string in the CloudHSM cluster that is associated with a
--- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store>,
--- specify the custom key store ID.
+-- byte string in the CloudHSM cluster associated with an CloudHSM key
+-- store, use the @CustomKeyStoreId@ parameter.
 --
 -- Applications in Amazon Web Services Nitro Enclaves can call this
 -- operation by using the
@@ -76,10 +75,12 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newGenerateRandom' smart constructor.
 data GenerateRandom = GenerateRandom'
   { -- | Generates the random byte string in the CloudHSM cluster that is
-    -- associated with the specified
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store>.
-    -- To find the ID of a custom key store, use the DescribeCustomKeyStores
-    -- operation.
+    -- associated with the specified CloudHSM key store. To find the ID of a
+    -- custom key store, use the DescribeCustomKeyStores operation.
+    --
+    -- External key store IDs are not valid for this parameter. If you specify
+    -- the ID of an external key store, @GenerateRandom@ throws an
+    -- @UnsupportedOperationException@.
     customKeyStoreId :: Prelude.Maybe Prelude.Text,
     -- | The length of the random byte string. This parameter is required.
     numberOfBytes :: Prelude.Maybe Prelude.Natural
@@ -95,10 +96,12 @@ data GenerateRandom = GenerateRandom'
 -- for backwards compatibility:
 --
 -- 'customKeyStoreId', 'generateRandom_customKeyStoreId' - Generates the random byte string in the CloudHSM cluster that is
--- associated with the specified
--- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store>.
--- To find the ID of a custom key store, use the DescribeCustomKeyStores
--- operation.
+-- associated with the specified CloudHSM key store. To find the ID of a
+-- custom key store, use the DescribeCustomKeyStores operation.
+--
+-- External key store IDs are not valid for this parameter. If you specify
+-- the ID of an external key store, @GenerateRandom@ throws an
+-- @UnsupportedOperationException@.
 --
 -- 'numberOfBytes', 'generateRandom_numberOfBytes' - The length of the random byte string. This parameter is required.
 newGenerateRandom ::
@@ -110,10 +113,12 @@ newGenerateRandom =
     }
 
 -- | Generates the random byte string in the CloudHSM cluster that is
--- associated with the specified
--- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store>.
--- To find the ID of a custom key store, use the DescribeCustomKeyStores
--- operation.
+-- associated with the specified CloudHSM key store. To find the ID of a
+-- custom key store, use the DescribeCustomKeyStores operation.
+--
+-- External key store IDs are not valid for this parameter. If you specify
+-- the ID of an external key store, @GenerateRandom@ throws an
+-- @UnsupportedOperationException@.
 generateRandom_customKeyStoreId :: Lens.Lens' GenerateRandom (Prelude.Maybe Prelude.Text)
 generateRandom_customKeyStoreId = Lens.lens (\GenerateRandom' {customKeyStoreId} -> customKeyStoreId) (\s@GenerateRandom' {} a -> s {customKeyStoreId = a} :: GenerateRandom)
 

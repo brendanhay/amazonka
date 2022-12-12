@@ -27,10 +27,10 @@ module Amazonka.RobOMaker.CreateSimulationApplication
     newCreateSimulationApplication,
 
     -- * Request Lenses
-    createSimulationApplication_tags,
-    createSimulationApplication_sources,
     createSimulationApplication_environment,
     createSimulationApplication_renderingEngine,
+    createSimulationApplication_sources,
+    createSimulationApplication_tags,
     createSimulationApplication_name,
     createSimulationApplication_simulationSoftwareSuite,
     createSimulationApplication_robotSoftwareSuite,
@@ -40,16 +40,16 @@ module Amazonka.RobOMaker.CreateSimulationApplication
     newCreateSimulationApplicationResponse,
 
     -- * Response Lenses
-    createSimulationApplicationResponse_tags,
-    createSimulationApplicationResponse_name,
-    createSimulationApplicationResponse_sources,
-    createSimulationApplicationResponse_environment,
-    createSimulationApplicationResponse_renderingEngine,
-    createSimulationApplicationResponse_lastUpdatedAt,
     createSimulationApplicationResponse_arn,
+    createSimulationApplicationResponse_environment,
+    createSimulationApplicationResponse_lastUpdatedAt,
+    createSimulationApplicationResponse_name,
+    createSimulationApplicationResponse_renderingEngine,
+    createSimulationApplicationResponse_revisionId,
     createSimulationApplicationResponse_robotSoftwareSuite,
     createSimulationApplicationResponse_simulationSoftwareSuite,
-    createSimulationApplicationResponse_revisionId,
+    createSimulationApplicationResponse_sources,
+    createSimulationApplicationResponse_tags,
     createSimulationApplicationResponse_version,
     createSimulationApplicationResponse_httpStatus,
   )
@@ -65,16 +65,16 @@ import Amazonka.RobOMaker.Types
 
 -- | /See:/ 'newCreateSimulationApplication' smart constructor.
 data CreateSimulationApplication = CreateSimulationApplication'
-  { -- | A map that contains tag keys and tag values that are attached to the
-    -- simulation application.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The sources of the simulation application.
-    sources :: Prelude.Maybe [SourceConfig],
-    -- | The object that contains the Docker image URI used to create your
+  { -- | The object that contains the Docker image URI used to create your
     -- simulation application.
     environment :: Prelude.Maybe Environment,
     -- | The rendering engine for the simulation application.
     renderingEngine :: Prelude.Maybe RenderingEngine,
+    -- | The sources of the simulation application.
+    sources :: Prelude.Maybe [SourceConfig],
+    -- | A map that contains tag keys and tag values that are attached to the
+    -- simulation application.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the simulation application.
     name :: Prelude.Text,
     -- | The simulation software suite used by the simulation application.
@@ -93,15 +93,15 @@ data CreateSimulationApplication = CreateSimulationApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createSimulationApplication_tags' - A map that contains tag keys and tag values that are attached to the
--- simulation application.
---
--- 'sources', 'createSimulationApplication_sources' - The sources of the simulation application.
---
 -- 'environment', 'createSimulationApplication_environment' - The object that contains the Docker image URI used to create your
 -- simulation application.
 --
 -- 'renderingEngine', 'createSimulationApplication_renderingEngine' - The rendering engine for the simulation application.
+--
+-- 'sources', 'createSimulationApplication_sources' - The sources of the simulation application.
+--
+-- 'tags', 'createSimulationApplication_tags' - A map that contains tag keys and tag values that are attached to the
+-- simulation application.
 --
 -- 'name', 'createSimulationApplication_name' - The name of the simulation application.
 --
@@ -122,25 +122,16 @@ newCreateSimulationApplication
   pSimulationSoftwareSuite_
   pRobotSoftwareSuite_ =
     CreateSimulationApplication'
-      { tags =
+      { environment =
           Prelude.Nothing,
-        sources = Prelude.Nothing,
-        environment = Prelude.Nothing,
         renderingEngine = Prelude.Nothing,
+        sources = Prelude.Nothing,
+        tags = Prelude.Nothing,
         name = pName_,
         simulationSoftwareSuite =
           pSimulationSoftwareSuite_,
         robotSoftwareSuite = pRobotSoftwareSuite_
       }
-
--- | A map that contains tag keys and tag values that are attached to the
--- simulation application.
-createSimulationApplication_tags :: Lens.Lens' CreateSimulationApplication (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createSimulationApplication_tags = Lens.lens (\CreateSimulationApplication' {tags} -> tags) (\s@CreateSimulationApplication' {} a -> s {tags = a} :: CreateSimulationApplication) Prelude.. Lens.mapping Lens.coerced
-
--- | The sources of the simulation application.
-createSimulationApplication_sources :: Lens.Lens' CreateSimulationApplication (Prelude.Maybe [SourceConfig])
-createSimulationApplication_sources = Lens.lens (\CreateSimulationApplication' {sources} -> sources) (\s@CreateSimulationApplication' {} a -> s {sources = a} :: CreateSimulationApplication) Prelude.. Lens.mapping Lens.coerced
 
 -- | The object that contains the Docker image URI used to create your
 -- simulation application.
@@ -150,6 +141,15 @@ createSimulationApplication_environment = Lens.lens (\CreateSimulationApplicatio
 -- | The rendering engine for the simulation application.
 createSimulationApplication_renderingEngine :: Lens.Lens' CreateSimulationApplication (Prelude.Maybe RenderingEngine)
 createSimulationApplication_renderingEngine = Lens.lens (\CreateSimulationApplication' {renderingEngine} -> renderingEngine) (\s@CreateSimulationApplication' {} a -> s {renderingEngine = a} :: CreateSimulationApplication)
+
+-- | The sources of the simulation application.
+createSimulationApplication_sources :: Lens.Lens' CreateSimulationApplication (Prelude.Maybe [SourceConfig])
+createSimulationApplication_sources = Lens.lens (\CreateSimulationApplication' {sources} -> sources) (\s@CreateSimulationApplication' {} a -> s {sources = a} :: CreateSimulationApplication) Prelude.. Lens.mapping Lens.coerced
+
+-- | A map that contains tag keys and tag values that are attached to the
+-- simulation application.
+createSimulationApplication_tags :: Lens.Lens' CreateSimulationApplication (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createSimulationApplication_tags = Lens.lens (\CreateSimulationApplication' {tags} -> tags) (\s@CreateSimulationApplication' {} a -> s {tags = a} :: CreateSimulationApplication) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the simulation application.
 createSimulationApplication_name :: Lens.Lens' CreateSimulationApplication Prelude.Text
@@ -174,36 +174,36 @@ instance Core.AWSRequest CreateSimulationApplication where
     Response.receiveJSON
       ( \s h x ->
           CreateSimulationApplicationResponse'
-            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "name")
-            Prelude.<*> (x Data..?> "sources" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "arn")
             Prelude.<*> (x Data..?> "environment")
-            Prelude.<*> (x Data..?> "renderingEngine")
             Prelude.<*> (x Data..?> "lastUpdatedAt")
-            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "renderingEngine")
+            Prelude.<*> (x Data..?> "revisionId")
             Prelude.<*> (x Data..?> "robotSoftwareSuite")
             Prelude.<*> (x Data..?> "simulationSoftwareSuite")
-            Prelude.<*> (x Data..?> "revisionId")
+            Prelude.<*> (x Data..?> "sources" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateSimulationApplication where
   hashWithSalt _salt CreateSimulationApplication' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` sources
-      `Prelude.hashWithSalt` environment
+    _salt `Prelude.hashWithSalt` environment
       `Prelude.hashWithSalt` renderingEngine
+      `Prelude.hashWithSalt` sources
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` simulationSoftwareSuite
       `Prelude.hashWithSalt` robotSoftwareSuite
 
 instance Prelude.NFData CreateSimulationApplication where
   rnf CreateSimulationApplication' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf sources
-      `Prelude.seq` Prelude.rnf environment
+    Prelude.rnf environment
       `Prelude.seq` Prelude.rnf renderingEngine
+      `Prelude.seq` Prelude.rnf sources
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf simulationSoftwareSuite
       `Prelude.seq` Prelude.rnf robotSoftwareSuite
@@ -223,11 +223,11 @@ instance Data.ToJSON CreateSimulationApplication where
   toJSON CreateSimulationApplication' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("sources" Data..=) Prelude.<$> sources,
-            ("environment" Data..=) Prelude.<$> environment,
+          [ ("environment" Data..=) Prelude.<$> environment,
             ("renderingEngine" Data..=)
               Prelude.<$> renderingEngine,
+            ("sources" Data..=) Prelude.<$> sources,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("name" Data..= name),
             Prelude.Just
               ( "simulationSoftwareSuite"
@@ -246,28 +246,28 @@ instance Data.ToQuery CreateSimulationApplication where
 
 -- | /See:/ 'newCreateSimulationApplicationResponse' smart constructor.
 data CreateSimulationApplicationResponse = CreateSimulationApplicationResponse'
-  { -- | The list of all tags added to the simulation application.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The name of the simulation application.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The sources of the simulation application.
-    sources :: Prelude.Maybe [Source],
+  { -- | The Amazon Resource Name (ARN) of the simulation application.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The object that contains the Docker image URI that you used to create
     -- your simulation application.
     environment :: Prelude.Maybe Environment,
-    -- | The rendering engine for the simulation application.
-    renderingEngine :: Prelude.Maybe RenderingEngine,
     -- | The time, in milliseconds since the epoch, when the simulation
     -- application was last updated.
     lastUpdatedAt :: Prelude.Maybe Data.POSIX,
-    -- | The Amazon Resource Name (ARN) of the simulation application.
-    arn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the simulation application.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The rendering engine for the simulation application.
+    renderingEngine :: Prelude.Maybe RenderingEngine,
+    -- | The revision id of the simulation application.
+    revisionId :: Prelude.Maybe Prelude.Text,
     -- | Information about the robot software suite (ROS distribution).
     robotSoftwareSuite :: Prelude.Maybe RobotSoftwareSuite,
     -- | The simulation software suite used by the simulation application.
     simulationSoftwareSuite :: Prelude.Maybe SimulationSoftwareSuite,
-    -- | The revision id of the simulation application.
-    revisionId :: Prelude.Maybe Prelude.Text,
+    -- | The sources of the simulation application.
+    sources :: Prelude.Maybe [Source],
+    -- | The list of all tags added to the simulation application.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The version of the simulation application.
     version :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -283,27 +283,27 @@ data CreateSimulationApplicationResponse = CreateSimulationApplicationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createSimulationApplicationResponse_tags' - The list of all tags added to the simulation application.
---
--- 'name', 'createSimulationApplicationResponse_name' - The name of the simulation application.
---
--- 'sources', 'createSimulationApplicationResponse_sources' - The sources of the simulation application.
+-- 'arn', 'createSimulationApplicationResponse_arn' - The Amazon Resource Name (ARN) of the simulation application.
 --
 -- 'environment', 'createSimulationApplicationResponse_environment' - The object that contains the Docker image URI that you used to create
 -- your simulation application.
 --
--- 'renderingEngine', 'createSimulationApplicationResponse_renderingEngine' - The rendering engine for the simulation application.
---
 -- 'lastUpdatedAt', 'createSimulationApplicationResponse_lastUpdatedAt' - The time, in milliseconds since the epoch, when the simulation
 -- application was last updated.
 --
--- 'arn', 'createSimulationApplicationResponse_arn' - The Amazon Resource Name (ARN) of the simulation application.
+-- 'name', 'createSimulationApplicationResponse_name' - The name of the simulation application.
+--
+-- 'renderingEngine', 'createSimulationApplicationResponse_renderingEngine' - The rendering engine for the simulation application.
+--
+-- 'revisionId', 'createSimulationApplicationResponse_revisionId' - The revision id of the simulation application.
 --
 -- 'robotSoftwareSuite', 'createSimulationApplicationResponse_robotSoftwareSuite' - Information about the robot software suite (ROS distribution).
 --
 -- 'simulationSoftwareSuite', 'createSimulationApplicationResponse_simulationSoftwareSuite' - The simulation software suite used by the simulation application.
 --
--- 'revisionId', 'createSimulationApplicationResponse_revisionId' - The revision id of the simulation application.
+-- 'sources', 'createSimulationApplicationResponse_sources' - The sources of the simulation application.
+--
+-- 'tags', 'createSimulationApplicationResponse_tags' - The list of all tags added to the simulation application.
 --
 -- 'version', 'createSimulationApplicationResponse_version' - The version of the simulation application.
 --
@@ -314,51 +314,47 @@ newCreateSimulationApplicationResponse ::
   CreateSimulationApplicationResponse
 newCreateSimulationApplicationResponse pHttpStatus_ =
   CreateSimulationApplicationResponse'
-    { tags =
+    { arn =
         Prelude.Nothing,
-      name = Prelude.Nothing,
-      sources = Prelude.Nothing,
       environment = Prelude.Nothing,
-      renderingEngine = Prelude.Nothing,
       lastUpdatedAt = Prelude.Nothing,
-      arn = Prelude.Nothing,
+      name = Prelude.Nothing,
+      renderingEngine = Prelude.Nothing,
+      revisionId = Prelude.Nothing,
       robotSoftwareSuite = Prelude.Nothing,
       simulationSoftwareSuite =
         Prelude.Nothing,
-      revisionId = Prelude.Nothing,
+      sources = Prelude.Nothing,
+      tags = Prelude.Nothing,
       version = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The list of all tags added to the simulation application.
-createSimulationApplicationResponse_tags :: Lens.Lens' CreateSimulationApplicationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createSimulationApplicationResponse_tags = Lens.lens (\CreateSimulationApplicationResponse' {tags} -> tags) (\s@CreateSimulationApplicationResponse' {} a -> s {tags = a} :: CreateSimulationApplicationResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the simulation application.
-createSimulationApplicationResponse_name :: Lens.Lens' CreateSimulationApplicationResponse (Prelude.Maybe Prelude.Text)
-createSimulationApplicationResponse_name = Lens.lens (\CreateSimulationApplicationResponse' {name} -> name) (\s@CreateSimulationApplicationResponse' {} a -> s {name = a} :: CreateSimulationApplicationResponse)
-
--- | The sources of the simulation application.
-createSimulationApplicationResponse_sources :: Lens.Lens' CreateSimulationApplicationResponse (Prelude.Maybe [Source])
-createSimulationApplicationResponse_sources = Lens.lens (\CreateSimulationApplicationResponse' {sources} -> sources) (\s@CreateSimulationApplicationResponse' {} a -> s {sources = a} :: CreateSimulationApplicationResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The Amazon Resource Name (ARN) of the simulation application.
+createSimulationApplicationResponse_arn :: Lens.Lens' CreateSimulationApplicationResponse (Prelude.Maybe Prelude.Text)
+createSimulationApplicationResponse_arn = Lens.lens (\CreateSimulationApplicationResponse' {arn} -> arn) (\s@CreateSimulationApplicationResponse' {} a -> s {arn = a} :: CreateSimulationApplicationResponse)
 
 -- | The object that contains the Docker image URI that you used to create
 -- your simulation application.
 createSimulationApplicationResponse_environment :: Lens.Lens' CreateSimulationApplicationResponse (Prelude.Maybe Environment)
 createSimulationApplicationResponse_environment = Lens.lens (\CreateSimulationApplicationResponse' {environment} -> environment) (\s@CreateSimulationApplicationResponse' {} a -> s {environment = a} :: CreateSimulationApplicationResponse)
 
--- | The rendering engine for the simulation application.
-createSimulationApplicationResponse_renderingEngine :: Lens.Lens' CreateSimulationApplicationResponse (Prelude.Maybe RenderingEngine)
-createSimulationApplicationResponse_renderingEngine = Lens.lens (\CreateSimulationApplicationResponse' {renderingEngine} -> renderingEngine) (\s@CreateSimulationApplicationResponse' {} a -> s {renderingEngine = a} :: CreateSimulationApplicationResponse)
-
 -- | The time, in milliseconds since the epoch, when the simulation
 -- application was last updated.
 createSimulationApplicationResponse_lastUpdatedAt :: Lens.Lens' CreateSimulationApplicationResponse (Prelude.Maybe Prelude.UTCTime)
 createSimulationApplicationResponse_lastUpdatedAt = Lens.lens (\CreateSimulationApplicationResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@CreateSimulationApplicationResponse' {} a -> s {lastUpdatedAt = a} :: CreateSimulationApplicationResponse) Prelude.. Lens.mapping Data._Time
 
--- | The Amazon Resource Name (ARN) of the simulation application.
-createSimulationApplicationResponse_arn :: Lens.Lens' CreateSimulationApplicationResponse (Prelude.Maybe Prelude.Text)
-createSimulationApplicationResponse_arn = Lens.lens (\CreateSimulationApplicationResponse' {arn} -> arn) (\s@CreateSimulationApplicationResponse' {} a -> s {arn = a} :: CreateSimulationApplicationResponse)
+-- | The name of the simulation application.
+createSimulationApplicationResponse_name :: Lens.Lens' CreateSimulationApplicationResponse (Prelude.Maybe Prelude.Text)
+createSimulationApplicationResponse_name = Lens.lens (\CreateSimulationApplicationResponse' {name} -> name) (\s@CreateSimulationApplicationResponse' {} a -> s {name = a} :: CreateSimulationApplicationResponse)
+
+-- | The rendering engine for the simulation application.
+createSimulationApplicationResponse_renderingEngine :: Lens.Lens' CreateSimulationApplicationResponse (Prelude.Maybe RenderingEngine)
+createSimulationApplicationResponse_renderingEngine = Lens.lens (\CreateSimulationApplicationResponse' {renderingEngine} -> renderingEngine) (\s@CreateSimulationApplicationResponse' {} a -> s {renderingEngine = a} :: CreateSimulationApplicationResponse)
+
+-- | The revision id of the simulation application.
+createSimulationApplicationResponse_revisionId :: Lens.Lens' CreateSimulationApplicationResponse (Prelude.Maybe Prelude.Text)
+createSimulationApplicationResponse_revisionId = Lens.lens (\CreateSimulationApplicationResponse' {revisionId} -> revisionId) (\s@CreateSimulationApplicationResponse' {} a -> s {revisionId = a} :: CreateSimulationApplicationResponse)
 
 -- | Information about the robot software suite (ROS distribution).
 createSimulationApplicationResponse_robotSoftwareSuite :: Lens.Lens' CreateSimulationApplicationResponse (Prelude.Maybe RobotSoftwareSuite)
@@ -368,9 +364,13 @@ createSimulationApplicationResponse_robotSoftwareSuite = Lens.lens (\CreateSimul
 createSimulationApplicationResponse_simulationSoftwareSuite :: Lens.Lens' CreateSimulationApplicationResponse (Prelude.Maybe SimulationSoftwareSuite)
 createSimulationApplicationResponse_simulationSoftwareSuite = Lens.lens (\CreateSimulationApplicationResponse' {simulationSoftwareSuite} -> simulationSoftwareSuite) (\s@CreateSimulationApplicationResponse' {} a -> s {simulationSoftwareSuite = a} :: CreateSimulationApplicationResponse)
 
--- | The revision id of the simulation application.
-createSimulationApplicationResponse_revisionId :: Lens.Lens' CreateSimulationApplicationResponse (Prelude.Maybe Prelude.Text)
-createSimulationApplicationResponse_revisionId = Lens.lens (\CreateSimulationApplicationResponse' {revisionId} -> revisionId) (\s@CreateSimulationApplicationResponse' {} a -> s {revisionId = a} :: CreateSimulationApplicationResponse)
+-- | The sources of the simulation application.
+createSimulationApplicationResponse_sources :: Lens.Lens' CreateSimulationApplicationResponse (Prelude.Maybe [Source])
+createSimulationApplicationResponse_sources = Lens.lens (\CreateSimulationApplicationResponse' {sources} -> sources) (\s@CreateSimulationApplicationResponse' {} a -> s {sources = a} :: CreateSimulationApplicationResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The list of all tags added to the simulation application.
+createSimulationApplicationResponse_tags :: Lens.Lens' CreateSimulationApplicationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createSimulationApplicationResponse_tags = Lens.lens (\CreateSimulationApplicationResponse' {tags} -> tags) (\s@CreateSimulationApplicationResponse' {} a -> s {tags = a} :: CreateSimulationApplicationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The version of the simulation application.
 createSimulationApplicationResponse_version :: Lens.Lens' CreateSimulationApplicationResponse (Prelude.Maybe Prelude.Text)
@@ -385,15 +385,15 @@ instance
     CreateSimulationApplicationResponse
   where
   rnf CreateSimulationApplicationResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sources
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf renderingEngine
       `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf renderingEngine
+      `Prelude.seq` Prelude.rnf revisionId
       `Prelude.seq` Prelude.rnf robotSoftwareSuite
       `Prelude.seq` Prelude.rnf simulationSoftwareSuite
-      `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf sources
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf httpStatus

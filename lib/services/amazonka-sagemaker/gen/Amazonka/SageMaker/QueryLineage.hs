@@ -30,13 +30,13 @@ module Amazonka.SageMaker.QueryLineage
     newQueryLineage,
 
     -- * Request Lenses
-    queryLineage_nextToken,
+    queryLineage_direction,
     queryLineage_filters,
+    queryLineage_includeEdges,
     queryLineage_maxDepth,
     queryLineage_maxResults,
+    queryLineage_nextToken,
     queryLineage_startArns,
-    queryLineage_direction,
-    queryLineage_includeEdges,
 
     -- * Destructuring the Response
     QueryLineageResponse (..),
@@ -60,9 +60,9 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newQueryLineage' smart constructor.
 data QueryLineage = QueryLineage'
-  { -- | Limits the number of vertices in the request. Use the @NextToken@ in a
-    -- response to to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | Associations between lineage entities have a direction. This parameter
+    -- determines the direction from the StartArn(s) that the query traverses.
+    direction :: Prelude.Maybe Direction,
     -- | A set of filtering parameters that allow you to specify which entities
     -- should be returned.
     --
@@ -78,6 +78,12 @@ data QueryLineage = QueryLineage'
     --
     -- -   ModifiedAfter - Filter entities modified after this date.
     filters :: Prelude.Maybe QueryFilters,
+    -- | Setting this value to @True@ retrieves not only the entities of interest
+    -- but also the
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking-entities.html Associations>
+    -- and lineage entities on the path. Set to @False@ to only return lineage
+    -- entities that match your query.
+    includeEdges :: Prelude.Maybe Prelude.Bool,
     -- | The maximum depth in lineage relationships from the @StartArns@ that are
     -- traversed. Depth is a measure of the number of @Associations@ from the
     -- @StartArn@ entity to the matched results.
@@ -85,18 +91,12 @@ data QueryLineage = QueryLineage'
     -- | Limits the number of vertices in the results. Use the @NextToken@ in a
     -- response to to retrieve the next page of results.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | Limits the number of vertices in the request. Use the @NextToken@ in a
+    -- response to to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of resource Amazon Resource Name (ARN) that represent the
     -- starting point for your lineage query.
-    startArns :: Prelude.Maybe [Prelude.Text],
-    -- | Associations between lineage entities have a direction. This parameter
-    -- determines the direction from the StartArn(s) that the query traverses.
-    direction :: Prelude.Maybe Direction,
-    -- | Setting this value to @True@ retrieves not only the entities of interest
-    -- but also the
-    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking-entities.html Associations>
-    -- and lineage entities on the path. Set to @False@ to only return lineage
-    -- entities that match your query.
-    includeEdges :: Prelude.Maybe Prelude.Bool
+    startArns :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -108,8 +108,8 @@ data QueryLineage = QueryLineage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'queryLineage_nextToken' - Limits the number of vertices in the request. Use the @NextToken@ in a
--- response to to retrieve the next page of results.
+-- 'direction', 'queryLineage_direction' - Associations between lineage entities have a direction. This parameter
+-- determines the direction from the StartArn(s) that the query traverses.
 --
 -- 'filters', 'queryLineage_filters' - A set of filtering parameters that allow you to specify which entities
 -- should be returned.
@@ -126,6 +126,12 @@ data QueryLineage = QueryLineage'
 --
 -- -   ModifiedAfter - Filter entities modified after this date.
 --
+-- 'includeEdges', 'queryLineage_includeEdges' - Setting this value to @True@ retrieves not only the entities of interest
+-- but also the
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking-entities.html Associations>
+-- and lineage entities on the path. Set to @False@ to only return lineage
+-- entities that match your query.
+--
 -- 'maxDepth', 'queryLineage_maxDepth' - The maximum depth in lineage relationships from the @StartArns@ that are
 -- traversed. Depth is a measure of the number of @Associations@ from the
 -- @StartArn@ entity to the matched results.
@@ -133,34 +139,28 @@ data QueryLineage = QueryLineage'
 -- 'maxResults', 'queryLineage_maxResults' - Limits the number of vertices in the results. Use the @NextToken@ in a
 -- response to to retrieve the next page of results.
 --
+-- 'nextToken', 'queryLineage_nextToken' - Limits the number of vertices in the request. Use the @NextToken@ in a
+-- response to to retrieve the next page of results.
+--
 -- 'startArns', 'queryLineage_startArns' - A list of resource Amazon Resource Name (ARN) that represent the
 -- starting point for your lineage query.
---
--- 'direction', 'queryLineage_direction' - Associations between lineage entities have a direction. This parameter
--- determines the direction from the StartArn(s) that the query traverses.
---
--- 'includeEdges', 'queryLineage_includeEdges' - Setting this value to @True@ retrieves not only the entities of interest
--- but also the
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking-entities.html Associations>
--- and lineage entities on the path. Set to @False@ to only return lineage
--- entities that match your query.
 newQueryLineage ::
   QueryLineage
 newQueryLineage =
   QueryLineage'
-    { nextToken = Prelude.Nothing,
+    { direction = Prelude.Nothing,
       filters = Prelude.Nothing,
+      includeEdges = Prelude.Nothing,
       maxDepth = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      startArns = Prelude.Nothing,
-      direction = Prelude.Nothing,
-      includeEdges = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      startArns = Prelude.Nothing
     }
 
--- | Limits the number of vertices in the request. Use the @NextToken@ in a
--- response to to retrieve the next page of results.
-queryLineage_nextToken :: Lens.Lens' QueryLineage (Prelude.Maybe Prelude.Text)
-queryLineage_nextToken = Lens.lens (\QueryLineage' {nextToken} -> nextToken) (\s@QueryLineage' {} a -> s {nextToken = a} :: QueryLineage)
+-- | Associations between lineage entities have a direction. This parameter
+-- determines the direction from the StartArn(s) that the query traverses.
+queryLineage_direction :: Lens.Lens' QueryLineage (Prelude.Maybe Direction)
+queryLineage_direction = Lens.lens (\QueryLineage' {direction} -> direction) (\s@QueryLineage' {} a -> s {direction = a} :: QueryLineage)
 
 -- | A set of filtering parameters that allow you to specify which entities
 -- should be returned.
@@ -179,6 +179,14 @@ queryLineage_nextToken = Lens.lens (\QueryLineage' {nextToken} -> nextToken) (\s
 queryLineage_filters :: Lens.Lens' QueryLineage (Prelude.Maybe QueryFilters)
 queryLineage_filters = Lens.lens (\QueryLineage' {filters} -> filters) (\s@QueryLineage' {} a -> s {filters = a} :: QueryLineage)
 
+-- | Setting this value to @True@ retrieves not only the entities of interest
+-- but also the
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking-entities.html Associations>
+-- and lineage entities on the path. Set to @False@ to only return lineage
+-- entities that match your query.
+queryLineage_includeEdges :: Lens.Lens' QueryLineage (Prelude.Maybe Prelude.Bool)
+queryLineage_includeEdges = Lens.lens (\QueryLineage' {includeEdges} -> includeEdges) (\s@QueryLineage' {} a -> s {includeEdges = a} :: QueryLineage)
+
 -- | The maximum depth in lineage relationships from the @StartArns@ that are
 -- traversed. Depth is a measure of the number of @Associations@ from the
 -- @StartArn@ entity to the matched results.
@@ -190,23 +198,15 @@ queryLineage_maxDepth = Lens.lens (\QueryLineage' {maxDepth} -> maxDepth) (\s@Qu
 queryLineage_maxResults :: Lens.Lens' QueryLineage (Prelude.Maybe Prelude.Int)
 queryLineage_maxResults = Lens.lens (\QueryLineage' {maxResults} -> maxResults) (\s@QueryLineage' {} a -> s {maxResults = a} :: QueryLineage)
 
+-- | Limits the number of vertices in the request. Use the @NextToken@ in a
+-- response to to retrieve the next page of results.
+queryLineage_nextToken :: Lens.Lens' QueryLineage (Prelude.Maybe Prelude.Text)
+queryLineage_nextToken = Lens.lens (\QueryLineage' {nextToken} -> nextToken) (\s@QueryLineage' {} a -> s {nextToken = a} :: QueryLineage)
+
 -- | A list of resource Amazon Resource Name (ARN) that represent the
 -- starting point for your lineage query.
 queryLineage_startArns :: Lens.Lens' QueryLineage (Prelude.Maybe [Prelude.Text])
 queryLineage_startArns = Lens.lens (\QueryLineage' {startArns} -> startArns) (\s@QueryLineage' {} a -> s {startArns = a} :: QueryLineage) Prelude.. Lens.mapping Lens.coerced
-
--- | Associations between lineage entities have a direction. This parameter
--- determines the direction from the StartArn(s) that the query traverses.
-queryLineage_direction :: Lens.Lens' QueryLineage (Prelude.Maybe Direction)
-queryLineage_direction = Lens.lens (\QueryLineage' {direction} -> direction) (\s@QueryLineage' {} a -> s {direction = a} :: QueryLineage)
-
--- | Setting this value to @True@ retrieves not only the entities of interest
--- but also the
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking-entities.html Associations>
--- and lineage entities on the path. Set to @False@ to only return lineage
--- entities that match your query.
-queryLineage_includeEdges :: Lens.Lens' QueryLineage (Prelude.Maybe Prelude.Bool)
-queryLineage_includeEdges = Lens.lens (\QueryLineage' {includeEdges} -> includeEdges) (\s@QueryLineage' {} a -> s {includeEdges = a} :: QueryLineage)
 
 instance Core.AWSRequest QueryLineage where
   type AWSResponse QueryLineage = QueryLineageResponse
@@ -224,23 +224,23 @@ instance Core.AWSRequest QueryLineage where
 
 instance Prelude.Hashable QueryLineage where
   hashWithSalt _salt QueryLineage' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` direction
       `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` includeEdges
       `Prelude.hashWithSalt` maxDepth
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` startArns
-      `Prelude.hashWithSalt` direction
-      `Prelude.hashWithSalt` includeEdges
 
 instance Prelude.NFData QueryLineage where
   rnf QueryLineage' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf direction
       `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf includeEdges
       `Prelude.seq` Prelude.rnf maxDepth
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf startArns
-      `Prelude.seq` Prelude.rnf direction
-      `Prelude.seq` Prelude.rnf includeEdges
 
 instance Data.ToHeaders QueryLineage where
   toHeaders =
@@ -259,13 +259,13 @@ instance Data.ToJSON QueryLineage where
   toJSON QueryLineage' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("Direction" Data..=) Prelude.<$> direction,
             ("Filters" Data..=) Prelude.<$> filters,
+            ("IncludeEdges" Data..=) Prelude.<$> includeEdges,
             ("MaxDepth" Data..=) Prelude.<$> maxDepth,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("StartArns" Data..=) Prelude.<$> startArns,
-            ("Direction" Data..=) Prelude.<$> direction,
-            ("IncludeEdges" Data..=) Prelude.<$> includeEdges
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("StartArns" Data..=) Prelude.<$> startArns
           ]
       )
 

@@ -29,14 +29,14 @@ import Amazonka.WorkSpaces.Types.StandbyWorkspace
 --
 -- /See:/ 'newFailedCreateStandbyWorkspacesRequest' smart constructor.
 data FailedCreateStandbyWorkspacesRequest = FailedCreateStandbyWorkspacesRequest'
-  { -- | The text of the error message that is returned if the Standby WorkSpace
+  { -- | The error code that is returned if the Standby WorkSpace could not be
+    -- created.
+    errorCode :: Prelude.Maybe Prelude.Text,
+    -- | The text of the error message that is returned if the Standby WorkSpace
     -- could not be created.
     errorMessage :: Prelude.Maybe Prelude.Text,
     -- | Information about the Standby WorkSpace that could not be created.
-    standbyWorkspaceRequest :: Prelude.Maybe StandbyWorkspace,
-    -- | The error code that is returned if the Standby WorkSpace could not be
-    -- created.
-    errorCode :: Prelude.Maybe Prelude.Text
+    standbyWorkspaceRequest :: Prelude.Maybe StandbyWorkspace
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,23 +48,28 @@ data FailedCreateStandbyWorkspacesRequest = FailedCreateStandbyWorkspacesRequest
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'errorCode', 'failedCreateStandbyWorkspacesRequest_errorCode' - The error code that is returned if the Standby WorkSpace could not be
+-- created.
+--
 -- 'errorMessage', 'failedCreateStandbyWorkspacesRequest_errorMessage' - The text of the error message that is returned if the Standby WorkSpace
 -- could not be created.
 --
 -- 'standbyWorkspaceRequest', 'failedCreateStandbyWorkspacesRequest_standbyWorkspaceRequest' - Information about the Standby WorkSpace that could not be created.
---
--- 'errorCode', 'failedCreateStandbyWorkspacesRequest_errorCode' - The error code that is returned if the Standby WorkSpace could not be
--- created.
 newFailedCreateStandbyWorkspacesRequest ::
   FailedCreateStandbyWorkspacesRequest
 newFailedCreateStandbyWorkspacesRequest =
   FailedCreateStandbyWorkspacesRequest'
-    { errorMessage =
+    { errorCode =
         Prelude.Nothing,
+      errorMessage = Prelude.Nothing,
       standbyWorkspaceRequest =
-        Prelude.Nothing,
-      errorCode = Prelude.Nothing
+        Prelude.Nothing
     }
+
+-- | The error code that is returned if the Standby WorkSpace could not be
+-- created.
+failedCreateStandbyWorkspacesRequest_errorCode :: Lens.Lens' FailedCreateStandbyWorkspacesRequest (Prelude.Maybe Prelude.Text)
+failedCreateStandbyWorkspacesRequest_errorCode = Lens.lens (\FailedCreateStandbyWorkspacesRequest' {errorCode} -> errorCode) (\s@FailedCreateStandbyWorkspacesRequest' {} a -> s {errorCode = a} :: FailedCreateStandbyWorkspacesRequest)
 
 -- | The text of the error message that is returned if the Standby WorkSpace
 -- could not be created.
@@ -75,11 +80,6 @@ failedCreateStandbyWorkspacesRequest_errorMessage = Lens.lens (\FailedCreateStan
 failedCreateStandbyWorkspacesRequest_standbyWorkspaceRequest :: Lens.Lens' FailedCreateStandbyWorkspacesRequest (Prelude.Maybe StandbyWorkspace)
 failedCreateStandbyWorkspacesRequest_standbyWorkspaceRequest = Lens.lens (\FailedCreateStandbyWorkspacesRequest' {standbyWorkspaceRequest} -> standbyWorkspaceRequest) (\s@FailedCreateStandbyWorkspacesRequest' {} a -> s {standbyWorkspaceRequest = a} :: FailedCreateStandbyWorkspacesRequest)
 
--- | The error code that is returned if the Standby WorkSpace could not be
--- created.
-failedCreateStandbyWorkspacesRequest_errorCode :: Lens.Lens' FailedCreateStandbyWorkspacesRequest (Prelude.Maybe Prelude.Text)
-failedCreateStandbyWorkspacesRequest_errorCode = Lens.lens (\FailedCreateStandbyWorkspacesRequest' {errorCode} -> errorCode) (\s@FailedCreateStandbyWorkspacesRequest' {} a -> s {errorCode = a} :: FailedCreateStandbyWorkspacesRequest)
-
 instance
   Data.FromJSON
     FailedCreateStandbyWorkspacesRequest
@@ -89,9 +89,9 @@ instance
       "FailedCreateStandbyWorkspacesRequest"
       ( \x ->
           FailedCreateStandbyWorkspacesRequest'
-            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<$> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "ErrorMessage")
             Prelude.<*> (x Data..:? "StandbyWorkspaceRequest")
-            Prelude.<*> (x Data..:? "ErrorCode")
       )
 
 instance
@@ -101,15 +101,15 @@ instance
   hashWithSalt
     _salt
     FailedCreateStandbyWorkspacesRequest' {..} =
-      _salt `Prelude.hashWithSalt` errorMessage
+      _salt `Prelude.hashWithSalt` errorCode
+        `Prelude.hashWithSalt` errorMessage
         `Prelude.hashWithSalt` standbyWorkspaceRequest
-        `Prelude.hashWithSalt` errorCode
 
 instance
   Prelude.NFData
     FailedCreateStandbyWorkspacesRequest
   where
   rnf FailedCreateStandbyWorkspacesRequest' {..} =
-    Prelude.rnf errorMessage
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage
       `Prelude.seq` Prelude.rnf standbyWorkspaceRequest
-      `Prelude.seq` Prelude.rnf errorCode

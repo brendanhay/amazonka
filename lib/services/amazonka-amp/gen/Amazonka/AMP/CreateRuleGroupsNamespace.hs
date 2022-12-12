@@ -27,8 +27,8 @@ module Amazonka.AMP.CreateRuleGroupsNamespace
     newCreateRuleGroupsNamespace,
 
     -- * Request Lenses
-    createRuleGroupsNamespace_tags,
     createRuleGroupsNamespace_clientToken,
+    createRuleGroupsNamespace_tags,
     createRuleGroupsNamespace_data,
     createRuleGroupsNamespace_name,
     createRuleGroupsNamespace_workspaceId,
@@ -58,11 +58,11 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateRuleGroupsNamespace' smart constructor.
 data CreateRuleGroupsNamespace = CreateRuleGroupsNamespace'
-  { -- | Optional, user-provided tags for this rule groups namespace.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Optional, unique, case-sensitive, user-provided identifier to ensure the
+  { -- | Optional, unique, case-sensitive, user-provided identifier to ensure the
     -- idempotency of the request.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | Optional, user-provided tags for this rule groups namespace.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The namespace data that define the rule groups.
     data' :: Data.Base64,
     -- | The rule groups namespace name.
@@ -80,10 +80,10 @@ data CreateRuleGroupsNamespace = CreateRuleGroupsNamespace'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createRuleGroupsNamespace_tags' - Optional, user-provided tags for this rule groups namespace.
---
 -- 'clientToken', 'createRuleGroupsNamespace_clientToken' - Optional, unique, case-sensitive, user-provided identifier to ensure the
 -- idempotency of the request.
+--
+-- 'tags', 'createRuleGroupsNamespace_tags' - Optional, user-provided tags for this rule groups namespace.
 --
 -- 'data'', 'createRuleGroupsNamespace_data' - The namespace data that define the rule groups.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -107,21 +107,22 @@ newCreateRuleGroupsNamespace
   pName_
   pWorkspaceId_ =
     CreateRuleGroupsNamespace'
-      { tags = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+      { clientToken =
+          Prelude.Nothing,
+        tags = Prelude.Nothing,
         data' = Data._Base64 Lens.# pData_,
         name = pName_,
         workspaceId = pWorkspaceId_
       }
 
--- | Optional, user-provided tags for this rule groups namespace.
-createRuleGroupsNamespace_tags :: Lens.Lens' CreateRuleGroupsNamespace (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createRuleGroupsNamespace_tags = Lens.lens (\CreateRuleGroupsNamespace' {tags} -> tags) (\s@CreateRuleGroupsNamespace' {} a -> s {tags = a} :: CreateRuleGroupsNamespace) Prelude.. Lens.mapping Lens.coerced
-
 -- | Optional, unique, case-sensitive, user-provided identifier to ensure the
 -- idempotency of the request.
 createRuleGroupsNamespace_clientToken :: Lens.Lens' CreateRuleGroupsNamespace (Prelude.Maybe Prelude.Text)
 createRuleGroupsNamespace_clientToken = Lens.lens (\CreateRuleGroupsNamespace' {clientToken} -> clientToken) (\s@CreateRuleGroupsNamespace' {} a -> s {clientToken = a} :: CreateRuleGroupsNamespace)
+
+-- | Optional, user-provided tags for this rule groups namespace.
+createRuleGroupsNamespace_tags :: Lens.Lens' CreateRuleGroupsNamespace (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createRuleGroupsNamespace_tags = Lens.lens (\CreateRuleGroupsNamespace' {tags} -> tags) (\s@CreateRuleGroupsNamespace' {} a -> s {tags = a} :: CreateRuleGroupsNamespace) Prelude.. Lens.mapping Lens.coerced
 
 -- | The namespace data that define the rule groups.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -158,16 +159,16 @@ instance Core.AWSRequest CreateRuleGroupsNamespace where
 
 instance Prelude.Hashable CreateRuleGroupsNamespace where
   hashWithSalt _salt CreateRuleGroupsNamespace' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` data'
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` workspaceId
 
 instance Prelude.NFData CreateRuleGroupsNamespace where
   rnf CreateRuleGroupsNamespace' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf data'
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf workspaceId
@@ -187,8 +188,8 @@ instance Data.ToJSON CreateRuleGroupsNamespace where
   toJSON CreateRuleGroupsNamespace' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("clientToken" Data..=) Prelude.<$> clientToken,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("data" Data..= data'),
             Prelude.Just ("name" Data..= name)
           ]

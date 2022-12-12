@@ -28,13 +28,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInventoryResultItem' smart constructor.
 data InventoryResultItem = InventoryResultItem'
-  { -- | MD5 hash of the inventory item type contents. The content hash is used
+  { -- | The time inventory item data was captured.
+    captureTime :: Prelude.Maybe Prelude.Text,
+    -- | MD5 hash of the inventory item type contents. The content hash is used
     -- to determine whether to update inventory information. The PutInventory
     -- API doesn\'t update the inventory item type contents if the MD5 hash
     -- hasn\'t changed since last update.
     contentHash :: Prelude.Maybe Prelude.Text,
-    -- | The time inventory item data was captured.
-    captureTime :: Prelude.Maybe Prelude.Text,
     -- | The name of the inventory result item type.
     typeName :: Prelude.Text,
     -- | The schema version for the inventory result item\/
@@ -53,12 +53,12 @@ data InventoryResultItem = InventoryResultItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'captureTime', 'inventoryResultItem_captureTime' - The time inventory item data was captured.
+--
 -- 'contentHash', 'inventoryResultItem_contentHash' - MD5 hash of the inventory item type contents. The content hash is used
 -- to determine whether to update inventory information. The PutInventory
 -- API doesn\'t update the inventory item type contents if the MD5 hash
 -- hasn\'t changed since last update.
---
--- 'captureTime', 'inventoryResultItem_captureTime' - The time inventory item data was captured.
 --
 -- 'typeName', 'inventoryResultItem_typeName' - The name of the inventory result item type.
 --
@@ -74,12 +74,16 @@ newInventoryResultItem ::
   InventoryResultItem
 newInventoryResultItem pTypeName_ pSchemaVersion_ =
   InventoryResultItem'
-    { contentHash = Prelude.Nothing,
-      captureTime = Prelude.Nothing,
+    { captureTime = Prelude.Nothing,
+      contentHash = Prelude.Nothing,
       typeName = pTypeName_,
       schemaVersion = pSchemaVersion_,
       content = Prelude.mempty
     }
+
+-- | The time inventory item data was captured.
+inventoryResultItem_captureTime :: Lens.Lens' InventoryResultItem (Prelude.Maybe Prelude.Text)
+inventoryResultItem_captureTime = Lens.lens (\InventoryResultItem' {captureTime} -> captureTime) (\s@InventoryResultItem' {} a -> s {captureTime = a} :: InventoryResultItem)
 
 -- | MD5 hash of the inventory item type contents. The content hash is used
 -- to determine whether to update inventory information. The PutInventory
@@ -87,10 +91,6 @@ newInventoryResultItem pTypeName_ pSchemaVersion_ =
 -- hasn\'t changed since last update.
 inventoryResultItem_contentHash :: Lens.Lens' InventoryResultItem (Prelude.Maybe Prelude.Text)
 inventoryResultItem_contentHash = Lens.lens (\InventoryResultItem' {contentHash} -> contentHash) (\s@InventoryResultItem' {} a -> s {contentHash = a} :: InventoryResultItem)
-
--- | The time inventory item data was captured.
-inventoryResultItem_captureTime :: Lens.Lens' InventoryResultItem (Prelude.Maybe Prelude.Text)
-inventoryResultItem_captureTime = Lens.lens (\InventoryResultItem' {captureTime} -> captureTime) (\s@InventoryResultItem' {} a -> s {captureTime = a} :: InventoryResultItem)
 
 -- | The name of the inventory result item type.
 inventoryResultItem_typeName :: Lens.Lens' InventoryResultItem Prelude.Text
@@ -111,8 +111,8 @@ instance Data.FromJSON InventoryResultItem where
       "InventoryResultItem"
       ( \x ->
           InventoryResultItem'
-            Prelude.<$> (x Data..:? "ContentHash")
-            Prelude.<*> (x Data..:? "CaptureTime")
+            Prelude.<$> (x Data..:? "CaptureTime")
+            Prelude.<*> (x Data..:? "ContentHash")
             Prelude.<*> (x Data..: "TypeName")
             Prelude.<*> (x Data..: "SchemaVersion")
             Prelude.<*> (x Data..:? "Content" Data..!= Prelude.mempty)
@@ -120,16 +120,16 @@ instance Data.FromJSON InventoryResultItem where
 
 instance Prelude.Hashable InventoryResultItem where
   hashWithSalt _salt InventoryResultItem' {..} =
-    _salt `Prelude.hashWithSalt` contentHash
-      `Prelude.hashWithSalt` captureTime
+    _salt `Prelude.hashWithSalt` captureTime
+      `Prelude.hashWithSalt` contentHash
       `Prelude.hashWithSalt` typeName
       `Prelude.hashWithSalt` schemaVersion
       `Prelude.hashWithSalt` content
 
 instance Prelude.NFData InventoryResultItem where
   rnf InventoryResultItem' {..} =
-    Prelude.rnf contentHash
-      `Prelude.seq` Prelude.rnf captureTime
+    Prelude.rnf captureTime
+      `Prelude.seq` Prelude.rnf contentHash
       `Prelude.seq` Prelude.rnf typeName
       `Prelude.seq` Prelude.rnf schemaVersion
       `Prelude.seq` Prelude.rnf content

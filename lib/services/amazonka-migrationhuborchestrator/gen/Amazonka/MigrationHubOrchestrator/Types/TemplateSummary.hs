@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTemplateSummary' smart constructor.
 data TemplateSummary = TemplateSummary'
-  { -- | The name of the template.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the template.
+  { -- | The Amazon Resource Name (ARN) of the template.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The description of the template.
     description :: Prelude.Maybe Prelude.Text,
     -- | The ID of the template.
-    id :: Prelude.Maybe Prelude.Text
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The name of the template.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,26 +47,22 @@ data TemplateSummary = TemplateSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'templateSummary_name' - The name of the template.
---
 -- 'arn', 'templateSummary_arn' - The Amazon Resource Name (ARN) of the template.
 --
 -- 'description', 'templateSummary_description' - The description of the template.
 --
 -- 'id', 'templateSummary_id' - The ID of the template.
+--
+-- 'name', 'templateSummary_name' - The name of the template.
 newTemplateSummary ::
   TemplateSummary
 newTemplateSummary =
   TemplateSummary'
-    { name = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       description = Prelude.Nothing,
-      id = Prelude.Nothing
+      id = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | The name of the template.
-templateSummary_name :: Lens.Lens' TemplateSummary (Prelude.Maybe Prelude.Text)
-templateSummary_name = Lens.lens (\TemplateSummary' {name} -> name) (\s@TemplateSummary' {} a -> s {name = a} :: TemplateSummary)
 
 -- | The Amazon Resource Name (ARN) of the template.
 templateSummary_arn :: Lens.Lens' TemplateSummary (Prelude.Maybe Prelude.Text)
@@ -80,28 +76,32 @@ templateSummary_description = Lens.lens (\TemplateSummary' {description} -> desc
 templateSummary_id :: Lens.Lens' TemplateSummary (Prelude.Maybe Prelude.Text)
 templateSummary_id = Lens.lens (\TemplateSummary' {id} -> id) (\s@TemplateSummary' {} a -> s {id = a} :: TemplateSummary)
 
+-- | The name of the template.
+templateSummary_name :: Lens.Lens' TemplateSummary (Prelude.Maybe Prelude.Text)
+templateSummary_name = Lens.lens (\TemplateSummary' {name} -> name) (\s@TemplateSummary' {} a -> s {name = a} :: TemplateSummary)
+
 instance Data.FromJSON TemplateSummary where
   parseJSON =
     Data.withObject
       "TemplateSummary"
       ( \x ->
           TemplateSummary'
-            Prelude.<$> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "arn")
+            Prelude.<$> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "name")
       )
 
 instance Prelude.Hashable TemplateSummary where
   hashWithSalt _salt TemplateSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData TemplateSummary where
   rnf TemplateSummary' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name

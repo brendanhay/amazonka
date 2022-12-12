@@ -36,15 +36,15 @@ module Amazonka.DocumentDB.RestoreDBClusterFromSnapshot
     newRestoreDBClusterFromSnapshot,
 
     -- * Request Lenses
-    restoreDBClusterFromSnapshot_tags,
-    restoreDBClusterFromSnapshot_port,
-    restoreDBClusterFromSnapshot_vpcSecurityGroupIds,
-    restoreDBClusterFromSnapshot_dbSubnetGroupName,
     restoreDBClusterFromSnapshot_availabilityZones,
-    restoreDBClusterFromSnapshot_enableCloudwatchLogsExports,
-    restoreDBClusterFromSnapshot_kmsKeyId,
+    restoreDBClusterFromSnapshot_dbSubnetGroupName,
     restoreDBClusterFromSnapshot_deletionProtection,
+    restoreDBClusterFromSnapshot_enableCloudwatchLogsExports,
     restoreDBClusterFromSnapshot_engineVersion,
+    restoreDBClusterFromSnapshot_kmsKeyId,
+    restoreDBClusterFromSnapshot_port,
+    restoreDBClusterFromSnapshot_tags,
+    restoreDBClusterFromSnapshot_vpcSecurityGroupIds,
     restoreDBClusterFromSnapshot_dbClusterIdentifier,
     restoreDBClusterFromSnapshot_snapshotIdentifier,
     restoreDBClusterFromSnapshot_engine,
@@ -71,17 +71,9 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newRestoreDBClusterFromSnapshot' smart constructor.
 data RestoreDBClusterFromSnapshot = RestoreDBClusterFromSnapshot'
-  { -- | The tags to be assigned to the restored cluster.
-    tags :: Prelude.Maybe [Tag],
-    -- | The port number on which the new cluster accepts connections.
-    --
-    -- Constraints: Must be a value from @1150@ to @65535@.
-    --
-    -- Default: The same port as the original cluster.
-    port :: Prelude.Maybe Prelude.Int,
-    -- | A list of virtual private cloud (VPC) security groups that the new
-    -- cluster will belong to.
-    vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
+  { -- | Provides the list of Amazon EC2 Availability Zones that instances in the
+    -- restored DB cluster can be created in.
+    availabilityZones :: Prelude.Maybe [Prelude.Text],
     -- | The name of the subnet group to use for the new cluster.
     --
     -- Constraints: If provided, must match the name of an existing
@@ -89,12 +81,16 @@ data RestoreDBClusterFromSnapshot = RestoreDBClusterFromSnapshot'
     --
     -- Example: @mySubnetgroup@
     dbSubnetGroupName :: Prelude.Maybe Prelude.Text,
-    -- | Provides the list of Amazon EC2 Availability Zones that instances in the
-    -- restored DB cluster can be created in.
-    availabilityZones :: Prelude.Maybe [Prelude.Text],
+    -- | Specifies whether this cluster can be deleted. If @DeletionProtection@
+    -- is enabled, the cluster cannot be deleted unless it is modified and
+    -- @DeletionProtection@ is disabled. @DeletionProtection@ protects clusters
+    -- from being accidentally deleted.
+    deletionProtection :: Prelude.Maybe Prelude.Bool,
     -- | A list of log types that must be enabled for exporting to Amazon
     -- CloudWatch Logs.
     enableCloudwatchLogsExports :: Prelude.Maybe [Prelude.Text],
+    -- | The version of the database engine to use for the new cluster.
+    engineVersion :: Prelude.Maybe Prelude.Text,
     -- | The KMS key identifier to use when restoring an encrypted cluster from a
     -- DB snapshot or cluster snapshot.
     --
@@ -114,13 +110,17 @@ data RestoreDBClusterFromSnapshot = RestoreDBClusterFromSnapshot'
     -- -   If the snapshot or the cluster snapshot in @SnapshotIdentifier@ is
     --     not encrypted, then the restored DB cluster is not encrypted.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether this cluster can be deleted. If @DeletionProtection@
-    -- is enabled, the cluster cannot be deleted unless it is modified and
-    -- @DeletionProtection@ is disabled. @DeletionProtection@ protects clusters
-    -- from being accidentally deleted.
-    deletionProtection :: Prelude.Maybe Prelude.Bool,
-    -- | The version of the database engine to use for the new cluster.
-    engineVersion :: Prelude.Maybe Prelude.Text,
+    -- | The port number on which the new cluster accepts connections.
+    --
+    -- Constraints: Must be a value from @1150@ to @65535@.
+    --
+    -- Default: The same port as the original cluster.
+    port :: Prelude.Maybe Prelude.Int,
+    -- | The tags to be assigned to the restored cluster.
+    tags :: Prelude.Maybe [Tag],
+    -- | A list of virtual private cloud (VPC) security groups that the new
+    -- cluster will belong to.
+    vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | The name of the cluster to create from the snapshot or cluster snapshot.
     -- This parameter isn\'t case sensitive.
     --
@@ -161,16 +161,8 @@ data RestoreDBClusterFromSnapshot = RestoreDBClusterFromSnapshot'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'restoreDBClusterFromSnapshot_tags' - The tags to be assigned to the restored cluster.
---
--- 'port', 'restoreDBClusterFromSnapshot_port' - The port number on which the new cluster accepts connections.
---
--- Constraints: Must be a value from @1150@ to @65535@.
---
--- Default: The same port as the original cluster.
---
--- 'vpcSecurityGroupIds', 'restoreDBClusterFromSnapshot_vpcSecurityGroupIds' - A list of virtual private cloud (VPC) security groups that the new
--- cluster will belong to.
+-- 'availabilityZones', 'restoreDBClusterFromSnapshot_availabilityZones' - Provides the list of Amazon EC2 Availability Zones that instances in the
+-- restored DB cluster can be created in.
 --
 -- 'dbSubnetGroupName', 'restoreDBClusterFromSnapshot_dbSubnetGroupName' - The name of the subnet group to use for the new cluster.
 --
@@ -179,11 +171,15 @@ data RestoreDBClusterFromSnapshot = RestoreDBClusterFromSnapshot'
 --
 -- Example: @mySubnetgroup@
 --
--- 'availabilityZones', 'restoreDBClusterFromSnapshot_availabilityZones' - Provides the list of Amazon EC2 Availability Zones that instances in the
--- restored DB cluster can be created in.
+-- 'deletionProtection', 'restoreDBClusterFromSnapshot_deletionProtection' - Specifies whether this cluster can be deleted. If @DeletionProtection@
+-- is enabled, the cluster cannot be deleted unless it is modified and
+-- @DeletionProtection@ is disabled. @DeletionProtection@ protects clusters
+-- from being accidentally deleted.
 --
 -- 'enableCloudwatchLogsExports', 'restoreDBClusterFromSnapshot_enableCloudwatchLogsExports' - A list of log types that must be enabled for exporting to Amazon
 -- CloudWatch Logs.
+--
+-- 'engineVersion', 'restoreDBClusterFromSnapshot_engineVersion' - The version of the database engine to use for the new cluster.
 --
 -- 'kmsKeyId', 'restoreDBClusterFromSnapshot_kmsKeyId' - The KMS key identifier to use when restoring an encrypted cluster from a
 -- DB snapshot or cluster snapshot.
@@ -204,12 +200,16 @@ data RestoreDBClusterFromSnapshot = RestoreDBClusterFromSnapshot'
 -- -   If the snapshot or the cluster snapshot in @SnapshotIdentifier@ is
 --     not encrypted, then the restored DB cluster is not encrypted.
 --
--- 'deletionProtection', 'restoreDBClusterFromSnapshot_deletionProtection' - Specifies whether this cluster can be deleted. If @DeletionProtection@
--- is enabled, the cluster cannot be deleted unless it is modified and
--- @DeletionProtection@ is disabled. @DeletionProtection@ protects clusters
--- from being accidentally deleted.
+-- 'port', 'restoreDBClusterFromSnapshot_port' - The port number on which the new cluster accepts connections.
 --
--- 'engineVersion', 'restoreDBClusterFromSnapshot_engineVersion' - The version of the database engine to use for the new cluster.
+-- Constraints: Must be a value from @1150@ to @65535@.
+--
+-- Default: The same port as the original cluster.
+--
+-- 'tags', 'restoreDBClusterFromSnapshot_tags' - The tags to be assigned to the restored cluster.
+--
+-- 'vpcSecurityGroupIds', 'restoreDBClusterFromSnapshot_vpcSecurityGroupIds' - A list of virtual private cloud (VPC) security groups that the new
+-- cluster will belong to.
 --
 -- 'dbClusterIdentifier', 'restoreDBClusterFromSnapshot_dbClusterIdentifier' - The name of the cluster to create from the snapshot or cluster snapshot.
 -- This parameter isn\'t case sensitive.
@@ -252,37 +252,25 @@ newRestoreDBClusterFromSnapshot
   pSnapshotIdentifier_
   pEngine_ =
     RestoreDBClusterFromSnapshot'
-      { tags =
+      { availabilityZones =
           Prelude.Nothing,
-        port = Prelude.Nothing,
-        vpcSecurityGroupIds = Prelude.Nothing,
         dbSubnetGroupName = Prelude.Nothing,
-        availabilityZones = Prelude.Nothing,
-        enableCloudwatchLogsExports = Prelude.Nothing,
-        kmsKeyId = Prelude.Nothing,
         deletionProtection = Prelude.Nothing,
+        enableCloudwatchLogsExports = Prelude.Nothing,
         engineVersion = Prelude.Nothing,
+        kmsKeyId = Prelude.Nothing,
+        port = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        vpcSecurityGroupIds = Prelude.Nothing,
         dbClusterIdentifier = pDBClusterIdentifier_,
         snapshotIdentifier = pSnapshotIdentifier_,
         engine = pEngine_
       }
 
--- | The tags to be assigned to the restored cluster.
-restoreDBClusterFromSnapshot_tags :: Lens.Lens' RestoreDBClusterFromSnapshot (Prelude.Maybe [Tag])
-restoreDBClusterFromSnapshot_tags = Lens.lens (\RestoreDBClusterFromSnapshot' {tags} -> tags) (\s@RestoreDBClusterFromSnapshot' {} a -> s {tags = a} :: RestoreDBClusterFromSnapshot) Prelude.. Lens.mapping Lens.coerced
-
--- | The port number on which the new cluster accepts connections.
---
--- Constraints: Must be a value from @1150@ to @65535@.
---
--- Default: The same port as the original cluster.
-restoreDBClusterFromSnapshot_port :: Lens.Lens' RestoreDBClusterFromSnapshot (Prelude.Maybe Prelude.Int)
-restoreDBClusterFromSnapshot_port = Lens.lens (\RestoreDBClusterFromSnapshot' {port} -> port) (\s@RestoreDBClusterFromSnapshot' {} a -> s {port = a} :: RestoreDBClusterFromSnapshot)
-
--- | A list of virtual private cloud (VPC) security groups that the new
--- cluster will belong to.
-restoreDBClusterFromSnapshot_vpcSecurityGroupIds :: Lens.Lens' RestoreDBClusterFromSnapshot (Prelude.Maybe [Prelude.Text])
-restoreDBClusterFromSnapshot_vpcSecurityGroupIds = Lens.lens (\RestoreDBClusterFromSnapshot' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@RestoreDBClusterFromSnapshot' {} a -> s {vpcSecurityGroupIds = a} :: RestoreDBClusterFromSnapshot) Prelude.. Lens.mapping Lens.coerced
+-- | Provides the list of Amazon EC2 Availability Zones that instances in the
+-- restored DB cluster can be created in.
+restoreDBClusterFromSnapshot_availabilityZones :: Lens.Lens' RestoreDBClusterFromSnapshot (Prelude.Maybe [Prelude.Text])
+restoreDBClusterFromSnapshot_availabilityZones = Lens.lens (\RestoreDBClusterFromSnapshot' {availabilityZones} -> availabilityZones) (\s@RestoreDBClusterFromSnapshot' {} a -> s {availabilityZones = a} :: RestoreDBClusterFromSnapshot) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the subnet group to use for the new cluster.
 --
@@ -293,15 +281,21 @@ restoreDBClusterFromSnapshot_vpcSecurityGroupIds = Lens.lens (\RestoreDBClusterF
 restoreDBClusterFromSnapshot_dbSubnetGroupName :: Lens.Lens' RestoreDBClusterFromSnapshot (Prelude.Maybe Prelude.Text)
 restoreDBClusterFromSnapshot_dbSubnetGroupName = Lens.lens (\RestoreDBClusterFromSnapshot' {dbSubnetGroupName} -> dbSubnetGroupName) (\s@RestoreDBClusterFromSnapshot' {} a -> s {dbSubnetGroupName = a} :: RestoreDBClusterFromSnapshot)
 
--- | Provides the list of Amazon EC2 Availability Zones that instances in the
--- restored DB cluster can be created in.
-restoreDBClusterFromSnapshot_availabilityZones :: Lens.Lens' RestoreDBClusterFromSnapshot (Prelude.Maybe [Prelude.Text])
-restoreDBClusterFromSnapshot_availabilityZones = Lens.lens (\RestoreDBClusterFromSnapshot' {availabilityZones} -> availabilityZones) (\s@RestoreDBClusterFromSnapshot' {} a -> s {availabilityZones = a} :: RestoreDBClusterFromSnapshot) Prelude.. Lens.mapping Lens.coerced
+-- | Specifies whether this cluster can be deleted. If @DeletionProtection@
+-- is enabled, the cluster cannot be deleted unless it is modified and
+-- @DeletionProtection@ is disabled. @DeletionProtection@ protects clusters
+-- from being accidentally deleted.
+restoreDBClusterFromSnapshot_deletionProtection :: Lens.Lens' RestoreDBClusterFromSnapshot (Prelude.Maybe Prelude.Bool)
+restoreDBClusterFromSnapshot_deletionProtection = Lens.lens (\RestoreDBClusterFromSnapshot' {deletionProtection} -> deletionProtection) (\s@RestoreDBClusterFromSnapshot' {} a -> s {deletionProtection = a} :: RestoreDBClusterFromSnapshot)
 
 -- | A list of log types that must be enabled for exporting to Amazon
 -- CloudWatch Logs.
 restoreDBClusterFromSnapshot_enableCloudwatchLogsExports :: Lens.Lens' RestoreDBClusterFromSnapshot (Prelude.Maybe [Prelude.Text])
 restoreDBClusterFromSnapshot_enableCloudwatchLogsExports = Lens.lens (\RestoreDBClusterFromSnapshot' {enableCloudwatchLogsExports} -> enableCloudwatchLogsExports) (\s@RestoreDBClusterFromSnapshot' {} a -> s {enableCloudwatchLogsExports = a} :: RestoreDBClusterFromSnapshot) Prelude.. Lens.mapping Lens.coerced
+
+-- | The version of the database engine to use for the new cluster.
+restoreDBClusterFromSnapshot_engineVersion :: Lens.Lens' RestoreDBClusterFromSnapshot (Prelude.Maybe Prelude.Text)
+restoreDBClusterFromSnapshot_engineVersion = Lens.lens (\RestoreDBClusterFromSnapshot' {engineVersion} -> engineVersion) (\s@RestoreDBClusterFromSnapshot' {} a -> s {engineVersion = a} :: RestoreDBClusterFromSnapshot)
 
 -- | The KMS key identifier to use when restoring an encrypted cluster from a
 -- DB snapshot or cluster snapshot.
@@ -324,16 +318,22 @@ restoreDBClusterFromSnapshot_enableCloudwatchLogsExports = Lens.lens (\RestoreDB
 restoreDBClusterFromSnapshot_kmsKeyId :: Lens.Lens' RestoreDBClusterFromSnapshot (Prelude.Maybe Prelude.Text)
 restoreDBClusterFromSnapshot_kmsKeyId = Lens.lens (\RestoreDBClusterFromSnapshot' {kmsKeyId} -> kmsKeyId) (\s@RestoreDBClusterFromSnapshot' {} a -> s {kmsKeyId = a} :: RestoreDBClusterFromSnapshot)
 
--- | Specifies whether this cluster can be deleted. If @DeletionProtection@
--- is enabled, the cluster cannot be deleted unless it is modified and
--- @DeletionProtection@ is disabled. @DeletionProtection@ protects clusters
--- from being accidentally deleted.
-restoreDBClusterFromSnapshot_deletionProtection :: Lens.Lens' RestoreDBClusterFromSnapshot (Prelude.Maybe Prelude.Bool)
-restoreDBClusterFromSnapshot_deletionProtection = Lens.lens (\RestoreDBClusterFromSnapshot' {deletionProtection} -> deletionProtection) (\s@RestoreDBClusterFromSnapshot' {} a -> s {deletionProtection = a} :: RestoreDBClusterFromSnapshot)
+-- | The port number on which the new cluster accepts connections.
+--
+-- Constraints: Must be a value from @1150@ to @65535@.
+--
+-- Default: The same port as the original cluster.
+restoreDBClusterFromSnapshot_port :: Lens.Lens' RestoreDBClusterFromSnapshot (Prelude.Maybe Prelude.Int)
+restoreDBClusterFromSnapshot_port = Lens.lens (\RestoreDBClusterFromSnapshot' {port} -> port) (\s@RestoreDBClusterFromSnapshot' {} a -> s {port = a} :: RestoreDBClusterFromSnapshot)
 
--- | The version of the database engine to use for the new cluster.
-restoreDBClusterFromSnapshot_engineVersion :: Lens.Lens' RestoreDBClusterFromSnapshot (Prelude.Maybe Prelude.Text)
-restoreDBClusterFromSnapshot_engineVersion = Lens.lens (\RestoreDBClusterFromSnapshot' {engineVersion} -> engineVersion) (\s@RestoreDBClusterFromSnapshot' {} a -> s {engineVersion = a} :: RestoreDBClusterFromSnapshot)
+-- | The tags to be assigned to the restored cluster.
+restoreDBClusterFromSnapshot_tags :: Lens.Lens' RestoreDBClusterFromSnapshot (Prelude.Maybe [Tag])
+restoreDBClusterFromSnapshot_tags = Lens.lens (\RestoreDBClusterFromSnapshot' {tags} -> tags) (\s@RestoreDBClusterFromSnapshot' {} a -> s {tags = a} :: RestoreDBClusterFromSnapshot) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of virtual private cloud (VPC) security groups that the new
+-- cluster will belong to.
+restoreDBClusterFromSnapshot_vpcSecurityGroupIds :: Lens.Lens' RestoreDBClusterFromSnapshot (Prelude.Maybe [Prelude.Text])
+restoreDBClusterFromSnapshot_vpcSecurityGroupIds = Lens.lens (\RestoreDBClusterFromSnapshot' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@RestoreDBClusterFromSnapshot' {} a -> s {vpcSecurityGroupIds = a} :: RestoreDBClusterFromSnapshot) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the cluster to create from the snapshot or cluster snapshot.
 -- This parameter isn\'t case sensitive.
@@ -390,30 +390,30 @@ instance
     RestoreDBClusterFromSnapshot
   where
   hashWithSalt _salt RestoreDBClusterFromSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` port
-      `Prelude.hashWithSalt` vpcSecurityGroupIds
+    _salt `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` dbSubnetGroupName
-      `Prelude.hashWithSalt` availabilityZones
-      `Prelude.hashWithSalt` enableCloudwatchLogsExports
-      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` deletionProtection
+      `Prelude.hashWithSalt` enableCloudwatchLogsExports
       `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` vpcSecurityGroupIds
       `Prelude.hashWithSalt` dbClusterIdentifier
       `Prelude.hashWithSalt` snapshotIdentifier
       `Prelude.hashWithSalt` engine
 
 instance Prelude.NFData RestoreDBClusterFromSnapshot where
   rnf RestoreDBClusterFromSnapshot' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
+    Prelude.rnf availabilityZones
       `Prelude.seq` Prelude.rnf dbSubnetGroupName
-      `Prelude.seq` Prelude.rnf availabilityZones
-      `Prelude.seq` Prelude.rnf enableCloudwatchLogsExports
-      `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf deletionProtection
+      `Prelude.seq` Prelude.rnf enableCloudwatchLogsExports
       `Prelude.seq` Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
       `Prelude.seq` Prelude.rnf dbClusterIdentifier
       `Prelude.seq` Prelude.rnf snapshotIdentifier
       `Prelude.seq` Prelude.rnf engine
@@ -433,29 +433,29 @@ instance Data.ToQuery RestoreDBClusterFromSnapshot where
                   ),
         "Version"
           Data.=: ("2014-10-31" :: Prelude.ByteString),
-        "Tags"
-          Data.=: Data.toQuery
-            (Data.toQueryList "Tag" Prelude.<$> tags),
-        "Port" Data.=: port,
-        "VpcSecurityGroupIds"
-          Data.=: Data.toQuery
-            ( Data.toQueryList "VpcSecurityGroupId"
-                Prelude.<$> vpcSecurityGroupIds
-            ),
-        "DBSubnetGroupName" Data.=: dbSubnetGroupName,
         "AvailabilityZones"
           Data.=: Data.toQuery
             ( Data.toQueryList "AvailabilityZone"
                 Prelude.<$> availabilityZones
             ),
+        "DBSubnetGroupName" Data.=: dbSubnetGroupName,
+        "DeletionProtection" Data.=: deletionProtection,
         "EnableCloudwatchLogsExports"
           Data.=: Data.toQuery
             ( Data.toQueryList "member"
                 Prelude.<$> enableCloudwatchLogsExports
             ),
-        "KmsKeyId" Data.=: kmsKeyId,
-        "DeletionProtection" Data.=: deletionProtection,
         "EngineVersion" Data.=: engineVersion,
+        "KmsKeyId" Data.=: kmsKeyId,
+        "Port" Data.=: port,
+        "Tags"
+          Data.=: Data.toQuery
+            (Data.toQueryList "Tag" Prelude.<$> tags),
+        "VpcSecurityGroupIds"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "VpcSecurityGroupId"
+                Prelude.<$> vpcSecurityGroupIds
+            ),
         "DBClusterIdentifier" Data.=: dbClusterIdentifier,
         "SnapshotIdentifier" Data.=: snapshotIdentifier,
         "Engine" Data.=: engine

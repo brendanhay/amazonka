@@ -29,9 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceSummary' smart constructor.
 data InstanceSummary = InstanceSummary'
-  { -- | The ID for an instance that you created by using a specified service.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | A string map that contains the following information:
+  { -- | A string map that contains the following information:
     --
     -- -   The attributes that are associated with the instance.
     --
@@ -74,7 +72,9 @@ data InstanceSummary = InstanceSummary'
     --     For an @SRV@ record, the value that Route 53 returns for the port.
     --     In addition, if the service includes @HealthCheckConfig@, the port
     --     on the endpoint that Route 53 sends requests to.
-    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The ID for an instance that you created by using a specified service.
+    id :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,8 +85,6 @@ data InstanceSummary = InstanceSummary'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'id', 'instanceSummary_id' - The ID for an instance that you created by using a specified service.
 --
 -- 'attributes', 'instanceSummary_attributes' - A string map that contains the following information:
 --
@@ -131,17 +129,15 @@ data InstanceSummary = InstanceSummary'
 --     For an @SRV@ record, the value that Route 53 returns for the port.
 --     In addition, if the service includes @HealthCheckConfig@, the port
 --     on the endpoint that Route 53 sends requests to.
+--
+-- 'id', 'instanceSummary_id' - The ID for an instance that you created by using a specified service.
 newInstanceSummary ::
   InstanceSummary
 newInstanceSummary =
   InstanceSummary'
-    { id = Prelude.Nothing,
-      attributes = Prelude.Nothing
+    { attributes = Prelude.Nothing,
+      id = Prelude.Nothing
     }
-
--- | The ID for an instance that you created by using a specified service.
-instanceSummary_id :: Lens.Lens' InstanceSummary (Prelude.Maybe Prelude.Text)
-instanceSummary_id = Lens.lens (\InstanceSummary' {id} -> id) (\s@InstanceSummary' {} a -> s {id = a} :: InstanceSummary)
 
 -- | A string map that contains the following information:
 --
@@ -189,21 +185,25 @@ instanceSummary_id = Lens.lens (\InstanceSummary' {id} -> id) (\s@InstanceSummar
 instanceSummary_attributes :: Lens.Lens' InstanceSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 instanceSummary_attributes = Lens.lens (\InstanceSummary' {attributes} -> attributes) (\s@InstanceSummary' {} a -> s {attributes = a} :: InstanceSummary) Prelude.. Lens.mapping Lens.coerced
 
+-- | The ID for an instance that you created by using a specified service.
+instanceSummary_id :: Lens.Lens' InstanceSummary (Prelude.Maybe Prelude.Text)
+instanceSummary_id = Lens.lens (\InstanceSummary' {id} -> id) (\s@InstanceSummary' {} a -> s {id = a} :: InstanceSummary)
+
 instance Data.FromJSON InstanceSummary where
   parseJSON =
     Data.withObject
       "InstanceSummary"
       ( \x ->
           InstanceSummary'
-            Prelude.<$> (x Data..:? "Id")
-            Prelude.<*> (x Data..:? "Attributes" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Attributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable InstanceSummary where
   hashWithSalt _salt InstanceSummary' {..} =
-    _salt `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` attributes
+    _salt `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` id
 
 instance Prelude.NFData InstanceSummary where
   rnf InstanceSummary' {..} =
-    Prelude.rnf id `Prelude.seq` Prelude.rnf attributes
+    Prelude.rnf attributes `Prelude.seq` Prelude.rnf id

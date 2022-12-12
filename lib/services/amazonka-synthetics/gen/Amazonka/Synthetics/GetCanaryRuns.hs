@@ -27,8 +27,8 @@ module Amazonka.Synthetics.GetCanaryRuns
     newGetCanaryRuns,
 
     -- * Request Lenses
-    getCanaryRuns_nextToken,
     getCanaryRuns_maxResults,
+    getCanaryRuns_nextToken,
     getCanaryRuns_name,
 
     -- * Destructuring the Response
@@ -36,8 +36,8 @@ module Amazonka.Synthetics.GetCanaryRuns
     newGetCanaryRunsResponse,
 
     -- * Response Lenses
-    getCanaryRunsResponse_nextToken,
     getCanaryRunsResponse_canaryRuns,
+    getCanaryRunsResponse_nextToken,
     getCanaryRunsResponse_httpStatus,
   )
 where
@@ -52,14 +52,14 @@ import Amazonka.Synthetics.Types
 
 -- | /See:/ 'newGetCanaryRuns' smart constructor.
 data GetCanaryRuns = GetCanaryRuns'
-  { -- | A token that indicates that there is more data available. You can use
-    -- this token in a subsequent @GetCanaryRuns@ operation to retrieve the
-    -- next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specify this parameter to limit how many runs are returned each time you
+  { -- | Specify this parameter to limit how many runs are returned each time you
     -- use the @GetCanaryRuns@ operation. If you omit this parameter, the
     -- default of 100 is used.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token that indicates that there is more data available. You can use
+    -- this token in a subsequent @GetCanaryRuns@ operation to retrieve the
+    -- next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the canary that you want to see runs for.
     name :: Prelude.Text
   }
@@ -73,13 +73,13 @@ data GetCanaryRuns = GetCanaryRuns'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getCanaryRuns_nextToken' - A token that indicates that there is more data available. You can use
--- this token in a subsequent @GetCanaryRuns@ operation to retrieve the
--- next set of results.
---
 -- 'maxResults', 'getCanaryRuns_maxResults' - Specify this parameter to limit how many runs are returned each time you
 -- use the @GetCanaryRuns@ operation. If you omit this parameter, the
 -- default of 100 is used.
+--
+-- 'nextToken', 'getCanaryRuns_nextToken' - A token that indicates that there is more data available. You can use
+-- this token in a subsequent @GetCanaryRuns@ operation to retrieve the
+-- next set of results.
 --
 -- 'name', 'getCanaryRuns_name' - The name of the canary that you want to see runs for.
 newGetCanaryRuns ::
@@ -88,22 +88,22 @@ newGetCanaryRuns ::
   GetCanaryRuns
 newGetCanaryRuns pName_ =
   GetCanaryRuns'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       name = pName_
     }
-
--- | A token that indicates that there is more data available. You can use
--- this token in a subsequent @GetCanaryRuns@ operation to retrieve the
--- next set of results.
-getCanaryRuns_nextToken :: Lens.Lens' GetCanaryRuns (Prelude.Maybe Prelude.Text)
-getCanaryRuns_nextToken = Lens.lens (\GetCanaryRuns' {nextToken} -> nextToken) (\s@GetCanaryRuns' {} a -> s {nextToken = a} :: GetCanaryRuns)
 
 -- | Specify this parameter to limit how many runs are returned each time you
 -- use the @GetCanaryRuns@ operation. If you omit this parameter, the
 -- default of 100 is used.
 getCanaryRuns_maxResults :: Lens.Lens' GetCanaryRuns (Prelude.Maybe Prelude.Natural)
 getCanaryRuns_maxResults = Lens.lens (\GetCanaryRuns' {maxResults} -> maxResults) (\s@GetCanaryRuns' {} a -> s {maxResults = a} :: GetCanaryRuns)
+
+-- | A token that indicates that there is more data available. You can use
+-- this token in a subsequent @GetCanaryRuns@ operation to retrieve the
+-- next set of results.
+getCanaryRuns_nextToken :: Lens.Lens' GetCanaryRuns (Prelude.Maybe Prelude.Text)
+getCanaryRuns_nextToken = Lens.lens (\GetCanaryRuns' {nextToken} -> nextToken) (\s@GetCanaryRuns' {} a -> s {nextToken = a} :: GetCanaryRuns)
 
 -- | The name of the canary that you want to see runs for.
 getCanaryRuns_name :: Lens.Lens' GetCanaryRuns Prelude.Text
@@ -119,21 +119,21 @@ instance Core.AWSRequest GetCanaryRuns where
     Response.receiveJSON
       ( \s h x ->
           GetCanaryRunsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "CanaryRuns" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "CanaryRuns" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetCanaryRuns where
   hashWithSalt _salt GetCanaryRuns' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData GetCanaryRuns where
   rnf GetCanaryRuns' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders GetCanaryRuns where
@@ -151,8 +151,8 @@ instance Data.ToJSON GetCanaryRuns where
   toJSON GetCanaryRuns' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -166,13 +166,13 @@ instance Data.ToQuery GetCanaryRuns where
 
 -- | /See:/ 'newGetCanaryRunsResponse' smart constructor.
 data GetCanaryRunsResponse = GetCanaryRunsResponse'
-  { -- | A token that indicates that there is more data available. You can use
+  { -- | An array of structures. Each structure contains the details of one of
+    -- the retrieved canary runs.
+    canaryRuns :: Prelude.Maybe [CanaryRun],
+    -- | A token that indicates that there is more data available. You can use
     -- this token in a subsequent @GetCanaryRuns@ operation to retrieve the
     -- next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of structures. Each structure contains the details of one of
-    -- the retrieved canary runs.
-    canaryRuns :: Prelude.Maybe [CanaryRun],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -186,12 +186,12 @@ data GetCanaryRunsResponse = GetCanaryRunsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'canaryRuns', 'getCanaryRunsResponse_canaryRuns' - An array of structures. Each structure contains the details of one of
+-- the retrieved canary runs.
+--
 -- 'nextToken', 'getCanaryRunsResponse_nextToken' - A token that indicates that there is more data available. You can use
 -- this token in a subsequent @GetCanaryRuns@ operation to retrieve the
 -- next set of results.
---
--- 'canaryRuns', 'getCanaryRunsResponse_canaryRuns' - An array of structures. Each structure contains the details of one of
--- the retrieved canary runs.
 --
 -- 'httpStatus', 'getCanaryRunsResponse_httpStatus' - The response's http status code.
 newGetCanaryRunsResponse ::
@@ -200,10 +200,16 @@ newGetCanaryRunsResponse ::
   GetCanaryRunsResponse
 newGetCanaryRunsResponse pHttpStatus_ =
   GetCanaryRunsResponse'
-    { nextToken = Prelude.Nothing,
-      canaryRuns = Prelude.Nothing,
+    { canaryRuns =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array of structures. Each structure contains the details of one of
+-- the retrieved canary runs.
+getCanaryRunsResponse_canaryRuns :: Lens.Lens' GetCanaryRunsResponse (Prelude.Maybe [CanaryRun])
+getCanaryRunsResponse_canaryRuns = Lens.lens (\GetCanaryRunsResponse' {canaryRuns} -> canaryRuns) (\s@GetCanaryRunsResponse' {} a -> s {canaryRuns = a} :: GetCanaryRunsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that indicates that there is more data available. You can use
 -- this token in a subsequent @GetCanaryRuns@ operation to retrieve the
@@ -211,17 +217,12 @@ newGetCanaryRunsResponse pHttpStatus_ =
 getCanaryRunsResponse_nextToken :: Lens.Lens' GetCanaryRunsResponse (Prelude.Maybe Prelude.Text)
 getCanaryRunsResponse_nextToken = Lens.lens (\GetCanaryRunsResponse' {nextToken} -> nextToken) (\s@GetCanaryRunsResponse' {} a -> s {nextToken = a} :: GetCanaryRunsResponse)
 
--- | An array of structures. Each structure contains the details of one of
--- the retrieved canary runs.
-getCanaryRunsResponse_canaryRuns :: Lens.Lens' GetCanaryRunsResponse (Prelude.Maybe [CanaryRun])
-getCanaryRunsResponse_canaryRuns = Lens.lens (\GetCanaryRunsResponse' {canaryRuns} -> canaryRuns) (\s@GetCanaryRunsResponse' {} a -> s {canaryRuns = a} :: GetCanaryRunsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 getCanaryRunsResponse_httpStatus :: Lens.Lens' GetCanaryRunsResponse Prelude.Int
 getCanaryRunsResponse_httpStatus = Lens.lens (\GetCanaryRunsResponse' {httpStatus} -> httpStatus) (\s@GetCanaryRunsResponse' {} a -> s {httpStatus = a} :: GetCanaryRunsResponse)
 
 instance Prelude.NFData GetCanaryRunsResponse where
   rnf GetCanaryRunsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf canaryRuns
+    Prelude.rnf canaryRuns
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

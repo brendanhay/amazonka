@@ -63,6 +63,9 @@ library
     Amazonka.LicenseManagerUserSubscriptions.Types.InstanceSummary
     Amazonka.LicenseManagerUserSubscriptions.Types.InstanceUserSummary
     Amazonka.LicenseManagerUserSubscriptions.Types.ProductUserSummary
+    Amazonka.LicenseManagerUserSubscriptions.Types.Settings
+    Amazonka.LicenseManagerUserSubscriptions.Types.UpdateSettings
+    Amazonka.LicenseManagerUserSubscriptions.UpdateIdentityProviderSettings
     Amazonka.LicenseManagerUserSubscriptions.Waiters
 
   build-depends:

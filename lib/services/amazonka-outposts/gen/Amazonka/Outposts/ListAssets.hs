@@ -33,9 +33,9 @@ module Amazonka.Outposts.ListAssets
     newListAssets,
 
     -- * Request Lenses
-    listAssets_nextToken,
     listAssets_hostIdFilter,
     listAssets_maxResults,
+    listAssets_nextToken,
     listAssets_statusFilter,
     listAssets_outpostIdentifier,
 
@@ -44,8 +44,8 @@ module Amazonka.Outposts.ListAssets
     newListAssetsResponse,
 
     -- * Response Lenses
-    listAssetsResponse_nextToken,
     listAssetsResponse_assets,
+    listAssetsResponse_nextToken,
     listAssetsResponse_httpStatus,
   )
 where
@@ -60,10 +60,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAssets' smart constructor.
 data ListAssets = ListAssets'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters the results by the host ID of a Dedicated Host.
+  { -- | Filters the results by the host ID of a Dedicated Host.
     hostIdFilter :: Prelude.Maybe [Prelude.Text],
     maxResults :: Prelude.Maybe Prelude.Natural,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Filters the results by state.
     statusFilter :: Prelude.Maybe (Prelude.NonEmpty AssetState),
     -- | The ID or the Amazon Resource Name (ARN) of the Outpost.
@@ -79,11 +79,11 @@ data ListAssets = ListAssets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAssets_nextToken' - Undocumented member.
---
 -- 'hostIdFilter', 'listAssets_hostIdFilter' - Filters the results by the host ID of a Dedicated Host.
 --
 -- 'maxResults', 'listAssets_maxResults' - Undocumented member.
+--
+-- 'nextToken', 'listAssets_nextToken' - Undocumented member.
 --
 -- 'statusFilter', 'listAssets_statusFilter' - Filters the results by state.
 --
@@ -94,16 +94,12 @@ newListAssets ::
   ListAssets
 newListAssets pOutpostIdentifier_ =
   ListAssets'
-    { nextToken = Prelude.Nothing,
-      hostIdFilter = Prelude.Nothing,
+    { hostIdFilter = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       statusFilter = Prelude.Nothing,
       outpostIdentifier = pOutpostIdentifier_
     }
-
--- | Undocumented member.
-listAssets_nextToken :: Lens.Lens' ListAssets (Prelude.Maybe Prelude.Text)
-listAssets_nextToken = Lens.lens (\ListAssets' {nextToken} -> nextToken) (\s@ListAssets' {} a -> s {nextToken = a} :: ListAssets)
 
 -- | Filters the results by the host ID of a Dedicated Host.
 listAssets_hostIdFilter :: Lens.Lens' ListAssets (Prelude.Maybe [Prelude.Text])
@@ -112,6 +108,10 @@ listAssets_hostIdFilter = Lens.lens (\ListAssets' {hostIdFilter} -> hostIdFilter
 -- | Undocumented member.
 listAssets_maxResults :: Lens.Lens' ListAssets (Prelude.Maybe Prelude.Natural)
 listAssets_maxResults = Lens.lens (\ListAssets' {maxResults} -> maxResults) (\s@ListAssets' {} a -> s {maxResults = a} :: ListAssets)
+
+-- | Undocumented member.
+listAssets_nextToken :: Lens.Lens' ListAssets (Prelude.Maybe Prelude.Text)
+listAssets_nextToken = Lens.lens (\ListAssets' {nextToken} -> nextToken) (\s@ListAssets' {} a -> s {nextToken = a} :: ListAssets)
 
 -- | Filters the results by state.
 listAssets_statusFilter :: Lens.Lens' ListAssets (Prelude.Maybe (Prelude.NonEmpty AssetState))
@@ -129,24 +129,24 @@ instance Core.AWSRequest ListAssets where
     Response.receiveJSON
       ( \s h x ->
           ListAssetsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Assets" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Assets" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListAssets where
   hashWithSalt _salt ListAssets' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` hostIdFilter
+    _salt `Prelude.hashWithSalt` hostIdFilter
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` statusFilter
       `Prelude.hashWithSalt` outpostIdentifier
 
 instance Prelude.NFData ListAssets where
   rnf ListAssets' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf hostIdFilter
+    Prelude.rnf hostIdFilter
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf statusFilter
       `Prelude.seq` Prelude.rnf outpostIdentifier
 
@@ -172,11 +172,11 @@ instance Data.ToPath ListAssets where
 instance Data.ToQuery ListAssets where
   toQuery ListAssets' {..} =
     Prelude.mconcat
-      [ "NextToken" Data.=: nextToken,
-        "HostIdFilter"
+      [ "HostIdFilter"
           Data.=: Data.toQuery
             (Data.toQueryList "member" Prelude.<$> hostIdFilter),
         "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken,
         "StatusFilter"
           Data.=: Data.toQuery
             (Data.toQueryList "member" Prelude.<$> statusFilter)
@@ -184,9 +184,9 @@ instance Data.ToQuery ListAssets where
 
 -- | /See:/ 'newListAssetsResponse' smart constructor.
 data ListAssetsResponse = ListAssetsResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the hardware assets.
+  { -- | Information about the hardware assets.
     assets :: Prelude.Maybe [AssetInfo],
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -200,9 +200,9 @@ data ListAssetsResponse = ListAssetsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAssetsResponse_nextToken' - Undocumented member.
---
 -- 'assets', 'listAssetsResponse_assets' - Information about the hardware assets.
+--
+-- 'nextToken', 'listAssetsResponse_nextToken' - Undocumented member.
 --
 -- 'httpStatus', 'listAssetsResponse_httpStatus' - The response's http status code.
 newListAssetsResponse ::
@@ -211,18 +211,18 @@ newListAssetsResponse ::
   ListAssetsResponse
 newListAssetsResponse pHttpStatus_ =
   ListAssetsResponse'
-    { nextToken = Prelude.Nothing,
-      assets = Prelude.Nothing,
+    { assets = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Undocumented member.
-listAssetsResponse_nextToken :: Lens.Lens' ListAssetsResponse (Prelude.Maybe Prelude.Text)
-listAssetsResponse_nextToken = Lens.lens (\ListAssetsResponse' {nextToken} -> nextToken) (\s@ListAssetsResponse' {} a -> s {nextToken = a} :: ListAssetsResponse)
 
 -- | Information about the hardware assets.
 listAssetsResponse_assets :: Lens.Lens' ListAssetsResponse (Prelude.Maybe [AssetInfo])
 listAssetsResponse_assets = Lens.lens (\ListAssetsResponse' {assets} -> assets) (\s@ListAssetsResponse' {} a -> s {assets = a} :: ListAssetsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+listAssetsResponse_nextToken :: Lens.Lens' ListAssetsResponse (Prelude.Maybe Prelude.Text)
+listAssetsResponse_nextToken = Lens.lens (\ListAssetsResponse' {nextToken} -> nextToken) (\s@ListAssetsResponse' {} a -> s {nextToken = a} :: ListAssetsResponse)
 
 -- | The response's http status code.
 listAssetsResponse_httpStatus :: Lens.Lens' ListAssetsResponse Prelude.Int
@@ -230,6 +230,6 @@ listAssetsResponse_httpStatus = Lens.lens (\ListAssetsResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListAssetsResponse where
   rnf ListAssetsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf assets
+    Prelude.rnf assets
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

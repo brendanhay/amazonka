@@ -47,13 +47,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSavingsOpportunity' smart constructor.
 data SavingsOpportunity = SavingsOpportunity'
-  { -- | The estimated monthly savings possible as a percentage of monthly cost
-    -- by adopting Compute Optimizer recommendations for a given resource.
-    savingsOpportunityPercentage :: Prelude.Maybe Prelude.Double,
-    -- | An object that describes the estimated monthly savings amount possible,
+  { -- | An object that describes the estimated monthly savings amount possible,
     -- based on On-Demand instance pricing, by adopting Compute Optimizer
     -- recommendations for a given resource.
-    estimatedMonthlySavings :: Prelude.Maybe EstimatedMonthlySavings
+    estimatedMonthlySavings :: Prelude.Maybe EstimatedMonthlySavings,
+    -- | The estimated monthly savings possible as a percentage of monthly cost
+    -- by adopting Compute Optimizer recommendations for a given resource.
+    savingsOpportunityPercentage :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,25 +65,20 @@ data SavingsOpportunity = SavingsOpportunity'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'savingsOpportunityPercentage', 'savingsOpportunity_savingsOpportunityPercentage' - The estimated monthly savings possible as a percentage of monthly cost
--- by adopting Compute Optimizer recommendations for a given resource.
---
 -- 'estimatedMonthlySavings', 'savingsOpportunity_estimatedMonthlySavings' - An object that describes the estimated monthly savings amount possible,
 -- based on On-Demand instance pricing, by adopting Compute Optimizer
 -- recommendations for a given resource.
+--
+-- 'savingsOpportunityPercentage', 'savingsOpportunity_savingsOpportunityPercentage' - The estimated monthly savings possible as a percentage of monthly cost
+-- by adopting Compute Optimizer recommendations for a given resource.
 newSavingsOpportunity ::
   SavingsOpportunity
 newSavingsOpportunity =
   SavingsOpportunity'
-    { savingsOpportunityPercentage =
+    { estimatedMonthlySavings =
         Prelude.Nothing,
-      estimatedMonthlySavings = Prelude.Nothing
+      savingsOpportunityPercentage = Prelude.Nothing
     }
-
--- | The estimated monthly savings possible as a percentage of monthly cost
--- by adopting Compute Optimizer recommendations for a given resource.
-savingsOpportunity_savingsOpportunityPercentage :: Lens.Lens' SavingsOpportunity (Prelude.Maybe Prelude.Double)
-savingsOpportunity_savingsOpportunityPercentage = Lens.lens (\SavingsOpportunity' {savingsOpportunityPercentage} -> savingsOpportunityPercentage) (\s@SavingsOpportunity' {} a -> s {savingsOpportunityPercentage = a} :: SavingsOpportunity)
 
 -- | An object that describes the estimated monthly savings amount possible,
 -- based on On-Demand instance pricing, by adopting Compute Optimizer
@@ -91,23 +86,28 @@ savingsOpportunity_savingsOpportunityPercentage = Lens.lens (\SavingsOpportunity
 savingsOpportunity_estimatedMonthlySavings :: Lens.Lens' SavingsOpportunity (Prelude.Maybe EstimatedMonthlySavings)
 savingsOpportunity_estimatedMonthlySavings = Lens.lens (\SavingsOpportunity' {estimatedMonthlySavings} -> estimatedMonthlySavings) (\s@SavingsOpportunity' {} a -> s {estimatedMonthlySavings = a} :: SavingsOpportunity)
 
+-- | The estimated monthly savings possible as a percentage of monthly cost
+-- by adopting Compute Optimizer recommendations for a given resource.
+savingsOpportunity_savingsOpportunityPercentage :: Lens.Lens' SavingsOpportunity (Prelude.Maybe Prelude.Double)
+savingsOpportunity_savingsOpportunityPercentage = Lens.lens (\SavingsOpportunity' {savingsOpportunityPercentage} -> savingsOpportunityPercentage) (\s@SavingsOpportunity' {} a -> s {savingsOpportunityPercentage = a} :: SavingsOpportunity)
+
 instance Data.FromJSON SavingsOpportunity where
   parseJSON =
     Data.withObject
       "SavingsOpportunity"
       ( \x ->
           SavingsOpportunity'
-            Prelude.<$> (x Data..:? "savingsOpportunityPercentage")
-            Prelude.<*> (x Data..:? "estimatedMonthlySavings")
+            Prelude.<$> (x Data..:? "estimatedMonthlySavings")
+            Prelude.<*> (x Data..:? "savingsOpportunityPercentage")
       )
 
 instance Prelude.Hashable SavingsOpportunity where
   hashWithSalt _salt SavingsOpportunity' {..} =
     _salt
-      `Prelude.hashWithSalt` savingsOpportunityPercentage
       `Prelude.hashWithSalt` estimatedMonthlySavings
+      `Prelude.hashWithSalt` savingsOpportunityPercentage
 
 instance Prelude.NFData SavingsOpportunity where
   rnf SavingsOpportunity' {..} =
-    Prelude.rnf savingsOpportunityPercentage
-      `Prelude.seq` Prelude.rnf estimatedMonthlySavings
+    Prelude.rnf estimatedMonthlySavings
+      `Prelude.seq` Prelude.rnf savingsOpportunityPercentage

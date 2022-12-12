@@ -32,9 +32,9 @@ module Amazonka.AccessAnalyzer.ValidatePolicy
     newValidatePolicy,
 
     -- * Request Lenses
-    validatePolicy_nextToken,
     validatePolicy_locale,
     validatePolicy_maxResults,
+    validatePolicy_nextToken,
     validatePolicy_validatePolicyResourceType,
     validatePolicy_policyDocument,
     validatePolicy_policyType,
@@ -60,12 +60,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newValidatePolicy' smart constructor.
 data ValidatePolicy = ValidatePolicy'
-  { -- | A token used for pagination of results returned.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The locale to use for localizing the findings.
+  { -- | The locale to use for localizing the findings.
     locale :: Prelude.Maybe Locale,
     -- | The maximum number of results to return in the response.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | A token used for pagination of results returned.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The type of resource to attach to your resource policy. Specify a value
     -- for the policy validation resource type only if the policy type is
     -- @RESOURCE_POLICY@. For example, to validate a resource policy to attach
@@ -103,11 +103,11 @@ data ValidatePolicy = ValidatePolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'validatePolicy_nextToken' - A token used for pagination of results returned.
---
 -- 'locale', 'validatePolicy_locale' - The locale to use for localizing the findings.
 --
 -- 'maxResults', 'validatePolicy_maxResults' - The maximum number of results to return in the response.
+--
+-- 'nextToken', 'validatePolicy_nextToken' - A token used for pagination of results returned.
 --
 -- 'validatePolicyResourceType', 'validatePolicy_validatePolicyResourceType' - The type of resource to attach to your resource policy. Specify a value
 -- for the policy validation resource type only if the policy type is
@@ -142,17 +142,13 @@ newValidatePolicy ::
   ValidatePolicy
 newValidatePolicy pPolicyDocument_ pPolicyType_ =
   ValidatePolicy'
-    { nextToken = Prelude.Nothing,
-      locale = Prelude.Nothing,
+    { locale = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       validatePolicyResourceType = Prelude.Nothing,
       policyDocument = pPolicyDocument_,
       policyType = pPolicyType_
     }
-
--- | A token used for pagination of results returned.
-validatePolicy_nextToken :: Lens.Lens' ValidatePolicy (Prelude.Maybe Prelude.Text)
-validatePolicy_nextToken = Lens.lens (\ValidatePolicy' {nextToken} -> nextToken) (\s@ValidatePolicy' {} a -> s {nextToken = a} :: ValidatePolicy)
 
 -- | The locale to use for localizing the findings.
 validatePolicy_locale :: Lens.Lens' ValidatePolicy (Prelude.Maybe Locale)
@@ -161,6 +157,10 @@ validatePolicy_locale = Lens.lens (\ValidatePolicy' {locale} -> locale) (\s@Vali
 -- | The maximum number of results to return in the response.
 validatePolicy_maxResults :: Lens.Lens' ValidatePolicy (Prelude.Maybe Prelude.Int)
 validatePolicy_maxResults = Lens.lens (\ValidatePolicy' {maxResults} -> maxResults) (\s@ValidatePolicy' {} a -> s {maxResults = a} :: ValidatePolicy)
+
+-- | A token used for pagination of results returned.
+validatePolicy_nextToken :: Lens.Lens' ValidatePolicy (Prelude.Maybe Prelude.Text)
+validatePolicy_nextToken = Lens.lens (\ValidatePolicy' {nextToken} -> nextToken) (\s@ValidatePolicy' {} a -> s {nextToken = a} :: ValidatePolicy)
 
 -- | The type of resource to attach to your resource policy. Specify a value
 -- for the policy validation resource type only if the policy type is
@@ -229,18 +229,18 @@ instance Core.AWSRequest ValidatePolicy where
 
 instance Prelude.Hashable ValidatePolicy where
   hashWithSalt _salt ValidatePolicy' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` locale
+    _salt `Prelude.hashWithSalt` locale
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` validatePolicyResourceType
       `Prelude.hashWithSalt` policyDocument
       `Prelude.hashWithSalt` policyType
 
 instance Prelude.NFData ValidatePolicy where
   rnf ValidatePolicy' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf locale
+    Prelude.rnf locale
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf validatePolicyResourceType
       `Prelude.seq` Prelude.rnf policyDocument
       `Prelude.seq` Prelude.rnf policyType
@@ -275,8 +275,8 @@ instance Data.ToPath ValidatePolicy where
 instance Data.ToQuery ValidatePolicy where
   toQuery ValidatePolicy' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newValidatePolicyResponse' smart constructor.

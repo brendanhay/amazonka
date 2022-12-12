@@ -32,10 +32,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConditionCheck' smart constructor.
 data ConditionCheck = ConditionCheck'
-  { -- | One or more values that can be substituted in an expression.
-    expressionAttributeValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
-    -- | One or more substitution tokens for attribute names in an expression.
+  { -- | One or more substitution tokens for attribute names in an expression.
     expressionAttributeNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | One or more values that can be substituted in an expression.
+    expressionAttributeValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
     -- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if
     -- the @ConditionCheck@ condition fails. For
     -- @ReturnValuesOnConditionCheckFailure@, the valid values are: NONE and
@@ -60,9 +60,9 @@ data ConditionCheck = ConditionCheck'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expressionAttributeValues', 'conditionCheck_expressionAttributeValues' - One or more values that can be substituted in an expression.
---
 -- 'expressionAttributeNames', 'conditionCheck_expressionAttributeNames' - One or more substitution tokens for attribute names in an expression.
+--
+-- 'expressionAttributeValues', 'conditionCheck_expressionAttributeValues' - One or more values that can be substituted in an expression.
 --
 -- 'returnValuesOnConditionCheckFailure', 'conditionCheck_returnValuesOnConditionCheckFailure' - Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if
 -- the @ConditionCheck@ condition fails. For
@@ -84,9 +84,9 @@ newConditionCheck ::
   ConditionCheck
 newConditionCheck pTableName_ pConditionExpression_ =
   ConditionCheck'
-    { expressionAttributeValues =
+    { expressionAttributeNames =
         Prelude.Nothing,
-      expressionAttributeNames = Prelude.Nothing,
+      expressionAttributeValues = Prelude.Nothing,
       returnValuesOnConditionCheckFailure =
         Prelude.Nothing,
       key = Prelude.mempty,
@@ -94,13 +94,13 @@ newConditionCheck pTableName_ pConditionExpression_ =
       conditionExpression = pConditionExpression_
     }
 
--- | One or more values that can be substituted in an expression.
-conditionCheck_expressionAttributeValues :: Lens.Lens' ConditionCheck (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
-conditionCheck_expressionAttributeValues = Lens.lens (\ConditionCheck' {expressionAttributeValues} -> expressionAttributeValues) (\s@ConditionCheck' {} a -> s {expressionAttributeValues = a} :: ConditionCheck) Prelude.. Lens.mapping Lens.coerced
-
 -- | One or more substitution tokens for attribute names in an expression.
 conditionCheck_expressionAttributeNames :: Lens.Lens' ConditionCheck (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 conditionCheck_expressionAttributeNames = Lens.lens (\ConditionCheck' {expressionAttributeNames} -> expressionAttributeNames) (\s@ConditionCheck' {} a -> s {expressionAttributeNames = a} :: ConditionCheck) Prelude.. Lens.mapping Lens.coerced
+
+-- | One or more values that can be substituted in an expression.
+conditionCheck_expressionAttributeValues :: Lens.Lens' ConditionCheck (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
+conditionCheck_expressionAttributeValues = Lens.lens (\ConditionCheck' {expressionAttributeValues} -> expressionAttributeValues) (\s@ConditionCheck' {} a -> s {expressionAttributeValues = a} :: ConditionCheck) Prelude.. Lens.mapping Lens.coerced
 
 -- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if
 -- the @ConditionCheck@ condition fails. For
@@ -126,8 +126,8 @@ conditionCheck_conditionExpression = Lens.lens (\ConditionCheck' {conditionExpre
 instance Prelude.Hashable ConditionCheck where
   hashWithSalt _salt ConditionCheck' {..} =
     _salt
-      `Prelude.hashWithSalt` expressionAttributeValues
       `Prelude.hashWithSalt` expressionAttributeNames
+      `Prelude.hashWithSalt` expressionAttributeValues
       `Prelude.hashWithSalt` returnValuesOnConditionCheckFailure
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` tableName
@@ -135,8 +135,8 @@ instance Prelude.Hashable ConditionCheck where
 
 instance Prelude.NFData ConditionCheck where
   rnf ConditionCheck' {..} =
-    Prelude.rnf expressionAttributeValues
-      `Prelude.seq` Prelude.rnf expressionAttributeNames
+    Prelude.rnf expressionAttributeNames
+      `Prelude.seq` Prelude.rnf expressionAttributeValues
       `Prelude.seq` Prelude.rnf returnValuesOnConditionCheckFailure
       `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf tableName
@@ -146,10 +146,10 @@ instance Data.ToJSON ConditionCheck where
   toJSON ConditionCheck' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ExpressionAttributeValues" Data..=)
-              Prelude.<$> expressionAttributeValues,
-            ("ExpressionAttributeNames" Data..=)
+          [ ("ExpressionAttributeNames" Data..=)
               Prelude.<$> expressionAttributeNames,
+            ("ExpressionAttributeValues" Data..=)
+              Prelude.<$> expressionAttributeValues,
             ("ReturnValuesOnConditionCheckFailure" Data..=)
               Prelude.<$> returnValuesOnConditionCheckFailure,
             Prelude.Just ("Key" Data..= key),

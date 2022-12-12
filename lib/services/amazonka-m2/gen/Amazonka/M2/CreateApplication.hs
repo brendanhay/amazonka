@@ -28,9 +28,9 @@ module Amazonka.M2.CreateApplication
     newCreateApplication,
 
     -- * Request Lenses
-    createApplication_tags,
     createApplication_clientToken,
     createApplication_description,
+    createApplication_tags,
     createApplication_definition,
     createApplication_engineType,
     createApplication_name,
@@ -57,9 +57,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateApplication' smart constructor.
 data CreateApplication = CreateApplication'
-  { -- | A list of tags to apply to the application.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Unique, case-sensitive identifier the service generates to ensure the
+  { -- | Unique, case-sensitive identifier the service generates to ensure the
     -- idempotency of the request to create an application. The service
     -- generates the clientToken when the API call is triggered. The token
     -- expires after one hour, so if you retry the API within this timeframe
@@ -68,6 +66,8 @@ data CreateApplication = CreateApplication'
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The description of the application.
     description :: Prelude.Maybe Prelude.Text,
+    -- | A list of tags to apply to the application.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The application definition for this application. You can specify either
     -- inline JSON or an S3 bucket location.
     definition :: Definition,
@@ -86,8 +86,6 @@ data CreateApplication = CreateApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createApplication_tags' - A list of tags to apply to the application.
---
 -- 'clientToken', 'createApplication_clientToken' - Unique, case-sensitive identifier the service generates to ensure the
 -- idempotency of the request to create an application. The service
 -- generates the clientToken when the API call is triggered. The token
@@ -96,6 +94,8 @@ data CreateApplication = CreateApplication'
 -- also handles deleting the clientToken after it expires.
 --
 -- 'description', 'createApplication_description' - The description of the application.
+--
+-- 'tags', 'createApplication_tags' - A list of tags to apply to the application.
 --
 -- 'definition', 'createApplication_definition' - The application definition for this application. You can specify either
 -- inline JSON or an S3 bucket location.
@@ -113,17 +113,13 @@ newCreateApplication ::
   CreateApplication
 newCreateApplication pDefinition_ pEngineType_ pName_ =
   CreateApplication'
-    { tags = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+    { clientToken = Prelude.Nothing,
       description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       definition = pDefinition_,
       engineType = pEngineType_,
       name = pName_
     }
-
--- | A list of tags to apply to the application.
-createApplication_tags :: Lens.Lens' CreateApplication (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createApplication_tags = Lens.lens (\CreateApplication' {tags} -> tags) (\s@CreateApplication' {} a -> s {tags = a} :: CreateApplication) Prelude.. Lens.mapping Lens.coerced
 
 -- | Unique, case-sensitive identifier the service generates to ensure the
 -- idempotency of the request to create an application. The service
@@ -137,6 +133,10 @@ createApplication_clientToken = Lens.lens (\CreateApplication' {clientToken} -> 
 -- | The description of the application.
 createApplication_description :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Text)
 createApplication_description = Lens.lens (\CreateApplication' {description} -> description) (\s@CreateApplication' {} a -> s {description = a} :: CreateApplication)
+
+-- | A list of tags to apply to the application.
+createApplication_tags :: Lens.Lens' CreateApplication (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createApplication_tags = Lens.lens (\CreateApplication' {tags} -> tags) (\s@CreateApplication' {} a -> s {tags = a} :: CreateApplication) Prelude.. Lens.mapping Lens.coerced
 
 -- | The application definition for this application. You can specify either
 -- inline JSON or an S3 bucket location.
@@ -169,18 +169,18 @@ instance Core.AWSRequest CreateApplication where
 
 instance Prelude.Hashable CreateApplication where
   hashWithSalt _salt CreateApplication' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` definition
       `Prelude.hashWithSalt` engineType
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateApplication where
   rnf CreateApplication' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf definition
       `Prelude.seq` Prelude.rnf engineType
       `Prelude.seq` Prelude.rnf name
@@ -200,9 +200,9 @@ instance Data.ToJSON CreateApplication where
   toJSON CreateApplication' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("clientToken" Data..=) Prelude.<$> clientToken,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
             ("description" Data..=) Prelude.<$> description,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("definition" Data..= definition),
             Prelude.Just ("engineType" Data..= engineType),
             Prelude.Just ("name" Data..= name)

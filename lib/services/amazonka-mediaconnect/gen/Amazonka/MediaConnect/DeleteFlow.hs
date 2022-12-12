@@ -34,8 +34,8 @@ module Amazonka.MediaConnect.DeleteFlow
     newDeleteFlowResponse,
 
     -- * Response Lenses
-    deleteFlowResponse_status,
     deleteFlowResponse_flowArn,
+    deleteFlowResponse_status,
     deleteFlowResponse_httpStatus,
   )
 where
@@ -83,8 +83,8 @@ instance Core.AWSRequest DeleteFlow where
     Response.receiveJSON
       ( \s h x ->
           DeleteFlowResponse'
-            Prelude.<$> (x Data..?> "status")
-            Prelude.<*> (x Data..?> "flowArn")
+            Prelude.<$> (x Data..?> "flowArn")
+            Prelude.<*> (x Data..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,10 +115,10 @@ instance Data.ToQuery DeleteFlow where
 
 -- | /See:/ 'newDeleteFlowResponse' smart constructor.
 data DeleteFlowResponse = DeleteFlowResponse'
-  { -- | The status of the flow when the DeleteFlow process begins.
-    status :: Prelude.Maybe Status,
-    -- | The ARN of the flow that was deleted.
+  { -- | The ARN of the flow that was deleted.
     flowArn :: Prelude.Maybe Prelude.Text,
+    -- | The status of the flow when the DeleteFlow process begins.
+    status :: Prelude.Maybe Status,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -132,9 +132,9 @@ data DeleteFlowResponse = DeleteFlowResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'deleteFlowResponse_status' - The status of the flow when the DeleteFlow process begins.
---
 -- 'flowArn', 'deleteFlowResponse_flowArn' - The ARN of the flow that was deleted.
+--
+-- 'status', 'deleteFlowResponse_status' - The status of the flow when the DeleteFlow process begins.
 --
 -- 'httpStatus', 'deleteFlowResponse_httpStatus' - The response's http status code.
 newDeleteFlowResponse ::
@@ -143,18 +143,18 @@ newDeleteFlowResponse ::
   DeleteFlowResponse
 newDeleteFlowResponse pHttpStatus_ =
   DeleteFlowResponse'
-    { status = Prelude.Nothing,
-      flowArn = Prelude.Nothing,
+    { flowArn = Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The status of the flow when the DeleteFlow process begins.
-deleteFlowResponse_status :: Lens.Lens' DeleteFlowResponse (Prelude.Maybe Status)
-deleteFlowResponse_status = Lens.lens (\DeleteFlowResponse' {status} -> status) (\s@DeleteFlowResponse' {} a -> s {status = a} :: DeleteFlowResponse)
 
 -- | The ARN of the flow that was deleted.
 deleteFlowResponse_flowArn :: Lens.Lens' DeleteFlowResponse (Prelude.Maybe Prelude.Text)
 deleteFlowResponse_flowArn = Lens.lens (\DeleteFlowResponse' {flowArn} -> flowArn) (\s@DeleteFlowResponse' {} a -> s {flowArn = a} :: DeleteFlowResponse)
+
+-- | The status of the flow when the DeleteFlow process begins.
+deleteFlowResponse_status :: Lens.Lens' DeleteFlowResponse (Prelude.Maybe Status)
+deleteFlowResponse_status = Lens.lens (\DeleteFlowResponse' {status} -> status) (\s@DeleteFlowResponse' {} a -> s {status = a} :: DeleteFlowResponse)
 
 -- | The response's http status code.
 deleteFlowResponse_httpStatus :: Lens.Lens' DeleteFlowResponse Prelude.Int
@@ -162,6 +162,6 @@ deleteFlowResponse_httpStatus = Lens.lens (\DeleteFlowResponse' {httpStatus} -> 
 
 instance Prelude.NFData DeleteFlowResponse where
   rnf DeleteFlowResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf flowArn
+    Prelude.rnf flowArn
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsRdsDbClusterMember' smart constructor.
 data AwsRdsDbClusterMember = AwsRdsDbClusterMember'
-  { -- | Specifies the order in which an Aurora replica is promoted to the
-    -- primary instance when the existing primary instance fails.
-    promotionTier :: Prelude.Maybe Prelude.Int,
-    -- | The instance identifier for this member of the DB cluster.
-    dbInstanceIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The status of the DB cluster parameter group for this member of the DB
+  { -- | The status of the DB cluster parameter group for this member of the DB
     -- cluster.
     dbClusterParameterGroupStatus :: Prelude.Maybe Prelude.Text,
+    -- | The instance identifier for this member of the DB cluster.
+    dbInstanceIdentifier :: Prelude.Maybe Prelude.Text,
     -- | Whether the cluster member is the primary instance for the DB cluster.
-    isClusterWriter :: Prelude.Maybe Prelude.Bool
+    isClusterWriter :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies the order in which an Aurora replica is promoted to the
+    -- primary instance when the existing primary instance fails.
+    promotionTier :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,43 +49,43 @@ data AwsRdsDbClusterMember = AwsRdsDbClusterMember'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'promotionTier', 'awsRdsDbClusterMember_promotionTier' - Specifies the order in which an Aurora replica is promoted to the
--- primary instance when the existing primary instance fails.
---
--- 'dbInstanceIdentifier', 'awsRdsDbClusterMember_dbInstanceIdentifier' - The instance identifier for this member of the DB cluster.
---
 -- 'dbClusterParameterGroupStatus', 'awsRdsDbClusterMember_dbClusterParameterGroupStatus' - The status of the DB cluster parameter group for this member of the DB
 -- cluster.
 --
+-- 'dbInstanceIdentifier', 'awsRdsDbClusterMember_dbInstanceIdentifier' - The instance identifier for this member of the DB cluster.
+--
 -- 'isClusterWriter', 'awsRdsDbClusterMember_isClusterWriter' - Whether the cluster member is the primary instance for the DB cluster.
+--
+-- 'promotionTier', 'awsRdsDbClusterMember_promotionTier' - Specifies the order in which an Aurora replica is promoted to the
+-- primary instance when the existing primary instance fails.
 newAwsRdsDbClusterMember ::
   AwsRdsDbClusterMember
 newAwsRdsDbClusterMember =
   AwsRdsDbClusterMember'
-    { promotionTier =
+    { dbClusterParameterGroupStatus =
         Prelude.Nothing,
       dbInstanceIdentifier = Prelude.Nothing,
-      dbClusterParameterGroupStatus = Prelude.Nothing,
-      isClusterWriter = Prelude.Nothing
+      isClusterWriter = Prelude.Nothing,
+      promotionTier = Prelude.Nothing
     }
-
--- | Specifies the order in which an Aurora replica is promoted to the
--- primary instance when the existing primary instance fails.
-awsRdsDbClusterMember_promotionTier :: Lens.Lens' AwsRdsDbClusterMember (Prelude.Maybe Prelude.Int)
-awsRdsDbClusterMember_promotionTier = Lens.lens (\AwsRdsDbClusterMember' {promotionTier} -> promotionTier) (\s@AwsRdsDbClusterMember' {} a -> s {promotionTier = a} :: AwsRdsDbClusterMember)
-
--- | The instance identifier for this member of the DB cluster.
-awsRdsDbClusterMember_dbInstanceIdentifier :: Lens.Lens' AwsRdsDbClusterMember (Prelude.Maybe Prelude.Text)
-awsRdsDbClusterMember_dbInstanceIdentifier = Lens.lens (\AwsRdsDbClusterMember' {dbInstanceIdentifier} -> dbInstanceIdentifier) (\s@AwsRdsDbClusterMember' {} a -> s {dbInstanceIdentifier = a} :: AwsRdsDbClusterMember)
 
 -- | The status of the DB cluster parameter group for this member of the DB
 -- cluster.
 awsRdsDbClusterMember_dbClusterParameterGroupStatus :: Lens.Lens' AwsRdsDbClusterMember (Prelude.Maybe Prelude.Text)
 awsRdsDbClusterMember_dbClusterParameterGroupStatus = Lens.lens (\AwsRdsDbClusterMember' {dbClusterParameterGroupStatus} -> dbClusterParameterGroupStatus) (\s@AwsRdsDbClusterMember' {} a -> s {dbClusterParameterGroupStatus = a} :: AwsRdsDbClusterMember)
 
+-- | The instance identifier for this member of the DB cluster.
+awsRdsDbClusterMember_dbInstanceIdentifier :: Lens.Lens' AwsRdsDbClusterMember (Prelude.Maybe Prelude.Text)
+awsRdsDbClusterMember_dbInstanceIdentifier = Lens.lens (\AwsRdsDbClusterMember' {dbInstanceIdentifier} -> dbInstanceIdentifier) (\s@AwsRdsDbClusterMember' {} a -> s {dbInstanceIdentifier = a} :: AwsRdsDbClusterMember)
+
 -- | Whether the cluster member is the primary instance for the DB cluster.
 awsRdsDbClusterMember_isClusterWriter :: Lens.Lens' AwsRdsDbClusterMember (Prelude.Maybe Prelude.Bool)
 awsRdsDbClusterMember_isClusterWriter = Lens.lens (\AwsRdsDbClusterMember' {isClusterWriter} -> isClusterWriter) (\s@AwsRdsDbClusterMember' {} a -> s {isClusterWriter = a} :: AwsRdsDbClusterMember)
+
+-- | Specifies the order in which an Aurora replica is promoted to the
+-- primary instance when the existing primary instance fails.
+awsRdsDbClusterMember_promotionTier :: Lens.Lens' AwsRdsDbClusterMember (Prelude.Maybe Prelude.Int)
+awsRdsDbClusterMember_promotionTier = Lens.lens (\AwsRdsDbClusterMember' {promotionTier} -> promotionTier) (\s@AwsRdsDbClusterMember' {} a -> s {promotionTier = a} :: AwsRdsDbClusterMember)
 
 instance Data.FromJSON AwsRdsDbClusterMember where
   parseJSON =
@@ -93,36 +93,37 @@ instance Data.FromJSON AwsRdsDbClusterMember where
       "AwsRdsDbClusterMember"
       ( \x ->
           AwsRdsDbClusterMember'
-            Prelude.<$> (x Data..:? "PromotionTier")
+            Prelude.<$> (x Data..:? "DbClusterParameterGroupStatus")
             Prelude.<*> (x Data..:? "DbInstanceIdentifier")
-            Prelude.<*> (x Data..:? "DbClusterParameterGroupStatus")
             Prelude.<*> (x Data..:? "IsClusterWriter")
+            Prelude.<*> (x Data..:? "PromotionTier")
       )
 
 instance Prelude.Hashable AwsRdsDbClusterMember where
   hashWithSalt _salt AwsRdsDbClusterMember' {..} =
-    _salt `Prelude.hashWithSalt` promotionTier
-      `Prelude.hashWithSalt` dbInstanceIdentifier
+    _salt
       `Prelude.hashWithSalt` dbClusterParameterGroupStatus
+      `Prelude.hashWithSalt` dbInstanceIdentifier
       `Prelude.hashWithSalt` isClusterWriter
+      `Prelude.hashWithSalt` promotionTier
 
 instance Prelude.NFData AwsRdsDbClusterMember where
   rnf AwsRdsDbClusterMember' {..} =
-    Prelude.rnf promotionTier
+    Prelude.rnf dbClusterParameterGroupStatus
       `Prelude.seq` Prelude.rnf dbInstanceIdentifier
-      `Prelude.seq` Prelude.rnf dbClusterParameterGroupStatus
       `Prelude.seq` Prelude.rnf isClusterWriter
+      `Prelude.seq` Prelude.rnf promotionTier
 
 instance Data.ToJSON AwsRdsDbClusterMember where
   toJSON AwsRdsDbClusterMember' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("PromotionTier" Data..=) Prelude.<$> promotionTier,
+          [ ("DbClusterParameterGroupStatus" Data..=)
+              Prelude.<$> dbClusterParameterGroupStatus,
             ("DbInstanceIdentifier" Data..=)
               Prelude.<$> dbInstanceIdentifier,
-            ("DbClusterParameterGroupStatus" Data..=)
-              Prelude.<$> dbClusterParameterGroupStatus,
             ("IsClusterWriter" Data..=)
-              Prelude.<$> isClusterWriter
+              Prelude.<$> isClusterWriter,
+            ("PromotionTier" Data..=) Prelude.<$> promotionTier
           ]
       )

@@ -29,11 +29,11 @@ module Amazonka.IVSChat.ListRooms
     newListRooms,
 
     -- * Request Lenses
+    listRooms_loggingConfigurationIdentifier,
+    listRooms_maxResults,
+    listRooms_messageReviewHandlerUri,
     listRooms_name,
     listRooms_nextToken,
-    listRooms_loggingConfigurationIdentifier,
-    listRooms_messageReviewHandlerUri,
-    listRooms_maxResults,
 
     -- * Destructuring the Response
     ListRoomsResponse (..),
@@ -56,17 +56,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListRooms' smart constructor.
 data ListRooms = ListRooms'
-  { -- | Filters the list to match the specified room name.
+  { -- | Logging-configuration identifier.
+    loggingConfigurationIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | Maximum number of rooms to return. Default: 50.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Filters the list to match the specified message review handler URI.
+    messageReviewHandlerUri :: Prelude.Maybe Prelude.Text,
+    -- | Filters the list to match the specified room name.
     name :: Prelude.Maybe Prelude.Text,
     -- | The first room to retrieve. This is used for pagination; see the
     -- @nextToken@ response field.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Logging-configuration identifier.
-    loggingConfigurationIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | Filters the list to match the specified message review handler URI.
-    messageReviewHandlerUri :: Prelude.Maybe Prelude.Text,
-    -- | Maximum number of rooms to return. Default: 50.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,26 +78,39 @@ data ListRooms = ListRooms'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'loggingConfigurationIdentifier', 'listRooms_loggingConfigurationIdentifier' - Logging-configuration identifier.
+--
+-- 'maxResults', 'listRooms_maxResults' - Maximum number of rooms to return. Default: 50.
+--
+-- 'messageReviewHandlerUri', 'listRooms_messageReviewHandlerUri' - Filters the list to match the specified message review handler URI.
+--
 -- 'name', 'listRooms_name' - Filters the list to match the specified room name.
 --
 -- 'nextToken', 'listRooms_nextToken' - The first room to retrieve. This is used for pagination; see the
 -- @nextToken@ response field.
---
--- 'loggingConfigurationIdentifier', 'listRooms_loggingConfigurationIdentifier' - Logging-configuration identifier.
---
--- 'messageReviewHandlerUri', 'listRooms_messageReviewHandlerUri' - Filters the list to match the specified message review handler URI.
---
--- 'maxResults', 'listRooms_maxResults' - Maximum number of rooms to return. Default: 50.
 newListRooms ::
   ListRooms
 newListRooms =
   ListRooms'
-    { name = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      loggingConfigurationIdentifier = Prelude.Nothing,
+    { loggingConfigurationIdentifier =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       messageReviewHandlerUri = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      name = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | Logging-configuration identifier.
+listRooms_loggingConfigurationIdentifier :: Lens.Lens' ListRooms (Prelude.Maybe Prelude.Text)
+listRooms_loggingConfigurationIdentifier = Lens.lens (\ListRooms' {loggingConfigurationIdentifier} -> loggingConfigurationIdentifier) (\s@ListRooms' {} a -> s {loggingConfigurationIdentifier = a} :: ListRooms)
+
+-- | Maximum number of rooms to return. Default: 50.
+listRooms_maxResults :: Lens.Lens' ListRooms (Prelude.Maybe Prelude.Natural)
+listRooms_maxResults = Lens.lens (\ListRooms' {maxResults} -> maxResults) (\s@ListRooms' {} a -> s {maxResults = a} :: ListRooms)
+
+-- | Filters the list to match the specified message review handler URI.
+listRooms_messageReviewHandlerUri :: Lens.Lens' ListRooms (Prelude.Maybe Prelude.Text)
+listRooms_messageReviewHandlerUri = Lens.lens (\ListRooms' {messageReviewHandlerUri} -> messageReviewHandlerUri) (\s@ListRooms' {} a -> s {messageReviewHandlerUri = a} :: ListRooms)
 
 -- | Filters the list to match the specified room name.
 listRooms_name :: Lens.Lens' ListRooms (Prelude.Maybe Prelude.Text)
@@ -107,18 +120,6 @@ listRooms_name = Lens.lens (\ListRooms' {name} -> name) (\s@ListRooms' {} a -> s
 -- @nextToken@ response field.
 listRooms_nextToken :: Lens.Lens' ListRooms (Prelude.Maybe Prelude.Text)
 listRooms_nextToken = Lens.lens (\ListRooms' {nextToken} -> nextToken) (\s@ListRooms' {} a -> s {nextToken = a} :: ListRooms)
-
--- | Logging-configuration identifier.
-listRooms_loggingConfigurationIdentifier :: Lens.Lens' ListRooms (Prelude.Maybe Prelude.Text)
-listRooms_loggingConfigurationIdentifier = Lens.lens (\ListRooms' {loggingConfigurationIdentifier} -> loggingConfigurationIdentifier) (\s@ListRooms' {} a -> s {loggingConfigurationIdentifier = a} :: ListRooms)
-
--- | Filters the list to match the specified message review handler URI.
-listRooms_messageReviewHandlerUri :: Lens.Lens' ListRooms (Prelude.Maybe Prelude.Text)
-listRooms_messageReviewHandlerUri = Lens.lens (\ListRooms' {messageReviewHandlerUri} -> messageReviewHandlerUri) (\s@ListRooms' {} a -> s {messageReviewHandlerUri = a} :: ListRooms)
-
--- | Maximum number of rooms to return. Default: 50.
-listRooms_maxResults :: Lens.Lens' ListRooms (Prelude.Maybe Prelude.Natural)
-listRooms_maxResults = Lens.lens (\ListRooms' {maxResults} -> maxResults) (\s@ListRooms' {} a -> s {maxResults = a} :: ListRooms)
 
 instance Core.AWSRequest ListRooms where
   type AWSResponse ListRooms = ListRoomsResponse
@@ -135,19 +136,20 @@ instance Core.AWSRequest ListRooms where
 
 instance Prelude.Hashable ListRooms where
   hashWithSalt _salt ListRooms' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` nextToken
+    _salt
       `Prelude.hashWithSalt` loggingConfigurationIdentifier
-      `Prelude.hashWithSalt` messageReviewHandlerUri
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` messageReviewHandlerUri
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListRooms where
   rnf ListRooms' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf loggingConfigurationIdentifier
-      `Prelude.seq` Prelude.rnf messageReviewHandlerUri
+    Prelude.rnf loggingConfigurationIdentifier
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf messageReviewHandlerUri
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListRooms where
   toHeaders =
@@ -164,13 +166,13 @@ instance Data.ToJSON ListRooms where
   toJSON ListRooms' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("name" Data..=) Prelude.<$> name,
-            ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("loggingConfigurationIdentifier" Data..=)
+          [ ("loggingConfigurationIdentifier" Data..=)
               Prelude.<$> loggingConfigurationIdentifier,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
             ("messageReviewHandlerUri" Data..=)
               Prelude.<$> messageReviewHandlerUri,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+            ("name" Data..=) Prelude.<$> name,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

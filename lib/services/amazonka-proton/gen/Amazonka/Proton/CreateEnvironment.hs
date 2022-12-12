@@ -44,14 +44,14 @@ module Amazonka.Proton.CreateEnvironment
     newCreateEnvironment,
 
     -- * Request Lenses
-    createEnvironment_tags,
     createEnvironment_codebuildRoleArn,
-    createEnvironment_provisioningRepository,
-    createEnvironment_description,
-    createEnvironment_templateMinorVersion,
-    createEnvironment_protonServiceRoleArn,
     createEnvironment_componentRoleArn,
+    createEnvironment_description,
     createEnvironment_environmentAccountConnectionId,
+    createEnvironment_protonServiceRoleArn,
+    createEnvironment_provisioningRepository,
+    createEnvironment_tags,
+    createEnvironment_templateMinorVersion,
     createEnvironment_name,
     createEnvironment_spec,
     createEnvironment_templateMajorVersion,
@@ -77,14 +77,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateEnvironment' smart constructor.
 data CreateEnvironment = CreateEnvironment'
-  { -- | An optional list of metadata items that you can associate with the
-    -- Proton environment. A tag is a key-value pair.
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
-    -- in the /Proton User Guide/.
-    tags :: Prelude.Maybe [Tag],
-    -- | The Amazon Resource Name (ARN) of the IAM service role that allows
+  { -- | The Amazon Resource Name (ARN) of the IAM service role that allows
     -- Proton to provision infrastructure using CodeBuild-based provisioning on
     -- your behalf.
     --
@@ -92,27 +85,6 @@ data CreateEnvironment = CreateEnvironment'
     -- service instance running in the environment, specify either the
     -- @environmentAccountConnectionId@ or @codebuildRoleArn@ parameter.
     codebuildRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | The linked repository that you use to host your rendered infrastructure
-    -- templates for self-managed provisioning. A linked repository is a
-    -- repository that has been registered with Proton. For more information,
-    -- see CreateRepository.
-    --
-    -- To use self-managed provisioning for the environment, specify this
-    -- parameter and omit the @environmentAccountConnectionId@ and
-    -- @protonServiceRoleArn@ parameters.
-    provisioningRepository :: Prelude.Maybe RepositoryBranchInput,
-    -- | A description of the environment that\'s being created and deployed.
-    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The minor version of the environment template.
-    templateMinorVersion :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the Proton service role that allows
-    -- Proton to make calls to other services on your behalf.
-    --
-    -- To use Amazon Web Services-managed provisioning for the environment,
-    -- specify either the @environmentAccountConnectionId@ or
-    -- @protonServiceRoleArn@ parameter and omit the @provisioningRepository@
-    -- parameter.
-    protonServiceRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM service role that Proton uses
     -- when provisioning directly defined components in this environment. It
     -- determines the scope of infrastructure that a component can provision.
@@ -124,6 +96,8 @@ data CreateEnvironment = CreateEnvironment'
     -- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
     -- in the /Proton User Guide/.
     componentRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | A description of the environment that\'s being created and deployed.
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the environment account connection that you provide if you\'re
     -- provisioning your environment infrastructure resources to an environment
     -- account. For more information, see
@@ -135,6 +109,32 @@ data CreateEnvironment = CreateEnvironment'
     -- @protonServiceRoleArn@ parameter and omit the @provisioningRepository@
     -- parameter.
     environmentAccountConnectionId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the Proton service role that allows
+    -- Proton to make calls to other services on your behalf.
+    --
+    -- To use Amazon Web Services-managed provisioning for the environment,
+    -- specify either the @environmentAccountConnectionId@ or
+    -- @protonServiceRoleArn@ parameter and omit the @provisioningRepository@
+    -- parameter.
+    protonServiceRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | The linked repository that you use to host your rendered infrastructure
+    -- templates for self-managed provisioning. A linked repository is a
+    -- repository that has been registered with Proton. For more information,
+    -- see CreateRepository.
+    --
+    -- To use self-managed provisioning for the environment, specify this
+    -- parameter and omit the @environmentAccountConnectionId@ and
+    -- @protonServiceRoleArn@ parameters.
+    provisioningRepository :: Prelude.Maybe RepositoryBranchInput,
+    -- | An optional list of metadata items that you can associate with the
+    -- Proton environment. A tag is a key-value pair.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
+    -- in the /Proton User Guide/.
+    tags :: Prelude.Maybe [Tag],
+    -- | The minor version of the environment template.
+    templateMinorVersion :: Prelude.Maybe Prelude.Text,
     -- | The name of the environment.
     name :: Prelude.Text,
     -- | A YAML formatted string that provides inputs as defined in the
@@ -159,13 +159,6 @@ data CreateEnvironment = CreateEnvironment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createEnvironment_tags' - An optional list of metadata items that you can associate with the
--- Proton environment. A tag is a key-value pair.
---
--- For more information, see
--- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
--- in the /Proton User Guide/.
---
 -- 'codebuildRoleArn', 'createEnvironment_codebuildRoleArn' - The Amazon Resource Name (ARN) of the IAM service role that allows
 -- Proton to provision infrastructure using CodeBuild-based provisioning on
 -- your behalf.
@@ -173,27 +166,6 @@ data CreateEnvironment = CreateEnvironment'
 -- To use CodeBuild-based provisioning for the environment or for any
 -- service instance running in the environment, specify either the
 -- @environmentAccountConnectionId@ or @codebuildRoleArn@ parameter.
---
--- 'provisioningRepository', 'createEnvironment_provisioningRepository' - The linked repository that you use to host your rendered infrastructure
--- templates for self-managed provisioning. A linked repository is a
--- repository that has been registered with Proton. For more information,
--- see CreateRepository.
---
--- To use self-managed provisioning for the environment, specify this
--- parameter and omit the @environmentAccountConnectionId@ and
--- @protonServiceRoleArn@ parameters.
---
--- 'description', 'createEnvironment_description' - A description of the environment that\'s being created and deployed.
---
--- 'templateMinorVersion', 'createEnvironment_templateMinorVersion' - The minor version of the environment template.
---
--- 'protonServiceRoleArn', 'createEnvironment_protonServiceRoleArn' - The Amazon Resource Name (ARN) of the Proton service role that allows
--- Proton to make calls to other services on your behalf.
---
--- To use Amazon Web Services-managed provisioning for the environment,
--- specify either the @environmentAccountConnectionId@ or
--- @protonServiceRoleArn@ parameter and omit the @provisioningRepository@
--- parameter.
 --
 -- 'componentRoleArn', 'createEnvironment_componentRoleArn' - The Amazon Resource Name (ARN) of the IAM service role that Proton uses
 -- when provisioning directly defined components in this environment. It
@@ -206,6 +178,8 @@ data CreateEnvironment = CreateEnvironment'
 -- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
 -- in the /Proton User Guide/.
 --
+-- 'description', 'createEnvironment_description' - A description of the environment that\'s being created and deployed.
+--
 -- 'environmentAccountConnectionId', 'createEnvironment_environmentAccountConnectionId' - The ID of the environment account connection that you provide if you\'re
 -- provisioning your environment infrastructure resources to an environment
 -- account. For more information, see
@@ -216,6 +190,32 @@ data CreateEnvironment = CreateEnvironment'
 -- specify either the @environmentAccountConnectionId@ or
 -- @protonServiceRoleArn@ parameter and omit the @provisioningRepository@
 -- parameter.
+--
+-- 'protonServiceRoleArn', 'createEnvironment_protonServiceRoleArn' - The Amazon Resource Name (ARN) of the Proton service role that allows
+-- Proton to make calls to other services on your behalf.
+--
+-- To use Amazon Web Services-managed provisioning for the environment,
+-- specify either the @environmentAccountConnectionId@ or
+-- @protonServiceRoleArn@ parameter and omit the @provisioningRepository@
+-- parameter.
+--
+-- 'provisioningRepository', 'createEnvironment_provisioningRepository' - The linked repository that you use to host your rendered infrastructure
+-- templates for self-managed provisioning. A linked repository is a
+-- repository that has been registered with Proton. For more information,
+-- see CreateRepository.
+--
+-- To use self-managed provisioning for the environment, specify this
+-- parameter and omit the @environmentAccountConnectionId@ and
+-- @protonServiceRoleArn@ parameters.
+--
+-- 'tags', 'createEnvironment_tags' - An optional list of metadata items that you can associate with the
+-- Proton environment. A tag is a key-value pair.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
+-- in the /Proton User Guide/.
+--
+-- 'templateMinorVersion', 'createEnvironment_templateMinorVersion' - The minor version of the environment template.
 --
 -- 'name', 'createEnvironment_name' - The name of the environment.
 --
@@ -245,28 +245,20 @@ newCreateEnvironment
   pTemplateMajorVersion_
   pTemplateName_ =
     CreateEnvironment'
-      { tags = Prelude.Nothing,
-        codebuildRoleArn = Prelude.Nothing,
-        provisioningRepository = Prelude.Nothing,
-        description = Prelude.Nothing,
-        templateMinorVersion = Prelude.Nothing,
-        protonServiceRoleArn = Prelude.Nothing,
+      { codebuildRoleArn =
+          Prelude.Nothing,
         componentRoleArn = Prelude.Nothing,
+        description = Prelude.Nothing,
         environmentAccountConnectionId = Prelude.Nothing,
+        protonServiceRoleArn = Prelude.Nothing,
+        provisioningRepository = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        templateMinorVersion = Prelude.Nothing,
         name = pName_,
         spec = Data._Sensitive Lens.# pSpec_,
         templateMajorVersion = pTemplateMajorVersion_,
         templateName = pTemplateName_
       }
-
--- | An optional list of metadata items that you can associate with the
--- Proton environment. A tag is a key-value pair.
---
--- For more information, see
--- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
--- in the /Proton User Guide/.
-createEnvironment_tags :: Lens.Lens' CreateEnvironment (Prelude.Maybe [Tag])
-createEnvironment_tags = Lens.lens (\CreateEnvironment' {tags} -> tags) (\s@CreateEnvironment' {} a -> s {tags = a} :: CreateEnvironment) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the IAM service role that allows
 -- Proton to provision infrastructure using CodeBuild-based provisioning on
@@ -277,35 +269,6 @@ createEnvironment_tags = Lens.lens (\CreateEnvironment' {tags} -> tags) (\s@Crea
 -- @environmentAccountConnectionId@ or @codebuildRoleArn@ parameter.
 createEnvironment_codebuildRoleArn :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Text)
 createEnvironment_codebuildRoleArn = Lens.lens (\CreateEnvironment' {codebuildRoleArn} -> codebuildRoleArn) (\s@CreateEnvironment' {} a -> s {codebuildRoleArn = a} :: CreateEnvironment)
-
--- | The linked repository that you use to host your rendered infrastructure
--- templates for self-managed provisioning. A linked repository is a
--- repository that has been registered with Proton. For more information,
--- see CreateRepository.
---
--- To use self-managed provisioning for the environment, specify this
--- parameter and omit the @environmentAccountConnectionId@ and
--- @protonServiceRoleArn@ parameters.
-createEnvironment_provisioningRepository :: Lens.Lens' CreateEnvironment (Prelude.Maybe RepositoryBranchInput)
-createEnvironment_provisioningRepository = Lens.lens (\CreateEnvironment' {provisioningRepository} -> provisioningRepository) (\s@CreateEnvironment' {} a -> s {provisioningRepository = a} :: CreateEnvironment)
-
--- | A description of the environment that\'s being created and deployed.
-createEnvironment_description :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Text)
-createEnvironment_description = Lens.lens (\CreateEnvironment' {description} -> description) (\s@CreateEnvironment' {} a -> s {description = a} :: CreateEnvironment) Prelude.. Lens.mapping Data._Sensitive
-
--- | The minor version of the environment template.
-createEnvironment_templateMinorVersion :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Text)
-createEnvironment_templateMinorVersion = Lens.lens (\CreateEnvironment' {templateMinorVersion} -> templateMinorVersion) (\s@CreateEnvironment' {} a -> s {templateMinorVersion = a} :: CreateEnvironment)
-
--- | The Amazon Resource Name (ARN) of the Proton service role that allows
--- Proton to make calls to other services on your behalf.
---
--- To use Amazon Web Services-managed provisioning for the environment,
--- specify either the @environmentAccountConnectionId@ or
--- @protonServiceRoleArn@ parameter and omit the @provisioningRepository@
--- parameter.
-createEnvironment_protonServiceRoleArn :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Text)
-createEnvironment_protonServiceRoleArn = Lens.lens (\CreateEnvironment' {protonServiceRoleArn} -> protonServiceRoleArn) (\s@CreateEnvironment' {} a -> s {protonServiceRoleArn = a} :: CreateEnvironment)
 
 -- | The Amazon Resource Name (ARN) of the IAM service role that Proton uses
 -- when provisioning directly defined components in this environment. It
@@ -320,6 +283,10 @@ createEnvironment_protonServiceRoleArn = Lens.lens (\CreateEnvironment' {protonS
 createEnvironment_componentRoleArn :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Text)
 createEnvironment_componentRoleArn = Lens.lens (\CreateEnvironment' {componentRoleArn} -> componentRoleArn) (\s@CreateEnvironment' {} a -> s {componentRoleArn = a} :: CreateEnvironment)
 
+-- | A description of the environment that\'s being created and deployed.
+createEnvironment_description :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Text)
+createEnvironment_description = Lens.lens (\CreateEnvironment' {description} -> description) (\s@CreateEnvironment' {} a -> s {description = a} :: CreateEnvironment) Prelude.. Lens.mapping Data._Sensitive
+
 -- | The ID of the environment account connection that you provide if you\'re
 -- provisioning your environment infrastructure resources to an environment
 -- account. For more information, see
@@ -332,6 +299,40 @@ createEnvironment_componentRoleArn = Lens.lens (\CreateEnvironment' {componentRo
 -- parameter.
 createEnvironment_environmentAccountConnectionId :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Text)
 createEnvironment_environmentAccountConnectionId = Lens.lens (\CreateEnvironment' {environmentAccountConnectionId} -> environmentAccountConnectionId) (\s@CreateEnvironment' {} a -> s {environmentAccountConnectionId = a} :: CreateEnvironment)
+
+-- | The Amazon Resource Name (ARN) of the Proton service role that allows
+-- Proton to make calls to other services on your behalf.
+--
+-- To use Amazon Web Services-managed provisioning for the environment,
+-- specify either the @environmentAccountConnectionId@ or
+-- @protonServiceRoleArn@ parameter and omit the @provisioningRepository@
+-- parameter.
+createEnvironment_protonServiceRoleArn :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Text)
+createEnvironment_protonServiceRoleArn = Lens.lens (\CreateEnvironment' {protonServiceRoleArn} -> protonServiceRoleArn) (\s@CreateEnvironment' {} a -> s {protonServiceRoleArn = a} :: CreateEnvironment)
+
+-- | The linked repository that you use to host your rendered infrastructure
+-- templates for self-managed provisioning. A linked repository is a
+-- repository that has been registered with Proton. For more information,
+-- see CreateRepository.
+--
+-- To use self-managed provisioning for the environment, specify this
+-- parameter and omit the @environmentAccountConnectionId@ and
+-- @protonServiceRoleArn@ parameters.
+createEnvironment_provisioningRepository :: Lens.Lens' CreateEnvironment (Prelude.Maybe RepositoryBranchInput)
+createEnvironment_provisioningRepository = Lens.lens (\CreateEnvironment' {provisioningRepository} -> provisioningRepository) (\s@CreateEnvironment' {} a -> s {provisioningRepository = a} :: CreateEnvironment)
+
+-- | An optional list of metadata items that you can associate with the
+-- Proton environment. A tag is a key-value pair.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
+-- in the /Proton User Guide/.
+createEnvironment_tags :: Lens.Lens' CreateEnvironment (Prelude.Maybe [Tag])
+createEnvironment_tags = Lens.lens (\CreateEnvironment' {tags} -> tags) (\s@CreateEnvironment' {} a -> s {tags = a} :: CreateEnvironment) Prelude.. Lens.mapping Lens.coerced
+
+-- | The minor version of the environment template.
+createEnvironment_templateMinorVersion :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Text)
+createEnvironment_templateMinorVersion = Lens.lens (\CreateEnvironment' {templateMinorVersion} -> templateMinorVersion) (\s@CreateEnvironment' {} a -> s {templateMinorVersion = a} :: CreateEnvironment)
 
 -- | The name of the environment.
 createEnvironment_name :: Lens.Lens' CreateEnvironment Prelude.Text
@@ -370,14 +371,14 @@ instance Core.AWSRequest CreateEnvironment where
 
 instance Prelude.Hashable CreateEnvironment where
   hashWithSalt _salt CreateEnvironment' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` codebuildRoleArn
-      `Prelude.hashWithSalt` provisioningRepository
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` templateMinorVersion
-      `Prelude.hashWithSalt` protonServiceRoleArn
+    _salt `Prelude.hashWithSalt` codebuildRoleArn
       `Prelude.hashWithSalt` componentRoleArn
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` environmentAccountConnectionId
+      `Prelude.hashWithSalt` protonServiceRoleArn
+      `Prelude.hashWithSalt` provisioningRepository
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` templateMinorVersion
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` spec
       `Prelude.hashWithSalt` templateMajorVersion
@@ -385,14 +386,14 @@ instance Prelude.Hashable CreateEnvironment where
 
 instance Prelude.NFData CreateEnvironment where
   rnf CreateEnvironment' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf codebuildRoleArn
-      `Prelude.seq` Prelude.rnf provisioningRepository
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf templateMinorVersion
-      `Prelude.seq` Prelude.rnf protonServiceRoleArn
+    Prelude.rnf codebuildRoleArn
       `Prelude.seq` Prelude.rnf componentRoleArn
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf environmentAccountConnectionId
+      `Prelude.seq` Prelude.rnf protonServiceRoleArn
+      `Prelude.seq` Prelude.rnf provisioningRepository
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf templateMinorVersion
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf spec
       `Prelude.seq` Prelude.rnf templateMajorVersion
@@ -417,20 +418,20 @@ instance Data.ToJSON CreateEnvironment where
   toJSON CreateEnvironment' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("codebuildRoleArn" Data..=)
+          [ ("codebuildRoleArn" Data..=)
               Prelude.<$> codebuildRoleArn,
-            ("provisioningRepository" Data..=)
-              Prelude.<$> provisioningRepository,
-            ("description" Data..=) Prelude.<$> description,
-            ("templateMinorVersion" Data..=)
-              Prelude.<$> templateMinorVersion,
-            ("protonServiceRoleArn" Data..=)
-              Prelude.<$> protonServiceRoleArn,
             ("componentRoleArn" Data..=)
               Prelude.<$> componentRoleArn,
+            ("description" Data..=) Prelude.<$> description,
             ("environmentAccountConnectionId" Data..=)
               Prelude.<$> environmentAccountConnectionId,
+            ("protonServiceRoleArn" Data..=)
+              Prelude.<$> protonServiceRoleArn,
+            ("provisioningRepository" Data..=)
+              Prelude.<$> provisioningRepository,
+            ("tags" Data..=) Prelude.<$> tags,
+            ("templateMinorVersion" Data..=)
+              Prelude.<$> templateMinorVersion,
             Prelude.Just ("name" Data..= name),
             Prelude.Just ("spec" Data..= spec),
             Prelude.Just

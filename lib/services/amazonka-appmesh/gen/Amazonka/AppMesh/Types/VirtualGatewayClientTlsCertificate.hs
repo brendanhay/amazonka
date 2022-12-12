@@ -31,15 +31,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVirtualGatewayClientTlsCertificate' smart constructor.
 data VirtualGatewayClientTlsCertificate = VirtualGatewayClientTlsCertificate'
-  { -- | A reference to an object that represents a virtual gateway\'s client\'s
-    -- Secret Discovery Service certificate.
-    sds :: Prelude.Maybe VirtualGatewayListenerTlsSdsCertificate,
-    -- | An object that represents a local file certificate. The certificate must
+  { -- | An object that represents a local file certificate. The certificate must
     -- meet specific requirements and you must have proxy authorization
     -- enabled. For more information, see
     -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html Transport Layer Security (TLS)>
     -- .
-    file :: Prelude.Maybe VirtualGatewayListenerTlsFileCertificate
+    file :: Prelude.Maybe VirtualGatewayListenerTlsFileCertificate,
+    -- | A reference to an object that represents a virtual gateway\'s client\'s
+    -- Secret Discovery Service certificate.
+    sds :: Prelude.Maybe VirtualGatewayListenerTlsSdsCertificate
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,27 +51,22 @@ data VirtualGatewayClientTlsCertificate = VirtualGatewayClientTlsCertificate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sds', 'virtualGatewayClientTlsCertificate_sds' - A reference to an object that represents a virtual gateway\'s client\'s
--- Secret Discovery Service certificate.
---
 -- 'file', 'virtualGatewayClientTlsCertificate_file' - An object that represents a local file certificate. The certificate must
 -- meet specific requirements and you must have proxy authorization
 -- enabled. For more information, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html Transport Layer Security (TLS)>
 -- .
+--
+-- 'sds', 'virtualGatewayClientTlsCertificate_sds' - A reference to an object that represents a virtual gateway\'s client\'s
+-- Secret Discovery Service certificate.
 newVirtualGatewayClientTlsCertificate ::
   VirtualGatewayClientTlsCertificate
 newVirtualGatewayClientTlsCertificate =
   VirtualGatewayClientTlsCertificate'
-    { sds =
+    { file =
         Prelude.Nothing,
-      file = Prelude.Nothing
+      sds = Prelude.Nothing
     }
-
--- | A reference to an object that represents a virtual gateway\'s client\'s
--- Secret Discovery Service certificate.
-virtualGatewayClientTlsCertificate_sds :: Lens.Lens' VirtualGatewayClientTlsCertificate (Prelude.Maybe VirtualGatewayListenerTlsSdsCertificate)
-virtualGatewayClientTlsCertificate_sds = Lens.lens (\VirtualGatewayClientTlsCertificate' {sds} -> sds) (\s@VirtualGatewayClientTlsCertificate' {} a -> s {sds = a} :: VirtualGatewayClientTlsCertificate)
 
 -- | An object that represents a local file certificate. The certificate must
 -- meet specific requirements and you must have proxy authorization
@@ -80,6 +75,11 @@ virtualGatewayClientTlsCertificate_sds = Lens.lens (\VirtualGatewayClientTlsCert
 -- .
 virtualGatewayClientTlsCertificate_file :: Lens.Lens' VirtualGatewayClientTlsCertificate (Prelude.Maybe VirtualGatewayListenerTlsFileCertificate)
 virtualGatewayClientTlsCertificate_file = Lens.lens (\VirtualGatewayClientTlsCertificate' {file} -> file) (\s@VirtualGatewayClientTlsCertificate' {} a -> s {file = a} :: VirtualGatewayClientTlsCertificate)
+
+-- | A reference to an object that represents a virtual gateway\'s client\'s
+-- Secret Discovery Service certificate.
+virtualGatewayClientTlsCertificate_sds :: Lens.Lens' VirtualGatewayClientTlsCertificate (Prelude.Maybe VirtualGatewayListenerTlsSdsCertificate)
+virtualGatewayClientTlsCertificate_sds = Lens.lens (\VirtualGatewayClientTlsCertificate' {sds} -> sds) (\s@VirtualGatewayClientTlsCertificate' {} a -> s {sds = a} :: VirtualGatewayClientTlsCertificate)
 
 instance
   Data.FromJSON
@@ -90,7 +90,7 @@ instance
       "VirtualGatewayClientTlsCertificate"
       ( \x ->
           VirtualGatewayClientTlsCertificate'
-            Prelude.<$> (x Data..:? "sds") Prelude.<*> (x Data..:? "file")
+            Prelude.<$> (x Data..:? "file") Prelude.<*> (x Data..:? "sds")
       )
 
 instance
@@ -100,15 +100,15 @@ instance
   hashWithSalt
     _salt
     VirtualGatewayClientTlsCertificate' {..} =
-      _salt `Prelude.hashWithSalt` sds
-        `Prelude.hashWithSalt` file
+      _salt `Prelude.hashWithSalt` file
+        `Prelude.hashWithSalt` sds
 
 instance
   Prelude.NFData
     VirtualGatewayClientTlsCertificate
   where
   rnf VirtualGatewayClientTlsCertificate' {..} =
-    Prelude.rnf sds `Prelude.seq` Prelude.rnf file
+    Prelude.rnf file `Prelude.seq` Prelude.rnf sds
 
 instance
   Data.ToJSON
@@ -117,7 +117,7 @@ instance
   toJSON VirtualGatewayClientTlsCertificate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("sds" Data..=) Prelude.<$> sds,
-            ("file" Data..=) Prelude.<$> file
+          [ ("file" Data..=) Prelude.<$> file,
+            ("sds" Data..=) Prelude.<$> sds
           ]
       )

@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeviceProfile' smart constructor.
 data DeviceProfile = DeviceProfile'
-  { -- | The name of the resource.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name of the resource.
+  { -- | The Amazon Resource Name of the resource.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the device profile.
-    id :: Prelude.Maybe Prelude.Text
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The name of the resource.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,23 +45,19 @@ data DeviceProfile = DeviceProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'deviceProfile_name' - The name of the resource.
---
 -- 'arn', 'deviceProfile_arn' - The Amazon Resource Name of the resource.
 --
 -- 'id', 'deviceProfile_id' - The ID of the device profile.
+--
+-- 'name', 'deviceProfile_name' - The name of the resource.
 newDeviceProfile ::
   DeviceProfile
 newDeviceProfile =
   DeviceProfile'
-    { name = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      id = Prelude.Nothing
+    { arn = Prelude.Nothing,
+      id = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | The name of the resource.
-deviceProfile_name :: Lens.Lens' DeviceProfile (Prelude.Maybe Prelude.Text)
-deviceProfile_name = Lens.lens (\DeviceProfile' {name} -> name) (\s@DeviceProfile' {} a -> s {name = a} :: DeviceProfile)
 
 -- | The Amazon Resource Name of the resource.
 deviceProfile_arn :: Lens.Lens' DeviceProfile (Prelude.Maybe Prelude.Text)
@@ -71,25 +67,29 @@ deviceProfile_arn = Lens.lens (\DeviceProfile' {arn} -> arn) (\s@DeviceProfile' 
 deviceProfile_id :: Lens.Lens' DeviceProfile (Prelude.Maybe Prelude.Text)
 deviceProfile_id = Lens.lens (\DeviceProfile' {id} -> id) (\s@DeviceProfile' {} a -> s {id = a} :: DeviceProfile)
 
+-- | The name of the resource.
+deviceProfile_name :: Lens.Lens' DeviceProfile (Prelude.Maybe Prelude.Text)
+deviceProfile_name = Lens.lens (\DeviceProfile' {name} -> name) (\s@DeviceProfile' {} a -> s {name = a} :: DeviceProfile)
+
 instance Data.FromJSON DeviceProfile where
   parseJSON =
     Data.withObject
       "DeviceProfile"
       ( \x ->
           DeviceProfile'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<$> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable DeviceProfile where
   hashWithSalt _salt DeviceProfile' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData DeviceProfile where
   rnf DeviceProfile' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name

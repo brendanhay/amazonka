@@ -36,9 +36,8 @@
 --
 -- To request access to a specific instance, specify the IDs of both the
 -- instance and the fleet it belongs to. You can retrieve a fleet\'s
--- instance IDs by calling DescribeInstances. If successful, an
--- InstanceAccess object is returned that contains the instance\'s IP
--- address and a set of credentials.
+-- instance IDs by calling
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeInstances.html DescribeInstances>.
 --
 -- __Learn more__
 --
@@ -48,7 +47,6 @@
 --
 -- __Related actions__
 --
--- DescribeInstances | GetInstanceAccess | DescribeEC2InstanceLimits |
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Amazonka.GameLift.GetInstanceAccess
   ( -- * Creating a Request
@@ -77,9 +75,7 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Represents the input for a request operation.
---
--- /See:/ 'newGetInstanceAccess' smart constructor.
+-- | /See:/ 'newGetInstanceAccess' smart constructor.
 data GetInstanceAccess = GetInstanceAccess'
   { -- | A unique identifier for the fleet that contains the instance you want
     -- access to. You can use either the fleet ID or ARN value. The fleet can
@@ -186,9 +182,7 @@ instance Data.ToPath GetInstanceAccess where
 instance Data.ToQuery GetInstanceAccess where
   toQuery = Prelude.const Prelude.mempty
 
--- | Represents the returned data in response to a request operation.
---
--- /See:/ 'newGetInstanceAccessResponse' smart constructor.
+-- | /See:/ 'newGetInstanceAccessResponse' smart constructor.
 data GetInstanceAccessResponse = GetInstanceAccessResponse'
   { -- | The connection information for a fleet instance, including IP address
     -- and access credentials.

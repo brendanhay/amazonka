@@ -42,14 +42,14 @@ module Amazonka.LexV2Models.CreateBotLocale
     newCreateBotLocaleResponse,
 
     -- * Response Lenses
-    createBotLocaleResponse_nluIntentConfidenceThreshold,
-    createBotLocaleResponse_botVersion,
-    createBotLocaleResponse_creationDateTime,
-    createBotLocaleResponse_localeName,
-    createBotLocaleResponse_localeId,
-    createBotLocaleResponse_description,
     createBotLocaleResponse_botId,
     createBotLocaleResponse_botLocaleStatus,
+    createBotLocaleResponse_botVersion,
+    createBotLocaleResponse_creationDateTime,
+    createBotLocaleResponse_description,
+    createBotLocaleResponse_localeId,
+    createBotLocaleResponse_localeName,
+    createBotLocaleResponse_nluIntentConfidenceThreshold,
     createBotLocaleResponse_voiceSettings,
     createBotLocaleResponse_httpStatus,
   )
@@ -233,14 +233,14 @@ instance Core.AWSRequest CreateBotLocale where
     Response.receiveJSON
       ( \s h x ->
           CreateBotLocaleResponse'
-            Prelude.<$> (x Data..?> "nluIntentConfidenceThreshold")
+            Prelude.<$> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "botLocaleStatus")
             Prelude.<*> (x Data..?> "botVersion")
             Prelude.<*> (x Data..?> "creationDateTime")
-            Prelude.<*> (x Data..?> "localeName")
-            Prelude.<*> (x Data..?> "localeId")
             Prelude.<*> (x Data..?> "description")
-            Prelude.<*> (x Data..?> "botId")
-            Prelude.<*> (x Data..?> "botLocaleStatus")
+            Prelude.<*> (x Data..?> "localeId")
+            Prelude.<*> (x Data..?> "localeName")
+            Prelude.<*> (x Data..?> "nluIntentConfidenceThreshold")
             Prelude.<*> (x Data..?> "voiceSettings")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -303,21 +303,7 @@ instance Data.ToQuery CreateBotLocale where
 
 -- | /See:/ 'newCreateBotLocaleResponse' smart constructor.
 data CreateBotLocaleResponse = CreateBotLocaleResponse'
-  { -- | The specified confidence threshold for inserting the
-    -- @AMAZON.FallbackIntent@ and @AMAZON.KendraSearchIntent@ intents.
-    nluIntentConfidenceThreshold :: Prelude.Maybe Prelude.Double,
-    -- | The specified bot version.
-    botVersion :: Prelude.Maybe Prelude.Text,
-    -- | A timestamp specifying the date and time that the bot locale was
-    -- created.
-    creationDateTime :: Prelude.Maybe Data.POSIX,
-    -- | The specified locale name.
-    localeName :: Prelude.Maybe Prelude.Text,
-    -- | The specified locale identifier.
-    localeId :: Prelude.Maybe Prelude.Text,
-    -- | The specified description of the bot locale.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The specified bot identifier.
+  { -- | The specified bot identifier.
     botId :: Prelude.Maybe Prelude.Text,
     -- | The status of the bot.
     --
@@ -332,6 +318,20 @@ data CreateBotLocaleResponse = CreateBotLocaleResponse'
     -- If there was a problem with building the bot, the status is @Failed@. If
     -- the bot was saved but not built, the status is @NotBuilt@.
     botLocaleStatus :: Prelude.Maybe BotLocaleStatus,
+    -- | The specified bot version.
+    botVersion :: Prelude.Maybe Prelude.Text,
+    -- | A timestamp specifying the date and time that the bot locale was
+    -- created.
+    creationDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The specified description of the bot locale.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The specified locale identifier.
+    localeId :: Prelude.Maybe Prelude.Text,
+    -- | The specified locale name.
+    localeName :: Prelude.Maybe Prelude.Text,
+    -- | The specified confidence threshold for inserting the
+    -- @AMAZON.FallbackIntent@ and @AMAZON.KendraSearchIntent@ intents.
+    nluIntentConfidenceThreshold :: Prelude.Maybe Prelude.Double,
     -- | The Amazon Polly voice ID that Amazon Lex uses for voice interaction
     -- with the user.
     voiceSettings :: Prelude.Maybe VoiceSettings,
@@ -348,20 +348,6 @@ data CreateBotLocaleResponse = CreateBotLocaleResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nluIntentConfidenceThreshold', 'createBotLocaleResponse_nluIntentConfidenceThreshold' - The specified confidence threshold for inserting the
--- @AMAZON.FallbackIntent@ and @AMAZON.KendraSearchIntent@ intents.
---
--- 'botVersion', 'createBotLocaleResponse_botVersion' - The specified bot version.
---
--- 'creationDateTime', 'createBotLocaleResponse_creationDateTime' - A timestamp specifying the date and time that the bot locale was
--- created.
---
--- 'localeName', 'createBotLocaleResponse_localeName' - The specified locale name.
---
--- 'localeId', 'createBotLocaleResponse_localeId' - The specified locale identifier.
---
--- 'description', 'createBotLocaleResponse_description' - The specified description of the bot locale.
---
 -- 'botId', 'createBotLocaleResponse_botId' - The specified bot identifier.
 --
 -- 'botLocaleStatus', 'createBotLocaleResponse_botLocaleStatus' - The status of the bot.
@@ -377,6 +363,20 @@ data CreateBotLocaleResponse = CreateBotLocaleResponse'
 -- If there was a problem with building the bot, the status is @Failed@. If
 -- the bot was saved but not built, the status is @NotBuilt@.
 --
+-- 'botVersion', 'createBotLocaleResponse_botVersion' - The specified bot version.
+--
+-- 'creationDateTime', 'createBotLocaleResponse_creationDateTime' - A timestamp specifying the date and time that the bot locale was
+-- created.
+--
+-- 'description', 'createBotLocaleResponse_description' - The specified description of the bot locale.
+--
+-- 'localeId', 'createBotLocaleResponse_localeId' - The specified locale identifier.
+--
+-- 'localeName', 'createBotLocaleResponse_localeName' - The specified locale name.
+--
+-- 'nluIntentConfidenceThreshold', 'createBotLocaleResponse_nluIntentConfidenceThreshold' - The specified confidence threshold for inserting the
+-- @AMAZON.FallbackIntent@ and @AMAZON.KendraSearchIntent@ intents.
+--
 -- 'voiceSettings', 'createBotLocaleResponse_voiceSettings' - The Amazon Polly voice ID that Amazon Lex uses for voice interaction
 -- with the user.
 --
@@ -387,44 +387,17 @@ newCreateBotLocaleResponse ::
   CreateBotLocaleResponse
 newCreateBotLocaleResponse pHttpStatus_ =
   CreateBotLocaleResponse'
-    { nluIntentConfidenceThreshold =
-        Prelude.Nothing,
+    { botId = Prelude.Nothing,
+      botLocaleStatus = Prelude.Nothing,
       botVersion = Prelude.Nothing,
       creationDateTime = Prelude.Nothing,
-      localeName = Prelude.Nothing,
-      localeId = Prelude.Nothing,
       description = Prelude.Nothing,
-      botId = Prelude.Nothing,
-      botLocaleStatus = Prelude.Nothing,
+      localeId = Prelude.Nothing,
+      localeName = Prelude.Nothing,
+      nluIntentConfidenceThreshold = Prelude.Nothing,
       voiceSettings = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The specified confidence threshold for inserting the
--- @AMAZON.FallbackIntent@ and @AMAZON.KendraSearchIntent@ intents.
-createBotLocaleResponse_nluIntentConfidenceThreshold :: Lens.Lens' CreateBotLocaleResponse (Prelude.Maybe Prelude.Double)
-createBotLocaleResponse_nluIntentConfidenceThreshold = Lens.lens (\CreateBotLocaleResponse' {nluIntentConfidenceThreshold} -> nluIntentConfidenceThreshold) (\s@CreateBotLocaleResponse' {} a -> s {nluIntentConfidenceThreshold = a} :: CreateBotLocaleResponse)
-
--- | The specified bot version.
-createBotLocaleResponse_botVersion :: Lens.Lens' CreateBotLocaleResponse (Prelude.Maybe Prelude.Text)
-createBotLocaleResponse_botVersion = Lens.lens (\CreateBotLocaleResponse' {botVersion} -> botVersion) (\s@CreateBotLocaleResponse' {} a -> s {botVersion = a} :: CreateBotLocaleResponse)
-
--- | A timestamp specifying the date and time that the bot locale was
--- created.
-createBotLocaleResponse_creationDateTime :: Lens.Lens' CreateBotLocaleResponse (Prelude.Maybe Prelude.UTCTime)
-createBotLocaleResponse_creationDateTime = Lens.lens (\CreateBotLocaleResponse' {creationDateTime} -> creationDateTime) (\s@CreateBotLocaleResponse' {} a -> s {creationDateTime = a} :: CreateBotLocaleResponse) Prelude.. Lens.mapping Data._Time
-
--- | The specified locale name.
-createBotLocaleResponse_localeName :: Lens.Lens' CreateBotLocaleResponse (Prelude.Maybe Prelude.Text)
-createBotLocaleResponse_localeName = Lens.lens (\CreateBotLocaleResponse' {localeName} -> localeName) (\s@CreateBotLocaleResponse' {} a -> s {localeName = a} :: CreateBotLocaleResponse)
-
--- | The specified locale identifier.
-createBotLocaleResponse_localeId :: Lens.Lens' CreateBotLocaleResponse (Prelude.Maybe Prelude.Text)
-createBotLocaleResponse_localeId = Lens.lens (\CreateBotLocaleResponse' {localeId} -> localeId) (\s@CreateBotLocaleResponse' {} a -> s {localeId = a} :: CreateBotLocaleResponse)
-
--- | The specified description of the bot locale.
-createBotLocaleResponse_description :: Lens.Lens' CreateBotLocaleResponse (Prelude.Maybe Prelude.Text)
-createBotLocaleResponse_description = Lens.lens (\CreateBotLocaleResponse' {description} -> description) (\s@CreateBotLocaleResponse' {} a -> s {description = a} :: CreateBotLocaleResponse)
 
 -- | The specified bot identifier.
 createBotLocaleResponse_botId :: Lens.Lens' CreateBotLocaleResponse (Prelude.Maybe Prelude.Text)
@@ -445,6 +418,32 @@ createBotLocaleResponse_botId = Lens.lens (\CreateBotLocaleResponse' {botId} -> 
 createBotLocaleResponse_botLocaleStatus :: Lens.Lens' CreateBotLocaleResponse (Prelude.Maybe BotLocaleStatus)
 createBotLocaleResponse_botLocaleStatus = Lens.lens (\CreateBotLocaleResponse' {botLocaleStatus} -> botLocaleStatus) (\s@CreateBotLocaleResponse' {} a -> s {botLocaleStatus = a} :: CreateBotLocaleResponse)
 
+-- | The specified bot version.
+createBotLocaleResponse_botVersion :: Lens.Lens' CreateBotLocaleResponse (Prelude.Maybe Prelude.Text)
+createBotLocaleResponse_botVersion = Lens.lens (\CreateBotLocaleResponse' {botVersion} -> botVersion) (\s@CreateBotLocaleResponse' {} a -> s {botVersion = a} :: CreateBotLocaleResponse)
+
+-- | A timestamp specifying the date and time that the bot locale was
+-- created.
+createBotLocaleResponse_creationDateTime :: Lens.Lens' CreateBotLocaleResponse (Prelude.Maybe Prelude.UTCTime)
+createBotLocaleResponse_creationDateTime = Lens.lens (\CreateBotLocaleResponse' {creationDateTime} -> creationDateTime) (\s@CreateBotLocaleResponse' {} a -> s {creationDateTime = a} :: CreateBotLocaleResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The specified description of the bot locale.
+createBotLocaleResponse_description :: Lens.Lens' CreateBotLocaleResponse (Prelude.Maybe Prelude.Text)
+createBotLocaleResponse_description = Lens.lens (\CreateBotLocaleResponse' {description} -> description) (\s@CreateBotLocaleResponse' {} a -> s {description = a} :: CreateBotLocaleResponse)
+
+-- | The specified locale identifier.
+createBotLocaleResponse_localeId :: Lens.Lens' CreateBotLocaleResponse (Prelude.Maybe Prelude.Text)
+createBotLocaleResponse_localeId = Lens.lens (\CreateBotLocaleResponse' {localeId} -> localeId) (\s@CreateBotLocaleResponse' {} a -> s {localeId = a} :: CreateBotLocaleResponse)
+
+-- | The specified locale name.
+createBotLocaleResponse_localeName :: Lens.Lens' CreateBotLocaleResponse (Prelude.Maybe Prelude.Text)
+createBotLocaleResponse_localeName = Lens.lens (\CreateBotLocaleResponse' {localeName} -> localeName) (\s@CreateBotLocaleResponse' {} a -> s {localeName = a} :: CreateBotLocaleResponse)
+
+-- | The specified confidence threshold for inserting the
+-- @AMAZON.FallbackIntent@ and @AMAZON.KendraSearchIntent@ intents.
+createBotLocaleResponse_nluIntentConfidenceThreshold :: Lens.Lens' CreateBotLocaleResponse (Prelude.Maybe Prelude.Double)
+createBotLocaleResponse_nluIntentConfidenceThreshold = Lens.lens (\CreateBotLocaleResponse' {nluIntentConfidenceThreshold} -> nluIntentConfidenceThreshold) (\s@CreateBotLocaleResponse' {} a -> s {nluIntentConfidenceThreshold = a} :: CreateBotLocaleResponse)
+
 -- | The Amazon Polly voice ID that Amazon Lex uses for voice interaction
 -- with the user.
 createBotLocaleResponse_voiceSettings :: Lens.Lens' CreateBotLocaleResponse (Prelude.Maybe VoiceSettings)
@@ -456,13 +455,13 @@ createBotLocaleResponse_httpStatus = Lens.lens (\CreateBotLocaleResponse' {httpS
 
 instance Prelude.NFData CreateBotLocaleResponse where
   rnf CreateBotLocaleResponse' {..} =
-    Prelude.rnf nluIntentConfidenceThreshold
+    Prelude.rnf botId
+      `Prelude.seq` Prelude.rnf botLocaleStatus
       `Prelude.seq` Prelude.rnf botVersion
       `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf localeName
-      `Prelude.seq` Prelude.rnf localeId
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botLocaleStatus
+      `Prelude.seq` Prelude.rnf localeId
+      `Prelude.seq` Prelude.rnf localeName
+      `Prelude.seq` Prelude.rnf nluIntentConfidenceThreshold
       `Prelude.seq` Prelude.rnf voiceSettings
       `Prelude.seq` Prelude.rnf httpStatus

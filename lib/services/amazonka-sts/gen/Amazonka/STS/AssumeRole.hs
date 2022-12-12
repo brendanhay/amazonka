@@ -135,15 +135,15 @@ module Amazonka.STS.AssumeRole
     newAssumeRole,
 
     -- * Request Lenses
-    assumeRole_tags,
-    assumeRole_policy,
-    assumeRole_transitiveTagKeys,
-    assumeRole_policyArns,
-    assumeRole_externalId,
     assumeRole_durationSeconds,
-    assumeRole_tokenCode,
+    assumeRole_externalId,
+    assumeRole_policy,
+    assumeRole_policyArns,
     assumeRole_serialNumber,
     assumeRole_sourceIdentity,
+    assumeRole_tags,
+    assumeRole_tokenCode,
+    assumeRole_transitiveTagKeys,
     assumeRole_roleArn,
     assumeRole_roleSessionName,
 
@@ -153,8 +153,8 @@ module Amazonka.STS.AssumeRole
 
     -- * Response Lenses
     assumeRoleResponse_assumedRoleUser,
-    assumeRoleResponse_sourceIdentity,
     assumeRoleResponse_packedPolicySize,
+    assumeRoleResponse_sourceIdentity,
     assumeRoleResponse_httpStatus,
     assumeRoleResponse_credentials,
   )
@@ -170,7 +170,144 @@ import Amazonka.STS.Types
 
 -- | /See:/ 'newAssumeRole' smart constructor.
 data AssumeRole = AssumeRole'
-  { -- | A list of session tags that you want to pass. Each session tag consists
+  { -- | The duration, in seconds, of the role session. The value specified can
+    -- range from 900 seconds (15 minutes) up to the maximum session duration
+    -- set for the role. The maximum session duration setting can have a value
+    -- from 1 hour to 12 hours. If you specify a value higher than this setting
+    -- or the administrator setting (whichever is lower), the operation fails.
+    -- For example, if you specify a session duration of 12 hours, but your
+    -- administrator set the maximum session duration to 6 hours, your
+    -- operation fails.
+    --
+    -- Role chaining limits your Amazon Web Services CLI or Amazon Web Services
+    -- API role session to a maximum of one hour. When you use the @AssumeRole@
+    -- API operation to assume a role, you can specify the duration of your
+    -- role session with the @DurationSeconds@ parameter. You can specify a
+    -- parameter value of up to 43200 seconds (12 hours), depending on the
+    -- maximum session duration setting for your role. However, if you assume a
+    -- role using role chaining and provide a @DurationSeconds@ parameter value
+    -- greater than one hour, the operation fails. To learn how to view the
+    -- maximum value for your role, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session View the Maximum Session Duration Setting for a Role>
+    -- in the /IAM User Guide/.
+    --
+    -- By default, the value is set to @3600@ seconds.
+    --
+    -- The @DurationSeconds@ parameter is separate from the duration of a
+    -- console session that you might request using the returned credentials.
+    -- The request to the federation endpoint for a console sign-in token takes
+    -- a @SessionDuration@ parameter that specifies the maximum length of the
+    -- console session. For more information, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the Amazon Web Services Management Console>
+    -- in the /IAM User Guide/.
+    durationSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | A unique identifier that might be required when you assume a role in
+    -- another account. If the administrator of the account to which the role
+    -- belongs provided you with an external ID, then provide that value in the
+    -- @ExternalId@ parameter. This value can be any string, such as a
+    -- passphrase or account number. A cross-account role is usually set up to
+    -- trust everyone in an account. Therefore, the administrator of the
+    -- trusting account might send an external ID to the administrator of the
+    -- trusted account. That way, only someone with the ID can assume the role,
+    -- rather than everyone in the account. For more information about the
+    -- external ID, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html How to Use an External ID When Granting Access to Your Amazon Web Services Resources to a Third Party>
+    -- in the /IAM User Guide/.
+    --
+    -- The regex used to validate this parameter is a string of characters
+    -- consisting of upper- and lower-case alphanumeric characters with no
+    -- spaces. You can also include underscores or any of the following
+    -- characters: =,.\@:\/-
+    externalId :: Prelude.Maybe Prelude.Text,
+    -- | An IAM policy in JSON format that you want to use as an inline session
+    -- policy.
+    --
+    -- This parameter is optional. Passing policies to this operation returns
+    -- new temporary credentials. The resulting session\'s permissions are the
+    -- intersection of the role\'s identity-based policy and the session
+    -- policies. You can use the role\'s temporary credentials in subsequent
+    -- Amazon Web Services API calls to access resources in the account that
+    -- owns the role. You cannot use session policies to grant more permissions
+    -- than those allowed by the identity-based policy of the role that is
+    -- being assumed. For more information, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies>
+    -- in the /IAM User Guide/.
+    --
+    -- The plaintext that you use for both inline and managed session policies
+    -- can\'t exceed 2,048 characters. The JSON policy characters can be any
+    -- ASCII character from the space character to the end of the valid
+    -- character list (\\u0020 through \\u00FF). It can also include the tab
+    -- (\\u0009), linefeed (\\u000A), and carriage return (\\u000D) characters.
+    --
+    -- An Amazon Web Services conversion compresses the passed inline session
+    -- policy, managed policy ARNs, and session tags into a packed binary
+    -- format that has a separate limit. Your request can fail for this limit
+    -- even if your plaintext meets the other requirements. The
+    -- @PackedPolicySize@ response element indicates by percentage how close
+    -- the policies and tags for your request are to the upper size limit.
+    policy :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Names (ARNs) of the IAM managed policies that you
+    -- want to use as managed session policies. The policies must exist in the
+    -- same account as the role.
+    --
+    -- This parameter is optional. You can provide up to 10 managed policy
+    -- ARNs. However, the plaintext that you use for both inline and managed
+    -- session policies can\'t exceed 2,048 characters. For more information
+    -- about ARNs, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
+    -- in the Amazon Web Services General Reference.
+    --
+    -- An Amazon Web Services conversion compresses the passed inline session
+    -- policy, managed policy ARNs, and session tags into a packed binary
+    -- format that has a separate limit. Your request can fail for this limit
+    -- even if your plaintext meets the other requirements. The
+    -- @PackedPolicySize@ response element indicates by percentage how close
+    -- the policies and tags for your request are to the upper size limit.
+    --
+    -- Passing policies to this operation returns new temporary credentials.
+    -- The resulting session\'s permissions are the intersection of the role\'s
+    -- identity-based policy and the session policies. You can use the role\'s
+    -- temporary credentials in subsequent Amazon Web Services API calls to
+    -- access resources in the account that owns the role. You cannot use
+    -- session policies to grant more permissions than those allowed by the
+    -- identity-based policy of the role that is being assumed. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies>
+    -- in the /IAM User Guide/.
+    policyArns :: Prelude.Maybe [PolicyDescriptorType],
+    -- | The identification number of the MFA device that is associated with the
+    -- user who is making the @AssumeRole@ call. Specify this value if the
+    -- trust policy of the role being assumed includes a condition that
+    -- requires MFA authentication. The value is either the serial number for a
+    -- hardware device (such as @GAHT12345678@) or an Amazon Resource Name
+    -- (ARN) for a virtual device (such as
+    -- @arn:aws:iam::123456789012:mfa\/user@).
+    --
+    -- The regex used to validate this parameter is a string of characters
+    -- consisting of upper- and lower-case alphanumeric characters with no
+    -- spaces. You can also include underscores or any of the following
+    -- characters: =,.\@-
+    serialNumber :: Prelude.Maybe Prelude.Text,
+    -- | The source identity specified by the principal that is calling the
+    -- @AssumeRole@ operation.
+    --
+    -- You can require users to specify a source identity when they assume a
+    -- role. You do this by using the @sts:SourceIdentity@ condition key in a
+    -- role trust policy. You can use source identity information in CloudTrail
+    -- logs to determine who took actions with a role. You can use the
+    -- @aws:SourceIdentity@ condition key to further control access to Amazon
+    -- Web Services resources based on the value of source identity. For more
+    -- information about using source identity, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html Monitor and control actions taken with assumed roles>
+    -- in the /IAM User Guide/.
+    --
+    -- The regex used to validate this parameter is a string of characters
+    -- consisting of upper- and lower-case alphanumeric characters with no
+    -- spaces. You can also include underscores or any of the following
+    -- characters: =,.\@-. You cannot use a value that begins with the text
+    -- @aws:@. This prefix is reserved for Amazon Web Services internal use.
+    sourceIdentity :: Prelude.Maybe Prelude.Text,
+    -- | A list of session tags that you want to pass. Each session tag consists
     -- of a key name and an associated value. For more information about
     -- session tags, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html Tagging Amazon Web Services STS Sessions>
@@ -208,33 +345,15 @@ data AssumeRole = AssumeRole'
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html#id_session-tags_ctlogs Viewing Session Tags in CloudTrail>
     -- in the /IAM User Guide/.
     tags :: Prelude.Maybe [Tag],
-    -- | An IAM policy in JSON format that you want to use as an inline session
-    -- policy.
+    -- | The value provided by the MFA device, if the trust policy of the role
+    -- being assumed requires MFA. (In other words, if the policy includes a
+    -- condition that tests for MFA). If the role being assumed requires MFA
+    -- and if the @TokenCode@ value is missing or expired, the @AssumeRole@
+    -- call returns an \"access denied\" error.
     --
-    -- This parameter is optional. Passing policies to this operation returns
-    -- new temporary credentials. The resulting session\'s permissions are the
-    -- intersection of the role\'s identity-based policy and the session
-    -- policies. You can use the role\'s temporary credentials in subsequent
-    -- Amazon Web Services API calls to access resources in the account that
-    -- owns the role. You cannot use session policies to grant more permissions
-    -- than those allowed by the identity-based policy of the role that is
-    -- being assumed. For more information, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies>
-    -- in the /IAM User Guide/.
-    --
-    -- The plaintext that you use for both inline and managed session policies
-    -- can\'t exceed 2,048 characters. The JSON policy characters can be any
-    -- ASCII character from the space character to the end of the valid
-    -- character list (\\u0020 through \\u00FF). It can also include the tab
-    -- (\\u0009), linefeed (\\u000A), and carriage return (\\u000D) characters.
-    --
-    -- An Amazon Web Services conversion compresses the passed inline session
-    -- policy, managed policy ARNs, and session tags into a packed binary
-    -- format that has a separate limit. Your request can fail for this limit
-    -- even if your plaintext meets the other requirements. The
-    -- @PackedPolicySize@ response element indicates by percentage how close
-    -- the policies and tags for your request are to the upper size limit.
-    policy :: Prelude.Maybe Prelude.Text,
+    -- The format for this parameter, as described by its regex pattern, is a
+    -- sequence of six numeric digits.
+    tokenCode :: Prelude.Maybe Prelude.Text,
     -- | A list of keys for session tags that you want to set as transitive. If
     -- you set a tag key as transitive, the corresponding key and value passes
     -- to subsequent sessions in a role chain. For more information, see
@@ -247,125 +366,6 @@ data AssumeRole = AssumeRole'
     -- If you choose not to specify a transitive tag key, then no tags are
     -- passed from this session to any subsequent sessions.
     transitiveTagKeys :: Prelude.Maybe [Prelude.Text],
-    -- | The Amazon Resource Names (ARNs) of the IAM managed policies that you
-    -- want to use as managed session policies. The policies must exist in the
-    -- same account as the role.
-    --
-    -- This parameter is optional. You can provide up to 10 managed policy
-    -- ARNs. However, the plaintext that you use for both inline and managed
-    -- session policies can\'t exceed 2,048 characters. For more information
-    -- about ARNs, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
-    -- in the Amazon Web Services General Reference.
-    --
-    -- An Amazon Web Services conversion compresses the passed inline session
-    -- policy, managed policy ARNs, and session tags into a packed binary
-    -- format that has a separate limit. Your request can fail for this limit
-    -- even if your plaintext meets the other requirements. The
-    -- @PackedPolicySize@ response element indicates by percentage how close
-    -- the policies and tags for your request are to the upper size limit.
-    --
-    -- Passing policies to this operation returns new temporary credentials.
-    -- The resulting session\'s permissions are the intersection of the role\'s
-    -- identity-based policy and the session policies. You can use the role\'s
-    -- temporary credentials in subsequent Amazon Web Services API calls to
-    -- access resources in the account that owns the role. You cannot use
-    -- session policies to grant more permissions than those allowed by the
-    -- identity-based policy of the role that is being assumed. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies>
-    -- in the /IAM User Guide/.
-    policyArns :: Prelude.Maybe [PolicyDescriptorType],
-    -- | A unique identifier that might be required when you assume a role in
-    -- another account. If the administrator of the account to which the role
-    -- belongs provided you with an external ID, then provide that value in the
-    -- @ExternalId@ parameter. This value can be any string, such as a
-    -- passphrase or account number. A cross-account role is usually set up to
-    -- trust everyone in an account. Therefore, the administrator of the
-    -- trusting account might send an external ID to the administrator of the
-    -- trusted account. That way, only someone with the ID can assume the role,
-    -- rather than everyone in the account. For more information about the
-    -- external ID, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html How to Use an External ID When Granting Access to Your Amazon Web Services Resources to a Third Party>
-    -- in the /IAM User Guide/.
-    --
-    -- The regex used to validate this parameter is a string of characters
-    -- consisting of upper- and lower-case alphanumeric characters with no
-    -- spaces. You can also include underscores or any of the following
-    -- characters: =,.\@:\/-
-    externalId :: Prelude.Maybe Prelude.Text,
-    -- | The duration, in seconds, of the role session. The value specified can
-    -- range from 900 seconds (15 minutes) up to the maximum session duration
-    -- set for the role. The maximum session duration setting can have a value
-    -- from 1 hour to 12 hours. If you specify a value higher than this setting
-    -- or the administrator setting (whichever is lower), the operation fails.
-    -- For example, if you specify a session duration of 12 hours, but your
-    -- administrator set the maximum session duration to 6 hours, your
-    -- operation fails.
-    --
-    -- Role chaining limits your Amazon Web Services CLI or Amazon Web Services
-    -- API role session to a maximum of one hour. When you use the @AssumeRole@
-    -- API operation to assume a role, you can specify the duration of your
-    -- role session with the @DurationSeconds@ parameter. You can specify a
-    -- parameter value of up to 43200 seconds (12 hours), depending on the
-    -- maximum session duration setting for your role. However, if you assume a
-    -- role using role chaining and provide a @DurationSeconds@ parameter value
-    -- greater than one hour, the operation fails. To learn how to view the
-    -- maximum value for your role, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session View the Maximum Session Duration Setting for a Role>
-    -- in the /IAM User Guide/.
-    --
-    -- By default, the value is set to @3600@ seconds.
-    --
-    -- The @DurationSeconds@ parameter is separate from the duration of a
-    -- console session that you might request using the returned credentials.
-    -- The request to the federation endpoint for a console sign-in token takes
-    -- a @SessionDuration@ parameter that specifies the maximum length of the
-    -- console session. For more information, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the Amazon Web Services Management Console>
-    -- in the /IAM User Guide/.
-    durationSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | The value provided by the MFA device, if the trust policy of the role
-    -- being assumed requires MFA. (In other words, if the policy includes a
-    -- condition that tests for MFA). If the role being assumed requires MFA
-    -- and if the @TokenCode@ value is missing or expired, the @AssumeRole@
-    -- call returns an \"access denied\" error.
-    --
-    -- The format for this parameter, as described by its regex pattern, is a
-    -- sequence of six numeric digits.
-    tokenCode :: Prelude.Maybe Prelude.Text,
-    -- | The identification number of the MFA device that is associated with the
-    -- user who is making the @AssumeRole@ call. Specify this value if the
-    -- trust policy of the role being assumed includes a condition that
-    -- requires MFA authentication. The value is either the serial number for a
-    -- hardware device (such as @GAHT12345678@) or an Amazon Resource Name
-    -- (ARN) for a virtual device (such as
-    -- @arn:aws:iam::123456789012:mfa\/user@).
-    --
-    -- The regex used to validate this parameter is a string of characters
-    -- consisting of upper- and lower-case alphanumeric characters with no
-    -- spaces. You can also include underscores or any of the following
-    -- characters: =,.\@-
-    serialNumber :: Prelude.Maybe Prelude.Text,
-    -- | The source identity specified by the principal that is calling the
-    -- @AssumeRole@ operation.
-    --
-    -- You can require users to specify a source identity when they assume a
-    -- role. You do this by using the @sts:SourceIdentity@ condition key in a
-    -- role trust policy. You can use source identity information in CloudTrail
-    -- logs to determine who took actions with a role. You can use the
-    -- @aws:SourceIdentity@ condition key to further control access to Amazon
-    -- Web Services resources based on the value of source identity. For more
-    -- information about using source identity, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html Monitor and control actions taken with assumed roles>
-    -- in the /IAM User Guide/.
-    --
-    -- The regex used to validate this parameter is a string of characters
-    -- consisting of upper- and lower-case alphanumeric characters with no
-    -- spaces. You can also include underscores or any of the following
-    -- characters: =,.\@-. You cannot use a value that begins with the text
-    -- @aws:@. This prefix is reserved for Amazon Web Services internal use.
-    sourceIdentity :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the role to assume.
     roleArn :: Prelude.Text,
     -- | An identifier for the assumed role session.
@@ -394,6 +394,143 @@ data AssumeRole = AssumeRole'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'durationSeconds', 'assumeRole_durationSeconds' - The duration, in seconds, of the role session. The value specified can
+-- range from 900 seconds (15 minutes) up to the maximum session duration
+-- set for the role. The maximum session duration setting can have a value
+-- from 1 hour to 12 hours. If you specify a value higher than this setting
+-- or the administrator setting (whichever is lower), the operation fails.
+-- For example, if you specify a session duration of 12 hours, but your
+-- administrator set the maximum session duration to 6 hours, your
+-- operation fails.
+--
+-- Role chaining limits your Amazon Web Services CLI or Amazon Web Services
+-- API role session to a maximum of one hour. When you use the @AssumeRole@
+-- API operation to assume a role, you can specify the duration of your
+-- role session with the @DurationSeconds@ parameter. You can specify a
+-- parameter value of up to 43200 seconds (12 hours), depending on the
+-- maximum session duration setting for your role. However, if you assume a
+-- role using role chaining and provide a @DurationSeconds@ parameter value
+-- greater than one hour, the operation fails. To learn how to view the
+-- maximum value for your role, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session View the Maximum Session Duration Setting for a Role>
+-- in the /IAM User Guide/.
+--
+-- By default, the value is set to @3600@ seconds.
+--
+-- The @DurationSeconds@ parameter is separate from the duration of a
+-- console session that you might request using the returned credentials.
+-- The request to the federation endpoint for a console sign-in token takes
+-- a @SessionDuration@ parameter that specifies the maximum length of the
+-- console session. For more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the Amazon Web Services Management Console>
+-- in the /IAM User Guide/.
+--
+-- 'externalId', 'assumeRole_externalId' - A unique identifier that might be required when you assume a role in
+-- another account. If the administrator of the account to which the role
+-- belongs provided you with an external ID, then provide that value in the
+-- @ExternalId@ parameter. This value can be any string, such as a
+-- passphrase or account number. A cross-account role is usually set up to
+-- trust everyone in an account. Therefore, the administrator of the
+-- trusting account might send an external ID to the administrator of the
+-- trusted account. That way, only someone with the ID can assume the role,
+-- rather than everyone in the account. For more information about the
+-- external ID, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html How to Use an External ID When Granting Access to Your Amazon Web Services Resources to a Third Party>
+-- in the /IAM User Guide/.
+--
+-- The regex used to validate this parameter is a string of characters
+-- consisting of upper- and lower-case alphanumeric characters with no
+-- spaces. You can also include underscores or any of the following
+-- characters: =,.\@:\/-
+--
+-- 'policy', 'assumeRole_policy' - An IAM policy in JSON format that you want to use as an inline session
+-- policy.
+--
+-- This parameter is optional. Passing policies to this operation returns
+-- new temporary credentials. The resulting session\'s permissions are the
+-- intersection of the role\'s identity-based policy and the session
+-- policies. You can use the role\'s temporary credentials in subsequent
+-- Amazon Web Services API calls to access resources in the account that
+-- owns the role. You cannot use session policies to grant more permissions
+-- than those allowed by the identity-based policy of the role that is
+-- being assumed. For more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies>
+-- in the /IAM User Guide/.
+--
+-- The plaintext that you use for both inline and managed session policies
+-- can\'t exceed 2,048 characters. The JSON policy characters can be any
+-- ASCII character from the space character to the end of the valid
+-- character list (\\u0020 through \\u00FF). It can also include the tab
+-- (\\u0009), linefeed (\\u000A), and carriage return (\\u000D) characters.
+--
+-- An Amazon Web Services conversion compresses the passed inline session
+-- policy, managed policy ARNs, and session tags into a packed binary
+-- format that has a separate limit. Your request can fail for this limit
+-- even if your plaintext meets the other requirements. The
+-- @PackedPolicySize@ response element indicates by percentage how close
+-- the policies and tags for your request are to the upper size limit.
+--
+-- 'policyArns', 'assumeRole_policyArns' - The Amazon Resource Names (ARNs) of the IAM managed policies that you
+-- want to use as managed session policies. The policies must exist in the
+-- same account as the role.
+--
+-- This parameter is optional. You can provide up to 10 managed policy
+-- ARNs. However, the plaintext that you use for both inline and managed
+-- session policies can\'t exceed 2,048 characters. For more information
+-- about ARNs, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
+-- in the Amazon Web Services General Reference.
+--
+-- An Amazon Web Services conversion compresses the passed inline session
+-- policy, managed policy ARNs, and session tags into a packed binary
+-- format that has a separate limit. Your request can fail for this limit
+-- even if your plaintext meets the other requirements. The
+-- @PackedPolicySize@ response element indicates by percentage how close
+-- the policies and tags for your request are to the upper size limit.
+--
+-- Passing policies to this operation returns new temporary credentials.
+-- The resulting session\'s permissions are the intersection of the role\'s
+-- identity-based policy and the session policies. You can use the role\'s
+-- temporary credentials in subsequent Amazon Web Services API calls to
+-- access resources in the account that owns the role. You cannot use
+-- session policies to grant more permissions than those allowed by the
+-- identity-based policy of the role that is being assumed. For more
+-- information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies>
+-- in the /IAM User Guide/.
+--
+-- 'serialNumber', 'assumeRole_serialNumber' - The identification number of the MFA device that is associated with the
+-- user who is making the @AssumeRole@ call. Specify this value if the
+-- trust policy of the role being assumed includes a condition that
+-- requires MFA authentication. The value is either the serial number for a
+-- hardware device (such as @GAHT12345678@) or an Amazon Resource Name
+-- (ARN) for a virtual device (such as
+-- @arn:aws:iam::123456789012:mfa\/user@).
+--
+-- The regex used to validate this parameter is a string of characters
+-- consisting of upper- and lower-case alphanumeric characters with no
+-- spaces. You can also include underscores or any of the following
+-- characters: =,.\@-
+--
+-- 'sourceIdentity', 'assumeRole_sourceIdentity' - The source identity specified by the principal that is calling the
+-- @AssumeRole@ operation.
+--
+-- You can require users to specify a source identity when they assume a
+-- role. You do this by using the @sts:SourceIdentity@ condition key in a
+-- role trust policy. You can use source identity information in CloudTrail
+-- logs to determine who took actions with a role. You can use the
+-- @aws:SourceIdentity@ condition key to further control access to Amazon
+-- Web Services resources based on the value of source identity. For more
+-- information about using source identity, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html Monitor and control actions taken with assumed roles>
+-- in the /IAM User Guide/.
+--
+-- The regex used to validate this parameter is a string of characters
+-- consisting of upper- and lower-case alphanumeric characters with no
+-- spaces. You can also include underscores or any of the following
+-- characters: =,.\@-. You cannot use a value that begins with the text
+-- @aws:@. This prefix is reserved for Amazon Web Services internal use.
 --
 -- 'tags', 'assumeRole_tags' - A list of session tags that you want to pass. Each session tag consists
 -- of a key name and an associated value. For more information about
@@ -433,32 +570,14 @@ data AssumeRole = AssumeRole'
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html#id_session-tags_ctlogs Viewing Session Tags in CloudTrail>
 -- in the /IAM User Guide/.
 --
--- 'policy', 'assumeRole_policy' - An IAM policy in JSON format that you want to use as an inline session
--- policy.
+-- 'tokenCode', 'assumeRole_tokenCode' - The value provided by the MFA device, if the trust policy of the role
+-- being assumed requires MFA. (In other words, if the policy includes a
+-- condition that tests for MFA). If the role being assumed requires MFA
+-- and if the @TokenCode@ value is missing or expired, the @AssumeRole@
+-- call returns an \"access denied\" error.
 --
--- This parameter is optional. Passing policies to this operation returns
--- new temporary credentials. The resulting session\'s permissions are the
--- intersection of the role\'s identity-based policy and the session
--- policies. You can use the role\'s temporary credentials in subsequent
--- Amazon Web Services API calls to access resources in the account that
--- owns the role. You cannot use session policies to grant more permissions
--- than those allowed by the identity-based policy of the role that is
--- being assumed. For more information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies>
--- in the /IAM User Guide/.
---
--- The plaintext that you use for both inline and managed session policies
--- can\'t exceed 2,048 characters. The JSON policy characters can be any
--- ASCII character from the space character to the end of the valid
--- character list (\\u0020 through \\u00FF). It can also include the tab
--- (\\u0009), linefeed (\\u000A), and carriage return (\\u000D) characters.
---
--- An Amazon Web Services conversion compresses the passed inline session
--- policy, managed policy ARNs, and session tags into a packed binary
--- format that has a separate limit. Your request can fail for this limit
--- even if your plaintext meets the other requirements. The
--- @PackedPolicySize@ response element indicates by percentage how close
--- the policies and tags for your request are to the upper size limit.
+-- The format for this parameter, as described by its regex pattern, is a
+-- sequence of six numeric digits.
 --
 -- 'transitiveTagKeys', 'assumeRole_transitiveTagKeys' - A list of keys for session tags that you want to set as transitive. If
 -- you set a tag key as transitive, the corresponding key and value passes
@@ -472,54 +591,45 @@ data AssumeRole = AssumeRole'
 -- If you choose not to specify a transitive tag key, then no tags are
 -- passed from this session to any subsequent sessions.
 --
--- 'policyArns', 'assumeRole_policyArns' - The Amazon Resource Names (ARNs) of the IAM managed policies that you
--- want to use as managed session policies. The policies must exist in the
--- same account as the role.
+-- 'roleArn', 'assumeRole_roleArn' - The Amazon Resource Name (ARN) of the role to assume.
 --
--- This parameter is optional. You can provide up to 10 managed policy
--- ARNs. However, the plaintext that you use for both inline and managed
--- session policies can\'t exceed 2,048 characters. For more information
--- about ARNs, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
--- in the Amazon Web Services General Reference.
+-- 'roleSessionName', 'assumeRole_roleSessionName' - An identifier for the assumed role session.
 --
--- An Amazon Web Services conversion compresses the passed inline session
--- policy, managed policy ARNs, and session tags into a packed binary
--- format that has a separate limit. Your request can fail for this limit
--- even if your plaintext meets the other requirements. The
--- @PackedPolicySize@ response element indicates by percentage how close
--- the policies and tags for your request are to the upper size limit.
---
--- Passing policies to this operation returns new temporary credentials.
--- The resulting session\'s permissions are the intersection of the role\'s
--- identity-based policy and the session policies. You can use the role\'s
--- temporary credentials in subsequent Amazon Web Services API calls to
--- access resources in the account that owns the role. You cannot use
--- session policies to grant more permissions than those allowed by the
--- identity-based policy of the role that is being assumed. For more
--- information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies>
--- in the /IAM User Guide/.
---
--- 'externalId', 'assumeRole_externalId' - A unique identifier that might be required when you assume a role in
--- another account. If the administrator of the account to which the role
--- belongs provided you with an external ID, then provide that value in the
--- @ExternalId@ parameter. This value can be any string, such as a
--- passphrase or account number. A cross-account role is usually set up to
--- trust everyone in an account. Therefore, the administrator of the
--- trusting account might send an external ID to the administrator of the
--- trusted account. That way, only someone with the ID can assume the role,
--- rather than everyone in the account. For more information about the
--- external ID, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html How to Use an External ID When Granting Access to Your Amazon Web Services Resources to a Third Party>
--- in the /IAM User Guide/.
+-- Use the role session name to uniquely identify a session when the same
+-- role is assumed by different principals or for different reasons. In
+-- cross-account scenarios, the role session name is visible to, and can be
+-- logged by the account that owns the role. The role session name is also
+-- used in the ARN of the assumed role principal. This means that
+-- subsequent cross-account API requests that use the temporary security
+-- credentials will expose the role session name to the external account in
+-- their CloudTrail logs.
 --
 -- The regex used to validate this parameter is a string of characters
 -- consisting of upper- and lower-case alphanumeric characters with no
 -- spaces. You can also include underscores or any of the following
--- characters: =,.\@:\/-
---
--- 'durationSeconds', 'assumeRole_durationSeconds' - The duration, in seconds, of the role session. The value specified can
+-- characters: =,.\@-
+newAssumeRole ::
+  -- | 'roleArn'
+  Prelude.Text ->
+  -- | 'roleSessionName'
+  Prelude.Text ->
+  AssumeRole
+newAssumeRole pRoleArn_ pRoleSessionName_ =
+  AssumeRole'
+    { durationSeconds = Prelude.Nothing,
+      externalId = Prelude.Nothing,
+      policy = Prelude.Nothing,
+      policyArns = Prelude.Nothing,
+      serialNumber = Prelude.Nothing,
+      sourceIdentity = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      tokenCode = Prelude.Nothing,
+      transitiveTagKeys = Prelude.Nothing,
+      roleArn = pRoleArn_,
+      roleSessionName = pRoleSessionName_
+    }
+
+-- | The duration, in seconds, of the role session. The value specified can
 -- range from 900 seconds (15 minutes) up to the maximum session duration
 -- set for the role. The maximum session duration setting can have a value
 -- from 1 hour to 12 hours. If you specify a value higher than this setting
@@ -549,17 +659,90 @@ data AssumeRole = AssumeRole'
 -- console session. For more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the Amazon Web Services Management Console>
 -- in the /IAM User Guide/.
+assumeRole_durationSeconds :: Lens.Lens' AssumeRole (Prelude.Maybe Prelude.Natural)
+assumeRole_durationSeconds = Lens.lens (\AssumeRole' {durationSeconds} -> durationSeconds) (\s@AssumeRole' {} a -> s {durationSeconds = a} :: AssumeRole)
+
+-- | A unique identifier that might be required when you assume a role in
+-- another account. If the administrator of the account to which the role
+-- belongs provided you with an external ID, then provide that value in the
+-- @ExternalId@ parameter. This value can be any string, such as a
+-- passphrase or account number. A cross-account role is usually set up to
+-- trust everyone in an account. Therefore, the administrator of the
+-- trusting account might send an external ID to the administrator of the
+-- trusted account. That way, only someone with the ID can assume the role,
+-- rather than everyone in the account. For more information about the
+-- external ID, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html How to Use an External ID When Granting Access to Your Amazon Web Services Resources to a Third Party>
+-- in the /IAM User Guide/.
 --
--- 'tokenCode', 'assumeRole_tokenCode' - The value provided by the MFA device, if the trust policy of the role
--- being assumed requires MFA. (In other words, if the policy includes a
--- condition that tests for MFA). If the role being assumed requires MFA
--- and if the @TokenCode@ value is missing or expired, the @AssumeRole@
--- call returns an \"access denied\" error.
+-- The regex used to validate this parameter is a string of characters
+-- consisting of upper- and lower-case alphanumeric characters with no
+-- spaces. You can also include underscores or any of the following
+-- characters: =,.\@:\/-
+assumeRole_externalId :: Lens.Lens' AssumeRole (Prelude.Maybe Prelude.Text)
+assumeRole_externalId = Lens.lens (\AssumeRole' {externalId} -> externalId) (\s@AssumeRole' {} a -> s {externalId = a} :: AssumeRole)
+
+-- | An IAM policy in JSON format that you want to use as an inline session
+-- policy.
 --
--- The format for this parameter, as described by its regex pattern, is a
--- sequence of six numeric digits.
+-- This parameter is optional. Passing policies to this operation returns
+-- new temporary credentials. The resulting session\'s permissions are the
+-- intersection of the role\'s identity-based policy and the session
+-- policies. You can use the role\'s temporary credentials in subsequent
+-- Amazon Web Services API calls to access resources in the account that
+-- owns the role. You cannot use session policies to grant more permissions
+-- than those allowed by the identity-based policy of the role that is
+-- being assumed. For more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies>
+-- in the /IAM User Guide/.
 --
--- 'serialNumber', 'assumeRole_serialNumber' - The identification number of the MFA device that is associated with the
+-- The plaintext that you use for both inline and managed session policies
+-- can\'t exceed 2,048 characters. The JSON policy characters can be any
+-- ASCII character from the space character to the end of the valid
+-- character list (\\u0020 through \\u00FF). It can also include the tab
+-- (\\u0009), linefeed (\\u000A), and carriage return (\\u000D) characters.
+--
+-- An Amazon Web Services conversion compresses the passed inline session
+-- policy, managed policy ARNs, and session tags into a packed binary
+-- format that has a separate limit. Your request can fail for this limit
+-- even if your plaintext meets the other requirements. The
+-- @PackedPolicySize@ response element indicates by percentage how close
+-- the policies and tags for your request are to the upper size limit.
+assumeRole_policy :: Lens.Lens' AssumeRole (Prelude.Maybe Prelude.Text)
+assumeRole_policy = Lens.lens (\AssumeRole' {policy} -> policy) (\s@AssumeRole' {} a -> s {policy = a} :: AssumeRole)
+
+-- | The Amazon Resource Names (ARNs) of the IAM managed policies that you
+-- want to use as managed session policies. The policies must exist in the
+-- same account as the role.
+--
+-- This parameter is optional. You can provide up to 10 managed policy
+-- ARNs. However, the plaintext that you use for both inline and managed
+-- session policies can\'t exceed 2,048 characters. For more information
+-- about ARNs, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
+-- in the Amazon Web Services General Reference.
+--
+-- An Amazon Web Services conversion compresses the passed inline session
+-- policy, managed policy ARNs, and session tags into a packed binary
+-- format that has a separate limit. Your request can fail for this limit
+-- even if your plaintext meets the other requirements. The
+-- @PackedPolicySize@ response element indicates by percentage how close
+-- the policies and tags for your request are to the upper size limit.
+--
+-- Passing policies to this operation returns new temporary credentials.
+-- The resulting session\'s permissions are the intersection of the role\'s
+-- identity-based policy and the session policies. You can use the role\'s
+-- temporary credentials in subsequent Amazon Web Services API calls to
+-- access resources in the account that owns the role. You cannot use
+-- session policies to grant more permissions than those allowed by the
+-- identity-based policy of the role that is being assumed. For more
+-- information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies>
+-- in the /IAM User Guide/.
+assumeRole_policyArns :: Lens.Lens' AssumeRole (Prelude.Maybe [PolicyDescriptorType])
+assumeRole_policyArns = Lens.lens (\AssumeRole' {policyArns} -> policyArns) (\s@AssumeRole' {} a -> s {policyArns = a} :: AssumeRole) Prelude.. Lens.mapping Lens.coerced
+
+-- | The identification number of the MFA device that is associated with the
 -- user who is making the @AssumeRole@ call. Specify this value if the
 -- trust policy of the role being assumed includes a condition that
 -- requires MFA authentication. The value is either the serial number for a
@@ -571,8 +754,10 @@ data AssumeRole = AssumeRole'
 -- consisting of upper- and lower-case alphanumeric characters with no
 -- spaces. You can also include underscores or any of the following
 -- characters: =,.\@-
---
--- 'sourceIdentity', 'assumeRole_sourceIdentity' - The source identity specified by the principal that is calling the
+assumeRole_serialNumber :: Lens.Lens' AssumeRole (Prelude.Maybe Prelude.Text)
+assumeRole_serialNumber = Lens.lens (\AssumeRole' {serialNumber} -> serialNumber) (\s@AssumeRole' {} a -> s {serialNumber = a} :: AssumeRole)
+
+-- | The source identity specified by the principal that is calling the
 -- @AssumeRole@ operation.
 --
 -- You can require users to specify a source identity when they assume a
@@ -590,44 +775,8 @@ data AssumeRole = AssumeRole'
 -- spaces. You can also include underscores or any of the following
 -- characters: =,.\@-. You cannot use a value that begins with the text
 -- @aws:@. This prefix is reserved for Amazon Web Services internal use.
---
--- 'roleArn', 'assumeRole_roleArn' - The Amazon Resource Name (ARN) of the role to assume.
---
--- 'roleSessionName', 'assumeRole_roleSessionName' - An identifier for the assumed role session.
---
--- Use the role session name to uniquely identify a session when the same
--- role is assumed by different principals or for different reasons. In
--- cross-account scenarios, the role session name is visible to, and can be
--- logged by the account that owns the role. The role session name is also
--- used in the ARN of the assumed role principal. This means that
--- subsequent cross-account API requests that use the temporary security
--- credentials will expose the role session name to the external account in
--- their CloudTrail logs.
---
--- The regex used to validate this parameter is a string of characters
--- consisting of upper- and lower-case alphanumeric characters with no
--- spaces. You can also include underscores or any of the following
--- characters: =,.\@-
-newAssumeRole ::
-  -- | 'roleArn'
-  Prelude.Text ->
-  -- | 'roleSessionName'
-  Prelude.Text ->
-  AssumeRole
-newAssumeRole pRoleArn_ pRoleSessionName_ =
-  AssumeRole'
-    { tags = Prelude.Nothing,
-      policy = Prelude.Nothing,
-      transitiveTagKeys = Prelude.Nothing,
-      policyArns = Prelude.Nothing,
-      externalId = Prelude.Nothing,
-      durationSeconds = Prelude.Nothing,
-      tokenCode = Prelude.Nothing,
-      serialNumber = Prelude.Nothing,
-      sourceIdentity = Prelude.Nothing,
-      roleArn = pRoleArn_,
-      roleSessionName = pRoleSessionName_
-    }
+assumeRole_sourceIdentity :: Lens.Lens' AssumeRole (Prelude.Maybe Prelude.Text)
+assumeRole_sourceIdentity = Lens.lens (\AssumeRole' {sourceIdentity} -> sourceIdentity) (\s@AssumeRole' {} a -> s {sourceIdentity = a} :: AssumeRole)
 
 -- | A list of session tags that you want to pass. Each session tag consists
 -- of a key name and an associated value. For more information about
@@ -669,34 +818,16 @@ newAssumeRole pRoleArn_ pRoleSessionName_ =
 assumeRole_tags :: Lens.Lens' AssumeRole (Prelude.Maybe [Tag])
 assumeRole_tags = Lens.lens (\AssumeRole' {tags} -> tags) (\s@AssumeRole' {} a -> s {tags = a} :: AssumeRole) Prelude.. Lens.mapping Lens.coerced
 
--- | An IAM policy in JSON format that you want to use as an inline session
--- policy.
+-- | The value provided by the MFA device, if the trust policy of the role
+-- being assumed requires MFA. (In other words, if the policy includes a
+-- condition that tests for MFA). If the role being assumed requires MFA
+-- and if the @TokenCode@ value is missing or expired, the @AssumeRole@
+-- call returns an \"access denied\" error.
 --
--- This parameter is optional. Passing policies to this operation returns
--- new temporary credentials. The resulting session\'s permissions are the
--- intersection of the role\'s identity-based policy and the session
--- policies. You can use the role\'s temporary credentials in subsequent
--- Amazon Web Services API calls to access resources in the account that
--- owns the role. You cannot use session policies to grant more permissions
--- than those allowed by the identity-based policy of the role that is
--- being assumed. For more information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies>
--- in the /IAM User Guide/.
---
--- The plaintext that you use for both inline and managed session policies
--- can\'t exceed 2,048 characters. The JSON policy characters can be any
--- ASCII character from the space character to the end of the valid
--- character list (\\u0020 through \\u00FF). It can also include the tab
--- (\\u0009), linefeed (\\u000A), and carriage return (\\u000D) characters.
---
--- An Amazon Web Services conversion compresses the passed inline session
--- policy, managed policy ARNs, and session tags into a packed binary
--- format that has a separate limit. Your request can fail for this limit
--- even if your plaintext meets the other requirements. The
--- @PackedPolicySize@ response element indicates by percentage how close
--- the policies and tags for your request are to the upper size limit.
-assumeRole_policy :: Lens.Lens' AssumeRole (Prelude.Maybe Prelude.Text)
-assumeRole_policy = Lens.lens (\AssumeRole' {policy} -> policy) (\s@AssumeRole' {} a -> s {policy = a} :: AssumeRole)
+-- The format for this parameter, as described by its regex pattern, is a
+-- sequence of six numeric digits.
+assumeRole_tokenCode :: Lens.Lens' AssumeRole (Prelude.Maybe Prelude.Text)
+assumeRole_tokenCode = Lens.lens (\AssumeRole' {tokenCode} -> tokenCode) (\s@AssumeRole' {} a -> s {tokenCode = a} :: AssumeRole)
 
 -- | A list of keys for session tags that you want to set as transitive. If
 -- you set a tag key as transitive, the corresponding key and value passes
@@ -711,137 +842,6 @@ assumeRole_policy = Lens.lens (\AssumeRole' {policy} -> policy) (\s@AssumeRole' 
 -- passed from this session to any subsequent sessions.
 assumeRole_transitiveTagKeys :: Lens.Lens' AssumeRole (Prelude.Maybe [Prelude.Text])
 assumeRole_transitiveTagKeys = Lens.lens (\AssumeRole' {transitiveTagKeys} -> transitiveTagKeys) (\s@AssumeRole' {} a -> s {transitiveTagKeys = a} :: AssumeRole) Prelude.. Lens.mapping Lens.coerced
-
--- | The Amazon Resource Names (ARNs) of the IAM managed policies that you
--- want to use as managed session policies. The policies must exist in the
--- same account as the role.
---
--- This parameter is optional. You can provide up to 10 managed policy
--- ARNs. However, the plaintext that you use for both inline and managed
--- session policies can\'t exceed 2,048 characters. For more information
--- about ARNs, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
--- in the Amazon Web Services General Reference.
---
--- An Amazon Web Services conversion compresses the passed inline session
--- policy, managed policy ARNs, and session tags into a packed binary
--- format that has a separate limit. Your request can fail for this limit
--- even if your plaintext meets the other requirements. The
--- @PackedPolicySize@ response element indicates by percentage how close
--- the policies and tags for your request are to the upper size limit.
---
--- Passing policies to this operation returns new temporary credentials.
--- The resulting session\'s permissions are the intersection of the role\'s
--- identity-based policy and the session policies. You can use the role\'s
--- temporary credentials in subsequent Amazon Web Services API calls to
--- access resources in the account that owns the role. You cannot use
--- session policies to grant more permissions than those allowed by the
--- identity-based policy of the role that is being assumed. For more
--- information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies>
--- in the /IAM User Guide/.
-assumeRole_policyArns :: Lens.Lens' AssumeRole (Prelude.Maybe [PolicyDescriptorType])
-assumeRole_policyArns = Lens.lens (\AssumeRole' {policyArns} -> policyArns) (\s@AssumeRole' {} a -> s {policyArns = a} :: AssumeRole) Prelude.. Lens.mapping Lens.coerced
-
--- | A unique identifier that might be required when you assume a role in
--- another account. If the administrator of the account to which the role
--- belongs provided you with an external ID, then provide that value in the
--- @ExternalId@ parameter. This value can be any string, such as a
--- passphrase or account number. A cross-account role is usually set up to
--- trust everyone in an account. Therefore, the administrator of the
--- trusting account might send an external ID to the administrator of the
--- trusted account. That way, only someone with the ID can assume the role,
--- rather than everyone in the account. For more information about the
--- external ID, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html How to Use an External ID When Granting Access to Your Amazon Web Services Resources to a Third Party>
--- in the /IAM User Guide/.
---
--- The regex used to validate this parameter is a string of characters
--- consisting of upper- and lower-case alphanumeric characters with no
--- spaces. You can also include underscores or any of the following
--- characters: =,.\@:\/-
-assumeRole_externalId :: Lens.Lens' AssumeRole (Prelude.Maybe Prelude.Text)
-assumeRole_externalId = Lens.lens (\AssumeRole' {externalId} -> externalId) (\s@AssumeRole' {} a -> s {externalId = a} :: AssumeRole)
-
--- | The duration, in seconds, of the role session. The value specified can
--- range from 900 seconds (15 minutes) up to the maximum session duration
--- set for the role. The maximum session duration setting can have a value
--- from 1 hour to 12 hours. If you specify a value higher than this setting
--- or the administrator setting (whichever is lower), the operation fails.
--- For example, if you specify a session duration of 12 hours, but your
--- administrator set the maximum session duration to 6 hours, your
--- operation fails.
---
--- Role chaining limits your Amazon Web Services CLI or Amazon Web Services
--- API role session to a maximum of one hour. When you use the @AssumeRole@
--- API operation to assume a role, you can specify the duration of your
--- role session with the @DurationSeconds@ parameter. You can specify a
--- parameter value of up to 43200 seconds (12 hours), depending on the
--- maximum session duration setting for your role. However, if you assume a
--- role using role chaining and provide a @DurationSeconds@ parameter value
--- greater than one hour, the operation fails. To learn how to view the
--- maximum value for your role, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session View the Maximum Session Duration Setting for a Role>
--- in the /IAM User Guide/.
---
--- By default, the value is set to @3600@ seconds.
---
--- The @DurationSeconds@ parameter is separate from the duration of a
--- console session that you might request using the returned credentials.
--- The request to the federation endpoint for a console sign-in token takes
--- a @SessionDuration@ parameter that specifies the maximum length of the
--- console session. For more information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the Amazon Web Services Management Console>
--- in the /IAM User Guide/.
-assumeRole_durationSeconds :: Lens.Lens' AssumeRole (Prelude.Maybe Prelude.Natural)
-assumeRole_durationSeconds = Lens.lens (\AssumeRole' {durationSeconds} -> durationSeconds) (\s@AssumeRole' {} a -> s {durationSeconds = a} :: AssumeRole)
-
--- | The value provided by the MFA device, if the trust policy of the role
--- being assumed requires MFA. (In other words, if the policy includes a
--- condition that tests for MFA). If the role being assumed requires MFA
--- and if the @TokenCode@ value is missing or expired, the @AssumeRole@
--- call returns an \"access denied\" error.
---
--- The format for this parameter, as described by its regex pattern, is a
--- sequence of six numeric digits.
-assumeRole_tokenCode :: Lens.Lens' AssumeRole (Prelude.Maybe Prelude.Text)
-assumeRole_tokenCode = Lens.lens (\AssumeRole' {tokenCode} -> tokenCode) (\s@AssumeRole' {} a -> s {tokenCode = a} :: AssumeRole)
-
--- | The identification number of the MFA device that is associated with the
--- user who is making the @AssumeRole@ call. Specify this value if the
--- trust policy of the role being assumed includes a condition that
--- requires MFA authentication. The value is either the serial number for a
--- hardware device (such as @GAHT12345678@) or an Amazon Resource Name
--- (ARN) for a virtual device (such as
--- @arn:aws:iam::123456789012:mfa\/user@).
---
--- The regex used to validate this parameter is a string of characters
--- consisting of upper- and lower-case alphanumeric characters with no
--- spaces. You can also include underscores or any of the following
--- characters: =,.\@-
-assumeRole_serialNumber :: Lens.Lens' AssumeRole (Prelude.Maybe Prelude.Text)
-assumeRole_serialNumber = Lens.lens (\AssumeRole' {serialNumber} -> serialNumber) (\s@AssumeRole' {} a -> s {serialNumber = a} :: AssumeRole)
-
--- | The source identity specified by the principal that is calling the
--- @AssumeRole@ operation.
---
--- You can require users to specify a source identity when they assume a
--- role. You do this by using the @sts:SourceIdentity@ condition key in a
--- role trust policy. You can use source identity information in CloudTrail
--- logs to determine who took actions with a role. You can use the
--- @aws:SourceIdentity@ condition key to further control access to Amazon
--- Web Services resources based on the value of source identity. For more
--- information about using source identity, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html Monitor and control actions taken with assumed roles>
--- in the /IAM User Guide/.
---
--- The regex used to validate this parameter is a string of characters
--- consisting of upper- and lower-case alphanumeric characters with no
--- spaces. You can also include underscores or any of the following
--- characters: =,.\@-. You cannot use a value that begins with the text
--- @aws:@. This prefix is reserved for Amazon Web Services internal use.
-assumeRole_sourceIdentity :: Lens.Lens' AssumeRole (Prelude.Maybe Prelude.Text)
-assumeRole_sourceIdentity = Lens.lens (\AssumeRole' {sourceIdentity} -> sourceIdentity) (\s@AssumeRole' {} a -> s {sourceIdentity = a} :: AssumeRole)
 
 -- | The Amazon Resource Name (ARN) of the role to assume.
 assumeRole_roleArn :: Lens.Lens' AssumeRole Prelude.Text
@@ -875,37 +875,37 @@ instance Core.AWSRequest AssumeRole where
       ( \s h x ->
           AssumeRoleResponse'
             Prelude.<$> (x Data..@? "AssumedRoleUser")
-            Prelude.<*> (x Data..@? "SourceIdentity")
             Prelude.<*> (x Data..@? "PackedPolicySize")
+            Prelude.<*> (x Data..@? "SourceIdentity")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "Credentials")
       )
 
 instance Prelude.Hashable AssumeRole where
   hashWithSalt _salt AssumeRole' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` policy
-      `Prelude.hashWithSalt` transitiveTagKeys
-      `Prelude.hashWithSalt` policyArns
+    _salt `Prelude.hashWithSalt` durationSeconds
       `Prelude.hashWithSalt` externalId
-      `Prelude.hashWithSalt` durationSeconds
-      `Prelude.hashWithSalt` tokenCode
+      `Prelude.hashWithSalt` policy
+      `Prelude.hashWithSalt` policyArns
       `Prelude.hashWithSalt` serialNumber
       `Prelude.hashWithSalt` sourceIdentity
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` tokenCode
+      `Prelude.hashWithSalt` transitiveTagKeys
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` roleSessionName
 
 instance Prelude.NFData AssumeRole where
   rnf AssumeRole' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf transitiveTagKeys
-      `Prelude.seq` Prelude.rnf policyArns
+    Prelude.rnf durationSeconds
       `Prelude.seq` Prelude.rnf externalId
-      `Prelude.seq` Prelude.rnf durationSeconds
-      `Prelude.seq` Prelude.rnf tokenCode
+      `Prelude.seq` Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf policyArns
       `Prelude.seq` Prelude.rnf serialNumber
       `Prelude.seq` Prelude.rnf sourceIdentity
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf tokenCode
+      `Prelude.seq` Prelude.rnf transitiveTagKeys
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf roleSessionName
 
@@ -922,23 +922,23 @@ instance Data.ToQuery AssumeRole where
           Data.=: ("AssumeRole" :: Prelude.ByteString),
         "Version"
           Data.=: ("2011-06-15" :: Prelude.ByteString),
+        "DurationSeconds" Data.=: durationSeconds,
+        "ExternalId" Data.=: externalId,
+        "Policy" Data.=: policy,
+        "PolicyArns"
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> policyArns),
+        "SerialNumber" Data.=: serialNumber,
+        "SourceIdentity" Data.=: sourceIdentity,
         "Tags"
           Data.=: Data.toQuery
             (Data.toQueryList "member" Prelude.<$> tags),
-        "Policy" Data.=: policy,
+        "TokenCode" Data.=: tokenCode,
         "TransitiveTagKeys"
           Data.=: Data.toQuery
             ( Data.toQueryList "member"
                 Prelude.<$> transitiveTagKeys
             ),
-        "PolicyArns"
-          Data.=: Data.toQuery
-            (Data.toQueryList "member" Prelude.<$> policyArns),
-        "ExternalId" Data.=: externalId,
-        "DurationSeconds" Data.=: durationSeconds,
-        "TokenCode" Data.=: tokenCode,
-        "SerialNumber" Data.=: serialNumber,
-        "SourceIdentity" Data.=: sourceIdentity,
         "RoleArn" Data.=: roleArn,
         "RoleSessionName" Data.=: roleSessionName
       ]
@@ -956,6 +956,11 @@ data AssumeRoleResponse = AssumeRoleResponse'
     -- role ID. The ARN and ID include the @RoleSessionName@ that you specified
     -- when you called @AssumeRole@.
     assumedRoleUser :: Prelude.Maybe AssumedRoleUser,
+    -- | A percentage value that indicates the packed size of the session
+    -- policies and session tags combined passed in the request. The request
+    -- fails if the packed size is greater than 100 percent, which means the
+    -- policies and tags exceeded the allowed space.
+    packedPolicySize :: Prelude.Maybe Prelude.Natural,
     -- | The source identity specified by the principal that is calling the
     -- @AssumeRole@ operation.
     --
@@ -974,11 +979,6 @@ data AssumeRoleResponse = AssumeRoleResponse'
     -- spaces. You can also include underscores or any of the following
     -- characters: =,.\@-
     sourceIdentity :: Prelude.Maybe Prelude.Text,
-    -- | A percentage value that indicates the packed size of the session
-    -- policies and session tags combined passed in the request. The request
-    -- fails if the packed size is greater than 100 percent, which means the
-    -- policies and tags exceeded the allowed space.
-    packedPolicySize :: Prelude.Maybe Prelude.Natural,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The temporary security credentials, which include an access key ID, a
@@ -1006,6 +1006,11 @@ data AssumeRoleResponse = AssumeRoleResponse'
 -- role ID. The ARN and ID include the @RoleSessionName@ that you specified
 -- when you called @AssumeRole@.
 --
+-- 'packedPolicySize', 'assumeRoleResponse_packedPolicySize' - A percentage value that indicates the packed size of the session
+-- policies and session tags combined passed in the request. The request
+-- fails if the packed size is greater than 100 percent, which means the
+-- policies and tags exceeded the allowed space.
+--
 -- 'sourceIdentity', 'assumeRoleResponse_sourceIdentity' - The source identity specified by the principal that is calling the
 -- @AssumeRole@ operation.
 --
@@ -1023,11 +1028,6 @@ data AssumeRoleResponse = AssumeRoleResponse'
 -- consisting of upper- and lower-case alphanumeric characters with no
 -- spaces. You can also include underscores or any of the following
 -- characters: =,.\@-
---
--- 'packedPolicySize', 'assumeRoleResponse_packedPolicySize' - A percentage value that indicates the packed size of the session
--- policies and session tags combined passed in the request. The request
--- fails if the packed size is greater than 100 percent, which means the
--- policies and tags exceeded the allowed space.
 --
 -- 'httpStatus', 'assumeRoleResponse_httpStatus' - The response's http status code.
 --
@@ -1047,8 +1047,8 @@ newAssumeRoleResponse pHttpStatus_ pCredentials_ =
   AssumeRoleResponse'
     { assumedRoleUser =
         Prelude.Nothing,
-      sourceIdentity = Prelude.Nothing,
       packedPolicySize = Prelude.Nothing,
+      sourceIdentity = Prelude.Nothing,
       httpStatus = pHttpStatus_,
       credentials = pCredentials_
     }
@@ -1061,6 +1061,13 @@ newAssumeRoleResponse pHttpStatus_ pCredentials_ =
 -- when you called @AssumeRole@.
 assumeRoleResponse_assumedRoleUser :: Lens.Lens' AssumeRoleResponse (Prelude.Maybe AssumedRoleUser)
 assumeRoleResponse_assumedRoleUser = Lens.lens (\AssumeRoleResponse' {assumedRoleUser} -> assumedRoleUser) (\s@AssumeRoleResponse' {} a -> s {assumedRoleUser = a} :: AssumeRoleResponse)
+
+-- | A percentage value that indicates the packed size of the session
+-- policies and session tags combined passed in the request. The request
+-- fails if the packed size is greater than 100 percent, which means the
+-- policies and tags exceeded the allowed space.
+assumeRoleResponse_packedPolicySize :: Lens.Lens' AssumeRoleResponse (Prelude.Maybe Prelude.Natural)
+assumeRoleResponse_packedPolicySize = Lens.lens (\AssumeRoleResponse' {packedPolicySize} -> packedPolicySize) (\s@AssumeRoleResponse' {} a -> s {packedPolicySize = a} :: AssumeRoleResponse)
 
 -- | The source identity specified by the principal that is calling the
 -- @AssumeRole@ operation.
@@ -1082,13 +1089,6 @@ assumeRoleResponse_assumedRoleUser = Lens.lens (\AssumeRoleResponse' {assumedRol
 assumeRoleResponse_sourceIdentity :: Lens.Lens' AssumeRoleResponse (Prelude.Maybe Prelude.Text)
 assumeRoleResponse_sourceIdentity = Lens.lens (\AssumeRoleResponse' {sourceIdentity} -> sourceIdentity) (\s@AssumeRoleResponse' {} a -> s {sourceIdentity = a} :: AssumeRoleResponse)
 
--- | A percentage value that indicates the packed size of the session
--- policies and session tags combined passed in the request. The request
--- fails if the packed size is greater than 100 percent, which means the
--- policies and tags exceeded the allowed space.
-assumeRoleResponse_packedPolicySize :: Lens.Lens' AssumeRoleResponse (Prelude.Maybe Prelude.Natural)
-assumeRoleResponse_packedPolicySize = Lens.lens (\AssumeRoleResponse' {packedPolicySize} -> packedPolicySize) (\s@AssumeRoleResponse' {} a -> s {packedPolicySize = a} :: AssumeRoleResponse)
-
 -- | The response's http status code.
 assumeRoleResponse_httpStatus :: Lens.Lens' AssumeRoleResponse Prelude.Int
 assumeRoleResponse_httpStatus = Lens.lens (\AssumeRoleResponse' {httpStatus} -> httpStatus) (\s@AssumeRoleResponse' {} a -> s {httpStatus = a} :: AssumeRoleResponse)
@@ -1105,7 +1105,7 @@ assumeRoleResponse_credentials = Lens.lens (\AssumeRoleResponse' {credentials} -
 instance Prelude.NFData AssumeRoleResponse where
   rnf AssumeRoleResponse' {..} =
     Prelude.rnf assumedRoleUser
-      `Prelude.seq` Prelude.rnf sourceIdentity
       `Prelude.seq` Prelude.rnf packedPolicySize
+      `Prelude.seq` Prelude.rnf sourceIdentity
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf credentials

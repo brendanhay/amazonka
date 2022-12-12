@@ -42,8 +42,8 @@ module Amazonka.IoT.GetPercentiles
 
     -- * Request Lenses
     getPercentiles_aggregationField,
-    getPercentiles_percents,
     getPercentiles_indexName,
+    getPercentiles_percents,
     getPercentiles_queryVersion,
     getPercentiles_queryString,
 
@@ -69,10 +69,10 @@ import qualified Amazonka.Response as Response
 data GetPercentiles = GetPercentiles'
   { -- | The field to aggregate.
     aggregationField :: Prelude.Maybe Prelude.Text,
-    -- | The percentile groups returned.
-    percents :: Prelude.Maybe [Prelude.Double],
     -- | The name of the index to search.
     indexName :: Prelude.Maybe Prelude.Text,
+    -- | The percentile groups returned.
+    percents :: Prelude.Maybe [Prelude.Double],
     -- | The query version.
     queryVersion :: Prelude.Maybe Prelude.Text,
     -- | The search query string.
@@ -90,9 +90,9 @@ data GetPercentiles = GetPercentiles'
 --
 -- 'aggregationField', 'getPercentiles_aggregationField' - The field to aggregate.
 --
--- 'percents', 'getPercentiles_percents' - The percentile groups returned.
---
 -- 'indexName', 'getPercentiles_indexName' - The name of the index to search.
+--
+-- 'percents', 'getPercentiles_percents' - The percentile groups returned.
 --
 -- 'queryVersion', 'getPercentiles_queryVersion' - The query version.
 --
@@ -104,8 +104,8 @@ newGetPercentiles ::
 newGetPercentiles pQueryString_ =
   GetPercentiles'
     { aggregationField = Prelude.Nothing,
-      percents = Prelude.Nothing,
       indexName = Prelude.Nothing,
+      percents = Prelude.Nothing,
       queryVersion = Prelude.Nothing,
       queryString = pQueryString_
     }
@@ -114,13 +114,13 @@ newGetPercentiles pQueryString_ =
 getPercentiles_aggregationField :: Lens.Lens' GetPercentiles (Prelude.Maybe Prelude.Text)
 getPercentiles_aggregationField = Lens.lens (\GetPercentiles' {aggregationField} -> aggregationField) (\s@GetPercentiles' {} a -> s {aggregationField = a} :: GetPercentiles)
 
--- | The percentile groups returned.
-getPercentiles_percents :: Lens.Lens' GetPercentiles (Prelude.Maybe [Prelude.Double])
-getPercentiles_percents = Lens.lens (\GetPercentiles' {percents} -> percents) (\s@GetPercentiles' {} a -> s {percents = a} :: GetPercentiles) Prelude.. Lens.mapping Lens.coerced
-
 -- | The name of the index to search.
 getPercentiles_indexName :: Lens.Lens' GetPercentiles (Prelude.Maybe Prelude.Text)
 getPercentiles_indexName = Lens.lens (\GetPercentiles' {indexName} -> indexName) (\s@GetPercentiles' {} a -> s {indexName = a} :: GetPercentiles)
+
+-- | The percentile groups returned.
+getPercentiles_percents :: Lens.Lens' GetPercentiles (Prelude.Maybe [Prelude.Double])
+getPercentiles_percents = Lens.lens (\GetPercentiles' {percents} -> percents) (\s@GetPercentiles' {} a -> s {percents = a} :: GetPercentiles) Prelude.. Lens.mapping Lens.coerced
 
 -- | The query version.
 getPercentiles_queryVersion :: Lens.Lens' GetPercentiles (Prelude.Maybe Prelude.Text)
@@ -147,16 +147,16 @@ instance Core.AWSRequest GetPercentiles where
 instance Prelude.Hashable GetPercentiles where
   hashWithSalt _salt GetPercentiles' {..} =
     _salt `Prelude.hashWithSalt` aggregationField
-      `Prelude.hashWithSalt` percents
       `Prelude.hashWithSalt` indexName
+      `Prelude.hashWithSalt` percents
       `Prelude.hashWithSalt` queryVersion
       `Prelude.hashWithSalt` queryString
 
 instance Prelude.NFData GetPercentiles where
   rnf GetPercentiles' {..} =
     Prelude.rnf aggregationField
-      `Prelude.seq` Prelude.rnf percents
       `Prelude.seq` Prelude.rnf indexName
+      `Prelude.seq` Prelude.rnf percents
       `Prelude.seq` Prelude.rnf queryVersion
       `Prelude.seq` Prelude.rnf queryString
 
@@ -169,8 +169,8 @@ instance Data.ToJSON GetPercentiles where
       ( Prelude.catMaybes
           [ ("aggregationField" Data..=)
               Prelude.<$> aggregationField,
-            ("percents" Data..=) Prelude.<$> percents,
             ("indexName" Data..=) Prelude.<$> indexName,
+            ("percents" Data..=) Prelude.<$> percents,
             ("queryVersion" Data..=) Prelude.<$> queryVersion,
             Prelude.Just ("queryString" Data..= queryString)
           ]

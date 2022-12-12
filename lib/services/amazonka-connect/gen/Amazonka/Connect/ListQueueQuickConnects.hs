@@ -32,8 +32,8 @@ module Amazonka.Connect.ListQueueQuickConnects
     newListQueueQuickConnects,
 
     -- * Request Lenses
-    listQueueQuickConnects_nextToken,
     listQueueQuickConnects_maxResults,
+    listQueueQuickConnects_nextToken,
     listQueueQuickConnects_instanceId,
     listQueueQuickConnects_queueId,
 
@@ -58,13 +58,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListQueueQuickConnects' smart constructor.
 data ListQueueQuickConnects = ListQueueQuickConnects'
-  { -- | The token for the next set of results. Use the value returned in the
+  { -- | The maximum number of results to return per page. The default MaxResult
+    -- size is 100.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per page. The default MaxResult
-    -- size is 100.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
@@ -81,12 +81,12 @@ data ListQueueQuickConnects = ListQueueQuickConnects'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listQueueQuickConnects_maxResults' - The maximum number of results to return per page. The default MaxResult
+-- size is 100.
+--
 -- 'nextToken', 'listQueueQuickConnects_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
---
--- 'maxResults', 'listQueueQuickConnects_maxResults' - The maximum number of results to return per page. The default MaxResult
--- size is 100.
 --
 -- 'instanceId', 'listQueueQuickConnects_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -100,23 +100,23 @@ newListQueueQuickConnects ::
   ListQueueQuickConnects
 newListQueueQuickConnects pInstanceId_ pQueueId_ =
   ListQueueQuickConnects'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       instanceId = pInstanceId_,
       queueId = pQueueId_
     }
+
+-- | The maximum number of results to return per page. The default MaxResult
+-- size is 100.
+listQueueQuickConnects_maxResults :: Lens.Lens' ListQueueQuickConnects (Prelude.Maybe Prelude.Natural)
+listQueueQuickConnects_maxResults = Lens.lens (\ListQueueQuickConnects' {maxResults} -> maxResults) (\s@ListQueueQuickConnects' {} a -> s {maxResults = a} :: ListQueueQuickConnects)
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
 listQueueQuickConnects_nextToken :: Lens.Lens' ListQueueQuickConnects (Prelude.Maybe Prelude.Text)
 listQueueQuickConnects_nextToken = Lens.lens (\ListQueueQuickConnects' {nextToken} -> nextToken) (\s@ListQueueQuickConnects' {} a -> s {nextToken = a} :: ListQueueQuickConnects)
-
--- | The maximum number of results to return per page. The default MaxResult
--- size is 100.
-listQueueQuickConnects_maxResults :: Lens.Lens' ListQueueQuickConnects (Prelude.Maybe Prelude.Natural)
-listQueueQuickConnects_maxResults = Lens.lens (\ListQueueQuickConnects' {maxResults} -> maxResults) (\s@ListQueueQuickConnects' {} a -> s {maxResults = a} :: ListQueueQuickConnects)
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -168,15 +168,15 @@ instance Core.AWSRequest ListQueueQuickConnects where
 
 instance Prelude.Hashable ListQueueQuickConnects where
   hashWithSalt _salt ListQueueQuickConnects' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` queueId
 
 instance Prelude.NFData ListQueueQuickConnects where
   rnf ListQueueQuickConnects' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf queueId
 
@@ -204,8 +204,8 @@ instance Data.ToPath ListQueueQuickConnects where
 instance Data.ToQuery ListQueueQuickConnects where
   toQuery ListQueueQuickConnects' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListQueueQuickConnectsResponse' smart constructor.

@@ -52,14 +52,14 @@ module Amazonka.Location.CalculateRoute
     newCalculateRoute,
 
     -- * Request Lenses
-    calculateRoute_distanceUnit,
     calculateRoute_carModeOptions,
-    calculateRoute_travelMode,
+    calculateRoute_departNow,
     calculateRoute_departureTime,
+    calculateRoute_distanceUnit,
+    calculateRoute_includeLegGeometry,
+    calculateRoute_travelMode,
     calculateRoute_truckModeOptions,
     calculateRoute_waypointPositions,
-    calculateRoute_includeLegGeometry,
-    calculateRoute_departNow,
     calculateRoute_calculatorName,
     calculateRoute_departurePosition,
     calculateRoute_destinationPosition,
@@ -85,15 +85,41 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCalculateRoute' smart constructor.
 data CalculateRoute = CalculateRoute'
-  { -- | Set the unit system to specify the distance.
-    --
-    -- Default Value: @Kilometers@
-    distanceUnit :: Prelude.Maybe DistanceUnit,
-    -- | Specifies route preferences when traveling by @Car@, such as avoiding
+  { -- | Specifies route preferences when traveling by @Car@, such as avoiding
     -- routes that use ferries or tolls.
     --
     -- Requirements: @TravelMode@ must be specified as @Car@.
     carModeOptions :: Prelude.Maybe CalculateRouteCarModeOptions,
+    -- | Sets the time of departure as the current time. Uses the current time to
+    -- calculate a route. Otherwise, the best time of day to travel with the
+    -- best traffic conditions is used to calculate the route.
+    --
+    -- Default Value: @false@
+    --
+    -- Valid Values: @false@ | @true@
+    departNow :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies the desired time of departure. Uses the given time to
+    -- calculate the route. Otherwise, the best time of day to travel with the
+    -- best traffic conditions is used to calculate the route.
+    --
+    -- Setting a departure time in the past returns a @400 ValidationException@
+    -- error.
+    --
+    -- -   In <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
+    --     format: @YYYY-MM-DDThh:mm:ss.sssZ@. For example,
+    --     @2020–07-2T12:15:20.000Z+01:00@
+    departureTime :: Prelude.Maybe Data.POSIX,
+    -- | Set the unit system to specify the distance.
+    --
+    -- Default Value: @Kilometers@
+    distanceUnit :: Prelude.Maybe DistanceUnit,
+    -- | Set to include the geometry details in the result for each path between
+    -- a pair of positions.
+    --
+    -- Default Value: @false@
+    --
+    -- Valid Values: @false@ | @true@
+    includeLegGeometry :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the mode of transport when calculating a route. Used in
     -- estimating the speed of travel and road compatibility. You can choose
     -- @Car@, @Truck@, or @Walking@ as options for the @TravelMode@.
@@ -107,17 +133,6 @@ data CalculateRoute = CalculateRoute'
     --
     -- Default Value: @Car@
     travelMode :: Prelude.Maybe TravelMode,
-    -- | Specifies the desired time of departure. Uses the given time to
-    -- calculate the route. Otherwise, the best time of day to travel with the
-    -- best traffic conditions is used to calculate the route.
-    --
-    -- Setting a departure time in the past returns a @400 ValidationException@
-    -- error.
-    --
-    -- -   In <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
-    --     format: @YYYY-MM-DDThh:mm:ss.sssZ@. For example,
-    --     @2020–07-2T12:15:20.000Z+01:00@
-    departureTime :: Prelude.Maybe Data.POSIX,
     -- | Specifies route preferences when traveling by @Truck@, such as avoiding
     -- routes that use ferries or tolls, and truck specifications to consider
     -- when choosing an optimal road.
@@ -144,21 +159,6 @@ data CalculateRoute = CalculateRoute'
     --
     -- Valid Values: @[-180 to 180,-90 to 90]@
     waypointPositions :: Prelude.Maybe [Data.Sensitive (Prelude.NonEmpty Prelude.Double)],
-    -- | Set to include the geometry details in the result for each path between
-    -- a pair of positions.
-    --
-    -- Default Value: @false@
-    --
-    -- Valid Values: @false@ | @true@
-    includeLegGeometry :: Prelude.Maybe Prelude.Bool,
-    -- | Sets the time of departure as the current time. Uses the current time to
-    -- calculate a route. Otherwise, the best time of day to travel with the
-    -- best traffic conditions is used to calculate the route.
-    --
-    -- Default Value: @false@
-    --
-    -- Valid Values: @false@ | @true@
-    departNow :: Prelude.Maybe Prelude.Bool,
     -- | The name of the route calculator resource that you want to use to
     -- calculate the route.
     calculatorName :: Prelude.Text,
@@ -200,14 +200,40 @@ data CalculateRoute = CalculateRoute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'distanceUnit', 'calculateRoute_distanceUnit' - Set the unit system to specify the distance.
---
--- Default Value: @Kilometers@
---
 -- 'carModeOptions', 'calculateRoute_carModeOptions' - Specifies route preferences when traveling by @Car@, such as avoiding
 -- routes that use ferries or tolls.
 --
 -- Requirements: @TravelMode@ must be specified as @Car@.
+--
+-- 'departNow', 'calculateRoute_departNow' - Sets the time of departure as the current time. Uses the current time to
+-- calculate a route. Otherwise, the best time of day to travel with the
+-- best traffic conditions is used to calculate the route.
+--
+-- Default Value: @false@
+--
+-- Valid Values: @false@ | @true@
+--
+-- 'departureTime', 'calculateRoute_departureTime' - Specifies the desired time of departure. Uses the given time to
+-- calculate the route. Otherwise, the best time of day to travel with the
+-- best traffic conditions is used to calculate the route.
+--
+-- Setting a departure time in the past returns a @400 ValidationException@
+-- error.
+--
+-- -   In <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
+--     format: @YYYY-MM-DDThh:mm:ss.sssZ@. For example,
+--     @2020–07-2T12:15:20.000Z+01:00@
+--
+-- 'distanceUnit', 'calculateRoute_distanceUnit' - Set the unit system to specify the distance.
+--
+-- Default Value: @Kilometers@
+--
+-- 'includeLegGeometry', 'calculateRoute_includeLegGeometry' - Set to include the geometry details in the result for each path between
+-- a pair of positions.
+--
+-- Default Value: @false@
+--
+-- Valid Values: @false@ | @true@
 --
 -- 'travelMode', 'calculateRoute_travelMode' - Specifies the mode of transport when calculating a route. Used in
 -- estimating the speed of travel and road compatibility. You can choose
@@ -221,17 +247,6 @@ data CalculateRoute = CalculateRoute'
 -- -   If traveling by @Truck@ use the @TruckModeOptions@ parameter.
 --
 -- Default Value: @Car@
---
--- 'departureTime', 'calculateRoute_departureTime' - Specifies the desired time of departure. Uses the given time to
--- calculate the route. Otherwise, the best time of day to travel with the
--- best traffic conditions is used to calculate the route.
---
--- Setting a departure time in the past returns a @400 ValidationException@
--- error.
---
--- -   In <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
---     format: @YYYY-MM-DDThh:mm:ss.sssZ@. For example,
---     @2020–07-2T12:15:20.000Z+01:00@
 --
 -- 'truckModeOptions', 'calculateRoute_truckModeOptions' - Specifies route preferences when traveling by @Truck@, such as avoiding
 -- routes that use ferries or tolls, and truck specifications to consider
@@ -258,21 +273,6 @@ data CalculateRoute = CalculateRoute'
 -- error.
 --
 -- Valid Values: @[-180 to 180,-90 to 90]@
---
--- 'includeLegGeometry', 'calculateRoute_includeLegGeometry' - Set to include the geometry details in the result for each path between
--- a pair of positions.
---
--- Default Value: @false@
---
--- Valid Values: @false@ | @true@
---
--- 'departNow', 'calculateRoute_departNow' - Sets the time of departure as the current time. Uses the current time to
--- calculate a route. Otherwise, the best time of day to travel with the
--- best traffic conditions is used to calculate the route.
---
--- Default Value: @false@
---
--- Valid Values: @false@ | @true@
 --
 -- 'calculatorName', 'calculateRoute_calculatorName' - The name of the route calculator resource that you want to use to
 -- calculate the route.
@@ -316,14 +316,14 @@ newCalculateRoute
   pDeparturePosition_
   pDestinationPosition_ =
     CalculateRoute'
-      { distanceUnit = Prelude.Nothing,
-        carModeOptions = Prelude.Nothing,
-        travelMode = Prelude.Nothing,
+      { carModeOptions = Prelude.Nothing,
+        departNow = Prelude.Nothing,
         departureTime = Prelude.Nothing,
+        distanceUnit = Prelude.Nothing,
+        includeLegGeometry = Prelude.Nothing,
+        travelMode = Prelude.Nothing,
         truckModeOptions = Prelude.Nothing,
         waypointPositions = Prelude.Nothing,
-        includeLegGeometry = Prelude.Nothing,
-        departNow = Prelude.Nothing,
         calculatorName = pCalculatorName_,
         departurePosition =
           Data._Sensitive Prelude.. Lens.coerced
@@ -333,18 +333,50 @@ newCalculateRoute
             Lens.# pDestinationPosition_
       }
 
--- | Set the unit system to specify the distance.
---
--- Default Value: @Kilometers@
-calculateRoute_distanceUnit :: Lens.Lens' CalculateRoute (Prelude.Maybe DistanceUnit)
-calculateRoute_distanceUnit = Lens.lens (\CalculateRoute' {distanceUnit} -> distanceUnit) (\s@CalculateRoute' {} a -> s {distanceUnit = a} :: CalculateRoute)
-
 -- | Specifies route preferences when traveling by @Car@, such as avoiding
 -- routes that use ferries or tolls.
 --
 -- Requirements: @TravelMode@ must be specified as @Car@.
 calculateRoute_carModeOptions :: Lens.Lens' CalculateRoute (Prelude.Maybe CalculateRouteCarModeOptions)
 calculateRoute_carModeOptions = Lens.lens (\CalculateRoute' {carModeOptions} -> carModeOptions) (\s@CalculateRoute' {} a -> s {carModeOptions = a} :: CalculateRoute)
+
+-- | Sets the time of departure as the current time. Uses the current time to
+-- calculate a route. Otherwise, the best time of day to travel with the
+-- best traffic conditions is used to calculate the route.
+--
+-- Default Value: @false@
+--
+-- Valid Values: @false@ | @true@
+calculateRoute_departNow :: Lens.Lens' CalculateRoute (Prelude.Maybe Prelude.Bool)
+calculateRoute_departNow = Lens.lens (\CalculateRoute' {departNow} -> departNow) (\s@CalculateRoute' {} a -> s {departNow = a} :: CalculateRoute)
+
+-- | Specifies the desired time of departure. Uses the given time to
+-- calculate the route. Otherwise, the best time of day to travel with the
+-- best traffic conditions is used to calculate the route.
+--
+-- Setting a departure time in the past returns a @400 ValidationException@
+-- error.
+--
+-- -   In <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
+--     format: @YYYY-MM-DDThh:mm:ss.sssZ@. For example,
+--     @2020–07-2T12:15:20.000Z+01:00@
+calculateRoute_departureTime :: Lens.Lens' CalculateRoute (Prelude.Maybe Prelude.UTCTime)
+calculateRoute_departureTime = Lens.lens (\CalculateRoute' {departureTime} -> departureTime) (\s@CalculateRoute' {} a -> s {departureTime = a} :: CalculateRoute) Prelude.. Lens.mapping Data._Time
+
+-- | Set the unit system to specify the distance.
+--
+-- Default Value: @Kilometers@
+calculateRoute_distanceUnit :: Lens.Lens' CalculateRoute (Prelude.Maybe DistanceUnit)
+calculateRoute_distanceUnit = Lens.lens (\CalculateRoute' {distanceUnit} -> distanceUnit) (\s@CalculateRoute' {} a -> s {distanceUnit = a} :: CalculateRoute)
+
+-- | Set to include the geometry details in the result for each path between
+-- a pair of positions.
+--
+-- Default Value: @false@
+--
+-- Valid Values: @false@ | @true@
+calculateRoute_includeLegGeometry :: Lens.Lens' CalculateRoute (Prelude.Maybe Prelude.Bool)
+calculateRoute_includeLegGeometry = Lens.lens (\CalculateRoute' {includeLegGeometry} -> includeLegGeometry) (\s@CalculateRoute' {} a -> s {includeLegGeometry = a} :: CalculateRoute)
 
 -- | Specifies the mode of transport when calculating a route. Used in
 -- estimating the speed of travel and road compatibility. You can choose
@@ -360,19 +392,6 @@ calculateRoute_carModeOptions = Lens.lens (\CalculateRoute' {carModeOptions} -> 
 -- Default Value: @Car@
 calculateRoute_travelMode :: Lens.Lens' CalculateRoute (Prelude.Maybe TravelMode)
 calculateRoute_travelMode = Lens.lens (\CalculateRoute' {travelMode} -> travelMode) (\s@CalculateRoute' {} a -> s {travelMode = a} :: CalculateRoute)
-
--- | Specifies the desired time of departure. Uses the given time to
--- calculate the route. Otherwise, the best time of day to travel with the
--- best traffic conditions is used to calculate the route.
---
--- Setting a departure time in the past returns a @400 ValidationException@
--- error.
---
--- -   In <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
---     format: @YYYY-MM-DDThh:mm:ss.sssZ@. For example,
---     @2020–07-2T12:15:20.000Z+01:00@
-calculateRoute_departureTime :: Lens.Lens' CalculateRoute (Prelude.Maybe Prelude.UTCTime)
-calculateRoute_departureTime = Lens.lens (\CalculateRoute' {departureTime} -> departureTime) (\s@CalculateRoute' {} a -> s {departureTime = a} :: CalculateRoute) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies route preferences when traveling by @Truck@, such as avoiding
 -- routes that use ferries or tolls, and truck specifications to consider
@@ -403,25 +422,6 @@ calculateRoute_truckModeOptions = Lens.lens (\CalculateRoute' {truckModeOptions}
 -- Valid Values: @[-180 to 180,-90 to 90]@
 calculateRoute_waypointPositions :: Lens.Lens' CalculateRoute (Prelude.Maybe [Prelude.NonEmpty Prelude.Double])
 calculateRoute_waypointPositions = Lens.lens (\CalculateRoute' {waypointPositions} -> waypointPositions) (\s@CalculateRoute' {} a -> s {waypointPositions = a} :: CalculateRoute) Prelude.. Lens.mapping Lens.coerced
-
--- | Set to include the geometry details in the result for each path between
--- a pair of positions.
---
--- Default Value: @false@
---
--- Valid Values: @false@ | @true@
-calculateRoute_includeLegGeometry :: Lens.Lens' CalculateRoute (Prelude.Maybe Prelude.Bool)
-calculateRoute_includeLegGeometry = Lens.lens (\CalculateRoute' {includeLegGeometry} -> includeLegGeometry) (\s@CalculateRoute' {} a -> s {includeLegGeometry = a} :: CalculateRoute)
-
--- | Sets the time of departure as the current time. Uses the current time to
--- calculate a route. Otherwise, the best time of day to travel with the
--- best traffic conditions is used to calculate the route.
---
--- Default Value: @false@
---
--- Valid Values: @false@ | @true@
-calculateRoute_departNow :: Lens.Lens' CalculateRoute (Prelude.Maybe Prelude.Bool)
-calculateRoute_departNow = Lens.lens (\CalculateRoute' {departNow} -> departNow) (\s@CalculateRoute' {} a -> s {departNow = a} :: CalculateRoute)
 
 -- | The name of the route calculator resource that you want to use to
 -- calculate the route.
@@ -476,28 +476,28 @@ instance Core.AWSRequest CalculateRoute where
 
 instance Prelude.Hashable CalculateRoute where
   hashWithSalt _salt CalculateRoute' {..} =
-    _salt `Prelude.hashWithSalt` distanceUnit
-      `Prelude.hashWithSalt` carModeOptions
-      `Prelude.hashWithSalt` travelMode
+    _salt `Prelude.hashWithSalt` carModeOptions
+      `Prelude.hashWithSalt` departNow
       `Prelude.hashWithSalt` departureTime
+      `Prelude.hashWithSalt` distanceUnit
+      `Prelude.hashWithSalt` includeLegGeometry
+      `Prelude.hashWithSalt` travelMode
       `Prelude.hashWithSalt` truckModeOptions
       `Prelude.hashWithSalt` waypointPositions
-      `Prelude.hashWithSalt` includeLegGeometry
-      `Prelude.hashWithSalt` departNow
       `Prelude.hashWithSalt` calculatorName
       `Prelude.hashWithSalt` departurePosition
       `Prelude.hashWithSalt` destinationPosition
 
 instance Prelude.NFData CalculateRoute where
   rnf CalculateRoute' {..} =
-    Prelude.rnf distanceUnit
-      `Prelude.seq` Prelude.rnf carModeOptions
-      `Prelude.seq` Prelude.rnf travelMode
+    Prelude.rnf carModeOptions
+      `Prelude.seq` Prelude.rnf departNow
       `Prelude.seq` Prelude.rnf departureTime
+      `Prelude.seq` Prelude.rnf distanceUnit
+      `Prelude.seq` Prelude.rnf includeLegGeometry
+      `Prelude.seq` Prelude.rnf travelMode
       `Prelude.seq` Prelude.rnf truckModeOptions
       `Prelude.seq` Prelude.rnf waypointPositions
-      `Prelude.seq` Prelude.rnf includeLegGeometry
-      `Prelude.seq` Prelude.rnf departNow
       `Prelude.seq` Prelude.rnf calculatorName
       `Prelude.seq` Prelude.rnf departurePosition
       `Prelude.seq` Prelude.rnf destinationPosition
@@ -517,18 +517,18 @@ instance Data.ToJSON CalculateRoute where
   toJSON CalculateRoute' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DistanceUnit" Data..=) Prelude.<$> distanceUnit,
-            ("CarModeOptions" Data..=)
+          [ ("CarModeOptions" Data..=)
               Prelude.<$> carModeOptions,
-            ("TravelMode" Data..=) Prelude.<$> travelMode,
+            ("DepartNow" Data..=) Prelude.<$> departNow,
             ("DepartureTime" Data..=) Prelude.<$> departureTime,
+            ("DistanceUnit" Data..=) Prelude.<$> distanceUnit,
+            ("IncludeLegGeometry" Data..=)
+              Prelude.<$> includeLegGeometry,
+            ("TravelMode" Data..=) Prelude.<$> travelMode,
             ("TruckModeOptions" Data..=)
               Prelude.<$> truckModeOptions,
             ("WaypointPositions" Data..=)
               Prelude.<$> waypointPositions,
-            ("IncludeLegGeometry" Data..=)
-              Prelude.<$> includeLegGeometry,
-            ("DepartNow" Data..=) Prelude.<$> departNow,
             Prelude.Just
               ("DeparturePosition" Data..= departurePosition),
             Prelude.Just

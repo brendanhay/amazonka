@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEvaluateCodeErrorDetail' smart constructor.
 data EvaluateCodeErrorDetail = EvaluateCodeErrorDetail'
-  { -- | The error payload.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | Contains the list of @CodeError@ objects.
-    codeErrors :: Prelude.Maybe [CodeError]
+  { -- | Contains the list of @CodeError@ objects.
+    codeErrors :: Prelude.Maybe [CodeError],
+    -- | The error payload.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,25 @@ data EvaluateCodeErrorDetail = EvaluateCodeErrorDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'evaluateCodeErrorDetail_message' - The error payload.
---
 -- 'codeErrors', 'evaluateCodeErrorDetail_codeErrors' - Contains the list of @CodeError@ objects.
+--
+-- 'message', 'evaluateCodeErrorDetail_message' - The error payload.
 newEvaluateCodeErrorDetail ::
   EvaluateCodeErrorDetail
 newEvaluateCodeErrorDetail =
   EvaluateCodeErrorDetail'
-    { message = Prelude.Nothing,
-      codeErrors = Prelude.Nothing
+    { codeErrors =
+        Prelude.Nothing,
+      message = Prelude.Nothing
     }
-
--- | The error payload.
-evaluateCodeErrorDetail_message :: Lens.Lens' EvaluateCodeErrorDetail (Prelude.Maybe Prelude.Text)
-evaluateCodeErrorDetail_message = Lens.lens (\EvaluateCodeErrorDetail' {message} -> message) (\s@EvaluateCodeErrorDetail' {} a -> s {message = a} :: EvaluateCodeErrorDetail)
 
 -- | Contains the list of @CodeError@ objects.
 evaluateCodeErrorDetail_codeErrors :: Lens.Lens' EvaluateCodeErrorDetail (Prelude.Maybe [CodeError])
 evaluateCodeErrorDetail_codeErrors = Lens.lens (\EvaluateCodeErrorDetail' {codeErrors} -> codeErrors) (\s@EvaluateCodeErrorDetail' {} a -> s {codeErrors = a} :: EvaluateCodeErrorDetail) Prelude.. Lens.mapping Lens.coerced
+
+-- | The error payload.
+evaluateCodeErrorDetail_message :: Lens.Lens' EvaluateCodeErrorDetail (Prelude.Maybe Prelude.Text)
+evaluateCodeErrorDetail_message = Lens.lens (\EvaluateCodeErrorDetail' {message} -> message) (\s@EvaluateCodeErrorDetail' {} a -> s {message = a} :: EvaluateCodeErrorDetail)
 
 instance Data.FromJSON EvaluateCodeErrorDetail where
   parseJSON =
@@ -69,16 +70,16 @@ instance Data.FromJSON EvaluateCodeErrorDetail where
       "EvaluateCodeErrorDetail"
       ( \x ->
           EvaluateCodeErrorDetail'
-            Prelude.<$> (x Data..:? "message")
-            Prelude.<*> (x Data..:? "codeErrors" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "codeErrors" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "message")
       )
 
 instance Prelude.Hashable EvaluateCodeErrorDetail where
   hashWithSalt _salt EvaluateCodeErrorDetail' {..} =
-    _salt `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` codeErrors
+    _salt `Prelude.hashWithSalt` codeErrors
+      `Prelude.hashWithSalt` message
 
 instance Prelude.NFData EvaluateCodeErrorDetail where
   rnf EvaluateCodeErrorDetail' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf codeErrors
+    Prelude.rnf codeErrors
+      `Prelude.seq` Prelude.rnf message

@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newComponentCandidate' smart constructor.
 data ComponentCandidate = ComponentCandidate'
-  { -- | The version of the component.
-    componentVersion :: Prelude.Maybe Prelude.Text,
-    -- | The name of the component.
+  { -- | The name of the component.
     componentName :: Prelude.Maybe Prelude.Text,
+    -- | The version of the component.
+    componentVersion :: Prelude.Maybe Prelude.Text,
     -- | The version requirements for the component\'s dependencies. Greengrass
     -- core devices get the version requirements from component recipes.
     --
@@ -50,9 +50,9 @@ data ComponentCandidate = ComponentCandidate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'componentVersion', 'componentCandidate_componentVersion' - The version of the component.
---
 -- 'componentName', 'componentCandidate_componentName' - The name of the component.
+--
+-- 'componentVersion', 'componentCandidate_componentVersion' - The version of the component.
 --
 -- 'versionRequirements', 'componentCandidate_versionRequirements' - The version requirements for the component\'s dependencies. Greengrass
 -- core devices get the version requirements from component recipes.
@@ -63,19 +63,19 @@ newComponentCandidate ::
   ComponentCandidate
 newComponentCandidate =
   ComponentCandidate'
-    { componentVersion =
+    { componentName =
         Prelude.Nothing,
-      componentName = Prelude.Nothing,
+      componentVersion = Prelude.Nothing,
       versionRequirements = Prelude.Nothing
     }
-
--- | The version of the component.
-componentCandidate_componentVersion :: Lens.Lens' ComponentCandidate (Prelude.Maybe Prelude.Text)
-componentCandidate_componentVersion = Lens.lens (\ComponentCandidate' {componentVersion} -> componentVersion) (\s@ComponentCandidate' {} a -> s {componentVersion = a} :: ComponentCandidate)
 
 -- | The name of the component.
 componentCandidate_componentName :: Lens.Lens' ComponentCandidate (Prelude.Maybe Prelude.Text)
 componentCandidate_componentName = Lens.lens (\ComponentCandidate' {componentName} -> componentName) (\s@ComponentCandidate' {} a -> s {componentName = a} :: ComponentCandidate)
+
+-- | The version of the component.
+componentCandidate_componentVersion :: Lens.Lens' ComponentCandidate (Prelude.Maybe Prelude.Text)
+componentCandidate_componentVersion = Lens.lens (\ComponentCandidate' {componentVersion} -> componentVersion) (\s@ComponentCandidate' {} a -> s {componentVersion = a} :: ComponentCandidate)
 
 -- | The version requirements for the component\'s dependencies. Greengrass
 -- core devices get the version requirements from component recipes.
@@ -87,23 +87,23 @@ componentCandidate_versionRequirements = Lens.lens (\ComponentCandidate' {versio
 
 instance Prelude.Hashable ComponentCandidate where
   hashWithSalt _salt ComponentCandidate' {..} =
-    _salt `Prelude.hashWithSalt` componentVersion
-      `Prelude.hashWithSalt` componentName
+    _salt `Prelude.hashWithSalt` componentName
+      `Prelude.hashWithSalt` componentVersion
       `Prelude.hashWithSalt` versionRequirements
 
 instance Prelude.NFData ComponentCandidate where
   rnf ComponentCandidate' {..} =
-    Prelude.rnf componentVersion
-      `Prelude.seq` Prelude.rnf componentName
+    Prelude.rnf componentName
+      `Prelude.seq` Prelude.rnf componentVersion
       `Prelude.seq` Prelude.rnf versionRequirements
 
 instance Data.ToJSON ComponentCandidate where
   toJSON ComponentCandidate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("componentVersion" Data..=)
+          [ ("componentName" Data..=) Prelude.<$> componentName,
+            ("componentVersion" Data..=)
               Prelude.<$> componentVersion,
-            ("componentName" Data..=) Prelude.<$> componentName,
             ("versionRequirements" Data..=)
               Prelude.<$> versionRequirements
           ]

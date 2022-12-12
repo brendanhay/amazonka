@@ -29,8 +29,8 @@ module Amazonka.DataBrew.ListJobRuns
     newListJobRuns,
 
     -- * Request Lenses
-    listJobRuns_nextToken,
     listJobRuns_maxResults,
+    listJobRuns_nextToken,
     listJobRuns_name,
 
     -- * Destructuring the Response
@@ -54,11 +54,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListJobRuns' smart constructor.
 data ListJobRuns = ListJobRuns'
-  { -- | The token returned by a previous call to retrieve the next set of
+  { -- | The maximum number of results to return in this request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token returned by a previous call to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in this request.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the job.
     name :: Prelude.Text
   }
@@ -72,10 +72,10 @@ data ListJobRuns = ListJobRuns'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listJobRuns_maxResults' - The maximum number of results to return in this request.
+--
 -- 'nextToken', 'listJobRuns_nextToken' - The token returned by a previous call to retrieve the next set of
 -- results.
---
--- 'maxResults', 'listJobRuns_maxResults' - The maximum number of results to return in this request.
 --
 -- 'name', 'listJobRuns_name' - The name of the job.
 newListJobRuns ::
@@ -84,19 +84,19 @@ newListJobRuns ::
   ListJobRuns
 newListJobRuns pName_ =
   ListJobRuns'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       name = pName_
     }
+
+-- | The maximum number of results to return in this request.
+listJobRuns_maxResults :: Lens.Lens' ListJobRuns (Prelude.Maybe Prelude.Natural)
+listJobRuns_maxResults = Lens.lens (\ListJobRuns' {maxResults} -> maxResults) (\s@ListJobRuns' {} a -> s {maxResults = a} :: ListJobRuns)
 
 -- | The token returned by a previous call to retrieve the next set of
 -- results.
 listJobRuns_nextToken :: Lens.Lens' ListJobRuns (Prelude.Maybe Prelude.Text)
 listJobRuns_nextToken = Lens.lens (\ListJobRuns' {nextToken} -> nextToken) (\s@ListJobRuns' {} a -> s {nextToken = a} :: ListJobRuns)
-
--- | The maximum number of results to return in this request.
-listJobRuns_maxResults :: Lens.Lens' ListJobRuns (Prelude.Maybe Prelude.Natural)
-listJobRuns_maxResults = Lens.lens (\ListJobRuns' {maxResults} -> maxResults) (\s@ListJobRuns' {} a -> s {maxResults = a} :: ListJobRuns)
 
 -- | The name of the job.
 listJobRuns_name :: Lens.Lens' ListJobRuns Prelude.Text
@@ -133,14 +133,14 @@ instance Core.AWSRequest ListJobRuns where
 
 instance Prelude.Hashable ListJobRuns where
   hashWithSalt _salt ListJobRuns' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData ListJobRuns where
   rnf ListJobRuns' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders ListJobRuns where
@@ -162,8 +162,8 @@ instance Data.ToPath ListJobRuns where
 instance Data.ToQuery ListJobRuns where
   toQuery ListJobRuns' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListJobRunsResponse' smart constructor.

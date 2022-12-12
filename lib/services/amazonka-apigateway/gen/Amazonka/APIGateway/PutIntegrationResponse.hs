@@ -27,10 +27,10 @@ module Amazonka.APIGateway.PutIntegrationResponse
     newPutIntegrationResponse,
 
     -- * Request Lenses
+    putIntegrationResponse_contentHandling,
     putIntegrationResponse_responseParameters,
     putIntegrationResponse_responseTemplates,
     putIntegrationResponse_selectionPattern,
-    putIntegrationResponse_contentHandling,
     putIntegrationResponse_restApiId,
     putIntegrationResponse_resourceId,
     putIntegrationResponse_httpMethod,
@@ -41,10 +41,10 @@ module Amazonka.APIGateway.PutIntegrationResponse
     newIntegrationResponse,
 
     -- * Response Lenses
+    integrationResponse_contentHandling,
     integrationResponse_responseParameters,
     integrationResponse_responseTemplates,
     integrationResponse_selectionPattern,
-    integrationResponse_contentHandling,
     integrationResponse_statusCode,
   )
 where
@@ -61,7 +61,15 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newPutIntegrationResponse' smart constructor.
 data PutIntegrationResponse = PutIntegrationResponse'
-  { -- | A key-value map specifying response parameters that are passed to the
+  { -- | Specifies how to handle response payload content type conversions.
+    -- Supported values are @CONVERT_TO_BINARY@ and @CONVERT_TO_TEXT@, with the
+    -- following behaviors:
+    --
+    -- If this property is not defined, the response payload will be passed
+    -- through from the integration response to the method response without
+    -- modification.
+    contentHandling :: Prelude.Maybe ContentHandlingStrategy,
+    -- | A key-value map specifying response parameters that are passed to the
     -- method response from the back end. The key is a method response header
     -- parameter name and the mapped value is an integration response header
     -- value, a static value enclosed within a pair of single quotes, or a JSON
@@ -77,14 +85,6 @@ data PutIntegrationResponse = PutIntegrationResponse'
     responseTemplates :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Specifies the selection pattern of a put integration response.
     selectionPattern :: Prelude.Maybe Prelude.Text,
-    -- | Specifies how to handle response payload content type conversions.
-    -- Supported values are @CONVERT_TO_BINARY@ and @CONVERT_TO_TEXT@, with the
-    -- following behaviors:
-    --
-    -- If this property is not defined, the response payload will be passed
-    -- through from the integration response to the method response without
-    -- modification.
-    contentHandling :: Prelude.Maybe ContentHandlingStrategy,
     -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
     -- | Specifies a put integration response request\'s resource identifier.
@@ -105,6 +105,14 @@ data PutIntegrationResponse = PutIntegrationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'contentHandling', 'putIntegrationResponse_contentHandling' - Specifies how to handle response payload content type conversions.
+-- Supported values are @CONVERT_TO_BINARY@ and @CONVERT_TO_TEXT@, with the
+-- following behaviors:
+--
+-- If this property is not defined, the response payload will be passed
+-- through from the integration response to the method response without
+-- modification.
+--
 -- 'responseParameters', 'putIntegrationResponse_responseParameters' - A key-value map specifying response parameters that are passed to the
 -- method response from the back end. The key is a method response header
 -- parameter name and the mapped value is an integration response header
@@ -120,14 +128,6 @@ data PutIntegrationResponse = PutIntegrationResponse'
 -- 'responseTemplates', 'putIntegrationResponse_responseTemplates' - Specifies a put integration response\'s templates.
 --
 -- 'selectionPattern', 'putIntegrationResponse_selectionPattern' - Specifies the selection pattern of a put integration response.
---
--- 'contentHandling', 'putIntegrationResponse_contentHandling' - Specifies how to handle response payload content type conversions.
--- Supported values are @CONVERT_TO_BINARY@ and @CONVERT_TO_TEXT@, with the
--- following behaviors:
---
--- If this property is not defined, the response payload will be passed
--- through from the integration response to the method response without
--- modification.
 --
 -- 'restApiId', 'putIntegrationResponse_restApiId' - The string identifier of the associated RestApi.
 --
@@ -153,16 +153,26 @@ newPutIntegrationResponse
   pHttpMethod_
   pStatusCode_ =
     PutIntegrationResponse'
-      { responseParameters =
+      { contentHandling =
           Prelude.Nothing,
+        responseParameters = Prelude.Nothing,
         responseTemplates = Prelude.Nothing,
         selectionPattern = Prelude.Nothing,
-        contentHandling = Prelude.Nothing,
         restApiId = pRestApiId_,
         resourceId = pResourceId_,
         httpMethod = pHttpMethod_,
         statusCode = pStatusCode_
       }
+
+-- | Specifies how to handle response payload content type conversions.
+-- Supported values are @CONVERT_TO_BINARY@ and @CONVERT_TO_TEXT@, with the
+-- following behaviors:
+--
+-- If this property is not defined, the response payload will be passed
+-- through from the integration response to the method response without
+-- modification.
+putIntegrationResponse_contentHandling :: Lens.Lens' PutIntegrationResponse (Prelude.Maybe ContentHandlingStrategy)
+putIntegrationResponse_contentHandling = Lens.lens (\PutIntegrationResponse' {contentHandling} -> contentHandling) (\s@PutIntegrationResponse' {} a -> s {contentHandling = a} :: PutIntegrationResponse)
 
 -- | A key-value map specifying response parameters that are passed to the
 -- method response from the back end. The key is a method response header
@@ -185,16 +195,6 @@ putIntegrationResponse_responseTemplates = Lens.lens (\PutIntegrationResponse' {
 -- | Specifies the selection pattern of a put integration response.
 putIntegrationResponse_selectionPattern :: Lens.Lens' PutIntegrationResponse (Prelude.Maybe Prelude.Text)
 putIntegrationResponse_selectionPattern = Lens.lens (\PutIntegrationResponse' {selectionPattern} -> selectionPattern) (\s@PutIntegrationResponse' {} a -> s {selectionPattern = a} :: PutIntegrationResponse)
-
--- | Specifies how to handle response payload content type conversions.
--- Supported values are @CONVERT_TO_BINARY@ and @CONVERT_TO_TEXT@, with the
--- following behaviors:
---
--- If this property is not defined, the response payload will be passed
--- through from the integration response to the method response without
--- modification.
-putIntegrationResponse_contentHandling :: Lens.Lens' PutIntegrationResponse (Prelude.Maybe ContentHandlingStrategy)
-putIntegrationResponse_contentHandling = Lens.lens (\PutIntegrationResponse' {contentHandling} -> contentHandling) (\s@PutIntegrationResponse' {} a -> s {contentHandling = a} :: PutIntegrationResponse)
 
 -- | The string identifier of the associated RestApi.
 putIntegrationResponse_restApiId :: Lens.Lens' PutIntegrationResponse Prelude.Text
@@ -225,10 +225,10 @@ instance Core.AWSRequest PutIntegrationResponse where
 
 instance Prelude.Hashable PutIntegrationResponse where
   hashWithSalt _salt PutIntegrationResponse' {..} =
-    _salt `Prelude.hashWithSalt` responseParameters
+    _salt `Prelude.hashWithSalt` contentHandling
+      `Prelude.hashWithSalt` responseParameters
       `Prelude.hashWithSalt` responseTemplates
       `Prelude.hashWithSalt` selectionPattern
-      `Prelude.hashWithSalt` contentHandling
       `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` httpMethod
@@ -236,10 +236,10 @@ instance Prelude.Hashable PutIntegrationResponse where
 
 instance Prelude.NFData PutIntegrationResponse where
   rnf PutIntegrationResponse' {..} =
-    Prelude.rnf responseParameters
+    Prelude.rnf contentHandling
+      `Prelude.seq` Prelude.rnf responseParameters
       `Prelude.seq` Prelude.rnf responseTemplates
       `Prelude.seq` Prelude.rnf selectionPattern
-      `Prelude.seq` Prelude.rnf contentHandling
       `Prelude.seq` Prelude.rnf restApiId
       `Prelude.seq` Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf httpMethod
@@ -258,14 +258,14 @@ instance Data.ToJSON PutIntegrationResponse where
   toJSON PutIntegrationResponse' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("responseParameters" Data..=)
+          [ ("contentHandling" Data..=)
+              Prelude.<$> contentHandling,
+            ("responseParameters" Data..=)
               Prelude.<$> responseParameters,
             ("responseTemplates" Data..=)
               Prelude.<$> responseTemplates,
             ("selectionPattern" Data..=)
-              Prelude.<$> selectionPattern,
-            ("contentHandling" Data..=)
-              Prelude.<$> contentHandling
+              Prelude.<$> selectionPattern
           ]
       )
 

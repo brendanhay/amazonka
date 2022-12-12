@@ -57,8 +57,8 @@ module Amazonka.IAM.Lens
     createGroupResponse_group,
 
     -- ** CreateInstanceProfile
-    createInstanceProfile_tags,
     createInstanceProfile_path,
+    createInstanceProfile_tags,
     createInstanceProfile_instanceProfileName,
     createInstanceProfileResponse_httpStatus,
     createInstanceProfileResponse_instanceProfile,
@@ -71,18 +71,18 @@ module Amazonka.IAM.Lens
     createLoginProfileResponse_loginProfile,
 
     -- ** CreateOpenIDConnectProvider
-    createOpenIDConnectProvider_tags,
     createOpenIDConnectProvider_clientIDList,
+    createOpenIDConnectProvider_tags,
     createOpenIDConnectProvider_url,
     createOpenIDConnectProvider_thumbprintList,
-    createOpenIDConnectProviderResponse_tags,
     createOpenIDConnectProviderResponse_openIDConnectProviderArn,
+    createOpenIDConnectProviderResponse_tags,
     createOpenIDConnectProviderResponse_httpStatus,
 
     -- ** CreatePolicy
-    createPolicy_tags,
-    createPolicy_path,
     createPolicy_description,
+    createPolicy_path,
+    createPolicy_tags,
     createPolicy_policyName,
     createPolicy_policyDocument,
     createPolicyResponse_policy,
@@ -96,11 +96,11 @@ module Amazonka.IAM.Lens
     createPolicyVersionResponse_httpStatus,
 
     -- ** CreateRole
-    createRole_tags,
-    createRole_path,
     createRole_description,
-    createRole_permissionsBoundary,
     createRole_maxSessionDuration,
+    createRole_path,
+    createRole_permissionsBoundary,
+    createRole_tags,
     createRole_roleName,
     createRole_assumeRolePolicyDocument,
     createRoleResponse_httpStatus,
@@ -110,8 +110,8 @@ module Amazonka.IAM.Lens
     createSAMLProvider_tags,
     createSAMLProvider_sAMLMetadataDocument,
     createSAMLProvider_name,
-    createSAMLProviderResponse_tags,
     createSAMLProviderResponse_sAMLProviderArn,
+    createSAMLProviderResponse_tags,
     createSAMLProviderResponse_httpStatus,
 
     -- ** CreateServiceLinkedRole
@@ -128,16 +128,16 @@ module Amazonka.IAM.Lens
     createServiceSpecificCredentialResponse_httpStatus,
 
     -- ** CreateUser
-    createUser_tags,
     createUser_path,
     createUser_permissionsBoundary,
+    createUser_tags,
     createUser_userName,
     createUserResponse_user,
     createUserResponse_httpStatus,
 
     -- ** CreateVirtualMFADevice
-    createVirtualMFADevice_tags,
     createVirtualMFADevice_path,
+    createVirtualMFADevice_tags,
     createVirtualMFADevice_virtualMFADeviceName,
     createVirtualMFADeviceResponse_httpStatus,
     createVirtualMFADeviceResponse_virtualMFADevice,
@@ -243,8 +243,8 @@ module Amazonka.IAM.Lens
     enableMFADevice_authenticationCode2,
 
     -- ** GenerateCredentialReport
-    generateCredentialReportResponse_state,
     generateCredentialReportResponse_description,
+    generateCredentialReportResponse_state,
     generateCredentialReportResponse_httpStatus,
 
     -- ** GenerateOrganizationsAccessReport
@@ -266,15 +266,15 @@ module Amazonka.IAM.Lens
     getAccessKeyLastUsedResponse_httpStatus,
 
     -- ** GetAccountAuthorizationDetails
+    getAccountAuthorizationDetails_filter,
     getAccountAuthorizationDetails_marker,
     getAccountAuthorizationDetails_maxItems,
-    getAccountAuthorizationDetails_filter,
-    getAccountAuthorizationDetailsResponse_marker,
+    getAccountAuthorizationDetailsResponse_groupDetailList,
     getAccountAuthorizationDetailsResponse_isTruncated,
+    getAccountAuthorizationDetailsResponse_marker,
     getAccountAuthorizationDetailsResponse_policies,
     getAccountAuthorizationDetailsResponse_roleDetailList,
     getAccountAuthorizationDetailsResponse_userDetailList,
-    getAccountAuthorizationDetailsResponse_groupDetailList,
     getAccountAuthorizationDetailsResponse_httpStatus,
 
     -- ** GetAccountPasswordPolicy
@@ -295,17 +295,17 @@ module Amazonka.IAM.Lens
     getContextKeysForPolicyResponse_contextKeyNames,
 
     -- ** GetCredentialReport
-    getCredentialReportResponse_reportFormat,
     getCredentialReportResponse_content,
     getCredentialReportResponse_generatedTime,
+    getCredentialReportResponse_reportFormat,
     getCredentialReportResponse_httpStatus,
 
     -- ** GetGroup
     getGroup_marker,
     getGroup_maxItems,
     getGroup_groupName,
-    getGroupResponse_marker,
     getGroupResponse_isTruncated,
+    getGroupResponse_marker,
     getGroupResponse_httpStatus,
     getGroupResponse_group,
     getGroupResponse_users,
@@ -330,11 +330,11 @@ module Amazonka.IAM.Lens
 
     -- ** GetOpenIDConnectProvider
     getOpenIDConnectProvider_openIDConnectProviderArn,
-    getOpenIDConnectProviderResponse_tags,
     getOpenIDConnectProviderResponse_clientIDList,
+    getOpenIDConnectProviderResponse_createDate,
+    getOpenIDConnectProviderResponse_tags,
     getOpenIDConnectProviderResponse_thumbprintList,
     getOpenIDConnectProviderResponse_url,
-    getOpenIDConnectProviderResponse_createDate,
     getOpenIDConnectProviderResponse_httpStatus,
 
     -- ** GetOrganizationsAccessReport
@@ -342,13 +342,13 @@ module Amazonka.IAM.Lens
     getOrganizationsAccessReport_maxItems,
     getOrganizationsAccessReport_sortKey,
     getOrganizationsAccessReport_jobId,
-    getOrganizationsAccessReportResponse_numberOfServicesNotAccessed,
-    getOrganizationsAccessReportResponse_marker,
     getOrganizationsAccessReportResponse_accessDetails,
     getOrganizationsAccessReportResponse_errorDetails,
     getOrganizationsAccessReportResponse_isTruncated,
-    getOrganizationsAccessReportResponse_numberOfServicesAccessible,
     getOrganizationsAccessReportResponse_jobCompletionDate,
+    getOrganizationsAccessReportResponse_marker,
+    getOrganizationsAccessReportResponse_numberOfServicesAccessible,
+    getOrganizationsAccessReportResponse_numberOfServicesNotAccessed,
     getOrganizationsAccessReportResponse_httpStatus,
     getOrganizationsAccessReportResponse_jobStatus,
     getOrganizationsAccessReportResponse_jobCreationDate,
@@ -379,9 +379,9 @@ module Amazonka.IAM.Lens
 
     -- ** GetSAMLProvider
     getSAMLProvider_sAMLProviderArn,
-    getSAMLProviderResponse_tags,
-    getSAMLProviderResponse_sAMLMetadataDocument,
     getSAMLProviderResponse_createDate,
+    getSAMLProviderResponse_sAMLMetadataDocument,
+    getSAMLProviderResponse_tags,
     getSAMLProviderResponse_validUntil,
     getSAMLProviderResponse_httpStatus,
 
@@ -401,10 +401,10 @@ module Amazonka.IAM.Lens
     getServiceLastAccessedDetails_marker,
     getServiceLastAccessedDetails_maxItems,
     getServiceLastAccessedDetails_jobId,
-    getServiceLastAccessedDetailsResponse_marker,
-    getServiceLastAccessedDetailsResponse_isTruncated,
     getServiceLastAccessedDetailsResponse_error,
+    getServiceLastAccessedDetailsResponse_isTruncated,
     getServiceLastAccessedDetailsResponse_jobType,
+    getServiceLastAccessedDetailsResponse_marker,
     getServiceLastAccessedDetailsResponse_httpStatus,
     getServiceLastAccessedDetailsResponse_jobStatus,
     getServiceLastAccessedDetailsResponse_jobCreationDate,
@@ -416,9 +416,9 @@ module Amazonka.IAM.Lens
     getServiceLastAccessedDetailsWithEntities_maxItems,
     getServiceLastAccessedDetailsWithEntities_jobId,
     getServiceLastAccessedDetailsWithEntities_serviceNamespace,
-    getServiceLastAccessedDetailsWithEntitiesResponse_marker,
-    getServiceLastAccessedDetailsWithEntitiesResponse_isTruncated,
     getServiceLastAccessedDetailsWithEntitiesResponse_error,
+    getServiceLastAccessedDetailsWithEntitiesResponse_isTruncated,
+    getServiceLastAccessedDetailsWithEntitiesResponse_marker,
     getServiceLastAccessedDetailsWithEntitiesResponse_httpStatus,
     getServiceLastAccessedDetailsWithEntitiesResponse_jobStatus,
     getServiceLastAccessedDetailsWithEntitiesResponse_jobCreationDate,
@@ -446,18 +446,18 @@ module Amazonka.IAM.Lens
 
     -- ** ListAccessKeys
     listAccessKeys_marker,
-    listAccessKeys_userName,
     listAccessKeys_maxItems,
-    listAccessKeysResponse_marker,
+    listAccessKeys_userName,
     listAccessKeysResponse_isTruncated,
+    listAccessKeysResponse_marker,
     listAccessKeysResponse_httpStatus,
     listAccessKeysResponse_accessKeyMetadata,
 
     -- ** ListAccountAliases
     listAccountAliases_marker,
     listAccountAliases_maxItems,
-    listAccountAliasesResponse_marker,
     listAccountAliasesResponse_isTruncated,
+    listAccountAliasesResponse_marker,
     listAccountAliasesResponse_httpStatus,
     listAccountAliasesResponse_accountAliases,
 
@@ -466,9 +466,9 @@ module Amazonka.IAM.Lens
     listAttachedGroupPolicies_maxItems,
     listAttachedGroupPolicies_pathPrefix,
     listAttachedGroupPolicies_groupName,
-    listAttachedGroupPoliciesResponse_marker,
-    listAttachedGroupPoliciesResponse_isTruncated,
     listAttachedGroupPoliciesResponse_attachedPolicies,
+    listAttachedGroupPoliciesResponse_isTruncated,
+    listAttachedGroupPoliciesResponse_marker,
     listAttachedGroupPoliciesResponse_httpStatus,
 
     -- ** ListAttachedRolePolicies
@@ -476,9 +476,9 @@ module Amazonka.IAM.Lens
     listAttachedRolePolicies_maxItems,
     listAttachedRolePolicies_pathPrefix,
     listAttachedRolePolicies_roleName,
-    listAttachedRolePoliciesResponse_marker,
-    listAttachedRolePoliciesResponse_isTruncated,
     listAttachedRolePoliciesResponse_attachedPolicies,
+    listAttachedRolePoliciesResponse_isTruncated,
+    listAttachedRolePoliciesResponse_marker,
     listAttachedRolePoliciesResponse_httpStatus,
 
     -- ** ListAttachedUserPolicies
@@ -486,22 +486,22 @@ module Amazonka.IAM.Lens
     listAttachedUserPolicies_maxItems,
     listAttachedUserPolicies_pathPrefix,
     listAttachedUserPolicies_userName,
-    listAttachedUserPoliciesResponse_marker,
-    listAttachedUserPoliciesResponse_isTruncated,
     listAttachedUserPoliciesResponse_attachedPolicies,
+    listAttachedUserPoliciesResponse_isTruncated,
+    listAttachedUserPoliciesResponse_marker,
     listAttachedUserPoliciesResponse_httpStatus,
 
     -- ** ListEntitiesForPolicy
+    listEntitiesForPolicy_entityFilter,
     listEntitiesForPolicy_marker,
     listEntitiesForPolicy_maxItems,
-    listEntitiesForPolicy_entityFilter,
-    listEntitiesForPolicy_policyUsageFilter,
     listEntitiesForPolicy_pathPrefix,
+    listEntitiesForPolicy_policyUsageFilter,
     listEntitiesForPolicy_policyArn,
-    listEntitiesForPolicyResponse_marker,
-    listEntitiesForPolicyResponse_policyRoles,
     listEntitiesForPolicyResponse_isTruncated,
+    listEntitiesForPolicyResponse_marker,
     listEntitiesForPolicyResponse_policyGroups,
+    listEntitiesForPolicyResponse_policyRoles,
     listEntitiesForPolicyResponse_policyUsers,
     listEntitiesForPolicyResponse_httpStatus,
 
@@ -509,8 +509,8 @@ module Amazonka.IAM.Lens
     listGroupPolicies_marker,
     listGroupPolicies_maxItems,
     listGroupPolicies_groupName,
-    listGroupPoliciesResponse_marker,
     listGroupPoliciesResponse_isTruncated,
+    listGroupPoliciesResponse_marker,
     listGroupPoliciesResponse_httpStatus,
     listGroupPoliciesResponse_policyNames,
 
@@ -518,8 +518,8 @@ module Amazonka.IAM.Lens
     listGroups_marker,
     listGroups_maxItems,
     listGroups_pathPrefix,
-    listGroupsResponse_marker,
     listGroupsResponse_isTruncated,
+    listGroupsResponse_marker,
     listGroupsResponse_httpStatus,
     listGroupsResponse_groups,
 
@@ -527,8 +527,8 @@ module Amazonka.IAM.Lens
     listGroupsForUser_marker,
     listGroupsForUser_maxItems,
     listGroupsForUser_userName,
-    listGroupsForUserResponse_marker,
     listGroupsForUserResponse_isTruncated,
+    listGroupsForUserResponse_marker,
     listGroupsForUserResponse_httpStatus,
     listGroupsForUserResponse_groups,
 
@@ -536,8 +536,8 @@ module Amazonka.IAM.Lens
     listInstanceProfileTags_marker,
     listInstanceProfileTags_maxItems,
     listInstanceProfileTags_instanceProfileName,
-    listInstanceProfileTagsResponse_marker,
     listInstanceProfileTagsResponse_isTruncated,
+    listInstanceProfileTagsResponse_marker,
     listInstanceProfileTagsResponse_httpStatus,
     listInstanceProfileTagsResponse_tags,
 
@@ -545,8 +545,8 @@ module Amazonka.IAM.Lens
     listInstanceProfiles_marker,
     listInstanceProfiles_maxItems,
     listInstanceProfiles_pathPrefix,
-    listInstanceProfilesResponse_marker,
     listInstanceProfilesResponse_isTruncated,
+    listInstanceProfilesResponse_marker,
     listInstanceProfilesResponse_httpStatus,
     listInstanceProfilesResponse_instanceProfiles,
 
@@ -554,8 +554,8 @@ module Amazonka.IAM.Lens
     listInstanceProfilesForRole_marker,
     listInstanceProfilesForRole_maxItems,
     listInstanceProfilesForRole_roleName,
-    listInstanceProfilesForRoleResponse_marker,
     listInstanceProfilesForRoleResponse_isTruncated,
+    listInstanceProfilesForRoleResponse_marker,
     listInstanceProfilesForRoleResponse_httpStatus,
     listInstanceProfilesForRoleResponse_instanceProfiles,
 
@@ -563,17 +563,17 @@ module Amazonka.IAM.Lens
     listMFADeviceTags_marker,
     listMFADeviceTags_maxItems,
     listMFADeviceTags_serialNumber,
-    listMFADeviceTagsResponse_marker,
     listMFADeviceTagsResponse_isTruncated,
+    listMFADeviceTagsResponse_marker,
     listMFADeviceTagsResponse_httpStatus,
     listMFADeviceTagsResponse_tags,
 
     -- ** ListMFADevices
     listMFADevices_marker,
-    listMFADevices_userName,
     listMFADevices_maxItems,
-    listMFADevicesResponse_marker,
+    listMFADevices_userName,
     listMFADevicesResponse_isTruncated,
+    listMFADevicesResponse_marker,
     listMFADevicesResponse_httpStatus,
     listMFADevicesResponse_mfaDevices,
 
@@ -581,8 +581,8 @@ module Amazonka.IAM.Lens
     listOpenIDConnectProviderTags_marker,
     listOpenIDConnectProviderTags_maxItems,
     listOpenIDConnectProviderTags_openIDConnectProviderArn,
-    listOpenIDConnectProviderTagsResponse_marker,
     listOpenIDConnectProviderTagsResponse_isTruncated,
+    listOpenIDConnectProviderTagsResponse_marker,
     listOpenIDConnectProviderTagsResponse_httpStatus,
     listOpenIDConnectProviderTagsResponse_tags,
 
@@ -593,12 +593,12 @@ module Amazonka.IAM.Lens
     -- ** ListPolicies
     listPolicies_marker,
     listPolicies_maxItems,
-    listPolicies_scope,
-    listPolicies_policyUsageFilter,
     listPolicies_onlyAttached,
     listPolicies_pathPrefix,
-    listPoliciesResponse_marker,
+    listPolicies_policyUsageFilter,
+    listPolicies_scope,
     listPoliciesResponse_isTruncated,
+    listPoliciesResponse_marker,
     listPoliciesResponse_policies,
     listPoliciesResponse_httpStatus,
 
@@ -606,8 +606,8 @@ module Amazonka.IAM.Lens
     listPoliciesGrantingServiceAccess_marker,
     listPoliciesGrantingServiceAccess_arn,
     listPoliciesGrantingServiceAccess_serviceNamespaces,
-    listPoliciesGrantingServiceAccessResponse_marker,
     listPoliciesGrantingServiceAccessResponse_isTruncated,
+    listPoliciesGrantingServiceAccessResponse_marker,
     listPoliciesGrantingServiceAccessResponse_httpStatus,
     listPoliciesGrantingServiceAccessResponse_policiesGrantingServiceAccess,
 
@@ -615,8 +615,8 @@ module Amazonka.IAM.Lens
     listPolicyTags_marker,
     listPolicyTags_maxItems,
     listPolicyTags_policyArn,
-    listPolicyTagsResponse_marker,
     listPolicyTagsResponse_isTruncated,
+    listPolicyTagsResponse_marker,
     listPolicyTagsResponse_httpStatus,
     listPolicyTagsResponse_tags,
 
@@ -624,8 +624,8 @@ module Amazonka.IAM.Lens
     listPolicyVersions_marker,
     listPolicyVersions_maxItems,
     listPolicyVersions_policyArn,
-    listPolicyVersionsResponse_marker,
     listPolicyVersionsResponse_isTruncated,
+    listPolicyVersionsResponse_marker,
     listPolicyVersionsResponse_versions,
     listPolicyVersionsResponse_httpStatus,
 
@@ -633,8 +633,8 @@ module Amazonka.IAM.Lens
     listRolePolicies_marker,
     listRolePolicies_maxItems,
     listRolePolicies_roleName,
-    listRolePoliciesResponse_marker,
     listRolePoliciesResponse_isTruncated,
+    listRolePoliciesResponse_marker,
     listRolePoliciesResponse_httpStatus,
     listRolePoliciesResponse_policyNames,
 
@@ -642,8 +642,8 @@ module Amazonka.IAM.Lens
     listRoleTags_marker,
     listRoleTags_maxItems,
     listRoleTags_roleName,
-    listRoleTagsResponse_marker,
     listRoleTagsResponse_isTruncated,
+    listRoleTagsResponse_marker,
     listRoleTagsResponse_httpStatus,
     listRoleTagsResponse_tags,
 
@@ -651,8 +651,8 @@ module Amazonka.IAM.Lens
     listRoles_marker,
     listRoles_maxItems,
     listRoles_pathPrefix,
-    listRolesResponse_marker,
     listRolesResponse_isTruncated,
+    listRolesResponse_marker,
     listRolesResponse_httpStatus,
     listRolesResponse_roles,
 
@@ -660,8 +660,8 @@ module Amazonka.IAM.Lens
     listSAMLProviderTags_marker,
     listSAMLProviderTags_maxItems,
     listSAMLProviderTags_sAMLProviderArn,
-    listSAMLProviderTagsResponse_marker,
     listSAMLProviderTagsResponse_isTruncated,
+    listSAMLProviderTagsResponse_marker,
     listSAMLProviderTagsResponse_httpStatus,
     listSAMLProviderTagsResponse_tags,
 
@@ -671,10 +671,10 @@ module Amazonka.IAM.Lens
 
     -- ** ListSSHPublicKeys
     listSSHPublicKeys_marker,
-    listSSHPublicKeys_userName,
     listSSHPublicKeys_maxItems,
-    listSSHPublicKeysResponse_marker,
+    listSSHPublicKeys_userName,
     listSSHPublicKeysResponse_isTruncated,
+    listSSHPublicKeysResponse_marker,
     listSSHPublicKeysResponse_sSHPublicKeys,
     listSSHPublicKeysResponse_httpStatus,
 
@@ -682,8 +682,8 @@ module Amazonka.IAM.Lens
     listServerCertificateTags_marker,
     listServerCertificateTags_maxItems,
     listServerCertificateTags_serverCertificateName,
-    listServerCertificateTagsResponse_marker,
     listServerCertificateTagsResponse_isTruncated,
+    listServerCertificateTagsResponse_marker,
     listServerCertificateTagsResponse_httpStatus,
     listServerCertificateTagsResponse_tags,
 
@@ -691,23 +691,23 @@ module Amazonka.IAM.Lens
     listServerCertificates_marker,
     listServerCertificates_maxItems,
     listServerCertificates_pathPrefix,
-    listServerCertificatesResponse_marker,
     listServerCertificatesResponse_isTruncated,
+    listServerCertificatesResponse_marker,
     listServerCertificatesResponse_httpStatus,
     listServerCertificatesResponse_serverCertificateMetadataList,
 
     -- ** ListServiceSpecificCredentials
-    listServiceSpecificCredentials_userName,
     listServiceSpecificCredentials_serviceName,
+    listServiceSpecificCredentials_userName,
     listServiceSpecificCredentialsResponse_serviceSpecificCredentials,
     listServiceSpecificCredentialsResponse_httpStatus,
 
     -- ** ListSigningCertificates
     listSigningCertificates_marker,
-    listSigningCertificates_userName,
     listSigningCertificates_maxItems,
-    listSigningCertificatesResponse_marker,
+    listSigningCertificates_userName,
     listSigningCertificatesResponse_isTruncated,
+    listSigningCertificatesResponse_marker,
     listSigningCertificatesResponse_httpStatus,
     listSigningCertificatesResponse_certificates,
 
@@ -715,8 +715,8 @@ module Amazonka.IAM.Lens
     listUserPolicies_marker,
     listUserPolicies_maxItems,
     listUserPolicies_userName,
-    listUserPoliciesResponse_marker,
     listUserPoliciesResponse_isTruncated,
+    listUserPoliciesResponse_marker,
     listUserPoliciesResponse_httpStatus,
     listUserPoliciesResponse_policyNames,
 
@@ -724,8 +724,8 @@ module Amazonka.IAM.Lens
     listUserTags_marker,
     listUserTags_maxItems,
     listUserTags_userName,
-    listUserTagsResponse_marker,
     listUserTagsResponse_isTruncated,
+    listUserTagsResponse_marker,
     listUserTagsResponse_httpStatus,
     listUserTagsResponse_tags,
 
@@ -733,17 +733,17 @@ module Amazonka.IAM.Lens
     listUsers_marker,
     listUsers_maxItems,
     listUsers_pathPrefix,
-    listUsersResponse_marker,
     listUsersResponse_isTruncated,
+    listUsersResponse_marker,
     listUsersResponse_httpStatus,
     listUsersResponse_users,
 
     -- ** ListVirtualMFADevices
+    listVirtualMFADevices_assignmentStatus,
     listVirtualMFADevices_marker,
     listVirtualMFADevices_maxItems,
-    listVirtualMFADevices_assignmentStatus,
-    listVirtualMFADevicesResponse_marker,
     listVirtualMFADevicesResponse_isTruncated,
+    listVirtualMFADevicesResponse_marker,
     listVirtualMFADevicesResponse_httpStatus,
     listVirtualMFADevicesResponse_virtualMFADevices,
 
@@ -802,37 +802,37 @@ module Amazonka.IAM.Lens
     setSecurityTokenServicePreferences_globalEndpointTokenVersion,
 
     -- ** SimulateCustomPolicy
-    simulateCustomPolicy_permissionsBoundaryPolicyInputList,
-    simulateCustomPolicy_marker,
+    simulateCustomPolicy_callerArn,
     simulateCustomPolicy_contextEntries,
+    simulateCustomPolicy_marker,
     simulateCustomPolicy_maxItems,
+    simulateCustomPolicy_permissionsBoundaryPolicyInputList,
+    simulateCustomPolicy_resourceArns,
+    simulateCustomPolicy_resourceHandlingOption,
     simulateCustomPolicy_resourceOwner,
     simulateCustomPolicy_resourcePolicy,
-    simulateCustomPolicy_callerArn,
-    simulateCustomPolicy_resourceHandlingOption,
-    simulateCustomPolicy_resourceArns,
     simulateCustomPolicy_policyInputList,
     simulateCustomPolicy_actionNames,
     simulatePolicyResponse_evaluationResults,
-    simulatePolicyResponse_marker,
     simulatePolicyResponse_isTruncated,
+    simulatePolicyResponse_marker,
 
     -- ** SimulatePrincipalPolicy
-    simulatePrincipalPolicy_permissionsBoundaryPolicyInputList,
-    simulatePrincipalPolicy_marker,
+    simulatePrincipalPolicy_callerArn,
     simulatePrincipalPolicy_contextEntries,
+    simulatePrincipalPolicy_marker,
     simulatePrincipalPolicy_maxItems,
+    simulatePrincipalPolicy_permissionsBoundaryPolicyInputList,
+    simulatePrincipalPolicy_policyInputList,
+    simulatePrincipalPolicy_resourceArns,
+    simulatePrincipalPolicy_resourceHandlingOption,
     simulatePrincipalPolicy_resourceOwner,
     simulatePrincipalPolicy_resourcePolicy,
-    simulatePrincipalPolicy_policyInputList,
-    simulatePrincipalPolicy_callerArn,
-    simulatePrincipalPolicy_resourceHandlingOption,
-    simulatePrincipalPolicy_resourceArns,
     simulatePrincipalPolicy_policySourceArn,
     simulatePrincipalPolicy_actionNames,
     simulatePolicyResponse_evaluationResults,
-    simulatePolicyResponse_marker,
     simulatePolicyResponse_isTruncated,
+    simulatePolicyResponse_marker,
 
     -- ** TagInstanceProfile
     tagInstanceProfile_instanceProfileName,
@@ -904,15 +904,15 @@ module Amazonka.IAM.Lens
     updateAccessKey_status,
 
     -- ** UpdateAccountPasswordPolicy
+    updateAccountPasswordPolicy_allowUsersToChangePassword,
+    updateAccountPasswordPolicy_hardExpiry,
     updateAccountPasswordPolicy_maxPasswordAge,
     updateAccountPasswordPolicy_minimumPasswordLength,
-    updateAccountPasswordPolicy_allowUsersToChangePassword,
     updateAccountPasswordPolicy_passwordReusePrevention,
-    updateAccountPasswordPolicy_requireNumbers,
     updateAccountPasswordPolicy_requireLowercaseCharacters,
+    updateAccountPasswordPolicy_requireNumbers,
     updateAccountPasswordPolicy_requireSymbols,
     updateAccountPasswordPolicy_requireUppercaseCharacters,
-    updateAccountPasswordPolicy_hardExpiry,
 
     -- ** UpdateAssumeRolePolicy
     updateAssumeRolePolicy_roleName,
@@ -956,8 +956,8 @@ module Amazonka.IAM.Lens
     updateSSHPublicKey_status,
 
     -- ** UpdateServerCertificate
-    updateServerCertificate_newServerCertificateName,
     updateServerCertificate_newPath,
+    updateServerCertificate_newServerCertificateName,
     updateServerCertificate_serverCertificateName,
 
     -- ** UpdateServiceSpecificCredential
@@ -971,8 +971,8 @@ module Amazonka.IAM.Lens
     updateSigningCertificate_status,
 
     -- ** UpdateUser
-    updateUser_newUserName,
     updateUser_newPath,
+    updateUser_newUserName,
     updateUser_userName,
 
     -- ** UploadSSHPublicKey
@@ -982,14 +982,14 @@ module Amazonka.IAM.Lens
     uploadSSHPublicKeyResponse_httpStatus,
 
     -- ** UploadServerCertificate
-    uploadServerCertificate_tags,
-    uploadServerCertificate_path,
     uploadServerCertificate_certificateChain,
+    uploadServerCertificate_path,
+    uploadServerCertificate_tags,
     uploadServerCertificate_serverCertificateName,
     uploadServerCertificate_certificateBody,
     uploadServerCertificate_privateKey,
-    uploadServerCertificateResponse_tags,
     uploadServerCertificateResponse_serverCertificateMetadata,
+    uploadServerCertificateResponse_tags,
     uploadServerCertificateResponse_httpStatus,
 
     -- ** UploadSigningCertificate
@@ -1001,10 +1001,10 @@ module Amazonka.IAM.Lens
     -- * Types
 
     -- ** AccessDetail
-    accessDetail_totalAuthenticatedEntities,
     accessDetail_entityPath,
-    accessDetail_region,
     accessDetail_lastAuthenticatedTime,
+    accessDetail_region,
+    accessDetail_totalAuthenticatedEntities,
     accessDetail_serviceName,
     accessDetail_serviceNamespace,
 
@@ -1021,18 +1021,18 @@ module Amazonka.IAM.Lens
     accessKeyLastUsed_region,
 
     -- ** AccessKeyMetadata
-    accessKeyMetadata_userName,
-    accessKeyMetadata_status,
-    accessKeyMetadata_createDate,
     accessKeyMetadata_accessKeyId,
+    accessKeyMetadata_createDate,
+    accessKeyMetadata_status,
+    accessKeyMetadata_userName,
 
     -- ** AttachedPermissionsBoundary
-    attachedPermissionsBoundary_permissionsBoundaryType,
     attachedPermissionsBoundary_permissionsBoundaryArn,
+    attachedPermissionsBoundary_permissionsBoundaryType,
 
     -- ** AttachedPolicy
-    attachedPolicy_policyName,
     attachedPolicy_policyArn,
+    attachedPolicy_policyName,
 
     -- ** ContextEntry
     contextEntry_contextKeyName,
@@ -1040,8 +1040,8 @@ module Amazonka.IAM.Lens
     contextEntry_contextKeyValues,
 
     -- ** DeletionTaskFailureReasonType
-    deletionTaskFailureReasonType_roleUsageList,
     deletionTaskFailureReasonType_reason,
+    deletionTaskFailureReasonType_roleUsageList,
 
     -- ** EntityDetails
     entityDetails_lastAuthenticated,
@@ -1059,13 +1059,13 @@ module Amazonka.IAM.Lens
     errorDetails_code,
 
     -- ** EvaluationResult
-    evaluationResult_evalResourceName,
-    evaluationResult_permissionsBoundaryDecisionDetail,
-    evaluationResult_missingContextValues,
-    evaluationResult_resourceSpecificResults,
     evaluationResult_evalDecisionDetails,
+    evaluationResult_evalResourceName,
     evaluationResult_matchedStatements,
+    evaluationResult_missingContextValues,
     evaluationResult_organizationsDecisionDetail,
+    evaluationResult_permissionsBoundaryDecisionDetail,
+    evaluationResult_resourceSpecificResults,
     evaluationResult_evalActionName,
     evaluationResult_evalDecision,
 
@@ -1081,12 +1081,12 @@ module Amazonka.IAM.Lens
 
     -- ** GroupDetail
     groupDetail_arn,
-    groupDetail_path,
-    groupDetail_groupName,
     groupDetail_attachedManagedPolicies,
     groupDetail_createDate,
     groupDetail_groupId,
+    groupDetail_groupName,
     groupDetail_groupPolicyList,
+    groupDetail_path,
 
     -- ** InstanceProfile
     instanceProfile_tags,
@@ -1098,8 +1098,8 @@ module Amazonka.IAM.Lens
     instanceProfile_roles,
 
     -- ** ListPoliciesGrantingServiceAccessEntry
-    listPoliciesGrantingServiceAccessEntry_serviceNamespace,
     listPoliciesGrantingServiceAccessEntry_policies,
+    listPoliciesGrantingServiceAccessEntry_serviceNamespace,
 
     -- ** LoginProfile
     loginProfile_passwordResetRequired,
@@ -1112,18 +1112,18 @@ module Amazonka.IAM.Lens
     mfaDevice_enableDate,
 
     -- ** ManagedPolicyDetail
-    managedPolicyDetail_policyName,
-    managedPolicyDetail_policyId,
-    managedPolicyDetail_defaultVersionId,
     managedPolicyDetail_arn,
-    managedPolicyDetail_path,
-    managedPolicyDetail_updateDate,
-    managedPolicyDetail_policyVersionList,
-    managedPolicyDetail_description,
-    managedPolicyDetail_createDate,
     managedPolicyDetail_attachmentCount,
-    managedPolicyDetail_permissionsBoundaryUsageCount,
+    managedPolicyDetail_createDate,
+    managedPolicyDetail_defaultVersionId,
+    managedPolicyDetail_description,
     managedPolicyDetail_isAttachable,
+    managedPolicyDetail_path,
+    managedPolicyDetail_permissionsBoundaryUsageCount,
+    managedPolicyDetail_policyId,
+    managedPolicyDetail_policyName,
+    managedPolicyDetail_policyVersionList,
+    managedPolicyDetail_updateDate,
 
     -- ** OpenIDConnectProviderListEntry
     openIDConnectProviderListEntry_arn,
@@ -1132,37 +1132,37 @@ module Amazonka.IAM.Lens
     organizationsDecisionDetail_allowedByOrganizations,
 
     -- ** PasswordPolicy
+    passwordPolicy_allowUsersToChangePassword,
+    passwordPolicy_expirePasswords,
+    passwordPolicy_hardExpiry,
     passwordPolicy_maxPasswordAge,
     passwordPolicy_minimumPasswordLength,
-    passwordPolicy_allowUsersToChangePassword,
     passwordPolicy_passwordReusePrevention,
-    passwordPolicy_requireNumbers,
     passwordPolicy_requireLowercaseCharacters,
-    passwordPolicy_expirePasswords,
+    passwordPolicy_requireNumbers,
     passwordPolicy_requireSymbols,
     passwordPolicy_requireUppercaseCharacters,
-    passwordPolicy_hardExpiry,
 
     -- ** PermissionsBoundaryDecisionDetail
     permissionsBoundaryDecisionDetail_allowedByPermissionsBoundary,
 
     -- ** Policy
+    policy_arn,
+    policy_attachmentCount,
+    policy_createDate,
+    policy_defaultVersionId,
+    policy_description,
+    policy_isAttachable,
+    policy_path,
+    policy_permissionsBoundaryUsageCount,
+    policy_policyId,
     policy_policyName,
     policy_tags,
-    policy_policyId,
-    policy_defaultVersionId,
-    policy_arn,
-    policy_path,
     policy_updateDate,
-    policy_description,
-    policy_createDate,
-    policy_attachmentCount,
-    policy_permissionsBoundaryUsageCount,
-    policy_isAttachable,
 
     -- ** PolicyDetail
-    policyDetail_policyName,
     policyDetail_policyDocument,
+    policyDetail_policyName,
 
     -- ** PolicyGrantingServiceAccess
     policyGrantingServiceAccess_entityName,
@@ -1172,42 +1172,42 @@ module Amazonka.IAM.Lens
     policyGrantingServiceAccess_policyType,
 
     -- ** PolicyGroup
-    policyGroup_groupName,
     policyGroup_groupId,
+    policyGroup_groupName,
 
     -- ** PolicyRole
-    policyRole_roleName,
     policyRole_roleId,
+    policyRole_roleName,
 
     -- ** PolicyUser
-    policyUser_userName,
     policyUser_userId,
+    policyUser_userName,
 
     -- ** PolicyVersion
-    policyVersion_isDefaultVersion,
     policyVersion_createDate,
     policyVersion_document,
+    policyVersion_isDefaultVersion,
     policyVersion_versionId,
 
     -- ** Position
-    position_line,
     position_column,
+    position_line,
 
     -- ** ResourceSpecificResult
-    resourceSpecificResult_permissionsBoundaryDecisionDetail,
-    resourceSpecificResult_missingContextValues,
     resourceSpecificResult_evalDecisionDetails,
     resourceSpecificResult_matchedStatements,
+    resourceSpecificResult_missingContextValues,
+    resourceSpecificResult_permissionsBoundaryDecisionDetail,
     resourceSpecificResult_evalResourceName,
     resourceSpecificResult_evalResourceDecision,
 
     -- ** Role
-    role_tags,
-    role_roleLastUsed,
     role_assumeRolePolicyDocument,
     role_description,
-    role_permissionsBoundary,
     role_maxSessionDuration,
+    role_permissionsBoundary,
+    role_roleLastUsed,
+    role_tags,
     role_path,
     role_roleName,
     role_roleId,
@@ -1215,18 +1215,18 @@ module Amazonka.IAM.Lens
     role_createDate,
 
     -- ** RoleDetail
-    roleDetail_tags,
-    roleDetail_roleLastUsed,
-    roleDetail_roleName,
     roleDetail_arn,
-    roleDetail_instanceProfileList,
-    roleDetail_path,
     roleDetail_assumeRolePolicyDocument,
     roleDetail_attachedManagedPolicies,
-    roleDetail_permissionsBoundary,
     roleDetail_createDate,
+    roleDetail_instanceProfileList,
+    roleDetail_path,
+    roleDetail_permissionsBoundary,
     roleDetail_roleId,
+    roleDetail_roleLastUsed,
+    roleDetail_roleName,
     roleDetail_rolePolicyList,
+    roleDetail_tags,
 
     -- ** RoleLastUsed
     roleLastUsed_lastUsedDate,
@@ -1256,25 +1256,25 @@ module Amazonka.IAM.Lens
     sSHPublicKeyMetadata_uploadDate,
 
     -- ** ServerCertificate
-    serverCertificate_tags,
     serverCertificate_certificateChain,
+    serverCertificate_tags,
     serverCertificate_serverCertificateMetadata,
     serverCertificate_certificateBody,
 
     -- ** ServerCertificateMetadata
-    serverCertificateMetadata_uploadDate,
     serverCertificateMetadata_expiration,
+    serverCertificateMetadata_uploadDate,
     serverCertificateMetadata_path,
     serverCertificateMetadata_serverCertificateName,
     serverCertificateMetadata_serverCertificateId,
     serverCertificateMetadata_arn,
 
     -- ** ServiceLastAccessed
-    serviceLastAccessed_lastAuthenticatedEntity,
-    serviceLastAccessed_totalAuthenticatedEntities,
     serviceLastAccessed_lastAuthenticated,
-    serviceLastAccessed_trackedActionsLastAccessed,
+    serviceLastAccessed_lastAuthenticatedEntity,
     serviceLastAccessed_lastAuthenticatedRegion,
+    serviceLastAccessed_totalAuthenticatedEntities,
+    serviceLastAccessed_trackedActionsLastAccessed,
     serviceLastAccessed_serviceName,
     serviceLastAccessed_serviceNamespace,
 
@@ -1304,53 +1304,53 @@ module Amazonka.IAM.Lens
 
     -- ** SimulatePolicyResponse
     simulatePolicyResponse_evaluationResults,
-    simulatePolicyResponse_marker,
     simulatePolicyResponse_isTruncated,
+    simulatePolicyResponse_marker,
 
     -- ** Statement
-    statement_sourcePolicyId,
-    statement_startPosition,
     statement_endPosition,
+    statement_sourcePolicyId,
     statement_sourcePolicyType,
+    statement_startPosition,
 
     -- ** Tag
     tag_key,
     tag_value,
 
     -- ** TrackedActionLastAccessed
-    trackedActionLastAccessed_lastAccessedRegion,
-    trackedActionLastAccessed_lastAccessedEntity,
     trackedActionLastAccessed_actionName,
+    trackedActionLastAccessed_lastAccessedEntity,
+    trackedActionLastAccessed_lastAccessedRegion,
     trackedActionLastAccessed_lastAccessedTime,
 
     -- ** User
-    user_tags,
-    user_path,
     user_passwordLastUsed,
+    user_path,
     user_permissionsBoundary,
+    user_tags,
     user_userName,
     user_userId,
     user_arn,
     user_createDate,
 
     -- ** UserDetail
-    userDetail_tags,
-    userDetail_userName,
     userDetail_arn,
-    userDetail_path,
-    userDetail_groupList,
     userDetail_attachedManagedPolicies,
-    userDetail_permissionsBoundary,
-    userDetail_userId,
     userDetail_createDate,
+    userDetail_groupList,
+    userDetail_path,
+    userDetail_permissionsBoundary,
+    userDetail_tags,
+    userDetail_userId,
+    userDetail_userName,
     userDetail_userPolicyList,
 
     -- ** VirtualMFADevice
-    virtualMFADevice_tags,
-    virtualMFADevice_user,
     virtualMFADevice_base32StringSeed,
     virtualMFADevice_enableDate,
     virtualMFADevice_qRCodePNG,
+    virtualMFADevice_tags,
+    virtualMFADevice_user,
     virtualMFADevice_serialNumber,
   )
 where

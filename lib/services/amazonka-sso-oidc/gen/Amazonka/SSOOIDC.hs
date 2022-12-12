@@ -60,17 +60,11 @@ module Amazonka.SSOOIDC
     -- * Errors
     -- $errors
 
-    -- ** InvalidGrantException
-    _InvalidGrantException,
-
-    -- ** InvalidClientException
-    _InvalidClientException,
-
-    -- ** UnsupportedGrantTypeException
-    _UnsupportedGrantTypeException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
+
+    -- ** AuthorizationPendingException
+    _AuthorizationPendingException,
 
     -- ** ExpiredTokenException
     _ExpiredTokenException,
@@ -78,23 +72,29 @@ module Amazonka.SSOOIDC
     -- ** InternalServerException
     _InternalServerException,
 
-    -- ** SlowDownException
-    _SlowDownException,
+    -- ** InvalidClientException
+    _InvalidClientException,
 
     -- ** InvalidClientMetadataException
     _InvalidClientMetadataException,
 
+    -- ** InvalidGrantException
+    _InvalidGrantException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
     -- ** InvalidScopeException
     _InvalidScopeException,
 
-    -- ** AuthorizationPendingException
-    _AuthorizationPendingException,
+    -- ** SlowDownException
+    _SlowDownException,
 
     -- ** UnauthorizedClientException
     _UnauthorizedClientException,
 
-    -- ** InvalidRequestException
-    _InvalidRequestException,
+    -- ** UnsupportedGrantTypeException
+    _UnsupportedGrantTypeException,
 
     -- * Waiters
     -- $waiters

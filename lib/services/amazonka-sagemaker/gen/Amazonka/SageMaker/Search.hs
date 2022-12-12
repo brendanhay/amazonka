@@ -35,11 +35,11 @@ module Amazonka.SageMaker.Search
     newSearch,
 
     -- * Request Lenses
-    search_sortOrder,
-    search_nextToken,
-    search_sortBy,
     search_maxResults,
+    search_nextToken,
     search_searchExpression,
+    search_sortBy,
+    search_sortOrder,
     search_resource,
 
     -- * Destructuring the Response
@@ -63,25 +63,25 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newSearch' smart constructor.
 data Search = Search'
-  { -- | How @SearchResults@ are ordered. Valid values are @Ascending@ or
-    -- @Descending@. The default is @Descending@.
-    sortOrder :: Prelude.Maybe SearchSortOrder,
+  { -- | The maximum number of results to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | If more than @MaxResults@ resources match the specified
     -- @SearchExpression@, the response includes a @NextToken@. The @NextToken@
     -- can be passed to the next @SearchRequest@ to continue retrieving
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The name of the resource property used to sort the @SearchResults@. The
-    -- default is @LastModifiedTime@.
-    sortBy :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A Boolean conditional statement. Resources must satisfy this condition
     -- to be included in search results. You must provide at least one
     -- subexpression, filter, or nested filter. The maximum number of recursive
     -- @SubExpressions@, @NestedFilters@, and @Filters@ that can be included in
     -- a @SearchExpression@ object is 50.
     searchExpression :: Prelude.Maybe SearchExpression,
+    -- | The name of the resource property used to sort the @SearchResults@. The
+    -- default is @LastModifiedTime@.
+    sortBy :: Prelude.Maybe Prelude.Text,
+    -- | How @SearchResults@ are ordered. Valid values are @Ascending@ or
+    -- @Descending@. The default is @Descending@.
+    sortOrder :: Prelude.Maybe SearchSortOrder,
     -- | The name of the Amazon SageMaker resource to search for.
     resource :: ResourceType
   }
@@ -95,24 +95,24 @@ data Search = Search'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'search_sortOrder' - How @SearchResults@ are ordered. Valid values are @Ascending@ or
--- @Descending@. The default is @Descending@.
+-- 'maxResults', 'search_maxResults' - The maximum number of results to return.
 --
 -- 'nextToken', 'search_nextToken' - If more than @MaxResults@ resources match the specified
 -- @SearchExpression@, the response includes a @NextToken@. The @NextToken@
 -- can be passed to the next @SearchRequest@ to continue retrieving
 -- results.
 --
--- 'sortBy', 'search_sortBy' - The name of the resource property used to sort the @SearchResults@. The
--- default is @LastModifiedTime@.
---
--- 'maxResults', 'search_maxResults' - The maximum number of results to return.
---
 -- 'searchExpression', 'search_searchExpression' - A Boolean conditional statement. Resources must satisfy this condition
 -- to be included in search results. You must provide at least one
 -- subexpression, filter, or nested filter. The maximum number of recursive
 -- @SubExpressions@, @NestedFilters@, and @Filters@ that can be included in
 -- a @SearchExpression@ object is 50.
+--
+-- 'sortBy', 'search_sortBy' - The name of the resource property used to sort the @SearchResults@. The
+-- default is @LastModifiedTime@.
+--
+-- 'sortOrder', 'search_sortOrder' - How @SearchResults@ are ordered. Valid values are @Ascending@ or
+-- @Descending@. The default is @Descending@.
 --
 -- 'resource', 'search_resource' - The name of the Amazon SageMaker resource to search for.
 newSearch ::
@@ -121,18 +121,17 @@ newSearch ::
   Search
 newSearch pResource_ =
   Search'
-    { sortOrder = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       searchExpression = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       resource = pResource_
     }
 
--- | How @SearchResults@ are ordered. Valid values are @Ascending@ or
--- @Descending@. The default is @Descending@.
-search_sortOrder :: Lens.Lens' Search (Prelude.Maybe SearchSortOrder)
-search_sortOrder = Lens.lens (\Search' {sortOrder} -> sortOrder) (\s@Search' {} a -> s {sortOrder = a} :: Search)
+-- | The maximum number of results to return.
+search_maxResults :: Lens.Lens' Search (Prelude.Maybe Prelude.Natural)
+search_maxResults = Lens.lens (\Search' {maxResults} -> maxResults) (\s@Search' {} a -> s {maxResults = a} :: Search)
 
 -- | If more than @MaxResults@ resources match the specified
 -- @SearchExpression@, the response includes a @NextToken@. The @NextToken@
@@ -141,15 +140,6 @@ search_sortOrder = Lens.lens (\Search' {sortOrder} -> sortOrder) (\s@Search' {} 
 search_nextToken :: Lens.Lens' Search (Prelude.Maybe Prelude.Text)
 search_nextToken = Lens.lens (\Search' {nextToken} -> nextToken) (\s@Search' {} a -> s {nextToken = a} :: Search)
 
--- | The name of the resource property used to sort the @SearchResults@. The
--- default is @LastModifiedTime@.
-search_sortBy :: Lens.Lens' Search (Prelude.Maybe Prelude.Text)
-search_sortBy = Lens.lens (\Search' {sortBy} -> sortBy) (\s@Search' {} a -> s {sortBy = a} :: Search)
-
--- | The maximum number of results to return.
-search_maxResults :: Lens.Lens' Search (Prelude.Maybe Prelude.Natural)
-search_maxResults = Lens.lens (\Search' {maxResults} -> maxResults) (\s@Search' {} a -> s {maxResults = a} :: Search)
-
 -- | A Boolean conditional statement. Resources must satisfy this condition
 -- to be included in search results. You must provide at least one
 -- subexpression, filter, or nested filter. The maximum number of recursive
@@ -157,6 +147,16 @@ search_maxResults = Lens.lens (\Search' {maxResults} -> maxResults) (\s@Search' 
 -- a @SearchExpression@ object is 50.
 search_searchExpression :: Lens.Lens' Search (Prelude.Maybe SearchExpression)
 search_searchExpression = Lens.lens (\Search' {searchExpression} -> searchExpression) (\s@Search' {} a -> s {searchExpression = a} :: Search)
+
+-- | The name of the resource property used to sort the @SearchResults@. The
+-- default is @LastModifiedTime@.
+search_sortBy :: Lens.Lens' Search (Prelude.Maybe Prelude.Text)
+search_sortBy = Lens.lens (\Search' {sortBy} -> sortBy) (\s@Search' {} a -> s {sortBy = a} :: Search)
+
+-- | How @SearchResults@ are ordered. Valid values are @Ascending@ or
+-- @Descending@. The default is @Descending@.
+search_sortOrder :: Lens.Lens' Search (Prelude.Maybe SearchSortOrder)
+search_sortOrder = Lens.lens (\Search' {sortOrder} -> sortOrder) (\s@Search' {} a -> s {sortOrder = a} :: Search)
 
 -- | The name of the Amazon SageMaker resource to search for.
 search_resource :: Lens.Lens' Search ResourceType
@@ -196,20 +196,20 @@ instance Core.AWSRequest Search where
 
 instance Prelude.Hashable Search where
   hashWithSalt _salt Search' {..} =
-    _salt `Prelude.hashWithSalt` sortOrder
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` sortBy
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` searchExpression
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` sortOrder
       `Prelude.hashWithSalt` resource
 
 instance Prelude.NFData Search where
   rnf Search' {..} =
-    Prelude.rnf sortOrder
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf searchExpression
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf sortOrder
       `Prelude.seq` Prelude.rnf resource
 
 instance Data.ToHeaders Search where
@@ -229,12 +229,12 @@ instance Data.ToJSON Search where
   toJSON Search' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("SortBy" Data..=) Prelude.<$> sortBy,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("SearchExpression" Data..=)
               Prelude.<$> searchExpression,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("SortOrder" Data..=) Prelude.<$> sortOrder,
             Prelude.Just ("Resource" Data..= resource)
           ]
       )
@@ -256,7 +256,7 @@ data SearchResponse = SearchResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SearchResponse' with all optional fields omitted.

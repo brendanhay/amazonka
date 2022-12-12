@@ -46,8 +46,8 @@ module Amazonka.Rekognition.StartLabelDetection
 
     -- * Request Lenses
     startLabelDetection_clientRequestToken,
-    startLabelDetection_minConfidence,
     startLabelDetection_jobTag,
+    startLabelDetection_minConfidence,
     startLabelDetection_notificationChannel,
     startLabelDetection_video,
 
@@ -76,6 +76,11 @@ data StartLabelDetection = StartLabelDetection'
     -- returned. Use @ClientRequestToken@ to prevent the same job from being
     -- accidently started more than once.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | An identifier you specify that\'s returned in the completion
+    -- notification that\'s published to your Amazon Simple Notification
+    -- Service topic. For example, you can use @JobTag@ to group related jobs
+    -- and identify them in the completion notification.
+    jobTag :: Prelude.Maybe Prelude.Text,
     -- | Specifies the minimum confidence that Amazon Rekognition Video must have
     -- in order to return a detected label. Confidence represents how certain
     -- Amazon Rekognition is that a label is correctly identified.0 is the
@@ -86,11 +91,6 @@ data StartLabelDetection = StartLabelDetection'
     -- If you don\'t specify @MinConfidence@, the operation returns labels with
     -- confidence values greater than or equal to 50 percent.
     minConfidence :: Prelude.Maybe Prelude.Double,
-    -- | An identifier you specify that\'s returned in the completion
-    -- notification that\'s published to your Amazon Simple Notification
-    -- Service topic. For example, you can use @JobTag@ to group related jobs
-    -- and identify them in the completion notification.
-    jobTag :: Prelude.Maybe Prelude.Text,
     -- | The Amazon SNS topic ARN you want Amazon Rekognition Video to publish
     -- the completion status of the label detection operation to. The Amazon
     -- SNS topic must have a topic name that begins with /AmazonRekognition/ if
@@ -115,6 +115,11 @@ data StartLabelDetection = StartLabelDetection'
 -- returned. Use @ClientRequestToken@ to prevent the same job from being
 -- accidently started more than once.
 --
+-- 'jobTag', 'startLabelDetection_jobTag' - An identifier you specify that\'s returned in the completion
+-- notification that\'s published to your Amazon Simple Notification
+-- Service topic. For example, you can use @JobTag@ to group related jobs
+-- and identify them in the completion notification.
+--
 -- 'minConfidence', 'startLabelDetection_minConfidence' - Specifies the minimum confidence that Amazon Rekognition Video must have
 -- in order to return a detected label. Confidence represents how certain
 -- Amazon Rekognition is that a label is correctly identified.0 is the
@@ -124,11 +129,6 @@ data StartLabelDetection = StartLabelDetection'
 --
 -- If you don\'t specify @MinConfidence@, the operation returns labels with
 -- confidence values greater than or equal to 50 percent.
---
--- 'jobTag', 'startLabelDetection_jobTag' - An identifier you specify that\'s returned in the completion
--- notification that\'s published to your Amazon Simple Notification
--- Service topic. For example, you can use @JobTag@ to group related jobs
--- and identify them in the completion notification.
 --
 -- 'notificationChannel', 'startLabelDetection_notificationChannel' - The Amazon SNS topic ARN you want Amazon Rekognition Video to publish
 -- the completion status of the label detection operation to. The Amazon
@@ -145,8 +145,8 @@ newStartLabelDetection pVideo_ =
   StartLabelDetection'
     { clientRequestToken =
         Prelude.Nothing,
-      minConfidence = Prelude.Nothing,
       jobTag = Prelude.Nothing,
+      minConfidence = Prelude.Nothing,
       notificationChannel = Prelude.Nothing,
       video = pVideo_
     }
@@ -157,6 +157,13 @@ newStartLabelDetection pVideo_ =
 -- accidently started more than once.
 startLabelDetection_clientRequestToken :: Lens.Lens' StartLabelDetection (Prelude.Maybe Prelude.Text)
 startLabelDetection_clientRequestToken = Lens.lens (\StartLabelDetection' {clientRequestToken} -> clientRequestToken) (\s@StartLabelDetection' {} a -> s {clientRequestToken = a} :: StartLabelDetection)
+
+-- | An identifier you specify that\'s returned in the completion
+-- notification that\'s published to your Amazon Simple Notification
+-- Service topic. For example, you can use @JobTag@ to group related jobs
+-- and identify them in the completion notification.
+startLabelDetection_jobTag :: Lens.Lens' StartLabelDetection (Prelude.Maybe Prelude.Text)
+startLabelDetection_jobTag = Lens.lens (\StartLabelDetection' {jobTag} -> jobTag) (\s@StartLabelDetection' {} a -> s {jobTag = a} :: StartLabelDetection)
 
 -- | Specifies the minimum confidence that Amazon Rekognition Video must have
 -- in order to return a detected label. Confidence represents how certain
@@ -169,13 +176,6 @@ startLabelDetection_clientRequestToken = Lens.lens (\StartLabelDetection' {clien
 -- confidence values greater than or equal to 50 percent.
 startLabelDetection_minConfidence :: Lens.Lens' StartLabelDetection (Prelude.Maybe Prelude.Double)
 startLabelDetection_minConfidence = Lens.lens (\StartLabelDetection' {minConfidence} -> minConfidence) (\s@StartLabelDetection' {} a -> s {minConfidence = a} :: StartLabelDetection)
-
--- | An identifier you specify that\'s returned in the completion
--- notification that\'s published to your Amazon Simple Notification
--- Service topic. For example, you can use @JobTag@ to group related jobs
--- and identify them in the completion notification.
-startLabelDetection_jobTag :: Lens.Lens' StartLabelDetection (Prelude.Maybe Prelude.Text)
-startLabelDetection_jobTag = Lens.lens (\StartLabelDetection' {jobTag} -> jobTag) (\s@StartLabelDetection' {} a -> s {jobTag = a} :: StartLabelDetection)
 
 -- | The Amazon SNS topic ARN you want Amazon Rekognition Video to publish
 -- the completion status of the label detection operation to. The Amazon
@@ -206,16 +206,16 @@ instance Core.AWSRequest StartLabelDetection where
 instance Prelude.Hashable StartLabelDetection where
   hashWithSalt _salt StartLabelDetection' {..} =
     _salt `Prelude.hashWithSalt` clientRequestToken
-      `Prelude.hashWithSalt` minConfidence
       `Prelude.hashWithSalt` jobTag
+      `Prelude.hashWithSalt` minConfidence
       `Prelude.hashWithSalt` notificationChannel
       `Prelude.hashWithSalt` video
 
 instance Prelude.NFData StartLabelDetection where
   rnf StartLabelDetection' {..} =
     Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf minConfidence
       `Prelude.seq` Prelude.rnf jobTag
+      `Prelude.seq` Prelude.rnf minConfidence
       `Prelude.seq` Prelude.rnf notificationChannel
       `Prelude.seq` Prelude.rnf video
 
@@ -240,8 +240,8 @@ instance Data.ToJSON StartLabelDetection where
       ( Prelude.catMaybes
           [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("MinConfidence" Data..=) Prelude.<$> minConfidence,
             ("JobTag" Data..=) Prelude.<$> jobTag,
+            ("MinConfidence" Data..=) Prelude.<$> minConfidence,
             ("NotificationChannel" Data..=)
               Prelude.<$> notificationChannel,
             Prelude.Just ("Video" Data..= video)

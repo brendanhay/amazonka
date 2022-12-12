@@ -19,44 +19,44 @@ module Amazonka.MachineLearning
     -- * Errors
     -- $errors
 
-    -- ** InvalidInputException
-    _InvalidInputException,
-
-    -- ** PredictorNotMountedException
-    _PredictorNotMountedException,
+    -- ** IdempotentParameterMismatchException
+    _IdempotentParameterMismatchException,
 
     -- ** InternalServerException
     _InternalServerException,
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
-
-    -- ** TagLimitExceededException
-    _TagLimitExceededException,
+    -- ** InvalidInputException
+    _InvalidInputException,
 
     -- ** InvalidTagException
     _InvalidTagException,
 
-    -- ** IdempotentParameterMismatchException
-    _IdempotentParameterMismatchException,
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** PredictorNotMountedException
+    _PredictorNotMountedException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** TagLimitExceededException
+    _TagLimitExceededException,
 
     -- * Waiters
     -- $waiters
+
+    -- ** BatchPredictionAvailable
+    newBatchPredictionAvailable,
+
+    -- ** DataSourceAvailable
+    newDataSourceAvailable,
 
     -- ** EvaluationAvailable
     newEvaluationAvailable,
 
     -- ** MLModelAvailable
     newMLModelAvailable,
-
-    -- ** DataSourceAvailable
-    newDataSourceAvailable,
-
-    -- ** BatchPredictionAvailable
-    newBatchPredictionAvailable,
 
     -- * Operations
     -- $operations

@@ -19,12 +19,15 @@ module Amazonka.IoTWireless.Types
 
     -- * Errors
     _AccessDeniedException,
-    _InternalServerException,
-    _TooManyTagsException,
-    _ResourceNotFoundException,
     _ConflictException,
+    _InternalServerException,
+    _ResourceNotFoundException,
     _ThrottlingException,
+    _TooManyTagsException,
     _ValidationException,
+
+    -- * ApplicationConfigType
+    ApplicationConfigType (..),
 
     -- * BatteryLevel
     BatteryLevel (..),
@@ -74,20 +77,11 @@ module Amazonka.IoTWireless.Types
     -- * PartnerType
     PartnerType (..),
 
-    -- * PositionConfigurationFec
-    PositionConfigurationFec (..),
-
-    -- * PositionConfigurationStatus
-    PositionConfigurationStatus (..),
-
     -- * PositionResourceType
     PositionResourceType (..),
 
-    -- * PositionSolverProvider
-    PositionSolverProvider (..),
-
-    -- * PositionSolverType
-    PositionSolverType (..),
+    -- * PositioningConfigStatus
+    PositioningConfigStatus (..),
 
     -- * SigningAlg
     SigningAlg (..),
@@ -128,28 +122,65 @@ module Amazonka.IoTWireless.Types
     -- * AbpV1_0_x
     AbpV1_0_x (..),
     newAbpV1_0_x,
-    abpV1_0_x_sessionKeys,
-    abpV1_0_x_fCntStart,
     abpV1_0_x_devAddr,
+    abpV1_0_x_fCntStart,
+    abpV1_0_x_sessionKeys,
 
     -- * AbpV1_1
     AbpV1_1 (..),
     newAbpV1_1,
-    abpV1_1_sessionKeys,
-    abpV1_1_fCntStart,
     abpV1_1_devAddr,
+    abpV1_1_fCntStart,
+    abpV1_1_sessionKeys,
 
-    -- * Accuracy
-    Accuracy (..),
-    newAccuracy,
-    accuracy_verticalAccuracy,
-    accuracy_horizontalAccuracy,
+    -- * ApplicationConfig
+    ApplicationConfig (..),
+    newApplicationConfig,
+    applicationConfig_destinationName,
+    applicationConfig_fPort,
+    applicationConfig_type,
 
     -- * Beaconing
     Beaconing (..),
     newBeaconing,
-    beaconing_frequencies,
     beaconing_dataRate,
+    beaconing_frequencies,
+
+    -- * CdmaLocalId
+    CdmaLocalId (..),
+    newCdmaLocalId,
+    cdmaLocalId_pnOffset,
+    cdmaLocalId_cdmaChannel,
+
+    -- * CdmaNmrObj
+    CdmaNmrObj (..),
+    newCdmaNmrObj,
+    cdmaNmrObj_baseStationId,
+    cdmaNmrObj_pilotPower,
+    cdmaNmrObj_pnOffset,
+    cdmaNmrObj_cdmaChannel,
+
+    -- * CdmaObj
+    CdmaObj (..),
+    newCdmaObj,
+    cdmaObj_baseLat,
+    cdmaObj_baseLng,
+    cdmaObj_cdmaLocalId,
+    cdmaObj_cdmaNmr,
+    cdmaObj_pilotPower,
+    cdmaObj_registrationZone,
+    cdmaObj_systemId,
+    cdmaObj_networkId,
+    cdmaObj_baseStationId,
+
+    -- * CellTowers
+    CellTowers (..),
+    newCellTowers,
+    cellTowers_cdma,
+    cellTowers_gsm,
+    cellTowers_lte,
+    cellTowers_tdscdma,
+    cellTowers_wcdma,
 
     -- * CertificateList
     CertificateList (..),
@@ -171,25 +202,25 @@ module Amazonka.IoTWireless.Types
     -- * Destinations
     Destinations (..),
     newDestinations,
-    destinations_name,
-    destinations_roleArn,
     destinations_arn,
     destinations_description,
     destinations_expression,
     destinations_expressionType,
+    destinations_name,
+    destinations_roleArn,
 
     -- * DeviceProfile
     DeviceProfile (..),
     newDeviceProfile,
-    deviceProfile_name,
     deviceProfile_arn,
     deviceProfile_id,
+    deviceProfile_name,
 
     -- * DeviceRegistrationStateEventConfiguration
     DeviceRegistrationStateEventConfiguration (..),
     newDeviceRegistrationStateEventConfiguration,
-    deviceRegistrationStateEventConfiguration_wirelessDeviceIdEventTopic,
     deviceRegistrationStateEventConfiguration_sidewalk,
+    deviceRegistrationStateEventConfiguration_wirelessDeviceIdEventTopic,
 
     -- * DeviceRegistrationStateResourceTypeEventConfiguration
     DeviceRegistrationStateResourceTypeEventConfiguration (..),
@@ -207,23 +238,24 @@ module Amazonka.IoTWireless.Types
     -- * EventConfigurationItem
     EventConfigurationItem (..),
     newEventConfigurationItem,
-    eventConfigurationItem_identifierType,
     eventConfigurationItem_events,
     eventConfigurationItem_identifier,
+    eventConfigurationItem_identifierType,
     eventConfigurationItem_partnerType,
 
     -- * EventNotificationItemConfigurations
     EventNotificationItemConfigurations (..),
     newEventNotificationItemConfigurations,
-    eventNotificationItemConfigurations_deviceRegistrationState,
     eventNotificationItemConfigurations_connectionStatus,
-    eventNotificationItemConfigurations_messageDeliveryStatus,
+    eventNotificationItemConfigurations_deviceRegistrationState,
     eventNotificationItemConfigurations_join,
+    eventNotificationItemConfigurations_messageDeliveryStatus,
     eventNotificationItemConfigurations_proximity,
 
     -- * FPorts
     FPorts (..),
     newFPorts,
+    fPorts_applications,
     fPorts_clockSync,
     fPorts_fuota,
     fPorts_multicast,
@@ -232,15 +264,62 @@ module Amazonka.IoTWireless.Types
     -- * FuotaTask
     FuotaTask (..),
     newFuotaTask,
-    fuotaTask_name,
     fuotaTask_arn,
     fuotaTask_id,
+    fuotaTask_name,
 
     -- * GatewayListItem
     GatewayListItem (..),
     newGatewayListItem,
     gatewayListItem_gatewayId,
     gatewayListItem_downlinkFrequency,
+
+    -- * GlobalIdentity
+    GlobalIdentity (..),
+    newGlobalIdentity,
+    globalIdentity_lac,
+    globalIdentity_geranCid,
+
+    -- * Gnss
+    Gnss (..),
+    newGnss,
+    gnss_assistAltitude,
+    gnss_assistPosition,
+    gnss_captureTime,
+    gnss_captureTimeAccuracy,
+    gnss_use2DSolver,
+    gnss_payload,
+
+    -- * GsmLocalId
+    GsmLocalId (..),
+    newGsmLocalId,
+    gsmLocalId_bsic,
+    gsmLocalId_bcch,
+
+    -- * GsmNmrObj
+    GsmNmrObj (..),
+    newGsmNmrObj,
+    gsmNmrObj_globalIdentity,
+    gsmNmrObj_rxLevel,
+    gsmNmrObj_bsic,
+    gsmNmrObj_bcch,
+
+    -- * GsmObj
+    GsmObj (..),
+    newGsmObj,
+    gsmObj_gsmLocalId,
+    gsmObj_gsmNmr,
+    gsmObj_gsmTimingAdvance,
+    gsmObj_rxLevel,
+    gsmObj_mcc,
+    gsmObj_mnc,
+    gsmObj_lac,
+    gsmObj_geranCid,
+
+    -- * Ip
+    Ip (..),
+    newIp,
+    ip_ipAddress,
 
     -- * JoinEventConfiguration
     JoinEventConfiguration (..),
@@ -266,47 +345,47 @@ module Amazonka.IoTWireless.Types
     -- * LoRaWANDevice
     LoRaWANDevice (..),
     newLoRaWANDevice,
-    loRaWANDevice_otaaV1_1,
-    loRaWANDevice_otaaV1_0_x,
     loRaWANDevice_abpV1_0_x,
-    loRaWANDevice_deviceProfileId,
-    loRaWANDevice_fPorts,
-    loRaWANDevice_serviceProfileId,
     loRaWANDevice_abpV1_1,
     loRaWANDevice_devEui,
+    loRaWANDevice_deviceProfileId,
+    loRaWANDevice_fPorts,
+    loRaWANDevice_otaaV1_0_x,
+    loRaWANDevice_otaaV1_1,
+    loRaWANDevice_serviceProfileId,
 
     -- * LoRaWANDeviceMetadata
     LoRaWANDeviceMetadata (..),
     newLoRaWANDeviceMetadata,
+    loRaWANDeviceMetadata_dataRate,
+    loRaWANDeviceMetadata_devEui,
     loRaWANDeviceMetadata_fPort,
     loRaWANDeviceMetadata_frequency,
     loRaWANDeviceMetadata_gateways,
     loRaWANDeviceMetadata_timestamp,
-    loRaWANDeviceMetadata_dataRate,
-    loRaWANDeviceMetadata_devEui,
 
     -- * LoRaWANDeviceProfile
     LoRaWANDeviceProfile (..),
     newLoRaWANDeviceProfile,
-    loRaWANDeviceProfile_rxDataRate2,
-    loRaWANDeviceProfile_rfRegion,
-    loRaWANDeviceProfile_supportsJoin,
-    loRaWANDeviceProfile_supportsClassC,
-    loRaWANDeviceProfile_maxEirp,
-    loRaWANDeviceProfile_factoryPresetFreqsList,
-    loRaWANDeviceProfile_maxDutyCycle,
-    loRaWANDeviceProfile_regParamsRevision,
-    loRaWANDeviceProfile_pingSlotDr,
-    loRaWANDeviceProfile_rxDelay1,
     loRaWANDeviceProfile_classBTimeout,
-    loRaWANDeviceProfile_pingSlotPeriod,
-    loRaWANDeviceProfile_pingSlotFreq,
     loRaWANDeviceProfile_classCTimeout,
-    loRaWANDeviceProfile_rxFreq2,
-    loRaWANDeviceProfile_supportsClassB,
-    loRaWANDeviceProfile_rxDrOffset1,
-    loRaWANDeviceProfile_supports32BitFCnt,
+    loRaWANDeviceProfile_factoryPresetFreqsList,
     loRaWANDeviceProfile_macVersion,
+    loRaWANDeviceProfile_maxDutyCycle,
+    loRaWANDeviceProfile_maxEirp,
+    loRaWANDeviceProfile_pingSlotDr,
+    loRaWANDeviceProfile_pingSlotFreq,
+    loRaWANDeviceProfile_pingSlotPeriod,
+    loRaWANDeviceProfile_regParamsRevision,
+    loRaWANDeviceProfile_rfRegion,
+    loRaWANDeviceProfile_rxDataRate2,
+    loRaWANDeviceProfile_rxDelay1,
+    loRaWANDeviceProfile_rxDrOffset1,
+    loRaWANDeviceProfile_rxFreq2,
+    loRaWANDeviceProfile_supports32BitFCnt,
+    loRaWANDeviceProfile_supportsClassB,
+    loRaWANDeviceProfile_supportsClassC,
+    loRaWANDeviceProfile_supportsJoin,
 
     -- * LoRaWANFuotaTask
     LoRaWANFuotaTask (..),
@@ -322,12 +401,12 @@ module Amazonka.IoTWireless.Types
     -- * LoRaWANGateway
     LoRaWANGateway (..),
     newLoRaWANGateway,
-    loRaWANGateway_rfRegion,
-    loRaWANGateway_subBands,
     loRaWANGateway_beaconing,
     loRaWANGateway_gatewayEui,
-    loRaWANGateway_netIdFilters,
     loRaWANGateway_joinEuiFilters,
+    loRaWANGateway_netIdFilters,
+    loRaWANGateway_rfRegion,
+    loRaWANGateway_subBands,
 
     -- * LoRaWANGatewayCurrentVersion
     LoRaWANGatewayCurrentVersion (..),
@@ -337,39 +416,39 @@ module Amazonka.IoTWireless.Types
     -- * LoRaWANGatewayMetadata
     LoRaWANGatewayMetadata (..),
     newLoRaWANGatewayMetadata,
-    loRaWANGatewayMetadata_snr,
     loRaWANGatewayMetadata_gatewayEui,
     loRaWANGatewayMetadata_rssi,
+    loRaWANGatewayMetadata_snr,
 
     -- * LoRaWANGatewayVersion
     LoRaWANGatewayVersion (..),
     newLoRaWANGatewayVersion,
     loRaWANGatewayVersion_model,
-    loRaWANGatewayVersion_station,
     loRaWANGatewayVersion_packageVersion,
+    loRaWANGatewayVersion_station,
 
     -- * LoRaWANGetServiceProfileInfo
     LoRaWANGetServiceProfileInfo (..),
     newLoRaWANGetServiceProfileInfo,
-    loRaWANGetServiceProfileInfo_hrAllowed,
-    loRaWANGetServiceProfileInfo_targetPer,
-    loRaWANGetServiceProfileInfo_nwkGeoLoc,
-    loRaWANGetServiceProfileInfo_devStatusReqFreq,
-    loRaWANGetServiceProfileInfo_prAllowed,
-    loRaWANGetServiceProfileInfo_dlRatePolicy,
     loRaWANGetServiceProfileInfo_addGwMetadata,
-    loRaWANGetServiceProfileInfo_ulRatePolicy,
-    loRaWANGetServiceProfileInfo_ulRate,
-    loRaWANGetServiceProfileInfo_raAllowed,
-    loRaWANGetServiceProfileInfo_minGwDiversity,
-    loRaWANGetServiceProfileInfo_reportDevStatusMargin,
     loRaWANGetServiceProfileInfo_channelMask,
-    loRaWANGetServiceProfileInfo_reportDevStatusBattery,
-    loRaWANGetServiceProfileInfo_ulBucketSize,
-    loRaWANGetServiceProfileInfo_dlRate,
-    loRaWANGetServiceProfileInfo_drMax,
+    loRaWANGetServiceProfileInfo_devStatusReqFreq,
     loRaWANGetServiceProfileInfo_dlBucketSize,
+    loRaWANGetServiceProfileInfo_dlRate,
+    loRaWANGetServiceProfileInfo_dlRatePolicy,
+    loRaWANGetServiceProfileInfo_drMax,
     loRaWANGetServiceProfileInfo_drMin,
+    loRaWANGetServiceProfileInfo_hrAllowed,
+    loRaWANGetServiceProfileInfo_minGwDiversity,
+    loRaWANGetServiceProfileInfo_nwkGeoLoc,
+    loRaWANGetServiceProfileInfo_prAllowed,
+    loRaWANGetServiceProfileInfo_raAllowed,
+    loRaWANGetServiceProfileInfo_reportDevStatusBattery,
+    loRaWANGetServiceProfileInfo_reportDevStatusMargin,
+    loRaWANGetServiceProfileInfo_targetPer,
+    loRaWANGetServiceProfileInfo_ulBucketSize,
+    loRaWANGetServiceProfileInfo_ulRate,
+    loRaWANGetServiceProfileInfo_ulRatePolicy,
 
     -- * LoRaWANJoinEventNotificationConfigurations
     LoRaWANJoinEventNotificationConfigurations (..),
@@ -389,16 +468,16 @@ module Amazonka.IoTWireless.Types
     -- * LoRaWANMulticast
     LoRaWANMulticast (..),
     newLoRaWANMulticast,
-    loRaWANMulticast_rfRegion,
     loRaWANMulticast_dlClass,
+    loRaWANMulticast_rfRegion,
 
     -- * LoRaWANMulticastGet
     LoRaWANMulticastGet (..),
     newLoRaWANMulticastGet,
-    loRaWANMulticastGet_rfRegion,
-    loRaWANMulticastGet_numberOfDevicesInGroup,
     loRaWANMulticastGet_dlClass,
+    loRaWANMulticastGet_numberOfDevicesInGroup,
     loRaWANMulticastGet_numberOfDevicesRequested,
+    loRaWANMulticastGet_rfRegion,
 
     -- * LoRaWANMulticastMetadata
     LoRaWANMulticastMetadata (..),
@@ -409,9 +488,9 @@ module Amazonka.IoTWireless.Types
     LoRaWANMulticastSession (..),
     newLoRaWANMulticastSession,
     loRaWANMulticastSession_dlDr,
-    loRaWANMulticastSession_sessionTimeout,
-    loRaWANMulticastSession_sessionStartTime,
     loRaWANMulticastSession_dlFreq,
+    loRaWANMulticastSession_sessionStartTime,
+    loRaWANMulticastSession_sessionTimeout,
 
     -- * LoRaWANSendDataToDevice
     LoRaWANSendDataToDevice (..),
@@ -435,16 +514,16 @@ module Amazonka.IoTWireless.Types
     LoRaWANUpdateDevice (..),
     newLoRaWANUpdateDevice,
     loRaWANUpdateDevice_abpV1_0_x,
+    loRaWANUpdateDevice_abpV1_1,
     loRaWANUpdateDevice_deviceProfileId,
     loRaWANUpdateDevice_fPorts,
     loRaWANUpdateDevice_serviceProfileId,
-    loRaWANUpdateDevice_abpV1_1,
 
     -- * LoRaWANUpdateGatewayTaskCreate
     LoRaWANUpdateGatewayTaskCreate (..),
     newLoRaWANUpdateGatewayTaskCreate,
-    loRaWANUpdateGatewayTaskCreate_sigKeyCrc,
     loRaWANUpdateGatewayTaskCreate_currentVersion,
+    loRaWANUpdateGatewayTaskCreate_sigKeyCrc,
     loRaWANUpdateGatewayTaskCreate_updateSignature,
     loRaWANUpdateGatewayTaskCreate_updateVersion,
 
@@ -454,11 +533,40 @@ module Amazonka.IoTWireless.Types
     loRaWANUpdateGatewayTaskEntry_currentVersion,
     loRaWANUpdateGatewayTaskEntry_updateVersion,
 
+    -- * LteLocalId
+    LteLocalId (..),
+    newLteLocalId,
+    lteLocalId_pci,
+    lteLocalId_earfcn,
+
+    -- * LteNmrObj
+    LteNmrObj (..),
+    newLteNmrObj,
+    lteNmrObj_rsrp,
+    lteNmrObj_rsrq,
+    lteNmrObj_pci,
+    lteNmrObj_earfcn,
+    lteNmrObj_eutranCid,
+
+    -- * LteObj
+    LteObj (..),
+    newLteObj,
+    lteObj_lteLocalId,
+    lteObj_lteNmr,
+    lteObj_lteTimingAdvance,
+    lteObj_nrCapable,
+    lteObj_rsrp,
+    lteObj_rsrq,
+    lteObj_tac,
+    lteObj_mcc,
+    lteObj_mnc,
+    lteObj_eutranCid,
+
     -- * MessageDeliveryStatusEventConfiguration
     MessageDeliveryStatusEventConfiguration (..),
     newMessageDeliveryStatusEventConfiguration,
-    messageDeliveryStatusEventConfiguration_wirelessDeviceIdEventTopic,
     messageDeliveryStatusEventConfiguration_sidewalk,
+    messageDeliveryStatusEventConfiguration_wirelessDeviceIdEventTopic,
 
     -- * MessageDeliveryStatusResourceTypeEventConfiguration
     MessageDeliveryStatusResourceTypeEventConfiguration (..),
@@ -468,9 +576,9 @@ module Amazonka.IoTWireless.Types
     -- * MulticastGroup
     MulticastGroup (..),
     newMulticastGroup,
-    multicastGroup_name,
     multicastGroup_arn,
     multicastGroup_id,
+    multicastGroup_name,
 
     -- * MulticastGroupByFuotaTask
     MulticastGroupByFuotaTask (..),
@@ -485,22 +593,22 @@ module Amazonka.IoTWireless.Types
     -- * NetworkAnalyzerConfigurations
     NetworkAnalyzerConfigurations (..),
     newNetworkAnalyzerConfigurations,
-    networkAnalyzerConfigurations_name,
     networkAnalyzerConfigurations_arn,
+    networkAnalyzerConfigurations_name,
 
     -- * OtaaV1_0_x
     OtaaV1_0_x (..),
     newOtaaV1_0_x,
-    otaaV1_0_x_genAppKey,
-    otaaV1_0_x_appKey,
     otaaV1_0_x_appEui,
+    otaaV1_0_x_appKey,
+    otaaV1_0_x_genAppKey,
 
     -- * OtaaV1_1
     OtaaV1_1 (..),
     newOtaaV1_1,
     otaaV1_1_appKey,
-    otaaV1_1_nwkKey,
     otaaV1_1_joinEui,
+    otaaV1_1_nwkKey,
 
     -- * ParticipatingGateways
     ParticipatingGateways (..),
@@ -508,24 +616,6 @@ module Amazonka.IoTWireless.Types
     participatingGateways_downlinkMode,
     participatingGateways_gatewayList,
     participatingGateways_transmissionInterval,
-
-    -- * PositionConfigurationItem
-    PositionConfigurationItem (..),
-    newPositionConfigurationItem,
-    positionConfigurationItem_destination,
-    positionConfigurationItem_resourceType,
-    positionConfigurationItem_resourceIdentifier,
-    positionConfigurationItem_solvers,
-
-    -- * PositionSolverConfigurations
-    PositionSolverConfigurations (..),
-    newPositionSolverConfigurations,
-    positionSolverConfigurations_semtechGnss,
-
-    -- * PositionSolverDetails
-    PositionSolverDetails (..),
-    newPositionSolverDetails,
-    positionSolverDetails_semtechGnss,
 
     -- * Positioning
     Positioning (..),
@@ -537,75 +627,61 @@ module Amazonka.IoTWireless.Types
     -- * ProximityEventConfiguration
     ProximityEventConfiguration (..),
     newProximityEventConfiguration,
-    proximityEventConfiguration_wirelessDeviceIdEventTopic,
     proximityEventConfiguration_sidewalk,
+    proximityEventConfiguration_wirelessDeviceIdEventTopic,
 
     -- * ProximityResourceTypeEventConfiguration
     ProximityResourceTypeEventConfiguration (..),
     newProximityResourceTypeEventConfiguration,
     proximityResourceTypeEventConfiguration_sidewalk,
 
-    -- * SemtechGnssConfiguration
-    SemtechGnssConfiguration (..),
-    newSemtechGnssConfiguration,
-    semtechGnssConfiguration_status,
-    semtechGnssConfiguration_fec,
-
-    -- * SemtechGnssDetail
-    SemtechGnssDetail (..),
-    newSemtechGnssDetail,
-    semtechGnssDetail_type,
-    semtechGnssDetail_provider,
-    semtechGnssDetail_status,
-    semtechGnssDetail_fec,
-
     -- * ServiceProfile
     ServiceProfile (..),
     newServiceProfile,
-    serviceProfile_name,
     serviceProfile_arn,
     serviceProfile_id,
+    serviceProfile_name,
 
     -- * SessionKeysAbpV1_0_x
     SessionKeysAbpV1_0_x (..),
     newSessionKeysAbpV1_0_x,
-    sessionKeysAbpV1_0_x_nwkSKey,
     sessionKeysAbpV1_0_x_appSKey,
+    sessionKeysAbpV1_0_x_nwkSKey,
 
     -- * SessionKeysAbpV1_1
     SessionKeysAbpV1_1 (..),
     newSessionKeysAbpV1_1,
-    sessionKeysAbpV1_1_nwkSEncKey,
-    sessionKeysAbpV1_1_fNwkSIntKey,
-    sessionKeysAbpV1_1_sNwkSIntKey,
     sessionKeysAbpV1_1_appSKey,
+    sessionKeysAbpV1_1_fNwkSIntKey,
+    sessionKeysAbpV1_1_nwkSEncKey,
+    sessionKeysAbpV1_1_sNwkSIntKey,
 
     -- * SidewalkAccountInfo
     SidewalkAccountInfo (..),
     newSidewalkAccountInfo,
-    sidewalkAccountInfo_appServerPrivateKey,
     sidewalkAccountInfo_amazonId,
+    sidewalkAccountInfo_appServerPrivateKey,
 
     -- * SidewalkAccountInfoWithFingerprint
     SidewalkAccountInfoWithFingerprint (..),
     newSidewalkAccountInfoWithFingerprint,
-    sidewalkAccountInfoWithFingerprint_arn,
     sidewalkAccountInfoWithFingerprint_amazonId,
+    sidewalkAccountInfoWithFingerprint_arn,
     sidewalkAccountInfoWithFingerprint_fingerprint,
 
     -- * SidewalkDevice
     SidewalkDevice (..),
     newSidewalkDevice,
+    sidewalkDevice_amazonId,
     sidewalkDevice_deviceCertificates,
     sidewalkDevice_sidewalkId,
-    sidewalkDevice_amazonId,
     sidewalkDevice_sidewalkManufacturingSn,
 
     -- * SidewalkDeviceMetadata
     SidewalkDeviceMetadata (..),
     newSidewalkDeviceMetadata,
-    sidewalkDeviceMetadata_deviceState,
     sidewalkDeviceMetadata_batteryLevel,
+    sidewalkDeviceMetadata_deviceState,
     sidewalkDeviceMetadata_event,
     sidewalkDeviceMetadata_rssi,
 
@@ -617,9 +693,9 @@ module Amazonka.IoTWireless.Types
     -- * SidewalkListDevice
     SidewalkListDevice (..),
     newSidewalkListDevice,
+    sidewalkListDevice_amazonId,
     sidewalkListDevice_deviceCertificates,
     sidewalkListDevice_sidewalkId,
-    sidewalkListDevice_amazonId,
     sidewalkListDevice_sidewalkManufacturingSn,
 
     -- * SidewalkResourceTypeEventConfiguration
@@ -630,9 +706,9 @@ module Amazonka.IoTWireless.Types
     -- * SidewalkSendDataToDevice
     SidewalkSendDataToDevice (..),
     newSidewalkSendDataToDevice,
-    sidewalkSendDataToDevice_seq,
-    sidewalkSendDataToDevice_messageType,
     sidewalkSendDataToDevice_ackModeRetryDurationSecs,
+    sidewalkSendDataToDevice_messageType,
+    sidewalkSendDataToDevice_seq,
 
     -- * SidewalkUpdateAccount
     SidewalkUpdateAccount (..),
@@ -644,6 +720,34 @@ module Amazonka.IoTWireless.Types
     newTag,
     tag_key,
     tag_value,
+
+    -- * TdscdmaLocalId
+    TdscdmaLocalId (..),
+    newTdscdmaLocalId,
+    tdscdmaLocalId_uarfcn,
+    tdscdmaLocalId_cellParams,
+
+    -- * TdscdmaNmrObj
+    TdscdmaNmrObj (..),
+    newTdscdmaNmrObj,
+    tdscdmaNmrObj_pathLoss,
+    tdscdmaNmrObj_rscp,
+    tdscdmaNmrObj_utranCid,
+    tdscdmaNmrObj_uarfcn,
+    tdscdmaNmrObj_cellParams,
+
+    -- * TdscdmaObj
+    TdscdmaObj (..),
+    newTdscdmaObj,
+    tdscdmaObj_lac,
+    tdscdmaObj_pathLoss,
+    tdscdmaObj_rscp,
+    tdscdmaObj_tdscdmaLocalId,
+    tdscdmaObj_tdscdmaNmr,
+    tdscdmaObj_tdscdmaTimingAdvance,
+    tdscdmaObj_mcc,
+    tdscdmaObj_mnc,
+    tdscdmaObj_utranCid,
 
     -- * TraceContent
     TraceContent (..),
@@ -664,21 +768,55 @@ module Amazonka.IoTWireless.Types
     -- * UpdateFPorts
     UpdateFPorts (..),
     newUpdateFPorts,
+    updateFPorts_applications,
     updateFPorts_positioning,
 
     -- * UpdateWirelessGatewayTaskCreate
     UpdateWirelessGatewayTaskCreate (..),
     newUpdateWirelessGatewayTaskCreate,
-    updateWirelessGatewayTaskCreate_updateDataRole,
     updateWirelessGatewayTaskCreate_loRaWAN,
+    updateWirelessGatewayTaskCreate_updateDataRole,
     updateWirelessGatewayTaskCreate_updateDataSource,
 
     -- * UpdateWirelessGatewayTaskEntry
     UpdateWirelessGatewayTaskEntry (..),
     newUpdateWirelessGatewayTaskEntry,
-    updateWirelessGatewayTaskEntry_loRaWAN,
     updateWirelessGatewayTaskEntry_arn,
     updateWirelessGatewayTaskEntry_id,
+    updateWirelessGatewayTaskEntry_loRaWAN,
+
+    -- * WcdmaLocalId
+    WcdmaLocalId (..),
+    newWcdmaLocalId,
+    wcdmaLocalId_uarfcndl,
+    wcdmaLocalId_psc,
+
+    -- * WcdmaNmrObj
+    WcdmaNmrObj (..),
+    newWcdmaNmrObj,
+    wcdmaNmrObj_pathLoss,
+    wcdmaNmrObj_rscp,
+    wcdmaNmrObj_uarfcndl,
+    wcdmaNmrObj_psc,
+    wcdmaNmrObj_utranCid,
+
+    -- * WcdmaObj
+    WcdmaObj (..),
+    newWcdmaObj,
+    wcdmaObj_lac,
+    wcdmaObj_pathLoss,
+    wcdmaObj_rscp,
+    wcdmaObj_wcdmaLocalId,
+    wcdmaObj_wcdmaNmr,
+    wcdmaObj_mcc,
+    wcdmaObj_mnc,
+    wcdmaObj_utranCid,
+
+    -- * WiFiAccessPoint
+    WiFiAccessPoint (..),
+    newWiFiAccessPoint,
+    wiFiAccessPoint_macAddress,
+    wiFiAccessPoint_rss,
 
     -- * WirelessDeviceEventLogOption
     WirelessDeviceEventLogOption (..),
@@ -696,17 +834,17 @@ module Amazonka.IoTWireless.Types
     -- * WirelessDeviceStatistics
     WirelessDeviceStatistics (..),
     newWirelessDeviceStatistics,
-    wirelessDeviceStatistics_name,
-    wirelessDeviceStatistics_type,
+    wirelessDeviceStatistics_arn,
+    wirelessDeviceStatistics_destinationName,
+    wirelessDeviceStatistics_fuotaDeviceStatus,
+    wirelessDeviceStatistics_id,
     wirelessDeviceStatistics_lastUplinkReceivedAt,
     wirelessDeviceStatistics_loRaWAN,
-    wirelessDeviceStatistics_destinationName,
-    wirelessDeviceStatistics_arn,
-    wirelessDeviceStatistics_id,
     wirelessDeviceStatistics_mcGroupId,
     wirelessDeviceStatistics_multicastDeviceStatus,
-    wirelessDeviceStatistics_fuotaDeviceStatus,
+    wirelessDeviceStatistics_name,
     wirelessDeviceStatistics_sidewalk,
+    wirelessDeviceStatistics_type,
 
     -- * WirelessGatewayEventLogOption
     WirelessGatewayEventLogOption (..),
@@ -724,12 +862,12 @@ module Amazonka.IoTWireless.Types
     -- * WirelessGatewayStatistics
     WirelessGatewayStatistics (..),
     newWirelessGatewayStatistics,
-    wirelessGatewayStatistics_name,
+    wirelessGatewayStatistics_arn,
+    wirelessGatewayStatistics_description,
+    wirelessGatewayStatistics_id,
     wirelessGatewayStatistics_lastUplinkReceivedAt,
     wirelessGatewayStatistics_loRaWAN,
-    wirelessGatewayStatistics_arn,
-    wirelessGatewayStatistics_id,
-    wirelessGatewayStatistics_description,
+    wirelessGatewayStatistics_name,
 
     -- * WirelessMetadata
     WirelessMetadata (..),
@@ -743,9 +881,14 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.IoTWireless.Types.AbpV1_0_x
 import Amazonka.IoTWireless.Types.AbpV1_1
-import Amazonka.IoTWireless.Types.Accuracy
+import Amazonka.IoTWireless.Types.ApplicationConfig
+import Amazonka.IoTWireless.Types.ApplicationConfigType
 import Amazonka.IoTWireless.Types.BatteryLevel
 import Amazonka.IoTWireless.Types.Beaconing
+import Amazonka.IoTWireless.Types.CdmaLocalId
+import Amazonka.IoTWireless.Types.CdmaNmrObj
+import Amazonka.IoTWireless.Types.CdmaObj
+import Amazonka.IoTWireless.Types.CellTowers
 import Amazonka.IoTWireless.Types.CertificateList
 import Amazonka.IoTWireless.Types.ConnectionStatus
 import Amazonka.IoTWireless.Types.ConnectionStatusEventConfiguration
@@ -770,7 +913,13 @@ import Amazonka.IoTWireless.Types.FuotaDeviceStatus
 import Amazonka.IoTWireless.Types.FuotaTask
 import Amazonka.IoTWireless.Types.FuotaTaskStatus
 import Amazonka.IoTWireless.Types.GatewayListItem
+import Amazonka.IoTWireless.Types.GlobalIdentity
+import Amazonka.IoTWireless.Types.Gnss
+import Amazonka.IoTWireless.Types.GsmLocalId
+import Amazonka.IoTWireless.Types.GsmNmrObj
+import Amazonka.IoTWireless.Types.GsmObj
 import Amazonka.IoTWireless.Types.IdentifierType
+import Amazonka.IoTWireless.Types.Ip
 import Amazonka.IoTWireless.Types.JoinEventConfiguration
 import Amazonka.IoTWireless.Types.JoinResourceTypeEventConfiguration
 import Amazonka.IoTWireless.Types.LoRaWANConnectionStatusEventNotificationConfigurations
@@ -799,6 +948,9 @@ import Amazonka.IoTWireless.Types.LoRaWANUpdateDevice
 import Amazonka.IoTWireless.Types.LoRaWANUpdateGatewayTaskCreate
 import Amazonka.IoTWireless.Types.LoRaWANUpdateGatewayTaskEntry
 import Amazonka.IoTWireless.Types.LogLevel
+import Amazonka.IoTWireless.Types.LteLocalId
+import Amazonka.IoTWireless.Types.LteNmrObj
+import Amazonka.IoTWireless.Types.LteObj
 import Amazonka.IoTWireless.Types.MessageDeliveryStatusEventConfiguration
 import Amazonka.IoTWireless.Types.MessageDeliveryStatusResourceTypeEventConfiguration
 import Amazonka.IoTWireless.Types.MessageType
@@ -810,19 +962,11 @@ import Amazonka.IoTWireless.Types.OtaaV1_0_x
 import Amazonka.IoTWireless.Types.OtaaV1_1
 import Amazonka.IoTWireless.Types.ParticipatingGateways
 import Amazonka.IoTWireless.Types.PartnerType
-import Amazonka.IoTWireless.Types.PositionConfigurationFec
-import Amazonka.IoTWireless.Types.PositionConfigurationItem
-import Amazonka.IoTWireless.Types.PositionConfigurationStatus
 import Amazonka.IoTWireless.Types.PositionResourceType
-import Amazonka.IoTWireless.Types.PositionSolverConfigurations
-import Amazonka.IoTWireless.Types.PositionSolverDetails
-import Amazonka.IoTWireless.Types.PositionSolverProvider
-import Amazonka.IoTWireless.Types.PositionSolverType
 import Amazonka.IoTWireless.Types.Positioning
+import Amazonka.IoTWireless.Types.PositioningConfigStatus
 import Amazonka.IoTWireless.Types.ProximityEventConfiguration
 import Amazonka.IoTWireless.Types.ProximityResourceTypeEventConfiguration
-import Amazonka.IoTWireless.Types.SemtechGnssConfiguration
-import Amazonka.IoTWireless.Types.SemtechGnssDetail
 import Amazonka.IoTWireless.Types.ServiceProfile
 import Amazonka.IoTWireless.Types.SessionKeysAbpV1_0_x
 import Amazonka.IoTWireless.Types.SessionKeysAbpV1_1
@@ -838,12 +982,19 @@ import Amazonka.IoTWireless.Types.SidewalkUpdateAccount
 import Amazonka.IoTWireless.Types.SigningAlg
 import Amazonka.IoTWireless.Types.SupportedRfRegion
 import Amazonka.IoTWireless.Types.Tag
+import Amazonka.IoTWireless.Types.TdscdmaLocalId
+import Amazonka.IoTWireless.Types.TdscdmaNmrObj
+import Amazonka.IoTWireless.Types.TdscdmaObj
 import Amazonka.IoTWireless.Types.TraceContent
 import Amazonka.IoTWireless.Types.UpdateAbpV1_0_x
 import Amazonka.IoTWireless.Types.UpdateAbpV1_1
 import Amazonka.IoTWireless.Types.UpdateFPorts
 import Amazonka.IoTWireless.Types.UpdateWirelessGatewayTaskCreate
 import Amazonka.IoTWireless.Types.UpdateWirelessGatewayTaskEntry
+import Amazonka.IoTWireless.Types.WcdmaLocalId
+import Amazonka.IoTWireless.Types.WcdmaNmrObj
+import Amazonka.IoTWireless.Types.WcdmaObj
+import Amazonka.IoTWireless.Types.WiFiAccessPoint
 import Amazonka.IoTWireless.Types.WirelessDeviceEvent
 import Amazonka.IoTWireless.Types.WirelessDeviceEventLogOption
 import Amazonka.IoTWireless.Types.WirelessDeviceFrameInfo
@@ -889,28 +1040,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -918,13 +1063,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -932,6 +1081,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | User does not have permission to perform this action.
@@ -942,30 +1093,6 @@ _AccessDeniedException =
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
--- | An unexpected error occurred while processing a request.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServerException"
-    Prelude.. Core.hasStatus 500
-
--- | The request was denied because the resource can\'t have any more tags.
-_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyTagsException =
-  Core._MatchServiceError
-    defaultService
-    "TooManyTagsException"
-    Prelude.. Core.hasStatus 400
-
--- | Resource does not exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
-
 -- | Adding, updating, or deleting the resource can cause an inconsistent
 -- state.
 _ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -975,6 +1102,22 @@ _ConflictException =
     "ConflictException"
     Prelude.. Core.hasStatus 409
 
+-- | An unexpected error occurred while processing a request.
+_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServerException"
+    Prelude.. Core.hasStatus 500
+
+-- | Resource does not exist.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
+
 -- | The request was denied because it exceeded the allowed API request rate.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ThrottlingException =
@@ -982,6 +1125,14 @@ _ThrottlingException =
     defaultService
     "ThrottlingException"
     Prelude.. Core.hasStatus 429
+
+-- | The request was denied because the resource can\'t have any more tags.
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyTagsException"
+    Prelude.. Core.hasStatus 400
 
 -- | The input did not meet the specified constraints.
 _ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

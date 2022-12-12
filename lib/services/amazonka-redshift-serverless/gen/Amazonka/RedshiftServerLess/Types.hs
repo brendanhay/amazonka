@@ -19,14 +19,14 @@ module Amazonka.RedshiftServerLess.Types
 
     -- * Errors
     _AccessDeniedException,
-    _InternalServerException,
-    _TooManyTagsException,
-    _ServiceQuotaExceededException,
-    _ResourceNotFoundException,
-    _InvalidPaginationException,
-    _InsufficientCapacityException,
     _ConflictException,
+    _InsufficientCapacityException,
+    _InternalServerException,
+    _InvalidPaginationException,
+    _ResourceNotFoundException,
+    _ServiceQuotaExceededException,
     _ThrottlingException,
+    _TooManyTagsException,
     _ValidationException,
 
     -- * LogExport
@@ -53,61 +53,62 @@ module Amazonka.RedshiftServerLess.Types
     -- * ConfigParameter
     ConfigParameter (..),
     newConfigParameter,
-    configParameter_parameterValue,
     configParameter_parameterKey,
+    configParameter_parameterValue,
 
     -- * Endpoint
     Endpoint (..),
     newEndpoint,
-    endpoint_port,
     endpoint_address,
+    endpoint_port,
     endpoint_vpcEndpoints,
 
     -- * EndpointAccess
     EndpointAccess (..),
     newEndpointAccess,
-    endpointAccess_port,
-    endpointAccess_endpointName,
-    endpointAccess_workgroupName,
     endpointAccess_address,
-    endpointAccess_endpointStatus,
-    endpointAccess_subnetIds,
     endpointAccess_endpointArn,
+    endpointAccess_endpointCreateTime,
+    endpointAccess_endpointName,
+    endpointAccess_endpointStatus,
+    endpointAccess_port,
+    endpointAccess_subnetIds,
     endpointAccess_vpcEndpoint,
     endpointAccess_vpcSecurityGroups,
-    endpointAccess_endpointCreateTime,
+    endpointAccess_workgroupName,
 
     -- * Namespace
     Namespace (..),
     newNamespace,
-    namespace_namespaceName,
+    namespace_adminUsername,
     namespace_creationDate,
+    namespace_dbName,
+    namespace_defaultIamRoleArn,
+    namespace_iamRoles,
+    namespace_kmsKeyId,
     namespace_logExports,
     namespace_namespaceArn,
-    namespace_iamRoles,
-    namespace_status,
     namespace_namespaceId,
-    namespace_kmsKeyId,
-    namespace_defaultIamRoleArn,
-    namespace_adminUsername,
-    namespace_dbName,
+    namespace_namespaceName,
+    namespace_status,
 
     -- * NetworkInterface
     NetworkInterface (..),
     newNetworkInterface,
-    networkInterface_subnetId,
     networkInterface_availabilityZone,
     networkInterface_networkInterfaceId,
     networkInterface_privateIpAddress,
+    networkInterface_subnetId,
 
     -- * RecoveryPoint
     RecoveryPoint (..),
     newRecoveryPoint,
+    recoveryPoint_namespaceArn,
     recoveryPoint_namespaceName,
+    recoveryPoint_recoveryPointCreateTime,
     recoveryPoint_recoveryPointId,
     recoveryPoint_totalSizeInMegaBytes,
     recoveryPoint_workgroupName,
-    recoveryPoint_recoveryPointCreateTime,
 
     -- * ResourcePolicy
     ResourcePolicy (..),
@@ -118,26 +119,45 @@ module Amazonka.RedshiftServerLess.Types
     -- * Snapshot
     Snapshot (..),
     newSnapshot,
+    snapshot_accountsWithProvisionedRestoreAccess,
+    snapshot_accountsWithRestoreAccess,
+    snapshot_actualIncrementalBackupSizeInMegaBytes,
+    snapshot_adminUsername,
+    snapshot_backupProgressInMegaBytes,
     snapshot_currentBackupRateInMegaBytesPerSecond,
-    snapshot_namespaceName,
-    snapshot_snapshotName,
-    snapshot_snapshotArn,
-    snapshot_snapshotRemainingDays,
-    snapshot_namespaceArn,
-    snapshot_status,
     snapshot_elapsedTimeInSeconds,
-    snapshot_snapshotRetentionStartTime,
-    snapshot_snapshotCreateTime,
-    snapshot_snapshotRetentionPeriod,
     snapshot_estimatedSecondsToCompletion,
     snapshot_kmsKeyId,
-    snapshot_totalBackupSizeInMegaBytes,
-    snapshot_accountsWithRestoreAccess,
+    snapshot_namespaceArn,
+    snapshot_namespaceName,
     snapshot_ownerAccount,
-    snapshot_backupProgressInMegaBytes,
-    snapshot_adminUsername,
-    snapshot_actualIncrementalBackupSizeInMegaBytes,
-    snapshot_accountsWithProvisionedRestoreAccess,
+    snapshot_snapshotArn,
+    snapshot_snapshotCreateTime,
+    snapshot_snapshotName,
+    snapshot_snapshotRemainingDays,
+    snapshot_snapshotRetentionPeriod,
+    snapshot_snapshotRetentionStartTime,
+    snapshot_status,
+    snapshot_totalBackupSizeInMegaBytes,
+
+    -- * TableRestoreStatus
+    TableRestoreStatus (..),
+    newTableRestoreStatus,
+    tableRestoreStatus_message,
+    tableRestoreStatus_namespaceName,
+    tableRestoreStatus_newTableName,
+    tableRestoreStatus_progressInMegaBytes,
+    tableRestoreStatus_requestTime,
+    tableRestoreStatus_snapshotName,
+    tableRestoreStatus_sourceDatabaseName,
+    tableRestoreStatus_sourceSchemaName,
+    tableRestoreStatus_sourceTableName,
+    tableRestoreStatus_status,
+    tableRestoreStatus_tableRestoreRequestId,
+    tableRestoreStatus_targetDatabaseName,
+    tableRestoreStatus_targetSchemaName,
+    tableRestoreStatus_totalDataInMegaBytes,
+    tableRestoreStatus_workgroupName,
 
     -- * Tag
     Tag (..),
@@ -148,20 +168,20 @@ module Amazonka.RedshiftServerLess.Types
     -- * UsageLimit
     UsageLimit (..),
     newUsageLimit,
-    usageLimit_usageLimitId,
-    usageLimit_usageLimitArn,
-    usageLimit_period,
-    usageLimit_usageType,
-    usageLimit_breachAction,
-    usageLimit_resourceArn,
     usageLimit_amount,
+    usageLimit_breachAction,
+    usageLimit_period,
+    usageLimit_resourceArn,
+    usageLimit_usageLimitArn,
+    usageLimit_usageLimitId,
+    usageLimit_usageType,
 
     -- * VpcEndpoint
     VpcEndpoint (..),
     newVpcEndpoint,
+    vpcEndpoint_networkInterfaces,
     vpcEndpoint_vpcEndpointId,
     vpcEndpoint_vpcId,
-    vpcEndpoint_networkInterfaces,
 
     -- * VpcSecurityGroupMembership
     VpcSecurityGroupMembership (..),
@@ -172,19 +192,20 @@ module Amazonka.RedshiftServerLess.Types
     -- * Workgroup
     Workgroup (..),
     newWorkgroup,
-    workgroup_securityGroupIds,
-    workgroup_namespaceName,
     workgroup_baseCapacity,
-    workgroup_creationDate,
-    workgroup_workgroupName,
-    workgroup_status,
-    workgroup_publiclyAccessible,
     workgroup_configParameters,
-    workgroup_enhancedVpcRouting,
+    workgroup_creationDate,
     workgroup_endpoint,
-    workgroup_workgroupId,
+    workgroup_enhancedVpcRouting,
+    workgroup_namespaceName,
+    workgroup_port,
+    workgroup_publiclyAccessible,
+    workgroup_securityGroupIds,
+    workgroup_status,
     workgroup_subnetIds,
     workgroup_workgroupArn,
+    workgroup_workgroupId,
+    workgroup_workgroupName,
   )
 where
 
@@ -202,6 +223,7 @@ import Amazonka.RedshiftServerLess.Types.RecoveryPoint
 import Amazonka.RedshiftServerLess.Types.ResourcePolicy
 import Amazonka.RedshiftServerLess.Types.Snapshot
 import Amazonka.RedshiftServerLess.Types.SnapshotStatus
+import Amazonka.RedshiftServerLess.Types.TableRestoreStatus
 import Amazonka.RedshiftServerLess.Types.Tag
 import Amazonka.RedshiftServerLess.Types.UsageLimit
 import Amazonka.RedshiftServerLess.Types.UsageLimitBreachAction
@@ -239,28 +261,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -268,13 +284,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -282,6 +302,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient access to perform this action.
@@ -291,41 +313,12 @@ _AccessDeniedException =
     defaultService
     "AccessDeniedException"
 
--- | The request processing has failed because of an unknown error, exception
--- or failure.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerException =
+-- | The submitted action has conflicts.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
   Core._MatchServiceError
     defaultService
-    "InternalServerException"
-
--- | The request exceeded the number of tags allowed for a resource.
-_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyTagsException =
-  Core._MatchServiceError
-    defaultService
-    "TooManyTagsException"
-
--- | The service limit was exceeded.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceQuotaExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceQuotaExceededException"
-
--- | The resource could not be found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-
--- | The provided pagination token is invalid.
-_InvalidPaginationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidPaginationException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidPaginationException"
+    "ConflictException"
 
 -- | There is an insufficient capacity to perform the action.
 _InsufficientCapacityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -334,12 +327,34 @@ _InsufficientCapacityException =
     defaultService
     "InsufficientCapacityException"
 
--- | The submitted action has conflicts.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
+-- | The request processing has failed because of an unknown error, exception
+-- or failure.
+_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException =
   Core._MatchServiceError
     defaultService
-    "ConflictException"
+    "InternalServerException"
+
+-- | The provided pagination token is invalid.
+_InvalidPaginationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidPaginationException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidPaginationException"
+
+-- | The resource could not be found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+
+-- | The service limit was exceeded.
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceQuotaExceededException"
 
 -- | The request was denied due to request throttling.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -347,6 +362,13 @@ _ThrottlingException =
   Core._MatchServiceError
     defaultService
     "ThrottlingException"
+
+-- | The request exceeded the number of tags allowed for a resource.
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyTagsException"
 
 -- | The input failed to satisfy the constraints specified by an AWS service.
 _ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

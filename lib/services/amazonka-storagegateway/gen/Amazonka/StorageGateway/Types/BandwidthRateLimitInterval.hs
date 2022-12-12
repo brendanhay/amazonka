@@ -32,14 +32,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBandwidthRateLimitInterval' smart constructor.
 data BandwidthRateLimitInterval = BandwidthRateLimitInterval'
-  { -- | The average upload rate limit component of the bandwidth rate limit
-    -- interval, in bits per second. This field does not appear in the response
-    -- if the upload rate limit is not set.
-    averageUploadRateLimitInBitsPerSec :: Prelude.Maybe Prelude.Natural,
-    -- | The average download rate limit component of the bandwidth rate limit
+  { -- | The average download rate limit component of the bandwidth rate limit
     -- interval, in bits per second. This field does not appear in the response
     -- if the download rate limit is not set.
     averageDownloadRateLimitInBitsPerSec :: Prelude.Maybe Prelude.Natural,
+    -- | The average upload rate limit component of the bandwidth rate limit
+    -- interval, in bits per second. This field does not appear in the response
+    -- if the upload rate limit is not set.
+    averageUploadRateLimitInBitsPerSec :: Prelude.Maybe Prelude.Natural,
     -- | The hour of the day to start the bandwidth rate limit interval.
     startHourOfDay :: Prelude.Natural,
     -- | The minute of the hour to start the bandwidth rate limit interval. The
@@ -68,13 +68,13 @@ data BandwidthRateLimitInterval = BandwidthRateLimitInterval'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'averageUploadRateLimitInBitsPerSec', 'bandwidthRateLimitInterval_averageUploadRateLimitInBitsPerSec' - The average upload rate limit component of the bandwidth rate limit
--- interval, in bits per second. This field does not appear in the response
--- if the upload rate limit is not set.
---
 -- 'averageDownloadRateLimitInBitsPerSec', 'bandwidthRateLimitInterval_averageDownloadRateLimitInBitsPerSec' - The average download rate limit component of the bandwidth rate limit
 -- interval, in bits per second. This field does not appear in the response
 -- if the download rate limit is not set.
+--
+-- 'averageUploadRateLimitInBitsPerSec', 'bandwidthRateLimitInterval_averageUploadRateLimitInBitsPerSec' - The average upload rate limit component of the bandwidth rate limit
+-- interval, in bits per second. This field does not appear in the response
+-- if the upload rate limit is not set.
 --
 -- 'startHourOfDay', 'bandwidthRateLimitInterval_startHourOfDay' - The hour of the day to start the bandwidth rate limit interval.
 --
@@ -111,9 +111,9 @@ newBandwidthRateLimitInterval
   pEndMinuteOfHour_
   pDaysOfWeek_ =
     BandwidthRateLimitInterval'
-      { averageUploadRateLimitInBitsPerSec =
+      { averageDownloadRateLimitInBitsPerSec =
           Prelude.Nothing,
-        averageDownloadRateLimitInBitsPerSec =
+        averageUploadRateLimitInBitsPerSec =
           Prelude.Nothing,
         startHourOfDay = pStartHourOfDay_,
         startMinuteOfHour = pStartMinuteOfHour_,
@@ -122,17 +122,17 @@ newBandwidthRateLimitInterval
         daysOfWeek = Lens.coerced Lens.# pDaysOfWeek_
       }
 
--- | The average upload rate limit component of the bandwidth rate limit
--- interval, in bits per second. This field does not appear in the response
--- if the upload rate limit is not set.
-bandwidthRateLimitInterval_averageUploadRateLimitInBitsPerSec :: Lens.Lens' BandwidthRateLimitInterval (Prelude.Maybe Prelude.Natural)
-bandwidthRateLimitInterval_averageUploadRateLimitInBitsPerSec = Lens.lens (\BandwidthRateLimitInterval' {averageUploadRateLimitInBitsPerSec} -> averageUploadRateLimitInBitsPerSec) (\s@BandwidthRateLimitInterval' {} a -> s {averageUploadRateLimitInBitsPerSec = a} :: BandwidthRateLimitInterval)
-
 -- | The average download rate limit component of the bandwidth rate limit
 -- interval, in bits per second. This field does not appear in the response
 -- if the download rate limit is not set.
 bandwidthRateLimitInterval_averageDownloadRateLimitInBitsPerSec :: Lens.Lens' BandwidthRateLimitInterval (Prelude.Maybe Prelude.Natural)
 bandwidthRateLimitInterval_averageDownloadRateLimitInBitsPerSec = Lens.lens (\BandwidthRateLimitInterval' {averageDownloadRateLimitInBitsPerSec} -> averageDownloadRateLimitInBitsPerSec) (\s@BandwidthRateLimitInterval' {} a -> s {averageDownloadRateLimitInBitsPerSec = a} :: BandwidthRateLimitInterval)
+
+-- | The average upload rate limit component of the bandwidth rate limit
+-- interval, in bits per second. This field does not appear in the response
+-- if the upload rate limit is not set.
+bandwidthRateLimitInterval_averageUploadRateLimitInBitsPerSec :: Lens.Lens' BandwidthRateLimitInterval (Prelude.Maybe Prelude.Natural)
+bandwidthRateLimitInterval_averageUploadRateLimitInBitsPerSec = Lens.lens (\BandwidthRateLimitInterval' {averageUploadRateLimitInBitsPerSec} -> averageUploadRateLimitInBitsPerSec) (\s@BandwidthRateLimitInterval' {} a -> s {averageUploadRateLimitInBitsPerSec = a} :: BandwidthRateLimitInterval)
 
 -- | The hour of the day to start the bandwidth rate limit interval.
 bandwidthRateLimitInterval_startHourOfDay :: Lens.Lens' BandwidthRateLimitInterval Prelude.Natural
@@ -167,8 +167,8 @@ instance Data.FromJSON BandwidthRateLimitInterval where
       "BandwidthRateLimitInterval"
       ( \x ->
           BandwidthRateLimitInterval'
-            Prelude.<$> (x Data..:? "AverageUploadRateLimitInBitsPerSec")
-            Prelude.<*> (x Data..:? "AverageDownloadRateLimitInBitsPerSec")
+            Prelude.<$> (x Data..:? "AverageDownloadRateLimitInBitsPerSec")
+            Prelude.<*> (x Data..:? "AverageUploadRateLimitInBitsPerSec")
             Prelude.<*> (x Data..: "StartHourOfDay")
             Prelude.<*> (x Data..: "StartMinuteOfHour")
             Prelude.<*> (x Data..: "EndHourOfDay")
@@ -179,8 +179,8 @@ instance Data.FromJSON BandwidthRateLimitInterval where
 instance Prelude.Hashable BandwidthRateLimitInterval where
   hashWithSalt _salt BandwidthRateLimitInterval' {..} =
     _salt
-      `Prelude.hashWithSalt` averageUploadRateLimitInBitsPerSec
       `Prelude.hashWithSalt` averageDownloadRateLimitInBitsPerSec
+      `Prelude.hashWithSalt` averageUploadRateLimitInBitsPerSec
       `Prelude.hashWithSalt` startHourOfDay
       `Prelude.hashWithSalt` startMinuteOfHour
       `Prelude.hashWithSalt` endHourOfDay
@@ -189,8 +189,8 @@ instance Prelude.Hashable BandwidthRateLimitInterval where
 
 instance Prelude.NFData BandwidthRateLimitInterval where
   rnf BandwidthRateLimitInterval' {..} =
-    Prelude.rnf averageUploadRateLimitInBitsPerSec
-      `Prelude.seq` Prelude.rnf averageDownloadRateLimitInBitsPerSec
+    Prelude.rnf averageDownloadRateLimitInBitsPerSec
+      `Prelude.seq` Prelude.rnf averageUploadRateLimitInBitsPerSec
       `Prelude.seq` Prelude.rnf startHourOfDay
       `Prelude.seq` Prelude.rnf startMinuteOfHour
       `Prelude.seq` Prelude.rnf endHourOfDay
@@ -201,10 +201,10 @@ instance Data.ToJSON BandwidthRateLimitInterval where
   toJSON BandwidthRateLimitInterval' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("AverageUploadRateLimitInBitsPerSec" Data..=)
-              Prelude.<$> averageUploadRateLimitInBitsPerSec,
-            ("AverageDownloadRateLimitInBitsPerSec" Data..=)
+          [ ("AverageDownloadRateLimitInBitsPerSec" Data..=)
               Prelude.<$> averageDownloadRateLimitInBitsPerSec,
+            ("AverageUploadRateLimitInBitsPerSec" Data..=)
+              Prelude.<$> averageUploadRateLimitInBitsPerSec,
             Prelude.Just
               ("StartHourOfDay" Data..= startHourOfDay),
             Prelude.Just

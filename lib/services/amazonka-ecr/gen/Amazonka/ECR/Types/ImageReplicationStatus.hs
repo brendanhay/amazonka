@@ -31,13 +31,13 @@ import qualified Amazonka.Prelude as Prelude
 data ImageReplicationStatus = ImageReplicationStatus'
   { -- | The failure code for a replication that has failed.
     failureCode :: Prelude.Maybe Prelude.Text,
-    -- | The image replication status.
-    status :: Prelude.Maybe ReplicationStatus,
     -- | The destination Region for the image replication.
     region :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services account ID associated with the registry to which
     -- the image belongs.
-    registryId :: Prelude.Maybe Prelude.Text
+    registryId :: Prelude.Maybe Prelude.Text,
+    -- | The image replication status.
+    status :: Prelude.Maybe ReplicationStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,30 +51,26 @@ data ImageReplicationStatus = ImageReplicationStatus'
 --
 -- 'failureCode', 'imageReplicationStatus_failureCode' - The failure code for a replication that has failed.
 --
--- 'status', 'imageReplicationStatus_status' - The image replication status.
---
 -- 'region', 'imageReplicationStatus_region' - The destination Region for the image replication.
 --
 -- 'registryId', 'imageReplicationStatus_registryId' - The Amazon Web Services account ID associated with the registry to which
 -- the image belongs.
+--
+-- 'status', 'imageReplicationStatus_status' - The image replication status.
 newImageReplicationStatus ::
   ImageReplicationStatus
 newImageReplicationStatus =
   ImageReplicationStatus'
     { failureCode =
         Prelude.Nothing,
-      status = Prelude.Nothing,
       region = Prelude.Nothing,
-      registryId = Prelude.Nothing
+      registryId = Prelude.Nothing,
+      status = Prelude.Nothing
     }
 
 -- | The failure code for a replication that has failed.
 imageReplicationStatus_failureCode :: Lens.Lens' ImageReplicationStatus (Prelude.Maybe Prelude.Text)
 imageReplicationStatus_failureCode = Lens.lens (\ImageReplicationStatus' {failureCode} -> failureCode) (\s@ImageReplicationStatus' {} a -> s {failureCode = a} :: ImageReplicationStatus)
-
--- | The image replication status.
-imageReplicationStatus_status :: Lens.Lens' ImageReplicationStatus (Prelude.Maybe ReplicationStatus)
-imageReplicationStatus_status = Lens.lens (\ImageReplicationStatus' {status} -> status) (\s@ImageReplicationStatus' {} a -> s {status = a} :: ImageReplicationStatus)
 
 -- | The destination Region for the image replication.
 imageReplicationStatus_region :: Lens.Lens' ImageReplicationStatus (Prelude.Maybe Prelude.Text)
@@ -85,6 +81,10 @@ imageReplicationStatus_region = Lens.lens (\ImageReplicationStatus' {region} -> 
 imageReplicationStatus_registryId :: Lens.Lens' ImageReplicationStatus (Prelude.Maybe Prelude.Text)
 imageReplicationStatus_registryId = Lens.lens (\ImageReplicationStatus' {registryId} -> registryId) (\s@ImageReplicationStatus' {} a -> s {registryId = a} :: ImageReplicationStatus)
 
+-- | The image replication status.
+imageReplicationStatus_status :: Lens.Lens' ImageReplicationStatus (Prelude.Maybe ReplicationStatus)
+imageReplicationStatus_status = Lens.lens (\ImageReplicationStatus' {status} -> status) (\s@ImageReplicationStatus' {} a -> s {status = a} :: ImageReplicationStatus)
+
 instance Data.FromJSON ImageReplicationStatus where
   parseJSON =
     Data.withObject
@@ -92,21 +92,21 @@ instance Data.FromJSON ImageReplicationStatus where
       ( \x ->
           ImageReplicationStatus'
             Prelude.<$> (x Data..:? "failureCode")
-            Prelude.<*> (x Data..:? "status")
             Prelude.<*> (x Data..:? "region")
             Prelude.<*> (x Data..:? "registryId")
+            Prelude.<*> (x Data..:? "status")
       )
 
 instance Prelude.Hashable ImageReplicationStatus where
   hashWithSalt _salt ImageReplicationStatus' {..} =
     _salt `Prelude.hashWithSalt` failureCode
-      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` region
       `Prelude.hashWithSalt` registryId
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ImageReplicationStatus where
   rnf ImageReplicationStatus' {..} =
     Prelude.rnf failureCode
-      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf region
       `Prelude.seq` Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf status

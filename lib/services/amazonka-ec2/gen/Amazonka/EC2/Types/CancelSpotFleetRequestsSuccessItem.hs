@@ -32,10 +32,10 @@ import qualified Amazonka.Prelude as Prelude
 data CancelSpotFleetRequestsSuccessItem = CancelSpotFleetRequestsSuccessItem'
   { -- | The current state of the Spot Fleet request.
     currentSpotFleetRequestState :: Prelude.Maybe BatchState,
-    -- | The ID of the Spot Fleet request.
-    spotFleetRequestId :: Prelude.Maybe Prelude.Text,
     -- | The previous state of the Spot Fleet request.
-    previousSpotFleetRequestState :: Prelude.Maybe BatchState
+    previousSpotFleetRequestState :: Prelude.Maybe BatchState,
+    -- | The ID of the Spot Fleet request.
+    spotFleetRequestId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,31 +49,31 @@ data CancelSpotFleetRequestsSuccessItem = CancelSpotFleetRequestsSuccessItem'
 --
 -- 'currentSpotFleetRequestState', 'cancelSpotFleetRequestsSuccessItem_currentSpotFleetRequestState' - The current state of the Spot Fleet request.
 --
--- 'spotFleetRequestId', 'cancelSpotFleetRequestsSuccessItem_spotFleetRequestId' - The ID of the Spot Fleet request.
---
 -- 'previousSpotFleetRequestState', 'cancelSpotFleetRequestsSuccessItem_previousSpotFleetRequestState' - The previous state of the Spot Fleet request.
+--
+-- 'spotFleetRequestId', 'cancelSpotFleetRequestsSuccessItem_spotFleetRequestId' - The ID of the Spot Fleet request.
 newCancelSpotFleetRequestsSuccessItem ::
   CancelSpotFleetRequestsSuccessItem
 newCancelSpotFleetRequestsSuccessItem =
   CancelSpotFleetRequestsSuccessItem'
     { currentSpotFleetRequestState =
         Prelude.Nothing,
-      spotFleetRequestId = Prelude.Nothing,
       previousSpotFleetRequestState =
-        Prelude.Nothing
+        Prelude.Nothing,
+      spotFleetRequestId = Prelude.Nothing
     }
 
 -- | The current state of the Spot Fleet request.
 cancelSpotFleetRequestsSuccessItem_currentSpotFleetRequestState :: Lens.Lens' CancelSpotFleetRequestsSuccessItem (Prelude.Maybe BatchState)
 cancelSpotFleetRequestsSuccessItem_currentSpotFleetRequestState = Lens.lens (\CancelSpotFleetRequestsSuccessItem' {currentSpotFleetRequestState} -> currentSpotFleetRequestState) (\s@CancelSpotFleetRequestsSuccessItem' {} a -> s {currentSpotFleetRequestState = a} :: CancelSpotFleetRequestsSuccessItem)
 
--- | The ID of the Spot Fleet request.
-cancelSpotFleetRequestsSuccessItem_spotFleetRequestId :: Lens.Lens' CancelSpotFleetRequestsSuccessItem (Prelude.Maybe Prelude.Text)
-cancelSpotFleetRequestsSuccessItem_spotFleetRequestId = Lens.lens (\CancelSpotFleetRequestsSuccessItem' {spotFleetRequestId} -> spotFleetRequestId) (\s@CancelSpotFleetRequestsSuccessItem' {} a -> s {spotFleetRequestId = a} :: CancelSpotFleetRequestsSuccessItem)
-
 -- | The previous state of the Spot Fleet request.
 cancelSpotFleetRequestsSuccessItem_previousSpotFleetRequestState :: Lens.Lens' CancelSpotFleetRequestsSuccessItem (Prelude.Maybe BatchState)
 cancelSpotFleetRequestsSuccessItem_previousSpotFleetRequestState = Lens.lens (\CancelSpotFleetRequestsSuccessItem' {previousSpotFleetRequestState} -> previousSpotFleetRequestState) (\s@CancelSpotFleetRequestsSuccessItem' {} a -> s {previousSpotFleetRequestState = a} :: CancelSpotFleetRequestsSuccessItem)
+
+-- | The ID of the Spot Fleet request.
+cancelSpotFleetRequestsSuccessItem_spotFleetRequestId :: Lens.Lens' CancelSpotFleetRequestsSuccessItem (Prelude.Maybe Prelude.Text)
+cancelSpotFleetRequestsSuccessItem_spotFleetRequestId = Lens.lens (\CancelSpotFleetRequestsSuccessItem' {spotFleetRequestId} -> spotFleetRequestId) (\s@CancelSpotFleetRequestsSuccessItem' {} a -> s {spotFleetRequestId = a} :: CancelSpotFleetRequestsSuccessItem)
 
 instance
   Data.FromXML
@@ -82,8 +82,8 @@ instance
   parseXML x =
     CancelSpotFleetRequestsSuccessItem'
       Prelude.<$> (x Data..@? "currentSpotFleetRequestState")
-      Prelude.<*> (x Data..@? "spotFleetRequestId")
       Prelude.<*> (x Data..@? "previousSpotFleetRequestState")
+      Prelude.<*> (x Data..@? "spotFleetRequestId")
 
 instance
   Prelude.Hashable
@@ -94,8 +94,8 @@ instance
     CancelSpotFleetRequestsSuccessItem' {..} =
       _salt
         `Prelude.hashWithSalt` currentSpotFleetRequestState
-        `Prelude.hashWithSalt` spotFleetRequestId
         `Prelude.hashWithSalt` previousSpotFleetRequestState
+        `Prelude.hashWithSalt` spotFleetRequestId
 
 instance
   Prelude.NFData
@@ -103,5 +103,5 @@ instance
   where
   rnf CancelSpotFleetRequestsSuccessItem' {..} =
     Prelude.rnf currentSpotFleetRequestState
-      `Prelude.seq` Prelude.rnf spotFleetRequestId
       `Prelude.seq` Prelude.rnf previousSpotFleetRequestState
+      `Prelude.seq` Prelude.rnf spotFleetRequestId

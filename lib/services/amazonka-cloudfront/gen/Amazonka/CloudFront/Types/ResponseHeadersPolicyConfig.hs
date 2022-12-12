@@ -38,20 +38,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResponseHeadersPolicyConfig' smart constructor.
 data ResponseHeadersPolicyConfig = ResponseHeadersPolicyConfig'
-  { -- | A configuration for enabling the @Server-Timing@ header in HTTP
-    -- responses sent from CloudFront.
-    serverTimingHeadersConfig :: Prelude.Maybe ResponseHeadersPolicyServerTimingHeadersConfig,
-    -- | A comment to describe the response headers policy.
+  { -- | A comment to describe the response headers policy.
     --
     -- The comment cannot be longer than 128 characters.
     comment :: Prelude.Maybe Prelude.Text,
-    -- | A configuration for a set of security-related HTTP response headers.
-    securityHeadersConfig :: Prelude.Maybe ResponseHeadersPolicySecurityHeadersConfig,
     -- | A configuration for a set of HTTP response headers that are used for
     -- cross-origin resource sharing (CORS).
     corsConfig :: Prelude.Maybe ResponseHeadersPolicyCorsConfig,
     -- | A configuration for a set of custom HTTP response headers.
     customHeadersConfig :: Prelude.Maybe ResponseHeadersPolicyCustomHeadersConfig,
+    -- | A configuration for a set of security-related HTTP response headers.
+    securityHeadersConfig :: Prelude.Maybe ResponseHeadersPolicySecurityHeadersConfig,
+    -- | A configuration for enabling the @Server-Timing@ header in HTTP
+    -- responses sent from CloudFront.
+    serverTimingHeadersConfig :: Prelude.Maybe ResponseHeadersPolicyServerTimingHeadersConfig,
     -- | A name to identify the response headers policy.
     --
     -- The name must be unique for response headers policies in this Amazon Web
@@ -68,19 +68,19 @@ data ResponseHeadersPolicyConfig = ResponseHeadersPolicyConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serverTimingHeadersConfig', 'responseHeadersPolicyConfig_serverTimingHeadersConfig' - A configuration for enabling the @Server-Timing@ header in HTTP
--- responses sent from CloudFront.
---
 -- 'comment', 'responseHeadersPolicyConfig_comment' - A comment to describe the response headers policy.
 --
 -- The comment cannot be longer than 128 characters.
---
--- 'securityHeadersConfig', 'responseHeadersPolicyConfig_securityHeadersConfig' - A configuration for a set of security-related HTTP response headers.
 --
 -- 'corsConfig', 'responseHeadersPolicyConfig_corsConfig' - A configuration for a set of HTTP response headers that are used for
 -- cross-origin resource sharing (CORS).
 --
 -- 'customHeadersConfig', 'responseHeadersPolicyConfig_customHeadersConfig' - A configuration for a set of custom HTTP response headers.
+--
+-- 'securityHeadersConfig', 'responseHeadersPolicyConfig_securityHeadersConfig' - A configuration for a set of security-related HTTP response headers.
+--
+-- 'serverTimingHeadersConfig', 'responseHeadersPolicyConfig_serverTimingHeadersConfig' - A configuration for enabling the @Server-Timing@ header in HTTP
+-- responses sent from CloudFront.
 --
 -- 'name', 'responseHeadersPolicyConfig_name' - A name to identify the response headers policy.
 --
@@ -92,29 +92,20 @@ newResponseHeadersPolicyConfig ::
   ResponseHeadersPolicyConfig
 newResponseHeadersPolicyConfig pName_ =
   ResponseHeadersPolicyConfig'
-    { serverTimingHeadersConfig =
+    { comment =
         Prelude.Nothing,
-      comment = Prelude.Nothing,
-      securityHeadersConfig = Prelude.Nothing,
       corsConfig = Prelude.Nothing,
       customHeadersConfig = Prelude.Nothing,
+      securityHeadersConfig = Prelude.Nothing,
+      serverTimingHeadersConfig = Prelude.Nothing,
       name = pName_
     }
-
--- | A configuration for enabling the @Server-Timing@ header in HTTP
--- responses sent from CloudFront.
-responseHeadersPolicyConfig_serverTimingHeadersConfig :: Lens.Lens' ResponseHeadersPolicyConfig (Prelude.Maybe ResponseHeadersPolicyServerTimingHeadersConfig)
-responseHeadersPolicyConfig_serverTimingHeadersConfig = Lens.lens (\ResponseHeadersPolicyConfig' {serverTimingHeadersConfig} -> serverTimingHeadersConfig) (\s@ResponseHeadersPolicyConfig' {} a -> s {serverTimingHeadersConfig = a} :: ResponseHeadersPolicyConfig)
 
 -- | A comment to describe the response headers policy.
 --
 -- The comment cannot be longer than 128 characters.
 responseHeadersPolicyConfig_comment :: Lens.Lens' ResponseHeadersPolicyConfig (Prelude.Maybe Prelude.Text)
 responseHeadersPolicyConfig_comment = Lens.lens (\ResponseHeadersPolicyConfig' {comment} -> comment) (\s@ResponseHeadersPolicyConfig' {} a -> s {comment = a} :: ResponseHeadersPolicyConfig)
-
--- | A configuration for a set of security-related HTTP response headers.
-responseHeadersPolicyConfig_securityHeadersConfig :: Lens.Lens' ResponseHeadersPolicyConfig (Prelude.Maybe ResponseHeadersPolicySecurityHeadersConfig)
-responseHeadersPolicyConfig_securityHeadersConfig = Lens.lens (\ResponseHeadersPolicyConfig' {securityHeadersConfig} -> securityHeadersConfig) (\s@ResponseHeadersPolicyConfig' {} a -> s {securityHeadersConfig = a} :: ResponseHeadersPolicyConfig)
 
 -- | A configuration for a set of HTTP response headers that are used for
 -- cross-origin resource sharing (CORS).
@@ -124,6 +115,15 @@ responseHeadersPolicyConfig_corsConfig = Lens.lens (\ResponseHeadersPolicyConfig
 -- | A configuration for a set of custom HTTP response headers.
 responseHeadersPolicyConfig_customHeadersConfig :: Lens.Lens' ResponseHeadersPolicyConfig (Prelude.Maybe ResponseHeadersPolicyCustomHeadersConfig)
 responseHeadersPolicyConfig_customHeadersConfig = Lens.lens (\ResponseHeadersPolicyConfig' {customHeadersConfig} -> customHeadersConfig) (\s@ResponseHeadersPolicyConfig' {} a -> s {customHeadersConfig = a} :: ResponseHeadersPolicyConfig)
+
+-- | A configuration for a set of security-related HTTP response headers.
+responseHeadersPolicyConfig_securityHeadersConfig :: Lens.Lens' ResponseHeadersPolicyConfig (Prelude.Maybe ResponseHeadersPolicySecurityHeadersConfig)
+responseHeadersPolicyConfig_securityHeadersConfig = Lens.lens (\ResponseHeadersPolicyConfig' {securityHeadersConfig} -> securityHeadersConfig) (\s@ResponseHeadersPolicyConfig' {} a -> s {securityHeadersConfig = a} :: ResponseHeadersPolicyConfig)
+
+-- | A configuration for enabling the @Server-Timing@ header in HTTP
+-- responses sent from CloudFront.
+responseHeadersPolicyConfig_serverTimingHeadersConfig :: Lens.Lens' ResponseHeadersPolicyConfig (Prelude.Maybe ResponseHeadersPolicyServerTimingHeadersConfig)
+responseHeadersPolicyConfig_serverTimingHeadersConfig = Lens.lens (\ResponseHeadersPolicyConfig' {serverTimingHeadersConfig} -> serverTimingHeadersConfig) (\s@ResponseHeadersPolicyConfig' {} a -> s {serverTimingHeadersConfig = a} :: ResponseHeadersPolicyConfig)
 
 -- | A name to identify the response headers policy.
 --
@@ -135,41 +135,40 @@ responseHeadersPolicyConfig_name = Lens.lens (\ResponseHeadersPolicyConfig' {nam
 instance Data.FromXML ResponseHeadersPolicyConfig where
   parseXML x =
     ResponseHeadersPolicyConfig'
-      Prelude.<$> (x Data..@? "ServerTimingHeadersConfig")
-      Prelude.<*> (x Data..@? "Comment")
-      Prelude.<*> (x Data..@? "SecurityHeadersConfig")
+      Prelude.<$> (x Data..@? "Comment")
       Prelude.<*> (x Data..@? "CorsConfig")
       Prelude.<*> (x Data..@? "CustomHeadersConfig")
+      Prelude.<*> (x Data..@? "SecurityHeadersConfig")
+      Prelude.<*> (x Data..@? "ServerTimingHeadersConfig")
       Prelude.<*> (x Data..@ "Name")
 
 instance Prelude.Hashable ResponseHeadersPolicyConfig where
   hashWithSalt _salt ResponseHeadersPolicyConfig' {..} =
-    _salt
-      `Prelude.hashWithSalt` serverTimingHeadersConfig
-      `Prelude.hashWithSalt` comment
-      `Prelude.hashWithSalt` securityHeadersConfig
+    _salt `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` corsConfig
       `Prelude.hashWithSalt` customHeadersConfig
+      `Prelude.hashWithSalt` securityHeadersConfig
+      `Prelude.hashWithSalt` serverTimingHeadersConfig
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData ResponseHeadersPolicyConfig where
   rnf ResponseHeadersPolicyConfig' {..} =
-    Prelude.rnf serverTimingHeadersConfig
-      `Prelude.seq` Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf securityHeadersConfig
+    Prelude.rnf comment
       `Prelude.seq` Prelude.rnf corsConfig
       `Prelude.seq` Prelude.rnf customHeadersConfig
+      `Prelude.seq` Prelude.rnf securityHeadersConfig
+      `Prelude.seq` Prelude.rnf serverTimingHeadersConfig
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToXML ResponseHeadersPolicyConfig where
   toXML ResponseHeadersPolicyConfig' {..} =
     Prelude.mconcat
-      [ "ServerTimingHeadersConfig"
-          Data.@= serverTimingHeadersConfig,
-        "Comment" Data.@= comment,
-        "SecurityHeadersConfig"
-          Data.@= securityHeadersConfig,
+      [ "Comment" Data.@= comment,
         "CorsConfig" Data.@= corsConfig,
         "CustomHeadersConfig" Data.@= customHeadersConfig,
+        "SecurityHeadersConfig"
+          Data.@= securityHeadersConfig,
+        "ServerTimingHeadersConfig"
+          Data.@= serverTimingHeadersConfig,
         "Name" Data.@= name
       ]

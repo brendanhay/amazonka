@@ -37,13 +37,13 @@ module Amazonka.ElastiCache.DeleteUserGroup
     newUserGroup,
 
     -- * Response Lenses
-    userGroup_userGroupId,
-    userGroup_replicationGroups,
     userGroup_arn,
-    userGroup_pendingChanges,
-    userGroup_status,
-    userGroup_minimumEngineVersion,
     userGroup_engine,
+    userGroup_minimumEngineVersion,
+    userGroup_pendingChanges,
+    userGroup_replicationGroups,
+    userGroup_status,
+    userGroup_userGroupId,
     userGroup_userIds,
   )
 where

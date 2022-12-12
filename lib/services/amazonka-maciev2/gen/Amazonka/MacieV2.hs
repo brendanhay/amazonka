@@ -11,15 +11,7 @@
 --
 -- Derived from API version @2020-01-01@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- Amazon Macie is a fully managed data security and data privacy service
--- that uses machine learning and pattern matching to discover and protect
--- your sensitive data in AWS. Macie automates the discovery of sensitive
--- data, such as PII and intellectual property, to provide you with insight
--- into the data that your organization stores in AWS. Macie also provides
--- an inventory of your Amazon S3 buckets, which it continually monitors
--- for you. If Macie detects sensitive data or potential data access
--- issues, it generates detailed findings for you to review and act upon as
--- necessary.
+-- Amazon Macie
 module Amazonka.MacieV2
   ( -- * Service Configuration
     defaultService,
@@ -30,23 +22,23 @@ module Amazonka.MacieV2
     -- ** AccessDeniedException
     _AccessDeniedException,
 
+    -- ** ConflictException
+    _ConflictException,
+
     -- ** InternalServerException
     _InternalServerException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** UnprocessableEntityException
-    _UnprocessableEntityException,
-
-    -- ** ConflictException
-    _ConflictException,
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
 
     -- ** ThrottlingException
     _ThrottlingException,
+
+    -- ** UnprocessableEntityException
+    _UnprocessableEntityException,
 
     -- ** ValidationException
     _ValidationException,
@@ -222,6 +214,12 @@ module Amazonka.MacieV2
     GetAllowListResponse (GetAllowListResponse'),
     newGetAllowListResponse,
 
+    -- ** GetAutomatedDiscoveryConfiguration
+    GetAutomatedDiscoveryConfiguration (GetAutomatedDiscoveryConfiguration'),
+    newGetAutomatedDiscoveryConfiguration,
+    GetAutomatedDiscoveryConfigurationResponse (GetAutomatedDiscoveryConfigurationResponse'),
+    newGetAutomatedDiscoveryConfigurationResponse,
+
     -- ** GetBucketStatistics
     GetBucketStatistics (GetBucketStatistics'),
     newGetBucketStatistics,
@@ -233,6 +231,12 @@ module Amazonka.MacieV2
     newGetClassificationExportConfiguration,
     GetClassificationExportConfigurationResponse (GetClassificationExportConfigurationResponse'),
     newGetClassificationExportConfigurationResponse,
+
+    -- ** GetClassificationScope
+    GetClassificationScope (GetClassificationScope'),
+    newGetClassificationScope,
+    GetClassificationScopeResponse (GetClassificationScopeResponse'),
+    newGetClassificationScopeResponse,
 
     -- ** GetCustomDataIdentifier
     GetCustomDataIdentifier (GetCustomDataIdentifier'),
@@ -288,6 +292,12 @@ module Amazonka.MacieV2
     GetMemberResponse (GetMemberResponse'),
     newGetMemberResponse,
 
+    -- ** GetResourceProfile
+    GetResourceProfile (GetResourceProfile'),
+    newGetResourceProfile,
+    GetResourceProfileResponse (GetResourceProfileResponse'),
+    newGetResourceProfileResponse,
+
     -- ** GetRevealConfiguration
     GetRevealConfiguration (GetRevealConfiguration'),
     newGetRevealConfiguration,
@@ -306,6 +316,12 @@ module Amazonka.MacieV2
     GetSensitiveDataOccurrencesAvailabilityResponse (GetSensitiveDataOccurrencesAvailabilityResponse'),
     newGetSensitiveDataOccurrencesAvailabilityResponse,
 
+    -- ** GetSensitivityInspectionTemplate
+    GetSensitivityInspectionTemplate (GetSensitivityInspectionTemplate'),
+    newGetSensitivityInspectionTemplate,
+    GetSensitivityInspectionTemplateResponse (GetSensitivityInspectionTemplateResponse'),
+    newGetSensitivityInspectionTemplateResponse,
+
     -- ** GetUsageStatistics (Paginated)
     GetUsageStatistics (GetUsageStatistics'),
     newGetUsageStatistics,
@@ -318,7 +334,7 @@ module Amazonka.MacieV2
     GetUsageTotalsResponse (GetUsageTotalsResponse'),
     newGetUsageTotalsResponse,
 
-    -- ** ListAllowLists
+    -- ** ListAllowLists (Paginated)
     ListAllowLists (ListAllowLists'),
     newListAllowLists,
     ListAllowListsResponse (ListAllowListsResponse'),
@@ -329,6 +345,12 @@ module Amazonka.MacieV2
     newListClassificationJobs,
     ListClassificationJobsResponse (ListClassificationJobsResponse'),
     newListClassificationJobsResponse,
+
+    -- ** ListClassificationScopes (Paginated)
+    ListClassificationScopes (ListClassificationScopes'),
+    newListClassificationScopes,
+    ListClassificationScopesResponse (ListClassificationScopesResponse'),
+    newListClassificationScopesResponse,
 
     -- ** ListCustomDataIdentifiers (Paginated)
     ListCustomDataIdentifiers (ListCustomDataIdentifiers'),
@@ -354,7 +376,7 @@ module Amazonka.MacieV2
     ListInvitationsResponse (ListInvitationsResponse'),
     newListInvitationsResponse,
 
-    -- ** ListManagedDataIdentifiers
+    -- ** ListManagedDataIdentifiers (Paginated)
     ListManagedDataIdentifiers (ListManagedDataIdentifiers'),
     newListManagedDataIdentifiers,
     ListManagedDataIdentifiersResponse (ListManagedDataIdentifiersResponse'),
@@ -371,6 +393,24 @@ module Amazonka.MacieV2
     newListOrganizationAdminAccounts,
     ListOrganizationAdminAccountsResponse (ListOrganizationAdminAccountsResponse'),
     newListOrganizationAdminAccountsResponse,
+
+    -- ** ListResourceProfileArtifacts (Paginated)
+    ListResourceProfileArtifacts (ListResourceProfileArtifacts'),
+    newListResourceProfileArtifacts,
+    ListResourceProfileArtifactsResponse (ListResourceProfileArtifactsResponse'),
+    newListResourceProfileArtifactsResponse,
+
+    -- ** ListResourceProfileDetections (Paginated)
+    ListResourceProfileDetections (ListResourceProfileDetections'),
+    newListResourceProfileDetections,
+    ListResourceProfileDetectionsResponse (ListResourceProfileDetectionsResponse'),
+    newListResourceProfileDetectionsResponse,
+
+    -- ** ListSensitivityInspectionTemplates (Paginated)
+    ListSensitivityInspectionTemplates (ListSensitivityInspectionTemplates'),
+    newListSensitivityInspectionTemplates,
+    ListSensitivityInspectionTemplatesResponse (ListSensitivityInspectionTemplatesResponse'),
+    newListSensitivityInspectionTemplatesResponse,
 
     -- ** ListTagsForResource
     ListTagsForResource (ListTagsForResource'),
@@ -420,11 +460,23 @@ module Amazonka.MacieV2
     UpdateAllowListResponse (UpdateAllowListResponse'),
     newUpdateAllowListResponse,
 
+    -- ** UpdateAutomatedDiscoveryConfiguration
+    UpdateAutomatedDiscoveryConfiguration (UpdateAutomatedDiscoveryConfiguration'),
+    newUpdateAutomatedDiscoveryConfiguration,
+    UpdateAutomatedDiscoveryConfigurationResponse (UpdateAutomatedDiscoveryConfigurationResponse'),
+    newUpdateAutomatedDiscoveryConfigurationResponse,
+
     -- ** UpdateClassificationJob
     UpdateClassificationJob (UpdateClassificationJob'),
     newUpdateClassificationJob,
     UpdateClassificationJobResponse (UpdateClassificationJobResponse'),
     newUpdateClassificationJobResponse,
+
+    -- ** UpdateClassificationScope
+    UpdateClassificationScope (UpdateClassificationScope'),
+    newUpdateClassificationScope,
+    UpdateClassificationScopeResponse (UpdateClassificationScopeResponse'),
+    newUpdateClassificationScopeResponse,
 
     -- ** UpdateFindingsFilter
     UpdateFindingsFilter (UpdateFindingsFilter'),
@@ -450,11 +502,29 @@ module Amazonka.MacieV2
     UpdateOrganizationConfigurationResponse (UpdateOrganizationConfigurationResponse'),
     newUpdateOrganizationConfigurationResponse,
 
+    -- ** UpdateResourceProfile
+    UpdateResourceProfile (UpdateResourceProfile'),
+    newUpdateResourceProfile,
+    UpdateResourceProfileResponse (UpdateResourceProfileResponse'),
+    newUpdateResourceProfileResponse,
+
+    -- ** UpdateResourceProfileDetections
+    UpdateResourceProfileDetections (UpdateResourceProfileDetections'),
+    newUpdateResourceProfileDetections,
+    UpdateResourceProfileDetectionsResponse (UpdateResourceProfileDetectionsResponse'),
+    newUpdateResourceProfileDetectionsResponse,
+
     -- ** UpdateRevealConfiguration
     UpdateRevealConfiguration (UpdateRevealConfiguration'),
     newUpdateRevealConfiguration,
     UpdateRevealConfigurationResponse (UpdateRevealConfigurationResponse'),
     newUpdateRevealConfigurationResponse,
+
+    -- ** UpdateSensitivityInspectionTemplate
+    UpdateSensitivityInspectionTemplate (UpdateSensitivityInspectionTemplate'),
+    newUpdateSensitivityInspectionTemplate,
+    UpdateSensitivityInspectionTemplateResponse (UpdateSensitivityInspectionTemplateResponse'),
+    newUpdateSensitivityInspectionTemplateResponse,
 
     -- * Types
 
@@ -467,17 +537,26 @@ module Amazonka.MacieV2
     -- ** AllowsUnencryptedObjectUploads
     AllowsUnencryptedObjectUploads (..),
 
+    -- ** AutomatedDiscoveryStatus
+    AutomatedDiscoveryStatus (..),
+
     -- ** AvailabilityCode
     AvailabilityCode (..),
 
     -- ** BucketMetadataErrorCode
     BucketMetadataErrorCode (..),
 
+    -- ** ClassificationScopeUpdateOperation
+    ClassificationScopeUpdateOperation (..),
+
     -- ** Currency
     Currency (..),
 
     -- ** DataIdentifierSeverity
     DataIdentifierSeverity (..),
+
+    -- ** DataIdentifierType
+    DataIdentifierType (..),
 
     -- ** DayOfWeek
     DayOfWeek (..),
@@ -714,6 +793,10 @@ module Amazonka.MacieV2
     BucketSortCriteria (BucketSortCriteria'),
     newBucketSortCriteria,
 
+    -- ** BucketStatisticsBySensitivity
+    BucketStatisticsBySensitivity (BucketStatisticsBySensitivity'),
+    newBucketStatisticsBySensitivity,
+
     -- ** Cell
     Cell (Cell'),
     newCell,
@@ -733,6 +816,10 @@ module Amazonka.MacieV2
     -- ** ClassificationResultStatus
     ClassificationResultStatus (ClassificationResultStatus'),
     newClassificationResultStatus,
+
+    -- ** ClassificationScopeSummary
+    ClassificationScopeSummary (ClassificationScopeSummary'),
+    newClassificationScopeSummary,
 
     -- ** CriteriaBlockForJob
     CriteriaBlockForJob (CriteriaBlockForJob'),
@@ -769,6 +856,10 @@ module Amazonka.MacieV2
     -- ** DetectedDataDetails
     DetectedDataDetails (DetectedDataDetails'),
     newDetectedDataDetails,
+
+    -- ** Detection
+    Detection (Detection'),
+    newDetection,
 
     -- ** DomainDetails
     DomainDetails (DomainDetails'),
@@ -926,6 +1017,14 @@ module Amazonka.MacieV2
     ReplicationDetails (ReplicationDetails'),
     newReplicationDetails,
 
+    -- ** ResourceProfileArtifact
+    ResourceProfileArtifact (ResourceProfileArtifact'),
+    newResourceProfileArtifact,
+
+    -- ** ResourceStatistics
+    ResourceStatistics (ResourceStatistics'),
+    newResourceStatistics,
+
     -- ** ResourcesAffected
     ResourcesAffected (ResourcesAffected'),
     newResourcesAffected,
@@ -949,6 +1048,22 @@ module Amazonka.MacieV2
     -- ** S3BucketOwner
     S3BucketOwner (S3BucketOwner'),
     newS3BucketOwner,
+
+    -- ** S3ClassificationScope
+    S3ClassificationScope (S3ClassificationScope'),
+    newS3ClassificationScope,
+
+    -- ** S3ClassificationScopeExclusion
+    S3ClassificationScopeExclusion (S3ClassificationScopeExclusion'),
+    newS3ClassificationScopeExclusion,
+
+    -- ** S3ClassificationScopeExclusionUpdate
+    S3ClassificationScopeExclusionUpdate (S3ClassificationScopeExclusionUpdate'),
+    newS3ClassificationScopeExclusionUpdate,
+
+    -- ** S3ClassificationScopeUpdate
+    S3ClassificationScopeUpdate (S3ClassificationScopeUpdate'),
+    newS3ClassificationScopeUpdate,
 
     -- ** S3Destination
     S3Destination (S3Destination'),
@@ -1006,6 +1121,22 @@ module Amazonka.MacieV2
     SensitiveDataItem (SensitiveDataItem'),
     newSensitiveDataItem,
 
+    -- ** SensitivityAggregations
+    SensitivityAggregations (SensitivityAggregations'),
+    newSensitivityAggregations,
+
+    -- ** SensitivityInspectionTemplateExcludes
+    SensitivityInspectionTemplateExcludes (SensitivityInspectionTemplateExcludes'),
+    newSensitivityInspectionTemplateExcludes,
+
+    -- ** SensitivityInspectionTemplateIncludes
+    SensitivityInspectionTemplateIncludes (SensitivityInspectionTemplateIncludes'),
+    newSensitivityInspectionTemplateIncludes,
+
+    -- ** SensitivityInspectionTemplatesEntry
+    SensitivityInspectionTemplatesEntry (SensitivityInspectionTemplatesEntry'),
+    newSensitivityInspectionTemplatesEntry,
+
     -- ** ServerSideEncryption
     ServerSideEncryption (ServerSideEncryption'),
     newServerSideEncryption,
@@ -1049,6 +1180,10 @@ module Amazonka.MacieV2
     -- ** Statistics
     Statistics (Statistics'),
     newStatistics,
+
+    -- ** SuppressDataIdentifier
+    SuppressDataIdentifier (SuppressDataIdentifier'),
+    newSuppressDataIdentifier,
 
     -- ** TagCriterionForJob
     TagCriterionForJob (TagCriterionForJob'),
@@ -1135,8 +1270,10 @@ import Amazonka.MacieV2.EnableMacie
 import Amazonka.MacieV2.EnableOrganizationAdminAccount
 import Amazonka.MacieV2.GetAdministratorAccount
 import Amazonka.MacieV2.GetAllowList
+import Amazonka.MacieV2.GetAutomatedDiscoveryConfiguration
 import Amazonka.MacieV2.GetBucketStatistics
 import Amazonka.MacieV2.GetClassificationExportConfiguration
+import Amazonka.MacieV2.GetClassificationScope
 import Amazonka.MacieV2.GetCustomDataIdentifier
 import Amazonka.MacieV2.GetFindingStatistics
 import Amazonka.MacieV2.GetFindings
@@ -1146,14 +1283,17 @@ import Amazonka.MacieV2.GetInvitationsCount
 import Amazonka.MacieV2.GetMacieSession
 import Amazonka.MacieV2.GetMasterAccount
 import Amazonka.MacieV2.GetMember
+import Amazonka.MacieV2.GetResourceProfile
 import Amazonka.MacieV2.GetRevealConfiguration
 import Amazonka.MacieV2.GetSensitiveDataOccurrences
 import Amazonka.MacieV2.GetSensitiveDataOccurrencesAvailability
+import Amazonka.MacieV2.GetSensitivityInspectionTemplate
 import Amazonka.MacieV2.GetUsageStatistics
 import Amazonka.MacieV2.GetUsageTotals
 import Amazonka.MacieV2.Lens
 import Amazonka.MacieV2.ListAllowLists
 import Amazonka.MacieV2.ListClassificationJobs
+import Amazonka.MacieV2.ListClassificationScopes
 import Amazonka.MacieV2.ListCustomDataIdentifiers
 import Amazonka.MacieV2.ListFindings
 import Amazonka.MacieV2.ListFindingsFilters
@@ -1161,6 +1301,9 @@ import Amazonka.MacieV2.ListInvitations
 import Amazonka.MacieV2.ListManagedDataIdentifiers
 import Amazonka.MacieV2.ListMembers
 import Amazonka.MacieV2.ListOrganizationAdminAccounts
+import Amazonka.MacieV2.ListResourceProfileArtifacts
+import Amazonka.MacieV2.ListResourceProfileDetections
+import Amazonka.MacieV2.ListSensitivityInspectionTemplates
 import Amazonka.MacieV2.ListTagsForResource
 import Amazonka.MacieV2.PutClassificationExportConfiguration
 import Amazonka.MacieV2.PutFindingsPublicationConfiguration
@@ -1170,12 +1313,17 @@ import Amazonka.MacieV2.TestCustomDataIdentifier
 import Amazonka.MacieV2.Types
 import Amazonka.MacieV2.UntagResource
 import Amazonka.MacieV2.UpdateAllowList
+import Amazonka.MacieV2.UpdateAutomatedDiscoveryConfiguration
 import Amazonka.MacieV2.UpdateClassificationJob
+import Amazonka.MacieV2.UpdateClassificationScope
 import Amazonka.MacieV2.UpdateFindingsFilter
 import Amazonka.MacieV2.UpdateMacieSession
 import Amazonka.MacieV2.UpdateMemberSession
 import Amazonka.MacieV2.UpdateOrganizationConfiguration
+import Amazonka.MacieV2.UpdateResourceProfile
+import Amazonka.MacieV2.UpdateResourceProfileDetections
 import Amazonka.MacieV2.UpdateRevealConfiguration
+import Amazonka.MacieV2.UpdateSensitivityInspectionTemplate
 import Amazonka.MacieV2.Waiters
 
 -- $errors

@@ -23,18 +23,20 @@
 -- Transcribes the audio from a customer service call and applies any
 -- additional Request Parameters you choose to include in your request.
 --
--- In addition to many of the standard transcription features, Call
--- Analytics provides you with call characteristics, call summarization,
--- speaker sentiment, and optional redaction of your text transcript and
--- your audio file. You can also apply custom categories to flag specified
--- conditions. To learn more about these features and insights, refer to
+-- In addition to many standard transcription features, Call Analytics
+-- provides you with call characteristics, call summarization, speaker
+-- sentiment, and optional redaction of your text transcript and your audio
+-- file. You can also apply custom categories to flag specified conditions.
+-- To learn more about these features and insights, refer to
 -- <https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics.html Analyzing call center audio with Call Analytics>.
 --
 -- If you want to apply categories to your Call Analytics job, you must
 -- create them before submitting your job request. Categories cannot be
 -- retroactively applied to a job. To create a new category, use the
 -- operation. To learn more about Call Analytics categories, see
--- <https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics-create-categories.html Creating categories>.
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html Creating categories for batch transcriptions>
+-- and
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-stream.html Creating categories for streaming transcriptions>.
 --
 -- To make a @StartCallAnalyticsJob@ request, you must first upload your
 -- media file into an Amazon S3 bucket; you can then specify the Amazon S3
@@ -48,8 +50,8 @@
 --     Amazon Transcribe, refer to
 --     <https://docs.aws.amazon.com/general/latest/gr/transcribe.html Amazon Transcribe endpoints and quotas>.
 --
--- -   @CallAnalyticsJobName@: A custom name you create for your
---     transcription job that is unique within your Amazon Web Services
+-- -   @CallAnalyticsJobName@: A custom name that you create for your
+--     transcription job that\'s unique within your Amazon Web Services
 --     account.
 --
 -- -   @DataAccessRoleArn@: The Amazon Resource Name (ARN) of an IAM role
@@ -70,11 +72,11 @@ module Amazonka.Transcribe.StartCallAnalyticsJob
     newStartCallAnalyticsJob,
 
     -- * Request Lenses
-    startCallAnalyticsJob_outputLocation,
-    startCallAnalyticsJob_dataAccessRoleArn,
-    startCallAnalyticsJob_settings,
-    startCallAnalyticsJob_outputEncryptionKMSKeyId,
     startCallAnalyticsJob_channelDefinitions,
+    startCallAnalyticsJob_dataAccessRoleArn,
+    startCallAnalyticsJob_outputEncryptionKMSKeyId,
+    startCallAnalyticsJob_outputLocation,
+    startCallAnalyticsJob_settings,
     startCallAnalyticsJob_callAnalyticsJobName,
     startCallAnalyticsJob_media,
 
@@ -98,32 +100,14 @@ import Amazonka.Transcribe.Types
 
 -- | /See:/ 'newStartCallAnalyticsJob' smart constructor.
 data StartCallAnalyticsJob = StartCallAnalyticsJob'
-  { -- | The Amazon S3 location where you want your Call Analytics transcription
-    -- output stored. You can use any of the following formats to specify the
-    -- output location:
-    --
-    -- 1.  s3:\/\/DOC-EXAMPLE-BUCKET
-    --
-    -- 2.  s3:\/\/DOC-EXAMPLE-BUCKET\/my-output-folder\/
-    --
-    -- 3.  s3:\/\/DOC-EXAMPLE-BUCKET\/my-output-folder\/my-call-analytics-job.json
-    --
-    -- Unless you specify a file name (option 3), the name of your output file
-    -- has a default value that matches the name you specified for your
-    -- transcription job using the @CallAnalyticsJobName@ parameter.
-    --
-    -- You can specify a KMS key to encrypt your output using the
-    -- @OutputEncryptionKMSKeyId@ parameter. If you don\'t specify a KMS key,
-    -- Amazon Transcribe uses the default Amazon S3 key for server-side
-    -- encryption.
-    --
-    -- If you don\'t specify @OutputLocation@, your transcript is placed in a
-    -- service-managed Amazon S3 bucket and you are provided with a URI to
-    -- access your transcript.
-    outputLocation :: Prelude.Maybe Prelude.Text,
+  { -- | Makes it possible to specify which speaker is on which channel. For
+    -- example, if your agent is the first participant to speak, you would set
+    -- @ChannelId@ to @0@ (to indicate the first channel) and @ParticipantRole@
+    -- to @AGENT@ (to indicate that it\'s the agent speaking).
+    channelDefinitions :: Prelude.Maybe (Prelude.NonEmpty ChannelDefinition),
     -- | The Amazon Resource Name (ARN) of an IAM role that has permissions to
     -- access the Amazon S3 bucket that contains your input files. If the role
-    -- you specify doesn’t have the appropriate permissions to access the
+    -- that you specify doesn’t have the appropriate permissions to access the
     -- specified Amazon S3 location, your request fails.
     --
     -- IAM role ARNs have the format
@@ -133,10 +117,6 @@ data StartCallAnalyticsJob = StartCallAnalyticsJob'
     -- For more information, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns IAM ARNs>.
     dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | Specify additional optional settings in your request, including content
-    -- redaction; allows you to apply custom language models, vocabulary
-    -- filters, and custom vocabularies to your Call Analytics job.
-    settings :: Prelude.Maybe CallAnalyticsJobSettings,
     -- | The KMS key you want to use to encrypt your Call Analytics output.
     --
     -- If using a key located in the __current__ Amazon Web Services account,
@@ -172,11 +152,33 @@ data StartCallAnalyticsJob = StartCallAnalyticsJob'
     -- Note that the user making the request must have permission to use the
     -- specified KMS key.
     outputEncryptionKMSKeyId :: Prelude.Maybe Prelude.Text,
-    -- | Allows you to specify which speaker is on which channel. For example, if
-    -- your agent is the first participant to speak, you would set @ChannelId@
-    -- to @0@ (to indicate the first channel) and @ParticipantRole@ to @AGENT@
-    -- (to indicate that it\'s the agent speaking).
-    channelDefinitions :: Prelude.Maybe (Prelude.NonEmpty ChannelDefinition),
+    -- | The Amazon S3 location where you want your Call Analytics transcription
+    -- output stored. You can use any of the following formats to specify the
+    -- output location:
+    --
+    -- 1.  s3:\/\/DOC-EXAMPLE-BUCKET
+    --
+    -- 2.  s3:\/\/DOC-EXAMPLE-BUCKET\/my-output-folder\/
+    --
+    -- 3.  s3:\/\/DOC-EXAMPLE-BUCKET\/my-output-folder\/my-call-analytics-job.json
+    --
+    -- Unless you specify a file name (option 3), the name of your output file
+    -- has a default value that matches the name you specified for your
+    -- transcription job using the @CallAnalyticsJobName@ parameter.
+    --
+    -- You can specify a KMS key to encrypt your output using the
+    -- @OutputEncryptionKMSKeyId@ parameter. If you don\'t specify a KMS key,
+    -- Amazon Transcribe uses the default Amazon S3 key for server-side
+    -- encryption.
+    --
+    -- If you don\'t specify @OutputLocation@, your transcript is placed in a
+    -- service-managed Amazon S3 bucket and you are provided with a URI to
+    -- access your transcript.
+    outputLocation :: Prelude.Maybe Prelude.Text,
+    -- | Specify additional optional settings in your request, including content
+    -- redaction; allows you to apply custom language models, vocabulary
+    -- filters, and custom vocabularies to your Call Analytics job.
+    settings :: Prelude.Maybe CallAnalyticsJobSettings,
     -- | A unique name, chosen by you, for your Call Analytics job.
     --
     -- This name is case sensitive, cannot contain spaces, and must be unique
@@ -184,6 +186,8 @@ data StartCallAnalyticsJob = StartCallAnalyticsJob'
     -- with the same name as an existing job, you get a @ConflictException@
     -- error.
     callAnalyticsJobName :: Prelude.Text,
+    -- | Describes the Amazon S3 location of the media file you want to use in
+    -- your Call Analytics request.
     media :: Media
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -196,32 +200,14 @@ data StartCallAnalyticsJob = StartCallAnalyticsJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'outputLocation', 'startCallAnalyticsJob_outputLocation' - The Amazon S3 location where you want your Call Analytics transcription
--- output stored. You can use any of the following formats to specify the
--- output location:
---
--- 1.  s3:\/\/DOC-EXAMPLE-BUCKET
---
--- 2.  s3:\/\/DOC-EXAMPLE-BUCKET\/my-output-folder\/
---
--- 3.  s3:\/\/DOC-EXAMPLE-BUCKET\/my-output-folder\/my-call-analytics-job.json
---
--- Unless you specify a file name (option 3), the name of your output file
--- has a default value that matches the name you specified for your
--- transcription job using the @CallAnalyticsJobName@ parameter.
---
--- You can specify a KMS key to encrypt your output using the
--- @OutputEncryptionKMSKeyId@ parameter. If you don\'t specify a KMS key,
--- Amazon Transcribe uses the default Amazon S3 key for server-side
--- encryption.
---
--- If you don\'t specify @OutputLocation@, your transcript is placed in a
--- service-managed Amazon S3 bucket and you are provided with a URI to
--- access your transcript.
+-- 'channelDefinitions', 'startCallAnalyticsJob_channelDefinitions' - Makes it possible to specify which speaker is on which channel. For
+-- example, if your agent is the first participant to speak, you would set
+-- @ChannelId@ to @0@ (to indicate the first channel) and @ParticipantRole@
+-- to @AGENT@ (to indicate that it\'s the agent speaking).
 --
 -- 'dataAccessRoleArn', 'startCallAnalyticsJob_dataAccessRoleArn' - The Amazon Resource Name (ARN) of an IAM role that has permissions to
 -- access the Amazon S3 bucket that contains your input files. If the role
--- you specify doesn’t have the appropriate permissions to access the
+-- that you specify doesn’t have the appropriate permissions to access the
 -- specified Amazon S3 location, your request fails.
 --
 -- IAM role ARNs have the format
@@ -230,10 +216,6 @@ data StartCallAnalyticsJob = StartCallAnalyticsJob'
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns IAM ARNs>.
---
--- 'settings', 'startCallAnalyticsJob_settings' - Specify additional optional settings in your request, including content
--- redaction; allows you to apply custom language models, vocabulary
--- filters, and custom vocabularies to your Call Analytics job.
 --
 -- 'outputEncryptionKMSKeyId', 'startCallAnalyticsJob_outputEncryptionKMSKeyId' - The KMS key you want to use to encrypt your Call Analytics output.
 --
@@ -270,40 +252,7 @@ data StartCallAnalyticsJob = StartCallAnalyticsJob'
 -- Note that the user making the request must have permission to use the
 -- specified KMS key.
 --
--- 'channelDefinitions', 'startCallAnalyticsJob_channelDefinitions' - Allows you to specify which speaker is on which channel. For example, if
--- your agent is the first participant to speak, you would set @ChannelId@
--- to @0@ (to indicate the first channel) and @ParticipantRole@ to @AGENT@
--- (to indicate that it\'s the agent speaking).
---
--- 'callAnalyticsJobName', 'startCallAnalyticsJob_callAnalyticsJobName' - A unique name, chosen by you, for your Call Analytics job.
---
--- This name is case sensitive, cannot contain spaces, and must be unique
--- within an Amazon Web Services account. If you try to create a new job
--- with the same name as an existing job, you get a @ConflictException@
--- error.
---
--- 'media', 'startCallAnalyticsJob_media' - Undocumented member.
-newStartCallAnalyticsJob ::
-  -- | 'callAnalyticsJobName'
-  Prelude.Text ->
-  -- | 'media'
-  Media ->
-  StartCallAnalyticsJob
-newStartCallAnalyticsJob
-  pCallAnalyticsJobName_
-  pMedia_ =
-    StartCallAnalyticsJob'
-      { outputLocation =
-          Prelude.Nothing,
-        dataAccessRoleArn = Prelude.Nothing,
-        settings = Prelude.Nothing,
-        outputEncryptionKMSKeyId = Prelude.Nothing,
-        channelDefinitions = Prelude.Nothing,
-        callAnalyticsJobName = pCallAnalyticsJobName_,
-        media = pMedia_
-      }
-
--- | The Amazon S3 location where you want your Call Analytics transcription
+-- 'outputLocation', 'startCallAnalyticsJob_outputLocation' - The Amazon S3 location where you want your Call Analytics transcription
 -- output stored. You can use any of the following formats to specify the
 -- output location:
 --
@@ -325,12 +274,50 @@ newStartCallAnalyticsJob
 -- If you don\'t specify @OutputLocation@, your transcript is placed in a
 -- service-managed Amazon S3 bucket and you are provided with a URI to
 -- access your transcript.
-startCallAnalyticsJob_outputLocation :: Lens.Lens' StartCallAnalyticsJob (Prelude.Maybe Prelude.Text)
-startCallAnalyticsJob_outputLocation = Lens.lens (\StartCallAnalyticsJob' {outputLocation} -> outputLocation) (\s@StartCallAnalyticsJob' {} a -> s {outputLocation = a} :: StartCallAnalyticsJob)
+--
+-- 'settings', 'startCallAnalyticsJob_settings' - Specify additional optional settings in your request, including content
+-- redaction; allows you to apply custom language models, vocabulary
+-- filters, and custom vocabularies to your Call Analytics job.
+--
+-- 'callAnalyticsJobName', 'startCallAnalyticsJob_callAnalyticsJobName' - A unique name, chosen by you, for your Call Analytics job.
+--
+-- This name is case sensitive, cannot contain spaces, and must be unique
+-- within an Amazon Web Services account. If you try to create a new job
+-- with the same name as an existing job, you get a @ConflictException@
+-- error.
+--
+-- 'media', 'startCallAnalyticsJob_media' - Describes the Amazon S3 location of the media file you want to use in
+-- your Call Analytics request.
+newStartCallAnalyticsJob ::
+  -- | 'callAnalyticsJobName'
+  Prelude.Text ->
+  -- | 'media'
+  Media ->
+  StartCallAnalyticsJob
+newStartCallAnalyticsJob
+  pCallAnalyticsJobName_
+  pMedia_ =
+    StartCallAnalyticsJob'
+      { channelDefinitions =
+          Prelude.Nothing,
+        dataAccessRoleArn = Prelude.Nothing,
+        outputEncryptionKMSKeyId = Prelude.Nothing,
+        outputLocation = Prelude.Nothing,
+        settings = Prelude.Nothing,
+        callAnalyticsJobName = pCallAnalyticsJobName_,
+        media = pMedia_
+      }
+
+-- | Makes it possible to specify which speaker is on which channel. For
+-- example, if your agent is the first participant to speak, you would set
+-- @ChannelId@ to @0@ (to indicate the first channel) and @ParticipantRole@
+-- to @AGENT@ (to indicate that it\'s the agent speaking).
+startCallAnalyticsJob_channelDefinitions :: Lens.Lens' StartCallAnalyticsJob (Prelude.Maybe (Prelude.NonEmpty ChannelDefinition))
+startCallAnalyticsJob_channelDefinitions = Lens.lens (\StartCallAnalyticsJob' {channelDefinitions} -> channelDefinitions) (\s@StartCallAnalyticsJob' {} a -> s {channelDefinitions = a} :: StartCallAnalyticsJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of an IAM role that has permissions to
 -- access the Amazon S3 bucket that contains your input files. If the role
--- you specify doesn’t have the appropriate permissions to access the
+-- that you specify doesn’t have the appropriate permissions to access the
 -- specified Amazon S3 location, your request fails.
 --
 -- IAM role ARNs have the format
@@ -341,12 +328,6 @@ startCallAnalyticsJob_outputLocation = Lens.lens (\StartCallAnalyticsJob' {outpu
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns IAM ARNs>.
 startCallAnalyticsJob_dataAccessRoleArn :: Lens.Lens' StartCallAnalyticsJob (Prelude.Maybe Prelude.Text)
 startCallAnalyticsJob_dataAccessRoleArn = Lens.lens (\StartCallAnalyticsJob' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@StartCallAnalyticsJob' {} a -> s {dataAccessRoleArn = a} :: StartCallAnalyticsJob)
-
--- | Specify additional optional settings in your request, including content
--- redaction; allows you to apply custom language models, vocabulary
--- filters, and custom vocabularies to your Call Analytics job.
-startCallAnalyticsJob_settings :: Lens.Lens' StartCallAnalyticsJob (Prelude.Maybe CallAnalyticsJobSettings)
-startCallAnalyticsJob_settings = Lens.lens (\StartCallAnalyticsJob' {settings} -> settings) (\s@StartCallAnalyticsJob' {} a -> s {settings = a} :: StartCallAnalyticsJob)
 
 -- | The KMS key you want to use to encrypt your Call Analytics output.
 --
@@ -385,12 +366,36 @@ startCallAnalyticsJob_settings = Lens.lens (\StartCallAnalyticsJob' {settings} -
 startCallAnalyticsJob_outputEncryptionKMSKeyId :: Lens.Lens' StartCallAnalyticsJob (Prelude.Maybe Prelude.Text)
 startCallAnalyticsJob_outputEncryptionKMSKeyId = Lens.lens (\StartCallAnalyticsJob' {outputEncryptionKMSKeyId} -> outputEncryptionKMSKeyId) (\s@StartCallAnalyticsJob' {} a -> s {outputEncryptionKMSKeyId = a} :: StartCallAnalyticsJob)
 
--- | Allows you to specify which speaker is on which channel. For example, if
--- your agent is the first participant to speak, you would set @ChannelId@
--- to @0@ (to indicate the first channel) and @ParticipantRole@ to @AGENT@
--- (to indicate that it\'s the agent speaking).
-startCallAnalyticsJob_channelDefinitions :: Lens.Lens' StartCallAnalyticsJob (Prelude.Maybe (Prelude.NonEmpty ChannelDefinition))
-startCallAnalyticsJob_channelDefinitions = Lens.lens (\StartCallAnalyticsJob' {channelDefinitions} -> channelDefinitions) (\s@StartCallAnalyticsJob' {} a -> s {channelDefinitions = a} :: StartCallAnalyticsJob) Prelude.. Lens.mapping Lens.coerced
+-- | The Amazon S3 location where you want your Call Analytics transcription
+-- output stored. You can use any of the following formats to specify the
+-- output location:
+--
+-- 1.  s3:\/\/DOC-EXAMPLE-BUCKET
+--
+-- 2.  s3:\/\/DOC-EXAMPLE-BUCKET\/my-output-folder\/
+--
+-- 3.  s3:\/\/DOC-EXAMPLE-BUCKET\/my-output-folder\/my-call-analytics-job.json
+--
+-- Unless you specify a file name (option 3), the name of your output file
+-- has a default value that matches the name you specified for your
+-- transcription job using the @CallAnalyticsJobName@ parameter.
+--
+-- You can specify a KMS key to encrypt your output using the
+-- @OutputEncryptionKMSKeyId@ parameter. If you don\'t specify a KMS key,
+-- Amazon Transcribe uses the default Amazon S3 key for server-side
+-- encryption.
+--
+-- If you don\'t specify @OutputLocation@, your transcript is placed in a
+-- service-managed Amazon S3 bucket and you are provided with a URI to
+-- access your transcript.
+startCallAnalyticsJob_outputLocation :: Lens.Lens' StartCallAnalyticsJob (Prelude.Maybe Prelude.Text)
+startCallAnalyticsJob_outputLocation = Lens.lens (\StartCallAnalyticsJob' {outputLocation} -> outputLocation) (\s@StartCallAnalyticsJob' {} a -> s {outputLocation = a} :: StartCallAnalyticsJob)
+
+-- | Specify additional optional settings in your request, including content
+-- redaction; allows you to apply custom language models, vocabulary
+-- filters, and custom vocabularies to your Call Analytics job.
+startCallAnalyticsJob_settings :: Lens.Lens' StartCallAnalyticsJob (Prelude.Maybe CallAnalyticsJobSettings)
+startCallAnalyticsJob_settings = Lens.lens (\StartCallAnalyticsJob' {settings} -> settings) (\s@StartCallAnalyticsJob' {} a -> s {settings = a} :: StartCallAnalyticsJob)
 
 -- | A unique name, chosen by you, for your Call Analytics job.
 --
@@ -401,7 +406,8 @@ startCallAnalyticsJob_channelDefinitions = Lens.lens (\StartCallAnalyticsJob' {c
 startCallAnalyticsJob_callAnalyticsJobName :: Lens.Lens' StartCallAnalyticsJob Prelude.Text
 startCallAnalyticsJob_callAnalyticsJobName = Lens.lens (\StartCallAnalyticsJob' {callAnalyticsJobName} -> callAnalyticsJobName) (\s@StartCallAnalyticsJob' {} a -> s {callAnalyticsJobName = a} :: StartCallAnalyticsJob)
 
--- | Undocumented member.
+-- | Describes the Amazon S3 location of the media file you want to use in
+-- your Call Analytics request.
 startCallAnalyticsJob_media :: Lens.Lens' StartCallAnalyticsJob Media
 startCallAnalyticsJob_media = Lens.lens (\StartCallAnalyticsJob' {media} -> media) (\s@StartCallAnalyticsJob' {} a -> s {media = a} :: StartCallAnalyticsJob)
 
@@ -421,21 +427,21 @@ instance Core.AWSRequest StartCallAnalyticsJob where
 
 instance Prelude.Hashable StartCallAnalyticsJob where
   hashWithSalt _salt StartCallAnalyticsJob' {..} =
-    _salt `Prelude.hashWithSalt` outputLocation
+    _salt `Prelude.hashWithSalt` channelDefinitions
       `Prelude.hashWithSalt` dataAccessRoleArn
-      `Prelude.hashWithSalt` settings
       `Prelude.hashWithSalt` outputEncryptionKMSKeyId
-      `Prelude.hashWithSalt` channelDefinitions
+      `Prelude.hashWithSalt` outputLocation
+      `Prelude.hashWithSalt` settings
       `Prelude.hashWithSalt` callAnalyticsJobName
       `Prelude.hashWithSalt` media
 
 instance Prelude.NFData StartCallAnalyticsJob where
   rnf StartCallAnalyticsJob' {..} =
-    Prelude.rnf outputLocation
+    Prelude.rnf channelDefinitions
       `Prelude.seq` Prelude.rnf dataAccessRoleArn
-      `Prelude.seq` Prelude.rnf settings
       `Prelude.seq` Prelude.rnf outputEncryptionKMSKeyId
-      `Prelude.seq` Prelude.rnf channelDefinitions
+      `Prelude.seq` Prelude.rnf outputLocation
+      `Prelude.seq` Prelude.rnf settings
       `Prelude.seq` Prelude.rnf callAnalyticsJobName
       `Prelude.seq` Prelude.rnf media
 
@@ -458,15 +464,15 @@ instance Data.ToJSON StartCallAnalyticsJob where
   toJSON StartCallAnalyticsJob' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("OutputLocation" Data..=)
-              Prelude.<$> outputLocation,
+          [ ("ChannelDefinitions" Data..=)
+              Prelude.<$> channelDefinitions,
             ("DataAccessRoleArn" Data..=)
               Prelude.<$> dataAccessRoleArn,
-            ("Settings" Data..=) Prelude.<$> settings,
             ("OutputEncryptionKMSKeyId" Data..=)
               Prelude.<$> outputEncryptionKMSKeyId,
-            ("ChannelDefinitions" Data..=)
-              Prelude.<$> channelDefinitions,
+            ("OutputLocation" Data..=)
+              Prelude.<$> outputLocation,
+            ("Settings" Data..=) Prelude.<$> settings,
             Prelude.Just
               ( "CallAnalyticsJobName"
                   Data..= callAnalyticsJobName

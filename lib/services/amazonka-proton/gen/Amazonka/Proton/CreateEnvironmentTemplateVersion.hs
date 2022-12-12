@@ -30,10 +30,10 @@ module Amazonka.Proton.CreateEnvironmentTemplateVersion
     newCreateEnvironmentTemplateVersion,
 
     -- * Request Lenses
-    createEnvironmentTemplateVersion_tags,
-    createEnvironmentTemplateVersion_majorVersion,
     createEnvironmentTemplateVersion_clientToken,
     createEnvironmentTemplateVersion_description,
+    createEnvironmentTemplateVersion_majorVersion,
+    createEnvironmentTemplateVersion_tags,
     createEnvironmentTemplateVersion_source,
     createEnvironmentTemplateVersion_templateName,
 
@@ -57,25 +57,25 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateEnvironmentTemplateVersion' smart constructor.
 data CreateEnvironmentTemplateVersion = CreateEnvironmentTemplateVersion'
-  { -- | An optional list of metadata items that you can associate with the
-    -- Proton environment template version. A tag is a key-value pair.
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
-    -- in the /Proton User Guide/.
-    tags :: Prelude.Maybe [Tag],
+  { -- | When included, if two identical requests are made with the same client
+    -- token, Proton returns the environment template version that the first
+    -- request created.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | A description of the new version of an environment template.
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | To create a new minor version of the environment template, include
     -- @major Version@.
     --
     -- To create a new major and minor version of the environment template,
     -- exclude @major Version@.
     majorVersion :: Prelude.Maybe Prelude.Text,
-    -- | When included, if two identical requests are made with the same client
-    -- token, Proton returns the environment template version that the first
-    -- request created.
-    clientToken :: Prelude.Maybe Prelude.Text,
-    -- | A description of the new version of an environment template.
-    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | An optional list of metadata items that you can associate with the
+    -- Proton environment template version. A tag is a key-value pair.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
+    -- in the /Proton User Guide/.
+    tags :: Prelude.Maybe [Tag],
     -- | An object that includes the template bundle S3 bucket path and name for
     -- the new version of an template.
     source :: TemplateVersionSourceInput,
@@ -92,12 +92,11 @@ data CreateEnvironmentTemplateVersion = CreateEnvironmentTemplateVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createEnvironmentTemplateVersion_tags' - An optional list of metadata items that you can associate with the
--- Proton environment template version. A tag is a key-value pair.
+-- 'clientToken', 'createEnvironmentTemplateVersion_clientToken' - When included, if two identical requests are made with the same client
+-- token, Proton returns the environment template version that the first
+-- request created.
 --
--- For more information, see
--- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
--- in the /Proton User Guide/.
+-- 'description', 'createEnvironmentTemplateVersion_description' - A description of the new version of an environment template.
 --
 -- 'majorVersion', 'createEnvironmentTemplateVersion_majorVersion' - To create a new minor version of the environment template, include
 -- @major Version@.
@@ -105,11 +104,12 @@ data CreateEnvironmentTemplateVersion = CreateEnvironmentTemplateVersion'
 -- To create a new major and minor version of the environment template,
 -- exclude @major Version@.
 --
--- 'clientToken', 'createEnvironmentTemplateVersion_clientToken' - When included, if two identical requests are made with the same client
--- token, Proton returns the environment template version that the first
--- request created.
+-- 'tags', 'createEnvironmentTemplateVersion_tags' - An optional list of metadata items that you can associate with the
+-- Proton environment template version. A tag is a key-value pair.
 --
--- 'description', 'createEnvironmentTemplateVersion_description' - A description of the new version of an environment template.
+-- For more information, see
+-- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
+-- in the /Proton User Guide/.
 --
 -- 'source', 'createEnvironmentTemplateVersion_source' - An object that includes the template bundle S3 bucket path and name for
 -- the new version of an template.
@@ -125,31 +125,14 @@ newCreateEnvironmentTemplateVersion
   pSource_
   pTemplateName_ =
     CreateEnvironmentTemplateVersion'
-      { tags =
+      { clientToken =
           Prelude.Nothing,
-        majorVersion = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
         description = Prelude.Nothing,
+        majorVersion = Prelude.Nothing,
+        tags = Prelude.Nothing,
         source = pSource_,
         templateName = pTemplateName_
       }
-
--- | An optional list of metadata items that you can associate with the
--- Proton environment template version. A tag is a key-value pair.
---
--- For more information, see
--- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
--- in the /Proton User Guide/.
-createEnvironmentTemplateVersion_tags :: Lens.Lens' CreateEnvironmentTemplateVersion (Prelude.Maybe [Tag])
-createEnvironmentTemplateVersion_tags = Lens.lens (\CreateEnvironmentTemplateVersion' {tags} -> tags) (\s@CreateEnvironmentTemplateVersion' {} a -> s {tags = a} :: CreateEnvironmentTemplateVersion) Prelude.. Lens.mapping Lens.coerced
-
--- | To create a new minor version of the environment template, include
--- @major Version@.
---
--- To create a new major and minor version of the environment template,
--- exclude @major Version@.
-createEnvironmentTemplateVersion_majorVersion :: Lens.Lens' CreateEnvironmentTemplateVersion (Prelude.Maybe Prelude.Text)
-createEnvironmentTemplateVersion_majorVersion = Lens.lens (\CreateEnvironmentTemplateVersion' {majorVersion} -> majorVersion) (\s@CreateEnvironmentTemplateVersion' {} a -> s {majorVersion = a} :: CreateEnvironmentTemplateVersion)
 
 -- | When included, if two identical requests are made with the same client
 -- token, Proton returns the environment template version that the first
@@ -160,6 +143,23 @@ createEnvironmentTemplateVersion_clientToken = Lens.lens (\CreateEnvironmentTemp
 -- | A description of the new version of an environment template.
 createEnvironmentTemplateVersion_description :: Lens.Lens' CreateEnvironmentTemplateVersion (Prelude.Maybe Prelude.Text)
 createEnvironmentTemplateVersion_description = Lens.lens (\CreateEnvironmentTemplateVersion' {description} -> description) (\s@CreateEnvironmentTemplateVersion' {} a -> s {description = a} :: CreateEnvironmentTemplateVersion) Prelude.. Lens.mapping Data._Sensitive
+
+-- | To create a new minor version of the environment template, include
+-- @major Version@.
+--
+-- To create a new major and minor version of the environment template,
+-- exclude @major Version@.
+createEnvironmentTemplateVersion_majorVersion :: Lens.Lens' CreateEnvironmentTemplateVersion (Prelude.Maybe Prelude.Text)
+createEnvironmentTemplateVersion_majorVersion = Lens.lens (\CreateEnvironmentTemplateVersion' {majorVersion} -> majorVersion) (\s@CreateEnvironmentTemplateVersion' {} a -> s {majorVersion = a} :: CreateEnvironmentTemplateVersion)
+
+-- | An optional list of metadata items that you can associate with the
+-- Proton environment template version. A tag is a key-value pair.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
+-- in the /Proton User Guide/.
+createEnvironmentTemplateVersion_tags :: Lens.Lens' CreateEnvironmentTemplateVersion (Prelude.Maybe [Tag])
+createEnvironmentTemplateVersion_tags = Lens.lens (\CreateEnvironmentTemplateVersion' {tags} -> tags) (\s@CreateEnvironmentTemplateVersion' {} a -> s {tags = a} :: CreateEnvironmentTemplateVersion) Prelude.. Lens.mapping Lens.coerced
 
 -- | An object that includes the template bundle S3 bucket path and name for
 -- the new version of an template.
@@ -194,10 +194,10 @@ instance
   hashWithSalt
     _salt
     CreateEnvironmentTemplateVersion' {..} =
-      _salt `Prelude.hashWithSalt` tags
-        `Prelude.hashWithSalt` majorVersion
-        `Prelude.hashWithSalt` clientToken
+      _salt `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` majorVersion
+        `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` source
         `Prelude.hashWithSalt` templateName
 
@@ -206,10 +206,10 @@ instance
     CreateEnvironmentTemplateVersion
   where
   rnf CreateEnvironmentTemplateVersion' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf majorVersion
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf majorVersion
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf templateName
 
@@ -235,10 +235,10 @@ instance Data.ToJSON CreateEnvironmentTemplateVersion where
   toJSON CreateEnvironmentTemplateVersion' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("majorVersion" Data..=) Prelude.<$> majorVersion,
-            ("clientToken" Data..=) Prelude.<$> clientToken,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
             ("description" Data..=) Prelude.<$> description,
+            ("majorVersion" Data..=) Prelude.<$> majorVersion,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("source" Data..= source),
             Prelude.Just ("templateName" Data..= templateName)
           ]

@@ -33,10 +33,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMetricDatum' smart constructor.
 data MetricDatum = MetricDatum'
-  { -- | __Internal only__. The statistical values for the metric.
-    statisticValues :: Prelude.Maybe StatisticSet,
-    -- | __Internal only__. The dimensions associated with the metric.
+  { -- | __Internal only__. The dimensions associated with the metric.
     dimensions :: Prelude.Maybe [Dimension],
+    -- | __Internal only__. The statistical values for the metric.
+    statisticValues :: Prelude.Maybe StatisticSet,
     -- | __Internal only__. The unit used to store the metric.
     unit :: Prelude.Maybe Unit,
     -- | __Internal only__. The value for the metric.
@@ -56,9 +56,9 @@ data MetricDatum = MetricDatum'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statisticValues', 'metricDatum_statisticValues' - __Internal only__. The statistical values for the metric.
---
 -- 'dimensions', 'metricDatum_dimensions' - __Internal only__. The dimensions associated with the metric.
+--
+-- 'statisticValues', 'metricDatum_statisticValues' - __Internal only__. The statistical values for the metric.
 --
 -- 'unit', 'metricDatum_unit' - __Internal only__. The unit used to store the metric.
 --
@@ -75,21 +75,21 @@ newMetricDatum ::
   MetricDatum
 newMetricDatum pMetricName_ pTimestamp_ =
   MetricDatum'
-    { statisticValues = Prelude.Nothing,
-      dimensions = Prelude.Nothing,
+    { dimensions = Prelude.Nothing,
+      statisticValues = Prelude.Nothing,
       unit = Prelude.Nothing,
       value = Prelude.Nothing,
       metricName = pMetricName_,
       timestamp = Data._Time Lens.# pTimestamp_
     }
 
--- | __Internal only__. The statistical values for the metric.
-metricDatum_statisticValues :: Lens.Lens' MetricDatum (Prelude.Maybe StatisticSet)
-metricDatum_statisticValues = Lens.lens (\MetricDatum' {statisticValues} -> statisticValues) (\s@MetricDatum' {} a -> s {statisticValues = a} :: MetricDatum)
-
 -- | __Internal only__. The dimensions associated with the metric.
 metricDatum_dimensions :: Lens.Lens' MetricDatum (Prelude.Maybe [Dimension])
 metricDatum_dimensions = Lens.lens (\MetricDatum' {dimensions} -> dimensions) (\s@MetricDatum' {} a -> s {dimensions = a} :: MetricDatum) Prelude.. Lens.mapping Lens.coerced
+
+-- | __Internal only__. The statistical values for the metric.
+metricDatum_statisticValues :: Lens.Lens' MetricDatum (Prelude.Maybe StatisticSet)
+metricDatum_statisticValues = Lens.lens (\MetricDatum' {statisticValues} -> statisticValues) (\s@MetricDatum' {} a -> s {statisticValues = a} :: MetricDatum)
 
 -- | __Internal only__. The unit used to store the metric.
 metricDatum_unit :: Lens.Lens' MetricDatum (Prelude.Maybe Unit)
@@ -109,8 +109,8 @@ metricDatum_timestamp = Lens.lens (\MetricDatum' {timestamp} -> timestamp) (\s@M
 
 instance Prelude.Hashable MetricDatum where
   hashWithSalt _salt MetricDatum' {..} =
-    _salt `Prelude.hashWithSalt` statisticValues
-      `Prelude.hashWithSalt` dimensions
+    _salt `Prelude.hashWithSalt` dimensions
+      `Prelude.hashWithSalt` statisticValues
       `Prelude.hashWithSalt` unit
       `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` metricName
@@ -118,8 +118,8 @@ instance Prelude.Hashable MetricDatum where
 
 instance Prelude.NFData MetricDatum where
   rnf MetricDatum' {..} =
-    Prelude.rnf statisticValues
-      `Prelude.seq` Prelude.rnf dimensions
+    Prelude.rnf dimensions
+      `Prelude.seq` Prelude.rnf statisticValues
       `Prelude.seq` Prelude.rnf unit
       `Prelude.seq` Prelude.rnf value
       `Prelude.seq` Prelude.rnf metricName
@@ -129,9 +129,9 @@ instance Data.ToJSON MetricDatum where
   toJSON MetricDatum' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("StatisticValues" Data..=)
+          [ ("Dimensions" Data..=) Prelude.<$> dimensions,
+            ("StatisticValues" Data..=)
               Prelude.<$> statisticValues,
-            ("Dimensions" Data..=) Prelude.<$> dimensions,
             ("Unit" Data..=) Prelude.<$> unit,
             ("Value" Data..=) Prelude.<$> value,
             Prelude.Just ("MetricName" Data..= metricName),

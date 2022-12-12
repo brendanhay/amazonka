@@ -32,12 +32,12 @@ data ClassifierMetadata = ClassifierMetadata'
   { -- | Describes the result metrics for the test data associated with an
     -- documentation classifier.
     evaluationMetrics :: Prelude.Maybe ClassifierEvaluationMetrics,
+    -- | The number of labels in the input data.
+    numberOfLabels :: Prelude.Maybe Prelude.Int,
     -- | The number of documents in the input data that were used to test the
     -- classifier. Typically this is 10 to 20 percent of the input documents,
     -- up to 10,000 documents.
     numberOfTestDocuments :: Prelude.Maybe Prelude.Int,
-    -- | The number of labels in the input data.
-    numberOfLabels :: Prelude.Maybe Prelude.Int,
     -- | The number of documents in the input data that were used to train the
     -- classifier. Typically this is 80 to 90 percent of the input documents.
     numberOfTrainedDocuments :: Prelude.Maybe Prelude.Int
@@ -55,11 +55,11 @@ data ClassifierMetadata = ClassifierMetadata'
 -- 'evaluationMetrics', 'classifierMetadata_evaluationMetrics' - Describes the result metrics for the test data associated with an
 -- documentation classifier.
 --
+-- 'numberOfLabels', 'classifierMetadata_numberOfLabels' - The number of labels in the input data.
+--
 -- 'numberOfTestDocuments', 'classifierMetadata_numberOfTestDocuments' - The number of documents in the input data that were used to test the
 -- classifier. Typically this is 10 to 20 percent of the input documents,
 -- up to 10,000 documents.
---
--- 'numberOfLabels', 'classifierMetadata_numberOfLabels' - The number of labels in the input data.
 --
 -- 'numberOfTrainedDocuments', 'classifierMetadata_numberOfTrainedDocuments' - The number of documents in the input data that were used to train the
 -- classifier. Typically this is 80 to 90 percent of the input documents.
@@ -69,8 +69,8 @@ newClassifierMetadata =
   ClassifierMetadata'
     { evaluationMetrics =
         Prelude.Nothing,
-      numberOfTestDocuments = Prelude.Nothing,
       numberOfLabels = Prelude.Nothing,
+      numberOfTestDocuments = Prelude.Nothing,
       numberOfTrainedDocuments = Prelude.Nothing
     }
 
@@ -79,15 +79,15 @@ newClassifierMetadata =
 classifierMetadata_evaluationMetrics :: Lens.Lens' ClassifierMetadata (Prelude.Maybe ClassifierEvaluationMetrics)
 classifierMetadata_evaluationMetrics = Lens.lens (\ClassifierMetadata' {evaluationMetrics} -> evaluationMetrics) (\s@ClassifierMetadata' {} a -> s {evaluationMetrics = a} :: ClassifierMetadata)
 
+-- | The number of labels in the input data.
+classifierMetadata_numberOfLabels :: Lens.Lens' ClassifierMetadata (Prelude.Maybe Prelude.Int)
+classifierMetadata_numberOfLabels = Lens.lens (\ClassifierMetadata' {numberOfLabels} -> numberOfLabels) (\s@ClassifierMetadata' {} a -> s {numberOfLabels = a} :: ClassifierMetadata)
+
 -- | The number of documents in the input data that were used to test the
 -- classifier. Typically this is 10 to 20 percent of the input documents,
 -- up to 10,000 documents.
 classifierMetadata_numberOfTestDocuments :: Lens.Lens' ClassifierMetadata (Prelude.Maybe Prelude.Int)
 classifierMetadata_numberOfTestDocuments = Lens.lens (\ClassifierMetadata' {numberOfTestDocuments} -> numberOfTestDocuments) (\s@ClassifierMetadata' {} a -> s {numberOfTestDocuments = a} :: ClassifierMetadata)
-
--- | The number of labels in the input data.
-classifierMetadata_numberOfLabels :: Lens.Lens' ClassifierMetadata (Prelude.Maybe Prelude.Int)
-classifierMetadata_numberOfLabels = Lens.lens (\ClassifierMetadata' {numberOfLabels} -> numberOfLabels) (\s@ClassifierMetadata' {} a -> s {numberOfLabels = a} :: ClassifierMetadata)
 
 -- | The number of documents in the input data that were used to train the
 -- classifier. Typically this is 80 to 90 percent of the input documents.
@@ -101,21 +101,21 @@ instance Data.FromJSON ClassifierMetadata where
       ( \x ->
           ClassifierMetadata'
             Prelude.<$> (x Data..:? "EvaluationMetrics")
-            Prelude.<*> (x Data..:? "NumberOfTestDocuments")
             Prelude.<*> (x Data..:? "NumberOfLabels")
+            Prelude.<*> (x Data..:? "NumberOfTestDocuments")
             Prelude.<*> (x Data..:? "NumberOfTrainedDocuments")
       )
 
 instance Prelude.Hashable ClassifierMetadata where
   hashWithSalt _salt ClassifierMetadata' {..} =
     _salt `Prelude.hashWithSalt` evaluationMetrics
-      `Prelude.hashWithSalt` numberOfTestDocuments
       `Prelude.hashWithSalt` numberOfLabels
+      `Prelude.hashWithSalt` numberOfTestDocuments
       `Prelude.hashWithSalt` numberOfTrainedDocuments
 
 instance Prelude.NFData ClassifierMetadata where
   rnf ClassifierMetadata' {..} =
     Prelude.rnf evaluationMetrics
-      `Prelude.seq` Prelude.rnf numberOfTestDocuments
       `Prelude.seq` Prelude.rnf numberOfLabels
+      `Prelude.seq` Prelude.rnf numberOfTestDocuments
       `Prelude.seq` Prelude.rnf numberOfTrainedDocuments

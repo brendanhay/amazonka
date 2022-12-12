@@ -34,8 +34,8 @@ module Amazonka.S3.PutObjectLegalHold
     putObjectLegalHold_checksumAlgorithm,
     putObjectLegalHold_contentMD5,
     putObjectLegalHold_expectedBucketOwner,
-    putObjectLegalHold_requestPayer,
     putObjectLegalHold_legalHold,
+    putObjectLegalHold_requestPayer,
     putObjectLegalHold_versionId,
     putObjectLegalHold_bucket,
     putObjectLegalHold_key,
@@ -82,10 +82,10 @@ data PutObjectLegalHold = PutObjectLegalHold'
     -- different account, the request fails with the HTTP status code
     -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
-    requestPayer :: Prelude.Maybe RequestPayer,
     -- | Container element for the legal hold configuration you want to apply to
     -- the specified object.
     legalHold :: Prelude.Maybe ObjectLockLegalHold,
+    requestPayer :: Prelude.Maybe RequestPayer,
     -- | The version ID of the object that you want to place a legal hold on.
     versionId :: Prelude.Maybe ObjectVersionId,
     -- | The bucket name containing the object that you want to place a legal
@@ -135,10 +135,10 @@ data PutObjectLegalHold = PutObjectLegalHold'
 -- different account, the request fails with the HTTP status code
 -- @403 Forbidden@ (access denied).
 --
--- 'requestPayer', 'putObjectLegalHold_requestPayer' - Undocumented member.
---
 -- 'legalHold', 'putObjectLegalHold_legalHold' - Container element for the legal hold configuration you want to apply to
 -- the specified object.
+--
+-- 'requestPayer', 'putObjectLegalHold_requestPayer' - Undocumented member.
 --
 -- 'versionId', 'putObjectLegalHold_versionId' - The version ID of the object that you want to place a legal hold on.
 --
@@ -167,8 +167,8 @@ newPutObjectLegalHold pBucket_ pKey_ =
         Prelude.Nothing,
       contentMD5 = Prelude.Nothing,
       expectedBucketOwner = Prelude.Nothing,
-      requestPayer = Prelude.Nothing,
       legalHold = Prelude.Nothing,
+      requestPayer = Prelude.Nothing,
       versionId = Prelude.Nothing,
       bucket = pBucket_,
       key = pKey_
@@ -202,14 +202,14 @@ putObjectLegalHold_contentMD5 = Lens.lens (\PutObjectLegalHold' {contentMD5} -> 
 putObjectLegalHold_expectedBucketOwner :: Lens.Lens' PutObjectLegalHold (Prelude.Maybe Prelude.Text)
 putObjectLegalHold_expectedBucketOwner = Lens.lens (\PutObjectLegalHold' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutObjectLegalHold' {} a -> s {expectedBucketOwner = a} :: PutObjectLegalHold)
 
--- | Undocumented member.
-putObjectLegalHold_requestPayer :: Lens.Lens' PutObjectLegalHold (Prelude.Maybe RequestPayer)
-putObjectLegalHold_requestPayer = Lens.lens (\PutObjectLegalHold' {requestPayer} -> requestPayer) (\s@PutObjectLegalHold' {} a -> s {requestPayer = a} :: PutObjectLegalHold)
-
 -- | Container element for the legal hold configuration you want to apply to
 -- the specified object.
 putObjectLegalHold_legalHold :: Lens.Lens' PutObjectLegalHold (Prelude.Maybe ObjectLockLegalHold)
 putObjectLegalHold_legalHold = Lens.lens (\PutObjectLegalHold' {legalHold} -> legalHold) (\s@PutObjectLegalHold' {} a -> s {legalHold = a} :: PutObjectLegalHold)
+
+-- | Undocumented member.
+putObjectLegalHold_requestPayer :: Lens.Lens' PutObjectLegalHold (Prelude.Maybe RequestPayer)
+putObjectLegalHold_requestPayer = Lens.lens (\PutObjectLegalHold' {requestPayer} -> requestPayer) (\s@PutObjectLegalHold' {} a -> s {requestPayer = a} :: PutObjectLegalHold)
 
 -- | The version ID of the object that you want to place a legal hold on.
 putObjectLegalHold_versionId :: Lens.Lens' PutObjectLegalHold (Prelude.Maybe ObjectVersionId)
@@ -253,8 +253,8 @@ instance Prelude.Hashable PutObjectLegalHold where
     _salt `Prelude.hashWithSalt` checksumAlgorithm
       `Prelude.hashWithSalt` contentMD5
       `Prelude.hashWithSalt` expectedBucketOwner
-      `Prelude.hashWithSalt` requestPayer
       `Prelude.hashWithSalt` legalHold
+      `Prelude.hashWithSalt` requestPayer
       `Prelude.hashWithSalt` versionId
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` key
@@ -264,8 +264,8 @@ instance Prelude.NFData PutObjectLegalHold where
     Prelude.rnf checksumAlgorithm
       `Prelude.seq` Prelude.rnf contentMD5
       `Prelude.seq` Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf requestPayer
       `Prelude.seq` Prelude.rnf legalHold
+      `Prelude.seq` Prelude.rnf requestPayer
       `Prelude.seq` Prelude.rnf versionId
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf key

@@ -29,8 +29,8 @@ module Amazonka.DataSync.CreateLocationFsxOntap
     newCreateLocationFsxOntap,
 
     -- * Request Lenses
-    createLocationFsxOntap_tags,
     createLocationFsxOntap_subdirectory,
+    createLocationFsxOntap_tags,
     createLocationFsxOntap_protocol,
     createLocationFsxOntap_securityGroupArns,
     createLocationFsxOntap_storageVirtualMachineArn,
@@ -55,11 +55,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateLocationFsxOntap' smart constructor.
 data CreateLocationFsxOntap = CreateLocationFsxOntap'
-  { -- | Specifies labels that help you categorize, filter, and search for your
-    -- Amazon Web Services resources. We recommend creating at least a name tag
-    -- for your location.
-    tags :: Prelude.Maybe [TagListEntry],
-    -- | Specifies the junction path (also known as a mount point) in the SVM
+  { -- | Specifies the junction path (also known as a mount point) in the SVM
     -- volume where you\'re copying data to or from (for example, @\/vol1@).
     --
     -- Don\'t specify a junction path in the SVM\'s root volume. For more
@@ -67,6 +63,10 @@ data CreateLocationFsxOntap = CreateLocationFsxOntap'
     -- <https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-svms.html Managing FSx for ONTAP storage virtual machines>
     -- in the /Amazon FSx for NetApp ONTAP User Guide/.
     subdirectory :: Prelude.Maybe Prelude.Text,
+    -- | Specifies labels that help you categorize, filter, and search for your
+    -- Amazon Web Services resources. We recommend creating at least a name tag
+    -- for your location.
+    tags :: Prelude.Maybe [TagListEntry],
     protocol :: FsxProtocol,
     -- | Specifies the Amazon EC2 security groups that provide access to your
     -- file system\'s preferred subnet.
@@ -95,10 +95,6 @@ data CreateLocationFsxOntap = CreateLocationFsxOntap'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createLocationFsxOntap_tags' - Specifies labels that help you categorize, filter, and search for your
--- Amazon Web Services resources. We recommend creating at least a name tag
--- for your location.
---
 -- 'subdirectory', 'createLocationFsxOntap_subdirectory' - Specifies the junction path (also known as a mount point) in the SVM
 -- volume where you\'re copying data to or from (for example, @\/vol1@).
 --
@@ -106,6 +102,10 @@ data CreateLocationFsxOntap = CreateLocationFsxOntap'
 -- information, see
 -- <https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-svms.html Managing FSx for ONTAP storage virtual machines>
 -- in the /Amazon FSx for NetApp ONTAP User Guide/.
+--
+-- 'tags', 'createLocationFsxOntap_tags' - Specifies labels that help you categorize, filter, and search for your
+-- Amazon Web Services resources. We recommend creating at least a name tag
+-- for your location.
 --
 -- 'protocol', 'createLocationFsxOntap_protocol' - Undocumented member.
 --
@@ -137,20 +137,15 @@ newCreateLocationFsxOntap
   pSecurityGroupArns_
   pStorageVirtualMachineArn_ =
     CreateLocationFsxOntap'
-      { tags = Prelude.Nothing,
-        subdirectory = Prelude.Nothing,
+      { subdirectory =
+          Prelude.Nothing,
+        tags = Prelude.Nothing,
         protocol = pProtocol_,
         securityGroupArns =
           Lens.coerced Lens.# pSecurityGroupArns_,
         storageVirtualMachineArn =
           pStorageVirtualMachineArn_
       }
-
--- | Specifies labels that help you categorize, filter, and search for your
--- Amazon Web Services resources. We recommend creating at least a name tag
--- for your location.
-createLocationFsxOntap_tags :: Lens.Lens' CreateLocationFsxOntap (Prelude.Maybe [TagListEntry])
-createLocationFsxOntap_tags = Lens.lens (\CreateLocationFsxOntap' {tags} -> tags) (\s@CreateLocationFsxOntap' {} a -> s {tags = a} :: CreateLocationFsxOntap) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the junction path (also known as a mount point) in the SVM
 -- volume where you\'re copying data to or from (for example, @\/vol1@).
@@ -161,6 +156,12 @@ createLocationFsxOntap_tags = Lens.lens (\CreateLocationFsxOntap' {tags} -> tags
 -- in the /Amazon FSx for NetApp ONTAP User Guide/.
 createLocationFsxOntap_subdirectory :: Lens.Lens' CreateLocationFsxOntap (Prelude.Maybe Prelude.Text)
 createLocationFsxOntap_subdirectory = Lens.lens (\CreateLocationFsxOntap' {subdirectory} -> subdirectory) (\s@CreateLocationFsxOntap' {} a -> s {subdirectory = a} :: CreateLocationFsxOntap)
+
+-- | Specifies labels that help you categorize, filter, and search for your
+-- Amazon Web Services resources. We recommend creating at least a name tag
+-- for your location.
+createLocationFsxOntap_tags :: Lens.Lens' CreateLocationFsxOntap (Prelude.Maybe [TagListEntry])
+createLocationFsxOntap_tags = Lens.lens (\CreateLocationFsxOntap' {tags} -> tags) (\s@CreateLocationFsxOntap' {} a -> s {tags = a} :: CreateLocationFsxOntap) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 createLocationFsxOntap_protocol :: Lens.Lens' CreateLocationFsxOntap FsxProtocol
@@ -202,16 +203,16 @@ instance Core.AWSRequest CreateLocationFsxOntap where
 
 instance Prelude.Hashable CreateLocationFsxOntap where
   hashWithSalt _salt CreateLocationFsxOntap' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` subdirectory
+    _salt `Prelude.hashWithSalt` subdirectory
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` protocol
       `Prelude.hashWithSalt` securityGroupArns
       `Prelude.hashWithSalt` storageVirtualMachineArn
 
 instance Prelude.NFData CreateLocationFsxOntap where
   rnf CreateLocationFsxOntap' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf subdirectory
+    Prelude.rnf subdirectory
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf protocol
       `Prelude.seq` Prelude.rnf securityGroupArns
       `Prelude.seq` Prelude.rnf storageVirtualMachineArn
@@ -235,8 +236,8 @@ instance Data.ToJSON CreateLocationFsxOntap where
   toJSON CreateLocationFsxOntap' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Subdirectory" Data..=) Prelude.<$> subdirectory,
+          [ ("Subdirectory" Data..=) Prelude.<$> subdirectory,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Protocol" Data..= protocol),
             Prelude.Just
               ("SecurityGroupArns" Data..= securityGroupArns),

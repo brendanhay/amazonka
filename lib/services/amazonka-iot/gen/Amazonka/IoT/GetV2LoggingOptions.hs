@@ -35,9 +35,9 @@ module Amazonka.IoT.GetV2LoggingOptions
     newGetV2LoggingOptionsResponse,
 
     -- * Response Lenses
-    getV2LoggingOptionsResponse_roleArn,
-    getV2LoggingOptionsResponse_disableAllLogs,
     getV2LoggingOptionsResponse_defaultLogLevel,
+    getV2LoggingOptionsResponse_disableAllLogs,
+    getV2LoggingOptionsResponse_roleArn,
     getV2LoggingOptionsResponse_httpStatus,
   )
 where
@@ -74,9 +74,9 @@ instance Core.AWSRequest GetV2LoggingOptions where
     Response.receiveJSON
       ( \s h x ->
           GetV2LoggingOptionsResponse'
-            Prelude.<$> (x Data..?> "roleArn")
+            Prelude.<$> (x Data..?> "defaultLogLevel")
             Prelude.<*> (x Data..?> "disableAllLogs")
-            Prelude.<*> (x Data..?> "defaultLogLevel")
+            Prelude.<*> (x Data..?> "roleArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -98,12 +98,12 @@ instance Data.ToQuery GetV2LoggingOptions where
 
 -- | /See:/ 'newGetV2LoggingOptionsResponse' smart constructor.
 data GetV2LoggingOptionsResponse = GetV2LoggingOptionsResponse'
-  { -- | The IAM role ARN IoT uses to write to your CloudWatch logs.
-    roleArn :: Prelude.Maybe Prelude.Text,
+  { -- | The default log level.
+    defaultLogLevel :: Prelude.Maybe LogLevel,
     -- | Disables all logs.
     disableAllLogs :: Prelude.Maybe Prelude.Bool,
-    -- | The default log level.
-    defaultLogLevel :: Prelude.Maybe LogLevel,
+    -- | The IAM role ARN IoT uses to write to your CloudWatch logs.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -117,11 +117,11 @@ data GetV2LoggingOptionsResponse = GetV2LoggingOptionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'getV2LoggingOptionsResponse_roleArn' - The IAM role ARN IoT uses to write to your CloudWatch logs.
+-- 'defaultLogLevel', 'getV2LoggingOptionsResponse_defaultLogLevel' - The default log level.
 --
 -- 'disableAllLogs', 'getV2LoggingOptionsResponse_disableAllLogs' - Disables all logs.
 --
--- 'defaultLogLevel', 'getV2LoggingOptionsResponse_defaultLogLevel' - The default log level.
+-- 'roleArn', 'getV2LoggingOptionsResponse_roleArn' - The IAM role ARN IoT uses to write to your CloudWatch logs.
 --
 -- 'httpStatus', 'getV2LoggingOptionsResponse_httpStatus' - The response's http status code.
 newGetV2LoggingOptionsResponse ::
@@ -130,24 +130,24 @@ newGetV2LoggingOptionsResponse ::
   GetV2LoggingOptionsResponse
 newGetV2LoggingOptionsResponse pHttpStatus_ =
   GetV2LoggingOptionsResponse'
-    { roleArn =
+    { defaultLogLevel =
         Prelude.Nothing,
       disableAllLogs = Prelude.Nothing,
-      defaultLogLevel = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The IAM role ARN IoT uses to write to your CloudWatch logs.
-getV2LoggingOptionsResponse_roleArn :: Lens.Lens' GetV2LoggingOptionsResponse (Prelude.Maybe Prelude.Text)
-getV2LoggingOptionsResponse_roleArn = Lens.lens (\GetV2LoggingOptionsResponse' {roleArn} -> roleArn) (\s@GetV2LoggingOptionsResponse' {} a -> s {roleArn = a} :: GetV2LoggingOptionsResponse)
+-- | The default log level.
+getV2LoggingOptionsResponse_defaultLogLevel :: Lens.Lens' GetV2LoggingOptionsResponse (Prelude.Maybe LogLevel)
+getV2LoggingOptionsResponse_defaultLogLevel = Lens.lens (\GetV2LoggingOptionsResponse' {defaultLogLevel} -> defaultLogLevel) (\s@GetV2LoggingOptionsResponse' {} a -> s {defaultLogLevel = a} :: GetV2LoggingOptionsResponse)
 
 -- | Disables all logs.
 getV2LoggingOptionsResponse_disableAllLogs :: Lens.Lens' GetV2LoggingOptionsResponse (Prelude.Maybe Prelude.Bool)
 getV2LoggingOptionsResponse_disableAllLogs = Lens.lens (\GetV2LoggingOptionsResponse' {disableAllLogs} -> disableAllLogs) (\s@GetV2LoggingOptionsResponse' {} a -> s {disableAllLogs = a} :: GetV2LoggingOptionsResponse)
 
--- | The default log level.
-getV2LoggingOptionsResponse_defaultLogLevel :: Lens.Lens' GetV2LoggingOptionsResponse (Prelude.Maybe LogLevel)
-getV2LoggingOptionsResponse_defaultLogLevel = Lens.lens (\GetV2LoggingOptionsResponse' {defaultLogLevel} -> defaultLogLevel) (\s@GetV2LoggingOptionsResponse' {} a -> s {defaultLogLevel = a} :: GetV2LoggingOptionsResponse)
+-- | The IAM role ARN IoT uses to write to your CloudWatch logs.
+getV2LoggingOptionsResponse_roleArn :: Lens.Lens' GetV2LoggingOptionsResponse (Prelude.Maybe Prelude.Text)
+getV2LoggingOptionsResponse_roleArn = Lens.lens (\GetV2LoggingOptionsResponse' {roleArn} -> roleArn) (\s@GetV2LoggingOptionsResponse' {} a -> s {roleArn = a} :: GetV2LoggingOptionsResponse)
 
 -- | The response's http status code.
 getV2LoggingOptionsResponse_httpStatus :: Lens.Lens' GetV2LoggingOptionsResponse Prelude.Int
@@ -155,7 +155,7 @@ getV2LoggingOptionsResponse_httpStatus = Lens.lens (\GetV2LoggingOptionsResponse
 
 instance Prelude.NFData GetV2LoggingOptionsResponse where
   rnf GetV2LoggingOptionsResponse' {..} =
-    Prelude.rnf roleArn
+    Prelude.rnf defaultLogLevel
       `Prelude.seq` Prelude.rnf disableAllLogs
-      `Prelude.seq` Prelude.rnf defaultLogLevel
+      `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf httpStatus

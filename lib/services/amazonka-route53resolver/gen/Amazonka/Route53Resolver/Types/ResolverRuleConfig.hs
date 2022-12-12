@@ -34,12 +34,12 @@ data ResolverRuleConfig = ResolverRuleConfig'
   { -- | The new name for the Resolver rule. The name that you specify appears in
     -- the Resolver dashboard in the Route 53 console.
     name :: Prelude.Maybe Prelude.Text,
-    -- | For DNS queries that originate in your VPC, the new IP addresses that
-    -- you want to route outbound DNS queries to.
-    targetIps :: Prelude.Maybe (Prelude.NonEmpty TargetAddress),
     -- | The ID of the new outbound Resolver endpoint that you want to use to
     -- route DNS queries to the IP addresses that you specify in @TargetIps@.
-    resolverEndpointId :: Prelude.Maybe Prelude.Text
+    resolverEndpointId :: Prelude.Maybe Prelude.Text,
+    -- | For DNS queries that originate in your VPC, the new IP addresses that
+    -- you want to route outbound DNS queries to.
+    targetIps :: Prelude.Maybe (Prelude.NonEmpty TargetAddress)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,18 +54,18 @@ data ResolverRuleConfig = ResolverRuleConfig'
 -- 'name', 'resolverRuleConfig_name' - The new name for the Resolver rule. The name that you specify appears in
 -- the Resolver dashboard in the Route 53 console.
 --
--- 'targetIps', 'resolverRuleConfig_targetIps' - For DNS queries that originate in your VPC, the new IP addresses that
--- you want to route outbound DNS queries to.
---
 -- 'resolverEndpointId', 'resolverRuleConfig_resolverEndpointId' - The ID of the new outbound Resolver endpoint that you want to use to
 -- route DNS queries to the IP addresses that you specify in @TargetIps@.
+--
+-- 'targetIps', 'resolverRuleConfig_targetIps' - For DNS queries that originate in your VPC, the new IP addresses that
+-- you want to route outbound DNS queries to.
 newResolverRuleConfig ::
   ResolverRuleConfig
 newResolverRuleConfig =
   ResolverRuleConfig'
     { name = Prelude.Nothing,
-      targetIps = Prelude.Nothing,
-      resolverEndpointId = Prelude.Nothing
+      resolverEndpointId = Prelude.Nothing,
+      targetIps = Prelude.Nothing
     }
 
 -- | The new name for the Resolver rule. The name that you specify appears in
@@ -73,35 +73,35 @@ newResolverRuleConfig =
 resolverRuleConfig_name :: Lens.Lens' ResolverRuleConfig (Prelude.Maybe Prelude.Text)
 resolverRuleConfig_name = Lens.lens (\ResolverRuleConfig' {name} -> name) (\s@ResolverRuleConfig' {} a -> s {name = a} :: ResolverRuleConfig)
 
--- | For DNS queries that originate in your VPC, the new IP addresses that
--- you want to route outbound DNS queries to.
-resolverRuleConfig_targetIps :: Lens.Lens' ResolverRuleConfig (Prelude.Maybe (Prelude.NonEmpty TargetAddress))
-resolverRuleConfig_targetIps = Lens.lens (\ResolverRuleConfig' {targetIps} -> targetIps) (\s@ResolverRuleConfig' {} a -> s {targetIps = a} :: ResolverRuleConfig) Prelude.. Lens.mapping Lens.coerced
-
 -- | The ID of the new outbound Resolver endpoint that you want to use to
 -- route DNS queries to the IP addresses that you specify in @TargetIps@.
 resolverRuleConfig_resolverEndpointId :: Lens.Lens' ResolverRuleConfig (Prelude.Maybe Prelude.Text)
 resolverRuleConfig_resolverEndpointId = Lens.lens (\ResolverRuleConfig' {resolverEndpointId} -> resolverEndpointId) (\s@ResolverRuleConfig' {} a -> s {resolverEndpointId = a} :: ResolverRuleConfig)
 
+-- | For DNS queries that originate in your VPC, the new IP addresses that
+-- you want to route outbound DNS queries to.
+resolverRuleConfig_targetIps :: Lens.Lens' ResolverRuleConfig (Prelude.Maybe (Prelude.NonEmpty TargetAddress))
+resolverRuleConfig_targetIps = Lens.lens (\ResolverRuleConfig' {targetIps} -> targetIps) (\s@ResolverRuleConfig' {} a -> s {targetIps = a} :: ResolverRuleConfig) Prelude.. Lens.mapping Lens.coerced
+
 instance Prelude.Hashable ResolverRuleConfig where
   hashWithSalt _salt ResolverRuleConfig' {..} =
     _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` targetIps
       `Prelude.hashWithSalt` resolverEndpointId
+      `Prelude.hashWithSalt` targetIps
 
 instance Prelude.NFData ResolverRuleConfig where
   rnf ResolverRuleConfig' {..} =
     Prelude.rnf name
-      `Prelude.seq` Prelude.rnf targetIps
       `Prelude.seq` Prelude.rnf resolverEndpointId
+      `Prelude.seq` Prelude.rnf targetIps
 
 instance Data.ToJSON ResolverRuleConfig where
   toJSON ResolverRuleConfig' {..} =
     Data.object
       ( Prelude.catMaybes
           [ ("Name" Data..=) Prelude.<$> name,
-            ("TargetIps" Data..=) Prelude.<$> targetIps,
             ("ResolverEndpointId" Data..=)
-              Prelude.<$> resolverEndpointId
+              Prelude.<$> resolverEndpointId,
+            ("TargetIps" Data..=) Prelude.<$> targetIps
           ]
       )

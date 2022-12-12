@@ -30,10 +30,10 @@ module Amazonka.WorkSpacesWeb.CreateBrowserSettings
     newCreateBrowserSettings,
 
     -- * Request Lenses
-    createBrowserSettings_tags,
+    createBrowserSettings_additionalEncryptionContext,
     createBrowserSettings_clientToken,
     createBrowserSettings_customerManagedKey,
-    createBrowserSettings_additionalEncryptionContext,
+    createBrowserSettings_tags,
     createBrowserSettings_browserPolicy,
 
     -- * Destructuring the Response
@@ -56,9 +56,8 @@ import Amazonka.WorkSpacesWeb.Types
 
 -- | /See:/ 'newCreateBrowserSettings' smart constructor.
 data CreateBrowserSettings = CreateBrowserSettings'
-  { -- | The tags to add to the browser settings resource. A tag is a key-value
-    -- pair.
-    tags :: Prelude.Maybe [Data.Sensitive Tag],
+  { -- | Additional encryption context of the browser settings.
+    additionalEncryptionContext :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. Idempotency ensures that an API request
     -- completes only once. With an idempotent request, if the original request
@@ -70,8 +69,9 @@ data CreateBrowserSettings = CreateBrowserSettings'
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The custom managed key of the browser settings.
     customerManagedKey :: Prelude.Maybe Prelude.Text,
-    -- | Additional encryption context of the browser settings.
-    additionalEncryptionContext :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The tags to add to the browser settings resource. A tag is a key-value
+    -- pair.
+    tags :: Prelude.Maybe [Data.Sensitive Tag],
     -- | A JSON string containing Chrome Enterprise policies that will be applied
     -- to all streaming sessions.
     browserPolicy :: Data.Sensitive Prelude.Text
@@ -86,8 +86,7 @@ data CreateBrowserSettings = CreateBrowserSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createBrowserSettings_tags' - The tags to add to the browser settings resource. A tag is a key-value
--- pair.
+-- 'additionalEncryptionContext', 'createBrowserSettings_additionalEncryptionContext' - Additional encryption context of the browser settings.
 --
 -- 'clientToken', 'createBrowserSettings_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. Idempotency ensures that an API request
@@ -100,7 +99,8 @@ data CreateBrowserSettings = CreateBrowserSettings'
 --
 -- 'customerManagedKey', 'createBrowserSettings_customerManagedKey' - The custom managed key of the browser settings.
 --
--- 'additionalEncryptionContext', 'createBrowserSettings_additionalEncryptionContext' - Additional encryption context of the browser settings.
+-- 'tags', 'createBrowserSettings_tags' - The tags to add to the browser settings resource. A tag is a key-value
+-- pair.
 --
 -- 'browserPolicy', 'createBrowserSettings_browserPolicy' - A JSON string containing Chrome Enterprise policies that will be applied
 -- to all streaming sessions.
@@ -110,18 +110,18 @@ newCreateBrowserSettings ::
   CreateBrowserSettings
 newCreateBrowserSettings pBrowserPolicy_ =
   CreateBrowserSettings'
-    { tags = Prelude.Nothing,
+    { additionalEncryptionContext =
+        Prelude.Nothing,
       clientToken = Prelude.Nothing,
       customerManagedKey = Prelude.Nothing,
-      additionalEncryptionContext = Prelude.Nothing,
+      tags = Prelude.Nothing,
       browserPolicy =
         Data._Sensitive Lens.# pBrowserPolicy_
     }
 
--- | The tags to add to the browser settings resource. A tag is a key-value
--- pair.
-createBrowserSettings_tags :: Lens.Lens' CreateBrowserSettings (Prelude.Maybe [Tag])
-createBrowserSettings_tags = Lens.lens (\CreateBrowserSettings' {tags} -> tags) (\s@CreateBrowserSettings' {} a -> s {tags = a} :: CreateBrowserSettings) Prelude.. Lens.mapping Lens.coerced
+-- | Additional encryption context of the browser settings.
+createBrowserSettings_additionalEncryptionContext :: Lens.Lens' CreateBrowserSettings (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createBrowserSettings_additionalEncryptionContext = Lens.lens (\CreateBrowserSettings' {additionalEncryptionContext} -> additionalEncryptionContext) (\s@CreateBrowserSettings' {} a -> s {additionalEncryptionContext = a} :: CreateBrowserSettings) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. Idempotency ensures that an API request
@@ -138,9 +138,10 @@ createBrowserSettings_clientToken = Lens.lens (\CreateBrowserSettings' {clientTo
 createBrowserSettings_customerManagedKey :: Lens.Lens' CreateBrowserSettings (Prelude.Maybe Prelude.Text)
 createBrowserSettings_customerManagedKey = Lens.lens (\CreateBrowserSettings' {customerManagedKey} -> customerManagedKey) (\s@CreateBrowserSettings' {} a -> s {customerManagedKey = a} :: CreateBrowserSettings)
 
--- | Additional encryption context of the browser settings.
-createBrowserSettings_additionalEncryptionContext :: Lens.Lens' CreateBrowserSettings (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createBrowserSettings_additionalEncryptionContext = Lens.lens (\CreateBrowserSettings' {additionalEncryptionContext} -> additionalEncryptionContext) (\s@CreateBrowserSettings' {} a -> s {additionalEncryptionContext = a} :: CreateBrowserSettings) Prelude.. Lens.mapping Lens.coerced
+-- | The tags to add to the browser settings resource. A tag is a key-value
+-- pair.
+createBrowserSettings_tags :: Lens.Lens' CreateBrowserSettings (Prelude.Maybe [Tag])
+createBrowserSettings_tags = Lens.lens (\CreateBrowserSettings' {tags} -> tags) (\s@CreateBrowserSettings' {} a -> s {tags = a} :: CreateBrowserSettings) Prelude.. Lens.mapping Lens.coerced
 
 -- | A JSON string containing Chrome Enterprise policies that will be applied
 -- to all streaming sessions.
@@ -163,18 +164,19 @@ instance Core.AWSRequest CreateBrowserSettings where
 
 instance Prelude.Hashable CreateBrowserSettings where
   hashWithSalt _salt CreateBrowserSettings' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` additionalEncryptionContext
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` customerManagedKey
-      `Prelude.hashWithSalt` additionalEncryptionContext
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` browserPolicy
 
 instance Prelude.NFData CreateBrowserSettings where
   rnf CreateBrowserSettings' {..} =
-    Prelude.rnf tags
+    Prelude.rnf additionalEncryptionContext
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf customerManagedKey
-      `Prelude.seq` Prelude.rnf additionalEncryptionContext
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf browserPolicy
 
 instance Data.ToHeaders CreateBrowserSettings where
@@ -192,12 +194,12 @@ instance Data.ToJSON CreateBrowserSettings where
   toJSON CreateBrowserSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
+          [ ("additionalEncryptionContext" Data..=)
+              Prelude.<$> additionalEncryptionContext,
             ("clientToken" Data..=) Prelude.<$> clientToken,
             ("customerManagedKey" Data..=)
               Prelude.<$> customerManagedKey,
-            ("additionalEncryptionContext" Data..=)
-              Prelude.<$> additionalEncryptionContext,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("browserPolicy" Data..= browserPolicy)
           ]

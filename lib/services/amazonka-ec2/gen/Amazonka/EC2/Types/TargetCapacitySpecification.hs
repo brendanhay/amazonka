@@ -47,14 +47,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTargetCapacitySpecification' smart constructor.
 data TargetCapacitySpecification = TargetCapacitySpecification'
-  { -- | The unit for the target capacity.
-    --
-    -- Default: @units@ (translates to number of instances)
-    targetCapacityUnitType :: Prelude.Maybe TargetCapacityUnitType,
-    -- | The number of units to request, filled using
-    -- @DefaultTargetCapacityType@.
-    totalTargetCapacity :: Prelude.Maybe Prelude.Int,
-    -- | The default @TotalTargetCapacity@, which is either @Spot@ or
+  { -- | The default @TotalTargetCapacity@, which is either @Spot@ or
     -- @On-Demand@.
     defaultTargetCapacityType :: Prelude.Maybe DefaultTargetCapacityType,
     -- | The number of On-Demand units to request. If you specify a target
@@ -64,7 +57,14 @@ data TargetCapacitySpecification = TargetCapacitySpecification'
     -- | The maximum number of Spot units to launch. If you specify a target
     -- capacity for On-Demand units, you cannot specify a target capacity for
     -- Spot units.
-    spotTargetCapacity :: Prelude.Maybe Prelude.Int
+    spotTargetCapacity :: Prelude.Maybe Prelude.Int,
+    -- | The unit for the target capacity.
+    --
+    -- Default: @units@ (translates to number of instances)
+    targetCapacityUnitType :: Prelude.Maybe TargetCapacityUnitType,
+    -- | The number of units to request, filled using
+    -- @DefaultTargetCapacityType@.
+    totalTargetCapacity :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,13 +76,6 @@ data TargetCapacitySpecification = TargetCapacitySpecification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetCapacityUnitType', 'targetCapacitySpecification_targetCapacityUnitType' - The unit for the target capacity.
---
--- Default: @units@ (translates to number of instances)
---
--- 'totalTargetCapacity', 'targetCapacitySpecification_totalTargetCapacity' - The number of units to request, filled using
--- @DefaultTargetCapacityType@.
---
 -- 'defaultTargetCapacityType', 'targetCapacitySpecification_defaultTargetCapacityType' - The default @TotalTargetCapacity@, which is either @Spot@ or
 -- @On-Demand@.
 --
@@ -93,28 +86,24 @@ data TargetCapacitySpecification = TargetCapacitySpecification'
 -- 'spotTargetCapacity', 'targetCapacitySpecification_spotTargetCapacity' - The maximum number of Spot units to launch. If you specify a target
 -- capacity for On-Demand units, you cannot specify a target capacity for
 -- Spot units.
+--
+-- 'targetCapacityUnitType', 'targetCapacitySpecification_targetCapacityUnitType' - The unit for the target capacity.
+--
+-- Default: @units@ (translates to number of instances)
+--
+-- 'totalTargetCapacity', 'targetCapacitySpecification_totalTargetCapacity' - The number of units to request, filled using
+-- @DefaultTargetCapacityType@.
 newTargetCapacitySpecification ::
   TargetCapacitySpecification
 newTargetCapacitySpecification =
   TargetCapacitySpecification'
-    { targetCapacityUnitType =
+    { defaultTargetCapacityType =
         Prelude.Nothing,
-      totalTargetCapacity = Prelude.Nothing,
-      defaultTargetCapacityType = Prelude.Nothing,
       onDemandTargetCapacity = Prelude.Nothing,
-      spotTargetCapacity = Prelude.Nothing
+      spotTargetCapacity = Prelude.Nothing,
+      targetCapacityUnitType = Prelude.Nothing,
+      totalTargetCapacity = Prelude.Nothing
     }
-
--- | The unit for the target capacity.
---
--- Default: @units@ (translates to number of instances)
-targetCapacitySpecification_targetCapacityUnitType :: Lens.Lens' TargetCapacitySpecification (Prelude.Maybe TargetCapacityUnitType)
-targetCapacitySpecification_targetCapacityUnitType = Lens.lens (\TargetCapacitySpecification' {targetCapacityUnitType} -> targetCapacityUnitType) (\s@TargetCapacitySpecification' {} a -> s {targetCapacityUnitType = a} :: TargetCapacitySpecification)
-
--- | The number of units to request, filled using
--- @DefaultTargetCapacityType@.
-targetCapacitySpecification_totalTargetCapacity :: Lens.Lens' TargetCapacitySpecification (Prelude.Maybe Prelude.Int)
-targetCapacitySpecification_totalTargetCapacity = Lens.lens (\TargetCapacitySpecification' {totalTargetCapacity} -> totalTargetCapacity) (\s@TargetCapacitySpecification' {} a -> s {totalTargetCapacity = a} :: TargetCapacitySpecification)
 
 -- | The default @TotalTargetCapacity@, which is either @Spot@ or
 -- @On-Demand@.
@@ -133,27 +122,39 @@ targetCapacitySpecification_onDemandTargetCapacity = Lens.lens (\TargetCapacityS
 targetCapacitySpecification_spotTargetCapacity :: Lens.Lens' TargetCapacitySpecification (Prelude.Maybe Prelude.Int)
 targetCapacitySpecification_spotTargetCapacity = Lens.lens (\TargetCapacitySpecification' {spotTargetCapacity} -> spotTargetCapacity) (\s@TargetCapacitySpecification' {} a -> s {spotTargetCapacity = a} :: TargetCapacitySpecification)
 
+-- | The unit for the target capacity.
+--
+-- Default: @units@ (translates to number of instances)
+targetCapacitySpecification_targetCapacityUnitType :: Lens.Lens' TargetCapacitySpecification (Prelude.Maybe TargetCapacityUnitType)
+targetCapacitySpecification_targetCapacityUnitType = Lens.lens (\TargetCapacitySpecification' {targetCapacityUnitType} -> targetCapacityUnitType) (\s@TargetCapacitySpecification' {} a -> s {targetCapacityUnitType = a} :: TargetCapacitySpecification)
+
+-- | The number of units to request, filled using
+-- @DefaultTargetCapacityType@.
+targetCapacitySpecification_totalTargetCapacity :: Lens.Lens' TargetCapacitySpecification (Prelude.Maybe Prelude.Int)
+targetCapacitySpecification_totalTargetCapacity = Lens.lens (\TargetCapacitySpecification' {totalTargetCapacity} -> totalTargetCapacity) (\s@TargetCapacitySpecification' {} a -> s {totalTargetCapacity = a} :: TargetCapacitySpecification)
+
 instance Data.FromXML TargetCapacitySpecification where
   parseXML x =
     TargetCapacitySpecification'
-      Prelude.<$> (x Data..@? "targetCapacityUnitType")
-      Prelude.<*> (x Data..@? "totalTargetCapacity")
-      Prelude.<*> (x Data..@? "defaultTargetCapacityType")
+      Prelude.<$> (x Data..@? "defaultTargetCapacityType")
       Prelude.<*> (x Data..@? "onDemandTargetCapacity")
       Prelude.<*> (x Data..@? "spotTargetCapacity")
+      Prelude.<*> (x Data..@? "targetCapacityUnitType")
+      Prelude.<*> (x Data..@? "totalTargetCapacity")
 
 instance Prelude.Hashable TargetCapacitySpecification where
   hashWithSalt _salt TargetCapacitySpecification' {..} =
-    _salt `Prelude.hashWithSalt` targetCapacityUnitType
-      `Prelude.hashWithSalt` totalTargetCapacity
+    _salt
       `Prelude.hashWithSalt` defaultTargetCapacityType
       `Prelude.hashWithSalt` onDemandTargetCapacity
       `Prelude.hashWithSalt` spotTargetCapacity
+      `Prelude.hashWithSalt` targetCapacityUnitType
+      `Prelude.hashWithSalt` totalTargetCapacity
 
 instance Prelude.NFData TargetCapacitySpecification where
   rnf TargetCapacitySpecification' {..} =
-    Prelude.rnf targetCapacityUnitType
-      `Prelude.seq` Prelude.rnf totalTargetCapacity
-      `Prelude.seq` Prelude.rnf defaultTargetCapacityType
+    Prelude.rnf defaultTargetCapacityType
       `Prelude.seq` Prelude.rnf onDemandTargetCapacity
       `Prelude.seq` Prelude.rnf spotTargetCapacity
+      `Prelude.seq` Prelude.rnf targetCapacityUnitType
+      `Prelude.seq` Prelude.rnf totalTargetCapacity

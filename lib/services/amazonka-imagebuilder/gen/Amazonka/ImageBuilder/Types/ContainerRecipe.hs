@@ -33,20 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newContainerRecipe' smart constructor.
 data ContainerRecipe = ContainerRecipe'
-  { -- | Tags that are attached to the container recipe.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The name of the container recipe.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The destination repository for the container image.
-    targetRepository :: Prelude.Maybe TargetContainerRepository,
-    -- | Specifies the type of container, such as Docker.
-    containerType :: Prelude.Maybe ContainerType,
-    -- | A group of options that can be used to configure an instance for
-    -- building and testing container images.
-    instanceConfiguration :: Prelude.Maybe InstanceConfiguration,
-    -- | The base image for the container recipe.
-    parentImage :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the container recipe.
+  { -- | The Amazon Resource Name (ARN) of the container recipe.
     --
     -- Semantic versioning is included in each object\'s Amazon Resource Name
     -- (ARN), at the level that applies to that object as follows:
@@ -61,27 +48,40 @@ data ContainerRecipe = ContainerRecipe'
     -- 3.  Build version ARNs have all four nodes, and point to a specific
     --     build for a specific version of an object.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The owner of the container recipe.
-    owner :: Prelude.Maybe Prelude.Text,
-    -- | The description of the container recipe.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The system platform for the container, such as Windows or Linux.
-    platform :: Prelude.Maybe Platform,
     -- | Components for build and test that are included in the container recipe.
     components :: Prelude.Maybe (Prelude.NonEmpty ComponentConfiguration),
-    -- | A flag that indicates if the target container is encrypted.
-    encrypted :: Prelude.Maybe Prelude.Bool,
-    -- | Identifies which KMS key is used to encrypt the container image for
-    -- distribution to the target Region.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the type of container, such as Docker.
+    containerType :: Prelude.Maybe ContainerType,
     -- | The date when this container recipe was created.
     dateCreated :: Prelude.Maybe Prelude.Text,
+    -- | The description of the container recipe.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Dockerfiles are text documents that are used to build Docker containers,
     -- and ensure that they contain all of the elements required by the
     -- application running inside. The template data consists of contextual
     -- variables where Image Builder places build information or scripts, based
     -- on your container image recipe.
     dockerfileTemplateData :: Prelude.Maybe Prelude.Text,
+    -- | A flag that indicates if the target container is encrypted.
+    encrypted :: Prelude.Maybe Prelude.Bool,
+    -- | A group of options that can be used to configure an instance for
+    -- building and testing container images.
+    instanceConfiguration :: Prelude.Maybe InstanceConfiguration,
+    -- | Identifies which KMS key is used to encrypt the container image for
+    -- distribution to the target Region.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the container recipe.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The owner of the container recipe.
+    owner :: Prelude.Maybe Prelude.Text,
+    -- | The base image for the container recipe.
+    parentImage :: Prelude.Maybe Prelude.Text,
+    -- | The system platform for the container, such as Windows or Linux.
+    platform :: Prelude.Maybe Platform,
+    -- | Tags that are attached to the container recipe.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The destination repository for the container image.
+    targetRepository :: Prelude.Maybe TargetContainerRepository,
     -- | The semantic version of the container recipe.
     --
     -- The semantic version has four nodes:
@@ -117,19 +117,6 @@ data ContainerRecipe = ContainerRecipe'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'containerRecipe_tags' - Tags that are attached to the container recipe.
---
--- 'name', 'containerRecipe_name' - The name of the container recipe.
---
--- 'targetRepository', 'containerRecipe_targetRepository' - The destination repository for the container image.
---
--- 'containerType', 'containerRecipe_containerType' - Specifies the type of container, such as Docker.
---
--- 'instanceConfiguration', 'containerRecipe_instanceConfiguration' - A group of options that can be used to configure an instance for
--- building and testing container images.
---
--- 'parentImage', 'containerRecipe_parentImage' - The base image for the container recipe.
---
 -- 'arn', 'containerRecipe_arn' - The Amazon Resource Name (ARN) of the container recipe.
 --
 -- Semantic versioning is included in each object\'s Amazon Resource Name
@@ -145,26 +132,39 @@ data ContainerRecipe = ContainerRecipe'
 -- 3.  Build version ARNs have all four nodes, and point to a specific
 --     build for a specific version of an object.
 --
--- 'owner', 'containerRecipe_owner' - The owner of the container recipe.
---
--- 'description', 'containerRecipe_description' - The description of the container recipe.
---
--- 'platform', 'containerRecipe_platform' - The system platform for the container, such as Windows or Linux.
---
 -- 'components', 'containerRecipe_components' - Components for build and test that are included in the container recipe.
 --
--- 'encrypted', 'containerRecipe_encrypted' - A flag that indicates if the target container is encrypted.
---
--- 'kmsKeyId', 'containerRecipe_kmsKeyId' - Identifies which KMS key is used to encrypt the container image for
--- distribution to the target Region.
+-- 'containerType', 'containerRecipe_containerType' - Specifies the type of container, such as Docker.
 --
 -- 'dateCreated', 'containerRecipe_dateCreated' - The date when this container recipe was created.
+--
+-- 'description', 'containerRecipe_description' - The description of the container recipe.
 --
 -- 'dockerfileTemplateData', 'containerRecipe_dockerfileTemplateData' - Dockerfiles are text documents that are used to build Docker containers,
 -- and ensure that they contain all of the elements required by the
 -- application running inside. The template data consists of contextual
 -- variables where Image Builder places build information or scripts, based
 -- on your container image recipe.
+--
+-- 'encrypted', 'containerRecipe_encrypted' - A flag that indicates if the target container is encrypted.
+--
+-- 'instanceConfiguration', 'containerRecipe_instanceConfiguration' - A group of options that can be used to configure an instance for
+-- building and testing container images.
+--
+-- 'kmsKeyId', 'containerRecipe_kmsKeyId' - Identifies which KMS key is used to encrypt the container image for
+-- distribution to the target Region.
+--
+-- 'name', 'containerRecipe_name' - The name of the container recipe.
+--
+-- 'owner', 'containerRecipe_owner' - The owner of the container recipe.
+--
+-- 'parentImage', 'containerRecipe_parentImage' - The base image for the container recipe.
+--
+-- 'platform', 'containerRecipe_platform' - The system platform for the container, such as Windows or Linux.
+--
+-- 'tags', 'containerRecipe_tags' - Tags that are attached to the container recipe.
+--
+-- 'targetRepository', 'containerRecipe_targetRepository' - The destination repository for the container image.
 --
 -- 'version', 'containerRecipe_version' - The semantic version of the container recipe.
 --
@@ -193,49 +193,24 @@ newContainerRecipe ::
   ContainerRecipe
 newContainerRecipe =
   ContainerRecipe'
-    { tags = Prelude.Nothing,
-      name = Prelude.Nothing,
-      targetRepository = Prelude.Nothing,
-      containerType = Prelude.Nothing,
-      instanceConfiguration = Prelude.Nothing,
-      parentImage = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      owner = Prelude.Nothing,
-      description = Prelude.Nothing,
-      platform = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       components = Prelude.Nothing,
-      encrypted = Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing,
+      containerType = Prelude.Nothing,
       dateCreated = Prelude.Nothing,
+      description = Prelude.Nothing,
       dockerfileTemplateData = Prelude.Nothing,
+      encrypted = Prelude.Nothing,
+      instanceConfiguration = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
+      name = Prelude.Nothing,
+      owner = Prelude.Nothing,
+      parentImage = Prelude.Nothing,
+      platform = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      targetRepository = Prelude.Nothing,
       version = Prelude.Nothing,
       workingDirectory = Prelude.Nothing
     }
-
--- | Tags that are attached to the container recipe.
-containerRecipe_tags :: Lens.Lens' ContainerRecipe (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-containerRecipe_tags = Lens.lens (\ContainerRecipe' {tags} -> tags) (\s@ContainerRecipe' {} a -> s {tags = a} :: ContainerRecipe) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the container recipe.
-containerRecipe_name :: Lens.Lens' ContainerRecipe (Prelude.Maybe Prelude.Text)
-containerRecipe_name = Lens.lens (\ContainerRecipe' {name} -> name) (\s@ContainerRecipe' {} a -> s {name = a} :: ContainerRecipe)
-
--- | The destination repository for the container image.
-containerRecipe_targetRepository :: Lens.Lens' ContainerRecipe (Prelude.Maybe TargetContainerRepository)
-containerRecipe_targetRepository = Lens.lens (\ContainerRecipe' {targetRepository} -> targetRepository) (\s@ContainerRecipe' {} a -> s {targetRepository = a} :: ContainerRecipe)
-
--- | Specifies the type of container, such as Docker.
-containerRecipe_containerType :: Lens.Lens' ContainerRecipe (Prelude.Maybe ContainerType)
-containerRecipe_containerType = Lens.lens (\ContainerRecipe' {containerType} -> containerType) (\s@ContainerRecipe' {} a -> s {containerType = a} :: ContainerRecipe)
-
--- | A group of options that can be used to configure an instance for
--- building and testing container images.
-containerRecipe_instanceConfiguration :: Lens.Lens' ContainerRecipe (Prelude.Maybe InstanceConfiguration)
-containerRecipe_instanceConfiguration = Lens.lens (\ContainerRecipe' {instanceConfiguration} -> instanceConfiguration) (\s@ContainerRecipe' {} a -> s {instanceConfiguration = a} :: ContainerRecipe)
-
--- | The base image for the container recipe.
-containerRecipe_parentImage :: Lens.Lens' ContainerRecipe (Prelude.Maybe Prelude.Text)
-containerRecipe_parentImage = Lens.lens (\ContainerRecipe' {parentImage} -> parentImage) (\s@ContainerRecipe' {} a -> s {parentImage = a} :: ContainerRecipe)
 
 -- | The Amazon Resource Name (ARN) of the container recipe.
 --
@@ -254,34 +229,21 @@ containerRecipe_parentImage = Lens.lens (\ContainerRecipe' {parentImage} -> pare
 containerRecipe_arn :: Lens.Lens' ContainerRecipe (Prelude.Maybe Prelude.Text)
 containerRecipe_arn = Lens.lens (\ContainerRecipe' {arn} -> arn) (\s@ContainerRecipe' {} a -> s {arn = a} :: ContainerRecipe)
 
--- | The owner of the container recipe.
-containerRecipe_owner :: Lens.Lens' ContainerRecipe (Prelude.Maybe Prelude.Text)
-containerRecipe_owner = Lens.lens (\ContainerRecipe' {owner} -> owner) (\s@ContainerRecipe' {} a -> s {owner = a} :: ContainerRecipe)
-
--- | The description of the container recipe.
-containerRecipe_description :: Lens.Lens' ContainerRecipe (Prelude.Maybe Prelude.Text)
-containerRecipe_description = Lens.lens (\ContainerRecipe' {description} -> description) (\s@ContainerRecipe' {} a -> s {description = a} :: ContainerRecipe)
-
--- | The system platform for the container, such as Windows or Linux.
-containerRecipe_platform :: Lens.Lens' ContainerRecipe (Prelude.Maybe Platform)
-containerRecipe_platform = Lens.lens (\ContainerRecipe' {platform} -> platform) (\s@ContainerRecipe' {} a -> s {platform = a} :: ContainerRecipe)
-
 -- | Components for build and test that are included in the container recipe.
 containerRecipe_components :: Lens.Lens' ContainerRecipe (Prelude.Maybe (Prelude.NonEmpty ComponentConfiguration))
 containerRecipe_components = Lens.lens (\ContainerRecipe' {components} -> components) (\s@ContainerRecipe' {} a -> s {components = a} :: ContainerRecipe) Prelude.. Lens.mapping Lens.coerced
 
--- | A flag that indicates if the target container is encrypted.
-containerRecipe_encrypted :: Lens.Lens' ContainerRecipe (Prelude.Maybe Prelude.Bool)
-containerRecipe_encrypted = Lens.lens (\ContainerRecipe' {encrypted} -> encrypted) (\s@ContainerRecipe' {} a -> s {encrypted = a} :: ContainerRecipe)
-
--- | Identifies which KMS key is used to encrypt the container image for
--- distribution to the target Region.
-containerRecipe_kmsKeyId :: Lens.Lens' ContainerRecipe (Prelude.Maybe Prelude.Text)
-containerRecipe_kmsKeyId = Lens.lens (\ContainerRecipe' {kmsKeyId} -> kmsKeyId) (\s@ContainerRecipe' {} a -> s {kmsKeyId = a} :: ContainerRecipe)
+-- | Specifies the type of container, such as Docker.
+containerRecipe_containerType :: Lens.Lens' ContainerRecipe (Prelude.Maybe ContainerType)
+containerRecipe_containerType = Lens.lens (\ContainerRecipe' {containerType} -> containerType) (\s@ContainerRecipe' {} a -> s {containerType = a} :: ContainerRecipe)
 
 -- | The date when this container recipe was created.
 containerRecipe_dateCreated :: Lens.Lens' ContainerRecipe (Prelude.Maybe Prelude.Text)
 containerRecipe_dateCreated = Lens.lens (\ContainerRecipe' {dateCreated} -> dateCreated) (\s@ContainerRecipe' {} a -> s {dateCreated = a} :: ContainerRecipe)
+
+-- | The description of the container recipe.
+containerRecipe_description :: Lens.Lens' ContainerRecipe (Prelude.Maybe Prelude.Text)
+containerRecipe_description = Lens.lens (\ContainerRecipe' {description} -> description) (\s@ContainerRecipe' {} a -> s {description = a} :: ContainerRecipe)
 
 -- | Dockerfiles are text documents that are used to build Docker containers,
 -- and ensure that they contain all of the elements required by the
@@ -290,6 +252,44 @@ containerRecipe_dateCreated = Lens.lens (\ContainerRecipe' {dateCreated} -> date
 -- on your container image recipe.
 containerRecipe_dockerfileTemplateData :: Lens.Lens' ContainerRecipe (Prelude.Maybe Prelude.Text)
 containerRecipe_dockerfileTemplateData = Lens.lens (\ContainerRecipe' {dockerfileTemplateData} -> dockerfileTemplateData) (\s@ContainerRecipe' {} a -> s {dockerfileTemplateData = a} :: ContainerRecipe)
+
+-- | A flag that indicates if the target container is encrypted.
+containerRecipe_encrypted :: Lens.Lens' ContainerRecipe (Prelude.Maybe Prelude.Bool)
+containerRecipe_encrypted = Lens.lens (\ContainerRecipe' {encrypted} -> encrypted) (\s@ContainerRecipe' {} a -> s {encrypted = a} :: ContainerRecipe)
+
+-- | A group of options that can be used to configure an instance for
+-- building and testing container images.
+containerRecipe_instanceConfiguration :: Lens.Lens' ContainerRecipe (Prelude.Maybe InstanceConfiguration)
+containerRecipe_instanceConfiguration = Lens.lens (\ContainerRecipe' {instanceConfiguration} -> instanceConfiguration) (\s@ContainerRecipe' {} a -> s {instanceConfiguration = a} :: ContainerRecipe)
+
+-- | Identifies which KMS key is used to encrypt the container image for
+-- distribution to the target Region.
+containerRecipe_kmsKeyId :: Lens.Lens' ContainerRecipe (Prelude.Maybe Prelude.Text)
+containerRecipe_kmsKeyId = Lens.lens (\ContainerRecipe' {kmsKeyId} -> kmsKeyId) (\s@ContainerRecipe' {} a -> s {kmsKeyId = a} :: ContainerRecipe)
+
+-- | The name of the container recipe.
+containerRecipe_name :: Lens.Lens' ContainerRecipe (Prelude.Maybe Prelude.Text)
+containerRecipe_name = Lens.lens (\ContainerRecipe' {name} -> name) (\s@ContainerRecipe' {} a -> s {name = a} :: ContainerRecipe)
+
+-- | The owner of the container recipe.
+containerRecipe_owner :: Lens.Lens' ContainerRecipe (Prelude.Maybe Prelude.Text)
+containerRecipe_owner = Lens.lens (\ContainerRecipe' {owner} -> owner) (\s@ContainerRecipe' {} a -> s {owner = a} :: ContainerRecipe)
+
+-- | The base image for the container recipe.
+containerRecipe_parentImage :: Lens.Lens' ContainerRecipe (Prelude.Maybe Prelude.Text)
+containerRecipe_parentImage = Lens.lens (\ContainerRecipe' {parentImage} -> parentImage) (\s@ContainerRecipe' {} a -> s {parentImage = a} :: ContainerRecipe)
+
+-- | The system platform for the container, such as Windows or Linux.
+containerRecipe_platform :: Lens.Lens' ContainerRecipe (Prelude.Maybe Platform)
+containerRecipe_platform = Lens.lens (\ContainerRecipe' {platform} -> platform) (\s@ContainerRecipe' {} a -> s {platform = a} :: ContainerRecipe)
+
+-- | Tags that are attached to the container recipe.
+containerRecipe_tags :: Lens.Lens' ContainerRecipe (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+containerRecipe_tags = Lens.lens (\ContainerRecipe' {tags} -> tags) (\s@ContainerRecipe' {} a -> s {tags = a} :: ContainerRecipe) Prelude.. Lens.mapping Lens.coerced
+
+-- | The destination repository for the container image.
+containerRecipe_targetRepository :: Lens.Lens' ContainerRecipe (Prelude.Maybe TargetContainerRepository)
+containerRecipe_targetRepository = Lens.lens (\ContainerRecipe' {targetRepository} -> targetRepository) (\s@ContainerRecipe' {} a -> s {targetRepository = a} :: ContainerRecipe)
 
 -- | The semantic version of the container recipe.
 --
@@ -325,61 +325,61 @@ instance Data.FromJSON ContainerRecipe where
       "ContainerRecipe"
       ( \x ->
           ContainerRecipe'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "targetRepository")
-            Prelude.<*> (x Data..:? "containerType")
-            Prelude.<*> (x Data..:? "instanceConfiguration")
-            Prelude.<*> (x Data..:? "parentImage")
-            Prelude.<*> (x Data..:? "arn")
-            Prelude.<*> (x Data..:? "owner")
-            Prelude.<*> (x Data..:? "description")
-            Prelude.<*> (x Data..:? "platform")
+            Prelude.<$> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "components")
-            Prelude.<*> (x Data..:? "encrypted")
-            Prelude.<*> (x Data..:? "kmsKeyId")
+            Prelude.<*> (x Data..:? "containerType")
             Prelude.<*> (x Data..:? "dateCreated")
+            Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "dockerfileTemplateData")
+            Prelude.<*> (x Data..:? "encrypted")
+            Prelude.<*> (x Data..:? "instanceConfiguration")
+            Prelude.<*> (x Data..:? "kmsKeyId")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "owner")
+            Prelude.<*> (x Data..:? "parentImage")
+            Prelude.<*> (x Data..:? "platform")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "targetRepository")
             Prelude.<*> (x Data..:? "version")
             Prelude.<*> (x Data..:? "workingDirectory")
       )
 
 instance Prelude.Hashable ContainerRecipe where
   hashWithSalt _salt ContainerRecipe' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` targetRepository
-      `Prelude.hashWithSalt` containerType
-      `Prelude.hashWithSalt` instanceConfiguration
-      `Prelude.hashWithSalt` parentImage
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` owner
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` platform
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` components
-      `Prelude.hashWithSalt` encrypted
-      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` containerType
       `Prelude.hashWithSalt` dateCreated
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dockerfileTemplateData
+      `Prelude.hashWithSalt` encrypted
+      `Prelude.hashWithSalt` instanceConfiguration
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` parentImage
+      `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` targetRepository
       `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` workingDirectory
 
 instance Prelude.NFData ContainerRecipe where
   rnf ContainerRecipe' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf targetRepository
-      `Prelude.seq` Prelude.rnf containerType
-      `Prelude.seq` Prelude.rnf instanceConfiguration
-      `Prelude.seq` Prelude.rnf parentImage
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf platform
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf components
-      `Prelude.seq` Prelude.rnf encrypted
-      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf containerType
       `Prelude.seq` Prelude.rnf dateCreated
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf dockerfileTemplateData
+      `Prelude.seq` Prelude.rnf encrypted
+      `Prelude.seq` Prelude.rnf instanceConfiguration
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf parentImage
+      `Prelude.seq` Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf targetRepository
       `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf workingDirectory

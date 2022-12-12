@@ -49,14 +49,6 @@ data BackupSelection = BackupSelection'
     --     @StringNotEquals@, and @StringNotLike@. @ListOfTags@ only supports
     --     @StringEquals@.
     conditions :: Prelude.Maybe Conditions,
-    -- | A list of Amazon Resource Names (ARNs) to assign to a backup plan. The
-    -- maximum number of ARNs is 500 without wildcards, or 30 ARNs with
-    -- wildcards.
-    --
-    -- If you need to assign many resources to a backup plan, consider a
-    -- different resource selection strategy, such as assigning all resources
-    -- of a resource type or refining your resource selection using tags.
-    resources :: Prelude.Maybe [Prelude.Text],
     -- | A list of conditions that you define to assign resources to your backup
     -- plans using tags. For example,
     -- @\"StringEquals\": { \"ConditionKey\": \"aws:ResourceTag\/CreatedByCryo\", \"ConditionValue\": \"true\" },@.
@@ -79,6 +71,14 @@ data BackupSelection = BackupSelection'
     -- different resource selection strategy, such as assigning only one or a
     -- few resource types or refining your resource selection using tags.
     notResources :: Prelude.Maybe [Prelude.Text],
+    -- | A list of Amazon Resource Names (ARNs) to assign to a backup plan. The
+    -- maximum number of ARNs is 500 without wildcards, or 30 ARNs with
+    -- wildcards.
+    --
+    -- If you need to assign many resources to a backup plan, consider a
+    -- different resource selection strategy, such as assigning all resources
+    -- of a resource type or refining your resource selection using tags.
+    resources :: Prelude.Maybe [Prelude.Text],
     -- | The display name of a resource selection document. Must contain 1 to 50
     -- alphanumeric or \'-_.\' characters.
     selectionName :: Prelude.Text,
@@ -111,14 +111,6 @@ data BackupSelection = BackupSelection'
 --     @StringNotEquals@, and @StringNotLike@. @ListOfTags@ only supports
 --     @StringEquals@.
 --
--- 'resources', 'backupSelection_resources' - A list of Amazon Resource Names (ARNs) to assign to a backup plan. The
--- maximum number of ARNs is 500 without wildcards, or 30 ARNs with
--- wildcards.
---
--- If you need to assign many resources to a backup plan, consider a
--- different resource selection strategy, such as assigning all resources
--- of a resource type or refining your resource selection using tags.
---
 -- 'listOfTags', 'backupSelection_listOfTags' - A list of conditions that you define to assign resources to your backup
 -- plans using tags. For example,
 -- @\"StringEquals\": { \"ConditionKey\": \"aws:ResourceTag\/CreatedByCryo\", \"ConditionValue\": \"true\" },@.
@@ -141,6 +133,14 @@ data BackupSelection = BackupSelection'
 -- different resource selection strategy, such as assigning only one or a
 -- few resource types or refining your resource selection using tags.
 --
+-- 'resources', 'backupSelection_resources' - A list of Amazon Resource Names (ARNs) to assign to a backup plan. The
+-- maximum number of ARNs is 500 without wildcards, or 30 ARNs with
+-- wildcards.
+--
+-- If you need to assign many resources to a backup plan, consider a
+-- different resource selection strategy, such as assigning all resources
+-- of a resource type or refining your resource selection using tags.
+--
 -- 'selectionName', 'backupSelection_selectionName' - The display name of a resource selection document. Must contain 1 to 50
 -- alphanumeric or \'-_.\' characters.
 --
@@ -156,9 +156,9 @@ newBackupSelection ::
 newBackupSelection pSelectionName_ pIamRoleArn_ =
   BackupSelection'
     { conditions = Prelude.Nothing,
-      resources = Prelude.Nothing,
       listOfTags = Prelude.Nothing,
       notResources = Prelude.Nothing,
+      resources = Prelude.Nothing,
       selectionName = pSelectionName_,
       iamRoleArn = pIamRoleArn_
     }
@@ -178,16 +178,6 @@ newBackupSelection pSelectionName_ pIamRoleArn_ =
 --     @StringEquals@.
 backupSelection_conditions :: Lens.Lens' BackupSelection (Prelude.Maybe Conditions)
 backupSelection_conditions = Lens.lens (\BackupSelection' {conditions} -> conditions) (\s@BackupSelection' {} a -> s {conditions = a} :: BackupSelection)
-
--- | A list of Amazon Resource Names (ARNs) to assign to a backup plan. The
--- maximum number of ARNs is 500 without wildcards, or 30 ARNs with
--- wildcards.
---
--- If you need to assign many resources to a backup plan, consider a
--- different resource selection strategy, such as assigning all resources
--- of a resource type or refining your resource selection using tags.
-backupSelection_resources :: Lens.Lens' BackupSelection (Prelude.Maybe [Prelude.Text])
-backupSelection_resources = Lens.lens (\BackupSelection' {resources} -> resources) (\s@BackupSelection' {} a -> s {resources = a} :: BackupSelection) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of conditions that you define to assign resources to your backup
 -- plans using tags. For example,
@@ -215,6 +205,16 @@ backupSelection_listOfTags = Lens.lens (\BackupSelection' {listOfTags} -> listOf
 backupSelection_notResources :: Lens.Lens' BackupSelection (Prelude.Maybe [Prelude.Text])
 backupSelection_notResources = Lens.lens (\BackupSelection' {notResources} -> notResources) (\s@BackupSelection' {} a -> s {notResources = a} :: BackupSelection) Prelude.. Lens.mapping Lens.coerced
 
+-- | A list of Amazon Resource Names (ARNs) to assign to a backup plan. The
+-- maximum number of ARNs is 500 without wildcards, or 30 ARNs with
+-- wildcards.
+--
+-- If you need to assign many resources to a backup plan, consider a
+-- different resource selection strategy, such as assigning all resources
+-- of a resource type or refining your resource selection using tags.
+backupSelection_resources :: Lens.Lens' BackupSelection (Prelude.Maybe [Prelude.Text])
+backupSelection_resources = Lens.lens (\BackupSelection' {resources} -> resources) (\s@BackupSelection' {} a -> s {resources = a} :: BackupSelection) Prelude.. Lens.mapping Lens.coerced
+
 -- | The display name of a resource selection document. Must contain 1 to 50
 -- alphanumeric or \'-_.\' characters.
 backupSelection_selectionName :: Lens.Lens' BackupSelection Prelude.Text
@@ -233,9 +233,9 @@ instance Data.FromJSON BackupSelection where
       ( \x ->
           BackupSelection'
             Prelude.<$> (x Data..:? "Conditions")
-            Prelude.<*> (x Data..:? "Resources" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "ListOfTags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "NotResources" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Resources" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "SelectionName")
             Prelude.<*> (x Data..: "IamRoleArn")
       )
@@ -243,18 +243,18 @@ instance Data.FromJSON BackupSelection where
 instance Prelude.Hashable BackupSelection where
   hashWithSalt _salt BackupSelection' {..} =
     _salt `Prelude.hashWithSalt` conditions
-      `Prelude.hashWithSalt` resources
       `Prelude.hashWithSalt` listOfTags
       `Prelude.hashWithSalt` notResources
+      `Prelude.hashWithSalt` resources
       `Prelude.hashWithSalt` selectionName
       `Prelude.hashWithSalt` iamRoleArn
 
 instance Prelude.NFData BackupSelection where
   rnf BackupSelection' {..} =
     Prelude.rnf conditions
-      `Prelude.seq` Prelude.rnf resources
       `Prelude.seq` Prelude.rnf listOfTags
       `Prelude.seq` Prelude.rnf notResources
+      `Prelude.seq` Prelude.rnf resources
       `Prelude.seq` Prelude.rnf selectionName
       `Prelude.seq` Prelude.rnf iamRoleArn
 
@@ -263,9 +263,9 @@ instance Data.ToJSON BackupSelection where
     Data.object
       ( Prelude.catMaybes
           [ ("Conditions" Data..=) Prelude.<$> conditions,
-            ("Resources" Data..=) Prelude.<$> resources,
             ("ListOfTags" Data..=) Prelude.<$> listOfTags,
             ("NotResources" Data..=) Prelude.<$> notResources,
+            ("Resources" Data..=) Prelude.<$> resources,
             Prelude.Just ("SelectionName" Data..= selectionName),
             Prelude.Just ("IamRoleArn" Data..= iamRoleArn)
           ]

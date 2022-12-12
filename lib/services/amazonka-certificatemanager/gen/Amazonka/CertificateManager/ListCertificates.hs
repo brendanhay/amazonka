@@ -32,20 +32,20 @@ module Amazonka.CertificateManager.ListCertificates
     newListCertificates,
 
     -- * Request Lenses
-    listCertificates_sortOrder,
-    listCertificates_nextToken,
-    listCertificates_maxItems,
-    listCertificates_sortBy,
-    listCertificates_includes,
     listCertificates_certificateStatuses,
+    listCertificates_includes,
+    listCertificates_maxItems,
+    listCertificates_nextToken,
+    listCertificates_sortBy,
+    listCertificates_sortOrder,
 
     -- * Destructuring the Response
     ListCertificatesResponse (..),
     newListCertificatesResponse,
 
     -- * Response Lenses
-    listCertificatesResponse_nextToken,
     listCertificatesResponse_certificateSummaryList,
+    listCertificatesResponse_nextToken,
     listCertificatesResponse_httpStatus,
   )
 where
@@ -60,27 +60,27 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListCertificates' smart constructor.
 data ListCertificates = ListCertificates'
-  { -- | Specifies the order of sorted results. If you specify @SortOrder@, you
-    -- must also specify @SortBy@.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | Use this parameter only when paginating results and only in a subsequent
-    -- request after you receive a response with truncated results. Set it to
-    -- the value of @NextToken@ from the response you just received.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | Filter the certificate list by status value.
+    certificateStatuses :: Prelude.Maybe [CertificateStatus],
+    -- | Filter the certificate list. For more information, see the Filters
+    -- structure.
+    includes :: Prelude.Maybe Filters,
     -- | Use this parameter when paginating results to specify the maximum number
     -- of items to return in the response. If additional items exist beyond the
     -- number you specify, the @NextToken@ element is sent in the response. Use
     -- this @NextToken@ value in a subsequent request to retrieve additional
     -- items.
     maxItems :: Prelude.Maybe Prelude.Natural,
+    -- | Use this parameter only when paginating results and only in a subsequent
+    -- request after you receive a response with truncated results. Set it to
+    -- the value of @NextToken@ from the response you just received.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies the field to sort results by. If you specify @SortBy@, you
     -- must also specify @SortOrder@.
     sortBy :: Prelude.Maybe SortBy,
-    -- | Filter the certificate list. For more information, see the Filters
-    -- structure.
-    includes :: Prelude.Maybe Filters,
-    -- | Filter the certificate list by status value.
-    certificateStatuses :: Prelude.Maybe [CertificateStatus]
+    -- | Specifies the order of sorted results. If you specify @SortOrder@, you
+    -- must also specify @SortBy@.
+    sortOrder :: Prelude.Maybe SortOrder
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -92,12 +92,10 @@ data ListCertificates = ListCertificates'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listCertificates_sortOrder' - Specifies the order of sorted results. If you specify @SortOrder@, you
--- must also specify @SortBy@.
+-- 'certificateStatuses', 'listCertificates_certificateStatuses' - Filter the certificate list by status value.
 --
--- 'nextToken', 'listCertificates_nextToken' - Use this parameter only when paginating results and only in a subsequent
--- request after you receive a response with truncated results. Set it to
--- the value of @NextToken@ from the response you just received.
+-- 'includes', 'listCertificates_includes' - Filter the certificate list. For more information, see the Filters
+-- structure.
 --
 -- 'maxItems', 'listCertificates_maxItems' - Use this parameter when paginating results to specify the maximum number
 -- of items to return in the response. If additional items exist beyond the
@@ -105,35 +103,36 @@ data ListCertificates = ListCertificates'
 -- this @NextToken@ value in a subsequent request to retrieve additional
 -- items.
 --
+-- 'nextToken', 'listCertificates_nextToken' - Use this parameter only when paginating results and only in a subsequent
+-- request after you receive a response with truncated results. Set it to
+-- the value of @NextToken@ from the response you just received.
+--
 -- 'sortBy', 'listCertificates_sortBy' - Specifies the field to sort results by. If you specify @SortBy@, you
 -- must also specify @SortOrder@.
 --
--- 'includes', 'listCertificates_includes' - Filter the certificate list. For more information, see the Filters
--- structure.
---
--- 'certificateStatuses', 'listCertificates_certificateStatuses' - Filter the certificate list by status value.
+-- 'sortOrder', 'listCertificates_sortOrder' - Specifies the order of sorted results. If you specify @SortOrder@, you
+-- must also specify @SortBy@.
 newListCertificates ::
   ListCertificates
 newListCertificates =
   ListCertificates'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxItems = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
+    { certificateStatuses =
+        Prelude.Nothing,
       includes = Prelude.Nothing,
-      certificateStatuses = Prelude.Nothing
+      maxItems = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      sortOrder = Prelude.Nothing
     }
 
--- | Specifies the order of sorted results. If you specify @SortOrder@, you
--- must also specify @SortBy@.
-listCertificates_sortOrder :: Lens.Lens' ListCertificates (Prelude.Maybe SortOrder)
-listCertificates_sortOrder = Lens.lens (\ListCertificates' {sortOrder} -> sortOrder) (\s@ListCertificates' {} a -> s {sortOrder = a} :: ListCertificates)
+-- | Filter the certificate list by status value.
+listCertificates_certificateStatuses :: Lens.Lens' ListCertificates (Prelude.Maybe [CertificateStatus])
+listCertificates_certificateStatuses = Lens.lens (\ListCertificates' {certificateStatuses} -> certificateStatuses) (\s@ListCertificates' {} a -> s {certificateStatuses = a} :: ListCertificates) Prelude.. Lens.mapping Lens.coerced
 
--- | Use this parameter only when paginating results and only in a subsequent
--- request after you receive a response with truncated results. Set it to
--- the value of @NextToken@ from the response you just received.
-listCertificates_nextToken :: Lens.Lens' ListCertificates (Prelude.Maybe Prelude.Text)
-listCertificates_nextToken = Lens.lens (\ListCertificates' {nextToken} -> nextToken) (\s@ListCertificates' {} a -> s {nextToken = a} :: ListCertificates)
+-- | Filter the certificate list. For more information, see the Filters
+-- structure.
+listCertificates_includes :: Lens.Lens' ListCertificates (Prelude.Maybe Filters)
+listCertificates_includes = Lens.lens (\ListCertificates' {includes} -> includes) (\s@ListCertificates' {} a -> s {includes = a} :: ListCertificates)
 
 -- | Use this parameter when paginating results to specify the maximum number
 -- of items to return in the response. If additional items exist beyond the
@@ -143,19 +142,21 @@ listCertificates_nextToken = Lens.lens (\ListCertificates' {nextToken} -> nextTo
 listCertificates_maxItems :: Lens.Lens' ListCertificates (Prelude.Maybe Prelude.Natural)
 listCertificates_maxItems = Lens.lens (\ListCertificates' {maxItems} -> maxItems) (\s@ListCertificates' {} a -> s {maxItems = a} :: ListCertificates)
 
+-- | Use this parameter only when paginating results and only in a subsequent
+-- request after you receive a response with truncated results. Set it to
+-- the value of @NextToken@ from the response you just received.
+listCertificates_nextToken :: Lens.Lens' ListCertificates (Prelude.Maybe Prelude.Text)
+listCertificates_nextToken = Lens.lens (\ListCertificates' {nextToken} -> nextToken) (\s@ListCertificates' {} a -> s {nextToken = a} :: ListCertificates)
+
 -- | Specifies the field to sort results by. If you specify @SortBy@, you
 -- must also specify @SortOrder@.
 listCertificates_sortBy :: Lens.Lens' ListCertificates (Prelude.Maybe SortBy)
 listCertificates_sortBy = Lens.lens (\ListCertificates' {sortBy} -> sortBy) (\s@ListCertificates' {} a -> s {sortBy = a} :: ListCertificates)
 
--- | Filter the certificate list. For more information, see the Filters
--- structure.
-listCertificates_includes :: Lens.Lens' ListCertificates (Prelude.Maybe Filters)
-listCertificates_includes = Lens.lens (\ListCertificates' {includes} -> includes) (\s@ListCertificates' {} a -> s {includes = a} :: ListCertificates)
-
--- | Filter the certificate list by status value.
-listCertificates_certificateStatuses :: Lens.Lens' ListCertificates (Prelude.Maybe [CertificateStatus])
-listCertificates_certificateStatuses = Lens.lens (\ListCertificates' {certificateStatuses} -> certificateStatuses) (\s@ListCertificates' {} a -> s {certificateStatuses = a} :: ListCertificates) Prelude.. Lens.mapping Lens.coerced
+-- | Specifies the order of sorted results. If you specify @SortOrder@, you
+-- must also specify @SortBy@.
+listCertificates_sortOrder :: Lens.Lens' ListCertificates (Prelude.Maybe SortOrder)
+listCertificates_sortOrder = Lens.lens (\ListCertificates' {sortOrder} -> sortOrder) (\s@ListCertificates' {} a -> s {sortOrder = a} :: ListCertificates)
 
 instance Core.AWSPager ListCertificates where
   page rq rs
@@ -189,30 +190,30 @@ instance Core.AWSRequest ListCertificates where
     Response.receiveJSON
       ( \s h x ->
           ListCertificatesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "CertificateSummaryList"
+            Prelude.<$> ( x Data..?> "CertificateSummaryList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListCertificates where
   hashWithSalt _salt ListCertificates' {..} =
-    _salt `Prelude.hashWithSalt` sortOrder
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxItems
-      `Prelude.hashWithSalt` sortBy
+    _salt `Prelude.hashWithSalt` certificateStatuses
       `Prelude.hashWithSalt` includes
-      `Prelude.hashWithSalt` certificateStatuses
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` sortOrder
 
 instance Prelude.NFData ListCertificates where
   rnf ListCertificates' {..} =
-    Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf sortBy
+    Prelude.rnf certificateStatuses
       `Prelude.seq` Prelude.rnf includes
-      `Prelude.seq` Prelude.rnf certificateStatuses
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListCertificates where
   toHeaders =
@@ -233,13 +234,13 @@ instance Data.ToJSON ListCertificates where
   toJSON ListCertificates' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
-            ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxItems" Data..=) Prelude.<$> maxItems,
-            ("SortBy" Data..=) Prelude.<$> sortBy,
+          [ ("CertificateStatuses" Data..=)
+              Prelude.<$> certificateStatuses,
             ("Includes" Data..=) Prelude.<$> includes,
-            ("CertificateStatuses" Data..=)
-              Prelude.<$> certificateStatuses
+            ("MaxItems" Data..=) Prelude.<$> maxItems,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("SortOrder" Data..=) Prelude.<$> sortOrder
           ]
       )
 
@@ -251,11 +252,11 @@ instance Data.ToQuery ListCertificates where
 
 -- | /See:/ 'newListCertificatesResponse' smart constructor.
 data ListCertificatesResponse = ListCertificatesResponse'
-  { -- | When the list is truncated, this value is present and contains the value
+  { -- | A list of ACM certificates.
+    certificateSummaryList :: Prelude.Maybe [CertificateSummary],
+    -- | When the list is truncated, this value is present and contains the value
     -- to use for the @NextToken@ parameter in a subsequent pagination request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of ACM certificates.
-    certificateSummaryList :: Prelude.Maybe [CertificateSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -269,10 +270,10 @@ data ListCertificatesResponse = ListCertificatesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'certificateSummaryList', 'listCertificatesResponse_certificateSummaryList' - A list of ACM certificates.
+--
 -- 'nextToken', 'listCertificatesResponse_nextToken' - When the list is truncated, this value is present and contains the value
 -- to use for the @NextToken@ parameter in a subsequent pagination request.
---
--- 'certificateSummaryList', 'listCertificatesResponse_certificateSummaryList' - A list of ACM certificates.
 --
 -- 'httpStatus', 'listCertificatesResponse_httpStatus' - The response's http status code.
 newListCertificatesResponse ::
@@ -281,20 +282,20 @@ newListCertificatesResponse ::
   ListCertificatesResponse
 newListCertificatesResponse pHttpStatus_ =
   ListCertificatesResponse'
-    { nextToken =
+    { certificateSummaryList =
         Prelude.Nothing,
-      certificateSummaryList = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of ACM certificates.
+listCertificatesResponse_certificateSummaryList :: Lens.Lens' ListCertificatesResponse (Prelude.Maybe [CertificateSummary])
+listCertificatesResponse_certificateSummaryList = Lens.lens (\ListCertificatesResponse' {certificateSummaryList} -> certificateSummaryList) (\s@ListCertificatesResponse' {} a -> s {certificateSummaryList = a} :: ListCertificatesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | When the list is truncated, this value is present and contains the value
 -- to use for the @NextToken@ parameter in a subsequent pagination request.
 listCertificatesResponse_nextToken :: Lens.Lens' ListCertificatesResponse (Prelude.Maybe Prelude.Text)
 listCertificatesResponse_nextToken = Lens.lens (\ListCertificatesResponse' {nextToken} -> nextToken) (\s@ListCertificatesResponse' {} a -> s {nextToken = a} :: ListCertificatesResponse)
-
--- | A list of ACM certificates.
-listCertificatesResponse_certificateSummaryList :: Lens.Lens' ListCertificatesResponse (Prelude.Maybe [CertificateSummary])
-listCertificatesResponse_certificateSummaryList = Lens.lens (\ListCertificatesResponse' {certificateSummaryList} -> certificateSummaryList) (\s@ListCertificatesResponse' {} a -> s {certificateSummaryList = a} :: ListCertificatesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listCertificatesResponse_httpStatus :: Lens.Lens' ListCertificatesResponse Prelude.Int
@@ -302,6 +303,6 @@ listCertificatesResponse_httpStatus = Lens.lens (\ListCertificatesResponse' {htt
 
 instance Prelude.NFData ListCertificatesResponse where
   rnf ListCertificatesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf certificateSummaryList
+    Prelude.rnf certificateSummaryList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

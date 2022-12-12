@@ -31,13 +31,11 @@ import Amazonka.SecurityHub.Types.FirewallPolicyStatelessRuleGroupReferencesDeta
 --
 -- /See:/ 'newFirewallPolicyDetails' smart constructor.
 data FirewallPolicyDetails = FirewallPolicyDetails'
-  { -- | The custom action definitions that are available to use in the firewall
+  { -- | The stateful rule groups that are used in the firewall policy.
+    statefulRuleGroupReferences :: Prelude.Maybe [FirewallPolicyStatefulRuleGroupReferencesDetails],
+    -- | The custom action definitions that are available to use in the firewall
     -- policy\'s @StatelessDefaultActions@ setting.
     statelessCustomActions :: Prelude.Maybe [FirewallPolicyStatelessCustomActionsDetails],
-    -- | The stateful rule groups that are used in the firewall policy.
-    statefulRuleGroupReferences :: Prelude.Maybe [FirewallPolicyStatefulRuleGroupReferencesDetails],
-    -- | The stateless rule groups that are used in the firewall policy.
-    statelessRuleGroupReferences :: Prelude.Maybe [FirewallPolicyStatelessRuleGroupReferencesDetails],
     -- | The actions to take on a packet if it doesn\'t match any of the
     -- stateless rules in the policy.
     --
@@ -51,7 +49,9 @@ data FirewallPolicyDetails = FirewallPolicyDetails'
     -- You must specify a standard action (@aws:pass@, @aws:drop@,
     -- @aws:forward_to_sfe@), and can optionally include a custom action from
     -- @StatelessCustomActions@.
-    statelessFragmentDefaultActions :: Prelude.Maybe [Prelude.Text]
+    statelessFragmentDefaultActions :: Prelude.Maybe [Prelude.Text],
+    -- | The stateless rule groups that are used in the firewall policy.
+    statelessRuleGroupReferences :: Prelude.Maybe [FirewallPolicyStatelessRuleGroupReferencesDetails]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,12 +63,10 @@ data FirewallPolicyDetails = FirewallPolicyDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statelessCustomActions', 'firewallPolicyDetails_statelessCustomActions' - The custom action definitions that are available to use in the firewall
--- policy\'s @StatelessDefaultActions@ setting.
---
 -- 'statefulRuleGroupReferences', 'firewallPolicyDetails_statefulRuleGroupReferences' - The stateful rule groups that are used in the firewall policy.
 --
--- 'statelessRuleGroupReferences', 'firewallPolicyDetails_statelessRuleGroupReferences' - The stateless rule groups that are used in the firewall policy.
+-- 'statelessCustomActions', 'firewallPolicyDetails_statelessCustomActions' - The custom action definitions that are available to use in the firewall
+-- policy\'s @StatelessDefaultActions@ setting.
 --
 -- 'statelessDefaultActions', 'firewallPolicyDetails_statelessDefaultActions' - The actions to take on a packet if it doesn\'t match any of the
 -- stateless rules in the policy.
@@ -83,30 +81,28 @@ data FirewallPolicyDetails = FirewallPolicyDetails'
 -- You must specify a standard action (@aws:pass@, @aws:drop@,
 -- @aws:forward_to_sfe@), and can optionally include a custom action from
 -- @StatelessCustomActions@.
+--
+-- 'statelessRuleGroupReferences', 'firewallPolicyDetails_statelessRuleGroupReferences' - The stateless rule groups that are used in the firewall policy.
 newFirewallPolicyDetails ::
   FirewallPolicyDetails
 newFirewallPolicyDetails =
   FirewallPolicyDetails'
-    { statelessCustomActions =
+    { statefulRuleGroupReferences =
         Prelude.Nothing,
-      statefulRuleGroupReferences = Prelude.Nothing,
-      statelessRuleGroupReferences = Prelude.Nothing,
+      statelessCustomActions = Prelude.Nothing,
       statelessDefaultActions = Prelude.Nothing,
-      statelessFragmentDefaultActions = Prelude.Nothing
+      statelessFragmentDefaultActions = Prelude.Nothing,
+      statelessRuleGroupReferences = Prelude.Nothing
     }
-
--- | The custom action definitions that are available to use in the firewall
--- policy\'s @StatelessDefaultActions@ setting.
-firewallPolicyDetails_statelessCustomActions :: Lens.Lens' FirewallPolicyDetails (Prelude.Maybe [FirewallPolicyStatelessCustomActionsDetails])
-firewallPolicyDetails_statelessCustomActions = Lens.lens (\FirewallPolicyDetails' {statelessCustomActions} -> statelessCustomActions) (\s@FirewallPolicyDetails' {} a -> s {statelessCustomActions = a} :: FirewallPolicyDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | The stateful rule groups that are used in the firewall policy.
 firewallPolicyDetails_statefulRuleGroupReferences :: Lens.Lens' FirewallPolicyDetails (Prelude.Maybe [FirewallPolicyStatefulRuleGroupReferencesDetails])
 firewallPolicyDetails_statefulRuleGroupReferences = Lens.lens (\FirewallPolicyDetails' {statefulRuleGroupReferences} -> statefulRuleGroupReferences) (\s@FirewallPolicyDetails' {} a -> s {statefulRuleGroupReferences = a} :: FirewallPolicyDetails) Prelude.. Lens.mapping Lens.coerced
 
--- | The stateless rule groups that are used in the firewall policy.
-firewallPolicyDetails_statelessRuleGroupReferences :: Lens.Lens' FirewallPolicyDetails (Prelude.Maybe [FirewallPolicyStatelessRuleGroupReferencesDetails])
-firewallPolicyDetails_statelessRuleGroupReferences = Lens.lens (\FirewallPolicyDetails' {statelessRuleGroupReferences} -> statelessRuleGroupReferences) (\s@FirewallPolicyDetails' {} a -> s {statelessRuleGroupReferences = a} :: FirewallPolicyDetails) Prelude.. Lens.mapping Lens.coerced
+-- | The custom action definitions that are available to use in the firewall
+-- policy\'s @StatelessDefaultActions@ setting.
+firewallPolicyDetails_statelessCustomActions :: Lens.Lens' FirewallPolicyDetails (Prelude.Maybe [FirewallPolicyStatelessCustomActionsDetails])
+firewallPolicyDetails_statelessCustomActions = Lens.lens (\FirewallPolicyDetails' {statelessCustomActions} -> statelessCustomActions) (\s@FirewallPolicyDetails' {} a -> s {statelessCustomActions = a} :: FirewallPolicyDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | The actions to take on a packet if it doesn\'t match any of the
 -- stateless rules in the policy.
@@ -126,19 +122,20 @@ firewallPolicyDetails_statelessDefaultActions = Lens.lens (\FirewallPolicyDetail
 firewallPolicyDetails_statelessFragmentDefaultActions :: Lens.Lens' FirewallPolicyDetails (Prelude.Maybe [Prelude.Text])
 firewallPolicyDetails_statelessFragmentDefaultActions = Lens.lens (\FirewallPolicyDetails' {statelessFragmentDefaultActions} -> statelessFragmentDefaultActions) (\s@FirewallPolicyDetails' {} a -> s {statelessFragmentDefaultActions = a} :: FirewallPolicyDetails) Prelude.. Lens.mapping Lens.coerced
 
+-- | The stateless rule groups that are used in the firewall policy.
+firewallPolicyDetails_statelessRuleGroupReferences :: Lens.Lens' FirewallPolicyDetails (Prelude.Maybe [FirewallPolicyStatelessRuleGroupReferencesDetails])
+firewallPolicyDetails_statelessRuleGroupReferences = Lens.lens (\FirewallPolicyDetails' {statelessRuleGroupReferences} -> statelessRuleGroupReferences) (\s@FirewallPolicyDetails' {} a -> s {statelessRuleGroupReferences = a} :: FirewallPolicyDetails) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON FirewallPolicyDetails where
   parseJSON =
     Data.withObject
       "FirewallPolicyDetails"
       ( \x ->
           FirewallPolicyDetails'
-            Prelude.<$> ( x Data..:? "StatelessCustomActions"
+            Prelude.<$> ( x Data..:? "StatefulRuleGroupReferences"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "StatefulRuleGroupReferences"
-                            Data..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Data..:? "StatelessRuleGroupReferences"
+            Prelude.<*> ( x Data..:? "StatelessCustomActions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> ( x Data..:? "StatelessDefaultActions"
@@ -147,37 +144,41 @@ instance Data.FromJSON FirewallPolicyDetails where
             Prelude.<*> ( x Data..:? "StatelessFragmentDefaultActions"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> ( x Data..:? "StatelessRuleGroupReferences"
+                            Data..!= Prelude.mempty
+                        )
       )
 
 instance Prelude.Hashable FirewallPolicyDetails where
   hashWithSalt _salt FirewallPolicyDetails' {..} =
-    _salt `Prelude.hashWithSalt` statelessCustomActions
+    _salt
       `Prelude.hashWithSalt` statefulRuleGroupReferences
-      `Prelude.hashWithSalt` statelessRuleGroupReferences
+      `Prelude.hashWithSalt` statelessCustomActions
       `Prelude.hashWithSalt` statelessDefaultActions
       `Prelude.hashWithSalt` statelessFragmentDefaultActions
+      `Prelude.hashWithSalt` statelessRuleGroupReferences
 
 instance Prelude.NFData FirewallPolicyDetails where
   rnf FirewallPolicyDetails' {..} =
-    Prelude.rnf statelessCustomActions
-      `Prelude.seq` Prelude.rnf statefulRuleGroupReferences
-      `Prelude.seq` Prelude.rnf statelessRuleGroupReferences
+    Prelude.rnf statefulRuleGroupReferences
+      `Prelude.seq` Prelude.rnf statelessCustomActions
       `Prelude.seq` Prelude.rnf statelessDefaultActions
       `Prelude.seq` Prelude.rnf statelessFragmentDefaultActions
+      `Prelude.seq` Prelude.rnf statelessRuleGroupReferences
 
 instance Data.ToJSON FirewallPolicyDetails where
   toJSON FirewallPolicyDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("StatelessCustomActions" Data..=)
-              Prelude.<$> statelessCustomActions,
-            ("StatefulRuleGroupReferences" Data..=)
+          [ ("StatefulRuleGroupReferences" Data..=)
               Prelude.<$> statefulRuleGroupReferences,
-            ("StatelessRuleGroupReferences" Data..=)
-              Prelude.<$> statelessRuleGroupReferences,
+            ("StatelessCustomActions" Data..=)
+              Prelude.<$> statelessCustomActions,
             ("StatelessDefaultActions" Data..=)
               Prelude.<$> statelessDefaultActions,
             ("StatelessFragmentDefaultActions" Data..=)
-              Prelude.<$> statelessFragmentDefaultActions
+              Prelude.<$> statelessFragmentDefaultActions,
+            ("StatelessRuleGroupReferences" Data..=)
+              Prelude.<$> statelessRuleGroupReferences
           ]
       )

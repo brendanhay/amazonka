@@ -33,9 +33,9 @@ module Amazonka.EC2.CreateNetworkInsightsAccessScope
     newCreateNetworkInsightsAccessScope,
 
     -- * Request Lenses
+    createNetworkInsightsAccessScope_dryRun,
     createNetworkInsightsAccessScope_excludePaths,
     createNetworkInsightsAccessScope_matchPaths,
-    createNetworkInsightsAccessScope_dryRun,
     createNetworkInsightsAccessScope_tagSpecifications,
     createNetworkInsightsAccessScope_clientToken,
 
@@ -44,8 +44,8 @@ module Amazonka.EC2.CreateNetworkInsightsAccessScope
     newCreateNetworkInsightsAccessScopeResponse,
 
     -- * Response Lenses
-    createNetworkInsightsAccessScopeResponse_networkInsightsAccessScopeContent,
     createNetworkInsightsAccessScopeResponse_networkInsightsAccessScope,
+    createNetworkInsightsAccessScopeResponse_networkInsightsAccessScopeContent,
     createNetworkInsightsAccessScopeResponse_httpStatus,
   )
 where
@@ -60,15 +60,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateNetworkInsightsAccessScope' smart constructor.
 data CreateNetworkInsightsAccessScope = CreateNetworkInsightsAccessScope'
-  { -- | The paths to exclude.
-    excludePaths :: Prelude.Maybe [AccessScopePathRequest],
-    -- | The paths to match.
-    matchPaths :: Prelude.Maybe [AccessScopePathRequest],
-    -- | Checks whether you have the required permissions for the action, without
+  { -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The paths to exclude.
+    excludePaths :: Prelude.Maybe [AccessScopePathRequest],
+    -- | The paths to match.
+    matchPaths :: Prelude.Maybe [AccessScopePathRequest],
     -- | The tags to apply.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | Unique, case-sensitive identifier that you provide to ensure the
@@ -86,14 +86,14 @@ data CreateNetworkInsightsAccessScope = CreateNetworkInsightsAccessScope'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'excludePaths', 'createNetworkInsightsAccessScope_excludePaths' - The paths to exclude.
---
--- 'matchPaths', 'createNetworkInsightsAccessScope_matchPaths' - The paths to match.
---
 -- 'dryRun', 'createNetworkInsightsAccessScope_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'excludePaths', 'createNetworkInsightsAccessScope_excludePaths' - The paths to exclude.
+--
+-- 'matchPaths', 'createNetworkInsightsAccessScope_matchPaths' - The paths to match.
 --
 -- 'tagSpecifications', 'createNetworkInsightsAccessScope_tagSpecifications' - The tags to apply.
 --
@@ -106,13 +106,20 @@ newCreateNetworkInsightsAccessScope ::
   CreateNetworkInsightsAccessScope
 newCreateNetworkInsightsAccessScope pClientToken_ =
   CreateNetworkInsightsAccessScope'
-    { excludePaths =
+    { dryRun =
         Prelude.Nothing,
+      excludePaths = Prelude.Nothing,
       matchPaths = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       tagSpecifications = Prelude.Nothing,
       clientToken = pClientToken_
     }
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+createNetworkInsightsAccessScope_dryRun :: Lens.Lens' CreateNetworkInsightsAccessScope (Prelude.Maybe Prelude.Bool)
+createNetworkInsightsAccessScope_dryRun = Lens.lens (\CreateNetworkInsightsAccessScope' {dryRun} -> dryRun) (\s@CreateNetworkInsightsAccessScope' {} a -> s {dryRun = a} :: CreateNetworkInsightsAccessScope)
 
 -- | The paths to exclude.
 createNetworkInsightsAccessScope_excludePaths :: Lens.Lens' CreateNetworkInsightsAccessScope (Prelude.Maybe [AccessScopePathRequest])
@@ -121,13 +128,6 @@ createNetworkInsightsAccessScope_excludePaths = Lens.lens (\CreateNetworkInsight
 -- | The paths to match.
 createNetworkInsightsAccessScope_matchPaths :: Lens.Lens' CreateNetworkInsightsAccessScope (Prelude.Maybe [AccessScopePathRequest])
 createNetworkInsightsAccessScope_matchPaths = Lens.lens (\CreateNetworkInsightsAccessScope' {matchPaths} -> matchPaths) (\s@CreateNetworkInsightsAccessScope' {} a -> s {matchPaths = a} :: CreateNetworkInsightsAccessScope) Prelude.. Lens.mapping Lens.coerced
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-createNetworkInsightsAccessScope_dryRun :: Lens.Lens' CreateNetworkInsightsAccessScope (Prelude.Maybe Prelude.Bool)
-createNetworkInsightsAccessScope_dryRun = Lens.lens (\CreateNetworkInsightsAccessScope' {dryRun} -> dryRun) (\s@CreateNetworkInsightsAccessScope' {} a -> s {dryRun = a} :: CreateNetworkInsightsAccessScope)
 
 -- | The tags to apply.
 createNetworkInsightsAccessScope_tagSpecifications :: Lens.Lens' CreateNetworkInsightsAccessScope (Prelude.Maybe [TagSpecification])
@@ -152,8 +152,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           CreateNetworkInsightsAccessScopeResponse'
-            Prelude.<$> (x Data..@? "networkInsightsAccessScopeContent")
-            Prelude.<*> (x Data..@? "networkInsightsAccessScope")
+            Prelude.<$> (x Data..@? "networkInsightsAccessScope")
+            Prelude.<*> (x Data..@? "networkInsightsAccessScopeContent")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -164,9 +164,9 @@ instance
   hashWithSalt
     _salt
     CreateNetworkInsightsAccessScope' {..} =
-      _salt `Prelude.hashWithSalt` excludePaths
+      _salt `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` excludePaths
         `Prelude.hashWithSalt` matchPaths
-        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` tagSpecifications
         `Prelude.hashWithSalt` clientToken
 
@@ -175,9 +175,9 @@ instance
     CreateNetworkInsightsAccessScope
   where
   rnf CreateNetworkInsightsAccessScope' {..} =
-    Prelude.rnf excludePaths
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf excludePaths
       `Prelude.seq` Prelude.rnf matchPaths
-      `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf clientToken
 
@@ -202,6 +202,7 @@ instance
                   ),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
         Data.toQuery
           ( Data.toQueryList "ExcludePath"
               Prelude.<$> excludePaths
@@ -210,7 +211,6 @@ instance
           ( Data.toQueryList "MatchPath"
               Prelude.<$> matchPaths
           ),
-        "DryRun" Data.=: dryRun,
         Data.toQuery
           ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
@@ -220,10 +220,10 @@ instance
 
 -- | /See:/ 'newCreateNetworkInsightsAccessScopeResponse' smart constructor.
 data CreateNetworkInsightsAccessScopeResponse = CreateNetworkInsightsAccessScopeResponse'
-  { -- | The Network Access Scope content.
-    networkInsightsAccessScopeContent :: Prelude.Maybe NetworkInsightsAccessScopeContent,
-    -- | The Network Access Scope.
+  { -- | The Network Access Scope.
     networkInsightsAccessScope :: Prelude.Maybe NetworkInsightsAccessScope,
+    -- | The Network Access Scope content.
+    networkInsightsAccessScopeContent :: Prelude.Maybe NetworkInsightsAccessScopeContent,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -237,9 +237,9 @@ data CreateNetworkInsightsAccessScopeResponse = CreateNetworkInsightsAccessScope
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'networkInsightsAccessScopeContent', 'createNetworkInsightsAccessScopeResponse_networkInsightsAccessScopeContent' - The Network Access Scope content.
---
 -- 'networkInsightsAccessScope', 'createNetworkInsightsAccessScopeResponse_networkInsightsAccessScope' - The Network Access Scope.
+--
+-- 'networkInsightsAccessScopeContent', 'createNetworkInsightsAccessScopeResponse_networkInsightsAccessScopeContent' - The Network Access Scope content.
 --
 -- 'httpStatus', 'createNetworkInsightsAccessScopeResponse_httpStatus' - The response's http status code.
 newCreateNetworkInsightsAccessScopeResponse ::
@@ -249,20 +249,20 @@ newCreateNetworkInsightsAccessScopeResponse ::
 newCreateNetworkInsightsAccessScopeResponse
   pHttpStatus_ =
     CreateNetworkInsightsAccessScopeResponse'
-      { networkInsightsAccessScopeContent =
+      { networkInsightsAccessScope =
           Prelude.Nothing,
-        networkInsightsAccessScope =
+        networkInsightsAccessScopeContent =
           Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
--- | The Network Access Scope content.
-createNetworkInsightsAccessScopeResponse_networkInsightsAccessScopeContent :: Lens.Lens' CreateNetworkInsightsAccessScopeResponse (Prelude.Maybe NetworkInsightsAccessScopeContent)
-createNetworkInsightsAccessScopeResponse_networkInsightsAccessScopeContent = Lens.lens (\CreateNetworkInsightsAccessScopeResponse' {networkInsightsAccessScopeContent} -> networkInsightsAccessScopeContent) (\s@CreateNetworkInsightsAccessScopeResponse' {} a -> s {networkInsightsAccessScopeContent = a} :: CreateNetworkInsightsAccessScopeResponse)
-
 -- | The Network Access Scope.
 createNetworkInsightsAccessScopeResponse_networkInsightsAccessScope :: Lens.Lens' CreateNetworkInsightsAccessScopeResponse (Prelude.Maybe NetworkInsightsAccessScope)
 createNetworkInsightsAccessScopeResponse_networkInsightsAccessScope = Lens.lens (\CreateNetworkInsightsAccessScopeResponse' {networkInsightsAccessScope} -> networkInsightsAccessScope) (\s@CreateNetworkInsightsAccessScopeResponse' {} a -> s {networkInsightsAccessScope = a} :: CreateNetworkInsightsAccessScopeResponse)
+
+-- | The Network Access Scope content.
+createNetworkInsightsAccessScopeResponse_networkInsightsAccessScopeContent :: Lens.Lens' CreateNetworkInsightsAccessScopeResponse (Prelude.Maybe NetworkInsightsAccessScopeContent)
+createNetworkInsightsAccessScopeResponse_networkInsightsAccessScopeContent = Lens.lens (\CreateNetworkInsightsAccessScopeResponse' {networkInsightsAccessScopeContent} -> networkInsightsAccessScopeContent) (\s@CreateNetworkInsightsAccessScopeResponse' {} a -> s {networkInsightsAccessScopeContent = a} :: CreateNetworkInsightsAccessScopeResponse)
 
 -- | The response's http status code.
 createNetworkInsightsAccessScopeResponse_httpStatus :: Lens.Lens' CreateNetworkInsightsAccessScopeResponse Prelude.Int
@@ -273,6 +273,6 @@ instance
     CreateNetworkInsightsAccessScopeResponse
   where
   rnf CreateNetworkInsightsAccessScopeResponse' {..} =
-    Prelude.rnf networkInsightsAccessScopeContent
-      `Prelude.seq` Prelude.rnf networkInsightsAccessScope
+    Prelude.rnf networkInsightsAccessScope
+      `Prelude.seq` Prelude.rnf networkInsightsAccessScopeContent
       `Prelude.seq` Prelude.rnf httpStatus

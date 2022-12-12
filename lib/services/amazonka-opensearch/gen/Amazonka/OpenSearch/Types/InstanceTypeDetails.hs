@@ -32,18 +32,18 @@ import qualified Amazonka.Prelude as Prelude
 data InstanceTypeDetails = InstanceTypeDetails'
   { -- | Whether fine-grained access control is supported for the instance type.
     advancedSecurityEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | Whether logging is supported for the instance type.
+    appLogsEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | Whether Amazon Cognito access is supported for the instance type.
+    cognitoEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Whether encryption at rest and node-to-node encryption are supported for
     -- the instance type.
     encryptionEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The instance type.
-    instanceType :: Prelude.Maybe OpenSearchPartitionInstanceType,
-    -- | Whether Amazon Cognito access is supported for the instance type.
-    cognitoEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Whether the instance acts as a data node, a dedicated master node, or an
     -- UltraWarm node.
     instanceRole :: Prelude.Maybe [Prelude.Text],
-    -- | Whether logging is supported for the instance type.
-    appLogsEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The instance type.
+    instanceType :: Prelude.Maybe OpenSearchPartitionInstanceType,
     -- | Whether UltraWarm is supported for the instance type.
     warmEnabled :: Prelude.Maybe Prelude.Bool
   }
@@ -59,17 +59,17 @@ data InstanceTypeDetails = InstanceTypeDetails'
 --
 -- 'advancedSecurityEnabled', 'instanceTypeDetails_advancedSecurityEnabled' - Whether fine-grained access control is supported for the instance type.
 --
--- 'encryptionEnabled', 'instanceTypeDetails_encryptionEnabled' - Whether encryption at rest and node-to-node encryption are supported for
--- the instance type.
---
--- 'instanceType', 'instanceTypeDetails_instanceType' - The instance type.
+-- 'appLogsEnabled', 'instanceTypeDetails_appLogsEnabled' - Whether logging is supported for the instance type.
 --
 -- 'cognitoEnabled', 'instanceTypeDetails_cognitoEnabled' - Whether Amazon Cognito access is supported for the instance type.
+--
+-- 'encryptionEnabled', 'instanceTypeDetails_encryptionEnabled' - Whether encryption at rest and node-to-node encryption are supported for
+-- the instance type.
 --
 -- 'instanceRole', 'instanceTypeDetails_instanceRole' - Whether the instance acts as a data node, a dedicated master node, or an
 -- UltraWarm node.
 --
--- 'appLogsEnabled', 'instanceTypeDetails_appLogsEnabled' - Whether logging is supported for the instance type.
+-- 'instanceType', 'instanceTypeDetails_instanceType' - The instance type.
 --
 -- 'warmEnabled', 'instanceTypeDetails_warmEnabled' - Whether UltraWarm is supported for the instance type.
 newInstanceTypeDetails ::
@@ -78,11 +78,11 @@ newInstanceTypeDetails =
   InstanceTypeDetails'
     { advancedSecurityEnabled =
         Prelude.Nothing,
-      encryptionEnabled = Prelude.Nothing,
-      instanceType = Prelude.Nothing,
-      cognitoEnabled = Prelude.Nothing,
-      instanceRole = Prelude.Nothing,
       appLogsEnabled = Prelude.Nothing,
+      cognitoEnabled = Prelude.Nothing,
+      encryptionEnabled = Prelude.Nothing,
+      instanceRole = Prelude.Nothing,
+      instanceType = Prelude.Nothing,
       warmEnabled = Prelude.Nothing
     }
 
@@ -90,27 +90,27 @@ newInstanceTypeDetails =
 instanceTypeDetails_advancedSecurityEnabled :: Lens.Lens' InstanceTypeDetails (Prelude.Maybe Prelude.Bool)
 instanceTypeDetails_advancedSecurityEnabled = Lens.lens (\InstanceTypeDetails' {advancedSecurityEnabled} -> advancedSecurityEnabled) (\s@InstanceTypeDetails' {} a -> s {advancedSecurityEnabled = a} :: InstanceTypeDetails)
 
--- | Whether encryption at rest and node-to-node encryption are supported for
--- the instance type.
-instanceTypeDetails_encryptionEnabled :: Lens.Lens' InstanceTypeDetails (Prelude.Maybe Prelude.Bool)
-instanceTypeDetails_encryptionEnabled = Lens.lens (\InstanceTypeDetails' {encryptionEnabled} -> encryptionEnabled) (\s@InstanceTypeDetails' {} a -> s {encryptionEnabled = a} :: InstanceTypeDetails)
-
--- | The instance type.
-instanceTypeDetails_instanceType :: Lens.Lens' InstanceTypeDetails (Prelude.Maybe OpenSearchPartitionInstanceType)
-instanceTypeDetails_instanceType = Lens.lens (\InstanceTypeDetails' {instanceType} -> instanceType) (\s@InstanceTypeDetails' {} a -> s {instanceType = a} :: InstanceTypeDetails)
+-- | Whether logging is supported for the instance type.
+instanceTypeDetails_appLogsEnabled :: Lens.Lens' InstanceTypeDetails (Prelude.Maybe Prelude.Bool)
+instanceTypeDetails_appLogsEnabled = Lens.lens (\InstanceTypeDetails' {appLogsEnabled} -> appLogsEnabled) (\s@InstanceTypeDetails' {} a -> s {appLogsEnabled = a} :: InstanceTypeDetails)
 
 -- | Whether Amazon Cognito access is supported for the instance type.
 instanceTypeDetails_cognitoEnabled :: Lens.Lens' InstanceTypeDetails (Prelude.Maybe Prelude.Bool)
 instanceTypeDetails_cognitoEnabled = Lens.lens (\InstanceTypeDetails' {cognitoEnabled} -> cognitoEnabled) (\s@InstanceTypeDetails' {} a -> s {cognitoEnabled = a} :: InstanceTypeDetails)
+
+-- | Whether encryption at rest and node-to-node encryption are supported for
+-- the instance type.
+instanceTypeDetails_encryptionEnabled :: Lens.Lens' InstanceTypeDetails (Prelude.Maybe Prelude.Bool)
+instanceTypeDetails_encryptionEnabled = Lens.lens (\InstanceTypeDetails' {encryptionEnabled} -> encryptionEnabled) (\s@InstanceTypeDetails' {} a -> s {encryptionEnabled = a} :: InstanceTypeDetails)
 
 -- | Whether the instance acts as a data node, a dedicated master node, or an
 -- UltraWarm node.
 instanceTypeDetails_instanceRole :: Lens.Lens' InstanceTypeDetails (Prelude.Maybe [Prelude.Text])
 instanceTypeDetails_instanceRole = Lens.lens (\InstanceTypeDetails' {instanceRole} -> instanceRole) (\s@InstanceTypeDetails' {} a -> s {instanceRole = a} :: InstanceTypeDetails) Prelude.. Lens.mapping Lens.coerced
 
--- | Whether logging is supported for the instance type.
-instanceTypeDetails_appLogsEnabled :: Lens.Lens' InstanceTypeDetails (Prelude.Maybe Prelude.Bool)
-instanceTypeDetails_appLogsEnabled = Lens.lens (\InstanceTypeDetails' {appLogsEnabled} -> appLogsEnabled) (\s@InstanceTypeDetails' {} a -> s {appLogsEnabled = a} :: InstanceTypeDetails)
+-- | The instance type.
+instanceTypeDetails_instanceType :: Lens.Lens' InstanceTypeDetails (Prelude.Maybe OpenSearchPartitionInstanceType)
+instanceTypeDetails_instanceType = Lens.lens (\InstanceTypeDetails' {instanceType} -> instanceType) (\s@InstanceTypeDetails' {} a -> s {instanceType = a} :: InstanceTypeDetails)
 
 -- | Whether UltraWarm is supported for the instance type.
 instanceTypeDetails_warmEnabled :: Lens.Lens' InstanceTypeDetails (Prelude.Maybe Prelude.Bool)
@@ -123,11 +123,11 @@ instance Data.FromJSON InstanceTypeDetails where
       ( \x ->
           InstanceTypeDetails'
             Prelude.<$> (x Data..:? "AdvancedSecurityEnabled")
-            Prelude.<*> (x Data..:? "EncryptionEnabled")
-            Prelude.<*> (x Data..:? "InstanceType")
-            Prelude.<*> (x Data..:? "CognitoEnabled")
-            Prelude.<*> (x Data..:? "InstanceRole" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "AppLogsEnabled")
+            Prelude.<*> (x Data..:? "CognitoEnabled")
+            Prelude.<*> (x Data..:? "EncryptionEnabled")
+            Prelude.<*> (x Data..:? "InstanceRole" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "InstanceType")
             Prelude.<*> (x Data..:? "WarmEnabled")
       )
 
@@ -135,19 +135,19 @@ instance Prelude.Hashable InstanceTypeDetails where
   hashWithSalt _salt InstanceTypeDetails' {..} =
     _salt
       `Prelude.hashWithSalt` advancedSecurityEnabled
-      `Prelude.hashWithSalt` encryptionEnabled
-      `Prelude.hashWithSalt` instanceType
-      `Prelude.hashWithSalt` cognitoEnabled
-      `Prelude.hashWithSalt` instanceRole
       `Prelude.hashWithSalt` appLogsEnabled
+      `Prelude.hashWithSalt` cognitoEnabled
+      `Prelude.hashWithSalt` encryptionEnabled
+      `Prelude.hashWithSalt` instanceRole
+      `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` warmEnabled
 
 instance Prelude.NFData InstanceTypeDetails where
   rnf InstanceTypeDetails' {..} =
     Prelude.rnf advancedSecurityEnabled
-      `Prelude.seq` Prelude.rnf encryptionEnabled
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf cognitoEnabled
-      `Prelude.seq` Prelude.rnf instanceRole
       `Prelude.seq` Prelude.rnf appLogsEnabled
+      `Prelude.seq` Prelude.rnf cognitoEnabled
+      `Prelude.seq` Prelude.rnf encryptionEnabled
+      `Prelude.seq` Prelude.rnf instanceRole
+      `Prelude.seq` Prelude.rnf instanceType
       `Prelude.seq` Prelude.rnf warmEnabled

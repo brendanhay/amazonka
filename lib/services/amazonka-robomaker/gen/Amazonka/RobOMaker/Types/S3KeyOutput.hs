@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newS3KeyOutput' smart constructor.
 data S3KeyOutput = S3KeyOutput'
-  { -- | The S3 key.
-    s3Key :: Prelude.Maybe Prelude.Text,
-    -- | The etag for the object.
-    etag :: Prelude.Maybe Prelude.Text
+  { -- | The etag for the object.
+    etag :: Prelude.Maybe Prelude.Text,
+    -- | The S3 key.
+    s3Key :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data S3KeyOutput = S3KeyOutput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 's3Key', 's3KeyOutput_s3Key' - The S3 key.
---
 -- 'etag', 's3KeyOutput_etag' - The etag for the object.
+--
+-- 's3Key', 's3KeyOutput_s3Key' - The S3 key.
 newS3KeyOutput ::
   S3KeyOutput
 newS3KeyOutput =
   S3KeyOutput'
-    { s3Key = Prelude.Nothing,
-      etag = Prelude.Nothing
+    { etag = Prelude.Nothing,
+      s3Key = Prelude.Nothing
     }
-
--- | The S3 key.
-s3KeyOutput_s3Key :: Lens.Lens' S3KeyOutput (Prelude.Maybe Prelude.Text)
-s3KeyOutput_s3Key = Lens.lens (\S3KeyOutput' {s3Key} -> s3Key) (\s@S3KeyOutput' {} a -> s {s3Key = a} :: S3KeyOutput)
 
 -- | The etag for the object.
 s3KeyOutput_etag :: Lens.Lens' S3KeyOutput (Prelude.Maybe Prelude.Text)
 s3KeyOutput_etag = Lens.lens (\S3KeyOutput' {etag} -> etag) (\s@S3KeyOutput' {} a -> s {etag = a} :: S3KeyOutput)
+
+-- | The S3 key.
+s3KeyOutput_s3Key :: Lens.Lens' S3KeyOutput (Prelude.Maybe Prelude.Text)
+s3KeyOutput_s3Key = Lens.lens (\S3KeyOutput' {s3Key} -> s3Key) (\s@S3KeyOutput' {} a -> s {s3Key = a} :: S3KeyOutput)
 
 instance Data.FromJSON S3KeyOutput where
   parseJSON =
@@ -68,14 +68,14 @@ instance Data.FromJSON S3KeyOutput where
       "S3KeyOutput"
       ( \x ->
           S3KeyOutput'
-            Prelude.<$> (x Data..:? "s3Key") Prelude.<*> (x Data..:? "etag")
+            Prelude.<$> (x Data..:? "etag") Prelude.<*> (x Data..:? "s3Key")
       )
 
 instance Prelude.Hashable S3KeyOutput where
   hashWithSalt _salt S3KeyOutput' {..} =
-    _salt `Prelude.hashWithSalt` s3Key
-      `Prelude.hashWithSalt` etag
+    _salt `Prelude.hashWithSalt` etag
+      `Prelude.hashWithSalt` s3Key
 
 instance Prelude.NFData S3KeyOutput where
   rnf S3KeyOutput' {..} =
-    Prelude.rnf s3Key `Prelude.seq` Prelude.rnf etag
+    Prelude.rnf etag `Prelude.seq` Prelude.rnf s3Key

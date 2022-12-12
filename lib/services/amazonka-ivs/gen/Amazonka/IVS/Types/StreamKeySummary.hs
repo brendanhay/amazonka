@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStreamKeySummary' smart constructor.
 data StreamKeySummary = StreamKeySummary'
-  { -- | Array of 1-50 maps, each of the form @string:string (key:value)@. See
+  { -- | Stream-key ARN.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | Channel ARN for the stream.
+    channelArn :: Prelude.Maybe Prelude.Text,
+    -- | Array of 1-50 maps, each of the form @string:string (key:value)@. See
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
     -- for more information, including restrictions that apply to tags and
     -- \"Tag naming limits and requirements\"; Amazon IVS has no
     -- service-specific constraints beyond what is documented there.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Stream-key ARN.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | Channel ARN for the stream.
-    channelArn :: Prelude.Maybe Prelude.Text
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,31 +49,23 @@ data StreamKeySummary = StreamKeySummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'arn', 'streamKeySummary_arn' - Stream-key ARN.
+--
+-- 'channelArn', 'streamKeySummary_channelArn' - Channel ARN for the stream.
+--
 -- 'tags', 'streamKeySummary_tags' - Array of 1-50 maps, each of the form @string:string (key:value)@. See
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
 -- for more information, including restrictions that apply to tags and
 -- \"Tag naming limits and requirements\"; Amazon IVS has no
 -- service-specific constraints beyond what is documented there.
---
--- 'arn', 'streamKeySummary_arn' - Stream-key ARN.
---
--- 'channelArn', 'streamKeySummary_channelArn' - Channel ARN for the stream.
 newStreamKeySummary ::
   StreamKeySummary
 newStreamKeySummary =
   StreamKeySummary'
-    { tags = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      channelArn = Prelude.Nothing
+    { arn = Prelude.Nothing,
+      channelArn = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
-
--- | Array of 1-50 maps, each of the form @string:string (key:value)@. See
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
--- for more information, including restrictions that apply to tags and
--- \"Tag naming limits and requirements\"; Amazon IVS has no
--- service-specific constraints beyond what is documented there.
-streamKeySummary_tags :: Lens.Lens' StreamKeySummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-streamKeySummary_tags = Lens.lens (\StreamKeySummary' {tags} -> tags) (\s@StreamKeySummary' {} a -> s {tags = a} :: StreamKeySummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | Stream-key ARN.
 streamKeySummary_arn :: Lens.Lens' StreamKeySummary (Prelude.Maybe Prelude.Text)
@@ -83,25 +75,33 @@ streamKeySummary_arn = Lens.lens (\StreamKeySummary' {arn} -> arn) (\s@StreamKey
 streamKeySummary_channelArn :: Lens.Lens' StreamKeySummary (Prelude.Maybe Prelude.Text)
 streamKeySummary_channelArn = Lens.lens (\StreamKeySummary' {channelArn} -> channelArn) (\s@StreamKeySummary' {} a -> s {channelArn = a} :: StreamKeySummary)
 
+-- | Array of 1-50 maps, each of the form @string:string (key:value)@. See
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- for more information, including restrictions that apply to tags and
+-- \"Tag naming limits and requirements\"; Amazon IVS has no
+-- service-specific constraints beyond what is documented there.
+streamKeySummary_tags :: Lens.Lens' StreamKeySummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+streamKeySummary_tags = Lens.lens (\StreamKeySummary' {tags} -> tags) (\s@StreamKeySummary' {} a -> s {tags = a} :: StreamKeySummary) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON StreamKeySummary where
   parseJSON =
     Data.withObject
       "StreamKeySummary"
       ( \x ->
           StreamKeySummary'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "arn")
+            Prelude.<$> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "channelArn")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable StreamKeySummary where
   hashWithSalt _salt StreamKeySummary' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` channelArn
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData StreamKeySummary where
   rnf StreamKeySummary' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf tags

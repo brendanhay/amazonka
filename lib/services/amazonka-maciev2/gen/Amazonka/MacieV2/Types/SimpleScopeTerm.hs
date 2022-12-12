@@ -31,9 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSimpleScopeTerm' smart constructor.
 data SimpleScopeTerm = SimpleScopeTerm'
-  { -- | The object property to use in the condition.
-    key :: Prelude.Maybe ScopeFilterKey,
-    -- | The operator to use in the condition. Valid values for each supported
+  { -- | The operator to use in the condition. Valid values for each supported
     -- property (key) are:
     --
     -- -   OBJECT_EXTENSION - EQ (equals) or NE (not equals)
@@ -44,6 +42,8 @@ data SimpleScopeTerm = SimpleScopeTerm'
     --
     -- -   OBJECT_SIZE - Any operator except CONTAINS
     comparator :: Prelude.Maybe JobComparator,
+    -- | The object property to use in the condition.
+    key :: Prelude.Maybe ScopeFilterKey,
     -- | An array that lists the values to use in the condition. If the value for
     -- the key property is OBJECT_EXTENSION or OBJECT_KEY, this array can
     -- specify multiple values and Amazon Macie uses OR logic to join the
@@ -80,8 +80,6 @@ data SimpleScopeTerm = SimpleScopeTerm'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 'simpleScopeTerm_key' - The object property to use in the condition.
---
 -- 'comparator', 'simpleScopeTerm_comparator' - The operator to use in the condition. Valid values for each supported
 -- property (key) are:
 --
@@ -92,6 +90,8 @@ data SimpleScopeTerm = SimpleScopeTerm'
 -- -   OBJECT_LAST_MODIFIED_DATE - Any operator except CONTAINS
 --
 -- -   OBJECT_SIZE - Any operator except CONTAINS
+--
+-- 'key', 'simpleScopeTerm_key' - The object property to use in the condition.
 --
 -- 'values', 'simpleScopeTerm_values' - An array that lists the values to use in the condition. If the value for
 -- the key property is OBJECT_EXTENSION or OBJECT_KEY, this array can
@@ -121,14 +121,10 @@ newSimpleScopeTerm ::
   SimpleScopeTerm
 newSimpleScopeTerm =
   SimpleScopeTerm'
-    { key = Prelude.Nothing,
-      comparator = Prelude.Nothing,
+    { comparator = Prelude.Nothing,
+      key = Prelude.Nothing,
       values = Prelude.Nothing
     }
-
--- | The object property to use in the condition.
-simpleScopeTerm_key :: Lens.Lens' SimpleScopeTerm (Prelude.Maybe ScopeFilterKey)
-simpleScopeTerm_key = Lens.lens (\SimpleScopeTerm' {key} -> key) (\s@SimpleScopeTerm' {} a -> s {key = a} :: SimpleScopeTerm)
 
 -- | The operator to use in the condition. Valid values for each supported
 -- property (key) are:
@@ -142,6 +138,10 @@ simpleScopeTerm_key = Lens.lens (\SimpleScopeTerm' {key} -> key) (\s@SimpleScope
 -- -   OBJECT_SIZE - Any operator except CONTAINS
 simpleScopeTerm_comparator :: Lens.Lens' SimpleScopeTerm (Prelude.Maybe JobComparator)
 simpleScopeTerm_comparator = Lens.lens (\SimpleScopeTerm' {comparator} -> comparator) (\s@SimpleScopeTerm' {} a -> s {comparator = a} :: SimpleScopeTerm)
+
+-- | The object property to use in the condition.
+simpleScopeTerm_key :: Lens.Lens' SimpleScopeTerm (Prelude.Maybe ScopeFilterKey)
+simpleScopeTerm_key = Lens.lens (\SimpleScopeTerm' {key} -> key) (\s@SimpleScopeTerm' {} a -> s {key = a} :: SimpleScopeTerm)
 
 -- | An array that lists the values to use in the condition. If the value for
 -- the key property is OBJECT_EXTENSION or OBJECT_KEY, this array can
@@ -176,29 +176,29 @@ instance Data.FromJSON SimpleScopeTerm where
       "SimpleScopeTerm"
       ( \x ->
           SimpleScopeTerm'
-            Prelude.<$> (x Data..:? "key")
-            Prelude.<*> (x Data..:? "comparator")
+            Prelude.<$> (x Data..:? "comparator")
+            Prelude.<*> (x Data..:? "key")
             Prelude.<*> (x Data..:? "values" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable SimpleScopeTerm where
   hashWithSalt _salt SimpleScopeTerm' {..} =
-    _salt `Prelude.hashWithSalt` key
-      `Prelude.hashWithSalt` comparator
+    _salt `Prelude.hashWithSalt` comparator
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData SimpleScopeTerm where
   rnf SimpleScopeTerm' {..} =
-    Prelude.rnf key
-      `Prelude.seq` Prelude.rnf comparator
+    Prelude.rnf comparator
+      `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf values
 
 instance Data.ToJSON SimpleScopeTerm where
   toJSON SimpleScopeTerm' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("key" Data..=) Prelude.<$> key,
-            ("comparator" Data..=) Prelude.<$> comparator,
+          [ ("comparator" Data..=) Prelude.<$> comparator,
+            ("key" Data..=) Prelude.<$> key,
             ("values" Data..=) Prelude.<$> values
           ]
       )

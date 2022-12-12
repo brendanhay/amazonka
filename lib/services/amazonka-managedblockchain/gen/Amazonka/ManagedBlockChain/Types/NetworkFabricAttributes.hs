@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNetworkFabricAttributes' smart constructor.
 data NetworkFabricAttributes = NetworkFabricAttributes'
-  { -- | The endpoint of the ordering service for the network.
-    orderingServiceEndpoint :: Prelude.Maybe Prelude.Text,
-    -- | The edition of Amazon Managed Blockchain that Hyperledger Fabric uses.
+  { -- | The edition of Amazon Managed Blockchain that Hyperledger Fabric uses.
     -- For more information, see
     -- <http://aws.amazon.com/managed-blockchain/pricing/ Amazon Managed Blockchain Pricing>.
-    edition :: Prelude.Maybe Edition
+    edition :: Prelude.Maybe Edition,
+    -- | The endpoint of the ordering service for the network.
+    orderingServiceEndpoint :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,23 +46,18 @@ data NetworkFabricAttributes = NetworkFabricAttributes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'orderingServiceEndpoint', 'networkFabricAttributes_orderingServiceEndpoint' - The endpoint of the ordering service for the network.
---
 -- 'edition', 'networkFabricAttributes_edition' - The edition of Amazon Managed Blockchain that Hyperledger Fabric uses.
 -- For more information, see
 -- <http://aws.amazon.com/managed-blockchain/pricing/ Amazon Managed Blockchain Pricing>.
+--
+-- 'orderingServiceEndpoint', 'networkFabricAttributes_orderingServiceEndpoint' - The endpoint of the ordering service for the network.
 newNetworkFabricAttributes ::
   NetworkFabricAttributes
 newNetworkFabricAttributes =
   NetworkFabricAttributes'
-    { orderingServiceEndpoint =
-        Prelude.Nothing,
-      edition = Prelude.Nothing
+    { edition = Prelude.Nothing,
+      orderingServiceEndpoint = Prelude.Nothing
     }
-
--- | The endpoint of the ordering service for the network.
-networkFabricAttributes_orderingServiceEndpoint :: Lens.Lens' NetworkFabricAttributes (Prelude.Maybe Prelude.Text)
-networkFabricAttributes_orderingServiceEndpoint = Lens.lens (\NetworkFabricAttributes' {orderingServiceEndpoint} -> orderingServiceEndpoint) (\s@NetworkFabricAttributes' {} a -> s {orderingServiceEndpoint = a} :: NetworkFabricAttributes)
 
 -- | The edition of Amazon Managed Blockchain that Hyperledger Fabric uses.
 -- For more information, see
@@ -70,23 +65,26 @@ networkFabricAttributes_orderingServiceEndpoint = Lens.lens (\NetworkFabricAttri
 networkFabricAttributes_edition :: Lens.Lens' NetworkFabricAttributes (Prelude.Maybe Edition)
 networkFabricAttributes_edition = Lens.lens (\NetworkFabricAttributes' {edition} -> edition) (\s@NetworkFabricAttributes' {} a -> s {edition = a} :: NetworkFabricAttributes)
 
+-- | The endpoint of the ordering service for the network.
+networkFabricAttributes_orderingServiceEndpoint :: Lens.Lens' NetworkFabricAttributes (Prelude.Maybe Prelude.Text)
+networkFabricAttributes_orderingServiceEndpoint = Lens.lens (\NetworkFabricAttributes' {orderingServiceEndpoint} -> orderingServiceEndpoint) (\s@NetworkFabricAttributes' {} a -> s {orderingServiceEndpoint = a} :: NetworkFabricAttributes)
+
 instance Data.FromJSON NetworkFabricAttributes where
   parseJSON =
     Data.withObject
       "NetworkFabricAttributes"
       ( \x ->
           NetworkFabricAttributes'
-            Prelude.<$> (x Data..:? "OrderingServiceEndpoint")
-            Prelude.<*> (x Data..:? "Edition")
+            Prelude.<$> (x Data..:? "Edition")
+            Prelude.<*> (x Data..:? "OrderingServiceEndpoint")
       )
 
 instance Prelude.Hashable NetworkFabricAttributes where
   hashWithSalt _salt NetworkFabricAttributes' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` edition
       `Prelude.hashWithSalt` orderingServiceEndpoint
-      `Prelude.hashWithSalt` edition
 
 instance Prelude.NFData NetworkFabricAttributes where
   rnf NetworkFabricAttributes' {..} =
-    Prelude.rnf orderingServiceEndpoint
-      `Prelude.seq` Prelude.rnf edition
+    Prelude.rnf edition
+      `Prelude.seq` Prelude.rnf orderingServiceEndpoint

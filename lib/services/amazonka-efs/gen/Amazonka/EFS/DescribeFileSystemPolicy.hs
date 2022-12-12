@@ -37,8 +37,8 @@ module Amazonka.EFS.DescribeFileSystemPolicy
     newFileSystemPolicyDescription,
 
     -- * Response Lenses
-    fileSystemPolicyDescription_policy,
     fileSystemPolicyDescription_fileSystemId,
+    fileSystemPolicyDescription_policy,
   )
 where
 

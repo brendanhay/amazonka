@@ -31,17 +31,17 @@ module Amazonka.DynamoDBStreams.ListStreams
     newListStreams,
 
     -- * Request Lenses
-    listStreams_tableName,
     listStreams_exclusiveStartStreamArn,
     listStreams_limit,
+    listStreams_tableName,
 
     -- * Destructuring the Response
     ListStreamsResponse (..),
     newListStreamsResponse,
 
     -- * Response Lenses
-    listStreamsResponse_streams,
     listStreamsResponse_lastEvaluatedStreamArn,
+    listStreamsResponse_streams,
     listStreamsResponse_httpStatus,
   )
 where
@@ -58,15 +58,15 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListStreams' smart constructor.
 data ListStreams = ListStreams'
-  { -- | If this parameter is provided, then only the streams associated with
-    -- this table name are returned.
-    tableName :: Prelude.Maybe Prelude.Text,
-    -- | The ARN (Amazon Resource Name) of the first item that this operation
+  { -- | The ARN (Amazon Resource Name) of the first item that this operation
     -- will evaluate. Use the value that was returned for
     -- @LastEvaluatedStreamArn@ in the previous operation.
     exclusiveStartStreamArn :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of streams to return. The upper limit is 100.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | If this parameter is provided, then only the streams associated with
+    -- this table name are returned.
+    tableName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,27 +78,23 @@ data ListStreams = ListStreams'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tableName', 'listStreams_tableName' - If this parameter is provided, then only the streams associated with
--- this table name are returned.
---
 -- 'exclusiveStartStreamArn', 'listStreams_exclusiveStartStreamArn' - The ARN (Amazon Resource Name) of the first item that this operation
 -- will evaluate. Use the value that was returned for
 -- @LastEvaluatedStreamArn@ in the previous operation.
 --
 -- 'limit', 'listStreams_limit' - The maximum number of streams to return. The upper limit is 100.
+--
+-- 'tableName', 'listStreams_tableName' - If this parameter is provided, then only the streams associated with
+-- this table name are returned.
 newListStreams ::
   ListStreams
 newListStreams =
   ListStreams'
-    { tableName = Prelude.Nothing,
-      exclusiveStartStreamArn = Prelude.Nothing,
-      limit = Prelude.Nothing
+    { exclusiveStartStreamArn =
+        Prelude.Nothing,
+      limit = Prelude.Nothing,
+      tableName = Prelude.Nothing
     }
-
--- | If this parameter is provided, then only the streams associated with
--- this table name are returned.
-listStreams_tableName :: Lens.Lens' ListStreams (Prelude.Maybe Prelude.Text)
-listStreams_tableName = Lens.lens (\ListStreams' {tableName} -> tableName) (\s@ListStreams' {} a -> s {tableName = a} :: ListStreams)
 
 -- | The ARN (Amazon Resource Name) of the first item that this operation
 -- will evaluate. Use the value that was returned for
@@ -110,6 +106,11 @@ listStreams_exclusiveStartStreamArn = Lens.lens (\ListStreams' {exclusiveStartSt
 listStreams_limit :: Lens.Lens' ListStreams (Prelude.Maybe Prelude.Natural)
 listStreams_limit = Lens.lens (\ListStreams' {limit} -> limit) (\s@ListStreams' {} a -> s {limit = a} :: ListStreams)
 
+-- | If this parameter is provided, then only the streams associated with
+-- this table name are returned.
+listStreams_tableName :: Lens.Lens' ListStreams (Prelude.Maybe Prelude.Text)
+listStreams_tableName = Lens.lens (\ListStreams' {tableName} -> tableName) (\s@ListStreams' {} a -> s {tableName = a} :: ListStreams)
+
 instance Core.AWSRequest ListStreams where
   type AWSResponse ListStreams = ListStreamsResponse
   request overrides =
@@ -118,22 +119,23 @@ instance Core.AWSRequest ListStreams where
     Response.receiveJSON
       ( \s h x ->
           ListStreamsResponse'
-            Prelude.<$> (x Data..?> "Streams" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "LastEvaluatedStreamArn")
+            Prelude.<$> (x Data..?> "LastEvaluatedStreamArn")
+            Prelude.<*> (x Data..?> "Streams" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListStreams where
   hashWithSalt _salt ListStreams' {..} =
-    _salt `Prelude.hashWithSalt` tableName
+    _salt
       `Prelude.hashWithSalt` exclusiveStartStreamArn
       `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` tableName
 
 instance Prelude.NFData ListStreams where
   rnf ListStreams' {..} =
-    Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf exclusiveStartStreamArn
+    Prelude.rnf exclusiveStartStreamArn
       `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf tableName
 
 instance Data.ToHeaders ListStreams where
   toHeaders =
@@ -154,10 +156,10 @@ instance Data.ToJSON ListStreams where
   toJSON ListStreams' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("TableName" Data..=) Prelude.<$> tableName,
-            ("ExclusiveStartStreamArn" Data..=)
+          [ ("ExclusiveStartStreamArn" Data..=)
               Prelude.<$> exclusiveStartStreamArn,
-            ("Limit" Data..=) Prelude.<$> limit
+            ("Limit" Data..=) Prelude.<$> limit,
+            ("TableName" Data..=) Prelude.<$> tableName
           ]
       )
 
@@ -171,10 +173,7 @@ instance Data.ToQuery ListStreams where
 --
 -- /See:/ 'newListStreamsResponse' smart constructor.
 data ListStreamsResponse = ListStreamsResponse'
-  { -- | A list of stream descriptors associated with the current account and
-    -- endpoint.
-    streams :: Prelude.Maybe [Stream],
-    -- | The stream ARN of the item where the operation stopped, inclusive of the
+  { -- | The stream ARN of the item where the operation stopped, inclusive of the
     -- previous result set. Use this value to start a new operation, excluding
     -- this value in the new request.
     --
@@ -186,6 +185,9 @@ data ListStreamsResponse = ListStreamsResponse'
     -- have reached the end of the result set is when @LastEvaluatedStreamArn@
     -- is empty.
     lastEvaluatedStreamArn :: Prelude.Maybe Prelude.Text,
+    -- | A list of stream descriptors associated with the current account and
+    -- endpoint.
+    streams :: Prelude.Maybe [Stream],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -199,9 +201,6 @@ data ListStreamsResponse = ListStreamsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'streams', 'listStreamsResponse_streams' - A list of stream descriptors associated with the current account and
--- endpoint.
---
 -- 'lastEvaluatedStreamArn', 'listStreamsResponse_lastEvaluatedStreamArn' - The stream ARN of the item where the operation stopped, inclusive of the
 -- previous result set. Use this value to start a new operation, excluding
 -- this value in the new request.
@@ -214,6 +213,9 @@ data ListStreamsResponse = ListStreamsResponse'
 -- have reached the end of the result set is when @LastEvaluatedStreamArn@
 -- is empty.
 --
+-- 'streams', 'listStreamsResponse_streams' - A list of stream descriptors associated with the current account and
+-- endpoint.
+--
 -- 'httpStatus', 'listStreamsResponse_httpStatus' - The response's http status code.
 newListStreamsResponse ::
   -- | 'httpStatus'
@@ -221,15 +223,11 @@ newListStreamsResponse ::
   ListStreamsResponse
 newListStreamsResponse pHttpStatus_ =
   ListStreamsResponse'
-    { streams = Prelude.Nothing,
-      lastEvaluatedStreamArn = Prelude.Nothing,
+    { lastEvaluatedStreamArn =
+        Prelude.Nothing,
+      streams = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of stream descriptors associated with the current account and
--- endpoint.
-listStreamsResponse_streams :: Lens.Lens' ListStreamsResponse (Prelude.Maybe [Stream])
-listStreamsResponse_streams = Lens.lens (\ListStreamsResponse' {streams} -> streams) (\s@ListStreamsResponse' {} a -> s {streams = a} :: ListStreamsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The stream ARN of the item where the operation stopped, inclusive of the
 -- previous result set. Use this value to start a new operation, excluding
@@ -245,12 +243,17 @@ listStreamsResponse_streams = Lens.lens (\ListStreamsResponse' {streams} -> stre
 listStreamsResponse_lastEvaluatedStreamArn :: Lens.Lens' ListStreamsResponse (Prelude.Maybe Prelude.Text)
 listStreamsResponse_lastEvaluatedStreamArn = Lens.lens (\ListStreamsResponse' {lastEvaluatedStreamArn} -> lastEvaluatedStreamArn) (\s@ListStreamsResponse' {} a -> s {lastEvaluatedStreamArn = a} :: ListStreamsResponse)
 
+-- | A list of stream descriptors associated with the current account and
+-- endpoint.
+listStreamsResponse_streams :: Lens.Lens' ListStreamsResponse (Prelude.Maybe [Stream])
+listStreamsResponse_streams = Lens.lens (\ListStreamsResponse' {streams} -> streams) (\s@ListStreamsResponse' {} a -> s {streams = a} :: ListStreamsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listStreamsResponse_httpStatus :: Lens.Lens' ListStreamsResponse Prelude.Int
 listStreamsResponse_httpStatus = Lens.lens (\ListStreamsResponse' {httpStatus} -> httpStatus) (\s@ListStreamsResponse' {} a -> s {httpStatus = a} :: ListStreamsResponse)
 
 instance Prelude.NFData ListStreamsResponse where
   rnf ListStreamsResponse' {..} =
-    Prelude.rnf streams
-      `Prelude.seq` Prelude.rnf lastEvaluatedStreamArn
+    Prelude.rnf lastEvaluatedStreamArn
+      `Prelude.seq` Prelude.rnf streams
       `Prelude.seq` Prelude.rnf httpStatus

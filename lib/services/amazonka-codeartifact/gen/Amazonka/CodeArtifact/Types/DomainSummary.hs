@@ -32,19 +32,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDomainSummary' smart constructor.
 data DomainSummary = DomainSummary'
-  { -- | The name of the domain.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | The ARN of the domain.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | A timestamp that contains the date and time the domain was created.
     createdTime :: Prelude.Maybe Data.POSIX,
-    -- | The ARN of the domain.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | A string that contains the status of the domain.
-    status :: Prelude.Maybe DomainStatus,
+    -- | The key used to encrypt the domain.
+    encryptionKey :: Prelude.Maybe Prelude.Text,
+    -- | The name of the domain.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The 12-digit account number of the Amazon Web Services account that owns
     -- the domain. It does not include dashes or spaces.
     owner :: Prelude.Maybe Prelude.Text,
-    -- | The key used to encrypt the domain.
-    encryptionKey :: Prelude.Maybe Prelude.Text
+    -- | A string that contains the status of the domain.
+    status :: Prelude.Maybe DomainStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,54 +56,54 @@ data DomainSummary = DomainSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'domainSummary_name' - The name of the domain.
+-- 'arn', 'domainSummary_arn' - The ARN of the domain.
 --
 -- 'createdTime', 'domainSummary_createdTime' - A timestamp that contains the date and time the domain was created.
 --
--- 'arn', 'domainSummary_arn' - The ARN of the domain.
+-- 'encryptionKey', 'domainSummary_encryptionKey' - The key used to encrypt the domain.
 --
--- 'status', 'domainSummary_status' - A string that contains the status of the domain.
+-- 'name', 'domainSummary_name' - The name of the domain.
 --
 -- 'owner', 'domainSummary_owner' - The 12-digit account number of the Amazon Web Services account that owns
 -- the domain. It does not include dashes or spaces.
 --
--- 'encryptionKey', 'domainSummary_encryptionKey' - The key used to encrypt the domain.
+-- 'status', 'domainSummary_status' - A string that contains the status of the domain.
 newDomainSummary ::
   DomainSummary
 newDomainSummary =
   DomainSummary'
-    { name = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       createdTime = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      status = Prelude.Nothing,
+      encryptionKey = Prelude.Nothing,
+      name = Prelude.Nothing,
       owner = Prelude.Nothing,
-      encryptionKey = Prelude.Nothing
+      status = Prelude.Nothing
     }
-
--- | The name of the domain.
-domainSummary_name :: Lens.Lens' DomainSummary (Prelude.Maybe Prelude.Text)
-domainSummary_name = Lens.lens (\DomainSummary' {name} -> name) (\s@DomainSummary' {} a -> s {name = a} :: DomainSummary)
-
--- | A timestamp that contains the date and time the domain was created.
-domainSummary_createdTime :: Lens.Lens' DomainSummary (Prelude.Maybe Prelude.UTCTime)
-domainSummary_createdTime = Lens.lens (\DomainSummary' {createdTime} -> createdTime) (\s@DomainSummary' {} a -> s {createdTime = a} :: DomainSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the domain.
 domainSummary_arn :: Lens.Lens' DomainSummary (Prelude.Maybe Prelude.Text)
 domainSummary_arn = Lens.lens (\DomainSummary' {arn} -> arn) (\s@DomainSummary' {} a -> s {arn = a} :: DomainSummary)
 
--- | A string that contains the status of the domain.
-domainSummary_status :: Lens.Lens' DomainSummary (Prelude.Maybe DomainStatus)
-domainSummary_status = Lens.lens (\DomainSummary' {status} -> status) (\s@DomainSummary' {} a -> s {status = a} :: DomainSummary)
+-- | A timestamp that contains the date and time the domain was created.
+domainSummary_createdTime :: Lens.Lens' DomainSummary (Prelude.Maybe Prelude.UTCTime)
+domainSummary_createdTime = Lens.lens (\DomainSummary' {createdTime} -> createdTime) (\s@DomainSummary' {} a -> s {createdTime = a} :: DomainSummary) Prelude.. Lens.mapping Data._Time
+
+-- | The key used to encrypt the domain.
+domainSummary_encryptionKey :: Lens.Lens' DomainSummary (Prelude.Maybe Prelude.Text)
+domainSummary_encryptionKey = Lens.lens (\DomainSummary' {encryptionKey} -> encryptionKey) (\s@DomainSummary' {} a -> s {encryptionKey = a} :: DomainSummary)
+
+-- | The name of the domain.
+domainSummary_name :: Lens.Lens' DomainSummary (Prelude.Maybe Prelude.Text)
+domainSummary_name = Lens.lens (\DomainSummary' {name} -> name) (\s@DomainSummary' {} a -> s {name = a} :: DomainSummary)
 
 -- | The 12-digit account number of the Amazon Web Services account that owns
 -- the domain. It does not include dashes or spaces.
 domainSummary_owner :: Lens.Lens' DomainSummary (Prelude.Maybe Prelude.Text)
 domainSummary_owner = Lens.lens (\DomainSummary' {owner} -> owner) (\s@DomainSummary' {} a -> s {owner = a} :: DomainSummary)
 
--- | The key used to encrypt the domain.
-domainSummary_encryptionKey :: Lens.Lens' DomainSummary (Prelude.Maybe Prelude.Text)
-domainSummary_encryptionKey = Lens.lens (\DomainSummary' {encryptionKey} -> encryptionKey) (\s@DomainSummary' {} a -> s {encryptionKey = a} :: DomainSummary)
+-- | A string that contains the status of the domain.
+domainSummary_status :: Lens.Lens' DomainSummary (Prelude.Maybe DomainStatus)
+domainSummary_status = Lens.lens (\DomainSummary' {status} -> status) (\s@DomainSummary' {} a -> s {status = a} :: DomainSummary)
 
 instance Data.FromJSON DomainSummary where
   parseJSON =
@@ -111,28 +111,28 @@ instance Data.FromJSON DomainSummary where
       "DomainSummary"
       ( \x ->
           DomainSummary'
-            Prelude.<$> (x Data..:? "name")
+            Prelude.<$> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "createdTime")
-            Prelude.<*> (x Data..:? "arn")
-            Prelude.<*> (x Data..:? "status")
-            Prelude.<*> (x Data..:? "owner")
             Prelude.<*> (x Data..:? "encryptionKey")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "owner")
+            Prelude.<*> (x Data..:? "status")
       )
 
 instance Prelude.Hashable DomainSummary where
   hashWithSalt _salt DomainSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` owner
       `Prelude.hashWithSalt` encryptionKey
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData DomainSummary where
   rnf DomainSummary' {..} =
-    Prelude.rnf name
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf owner
       `Prelude.seq` Prelude.rnf encryptionKey
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf status

@@ -35,8 +35,8 @@ module Amazonka.OpsWorks.UpdateVolume
     newUpdateVolume,
 
     -- * Request Lenses
-    updateVolume_name,
     updateVolume_mountPoint,
+    updateVolume_name,
     updateVolume_volumeId,
 
     -- * Destructuring the Response
@@ -55,10 +55,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateVolume' smart constructor.
 data UpdateVolume = UpdateVolume'
-  { -- | The new name.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The new mount point.
+  { -- | The new mount point.
     mountPoint :: Prelude.Maybe Prelude.Text,
+    -- | The new name.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The volume ID.
     volumeId :: Prelude.Text
   }
@@ -72,9 +72,9 @@ data UpdateVolume = UpdateVolume'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateVolume_name' - The new name.
---
 -- 'mountPoint', 'updateVolume_mountPoint' - The new mount point.
+--
+-- 'name', 'updateVolume_name' - The new name.
 --
 -- 'volumeId', 'updateVolume_volumeId' - The volume ID.
 newUpdateVolume ::
@@ -83,18 +83,18 @@ newUpdateVolume ::
   UpdateVolume
 newUpdateVolume pVolumeId_ =
   UpdateVolume'
-    { name = Prelude.Nothing,
-      mountPoint = Prelude.Nothing,
+    { mountPoint = Prelude.Nothing,
+      name = Prelude.Nothing,
       volumeId = pVolumeId_
     }
-
--- | The new name.
-updateVolume_name :: Lens.Lens' UpdateVolume (Prelude.Maybe Prelude.Text)
-updateVolume_name = Lens.lens (\UpdateVolume' {name} -> name) (\s@UpdateVolume' {} a -> s {name = a} :: UpdateVolume)
 
 -- | The new mount point.
 updateVolume_mountPoint :: Lens.Lens' UpdateVolume (Prelude.Maybe Prelude.Text)
 updateVolume_mountPoint = Lens.lens (\UpdateVolume' {mountPoint} -> mountPoint) (\s@UpdateVolume' {} a -> s {mountPoint = a} :: UpdateVolume)
+
+-- | The new name.
+updateVolume_name :: Lens.Lens' UpdateVolume (Prelude.Maybe Prelude.Text)
+updateVolume_name = Lens.lens (\UpdateVolume' {name} -> name) (\s@UpdateVolume' {} a -> s {name = a} :: UpdateVolume)
 
 -- | The volume ID.
 updateVolume_volumeId :: Lens.Lens' UpdateVolume Prelude.Text
@@ -108,14 +108,14 @@ instance Core.AWSRequest UpdateVolume where
 
 instance Prelude.Hashable UpdateVolume where
   hashWithSalt _salt UpdateVolume' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` mountPoint
+    _salt `Prelude.hashWithSalt` mountPoint
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` volumeId
 
 instance Prelude.NFData UpdateVolume where
   rnf UpdateVolume' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf mountPoint
+    Prelude.rnf mountPoint
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf volumeId
 
 instance Data.ToHeaders UpdateVolume where
@@ -137,8 +137,8 @@ instance Data.ToJSON UpdateVolume where
   toJSON UpdateVolume' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
-            ("MountPoint" Data..=) Prelude.<$> mountPoint,
+          [ ("MountPoint" Data..=) Prelude.<$> mountPoint,
+            ("Name" Data..=) Prelude.<$> name,
             Prelude.Just ("VolumeId" Data..= volumeId)
           ]
       )

@@ -30,11 +30,11 @@ import Amazonka.WellArchitected.Types.ChoiceContent
 --
 -- /See:/ 'newAdditionalResources' smart constructor.
 data AdditionalResources = AdditionalResources'
-  { -- | Type of additional resource.
-    type' :: Prelude.Maybe AdditionalResourceType,
-    -- | The URLs for additional resources, either helpful resources or
+  { -- | The URLs for additional resources, either helpful resources or
     -- improvement plans. Up to five additional URLs can be specified.
-    content :: Prelude.Maybe [ChoiceContent]
+    content :: Prelude.Maybe [ChoiceContent],
+    -- | Type of additional resource.
+    type' :: Prelude.Maybe AdditionalResourceType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,26 +46,26 @@ data AdditionalResources = AdditionalResources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'additionalResources_type' - Type of additional resource.
---
 -- 'content', 'additionalResources_content' - The URLs for additional resources, either helpful resources or
 -- improvement plans. Up to five additional URLs can be specified.
+--
+-- 'type'', 'additionalResources_type' - Type of additional resource.
 newAdditionalResources ::
   AdditionalResources
 newAdditionalResources =
   AdditionalResources'
-    { type' = Prelude.Nothing,
-      content = Prelude.Nothing
+    { content = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
-
--- | Type of additional resource.
-additionalResources_type :: Lens.Lens' AdditionalResources (Prelude.Maybe AdditionalResourceType)
-additionalResources_type = Lens.lens (\AdditionalResources' {type'} -> type') (\s@AdditionalResources' {} a -> s {type' = a} :: AdditionalResources)
 
 -- | The URLs for additional resources, either helpful resources or
 -- improvement plans. Up to five additional URLs can be specified.
 additionalResources_content :: Lens.Lens' AdditionalResources (Prelude.Maybe [ChoiceContent])
 additionalResources_content = Lens.lens (\AdditionalResources' {content} -> content) (\s@AdditionalResources' {} a -> s {content = a} :: AdditionalResources) Prelude.. Lens.mapping Lens.coerced
+
+-- | Type of additional resource.
+additionalResources_type :: Lens.Lens' AdditionalResources (Prelude.Maybe AdditionalResourceType)
+additionalResources_type = Lens.lens (\AdditionalResources' {type'} -> type') (\s@AdditionalResources' {} a -> s {type' = a} :: AdditionalResources)
 
 instance Data.FromJSON AdditionalResources where
   parseJSON =
@@ -73,15 +73,15 @@ instance Data.FromJSON AdditionalResources where
       "AdditionalResources"
       ( \x ->
           AdditionalResources'
-            Prelude.<$> (x Data..:? "Type")
-            Prelude.<*> (x Data..:? "Content" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Content" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable AdditionalResources where
   hashWithSalt _salt AdditionalResources' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` content
+    _salt `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData AdditionalResources where
   rnf AdditionalResources' {..} =
-    Prelude.rnf type' `Prelude.seq` Prelude.rnf content
+    Prelude.rnf content `Prelude.seq` Prelude.rnf type'

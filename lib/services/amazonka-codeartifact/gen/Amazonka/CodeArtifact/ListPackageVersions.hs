@@ -32,13 +32,13 @@ module Amazonka.CodeArtifact.ListPackageVersions
     newListPackageVersions,
 
     -- * Request Lenses
+    listPackageVersions_domainOwner,
+    listPackageVersions_maxResults,
+    listPackageVersions_namespace,
     listPackageVersions_nextToken,
     listPackageVersions_originType,
-    listPackageVersions_status,
     listPackageVersions_sortBy,
-    listPackageVersions_maxResults,
-    listPackageVersions_domainOwner,
-    listPackageVersions_namespace,
+    listPackageVersions_status,
     listPackageVersions_domain,
     listPackageVersions_repository,
     listPackageVersions_format,
@@ -49,12 +49,12 @@ module Amazonka.CodeArtifact.ListPackageVersions
     newListPackageVersionsResponse,
 
     -- * Response Lenses
-    listPackageVersionsResponse_nextToken,
     listPackageVersionsResponse_defaultDisplayVersion,
     listPackageVersionsResponse_format,
+    listPackageVersionsResponse_namespace,
+    listPackageVersionsResponse_nextToken,
     listPackageVersionsResponse_package,
     listPackageVersionsResponse_versions,
-    listPackageVersionsResponse_namespace,
     listPackageVersionsResponse_httpStatus,
   )
 where
@@ -69,22 +69,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPackageVersions' smart constructor.
 data ListPackageVersions = ListPackageVersions'
-  { -- | The token for the next set of results. Use the value returned in the
-    -- previous response in the next request to retrieve the next set of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The @originType@ used to filter package versions. Only package versions
-    -- with the provided @originType@ will be returned.
-    originType :: Prelude.Maybe PackageVersionOriginType,
-    -- | A string that filters the requested package versions by status.
-    status :: Prelude.Maybe PackageVersionStatus,
-    -- | How to sort the requested list of package versions.
-    sortBy :: Prelude.Maybe PackageVersionSortType,
-    -- | The maximum number of results to return per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The 12-digit account number of the Amazon Web Services account that owns
+  { -- | The 12-digit account number of the Amazon Web Services account that owns
     -- the domain. It does not include dashes or spaces.
     domainOwner :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return per page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The namespace of the package that contains the requested package
     -- versions. The package component that specifies its namespace depends on
     -- its type. For example:
@@ -96,6 +85,17 @@ data ListPackageVersions = ListPackageVersions'
     -- -   Python and NuGet packages do not contain a corresponding component,
     --     packages of those formats do not have a namespace.
     namespace :: Prelude.Maybe Prelude.Text,
+    -- | The token for the next set of results. Use the value returned in the
+    -- previous response in the next request to retrieve the next set of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The @originType@ used to filter package versions. Only package versions
+    -- with the provided @originType@ will be returned.
+    originType :: Prelude.Maybe PackageVersionOriginType,
+    -- | How to sort the requested list of package versions.
+    sortBy :: Prelude.Maybe PackageVersionSortType,
+    -- | A string that filters the requested package versions by status.
+    status :: Prelude.Maybe PackageVersionStatus,
     -- | The name of the domain that contains the repository that contains the
     -- requested package versions.
     domain :: Prelude.Text,
@@ -116,21 +116,10 @@ data ListPackageVersions = ListPackageVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPackageVersions_nextToken' - The token for the next set of results. Use the value returned in the
--- previous response in the next request to retrieve the next set of
--- results.
---
--- 'originType', 'listPackageVersions_originType' - The @originType@ used to filter package versions. Only package versions
--- with the provided @originType@ will be returned.
---
--- 'status', 'listPackageVersions_status' - A string that filters the requested package versions by status.
---
--- 'sortBy', 'listPackageVersions_sortBy' - How to sort the requested list of package versions.
---
--- 'maxResults', 'listPackageVersions_maxResults' - The maximum number of results to return per page.
---
 -- 'domainOwner', 'listPackageVersions_domainOwner' - The 12-digit account number of the Amazon Web Services account that owns
 -- the domain. It does not include dashes or spaces.
+--
+-- 'maxResults', 'listPackageVersions_maxResults' - The maximum number of results to return per page.
 --
 -- 'namespace', 'listPackageVersions_namespace' - The namespace of the package that contains the requested package
 -- versions. The package component that specifies its namespace depends on
@@ -142,6 +131,17 @@ data ListPackageVersions = ListPackageVersions'
 --
 -- -   Python and NuGet packages do not contain a corresponding component,
 --     packages of those formats do not have a namespace.
+--
+-- 'nextToken', 'listPackageVersions_nextToken' - The token for the next set of results. Use the value returned in the
+-- previous response in the next request to retrieve the next set of
+-- results.
+--
+-- 'originType', 'listPackageVersions_originType' - The @originType@ used to filter package versions. Only package versions
+-- with the provided @originType@ will be returned.
+--
+-- 'sortBy', 'listPackageVersions_sortBy' - How to sort the requested list of package versions.
+--
+-- 'status', 'listPackageVersions_status' - A string that filters the requested package versions by status.
 --
 -- 'domain', 'listPackageVersions_domain' - The name of the domain that contains the repository that contains the
 -- requested package versions.
@@ -167,46 +167,27 @@ newListPackageVersions
   pFormat_
   pPackage_ =
     ListPackageVersions'
-      { nextToken = Prelude.Nothing,
-        originType = Prelude.Nothing,
-        status = Prelude.Nothing,
-        sortBy = Prelude.Nothing,
+      { domainOwner = Prelude.Nothing,
         maxResults = Prelude.Nothing,
-        domainOwner = Prelude.Nothing,
         namespace = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
+        originType = Prelude.Nothing,
+        sortBy = Prelude.Nothing,
+        status = Prelude.Nothing,
         domain = pDomain_,
         repository = pRepository_,
         format = pFormat_,
         package = pPackage_
       }
 
--- | The token for the next set of results. Use the value returned in the
--- previous response in the next request to retrieve the next set of
--- results.
-listPackageVersions_nextToken :: Lens.Lens' ListPackageVersions (Prelude.Maybe Prelude.Text)
-listPackageVersions_nextToken = Lens.lens (\ListPackageVersions' {nextToken} -> nextToken) (\s@ListPackageVersions' {} a -> s {nextToken = a} :: ListPackageVersions)
-
--- | The @originType@ used to filter package versions. Only package versions
--- with the provided @originType@ will be returned.
-listPackageVersions_originType :: Lens.Lens' ListPackageVersions (Prelude.Maybe PackageVersionOriginType)
-listPackageVersions_originType = Lens.lens (\ListPackageVersions' {originType} -> originType) (\s@ListPackageVersions' {} a -> s {originType = a} :: ListPackageVersions)
-
--- | A string that filters the requested package versions by status.
-listPackageVersions_status :: Lens.Lens' ListPackageVersions (Prelude.Maybe PackageVersionStatus)
-listPackageVersions_status = Lens.lens (\ListPackageVersions' {status} -> status) (\s@ListPackageVersions' {} a -> s {status = a} :: ListPackageVersions)
-
--- | How to sort the requested list of package versions.
-listPackageVersions_sortBy :: Lens.Lens' ListPackageVersions (Prelude.Maybe PackageVersionSortType)
-listPackageVersions_sortBy = Lens.lens (\ListPackageVersions' {sortBy} -> sortBy) (\s@ListPackageVersions' {} a -> s {sortBy = a} :: ListPackageVersions)
-
--- | The maximum number of results to return per page.
-listPackageVersions_maxResults :: Lens.Lens' ListPackageVersions (Prelude.Maybe Prelude.Natural)
-listPackageVersions_maxResults = Lens.lens (\ListPackageVersions' {maxResults} -> maxResults) (\s@ListPackageVersions' {} a -> s {maxResults = a} :: ListPackageVersions)
-
 -- | The 12-digit account number of the Amazon Web Services account that owns
 -- the domain. It does not include dashes or spaces.
 listPackageVersions_domainOwner :: Lens.Lens' ListPackageVersions (Prelude.Maybe Prelude.Text)
 listPackageVersions_domainOwner = Lens.lens (\ListPackageVersions' {domainOwner} -> domainOwner) (\s@ListPackageVersions' {} a -> s {domainOwner = a} :: ListPackageVersions)
+
+-- | The maximum number of results to return per page.
+listPackageVersions_maxResults :: Lens.Lens' ListPackageVersions (Prelude.Maybe Prelude.Natural)
+listPackageVersions_maxResults = Lens.lens (\ListPackageVersions' {maxResults} -> maxResults) (\s@ListPackageVersions' {} a -> s {maxResults = a} :: ListPackageVersions)
 
 -- | The namespace of the package that contains the requested package
 -- versions. The package component that specifies its namespace depends on
@@ -220,6 +201,25 @@ listPackageVersions_domainOwner = Lens.lens (\ListPackageVersions' {domainOwner}
 --     packages of those formats do not have a namespace.
 listPackageVersions_namespace :: Lens.Lens' ListPackageVersions (Prelude.Maybe Prelude.Text)
 listPackageVersions_namespace = Lens.lens (\ListPackageVersions' {namespace} -> namespace) (\s@ListPackageVersions' {} a -> s {namespace = a} :: ListPackageVersions)
+
+-- | The token for the next set of results. Use the value returned in the
+-- previous response in the next request to retrieve the next set of
+-- results.
+listPackageVersions_nextToken :: Lens.Lens' ListPackageVersions (Prelude.Maybe Prelude.Text)
+listPackageVersions_nextToken = Lens.lens (\ListPackageVersions' {nextToken} -> nextToken) (\s@ListPackageVersions' {} a -> s {nextToken = a} :: ListPackageVersions)
+
+-- | The @originType@ used to filter package versions. Only package versions
+-- with the provided @originType@ will be returned.
+listPackageVersions_originType :: Lens.Lens' ListPackageVersions (Prelude.Maybe PackageVersionOriginType)
+listPackageVersions_originType = Lens.lens (\ListPackageVersions' {originType} -> originType) (\s@ListPackageVersions' {} a -> s {originType = a} :: ListPackageVersions)
+
+-- | How to sort the requested list of package versions.
+listPackageVersions_sortBy :: Lens.Lens' ListPackageVersions (Prelude.Maybe PackageVersionSortType)
+listPackageVersions_sortBy = Lens.lens (\ListPackageVersions' {sortBy} -> sortBy) (\s@ListPackageVersions' {} a -> s {sortBy = a} :: ListPackageVersions)
+
+-- | A string that filters the requested package versions by status.
+listPackageVersions_status :: Lens.Lens' ListPackageVersions (Prelude.Maybe PackageVersionStatus)
+listPackageVersions_status = Lens.lens (\ListPackageVersions' {status} -> status) (\s@ListPackageVersions' {} a -> s {status = a} :: ListPackageVersions)
 
 -- | The name of the domain that contains the repository that contains the
 -- requested package versions.
@@ -270,24 +270,24 @@ instance Core.AWSRequest ListPackageVersions where
     Response.receiveJSON
       ( \s h x ->
           ListPackageVersionsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "defaultDisplayVersion")
+            Prelude.<$> (x Data..?> "defaultDisplayVersion")
             Prelude.<*> (x Data..?> "format")
+            Prelude.<*> (x Data..?> "namespace")
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (x Data..?> "package")
             Prelude.<*> (x Data..?> "versions" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "namespace")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListPackageVersions where
   hashWithSalt _salt ListPackageVersions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` originType
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` sortBy
+    _salt `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` domainOwner
       `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` originType
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` repository
       `Prelude.hashWithSalt` format
@@ -295,13 +295,13 @@ instance Prelude.Hashable ListPackageVersions where
 
 instance Prelude.NFData ListPackageVersions where
   rnf ListPackageVersions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf originType
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf sortBy
+    Prelude.rnf domainOwner
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf domainOwner
       `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf originType
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf repository
       `Prelude.seq` Prelude.rnf format
@@ -327,13 +327,13 @@ instance Data.ToPath ListPackageVersions where
 instance Data.ToQuery ListPackageVersions where
   toQuery ListPackageVersions' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
-        "originType" Data.=: originType,
-        "status" Data.=: status,
-        "sortBy" Data.=: sortBy,
+      [ "domain-owner" Data.=: domainOwner,
         "max-results" Data.=: maxResults,
-        "domain-owner" Data.=: domainOwner,
         "namespace" Data.=: namespace,
+        "next-token" Data.=: nextToken,
+        "originType" Data.=: originType,
+        "sortBy" Data.=: sortBy,
+        "status" Data.=: status,
         "domain" Data.=: domain,
         "repository" Data.=: repository,
         "format" Data.=: format,
@@ -342,10 +342,7 @@ instance Data.ToQuery ListPackageVersions where
 
 -- | /See:/ 'newListPackageVersionsResponse' smart constructor.
 data ListPackageVersionsResponse = ListPackageVersionsResponse'
-  { -- | If there are additional results, this is the token for the next set of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The default package version to display. This depends on the package
+  { -- | The default package version to display. This depends on the package
     -- format:
     --
     -- -   For Maven and PyPI packages, it\'s the most recently published
@@ -357,12 +354,6 @@ data ListPackageVersionsResponse = ListPackageVersionsResponse'
     defaultDisplayVersion :: Prelude.Maybe Prelude.Text,
     -- | A format of the package.
     format :: Prelude.Maybe PackageFormat,
-    -- | The name of the package.
-    package :: Prelude.Maybe Prelude.Text,
-    -- | The returned list of
-    -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionSummary.html PackageVersionSummary>
-    -- objects.
-    versions :: Prelude.Maybe [PackageVersionSummary],
     -- | The namespace of the package that contains the requested package
     -- versions. The package component that specifies its namespace depends on
     -- its type. For example:
@@ -374,6 +365,15 @@ data ListPackageVersionsResponse = ListPackageVersionsResponse'
     -- -   Python and NuGet packages do not contain a corresponding component,
     --     packages of those formats do not have a namespace.
     namespace :: Prelude.Maybe Prelude.Text,
+    -- | If there are additional results, this is the token for the next set of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The name of the package.
+    package :: Prelude.Maybe Prelude.Text,
+    -- | The returned list of
+    -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionSummary.html PackageVersionSummary>
+    -- objects.
+    versions :: Prelude.Maybe [PackageVersionSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -387,9 +387,6 @@ data ListPackageVersionsResponse = ListPackageVersionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPackageVersionsResponse_nextToken' - If there are additional results, this is the token for the next set of
--- results.
---
 -- 'defaultDisplayVersion', 'listPackageVersionsResponse_defaultDisplayVersion' - The default package version to display. This depends on the package
 -- format:
 --
@@ -402,12 +399,6 @@ data ListPackageVersionsResponse = ListPackageVersionsResponse'
 --
 -- 'format', 'listPackageVersionsResponse_format' - A format of the package.
 --
--- 'package', 'listPackageVersionsResponse_package' - The name of the package.
---
--- 'versions', 'listPackageVersionsResponse_versions' - The returned list of
--- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionSummary.html PackageVersionSummary>
--- objects.
---
 -- 'namespace', 'listPackageVersionsResponse_namespace' - The namespace of the package that contains the requested package
 -- versions. The package component that specifies its namespace depends on
 -- its type. For example:
@@ -419,6 +410,15 @@ data ListPackageVersionsResponse = ListPackageVersionsResponse'
 -- -   Python and NuGet packages do not contain a corresponding component,
 --     packages of those formats do not have a namespace.
 --
+-- 'nextToken', 'listPackageVersionsResponse_nextToken' - If there are additional results, this is the token for the next set of
+-- results.
+--
+-- 'package', 'listPackageVersionsResponse_package' - The name of the package.
+--
+-- 'versions', 'listPackageVersionsResponse_versions' - The returned list of
+-- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionSummary.html PackageVersionSummary>
+-- objects.
+--
 -- 'httpStatus', 'listPackageVersionsResponse_httpStatus' - The response's http status code.
 newListPackageVersionsResponse ::
   -- | 'httpStatus'
@@ -426,20 +426,15 @@ newListPackageVersionsResponse ::
   ListPackageVersionsResponse
 newListPackageVersionsResponse pHttpStatus_ =
   ListPackageVersionsResponse'
-    { nextToken =
+    { defaultDisplayVersion =
         Prelude.Nothing,
-      defaultDisplayVersion = Prelude.Nothing,
       format = Prelude.Nothing,
+      namespace = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       package = Prelude.Nothing,
       versions = Prelude.Nothing,
-      namespace = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | If there are additional results, this is the token for the next set of
--- results.
-listPackageVersionsResponse_nextToken :: Lens.Lens' ListPackageVersionsResponse (Prelude.Maybe Prelude.Text)
-listPackageVersionsResponse_nextToken = Lens.lens (\ListPackageVersionsResponse' {nextToken} -> nextToken) (\s@ListPackageVersionsResponse' {} a -> s {nextToken = a} :: ListPackageVersionsResponse)
 
 -- | The default package version to display. This depends on the package
 -- format:
@@ -457,16 +452,6 @@ listPackageVersionsResponse_defaultDisplayVersion = Lens.lens (\ListPackageVersi
 listPackageVersionsResponse_format :: Lens.Lens' ListPackageVersionsResponse (Prelude.Maybe PackageFormat)
 listPackageVersionsResponse_format = Lens.lens (\ListPackageVersionsResponse' {format} -> format) (\s@ListPackageVersionsResponse' {} a -> s {format = a} :: ListPackageVersionsResponse)
 
--- | The name of the package.
-listPackageVersionsResponse_package :: Lens.Lens' ListPackageVersionsResponse (Prelude.Maybe Prelude.Text)
-listPackageVersionsResponse_package = Lens.lens (\ListPackageVersionsResponse' {package} -> package) (\s@ListPackageVersionsResponse' {} a -> s {package = a} :: ListPackageVersionsResponse)
-
--- | The returned list of
--- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionSummary.html PackageVersionSummary>
--- objects.
-listPackageVersionsResponse_versions :: Lens.Lens' ListPackageVersionsResponse (Prelude.Maybe [PackageVersionSummary])
-listPackageVersionsResponse_versions = Lens.lens (\ListPackageVersionsResponse' {versions} -> versions) (\s@ListPackageVersionsResponse' {} a -> s {versions = a} :: ListPackageVersionsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The namespace of the package that contains the requested package
 -- versions. The package component that specifies its namespace depends on
 -- its type. For example:
@@ -480,16 +465,31 @@ listPackageVersionsResponse_versions = Lens.lens (\ListPackageVersionsResponse' 
 listPackageVersionsResponse_namespace :: Lens.Lens' ListPackageVersionsResponse (Prelude.Maybe Prelude.Text)
 listPackageVersionsResponse_namespace = Lens.lens (\ListPackageVersionsResponse' {namespace} -> namespace) (\s@ListPackageVersionsResponse' {} a -> s {namespace = a} :: ListPackageVersionsResponse)
 
+-- | If there are additional results, this is the token for the next set of
+-- results.
+listPackageVersionsResponse_nextToken :: Lens.Lens' ListPackageVersionsResponse (Prelude.Maybe Prelude.Text)
+listPackageVersionsResponse_nextToken = Lens.lens (\ListPackageVersionsResponse' {nextToken} -> nextToken) (\s@ListPackageVersionsResponse' {} a -> s {nextToken = a} :: ListPackageVersionsResponse)
+
+-- | The name of the package.
+listPackageVersionsResponse_package :: Lens.Lens' ListPackageVersionsResponse (Prelude.Maybe Prelude.Text)
+listPackageVersionsResponse_package = Lens.lens (\ListPackageVersionsResponse' {package} -> package) (\s@ListPackageVersionsResponse' {} a -> s {package = a} :: ListPackageVersionsResponse)
+
+-- | The returned list of
+-- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionSummary.html PackageVersionSummary>
+-- objects.
+listPackageVersionsResponse_versions :: Lens.Lens' ListPackageVersionsResponse (Prelude.Maybe [PackageVersionSummary])
+listPackageVersionsResponse_versions = Lens.lens (\ListPackageVersionsResponse' {versions} -> versions) (\s@ListPackageVersionsResponse' {} a -> s {versions = a} :: ListPackageVersionsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listPackageVersionsResponse_httpStatus :: Lens.Lens' ListPackageVersionsResponse Prelude.Int
 listPackageVersionsResponse_httpStatus = Lens.lens (\ListPackageVersionsResponse' {httpStatus} -> httpStatus) (\s@ListPackageVersionsResponse' {} a -> s {httpStatus = a} :: ListPackageVersionsResponse)
 
 instance Prelude.NFData ListPackageVersionsResponse where
   rnf ListPackageVersionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf defaultDisplayVersion
+    Prelude.rnf defaultDisplayVersion
       `Prelude.seq` Prelude.rnf format
+      `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf package
       `Prelude.seq` Prelude.rnf versions
-      `Prelude.seq` Prelude.rnf namespace
       `Prelude.seq` Prelude.rnf httpStatus

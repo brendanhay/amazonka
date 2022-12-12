@@ -31,14 +31,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAssetInfo' smart constructor.
 data AssetInfo = AssetInfo'
-  { -- | The position of an asset in a rack.
-    assetLocation :: Prelude.Maybe AssetLocation,
-    -- | The ID of the asset.
+  { -- | The ID of the asset.
     assetId :: Prelude.Maybe Prelude.Text,
-    -- | Information about compute hardware assets.
-    computeAttributes :: Prelude.Maybe ComputeAttributes,
+    -- | The position of an asset in a rack.
+    assetLocation :: Prelude.Maybe AssetLocation,
     -- | The type of the asset.
     assetType :: Prelude.Maybe AssetType,
+    -- | Information about compute hardware assets.
+    computeAttributes :: Prelude.Maybe ComputeAttributes,
     -- | The rack ID of the asset.
     rackId :: Prelude.Maybe Prelude.Text
   }
@@ -52,41 +52,41 @@ data AssetInfo = AssetInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'assetLocation', 'assetInfo_assetLocation' - The position of an asset in a rack.
---
 -- 'assetId', 'assetInfo_assetId' - The ID of the asset.
 --
--- 'computeAttributes', 'assetInfo_computeAttributes' - Information about compute hardware assets.
+-- 'assetLocation', 'assetInfo_assetLocation' - The position of an asset in a rack.
 --
 -- 'assetType', 'assetInfo_assetType' - The type of the asset.
+--
+-- 'computeAttributes', 'assetInfo_computeAttributes' - Information about compute hardware assets.
 --
 -- 'rackId', 'assetInfo_rackId' - The rack ID of the asset.
 newAssetInfo ::
   AssetInfo
 newAssetInfo =
   AssetInfo'
-    { assetLocation = Prelude.Nothing,
-      assetId = Prelude.Nothing,
-      computeAttributes = Prelude.Nothing,
+    { assetId = Prelude.Nothing,
+      assetLocation = Prelude.Nothing,
       assetType = Prelude.Nothing,
+      computeAttributes = Prelude.Nothing,
       rackId = Prelude.Nothing
     }
-
--- | The position of an asset in a rack.
-assetInfo_assetLocation :: Lens.Lens' AssetInfo (Prelude.Maybe AssetLocation)
-assetInfo_assetLocation = Lens.lens (\AssetInfo' {assetLocation} -> assetLocation) (\s@AssetInfo' {} a -> s {assetLocation = a} :: AssetInfo)
 
 -- | The ID of the asset.
 assetInfo_assetId :: Lens.Lens' AssetInfo (Prelude.Maybe Prelude.Text)
 assetInfo_assetId = Lens.lens (\AssetInfo' {assetId} -> assetId) (\s@AssetInfo' {} a -> s {assetId = a} :: AssetInfo)
 
--- | Information about compute hardware assets.
-assetInfo_computeAttributes :: Lens.Lens' AssetInfo (Prelude.Maybe ComputeAttributes)
-assetInfo_computeAttributes = Lens.lens (\AssetInfo' {computeAttributes} -> computeAttributes) (\s@AssetInfo' {} a -> s {computeAttributes = a} :: AssetInfo)
+-- | The position of an asset in a rack.
+assetInfo_assetLocation :: Lens.Lens' AssetInfo (Prelude.Maybe AssetLocation)
+assetInfo_assetLocation = Lens.lens (\AssetInfo' {assetLocation} -> assetLocation) (\s@AssetInfo' {} a -> s {assetLocation = a} :: AssetInfo)
 
 -- | The type of the asset.
 assetInfo_assetType :: Lens.Lens' AssetInfo (Prelude.Maybe AssetType)
 assetInfo_assetType = Lens.lens (\AssetInfo' {assetType} -> assetType) (\s@AssetInfo' {} a -> s {assetType = a} :: AssetInfo)
+
+-- | Information about compute hardware assets.
+assetInfo_computeAttributes :: Lens.Lens' AssetInfo (Prelude.Maybe ComputeAttributes)
+assetInfo_computeAttributes = Lens.lens (\AssetInfo' {computeAttributes} -> computeAttributes) (\s@AssetInfo' {} a -> s {computeAttributes = a} :: AssetInfo)
 
 -- | The rack ID of the asset.
 assetInfo_rackId :: Lens.Lens' AssetInfo (Prelude.Maybe Prelude.Text)
@@ -98,25 +98,25 @@ instance Data.FromJSON AssetInfo where
       "AssetInfo"
       ( \x ->
           AssetInfo'
-            Prelude.<$> (x Data..:? "AssetLocation")
-            Prelude.<*> (x Data..:? "AssetId")
-            Prelude.<*> (x Data..:? "ComputeAttributes")
+            Prelude.<$> (x Data..:? "AssetId")
+            Prelude.<*> (x Data..:? "AssetLocation")
             Prelude.<*> (x Data..:? "AssetType")
+            Prelude.<*> (x Data..:? "ComputeAttributes")
             Prelude.<*> (x Data..:? "RackId")
       )
 
 instance Prelude.Hashable AssetInfo where
   hashWithSalt _salt AssetInfo' {..} =
-    _salt `Prelude.hashWithSalt` assetLocation
-      `Prelude.hashWithSalt` assetId
-      `Prelude.hashWithSalt` computeAttributes
+    _salt `Prelude.hashWithSalt` assetId
+      `Prelude.hashWithSalt` assetLocation
       `Prelude.hashWithSalt` assetType
+      `Prelude.hashWithSalt` computeAttributes
       `Prelude.hashWithSalt` rackId
 
 instance Prelude.NFData AssetInfo where
   rnf AssetInfo' {..} =
-    Prelude.rnf assetLocation
-      `Prelude.seq` Prelude.rnf assetId
-      `Prelude.seq` Prelude.rnf computeAttributes
+    Prelude.rnf assetId
+      `Prelude.seq` Prelude.rnf assetLocation
       `Prelude.seq` Prelude.rnf assetType
+      `Prelude.seq` Prelude.rnf computeAttributes
       `Prelude.seq` Prelude.rnf rackId

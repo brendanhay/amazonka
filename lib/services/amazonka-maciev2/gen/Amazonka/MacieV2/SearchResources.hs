@@ -30,18 +30,18 @@ module Amazonka.MacieV2.SearchResources
     newSearchResources,
 
     -- * Request Lenses
-    searchResources_sortCriteria,
     searchResources_bucketCriteria,
-    searchResources_nextToken,
     searchResources_maxResults,
+    searchResources_nextToken,
+    searchResources_sortCriteria,
 
     -- * Destructuring the Response
     SearchResourcesResponse (..),
     newSearchResourcesResponse,
 
     -- * Response Lenses
-    searchResourcesResponse_nextToken,
     searchResourcesResponse_matchingResources,
+    searchResourcesResponse_nextToken,
     searchResourcesResponse_httpStatus,
   )
 where
@@ -56,17 +56,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSearchResources' smart constructor.
 data SearchResources = SearchResources'
-  { -- | The criteria to use to sort the results.
-    sortCriteria :: Prelude.Maybe SearchResourcesSortCriteria,
-    -- | The filter conditions that determine which S3 buckets to include or
+  { -- | The filter conditions that determine which S3 buckets to include or
     -- exclude from the query results.
     bucketCriteria :: Prelude.Maybe SearchResourcesBucketCriteria,
+    -- | The maximum number of items to include in each page of the response. The
+    -- default value is 50.
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The nextToken string that specifies which page of results to return in a
     -- paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to include in each page of the response. The
-    -- default value is 50.
-    maxResults :: Prelude.Maybe Prelude.Int
+    -- | The criteria to use to sort the results.
+    sortCriteria :: Prelude.Maybe SearchResourcesSortCriteria
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,44 +78,44 @@ data SearchResources = SearchResources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortCriteria', 'searchResources_sortCriteria' - The criteria to use to sort the results.
---
 -- 'bucketCriteria', 'searchResources_bucketCriteria' - The filter conditions that determine which S3 buckets to include or
 -- exclude from the query results.
+--
+-- 'maxResults', 'searchResources_maxResults' - The maximum number of items to include in each page of the response. The
+-- default value is 50.
 --
 -- 'nextToken', 'searchResources_nextToken' - The nextToken string that specifies which page of results to return in a
 -- paginated response.
 --
--- 'maxResults', 'searchResources_maxResults' - The maximum number of items to include in each page of the response. The
--- default value is 50.
+-- 'sortCriteria', 'searchResources_sortCriteria' - The criteria to use to sort the results.
 newSearchResources ::
   SearchResources
 newSearchResources =
   SearchResources'
-    { sortCriteria = Prelude.Nothing,
-      bucketCriteria = Prelude.Nothing,
+    { bucketCriteria = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      sortCriteria = Prelude.Nothing
     }
-
--- | The criteria to use to sort the results.
-searchResources_sortCriteria :: Lens.Lens' SearchResources (Prelude.Maybe SearchResourcesSortCriteria)
-searchResources_sortCriteria = Lens.lens (\SearchResources' {sortCriteria} -> sortCriteria) (\s@SearchResources' {} a -> s {sortCriteria = a} :: SearchResources)
 
 -- | The filter conditions that determine which S3 buckets to include or
 -- exclude from the query results.
 searchResources_bucketCriteria :: Lens.Lens' SearchResources (Prelude.Maybe SearchResourcesBucketCriteria)
 searchResources_bucketCriteria = Lens.lens (\SearchResources' {bucketCriteria} -> bucketCriteria) (\s@SearchResources' {} a -> s {bucketCriteria = a} :: SearchResources)
 
+-- | The maximum number of items to include in each page of the response. The
+-- default value is 50.
+searchResources_maxResults :: Lens.Lens' SearchResources (Prelude.Maybe Prelude.Int)
+searchResources_maxResults = Lens.lens (\SearchResources' {maxResults} -> maxResults) (\s@SearchResources' {} a -> s {maxResults = a} :: SearchResources)
+
 -- | The nextToken string that specifies which page of results to return in a
 -- paginated response.
 searchResources_nextToken :: Lens.Lens' SearchResources (Prelude.Maybe Prelude.Text)
 searchResources_nextToken = Lens.lens (\SearchResources' {nextToken} -> nextToken) (\s@SearchResources' {} a -> s {nextToken = a} :: SearchResources)
 
--- | The maximum number of items to include in each page of the response. The
--- default value is 50.
-searchResources_maxResults :: Lens.Lens' SearchResources (Prelude.Maybe Prelude.Int)
-searchResources_maxResults = Lens.lens (\SearchResources' {maxResults} -> maxResults) (\s@SearchResources' {} a -> s {maxResults = a} :: SearchResources)
+-- | The criteria to use to sort the results.
+searchResources_sortCriteria :: Lens.Lens' SearchResources (Prelude.Maybe SearchResourcesSortCriteria)
+searchResources_sortCriteria = Lens.lens (\SearchResources' {sortCriteria} -> sortCriteria) (\s@SearchResources' {} a -> s {sortCriteria = a} :: SearchResources)
 
 instance Core.AWSPager SearchResources where
   page rq rs
@@ -149,26 +149,26 @@ instance Core.AWSRequest SearchResources where
     Response.receiveJSON
       ( \s h x ->
           SearchResourcesResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "matchingResources"
+            Prelude.<$> ( x Data..?> "matchingResources"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable SearchResources where
   hashWithSalt _salt SearchResources' {..} =
-    _salt `Prelude.hashWithSalt` sortCriteria
-      `Prelude.hashWithSalt` bucketCriteria
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` bucketCriteria
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortCriteria
 
 instance Prelude.NFData SearchResources where
   rnf SearchResources' {..} =
-    Prelude.rnf sortCriteria
-      `Prelude.seq` Prelude.rnf bucketCriteria
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf bucketCriteria
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortCriteria
 
 instance Data.ToHeaders SearchResources where
   toHeaders =
@@ -185,11 +185,11 @@ instance Data.ToJSON SearchResources where
   toJSON SearchResources' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("sortCriteria" Data..=) Prelude.<$> sortCriteria,
-            ("bucketCriteria" Data..=)
+          [ ("bucketCriteria" Data..=)
               Prelude.<$> bucketCriteria,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
             ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+            ("sortCriteria" Data..=) Prelude.<$> sortCriteria
           ]
       )
 
@@ -202,13 +202,13 @@ instance Data.ToQuery SearchResources where
 
 -- | /See:/ 'newSearchResourcesResponse' smart constructor.
 data SearchResourcesResponse = SearchResourcesResponse'
-  { -- | The string to use in a subsequent request to get the next page of
+  { -- | An array of objects, one for each resource that matches the filter
+    -- criteria specified in the request.
+    matchingResources :: Prelude.Maybe [MatchingResource],
+    -- | The string to use in a subsequent request to get the next page of
     -- results in a paginated response. This value is null if there are no
     -- additional pages.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of objects, one for each resource that meets the filter
-    -- criteria specified in the request.
-    matchingResources :: Prelude.Maybe [MatchingResource],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -222,12 +222,12 @@ data SearchResourcesResponse = SearchResourcesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'matchingResources', 'searchResourcesResponse_matchingResources' - An array of objects, one for each resource that matches the filter
+-- criteria specified in the request.
+--
 -- 'nextToken', 'searchResourcesResponse_nextToken' - The string to use in a subsequent request to get the next page of
 -- results in a paginated response. This value is null if there are no
 -- additional pages.
---
--- 'matchingResources', 'searchResourcesResponse_matchingResources' - An array of objects, one for each resource that meets the filter
--- criteria specified in the request.
 --
 -- 'httpStatus', 'searchResourcesResponse_httpStatus' - The response's http status code.
 newSearchResourcesResponse ::
@@ -236,11 +236,16 @@ newSearchResourcesResponse ::
   SearchResourcesResponse
 newSearchResourcesResponse pHttpStatus_ =
   SearchResourcesResponse'
-    { nextToken =
+    { matchingResources =
         Prelude.Nothing,
-      matchingResources = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array of objects, one for each resource that matches the filter
+-- criteria specified in the request.
+searchResourcesResponse_matchingResources :: Lens.Lens' SearchResourcesResponse (Prelude.Maybe [MatchingResource])
+searchResourcesResponse_matchingResources = Lens.lens (\SearchResourcesResponse' {matchingResources} -> matchingResources) (\s@SearchResourcesResponse' {} a -> s {matchingResources = a} :: SearchResourcesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The string to use in a subsequent request to get the next page of
 -- results in a paginated response. This value is null if there are no
@@ -248,17 +253,12 @@ newSearchResourcesResponse pHttpStatus_ =
 searchResourcesResponse_nextToken :: Lens.Lens' SearchResourcesResponse (Prelude.Maybe Prelude.Text)
 searchResourcesResponse_nextToken = Lens.lens (\SearchResourcesResponse' {nextToken} -> nextToken) (\s@SearchResourcesResponse' {} a -> s {nextToken = a} :: SearchResourcesResponse)
 
--- | An array of objects, one for each resource that meets the filter
--- criteria specified in the request.
-searchResourcesResponse_matchingResources :: Lens.Lens' SearchResourcesResponse (Prelude.Maybe [MatchingResource])
-searchResourcesResponse_matchingResources = Lens.lens (\SearchResourcesResponse' {matchingResources} -> matchingResources) (\s@SearchResourcesResponse' {} a -> s {matchingResources = a} :: SearchResourcesResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 searchResourcesResponse_httpStatus :: Lens.Lens' SearchResourcesResponse Prelude.Int
 searchResourcesResponse_httpStatus = Lens.lens (\SearchResourcesResponse' {httpStatus} -> httpStatus) (\s@SearchResourcesResponse' {} a -> s {httpStatus = a} :: SearchResourcesResponse)
 
 instance Prelude.NFData SearchResourcesResponse where
   rnf SearchResourcesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf matchingResources
+    Prelude.rnf matchingResources
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

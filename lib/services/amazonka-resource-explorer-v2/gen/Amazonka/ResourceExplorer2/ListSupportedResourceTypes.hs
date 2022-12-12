@@ -30,8 +30,8 @@ module Amazonka.ResourceExplorer2.ListSupportedResourceTypes
     newListSupportedResourceTypes,
 
     -- * Request Lenses
-    listSupportedResourceTypes_nextToken,
     listSupportedResourceTypes_maxResults,
+    listSupportedResourceTypes_nextToken,
 
     -- * Destructuring the Response
     ListSupportedResourceTypesResponse (..),
@@ -54,13 +54,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListSupportedResourceTypes' smart constructor.
 data ListSupportedResourceTypes = ListSupportedResourceTypes'
-  { -- | The parameter for receiving additional results if you receive a
-    -- @NextToken@ response in a previous request. A @NextToken@ response
-    -- indicates that more output is available. Set this parameter to the value
-    -- of the previous call\'s @NextToken@ response to indicate where the
-    -- output should continue from.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results that you want included on each page of the
+  { -- | The maximum number of results that you want included on each page of the
     -- response. If you do not include this parameter, it defaults to a value
     -- appropriate to the operation. If additional items exist beyond those
     -- included in the current response, the @NextToken@ response element is
@@ -71,7 +65,13 @@ data ListSupportedResourceTypes = ListSupportedResourceTypes'
     -- An API operation can return fewer results than the maximum even when
     -- there are more results available. You should check @NextToken@ after
     -- every operation to ensure that you receive all of the results.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The parameter for receiving additional results if you receive a
+    -- @NextToken@ response in a previous request. A @NextToken@ response
+    -- indicates that more output is available. Set this parameter to the value
+    -- of the previous call\'s @NextToken@ response to indicate where the
+    -- output should continue from.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,12 +82,6 @@ data ListSupportedResourceTypes = ListSupportedResourceTypes'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'listSupportedResourceTypes_nextToken' - The parameter for receiving additional results if you receive a
--- @NextToken@ response in a previous request. A @NextToken@ response
--- indicates that more output is available. Set this parameter to the value
--- of the previous call\'s @NextToken@ response to indicate where the
--- output should continue from.
 --
 -- 'maxResults', 'listSupportedResourceTypes_maxResults' - The maximum number of results that you want included on each page of the
 -- response. If you do not include this parameter, it defaults to a value
@@ -100,22 +94,20 @@ data ListSupportedResourceTypes = ListSupportedResourceTypes'
 -- An API operation can return fewer results than the maximum even when
 -- there are more results available. You should check @NextToken@ after
 -- every operation to ensure that you receive all of the results.
-newListSupportedResourceTypes ::
-  ListSupportedResourceTypes
-newListSupportedResourceTypes =
-  ListSupportedResourceTypes'
-    { nextToken =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing
-    }
-
--- | The parameter for receiving additional results if you receive a
+--
+-- 'nextToken', 'listSupportedResourceTypes_nextToken' - The parameter for receiving additional results if you receive a
 -- @NextToken@ response in a previous request. A @NextToken@ response
 -- indicates that more output is available. Set this parameter to the value
 -- of the previous call\'s @NextToken@ response to indicate where the
 -- output should continue from.
-listSupportedResourceTypes_nextToken :: Lens.Lens' ListSupportedResourceTypes (Prelude.Maybe Prelude.Text)
-listSupportedResourceTypes_nextToken = Lens.lens (\ListSupportedResourceTypes' {nextToken} -> nextToken) (\s@ListSupportedResourceTypes' {} a -> s {nextToken = a} :: ListSupportedResourceTypes)
+newListSupportedResourceTypes ::
+  ListSupportedResourceTypes
+newListSupportedResourceTypes =
+  ListSupportedResourceTypes'
+    { maxResults =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing
+    }
 
 -- | The maximum number of results that you want included on each page of the
 -- response. If you do not include this parameter, it defaults to a value
@@ -130,6 +122,14 @@ listSupportedResourceTypes_nextToken = Lens.lens (\ListSupportedResourceTypes' {
 -- every operation to ensure that you receive all of the results.
 listSupportedResourceTypes_maxResults :: Lens.Lens' ListSupportedResourceTypes (Prelude.Maybe Prelude.Natural)
 listSupportedResourceTypes_maxResults = Lens.lens (\ListSupportedResourceTypes' {maxResults} -> maxResults) (\s@ListSupportedResourceTypes' {} a -> s {maxResults = a} :: ListSupportedResourceTypes)
+
+-- | The parameter for receiving additional results if you receive a
+-- @NextToken@ response in a previous request. A @NextToken@ response
+-- indicates that more output is available. Set this parameter to the value
+-- of the previous call\'s @NextToken@ response to indicate where the
+-- output should continue from.
+listSupportedResourceTypes_nextToken :: Lens.Lens' ListSupportedResourceTypes (Prelude.Maybe Prelude.Text)
+listSupportedResourceTypes_nextToken = Lens.lens (\ListSupportedResourceTypes' {nextToken} -> nextToken) (\s@ListSupportedResourceTypes' {} a -> s {nextToken = a} :: ListSupportedResourceTypes)
 
 instance Core.AWSPager ListSupportedResourceTypes where
   page rq rs
@@ -170,13 +170,13 @@ instance Core.AWSRequest ListSupportedResourceTypes where
 
 instance Prelude.Hashable ListSupportedResourceTypes where
   hashWithSalt _salt ListSupportedResourceTypes' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListSupportedResourceTypes where
   rnf ListSupportedResourceTypes' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListSupportedResourceTypes where
   toHeaders =
@@ -193,8 +193,8 @@ instance Data.ToJSON ListSupportedResourceTypes where
   toJSON ListSupportedResourceTypes' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

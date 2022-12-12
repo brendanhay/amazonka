@@ -32,7 +32,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGlobalTableDescription' smart constructor.
 data GlobalTableDescription = GlobalTableDescription'
-  { -- | The current state of the global table:
+  { -- | The creation time of the global table.
+    creationDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The unique identifier of the global table.
+    globalTableArn :: Prelude.Maybe Prelude.Text,
+    -- | The global table name.
+    globalTableName :: Prelude.Maybe Prelude.Text,
+    -- | The current state of the global table:
     --
     -- -   @CREATING@ - The global table is being created.
     --
@@ -43,13 +49,7 @@ data GlobalTableDescription = GlobalTableDescription'
     -- -   @ACTIVE@ - The global table is ready for use.
     globalTableStatus :: Prelude.Maybe GlobalTableStatus,
     -- | The Regions where the global table has replicas.
-    replicationGroup :: Prelude.Maybe [ReplicaDescription],
-    -- | The global table name.
-    globalTableName :: Prelude.Maybe Prelude.Text,
-    -- | The creation time of the global table.
-    creationDateTime :: Prelude.Maybe Data.POSIX,
-    -- | The unique identifier of the global table.
-    globalTableArn :: Prelude.Maybe Prelude.Text
+    replicationGroup :: Prelude.Maybe [ReplicaDescription]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,6 +60,12 @@ data GlobalTableDescription = GlobalTableDescription'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'creationDateTime', 'globalTableDescription_creationDateTime' - The creation time of the global table.
+--
+-- 'globalTableArn', 'globalTableDescription_globalTableArn' - The unique identifier of the global table.
+--
+-- 'globalTableName', 'globalTableDescription_globalTableName' - The global table name.
 --
 -- 'globalTableStatus', 'globalTableDescription_globalTableStatus' - The current state of the global table:
 --
@@ -72,23 +78,29 @@ data GlobalTableDescription = GlobalTableDescription'
 -- -   @ACTIVE@ - The global table is ready for use.
 --
 -- 'replicationGroup', 'globalTableDescription_replicationGroup' - The Regions where the global table has replicas.
---
--- 'globalTableName', 'globalTableDescription_globalTableName' - The global table name.
---
--- 'creationDateTime', 'globalTableDescription_creationDateTime' - The creation time of the global table.
---
--- 'globalTableArn', 'globalTableDescription_globalTableArn' - The unique identifier of the global table.
 newGlobalTableDescription ::
   GlobalTableDescription
 newGlobalTableDescription =
   GlobalTableDescription'
-    { globalTableStatus =
+    { creationDateTime =
         Prelude.Nothing,
-      replicationGroup = Prelude.Nothing,
+      globalTableArn = Prelude.Nothing,
       globalTableName = Prelude.Nothing,
-      creationDateTime = Prelude.Nothing,
-      globalTableArn = Prelude.Nothing
+      globalTableStatus = Prelude.Nothing,
+      replicationGroup = Prelude.Nothing
     }
+
+-- | The creation time of the global table.
+globalTableDescription_creationDateTime :: Lens.Lens' GlobalTableDescription (Prelude.Maybe Prelude.UTCTime)
+globalTableDescription_creationDateTime = Lens.lens (\GlobalTableDescription' {creationDateTime} -> creationDateTime) (\s@GlobalTableDescription' {} a -> s {creationDateTime = a} :: GlobalTableDescription) Prelude.. Lens.mapping Data._Time
+
+-- | The unique identifier of the global table.
+globalTableDescription_globalTableArn :: Lens.Lens' GlobalTableDescription (Prelude.Maybe Prelude.Text)
+globalTableDescription_globalTableArn = Lens.lens (\GlobalTableDescription' {globalTableArn} -> globalTableArn) (\s@GlobalTableDescription' {} a -> s {globalTableArn = a} :: GlobalTableDescription)
+
+-- | The global table name.
+globalTableDescription_globalTableName :: Lens.Lens' GlobalTableDescription (Prelude.Maybe Prelude.Text)
+globalTableDescription_globalTableName = Lens.lens (\GlobalTableDescription' {globalTableName} -> globalTableName) (\s@GlobalTableDescription' {} a -> s {globalTableName = a} :: GlobalTableDescription)
 
 -- | The current state of the global table:
 --
@@ -106,45 +118,33 @@ globalTableDescription_globalTableStatus = Lens.lens (\GlobalTableDescription' {
 globalTableDescription_replicationGroup :: Lens.Lens' GlobalTableDescription (Prelude.Maybe [ReplicaDescription])
 globalTableDescription_replicationGroup = Lens.lens (\GlobalTableDescription' {replicationGroup} -> replicationGroup) (\s@GlobalTableDescription' {} a -> s {replicationGroup = a} :: GlobalTableDescription) Prelude.. Lens.mapping Lens.coerced
 
--- | The global table name.
-globalTableDescription_globalTableName :: Lens.Lens' GlobalTableDescription (Prelude.Maybe Prelude.Text)
-globalTableDescription_globalTableName = Lens.lens (\GlobalTableDescription' {globalTableName} -> globalTableName) (\s@GlobalTableDescription' {} a -> s {globalTableName = a} :: GlobalTableDescription)
-
--- | The creation time of the global table.
-globalTableDescription_creationDateTime :: Lens.Lens' GlobalTableDescription (Prelude.Maybe Prelude.UTCTime)
-globalTableDescription_creationDateTime = Lens.lens (\GlobalTableDescription' {creationDateTime} -> creationDateTime) (\s@GlobalTableDescription' {} a -> s {creationDateTime = a} :: GlobalTableDescription) Prelude.. Lens.mapping Data._Time
-
--- | The unique identifier of the global table.
-globalTableDescription_globalTableArn :: Lens.Lens' GlobalTableDescription (Prelude.Maybe Prelude.Text)
-globalTableDescription_globalTableArn = Lens.lens (\GlobalTableDescription' {globalTableArn} -> globalTableArn) (\s@GlobalTableDescription' {} a -> s {globalTableArn = a} :: GlobalTableDescription)
-
 instance Data.FromJSON GlobalTableDescription where
   parseJSON =
     Data.withObject
       "GlobalTableDescription"
       ( \x ->
           GlobalTableDescription'
-            Prelude.<$> (x Data..:? "GlobalTableStatus")
+            Prelude.<$> (x Data..:? "CreationDateTime")
+            Prelude.<*> (x Data..:? "GlobalTableArn")
+            Prelude.<*> (x Data..:? "GlobalTableName")
+            Prelude.<*> (x Data..:? "GlobalTableStatus")
             Prelude.<*> ( x Data..:? "ReplicationGroup"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "GlobalTableName")
-            Prelude.<*> (x Data..:? "CreationDateTime")
-            Prelude.<*> (x Data..:? "GlobalTableArn")
       )
 
 instance Prelude.Hashable GlobalTableDescription where
   hashWithSalt _salt GlobalTableDescription' {..} =
-    _salt `Prelude.hashWithSalt` globalTableStatus
-      `Prelude.hashWithSalt` replicationGroup
-      `Prelude.hashWithSalt` globalTableName
-      `Prelude.hashWithSalt` creationDateTime
+    _salt `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` globalTableArn
+      `Prelude.hashWithSalt` globalTableName
+      `Prelude.hashWithSalt` globalTableStatus
+      `Prelude.hashWithSalt` replicationGroup
 
 instance Prelude.NFData GlobalTableDescription where
   rnf GlobalTableDescription' {..} =
-    Prelude.rnf globalTableStatus
-      `Prelude.seq` Prelude.rnf replicationGroup
-      `Prelude.seq` Prelude.rnf globalTableName
-      `Prelude.seq` Prelude.rnf creationDateTime
+    Prelude.rnf creationDateTime
       `Prelude.seq` Prelude.rnf globalTableArn
+      `Prelude.seq` Prelude.rnf globalTableName
+      `Prelude.seq` Prelude.rnf globalTableStatus
+      `Prelude.seq` Prelude.rnf replicationGroup

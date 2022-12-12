@@ -29,9 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails' smart constructor.
 data AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails = AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails'
-  { -- | The log router to use. Valid values are @fluentbit@ or @fluentd@.
-    type' :: Prelude.Maybe Prelude.Text,
-    -- | The options to use to configure the log router.
+  { -- | The options to use to configure the log router.
     --
     -- The valid option keys are as follows:
     --
@@ -40,7 +38,9 @@ data AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails = AwsE
     -- -   @config-file-type@. The value can be @s3@ or @file@.
     --
     -- -   @config-file-value@. The value is either an S3 ARN or a file path.
-    options :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    options :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The log router to use. Valid values are @fluentbit@ or @fluentd@.
+    type' :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,8 +52,6 @@ data AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails = AwsE
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'awsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails_type' - The log router to use. Valid values are @fluentbit@ or @fluentd@.
---
 -- 'options', 'awsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails_options' - The options to use to configure the log router.
 --
 -- The valid option keys are as follows:
@@ -63,19 +61,17 @@ data AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails = AwsE
 -- -   @config-file-type@. The value can be @s3@ or @file@.
 --
 -- -   @config-file-value@. The value is either an S3 ARN or a file path.
+--
+-- 'type'', 'awsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails_type' - The log router to use. Valid values are @fluentbit@ or @fluentd@.
 newAwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails ::
   AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails
 newAwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails =
   AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails'
-    { type' =
+    { options =
         Prelude.Nothing,
-      options =
+      type' =
         Prelude.Nothing
     }
-
--- | The log router to use. Valid values are @fluentbit@ or @fluentd@.
-awsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails_type :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails (Prelude.Maybe Prelude.Text)
-awsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails_type = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails' {type'} -> type') (\s@AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails' {} a -> s {type' = a} :: AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails)
 
 -- | The options to use to configure the log router.
 --
@@ -89,6 +85,10 @@ awsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails_type = Lens
 awsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails_options :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 awsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails_options = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails' {options} -> options) (\s@AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails' {} a -> s {options = a} :: AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails) Prelude.. Lens.mapping Lens.coerced
 
+-- | The log router to use. Valid values are @fluentbit@ or @fluentd@.
+awsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails_type :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails (Prelude.Maybe Prelude.Text)
+awsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails_type = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails' {type'} -> type') (\s@AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails' {} a -> s {type' = a} :: AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails)
+
 instance
   Data.FromJSON
     AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails
@@ -98,8 +98,8 @@ instance
       "AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails"
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails'
-            Prelude.<$> (x Data..:? "Type")
-              Prelude.<*> (x Data..:? "Options" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Options" Data..!= Prelude.mempty)
+              Prelude.<*> (x Data..:? "Type")
       )
 
 instance
@@ -109,8 +109,8 @@ instance
   hashWithSalt
     _salt
     AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails' {..} =
-      _salt `Prelude.hashWithSalt` type'
-        `Prelude.hashWithSalt` options
+      _salt `Prelude.hashWithSalt` options
+        `Prelude.hashWithSalt` type'
 
 instance
   Prelude.NFData
@@ -118,7 +118,7 @@ instance
   where
   rnf
     AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails' {..} =
-      Prelude.rnf type' `Prelude.seq` Prelude.rnf options
+      Prelude.rnf options `Prelude.seq` Prelude.rnf type'
 
 instance
   Data.ToJSON
@@ -128,7 +128,7 @@ instance
     AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("Type" Data..=) Prelude.<$> type',
-              ("Options" Data..=) Prelude.<$> options
+            [ ("Options" Data..=) Prelude.<$> options,
+              ("Type" Data..=) Prelude.<$> type'
             ]
         )

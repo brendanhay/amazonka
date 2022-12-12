@@ -40,14 +40,14 @@ module Amazonka.ELBV2.CreateLoadBalancer
     newCreateLoadBalancer,
 
     -- * Request Lenses
-    createLoadBalancer_tags,
-    createLoadBalancer_scheme,
-    createLoadBalancer_type,
-    createLoadBalancer_subnets,
     createLoadBalancer_customerOwnedIpv4Pool,
+    createLoadBalancer_ipAddressType,
+    createLoadBalancer_scheme,
     createLoadBalancer_securityGroups,
     createLoadBalancer_subnetMappings,
-    createLoadBalancer_ipAddressType,
+    createLoadBalancer_subnets,
+    createLoadBalancer_tags,
+    createLoadBalancer_type,
     createLoadBalancer_name,
 
     -- * Destructuring the Response
@@ -70,8 +70,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateLoadBalancer' smart constructor.
 data CreateLoadBalancer = CreateLoadBalancer'
-  { -- | The tags to assign to the load balancer.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+  { -- | [Application Load Balancers on Outposts] The ID of the customer-owned
+    -- address pool (CoIP pool).
+    customerOwnedIpv4Pool :: Prelude.Maybe Prelude.Text,
+    -- | The type of IP addresses used by the subnets for your load balancer. The
+    -- possible values are @ipv4@ (for IPv4 addresses) and @dualstack@ (for
+    -- IPv4 and IPv6 addresses).
+    ipAddressType :: Prelude.Maybe IpAddressType,
     -- | The nodes of an Internet-facing load balancer have public IP addresses.
     -- The DNS name of an Internet-facing load balancer is publicly resolvable
     -- to the public IP addresses of the nodes. Therefore, Internet-facing load
@@ -87,31 +92,6 @@ data CreateLoadBalancer = CreateLoadBalancer'
     --
     -- You cannot specify a scheme for a Gateway Load Balancer.
     scheme :: Prelude.Maybe LoadBalancerSchemeEnum,
-    -- | The type of load balancer. The default is @application@.
-    type' :: Prelude.Maybe LoadBalancerTypeEnum,
-    -- | The IDs of the public subnets. You can specify only one subnet per
-    -- Availability Zone. You must specify either subnets or subnet mappings,
-    -- but not both. To specify an Elastic IP address, specify subnet mappings
-    -- instead of subnets.
-    --
-    -- [Application Load Balancers] You must specify subnets from at least two
-    -- Availability Zones.
-    --
-    -- [Application Load Balancers on Outposts] You must specify one Outpost
-    -- subnet.
-    --
-    -- [Application Load Balancers on Local Zones] You can specify subnets from
-    -- one or more Local Zones.
-    --
-    -- [Network Load Balancers] You can specify subnets from one or more
-    -- Availability Zones.
-    --
-    -- [Gateway Load Balancers] You can specify subnets from one or more
-    -- Availability Zones.
-    subnets :: Prelude.Maybe [Prelude.Text],
-    -- | [Application Load Balancers on Outposts] The ID of the customer-owned
-    -- address pool (CoIP pool).
-    customerOwnedIpv4Pool :: Prelude.Maybe Prelude.Text,
     -- | [Application Load Balancers] The IDs of the security groups for the load
     -- balancer.
     securityGroups :: Prelude.Maybe [Prelude.Text],
@@ -140,10 +120,30 @@ data CreateLoadBalancer = CreateLoadBalancer'
     -- Availability Zones. You cannot specify Elastic IP addresses for your
     -- subnets.
     subnetMappings :: Prelude.Maybe [SubnetMapping],
-    -- | The type of IP addresses used by the subnets for your load balancer. The
-    -- possible values are @ipv4@ (for IPv4 addresses) and @dualstack@ (for
-    -- IPv4 and IPv6 addresses).
-    ipAddressType :: Prelude.Maybe IpAddressType,
+    -- | The IDs of the public subnets. You can specify only one subnet per
+    -- Availability Zone. You must specify either subnets or subnet mappings,
+    -- but not both. To specify an Elastic IP address, specify subnet mappings
+    -- instead of subnets.
+    --
+    -- [Application Load Balancers] You must specify subnets from at least two
+    -- Availability Zones.
+    --
+    -- [Application Load Balancers on Outposts] You must specify one Outpost
+    -- subnet.
+    --
+    -- [Application Load Balancers on Local Zones] You can specify subnets from
+    -- one or more Local Zones.
+    --
+    -- [Network Load Balancers] You can specify subnets from one or more
+    -- Availability Zones.
+    --
+    -- [Gateway Load Balancers] You can specify subnets from one or more
+    -- Availability Zones.
+    subnets :: Prelude.Maybe [Prelude.Text],
+    -- | The tags to assign to the load balancer.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | The type of load balancer. The default is @application@.
+    type' :: Prelude.Maybe LoadBalancerTypeEnum,
     -- | The name of the load balancer.
     --
     -- This name must be unique per region per account, can have a maximum of
@@ -162,7 +162,12 @@ data CreateLoadBalancer = CreateLoadBalancer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createLoadBalancer_tags' - The tags to assign to the load balancer.
+-- 'customerOwnedIpv4Pool', 'createLoadBalancer_customerOwnedIpv4Pool' - [Application Load Balancers on Outposts] The ID of the customer-owned
+-- address pool (CoIP pool).
+--
+-- 'ipAddressType', 'createLoadBalancer_ipAddressType' - The type of IP addresses used by the subnets for your load balancer. The
+-- possible values are @ipv4@ (for IPv4 addresses) and @dualstack@ (for
+-- IPv4 and IPv6 addresses).
 --
 -- 'scheme', 'createLoadBalancer_scheme' - The nodes of an Internet-facing load balancer have public IP addresses.
 -- The DNS name of an Internet-facing load balancer is publicly resolvable
@@ -178,31 +183,6 @@ data CreateLoadBalancer = CreateLoadBalancer'
 -- The default is an Internet-facing load balancer.
 --
 -- You cannot specify a scheme for a Gateway Load Balancer.
---
--- 'type'', 'createLoadBalancer_type' - The type of load balancer. The default is @application@.
---
--- 'subnets', 'createLoadBalancer_subnets' - The IDs of the public subnets. You can specify only one subnet per
--- Availability Zone. You must specify either subnets or subnet mappings,
--- but not both. To specify an Elastic IP address, specify subnet mappings
--- instead of subnets.
---
--- [Application Load Balancers] You must specify subnets from at least two
--- Availability Zones.
---
--- [Application Load Balancers on Outposts] You must specify one Outpost
--- subnet.
---
--- [Application Load Balancers on Local Zones] You can specify subnets from
--- one or more Local Zones.
---
--- [Network Load Balancers] You can specify subnets from one or more
--- Availability Zones.
---
--- [Gateway Load Balancers] You can specify subnets from one or more
--- Availability Zones.
---
--- 'customerOwnedIpv4Pool', 'createLoadBalancer_customerOwnedIpv4Pool' - [Application Load Balancers on Outposts] The ID of the customer-owned
--- address pool (CoIP pool).
 --
 -- 'securityGroups', 'createLoadBalancer_securityGroups' - [Application Load Balancers] The IDs of the security groups for the load
 -- balancer.
@@ -232,59 +212,7 @@ data CreateLoadBalancer = CreateLoadBalancer'
 -- Availability Zones. You cannot specify Elastic IP addresses for your
 -- subnets.
 --
--- 'ipAddressType', 'createLoadBalancer_ipAddressType' - The type of IP addresses used by the subnets for your load balancer. The
--- possible values are @ipv4@ (for IPv4 addresses) and @dualstack@ (for
--- IPv4 and IPv6 addresses).
---
--- 'name', 'createLoadBalancer_name' - The name of the load balancer.
---
--- This name must be unique per region per account, can have a maximum of
--- 32 characters, must contain only alphanumeric characters or hyphens,
--- must not begin or end with a hyphen, and must not begin with
--- \"internal-\".
-newCreateLoadBalancer ::
-  -- | 'name'
-  Prelude.Text ->
-  CreateLoadBalancer
-newCreateLoadBalancer pName_ =
-  CreateLoadBalancer'
-    { tags = Prelude.Nothing,
-      scheme = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      subnets = Prelude.Nothing,
-      customerOwnedIpv4Pool = Prelude.Nothing,
-      securityGroups = Prelude.Nothing,
-      subnetMappings = Prelude.Nothing,
-      ipAddressType = Prelude.Nothing,
-      name = pName_
-    }
-
--- | The tags to assign to the load balancer.
-createLoadBalancer_tags :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe (Prelude.NonEmpty Tag))
-createLoadBalancer_tags = Lens.lens (\CreateLoadBalancer' {tags} -> tags) (\s@CreateLoadBalancer' {} a -> s {tags = a} :: CreateLoadBalancer) Prelude.. Lens.mapping Lens.coerced
-
--- | The nodes of an Internet-facing load balancer have public IP addresses.
--- The DNS name of an Internet-facing load balancer is publicly resolvable
--- to the public IP addresses of the nodes. Therefore, Internet-facing load
--- balancers can route requests from clients over the internet.
---
--- The nodes of an internal load balancer have only private IP addresses.
--- The DNS name of an internal load balancer is publicly resolvable to the
--- private IP addresses of the nodes. Therefore, internal load balancers
--- can route requests only from clients with access to the VPC for the load
--- balancer.
---
--- The default is an Internet-facing load balancer.
---
--- You cannot specify a scheme for a Gateway Load Balancer.
-createLoadBalancer_scheme :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe LoadBalancerSchemeEnum)
-createLoadBalancer_scheme = Lens.lens (\CreateLoadBalancer' {scheme} -> scheme) (\s@CreateLoadBalancer' {} a -> s {scheme = a} :: CreateLoadBalancer)
-
--- | The type of load balancer. The default is @application@.
-createLoadBalancer_type :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe LoadBalancerTypeEnum)
-createLoadBalancer_type = Lens.lens (\CreateLoadBalancer' {type'} -> type') (\s@CreateLoadBalancer' {} a -> s {type' = a} :: CreateLoadBalancer)
-
--- | The IDs of the public subnets. You can specify only one subnet per
+-- 'subnets', 'createLoadBalancer_subnets' - The IDs of the public subnets. You can specify only one subnet per
 -- Availability Zone. You must specify either subnets or subnet mappings,
 -- but not both. To specify an Elastic IP address, specify subnet mappings
 -- instead of subnets.
@@ -303,13 +231,62 @@ createLoadBalancer_type = Lens.lens (\CreateLoadBalancer' {type'} -> type') (\s@
 --
 -- [Gateway Load Balancers] You can specify subnets from one or more
 -- Availability Zones.
-createLoadBalancer_subnets :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe [Prelude.Text])
-createLoadBalancer_subnets = Lens.lens (\CreateLoadBalancer' {subnets} -> subnets) (\s@CreateLoadBalancer' {} a -> s {subnets = a} :: CreateLoadBalancer) Prelude.. Lens.mapping Lens.coerced
+--
+-- 'tags', 'createLoadBalancer_tags' - The tags to assign to the load balancer.
+--
+-- 'type'', 'createLoadBalancer_type' - The type of load balancer. The default is @application@.
+--
+-- 'name', 'createLoadBalancer_name' - The name of the load balancer.
+--
+-- This name must be unique per region per account, can have a maximum of
+-- 32 characters, must contain only alphanumeric characters or hyphens,
+-- must not begin or end with a hyphen, and must not begin with
+-- \"internal-\".
+newCreateLoadBalancer ::
+  -- | 'name'
+  Prelude.Text ->
+  CreateLoadBalancer
+newCreateLoadBalancer pName_ =
+  CreateLoadBalancer'
+    { customerOwnedIpv4Pool =
+        Prelude.Nothing,
+      ipAddressType = Prelude.Nothing,
+      scheme = Prelude.Nothing,
+      securityGroups = Prelude.Nothing,
+      subnetMappings = Prelude.Nothing,
+      subnets = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      name = pName_
+    }
 
 -- | [Application Load Balancers on Outposts] The ID of the customer-owned
 -- address pool (CoIP pool).
 createLoadBalancer_customerOwnedIpv4Pool :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe Prelude.Text)
 createLoadBalancer_customerOwnedIpv4Pool = Lens.lens (\CreateLoadBalancer' {customerOwnedIpv4Pool} -> customerOwnedIpv4Pool) (\s@CreateLoadBalancer' {} a -> s {customerOwnedIpv4Pool = a} :: CreateLoadBalancer)
+
+-- | The type of IP addresses used by the subnets for your load balancer. The
+-- possible values are @ipv4@ (for IPv4 addresses) and @dualstack@ (for
+-- IPv4 and IPv6 addresses).
+createLoadBalancer_ipAddressType :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe IpAddressType)
+createLoadBalancer_ipAddressType = Lens.lens (\CreateLoadBalancer' {ipAddressType} -> ipAddressType) (\s@CreateLoadBalancer' {} a -> s {ipAddressType = a} :: CreateLoadBalancer)
+
+-- | The nodes of an Internet-facing load balancer have public IP addresses.
+-- The DNS name of an Internet-facing load balancer is publicly resolvable
+-- to the public IP addresses of the nodes. Therefore, Internet-facing load
+-- balancers can route requests from clients over the internet.
+--
+-- The nodes of an internal load balancer have only private IP addresses.
+-- The DNS name of an internal load balancer is publicly resolvable to the
+-- private IP addresses of the nodes. Therefore, internal load balancers
+-- can route requests only from clients with access to the VPC for the load
+-- balancer.
+--
+-- The default is an Internet-facing load balancer.
+--
+-- You cannot specify a scheme for a Gateway Load Balancer.
+createLoadBalancer_scheme :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe LoadBalancerSchemeEnum)
+createLoadBalancer_scheme = Lens.lens (\CreateLoadBalancer' {scheme} -> scheme) (\s@CreateLoadBalancer' {} a -> s {scheme = a} :: CreateLoadBalancer)
 
 -- | [Application Load Balancers] The IDs of the security groups for the load
 -- balancer.
@@ -343,11 +320,35 @@ createLoadBalancer_securityGroups = Lens.lens (\CreateLoadBalancer' {securityGro
 createLoadBalancer_subnetMappings :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe [SubnetMapping])
 createLoadBalancer_subnetMappings = Lens.lens (\CreateLoadBalancer' {subnetMappings} -> subnetMappings) (\s@CreateLoadBalancer' {} a -> s {subnetMappings = a} :: CreateLoadBalancer) Prelude.. Lens.mapping Lens.coerced
 
--- | The type of IP addresses used by the subnets for your load balancer. The
--- possible values are @ipv4@ (for IPv4 addresses) and @dualstack@ (for
--- IPv4 and IPv6 addresses).
-createLoadBalancer_ipAddressType :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe IpAddressType)
-createLoadBalancer_ipAddressType = Lens.lens (\CreateLoadBalancer' {ipAddressType} -> ipAddressType) (\s@CreateLoadBalancer' {} a -> s {ipAddressType = a} :: CreateLoadBalancer)
+-- | The IDs of the public subnets. You can specify only one subnet per
+-- Availability Zone. You must specify either subnets or subnet mappings,
+-- but not both. To specify an Elastic IP address, specify subnet mappings
+-- instead of subnets.
+--
+-- [Application Load Balancers] You must specify subnets from at least two
+-- Availability Zones.
+--
+-- [Application Load Balancers on Outposts] You must specify one Outpost
+-- subnet.
+--
+-- [Application Load Balancers on Local Zones] You can specify subnets from
+-- one or more Local Zones.
+--
+-- [Network Load Balancers] You can specify subnets from one or more
+-- Availability Zones.
+--
+-- [Gateway Load Balancers] You can specify subnets from one or more
+-- Availability Zones.
+createLoadBalancer_subnets :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe [Prelude.Text])
+createLoadBalancer_subnets = Lens.lens (\CreateLoadBalancer' {subnets} -> subnets) (\s@CreateLoadBalancer' {} a -> s {subnets = a} :: CreateLoadBalancer) Prelude.. Lens.mapping Lens.coerced
+
+-- | The tags to assign to the load balancer.
+createLoadBalancer_tags :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe (Prelude.NonEmpty Tag))
+createLoadBalancer_tags = Lens.lens (\CreateLoadBalancer' {tags} -> tags) (\s@CreateLoadBalancer' {} a -> s {tags = a} :: CreateLoadBalancer) Prelude.. Lens.mapping Lens.coerced
+
+-- | The type of load balancer. The default is @application@.
+createLoadBalancer_type :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe LoadBalancerTypeEnum)
+createLoadBalancer_type = Lens.lens (\CreateLoadBalancer' {type'} -> type') (\s@CreateLoadBalancer' {} a -> s {type' = a} :: CreateLoadBalancer)
 
 -- | The name of the load balancer.
 --
@@ -377,26 +378,26 @@ instance Core.AWSRequest CreateLoadBalancer where
 
 instance Prelude.Hashable CreateLoadBalancer where
   hashWithSalt _salt CreateLoadBalancer' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` customerOwnedIpv4Pool
+      `Prelude.hashWithSalt` ipAddressType
       `Prelude.hashWithSalt` scheme
-      `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` subnets
-      `Prelude.hashWithSalt` customerOwnedIpv4Pool
       `Prelude.hashWithSalt` securityGroups
       `Prelude.hashWithSalt` subnetMappings
-      `Prelude.hashWithSalt` ipAddressType
+      `Prelude.hashWithSalt` subnets
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateLoadBalancer where
   rnf CreateLoadBalancer' {..} =
-    Prelude.rnf tags
+    Prelude.rnf customerOwnedIpv4Pool
+      `Prelude.seq` Prelude.rnf ipAddressType
       `Prelude.seq` Prelude.rnf scheme
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf subnets
-      `Prelude.seq` Prelude.rnf customerOwnedIpv4Pool
       `Prelude.seq` Prelude.rnf securityGroups
       `Prelude.seq` Prelude.rnf subnetMappings
-      `Prelude.seq` Prelude.rnf ipAddressType
+      `Prelude.seq` Prelude.rnf subnets
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders CreateLoadBalancer where
@@ -412,16 +413,10 @@ instance Data.ToQuery CreateLoadBalancer where
           Data.=: ("CreateLoadBalancer" :: Prelude.ByteString),
         "Version"
           Data.=: ("2015-12-01" :: Prelude.ByteString),
-        "Tags"
-          Data.=: Data.toQuery
-            (Data.toQueryList "member" Prelude.<$> tags),
-        "Scheme" Data.=: scheme,
-        "Type" Data.=: type',
-        "Subnets"
-          Data.=: Data.toQuery
-            (Data.toQueryList "member" Prelude.<$> subnets),
         "CustomerOwnedIpv4Pool"
           Data.=: customerOwnedIpv4Pool,
+        "IpAddressType" Data.=: ipAddressType,
+        "Scheme" Data.=: scheme,
         "SecurityGroups"
           Data.=: Data.toQuery
             ( Data.toQueryList "member"
@@ -432,7 +427,13 @@ instance Data.ToQuery CreateLoadBalancer where
             ( Data.toQueryList "member"
                 Prelude.<$> subnetMappings
             ),
-        "IpAddressType" Data.=: ipAddressType,
+        "Subnets"
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> subnets),
+        "Tags"
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> tags),
+        "Type" Data.=: type',
         "Name" Data.=: name
       ]
 

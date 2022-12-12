@@ -27,9 +27,9 @@ module Amazonka.LicenseManager.ListReceivedGrantsForOrganization
     newListReceivedGrantsForOrganization,
 
     -- * Request Lenses
-    listReceivedGrantsForOrganization_nextToken,
     listReceivedGrantsForOrganization_filters,
     listReceivedGrantsForOrganization_maxResults,
+    listReceivedGrantsForOrganization_nextToken,
     listReceivedGrantsForOrganization_licenseArn,
 
     -- * Destructuring the Response
@@ -37,8 +37,8 @@ module Amazonka.LicenseManager.ListReceivedGrantsForOrganization
     newListReceivedGrantsForOrganizationResponse,
 
     -- * Response Lenses
-    listReceivedGrantsForOrganizationResponse_nextToken,
     listReceivedGrantsForOrganizationResponse_grants,
+    listReceivedGrantsForOrganizationResponse_nextToken,
     listReceivedGrantsForOrganizationResponse_httpStatus,
   )
 where
@@ -53,9 +53,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListReceivedGrantsForOrganization' smart constructor.
 data ListReceivedGrantsForOrganization = ListReceivedGrantsForOrganization'
-  { -- | Token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters to scope the results. The following filters are supported:
+  { -- | Filters to scope the results. The following filters are supported:
     --
     -- -   @ParentArn@
     --
@@ -63,6 +61,8 @@ data ListReceivedGrantsForOrganization = ListReceivedGrantsForOrganization'
     filters :: Prelude.Maybe [Filter],
     -- | Maximum number of results to return in a single call.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the received license.
     licenseArn :: Prelude.Text
   }
@@ -76,8 +76,6 @@ data ListReceivedGrantsForOrganization = ListReceivedGrantsForOrganization'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listReceivedGrantsForOrganization_nextToken' - Token for the next set of results.
---
 -- 'filters', 'listReceivedGrantsForOrganization_filters' - Filters to scope the results. The following filters are supported:
 --
 -- -   @ParentArn@
@@ -86,6 +84,8 @@ data ListReceivedGrantsForOrganization = ListReceivedGrantsForOrganization'
 --
 -- 'maxResults', 'listReceivedGrantsForOrganization_maxResults' - Maximum number of results to return in a single call.
 --
+-- 'nextToken', 'listReceivedGrantsForOrganization_nextToken' - Token for the next set of results.
+--
 -- 'licenseArn', 'listReceivedGrantsForOrganization_licenseArn' - The Amazon Resource Name (ARN) of the received license.
 newListReceivedGrantsForOrganization ::
   -- | 'licenseArn'
@@ -93,16 +93,12 @@ newListReceivedGrantsForOrganization ::
   ListReceivedGrantsForOrganization
 newListReceivedGrantsForOrganization pLicenseArn_ =
   ListReceivedGrantsForOrganization'
-    { nextToken =
+    { filters =
         Prelude.Nothing,
-      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       licenseArn = pLicenseArn_
     }
-
--- | Token for the next set of results.
-listReceivedGrantsForOrganization_nextToken :: Lens.Lens' ListReceivedGrantsForOrganization (Prelude.Maybe Prelude.Text)
-listReceivedGrantsForOrganization_nextToken = Lens.lens (\ListReceivedGrantsForOrganization' {nextToken} -> nextToken) (\s@ListReceivedGrantsForOrganization' {} a -> s {nextToken = a} :: ListReceivedGrantsForOrganization)
 
 -- | Filters to scope the results. The following filters are supported:
 --
@@ -115,6 +111,10 @@ listReceivedGrantsForOrganization_filters = Lens.lens (\ListReceivedGrantsForOrg
 -- | Maximum number of results to return in a single call.
 listReceivedGrantsForOrganization_maxResults :: Lens.Lens' ListReceivedGrantsForOrganization (Prelude.Maybe Prelude.Natural)
 listReceivedGrantsForOrganization_maxResults = Lens.lens (\ListReceivedGrantsForOrganization' {maxResults} -> maxResults) (\s@ListReceivedGrantsForOrganization' {} a -> s {maxResults = a} :: ListReceivedGrantsForOrganization)
+
+-- | Token for the next set of results.
+listReceivedGrantsForOrganization_nextToken :: Lens.Lens' ListReceivedGrantsForOrganization (Prelude.Maybe Prelude.Text)
+listReceivedGrantsForOrganization_nextToken = Lens.lens (\ListReceivedGrantsForOrganization' {nextToken} -> nextToken) (\s@ListReceivedGrantsForOrganization' {} a -> s {nextToken = a} :: ListReceivedGrantsForOrganization)
 
 -- | The Amazon Resource Name (ARN) of the received license.
 listReceivedGrantsForOrganization_licenseArn :: Lens.Lens' ListReceivedGrantsForOrganization Prelude.Text
@@ -133,8 +133,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListReceivedGrantsForOrganizationResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-              Prelude.<*> (x Data..?> "Grants" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Grants" Core..!@ Prelude.mempty)
+              Prelude.<*> (x Data..?> "NextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,9 +145,9 @@ instance
   hashWithSalt
     _salt
     ListReceivedGrantsForOrganization' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` filters
+      _salt `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` licenseArn
 
 instance
@@ -155,9 +155,9 @@ instance
     ListReceivedGrantsForOrganization
   where
   rnf ListReceivedGrantsForOrganization' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf licenseArn
 
 instance
@@ -185,9 +185,9 @@ instance
   toJSON ListReceivedGrantsForOrganization' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
+          [ ("Filters" Data..=) Prelude.<$> filters,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("LicenseArn" Data..= licenseArn)
           ]
       )
@@ -206,10 +206,10 @@ instance
 
 -- | /See:/ 'newListReceivedGrantsForOrganizationResponse' smart constructor.
 data ListReceivedGrantsForOrganizationResponse = ListReceivedGrantsForOrganizationResponse'
-  { -- | Token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Lists the grants the organization has received.
+  { -- | Lists the grants the organization has received.
     grants :: Prelude.Maybe [Grant],
+    -- | Token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -223,9 +223,9 @@ data ListReceivedGrantsForOrganizationResponse = ListReceivedGrantsForOrganizati
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listReceivedGrantsForOrganizationResponse_nextToken' - Token for the next set of results.
---
 -- 'grants', 'listReceivedGrantsForOrganizationResponse_grants' - Lists the grants the organization has received.
+--
+-- 'nextToken', 'listReceivedGrantsForOrganizationResponse_nextToken' - Token for the next set of results.
 --
 -- 'httpStatus', 'listReceivedGrantsForOrganizationResponse_httpStatus' - The response's http status code.
 newListReceivedGrantsForOrganizationResponse ::
@@ -235,19 +235,19 @@ newListReceivedGrantsForOrganizationResponse ::
 newListReceivedGrantsForOrganizationResponse
   pHttpStatus_ =
     ListReceivedGrantsForOrganizationResponse'
-      { nextToken =
+      { grants =
           Prelude.Nothing,
-        grants = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | Token for the next set of results.
-listReceivedGrantsForOrganizationResponse_nextToken :: Lens.Lens' ListReceivedGrantsForOrganizationResponse (Prelude.Maybe Prelude.Text)
-listReceivedGrantsForOrganizationResponse_nextToken = Lens.lens (\ListReceivedGrantsForOrganizationResponse' {nextToken} -> nextToken) (\s@ListReceivedGrantsForOrganizationResponse' {} a -> s {nextToken = a} :: ListReceivedGrantsForOrganizationResponse)
 
 -- | Lists the grants the organization has received.
 listReceivedGrantsForOrganizationResponse_grants :: Lens.Lens' ListReceivedGrantsForOrganizationResponse (Prelude.Maybe [Grant])
 listReceivedGrantsForOrganizationResponse_grants = Lens.lens (\ListReceivedGrantsForOrganizationResponse' {grants} -> grants) (\s@ListReceivedGrantsForOrganizationResponse' {} a -> s {grants = a} :: ListReceivedGrantsForOrganizationResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Token for the next set of results.
+listReceivedGrantsForOrganizationResponse_nextToken :: Lens.Lens' ListReceivedGrantsForOrganizationResponse (Prelude.Maybe Prelude.Text)
+listReceivedGrantsForOrganizationResponse_nextToken = Lens.lens (\ListReceivedGrantsForOrganizationResponse' {nextToken} -> nextToken) (\s@ListReceivedGrantsForOrganizationResponse' {} a -> s {nextToken = a} :: ListReceivedGrantsForOrganizationResponse)
 
 -- | The response's http status code.
 listReceivedGrantsForOrganizationResponse_httpStatus :: Lens.Lens' ListReceivedGrantsForOrganizationResponse Prelude.Int
@@ -258,6 +258,6 @@ instance
     ListReceivedGrantsForOrganizationResponse
   where
   rnf ListReceivedGrantsForOrganizationResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf grants
+    Prelude.rnf grants
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

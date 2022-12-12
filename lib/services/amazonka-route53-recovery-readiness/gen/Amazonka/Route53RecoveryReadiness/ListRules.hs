@@ -30,9 +30,9 @@ module Amazonka.Route53RecoveryReadiness.ListRules
     newListRules,
 
     -- * Request Lenses
-    listRules_resourceType,
-    listRules_nextToken,
     listRules_maxResults,
+    listRules_nextToken,
+    listRules_resourceType,
 
     -- * Destructuring the Response
     ListRulesResponse (..),
@@ -55,12 +55,12 @@ import Amazonka.Route53RecoveryReadiness.Types
 
 -- | /See:/ 'newListRules' smart constructor.
 data ListRules = ListRules'
-  { -- | The resource type that a readiness rule applies to.
-    resourceType :: Prelude.Maybe Prelude.Text,
+  { -- | The number of objects that you want to return with this call.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The token that identifies which batch of results you want to see.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The number of objects that you want to return with this call.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    -- | The resource type that a readiness rule applies to.
+    resourceType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,31 +72,31 @@ data ListRules = ListRules'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceType', 'listRules_resourceType' - The resource type that a readiness rule applies to.
+-- 'maxResults', 'listRules_maxResults' - The number of objects that you want to return with this call.
 --
 -- 'nextToken', 'listRules_nextToken' - The token that identifies which batch of results you want to see.
 --
--- 'maxResults', 'listRules_maxResults' - The number of objects that you want to return with this call.
+-- 'resourceType', 'listRules_resourceType' - The resource type that a readiness rule applies to.
 newListRules ::
   ListRules
 newListRules =
   ListRules'
-    { resourceType = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      resourceType = Prelude.Nothing
     }
 
--- | The resource type that a readiness rule applies to.
-listRules_resourceType :: Lens.Lens' ListRules (Prelude.Maybe Prelude.Text)
-listRules_resourceType = Lens.lens (\ListRules' {resourceType} -> resourceType) (\s@ListRules' {} a -> s {resourceType = a} :: ListRules)
+-- | The number of objects that you want to return with this call.
+listRules_maxResults :: Lens.Lens' ListRules (Prelude.Maybe Prelude.Natural)
+listRules_maxResults = Lens.lens (\ListRules' {maxResults} -> maxResults) (\s@ListRules' {} a -> s {maxResults = a} :: ListRules)
 
 -- | The token that identifies which batch of results you want to see.
 listRules_nextToken :: Lens.Lens' ListRules (Prelude.Maybe Prelude.Text)
 listRules_nextToken = Lens.lens (\ListRules' {nextToken} -> nextToken) (\s@ListRules' {} a -> s {nextToken = a} :: ListRules)
 
--- | The number of objects that you want to return with this call.
-listRules_maxResults :: Lens.Lens' ListRules (Prelude.Maybe Prelude.Natural)
-listRules_maxResults = Lens.lens (\ListRules' {maxResults} -> maxResults) (\s@ListRules' {} a -> s {maxResults = a} :: ListRules)
+-- | The resource type that a readiness rule applies to.
+listRules_resourceType :: Lens.Lens' ListRules (Prelude.Maybe Prelude.Text)
+listRules_resourceType = Lens.lens (\ListRules' {resourceType} -> resourceType) (\s@ListRules' {} a -> s {resourceType = a} :: ListRules)
 
 instance Core.AWSPager ListRules where
   page rq rs
@@ -132,15 +132,15 @@ instance Core.AWSRequest ListRules where
 
 instance Prelude.Hashable ListRules where
   hashWithSalt _salt ListRules' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` resourceType
 
 instance Prelude.NFData ListRules where
   rnf ListRules' {..} =
-    Prelude.rnf resourceType
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf resourceType
 
 instance Data.ToHeaders ListRules where
   toHeaders =
@@ -159,9 +159,9 @@ instance Data.ToPath ListRules where
 instance Data.ToQuery ListRules where
   toQuery ListRules' {..} =
     Prelude.mconcat
-      [ "resourceType" Data.=: resourceType,
+      [ "maxResults" Data.=: maxResults,
         "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+        "resourceType" Data.=: resourceType
       ]
 
 -- | /See:/ 'newListRulesResponse' smart constructor.

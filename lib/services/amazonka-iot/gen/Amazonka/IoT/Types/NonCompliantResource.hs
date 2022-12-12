@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNonCompliantResource' smart constructor.
 data NonCompliantResource = NonCompliantResource'
-  { -- | The type of the noncompliant resource.
-    resourceType :: Prelude.Maybe ResourceType,
-    -- | Other information about the noncompliant resource.
+  { -- | Other information about the noncompliant resource.
     additionalInfo :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Information that identifies the noncompliant resource.
-    resourceIdentifier :: Prelude.Maybe ResourceIdentifier
+    resourceIdentifier :: Prelude.Maybe ResourceIdentifier,
+    -- | The type of the noncompliant resource.
+    resourceType :: Prelude.Maybe ResourceType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,24 +48,20 @@ data NonCompliantResource = NonCompliantResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceType', 'nonCompliantResource_resourceType' - The type of the noncompliant resource.
---
 -- 'additionalInfo', 'nonCompliantResource_additionalInfo' - Other information about the noncompliant resource.
 --
 -- 'resourceIdentifier', 'nonCompliantResource_resourceIdentifier' - Information that identifies the noncompliant resource.
+--
+-- 'resourceType', 'nonCompliantResource_resourceType' - The type of the noncompliant resource.
 newNonCompliantResource ::
   NonCompliantResource
 newNonCompliantResource =
   NonCompliantResource'
-    { resourceType =
+    { additionalInfo =
         Prelude.Nothing,
-      additionalInfo = Prelude.Nothing,
-      resourceIdentifier = Prelude.Nothing
+      resourceIdentifier = Prelude.Nothing,
+      resourceType = Prelude.Nothing
     }
-
--- | The type of the noncompliant resource.
-nonCompliantResource_resourceType :: Lens.Lens' NonCompliantResource (Prelude.Maybe ResourceType)
-nonCompliantResource_resourceType = Lens.lens (\NonCompliantResource' {resourceType} -> resourceType) (\s@NonCompliantResource' {} a -> s {resourceType = a} :: NonCompliantResource)
 
 -- | Other information about the noncompliant resource.
 nonCompliantResource_additionalInfo :: Lens.Lens' NonCompliantResource (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -75,25 +71,29 @@ nonCompliantResource_additionalInfo = Lens.lens (\NonCompliantResource' {additio
 nonCompliantResource_resourceIdentifier :: Lens.Lens' NonCompliantResource (Prelude.Maybe ResourceIdentifier)
 nonCompliantResource_resourceIdentifier = Lens.lens (\NonCompliantResource' {resourceIdentifier} -> resourceIdentifier) (\s@NonCompliantResource' {} a -> s {resourceIdentifier = a} :: NonCompliantResource)
 
+-- | The type of the noncompliant resource.
+nonCompliantResource_resourceType :: Lens.Lens' NonCompliantResource (Prelude.Maybe ResourceType)
+nonCompliantResource_resourceType = Lens.lens (\NonCompliantResource' {resourceType} -> resourceType) (\s@NonCompliantResource' {} a -> s {resourceType = a} :: NonCompliantResource)
+
 instance Data.FromJSON NonCompliantResource where
   parseJSON =
     Data.withObject
       "NonCompliantResource"
       ( \x ->
           NonCompliantResource'
-            Prelude.<$> (x Data..:? "resourceType")
-            Prelude.<*> (x Data..:? "additionalInfo" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "additionalInfo" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "resourceIdentifier")
+            Prelude.<*> (x Data..:? "resourceType")
       )
 
 instance Prelude.Hashable NonCompliantResource where
   hashWithSalt _salt NonCompliantResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
-      `Prelude.hashWithSalt` additionalInfo
+    _salt `Prelude.hashWithSalt` additionalInfo
       `Prelude.hashWithSalt` resourceIdentifier
+      `Prelude.hashWithSalt` resourceType
 
 instance Prelude.NFData NonCompliantResource where
   rnf NonCompliantResource' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf additionalInfo
+    Prelude.rnf additionalInfo
       `Prelude.seq` Prelude.rnf resourceIdentifier
+      `Prelude.seq` Prelude.rnf resourceType

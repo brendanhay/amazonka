@@ -30,6 +30,7 @@ module Amazonka.RedshiftServerLess.ConvertRecoveryPointToSnapshot
 
     -- * Request Lenses
     convertRecoveryPointToSnapshot_retentionPeriod,
+    convertRecoveryPointToSnapshot_tags,
     convertRecoveryPointToSnapshot_recoveryPointId,
     convertRecoveryPointToSnapshot_snapshotName,
 
@@ -55,6 +56,10 @@ import qualified Amazonka.Response as Response
 data ConvertRecoveryPointToSnapshot = ConvertRecoveryPointToSnapshot'
   { -- | How long to retain the snapshot.
     retentionPeriod :: Prelude.Maybe Prelude.Int,
+    -- | An array of
+    -- <https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_Tag.html Tag objects>
+    -- to associate with the created snapshot.
+    tags :: Prelude.Maybe [Tag],
     -- | The unique identifier of the recovery point.
     recoveryPointId :: Prelude.Text,
     -- | The name of the snapshot.
@@ -72,6 +77,10 @@ data ConvertRecoveryPointToSnapshot = ConvertRecoveryPointToSnapshot'
 --
 -- 'retentionPeriod', 'convertRecoveryPointToSnapshot_retentionPeriod' - How long to retain the snapshot.
 --
+-- 'tags', 'convertRecoveryPointToSnapshot_tags' - An array of
+-- <https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_Tag.html Tag objects>
+-- to associate with the created snapshot.
+--
 -- 'recoveryPointId', 'convertRecoveryPointToSnapshot_recoveryPointId' - The unique identifier of the recovery point.
 --
 -- 'snapshotName', 'convertRecoveryPointToSnapshot_snapshotName' - The name of the snapshot.
@@ -87,6 +96,7 @@ newConvertRecoveryPointToSnapshot
     ConvertRecoveryPointToSnapshot'
       { retentionPeriod =
           Prelude.Nothing,
+        tags = Prelude.Nothing,
         recoveryPointId = pRecoveryPointId_,
         snapshotName = pSnapshotName_
       }
@@ -94,6 +104,12 @@ newConvertRecoveryPointToSnapshot
 -- | How long to retain the snapshot.
 convertRecoveryPointToSnapshot_retentionPeriod :: Lens.Lens' ConvertRecoveryPointToSnapshot (Prelude.Maybe Prelude.Int)
 convertRecoveryPointToSnapshot_retentionPeriod = Lens.lens (\ConvertRecoveryPointToSnapshot' {retentionPeriod} -> retentionPeriod) (\s@ConvertRecoveryPointToSnapshot' {} a -> s {retentionPeriod = a} :: ConvertRecoveryPointToSnapshot)
+
+-- | An array of
+-- <https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_Tag.html Tag objects>
+-- to associate with the created snapshot.
+convertRecoveryPointToSnapshot_tags :: Lens.Lens' ConvertRecoveryPointToSnapshot (Prelude.Maybe [Tag])
+convertRecoveryPointToSnapshot_tags = Lens.lens (\ConvertRecoveryPointToSnapshot' {tags} -> tags) (\s@ConvertRecoveryPointToSnapshot' {} a -> s {tags = a} :: ConvertRecoveryPointToSnapshot) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique identifier of the recovery point.
 convertRecoveryPointToSnapshot_recoveryPointId :: Lens.Lens' ConvertRecoveryPointToSnapshot Prelude.Text
@@ -128,6 +144,7 @@ instance
     _salt
     ConvertRecoveryPointToSnapshot' {..} =
       _salt `Prelude.hashWithSalt` retentionPeriod
+        `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` recoveryPointId
         `Prelude.hashWithSalt` snapshotName
 
@@ -137,6 +154,7 @@ instance
   where
   rnf ConvertRecoveryPointToSnapshot' {..} =
     Prelude.rnf retentionPeriod
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf recoveryPointId
       `Prelude.seq` Prelude.rnf snapshotName
 
@@ -164,6 +182,7 @@ instance Data.ToJSON ConvertRecoveryPointToSnapshot where
       ( Prelude.catMaybes
           [ ("retentionPeriod" Data..=)
               Prelude.<$> retentionPeriod,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("recoveryPointId" Data..= recoveryPointId),
             Prelude.Just ("snapshotName" Data..= snapshotName)

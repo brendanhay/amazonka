@@ -29,7 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBotImportSpecification' smart constructor.
 data BotImportSpecification = BotImportSpecification'
-  { -- | The time, in seconds, that Amazon Lex should keep information about a
+  { -- | A list of tags to add to the bot. You can only add tags when you import
+    -- a bot. You can\'t use the @UpdateBot@ operation to update tags. To
+    -- update tags, use the @TagResource@ operation.
+    botTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The time, in seconds, that Amazon Lex should keep information about a
     -- user\'s conversation with the bot.
     --
     -- A user interaction remains active for the amount of time specified. If
@@ -38,10 +42,6 @@ data BotImportSpecification = BotImportSpecification'
     --
     -- You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
     idleSessionTTLInSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | A list of tags to add to the bot. You can only add tags when you import
-    -- a bot. You can\'t use the @UpdateBot@ operation to update tags. To
-    -- update tags, use the @TagResource@ operation.
-    botTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A list of tags to add to the test alias for a bot. You can only add tags
     -- when you import a bot. You can\'t use the @UpdateAlias@ operation to
     -- update tags. To update tags on the test alias, use the @TagResource@
@@ -64,6 +64,10 @@ data BotImportSpecification = BotImportSpecification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'botTags', 'botImportSpecification_botTags' - A list of tags to add to the bot. You can only add tags when you import
+-- a bot. You can\'t use the @UpdateBot@ operation to update tags. To
+-- update tags, use the @TagResource@ operation.
+--
 -- 'idleSessionTTLInSeconds', 'botImportSpecification_idleSessionTTLInSeconds' - The time, in seconds, that Amazon Lex should keep information about a
 -- user\'s conversation with the bot.
 --
@@ -72,10 +76,6 @@ data BotImportSpecification = BotImportSpecification'
 -- Lex deletes any data provided before the timeout.
 --
 -- You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
---
--- 'botTags', 'botImportSpecification_botTags' - A list of tags to add to the bot. You can only add tags when you import
--- a bot. You can\'t use the @UpdateBot@ operation to update tags. To
--- update tags, use the @TagResource@ operation.
 --
 -- 'testBotAliasTags', 'botImportSpecification_testBotAliasTags' - A list of tags to add to the test alias for a bot. You can only add tags
 -- when you import a bot. You can\'t use the @UpdateAlias@ operation to
@@ -101,14 +101,19 @@ newBotImportSpecification
   pRoleArn_
   pDataPrivacy_ =
     BotImportSpecification'
-      { idleSessionTTLInSeconds =
-          Prelude.Nothing,
-        botTags = Prelude.Nothing,
+      { botTags = Prelude.Nothing,
+        idleSessionTTLInSeconds = Prelude.Nothing,
         testBotAliasTags = Prelude.Nothing,
         botName = pBotName_,
         roleArn = pRoleArn_,
         dataPrivacy = pDataPrivacy_
       }
+
+-- | A list of tags to add to the bot. You can only add tags when you import
+-- a bot. You can\'t use the @UpdateBot@ operation to update tags. To
+-- update tags, use the @TagResource@ operation.
+botImportSpecification_botTags :: Lens.Lens' BotImportSpecification (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+botImportSpecification_botTags = Lens.lens (\BotImportSpecification' {botTags} -> botTags) (\s@BotImportSpecification' {} a -> s {botTags = a} :: BotImportSpecification) Prelude.. Lens.mapping Lens.coerced
 
 -- | The time, in seconds, that Amazon Lex should keep information about a
 -- user\'s conversation with the bot.
@@ -120,12 +125,6 @@ newBotImportSpecification
 -- You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
 botImportSpecification_idleSessionTTLInSeconds :: Lens.Lens' BotImportSpecification (Prelude.Maybe Prelude.Natural)
 botImportSpecification_idleSessionTTLInSeconds = Lens.lens (\BotImportSpecification' {idleSessionTTLInSeconds} -> idleSessionTTLInSeconds) (\s@BotImportSpecification' {} a -> s {idleSessionTTLInSeconds = a} :: BotImportSpecification)
-
--- | A list of tags to add to the bot. You can only add tags when you import
--- a bot. You can\'t use the @UpdateBot@ operation to update tags. To
--- update tags, use the @TagResource@ operation.
-botImportSpecification_botTags :: Lens.Lens' BotImportSpecification (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-botImportSpecification_botTags = Lens.lens (\BotImportSpecification' {botTags} -> botTags) (\s@BotImportSpecification' {} a -> s {botTags = a} :: BotImportSpecification) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of tags to add to the test alias for a bot. You can only add tags
 -- when you import a bot. You can\'t use the @UpdateAlias@ operation to
@@ -153,8 +152,8 @@ instance Data.FromJSON BotImportSpecification where
       "BotImportSpecification"
       ( \x ->
           BotImportSpecification'
-            Prelude.<$> (x Data..:? "idleSessionTTLInSeconds")
-            Prelude.<*> (x Data..:? "botTags" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "botTags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "idleSessionTTLInSeconds")
             Prelude.<*> ( x Data..:? "testBotAliasTags"
                             Data..!= Prelude.mempty
                         )
@@ -165,9 +164,8 @@ instance Data.FromJSON BotImportSpecification where
 
 instance Prelude.Hashable BotImportSpecification where
   hashWithSalt _salt BotImportSpecification' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` botTags
       `Prelude.hashWithSalt` idleSessionTTLInSeconds
-      `Prelude.hashWithSalt` botTags
       `Prelude.hashWithSalt` testBotAliasTags
       `Prelude.hashWithSalt` botName
       `Prelude.hashWithSalt` roleArn
@@ -175,8 +173,8 @@ instance Prelude.Hashable BotImportSpecification where
 
 instance Prelude.NFData BotImportSpecification where
   rnf BotImportSpecification' {..} =
-    Prelude.rnf idleSessionTTLInSeconds
-      `Prelude.seq` Prelude.rnf botTags
+    Prelude.rnf botTags
+      `Prelude.seq` Prelude.rnf idleSessionTTLInSeconds
       `Prelude.seq` Prelude.rnf testBotAliasTags
       `Prelude.seq` Prelude.rnf botName
       `Prelude.seq` Prelude.rnf roleArn
@@ -186,9 +184,9 @@ instance Data.ToJSON BotImportSpecification where
   toJSON BotImportSpecification' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("idleSessionTTLInSeconds" Data..=)
+          [ ("botTags" Data..=) Prelude.<$> botTags,
+            ("idleSessionTTLInSeconds" Data..=)
               Prelude.<$> idleSessionTTLInSeconds,
-            ("botTags" Data..=) Prelude.<$> botTags,
             ("testBotAliasTags" Data..=)
               Prelude.<$> testBotAliasTags,
             Prelude.Just ("botName" Data..= botName),

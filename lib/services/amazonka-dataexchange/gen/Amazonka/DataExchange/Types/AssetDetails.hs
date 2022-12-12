@@ -23,20 +23,26 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.DataExchange.Types.ApiGatewayApiAsset
+import Amazonka.DataExchange.Types.LakeFormationDataPermissionAsset
 import Amazonka.DataExchange.Types.RedshiftDataShareAsset
+import Amazonka.DataExchange.Types.S3DataAccessAsset
 import Amazonka.DataExchange.Types.S3SnapshotAsset
 import qualified Amazonka.Prelude as Prelude
 
--- | Information about the asset.
+-- | Details about the asset.
 --
 -- /See:/ 'newAssetDetails' smart constructor.
 data AssetDetails = AssetDetails'
-  { -- | The S3 object that is the asset.
-    s3SnapshotAsset :: Prelude.Maybe S3SnapshotAsset,
-    -- | Information about the API Gateway API asset.
+  { -- | Information about the API Gateway API asset.
     apiGatewayApiAsset :: Prelude.Maybe ApiGatewayApiAsset,
+    -- | The AWS Lake Formation data permission that is the asset.
+    lakeFormationDataPermissionAsset :: Prelude.Maybe LakeFormationDataPermissionAsset,
     -- | The Amazon Redshift datashare that is the asset.
-    redshiftDataShareAsset :: Prelude.Maybe RedshiftDataShareAsset
+    redshiftDataShareAsset :: Prelude.Maybe RedshiftDataShareAsset,
+    -- | The Amazon S3 data access that is the asset.
+    s3DataAccessAsset :: Prelude.Maybe S3DataAccessAsset,
+    -- | The Amazon S3 object that is the asset.
+    s3SnapshotAsset :: Prelude.Maybe S3SnapshotAsset
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,31 +54,45 @@ data AssetDetails = AssetDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 's3SnapshotAsset', 'assetDetails_s3SnapshotAsset' - The S3 object that is the asset.
---
 -- 'apiGatewayApiAsset', 'assetDetails_apiGatewayApiAsset' - Information about the API Gateway API asset.
 --
+-- 'lakeFormationDataPermissionAsset', 'assetDetails_lakeFormationDataPermissionAsset' - The AWS Lake Formation data permission that is the asset.
+--
 -- 'redshiftDataShareAsset', 'assetDetails_redshiftDataShareAsset' - The Amazon Redshift datashare that is the asset.
+--
+-- 's3DataAccessAsset', 'assetDetails_s3DataAccessAsset' - The Amazon S3 data access that is the asset.
+--
+-- 's3SnapshotAsset', 'assetDetails_s3SnapshotAsset' - The Amazon S3 object that is the asset.
 newAssetDetails ::
   AssetDetails
 newAssetDetails =
   AssetDetails'
-    { s3SnapshotAsset = Prelude.Nothing,
-      apiGatewayApiAsset = Prelude.Nothing,
-      redshiftDataShareAsset = Prelude.Nothing
+    { apiGatewayApiAsset = Prelude.Nothing,
+      lakeFormationDataPermissionAsset = Prelude.Nothing,
+      redshiftDataShareAsset = Prelude.Nothing,
+      s3DataAccessAsset = Prelude.Nothing,
+      s3SnapshotAsset = Prelude.Nothing
     }
-
--- | The S3 object that is the asset.
-assetDetails_s3SnapshotAsset :: Lens.Lens' AssetDetails (Prelude.Maybe S3SnapshotAsset)
-assetDetails_s3SnapshotAsset = Lens.lens (\AssetDetails' {s3SnapshotAsset} -> s3SnapshotAsset) (\s@AssetDetails' {} a -> s {s3SnapshotAsset = a} :: AssetDetails)
 
 -- | Information about the API Gateway API asset.
 assetDetails_apiGatewayApiAsset :: Lens.Lens' AssetDetails (Prelude.Maybe ApiGatewayApiAsset)
 assetDetails_apiGatewayApiAsset = Lens.lens (\AssetDetails' {apiGatewayApiAsset} -> apiGatewayApiAsset) (\s@AssetDetails' {} a -> s {apiGatewayApiAsset = a} :: AssetDetails)
 
+-- | The AWS Lake Formation data permission that is the asset.
+assetDetails_lakeFormationDataPermissionAsset :: Lens.Lens' AssetDetails (Prelude.Maybe LakeFormationDataPermissionAsset)
+assetDetails_lakeFormationDataPermissionAsset = Lens.lens (\AssetDetails' {lakeFormationDataPermissionAsset} -> lakeFormationDataPermissionAsset) (\s@AssetDetails' {} a -> s {lakeFormationDataPermissionAsset = a} :: AssetDetails)
+
 -- | The Amazon Redshift datashare that is the asset.
 assetDetails_redshiftDataShareAsset :: Lens.Lens' AssetDetails (Prelude.Maybe RedshiftDataShareAsset)
 assetDetails_redshiftDataShareAsset = Lens.lens (\AssetDetails' {redshiftDataShareAsset} -> redshiftDataShareAsset) (\s@AssetDetails' {} a -> s {redshiftDataShareAsset = a} :: AssetDetails)
+
+-- | The Amazon S3 data access that is the asset.
+assetDetails_s3DataAccessAsset :: Lens.Lens' AssetDetails (Prelude.Maybe S3DataAccessAsset)
+assetDetails_s3DataAccessAsset = Lens.lens (\AssetDetails' {s3DataAccessAsset} -> s3DataAccessAsset) (\s@AssetDetails' {} a -> s {s3DataAccessAsset = a} :: AssetDetails)
+
+-- | The Amazon S3 object that is the asset.
+assetDetails_s3SnapshotAsset :: Lens.Lens' AssetDetails (Prelude.Maybe S3SnapshotAsset)
+assetDetails_s3SnapshotAsset = Lens.lens (\AssetDetails' {s3SnapshotAsset} -> s3SnapshotAsset) (\s@AssetDetails' {} a -> s {s3SnapshotAsset = a} :: AssetDetails)
 
 instance Data.FromJSON AssetDetails where
   parseJSON =
@@ -80,19 +100,25 @@ instance Data.FromJSON AssetDetails where
       "AssetDetails"
       ( \x ->
           AssetDetails'
-            Prelude.<$> (x Data..:? "S3SnapshotAsset")
-            Prelude.<*> (x Data..:? "ApiGatewayApiAsset")
+            Prelude.<$> (x Data..:? "ApiGatewayApiAsset")
+            Prelude.<*> (x Data..:? "LakeFormationDataPermissionAsset")
             Prelude.<*> (x Data..:? "RedshiftDataShareAsset")
+            Prelude.<*> (x Data..:? "S3DataAccessAsset")
+            Prelude.<*> (x Data..:? "S3SnapshotAsset")
       )
 
 instance Prelude.Hashable AssetDetails where
   hashWithSalt _salt AssetDetails' {..} =
-    _salt `Prelude.hashWithSalt` s3SnapshotAsset
-      `Prelude.hashWithSalt` apiGatewayApiAsset
+    _salt `Prelude.hashWithSalt` apiGatewayApiAsset
+      `Prelude.hashWithSalt` lakeFormationDataPermissionAsset
       `Prelude.hashWithSalt` redshiftDataShareAsset
+      `Prelude.hashWithSalt` s3DataAccessAsset
+      `Prelude.hashWithSalt` s3SnapshotAsset
 
 instance Prelude.NFData AssetDetails where
   rnf AssetDetails' {..} =
-    Prelude.rnf s3SnapshotAsset
-      `Prelude.seq` Prelude.rnf apiGatewayApiAsset
+    Prelude.rnf apiGatewayApiAsset
+      `Prelude.seq` Prelude.rnf lakeFormationDataPermissionAsset
       `Prelude.seq` Prelude.rnf redshiftDataShareAsset
+      `Prelude.seq` Prelude.rnf s3DataAccessAsset
+      `Prelude.seq` Prelude.rnf s3SnapshotAsset

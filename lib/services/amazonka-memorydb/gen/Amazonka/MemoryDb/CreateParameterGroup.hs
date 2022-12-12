@@ -30,8 +30,8 @@ module Amazonka.MemoryDb.CreateParameterGroup
     newCreateParameterGroup,
 
     -- * Request Lenses
-    createParameterGroup_tags,
     createParameterGroup_description,
+    createParameterGroup_tags,
     createParameterGroup_parameterGroupName,
     createParameterGroup_family,
 
@@ -55,11 +55,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateParameterGroup' smart constructor.
 data CreateParameterGroup = CreateParameterGroup'
-  { -- | A list of tags to be added to this resource. A tag is a key-value pair.
+  { -- | An optional description of the parameter group.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | A list of tags to be added to this resource. A tag is a key-value pair.
     -- A tag key must be accompanied by a tag value, although null is accepted.
     tags :: Prelude.Maybe [Tag],
-    -- | An optional description of the parameter group.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the parameter group.
     parameterGroupName :: Prelude.Text,
     -- | The name of the parameter group family that the parameter group can be
@@ -76,10 +76,10 @@ data CreateParameterGroup = CreateParameterGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'createParameterGroup_description' - An optional description of the parameter group.
+--
 -- 'tags', 'createParameterGroup_tags' - A list of tags to be added to this resource. A tag is a key-value pair.
 -- A tag key must be accompanied by a tag value, although null is accepted.
---
--- 'description', 'createParameterGroup_description' - An optional description of the parameter group.
 --
 -- 'parameterGroupName', 'createParameterGroup_parameterGroupName' - The name of the parameter group.
 --
@@ -93,20 +93,21 @@ newCreateParameterGroup ::
   CreateParameterGroup
 newCreateParameterGroup pParameterGroupName_ pFamily_ =
   CreateParameterGroup'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description =
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
       parameterGroupName = pParameterGroupName_,
       family = pFamily_
     }
+
+-- | An optional description of the parameter group.
+createParameterGroup_description :: Lens.Lens' CreateParameterGroup (Prelude.Maybe Prelude.Text)
+createParameterGroup_description = Lens.lens (\CreateParameterGroup' {description} -> description) (\s@CreateParameterGroup' {} a -> s {description = a} :: CreateParameterGroup)
 
 -- | A list of tags to be added to this resource. A tag is a key-value pair.
 -- A tag key must be accompanied by a tag value, although null is accepted.
 createParameterGroup_tags :: Lens.Lens' CreateParameterGroup (Prelude.Maybe [Tag])
 createParameterGroup_tags = Lens.lens (\CreateParameterGroup' {tags} -> tags) (\s@CreateParameterGroup' {} a -> s {tags = a} :: CreateParameterGroup) Prelude.. Lens.mapping Lens.coerced
-
--- | An optional description of the parameter group.
-createParameterGroup_description :: Lens.Lens' CreateParameterGroup (Prelude.Maybe Prelude.Text)
-createParameterGroup_description = Lens.lens (\CreateParameterGroup' {description} -> description) (\s@CreateParameterGroup' {} a -> s {description = a} :: CreateParameterGroup)
 
 -- | The name of the parameter group.
 createParameterGroup_parameterGroupName :: Lens.Lens' CreateParameterGroup Prelude.Text
@@ -133,15 +134,15 @@ instance Core.AWSRequest CreateParameterGroup where
 
 instance Prelude.Hashable CreateParameterGroup where
   hashWithSalt _salt CreateParameterGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` parameterGroupName
       `Prelude.hashWithSalt` family
 
 instance Prelude.NFData CreateParameterGroup where
   rnf CreateParameterGroup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf parameterGroupName
       `Prelude.seq` Prelude.rnf family
 
@@ -164,8 +165,8 @@ instance Data.ToJSON CreateParameterGroup where
   toJSON CreateParameterGroup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("ParameterGroupName" Data..= parameterGroupName),
             Prelude.Just ("Family" Data..= family)

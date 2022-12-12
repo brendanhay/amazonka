@@ -29,8 +29,8 @@ module Amazonka.CostAndUsageReport.DescribeReportDefinitions
     newDescribeReportDefinitions,
 
     -- * Request Lenses
-    describeReportDefinitions_nextToken,
     describeReportDefinitions_maxResults,
+    describeReportDefinitions_nextToken,
 
     -- * Destructuring the Response
     DescribeReportDefinitionsResponse (..),
@@ -55,8 +55,8 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeReportDefinitions' smart constructor.
 data DescribeReportDefinitions = DescribeReportDefinitions'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { maxResults :: Prelude.Maybe Prelude.Natural,
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,25 +68,25 @@ data DescribeReportDefinitions = DescribeReportDefinitions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeReportDefinitions_nextToken' - Undocumented member.
---
 -- 'maxResults', 'describeReportDefinitions_maxResults' - Undocumented member.
+--
+-- 'nextToken', 'describeReportDefinitions_nextToken' - Undocumented member.
 newDescribeReportDefinitions ::
   DescribeReportDefinitions
 newDescribeReportDefinitions =
   DescribeReportDefinitions'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | Undocumented member.
-describeReportDefinitions_nextToken :: Lens.Lens' DescribeReportDefinitions (Prelude.Maybe Prelude.Text)
-describeReportDefinitions_nextToken = Lens.lens (\DescribeReportDefinitions' {nextToken} -> nextToken) (\s@DescribeReportDefinitions' {} a -> s {nextToken = a} :: DescribeReportDefinitions)
 
 -- | Undocumented member.
 describeReportDefinitions_maxResults :: Lens.Lens' DescribeReportDefinitions (Prelude.Maybe Prelude.Natural)
 describeReportDefinitions_maxResults = Lens.lens (\DescribeReportDefinitions' {maxResults} -> maxResults) (\s@DescribeReportDefinitions' {} a -> s {maxResults = a} :: DescribeReportDefinitions)
+
+-- | Undocumented member.
+describeReportDefinitions_nextToken :: Lens.Lens' DescribeReportDefinitions (Prelude.Maybe Prelude.Text)
+describeReportDefinitions_nextToken = Lens.lens (\DescribeReportDefinitions' {nextToken} -> nextToken) (\s@DescribeReportDefinitions' {} a -> s {nextToken = a} :: DescribeReportDefinitions)
 
 instance Core.AWSPager DescribeReportDefinitions where
   page rq rs
@@ -129,13 +129,13 @@ instance Core.AWSRequest DescribeReportDefinitions where
 
 instance Prelude.Hashable DescribeReportDefinitions where
   hashWithSalt _salt DescribeReportDefinitions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeReportDefinitions where
   rnf DescribeReportDefinitions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeReportDefinitions where
   toHeaders =
@@ -156,8 +156,8 @@ instance Data.ToJSON DescribeReportDefinitions where
   toJSON DescribeReportDefinitions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

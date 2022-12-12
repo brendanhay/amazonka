@@ -29,8 +29,8 @@ module Amazonka.QuickSight.ListDashboards
     newListDashboards,
 
     -- * Request Lenses
-    listDashboards_nextToken,
     listDashboards_maxResults,
+    listDashboards_nextToken,
     listDashboards_awsAccountId,
 
     -- * Destructuring the Response
@@ -55,11 +55,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDashboards' smart constructor.
 data ListDashboards = ListDashboards'
-  { -- | The token for the next set of results, or null if there are no more
+  { -- | The maximum number of results to be returned per request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results, or null if there are no more
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be returned per request.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the Amazon Web Services account that contains the dashboards
     -- that you\'re listing.
     awsAccountId :: Prelude.Text
@@ -74,10 +74,10 @@ data ListDashboards = ListDashboards'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listDashboards_maxResults' - The maximum number of results to be returned per request.
+--
 -- 'nextToken', 'listDashboards_nextToken' - The token for the next set of results, or null if there are no more
 -- results.
---
--- 'maxResults', 'listDashboards_maxResults' - The maximum number of results to be returned per request.
 --
 -- 'awsAccountId', 'listDashboards_awsAccountId' - The ID of the Amazon Web Services account that contains the dashboards
 -- that you\'re listing.
@@ -87,19 +87,19 @@ newListDashboards ::
   ListDashboards
 newListDashboards pAwsAccountId_ =
   ListDashboards'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       awsAccountId = pAwsAccountId_
     }
+
+-- | The maximum number of results to be returned per request.
+listDashboards_maxResults :: Lens.Lens' ListDashboards (Prelude.Maybe Prelude.Natural)
+listDashboards_maxResults = Lens.lens (\ListDashboards' {maxResults} -> maxResults) (\s@ListDashboards' {} a -> s {maxResults = a} :: ListDashboards)
 
 -- | The token for the next set of results, or null if there are no more
 -- results.
 listDashboards_nextToken :: Lens.Lens' ListDashboards (Prelude.Maybe Prelude.Text)
 listDashboards_nextToken = Lens.lens (\ListDashboards' {nextToken} -> nextToken) (\s@ListDashboards' {} a -> s {nextToken = a} :: ListDashboards)
-
--- | The maximum number of results to be returned per request.
-listDashboards_maxResults :: Lens.Lens' ListDashboards (Prelude.Maybe Prelude.Natural)
-listDashboards_maxResults = Lens.lens (\ListDashboards' {maxResults} -> maxResults) (\s@ListDashboards' {} a -> s {maxResults = a} :: ListDashboards)
 
 -- | The ID of the Amazon Web Services account that contains the dashboards
 -- that you\'re listing.
@@ -147,14 +147,14 @@ instance Core.AWSRequest ListDashboards where
 
 instance Prelude.Hashable ListDashboards where
   hashWithSalt _salt ListDashboards' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` awsAccountId
 
 instance Prelude.NFData ListDashboards where
   rnf ListDashboards' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf awsAccountId
 
 instance Data.ToHeaders ListDashboards where
@@ -176,8 +176,8 @@ instance Data.ToPath ListDashboards where
 instance Data.ToQuery ListDashboards where
   toQuery ListDashboards' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
-        "max-results" Data.=: maxResults
+      [ "max-results" Data.=: maxResults,
+        "next-token" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListDashboardsResponse' smart constructor.

@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUserGroupPendingChanges' smart constructor.
 data UserGroupPendingChanges = UserGroupPendingChanges'
-  { -- | The list of user IDs to remove.
-    userIdsToRemove :: Prelude.Maybe [Prelude.Text],
-    -- | The list of user IDs to add.
-    userIdsToAdd :: Prelude.Maybe [Prelude.Text]
+  { -- | The list of user IDs to add.
+    userIdsToAdd :: Prelude.Maybe [Prelude.Text],
+    -- | The list of user IDs to remove.
+    userIdsToRemove :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,42 +43,42 @@ data UserGroupPendingChanges = UserGroupPendingChanges'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'userIdsToRemove', 'userGroupPendingChanges_userIdsToRemove' - The list of user IDs to remove.
---
 -- 'userIdsToAdd', 'userGroupPendingChanges_userIdsToAdd' - The list of user IDs to add.
+--
+-- 'userIdsToRemove', 'userGroupPendingChanges_userIdsToRemove' - The list of user IDs to remove.
 newUserGroupPendingChanges ::
   UserGroupPendingChanges
 newUserGroupPendingChanges =
   UserGroupPendingChanges'
-    { userIdsToRemove =
+    { userIdsToAdd =
         Prelude.Nothing,
-      userIdsToAdd = Prelude.Nothing
+      userIdsToRemove = Prelude.Nothing
     }
-
--- | The list of user IDs to remove.
-userGroupPendingChanges_userIdsToRemove :: Lens.Lens' UserGroupPendingChanges (Prelude.Maybe [Prelude.Text])
-userGroupPendingChanges_userIdsToRemove = Lens.lens (\UserGroupPendingChanges' {userIdsToRemove} -> userIdsToRemove) (\s@UserGroupPendingChanges' {} a -> s {userIdsToRemove = a} :: UserGroupPendingChanges) Prelude.. Lens.mapping Lens.coerced
 
 -- | The list of user IDs to add.
 userGroupPendingChanges_userIdsToAdd :: Lens.Lens' UserGroupPendingChanges (Prelude.Maybe [Prelude.Text])
 userGroupPendingChanges_userIdsToAdd = Lens.lens (\UserGroupPendingChanges' {userIdsToAdd} -> userIdsToAdd) (\s@UserGroupPendingChanges' {} a -> s {userIdsToAdd = a} :: UserGroupPendingChanges) Prelude.. Lens.mapping Lens.coerced
 
+-- | The list of user IDs to remove.
+userGroupPendingChanges_userIdsToRemove :: Lens.Lens' UserGroupPendingChanges (Prelude.Maybe [Prelude.Text])
+userGroupPendingChanges_userIdsToRemove = Lens.lens (\UserGroupPendingChanges' {userIdsToRemove} -> userIdsToRemove) (\s@UserGroupPendingChanges' {} a -> s {userIdsToRemove = a} :: UserGroupPendingChanges) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromXML UserGroupPendingChanges where
   parseXML x =
     UserGroupPendingChanges'
-      Prelude.<$> ( x Data..@? "UserIdsToRemove" Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "UserIdsToAdd" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Data..@? "UserIdsToAdd" Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "UserIdsToRemove" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable UserGroupPendingChanges where
   hashWithSalt _salt UserGroupPendingChanges' {..} =
-    _salt `Prelude.hashWithSalt` userIdsToRemove
-      `Prelude.hashWithSalt` userIdsToAdd
+    _salt `Prelude.hashWithSalt` userIdsToAdd
+      `Prelude.hashWithSalt` userIdsToRemove
 
 instance Prelude.NFData UserGroupPendingChanges where
   rnf UserGroupPendingChanges' {..} =
-    Prelude.rnf userIdsToRemove
-      `Prelude.seq` Prelude.rnf userIdsToAdd
+    Prelude.rnf userIdsToAdd
+      `Prelude.seq` Prelude.rnf userIdsToRemove

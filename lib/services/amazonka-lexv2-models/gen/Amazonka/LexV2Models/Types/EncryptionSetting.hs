@@ -30,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEncryptionSetting' smart constructor.
 data EncryptionSetting = EncryptionSetting'
-  { -- | The KMS key ARN used to encrypt the metadata associated with the bot
-    -- recommendation.
-    kmsKeyArn :: Prelude.Maybe Prelude.Text,
-    -- | The password used to encrypt the associated transcript file.
+  { -- | The password used to encrypt the associated transcript file.
     associatedTranscriptsPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The password used to encrypt the recommended bot recommendation file.
-    botLocaleExportPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text)
+    botLocaleExportPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The KMS key ARN used to encrypt the metadata associated with the bot
+    -- recommendation.
+    kmsKeyArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -48,25 +48,21 @@ data EncryptionSetting = EncryptionSetting'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyArn', 'encryptionSetting_kmsKeyArn' - The KMS key ARN used to encrypt the metadata associated with the bot
--- recommendation.
---
 -- 'associatedTranscriptsPassword', 'encryptionSetting_associatedTranscriptsPassword' - The password used to encrypt the associated transcript file.
 --
 -- 'botLocaleExportPassword', 'encryptionSetting_botLocaleExportPassword' - The password used to encrypt the recommended bot recommendation file.
+--
+-- 'kmsKeyArn', 'encryptionSetting_kmsKeyArn' - The KMS key ARN used to encrypt the metadata associated with the bot
+-- recommendation.
 newEncryptionSetting ::
   EncryptionSetting
 newEncryptionSetting =
   EncryptionSetting'
-    { kmsKeyArn = Prelude.Nothing,
-      associatedTranscriptsPassword = Prelude.Nothing,
-      botLocaleExportPassword = Prelude.Nothing
+    { associatedTranscriptsPassword =
+        Prelude.Nothing,
+      botLocaleExportPassword = Prelude.Nothing,
+      kmsKeyArn = Prelude.Nothing
     }
-
--- | The KMS key ARN used to encrypt the metadata associated with the bot
--- recommendation.
-encryptionSetting_kmsKeyArn :: Lens.Lens' EncryptionSetting (Prelude.Maybe Prelude.Text)
-encryptionSetting_kmsKeyArn = Lens.lens (\EncryptionSetting' {kmsKeyArn} -> kmsKeyArn) (\s@EncryptionSetting' {} a -> s {kmsKeyArn = a} :: EncryptionSetting)
 
 -- | The password used to encrypt the associated transcript file.
 encryptionSetting_associatedTranscriptsPassword :: Lens.Lens' EncryptionSetting (Prelude.Maybe Prelude.Text)
@@ -76,37 +72,43 @@ encryptionSetting_associatedTranscriptsPassword = Lens.lens (\EncryptionSetting'
 encryptionSetting_botLocaleExportPassword :: Lens.Lens' EncryptionSetting (Prelude.Maybe Prelude.Text)
 encryptionSetting_botLocaleExportPassword = Lens.lens (\EncryptionSetting' {botLocaleExportPassword} -> botLocaleExportPassword) (\s@EncryptionSetting' {} a -> s {botLocaleExportPassword = a} :: EncryptionSetting) Prelude.. Lens.mapping Data._Sensitive
 
+-- | The KMS key ARN used to encrypt the metadata associated with the bot
+-- recommendation.
+encryptionSetting_kmsKeyArn :: Lens.Lens' EncryptionSetting (Prelude.Maybe Prelude.Text)
+encryptionSetting_kmsKeyArn = Lens.lens (\EncryptionSetting' {kmsKeyArn} -> kmsKeyArn) (\s@EncryptionSetting' {} a -> s {kmsKeyArn = a} :: EncryptionSetting)
+
 instance Data.FromJSON EncryptionSetting where
   parseJSON =
     Data.withObject
       "EncryptionSetting"
       ( \x ->
           EncryptionSetting'
-            Prelude.<$> (x Data..:? "kmsKeyArn")
-            Prelude.<*> (x Data..:? "associatedTranscriptsPassword")
+            Prelude.<$> (x Data..:? "associatedTranscriptsPassword")
             Prelude.<*> (x Data..:? "botLocaleExportPassword")
+            Prelude.<*> (x Data..:? "kmsKeyArn")
       )
 
 instance Prelude.Hashable EncryptionSetting where
   hashWithSalt _salt EncryptionSetting' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyArn
+    _salt
       `Prelude.hashWithSalt` associatedTranscriptsPassword
       `Prelude.hashWithSalt` botLocaleExportPassword
+      `Prelude.hashWithSalt` kmsKeyArn
 
 instance Prelude.NFData EncryptionSetting where
   rnf EncryptionSetting' {..} =
-    Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf associatedTranscriptsPassword
+    Prelude.rnf associatedTranscriptsPassword
       `Prelude.seq` Prelude.rnf botLocaleExportPassword
+      `Prelude.seq` Prelude.rnf kmsKeyArn
 
 instance Data.ToJSON EncryptionSetting where
   toJSON EncryptionSetting' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("kmsKeyArn" Data..=) Prelude.<$> kmsKeyArn,
-            ("associatedTranscriptsPassword" Data..=)
+          [ ("associatedTranscriptsPassword" Data..=)
               Prelude.<$> associatedTranscriptsPassword,
             ("botLocaleExportPassword" Data..=)
-              Prelude.<$> botLocaleExportPassword
+              Prelude.<$> botLocaleExportPassword,
+            ("kmsKeyArn" Data..=) Prelude.<$> kmsKeyArn
           ]
       )

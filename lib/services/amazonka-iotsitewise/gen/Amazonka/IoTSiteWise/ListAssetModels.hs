@@ -29,8 +29,8 @@ module Amazonka.IoTSiteWise.ListAssetModels
     newListAssetModels,
 
     -- * Request Lenses
-    listAssetModels_nextToken,
     listAssetModels_maxResults,
+    listAssetModels_nextToken,
 
     -- * Destructuring the Response
     ListAssetModelsResponse (..),
@@ -53,12 +53,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAssetModels' smart constructor.
 data ListAssetModels = ListAssetModels'
-  { -- | The token to be used for the next set of paginated results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return for each paginated request.
+  { -- | The maximum number of results to return for each paginated request.
     --
     -- Default: 50
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to be used for the next set of paginated results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,28 +70,28 @@ data ListAssetModels = ListAssetModels'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAssetModels_nextToken' - The token to be used for the next set of paginated results.
---
 -- 'maxResults', 'listAssetModels_maxResults' - The maximum number of results to return for each paginated request.
 --
 -- Default: 50
+--
+-- 'nextToken', 'listAssetModels_nextToken' - The token to be used for the next set of paginated results.
 newListAssetModels ::
   ListAssetModels
 newListAssetModels =
   ListAssetModels'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token to be used for the next set of paginated results.
-listAssetModels_nextToken :: Lens.Lens' ListAssetModels (Prelude.Maybe Prelude.Text)
-listAssetModels_nextToken = Lens.lens (\ListAssetModels' {nextToken} -> nextToken) (\s@ListAssetModels' {} a -> s {nextToken = a} :: ListAssetModels)
 
 -- | The maximum number of results to return for each paginated request.
 --
 -- Default: 50
 listAssetModels_maxResults :: Lens.Lens' ListAssetModels (Prelude.Maybe Prelude.Natural)
 listAssetModels_maxResults = Lens.lens (\ListAssetModels' {maxResults} -> maxResults) (\s@ListAssetModels' {} a -> s {maxResults = a} :: ListAssetModels)
+
+-- | The token to be used for the next set of paginated results.
+listAssetModels_nextToken :: Lens.Lens' ListAssetModels (Prelude.Maybe Prelude.Text)
+listAssetModels_nextToken = Lens.lens (\ListAssetModels' {nextToken} -> nextToken) (\s@ListAssetModels' {} a -> s {nextToken = a} :: ListAssetModels)
 
 instance Core.AWSPager ListAssetModels where
   page rq rs
@@ -133,13 +133,13 @@ instance Core.AWSRequest ListAssetModels where
 
 instance Prelude.Hashable ListAssetModels where
   hashWithSalt _salt ListAssetModels' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListAssetModels where
   rnf ListAssetModels' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListAssetModels where
   toHeaders =
@@ -158,8 +158,8 @@ instance Data.ToPath ListAssetModels where
 instance Data.ToQuery ListAssetModels where
   toQuery ListAssetModels' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListAssetModelsResponse' smart constructor.

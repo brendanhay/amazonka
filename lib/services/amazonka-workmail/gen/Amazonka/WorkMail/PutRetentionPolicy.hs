@@ -27,8 +27,8 @@ module Amazonka.WorkMail.PutRetentionPolicy
     newPutRetentionPolicy,
 
     -- * Request Lenses
-    putRetentionPolicy_id,
     putRetentionPolicy_description,
+    putRetentionPolicy_id,
     putRetentionPolicy_organizationId,
     putRetentionPolicy_name,
     putRetentionPolicy_folderConfigurations,
@@ -52,10 +52,10 @@ import Amazonka.WorkMail.Types
 
 -- | /See:/ 'newPutRetentionPolicy' smart constructor.
 data PutRetentionPolicy = PutRetentionPolicy'
-  { -- | The retention policy ID.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The retention policy description.
+  { -- | The retention policy description.
     description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The retention policy ID.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The organization ID.
     organizationId :: Prelude.Text,
     -- | The retention policy name.
@@ -73,9 +73,9 @@ data PutRetentionPolicy = PutRetentionPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'putRetentionPolicy_id' - The retention policy ID.
---
 -- 'description', 'putRetentionPolicy_description' - The retention policy description.
+--
+-- 'id', 'putRetentionPolicy_id' - The retention policy ID.
 --
 -- 'organizationId', 'putRetentionPolicy_organizationId' - The organization ID.
 --
@@ -90,20 +90,20 @@ newPutRetentionPolicy ::
   PutRetentionPolicy
 newPutRetentionPolicy pOrganizationId_ pName_ =
   PutRetentionPolicy'
-    { id = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      id = Prelude.Nothing,
       organizationId = pOrganizationId_,
       name = pName_,
       folderConfigurations = Prelude.mempty
     }
 
--- | The retention policy ID.
-putRetentionPolicy_id :: Lens.Lens' PutRetentionPolicy (Prelude.Maybe Prelude.Text)
-putRetentionPolicy_id = Lens.lens (\PutRetentionPolicy' {id} -> id) (\s@PutRetentionPolicy' {} a -> s {id = a} :: PutRetentionPolicy)
-
 -- | The retention policy description.
 putRetentionPolicy_description :: Lens.Lens' PutRetentionPolicy (Prelude.Maybe Prelude.Text)
 putRetentionPolicy_description = Lens.lens (\PutRetentionPolicy' {description} -> description) (\s@PutRetentionPolicy' {} a -> s {description = a} :: PutRetentionPolicy) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The retention policy ID.
+putRetentionPolicy_id :: Lens.Lens' PutRetentionPolicy (Prelude.Maybe Prelude.Text)
+putRetentionPolicy_id = Lens.lens (\PutRetentionPolicy' {id} -> id) (\s@PutRetentionPolicy' {} a -> s {id = a} :: PutRetentionPolicy)
 
 -- | The organization ID.
 putRetentionPolicy_organizationId :: Lens.Lens' PutRetentionPolicy Prelude.Text
@@ -132,16 +132,16 @@ instance Core.AWSRequest PutRetentionPolicy where
 
 instance Prelude.Hashable PutRetentionPolicy where
   hashWithSalt _salt PutRetentionPolicy' {..} =
-    _salt `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` folderConfigurations
 
 instance Prelude.NFData PutRetentionPolicy where
   rnf PutRetentionPolicy' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf organizationId
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf folderConfigurations
@@ -165,8 +165,8 @@ instance Data.ToJSON PutRetentionPolicy where
   toJSON PutRetentionPolicy' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Id" Data..=) Prelude.<$> id,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("Id" Data..=) Prelude.<$> id,
             Prelude.Just
               ("OrganizationId" Data..= organizationId),
             Prelude.Just ("Name" Data..= name),

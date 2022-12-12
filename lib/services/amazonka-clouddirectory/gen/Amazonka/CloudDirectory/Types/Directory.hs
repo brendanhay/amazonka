@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDirectory' smart constructor.
 data Directory = Directory'
-  { -- | The name of the directory.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The date and time when the directory was created.
+  { -- | The date and time when the directory was created.
     creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) that is associated with the directory.
     -- For more information, see arns.
     directoryArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the directory.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The state of the directory. Can be either @Enabled@, @Disabled@, or
     -- @Deleted@.
     state :: Prelude.Maybe DirectoryState
@@ -50,12 +50,12 @@ data Directory = Directory'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'directory_name' - The name of the directory.
---
 -- 'creationDateTime', 'directory_creationDateTime' - The date and time when the directory was created.
 --
 -- 'directoryArn', 'directory_directoryArn' - The Amazon Resource Name (ARN) that is associated with the directory.
 -- For more information, see arns.
+--
+-- 'name', 'directory_name' - The name of the directory.
 --
 -- 'state', 'directory_state' - The state of the directory. Can be either @Enabled@, @Disabled@, or
 -- @Deleted@.
@@ -63,15 +63,11 @@ newDirectory ::
   Directory
 newDirectory =
   Directory'
-    { name = Prelude.Nothing,
-      creationDateTime = Prelude.Nothing,
+    { creationDateTime = Prelude.Nothing,
       directoryArn = Prelude.Nothing,
+      name = Prelude.Nothing,
       state = Prelude.Nothing
     }
-
--- | The name of the directory.
-directory_name :: Lens.Lens' Directory (Prelude.Maybe Prelude.Text)
-directory_name = Lens.lens (\Directory' {name} -> name) (\s@Directory' {} a -> s {name = a} :: Directory)
 
 -- | The date and time when the directory was created.
 directory_creationDateTime :: Lens.Lens' Directory (Prelude.Maybe Prelude.UTCTime)
@@ -81,6 +77,10 @@ directory_creationDateTime = Lens.lens (\Directory' {creationDateTime} -> creati
 -- For more information, see arns.
 directory_directoryArn :: Lens.Lens' Directory (Prelude.Maybe Prelude.Text)
 directory_directoryArn = Lens.lens (\Directory' {directoryArn} -> directoryArn) (\s@Directory' {} a -> s {directoryArn = a} :: Directory)
+
+-- | The name of the directory.
+directory_name :: Lens.Lens' Directory (Prelude.Maybe Prelude.Text)
+directory_name = Lens.lens (\Directory' {name} -> name) (\s@Directory' {} a -> s {name = a} :: Directory)
 
 -- | The state of the directory. Can be either @Enabled@, @Disabled@, or
 -- @Deleted@.
@@ -93,22 +93,22 @@ instance Data.FromJSON Directory where
       "Directory"
       ( \x ->
           Directory'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "CreationDateTime")
+            Prelude.<$> (x Data..:? "CreationDateTime")
             Prelude.<*> (x Data..:? "DirectoryArn")
+            Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "State")
       )
 
 instance Prelude.Hashable Directory where
   hashWithSalt _salt Directory' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` creationDateTime
+    _salt `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` directoryArn
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` state
 
 instance Prelude.NFData Directory where
   rnf Directory' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf creationDateTime
+    Prelude.rnf creationDateTime
       `Prelude.seq` Prelude.rnf directoryArn
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf state

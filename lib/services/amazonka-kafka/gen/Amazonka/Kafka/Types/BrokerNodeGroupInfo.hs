@@ -32,16 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBrokerNodeGroupInfo' smart constructor.
 data BrokerNodeGroupInfo = BrokerNodeGroupInfo'
-  { -- | Contains information about storage volumes attached to MSK broker nodes.
-    storageInfo :: Prelude.Maybe StorageInfo,
-    -- | Information about the broker access configuration.
-    connectivityInfo :: Prelude.Maybe ConnectivityInfo,
-    -- | The AWS security groups to associate with the elastic network interfaces
-    -- in order to specify who can connect to and communicate with the Amazon
-    -- MSK cluster. If you don\'t specify a security group, Amazon MSK uses the
-    -- default security group associated with the VPC.
-    securityGroups :: Prelude.Maybe [Prelude.Text],
-    -- | The distribution of broker nodes across Availability Zones. This is an
+  { -- | The distribution of broker nodes across Availability Zones. This is an
     -- optional parameter. If you don\'t specify it, Amazon MSK gives it the
     -- value DEFAULT. You can also explicitly set this parameter to the value
     -- DEFAULT. No other values are currently allowed.
@@ -50,6 +41,15 @@ data BrokerNodeGroupInfo = BrokerNodeGroupInfo'
     -- Zones that correspond to the subnets you provide when you create the
     -- cluster.
     brokerAZDistribution :: Prelude.Maybe BrokerAZDistribution,
+    -- | Information about the broker access configuration.
+    connectivityInfo :: Prelude.Maybe ConnectivityInfo,
+    -- | The AWS security groups to associate with the elastic network interfaces
+    -- in order to specify who can connect to and communicate with the Amazon
+    -- MSK cluster. If you don\'t specify a security group, Amazon MSK uses the
+    -- default security group associated with the VPC.
+    securityGroups :: Prelude.Maybe [Prelude.Text],
+    -- | Contains information about storage volumes attached to MSK broker nodes.
+    storageInfo :: Prelude.Maybe StorageInfo,
     -- | The list of subnets to connect to in the client virtual private cloud
     -- (VPC). AWS creates elastic network interfaces inside these subnets.
     -- Client applications use elastic network interfaces to produce and
@@ -72,15 +72,6 @@ data BrokerNodeGroupInfo = BrokerNodeGroupInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'storageInfo', 'brokerNodeGroupInfo_storageInfo' - Contains information about storage volumes attached to MSK broker nodes.
---
--- 'connectivityInfo', 'brokerNodeGroupInfo_connectivityInfo' - Information about the broker access configuration.
---
--- 'securityGroups', 'brokerNodeGroupInfo_securityGroups' - The AWS security groups to associate with the elastic network interfaces
--- in order to specify who can connect to and communicate with the Amazon
--- MSK cluster. If you don\'t specify a security group, Amazon MSK uses the
--- default security group associated with the VPC.
---
 -- 'brokerAZDistribution', 'brokerNodeGroupInfo_brokerAZDistribution' - The distribution of broker nodes across Availability Zones. This is an
 -- optional parameter. If you don\'t specify it, Amazon MSK gives it the
 -- value DEFAULT. You can also explicitly set this parameter to the value
@@ -89,6 +80,15 @@ data BrokerNodeGroupInfo = BrokerNodeGroupInfo'
 -- Amazon MSK distributes the broker nodes evenly across the Availability
 -- Zones that correspond to the subnets you provide when you create the
 -- cluster.
+--
+-- 'connectivityInfo', 'brokerNodeGroupInfo_connectivityInfo' - Information about the broker access configuration.
+--
+-- 'securityGroups', 'brokerNodeGroupInfo_securityGroups' - The AWS security groups to associate with the elastic network interfaces
+-- in order to specify who can connect to and communicate with the Amazon
+-- MSK cluster. If you don\'t specify a security group, Amazon MSK uses the
+-- default security group associated with the VPC.
+--
+-- 'storageInfo', 'brokerNodeGroupInfo_storageInfo' - Contains information about storage volumes attached to MSK broker nodes.
 --
 -- 'clientSubnets', 'brokerNodeGroupInfo_clientSubnets' - The list of subnets to connect to in the client virtual private cloud
 -- (VPC). AWS creates elastic network interfaces inside these subnets.
@@ -106,17 +106,25 @@ newBrokerNodeGroupInfo ::
   BrokerNodeGroupInfo
 newBrokerNodeGroupInfo pInstanceType_ =
   BrokerNodeGroupInfo'
-    { storageInfo = Prelude.Nothing,
+    { brokerAZDistribution =
+        Prelude.Nothing,
       connectivityInfo = Prelude.Nothing,
       securityGroups = Prelude.Nothing,
-      brokerAZDistribution = Prelude.Nothing,
+      storageInfo = Prelude.Nothing,
       clientSubnets = Prelude.mempty,
       instanceType = pInstanceType_
     }
 
--- | Contains information about storage volumes attached to MSK broker nodes.
-brokerNodeGroupInfo_storageInfo :: Lens.Lens' BrokerNodeGroupInfo (Prelude.Maybe StorageInfo)
-brokerNodeGroupInfo_storageInfo = Lens.lens (\BrokerNodeGroupInfo' {storageInfo} -> storageInfo) (\s@BrokerNodeGroupInfo' {} a -> s {storageInfo = a} :: BrokerNodeGroupInfo)
+-- | The distribution of broker nodes across Availability Zones. This is an
+-- optional parameter. If you don\'t specify it, Amazon MSK gives it the
+-- value DEFAULT. You can also explicitly set this parameter to the value
+-- DEFAULT. No other values are currently allowed.
+--
+-- Amazon MSK distributes the broker nodes evenly across the Availability
+-- Zones that correspond to the subnets you provide when you create the
+-- cluster.
+brokerNodeGroupInfo_brokerAZDistribution :: Lens.Lens' BrokerNodeGroupInfo (Prelude.Maybe BrokerAZDistribution)
+brokerNodeGroupInfo_brokerAZDistribution = Lens.lens (\BrokerNodeGroupInfo' {brokerAZDistribution} -> brokerAZDistribution) (\s@BrokerNodeGroupInfo' {} a -> s {brokerAZDistribution = a} :: BrokerNodeGroupInfo)
 
 -- | Information about the broker access configuration.
 brokerNodeGroupInfo_connectivityInfo :: Lens.Lens' BrokerNodeGroupInfo (Prelude.Maybe ConnectivityInfo)
@@ -129,16 +137,9 @@ brokerNodeGroupInfo_connectivityInfo = Lens.lens (\BrokerNodeGroupInfo' {connect
 brokerNodeGroupInfo_securityGroups :: Lens.Lens' BrokerNodeGroupInfo (Prelude.Maybe [Prelude.Text])
 brokerNodeGroupInfo_securityGroups = Lens.lens (\BrokerNodeGroupInfo' {securityGroups} -> securityGroups) (\s@BrokerNodeGroupInfo' {} a -> s {securityGroups = a} :: BrokerNodeGroupInfo) Prelude.. Lens.mapping Lens.coerced
 
--- | The distribution of broker nodes across Availability Zones. This is an
--- optional parameter. If you don\'t specify it, Amazon MSK gives it the
--- value DEFAULT. You can also explicitly set this parameter to the value
--- DEFAULT. No other values are currently allowed.
---
--- Amazon MSK distributes the broker nodes evenly across the Availability
--- Zones that correspond to the subnets you provide when you create the
--- cluster.
-brokerNodeGroupInfo_brokerAZDistribution :: Lens.Lens' BrokerNodeGroupInfo (Prelude.Maybe BrokerAZDistribution)
-brokerNodeGroupInfo_brokerAZDistribution = Lens.lens (\BrokerNodeGroupInfo' {brokerAZDistribution} -> brokerAZDistribution) (\s@BrokerNodeGroupInfo' {} a -> s {brokerAZDistribution = a} :: BrokerNodeGroupInfo)
+-- | Contains information about storage volumes attached to MSK broker nodes.
+brokerNodeGroupInfo_storageInfo :: Lens.Lens' BrokerNodeGroupInfo (Prelude.Maybe StorageInfo)
+brokerNodeGroupInfo_storageInfo = Lens.lens (\BrokerNodeGroupInfo' {storageInfo} -> storageInfo) (\s@BrokerNodeGroupInfo' {} a -> s {storageInfo = a} :: BrokerNodeGroupInfo)
 
 -- | The list of subnets to connect to in the client virtual private cloud
 -- (VPC). AWS creates elastic network interfaces inside these subnets.
@@ -161,29 +162,29 @@ instance Data.FromJSON BrokerNodeGroupInfo where
       "BrokerNodeGroupInfo"
       ( \x ->
           BrokerNodeGroupInfo'
-            Prelude.<$> (x Data..:? "storageInfo")
+            Prelude.<$> (x Data..:? "brokerAZDistribution")
             Prelude.<*> (x Data..:? "connectivityInfo")
             Prelude.<*> (x Data..:? "securityGroups" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "brokerAZDistribution")
+            Prelude.<*> (x Data..:? "storageInfo")
             Prelude.<*> (x Data..:? "clientSubnets" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "instanceType")
       )
 
 instance Prelude.Hashable BrokerNodeGroupInfo where
   hashWithSalt _salt BrokerNodeGroupInfo' {..} =
-    _salt `Prelude.hashWithSalt` storageInfo
+    _salt `Prelude.hashWithSalt` brokerAZDistribution
       `Prelude.hashWithSalt` connectivityInfo
       `Prelude.hashWithSalt` securityGroups
-      `Prelude.hashWithSalt` brokerAZDistribution
+      `Prelude.hashWithSalt` storageInfo
       `Prelude.hashWithSalt` clientSubnets
       `Prelude.hashWithSalt` instanceType
 
 instance Prelude.NFData BrokerNodeGroupInfo where
   rnf BrokerNodeGroupInfo' {..} =
-    Prelude.rnf storageInfo
+    Prelude.rnf brokerAZDistribution
       `Prelude.seq` Prelude.rnf connectivityInfo
       `Prelude.seq` Prelude.rnf securityGroups
-      `Prelude.seq` Prelude.rnf brokerAZDistribution
+      `Prelude.seq` Prelude.rnf storageInfo
       `Prelude.seq` Prelude.rnf clientSubnets
       `Prelude.seq` Prelude.rnf instanceType
 
@@ -191,13 +192,13 @@ instance Data.ToJSON BrokerNodeGroupInfo where
   toJSON BrokerNodeGroupInfo' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("storageInfo" Data..=) Prelude.<$> storageInfo,
+          [ ("brokerAZDistribution" Data..=)
+              Prelude.<$> brokerAZDistribution,
             ("connectivityInfo" Data..=)
               Prelude.<$> connectivityInfo,
             ("securityGroups" Data..=)
               Prelude.<$> securityGroups,
-            ("brokerAZDistribution" Data..=)
-              Prelude.<$> brokerAZDistribution,
+            ("storageInfo" Data..=) Prelude.<$> storageInfo,
             Prelude.Just ("clientSubnets" Data..= clientSubnets),
             Prelude.Just ("instanceType" Data..= instanceType)
           ]

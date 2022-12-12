@@ -26,26 +26,26 @@ module Amazonka.ResourceExplorer2.Lens
     batchGetViewResponse_httpStatus,
 
     -- ** CreateIndex
-    createIndex_tags,
     createIndex_clientToken,
+    createIndex_tags,
     createIndexResponse_arn,
-    createIndexResponse_state,
     createIndexResponse_createdAt,
+    createIndexResponse_state,
     createIndexResponse_httpStatus,
 
     -- ** CreateView
-    createView_tags,
     createView_clientToken,
     createView_filters,
     createView_includedProperties,
+    createView_tags,
     createView_viewName,
     createViewResponse_view,
     createViewResponse_httpStatus,
 
     -- ** DeleteIndex
     deleteIndex_arn,
-    deleteIndexResponse_lastUpdatedAt,
     deleteIndexResponse_arn,
+    deleteIndexResponse_lastUpdatedAt,
     deleteIndexResponse_state,
     deleteIndexResponse_httpStatus,
 
@@ -61,14 +61,14 @@ module Amazonka.ResourceExplorer2.Lens
     getDefaultViewResponse_httpStatus,
 
     -- ** GetIndex
+    getIndexResponse_arn,
+    getIndexResponse_createdAt,
+    getIndexResponse_lastUpdatedAt,
+    getIndexResponse_replicatingFrom,
+    getIndexResponse_replicatingTo,
+    getIndexResponse_state,
     getIndexResponse_tags,
     getIndexResponse_type,
-    getIndexResponse_lastUpdatedAt,
-    getIndexResponse_arn,
-    getIndexResponse_state,
-    getIndexResponse_replicatingTo,
-    getIndexResponse_replicatingFrom,
-    getIndexResponse_createdAt,
     getIndexResponse_httpStatus,
 
     -- ** GetView
@@ -78,17 +78,17 @@ module Amazonka.ResourceExplorer2.Lens
     getViewResponse_httpStatus,
 
     -- ** ListIndexes
-    listIndexes_nextToken,
-    listIndexes_type,
-    listIndexes_regions,
     listIndexes_maxResults,
-    listIndexesResponse_nextToken,
+    listIndexes_nextToken,
+    listIndexes_regions,
+    listIndexes_type,
     listIndexesResponse_indexes,
+    listIndexesResponse_nextToken,
     listIndexesResponse_httpStatus,
 
     -- ** ListSupportedResourceTypes
-    listSupportedResourceTypes_nextToken,
     listSupportedResourceTypes_maxResults,
+    listSupportedResourceTypes_nextToken,
     listSupportedResourceTypesResponse_nextToken,
     listSupportedResourceTypesResponse_resourceTypes,
     listSupportedResourceTypesResponse_httpStatus,
@@ -99,21 +99,21 @@ module Amazonka.ResourceExplorer2.Lens
     listTagsForResourceResponse_httpStatus,
 
     -- ** ListViews
-    listViews_nextToken,
     listViews_maxResults,
+    listViews_nextToken,
     listViewsResponse_nextToken,
     listViewsResponse_views,
     listViewsResponse_httpStatus,
 
     -- ** Search
-    search_nextToken,
     search_maxResults,
+    search_nextToken,
     search_viewArn,
     search_queryString,
-    searchResponse_nextToken,
     searchResponse_count,
-    searchResponse_viewArn,
+    searchResponse_nextToken,
     searchResponse_resources,
+    searchResponse_viewArn,
     searchResponse_httpStatus,
 
     -- ** TagResource
@@ -129,10 +129,10 @@ module Amazonka.ResourceExplorer2.Lens
     -- ** UpdateIndexType
     updateIndexType_arn,
     updateIndexType_type,
-    updateIndexTypeResponse_type,
-    updateIndexTypeResponse_lastUpdatedAt,
     updateIndexTypeResponse_arn,
+    updateIndexTypeResponse_lastUpdatedAt,
     updateIndexTypeResponse_state,
+    updateIndexTypeResponse_type,
     updateIndexTypeResponse_httpStatus,
 
     -- ** UpdateView
@@ -154,27 +154,27 @@ module Amazonka.ResourceExplorer2.Lens
     includedProperty_name,
 
     -- ** Index
-    index_type,
     index_arn,
     index_region,
+    index_type,
 
     -- ** Resource
-    resource_resourceType,
-    resource_lastReportedAt,
-    resource_properties,
     resource_arn,
-    resource_service,
-    resource_region,
+    resource_lastReportedAt,
     resource_owningAccountId,
+    resource_properties,
+    resource_region,
+    resource_resourceType,
+    resource_service,
 
     -- ** ResourceCount
     resourceCount_complete,
     resourceCount_totalResources,
 
     -- ** ResourceProperty
-    resourceProperty_name,
-    resourceProperty_lastReportedAt,
     resourceProperty_data,
+    resourceProperty_lastReportedAt,
+    resourceProperty_name,
 
     -- ** SearchFilter
     searchFilter_filterString,
@@ -184,9 +184,9 @@ module Amazonka.ResourceExplorer2.Lens
     supportedResourceType_service,
 
     -- ** View
-    view_lastUpdatedAt,
     view_filters,
     view_includedProperties,
+    view_lastUpdatedAt,
     view_owner,
     view_scope,
     view_viewArn,

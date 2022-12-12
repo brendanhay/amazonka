@@ -31,27 +31,27 @@ import Amazonka.ResilienceHub.Types.TestType
 --
 -- /See:/ 'newTestRecommendation' smart constructor.
 data TestRecommendation = TestRecommendation'
-  { -- | The test recommendation items.
-    items :: Prelude.Maybe [RecommendationItem],
-    -- | The name of the test recommendation.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The type of test recommendation.
-    type' :: Prelude.Maybe TestType,
+  { -- | The name of the application component.
+    appComponentName :: Prelude.Maybe Prelude.Text,
     -- | A list of recommended alarms that are used in the test and must be
     -- exported before or with the test.
     dependsOnAlarms :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The prerequisite of the test recommendation.
-    prerequisite :: Prelude.Maybe Prelude.Text,
-    -- | The level of risk for this test recommendation.
-    risk :: Prelude.Maybe TestRisk,
-    -- | Identifier for the test recommendation.
-    recommendationId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the application component.
-    appComponentName :: Prelude.Maybe Prelude.Text,
     -- | The description for the test recommendation.
     description :: Prelude.Maybe Prelude.Text,
     -- | The intent of the test recommendation.
     intent :: Prelude.Maybe Prelude.Text,
+    -- | The test recommendation items.
+    items :: Prelude.Maybe [RecommendationItem],
+    -- | The name of the test recommendation.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The prerequisite of the test recommendation.
+    prerequisite :: Prelude.Maybe Prelude.Text,
+    -- | Identifier for the test recommendation.
+    recommendationId :: Prelude.Maybe Prelude.Text,
+    -- | The level of risk for this test recommendation.
+    risk :: Prelude.Maybe TestRisk,
+    -- | The type of test recommendation.
+    type' :: Prelude.Maybe TestType,
     -- | The reference identifier for the test recommendation.
     referenceId :: Prelude.Text
   }
@@ -65,26 +65,26 @@ data TestRecommendation = TestRecommendation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'items', 'testRecommendation_items' - The test recommendation items.
---
--- 'name', 'testRecommendation_name' - The name of the test recommendation.
---
--- 'type'', 'testRecommendation_type' - The type of test recommendation.
+-- 'appComponentName', 'testRecommendation_appComponentName' - The name of the application component.
 --
 -- 'dependsOnAlarms', 'testRecommendation_dependsOnAlarms' - A list of recommended alarms that are used in the test and must be
 -- exported before or with the test.
 --
--- 'prerequisite', 'testRecommendation_prerequisite' - The prerequisite of the test recommendation.
---
--- 'risk', 'testRecommendation_risk' - The level of risk for this test recommendation.
---
--- 'recommendationId', 'testRecommendation_recommendationId' - Identifier for the test recommendation.
---
--- 'appComponentName', 'testRecommendation_appComponentName' - The name of the application component.
---
 -- 'description', 'testRecommendation_description' - The description for the test recommendation.
 --
 -- 'intent', 'testRecommendation_intent' - The intent of the test recommendation.
+--
+-- 'items', 'testRecommendation_items' - The test recommendation items.
+--
+-- 'name', 'testRecommendation_name' - The name of the test recommendation.
+--
+-- 'prerequisite', 'testRecommendation_prerequisite' - The prerequisite of the test recommendation.
+--
+-- 'recommendationId', 'testRecommendation_recommendationId' - Identifier for the test recommendation.
+--
+-- 'risk', 'testRecommendation_risk' - The level of risk for this test recommendation.
+--
+-- 'type'', 'testRecommendation_type' - The type of test recommendation.
 --
 -- 'referenceId', 'testRecommendation_referenceId' - The reference identifier for the test recommendation.
 newTestRecommendation ::
@@ -93,18 +93,36 @@ newTestRecommendation ::
   TestRecommendation
 newTestRecommendation pReferenceId_ =
   TestRecommendation'
-    { items = Prelude.Nothing,
-      name = Prelude.Nothing,
-      type' = Prelude.Nothing,
+    { appComponentName =
+        Prelude.Nothing,
       dependsOnAlarms = Prelude.Nothing,
-      prerequisite = Prelude.Nothing,
-      risk = Prelude.Nothing,
-      recommendationId = Prelude.Nothing,
-      appComponentName = Prelude.Nothing,
       description = Prelude.Nothing,
       intent = Prelude.Nothing,
+      items = Prelude.Nothing,
+      name = Prelude.Nothing,
+      prerequisite = Prelude.Nothing,
+      recommendationId = Prelude.Nothing,
+      risk = Prelude.Nothing,
+      type' = Prelude.Nothing,
       referenceId = pReferenceId_
     }
+
+-- | The name of the application component.
+testRecommendation_appComponentName :: Lens.Lens' TestRecommendation (Prelude.Maybe Prelude.Text)
+testRecommendation_appComponentName = Lens.lens (\TestRecommendation' {appComponentName} -> appComponentName) (\s@TestRecommendation' {} a -> s {appComponentName = a} :: TestRecommendation)
+
+-- | A list of recommended alarms that are used in the test and must be
+-- exported before or with the test.
+testRecommendation_dependsOnAlarms :: Lens.Lens' TestRecommendation (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+testRecommendation_dependsOnAlarms = Lens.lens (\TestRecommendation' {dependsOnAlarms} -> dependsOnAlarms) (\s@TestRecommendation' {} a -> s {dependsOnAlarms = a} :: TestRecommendation) Prelude.. Lens.mapping Lens.coerced
+
+-- | The description for the test recommendation.
+testRecommendation_description :: Lens.Lens' TestRecommendation (Prelude.Maybe Prelude.Text)
+testRecommendation_description = Lens.lens (\TestRecommendation' {description} -> description) (\s@TestRecommendation' {} a -> s {description = a} :: TestRecommendation)
+
+-- | The intent of the test recommendation.
+testRecommendation_intent :: Lens.Lens' TestRecommendation (Prelude.Maybe Prelude.Text)
+testRecommendation_intent = Lens.lens (\TestRecommendation' {intent} -> intent) (\s@TestRecommendation' {} a -> s {intent = a} :: TestRecommendation)
 
 -- | The test recommendation items.
 testRecommendation_items :: Lens.Lens' TestRecommendation (Prelude.Maybe [RecommendationItem])
@@ -114,38 +132,21 @@ testRecommendation_items = Lens.lens (\TestRecommendation' {items} -> items) (\s
 testRecommendation_name :: Lens.Lens' TestRecommendation (Prelude.Maybe Prelude.Text)
 testRecommendation_name = Lens.lens (\TestRecommendation' {name} -> name) (\s@TestRecommendation' {} a -> s {name = a} :: TestRecommendation)
 
--- | The type of test recommendation.
-testRecommendation_type :: Lens.Lens' TestRecommendation (Prelude.Maybe TestType)
-testRecommendation_type = Lens.lens (\TestRecommendation' {type'} -> type') (\s@TestRecommendation' {} a -> s {type' = a} :: TestRecommendation)
-
--- | A list of recommended alarms that are used in the test and must be
--- exported before or with the test.
-testRecommendation_dependsOnAlarms :: Lens.Lens' TestRecommendation (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-testRecommendation_dependsOnAlarms = Lens.lens (\TestRecommendation' {dependsOnAlarms} -> dependsOnAlarms) (\s@TestRecommendation' {} a -> s {dependsOnAlarms = a} :: TestRecommendation) Prelude.. Lens.mapping Lens.coerced
-
 -- | The prerequisite of the test recommendation.
 testRecommendation_prerequisite :: Lens.Lens' TestRecommendation (Prelude.Maybe Prelude.Text)
 testRecommendation_prerequisite = Lens.lens (\TestRecommendation' {prerequisite} -> prerequisite) (\s@TestRecommendation' {} a -> s {prerequisite = a} :: TestRecommendation)
-
--- | The level of risk for this test recommendation.
-testRecommendation_risk :: Lens.Lens' TestRecommendation (Prelude.Maybe TestRisk)
-testRecommendation_risk = Lens.lens (\TestRecommendation' {risk} -> risk) (\s@TestRecommendation' {} a -> s {risk = a} :: TestRecommendation)
 
 -- | Identifier for the test recommendation.
 testRecommendation_recommendationId :: Lens.Lens' TestRecommendation (Prelude.Maybe Prelude.Text)
 testRecommendation_recommendationId = Lens.lens (\TestRecommendation' {recommendationId} -> recommendationId) (\s@TestRecommendation' {} a -> s {recommendationId = a} :: TestRecommendation)
 
--- | The name of the application component.
-testRecommendation_appComponentName :: Lens.Lens' TestRecommendation (Prelude.Maybe Prelude.Text)
-testRecommendation_appComponentName = Lens.lens (\TestRecommendation' {appComponentName} -> appComponentName) (\s@TestRecommendation' {} a -> s {appComponentName = a} :: TestRecommendation)
+-- | The level of risk for this test recommendation.
+testRecommendation_risk :: Lens.Lens' TestRecommendation (Prelude.Maybe TestRisk)
+testRecommendation_risk = Lens.lens (\TestRecommendation' {risk} -> risk) (\s@TestRecommendation' {} a -> s {risk = a} :: TestRecommendation)
 
--- | The description for the test recommendation.
-testRecommendation_description :: Lens.Lens' TestRecommendation (Prelude.Maybe Prelude.Text)
-testRecommendation_description = Lens.lens (\TestRecommendation' {description} -> description) (\s@TestRecommendation' {} a -> s {description = a} :: TestRecommendation)
-
--- | The intent of the test recommendation.
-testRecommendation_intent :: Lens.Lens' TestRecommendation (Prelude.Maybe Prelude.Text)
-testRecommendation_intent = Lens.lens (\TestRecommendation' {intent} -> intent) (\s@TestRecommendation' {} a -> s {intent = a} :: TestRecommendation)
+-- | The type of test recommendation.
+testRecommendation_type :: Lens.Lens' TestRecommendation (Prelude.Maybe TestType)
+testRecommendation_type = Lens.lens (\TestRecommendation' {type'} -> type') (\s@TestRecommendation' {} a -> s {type' = a} :: TestRecommendation)
 
 -- | The reference identifier for the test recommendation.
 testRecommendation_referenceId :: Lens.Lens' TestRecommendation Prelude.Text
@@ -157,43 +158,43 @@ instance Data.FromJSON TestRecommendation where
       "TestRecommendation"
       ( \x ->
           TestRecommendation'
-            Prelude.<$> (x Data..:? "items" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "type")
+            Prelude.<$> (x Data..:? "appComponentName")
             Prelude.<*> (x Data..:? "dependsOnAlarms")
-            Prelude.<*> (x Data..:? "prerequisite")
-            Prelude.<*> (x Data..:? "risk")
-            Prelude.<*> (x Data..:? "recommendationId")
-            Prelude.<*> (x Data..:? "appComponentName")
             Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "intent")
+            Prelude.<*> (x Data..:? "items" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "prerequisite")
+            Prelude.<*> (x Data..:? "recommendationId")
+            Prelude.<*> (x Data..:? "risk")
+            Prelude.<*> (x Data..:? "type")
             Prelude.<*> (x Data..: "referenceId")
       )
 
 instance Prelude.Hashable TestRecommendation where
   hashWithSalt _salt TestRecommendation' {..} =
-    _salt `Prelude.hashWithSalt` items
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` appComponentName
       `Prelude.hashWithSalt` dependsOnAlarms
-      `Prelude.hashWithSalt` prerequisite
-      `Prelude.hashWithSalt` risk
-      `Prelude.hashWithSalt` recommendationId
-      `Prelude.hashWithSalt` appComponentName
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` intent
+      `Prelude.hashWithSalt` items
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` prerequisite
+      `Prelude.hashWithSalt` recommendationId
+      `Prelude.hashWithSalt` risk
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` referenceId
 
 instance Prelude.NFData TestRecommendation where
   rnf TestRecommendation' {..} =
-    Prelude.rnf items
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf appComponentName
       `Prelude.seq` Prelude.rnf dependsOnAlarms
-      `Prelude.seq` Prelude.rnf prerequisite
-      `Prelude.seq` Prelude.rnf risk
-      `Prelude.seq` Prelude.rnf recommendationId
-      `Prelude.seq` Prelude.rnf appComponentName
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf intent
+      `Prelude.seq` Prelude.rnf items
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf prerequisite
+      `Prelude.seq` Prelude.rnf recommendationId
+      `Prelude.seq` Prelude.rnf risk
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf referenceId

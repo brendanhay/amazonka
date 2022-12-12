@@ -35,12 +35,12 @@ data StudioComponentConfiguration = StudioComponentConfiguration'
   { -- | The configuration for a Microsoft Active Directory (Microsoft AD) studio
     -- resource.
     activeDirectoryConfiguration :: Prelude.Maybe ActiveDirectoryConfiguration,
-    -- | The configuration for a license service that is associated with a studio
-    -- resource.
-    licenseServiceConfiguration :: Prelude.Maybe LicenseServiceConfiguration,
     -- | The configuration for a render farm that is associated with a studio
     -- resource.
     computeFarmConfiguration :: Prelude.Maybe ComputeFarmConfiguration,
+    -- | The configuration for a license service that is associated with a studio
+    -- resource.
+    licenseServiceConfiguration :: Prelude.Maybe LicenseServiceConfiguration,
     -- | The configuration for a shared file storage system that is associated
     -- with a studio resource.
     sharedFileSystemConfiguration :: Prelude.Maybe SharedFileSystemConfiguration
@@ -58,10 +58,10 @@ data StudioComponentConfiguration = StudioComponentConfiguration'
 -- 'activeDirectoryConfiguration', 'studioComponentConfiguration_activeDirectoryConfiguration' - The configuration for a Microsoft Active Directory (Microsoft AD) studio
 -- resource.
 --
--- 'licenseServiceConfiguration', 'studioComponentConfiguration_licenseServiceConfiguration' - The configuration for a license service that is associated with a studio
+-- 'computeFarmConfiguration', 'studioComponentConfiguration_computeFarmConfiguration' - The configuration for a render farm that is associated with a studio
 -- resource.
 --
--- 'computeFarmConfiguration', 'studioComponentConfiguration_computeFarmConfiguration' - The configuration for a render farm that is associated with a studio
+-- 'licenseServiceConfiguration', 'studioComponentConfiguration_licenseServiceConfiguration' - The configuration for a license service that is associated with a studio
 -- resource.
 --
 -- 'sharedFileSystemConfiguration', 'studioComponentConfiguration_sharedFileSystemConfiguration' - The configuration for a shared file storage system that is associated
@@ -72,8 +72,8 @@ newStudioComponentConfiguration =
   StudioComponentConfiguration'
     { activeDirectoryConfiguration =
         Prelude.Nothing,
-      licenseServiceConfiguration = Prelude.Nothing,
       computeFarmConfiguration = Prelude.Nothing,
+      licenseServiceConfiguration = Prelude.Nothing,
       sharedFileSystemConfiguration =
         Prelude.Nothing
     }
@@ -83,15 +83,15 @@ newStudioComponentConfiguration =
 studioComponentConfiguration_activeDirectoryConfiguration :: Lens.Lens' StudioComponentConfiguration (Prelude.Maybe ActiveDirectoryConfiguration)
 studioComponentConfiguration_activeDirectoryConfiguration = Lens.lens (\StudioComponentConfiguration' {activeDirectoryConfiguration} -> activeDirectoryConfiguration) (\s@StudioComponentConfiguration' {} a -> s {activeDirectoryConfiguration = a} :: StudioComponentConfiguration)
 
--- | The configuration for a license service that is associated with a studio
--- resource.
-studioComponentConfiguration_licenseServiceConfiguration :: Lens.Lens' StudioComponentConfiguration (Prelude.Maybe LicenseServiceConfiguration)
-studioComponentConfiguration_licenseServiceConfiguration = Lens.lens (\StudioComponentConfiguration' {licenseServiceConfiguration} -> licenseServiceConfiguration) (\s@StudioComponentConfiguration' {} a -> s {licenseServiceConfiguration = a} :: StudioComponentConfiguration)
-
 -- | The configuration for a render farm that is associated with a studio
 -- resource.
 studioComponentConfiguration_computeFarmConfiguration :: Lens.Lens' StudioComponentConfiguration (Prelude.Maybe ComputeFarmConfiguration)
 studioComponentConfiguration_computeFarmConfiguration = Lens.lens (\StudioComponentConfiguration' {computeFarmConfiguration} -> computeFarmConfiguration) (\s@StudioComponentConfiguration' {} a -> s {computeFarmConfiguration = a} :: StudioComponentConfiguration)
+
+-- | The configuration for a license service that is associated with a studio
+-- resource.
+studioComponentConfiguration_licenseServiceConfiguration :: Lens.Lens' StudioComponentConfiguration (Prelude.Maybe LicenseServiceConfiguration)
+studioComponentConfiguration_licenseServiceConfiguration = Lens.lens (\StudioComponentConfiguration' {licenseServiceConfiguration} -> licenseServiceConfiguration) (\s@StudioComponentConfiguration' {} a -> s {licenseServiceConfiguration = a} :: StudioComponentConfiguration)
 
 -- | The configuration for a shared file storage system that is associated
 -- with a studio resource.
@@ -105,8 +105,8 @@ instance Data.FromJSON StudioComponentConfiguration where
       ( \x ->
           StudioComponentConfiguration'
             Prelude.<$> (x Data..:? "activeDirectoryConfiguration")
-            Prelude.<*> (x Data..:? "licenseServiceConfiguration")
             Prelude.<*> (x Data..:? "computeFarmConfiguration")
+            Prelude.<*> (x Data..:? "licenseServiceConfiguration")
             Prelude.<*> (x Data..:? "sharedFileSystemConfiguration")
       )
 
@@ -117,15 +117,15 @@ instance
   hashWithSalt _salt StudioComponentConfiguration' {..} =
     _salt
       `Prelude.hashWithSalt` activeDirectoryConfiguration
-      `Prelude.hashWithSalt` licenseServiceConfiguration
       `Prelude.hashWithSalt` computeFarmConfiguration
+      `Prelude.hashWithSalt` licenseServiceConfiguration
       `Prelude.hashWithSalt` sharedFileSystemConfiguration
 
 instance Prelude.NFData StudioComponentConfiguration where
   rnf StudioComponentConfiguration' {..} =
     Prelude.rnf activeDirectoryConfiguration
-      `Prelude.seq` Prelude.rnf licenseServiceConfiguration
       `Prelude.seq` Prelude.rnf computeFarmConfiguration
+      `Prelude.seq` Prelude.rnf licenseServiceConfiguration
       `Prelude.seq` Prelude.rnf sharedFileSystemConfiguration
 
 instance Data.ToJSON StudioComponentConfiguration where
@@ -134,10 +134,10 @@ instance Data.ToJSON StudioComponentConfiguration where
       ( Prelude.catMaybes
           [ ("activeDirectoryConfiguration" Data..=)
               Prelude.<$> activeDirectoryConfiguration,
-            ("licenseServiceConfiguration" Data..=)
-              Prelude.<$> licenseServiceConfiguration,
             ("computeFarmConfiguration" Data..=)
               Prelude.<$> computeFarmConfiguration,
+            ("licenseServiceConfiguration" Data..=)
+              Prelude.<$> licenseServiceConfiguration,
             ("sharedFileSystemConfiguration" Data..=)
               Prelude.<$> sharedFileSystemConfiguration
           ]

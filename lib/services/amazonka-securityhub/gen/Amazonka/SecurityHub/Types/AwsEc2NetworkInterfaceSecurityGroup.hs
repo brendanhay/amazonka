@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEc2NetworkInterfaceSecurityGroup' smart constructor.
 data AwsEc2NetworkInterfaceSecurityGroup = AwsEc2NetworkInterfaceSecurityGroup'
-  { -- | The name of the security group.
-    groupName :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the security group.
-    groupId :: Prelude.Maybe Prelude.Text
+  { -- | The ID of the security group.
+    groupId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the security group.
+    groupName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data AwsEc2NetworkInterfaceSecurityGroup = AwsEc2NetworkInterfaceSecurityGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'groupName', 'awsEc2NetworkInterfaceSecurityGroup_groupName' - The name of the security group.
---
 -- 'groupId', 'awsEc2NetworkInterfaceSecurityGroup_groupId' - The ID of the security group.
+--
+-- 'groupName', 'awsEc2NetworkInterfaceSecurityGroup_groupName' - The name of the security group.
 newAwsEc2NetworkInterfaceSecurityGroup ::
   AwsEc2NetworkInterfaceSecurityGroup
 newAwsEc2NetworkInterfaceSecurityGroup =
   AwsEc2NetworkInterfaceSecurityGroup'
-    { groupName =
+    { groupId =
         Prelude.Nothing,
-      groupId = Prelude.Nothing
+      groupName = Prelude.Nothing
     }
-
--- | The name of the security group.
-awsEc2NetworkInterfaceSecurityGroup_groupName :: Lens.Lens' AwsEc2NetworkInterfaceSecurityGroup (Prelude.Maybe Prelude.Text)
-awsEc2NetworkInterfaceSecurityGroup_groupName = Lens.lens (\AwsEc2NetworkInterfaceSecurityGroup' {groupName} -> groupName) (\s@AwsEc2NetworkInterfaceSecurityGroup' {} a -> s {groupName = a} :: AwsEc2NetworkInterfaceSecurityGroup)
 
 -- | The ID of the security group.
 awsEc2NetworkInterfaceSecurityGroup_groupId :: Lens.Lens' AwsEc2NetworkInterfaceSecurityGroup (Prelude.Maybe Prelude.Text)
 awsEc2NetworkInterfaceSecurityGroup_groupId = Lens.lens (\AwsEc2NetworkInterfaceSecurityGroup' {groupId} -> groupId) (\s@AwsEc2NetworkInterfaceSecurityGroup' {} a -> s {groupId = a} :: AwsEc2NetworkInterfaceSecurityGroup)
+
+-- | The name of the security group.
+awsEc2NetworkInterfaceSecurityGroup_groupName :: Lens.Lens' AwsEc2NetworkInterfaceSecurityGroup (Prelude.Maybe Prelude.Text)
+awsEc2NetworkInterfaceSecurityGroup_groupName = Lens.lens (\AwsEc2NetworkInterfaceSecurityGroup' {groupName} -> groupName) (\s@AwsEc2NetworkInterfaceSecurityGroup' {} a -> s {groupName = a} :: AwsEc2NetworkInterfaceSecurityGroup)
 
 instance
   Data.FromJSON
@@ -72,8 +72,8 @@ instance
       "AwsEc2NetworkInterfaceSecurityGroup"
       ( \x ->
           AwsEc2NetworkInterfaceSecurityGroup'
-            Prelude.<$> (x Data..:? "GroupName")
-            Prelude.<*> (x Data..:? "GroupId")
+            Prelude.<$> (x Data..:? "GroupId")
+            Prelude.<*> (x Data..:? "GroupName")
       )
 
 instance
@@ -83,16 +83,16 @@ instance
   hashWithSalt
     _salt
     AwsEc2NetworkInterfaceSecurityGroup' {..} =
-      _salt `Prelude.hashWithSalt` groupName
-        `Prelude.hashWithSalt` groupId
+      _salt `Prelude.hashWithSalt` groupId
+        `Prelude.hashWithSalt` groupName
 
 instance
   Prelude.NFData
     AwsEc2NetworkInterfaceSecurityGroup
   where
   rnf AwsEc2NetworkInterfaceSecurityGroup' {..} =
-    Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf groupId
+    Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf groupName
 
 instance
   Data.ToJSON
@@ -101,7 +101,7 @@ instance
   toJSON AwsEc2NetworkInterfaceSecurityGroup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("GroupName" Data..=) Prelude.<$> groupName,
-            ("GroupId" Data..=) Prelude.<$> groupId
+          [ ("GroupId" Data..=) Prelude.<$> groupId,
+            ("GroupName" Data..=) Prelude.<$> groupName
           ]
       )

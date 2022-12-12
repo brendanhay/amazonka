@@ -21,9 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a list of CloudWatch Logs Insights queries that are scheduled,
--- executing, or have been executed recently in this account. You can
--- request all queries or limit it to queries of a specific log group or
--- queries with a certain status.
+-- running, or have been run recently in this account. You can request all
+-- queries or limit it to queries of a specific log group or queries with a
+-- certain status.
 --
 -- This operation returns paginated results.
 module Amazonka.CloudWatchLogs.DescribeQueries
@@ -32,10 +32,10 @@ module Amazonka.CloudWatchLogs.DescribeQueries
     newDescribeQueries,
 
     -- * Request Lenses
+    describeQueries_logGroupName,
+    describeQueries_maxResults,
     describeQueries_nextToken,
     describeQueries_status,
-    describeQueries_maxResults,
-    describeQueries_logGroupName,
 
     -- * Destructuring the Response
     DescribeQueriesResponse (..),
@@ -58,15 +58,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeQueries' smart constructor.
 data DescribeQueries = DescribeQueries'
-  { nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | Limits the returned queries to only those for the specified log group.
+    logGroupName :: Prelude.Maybe Prelude.Text,
+    -- | Limits the number of returned queries to the specified number.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Limits the returned queries to only those that have the specified
     -- status. Valid values are @Cancelled@, @Complete@, @Failed@, @Running@,
     -- and @Scheduled@.
-    status :: Prelude.Maybe QueryStatus,
-    -- | Limits the number of returned queries to the specified number.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Limits the returned queries to only those for the specified log group.
-    logGroupName :: Prelude.Maybe Prelude.Text
+    status :: Prelude.Maybe QueryStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,24 +78,32 @@ data DescribeQueries = DescribeQueries'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'logGroupName', 'describeQueries_logGroupName' - Limits the returned queries to only those for the specified log group.
+--
+-- 'maxResults', 'describeQueries_maxResults' - Limits the number of returned queries to the specified number.
+--
 -- 'nextToken', 'describeQueries_nextToken' - Undocumented member.
 --
 -- 'status', 'describeQueries_status' - Limits the returned queries to only those that have the specified
 -- status. Valid values are @Cancelled@, @Complete@, @Failed@, @Running@,
 -- and @Scheduled@.
---
--- 'maxResults', 'describeQueries_maxResults' - Limits the number of returned queries to the specified number.
---
--- 'logGroupName', 'describeQueries_logGroupName' - Limits the returned queries to only those for the specified log group.
 newDescribeQueries ::
   DescribeQueries
 newDescribeQueries =
   DescribeQueries'
-    { nextToken = Prelude.Nothing,
-      status = Prelude.Nothing,
+    { logGroupName = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      logGroupName = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      status = Prelude.Nothing
     }
+
+-- | Limits the returned queries to only those for the specified log group.
+describeQueries_logGroupName :: Lens.Lens' DescribeQueries (Prelude.Maybe Prelude.Text)
+describeQueries_logGroupName = Lens.lens (\DescribeQueries' {logGroupName} -> logGroupName) (\s@DescribeQueries' {} a -> s {logGroupName = a} :: DescribeQueries)
+
+-- | Limits the number of returned queries to the specified number.
+describeQueries_maxResults :: Lens.Lens' DescribeQueries (Prelude.Maybe Prelude.Natural)
+describeQueries_maxResults = Lens.lens (\DescribeQueries' {maxResults} -> maxResults) (\s@DescribeQueries' {} a -> s {maxResults = a} :: DescribeQueries)
 
 -- | Undocumented member.
 describeQueries_nextToken :: Lens.Lens' DescribeQueries (Prelude.Maybe Prelude.Text)
@@ -106,14 +114,6 @@ describeQueries_nextToken = Lens.lens (\DescribeQueries' {nextToken} -> nextToke
 -- and @Scheduled@.
 describeQueries_status :: Lens.Lens' DescribeQueries (Prelude.Maybe QueryStatus)
 describeQueries_status = Lens.lens (\DescribeQueries' {status} -> status) (\s@DescribeQueries' {} a -> s {status = a} :: DescribeQueries)
-
--- | Limits the number of returned queries to the specified number.
-describeQueries_maxResults :: Lens.Lens' DescribeQueries (Prelude.Maybe Prelude.Natural)
-describeQueries_maxResults = Lens.lens (\DescribeQueries' {maxResults} -> maxResults) (\s@DescribeQueries' {} a -> s {maxResults = a} :: DescribeQueries)
-
--- | Limits the returned queries to only those for the specified log group.
-describeQueries_logGroupName :: Lens.Lens' DescribeQueries (Prelude.Maybe Prelude.Text)
-describeQueries_logGroupName = Lens.lens (\DescribeQueries' {logGroupName} -> logGroupName) (\s@DescribeQueries' {} a -> s {logGroupName = a} :: DescribeQueries)
 
 instance Core.AWSPager DescribeQueries where
   page rq rs
@@ -153,17 +153,17 @@ instance Core.AWSRequest DescribeQueries where
 
 instance Prelude.Hashable DescribeQueries where
   hashWithSalt _salt DescribeQueries' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` logGroupName
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` logGroupName
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData DescribeQueries where
   rnf DescribeQueries' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf logGroupName
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf logGroupName
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf status
 
 instance Data.ToHeaders DescribeQueries where
   toHeaders =
@@ -184,10 +184,10 @@ instance Data.ToJSON DescribeQueries where
   toJSON DescribeQueries' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("status" Data..=) Prelude.<$> status,
+          [ ("logGroupName" Data..=) Prelude.<$> logGroupName,
             ("maxResults" Data..=) Prelude.<$> maxResults,
-            ("logGroupName" Data..=) Prelude.<$> logGroupName
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("status" Data..=) Prelude.<$> status
           ]
       )
 

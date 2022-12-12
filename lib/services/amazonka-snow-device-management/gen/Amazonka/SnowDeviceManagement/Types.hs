@@ -20,8 +20,8 @@ module Amazonka.SnowDeviceManagement.Types
     -- * Errors
     _AccessDeniedException,
     _InternalServerException,
-    _ServiceQuotaExceededException,
     _ResourceNotFoundException,
+    _ServiceQuotaExceededException,
     _ThrottlingException,
     _ValidationException,
 
@@ -52,8 +52,8 @@ module Amazonka.SnowDeviceManagement.Types
     capacity_available,
     capacity_name,
     capacity_total,
-    capacity_used,
     capacity_unit,
+    capacity_used,
 
     -- * Command
     Command (..),
@@ -70,72 +70,72 @@ module Amazonka.SnowDeviceManagement.Types
     -- * DeviceSummary
     DeviceSummary (..),
     newDeviceSummary,
-    deviceSummary_tags,
     deviceSummary_associatedWithJob,
     deviceSummary_managedDeviceArn,
     deviceSummary_managedDeviceId,
+    deviceSummary_tags,
 
     -- * EbsInstanceBlockDevice
     EbsInstanceBlockDevice (..),
     newEbsInstanceBlockDevice,
+    ebsInstanceBlockDevice_attachTime,
     ebsInstanceBlockDevice_deleteOnTermination,
     ebsInstanceBlockDevice_status,
-    ebsInstanceBlockDevice_attachTime,
     ebsInstanceBlockDevice_volumeId,
 
     -- * ExecutionSummary
     ExecutionSummary (..),
     newExecutionSummary,
-    executionSummary_taskId,
-    executionSummary_state,
     executionSummary_executionId,
     executionSummary_managedDeviceId,
+    executionSummary_state,
+    executionSummary_taskId,
 
     -- * Instance
     Instance (..),
     newInstance,
-    instance_blockDeviceMappings,
     instance_amiLaunchIndex,
-    instance_state,
-    instance_instanceType,
-    instance_instanceId,
-    instance_publicIpAddress,
-    instance_securityGroups,
-    instance_privateIpAddress,
+    instance_blockDeviceMappings,
     instance_cpuOptions,
     instance_createdAt,
     instance_imageId,
-    instance_updatedAt,
+    instance_instanceId,
+    instance_instanceType,
+    instance_privateIpAddress,
+    instance_publicIpAddress,
     instance_rootDeviceName,
+    instance_securityGroups,
+    instance_state,
+    instance_updatedAt,
 
     -- * InstanceBlockDeviceMapping
     InstanceBlockDeviceMapping (..),
     newInstanceBlockDeviceMapping,
-    instanceBlockDeviceMapping_ebs,
     instanceBlockDeviceMapping_deviceName,
+    instanceBlockDeviceMapping_ebs,
 
     -- * InstanceState
     InstanceState (..),
     newInstanceState,
-    instanceState_name,
     instanceState_code,
+    instanceState_name,
 
     -- * InstanceSummary
     InstanceSummary (..),
     newInstanceSummary,
-    instanceSummary_lastUpdatedAt,
     instanceSummary_instance,
+    instanceSummary_lastUpdatedAt,
 
     -- * PhysicalNetworkInterface
     PhysicalNetworkInterface (..),
     newPhysicalNetworkInterface,
+    physicalNetworkInterface_defaultGateway,
+    physicalNetworkInterface_ipAddress,
     physicalNetworkInterface_ipAddressAssignment,
+    physicalNetworkInterface_macAddress,
     physicalNetworkInterface_netmask,
     physicalNetworkInterface_physicalConnectorType,
-    physicalNetworkInterface_macAddress,
-    physicalNetworkInterface_defaultGateway,
     physicalNetworkInterface_physicalNetworkInterfaceId,
-    physicalNetworkInterface_ipAddress,
 
     -- * Reboot
     Reboot (..),
@@ -151,22 +151,22 @@ module Amazonka.SnowDeviceManagement.Types
     -- * SecurityGroupIdentifier
     SecurityGroupIdentifier (..),
     newSecurityGroupIdentifier,
-    securityGroupIdentifier_groupName,
     securityGroupIdentifier_groupId,
+    securityGroupIdentifier_groupName,
 
     -- * SoftwareInformation
     SoftwareInformation (..),
     newSoftwareInformation,
-    softwareInformation_installingVersion,
-    softwareInformation_installedVersion,
     softwareInformation_installState,
+    softwareInformation_installedVersion,
+    softwareInformation_installingVersion,
 
     -- * TaskSummary
     TaskSummary (..),
     newTaskSummary,
+    taskSummary_state,
     taskSummary_tags,
     taskSummary_taskArn,
-    taskSummary_state,
     taskSummary_taskId,
 
     -- * Unlock
@@ -230,28 +230,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -259,13 +253,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -273,6 +271,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You don\'t have sufficient access to perform this action.
@@ -291,14 +291,6 @@ _InternalServerException =
     "InternalServerException"
     Prelude.. Core.hasStatus 500
 
--- | The request would cause a service quota to be exceeded.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceQuotaExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceQuotaExceededException"
-    Prelude.. Core.hasStatus 402
-
 -- | The request references a resource that doesn\'t exist.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
@@ -306,6 +298,14 @@ _ResourceNotFoundException =
     defaultService
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
+
+-- | The request would cause a service quota to be exceeded.
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceQuotaExceededException"
+    Prelude.. Core.hasStatus 402
 
 -- | The request was denied due to request throttling.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

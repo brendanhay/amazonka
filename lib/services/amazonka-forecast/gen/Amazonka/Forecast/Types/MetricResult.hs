@@ -33,10 +33,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMetricResult' smart constructor.
 data MetricResult = MetricResult'
-  { -- | The value for the metric.
-    metricValue :: Prelude.Maybe Prelude.Double,
-    -- | The name of the metric.
-    metricName :: Prelude.Maybe Prelude.Text
+  { -- | The name of the metric.
+    metricName :: Prelude.Maybe Prelude.Text,
+    -- | The value for the metric.
+    metricValue :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,24 +48,24 @@ data MetricResult = MetricResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metricValue', 'metricResult_metricValue' - The value for the metric.
---
 -- 'metricName', 'metricResult_metricName' - The name of the metric.
+--
+-- 'metricValue', 'metricResult_metricValue' - The value for the metric.
 newMetricResult ::
   MetricResult
 newMetricResult =
   MetricResult'
-    { metricValue = Prelude.Nothing,
-      metricName = Prelude.Nothing
+    { metricName = Prelude.Nothing,
+      metricValue = Prelude.Nothing
     }
-
--- | The value for the metric.
-metricResult_metricValue :: Lens.Lens' MetricResult (Prelude.Maybe Prelude.Double)
-metricResult_metricValue = Lens.lens (\MetricResult' {metricValue} -> metricValue) (\s@MetricResult' {} a -> s {metricValue = a} :: MetricResult)
 
 -- | The name of the metric.
 metricResult_metricName :: Lens.Lens' MetricResult (Prelude.Maybe Prelude.Text)
 metricResult_metricName = Lens.lens (\MetricResult' {metricName} -> metricName) (\s@MetricResult' {} a -> s {metricName = a} :: MetricResult)
+
+-- | The value for the metric.
+metricResult_metricValue :: Lens.Lens' MetricResult (Prelude.Maybe Prelude.Double)
+metricResult_metricValue = Lens.lens (\MetricResult' {metricValue} -> metricValue) (\s@MetricResult' {} a -> s {metricValue = a} :: MetricResult)
 
 instance Data.FromJSON MetricResult where
   parseJSON =
@@ -73,16 +73,16 @@ instance Data.FromJSON MetricResult where
       "MetricResult"
       ( \x ->
           MetricResult'
-            Prelude.<$> (x Data..:? "MetricValue")
-            Prelude.<*> (x Data..:? "MetricName")
+            Prelude.<$> (x Data..:? "MetricName")
+            Prelude.<*> (x Data..:? "MetricValue")
       )
 
 instance Prelude.Hashable MetricResult where
   hashWithSalt _salt MetricResult' {..} =
-    _salt `Prelude.hashWithSalt` metricValue
-      `Prelude.hashWithSalt` metricName
+    _salt `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` metricValue
 
 instance Prelude.NFData MetricResult where
   rnf MetricResult' {..} =
-    Prelude.rnf metricValue
-      `Prelude.seq` Prelude.rnf metricName
+    Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf metricValue

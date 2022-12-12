@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEbsConfiguration' smart constructor.
 data EbsConfiguration = EbsConfiguration'
-  { -- | Indicates whether an Amazon EBS volume is EBS-optimized.
-    ebsOptimized :: Prelude.Maybe Prelude.Bool,
-    -- | An array of Amazon EBS volume specifications attached to a cluster
+  { -- | An array of Amazon EBS volume specifications attached to a cluster
     -- instance.
-    ebsBlockDeviceConfigs :: Prelude.Maybe [EbsBlockDeviceConfig]
+    ebsBlockDeviceConfigs :: Prelude.Maybe [EbsBlockDeviceConfig],
+    -- | Indicates whether an Amazon EBS volume is EBS-optimized.
+    ebsOptimized :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,43 +45,44 @@ data EbsConfiguration = EbsConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ebsOptimized', 'ebsConfiguration_ebsOptimized' - Indicates whether an Amazon EBS volume is EBS-optimized.
---
 -- 'ebsBlockDeviceConfigs', 'ebsConfiguration_ebsBlockDeviceConfigs' - An array of Amazon EBS volume specifications attached to a cluster
 -- instance.
+--
+-- 'ebsOptimized', 'ebsConfiguration_ebsOptimized' - Indicates whether an Amazon EBS volume is EBS-optimized.
 newEbsConfiguration ::
   EbsConfiguration
 newEbsConfiguration =
   EbsConfiguration'
-    { ebsOptimized = Prelude.Nothing,
-      ebsBlockDeviceConfigs = Prelude.Nothing
+    { ebsBlockDeviceConfigs =
+        Prelude.Nothing,
+      ebsOptimized = Prelude.Nothing
     }
-
--- | Indicates whether an Amazon EBS volume is EBS-optimized.
-ebsConfiguration_ebsOptimized :: Lens.Lens' EbsConfiguration (Prelude.Maybe Prelude.Bool)
-ebsConfiguration_ebsOptimized = Lens.lens (\EbsConfiguration' {ebsOptimized} -> ebsOptimized) (\s@EbsConfiguration' {} a -> s {ebsOptimized = a} :: EbsConfiguration)
 
 -- | An array of Amazon EBS volume specifications attached to a cluster
 -- instance.
 ebsConfiguration_ebsBlockDeviceConfigs :: Lens.Lens' EbsConfiguration (Prelude.Maybe [EbsBlockDeviceConfig])
 ebsConfiguration_ebsBlockDeviceConfigs = Lens.lens (\EbsConfiguration' {ebsBlockDeviceConfigs} -> ebsBlockDeviceConfigs) (\s@EbsConfiguration' {} a -> s {ebsBlockDeviceConfigs = a} :: EbsConfiguration) Prelude.. Lens.mapping Lens.coerced
 
+-- | Indicates whether an Amazon EBS volume is EBS-optimized.
+ebsConfiguration_ebsOptimized :: Lens.Lens' EbsConfiguration (Prelude.Maybe Prelude.Bool)
+ebsConfiguration_ebsOptimized = Lens.lens (\EbsConfiguration' {ebsOptimized} -> ebsOptimized) (\s@EbsConfiguration' {} a -> s {ebsOptimized = a} :: EbsConfiguration)
+
 instance Prelude.Hashable EbsConfiguration where
   hashWithSalt _salt EbsConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` ebsOptimized
-      `Prelude.hashWithSalt` ebsBlockDeviceConfigs
+    _salt `Prelude.hashWithSalt` ebsBlockDeviceConfigs
+      `Prelude.hashWithSalt` ebsOptimized
 
 instance Prelude.NFData EbsConfiguration where
   rnf EbsConfiguration' {..} =
-    Prelude.rnf ebsOptimized
-      `Prelude.seq` Prelude.rnf ebsBlockDeviceConfigs
+    Prelude.rnf ebsBlockDeviceConfigs
+      `Prelude.seq` Prelude.rnf ebsOptimized
 
 instance Data.ToJSON EbsConfiguration where
   toJSON EbsConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("EbsOptimized" Data..=) Prelude.<$> ebsOptimized,
-            ("EbsBlockDeviceConfigs" Data..=)
-              Prelude.<$> ebsBlockDeviceConfigs
+          [ ("EbsBlockDeviceConfigs" Data..=)
+              Prelude.<$> ebsBlockDeviceConfigs,
+            ("EbsOptimized" Data..=) Prelude.<$> ebsOptimized
           ]
       )

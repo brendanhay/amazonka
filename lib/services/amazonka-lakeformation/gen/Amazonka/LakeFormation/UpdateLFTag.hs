@@ -33,8 +33,8 @@ module Amazonka.LakeFormation.UpdateLFTag
 
     -- * Request Lenses
     updateLFTag_catalogId,
-    updateLFTag_tagValuesToDelete,
     updateLFTag_tagValuesToAdd,
+    updateLFTag_tagValuesToDelete,
     updateLFTag_tagKey,
 
     -- * Destructuring the Response
@@ -61,10 +61,10 @@ data UpdateLFTag = UpdateLFTag'
     -- definitions, table definitions, and other control information to manage
     -- your Lake Formation environment.
     catalogId :: Prelude.Maybe Prelude.Text,
-    -- | A list of LF-tag values to delete from the LF-tag.
-    tagValuesToDelete :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | A list of LF-tag values to add from the LF-tag.
     tagValuesToAdd :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | A list of LF-tag values to delete from the LF-tag.
+    tagValuesToDelete :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The key-name for the LF-tag for which to add or delete values.
     tagKey :: Prelude.Text
   }
@@ -83,9 +83,9 @@ data UpdateLFTag = UpdateLFTag'
 -- definitions, table definitions, and other control information to manage
 -- your Lake Formation environment.
 --
--- 'tagValuesToDelete', 'updateLFTag_tagValuesToDelete' - A list of LF-tag values to delete from the LF-tag.
---
 -- 'tagValuesToAdd', 'updateLFTag_tagValuesToAdd' - A list of LF-tag values to add from the LF-tag.
+--
+-- 'tagValuesToDelete', 'updateLFTag_tagValuesToDelete' - A list of LF-tag values to delete from the LF-tag.
 --
 -- 'tagKey', 'updateLFTag_tagKey' - The key-name for the LF-tag for which to add or delete values.
 newUpdateLFTag ::
@@ -95,8 +95,8 @@ newUpdateLFTag ::
 newUpdateLFTag pTagKey_ =
   UpdateLFTag'
     { catalogId = Prelude.Nothing,
-      tagValuesToDelete = Prelude.Nothing,
       tagValuesToAdd = Prelude.Nothing,
+      tagValuesToDelete = Prelude.Nothing,
       tagKey = pTagKey_
     }
 
@@ -107,13 +107,13 @@ newUpdateLFTag pTagKey_ =
 updateLFTag_catalogId :: Lens.Lens' UpdateLFTag (Prelude.Maybe Prelude.Text)
 updateLFTag_catalogId = Lens.lens (\UpdateLFTag' {catalogId} -> catalogId) (\s@UpdateLFTag' {} a -> s {catalogId = a} :: UpdateLFTag)
 
--- | A list of LF-tag values to delete from the LF-tag.
-updateLFTag_tagValuesToDelete :: Lens.Lens' UpdateLFTag (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-updateLFTag_tagValuesToDelete = Lens.lens (\UpdateLFTag' {tagValuesToDelete} -> tagValuesToDelete) (\s@UpdateLFTag' {} a -> s {tagValuesToDelete = a} :: UpdateLFTag) Prelude.. Lens.mapping Lens.coerced
-
 -- | A list of LF-tag values to add from the LF-tag.
 updateLFTag_tagValuesToAdd :: Lens.Lens' UpdateLFTag (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 updateLFTag_tagValuesToAdd = Lens.lens (\UpdateLFTag' {tagValuesToAdd} -> tagValuesToAdd) (\s@UpdateLFTag' {} a -> s {tagValuesToAdd = a} :: UpdateLFTag) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of LF-tag values to delete from the LF-tag.
+updateLFTag_tagValuesToDelete :: Lens.Lens' UpdateLFTag (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+updateLFTag_tagValuesToDelete = Lens.lens (\UpdateLFTag' {tagValuesToDelete} -> tagValuesToDelete) (\s@UpdateLFTag' {} a -> s {tagValuesToDelete = a} :: UpdateLFTag) Prelude.. Lens.mapping Lens.coerced
 
 -- | The key-name for the LF-tag for which to add or delete values.
 updateLFTag_tagKey :: Lens.Lens' UpdateLFTag Prelude.Text
@@ -133,15 +133,15 @@ instance Core.AWSRequest UpdateLFTag where
 instance Prelude.Hashable UpdateLFTag where
   hashWithSalt _salt UpdateLFTag' {..} =
     _salt `Prelude.hashWithSalt` catalogId
-      `Prelude.hashWithSalt` tagValuesToDelete
       `Prelude.hashWithSalt` tagValuesToAdd
+      `Prelude.hashWithSalt` tagValuesToDelete
       `Prelude.hashWithSalt` tagKey
 
 instance Prelude.NFData UpdateLFTag where
   rnf UpdateLFTag' {..} =
     Prelude.rnf catalogId
-      `Prelude.seq` Prelude.rnf tagValuesToDelete
       `Prelude.seq` Prelude.rnf tagValuesToAdd
+      `Prelude.seq` Prelude.rnf tagValuesToDelete
       `Prelude.seq` Prelude.rnf tagKey
 
 instance Data.ToHeaders UpdateLFTag where
@@ -160,10 +160,10 @@ instance Data.ToJSON UpdateLFTag where
     Data.object
       ( Prelude.catMaybes
           [ ("CatalogId" Data..=) Prelude.<$> catalogId,
-            ("TagValuesToDelete" Data..=)
-              Prelude.<$> tagValuesToDelete,
             ("TagValuesToAdd" Data..=)
               Prelude.<$> tagValuesToAdd,
+            ("TagValuesToDelete" Data..=)
+              Prelude.<$> tagValuesToDelete,
             Prelude.Just ("TagKey" Data..= tagKey)
           ]
       )

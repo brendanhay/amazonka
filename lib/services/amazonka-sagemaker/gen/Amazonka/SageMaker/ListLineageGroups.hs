@@ -32,20 +32,20 @@ module Amazonka.SageMaker.ListLineageGroups
     newListLineageGroups,
 
     -- * Request Lenses
-    listLineageGroups_sortOrder,
-    listLineageGroups_nextToken,
-    listLineageGroups_createdBefore,
-    listLineageGroups_sortBy,
-    listLineageGroups_maxResults,
     listLineageGroups_createdAfter,
+    listLineageGroups_createdBefore,
+    listLineageGroups_maxResults,
+    listLineageGroups_nextToken,
+    listLineageGroups_sortBy,
+    listLineageGroups_sortOrder,
 
     -- * Destructuring the Response
     ListLineageGroupsResponse (..),
     newListLineageGroupsResponse,
 
     -- * Response Lenses
-    listLineageGroupsResponse_nextToken,
     listLineageGroupsResponse_lineageGroupSummaries,
+    listLineageGroupsResponse_nextToken,
     listLineageGroupsResponse_httpStatus,
   )
 where
@@ -60,23 +60,23 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newListLineageGroups' smart constructor.
 data ListLineageGroups = ListLineageGroups'
-  { -- | The sort order for the results. The default is @Ascending@.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | If the response is truncated, SageMaker returns this token. To retrieve
-    -- the next set of algorithms, use it in the subsequent request.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | A timestamp to filter against lineage groups created after a certain
+    -- point in time.
+    createdAfter :: Prelude.Maybe Data.POSIX,
     -- | A timestamp to filter against lineage groups created before a certain
     -- point in time.
     createdBefore :: Prelude.Maybe Data.POSIX,
-    -- | The parameter by which to sort the results. The default is
-    -- @CreationTime@.
-    sortBy :: Prelude.Maybe SortLineageGroupsBy,
     -- | The maximum number of endpoints to return in the response. This value
     -- defaults to 10.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | A timestamp to filter against lineage groups created after a certain
-    -- point in time.
-    createdAfter :: Prelude.Maybe Data.POSIX
+    -- | If the response is truncated, SageMaker returns this token. To retrieve
+    -- the next set of algorithms, use it in the subsequent request.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The parameter by which to sort the results. The default is
+    -- @CreationTime@.
+    sortBy :: Prelude.Maybe SortLineageGroupsBy,
+    -- | The sort order for the results. The default is @Ascending@.
+    sortOrder :: Prelude.Maybe SortOrder
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -88,62 +88,62 @@ data ListLineageGroups = ListLineageGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listLineageGroups_sortOrder' - The sort order for the results. The default is @Ascending@.
---
--- 'nextToken', 'listLineageGroups_nextToken' - If the response is truncated, SageMaker returns this token. To retrieve
--- the next set of algorithms, use it in the subsequent request.
+-- 'createdAfter', 'listLineageGroups_createdAfter' - A timestamp to filter against lineage groups created after a certain
+-- point in time.
 --
 -- 'createdBefore', 'listLineageGroups_createdBefore' - A timestamp to filter against lineage groups created before a certain
 -- point in time.
 --
--- 'sortBy', 'listLineageGroups_sortBy' - The parameter by which to sort the results. The default is
--- @CreationTime@.
---
 -- 'maxResults', 'listLineageGroups_maxResults' - The maximum number of endpoints to return in the response. This value
 -- defaults to 10.
 --
--- 'createdAfter', 'listLineageGroups_createdAfter' - A timestamp to filter against lineage groups created after a certain
--- point in time.
+-- 'nextToken', 'listLineageGroups_nextToken' - If the response is truncated, SageMaker returns this token. To retrieve
+-- the next set of algorithms, use it in the subsequent request.
+--
+-- 'sortBy', 'listLineageGroups_sortBy' - The parameter by which to sort the results. The default is
+-- @CreationTime@.
+--
+-- 'sortOrder', 'listLineageGroups_sortOrder' - The sort order for the results. The default is @Ascending@.
 newListLineageGroups ::
   ListLineageGroups
 newListLineageGroups =
   ListLineageGroups'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { createdAfter = Prelude.Nothing,
       createdBefore = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      createdAfter = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      sortOrder = Prelude.Nothing
     }
 
--- | The sort order for the results. The default is @Ascending@.
-listLineageGroups_sortOrder :: Lens.Lens' ListLineageGroups (Prelude.Maybe SortOrder)
-listLineageGroups_sortOrder = Lens.lens (\ListLineageGroups' {sortOrder} -> sortOrder) (\s@ListLineageGroups' {} a -> s {sortOrder = a} :: ListLineageGroups)
-
--- | If the response is truncated, SageMaker returns this token. To retrieve
--- the next set of algorithms, use it in the subsequent request.
-listLineageGroups_nextToken :: Lens.Lens' ListLineageGroups (Prelude.Maybe Prelude.Text)
-listLineageGroups_nextToken = Lens.lens (\ListLineageGroups' {nextToken} -> nextToken) (\s@ListLineageGroups' {} a -> s {nextToken = a} :: ListLineageGroups)
+-- | A timestamp to filter against lineage groups created after a certain
+-- point in time.
+listLineageGroups_createdAfter :: Lens.Lens' ListLineageGroups (Prelude.Maybe Prelude.UTCTime)
+listLineageGroups_createdAfter = Lens.lens (\ListLineageGroups' {createdAfter} -> createdAfter) (\s@ListLineageGroups' {} a -> s {createdAfter = a} :: ListLineageGroups) Prelude.. Lens.mapping Data._Time
 
 -- | A timestamp to filter against lineage groups created before a certain
 -- point in time.
 listLineageGroups_createdBefore :: Lens.Lens' ListLineageGroups (Prelude.Maybe Prelude.UTCTime)
 listLineageGroups_createdBefore = Lens.lens (\ListLineageGroups' {createdBefore} -> createdBefore) (\s@ListLineageGroups' {} a -> s {createdBefore = a} :: ListLineageGroups) Prelude.. Lens.mapping Data._Time
 
--- | The parameter by which to sort the results. The default is
--- @CreationTime@.
-listLineageGroups_sortBy :: Lens.Lens' ListLineageGroups (Prelude.Maybe SortLineageGroupsBy)
-listLineageGroups_sortBy = Lens.lens (\ListLineageGroups' {sortBy} -> sortBy) (\s@ListLineageGroups' {} a -> s {sortBy = a} :: ListLineageGroups)
-
 -- | The maximum number of endpoints to return in the response. This value
 -- defaults to 10.
 listLineageGroups_maxResults :: Lens.Lens' ListLineageGroups (Prelude.Maybe Prelude.Natural)
 listLineageGroups_maxResults = Lens.lens (\ListLineageGroups' {maxResults} -> maxResults) (\s@ListLineageGroups' {} a -> s {maxResults = a} :: ListLineageGroups)
 
--- | A timestamp to filter against lineage groups created after a certain
--- point in time.
-listLineageGroups_createdAfter :: Lens.Lens' ListLineageGroups (Prelude.Maybe Prelude.UTCTime)
-listLineageGroups_createdAfter = Lens.lens (\ListLineageGroups' {createdAfter} -> createdAfter) (\s@ListLineageGroups' {} a -> s {createdAfter = a} :: ListLineageGroups) Prelude.. Lens.mapping Data._Time
+-- | If the response is truncated, SageMaker returns this token. To retrieve
+-- the next set of algorithms, use it in the subsequent request.
+listLineageGroups_nextToken :: Lens.Lens' ListLineageGroups (Prelude.Maybe Prelude.Text)
+listLineageGroups_nextToken = Lens.lens (\ListLineageGroups' {nextToken} -> nextToken) (\s@ListLineageGroups' {} a -> s {nextToken = a} :: ListLineageGroups)
+
+-- | The parameter by which to sort the results. The default is
+-- @CreationTime@.
+listLineageGroups_sortBy :: Lens.Lens' ListLineageGroups (Prelude.Maybe SortLineageGroupsBy)
+listLineageGroups_sortBy = Lens.lens (\ListLineageGroups' {sortBy} -> sortBy) (\s@ListLineageGroups' {} a -> s {sortBy = a} :: ListLineageGroups)
+
+-- | The sort order for the results. The default is @Ascending@.
+listLineageGroups_sortOrder :: Lens.Lens' ListLineageGroups (Prelude.Maybe SortOrder)
+listLineageGroups_sortOrder = Lens.lens (\ListLineageGroups' {sortOrder} -> sortOrder) (\s@ListLineageGroups' {} a -> s {sortOrder = a} :: ListLineageGroups)
 
 instance Core.AWSPager ListLineageGroups where
   page rq rs
@@ -177,30 +177,30 @@ instance Core.AWSRequest ListLineageGroups where
     Response.receiveJSON
       ( \s h x ->
           ListLineageGroupsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "LineageGroupSummaries"
+            Prelude.<$> ( x Data..?> "LineageGroupSummaries"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListLineageGroups where
   hashWithSalt _salt ListLineageGroups' {..} =
-    _salt `Prelude.hashWithSalt` sortOrder
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` createdAfter
       `Prelude.hashWithSalt` createdBefore
-      `Prelude.hashWithSalt` sortBy
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` createdAfter
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` sortOrder
 
 instance Prelude.NFData ListLineageGroups where
   rnf ListLineageGroups' {..} =
-    Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf createdAfter
       `Prelude.seq` Prelude.rnf createdBefore
-      `Prelude.seq` Prelude.rnf sortBy
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf createdAfter
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListLineageGroups where
   toHeaders =
@@ -221,12 +221,12 @@ instance Data.ToJSON ListLineageGroups where
   toJSON ListLineageGroups' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
-            ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("CreatedAfter" Data..=) Prelude.<$> createdAfter,
             ("CreatedBefore" Data..=) Prelude.<$> createdBefore,
-            ("SortBy" Data..=) Prelude.<$> sortBy,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("CreatedAfter" Data..=) Prelude.<$> createdAfter
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("SortOrder" Data..=) Prelude.<$> sortOrder
           ]
       )
 
@@ -238,11 +238,11 @@ instance Data.ToQuery ListLineageGroups where
 
 -- | /See:/ 'newListLineageGroupsResponse' smart constructor.
 data ListLineageGroupsResponse = ListLineageGroupsResponse'
-  { -- | If the response is truncated, SageMaker returns this token. To retrieve
+  { -- | A list of lineage groups and their properties.
+    lineageGroupSummaries :: Prelude.Maybe [LineageGroupSummary],
+    -- | If the response is truncated, SageMaker returns this token. To retrieve
     -- the next set of algorithms, use it in the subsequent request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of lineage groups and their properties.
-    lineageGroupSummaries :: Prelude.Maybe [LineageGroupSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -256,10 +256,10 @@ data ListLineageGroupsResponse = ListLineageGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'lineageGroupSummaries', 'listLineageGroupsResponse_lineageGroupSummaries' - A list of lineage groups and their properties.
+--
 -- 'nextToken', 'listLineageGroupsResponse_nextToken' - If the response is truncated, SageMaker returns this token. To retrieve
 -- the next set of algorithms, use it in the subsequent request.
---
--- 'lineageGroupSummaries', 'listLineageGroupsResponse_lineageGroupSummaries' - A list of lineage groups and their properties.
 --
 -- 'httpStatus', 'listLineageGroupsResponse_httpStatus' - The response's http status code.
 newListLineageGroupsResponse ::
@@ -268,20 +268,20 @@ newListLineageGroupsResponse ::
   ListLineageGroupsResponse
 newListLineageGroupsResponse pHttpStatus_ =
   ListLineageGroupsResponse'
-    { nextToken =
+    { lineageGroupSummaries =
         Prelude.Nothing,
-      lineageGroupSummaries = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of lineage groups and their properties.
+listLineageGroupsResponse_lineageGroupSummaries :: Lens.Lens' ListLineageGroupsResponse (Prelude.Maybe [LineageGroupSummary])
+listLineageGroupsResponse_lineageGroupSummaries = Lens.lens (\ListLineageGroupsResponse' {lineageGroupSummaries} -> lineageGroupSummaries) (\s@ListLineageGroupsResponse' {} a -> s {lineageGroupSummaries = a} :: ListLineageGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the response is truncated, SageMaker returns this token. To retrieve
 -- the next set of algorithms, use it in the subsequent request.
 listLineageGroupsResponse_nextToken :: Lens.Lens' ListLineageGroupsResponse (Prelude.Maybe Prelude.Text)
 listLineageGroupsResponse_nextToken = Lens.lens (\ListLineageGroupsResponse' {nextToken} -> nextToken) (\s@ListLineageGroupsResponse' {} a -> s {nextToken = a} :: ListLineageGroupsResponse)
-
--- | A list of lineage groups and their properties.
-listLineageGroupsResponse_lineageGroupSummaries :: Lens.Lens' ListLineageGroupsResponse (Prelude.Maybe [LineageGroupSummary])
-listLineageGroupsResponse_lineageGroupSummaries = Lens.lens (\ListLineageGroupsResponse' {lineageGroupSummaries} -> lineageGroupSummaries) (\s@ListLineageGroupsResponse' {} a -> s {lineageGroupSummaries = a} :: ListLineageGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listLineageGroupsResponse_httpStatus :: Lens.Lens' ListLineageGroupsResponse Prelude.Int
@@ -289,6 +289,6 @@ listLineageGroupsResponse_httpStatus = Lens.lens (\ListLineageGroupsResponse' {h
 
 instance Prelude.NFData ListLineageGroupsResponse where
   rnf ListLineageGroupsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf lineageGroupSummaries
+    Prelude.rnf lineageGroupSummaries
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

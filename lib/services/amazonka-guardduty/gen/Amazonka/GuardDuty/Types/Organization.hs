@@ -29,15 +29,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOrganization' smart constructor.
 data Organization = Organization'
-  { -- | The ISP information for the internet provider.
-    isp :: Prelude.Maybe Prelude.Text,
-    -- | The name of the internet provider.
-    org :: Prelude.Maybe Prelude.Text,
-    -- | The Autonomous System Number (ASN) of the internet provider of the
+  { -- | The Autonomous System Number (ASN) of the internet provider of the
     -- remote IP address.
     asn :: Prelude.Maybe Prelude.Text,
     -- | The organization that registered this ASN.
-    asnOrg :: Prelude.Maybe Prelude.Text
+    asnOrg :: Prelude.Maybe Prelude.Text,
+    -- | The ISP information for the internet provider.
+    isp :: Prelude.Maybe Prelude.Text,
+    -- | The name of the internet provider.
+    org :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,31 +49,23 @@ data Organization = Organization'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'isp', 'organization_isp' - The ISP information for the internet provider.
---
--- 'org', 'organization_org' - The name of the internet provider.
---
 -- 'asn', 'organization_asn' - The Autonomous System Number (ASN) of the internet provider of the
 -- remote IP address.
 --
 -- 'asnOrg', 'organization_asnOrg' - The organization that registered this ASN.
+--
+-- 'isp', 'organization_isp' - The ISP information for the internet provider.
+--
+-- 'org', 'organization_org' - The name of the internet provider.
 newOrganization ::
   Organization
 newOrganization =
   Organization'
-    { isp = Prelude.Nothing,
-      org = Prelude.Nothing,
-      asn = Prelude.Nothing,
-      asnOrg = Prelude.Nothing
+    { asn = Prelude.Nothing,
+      asnOrg = Prelude.Nothing,
+      isp = Prelude.Nothing,
+      org = Prelude.Nothing
     }
-
--- | The ISP information for the internet provider.
-organization_isp :: Lens.Lens' Organization (Prelude.Maybe Prelude.Text)
-organization_isp = Lens.lens (\Organization' {isp} -> isp) (\s@Organization' {} a -> s {isp = a} :: Organization)
-
--- | The name of the internet provider.
-organization_org :: Lens.Lens' Organization (Prelude.Maybe Prelude.Text)
-organization_org = Lens.lens (\Organization' {org} -> org) (\s@Organization' {} a -> s {org = a} :: Organization)
 
 -- | The Autonomous System Number (ASN) of the internet provider of the
 -- remote IP address.
@@ -84,28 +76,36 @@ organization_asn = Lens.lens (\Organization' {asn} -> asn) (\s@Organization' {} 
 organization_asnOrg :: Lens.Lens' Organization (Prelude.Maybe Prelude.Text)
 organization_asnOrg = Lens.lens (\Organization' {asnOrg} -> asnOrg) (\s@Organization' {} a -> s {asnOrg = a} :: Organization)
 
+-- | The ISP information for the internet provider.
+organization_isp :: Lens.Lens' Organization (Prelude.Maybe Prelude.Text)
+organization_isp = Lens.lens (\Organization' {isp} -> isp) (\s@Organization' {} a -> s {isp = a} :: Organization)
+
+-- | The name of the internet provider.
+organization_org :: Lens.Lens' Organization (Prelude.Maybe Prelude.Text)
+organization_org = Lens.lens (\Organization' {org} -> org) (\s@Organization' {} a -> s {org = a} :: Organization)
+
 instance Data.FromJSON Organization where
   parseJSON =
     Data.withObject
       "Organization"
       ( \x ->
           Organization'
-            Prelude.<$> (x Data..:? "isp")
-            Prelude.<*> (x Data..:? "org")
-            Prelude.<*> (x Data..:? "asn")
+            Prelude.<$> (x Data..:? "asn")
             Prelude.<*> (x Data..:? "asnOrg")
+            Prelude.<*> (x Data..:? "isp")
+            Prelude.<*> (x Data..:? "org")
       )
 
 instance Prelude.Hashable Organization where
   hashWithSalt _salt Organization' {..} =
-    _salt `Prelude.hashWithSalt` isp
-      `Prelude.hashWithSalt` org
-      `Prelude.hashWithSalt` asn
+    _salt `Prelude.hashWithSalt` asn
       `Prelude.hashWithSalt` asnOrg
+      `Prelude.hashWithSalt` isp
+      `Prelude.hashWithSalt` org
 
 instance Prelude.NFData Organization where
   rnf Organization' {..} =
-    Prelude.rnf isp
-      `Prelude.seq` Prelude.rnf org
-      `Prelude.seq` Prelude.rnf asn
+    Prelude.rnf asn
       `Prelude.seq` Prelude.rnf asnOrg
+      `Prelude.seq` Prelude.rnf isp
+      `Prelude.seq` Prelude.rnf org

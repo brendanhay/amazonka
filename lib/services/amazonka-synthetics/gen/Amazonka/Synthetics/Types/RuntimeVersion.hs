@@ -30,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRuntimeVersion' smart constructor.
 data RuntimeVersion = RuntimeVersion'
-  { -- | The date that the runtime version was released.
-    releaseDate :: Prelude.Maybe Data.POSIX,
-    -- | If this runtime version is deprecated, this value is the date of
+  { -- | If this runtime version is deprecated, this value is the date of
     -- deprecation.
     deprecationDate :: Prelude.Maybe Data.POSIX,
     -- | A description of the runtime version, created by Amazon.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The date that the runtime version was released.
+    releaseDate :: Prelude.Maybe Data.POSIX,
     -- | The name of the runtime version. For a list of valid runtime versions,
     -- see
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html Canary Runtime Versions>.
@@ -52,12 +52,12 @@ data RuntimeVersion = RuntimeVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'releaseDate', 'runtimeVersion_releaseDate' - The date that the runtime version was released.
---
 -- 'deprecationDate', 'runtimeVersion_deprecationDate' - If this runtime version is deprecated, this value is the date of
 -- deprecation.
 --
 -- 'description', 'runtimeVersion_description' - A description of the runtime version, created by Amazon.
+--
+-- 'releaseDate', 'runtimeVersion_releaseDate' - The date that the runtime version was released.
 --
 -- 'versionName', 'runtimeVersion_versionName' - The name of the runtime version. For a list of valid runtime versions,
 -- see
@@ -66,15 +66,11 @@ newRuntimeVersion ::
   RuntimeVersion
 newRuntimeVersion =
   RuntimeVersion'
-    { releaseDate = Prelude.Nothing,
-      deprecationDate = Prelude.Nothing,
+    { deprecationDate = Prelude.Nothing,
       description = Prelude.Nothing,
+      releaseDate = Prelude.Nothing,
       versionName = Prelude.Nothing
     }
-
--- | The date that the runtime version was released.
-runtimeVersion_releaseDate :: Lens.Lens' RuntimeVersion (Prelude.Maybe Prelude.UTCTime)
-runtimeVersion_releaseDate = Lens.lens (\RuntimeVersion' {releaseDate} -> releaseDate) (\s@RuntimeVersion' {} a -> s {releaseDate = a} :: RuntimeVersion) Prelude.. Lens.mapping Data._Time
 
 -- | If this runtime version is deprecated, this value is the date of
 -- deprecation.
@@ -84,6 +80,10 @@ runtimeVersion_deprecationDate = Lens.lens (\RuntimeVersion' {deprecationDate} -
 -- | A description of the runtime version, created by Amazon.
 runtimeVersion_description :: Lens.Lens' RuntimeVersion (Prelude.Maybe Prelude.Text)
 runtimeVersion_description = Lens.lens (\RuntimeVersion' {description} -> description) (\s@RuntimeVersion' {} a -> s {description = a} :: RuntimeVersion)
+
+-- | The date that the runtime version was released.
+runtimeVersion_releaseDate :: Lens.Lens' RuntimeVersion (Prelude.Maybe Prelude.UTCTime)
+runtimeVersion_releaseDate = Lens.lens (\RuntimeVersion' {releaseDate} -> releaseDate) (\s@RuntimeVersion' {} a -> s {releaseDate = a} :: RuntimeVersion) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the runtime version. For a list of valid runtime versions,
 -- see
@@ -97,22 +97,22 @@ instance Data.FromJSON RuntimeVersion where
       "RuntimeVersion"
       ( \x ->
           RuntimeVersion'
-            Prelude.<$> (x Data..:? "ReleaseDate")
-            Prelude.<*> (x Data..:? "DeprecationDate")
+            Prelude.<$> (x Data..:? "DeprecationDate")
             Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "ReleaseDate")
             Prelude.<*> (x Data..:? "VersionName")
       )
 
 instance Prelude.Hashable RuntimeVersion where
   hashWithSalt _salt RuntimeVersion' {..} =
-    _salt `Prelude.hashWithSalt` releaseDate
-      `Prelude.hashWithSalt` deprecationDate
+    _salt `Prelude.hashWithSalt` deprecationDate
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` releaseDate
       `Prelude.hashWithSalt` versionName
 
 instance Prelude.NFData RuntimeVersion where
   rnf RuntimeVersion' {..} =
-    Prelude.rnf releaseDate
-      `Prelude.seq` Prelude.rnf deprecationDate
+    Prelude.rnf deprecationDate
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf releaseDate
       `Prelude.seq` Prelude.rnf versionName

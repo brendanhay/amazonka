@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDnsRequestAction' smart constructor.
 data DnsRequestAction = DnsRequestAction'
-  { -- | The DNS domain that is associated with the DNS request.
-    domain :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether the DNS request was blocked.
+  { -- | Indicates whether the DNS request was blocked.
     blocked :: Prelude.Maybe Prelude.Bool,
+    -- | The DNS domain that is associated with the DNS request.
+    domain :: Prelude.Maybe Prelude.Text,
     -- | The protocol that was used for the DNS request.
     protocol :: Prelude.Maybe Prelude.Text
   }
@@ -46,27 +46,27 @@ data DnsRequestAction = DnsRequestAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domain', 'dnsRequestAction_domain' - The DNS domain that is associated with the DNS request.
---
 -- 'blocked', 'dnsRequestAction_blocked' - Indicates whether the DNS request was blocked.
+--
+-- 'domain', 'dnsRequestAction_domain' - The DNS domain that is associated with the DNS request.
 --
 -- 'protocol', 'dnsRequestAction_protocol' - The protocol that was used for the DNS request.
 newDnsRequestAction ::
   DnsRequestAction
 newDnsRequestAction =
   DnsRequestAction'
-    { domain = Prelude.Nothing,
-      blocked = Prelude.Nothing,
+    { blocked = Prelude.Nothing,
+      domain = Prelude.Nothing,
       protocol = Prelude.Nothing
     }
-
--- | The DNS domain that is associated with the DNS request.
-dnsRequestAction_domain :: Lens.Lens' DnsRequestAction (Prelude.Maybe Prelude.Text)
-dnsRequestAction_domain = Lens.lens (\DnsRequestAction' {domain} -> domain) (\s@DnsRequestAction' {} a -> s {domain = a} :: DnsRequestAction)
 
 -- | Indicates whether the DNS request was blocked.
 dnsRequestAction_blocked :: Lens.Lens' DnsRequestAction (Prelude.Maybe Prelude.Bool)
 dnsRequestAction_blocked = Lens.lens (\DnsRequestAction' {blocked} -> blocked) (\s@DnsRequestAction' {} a -> s {blocked = a} :: DnsRequestAction)
+
+-- | The DNS domain that is associated with the DNS request.
+dnsRequestAction_domain :: Lens.Lens' DnsRequestAction (Prelude.Maybe Prelude.Text)
+dnsRequestAction_domain = Lens.lens (\DnsRequestAction' {domain} -> domain) (\s@DnsRequestAction' {} a -> s {domain = a} :: DnsRequestAction)
 
 -- | The protocol that was used for the DNS request.
 dnsRequestAction_protocol :: Lens.Lens' DnsRequestAction (Prelude.Maybe Prelude.Text)
@@ -78,29 +78,29 @@ instance Data.FromJSON DnsRequestAction where
       "DnsRequestAction"
       ( \x ->
           DnsRequestAction'
-            Prelude.<$> (x Data..:? "Domain")
-            Prelude.<*> (x Data..:? "Blocked")
+            Prelude.<$> (x Data..:? "Blocked")
+            Prelude.<*> (x Data..:? "Domain")
             Prelude.<*> (x Data..:? "Protocol")
       )
 
 instance Prelude.Hashable DnsRequestAction where
   hashWithSalt _salt DnsRequestAction' {..} =
-    _salt `Prelude.hashWithSalt` domain
-      `Prelude.hashWithSalt` blocked
+    _salt `Prelude.hashWithSalt` blocked
+      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` protocol
 
 instance Prelude.NFData DnsRequestAction where
   rnf DnsRequestAction' {..} =
-    Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf blocked
+    Prelude.rnf blocked
+      `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf protocol
 
 instance Data.ToJSON DnsRequestAction where
   toJSON DnsRequestAction' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Domain" Data..=) Prelude.<$> domain,
-            ("Blocked" Data..=) Prelude.<$> blocked,
+          [ ("Blocked" Data..=) Prelude.<$> blocked,
+            ("Domain" Data..=) Prelude.<$> domain,
             ("Protocol" Data..=) Prelude.<$> protocol
           ]
       )

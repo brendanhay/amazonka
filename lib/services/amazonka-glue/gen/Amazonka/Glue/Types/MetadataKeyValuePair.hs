@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMetadataKeyValuePair' smart constructor.
 data MetadataKeyValuePair = MetadataKeyValuePair'
-  { -- | A metadata key’s corresponding value.
-    metadataValue :: Prelude.Maybe Prelude.Text,
-    -- | A metadata key.
-    metadataKey :: Prelude.Maybe Prelude.Text
+  { -- | A metadata key.
+    metadataKey :: Prelude.Maybe Prelude.Text,
+    -- | A metadata key’s corresponding value.
+    metadataValue :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,41 +43,41 @@ data MetadataKeyValuePair = MetadataKeyValuePair'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metadataValue', 'metadataKeyValuePair_metadataValue' - A metadata key’s corresponding value.
---
 -- 'metadataKey', 'metadataKeyValuePair_metadataKey' - A metadata key.
+--
+-- 'metadataValue', 'metadataKeyValuePair_metadataValue' - A metadata key’s corresponding value.
 newMetadataKeyValuePair ::
   MetadataKeyValuePair
 newMetadataKeyValuePair =
   MetadataKeyValuePair'
-    { metadataValue =
+    { metadataKey =
         Prelude.Nothing,
-      metadataKey = Prelude.Nothing
+      metadataValue = Prelude.Nothing
     }
-
--- | A metadata key’s corresponding value.
-metadataKeyValuePair_metadataValue :: Lens.Lens' MetadataKeyValuePair (Prelude.Maybe Prelude.Text)
-metadataKeyValuePair_metadataValue = Lens.lens (\MetadataKeyValuePair' {metadataValue} -> metadataValue) (\s@MetadataKeyValuePair' {} a -> s {metadataValue = a} :: MetadataKeyValuePair)
 
 -- | A metadata key.
 metadataKeyValuePair_metadataKey :: Lens.Lens' MetadataKeyValuePair (Prelude.Maybe Prelude.Text)
 metadataKeyValuePair_metadataKey = Lens.lens (\MetadataKeyValuePair' {metadataKey} -> metadataKey) (\s@MetadataKeyValuePair' {} a -> s {metadataKey = a} :: MetadataKeyValuePair)
 
+-- | A metadata key’s corresponding value.
+metadataKeyValuePair_metadataValue :: Lens.Lens' MetadataKeyValuePair (Prelude.Maybe Prelude.Text)
+metadataKeyValuePair_metadataValue = Lens.lens (\MetadataKeyValuePair' {metadataValue} -> metadataValue) (\s@MetadataKeyValuePair' {} a -> s {metadataValue = a} :: MetadataKeyValuePair)
+
 instance Prelude.Hashable MetadataKeyValuePair where
   hashWithSalt _salt MetadataKeyValuePair' {..} =
-    _salt `Prelude.hashWithSalt` metadataValue
-      `Prelude.hashWithSalt` metadataKey
+    _salt `Prelude.hashWithSalt` metadataKey
+      `Prelude.hashWithSalt` metadataValue
 
 instance Prelude.NFData MetadataKeyValuePair where
   rnf MetadataKeyValuePair' {..} =
-    Prelude.rnf metadataValue
-      `Prelude.seq` Prelude.rnf metadataKey
+    Prelude.rnf metadataKey
+      `Prelude.seq` Prelude.rnf metadataValue
 
 instance Data.ToJSON MetadataKeyValuePair where
   toJSON MetadataKeyValuePair' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("MetadataValue" Data..=) Prelude.<$> metadataValue,
-            ("MetadataKey" Data..=) Prelude.<$> metadataKey
+          [ ("MetadataKey" Data..=) Prelude.<$> metadataKey,
+            ("MetadataValue" Data..=) Prelude.<$> metadataValue
           ]
       )

@@ -33,10 +33,10 @@ module Amazonka.WAFV2.CreateRuleGroup
     newCreateRuleGroup,
 
     -- * Request Lenses
-    createRuleGroup_tags,
-    createRuleGroup_rules,
-    createRuleGroup_description,
     createRuleGroup_customResponseBodies,
+    createRuleGroup_description,
+    createRuleGroup_rules,
+    createRuleGroup_tags,
     createRuleGroup_name,
     createRuleGroup_scope,
     createRuleGroup_capacity,
@@ -62,16 +62,7 @@ import Amazonka.WAFV2.Types
 
 -- | /See:/ 'newCreateRuleGroup' smart constructor.
 data CreateRuleGroup = CreateRuleGroup'
-  { -- | An array of key:value pairs to associate with the resource.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | The Rule statements used to identify the web requests that you want to
-    -- allow, block, or count. Each rule includes one top-level statement that
-    -- WAF uses to identify matching web requests, and parameters that govern
-    -- how WAF handles them.
-    rules :: Prelude.Maybe [Rule],
-    -- | A description of the rule group that helps with identification.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | A map of custom response keys and content bodies. When you create a rule
+  { -- | A map of custom response keys and content bodies. When you create a rule
     -- with a block action, you can send a custom response to the web request.
     -- You define these for the rule group, and then use them in the rules that
     -- you define in the rule group.
@@ -87,6 +78,15 @@ data CreateRuleGroup = CreateRuleGroup'
     -- in the
     -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
     customResponseBodies :: Prelude.Maybe (Prelude.HashMap Prelude.Text CustomResponseBody),
+    -- | A description of the rule group that helps with identification.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The Rule statements used to identify the web requests that you want to
+    -- allow, block, or count. Each rule includes one top-level statement that
+    -- WAF uses to identify matching web requests, and parameters that govern
+    -- how WAF handles them.
+    rules :: Prelude.Maybe [Rule],
+    -- | An array of key:value pairs to associate with the resource.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The name of the rule group. You cannot change the name of a rule group
     -- after you create it.
     name :: Prelude.Text,
@@ -132,15 +132,6 @@ data CreateRuleGroup = CreateRuleGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createRuleGroup_tags' - An array of key:value pairs to associate with the resource.
---
--- 'rules', 'createRuleGroup_rules' - The Rule statements used to identify the web requests that you want to
--- allow, block, or count. Each rule includes one top-level statement that
--- WAF uses to identify matching web requests, and parameters that govern
--- how WAF handles them.
---
--- 'description', 'createRuleGroup_description' - A description of the rule group that helps with identification.
---
 -- 'customResponseBodies', 'createRuleGroup_customResponseBodies' - A map of custom response keys and content bodies. When you create a rule
 -- with a block action, you can send a custom response to the web request.
 -- You define these for the rule group, and then use them in the rules that
@@ -156,6 +147,15 @@ data CreateRuleGroup = CreateRuleGroup'
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html WAF quotas>
 -- in the
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+--
+-- 'description', 'createRuleGroup_description' - A description of the rule group that helps with identification.
+--
+-- 'rules', 'createRuleGroup_rules' - The Rule statements used to identify the web requests that you want to
+-- allow, block, or count. Each rule includes one top-level statement that
+-- WAF uses to identify matching web requests, and parameters that govern
+-- how WAF handles them.
+--
+-- 'tags', 'createRuleGroup_tags' - An array of key:value pairs to associate with the resource.
 --
 -- 'name', 'createRuleGroup_name' - The name of the rule group. You cannot change the name of a rule group
 -- after you create it.
@@ -206,30 +206,16 @@ newCreateRuleGroup
   pCapacity_
   pVisibilityConfig_ =
     CreateRuleGroup'
-      { tags = Prelude.Nothing,
-        rules = Prelude.Nothing,
+      { customResponseBodies =
+          Prelude.Nothing,
         description = Prelude.Nothing,
-        customResponseBodies = Prelude.Nothing,
+        rules = Prelude.Nothing,
+        tags = Prelude.Nothing,
         name = pName_,
         scope = pScope_,
         capacity = pCapacity_,
         visibilityConfig = pVisibilityConfig_
       }
-
--- | An array of key:value pairs to associate with the resource.
-createRuleGroup_tags :: Lens.Lens' CreateRuleGroup (Prelude.Maybe (Prelude.NonEmpty Tag))
-createRuleGroup_tags = Lens.lens (\CreateRuleGroup' {tags} -> tags) (\s@CreateRuleGroup' {} a -> s {tags = a} :: CreateRuleGroup) Prelude.. Lens.mapping Lens.coerced
-
--- | The Rule statements used to identify the web requests that you want to
--- allow, block, or count. Each rule includes one top-level statement that
--- WAF uses to identify matching web requests, and parameters that govern
--- how WAF handles them.
-createRuleGroup_rules :: Lens.Lens' CreateRuleGroup (Prelude.Maybe [Rule])
-createRuleGroup_rules = Lens.lens (\CreateRuleGroup' {rules} -> rules) (\s@CreateRuleGroup' {} a -> s {rules = a} :: CreateRuleGroup) Prelude.. Lens.mapping Lens.coerced
-
--- | A description of the rule group that helps with identification.
-createRuleGroup_description :: Lens.Lens' CreateRuleGroup (Prelude.Maybe Prelude.Text)
-createRuleGroup_description = Lens.lens (\CreateRuleGroup' {description} -> description) (\s@CreateRuleGroup' {} a -> s {description = a} :: CreateRuleGroup)
 
 -- | A map of custom response keys and content bodies. When you create a rule
 -- with a block action, you can send a custom response to the web request.
@@ -248,6 +234,21 @@ createRuleGroup_description = Lens.lens (\CreateRuleGroup' {description} -> desc
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
 createRuleGroup_customResponseBodies :: Lens.Lens' CreateRuleGroup (Prelude.Maybe (Prelude.HashMap Prelude.Text CustomResponseBody))
 createRuleGroup_customResponseBodies = Lens.lens (\CreateRuleGroup' {customResponseBodies} -> customResponseBodies) (\s@CreateRuleGroup' {} a -> s {customResponseBodies = a} :: CreateRuleGroup) Prelude.. Lens.mapping Lens.coerced
+
+-- | A description of the rule group that helps with identification.
+createRuleGroup_description :: Lens.Lens' CreateRuleGroup (Prelude.Maybe Prelude.Text)
+createRuleGroup_description = Lens.lens (\CreateRuleGroup' {description} -> description) (\s@CreateRuleGroup' {} a -> s {description = a} :: CreateRuleGroup)
+
+-- | The Rule statements used to identify the web requests that you want to
+-- allow, block, or count. Each rule includes one top-level statement that
+-- WAF uses to identify matching web requests, and parameters that govern
+-- how WAF handles them.
+createRuleGroup_rules :: Lens.Lens' CreateRuleGroup (Prelude.Maybe [Rule])
+createRuleGroup_rules = Lens.lens (\CreateRuleGroup' {rules} -> rules) (\s@CreateRuleGroup' {} a -> s {rules = a} :: CreateRuleGroup) Prelude.. Lens.mapping Lens.coerced
+
+-- | An array of key:value pairs to associate with the resource.
+createRuleGroup_tags :: Lens.Lens' CreateRuleGroup (Prelude.Maybe (Prelude.NonEmpty Tag))
+createRuleGroup_tags = Lens.lens (\CreateRuleGroup' {tags} -> tags) (\s@CreateRuleGroup' {} a -> s {tags = a} :: CreateRuleGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the rule group. You cannot change the name of a rule group
 -- after you create it.
@@ -307,10 +308,10 @@ instance Core.AWSRequest CreateRuleGroup where
 
 instance Prelude.Hashable CreateRuleGroup where
   hashWithSalt _salt CreateRuleGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` rules
+    _salt `Prelude.hashWithSalt` customResponseBodies
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` customResponseBodies
+      `Prelude.hashWithSalt` rules
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` scope
       `Prelude.hashWithSalt` capacity
@@ -318,10 +319,10 @@ instance Prelude.Hashable CreateRuleGroup where
 
 instance Prelude.NFData CreateRuleGroup where
   rnf CreateRuleGroup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf rules
+    Prelude.rnf customResponseBodies
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf customResponseBodies
+      `Prelude.seq` Prelude.rnf rules
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf scope
       `Prelude.seq` Prelude.rnf capacity
@@ -346,11 +347,11 @@ instance Data.ToJSON CreateRuleGroup where
   toJSON CreateRuleGroup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Rules" Data..=) Prelude.<$> rules,
-            ("Description" Data..=) Prelude.<$> description,
-            ("CustomResponseBodies" Data..=)
+          [ ("CustomResponseBodies" Data..=)
               Prelude.<$> customResponseBodies,
+            ("Description" Data..=) Prelude.<$> description,
+            ("Rules" Data..=) Prelude.<$> rules,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("Scope" Data..= scope),
             Prelude.Just ("Capacity" Data..= capacity),

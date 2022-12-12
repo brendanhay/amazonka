@@ -34,15 +34,6 @@ import qualified Amazonka.Prelude as Prelude
 data PackageSummary = PackageSummary'
   { -- | The format of the package.
     format :: Prelude.Maybe PackageFormat,
-    -- | The name of the package.
-    package :: Prelude.Maybe Prelude.Text,
-    -- | A
-    -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginConfiguration.html PackageOriginConfiguration>
-    -- object that contains a
-    -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html PackageOriginRestrictions>
-    -- object that contains information about the upstream and publish package
-    -- origin restrictions.
-    originConfiguration :: Prelude.Maybe PackageOriginConfiguration,
     -- | The namespace of the package. The package component that specifies its
     -- namespace depends on its type. For example:
     --
@@ -52,7 +43,16 @@ data PackageSummary = PackageSummary'
     --
     -- -   Python and NuGet packages do not contain a corresponding component,
     --     packages of those formats do not have a namespace.
-    namespace :: Prelude.Maybe Prelude.Text
+    namespace :: Prelude.Maybe Prelude.Text,
+    -- | A
+    -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginConfiguration.html PackageOriginConfiguration>
+    -- object that contains a
+    -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html PackageOriginRestrictions>
+    -- object that contains information about the upstream and publish package
+    -- origin restrictions.
+    originConfiguration :: Prelude.Maybe PackageOriginConfiguration,
+    -- | The name of the package.
+    package :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,15 +66,6 @@ data PackageSummary = PackageSummary'
 --
 -- 'format', 'packageSummary_format' - The format of the package.
 --
--- 'package', 'packageSummary_package' - The name of the package.
---
--- 'originConfiguration', 'packageSummary_originConfiguration' - A
--- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginConfiguration.html PackageOriginConfiguration>
--- object that contains a
--- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html PackageOriginRestrictions>
--- object that contains information about the upstream and publish package
--- origin restrictions.
---
 -- 'namespace', 'packageSummary_namespace' - The namespace of the package. The package component that specifies its
 -- namespace depends on its type. For example:
 --
@@ -84,32 +75,28 @@ data PackageSummary = PackageSummary'
 --
 -- -   Python and NuGet packages do not contain a corresponding component,
 --     packages of those formats do not have a namespace.
-newPackageSummary ::
-  PackageSummary
-newPackageSummary =
-  PackageSummary'
-    { format = Prelude.Nothing,
-      package = Prelude.Nothing,
-      originConfiguration = Prelude.Nothing,
-      namespace = Prelude.Nothing
-    }
-
--- | The format of the package.
-packageSummary_format :: Lens.Lens' PackageSummary (Prelude.Maybe PackageFormat)
-packageSummary_format = Lens.lens (\PackageSummary' {format} -> format) (\s@PackageSummary' {} a -> s {format = a} :: PackageSummary)
-
--- | The name of the package.
-packageSummary_package :: Lens.Lens' PackageSummary (Prelude.Maybe Prelude.Text)
-packageSummary_package = Lens.lens (\PackageSummary' {package} -> package) (\s@PackageSummary' {} a -> s {package = a} :: PackageSummary)
-
--- | A
+--
+-- 'originConfiguration', 'packageSummary_originConfiguration' - A
 -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginConfiguration.html PackageOriginConfiguration>
 -- object that contains a
 -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html PackageOriginRestrictions>
 -- object that contains information about the upstream and publish package
 -- origin restrictions.
-packageSummary_originConfiguration :: Lens.Lens' PackageSummary (Prelude.Maybe PackageOriginConfiguration)
-packageSummary_originConfiguration = Lens.lens (\PackageSummary' {originConfiguration} -> originConfiguration) (\s@PackageSummary' {} a -> s {originConfiguration = a} :: PackageSummary)
+--
+-- 'package', 'packageSummary_package' - The name of the package.
+newPackageSummary ::
+  PackageSummary
+newPackageSummary =
+  PackageSummary'
+    { format = Prelude.Nothing,
+      namespace = Prelude.Nothing,
+      originConfiguration = Prelude.Nothing,
+      package = Prelude.Nothing
+    }
+
+-- | The format of the package.
+packageSummary_format :: Lens.Lens' PackageSummary (Prelude.Maybe PackageFormat)
+packageSummary_format = Lens.lens (\PackageSummary' {format} -> format) (\s@PackageSummary' {} a -> s {format = a} :: PackageSummary)
 
 -- | The namespace of the package. The package component that specifies its
 -- namespace depends on its type. For example:
@@ -123,6 +110,19 @@ packageSummary_originConfiguration = Lens.lens (\PackageSummary' {originConfigur
 packageSummary_namespace :: Lens.Lens' PackageSummary (Prelude.Maybe Prelude.Text)
 packageSummary_namespace = Lens.lens (\PackageSummary' {namespace} -> namespace) (\s@PackageSummary' {} a -> s {namespace = a} :: PackageSummary)
 
+-- | A
+-- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginConfiguration.html PackageOriginConfiguration>
+-- object that contains a
+-- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html PackageOriginRestrictions>
+-- object that contains information about the upstream and publish package
+-- origin restrictions.
+packageSummary_originConfiguration :: Lens.Lens' PackageSummary (Prelude.Maybe PackageOriginConfiguration)
+packageSummary_originConfiguration = Lens.lens (\PackageSummary' {originConfiguration} -> originConfiguration) (\s@PackageSummary' {} a -> s {originConfiguration = a} :: PackageSummary)
+
+-- | The name of the package.
+packageSummary_package :: Lens.Lens' PackageSummary (Prelude.Maybe Prelude.Text)
+packageSummary_package = Lens.lens (\PackageSummary' {package} -> package) (\s@PackageSummary' {} a -> s {package = a} :: PackageSummary)
+
 instance Data.FromJSON PackageSummary where
   parseJSON =
     Data.withObject
@@ -130,21 +130,21 @@ instance Data.FromJSON PackageSummary where
       ( \x ->
           PackageSummary'
             Prelude.<$> (x Data..:? "format")
-            Prelude.<*> (x Data..:? "package")
-            Prelude.<*> (x Data..:? "originConfiguration")
             Prelude.<*> (x Data..:? "namespace")
+            Prelude.<*> (x Data..:? "originConfiguration")
+            Prelude.<*> (x Data..:? "package")
       )
 
 instance Prelude.Hashable PackageSummary where
   hashWithSalt _salt PackageSummary' {..} =
     _salt `Prelude.hashWithSalt` format
-      `Prelude.hashWithSalt` package
-      `Prelude.hashWithSalt` originConfiguration
       `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` originConfiguration
+      `Prelude.hashWithSalt` package
 
 instance Prelude.NFData PackageSummary where
   rnf PackageSummary' {..} =
     Prelude.rnf format
-      `Prelude.seq` Prelude.rnf package
-      `Prelude.seq` Prelude.rnf originConfiguration
       `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf originConfiguration
+      `Prelude.seq` Prelude.rnf package

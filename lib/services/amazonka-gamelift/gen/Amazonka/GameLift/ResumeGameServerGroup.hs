@@ -24,7 +24,8 @@
 -- server groups.__
 --
 -- Reinstates activity on a game server group after it has been suspended.
--- A game server group might be suspended by theSuspendGameServerGroup
+-- A game server group might be suspended by the
+-- <gamelift/latest/apireference/API_SuspendGameServerGroup.html SuspendGameServerGroup>
 -- operation, or it might be suspended involuntarily due to a configuration
 -- problem. In the second case, you can manually resume activity on the
 -- group once the configuration problem has been resolved. Refer to the
@@ -32,20 +33,13 @@
 -- group activity is suspended.
 --
 -- To resume activity, specify a game server group ARN and the type of
--- activity to be resumed. If successful, a GameServerGroup object is
+-- activity to be resumed. If successful, a @GameServerGroup@ object is
 -- returned showing that the resumed activity is no longer listed in
 -- @SuspendedActions@.
 --
 -- __Learn more__
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html GameLift FleetIQ Guide>
---
--- __Related actions__
---
--- CreateGameServerGroup | ListGameServerGroups | DescribeGameServerGroup |
--- UpdateGameServerGroup | DeleteGameServerGroup | ResumeGameServerGroup |
--- SuspendGameServerGroup | DescribeGameServerInstances |
--- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html All APIs by task>
 module Amazonka.GameLift.ResumeGameServerGroup
   ( -- * Creating a Request
     ResumeGameServerGroup (..),
@@ -75,8 +69,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newResumeGameServerGroup' smart constructor.
 data ResumeGameServerGroup = ResumeGameServerGroup'
-  { -- | A unique identifier for the game server group. Use either the
-    -- GameServerGroup name or ARN value.
+  { -- | A unique identifier for the game server group. Use either the name or
+    -- ARN value.
     gameServerGroupName :: Prelude.Text,
     -- | The activity to resume for this game server group.
     resumeActions :: Prelude.NonEmpty GameServerGroupAction
@@ -91,8 +85,8 @@ data ResumeGameServerGroup = ResumeGameServerGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'gameServerGroupName', 'resumeGameServerGroup_gameServerGroupName' - A unique identifier for the game server group. Use either the
--- GameServerGroup name or ARN value.
+-- 'gameServerGroupName', 'resumeGameServerGroup_gameServerGroupName' - A unique identifier for the game server group. Use either the name or
+-- ARN value.
 --
 -- 'resumeActions', 'resumeGameServerGroup_resumeActions' - The activity to resume for this game server group.
 newResumeGameServerGroup ::
@@ -110,8 +104,8 @@ newResumeGameServerGroup
         resumeActions = Lens.coerced Lens.# pResumeActions_
       }
 
--- | A unique identifier for the game server group. Use either the
--- GameServerGroup name or ARN value.
+-- | A unique identifier for the game server group. Use either the name or
+-- ARN value.
 resumeGameServerGroup_gameServerGroupName :: Lens.Lens' ResumeGameServerGroup Prelude.Text
 resumeGameServerGroup_gameServerGroupName = Lens.lens (\ResumeGameServerGroup' {gameServerGroupName} -> gameServerGroupName) (\s@ResumeGameServerGroup' {} a -> s {gameServerGroupName = a} :: ResumeGameServerGroup)
 

@@ -58,8 +58,8 @@ module Amazonka.RDS.ModifyCertificates
     newModifyCertificates,
 
     -- * Request Lenses
-    modifyCertificates_removeCustomerOverride,
     modifyCertificates_certificateIdentifier,
+    modifyCertificates_removeCustomerOverride,
 
     -- * Destructuring the Response
     ModifyCertificatesResponse (..),
@@ -81,15 +81,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newModifyCertificates' smart constructor.
 data ModifyCertificates = ModifyCertificates'
-  { -- | A value that indicates whether to remove the override for the default
-    -- certificate. If the override is removed, the default certificate is the
-    -- system default.
-    removeCustomerOverride :: Prelude.Maybe Prelude.Bool,
-    -- | The new default certificate identifier to override the current one with.
+  { -- | The new default certificate identifier to override the current one with.
     --
     -- To determine the valid values, use the @describe-certificates@ CLI
     -- command or the @DescribeCertificates@ API operation.
-    certificateIdentifier :: Prelude.Maybe Prelude.Text
+    certificateIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | A value that indicates whether to remove the override for the default
+    -- certificate. If the override is removed, the default certificate is the
+    -- system default.
+    removeCustomerOverride :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -101,28 +101,22 @@ data ModifyCertificates = ModifyCertificates'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'removeCustomerOverride', 'modifyCertificates_removeCustomerOverride' - A value that indicates whether to remove the override for the default
--- certificate. If the override is removed, the default certificate is the
--- system default.
---
 -- 'certificateIdentifier', 'modifyCertificates_certificateIdentifier' - The new default certificate identifier to override the current one with.
 --
 -- To determine the valid values, use the @describe-certificates@ CLI
 -- command or the @DescribeCertificates@ API operation.
+--
+-- 'removeCustomerOverride', 'modifyCertificates_removeCustomerOverride' - A value that indicates whether to remove the override for the default
+-- certificate. If the override is removed, the default certificate is the
+-- system default.
 newModifyCertificates ::
   ModifyCertificates
 newModifyCertificates =
   ModifyCertificates'
-    { removeCustomerOverride =
+    { certificateIdentifier =
         Prelude.Nothing,
-      certificateIdentifier = Prelude.Nothing
+      removeCustomerOverride = Prelude.Nothing
     }
-
--- | A value that indicates whether to remove the override for the default
--- certificate. If the override is removed, the default certificate is the
--- system default.
-modifyCertificates_removeCustomerOverride :: Lens.Lens' ModifyCertificates (Prelude.Maybe Prelude.Bool)
-modifyCertificates_removeCustomerOverride = Lens.lens (\ModifyCertificates' {removeCustomerOverride} -> removeCustomerOverride) (\s@ModifyCertificates' {} a -> s {removeCustomerOverride = a} :: ModifyCertificates)
 
 -- | The new default certificate identifier to override the current one with.
 --
@@ -130,6 +124,12 @@ modifyCertificates_removeCustomerOverride = Lens.lens (\ModifyCertificates' {rem
 -- command or the @DescribeCertificates@ API operation.
 modifyCertificates_certificateIdentifier :: Lens.Lens' ModifyCertificates (Prelude.Maybe Prelude.Text)
 modifyCertificates_certificateIdentifier = Lens.lens (\ModifyCertificates' {certificateIdentifier} -> certificateIdentifier) (\s@ModifyCertificates' {} a -> s {certificateIdentifier = a} :: ModifyCertificates)
+
+-- | A value that indicates whether to remove the override for the default
+-- certificate. If the override is removed, the default certificate is the
+-- system default.
+modifyCertificates_removeCustomerOverride :: Lens.Lens' ModifyCertificates (Prelude.Maybe Prelude.Bool)
+modifyCertificates_removeCustomerOverride = Lens.lens (\ModifyCertificates' {removeCustomerOverride} -> removeCustomerOverride) (\s@ModifyCertificates' {} a -> s {removeCustomerOverride = a} :: ModifyCertificates)
 
 instance Core.AWSRequest ModifyCertificates where
   type
@@ -148,13 +148,13 @@ instance Core.AWSRequest ModifyCertificates where
 
 instance Prelude.Hashable ModifyCertificates where
   hashWithSalt _salt ModifyCertificates' {..} =
-    _salt `Prelude.hashWithSalt` removeCustomerOverride
-      `Prelude.hashWithSalt` certificateIdentifier
+    _salt `Prelude.hashWithSalt` certificateIdentifier
+      `Prelude.hashWithSalt` removeCustomerOverride
 
 instance Prelude.NFData ModifyCertificates where
   rnf ModifyCertificates' {..} =
-    Prelude.rnf removeCustomerOverride
-      `Prelude.seq` Prelude.rnf certificateIdentifier
+    Prelude.rnf certificateIdentifier
+      `Prelude.seq` Prelude.rnf removeCustomerOverride
 
 instance Data.ToHeaders ModifyCertificates where
   toHeaders = Prelude.const Prelude.mempty
@@ -169,10 +169,10 @@ instance Data.ToQuery ModifyCertificates where
           Data.=: ("ModifyCertificates" :: Prelude.ByteString),
         "Version"
           Data.=: ("2014-10-31" :: Prelude.ByteString),
-        "RemoveCustomerOverride"
-          Data.=: removeCustomerOverride,
         "CertificateIdentifier"
-          Data.=: certificateIdentifier
+          Data.=: certificateIdentifier,
+        "RemoveCustomerOverride"
+          Data.=: removeCustomerOverride
       ]
 
 -- | /See:/ 'newModifyCertificatesResponse' smart constructor.

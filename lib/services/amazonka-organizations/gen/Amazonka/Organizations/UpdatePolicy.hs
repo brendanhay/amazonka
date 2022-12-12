@@ -32,9 +32,9 @@ module Amazonka.Organizations.UpdatePolicy
     newUpdatePolicy,
 
     -- * Request Lenses
-    updatePolicy_name,
-    updatePolicy_description,
     updatePolicy_content,
+    updatePolicy_description,
+    updatePolicy_name,
     updatePolicy_policyId,
 
     -- * Destructuring the Response
@@ -57,20 +57,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdatePolicy' smart constructor.
 data UpdatePolicy = UpdatePolicy'
-  { -- | If provided, the new name for the policy.
-    --
-    -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
-    -- validate this parameter is a string of any of the characters in the
-    -- ASCII character range.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | If provided, the new description for the policy.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | If provided, the new content for the policy. The text must be correctly
+  { -- | If provided, the new content for the policy. The text must be correctly
     -- formatted JSON that complies with the syntax for the policy\'s type. For
     -- more information, see
     -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax>
     -- in the /Organizations User Guide./
     content :: Prelude.Maybe Prelude.Text,
+    -- | If provided, the new description for the policy.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | If provided, the new name for the policy.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
+    -- validate this parameter is a string of any of the characters in the
+    -- ASCII character range.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier (ID) of the policy that you want to update.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID
@@ -88,19 +88,19 @@ data UpdatePolicy = UpdatePolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updatePolicy_name' - If provided, the new name for the policy.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
--- validate this parameter is a string of any of the characters in the
--- ASCII character range.
---
--- 'description', 'updatePolicy_description' - If provided, the new description for the policy.
---
 -- 'content', 'updatePolicy_content' - If provided, the new content for the policy. The text must be correctly
 -- formatted JSON that complies with the syntax for the policy\'s type. For
 -- more information, see
 -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax>
 -- in the /Organizations User Guide./
+--
+-- 'description', 'updatePolicy_description' - If provided, the new description for the policy.
+--
+-- 'name', 'updatePolicy_name' - If provided, the new name for the policy.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
+-- validate this parameter is a string of any of the characters in the
+-- ASCII character range.
 --
 -- 'policyId', 'updatePolicy_policyId' - The unique identifier (ID) of the policy that you want to update.
 --
@@ -113,23 +113,11 @@ newUpdatePolicy ::
   UpdatePolicy
 newUpdatePolicy pPolicyId_ =
   UpdatePolicy'
-    { name = Prelude.Nothing,
+    { content = Prelude.Nothing,
       description = Prelude.Nothing,
-      content = Prelude.Nothing,
+      name = Prelude.Nothing,
       policyId = pPolicyId_
     }
-
--- | If provided, the new name for the policy.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
--- validate this parameter is a string of any of the characters in the
--- ASCII character range.
-updatePolicy_name :: Lens.Lens' UpdatePolicy (Prelude.Maybe Prelude.Text)
-updatePolicy_name = Lens.lens (\UpdatePolicy' {name} -> name) (\s@UpdatePolicy' {} a -> s {name = a} :: UpdatePolicy)
-
--- | If provided, the new description for the policy.
-updatePolicy_description :: Lens.Lens' UpdatePolicy (Prelude.Maybe Prelude.Text)
-updatePolicy_description = Lens.lens (\UpdatePolicy' {description} -> description) (\s@UpdatePolicy' {} a -> s {description = a} :: UpdatePolicy)
 
 -- | If provided, the new content for the policy. The text must be correctly
 -- formatted JSON that complies with the syntax for the policy\'s type. For
@@ -138,6 +126,18 @@ updatePolicy_description = Lens.lens (\UpdatePolicy' {description} -> descriptio
 -- in the /Organizations User Guide./
 updatePolicy_content :: Lens.Lens' UpdatePolicy (Prelude.Maybe Prelude.Text)
 updatePolicy_content = Lens.lens (\UpdatePolicy' {content} -> content) (\s@UpdatePolicy' {} a -> s {content = a} :: UpdatePolicy)
+
+-- | If provided, the new description for the policy.
+updatePolicy_description :: Lens.Lens' UpdatePolicy (Prelude.Maybe Prelude.Text)
+updatePolicy_description = Lens.lens (\UpdatePolicy' {description} -> description) (\s@UpdatePolicy' {} a -> s {description = a} :: UpdatePolicy)
+
+-- | If provided, the new name for the policy.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
+-- validate this parameter is a string of any of the characters in the
+-- ASCII character range.
+updatePolicy_name :: Lens.Lens' UpdatePolicy (Prelude.Maybe Prelude.Text)
+updatePolicy_name = Lens.lens (\UpdatePolicy' {name} -> name) (\s@UpdatePolicy' {} a -> s {name = a} :: UpdatePolicy)
 
 -- | The unique identifier (ID) of the policy that you want to update.
 --
@@ -161,16 +161,16 @@ instance Core.AWSRequest UpdatePolicy where
 
 instance Prelude.Hashable UpdatePolicy where
   hashWithSalt _salt UpdatePolicy' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` policyId
 
 instance Prelude.NFData UpdatePolicy where
   rnf UpdatePolicy' {..} =
-    Prelude.rnf name
+    Prelude.rnf content
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf content
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf policyId
 
 instance Data.ToHeaders UpdatePolicy where
@@ -192,9 +192,9 @@ instance Data.ToJSON UpdatePolicy where
   toJSON UpdatePolicy' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
+          [ ("Content" Data..=) Prelude.<$> content,
             ("Description" Data..=) Prelude.<$> description,
-            ("Content" Data..=) Prelude.<$> content,
+            ("Name" Data..=) Prelude.<$> name,
             Prelude.Just ("PolicyId" Data..= policyId)
           ]
       )

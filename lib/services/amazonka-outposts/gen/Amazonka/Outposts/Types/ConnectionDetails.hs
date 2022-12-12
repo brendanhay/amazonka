@@ -28,18 +28,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConnectionDetails' smart constructor.
 data ConnectionDetails = ConnectionDetails'
-  { -- | The endpoint for the server.
-    serverEndpoint :: Prelude.Maybe Prelude.Text,
-    -- | The public key of the server.
-    serverPublicKey :: Prelude.Maybe Prelude.Text,
+  { -- | The allowed IP addresses.
+    allowedIps :: Prelude.Maybe [Prelude.Text],
     -- | The public key of the client.
     clientPublicKey :: Prelude.Maybe Prelude.Text,
     -- | The client tunnel address.
     clientTunnelAddress :: Prelude.Maybe Prelude.Text,
+    -- | The endpoint for the server.
+    serverEndpoint :: Prelude.Maybe Prelude.Text,
+    -- | The public key of the server.
+    serverPublicKey :: Prelude.Maybe Prelude.Text,
     -- | The server tunnel address.
-    serverTunnelAddress :: Prelude.Maybe Prelude.Text,
-    -- | The allowed IP addresses.
-    allowedIps :: Prelude.Maybe [Prelude.Text]
+    serverTunnelAddress :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,37 +51,32 @@ data ConnectionDetails = ConnectionDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serverEndpoint', 'connectionDetails_serverEndpoint' - The endpoint for the server.
---
--- 'serverPublicKey', 'connectionDetails_serverPublicKey' - The public key of the server.
+-- 'allowedIps', 'connectionDetails_allowedIps' - The allowed IP addresses.
 --
 -- 'clientPublicKey', 'connectionDetails_clientPublicKey' - The public key of the client.
 --
 -- 'clientTunnelAddress', 'connectionDetails_clientTunnelAddress' - The client tunnel address.
 --
--- 'serverTunnelAddress', 'connectionDetails_serverTunnelAddress' - The server tunnel address.
+-- 'serverEndpoint', 'connectionDetails_serverEndpoint' - The endpoint for the server.
 --
--- 'allowedIps', 'connectionDetails_allowedIps' - The allowed IP addresses.
+-- 'serverPublicKey', 'connectionDetails_serverPublicKey' - The public key of the server.
+--
+-- 'serverTunnelAddress', 'connectionDetails_serverTunnelAddress' - The server tunnel address.
 newConnectionDetails ::
   ConnectionDetails
 newConnectionDetails =
   ConnectionDetails'
-    { serverEndpoint =
-        Prelude.Nothing,
-      serverPublicKey = Prelude.Nothing,
+    { allowedIps = Prelude.Nothing,
       clientPublicKey = Prelude.Nothing,
       clientTunnelAddress = Prelude.Nothing,
-      serverTunnelAddress = Prelude.Nothing,
-      allowedIps = Prelude.Nothing
+      serverEndpoint = Prelude.Nothing,
+      serverPublicKey = Prelude.Nothing,
+      serverTunnelAddress = Prelude.Nothing
     }
 
--- | The endpoint for the server.
-connectionDetails_serverEndpoint :: Lens.Lens' ConnectionDetails (Prelude.Maybe Prelude.Text)
-connectionDetails_serverEndpoint = Lens.lens (\ConnectionDetails' {serverEndpoint} -> serverEndpoint) (\s@ConnectionDetails' {} a -> s {serverEndpoint = a} :: ConnectionDetails)
-
--- | The public key of the server.
-connectionDetails_serverPublicKey :: Lens.Lens' ConnectionDetails (Prelude.Maybe Prelude.Text)
-connectionDetails_serverPublicKey = Lens.lens (\ConnectionDetails' {serverPublicKey} -> serverPublicKey) (\s@ConnectionDetails' {} a -> s {serverPublicKey = a} :: ConnectionDetails)
+-- | The allowed IP addresses.
+connectionDetails_allowedIps :: Lens.Lens' ConnectionDetails (Prelude.Maybe [Prelude.Text])
+connectionDetails_allowedIps = Lens.lens (\ConnectionDetails' {allowedIps} -> allowedIps) (\s@ConnectionDetails' {} a -> s {allowedIps = a} :: ConnectionDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | The public key of the client.
 connectionDetails_clientPublicKey :: Lens.Lens' ConnectionDetails (Prelude.Maybe Prelude.Text)
@@ -91,13 +86,17 @@ connectionDetails_clientPublicKey = Lens.lens (\ConnectionDetails' {clientPublic
 connectionDetails_clientTunnelAddress :: Lens.Lens' ConnectionDetails (Prelude.Maybe Prelude.Text)
 connectionDetails_clientTunnelAddress = Lens.lens (\ConnectionDetails' {clientTunnelAddress} -> clientTunnelAddress) (\s@ConnectionDetails' {} a -> s {clientTunnelAddress = a} :: ConnectionDetails)
 
+-- | The endpoint for the server.
+connectionDetails_serverEndpoint :: Lens.Lens' ConnectionDetails (Prelude.Maybe Prelude.Text)
+connectionDetails_serverEndpoint = Lens.lens (\ConnectionDetails' {serverEndpoint} -> serverEndpoint) (\s@ConnectionDetails' {} a -> s {serverEndpoint = a} :: ConnectionDetails)
+
+-- | The public key of the server.
+connectionDetails_serverPublicKey :: Lens.Lens' ConnectionDetails (Prelude.Maybe Prelude.Text)
+connectionDetails_serverPublicKey = Lens.lens (\ConnectionDetails' {serverPublicKey} -> serverPublicKey) (\s@ConnectionDetails' {} a -> s {serverPublicKey = a} :: ConnectionDetails)
+
 -- | The server tunnel address.
 connectionDetails_serverTunnelAddress :: Lens.Lens' ConnectionDetails (Prelude.Maybe Prelude.Text)
 connectionDetails_serverTunnelAddress = Lens.lens (\ConnectionDetails' {serverTunnelAddress} -> serverTunnelAddress) (\s@ConnectionDetails' {} a -> s {serverTunnelAddress = a} :: ConnectionDetails)
-
--- | The allowed IP addresses.
-connectionDetails_allowedIps :: Lens.Lens' ConnectionDetails (Prelude.Maybe [Prelude.Text])
-connectionDetails_allowedIps = Lens.lens (\ConnectionDetails' {allowedIps} -> allowedIps) (\s@ConnectionDetails' {} a -> s {allowedIps = a} :: ConnectionDetails) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON ConnectionDetails where
   parseJSON =
@@ -105,28 +104,28 @@ instance Data.FromJSON ConnectionDetails where
       "ConnectionDetails"
       ( \x ->
           ConnectionDetails'
-            Prelude.<$> (x Data..:? "ServerEndpoint")
-            Prelude.<*> (x Data..:? "ServerPublicKey")
+            Prelude.<$> (x Data..:? "AllowedIps" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "ClientPublicKey")
             Prelude.<*> (x Data..:? "ClientTunnelAddress")
+            Prelude.<*> (x Data..:? "ServerEndpoint")
+            Prelude.<*> (x Data..:? "ServerPublicKey")
             Prelude.<*> (x Data..:? "ServerTunnelAddress")
-            Prelude.<*> (x Data..:? "AllowedIps" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ConnectionDetails where
   hashWithSalt _salt ConnectionDetails' {..} =
-    _salt `Prelude.hashWithSalt` serverEndpoint
-      `Prelude.hashWithSalt` serverPublicKey
+    _salt `Prelude.hashWithSalt` allowedIps
       `Prelude.hashWithSalt` clientPublicKey
       `Prelude.hashWithSalt` clientTunnelAddress
+      `Prelude.hashWithSalt` serverEndpoint
+      `Prelude.hashWithSalt` serverPublicKey
       `Prelude.hashWithSalt` serverTunnelAddress
-      `Prelude.hashWithSalt` allowedIps
 
 instance Prelude.NFData ConnectionDetails where
   rnf ConnectionDetails' {..} =
-    Prelude.rnf serverEndpoint
-      `Prelude.seq` Prelude.rnf serverPublicKey
+    Prelude.rnf allowedIps
       `Prelude.seq` Prelude.rnf clientPublicKey
       `Prelude.seq` Prelude.rnf clientTunnelAddress
+      `Prelude.seq` Prelude.rnf serverEndpoint
+      `Prelude.seq` Prelude.rnf serverPublicKey
       `Prelude.seq` Prelude.rnf serverTunnelAddress
-      `Prelude.seq` Prelude.rnf allowedIps

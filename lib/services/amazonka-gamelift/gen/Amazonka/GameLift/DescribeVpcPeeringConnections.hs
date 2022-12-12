@@ -32,9 +32,6 @@
 --
 -- __Related actions__
 --
--- CreateVpcPeeringAuthorization | DescribeVpcPeeringAuthorizations |
--- DeleteVpcPeeringAuthorization | CreateVpcPeeringConnection |
--- DescribeVpcPeeringConnections | DeleteVpcPeeringConnection |
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Amazonka.GameLift.DescribeVpcPeeringConnections
   ( -- * Creating a Request
@@ -62,9 +59,7 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Represents the input for a request operation.
---
--- /See:/ 'newDescribeVpcPeeringConnections' smart constructor.
+-- | /See:/ 'newDescribeVpcPeeringConnections' smart constructor.
 data DescribeVpcPeeringConnections = DescribeVpcPeeringConnections'
   { -- | A unique identifier for the fleet. You can use either the fleet ID or
     -- ARN value.
@@ -153,9 +148,7 @@ instance Data.ToPath DescribeVpcPeeringConnections where
 instance Data.ToQuery DescribeVpcPeeringConnections where
   toQuery = Prelude.const Prelude.mempty
 
--- | Represents the returned data in response to a request operation.
---
--- /See:/ 'newDescribeVpcPeeringConnectionsResponse' smart constructor.
+-- | /See:/ 'newDescribeVpcPeeringConnectionsResponse' smart constructor.
 data DescribeVpcPeeringConnectionsResponse = DescribeVpcPeeringConnectionsResponse'
   { -- | A collection of VPC peering connection records that match the request.
     vpcPeeringConnections :: Prelude.Maybe [VpcPeeringConnection],

@@ -31,8 +31,8 @@ module Amazonka.Connect.DisassociateBot
     newDisassociateBot,
 
     -- * Request Lenses
-    disassociateBot_lexV2Bot,
     disassociateBot_lexBot,
+    disassociateBot_lexV2Bot,
     disassociateBot_instanceId,
 
     -- * Destructuring the Response
@@ -51,9 +51,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDisassociateBot' smart constructor.
 data DisassociateBot = DisassociateBot'
-  { -- | The Amazon Lex V2 bot to disassociate from the instance.
+  { lexBot :: Prelude.Maybe LexBot,
+    -- | The Amazon Lex V2 bot to disassociate from the instance.
     lexV2Bot :: Prelude.Maybe LexV2Bot,
-    lexBot :: Prelude.Maybe LexBot,
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
@@ -68,9 +68,9 @@ data DisassociateBot = DisassociateBot'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lexV2Bot', 'disassociateBot_lexV2Bot' - The Amazon Lex V2 bot to disassociate from the instance.
---
 -- 'lexBot', 'disassociateBot_lexBot' - Undocumented member.
+--
+-- 'lexV2Bot', 'disassociateBot_lexV2Bot' - The Amazon Lex V2 bot to disassociate from the instance.
 --
 -- 'instanceId', 'disassociateBot_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -80,18 +80,18 @@ newDisassociateBot ::
   DisassociateBot
 newDisassociateBot pInstanceId_ =
   DisassociateBot'
-    { lexV2Bot = Prelude.Nothing,
-      lexBot = Prelude.Nothing,
+    { lexBot = Prelude.Nothing,
+      lexV2Bot = Prelude.Nothing,
       instanceId = pInstanceId_
     }
-
--- | The Amazon Lex V2 bot to disassociate from the instance.
-disassociateBot_lexV2Bot :: Lens.Lens' DisassociateBot (Prelude.Maybe LexV2Bot)
-disassociateBot_lexV2Bot = Lens.lens (\DisassociateBot' {lexV2Bot} -> lexV2Bot) (\s@DisassociateBot' {} a -> s {lexV2Bot = a} :: DisassociateBot)
 
 -- | Undocumented member.
 disassociateBot_lexBot :: Lens.Lens' DisassociateBot (Prelude.Maybe LexBot)
 disassociateBot_lexBot = Lens.lens (\DisassociateBot' {lexBot} -> lexBot) (\s@DisassociateBot' {} a -> s {lexBot = a} :: DisassociateBot)
+
+-- | The Amazon Lex V2 bot to disassociate from the instance.
+disassociateBot_lexV2Bot :: Lens.Lens' DisassociateBot (Prelude.Maybe LexV2Bot)
+disassociateBot_lexV2Bot = Lens.lens (\DisassociateBot' {lexV2Bot} -> lexV2Bot) (\s@DisassociateBot' {} a -> s {lexV2Bot = a} :: DisassociateBot)
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -109,14 +109,14 @@ instance Core.AWSRequest DisassociateBot where
 
 instance Prelude.Hashable DisassociateBot where
   hashWithSalt _salt DisassociateBot' {..} =
-    _salt `Prelude.hashWithSalt` lexV2Bot
-      `Prelude.hashWithSalt` lexBot
+    _salt `Prelude.hashWithSalt` lexBot
+      `Prelude.hashWithSalt` lexV2Bot
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData DisassociateBot where
   rnf DisassociateBot' {..} =
-    Prelude.rnf lexV2Bot
-      `Prelude.seq` Prelude.rnf lexBot
+    Prelude.rnf lexBot
+      `Prelude.seq` Prelude.rnf lexV2Bot
       `Prelude.seq` Prelude.rnf instanceId
 
 instance Data.ToHeaders DisassociateBot where
@@ -134,8 +134,8 @@ instance Data.ToJSON DisassociateBot where
   toJSON DisassociateBot' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("LexV2Bot" Data..=) Prelude.<$> lexV2Bot,
-            ("LexBot" Data..=) Prelude.<$> lexBot
+          [ ("LexBot" Data..=) Prelude.<$> lexBot,
+            ("LexV2Bot" Data..=) Prelude.<$> lexV2Bot
           ]
       )
 

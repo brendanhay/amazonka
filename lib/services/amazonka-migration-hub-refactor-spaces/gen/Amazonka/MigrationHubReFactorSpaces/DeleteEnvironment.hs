@@ -36,11 +36,11 @@ module Amazonka.MigrationHubReFactorSpaces.DeleteEnvironment
     newDeleteEnvironmentResponse,
 
     -- * Response Lenses
-    deleteEnvironmentResponse_name,
     deleteEnvironmentResponse_arn,
-    deleteEnvironmentResponse_state,
-    deleteEnvironmentResponse_lastUpdatedTime,
     deleteEnvironmentResponse_environmentId,
+    deleteEnvironmentResponse_lastUpdatedTime,
+    deleteEnvironmentResponse_name,
+    deleteEnvironmentResponse_state,
     deleteEnvironmentResponse_httpStatus,
   )
 where
@@ -93,11 +93,11 @@ instance Core.AWSRequest DeleteEnvironment where
     Response.receiveJSON
       ( \s h x ->
           DeleteEnvironmentResponse'
-            Prelude.<$> (x Data..?> "Name")
-            Prelude.<*> (x Data..?> "Arn")
-            Prelude.<*> (x Data..?> "State")
-            Prelude.<*> (x Data..?> "LastUpdatedTime")
+            Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (x Data..?> "EnvironmentId")
+            Prelude.<*> (x Data..?> "LastUpdatedTime")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "State")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,16 +130,16 @@ instance Data.ToQuery DeleteEnvironment where
 
 -- | /See:/ 'newDeleteEnvironmentResponse' smart constructor.
 data DeleteEnvironmentResponse = DeleteEnvironmentResponse'
-  { -- | The name of the environment.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the environment.
+  { -- | The Amazon Resource Name (ARN) of the environment.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The current state of the environment.
-    state :: Prelude.Maybe EnvironmentState,
-    -- | A timestamp that indicates when the environment was last updated.
-    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The unique identifier of the environment.
     environmentId :: Prelude.Maybe Prelude.Text,
+    -- | A timestamp that indicates when the environment was last updated.
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
+    -- | The name of the environment.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The current state of the environment.
+    state :: Prelude.Maybe EnvironmentState,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -153,15 +153,15 @@ data DeleteEnvironmentResponse = DeleteEnvironmentResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'deleteEnvironmentResponse_name' - The name of the environment.
---
 -- 'arn', 'deleteEnvironmentResponse_arn' - The Amazon Resource Name (ARN) of the environment.
 --
--- 'state', 'deleteEnvironmentResponse_state' - The current state of the environment.
+-- 'environmentId', 'deleteEnvironmentResponse_environmentId' - The unique identifier of the environment.
 --
 -- 'lastUpdatedTime', 'deleteEnvironmentResponse_lastUpdatedTime' - A timestamp that indicates when the environment was last updated.
 --
--- 'environmentId', 'deleteEnvironmentResponse_environmentId' - The unique identifier of the environment.
+-- 'name', 'deleteEnvironmentResponse_name' - The name of the environment.
+--
+-- 'state', 'deleteEnvironmentResponse_state' - The current state of the environment.
 --
 -- 'httpStatus', 'deleteEnvironmentResponse_httpStatus' - The response's http status code.
 newDeleteEnvironmentResponse ::
@@ -170,33 +170,33 @@ newDeleteEnvironmentResponse ::
   DeleteEnvironmentResponse
 newDeleteEnvironmentResponse pHttpStatus_ =
   DeleteEnvironmentResponse'
-    { name = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      state = Prelude.Nothing,
-      lastUpdatedTime = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       environmentId = Prelude.Nothing,
+      lastUpdatedTime = Prelude.Nothing,
+      name = Prelude.Nothing,
+      state = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The name of the environment.
-deleteEnvironmentResponse_name :: Lens.Lens' DeleteEnvironmentResponse (Prelude.Maybe Prelude.Text)
-deleteEnvironmentResponse_name = Lens.lens (\DeleteEnvironmentResponse' {name} -> name) (\s@DeleteEnvironmentResponse' {} a -> s {name = a} :: DeleteEnvironmentResponse)
 
 -- | The Amazon Resource Name (ARN) of the environment.
 deleteEnvironmentResponse_arn :: Lens.Lens' DeleteEnvironmentResponse (Prelude.Maybe Prelude.Text)
 deleteEnvironmentResponse_arn = Lens.lens (\DeleteEnvironmentResponse' {arn} -> arn) (\s@DeleteEnvironmentResponse' {} a -> s {arn = a} :: DeleteEnvironmentResponse)
 
--- | The current state of the environment.
-deleteEnvironmentResponse_state :: Lens.Lens' DeleteEnvironmentResponse (Prelude.Maybe EnvironmentState)
-deleteEnvironmentResponse_state = Lens.lens (\DeleteEnvironmentResponse' {state} -> state) (\s@DeleteEnvironmentResponse' {} a -> s {state = a} :: DeleteEnvironmentResponse)
+-- | The unique identifier of the environment.
+deleteEnvironmentResponse_environmentId :: Lens.Lens' DeleteEnvironmentResponse (Prelude.Maybe Prelude.Text)
+deleteEnvironmentResponse_environmentId = Lens.lens (\DeleteEnvironmentResponse' {environmentId} -> environmentId) (\s@DeleteEnvironmentResponse' {} a -> s {environmentId = a} :: DeleteEnvironmentResponse)
 
 -- | A timestamp that indicates when the environment was last updated.
 deleteEnvironmentResponse_lastUpdatedTime :: Lens.Lens' DeleteEnvironmentResponse (Prelude.Maybe Prelude.UTCTime)
 deleteEnvironmentResponse_lastUpdatedTime = Lens.lens (\DeleteEnvironmentResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@DeleteEnvironmentResponse' {} a -> s {lastUpdatedTime = a} :: DeleteEnvironmentResponse) Prelude.. Lens.mapping Data._Time
 
--- | The unique identifier of the environment.
-deleteEnvironmentResponse_environmentId :: Lens.Lens' DeleteEnvironmentResponse (Prelude.Maybe Prelude.Text)
-deleteEnvironmentResponse_environmentId = Lens.lens (\DeleteEnvironmentResponse' {environmentId} -> environmentId) (\s@DeleteEnvironmentResponse' {} a -> s {environmentId = a} :: DeleteEnvironmentResponse)
+-- | The name of the environment.
+deleteEnvironmentResponse_name :: Lens.Lens' DeleteEnvironmentResponse (Prelude.Maybe Prelude.Text)
+deleteEnvironmentResponse_name = Lens.lens (\DeleteEnvironmentResponse' {name} -> name) (\s@DeleteEnvironmentResponse' {} a -> s {name = a} :: DeleteEnvironmentResponse)
+
+-- | The current state of the environment.
+deleteEnvironmentResponse_state :: Lens.Lens' DeleteEnvironmentResponse (Prelude.Maybe EnvironmentState)
+deleteEnvironmentResponse_state = Lens.lens (\DeleteEnvironmentResponse' {state} -> state) (\s@DeleteEnvironmentResponse' {} a -> s {state = a} :: DeleteEnvironmentResponse)
 
 -- | The response's http status code.
 deleteEnvironmentResponse_httpStatus :: Lens.Lens' DeleteEnvironmentResponse Prelude.Int
@@ -204,9 +204,9 @@ deleteEnvironmentResponse_httpStatus = Lens.lens (\DeleteEnvironmentResponse' {h
 
 instance Prelude.NFData DeleteEnvironmentResponse where
   rnf DeleteEnvironmentResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf environmentId
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf httpStatus

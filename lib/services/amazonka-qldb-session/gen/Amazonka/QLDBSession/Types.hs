@@ -18,12 +18,12 @@ module Amazonka.QLDBSession.Types
     defaultService,
 
     -- * Errors
-    _OccConflictException,
-    _LimitExceededException,
-    _CapacityExceededException,
     _BadRequestException,
-    _RateExceededException,
+    _CapacityExceededException,
     _InvalidSessionException,
+    _LimitExceededException,
+    _OccConflictException,
+    _RateExceededException,
 
     -- * AbortTransactionRequest
     AbortTransactionRequest (..),
@@ -44,8 +44,8 @@ module Amazonka.QLDBSession.Types
     CommitTransactionResult (..),
     newCommitTransactionResult,
     commitTransactionResult_commitDigest,
-    commitTransactionResult_timingInformation,
     commitTransactionResult_consumedIOs,
+    commitTransactionResult_timingInformation,
     commitTransactionResult_transactionId,
 
     -- * EndSessionRequest
@@ -67,9 +67,9 @@ module Amazonka.QLDBSession.Types
     -- * ExecuteStatementResult
     ExecuteStatementResult (..),
     newExecuteStatementResult,
-    executeStatementResult_timingInformation,
     executeStatementResult_consumedIOs,
     executeStatementResult_firstPage,
+    executeStatementResult_timingInformation,
 
     -- * FetchPageRequest
     FetchPageRequest (..),
@@ -80,9 +80,9 @@ module Amazonka.QLDBSession.Types
     -- * FetchPageResult
     FetchPageResult (..),
     newFetchPageResult,
-    fetchPageResult_timingInformation,
     fetchPageResult_consumedIOs,
     fetchPageResult_page,
+    fetchPageResult_timingInformation,
 
     -- * IOUsage
     IOUsage (..),
@@ -104,8 +104,8 @@ module Amazonka.QLDBSession.Types
     -- * StartSessionResult
     StartSessionResult (..),
     newStartSessionResult,
-    startSessionResult_timingInformation,
     startSessionResult_sessionToken,
+    startSessionResult_timingInformation,
 
     -- * StartTransactionRequest
     StartTransactionRequest (..),
@@ -178,28 +178,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -207,13 +201,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -221,7 +219,40 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
+
+-- | Returned if the request is malformed or contains an error such as an
+-- invalid parameter value or a missing required parameter.
+_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException =
+  Core._MatchServiceError
+    defaultService
+    "BadRequestException"
+
+-- | Returned when the request exceeds the processing capacity of the ledger.
+_CapacityExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CapacityExceededException =
+  Core._MatchServiceError
+    defaultService
+    "CapacityExceededException"
+
+-- | Returned if the session doesn\'t exist anymore because it timed out or
+-- expired.
+_InvalidSessionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidSessionException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidSessionException"
+
+-- | Returned if a resource limit such as number of active sessions is
+-- exceeded.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
 
 -- | Returned when a transaction cannot be written to the journal due to a
 -- failure in the verification phase of /optimistic concurrency control/
@@ -232,40 +263,9 @@ _OccConflictException =
     defaultService
     "OccConflictException"
 
--- | Returned if a resource limit such as number of active sessions is
--- exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "LimitExceededException"
-
--- | Returned when the request exceeds the processing capacity of the ledger.
-_CapacityExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CapacityExceededException =
-  Core._MatchServiceError
-    defaultService
-    "CapacityExceededException"
-
--- | Returned if the request is malformed or contains an error such as an
--- invalid parameter value or a missing required parameter.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_BadRequestException =
-  Core._MatchServiceError
-    defaultService
-    "BadRequestException"
-
 -- | Returned when the rate of requests exceeds the allowed throughput.
 _RateExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _RateExceededException =
   Core._MatchServiceError
     defaultService
     "RateExceededException"
-
--- | Returned if the session doesn\'t exist anymore because it timed out or
--- expired.
-_InvalidSessionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidSessionException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidSessionException"

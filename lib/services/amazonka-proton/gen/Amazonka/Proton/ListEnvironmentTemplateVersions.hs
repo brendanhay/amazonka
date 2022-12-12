@@ -31,8 +31,8 @@ module Amazonka.Proton.ListEnvironmentTemplateVersions
 
     -- * Request Lenses
     listEnvironmentTemplateVersions_majorVersion,
-    listEnvironmentTemplateVersions_nextToken,
     listEnvironmentTemplateVersions_maxResults,
+    listEnvironmentTemplateVersions_nextToken,
     listEnvironmentTemplateVersions_templateName,
 
     -- * Destructuring the Response
@@ -62,13 +62,13 @@ data ListEnvironmentTemplateVersions = ListEnvironmentTemplateVersions'
     -- To view a list of major versions of an environment template, /exclude/
     -- @major Version@.
     majorVersion :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of major or minor versions of an environment template
+    -- to list.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A token that indicates the location of the next major or minor version
     -- in the array of major or minor versions of an environment template,
     -- after the list of major or minor versions that was previously requested.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of major or minor versions of an environment template
-    -- to list.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the environment template.
     templateName :: Prelude.Text
   }
@@ -88,12 +88,12 @@ data ListEnvironmentTemplateVersions = ListEnvironmentTemplateVersions'
 -- To view a list of major versions of an environment template, /exclude/
 -- @major Version@.
 --
+-- 'maxResults', 'listEnvironmentTemplateVersions_maxResults' - The maximum number of major or minor versions of an environment template
+-- to list.
+--
 -- 'nextToken', 'listEnvironmentTemplateVersions_nextToken' - A token that indicates the location of the next major or minor version
 -- in the array of major or minor versions of an environment template,
 -- after the list of major or minor versions that was previously requested.
---
--- 'maxResults', 'listEnvironmentTemplateVersions_maxResults' - The maximum number of major or minor versions of an environment template
--- to list.
 --
 -- 'templateName', 'listEnvironmentTemplateVersions_templateName' - The name of the environment template.
 newListEnvironmentTemplateVersions ::
@@ -104,8 +104,8 @@ newListEnvironmentTemplateVersions pTemplateName_ =
   ListEnvironmentTemplateVersions'
     { majorVersion =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       templateName = pTemplateName_
     }
 
@@ -117,16 +117,16 @@ newListEnvironmentTemplateVersions pTemplateName_ =
 listEnvironmentTemplateVersions_majorVersion :: Lens.Lens' ListEnvironmentTemplateVersions (Prelude.Maybe Prelude.Text)
 listEnvironmentTemplateVersions_majorVersion = Lens.lens (\ListEnvironmentTemplateVersions' {majorVersion} -> majorVersion) (\s@ListEnvironmentTemplateVersions' {} a -> s {majorVersion = a} :: ListEnvironmentTemplateVersions)
 
+-- | The maximum number of major or minor versions of an environment template
+-- to list.
+listEnvironmentTemplateVersions_maxResults :: Lens.Lens' ListEnvironmentTemplateVersions (Prelude.Maybe Prelude.Natural)
+listEnvironmentTemplateVersions_maxResults = Lens.lens (\ListEnvironmentTemplateVersions' {maxResults} -> maxResults) (\s@ListEnvironmentTemplateVersions' {} a -> s {maxResults = a} :: ListEnvironmentTemplateVersions)
+
 -- | A token that indicates the location of the next major or minor version
 -- in the array of major or minor versions of an environment template,
 -- after the list of major or minor versions that was previously requested.
 listEnvironmentTemplateVersions_nextToken :: Lens.Lens' ListEnvironmentTemplateVersions (Prelude.Maybe Prelude.Text)
 listEnvironmentTemplateVersions_nextToken = Lens.lens (\ListEnvironmentTemplateVersions' {nextToken} -> nextToken) (\s@ListEnvironmentTemplateVersions' {} a -> s {nextToken = a} :: ListEnvironmentTemplateVersions)
-
--- | The maximum number of major or minor versions of an environment template
--- to list.
-listEnvironmentTemplateVersions_maxResults :: Lens.Lens' ListEnvironmentTemplateVersions (Prelude.Maybe Prelude.Natural)
-listEnvironmentTemplateVersions_maxResults = Lens.lens (\ListEnvironmentTemplateVersions' {maxResults} -> maxResults) (\s@ListEnvironmentTemplateVersions' {} a -> s {maxResults = a} :: ListEnvironmentTemplateVersions)
 
 -- | The name of the environment template.
 listEnvironmentTemplateVersions_templateName :: Lens.Lens' ListEnvironmentTemplateVersions Prelude.Text
@@ -184,8 +184,8 @@ instance
     _salt
     ListEnvironmentTemplateVersions' {..} =
       _salt `Prelude.hashWithSalt` majorVersion
-        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` templateName
 
 instance
@@ -194,8 +194,8 @@ instance
   where
   rnf ListEnvironmentTemplateVersions' {..} =
     Prelude.rnf majorVersion
-      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf templateName
 
 instance
@@ -221,8 +221,8 @@ instance Data.ToJSON ListEnvironmentTemplateVersions where
     Data.object
       ( Prelude.catMaybes
           [ ("majorVersion" Data..=) Prelude.<$> majorVersion,
-            ("nextToken" Data..=) Prelude.<$> nextToken,
             ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("templateName" Data..= templateName)
           ]
       )

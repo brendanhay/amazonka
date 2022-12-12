@@ -29,9 +29,9 @@ module Amazonka.MediaTailor.CreateProgram
     newCreateProgram,
 
     -- * Request Lenses
+    createProgram_adBreaks,
     createProgram_liveSourceName,
     createProgram_vodSourceName,
-    createProgram_adBreaks,
     createProgram_channelName,
     createProgram_programName,
     createProgram_scheduleConfiguration,
@@ -42,15 +42,15 @@ module Amazonka.MediaTailor.CreateProgram
     newCreateProgramResponse,
 
     -- * Response Lenses
-    createProgramResponse_scheduledStartTime,
+    createProgramResponse_adBreaks,
+    createProgramResponse_arn,
+    createProgramResponse_channelName,
+    createProgramResponse_creationTime,
     createProgramResponse_liveSourceName,
     createProgramResponse_programName,
-    createProgramResponse_channelName,
-    createProgramResponse_vodSourceName,
-    createProgramResponse_arn,
-    createProgramResponse_adBreaks,
-    createProgramResponse_creationTime,
+    createProgramResponse_scheduledStartTime,
     createProgramResponse_sourceLocationName,
+    createProgramResponse_vodSourceName,
     createProgramResponse_httpStatus,
   )
 where
@@ -65,12 +65,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateProgram' smart constructor.
 data CreateProgram = CreateProgram'
-  { -- | The name of the LiveSource for this Program.
+  { -- | The ad break configuration settings.
+    adBreaks :: Prelude.Maybe [AdBreak],
+    -- | The name of the LiveSource for this Program.
     liveSourceName :: Prelude.Maybe Prelude.Text,
     -- | The name that\'s used to refer to a VOD source.
     vodSourceName :: Prelude.Maybe Prelude.Text,
-    -- | The ad break configuration settings.
-    adBreaks :: Prelude.Maybe [AdBreak],
     -- | The name of the channel for this Program.
     channelName :: Prelude.Text,
     -- | The name of the Program.
@@ -90,11 +90,11 @@ data CreateProgram = CreateProgram'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'adBreaks', 'createProgram_adBreaks' - The ad break configuration settings.
+--
 -- 'liveSourceName', 'createProgram_liveSourceName' - The name of the LiveSource for this Program.
 --
 -- 'vodSourceName', 'createProgram_vodSourceName' - The name that\'s used to refer to a VOD source.
---
--- 'adBreaks', 'createProgram_adBreaks' - The ad break configuration settings.
 --
 -- 'channelName', 'createProgram_channelName' - The name of the channel for this Program.
 --
@@ -119,14 +119,18 @@ newCreateProgram
   pScheduleConfiguration_
   pSourceLocationName_ =
     CreateProgram'
-      { liveSourceName = Prelude.Nothing,
+      { adBreaks = Prelude.Nothing,
+        liveSourceName = Prelude.Nothing,
         vodSourceName = Prelude.Nothing,
-        adBreaks = Prelude.Nothing,
         channelName = pChannelName_,
         programName = pProgramName_,
         scheduleConfiguration = pScheduleConfiguration_,
         sourceLocationName = pSourceLocationName_
       }
+
+-- | The ad break configuration settings.
+createProgram_adBreaks :: Lens.Lens' CreateProgram (Prelude.Maybe [AdBreak])
+createProgram_adBreaks = Lens.lens (\CreateProgram' {adBreaks} -> adBreaks) (\s@CreateProgram' {} a -> s {adBreaks = a} :: CreateProgram) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the LiveSource for this Program.
 createProgram_liveSourceName :: Lens.Lens' CreateProgram (Prelude.Maybe Prelude.Text)
@@ -135,10 +139,6 @@ createProgram_liveSourceName = Lens.lens (\CreateProgram' {liveSourceName} -> li
 -- | The name that\'s used to refer to a VOD source.
 createProgram_vodSourceName :: Lens.Lens' CreateProgram (Prelude.Maybe Prelude.Text)
 createProgram_vodSourceName = Lens.lens (\CreateProgram' {vodSourceName} -> vodSourceName) (\s@CreateProgram' {} a -> s {vodSourceName = a} :: CreateProgram)
-
--- | The ad break configuration settings.
-createProgram_adBreaks :: Lens.Lens' CreateProgram (Prelude.Maybe [AdBreak])
-createProgram_adBreaks = Lens.lens (\CreateProgram' {adBreaks} -> adBreaks) (\s@CreateProgram' {} a -> s {adBreaks = a} :: CreateProgram) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the channel for this Program.
 createProgram_channelName :: Lens.Lens' CreateProgram Prelude.Text
@@ -166,23 +166,23 @@ instance Core.AWSRequest CreateProgram where
     Response.receiveJSON
       ( \s h x ->
           CreateProgramResponse'
-            Prelude.<$> (x Data..?> "ScheduledStartTime")
+            Prelude.<$> (x Data..?> "AdBreaks" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "ChannelName")
+            Prelude.<*> (x Data..?> "CreationTime")
             Prelude.<*> (x Data..?> "LiveSourceName")
             Prelude.<*> (x Data..?> "ProgramName")
-            Prelude.<*> (x Data..?> "ChannelName")
-            Prelude.<*> (x Data..?> "VodSourceName")
-            Prelude.<*> (x Data..?> "Arn")
-            Prelude.<*> (x Data..?> "AdBreaks" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "ScheduledStartTime")
             Prelude.<*> (x Data..?> "SourceLocationName")
+            Prelude.<*> (x Data..?> "VodSourceName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateProgram where
   hashWithSalt _salt CreateProgram' {..} =
-    _salt `Prelude.hashWithSalt` liveSourceName
+    _salt `Prelude.hashWithSalt` adBreaks
+      `Prelude.hashWithSalt` liveSourceName
       `Prelude.hashWithSalt` vodSourceName
-      `Prelude.hashWithSalt` adBreaks
       `Prelude.hashWithSalt` channelName
       `Prelude.hashWithSalt` programName
       `Prelude.hashWithSalt` scheduleConfiguration
@@ -190,9 +190,9 @@ instance Prelude.Hashable CreateProgram where
 
 instance Prelude.NFData CreateProgram where
   rnf CreateProgram' {..} =
-    Prelude.rnf liveSourceName
+    Prelude.rnf adBreaks
+      `Prelude.seq` Prelude.rnf liveSourceName
       `Prelude.seq` Prelude.rnf vodSourceName
-      `Prelude.seq` Prelude.rnf adBreaks
       `Prelude.seq` Prelude.rnf channelName
       `Prelude.seq` Prelude.rnf programName
       `Prelude.seq` Prelude.rnf scheduleConfiguration
@@ -213,10 +213,10 @@ instance Data.ToJSON CreateProgram where
   toJSON CreateProgram' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("LiveSourceName" Data..=)
+          [ ("AdBreaks" Data..=) Prelude.<$> adBreaks,
+            ("LiveSourceName" Data..=)
               Prelude.<$> liveSourceName,
             ("VodSourceName" Data..=) Prelude.<$> vodSourceName,
-            ("AdBreaks" Data..=) Prelude.<$> adBreaks,
             Prelude.Just
               ( "ScheduleConfiguration"
                   Data..= scheduleConfiguration
@@ -240,24 +240,24 @@ instance Data.ToQuery CreateProgram where
 
 -- | /See:/ 'newCreateProgramResponse' smart constructor.
 data CreateProgramResponse = CreateProgramResponse'
-  { -- | The scheduled start time for this Program.
-    scheduledStartTime :: Prelude.Maybe Data.POSIX,
+  { -- | The ad break configuration settings.
+    adBreaks :: Prelude.Maybe [AdBreak],
+    -- | The ARN to assign to the program.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The name to assign to the channel for this program.
+    channelName :: Prelude.Maybe Prelude.Text,
+    -- | The time the program was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the LiveSource for this Program.
     liveSourceName :: Prelude.Maybe Prelude.Text,
     -- | The name to assign to this program.
     programName :: Prelude.Maybe Prelude.Text,
-    -- | The name to assign to the channel for this program.
-    channelName :: Prelude.Maybe Prelude.Text,
-    -- | The name that\'s used to refer to a VOD source.
-    vodSourceName :: Prelude.Maybe Prelude.Text,
-    -- | The ARN to assign to the program.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The ad break configuration settings.
-    adBreaks :: Prelude.Maybe [AdBreak],
-    -- | The time the program was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The scheduled start time for this Program.
+    scheduledStartTime :: Prelude.Maybe Data.POSIX,
     -- | The name to assign to the source location for this program.
     sourceLocationName :: Prelude.Maybe Prelude.Text,
+    -- | The name that\'s used to refer to a VOD source.
+    vodSourceName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -271,23 +271,23 @@ data CreateProgramResponse = CreateProgramResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'scheduledStartTime', 'createProgramResponse_scheduledStartTime' - The scheduled start time for this Program.
+-- 'adBreaks', 'createProgramResponse_adBreaks' - The ad break configuration settings.
+--
+-- 'arn', 'createProgramResponse_arn' - The ARN to assign to the program.
+--
+-- 'channelName', 'createProgramResponse_channelName' - The name to assign to the channel for this program.
+--
+-- 'creationTime', 'createProgramResponse_creationTime' - The time the program was created.
 --
 -- 'liveSourceName', 'createProgramResponse_liveSourceName' - The name of the LiveSource for this Program.
 --
 -- 'programName', 'createProgramResponse_programName' - The name to assign to this program.
 --
--- 'channelName', 'createProgramResponse_channelName' - The name to assign to the channel for this program.
---
--- 'vodSourceName', 'createProgramResponse_vodSourceName' - The name that\'s used to refer to a VOD source.
---
--- 'arn', 'createProgramResponse_arn' - The ARN to assign to the program.
---
--- 'adBreaks', 'createProgramResponse_adBreaks' - The ad break configuration settings.
---
--- 'creationTime', 'createProgramResponse_creationTime' - The time the program was created.
+-- 'scheduledStartTime', 'createProgramResponse_scheduledStartTime' - The scheduled start time for this Program.
 --
 -- 'sourceLocationName', 'createProgramResponse_sourceLocationName' - The name to assign to the source location for this program.
+--
+-- 'vodSourceName', 'createProgramResponse_vodSourceName' - The name that\'s used to refer to a VOD source.
 --
 -- 'httpStatus', 'createProgramResponse_httpStatus' - The response's http status code.
 newCreateProgramResponse ::
@@ -296,22 +296,33 @@ newCreateProgramResponse ::
   CreateProgramResponse
 newCreateProgramResponse pHttpStatus_ =
   CreateProgramResponse'
-    { scheduledStartTime =
-        Prelude.Nothing,
+    { adBreaks = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      channelName = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
       liveSourceName = Prelude.Nothing,
       programName = Prelude.Nothing,
-      channelName = Prelude.Nothing,
-      vodSourceName = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      adBreaks = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
+      scheduledStartTime = Prelude.Nothing,
       sourceLocationName = Prelude.Nothing,
+      vodSourceName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The scheduled start time for this Program.
-createProgramResponse_scheduledStartTime :: Lens.Lens' CreateProgramResponse (Prelude.Maybe Prelude.UTCTime)
-createProgramResponse_scheduledStartTime = Lens.lens (\CreateProgramResponse' {scheduledStartTime} -> scheduledStartTime) (\s@CreateProgramResponse' {} a -> s {scheduledStartTime = a} :: CreateProgramResponse) Prelude.. Lens.mapping Data._Time
+-- | The ad break configuration settings.
+createProgramResponse_adBreaks :: Lens.Lens' CreateProgramResponse (Prelude.Maybe [AdBreak])
+createProgramResponse_adBreaks = Lens.lens (\CreateProgramResponse' {adBreaks} -> adBreaks) (\s@CreateProgramResponse' {} a -> s {adBreaks = a} :: CreateProgramResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ARN to assign to the program.
+createProgramResponse_arn :: Lens.Lens' CreateProgramResponse (Prelude.Maybe Prelude.Text)
+createProgramResponse_arn = Lens.lens (\CreateProgramResponse' {arn} -> arn) (\s@CreateProgramResponse' {} a -> s {arn = a} :: CreateProgramResponse)
+
+-- | The name to assign to the channel for this program.
+createProgramResponse_channelName :: Lens.Lens' CreateProgramResponse (Prelude.Maybe Prelude.Text)
+createProgramResponse_channelName = Lens.lens (\CreateProgramResponse' {channelName} -> channelName) (\s@CreateProgramResponse' {} a -> s {channelName = a} :: CreateProgramResponse)
+
+-- | The time the program was created.
+createProgramResponse_creationTime :: Lens.Lens' CreateProgramResponse (Prelude.Maybe Prelude.UTCTime)
+createProgramResponse_creationTime = Lens.lens (\CreateProgramResponse' {creationTime} -> creationTime) (\s@CreateProgramResponse' {} a -> s {creationTime = a} :: CreateProgramResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the LiveSource for this Program.
 createProgramResponse_liveSourceName :: Lens.Lens' CreateProgramResponse (Prelude.Maybe Prelude.Text)
@@ -321,29 +332,17 @@ createProgramResponse_liveSourceName = Lens.lens (\CreateProgramResponse' {liveS
 createProgramResponse_programName :: Lens.Lens' CreateProgramResponse (Prelude.Maybe Prelude.Text)
 createProgramResponse_programName = Lens.lens (\CreateProgramResponse' {programName} -> programName) (\s@CreateProgramResponse' {} a -> s {programName = a} :: CreateProgramResponse)
 
--- | The name to assign to the channel for this program.
-createProgramResponse_channelName :: Lens.Lens' CreateProgramResponse (Prelude.Maybe Prelude.Text)
-createProgramResponse_channelName = Lens.lens (\CreateProgramResponse' {channelName} -> channelName) (\s@CreateProgramResponse' {} a -> s {channelName = a} :: CreateProgramResponse)
-
--- | The name that\'s used to refer to a VOD source.
-createProgramResponse_vodSourceName :: Lens.Lens' CreateProgramResponse (Prelude.Maybe Prelude.Text)
-createProgramResponse_vodSourceName = Lens.lens (\CreateProgramResponse' {vodSourceName} -> vodSourceName) (\s@CreateProgramResponse' {} a -> s {vodSourceName = a} :: CreateProgramResponse)
-
--- | The ARN to assign to the program.
-createProgramResponse_arn :: Lens.Lens' CreateProgramResponse (Prelude.Maybe Prelude.Text)
-createProgramResponse_arn = Lens.lens (\CreateProgramResponse' {arn} -> arn) (\s@CreateProgramResponse' {} a -> s {arn = a} :: CreateProgramResponse)
-
--- | The ad break configuration settings.
-createProgramResponse_adBreaks :: Lens.Lens' CreateProgramResponse (Prelude.Maybe [AdBreak])
-createProgramResponse_adBreaks = Lens.lens (\CreateProgramResponse' {adBreaks} -> adBreaks) (\s@CreateProgramResponse' {} a -> s {adBreaks = a} :: CreateProgramResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The time the program was created.
-createProgramResponse_creationTime :: Lens.Lens' CreateProgramResponse (Prelude.Maybe Prelude.UTCTime)
-createProgramResponse_creationTime = Lens.lens (\CreateProgramResponse' {creationTime} -> creationTime) (\s@CreateProgramResponse' {} a -> s {creationTime = a} :: CreateProgramResponse) Prelude.. Lens.mapping Data._Time
+-- | The scheduled start time for this Program.
+createProgramResponse_scheduledStartTime :: Lens.Lens' CreateProgramResponse (Prelude.Maybe Prelude.UTCTime)
+createProgramResponse_scheduledStartTime = Lens.lens (\CreateProgramResponse' {scheduledStartTime} -> scheduledStartTime) (\s@CreateProgramResponse' {} a -> s {scheduledStartTime = a} :: CreateProgramResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The name to assign to the source location for this program.
 createProgramResponse_sourceLocationName :: Lens.Lens' CreateProgramResponse (Prelude.Maybe Prelude.Text)
 createProgramResponse_sourceLocationName = Lens.lens (\CreateProgramResponse' {sourceLocationName} -> sourceLocationName) (\s@CreateProgramResponse' {} a -> s {sourceLocationName = a} :: CreateProgramResponse)
+
+-- | The name that\'s used to refer to a VOD source.
+createProgramResponse_vodSourceName :: Lens.Lens' CreateProgramResponse (Prelude.Maybe Prelude.Text)
+createProgramResponse_vodSourceName = Lens.lens (\CreateProgramResponse' {vodSourceName} -> vodSourceName) (\s@CreateProgramResponse' {} a -> s {vodSourceName = a} :: CreateProgramResponse)
 
 -- | The response's http status code.
 createProgramResponse_httpStatus :: Lens.Lens' CreateProgramResponse Prelude.Int
@@ -351,13 +350,13 @@ createProgramResponse_httpStatus = Lens.lens (\CreateProgramResponse' {httpStatu
 
 instance Prelude.NFData CreateProgramResponse where
   rnf CreateProgramResponse' {..} =
-    Prelude.rnf scheduledStartTime
+    Prelude.rnf adBreaks
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf channelName
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf liveSourceName
       `Prelude.seq` Prelude.rnf programName
-      `Prelude.seq` Prelude.rnf channelName
-      `Prelude.seq` Prelude.rnf vodSourceName
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf adBreaks
-      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf scheduledStartTime
       `Prelude.seq` Prelude.rnf sourceLocationName
+      `Prelude.seq` Prelude.rnf vodSourceName
       `Prelude.seq` Prelude.rnf httpStatus

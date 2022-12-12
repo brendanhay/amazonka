@@ -42,20 +42,44 @@ module Amazonka.CloudFormation
     -- * Errors
     -- $errors
 
-    -- ** OperationNotFoundException
-    _OperationNotFoundException,
+    -- ** AlreadyExistsException
+    _AlreadyExistsException,
+
+    -- ** CFNRegistryException
+    _CFNRegistryException,
+
+    -- ** ChangeSetNotFoundException
+    _ChangeSetNotFoundException,
+
+    -- ** CreatedButModifiedException
+    _CreatedButModifiedException,
+
+    -- ** InsufficientCapabilitiesException
+    _InsufficientCapabilitiesException,
+
+    -- ** InvalidChangeSetStatusException
+    _InvalidChangeSetStatusException,
 
     -- ** InvalidOperationException
     _InvalidOperationException,
 
-    -- ** StackSetNotEmptyException
-    _StackSetNotEmptyException,
+    -- ** InvalidStateTransitionException
+    _InvalidStateTransitionException,
 
-    -- ** StaleRequestException
-    _StaleRequestException,
+    -- ** LimitExceededException
+    _LimitExceededException,
 
-    -- ** ChangeSetNotFoundException
-    _ChangeSetNotFoundException,
+    -- ** NameAlreadyExistsException
+    _NameAlreadyExistsException,
+
+    -- ** OperationIdAlreadyExistsException
+    _OperationIdAlreadyExistsException,
+
+    -- ** OperationInProgressException
+    _OperationInProgressException,
+
+    -- ** OperationNotFoundException
+    _OperationNotFoundException,
 
     -- ** OperationStatusCheckFailedException
     _OperationStatusCheckFailedException,
@@ -63,77 +87,53 @@ module Amazonka.CloudFormation
     -- ** StackInstanceNotFoundException
     _StackInstanceNotFoundException,
 
-    -- ** TokenAlreadyExistsException
-    _TokenAlreadyExistsException,
-
-    -- ** InsufficientCapabilitiesException
-    _InsufficientCapabilitiesException,
-
-    -- ** AlreadyExistsException
-    _AlreadyExistsException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
-
-    -- ** CFNRegistryException
-    _CFNRegistryException,
-
-    -- ** TypeConfigurationNotFoundException
-    _TypeConfigurationNotFoundException,
-
-    -- ** OperationIdAlreadyExistsException
-    _OperationIdAlreadyExistsException,
-
-    -- ** InvalidStateTransitionException
-    _InvalidStateTransitionException,
-
-    -- ** CreatedButModifiedException
-    _CreatedButModifiedException,
-
     -- ** StackNotFoundException
     _StackNotFoundException,
 
-    -- ** OperationInProgressException
-    _OperationInProgressException,
-
-    -- ** NameAlreadyExistsException
-    _NameAlreadyExistsException,
-
-    -- ** TypeNotFoundException
-    _TypeNotFoundException,
-
-    -- ** InvalidChangeSetStatusException
-    _InvalidChangeSetStatusException,
+    -- ** StackSetNotEmptyException
+    _StackSetNotEmptyException,
 
     -- ** StackSetNotFoundException
     _StackSetNotFoundException,
 
+    -- ** StaleRequestException
+    _StaleRequestException,
+
+    -- ** TokenAlreadyExistsException
+    _TokenAlreadyExistsException,
+
+    -- ** TypeConfigurationNotFoundException
+    _TypeConfigurationNotFoundException,
+
+    -- ** TypeNotFoundException
+    _TypeNotFoundException,
+
     -- * Waiters
     -- $waiters
-
-    -- ** StackUpdateComplete
-    newStackUpdateComplete,
-
-    -- ** StackImportComplete
-    newStackImportComplete,
-
-    -- ** StackCreateComplete
-    newStackCreateComplete,
-
-    -- ** StackRollbackComplete
-    newStackRollbackComplete,
-
-    -- ** StackExists
-    newStackExists,
-
-    -- ** TypeRegistrationComplete
-    newTypeRegistrationComplete,
 
     -- ** ChangeSetCreateComplete
     newChangeSetCreateComplete,
 
+    -- ** StackCreateComplete
+    newStackCreateComplete,
+
     -- ** StackDeleteComplete
     newStackDeleteComplete,
+
+    -- ** StackExists
+    newStackExists,
+
+    -- ** StackImportComplete
+    newStackImportComplete,
+
+    -- ** StackRollbackComplete
+    newStackRollbackComplete,
+
+    -- ** StackUpdateComplete
+    newStackUpdateComplete,
+
+    -- ** TypeRegistrationComplete
+    newTypeRegistrationComplete,
 
     -- * Operations
     -- $operations

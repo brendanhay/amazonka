@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSimpleEmailPart' smart constructor.
 data SimpleEmailPart = SimpleEmailPart'
-  { -- | The textual data of the message content.
-    data' :: Prelude.Maybe Prelude.Text,
-    -- | The applicable character set for the message content.
-    charset :: Prelude.Maybe Prelude.Text
+  { -- | The applicable character set for the message content.
+    charset :: Prelude.Maybe Prelude.Text,
+    -- | The textual data of the message content.
+    data' :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,39 +44,39 @@ data SimpleEmailPart = SimpleEmailPart'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'data'', 'simpleEmailPart_data' - The textual data of the message content.
---
 -- 'charset', 'simpleEmailPart_charset' - The applicable character set for the message content.
+--
+-- 'data'', 'simpleEmailPart_data' - The textual data of the message content.
 newSimpleEmailPart ::
   SimpleEmailPart
 newSimpleEmailPart =
   SimpleEmailPart'
-    { data' = Prelude.Nothing,
-      charset = Prelude.Nothing
+    { charset = Prelude.Nothing,
+      data' = Prelude.Nothing
     }
-
--- | The textual data of the message content.
-simpleEmailPart_data :: Lens.Lens' SimpleEmailPart (Prelude.Maybe Prelude.Text)
-simpleEmailPart_data = Lens.lens (\SimpleEmailPart' {data'} -> data') (\s@SimpleEmailPart' {} a -> s {data' = a} :: SimpleEmailPart)
 
 -- | The applicable character set for the message content.
 simpleEmailPart_charset :: Lens.Lens' SimpleEmailPart (Prelude.Maybe Prelude.Text)
 simpleEmailPart_charset = Lens.lens (\SimpleEmailPart' {charset} -> charset) (\s@SimpleEmailPart' {} a -> s {charset = a} :: SimpleEmailPart)
 
+-- | The textual data of the message content.
+simpleEmailPart_data :: Lens.Lens' SimpleEmailPart (Prelude.Maybe Prelude.Text)
+simpleEmailPart_data = Lens.lens (\SimpleEmailPart' {data'} -> data') (\s@SimpleEmailPart' {} a -> s {data' = a} :: SimpleEmailPart)
+
 instance Prelude.Hashable SimpleEmailPart where
   hashWithSalt _salt SimpleEmailPart' {..} =
-    _salt `Prelude.hashWithSalt` data'
-      `Prelude.hashWithSalt` charset
+    _salt `Prelude.hashWithSalt` charset
+      `Prelude.hashWithSalt` data'
 
 instance Prelude.NFData SimpleEmailPart where
   rnf SimpleEmailPart' {..} =
-    Prelude.rnf data' `Prelude.seq` Prelude.rnf charset
+    Prelude.rnf charset `Prelude.seq` Prelude.rnf data'
 
 instance Data.ToJSON SimpleEmailPart where
   toJSON SimpleEmailPart' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Data" Data..=) Prelude.<$> data',
-            ("Charset" Data..=) Prelude.<$> charset
+          [ ("Charset" Data..=) Prelude.<$> charset,
+            ("Data" Data..=) Prelude.<$> data'
           ]
       )

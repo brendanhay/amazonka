@@ -27,10 +27,10 @@ module Amazonka.QuickSight.UpdateDataSource
     newUpdateDataSource,
 
     -- * Request Lenses
-    updateDataSource_dataSourceParameters,
-    updateDataSource_vpcConnectionProperties,
-    updateDataSource_sslProperties,
     updateDataSource_credentials,
+    updateDataSource_dataSourceParameters,
+    updateDataSource_sslProperties,
+    updateDataSource_vpcConnectionProperties,
     updateDataSource_awsAccountId,
     updateDataSource_dataSourceId,
     updateDataSource_name,
@@ -40,9 +40,9 @@ module Amazonka.QuickSight.UpdateDataSource
     newUpdateDataSourceResponse,
 
     -- * Response Lenses
+    updateDataSourceResponse_arn,
     updateDataSourceResponse_dataSourceId,
     updateDataSourceResponse_requestId,
-    updateDataSourceResponse_arn,
     updateDataSourceResponse_updateStatus,
     updateDataSourceResponse_status,
   )
@@ -58,19 +58,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateDataSource' smart constructor.
 data UpdateDataSource = UpdateDataSource'
-  { -- | The parameters that Amazon QuickSight uses to connect to your underlying
-    -- source.
-    dataSourceParameters :: Prelude.Maybe DataSourceParameters,
-    -- | Use this parameter only when you want Amazon QuickSight to use a VPC
-    -- connection when connecting to your underlying source.
-    vpcConnectionProperties :: Prelude.Maybe VpcConnectionProperties,
-    -- | Secure Socket Layer (SSL) properties that apply when Amazon QuickSight
-    -- connects to your underlying source.
-    sslProperties :: Prelude.Maybe SslProperties,
-    -- | The credentials that Amazon QuickSight that uses to connect to your
+  { -- | The credentials that Amazon QuickSight that uses to connect to your
     -- underlying source. Currently, only credentials based on user name and
     -- password are supported.
     credentials :: Prelude.Maybe (Data.Sensitive DataSourceCredentials),
+    -- | The parameters that Amazon QuickSight uses to connect to your underlying
+    -- source.
+    dataSourceParameters :: Prelude.Maybe DataSourceParameters,
+    -- | Secure Socket Layer (SSL) properties that apply when Amazon QuickSight
+    -- connects to your underlying source.
+    sslProperties :: Prelude.Maybe SslProperties,
+    -- | Use this parameter only when you want Amazon QuickSight to use a VPC
+    -- connection when connecting to your underlying source.
+    vpcConnectionProperties :: Prelude.Maybe VpcConnectionProperties,
     -- | The Amazon Web Services account ID.
     awsAccountId :: Prelude.Text,
     -- | The ID of the data source. This ID is unique per Amazon Web Services
@@ -89,18 +89,18 @@ data UpdateDataSource = UpdateDataSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'credentials', 'updateDataSource_credentials' - The credentials that Amazon QuickSight that uses to connect to your
+-- underlying source. Currently, only credentials based on user name and
+-- password are supported.
+--
 -- 'dataSourceParameters', 'updateDataSource_dataSourceParameters' - The parameters that Amazon QuickSight uses to connect to your underlying
 -- source.
---
--- 'vpcConnectionProperties', 'updateDataSource_vpcConnectionProperties' - Use this parameter only when you want Amazon QuickSight to use a VPC
--- connection when connecting to your underlying source.
 --
 -- 'sslProperties', 'updateDataSource_sslProperties' - Secure Socket Layer (SSL) properties that apply when Amazon QuickSight
 -- connects to your underlying source.
 --
--- 'credentials', 'updateDataSource_credentials' - The credentials that Amazon QuickSight that uses to connect to your
--- underlying source. Currently, only credentials based on user name and
--- password are supported.
+-- 'vpcConnectionProperties', 'updateDataSource_vpcConnectionProperties' - Use this parameter only when you want Amazon QuickSight to use a VPC
+-- connection when connecting to your underlying source.
 --
 -- 'awsAccountId', 'updateDataSource_awsAccountId' - The Amazon Web Services account ID.
 --
@@ -121,36 +121,35 @@ newUpdateDataSource
   pDataSourceId_
   pName_ =
     UpdateDataSource'
-      { dataSourceParameters =
-          Prelude.Nothing,
-        vpcConnectionProperties = Prelude.Nothing,
+      { credentials = Prelude.Nothing,
+        dataSourceParameters = Prelude.Nothing,
         sslProperties = Prelude.Nothing,
-        credentials = Prelude.Nothing,
+        vpcConnectionProperties = Prelude.Nothing,
         awsAccountId = pAwsAccountId_,
         dataSourceId = pDataSourceId_,
         name = pName_
       }
-
--- | The parameters that Amazon QuickSight uses to connect to your underlying
--- source.
-updateDataSource_dataSourceParameters :: Lens.Lens' UpdateDataSource (Prelude.Maybe DataSourceParameters)
-updateDataSource_dataSourceParameters = Lens.lens (\UpdateDataSource' {dataSourceParameters} -> dataSourceParameters) (\s@UpdateDataSource' {} a -> s {dataSourceParameters = a} :: UpdateDataSource)
-
--- | Use this parameter only when you want Amazon QuickSight to use a VPC
--- connection when connecting to your underlying source.
-updateDataSource_vpcConnectionProperties :: Lens.Lens' UpdateDataSource (Prelude.Maybe VpcConnectionProperties)
-updateDataSource_vpcConnectionProperties = Lens.lens (\UpdateDataSource' {vpcConnectionProperties} -> vpcConnectionProperties) (\s@UpdateDataSource' {} a -> s {vpcConnectionProperties = a} :: UpdateDataSource)
-
--- | Secure Socket Layer (SSL) properties that apply when Amazon QuickSight
--- connects to your underlying source.
-updateDataSource_sslProperties :: Lens.Lens' UpdateDataSource (Prelude.Maybe SslProperties)
-updateDataSource_sslProperties = Lens.lens (\UpdateDataSource' {sslProperties} -> sslProperties) (\s@UpdateDataSource' {} a -> s {sslProperties = a} :: UpdateDataSource)
 
 -- | The credentials that Amazon QuickSight that uses to connect to your
 -- underlying source. Currently, only credentials based on user name and
 -- password are supported.
 updateDataSource_credentials :: Lens.Lens' UpdateDataSource (Prelude.Maybe DataSourceCredentials)
 updateDataSource_credentials = Lens.lens (\UpdateDataSource' {credentials} -> credentials) (\s@UpdateDataSource' {} a -> s {credentials = a} :: UpdateDataSource) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The parameters that Amazon QuickSight uses to connect to your underlying
+-- source.
+updateDataSource_dataSourceParameters :: Lens.Lens' UpdateDataSource (Prelude.Maybe DataSourceParameters)
+updateDataSource_dataSourceParameters = Lens.lens (\UpdateDataSource' {dataSourceParameters} -> dataSourceParameters) (\s@UpdateDataSource' {} a -> s {dataSourceParameters = a} :: UpdateDataSource)
+
+-- | Secure Socket Layer (SSL) properties that apply when Amazon QuickSight
+-- connects to your underlying source.
+updateDataSource_sslProperties :: Lens.Lens' UpdateDataSource (Prelude.Maybe SslProperties)
+updateDataSource_sslProperties = Lens.lens (\UpdateDataSource' {sslProperties} -> sslProperties) (\s@UpdateDataSource' {} a -> s {sslProperties = a} :: UpdateDataSource)
+
+-- | Use this parameter only when you want Amazon QuickSight to use a VPC
+-- connection when connecting to your underlying source.
+updateDataSource_vpcConnectionProperties :: Lens.Lens' UpdateDataSource (Prelude.Maybe VpcConnectionProperties)
+updateDataSource_vpcConnectionProperties = Lens.lens (\UpdateDataSource' {vpcConnectionProperties} -> vpcConnectionProperties) (\s@UpdateDataSource' {} a -> s {vpcConnectionProperties = a} :: UpdateDataSource)
 
 -- | The Amazon Web Services account ID.
 updateDataSource_awsAccountId :: Lens.Lens' UpdateDataSource Prelude.Text
@@ -175,29 +174,29 @@ instance Core.AWSRequest UpdateDataSource where
     Response.receiveJSON
       ( \s h x ->
           UpdateDataSourceResponse'
-            Prelude.<$> (x Data..?> "DataSourceId")
+            Prelude.<$> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "DataSourceId")
             Prelude.<*> (x Data..?> "RequestId")
-            Prelude.<*> (x Data..?> "Arn")
             Prelude.<*> (x Data..?> "UpdateStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateDataSource where
   hashWithSalt _salt UpdateDataSource' {..} =
-    _salt `Prelude.hashWithSalt` dataSourceParameters
-      `Prelude.hashWithSalt` vpcConnectionProperties
+    _salt `Prelude.hashWithSalt` credentials
+      `Prelude.hashWithSalt` dataSourceParameters
       `Prelude.hashWithSalt` sslProperties
-      `Prelude.hashWithSalt` credentials
+      `Prelude.hashWithSalt` vpcConnectionProperties
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` dataSourceId
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData UpdateDataSource where
   rnf UpdateDataSource' {..} =
-    Prelude.rnf dataSourceParameters
-      `Prelude.seq` Prelude.rnf vpcConnectionProperties
+    Prelude.rnf credentials
+      `Prelude.seq` Prelude.rnf dataSourceParameters
       `Prelude.seq` Prelude.rnf sslProperties
-      `Prelude.seq` Prelude.rnf credentials
+      `Prelude.seq` Prelude.rnf vpcConnectionProperties
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf dataSourceId
       `Prelude.seq` Prelude.rnf name
@@ -217,12 +216,12 @@ instance Data.ToJSON UpdateDataSource where
   toJSON UpdateDataSource' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DataSourceParameters" Data..=)
+          [ ("Credentials" Data..=) Prelude.<$> credentials,
+            ("DataSourceParameters" Data..=)
               Prelude.<$> dataSourceParameters,
+            ("SslProperties" Data..=) Prelude.<$> sslProperties,
             ("VpcConnectionProperties" Data..=)
               Prelude.<$> vpcConnectionProperties,
-            ("SslProperties" Data..=) Prelude.<$> sslProperties,
-            ("Credentials" Data..=) Prelude.<$> credentials,
             Prelude.Just ("Name" Data..= name)
           ]
       )
@@ -241,13 +240,13 @@ instance Data.ToQuery UpdateDataSource where
 
 -- | /See:/ 'newUpdateDataSourceResponse' smart constructor.
 data UpdateDataSourceResponse = UpdateDataSourceResponse'
-  { -- | The ID of the data source. This ID is unique per Amazon Web Services
+  { -- | The Amazon Resource Name (ARN) of the data source.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the data source. This ID is unique per Amazon Web Services
     -- Region for each Amazon Web Services account.
     dataSourceId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the data source.
-    arn :: Prelude.Maybe Prelude.Text,
     -- | The update status of the data source\'s last update.
     updateStatus :: Prelude.Maybe ResourceStatus,
     -- | The HTTP status of the request.
@@ -263,12 +262,12 @@ data UpdateDataSourceResponse = UpdateDataSourceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'arn', 'updateDataSourceResponse_arn' - The Amazon Resource Name (ARN) of the data source.
+--
 -- 'dataSourceId', 'updateDataSourceResponse_dataSourceId' - The ID of the data source. This ID is unique per Amazon Web Services
 -- Region for each Amazon Web Services account.
 --
 -- 'requestId', 'updateDataSourceResponse_requestId' - The Amazon Web Services request ID for this operation.
---
--- 'arn', 'updateDataSourceResponse_arn' - The Amazon Resource Name (ARN) of the data source.
 --
 -- 'updateStatus', 'updateDataSourceResponse_updateStatus' - The update status of the data source\'s last update.
 --
@@ -279,13 +278,16 @@ newUpdateDataSourceResponse ::
   UpdateDataSourceResponse
 newUpdateDataSourceResponse pStatus_ =
   UpdateDataSourceResponse'
-    { dataSourceId =
-        Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      dataSourceId = Prelude.Nothing,
       requestId = Prelude.Nothing,
-      arn = Prelude.Nothing,
       updateStatus = Prelude.Nothing,
       status = pStatus_
     }
+
+-- | The Amazon Resource Name (ARN) of the data source.
+updateDataSourceResponse_arn :: Lens.Lens' UpdateDataSourceResponse (Prelude.Maybe Prelude.Text)
+updateDataSourceResponse_arn = Lens.lens (\UpdateDataSourceResponse' {arn} -> arn) (\s@UpdateDataSourceResponse' {} a -> s {arn = a} :: UpdateDataSourceResponse)
 
 -- | The ID of the data source. This ID is unique per Amazon Web Services
 -- Region for each Amazon Web Services account.
@@ -295,10 +297,6 @@ updateDataSourceResponse_dataSourceId = Lens.lens (\UpdateDataSourceResponse' {d
 -- | The Amazon Web Services request ID for this operation.
 updateDataSourceResponse_requestId :: Lens.Lens' UpdateDataSourceResponse (Prelude.Maybe Prelude.Text)
 updateDataSourceResponse_requestId = Lens.lens (\UpdateDataSourceResponse' {requestId} -> requestId) (\s@UpdateDataSourceResponse' {} a -> s {requestId = a} :: UpdateDataSourceResponse)
-
--- | The Amazon Resource Name (ARN) of the data source.
-updateDataSourceResponse_arn :: Lens.Lens' UpdateDataSourceResponse (Prelude.Maybe Prelude.Text)
-updateDataSourceResponse_arn = Lens.lens (\UpdateDataSourceResponse' {arn} -> arn) (\s@UpdateDataSourceResponse' {} a -> s {arn = a} :: UpdateDataSourceResponse)
 
 -- | The update status of the data source\'s last update.
 updateDataSourceResponse_updateStatus :: Lens.Lens' UpdateDataSourceResponse (Prelude.Maybe ResourceStatus)
@@ -310,8 +308,8 @@ updateDataSourceResponse_status = Lens.lens (\UpdateDataSourceResponse' {status}
 
 instance Prelude.NFData UpdateDataSourceResponse where
   rnf UpdateDataSourceResponse' {..} =
-    Prelude.rnf dataSourceId
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf dataSourceId
       `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf updateStatus
       `Prelude.seq` Prelude.rnf status

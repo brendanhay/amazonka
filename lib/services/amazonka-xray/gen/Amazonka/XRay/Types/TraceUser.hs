@@ -29,10 +29,10 @@ import Amazonka.XRay.Types.ServiceId
 --
 -- /See:/ 'newTraceUser' smart constructor.
 data TraceUser = TraceUser'
-  { -- | The user\'s name.
-    userName :: Prelude.Maybe Prelude.Text,
-    -- | Services that the user\'s request hit.
-    serviceIds :: Prelude.Maybe [ServiceId]
+  { -- | Services that the user\'s request hit.
+    serviceIds :: Prelude.Maybe [ServiceId],
+    -- | The user\'s name.
+    userName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data TraceUser = TraceUser'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'userName', 'traceUser_userName' - The user\'s name.
---
 -- 'serviceIds', 'traceUser_serviceIds' - Services that the user\'s request hit.
+--
+-- 'userName', 'traceUser_userName' - The user\'s name.
 newTraceUser ::
   TraceUser
 newTraceUser =
   TraceUser'
-    { userName = Prelude.Nothing,
-      serviceIds = Prelude.Nothing
+    { serviceIds = Prelude.Nothing,
+      userName = Prelude.Nothing
     }
-
--- | The user\'s name.
-traceUser_userName :: Lens.Lens' TraceUser (Prelude.Maybe Prelude.Text)
-traceUser_userName = Lens.lens (\TraceUser' {userName} -> userName) (\s@TraceUser' {} a -> s {userName = a} :: TraceUser)
 
 -- | Services that the user\'s request hit.
 traceUser_serviceIds :: Lens.Lens' TraceUser (Prelude.Maybe [ServiceId])
 traceUser_serviceIds = Lens.lens (\TraceUser' {serviceIds} -> serviceIds) (\s@TraceUser' {} a -> s {serviceIds = a} :: TraceUser) Prelude.. Lens.mapping Lens.coerced
+
+-- | The user\'s name.
+traceUser_userName :: Lens.Lens' TraceUser (Prelude.Maybe Prelude.Text)
+traceUser_userName = Lens.lens (\TraceUser' {userName} -> userName) (\s@TraceUser' {} a -> s {userName = a} :: TraceUser)
 
 instance Data.FromJSON TraceUser where
   parseJSON =
@@ -69,16 +69,16 @@ instance Data.FromJSON TraceUser where
       "TraceUser"
       ( \x ->
           TraceUser'
-            Prelude.<$> (x Data..:? "UserName")
-            Prelude.<*> (x Data..:? "ServiceIds" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "ServiceIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "UserName")
       )
 
 instance Prelude.Hashable TraceUser where
   hashWithSalt _salt TraceUser' {..} =
-    _salt `Prelude.hashWithSalt` userName
-      `Prelude.hashWithSalt` serviceIds
+    _salt `Prelude.hashWithSalt` serviceIds
+      `Prelude.hashWithSalt` userName
 
 instance Prelude.NFData TraceUser where
   rnf TraceUser' {..} =
-    Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf serviceIds
+    Prelude.rnf serviceIds
+      `Prelude.seq` Prelude.rnf userName

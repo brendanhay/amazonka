@@ -38,9 +38,9 @@ module Amazonka.CloudFront.ListResponseHeadersPolicies
     newListResponseHeadersPolicies,
 
     -- * Request Lenses
-    listResponseHeadersPolicies_type,
     listResponseHeadersPolicies_marker,
     listResponseHeadersPolicies_maxItems,
+    listResponseHeadersPolicies_type,
 
     -- * Destructuring the Response
     ListResponseHeadersPoliciesResponse (..),
@@ -62,16 +62,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListResponseHeadersPolicies' smart constructor.
 data ListResponseHeadersPolicies = ListResponseHeadersPolicies'
-  { -- | A filter to get only the specified kind of response headers policies.
-    -- Valid values are:
-    --
-    -- -   @managed@ – Gets only the managed policies created by Amazon Web
-    --     Services.
-    --
-    -- -   @custom@ – Gets only the custom policies created in your Amazon Web
-    --     Services account.
-    type' :: Prelude.Maybe ResponseHeadersPolicyType,
-    -- | Use this field when paginating results to indicate where to begin in
+  { -- | Use this field when paginating results to indicate where to begin in
     -- your list of response headers policies. The response includes response
     -- headers policies in the list that occur after the marker. To get the
     -- next page of the list, set this field’s value to the value of
@@ -79,7 +70,16 @@ data ListResponseHeadersPolicies = ListResponseHeadersPolicies'
     marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of response headers policies that you want to get in
     -- the response.
-    maxItems :: Prelude.Maybe Prelude.Text
+    maxItems :: Prelude.Maybe Prelude.Text,
+    -- | A filter to get only the specified kind of response headers policies.
+    -- Valid values are:
+    --
+    -- -   @managed@ – Gets only the managed policies created by Amazon Web
+    --     Services.
+    --
+    -- -   @custom@ – Gets only the custom policies created in your Amazon Web
+    --     Services account.
+    type' :: Prelude.Maybe ResponseHeadersPolicyType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -91,15 +91,6 @@ data ListResponseHeadersPolicies = ListResponseHeadersPolicies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'listResponseHeadersPolicies_type' - A filter to get only the specified kind of response headers policies.
--- Valid values are:
---
--- -   @managed@ – Gets only the managed policies created by Amazon Web
---     Services.
---
--- -   @custom@ – Gets only the custom policies created in your Amazon Web
---     Services account.
---
 -- 'marker', 'listResponseHeadersPolicies_marker' - Use this field when paginating results to indicate where to begin in
 -- your list of response headers policies. The response includes response
 -- headers policies in the list that occur after the marker. To get the
@@ -108,17 +99,8 @@ data ListResponseHeadersPolicies = ListResponseHeadersPolicies'
 --
 -- 'maxItems', 'listResponseHeadersPolicies_maxItems' - The maximum number of response headers policies that you want to get in
 -- the response.
-newListResponseHeadersPolicies ::
-  ListResponseHeadersPolicies
-newListResponseHeadersPolicies =
-  ListResponseHeadersPolicies'
-    { type' =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxItems = Prelude.Nothing
-    }
-
--- | A filter to get only the specified kind of response headers policies.
+--
+-- 'type'', 'listResponseHeadersPolicies_type' - A filter to get only the specified kind of response headers policies.
 -- Valid values are:
 --
 -- -   @managed@ – Gets only the managed policies created by Amazon Web
@@ -126,8 +108,15 @@ newListResponseHeadersPolicies =
 --
 -- -   @custom@ – Gets only the custom policies created in your Amazon Web
 --     Services account.
-listResponseHeadersPolicies_type :: Lens.Lens' ListResponseHeadersPolicies (Prelude.Maybe ResponseHeadersPolicyType)
-listResponseHeadersPolicies_type = Lens.lens (\ListResponseHeadersPolicies' {type'} -> type') (\s@ListResponseHeadersPolicies' {} a -> s {type' = a} :: ListResponseHeadersPolicies)
+newListResponseHeadersPolicies ::
+  ListResponseHeadersPolicies
+newListResponseHeadersPolicies =
+  ListResponseHeadersPolicies'
+    { marker =
+        Prelude.Nothing,
+      maxItems = Prelude.Nothing,
+      type' = Prelude.Nothing
+    }
 
 -- | Use this field when paginating results to indicate where to begin in
 -- your list of response headers policies. The response includes response
@@ -141,6 +130,17 @@ listResponseHeadersPolicies_marker = Lens.lens (\ListResponseHeadersPolicies' {m
 -- the response.
 listResponseHeadersPolicies_maxItems :: Lens.Lens' ListResponseHeadersPolicies (Prelude.Maybe Prelude.Text)
 listResponseHeadersPolicies_maxItems = Lens.lens (\ListResponseHeadersPolicies' {maxItems} -> maxItems) (\s@ListResponseHeadersPolicies' {} a -> s {maxItems = a} :: ListResponseHeadersPolicies)
+
+-- | A filter to get only the specified kind of response headers policies.
+-- Valid values are:
+--
+-- -   @managed@ – Gets only the managed policies created by Amazon Web
+--     Services.
+--
+-- -   @custom@ – Gets only the custom policies created in your Amazon Web
+--     Services account.
+listResponseHeadersPolicies_type :: Lens.Lens' ListResponseHeadersPolicies (Prelude.Maybe ResponseHeadersPolicyType)
+listResponseHeadersPolicies_type = Lens.lens (\ListResponseHeadersPolicies' {type'} -> type') (\s@ListResponseHeadersPolicies' {} a -> s {type' = a} :: ListResponseHeadersPolicies)
 
 instance Core.AWSRequest ListResponseHeadersPolicies where
   type
@@ -158,15 +158,15 @@ instance Core.AWSRequest ListResponseHeadersPolicies where
 
 instance Prelude.Hashable ListResponseHeadersPolicies where
   hashWithSalt _salt ListResponseHeadersPolicies' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` marker
+    _salt `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData ListResponseHeadersPolicies where
   rnf ListResponseHeadersPolicies' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf type'
 
 instance Data.ToHeaders ListResponseHeadersPolicies where
   toHeaders = Prelude.const Prelude.mempty
@@ -178,9 +178,9 @@ instance Data.ToPath ListResponseHeadersPolicies where
 instance Data.ToQuery ListResponseHeadersPolicies where
   toQuery ListResponseHeadersPolicies' {..} =
     Prelude.mconcat
-      [ "Type" Data.=: type',
-        "Marker" Data.=: marker,
-        "MaxItems" Data.=: maxItems
+      [ "Marker" Data.=: marker,
+        "MaxItems" Data.=: maxItems,
+        "Type" Data.=: type'
       ]
 
 -- | /See:/ 'newListResponseHeadersPoliciesResponse' smart constructor.

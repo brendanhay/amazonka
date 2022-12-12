@@ -29,16 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRegistryListItem' smart constructor.
 data RegistryListItem = RegistryListItem'
-  { -- | The name of the registry.
-    registryName :: Prelude.Maybe Prelude.Text,
-    -- | The data the registry was created.
+  { -- | The data the registry was created.
     createdTime :: Prelude.Maybe Prelude.Text,
-    -- | The status of the registry.
-    status :: Prelude.Maybe RegistryStatus,
     -- | A description of the registry.
     description :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the registry.
     registryArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the registry.
+    registryName :: Prelude.Maybe Prelude.Text,
+    -- | The status of the registry.
+    status :: Prelude.Maybe RegistryStatus,
     -- | The date the registry was updated.
     updatedTime :: Prelude.Maybe Prelude.Text
   }
@@ -52,40 +52,32 @@ data RegistryListItem = RegistryListItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'registryName', 'registryListItem_registryName' - The name of the registry.
---
 -- 'createdTime', 'registryListItem_createdTime' - The data the registry was created.
---
--- 'status', 'registryListItem_status' - The status of the registry.
 --
 -- 'description', 'registryListItem_description' - A description of the registry.
 --
 -- 'registryArn', 'registryListItem_registryArn' - The Amazon Resource Name (ARN) of the registry.
+--
+-- 'registryName', 'registryListItem_registryName' - The name of the registry.
+--
+-- 'status', 'registryListItem_status' - The status of the registry.
 --
 -- 'updatedTime', 'registryListItem_updatedTime' - The date the registry was updated.
 newRegistryListItem ::
   RegistryListItem
 newRegistryListItem =
   RegistryListItem'
-    { registryName = Prelude.Nothing,
-      createdTime = Prelude.Nothing,
-      status = Prelude.Nothing,
+    { createdTime = Prelude.Nothing,
       description = Prelude.Nothing,
       registryArn = Prelude.Nothing,
+      registryName = Prelude.Nothing,
+      status = Prelude.Nothing,
       updatedTime = Prelude.Nothing
     }
-
--- | The name of the registry.
-registryListItem_registryName :: Lens.Lens' RegistryListItem (Prelude.Maybe Prelude.Text)
-registryListItem_registryName = Lens.lens (\RegistryListItem' {registryName} -> registryName) (\s@RegistryListItem' {} a -> s {registryName = a} :: RegistryListItem)
 
 -- | The data the registry was created.
 registryListItem_createdTime :: Lens.Lens' RegistryListItem (Prelude.Maybe Prelude.Text)
 registryListItem_createdTime = Lens.lens (\RegistryListItem' {createdTime} -> createdTime) (\s@RegistryListItem' {} a -> s {createdTime = a} :: RegistryListItem)
-
--- | The status of the registry.
-registryListItem_status :: Lens.Lens' RegistryListItem (Prelude.Maybe RegistryStatus)
-registryListItem_status = Lens.lens (\RegistryListItem' {status} -> status) (\s@RegistryListItem' {} a -> s {status = a} :: RegistryListItem)
 
 -- | A description of the registry.
 registryListItem_description :: Lens.Lens' RegistryListItem (Prelude.Maybe Prelude.Text)
@@ -94,6 +86,14 @@ registryListItem_description = Lens.lens (\RegistryListItem' {description} -> de
 -- | The Amazon Resource Name (ARN) of the registry.
 registryListItem_registryArn :: Lens.Lens' RegistryListItem (Prelude.Maybe Prelude.Text)
 registryListItem_registryArn = Lens.lens (\RegistryListItem' {registryArn} -> registryArn) (\s@RegistryListItem' {} a -> s {registryArn = a} :: RegistryListItem)
+
+-- | The name of the registry.
+registryListItem_registryName :: Lens.Lens' RegistryListItem (Prelude.Maybe Prelude.Text)
+registryListItem_registryName = Lens.lens (\RegistryListItem' {registryName} -> registryName) (\s@RegistryListItem' {} a -> s {registryName = a} :: RegistryListItem)
+
+-- | The status of the registry.
+registryListItem_status :: Lens.Lens' RegistryListItem (Prelude.Maybe RegistryStatus)
+registryListItem_status = Lens.lens (\RegistryListItem' {status} -> status) (\s@RegistryListItem' {} a -> s {status = a} :: RegistryListItem)
 
 -- | The date the registry was updated.
 registryListItem_updatedTime :: Lens.Lens' RegistryListItem (Prelude.Maybe Prelude.Text)
@@ -105,28 +105,28 @@ instance Data.FromJSON RegistryListItem where
       "RegistryListItem"
       ( \x ->
           RegistryListItem'
-            Prelude.<$> (x Data..:? "RegistryName")
-            Prelude.<*> (x Data..:? "CreatedTime")
-            Prelude.<*> (x Data..:? "Status")
+            Prelude.<$> (x Data..:? "CreatedTime")
             Prelude.<*> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "RegistryArn")
+            Prelude.<*> (x Data..:? "RegistryName")
+            Prelude.<*> (x Data..:? "Status")
             Prelude.<*> (x Data..:? "UpdatedTime")
       )
 
 instance Prelude.Hashable RegistryListItem where
   hashWithSalt _salt RegistryListItem' {..} =
-    _salt `Prelude.hashWithSalt` registryName
-      `Prelude.hashWithSalt` createdTime
-      `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` registryArn
+      `Prelude.hashWithSalt` registryName
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` updatedTime
 
 instance Prelude.NFData RegistryListItem where
   rnf RegistryListItem' {..} =
-    Prelude.rnf registryName
-      `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf createdTime
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf registryArn
+      `Prelude.seq` Prelude.rnf registryName
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf updatedTime

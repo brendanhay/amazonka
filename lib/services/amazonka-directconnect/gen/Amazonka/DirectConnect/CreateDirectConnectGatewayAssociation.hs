@@ -30,8 +30,8 @@ module Amazonka.DirectConnect.CreateDirectConnectGatewayAssociation
 
     -- * Request Lenses
     createDirectConnectGatewayAssociation_addAllowedPrefixesToDirectConnectGateway,
-    createDirectConnectGatewayAssociation_virtualGatewayId,
     createDirectConnectGatewayAssociation_gatewayId,
+    createDirectConnectGatewayAssociation_virtualGatewayId,
     createDirectConnectGatewayAssociation_directConnectGatewayId,
 
     -- * Destructuring the Response
@@ -63,10 +63,10 @@ data CreateDirectConnectGatewayAssociation = CreateDirectConnectGatewayAssociati
     -- <https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes Allowed Prefixes>
     -- in the /Direct Connect User Guide/.
     addAllowedPrefixesToDirectConnectGateway :: Prelude.Maybe [RouteFilterPrefix],
-    -- | The ID of the virtual private gateway.
-    virtualGatewayId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the virtual private gateway or transit gateway.
     gatewayId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the virtual private gateway.
+    virtualGatewayId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Direct Connect gateway.
     directConnectGatewayId :: Prelude.Text
   }
@@ -89,9 +89,9 @@ data CreateDirectConnectGatewayAssociation = CreateDirectConnectGatewayAssociati
 -- <https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes Allowed Prefixes>
 -- in the /Direct Connect User Guide/.
 --
--- 'virtualGatewayId', 'createDirectConnectGatewayAssociation_virtualGatewayId' - The ID of the virtual private gateway.
---
 -- 'gatewayId', 'createDirectConnectGatewayAssociation_gatewayId' - The ID of the virtual private gateway or transit gateway.
+--
+-- 'virtualGatewayId', 'createDirectConnectGatewayAssociation_virtualGatewayId' - The ID of the virtual private gateway.
 --
 -- 'directConnectGatewayId', 'createDirectConnectGatewayAssociation_directConnectGatewayId' - The ID of the Direct Connect gateway.
 newCreateDirectConnectGatewayAssociation ::
@@ -103,8 +103,8 @@ newCreateDirectConnectGatewayAssociation
     CreateDirectConnectGatewayAssociation'
       { addAllowedPrefixesToDirectConnectGateway =
           Prelude.Nothing,
-        virtualGatewayId = Prelude.Nothing,
         gatewayId = Prelude.Nothing,
+        virtualGatewayId = Prelude.Nothing,
         directConnectGatewayId =
           pDirectConnectGatewayId_
       }
@@ -120,13 +120,13 @@ newCreateDirectConnectGatewayAssociation
 createDirectConnectGatewayAssociation_addAllowedPrefixesToDirectConnectGateway :: Lens.Lens' CreateDirectConnectGatewayAssociation (Prelude.Maybe [RouteFilterPrefix])
 createDirectConnectGatewayAssociation_addAllowedPrefixesToDirectConnectGateway = Lens.lens (\CreateDirectConnectGatewayAssociation' {addAllowedPrefixesToDirectConnectGateway} -> addAllowedPrefixesToDirectConnectGateway) (\s@CreateDirectConnectGatewayAssociation' {} a -> s {addAllowedPrefixesToDirectConnectGateway = a} :: CreateDirectConnectGatewayAssociation) Prelude.. Lens.mapping Lens.coerced
 
--- | The ID of the virtual private gateway.
-createDirectConnectGatewayAssociation_virtualGatewayId :: Lens.Lens' CreateDirectConnectGatewayAssociation (Prelude.Maybe Prelude.Text)
-createDirectConnectGatewayAssociation_virtualGatewayId = Lens.lens (\CreateDirectConnectGatewayAssociation' {virtualGatewayId} -> virtualGatewayId) (\s@CreateDirectConnectGatewayAssociation' {} a -> s {virtualGatewayId = a} :: CreateDirectConnectGatewayAssociation)
-
 -- | The ID of the virtual private gateway or transit gateway.
 createDirectConnectGatewayAssociation_gatewayId :: Lens.Lens' CreateDirectConnectGatewayAssociation (Prelude.Maybe Prelude.Text)
 createDirectConnectGatewayAssociation_gatewayId = Lens.lens (\CreateDirectConnectGatewayAssociation' {gatewayId} -> gatewayId) (\s@CreateDirectConnectGatewayAssociation' {} a -> s {gatewayId = a} :: CreateDirectConnectGatewayAssociation)
+
+-- | The ID of the virtual private gateway.
+createDirectConnectGatewayAssociation_virtualGatewayId :: Lens.Lens' CreateDirectConnectGatewayAssociation (Prelude.Maybe Prelude.Text)
+createDirectConnectGatewayAssociation_virtualGatewayId = Lens.lens (\CreateDirectConnectGatewayAssociation' {virtualGatewayId} -> virtualGatewayId) (\s@CreateDirectConnectGatewayAssociation' {} a -> s {virtualGatewayId = a} :: CreateDirectConnectGatewayAssociation)
 
 -- | The ID of the Direct Connect gateway.
 createDirectConnectGatewayAssociation_directConnectGatewayId :: Lens.Lens' CreateDirectConnectGatewayAssociation Prelude.Text
@@ -159,8 +159,8 @@ instance
     CreateDirectConnectGatewayAssociation' {..} =
       _salt
         `Prelude.hashWithSalt` addAllowedPrefixesToDirectConnectGateway
-        `Prelude.hashWithSalt` virtualGatewayId
         `Prelude.hashWithSalt` gatewayId
+        `Prelude.hashWithSalt` virtualGatewayId
         `Prelude.hashWithSalt` directConnectGatewayId
 
 instance
@@ -170,8 +170,8 @@ instance
   rnf CreateDirectConnectGatewayAssociation' {..} =
     Prelude.rnf
       addAllowedPrefixesToDirectConnectGateway
-      `Prelude.seq` Prelude.rnf virtualGatewayId
       `Prelude.seq` Prelude.rnf gatewayId
+      `Prelude.seq` Prelude.rnf virtualGatewayId
       `Prelude.seq` Prelude.rnf directConnectGatewayId
 
 instance
@@ -201,9 +201,9 @@ instance
       ( Prelude.catMaybes
           [ ("addAllowedPrefixesToDirectConnectGateway" Data..=)
               Prelude.<$> addAllowedPrefixesToDirectConnectGateway,
+            ("gatewayId" Data..=) Prelude.<$> gatewayId,
             ("virtualGatewayId" Data..=)
               Prelude.<$> virtualGatewayId,
-            ("gatewayId" Data..=) Prelude.<$> gatewayId,
             Prelude.Just
               ( "directConnectGatewayId"
                   Data..= directConnectGatewayId

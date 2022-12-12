@@ -31,13 +31,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDataSetEntry' smart constructor.
 data DataSetEntry = DataSetEntry'
-  { -- | The data set ID of the owned data set corresponding to the entitled data
+  { -- | If the origin of this data set is ENTITLED, includes the details for the
+    -- product on AWS Marketplace.
+    originDetails :: Prelude.Maybe OriginDetails,
+    -- | The data set ID of the owned data set corresponding to the entitled data
     -- set being viewed. This parameter is returned when a data set owner is
     -- viewing the entitled copy of its owned data set.
     sourceId :: Prelude.Maybe Prelude.Text,
-    -- | If the origin of this data set is ENTITLED, includes the details for the
-    -- product on AWS Marketplace.
-    originDetails :: Prelude.Maybe OriginDetails,
     -- | The ARN for the data set.
     arn :: Prelude.Text,
     -- | The type of asset that is added to a data set.
@@ -67,12 +67,12 @@ data DataSetEntry = DataSetEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'originDetails', 'dataSetEntry_originDetails' - If the origin of this data set is ENTITLED, includes the details for the
+-- product on AWS Marketplace.
+--
 -- 'sourceId', 'dataSetEntry_sourceId' - The data set ID of the owned data set corresponding to the entitled data
 -- set being viewed. This parameter is returned when a data set owner is
 -- viewing the entitled copy of its owned data set.
---
--- 'originDetails', 'dataSetEntry_originDetails' - If the origin of this data set is ENTITLED, includes the details for the
--- product on AWS Marketplace.
 --
 -- 'arn', 'dataSetEntry_arn' - The ARN for the data set.
 --
@@ -119,8 +119,8 @@ newDataSetEntry
   pOrigin_
   pUpdatedAt_ =
     DataSetEntry'
-      { sourceId = Prelude.Nothing,
-        originDetails = Prelude.Nothing,
+      { originDetails = Prelude.Nothing,
+        sourceId = Prelude.Nothing,
         arn = pArn_,
         assetType = pAssetType_,
         createdAt = Data._Time Lens.# pCreatedAt_,
@@ -131,16 +131,16 @@ newDataSetEntry
         updatedAt = Data._Time Lens.# pUpdatedAt_
       }
 
+-- | If the origin of this data set is ENTITLED, includes the details for the
+-- product on AWS Marketplace.
+dataSetEntry_originDetails :: Lens.Lens' DataSetEntry (Prelude.Maybe OriginDetails)
+dataSetEntry_originDetails = Lens.lens (\DataSetEntry' {originDetails} -> originDetails) (\s@DataSetEntry' {} a -> s {originDetails = a} :: DataSetEntry)
+
 -- | The data set ID of the owned data set corresponding to the entitled data
 -- set being viewed. This parameter is returned when a data set owner is
 -- viewing the entitled copy of its owned data set.
 dataSetEntry_sourceId :: Lens.Lens' DataSetEntry (Prelude.Maybe Prelude.Text)
 dataSetEntry_sourceId = Lens.lens (\DataSetEntry' {sourceId} -> sourceId) (\s@DataSetEntry' {} a -> s {sourceId = a} :: DataSetEntry)
-
--- | If the origin of this data set is ENTITLED, includes the details for the
--- product on AWS Marketplace.
-dataSetEntry_originDetails :: Lens.Lens' DataSetEntry (Prelude.Maybe OriginDetails)
-dataSetEntry_originDetails = Lens.lens (\DataSetEntry' {originDetails} -> originDetails) (\s@DataSetEntry' {} a -> s {originDetails = a} :: DataSetEntry)
 
 -- | The ARN for the data set.
 dataSetEntry_arn :: Lens.Lens' DataSetEntry Prelude.Text
@@ -182,8 +182,8 @@ instance Data.FromJSON DataSetEntry where
       "DataSetEntry"
       ( \x ->
           DataSetEntry'
-            Prelude.<$> (x Data..:? "SourceId")
-            Prelude.<*> (x Data..:? "OriginDetails")
+            Prelude.<$> (x Data..:? "OriginDetails")
+            Prelude.<*> (x Data..:? "SourceId")
             Prelude.<*> (x Data..: "Arn")
             Prelude.<*> (x Data..: "AssetType")
             Prelude.<*> (x Data..: "CreatedAt")
@@ -196,8 +196,8 @@ instance Data.FromJSON DataSetEntry where
 
 instance Prelude.Hashable DataSetEntry where
   hashWithSalt _salt DataSetEntry' {..} =
-    _salt `Prelude.hashWithSalt` sourceId
-      `Prelude.hashWithSalt` originDetails
+    _salt `Prelude.hashWithSalt` originDetails
+      `Prelude.hashWithSalt` sourceId
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` assetType
       `Prelude.hashWithSalt` createdAt
@@ -209,8 +209,8 @@ instance Prelude.Hashable DataSetEntry where
 
 instance Prelude.NFData DataSetEntry where
   rnf DataSetEntry' {..} =
-    Prelude.rnf sourceId
-      `Prelude.seq` Prelude.rnf originDetails
+    Prelude.rnf originDetails
+      `Prelude.seq` Prelude.rnf sourceId
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf assetType
       `Prelude.seq` Prelude.rnf createdAt

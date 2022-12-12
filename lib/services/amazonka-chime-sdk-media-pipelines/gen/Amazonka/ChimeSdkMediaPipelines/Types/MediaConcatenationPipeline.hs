@@ -31,21 +31,21 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMediaConcatenationPipeline' smart constructor.
 data MediaConcatenationPipeline = MediaConcatenationPipeline'
-  { -- | The data sources being concatnated.
-    sources :: Prelude.Maybe (Prelude.NonEmpty ConcatenationSource),
-    -- | The time at which the concatenation pipeline was created.
+  { -- | The time at which the concatenation pipeline was created.
     createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the media pipeline that you specify in the
     -- @SourceConfiguration@ object.
     mediaPipelineArn :: Prelude.Maybe Prelude.Text,
-    -- | The time at which the concatenation pipeline was last updated.
-    updatedTimestamp :: Prelude.Maybe Data.POSIX,
-    -- | The status of the concatenation pipeline.
-    status :: Prelude.Maybe MediaPipelineStatus,
+    -- | The ID of the media pipeline being concatenated.
+    mediaPipelineId :: Prelude.Maybe Prelude.Text,
     -- | The data sinks of the concatenation pipeline.
     sinks :: Prelude.Maybe (Prelude.NonEmpty ConcatenationSink),
-    -- | The ID of the media pipeline being concatenated.
-    mediaPipelineId :: Prelude.Maybe Prelude.Text
+    -- | The data sources being concatnated.
+    sources :: Prelude.Maybe (Prelude.NonEmpty ConcatenationSource),
+    -- | The status of the concatenation pipeline.
+    status :: Prelude.Maybe MediaPipelineStatus,
+    -- | The time at which the concatenation pipeline was last updated.
+    updatedTimestamp :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -57,37 +57,33 @@ data MediaConcatenationPipeline = MediaConcatenationPipeline'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sources', 'mediaConcatenationPipeline_sources' - The data sources being concatnated.
---
 -- 'createdTimestamp', 'mediaConcatenationPipeline_createdTimestamp' - The time at which the concatenation pipeline was created.
 --
 -- 'mediaPipelineArn', 'mediaConcatenationPipeline_mediaPipelineArn' - The ARN of the media pipeline that you specify in the
 -- @SourceConfiguration@ object.
 --
--- 'updatedTimestamp', 'mediaConcatenationPipeline_updatedTimestamp' - The time at which the concatenation pipeline was last updated.
---
--- 'status', 'mediaConcatenationPipeline_status' - The status of the concatenation pipeline.
+-- 'mediaPipelineId', 'mediaConcatenationPipeline_mediaPipelineId' - The ID of the media pipeline being concatenated.
 --
 -- 'sinks', 'mediaConcatenationPipeline_sinks' - The data sinks of the concatenation pipeline.
 --
--- 'mediaPipelineId', 'mediaConcatenationPipeline_mediaPipelineId' - The ID of the media pipeline being concatenated.
+-- 'sources', 'mediaConcatenationPipeline_sources' - The data sources being concatnated.
+--
+-- 'status', 'mediaConcatenationPipeline_status' - The status of the concatenation pipeline.
+--
+-- 'updatedTimestamp', 'mediaConcatenationPipeline_updatedTimestamp' - The time at which the concatenation pipeline was last updated.
 newMediaConcatenationPipeline ::
   MediaConcatenationPipeline
 newMediaConcatenationPipeline =
   MediaConcatenationPipeline'
-    { sources =
+    { createdTimestamp =
         Prelude.Nothing,
-      createdTimestamp = Prelude.Nothing,
       mediaPipelineArn = Prelude.Nothing,
-      updatedTimestamp = Prelude.Nothing,
-      status = Prelude.Nothing,
+      mediaPipelineId = Prelude.Nothing,
       sinks = Prelude.Nothing,
-      mediaPipelineId = Prelude.Nothing
+      sources = Prelude.Nothing,
+      status = Prelude.Nothing,
+      updatedTimestamp = Prelude.Nothing
     }
-
--- | The data sources being concatnated.
-mediaConcatenationPipeline_sources :: Lens.Lens' MediaConcatenationPipeline (Prelude.Maybe (Prelude.NonEmpty ConcatenationSource))
-mediaConcatenationPipeline_sources = Lens.lens (\MediaConcatenationPipeline' {sources} -> sources) (\s@MediaConcatenationPipeline' {} a -> s {sources = a} :: MediaConcatenationPipeline) Prelude.. Lens.mapping Lens.coerced
 
 -- | The time at which the concatenation pipeline was created.
 mediaConcatenationPipeline_createdTimestamp :: Lens.Lens' MediaConcatenationPipeline (Prelude.Maybe Prelude.UTCTime)
@@ -98,21 +94,25 @@ mediaConcatenationPipeline_createdTimestamp = Lens.lens (\MediaConcatenationPipe
 mediaConcatenationPipeline_mediaPipelineArn :: Lens.Lens' MediaConcatenationPipeline (Prelude.Maybe Prelude.Text)
 mediaConcatenationPipeline_mediaPipelineArn = Lens.lens (\MediaConcatenationPipeline' {mediaPipelineArn} -> mediaPipelineArn) (\s@MediaConcatenationPipeline' {} a -> s {mediaPipelineArn = a} :: MediaConcatenationPipeline)
 
--- | The time at which the concatenation pipeline was last updated.
-mediaConcatenationPipeline_updatedTimestamp :: Lens.Lens' MediaConcatenationPipeline (Prelude.Maybe Prelude.UTCTime)
-mediaConcatenationPipeline_updatedTimestamp = Lens.lens (\MediaConcatenationPipeline' {updatedTimestamp} -> updatedTimestamp) (\s@MediaConcatenationPipeline' {} a -> s {updatedTimestamp = a} :: MediaConcatenationPipeline) Prelude.. Lens.mapping Data._Time
-
--- | The status of the concatenation pipeline.
-mediaConcatenationPipeline_status :: Lens.Lens' MediaConcatenationPipeline (Prelude.Maybe MediaPipelineStatus)
-mediaConcatenationPipeline_status = Lens.lens (\MediaConcatenationPipeline' {status} -> status) (\s@MediaConcatenationPipeline' {} a -> s {status = a} :: MediaConcatenationPipeline)
+-- | The ID of the media pipeline being concatenated.
+mediaConcatenationPipeline_mediaPipelineId :: Lens.Lens' MediaConcatenationPipeline (Prelude.Maybe Prelude.Text)
+mediaConcatenationPipeline_mediaPipelineId = Lens.lens (\MediaConcatenationPipeline' {mediaPipelineId} -> mediaPipelineId) (\s@MediaConcatenationPipeline' {} a -> s {mediaPipelineId = a} :: MediaConcatenationPipeline)
 
 -- | The data sinks of the concatenation pipeline.
 mediaConcatenationPipeline_sinks :: Lens.Lens' MediaConcatenationPipeline (Prelude.Maybe (Prelude.NonEmpty ConcatenationSink))
 mediaConcatenationPipeline_sinks = Lens.lens (\MediaConcatenationPipeline' {sinks} -> sinks) (\s@MediaConcatenationPipeline' {} a -> s {sinks = a} :: MediaConcatenationPipeline) Prelude.. Lens.mapping Lens.coerced
 
--- | The ID of the media pipeline being concatenated.
-mediaConcatenationPipeline_mediaPipelineId :: Lens.Lens' MediaConcatenationPipeline (Prelude.Maybe Prelude.Text)
-mediaConcatenationPipeline_mediaPipelineId = Lens.lens (\MediaConcatenationPipeline' {mediaPipelineId} -> mediaPipelineId) (\s@MediaConcatenationPipeline' {} a -> s {mediaPipelineId = a} :: MediaConcatenationPipeline)
+-- | The data sources being concatnated.
+mediaConcatenationPipeline_sources :: Lens.Lens' MediaConcatenationPipeline (Prelude.Maybe (Prelude.NonEmpty ConcatenationSource))
+mediaConcatenationPipeline_sources = Lens.lens (\MediaConcatenationPipeline' {sources} -> sources) (\s@MediaConcatenationPipeline' {} a -> s {sources = a} :: MediaConcatenationPipeline) Prelude.. Lens.mapping Lens.coerced
+
+-- | The status of the concatenation pipeline.
+mediaConcatenationPipeline_status :: Lens.Lens' MediaConcatenationPipeline (Prelude.Maybe MediaPipelineStatus)
+mediaConcatenationPipeline_status = Lens.lens (\MediaConcatenationPipeline' {status} -> status) (\s@MediaConcatenationPipeline' {} a -> s {status = a} :: MediaConcatenationPipeline)
+
+-- | The time at which the concatenation pipeline was last updated.
+mediaConcatenationPipeline_updatedTimestamp :: Lens.Lens' MediaConcatenationPipeline (Prelude.Maybe Prelude.UTCTime)
+mediaConcatenationPipeline_updatedTimestamp = Lens.lens (\MediaConcatenationPipeline' {updatedTimestamp} -> updatedTimestamp) (\s@MediaConcatenationPipeline' {} a -> s {updatedTimestamp = a} :: MediaConcatenationPipeline) Prelude.. Lens.mapping Data._Time
 
 instance Data.FromJSON MediaConcatenationPipeline where
   parseJSON =
@@ -120,31 +120,31 @@ instance Data.FromJSON MediaConcatenationPipeline where
       "MediaConcatenationPipeline"
       ( \x ->
           MediaConcatenationPipeline'
-            Prelude.<$> (x Data..:? "Sources")
-            Prelude.<*> (x Data..:? "CreatedTimestamp")
+            Prelude.<$> (x Data..:? "CreatedTimestamp")
             Prelude.<*> (x Data..:? "MediaPipelineArn")
-            Prelude.<*> (x Data..:? "UpdatedTimestamp")
-            Prelude.<*> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "Sinks")
             Prelude.<*> (x Data..:? "MediaPipelineId")
+            Prelude.<*> (x Data..:? "Sinks")
+            Prelude.<*> (x Data..:? "Sources")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "UpdatedTimestamp")
       )
 
 instance Prelude.Hashable MediaConcatenationPipeline where
   hashWithSalt _salt MediaConcatenationPipeline' {..} =
-    _salt `Prelude.hashWithSalt` sources
-      `Prelude.hashWithSalt` createdTimestamp
+    _salt `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` mediaPipelineArn
-      `Prelude.hashWithSalt` updatedTimestamp
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` sinks
       `Prelude.hashWithSalt` mediaPipelineId
+      `Prelude.hashWithSalt` sinks
+      `Prelude.hashWithSalt` sources
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` updatedTimestamp
 
 instance Prelude.NFData MediaConcatenationPipeline where
   rnf MediaConcatenationPipeline' {..} =
-    Prelude.rnf sources
-      `Prelude.seq` Prelude.rnf createdTimestamp
+    Prelude.rnf createdTimestamp
       `Prelude.seq` Prelude.rnf mediaPipelineArn
-      `Prelude.seq` Prelude.rnf updatedTimestamp
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf sinks
       `Prelude.seq` Prelude.rnf mediaPipelineId
+      `Prelude.seq` Prelude.rnf sinks
+      `Prelude.seq` Prelude.rnf sources
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf updatedTimestamp

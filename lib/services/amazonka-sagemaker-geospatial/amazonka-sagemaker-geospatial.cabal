@@ -1,0 +1,184 @@
+cabal-version:      2.2
+name:               amazonka-sagemaker-geospatial
+version:            2.0
+synopsis:           Amazon SageMaker geospatial capabilities SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2022 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2020-05-27@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses can be found in "Amazonka.SageMakerGeoSpatial.Lens" and are
+  suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  See "Amazonka.SageMakerGeoSpatial" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-sagemaker-geospatial
+
+library
+  default-language: Haskell2010
+  hs-source-dirs:   src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Amazonka.SageMakerGeoSpatial
+    Amazonka.SageMakerGeoSpatial.DeleteEarthObservationJob
+    Amazonka.SageMakerGeoSpatial.DeleteVectorEnrichmentJob
+    Amazonka.SageMakerGeoSpatial.ExportEarthObservationJob
+    Amazonka.SageMakerGeoSpatial.ExportVectorEnrichmentJob
+    Amazonka.SageMakerGeoSpatial.GetEarthObservationJob
+    Amazonka.SageMakerGeoSpatial.GetRasterDataCollection
+    Amazonka.SageMakerGeoSpatial.GetTile
+    Amazonka.SageMakerGeoSpatial.GetVectorEnrichmentJob
+    Amazonka.SageMakerGeoSpatial.Lens
+    Amazonka.SageMakerGeoSpatial.ListEarthObservationJobs
+    Amazonka.SageMakerGeoSpatial.ListRasterDataCollections
+    Amazonka.SageMakerGeoSpatial.ListTagsForResource
+    Amazonka.SageMakerGeoSpatial.ListVectorEnrichmentJobs
+    Amazonka.SageMakerGeoSpatial.SearchRasterDataCollection
+    Amazonka.SageMakerGeoSpatial.StartEarthObservationJob
+    Amazonka.SageMakerGeoSpatial.StartVectorEnrichmentJob
+    Amazonka.SageMakerGeoSpatial.StopEarthObservationJob
+    Amazonka.SageMakerGeoSpatial.StopVectorEnrichmentJob
+    Amazonka.SageMakerGeoSpatial.TagResource
+    Amazonka.SageMakerGeoSpatial.Types
+    Amazonka.SageMakerGeoSpatial.Types.AlgorithmNameCloudRemoval
+    Amazonka.SageMakerGeoSpatial.Types.AlgorithmNameGeoMosaic
+    Amazonka.SageMakerGeoSpatial.Types.AlgorithmNameResampling
+    Amazonka.SageMakerGeoSpatial.Types.AreaOfInterest
+    Amazonka.SageMakerGeoSpatial.Types.AreaOfInterestGeometry
+    Amazonka.SageMakerGeoSpatial.Types.AssetValue
+    Amazonka.SageMakerGeoSpatial.Types.BandMathConfigInput
+    Amazonka.SageMakerGeoSpatial.Types.CloudMaskingConfigInput
+    Amazonka.SageMakerGeoSpatial.Types.CloudRemovalConfigInput
+    Amazonka.SageMakerGeoSpatial.Types.ComparisonOperator
+    Amazonka.SageMakerGeoSpatial.Types.CustomIndicesInput
+    Amazonka.SageMakerGeoSpatial.Types.DataCollectionType
+    Amazonka.SageMakerGeoSpatial.Types.EarthObservationJobErrorDetails
+    Amazonka.SageMakerGeoSpatial.Types.EarthObservationJobErrorType
+    Amazonka.SageMakerGeoSpatial.Types.EarthObservationJobExportStatus
+    Amazonka.SageMakerGeoSpatial.Types.EarthObservationJobStatus
+    Amazonka.SageMakerGeoSpatial.Types.EoCloudCoverInput
+    Amazonka.SageMakerGeoSpatial.Types.EojDataSourceConfigInput
+    Amazonka.SageMakerGeoSpatial.Types.ExportErrorDetails
+    Amazonka.SageMakerGeoSpatial.Types.ExportErrorDetailsOutput
+    Amazonka.SageMakerGeoSpatial.Types.ExportErrorType
+    Amazonka.SageMakerGeoSpatial.Types.ExportS3DataInput
+    Amazonka.SageMakerGeoSpatial.Types.ExportVectorEnrichmentJobOutputConfig
+    Amazonka.SageMakerGeoSpatial.Types.Filter
+    Amazonka.SageMakerGeoSpatial.Types.Geometry
+    Amazonka.SageMakerGeoSpatial.Types.GeoMosaicConfigInput
+    Amazonka.SageMakerGeoSpatial.Types.GroupBy
+    Amazonka.SageMakerGeoSpatial.Types.InputConfigInput
+    Amazonka.SageMakerGeoSpatial.Types.InputConfigOutput
+    Amazonka.SageMakerGeoSpatial.Types.ItemSource
+    Amazonka.SageMakerGeoSpatial.Types.JobConfigInput
+    Amazonka.SageMakerGeoSpatial.Types.LandCoverSegmentationConfigInput
+    Amazonka.SageMakerGeoSpatial.Types.LandsatCloudCoverLandInput
+    Amazonka.SageMakerGeoSpatial.Types.ListEarthObservationJobOutputConfig
+    Amazonka.SageMakerGeoSpatial.Types.ListVectorEnrichmentJobOutputConfig
+    Amazonka.SageMakerGeoSpatial.Types.LogicalOperator
+    Amazonka.SageMakerGeoSpatial.Types.MapMatchingConfig
+    Amazonka.SageMakerGeoSpatial.Types.MetadataProvider
+    Amazonka.SageMakerGeoSpatial.Types.MultiPolygonGeometryInput
+    Amazonka.SageMakerGeoSpatial.Types.Operation
+    Amazonka.SageMakerGeoSpatial.Types.OutputBand
+    Amazonka.SageMakerGeoSpatial.Types.OutputConfigInput
+    Amazonka.SageMakerGeoSpatial.Types.OutputResolutionResamplingInput
+    Amazonka.SageMakerGeoSpatial.Types.OutputResolutionStackInput
+    Amazonka.SageMakerGeoSpatial.Types.OutputType
+    Amazonka.SageMakerGeoSpatial.Types.PlatformInput
+    Amazonka.SageMakerGeoSpatial.Types.PolygonGeometryInput
+    Amazonka.SageMakerGeoSpatial.Types.PredefinedResolution
+    Amazonka.SageMakerGeoSpatial.Types.Properties
+    Amazonka.SageMakerGeoSpatial.Types.Property
+    Amazonka.SageMakerGeoSpatial.Types.PropertyFilter
+    Amazonka.SageMakerGeoSpatial.Types.PropertyFilters
+    Amazonka.SageMakerGeoSpatial.Types.RasterDataCollectionMetadata
+    Amazonka.SageMakerGeoSpatial.Types.RasterDataCollectionQueryInput
+    Amazonka.SageMakerGeoSpatial.Types.RasterDataCollectionQueryOutput
+    Amazonka.SageMakerGeoSpatial.Types.RasterDataCollectionQueryWithBandFilterInput
+    Amazonka.SageMakerGeoSpatial.Types.ResamplingConfigInput
+    Amazonka.SageMakerGeoSpatial.Types.ReverseGeocodingConfig
+    Amazonka.SageMakerGeoSpatial.Types.S3DataInput
+    Amazonka.SageMakerGeoSpatial.Types.SortOrder
+    Amazonka.SageMakerGeoSpatial.Types.StackConfigInput
+    Amazonka.SageMakerGeoSpatial.Types.TargetOptions
+    Amazonka.SageMakerGeoSpatial.Types.TemporalStatistics
+    Amazonka.SageMakerGeoSpatial.Types.TemporalStatisticsConfigInput
+    Amazonka.SageMakerGeoSpatial.Types.TimeRangeFilterInput
+    Amazonka.SageMakerGeoSpatial.Types.Unit
+    Amazonka.SageMakerGeoSpatial.Types.UserDefined
+    Amazonka.SageMakerGeoSpatial.Types.VectorEnrichmentJobConfig
+    Amazonka.SageMakerGeoSpatial.Types.VectorEnrichmentJobDataSourceConfigInput
+    Amazonka.SageMakerGeoSpatial.Types.VectorEnrichmentJobDocumentType
+    Amazonka.SageMakerGeoSpatial.Types.VectorEnrichmentJobErrorDetails
+    Amazonka.SageMakerGeoSpatial.Types.VectorEnrichmentJobErrorType
+    Amazonka.SageMakerGeoSpatial.Types.VectorEnrichmentJobExportErrorDetails
+    Amazonka.SageMakerGeoSpatial.Types.VectorEnrichmentJobExportErrorType
+    Amazonka.SageMakerGeoSpatial.Types.VectorEnrichmentJobExportStatus
+    Amazonka.SageMakerGeoSpatial.Types.VectorEnrichmentJobInputConfig
+    Amazonka.SageMakerGeoSpatial.Types.VectorEnrichmentJobS3Data
+    Amazonka.SageMakerGeoSpatial.Types.VectorEnrichmentJobStatus
+    Amazonka.SageMakerGeoSpatial.Types.VectorEnrichmentJobType
+    Amazonka.SageMakerGeoSpatial.Types.ViewOffNadirInput
+    Amazonka.SageMakerGeoSpatial.Types.ViewSunAzimuthInput
+    Amazonka.SageMakerGeoSpatial.Types.ViewSunElevationInput
+    Amazonka.SageMakerGeoSpatial.Types.ZonalStatistics
+    Amazonka.SageMakerGeoSpatial.Types.ZonalStatisticsConfigInput
+    Amazonka.SageMakerGeoSpatial.UntagResource
+    Amazonka.SageMakerGeoSpatial.Waiters
+
+  build-depends:
+    , amazonka-core  >=2.0  && <2.1
+    , base           >=4.12 && <5
+
+test-suite amazonka-sagemaker-geospatial-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.Amazonka.Gen.SageMakerGeoSpatial
+    Test.Amazonka.SageMakerGeoSpatial
+    Test.Amazonka.SageMakerGeoSpatial.Internal
+
+  build-depends:
+    , amazonka-core                  >=2.0 && <2.1
+    , amazonka-sagemaker-geospatial
+    , amazonka-test                  >=2.0 && <2.1
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

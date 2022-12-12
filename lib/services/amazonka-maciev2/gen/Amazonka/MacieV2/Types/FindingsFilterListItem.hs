@@ -29,19 +29,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFindingsFilterListItem' smart constructor.
 data FindingsFilterListItem = FindingsFilterListItem'
-  { -- | A map of key-value pairs that specifies which tags (keys and values) are
-    -- associated with the filter.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The custom name of the filter.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | The action that\'s performed on findings that match the filter criteria.
+    -- Possible values are: ARCHIVE, suppress (automatically archive) the
+    -- findings; and, NOOP, don\'t perform any action on the findings.
+    action :: Prelude.Maybe FindingsFilterAction,
     -- | The Amazon Resource Name (ARN) of the filter.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the filter.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The action that\'s performed on findings that meet the filter criteria.
-    -- Possible values are: ARCHIVE, suppress (automatically archive) the
-    -- findings; and, NOOP, don\'t perform any action on the findings.
-    action :: Prelude.Maybe FindingsFilterAction
+    -- | The custom name of the filter.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | A map of key-value pairs that specifies which tags (keys and values) are
+    -- associated with the filter.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,37 +53,34 @@ data FindingsFilterListItem = FindingsFilterListItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'findingsFilterListItem_tags' - A map of key-value pairs that specifies which tags (keys and values) are
--- associated with the filter.
---
--- 'name', 'findingsFilterListItem_name' - The custom name of the filter.
+-- 'action', 'findingsFilterListItem_action' - The action that\'s performed on findings that match the filter criteria.
+-- Possible values are: ARCHIVE, suppress (automatically archive) the
+-- findings; and, NOOP, don\'t perform any action on the findings.
 --
 -- 'arn', 'findingsFilterListItem_arn' - The Amazon Resource Name (ARN) of the filter.
 --
 -- 'id', 'findingsFilterListItem_id' - The unique identifier for the filter.
 --
--- 'action', 'findingsFilterListItem_action' - The action that\'s performed on findings that meet the filter criteria.
--- Possible values are: ARCHIVE, suppress (automatically archive) the
--- findings; and, NOOP, don\'t perform any action on the findings.
+-- 'name', 'findingsFilterListItem_name' - The custom name of the filter.
+--
+-- 'tags', 'findingsFilterListItem_tags' - A map of key-value pairs that specifies which tags (keys and values) are
+-- associated with the filter.
 newFindingsFilterListItem ::
   FindingsFilterListItem
 newFindingsFilterListItem =
   FindingsFilterListItem'
-    { tags = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { action = Prelude.Nothing,
       arn = Prelude.Nothing,
       id = Prelude.Nothing,
-      action = Prelude.Nothing
+      name = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
 
--- | A map of key-value pairs that specifies which tags (keys and values) are
--- associated with the filter.
-findingsFilterListItem_tags :: Lens.Lens' FindingsFilterListItem (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-findingsFilterListItem_tags = Lens.lens (\FindingsFilterListItem' {tags} -> tags) (\s@FindingsFilterListItem' {} a -> s {tags = a} :: FindingsFilterListItem) Prelude.. Lens.mapping Lens.coerced
-
--- | The custom name of the filter.
-findingsFilterListItem_name :: Lens.Lens' FindingsFilterListItem (Prelude.Maybe Prelude.Text)
-findingsFilterListItem_name = Lens.lens (\FindingsFilterListItem' {name} -> name) (\s@FindingsFilterListItem' {} a -> s {name = a} :: FindingsFilterListItem)
+-- | The action that\'s performed on findings that match the filter criteria.
+-- Possible values are: ARCHIVE, suppress (automatically archive) the
+-- findings; and, NOOP, don\'t perform any action on the findings.
+findingsFilterListItem_action :: Lens.Lens' FindingsFilterListItem (Prelude.Maybe FindingsFilterAction)
+findingsFilterListItem_action = Lens.lens (\FindingsFilterListItem' {action} -> action) (\s@FindingsFilterListItem' {} a -> s {action = a} :: FindingsFilterListItem)
 
 -- | The Amazon Resource Name (ARN) of the filter.
 findingsFilterListItem_arn :: Lens.Lens' FindingsFilterListItem (Prelude.Maybe Prelude.Text)
@@ -93,11 +90,14 @@ findingsFilterListItem_arn = Lens.lens (\FindingsFilterListItem' {arn} -> arn) (
 findingsFilterListItem_id :: Lens.Lens' FindingsFilterListItem (Prelude.Maybe Prelude.Text)
 findingsFilterListItem_id = Lens.lens (\FindingsFilterListItem' {id} -> id) (\s@FindingsFilterListItem' {} a -> s {id = a} :: FindingsFilterListItem)
 
--- | The action that\'s performed on findings that meet the filter criteria.
--- Possible values are: ARCHIVE, suppress (automatically archive) the
--- findings; and, NOOP, don\'t perform any action on the findings.
-findingsFilterListItem_action :: Lens.Lens' FindingsFilterListItem (Prelude.Maybe FindingsFilterAction)
-findingsFilterListItem_action = Lens.lens (\FindingsFilterListItem' {action} -> action) (\s@FindingsFilterListItem' {} a -> s {action = a} :: FindingsFilterListItem)
+-- | The custom name of the filter.
+findingsFilterListItem_name :: Lens.Lens' FindingsFilterListItem (Prelude.Maybe Prelude.Text)
+findingsFilterListItem_name = Lens.lens (\FindingsFilterListItem' {name} -> name) (\s@FindingsFilterListItem' {} a -> s {name = a} :: FindingsFilterListItem)
+
+-- | A map of key-value pairs that specifies which tags (keys and values) are
+-- associated with the filter.
+findingsFilterListItem_tags :: Lens.Lens' FindingsFilterListItem (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+findingsFilterListItem_tags = Lens.lens (\FindingsFilterListItem' {tags} -> tags) (\s@FindingsFilterListItem' {} a -> s {tags = a} :: FindingsFilterListItem) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON FindingsFilterListItem where
   parseJSON =
@@ -105,25 +105,25 @@ instance Data.FromJSON FindingsFilterListItem where
       "FindingsFilterListItem"
       ( \x ->
           FindingsFilterListItem'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "name")
+            Prelude.<$> (x Data..:? "action")
             Prelude.<*> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "id")
-            Prelude.<*> (x Data..:? "action")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable FindingsFilterListItem where
   hashWithSalt _salt FindingsFilterListItem' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData FindingsFilterListItem where
   rnf FindingsFilterListItem' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf action
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags

@@ -24,9 +24,9 @@
 -- VPC for your Amazon GameLift fleet and a virtual private cloud (VPC) in
 -- your Amazon Web Services account. VPC peering enables the game servers
 -- on your fleet to communicate directly with other Amazon Web Services
--- resources. Once you\'ve received authorization, call
--- CreateVpcPeeringConnection to establish the peering connection. For more
--- information, see
+-- resources. After you\'ve received authorization, use
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateVpcPeeringConnection.html CreateVpcPeeringConnection>
+-- to establish the peering connection. For more information, see
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets>.
 --
 -- You can peer with VPCs that are owned by any Amazon Web Services account
@@ -49,15 +49,12 @@
 -- that you want to delete the peering connection for, and (2) ID of the
 -- Amazon Web Services account that you use to manage Amazon GameLift.
 --
--- The authorization remains valid for 24 hours unless it is canceled by a
--- call to DeleteVpcPeeringAuthorization. You must create or delete the
--- peering connection while the authorization is valid.
+-- The authorization remains valid for 24 hours unless it is canceled. You
+-- must create or delete the peering connection while the authorization is
+-- valid.
 --
 -- __Related actions__
 --
--- CreateVpcPeeringAuthorization | DescribeVpcPeeringAuthorizations |
--- DeleteVpcPeeringAuthorization | CreateVpcPeeringConnection |
--- DescribeVpcPeeringConnections | DeleteVpcPeeringConnection |
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Amazonka.GameLift.CreateVpcPeeringAuthorization
   ( -- * Creating a Request
@@ -86,9 +83,7 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Represents the input for a request operation.
---
--- /See:/ 'newCreateVpcPeeringAuthorization' smart constructor.
+-- | /See:/ 'newCreateVpcPeeringAuthorization' smart constructor.
 data CreateVpcPeeringAuthorization = CreateVpcPeeringAuthorization'
   { -- | A unique identifier for the Amazon Web Services account that you use to
     -- manage your GameLift fleet. You can find your Account ID in the Amazon
@@ -215,9 +210,7 @@ instance Data.ToPath CreateVpcPeeringAuthorization where
 instance Data.ToQuery CreateVpcPeeringAuthorization where
   toQuery = Prelude.const Prelude.mempty
 
--- | Represents the returned data in response to a request operation.
---
--- /See:/ 'newCreateVpcPeeringAuthorizationResponse' smart constructor.
+-- | /See:/ 'newCreateVpcPeeringAuthorizationResponse' smart constructor.
 data CreateVpcPeeringAuthorizationResponse = CreateVpcPeeringAuthorizationResponse'
   { -- | Details on the requested VPC peering authorization, including
     -- expiration.

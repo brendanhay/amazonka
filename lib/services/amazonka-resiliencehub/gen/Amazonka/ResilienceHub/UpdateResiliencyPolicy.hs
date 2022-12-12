@@ -27,11 +27,11 @@ module Amazonka.ResilienceHub.UpdateResiliencyPolicy
     newUpdateResiliencyPolicy,
 
     -- * Request Lenses
-    updateResiliencyPolicy_policyName,
-    updateResiliencyPolicy_policy,
     updateResiliencyPolicy_dataLocationConstraint,
-    updateResiliencyPolicy_tier,
+    updateResiliencyPolicy_policy,
     updateResiliencyPolicy_policyDescription,
+    updateResiliencyPolicy_policyName,
+    updateResiliencyPolicy_tier,
     updateResiliencyPolicy_policyArn,
 
     -- * Destructuring the Response
@@ -54,19 +54,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateResiliencyPolicy' smart constructor.
 data UpdateResiliencyPolicy = UpdateResiliencyPolicy'
-  { -- | The name of the policy
-    policyName :: Prelude.Maybe Prelude.Text,
+  { -- | Specifies a high-level geographical location constraint for where your
+    -- resilience policy data can be stored.
+    dataLocationConstraint :: Prelude.Maybe DataLocationConstraint,
     -- | The type of resiliency policy to be created, including the recovery time
     -- objective (RTO) and recovery point objective (RPO) in seconds.
     policy :: Prelude.Maybe (Prelude.HashMap DisruptionType FailurePolicy),
-    -- | Specifies a high-level geographical location constraint for where your
-    -- resilience policy data can be stored.
-    dataLocationConstraint :: Prelude.Maybe DataLocationConstraint,
+    -- | The description for the policy.
+    policyDescription :: Prelude.Maybe Prelude.Text,
+    -- | The name of the policy
+    policyName :: Prelude.Maybe Prelude.Text,
     -- | The tier for this resiliency policy, ranging from the highest severity
     -- (@MissionCritical@) to lowest (@NonCritical@).
     tier :: Prelude.Maybe ResiliencyPolicyTier,
-    -- | The description for the policy.
-    policyDescription :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the resiliency policy. The format for
     -- this ARN is:
     -- arn:@partition@:resiliencehub:@region@:@account@:resiliency-policy\/@policy-id@.
@@ -85,18 +85,18 @@ data UpdateResiliencyPolicy = UpdateResiliencyPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyName', 'updateResiliencyPolicy_policyName' - The name of the policy
+-- 'dataLocationConstraint', 'updateResiliencyPolicy_dataLocationConstraint' - Specifies a high-level geographical location constraint for where your
+-- resilience policy data can be stored.
 --
 -- 'policy', 'updateResiliencyPolicy_policy' - The type of resiliency policy to be created, including the recovery time
 -- objective (RTO) and recovery point objective (RPO) in seconds.
 --
--- 'dataLocationConstraint', 'updateResiliencyPolicy_dataLocationConstraint' - Specifies a high-level geographical location constraint for where your
--- resilience policy data can be stored.
+-- 'policyDescription', 'updateResiliencyPolicy_policyDescription' - The description for the policy.
+--
+-- 'policyName', 'updateResiliencyPolicy_policyName' - The name of the policy
 --
 -- 'tier', 'updateResiliencyPolicy_tier' - The tier for this resiliency policy, ranging from the highest severity
 -- (@MissionCritical@) to lowest (@NonCritical@).
---
--- 'policyDescription', 'updateResiliencyPolicy_policyDescription' - The description for the policy.
 --
 -- 'policyArn', 'updateResiliencyPolicy_policyArn' - The Amazon Resource Name (ARN) of the resiliency policy. The format for
 -- this ARN is:
@@ -110,37 +110,37 @@ newUpdateResiliencyPolicy ::
   UpdateResiliencyPolicy
 newUpdateResiliencyPolicy pPolicyArn_ =
   UpdateResiliencyPolicy'
-    { policyName =
+    { dataLocationConstraint =
         Prelude.Nothing,
       policy = Prelude.Nothing,
-      dataLocationConstraint = Prelude.Nothing,
-      tier = Prelude.Nothing,
       policyDescription = Prelude.Nothing,
+      policyName = Prelude.Nothing,
+      tier = Prelude.Nothing,
       policyArn = pPolicyArn_
     }
-
--- | The name of the policy
-updateResiliencyPolicy_policyName :: Lens.Lens' UpdateResiliencyPolicy (Prelude.Maybe Prelude.Text)
-updateResiliencyPolicy_policyName = Lens.lens (\UpdateResiliencyPolicy' {policyName} -> policyName) (\s@UpdateResiliencyPolicy' {} a -> s {policyName = a} :: UpdateResiliencyPolicy)
-
--- | The type of resiliency policy to be created, including the recovery time
--- objective (RTO) and recovery point objective (RPO) in seconds.
-updateResiliencyPolicy_policy :: Lens.Lens' UpdateResiliencyPolicy (Prelude.Maybe (Prelude.HashMap DisruptionType FailurePolicy))
-updateResiliencyPolicy_policy = Lens.lens (\UpdateResiliencyPolicy' {policy} -> policy) (\s@UpdateResiliencyPolicy' {} a -> s {policy = a} :: UpdateResiliencyPolicy) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies a high-level geographical location constraint for where your
 -- resilience policy data can be stored.
 updateResiliencyPolicy_dataLocationConstraint :: Lens.Lens' UpdateResiliencyPolicy (Prelude.Maybe DataLocationConstraint)
 updateResiliencyPolicy_dataLocationConstraint = Lens.lens (\UpdateResiliencyPolicy' {dataLocationConstraint} -> dataLocationConstraint) (\s@UpdateResiliencyPolicy' {} a -> s {dataLocationConstraint = a} :: UpdateResiliencyPolicy)
 
--- | The tier for this resiliency policy, ranging from the highest severity
--- (@MissionCritical@) to lowest (@NonCritical@).
-updateResiliencyPolicy_tier :: Lens.Lens' UpdateResiliencyPolicy (Prelude.Maybe ResiliencyPolicyTier)
-updateResiliencyPolicy_tier = Lens.lens (\UpdateResiliencyPolicy' {tier} -> tier) (\s@UpdateResiliencyPolicy' {} a -> s {tier = a} :: UpdateResiliencyPolicy)
+-- | The type of resiliency policy to be created, including the recovery time
+-- objective (RTO) and recovery point objective (RPO) in seconds.
+updateResiliencyPolicy_policy :: Lens.Lens' UpdateResiliencyPolicy (Prelude.Maybe (Prelude.HashMap DisruptionType FailurePolicy))
+updateResiliencyPolicy_policy = Lens.lens (\UpdateResiliencyPolicy' {policy} -> policy) (\s@UpdateResiliencyPolicy' {} a -> s {policy = a} :: UpdateResiliencyPolicy) Prelude.. Lens.mapping Lens.coerced
 
 -- | The description for the policy.
 updateResiliencyPolicy_policyDescription :: Lens.Lens' UpdateResiliencyPolicy (Prelude.Maybe Prelude.Text)
 updateResiliencyPolicy_policyDescription = Lens.lens (\UpdateResiliencyPolicy' {policyDescription} -> policyDescription) (\s@UpdateResiliencyPolicy' {} a -> s {policyDescription = a} :: UpdateResiliencyPolicy)
+
+-- | The name of the policy
+updateResiliencyPolicy_policyName :: Lens.Lens' UpdateResiliencyPolicy (Prelude.Maybe Prelude.Text)
+updateResiliencyPolicy_policyName = Lens.lens (\UpdateResiliencyPolicy' {policyName} -> policyName) (\s@UpdateResiliencyPolicy' {} a -> s {policyName = a} :: UpdateResiliencyPolicy)
+
+-- | The tier for this resiliency policy, ranging from the highest severity
+-- (@MissionCritical@) to lowest (@NonCritical@).
+updateResiliencyPolicy_tier :: Lens.Lens' UpdateResiliencyPolicy (Prelude.Maybe ResiliencyPolicyTier)
+updateResiliencyPolicy_tier = Lens.lens (\UpdateResiliencyPolicy' {tier} -> tier) (\s@UpdateResiliencyPolicy' {} a -> s {tier = a} :: UpdateResiliencyPolicy)
 
 -- | The Amazon Resource Name (ARN) of the resiliency policy. The format for
 -- this ARN is:
@@ -167,20 +167,20 @@ instance Core.AWSRequest UpdateResiliencyPolicy where
 
 instance Prelude.Hashable UpdateResiliencyPolicy where
   hashWithSalt _salt UpdateResiliencyPolicy' {..} =
-    _salt `Prelude.hashWithSalt` policyName
+    _salt `Prelude.hashWithSalt` dataLocationConstraint
       `Prelude.hashWithSalt` policy
-      `Prelude.hashWithSalt` dataLocationConstraint
-      `Prelude.hashWithSalt` tier
       `Prelude.hashWithSalt` policyDescription
+      `Prelude.hashWithSalt` policyName
+      `Prelude.hashWithSalt` tier
       `Prelude.hashWithSalt` policyArn
 
 instance Prelude.NFData UpdateResiliencyPolicy where
   rnf UpdateResiliencyPolicy' {..} =
-    Prelude.rnf policyName
+    Prelude.rnf dataLocationConstraint
       `Prelude.seq` Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf dataLocationConstraint
-      `Prelude.seq` Prelude.rnf tier
       `Prelude.seq` Prelude.rnf policyDescription
+      `Prelude.seq` Prelude.rnf policyName
+      `Prelude.seq` Prelude.rnf tier
       `Prelude.seq` Prelude.rnf policyArn
 
 instance Data.ToHeaders UpdateResiliencyPolicy where
@@ -198,13 +198,13 @@ instance Data.ToJSON UpdateResiliencyPolicy where
   toJSON UpdateResiliencyPolicy' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("policyName" Data..=) Prelude.<$> policyName,
-            ("policy" Data..=) Prelude.<$> policy,
-            ("dataLocationConstraint" Data..=)
+          [ ("dataLocationConstraint" Data..=)
               Prelude.<$> dataLocationConstraint,
-            ("tier" Data..=) Prelude.<$> tier,
+            ("policy" Data..=) Prelude.<$> policy,
             ("policyDescription" Data..=)
               Prelude.<$> policyDescription,
+            ("policyName" Data..=) Prelude.<$> policyName,
+            ("tier" Data..=) Prelude.<$> tier,
             Prelude.Just ("policyArn" Data..= policyArn)
           ]
       )

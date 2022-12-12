@@ -23,41 +23,41 @@ module Amazonka.ChimeSdkMeetings
     -- * Errors
     -- $errors
 
-    -- ** UnauthorizedException
-    _UnauthorizedException,
-
-    -- ** TooManyTagsException
-    _TooManyTagsException,
-
-    -- ** NotFoundException
-    _NotFoundException,
-
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** UnprocessableEntityException
-    _UnprocessableEntityException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
-
-    -- ** ForbiddenException
-    _ForbiddenException,
+    -- ** BadRequestException
+    _BadRequestException,
 
     -- ** ConflictException
     _ConflictException,
 
-    -- ** ThrottlingException
-    _ThrottlingException,
+    -- ** ForbiddenException
+    _ForbiddenException,
 
-    -- ** BadRequestException
-    _BadRequestException,
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** NotFoundException
+    _NotFoundException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- ** ServiceFailureException
     _ServiceFailureException,
+
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
+
+    -- ** UnauthorizedException
+    _UnauthorizedException,
+
+    -- ** UnprocessableEntityException
+    _UnprocessableEntityException,
 
     -- * Waiters
     -- $waiters

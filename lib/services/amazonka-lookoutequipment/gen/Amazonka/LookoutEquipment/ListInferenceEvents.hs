@@ -28,8 +28,8 @@ module Amazonka.LookoutEquipment.ListInferenceEvents
     newListInferenceEvents,
 
     -- * Request Lenses
-    listInferenceEvents_nextToken,
     listInferenceEvents_maxResults,
+    listInferenceEvents_nextToken,
     listInferenceEvents_inferenceSchedulerName,
     listInferenceEvents_intervalStartTime,
     listInferenceEvents_intervalEndTime,
@@ -39,8 +39,8 @@ module Amazonka.LookoutEquipment.ListInferenceEvents
     newListInferenceEventsResponse,
 
     -- * Response Lenses
-    listInferenceEventsResponse_nextToken,
     listInferenceEventsResponse_inferenceEventSummaries,
+    listInferenceEventsResponse_nextToken,
     listInferenceEventsResponse_httpStatus,
   )
 where
@@ -55,11 +55,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListInferenceEvents' smart constructor.
 data ListInferenceEvents = ListInferenceEvents'
-  { -- | An opaque pagination token indicating where to continue the listing of
+  { -- | Specifies the maximum number of inference events to list.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | An opaque pagination token indicating where to continue the listing of
     -- inference events.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the maximum number of inference events to list.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the inference scheduler for the inference events listed.
     inferenceSchedulerName :: Prelude.Text,
     -- | Lookout for Equipment will return all the inference events with an end
@@ -79,10 +79,10 @@ data ListInferenceEvents = ListInferenceEvents'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listInferenceEvents_maxResults' - Specifies the maximum number of inference events to list.
+--
 -- 'nextToken', 'listInferenceEvents_nextToken' - An opaque pagination token indicating where to continue the listing of
 -- inference events.
---
--- 'maxResults', 'listInferenceEvents_maxResults' - Specifies the maximum number of inference events to list.
 --
 -- 'inferenceSchedulerName', 'listInferenceEvents_inferenceSchedulerName' - The name of the inference scheduler for the inference events listed.
 --
@@ -104,8 +104,8 @@ newListInferenceEvents
   pIntervalStartTime_
   pIntervalEndTime_ =
     ListInferenceEvents'
-      { nextToken = Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+      { maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         inferenceSchedulerName = pInferenceSchedulerName_,
         intervalStartTime =
           Data._Time Lens.# pIntervalStartTime_,
@@ -113,14 +113,14 @@ newListInferenceEvents
           Data._Time Lens.# pIntervalEndTime_
       }
 
+-- | Specifies the maximum number of inference events to list.
+listInferenceEvents_maxResults :: Lens.Lens' ListInferenceEvents (Prelude.Maybe Prelude.Natural)
+listInferenceEvents_maxResults = Lens.lens (\ListInferenceEvents' {maxResults} -> maxResults) (\s@ListInferenceEvents' {} a -> s {maxResults = a} :: ListInferenceEvents)
+
 -- | An opaque pagination token indicating where to continue the listing of
 -- inference events.
 listInferenceEvents_nextToken :: Lens.Lens' ListInferenceEvents (Prelude.Maybe Prelude.Text)
 listInferenceEvents_nextToken = Lens.lens (\ListInferenceEvents' {nextToken} -> nextToken) (\s@ListInferenceEvents' {} a -> s {nextToken = a} :: ListInferenceEvents)
-
--- | Specifies the maximum number of inference events to list.
-listInferenceEvents_maxResults :: Lens.Lens' ListInferenceEvents (Prelude.Maybe Prelude.Natural)
-listInferenceEvents_maxResults = Lens.lens (\ListInferenceEvents' {maxResults} -> maxResults) (\s@ListInferenceEvents' {} a -> s {maxResults = a} :: ListInferenceEvents)
 
 -- | The name of the inference scheduler for the inference events listed.
 listInferenceEvents_inferenceSchedulerName :: Lens.Lens' ListInferenceEvents Prelude.Text
@@ -146,25 +146,25 @@ instance Core.AWSRequest ListInferenceEvents where
     Response.receiveJSON
       ( \s h x ->
           ListInferenceEventsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "InferenceEventSummaries"
+            Prelude.<$> ( x Data..?> "InferenceEventSummaries"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListInferenceEvents where
   hashWithSalt _salt ListInferenceEvents' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` inferenceSchedulerName
       `Prelude.hashWithSalt` intervalStartTime
       `Prelude.hashWithSalt` intervalEndTime
 
 instance Prelude.NFData ListInferenceEvents where
   rnf ListInferenceEvents' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf inferenceSchedulerName
       `Prelude.seq` Prelude.rnf intervalStartTime
       `Prelude.seq` Prelude.rnf intervalEndTime
@@ -188,8 +188,8 @@ instance Data.ToJSON ListInferenceEvents where
   toJSON ListInferenceEvents' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ( "InferenceSchedulerName"
                   Data..= inferenceSchedulerName
@@ -209,13 +209,13 @@ instance Data.ToQuery ListInferenceEvents where
 
 -- | /See:/ 'newListInferenceEventsResponse' smart constructor.
 data ListInferenceEventsResponse = ListInferenceEventsResponse'
-  { -- | An opaque pagination token indicating where to continue the listing of
-    -- inference executions.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Provides an array of information about the individual inference events
+  { -- | Provides an array of information about the individual inference events
     -- returned from the @ListInferenceEvents@ operation, including scheduler
     -- used, event start time, event end time, diagnostics, and so on.
     inferenceEventSummaries :: Prelude.Maybe [InferenceEventSummary],
+    -- | An opaque pagination token indicating where to continue the listing of
+    -- inference executions.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -229,12 +229,12 @@ data ListInferenceEventsResponse = ListInferenceEventsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listInferenceEventsResponse_nextToken' - An opaque pagination token indicating where to continue the listing of
--- inference executions.
---
 -- 'inferenceEventSummaries', 'listInferenceEventsResponse_inferenceEventSummaries' - Provides an array of information about the individual inference events
 -- returned from the @ListInferenceEvents@ operation, including scheduler
 -- used, event start time, event end time, diagnostics, and so on.
+--
+-- 'nextToken', 'listInferenceEventsResponse_nextToken' - An opaque pagination token indicating where to continue the listing of
+-- inference executions.
 --
 -- 'httpStatus', 'listInferenceEventsResponse_httpStatus' - The response's http status code.
 newListInferenceEventsResponse ::
@@ -243,16 +243,11 @@ newListInferenceEventsResponse ::
   ListInferenceEventsResponse
 newListInferenceEventsResponse pHttpStatus_ =
   ListInferenceEventsResponse'
-    { nextToken =
+    { inferenceEventSummaries =
         Prelude.Nothing,
-      inferenceEventSummaries = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An opaque pagination token indicating where to continue the listing of
--- inference executions.
-listInferenceEventsResponse_nextToken :: Lens.Lens' ListInferenceEventsResponse (Prelude.Maybe Prelude.Text)
-listInferenceEventsResponse_nextToken = Lens.lens (\ListInferenceEventsResponse' {nextToken} -> nextToken) (\s@ListInferenceEventsResponse' {} a -> s {nextToken = a} :: ListInferenceEventsResponse)
 
 -- | Provides an array of information about the individual inference events
 -- returned from the @ListInferenceEvents@ operation, including scheduler
@@ -260,12 +255,17 @@ listInferenceEventsResponse_nextToken = Lens.lens (\ListInferenceEventsResponse'
 listInferenceEventsResponse_inferenceEventSummaries :: Lens.Lens' ListInferenceEventsResponse (Prelude.Maybe [InferenceEventSummary])
 listInferenceEventsResponse_inferenceEventSummaries = Lens.lens (\ListInferenceEventsResponse' {inferenceEventSummaries} -> inferenceEventSummaries) (\s@ListInferenceEventsResponse' {} a -> s {inferenceEventSummaries = a} :: ListInferenceEventsResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | An opaque pagination token indicating where to continue the listing of
+-- inference executions.
+listInferenceEventsResponse_nextToken :: Lens.Lens' ListInferenceEventsResponse (Prelude.Maybe Prelude.Text)
+listInferenceEventsResponse_nextToken = Lens.lens (\ListInferenceEventsResponse' {nextToken} -> nextToken) (\s@ListInferenceEventsResponse' {} a -> s {nextToken = a} :: ListInferenceEventsResponse)
+
 -- | The response's http status code.
 listInferenceEventsResponse_httpStatus :: Lens.Lens' ListInferenceEventsResponse Prelude.Int
 listInferenceEventsResponse_httpStatus = Lens.lens (\ListInferenceEventsResponse' {httpStatus} -> httpStatus) (\s@ListInferenceEventsResponse' {} a -> s {httpStatus = a} :: ListInferenceEventsResponse)
 
 instance Prelude.NFData ListInferenceEventsResponse where
   rnf ListInferenceEventsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf inferenceEventSummaries
+    Prelude.rnf inferenceEventSummaries
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

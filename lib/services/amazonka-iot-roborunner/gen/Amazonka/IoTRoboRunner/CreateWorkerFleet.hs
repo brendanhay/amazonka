@@ -27,8 +27,8 @@ module Amazonka.IoTRoboRunner.CreateWorkerFleet
     newCreateWorkerFleet,
 
     -- * Request Lenses
-    createWorkerFleet_clientToken,
     createWorkerFleet_additionalFixedProperties,
+    createWorkerFleet_clientToken,
     createWorkerFleet_name,
     createWorkerFleet_site,
 
@@ -55,8 +55,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateWorkerFleet' smart constructor.
 data CreateWorkerFleet = CreateWorkerFleet'
-  { clientToken :: Prelude.Maybe Prelude.Text,
-    additionalFixedProperties :: Prelude.Maybe Prelude.Text,
+  { additionalFixedProperties :: Prelude.Maybe Prelude.Text,
+    clientToken :: Prelude.Maybe Prelude.Text,
     name :: Prelude.Text,
     site :: Prelude.Text
   }
@@ -70,9 +70,9 @@ data CreateWorkerFleet = CreateWorkerFleet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'createWorkerFleet_clientToken' - Undocumented member.
---
 -- 'additionalFixedProperties', 'createWorkerFleet_additionalFixedProperties' - Undocumented member.
+--
+-- 'clientToken', 'createWorkerFleet_clientToken' - Undocumented member.
 --
 -- 'name', 'createWorkerFleet_name' - Undocumented member.
 --
@@ -85,19 +85,20 @@ newCreateWorkerFleet ::
   CreateWorkerFleet
 newCreateWorkerFleet pName_ pSite_ =
   CreateWorkerFleet'
-    { clientToken = Prelude.Nothing,
-      additionalFixedProperties = Prelude.Nothing,
+    { additionalFixedProperties =
+        Prelude.Nothing,
+      clientToken = Prelude.Nothing,
       name = pName_,
       site = pSite_
     }
 
 -- | Undocumented member.
-createWorkerFleet_clientToken :: Lens.Lens' CreateWorkerFleet (Prelude.Maybe Prelude.Text)
-createWorkerFleet_clientToken = Lens.lens (\CreateWorkerFleet' {clientToken} -> clientToken) (\s@CreateWorkerFleet' {} a -> s {clientToken = a} :: CreateWorkerFleet)
-
--- | Undocumented member.
 createWorkerFleet_additionalFixedProperties :: Lens.Lens' CreateWorkerFleet (Prelude.Maybe Prelude.Text)
 createWorkerFleet_additionalFixedProperties = Lens.lens (\CreateWorkerFleet' {additionalFixedProperties} -> additionalFixedProperties) (\s@CreateWorkerFleet' {} a -> s {additionalFixedProperties = a} :: CreateWorkerFleet)
+
+-- | Undocumented member.
+createWorkerFleet_clientToken :: Lens.Lens' CreateWorkerFleet (Prelude.Maybe Prelude.Text)
+createWorkerFleet_clientToken = Lens.lens (\CreateWorkerFleet' {clientToken} -> clientToken) (\s@CreateWorkerFleet' {} a -> s {clientToken = a} :: CreateWorkerFleet)
 
 -- | Undocumented member.
 createWorkerFleet_name :: Lens.Lens' CreateWorkerFleet Prelude.Text
@@ -126,15 +127,16 @@ instance Core.AWSRequest CreateWorkerFleet where
 
 instance Prelude.Hashable CreateWorkerFleet where
   hashWithSalt _salt CreateWorkerFleet' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
       `Prelude.hashWithSalt` additionalFixedProperties
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` site
 
 instance Prelude.NFData CreateWorkerFleet where
   rnf CreateWorkerFleet' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf additionalFixedProperties
+    Prelude.rnf additionalFixedProperties
+      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf site
 
@@ -153,9 +155,9 @@ instance Data.ToJSON CreateWorkerFleet where
   toJSON CreateWorkerFleet' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Data..=) Prelude.<$> clientToken,
-            ("additionalFixedProperties" Data..=)
+          [ ("additionalFixedProperties" Data..=)
               Prelude.<$> additionalFixedProperties,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just ("name" Data..= name),
             Prelude.Just ("site" Data..= site)
           ]

@@ -29,13 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConnectionPoolConfigurationInfo' smart constructor.
 data ConnectionPoolConfigurationInfo = ConnectionPoolConfigurationInfo'
-  { -- | Controls how actively the proxy closes idle database connections in the
-    -- connection pool. The value is expressed as a percentage of the
-    -- @max_connections@ setting for the RDS DB instance or Aurora DB cluster
-    -- used by the target group. With a high value, the proxy leaves a high
-    -- percentage of idle database connections open. A low value causes the
-    -- proxy to close more idle connections and return them to the database.
-    maxIdleConnectionsPercent :: Prelude.Maybe Prelude.Int,
+  { -- | The number of seconds for a proxy to wait for a connection to become
+    -- available in the connection pool. Only applies when the proxy has opened
+    -- its maximum number of connections and all connections are busy with
+    -- client sessions.
+    connectionBorrowTimeout :: Prelude.Maybe Prelude.Int,
     -- | One or more SQL statements for the proxy to run when opening each new
     -- database connection. Typically used with @SET@ statements to make sure
     -- that each connection has identical settings such as time zone and
@@ -43,16 +41,18 @@ data ConnectionPoolConfigurationInfo = ConnectionPoolConfigurationInfo'
     -- statements, use semicolons as the separator. You can also include
     -- multiple variables in a single @SET@ statement, such as @SET x=1, y=2@.
     initQuery :: Prelude.Maybe Prelude.Text,
-    -- | The number of seconds for a proxy to wait for a connection to become
-    -- available in the connection pool. Only applies when the proxy has opened
-    -- its maximum number of connections and all connections are busy with
-    -- client sessions.
-    connectionBorrowTimeout :: Prelude.Maybe Prelude.Int,
     -- | The maximum size of the connection pool for each target in a target
     -- group. The value is expressed as a percentage of the @max_connections@
     -- setting for the RDS DB instance or Aurora DB cluster used by the target
     -- group.
     maxConnectionsPercent :: Prelude.Maybe Prelude.Int,
+    -- | Controls how actively the proxy closes idle database connections in the
+    -- connection pool. The value is expressed as a percentage of the
+    -- @max_connections@ setting for the RDS DB instance or Aurora DB cluster
+    -- used by the target group. With a high value, the proxy leaves a high
+    -- percentage of idle database connections open. A low value causes the
+    -- proxy to close more idle connections and return them to the database.
+    maxIdleConnectionsPercent :: Prelude.Maybe Prelude.Int,
     -- | Each item in the list represents a class of SQL operations that normally
     -- cause all later statements in a session using a proxy to be pinned to
     -- the same underlying database connection. Including an item in the list
@@ -71,12 +71,10 @@ data ConnectionPoolConfigurationInfo = ConnectionPoolConfigurationInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxIdleConnectionsPercent', 'connectionPoolConfigurationInfo_maxIdleConnectionsPercent' - Controls how actively the proxy closes idle database connections in the
--- connection pool. The value is expressed as a percentage of the
--- @max_connections@ setting for the RDS DB instance or Aurora DB cluster
--- used by the target group. With a high value, the proxy leaves a high
--- percentage of idle database connections open. A low value causes the
--- proxy to close more idle connections and return them to the database.
+-- 'connectionBorrowTimeout', 'connectionPoolConfigurationInfo_connectionBorrowTimeout' - The number of seconds for a proxy to wait for a connection to become
+-- available in the connection pool. Only applies when the proxy has opened
+-- its maximum number of connections and all connections are busy with
+-- client sessions.
 --
 -- 'initQuery', 'connectionPoolConfigurationInfo_initQuery' - One or more SQL statements for the proxy to run when opening each new
 -- database connection. Typically used with @SET@ statements to make sure
@@ -85,15 +83,17 @@ data ConnectionPoolConfigurationInfo = ConnectionPoolConfigurationInfo'
 -- statements, use semicolons as the separator. You can also include
 -- multiple variables in a single @SET@ statement, such as @SET x=1, y=2@.
 --
--- 'connectionBorrowTimeout', 'connectionPoolConfigurationInfo_connectionBorrowTimeout' - The number of seconds for a proxy to wait for a connection to become
--- available in the connection pool. Only applies when the proxy has opened
--- its maximum number of connections and all connections are busy with
--- client sessions.
---
 -- 'maxConnectionsPercent', 'connectionPoolConfigurationInfo_maxConnectionsPercent' - The maximum size of the connection pool for each target in a target
 -- group. The value is expressed as a percentage of the @max_connections@
 -- setting for the RDS DB instance or Aurora DB cluster used by the target
 -- group.
+--
+-- 'maxIdleConnectionsPercent', 'connectionPoolConfigurationInfo_maxIdleConnectionsPercent' - Controls how actively the proxy closes idle database connections in the
+-- connection pool. The value is expressed as a percentage of the
+-- @max_connections@ setting for the RDS DB instance or Aurora DB cluster
+-- used by the target group. With a high value, the proxy leaves a high
+-- percentage of idle database connections open. A low value causes the
+-- proxy to close more idle connections and return them to the database.
 --
 -- 'sessionPinningFilters', 'connectionPoolConfigurationInfo_sessionPinningFilters' - Each item in the list represents a class of SQL operations that normally
 -- cause all later statements in a session using a proxy to be pinned to
@@ -105,22 +105,21 @@ newConnectionPoolConfigurationInfo ::
   ConnectionPoolConfigurationInfo
 newConnectionPoolConfigurationInfo =
   ConnectionPoolConfigurationInfo'
-    { maxIdleConnectionsPercent =
+    { connectionBorrowTimeout =
         Prelude.Nothing,
       initQuery = Prelude.Nothing,
-      connectionBorrowTimeout = Prelude.Nothing,
       maxConnectionsPercent = Prelude.Nothing,
+      maxIdleConnectionsPercent =
+        Prelude.Nothing,
       sessionPinningFilters = Prelude.Nothing
     }
 
--- | Controls how actively the proxy closes idle database connections in the
--- connection pool. The value is expressed as a percentage of the
--- @max_connections@ setting for the RDS DB instance or Aurora DB cluster
--- used by the target group. With a high value, the proxy leaves a high
--- percentage of idle database connections open. A low value causes the
--- proxy to close more idle connections and return them to the database.
-connectionPoolConfigurationInfo_maxIdleConnectionsPercent :: Lens.Lens' ConnectionPoolConfigurationInfo (Prelude.Maybe Prelude.Int)
-connectionPoolConfigurationInfo_maxIdleConnectionsPercent = Lens.lens (\ConnectionPoolConfigurationInfo' {maxIdleConnectionsPercent} -> maxIdleConnectionsPercent) (\s@ConnectionPoolConfigurationInfo' {} a -> s {maxIdleConnectionsPercent = a} :: ConnectionPoolConfigurationInfo)
+-- | The number of seconds for a proxy to wait for a connection to become
+-- available in the connection pool. Only applies when the proxy has opened
+-- its maximum number of connections and all connections are busy with
+-- client sessions.
+connectionPoolConfigurationInfo_connectionBorrowTimeout :: Lens.Lens' ConnectionPoolConfigurationInfo (Prelude.Maybe Prelude.Int)
+connectionPoolConfigurationInfo_connectionBorrowTimeout = Lens.lens (\ConnectionPoolConfigurationInfo' {connectionBorrowTimeout} -> connectionBorrowTimeout) (\s@ConnectionPoolConfigurationInfo' {} a -> s {connectionBorrowTimeout = a} :: ConnectionPoolConfigurationInfo)
 
 -- | One or more SQL statements for the proxy to run when opening each new
 -- database connection. Typically used with @SET@ statements to make sure
@@ -131,19 +130,21 @@ connectionPoolConfigurationInfo_maxIdleConnectionsPercent = Lens.lens (\Connecti
 connectionPoolConfigurationInfo_initQuery :: Lens.Lens' ConnectionPoolConfigurationInfo (Prelude.Maybe Prelude.Text)
 connectionPoolConfigurationInfo_initQuery = Lens.lens (\ConnectionPoolConfigurationInfo' {initQuery} -> initQuery) (\s@ConnectionPoolConfigurationInfo' {} a -> s {initQuery = a} :: ConnectionPoolConfigurationInfo)
 
--- | The number of seconds for a proxy to wait for a connection to become
--- available in the connection pool. Only applies when the proxy has opened
--- its maximum number of connections and all connections are busy with
--- client sessions.
-connectionPoolConfigurationInfo_connectionBorrowTimeout :: Lens.Lens' ConnectionPoolConfigurationInfo (Prelude.Maybe Prelude.Int)
-connectionPoolConfigurationInfo_connectionBorrowTimeout = Lens.lens (\ConnectionPoolConfigurationInfo' {connectionBorrowTimeout} -> connectionBorrowTimeout) (\s@ConnectionPoolConfigurationInfo' {} a -> s {connectionBorrowTimeout = a} :: ConnectionPoolConfigurationInfo)
-
 -- | The maximum size of the connection pool for each target in a target
 -- group. The value is expressed as a percentage of the @max_connections@
 -- setting for the RDS DB instance or Aurora DB cluster used by the target
 -- group.
 connectionPoolConfigurationInfo_maxConnectionsPercent :: Lens.Lens' ConnectionPoolConfigurationInfo (Prelude.Maybe Prelude.Int)
 connectionPoolConfigurationInfo_maxConnectionsPercent = Lens.lens (\ConnectionPoolConfigurationInfo' {maxConnectionsPercent} -> maxConnectionsPercent) (\s@ConnectionPoolConfigurationInfo' {} a -> s {maxConnectionsPercent = a} :: ConnectionPoolConfigurationInfo)
+
+-- | Controls how actively the proxy closes idle database connections in the
+-- connection pool. The value is expressed as a percentage of the
+-- @max_connections@ setting for the RDS DB instance or Aurora DB cluster
+-- used by the target group. With a high value, the proxy leaves a high
+-- percentage of idle database connections open. A low value causes the
+-- proxy to close more idle connections and return them to the database.
+connectionPoolConfigurationInfo_maxIdleConnectionsPercent :: Lens.Lens' ConnectionPoolConfigurationInfo (Prelude.Maybe Prelude.Int)
+connectionPoolConfigurationInfo_maxIdleConnectionsPercent = Lens.lens (\ConnectionPoolConfigurationInfo' {maxIdleConnectionsPercent} -> maxIdleConnectionsPercent) (\s@ConnectionPoolConfigurationInfo' {} a -> s {maxIdleConnectionsPercent = a} :: ConnectionPoolConfigurationInfo)
 
 -- | Each item in the list represents a class of SQL operations that normally
 -- cause all later statements in a session using a proxy to be pinned to
@@ -157,10 +158,10 @@ connectionPoolConfigurationInfo_sessionPinningFilters = Lens.lens (\ConnectionPo
 instance Data.FromXML ConnectionPoolConfigurationInfo where
   parseXML x =
     ConnectionPoolConfigurationInfo'
-      Prelude.<$> (x Data..@? "MaxIdleConnectionsPercent")
+      Prelude.<$> (x Data..@? "ConnectionBorrowTimeout")
       Prelude.<*> (x Data..@? "InitQuery")
-      Prelude.<*> (x Data..@? "ConnectionBorrowTimeout")
       Prelude.<*> (x Data..@? "MaxConnectionsPercent")
+      Prelude.<*> (x Data..@? "MaxIdleConnectionsPercent")
       Prelude.<*> ( x Data..@? "SessionPinningFilters"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
@@ -174,10 +175,10 @@ instance
     _salt
     ConnectionPoolConfigurationInfo' {..} =
       _salt
-        `Prelude.hashWithSalt` maxIdleConnectionsPercent
-        `Prelude.hashWithSalt` initQuery
         `Prelude.hashWithSalt` connectionBorrowTimeout
+        `Prelude.hashWithSalt` initQuery
         `Prelude.hashWithSalt` maxConnectionsPercent
+        `Prelude.hashWithSalt` maxIdleConnectionsPercent
         `Prelude.hashWithSalt` sessionPinningFilters
 
 instance
@@ -185,8 +186,8 @@ instance
     ConnectionPoolConfigurationInfo
   where
   rnf ConnectionPoolConfigurationInfo' {..} =
-    Prelude.rnf maxIdleConnectionsPercent
+    Prelude.rnf connectionBorrowTimeout
       `Prelude.seq` Prelude.rnf initQuery
-      `Prelude.seq` Prelude.rnf connectionBorrowTimeout
       `Prelude.seq` Prelude.rnf maxConnectionsPercent
+      `Prelude.seq` Prelude.rnf maxIdleConnectionsPercent
       `Prelude.seq` Prelude.rnf sessionPinningFilters

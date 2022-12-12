@@ -55,41 +55,41 @@ module Amazonka.SecretsManager
     -- * Errors
     -- $errors
 
-    -- ** PreconditionNotMetException
-    _PreconditionNotMetException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
+    -- ** DecryptionFailure
+    _DecryptionFailure,
 
     -- ** EncryptionFailure
     _EncryptionFailure,
 
-    -- ** PublicPolicyException
-    _PublicPolicyException,
+    -- ** InternalServiceError
+    _InternalServiceError,
 
     -- ** InvalidNextTokenException
     _InvalidNextTokenException,
 
-    -- ** InternalServiceError
-    _InternalServiceError,
-
-    -- ** DecryptionFailure
-    _DecryptionFailure,
-
-    -- ** MalformedPolicyDocumentException
-    _MalformedPolicyDocumentException,
-
-    -- ** ResourceExistsException
-    _ResourceExistsException,
+    -- ** InvalidParameterException
+    _InvalidParameterException,
 
     -- ** InvalidRequestException
     _InvalidRequestException,
 
-    -- ** InvalidParameterException
-    _InvalidParameterException,
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** MalformedPolicyDocumentException
+    _MalformedPolicyDocumentException,
+
+    -- ** PreconditionNotMetException
+    _PreconditionNotMetException,
+
+    -- ** PublicPolicyException
+    _PublicPolicyException,
+
+    -- ** ResourceExistsException
+    _ResourceExistsException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- * Waiters
     -- $waiters

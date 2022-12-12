@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLastReportGenerationExecutionError' smart constructor.
 data LastReportGenerationExecutionError = LastReportGenerationExecutionError'
-  { -- | The error message for the error that is returned when a usage report
-    -- can\'t be generated.
-    errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | The error code for the error that is returned when a usage report can\'t
+  { -- | The error code for the error that is returned when a usage report can\'t
     -- be generated.
-    errorCode :: Prelude.Maybe UsageReportExecutionErrorCode
+    errorCode :: Prelude.Maybe UsageReportExecutionErrorCode,
+    -- | The error message for the error that is returned when a usage report
+    -- can\'t be generated.
+    errorMessage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,29 +47,29 @@ data LastReportGenerationExecutionError = LastReportGenerationExecutionError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'errorMessage', 'lastReportGenerationExecutionError_errorMessage' - The error message for the error that is returned when a usage report
--- can\'t be generated.
---
 -- 'errorCode', 'lastReportGenerationExecutionError_errorCode' - The error code for the error that is returned when a usage report can\'t
 -- be generated.
+--
+-- 'errorMessage', 'lastReportGenerationExecutionError_errorMessage' - The error message for the error that is returned when a usage report
+-- can\'t be generated.
 newLastReportGenerationExecutionError ::
   LastReportGenerationExecutionError
 newLastReportGenerationExecutionError =
   LastReportGenerationExecutionError'
-    { errorMessage =
+    { errorCode =
         Prelude.Nothing,
-      errorCode = Prelude.Nothing
+      errorMessage = Prelude.Nothing
     }
-
--- | The error message for the error that is returned when a usage report
--- can\'t be generated.
-lastReportGenerationExecutionError_errorMessage :: Lens.Lens' LastReportGenerationExecutionError (Prelude.Maybe Prelude.Text)
-lastReportGenerationExecutionError_errorMessage = Lens.lens (\LastReportGenerationExecutionError' {errorMessage} -> errorMessage) (\s@LastReportGenerationExecutionError' {} a -> s {errorMessage = a} :: LastReportGenerationExecutionError)
 
 -- | The error code for the error that is returned when a usage report can\'t
 -- be generated.
 lastReportGenerationExecutionError_errorCode :: Lens.Lens' LastReportGenerationExecutionError (Prelude.Maybe UsageReportExecutionErrorCode)
 lastReportGenerationExecutionError_errorCode = Lens.lens (\LastReportGenerationExecutionError' {errorCode} -> errorCode) (\s@LastReportGenerationExecutionError' {} a -> s {errorCode = a} :: LastReportGenerationExecutionError)
+
+-- | The error message for the error that is returned when a usage report
+-- can\'t be generated.
+lastReportGenerationExecutionError_errorMessage :: Lens.Lens' LastReportGenerationExecutionError (Prelude.Maybe Prelude.Text)
+lastReportGenerationExecutionError_errorMessage = Lens.lens (\LastReportGenerationExecutionError' {errorMessage} -> errorMessage) (\s@LastReportGenerationExecutionError' {} a -> s {errorMessage = a} :: LastReportGenerationExecutionError)
 
 instance
   Data.FromJSON
@@ -80,8 +80,8 @@ instance
       "LastReportGenerationExecutionError"
       ( \x ->
           LastReportGenerationExecutionError'
-            Prelude.<$> (x Data..:? "ErrorMessage")
-            Prelude.<*> (x Data..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "ErrorMessage")
       )
 
 instance
@@ -91,13 +91,13 @@ instance
   hashWithSalt
     _salt
     LastReportGenerationExecutionError' {..} =
-      _salt `Prelude.hashWithSalt` errorMessage
-        `Prelude.hashWithSalt` errorCode
+      _salt `Prelude.hashWithSalt` errorCode
+        `Prelude.hashWithSalt` errorMessage
 
 instance
   Prelude.NFData
     LastReportGenerationExecutionError
   where
   rnf LastReportGenerationExecutionError' {..} =
-    Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf errorCode
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage

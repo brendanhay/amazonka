@@ -31,8 +31,8 @@ module Amazonka.IoTSiteWise.ListAssetRelationships
     newListAssetRelationships,
 
     -- * Request Lenses
-    listAssetRelationships_nextToken,
     listAssetRelationships_maxResults,
+    listAssetRelationships_nextToken,
     listAssetRelationships_assetId,
     listAssetRelationships_traversalType,
 
@@ -57,10 +57,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAssetRelationships' smart constructor.
 data ListAssetRelationships = ListAssetRelationships'
-  { -- | The token to be used for the next set of paginated results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return for each paginated request.
+  { -- | The maximum number of results to return for each paginated request.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to be used for the next set of paginated results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the asset.
     assetId :: Prelude.Text,
     -- | The type of traversal to use to identify asset relationships. Choose the
@@ -82,9 +82,9 @@ data ListAssetRelationships = ListAssetRelationships'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAssetRelationships_nextToken' - The token to be used for the next set of paginated results.
---
 -- 'maxResults', 'listAssetRelationships_maxResults' - The maximum number of results to return for each paginated request.
+--
+-- 'nextToken', 'listAssetRelationships_nextToken' - The token to be used for the next set of paginated results.
 --
 -- 'assetId', 'listAssetRelationships_assetId' - The ID of the asset.
 --
@@ -103,20 +103,20 @@ newListAssetRelationships ::
   ListAssetRelationships
 newListAssetRelationships pAssetId_ pTraversalType_ =
   ListAssetRelationships'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       assetId = pAssetId_,
       traversalType = pTraversalType_
     }
 
--- | The token to be used for the next set of paginated results.
-listAssetRelationships_nextToken :: Lens.Lens' ListAssetRelationships (Prelude.Maybe Prelude.Text)
-listAssetRelationships_nextToken = Lens.lens (\ListAssetRelationships' {nextToken} -> nextToken) (\s@ListAssetRelationships' {} a -> s {nextToken = a} :: ListAssetRelationships)
-
 -- | The maximum number of results to return for each paginated request.
 listAssetRelationships_maxResults :: Lens.Lens' ListAssetRelationships (Prelude.Maybe Prelude.Natural)
 listAssetRelationships_maxResults = Lens.lens (\ListAssetRelationships' {maxResults} -> maxResults) (\s@ListAssetRelationships' {} a -> s {maxResults = a} :: ListAssetRelationships)
+
+-- | The token to be used for the next set of paginated results.
+listAssetRelationships_nextToken :: Lens.Lens' ListAssetRelationships (Prelude.Maybe Prelude.Text)
+listAssetRelationships_nextToken = Lens.lens (\ListAssetRelationships' {nextToken} -> nextToken) (\s@ListAssetRelationships' {} a -> s {nextToken = a} :: ListAssetRelationships)
 
 -- | The ID of the asset.
 listAssetRelationships_assetId :: Lens.Lens' ListAssetRelationships Prelude.Text
@@ -172,15 +172,15 @@ instance Core.AWSRequest ListAssetRelationships where
 
 instance Prelude.Hashable ListAssetRelationships where
   hashWithSalt _salt ListAssetRelationships' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` assetId
       `Prelude.hashWithSalt` traversalType
 
 instance Prelude.NFData ListAssetRelationships where
   rnf ListAssetRelationships' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf assetId
       `Prelude.seq` Prelude.rnf traversalType
 
@@ -206,8 +206,8 @@ instance Data.ToPath ListAssetRelationships where
 instance Data.ToQuery ListAssetRelationships where
   toQuery ListAssetRelationships' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults,
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
         "traversalType" Data.=: traversalType
       ]
 

@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEfsFileLocation' smart constructor.
 data EfsFileLocation = EfsFileLocation'
-  { -- | The pathname for the folder being used by a workflow.
-    path :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the file system, assigned by Amazon EFS.
-    fileSystemId :: Prelude.Maybe Prelude.Text
+  { -- | The identifier of the file system, assigned by Amazon EFS.
+    fileSystemId :: Prelude.Maybe Prelude.Text,
+    -- | The pathname for the folder being used by a workflow.
+    path :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data EfsFileLocation = EfsFileLocation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'path', 'efsFileLocation_path' - The pathname for the folder being used by a workflow.
---
 -- 'fileSystemId', 'efsFileLocation_fileSystemId' - The identifier of the file system, assigned by Amazon EFS.
+--
+-- 'path', 'efsFileLocation_path' - The pathname for the folder being used by a workflow.
 newEfsFileLocation ::
   EfsFileLocation
 newEfsFileLocation =
   EfsFileLocation'
-    { path = Prelude.Nothing,
-      fileSystemId = Prelude.Nothing
+    { fileSystemId = Prelude.Nothing,
+      path = Prelude.Nothing
     }
-
--- | The pathname for the folder being used by a workflow.
-efsFileLocation_path :: Lens.Lens' EfsFileLocation (Prelude.Maybe Prelude.Text)
-efsFileLocation_path = Lens.lens (\EfsFileLocation' {path} -> path) (\s@EfsFileLocation' {} a -> s {path = a} :: EfsFileLocation)
 
 -- | The identifier of the file system, assigned by Amazon EFS.
 efsFileLocation_fileSystemId :: Lens.Lens' EfsFileLocation (Prelude.Maybe Prelude.Text)
 efsFileLocation_fileSystemId = Lens.lens (\EfsFileLocation' {fileSystemId} -> fileSystemId) (\s@EfsFileLocation' {} a -> s {fileSystemId = a} :: EfsFileLocation)
+
+-- | The pathname for the folder being used by a workflow.
+efsFileLocation_path :: Lens.Lens' EfsFileLocation (Prelude.Maybe Prelude.Text)
+efsFileLocation_path = Lens.lens (\EfsFileLocation' {path} -> path) (\s@EfsFileLocation' {} a -> s {path = a} :: EfsFileLocation)
 
 instance Data.FromJSON EfsFileLocation where
   parseJSON =
@@ -68,25 +68,25 @@ instance Data.FromJSON EfsFileLocation where
       "EfsFileLocation"
       ( \x ->
           EfsFileLocation'
-            Prelude.<$> (x Data..:? "Path")
-            Prelude.<*> (x Data..:? "FileSystemId")
+            Prelude.<$> (x Data..:? "FileSystemId")
+            Prelude.<*> (x Data..:? "Path")
       )
 
 instance Prelude.Hashable EfsFileLocation where
   hashWithSalt _salt EfsFileLocation' {..} =
-    _salt `Prelude.hashWithSalt` path
-      `Prelude.hashWithSalt` fileSystemId
+    _salt `Prelude.hashWithSalt` fileSystemId
+      `Prelude.hashWithSalt` path
 
 instance Prelude.NFData EfsFileLocation where
   rnf EfsFileLocation' {..} =
-    Prelude.rnf path
-      `Prelude.seq` Prelude.rnf fileSystemId
+    Prelude.rnf fileSystemId
+      `Prelude.seq` Prelude.rnf path
 
 instance Data.ToJSON EfsFileLocation where
   toJSON EfsFileLocation' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Path" Data..=) Prelude.<$> path,
-            ("FileSystemId" Data..=) Prelude.<$> fileSystemId
+          [ ("FileSystemId" Data..=) Prelude.<$> fileSystemId,
+            ("Path" Data..=) Prelude.<$> path
           ]
       )

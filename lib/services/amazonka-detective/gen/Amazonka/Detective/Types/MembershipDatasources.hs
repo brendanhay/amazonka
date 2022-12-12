@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMembershipDatasources' smart constructor.
 data MembershipDatasources = MembershipDatasources'
-  { -- | Details on when a data source package was added to a behavior graph.
+  { -- | The account identifier of the Amazon Web Services account.
+    accountId :: Prelude.Maybe Prelude.Text,
+    -- | Details on when a data source package was added to a behavior graph.
     datasourcePackageIngestHistory :: Prelude.Maybe (Prelude.HashMap DatasourcePackage (Prelude.HashMap DatasourcePackageIngestState TimestampForCollection)),
     -- | The ARN of the organization behavior graph.
-    graphArn :: Prelude.Maybe Prelude.Text,
-    -- | The account identifier of the Amazon Web Services account.
-    accountId :: Prelude.Maybe Prelude.Text
+    graphArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,20 +48,23 @@ data MembershipDatasources = MembershipDatasources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'accountId', 'membershipDatasources_accountId' - The account identifier of the Amazon Web Services account.
+--
 -- 'datasourcePackageIngestHistory', 'membershipDatasources_datasourcePackageIngestHistory' - Details on when a data source package was added to a behavior graph.
 --
 -- 'graphArn', 'membershipDatasources_graphArn' - The ARN of the organization behavior graph.
---
--- 'accountId', 'membershipDatasources_accountId' - The account identifier of the Amazon Web Services account.
 newMembershipDatasources ::
   MembershipDatasources
 newMembershipDatasources =
   MembershipDatasources'
-    { datasourcePackageIngestHistory =
-        Prelude.Nothing,
-      graphArn = Prelude.Nothing,
-      accountId = Prelude.Nothing
+    { accountId = Prelude.Nothing,
+      datasourcePackageIngestHistory = Prelude.Nothing,
+      graphArn = Prelude.Nothing
     }
+
+-- | The account identifier of the Amazon Web Services account.
+membershipDatasources_accountId :: Lens.Lens' MembershipDatasources (Prelude.Maybe Prelude.Text)
+membershipDatasources_accountId = Lens.lens (\MembershipDatasources' {accountId} -> accountId) (\s@MembershipDatasources' {} a -> s {accountId = a} :: MembershipDatasources)
 
 -- | Details on when a data source package was added to a behavior graph.
 membershipDatasources_datasourcePackageIngestHistory :: Lens.Lens' MembershipDatasources (Prelude.Maybe (Prelude.HashMap DatasourcePackage (Prelude.HashMap DatasourcePackageIngestState TimestampForCollection)))
@@ -71,32 +74,27 @@ membershipDatasources_datasourcePackageIngestHistory = Lens.lens (\MembershipDat
 membershipDatasources_graphArn :: Lens.Lens' MembershipDatasources (Prelude.Maybe Prelude.Text)
 membershipDatasources_graphArn = Lens.lens (\MembershipDatasources' {graphArn} -> graphArn) (\s@MembershipDatasources' {} a -> s {graphArn = a} :: MembershipDatasources)
 
--- | The account identifier of the Amazon Web Services account.
-membershipDatasources_accountId :: Lens.Lens' MembershipDatasources (Prelude.Maybe Prelude.Text)
-membershipDatasources_accountId = Lens.lens (\MembershipDatasources' {accountId} -> accountId) (\s@MembershipDatasources' {} a -> s {accountId = a} :: MembershipDatasources)
-
 instance Data.FromJSON MembershipDatasources where
   parseJSON =
     Data.withObject
       "MembershipDatasources"
       ( \x ->
           MembershipDatasources'
-            Prelude.<$> ( x Data..:? "DatasourcePackageIngestHistory"
+            Prelude.<$> (x Data..:? "AccountId")
+            Prelude.<*> ( x Data..:? "DatasourcePackageIngestHistory"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "GraphArn")
-            Prelude.<*> (x Data..:? "AccountId")
       )
 
 instance Prelude.Hashable MembershipDatasources where
   hashWithSalt _salt MembershipDatasources' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` datasourcePackageIngestHistory
       `Prelude.hashWithSalt` graphArn
-      `Prelude.hashWithSalt` accountId
 
 instance Prelude.NFData MembershipDatasources where
   rnf MembershipDatasources' {..} =
-    Prelude.rnf datasourcePackageIngestHistory
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf datasourcePackageIngestHistory
       `Prelude.seq` Prelude.rnf graphArn
-      `Prelude.seq` Prelude.rnf accountId

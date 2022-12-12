@@ -29,11 +29,11 @@ module Amazonka.EC2.GetIpamPoolAllocations
     newGetIpamPoolAllocations,
 
     -- * Request Lenses
-    getIpamPoolAllocations_nextToken,
-    getIpamPoolAllocations_filters,
     getIpamPoolAllocations_dryRun,
-    getIpamPoolAllocations_maxResults,
+    getIpamPoolAllocations_filters,
     getIpamPoolAllocations_ipamPoolAllocationId,
+    getIpamPoolAllocations_maxResults,
+    getIpamPoolAllocations_nextToken,
     getIpamPoolAllocations_ipamPoolId,
 
     -- * Destructuring the Response
@@ -41,8 +41,8 @@ module Amazonka.EC2.GetIpamPoolAllocations
     newGetIpamPoolAllocationsResponse,
 
     -- * Response Lenses
-    getIpamPoolAllocationsResponse_nextToken,
     getIpamPoolAllocationsResponse_ipamPoolAllocations,
+    getIpamPoolAllocationsResponse_nextToken,
     getIpamPoolAllocationsResponse_httpStatus,
   )
 where
@@ -57,21 +57,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetIpamPoolAllocations' smart constructor.
 data GetIpamPoolAllocations = GetIpamPoolAllocations'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | One or more filters for the request. For more information about
-    -- filtering, see
-    -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html Filtering CLI output>.
-    filters :: Prelude.Maybe [Filter],
-    -- | A check for whether you have the required permissions for the action
+  { -- | A check for whether you have the required permissions for the action
     -- without actually making the request and provides an error response. If
     -- you have the required permissions, the error response is
     -- @DryRunOperation@. Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results you would like returned per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | One or more filters for the request. For more information about
+    -- filtering, see
+    -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html Filtering CLI output>.
+    filters :: Prelude.Maybe [Filter],
     -- | The ID of the allocation.
     ipamPoolAllocationId :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results you would like returned per page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the IPAM pool you want to see the allocations for.
     ipamPoolId :: Prelude.Text
   }
@@ -85,20 +85,20 @@ data GetIpamPoolAllocations = GetIpamPoolAllocations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getIpamPoolAllocations_nextToken' - The token for the next page of results.
---
--- 'filters', 'getIpamPoolAllocations_filters' - One or more filters for the request. For more information about
--- filtering, see
--- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html Filtering CLI output>.
---
 -- 'dryRun', 'getIpamPoolAllocations_dryRun' - A check for whether you have the required permissions for the action
 -- without actually making the request and provides an error response. If
 -- you have the required permissions, the error response is
 -- @DryRunOperation@. Otherwise, it is @UnauthorizedOperation@.
 --
--- 'maxResults', 'getIpamPoolAllocations_maxResults' - The maximum number of results you would like returned per page.
+-- 'filters', 'getIpamPoolAllocations_filters' - One or more filters for the request. For more information about
+-- filtering, see
+-- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html Filtering CLI output>.
 --
 -- 'ipamPoolAllocationId', 'getIpamPoolAllocations_ipamPoolAllocationId' - The ID of the allocation.
+--
+-- 'maxResults', 'getIpamPoolAllocations_maxResults' - The maximum number of results you would like returned per page.
+--
+-- 'nextToken', 'getIpamPoolAllocations_nextToken' - The token for the next page of results.
 --
 -- 'ipamPoolId', 'getIpamPoolAllocations_ipamPoolId' - The ID of the IPAM pool you want to see the allocations for.
 newGetIpamPoolAllocations ::
@@ -107,24 +107,13 @@ newGetIpamPoolAllocations ::
   GetIpamPoolAllocations
 newGetIpamPoolAllocations pIpamPoolId_ =
   GetIpamPoolAllocations'
-    { nextToken =
-        Prelude.Nothing,
+    { dryRun = Prelude.Nothing,
       filters = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       ipamPoolAllocationId = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       ipamPoolId = pIpamPoolId_
     }
-
--- | The token for the next page of results.
-getIpamPoolAllocations_nextToken :: Lens.Lens' GetIpamPoolAllocations (Prelude.Maybe Prelude.Text)
-getIpamPoolAllocations_nextToken = Lens.lens (\GetIpamPoolAllocations' {nextToken} -> nextToken) (\s@GetIpamPoolAllocations' {} a -> s {nextToken = a} :: GetIpamPoolAllocations)
-
--- | One or more filters for the request. For more information about
--- filtering, see
--- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html Filtering CLI output>.
-getIpamPoolAllocations_filters :: Lens.Lens' GetIpamPoolAllocations (Prelude.Maybe [Filter])
-getIpamPoolAllocations_filters = Lens.lens (\GetIpamPoolAllocations' {filters} -> filters) (\s@GetIpamPoolAllocations' {} a -> s {filters = a} :: GetIpamPoolAllocations) Prelude.. Lens.mapping Lens.coerced
 
 -- | A check for whether you have the required permissions for the action
 -- without actually making the request and provides an error response. If
@@ -133,13 +122,23 @@ getIpamPoolAllocations_filters = Lens.lens (\GetIpamPoolAllocations' {filters} -
 getIpamPoolAllocations_dryRun :: Lens.Lens' GetIpamPoolAllocations (Prelude.Maybe Prelude.Bool)
 getIpamPoolAllocations_dryRun = Lens.lens (\GetIpamPoolAllocations' {dryRun} -> dryRun) (\s@GetIpamPoolAllocations' {} a -> s {dryRun = a} :: GetIpamPoolAllocations)
 
--- | The maximum number of results you would like returned per page.
-getIpamPoolAllocations_maxResults :: Lens.Lens' GetIpamPoolAllocations (Prelude.Maybe Prelude.Natural)
-getIpamPoolAllocations_maxResults = Lens.lens (\GetIpamPoolAllocations' {maxResults} -> maxResults) (\s@GetIpamPoolAllocations' {} a -> s {maxResults = a} :: GetIpamPoolAllocations)
+-- | One or more filters for the request. For more information about
+-- filtering, see
+-- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html Filtering CLI output>.
+getIpamPoolAllocations_filters :: Lens.Lens' GetIpamPoolAllocations (Prelude.Maybe [Filter])
+getIpamPoolAllocations_filters = Lens.lens (\GetIpamPoolAllocations' {filters} -> filters) (\s@GetIpamPoolAllocations' {} a -> s {filters = a} :: GetIpamPoolAllocations) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the allocation.
 getIpamPoolAllocations_ipamPoolAllocationId :: Lens.Lens' GetIpamPoolAllocations (Prelude.Maybe Prelude.Text)
 getIpamPoolAllocations_ipamPoolAllocationId = Lens.lens (\GetIpamPoolAllocations' {ipamPoolAllocationId} -> ipamPoolAllocationId) (\s@GetIpamPoolAllocations' {} a -> s {ipamPoolAllocationId = a} :: GetIpamPoolAllocations)
+
+-- | The maximum number of results you would like returned per page.
+getIpamPoolAllocations_maxResults :: Lens.Lens' GetIpamPoolAllocations (Prelude.Maybe Prelude.Natural)
+getIpamPoolAllocations_maxResults = Lens.lens (\GetIpamPoolAllocations' {maxResults} -> maxResults) (\s@GetIpamPoolAllocations' {} a -> s {maxResults = a} :: GetIpamPoolAllocations)
+
+-- | The token for the next page of results.
+getIpamPoolAllocations_nextToken :: Lens.Lens' GetIpamPoolAllocations (Prelude.Maybe Prelude.Text)
+getIpamPoolAllocations_nextToken = Lens.lens (\GetIpamPoolAllocations' {nextToken} -> nextToken) (\s@GetIpamPoolAllocations' {} a -> s {nextToken = a} :: GetIpamPoolAllocations)
 
 -- | The ID of the IPAM pool you want to see the allocations for.
 getIpamPoolAllocations_ipamPoolId :: Lens.Lens' GetIpamPoolAllocations Prelude.Text
@@ -177,30 +176,30 @@ instance Core.AWSRequest GetIpamPoolAllocations where
     Response.receiveXML
       ( \s h x ->
           GetIpamPoolAllocationsResponse'
-            Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "ipamPoolAllocationSet"
+            Prelude.<$> ( x Data..@? "ipamPoolAllocationSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
+            Prelude.<*> (x Data..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetIpamPoolAllocations where
   hashWithSalt _salt GetIpamPoolAllocations' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` dryRun
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` ipamPoolAllocationId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` ipamPoolId
 
 instance Prelude.NFData GetIpamPoolAllocations where
   rnf GetIpamPoolAllocations' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf ipamPoolAllocationId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf ipamPoolId
 
 instance Data.ToHeaders GetIpamPoolAllocations where
@@ -216,22 +215,22 @@ instance Data.ToQuery GetIpamPoolAllocations where
           Data.=: ("GetIpamPoolAllocations" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
+        "DryRun" Data.=: dryRun,
         Data.toQuery
           (Data.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Data.=: dryRun,
-        "MaxResults" Data.=: maxResults,
         "IpamPoolAllocationId" Data.=: ipamPoolAllocationId,
+        "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken,
         "IpamPoolId" Data.=: ipamPoolId
       ]
 
 -- | /See:/ 'newGetIpamPoolAllocationsResponse' smart constructor.
 data GetIpamPoolAllocationsResponse = GetIpamPoolAllocationsResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
+  { -- | The IPAM pool allocations you want information on.
+    ipamPoolAllocations :: Prelude.Maybe [IpamPoolAllocation],
+    -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The IPAM pool allocations you want information on.
-    ipamPoolAllocations :: Prelude.Maybe [IpamPoolAllocation],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -245,10 +244,10 @@ data GetIpamPoolAllocationsResponse = GetIpamPoolAllocationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ipamPoolAllocations', 'getIpamPoolAllocationsResponse_ipamPoolAllocations' - The IPAM pool allocations you want information on.
+--
 -- 'nextToken', 'getIpamPoolAllocationsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
---
--- 'ipamPoolAllocations', 'getIpamPoolAllocationsResponse_ipamPoolAllocations' - The IPAM pool allocations you want information on.
 --
 -- 'httpStatus', 'getIpamPoolAllocationsResponse_httpStatus' - The response's http status code.
 newGetIpamPoolAllocationsResponse ::
@@ -257,20 +256,20 @@ newGetIpamPoolAllocationsResponse ::
   GetIpamPoolAllocationsResponse
 newGetIpamPoolAllocationsResponse pHttpStatus_ =
   GetIpamPoolAllocationsResponse'
-    { nextToken =
+    { ipamPoolAllocations =
         Prelude.Nothing,
-      ipamPoolAllocations = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The IPAM pool allocations you want information on.
+getIpamPoolAllocationsResponse_ipamPoolAllocations :: Lens.Lens' GetIpamPoolAllocationsResponse (Prelude.Maybe [IpamPoolAllocation])
+getIpamPoolAllocationsResponse_ipamPoolAllocations = Lens.lens (\GetIpamPoolAllocationsResponse' {ipamPoolAllocations} -> ipamPoolAllocations) (\s@GetIpamPoolAllocationsResponse' {} a -> s {ipamPoolAllocations = a} :: GetIpamPoolAllocationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 getIpamPoolAllocationsResponse_nextToken :: Lens.Lens' GetIpamPoolAllocationsResponse (Prelude.Maybe Prelude.Text)
 getIpamPoolAllocationsResponse_nextToken = Lens.lens (\GetIpamPoolAllocationsResponse' {nextToken} -> nextToken) (\s@GetIpamPoolAllocationsResponse' {} a -> s {nextToken = a} :: GetIpamPoolAllocationsResponse)
-
--- | The IPAM pool allocations you want information on.
-getIpamPoolAllocationsResponse_ipamPoolAllocations :: Lens.Lens' GetIpamPoolAllocationsResponse (Prelude.Maybe [IpamPoolAllocation])
-getIpamPoolAllocationsResponse_ipamPoolAllocations = Lens.lens (\GetIpamPoolAllocationsResponse' {ipamPoolAllocations} -> ipamPoolAllocations) (\s@GetIpamPoolAllocationsResponse' {} a -> s {ipamPoolAllocations = a} :: GetIpamPoolAllocationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getIpamPoolAllocationsResponse_httpStatus :: Lens.Lens' GetIpamPoolAllocationsResponse Prelude.Int
@@ -281,6 +280,6 @@ instance
     GetIpamPoolAllocationsResponse
   where
   rnf GetIpamPoolAllocationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf ipamPoolAllocations
+    Prelude.rnf ipamPoolAllocations
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

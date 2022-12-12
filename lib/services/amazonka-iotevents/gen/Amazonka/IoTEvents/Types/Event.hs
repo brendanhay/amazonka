@@ -30,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEvent' smart constructor.
 data Event = Event'
-  { -- | Optional. The Boolean expression that, when TRUE, causes the @actions@
+  { -- | The actions to be performed.
+    actions :: Prelude.Maybe [Action],
+    -- | Optional. The Boolean expression that, when TRUE, causes the @actions@
     -- to be performed. If not present, the actions are performed (=TRUE). If
     -- the expression result is not a Boolean value, the actions are not
     -- performed (=FALSE).
     condition :: Prelude.Maybe Prelude.Text,
-    -- | The actions to be performed.
-    actions :: Prelude.Maybe [Action],
     -- | The name of the event.
     eventName :: Prelude.Text
   }
@@ -50,12 +50,12 @@ data Event = Event'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'actions', 'event_actions' - The actions to be performed.
+--
 -- 'condition', 'event_condition' - Optional. The Boolean expression that, when TRUE, causes the @actions@
 -- to be performed. If not present, the actions are performed (=TRUE). If
 -- the expression result is not a Boolean value, the actions are not
 -- performed (=FALSE).
---
--- 'actions', 'event_actions' - The actions to be performed.
 --
 -- 'eventName', 'event_eventName' - The name of the event.
 newEvent ::
@@ -64,10 +64,14 @@ newEvent ::
   Event
 newEvent pEventName_ =
   Event'
-    { condition = Prelude.Nothing,
-      actions = Prelude.Nothing,
+    { actions = Prelude.Nothing,
+      condition = Prelude.Nothing,
       eventName = pEventName_
     }
+
+-- | The actions to be performed.
+event_actions :: Lens.Lens' Event (Prelude.Maybe [Action])
+event_actions = Lens.lens (\Event' {actions} -> actions) (\s@Event' {} a -> s {actions = a} :: Event) Prelude.. Lens.mapping Lens.coerced
 
 -- | Optional. The Boolean expression that, when TRUE, causes the @actions@
 -- to be performed. If not present, the actions are performed (=TRUE). If
@@ -75,10 +79,6 @@ newEvent pEventName_ =
 -- performed (=FALSE).
 event_condition :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_condition = Lens.lens (\Event' {condition} -> condition) (\s@Event' {} a -> s {condition = a} :: Event)
-
--- | The actions to be performed.
-event_actions :: Lens.Lens' Event (Prelude.Maybe [Action])
-event_actions = Lens.lens (\Event' {actions} -> actions) (\s@Event' {} a -> s {actions = a} :: Event) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the event.
 event_eventName :: Lens.Lens' Event Prelude.Text
@@ -90,29 +90,29 @@ instance Data.FromJSON Event where
       "Event"
       ( \x ->
           Event'
-            Prelude.<$> (x Data..:? "condition")
-            Prelude.<*> (x Data..:? "actions" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "actions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "condition")
             Prelude.<*> (x Data..: "eventName")
       )
 
 instance Prelude.Hashable Event where
   hashWithSalt _salt Event' {..} =
-    _salt `Prelude.hashWithSalt` condition
-      `Prelude.hashWithSalt` actions
+    _salt `Prelude.hashWithSalt` actions
+      `Prelude.hashWithSalt` condition
       `Prelude.hashWithSalt` eventName
 
 instance Prelude.NFData Event where
   rnf Event' {..} =
-    Prelude.rnf condition
-      `Prelude.seq` Prelude.rnf actions
+    Prelude.rnf actions
+      `Prelude.seq` Prelude.rnf condition
       `Prelude.seq` Prelude.rnf eventName
 
 instance Data.ToJSON Event where
   toJSON Event' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("condition" Data..=) Prelude.<$> condition,
-            ("actions" Data..=) Prelude.<$> actions,
+          [ ("actions" Data..=) Prelude.<$> actions,
+            ("condition" Data..=) Prelude.<$> condition,
             Prelude.Just ("eventName" Data..= eventName)
           ]
       )

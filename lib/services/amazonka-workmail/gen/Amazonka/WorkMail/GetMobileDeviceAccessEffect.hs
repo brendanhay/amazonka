@@ -30,10 +30,10 @@ module Amazonka.WorkMail.GetMobileDeviceAccessEffect
     newGetMobileDeviceAccessEffect,
 
     -- * Request Lenses
-    getMobileDeviceAccessEffect_deviceUserAgent,
     getMobileDeviceAccessEffect_deviceModel,
     getMobileDeviceAccessEffect_deviceOperatingSystem,
     getMobileDeviceAccessEffect_deviceType,
+    getMobileDeviceAccessEffect_deviceUserAgent,
     getMobileDeviceAccessEffect_organizationId,
 
     -- * Destructuring the Response
@@ -57,14 +57,14 @@ import Amazonka.WorkMail.Types
 
 -- | /See:/ 'newGetMobileDeviceAccessEffect' smart constructor.
 data GetMobileDeviceAccessEffect = GetMobileDeviceAccessEffect'
-  { -- | Device user agent the simulated user will report.
-    deviceUserAgent :: Prelude.Maybe Prelude.Text,
-    -- | Device model the simulated user will report.
+  { -- | Device model the simulated user will report.
     deviceModel :: Prelude.Maybe Prelude.Text,
     -- | Device operating system the simulated user will report.
     deviceOperatingSystem :: Prelude.Maybe Prelude.Text,
     -- | Device type the simulated user will report.
     deviceType :: Prelude.Maybe Prelude.Text,
+    -- | Device user agent the simulated user will report.
+    deviceUserAgent :: Prelude.Maybe Prelude.Text,
     -- | The WorkMail organization to simulate the access effect for.
     organizationId :: Prelude.Text
   }
@@ -78,13 +78,13 @@ data GetMobileDeviceAccessEffect = GetMobileDeviceAccessEffect'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deviceUserAgent', 'getMobileDeviceAccessEffect_deviceUserAgent' - Device user agent the simulated user will report.
---
 -- 'deviceModel', 'getMobileDeviceAccessEffect_deviceModel' - Device model the simulated user will report.
 --
 -- 'deviceOperatingSystem', 'getMobileDeviceAccessEffect_deviceOperatingSystem' - Device operating system the simulated user will report.
 --
 -- 'deviceType', 'getMobileDeviceAccessEffect_deviceType' - Device type the simulated user will report.
+--
+-- 'deviceUserAgent', 'getMobileDeviceAccessEffect_deviceUserAgent' - Device user agent the simulated user will report.
 --
 -- 'organizationId', 'getMobileDeviceAccessEffect_organizationId' - The WorkMail organization to simulate the access effect for.
 newGetMobileDeviceAccessEffect ::
@@ -93,17 +93,13 @@ newGetMobileDeviceAccessEffect ::
   GetMobileDeviceAccessEffect
 newGetMobileDeviceAccessEffect pOrganizationId_ =
   GetMobileDeviceAccessEffect'
-    { deviceUserAgent =
+    { deviceModel =
         Prelude.Nothing,
-      deviceModel = Prelude.Nothing,
       deviceOperatingSystem = Prelude.Nothing,
       deviceType = Prelude.Nothing,
+      deviceUserAgent = Prelude.Nothing,
       organizationId = pOrganizationId_
     }
-
--- | Device user agent the simulated user will report.
-getMobileDeviceAccessEffect_deviceUserAgent :: Lens.Lens' GetMobileDeviceAccessEffect (Prelude.Maybe Prelude.Text)
-getMobileDeviceAccessEffect_deviceUserAgent = Lens.lens (\GetMobileDeviceAccessEffect' {deviceUserAgent} -> deviceUserAgent) (\s@GetMobileDeviceAccessEffect' {} a -> s {deviceUserAgent = a} :: GetMobileDeviceAccessEffect)
 
 -- | Device model the simulated user will report.
 getMobileDeviceAccessEffect_deviceModel :: Lens.Lens' GetMobileDeviceAccessEffect (Prelude.Maybe Prelude.Text)
@@ -116,6 +112,10 @@ getMobileDeviceAccessEffect_deviceOperatingSystem = Lens.lens (\GetMobileDeviceA
 -- | Device type the simulated user will report.
 getMobileDeviceAccessEffect_deviceType :: Lens.Lens' GetMobileDeviceAccessEffect (Prelude.Maybe Prelude.Text)
 getMobileDeviceAccessEffect_deviceType = Lens.lens (\GetMobileDeviceAccessEffect' {deviceType} -> deviceType) (\s@GetMobileDeviceAccessEffect' {} a -> s {deviceType = a} :: GetMobileDeviceAccessEffect)
+
+-- | Device user agent the simulated user will report.
+getMobileDeviceAccessEffect_deviceUserAgent :: Lens.Lens' GetMobileDeviceAccessEffect (Prelude.Maybe Prelude.Text)
+getMobileDeviceAccessEffect_deviceUserAgent = Lens.lens (\GetMobileDeviceAccessEffect' {deviceUserAgent} -> deviceUserAgent) (\s@GetMobileDeviceAccessEffect' {} a -> s {deviceUserAgent = a} :: GetMobileDeviceAccessEffect)
 
 -- | The WorkMail organization to simulate the access effect for.
 getMobileDeviceAccessEffect_organizationId :: Lens.Lens' GetMobileDeviceAccessEffect Prelude.Text
@@ -138,18 +138,18 @@ instance Core.AWSRequest GetMobileDeviceAccessEffect where
 
 instance Prelude.Hashable GetMobileDeviceAccessEffect where
   hashWithSalt _salt GetMobileDeviceAccessEffect' {..} =
-    _salt `Prelude.hashWithSalt` deviceUserAgent
-      `Prelude.hashWithSalt` deviceModel
+    _salt `Prelude.hashWithSalt` deviceModel
       `Prelude.hashWithSalt` deviceOperatingSystem
       `Prelude.hashWithSalt` deviceType
+      `Prelude.hashWithSalt` deviceUserAgent
       `Prelude.hashWithSalt` organizationId
 
 instance Prelude.NFData GetMobileDeviceAccessEffect where
   rnf GetMobileDeviceAccessEffect' {..} =
-    Prelude.rnf deviceUserAgent
-      `Prelude.seq` Prelude.rnf deviceModel
+    Prelude.rnf deviceModel
       `Prelude.seq` Prelude.rnf deviceOperatingSystem
       `Prelude.seq` Prelude.rnf deviceType
+      `Prelude.seq` Prelude.rnf deviceUserAgent
       `Prelude.seq` Prelude.rnf organizationId
 
 instance Data.ToHeaders GetMobileDeviceAccessEffect where
@@ -171,12 +171,12 @@ instance Data.ToJSON GetMobileDeviceAccessEffect where
   toJSON GetMobileDeviceAccessEffect' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DeviceUserAgent" Data..=)
-              Prelude.<$> deviceUserAgent,
-            ("DeviceModel" Data..=) Prelude.<$> deviceModel,
+          [ ("DeviceModel" Data..=) Prelude.<$> deviceModel,
             ("DeviceOperatingSystem" Data..=)
               Prelude.<$> deviceOperatingSystem,
             ("DeviceType" Data..=) Prelude.<$> deviceType,
+            ("DeviceUserAgent" Data..=)
+              Prelude.<$> deviceUserAgent,
             Prelude.Just
               ("OrganizationId" Data..= organizationId)
           ]

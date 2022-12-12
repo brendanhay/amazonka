@@ -15,9 +15,9 @@ module Amazonka.GamesParks.Lens
   ( -- * Operations
 
     -- ** CreateGame
-    createGame_tags,
     createGame_clientToken,
     createGame_description,
+    createGame_tags,
     createGame_gameName,
     createGameResponse_game,
     createGameResponse_httpStatus,
@@ -29,9 +29,9 @@ module Amazonka.GamesParks.Lens
     createSnapshotResponse_httpStatus,
 
     -- ** CreateStage
-    createStage_tags,
     createStage_clientToken,
     createStage_description,
+    createStage_tags,
     createStage_gameName,
     createStage_role,
     createStage_stageName,
@@ -126,57 +126,57 @@ module Amazonka.GamesParks.Lens
     importGameConfigurationResponse_httpStatus,
 
     -- ** ListExtensionVersions
-    listExtensionVersions_nextToken,
     listExtensionVersions_maxResults,
+    listExtensionVersions_nextToken,
     listExtensionVersions_name,
     listExtensionVersions_namespace,
-    listExtensionVersionsResponse_nextToken,
     listExtensionVersionsResponse_extensionVersions,
+    listExtensionVersionsResponse_nextToken,
     listExtensionVersionsResponse_httpStatus,
 
     -- ** ListExtensions
-    listExtensions_nextToken,
     listExtensions_maxResults,
-    listExtensionsResponse_nextToken,
+    listExtensions_nextToken,
     listExtensionsResponse_extensions,
+    listExtensionsResponse_nextToken,
     listExtensionsResponse_httpStatus,
 
     -- ** ListGames
-    listGames_nextToken,
     listGames_maxResults,
-    listGamesResponse_nextToken,
+    listGames_nextToken,
     listGamesResponse_games,
+    listGamesResponse_nextToken,
     listGamesResponse_httpStatus,
 
     -- ** ListGeneratedCodeJobs
-    listGeneratedCodeJobs_nextToken,
     listGeneratedCodeJobs_maxResults,
+    listGeneratedCodeJobs_nextToken,
     listGeneratedCodeJobs_gameName,
     listGeneratedCodeJobs_snapshotId,
-    listGeneratedCodeJobsResponse_nextToken,
     listGeneratedCodeJobsResponse_generatedCodeJobs,
+    listGeneratedCodeJobsResponse_nextToken,
     listGeneratedCodeJobsResponse_httpStatus,
 
     -- ** ListSnapshots
-    listSnapshots_nextToken,
     listSnapshots_maxResults,
+    listSnapshots_nextToken,
     listSnapshots_gameName,
     listSnapshotsResponse_nextToken,
     listSnapshotsResponse_snapshots,
     listSnapshotsResponse_httpStatus,
 
     -- ** ListStageDeployments
-    listStageDeployments_nextToken,
     listStageDeployments_maxResults,
+    listStageDeployments_nextToken,
     listStageDeployments_gameName,
     listStageDeployments_stageName,
-    listStageDeploymentsResponse_stageDeployments,
     listStageDeploymentsResponse_nextToken,
+    listStageDeploymentsResponse_stageDeployments,
     listStageDeploymentsResponse_httpStatus,
 
     -- ** ListStages
-    listStages_nextToken,
     listStages_maxResults,
+    listStages_nextToken,
     listStages_gameName,
     listStagesResponse_nextToken,
     listStagesResponse_stages,
@@ -252,56 +252,56 @@ module Amazonka.GamesParks.Lens
     -- ** Document
 
     -- ** ExtensionDetails
-    extensionDetails_name,
     extensionDetails_description,
+    extensionDetails_name,
     extensionDetails_namespace,
 
     -- ** ExtensionVersionDetails
     extensionVersionDetails_name,
-    extensionVersionDetails_schema,
     extensionVersionDetails_namespace,
+    extensionVersionDetails_schema,
     extensionVersionDetails_version,
 
     -- ** GameConfigurationDetails
     gameConfigurationDetails_created,
-    gameConfigurationDetails_sections,
     gameConfigurationDetails_lastUpdated,
+    gameConfigurationDetails_sections,
 
     -- ** GameDetails
-    gameDetails_tags,
-    gameDetails_name,
-    gameDetails_enableTerminationProtection,
-    gameDetails_created,
     gameDetails_arn,
-    gameDetails_state,
+    gameDetails_created,
     gameDetails_description,
+    gameDetails_enableTerminationProtection,
     gameDetails_lastUpdated,
+    gameDetails_name,
+    gameDetails_state,
+    gameDetails_tags,
 
     -- ** GameSummary
-    gameSummary_tags,
+    gameSummary_description,
     gameSummary_name,
     gameSummary_state,
-    gameSummary_description,
+    gameSummary_tags,
 
     -- ** GeneratedCodeJobDetails
+    generatedCodeJobDetails_description,
     generatedCodeJobDetails_expirationTime,
     generatedCodeJobDetails_generatedCodeJobId,
-    generatedCodeJobDetails_status,
-    generatedCodeJobDetails_description,
     generatedCodeJobDetails_s3Url,
+    generatedCodeJobDetails_status,
 
     -- ** Generator
-    generator_targetPlatform,
     generator_gameSdkVersion,
     generator_language,
+    generator_targetPlatform,
 
     -- ** ImportGameConfigurationSource
     importGameConfigurationSource_file,
 
     -- ** Section
+    section_attributes,
     section_name,
     section_size,
-    section_attributes,
 
     -- ** SectionModification
     sectionModification_value,
@@ -311,52 +311,52 @@ module Amazonka.GamesParks.Lens
 
     -- ** SnapshotDetails
     snapshotDetails_created,
-    snapshotDetails_sections,
-    snapshotDetails_id,
     snapshotDetails_description,
+    snapshotDetails_id,
     snapshotDetails_lastUpdated,
+    snapshotDetails_sections,
 
     -- ** SnapshotSummary
     snapshotSummary_created,
-    snapshotSummary_id,
     snapshotSummary_description,
+    snapshotSummary_id,
     snapshotSummary_lastUpdated,
 
     -- ** StageDeploymentDetails
-    stageDeploymentDetails_deploymentState,
+    stageDeploymentDetails_created,
     stageDeploymentDetails_deploymentAction,
     stageDeploymentDetails_deploymentId,
     stageDeploymentDetails_deploymentResult,
-    stageDeploymentDetails_created,
-    stageDeploymentDetails_snapshotId,
+    stageDeploymentDetails_deploymentState,
     stageDeploymentDetails_lastUpdated,
+    stageDeploymentDetails_snapshotId,
 
     -- ** StageDeploymentSummary
-    stageDeploymentSummary_deploymentState,
     stageDeploymentSummary_deploymentAction,
     stageDeploymentSummary_deploymentId,
     stageDeploymentSummary_deploymentResult,
-    stageDeploymentSummary_snapshotId,
+    stageDeploymentSummary_deploymentState,
     stageDeploymentSummary_lastUpdated,
+    stageDeploymentSummary_snapshotId,
 
     -- ** StageDetails
-    stageDetails_tags,
-    stageDetails_name,
-    stageDetails_logGroup,
-    stageDetails_created,
-    stageDetails_gameKey,
     stageDetails_arn,
-    stageDetails_state,
+    stageDetails_created,
     stageDetails_description,
+    stageDetails_gameKey,
     stageDetails_lastUpdated,
+    stageDetails_logGroup,
+    stageDetails_name,
     stageDetails_role,
+    stageDetails_state,
+    stageDetails_tags,
 
     -- ** StageSummary
-    stageSummary_tags,
-    stageSummary_name,
-    stageSummary_gameKey,
-    stageSummary_state,
     stageSummary_description,
+    stageSummary_gameKey,
+    stageSummary_name,
+    stageSummary_state,
+    stageSummary_tags,
   )
 where
 

@@ -30,20 +30,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConnection' smart constructor.
 data Connection = Connection'
-  { -- | The name of the connection.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The state of the connection.
-    connectionState :: Prelude.Maybe ConnectionState,
+  { -- | The authorization type specified for the connection.
+    authorizationType :: Prelude.Maybe ConnectionAuthorizationType,
     -- | The ARN of the connection.
     connectionArn :: Prelude.Maybe Prelude.Text,
-    -- | A time stamp for the time that the connection was last modified.
-    lastModifiedTime :: Prelude.Maybe Data.POSIX,
-    -- | A time stamp for the time that the connection was last authorized.
-    lastAuthorizedTime :: Prelude.Maybe Data.POSIX,
+    -- | The state of the connection.
+    connectionState :: Prelude.Maybe ConnectionState,
     -- | A time stamp for the time that the connection was created.
     creationTime :: Prelude.Maybe Data.POSIX,
-    -- | The authorization type specified for the connection.
-    authorizationType :: Prelude.Maybe ConnectionAuthorizationType,
+    -- | A time stamp for the time that the connection was last authorized.
+    lastAuthorizedTime :: Prelude.Maybe Data.POSIX,
+    -- | A time stamp for the time that the connection was last modified.
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
+    -- | The name of the connection.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The reason that the connection is in the connection state.
     stateReason :: Prelude.Maybe Prelude.Text
   }
@@ -57,62 +57,62 @@ data Connection = Connection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'connection_name' - The name of the connection.
---
--- 'connectionState', 'connection_connectionState' - The state of the connection.
+-- 'authorizationType', 'connection_authorizationType' - The authorization type specified for the connection.
 --
 -- 'connectionArn', 'connection_connectionArn' - The ARN of the connection.
 --
--- 'lastModifiedTime', 'connection_lastModifiedTime' - A time stamp for the time that the connection was last modified.
---
--- 'lastAuthorizedTime', 'connection_lastAuthorizedTime' - A time stamp for the time that the connection was last authorized.
+-- 'connectionState', 'connection_connectionState' - The state of the connection.
 --
 -- 'creationTime', 'connection_creationTime' - A time stamp for the time that the connection was created.
 --
--- 'authorizationType', 'connection_authorizationType' - The authorization type specified for the connection.
+-- 'lastAuthorizedTime', 'connection_lastAuthorizedTime' - A time stamp for the time that the connection was last authorized.
+--
+-- 'lastModifiedTime', 'connection_lastModifiedTime' - A time stamp for the time that the connection was last modified.
+--
+-- 'name', 'connection_name' - The name of the connection.
 --
 -- 'stateReason', 'connection_stateReason' - The reason that the connection is in the connection state.
 newConnection ::
   Connection
 newConnection =
   Connection'
-    { name = Prelude.Nothing,
-      connectionState = Prelude.Nothing,
+    { authorizationType = Prelude.Nothing,
       connectionArn = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
-      lastAuthorizedTime = Prelude.Nothing,
+      connectionState = Prelude.Nothing,
       creationTime = Prelude.Nothing,
-      authorizationType = Prelude.Nothing,
+      lastAuthorizedTime = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing,
+      name = Prelude.Nothing,
       stateReason = Prelude.Nothing
     }
 
--- | The name of the connection.
-connection_name :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
-connection_name = Lens.lens (\Connection' {name} -> name) (\s@Connection' {} a -> s {name = a} :: Connection)
-
--- | The state of the connection.
-connection_connectionState :: Lens.Lens' Connection (Prelude.Maybe ConnectionState)
-connection_connectionState = Lens.lens (\Connection' {connectionState} -> connectionState) (\s@Connection' {} a -> s {connectionState = a} :: Connection)
+-- | The authorization type specified for the connection.
+connection_authorizationType :: Lens.Lens' Connection (Prelude.Maybe ConnectionAuthorizationType)
+connection_authorizationType = Lens.lens (\Connection' {authorizationType} -> authorizationType) (\s@Connection' {} a -> s {authorizationType = a} :: Connection)
 
 -- | The ARN of the connection.
 connection_connectionArn :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
 connection_connectionArn = Lens.lens (\Connection' {connectionArn} -> connectionArn) (\s@Connection' {} a -> s {connectionArn = a} :: Connection)
 
--- | A time stamp for the time that the connection was last modified.
-connection_lastModifiedTime :: Lens.Lens' Connection (Prelude.Maybe Prelude.UTCTime)
-connection_lastModifiedTime = Lens.lens (\Connection' {lastModifiedTime} -> lastModifiedTime) (\s@Connection' {} a -> s {lastModifiedTime = a} :: Connection) Prelude.. Lens.mapping Data._Time
-
--- | A time stamp for the time that the connection was last authorized.
-connection_lastAuthorizedTime :: Lens.Lens' Connection (Prelude.Maybe Prelude.UTCTime)
-connection_lastAuthorizedTime = Lens.lens (\Connection' {lastAuthorizedTime} -> lastAuthorizedTime) (\s@Connection' {} a -> s {lastAuthorizedTime = a} :: Connection) Prelude.. Lens.mapping Data._Time
+-- | The state of the connection.
+connection_connectionState :: Lens.Lens' Connection (Prelude.Maybe ConnectionState)
+connection_connectionState = Lens.lens (\Connection' {connectionState} -> connectionState) (\s@Connection' {} a -> s {connectionState = a} :: Connection)
 
 -- | A time stamp for the time that the connection was created.
 connection_creationTime :: Lens.Lens' Connection (Prelude.Maybe Prelude.UTCTime)
 connection_creationTime = Lens.lens (\Connection' {creationTime} -> creationTime) (\s@Connection' {} a -> s {creationTime = a} :: Connection) Prelude.. Lens.mapping Data._Time
 
--- | The authorization type specified for the connection.
-connection_authorizationType :: Lens.Lens' Connection (Prelude.Maybe ConnectionAuthorizationType)
-connection_authorizationType = Lens.lens (\Connection' {authorizationType} -> authorizationType) (\s@Connection' {} a -> s {authorizationType = a} :: Connection)
+-- | A time stamp for the time that the connection was last authorized.
+connection_lastAuthorizedTime :: Lens.Lens' Connection (Prelude.Maybe Prelude.UTCTime)
+connection_lastAuthorizedTime = Lens.lens (\Connection' {lastAuthorizedTime} -> lastAuthorizedTime) (\s@Connection' {} a -> s {lastAuthorizedTime = a} :: Connection) Prelude.. Lens.mapping Data._Time
+
+-- | A time stamp for the time that the connection was last modified.
+connection_lastModifiedTime :: Lens.Lens' Connection (Prelude.Maybe Prelude.UTCTime)
+connection_lastModifiedTime = Lens.lens (\Connection' {lastModifiedTime} -> lastModifiedTime) (\s@Connection' {} a -> s {lastModifiedTime = a} :: Connection) Prelude.. Lens.mapping Data._Time
+
+-- | The name of the connection.
+connection_name :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
+connection_name = Lens.lens (\Connection' {name} -> name) (\s@Connection' {} a -> s {name = a} :: Connection)
 
 -- | The reason that the connection is in the connection state.
 connection_stateReason :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
@@ -124,34 +124,34 @@ instance Data.FromJSON Connection where
       "Connection"
       ( \x ->
           Connection'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "ConnectionState")
+            Prelude.<$> (x Data..:? "AuthorizationType")
             Prelude.<*> (x Data..:? "ConnectionArn")
-            Prelude.<*> (x Data..:? "LastModifiedTime")
-            Prelude.<*> (x Data..:? "LastAuthorizedTime")
+            Prelude.<*> (x Data..:? "ConnectionState")
             Prelude.<*> (x Data..:? "CreationTime")
-            Prelude.<*> (x Data..:? "AuthorizationType")
+            Prelude.<*> (x Data..:? "LastAuthorizedTime")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "StateReason")
       )
 
 instance Prelude.Hashable Connection where
   hashWithSalt _salt Connection' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` connectionState
+    _salt `Prelude.hashWithSalt` authorizationType
       `Prelude.hashWithSalt` connectionArn
-      `Prelude.hashWithSalt` lastModifiedTime
-      `Prelude.hashWithSalt` lastAuthorizedTime
+      `Prelude.hashWithSalt` connectionState
       `Prelude.hashWithSalt` creationTime
-      `Prelude.hashWithSalt` authorizationType
+      `Prelude.hashWithSalt` lastAuthorizedTime
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` stateReason
 
 instance Prelude.NFData Connection where
   rnf Connection' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf connectionState
+    Prelude.rnf authorizationType
       `Prelude.seq` Prelude.rnf connectionArn
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf lastAuthorizedTime
+      `Prelude.seq` Prelude.rnf connectionState
       `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf authorizationType
+      `Prelude.seq` Prelude.rnf lastAuthorizedTime
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf stateReason

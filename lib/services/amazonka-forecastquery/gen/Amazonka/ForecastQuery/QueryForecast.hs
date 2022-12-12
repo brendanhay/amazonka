@@ -43,8 +43,8 @@ module Amazonka.ForecastQuery.QueryForecast
     newQueryForecast,
 
     -- * Request Lenses
-    queryForecast_nextToken,
     queryForecast_endDate,
+    queryForecast_nextToken,
     queryForecast_startDate,
     queryForecast_forecastArn,
     queryForecast_filters,
@@ -69,14 +69,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newQueryForecast' smart constructor.
 data QueryForecast = QueryForecast'
-  { -- | If the result of the previous request was truncated, the response
-    -- includes a @NextToken@. To retrieve the next set of results, use the
-    -- token in the next request. Tokens expire after 24 hours.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The end date for the forecast. Specify the date using this format:
+  { -- | The end date for the forecast. Specify the date using this format:
     -- yyyy-MM-dd\'T\'HH:mm:ss (ISO 8601 format). For example,
     -- 2015-01-01T20:00:00.
     endDate :: Prelude.Maybe Prelude.Text,
+    -- | If the result of the previous request was truncated, the response
+    -- includes a @NextToken@. To retrieve the next set of results, use the
+    -- token in the next request. Tokens expire after 24 hours.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The start date for the forecast. Specify the date using this format:
     -- yyyy-MM-dd\'T\'HH:mm:ss (ISO 8601 format). For example,
     -- 2015-01-01T08:00:00.
@@ -104,13 +104,13 @@ data QueryForecast = QueryForecast'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'queryForecast_nextToken' - If the result of the previous request was truncated, the response
--- includes a @NextToken@. To retrieve the next set of results, use the
--- token in the next request. Tokens expire after 24 hours.
---
 -- 'endDate', 'queryForecast_endDate' - The end date for the forecast. Specify the date using this format:
 -- yyyy-MM-dd\'T\'HH:mm:ss (ISO 8601 format). For example,
 -- 2015-01-01T20:00:00.
+--
+-- 'nextToken', 'queryForecast_nextToken' - If the result of the previous request was truncated, the response
+-- includes a @NextToken@. To retrieve the next set of results, use the
+-- token in the next request. Tokens expire after 24 hours.
 --
 -- 'startDate', 'queryForecast_startDate' - The start date for the forecast. Specify the date using this format:
 -- yyyy-MM-dd\'T\'HH:mm:ss (ISO 8601 format). For example,
@@ -133,24 +133,24 @@ newQueryForecast ::
   QueryForecast
 newQueryForecast pForecastArn_ =
   QueryForecast'
-    { nextToken = Prelude.Nothing,
-      endDate = Prelude.Nothing,
+    { endDate = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       startDate = Prelude.Nothing,
       forecastArn = pForecastArn_,
       filters = Prelude.mempty
     }
-
--- | If the result of the previous request was truncated, the response
--- includes a @NextToken@. To retrieve the next set of results, use the
--- token in the next request. Tokens expire after 24 hours.
-queryForecast_nextToken :: Lens.Lens' QueryForecast (Prelude.Maybe Prelude.Text)
-queryForecast_nextToken = Lens.lens (\QueryForecast' {nextToken} -> nextToken) (\s@QueryForecast' {} a -> s {nextToken = a} :: QueryForecast)
 
 -- | The end date for the forecast. Specify the date using this format:
 -- yyyy-MM-dd\'T\'HH:mm:ss (ISO 8601 format). For example,
 -- 2015-01-01T20:00:00.
 queryForecast_endDate :: Lens.Lens' QueryForecast (Prelude.Maybe Prelude.Text)
 queryForecast_endDate = Lens.lens (\QueryForecast' {endDate} -> endDate) (\s@QueryForecast' {} a -> s {endDate = a} :: QueryForecast)
+
+-- | If the result of the previous request was truncated, the response
+-- includes a @NextToken@. To retrieve the next set of results, use the
+-- token in the next request. Tokens expire after 24 hours.
+queryForecast_nextToken :: Lens.Lens' QueryForecast (Prelude.Maybe Prelude.Text)
+queryForecast_nextToken = Lens.lens (\QueryForecast' {nextToken} -> nextToken) (\s@QueryForecast' {} a -> s {nextToken = a} :: QueryForecast)
 
 -- | The start date for the forecast. Specify the date using this format:
 -- yyyy-MM-dd\'T\'HH:mm:ss (ISO 8601 format). For example,
@@ -190,16 +190,16 @@ instance Core.AWSRequest QueryForecast where
 
 instance Prelude.Hashable QueryForecast where
   hashWithSalt _salt QueryForecast' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` endDate
+    _salt `Prelude.hashWithSalt` endDate
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` startDate
       `Prelude.hashWithSalt` forecastArn
       `Prelude.hashWithSalt` filters
 
 instance Prelude.NFData QueryForecast where
   rnf QueryForecast' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf endDate
+    Prelude.rnf endDate
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf startDate
       `Prelude.seq` Prelude.rnf forecastArn
       `Prelude.seq` Prelude.rnf filters
@@ -223,8 +223,8 @@ instance Data.ToJSON QueryForecast where
   toJSON QueryForecast' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("EndDate" Data..=) Prelude.<$> endDate,
+          [ ("EndDate" Data..=) Prelude.<$> endDate,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("StartDate" Data..=) Prelude.<$> startDate,
             Prelude.Just ("ForecastArn" Data..= forecastArn),
             Prelude.Just ("Filters" Data..= filters)

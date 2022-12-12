@@ -30,8 +30,8 @@ module Amazonka.ECRPublic.SetRepositoryPolicy
     newSetRepositoryPolicy,
 
     -- * Request Lenses
-    setRepositoryPolicy_registryId,
     setRepositoryPolicy_force,
+    setRepositoryPolicy_registryId,
     setRepositoryPolicy_repositoryName,
     setRepositoryPolicy_policyText,
 
@@ -41,8 +41,8 @@ module Amazonka.ECRPublic.SetRepositoryPolicy
 
     -- * Response Lenses
     setRepositoryPolicyResponse_policyText,
-    setRepositoryPolicyResponse_repositoryName,
     setRepositoryPolicyResponse_registryId,
+    setRepositoryPolicyResponse_repositoryName,
     setRepositoryPolicyResponse_httpStatus,
   )
 where
@@ -57,15 +57,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSetRepositoryPolicy' smart constructor.
 data SetRepositoryPolicy = SetRepositoryPolicy'
-  { -- | The AWS account ID associated with the registry that contains the
-    -- repository. If you do not specify a registry, the default public
-    -- registry is assumed.
-    registryId :: Prelude.Maybe Prelude.Text,
-    -- | If the policy you are attempting to set on a repository policy would
+  { -- | If the policy you are attempting to set on a repository policy would
     -- prevent you from setting another policy in the future, you must force
     -- the SetRepositoryPolicy operation. This is intended to prevent
     -- accidental repository lock outs.
     force :: Prelude.Maybe Prelude.Bool,
+    -- | The AWS account ID associated with the registry that contains the
+    -- repository. If you do not specify a registry, the default public
+    -- registry is assumed.
+    registryId :: Prelude.Maybe Prelude.Text,
     -- | The name of the repository to receive the policy.
     repositoryName :: Prelude.Text,
     -- | The JSON repository policy text to apply to the repository. For more
@@ -84,14 +84,14 @@ data SetRepositoryPolicy = SetRepositoryPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'registryId', 'setRepositoryPolicy_registryId' - The AWS account ID associated with the registry that contains the
--- repository. If you do not specify a registry, the default public
--- registry is assumed.
---
 -- 'force', 'setRepositoryPolicy_force' - If the policy you are attempting to set on a repository policy would
 -- prevent you from setting another policy in the future, you must force
 -- the SetRepositoryPolicy operation. This is intended to prevent
 -- accidental repository lock outs.
+--
+-- 'registryId', 'setRepositoryPolicy_registryId' - The AWS account ID associated with the registry that contains the
+-- repository. If you do not specify a registry, the default public
+-- registry is assumed.
 --
 -- 'repositoryName', 'setRepositoryPolicy_repositoryName' - The name of the repository to receive the policy.
 --
@@ -107,17 +107,11 @@ newSetRepositoryPolicy ::
   SetRepositoryPolicy
 newSetRepositoryPolicy pRepositoryName_ pPolicyText_ =
   SetRepositoryPolicy'
-    { registryId = Prelude.Nothing,
-      force = Prelude.Nothing,
+    { force = Prelude.Nothing,
+      registryId = Prelude.Nothing,
       repositoryName = pRepositoryName_,
       policyText = pPolicyText_
     }
-
--- | The AWS account ID associated with the registry that contains the
--- repository. If you do not specify a registry, the default public
--- registry is assumed.
-setRepositoryPolicy_registryId :: Lens.Lens' SetRepositoryPolicy (Prelude.Maybe Prelude.Text)
-setRepositoryPolicy_registryId = Lens.lens (\SetRepositoryPolicy' {registryId} -> registryId) (\s@SetRepositoryPolicy' {} a -> s {registryId = a} :: SetRepositoryPolicy)
 
 -- | If the policy you are attempting to set on a repository policy would
 -- prevent you from setting another policy in the future, you must force
@@ -125,6 +119,12 @@ setRepositoryPolicy_registryId = Lens.lens (\SetRepositoryPolicy' {registryId} -
 -- accidental repository lock outs.
 setRepositoryPolicy_force :: Lens.Lens' SetRepositoryPolicy (Prelude.Maybe Prelude.Bool)
 setRepositoryPolicy_force = Lens.lens (\SetRepositoryPolicy' {force} -> force) (\s@SetRepositoryPolicy' {} a -> s {force = a} :: SetRepositoryPolicy)
+
+-- | The AWS account ID associated with the registry that contains the
+-- repository. If you do not specify a registry, the default public
+-- registry is assumed.
+setRepositoryPolicy_registryId :: Lens.Lens' SetRepositoryPolicy (Prelude.Maybe Prelude.Text)
+setRepositoryPolicy_registryId = Lens.lens (\SetRepositoryPolicy' {registryId} -> registryId) (\s@SetRepositoryPolicy' {} a -> s {registryId = a} :: SetRepositoryPolicy)
 
 -- | The name of the repository to receive the policy.
 setRepositoryPolicy_repositoryName :: Lens.Lens' SetRepositoryPolicy Prelude.Text
@@ -148,22 +148,22 @@ instance Core.AWSRequest SetRepositoryPolicy where
       ( \s h x ->
           SetRepositoryPolicyResponse'
             Prelude.<$> (x Data..?> "policyText")
-            Prelude.<*> (x Data..?> "repositoryName")
             Prelude.<*> (x Data..?> "registryId")
+            Prelude.<*> (x Data..?> "repositoryName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable SetRepositoryPolicy where
   hashWithSalt _salt SetRepositoryPolicy' {..} =
-    _salt `Prelude.hashWithSalt` registryId
-      `Prelude.hashWithSalt` force
+    _salt `Prelude.hashWithSalt` force
+      `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` policyText
 
 instance Prelude.NFData SetRepositoryPolicy where
   rnf SetRepositoryPolicy' {..} =
-    Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf force
+    Prelude.rnf force
+      `Prelude.seq` Prelude.rnf registryId
       `Prelude.seq` Prelude.rnf repositoryName
       `Prelude.seq` Prelude.rnf policyText
 
@@ -186,8 +186,8 @@ instance Data.ToJSON SetRepositoryPolicy where
   toJSON SetRepositoryPolicy' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("registryId" Data..=) Prelude.<$> registryId,
-            ("force" Data..=) Prelude.<$> force,
+          [ ("force" Data..=) Prelude.<$> force,
+            ("registryId" Data..=) Prelude.<$> registryId,
             Prelude.Just
               ("repositoryName" Data..= repositoryName),
             Prelude.Just ("policyText" Data..= policyText)
@@ -204,10 +204,10 @@ instance Data.ToQuery SetRepositoryPolicy where
 data SetRepositoryPolicyResponse = SetRepositoryPolicyResponse'
   { -- | The JSON repository policy text applied to the repository.
     policyText :: Prelude.Maybe Prelude.Text,
-    -- | The repository name associated with the request.
-    repositoryName :: Prelude.Maybe Prelude.Text,
     -- | The registry ID associated with the request.
     registryId :: Prelude.Maybe Prelude.Text,
+    -- | The repository name associated with the request.
+    repositoryName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -223,9 +223,9 @@ data SetRepositoryPolicyResponse = SetRepositoryPolicyResponse'
 --
 -- 'policyText', 'setRepositoryPolicyResponse_policyText' - The JSON repository policy text applied to the repository.
 --
--- 'repositoryName', 'setRepositoryPolicyResponse_repositoryName' - The repository name associated with the request.
---
 -- 'registryId', 'setRepositoryPolicyResponse_registryId' - The registry ID associated with the request.
+--
+-- 'repositoryName', 'setRepositoryPolicyResponse_repositoryName' - The repository name associated with the request.
 --
 -- 'httpStatus', 'setRepositoryPolicyResponse_httpStatus' - The response's http status code.
 newSetRepositoryPolicyResponse ::
@@ -236,8 +236,8 @@ newSetRepositoryPolicyResponse pHttpStatus_ =
   SetRepositoryPolicyResponse'
     { policyText =
         Prelude.Nothing,
-      repositoryName = Prelude.Nothing,
       registryId = Prelude.Nothing,
+      repositoryName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -245,13 +245,13 @@ newSetRepositoryPolicyResponse pHttpStatus_ =
 setRepositoryPolicyResponse_policyText :: Lens.Lens' SetRepositoryPolicyResponse (Prelude.Maybe Prelude.Text)
 setRepositoryPolicyResponse_policyText = Lens.lens (\SetRepositoryPolicyResponse' {policyText} -> policyText) (\s@SetRepositoryPolicyResponse' {} a -> s {policyText = a} :: SetRepositoryPolicyResponse)
 
--- | The repository name associated with the request.
-setRepositoryPolicyResponse_repositoryName :: Lens.Lens' SetRepositoryPolicyResponse (Prelude.Maybe Prelude.Text)
-setRepositoryPolicyResponse_repositoryName = Lens.lens (\SetRepositoryPolicyResponse' {repositoryName} -> repositoryName) (\s@SetRepositoryPolicyResponse' {} a -> s {repositoryName = a} :: SetRepositoryPolicyResponse)
-
 -- | The registry ID associated with the request.
 setRepositoryPolicyResponse_registryId :: Lens.Lens' SetRepositoryPolicyResponse (Prelude.Maybe Prelude.Text)
 setRepositoryPolicyResponse_registryId = Lens.lens (\SetRepositoryPolicyResponse' {registryId} -> registryId) (\s@SetRepositoryPolicyResponse' {} a -> s {registryId = a} :: SetRepositoryPolicyResponse)
+
+-- | The repository name associated with the request.
+setRepositoryPolicyResponse_repositoryName :: Lens.Lens' SetRepositoryPolicyResponse (Prelude.Maybe Prelude.Text)
+setRepositoryPolicyResponse_repositoryName = Lens.lens (\SetRepositoryPolicyResponse' {repositoryName} -> repositoryName) (\s@SetRepositoryPolicyResponse' {} a -> s {repositoryName = a} :: SetRepositoryPolicyResponse)
 
 -- | The response's http status code.
 setRepositoryPolicyResponse_httpStatus :: Lens.Lens' SetRepositoryPolicyResponse Prelude.Int
@@ -260,6 +260,6 @@ setRepositoryPolicyResponse_httpStatus = Lens.lens (\SetRepositoryPolicyResponse
 instance Prelude.NFData SetRepositoryPolicyResponse where
   rnf SetRepositoryPolicyResponse' {..} =
     Prelude.rnf policyText
-      `Prelude.seq` Prelude.rnf repositoryName
       `Prelude.seq` Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf repositoryName
       `Prelude.seq` Prelude.rnf httpStatus

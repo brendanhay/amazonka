@@ -39,10 +39,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStackInstance' smart constructor.
 data StackInstance = StackInstance'
-  { -- | The ID of the stack instance.
-    stackId :: Prelude.Maybe Prelude.Text,
-    -- | The detailed status of the stack instance.
-    stackInstanceStatus :: Prelude.Maybe StackInstanceComprehensiveStatus,
+  { -- | [Self-managed permissions] The name of the Amazon Web Services account
+    -- that the stack instance is associated with.
+    account :: Prelude.Maybe Prelude.Text,
     -- | Status of the stack instance\'s actual configuration compared to the
     -- expected template and parameter configuration of the stack set to which
     -- it belongs.
@@ -60,18 +59,30 @@ data StackInstance = StackInstance'
     --
     -- -   @UNKNOWN@: This value is reserved for future use.
     driftStatus :: Prelude.Maybe StackDriftStatus,
-    -- | The name or unique ID of the stack set that the stack instance is
-    -- associated with.
-    stackSetId :: Prelude.Maybe Prelude.Text,
+    -- | Most recent time when CloudFormation performed a drift detection
+    -- operation on the stack instance. This value will be @NULL@ for any stack
+    -- instance on which drift detection hasn\'t yet been performed.
+    lastDriftCheckTimestamp :: Prelude.Maybe Data.ISO8601,
+    -- | The last unique ID of a StackSet operation performed on a stack
+    -- instance.
+    lastOperationId :: Prelude.Maybe Prelude.Text,
+    -- | [Service-managed permissions] The organization root ID or organizational
+    -- unit (OU) IDs that you specified for
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets>.
+    organizationalUnitId :: Prelude.Maybe Prelude.Text,
     -- | A list of parameters from the stack set template whose values have been
     -- overridden in this stack instance.
     parameterOverrides :: Prelude.Maybe [Parameter],
-    -- | [Self-managed permissions] The name of the Amazon Web Services account
-    -- that the stack instance is associated with.
-    account :: Prelude.Maybe Prelude.Text,
-    -- | The explanation for the specific status code that\'s assigned to this
-    -- stack instance.
-    statusReason :: Prelude.Maybe Prelude.Text,
+    -- | The name of the Amazon Web Services Region that the stack instance is
+    -- associated with.
+    region :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the stack instance.
+    stackId :: Prelude.Maybe Prelude.Text,
+    -- | The detailed status of the stack instance.
+    stackInstanceStatus :: Prelude.Maybe StackInstanceComprehensiveStatus,
+    -- | The name or unique ID of the stack set that the stack instance is
+    -- associated with.
+    stackSetId :: Prelude.Maybe Prelude.Text,
     -- | The status of the stack instance, in terms of its synchronization with
     -- its associated stack set.
     --
@@ -94,20 +105,9 @@ data StackInstance = StackInstance'
     --
     -- -   @CURRENT@: The stack is currently up to date with the stack set.
     status :: Prelude.Maybe StackInstanceStatus,
-    -- | The last unique ID of a StackSet operation performed on a stack
-    -- instance.
-    lastOperationId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the Amazon Web Services Region that the stack instance is
-    -- associated with.
-    region :: Prelude.Maybe Prelude.Text,
-    -- | [Service-managed permissions] The organization root ID or organizational
-    -- unit (OU) IDs that you specified for
-    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets>.
-    organizationalUnitId :: Prelude.Maybe Prelude.Text,
-    -- | Most recent time when CloudFormation performed a drift detection
-    -- operation on the stack instance. This value will be @NULL@ for any stack
-    -- instance on which drift detection hasn\'t yet been performed.
-    lastDriftCheckTimestamp :: Prelude.Maybe Data.ISO8601
+    -- | The explanation for the specific status code that\'s assigned to this
+    -- stack instance.
+    statusReason :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -119,9 +119,8 @@ data StackInstance = StackInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stackId', 'stackInstance_stackId' - The ID of the stack instance.
---
--- 'stackInstanceStatus', 'stackInstance_stackInstanceStatus' - The detailed status of the stack instance.
+-- 'account', 'stackInstance_account' - [Self-managed permissions] The name of the Amazon Web Services account
+-- that the stack instance is associated with.
 --
 -- 'driftStatus', 'stackInstance_driftStatus' - Status of the stack instance\'s actual configuration compared to the
 -- expected template and parameter configuration of the stack set to which
@@ -140,17 +139,29 @@ data StackInstance = StackInstance'
 --
 -- -   @UNKNOWN@: This value is reserved for future use.
 --
--- 'stackSetId', 'stackInstance_stackSetId' - The name or unique ID of the stack set that the stack instance is
--- associated with.
+-- 'lastDriftCheckTimestamp', 'stackInstance_lastDriftCheckTimestamp' - Most recent time when CloudFormation performed a drift detection
+-- operation on the stack instance. This value will be @NULL@ for any stack
+-- instance on which drift detection hasn\'t yet been performed.
+--
+-- 'lastOperationId', 'stackInstance_lastOperationId' - The last unique ID of a StackSet operation performed on a stack
+-- instance.
+--
+-- 'organizationalUnitId', 'stackInstance_organizationalUnitId' - [Service-managed permissions] The organization root ID or organizational
+-- unit (OU) IDs that you specified for
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets>.
 --
 -- 'parameterOverrides', 'stackInstance_parameterOverrides' - A list of parameters from the stack set template whose values have been
 -- overridden in this stack instance.
 --
--- 'account', 'stackInstance_account' - [Self-managed permissions] The name of the Amazon Web Services account
--- that the stack instance is associated with.
+-- 'region', 'stackInstance_region' - The name of the Amazon Web Services Region that the stack instance is
+-- associated with.
 --
--- 'statusReason', 'stackInstance_statusReason' - The explanation for the specific status code that\'s assigned to this
--- stack instance.
+-- 'stackId', 'stackInstance_stackId' - The ID of the stack instance.
+--
+-- 'stackInstanceStatus', 'stackInstance_stackInstanceStatus' - The detailed status of the stack instance.
+--
+-- 'stackSetId', 'stackInstance_stackSetId' - The name or unique ID of the stack set that the stack instance is
+-- associated with.
 --
 -- 'status', 'stackInstance_status' - The status of the stack instance, in terms of its synchronization with
 -- its associated stack set.
@@ -174,44 +185,30 @@ data StackInstance = StackInstance'
 --
 -- -   @CURRENT@: The stack is currently up to date with the stack set.
 --
--- 'lastOperationId', 'stackInstance_lastOperationId' - The last unique ID of a StackSet operation performed on a stack
--- instance.
---
--- 'region', 'stackInstance_region' - The name of the Amazon Web Services Region that the stack instance is
--- associated with.
---
--- 'organizationalUnitId', 'stackInstance_organizationalUnitId' - [Service-managed permissions] The organization root ID or organizational
--- unit (OU) IDs that you specified for
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets>.
---
--- 'lastDriftCheckTimestamp', 'stackInstance_lastDriftCheckTimestamp' - Most recent time when CloudFormation performed a drift detection
--- operation on the stack instance. This value will be @NULL@ for any stack
--- instance on which drift detection hasn\'t yet been performed.
+-- 'statusReason', 'stackInstance_statusReason' - The explanation for the specific status code that\'s assigned to this
+-- stack instance.
 newStackInstance ::
   StackInstance
 newStackInstance =
   StackInstance'
-    { stackId = Prelude.Nothing,
-      stackInstanceStatus = Prelude.Nothing,
+    { account = Prelude.Nothing,
       driftStatus = Prelude.Nothing,
-      stackSetId = Prelude.Nothing,
-      parameterOverrides = Prelude.Nothing,
-      account = Prelude.Nothing,
-      statusReason = Prelude.Nothing,
-      status = Prelude.Nothing,
+      lastDriftCheckTimestamp = Prelude.Nothing,
       lastOperationId = Prelude.Nothing,
-      region = Prelude.Nothing,
       organizationalUnitId = Prelude.Nothing,
-      lastDriftCheckTimestamp = Prelude.Nothing
+      parameterOverrides = Prelude.Nothing,
+      region = Prelude.Nothing,
+      stackId = Prelude.Nothing,
+      stackInstanceStatus = Prelude.Nothing,
+      stackSetId = Prelude.Nothing,
+      status = Prelude.Nothing,
+      statusReason = Prelude.Nothing
     }
 
--- | The ID of the stack instance.
-stackInstance_stackId :: Lens.Lens' StackInstance (Prelude.Maybe Prelude.Text)
-stackInstance_stackId = Lens.lens (\StackInstance' {stackId} -> stackId) (\s@StackInstance' {} a -> s {stackId = a} :: StackInstance)
-
--- | The detailed status of the stack instance.
-stackInstance_stackInstanceStatus :: Lens.Lens' StackInstance (Prelude.Maybe StackInstanceComprehensiveStatus)
-stackInstance_stackInstanceStatus = Lens.lens (\StackInstance' {stackInstanceStatus} -> stackInstanceStatus) (\s@StackInstance' {} a -> s {stackInstanceStatus = a} :: StackInstance)
+-- | [Self-managed permissions] The name of the Amazon Web Services account
+-- that the stack instance is associated with.
+stackInstance_account :: Lens.Lens' StackInstance (Prelude.Maybe Prelude.Text)
+stackInstance_account = Lens.lens (\StackInstance' {account} -> account) (\s@StackInstance' {} a -> s {account = a} :: StackInstance)
 
 -- | Status of the stack instance\'s actual configuration compared to the
 -- expected template and parameter configuration of the stack set to which
@@ -232,25 +229,45 @@ stackInstance_stackInstanceStatus = Lens.lens (\StackInstance' {stackInstanceSta
 stackInstance_driftStatus :: Lens.Lens' StackInstance (Prelude.Maybe StackDriftStatus)
 stackInstance_driftStatus = Lens.lens (\StackInstance' {driftStatus} -> driftStatus) (\s@StackInstance' {} a -> s {driftStatus = a} :: StackInstance)
 
--- | The name or unique ID of the stack set that the stack instance is
--- associated with.
-stackInstance_stackSetId :: Lens.Lens' StackInstance (Prelude.Maybe Prelude.Text)
-stackInstance_stackSetId = Lens.lens (\StackInstance' {stackSetId} -> stackSetId) (\s@StackInstance' {} a -> s {stackSetId = a} :: StackInstance)
+-- | Most recent time when CloudFormation performed a drift detection
+-- operation on the stack instance. This value will be @NULL@ for any stack
+-- instance on which drift detection hasn\'t yet been performed.
+stackInstance_lastDriftCheckTimestamp :: Lens.Lens' StackInstance (Prelude.Maybe Prelude.UTCTime)
+stackInstance_lastDriftCheckTimestamp = Lens.lens (\StackInstance' {lastDriftCheckTimestamp} -> lastDriftCheckTimestamp) (\s@StackInstance' {} a -> s {lastDriftCheckTimestamp = a} :: StackInstance) Prelude.. Lens.mapping Data._Time
+
+-- | The last unique ID of a StackSet operation performed on a stack
+-- instance.
+stackInstance_lastOperationId :: Lens.Lens' StackInstance (Prelude.Maybe Prelude.Text)
+stackInstance_lastOperationId = Lens.lens (\StackInstance' {lastOperationId} -> lastOperationId) (\s@StackInstance' {} a -> s {lastOperationId = a} :: StackInstance)
+
+-- | [Service-managed permissions] The organization root ID or organizational
+-- unit (OU) IDs that you specified for
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets>.
+stackInstance_organizationalUnitId :: Lens.Lens' StackInstance (Prelude.Maybe Prelude.Text)
+stackInstance_organizationalUnitId = Lens.lens (\StackInstance' {organizationalUnitId} -> organizationalUnitId) (\s@StackInstance' {} a -> s {organizationalUnitId = a} :: StackInstance)
 
 -- | A list of parameters from the stack set template whose values have been
 -- overridden in this stack instance.
 stackInstance_parameterOverrides :: Lens.Lens' StackInstance (Prelude.Maybe [Parameter])
 stackInstance_parameterOverrides = Lens.lens (\StackInstance' {parameterOverrides} -> parameterOverrides) (\s@StackInstance' {} a -> s {parameterOverrides = a} :: StackInstance) Prelude.. Lens.mapping Lens.coerced
 
--- | [Self-managed permissions] The name of the Amazon Web Services account
--- that the stack instance is associated with.
-stackInstance_account :: Lens.Lens' StackInstance (Prelude.Maybe Prelude.Text)
-stackInstance_account = Lens.lens (\StackInstance' {account} -> account) (\s@StackInstance' {} a -> s {account = a} :: StackInstance)
+-- | The name of the Amazon Web Services Region that the stack instance is
+-- associated with.
+stackInstance_region :: Lens.Lens' StackInstance (Prelude.Maybe Prelude.Text)
+stackInstance_region = Lens.lens (\StackInstance' {region} -> region) (\s@StackInstance' {} a -> s {region = a} :: StackInstance)
 
--- | The explanation for the specific status code that\'s assigned to this
--- stack instance.
-stackInstance_statusReason :: Lens.Lens' StackInstance (Prelude.Maybe Prelude.Text)
-stackInstance_statusReason = Lens.lens (\StackInstance' {statusReason} -> statusReason) (\s@StackInstance' {} a -> s {statusReason = a} :: StackInstance)
+-- | The ID of the stack instance.
+stackInstance_stackId :: Lens.Lens' StackInstance (Prelude.Maybe Prelude.Text)
+stackInstance_stackId = Lens.lens (\StackInstance' {stackId} -> stackId) (\s@StackInstance' {} a -> s {stackId = a} :: StackInstance)
+
+-- | The detailed status of the stack instance.
+stackInstance_stackInstanceStatus :: Lens.Lens' StackInstance (Prelude.Maybe StackInstanceComprehensiveStatus)
+stackInstance_stackInstanceStatus = Lens.lens (\StackInstance' {stackInstanceStatus} -> stackInstanceStatus) (\s@StackInstance' {} a -> s {stackInstanceStatus = a} :: StackInstance)
+
+-- | The name or unique ID of the stack set that the stack instance is
+-- associated with.
+stackInstance_stackSetId :: Lens.Lens' StackInstance (Prelude.Maybe Prelude.Text)
+stackInstance_stackSetId = Lens.lens (\StackInstance' {stackSetId} -> stackSetId) (\s@StackInstance' {} a -> s {stackSetId = a} :: StackInstance)
 
 -- | The status of the stack instance, in terms of its synchronization with
 -- its associated stack set.
@@ -276,73 +293,56 @@ stackInstance_statusReason = Lens.lens (\StackInstance' {statusReason} -> status
 stackInstance_status :: Lens.Lens' StackInstance (Prelude.Maybe StackInstanceStatus)
 stackInstance_status = Lens.lens (\StackInstance' {status} -> status) (\s@StackInstance' {} a -> s {status = a} :: StackInstance)
 
--- | The last unique ID of a StackSet operation performed on a stack
--- instance.
-stackInstance_lastOperationId :: Lens.Lens' StackInstance (Prelude.Maybe Prelude.Text)
-stackInstance_lastOperationId = Lens.lens (\StackInstance' {lastOperationId} -> lastOperationId) (\s@StackInstance' {} a -> s {lastOperationId = a} :: StackInstance)
-
--- | The name of the Amazon Web Services Region that the stack instance is
--- associated with.
-stackInstance_region :: Lens.Lens' StackInstance (Prelude.Maybe Prelude.Text)
-stackInstance_region = Lens.lens (\StackInstance' {region} -> region) (\s@StackInstance' {} a -> s {region = a} :: StackInstance)
-
--- | [Service-managed permissions] The organization root ID or organizational
--- unit (OU) IDs that you specified for
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets>.
-stackInstance_organizationalUnitId :: Lens.Lens' StackInstance (Prelude.Maybe Prelude.Text)
-stackInstance_organizationalUnitId = Lens.lens (\StackInstance' {organizationalUnitId} -> organizationalUnitId) (\s@StackInstance' {} a -> s {organizationalUnitId = a} :: StackInstance)
-
--- | Most recent time when CloudFormation performed a drift detection
--- operation on the stack instance. This value will be @NULL@ for any stack
--- instance on which drift detection hasn\'t yet been performed.
-stackInstance_lastDriftCheckTimestamp :: Lens.Lens' StackInstance (Prelude.Maybe Prelude.UTCTime)
-stackInstance_lastDriftCheckTimestamp = Lens.lens (\StackInstance' {lastDriftCheckTimestamp} -> lastDriftCheckTimestamp) (\s@StackInstance' {} a -> s {lastDriftCheckTimestamp = a} :: StackInstance) Prelude.. Lens.mapping Data._Time
+-- | The explanation for the specific status code that\'s assigned to this
+-- stack instance.
+stackInstance_statusReason :: Lens.Lens' StackInstance (Prelude.Maybe Prelude.Text)
+stackInstance_statusReason = Lens.lens (\StackInstance' {statusReason} -> statusReason) (\s@StackInstance' {} a -> s {statusReason = a} :: StackInstance)
 
 instance Data.FromXML StackInstance where
   parseXML x =
     StackInstance'
-      Prelude.<$> (x Data..@? "StackId")
-      Prelude.<*> (x Data..@? "StackInstanceStatus")
+      Prelude.<$> (x Data..@? "Account")
       Prelude.<*> (x Data..@? "DriftStatus")
-      Prelude.<*> (x Data..@? "StackSetId")
+      Prelude.<*> (x Data..@? "LastDriftCheckTimestamp")
+      Prelude.<*> (x Data..@? "LastOperationId")
+      Prelude.<*> (x Data..@? "OrganizationalUnitId")
       Prelude.<*> ( x Data..@? "ParameterOverrides"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> (x Data..@? "Account")
-      Prelude.<*> (x Data..@? "StatusReason")
-      Prelude.<*> (x Data..@? "Status")
-      Prelude.<*> (x Data..@? "LastOperationId")
       Prelude.<*> (x Data..@? "Region")
-      Prelude.<*> (x Data..@? "OrganizationalUnitId")
-      Prelude.<*> (x Data..@? "LastDriftCheckTimestamp")
+      Prelude.<*> (x Data..@? "StackId")
+      Prelude.<*> (x Data..@? "StackInstanceStatus")
+      Prelude.<*> (x Data..@? "StackSetId")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "StatusReason")
 
 instance Prelude.Hashable StackInstance where
   hashWithSalt _salt StackInstance' {..} =
-    _salt `Prelude.hashWithSalt` stackId
-      `Prelude.hashWithSalt` stackInstanceStatus
+    _salt `Prelude.hashWithSalt` account
       `Prelude.hashWithSalt` driftStatus
-      `Prelude.hashWithSalt` stackSetId
-      `Prelude.hashWithSalt` parameterOverrides
-      `Prelude.hashWithSalt` account
-      `Prelude.hashWithSalt` statusReason
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` lastOperationId
-      `Prelude.hashWithSalt` region
-      `Prelude.hashWithSalt` organizationalUnitId
       `Prelude.hashWithSalt` lastDriftCheckTimestamp
+      `Prelude.hashWithSalt` lastOperationId
+      `Prelude.hashWithSalt` organizationalUnitId
+      `Prelude.hashWithSalt` parameterOverrides
+      `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` stackId
+      `Prelude.hashWithSalt` stackInstanceStatus
+      `Prelude.hashWithSalt` stackSetId
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` statusReason
 
 instance Prelude.NFData StackInstance where
   rnf StackInstance' {..} =
-    Prelude.rnf stackId
-      `Prelude.seq` Prelude.rnf stackInstanceStatus
+    Prelude.rnf account
       `Prelude.seq` Prelude.rnf driftStatus
-      `Prelude.seq` Prelude.rnf stackSetId
-      `Prelude.seq` Prelude.rnf parameterOverrides
-      `Prelude.seq` Prelude.rnf account
-      `Prelude.seq` Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf lastOperationId
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf organizationalUnitId
       `Prelude.seq` Prelude.rnf lastDriftCheckTimestamp
+      `Prelude.seq` Prelude.rnf lastOperationId
+      `Prelude.seq` Prelude.rnf organizationalUnitId
+      `Prelude.seq` Prelude.rnf parameterOverrides
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf stackId
+      `Prelude.seq` Prelude.rnf stackInstanceStatus
+      `Prelude.seq` Prelude.rnf stackSetId
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf statusReason

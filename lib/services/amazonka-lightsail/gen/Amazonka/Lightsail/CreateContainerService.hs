@@ -32,10 +32,10 @@ module Amazonka.Lightsail.CreateContainerService
     newCreateContainerService,
 
     -- * Request Lenses
-    createContainerService_tags,
     createContainerService_deployment,
-    createContainerService_publicDomainNames,
     createContainerService_privateRegistryAccess,
+    createContainerService_publicDomainNames,
+    createContainerService_tags,
     createContainerService_serviceName,
     createContainerService_power,
     createContainerService_scale,
@@ -60,15 +60,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateContainerService' smart constructor.
 data CreateContainerService = CreateContainerService'
-  { -- | The tag keys and optional values to add to the container service during
-    -- create.
-    --
-    -- Use the @TagResource@ action to tag a resource after it\'s created.
-    --
-    -- For more information about tags in Lightsail, see the
-    -- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
-    tags :: Prelude.Maybe [Tag],
-    -- | An object that describes a deployment for the container service.
+  { -- | An object that describes a deployment for the container service.
     --
     -- A deployment specifies the containers that will be launched on the
     -- container service and their settings, such as the ports to open, the
@@ -77,6 +69,14 @@ data CreateContainerService = CreateContainerService'
     -- deployment and its settings, such as the HTTP or HTTPS port to use, and
     -- the health check configuration.
     deployment :: Prelude.Maybe ContainerServiceDeploymentRequest,
+    -- | An object to describe the configuration for the container service to
+    -- access private container image repositories, such as Amazon Elastic
+    -- Container Registry (Amazon ECR) private repositories.
+    --
+    -- For more information, see
+    -- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-service-ecr-private-repo-access Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service>
+    -- in the /Amazon Lightsail Developer Guide/.
+    privateRegistryAccess :: Prelude.Maybe PrivateRegistryAccessRequest,
     -- | The public domain names to use with the container service, such as
     -- @example.com@ and @www.example.com@.
     --
@@ -96,14 +96,14 @@ data CreateContainerService = CreateContainerService'
     -- You can specify public domain names using a string to array map as shown
     -- in the example later on this page.
     publicDomainNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
-    -- | An object to describe the configuration for the container service to
-    -- access private container image repositories, such as Amazon Elastic
-    -- Container Registry (Amazon ECR) private repositories.
+    -- | The tag keys and optional values to add to the container service during
+    -- create.
     --
-    -- For more information, see
-    -- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-service-ecr-private-repo-access Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service>
-    -- in the /Amazon Lightsail Developer Guide/.
-    privateRegistryAccess :: Prelude.Maybe PrivateRegistryAccessRequest,
+    -- Use the @TagResource@ action to tag a resource after it\'s created.
+    --
+    -- For more information about tags in Lightsail, see the
+    -- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
+    tags :: Prelude.Maybe [Tag],
     -- | The name for the container service.
     --
     -- The name that you specify for your container service will make up part
@@ -159,14 +159,6 @@ data CreateContainerService = CreateContainerService'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createContainerService_tags' - The tag keys and optional values to add to the container service during
--- create.
---
--- Use the @TagResource@ action to tag a resource after it\'s created.
---
--- For more information about tags in Lightsail, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
---
 -- 'deployment', 'createContainerService_deployment' - An object that describes a deployment for the container service.
 --
 -- A deployment specifies the containers that will be launched on the
@@ -175,6 +167,14 @@ data CreateContainerService = CreateContainerService'
 -- specifies the container that will serve as the public endpoint of the
 -- deployment and its settings, such as the HTTP or HTTPS port to use, and
 -- the health check configuration.
+--
+-- 'privateRegistryAccess', 'createContainerService_privateRegistryAccess' - An object to describe the configuration for the container service to
+-- access private container image repositories, such as Amazon Elastic
+-- Container Registry (Amazon ECR) private repositories.
+--
+-- For more information, see
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-service-ecr-private-repo-access Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service>
+-- in the /Amazon Lightsail Developer Guide/.
 --
 -- 'publicDomainNames', 'createContainerService_publicDomainNames' - The public domain names to use with the container service, such as
 -- @example.com@ and @www.example.com@.
@@ -195,13 +195,13 @@ data CreateContainerService = CreateContainerService'
 -- You can specify public domain names using a string to array map as shown
 -- in the example later on this page.
 --
--- 'privateRegistryAccess', 'createContainerService_privateRegistryAccess' - An object to describe the configuration for the container service to
--- access private container image repositories, such as Amazon Elastic
--- Container Registry (Amazon ECR) private repositories.
+-- 'tags', 'createContainerService_tags' - The tag keys and optional values to add to the container service during
+-- create.
 --
--- For more information, see
--- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-service-ecr-private-repo-access Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service>
--- in the /Amazon Lightsail Developer Guide/.
+-- Use the @TagResource@ action to tag a resource after it\'s created.
+--
+-- For more information about tags in Lightsail, see the
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
 --
 -- 'serviceName', 'createContainerService_serviceName' - The name for the container service.
 --
@@ -259,24 +259,15 @@ newCreateContainerService
   pPower_
   pScale_ =
     CreateContainerService'
-      { tags = Prelude.Nothing,
-        deployment = Prelude.Nothing,
-        publicDomainNames = Prelude.Nothing,
+      { deployment =
+          Prelude.Nothing,
         privateRegistryAccess = Prelude.Nothing,
+        publicDomainNames = Prelude.Nothing,
+        tags = Prelude.Nothing,
         serviceName = pServiceName_,
         power = pPower_,
         scale = pScale_
       }
-
--- | The tag keys and optional values to add to the container service during
--- create.
---
--- Use the @TagResource@ action to tag a resource after it\'s created.
---
--- For more information about tags in Lightsail, see the
--- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
-createContainerService_tags :: Lens.Lens' CreateContainerService (Prelude.Maybe [Tag])
-createContainerService_tags = Lens.lens (\CreateContainerService' {tags} -> tags) (\s@CreateContainerService' {} a -> s {tags = a} :: CreateContainerService) Prelude.. Lens.mapping Lens.coerced
 
 -- | An object that describes a deployment for the container service.
 --
@@ -288,6 +279,16 @@ createContainerService_tags = Lens.lens (\CreateContainerService' {tags} -> tags
 -- the health check configuration.
 createContainerService_deployment :: Lens.Lens' CreateContainerService (Prelude.Maybe ContainerServiceDeploymentRequest)
 createContainerService_deployment = Lens.lens (\CreateContainerService' {deployment} -> deployment) (\s@CreateContainerService' {} a -> s {deployment = a} :: CreateContainerService)
+
+-- | An object to describe the configuration for the container service to
+-- access private container image repositories, such as Amazon Elastic
+-- Container Registry (Amazon ECR) private repositories.
+--
+-- For more information, see
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-service-ecr-private-repo-access Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service>
+-- in the /Amazon Lightsail Developer Guide/.
+createContainerService_privateRegistryAccess :: Lens.Lens' CreateContainerService (Prelude.Maybe PrivateRegistryAccessRequest)
+createContainerService_privateRegistryAccess = Lens.lens (\CreateContainerService' {privateRegistryAccess} -> privateRegistryAccess) (\s@CreateContainerService' {} a -> s {privateRegistryAccess = a} :: CreateContainerService)
 
 -- | The public domain names to use with the container service, such as
 -- @example.com@ and @www.example.com@.
@@ -310,15 +311,15 @@ createContainerService_deployment = Lens.lens (\CreateContainerService' {deploym
 createContainerService_publicDomainNames :: Lens.Lens' CreateContainerService (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
 createContainerService_publicDomainNames = Lens.lens (\CreateContainerService' {publicDomainNames} -> publicDomainNames) (\s@CreateContainerService' {} a -> s {publicDomainNames = a} :: CreateContainerService) Prelude.. Lens.mapping Lens.coerced
 
--- | An object to describe the configuration for the container service to
--- access private container image repositories, such as Amazon Elastic
--- Container Registry (Amazon ECR) private repositories.
+-- | The tag keys and optional values to add to the container service during
+-- create.
 --
--- For more information, see
--- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-service-ecr-private-repo-access Configuring access to an Amazon ECR private repository for an Amazon Lightsail container service>
--- in the /Amazon Lightsail Developer Guide/.
-createContainerService_privateRegistryAccess :: Lens.Lens' CreateContainerService (Prelude.Maybe PrivateRegistryAccessRequest)
-createContainerService_privateRegistryAccess = Lens.lens (\CreateContainerService' {privateRegistryAccess} -> privateRegistryAccess) (\s@CreateContainerService' {} a -> s {privateRegistryAccess = a} :: CreateContainerService)
+-- Use the @TagResource@ action to tag a resource after it\'s created.
+--
+-- For more information about tags in Lightsail, see the
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide>.
+createContainerService_tags :: Lens.Lens' CreateContainerService (Prelude.Maybe [Tag])
+createContainerService_tags = Lens.lens (\CreateContainerService' {tags} -> tags) (\s@CreateContainerService' {} a -> s {tags = a} :: CreateContainerService) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name for the container service.
 --
@@ -386,20 +387,20 @@ instance Core.AWSRequest CreateContainerService where
 
 instance Prelude.Hashable CreateContainerService where
   hashWithSalt _salt CreateContainerService' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` deployment
-      `Prelude.hashWithSalt` publicDomainNames
+    _salt `Prelude.hashWithSalt` deployment
       `Prelude.hashWithSalt` privateRegistryAccess
+      `Prelude.hashWithSalt` publicDomainNames
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` serviceName
       `Prelude.hashWithSalt` power
       `Prelude.hashWithSalt` scale
 
 instance Prelude.NFData CreateContainerService where
   rnf CreateContainerService' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf deployment
-      `Prelude.seq` Prelude.rnf publicDomainNames
+    Prelude.rnf deployment
       `Prelude.seq` Prelude.rnf privateRegistryAccess
+      `Prelude.seq` Prelude.rnf publicDomainNames
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf serviceName
       `Prelude.seq` Prelude.rnf power
       `Prelude.seq` Prelude.rnf scale
@@ -423,12 +424,12 @@ instance Data.ToJSON CreateContainerService where
   toJSON CreateContainerService' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("deployment" Data..=) Prelude.<$> deployment,
-            ("publicDomainNames" Data..=)
-              Prelude.<$> publicDomainNames,
+          [ ("deployment" Data..=) Prelude.<$> deployment,
             ("privateRegistryAccess" Data..=)
               Prelude.<$> privateRegistryAccess,
+            ("publicDomainNames" Data..=)
+              Prelude.<$> publicDomainNames,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("serviceName" Data..= serviceName),
             Prelude.Just ("power" Data..= power),
             Prelude.Just ("scale" Data..= scale)

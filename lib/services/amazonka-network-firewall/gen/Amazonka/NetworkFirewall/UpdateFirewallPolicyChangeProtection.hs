@@ -30,9 +30,9 @@ module Amazonka.NetworkFirewall.UpdateFirewallPolicyChangeProtection
     newUpdateFirewallPolicyChangeProtection,
 
     -- * Request Lenses
-    updateFirewallPolicyChangeProtection_updateToken,
     updateFirewallPolicyChangeProtection_firewallArn,
     updateFirewallPolicyChangeProtection_firewallName,
+    updateFirewallPolicyChangeProtection_updateToken,
     updateFirewallPolicyChangeProtection_firewallPolicyChangeProtection,
 
     -- * Destructuring the Response
@@ -40,10 +40,10 @@ module Amazonka.NetworkFirewall.UpdateFirewallPolicyChangeProtection
     newUpdateFirewallPolicyChangeProtectionResponse,
 
     -- * Response Lenses
-    updateFirewallPolicyChangeProtectionResponse_updateToken,
-    updateFirewallPolicyChangeProtectionResponse_firewallPolicyChangeProtection,
     updateFirewallPolicyChangeProtectionResponse_firewallArn,
     updateFirewallPolicyChangeProtectionResponse_firewallName,
+    updateFirewallPolicyChangeProtectionResponse_firewallPolicyChangeProtection,
+    updateFirewallPolicyChangeProtectionResponse_updateToken,
     updateFirewallPolicyChangeProtectionResponse_httpStatus,
   )
 where
@@ -58,7 +58,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateFirewallPolicyChangeProtection' smart constructor.
 data UpdateFirewallPolicyChangeProtection = UpdateFirewallPolicyChangeProtection'
-  { -- | An optional token that you can use for optimistic locking. Network
+  { -- | The Amazon Resource Name (ARN) of the firewall.
+    --
+    -- You must specify the ARN or the name, and you can specify both.
+    firewallArn :: Prelude.Maybe Prelude.Text,
+    -- | The descriptive name of the firewall. You can\'t change the name of a
+    -- firewall after you create it.
+    --
+    -- You must specify the ARN or the name, and you can specify both.
+    firewallName :: Prelude.Maybe Prelude.Text,
+    -- | An optional token that you can use for optimistic locking. Network
     -- Firewall returns a token to your requests that access the firewall. The
     -- token marks the state of the firewall resource at the time of the
     -- request.
@@ -76,15 +85,6 @@ data UpdateFirewallPolicyChangeProtection = UpdateFirewallPolicyChangeProtection
     -- token. Reapply your changes as needed, then try the operation again
     -- using the new token.
     updateToken :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the firewall.
-    --
-    -- You must specify the ARN or the name, and you can specify both.
-    firewallArn :: Prelude.Maybe Prelude.Text,
-    -- | The descriptive name of the firewall. You can\'t change the name of a
-    -- firewall after you create it.
-    --
-    -- You must specify the ARN or the name, and you can specify both.
-    firewallName :: Prelude.Maybe Prelude.Text,
     -- | A setting indicating whether the firewall is protected against a change
     -- to the firewall policy association. Use this setting to protect against
     -- accidentally modifying the firewall policy for a firewall that is in
@@ -101,6 +101,15 @@ data UpdateFirewallPolicyChangeProtection = UpdateFirewallPolicyChangeProtection
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'firewallArn', 'updateFirewallPolicyChangeProtection_firewallArn' - The Amazon Resource Name (ARN) of the firewall.
+--
+-- You must specify the ARN or the name, and you can specify both.
+--
+-- 'firewallName', 'updateFirewallPolicyChangeProtection_firewallName' - The descriptive name of the firewall. You can\'t change the name of a
+-- firewall after you create it.
+--
+-- You must specify the ARN or the name, and you can specify both.
 --
 -- 'updateToken', 'updateFirewallPolicyChangeProtection_updateToken' - An optional token that you can use for optimistic locking. Network
 -- Firewall returns a token to your requests that access the firewall. The
@@ -120,15 +129,6 @@ data UpdateFirewallPolicyChangeProtection = UpdateFirewallPolicyChangeProtection
 -- token. Reapply your changes as needed, then try the operation again
 -- using the new token.
 --
--- 'firewallArn', 'updateFirewallPolicyChangeProtection_firewallArn' - The Amazon Resource Name (ARN) of the firewall.
---
--- You must specify the ARN or the name, and you can specify both.
---
--- 'firewallName', 'updateFirewallPolicyChangeProtection_firewallName' - The descriptive name of the firewall. You can\'t change the name of a
--- firewall after you create it.
---
--- You must specify the ARN or the name, and you can specify both.
---
 -- 'firewallPolicyChangeProtection', 'updateFirewallPolicyChangeProtection_firewallPolicyChangeProtection' - A setting indicating whether the firewall is protected against a change
 -- to the firewall policy association. Use this setting to protect against
 -- accidentally modifying the firewall policy for a firewall that is in
@@ -141,13 +141,26 @@ newUpdateFirewallPolicyChangeProtection ::
 newUpdateFirewallPolicyChangeProtection
   pFirewallPolicyChangeProtection_ =
     UpdateFirewallPolicyChangeProtection'
-      { updateToken =
+      { firewallArn =
           Prelude.Nothing,
-        firewallArn = Prelude.Nothing,
         firewallName = Prelude.Nothing,
+        updateToken = Prelude.Nothing,
         firewallPolicyChangeProtection =
           pFirewallPolicyChangeProtection_
       }
+
+-- | The Amazon Resource Name (ARN) of the firewall.
+--
+-- You must specify the ARN or the name, and you can specify both.
+updateFirewallPolicyChangeProtection_firewallArn :: Lens.Lens' UpdateFirewallPolicyChangeProtection (Prelude.Maybe Prelude.Text)
+updateFirewallPolicyChangeProtection_firewallArn = Lens.lens (\UpdateFirewallPolicyChangeProtection' {firewallArn} -> firewallArn) (\s@UpdateFirewallPolicyChangeProtection' {} a -> s {firewallArn = a} :: UpdateFirewallPolicyChangeProtection)
+
+-- | The descriptive name of the firewall. You can\'t change the name of a
+-- firewall after you create it.
+--
+-- You must specify the ARN or the name, and you can specify both.
+updateFirewallPolicyChangeProtection_firewallName :: Lens.Lens' UpdateFirewallPolicyChangeProtection (Prelude.Maybe Prelude.Text)
+updateFirewallPolicyChangeProtection_firewallName = Lens.lens (\UpdateFirewallPolicyChangeProtection' {firewallName} -> firewallName) (\s@UpdateFirewallPolicyChangeProtection' {} a -> s {firewallName = a} :: UpdateFirewallPolicyChangeProtection)
 
 -- | An optional token that you can use for optimistic locking. Network
 -- Firewall returns a token to your requests that access the firewall. The
@@ -168,19 +181,6 @@ newUpdateFirewallPolicyChangeProtection
 -- using the new token.
 updateFirewallPolicyChangeProtection_updateToken :: Lens.Lens' UpdateFirewallPolicyChangeProtection (Prelude.Maybe Prelude.Text)
 updateFirewallPolicyChangeProtection_updateToken = Lens.lens (\UpdateFirewallPolicyChangeProtection' {updateToken} -> updateToken) (\s@UpdateFirewallPolicyChangeProtection' {} a -> s {updateToken = a} :: UpdateFirewallPolicyChangeProtection)
-
--- | The Amazon Resource Name (ARN) of the firewall.
---
--- You must specify the ARN or the name, and you can specify both.
-updateFirewallPolicyChangeProtection_firewallArn :: Lens.Lens' UpdateFirewallPolicyChangeProtection (Prelude.Maybe Prelude.Text)
-updateFirewallPolicyChangeProtection_firewallArn = Lens.lens (\UpdateFirewallPolicyChangeProtection' {firewallArn} -> firewallArn) (\s@UpdateFirewallPolicyChangeProtection' {} a -> s {firewallArn = a} :: UpdateFirewallPolicyChangeProtection)
-
--- | The descriptive name of the firewall. You can\'t change the name of a
--- firewall after you create it.
---
--- You must specify the ARN or the name, and you can specify both.
-updateFirewallPolicyChangeProtection_firewallName :: Lens.Lens' UpdateFirewallPolicyChangeProtection (Prelude.Maybe Prelude.Text)
-updateFirewallPolicyChangeProtection_firewallName = Lens.lens (\UpdateFirewallPolicyChangeProtection' {firewallName} -> firewallName) (\s@UpdateFirewallPolicyChangeProtection' {} a -> s {firewallName = a} :: UpdateFirewallPolicyChangeProtection)
 
 -- | A setting indicating whether the firewall is protected against a change
 -- to the firewall policy association. Use this setting to protect against
@@ -203,10 +203,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           UpdateFirewallPolicyChangeProtectionResponse'
-            Prelude.<$> (x Data..?> "UpdateToken")
-              Prelude.<*> (x Data..?> "FirewallPolicyChangeProtection")
-              Prelude.<*> (x Data..?> "FirewallArn")
+            Prelude.<$> (x Data..?> "FirewallArn")
               Prelude.<*> (x Data..?> "FirewallName")
+              Prelude.<*> (x Data..?> "FirewallPolicyChangeProtection")
+              Prelude.<*> (x Data..?> "UpdateToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -217,9 +217,9 @@ instance
   hashWithSalt
     _salt
     UpdateFirewallPolicyChangeProtection' {..} =
-      _salt `Prelude.hashWithSalt` updateToken
-        `Prelude.hashWithSalt` firewallArn
+      _salt `Prelude.hashWithSalt` firewallArn
         `Prelude.hashWithSalt` firewallName
+        `Prelude.hashWithSalt` updateToken
         `Prelude.hashWithSalt` firewallPolicyChangeProtection
 
 instance
@@ -227,9 +227,9 @@ instance
     UpdateFirewallPolicyChangeProtection
   where
   rnf UpdateFirewallPolicyChangeProtection' {..} =
-    Prelude.rnf updateToken
-      `Prelude.seq` Prelude.rnf firewallArn
+    Prelude.rnf firewallArn
       `Prelude.seq` Prelude.rnf firewallName
+      `Prelude.seq` Prelude.rnf updateToken
       `Prelude.seq` Prelude.rnf firewallPolicyChangeProtection
 
 instance
@@ -257,9 +257,9 @@ instance
   toJSON UpdateFirewallPolicyChangeProtection' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("UpdateToken" Data..=) Prelude.<$> updateToken,
-            ("FirewallArn" Data..=) Prelude.<$> firewallArn,
+          [ ("FirewallArn" Data..=) Prelude.<$> firewallArn,
             ("FirewallName" Data..=) Prelude.<$> firewallName,
+            ("UpdateToken" Data..=) Prelude.<$> updateToken,
             Prelude.Just
               ( "FirewallPolicyChangeProtection"
                   Data..= firewallPolicyChangeProtection
@@ -281,7 +281,18 @@ instance
 
 -- | /See:/ 'newUpdateFirewallPolicyChangeProtectionResponse' smart constructor.
 data UpdateFirewallPolicyChangeProtectionResponse = UpdateFirewallPolicyChangeProtectionResponse'
-  { -- | An optional token that you can use for optimistic locking. Network
+  { -- | The Amazon Resource Name (ARN) of the firewall.
+    firewallArn :: Prelude.Maybe Prelude.Text,
+    -- | The descriptive name of the firewall. You can\'t change the name of a
+    -- firewall after you create it.
+    firewallName :: Prelude.Maybe Prelude.Text,
+    -- | A setting indicating whether the firewall is protected against a change
+    -- to the firewall policy association. Use this setting to protect against
+    -- accidentally modifying the firewall policy for a firewall that is in
+    -- use. When you create a firewall, the operation initializes this setting
+    -- to @TRUE@.
+    firewallPolicyChangeProtection :: Prelude.Maybe Prelude.Bool,
+    -- | An optional token that you can use for optimistic locking. Network
     -- Firewall returns a token to your requests that access the firewall. The
     -- token marks the state of the firewall resource at the time of the
     -- request.
@@ -299,17 +310,6 @@ data UpdateFirewallPolicyChangeProtectionResponse = UpdateFirewallPolicyChangePr
     -- token. Reapply your changes as needed, then try the operation again
     -- using the new token.
     updateToken :: Prelude.Maybe Prelude.Text,
-    -- | A setting indicating whether the firewall is protected against a change
-    -- to the firewall policy association. Use this setting to protect against
-    -- accidentally modifying the firewall policy for a firewall that is in
-    -- use. When you create a firewall, the operation initializes this setting
-    -- to @TRUE@.
-    firewallPolicyChangeProtection :: Prelude.Maybe Prelude.Bool,
-    -- | The Amazon Resource Name (ARN) of the firewall.
-    firewallArn :: Prelude.Maybe Prelude.Text,
-    -- | The descriptive name of the firewall. You can\'t change the name of a
-    -- firewall after you create it.
-    firewallName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -322,6 +322,17 @@ data UpdateFirewallPolicyChangeProtectionResponse = UpdateFirewallPolicyChangePr
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'firewallArn', 'updateFirewallPolicyChangeProtectionResponse_firewallArn' - The Amazon Resource Name (ARN) of the firewall.
+--
+-- 'firewallName', 'updateFirewallPolicyChangeProtectionResponse_firewallName' - The descriptive name of the firewall. You can\'t change the name of a
+-- firewall after you create it.
+--
+-- 'firewallPolicyChangeProtection', 'updateFirewallPolicyChangeProtectionResponse_firewallPolicyChangeProtection' - A setting indicating whether the firewall is protected against a change
+-- to the firewall policy association. Use this setting to protect against
+-- accidentally modifying the firewall policy for a firewall that is in
+-- use. When you create a firewall, the operation initializes this setting
+-- to @TRUE@.
 --
 -- 'updateToken', 'updateFirewallPolicyChangeProtectionResponse_updateToken' - An optional token that you can use for optimistic locking. Network
 -- Firewall returns a token to your requests that access the firewall. The
@@ -341,17 +352,6 @@ data UpdateFirewallPolicyChangeProtectionResponse = UpdateFirewallPolicyChangePr
 -- token. Reapply your changes as needed, then try the operation again
 -- using the new token.
 --
--- 'firewallPolicyChangeProtection', 'updateFirewallPolicyChangeProtectionResponse_firewallPolicyChangeProtection' - A setting indicating whether the firewall is protected against a change
--- to the firewall policy association. Use this setting to protect against
--- accidentally modifying the firewall policy for a firewall that is in
--- use. When you create a firewall, the operation initializes this setting
--- to @TRUE@.
---
--- 'firewallArn', 'updateFirewallPolicyChangeProtectionResponse_firewallArn' - The Amazon Resource Name (ARN) of the firewall.
---
--- 'firewallName', 'updateFirewallPolicyChangeProtectionResponse_firewallName' - The descriptive name of the firewall. You can\'t change the name of a
--- firewall after you create it.
---
 -- 'httpStatus', 'updateFirewallPolicyChangeProtectionResponse_httpStatus' - The response's http status code.
 newUpdateFirewallPolicyChangeProtectionResponse ::
   -- | 'httpStatus'
@@ -360,15 +360,32 @@ newUpdateFirewallPolicyChangeProtectionResponse ::
 newUpdateFirewallPolicyChangeProtectionResponse
   pHttpStatus_ =
     UpdateFirewallPolicyChangeProtectionResponse'
-      { updateToken =
+      { firewallArn =
+          Prelude.Nothing,
+        firewallName =
           Prelude.Nothing,
         firewallPolicyChangeProtection =
           Prelude.Nothing,
-        firewallArn = Prelude.Nothing,
-        firewallName =
-          Prelude.Nothing,
+        updateToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | The Amazon Resource Name (ARN) of the firewall.
+updateFirewallPolicyChangeProtectionResponse_firewallArn :: Lens.Lens' UpdateFirewallPolicyChangeProtectionResponse (Prelude.Maybe Prelude.Text)
+updateFirewallPolicyChangeProtectionResponse_firewallArn = Lens.lens (\UpdateFirewallPolicyChangeProtectionResponse' {firewallArn} -> firewallArn) (\s@UpdateFirewallPolicyChangeProtectionResponse' {} a -> s {firewallArn = a} :: UpdateFirewallPolicyChangeProtectionResponse)
+
+-- | The descriptive name of the firewall. You can\'t change the name of a
+-- firewall after you create it.
+updateFirewallPolicyChangeProtectionResponse_firewallName :: Lens.Lens' UpdateFirewallPolicyChangeProtectionResponse (Prelude.Maybe Prelude.Text)
+updateFirewallPolicyChangeProtectionResponse_firewallName = Lens.lens (\UpdateFirewallPolicyChangeProtectionResponse' {firewallName} -> firewallName) (\s@UpdateFirewallPolicyChangeProtectionResponse' {} a -> s {firewallName = a} :: UpdateFirewallPolicyChangeProtectionResponse)
+
+-- | A setting indicating whether the firewall is protected against a change
+-- to the firewall policy association. Use this setting to protect against
+-- accidentally modifying the firewall policy for a firewall that is in
+-- use. When you create a firewall, the operation initializes this setting
+-- to @TRUE@.
+updateFirewallPolicyChangeProtectionResponse_firewallPolicyChangeProtection :: Lens.Lens' UpdateFirewallPolicyChangeProtectionResponse (Prelude.Maybe Prelude.Bool)
+updateFirewallPolicyChangeProtectionResponse_firewallPolicyChangeProtection = Lens.lens (\UpdateFirewallPolicyChangeProtectionResponse' {firewallPolicyChangeProtection} -> firewallPolicyChangeProtection) (\s@UpdateFirewallPolicyChangeProtectionResponse' {} a -> s {firewallPolicyChangeProtection = a} :: UpdateFirewallPolicyChangeProtectionResponse)
 
 -- | An optional token that you can use for optimistic locking. Network
 -- Firewall returns a token to your requests that access the firewall. The
@@ -390,23 +407,6 @@ newUpdateFirewallPolicyChangeProtectionResponse
 updateFirewallPolicyChangeProtectionResponse_updateToken :: Lens.Lens' UpdateFirewallPolicyChangeProtectionResponse (Prelude.Maybe Prelude.Text)
 updateFirewallPolicyChangeProtectionResponse_updateToken = Lens.lens (\UpdateFirewallPolicyChangeProtectionResponse' {updateToken} -> updateToken) (\s@UpdateFirewallPolicyChangeProtectionResponse' {} a -> s {updateToken = a} :: UpdateFirewallPolicyChangeProtectionResponse)
 
--- | A setting indicating whether the firewall is protected against a change
--- to the firewall policy association. Use this setting to protect against
--- accidentally modifying the firewall policy for a firewall that is in
--- use. When you create a firewall, the operation initializes this setting
--- to @TRUE@.
-updateFirewallPolicyChangeProtectionResponse_firewallPolicyChangeProtection :: Lens.Lens' UpdateFirewallPolicyChangeProtectionResponse (Prelude.Maybe Prelude.Bool)
-updateFirewallPolicyChangeProtectionResponse_firewallPolicyChangeProtection = Lens.lens (\UpdateFirewallPolicyChangeProtectionResponse' {firewallPolicyChangeProtection} -> firewallPolicyChangeProtection) (\s@UpdateFirewallPolicyChangeProtectionResponse' {} a -> s {firewallPolicyChangeProtection = a} :: UpdateFirewallPolicyChangeProtectionResponse)
-
--- | The Amazon Resource Name (ARN) of the firewall.
-updateFirewallPolicyChangeProtectionResponse_firewallArn :: Lens.Lens' UpdateFirewallPolicyChangeProtectionResponse (Prelude.Maybe Prelude.Text)
-updateFirewallPolicyChangeProtectionResponse_firewallArn = Lens.lens (\UpdateFirewallPolicyChangeProtectionResponse' {firewallArn} -> firewallArn) (\s@UpdateFirewallPolicyChangeProtectionResponse' {} a -> s {firewallArn = a} :: UpdateFirewallPolicyChangeProtectionResponse)
-
--- | The descriptive name of the firewall. You can\'t change the name of a
--- firewall after you create it.
-updateFirewallPolicyChangeProtectionResponse_firewallName :: Lens.Lens' UpdateFirewallPolicyChangeProtectionResponse (Prelude.Maybe Prelude.Text)
-updateFirewallPolicyChangeProtectionResponse_firewallName = Lens.lens (\UpdateFirewallPolicyChangeProtectionResponse' {firewallName} -> firewallName) (\s@UpdateFirewallPolicyChangeProtectionResponse' {} a -> s {firewallName = a} :: UpdateFirewallPolicyChangeProtectionResponse)
-
 -- | The response's http status code.
 updateFirewallPolicyChangeProtectionResponse_httpStatus :: Lens.Lens' UpdateFirewallPolicyChangeProtectionResponse Prelude.Int
 updateFirewallPolicyChangeProtectionResponse_httpStatus = Lens.lens (\UpdateFirewallPolicyChangeProtectionResponse' {httpStatus} -> httpStatus) (\s@UpdateFirewallPolicyChangeProtectionResponse' {} a -> s {httpStatus = a} :: UpdateFirewallPolicyChangeProtectionResponse)
@@ -416,8 +416,8 @@ instance
     UpdateFirewallPolicyChangeProtectionResponse
   where
   rnf UpdateFirewallPolicyChangeProtectionResponse' {..} =
-    Prelude.rnf updateToken
-      `Prelude.seq` Prelude.rnf firewallPolicyChangeProtection
-      `Prelude.seq` Prelude.rnf firewallArn
+    Prelude.rnf firewallArn
       `Prelude.seq` Prelude.rnf firewallName
+      `Prelude.seq` Prelude.rnf firewallPolicyChangeProtection
+      `Prelude.seq` Prelude.rnf updateToken
       `Prelude.seq` Prelude.rnf httpStatus

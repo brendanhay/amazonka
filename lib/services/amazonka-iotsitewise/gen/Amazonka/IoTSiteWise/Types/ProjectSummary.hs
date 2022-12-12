@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 data ProjectSummary = ProjectSummary'
   { -- | The date the project was created, in Unix epoch time.
     creationDate :: Prelude.Maybe Data.POSIX,
-    -- | The date the project was last updated, in Unix epoch time.
-    lastUpdateDate :: Prelude.Maybe Data.POSIX,
     -- | The project\'s description.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The date the project was last updated, in Unix epoch time.
+    lastUpdateDate :: Prelude.Maybe Data.POSIX,
     -- | The ID of the project.
     id :: Prelude.Text,
     -- | The name of the project.
@@ -51,9 +51,9 @@ data ProjectSummary = ProjectSummary'
 --
 -- 'creationDate', 'projectSummary_creationDate' - The date the project was created, in Unix epoch time.
 --
--- 'lastUpdateDate', 'projectSummary_lastUpdateDate' - The date the project was last updated, in Unix epoch time.
---
 -- 'description', 'projectSummary_description' - The project\'s description.
+--
+-- 'lastUpdateDate', 'projectSummary_lastUpdateDate' - The date the project was last updated, in Unix epoch time.
 --
 -- 'id', 'projectSummary_id' - The ID of the project.
 --
@@ -67,8 +67,8 @@ newProjectSummary ::
 newProjectSummary pId_ pName_ =
   ProjectSummary'
     { creationDate = Prelude.Nothing,
-      lastUpdateDate = Prelude.Nothing,
       description = Prelude.Nothing,
+      lastUpdateDate = Prelude.Nothing,
       id = pId_,
       name = pName_
     }
@@ -77,13 +77,13 @@ newProjectSummary pId_ pName_ =
 projectSummary_creationDate :: Lens.Lens' ProjectSummary (Prelude.Maybe Prelude.UTCTime)
 projectSummary_creationDate = Lens.lens (\ProjectSummary' {creationDate} -> creationDate) (\s@ProjectSummary' {} a -> s {creationDate = a} :: ProjectSummary) Prelude.. Lens.mapping Data._Time
 
--- | The date the project was last updated, in Unix epoch time.
-projectSummary_lastUpdateDate :: Lens.Lens' ProjectSummary (Prelude.Maybe Prelude.UTCTime)
-projectSummary_lastUpdateDate = Lens.lens (\ProjectSummary' {lastUpdateDate} -> lastUpdateDate) (\s@ProjectSummary' {} a -> s {lastUpdateDate = a} :: ProjectSummary) Prelude.. Lens.mapping Data._Time
-
 -- | The project\'s description.
 projectSummary_description :: Lens.Lens' ProjectSummary (Prelude.Maybe Prelude.Text)
 projectSummary_description = Lens.lens (\ProjectSummary' {description} -> description) (\s@ProjectSummary' {} a -> s {description = a} :: ProjectSummary)
+
+-- | The date the project was last updated, in Unix epoch time.
+projectSummary_lastUpdateDate :: Lens.Lens' ProjectSummary (Prelude.Maybe Prelude.UTCTime)
+projectSummary_lastUpdateDate = Lens.lens (\ProjectSummary' {lastUpdateDate} -> lastUpdateDate) (\s@ProjectSummary' {} a -> s {lastUpdateDate = a} :: ProjectSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The ID of the project.
 projectSummary_id :: Lens.Lens' ProjectSummary Prelude.Text
@@ -100,8 +100,8 @@ instance Data.FromJSON ProjectSummary where
       ( \x ->
           ProjectSummary'
             Prelude.<$> (x Data..:? "creationDate")
-            Prelude.<*> (x Data..:? "lastUpdateDate")
             Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "lastUpdateDate")
             Prelude.<*> (x Data..: "id")
             Prelude.<*> (x Data..: "name")
       )
@@ -109,15 +109,15 @@ instance Data.FromJSON ProjectSummary where
 instance Prelude.Hashable ProjectSummary where
   hashWithSalt _salt ProjectSummary' {..} =
     _salt `Prelude.hashWithSalt` creationDate
-      `Prelude.hashWithSalt` lastUpdateDate
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` lastUpdateDate
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData ProjectSummary where
   rnf ProjectSummary' {..} =
     Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf lastUpdateDate
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf lastUpdateDate
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf name

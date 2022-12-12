@@ -29,14 +29,14 @@ import Amazonka.QuickSight.Types.ResourceStatus
 --
 -- /See:/ 'newThemeVersionSummary' smart constructor.
 data ThemeVersionSummary = ThemeVersionSummary'
-  { -- | The date and time that this theme version was created.
-    createdTime :: Prelude.Maybe Data.POSIX,
-    -- | The Amazon Resource Name (ARN) of the theme version.
+  { -- | The Amazon Resource Name (ARN) of the theme version.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The status of the theme version.
-    status :: Prelude.Maybe ResourceStatus,
+    -- | The date and time that this theme version was created.
+    createdTime :: Prelude.Maybe Data.POSIX,
     -- | The description of the theme version.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The status of the theme version.
+    status :: Prelude.Maybe ResourceStatus,
     -- | The version number of the theme version.
     versionNumber :: Prelude.Maybe Prelude.Natural
   }
@@ -50,41 +50,41 @@ data ThemeVersionSummary = ThemeVersionSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdTime', 'themeVersionSummary_createdTime' - The date and time that this theme version was created.
---
 -- 'arn', 'themeVersionSummary_arn' - The Amazon Resource Name (ARN) of the theme version.
 --
--- 'status', 'themeVersionSummary_status' - The status of the theme version.
+-- 'createdTime', 'themeVersionSummary_createdTime' - The date and time that this theme version was created.
 --
 -- 'description', 'themeVersionSummary_description' - The description of the theme version.
+--
+-- 'status', 'themeVersionSummary_status' - The status of the theme version.
 --
 -- 'versionNumber', 'themeVersionSummary_versionNumber' - The version number of the theme version.
 newThemeVersionSummary ::
   ThemeVersionSummary
 newThemeVersionSummary =
   ThemeVersionSummary'
-    { createdTime = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      status = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      createdTime = Prelude.Nothing,
       description = Prelude.Nothing,
+      status = Prelude.Nothing,
       versionNumber = Prelude.Nothing
     }
-
--- | The date and time that this theme version was created.
-themeVersionSummary_createdTime :: Lens.Lens' ThemeVersionSummary (Prelude.Maybe Prelude.UTCTime)
-themeVersionSummary_createdTime = Lens.lens (\ThemeVersionSummary' {createdTime} -> createdTime) (\s@ThemeVersionSummary' {} a -> s {createdTime = a} :: ThemeVersionSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the theme version.
 themeVersionSummary_arn :: Lens.Lens' ThemeVersionSummary (Prelude.Maybe Prelude.Text)
 themeVersionSummary_arn = Lens.lens (\ThemeVersionSummary' {arn} -> arn) (\s@ThemeVersionSummary' {} a -> s {arn = a} :: ThemeVersionSummary)
 
--- | The status of the theme version.
-themeVersionSummary_status :: Lens.Lens' ThemeVersionSummary (Prelude.Maybe ResourceStatus)
-themeVersionSummary_status = Lens.lens (\ThemeVersionSummary' {status} -> status) (\s@ThemeVersionSummary' {} a -> s {status = a} :: ThemeVersionSummary)
+-- | The date and time that this theme version was created.
+themeVersionSummary_createdTime :: Lens.Lens' ThemeVersionSummary (Prelude.Maybe Prelude.UTCTime)
+themeVersionSummary_createdTime = Lens.lens (\ThemeVersionSummary' {createdTime} -> createdTime) (\s@ThemeVersionSummary' {} a -> s {createdTime = a} :: ThemeVersionSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The description of the theme version.
 themeVersionSummary_description :: Lens.Lens' ThemeVersionSummary (Prelude.Maybe Prelude.Text)
 themeVersionSummary_description = Lens.lens (\ThemeVersionSummary' {description} -> description) (\s@ThemeVersionSummary' {} a -> s {description = a} :: ThemeVersionSummary)
+
+-- | The status of the theme version.
+themeVersionSummary_status :: Lens.Lens' ThemeVersionSummary (Prelude.Maybe ResourceStatus)
+themeVersionSummary_status = Lens.lens (\ThemeVersionSummary' {status} -> status) (\s@ThemeVersionSummary' {} a -> s {status = a} :: ThemeVersionSummary)
 
 -- | The version number of the theme version.
 themeVersionSummary_versionNumber :: Lens.Lens' ThemeVersionSummary (Prelude.Maybe Prelude.Natural)
@@ -96,25 +96,25 @@ instance Data.FromJSON ThemeVersionSummary where
       "ThemeVersionSummary"
       ( \x ->
           ThemeVersionSummary'
-            Prelude.<$> (x Data..:? "CreatedTime")
-            Prelude.<*> (x Data..:? "Arn")
-            Prelude.<*> (x Data..:? "Status")
+            Prelude.<$> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "CreatedTime")
             Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Status")
             Prelude.<*> (x Data..:? "VersionNumber")
       )
 
 instance Prelude.Hashable ThemeVersionSummary where
   hashWithSalt _salt ThemeVersionSummary' {..} =
-    _salt `Prelude.hashWithSalt` createdTime
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` versionNumber
 
 instance Prelude.NFData ThemeVersionSummary where
   rnf ThemeVersionSummary' {..} =
-    Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdTime
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf versionNumber

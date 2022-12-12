@@ -30,8 +30,8 @@ module Amazonka.Connect.CreateContactFlow
     newCreateContactFlow,
 
     -- * Request Lenses
-    createContactFlow_tags,
     createContactFlow_description,
+    createContactFlow_tags,
     createContactFlow_instanceId,
     createContactFlow_name,
     createContactFlow_type,
@@ -58,11 +58,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateContactFlow' smart constructor.
 data CreateContactFlow = CreateContactFlow'
-  { -- | The tags used to organize, track, or control access for this resource.
+  { -- | The description of the flow.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The tags used to organize, track, or control access for this resource.
     -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The description of the flow.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the Amazon Connect instance.
     instanceId :: Prelude.Text,
     -- | The name of the flow.
@@ -84,10 +84,10 @@ data CreateContactFlow = CreateContactFlow'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'createContactFlow_description' - The description of the flow.
+--
 -- 'tags', 'createContactFlow_tags' - The tags used to organize, track, or control access for this resource.
 -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
---
--- 'description', 'createContactFlow_description' - The description of the flow.
 --
 -- 'instanceId', 'createContactFlow_instanceId' - The identifier of the Amazon Connect instance.
 --
@@ -114,22 +114,22 @@ newCreateContactFlow
   pType_
   pContent_ =
     CreateContactFlow'
-      { tags = Prelude.Nothing,
-        description = Prelude.Nothing,
+      { description = Prelude.Nothing,
+        tags = Prelude.Nothing,
         instanceId = pInstanceId_,
         name = pName_,
         type' = pType_,
         content = pContent_
       }
 
+-- | The description of the flow.
+createContactFlow_description :: Lens.Lens' CreateContactFlow (Prelude.Maybe Prelude.Text)
+createContactFlow_description = Lens.lens (\CreateContactFlow' {description} -> description) (\s@CreateContactFlow' {} a -> s {description = a} :: CreateContactFlow)
+
 -- | The tags used to organize, track, or control access for this resource.
 -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 createContactFlow_tags :: Lens.Lens' CreateContactFlow (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createContactFlow_tags = Lens.lens (\CreateContactFlow' {tags} -> tags) (\s@CreateContactFlow' {} a -> s {tags = a} :: CreateContactFlow) Prelude.. Lens.mapping Lens.coerced
-
--- | The description of the flow.
-createContactFlow_description :: Lens.Lens' CreateContactFlow (Prelude.Maybe Prelude.Text)
-createContactFlow_description = Lens.lens (\CreateContactFlow' {description} -> description) (\s@CreateContactFlow' {} a -> s {description = a} :: CreateContactFlow)
 
 -- | The identifier of the Amazon Connect instance.
 createContactFlow_instanceId :: Lens.Lens' CreateContactFlow Prelude.Text
@@ -166,8 +166,8 @@ instance Core.AWSRequest CreateContactFlow where
 
 instance Prelude.Hashable CreateContactFlow where
   hashWithSalt _salt CreateContactFlow' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
@@ -175,8 +175,8 @@ instance Prelude.Hashable CreateContactFlow where
 
 instance Prelude.NFData CreateContactFlow where
   rnf CreateContactFlow' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf type'
@@ -197,8 +197,8 @@ instance Data.ToJSON CreateContactFlow where
   toJSON CreateContactFlow' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("Type" Data..= type'),
             Prelude.Just ("Content" Data..= content)

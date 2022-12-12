@@ -33,8 +33,8 @@ module Amazonka.S3.ListBuckets
     newListBucketsResponse,
 
     -- * Response Lenses
-    listBucketsResponse_owner,
     listBucketsResponse_buckets,
+    listBucketsResponse_owner,
     listBucketsResponse_httpStatus,
   )
 where
@@ -70,10 +70,10 @@ instance Core.AWSRequest ListBuckets where
     Response.receiveXML
       ( \s h x ->
           ListBucketsResponse'
-            Prelude.<$> (x Data..@? "Owner")
-            Prelude.<*> ( x Data..@? "Buckets" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Buckets" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "Bucket")
                         )
+            Prelude.<*> (x Data..@? "Owner")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -95,10 +95,10 @@ instance Data.ToQuery ListBuckets where
 
 -- | /See:/ 'newListBucketsResponse' smart constructor.
 data ListBucketsResponse = ListBucketsResponse'
-  { -- | The owner of the buckets listed.
-    owner :: Prelude.Maybe Owner,
-    -- | The list of buckets owned by the requester.
+  { -- | The list of buckets owned by the requester.
     buckets :: Prelude.Maybe [Bucket],
+    -- | The owner of the buckets listed.
+    owner :: Prelude.Maybe Owner,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -112,9 +112,9 @@ data ListBucketsResponse = ListBucketsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'owner', 'listBucketsResponse_owner' - The owner of the buckets listed.
---
 -- 'buckets', 'listBucketsResponse_buckets' - The list of buckets owned by the requester.
+--
+-- 'owner', 'listBucketsResponse_owner' - The owner of the buckets listed.
 --
 -- 'httpStatus', 'listBucketsResponse_httpStatus' - The response's http status code.
 newListBucketsResponse ::
@@ -123,18 +123,18 @@ newListBucketsResponse ::
   ListBucketsResponse
 newListBucketsResponse pHttpStatus_ =
   ListBucketsResponse'
-    { owner = Prelude.Nothing,
-      buckets = Prelude.Nothing,
+    { buckets = Prelude.Nothing,
+      owner = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The owner of the buckets listed.
-listBucketsResponse_owner :: Lens.Lens' ListBucketsResponse (Prelude.Maybe Owner)
-listBucketsResponse_owner = Lens.lens (\ListBucketsResponse' {owner} -> owner) (\s@ListBucketsResponse' {} a -> s {owner = a} :: ListBucketsResponse)
 
 -- | The list of buckets owned by the requester.
 listBucketsResponse_buckets :: Lens.Lens' ListBucketsResponse (Prelude.Maybe [Bucket])
 listBucketsResponse_buckets = Lens.lens (\ListBucketsResponse' {buckets} -> buckets) (\s@ListBucketsResponse' {} a -> s {buckets = a} :: ListBucketsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The owner of the buckets listed.
+listBucketsResponse_owner :: Lens.Lens' ListBucketsResponse (Prelude.Maybe Owner)
+listBucketsResponse_owner = Lens.lens (\ListBucketsResponse' {owner} -> owner) (\s@ListBucketsResponse' {} a -> s {owner = a} :: ListBucketsResponse)
 
 -- | The response's http status code.
 listBucketsResponse_httpStatus :: Lens.Lens' ListBucketsResponse Prelude.Int
@@ -142,6 +142,6 @@ listBucketsResponse_httpStatus = Lens.lens (\ListBucketsResponse' {httpStatus} -
 
 instance Prelude.NFData ListBucketsResponse where
   rnf ListBucketsResponse' {..} =
-    Prelude.rnf owner
-      `Prelude.seq` Prelude.rnf buckets
+    Prelude.rnf buckets
+      `Prelude.seq` Prelude.rnf owner
       `Prelude.seq` Prelude.rnf httpStatus

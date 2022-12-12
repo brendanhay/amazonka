@@ -34,14 +34,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFeature' smart constructor.
 data Feature = Feature'
-  { -- | The list of tag keys and values associated with this feature.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | The name of the variation that is used as the default variation. The
+    -- default variation is served to users who are not allocated to any
+    -- ongoing launches or experiments of this feature.
+    --
+    -- This variation must also be listed in the @variations@ structure.
+    --
+    -- If you omit @defaultVariation@, the first variation listed in the
+    -- @variations@ structure is used as the default variation.
+    defaultVariation :: Prelude.Maybe Prelude.Text,
     -- | The description of the feature.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The name or ARN of the project that contains the feature.
-    project :: Prelude.Maybe Prelude.Text,
-    -- | An array of structures that define the evaluation rules for the feature.
-    evaluationRules :: Prelude.Maybe [EvaluationRule],
     -- | A set of key-value pairs that specify users who should always be served
     -- a specific variation of a feature. Each key specifies a user using their
     -- user ID, account ID, or some other identifier. The value specifies the
@@ -52,15 +55,12 @@ data Feature = Feature'
     -- <https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html EvaluateFeature>
     -- operation.
     entityOverrides :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The name of the variation that is used as the default variation. The
-    -- default variation is served to users who are not allocated to any
-    -- ongoing launches or experiments of this feature.
-    --
-    -- This variation must also be listed in the @variations@ structure.
-    --
-    -- If you omit @defaultVariation@, the first variation listed in the
-    -- @variations@ structure is used as the default variation.
-    defaultVariation :: Prelude.Maybe Prelude.Text,
+    -- | An array of structures that define the evaluation rules for the feature.
+    evaluationRules :: Prelude.Maybe [EvaluationRule],
+    -- | The name or ARN of the project that contains the feature.
+    project :: Prelude.Maybe Prelude.Text,
+    -- | The list of tag keys and values associated with this feature.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The ARN of the feature.
     arn :: Prelude.Text,
     -- | The date and time that the feature is created.
@@ -93,13 +93,16 @@ data Feature = Feature'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'feature_tags' - The list of tag keys and values associated with this feature.
+-- 'defaultVariation', 'feature_defaultVariation' - The name of the variation that is used as the default variation. The
+-- default variation is served to users who are not allocated to any
+-- ongoing launches or experiments of this feature.
+--
+-- This variation must also be listed in the @variations@ structure.
+--
+-- If you omit @defaultVariation@, the first variation listed in the
+-- @variations@ structure is used as the default variation.
 --
 -- 'description', 'feature_description' - The description of the feature.
---
--- 'project', 'feature_project' - The name or ARN of the project that contains the feature.
---
--- 'evaluationRules', 'feature_evaluationRules' - An array of structures that define the evaluation rules for the feature.
 --
 -- 'entityOverrides', 'feature_entityOverrides' - A set of key-value pairs that specify users who should always be served
 -- a specific variation of a feature. Each key specifies a user using their
@@ -111,14 +114,11 @@ data Feature = Feature'
 -- <https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html EvaluateFeature>
 -- operation.
 --
--- 'defaultVariation', 'feature_defaultVariation' - The name of the variation that is used as the default variation. The
--- default variation is served to users who are not allocated to any
--- ongoing launches or experiments of this feature.
+-- 'evaluationRules', 'feature_evaluationRules' - An array of structures that define the evaluation rules for the feature.
 --
--- This variation must also be listed in the @variations@ structure.
+-- 'project', 'feature_project' - The name or ARN of the project that contains the feature.
 --
--- If you omit @defaultVariation@, the first variation listed in the
--- @variations@ structure is used as the default variation.
+-- 'tags', 'feature_tags' - The list of tag keys and values associated with this feature.
 --
 -- 'arn', 'feature_arn' - The ARN of the feature.
 --
@@ -165,12 +165,12 @@ newFeature
   pStatus_
   pValueType_ =
     Feature'
-      { tags = Prelude.Nothing,
+      { defaultVariation = Prelude.Nothing,
         description = Prelude.Nothing,
-        project = Prelude.Nothing,
-        evaluationRules = Prelude.Nothing,
         entityOverrides = Prelude.Nothing,
-        defaultVariation = Prelude.Nothing,
+        evaluationRules = Prelude.Nothing,
+        project = Prelude.Nothing,
+        tags = Prelude.Nothing,
         arn = pArn_,
         createdTime = Data._Time Lens.# pCreatedTime_,
         evaluationStrategy = pEvaluationStrategy_,
@@ -182,21 +182,20 @@ newFeature
         variations = Prelude.mempty
       }
 
--- | The list of tag keys and values associated with this feature.
-feature_tags :: Lens.Lens' Feature (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-feature_tags = Lens.lens (\Feature' {tags} -> tags) (\s@Feature' {} a -> s {tags = a} :: Feature) Prelude.. Lens.mapping Lens.coerced
+-- | The name of the variation that is used as the default variation. The
+-- default variation is served to users who are not allocated to any
+-- ongoing launches or experiments of this feature.
+--
+-- This variation must also be listed in the @variations@ structure.
+--
+-- If you omit @defaultVariation@, the first variation listed in the
+-- @variations@ structure is used as the default variation.
+feature_defaultVariation :: Lens.Lens' Feature (Prelude.Maybe Prelude.Text)
+feature_defaultVariation = Lens.lens (\Feature' {defaultVariation} -> defaultVariation) (\s@Feature' {} a -> s {defaultVariation = a} :: Feature)
 
 -- | The description of the feature.
 feature_description :: Lens.Lens' Feature (Prelude.Maybe Prelude.Text)
 feature_description = Lens.lens (\Feature' {description} -> description) (\s@Feature' {} a -> s {description = a} :: Feature)
-
--- | The name or ARN of the project that contains the feature.
-feature_project :: Lens.Lens' Feature (Prelude.Maybe Prelude.Text)
-feature_project = Lens.lens (\Feature' {project} -> project) (\s@Feature' {} a -> s {project = a} :: Feature)
-
--- | An array of structures that define the evaluation rules for the feature.
-feature_evaluationRules :: Lens.Lens' Feature (Prelude.Maybe [EvaluationRule])
-feature_evaluationRules = Lens.lens (\Feature' {evaluationRules} -> evaluationRules) (\s@Feature' {} a -> s {evaluationRules = a} :: Feature) Prelude.. Lens.mapping Lens.coerced
 
 -- | A set of key-value pairs that specify users who should always be served
 -- a specific variation of a feature. Each key specifies a user using their
@@ -210,16 +209,17 @@ feature_evaluationRules = Lens.lens (\Feature' {evaluationRules} -> evaluationRu
 feature_entityOverrides :: Lens.Lens' Feature (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 feature_entityOverrides = Lens.lens (\Feature' {entityOverrides} -> entityOverrides) (\s@Feature' {} a -> s {entityOverrides = a} :: Feature) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the variation that is used as the default variation. The
--- default variation is served to users who are not allocated to any
--- ongoing launches or experiments of this feature.
---
--- This variation must also be listed in the @variations@ structure.
---
--- If you omit @defaultVariation@, the first variation listed in the
--- @variations@ structure is used as the default variation.
-feature_defaultVariation :: Lens.Lens' Feature (Prelude.Maybe Prelude.Text)
-feature_defaultVariation = Lens.lens (\Feature' {defaultVariation} -> defaultVariation) (\s@Feature' {} a -> s {defaultVariation = a} :: Feature)
+-- | An array of structures that define the evaluation rules for the feature.
+feature_evaluationRules :: Lens.Lens' Feature (Prelude.Maybe [EvaluationRule])
+feature_evaluationRules = Lens.lens (\Feature' {evaluationRules} -> evaluationRules) (\s@Feature' {} a -> s {evaluationRules = a} :: Feature) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name or ARN of the project that contains the feature.
+feature_project :: Lens.Lens' Feature (Prelude.Maybe Prelude.Text)
+feature_project = Lens.lens (\Feature' {project} -> project) (\s@Feature' {} a -> s {project = a} :: Feature)
+
+-- | The list of tag keys and values associated with this feature.
+feature_tags :: Lens.Lens' Feature (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+feature_tags = Lens.lens (\Feature' {tags} -> tags) (\s@Feature' {} a -> s {tags = a} :: Feature) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the feature.
 feature_arn :: Lens.Lens' Feature Prelude.Text
@@ -264,16 +264,16 @@ instance Data.FromJSON Feature where
       "Feature"
       ( \x ->
           Feature'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "defaultVariation")
             Prelude.<*> (x Data..:? "description")
-            Prelude.<*> (x Data..:? "project")
-            Prelude.<*> ( x Data..:? "evaluationRules"
-                            Data..!= Prelude.mempty
-                        )
             Prelude.<*> ( x Data..:? "entityOverrides"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "defaultVariation")
+            Prelude.<*> ( x Data..:? "evaluationRules"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "project")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "arn")
             Prelude.<*> (x Data..: "createdTime")
             Prelude.<*> (x Data..: "evaluationStrategy")
@@ -286,12 +286,12 @@ instance Data.FromJSON Feature where
 
 instance Prelude.Hashable Feature where
   hashWithSalt _salt Feature' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` defaultVariation
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` project
-      `Prelude.hashWithSalt` evaluationRules
       `Prelude.hashWithSalt` entityOverrides
-      `Prelude.hashWithSalt` defaultVariation
+      `Prelude.hashWithSalt` evaluationRules
+      `Prelude.hashWithSalt` project
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` evaluationStrategy
@@ -303,12 +303,12 @@ instance Prelude.Hashable Feature where
 
 instance Prelude.NFData Feature where
   rnf Feature' {..} =
-    Prelude.rnf tags
+    Prelude.rnf defaultVariation
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf project
-      `Prelude.seq` Prelude.rnf evaluationRules
       `Prelude.seq` Prelude.rnf entityOverrides
-      `Prelude.seq` Prelude.rnf defaultVariation
+      `Prelude.seq` Prelude.rnf evaluationRules
+      `Prelude.seq` Prelude.rnf project
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf createdTime
       `Prelude.seq` Prelude.rnf evaluationStrategy

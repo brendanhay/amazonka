@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDataIntegrationSummary' smart constructor.
 data DataIntegrationSummary = DataIntegrationSummary'
-  { -- | The name of the DataIntegration.
+  { -- | The Amazon Resource Name (ARN) of the DataIntegration.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the DataIntegration.
     name :: Prelude.Maybe Prelude.Text,
     -- | The URI of the data source.
-    sourceURI :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the DataIntegration.
-    arn :: Prelude.Maybe Prelude.Text
+    sourceURI :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,19 +45,23 @@ data DataIntegrationSummary = DataIntegrationSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'arn', 'dataIntegrationSummary_arn' - The Amazon Resource Name (ARN) of the DataIntegration.
+--
 -- 'name', 'dataIntegrationSummary_name' - The name of the DataIntegration.
 --
 -- 'sourceURI', 'dataIntegrationSummary_sourceURI' - The URI of the data source.
---
--- 'arn', 'dataIntegrationSummary_arn' - The Amazon Resource Name (ARN) of the DataIntegration.
 newDataIntegrationSummary ::
   DataIntegrationSummary
 newDataIntegrationSummary =
   DataIntegrationSummary'
-    { name = Prelude.Nothing,
-      sourceURI = Prelude.Nothing,
-      arn = Prelude.Nothing
+    { arn = Prelude.Nothing,
+      name = Prelude.Nothing,
+      sourceURI = Prelude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the DataIntegration.
+dataIntegrationSummary_arn :: Lens.Lens' DataIntegrationSummary (Prelude.Maybe Prelude.Text)
+dataIntegrationSummary_arn = Lens.lens (\DataIntegrationSummary' {arn} -> arn) (\s@DataIntegrationSummary' {} a -> s {arn = a} :: DataIntegrationSummary)
 
 -- | The name of the DataIntegration.
 dataIntegrationSummary_name :: Lens.Lens' DataIntegrationSummary (Prelude.Maybe Prelude.Text)
@@ -67,29 +71,25 @@ dataIntegrationSummary_name = Lens.lens (\DataIntegrationSummary' {name} -> name
 dataIntegrationSummary_sourceURI :: Lens.Lens' DataIntegrationSummary (Prelude.Maybe Prelude.Text)
 dataIntegrationSummary_sourceURI = Lens.lens (\DataIntegrationSummary' {sourceURI} -> sourceURI) (\s@DataIntegrationSummary' {} a -> s {sourceURI = a} :: DataIntegrationSummary)
 
--- | The Amazon Resource Name (ARN) of the DataIntegration.
-dataIntegrationSummary_arn :: Lens.Lens' DataIntegrationSummary (Prelude.Maybe Prelude.Text)
-dataIntegrationSummary_arn = Lens.lens (\DataIntegrationSummary' {arn} -> arn) (\s@DataIntegrationSummary' {} a -> s {arn = a} :: DataIntegrationSummary)
-
 instance Data.FromJSON DataIntegrationSummary where
   parseJSON =
     Data.withObject
       "DataIntegrationSummary"
       ( \x ->
           DataIntegrationSummary'
-            Prelude.<$> (x Data..:? "Name")
+            Prelude.<$> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "SourceURI")
-            Prelude.<*> (x Data..:? "Arn")
       )
 
 instance Prelude.Hashable DataIntegrationSummary where
   hashWithSalt _salt DataIntegrationSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` sourceURI
-      `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData DataIntegrationSummary where
   rnf DataIntegrationSummary' {..} =
-    Prelude.rnf name
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf sourceURI
-      `Prelude.seq` Prelude.rnf arn

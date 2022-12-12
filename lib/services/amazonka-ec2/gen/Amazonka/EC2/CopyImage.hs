@@ -54,12 +54,12 @@ module Amazonka.EC2.CopyImage
 
     -- * Request Lenses
     copyImage_clientToken,
-    copyImage_destinationOutpostArn,
+    copyImage_copyImageTags,
     copyImage_description,
+    copyImage_destinationOutpostArn,
     copyImage_dryRun,
     copyImage_encrypted,
     copyImage_kmsKeyId,
-    copyImage_copyImageTags,
     copyImage_name,
     copyImage_sourceImageId,
     copyImage_sourceRegion,
@@ -91,6 +91,20 @@ data CopyImage = CopyImage'
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring idempotency>
     -- in the /Amazon EC2 API Reference/.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether to include your user-defined AMI tags when copying the
+    -- AMI.
+    --
+    -- The following tags will not be copied:
+    --
+    -- -   System tags (prefixed with @aws:@)
+    --
+    -- -   For public and shared AMIs, user-defined tags that are attached by
+    --     other Amazon Web Services accounts
+    --
+    -- Default: Your user-defined AMI tags are not copied.
+    copyImageTags :: Prelude.Maybe Prelude.Bool,
+    -- | A description for the new AMI in the destination Region.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Outpost to which to copy the AMI.
     -- Only specify this parameter when copying an AMI from an Amazon Web
     -- Services Region to an Outpost. The AMI must be in the Region of the
@@ -101,8 +115,6 @@ data CopyImage = CopyImage'
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis Copy AMIs from an Amazon Web Services Region to an Outpost>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
     destinationOutpostArn :: Prelude.Maybe Prelude.Text,
-    -- | A description for the new AMI in the destination Region.
-    description :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -142,18 +154,6 @@ data CopyImage = CopyImage'
     --
     -- Amazon EBS does not support asymmetric KMS keys.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether to include your user-defined AMI tags when copying the
-    -- AMI.
-    --
-    -- The following tags will not be copied:
-    --
-    -- -   System tags (prefixed with @aws:@)
-    --
-    -- -   For public and shared AMIs, user-defined tags that are attached by
-    --     other Amazon Web Services accounts
-    --
-    -- Default: Your user-defined AMI tags are not copied.
-    copyImageTags :: Prelude.Maybe Prelude.Bool,
     -- | The name of the new AMI in the destination Region.
     name :: Prelude.Text,
     -- | The ID of the AMI to copy.
@@ -176,6 +176,20 @@ data CopyImage = CopyImage'
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring idempotency>
 -- in the /Amazon EC2 API Reference/.
 --
+-- 'copyImageTags', 'copyImage_copyImageTags' - Indicates whether to include your user-defined AMI tags when copying the
+-- AMI.
+--
+-- The following tags will not be copied:
+--
+-- -   System tags (prefixed with @aws:@)
+--
+-- -   For public and shared AMIs, user-defined tags that are attached by
+--     other Amazon Web Services accounts
+--
+-- Default: Your user-defined AMI tags are not copied.
+--
+-- 'description', 'copyImage_description' - A description for the new AMI in the destination Region.
+--
 -- 'destinationOutpostArn', 'copyImage_destinationOutpostArn' - The Amazon Resource Name (ARN) of the Outpost to which to copy the AMI.
 -- Only specify this parameter when copying an AMI from an Amazon Web
 -- Services Region to an Outpost. The AMI must be in the Region of the
@@ -185,8 +199,6 @@ data CopyImage = CopyImage'
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis Copy AMIs from an Amazon Web Services Region to an Outpost>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- 'description', 'copyImage_description' - A description for the new AMI in the destination Region.
 --
 -- 'dryRun', 'copyImage_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -227,18 +239,6 @@ data CopyImage = CopyImage'
 --
 -- Amazon EBS does not support asymmetric KMS keys.
 --
--- 'copyImageTags', 'copyImage_copyImageTags' - Indicates whether to include your user-defined AMI tags when copying the
--- AMI.
---
--- The following tags will not be copied:
---
--- -   System tags (prefixed with @aws:@)
---
--- -   For public and shared AMIs, user-defined tags that are attached by
---     other Amazon Web Services accounts
---
--- Default: Your user-defined AMI tags are not copied.
---
 -- 'name', 'copyImage_name' - The name of the new AMI in the destination Region.
 --
 -- 'sourceImageId', 'copyImage_sourceImageId' - The ID of the AMI to copy.
@@ -255,12 +255,12 @@ newCopyImage ::
 newCopyImage pName_ pSourceImageId_ pSourceRegion_ =
   CopyImage'
     { clientToken = Prelude.Nothing,
-      destinationOutpostArn = Prelude.Nothing,
+      copyImageTags = Prelude.Nothing,
       description = Prelude.Nothing,
+      destinationOutpostArn = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       encrypted = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
-      copyImageTags = Prelude.Nothing,
       name = pName_,
       sourceImageId = pSourceImageId_,
       sourceRegion = pSourceRegion_
@@ -273,6 +273,24 @@ newCopyImage pName_ pSourceImageId_ pSourceRegion_ =
 copyImage_clientToken :: Lens.Lens' CopyImage (Prelude.Maybe Prelude.Text)
 copyImage_clientToken = Lens.lens (\CopyImage' {clientToken} -> clientToken) (\s@CopyImage' {} a -> s {clientToken = a} :: CopyImage)
 
+-- | Indicates whether to include your user-defined AMI tags when copying the
+-- AMI.
+--
+-- The following tags will not be copied:
+--
+-- -   System tags (prefixed with @aws:@)
+--
+-- -   For public and shared AMIs, user-defined tags that are attached by
+--     other Amazon Web Services accounts
+--
+-- Default: Your user-defined AMI tags are not copied.
+copyImage_copyImageTags :: Lens.Lens' CopyImage (Prelude.Maybe Prelude.Bool)
+copyImage_copyImageTags = Lens.lens (\CopyImage' {copyImageTags} -> copyImageTags) (\s@CopyImage' {} a -> s {copyImageTags = a} :: CopyImage)
+
+-- | A description for the new AMI in the destination Region.
+copyImage_description :: Lens.Lens' CopyImage (Prelude.Maybe Prelude.Text)
+copyImage_description = Lens.lens (\CopyImage' {description} -> description) (\s@CopyImage' {} a -> s {description = a} :: CopyImage)
+
 -- | The Amazon Resource Name (ARN) of the Outpost to which to copy the AMI.
 -- Only specify this parameter when copying an AMI from an Amazon Web
 -- Services Region to an Outpost. The AMI must be in the Region of the
@@ -284,10 +302,6 @@ copyImage_clientToken = Lens.lens (\CopyImage' {clientToken} -> clientToken) (\s
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 copyImage_destinationOutpostArn :: Lens.Lens' CopyImage (Prelude.Maybe Prelude.Text)
 copyImage_destinationOutpostArn = Lens.lens (\CopyImage' {destinationOutpostArn} -> destinationOutpostArn) (\s@CopyImage' {} a -> s {destinationOutpostArn = a} :: CopyImage)
-
--- | A description for the new AMI in the destination Region.
-copyImage_description :: Lens.Lens' CopyImage (Prelude.Maybe Prelude.Text)
-copyImage_description = Lens.lens (\CopyImage' {description} -> description) (\s@CopyImage' {} a -> s {description = a} :: CopyImage)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -334,20 +348,6 @@ copyImage_encrypted = Lens.lens (\CopyImage' {encrypted} -> encrypted) (\s@CopyI
 copyImage_kmsKeyId :: Lens.Lens' CopyImage (Prelude.Maybe Prelude.Text)
 copyImage_kmsKeyId = Lens.lens (\CopyImage' {kmsKeyId} -> kmsKeyId) (\s@CopyImage' {} a -> s {kmsKeyId = a} :: CopyImage)
 
--- | Indicates whether to include your user-defined AMI tags when copying the
--- AMI.
---
--- The following tags will not be copied:
---
--- -   System tags (prefixed with @aws:@)
---
--- -   For public and shared AMIs, user-defined tags that are attached by
---     other Amazon Web Services accounts
---
--- Default: Your user-defined AMI tags are not copied.
-copyImage_copyImageTags :: Lens.Lens' CopyImage (Prelude.Maybe Prelude.Bool)
-copyImage_copyImageTags = Lens.lens (\CopyImage' {copyImageTags} -> copyImageTags) (\s@CopyImage' {} a -> s {copyImageTags = a} :: CopyImage)
-
 -- | The name of the new AMI in the destination Region.
 copyImage_name :: Lens.Lens' CopyImage Prelude.Text
 copyImage_name = Lens.lens (\CopyImage' {name} -> name) (\s@CopyImage' {} a -> s {name = a} :: CopyImage)
@@ -375,12 +375,12 @@ instance Core.AWSRequest CopyImage where
 instance Prelude.Hashable CopyImage where
   hashWithSalt _salt CopyImage' {..} =
     _salt `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` destinationOutpostArn
+      `Prelude.hashWithSalt` copyImageTags
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` destinationOutpostArn
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` encrypted
       `Prelude.hashWithSalt` kmsKeyId
-      `Prelude.hashWithSalt` copyImageTags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` sourceImageId
       `Prelude.hashWithSalt` sourceRegion
@@ -388,12 +388,12 @@ instance Prelude.Hashable CopyImage where
 instance Prelude.NFData CopyImage where
   rnf CopyImage' {..} =
     Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf destinationOutpostArn
+      `Prelude.seq` Prelude.rnf copyImageTags
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf destinationOutpostArn
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf encrypted
       `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf copyImageTags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf sourceImageId
       `Prelude.seq` Prelude.rnf sourceRegion
@@ -412,13 +412,13 @@ instance Data.ToQuery CopyImage where
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
         "ClientToken" Data.=: clientToken,
+        "CopyImageTags" Data.=: copyImageTags,
+        "Description" Data.=: description,
         "DestinationOutpostArn"
           Data.=: destinationOutpostArn,
-        "Description" Data.=: description,
         "DryRun" Data.=: dryRun,
         "Encrypted" Data.=: encrypted,
         "KmsKeyId" Data.=: kmsKeyId,
-        "CopyImageTags" Data.=: copyImageTags,
         "Name" Data.=: name,
         "SourceImageId" Data.=: sourceImageId,
         "SourceRegion" Data.=: sourceRegion

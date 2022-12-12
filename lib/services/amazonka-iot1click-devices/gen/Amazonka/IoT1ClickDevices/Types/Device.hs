@@ -27,12 +27,12 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | /See:/ 'newDevice' smart constructor.
 data Device = Device'
-  { -- | The device type, such as \"button\".
-    type' :: Prelude.Maybe Prelude.Text,
+  { -- | The user specified attributes associated with the device for an event.
+    attributes :: Prelude.Maybe Attributes,
     -- | The unique identifier of the device.
     deviceId :: Prelude.Maybe Prelude.Text,
-    -- | The user specified attributes associated with the device for an event.
-    attributes :: Prelude.Maybe Attributes
+    -- | The device type, such as \"button\".
+    type' :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,31 +44,31 @@ data Device = Device'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'device_type' - The device type, such as \"button\".
+-- 'attributes', 'device_attributes' - The user specified attributes associated with the device for an event.
 --
 -- 'deviceId', 'device_deviceId' - The unique identifier of the device.
 --
--- 'attributes', 'device_attributes' - The user specified attributes associated with the device for an event.
+-- 'type'', 'device_type' - The device type, such as \"button\".
 newDevice ::
   Device
 newDevice =
   Device'
-    { type' = Prelude.Nothing,
+    { attributes = Prelude.Nothing,
       deviceId = Prelude.Nothing,
-      attributes = Prelude.Nothing
+      type' = Prelude.Nothing
     }
 
--- | The device type, such as \"button\".
-device_type :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
-device_type = Lens.lens (\Device' {type'} -> type') (\s@Device' {} a -> s {type' = a} :: Device)
+-- | The user specified attributes associated with the device for an event.
+device_attributes :: Lens.Lens' Device (Prelude.Maybe Attributes)
+device_attributes = Lens.lens (\Device' {attributes} -> attributes) (\s@Device' {} a -> s {attributes = a} :: Device)
 
 -- | The unique identifier of the device.
 device_deviceId :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
 device_deviceId = Lens.lens (\Device' {deviceId} -> deviceId) (\s@Device' {} a -> s {deviceId = a} :: Device)
 
--- | The user specified attributes associated with the device for an event.
-device_attributes :: Lens.Lens' Device (Prelude.Maybe Attributes)
-device_attributes = Lens.lens (\Device' {attributes} -> attributes) (\s@Device' {} a -> s {attributes = a} :: Device)
+-- | The device type, such as \"button\".
+device_type :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
+device_type = Lens.lens (\Device' {type'} -> type') (\s@Device' {} a -> s {type' = a} :: Device)
 
 instance Data.FromJSON Device where
   parseJSON =
@@ -76,19 +76,19 @@ instance Data.FromJSON Device where
       "Device"
       ( \x ->
           Device'
-            Prelude.<$> (x Data..:? "type")
+            Prelude.<$> (x Data..:? "attributes")
             Prelude.<*> (x Data..:? "deviceId")
-            Prelude.<*> (x Data..:? "attributes")
+            Prelude.<*> (x Data..:? "type")
       )
 
 instance Prelude.Hashable Device where
   hashWithSalt _salt Device' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` deviceId
-      `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Device where
   rnf Device' {..} =
-    Prelude.rnf type'
+    Prelude.rnf attributes
       `Prelude.seq` Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf type'

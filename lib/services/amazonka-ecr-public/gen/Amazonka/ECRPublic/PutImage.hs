@@ -35,10 +35,10 @@ module Amazonka.ECRPublic.PutImage
     newPutImage,
 
     -- * Request Lenses
+    putImage_imageDigest,
+    putImage_imageManifestMediaType,
     putImage_imageTag,
     putImage_registryId,
-    putImage_imageManifestMediaType,
-    putImage_imageDigest,
     putImage_repositoryName,
     putImage_imageManifest,
 
@@ -62,7 +62,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutImage' smart constructor.
 data PutImage = PutImage'
-  { -- | The tag to associate with the image. This parameter is required for
+  { -- | The image digest of the image manifest corresponding to the image.
+    imageDigest :: Prelude.Maybe Prelude.Text,
+    -- | The media type of the image manifest. If you push an image manifest that
+    -- does not contain the @mediaType@ field, you must specify the
+    -- @imageManifestMediaType@ in the request.
+    imageManifestMediaType :: Prelude.Maybe Prelude.Text,
+    -- | The tag to associate with the image. This parameter is required for
     -- images that use the Docker Image Manifest V2 Schema 2 or Open Container
     -- Initiative (OCI) formats.
     imageTag :: Prelude.Maybe Prelude.Text,
@@ -70,12 +76,6 @@ data PutImage = PutImage'
     -- repository in which to put the image. If you do not specify a registry,
     -- the default public registry is assumed.
     registryId :: Prelude.Maybe Prelude.Text,
-    -- | The media type of the image manifest. If you push an image manifest that
-    -- does not contain the @mediaType@ field, you must specify the
-    -- @imageManifestMediaType@ in the request.
-    imageManifestMediaType :: Prelude.Maybe Prelude.Text,
-    -- | The image digest of the image manifest corresponding to the image.
-    imageDigest :: Prelude.Maybe Prelude.Text,
     -- | The name of the repository in which to put the image.
     repositoryName :: Prelude.Text,
     -- | The image manifest corresponding to the image to be uploaded.
@@ -91,6 +91,12 @@ data PutImage = PutImage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'imageDigest', 'putImage_imageDigest' - The image digest of the image manifest corresponding to the image.
+--
+-- 'imageManifestMediaType', 'putImage_imageManifestMediaType' - The media type of the image manifest. If you push an image manifest that
+-- does not contain the @mediaType@ field, you must specify the
+-- @imageManifestMediaType@ in the request.
+--
 -- 'imageTag', 'putImage_imageTag' - The tag to associate with the image. This parameter is required for
 -- images that use the Docker Image Manifest V2 Schema 2 or Open Container
 -- Initiative (OCI) formats.
@@ -98,12 +104,6 @@ data PutImage = PutImage'
 -- 'registryId', 'putImage_registryId' - The AWS account ID associated with the public registry that contains the
 -- repository in which to put the image. If you do not specify a registry,
 -- the default public registry is assumed.
---
--- 'imageManifestMediaType', 'putImage_imageManifestMediaType' - The media type of the image manifest. If you push an image manifest that
--- does not contain the @mediaType@ field, you must specify the
--- @imageManifestMediaType@ in the request.
---
--- 'imageDigest', 'putImage_imageDigest' - The image digest of the image manifest corresponding to the image.
 --
 -- 'repositoryName', 'putImage_repositoryName' - The name of the repository in which to put the image.
 --
@@ -116,13 +116,23 @@ newPutImage ::
   PutImage
 newPutImage pRepositoryName_ pImageManifest_ =
   PutImage'
-    { imageTag = Prelude.Nothing,
-      registryId = Prelude.Nothing,
+    { imageDigest = Prelude.Nothing,
       imageManifestMediaType = Prelude.Nothing,
-      imageDigest = Prelude.Nothing,
+      imageTag = Prelude.Nothing,
+      registryId = Prelude.Nothing,
       repositoryName = pRepositoryName_,
       imageManifest = pImageManifest_
     }
+
+-- | The image digest of the image manifest corresponding to the image.
+putImage_imageDigest :: Lens.Lens' PutImage (Prelude.Maybe Prelude.Text)
+putImage_imageDigest = Lens.lens (\PutImage' {imageDigest} -> imageDigest) (\s@PutImage' {} a -> s {imageDigest = a} :: PutImage)
+
+-- | The media type of the image manifest. If you push an image manifest that
+-- does not contain the @mediaType@ field, you must specify the
+-- @imageManifestMediaType@ in the request.
+putImage_imageManifestMediaType :: Lens.Lens' PutImage (Prelude.Maybe Prelude.Text)
+putImage_imageManifestMediaType = Lens.lens (\PutImage' {imageManifestMediaType} -> imageManifestMediaType) (\s@PutImage' {} a -> s {imageManifestMediaType = a} :: PutImage)
 
 -- | The tag to associate with the image. This parameter is required for
 -- images that use the Docker Image Manifest V2 Schema 2 or Open Container
@@ -135,16 +145,6 @@ putImage_imageTag = Lens.lens (\PutImage' {imageTag} -> imageTag) (\s@PutImage' 
 -- the default public registry is assumed.
 putImage_registryId :: Lens.Lens' PutImage (Prelude.Maybe Prelude.Text)
 putImage_registryId = Lens.lens (\PutImage' {registryId} -> registryId) (\s@PutImage' {} a -> s {registryId = a} :: PutImage)
-
--- | The media type of the image manifest. If you push an image manifest that
--- does not contain the @mediaType@ field, you must specify the
--- @imageManifestMediaType@ in the request.
-putImage_imageManifestMediaType :: Lens.Lens' PutImage (Prelude.Maybe Prelude.Text)
-putImage_imageManifestMediaType = Lens.lens (\PutImage' {imageManifestMediaType} -> imageManifestMediaType) (\s@PutImage' {} a -> s {imageManifestMediaType = a} :: PutImage)
-
--- | The image digest of the image manifest corresponding to the image.
-putImage_imageDigest :: Lens.Lens' PutImage (Prelude.Maybe Prelude.Text)
-putImage_imageDigest = Lens.lens (\PutImage' {imageDigest} -> imageDigest) (\s@PutImage' {} a -> s {imageDigest = a} :: PutImage)
 
 -- | The name of the repository in which to put the image.
 putImage_repositoryName :: Lens.Lens' PutImage Prelude.Text
@@ -168,19 +168,19 @@ instance Core.AWSRequest PutImage where
 
 instance Prelude.Hashable PutImage where
   hashWithSalt _salt PutImage' {..} =
-    _salt `Prelude.hashWithSalt` imageTag
-      `Prelude.hashWithSalt` registryId
+    _salt `Prelude.hashWithSalt` imageDigest
       `Prelude.hashWithSalt` imageManifestMediaType
-      `Prelude.hashWithSalt` imageDigest
+      `Prelude.hashWithSalt` imageTag
+      `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` imageManifest
 
 instance Prelude.NFData PutImage where
   rnf PutImage' {..} =
-    Prelude.rnf imageTag
-      `Prelude.seq` Prelude.rnf registryId
+    Prelude.rnf imageDigest
       `Prelude.seq` Prelude.rnf imageManifestMediaType
-      `Prelude.seq` Prelude.rnf imageDigest
+      `Prelude.seq` Prelude.rnf imageTag
+      `Prelude.seq` Prelude.rnf registryId
       `Prelude.seq` Prelude.rnf repositoryName
       `Prelude.seq` Prelude.rnf imageManifest
 
@@ -203,11 +203,11 @@ instance Data.ToJSON PutImage where
   toJSON PutImage' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("imageTag" Data..=) Prelude.<$> imageTag,
-            ("registryId" Data..=) Prelude.<$> registryId,
+          [ ("imageDigest" Data..=) Prelude.<$> imageDigest,
             ("imageManifestMediaType" Data..=)
               Prelude.<$> imageManifestMediaType,
-            ("imageDigest" Data..=) Prelude.<$> imageDigest,
+            ("imageTag" Data..=) Prelude.<$> imageTag,
+            ("registryId" Data..=) Prelude.<$> registryId,
             Prelude.Just
               ("repositoryName" Data..= repositoryName),
             Prelude.Just

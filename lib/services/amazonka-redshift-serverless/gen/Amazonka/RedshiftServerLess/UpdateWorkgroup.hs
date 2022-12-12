@@ -27,11 +27,12 @@ module Amazonka.RedshiftServerLess.UpdateWorkgroup
     newUpdateWorkgroup,
 
     -- * Request Lenses
-    updateWorkgroup_securityGroupIds,
     updateWorkgroup_baseCapacity,
-    updateWorkgroup_publiclyAccessible,
     updateWorkgroup_configParameters,
     updateWorkgroup_enhancedVpcRouting,
+    updateWorkgroup_port,
+    updateWorkgroup_publiclyAccessible,
+    updateWorkgroup_securityGroupIds,
     updateWorkgroup_subnetIds,
     updateWorkgroup_workgroupName,
 
@@ -55,14 +56,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateWorkgroup' smart constructor.
 data UpdateWorkgroup = UpdateWorkgroup'
-  { -- | An array of security group IDs to associate with the workgroup.
-    securityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | The new base data warehouse capacity in Redshift Processing Units
+  { -- | The new base data warehouse capacity in Redshift Processing Units
     -- (RPUs).
     baseCapacity :: Prelude.Maybe Prelude.Int,
-    -- | A value that specifies whether the workgroup can be accessible from a
-    -- public network.
-    publiclyAccessible :: Prelude.Maybe Prelude.Bool,
     -- | An array of parameters to set for advanced control over a database. The
     -- options are @datestyle@, @enable_user_activity_logging@, @query_group@,
     -- @search_path@, and @max_query_execution_time@.
@@ -71,6 +67,14 @@ data UpdateWorkgroup = UpdateWorkgroup'
     -- cloud (VPC) routing, which forces Amazon Redshift Serverless to route
     -- traffic through your VPC.
     enhancedVpcRouting :: Prelude.Maybe Prelude.Bool,
+    -- | The custom port to use when connecting to a workgroup. Valid port ranges
+    -- are 5431-5455 and 8191-8215. The default is 5439.
+    port :: Prelude.Maybe Prelude.Int,
+    -- | A value that specifies whether the workgroup can be accessible from a
+    -- public network.
+    publiclyAccessible :: Prelude.Maybe Prelude.Bool,
+    -- | An array of security group IDs to associate with the workgroup.
+    securityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | An array of VPC subnet IDs to associate with the workgroup.
     subnetIds :: Prelude.Maybe [Prelude.Text],
     -- | The name of the workgroup to update.
@@ -86,13 +90,8 @@ data UpdateWorkgroup = UpdateWorkgroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'securityGroupIds', 'updateWorkgroup_securityGroupIds' - An array of security group IDs to associate with the workgroup.
---
 -- 'baseCapacity', 'updateWorkgroup_baseCapacity' - The new base data warehouse capacity in Redshift Processing Units
 -- (RPUs).
---
--- 'publiclyAccessible', 'updateWorkgroup_publiclyAccessible' - A value that specifies whether the workgroup can be accessible from a
--- public network.
 --
 -- 'configParameters', 'updateWorkgroup_configParameters' - An array of parameters to set for advanced control over a database. The
 -- options are @datestyle@, @enable_user_activity_logging@, @query_group@,
@@ -101,6 +100,14 @@ data UpdateWorkgroup = UpdateWorkgroup'
 -- 'enhancedVpcRouting', 'updateWorkgroup_enhancedVpcRouting' - The value that specifies whether to turn on enhanced virtual private
 -- cloud (VPC) routing, which forces Amazon Redshift Serverless to route
 -- traffic through your VPC.
+--
+-- 'port', 'updateWorkgroup_port' - The custom port to use when connecting to a workgroup. Valid port ranges
+-- are 5431-5455 and 8191-8215. The default is 5439.
+--
+-- 'publiclyAccessible', 'updateWorkgroup_publiclyAccessible' - A value that specifies whether the workgroup can be accessible from a
+-- public network.
+--
+-- 'securityGroupIds', 'updateWorkgroup_securityGroupIds' - An array of security group IDs to associate with the workgroup.
 --
 -- 'subnetIds', 'updateWorkgroup_subnetIds' - An array of VPC subnet IDs to associate with the workgroup.
 --
@@ -111,29 +118,20 @@ newUpdateWorkgroup ::
   UpdateWorkgroup
 newUpdateWorkgroup pWorkgroupName_ =
   UpdateWorkgroup'
-    { securityGroupIds =
-        Prelude.Nothing,
-      baseCapacity = Prelude.Nothing,
-      publiclyAccessible = Prelude.Nothing,
+    { baseCapacity = Prelude.Nothing,
       configParameters = Prelude.Nothing,
       enhancedVpcRouting = Prelude.Nothing,
+      port = Prelude.Nothing,
+      publiclyAccessible = Prelude.Nothing,
+      securityGroupIds = Prelude.Nothing,
       subnetIds = Prelude.Nothing,
       workgroupName = pWorkgroupName_
     }
-
--- | An array of security group IDs to associate with the workgroup.
-updateWorkgroup_securityGroupIds :: Lens.Lens' UpdateWorkgroup (Prelude.Maybe [Prelude.Text])
-updateWorkgroup_securityGroupIds = Lens.lens (\UpdateWorkgroup' {securityGroupIds} -> securityGroupIds) (\s@UpdateWorkgroup' {} a -> s {securityGroupIds = a} :: UpdateWorkgroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The new base data warehouse capacity in Redshift Processing Units
 -- (RPUs).
 updateWorkgroup_baseCapacity :: Lens.Lens' UpdateWorkgroup (Prelude.Maybe Prelude.Int)
 updateWorkgroup_baseCapacity = Lens.lens (\UpdateWorkgroup' {baseCapacity} -> baseCapacity) (\s@UpdateWorkgroup' {} a -> s {baseCapacity = a} :: UpdateWorkgroup)
-
--- | A value that specifies whether the workgroup can be accessible from a
--- public network.
-updateWorkgroup_publiclyAccessible :: Lens.Lens' UpdateWorkgroup (Prelude.Maybe Prelude.Bool)
-updateWorkgroup_publiclyAccessible = Lens.lens (\UpdateWorkgroup' {publiclyAccessible} -> publiclyAccessible) (\s@UpdateWorkgroup' {} a -> s {publiclyAccessible = a} :: UpdateWorkgroup)
 
 -- | An array of parameters to set for advanced control over a database. The
 -- options are @datestyle@, @enable_user_activity_logging@, @query_group@,
@@ -146,6 +144,20 @@ updateWorkgroup_configParameters = Lens.lens (\UpdateWorkgroup' {configParameter
 -- traffic through your VPC.
 updateWorkgroup_enhancedVpcRouting :: Lens.Lens' UpdateWorkgroup (Prelude.Maybe Prelude.Bool)
 updateWorkgroup_enhancedVpcRouting = Lens.lens (\UpdateWorkgroup' {enhancedVpcRouting} -> enhancedVpcRouting) (\s@UpdateWorkgroup' {} a -> s {enhancedVpcRouting = a} :: UpdateWorkgroup)
+
+-- | The custom port to use when connecting to a workgroup. Valid port ranges
+-- are 5431-5455 and 8191-8215. The default is 5439.
+updateWorkgroup_port :: Lens.Lens' UpdateWorkgroup (Prelude.Maybe Prelude.Int)
+updateWorkgroup_port = Lens.lens (\UpdateWorkgroup' {port} -> port) (\s@UpdateWorkgroup' {} a -> s {port = a} :: UpdateWorkgroup)
+
+-- | A value that specifies whether the workgroup can be accessible from a
+-- public network.
+updateWorkgroup_publiclyAccessible :: Lens.Lens' UpdateWorkgroup (Prelude.Maybe Prelude.Bool)
+updateWorkgroup_publiclyAccessible = Lens.lens (\UpdateWorkgroup' {publiclyAccessible} -> publiclyAccessible) (\s@UpdateWorkgroup' {} a -> s {publiclyAccessible = a} :: UpdateWorkgroup)
+
+-- | An array of security group IDs to associate with the workgroup.
+updateWorkgroup_securityGroupIds :: Lens.Lens' UpdateWorkgroup (Prelude.Maybe [Prelude.Text])
+updateWorkgroup_securityGroupIds = Lens.lens (\UpdateWorkgroup' {securityGroupIds} -> securityGroupIds) (\s@UpdateWorkgroup' {} a -> s {securityGroupIds = a} :: UpdateWorkgroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | An array of VPC subnet IDs to associate with the workgroup.
 updateWorkgroup_subnetIds :: Lens.Lens' UpdateWorkgroup (Prelude.Maybe [Prelude.Text])
@@ -171,21 +183,23 @@ instance Core.AWSRequest UpdateWorkgroup where
 
 instance Prelude.Hashable UpdateWorkgroup where
   hashWithSalt _salt UpdateWorkgroup' {..} =
-    _salt `Prelude.hashWithSalt` securityGroupIds
-      `Prelude.hashWithSalt` baseCapacity
-      `Prelude.hashWithSalt` publiclyAccessible
+    _salt `Prelude.hashWithSalt` baseCapacity
       `Prelude.hashWithSalt` configParameters
       `Prelude.hashWithSalt` enhancedVpcRouting
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` publiclyAccessible
+      `Prelude.hashWithSalt` securityGroupIds
       `Prelude.hashWithSalt` subnetIds
       `Prelude.hashWithSalt` workgroupName
 
 instance Prelude.NFData UpdateWorkgroup where
   rnf UpdateWorkgroup' {..} =
-    Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf baseCapacity
-      `Prelude.seq` Prelude.rnf publiclyAccessible
+    Prelude.rnf baseCapacity
       `Prelude.seq` Prelude.rnf configParameters
       `Prelude.seq` Prelude.rnf enhancedVpcRouting
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf publiclyAccessible
+      `Prelude.seq` Prelude.rnf securityGroupIds
       `Prelude.seq` Prelude.rnf subnetIds
       `Prelude.seq` Prelude.rnf workgroupName
 
@@ -208,15 +222,16 @@ instance Data.ToJSON UpdateWorkgroup where
   toJSON UpdateWorkgroup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("securityGroupIds" Data..=)
-              Prelude.<$> securityGroupIds,
-            ("baseCapacity" Data..=) Prelude.<$> baseCapacity,
-            ("publiclyAccessible" Data..=)
-              Prelude.<$> publiclyAccessible,
+          [ ("baseCapacity" Data..=) Prelude.<$> baseCapacity,
             ("configParameters" Data..=)
               Prelude.<$> configParameters,
             ("enhancedVpcRouting" Data..=)
               Prelude.<$> enhancedVpcRouting,
+            ("port" Data..=) Prelude.<$> port,
+            ("publiclyAccessible" Data..=)
+              Prelude.<$> publiclyAccessible,
+            ("securityGroupIds" Data..=)
+              Prelude.<$> securityGroupIds,
             ("subnetIds" Data..=) Prelude.<$> subnetIds,
             Prelude.Just
               ("workgroupName" Data..= workgroupName)

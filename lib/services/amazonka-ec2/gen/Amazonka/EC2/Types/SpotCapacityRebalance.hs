@@ -34,17 +34,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSpotCapacityRebalance' smart constructor.
 data SpotCapacityRebalance = SpotCapacityRebalance'
-  { -- | The amount of time (in seconds) that Amazon EC2 waits before terminating
-    -- the old Spot Instance after launching a new replacement Spot Instance.
-    --
-    -- Required when @ReplacementStrategy@ is set to @launch-before-terminate@.
-    --
-    -- Not valid when @ReplacementStrategy@ is set to @launch@.
-    --
-    -- Valid values: Minimum value of @120@ seconds. Maximum value of @7200@
-    -- seconds.
-    terminationDelay :: Prelude.Maybe Prelude.Int,
-    -- | The replacement strategy to use. Only available for fleets of type
+  { -- | The replacement strategy to use. Only available for fleets of type
     -- @maintain@.
     --
     -- @launch@ - Spot Fleet launches a new replacement Spot Instance when a
@@ -59,7 +49,17 @@ data SpotCapacityRebalance = SpotCapacityRebalance'
     -- Instance in the fleet, and then, after a delay that you specify (in
     -- @TerminationDelay@), terminates the instances that received a rebalance
     -- notification.
-    replacementStrategy :: Prelude.Maybe ReplacementStrategy
+    replacementStrategy :: Prelude.Maybe ReplacementStrategy,
+    -- | The amount of time (in seconds) that Amazon EC2 waits before terminating
+    -- the old Spot Instance after launching a new replacement Spot Instance.
+    --
+    -- Required when @ReplacementStrategy@ is set to @launch-before-terminate@.
+    --
+    -- Not valid when @ReplacementStrategy@ is set to @launch@.
+    --
+    -- Valid values: Minimum value of @120@ seconds. Maximum value of @7200@
+    -- seconds.
+    terminationDelay :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,16 +70,6 @@ data SpotCapacityRebalance = SpotCapacityRebalance'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'terminationDelay', 'spotCapacityRebalance_terminationDelay' - The amount of time (in seconds) that Amazon EC2 waits before terminating
--- the old Spot Instance after launching a new replacement Spot Instance.
---
--- Required when @ReplacementStrategy@ is set to @launch-before-terminate@.
---
--- Not valid when @ReplacementStrategy@ is set to @launch@.
---
--- Valid values: Minimum value of @120@ seconds. Maximum value of @7200@
--- seconds.
 --
 -- 'replacementStrategy', 'spotCapacityRebalance_replacementStrategy' - The replacement strategy to use. Only available for fleets of type
 -- @maintain@.
@@ -96,16 +86,8 @@ data SpotCapacityRebalance = SpotCapacityRebalance'
 -- Instance in the fleet, and then, after a delay that you specify (in
 -- @TerminationDelay@), terminates the instances that received a rebalance
 -- notification.
-newSpotCapacityRebalance ::
-  SpotCapacityRebalance
-newSpotCapacityRebalance =
-  SpotCapacityRebalance'
-    { terminationDelay =
-        Prelude.Nothing,
-      replacementStrategy = Prelude.Nothing
-    }
-
--- | The amount of time (in seconds) that Amazon EC2 waits before terminating
+--
+-- 'terminationDelay', 'spotCapacityRebalance_terminationDelay' - The amount of time (in seconds) that Amazon EC2 waits before terminating
 -- the old Spot Instance after launching a new replacement Spot Instance.
 --
 -- Required when @ReplacementStrategy@ is set to @launch-before-terminate@.
@@ -114,8 +96,14 @@ newSpotCapacityRebalance =
 --
 -- Valid values: Minimum value of @120@ seconds. Maximum value of @7200@
 -- seconds.
-spotCapacityRebalance_terminationDelay :: Lens.Lens' SpotCapacityRebalance (Prelude.Maybe Prelude.Int)
-spotCapacityRebalance_terminationDelay = Lens.lens (\SpotCapacityRebalance' {terminationDelay} -> terminationDelay) (\s@SpotCapacityRebalance' {} a -> s {terminationDelay = a} :: SpotCapacityRebalance)
+newSpotCapacityRebalance ::
+  SpotCapacityRebalance
+newSpotCapacityRebalance =
+  SpotCapacityRebalance'
+    { replacementStrategy =
+        Prelude.Nothing,
+      terminationDelay = Prelude.Nothing
+    }
 
 -- | The replacement strategy to use. Only available for fleets of type
 -- @maintain@.
@@ -135,25 +123,37 @@ spotCapacityRebalance_terminationDelay = Lens.lens (\SpotCapacityRebalance' {ter
 spotCapacityRebalance_replacementStrategy :: Lens.Lens' SpotCapacityRebalance (Prelude.Maybe ReplacementStrategy)
 spotCapacityRebalance_replacementStrategy = Lens.lens (\SpotCapacityRebalance' {replacementStrategy} -> replacementStrategy) (\s@SpotCapacityRebalance' {} a -> s {replacementStrategy = a} :: SpotCapacityRebalance)
 
+-- | The amount of time (in seconds) that Amazon EC2 waits before terminating
+-- the old Spot Instance after launching a new replacement Spot Instance.
+--
+-- Required when @ReplacementStrategy@ is set to @launch-before-terminate@.
+--
+-- Not valid when @ReplacementStrategy@ is set to @launch@.
+--
+-- Valid values: Minimum value of @120@ seconds. Maximum value of @7200@
+-- seconds.
+spotCapacityRebalance_terminationDelay :: Lens.Lens' SpotCapacityRebalance (Prelude.Maybe Prelude.Int)
+spotCapacityRebalance_terminationDelay = Lens.lens (\SpotCapacityRebalance' {terminationDelay} -> terminationDelay) (\s@SpotCapacityRebalance' {} a -> s {terminationDelay = a} :: SpotCapacityRebalance)
+
 instance Data.FromXML SpotCapacityRebalance where
   parseXML x =
     SpotCapacityRebalance'
-      Prelude.<$> (x Data..@? "terminationDelay")
-      Prelude.<*> (x Data..@? "replacementStrategy")
+      Prelude.<$> (x Data..@? "replacementStrategy")
+      Prelude.<*> (x Data..@? "terminationDelay")
 
 instance Prelude.Hashable SpotCapacityRebalance where
   hashWithSalt _salt SpotCapacityRebalance' {..} =
-    _salt `Prelude.hashWithSalt` terminationDelay
-      `Prelude.hashWithSalt` replacementStrategy
+    _salt `Prelude.hashWithSalt` replacementStrategy
+      `Prelude.hashWithSalt` terminationDelay
 
 instance Prelude.NFData SpotCapacityRebalance where
   rnf SpotCapacityRebalance' {..} =
-    Prelude.rnf terminationDelay
-      `Prelude.seq` Prelude.rnf replacementStrategy
+    Prelude.rnf replacementStrategy
+      `Prelude.seq` Prelude.rnf terminationDelay
 
 instance Data.ToQuery SpotCapacityRebalance where
   toQuery SpotCapacityRebalance' {..} =
     Prelude.mconcat
-      [ "TerminationDelay" Data.=: terminationDelay,
-        "ReplacementStrategy" Data.=: replacementStrategy
+      [ "ReplacementStrategy" Data.=: replacementStrategy,
+        "TerminationDelay" Data.=: terminationDelay
       ]

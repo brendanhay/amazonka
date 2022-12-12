@@ -31,10 +31,10 @@ module Amazonka.Chime.ListUsers
     newListUsers,
 
     -- * Request Lenses
+    listUsers_maxResults,
     listUsers_nextToken,
     listUsers_userEmail,
     listUsers_userType,
-    listUsers_maxResults,
     listUsers_accountId,
 
     -- * Destructuring the Response
@@ -58,15 +58,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListUsers' smart constructor.
 data ListUsers = ListUsers'
-  { -- | The token to use to retrieve the next page of results.
+  { -- | The maximum number of results to return in a single call. Defaults to
+    -- 100.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to use to retrieve the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Optional. The user email address used to filter results. Maximum 1.
     userEmail :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The user type.
     userType :: Prelude.Maybe UserType,
-    -- | The maximum number of results to return in a single call. Defaults to
-    -- 100.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Chime account ID.
     accountId :: Prelude.Text
   }
@@ -80,14 +80,14 @@ data ListUsers = ListUsers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listUsers_maxResults' - The maximum number of results to return in a single call. Defaults to
+-- 100.
+--
 -- 'nextToken', 'listUsers_nextToken' - The token to use to retrieve the next page of results.
 --
 -- 'userEmail', 'listUsers_userEmail' - Optional. The user email address used to filter results. Maximum 1.
 --
 -- 'userType', 'listUsers_userType' - The user type.
---
--- 'maxResults', 'listUsers_maxResults' - The maximum number of results to return in a single call. Defaults to
--- 100.
 --
 -- 'accountId', 'listUsers_accountId' - The Amazon Chime account ID.
 newListUsers ::
@@ -96,12 +96,17 @@ newListUsers ::
   ListUsers
 newListUsers pAccountId_ =
   ListUsers'
-    { nextToken = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       userEmail = Prelude.Nothing,
       userType = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       accountId = pAccountId_
     }
+
+-- | The maximum number of results to return in a single call. Defaults to
+-- 100.
+listUsers_maxResults :: Lens.Lens' ListUsers (Prelude.Maybe Prelude.Natural)
+listUsers_maxResults = Lens.lens (\ListUsers' {maxResults} -> maxResults) (\s@ListUsers' {} a -> s {maxResults = a} :: ListUsers)
 
 -- | The token to use to retrieve the next page of results.
 listUsers_nextToken :: Lens.Lens' ListUsers (Prelude.Maybe Prelude.Text)
@@ -114,11 +119,6 @@ listUsers_userEmail = Lens.lens (\ListUsers' {userEmail} -> userEmail) (\s@ListU
 -- | The user type.
 listUsers_userType :: Lens.Lens' ListUsers (Prelude.Maybe UserType)
 listUsers_userType = Lens.lens (\ListUsers' {userType} -> userType) (\s@ListUsers' {} a -> s {userType = a} :: ListUsers)
-
--- | The maximum number of results to return in a single call. Defaults to
--- 100.
-listUsers_maxResults :: Lens.Lens' ListUsers (Prelude.Maybe Prelude.Natural)
-listUsers_maxResults = Lens.lens (\ListUsers' {maxResults} -> maxResults) (\s@ListUsers' {} a -> s {maxResults = a} :: ListUsers)
 
 -- | The Amazon Chime account ID.
 listUsers_accountId :: Lens.Lens' ListUsers Prelude.Text
@@ -158,18 +158,18 @@ instance Core.AWSRequest ListUsers where
 
 instance Prelude.Hashable ListUsers where
   hashWithSalt _salt ListUsers' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` userEmail
       `Prelude.hashWithSalt` userType
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` accountId
 
 instance Prelude.NFData ListUsers where
   rnf ListUsers' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf userEmail
       `Prelude.seq` Prelude.rnf userType
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf accountId
 
 instance Data.ToHeaders ListUsers where
@@ -183,10 +183,10 @@ instance Data.ToPath ListUsers where
 instance Data.ToQuery ListUsers where
   toQuery ListUsers' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
+      [ "max-results" Data.=: maxResults,
+        "next-token" Data.=: nextToken,
         "user-email" Data.=: userEmail,
-        "user-type" Data.=: userType,
-        "max-results" Data.=: maxResults
+        "user-type" Data.=: userType
       ]
 
 -- | /See:/ 'newListUsersResponse' smart constructor.

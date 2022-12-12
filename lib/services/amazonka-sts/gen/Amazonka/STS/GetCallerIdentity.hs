@@ -41,8 +41,8 @@ module Amazonka.STS.GetCallerIdentity
     newGetCallerIdentityResponse,
 
     -- * Response Lenses
-    getCallerIdentityResponse_arn,
     getCallerIdentityResponse_account,
+    getCallerIdentityResponse_arn,
     getCallerIdentityResponse_userId,
     getCallerIdentityResponse_httpStatus,
   )
@@ -81,8 +81,8 @@ instance Core.AWSRequest GetCallerIdentity where
       "GetCallerIdentityResult"
       ( \s h x ->
           GetCallerIdentityResponse'
-            Prelude.<$> (x Data..@? "Arn")
-            Prelude.<*> (x Data..@? "Account")
+            Prelude.<$> (x Data..@? "Account")
+            Prelude.<*> (x Data..@? "Arn")
             Prelude.<*> (x Data..@? "UserId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -116,11 +116,11 @@ instance Data.ToQuery GetCallerIdentity where
 --
 -- /See:/ 'newGetCallerIdentityResponse' smart constructor.
 data GetCallerIdentityResponse = GetCallerIdentityResponse'
-  { -- | The Amazon Web Services ARN associated with the calling entity.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services account ID number of the account that owns or
+  { -- | The Amazon Web Services account ID number of the account that owns or
     -- contains the calling entity.
     account :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services ARN associated with the calling entity.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the calling entity. The exact value depends on
     -- the type of entity that is making the call. The values returned are
     -- those listed in the __aws:userid__ column in the
@@ -141,10 +141,10 @@ data GetCallerIdentityResponse = GetCallerIdentityResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'getCallerIdentityResponse_arn' - The Amazon Web Services ARN associated with the calling entity.
---
 -- 'account', 'getCallerIdentityResponse_account' - The Amazon Web Services account ID number of the account that owns or
 -- contains the calling entity.
+--
+-- 'arn', 'getCallerIdentityResponse_arn' - The Amazon Web Services ARN associated with the calling entity.
 --
 -- 'userId', 'getCallerIdentityResponse_userId' - The unique identifier of the calling entity. The exact value depends on
 -- the type of entity that is making the call. The values returned are
@@ -160,20 +160,21 @@ newGetCallerIdentityResponse ::
   GetCallerIdentityResponse
 newGetCallerIdentityResponse pHttpStatus_ =
   GetCallerIdentityResponse'
-    { arn = Prelude.Nothing,
-      account = Prelude.Nothing,
+    { account =
+        Prelude.Nothing,
+      arn = Prelude.Nothing,
       userId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The Amazon Web Services ARN associated with the calling entity.
-getCallerIdentityResponse_arn :: Lens.Lens' GetCallerIdentityResponse (Prelude.Maybe Prelude.Text)
-getCallerIdentityResponse_arn = Lens.lens (\GetCallerIdentityResponse' {arn} -> arn) (\s@GetCallerIdentityResponse' {} a -> s {arn = a} :: GetCallerIdentityResponse)
 
 -- | The Amazon Web Services account ID number of the account that owns or
 -- contains the calling entity.
 getCallerIdentityResponse_account :: Lens.Lens' GetCallerIdentityResponse (Prelude.Maybe Prelude.Text)
 getCallerIdentityResponse_account = Lens.lens (\GetCallerIdentityResponse' {account} -> account) (\s@GetCallerIdentityResponse' {} a -> s {account = a} :: GetCallerIdentityResponse)
+
+-- | The Amazon Web Services ARN associated with the calling entity.
+getCallerIdentityResponse_arn :: Lens.Lens' GetCallerIdentityResponse (Prelude.Maybe Prelude.Text)
+getCallerIdentityResponse_arn = Lens.lens (\GetCallerIdentityResponse' {arn} -> arn) (\s@GetCallerIdentityResponse' {} a -> s {arn = a} :: GetCallerIdentityResponse)
 
 -- | The unique identifier of the calling entity. The exact value depends on
 -- the type of entity that is making the call. The values returned are
@@ -190,7 +191,7 @@ getCallerIdentityResponse_httpStatus = Lens.lens (\GetCallerIdentityResponse' {h
 
 instance Prelude.NFData GetCallerIdentityResponse where
   rnf GetCallerIdentityResponse' {..} =
-    Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf account
+    Prelude.rnf account
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf userId
       `Prelude.seq` Prelude.rnf httpStatus

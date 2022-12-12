@@ -32,27 +32,27 @@ import qualified Amazonka.Prelude as Prelude
 data ReplicationTaskStats = ReplicationTaskStats'
   { -- | The elapsed time of the task, in milliseconds.
     elapsedTimeMillis :: Prelude.Maybe Prelude.Integer,
-    -- | The date the replication task full load was started.
-    fullLoadStartDate :: Prelude.Maybe Data.POSIX,
-    -- | The date the replication task was stopped.
-    stopDate :: Prelude.Maybe Data.POSIX,
-    -- | The number of errors that have occurred during this task.
-    tablesErrored :: Prelude.Maybe Prelude.Int,
     -- | The date the replication task was started either with a fresh start or a
     -- target reload.
     freshStartDate :: Prelude.Maybe Data.POSIX,
-    -- | The number of tables currently loading for this task.
-    tablesLoading :: Prelude.Maybe Prelude.Int,
+    -- | The date the replication task full load was completed.
+    fullLoadFinishDate :: Prelude.Maybe Data.POSIX,
+    -- | The percent complete for the full load migration task.
+    fullLoadProgressPercent :: Prelude.Maybe Prelude.Int,
+    -- | The date the replication task full load was started.
+    fullLoadStartDate :: Prelude.Maybe Data.POSIX,
     -- | The date the replication task was started either with a fresh start or a
     -- resume. For more information, see
     -- <https://docs.aws.amazon.com/dms/latest/APIReference/API_StartReplicationTask.html#DMS-StartReplicationTask-request-StartReplicationTaskType StartReplicationTaskType>.
     startDate :: Prelude.Maybe Data.POSIX,
-    -- | The date the replication task full load was completed.
-    fullLoadFinishDate :: Prelude.Maybe Data.POSIX,
+    -- | The date the replication task was stopped.
+    stopDate :: Prelude.Maybe Data.POSIX,
+    -- | The number of errors that have occurred during this task.
+    tablesErrored :: Prelude.Maybe Prelude.Int,
     -- | The number of tables loaded for this task.
     tablesLoaded :: Prelude.Maybe Prelude.Int,
-    -- | The percent complete for the full load migration task.
-    fullLoadProgressPercent :: Prelude.Maybe Prelude.Int,
+    -- | The number of tables currently loading for this task.
+    tablesLoading :: Prelude.Maybe Prelude.Int,
     -- | The number of tables queued for this task.
     tablesQueued :: Prelude.Maybe Prelude.Int
   }
@@ -68,26 +68,26 @@ data ReplicationTaskStats = ReplicationTaskStats'
 --
 -- 'elapsedTimeMillis', 'replicationTaskStats_elapsedTimeMillis' - The elapsed time of the task, in milliseconds.
 --
--- 'fullLoadStartDate', 'replicationTaskStats_fullLoadStartDate' - The date the replication task full load was started.
---
--- 'stopDate', 'replicationTaskStats_stopDate' - The date the replication task was stopped.
---
--- 'tablesErrored', 'replicationTaskStats_tablesErrored' - The number of errors that have occurred during this task.
---
 -- 'freshStartDate', 'replicationTaskStats_freshStartDate' - The date the replication task was started either with a fresh start or a
 -- target reload.
 --
--- 'tablesLoading', 'replicationTaskStats_tablesLoading' - The number of tables currently loading for this task.
+-- 'fullLoadFinishDate', 'replicationTaskStats_fullLoadFinishDate' - The date the replication task full load was completed.
+--
+-- 'fullLoadProgressPercent', 'replicationTaskStats_fullLoadProgressPercent' - The percent complete for the full load migration task.
+--
+-- 'fullLoadStartDate', 'replicationTaskStats_fullLoadStartDate' - The date the replication task full load was started.
 --
 -- 'startDate', 'replicationTaskStats_startDate' - The date the replication task was started either with a fresh start or a
 -- resume. For more information, see
 -- <https://docs.aws.amazon.com/dms/latest/APIReference/API_StartReplicationTask.html#DMS-StartReplicationTask-request-StartReplicationTaskType StartReplicationTaskType>.
 --
--- 'fullLoadFinishDate', 'replicationTaskStats_fullLoadFinishDate' - The date the replication task full load was completed.
+-- 'stopDate', 'replicationTaskStats_stopDate' - The date the replication task was stopped.
+--
+-- 'tablesErrored', 'replicationTaskStats_tablesErrored' - The number of errors that have occurred during this task.
 --
 -- 'tablesLoaded', 'replicationTaskStats_tablesLoaded' - The number of tables loaded for this task.
 --
--- 'fullLoadProgressPercent', 'replicationTaskStats_fullLoadProgressPercent' - The percent complete for the full load migration task.
+-- 'tablesLoading', 'replicationTaskStats_tablesLoading' - The number of tables currently loading for this task.
 --
 -- 'tablesQueued', 'replicationTaskStats_tablesQueued' - The number of tables queued for this task.
 newReplicationTaskStats ::
@@ -96,15 +96,15 @@ newReplicationTaskStats =
   ReplicationTaskStats'
     { elapsedTimeMillis =
         Prelude.Nothing,
+      freshStartDate = Prelude.Nothing,
+      fullLoadFinishDate = Prelude.Nothing,
+      fullLoadProgressPercent = Prelude.Nothing,
       fullLoadStartDate = Prelude.Nothing,
+      startDate = Prelude.Nothing,
       stopDate = Prelude.Nothing,
       tablesErrored = Prelude.Nothing,
-      freshStartDate = Prelude.Nothing,
-      tablesLoading = Prelude.Nothing,
-      startDate = Prelude.Nothing,
-      fullLoadFinishDate = Prelude.Nothing,
       tablesLoaded = Prelude.Nothing,
-      fullLoadProgressPercent = Prelude.Nothing,
+      tablesLoading = Prelude.Nothing,
       tablesQueued = Prelude.Nothing
     }
 
@@ -112,9 +112,28 @@ newReplicationTaskStats =
 replicationTaskStats_elapsedTimeMillis :: Lens.Lens' ReplicationTaskStats (Prelude.Maybe Prelude.Integer)
 replicationTaskStats_elapsedTimeMillis = Lens.lens (\ReplicationTaskStats' {elapsedTimeMillis} -> elapsedTimeMillis) (\s@ReplicationTaskStats' {} a -> s {elapsedTimeMillis = a} :: ReplicationTaskStats)
 
+-- | The date the replication task was started either with a fresh start or a
+-- target reload.
+replicationTaskStats_freshStartDate :: Lens.Lens' ReplicationTaskStats (Prelude.Maybe Prelude.UTCTime)
+replicationTaskStats_freshStartDate = Lens.lens (\ReplicationTaskStats' {freshStartDate} -> freshStartDate) (\s@ReplicationTaskStats' {} a -> s {freshStartDate = a} :: ReplicationTaskStats) Prelude.. Lens.mapping Data._Time
+
+-- | The date the replication task full load was completed.
+replicationTaskStats_fullLoadFinishDate :: Lens.Lens' ReplicationTaskStats (Prelude.Maybe Prelude.UTCTime)
+replicationTaskStats_fullLoadFinishDate = Lens.lens (\ReplicationTaskStats' {fullLoadFinishDate} -> fullLoadFinishDate) (\s@ReplicationTaskStats' {} a -> s {fullLoadFinishDate = a} :: ReplicationTaskStats) Prelude.. Lens.mapping Data._Time
+
+-- | The percent complete for the full load migration task.
+replicationTaskStats_fullLoadProgressPercent :: Lens.Lens' ReplicationTaskStats (Prelude.Maybe Prelude.Int)
+replicationTaskStats_fullLoadProgressPercent = Lens.lens (\ReplicationTaskStats' {fullLoadProgressPercent} -> fullLoadProgressPercent) (\s@ReplicationTaskStats' {} a -> s {fullLoadProgressPercent = a} :: ReplicationTaskStats)
+
 -- | The date the replication task full load was started.
 replicationTaskStats_fullLoadStartDate :: Lens.Lens' ReplicationTaskStats (Prelude.Maybe Prelude.UTCTime)
 replicationTaskStats_fullLoadStartDate = Lens.lens (\ReplicationTaskStats' {fullLoadStartDate} -> fullLoadStartDate) (\s@ReplicationTaskStats' {} a -> s {fullLoadStartDate = a} :: ReplicationTaskStats) Prelude.. Lens.mapping Data._Time
+
+-- | The date the replication task was started either with a fresh start or a
+-- resume. For more information, see
+-- <https://docs.aws.amazon.com/dms/latest/APIReference/API_StartReplicationTask.html#DMS-StartReplicationTask-request-StartReplicationTaskType StartReplicationTaskType>.
+replicationTaskStats_startDate :: Lens.Lens' ReplicationTaskStats (Prelude.Maybe Prelude.UTCTime)
+replicationTaskStats_startDate = Lens.lens (\ReplicationTaskStats' {startDate} -> startDate) (\s@ReplicationTaskStats' {} a -> s {startDate = a} :: ReplicationTaskStats) Prelude.. Lens.mapping Data._Time
 
 -- | The date the replication task was stopped.
 replicationTaskStats_stopDate :: Lens.Lens' ReplicationTaskStats (Prelude.Maybe Prelude.UTCTime)
@@ -124,32 +143,13 @@ replicationTaskStats_stopDate = Lens.lens (\ReplicationTaskStats' {stopDate} -> 
 replicationTaskStats_tablesErrored :: Lens.Lens' ReplicationTaskStats (Prelude.Maybe Prelude.Int)
 replicationTaskStats_tablesErrored = Lens.lens (\ReplicationTaskStats' {tablesErrored} -> tablesErrored) (\s@ReplicationTaskStats' {} a -> s {tablesErrored = a} :: ReplicationTaskStats)
 
--- | The date the replication task was started either with a fresh start or a
--- target reload.
-replicationTaskStats_freshStartDate :: Lens.Lens' ReplicationTaskStats (Prelude.Maybe Prelude.UTCTime)
-replicationTaskStats_freshStartDate = Lens.lens (\ReplicationTaskStats' {freshStartDate} -> freshStartDate) (\s@ReplicationTaskStats' {} a -> s {freshStartDate = a} :: ReplicationTaskStats) Prelude.. Lens.mapping Data._Time
-
--- | The number of tables currently loading for this task.
-replicationTaskStats_tablesLoading :: Lens.Lens' ReplicationTaskStats (Prelude.Maybe Prelude.Int)
-replicationTaskStats_tablesLoading = Lens.lens (\ReplicationTaskStats' {tablesLoading} -> tablesLoading) (\s@ReplicationTaskStats' {} a -> s {tablesLoading = a} :: ReplicationTaskStats)
-
--- | The date the replication task was started either with a fresh start or a
--- resume. For more information, see
--- <https://docs.aws.amazon.com/dms/latest/APIReference/API_StartReplicationTask.html#DMS-StartReplicationTask-request-StartReplicationTaskType StartReplicationTaskType>.
-replicationTaskStats_startDate :: Lens.Lens' ReplicationTaskStats (Prelude.Maybe Prelude.UTCTime)
-replicationTaskStats_startDate = Lens.lens (\ReplicationTaskStats' {startDate} -> startDate) (\s@ReplicationTaskStats' {} a -> s {startDate = a} :: ReplicationTaskStats) Prelude.. Lens.mapping Data._Time
-
--- | The date the replication task full load was completed.
-replicationTaskStats_fullLoadFinishDate :: Lens.Lens' ReplicationTaskStats (Prelude.Maybe Prelude.UTCTime)
-replicationTaskStats_fullLoadFinishDate = Lens.lens (\ReplicationTaskStats' {fullLoadFinishDate} -> fullLoadFinishDate) (\s@ReplicationTaskStats' {} a -> s {fullLoadFinishDate = a} :: ReplicationTaskStats) Prelude.. Lens.mapping Data._Time
-
 -- | The number of tables loaded for this task.
 replicationTaskStats_tablesLoaded :: Lens.Lens' ReplicationTaskStats (Prelude.Maybe Prelude.Int)
 replicationTaskStats_tablesLoaded = Lens.lens (\ReplicationTaskStats' {tablesLoaded} -> tablesLoaded) (\s@ReplicationTaskStats' {} a -> s {tablesLoaded = a} :: ReplicationTaskStats)
 
--- | The percent complete for the full load migration task.
-replicationTaskStats_fullLoadProgressPercent :: Lens.Lens' ReplicationTaskStats (Prelude.Maybe Prelude.Int)
-replicationTaskStats_fullLoadProgressPercent = Lens.lens (\ReplicationTaskStats' {fullLoadProgressPercent} -> fullLoadProgressPercent) (\s@ReplicationTaskStats' {} a -> s {fullLoadProgressPercent = a} :: ReplicationTaskStats)
+-- | The number of tables currently loading for this task.
+replicationTaskStats_tablesLoading :: Lens.Lens' ReplicationTaskStats (Prelude.Maybe Prelude.Int)
+replicationTaskStats_tablesLoading = Lens.lens (\ReplicationTaskStats' {tablesLoading} -> tablesLoading) (\s@ReplicationTaskStats' {} a -> s {tablesLoading = a} :: ReplicationTaskStats)
 
 -- | The number of tables queued for this task.
 replicationTaskStats_tablesQueued :: Lens.Lens' ReplicationTaskStats (Prelude.Maybe Prelude.Int)
@@ -162,42 +162,42 @@ instance Data.FromJSON ReplicationTaskStats where
       ( \x ->
           ReplicationTaskStats'
             Prelude.<$> (x Data..:? "ElapsedTimeMillis")
+            Prelude.<*> (x Data..:? "FreshStartDate")
+            Prelude.<*> (x Data..:? "FullLoadFinishDate")
+            Prelude.<*> (x Data..:? "FullLoadProgressPercent")
             Prelude.<*> (x Data..:? "FullLoadStartDate")
+            Prelude.<*> (x Data..:? "StartDate")
             Prelude.<*> (x Data..:? "StopDate")
             Prelude.<*> (x Data..:? "TablesErrored")
-            Prelude.<*> (x Data..:? "FreshStartDate")
-            Prelude.<*> (x Data..:? "TablesLoading")
-            Prelude.<*> (x Data..:? "StartDate")
-            Prelude.<*> (x Data..:? "FullLoadFinishDate")
             Prelude.<*> (x Data..:? "TablesLoaded")
-            Prelude.<*> (x Data..:? "FullLoadProgressPercent")
+            Prelude.<*> (x Data..:? "TablesLoading")
             Prelude.<*> (x Data..:? "TablesQueued")
       )
 
 instance Prelude.Hashable ReplicationTaskStats where
   hashWithSalt _salt ReplicationTaskStats' {..} =
     _salt `Prelude.hashWithSalt` elapsedTimeMillis
+      `Prelude.hashWithSalt` freshStartDate
+      `Prelude.hashWithSalt` fullLoadFinishDate
+      `Prelude.hashWithSalt` fullLoadProgressPercent
       `Prelude.hashWithSalt` fullLoadStartDate
+      `Prelude.hashWithSalt` startDate
       `Prelude.hashWithSalt` stopDate
       `Prelude.hashWithSalt` tablesErrored
-      `Prelude.hashWithSalt` freshStartDate
-      `Prelude.hashWithSalt` tablesLoading
-      `Prelude.hashWithSalt` startDate
-      `Prelude.hashWithSalt` fullLoadFinishDate
       `Prelude.hashWithSalt` tablesLoaded
-      `Prelude.hashWithSalt` fullLoadProgressPercent
+      `Prelude.hashWithSalt` tablesLoading
       `Prelude.hashWithSalt` tablesQueued
 
 instance Prelude.NFData ReplicationTaskStats where
   rnf ReplicationTaskStats' {..} =
     Prelude.rnf elapsedTimeMillis
+      `Prelude.seq` Prelude.rnf freshStartDate
+      `Prelude.seq` Prelude.rnf fullLoadFinishDate
+      `Prelude.seq` Prelude.rnf fullLoadProgressPercent
       `Prelude.seq` Prelude.rnf fullLoadStartDate
+      `Prelude.seq` Prelude.rnf startDate
       `Prelude.seq` Prelude.rnf stopDate
       `Prelude.seq` Prelude.rnf tablesErrored
-      `Prelude.seq` Prelude.rnf freshStartDate
-      `Prelude.seq` Prelude.rnf tablesLoading
-      `Prelude.seq` Prelude.rnf startDate
-      `Prelude.seq` Prelude.rnf fullLoadFinishDate
       `Prelude.seq` Prelude.rnf tablesLoaded
-      `Prelude.seq` Prelude.rnf fullLoadProgressPercent
+      `Prelude.seq` Prelude.rnf tablesLoading
       `Prelude.seq` Prelude.rnf tablesQueued

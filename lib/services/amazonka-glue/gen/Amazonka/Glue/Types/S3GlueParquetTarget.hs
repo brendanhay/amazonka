@@ -35,10 +35,10 @@ data S3GlueParquetTarget = S3GlueParquetTarget'
     -- the data has a standard file extension. Possible values are @\"gzip\"@
     -- and @\"bzip\"@).
     compression :: Prelude.Maybe ParquetCompressionType,
-    -- | A policy that specifies update behavior for the crawler.
-    schemaChangePolicy :: Prelude.Maybe DirectSchemaChangePolicy,
     -- | Specifies native partitioning using a sequence of keys.
     partitionKeys :: Prelude.Maybe [[Prelude.Text]],
+    -- | A policy that specifies update behavior for the crawler.
+    schemaChangePolicy :: Prelude.Maybe DirectSchemaChangePolicy,
     -- | The name of the data target.
     name :: Prelude.Text,
     -- | The nodes that are inputs to the data target.
@@ -60,9 +60,9 @@ data S3GlueParquetTarget = S3GlueParquetTarget'
 -- the data has a standard file extension. Possible values are @\"gzip\"@
 -- and @\"bzip\"@).
 --
--- 'schemaChangePolicy', 's3GlueParquetTarget_schemaChangePolicy' - A policy that specifies update behavior for the crawler.
---
 -- 'partitionKeys', 's3GlueParquetTarget_partitionKeys' - Specifies native partitioning using a sequence of keys.
+--
+-- 'schemaChangePolicy', 's3GlueParquetTarget_schemaChangePolicy' - A policy that specifies update behavior for the crawler.
 --
 -- 'name', 's3GlueParquetTarget_name' - The name of the data target.
 --
@@ -80,8 +80,8 @@ newS3GlueParquetTarget ::
 newS3GlueParquetTarget pName_ pInputs_ pPath_ =
   S3GlueParquetTarget'
     { compression = Prelude.Nothing,
-      schemaChangePolicy = Prelude.Nothing,
       partitionKeys = Prelude.Nothing,
+      schemaChangePolicy = Prelude.Nothing,
       name = pName_,
       inputs = Lens.coerced Lens.# pInputs_,
       path = pPath_
@@ -93,13 +93,13 @@ newS3GlueParquetTarget pName_ pInputs_ pPath_ =
 s3GlueParquetTarget_compression :: Lens.Lens' S3GlueParquetTarget (Prelude.Maybe ParquetCompressionType)
 s3GlueParquetTarget_compression = Lens.lens (\S3GlueParquetTarget' {compression} -> compression) (\s@S3GlueParquetTarget' {} a -> s {compression = a} :: S3GlueParquetTarget)
 
--- | A policy that specifies update behavior for the crawler.
-s3GlueParquetTarget_schemaChangePolicy :: Lens.Lens' S3GlueParquetTarget (Prelude.Maybe DirectSchemaChangePolicy)
-s3GlueParquetTarget_schemaChangePolicy = Lens.lens (\S3GlueParquetTarget' {schemaChangePolicy} -> schemaChangePolicy) (\s@S3GlueParquetTarget' {} a -> s {schemaChangePolicy = a} :: S3GlueParquetTarget)
-
 -- | Specifies native partitioning using a sequence of keys.
 s3GlueParquetTarget_partitionKeys :: Lens.Lens' S3GlueParquetTarget (Prelude.Maybe [[Prelude.Text]])
 s3GlueParquetTarget_partitionKeys = Lens.lens (\S3GlueParquetTarget' {partitionKeys} -> partitionKeys) (\s@S3GlueParquetTarget' {} a -> s {partitionKeys = a} :: S3GlueParquetTarget) Prelude.. Lens.mapping Lens.coerced
+
+-- | A policy that specifies update behavior for the crawler.
+s3GlueParquetTarget_schemaChangePolicy :: Lens.Lens' S3GlueParquetTarget (Prelude.Maybe DirectSchemaChangePolicy)
+s3GlueParquetTarget_schemaChangePolicy = Lens.lens (\S3GlueParquetTarget' {schemaChangePolicy} -> schemaChangePolicy) (\s@S3GlueParquetTarget' {} a -> s {schemaChangePolicy = a} :: S3GlueParquetTarget)
 
 -- | The name of the data target.
 s3GlueParquetTarget_name :: Lens.Lens' S3GlueParquetTarget Prelude.Text
@@ -120,8 +120,8 @@ instance Data.FromJSON S3GlueParquetTarget where
       ( \x ->
           S3GlueParquetTarget'
             Prelude.<$> (x Data..:? "Compression")
-            Prelude.<*> (x Data..:? "SchemaChangePolicy")
             Prelude.<*> (x Data..:? "PartitionKeys" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "SchemaChangePolicy")
             Prelude.<*> (x Data..: "Name")
             Prelude.<*> (x Data..: "Inputs")
             Prelude.<*> (x Data..: "Path")
@@ -130,8 +130,8 @@ instance Data.FromJSON S3GlueParquetTarget where
 instance Prelude.Hashable S3GlueParquetTarget where
   hashWithSalt _salt S3GlueParquetTarget' {..} =
     _salt `Prelude.hashWithSalt` compression
-      `Prelude.hashWithSalt` schemaChangePolicy
       `Prelude.hashWithSalt` partitionKeys
+      `Prelude.hashWithSalt` schemaChangePolicy
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` inputs
       `Prelude.hashWithSalt` path
@@ -139,8 +139,8 @@ instance Prelude.Hashable S3GlueParquetTarget where
 instance Prelude.NFData S3GlueParquetTarget where
   rnf S3GlueParquetTarget' {..} =
     Prelude.rnf compression
-      `Prelude.seq` Prelude.rnf schemaChangePolicy
       `Prelude.seq` Prelude.rnf partitionKeys
+      `Prelude.seq` Prelude.rnf schemaChangePolicy
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf inputs
       `Prelude.seq` Prelude.rnf path
@@ -150,9 +150,9 @@ instance Data.ToJSON S3GlueParquetTarget where
     Data.object
       ( Prelude.catMaybes
           [ ("Compression" Data..=) Prelude.<$> compression,
+            ("PartitionKeys" Data..=) Prelude.<$> partitionKeys,
             ("SchemaChangePolicy" Data..=)
               Prelude.<$> schemaChangePolicy,
-            ("PartitionKeys" Data..=) Prelude.<$> partitionKeys,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("Inputs" Data..= inputs),
             Prelude.Just ("Path" Data..= path)

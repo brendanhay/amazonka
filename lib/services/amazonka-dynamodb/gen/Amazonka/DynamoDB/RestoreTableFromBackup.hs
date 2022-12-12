@@ -46,11 +46,11 @@ module Amazonka.DynamoDB.RestoreTableFromBackup
     newRestoreTableFromBackup,
 
     -- * Request Lenses
-    restoreTableFromBackup_provisionedThroughputOverride,
-    restoreTableFromBackup_localSecondaryIndexOverride,
-    restoreTableFromBackup_sSESpecificationOverride,
     restoreTableFromBackup_billingModeOverride,
     restoreTableFromBackup_globalSecondaryIndexOverride,
+    restoreTableFromBackup_localSecondaryIndexOverride,
+    restoreTableFromBackup_provisionedThroughputOverride,
+    restoreTableFromBackup_sSESpecificationOverride,
     restoreTableFromBackup_targetTableName,
     restoreTableFromBackup_backupArn,
 
@@ -74,20 +74,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRestoreTableFromBackup' smart constructor.
 data RestoreTableFromBackup = RestoreTableFromBackup'
-  { -- | Provisioned throughput settings for the restored table.
-    provisionedThroughputOverride :: Prelude.Maybe ProvisionedThroughput,
-    -- | List of local secondary indexes for the restored table. The indexes
-    -- provided should match existing secondary indexes. You can choose to
-    -- exclude some or all of the indexes at the time of restore.
-    localSecondaryIndexOverride :: Prelude.Maybe [LocalSecondaryIndex],
-    -- | The new server-side encryption settings for the restored table.
-    sSESpecificationOverride :: Prelude.Maybe SSESpecification,
-    -- | The billing mode of the restored table.
+  { -- | The billing mode of the restored table.
     billingModeOverride :: Prelude.Maybe BillingMode,
     -- | List of global secondary indexes for the restored table. The indexes
     -- provided should match existing secondary indexes. You can choose to
     -- exclude some or all of the indexes at the time of restore.
     globalSecondaryIndexOverride :: Prelude.Maybe [GlobalSecondaryIndex],
+    -- | List of local secondary indexes for the restored table. The indexes
+    -- provided should match existing secondary indexes. You can choose to
+    -- exclude some or all of the indexes at the time of restore.
+    localSecondaryIndexOverride :: Prelude.Maybe [LocalSecondaryIndex],
+    -- | Provisioned throughput settings for the restored table.
+    provisionedThroughputOverride :: Prelude.Maybe ProvisionedThroughput,
+    -- | The new server-side encryption settings for the restored table.
+    sSESpecificationOverride :: Prelude.Maybe SSESpecification,
     -- | The name of the new table to which the backup must be restored.
     targetTableName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) associated with the backup.
@@ -103,19 +103,19 @@ data RestoreTableFromBackup = RestoreTableFromBackup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'provisionedThroughputOverride', 'restoreTableFromBackup_provisionedThroughputOverride' - Provisioned throughput settings for the restored table.
---
--- 'localSecondaryIndexOverride', 'restoreTableFromBackup_localSecondaryIndexOverride' - List of local secondary indexes for the restored table. The indexes
--- provided should match existing secondary indexes. You can choose to
--- exclude some or all of the indexes at the time of restore.
---
--- 'sSESpecificationOverride', 'restoreTableFromBackup_sSESpecificationOverride' - The new server-side encryption settings for the restored table.
---
 -- 'billingModeOverride', 'restoreTableFromBackup_billingModeOverride' - The billing mode of the restored table.
 --
 -- 'globalSecondaryIndexOverride', 'restoreTableFromBackup_globalSecondaryIndexOverride' - List of global secondary indexes for the restored table. The indexes
 -- provided should match existing secondary indexes. You can choose to
 -- exclude some or all of the indexes at the time of restore.
+--
+-- 'localSecondaryIndexOverride', 'restoreTableFromBackup_localSecondaryIndexOverride' - List of local secondary indexes for the restored table. The indexes
+-- provided should match existing secondary indexes. You can choose to
+-- exclude some or all of the indexes at the time of restore.
+--
+-- 'provisionedThroughputOverride', 'restoreTableFromBackup_provisionedThroughputOverride' - Provisioned throughput settings for the restored table.
+--
+-- 'sSESpecificationOverride', 'restoreTableFromBackup_sSESpecificationOverride' - The new server-side encryption settings for the restored table.
 --
 -- 'targetTableName', 'restoreTableFromBackup_targetTableName' - The name of the new table to which the backup must be restored.
 --
@@ -130,29 +130,15 @@ newRestoreTableFromBackup
   pTargetTableName_
   pBackupArn_ =
     RestoreTableFromBackup'
-      { provisionedThroughputOverride =
+      { billingModeOverride =
           Prelude.Nothing,
-        localSecondaryIndexOverride = Prelude.Nothing,
-        sSESpecificationOverride = Prelude.Nothing,
-        billingModeOverride = Prelude.Nothing,
         globalSecondaryIndexOverride = Prelude.Nothing,
+        localSecondaryIndexOverride = Prelude.Nothing,
+        provisionedThroughputOverride = Prelude.Nothing,
+        sSESpecificationOverride = Prelude.Nothing,
         targetTableName = pTargetTableName_,
         backupArn = pBackupArn_
       }
-
--- | Provisioned throughput settings for the restored table.
-restoreTableFromBackup_provisionedThroughputOverride :: Lens.Lens' RestoreTableFromBackup (Prelude.Maybe ProvisionedThroughput)
-restoreTableFromBackup_provisionedThroughputOverride = Lens.lens (\RestoreTableFromBackup' {provisionedThroughputOverride} -> provisionedThroughputOverride) (\s@RestoreTableFromBackup' {} a -> s {provisionedThroughputOverride = a} :: RestoreTableFromBackup)
-
--- | List of local secondary indexes for the restored table. The indexes
--- provided should match existing secondary indexes. You can choose to
--- exclude some or all of the indexes at the time of restore.
-restoreTableFromBackup_localSecondaryIndexOverride :: Lens.Lens' RestoreTableFromBackup (Prelude.Maybe [LocalSecondaryIndex])
-restoreTableFromBackup_localSecondaryIndexOverride = Lens.lens (\RestoreTableFromBackup' {localSecondaryIndexOverride} -> localSecondaryIndexOverride) (\s@RestoreTableFromBackup' {} a -> s {localSecondaryIndexOverride = a} :: RestoreTableFromBackup) Prelude.. Lens.mapping Lens.coerced
-
--- | The new server-side encryption settings for the restored table.
-restoreTableFromBackup_sSESpecificationOverride :: Lens.Lens' RestoreTableFromBackup (Prelude.Maybe SSESpecification)
-restoreTableFromBackup_sSESpecificationOverride = Lens.lens (\RestoreTableFromBackup' {sSESpecificationOverride} -> sSESpecificationOverride) (\s@RestoreTableFromBackup' {} a -> s {sSESpecificationOverride = a} :: RestoreTableFromBackup)
 
 -- | The billing mode of the restored table.
 restoreTableFromBackup_billingModeOverride :: Lens.Lens' RestoreTableFromBackup (Prelude.Maybe BillingMode)
@@ -163,6 +149,20 @@ restoreTableFromBackup_billingModeOverride = Lens.lens (\RestoreTableFromBackup'
 -- exclude some or all of the indexes at the time of restore.
 restoreTableFromBackup_globalSecondaryIndexOverride :: Lens.Lens' RestoreTableFromBackup (Prelude.Maybe [GlobalSecondaryIndex])
 restoreTableFromBackup_globalSecondaryIndexOverride = Lens.lens (\RestoreTableFromBackup' {globalSecondaryIndexOverride} -> globalSecondaryIndexOverride) (\s@RestoreTableFromBackup' {} a -> s {globalSecondaryIndexOverride = a} :: RestoreTableFromBackup) Prelude.. Lens.mapping Lens.coerced
+
+-- | List of local secondary indexes for the restored table. The indexes
+-- provided should match existing secondary indexes. You can choose to
+-- exclude some or all of the indexes at the time of restore.
+restoreTableFromBackup_localSecondaryIndexOverride :: Lens.Lens' RestoreTableFromBackup (Prelude.Maybe [LocalSecondaryIndex])
+restoreTableFromBackup_localSecondaryIndexOverride = Lens.lens (\RestoreTableFromBackup' {localSecondaryIndexOverride} -> localSecondaryIndexOverride) (\s@RestoreTableFromBackup' {} a -> s {localSecondaryIndexOverride = a} :: RestoreTableFromBackup) Prelude.. Lens.mapping Lens.coerced
+
+-- | Provisioned throughput settings for the restored table.
+restoreTableFromBackup_provisionedThroughputOverride :: Lens.Lens' RestoreTableFromBackup (Prelude.Maybe ProvisionedThroughput)
+restoreTableFromBackup_provisionedThroughputOverride = Lens.lens (\RestoreTableFromBackup' {provisionedThroughputOverride} -> provisionedThroughputOverride) (\s@RestoreTableFromBackup' {} a -> s {provisionedThroughputOverride = a} :: RestoreTableFromBackup)
+
+-- | The new server-side encryption settings for the restored table.
+restoreTableFromBackup_sSESpecificationOverride :: Lens.Lens' RestoreTableFromBackup (Prelude.Maybe SSESpecification)
+restoreTableFromBackup_sSESpecificationOverride = Lens.lens (\RestoreTableFromBackup' {sSESpecificationOverride} -> sSESpecificationOverride) (\s@RestoreTableFromBackup' {} a -> s {sSESpecificationOverride = a} :: RestoreTableFromBackup)
 
 -- | The name of the new table to which the backup must be restored.
 restoreTableFromBackup_targetTableName :: Lens.Lens' RestoreTableFromBackup Prelude.Text
@@ -188,22 +188,21 @@ instance Core.AWSRequest RestoreTableFromBackup where
 
 instance Prelude.Hashable RestoreTableFromBackup where
   hashWithSalt _salt RestoreTableFromBackup' {..} =
-    _salt
-      `Prelude.hashWithSalt` provisionedThroughputOverride
-      `Prelude.hashWithSalt` localSecondaryIndexOverride
-      `Prelude.hashWithSalt` sSESpecificationOverride
-      `Prelude.hashWithSalt` billingModeOverride
+    _salt `Prelude.hashWithSalt` billingModeOverride
       `Prelude.hashWithSalt` globalSecondaryIndexOverride
+      `Prelude.hashWithSalt` localSecondaryIndexOverride
+      `Prelude.hashWithSalt` provisionedThroughputOverride
+      `Prelude.hashWithSalt` sSESpecificationOverride
       `Prelude.hashWithSalt` targetTableName
       `Prelude.hashWithSalt` backupArn
 
 instance Prelude.NFData RestoreTableFromBackup where
   rnf RestoreTableFromBackup' {..} =
-    Prelude.rnf provisionedThroughputOverride
-      `Prelude.seq` Prelude.rnf localSecondaryIndexOverride
-      `Prelude.seq` Prelude.rnf sSESpecificationOverride
-      `Prelude.seq` Prelude.rnf billingModeOverride
+    Prelude.rnf billingModeOverride
       `Prelude.seq` Prelude.rnf globalSecondaryIndexOverride
+      `Prelude.seq` Prelude.rnf localSecondaryIndexOverride
+      `Prelude.seq` Prelude.rnf provisionedThroughputOverride
+      `Prelude.seq` Prelude.rnf sSESpecificationOverride
       `Prelude.seq` Prelude.rnf targetTableName
       `Prelude.seq` Prelude.rnf backupArn
 
@@ -226,16 +225,16 @@ instance Data.ToJSON RestoreTableFromBackup where
   toJSON RestoreTableFromBackup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ProvisionedThroughputOverride" Data..=)
-              Prelude.<$> provisionedThroughputOverride,
-            ("LocalSecondaryIndexOverride" Data..=)
-              Prelude.<$> localSecondaryIndexOverride,
-            ("SSESpecificationOverride" Data..=)
-              Prelude.<$> sSESpecificationOverride,
-            ("BillingModeOverride" Data..=)
+          [ ("BillingModeOverride" Data..=)
               Prelude.<$> billingModeOverride,
             ("GlobalSecondaryIndexOverride" Data..=)
               Prelude.<$> globalSecondaryIndexOverride,
+            ("LocalSecondaryIndexOverride" Data..=)
+              Prelude.<$> localSecondaryIndexOverride,
+            ("ProvisionedThroughputOverride" Data..=)
+              Prelude.<$> provisionedThroughputOverride,
+            ("SSESpecificationOverride" Data..=)
+              Prelude.<$> sSESpecificationOverride,
             Prelude.Just
               ("TargetTableName" Data..= targetTableName),
             Prelude.Just ("BackupArn" Data..= backupArn)

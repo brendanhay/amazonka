@@ -33,9 +33,9 @@ module Amazonka.IoT.ListStreams
     newListStreams,
 
     -- * Request Lenses
-    listStreams_nextToken,
-    listStreams_maxResults,
     listStreams_ascendingOrder,
+    listStreams_maxResults,
+    listStreams_nextToken,
 
     -- * Destructuring the Response
     ListStreamsResponse (..),
@@ -58,12 +58,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListStreams' smart constructor.
 data ListStreams = ListStreams'
-  { -- | A token used to get the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | Set to true to return the list of streams in ascending order.
+    ascendingOrder :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return at a time.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Set to true to return the list of streams in ascending order.
-    ascendingOrder :: Prelude.Maybe Prelude.Bool
+    -- | A token used to get the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,31 +75,31 @@ data ListStreams = ListStreams'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listStreams_nextToken' - A token used to get the next set of results.
+-- 'ascendingOrder', 'listStreams_ascendingOrder' - Set to true to return the list of streams in ascending order.
 --
 -- 'maxResults', 'listStreams_maxResults' - The maximum number of results to return at a time.
 --
--- 'ascendingOrder', 'listStreams_ascendingOrder' - Set to true to return the list of streams in ascending order.
+-- 'nextToken', 'listStreams_nextToken' - A token used to get the next set of results.
 newListStreams ::
   ListStreams
 newListStreams =
   ListStreams'
-    { nextToken = Prelude.Nothing,
+    { ascendingOrder = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      ascendingOrder = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
 
--- | A token used to get the next set of results.
-listStreams_nextToken :: Lens.Lens' ListStreams (Prelude.Maybe Prelude.Text)
-listStreams_nextToken = Lens.lens (\ListStreams' {nextToken} -> nextToken) (\s@ListStreams' {} a -> s {nextToken = a} :: ListStreams)
+-- | Set to true to return the list of streams in ascending order.
+listStreams_ascendingOrder :: Lens.Lens' ListStreams (Prelude.Maybe Prelude.Bool)
+listStreams_ascendingOrder = Lens.lens (\ListStreams' {ascendingOrder} -> ascendingOrder) (\s@ListStreams' {} a -> s {ascendingOrder = a} :: ListStreams)
 
 -- | The maximum number of results to return at a time.
 listStreams_maxResults :: Lens.Lens' ListStreams (Prelude.Maybe Prelude.Natural)
 listStreams_maxResults = Lens.lens (\ListStreams' {maxResults} -> maxResults) (\s@ListStreams' {} a -> s {maxResults = a} :: ListStreams)
 
--- | Set to true to return the list of streams in ascending order.
-listStreams_ascendingOrder :: Lens.Lens' ListStreams (Prelude.Maybe Prelude.Bool)
-listStreams_ascendingOrder = Lens.lens (\ListStreams' {ascendingOrder} -> ascendingOrder) (\s@ListStreams' {} a -> s {ascendingOrder = a} :: ListStreams)
+-- | A token used to get the next set of results.
+listStreams_nextToken :: Lens.Lens' ListStreams (Prelude.Maybe Prelude.Text)
+listStreams_nextToken = Lens.lens (\ListStreams' {nextToken} -> nextToken) (\s@ListStreams' {} a -> s {nextToken = a} :: ListStreams)
 
 instance Core.AWSPager ListStreams where
   page rq rs
@@ -135,15 +135,15 @@ instance Core.AWSRequest ListStreams where
 
 instance Prelude.Hashable ListStreams where
   hashWithSalt _salt ListStreams' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` ascendingOrder
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` ascendingOrder
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListStreams where
   rnf ListStreams' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf ascendingOrder
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf ascendingOrder
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListStreams where
   toHeaders = Prelude.const Prelude.mempty
@@ -154,9 +154,9 @@ instance Data.ToPath ListStreams where
 instance Data.ToQuery ListStreams where
   toQuery ListStreams' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
+      [ "isAscendingOrder" Data.=: ascendingOrder,
         "maxResults" Data.=: maxResults,
-        "isAscendingOrder" Data.=: ascendingOrder
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListStreamsResponse' smart constructor.

@@ -31,16 +31,16 @@ import Amazonka.SageMaker.Types.RStudioServerProDomainSettings
 --
 -- /See:/ 'newDomainSettings' smart constructor.
 data DomainSettings = DomainSettings'
-  { -- | The security groups for the Amazon Virtual Private Cloud that the
-    -- @Domain@ uses for communication between Domain-level apps and user apps.
-    securityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | The configuration for attaching a SageMaker user profile name to the
+  { -- | The configuration for attaching a SageMaker user profile name to the
     -- execution role as a
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html sts:SourceIdentity key>.
     executionRoleIdentityConfig :: Prelude.Maybe ExecutionRoleIdentityConfig,
     -- | A collection of settings that configure the @RStudioServerPro@
     -- Domain-level app.
-    rStudioServerProDomainSettings :: Prelude.Maybe RStudioServerProDomainSettings
+    rStudioServerProDomainSettings :: Prelude.Maybe RStudioServerProDomainSettings,
+    -- | The security groups for the Amazon Virtual Private Cloud that the
+    -- @Domain@ uses for communication between Domain-level apps and user apps.
+    securityGroupIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,28 +52,24 @@ data DomainSettings = DomainSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'securityGroupIds', 'domainSettings_securityGroupIds' - The security groups for the Amazon Virtual Private Cloud that the
--- @Domain@ uses for communication between Domain-level apps and user apps.
---
 -- 'executionRoleIdentityConfig', 'domainSettings_executionRoleIdentityConfig' - The configuration for attaching a SageMaker user profile name to the
 -- execution role as a
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html sts:SourceIdentity key>.
 --
 -- 'rStudioServerProDomainSettings', 'domainSettings_rStudioServerProDomainSettings' - A collection of settings that configure the @RStudioServerPro@
 -- Domain-level app.
+--
+-- 'securityGroupIds', 'domainSettings_securityGroupIds' - The security groups for the Amazon Virtual Private Cloud that the
+-- @Domain@ uses for communication between Domain-level apps and user apps.
 newDomainSettings ::
   DomainSettings
 newDomainSettings =
   DomainSettings'
-    { securityGroupIds = Prelude.Nothing,
-      executionRoleIdentityConfig = Prelude.Nothing,
-      rStudioServerProDomainSettings = Prelude.Nothing
+    { executionRoleIdentityConfig =
+        Prelude.Nothing,
+      rStudioServerProDomainSettings = Prelude.Nothing,
+      securityGroupIds = Prelude.Nothing
     }
-
--- | The security groups for the Amazon Virtual Private Cloud that the
--- @Domain@ uses for communication between Domain-level apps and user apps.
-domainSettings_securityGroupIds :: Lens.Lens' DomainSettings (Prelude.Maybe [Prelude.Text])
-domainSettings_securityGroupIds = Lens.lens (\DomainSettings' {securityGroupIds} -> securityGroupIds) (\s@DomainSettings' {} a -> s {securityGroupIds = a} :: DomainSettings) Prelude.. Lens.mapping Lens.coerced
 
 -- | The configuration for attaching a SageMaker user profile name to the
 -- execution role as a
@@ -86,40 +82,46 @@ domainSettings_executionRoleIdentityConfig = Lens.lens (\DomainSettings' {execut
 domainSettings_rStudioServerProDomainSettings :: Lens.Lens' DomainSettings (Prelude.Maybe RStudioServerProDomainSettings)
 domainSettings_rStudioServerProDomainSettings = Lens.lens (\DomainSettings' {rStudioServerProDomainSettings} -> rStudioServerProDomainSettings) (\s@DomainSettings' {} a -> s {rStudioServerProDomainSettings = a} :: DomainSettings)
 
+-- | The security groups for the Amazon Virtual Private Cloud that the
+-- @Domain@ uses for communication between Domain-level apps and user apps.
+domainSettings_securityGroupIds :: Lens.Lens' DomainSettings (Prelude.Maybe [Prelude.Text])
+domainSettings_securityGroupIds = Lens.lens (\DomainSettings' {securityGroupIds} -> securityGroupIds) (\s@DomainSettings' {} a -> s {securityGroupIds = a} :: DomainSettings) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON DomainSettings where
   parseJSON =
     Data.withObject
       "DomainSettings"
       ( \x ->
           DomainSettings'
-            Prelude.<$> ( x Data..:? "SecurityGroupIds"
+            Prelude.<$> (x Data..:? "ExecutionRoleIdentityConfig")
+            Prelude.<*> (x Data..:? "RStudioServerProDomainSettings")
+            Prelude.<*> ( x Data..:? "SecurityGroupIds"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "ExecutionRoleIdentityConfig")
-            Prelude.<*> (x Data..:? "RStudioServerProDomainSettings")
       )
 
 instance Prelude.Hashable DomainSettings where
   hashWithSalt _salt DomainSettings' {..} =
-    _salt `Prelude.hashWithSalt` securityGroupIds
+    _salt
       `Prelude.hashWithSalt` executionRoleIdentityConfig
       `Prelude.hashWithSalt` rStudioServerProDomainSettings
+      `Prelude.hashWithSalt` securityGroupIds
 
 instance Prelude.NFData DomainSettings where
   rnf DomainSettings' {..} =
-    Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf executionRoleIdentityConfig
+    Prelude.rnf executionRoleIdentityConfig
       `Prelude.seq` Prelude.rnf rStudioServerProDomainSettings
+      `Prelude.seq` Prelude.rnf securityGroupIds
 
 instance Data.ToJSON DomainSettings where
   toJSON DomainSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SecurityGroupIds" Data..=)
-              Prelude.<$> securityGroupIds,
-            ("ExecutionRoleIdentityConfig" Data..=)
+          [ ("ExecutionRoleIdentityConfig" Data..=)
               Prelude.<$> executionRoleIdentityConfig,
             ("RStudioServerProDomainSettings" Data..=)
-              Prelude.<$> rStudioServerProDomainSettings
+              Prelude.<$> rStudioServerProDomainSettings,
+            ("SecurityGroupIds" Data..=)
+              Prelude.<$> securityGroupIds
           ]
       )

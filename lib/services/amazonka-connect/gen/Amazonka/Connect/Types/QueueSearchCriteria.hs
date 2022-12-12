@@ -34,15 +34,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newQueueSearchCriteria' smart constructor.
 data QueueSearchCriteria = QueueSearchCriteria'
-  { stringCondition :: Prelude.Maybe StringCondition,
+  { -- | A list of conditions which would be applied together with an AND
+    -- condition.
+    andConditions :: Prelude.Maybe [QueueSearchCriteria],
     -- | A list of conditions which would be applied together with an OR
     -- condition.
     orConditions :: Prelude.Maybe [QueueSearchCriteria],
-    -- | A list of conditions which would be applied together with an AND
-    -- condition.
-    andConditions :: Prelude.Maybe [QueueSearchCriteria],
     -- | The type of queue.
-    queueTypeCondition :: Prelude.Maybe SearchableQueueType
+    queueTypeCondition :: Prelude.Maybe SearchableQueueType,
+    stringCondition :: Prelude.Maybe StringCondition
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,67 +54,67 @@ data QueueSearchCriteria = QueueSearchCriteria'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stringCondition', 'queueSearchCriteria_stringCondition' - Undocumented member.
+-- 'andConditions', 'queueSearchCriteria_andConditions' - A list of conditions which would be applied together with an AND
+-- condition.
 --
 -- 'orConditions', 'queueSearchCriteria_orConditions' - A list of conditions which would be applied together with an OR
 -- condition.
 --
--- 'andConditions', 'queueSearchCriteria_andConditions' - A list of conditions which would be applied together with an AND
--- condition.
---
 -- 'queueTypeCondition', 'queueSearchCriteria_queueTypeCondition' - The type of queue.
+--
+-- 'stringCondition', 'queueSearchCriteria_stringCondition' - Undocumented member.
 newQueueSearchCriteria ::
   QueueSearchCriteria
 newQueueSearchCriteria =
   QueueSearchCriteria'
-    { stringCondition =
+    { andConditions =
         Prelude.Nothing,
       orConditions = Prelude.Nothing,
-      andConditions = Prelude.Nothing,
-      queueTypeCondition = Prelude.Nothing
+      queueTypeCondition = Prelude.Nothing,
+      stringCondition = Prelude.Nothing
     }
-
--- | Undocumented member.
-queueSearchCriteria_stringCondition :: Lens.Lens' QueueSearchCriteria (Prelude.Maybe StringCondition)
-queueSearchCriteria_stringCondition = Lens.lens (\QueueSearchCriteria' {stringCondition} -> stringCondition) (\s@QueueSearchCriteria' {} a -> s {stringCondition = a} :: QueueSearchCriteria)
-
--- | A list of conditions which would be applied together with an OR
--- condition.
-queueSearchCriteria_orConditions :: Lens.Lens' QueueSearchCriteria (Prelude.Maybe [QueueSearchCriteria])
-queueSearchCriteria_orConditions = Lens.lens (\QueueSearchCriteria' {orConditions} -> orConditions) (\s@QueueSearchCriteria' {} a -> s {orConditions = a} :: QueueSearchCriteria) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of conditions which would be applied together with an AND
 -- condition.
 queueSearchCriteria_andConditions :: Lens.Lens' QueueSearchCriteria (Prelude.Maybe [QueueSearchCriteria])
 queueSearchCriteria_andConditions = Lens.lens (\QueueSearchCriteria' {andConditions} -> andConditions) (\s@QueueSearchCriteria' {} a -> s {andConditions = a} :: QueueSearchCriteria) Prelude.. Lens.mapping Lens.coerced
 
+-- | A list of conditions which would be applied together with an OR
+-- condition.
+queueSearchCriteria_orConditions :: Lens.Lens' QueueSearchCriteria (Prelude.Maybe [QueueSearchCriteria])
+queueSearchCriteria_orConditions = Lens.lens (\QueueSearchCriteria' {orConditions} -> orConditions) (\s@QueueSearchCriteria' {} a -> s {orConditions = a} :: QueueSearchCriteria) Prelude.. Lens.mapping Lens.coerced
+
 -- | The type of queue.
 queueSearchCriteria_queueTypeCondition :: Lens.Lens' QueueSearchCriteria (Prelude.Maybe SearchableQueueType)
 queueSearchCriteria_queueTypeCondition = Lens.lens (\QueueSearchCriteria' {queueTypeCondition} -> queueTypeCondition) (\s@QueueSearchCriteria' {} a -> s {queueTypeCondition = a} :: QueueSearchCriteria)
 
+-- | Undocumented member.
+queueSearchCriteria_stringCondition :: Lens.Lens' QueueSearchCriteria (Prelude.Maybe StringCondition)
+queueSearchCriteria_stringCondition = Lens.lens (\QueueSearchCriteria' {stringCondition} -> stringCondition) (\s@QueueSearchCriteria' {} a -> s {stringCondition = a} :: QueueSearchCriteria)
+
 instance Prelude.Hashable QueueSearchCriteria where
   hashWithSalt _salt QueueSearchCriteria' {..} =
-    _salt `Prelude.hashWithSalt` stringCondition
+    _salt `Prelude.hashWithSalt` andConditions
       `Prelude.hashWithSalt` orConditions
-      `Prelude.hashWithSalt` andConditions
       `Prelude.hashWithSalt` queueTypeCondition
+      `Prelude.hashWithSalt` stringCondition
 
 instance Prelude.NFData QueueSearchCriteria where
   rnf QueueSearchCriteria' {..} =
-    Prelude.rnf stringCondition
+    Prelude.rnf andConditions
       `Prelude.seq` Prelude.rnf orConditions
-      `Prelude.seq` Prelude.rnf andConditions
       `Prelude.seq` Prelude.rnf queueTypeCondition
+      `Prelude.seq` Prelude.rnf stringCondition
 
 instance Data.ToJSON QueueSearchCriteria where
   toJSON QueueSearchCriteria' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("StringCondition" Data..=)
-              Prelude.<$> stringCondition,
+          [ ("AndConditions" Data..=) Prelude.<$> andConditions,
             ("OrConditions" Data..=) Prelude.<$> orConditions,
-            ("AndConditions" Data..=) Prelude.<$> andConditions,
             ("QueueTypeCondition" Data..=)
-              Prelude.<$> queueTypeCondition
+              Prelude.<$> queueTypeCondition,
+            ("StringCondition" Data..=)
+              Prelude.<$> stringCondition
           ]
       )

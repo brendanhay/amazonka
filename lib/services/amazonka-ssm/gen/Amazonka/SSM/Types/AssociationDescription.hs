@@ -37,47 +37,41 @@ import Amazonka.SSM.Types.TargetLocation
 --
 -- /See:/ 'newAssociationDescription' smart constructor.
 data AssociationDescription = AssociationDescription'
-  { -- | The association name.
+  { alarmConfiguration :: Prelude.Maybe AlarmConfiguration,
+    -- | By default, when you create a new associations, the system runs it
+    -- immediately after it is created and then according to the schedule you
+    -- specified. Specify this option if you don\'t want an association to run
+    -- immediately after you create it. This parameter isn\'t supported for
+    -- rate expressions.
+    applyOnlyAtCronInterval :: Prelude.Maybe Prelude.Bool,
+    -- | The association ID.
+    associationId :: Prelude.Maybe Prelude.Text,
+    -- | The association name.
     associationName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the SSM document.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The association version.
     associationVersion :: Prelude.Maybe Prelude.Text,
-    -- | The last date on which the association was successfully run.
-    lastSuccessfulExecutionDate :: Prelude.Maybe Data.POSIX,
-    -- | The combination of Amazon Web Services Regions and Amazon Web Services
-    -- accounts where you want to run the association.
-    targetLocations :: Prelude.Maybe (Prelude.NonEmpty TargetLocation),
-    -- | The date when the association was made.
-    date :: Prelude.Maybe Data.POSIX,
     -- | Choose the parameter that will define how your automation will branch
     -- out. This target is required for associations that use an Automation
     -- runbook and target resources by using rate controls. Automation is a
     -- capability of Amazon Web Services Systems Manager.
     automationTargetParameterName :: Prelude.Maybe Prelude.Text,
-    -- | A key-value mapping of document parameters to target resources. Both
-    -- Targets and TargetMaps can\'t be specified together.
-    targetMaps :: Prelude.Maybe [Prelude.HashMap Prelude.Text [Prelude.Text]],
-    -- | An S3 bucket where you want to store the output details of the request.
-    outputLocation :: Prelude.Maybe InstanceAssociationOutputLocation,
-    -- | The association status.
-    status :: Prelude.Maybe AssociationStatus,
-    -- | The managed nodes targeted by the request.
-    targets :: Prelude.Maybe [Target],
     -- | The names or Amazon Resource Names (ARNs) of the Change Calendar type
     -- documents your associations are gated under. The associations only run
     -- when that change calendar is open. For more information, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar Amazon Web Services Systems Manager Change Calendar>.
     calendarNames :: Prelude.Maybe [Prelude.Text],
-    -- | A cron expression that specifies a schedule when the association runs.
-    scheduleExpression :: Prelude.Maybe Prelude.Text,
-    -- | Number of days to wait after the scheduled day to run an association.
-    scheduleOffset :: Prelude.Maybe Prelude.Natural,
+    -- | The severity level that is assigned to the association.
+    complianceSeverity :: Prelude.Maybe AssociationComplianceSeverity,
+    -- | The date when the association was made.
+    date :: Prelude.Maybe Data.POSIX,
+    -- | The document version.
+    documentVersion :: Prelude.Maybe Prelude.Text,
     -- | The managed node ID.
     instanceId :: Prelude.Maybe Prelude.Text,
-    -- | Information about the association.
-    overview :: Prelude.Maybe AssociationOverview,
-    alarmConfiguration :: Prelude.Maybe AlarmConfiguration,
+    -- | The date on which the association was last run.
+    lastExecutionDate :: Prelude.Maybe Data.POSIX,
+    -- | The last date on which the association was successfully run.
+    lastSuccessfulExecutionDate :: Prelude.Maybe Data.POSIX,
     -- | The date when the association was last updated.
     lastUpdateAssociationDate :: Prelude.Maybe Data.POSIX,
     -- | The maximum number of targets allowed to run the association at the same
@@ -91,12 +85,6 @@ data AssociationDescription = AssociationDescription'
     -- new managed node will process its association within the limit specified
     -- for @MaxConcurrency@.
     maxConcurrency :: Prelude.Maybe Prelude.Text,
-    -- | By default, when you create a new associations, the system runs it
-    -- immediately after it is created and then according to the schedule you
-    -- specified. Specify this option if you don\'t want an association to run
-    -- immediately after you create it. This parameter isn\'t supported for
-    -- rate expressions.
-    applyOnlyAtCronInterval :: Prelude.Maybe Prelude.Bool,
     -- | The number of errors that are allowed before the system stops sending
     -- requests to run the association on additional targets. You can specify
     -- either an absolute number of errors, for example 10, or a percentage of
@@ -113,12 +101,20 @@ data AssociationDescription = AssociationDescription'
     -- failed executions, set @MaxConcurrency@ to 1 so that executions proceed
     -- one at a time.
     maxErrors :: Prelude.Maybe Prelude.Text,
-    -- | The date on which the association was last run.
-    lastExecutionDate :: Prelude.Maybe Data.POSIX,
-    -- | The CloudWatch alarm that was invoked during the association.
-    triggeredAlarms :: Prelude.Maybe (Prelude.NonEmpty AlarmStateInformation),
-    -- | The severity level that is assigned to the association.
-    complianceSeverity :: Prelude.Maybe AssociationComplianceSeverity,
+    -- | The name of the SSM document.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | An S3 bucket where you want to store the output details of the request.
+    outputLocation :: Prelude.Maybe InstanceAssociationOutputLocation,
+    -- | Information about the association.
+    overview :: Prelude.Maybe AssociationOverview,
+    -- | A description of the parameters for a document.
+    parameters :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text [Prelude.Text])),
+    -- | A cron expression that specifies a schedule when the association runs.
+    scheduleExpression :: Prelude.Maybe Prelude.Text,
+    -- | Number of days to wait after the scheduled day to run an association.
+    scheduleOffset :: Prelude.Maybe Prelude.Natural,
+    -- | The association status.
+    status :: Prelude.Maybe AssociationStatus,
     -- | The mode for generating association compliance. You can specify @AUTO@
     -- or @MANUAL@. In @AUTO@ mode, the system uses the status of the
     -- association execution to determine the compliance status. If the
@@ -134,12 +130,16 @@ data AssociationDescription = AssociationDescription'
     --
     -- By default, all associations use @AUTO@ mode.
     syncCompliance :: Prelude.Maybe AssociationSyncCompliance,
-    -- | The association ID.
-    associationId :: Prelude.Maybe Prelude.Text,
-    -- | The document version.
-    documentVersion :: Prelude.Maybe Prelude.Text,
-    -- | A description of the parameters for a document.
-    parameters :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text [Prelude.Text]))
+    -- | The combination of Amazon Web Services Regions and Amazon Web Services
+    -- accounts where you want to run the association.
+    targetLocations :: Prelude.Maybe (Prelude.NonEmpty TargetLocation),
+    -- | A key-value mapping of document parameters to target resources. Both
+    -- Targets and TargetMaps can\'t be specified together.
+    targetMaps :: Prelude.Maybe [Prelude.HashMap Prelude.Text [Prelude.Text]],
+    -- | The managed nodes targeted by the request.
+    targets :: Prelude.Maybe [Target],
+    -- | The CloudWatch alarm that was invoked during the association.
+    triggeredAlarms :: Prelude.Maybe (Prelude.NonEmpty AlarmStateInformation)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -151,47 +151,41 @@ data AssociationDescription = AssociationDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'alarmConfiguration', 'associationDescription_alarmConfiguration' - Undocumented member.
+--
+-- 'applyOnlyAtCronInterval', 'associationDescription_applyOnlyAtCronInterval' - By default, when you create a new associations, the system runs it
+-- immediately after it is created and then according to the schedule you
+-- specified. Specify this option if you don\'t want an association to run
+-- immediately after you create it. This parameter isn\'t supported for
+-- rate expressions.
+--
+-- 'associationId', 'associationDescription_associationId' - The association ID.
+--
 -- 'associationName', 'associationDescription_associationName' - The association name.
 --
--- 'name', 'associationDescription_name' - The name of the SSM document.
---
 -- 'associationVersion', 'associationDescription_associationVersion' - The association version.
---
--- 'lastSuccessfulExecutionDate', 'associationDescription_lastSuccessfulExecutionDate' - The last date on which the association was successfully run.
---
--- 'targetLocations', 'associationDescription_targetLocations' - The combination of Amazon Web Services Regions and Amazon Web Services
--- accounts where you want to run the association.
---
--- 'date', 'associationDescription_date' - The date when the association was made.
 --
 -- 'automationTargetParameterName', 'associationDescription_automationTargetParameterName' - Choose the parameter that will define how your automation will branch
 -- out. This target is required for associations that use an Automation
 -- runbook and target resources by using rate controls. Automation is a
 -- capability of Amazon Web Services Systems Manager.
 --
--- 'targetMaps', 'associationDescription_targetMaps' - A key-value mapping of document parameters to target resources. Both
--- Targets and TargetMaps can\'t be specified together.
---
--- 'outputLocation', 'associationDescription_outputLocation' - An S3 bucket where you want to store the output details of the request.
---
--- 'status', 'associationDescription_status' - The association status.
---
--- 'targets', 'associationDescription_targets' - The managed nodes targeted by the request.
---
 -- 'calendarNames', 'associationDescription_calendarNames' - The names or Amazon Resource Names (ARNs) of the Change Calendar type
 -- documents your associations are gated under. The associations only run
 -- when that change calendar is open. For more information, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar Amazon Web Services Systems Manager Change Calendar>.
 --
--- 'scheduleExpression', 'associationDescription_scheduleExpression' - A cron expression that specifies a schedule when the association runs.
+-- 'complianceSeverity', 'associationDescription_complianceSeverity' - The severity level that is assigned to the association.
 --
--- 'scheduleOffset', 'associationDescription_scheduleOffset' - Number of days to wait after the scheduled day to run an association.
+-- 'date', 'associationDescription_date' - The date when the association was made.
+--
+-- 'documentVersion', 'associationDescription_documentVersion' - The document version.
 --
 -- 'instanceId', 'associationDescription_instanceId' - The managed node ID.
 --
--- 'overview', 'associationDescription_overview' - Information about the association.
+-- 'lastExecutionDate', 'associationDescription_lastExecutionDate' - The date on which the association was last run.
 --
--- 'alarmConfiguration', 'associationDescription_alarmConfiguration' - Undocumented member.
+-- 'lastSuccessfulExecutionDate', 'associationDescription_lastSuccessfulExecutionDate' - The last date on which the association was successfully run.
 --
 -- 'lastUpdateAssociationDate', 'associationDescription_lastUpdateAssociationDate' - The date when the association was last updated.
 --
@@ -205,12 +199,6 @@ data AssociationDescription = AssociationDescription'
 -- association is allowed to run. During the next association interval, the
 -- new managed node will process its association within the limit specified
 -- for @MaxConcurrency@.
---
--- 'applyOnlyAtCronInterval', 'associationDescription_applyOnlyAtCronInterval' - By default, when you create a new associations, the system runs it
--- immediately after it is created and then according to the schedule you
--- specified. Specify this option if you don\'t want an association to run
--- immediately after you create it. This parameter isn\'t supported for
--- rate expressions.
 --
 -- 'maxErrors', 'associationDescription_maxErrors' - The number of errors that are allowed before the system stops sending
 -- requests to run the association on additional targets. You can specify
@@ -228,11 +216,19 @@ data AssociationDescription = AssociationDescription'
 -- failed executions, set @MaxConcurrency@ to 1 so that executions proceed
 -- one at a time.
 --
--- 'lastExecutionDate', 'associationDescription_lastExecutionDate' - The date on which the association was last run.
+-- 'name', 'associationDescription_name' - The name of the SSM document.
 --
--- 'triggeredAlarms', 'associationDescription_triggeredAlarms' - The CloudWatch alarm that was invoked during the association.
+-- 'outputLocation', 'associationDescription_outputLocation' - An S3 bucket where you want to store the output details of the request.
 --
--- 'complianceSeverity', 'associationDescription_complianceSeverity' - The severity level that is assigned to the association.
+-- 'overview', 'associationDescription_overview' - Information about the association.
+--
+-- 'parameters', 'associationDescription_parameters' - A description of the parameters for a document.
+--
+-- 'scheduleExpression', 'associationDescription_scheduleExpression' - A cron expression that specifies a schedule when the association runs.
+--
+-- 'scheduleOffset', 'associationDescription_scheduleOffset' - Number of days to wait after the scheduled day to run an association.
+--
+-- 'status', 'associationDescription_status' - The association status.
 --
 -- 'syncCompliance', 'associationDescription_syncCompliance' - The mode for generating association compliance. You can specify @AUTO@
 -- or @MANUAL@. In @AUTO@ mode, the system uses the status of the
@@ -249,70 +245,73 @@ data AssociationDescription = AssociationDescription'
 --
 -- By default, all associations use @AUTO@ mode.
 --
--- 'associationId', 'associationDescription_associationId' - The association ID.
+-- 'targetLocations', 'associationDescription_targetLocations' - The combination of Amazon Web Services Regions and Amazon Web Services
+-- accounts where you want to run the association.
 --
--- 'documentVersion', 'associationDescription_documentVersion' - The document version.
+-- 'targetMaps', 'associationDescription_targetMaps' - A key-value mapping of document parameters to target resources. Both
+-- Targets and TargetMaps can\'t be specified together.
 --
--- 'parameters', 'associationDescription_parameters' - A description of the parameters for a document.
+-- 'targets', 'associationDescription_targets' - The managed nodes targeted by the request.
+--
+-- 'triggeredAlarms', 'associationDescription_triggeredAlarms' - The CloudWatch alarm that was invoked during the association.
 newAssociationDescription ::
   AssociationDescription
 newAssociationDescription =
   AssociationDescription'
-    { associationName =
+    { alarmConfiguration =
         Prelude.Nothing,
-      name = Prelude.Nothing,
+      applyOnlyAtCronInterval = Prelude.Nothing,
+      associationId = Prelude.Nothing,
+      associationName = Prelude.Nothing,
       associationVersion = Prelude.Nothing,
-      lastSuccessfulExecutionDate = Prelude.Nothing,
-      targetLocations = Prelude.Nothing,
-      date = Prelude.Nothing,
       automationTargetParameterName = Prelude.Nothing,
-      targetMaps = Prelude.Nothing,
-      outputLocation = Prelude.Nothing,
-      status = Prelude.Nothing,
-      targets = Prelude.Nothing,
       calendarNames = Prelude.Nothing,
-      scheduleExpression = Prelude.Nothing,
-      scheduleOffset = Prelude.Nothing,
+      complianceSeverity = Prelude.Nothing,
+      date = Prelude.Nothing,
+      documentVersion = Prelude.Nothing,
       instanceId = Prelude.Nothing,
-      overview = Prelude.Nothing,
-      alarmConfiguration = Prelude.Nothing,
+      lastExecutionDate = Prelude.Nothing,
+      lastSuccessfulExecutionDate = Prelude.Nothing,
       lastUpdateAssociationDate = Prelude.Nothing,
       maxConcurrency = Prelude.Nothing,
-      applyOnlyAtCronInterval = Prelude.Nothing,
       maxErrors = Prelude.Nothing,
-      lastExecutionDate = Prelude.Nothing,
-      triggeredAlarms = Prelude.Nothing,
-      complianceSeverity = Prelude.Nothing,
+      name = Prelude.Nothing,
+      outputLocation = Prelude.Nothing,
+      overview = Prelude.Nothing,
+      parameters = Prelude.Nothing,
+      scheduleExpression = Prelude.Nothing,
+      scheduleOffset = Prelude.Nothing,
+      status = Prelude.Nothing,
       syncCompliance = Prelude.Nothing,
-      associationId = Prelude.Nothing,
-      documentVersion = Prelude.Nothing,
-      parameters = Prelude.Nothing
+      targetLocations = Prelude.Nothing,
+      targetMaps = Prelude.Nothing,
+      targets = Prelude.Nothing,
+      triggeredAlarms = Prelude.Nothing
     }
+
+-- | Undocumented member.
+associationDescription_alarmConfiguration :: Lens.Lens' AssociationDescription (Prelude.Maybe AlarmConfiguration)
+associationDescription_alarmConfiguration = Lens.lens (\AssociationDescription' {alarmConfiguration} -> alarmConfiguration) (\s@AssociationDescription' {} a -> s {alarmConfiguration = a} :: AssociationDescription)
+
+-- | By default, when you create a new associations, the system runs it
+-- immediately after it is created and then according to the schedule you
+-- specified. Specify this option if you don\'t want an association to run
+-- immediately after you create it. This parameter isn\'t supported for
+-- rate expressions.
+associationDescription_applyOnlyAtCronInterval :: Lens.Lens' AssociationDescription (Prelude.Maybe Prelude.Bool)
+associationDescription_applyOnlyAtCronInterval = Lens.lens (\AssociationDescription' {applyOnlyAtCronInterval} -> applyOnlyAtCronInterval) (\s@AssociationDescription' {} a -> s {applyOnlyAtCronInterval = a} :: AssociationDescription)
+
+-- | The association ID.
+associationDescription_associationId :: Lens.Lens' AssociationDescription (Prelude.Maybe Prelude.Text)
+associationDescription_associationId = Lens.lens (\AssociationDescription' {associationId} -> associationId) (\s@AssociationDescription' {} a -> s {associationId = a} :: AssociationDescription)
 
 -- | The association name.
 associationDescription_associationName :: Lens.Lens' AssociationDescription (Prelude.Maybe Prelude.Text)
 associationDescription_associationName = Lens.lens (\AssociationDescription' {associationName} -> associationName) (\s@AssociationDescription' {} a -> s {associationName = a} :: AssociationDescription)
 
--- | The name of the SSM document.
-associationDescription_name :: Lens.Lens' AssociationDescription (Prelude.Maybe Prelude.Text)
-associationDescription_name = Lens.lens (\AssociationDescription' {name} -> name) (\s@AssociationDescription' {} a -> s {name = a} :: AssociationDescription)
-
 -- | The association version.
 associationDescription_associationVersion :: Lens.Lens' AssociationDescription (Prelude.Maybe Prelude.Text)
 associationDescription_associationVersion = Lens.lens (\AssociationDescription' {associationVersion} -> associationVersion) (\s@AssociationDescription' {} a -> s {associationVersion = a} :: AssociationDescription)
-
--- | The last date on which the association was successfully run.
-associationDescription_lastSuccessfulExecutionDate :: Lens.Lens' AssociationDescription (Prelude.Maybe Prelude.UTCTime)
-associationDescription_lastSuccessfulExecutionDate = Lens.lens (\AssociationDescription' {lastSuccessfulExecutionDate} -> lastSuccessfulExecutionDate) (\s@AssociationDescription' {} a -> s {lastSuccessfulExecutionDate = a} :: AssociationDescription) Prelude.. Lens.mapping Data._Time
-
--- | The combination of Amazon Web Services Regions and Amazon Web Services
--- accounts where you want to run the association.
-associationDescription_targetLocations :: Lens.Lens' AssociationDescription (Prelude.Maybe (Prelude.NonEmpty TargetLocation))
-associationDescription_targetLocations = Lens.lens (\AssociationDescription' {targetLocations} -> targetLocations) (\s@AssociationDescription' {} a -> s {targetLocations = a} :: AssociationDescription) Prelude.. Lens.mapping Lens.coerced
-
--- | The date when the association was made.
-associationDescription_date :: Lens.Lens' AssociationDescription (Prelude.Maybe Prelude.UTCTime)
-associationDescription_date = Lens.lens (\AssociationDescription' {date} -> date) (\s@AssociationDescription' {} a -> s {date = a} :: AssociationDescription) Prelude.. Lens.mapping Data._Time
 
 -- | Choose the parameter that will define how your automation will branch
 -- out. This target is required for associations that use an Automation
@@ -321,23 +320,6 @@ associationDescription_date = Lens.lens (\AssociationDescription' {date} -> date
 associationDescription_automationTargetParameterName :: Lens.Lens' AssociationDescription (Prelude.Maybe Prelude.Text)
 associationDescription_automationTargetParameterName = Lens.lens (\AssociationDescription' {automationTargetParameterName} -> automationTargetParameterName) (\s@AssociationDescription' {} a -> s {automationTargetParameterName = a} :: AssociationDescription)
 
--- | A key-value mapping of document parameters to target resources. Both
--- Targets and TargetMaps can\'t be specified together.
-associationDescription_targetMaps :: Lens.Lens' AssociationDescription (Prelude.Maybe [Prelude.HashMap Prelude.Text [Prelude.Text]])
-associationDescription_targetMaps = Lens.lens (\AssociationDescription' {targetMaps} -> targetMaps) (\s@AssociationDescription' {} a -> s {targetMaps = a} :: AssociationDescription) Prelude.. Lens.mapping Lens.coerced
-
--- | An S3 bucket where you want to store the output details of the request.
-associationDescription_outputLocation :: Lens.Lens' AssociationDescription (Prelude.Maybe InstanceAssociationOutputLocation)
-associationDescription_outputLocation = Lens.lens (\AssociationDescription' {outputLocation} -> outputLocation) (\s@AssociationDescription' {} a -> s {outputLocation = a} :: AssociationDescription)
-
--- | The association status.
-associationDescription_status :: Lens.Lens' AssociationDescription (Prelude.Maybe AssociationStatus)
-associationDescription_status = Lens.lens (\AssociationDescription' {status} -> status) (\s@AssociationDescription' {} a -> s {status = a} :: AssociationDescription)
-
--- | The managed nodes targeted by the request.
-associationDescription_targets :: Lens.Lens' AssociationDescription (Prelude.Maybe [Target])
-associationDescription_targets = Lens.lens (\AssociationDescription' {targets} -> targets) (\s@AssociationDescription' {} a -> s {targets = a} :: AssociationDescription) Prelude.. Lens.mapping Lens.coerced
-
 -- | The names or Amazon Resource Names (ARNs) of the Change Calendar type
 -- documents your associations are gated under. The associations only run
 -- when that change calendar is open. For more information, see
@@ -345,25 +327,29 @@ associationDescription_targets = Lens.lens (\AssociationDescription' {targets} -
 associationDescription_calendarNames :: Lens.Lens' AssociationDescription (Prelude.Maybe [Prelude.Text])
 associationDescription_calendarNames = Lens.lens (\AssociationDescription' {calendarNames} -> calendarNames) (\s@AssociationDescription' {} a -> s {calendarNames = a} :: AssociationDescription) Prelude.. Lens.mapping Lens.coerced
 
--- | A cron expression that specifies a schedule when the association runs.
-associationDescription_scheduleExpression :: Lens.Lens' AssociationDescription (Prelude.Maybe Prelude.Text)
-associationDescription_scheduleExpression = Lens.lens (\AssociationDescription' {scheduleExpression} -> scheduleExpression) (\s@AssociationDescription' {} a -> s {scheduleExpression = a} :: AssociationDescription)
+-- | The severity level that is assigned to the association.
+associationDescription_complianceSeverity :: Lens.Lens' AssociationDescription (Prelude.Maybe AssociationComplianceSeverity)
+associationDescription_complianceSeverity = Lens.lens (\AssociationDescription' {complianceSeverity} -> complianceSeverity) (\s@AssociationDescription' {} a -> s {complianceSeverity = a} :: AssociationDescription)
 
--- | Number of days to wait after the scheduled day to run an association.
-associationDescription_scheduleOffset :: Lens.Lens' AssociationDescription (Prelude.Maybe Prelude.Natural)
-associationDescription_scheduleOffset = Lens.lens (\AssociationDescription' {scheduleOffset} -> scheduleOffset) (\s@AssociationDescription' {} a -> s {scheduleOffset = a} :: AssociationDescription)
+-- | The date when the association was made.
+associationDescription_date :: Lens.Lens' AssociationDescription (Prelude.Maybe Prelude.UTCTime)
+associationDescription_date = Lens.lens (\AssociationDescription' {date} -> date) (\s@AssociationDescription' {} a -> s {date = a} :: AssociationDescription) Prelude.. Lens.mapping Data._Time
+
+-- | The document version.
+associationDescription_documentVersion :: Lens.Lens' AssociationDescription (Prelude.Maybe Prelude.Text)
+associationDescription_documentVersion = Lens.lens (\AssociationDescription' {documentVersion} -> documentVersion) (\s@AssociationDescription' {} a -> s {documentVersion = a} :: AssociationDescription)
 
 -- | The managed node ID.
 associationDescription_instanceId :: Lens.Lens' AssociationDescription (Prelude.Maybe Prelude.Text)
 associationDescription_instanceId = Lens.lens (\AssociationDescription' {instanceId} -> instanceId) (\s@AssociationDescription' {} a -> s {instanceId = a} :: AssociationDescription)
 
--- | Information about the association.
-associationDescription_overview :: Lens.Lens' AssociationDescription (Prelude.Maybe AssociationOverview)
-associationDescription_overview = Lens.lens (\AssociationDescription' {overview} -> overview) (\s@AssociationDescription' {} a -> s {overview = a} :: AssociationDescription)
+-- | The date on which the association was last run.
+associationDescription_lastExecutionDate :: Lens.Lens' AssociationDescription (Prelude.Maybe Prelude.UTCTime)
+associationDescription_lastExecutionDate = Lens.lens (\AssociationDescription' {lastExecutionDate} -> lastExecutionDate) (\s@AssociationDescription' {} a -> s {lastExecutionDate = a} :: AssociationDescription) Prelude.. Lens.mapping Data._Time
 
--- | Undocumented member.
-associationDescription_alarmConfiguration :: Lens.Lens' AssociationDescription (Prelude.Maybe AlarmConfiguration)
-associationDescription_alarmConfiguration = Lens.lens (\AssociationDescription' {alarmConfiguration} -> alarmConfiguration) (\s@AssociationDescription' {} a -> s {alarmConfiguration = a} :: AssociationDescription)
+-- | The last date on which the association was successfully run.
+associationDescription_lastSuccessfulExecutionDate :: Lens.Lens' AssociationDescription (Prelude.Maybe Prelude.UTCTime)
+associationDescription_lastSuccessfulExecutionDate = Lens.lens (\AssociationDescription' {lastSuccessfulExecutionDate} -> lastSuccessfulExecutionDate) (\s@AssociationDescription' {} a -> s {lastSuccessfulExecutionDate = a} :: AssociationDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The date when the association was last updated.
 associationDescription_lastUpdateAssociationDate :: Lens.Lens' AssociationDescription (Prelude.Maybe Prelude.UTCTime)
@@ -381,14 +367,6 @@ associationDescription_lastUpdateAssociationDate = Lens.lens (\AssociationDescri
 -- for @MaxConcurrency@.
 associationDescription_maxConcurrency :: Lens.Lens' AssociationDescription (Prelude.Maybe Prelude.Text)
 associationDescription_maxConcurrency = Lens.lens (\AssociationDescription' {maxConcurrency} -> maxConcurrency) (\s@AssociationDescription' {} a -> s {maxConcurrency = a} :: AssociationDescription)
-
--- | By default, when you create a new associations, the system runs it
--- immediately after it is created and then according to the schedule you
--- specified. Specify this option if you don\'t want an association to run
--- immediately after you create it. This parameter isn\'t supported for
--- rate expressions.
-associationDescription_applyOnlyAtCronInterval :: Lens.Lens' AssociationDescription (Prelude.Maybe Prelude.Bool)
-associationDescription_applyOnlyAtCronInterval = Lens.lens (\AssociationDescription' {applyOnlyAtCronInterval} -> applyOnlyAtCronInterval) (\s@AssociationDescription' {} a -> s {applyOnlyAtCronInterval = a} :: AssociationDescription)
 
 -- | The number of errors that are allowed before the system stops sending
 -- requests to run the association on additional targets. You can specify
@@ -408,17 +386,33 @@ associationDescription_applyOnlyAtCronInterval = Lens.lens (\AssociationDescript
 associationDescription_maxErrors :: Lens.Lens' AssociationDescription (Prelude.Maybe Prelude.Text)
 associationDescription_maxErrors = Lens.lens (\AssociationDescription' {maxErrors} -> maxErrors) (\s@AssociationDescription' {} a -> s {maxErrors = a} :: AssociationDescription)
 
--- | The date on which the association was last run.
-associationDescription_lastExecutionDate :: Lens.Lens' AssociationDescription (Prelude.Maybe Prelude.UTCTime)
-associationDescription_lastExecutionDate = Lens.lens (\AssociationDescription' {lastExecutionDate} -> lastExecutionDate) (\s@AssociationDescription' {} a -> s {lastExecutionDate = a} :: AssociationDescription) Prelude.. Lens.mapping Data._Time
+-- | The name of the SSM document.
+associationDescription_name :: Lens.Lens' AssociationDescription (Prelude.Maybe Prelude.Text)
+associationDescription_name = Lens.lens (\AssociationDescription' {name} -> name) (\s@AssociationDescription' {} a -> s {name = a} :: AssociationDescription)
 
--- | The CloudWatch alarm that was invoked during the association.
-associationDescription_triggeredAlarms :: Lens.Lens' AssociationDescription (Prelude.Maybe (Prelude.NonEmpty AlarmStateInformation))
-associationDescription_triggeredAlarms = Lens.lens (\AssociationDescription' {triggeredAlarms} -> triggeredAlarms) (\s@AssociationDescription' {} a -> s {triggeredAlarms = a} :: AssociationDescription) Prelude.. Lens.mapping Lens.coerced
+-- | An S3 bucket where you want to store the output details of the request.
+associationDescription_outputLocation :: Lens.Lens' AssociationDescription (Prelude.Maybe InstanceAssociationOutputLocation)
+associationDescription_outputLocation = Lens.lens (\AssociationDescription' {outputLocation} -> outputLocation) (\s@AssociationDescription' {} a -> s {outputLocation = a} :: AssociationDescription)
 
--- | The severity level that is assigned to the association.
-associationDescription_complianceSeverity :: Lens.Lens' AssociationDescription (Prelude.Maybe AssociationComplianceSeverity)
-associationDescription_complianceSeverity = Lens.lens (\AssociationDescription' {complianceSeverity} -> complianceSeverity) (\s@AssociationDescription' {} a -> s {complianceSeverity = a} :: AssociationDescription)
+-- | Information about the association.
+associationDescription_overview :: Lens.Lens' AssociationDescription (Prelude.Maybe AssociationOverview)
+associationDescription_overview = Lens.lens (\AssociationDescription' {overview} -> overview) (\s@AssociationDescription' {} a -> s {overview = a} :: AssociationDescription)
+
+-- | A description of the parameters for a document.
+associationDescription_parameters :: Lens.Lens' AssociationDescription (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
+associationDescription_parameters = Lens.lens (\AssociationDescription' {parameters} -> parameters) (\s@AssociationDescription' {} a -> s {parameters = a} :: AssociationDescription) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
+
+-- | A cron expression that specifies a schedule when the association runs.
+associationDescription_scheduleExpression :: Lens.Lens' AssociationDescription (Prelude.Maybe Prelude.Text)
+associationDescription_scheduleExpression = Lens.lens (\AssociationDescription' {scheduleExpression} -> scheduleExpression) (\s@AssociationDescription' {} a -> s {scheduleExpression = a} :: AssociationDescription)
+
+-- | Number of days to wait after the scheduled day to run an association.
+associationDescription_scheduleOffset :: Lens.Lens' AssociationDescription (Prelude.Maybe Prelude.Natural)
+associationDescription_scheduleOffset = Lens.lens (\AssociationDescription' {scheduleOffset} -> scheduleOffset) (\s@AssociationDescription' {} a -> s {scheduleOffset = a} :: AssociationDescription)
+
+-- | The association status.
+associationDescription_status :: Lens.Lens' AssociationDescription (Prelude.Maybe AssociationStatus)
+associationDescription_status = Lens.lens (\AssociationDescription' {status} -> status) (\s@AssociationDescription' {} a -> s {status = a} :: AssociationDescription)
 
 -- | The mode for generating association compliance. You can specify @AUTO@
 -- or @MANUAL@. In @AUTO@ mode, the system uses the status of the
@@ -437,17 +431,23 @@ associationDescription_complianceSeverity = Lens.lens (\AssociationDescription' 
 associationDescription_syncCompliance :: Lens.Lens' AssociationDescription (Prelude.Maybe AssociationSyncCompliance)
 associationDescription_syncCompliance = Lens.lens (\AssociationDescription' {syncCompliance} -> syncCompliance) (\s@AssociationDescription' {} a -> s {syncCompliance = a} :: AssociationDescription)
 
--- | The association ID.
-associationDescription_associationId :: Lens.Lens' AssociationDescription (Prelude.Maybe Prelude.Text)
-associationDescription_associationId = Lens.lens (\AssociationDescription' {associationId} -> associationId) (\s@AssociationDescription' {} a -> s {associationId = a} :: AssociationDescription)
+-- | The combination of Amazon Web Services Regions and Amazon Web Services
+-- accounts where you want to run the association.
+associationDescription_targetLocations :: Lens.Lens' AssociationDescription (Prelude.Maybe (Prelude.NonEmpty TargetLocation))
+associationDescription_targetLocations = Lens.lens (\AssociationDescription' {targetLocations} -> targetLocations) (\s@AssociationDescription' {} a -> s {targetLocations = a} :: AssociationDescription) Prelude.. Lens.mapping Lens.coerced
 
--- | The document version.
-associationDescription_documentVersion :: Lens.Lens' AssociationDescription (Prelude.Maybe Prelude.Text)
-associationDescription_documentVersion = Lens.lens (\AssociationDescription' {documentVersion} -> documentVersion) (\s@AssociationDescription' {} a -> s {documentVersion = a} :: AssociationDescription)
+-- | A key-value mapping of document parameters to target resources. Both
+-- Targets and TargetMaps can\'t be specified together.
+associationDescription_targetMaps :: Lens.Lens' AssociationDescription (Prelude.Maybe [Prelude.HashMap Prelude.Text [Prelude.Text]])
+associationDescription_targetMaps = Lens.lens (\AssociationDescription' {targetMaps} -> targetMaps) (\s@AssociationDescription' {} a -> s {targetMaps = a} :: AssociationDescription) Prelude.. Lens.mapping Lens.coerced
 
--- | A description of the parameters for a document.
-associationDescription_parameters :: Lens.Lens' AssociationDescription (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-associationDescription_parameters = Lens.lens (\AssociationDescription' {parameters} -> parameters) (\s@AssociationDescription' {} a -> s {parameters = a} :: AssociationDescription) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
+-- | The managed nodes targeted by the request.
+associationDescription_targets :: Lens.Lens' AssociationDescription (Prelude.Maybe [Target])
+associationDescription_targets = Lens.lens (\AssociationDescription' {targets} -> targets) (\s@AssociationDescription' {} a -> s {targets = a} :: AssociationDescription) Prelude.. Lens.mapping Lens.coerced
+
+-- | The CloudWatch alarm that was invoked during the association.
+associationDescription_triggeredAlarms :: Lens.Lens' AssociationDescription (Prelude.Maybe (Prelude.NonEmpty AlarmStateInformation))
+associationDescription_triggeredAlarms = Lens.lens (\AssociationDescription' {triggeredAlarms} -> triggeredAlarms) (\s@AssociationDescription' {} a -> s {triggeredAlarms = a} :: AssociationDescription) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON AssociationDescription where
   parseJSON =
@@ -455,103 +455,100 @@ instance Data.FromJSON AssociationDescription where
       "AssociationDescription"
       ( \x ->
           AssociationDescription'
-            Prelude.<$> (x Data..:? "AssociationName")
-            Prelude.<*> (x Data..:? "Name")
+            Prelude.<$> (x Data..:? "AlarmConfiguration")
+            Prelude.<*> (x Data..:? "ApplyOnlyAtCronInterval")
+            Prelude.<*> (x Data..:? "AssociationId")
+            Prelude.<*> (x Data..:? "AssociationName")
             Prelude.<*> (x Data..:? "AssociationVersion")
-            Prelude.<*> (x Data..:? "LastSuccessfulExecutionDate")
-            Prelude.<*> (x Data..:? "TargetLocations")
-            Prelude.<*> (x Data..:? "Date")
             Prelude.<*> (x Data..:? "AutomationTargetParameterName")
-            Prelude.<*> (x Data..:? "TargetMaps" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "OutputLocation")
-            Prelude.<*> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "Targets" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "CalendarNames" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "ScheduleExpression")
-            Prelude.<*> (x Data..:? "ScheduleOffset")
+            Prelude.<*> (x Data..:? "ComplianceSeverity")
+            Prelude.<*> (x Data..:? "Date")
+            Prelude.<*> (x Data..:? "DocumentVersion")
             Prelude.<*> (x Data..:? "InstanceId")
-            Prelude.<*> (x Data..:? "Overview")
-            Prelude.<*> (x Data..:? "AlarmConfiguration")
+            Prelude.<*> (x Data..:? "LastExecutionDate")
+            Prelude.<*> (x Data..:? "LastSuccessfulExecutionDate")
             Prelude.<*> (x Data..:? "LastUpdateAssociationDate")
             Prelude.<*> (x Data..:? "MaxConcurrency")
-            Prelude.<*> (x Data..:? "ApplyOnlyAtCronInterval")
             Prelude.<*> (x Data..:? "MaxErrors")
-            Prelude.<*> (x Data..:? "LastExecutionDate")
-            Prelude.<*> (x Data..:? "TriggeredAlarms")
-            Prelude.<*> (x Data..:? "ComplianceSeverity")
-            Prelude.<*> (x Data..:? "SyncCompliance")
-            Prelude.<*> (x Data..:? "AssociationId")
-            Prelude.<*> (x Data..:? "DocumentVersion")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "OutputLocation")
+            Prelude.<*> (x Data..:? "Overview")
             Prelude.<*> (x Data..:? "Parameters" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ScheduleExpression")
+            Prelude.<*> (x Data..:? "ScheduleOffset")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "SyncCompliance")
+            Prelude.<*> (x Data..:? "TargetLocations")
+            Prelude.<*> (x Data..:? "TargetMaps" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Targets" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "TriggeredAlarms")
       )
 
 instance Prelude.Hashable AssociationDescription where
   hashWithSalt _salt AssociationDescription' {..} =
-    _salt `Prelude.hashWithSalt` associationName
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` alarmConfiguration
+      `Prelude.hashWithSalt` applyOnlyAtCronInterval
+      `Prelude.hashWithSalt` associationId
+      `Prelude.hashWithSalt` associationName
       `Prelude.hashWithSalt` associationVersion
-      `Prelude.hashWithSalt` lastSuccessfulExecutionDate
-      `Prelude.hashWithSalt` targetLocations
-      `Prelude.hashWithSalt` date
       `Prelude.hashWithSalt` automationTargetParameterName
-      `Prelude.hashWithSalt` targetMaps
-      `Prelude.hashWithSalt` outputLocation
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` targets
       `Prelude.hashWithSalt` calendarNames
-      `Prelude.hashWithSalt` scheduleExpression
-      `Prelude.hashWithSalt` scheduleOffset
+      `Prelude.hashWithSalt` complianceSeverity
+      `Prelude.hashWithSalt` date
+      `Prelude.hashWithSalt` documentVersion
       `Prelude.hashWithSalt` instanceId
-      `Prelude.hashWithSalt` overview
-      `Prelude.hashWithSalt` alarmConfiguration
+      `Prelude.hashWithSalt` lastExecutionDate
+      `Prelude.hashWithSalt` lastSuccessfulExecutionDate
       `Prelude.hashWithSalt` lastUpdateAssociationDate
       `Prelude.hashWithSalt` maxConcurrency
-      `Prelude.hashWithSalt` applyOnlyAtCronInterval
       `Prelude.hashWithSalt` maxErrors
-      `Prelude.hashWithSalt` lastExecutionDate
-      `Prelude.hashWithSalt` triggeredAlarms
-      `Prelude.hashWithSalt` complianceSeverity
-      `Prelude.hashWithSalt` syncCompliance
-      `Prelude.hashWithSalt` associationId
-      `Prelude.hashWithSalt` documentVersion
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` outputLocation
+      `Prelude.hashWithSalt` overview
       `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` scheduleExpression
+      `Prelude.hashWithSalt` scheduleOffset
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` syncCompliance
+      `Prelude.hashWithSalt` targetLocations
+      `Prelude.hashWithSalt` targetMaps
+      `Prelude.hashWithSalt` targets
+      `Prelude.hashWithSalt` triggeredAlarms
 
 instance Prelude.NFData AssociationDescription where
   rnf AssociationDescription' {..} =
-    Prelude.rnf associationName
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf alarmConfiguration
+      `Prelude.seq` Prelude.rnf applyOnlyAtCronInterval
+      `Prelude.seq` Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf associationName
       `Prelude.seq` Prelude.rnf associationVersion
-      `Prelude.seq` Prelude.rnf lastSuccessfulExecutionDate
-      `Prelude.seq` Prelude.rnf targetLocations
-      `Prelude.seq` Prelude.rnf date
       `Prelude.seq` Prelude.rnf automationTargetParameterName
-      `Prelude.seq` Prelude.rnf targetMaps
-      `Prelude.seq` Prelude.rnf outputLocation
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf targets
       `Prelude.seq` Prelude.rnf calendarNames
-      `Prelude.seq` Prelude.rnf scheduleExpression
-      `Prelude.seq` Prelude.rnf scheduleOffset
+      `Prelude.seq` Prelude.rnf complianceSeverity
+      `Prelude.seq` Prelude.rnf date
+      `Prelude.seq` Prelude.rnf documentVersion
       `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf overview
-      `Prelude.seq` Prelude.rnf alarmConfiguration
-      `Prelude.seq` Prelude.rnf
-        lastUpdateAssociationDate
+      `Prelude.seq` Prelude.rnf lastExecutionDate
+      `Prelude.seq` Prelude.rnf lastSuccessfulExecutionDate
+      `Prelude.seq` Prelude.rnf lastUpdateAssociationDate
       `Prelude.seq` Prelude.rnf maxConcurrency
-      `Prelude.seq` Prelude.rnf
-        applyOnlyAtCronInterval
       `Prelude.seq` Prelude.rnf maxErrors
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf outputLocation
+      `Prelude.seq` Prelude.rnf overview
+      `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf
-        lastExecutionDate
-      `Prelude.seq` Prelude.rnf
-        triggeredAlarms
-      `Prelude.seq` Prelude.rnf
-        complianceSeverity
+        scheduleExpression
+      `Prelude.seq` Prelude.rnf scheduleOffset
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf
         syncCompliance
       `Prelude.seq` Prelude.rnf
-        associationId
+        targetLocations
       `Prelude.seq` Prelude.rnf
-        documentVersion
+        targetMaps
       `Prelude.seq` Prelude.rnf
-        parameters
+        targets
+      `Prelude.seq` Prelude.rnf
+        triggeredAlarms

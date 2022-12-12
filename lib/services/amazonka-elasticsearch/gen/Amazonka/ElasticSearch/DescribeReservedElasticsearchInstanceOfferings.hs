@@ -29,8 +29,8 @@ module Amazonka.ElasticSearch.DescribeReservedElasticsearchInstanceOfferings
     newDescribeReservedElasticsearchInstanceOfferings,
 
     -- * Request Lenses
-    describeReservedElasticsearchInstanceOfferings_nextToken,
     describeReservedElasticsearchInstanceOfferings_maxResults,
+    describeReservedElasticsearchInstanceOfferings_nextToken,
     describeReservedElasticsearchInstanceOfferings_reservedElasticsearchInstanceOfferingId,
 
     -- * Destructuring the Response
@@ -57,12 +57,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeReservedElasticsearchInstanceOfferings' smart constructor.
 data DescribeReservedElasticsearchInstanceOfferings = DescribeReservedElasticsearchInstanceOfferings'
-  { -- | NextToken should be sent in case if earlier API call produced result
-    -- containing NextToken. It is used for pagination.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Set this value to limit the number of results returned. If not
+  { -- | Set this value to limit the number of results returned. If not
     -- specified, defaults to 100.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | NextToken should be sent in case if earlier API call produced result
+    -- containing NextToken. It is used for pagination.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The offering identifier filter value. Use this parameter to show only
     -- the available offering that matches the specified reservation
     -- identifier.
@@ -78,11 +78,11 @@ data DescribeReservedElasticsearchInstanceOfferings = DescribeReservedElasticsea
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeReservedElasticsearchInstanceOfferings_nextToken' - NextToken should be sent in case if earlier API call produced result
--- containing NextToken. It is used for pagination.
---
 -- 'maxResults', 'describeReservedElasticsearchInstanceOfferings_maxResults' - Set this value to limit the number of results returned. If not
 -- specified, defaults to 100.
+--
+-- 'nextToken', 'describeReservedElasticsearchInstanceOfferings_nextToken' - NextToken should be sent in case if earlier API call produced result
+-- containing NextToken. It is used for pagination.
 --
 -- 'reservedElasticsearchInstanceOfferingId', 'describeReservedElasticsearchInstanceOfferings_reservedElasticsearchInstanceOfferingId' - The offering identifier filter value. Use this parameter to show only
 -- the available offering that matches the specified reservation
@@ -91,23 +91,22 @@ newDescribeReservedElasticsearchInstanceOfferings ::
   DescribeReservedElasticsearchInstanceOfferings
 newDescribeReservedElasticsearchInstanceOfferings =
   DescribeReservedElasticsearchInstanceOfferings'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults =
-        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       reservedElasticsearchInstanceOfferingId =
         Prelude.Nothing
     }
-
--- | NextToken should be sent in case if earlier API call produced result
--- containing NextToken. It is used for pagination.
-describeReservedElasticsearchInstanceOfferings_nextToken :: Lens.Lens' DescribeReservedElasticsearchInstanceOfferings (Prelude.Maybe Prelude.Text)
-describeReservedElasticsearchInstanceOfferings_nextToken = Lens.lens (\DescribeReservedElasticsearchInstanceOfferings' {nextToken} -> nextToken) (\s@DescribeReservedElasticsearchInstanceOfferings' {} a -> s {nextToken = a} :: DescribeReservedElasticsearchInstanceOfferings)
 
 -- | Set this value to limit the number of results returned. If not
 -- specified, defaults to 100.
 describeReservedElasticsearchInstanceOfferings_maxResults :: Lens.Lens' DescribeReservedElasticsearchInstanceOfferings (Prelude.Maybe Prelude.Int)
 describeReservedElasticsearchInstanceOfferings_maxResults = Lens.lens (\DescribeReservedElasticsearchInstanceOfferings' {maxResults} -> maxResults) (\s@DescribeReservedElasticsearchInstanceOfferings' {} a -> s {maxResults = a} :: DescribeReservedElasticsearchInstanceOfferings)
+
+-- | NextToken should be sent in case if earlier API call produced result
+-- containing NextToken. It is used for pagination.
+describeReservedElasticsearchInstanceOfferings_nextToken :: Lens.Lens' DescribeReservedElasticsearchInstanceOfferings (Prelude.Maybe Prelude.Text)
+describeReservedElasticsearchInstanceOfferings_nextToken = Lens.lens (\DescribeReservedElasticsearchInstanceOfferings' {nextToken} -> nextToken) (\s@DescribeReservedElasticsearchInstanceOfferings' {} a -> s {nextToken = a} :: DescribeReservedElasticsearchInstanceOfferings)
 
 -- | The offering identifier filter value. Use this parameter to show only
 -- the available offering that matches the specified reservation
@@ -168,8 +167,8 @@ instance
   hashWithSalt
     _salt
     DescribeReservedElasticsearchInstanceOfferings' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` reservedElasticsearchInstanceOfferingId
 
 instance
@@ -178,8 +177,8 @@ instance
   where
   rnf
     DescribeReservedElasticsearchInstanceOfferings' {..} =
-      Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf maxResults
+      Prelude.rnf maxResults
+        `Prelude.seq` Prelude.rnf nextToken
         `Prelude.seq` Prelude.rnf reservedElasticsearchInstanceOfferingId
 
 instance
@@ -203,8 +202,8 @@ instance
   toQuery
     DescribeReservedElasticsearchInstanceOfferings' {..} =
       Prelude.mconcat
-        [ "nextToken" Data.=: nextToken,
-          "maxResults" Data.=: maxResults,
+        [ "maxResults" Data.=: maxResults,
+          "nextToken" Data.=: nextToken,
           "offeringId"
             Data.=: reservedElasticsearchInstanceOfferingId
         ]

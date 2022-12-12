@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSelfUserProfile' smart constructor.
 data SelfUserProfile = SelfUserProfile'
-  { -- | The user\'s name.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The user\'s IAM ARN.
+  { -- | The user\'s IAM ARN.
     iamUserArn :: Prelude.Maybe Prelude.Text,
+    -- | The user\'s name.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The user\'s SSH public key.
     sshPublicKey :: Prelude.Maybe Prelude.Text,
     -- | The user\'s SSH user name.
@@ -47,9 +47,9 @@ data SelfUserProfile = SelfUserProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'selfUserProfile_name' - The user\'s name.
---
 -- 'iamUserArn', 'selfUserProfile_iamUserArn' - The user\'s IAM ARN.
+--
+-- 'name', 'selfUserProfile_name' - The user\'s name.
 --
 -- 'sshPublicKey', 'selfUserProfile_sshPublicKey' - The user\'s SSH public key.
 --
@@ -58,19 +58,19 @@ newSelfUserProfile ::
   SelfUserProfile
 newSelfUserProfile =
   SelfUserProfile'
-    { name = Prelude.Nothing,
-      iamUserArn = Prelude.Nothing,
+    { iamUserArn = Prelude.Nothing,
+      name = Prelude.Nothing,
       sshPublicKey = Prelude.Nothing,
       sshUsername = Prelude.Nothing
     }
 
--- | The user\'s name.
-selfUserProfile_name :: Lens.Lens' SelfUserProfile (Prelude.Maybe Prelude.Text)
-selfUserProfile_name = Lens.lens (\SelfUserProfile' {name} -> name) (\s@SelfUserProfile' {} a -> s {name = a} :: SelfUserProfile)
-
 -- | The user\'s IAM ARN.
 selfUserProfile_iamUserArn :: Lens.Lens' SelfUserProfile (Prelude.Maybe Prelude.Text)
 selfUserProfile_iamUserArn = Lens.lens (\SelfUserProfile' {iamUserArn} -> iamUserArn) (\s@SelfUserProfile' {} a -> s {iamUserArn = a} :: SelfUserProfile)
+
+-- | The user\'s name.
+selfUserProfile_name :: Lens.Lens' SelfUserProfile (Prelude.Maybe Prelude.Text)
+selfUserProfile_name = Lens.lens (\SelfUserProfile' {name} -> name) (\s@SelfUserProfile' {} a -> s {name = a} :: SelfUserProfile)
 
 -- | The user\'s SSH public key.
 selfUserProfile_sshPublicKey :: Lens.Lens' SelfUserProfile (Prelude.Maybe Prelude.Text)
@@ -86,22 +86,22 @@ instance Data.FromJSON SelfUserProfile where
       "SelfUserProfile"
       ( \x ->
           SelfUserProfile'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "IamUserArn")
+            Prelude.<$> (x Data..:? "IamUserArn")
+            Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "SshPublicKey")
             Prelude.<*> (x Data..:? "SshUsername")
       )
 
 instance Prelude.Hashable SelfUserProfile where
   hashWithSalt _salt SelfUserProfile' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` iamUserArn
+    _salt `Prelude.hashWithSalt` iamUserArn
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` sshPublicKey
       `Prelude.hashWithSalt` sshUsername
 
 instance Prelude.NFData SelfUserProfile where
   rnf SelfUserProfile' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf iamUserArn
+    Prelude.rnf iamUserArn
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf sshPublicKey
       `Prelude.seq` Prelude.rnf sshUsername

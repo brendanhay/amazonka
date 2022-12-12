@@ -34,8 +34,8 @@ module Amazonka.CodeBuild.BatchGetReports
     newBatchGetReportsResponse,
 
     -- * Response Lenses
-    batchGetReportsResponse_reportsNotFound,
     batchGetReportsResponse_reports,
+    batchGetReportsResponse_reportsNotFound,
     batchGetReportsResponse_httpStatus,
   )
 where
@@ -88,8 +88,8 @@ instance Core.AWSRequest BatchGetReports where
     Response.receiveJSON
       ( \s h x ->
           BatchGetReportsResponse'
-            Prelude.<$> (x Data..?> "reportsNotFound")
-            Prelude.<*> (x Data..?> "reports")
+            Prelude.<$> (x Data..?> "reports")
+            Prelude.<*> (x Data..?> "reportsNotFound")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,11 +130,11 @@ instance Data.ToQuery BatchGetReports where
 
 -- | /See:/ 'newBatchGetReportsResponse' smart constructor.
 data BatchGetReportsResponse = BatchGetReportsResponse'
-  { -- | An array of ARNs passed to @BatchGetReportGroups@ that are not
+  { -- | The array of @Report@ objects returned by @BatchGetReports@.
+    reports :: Prelude.Maybe (Prelude.NonEmpty Report),
+    -- | An array of ARNs passed to @BatchGetReportGroups@ that are not
     -- associated with a @Report@.
     reportsNotFound :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The array of @Report@ objects returned by @BatchGetReports@.
-    reports :: Prelude.Maybe (Prelude.NonEmpty Report),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -148,10 +148,10 @@ data BatchGetReportsResponse = BatchGetReportsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'reports', 'batchGetReportsResponse_reports' - The array of @Report@ objects returned by @BatchGetReports@.
+--
 -- 'reportsNotFound', 'batchGetReportsResponse_reportsNotFound' - An array of ARNs passed to @BatchGetReportGroups@ that are not
 -- associated with a @Report@.
---
--- 'reports', 'batchGetReportsResponse_reports' - The array of @Report@ objects returned by @BatchGetReports@.
 --
 -- 'httpStatus', 'batchGetReportsResponse_httpStatus' - The response's http status code.
 newBatchGetReportsResponse ::
@@ -160,20 +160,19 @@ newBatchGetReportsResponse ::
   BatchGetReportsResponse
 newBatchGetReportsResponse pHttpStatus_ =
   BatchGetReportsResponse'
-    { reportsNotFound =
-        Prelude.Nothing,
-      reports = Prelude.Nothing,
+    { reports = Prelude.Nothing,
+      reportsNotFound = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The array of @Report@ objects returned by @BatchGetReports@.
+batchGetReportsResponse_reports :: Lens.Lens' BatchGetReportsResponse (Prelude.Maybe (Prelude.NonEmpty Report))
+batchGetReportsResponse_reports = Lens.lens (\BatchGetReportsResponse' {reports} -> reports) (\s@BatchGetReportsResponse' {} a -> s {reports = a} :: BatchGetReportsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An array of ARNs passed to @BatchGetReportGroups@ that are not
 -- associated with a @Report@.
 batchGetReportsResponse_reportsNotFound :: Lens.Lens' BatchGetReportsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 batchGetReportsResponse_reportsNotFound = Lens.lens (\BatchGetReportsResponse' {reportsNotFound} -> reportsNotFound) (\s@BatchGetReportsResponse' {} a -> s {reportsNotFound = a} :: BatchGetReportsResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The array of @Report@ objects returned by @BatchGetReports@.
-batchGetReportsResponse_reports :: Lens.Lens' BatchGetReportsResponse (Prelude.Maybe (Prelude.NonEmpty Report))
-batchGetReportsResponse_reports = Lens.lens (\BatchGetReportsResponse' {reports} -> reports) (\s@BatchGetReportsResponse' {} a -> s {reports = a} :: BatchGetReportsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchGetReportsResponse_httpStatus :: Lens.Lens' BatchGetReportsResponse Prelude.Int
@@ -181,6 +180,6 @@ batchGetReportsResponse_httpStatus = Lens.lens (\BatchGetReportsResponse' {httpS
 
 instance Prelude.NFData BatchGetReportsResponse where
   rnf BatchGetReportsResponse' {..} =
-    Prelude.rnf reportsNotFound
-      `Prelude.seq` Prelude.rnf reports
+    Prelude.rnf reports
+      `Prelude.seq` Prelude.rnf reportsNotFound
       `Prelude.seq` Prelude.rnf httpStatus

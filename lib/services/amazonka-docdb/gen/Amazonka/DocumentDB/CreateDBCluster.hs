@@ -27,24 +27,24 @@ module Amazonka.DocumentDB.CreateDBCluster
     newCreateDBCluster,
 
     -- * Request Lenses
-    createDBCluster_tags,
-    createDBCluster_port,
-    createDBCluster_vpcSecurityGroupIds,
-    createDBCluster_preferredBackupWindow,
-    createDBCluster_backupRetentionPeriod,
-    createDBCluster_masterUsername,
-    createDBCluster_dbSubnetGroupName,
     createDBCluster_availabilityZones,
-    createDBCluster_masterUserPassword,
-    createDBCluster_enableCloudwatchLogsExports,
-    createDBCluster_storageEncrypted,
-    createDBCluster_kmsKeyId,
-    createDBCluster_globalClusterIdentifier,
-    createDBCluster_deletionProtection,
-    createDBCluster_preferredMaintenanceWindow,
+    createDBCluster_backupRetentionPeriod,
     createDBCluster_dbClusterParameterGroupName,
-    createDBCluster_preSignedUrl,
+    createDBCluster_dbSubnetGroupName,
+    createDBCluster_deletionProtection,
+    createDBCluster_enableCloudwatchLogsExports,
     createDBCluster_engineVersion,
+    createDBCluster_globalClusterIdentifier,
+    createDBCluster_kmsKeyId,
+    createDBCluster_masterUserPassword,
+    createDBCluster_masterUsername,
+    createDBCluster_port,
+    createDBCluster_preSignedUrl,
+    createDBCluster_preferredBackupWindow,
+    createDBCluster_preferredMaintenanceWindow,
+    createDBCluster_storageEncrypted,
+    createDBCluster_tags,
+    createDBCluster_vpcSecurityGroupIds,
     createDBCluster_dbClusterIdentifier,
     createDBCluster_engine,
 
@@ -70,30 +70,9 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateDBCluster' smart constructor.
 data CreateDBCluster = CreateDBCluster'
-  { -- | The tags to be assigned to the cluster.
-    tags :: Prelude.Maybe [Tag],
-    -- | The port number on which the instances in the cluster accept
-    -- connections.
-    port :: Prelude.Maybe Prelude.Int,
-    -- | A list of EC2 VPC security groups to associate with this cluster.
-    vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | The daily time range during which automated backups are created if
-    -- automated backups are enabled using the @BackupRetentionPeriod@
-    -- parameter.
-    --
-    -- The default is a 30-minute window selected at random from an 8-hour
-    -- block of time for each Amazon Web Services Region.
-    --
-    -- Constraints:
-    --
-    -- -   Must be in the format @hh24:mi-hh24:mi@.
-    --
-    -- -   Must be in Universal Coordinated Time (UTC).
-    --
-    -- -   Must not conflict with the preferred maintenance window.
-    --
-    -- -   Must be at least 30 minutes.
-    preferredBackupWindow :: Prelude.Maybe Prelude.Text,
+  { -- | A list of Amazon EC2 Availability Zones that instances in the cluster
+    -- can be created in.
+    availabilityZones :: Prelude.Maybe [Prelude.Text],
     -- | The number of days for which automated backups are retained. You must
     -- specify a minimum value of 1.
     --
@@ -103,16 +82,8 @@ data CreateDBCluster = CreateDBCluster'
     --
     -- -   Must be a value from 1 to 35.
     backupRetentionPeriod :: Prelude.Maybe Prelude.Int,
-    -- | The name of the master user for the cluster.
-    --
-    -- Constraints:
-    --
-    -- -   Must be from 1 to 63 letters or numbers.
-    --
-    -- -   The first character must be a letter.
-    --
-    -- -   Cannot be a reserved word for the chosen database engine.
-    masterUsername :: Prelude.Maybe Prelude.Text,
+    -- | The name of the cluster parameter group to associate with this cluster.
+    dbClusterParameterGroupName :: Prelude.Maybe Prelude.Text,
     -- | A subnet group to associate with this cluster.
     --
     -- Constraints: Must match the name of an existing @DBSubnetGroup@. Must
@@ -120,15 +91,11 @@ data CreateDBCluster = CreateDBCluster'
     --
     -- Example: @mySubnetgroup@
     dbSubnetGroupName :: Prelude.Maybe Prelude.Text,
-    -- | A list of Amazon EC2 Availability Zones that instances in the cluster
-    -- can be created in.
-    availabilityZones :: Prelude.Maybe [Prelude.Text],
-    -- | The password for the master database user. This password can contain any
-    -- printable ASCII character except forward slash (\/), double quote (\"),
-    -- or the \"at\" symbol (\@).
-    --
-    -- Constraints: Must contain from 8 to 100 characters.
-    masterUserPassword :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether this cluster can be deleted. If @DeletionProtection@
+    -- is enabled, the cluster cannot be deleted unless it is modified and
+    -- @DeletionProtection@ is disabled. @DeletionProtection@ protects clusters
+    -- from being accidentally deleted.
+    deletionProtection :: Prelude.Maybe Prelude.Bool,
     -- | A list of log types that need to be enabled for exporting to Amazon
     -- CloudWatch Logs. You can enable audit logs or profiler logs. For more
     -- information, see
@@ -136,8 +103,13 @@ data CreateDBCluster = CreateDBCluster'
     -- and
     -- <https://docs.aws.amazon.com/documentdb/latest/developerguide/profiling.html Profiling Amazon DocumentDB Operations>.
     enableCloudwatchLogsExports :: Prelude.Maybe [Prelude.Text],
-    -- | Specifies whether the cluster is encrypted.
-    storageEncrypted :: Prelude.Maybe Prelude.Bool,
+    -- | The version number of the database engine to use. The @--engine-version@
+    -- will default to the latest major engine version. For production
+    -- workloads, we recommend explicitly declaring this parameter with the
+    -- intended major engine version.
+    engineVersion :: Prelude.Maybe Prelude.Text,
+    -- | The cluster identifier of the new global cluster.
+    globalClusterIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The KMS key identifier for an encrypted cluster.
     --
     -- The KMS key identifier is the Amazon Resource Name (ARN) for the KMS
@@ -155,13 +127,44 @@ data CreateDBCluster = CreateDBCluster'
     -- account. Your Amazon Web Services account has a different default
     -- encryption key for each Amazon Web Services Regions.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The cluster identifier of the new global cluster.
-    globalClusterIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether this cluster can be deleted. If @DeletionProtection@
-    -- is enabled, the cluster cannot be deleted unless it is modified and
-    -- @DeletionProtection@ is disabled. @DeletionProtection@ protects clusters
-    -- from being accidentally deleted.
-    deletionProtection :: Prelude.Maybe Prelude.Bool,
+    -- | The password for the master database user. This password can contain any
+    -- printable ASCII character except forward slash (\/), double quote (\"),
+    -- or the \"at\" symbol (\@).
+    --
+    -- Constraints: Must contain from 8 to 100 characters.
+    masterUserPassword :: Prelude.Maybe Prelude.Text,
+    -- | The name of the master user for the cluster.
+    --
+    -- Constraints:
+    --
+    -- -   Must be from 1 to 63 letters or numbers.
+    --
+    -- -   The first character must be a letter.
+    --
+    -- -   Cannot be a reserved word for the chosen database engine.
+    masterUsername :: Prelude.Maybe Prelude.Text,
+    -- | The port number on which the instances in the cluster accept
+    -- connections.
+    port :: Prelude.Maybe Prelude.Int,
+    -- | Not currently supported.
+    preSignedUrl :: Prelude.Maybe Prelude.Text,
+    -- | The daily time range during which automated backups are created if
+    -- automated backups are enabled using the @BackupRetentionPeriod@
+    -- parameter.
+    --
+    -- The default is a 30-minute window selected at random from an 8-hour
+    -- block of time for each Amazon Web Services Region.
+    --
+    -- Constraints:
+    --
+    -- -   Must be in the format @hh24:mi-hh24:mi@.
+    --
+    -- -   Must be in Universal Coordinated Time (UTC).
+    --
+    -- -   Must not conflict with the preferred maintenance window.
+    --
+    -- -   Must be at least 30 minutes.
+    preferredBackupWindow :: Prelude.Maybe Prelude.Text,
     -- | The weekly time range during which system maintenance can occur, in
     -- Universal Coordinated Time (UTC).
     --
@@ -175,15 +178,12 @@ data CreateDBCluster = CreateDBCluster'
     --
     -- Constraints: Minimum 30-minute window.
     preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
-    -- | The name of the cluster parameter group to associate with this cluster.
-    dbClusterParameterGroupName :: Prelude.Maybe Prelude.Text,
-    -- | Not currently supported.
-    preSignedUrl :: Prelude.Maybe Prelude.Text,
-    -- | The version number of the database engine to use. The @--engine-version@
-    -- will default to the latest major engine version. For production
-    -- workloads, we recommend explicitly declaring this parameter with the
-    -- intended major engine version.
-    engineVersion :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether the cluster is encrypted.
+    storageEncrypted :: Prelude.Maybe Prelude.Bool,
+    -- | The tags to be assigned to the cluster.
+    tags :: Prelude.Maybe [Tag],
+    -- | A list of EC2 VPC security groups to associate with this cluster.
+    vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | The cluster identifier. This parameter is stored as a lowercase string.
     --
     -- Constraints:
@@ -211,29 +211,8 @@ data CreateDBCluster = CreateDBCluster'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createDBCluster_tags' - The tags to be assigned to the cluster.
---
--- 'port', 'createDBCluster_port' - The port number on which the instances in the cluster accept
--- connections.
---
--- 'vpcSecurityGroupIds', 'createDBCluster_vpcSecurityGroupIds' - A list of EC2 VPC security groups to associate with this cluster.
---
--- 'preferredBackupWindow', 'createDBCluster_preferredBackupWindow' - The daily time range during which automated backups are created if
--- automated backups are enabled using the @BackupRetentionPeriod@
--- parameter.
---
--- The default is a 30-minute window selected at random from an 8-hour
--- block of time for each Amazon Web Services Region.
---
--- Constraints:
---
--- -   Must be in the format @hh24:mi-hh24:mi@.
---
--- -   Must be in Universal Coordinated Time (UTC).
---
--- -   Must not conflict with the preferred maintenance window.
---
--- -   Must be at least 30 minutes.
+-- 'availabilityZones', 'createDBCluster_availabilityZones' - A list of Amazon EC2 Availability Zones that instances in the cluster
+-- can be created in.
 --
 -- 'backupRetentionPeriod', 'createDBCluster_backupRetentionPeriod' - The number of days for which automated backups are retained. You must
 -- specify a minimum value of 1.
@@ -244,15 +223,7 @@ data CreateDBCluster = CreateDBCluster'
 --
 -- -   Must be a value from 1 to 35.
 --
--- 'masterUsername', 'createDBCluster_masterUsername' - The name of the master user for the cluster.
---
--- Constraints:
---
--- -   Must be from 1 to 63 letters or numbers.
---
--- -   The first character must be a letter.
---
--- -   Cannot be a reserved word for the chosen database engine.
+-- 'dbClusterParameterGroupName', 'createDBCluster_dbClusterParameterGroupName' - The name of the cluster parameter group to associate with this cluster.
 --
 -- 'dbSubnetGroupName', 'createDBCluster_dbSubnetGroupName' - A subnet group to associate with this cluster.
 --
@@ -261,14 +232,10 @@ data CreateDBCluster = CreateDBCluster'
 --
 -- Example: @mySubnetgroup@
 --
--- 'availabilityZones', 'createDBCluster_availabilityZones' - A list of Amazon EC2 Availability Zones that instances in the cluster
--- can be created in.
---
--- 'masterUserPassword', 'createDBCluster_masterUserPassword' - The password for the master database user. This password can contain any
--- printable ASCII character except forward slash (\/), double quote (\"),
--- or the \"at\" symbol (\@).
---
--- Constraints: Must contain from 8 to 100 characters.
+-- 'deletionProtection', 'createDBCluster_deletionProtection' - Specifies whether this cluster can be deleted. If @DeletionProtection@
+-- is enabled, the cluster cannot be deleted unless it is modified and
+-- @DeletionProtection@ is disabled. @DeletionProtection@ protects clusters
+-- from being accidentally deleted.
 --
 -- 'enableCloudwatchLogsExports', 'createDBCluster_enableCloudwatchLogsExports' - A list of log types that need to be enabled for exporting to Amazon
 -- CloudWatch Logs. You can enable audit logs or profiler logs. For more
@@ -277,7 +244,12 @@ data CreateDBCluster = CreateDBCluster'
 -- and
 -- <https://docs.aws.amazon.com/documentdb/latest/developerguide/profiling.html Profiling Amazon DocumentDB Operations>.
 --
--- 'storageEncrypted', 'createDBCluster_storageEncrypted' - Specifies whether the cluster is encrypted.
+-- 'engineVersion', 'createDBCluster_engineVersion' - The version number of the database engine to use. The @--engine-version@
+-- will default to the latest major engine version. For production
+-- workloads, we recommend explicitly declaring this parameter with the
+-- intended major engine version.
+--
+-- 'globalClusterIdentifier', 'createDBCluster_globalClusterIdentifier' - The cluster identifier of the new global cluster.
 --
 -- 'kmsKeyId', 'createDBCluster_kmsKeyId' - The KMS key identifier for an encrypted cluster.
 --
@@ -296,12 +268,43 @@ data CreateDBCluster = CreateDBCluster'
 -- account. Your Amazon Web Services account has a different default
 -- encryption key for each Amazon Web Services Regions.
 --
--- 'globalClusterIdentifier', 'createDBCluster_globalClusterIdentifier' - The cluster identifier of the new global cluster.
+-- 'masterUserPassword', 'createDBCluster_masterUserPassword' - The password for the master database user. This password can contain any
+-- printable ASCII character except forward slash (\/), double quote (\"),
+-- or the \"at\" symbol (\@).
 --
--- 'deletionProtection', 'createDBCluster_deletionProtection' - Specifies whether this cluster can be deleted. If @DeletionProtection@
--- is enabled, the cluster cannot be deleted unless it is modified and
--- @DeletionProtection@ is disabled. @DeletionProtection@ protects clusters
--- from being accidentally deleted.
+-- Constraints: Must contain from 8 to 100 characters.
+--
+-- 'masterUsername', 'createDBCluster_masterUsername' - The name of the master user for the cluster.
+--
+-- Constraints:
+--
+-- -   Must be from 1 to 63 letters or numbers.
+--
+-- -   The first character must be a letter.
+--
+-- -   Cannot be a reserved word for the chosen database engine.
+--
+-- 'port', 'createDBCluster_port' - The port number on which the instances in the cluster accept
+-- connections.
+--
+-- 'preSignedUrl', 'createDBCluster_preSignedUrl' - Not currently supported.
+--
+-- 'preferredBackupWindow', 'createDBCluster_preferredBackupWindow' - The daily time range during which automated backups are created if
+-- automated backups are enabled using the @BackupRetentionPeriod@
+-- parameter.
+--
+-- The default is a 30-minute window selected at random from an 8-hour
+-- block of time for each Amazon Web Services Region.
+--
+-- Constraints:
+--
+-- -   Must be in the format @hh24:mi-hh24:mi@.
+--
+-- -   Must be in Universal Coordinated Time (UTC).
+--
+-- -   Must not conflict with the preferred maintenance window.
+--
+-- -   Must be at least 30 minutes.
 --
 -- 'preferredMaintenanceWindow', 'createDBCluster_preferredMaintenanceWindow' - The weekly time range during which system maintenance can occur, in
 -- Universal Coordinated Time (UTC).
@@ -316,14 +319,11 @@ data CreateDBCluster = CreateDBCluster'
 --
 -- Constraints: Minimum 30-minute window.
 --
--- 'dbClusterParameterGroupName', 'createDBCluster_dbClusterParameterGroupName' - The name of the cluster parameter group to associate with this cluster.
+-- 'storageEncrypted', 'createDBCluster_storageEncrypted' - Specifies whether the cluster is encrypted.
 --
--- 'preSignedUrl', 'createDBCluster_preSignedUrl' - Not currently supported.
+-- 'tags', 'createDBCluster_tags' - The tags to be assigned to the cluster.
 --
--- 'engineVersion', 'createDBCluster_engineVersion' - The version number of the database engine to use. The @--engine-version@
--- will default to the latest major engine version. For production
--- workloads, we recommend explicitly declaring this parameter with the
--- intended major engine version.
+-- 'vpcSecurityGroupIds', 'createDBCluster_vpcSecurityGroupIds' - A list of EC2 VPC security groups to associate with this cluster.
 --
 -- 'dbClusterIdentifier', 'createDBCluster_dbClusterIdentifier' - The cluster identifier. This parameter is stored as a lowercase string.
 --
@@ -348,59 +348,33 @@ newCreateDBCluster ::
   CreateDBCluster
 newCreateDBCluster pDBClusterIdentifier_ pEngine_ =
   CreateDBCluster'
-    { tags = Prelude.Nothing,
-      port = Prelude.Nothing,
-      vpcSecurityGroupIds = Prelude.Nothing,
-      preferredBackupWindow = Prelude.Nothing,
+    { availabilityZones =
+        Prelude.Nothing,
       backupRetentionPeriod = Prelude.Nothing,
-      masterUsername = Prelude.Nothing,
-      dbSubnetGroupName = Prelude.Nothing,
-      availabilityZones = Prelude.Nothing,
-      masterUserPassword = Prelude.Nothing,
-      enableCloudwatchLogsExports = Prelude.Nothing,
-      storageEncrypted = Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing,
-      globalClusterIdentifier = Prelude.Nothing,
-      deletionProtection = Prelude.Nothing,
-      preferredMaintenanceWindow = Prelude.Nothing,
       dbClusterParameterGroupName = Prelude.Nothing,
-      preSignedUrl = Prelude.Nothing,
+      dbSubnetGroupName = Prelude.Nothing,
+      deletionProtection = Prelude.Nothing,
+      enableCloudwatchLogsExports = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
+      globalClusterIdentifier = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
+      masterUserPassword = Prelude.Nothing,
+      masterUsername = Prelude.Nothing,
+      port = Prelude.Nothing,
+      preSignedUrl = Prelude.Nothing,
+      preferredBackupWindow = Prelude.Nothing,
+      preferredMaintenanceWindow = Prelude.Nothing,
+      storageEncrypted = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      vpcSecurityGroupIds = Prelude.Nothing,
       dbClusterIdentifier = pDBClusterIdentifier_,
       engine = pEngine_
     }
 
--- | The tags to be assigned to the cluster.
-createDBCluster_tags :: Lens.Lens' CreateDBCluster (Prelude.Maybe [Tag])
-createDBCluster_tags = Lens.lens (\CreateDBCluster' {tags} -> tags) (\s@CreateDBCluster' {} a -> s {tags = a} :: CreateDBCluster) Prelude.. Lens.mapping Lens.coerced
-
--- | The port number on which the instances in the cluster accept
--- connections.
-createDBCluster_port :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Int)
-createDBCluster_port = Lens.lens (\CreateDBCluster' {port} -> port) (\s@CreateDBCluster' {} a -> s {port = a} :: CreateDBCluster)
-
--- | A list of EC2 VPC security groups to associate with this cluster.
-createDBCluster_vpcSecurityGroupIds :: Lens.Lens' CreateDBCluster (Prelude.Maybe [Prelude.Text])
-createDBCluster_vpcSecurityGroupIds = Lens.lens (\CreateDBCluster' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@CreateDBCluster' {} a -> s {vpcSecurityGroupIds = a} :: CreateDBCluster) Prelude.. Lens.mapping Lens.coerced
-
--- | The daily time range during which automated backups are created if
--- automated backups are enabled using the @BackupRetentionPeriod@
--- parameter.
---
--- The default is a 30-minute window selected at random from an 8-hour
--- block of time for each Amazon Web Services Region.
---
--- Constraints:
---
--- -   Must be in the format @hh24:mi-hh24:mi@.
---
--- -   Must be in Universal Coordinated Time (UTC).
---
--- -   Must not conflict with the preferred maintenance window.
---
--- -   Must be at least 30 minutes.
-createDBCluster_preferredBackupWindow :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
-createDBCluster_preferredBackupWindow = Lens.lens (\CreateDBCluster' {preferredBackupWindow} -> preferredBackupWindow) (\s@CreateDBCluster' {} a -> s {preferredBackupWindow = a} :: CreateDBCluster)
+-- | A list of Amazon EC2 Availability Zones that instances in the cluster
+-- can be created in.
+createDBCluster_availabilityZones :: Lens.Lens' CreateDBCluster (Prelude.Maybe [Prelude.Text])
+createDBCluster_availabilityZones = Lens.lens (\CreateDBCluster' {availabilityZones} -> availabilityZones) (\s@CreateDBCluster' {} a -> s {availabilityZones = a} :: CreateDBCluster) Prelude.. Lens.mapping Lens.coerced
 
 -- | The number of days for which automated backups are retained. You must
 -- specify a minimum value of 1.
@@ -413,17 +387,9 @@ createDBCluster_preferredBackupWindow = Lens.lens (\CreateDBCluster' {preferredB
 createDBCluster_backupRetentionPeriod :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Int)
 createDBCluster_backupRetentionPeriod = Lens.lens (\CreateDBCluster' {backupRetentionPeriod} -> backupRetentionPeriod) (\s@CreateDBCluster' {} a -> s {backupRetentionPeriod = a} :: CreateDBCluster)
 
--- | The name of the master user for the cluster.
---
--- Constraints:
---
--- -   Must be from 1 to 63 letters or numbers.
---
--- -   The first character must be a letter.
---
--- -   Cannot be a reserved word for the chosen database engine.
-createDBCluster_masterUsername :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
-createDBCluster_masterUsername = Lens.lens (\CreateDBCluster' {masterUsername} -> masterUsername) (\s@CreateDBCluster' {} a -> s {masterUsername = a} :: CreateDBCluster)
+-- | The name of the cluster parameter group to associate with this cluster.
+createDBCluster_dbClusterParameterGroupName :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
+createDBCluster_dbClusterParameterGroupName = Lens.lens (\CreateDBCluster' {dbClusterParameterGroupName} -> dbClusterParameterGroupName) (\s@CreateDBCluster' {} a -> s {dbClusterParameterGroupName = a} :: CreateDBCluster)
 
 -- | A subnet group to associate with this cluster.
 --
@@ -434,18 +400,12 @@ createDBCluster_masterUsername = Lens.lens (\CreateDBCluster' {masterUsername} -
 createDBCluster_dbSubnetGroupName :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
 createDBCluster_dbSubnetGroupName = Lens.lens (\CreateDBCluster' {dbSubnetGroupName} -> dbSubnetGroupName) (\s@CreateDBCluster' {} a -> s {dbSubnetGroupName = a} :: CreateDBCluster)
 
--- | A list of Amazon EC2 Availability Zones that instances in the cluster
--- can be created in.
-createDBCluster_availabilityZones :: Lens.Lens' CreateDBCluster (Prelude.Maybe [Prelude.Text])
-createDBCluster_availabilityZones = Lens.lens (\CreateDBCluster' {availabilityZones} -> availabilityZones) (\s@CreateDBCluster' {} a -> s {availabilityZones = a} :: CreateDBCluster) Prelude.. Lens.mapping Lens.coerced
-
--- | The password for the master database user. This password can contain any
--- printable ASCII character except forward slash (\/), double quote (\"),
--- or the \"at\" symbol (\@).
---
--- Constraints: Must contain from 8 to 100 characters.
-createDBCluster_masterUserPassword :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
-createDBCluster_masterUserPassword = Lens.lens (\CreateDBCluster' {masterUserPassword} -> masterUserPassword) (\s@CreateDBCluster' {} a -> s {masterUserPassword = a} :: CreateDBCluster)
+-- | Specifies whether this cluster can be deleted. If @DeletionProtection@
+-- is enabled, the cluster cannot be deleted unless it is modified and
+-- @DeletionProtection@ is disabled. @DeletionProtection@ protects clusters
+-- from being accidentally deleted.
+createDBCluster_deletionProtection :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Bool)
+createDBCluster_deletionProtection = Lens.lens (\CreateDBCluster' {deletionProtection} -> deletionProtection) (\s@CreateDBCluster' {} a -> s {deletionProtection = a} :: CreateDBCluster)
 
 -- | A list of log types that need to be enabled for exporting to Amazon
 -- CloudWatch Logs. You can enable audit logs or profiler logs. For more
@@ -456,9 +416,16 @@ createDBCluster_masterUserPassword = Lens.lens (\CreateDBCluster' {masterUserPas
 createDBCluster_enableCloudwatchLogsExports :: Lens.Lens' CreateDBCluster (Prelude.Maybe [Prelude.Text])
 createDBCluster_enableCloudwatchLogsExports = Lens.lens (\CreateDBCluster' {enableCloudwatchLogsExports} -> enableCloudwatchLogsExports) (\s@CreateDBCluster' {} a -> s {enableCloudwatchLogsExports = a} :: CreateDBCluster) Prelude.. Lens.mapping Lens.coerced
 
--- | Specifies whether the cluster is encrypted.
-createDBCluster_storageEncrypted :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Bool)
-createDBCluster_storageEncrypted = Lens.lens (\CreateDBCluster' {storageEncrypted} -> storageEncrypted) (\s@CreateDBCluster' {} a -> s {storageEncrypted = a} :: CreateDBCluster)
+-- | The version number of the database engine to use. The @--engine-version@
+-- will default to the latest major engine version. For production
+-- workloads, we recommend explicitly declaring this parameter with the
+-- intended major engine version.
+createDBCluster_engineVersion :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
+createDBCluster_engineVersion = Lens.lens (\CreateDBCluster' {engineVersion} -> engineVersion) (\s@CreateDBCluster' {} a -> s {engineVersion = a} :: CreateDBCluster)
+
+-- | The cluster identifier of the new global cluster.
+createDBCluster_globalClusterIdentifier :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
+createDBCluster_globalClusterIdentifier = Lens.lens (\CreateDBCluster' {globalClusterIdentifier} -> globalClusterIdentifier) (\s@CreateDBCluster' {} a -> s {globalClusterIdentifier = a} :: CreateDBCluster)
 
 -- | The KMS key identifier for an encrypted cluster.
 --
@@ -479,16 +446,53 @@ createDBCluster_storageEncrypted = Lens.lens (\CreateDBCluster' {storageEncrypte
 createDBCluster_kmsKeyId :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
 createDBCluster_kmsKeyId = Lens.lens (\CreateDBCluster' {kmsKeyId} -> kmsKeyId) (\s@CreateDBCluster' {} a -> s {kmsKeyId = a} :: CreateDBCluster)
 
--- | The cluster identifier of the new global cluster.
-createDBCluster_globalClusterIdentifier :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
-createDBCluster_globalClusterIdentifier = Lens.lens (\CreateDBCluster' {globalClusterIdentifier} -> globalClusterIdentifier) (\s@CreateDBCluster' {} a -> s {globalClusterIdentifier = a} :: CreateDBCluster)
+-- | The password for the master database user. This password can contain any
+-- printable ASCII character except forward slash (\/), double quote (\"),
+-- or the \"at\" symbol (\@).
+--
+-- Constraints: Must contain from 8 to 100 characters.
+createDBCluster_masterUserPassword :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
+createDBCluster_masterUserPassword = Lens.lens (\CreateDBCluster' {masterUserPassword} -> masterUserPassword) (\s@CreateDBCluster' {} a -> s {masterUserPassword = a} :: CreateDBCluster)
 
--- | Specifies whether this cluster can be deleted. If @DeletionProtection@
--- is enabled, the cluster cannot be deleted unless it is modified and
--- @DeletionProtection@ is disabled. @DeletionProtection@ protects clusters
--- from being accidentally deleted.
-createDBCluster_deletionProtection :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Bool)
-createDBCluster_deletionProtection = Lens.lens (\CreateDBCluster' {deletionProtection} -> deletionProtection) (\s@CreateDBCluster' {} a -> s {deletionProtection = a} :: CreateDBCluster)
+-- | The name of the master user for the cluster.
+--
+-- Constraints:
+--
+-- -   Must be from 1 to 63 letters or numbers.
+--
+-- -   The first character must be a letter.
+--
+-- -   Cannot be a reserved word for the chosen database engine.
+createDBCluster_masterUsername :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
+createDBCluster_masterUsername = Lens.lens (\CreateDBCluster' {masterUsername} -> masterUsername) (\s@CreateDBCluster' {} a -> s {masterUsername = a} :: CreateDBCluster)
+
+-- | The port number on which the instances in the cluster accept
+-- connections.
+createDBCluster_port :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Int)
+createDBCluster_port = Lens.lens (\CreateDBCluster' {port} -> port) (\s@CreateDBCluster' {} a -> s {port = a} :: CreateDBCluster)
+
+-- | Not currently supported.
+createDBCluster_preSignedUrl :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
+createDBCluster_preSignedUrl = Lens.lens (\CreateDBCluster' {preSignedUrl} -> preSignedUrl) (\s@CreateDBCluster' {} a -> s {preSignedUrl = a} :: CreateDBCluster)
+
+-- | The daily time range during which automated backups are created if
+-- automated backups are enabled using the @BackupRetentionPeriod@
+-- parameter.
+--
+-- The default is a 30-minute window selected at random from an 8-hour
+-- block of time for each Amazon Web Services Region.
+--
+-- Constraints:
+--
+-- -   Must be in the format @hh24:mi-hh24:mi@.
+--
+-- -   Must be in Universal Coordinated Time (UTC).
+--
+-- -   Must not conflict with the preferred maintenance window.
+--
+-- -   Must be at least 30 minutes.
+createDBCluster_preferredBackupWindow :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
+createDBCluster_preferredBackupWindow = Lens.lens (\CreateDBCluster' {preferredBackupWindow} -> preferredBackupWindow) (\s@CreateDBCluster' {} a -> s {preferredBackupWindow = a} :: CreateDBCluster)
 
 -- | The weekly time range during which system maintenance can occur, in
 -- Universal Coordinated Time (UTC).
@@ -505,20 +509,17 @@ createDBCluster_deletionProtection = Lens.lens (\CreateDBCluster' {deletionProte
 createDBCluster_preferredMaintenanceWindow :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
 createDBCluster_preferredMaintenanceWindow = Lens.lens (\CreateDBCluster' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@CreateDBCluster' {} a -> s {preferredMaintenanceWindow = a} :: CreateDBCluster)
 
--- | The name of the cluster parameter group to associate with this cluster.
-createDBCluster_dbClusterParameterGroupName :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
-createDBCluster_dbClusterParameterGroupName = Lens.lens (\CreateDBCluster' {dbClusterParameterGroupName} -> dbClusterParameterGroupName) (\s@CreateDBCluster' {} a -> s {dbClusterParameterGroupName = a} :: CreateDBCluster)
+-- | Specifies whether the cluster is encrypted.
+createDBCluster_storageEncrypted :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Bool)
+createDBCluster_storageEncrypted = Lens.lens (\CreateDBCluster' {storageEncrypted} -> storageEncrypted) (\s@CreateDBCluster' {} a -> s {storageEncrypted = a} :: CreateDBCluster)
 
--- | Not currently supported.
-createDBCluster_preSignedUrl :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
-createDBCluster_preSignedUrl = Lens.lens (\CreateDBCluster' {preSignedUrl} -> preSignedUrl) (\s@CreateDBCluster' {} a -> s {preSignedUrl = a} :: CreateDBCluster)
+-- | The tags to be assigned to the cluster.
+createDBCluster_tags :: Lens.Lens' CreateDBCluster (Prelude.Maybe [Tag])
+createDBCluster_tags = Lens.lens (\CreateDBCluster' {tags} -> tags) (\s@CreateDBCluster' {} a -> s {tags = a} :: CreateDBCluster) Prelude.. Lens.mapping Lens.coerced
 
--- | The version number of the database engine to use. The @--engine-version@
--- will default to the latest major engine version. For production
--- workloads, we recommend explicitly declaring this parameter with the
--- intended major engine version.
-createDBCluster_engineVersion :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
-createDBCluster_engineVersion = Lens.lens (\CreateDBCluster' {engineVersion} -> engineVersion) (\s@CreateDBCluster' {} a -> s {engineVersion = a} :: CreateDBCluster)
+-- | A list of EC2 VPC security groups to associate with this cluster.
+createDBCluster_vpcSecurityGroupIds :: Lens.Lens' CreateDBCluster (Prelude.Maybe [Prelude.Text])
+createDBCluster_vpcSecurityGroupIds = Lens.lens (\CreateDBCluster' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@CreateDBCluster' {} a -> s {vpcSecurityGroupIds = a} :: CreateDBCluster) Prelude.. Lens.mapping Lens.coerced
 
 -- | The cluster identifier. This parameter is stored as a lowercase string.
 --
@@ -557,48 +558,47 @@ instance Core.AWSRequest CreateDBCluster where
 
 instance Prelude.Hashable CreateDBCluster where
   hashWithSalt _salt CreateDBCluster' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` port
-      `Prelude.hashWithSalt` vpcSecurityGroupIds
-      `Prelude.hashWithSalt` preferredBackupWindow
+    _salt `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` backupRetentionPeriod
-      `Prelude.hashWithSalt` masterUsername
-      `Prelude.hashWithSalt` dbSubnetGroupName
-      `Prelude.hashWithSalt` availabilityZones
-      `Prelude.hashWithSalt` masterUserPassword
-      `Prelude.hashWithSalt` enableCloudwatchLogsExports
-      `Prelude.hashWithSalt` storageEncrypted
-      `Prelude.hashWithSalt` kmsKeyId
-      `Prelude.hashWithSalt` globalClusterIdentifier
-      `Prelude.hashWithSalt` deletionProtection
-      `Prelude.hashWithSalt` preferredMaintenanceWindow
       `Prelude.hashWithSalt` dbClusterParameterGroupName
-      `Prelude.hashWithSalt` preSignedUrl
+      `Prelude.hashWithSalt` dbSubnetGroupName
+      `Prelude.hashWithSalt` deletionProtection
+      `Prelude.hashWithSalt` enableCloudwatchLogsExports
       `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` globalClusterIdentifier
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` masterUserPassword
+      `Prelude.hashWithSalt` masterUsername
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` preSignedUrl
+      `Prelude.hashWithSalt` preferredBackupWindow
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` storageEncrypted
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` vpcSecurityGroupIds
       `Prelude.hashWithSalt` dbClusterIdentifier
       `Prelude.hashWithSalt` engine
 
 instance Prelude.NFData CreateDBCluster where
   rnf CreateDBCluster' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
-      `Prelude.seq` Prelude.rnf preferredBackupWindow
+    Prelude.rnf availabilityZones
       `Prelude.seq` Prelude.rnf backupRetentionPeriod
-      `Prelude.seq` Prelude.rnf masterUsername
+      `Prelude.seq` Prelude.rnf dbClusterParameterGroupName
       `Prelude.seq` Prelude.rnf dbSubnetGroupName
-      `Prelude.seq` Prelude.rnf availabilityZones
-      `Prelude.seq` Prelude.rnf masterUserPassword
-      `Prelude.seq` Prelude.rnf enableCloudwatchLogsExports
-      `Prelude.seq` Prelude.rnf storageEncrypted
-      `Prelude.seq` Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf globalClusterIdentifier
       `Prelude.seq` Prelude.rnf deletionProtection
-      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
-      `Prelude.seq` Prelude.rnf
-        dbClusterParameterGroupName
-      `Prelude.seq` Prelude.rnf preSignedUrl
+      `Prelude.seq` Prelude.rnf enableCloudwatchLogsExports
       `Prelude.seq` Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf globalClusterIdentifier
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf masterUserPassword
+      `Prelude.seq` Prelude.rnf masterUsername
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf preSignedUrl
+      `Prelude.seq` Prelude.rnf preferredBackupWindow
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf storageEncrypted
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
       `Prelude.seq` Prelude.rnf dbClusterIdentifier
       `Prelude.seq` Prelude.rnf engine
 
@@ -615,43 +615,43 @@ instance Data.ToQuery CreateDBCluster where
           Data.=: ("CreateDBCluster" :: Prelude.ByteString),
         "Version"
           Data.=: ("2014-10-31" :: Prelude.ByteString),
-        "Tags"
-          Data.=: Data.toQuery
-            (Data.toQueryList "Tag" Prelude.<$> tags),
-        "Port" Data.=: port,
-        "VpcSecurityGroupIds"
-          Data.=: Data.toQuery
-            ( Data.toQueryList "VpcSecurityGroupId"
-                Prelude.<$> vpcSecurityGroupIds
-            ),
-        "PreferredBackupWindow"
-          Data.=: preferredBackupWindow,
-        "BackupRetentionPeriod"
-          Data.=: backupRetentionPeriod,
-        "MasterUsername" Data.=: masterUsername,
-        "DBSubnetGroupName" Data.=: dbSubnetGroupName,
         "AvailabilityZones"
           Data.=: Data.toQuery
             ( Data.toQueryList "AvailabilityZone"
                 Prelude.<$> availabilityZones
             ),
-        "MasterUserPassword" Data.=: masterUserPassword,
+        "BackupRetentionPeriod"
+          Data.=: backupRetentionPeriod,
+        "DBClusterParameterGroupName"
+          Data.=: dbClusterParameterGroupName,
+        "DBSubnetGroupName" Data.=: dbSubnetGroupName,
+        "DeletionProtection" Data.=: deletionProtection,
         "EnableCloudwatchLogsExports"
           Data.=: Data.toQuery
             ( Data.toQueryList "member"
                 Prelude.<$> enableCloudwatchLogsExports
             ),
-        "StorageEncrypted" Data.=: storageEncrypted,
-        "KmsKeyId" Data.=: kmsKeyId,
+        "EngineVersion" Data.=: engineVersion,
         "GlobalClusterIdentifier"
           Data.=: globalClusterIdentifier,
-        "DeletionProtection" Data.=: deletionProtection,
+        "KmsKeyId" Data.=: kmsKeyId,
+        "MasterUserPassword" Data.=: masterUserPassword,
+        "MasterUsername" Data.=: masterUsername,
+        "Port" Data.=: port,
+        "PreSignedUrl" Data.=: preSignedUrl,
+        "PreferredBackupWindow"
+          Data.=: preferredBackupWindow,
         "PreferredMaintenanceWindow"
           Data.=: preferredMaintenanceWindow,
-        "DBClusterParameterGroupName"
-          Data.=: dbClusterParameterGroupName,
-        "PreSignedUrl" Data.=: preSignedUrl,
-        "EngineVersion" Data.=: engineVersion,
+        "StorageEncrypted" Data.=: storageEncrypted,
+        "Tags"
+          Data.=: Data.toQuery
+            (Data.toQueryList "Tag" Prelude.<$> tags),
+        "VpcSecurityGroupIds"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "VpcSecurityGroupId"
+                Prelude.<$> vpcSecurityGroupIds
+            ),
         "DBClusterIdentifier" Data.=: dbClusterIdentifier,
         "Engine" Data.=: engine
       ]

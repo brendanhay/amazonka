@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newACLPendingChanges' smart constructor.
 data ACLPendingChanges = ACLPendingChanges'
-  { -- | A list of user names being removed from the ACL
-    userNamesToRemove :: Prelude.Maybe [Prelude.Text],
-    -- | A list of users being added to the ACL
-    userNamesToAdd :: Prelude.Maybe [Prelude.Text]
+  { -- | A list of users being added to the ACL
+    userNamesToAdd :: Prelude.Maybe [Prelude.Text],
+    -- | A list of user names being removed from the ACL
+    userNamesToRemove :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data ACLPendingChanges = ACLPendingChanges'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'userNamesToRemove', 'aCLPendingChanges_userNamesToRemove' - A list of user names being removed from the ACL
---
 -- 'userNamesToAdd', 'aCLPendingChanges_userNamesToAdd' - A list of users being added to the ACL
+--
+-- 'userNamesToRemove', 'aCLPendingChanges_userNamesToRemove' - A list of user names being removed from the ACL
 newACLPendingChanges ::
   ACLPendingChanges
 newACLPendingChanges =
   ACLPendingChanges'
-    { userNamesToRemove =
+    { userNamesToAdd =
         Prelude.Nothing,
-      userNamesToAdd = Prelude.Nothing
+      userNamesToRemove = Prelude.Nothing
     }
-
--- | A list of user names being removed from the ACL
-aCLPendingChanges_userNamesToRemove :: Lens.Lens' ACLPendingChanges (Prelude.Maybe [Prelude.Text])
-aCLPendingChanges_userNamesToRemove = Lens.lens (\ACLPendingChanges' {userNamesToRemove} -> userNamesToRemove) (\s@ACLPendingChanges' {} a -> s {userNamesToRemove = a} :: ACLPendingChanges) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of users being added to the ACL
 aCLPendingChanges_userNamesToAdd :: Lens.Lens' ACLPendingChanges (Prelude.Maybe [Prelude.Text])
 aCLPendingChanges_userNamesToAdd = Lens.lens (\ACLPendingChanges' {userNamesToAdd} -> userNamesToAdd) (\s@ACLPendingChanges' {} a -> s {userNamesToAdd = a} :: ACLPendingChanges) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of user names being removed from the ACL
+aCLPendingChanges_userNamesToRemove :: Lens.Lens' ACLPendingChanges (Prelude.Maybe [Prelude.Text])
+aCLPendingChanges_userNamesToRemove = Lens.lens (\ACLPendingChanges' {userNamesToRemove} -> userNamesToRemove) (\s@ACLPendingChanges' {} a -> s {userNamesToRemove = a} :: ACLPendingChanges) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON ACLPendingChanges where
   parseJSON =
@@ -69,20 +69,18 @@ instance Data.FromJSON ACLPendingChanges where
       "ACLPendingChanges"
       ( \x ->
           ACLPendingChanges'
-            Prelude.<$> ( x Data..:? "UserNamesToRemove"
-                            Data..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Data..:? "UserNamesToAdd"
+            Prelude.<$> (x Data..:? "UserNamesToAdd" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "UserNamesToRemove"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ACLPendingChanges where
   hashWithSalt _salt ACLPendingChanges' {..} =
-    _salt `Prelude.hashWithSalt` userNamesToRemove
-      `Prelude.hashWithSalt` userNamesToAdd
+    _salt `Prelude.hashWithSalt` userNamesToAdd
+      `Prelude.hashWithSalt` userNamesToRemove
 
 instance Prelude.NFData ACLPendingChanges where
   rnf ACLPendingChanges' {..} =
-    Prelude.rnf userNamesToRemove
-      `Prelude.seq` Prelude.rnf userNamesToAdd
+    Prelude.rnf userNamesToAdd
+      `Prelude.seq` Prelude.rnf userNamesToRemove

@@ -37,25 +37,25 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHost' smart constructor.
 data Host = Host'
-  { -- | The VPC configuration provisioned for the host.
-    vpcConfiguration :: Prelude.Maybe VpcConfiguration,
+  { -- | The Amazon Resource Name (ARN) of the host.
+    hostArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the host.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the host.
-    hostArn :: Prelude.Maybe Prelude.Text,
     -- | The endpoint of the infrastructure where your provider type is
     -- installed.
     providerEndpoint :: Prelude.Maybe Prelude.Text,
-    -- | The status of the host, such as PENDING, AVAILABLE, VPC_CONFIG_DELETING,
-    -- VPC_CONFIG_INITIALIZING, and VPC_CONFIG_FAILED_INITIALIZATION.
-    status :: Prelude.Maybe Prelude.Text,
     -- | The name of the installed provider to be associated with your
     -- connection. The host resource represents the infrastructure where your
     -- provider type is installed. The valid provider type is GitHub Enterprise
     -- Server.
     providerType :: Prelude.Maybe ProviderType,
+    -- | The status of the host, such as PENDING, AVAILABLE, VPC_CONFIG_DELETING,
+    -- VPC_CONFIG_INITIALIZING, and VPC_CONFIG_FAILED_INITIALIZATION.
+    status :: Prelude.Maybe Prelude.Text,
     -- | The status description for the host.
-    statusMessage :: Prelude.Maybe Prelude.Text
+    statusMessage :: Prelude.Maybe Prelude.Text,
+    -- | The VPC configuration provisioned for the host.
+    vpcConfiguration :: Prelude.Maybe VpcConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,58 +67,49 @@ data Host = Host'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vpcConfiguration', 'host_vpcConfiguration' - The VPC configuration provisioned for the host.
+-- 'hostArn', 'host_hostArn' - The Amazon Resource Name (ARN) of the host.
 --
 -- 'name', 'host_name' - The name of the host.
 --
--- 'hostArn', 'host_hostArn' - The Amazon Resource Name (ARN) of the host.
---
 -- 'providerEndpoint', 'host_providerEndpoint' - The endpoint of the infrastructure where your provider type is
 -- installed.
---
--- 'status', 'host_status' - The status of the host, such as PENDING, AVAILABLE, VPC_CONFIG_DELETING,
--- VPC_CONFIG_INITIALIZING, and VPC_CONFIG_FAILED_INITIALIZATION.
 --
 -- 'providerType', 'host_providerType' - The name of the installed provider to be associated with your
 -- connection. The host resource represents the infrastructure where your
 -- provider type is installed. The valid provider type is GitHub Enterprise
 -- Server.
 --
+-- 'status', 'host_status' - The status of the host, such as PENDING, AVAILABLE, VPC_CONFIG_DELETING,
+-- VPC_CONFIG_INITIALIZING, and VPC_CONFIG_FAILED_INITIALIZATION.
+--
 -- 'statusMessage', 'host_statusMessage' - The status description for the host.
+--
+-- 'vpcConfiguration', 'host_vpcConfiguration' - The VPC configuration provisioned for the host.
 newHost ::
   Host
 newHost =
   Host'
-    { vpcConfiguration = Prelude.Nothing,
+    { hostArn = Prelude.Nothing,
       name = Prelude.Nothing,
-      hostArn = Prelude.Nothing,
       providerEndpoint = Prelude.Nothing,
-      status = Prelude.Nothing,
       providerType = Prelude.Nothing,
-      statusMessage = Prelude.Nothing
+      status = Prelude.Nothing,
+      statusMessage = Prelude.Nothing,
+      vpcConfiguration = Prelude.Nothing
     }
-
--- | The VPC configuration provisioned for the host.
-host_vpcConfiguration :: Lens.Lens' Host (Prelude.Maybe VpcConfiguration)
-host_vpcConfiguration = Lens.lens (\Host' {vpcConfiguration} -> vpcConfiguration) (\s@Host' {} a -> s {vpcConfiguration = a} :: Host)
-
--- | The name of the host.
-host_name :: Lens.Lens' Host (Prelude.Maybe Prelude.Text)
-host_name = Lens.lens (\Host' {name} -> name) (\s@Host' {} a -> s {name = a} :: Host)
 
 -- | The Amazon Resource Name (ARN) of the host.
 host_hostArn :: Lens.Lens' Host (Prelude.Maybe Prelude.Text)
 host_hostArn = Lens.lens (\Host' {hostArn} -> hostArn) (\s@Host' {} a -> s {hostArn = a} :: Host)
 
+-- | The name of the host.
+host_name :: Lens.Lens' Host (Prelude.Maybe Prelude.Text)
+host_name = Lens.lens (\Host' {name} -> name) (\s@Host' {} a -> s {name = a} :: Host)
+
 -- | The endpoint of the infrastructure where your provider type is
 -- installed.
 host_providerEndpoint :: Lens.Lens' Host (Prelude.Maybe Prelude.Text)
 host_providerEndpoint = Lens.lens (\Host' {providerEndpoint} -> providerEndpoint) (\s@Host' {} a -> s {providerEndpoint = a} :: Host)
-
--- | The status of the host, such as PENDING, AVAILABLE, VPC_CONFIG_DELETING,
--- VPC_CONFIG_INITIALIZING, and VPC_CONFIG_FAILED_INITIALIZATION.
-host_status :: Lens.Lens' Host (Prelude.Maybe Prelude.Text)
-host_status = Lens.lens (\Host' {status} -> status) (\s@Host' {} a -> s {status = a} :: Host)
 
 -- | The name of the installed provider to be associated with your
 -- connection. The host resource represents the infrastructure where your
@@ -127,9 +118,18 @@ host_status = Lens.lens (\Host' {status} -> status) (\s@Host' {} a -> s {status 
 host_providerType :: Lens.Lens' Host (Prelude.Maybe ProviderType)
 host_providerType = Lens.lens (\Host' {providerType} -> providerType) (\s@Host' {} a -> s {providerType = a} :: Host)
 
+-- | The status of the host, such as PENDING, AVAILABLE, VPC_CONFIG_DELETING,
+-- VPC_CONFIG_INITIALIZING, and VPC_CONFIG_FAILED_INITIALIZATION.
+host_status :: Lens.Lens' Host (Prelude.Maybe Prelude.Text)
+host_status = Lens.lens (\Host' {status} -> status) (\s@Host' {} a -> s {status = a} :: Host)
+
 -- | The status description for the host.
 host_statusMessage :: Lens.Lens' Host (Prelude.Maybe Prelude.Text)
 host_statusMessage = Lens.lens (\Host' {statusMessage} -> statusMessage) (\s@Host' {} a -> s {statusMessage = a} :: Host)
+
+-- | The VPC configuration provisioned for the host.
+host_vpcConfiguration :: Lens.Lens' Host (Prelude.Maybe VpcConfiguration)
+host_vpcConfiguration = Lens.lens (\Host' {vpcConfiguration} -> vpcConfiguration) (\s@Host' {} a -> s {vpcConfiguration = a} :: Host)
 
 instance Data.FromJSON Host where
   parseJSON =
@@ -137,31 +137,31 @@ instance Data.FromJSON Host where
       "Host"
       ( \x ->
           Host'
-            Prelude.<$> (x Data..:? "VpcConfiguration")
+            Prelude.<$> (x Data..:? "HostArn")
             Prelude.<*> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "HostArn")
             Prelude.<*> (x Data..:? "ProviderEndpoint")
-            Prelude.<*> (x Data..:? "Status")
             Prelude.<*> (x Data..:? "ProviderType")
+            Prelude.<*> (x Data..:? "Status")
             Prelude.<*> (x Data..:? "StatusMessage")
+            Prelude.<*> (x Data..:? "VpcConfiguration")
       )
 
 instance Prelude.Hashable Host where
   hashWithSalt _salt Host' {..} =
-    _salt `Prelude.hashWithSalt` vpcConfiguration
+    _salt `Prelude.hashWithSalt` hostArn
       `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` hostArn
       `Prelude.hashWithSalt` providerEndpoint
-      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` providerType
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` statusMessage
+      `Prelude.hashWithSalt` vpcConfiguration
 
 instance Prelude.NFData Host where
   rnf Host' {..} =
-    Prelude.rnf vpcConfiguration
+    Prelude.rnf hostArn
       `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf hostArn
       `Prelude.seq` Prelude.rnf providerEndpoint
-      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf providerType
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf vpcConfiguration

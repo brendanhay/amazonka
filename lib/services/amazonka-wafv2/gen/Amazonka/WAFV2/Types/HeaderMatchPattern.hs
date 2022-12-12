@@ -36,14 +36,14 @@ import Amazonka.WAFV2.Types.All
 --
 -- /See:/ 'newHeaderMatchPattern' smart constructor.
 data HeaderMatchPattern = HeaderMatchPattern'
-  { -- | Inspect only the headers whose keys don\'t match any of the strings
+  { -- | Inspect all headers.
+    all :: Prelude.Maybe All,
+    -- | Inspect only the headers whose keys don\'t match any of the strings
     -- specified here.
     excludedHeaders :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | Inspect only the headers that have a key that matches one of the strings
     -- specified here.
-    includedHeaders :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | Inspect all headers.
-    all :: Prelude.Maybe All
+    includedHeaders :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,22 +55,25 @@ data HeaderMatchPattern = HeaderMatchPattern'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'all', 'headerMatchPattern_all' - Inspect all headers.
+--
 -- 'excludedHeaders', 'headerMatchPattern_excludedHeaders' - Inspect only the headers whose keys don\'t match any of the strings
 -- specified here.
 --
 -- 'includedHeaders', 'headerMatchPattern_includedHeaders' - Inspect only the headers that have a key that matches one of the strings
 -- specified here.
---
--- 'all', 'headerMatchPattern_all' - Inspect all headers.
 newHeaderMatchPattern ::
   HeaderMatchPattern
 newHeaderMatchPattern =
   HeaderMatchPattern'
-    { excludedHeaders =
-        Prelude.Nothing,
-      includedHeaders = Prelude.Nothing,
-      all = Prelude.Nothing
+    { all = Prelude.Nothing,
+      excludedHeaders = Prelude.Nothing,
+      includedHeaders = Prelude.Nothing
     }
+
+-- | Inspect all headers.
+headerMatchPattern_all :: Lens.Lens' HeaderMatchPattern (Prelude.Maybe All)
+headerMatchPattern_all = Lens.lens (\HeaderMatchPattern' {all} -> all) (\s@HeaderMatchPattern' {} a -> s {all = a} :: HeaderMatchPattern)
 
 -- | Inspect only the headers whose keys don\'t match any of the strings
 -- specified here.
@@ -82,41 +85,37 @@ headerMatchPattern_excludedHeaders = Lens.lens (\HeaderMatchPattern' {excludedHe
 headerMatchPattern_includedHeaders :: Lens.Lens' HeaderMatchPattern (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 headerMatchPattern_includedHeaders = Lens.lens (\HeaderMatchPattern' {includedHeaders} -> includedHeaders) (\s@HeaderMatchPattern' {} a -> s {includedHeaders = a} :: HeaderMatchPattern) Prelude.. Lens.mapping Lens.coerced
 
--- | Inspect all headers.
-headerMatchPattern_all :: Lens.Lens' HeaderMatchPattern (Prelude.Maybe All)
-headerMatchPattern_all = Lens.lens (\HeaderMatchPattern' {all} -> all) (\s@HeaderMatchPattern' {} a -> s {all = a} :: HeaderMatchPattern)
-
 instance Data.FromJSON HeaderMatchPattern where
   parseJSON =
     Data.withObject
       "HeaderMatchPattern"
       ( \x ->
           HeaderMatchPattern'
-            Prelude.<$> (x Data..:? "ExcludedHeaders")
+            Prelude.<$> (x Data..:? "All")
+            Prelude.<*> (x Data..:? "ExcludedHeaders")
             Prelude.<*> (x Data..:? "IncludedHeaders")
-            Prelude.<*> (x Data..:? "All")
       )
 
 instance Prelude.Hashable HeaderMatchPattern where
   hashWithSalt _salt HeaderMatchPattern' {..} =
-    _salt `Prelude.hashWithSalt` excludedHeaders
+    _salt `Prelude.hashWithSalt` all
+      `Prelude.hashWithSalt` excludedHeaders
       `Prelude.hashWithSalt` includedHeaders
-      `Prelude.hashWithSalt` all
 
 instance Prelude.NFData HeaderMatchPattern where
   rnf HeaderMatchPattern' {..} =
-    Prelude.rnf excludedHeaders
+    Prelude.rnf all
+      `Prelude.seq` Prelude.rnf excludedHeaders
       `Prelude.seq` Prelude.rnf includedHeaders
-      `Prelude.seq` Prelude.rnf all
 
 instance Data.ToJSON HeaderMatchPattern where
   toJSON HeaderMatchPattern' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ExcludedHeaders" Data..=)
+          [ ("All" Data..=) Prelude.<$> all,
+            ("ExcludedHeaders" Data..=)
               Prelude.<$> excludedHeaders,
             ("IncludedHeaders" Data..=)
-              Prelude.<$> includedHeaders,
-            ("All" Data..=) Prelude.<$> all
+              Prelude.<$> includedHeaders
           ]
       )

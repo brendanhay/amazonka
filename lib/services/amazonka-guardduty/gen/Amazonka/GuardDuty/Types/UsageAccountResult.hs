@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUsageAccountResult' smart constructor.
 data UsageAccountResult = UsageAccountResult'
-  { -- | Represents the total of usage for the Account ID.
-    total :: Prelude.Maybe Total,
-    -- | The Account ID that generated usage.
-    accountId :: Prelude.Maybe Prelude.Text
+  { -- | The Account ID that generated usage.
+    accountId :: Prelude.Maybe Prelude.Text,
+    -- | Represents the total of usage for the Account ID.
+    total :: Prelude.Maybe Total
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data UsageAccountResult = UsageAccountResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'total', 'usageAccountResult_total' - Represents the total of usage for the Account ID.
---
 -- 'accountId', 'usageAccountResult_accountId' - The Account ID that generated usage.
+--
+-- 'total', 'usageAccountResult_total' - Represents the total of usage for the Account ID.
 newUsageAccountResult ::
   UsageAccountResult
 newUsageAccountResult =
   UsageAccountResult'
-    { total = Prelude.Nothing,
-      accountId = Prelude.Nothing
+    { accountId = Prelude.Nothing,
+      total = Prelude.Nothing
     }
-
--- | Represents the total of usage for the Account ID.
-usageAccountResult_total :: Lens.Lens' UsageAccountResult (Prelude.Maybe Total)
-usageAccountResult_total = Lens.lens (\UsageAccountResult' {total} -> total) (\s@UsageAccountResult' {} a -> s {total = a} :: UsageAccountResult)
 
 -- | The Account ID that generated usage.
 usageAccountResult_accountId :: Lens.Lens' UsageAccountResult (Prelude.Maybe Prelude.Text)
 usageAccountResult_accountId = Lens.lens (\UsageAccountResult' {accountId} -> accountId) (\s@UsageAccountResult' {} a -> s {accountId = a} :: UsageAccountResult)
+
+-- | Represents the total of usage for the Account ID.
+usageAccountResult_total :: Lens.Lens' UsageAccountResult (Prelude.Maybe Total)
+usageAccountResult_total = Lens.lens (\UsageAccountResult' {total} -> total) (\s@UsageAccountResult' {} a -> s {total = a} :: UsageAccountResult)
 
 instance Data.FromJSON UsageAccountResult where
   parseJSON =
@@ -69,16 +69,16 @@ instance Data.FromJSON UsageAccountResult where
       "UsageAccountResult"
       ( \x ->
           UsageAccountResult'
-            Prelude.<$> (x Data..:? "total")
-            Prelude.<*> (x Data..:? "accountId")
+            Prelude.<$> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "total")
       )
 
 instance Prelude.Hashable UsageAccountResult where
   hashWithSalt _salt UsageAccountResult' {..} =
-    _salt `Prelude.hashWithSalt` total
-      `Prelude.hashWithSalt` accountId
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` total
 
 instance Prelude.NFData UsageAccountResult where
   rnf UsageAccountResult' {..} =
-    Prelude.rnf total
-      `Prelude.seq` Prelude.rnf accountId
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf total

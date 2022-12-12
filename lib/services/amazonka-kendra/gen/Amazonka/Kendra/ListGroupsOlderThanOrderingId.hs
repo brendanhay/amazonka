@@ -31,9 +31,9 @@ module Amazonka.Kendra.ListGroupsOlderThanOrderingId
     newListGroupsOlderThanOrderingId,
 
     -- * Request Lenses
-    listGroupsOlderThanOrderingId_nextToken,
     listGroupsOlderThanOrderingId_dataSourceId,
     listGroupsOlderThanOrderingId_maxResults,
+    listGroupsOlderThanOrderingId_nextToken,
     listGroupsOlderThanOrderingId_indexId,
     listGroupsOlderThanOrderingId_orderingId,
 
@@ -42,8 +42,8 @@ module Amazonka.Kendra.ListGroupsOlderThanOrderingId
     newListGroupsOlderThanOrderingIdResponse,
 
     -- * Response Lenses
-    listGroupsOlderThanOrderingIdResponse_nextToken,
     listGroupsOlderThanOrderingIdResponse_groupsSummaries,
+    listGroupsOlderThanOrderingIdResponse_nextToken,
     listGroupsOlderThanOrderingIdResponse_httpStatus,
   )
 where
@@ -58,17 +58,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListGroupsOlderThanOrderingId' smart constructor.
 data ListGroupsOlderThanOrderingId = ListGroupsOlderThanOrderingId'
-  { -- | If the previous response was incomplete (because there is more data to
-    -- retrieve), Amazon Kendra returns a pagination token in the response. You
-    -- can use this pagination token to retrieve the next set of groups that
-    -- are mapped to users before a given ordering or timestamp identifier.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the data source for getting a list of groups mapped to
+  { -- | The identifier of the data source for getting a list of groups mapped to
     -- users before a given ordering timestamp identifier.
     dataSourceId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of returned groups that are mapped to users before a
     -- given ordering or timestamp identifier.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the previous response was incomplete (because there is more data to
+    -- retrieve), Amazon Kendra returns a pagination token in the response. You
+    -- can use this pagination token to retrieve the next set of groups that
+    -- are mapped to users before a given ordering or timestamp identifier.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the index for getting a list of groups mapped to users
     -- before a given ordering or timestamp identifier.
     indexId :: Prelude.Text,
@@ -86,16 +86,16 @@ data ListGroupsOlderThanOrderingId = ListGroupsOlderThanOrderingId'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listGroupsOlderThanOrderingId_nextToken' - If the previous response was incomplete (because there is more data to
--- retrieve), Amazon Kendra returns a pagination token in the response. You
--- can use this pagination token to retrieve the next set of groups that
--- are mapped to users before a given ordering or timestamp identifier.
---
 -- 'dataSourceId', 'listGroupsOlderThanOrderingId_dataSourceId' - The identifier of the data source for getting a list of groups mapped to
 -- users before a given ordering timestamp identifier.
 --
 -- 'maxResults', 'listGroupsOlderThanOrderingId_maxResults' - The maximum number of returned groups that are mapped to users before a
 -- given ordering or timestamp identifier.
+--
+-- 'nextToken', 'listGroupsOlderThanOrderingId_nextToken' - If the previous response was incomplete (because there is more data to
+-- retrieve), Amazon Kendra returns a pagination token in the response. You
+-- can use this pagination token to retrieve the next set of groups that
+-- are mapped to users before a given ordering or timestamp identifier.
 --
 -- 'indexId', 'listGroupsOlderThanOrderingId_indexId' - The identifier of the index for getting a list of groups mapped to users
 -- before a given ordering or timestamp identifier.
@@ -112,20 +112,13 @@ newListGroupsOlderThanOrderingId
   pIndexId_
   pOrderingId_ =
     ListGroupsOlderThanOrderingId'
-      { nextToken =
+      { dataSourceId =
           Prelude.Nothing,
-        dataSourceId = Prelude.Nothing,
         maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         indexId = pIndexId_,
         orderingId = pOrderingId_
       }
-
--- | If the previous response was incomplete (because there is more data to
--- retrieve), Amazon Kendra returns a pagination token in the response. You
--- can use this pagination token to retrieve the next set of groups that
--- are mapped to users before a given ordering or timestamp identifier.
-listGroupsOlderThanOrderingId_nextToken :: Lens.Lens' ListGroupsOlderThanOrderingId (Prelude.Maybe Prelude.Text)
-listGroupsOlderThanOrderingId_nextToken = Lens.lens (\ListGroupsOlderThanOrderingId' {nextToken} -> nextToken) (\s@ListGroupsOlderThanOrderingId' {} a -> s {nextToken = a} :: ListGroupsOlderThanOrderingId)
 
 -- | The identifier of the data source for getting a list of groups mapped to
 -- users before a given ordering timestamp identifier.
@@ -136,6 +129,13 @@ listGroupsOlderThanOrderingId_dataSourceId = Lens.lens (\ListGroupsOlderThanOrde
 -- given ordering or timestamp identifier.
 listGroupsOlderThanOrderingId_maxResults :: Lens.Lens' ListGroupsOlderThanOrderingId (Prelude.Maybe Prelude.Natural)
 listGroupsOlderThanOrderingId_maxResults = Lens.lens (\ListGroupsOlderThanOrderingId' {maxResults} -> maxResults) (\s@ListGroupsOlderThanOrderingId' {} a -> s {maxResults = a} :: ListGroupsOlderThanOrderingId)
+
+-- | If the previous response was incomplete (because there is more data to
+-- retrieve), Amazon Kendra returns a pagination token in the response. You
+-- can use this pagination token to retrieve the next set of groups that
+-- are mapped to users before a given ordering or timestamp identifier.
+listGroupsOlderThanOrderingId_nextToken :: Lens.Lens' ListGroupsOlderThanOrderingId (Prelude.Maybe Prelude.Text)
+listGroupsOlderThanOrderingId_nextToken = Lens.lens (\ListGroupsOlderThanOrderingId' {nextToken} -> nextToken) (\s@ListGroupsOlderThanOrderingId' {} a -> s {nextToken = a} :: ListGroupsOlderThanOrderingId)
 
 -- | The identifier of the index for getting a list of groups mapped to users
 -- before a given ordering or timestamp identifier.
@@ -160,10 +160,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListGroupsOlderThanOrderingIdResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "GroupsSummaries"
+            Prelude.<$> ( x Data..?> "GroupsSummaries"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,17 +172,17 @@ instance
     ListGroupsOlderThanOrderingId
   where
   hashWithSalt _salt ListGroupsOlderThanOrderingId' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` dataSourceId
+    _salt `Prelude.hashWithSalt` dataSourceId
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` indexId
       `Prelude.hashWithSalt` orderingId
 
 instance Prelude.NFData ListGroupsOlderThanOrderingId where
   rnf ListGroupsOlderThanOrderingId' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf dataSourceId
+    Prelude.rnf dataSourceId
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf indexId
       `Prelude.seq` Prelude.rnf orderingId
 
@@ -205,9 +205,9 @@ instance Data.ToJSON ListGroupsOlderThanOrderingId where
   toJSON ListGroupsOlderThanOrderingId' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("DataSourceId" Data..=) Prelude.<$> dataSourceId,
+          [ ("DataSourceId" Data..=) Prelude.<$> dataSourceId,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("IndexId" Data..= indexId),
             Prelude.Just ("OrderingId" Data..= orderingId)
           ]
@@ -221,14 +221,14 @@ instance Data.ToQuery ListGroupsOlderThanOrderingId where
 
 -- | /See:/ 'newListGroupsOlderThanOrderingIdResponse' smart constructor.
 data ListGroupsOlderThanOrderingIdResponse = ListGroupsOlderThanOrderingIdResponse'
-  { -- | If the response is truncated, Amazon Kendra returns this token that you
+  { -- | Summary information for list of groups that are mapped to users before a
+    -- given ordering or timestamp identifier.
+    groupsSummaries :: Prelude.Maybe [GroupSummary],
+    -- | If the response is truncated, Amazon Kendra returns this token that you
     -- can use in the subsequent request to retrieve the next set of groups
     -- that are mapped to users before a given ordering or timestamp
     -- identifier.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Summary information for list of groups that are mapped to users before a
-    -- given ordering or timestamp identifier.
-    groupsSummaries :: Prelude.Maybe [GroupSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -242,13 +242,13 @@ data ListGroupsOlderThanOrderingIdResponse = ListGroupsOlderThanOrderingIdRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'groupsSummaries', 'listGroupsOlderThanOrderingIdResponse_groupsSummaries' - Summary information for list of groups that are mapped to users before a
+-- given ordering or timestamp identifier.
+--
 -- 'nextToken', 'listGroupsOlderThanOrderingIdResponse_nextToken' - If the response is truncated, Amazon Kendra returns this token that you
 -- can use in the subsequent request to retrieve the next set of groups
 -- that are mapped to users before a given ordering or timestamp
 -- identifier.
---
--- 'groupsSummaries', 'listGroupsOlderThanOrderingIdResponse_groupsSummaries' - Summary information for list of groups that are mapped to users before a
--- given ordering or timestamp identifier.
 --
 -- 'httpStatus', 'listGroupsOlderThanOrderingIdResponse_httpStatus' - The response's http status code.
 newListGroupsOlderThanOrderingIdResponse ::
@@ -257,11 +257,16 @@ newListGroupsOlderThanOrderingIdResponse ::
   ListGroupsOlderThanOrderingIdResponse
 newListGroupsOlderThanOrderingIdResponse pHttpStatus_ =
   ListGroupsOlderThanOrderingIdResponse'
-    { nextToken =
+    { groupsSummaries =
         Prelude.Nothing,
-      groupsSummaries = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Summary information for list of groups that are mapped to users before a
+-- given ordering or timestamp identifier.
+listGroupsOlderThanOrderingIdResponse_groupsSummaries :: Lens.Lens' ListGroupsOlderThanOrderingIdResponse (Prelude.Maybe [GroupSummary])
+listGroupsOlderThanOrderingIdResponse_groupsSummaries = Lens.lens (\ListGroupsOlderThanOrderingIdResponse' {groupsSummaries} -> groupsSummaries) (\s@ListGroupsOlderThanOrderingIdResponse' {} a -> s {groupsSummaries = a} :: ListGroupsOlderThanOrderingIdResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the response is truncated, Amazon Kendra returns this token that you
 -- can use in the subsequent request to retrieve the next set of groups
@@ -269,11 +274,6 @@ newListGroupsOlderThanOrderingIdResponse pHttpStatus_ =
 -- identifier.
 listGroupsOlderThanOrderingIdResponse_nextToken :: Lens.Lens' ListGroupsOlderThanOrderingIdResponse (Prelude.Maybe Prelude.Text)
 listGroupsOlderThanOrderingIdResponse_nextToken = Lens.lens (\ListGroupsOlderThanOrderingIdResponse' {nextToken} -> nextToken) (\s@ListGroupsOlderThanOrderingIdResponse' {} a -> s {nextToken = a} :: ListGroupsOlderThanOrderingIdResponse)
-
--- | Summary information for list of groups that are mapped to users before a
--- given ordering or timestamp identifier.
-listGroupsOlderThanOrderingIdResponse_groupsSummaries :: Lens.Lens' ListGroupsOlderThanOrderingIdResponse (Prelude.Maybe [GroupSummary])
-listGroupsOlderThanOrderingIdResponse_groupsSummaries = Lens.lens (\ListGroupsOlderThanOrderingIdResponse' {groupsSummaries} -> groupsSummaries) (\s@ListGroupsOlderThanOrderingIdResponse' {} a -> s {groupsSummaries = a} :: ListGroupsOlderThanOrderingIdResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listGroupsOlderThanOrderingIdResponse_httpStatus :: Lens.Lens' ListGroupsOlderThanOrderingIdResponse Prelude.Int
@@ -284,6 +284,6 @@ instance
     ListGroupsOlderThanOrderingIdResponse
   where
   rnf ListGroupsOlderThanOrderingIdResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf groupsSummaries
+    Prelude.rnf groupsSummaries
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

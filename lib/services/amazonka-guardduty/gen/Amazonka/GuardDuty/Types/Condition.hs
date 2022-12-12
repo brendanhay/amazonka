@@ -28,42 +28,42 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCondition' smart constructor.
 data Condition = Condition'
-  { -- | Represents a /not equal/ ____ condition to be applied to a single field
-    -- when querying for findings.
-    notEquals :: Prelude.Maybe [Prelude.Text],
-    -- | Represents a /less than or equal/ condition to be applied to a single
-    -- field when querying for findings.
-    lessThanOrEqual :: Prelude.Maybe Prelude.Integer,
-    -- | Represents the /not equal/ condition to be applied to a single field
-    -- when querying for findings.
-    neq :: Prelude.Maybe [Prelude.Text],
+  { -- | Represents the /equal/ condition to be applied to a single field when
+    -- querying for findings.
+    eq :: Prelude.Maybe [Prelude.Text],
     -- | Represents an /equal/ ____ condition to be applied to a single field
     -- when querying for findings.
     equals :: Prelude.Maybe [Prelude.Text],
-    -- | Represents a /less than/ condition to be applied to a single field when
-    -- querying for findings.
-    lessThan :: Prelude.Maybe Prelude.Integer,
-    -- | Represents a /less than or equal/ condition to be applied to a single
-    -- field when querying for findings.
-    lte :: Prelude.Maybe Prelude.Int,
-    -- | Represents a /less than/ condition to be applied to a single field when
-    -- querying for findings.
-    lt :: Prelude.Maybe Prelude.Int,
-    -- | Represents a /greater than or equal/ condition to be applied to a single
-    -- field when querying for findings.
-    gte :: Prelude.Maybe Prelude.Int,
-    -- | Represents the /equal/ condition to be applied to a single field when
-    -- querying for findings.
-    eq :: Prelude.Maybe [Prelude.Text],
     -- | Represents a /greater than/ condition to be applied to a single field
     -- when querying for findings.
-    gt :: Prelude.Maybe Prelude.Int,
+    greaterThan :: Prelude.Maybe Prelude.Integer,
     -- | Represents a /greater than or equal/ condition to be applied to a single
     -- field when querying for findings.
     greaterThanOrEqual :: Prelude.Maybe Prelude.Integer,
     -- | Represents a /greater than/ condition to be applied to a single field
     -- when querying for findings.
-    greaterThan :: Prelude.Maybe Prelude.Integer
+    gt :: Prelude.Maybe Prelude.Int,
+    -- | Represents a /greater than or equal/ condition to be applied to a single
+    -- field when querying for findings.
+    gte :: Prelude.Maybe Prelude.Int,
+    -- | Represents a /less than/ condition to be applied to a single field when
+    -- querying for findings.
+    lessThan :: Prelude.Maybe Prelude.Integer,
+    -- | Represents a /less than or equal/ condition to be applied to a single
+    -- field when querying for findings.
+    lessThanOrEqual :: Prelude.Maybe Prelude.Integer,
+    -- | Represents a /less than/ condition to be applied to a single field when
+    -- querying for findings.
+    lt :: Prelude.Maybe Prelude.Int,
+    -- | Represents a /less than or equal/ condition to be applied to a single
+    -- field when querying for findings.
+    lte :: Prelude.Maybe Prelude.Int,
+    -- | Represents the /not equal/ condition to be applied to a single field
+    -- when querying for findings.
+    neq :: Prelude.Maybe [Prelude.Text],
+    -- | Represents a /not equal/ ____ condition to be applied to a single field
+    -- when querying for findings.
+    notEquals :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,108 +75,73 @@ data Condition = Condition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'notEquals', 'condition_notEquals' - Represents a /not equal/ ____ condition to be applied to a single field
--- when querying for findings.
---
--- 'lessThanOrEqual', 'condition_lessThanOrEqual' - Represents a /less than or equal/ condition to be applied to a single
--- field when querying for findings.
---
--- 'neq', 'condition_neq' - Represents the /not equal/ condition to be applied to a single field
--- when querying for findings.
+-- 'eq', 'condition_eq' - Represents the /equal/ condition to be applied to a single field when
+-- querying for findings.
 --
 -- 'equals', 'condition_equals' - Represents an /equal/ ____ condition to be applied to a single field
 -- when querying for findings.
 --
--- 'lessThan', 'condition_lessThan' - Represents a /less than/ condition to be applied to a single field when
--- querying for findings.
---
--- 'lte', 'condition_lte' - Represents a /less than or equal/ condition to be applied to a single
--- field when querying for findings.
---
--- 'lt', 'condition_lt' - Represents a /less than/ condition to be applied to a single field when
--- querying for findings.
---
--- 'gte', 'condition_gte' - Represents a /greater than or equal/ condition to be applied to a single
--- field when querying for findings.
---
--- 'eq', 'condition_eq' - Represents the /equal/ condition to be applied to a single field when
--- querying for findings.
---
--- 'gt', 'condition_gt' - Represents a /greater than/ condition to be applied to a single field
+-- 'greaterThan', 'condition_greaterThan' - Represents a /greater than/ condition to be applied to a single field
 -- when querying for findings.
 --
 -- 'greaterThanOrEqual', 'condition_greaterThanOrEqual' - Represents a /greater than or equal/ condition to be applied to a single
 -- field when querying for findings.
 --
--- 'greaterThan', 'condition_greaterThan' - Represents a /greater than/ condition to be applied to a single field
+-- 'gt', 'condition_gt' - Represents a /greater than/ condition to be applied to a single field
+-- when querying for findings.
+--
+-- 'gte', 'condition_gte' - Represents a /greater than or equal/ condition to be applied to a single
+-- field when querying for findings.
+--
+-- 'lessThan', 'condition_lessThan' - Represents a /less than/ condition to be applied to a single field when
+-- querying for findings.
+--
+-- 'lessThanOrEqual', 'condition_lessThanOrEqual' - Represents a /less than or equal/ condition to be applied to a single
+-- field when querying for findings.
+--
+-- 'lt', 'condition_lt' - Represents a /less than/ condition to be applied to a single field when
+-- querying for findings.
+--
+-- 'lte', 'condition_lte' - Represents a /less than or equal/ condition to be applied to a single
+-- field when querying for findings.
+--
+-- 'neq', 'condition_neq' - Represents the /not equal/ condition to be applied to a single field
+-- when querying for findings.
+--
+-- 'notEquals', 'condition_notEquals' - Represents a /not equal/ ____ condition to be applied to a single field
 -- when querying for findings.
 newCondition ::
   Condition
 newCondition =
   Condition'
-    { notEquals = Prelude.Nothing,
-      lessThanOrEqual = Prelude.Nothing,
-      neq = Prelude.Nothing,
+    { eq = Prelude.Nothing,
       equals = Prelude.Nothing,
-      lessThan = Prelude.Nothing,
-      lte = Prelude.Nothing,
-      lt = Prelude.Nothing,
-      gte = Prelude.Nothing,
-      eq = Prelude.Nothing,
-      gt = Prelude.Nothing,
+      greaterThan = Prelude.Nothing,
       greaterThanOrEqual = Prelude.Nothing,
-      greaterThan = Prelude.Nothing
+      gt = Prelude.Nothing,
+      gte = Prelude.Nothing,
+      lessThan = Prelude.Nothing,
+      lessThanOrEqual = Prelude.Nothing,
+      lt = Prelude.Nothing,
+      lte = Prelude.Nothing,
+      neq = Prelude.Nothing,
+      notEquals = Prelude.Nothing
     }
-
--- | Represents a /not equal/ ____ condition to be applied to a single field
--- when querying for findings.
-condition_notEquals :: Lens.Lens' Condition (Prelude.Maybe [Prelude.Text])
-condition_notEquals = Lens.lens (\Condition' {notEquals} -> notEquals) (\s@Condition' {} a -> s {notEquals = a} :: Condition) Prelude.. Lens.mapping Lens.coerced
-
--- | Represents a /less than or equal/ condition to be applied to a single
--- field when querying for findings.
-condition_lessThanOrEqual :: Lens.Lens' Condition (Prelude.Maybe Prelude.Integer)
-condition_lessThanOrEqual = Lens.lens (\Condition' {lessThanOrEqual} -> lessThanOrEqual) (\s@Condition' {} a -> s {lessThanOrEqual = a} :: Condition)
-
--- | Represents the /not equal/ condition to be applied to a single field
--- when querying for findings.
-condition_neq :: Lens.Lens' Condition (Prelude.Maybe [Prelude.Text])
-condition_neq = Lens.lens (\Condition' {neq} -> neq) (\s@Condition' {} a -> s {neq = a} :: Condition) Prelude.. Lens.mapping Lens.coerced
-
--- | Represents an /equal/ ____ condition to be applied to a single field
--- when querying for findings.
-condition_equals :: Lens.Lens' Condition (Prelude.Maybe [Prelude.Text])
-condition_equals = Lens.lens (\Condition' {equals} -> equals) (\s@Condition' {} a -> s {equals = a} :: Condition) Prelude.. Lens.mapping Lens.coerced
-
--- | Represents a /less than/ condition to be applied to a single field when
--- querying for findings.
-condition_lessThan :: Lens.Lens' Condition (Prelude.Maybe Prelude.Integer)
-condition_lessThan = Lens.lens (\Condition' {lessThan} -> lessThan) (\s@Condition' {} a -> s {lessThan = a} :: Condition)
-
--- | Represents a /less than or equal/ condition to be applied to a single
--- field when querying for findings.
-condition_lte :: Lens.Lens' Condition (Prelude.Maybe Prelude.Int)
-condition_lte = Lens.lens (\Condition' {lte} -> lte) (\s@Condition' {} a -> s {lte = a} :: Condition)
-
--- | Represents a /less than/ condition to be applied to a single field when
--- querying for findings.
-condition_lt :: Lens.Lens' Condition (Prelude.Maybe Prelude.Int)
-condition_lt = Lens.lens (\Condition' {lt} -> lt) (\s@Condition' {} a -> s {lt = a} :: Condition)
-
--- | Represents a /greater than or equal/ condition to be applied to a single
--- field when querying for findings.
-condition_gte :: Lens.Lens' Condition (Prelude.Maybe Prelude.Int)
-condition_gte = Lens.lens (\Condition' {gte} -> gte) (\s@Condition' {} a -> s {gte = a} :: Condition)
 
 -- | Represents the /equal/ condition to be applied to a single field when
 -- querying for findings.
 condition_eq :: Lens.Lens' Condition (Prelude.Maybe [Prelude.Text])
 condition_eq = Lens.lens (\Condition' {eq} -> eq) (\s@Condition' {} a -> s {eq = a} :: Condition) Prelude.. Lens.mapping Lens.coerced
 
+-- | Represents an /equal/ ____ condition to be applied to a single field
+-- when querying for findings.
+condition_equals :: Lens.Lens' Condition (Prelude.Maybe [Prelude.Text])
+condition_equals = Lens.lens (\Condition' {equals} -> equals) (\s@Condition' {} a -> s {equals = a} :: Condition) Prelude.. Lens.mapping Lens.coerced
+
 -- | Represents a /greater than/ condition to be applied to a single field
 -- when querying for findings.
-condition_gt :: Lens.Lens' Condition (Prelude.Maybe Prelude.Int)
-condition_gt = Lens.lens (\Condition' {gt} -> gt) (\s@Condition' {} a -> s {gt = a} :: Condition)
+condition_greaterThan :: Lens.Lens' Condition (Prelude.Maybe Prelude.Integer)
+condition_greaterThan = Lens.lens (\Condition' {greaterThan} -> greaterThan) (\s@Condition' {} a -> s {greaterThan = a} :: Condition)
 
 -- | Represents a /greater than or equal/ condition to be applied to a single
 -- field when querying for findings.
@@ -185,8 +150,43 @@ condition_greaterThanOrEqual = Lens.lens (\Condition' {greaterThanOrEqual} -> gr
 
 -- | Represents a /greater than/ condition to be applied to a single field
 -- when querying for findings.
-condition_greaterThan :: Lens.Lens' Condition (Prelude.Maybe Prelude.Integer)
-condition_greaterThan = Lens.lens (\Condition' {greaterThan} -> greaterThan) (\s@Condition' {} a -> s {greaterThan = a} :: Condition)
+condition_gt :: Lens.Lens' Condition (Prelude.Maybe Prelude.Int)
+condition_gt = Lens.lens (\Condition' {gt} -> gt) (\s@Condition' {} a -> s {gt = a} :: Condition)
+
+-- | Represents a /greater than or equal/ condition to be applied to a single
+-- field when querying for findings.
+condition_gte :: Lens.Lens' Condition (Prelude.Maybe Prelude.Int)
+condition_gte = Lens.lens (\Condition' {gte} -> gte) (\s@Condition' {} a -> s {gte = a} :: Condition)
+
+-- | Represents a /less than/ condition to be applied to a single field when
+-- querying for findings.
+condition_lessThan :: Lens.Lens' Condition (Prelude.Maybe Prelude.Integer)
+condition_lessThan = Lens.lens (\Condition' {lessThan} -> lessThan) (\s@Condition' {} a -> s {lessThan = a} :: Condition)
+
+-- | Represents a /less than or equal/ condition to be applied to a single
+-- field when querying for findings.
+condition_lessThanOrEqual :: Lens.Lens' Condition (Prelude.Maybe Prelude.Integer)
+condition_lessThanOrEqual = Lens.lens (\Condition' {lessThanOrEqual} -> lessThanOrEqual) (\s@Condition' {} a -> s {lessThanOrEqual = a} :: Condition)
+
+-- | Represents a /less than/ condition to be applied to a single field when
+-- querying for findings.
+condition_lt :: Lens.Lens' Condition (Prelude.Maybe Prelude.Int)
+condition_lt = Lens.lens (\Condition' {lt} -> lt) (\s@Condition' {} a -> s {lt = a} :: Condition)
+
+-- | Represents a /less than or equal/ condition to be applied to a single
+-- field when querying for findings.
+condition_lte :: Lens.Lens' Condition (Prelude.Maybe Prelude.Int)
+condition_lte = Lens.lens (\Condition' {lte} -> lte) (\s@Condition' {} a -> s {lte = a} :: Condition)
+
+-- | Represents the /not equal/ condition to be applied to a single field
+-- when querying for findings.
+condition_neq :: Lens.Lens' Condition (Prelude.Maybe [Prelude.Text])
+condition_neq = Lens.lens (\Condition' {neq} -> neq) (\s@Condition' {} a -> s {neq = a} :: Condition) Prelude.. Lens.mapping Lens.coerced
+
+-- | Represents a /not equal/ ____ condition to be applied to a single field
+-- when querying for findings.
+condition_notEquals :: Lens.Lens' Condition (Prelude.Maybe [Prelude.Text])
+condition_notEquals = Lens.lens (\Condition' {notEquals} -> notEquals) (\s@Condition' {} a -> s {notEquals = a} :: Condition) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON Condition where
   parseJSON =
@@ -194,67 +194,67 @@ instance Data.FromJSON Condition where
       "Condition"
       ( \x ->
           Condition'
-            Prelude.<$> (x Data..:? "notEquals" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "lessThanOrEqual")
-            Prelude.<*> (x Data..:? "neq" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "eq" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "equals" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "lessThan")
-            Prelude.<*> (x Data..:? "lte")
-            Prelude.<*> (x Data..:? "lt")
-            Prelude.<*> (x Data..:? "gte")
-            Prelude.<*> (x Data..:? "eq" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "gt")
-            Prelude.<*> (x Data..:? "greaterThanOrEqual")
             Prelude.<*> (x Data..:? "greaterThan")
+            Prelude.<*> (x Data..:? "greaterThanOrEqual")
+            Prelude.<*> (x Data..:? "gt")
+            Prelude.<*> (x Data..:? "gte")
+            Prelude.<*> (x Data..:? "lessThan")
+            Prelude.<*> (x Data..:? "lessThanOrEqual")
+            Prelude.<*> (x Data..:? "lt")
+            Prelude.<*> (x Data..:? "lte")
+            Prelude.<*> (x Data..:? "neq" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "notEquals" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Condition where
   hashWithSalt _salt Condition' {..} =
-    _salt `Prelude.hashWithSalt` notEquals
-      `Prelude.hashWithSalt` lessThanOrEqual
-      `Prelude.hashWithSalt` neq
+    _salt `Prelude.hashWithSalt` eq
       `Prelude.hashWithSalt` equals
-      `Prelude.hashWithSalt` lessThan
-      `Prelude.hashWithSalt` lte
-      `Prelude.hashWithSalt` lt
-      `Prelude.hashWithSalt` gte
-      `Prelude.hashWithSalt` eq
-      `Prelude.hashWithSalt` gt
-      `Prelude.hashWithSalt` greaterThanOrEqual
       `Prelude.hashWithSalt` greaterThan
+      `Prelude.hashWithSalt` greaterThanOrEqual
+      `Prelude.hashWithSalt` gt
+      `Prelude.hashWithSalt` gte
+      `Prelude.hashWithSalt` lessThan
+      `Prelude.hashWithSalt` lessThanOrEqual
+      `Prelude.hashWithSalt` lt
+      `Prelude.hashWithSalt` lte
+      `Prelude.hashWithSalt` neq
+      `Prelude.hashWithSalt` notEquals
 
 instance Prelude.NFData Condition where
   rnf Condition' {..} =
-    Prelude.rnf notEquals
-      `Prelude.seq` Prelude.rnf lessThanOrEqual
-      `Prelude.seq` Prelude.rnf neq
+    Prelude.rnf eq
       `Prelude.seq` Prelude.rnf equals
-      `Prelude.seq` Prelude.rnf lessThan
-      `Prelude.seq` Prelude.rnf lte
-      `Prelude.seq` Prelude.rnf lt
-      `Prelude.seq` Prelude.rnf gte
-      `Prelude.seq` Prelude.rnf eq
-      `Prelude.seq` Prelude.rnf gt
-      `Prelude.seq` Prelude.rnf greaterThanOrEqual
       `Prelude.seq` Prelude.rnf greaterThan
+      `Prelude.seq` Prelude.rnf greaterThanOrEqual
+      `Prelude.seq` Prelude.rnf gt
+      `Prelude.seq` Prelude.rnf gte
+      `Prelude.seq` Prelude.rnf lessThan
+      `Prelude.seq` Prelude.rnf lessThanOrEqual
+      `Prelude.seq` Prelude.rnf lt
+      `Prelude.seq` Prelude.rnf lte
+      `Prelude.seq` Prelude.rnf neq
+      `Prelude.seq` Prelude.rnf notEquals
 
 instance Data.ToJSON Condition where
   toJSON Condition' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("notEquals" Data..=) Prelude.<$> notEquals,
-            ("lessThanOrEqual" Data..=)
-              Prelude.<$> lessThanOrEqual,
-            ("neq" Data..=) Prelude.<$> neq,
+          [ ("eq" Data..=) Prelude.<$> eq,
             ("equals" Data..=) Prelude.<$> equals,
-            ("lessThan" Data..=) Prelude.<$> lessThan,
-            ("lte" Data..=) Prelude.<$> lte,
-            ("lt" Data..=) Prelude.<$> lt,
-            ("gte" Data..=) Prelude.<$> gte,
-            ("eq" Data..=) Prelude.<$> eq,
-            ("gt" Data..=) Prelude.<$> gt,
+            ("greaterThan" Data..=) Prelude.<$> greaterThan,
             ("greaterThanOrEqual" Data..=)
               Prelude.<$> greaterThanOrEqual,
-            ("greaterThan" Data..=) Prelude.<$> greaterThan
+            ("gt" Data..=) Prelude.<$> gt,
+            ("gte" Data..=) Prelude.<$> gte,
+            ("lessThan" Data..=) Prelude.<$> lessThan,
+            ("lessThanOrEqual" Data..=)
+              Prelude.<$> lessThanOrEqual,
+            ("lt" Data..=) Prelude.<$> lt,
+            ("lte" Data..=) Prelude.<$> lte,
+            ("neq" Data..=) Prelude.<$> neq,
+            ("notEquals" Data..=) Prelude.<$> notEquals
           ]
       )

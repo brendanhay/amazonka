@@ -27,10 +27,10 @@ module Amazonka.AlexaBusiness.CreateConferenceProvider
     newCreateConferenceProvider,
 
     -- * Request Lenses
-    createConferenceProvider_tags,
-    createConferenceProvider_iPDialIn,
     createConferenceProvider_clientRequestToken,
+    createConferenceProvider_iPDialIn,
     createConferenceProvider_pSTNDialIn,
+    createConferenceProvider_tags,
     createConferenceProvider_conferenceProviderName,
     createConferenceProvider_conferenceProviderType,
     createConferenceProvider_meetingSetting,
@@ -55,15 +55,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateConferenceProvider' smart constructor.
 data CreateConferenceProvider = CreateConferenceProvider'
-  { -- | The tags to be added to the specified resource. Do not provide system
-    -- tags.
-    tags :: Prelude.Maybe [Tag],
+  { -- | The request token of the client.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The IP endpoint and protocol for calling.
     iPDialIn :: Prelude.Maybe IPDialIn,
-    -- | The request token of the client.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The information for PSTN conferencing.
     pSTNDialIn :: Prelude.Maybe PSTNDialIn,
+    -- | The tags to be added to the specified resource. Do not provide system
+    -- tags.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the conference provider.
     conferenceProviderName :: Prelude.Text,
     -- | Represents a type within a list of predefined types.
@@ -81,14 +81,14 @@ data CreateConferenceProvider = CreateConferenceProvider'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createConferenceProvider_tags' - The tags to be added to the specified resource. Do not provide system
--- tags.
+-- 'clientRequestToken', 'createConferenceProvider_clientRequestToken' - The request token of the client.
 --
 -- 'iPDialIn', 'createConferenceProvider_iPDialIn' - The IP endpoint and protocol for calling.
 --
--- 'clientRequestToken', 'createConferenceProvider_clientRequestToken' - The request token of the client.
---
 -- 'pSTNDialIn', 'createConferenceProvider_pSTNDialIn' - The information for PSTN conferencing.
+--
+-- 'tags', 'createConferenceProvider_tags' - The tags to be added to the specified resource. Do not provide system
+-- tags.
 --
 -- 'conferenceProviderName', 'createConferenceProvider_conferenceProviderName' - The name of the conference provider.
 --
@@ -108,31 +108,32 @@ newCreateConferenceProvider
   pConferenceProviderType_
   pMeetingSetting_ =
     CreateConferenceProvider'
-      { tags = Prelude.Nothing,
+      { clientRequestToken =
+          Prelude.Nothing,
         iPDialIn = Prelude.Nothing,
-        clientRequestToken = Prelude.Nothing,
         pSTNDialIn = Prelude.Nothing,
+        tags = Prelude.Nothing,
         conferenceProviderName = pConferenceProviderName_,
         conferenceProviderType = pConferenceProviderType_,
         meetingSetting = pMeetingSetting_
       }
 
--- | The tags to be added to the specified resource. Do not provide system
--- tags.
-createConferenceProvider_tags :: Lens.Lens' CreateConferenceProvider (Prelude.Maybe [Tag])
-createConferenceProvider_tags = Lens.lens (\CreateConferenceProvider' {tags} -> tags) (\s@CreateConferenceProvider' {} a -> s {tags = a} :: CreateConferenceProvider) Prelude.. Lens.mapping Lens.coerced
+-- | The request token of the client.
+createConferenceProvider_clientRequestToken :: Lens.Lens' CreateConferenceProvider (Prelude.Maybe Prelude.Text)
+createConferenceProvider_clientRequestToken = Lens.lens (\CreateConferenceProvider' {clientRequestToken} -> clientRequestToken) (\s@CreateConferenceProvider' {} a -> s {clientRequestToken = a} :: CreateConferenceProvider)
 
 -- | The IP endpoint and protocol for calling.
 createConferenceProvider_iPDialIn :: Lens.Lens' CreateConferenceProvider (Prelude.Maybe IPDialIn)
 createConferenceProvider_iPDialIn = Lens.lens (\CreateConferenceProvider' {iPDialIn} -> iPDialIn) (\s@CreateConferenceProvider' {} a -> s {iPDialIn = a} :: CreateConferenceProvider)
 
--- | The request token of the client.
-createConferenceProvider_clientRequestToken :: Lens.Lens' CreateConferenceProvider (Prelude.Maybe Prelude.Text)
-createConferenceProvider_clientRequestToken = Lens.lens (\CreateConferenceProvider' {clientRequestToken} -> clientRequestToken) (\s@CreateConferenceProvider' {} a -> s {clientRequestToken = a} :: CreateConferenceProvider)
-
 -- | The information for PSTN conferencing.
 createConferenceProvider_pSTNDialIn :: Lens.Lens' CreateConferenceProvider (Prelude.Maybe PSTNDialIn)
 createConferenceProvider_pSTNDialIn = Lens.lens (\CreateConferenceProvider' {pSTNDialIn} -> pSTNDialIn) (\s@CreateConferenceProvider' {} a -> s {pSTNDialIn = a} :: CreateConferenceProvider)
+
+-- | The tags to be added to the specified resource. Do not provide system
+-- tags.
+createConferenceProvider_tags :: Lens.Lens' CreateConferenceProvider (Prelude.Maybe [Tag])
+createConferenceProvider_tags = Lens.lens (\CreateConferenceProvider' {tags} -> tags) (\s@CreateConferenceProvider' {} a -> s {tags = a} :: CreateConferenceProvider) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the conference provider.
 createConferenceProvider_conferenceProviderName :: Lens.Lens' CreateConferenceProvider Prelude.Text
@@ -162,20 +163,20 @@ instance Core.AWSRequest CreateConferenceProvider where
 
 instance Prelude.Hashable CreateConferenceProvider where
   hashWithSalt _salt CreateConferenceProvider' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` iPDialIn
-      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` pSTNDialIn
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` conferenceProviderName
       `Prelude.hashWithSalt` conferenceProviderType
       `Prelude.hashWithSalt` meetingSetting
 
 instance Prelude.NFData CreateConferenceProvider where
   rnf CreateConferenceProvider' {..} =
-    Prelude.rnf tags
+    Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf iPDialIn
-      `Prelude.seq` Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf pSTNDialIn
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf conferenceProviderName
       `Prelude.seq` Prelude.rnf conferenceProviderType
       `Prelude.seq` Prelude.rnf meetingSetting
@@ -199,11 +200,11 @@ instance Data.ToJSON CreateConferenceProvider where
   toJSON CreateConferenceProvider' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("IPDialIn" Data..=) Prelude.<$> iPDialIn,
-            ("ClientRequestToken" Data..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
+            ("IPDialIn" Data..=) Prelude.<$> iPDialIn,
             ("PSTNDialIn" Data..=) Prelude.<$> pSTNDialIn,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ( "ConferenceProviderName"
                   Data..= conferenceProviderName

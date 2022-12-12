@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBuiltInSlotTypeSummary' smart constructor.
 data BuiltInSlotTypeSummary = BuiltInSlotTypeSummary'
-  { -- | The signature of the built-in slot type. Use this to specify the parent
+  { -- | The description of the built-in slot type.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The signature of the built-in slot type. Use this to specify the parent
     -- slot type of a derived slot type.
-    slotTypeSignature :: Prelude.Maybe Prelude.Text,
-    -- | The description of the built-in slot type.
-    description :: Prelude.Maybe Prelude.Text
+    slotTypeSignature :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,27 +46,27 @@ data BuiltInSlotTypeSummary = BuiltInSlotTypeSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'builtInSlotTypeSummary_description' - The description of the built-in slot type.
+--
 -- 'slotTypeSignature', 'builtInSlotTypeSummary_slotTypeSignature' - The signature of the built-in slot type. Use this to specify the parent
 -- slot type of a derived slot type.
---
--- 'description', 'builtInSlotTypeSummary_description' - The description of the built-in slot type.
 newBuiltInSlotTypeSummary ::
   BuiltInSlotTypeSummary
 newBuiltInSlotTypeSummary =
   BuiltInSlotTypeSummary'
-    { slotTypeSignature =
+    { description =
         Prelude.Nothing,
-      description = Prelude.Nothing
+      slotTypeSignature = Prelude.Nothing
     }
+
+-- | The description of the built-in slot type.
+builtInSlotTypeSummary_description :: Lens.Lens' BuiltInSlotTypeSummary (Prelude.Maybe Prelude.Text)
+builtInSlotTypeSummary_description = Lens.lens (\BuiltInSlotTypeSummary' {description} -> description) (\s@BuiltInSlotTypeSummary' {} a -> s {description = a} :: BuiltInSlotTypeSummary)
 
 -- | The signature of the built-in slot type. Use this to specify the parent
 -- slot type of a derived slot type.
 builtInSlotTypeSummary_slotTypeSignature :: Lens.Lens' BuiltInSlotTypeSummary (Prelude.Maybe Prelude.Text)
 builtInSlotTypeSummary_slotTypeSignature = Lens.lens (\BuiltInSlotTypeSummary' {slotTypeSignature} -> slotTypeSignature) (\s@BuiltInSlotTypeSummary' {} a -> s {slotTypeSignature = a} :: BuiltInSlotTypeSummary)
-
--- | The description of the built-in slot type.
-builtInSlotTypeSummary_description :: Lens.Lens' BuiltInSlotTypeSummary (Prelude.Maybe Prelude.Text)
-builtInSlotTypeSummary_description = Lens.lens (\BuiltInSlotTypeSummary' {description} -> description) (\s@BuiltInSlotTypeSummary' {} a -> s {description = a} :: BuiltInSlotTypeSummary)
 
 instance Data.FromJSON BuiltInSlotTypeSummary where
   parseJSON =
@@ -74,16 +74,16 @@ instance Data.FromJSON BuiltInSlotTypeSummary where
       "BuiltInSlotTypeSummary"
       ( \x ->
           BuiltInSlotTypeSummary'
-            Prelude.<$> (x Data..:? "slotTypeSignature")
-            Prelude.<*> (x Data..:? "description")
+            Prelude.<$> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "slotTypeSignature")
       )
 
 instance Prelude.Hashable BuiltInSlotTypeSummary where
   hashWithSalt _salt BuiltInSlotTypeSummary' {..} =
-    _salt `Prelude.hashWithSalt` slotTypeSignature
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` slotTypeSignature
 
 instance Prelude.NFData BuiltInSlotTypeSummary where
   rnf BuiltInSlotTypeSummary' {..} =
-    Prelude.rnf slotTypeSignature
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf slotTypeSignature

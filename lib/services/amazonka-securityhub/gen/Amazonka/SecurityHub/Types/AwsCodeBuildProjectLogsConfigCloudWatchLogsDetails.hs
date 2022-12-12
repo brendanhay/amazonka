@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsCodeBuildProjectLogsConfigCloudWatchLogsDetails' smart constructor.
 data AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails = AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails'
-  { -- | The current status of the logs in CloudWatch Logs for a build project.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The group name of the logs in CloudWatch Logs.
+  { -- | The group name of the logs in CloudWatch Logs.
     groupName :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the logs in CloudWatch Logs for a build project.
+    status :: Prelude.Maybe Prelude.Text,
     -- | The prefix of the stream name of the CloudWatch Logs.
     streamName :: Prelude.Maybe Prelude.Text
   }
@@ -45,30 +45,30 @@ data AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails = AwsCodeBuildProjectLog
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'awsCodeBuildProjectLogsConfigCloudWatchLogsDetails_status' - The current status of the logs in CloudWatch Logs for a build project.
---
 -- 'groupName', 'awsCodeBuildProjectLogsConfigCloudWatchLogsDetails_groupName' - The group name of the logs in CloudWatch Logs.
+--
+-- 'status', 'awsCodeBuildProjectLogsConfigCloudWatchLogsDetails_status' - The current status of the logs in CloudWatch Logs for a build project.
 --
 -- 'streamName', 'awsCodeBuildProjectLogsConfigCloudWatchLogsDetails_streamName' - The prefix of the stream name of the CloudWatch Logs.
 newAwsCodeBuildProjectLogsConfigCloudWatchLogsDetails ::
   AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails
 newAwsCodeBuildProjectLogsConfigCloudWatchLogsDetails =
   AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails'
-    { status =
+    { groupName =
         Prelude.Nothing,
-      groupName =
+      status =
         Prelude.Nothing,
       streamName =
         Prelude.Nothing
     }
 
--- | The current status of the logs in CloudWatch Logs for a build project.
-awsCodeBuildProjectLogsConfigCloudWatchLogsDetails_status :: Lens.Lens' AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails (Prelude.Maybe Prelude.Text)
-awsCodeBuildProjectLogsConfigCloudWatchLogsDetails_status = Lens.lens (\AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails' {status} -> status) (\s@AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails' {} a -> s {status = a} :: AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails)
-
 -- | The group name of the logs in CloudWatch Logs.
 awsCodeBuildProjectLogsConfigCloudWatchLogsDetails_groupName :: Lens.Lens' AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails (Prelude.Maybe Prelude.Text)
 awsCodeBuildProjectLogsConfigCloudWatchLogsDetails_groupName = Lens.lens (\AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails' {groupName} -> groupName) (\s@AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails' {} a -> s {groupName = a} :: AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails)
+
+-- | The current status of the logs in CloudWatch Logs for a build project.
+awsCodeBuildProjectLogsConfigCloudWatchLogsDetails_status :: Lens.Lens' AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails (Prelude.Maybe Prelude.Text)
+awsCodeBuildProjectLogsConfigCloudWatchLogsDetails_status = Lens.lens (\AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails' {status} -> status) (\s@AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails' {} a -> s {status = a} :: AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails)
 
 -- | The prefix of the stream name of the CloudWatch Logs.
 awsCodeBuildProjectLogsConfigCloudWatchLogsDetails_streamName :: Lens.Lens' AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails (Prelude.Maybe Prelude.Text)
@@ -83,8 +83,8 @@ instance
       "AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails"
       ( \x ->
           AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails'
-            Prelude.<$> (x Data..:? "Status")
-              Prelude.<*> (x Data..:? "GroupName")
+            Prelude.<$> (x Data..:? "GroupName")
+              Prelude.<*> (x Data..:? "Status")
               Prelude.<*> (x Data..:? "StreamName")
       )
 
@@ -95,8 +95,8 @@ instance
   hashWithSalt
     _salt
     AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails' {..} =
-      _salt `Prelude.hashWithSalt` status
-        `Prelude.hashWithSalt` groupName
+      _salt `Prelude.hashWithSalt` groupName
+        `Prelude.hashWithSalt` status
         `Prelude.hashWithSalt` streamName
 
 instance
@@ -105,8 +105,8 @@ instance
   where
   rnf
     AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails' {..} =
-      Prelude.rnf status
-        `Prelude.seq` Prelude.rnf groupName
+      Prelude.rnf groupName
+        `Prelude.seq` Prelude.rnf status
         `Prelude.seq` Prelude.rnf streamName
 
 instance
@@ -117,8 +117,8 @@ instance
     AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("Status" Data..=) Prelude.<$> status,
-              ("GroupName" Data..=) Prelude.<$> groupName,
+            [ ("GroupName" Data..=) Prelude.<$> groupName,
+              ("Status" Data..=) Prelude.<$> status,
               ("StreamName" Data..=) Prelude.<$> streamName
             ]
         )

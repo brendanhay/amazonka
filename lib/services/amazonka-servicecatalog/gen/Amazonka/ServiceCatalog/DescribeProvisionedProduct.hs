@@ -27,9 +27,9 @@ module Amazonka.ServiceCatalog.DescribeProvisionedProduct
     newDescribeProvisionedProduct,
 
     -- * Request Lenses
-    describeProvisionedProduct_name,
-    describeProvisionedProduct_id,
     describeProvisionedProduct_acceptLanguage,
+    describeProvisionedProduct_id,
+    describeProvisionedProduct_name,
 
     -- * Destructuring the Response
     DescribeProvisionedProductResponse (..),
@@ -57,26 +57,26 @@ import Amazonka.ServiceCatalog.Types
 --
 -- /See:/ 'newDescribeProvisionedProduct' smart constructor.
 data DescribeProvisionedProduct = DescribeProvisionedProduct'
-  { -- | The name of the provisioned product. You must provide the name or ID,
-    -- but not both.
-    --
-    -- If you do not provide a name or ID, or you provide both name and ID, an
-    -- @InvalidParametersException@ will occur.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The provisioned product identifier. You must provide the name or ID, but
-    -- not both.
-    --
-    -- If you do not provide a name or ID, or you provide both name and ID, an
-    -- @InvalidParametersException@ will occur.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The language code.
+  { -- | The language code.
     --
     -- -   @en@ - English (default)
     --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Prelude.Maybe Prelude.Text
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | The provisioned product identifier. You must provide the name or ID, but
+    -- not both.
+    --
+    -- If you do not provide a name or ID, or you provide both name and ID, an
+    -- @InvalidParametersException@ will occur.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The name of the provisioned product. You must provide the name or ID,
+    -- but not both.
+    --
+    -- If you do not provide a name or ID, or you provide both name and ID, an
+    -- @InvalidParametersException@ will occur.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -88,18 +88,6 @@ data DescribeProvisionedProduct = DescribeProvisionedProduct'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'describeProvisionedProduct_name' - The name of the provisioned product. You must provide the name or ID,
--- but not both.
---
--- If you do not provide a name or ID, or you provide both name and ID, an
--- @InvalidParametersException@ will occur.
---
--- 'id', 'describeProvisionedProduct_id' - The provisioned product identifier. You must provide the name or ID, but
--- not both.
---
--- If you do not provide a name or ID, or you provide both name and ID, an
--- @InvalidParametersException@ will occur.
---
 -- 'acceptLanguage', 'describeProvisionedProduct_acceptLanguage' - The language code.
 --
 -- -   @en@ - English (default)
@@ -107,30 +95,27 @@ data DescribeProvisionedProduct = DescribeProvisionedProduct'
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-newDescribeProvisionedProduct ::
-  DescribeProvisionedProduct
-newDescribeProvisionedProduct =
-  DescribeProvisionedProduct'
-    { name = Prelude.Nothing,
-      id = Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing
-    }
-
--- | The name of the provisioned product. You must provide the name or ID,
--- but not both.
 --
--- If you do not provide a name or ID, or you provide both name and ID, an
--- @InvalidParametersException@ will occur.
-describeProvisionedProduct_name :: Lens.Lens' DescribeProvisionedProduct (Prelude.Maybe Prelude.Text)
-describeProvisionedProduct_name = Lens.lens (\DescribeProvisionedProduct' {name} -> name) (\s@DescribeProvisionedProduct' {} a -> s {name = a} :: DescribeProvisionedProduct)
-
--- | The provisioned product identifier. You must provide the name or ID, but
+-- 'id', 'describeProvisionedProduct_id' - The provisioned product identifier. You must provide the name or ID, but
 -- not both.
 --
 -- If you do not provide a name or ID, or you provide both name and ID, an
 -- @InvalidParametersException@ will occur.
-describeProvisionedProduct_id :: Lens.Lens' DescribeProvisionedProduct (Prelude.Maybe Prelude.Text)
-describeProvisionedProduct_id = Lens.lens (\DescribeProvisionedProduct' {id} -> id) (\s@DescribeProvisionedProduct' {} a -> s {id = a} :: DescribeProvisionedProduct)
+--
+-- 'name', 'describeProvisionedProduct_name' - The name of the provisioned product. You must provide the name or ID,
+-- but not both.
+--
+-- If you do not provide a name or ID, or you provide both name and ID, an
+-- @InvalidParametersException@ will occur.
+newDescribeProvisionedProduct ::
+  DescribeProvisionedProduct
+newDescribeProvisionedProduct =
+  DescribeProvisionedProduct'
+    { acceptLanguage =
+        Prelude.Nothing,
+      id = Prelude.Nothing,
+      name = Prelude.Nothing
+    }
 
 -- | The language code.
 --
@@ -141,6 +126,22 @@ describeProvisionedProduct_id = Lens.lens (\DescribeProvisionedProduct' {id} -> 
 -- -   @zh@ - Chinese
 describeProvisionedProduct_acceptLanguage :: Lens.Lens' DescribeProvisionedProduct (Prelude.Maybe Prelude.Text)
 describeProvisionedProduct_acceptLanguage = Lens.lens (\DescribeProvisionedProduct' {acceptLanguage} -> acceptLanguage) (\s@DescribeProvisionedProduct' {} a -> s {acceptLanguage = a} :: DescribeProvisionedProduct)
+
+-- | The provisioned product identifier. You must provide the name or ID, but
+-- not both.
+--
+-- If you do not provide a name or ID, or you provide both name and ID, an
+-- @InvalidParametersException@ will occur.
+describeProvisionedProduct_id :: Lens.Lens' DescribeProvisionedProduct (Prelude.Maybe Prelude.Text)
+describeProvisionedProduct_id = Lens.lens (\DescribeProvisionedProduct' {id} -> id) (\s@DescribeProvisionedProduct' {} a -> s {id = a} :: DescribeProvisionedProduct)
+
+-- | The name of the provisioned product. You must provide the name or ID,
+-- but not both.
+--
+-- If you do not provide a name or ID, or you provide both name and ID, an
+-- @InvalidParametersException@ will occur.
+describeProvisionedProduct_name :: Lens.Lens' DescribeProvisionedProduct (Prelude.Maybe Prelude.Text)
+describeProvisionedProduct_name = Lens.lens (\DescribeProvisionedProduct' {name} -> name) (\s@DescribeProvisionedProduct' {} a -> s {name = a} :: DescribeProvisionedProduct)
 
 instance Core.AWSRequest DescribeProvisionedProduct where
   type
@@ -161,15 +162,15 @@ instance Core.AWSRequest DescribeProvisionedProduct where
 
 instance Prelude.Hashable DescribeProvisionedProduct where
   hashWithSalt _salt DescribeProvisionedProduct' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData DescribeProvisionedProduct where
   rnf DescribeProvisionedProduct' {..} =
-    Prelude.rnf name
+    Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders DescribeProvisionedProduct where
   toHeaders =
@@ -190,10 +191,10 @@ instance Data.ToJSON DescribeProvisionedProduct where
   toJSON DescribeProvisionedProduct' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
+          [ ("AcceptLanguage" Data..=)
+              Prelude.<$> acceptLanguage,
             ("Id" Data..=) Prelude.<$> id,
-            ("AcceptLanguage" Data..=)
-              Prelude.<$> acceptLanguage
+            ("Name" Data..=) Prelude.<$> name
           ]
       )
 

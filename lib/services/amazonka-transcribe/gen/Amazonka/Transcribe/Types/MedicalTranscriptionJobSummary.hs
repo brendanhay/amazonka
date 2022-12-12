@@ -35,23 +35,34 @@ import Amazonka.Transcribe.Types.Type
 --
 -- /See:/ 'newMedicalTranscriptionJobSummary' smart constructor.
 data MedicalTranscriptionJobSummary = MedicalTranscriptionJobSummary'
-  { -- | Indicates whether the input media is a dictation or a conversation, as
-    -- specified in the @StartMedicalTranscriptionJob@ request.
-    type' :: Prelude.Maybe Type,
-    -- | Labels all personal health information (PHI) identified in your
-    -- transcript. For more information, see
-    -- <https://docs.aws.amazon.com/transcribe/latest/dg/phi-id.html Identifying personal health information (PHI) in a transcription>.
-    contentIdentificationType :: Prelude.Maybe MedicalContentIdentificationType,
-    -- | The name of the medical transcription job. Job names are case sensitive
-    -- and must be unique within an Amazon Web Services account.
-    medicalTranscriptionJobName :: Prelude.Maybe Prelude.Text,
-    -- | The date and time the specified medical transcription job finished
+  { -- | The date and time the specified medical transcription job finished
     -- processing.
     --
     -- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
     -- example, @2022-05-04T12:33:13.922000-07:00@ represents a transcription
     -- job that started processing at 12:33 PM UTC-7 on May 4, 2022.
     completionTime :: Prelude.Maybe Data.POSIX,
+    -- | Labels all personal health information (PHI) identified in your
+    -- transcript. For more information, see
+    -- <https://docs.aws.amazon.com/transcribe/latest/dg/phi-id.html Identifying personal health information (PHI) in a transcription>.
+    contentIdentificationType :: Prelude.Maybe MedicalContentIdentificationType,
+    -- | The date and time the specified medical transcription job request was
+    -- made.
+    --
+    -- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
+    -- example, @2022-05-04T12:32:58.761000-07:00@ represents a transcription
+    -- job that started processing at 12:32 PM UTC-7 on May 4, 2022.
+    creationTime :: Prelude.Maybe Data.POSIX,
+    -- | If @TranscriptionJobStatus@ is @FAILED@, @FailureReason@ contains
+    -- information about why the transcription job failed. See also:
+    -- <https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html Common Errors>.
+    failureReason :: Prelude.Maybe Prelude.Text,
+    -- | The language code used to create your medical transcription. US English
+    -- (@en-US@) is the only supported language for medical transcriptions.
+    languageCode :: Prelude.Maybe LanguageCode,
+    -- | The name of the medical transcription job. Job names are case sensitive
+    -- and must be unique within an Amazon Web Services account.
+    medicalTranscriptionJobName :: Prelude.Maybe Prelude.Text,
     -- | Indicates where the specified medical transcription output is stored.
     --
     -- If the value is @CUSTOMER_BUCKET@, the location is the Amazon S3 bucket
@@ -63,23 +74,6 @@ data MedicalTranscriptionJobSummary = MedicalTranscriptionJobSummary'
     -- Amazon S3 bucket. To access a transcript stored in a service-managed
     -- bucket, use the URI shown in the @TranscriptFileUri@ field.
     outputLocationType :: Prelude.Maybe OutputLocationType,
-    -- | The language code used to create your medical transcription. US English
-    -- (@en-US@) is the only supported language for medical transcriptions.
-    languageCode :: Prelude.Maybe LanguageCode,
-    -- | Provides the status of your medical transcription job.
-    --
-    -- If the status is @COMPLETED@, the job is finished and you can find the
-    -- results at the location specified in @TranscriptFileUri@. If the status
-    -- is @FAILED@, @FailureReason@ provides details on why your transcription
-    -- job failed.
-    transcriptionJobStatus :: Prelude.Maybe TranscriptionJobStatus,
-    -- | The date and time the specified medical transcription job request was
-    -- made.
-    --
-    -- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
-    -- example, @2022-05-04T12:32:58.761000-07:00@ represents a transcription
-    -- job that started processing at 12:32 PM UTC-7 on May 4, 2022.
-    creationTime :: Prelude.Maybe Data.POSIX,
     -- | Provides the medical specialty represented in your media.
     specialty :: Prelude.Maybe Specialty,
     -- | The date and time your medical transcription job began processing.
@@ -88,10 +82,16 @@ data MedicalTranscriptionJobSummary = MedicalTranscriptionJobSummary'
     -- example, @2022-05-04T12:32:58.789000-07:00@ represents a transcription
     -- job that started processing at 12:32 PM UTC-7 on May 4, 2022.
     startTime :: Prelude.Maybe Data.POSIX,
-    -- | If @TranscriptionJobStatus@ is @FAILED@, @FailureReason@ contains
-    -- information about why the transcription job failed. See also:
-    -- <https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html Common Errors>.
-    failureReason :: Prelude.Maybe Prelude.Text
+    -- | Provides the status of your medical transcription job.
+    --
+    -- If the status is @COMPLETED@, the job is finished and you can find the
+    -- results at the location specified in @TranscriptFileUri@. If the status
+    -- is @FAILED@, @FailureReason@ provides details on why your transcription
+    -- job failed.
+    transcriptionJobStatus :: Prelude.Maybe TranscriptionJobStatus,
+    -- | Indicates whether the input media is a dictation or a conversation, as
+    -- specified in the @StartMedicalTranscriptionJob@ request.
+    type' :: Prelude.Maybe Type
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -103,22 +103,33 @@ data MedicalTranscriptionJobSummary = MedicalTranscriptionJobSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'medicalTranscriptionJobSummary_type' - Indicates whether the input media is a dictation or a conversation, as
--- specified in the @StartMedicalTranscriptionJob@ request.
---
--- 'contentIdentificationType', 'medicalTranscriptionJobSummary_contentIdentificationType' - Labels all personal health information (PHI) identified in your
--- transcript. For more information, see
--- <https://docs.aws.amazon.com/transcribe/latest/dg/phi-id.html Identifying personal health information (PHI) in a transcription>.
---
--- 'medicalTranscriptionJobName', 'medicalTranscriptionJobSummary_medicalTranscriptionJobName' - The name of the medical transcription job. Job names are case sensitive
--- and must be unique within an Amazon Web Services account.
---
 -- 'completionTime', 'medicalTranscriptionJobSummary_completionTime' - The date and time the specified medical transcription job finished
 -- processing.
 --
 -- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
 -- example, @2022-05-04T12:33:13.922000-07:00@ represents a transcription
 -- job that started processing at 12:33 PM UTC-7 on May 4, 2022.
+--
+-- 'contentIdentificationType', 'medicalTranscriptionJobSummary_contentIdentificationType' - Labels all personal health information (PHI) identified in your
+-- transcript. For more information, see
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/phi-id.html Identifying personal health information (PHI) in a transcription>.
+--
+-- 'creationTime', 'medicalTranscriptionJobSummary_creationTime' - The date and time the specified medical transcription job request was
+-- made.
+--
+-- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
+-- example, @2022-05-04T12:32:58.761000-07:00@ represents a transcription
+-- job that started processing at 12:32 PM UTC-7 on May 4, 2022.
+--
+-- 'failureReason', 'medicalTranscriptionJobSummary_failureReason' - If @TranscriptionJobStatus@ is @FAILED@, @FailureReason@ contains
+-- information about why the transcription job failed. See also:
+-- <https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html Common Errors>.
+--
+-- 'languageCode', 'medicalTranscriptionJobSummary_languageCode' - The language code used to create your medical transcription. US English
+-- (@en-US@) is the only supported language for medical transcriptions.
+--
+-- 'medicalTranscriptionJobName', 'medicalTranscriptionJobSummary_medicalTranscriptionJobName' - The name of the medical transcription job. Job names are case sensitive
+-- and must be unique within an Amazon Web Services account.
 --
 -- 'outputLocationType', 'medicalTranscriptionJobSummary_outputLocationType' - Indicates where the specified medical transcription output is stored.
 --
@@ -131,23 +142,6 @@ data MedicalTranscriptionJobSummary = MedicalTranscriptionJobSummary'
 -- Amazon S3 bucket. To access a transcript stored in a service-managed
 -- bucket, use the URI shown in the @TranscriptFileUri@ field.
 --
--- 'languageCode', 'medicalTranscriptionJobSummary_languageCode' - The language code used to create your medical transcription. US English
--- (@en-US@) is the only supported language for medical transcriptions.
---
--- 'transcriptionJobStatus', 'medicalTranscriptionJobSummary_transcriptionJobStatus' - Provides the status of your medical transcription job.
---
--- If the status is @COMPLETED@, the job is finished and you can find the
--- results at the location specified in @TranscriptFileUri@. If the status
--- is @FAILED@, @FailureReason@ provides details on why your transcription
--- job failed.
---
--- 'creationTime', 'medicalTranscriptionJobSummary_creationTime' - The date and time the specified medical transcription job request was
--- made.
---
--- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
--- example, @2022-05-04T12:32:58.761000-07:00@ represents a transcription
--- job that started processing at 12:32 PM UTC-7 on May 4, 2022.
---
 -- 'specialty', 'medicalTranscriptionJobSummary_specialty' - Provides the medical specialty represented in your media.
 --
 -- 'startTime', 'medicalTranscriptionJobSummary_startTime' - The date and time your medical transcription job began processing.
@@ -156,43 +150,33 @@ data MedicalTranscriptionJobSummary = MedicalTranscriptionJobSummary'
 -- example, @2022-05-04T12:32:58.789000-07:00@ represents a transcription
 -- job that started processing at 12:32 PM UTC-7 on May 4, 2022.
 --
--- 'failureReason', 'medicalTranscriptionJobSummary_failureReason' - If @TranscriptionJobStatus@ is @FAILED@, @FailureReason@ contains
--- information about why the transcription job failed. See also:
--- <https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html Common Errors>.
+-- 'transcriptionJobStatus', 'medicalTranscriptionJobSummary_transcriptionJobStatus' - Provides the status of your medical transcription job.
+--
+-- If the status is @COMPLETED@, the job is finished and you can find the
+-- results at the location specified in @TranscriptFileUri@. If the status
+-- is @FAILED@, @FailureReason@ provides details on why your transcription
+-- job failed.
+--
+-- 'type'', 'medicalTranscriptionJobSummary_type' - Indicates whether the input media is a dictation or a conversation, as
+-- specified in the @StartMedicalTranscriptionJob@ request.
 newMedicalTranscriptionJobSummary ::
   MedicalTranscriptionJobSummary
 newMedicalTranscriptionJobSummary =
   MedicalTranscriptionJobSummary'
-    { type' =
+    { completionTime =
         Prelude.Nothing,
       contentIdentificationType = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      failureReason = Prelude.Nothing,
+      languageCode = Prelude.Nothing,
       medicalTranscriptionJobName =
         Prelude.Nothing,
-      completionTime = Prelude.Nothing,
       outputLocationType = Prelude.Nothing,
-      languageCode = Prelude.Nothing,
-      transcriptionJobStatus = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
       specialty = Prelude.Nothing,
       startTime = Prelude.Nothing,
-      failureReason = Prelude.Nothing
+      transcriptionJobStatus = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
-
--- | Indicates whether the input media is a dictation or a conversation, as
--- specified in the @StartMedicalTranscriptionJob@ request.
-medicalTranscriptionJobSummary_type :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe Type)
-medicalTranscriptionJobSummary_type = Lens.lens (\MedicalTranscriptionJobSummary' {type'} -> type') (\s@MedicalTranscriptionJobSummary' {} a -> s {type' = a} :: MedicalTranscriptionJobSummary)
-
--- | Labels all personal health information (PHI) identified in your
--- transcript. For more information, see
--- <https://docs.aws.amazon.com/transcribe/latest/dg/phi-id.html Identifying personal health information (PHI) in a transcription>.
-medicalTranscriptionJobSummary_contentIdentificationType :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe MedicalContentIdentificationType)
-medicalTranscriptionJobSummary_contentIdentificationType = Lens.lens (\MedicalTranscriptionJobSummary' {contentIdentificationType} -> contentIdentificationType) (\s@MedicalTranscriptionJobSummary' {} a -> s {contentIdentificationType = a} :: MedicalTranscriptionJobSummary)
-
--- | The name of the medical transcription job. Job names are case sensitive
--- and must be unique within an Amazon Web Services account.
-medicalTranscriptionJobSummary_medicalTranscriptionJobName :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe Prelude.Text)
-medicalTranscriptionJobSummary_medicalTranscriptionJobName = Lens.lens (\MedicalTranscriptionJobSummary' {medicalTranscriptionJobName} -> medicalTranscriptionJobName) (\s@MedicalTranscriptionJobSummary' {} a -> s {medicalTranscriptionJobName = a} :: MedicalTranscriptionJobSummary)
 
 -- | The date and time the specified medical transcription job finished
 -- processing.
@@ -202,6 +186,37 @@ medicalTranscriptionJobSummary_medicalTranscriptionJobName = Lens.lens (\Medical
 -- job that started processing at 12:33 PM UTC-7 on May 4, 2022.
 medicalTranscriptionJobSummary_completionTime :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe Prelude.UTCTime)
 medicalTranscriptionJobSummary_completionTime = Lens.lens (\MedicalTranscriptionJobSummary' {completionTime} -> completionTime) (\s@MedicalTranscriptionJobSummary' {} a -> s {completionTime = a} :: MedicalTranscriptionJobSummary) Prelude.. Lens.mapping Data._Time
+
+-- | Labels all personal health information (PHI) identified in your
+-- transcript. For more information, see
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/phi-id.html Identifying personal health information (PHI) in a transcription>.
+medicalTranscriptionJobSummary_contentIdentificationType :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe MedicalContentIdentificationType)
+medicalTranscriptionJobSummary_contentIdentificationType = Lens.lens (\MedicalTranscriptionJobSummary' {contentIdentificationType} -> contentIdentificationType) (\s@MedicalTranscriptionJobSummary' {} a -> s {contentIdentificationType = a} :: MedicalTranscriptionJobSummary)
+
+-- | The date and time the specified medical transcription job request was
+-- made.
+--
+-- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
+-- example, @2022-05-04T12:32:58.761000-07:00@ represents a transcription
+-- job that started processing at 12:32 PM UTC-7 on May 4, 2022.
+medicalTranscriptionJobSummary_creationTime :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe Prelude.UTCTime)
+medicalTranscriptionJobSummary_creationTime = Lens.lens (\MedicalTranscriptionJobSummary' {creationTime} -> creationTime) (\s@MedicalTranscriptionJobSummary' {} a -> s {creationTime = a} :: MedicalTranscriptionJobSummary) Prelude.. Lens.mapping Data._Time
+
+-- | If @TranscriptionJobStatus@ is @FAILED@, @FailureReason@ contains
+-- information about why the transcription job failed. See also:
+-- <https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html Common Errors>.
+medicalTranscriptionJobSummary_failureReason :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe Prelude.Text)
+medicalTranscriptionJobSummary_failureReason = Lens.lens (\MedicalTranscriptionJobSummary' {failureReason} -> failureReason) (\s@MedicalTranscriptionJobSummary' {} a -> s {failureReason = a} :: MedicalTranscriptionJobSummary)
+
+-- | The language code used to create your medical transcription. US English
+-- (@en-US@) is the only supported language for medical transcriptions.
+medicalTranscriptionJobSummary_languageCode :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe LanguageCode)
+medicalTranscriptionJobSummary_languageCode = Lens.lens (\MedicalTranscriptionJobSummary' {languageCode} -> languageCode) (\s@MedicalTranscriptionJobSummary' {} a -> s {languageCode = a} :: MedicalTranscriptionJobSummary)
+
+-- | The name of the medical transcription job. Job names are case sensitive
+-- and must be unique within an Amazon Web Services account.
+medicalTranscriptionJobSummary_medicalTranscriptionJobName :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe Prelude.Text)
+medicalTranscriptionJobSummary_medicalTranscriptionJobName = Lens.lens (\MedicalTranscriptionJobSummary' {medicalTranscriptionJobName} -> medicalTranscriptionJobName) (\s@MedicalTranscriptionJobSummary' {} a -> s {medicalTranscriptionJobName = a} :: MedicalTranscriptionJobSummary)
 
 -- | Indicates where the specified medical transcription output is stored.
 --
@@ -216,29 +231,6 @@ medicalTranscriptionJobSummary_completionTime = Lens.lens (\MedicalTranscription
 medicalTranscriptionJobSummary_outputLocationType :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe OutputLocationType)
 medicalTranscriptionJobSummary_outputLocationType = Lens.lens (\MedicalTranscriptionJobSummary' {outputLocationType} -> outputLocationType) (\s@MedicalTranscriptionJobSummary' {} a -> s {outputLocationType = a} :: MedicalTranscriptionJobSummary)
 
--- | The language code used to create your medical transcription. US English
--- (@en-US@) is the only supported language for medical transcriptions.
-medicalTranscriptionJobSummary_languageCode :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe LanguageCode)
-medicalTranscriptionJobSummary_languageCode = Lens.lens (\MedicalTranscriptionJobSummary' {languageCode} -> languageCode) (\s@MedicalTranscriptionJobSummary' {} a -> s {languageCode = a} :: MedicalTranscriptionJobSummary)
-
--- | Provides the status of your medical transcription job.
---
--- If the status is @COMPLETED@, the job is finished and you can find the
--- results at the location specified in @TranscriptFileUri@. If the status
--- is @FAILED@, @FailureReason@ provides details on why your transcription
--- job failed.
-medicalTranscriptionJobSummary_transcriptionJobStatus :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe TranscriptionJobStatus)
-medicalTranscriptionJobSummary_transcriptionJobStatus = Lens.lens (\MedicalTranscriptionJobSummary' {transcriptionJobStatus} -> transcriptionJobStatus) (\s@MedicalTranscriptionJobSummary' {} a -> s {transcriptionJobStatus = a} :: MedicalTranscriptionJobSummary)
-
--- | The date and time the specified medical transcription job request was
--- made.
---
--- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
--- example, @2022-05-04T12:32:58.761000-07:00@ represents a transcription
--- job that started processing at 12:32 PM UTC-7 on May 4, 2022.
-medicalTranscriptionJobSummary_creationTime :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe Prelude.UTCTime)
-medicalTranscriptionJobSummary_creationTime = Lens.lens (\MedicalTranscriptionJobSummary' {creationTime} -> creationTime) (\s@MedicalTranscriptionJobSummary' {} a -> s {creationTime = a} :: MedicalTranscriptionJobSummary) Prelude.. Lens.mapping Data._Time
-
 -- | Provides the medical specialty represented in your media.
 medicalTranscriptionJobSummary_specialty :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe Specialty)
 medicalTranscriptionJobSummary_specialty = Lens.lens (\MedicalTranscriptionJobSummary' {specialty} -> specialty) (\s@MedicalTranscriptionJobSummary' {} a -> s {specialty = a} :: MedicalTranscriptionJobSummary)
@@ -251,11 +243,19 @@ medicalTranscriptionJobSummary_specialty = Lens.lens (\MedicalTranscriptionJobSu
 medicalTranscriptionJobSummary_startTime :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe Prelude.UTCTime)
 medicalTranscriptionJobSummary_startTime = Lens.lens (\MedicalTranscriptionJobSummary' {startTime} -> startTime) (\s@MedicalTranscriptionJobSummary' {} a -> s {startTime = a} :: MedicalTranscriptionJobSummary) Prelude.. Lens.mapping Data._Time
 
--- | If @TranscriptionJobStatus@ is @FAILED@, @FailureReason@ contains
--- information about why the transcription job failed. See also:
--- <https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html Common Errors>.
-medicalTranscriptionJobSummary_failureReason :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe Prelude.Text)
-medicalTranscriptionJobSummary_failureReason = Lens.lens (\MedicalTranscriptionJobSummary' {failureReason} -> failureReason) (\s@MedicalTranscriptionJobSummary' {} a -> s {failureReason = a} :: MedicalTranscriptionJobSummary)
+-- | Provides the status of your medical transcription job.
+--
+-- If the status is @COMPLETED@, the job is finished and you can find the
+-- results at the location specified in @TranscriptFileUri@. If the status
+-- is @FAILED@, @FailureReason@ provides details on why your transcription
+-- job failed.
+medicalTranscriptionJobSummary_transcriptionJobStatus :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe TranscriptionJobStatus)
+medicalTranscriptionJobSummary_transcriptionJobStatus = Lens.lens (\MedicalTranscriptionJobSummary' {transcriptionJobStatus} -> transcriptionJobStatus) (\s@MedicalTranscriptionJobSummary' {} a -> s {transcriptionJobStatus = a} :: MedicalTranscriptionJobSummary)
+
+-- | Indicates whether the input media is a dictation or a conversation, as
+-- specified in the @StartMedicalTranscriptionJob@ request.
+medicalTranscriptionJobSummary_type :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe Type)
+medicalTranscriptionJobSummary_type = Lens.lens (\MedicalTranscriptionJobSummary' {type'} -> type') (\s@MedicalTranscriptionJobSummary' {} a -> s {type' = a} :: MedicalTranscriptionJobSummary)
 
 instance Data.FromJSON MedicalTranscriptionJobSummary where
   parseJSON =
@@ -263,17 +263,17 @@ instance Data.FromJSON MedicalTranscriptionJobSummary where
       "MedicalTranscriptionJobSummary"
       ( \x ->
           MedicalTranscriptionJobSummary'
-            Prelude.<$> (x Data..:? "Type")
+            Prelude.<$> (x Data..:? "CompletionTime")
             Prelude.<*> (x Data..:? "ContentIdentificationType")
-            Prelude.<*> (x Data..:? "MedicalTranscriptionJobName")
-            Prelude.<*> (x Data..:? "CompletionTime")
-            Prelude.<*> (x Data..:? "OutputLocationType")
-            Prelude.<*> (x Data..:? "LanguageCode")
-            Prelude.<*> (x Data..:? "TranscriptionJobStatus")
             Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "FailureReason")
+            Prelude.<*> (x Data..:? "LanguageCode")
+            Prelude.<*> (x Data..:? "MedicalTranscriptionJobName")
+            Prelude.<*> (x Data..:? "OutputLocationType")
             Prelude.<*> (x Data..:? "Specialty")
             Prelude.<*> (x Data..:? "StartTime")
-            Prelude.<*> (x Data..:? "FailureReason")
+            Prelude.<*> (x Data..:? "TranscriptionJobStatus")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance
@@ -283,31 +283,31 @@ instance
   hashWithSalt
     _salt
     MedicalTranscriptionJobSummary' {..} =
-      _salt `Prelude.hashWithSalt` type'
+      _salt `Prelude.hashWithSalt` completionTime
         `Prelude.hashWithSalt` contentIdentificationType
-        `Prelude.hashWithSalt` medicalTranscriptionJobName
-        `Prelude.hashWithSalt` completionTime
-        `Prelude.hashWithSalt` outputLocationType
-        `Prelude.hashWithSalt` languageCode
-        `Prelude.hashWithSalt` transcriptionJobStatus
         `Prelude.hashWithSalt` creationTime
+        `Prelude.hashWithSalt` failureReason
+        `Prelude.hashWithSalt` languageCode
+        `Prelude.hashWithSalt` medicalTranscriptionJobName
+        `Prelude.hashWithSalt` outputLocationType
         `Prelude.hashWithSalt` specialty
         `Prelude.hashWithSalt` startTime
-        `Prelude.hashWithSalt` failureReason
+        `Prelude.hashWithSalt` transcriptionJobStatus
+        `Prelude.hashWithSalt` type'
 
 instance
   Prelude.NFData
     MedicalTranscriptionJobSummary
   where
   rnf MedicalTranscriptionJobSummary' {..} =
-    Prelude.rnf type'
+    Prelude.rnf completionTime
       `Prelude.seq` Prelude.rnf contentIdentificationType
-      `Prelude.seq` Prelude.rnf medicalTranscriptionJobName
-      `Prelude.seq` Prelude.rnf completionTime
-      `Prelude.seq` Prelude.rnf outputLocationType
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf transcriptionJobStatus
       `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf medicalTranscriptionJobName
+      `Prelude.seq` Prelude.rnf outputLocationType
       `Prelude.seq` Prelude.rnf specialty
       `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf transcriptionJobStatus
+      `Prelude.seq` Prelude.rnf type'

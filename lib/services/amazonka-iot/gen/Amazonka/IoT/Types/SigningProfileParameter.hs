@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSigningProfileParameter' smart constructor.
 data SigningProfileParameter = SigningProfileParameter'
-  { -- | The hardware platform of your device.
-    platform :: Prelude.Maybe Prelude.Text,
-    -- | Certificate ARN.
+  { -- | Certificate ARN.
     certificateArn :: Prelude.Maybe Prelude.Text,
     -- | The location of the code-signing certificate on your device.
-    certificatePathOnDevice :: Prelude.Maybe Prelude.Text
+    certificatePathOnDevice :: Prelude.Maybe Prelude.Text,
+    -- | The hardware platform of your device.
+    platform :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,20 @@ data SigningProfileParameter = SigningProfileParameter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'platform', 'signingProfileParameter_platform' - The hardware platform of your device.
---
 -- 'certificateArn', 'signingProfileParameter_certificateArn' - Certificate ARN.
 --
 -- 'certificatePathOnDevice', 'signingProfileParameter_certificatePathOnDevice' - The location of the code-signing certificate on your device.
+--
+-- 'platform', 'signingProfileParameter_platform' - The hardware platform of your device.
 newSigningProfileParameter ::
   SigningProfileParameter
 newSigningProfileParameter =
   SigningProfileParameter'
-    { platform =
+    { certificateArn =
         Prelude.Nothing,
-      certificateArn = Prelude.Nothing,
-      certificatePathOnDevice = Prelude.Nothing
+      certificatePathOnDevice = Prelude.Nothing,
+      platform = Prelude.Nothing
     }
-
--- | The hardware platform of your device.
-signingProfileParameter_platform :: Lens.Lens' SigningProfileParameter (Prelude.Maybe Prelude.Text)
-signingProfileParameter_platform = Lens.lens (\SigningProfileParameter' {platform} -> platform) (\s@SigningProfileParameter' {} a -> s {platform = a} :: SigningProfileParameter)
 
 -- | Certificate ARN.
 signingProfileParameter_certificateArn :: Lens.Lens' SigningProfileParameter (Prelude.Maybe Prelude.Text)
@@ -72,37 +68,41 @@ signingProfileParameter_certificateArn = Lens.lens (\SigningProfileParameter' {c
 signingProfileParameter_certificatePathOnDevice :: Lens.Lens' SigningProfileParameter (Prelude.Maybe Prelude.Text)
 signingProfileParameter_certificatePathOnDevice = Lens.lens (\SigningProfileParameter' {certificatePathOnDevice} -> certificatePathOnDevice) (\s@SigningProfileParameter' {} a -> s {certificatePathOnDevice = a} :: SigningProfileParameter)
 
+-- | The hardware platform of your device.
+signingProfileParameter_platform :: Lens.Lens' SigningProfileParameter (Prelude.Maybe Prelude.Text)
+signingProfileParameter_platform = Lens.lens (\SigningProfileParameter' {platform} -> platform) (\s@SigningProfileParameter' {} a -> s {platform = a} :: SigningProfileParameter)
+
 instance Data.FromJSON SigningProfileParameter where
   parseJSON =
     Data.withObject
       "SigningProfileParameter"
       ( \x ->
           SigningProfileParameter'
-            Prelude.<$> (x Data..:? "platform")
-            Prelude.<*> (x Data..:? "certificateArn")
+            Prelude.<$> (x Data..:? "certificateArn")
             Prelude.<*> (x Data..:? "certificatePathOnDevice")
+            Prelude.<*> (x Data..:? "platform")
       )
 
 instance Prelude.Hashable SigningProfileParameter where
   hashWithSalt _salt SigningProfileParameter' {..} =
-    _salt `Prelude.hashWithSalt` platform
-      `Prelude.hashWithSalt` certificateArn
+    _salt `Prelude.hashWithSalt` certificateArn
       `Prelude.hashWithSalt` certificatePathOnDevice
+      `Prelude.hashWithSalt` platform
 
 instance Prelude.NFData SigningProfileParameter where
   rnf SigningProfileParameter' {..} =
-    Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf certificateArn
+    Prelude.rnf certificateArn
       `Prelude.seq` Prelude.rnf certificatePathOnDevice
+      `Prelude.seq` Prelude.rnf platform
 
 instance Data.ToJSON SigningProfileParameter where
   toJSON SigningProfileParameter' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("platform" Data..=) Prelude.<$> platform,
-            ("certificateArn" Data..=)
+          [ ("certificateArn" Data..=)
               Prelude.<$> certificateArn,
             ("certificatePathOnDevice" Data..=)
-              Prelude.<$> certificatePathOnDevice
+              Prelude.<$> certificatePathOnDevice,
+            ("platform" Data..=) Prelude.<$> platform
           ]
       )

@@ -30,9 +30,9 @@ module Amazonka.EC2.GetGroupsForCapacityReservation
     newGetGroupsForCapacityReservation,
 
     -- * Request Lenses
-    getGroupsForCapacityReservation_nextToken,
     getGroupsForCapacityReservation_dryRun,
     getGroupsForCapacityReservation_maxResults,
+    getGroupsForCapacityReservation_nextToken,
     getGroupsForCapacityReservation_capacityReservationId,
 
     -- * Destructuring the Response
@@ -40,8 +40,8 @@ module Amazonka.EC2.GetGroupsForCapacityReservation
     newGetGroupsForCapacityReservationResponse,
 
     -- * Response Lenses
-    getGroupsForCapacityReservationResponse_nextToken,
     getGroupsForCapacityReservationResponse_capacityReservationGroups,
+    getGroupsForCapacityReservationResponse_nextToken,
     getGroupsForCapacityReservationResponse_httpStatus,
   )
 where
@@ -56,9 +56,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetGroupsForCapacityReservation' smart constructor.
 data GetGroupsForCapacityReservation = GetGroupsForCapacityReservation'
-  { -- | The token to use to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Checks whether you have the required permissions for the action, without
+  { -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
@@ -68,6 +66,8 @@ data GetGroupsForCapacityReservation = GetGroupsForCapacityReservation'
     -- the returned @nextToken@ value. This value can be between 5 and 500. If
     -- @maxResults@ is given a larger value than 500, you receive an error.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to use to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Capacity Reservation.
     capacityReservationId :: Prelude.Text
   }
@@ -81,8 +81,6 @@ data GetGroupsForCapacityReservation = GetGroupsForCapacityReservation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getGroupsForCapacityReservation_nextToken' - The token to use to retrieve the next page of results.
---
 -- 'dryRun', 'getGroupsForCapacityReservation_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
@@ -93,6 +91,8 @@ data GetGroupsForCapacityReservation = GetGroupsForCapacityReservation'
 -- the returned @nextToken@ value. This value can be between 5 and 500. If
 -- @maxResults@ is given a larger value than 500, you receive an error.
 --
+-- 'nextToken', 'getGroupsForCapacityReservation_nextToken' - The token to use to retrieve the next page of results.
+--
 -- 'capacityReservationId', 'getGroupsForCapacityReservation_capacityReservationId' - The ID of the Capacity Reservation.
 newGetGroupsForCapacityReservation ::
   -- | 'capacityReservationId'
@@ -101,17 +101,13 @@ newGetGroupsForCapacityReservation ::
 newGetGroupsForCapacityReservation
   pCapacityReservationId_ =
     GetGroupsForCapacityReservation'
-      { nextToken =
+      { dryRun =
           Prelude.Nothing,
-        dryRun = Prelude.Nothing,
         maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         capacityReservationId =
           pCapacityReservationId_
       }
-
--- | The token to use to retrieve the next page of results.
-getGroupsForCapacityReservation_nextToken :: Lens.Lens' GetGroupsForCapacityReservation (Prelude.Maybe Prelude.Text)
-getGroupsForCapacityReservation_nextToken = Lens.lens (\GetGroupsForCapacityReservation' {nextToken} -> nextToken) (\s@GetGroupsForCapacityReservation' {} a -> s {nextToken = a} :: GetGroupsForCapacityReservation)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -126,6 +122,10 @@ getGroupsForCapacityReservation_dryRun = Lens.lens (\GetGroupsForCapacityReserva
 -- @maxResults@ is given a larger value than 500, you receive an error.
 getGroupsForCapacityReservation_maxResults :: Lens.Lens' GetGroupsForCapacityReservation (Prelude.Maybe Prelude.Natural)
 getGroupsForCapacityReservation_maxResults = Lens.lens (\GetGroupsForCapacityReservation' {maxResults} -> maxResults) (\s@GetGroupsForCapacityReservation' {} a -> s {maxResults = a} :: GetGroupsForCapacityReservation)
+
+-- | The token to use to retrieve the next page of results.
+getGroupsForCapacityReservation_nextToken :: Lens.Lens' GetGroupsForCapacityReservation (Prelude.Maybe Prelude.Text)
+getGroupsForCapacityReservation_nextToken = Lens.lens (\GetGroupsForCapacityReservation' {nextToken} -> nextToken) (\s@GetGroupsForCapacityReservation' {} a -> s {nextToken = a} :: GetGroupsForCapacityReservation)
 
 -- | The ID of the Capacity Reservation.
 getGroupsForCapacityReservation_capacityReservationId :: Lens.Lens' GetGroupsForCapacityReservation Prelude.Text
@@ -169,11 +169,11 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetGroupsForCapacityReservationResponse'
-            Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "capacityReservationGroupSet"
+            Prelude.<$> ( x Data..@? "capacityReservationGroupSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
+            Prelude.<*> (x Data..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -184,9 +184,9 @@ instance
   hashWithSalt
     _salt
     GetGroupsForCapacityReservation' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` dryRun
+      _salt `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` capacityReservationId
 
 instance
@@ -194,9 +194,9 @@ instance
     GetGroupsForCapacityReservation
   where
   rnf GetGroupsForCapacityReservation' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf dryRun
+    Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf capacityReservationId
 
 instance
@@ -217,21 +217,21 @@ instance Data.ToQuery GetGroupsForCapacityReservation where
                   ),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
         "DryRun" Data.=: dryRun,
         "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken,
         "CapacityReservationId"
           Data.=: capacityReservationId
       ]
 
 -- | /See:/ 'newGetGroupsForCapacityReservationResponse' smart constructor.
 data GetGroupsForCapacityReservationResponse = GetGroupsForCapacityReservationResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
-    -- @null@ when there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the resource groups to which the Capacity Reservation
+  { -- | Information about the resource groups to which the Capacity Reservation
     -- has been added.
     capacityReservationGroups :: Prelude.Maybe [CapacityReservationGroup],
+    -- | The token to use to retrieve the next page of results. This value is
+    -- @null@ when there are no more results to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -245,11 +245,11 @@ data GetGroupsForCapacityReservationResponse = GetGroupsForCapacityReservationRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getGroupsForCapacityReservationResponse_nextToken' - The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
---
 -- 'capacityReservationGroups', 'getGroupsForCapacityReservationResponse_capacityReservationGroups' - Information about the resource groups to which the Capacity Reservation
 -- has been added.
+--
+-- 'nextToken', 'getGroupsForCapacityReservationResponse_nextToken' - The token to use to retrieve the next page of results. This value is
+-- @null@ when there are no more results to return.
 --
 -- 'httpStatus', 'getGroupsForCapacityReservationResponse_httpStatus' - The response's http status code.
 newGetGroupsForCapacityReservationResponse ::
@@ -259,22 +259,21 @@ newGetGroupsForCapacityReservationResponse ::
 newGetGroupsForCapacityReservationResponse
   pHttpStatus_ =
     GetGroupsForCapacityReservationResponse'
-      { nextToken =
+      { capacityReservationGroups =
           Prelude.Nothing,
-        capacityReservationGroups =
-          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
-getGroupsForCapacityReservationResponse_nextToken :: Lens.Lens' GetGroupsForCapacityReservationResponse (Prelude.Maybe Prelude.Text)
-getGroupsForCapacityReservationResponse_nextToken = Lens.lens (\GetGroupsForCapacityReservationResponse' {nextToken} -> nextToken) (\s@GetGroupsForCapacityReservationResponse' {} a -> s {nextToken = a} :: GetGroupsForCapacityReservationResponse)
 
 -- | Information about the resource groups to which the Capacity Reservation
 -- has been added.
 getGroupsForCapacityReservationResponse_capacityReservationGroups :: Lens.Lens' GetGroupsForCapacityReservationResponse (Prelude.Maybe [CapacityReservationGroup])
 getGroupsForCapacityReservationResponse_capacityReservationGroups = Lens.lens (\GetGroupsForCapacityReservationResponse' {capacityReservationGroups} -> capacityReservationGroups) (\s@GetGroupsForCapacityReservationResponse' {} a -> s {capacityReservationGroups = a} :: GetGroupsForCapacityReservationResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token to use to retrieve the next page of results. This value is
+-- @null@ when there are no more results to return.
+getGroupsForCapacityReservationResponse_nextToken :: Lens.Lens' GetGroupsForCapacityReservationResponse (Prelude.Maybe Prelude.Text)
+getGroupsForCapacityReservationResponse_nextToken = Lens.lens (\GetGroupsForCapacityReservationResponse' {nextToken} -> nextToken) (\s@GetGroupsForCapacityReservationResponse' {} a -> s {nextToken = a} :: GetGroupsForCapacityReservationResponse)
 
 -- | The response's http status code.
 getGroupsForCapacityReservationResponse_httpStatus :: Lens.Lens' GetGroupsForCapacityReservationResponse Prelude.Int
@@ -285,6 +284,6 @@ instance
     GetGroupsForCapacityReservationResponse
   where
   rnf GetGroupsForCapacityReservationResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf capacityReservationGroups
+    Prelude.rnf capacityReservationGroups
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

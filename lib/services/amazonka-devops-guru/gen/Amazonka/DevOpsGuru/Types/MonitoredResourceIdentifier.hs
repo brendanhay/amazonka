@@ -32,15 +32,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMonitoredResourceIdentifier' smart constructor.
 data MonitoredResourceIdentifier = MonitoredResourceIdentifier'
-  { -- | The type of resource being monitored.
-    type' :: Prelude.Maybe Prelude.Text,
-    resourceCollection :: Prelude.Maybe ResourceCollection,
-    -- | The time at which DevOps Guru last updated this resource.
+  { -- | The time at which DevOps Guru last updated this resource.
     lastUpdated :: Prelude.Maybe Data.POSIX,
+    -- | The name of the resource being monitored.
+    monitoredResourceName :: Prelude.Maybe Prelude.Text,
+    resourceCollection :: Prelude.Maybe ResourceCollection,
     -- | The permission status of a resource.
     resourcePermission :: Prelude.Maybe ResourcePermission,
-    -- | The name of the resource being monitored.
-    monitoredResourceName :: Prelude.Maybe Prelude.Text
+    -- | The type of resource being monitored.
+    type' :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,46 +52,46 @@ data MonitoredResourceIdentifier = MonitoredResourceIdentifier'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'monitoredResourceIdentifier_type' - The type of resource being monitored.
+-- 'lastUpdated', 'monitoredResourceIdentifier_lastUpdated' - The time at which DevOps Guru last updated this resource.
+--
+-- 'monitoredResourceName', 'monitoredResourceIdentifier_monitoredResourceName' - The name of the resource being monitored.
 --
 -- 'resourceCollection', 'monitoredResourceIdentifier_resourceCollection' - Undocumented member.
 --
--- 'lastUpdated', 'monitoredResourceIdentifier_lastUpdated' - The time at which DevOps Guru last updated this resource.
---
 -- 'resourcePermission', 'monitoredResourceIdentifier_resourcePermission' - The permission status of a resource.
 --
--- 'monitoredResourceName', 'monitoredResourceIdentifier_monitoredResourceName' - The name of the resource being monitored.
+-- 'type'', 'monitoredResourceIdentifier_type' - The type of resource being monitored.
 newMonitoredResourceIdentifier ::
   MonitoredResourceIdentifier
 newMonitoredResourceIdentifier =
   MonitoredResourceIdentifier'
-    { type' =
+    { lastUpdated =
         Prelude.Nothing,
+      monitoredResourceName = Prelude.Nothing,
       resourceCollection = Prelude.Nothing,
-      lastUpdated = Prelude.Nothing,
       resourcePermission = Prelude.Nothing,
-      monitoredResourceName = Prelude.Nothing
+      type' = Prelude.Nothing
     }
-
--- | The type of resource being monitored.
-monitoredResourceIdentifier_type :: Lens.Lens' MonitoredResourceIdentifier (Prelude.Maybe Prelude.Text)
-monitoredResourceIdentifier_type = Lens.lens (\MonitoredResourceIdentifier' {type'} -> type') (\s@MonitoredResourceIdentifier' {} a -> s {type' = a} :: MonitoredResourceIdentifier)
-
--- | Undocumented member.
-monitoredResourceIdentifier_resourceCollection :: Lens.Lens' MonitoredResourceIdentifier (Prelude.Maybe ResourceCollection)
-monitoredResourceIdentifier_resourceCollection = Lens.lens (\MonitoredResourceIdentifier' {resourceCollection} -> resourceCollection) (\s@MonitoredResourceIdentifier' {} a -> s {resourceCollection = a} :: MonitoredResourceIdentifier)
 
 -- | The time at which DevOps Guru last updated this resource.
 monitoredResourceIdentifier_lastUpdated :: Lens.Lens' MonitoredResourceIdentifier (Prelude.Maybe Prelude.UTCTime)
 monitoredResourceIdentifier_lastUpdated = Lens.lens (\MonitoredResourceIdentifier' {lastUpdated} -> lastUpdated) (\s@MonitoredResourceIdentifier' {} a -> s {lastUpdated = a} :: MonitoredResourceIdentifier) Prelude.. Lens.mapping Data._Time
 
+-- | The name of the resource being monitored.
+monitoredResourceIdentifier_monitoredResourceName :: Lens.Lens' MonitoredResourceIdentifier (Prelude.Maybe Prelude.Text)
+monitoredResourceIdentifier_monitoredResourceName = Lens.lens (\MonitoredResourceIdentifier' {monitoredResourceName} -> monitoredResourceName) (\s@MonitoredResourceIdentifier' {} a -> s {monitoredResourceName = a} :: MonitoredResourceIdentifier)
+
+-- | Undocumented member.
+monitoredResourceIdentifier_resourceCollection :: Lens.Lens' MonitoredResourceIdentifier (Prelude.Maybe ResourceCollection)
+monitoredResourceIdentifier_resourceCollection = Lens.lens (\MonitoredResourceIdentifier' {resourceCollection} -> resourceCollection) (\s@MonitoredResourceIdentifier' {} a -> s {resourceCollection = a} :: MonitoredResourceIdentifier)
+
 -- | The permission status of a resource.
 monitoredResourceIdentifier_resourcePermission :: Lens.Lens' MonitoredResourceIdentifier (Prelude.Maybe ResourcePermission)
 monitoredResourceIdentifier_resourcePermission = Lens.lens (\MonitoredResourceIdentifier' {resourcePermission} -> resourcePermission) (\s@MonitoredResourceIdentifier' {} a -> s {resourcePermission = a} :: MonitoredResourceIdentifier)
 
--- | The name of the resource being monitored.
-monitoredResourceIdentifier_monitoredResourceName :: Lens.Lens' MonitoredResourceIdentifier (Prelude.Maybe Prelude.Text)
-monitoredResourceIdentifier_monitoredResourceName = Lens.lens (\MonitoredResourceIdentifier' {monitoredResourceName} -> monitoredResourceName) (\s@MonitoredResourceIdentifier' {} a -> s {monitoredResourceName = a} :: MonitoredResourceIdentifier)
+-- | The type of resource being monitored.
+monitoredResourceIdentifier_type :: Lens.Lens' MonitoredResourceIdentifier (Prelude.Maybe Prelude.Text)
+monitoredResourceIdentifier_type = Lens.lens (\MonitoredResourceIdentifier' {type'} -> type') (\s@MonitoredResourceIdentifier' {} a -> s {type' = a} :: MonitoredResourceIdentifier)
 
 instance Data.FromJSON MonitoredResourceIdentifier where
   parseJSON =
@@ -99,25 +99,25 @@ instance Data.FromJSON MonitoredResourceIdentifier where
       "MonitoredResourceIdentifier"
       ( \x ->
           MonitoredResourceIdentifier'
-            Prelude.<$> (x Data..:? "Type")
-            Prelude.<*> (x Data..:? "ResourceCollection")
-            Prelude.<*> (x Data..:? "LastUpdated")
-            Prelude.<*> (x Data..:? "ResourcePermission")
+            Prelude.<$> (x Data..:? "LastUpdated")
             Prelude.<*> (x Data..:? "MonitoredResourceName")
+            Prelude.<*> (x Data..:? "ResourceCollection")
+            Prelude.<*> (x Data..:? "ResourcePermission")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable MonitoredResourceIdentifier where
   hashWithSalt _salt MonitoredResourceIdentifier' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` resourceCollection
-      `Prelude.hashWithSalt` lastUpdated
-      `Prelude.hashWithSalt` resourcePermission
+    _salt `Prelude.hashWithSalt` lastUpdated
       `Prelude.hashWithSalt` monitoredResourceName
+      `Prelude.hashWithSalt` resourceCollection
+      `Prelude.hashWithSalt` resourcePermission
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData MonitoredResourceIdentifier where
   rnf MonitoredResourceIdentifier' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf resourceCollection
-      `Prelude.seq` Prelude.rnf lastUpdated
-      `Prelude.seq` Prelude.rnf resourcePermission
+    Prelude.rnf lastUpdated
       `Prelude.seq` Prelude.rnf monitoredResourceName
+      `Prelude.seq` Prelude.rnf resourceCollection
+      `Prelude.seq` Prelude.rnf resourcePermission
+      `Prelude.seq` Prelude.rnf type'

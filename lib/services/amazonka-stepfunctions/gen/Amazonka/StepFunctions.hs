@@ -41,26 +41,35 @@ module Amazonka.StepFunctions
     -- * Errors
     -- $errors
 
-    -- ** TaskDoesNotExist
-    _TaskDoesNotExist,
-
-    -- ** TaskTimedOut
-    _TaskTimedOut,
-
-    -- ** InvalidDefinition
-    _InvalidDefinition,
-
-    -- ** ResourceNotFound
-    _ResourceNotFound,
-
     -- ** ActivityDoesNotExist
     _ActivityDoesNotExist,
+
+    -- ** ActivityLimitExceeded
+    _ActivityLimitExceeded,
+
+    -- ** ActivityWorkerLimitExceeded
+    _ActivityWorkerLimitExceeded,
+
+    -- ** ExecutionAlreadyExists
+    _ExecutionAlreadyExists,
 
     -- ** ExecutionDoesNotExist
     _ExecutionDoesNotExist,
 
-    -- ** StateMachineDeleting
-    _StateMachineDeleting,
+    -- ** ExecutionLimitExceeded
+    _ExecutionLimitExceeded,
+
+    -- ** InvalidArn
+    _InvalidArn,
+
+    -- ** InvalidDefinition
+    _InvalidDefinition,
+
+    -- ** InvalidExecutionInput
+    _InvalidExecutionInput,
+
+    -- ** InvalidLoggingConfiguration
+    _InvalidLoggingConfiguration,
 
     -- ** InvalidName
     _InvalidName,
@@ -68,50 +77,44 @@ module Amazonka.StepFunctions
     -- ** InvalidOutput
     _InvalidOutput,
 
-    -- ** MissingRequiredParameter
-    _MissingRequiredParameter,
-
-    -- ** ExecutionLimitExceeded
-    _ExecutionLimitExceeded,
-
-    -- ** StateMachineTypeNotSupported
-    _StateMachineTypeNotSupported,
-
-    -- ** ActivityLimitExceeded
-    _ActivityLimitExceeded,
-
-    -- ** InvalidArn
-    _InvalidArn,
-
     -- ** InvalidToken
     _InvalidToken,
-
-    -- ** InvalidExecutionInput
-    _InvalidExecutionInput,
-
-    -- ** StateMachineAlreadyExists
-    _StateMachineAlreadyExists,
-
-    -- ** InvalidLoggingConfiguration
-    _InvalidLoggingConfiguration,
-
-    -- ** StateMachineLimitExceeded
-    _StateMachineLimitExceeded,
 
     -- ** InvalidTracingConfiguration
     _InvalidTracingConfiguration,
 
-    -- ** ActivityWorkerLimitExceeded
-    _ActivityWorkerLimitExceeded,
+    -- ** MissingRequiredParameter
+    _MissingRequiredParameter,
+
+    -- ** ResourceNotFound
+    _ResourceNotFound,
+
+    -- ** StateMachineAlreadyExists
+    _StateMachineAlreadyExists,
+
+    -- ** StateMachineDeleting
+    _StateMachineDeleting,
 
     -- ** StateMachineDoesNotExist
     _StateMachineDoesNotExist,
 
-    -- ** ExecutionAlreadyExists
-    _ExecutionAlreadyExists,
+    -- ** StateMachineLimitExceeded
+    _StateMachineLimitExceeded,
+
+    -- ** StateMachineTypeNotSupported
+    _StateMachineTypeNotSupported,
+
+    -- ** TaskDoesNotExist
+    _TaskDoesNotExist,
+
+    -- ** TaskTimedOut
+    _TaskTimedOut,
 
     -- ** TooManyTags
     _TooManyTags,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters
@@ -155,6 +158,12 @@ module Amazonka.StepFunctions
     DescribeExecutionResponse (DescribeExecutionResponse'),
     newDescribeExecutionResponse,
 
+    -- ** DescribeMapRun
+    DescribeMapRun (DescribeMapRun'),
+    newDescribeMapRun,
+    DescribeMapRunResponse (DescribeMapRunResponse'),
+    newDescribeMapRunResponse,
+
     -- ** DescribeStateMachine
     DescribeStateMachine (DescribeStateMachine'),
     newDescribeStateMachine,
@@ -190,6 +199,12 @@ module Amazonka.StepFunctions
     newListExecutions,
     ListExecutionsResponse (ListExecutionsResponse'),
     newListExecutionsResponse,
+
+    -- ** ListMapRuns (Paginated)
+    ListMapRuns (ListMapRuns'),
+    newListMapRuns,
+    ListMapRunsResponse (ListMapRunsResponse'),
+    newListMapRunsResponse,
 
     -- ** ListStateMachines (Paginated)
     ListStateMachines (ListStateMachines'),
@@ -251,6 +266,12 @@ module Amazonka.StepFunctions
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
+    -- ** UpdateMapRun
+    UpdateMapRun (UpdateMapRun'),
+    newUpdateMapRun,
+    UpdateMapRunResponse (UpdateMapRunResponse'),
+    newUpdateMapRunResponse,
+
     -- ** UpdateStateMachine
     UpdateStateMachine (UpdateStateMachine'),
     newUpdateStateMachine,
@@ -267,6 +288,9 @@ module Amazonka.StepFunctions
 
     -- ** LogLevel
     LogLevel (..),
+
+    -- ** MapRunStatus
+    MapRunStatus (..),
 
     -- ** StateMachineStatus
     StateMachineStatus (..),
@@ -385,6 +409,26 @@ module Amazonka.StepFunctions
     MapIterationEventDetails (MapIterationEventDetails'),
     newMapIterationEventDetails,
 
+    -- ** MapRunExecutionCounts
+    MapRunExecutionCounts (MapRunExecutionCounts'),
+    newMapRunExecutionCounts,
+
+    -- ** MapRunFailedEventDetails
+    MapRunFailedEventDetails (MapRunFailedEventDetails'),
+    newMapRunFailedEventDetails,
+
+    -- ** MapRunItemCounts
+    MapRunItemCounts (MapRunItemCounts'),
+    newMapRunItemCounts,
+
+    -- ** MapRunListItem
+    MapRunListItem (MapRunListItem'),
+    newMapRunListItem,
+
+    -- ** MapRunStartedEventDetails
+    MapRunStartedEventDetails (MapRunStartedEventDetails'),
+    newMapRunStartedEventDetails,
+
     -- ** MapStateStartedEventDetails
     MapStateStartedEventDetails (MapStateStartedEventDetails'),
     newMapStateStartedEventDetails,
@@ -453,6 +497,7 @@ import Amazonka.StepFunctions.DeleteActivity
 import Amazonka.StepFunctions.DeleteStateMachine
 import Amazonka.StepFunctions.DescribeActivity
 import Amazonka.StepFunctions.DescribeExecution
+import Amazonka.StepFunctions.DescribeMapRun
 import Amazonka.StepFunctions.DescribeStateMachine
 import Amazonka.StepFunctions.DescribeStateMachineForExecution
 import Amazonka.StepFunctions.GetActivityTask
@@ -460,6 +505,7 @@ import Amazonka.StepFunctions.GetExecutionHistory
 import Amazonka.StepFunctions.Lens
 import Amazonka.StepFunctions.ListActivities
 import Amazonka.StepFunctions.ListExecutions
+import Amazonka.StepFunctions.ListMapRuns
 import Amazonka.StepFunctions.ListStateMachines
 import Amazonka.StepFunctions.ListTagsForResource
 import Amazonka.StepFunctions.SendTaskFailure
@@ -471,6 +517,7 @@ import Amazonka.StepFunctions.StopExecution
 import Amazonka.StepFunctions.TagResource
 import Amazonka.StepFunctions.Types
 import Amazonka.StepFunctions.UntagResource
+import Amazonka.StepFunctions.UpdateMapRun
 import Amazonka.StepFunctions.UpdateStateMachine
 import Amazonka.StepFunctions.Waiters
 

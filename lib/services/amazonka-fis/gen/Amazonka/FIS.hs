@@ -22,14 +22,14 @@ module Amazonka.FIS
     -- * Errors
     -- $errors
 
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
+    -- ** ConflictException
+    _ConflictException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** ConflictException
-    _ConflictException,
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
 
     -- ** ValidationException
     _ValidationException,

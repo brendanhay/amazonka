@@ -18,16 +18,16 @@ module Amazonka.AppFlow.Types
     defaultService,
 
     -- * Errors
-    _ConnectorAuthenticationException,
-    _UnsupportedOperationException,
     _AccessDeniedException,
-    _InternalServerException,
-    _ServiceQuotaExceededException,
-    _ResourceNotFoundException,
     _ConflictException,
-    _ThrottlingException,
-    _ValidationException,
+    _ConnectorAuthenticationException,
     _ConnectorServerException,
+    _InternalServerException,
+    _ResourceNotFoundException,
+    _ServiceQuotaExceededException,
+    _ThrottlingException,
+    _UnsupportedOperationException,
+    _ValidationException,
 
     -- * AggregationType
     AggregationType (..),
@@ -186,20 +186,20 @@ module Amazonka.AppFlow.Types
     -- * AuthParameter
     AuthParameter (..),
     newAuthParameter,
-    authParameter_key,
     authParameter_connectorSuppliedValues,
-    authParameter_label,
     authParameter_description,
-    authParameter_isSensitiveField,
     authParameter_isRequired,
+    authParameter_isSensitiveField,
+    authParameter_key,
+    authParameter_label,
 
     -- * AuthenticationConfig
     AuthenticationConfig (..),
     newAuthenticationConfig,
     authenticationConfig_customAuthConfigs,
-    authenticationConfig_isCustomAuthSupported,
     authenticationConfig_isApiKeyAuthSupported,
     authenticationConfig_isBasicAuthSupported,
+    authenticationConfig_isCustomAuthSupported,
     authenticationConfig_isOAuth2Supported,
     authenticationConfig_oAuth2Defaults,
 
@@ -212,94 +212,94 @@ module Amazonka.AppFlow.Types
     -- * ConnectorConfiguration
     ConnectorConfiguration (..),
     newConnectorConfiguration,
-    connectorConfiguration_connectorProvisioningType,
+    connectorConfiguration_authenticationConfig,
+    connectorConfiguration_canUseAsDestination,
     connectorConfiguration_canUseAsSource,
-    connectorConfiguration_connectorDescription,
-    connectorConfiguration_registeredBy,
-    connectorConfiguration_supportedWriteOperations,
-    connectorConfiguration_logoURL,
-    connectorConfiguration_isPrivateLinkEnabled,
-    connectorConfiguration_connectorVersion,
     connectorConfiguration_connectorArn,
+    connectorConfiguration_connectorDescription,
+    connectorConfiguration_connectorLabel,
+    connectorConfiguration_connectorMetadata,
+    connectorConfiguration_connectorModes,
+    connectorConfiguration_connectorName,
+    connectorConfiguration_connectorOwner,
+    connectorConfiguration_connectorProvisioningConfig,
+    connectorConfiguration_connectorProvisioningType,
     connectorConfiguration_connectorRuntimeSettings,
     connectorConfiguration_connectorType,
-    connectorConfiguration_canUseAsDestination,
-    connectorConfiguration_connectorProvisioningConfig,
-    connectorConfiguration_supportedOperators,
-    connectorConfiguration_connectorName,
-    connectorConfiguration_connectorModes,
-    connectorConfiguration_supportedTriggerTypes,
-    connectorConfiguration_authenticationConfig,
+    connectorConfiguration_connectorVersion,
+    connectorConfiguration_isPrivateLinkEnabled,
     connectorConfiguration_isPrivateLinkEndpointUrlRequired,
-    connectorConfiguration_connectorLabel,
+    connectorConfiguration_logoURL,
+    connectorConfiguration_registeredAt,
+    connectorConfiguration_registeredBy,
     connectorConfiguration_supportedApiVersions,
     connectorConfiguration_supportedDestinationConnectors,
-    connectorConfiguration_connectorOwner,
-    connectorConfiguration_connectorMetadata,
-    connectorConfiguration_registeredAt,
+    connectorConfiguration_supportedOperators,
     connectorConfiguration_supportedSchedulingFrequencies,
+    connectorConfiguration_supportedTriggerTypes,
+    connectorConfiguration_supportedWriteOperations,
 
     -- * ConnectorDetail
     ConnectorDetail (..),
     newConnectorDetail,
-    connectorDetail_connectorProvisioningType,
-    connectorDetail_connectorDescription,
-    connectorDetail_registeredBy,
-    connectorDetail_connectorVersion,
-    connectorDetail_connectorType,
-    connectorDetail_connectorName,
     connectorDetail_applicationType,
-    connectorDetail_connectorModes,
+    connectorDetail_connectorDescription,
     connectorDetail_connectorLabel,
+    connectorDetail_connectorModes,
+    connectorDetail_connectorName,
     connectorDetail_connectorOwner,
+    connectorDetail_connectorProvisioningType,
+    connectorDetail_connectorType,
+    connectorDetail_connectorVersion,
     connectorDetail_registeredAt,
+    connectorDetail_registeredBy,
 
     -- * ConnectorEntity
     ConnectorEntity (..),
     newConnectorEntity,
-    connectorEntity_label,
     connectorEntity_hasNestedEntities,
+    connectorEntity_label,
     connectorEntity_name,
 
     -- * ConnectorEntityField
     ConnectorEntityField (..),
     newConnectorEntityField,
     connectorEntityField_customProperties,
-    connectorEntityField_parentIdentifier,
-    connectorEntityField_label,
     connectorEntityField_defaultValue,
     connectorEntityField_description,
     connectorEntityField_destinationProperties,
-    connectorEntityField_supportedFieldTypeDetails,
-    connectorEntityField_isPrimaryKey,
-    connectorEntityField_sourceProperties,
     connectorEntityField_isDeprecated,
+    connectorEntityField_isPrimaryKey,
+    connectorEntityField_label,
+    connectorEntityField_parentIdentifier,
+    connectorEntityField_sourceProperties,
+    connectorEntityField_supportedFieldTypeDetails,
     connectorEntityField_identifier,
 
     -- * ConnectorMetadata
     ConnectorMetadata (..),
     newConnectorMetadata,
-    connectorMetadata_zendesk,
-    connectorMetadata_slack,
-    connectorMetadata_singular,
-    connectorMetadata_s3,
-    connectorMetadata_veeva,
+    connectorMetadata_amplitude,
+    connectorMetadata_customerProfiles,
+    connectorMetadata_datadog,
+    connectorMetadata_dynatrace,
+    connectorMetadata_eventBridge,
+    connectorMetadata_googleAnalytics,
     connectorMetadata_honeycode,
-    connectorMetadata_salesforce,
-    connectorMetadata_snowflake,
-    connectorMetadata_sAPOData,
+    connectorMetadata_inforNexus,
     connectorMetadata_marketo,
     connectorMetadata_redshift,
-    connectorMetadata_trendmicro,
-    connectorMetadata_inforNexus,
-    connectorMetadata_customerProfiles,
-    connectorMetadata_upsolver,
+    connectorMetadata_s3,
+    connectorMetadata_sAPOData,
+    connectorMetadata_salesforce,
     connectorMetadata_serviceNow,
-    connectorMetadata_datadog,
-    connectorMetadata_amplitude,
-    connectorMetadata_dynatrace,
-    connectorMetadata_googleAnalytics,
-    connectorMetadata_eventBridge,
+    connectorMetadata_singular,
+    connectorMetadata_slack,
+    connectorMetadata_snowflake,
+    connectorMetadata_trendmicro,
+    connectorMetadata_upsolver,
+    connectorMetadata_veeva,
+    connectorMetadata_zendesk,
 
     -- * ConnectorOAuthRequest
     ConnectorOAuthRequest (..),
@@ -310,36 +310,36 @@ module Amazonka.AppFlow.Types
     -- * ConnectorOperator
     ConnectorOperator (..),
     newConnectorOperator,
-    connectorOperator_zendesk,
-    connectorOperator_slack,
-    connectorOperator_singular,
-    connectorOperator_s3,
-    connectorOperator_veeva,
-    connectorOperator_salesforce,
-    connectorOperator_sAPOData,
-    connectorOperator_marketo,
-    connectorOperator_trendmicro,
-    connectorOperator_inforNexus,
-    connectorOperator_serviceNow,
-    connectorOperator_datadog,
-    connectorOperator_customConnector,
     connectorOperator_amplitude,
+    connectorOperator_customConnector,
+    connectorOperator_datadog,
     connectorOperator_dynatrace,
     connectorOperator_googleAnalytics,
+    connectorOperator_inforNexus,
+    connectorOperator_marketo,
+    connectorOperator_s3,
+    connectorOperator_sAPOData,
+    connectorOperator_salesforce,
+    connectorOperator_serviceNow,
+    connectorOperator_singular,
+    connectorOperator_slack,
+    connectorOperator_trendmicro,
+    connectorOperator_veeva,
+    connectorOperator_zendesk,
 
     -- * ConnectorProfile
     ConnectorProfile (..),
     newConnectorProfile,
-    connectorProfile_credentialsArn,
-    connectorProfile_connectorProfileProperties,
-    connectorProfile_lastUpdatedAt,
     connectorProfile_connectionMode,
-    connectorProfile_connectorProfileName,
-    connectorProfile_privateConnectionProvisioningState,
-    connectorProfile_connectorType,
-    connectorProfile_connectorProfileArn,
     connectorProfile_connectorLabel,
+    connectorProfile_connectorProfileArn,
+    connectorProfile_connectorProfileName,
+    connectorProfile_connectorProfileProperties,
+    connectorProfile_connectorType,
     connectorProfile_createdAt,
+    connectorProfile_credentialsArn,
+    connectorProfile_lastUpdatedAt,
+    connectorProfile_privateConnectionProvisioningState,
 
     -- * ConnectorProfileConfig
     ConnectorProfileConfig (..),
@@ -350,46 +350,46 @@ module Amazonka.AppFlow.Types
     -- * ConnectorProfileCredentials
     ConnectorProfileCredentials (..),
     newConnectorProfileCredentials,
-    connectorProfileCredentials_zendesk,
-    connectorProfileCredentials_slack,
-    connectorProfileCredentials_singular,
-    connectorProfileCredentials_veeva,
-    connectorProfileCredentials_honeycode,
-    connectorProfileCredentials_salesforce,
-    connectorProfileCredentials_snowflake,
-    connectorProfileCredentials_sAPOData,
-    connectorProfileCredentials_marketo,
-    connectorProfileCredentials_redshift,
-    connectorProfileCredentials_trendmicro,
-    connectorProfileCredentials_inforNexus,
-    connectorProfileCredentials_serviceNow,
-    connectorProfileCredentials_datadog,
-    connectorProfileCredentials_customConnector,
     connectorProfileCredentials_amplitude,
+    connectorProfileCredentials_customConnector,
+    connectorProfileCredentials_datadog,
     connectorProfileCredentials_dynatrace,
     connectorProfileCredentials_googleAnalytics,
+    connectorProfileCredentials_honeycode,
+    connectorProfileCredentials_inforNexus,
+    connectorProfileCredentials_marketo,
+    connectorProfileCredentials_redshift,
+    connectorProfileCredentials_sAPOData,
+    connectorProfileCredentials_salesforce,
+    connectorProfileCredentials_serviceNow,
+    connectorProfileCredentials_singular,
+    connectorProfileCredentials_slack,
+    connectorProfileCredentials_snowflake,
+    connectorProfileCredentials_trendmicro,
+    connectorProfileCredentials_veeva,
+    connectorProfileCredentials_zendesk,
 
     -- * ConnectorProfileProperties
     ConnectorProfileProperties (..),
     newConnectorProfileProperties,
-    connectorProfileProperties_zendesk,
-    connectorProfileProperties_slack,
-    connectorProfileProperties_singular,
-    connectorProfileProperties_veeva,
-    connectorProfileProperties_honeycode,
-    connectorProfileProperties_salesforce,
-    connectorProfileProperties_snowflake,
-    connectorProfileProperties_sAPOData,
-    connectorProfileProperties_marketo,
-    connectorProfileProperties_redshift,
-    connectorProfileProperties_trendmicro,
-    connectorProfileProperties_inforNexus,
-    connectorProfileProperties_serviceNow,
-    connectorProfileProperties_datadog,
-    connectorProfileProperties_customConnector,
     connectorProfileProperties_amplitude,
+    connectorProfileProperties_customConnector,
+    connectorProfileProperties_datadog,
     connectorProfileProperties_dynatrace,
     connectorProfileProperties_googleAnalytics,
+    connectorProfileProperties_honeycode,
+    connectorProfileProperties_inforNexus,
+    connectorProfileProperties_marketo,
+    connectorProfileProperties_redshift,
+    connectorProfileProperties_sAPOData,
+    connectorProfileProperties_salesforce,
+    connectorProfileProperties_serviceNow,
+    connectorProfileProperties_singular,
+    connectorProfileProperties_slack,
+    connectorProfileProperties_snowflake,
+    connectorProfileProperties_trendmicro,
+    connectorProfileProperties_veeva,
+    connectorProfileProperties_zendesk,
 
     -- * ConnectorProvisioningConfig
     ConnectorProvisioningConfig (..),
@@ -399,13 +399,13 @@ module Amazonka.AppFlow.Types
     -- * ConnectorRuntimeSetting
     ConnectorRuntimeSetting (..),
     newConnectorRuntimeSetting,
+    connectorRuntimeSetting_connectorSuppliedValueOptions,
+    connectorRuntimeSetting_dataType,
+    connectorRuntimeSetting_description,
+    connectorRuntimeSetting_isRequired,
     connectorRuntimeSetting_key,
     connectorRuntimeSetting_label,
-    connectorRuntimeSetting_connectorSuppliedValueOptions,
-    connectorRuntimeSetting_description,
     connectorRuntimeSetting_scope,
-    connectorRuntimeSetting_isRequired,
-    connectorRuntimeSetting_dataType,
 
     -- * CustomAuthConfig
     CustomAuthConfig (..),
@@ -422,8 +422,8 @@ module Amazonka.AppFlow.Types
     -- * CustomConnectorDestinationProperties
     CustomConnectorDestinationProperties (..),
     newCustomConnectorDestinationProperties,
-    customConnectorDestinationProperties_errorHandlingConfig,
     customConnectorDestinationProperties_customProperties,
+    customConnectorDestinationProperties_errorHandlingConfig,
     customConnectorDestinationProperties_idFieldNames,
     customConnectorDestinationProperties_writeOperationType,
     customConnectorDestinationProperties_entityName,
@@ -432,16 +432,16 @@ module Amazonka.AppFlow.Types
     CustomConnectorProfileCredentials (..),
     newCustomConnectorProfileCredentials,
     customConnectorProfileCredentials_apiKey,
-    customConnectorProfileCredentials_oauth2,
-    customConnectorProfileCredentials_custom,
     customConnectorProfileCredentials_basic,
+    customConnectorProfileCredentials_custom,
+    customConnectorProfileCredentials_oauth2,
     customConnectorProfileCredentials_authenticationType,
 
     -- * CustomConnectorProfileProperties
     CustomConnectorProfileProperties (..),
     newCustomConnectorProfileProperties,
-    customConnectorProfileProperties_profileProperties,
     customConnectorProfileProperties_oAuth2Properties,
+    customConnectorProfileProperties_profileProperties,
 
     -- * CustomConnectorSourceProperties
     CustomConnectorSourceProperties (..),
@@ -482,29 +482,29 @@ module Amazonka.AppFlow.Types
     -- * DestinationConnectorProperties
     DestinationConnectorProperties (..),
     newDestinationConnectorProperties,
-    destinationConnectorProperties_zendesk,
-    destinationConnectorProperties_s3,
+    destinationConnectorProperties_customConnector,
+    destinationConnectorProperties_customerProfiles,
+    destinationConnectorProperties_eventBridge,
     destinationConnectorProperties_honeycode,
-    destinationConnectorProperties_salesforce,
-    destinationConnectorProperties_snowflake,
-    destinationConnectorProperties_sAPOData,
+    destinationConnectorProperties_lookoutMetrics,
     destinationConnectorProperties_marketo,
     destinationConnectorProperties_redshift,
-    destinationConnectorProperties_customerProfiles,
+    destinationConnectorProperties_s3,
+    destinationConnectorProperties_sAPOData,
+    destinationConnectorProperties_salesforce,
+    destinationConnectorProperties_snowflake,
     destinationConnectorProperties_upsolver,
-    destinationConnectorProperties_customConnector,
-    destinationConnectorProperties_eventBridge,
-    destinationConnectorProperties_lookoutMetrics,
+    destinationConnectorProperties_zendesk,
 
     -- * DestinationFieldProperties
     DestinationFieldProperties (..),
     newDestinationFieldProperties,
-    destinationFieldProperties_isUpdatable,
-    destinationFieldProperties_supportedWriteOperations,
-    destinationFieldProperties_isNullable,
-    destinationFieldProperties_isDefaultedOnCreate,
-    destinationFieldProperties_isUpsertable,
     destinationFieldProperties_isCreatable,
+    destinationFieldProperties_isDefaultedOnCreate,
+    destinationFieldProperties_isNullable,
+    destinationFieldProperties_isUpdatable,
+    destinationFieldProperties_isUpsertable,
+    destinationFieldProperties_supportedWriteOperations,
 
     -- * DestinationFlowConfig
     DestinationFlowConfig (..),
@@ -536,8 +536,8 @@ module Amazonka.AppFlow.Types
     -- * ErrorHandlingConfig
     ErrorHandlingConfig (..),
     newErrorHandlingConfig,
-    errorHandlingConfig_bucketPrefix,
     errorHandlingConfig_bucketName,
+    errorHandlingConfig_bucketPrefix,
     errorHandlingConfig_failOnFirstDestinationError,
 
     -- * ErrorInfo
@@ -566,52 +566,52 @@ module Amazonka.AppFlow.Types
     -- * ExecutionRecord
     ExecutionRecord (..),
     newExecutionRecord,
-    executionRecord_lastUpdatedAt,
-    executionRecord_metadataCatalogDetails,
+    executionRecord_dataPullEndTime,
     executionRecord_dataPullStartTime,
     executionRecord_executionId,
-    executionRecord_startedAt,
     executionRecord_executionResult,
     executionRecord_executionStatus,
-    executionRecord_dataPullEndTime,
+    executionRecord_lastUpdatedAt,
+    executionRecord_metadataCatalogDetails,
+    executionRecord_startedAt,
 
     -- * ExecutionResult
     ExecutionResult (..),
     newExecutionResult,
-    executionResult_recordsProcessed,
     executionResult_bytesProcessed,
-    executionResult_errorInfo,
     executionResult_bytesWritten,
+    executionResult_errorInfo,
+    executionResult_recordsProcessed,
 
     -- * FieldTypeDetails
     FieldTypeDetails (..),
     newFieldTypeDetails,
-    fieldTypeDetails_fieldValueRange,
     fieldTypeDetails_fieldLengthRange,
+    fieldTypeDetails_fieldValueRange,
+    fieldTypeDetails_supportedDateFormat,
     fieldTypeDetails_supportedValues,
     fieldTypeDetails_valueRegexPattern,
-    fieldTypeDetails_supportedDateFormat,
     fieldTypeDetails_fieldType,
     fieldTypeDetails_filterOperators,
 
     -- * FlowDefinition
     FlowDefinition (..),
     newFlowDefinition,
-    flowDefinition_tags,
-    flowDefinition_destinationConnectorLabel,
-    flowDefinition_lastUpdatedAt,
-    flowDefinition_flowName,
-    flowDefinition_sourceConnectorLabel,
-    flowDefinition_description,
-    flowDefinition_sourceConnectorType,
-    flowDefinition_lastRunExecutionDetails,
-    flowDefinition_flowStatus,
-    flowDefinition_triggerType,
-    flowDefinition_destinationConnectorType,
-    flowDefinition_createdBy,
-    flowDefinition_flowArn,
     flowDefinition_createdAt,
+    flowDefinition_createdBy,
+    flowDefinition_description,
+    flowDefinition_destinationConnectorLabel,
+    flowDefinition_destinationConnectorType,
+    flowDefinition_flowArn,
+    flowDefinition_flowName,
+    flowDefinition_flowStatus,
+    flowDefinition_lastRunExecutionDetails,
+    flowDefinition_lastUpdatedAt,
     flowDefinition_lastUpdatedBy,
+    flowDefinition_sourceConnectorLabel,
+    flowDefinition_sourceConnectorType,
+    flowDefinition_tags,
+    flowDefinition_triggerType,
 
     -- * GlueDataCatalogConfig
     GlueDataCatalogConfig (..),
@@ -737,39 +737,39 @@ module Amazonka.AppFlow.Types
     -- * MetadataCatalogDetail
     MetadataCatalogDetail (..),
     newMetadataCatalogDetail,
+    metadataCatalogDetail_catalogType,
+    metadataCatalogDetail_partitionRegistrationOutput,
     metadataCatalogDetail_tableName,
     metadataCatalogDetail_tableRegistrationOutput,
-    metadataCatalogDetail_partitionRegistrationOutput,
-    metadataCatalogDetail_catalogType,
 
     -- * OAuth2Credentials
     OAuth2Credentials (..),
     newOAuth2Credentials,
     oAuth2Credentials_accessToken,
-    oAuth2Credentials_clientSecret,
     oAuth2Credentials_clientId,
+    oAuth2Credentials_clientSecret,
     oAuth2Credentials_oAuthRequest,
     oAuth2Credentials_refreshToken,
 
     -- * OAuth2CustomParameter
     OAuth2CustomParameter (..),
     newOAuth2CustomParameter,
-    oAuth2CustomParameter_key,
-    oAuth2CustomParameter_type,
     oAuth2CustomParameter_connectorSuppliedValues,
-    oAuth2CustomParameter_label,
     oAuth2CustomParameter_description,
-    oAuth2CustomParameter_isSensitiveField,
     oAuth2CustomParameter_isRequired,
+    oAuth2CustomParameter_isSensitiveField,
+    oAuth2CustomParameter_key,
+    oAuth2CustomParameter_label,
+    oAuth2CustomParameter_type,
 
     -- * OAuth2Defaults
     OAuth2Defaults (..),
     newOAuth2Defaults,
-    oAuth2Defaults_tokenUrls,
     oAuth2Defaults_authCodeUrls,
     oAuth2Defaults_oauth2CustomProperties,
     oAuth2Defaults_oauth2GrantTypesSupported,
     oAuth2Defaults_oauthScopes,
+    oAuth2Defaults_tokenUrls,
 
     -- * OAuth2Properties
     OAuth2Properties (..),
@@ -797,22 +797,22 @@ module Amazonka.AppFlow.Types
     -- * PrefixConfig
     PrefixConfig (..),
     newPrefixConfig,
-    prefixConfig_prefixType,
-    prefixConfig_prefixFormat,
     prefixConfig_pathPrefixHierarchy,
+    prefixConfig_prefixFormat,
+    prefixConfig_prefixType,
 
     -- * PrivateConnectionProvisioningState
     PrivateConnectionProvisioningState (..),
     newPrivateConnectionProvisioningState,
-    privateConnectionProvisioningState_status,
-    privateConnectionProvisioningState_failureMessage,
     privateConnectionProvisioningState_failureCause,
+    privateConnectionProvisioningState_failureMessage,
+    privateConnectionProvisioningState_status,
 
     -- * Range
     Range (..),
     newRange,
-    range_minimum,
     range_maximum,
+    range_minimum,
 
     -- * RedshiftConnectorProfileCredentials
     RedshiftConnectorProfileCredentials (..),
@@ -823,21 +823,21 @@ module Amazonka.AppFlow.Types
     -- * RedshiftConnectorProfileProperties
     RedshiftConnectorProfileProperties (..),
     newRedshiftConnectorProfileProperties,
-    redshiftConnectorProfileProperties_clusterIdentifier,
-    redshiftConnectorProfileProperties_isRedshiftServerless,
-    redshiftConnectorProfileProperties_databaseUrl,
-    redshiftConnectorProfileProperties_databaseName,
-    redshiftConnectorProfileProperties_workgroupName,
     redshiftConnectorProfileProperties_bucketPrefix,
+    redshiftConnectorProfileProperties_clusterIdentifier,
     redshiftConnectorProfileProperties_dataApiRoleArn,
+    redshiftConnectorProfileProperties_databaseName,
+    redshiftConnectorProfileProperties_databaseUrl,
+    redshiftConnectorProfileProperties_isRedshiftServerless,
+    redshiftConnectorProfileProperties_workgroupName,
     redshiftConnectorProfileProperties_bucketName,
     redshiftConnectorProfileProperties_roleArn,
 
     -- * RedshiftDestinationProperties
     RedshiftDestinationProperties (..),
     newRedshiftDestinationProperties,
-    redshiftDestinationProperties_errorHandlingConfig,
     redshiftDestinationProperties_bucketPrefix,
+    redshiftDestinationProperties_errorHandlingConfig,
     redshiftDestinationProperties_object,
     redshiftDestinationProperties_intermediateBucketName,
 
@@ -849,8 +849,8 @@ module Amazonka.AppFlow.Types
     RegistrationOutput (..),
     newRegistrationOutput,
     registrationOutput_message,
-    registrationOutput_status,
     registrationOutput_result,
+    registrationOutput_status,
 
     -- * S3DestinationProperties
     S3DestinationProperties (..),
@@ -871,10 +871,10 @@ module Amazonka.AppFlow.Types
     -- * S3OutputFormatConfig
     S3OutputFormatConfig (..),
     newS3OutputFormatConfig,
-    s3OutputFormatConfig_prefixConfig,
     s3OutputFormatConfig_aggregationConfig,
-    s3OutputFormatConfig_preserveSourceDataTyping,
     s3OutputFormatConfig_fileType,
+    s3OutputFormatConfig_prefixConfig,
+    s3OutputFormatConfig_preserveSourceDataTyping,
 
     -- * S3SourceProperties
     S3SourceProperties (..),
@@ -892,8 +892,8 @@ module Amazonka.AppFlow.Types
     -- * SAPODataConnectorProfileProperties
     SAPODataConnectorProfileProperties (..),
     newSAPODataConnectorProfileProperties,
-    sAPODataConnectorProfileProperties_oAuthProperties,
     sAPODataConnectorProfileProperties_logonLanguage,
+    sAPODataConnectorProfileProperties_oAuthProperties,
     sAPODataConnectorProfileProperties_privateLinkServiceName,
     sAPODataConnectorProfileProperties_applicationHostUrl,
     sAPODataConnectorProfileProperties_applicationServicePath,
@@ -904,8 +904,8 @@ module Amazonka.AppFlow.Types
     SAPODataDestinationProperties (..),
     newSAPODataDestinationProperties,
     sAPODataDestinationProperties_errorHandlingConfig,
-    sAPODataDestinationProperties_successResponseHandlingConfig,
     sAPODataDestinationProperties_idFieldNames,
+    sAPODataDestinationProperties_successResponseHandlingConfig,
     sAPODataDestinationProperties_writeOperationType,
     sAPODataDestinationProperties_objectPath,
 
@@ -929,14 +929,14 @@ module Amazonka.AppFlow.Types
     -- * SalesforceConnectorProfileProperties
     SalesforceConnectorProfileProperties (..),
     newSalesforceConnectorProfileProperties,
-    salesforceConnectorProfileProperties_isSandboxEnvironment,
     salesforceConnectorProfileProperties_instanceUrl,
+    salesforceConnectorProfileProperties_isSandboxEnvironment,
 
     -- * SalesforceDestinationProperties
     SalesforceDestinationProperties (..),
     newSalesforceDestinationProperties,
-    salesforceDestinationProperties_errorHandlingConfig,
     salesforceDestinationProperties_dataTransferApi,
+    salesforceDestinationProperties_errorHandlingConfig,
     salesforceDestinationProperties_idFieldNames,
     salesforceDestinationProperties_writeOperationType,
     salesforceDestinationProperties_object,
@@ -950,21 +950,21 @@ module Amazonka.AppFlow.Types
     -- * SalesforceSourceProperties
     SalesforceSourceProperties (..),
     newSalesforceSourceProperties,
-    salesforceSourceProperties_includeDeletedRecords,
     salesforceSourceProperties_dataTransferApi,
     salesforceSourceProperties_enableDynamicFieldUpdate,
+    salesforceSourceProperties_includeDeletedRecords,
     salesforceSourceProperties_object,
 
     -- * ScheduledTriggerProperties
     ScheduledTriggerProperties (..),
     newScheduledTriggerProperties,
-    scheduledTriggerProperties_scheduleEndTime,
-    scheduledTriggerProperties_scheduleStartTime,
-    scheduledTriggerProperties_flowErrorDeactivationThreshold,
-    scheduledTriggerProperties_timezone,
-    scheduledTriggerProperties_scheduleOffset,
-    scheduledTriggerProperties_firstExecutionFrom,
     scheduledTriggerProperties_dataPullMode,
+    scheduledTriggerProperties_firstExecutionFrom,
+    scheduledTriggerProperties_flowErrorDeactivationThreshold,
+    scheduledTriggerProperties_scheduleEndTime,
+    scheduledTriggerProperties_scheduleOffset,
+    scheduledTriggerProperties_scheduleStartTime,
+    scheduledTriggerProperties_timezone,
     scheduledTriggerProperties_scheduleExpression,
 
     -- * ServiceNowConnectorProfileCredentials
@@ -1037,10 +1037,10 @@ module Amazonka.AppFlow.Types
     -- * SnowflakeConnectorProfileProperties
     SnowflakeConnectorProfileProperties (..),
     newSnowflakeConnectorProfileProperties,
-    snowflakeConnectorProfileProperties_bucketPrefix,
-    snowflakeConnectorProfileProperties_region,
     snowflakeConnectorProfileProperties_accountName,
+    snowflakeConnectorProfileProperties_bucketPrefix,
     snowflakeConnectorProfileProperties_privateLinkServiceName,
+    snowflakeConnectorProfileProperties_region,
     snowflakeConnectorProfileProperties_warehouse,
     snowflakeConnectorProfileProperties_stage,
     snowflakeConnectorProfileProperties_bucketName,
@@ -1048,8 +1048,8 @@ module Amazonka.AppFlow.Types
     -- * SnowflakeDestinationProperties
     SnowflakeDestinationProperties (..),
     newSnowflakeDestinationProperties,
-    snowflakeDestinationProperties_errorHandlingConfig,
     snowflakeDestinationProperties_bucketPrefix,
+    snowflakeDestinationProperties_errorHandlingConfig,
     snowflakeDestinationProperties_object,
     snowflakeDestinationProperties_intermediateBucketName,
 
@@ -1061,29 +1061,29 @@ module Amazonka.AppFlow.Types
     -- * SourceConnectorProperties
     SourceConnectorProperties (..),
     newSourceConnectorProperties,
-    sourceConnectorProperties_zendesk,
-    sourceConnectorProperties_slack,
-    sourceConnectorProperties_singular,
-    sourceConnectorProperties_s3,
-    sourceConnectorProperties_veeva,
-    sourceConnectorProperties_salesforce,
-    sourceConnectorProperties_sAPOData,
-    sourceConnectorProperties_marketo,
-    sourceConnectorProperties_trendmicro,
-    sourceConnectorProperties_inforNexus,
-    sourceConnectorProperties_serviceNow,
-    sourceConnectorProperties_datadog,
-    sourceConnectorProperties_customConnector,
     sourceConnectorProperties_amplitude,
+    sourceConnectorProperties_customConnector,
+    sourceConnectorProperties_datadog,
     sourceConnectorProperties_dynatrace,
     sourceConnectorProperties_googleAnalytics,
+    sourceConnectorProperties_inforNexus,
+    sourceConnectorProperties_marketo,
+    sourceConnectorProperties_s3,
+    sourceConnectorProperties_sAPOData,
+    sourceConnectorProperties_salesforce,
+    sourceConnectorProperties_serviceNow,
+    sourceConnectorProperties_singular,
+    sourceConnectorProperties_slack,
+    sourceConnectorProperties_trendmicro,
+    sourceConnectorProperties_veeva,
+    sourceConnectorProperties_zendesk,
 
     -- * SourceFieldProperties
     SourceFieldProperties (..),
     newSourceFieldProperties,
+    sourceFieldProperties_isQueryable,
     sourceFieldProperties_isRetrievable,
     sourceFieldProperties_isTimestampFieldForIncrementalQueries,
-    sourceFieldProperties_isQueryable,
 
     -- * SourceFlowConfig
     SourceFlowConfig (..),
@@ -1097,8 +1097,8 @@ module Amazonka.AppFlow.Types
     -- * SuccessResponseHandlingConfig
     SuccessResponseHandlingConfig (..),
     newSuccessResponseHandlingConfig,
-    successResponseHandlingConfig_bucketPrefix,
     successResponseHandlingConfig_bucketName,
+    successResponseHandlingConfig_bucketPrefix,
 
     -- * SupportedFieldTypeDetails
     SupportedFieldTypeDetails (..),
@@ -1109,8 +1109,8 @@ module Amazonka.AppFlow.Types
     Task (..),
     newTask,
     task_connectorOperator,
-    task_taskProperties,
     task_destinationField,
+    task_taskProperties,
     task_sourceFields,
     task_taskType,
 
@@ -1180,9 +1180,9 @@ module Amazonka.AppFlow.Types
     VeevaSourceProperties (..),
     newVeevaSourceProperties,
     veevaSourceProperties_documentType,
-    veevaSourceProperties_includeSourceFiles,
-    veevaSourceProperties_includeRenditions,
     veevaSourceProperties_includeAllVersions,
+    veevaSourceProperties_includeRenditions,
+    veevaSourceProperties_includeSourceFiles,
     veevaSourceProperties_object,
 
     -- * ZendeskConnectorProfileCredentials
@@ -1432,28 +1432,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -1461,13 +1455,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -1475,23 +1473,9 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
-
--- | An error occurred when authenticating with the connector endpoint.
-_ConnectorAuthenticationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConnectorAuthenticationException =
-  Core._MatchServiceError
-    defaultService
-    "ConnectorAuthenticationException"
-    Prelude.. Core.hasStatus 401
-
--- | The requested operation is not supported for the current flow.
-_UnsupportedOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnsupportedOperationException =
-  Core._MatchServiceError
-    defaultService
-    "UnsupportedOperationException"
-    Prelude.. Core.hasStatus 400
 
 -- | AppFlow\/Requester has invalid or missing permissions.
 _AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1500,33 +1484,6 @@ _AccessDeniedException =
     defaultService
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
-
--- | An internal service error occurred during the processing of your
--- request. Try again later.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServerException"
-    Prelude.. Core.hasStatus 500
-
--- | The request would cause a service quota (such as the number of flows) to
--- be exceeded.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceQuotaExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceQuotaExceededException"
-    Prelude.. Core.hasStatus 402
-
--- | The resource specified in the request (such as the source or destination
--- connector profile) is not found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
 
 -- | There was a conflict when processing the request (for example, a flow
 -- with the given name already exists within the account. Check for
@@ -1538,6 +1495,49 @@ _ConflictException =
     "ConflictException"
     Prelude.. Core.hasStatus 409
 
+-- | An error occurred when authenticating with the connector endpoint.
+_ConnectorAuthenticationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConnectorAuthenticationException =
+  Core._MatchServiceError
+    defaultService
+    "ConnectorAuthenticationException"
+    Prelude.. Core.hasStatus 401
+
+-- | An error occurred when retrieving data from the connector endpoint.
+_ConnectorServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConnectorServerException =
+  Core._MatchServiceError
+    defaultService
+    "ConnectorServerException"
+    Prelude.. Core.hasStatus 400
+
+-- | An internal service error occurred during the processing of your
+-- request. Try again later.
+_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServerException"
+    Prelude.. Core.hasStatus 500
+
+-- | The resource specified in the request (such as the source or destination
+-- connector profile) is not found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
+
+-- | The request would cause a service quota (such as the number of flows) to
+-- be exceeded.
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceQuotaExceededException"
+    Prelude.. Core.hasStatus 402
+
 -- | API calls have exceeded the maximum allowed API request rate per account
 -- and per Region.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1547,18 +1547,18 @@ _ThrottlingException =
     "ThrottlingException"
     Prelude.. Core.hasStatus 429
 
+-- | The requested operation is not supported for the current flow.
+_UnsupportedOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedOperationException =
+  Core._MatchServiceError
+    defaultService
+    "UnsupportedOperationException"
+    Prelude.. Core.hasStatus 400
+
 -- | The request has invalid or missing parameters.
 _ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService
     "ValidationException"
-    Prelude.. Core.hasStatus 400
-
--- | An error occurred when retrieving data from the connector endpoint.
-_ConnectorServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConnectorServerException =
-  Core._MatchServiceError
-    defaultService
-    "ConnectorServerException"
     Prelude.. Core.hasStatus 400

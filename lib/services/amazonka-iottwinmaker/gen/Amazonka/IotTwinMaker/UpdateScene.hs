@@ -27,9 +27,9 @@ module Amazonka.IotTwinMaker.UpdateScene
     newUpdateScene,
 
     -- * Request Lenses
+    updateScene_capabilities,
     updateScene_contentLocation,
     updateScene_description,
-    updateScene_capabilities,
     updateScene_workspaceId,
     updateScene_sceneId,
 
@@ -53,13 +53,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateScene' smart constructor.
 data UpdateScene = UpdateScene'
-  { -- | The relative path that specifies the location of the content definition
+  { -- | A list of capabilities that the scene uses to render.
+    capabilities :: Prelude.Maybe [Prelude.Text],
+    -- | The relative path that specifies the location of the content definition
     -- file.
     contentLocation :: Prelude.Maybe Prelude.Text,
     -- | The description of this scene.
     description :: Prelude.Maybe Prelude.Text,
-    -- | A list of capabilities that the scene uses to render.
-    capabilities :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the workspace that contains the scene.
     workspaceId :: Prelude.Text,
     -- | The ID of the scene.
@@ -75,12 +75,12 @@ data UpdateScene = UpdateScene'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'capabilities', 'updateScene_capabilities' - A list of capabilities that the scene uses to render.
+--
 -- 'contentLocation', 'updateScene_contentLocation' - The relative path that specifies the location of the content definition
 -- file.
 --
 -- 'description', 'updateScene_description' - The description of this scene.
---
--- 'capabilities', 'updateScene_capabilities' - A list of capabilities that the scene uses to render.
 --
 -- 'workspaceId', 'updateScene_workspaceId' - The ID of the workspace that contains the scene.
 --
@@ -93,12 +93,16 @@ newUpdateScene ::
   UpdateScene
 newUpdateScene pWorkspaceId_ pSceneId_ =
   UpdateScene'
-    { contentLocation = Prelude.Nothing,
+    { capabilities = Prelude.Nothing,
+      contentLocation = Prelude.Nothing,
       description = Prelude.Nothing,
-      capabilities = Prelude.Nothing,
       workspaceId = pWorkspaceId_,
       sceneId = pSceneId_
     }
+
+-- | A list of capabilities that the scene uses to render.
+updateScene_capabilities :: Lens.Lens' UpdateScene (Prelude.Maybe [Prelude.Text])
+updateScene_capabilities = Lens.lens (\UpdateScene' {capabilities} -> capabilities) (\s@UpdateScene' {} a -> s {capabilities = a} :: UpdateScene) Prelude.. Lens.mapping Lens.coerced
 
 -- | The relative path that specifies the location of the content definition
 -- file.
@@ -108,10 +112,6 @@ updateScene_contentLocation = Lens.lens (\UpdateScene' {contentLocation} -> cont
 -- | The description of this scene.
 updateScene_description :: Lens.Lens' UpdateScene (Prelude.Maybe Prelude.Text)
 updateScene_description = Lens.lens (\UpdateScene' {description} -> description) (\s@UpdateScene' {} a -> s {description = a} :: UpdateScene)
-
--- | A list of capabilities that the scene uses to render.
-updateScene_capabilities :: Lens.Lens' UpdateScene (Prelude.Maybe [Prelude.Text])
-updateScene_capabilities = Lens.lens (\UpdateScene' {capabilities} -> capabilities) (\s@UpdateScene' {} a -> s {capabilities = a} :: UpdateScene) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the workspace that contains the scene.
 updateScene_workspaceId :: Lens.Lens' UpdateScene Prelude.Text
@@ -135,17 +135,17 @@ instance Core.AWSRequest UpdateScene where
 
 instance Prelude.Hashable UpdateScene where
   hashWithSalt _salt UpdateScene' {..} =
-    _salt `Prelude.hashWithSalt` contentLocation
+    _salt `Prelude.hashWithSalt` capabilities
+      `Prelude.hashWithSalt` contentLocation
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` capabilities
       `Prelude.hashWithSalt` workspaceId
       `Prelude.hashWithSalt` sceneId
 
 instance Prelude.NFData UpdateScene where
   rnf UpdateScene' {..} =
-    Prelude.rnf contentLocation
+    Prelude.rnf capabilities
+      `Prelude.seq` Prelude.rnf contentLocation
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf capabilities
       `Prelude.seq` Prelude.rnf workspaceId
       `Prelude.seq` Prelude.rnf sceneId
 
@@ -164,10 +164,10 @@ instance Data.ToJSON UpdateScene where
   toJSON UpdateScene' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("contentLocation" Data..=)
+          [ ("capabilities" Data..=) Prelude.<$> capabilities,
+            ("contentLocation" Data..=)
               Prelude.<$> contentLocation,
-            ("description" Data..=) Prelude.<$> description,
-            ("capabilities" Data..=) Prelude.<$> capabilities
+            ("description" Data..=) Prelude.<$> description
           ]
       )
 

@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 data DeleteLaunchTemplateVersionsResponseSuccessItem = DeleteLaunchTemplateVersionsResponseSuccessItem'
   { -- | The ID of the launch template.
     launchTemplateId :: Prelude.Maybe Prelude.Text,
-    -- | The version number of the launch template.
-    versionNumber :: Prelude.Maybe Prelude.Integer,
     -- | The name of the launch template.
-    launchTemplateName :: Prelude.Maybe Prelude.Text
+    launchTemplateName :: Prelude.Maybe Prelude.Text,
+    -- | The version number of the launch template.
+    versionNumber :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,18 +48,18 @@ data DeleteLaunchTemplateVersionsResponseSuccessItem = DeleteLaunchTemplateVersi
 --
 -- 'launchTemplateId', 'deleteLaunchTemplateVersionsResponseSuccessItem_launchTemplateId' - The ID of the launch template.
 --
--- 'versionNumber', 'deleteLaunchTemplateVersionsResponseSuccessItem_versionNumber' - The version number of the launch template.
---
 -- 'launchTemplateName', 'deleteLaunchTemplateVersionsResponseSuccessItem_launchTemplateName' - The name of the launch template.
+--
+-- 'versionNumber', 'deleteLaunchTemplateVersionsResponseSuccessItem_versionNumber' - The version number of the launch template.
 newDeleteLaunchTemplateVersionsResponseSuccessItem ::
   DeleteLaunchTemplateVersionsResponseSuccessItem
 newDeleteLaunchTemplateVersionsResponseSuccessItem =
   DeleteLaunchTemplateVersionsResponseSuccessItem'
     { launchTemplateId =
         Prelude.Nothing,
-      versionNumber =
-        Prelude.Nothing,
       launchTemplateName =
+        Prelude.Nothing,
+      versionNumber =
         Prelude.Nothing
     }
 
@@ -67,13 +67,13 @@ newDeleteLaunchTemplateVersionsResponseSuccessItem =
 deleteLaunchTemplateVersionsResponseSuccessItem_launchTemplateId :: Lens.Lens' DeleteLaunchTemplateVersionsResponseSuccessItem (Prelude.Maybe Prelude.Text)
 deleteLaunchTemplateVersionsResponseSuccessItem_launchTemplateId = Lens.lens (\DeleteLaunchTemplateVersionsResponseSuccessItem' {launchTemplateId} -> launchTemplateId) (\s@DeleteLaunchTemplateVersionsResponseSuccessItem' {} a -> s {launchTemplateId = a} :: DeleteLaunchTemplateVersionsResponseSuccessItem)
 
--- | The version number of the launch template.
-deleteLaunchTemplateVersionsResponseSuccessItem_versionNumber :: Lens.Lens' DeleteLaunchTemplateVersionsResponseSuccessItem (Prelude.Maybe Prelude.Integer)
-deleteLaunchTemplateVersionsResponseSuccessItem_versionNumber = Lens.lens (\DeleteLaunchTemplateVersionsResponseSuccessItem' {versionNumber} -> versionNumber) (\s@DeleteLaunchTemplateVersionsResponseSuccessItem' {} a -> s {versionNumber = a} :: DeleteLaunchTemplateVersionsResponseSuccessItem)
-
 -- | The name of the launch template.
 deleteLaunchTemplateVersionsResponseSuccessItem_launchTemplateName :: Lens.Lens' DeleteLaunchTemplateVersionsResponseSuccessItem (Prelude.Maybe Prelude.Text)
 deleteLaunchTemplateVersionsResponseSuccessItem_launchTemplateName = Lens.lens (\DeleteLaunchTemplateVersionsResponseSuccessItem' {launchTemplateName} -> launchTemplateName) (\s@DeleteLaunchTemplateVersionsResponseSuccessItem' {} a -> s {launchTemplateName = a} :: DeleteLaunchTemplateVersionsResponseSuccessItem)
+
+-- | The version number of the launch template.
+deleteLaunchTemplateVersionsResponseSuccessItem_versionNumber :: Lens.Lens' DeleteLaunchTemplateVersionsResponseSuccessItem (Prelude.Maybe Prelude.Integer)
+deleteLaunchTemplateVersionsResponseSuccessItem_versionNumber = Lens.lens (\DeleteLaunchTemplateVersionsResponseSuccessItem' {versionNumber} -> versionNumber) (\s@DeleteLaunchTemplateVersionsResponseSuccessItem' {} a -> s {versionNumber = a} :: DeleteLaunchTemplateVersionsResponseSuccessItem)
 
 instance
   Data.FromXML
@@ -82,8 +82,8 @@ instance
   parseXML x =
     DeleteLaunchTemplateVersionsResponseSuccessItem'
       Prelude.<$> (x Data..@? "launchTemplateId")
-        Prelude.<*> (x Data..@? "versionNumber")
         Prelude.<*> (x Data..@? "launchTemplateName")
+        Prelude.<*> (x Data..@? "versionNumber")
 
 instance
   Prelude.Hashable
@@ -93,8 +93,8 @@ instance
     _salt
     DeleteLaunchTemplateVersionsResponseSuccessItem' {..} =
       _salt `Prelude.hashWithSalt` launchTemplateId
-        `Prelude.hashWithSalt` versionNumber
         `Prelude.hashWithSalt` launchTemplateName
+        `Prelude.hashWithSalt` versionNumber
 
 instance
   Prelude.NFData
@@ -103,5 +103,5 @@ instance
   rnf
     DeleteLaunchTemplateVersionsResponseSuccessItem' {..} =
       Prelude.rnf launchTemplateId
-        `Prelude.seq` Prelude.rnf versionNumber
         `Prelude.seq` Prelude.rnf launchTemplateName
+        `Prelude.seq` Prelude.rnf versionNumber

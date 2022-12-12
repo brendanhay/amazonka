@@ -41,8 +41,8 @@ module Amazonka.Lambda.ListVersionsByFunction
     newListVersionsByFunctionResponse,
 
     -- * Response Lenses
-    listVersionsByFunctionResponse_versions,
     listVersionsByFunctionResponse_nextMarker,
+    listVersionsByFunctionResponse_versions,
     listVersionsByFunctionResponse_httpStatus,
   )
 where
@@ -179,8 +179,8 @@ instance Core.AWSRequest ListVersionsByFunction where
     Response.receiveJSON
       ( \s h x ->
           ListVersionsByFunctionResponse'
-            Prelude.<$> (x Data..?> "Versions" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "NextMarker")
+            Prelude.<$> (x Data..?> "NextMarker")
+            Prelude.<*> (x Data..?> "Versions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -216,10 +216,10 @@ instance Data.ToQuery ListVersionsByFunction where
 
 -- | /See:/ 'newListVersionsByFunctionResponse' smart constructor.
 data ListVersionsByFunctionResponse = ListVersionsByFunctionResponse'
-  { -- | A list of Lambda function versions.
-    versions :: Prelude.Maybe [FunctionConfiguration],
-    -- | The pagination token that\'s included if more results are available.
+  { -- | The pagination token that\'s included if more results are available.
     nextMarker :: Prelude.Maybe Prelude.Text,
+    -- | A list of Lambda function versions.
+    versions :: Prelude.Maybe [FunctionConfiguration],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -233,9 +233,9 @@ data ListVersionsByFunctionResponse = ListVersionsByFunctionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'versions', 'listVersionsByFunctionResponse_versions' - A list of Lambda function versions.
---
 -- 'nextMarker', 'listVersionsByFunctionResponse_nextMarker' - The pagination token that\'s included if more results are available.
+--
+-- 'versions', 'listVersionsByFunctionResponse_versions' - A list of Lambda function versions.
 --
 -- 'httpStatus', 'listVersionsByFunctionResponse_httpStatus' - The response's http status code.
 newListVersionsByFunctionResponse ::
@@ -244,19 +244,19 @@ newListVersionsByFunctionResponse ::
   ListVersionsByFunctionResponse
 newListVersionsByFunctionResponse pHttpStatus_ =
   ListVersionsByFunctionResponse'
-    { versions =
+    { nextMarker =
         Prelude.Nothing,
-      nextMarker = Prelude.Nothing,
+      versions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of Lambda function versions.
-listVersionsByFunctionResponse_versions :: Lens.Lens' ListVersionsByFunctionResponse (Prelude.Maybe [FunctionConfiguration])
-listVersionsByFunctionResponse_versions = Lens.lens (\ListVersionsByFunctionResponse' {versions} -> versions) (\s@ListVersionsByFunctionResponse' {} a -> s {versions = a} :: ListVersionsByFunctionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token that\'s included if more results are available.
 listVersionsByFunctionResponse_nextMarker :: Lens.Lens' ListVersionsByFunctionResponse (Prelude.Maybe Prelude.Text)
 listVersionsByFunctionResponse_nextMarker = Lens.lens (\ListVersionsByFunctionResponse' {nextMarker} -> nextMarker) (\s@ListVersionsByFunctionResponse' {} a -> s {nextMarker = a} :: ListVersionsByFunctionResponse)
+
+-- | A list of Lambda function versions.
+listVersionsByFunctionResponse_versions :: Lens.Lens' ListVersionsByFunctionResponse (Prelude.Maybe [FunctionConfiguration])
+listVersionsByFunctionResponse_versions = Lens.lens (\ListVersionsByFunctionResponse' {versions} -> versions) (\s@ListVersionsByFunctionResponse' {} a -> s {versions = a} :: ListVersionsByFunctionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listVersionsByFunctionResponse_httpStatus :: Lens.Lens' ListVersionsByFunctionResponse Prelude.Int
@@ -267,6 +267,6 @@ instance
     ListVersionsByFunctionResponse
   where
   rnf ListVersionsByFunctionResponse' {..} =
-    Prelude.rnf versions
-      `Prelude.seq` Prelude.rnf nextMarker
+    Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf versions
       `Prelude.seq` Prelude.rnf httpStatus

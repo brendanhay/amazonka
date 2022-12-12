@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTimeSeriesIdentifiers' smart constructor.
 data TimeSeriesIdentifiers = TimeSeriesIdentifiers'
-  { -- | The format of the data, either CSV or PARQUET.
+  { dataSource :: Prelude.Maybe DataSource,
+    -- | The format of the data, either CSV or PARQUET.
     format :: Prelude.Maybe Prelude.Text,
-    schema :: Prelude.Maybe Schema,
-    dataSource :: Prelude.Maybe DataSource
+    schema :: Prelude.Maybe Schema
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,19 +46,24 @@ data TimeSeriesIdentifiers = TimeSeriesIdentifiers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dataSource', 'timeSeriesIdentifiers_dataSource' - Undocumented member.
+--
 -- 'format', 'timeSeriesIdentifiers_format' - The format of the data, either CSV or PARQUET.
 --
 -- 'schema', 'timeSeriesIdentifiers_schema' - Undocumented member.
---
--- 'dataSource', 'timeSeriesIdentifiers_dataSource' - Undocumented member.
 newTimeSeriesIdentifiers ::
   TimeSeriesIdentifiers
 newTimeSeriesIdentifiers =
   TimeSeriesIdentifiers'
-    { format = Prelude.Nothing,
-      schema = Prelude.Nothing,
-      dataSource = Prelude.Nothing
+    { dataSource =
+        Prelude.Nothing,
+      format = Prelude.Nothing,
+      schema = Prelude.Nothing
     }
+
+-- | Undocumented member.
+timeSeriesIdentifiers_dataSource :: Lens.Lens' TimeSeriesIdentifiers (Prelude.Maybe DataSource)
+timeSeriesIdentifiers_dataSource = Lens.lens (\TimeSeriesIdentifiers' {dataSource} -> dataSource) (\s@TimeSeriesIdentifiers' {} a -> s {dataSource = a} :: TimeSeriesIdentifiers)
 
 -- | The format of the data, either CSV or PARQUET.
 timeSeriesIdentifiers_format :: Lens.Lens' TimeSeriesIdentifiers (Prelude.Maybe Prelude.Text)
@@ -68,39 +73,35 @@ timeSeriesIdentifiers_format = Lens.lens (\TimeSeriesIdentifiers' {format} -> fo
 timeSeriesIdentifiers_schema :: Lens.Lens' TimeSeriesIdentifiers (Prelude.Maybe Schema)
 timeSeriesIdentifiers_schema = Lens.lens (\TimeSeriesIdentifiers' {schema} -> schema) (\s@TimeSeriesIdentifiers' {} a -> s {schema = a} :: TimeSeriesIdentifiers)
 
--- | Undocumented member.
-timeSeriesIdentifiers_dataSource :: Lens.Lens' TimeSeriesIdentifiers (Prelude.Maybe DataSource)
-timeSeriesIdentifiers_dataSource = Lens.lens (\TimeSeriesIdentifiers' {dataSource} -> dataSource) (\s@TimeSeriesIdentifiers' {} a -> s {dataSource = a} :: TimeSeriesIdentifiers)
-
 instance Data.FromJSON TimeSeriesIdentifiers where
   parseJSON =
     Data.withObject
       "TimeSeriesIdentifiers"
       ( \x ->
           TimeSeriesIdentifiers'
-            Prelude.<$> (x Data..:? "Format")
+            Prelude.<$> (x Data..:? "DataSource")
+            Prelude.<*> (x Data..:? "Format")
             Prelude.<*> (x Data..:? "Schema")
-            Prelude.<*> (x Data..:? "DataSource")
       )
 
 instance Prelude.Hashable TimeSeriesIdentifiers where
   hashWithSalt _salt TimeSeriesIdentifiers' {..} =
-    _salt `Prelude.hashWithSalt` format
+    _salt `Prelude.hashWithSalt` dataSource
+      `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` schema
-      `Prelude.hashWithSalt` dataSource
 
 instance Prelude.NFData TimeSeriesIdentifiers where
   rnf TimeSeriesIdentifiers' {..} =
-    Prelude.rnf format
+    Prelude.rnf dataSource
+      `Prelude.seq` Prelude.rnf format
       `Prelude.seq` Prelude.rnf schema
-      `Prelude.seq` Prelude.rnf dataSource
 
 instance Data.ToJSON TimeSeriesIdentifiers where
   toJSON TimeSeriesIdentifiers' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Format" Data..=) Prelude.<$> format,
-            ("Schema" Data..=) Prelude.<$> schema,
-            ("DataSource" Data..=) Prelude.<$> dataSource
+          [ ("DataSource" Data..=) Prelude.<$> dataSource,
+            ("Format" Data..=) Prelude.<$> format,
+            ("Schema" Data..=) Prelude.<$> schema
           ]
       )

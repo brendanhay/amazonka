@@ -31,11 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDatasetTrigger' smart constructor.
 data DatasetTrigger = DatasetTrigger'
-  { -- | The Schedule when the trigger is initiated.
-    schedule :: Prelude.Maybe Schedule,
-    -- | The dataset whose content creation triggers the creation of this
+  { -- | The dataset whose content creation triggers the creation of this
     -- dataset\'s contents.
-    dataset :: Prelude.Maybe TriggeringDataset
+    dataset :: Prelude.Maybe TriggeringDataset,
+    -- | The Schedule when the trigger is initiated.
+    schedule :: Prelude.Maybe Schedule
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,26 +47,26 @@ data DatasetTrigger = DatasetTrigger'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'schedule', 'datasetTrigger_schedule' - The Schedule when the trigger is initiated.
---
 -- 'dataset', 'datasetTrigger_dataset' - The dataset whose content creation triggers the creation of this
 -- dataset\'s contents.
+--
+-- 'schedule', 'datasetTrigger_schedule' - The Schedule when the trigger is initiated.
 newDatasetTrigger ::
   DatasetTrigger
 newDatasetTrigger =
   DatasetTrigger'
-    { schedule = Prelude.Nothing,
-      dataset = Prelude.Nothing
+    { dataset = Prelude.Nothing,
+      schedule = Prelude.Nothing
     }
-
--- | The Schedule when the trigger is initiated.
-datasetTrigger_schedule :: Lens.Lens' DatasetTrigger (Prelude.Maybe Schedule)
-datasetTrigger_schedule = Lens.lens (\DatasetTrigger' {schedule} -> schedule) (\s@DatasetTrigger' {} a -> s {schedule = a} :: DatasetTrigger)
 
 -- | The dataset whose content creation triggers the creation of this
 -- dataset\'s contents.
 datasetTrigger_dataset :: Lens.Lens' DatasetTrigger (Prelude.Maybe TriggeringDataset)
 datasetTrigger_dataset = Lens.lens (\DatasetTrigger' {dataset} -> dataset) (\s@DatasetTrigger' {} a -> s {dataset = a} :: DatasetTrigger)
+
+-- | The Schedule when the trigger is initiated.
+datasetTrigger_schedule :: Lens.Lens' DatasetTrigger (Prelude.Maybe Schedule)
+datasetTrigger_schedule = Lens.lens (\DatasetTrigger' {schedule} -> schedule) (\s@DatasetTrigger' {} a -> s {schedule = a} :: DatasetTrigger)
 
 instance Data.FromJSON DatasetTrigger where
   parseJSON =
@@ -74,25 +74,25 @@ instance Data.FromJSON DatasetTrigger where
       "DatasetTrigger"
       ( \x ->
           DatasetTrigger'
-            Prelude.<$> (x Data..:? "schedule")
-            Prelude.<*> (x Data..:? "dataset")
+            Prelude.<$> (x Data..:? "dataset")
+            Prelude.<*> (x Data..:? "schedule")
       )
 
 instance Prelude.Hashable DatasetTrigger where
   hashWithSalt _salt DatasetTrigger' {..} =
-    _salt `Prelude.hashWithSalt` schedule
-      `Prelude.hashWithSalt` dataset
+    _salt `Prelude.hashWithSalt` dataset
+      `Prelude.hashWithSalt` schedule
 
 instance Prelude.NFData DatasetTrigger where
   rnf DatasetTrigger' {..} =
-    Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf dataset
+    Prelude.rnf dataset
+      `Prelude.seq` Prelude.rnf schedule
 
 instance Data.ToJSON DatasetTrigger where
   toJSON DatasetTrigger' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("schedule" Data..=) Prelude.<$> schedule,
-            ("dataset" Data..=) Prelude.<$> dataset
+          [ ("dataset" Data..=) Prelude.<$> dataset,
+            ("schedule" Data..=) Prelude.<$> schedule
           ]
       )

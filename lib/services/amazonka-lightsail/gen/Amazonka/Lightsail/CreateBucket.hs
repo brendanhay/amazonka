@@ -33,8 +33,8 @@ module Amazonka.Lightsail.CreateBucket
     newCreateBucket,
 
     -- * Request Lenses
-    createBucket_tags,
     createBucket_enableObjectVersioning,
+    createBucket_tags,
     createBucket_bucketName,
     createBucket_bundleId,
 
@@ -43,8 +43,8 @@ module Amazonka.Lightsail.CreateBucket
     newCreateBucketResponse,
 
     -- * Response Lenses
-    createBucketResponse_operations,
     createBucketResponse_bucket,
+    createBucketResponse_operations,
     createBucketResponse_httpStatus,
   )
 where
@@ -59,19 +59,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateBucket' smart constructor.
 data CreateBucket = CreateBucket'
-  { -- | The tag keys and optional values to add to the bucket during creation.
-    --
-    -- Use the
-    -- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_TagResource.html TagResource>
-    -- action to tag the bucket after it\'s created.
-    tags :: Prelude.Maybe [Tag],
-    -- | A Boolean value that indicates whether to enable versioning of objects
+  { -- | A Boolean value that indicates whether to enable versioning of objects
     -- in the bucket.
     --
     -- For more information about versioning, see
     -- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-managing-bucket-object-versioning Enabling and suspending object versioning in a bucket in Amazon Lightsail>
     -- in the /Amazon Lightsail Developer Guide/.
     enableObjectVersioning :: Prelude.Maybe Prelude.Bool,
+    -- | The tag keys and optional values to add to the bucket during creation.
+    --
+    -- Use the
+    -- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_TagResource.html TagResource>
+    -- action to tag the bucket after it\'s created.
+    tags :: Prelude.Maybe [Tag],
     -- | The name for the bucket.
     --
     -- For more information about bucket names, see
@@ -102,18 +102,18 @@ data CreateBucket = CreateBucket'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createBucket_tags' - The tag keys and optional values to add to the bucket during creation.
---
--- Use the
--- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_TagResource.html TagResource>
--- action to tag the bucket after it\'s created.
---
 -- 'enableObjectVersioning', 'createBucket_enableObjectVersioning' - A Boolean value that indicates whether to enable versioning of objects
 -- in the bucket.
 --
 -- For more information about versioning, see
 -- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-managing-bucket-object-versioning Enabling and suspending object versioning in a bucket in Amazon Lightsail>
 -- in the /Amazon Lightsail Developer Guide/.
+--
+-- 'tags', 'createBucket_tags' - The tag keys and optional values to add to the bucket during creation.
+--
+-- Use the
+-- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_TagResource.html TagResource>
+-- action to tag the bucket after it\'s created.
 --
 -- 'bucketName', 'createBucket_bucketName' - The name for the bucket.
 --
@@ -141,19 +141,12 @@ newCreateBucket ::
   CreateBucket
 newCreateBucket pBucketName_ pBundleId_ =
   CreateBucket'
-    { tags = Prelude.Nothing,
-      enableObjectVersioning = Prelude.Nothing,
+    { enableObjectVersioning =
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
       bucketName = pBucketName_,
       bundleId = pBundleId_
     }
-
--- | The tag keys and optional values to add to the bucket during creation.
---
--- Use the
--- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_TagResource.html TagResource>
--- action to tag the bucket after it\'s created.
-createBucket_tags :: Lens.Lens' CreateBucket (Prelude.Maybe [Tag])
-createBucket_tags = Lens.lens (\CreateBucket' {tags} -> tags) (\s@CreateBucket' {} a -> s {tags = a} :: CreateBucket) Prelude.. Lens.mapping Lens.coerced
 
 -- | A Boolean value that indicates whether to enable versioning of objects
 -- in the bucket.
@@ -163,6 +156,14 @@ createBucket_tags = Lens.lens (\CreateBucket' {tags} -> tags) (\s@CreateBucket' 
 -- in the /Amazon Lightsail Developer Guide/.
 createBucket_enableObjectVersioning :: Lens.Lens' CreateBucket (Prelude.Maybe Prelude.Bool)
 createBucket_enableObjectVersioning = Lens.lens (\CreateBucket' {enableObjectVersioning} -> enableObjectVersioning) (\s@CreateBucket' {} a -> s {enableObjectVersioning = a} :: CreateBucket)
+
+-- | The tag keys and optional values to add to the bucket during creation.
+--
+-- Use the
+-- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_TagResource.html TagResource>
+-- action to tag the bucket after it\'s created.
+createBucket_tags :: Lens.Lens' CreateBucket (Prelude.Maybe [Tag])
+createBucket_tags = Lens.lens (\CreateBucket' {tags} -> tags) (\s@CreateBucket' {} a -> s {tags = a} :: CreateBucket) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name for the bucket.
 --
@@ -195,22 +196,22 @@ instance Core.AWSRequest CreateBucket where
     Response.receiveJSON
       ( \s h x ->
           CreateBucketResponse'
-            Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "bucket")
+            Prelude.<$> (x Data..?> "bucket")
+            Prelude.<*> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateBucket where
   hashWithSalt _salt CreateBucket' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` enableObjectVersioning
+    _salt `Prelude.hashWithSalt` enableObjectVersioning
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` bucketName
       `Prelude.hashWithSalt` bundleId
 
 instance Prelude.NFData CreateBucket where
   rnf CreateBucket' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf enableObjectVersioning
+    Prelude.rnf enableObjectVersioning
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf bucketName
       `Prelude.seq` Prelude.rnf bundleId
 
@@ -233,9 +234,9 @@ instance Data.ToJSON CreateBucket where
   toJSON CreateBucket' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("enableObjectVersioning" Data..=)
+          [ ("enableObjectVersioning" Data..=)
               Prelude.<$> enableObjectVersioning,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("bucketName" Data..= bucketName),
             Prelude.Just ("bundleId" Data..= bundleId)
           ]
@@ -249,12 +250,12 @@ instance Data.ToQuery CreateBucket where
 
 -- | /See:/ 'newCreateBucketResponse' smart constructor.
 data CreateBucketResponse = CreateBucketResponse'
-  { -- | An array of objects that describe the result of the action, such as the
+  { -- | An object that describes the bucket that is created.
+    bucket :: Prelude.Maybe Bucket,
+    -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
     operations :: Prelude.Maybe [Operation],
-    -- | An object that describes the bucket that is created.
-    bucket :: Prelude.Maybe Bucket,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -268,11 +269,11 @@ data CreateBucketResponse = CreateBucketResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'bucket', 'createBucketResponse_bucket' - An object that describes the bucket that is created.
+--
 -- 'operations', 'createBucketResponse_operations' - An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
---
--- 'bucket', 'createBucketResponse_bucket' - An object that describes the bucket that is created.
 --
 -- 'httpStatus', 'createBucketResponse_httpStatus' - The response's http status code.
 newCreateBucketResponse ::
@@ -281,10 +282,14 @@ newCreateBucketResponse ::
   CreateBucketResponse
 newCreateBucketResponse pHttpStatus_ =
   CreateBucketResponse'
-    { operations = Prelude.Nothing,
-      bucket = Prelude.Nothing,
+    { bucket = Prelude.Nothing,
+      operations = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An object that describes the bucket that is created.
+createBucketResponse_bucket :: Lens.Lens' CreateBucketResponse (Prelude.Maybe Bucket)
+createBucketResponse_bucket = Lens.lens (\CreateBucketResponse' {bucket} -> bucket) (\s@CreateBucketResponse' {} a -> s {bucket = a} :: CreateBucketResponse)
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
@@ -292,16 +297,12 @@ newCreateBucketResponse pHttpStatus_ =
 createBucketResponse_operations :: Lens.Lens' CreateBucketResponse (Prelude.Maybe [Operation])
 createBucketResponse_operations = Lens.lens (\CreateBucketResponse' {operations} -> operations) (\s@CreateBucketResponse' {} a -> s {operations = a} :: CreateBucketResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | An object that describes the bucket that is created.
-createBucketResponse_bucket :: Lens.Lens' CreateBucketResponse (Prelude.Maybe Bucket)
-createBucketResponse_bucket = Lens.lens (\CreateBucketResponse' {bucket} -> bucket) (\s@CreateBucketResponse' {} a -> s {bucket = a} :: CreateBucketResponse)
-
 -- | The response's http status code.
 createBucketResponse_httpStatus :: Lens.Lens' CreateBucketResponse Prelude.Int
 createBucketResponse_httpStatus = Lens.lens (\CreateBucketResponse' {httpStatus} -> httpStatus) (\s@CreateBucketResponse' {} a -> s {httpStatus = a} :: CreateBucketResponse)
 
 instance Prelude.NFData CreateBucketResponse where
   rnf CreateBucketResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf operations
       `Prelude.seq` Prelude.rnf httpStatus

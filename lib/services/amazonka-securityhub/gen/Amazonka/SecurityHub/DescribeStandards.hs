@@ -32,8 +32,8 @@ module Amazonka.SecurityHub.DescribeStandards
     newDescribeStandards,
 
     -- * Request Lenses
-    describeStandards_nextToken,
     describeStandards_maxResults,
+    describeStandards_nextToken,
 
     -- * Destructuring the Response
     DescribeStandardsResponse (..),
@@ -56,16 +56,16 @@ import Amazonka.SecurityHub.Types
 
 -- | /See:/ 'newDescribeStandards' smart constructor.
 data DescribeStandards = DescribeStandards'
-  { -- | The token that is required for pagination. On your first call to the
+  { -- | The maximum number of standards to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token that is required for pagination. On your first call to the
     -- @DescribeStandards@ operation, set the value of this parameter to
     -- @NULL@.
     --
     -- For subsequent calls to the operation, to continue listing data, set the
     -- value of this parameter to the value returned from the previous
     -- response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of standards to return.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,6 +77,8 @@ data DescribeStandards = DescribeStandards'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'describeStandards_maxResults' - The maximum number of standards to return.
+--
 -- 'nextToken', 'describeStandards_nextToken' - The token that is required for pagination. On your first call to the
 -- @DescribeStandards@ operation, set the value of this parameter to
 -- @NULL@.
@@ -84,15 +86,17 @@ data DescribeStandards = DescribeStandards'
 -- For subsequent calls to the operation, to continue listing data, set the
 -- value of this parameter to the value returned from the previous
 -- response.
---
--- 'maxResults', 'describeStandards_maxResults' - The maximum number of standards to return.
 newDescribeStandards ::
   DescribeStandards
 newDescribeStandards =
   DescribeStandards'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of standards to return.
+describeStandards_maxResults :: Lens.Lens' DescribeStandards (Prelude.Maybe Prelude.Natural)
+describeStandards_maxResults = Lens.lens (\DescribeStandards' {maxResults} -> maxResults) (\s@DescribeStandards' {} a -> s {maxResults = a} :: DescribeStandards)
 
 -- | The token that is required for pagination. On your first call to the
 -- @DescribeStandards@ operation, set the value of this parameter to
@@ -103,10 +107,6 @@ newDescribeStandards =
 -- response.
 describeStandards_nextToken :: Lens.Lens' DescribeStandards (Prelude.Maybe Prelude.Text)
 describeStandards_nextToken = Lens.lens (\DescribeStandards' {nextToken} -> nextToken) (\s@DescribeStandards' {} a -> s {nextToken = a} :: DescribeStandards)
-
--- | The maximum number of standards to return.
-describeStandards_maxResults :: Lens.Lens' DescribeStandards (Prelude.Maybe Prelude.Natural)
-describeStandards_maxResults = Lens.lens (\DescribeStandards' {maxResults} -> maxResults) (\s@DescribeStandards' {} a -> s {maxResults = a} :: DescribeStandards)
 
 instance Core.AWSPager DescribeStandards where
   page rq rs
@@ -147,13 +147,13 @@ instance Core.AWSRequest DescribeStandards where
 
 instance Prelude.Hashable DescribeStandards where
   hashWithSalt _salt DescribeStandards' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeStandards where
   rnf DescribeStandards' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeStandards where
   toHeaders =
@@ -172,8 +172,8 @@ instance Data.ToPath DescribeStandards where
 instance Data.ToQuery DescribeStandards where
   toQuery DescribeStandards' {..} =
     Prelude.mconcat
-      [ "NextToken" Data.=: nextToken,
-        "MaxResults" Data.=: maxResults
+      [ "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newDescribeStandardsResponse' smart constructor.

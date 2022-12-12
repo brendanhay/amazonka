@@ -27,12 +27,12 @@ module Amazonka.ResilienceHub.ListRecommendationTemplates
     newListRecommendationTemplates,
 
     -- * Request Lenses
-    listRecommendationTemplates_recommendationTemplateArn,
+    listRecommendationTemplates_maxResults,
     listRecommendationTemplates_name,
     listRecommendationTemplates_nextToken,
-    listRecommendationTemplates_status,
-    listRecommendationTemplates_maxResults,
+    listRecommendationTemplates_recommendationTemplateArn,
     listRecommendationTemplates_reverseOrder,
+    listRecommendationTemplates_status,
     listRecommendationTemplates_assessmentArn,
 
     -- * Destructuring the Response
@@ -56,21 +56,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListRecommendationTemplates' smart constructor.
 data ListRecommendationTemplates = ListRecommendationTemplates'
-  { -- | The Amazon Resource Name (ARN) for a recommendation template.
-    recommendationTemplateArn :: Prelude.Maybe Prelude.Text,
+  { -- | The maximum number of results to include in the response. If more
+    -- results exist than the specified @MaxResults@ value, a token is included
+    -- in the response so that the remaining results can be retrieved.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name for one of the listed recommendation templates.
     name :: Prelude.Maybe Prelude.Text,
     -- | Null, or the token from a previous call to get the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The status of the action.
-    status :: Prelude.Maybe (Prelude.NonEmpty RecommendationTemplateStatus),
-    -- | The maximum number of results to include in the response. If more
-    -- results exist than the specified @MaxResults@ value, a token is included
-    -- in the response so that the remaining results can be retrieved.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The Amazon Resource Name (ARN) for a recommendation template.
+    recommendationTemplateArn :: Prelude.Maybe Prelude.Text,
     -- | The default is to sort by ascending __startTime__. To sort by descending
     -- __startTime__, set reverseOrder to @true@.
     reverseOrder :: Prelude.Maybe Prelude.Bool,
+    -- | The status of the action.
+    status :: Prelude.Maybe (Prelude.NonEmpty RecommendationTemplateStatus),
     -- | The Amazon Resource Name (ARN) of the assessment. The format for this
     -- ARN is:
     -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
@@ -89,20 +89,20 @@ data ListRecommendationTemplates = ListRecommendationTemplates'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'recommendationTemplateArn', 'listRecommendationTemplates_recommendationTemplateArn' - The Amazon Resource Name (ARN) for a recommendation template.
+-- 'maxResults', 'listRecommendationTemplates_maxResults' - The maximum number of results to include in the response. If more
+-- results exist than the specified @MaxResults@ value, a token is included
+-- in the response so that the remaining results can be retrieved.
 --
 -- 'name', 'listRecommendationTemplates_name' - The name for one of the listed recommendation templates.
 --
 -- 'nextToken', 'listRecommendationTemplates_nextToken' - Null, or the token from a previous call to get the next set of results.
 --
--- 'status', 'listRecommendationTemplates_status' - The status of the action.
---
--- 'maxResults', 'listRecommendationTemplates_maxResults' - The maximum number of results to include in the response. If more
--- results exist than the specified @MaxResults@ value, a token is included
--- in the response so that the remaining results can be retrieved.
+-- 'recommendationTemplateArn', 'listRecommendationTemplates_recommendationTemplateArn' - The Amazon Resource Name (ARN) for a recommendation template.
 --
 -- 'reverseOrder', 'listRecommendationTemplates_reverseOrder' - The default is to sort by ascending __startTime__. To sort by descending
 -- __startTime__, set reverseOrder to @true@.
+--
+-- 'status', 'listRecommendationTemplates_status' - The status of the action.
 --
 -- 'assessmentArn', 'listRecommendationTemplates_assessmentArn' - The Amazon Resource Name (ARN) of the assessment. The format for this
 -- ARN is:
@@ -116,19 +116,21 @@ newListRecommendationTemplates ::
   ListRecommendationTemplates
 newListRecommendationTemplates pAssessmentArn_ =
   ListRecommendationTemplates'
-    { recommendationTemplateArn =
+    { maxResults =
         Prelude.Nothing,
       name = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      status = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      recommendationTemplateArn = Prelude.Nothing,
       reverseOrder = Prelude.Nothing,
+      status = Prelude.Nothing,
       assessmentArn = pAssessmentArn_
     }
 
--- | The Amazon Resource Name (ARN) for a recommendation template.
-listRecommendationTemplates_recommendationTemplateArn :: Lens.Lens' ListRecommendationTemplates (Prelude.Maybe Prelude.Text)
-listRecommendationTemplates_recommendationTemplateArn = Lens.lens (\ListRecommendationTemplates' {recommendationTemplateArn} -> recommendationTemplateArn) (\s@ListRecommendationTemplates' {} a -> s {recommendationTemplateArn = a} :: ListRecommendationTemplates)
+-- | The maximum number of results to include in the response. If more
+-- results exist than the specified @MaxResults@ value, a token is included
+-- in the response so that the remaining results can be retrieved.
+listRecommendationTemplates_maxResults :: Lens.Lens' ListRecommendationTemplates (Prelude.Maybe Prelude.Natural)
+listRecommendationTemplates_maxResults = Lens.lens (\ListRecommendationTemplates' {maxResults} -> maxResults) (\s@ListRecommendationTemplates' {} a -> s {maxResults = a} :: ListRecommendationTemplates)
 
 -- | The name for one of the listed recommendation templates.
 listRecommendationTemplates_name :: Lens.Lens' ListRecommendationTemplates (Prelude.Maybe Prelude.Text)
@@ -138,20 +140,18 @@ listRecommendationTemplates_name = Lens.lens (\ListRecommendationTemplates' {nam
 listRecommendationTemplates_nextToken :: Lens.Lens' ListRecommendationTemplates (Prelude.Maybe Prelude.Text)
 listRecommendationTemplates_nextToken = Lens.lens (\ListRecommendationTemplates' {nextToken} -> nextToken) (\s@ListRecommendationTemplates' {} a -> s {nextToken = a} :: ListRecommendationTemplates)
 
--- | The status of the action.
-listRecommendationTemplates_status :: Lens.Lens' ListRecommendationTemplates (Prelude.Maybe (Prelude.NonEmpty RecommendationTemplateStatus))
-listRecommendationTemplates_status = Lens.lens (\ListRecommendationTemplates' {status} -> status) (\s@ListRecommendationTemplates' {} a -> s {status = a} :: ListRecommendationTemplates) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum number of results to include in the response. If more
--- results exist than the specified @MaxResults@ value, a token is included
--- in the response so that the remaining results can be retrieved.
-listRecommendationTemplates_maxResults :: Lens.Lens' ListRecommendationTemplates (Prelude.Maybe Prelude.Natural)
-listRecommendationTemplates_maxResults = Lens.lens (\ListRecommendationTemplates' {maxResults} -> maxResults) (\s@ListRecommendationTemplates' {} a -> s {maxResults = a} :: ListRecommendationTemplates)
+-- | The Amazon Resource Name (ARN) for a recommendation template.
+listRecommendationTemplates_recommendationTemplateArn :: Lens.Lens' ListRecommendationTemplates (Prelude.Maybe Prelude.Text)
+listRecommendationTemplates_recommendationTemplateArn = Lens.lens (\ListRecommendationTemplates' {recommendationTemplateArn} -> recommendationTemplateArn) (\s@ListRecommendationTemplates' {} a -> s {recommendationTemplateArn = a} :: ListRecommendationTemplates)
 
 -- | The default is to sort by ascending __startTime__. To sort by descending
 -- __startTime__, set reverseOrder to @true@.
 listRecommendationTemplates_reverseOrder :: Lens.Lens' ListRecommendationTemplates (Prelude.Maybe Prelude.Bool)
 listRecommendationTemplates_reverseOrder = Lens.lens (\ListRecommendationTemplates' {reverseOrder} -> reverseOrder) (\s@ListRecommendationTemplates' {} a -> s {reverseOrder = a} :: ListRecommendationTemplates)
+
+-- | The status of the action.
+listRecommendationTemplates_status :: Lens.Lens' ListRecommendationTemplates (Prelude.Maybe (Prelude.NonEmpty RecommendationTemplateStatus))
+listRecommendationTemplates_status = Lens.lens (\ListRecommendationTemplates' {status} -> status) (\s@ListRecommendationTemplates' {} a -> s {status = a} :: ListRecommendationTemplates) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the assessment. The format for this
 -- ARN is:
@@ -181,23 +181,22 @@ instance Core.AWSRequest ListRecommendationTemplates where
 
 instance Prelude.Hashable ListRecommendationTemplates where
   hashWithSalt _salt ListRecommendationTemplates' {..} =
-    _salt
-      `Prelude.hashWithSalt` recommendationTemplateArn
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` recommendationTemplateArn
       `Prelude.hashWithSalt` reverseOrder
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` assessmentArn
 
 instance Prelude.NFData ListRecommendationTemplates where
   rnf ListRecommendationTemplates' {..} =
-    Prelude.rnf recommendationTemplateArn
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf recommendationTemplateArn
       `Prelude.seq` Prelude.rnf reverseOrder
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf assessmentArn
 
 instance Data.ToHeaders ListRecommendationTemplates where
@@ -218,15 +217,15 @@ instance Data.ToPath ListRecommendationTemplates where
 instance Data.ToQuery ListRecommendationTemplates where
   toQuery ListRecommendationTemplates' {..} =
     Prelude.mconcat
-      [ "recommendationTemplateArn"
-          Data.=: recommendationTemplateArn,
+      [ "maxResults" Data.=: maxResults,
         "name" Data.=: name,
         "nextToken" Data.=: nextToken,
+        "recommendationTemplateArn"
+          Data.=: recommendationTemplateArn,
+        "reverseOrder" Data.=: reverseOrder,
         "status"
           Data.=: Data.toQuery
             (Data.toQueryList "member" Prelude.<$> status),
-        "maxResults" Data.=: maxResults,
-        "reverseOrder" Data.=: reverseOrder,
         "assessmentArn" Data.=: assessmentArn
       ]
 

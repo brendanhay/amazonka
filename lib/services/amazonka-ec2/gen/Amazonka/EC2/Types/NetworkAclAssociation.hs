@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNetworkAclAssociation' smart constructor.
 data NetworkAclAssociation = NetworkAclAssociation'
-  { -- | The ID of the network ACL.
+  { -- | The ID of the association between a network ACL and a subnet.
+    networkAclAssociationId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the network ACL.
     networkAclId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the subnet.
-    subnetId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the association between a network ACL and a subnet.
-    networkAclAssociationId :: Prelude.Maybe Prelude.Text
+    subnetId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,20 +46,24 @@ data NetworkAclAssociation = NetworkAclAssociation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'networkAclAssociationId', 'networkAclAssociation_networkAclAssociationId' - The ID of the association between a network ACL and a subnet.
+--
 -- 'networkAclId', 'networkAclAssociation_networkAclId' - The ID of the network ACL.
 --
 -- 'subnetId', 'networkAclAssociation_subnetId' - The ID of the subnet.
---
--- 'networkAclAssociationId', 'networkAclAssociation_networkAclAssociationId' - The ID of the association between a network ACL and a subnet.
 newNetworkAclAssociation ::
   NetworkAclAssociation
 newNetworkAclAssociation =
   NetworkAclAssociation'
-    { networkAclId =
+    { networkAclAssociationId =
         Prelude.Nothing,
-      subnetId = Prelude.Nothing,
-      networkAclAssociationId = Prelude.Nothing
+      networkAclId = Prelude.Nothing,
+      subnetId = Prelude.Nothing
     }
+
+-- | The ID of the association between a network ACL and a subnet.
+networkAclAssociation_networkAclAssociationId :: Lens.Lens' NetworkAclAssociation (Prelude.Maybe Prelude.Text)
+networkAclAssociation_networkAclAssociationId = Lens.lens (\NetworkAclAssociation' {networkAclAssociationId} -> networkAclAssociationId) (\s@NetworkAclAssociation' {} a -> s {networkAclAssociationId = a} :: NetworkAclAssociation)
 
 -- | The ID of the network ACL.
 networkAclAssociation_networkAclId :: Lens.Lens' NetworkAclAssociation (Prelude.Maybe Prelude.Text)
@@ -69,25 +73,22 @@ networkAclAssociation_networkAclId = Lens.lens (\NetworkAclAssociation' {network
 networkAclAssociation_subnetId :: Lens.Lens' NetworkAclAssociation (Prelude.Maybe Prelude.Text)
 networkAclAssociation_subnetId = Lens.lens (\NetworkAclAssociation' {subnetId} -> subnetId) (\s@NetworkAclAssociation' {} a -> s {subnetId = a} :: NetworkAclAssociation)
 
--- | The ID of the association between a network ACL and a subnet.
-networkAclAssociation_networkAclAssociationId :: Lens.Lens' NetworkAclAssociation (Prelude.Maybe Prelude.Text)
-networkAclAssociation_networkAclAssociationId = Lens.lens (\NetworkAclAssociation' {networkAclAssociationId} -> networkAclAssociationId) (\s@NetworkAclAssociation' {} a -> s {networkAclAssociationId = a} :: NetworkAclAssociation)
-
 instance Data.FromXML NetworkAclAssociation where
   parseXML x =
     NetworkAclAssociation'
-      Prelude.<$> (x Data..@? "networkAclId")
+      Prelude.<$> (x Data..@? "networkAclAssociationId")
+      Prelude.<*> (x Data..@? "networkAclId")
       Prelude.<*> (x Data..@? "subnetId")
-      Prelude.<*> (x Data..@? "networkAclAssociationId")
 
 instance Prelude.Hashable NetworkAclAssociation where
   hashWithSalt _salt NetworkAclAssociation' {..} =
-    _salt `Prelude.hashWithSalt` networkAclId
-      `Prelude.hashWithSalt` subnetId
+    _salt
       `Prelude.hashWithSalt` networkAclAssociationId
+      `Prelude.hashWithSalt` networkAclId
+      `Prelude.hashWithSalt` subnetId
 
 instance Prelude.NFData NetworkAclAssociation where
   rnf NetworkAclAssociation' {..} =
-    Prelude.rnf networkAclId
+    Prelude.rnf networkAclAssociationId
+      `Prelude.seq` Prelude.rnf networkAclId
       `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf networkAclAssociationId

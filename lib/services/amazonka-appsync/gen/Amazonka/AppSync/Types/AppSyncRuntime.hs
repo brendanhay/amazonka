@@ -25,9 +25,10 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Describes a runtime used by an AWS AppSync pipeline resolver or AWS
--- AppSync function. Specifies the name and version of the runtime to use.
--- Note that if a runtime is specified, code must also be specified.
+-- | Describes a runtime used by an Amazon Web Services AppSync pipeline
+-- resolver or Amazon Web Services AppSync function. Specifies the name and
+-- version of the runtime to use. Note that if a runtime is specified, code
+-- must also be specified.
 --
 -- /See:/ 'newAppSyncRuntime' smart constructor.
 data AppSyncRuntime = AppSyncRuntime'

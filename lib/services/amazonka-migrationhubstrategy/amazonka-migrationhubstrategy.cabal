@@ -48,6 +48,7 @@ library
     Amazonka.MigrationHubStrategy.GetApplicationComponentStrategies
     Amazonka.MigrationHubStrategy.GetAssessment
     Amazonka.MigrationHubStrategy.GetImportFileTask
+    Amazonka.MigrationHubStrategy.GetLatestAssessmentId
     Amazonka.MigrationHubStrategy.GetPortfolioPreferences
     Amazonka.MigrationHubStrategy.GetPortfolioSummary
     Amazonka.MigrationHubStrategy.GetRecommendationReportDetails
@@ -68,18 +69,26 @@ library
     Amazonka.MigrationHubStrategy.Types.AntipatternSeveritySummary
     Amazonka.MigrationHubStrategy.Types.ApplicationComponentCriteria
     Amazonka.MigrationHubStrategy.Types.ApplicationComponentDetail
+    Amazonka.MigrationHubStrategy.Types.ApplicationComponentStatusSummary
     Amazonka.MigrationHubStrategy.Types.ApplicationComponentStrategy
     Amazonka.MigrationHubStrategy.Types.ApplicationComponentSummary
+    Amazonka.MigrationHubStrategy.Types.ApplicationMode
     Amazonka.MigrationHubStrategy.Types.ApplicationPreferences
     Amazonka.MigrationHubStrategy.Types.AppType
+    Amazonka.MigrationHubStrategy.Types.AppUnitError
+    Amazonka.MigrationHubStrategy.Types.AppUnitErrorCategory
     Amazonka.MigrationHubStrategy.Types.AssessmentStatus
     Amazonka.MigrationHubStrategy.Types.AssessmentSummary
+    Amazonka.MigrationHubStrategy.Types.AssessmentTarget
     Amazonka.MigrationHubStrategy.Types.AssociatedApplication
+    Amazonka.MigrationHubStrategy.Types.AuthType
     Amazonka.MigrationHubStrategy.Types.AwsManagedResources
     Amazonka.MigrationHubStrategy.Types.AwsManagedTargetDestination
     Amazonka.MigrationHubStrategy.Types.BusinessGoals
     Amazonka.MigrationHubStrategy.Types.Collector
     Amazonka.MigrationHubStrategy.Types.CollectorHealth
+    Amazonka.MigrationHubStrategy.Types.Condition
+    Amazonka.MigrationHubStrategy.Types.ConfigurationSummary
     Amazonka.MigrationHubStrategy.Types.DatabaseConfigDetail
     Amazonka.MigrationHubStrategy.Types.DatabaseManagementPreference
     Amazonka.MigrationHubStrategy.Types.DatabaseMigrationPreference
@@ -95,6 +104,7 @@ library
     Amazonka.MigrationHubStrategy.Types.ImportFileTaskInformation
     Amazonka.MigrationHubStrategy.Types.ImportFileTaskStatus
     Amazonka.MigrationHubStrategy.Types.InclusionStatus
+    Amazonka.MigrationHubStrategy.Types.IPAddressBasedRemoteInfo
     Amazonka.MigrationHubStrategy.Types.ManagementPreference
     Amazonka.MigrationHubStrategy.Types.NetworkInfo
     Amazonka.MigrationHubStrategy.Types.NoDatabaseMigrationPreference
@@ -103,18 +113,25 @@ library
     Amazonka.MigrationHubStrategy.Types.OSInfo
     Amazonka.MigrationHubStrategy.Types.OSType
     Amazonka.MigrationHubStrategy.Types.OutputFormat
+    Amazonka.MigrationHubStrategy.Types.PipelineInfo
+    Amazonka.MigrationHubStrategy.Types.PipelineType
     Amazonka.MigrationHubStrategy.Types.PrioritizeBusinessGoals
     Amazonka.MigrationHubStrategy.Types.RecommendationReportDetails
     Amazonka.MigrationHubStrategy.Types.RecommendationReportStatus
     Amazonka.MigrationHubStrategy.Types.RecommendationSet
+    Amazonka.MigrationHubStrategy.Types.RemoteSourceCodeAnalysisServerInfo
     Amazonka.MigrationHubStrategy.Types.ResourceSubType
+    Amazonka.MigrationHubStrategy.Types.RuntimeAnalysisStatus
     Amazonka.MigrationHubStrategy.Types.RunTimeAssessmentStatus
     Amazonka.MigrationHubStrategy.Types.S3Object
     Amazonka.MigrationHubStrategy.Types.SelfManageResources
     Amazonka.MigrationHubStrategy.Types.SelfManageTargetDestination
     Amazonka.MigrationHubStrategy.Types.ServerCriteria
     Amazonka.MigrationHubStrategy.Types.ServerDetail
+    Amazonka.MigrationHubStrategy.Types.ServerError
+    Amazonka.MigrationHubStrategy.Types.ServerErrorCategory
     Amazonka.MigrationHubStrategy.Types.ServerOsType
+    Amazonka.MigrationHubStrategy.Types.ServerStatusSummary
     Amazonka.MigrationHubStrategy.Types.ServerStrategy
     Amazonka.MigrationHubStrategy.Types.ServerSummary
     Amazonka.MigrationHubStrategy.Types.Severity
@@ -131,7 +148,10 @@ library
     Amazonka.MigrationHubStrategy.Types.TargetDestination
     Amazonka.MigrationHubStrategy.Types.TransformationTool
     Amazonka.MigrationHubStrategy.Types.TransformationToolName
+    Amazonka.MigrationHubStrategy.Types.VcenterBasedRemoteInfo
     Amazonka.MigrationHubStrategy.Types.VersionControl
+    Amazonka.MigrationHubStrategy.Types.VersionControlInfo
+    Amazonka.MigrationHubStrategy.Types.VersionControlType
     Amazonka.MigrationHubStrategy.UpdateApplicationComponentConfig
     Amazonka.MigrationHubStrategy.UpdateServerConfig
     Amazonka.MigrationHubStrategy.Waiters

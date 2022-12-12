@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRule' smart constructor.
 data Rule = Rule'
-  { -- | The type of attribute validation rule.
-    type' :: Prelude.Maybe RuleType,
-    -- | The minimum and maximum parameters that are associated with the rule.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+  { -- | The minimum and maximum parameters that are associated with the rule.
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The type of attribute validation rule.
+    type' :: Prelude.Maybe RuleType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,24 @@ data Rule = Rule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'rule_type' - The type of attribute validation rule.
---
 -- 'parameters', 'rule_parameters' - The minimum and maximum parameters that are associated with the rule.
+--
+-- 'type'', 'rule_type' - The type of attribute validation rule.
 newRule ::
   Rule
 newRule =
   Rule'
-    { type' = Prelude.Nothing,
-      parameters = Prelude.Nothing
+    { parameters = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
-
--- | The type of attribute validation rule.
-rule_type :: Lens.Lens' Rule (Prelude.Maybe RuleType)
-rule_type = Lens.lens (\Rule' {type'} -> type') (\s@Rule' {} a -> s {type' = a} :: Rule)
 
 -- | The minimum and maximum parameters that are associated with the rule.
 rule_parameters :: Lens.Lens' Rule (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 rule_parameters = Lens.lens (\Rule' {parameters} -> parameters) (\s@Rule' {} a -> s {parameters = a} :: Rule) Prelude.. Lens.mapping Lens.coerced
+
+-- | The type of attribute validation rule.
+rule_type :: Lens.Lens' Rule (Prelude.Maybe RuleType)
+rule_type = Lens.lens (\Rule' {type'} -> type') (\s@Rule' {} a -> s {type' = a} :: Rule)
 
 instance Data.FromJSON Rule where
   parseJSON =
@@ -70,25 +70,25 @@ instance Data.FromJSON Rule where
       "Rule"
       ( \x ->
           Rule'
-            Prelude.<$> (x Data..:? "Type")
-            Prelude.<*> (x Data..:? "Parameters" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Parameters" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable Rule where
   hashWithSalt _salt Rule' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` parameters
+    _salt `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Rule where
   rnf Rule' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf parameters
+    Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf type'
 
 instance Data.ToJSON Rule where
   toJSON Rule' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Type" Data..=) Prelude.<$> type',
-            ("Parameters" Data..=) Prelude.<$> parameters
+          [ ("Parameters" Data..=) Prelude.<$> parameters,
+            ("Type" Data..=) Prelude.<$> type'
           ]
       )

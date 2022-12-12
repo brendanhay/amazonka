@@ -45,19 +45,19 @@ module Amazonka.Redshift.DescribeClusterSnapshots
     newDescribeClusterSnapshots,
 
     -- * Request Lenses
-    describeClusterSnapshots_clusterIdentifier,
-    describeClusterSnapshots_tagKeys,
-    describeClusterSnapshots_marker,
     describeClusterSnapshots_clusterExists,
-    describeClusterSnapshots_snapshotArn,
-    describeClusterSnapshots_tagValues,
-    describeClusterSnapshots_snapshotIdentifier,
+    describeClusterSnapshots_clusterIdentifier,
     describeClusterSnapshots_endTime,
+    describeClusterSnapshots_marker,
     describeClusterSnapshots_maxRecords,
     describeClusterSnapshots_ownerAccount,
+    describeClusterSnapshots_snapshotArn,
+    describeClusterSnapshots_snapshotIdentifier,
+    describeClusterSnapshots_snapshotType,
     describeClusterSnapshots_sortingEntities,
     describeClusterSnapshots_startTime,
-    describeClusterSnapshots_snapshotType,
+    describeClusterSnapshots_tagKeys,
+    describeClusterSnapshots_tagValues,
 
     -- * Destructuring the Response
     DescribeClusterSnapshotsResponse (..),
@@ -82,23 +82,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeClusterSnapshots' smart constructor.
 data DescribeClusterSnapshots = DescribeClusterSnapshots'
-  { -- | The identifier of the cluster which generated the requested snapshots.
-    clusterIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | A tag key or keys for which you want to return all matching cluster
-    -- snapshots that are associated with the specified key or keys. For
-    -- example, suppose that you have snapshots that are tagged with keys
-    -- called @owner@ and @environment@. If you specify both of these tag keys
-    -- in the request, Amazon Redshift returns a response with the snapshots
-    -- that have either or both of these tag keys associated with them.
-    tagKeys :: Prelude.Maybe [Prelude.Text],
-    -- | An optional parameter that specifies the starting point to return a set
-    -- of response records. When the results of a DescribeClusterSnapshots
-    -- request exceed the value specified in @MaxRecords@, Amazon Web Services
-    -- returns a value in the @Marker@ field of the response. You can retrieve
-    -- the next set of response records by providing the returned marker value
-    -- in the @Marker@ parameter and retrying the request.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | A value that indicates whether to return snapshots only for an existing
+  { -- | A value that indicates whether to return snapshots only for an existing
     -- cluster. You can perform table-level restore only by using a snapshot of
     -- an existing cluster, that is, a cluster that has not been deleted.
     -- Values for this parameter work as follows:
@@ -117,19 +101,8 @@ data DescribeClusterSnapshots = DescribeClusterSnapshots'
     -- -   If @ClusterExists@ is set to @false@ and @ClusterIdentifier@ is
     --     specified for an existing cluster, no snapshots are returned.
     clusterExists :: Prelude.Maybe Prelude.Bool,
-    -- | The Amazon Resource Name (ARN) of the snapshot associated with the
-    -- message to describe cluster snapshots.
-    snapshotArn :: Prelude.Maybe Prelude.Text,
-    -- | A tag value or values for which you want to return all matching cluster
-    -- snapshots that are associated with the specified tag value or values.
-    -- For example, suppose that you have snapshots that are tagged with values
-    -- called @admin@ and @test@. If you specify both of these tag values in
-    -- the request, Amazon Redshift returns a response with the snapshots that
-    -- have either or both of these tag values associated with them.
-    tagValues :: Prelude.Maybe [Prelude.Text],
-    -- | The snapshot identifier of the snapshot about which to return
-    -- information.
-    snapshotIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the cluster which generated the requested snapshots.
+    clusterIdentifier :: Prelude.Maybe Prelude.Text,
     -- | A time value that requests only snapshots created at or before the
     -- specified time. The time value is specified in ISO 8601 format. For more
     -- information about ISO 8601, go to the
@@ -137,6 +110,13 @@ data DescribeClusterSnapshots = DescribeClusterSnapshots'
     --
     -- Example: @2012-07-16T18:00:00Z@
     endTime :: Prelude.Maybe Data.ISO8601,
+    -- | An optional parameter that specifies the starting point to return a set
+    -- of response records. When the results of a DescribeClusterSnapshots
+    -- request exceed the value specified in @MaxRecords@, Amazon Web Services
+    -- returns a value in the @Marker@ field of the response. You can retrieve
+    -- the next set of response records by providing the returned marker value
+    -- in the @Marker@ parameter and retrying the request.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @marker@ field of the response. You can
@@ -152,6 +132,17 @@ data DescribeClusterSnapshots = DescribeClusterSnapshots'
     -- account. To describe snapshots you own, either specify your Amazon Web
     -- Services account, or do not specify the parameter.
     ownerAccount :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the snapshot associated with the
+    -- message to describe cluster snapshots.
+    snapshotArn :: Prelude.Maybe Prelude.Text,
+    -- | The snapshot identifier of the snapshot about which to return
+    -- information.
+    snapshotIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The type of snapshots for which you are requesting information. By
+    -- default, snapshots of all types are returned.
+    --
+    -- Valid Values: @automated@ | @manual@
+    snapshotType :: Prelude.Maybe Prelude.Text,
     sortingEntities :: Prelude.Maybe [SnapshotSortingEntity],
     -- | A value that requests only snapshots created at or after the specified
     -- time. The time value is specified in ISO 8601 format. For more
@@ -160,11 +151,20 @@ data DescribeClusterSnapshots = DescribeClusterSnapshots'
     --
     -- Example: @2012-07-16T18:00:00Z@
     startTime :: Prelude.Maybe Data.ISO8601,
-    -- | The type of snapshots for which you are requesting information. By
-    -- default, snapshots of all types are returned.
-    --
-    -- Valid Values: @automated@ | @manual@
-    snapshotType :: Prelude.Maybe Prelude.Text
+    -- | A tag key or keys for which you want to return all matching cluster
+    -- snapshots that are associated with the specified key or keys. For
+    -- example, suppose that you have snapshots that are tagged with keys
+    -- called @owner@ and @environment@. If you specify both of these tag keys
+    -- in the request, Amazon Redshift returns a response with the snapshots
+    -- that have either or both of these tag keys associated with them.
+    tagKeys :: Prelude.Maybe [Prelude.Text],
+    -- | A tag value or values for which you want to return all matching cluster
+    -- snapshots that are associated with the specified tag value or values.
+    -- For example, suppose that you have snapshots that are tagged with values
+    -- called @admin@ and @test@. If you specify both of these tag values in
+    -- the request, Amazon Redshift returns a response with the snapshots that
+    -- have either or both of these tag values associated with them.
+    tagValues :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -175,22 +175,6 @@ data DescribeClusterSnapshots = DescribeClusterSnapshots'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'clusterIdentifier', 'describeClusterSnapshots_clusterIdentifier' - The identifier of the cluster which generated the requested snapshots.
---
--- 'tagKeys', 'describeClusterSnapshots_tagKeys' - A tag key or keys for which you want to return all matching cluster
--- snapshots that are associated with the specified key or keys. For
--- example, suppose that you have snapshots that are tagged with keys
--- called @owner@ and @environment@. If you specify both of these tag keys
--- in the request, Amazon Redshift returns a response with the snapshots
--- that have either or both of these tag keys associated with them.
---
--- 'marker', 'describeClusterSnapshots_marker' - An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeClusterSnapshots
--- request exceed the value specified in @MaxRecords@, Amazon Web Services
--- returns a value in the @Marker@ field of the response. You can retrieve
--- the next set of response records by providing the returned marker value
--- in the @Marker@ parameter and retrying the request.
 --
 -- 'clusterExists', 'describeClusterSnapshots_clusterExists' - A value that indicates whether to return snapshots only for an existing
 -- cluster. You can perform table-level restore only by using a snapshot of
@@ -211,18 +195,7 @@ data DescribeClusterSnapshots = DescribeClusterSnapshots'
 -- -   If @ClusterExists@ is set to @false@ and @ClusterIdentifier@ is
 --     specified for an existing cluster, no snapshots are returned.
 --
--- 'snapshotArn', 'describeClusterSnapshots_snapshotArn' - The Amazon Resource Name (ARN) of the snapshot associated with the
--- message to describe cluster snapshots.
---
--- 'tagValues', 'describeClusterSnapshots_tagValues' - A tag value or values for which you want to return all matching cluster
--- snapshots that are associated with the specified tag value or values.
--- For example, suppose that you have snapshots that are tagged with values
--- called @admin@ and @test@. If you specify both of these tag values in
--- the request, Amazon Redshift returns a response with the snapshots that
--- have either or both of these tag values associated with them.
---
--- 'snapshotIdentifier', 'describeClusterSnapshots_snapshotIdentifier' - The snapshot identifier of the snapshot about which to return
--- information.
+-- 'clusterIdentifier', 'describeClusterSnapshots_clusterIdentifier' - The identifier of the cluster which generated the requested snapshots.
 --
 -- 'endTime', 'describeClusterSnapshots_endTime' - A time value that requests only snapshots created at or before the
 -- specified time. The time value is specified in ISO 8601 format. For more
@@ -230,6 +203,13 @@ data DescribeClusterSnapshots = DescribeClusterSnapshots'
 -- <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
 --
 -- Example: @2012-07-16T18:00:00Z@
+--
+-- 'marker', 'describeClusterSnapshots_marker' - An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeClusterSnapshots
+-- request exceed the value specified in @MaxRecords@, Amazon Web Services
+-- returns a value in the @Marker@ field of the response. You can retrieve
+-- the next set of response records by providing the returned marker value
+-- in the @Marker@ parameter and retrying the request.
 --
 -- 'maxRecords', 'describeClusterSnapshots_maxRecords' - The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -246,6 +226,17 @@ data DescribeClusterSnapshots = DescribeClusterSnapshots'
 -- account. To describe snapshots you own, either specify your Amazon Web
 -- Services account, or do not specify the parameter.
 --
+-- 'snapshotArn', 'describeClusterSnapshots_snapshotArn' - The Amazon Resource Name (ARN) of the snapshot associated with the
+-- message to describe cluster snapshots.
+--
+-- 'snapshotIdentifier', 'describeClusterSnapshots_snapshotIdentifier' - The snapshot identifier of the snapshot about which to return
+-- information.
+--
+-- 'snapshotType', 'describeClusterSnapshots_snapshotType' - The type of snapshots for which you are requesting information. By
+-- default, snapshots of all types are returned.
+--
+-- Valid Values: @automated@ | @manual@
+--
 -- 'sortingEntities', 'describeClusterSnapshots_sortingEntities' -
 --
 -- 'startTime', 'describeClusterSnapshots_startTime' - A value that requests only snapshots created at or after the specified
@@ -255,51 +246,38 @@ data DescribeClusterSnapshots = DescribeClusterSnapshots'
 --
 -- Example: @2012-07-16T18:00:00Z@
 --
--- 'snapshotType', 'describeClusterSnapshots_snapshotType' - The type of snapshots for which you are requesting information. By
--- default, snapshots of all types are returned.
---
--- Valid Values: @automated@ | @manual@
-newDescribeClusterSnapshots ::
-  DescribeClusterSnapshots
-newDescribeClusterSnapshots =
-  DescribeClusterSnapshots'
-    { clusterIdentifier =
-        Prelude.Nothing,
-      tagKeys = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      clusterExists = Prelude.Nothing,
-      snapshotArn = Prelude.Nothing,
-      tagValues = Prelude.Nothing,
-      snapshotIdentifier = Prelude.Nothing,
-      endTime = Prelude.Nothing,
-      maxRecords = Prelude.Nothing,
-      ownerAccount = Prelude.Nothing,
-      sortingEntities = Prelude.Nothing,
-      startTime = Prelude.Nothing,
-      snapshotType = Prelude.Nothing
-    }
-
--- | The identifier of the cluster which generated the requested snapshots.
-describeClusterSnapshots_clusterIdentifier :: Lens.Lens' DescribeClusterSnapshots (Prelude.Maybe Prelude.Text)
-describeClusterSnapshots_clusterIdentifier = Lens.lens (\DescribeClusterSnapshots' {clusterIdentifier} -> clusterIdentifier) (\s@DescribeClusterSnapshots' {} a -> s {clusterIdentifier = a} :: DescribeClusterSnapshots)
-
--- | A tag key or keys for which you want to return all matching cluster
+-- 'tagKeys', 'describeClusterSnapshots_tagKeys' - A tag key or keys for which you want to return all matching cluster
 -- snapshots that are associated with the specified key or keys. For
 -- example, suppose that you have snapshots that are tagged with keys
 -- called @owner@ and @environment@. If you specify both of these tag keys
 -- in the request, Amazon Redshift returns a response with the snapshots
 -- that have either or both of these tag keys associated with them.
-describeClusterSnapshots_tagKeys :: Lens.Lens' DescribeClusterSnapshots (Prelude.Maybe [Prelude.Text])
-describeClusterSnapshots_tagKeys = Lens.lens (\DescribeClusterSnapshots' {tagKeys} -> tagKeys) (\s@DescribeClusterSnapshots' {} a -> s {tagKeys = a} :: DescribeClusterSnapshots) Prelude.. Lens.mapping Lens.coerced
-
--- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeClusterSnapshots
--- request exceed the value specified in @MaxRecords@, Amazon Web Services
--- returns a value in the @Marker@ field of the response. You can retrieve
--- the next set of response records by providing the returned marker value
--- in the @Marker@ parameter and retrying the request.
-describeClusterSnapshots_marker :: Lens.Lens' DescribeClusterSnapshots (Prelude.Maybe Prelude.Text)
-describeClusterSnapshots_marker = Lens.lens (\DescribeClusterSnapshots' {marker} -> marker) (\s@DescribeClusterSnapshots' {} a -> s {marker = a} :: DescribeClusterSnapshots)
+--
+-- 'tagValues', 'describeClusterSnapshots_tagValues' - A tag value or values for which you want to return all matching cluster
+-- snapshots that are associated with the specified tag value or values.
+-- For example, suppose that you have snapshots that are tagged with values
+-- called @admin@ and @test@. If you specify both of these tag values in
+-- the request, Amazon Redshift returns a response with the snapshots that
+-- have either or both of these tag values associated with them.
+newDescribeClusterSnapshots ::
+  DescribeClusterSnapshots
+newDescribeClusterSnapshots =
+  DescribeClusterSnapshots'
+    { clusterExists =
+        Prelude.Nothing,
+      clusterIdentifier = Prelude.Nothing,
+      endTime = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing,
+      ownerAccount = Prelude.Nothing,
+      snapshotArn = Prelude.Nothing,
+      snapshotIdentifier = Prelude.Nothing,
+      snapshotType = Prelude.Nothing,
+      sortingEntities = Prelude.Nothing,
+      startTime = Prelude.Nothing,
+      tagKeys = Prelude.Nothing,
+      tagValues = Prelude.Nothing
+    }
 
 -- | A value that indicates whether to return snapshots only for an existing
 -- cluster. You can perform table-level restore only by using a snapshot of
@@ -322,24 +300,9 @@ describeClusterSnapshots_marker = Lens.lens (\DescribeClusterSnapshots' {marker}
 describeClusterSnapshots_clusterExists :: Lens.Lens' DescribeClusterSnapshots (Prelude.Maybe Prelude.Bool)
 describeClusterSnapshots_clusterExists = Lens.lens (\DescribeClusterSnapshots' {clusterExists} -> clusterExists) (\s@DescribeClusterSnapshots' {} a -> s {clusterExists = a} :: DescribeClusterSnapshots)
 
--- | The Amazon Resource Name (ARN) of the snapshot associated with the
--- message to describe cluster snapshots.
-describeClusterSnapshots_snapshotArn :: Lens.Lens' DescribeClusterSnapshots (Prelude.Maybe Prelude.Text)
-describeClusterSnapshots_snapshotArn = Lens.lens (\DescribeClusterSnapshots' {snapshotArn} -> snapshotArn) (\s@DescribeClusterSnapshots' {} a -> s {snapshotArn = a} :: DescribeClusterSnapshots)
-
--- | A tag value or values for which you want to return all matching cluster
--- snapshots that are associated with the specified tag value or values.
--- For example, suppose that you have snapshots that are tagged with values
--- called @admin@ and @test@. If you specify both of these tag values in
--- the request, Amazon Redshift returns a response with the snapshots that
--- have either or both of these tag values associated with them.
-describeClusterSnapshots_tagValues :: Lens.Lens' DescribeClusterSnapshots (Prelude.Maybe [Prelude.Text])
-describeClusterSnapshots_tagValues = Lens.lens (\DescribeClusterSnapshots' {tagValues} -> tagValues) (\s@DescribeClusterSnapshots' {} a -> s {tagValues = a} :: DescribeClusterSnapshots) Prelude.. Lens.mapping Lens.coerced
-
--- | The snapshot identifier of the snapshot about which to return
--- information.
-describeClusterSnapshots_snapshotIdentifier :: Lens.Lens' DescribeClusterSnapshots (Prelude.Maybe Prelude.Text)
-describeClusterSnapshots_snapshotIdentifier = Lens.lens (\DescribeClusterSnapshots' {snapshotIdentifier} -> snapshotIdentifier) (\s@DescribeClusterSnapshots' {} a -> s {snapshotIdentifier = a} :: DescribeClusterSnapshots)
+-- | The identifier of the cluster which generated the requested snapshots.
+describeClusterSnapshots_clusterIdentifier :: Lens.Lens' DescribeClusterSnapshots (Prelude.Maybe Prelude.Text)
+describeClusterSnapshots_clusterIdentifier = Lens.lens (\DescribeClusterSnapshots' {clusterIdentifier} -> clusterIdentifier) (\s@DescribeClusterSnapshots' {} a -> s {clusterIdentifier = a} :: DescribeClusterSnapshots)
 
 -- | A time value that requests only snapshots created at or before the
 -- specified time. The time value is specified in ISO 8601 format. For more
@@ -349,6 +312,15 @@ describeClusterSnapshots_snapshotIdentifier = Lens.lens (\DescribeClusterSnapsho
 -- Example: @2012-07-16T18:00:00Z@
 describeClusterSnapshots_endTime :: Lens.Lens' DescribeClusterSnapshots (Prelude.Maybe Prelude.UTCTime)
 describeClusterSnapshots_endTime = Lens.lens (\DescribeClusterSnapshots' {endTime} -> endTime) (\s@DescribeClusterSnapshots' {} a -> s {endTime = a} :: DescribeClusterSnapshots) Prelude.. Lens.mapping Data._Time
+
+-- | An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeClusterSnapshots
+-- request exceed the value specified in @MaxRecords@, Amazon Web Services
+-- returns a value in the @Marker@ field of the response. You can retrieve
+-- the next set of response records by providing the returned marker value
+-- in the @Marker@ parameter and retrying the request.
+describeClusterSnapshots_marker :: Lens.Lens' DescribeClusterSnapshots (Prelude.Maybe Prelude.Text)
+describeClusterSnapshots_marker = Lens.lens (\DescribeClusterSnapshots' {marker} -> marker) (\s@DescribeClusterSnapshots' {} a -> s {marker = a} :: DescribeClusterSnapshots)
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -369,6 +341,23 @@ describeClusterSnapshots_maxRecords = Lens.lens (\DescribeClusterSnapshots' {max
 describeClusterSnapshots_ownerAccount :: Lens.Lens' DescribeClusterSnapshots (Prelude.Maybe Prelude.Text)
 describeClusterSnapshots_ownerAccount = Lens.lens (\DescribeClusterSnapshots' {ownerAccount} -> ownerAccount) (\s@DescribeClusterSnapshots' {} a -> s {ownerAccount = a} :: DescribeClusterSnapshots)
 
+-- | The Amazon Resource Name (ARN) of the snapshot associated with the
+-- message to describe cluster snapshots.
+describeClusterSnapshots_snapshotArn :: Lens.Lens' DescribeClusterSnapshots (Prelude.Maybe Prelude.Text)
+describeClusterSnapshots_snapshotArn = Lens.lens (\DescribeClusterSnapshots' {snapshotArn} -> snapshotArn) (\s@DescribeClusterSnapshots' {} a -> s {snapshotArn = a} :: DescribeClusterSnapshots)
+
+-- | The snapshot identifier of the snapshot about which to return
+-- information.
+describeClusterSnapshots_snapshotIdentifier :: Lens.Lens' DescribeClusterSnapshots (Prelude.Maybe Prelude.Text)
+describeClusterSnapshots_snapshotIdentifier = Lens.lens (\DescribeClusterSnapshots' {snapshotIdentifier} -> snapshotIdentifier) (\s@DescribeClusterSnapshots' {} a -> s {snapshotIdentifier = a} :: DescribeClusterSnapshots)
+
+-- | The type of snapshots for which you are requesting information. By
+-- default, snapshots of all types are returned.
+--
+-- Valid Values: @automated@ | @manual@
+describeClusterSnapshots_snapshotType :: Lens.Lens' DescribeClusterSnapshots (Prelude.Maybe Prelude.Text)
+describeClusterSnapshots_snapshotType = Lens.lens (\DescribeClusterSnapshots' {snapshotType} -> snapshotType) (\s@DescribeClusterSnapshots' {} a -> s {snapshotType = a} :: DescribeClusterSnapshots)
+
 -- |
 describeClusterSnapshots_sortingEntities :: Lens.Lens' DescribeClusterSnapshots (Prelude.Maybe [SnapshotSortingEntity])
 describeClusterSnapshots_sortingEntities = Lens.lens (\DescribeClusterSnapshots' {sortingEntities} -> sortingEntities) (\s@DescribeClusterSnapshots' {} a -> s {sortingEntities = a} :: DescribeClusterSnapshots) Prelude.. Lens.mapping Lens.coerced
@@ -382,12 +371,23 @@ describeClusterSnapshots_sortingEntities = Lens.lens (\DescribeClusterSnapshots'
 describeClusterSnapshots_startTime :: Lens.Lens' DescribeClusterSnapshots (Prelude.Maybe Prelude.UTCTime)
 describeClusterSnapshots_startTime = Lens.lens (\DescribeClusterSnapshots' {startTime} -> startTime) (\s@DescribeClusterSnapshots' {} a -> s {startTime = a} :: DescribeClusterSnapshots) Prelude.. Lens.mapping Data._Time
 
--- | The type of snapshots for which you are requesting information. By
--- default, snapshots of all types are returned.
---
--- Valid Values: @automated@ | @manual@
-describeClusterSnapshots_snapshotType :: Lens.Lens' DescribeClusterSnapshots (Prelude.Maybe Prelude.Text)
-describeClusterSnapshots_snapshotType = Lens.lens (\DescribeClusterSnapshots' {snapshotType} -> snapshotType) (\s@DescribeClusterSnapshots' {} a -> s {snapshotType = a} :: DescribeClusterSnapshots)
+-- | A tag key or keys for which you want to return all matching cluster
+-- snapshots that are associated with the specified key or keys. For
+-- example, suppose that you have snapshots that are tagged with keys
+-- called @owner@ and @environment@. If you specify both of these tag keys
+-- in the request, Amazon Redshift returns a response with the snapshots
+-- that have either or both of these tag keys associated with them.
+describeClusterSnapshots_tagKeys :: Lens.Lens' DescribeClusterSnapshots (Prelude.Maybe [Prelude.Text])
+describeClusterSnapshots_tagKeys = Lens.lens (\DescribeClusterSnapshots' {tagKeys} -> tagKeys) (\s@DescribeClusterSnapshots' {} a -> s {tagKeys = a} :: DescribeClusterSnapshots) Prelude.. Lens.mapping Lens.coerced
+
+-- | A tag value or values for which you want to return all matching cluster
+-- snapshots that are associated with the specified tag value or values.
+-- For example, suppose that you have snapshots that are tagged with values
+-- called @admin@ and @test@. If you specify both of these tag values in
+-- the request, Amazon Redshift returns a response with the snapshots that
+-- have either or both of these tag values associated with them.
+describeClusterSnapshots_tagValues :: Lens.Lens' DescribeClusterSnapshots (Prelude.Maybe [Prelude.Text])
+describeClusterSnapshots_tagValues = Lens.lens (\DescribeClusterSnapshots' {tagValues} -> tagValues) (\s@DescribeClusterSnapshots' {} a -> s {tagValues = a} :: DescribeClusterSnapshots) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSPager DescribeClusterSnapshots where
   page rq rs
@@ -431,35 +431,35 @@ instance Core.AWSRequest DescribeClusterSnapshots where
 
 instance Prelude.Hashable DescribeClusterSnapshots where
   hashWithSalt _salt DescribeClusterSnapshots' {..} =
-    _salt `Prelude.hashWithSalt` clusterIdentifier
-      `Prelude.hashWithSalt` tagKeys
-      `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` clusterExists
-      `Prelude.hashWithSalt` snapshotArn
-      `Prelude.hashWithSalt` tagValues
-      `Prelude.hashWithSalt` snapshotIdentifier
+    _salt `Prelude.hashWithSalt` clusterExists
+      `Prelude.hashWithSalt` clusterIdentifier
       `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` ownerAccount
+      `Prelude.hashWithSalt` snapshotArn
+      `Prelude.hashWithSalt` snapshotIdentifier
+      `Prelude.hashWithSalt` snapshotType
       `Prelude.hashWithSalt` sortingEntities
       `Prelude.hashWithSalt` startTime
-      `Prelude.hashWithSalt` snapshotType
+      `Prelude.hashWithSalt` tagKeys
+      `Prelude.hashWithSalt` tagValues
 
 instance Prelude.NFData DescribeClusterSnapshots where
   rnf DescribeClusterSnapshots' {..} =
-    Prelude.rnf clusterIdentifier
-      `Prelude.seq` Prelude.rnf tagKeys
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf clusterExists
-      `Prelude.seq` Prelude.rnf snapshotArn
-      `Prelude.seq` Prelude.rnf tagValues
-      `Prelude.seq` Prelude.rnf snapshotIdentifier
+    Prelude.rnf clusterExists
+      `Prelude.seq` Prelude.rnf clusterIdentifier
       `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf ownerAccount
+      `Prelude.seq` Prelude.rnf snapshotArn
+      `Prelude.seq` Prelude.rnf snapshotIdentifier
+      `Prelude.seq` Prelude.rnf snapshotType
       `Prelude.seq` Prelude.rnf sortingEntities
       `Prelude.seq` Prelude.rnf startTime
-      `Prelude.seq` Prelude.rnf snapshotType
+      `Prelude.seq` Prelude.rnf tagKeys
+      `Prelude.seq` Prelude.rnf tagValues
 
 instance Data.ToHeaders DescribeClusterSnapshots where
   toHeaders = Prelude.const Prelude.mempty
@@ -474,27 +474,27 @@ instance Data.ToQuery DescribeClusterSnapshots where
           Data.=: ("DescribeClusterSnapshots" :: Prelude.ByteString),
         "Version"
           Data.=: ("2012-12-01" :: Prelude.ByteString),
-        "ClusterIdentifier" Data.=: clusterIdentifier,
-        "TagKeys"
-          Data.=: Data.toQuery
-            (Data.toQueryList "TagKey" Prelude.<$> tagKeys),
-        "Marker" Data.=: marker,
         "ClusterExists" Data.=: clusterExists,
-        "SnapshotArn" Data.=: snapshotArn,
-        "TagValues"
-          Data.=: Data.toQuery
-            (Data.toQueryList "TagValue" Prelude.<$> tagValues),
-        "SnapshotIdentifier" Data.=: snapshotIdentifier,
+        "ClusterIdentifier" Data.=: clusterIdentifier,
         "EndTime" Data.=: endTime,
+        "Marker" Data.=: marker,
         "MaxRecords" Data.=: maxRecords,
         "OwnerAccount" Data.=: ownerAccount,
+        "SnapshotArn" Data.=: snapshotArn,
+        "SnapshotIdentifier" Data.=: snapshotIdentifier,
+        "SnapshotType" Data.=: snapshotType,
         "SortingEntities"
           Data.=: Data.toQuery
             ( Data.toQueryList "SnapshotSortingEntity"
                 Prelude.<$> sortingEntities
             ),
         "StartTime" Data.=: startTime,
-        "SnapshotType" Data.=: snapshotType
+        "TagKeys"
+          Data.=: Data.toQuery
+            (Data.toQueryList "TagKey" Prelude.<$> tagKeys),
+        "TagValues"
+          Data.=: Data.toQuery
+            (Data.toQueryList "TagValue" Prelude.<$> tagValues)
       ]
 
 -- | Contains the output from the DescribeClusterSnapshots action.

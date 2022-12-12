@@ -44,14 +44,23 @@ module Amazonka.WorkSpaces
     -- * Errors
     -- $errors
 
+    -- ** AccessDeniedException
+    _AccessDeniedException,
+
+    -- ** InvalidParameterValuesException
+    _InvalidParameterValuesException,
+
+    -- ** InvalidResourceStateException
+    _InvalidResourceStateException,
+
+    -- ** OperationInProgressException
+    _OperationInProgressException,
+
+    -- ** OperationNotSupportedException
+    _OperationNotSupportedException,
+
     -- ** ResourceAlreadyExistsException
     _ResourceAlreadyExistsException,
-
-    -- ** WorkspacesDefaultRoleNotFoundException
-    _WorkspacesDefaultRoleNotFoundException,
-
-    -- ** ResourceUnavailableException
-    _ResourceUnavailableException,
 
     -- ** ResourceAssociatedException
     _ResourceAssociatedException,
@@ -59,32 +68,23 @@ module Amazonka.WorkSpaces
     -- ** ResourceCreationFailedException
     _ResourceCreationFailedException,
 
-    -- ** InvalidParameterValuesException
-    _InvalidParameterValuesException,
-
-    -- ** AccessDeniedException
-    _AccessDeniedException,
-
-    -- ** InvalidResourceStateException
-    _InvalidResourceStateException,
-
-    -- ** UnsupportedWorkspaceConfigurationException
-    _UnsupportedWorkspaceConfigurationException,
+    -- ** ResourceLimitExceededException
+    _ResourceLimitExceededException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** ResourceLimitExceededException
-    _ResourceLimitExceededException,
-
-    -- ** OperationInProgressException
-    _OperationInProgressException,
+    -- ** ResourceUnavailableException
+    _ResourceUnavailableException,
 
     -- ** UnsupportedNetworkConfigurationException
     _UnsupportedNetworkConfigurationException,
 
-    -- ** OperationNotSupportedException
-    _OperationNotSupportedException,
+    -- ** UnsupportedWorkspaceConfigurationException
+    _UnsupportedWorkspaceConfigurationException,
+
+    -- ** WorkspacesDefaultRoleNotFoundException
+    _WorkspacesDefaultRoleNotFoundException,
 
     -- * Waiters
     -- $waiters

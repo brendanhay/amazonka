@@ -36,9 +36,9 @@ module Amazonka.DevOpsGuru.SearchInsights
     newSearchInsights,
 
     -- * Request Lenses
-    searchInsights_nextToken,
     searchInsights_filters,
     searchInsights_maxResults,
+    searchInsights_nextToken,
     searchInsights_startTimeRange,
     searchInsights_type,
 
@@ -48,8 +48,8 @@ module Amazonka.DevOpsGuru.SearchInsights
 
     -- * Response Lenses
     searchInsightsResponse_nextToken,
-    searchInsightsResponse_reactiveInsights,
     searchInsightsResponse_proactiveInsights,
+    searchInsightsResponse_reactiveInsights,
     searchInsightsResponse_httpStatus,
   )
 where
@@ -64,16 +64,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSearchInsights' smart constructor.
 data SearchInsights = SearchInsights'
-  { -- | The pagination token to use to retrieve the next page of results for
-    -- this operation. If this value is null, it retrieves the first page.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A @SearchInsightsFilters@ object that is used to set the severity and
+  { -- | A @SearchInsightsFilters@ object that is used to set the severity and
     -- status filters on your insight search.
     filters :: Prelude.Maybe SearchInsightsFilters,
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token to use to retrieve the next page of results for
+    -- this operation. If this value is null, it retrieves the first page.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The start of the time range passed in. Returned insights occurred after
     -- this time.
     startTimeRange :: StartTimeRange,
@@ -90,15 +90,15 @@ data SearchInsights = SearchInsights'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'searchInsights_nextToken' - The pagination token to use to retrieve the next page of results for
--- this operation. If this value is null, it retrieves the first page.
---
 -- 'filters', 'searchInsights_filters' - A @SearchInsightsFilters@ object that is used to set the severity and
 -- status filters on your insight search.
 --
 -- 'maxResults', 'searchInsights_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
+--
+-- 'nextToken', 'searchInsights_nextToken' - The pagination token to use to retrieve the next page of results for
+-- this operation. If this value is null, it retrieves the first page.
 --
 -- 'startTimeRange', 'searchInsights_startTimeRange' - The start of the time range passed in. Returned insights occurred after
 -- this time.
@@ -112,17 +112,12 @@ newSearchInsights ::
   SearchInsights
 newSearchInsights pStartTimeRange_ pType_ =
   SearchInsights'
-    { nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
+    { filters = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       startTimeRange = pStartTimeRange_,
       type' = pType_
     }
-
--- | The pagination token to use to retrieve the next page of results for
--- this operation. If this value is null, it retrieves the first page.
-searchInsights_nextToken :: Lens.Lens' SearchInsights (Prelude.Maybe Prelude.Text)
-searchInsights_nextToken = Lens.lens (\SearchInsights' {nextToken} -> nextToken) (\s@SearchInsights' {} a -> s {nextToken = a} :: SearchInsights)
 
 -- | A @SearchInsightsFilters@ object that is used to set the severity and
 -- status filters on your insight search.
@@ -134,6 +129,11 @@ searchInsights_filters = Lens.lens (\SearchInsights' {filters} -> filters) (\s@S
 -- value.
 searchInsights_maxResults :: Lens.Lens' SearchInsights (Prelude.Maybe Prelude.Natural)
 searchInsights_maxResults = Lens.lens (\SearchInsights' {maxResults} -> maxResults) (\s@SearchInsights' {} a -> s {maxResults = a} :: SearchInsights)
+
+-- | The pagination token to use to retrieve the next page of results for
+-- this operation. If this value is null, it retrieves the first page.
+searchInsights_nextToken :: Lens.Lens' SearchInsights (Prelude.Maybe Prelude.Text)
+searchInsights_nextToken = Lens.lens (\SearchInsights' {nextToken} -> nextToken) (\s@SearchInsights' {} a -> s {nextToken = a} :: SearchInsights)
 
 -- | The start of the time range passed in. Returned insights occurred after
 -- this time.
@@ -182,10 +182,10 @@ instance Core.AWSRequest SearchInsights where
       ( \s h x ->
           SearchInsightsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ReactiveInsights"
+            Prelude.<*> ( x Data..?> "ProactiveInsights"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "ProactiveInsights"
+            Prelude.<*> ( x Data..?> "ReactiveInsights"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -193,17 +193,17 @@ instance Core.AWSRequest SearchInsights where
 
 instance Prelude.Hashable SearchInsights where
   hashWithSalt _salt SearchInsights' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` startTimeRange
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData SearchInsights where
   rnf SearchInsights' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf startTimeRange
       `Prelude.seq` Prelude.rnf type'
 
@@ -222,9 +222,9 @@ instance Data.ToJSON SearchInsights where
   toJSON SearchInsights' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
+          [ ("Filters" Data..=) Prelude.<$> filters,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("StartTimeRange" Data..= startTimeRange),
             Prelude.Just ("Type" Data..= type')
@@ -242,10 +242,10 @@ data SearchInsightsResponse = SearchInsightsResponse'
   { -- | The pagination token to use to retrieve the next page of results for
     -- this operation. If there are no more pages, this value is null.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The returned reactive insights.
-    reactiveInsights :: Prelude.Maybe [ReactiveInsightSummary],
     -- | The returned proactive insights.
     proactiveInsights :: Prelude.Maybe [ProactiveInsightSummary],
+    -- | The returned reactive insights.
+    reactiveInsights :: Prelude.Maybe [ReactiveInsightSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -262,9 +262,9 @@ data SearchInsightsResponse = SearchInsightsResponse'
 -- 'nextToken', 'searchInsightsResponse_nextToken' - The pagination token to use to retrieve the next page of results for
 -- this operation. If there are no more pages, this value is null.
 --
--- 'reactiveInsights', 'searchInsightsResponse_reactiveInsights' - The returned reactive insights.
---
 -- 'proactiveInsights', 'searchInsightsResponse_proactiveInsights' - The returned proactive insights.
+--
+-- 'reactiveInsights', 'searchInsightsResponse_reactiveInsights' - The returned reactive insights.
 --
 -- 'httpStatus', 'searchInsightsResponse_httpStatus' - The response's http status code.
 newSearchInsightsResponse ::
@@ -275,8 +275,8 @@ newSearchInsightsResponse pHttpStatus_ =
   SearchInsightsResponse'
     { nextToken =
         Prelude.Nothing,
-      reactiveInsights = Prelude.Nothing,
       proactiveInsights = Prelude.Nothing,
+      reactiveInsights = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -285,13 +285,13 @@ newSearchInsightsResponse pHttpStatus_ =
 searchInsightsResponse_nextToken :: Lens.Lens' SearchInsightsResponse (Prelude.Maybe Prelude.Text)
 searchInsightsResponse_nextToken = Lens.lens (\SearchInsightsResponse' {nextToken} -> nextToken) (\s@SearchInsightsResponse' {} a -> s {nextToken = a} :: SearchInsightsResponse)
 
--- | The returned reactive insights.
-searchInsightsResponse_reactiveInsights :: Lens.Lens' SearchInsightsResponse (Prelude.Maybe [ReactiveInsightSummary])
-searchInsightsResponse_reactiveInsights = Lens.lens (\SearchInsightsResponse' {reactiveInsights} -> reactiveInsights) (\s@SearchInsightsResponse' {} a -> s {reactiveInsights = a} :: SearchInsightsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The returned proactive insights.
 searchInsightsResponse_proactiveInsights :: Lens.Lens' SearchInsightsResponse (Prelude.Maybe [ProactiveInsightSummary])
 searchInsightsResponse_proactiveInsights = Lens.lens (\SearchInsightsResponse' {proactiveInsights} -> proactiveInsights) (\s@SearchInsightsResponse' {} a -> s {proactiveInsights = a} :: SearchInsightsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The returned reactive insights.
+searchInsightsResponse_reactiveInsights :: Lens.Lens' SearchInsightsResponse (Prelude.Maybe [ReactiveInsightSummary])
+searchInsightsResponse_reactiveInsights = Lens.lens (\SearchInsightsResponse' {reactiveInsights} -> reactiveInsights) (\s@SearchInsightsResponse' {} a -> s {reactiveInsights = a} :: SearchInsightsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 searchInsightsResponse_httpStatus :: Lens.Lens' SearchInsightsResponse Prelude.Int
@@ -300,6 +300,6 @@ searchInsightsResponse_httpStatus = Lens.lens (\SearchInsightsResponse' {httpSta
 instance Prelude.NFData SearchInsightsResponse where
   rnf SearchInsightsResponse' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf reactiveInsights
       `Prelude.seq` Prelude.rnf proactiveInsights
+      `Prelude.seq` Prelude.rnf reactiveInsights
       `Prelude.seq` Prelude.rnf httpStatus

@@ -35,13 +35,13 @@ module Amazonka.APIGateway.UpdateVpcLink
     newVpcLink,
 
     -- * Response Lenses
-    vpcLink_tags,
-    vpcLink_name,
-    vpcLink_status,
     vpcLink_description,
     vpcLink_id,
-    vpcLink_targetArns,
+    vpcLink_name,
+    vpcLink_status,
     vpcLink_statusMessage,
+    vpcLink_tags,
+    vpcLink_targetArns,
   )
 where
 

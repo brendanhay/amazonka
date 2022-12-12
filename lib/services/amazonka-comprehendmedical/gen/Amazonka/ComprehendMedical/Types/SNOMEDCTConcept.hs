@@ -31,11 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 data SNOMEDCTConcept = SNOMEDCTConcept'
   { -- | The numeric ID for the SNOMED-CT concept.
     code :: Prelude.Maybe Prelude.Text,
+    -- | The description of the SNOMED-CT concept.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The level of confidence Comprehend Medical has that the entity should be
     -- linked to the identified SNOMED-CT concept.
-    score :: Prelude.Maybe Prelude.Double,
-    -- | The description of the SNOMED-CT concept.
-    description :: Prelude.Maybe Prelude.Text
+    score :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,31 +49,31 @@ data SNOMEDCTConcept = SNOMEDCTConcept'
 --
 -- 'code', 'sNOMEDCTConcept_code' - The numeric ID for the SNOMED-CT concept.
 --
+-- 'description', 'sNOMEDCTConcept_description' - The description of the SNOMED-CT concept.
+--
 -- 'score', 'sNOMEDCTConcept_score' - The level of confidence Comprehend Medical has that the entity should be
 -- linked to the identified SNOMED-CT concept.
---
--- 'description', 'sNOMEDCTConcept_description' - The description of the SNOMED-CT concept.
 newSNOMEDCTConcept ::
   SNOMEDCTConcept
 newSNOMEDCTConcept =
   SNOMEDCTConcept'
     { code = Prelude.Nothing,
-      score = Prelude.Nothing,
-      description = Prelude.Nothing
+      description = Prelude.Nothing,
+      score = Prelude.Nothing
     }
 
 -- | The numeric ID for the SNOMED-CT concept.
 sNOMEDCTConcept_code :: Lens.Lens' SNOMEDCTConcept (Prelude.Maybe Prelude.Text)
 sNOMEDCTConcept_code = Lens.lens (\SNOMEDCTConcept' {code} -> code) (\s@SNOMEDCTConcept' {} a -> s {code = a} :: SNOMEDCTConcept)
 
+-- | The description of the SNOMED-CT concept.
+sNOMEDCTConcept_description :: Lens.Lens' SNOMEDCTConcept (Prelude.Maybe Prelude.Text)
+sNOMEDCTConcept_description = Lens.lens (\SNOMEDCTConcept' {description} -> description) (\s@SNOMEDCTConcept' {} a -> s {description = a} :: SNOMEDCTConcept)
+
 -- | The level of confidence Comprehend Medical has that the entity should be
 -- linked to the identified SNOMED-CT concept.
 sNOMEDCTConcept_score :: Lens.Lens' SNOMEDCTConcept (Prelude.Maybe Prelude.Double)
 sNOMEDCTConcept_score = Lens.lens (\SNOMEDCTConcept' {score} -> score) (\s@SNOMEDCTConcept' {} a -> s {score = a} :: SNOMEDCTConcept)
-
--- | The description of the SNOMED-CT concept.
-sNOMEDCTConcept_description :: Lens.Lens' SNOMEDCTConcept (Prelude.Maybe Prelude.Text)
-sNOMEDCTConcept_description = Lens.lens (\SNOMEDCTConcept' {description} -> description) (\s@SNOMEDCTConcept' {} a -> s {description = a} :: SNOMEDCTConcept)
 
 instance Data.FromJSON SNOMEDCTConcept where
   parseJSON =
@@ -82,18 +82,18 @@ instance Data.FromJSON SNOMEDCTConcept where
       ( \x ->
           SNOMEDCTConcept'
             Prelude.<$> (x Data..:? "Code")
-            Prelude.<*> (x Data..:? "Score")
             Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Score")
       )
 
 instance Prelude.Hashable SNOMEDCTConcept where
   hashWithSalt _salt SNOMEDCTConcept' {..} =
     _salt `Prelude.hashWithSalt` code
-      `Prelude.hashWithSalt` score
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` score
 
 instance Prelude.NFData SNOMEDCTConcept where
   rnf SNOMEDCTConcept' {..} =
     Prelude.rnf code
-      `Prelude.seq` Prelude.rnf score
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf score

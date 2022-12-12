@@ -46,10 +46,10 @@ module Amazonka.AppConfig.CreateConfigurationProfile
     newCreateConfigurationProfile,
 
     -- * Request Lenses
+    createConfigurationProfile_description,
+    createConfigurationProfile_retrievalRoleArn,
     createConfigurationProfile_tags,
     createConfigurationProfile_type,
-    createConfigurationProfile_retrievalRoleArn,
-    createConfigurationProfile_description,
     createConfigurationProfile_validators,
     createConfigurationProfile_applicationId,
     createConfigurationProfile_name,
@@ -60,13 +60,13 @@ module Amazonka.AppConfig.CreateConfigurationProfile
     newConfigurationProfile,
 
     -- * Response Lenses
-    configurationProfile_name,
-    configurationProfile_type,
-    configurationProfile_retrievalRoleArn,
-    configurationProfile_id,
-    configurationProfile_description,
-    configurationProfile_locationUri,
     configurationProfile_applicationId,
+    configurationProfile_description,
+    configurationProfile_id,
+    configurationProfile_locationUri,
+    configurationProfile_name,
+    configurationProfile_retrievalRoleArn,
+    configurationProfile_type,
     configurationProfile_validators,
   )
 where
@@ -81,7 +81,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateConfigurationProfile' smart constructor.
 data CreateConfigurationProfile = CreateConfigurationProfile'
-  { -- | Metadata to assign to the configuration profile. Tags help organize and
+  { -- | A description of the configuration profile.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of an IAM role with permission to access the configuration at
+    -- the specified @LocationUri@.
+    --
+    -- A retrieval role ARN is not required for configurations stored in the
+    -- AppConfig hosted configuration store. It is required for all other
+    -- sources that store your configuration.
+    retrievalRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | Metadata to assign to the configuration profile. Tags help organize and
     -- categorize your AppConfig resources. Each tag consists of a key and an
     -- optional value, both of which you define.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
@@ -95,15 +104,6 @@ data CreateConfigurationProfile = CreateConfigurationProfile'
     --
     -- @AWS.Freeform@
     type' :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of an IAM role with permission to access the configuration at
-    -- the specified @LocationUri@.
-    --
-    -- A retrieval role ARN is not required for configurations stored in the
-    -- AppConfig hosted configuration store. It is required for all other
-    -- sources that store your configuration.
-    retrievalRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | A description of the configuration profile.
-    description :: Prelude.Maybe Prelude.Text,
     -- | A list of methods for validating the configuration.
     validators :: Prelude.Maybe [Validator],
     -- | The application ID.
@@ -133,6 +133,15 @@ data CreateConfigurationProfile = CreateConfigurationProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'createConfigurationProfile_description' - A description of the configuration profile.
+--
+-- 'retrievalRoleArn', 'createConfigurationProfile_retrievalRoleArn' - The ARN of an IAM role with permission to access the configuration at
+-- the specified @LocationUri@.
+--
+-- A retrieval role ARN is not required for configurations stored in the
+-- AppConfig hosted configuration store. It is required for all other
+-- sources that store your configuration.
+--
 -- 'tags', 'createConfigurationProfile_tags' - Metadata to assign to the configuration profile. Tags help organize and
 -- categorize your AppConfig resources. Each tag consists of a key and an
 -- optional value, both of which you define.
@@ -146,15 +155,6 @@ data CreateConfigurationProfile = CreateConfigurationProfile'
 -- @AWS.AppConfig.FeatureFlags@
 --
 -- @AWS.Freeform@
---
--- 'retrievalRoleArn', 'createConfigurationProfile_retrievalRoleArn' - The ARN of an IAM role with permission to access the configuration at
--- the specified @LocationUri@.
---
--- A retrieval role ARN is not required for configurations stored in the
--- AppConfig hosted configuration store. It is required for all other
--- sources that store your configuration.
---
--- 'description', 'createConfigurationProfile_description' - A description of the configuration profile.
 --
 -- 'validators', 'createConfigurationProfile_validators' - A list of methods for validating the configuration.
 --
@@ -186,15 +186,29 @@ newCreateConfigurationProfile
   pName_
   pLocationUri_ =
     CreateConfigurationProfile'
-      { tags = Prelude.Nothing,
-        type' = Prelude.Nothing,
+      { description =
+          Prelude.Nothing,
         retrievalRoleArn = Prelude.Nothing,
-        description = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        type' = Prelude.Nothing,
         validators = Prelude.Nothing,
         applicationId = pApplicationId_,
         name = pName_,
         locationUri = pLocationUri_
       }
+
+-- | A description of the configuration profile.
+createConfigurationProfile_description :: Lens.Lens' CreateConfigurationProfile (Prelude.Maybe Prelude.Text)
+createConfigurationProfile_description = Lens.lens (\CreateConfigurationProfile' {description} -> description) (\s@CreateConfigurationProfile' {} a -> s {description = a} :: CreateConfigurationProfile)
+
+-- | The ARN of an IAM role with permission to access the configuration at
+-- the specified @LocationUri@.
+--
+-- A retrieval role ARN is not required for configurations stored in the
+-- AppConfig hosted configuration store. It is required for all other
+-- sources that store your configuration.
+createConfigurationProfile_retrievalRoleArn :: Lens.Lens' CreateConfigurationProfile (Prelude.Maybe Prelude.Text)
+createConfigurationProfile_retrievalRoleArn = Lens.lens (\CreateConfigurationProfile' {retrievalRoleArn} -> retrievalRoleArn) (\s@CreateConfigurationProfile' {} a -> s {retrievalRoleArn = a} :: CreateConfigurationProfile)
 
 -- | Metadata to assign to the configuration profile. Tags help organize and
 -- categorize your AppConfig resources. Each tag consists of a key and an
@@ -213,19 +227,6 @@ createConfigurationProfile_tags = Lens.lens (\CreateConfigurationProfile' {tags}
 -- @AWS.Freeform@
 createConfigurationProfile_type :: Lens.Lens' CreateConfigurationProfile (Prelude.Maybe Prelude.Text)
 createConfigurationProfile_type = Lens.lens (\CreateConfigurationProfile' {type'} -> type') (\s@CreateConfigurationProfile' {} a -> s {type' = a} :: CreateConfigurationProfile)
-
--- | The ARN of an IAM role with permission to access the configuration at
--- the specified @LocationUri@.
---
--- A retrieval role ARN is not required for configurations stored in the
--- AppConfig hosted configuration store. It is required for all other
--- sources that store your configuration.
-createConfigurationProfile_retrievalRoleArn :: Lens.Lens' CreateConfigurationProfile (Prelude.Maybe Prelude.Text)
-createConfigurationProfile_retrievalRoleArn = Lens.lens (\CreateConfigurationProfile' {retrievalRoleArn} -> retrievalRoleArn) (\s@CreateConfigurationProfile' {} a -> s {retrievalRoleArn = a} :: CreateConfigurationProfile)
-
--- | A description of the configuration profile.
-createConfigurationProfile_description :: Lens.Lens' CreateConfigurationProfile (Prelude.Maybe Prelude.Text)
-createConfigurationProfile_description = Lens.lens (\CreateConfigurationProfile' {description} -> description) (\s@CreateConfigurationProfile' {} a -> s {description = a} :: CreateConfigurationProfile)
 
 -- | A list of methods for validating the configuration.
 createConfigurationProfile_validators :: Lens.Lens' CreateConfigurationProfile (Prelude.Maybe [Validator])
@@ -265,10 +266,10 @@ instance Core.AWSRequest CreateConfigurationProfile where
 
 instance Prelude.Hashable CreateConfigurationProfile where
   hashWithSalt _salt CreateConfigurationProfile' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` retrievalRoleArn
-      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` validators
       `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` name
@@ -276,10 +277,10 @@ instance Prelude.Hashable CreateConfigurationProfile where
 
 instance Prelude.NFData CreateConfigurationProfile where
   rnf CreateConfigurationProfile' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf retrievalRoleArn
-      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf validators
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf name
@@ -300,11 +301,11 @@ instance Data.ToJSON CreateConfigurationProfile where
   toJSON CreateConfigurationProfile' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Type" Data..=) Prelude.<$> type',
+          [ ("Description" Data..=) Prelude.<$> description,
             ("RetrievalRoleArn" Data..=)
               Prelude.<$> retrievalRoleArn,
-            ("Description" Data..=) Prelude.<$> description,
+            ("Tags" Data..=) Prelude.<$> tags,
+            ("Type" Data..=) Prelude.<$> type',
             ("Validators" Data..=) Prelude.<$> validators,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("LocationUri" Data..= locationUri)

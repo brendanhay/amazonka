@@ -32,12 +32,12 @@ data JobCommand = JobCommand'
     -- @glueetl@. For a Python shell job, it must be @pythonshell@. For an
     -- Apache Spark streaming ETL job, this must be @gluestreaming@.
     name :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the Amazon Simple Storage Service (Amazon S3) path to a script
-    -- that runs a job.
-    scriptLocation :: Prelude.Maybe Prelude.Text,
     -- | The Python version being used to run a Python shell job. Allowed values
     -- are 2 or 3.
-    pythonVersion :: Prelude.Maybe Prelude.Text
+    pythonVersion :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the Amazon Simple Storage Service (Amazon S3) path to a script
+    -- that runs a job.
+    scriptLocation :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,18 +53,18 @@ data JobCommand = JobCommand'
 -- @glueetl@. For a Python shell job, it must be @pythonshell@. For an
 -- Apache Spark streaming ETL job, this must be @gluestreaming@.
 --
--- 'scriptLocation', 'jobCommand_scriptLocation' - Specifies the Amazon Simple Storage Service (Amazon S3) path to a script
--- that runs a job.
---
 -- 'pythonVersion', 'jobCommand_pythonVersion' - The Python version being used to run a Python shell job. Allowed values
 -- are 2 or 3.
+--
+-- 'scriptLocation', 'jobCommand_scriptLocation' - Specifies the Amazon Simple Storage Service (Amazon S3) path to a script
+-- that runs a job.
 newJobCommand ::
   JobCommand
 newJobCommand =
   JobCommand'
     { name = Prelude.Nothing,
-      scriptLocation = Prelude.Nothing,
-      pythonVersion = Prelude.Nothing
+      pythonVersion = Prelude.Nothing,
+      scriptLocation = Prelude.Nothing
     }
 
 -- | The name of the job command. For an Apache Spark ETL job, this must be
@@ -73,15 +73,15 @@ newJobCommand =
 jobCommand_name :: Lens.Lens' JobCommand (Prelude.Maybe Prelude.Text)
 jobCommand_name = Lens.lens (\JobCommand' {name} -> name) (\s@JobCommand' {} a -> s {name = a} :: JobCommand)
 
--- | Specifies the Amazon Simple Storage Service (Amazon S3) path to a script
--- that runs a job.
-jobCommand_scriptLocation :: Lens.Lens' JobCommand (Prelude.Maybe Prelude.Text)
-jobCommand_scriptLocation = Lens.lens (\JobCommand' {scriptLocation} -> scriptLocation) (\s@JobCommand' {} a -> s {scriptLocation = a} :: JobCommand)
-
 -- | The Python version being used to run a Python shell job. Allowed values
 -- are 2 or 3.
 jobCommand_pythonVersion :: Lens.Lens' JobCommand (Prelude.Maybe Prelude.Text)
 jobCommand_pythonVersion = Lens.lens (\JobCommand' {pythonVersion} -> pythonVersion) (\s@JobCommand' {} a -> s {pythonVersion = a} :: JobCommand)
+
+-- | Specifies the Amazon Simple Storage Service (Amazon S3) path to a script
+-- that runs a job.
+jobCommand_scriptLocation :: Lens.Lens' JobCommand (Prelude.Maybe Prelude.Text)
+jobCommand_scriptLocation = Lens.lens (\JobCommand' {scriptLocation} -> scriptLocation) (\s@JobCommand' {} a -> s {scriptLocation = a} :: JobCommand)
 
 instance Data.FromJSON JobCommand where
   parseJSON =
@@ -90,29 +90,29 @@ instance Data.FromJSON JobCommand where
       ( \x ->
           JobCommand'
             Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "ScriptLocation")
             Prelude.<*> (x Data..:? "PythonVersion")
+            Prelude.<*> (x Data..:? "ScriptLocation")
       )
 
 instance Prelude.Hashable JobCommand where
   hashWithSalt _salt JobCommand' {..} =
     _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` scriptLocation
       `Prelude.hashWithSalt` pythonVersion
+      `Prelude.hashWithSalt` scriptLocation
 
 instance Prelude.NFData JobCommand where
   rnf JobCommand' {..} =
     Prelude.rnf name
-      `Prelude.seq` Prelude.rnf scriptLocation
       `Prelude.seq` Prelude.rnf pythonVersion
+      `Prelude.seq` Prelude.rnf scriptLocation
 
 instance Data.ToJSON JobCommand where
   toJSON JobCommand' {..} =
     Data.object
       ( Prelude.catMaybes
           [ ("Name" Data..=) Prelude.<$> name,
+            ("PythonVersion" Data..=) Prelude.<$> pythonVersion,
             ("ScriptLocation" Data..=)
-              Prelude.<$> scriptLocation,
-            ("PythonVersion" Data..=) Prelude.<$> pythonVersion
+              Prelude.<$> scriptLocation
           ]
       )

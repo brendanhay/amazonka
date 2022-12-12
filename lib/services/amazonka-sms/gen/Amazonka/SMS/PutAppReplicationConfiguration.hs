@@ -28,8 +28,8 @@ module Amazonka.SMS.PutAppReplicationConfiguration
     newPutAppReplicationConfiguration,
 
     -- * Request Lenses
-    putAppReplicationConfiguration_serverGroupReplicationConfigurations,
     putAppReplicationConfiguration_appId,
+    putAppReplicationConfiguration_serverGroupReplicationConfigurations,
 
     -- * Destructuring the Response
     PutAppReplicationConfigurationResponse (..),
@@ -50,11 +50,11 @@ import Amazonka.SMS.Types
 
 -- | /See:/ 'newPutAppReplicationConfiguration' smart constructor.
 data PutAppReplicationConfiguration = PutAppReplicationConfiguration'
-  { -- | Information about the replication configurations for server groups in
+  { -- | The ID of the application.
+    appId :: Prelude.Maybe Prelude.Text,
+    -- | Information about the replication configurations for server groups in
     -- the application.
-    serverGroupReplicationConfigurations :: Prelude.Maybe [ServerGroupReplicationConfiguration],
-    -- | The ID of the application.
-    appId :: Prelude.Maybe Prelude.Text
+    serverGroupReplicationConfigurations :: Prelude.Maybe [ServerGroupReplicationConfiguration]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,27 +66,28 @@ data PutAppReplicationConfiguration = PutAppReplicationConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'appId', 'putAppReplicationConfiguration_appId' - The ID of the application.
+--
 -- 'serverGroupReplicationConfigurations', 'putAppReplicationConfiguration_serverGroupReplicationConfigurations' - Information about the replication configurations for server groups in
 -- the application.
---
--- 'appId', 'putAppReplicationConfiguration_appId' - The ID of the application.
 newPutAppReplicationConfiguration ::
   PutAppReplicationConfiguration
 newPutAppReplicationConfiguration =
   PutAppReplicationConfiguration'
-    { serverGroupReplicationConfigurations =
+    { appId =
         Prelude.Nothing,
-      appId = Prelude.Nothing
+      serverGroupReplicationConfigurations =
+        Prelude.Nothing
     }
+
+-- | The ID of the application.
+putAppReplicationConfiguration_appId :: Lens.Lens' PutAppReplicationConfiguration (Prelude.Maybe Prelude.Text)
+putAppReplicationConfiguration_appId = Lens.lens (\PutAppReplicationConfiguration' {appId} -> appId) (\s@PutAppReplicationConfiguration' {} a -> s {appId = a} :: PutAppReplicationConfiguration)
 
 -- | Information about the replication configurations for server groups in
 -- the application.
 putAppReplicationConfiguration_serverGroupReplicationConfigurations :: Lens.Lens' PutAppReplicationConfiguration (Prelude.Maybe [ServerGroupReplicationConfiguration])
 putAppReplicationConfiguration_serverGroupReplicationConfigurations = Lens.lens (\PutAppReplicationConfiguration' {serverGroupReplicationConfigurations} -> serverGroupReplicationConfigurations) (\s@PutAppReplicationConfiguration' {} a -> s {serverGroupReplicationConfigurations = a} :: PutAppReplicationConfiguration) Prelude.. Lens.mapping Lens.coerced
-
--- | The ID of the application.
-putAppReplicationConfiguration_appId :: Lens.Lens' PutAppReplicationConfiguration (Prelude.Maybe Prelude.Text)
-putAppReplicationConfiguration_appId = Lens.lens (\PutAppReplicationConfiguration' {appId} -> appId) (\s@PutAppReplicationConfiguration' {} a -> s {appId = a} :: PutAppReplicationConfiguration)
 
 instance
   Core.AWSRequest
@@ -111,17 +112,16 @@ instance
   hashWithSalt
     _salt
     PutAppReplicationConfiguration' {..} =
-      _salt
+      _salt `Prelude.hashWithSalt` appId
         `Prelude.hashWithSalt` serverGroupReplicationConfigurations
-        `Prelude.hashWithSalt` appId
 
 instance
   Prelude.NFData
     PutAppReplicationConfiguration
   where
   rnf PutAppReplicationConfiguration' {..} =
-    Prelude.rnf serverGroupReplicationConfigurations
-      `Prelude.seq` Prelude.rnf appId
+    Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf serverGroupReplicationConfigurations
 
 instance
   Data.ToHeaders
@@ -145,9 +145,9 @@ instance Data.ToJSON PutAppReplicationConfiguration where
   toJSON PutAppReplicationConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("serverGroupReplicationConfigurations" Data..=)
-              Prelude.<$> serverGroupReplicationConfigurations,
-            ("appId" Data..=) Prelude.<$> appId
+          [ ("appId" Data..=) Prelude.<$> appId,
+            ("serverGroupReplicationConfigurations" Data..=)
+              Prelude.<$> serverGroupReplicationConfigurations
           ]
       )
 

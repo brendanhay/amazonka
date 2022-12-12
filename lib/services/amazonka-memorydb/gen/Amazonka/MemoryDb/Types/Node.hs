@@ -30,18 +30,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNode' smart constructor.
 data Node = Node'
-  { -- | The node identifier. A node name is a numeric identifier (0001, 0002,
-    -- etc.). The combination of cluster name, shard name and node name
-    -- uniquely identifies every node used in a customer\'s Amazon account.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The status of the service update on the node
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The Availability Zone in which the node resides
+  { -- | The Availability Zone in which the node resides
     availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the node was created.
     createTime :: Prelude.Maybe Data.POSIX,
     -- | The hostname for connecting to this node.
-    endpoint :: Prelude.Maybe Endpoint
+    endpoint :: Prelude.Maybe Endpoint,
+    -- | The node identifier. A node name is a numeric identifier (0001, 0002,
+    -- etc.). The combination of cluster name, shard name and node name
+    -- uniquely identifies every node used in a customer\'s Amazon account.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The status of the service update on the node
+    status :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,37 +53,27 @@ data Node = Node'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'node_name' - The node identifier. A node name is a numeric identifier (0001, 0002,
--- etc.). The combination of cluster name, shard name and node name
--- uniquely identifies every node used in a customer\'s Amazon account.
---
--- 'status', 'node_status' - The status of the service update on the node
---
 -- 'availabilityZone', 'node_availabilityZone' - The Availability Zone in which the node resides
 --
 -- 'createTime', 'node_createTime' - The date and time when the node was created.
 --
 -- 'endpoint', 'node_endpoint' - The hostname for connecting to this node.
+--
+-- 'name', 'node_name' - The node identifier. A node name is a numeric identifier (0001, 0002,
+-- etc.). The combination of cluster name, shard name and node name
+-- uniquely identifies every node used in a customer\'s Amazon account.
+--
+-- 'status', 'node_status' - The status of the service update on the node
 newNode ::
   Node
 newNode =
   Node'
-    { name = Prelude.Nothing,
-      status = Prelude.Nothing,
-      availabilityZone = Prelude.Nothing,
+    { availabilityZone = Prelude.Nothing,
       createTime = Prelude.Nothing,
-      endpoint = Prelude.Nothing
+      endpoint = Prelude.Nothing,
+      name = Prelude.Nothing,
+      status = Prelude.Nothing
     }
-
--- | The node identifier. A node name is a numeric identifier (0001, 0002,
--- etc.). The combination of cluster name, shard name and node name
--- uniquely identifies every node used in a customer\'s Amazon account.
-node_name :: Lens.Lens' Node (Prelude.Maybe Prelude.Text)
-node_name = Lens.lens (\Node' {name} -> name) (\s@Node' {} a -> s {name = a} :: Node)
-
--- | The status of the service update on the node
-node_status :: Lens.Lens' Node (Prelude.Maybe Prelude.Text)
-node_status = Lens.lens (\Node' {status} -> status) (\s@Node' {} a -> s {status = a} :: Node)
 
 -- | The Availability Zone in which the node resides
 node_availabilityZone :: Lens.Lens' Node (Prelude.Maybe Prelude.Text)
@@ -97,31 +87,41 @@ node_createTime = Lens.lens (\Node' {createTime} -> createTime) (\s@Node' {} a -
 node_endpoint :: Lens.Lens' Node (Prelude.Maybe Endpoint)
 node_endpoint = Lens.lens (\Node' {endpoint} -> endpoint) (\s@Node' {} a -> s {endpoint = a} :: Node)
 
+-- | The node identifier. A node name is a numeric identifier (0001, 0002,
+-- etc.). The combination of cluster name, shard name and node name
+-- uniquely identifies every node used in a customer\'s Amazon account.
+node_name :: Lens.Lens' Node (Prelude.Maybe Prelude.Text)
+node_name = Lens.lens (\Node' {name} -> name) (\s@Node' {} a -> s {name = a} :: Node)
+
+-- | The status of the service update on the node
+node_status :: Lens.Lens' Node (Prelude.Maybe Prelude.Text)
+node_status = Lens.lens (\Node' {status} -> status) (\s@Node' {} a -> s {status = a} :: Node)
+
 instance Data.FromJSON Node where
   parseJSON =
     Data.withObject
       "Node"
       ( \x ->
           Node'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "AvailabilityZone")
+            Prelude.<$> (x Data..:? "AvailabilityZone")
             Prelude.<*> (x Data..:? "CreateTime")
             Prelude.<*> (x Data..:? "Endpoint")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable Node where
   hashWithSalt _salt Node' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` availabilityZone
+    _salt `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` endpoint
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData Node where
   rnf Node' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf availabilityZone
+    Prelude.rnf availabilityZone
       `Prelude.seq` Prelude.rnf createTime
       `Prelude.seq` Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf status

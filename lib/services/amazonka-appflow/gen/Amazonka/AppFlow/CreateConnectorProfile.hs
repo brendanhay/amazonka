@@ -33,8 +33,8 @@ module Amazonka.AppFlow.CreateConnectorProfile
     newCreateConnectorProfile,
 
     -- * Request Lenses
-    createConnectorProfile_kmsArn,
     createConnectorProfile_connectorLabel,
+    createConnectorProfile_kmsArn,
     createConnectorProfile_connectorProfileName,
     createConnectorProfile_connectorType,
     createConnectorProfile_connectionMode,
@@ -60,15 +60,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateConnectorProfile' smart constructor.
 data CreateConnectorProfile = CreateConnectorProfile'
-  { -- | The ARN (Amazon Resource Name) of the Key Management Service (KMS) key
+  { -- | The label of the connector. The label is unique for each
+    -- @ConnectorRegistration@ in your Amazon Web Services account. Only needed
+    -- if calling for CUSTOMCONNECTOR connector type\/.
+    connectorLabel :: Prelude.Maybe Prelude.Text,
+    -- | The ARN (Amazon Resource Name) of the Key Management Service (KMS) key
     -- you provide for encryption. This is required if you do not want to use
     -- the Amazon AppFlow-managed KMS key. If you don\'t provide anything here,
     -- Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
     kmsArn :: Prelude.Maybe Prelude.Text,
-    -- | The label of the connector. The label is unique for each
-    -- @ConnectorRegistration@ in your Amazon Web Services account. Only needed
-    -- if calling for CUSTOMCONNECTOR connector type\/.
-    connectorLabel :: Prelude.Maybe Prelude.Text,
     -- | The name of the connector profile. The name is unique for each
     -- @ConnectorProfile@ in your Amazon Web Services account.
     connectorProfileName :: Prelude.Text,
@@ -92,14 +92,14 @@ data CreateConnectorProfile = CreateConnectorProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'connectorLabel', 'createConnectorProfile_connectorLabel' - The label of the connector. The label is unique for each
+-- @ConnectorRegistration@ in your Amazon Web Services account. Only needed
+-- if calling for CUSTOMCONNECTOR connector type\/.
+--
 -- 'kmsArn', 'createConnectorProfile_kmsArn' - The ARN (Amazon Resource Name) of the Key Management Service (KMS) key
 -- you provide for encryption. This is required if you do not want to use
 -- the Amazon AppFlow-managed KMS key. If you don\'t provide anything here,
 -- Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
---
--- 'connectorLabel', 'createConnectorProfile_connectorLabel' - The label of the connector. The label is unique for each
--- @ConnectorRegistration@ in your Amazon Web Services account. Only needed
--- if calling for CUSTOMCONNECTOR connector type\/.
 --
 -- 'connectorProfileName', 'createConnectorProfile_connectorProfileName' - The name of the connector profile. The name is unique for each
 -- @ConnectorProfile@ in your Amazon Web Services account.
@@ -128,13 +128,20 @@ newCreateConnectorProfile
   pConnectionMode_
   pConnectorProfileConfig_ =
     CreateConnectorProfile'
-      { kmsArn = Prelude.Nothing,
-        connectorLabel = Prelude.Nothing,
+      { connectorLabel =
+          Prelude.Nothing,
+        kmsArn = Prelude.Nothing,
         connectorProfileName = pConnectorProfileName_,
         connectorType = pConnectorType_,
         connectionMode = pConnectionMode_,
         connectorProfileConfig = pConnectorProfileConfig_
       }
+
+-- | The label of the connector. The label is unique for each
+-- @ConnectorRegistration@ in your Amazon Web Services account. Only needed
+-- if calling for CUSTOMCONNECTOR connector type\/.
+createConnectorProfile_connectorLabel :: Lens.Lens' CreateConnectorProfile (Prelude.Maybe Prelude.Text)
+createConnectorProfile_connectorLabel = Lens.lens (\CreateConnectorProfile' {connectorLabel} -> connectorLabel) (\s@CreateConnectorProfile' {} a -> s {connectorLabel = a} :: CreateConnectorProfile)
 
 -- | The ARN (Amazon Resource Name) of the Key Management Service (KMS) key
 -- you provide for encryption. This is required if you do not want to use
@@ -142,12 +149,6 @@ newCreateConnectorProfile
 -- Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
 createConnectorProfile_kmsArn :: Lens.Lens' CreateConnectorProfile (Prelude.Maybe Prelude.Text)
 createConnectorProfile_kmsArn = Lens.lens (\CreateConnectorProfile' {kmsArn} -> kmsArn) (\s@CreateConnectorProfile' {} a -> s {kmsArn = a} :: CreateConnectorProfile)
-
--- | The label of the connector. The label is unique for each
--- @ConnectorRegistration@ in your Amazon Web Services account. Only needed
--- if calling for CUSTOMCONNECTOR connector type\/.
-createConnectorProfile_connectorLabel :: Lens.Lens' CreateConnectorProfile (Prelude.Maybe Prelude.Text)
-createConnectorProfile_connectorLabel = Lens.lens (\CreateConnectorProfile' {connectorLabel} -> connectorLabel) (\s@CreateConnectorProfile' {} a -> s {connectorLabel = a} :: CreateConnectorProfile)
 
 -- | The name of the connector profile. The name is unique for each
 -- @ConnectorProfile@ in your Amazon Web Services account.
@@ -185,8 +186,8 @@ instance Core.AWSRequest CreateConnectorProfile where
 
 instance Prelude.Hashable CreateConnectorProfile where
   hashWithSalt _salt CreateConnectorProfile' {..} =
-    _salt `Prelude.hashWithSalt` kmsArn
-      `Prelude.hashWithSalt` connectorLabel
+    _salt `Prelude.hashWithSalt` connectorLabel
+      `Prelude.hashWithSalt` kmsArn
       `Prelude.hashWithSalt` connectorProfileName
       `Prelude.hashWithSalt` connectorType
       `Prelude.hashWithSalt` connectionMode
@@ -194,8 +195,8 @@ instance Prelude.Hashable CreateConnectorProfile where
 
 instance Prelude.NFData CreateConnectorProfile where
   rnf CreateConnectorProfile' {..} =
-    Prelude.rnf kmsArn
-      `Prelude.seq` Prelude.rnf connectorLabel
+    Prelude.rnf connectorLabel
+      `Prelude.seq` Prelude.rnf kmsArn
       `Prelude.seq` Prelude.rnf connectorProfileName
       `Prelude.seq` Prelude.rnf connectorType
       `Prelude.seq` Prelude.rnf connectionMode
@@ -216,9 +217,9 @@ instance Data.ToJSON CreateConnectorProfile where
   toJSON CreateConnectorProfile' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("kmsArn" Data..=) Prelude.<$> kmsArn,
-            ("connectorLabel" Data..=)
+          [ ("connectorLabel" Data..=)
               Prelude.<$> connectorLabel,
+            ("kmsArn" Data..=) Prelude.<$> kmsArn,
             Prelude.Just
               ( "connectorProfileName"
                   Data..= connectorProfileName

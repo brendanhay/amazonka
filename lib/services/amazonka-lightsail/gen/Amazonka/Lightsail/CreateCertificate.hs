@@ -40,8 +40,8 @@ module Amazonka.Lightsail.CreateCertificate
     newCreateCertificate,
 
     -- * Request Lenses
-    createCertificate_tags,
     createCertificate_subjectAlternativeNames,
+    createCertificate_tags,
     createCertificate_certificateName,
     createCertificate_domainName,
 
@@ -50,8 +50,8 @@ module Amazonka.Lightsail.CreateCertificate
     newCreateCertificateResponse,
 
     -- * Response Lenses
-    createCertificateResponse_operations,
     createCertificateResponse_certificate,
+    createCertificateResponse_operations,
     createCertificateResponse_httpStatus,
   )
 where
@@ -66,12 +66,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateCertificate' smart constructor.
 data CreateCertificate = CreateCertificate'
-  { -- | The tag keys and optional values to add to the certificate during
-    -- create.
-    --
-    -- Use the @TagResource@ action to tag a resource after it\'s created.
-    tags :: Prelude.Maybe [Tag],
-    -- | An array of strings that specify the alternate domains (e.g.,
+  { -- | An array of strings that specify the alternate domains (e.g.,
     -- @example2.com@) and subdomains (e.g., @blog.example.com@) for the
     -- certificate.
     --
@@ -80,6 +75,11 @@ data CreateCertificate = CreateCertificate'
     --
     -- Wildcard domain entries (e.g., @*.example.com@) are not supported.
     subjectAlternativeNames :: Prelude.Maybe [Prelude.Text],
+    -- | The tag keys and optional values to add to the certificate during
+    -- create.
+    --
+    -- Use the @TagResource@ action to tag a resource after it\'s created.
+    tags :: Prelude.Maybe [Tag],
     -- | The name for the certificate.
     certificateName :: Prelude.Text,
     -- | The domain name (e.g., @example.com@) for the certificate.
@@ -95,11 +95,6 @@ data CreateCertificate = CreateCertificate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createCertificate_tags' - The tag keys and optional values to add to the certificate during
--- create.
---
--- Use the @TagResource@ action to tag a resource after it\'s created.
---
 -- 'subjectAlternativeNames', 'createCertificate_subjectAlternativeNames' - An array of strings that specify the alternate domains (e.g.,
 -- @example2.com@) and subdomains (e.g., @blog.example.com@) for the
 -- certificate.
@@ -108,6 +103,11 @@ data CreateCertificate = CreateCertificate'
 -- primary domain name).
 --
 -- Wildcard domain entries (e.g., @*.example.com@) are not supported.
+--
+-- 'tags', 'createCertificate_tags' - The tag keys and optional values to add to the certificate during
+-- create.
+--
+-- Use the @TagResource@ action to tag a resource after it\'s created.
 --
 -- 'certificateName', 'createCertificate_certificateName' - The name for the certificate.
 --
@@ -120,18 +120,12 @@ newCreateCertificate ::
   CreateCertificate
 newCreateCertificate pCertificateName_ pDomainName_ =
   CreateCertificate'
-    { tags = Prelude.Nothing,
-      subjectAlternativeNames = Prelude.Nothing,
+    { subjectAlternativeNames =
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
       certificateName = pCertificateName_,
       domainName = pDomainName_
     }
-
--- | The tag keys and optional values to add to the certificate during
--- create.
---
--- Use the @TagResource@ action to tag a resource after it\'s created.
-createCertificate_tags :: Lens.Lens' CreateCertificate (Prelude.Maybe [Tag])
-createCertificate_tags = Lens.lens (\CreateCertificate' {tags} -> tags) (\s@CreateCertificate' {} a -> s {tags = a} :: CreateCertificate) Prelude.. Lens.mapping Lens.coerced
 
 -- | An array of strings that specify the alternate domains (e.g.,
 -- @example2.com@) and subdomains (e.g., @blog.example.com@) for the
@@ -143,6 +137,13 @@ createCertificate_tags = Lens.lens (\CreateCertificate' {tags} -> tags) (\s@Crea
 -- Wildcard domain entries (e.g., @*.example.com@) are not supported.
 createCertificate_subjectAlternativeNames :: Lens.Lens' CreateCertificate (Prelude.Maybe [Prelude.Text])
 createCertificate_subjectAlternativeNames = Lens.lens (\CreateCertificate' {subjectAlternativeNames} -> subjectAlternativeNames) (\s@CreateCertificate' {} a -> s {subjectAlternativeNames = a} :: CreateCertificate) Prelude.. Lens.mapping Lens.coerced
+
+-- | The tag keys and optional values to add to the certificate during
+-- create.
+--
+-- Use the @TagResource@ action to tag a resource after it\'s created.
+createCertificate_tags :: Lens.Lens' CreateCertificate (Prelude.Maybe [Tag])
+createCertificate_tags = Lens.lens (\CreateCertificate' {tags} -> tags) (\s@CreateCertificate' {} a -> s {tags = a} :: CreateCertificate) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name for the certificate.
 createCertificate_certificateName :: Lens.Lens' CreateCertificate Prelude.Text
@@ -162,22 +163,23 @@ instance Core.AWSRequest CreateCertificate where
     Response.receiveJSON
       ( \s h x ->
           CreateCertificateResponse'
-            Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "certificate")
+            Prelude.<$> (x Data..?> "certificate")
+            Prelude.<*> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateCertificate where
   hashWithSalt _salt CreateCertificate' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
       `Prelude.hashWithSalt` subjectAlternativeNames
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` certificateName
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData CreateCertificate where
   rnf CreateCertificate' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf subjectAlternativeNames
+    Prelude.rnf subjectAlternativeNames
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf certificateName
       `Prelude.seq` Prelude.rnf domainName
 
@@ -200,9 +202,9 @@ instance Data.ToJSON CreateCertificate where
   toJSON CreateCertificate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("subjectAlternativeNames" Data..=)
+          [ ("subjectAlternativeNames" Data..=)
               Prelude.<$> subjectAlternativeNames,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("certificateName" Data..= certificateName),
             Prelude.Just ("domainName" Data..= domainName)
@@ -217,12 +219,12 @@ instance Data.ToQuery CreateCertificate where
 
 -- | /See:/ 'newCreateCertificateResponse' smart constructor.
 data CreateCertificateResponse = CreateCertificateResponse'
-  { -- | An array of objects that describe the result of the action, such as the
+  { -- | An object that describes the certificate created.
+    certificate :: Prelude.Maybe CertificateSummary,
+    -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
     operations :: Prelude.Maybe [Operation],
-    -- | An object that describes the certificate created.
-    certificate :: Prelude.Maybe CertificateSummary,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -236,11 +238,11 @@ data CreateCertificateResponse = CreateCertificateResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'certificate', 'createCertificateResponse_certificate' - An object that describes the certificate created.
+--
 -- 'operations', 'createCertificateResponse_operations' - An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
---
--- 'certificate', 'createCertificateResponse_certificate' - An object that describes the certificate created.
 --
 -- 'httpStatus', 'createCertificateResponse_httpStatus' - The response's http status code.
 newCreateCertificateResponse ::
@@ -249,11 +251,15 @@ newCreateCertificateResponse ::
   CreateCertificateResponse
 newCreateCertificateResponse pHttpStatus_ =
   CreateCertificateResponse'
-    { operations =
+    { certificate =
         Prelude.Nothing,
-      certificate = Prelude.Nothing,
+      operations = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An object that describes the certificate created.
+createCertificateResponse_certificate :: Lens.Lens' CreateCertificateResponse (Prelude.Maybe CertificateSummary)
+createCertificateResponse_certificate = Lens.lens (\CreateCertificateResponse' {certificate} -> certificate) (\s@CreateCertificateResponse' {} a -> s {certificate = a} :: CreateCertificateResponse)
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
@@ -261,16 +267,12 @@ newCreateCertificateResponse pHttpStatus_ =
 createCertificateResponse_operations :: Lens.Lens' CreateCertificateResponse (Prelude.Maybe [Operation])
 createCertificateResponse_operations = Lens.lens (\CreateCertificateResponse' {operations} -> operations) (\s@CreateCertificateResponse' {} a -> s {operations = a} :: CreateCertificateResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | An object that describes the certificate created.
-createCertificateResponse_certificate :: Lens.Lens' CreateCertificateResponse (Prelude.Maybe CertificateSummary)
-createCertificateResponse_certificate = Lens.lens (\CreateCertificateResponse' {certificate} -> certificate) (\s@CreateCertificateResponse' {} a -> s {certificate = a} :: CreateCertificateResponse)
-
 -- | The response's http status code.
 createCertificateResponse_httpStatus :: Lens.Lens' CreateCertificateResponse Prelude.Int
 createCertificateResponse_httpStatus = Lens.lens (\CreateCertificateResponse' {httpStatus} -> httpStatus) (\s@CreateCertificateResponse' {} a -> s {httpStatus = a} :: CreateCertificateResponse)
 
 instance Prelude.NFData CreateCertificateResponse where
   rnf CreateCertificateResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf certificate
+    Prelude.rnf certificate
+      `Prelude.seq` Prelude.rnf operations
       `Prelude.seq` Prelude.rnf httpStatus

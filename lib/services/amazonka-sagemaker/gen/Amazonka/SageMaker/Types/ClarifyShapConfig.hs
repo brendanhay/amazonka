@@ -30,7 +30,15 @@ import Amazonka.SageMaker.Types.ClarifyTextConfig
 --
 -- /See:/ 'newClarifyShapConfig' smart constructor.
 data ClarifyShapConfig = ClarifyShapConfig'
-  { -- | The starting value used to initialize the random number generator in the
+  { -- | The number of samples to be used for analysis by the Kernal SHAP
+    -- algorithm.
+    --
+    -- The number of samples determines the size of the synthetic dataset,
+    -- which has an impact on latency of explainability requests. For more
+    -- information, see the __Synthetic data__ of
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-create-endpoint.html Configure and create an endpoint>.
+    numberOfSamples :: Prelude.Maybe Prelude.Natural,
+    -- | The starting value used to initialize the random number generator in the
     -- explainer. Provide a value for this parameter to obtain a deterministic
     -- SHAP result.
     seed :: Prelude.Maybe Prelude.Int,
@@ -42,14 +50,6 @@ data ClarifyShapConfig = ClarifyShapConfig'
     -- (true) or log-odds units (false) for model predictions. Defaults to
     -- false.
     useLogit :: Prelude.Maybe Prelude.Bool,
-    -- | The number of samples to be used for analysis by the Kernal SHAP
-    -- algorithm.
-    --
-    -- The number of samples determines the size of the synthetic dataset,
-    -- which has an impact on latency of explainability requests. For more
-    -- information, see the __Synthetic data__ of
-    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-create-endpoint.html Configure and create an endpoint>.
-    numberOfSamples :: Prelude.Maybe Prelude.Natural,
     -- | The configuration for the SHAP baseline of the Kernal SHAP algorithm.
     shapBaselineConfig :: ClarifyShapBaselineConfig
   }
@@ -63,6 +63,14 @@ data ClarifyShapConfig = ClarifyShapConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'numberOfSamples', 'clarifyShapConfig_numberOfSamples' - The number of samples to be used for analysis by the Kernal SHAP
+-- algorithm.
+--
+-- The number of samples determines the size of the synthetic dataset,
+-- which has an impact on latency of explainability requests. For more
+-- information, see the __Synthetic data__ of
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-create-endpoint.html Configure and create an endpoint>.
+--
 -- 'seed', 'clarifyShapConfig_seed' - The starting value used to initialize the random number generator in the
 -- explainer. Provide a value for this parameter to obtain a deterministic
 -- SHAP result.
@@ -75,14 +83,6 @@ data ClarifyShapConfig = ClarifyShapConfig'
 -- (true) or log-odds units (false) for model predictions. Defaults to
 -- false.
 --
--- 'numberOfSamples', 'clarifyShapConfig_numberOfSamples' - The number of samples to be used for analysis by the Kernal SHAP
--- algorithm.
---
--- The number of samples determines the size of the synthetic dataset,
--- which has an impact on latency of explainability requests. For more
--- information, see the __Synthetic data__ of
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-create-endpoint.html Configure and create an endpoint>.
---
 -- 'shapBaselineConfig', 'clarifyShapConfig_shapBaselineConfig' - The configuration for the SHAP baseline of the Kernal SHAP algorithm.
 newClarifyShapConfig ::
   -- | 'shapBaselineConfig'
@@ -90,12 +90,23 @@ newClarifyShapConfig ::
   ClarifyShapConfig
 newClarifyShapConfig pShapBaselineConfig_ =
   ClarifyShapConfig'
-    { seed = Prelude.Nothing,
+    { numberOfSamples =
+        Prelude.Nothing,
+      seed = Prelude.Nothing,
       textConfig = Prelude.Nothing,
       useLogit = Prelude.Nothing,
-      numberOfSamples = Prelude.Nothing,
       shapBaselineConfig = pShapBaselineConfig_
     }
+
+-- | The number of samples to be used for analysis by the Kernal SHAP
+-- algorithm.
+--
+-- The number of samples determines the size of the synthetic dataset,
+-- which has an impact on latency of explainability requests. For more
+-- information, see the __Synthetic data__ of
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-create-endpoint.html Configure and create an endpoint>.
+clarifyShapConfig_numberOfSamples :: Lens.Lens' ClarifyShapConfig (Prelude.Maybe Prelude.Natural)
+clarifyShapConfig_numberOfSamples = Lens.lens (\ClarifyShapConfig' {numberOfSamples} -> numberOfSamples) (\s@ClarifyShapConfig' {} a -> s {numberOfSamples = a} :: ClarifyShapConfig)
 
 -- | The starting value used to initialize the random number generator in the
 -- explainer. Provide a value for this parameter to obtain a deterministic
@@ -115,16 +126,6 @@ clarifyShapConfig_textConfig = Lens.lens (\ClarifyShapConfig' {textConfig} -> te
 clarifyShapConfig_useLogit :: Lens.Lens' ClarifyShapConfig (Prelude.Maybe Prelude.Bool)
 clarifyShapConfig_useLogit = Lens.lens (\ClarifyShapConfig' {useLogit} -> useLogit) (\s@ClarifyShapConfig' {} a -> s {useLogit = a} :: ClarifyShapConfig)
 
--- | The number of samples to be used for analysis by the Kernal SHAP
--- algorithm.
---
--- The number of samples determines the size of the synthetic dataset,
--- which has an impact on latency of explainability requests. For more
--- information, see the __Synthetic data__ of
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-create-endpoint.html Configure and create an endpoint>.
-clarifyShapConfig_numberOfSamples :: Lens.Lens' ClarifyShapConfig (Prelude.Maybe Prelude.Natural)
-clarifyShapConfig_numberOfSamples = Lens.lens (\ClarifyShapConfig' {numberOfSamples} -> numberOfSamples) (\s@ClarifyShapConfig' {} a -> s {numberOfSamples = a} :: ClarifyShapConfig)
-
 -- | The configuration for the SHAP baseline of the Kernal SHAP algorithm.
 clarifyShapConfig_shapBaselineConfig :: Lens.Lens' ClarifyShapConfig ClarifyShapBaselineConfig
 clarifyShapConfig_shapBaselineConfig = Lens.lens (\ClarifyShapConfig' {shapBaselineConfig} -> shapBaselineConfig) (\s@ClarifyShapConfig' {} a -> s {shapBaselineConfig = a} :: ClarifyShapConfig)
@@ -135,38 +136,38 @@ instance Data.FromJSON ClarifyShapConfig where
       "ClarifyShapConfig"
       ( \x ->
           ClarifyShapConfig'
-            Prelude.<$> (x Data..:? "Seed")
+            Prelude.<$> (x Data..:? "NumberOfSamples")
+            Prelude.<*> (x Data..:? "Seed")
             Prelude.<*> (x Data..:? "TextConfig")
             Prelude.<*> (x Data..:? "UseLogit")
-            Prelude.<*> (x Data..:? "NumberOfSamples")
             Prelude.<*> (x Data..: "ShapBaselineConfig")
       )
 
 instance Prelude.Hashable ClarifyShapConfig where
   hashWithSalt _salt ClarifyShapConfig' {..} =
-    _salt `Prelude.hashWithSalt` seed
+    _salt `Prelude.hashWithSalt` numberOfSamples
+      `Prelude.hashWithSalt` seed
       `Prelude.hashWithSalt` textConfig
       `Prelude.hashWithSalt` useLogit
-      `Prelude.hashWithSalt` numberOfSamples
       `Prelude.hashWithSalt` shapBaselineConfig
 
 instance Prelude.NFData ClarifyShapConfig where
   rnf ClarifyShapConfig' {..} =
-    Prelude.rnf seed
+    Prelude.rnf numberOfSamples
+      `Prelude.seq` Prelude.rnf seed
       `Prelude.seq` Prelude.rnf textConfig
       `Prelude.seq` Prelude.rnf useLogit
-      `Prelude.seq` Prelude.rnf numberOfSamples
       `Prelude.seq` Prelude.rnf shapBaselineConfig
 
 instance Data.ToJSON ClarifyShapConfig where
   toJSON ClarifyShapConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Seed" Data..=) Prelude.<$> seed,
+          [ ("NumberOfSamples" Data..=)
+              Prelude.<$> numberOfSamples,
+            ("Seed" Data..=) Prelude.<$> seed,
             ("TextConfig" Data..=) Prelude.<$> textConfig,
             ("UseLogit" Data..=) Prelude.<$> useLogit,
-            ("NumberOfSamples" Data..=)
-              Prelude.<$> numberOfSamples,
             Prelude.Just
               ("ShapBaselineConfig" Data..= shapBaselineConfig)
           ]

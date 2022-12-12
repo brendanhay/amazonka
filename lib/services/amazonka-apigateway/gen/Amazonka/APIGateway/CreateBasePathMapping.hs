@@ -27,8 +27,8 @@ module Amazonka.APIGateway.CreateBasePathMapping
     newCreateBasePathMapping,
 
     -- * Request Lenses
-    createBasePathMapping_stage,
     createBasePathMapping_basePath,
+    createBasePathMapping_stage,
     createBasePathMapping_domainName,
     createBasePathMapping_restApiId,
 
@@ -37,9 +37,9 @@ module Amazonka.APIGateway.CreateBasePathMapping
     newBasePathMapping,
 
     -- * Response Lenses
+    basePathMapping_basePath,
     basePathMapping_restApiId,
     basePathMapping_stage,
-    basePathMapping_basePath,
   )
 where
 
@@ -55,15 +55,15 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateBasePathMapping' smart constructor.
 data CreateBasePathMapping = CreateBasePathMapping'
-  { -- | The name of the API\'s stage that you want to use for this mapping.
-    -- Specify \'(none)\' if you want callers to explicitly specify the stage
-    -- name after any base path name.
-    stage :: Prelude.Maybe Prelude.Text,
-    -- | The base path name that callers of the API must provide as part of the
+  { -- | The base path name that callers of the API must provide as part of the
     -- URL after the domain name. This value must be unique for all of the
     -- mappings across a single API. Specify \'(none)\' if you do not want
     -- callers to specify a base path name after the domain name.
     basePath :: Prelude.Maybe Prelude.Text,
+    -- | The name of the API\'s stage that you want to use for this mapping.
+    -- Specify \'(none)\' if you want callers to explicitly specify the stage
+    -- name after any base path name.
+    stage :: Prelude.Maybe Prelude.Text,
     -- | The domain name of the BasePathMapping resource to create.
     domainName :: Prelude.Text,
     -- | The string identifier of the associated RestApi.
@@ -79,14 +79,14 @@ data CreateBasePathMapping = CreateBasePathMapping'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stage', 'createBasePathMapping_stage' - The name of the API\'s stage that you want to use for this mapping.
--- Specify \'(none)\' if you want callers to explicitly specify the stage
--- name after any base path name.
---
 -- 'basePath', 'createBasePathMapping_basePath' - The base path name that callers of the API must provide as part of the
 -- URL after the domain name. This value must be unique for all of the
 -- mappings across a single API. Specify \'(none)\' if you do not want
 -- callers to specify a base path name after the domain name.
+--
+-- 'stage', 'createBasePathMapping_stage' - The name of the API\'s stage that you want to use for this mapping.
+-- Specify \'(none)\' if you want callers to explicitly specify the stage
+-- name after any base path name.
 --
 -- 'domainName', 'createBasePathMapping_domainName' - The domain name of the BasePathMapping resource to create.
 --
@@ -99,17 +99,11 @@ newCreateBasePathMapping ::
   CreateBasePathMapping
 newCreateBasePathMapping pDomainName_ pRestApiId_ =
   CreateBasePathMapping'
-    { stage = Prelude.Nothing,
-      basePath = Prelude.Nothing,
+    { basePath = Prelude.Nothing,
+      stage = Prelude.Nothing,
       domainName = pDomainName_,
       restApiId = pRestApiId_
     }
-
--- | The name of the API\'s stage that you want to use for this mapping.
--- Specify \'(none)\' if you want callers to explicitly specify the stage
--- name after any base path name.
-createBasePathMapping_stage :: Lens.Lens' CreateBasePathMapping (Prelude.Maybe Prelude.Text)
-createBasePathMapping_stage = Lens.lens (\CreateBasePathMapping' {stage} -> stage) (\s@CreateBasePathMapping' {} a -> s {stage = a} :: CreateBasePathMapping)
 
 -- | The base path name that callers of the API must provide as part of the
 -- URL after the domain name. This value must be unique for all of the
@@ -117,6 +111,12 @@ createBasePathMapping_stage = Lens.lens (\CreateBasePathMapping' {stage} -> stag
 -- callers to specify a base path name after the domain name.
 createBasePathMapping_basePath :: Lens.Lens' CreateBasePathMapping (Prelude.Maybe Prelude.Text)
 createBasePathMapping_basePath = Lens.lens (\CreateBasePathMapping' {basePath} -> basePath) (\s@CreateBasePathMapping' {} a -> s {basePath = a} :: CreateBasePathMapping)
+
+-- | The name of the API\'s stage that you want to use for this mapping.
+-- Specify \'(none)\' if you want callers to explicitly specify the stage
+-- name after any base path name.
+createBasePathMapping_stage :: Lens.Lens' CreateBasePathMapping (Prelude.Maybe Prelude.Text)
+createBasePathMapping_stage = Lens.lens (\CreateBasePathMapping' {stage} -> stage) (\s@CreateBasePathMapping' {} a -> s {stage = a} :: CreateBasePathMapping)
 
 -- | The domain name of the BasePathMapping resource to create.
 createBasePathMapping_domainName :: Lens.Lens' CreateBasePathMapping Prelude.Text
@@ -138,15 +138,15 @@ instance Core.AWSRequest CreateBasePathMapping where
 
 instance Prelude.Hashable CreateBasePathMapping where
   hashWithSalt _salt CreateBasePathMapping' {..} =
-    _salt `Prelude.hashWithSalt` stage
-      `Prelude.hashWithSalt` basePath
+    _salt `Prelude.hashWithSalt` basePath
+      `Prelude.hashWithSalt` stage
       `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` restApiId
 
 instance Prelude.NFData CreateBasePathMapping where
   rnf CreateBasePathMapping' {..} =
-    Prelude.rnf stage
-      `Prelude.seq` Prelude.rnf basePath
+    Prelude.rnf basePath
+      `Prelude.seq` Prelude.rnf stage
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf restApiId
 
@@ -163,8 +163,8 @@ instance Data.ToJSON CreateBasePathMapping where
   toJSON CreateBasePathMapping' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("stage" Data..=) Prelude.<$> stage,
-            ("basePath" Data..=) Prelude.<$> basePath,
+          [ ("basePath" Data..=) Prelude.<$> basePath,
+            ("stage" Data..=) Prelude.<$> stage,
             Prelude.Just ("restApiId" Data..= restApiId)
           ]
       )

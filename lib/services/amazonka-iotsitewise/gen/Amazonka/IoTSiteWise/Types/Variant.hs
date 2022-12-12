@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVariant' smart constructor.
 data Variant = Variant'
-  { -- | Asset property data of type integer (whole number).
-    integerValue :: Prelude.Maybe Prelude.Int,
+  { -- | Asset property data of type Boolean (true or false).
+    booleanValue :: Prelude.Maybe Prelude.Bool,
     -- | Asset property data of type double (floating point number).
     doubleValue :: Prelude.Maybe Prelude.Double,
-    -- | Asset property data of type Boolean (true or false).
-    booleanValue :: Prelude.Maybe Prelude.Bool,
+    -- | Asset property data of type integer (whole number).
+    integerValue :: Prelude.Maybe Prelude.Int,
     -- | Asset property data of type string (sequence of characters).
     stringValue :: Prelude.Maybe Prelude.Text
   }
@@ -47,34 +47,34 @@ data Variant = Variant'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'integerValue', 'variant_integerValue' - Asset property data of type integer (whole number).
+-- 'booleanValue', 'variant_booleanValue' - Asset property data of type Boolean (true or false).
 --
 -- 'doubleValue', 'variant_doubleValue' - Asset property data of type double (floating point number).
 --
--- 'booleanValue', 'variant_booleanValue' - Asset property data of type Boolean (true or false).
+-- 'integerValue', 'variant_integerValue' - Asset property data of type integer (whole number).
 --
 -- 'stringValue', 'variant_stringValue' - Asset property data of type string (sequence of characters).
 newVariant ::
   Variant
 newVariant =
   Variant'
-    { integerValue = Prelude.Nothing,
+    { booleanValue = Prelude.Nothing,
       doubleValue = Prelude.Nothing,
-      booleanValue = Prelude.Nothing,
+      integerValue = Prelude.Nothing,
       stringValue = Prelude.Nothing
     }
 
--- | Asset property data of type integer (whole number).
-variant_integerValue :: Lens.Lens' Variant (Prelude.Maybe Prelude.Int)
-variant_integerValue = Lens.lens (\Variant' {integerValue} -> integerValue) (\s@Variant' {} a -> s {integerValue = a} :: Variant)
+-- | Asset property data of type Boolean (true or false).
+variant_booleanValue :: Lens.Lens' Variant (Prelude.Maybe Prelude.Bool)
+variant_booleanValue = Lens.lens (\Variant' {booleanValue} -> booleanValue) (\s@Variant' {} a -> s {booleanValue = a} :: Variant)
 
 -- | Asset property data of type double (floating point number).
 variant_doubleValue :: Lens.Lens' Variant (Prelude.Maybe Prelude.Double)
 variant_doubleValue = Lens.lens (\Variant' {doubleValue} -> doubleValue) (\s@Variant' {} a -> s {doubleValue = a} :: Variant)
 
--- | Asset property data of type Boolean (true or false).
-variant_booleanValue :: Lens.Lens' Variant (Prelude.Maybe Prelude.Bool)
-variant_booleanValue = Lens.lens (\Variant' {booleanValue} -> booleanValue) (\s@Variant' {} a -> s {booleanValue = a} :: Variant)
+-- | Asset property data of type integer (whole number).
+variant_integerValue :: Lens.Lens' Variant (Prelude.Maybe Prelude.Int)
+variant_integerValue = Lens.lens (\Variant' {integerValue} -> integerValue) (\s@Variant' {} a -> s {integerValue = a} :: Variant)
 
 -- | Asset property data of type string (sequence of characters).
 variant_stringValue :: Lens.Lens' Variant (Prelude.Maybe Prelude.Text)
@@ -86,33 +86,33 @@ instance Data.FromJSON Variant where
       "Variant"
       ( \x ->
           Variant'
-            Prelude.<$> (x Data..:? "integerValue")
+            Prelude.<$> (x Data..:? "booleanValue")
             Prelude.<*> (x Data..:? "doubleValue")
-            Prelude.<*> (x Data..:? "booleanValue")
+            Prelude.<*> (x Data..:? "integerValue")
             Prelude.<*> (x Data..:? "stringValue")
       )
 
 instance Prelude.Hashable Variant where
   hashWithSalt _salt Variant' {..} =
-    _salt `Prelude.hashWithSalt` integerValue
+    _salt `Prelude.hashWithSalt` booleanValue
       `Prelude.hashWithSalt` doubleValue
-      `Prelude.hashWithSalt` booleanValue
+      `Prelude.hashWithSalt` integerValue
       `Prelude.hashWithSalt` stringValue
 
 instance Prelude.NFData Variant where
   rnf Variant' {..} =
-    Prelude.rnf integerValue
+    Prelude.rnf booleanValue
       `Prelude.seq` Prelude.rnf doubleValue
-      `Prelude.seq` Prelude.rnf booleanValue
+      `Prelude.seq` Prelude.rnf integerValue
       `Prelude.seq` Prelude.rnf stringValue
 
 instance Data.ToJSON Variant where
   toJSON Variant' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("integerValue" Data..=) Prelude.<$> integerValue,
+          [ ("booleanValue" Data..=) Prelude.<$> booleanValue,
             ("doubleValue" Data..=) Prelude.<$> doubleValue,
-            ("booleanValue" Data..=) Prelude.<$> booleanValue,
+            ("integerValue" Data..=) Prelude.<$> integerValue,
             ("stringValue" Data..=) Prelude.<$> stringValue
           ]
       )

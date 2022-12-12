@@ -34,13 +34,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCustomDocumentEnrichmentConfiguration' smart constructor.
 data CustomDocumentEnrichmentConfiguration = CustomDocumentEnrichmentConfiguration'
-  { -- | The Amazon Resource Name (ARN) of a role with permission to run
-    -- @PreExtractionHookConfiguration@ and @PostExtractionHookConfiguration@
-    -- for altering document metadata and content during the document ingestion
-    -- process. For more information, see
-    -- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html IAM roles for Amazon Kendra>.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | Configuration information to alter document attributes or metadata
+  { -- | Configuration information to alter document attributes or metadata
     -- fields and content when ingesting documents into Amazon Kendra.
     inlineConfigurations :: Prelude.Maybe [InlineCustomDocumentEnrichmentConfiguration],
     -- | Configuration information for invoking a Lambda function in Lambda on
@@ -55,7 +49,13 @@ data CustomDocumentEnrichmentConfiguration = CustomDocumentEnrichmentConfigurati
     -- modifying, or deleting document metadata and content. For more
     -- information, see
     -- <https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation Advanced data manipulation>.
-    preExtractionHookConfiguration :: Prelude.Maybe HookConfiguration
+    preExtractionHookConfiguration :: Prelude.Maybe HookConfiguration,
+    -- | The Amazon Resource Name (ARN) of a role with permission to run
+    -- @PreExtractionHookConfiguration@ and @PostExtractionHookConfiguration@
+    -- for altering document metadata and content during the document ingestion
+    -- process. For more information, see
+    -- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html IAM roles for Amazon Kendra>.
+    roleArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,12 +66,6 @@ data CustomDocumentEnrichmentConfiguration = CustomDocumentEnrichmentConfigurati
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'roleArn', 'customDocumentEnrichmentConfiguration_roleArn' - The Amazon Resource Name (ARN) of a role with permission to run
--- @PreExtractionHookConfiguration@ and @PostExtractionHookConfiguration@
--- for altering document metadata and content during the document ingestion
--- process. For more information, see
--- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html IAM roles for Amazon Kendra>.
 --
 -- 'inlineConfigurations', 'customDocumentEnrichmentConfiguration_inlineConfigurations' - Configuration information to alter document attributes or metadata
 -- fields and content when ingesting documents into Amazon Kendra.
@@ -88,27 +82,24 @@ data CustomDocumentEnrichmentConfiguration = CustomDocumentEnrichmentConfigurati
 -- modifying, or deleting document metadata and content. For more
 -- information, see
 -- <https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation Advanced data manipulation>.
-newCustomDocumentEnrichmentConfiguration ::
-  CustomDocumentEnrichmentConfiguration
-newCustomDocumentEnrichmentConfiguration =
-  CustomDocumentEnrichmentConfiguration'
-    { roleArn =
-        Prelude.Nothing,
-      inlineConfigurations =
-        Prelude.Nothing,
-      postExtractionHookConfiguration =
-        Prelude.Nothing,
-      preExtractionHookConfiguration =
-        Prelude.Nothing
-    }
-
--- | The Amazon Resource Name (ARN) of a role with permission to run
+--
+-- 'roleArn', 'customDocumentEnrichmentConfiguration_roleArn' - The Amazon Resource Name (ARN) of a role with permission to run
 -- @PreExtractionHookConfiguration@ and @PostExtractionHookConfiguration@
 -- for altering document metadata and content during the document ingestion
 -- process. For more information, see
 -- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html IAM roles for Amazon Kendra>.
-customDocumentEnrichmentConfiguration_roleArn :: Lens.Lens' CustomDocumentEnrichmentConfiguration (Prelude.Maybe Prelude.Text)
-customDocumentEnrichmentConfiguration_roleArn = Lens.lens (\CustomDocumentEnrichmentConfiguration' {roleArn} -> roleArn) (\s@CustomDocumentEnrichmentConfiguration' {} a -> s {roleArn = a} :: CustomDocumentEnrichmentConfiguration)
+newCustomDocumentEnrichmentConfiguration ::
+  CustomDocumentEnrichmentConfiguration
+newCustomDocumentEnrichmentConfiguration =
+  CustomDocumentEnrichmentConfiguration'
+    { inlineConfigurations =
+        Prelude.Nothing,
+      postExtractionHookConfiguration =
+        Prelude.Nothing,
+      preExtractionHookConfiguration =
+        Prelude.Nothing,
+      roleArn = Prelude.Nothing
+    }
 
 -- | Configuration information to alter document attributes or metadata
 -- fields and content when ingesting documents into Amazon Kendra.
@@ -132,6 +123,14 @@ customDocumentEnrichmentConfiguration_postExtractionHookConfiguration = Lens.len
 customDocumentEnrichmentConfiguration_preExtractionHookConfiguration :: Lens.Lens' CustomDocumentEnrichmentConfiguration (Prelude.Maybe HookConfiguration)
 customDocumentEnrichmentConfiguration_preExtractionHookConfiguration = Lens.lens (\CustomDocumentEnrichmentConfiguration' {preExtractionHookConfiguration} -> preExtractionHookConfiguration) (\s@CustomDocumentEnrichmentConfiguration' {} a -> s {preExtractionHookConfiguration = a} :: CustomDocumentEnrichmentConfiguration)
 
+-- | The Amazon Resource Name (ARN) of a role with permission to run
+-- @PreExtractionHookConfiguration@ and @PostExtractionHookConfiguration@
+-- for altering document metadata and content during the document ingestion
+-- process. For more information, see
+-- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html IAM roles for Amazon Kendra>.
+customDocumentEnrichmentConfiguration_roleArn :: Lens.Lens' CustomDocumentEnrichmentConfiguration (Prelude.Maybe Prelude.Text)
+customDocumentEnrichmentConfiguration_roleArn = Lens.lens (\CustomDocumentEnrichmentConfiguration' {roleArn} -> roleArn) (\s@CustomDocumentEnrichmentConfiguration' {} a -> s {roleArn = a} :: CustomDocumentEnrichmentConfiguration)
+
 instance
   Data.FromJSON
     CustomDocumentEnrichmentConfiguration
@@ -141,12 +140,12 @@ instance
       "CustomDocumentEnrichmentConfiguration"
       ( \x ->
           CustomDocumentEnrichmentConfiguration'
-            Prelude.<$> (x Data..:? "RoleArn")
-            Prelude.<*> ( x Data..:? "InlineConfigurations"
+            Prelude.<$> ( x Data..:? "InlineConfigurations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "PostExtractionHookConfiguration")
             Prelude.<*> (x Data..:? "PreExtractionHookConfiguration")
+            Prelude.<*> (x Data..:? "RoleArn")
       )
 
 instance
@@ -156,20 +155,20 @@ instance
   hashWithSalt
     _salt
     CustomDocumentEnrichmentConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` roleArn
-        `Prelude.hashWithSalt` inlineConfigurations
+      _salt `Prelude.hashWithSalt` inlineConfigurations
         `Prelude.hashWithSalt` postExtractionHookConfiguration
         `Prelude.hashWithSalt` preExtractionHookConfiguration
+        `Prelude.hashWithSalt` roleArn
 
 instance
   Prelude.NFData
     CustomDocumentEnrichmentConfiguration
   where
   rnf CustomDocumentEnrichmentConfiguration' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf inlineConfigurations
+    Prelude.rnf inlineConfigurations
       `Prelude.seq` Prelude.rnf postExtractionHookConfiguration
       `Prelude.seq` Prelude.rnf preExtractionHookConfiguration
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance
   Data.ToJSON
@@ -178,12 +177,12 @@ instance
   toJSON CustomDocumentEnrichmentConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("RoleArn" Data..=) Prelude.<$> roleArn,
-            ("InlineConfigurations" Data..=)
+          [ ("InlineConfigurations" Data..=)
               Prelude.<$> inlineConfigurations,
             ("PostExtractionHookConfiguration" Data..=)
               Prelude.<$> postExtractionHookConfiguration,
             ("PreExtractionHookConfiguration" Data..=)
-              Prelude.<$> preExtractionHookConfiguration
+              Prelude.<$> preExtractionHookConfiguration,
+            ("RoleArn" Data..=) Prelude.<$> roleArn
           ]
       )

@@ -34,15 +34,15 @@ module Amazonka.MediaPackageVOD.DescribeAsset
     newDescribeAssetResponse,
 
     -- * Response Lenses
-    describeAssetResponse_resourceId,
-    describeAssetResponse_tags,
-    describeAssetResponse_sourceRoleArn,
-    describeAssetResponse_sourceArn,
-    describeAssetResponse_packagingGroupId,
     describeAssetResponse_arn,
-    describeAssetResponse_id,
     describeAssetResponse_createdAt,
     describeAssetResponse_egressEndpoints,
+    describeAssetResponse_id,
+    describeAssetResponse_packagingGroupId,
+    describeAssetResponse_resourceId,
+    describeAssetResponse_sourceArn,
+    describeAssetResponse_sourceRoleArn,
+    describeAssetResponse_tags,
     describeAssetResponse_httpStatus,
   )
 where
@@ -91,17 +91,17 @@ instance Core.AWSRequest DescribeAsset where
     Response.receiveJSON
       ( \s h x ->
           DescribeAssetResponse'
-            Prelude.<$> (x Data..?> "resourceId")
-            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "sourceRoleArn")
-            Prelude.<*> (x Data..?> "sourceArn")
-            Prelude.<*> (x Data..?> "packagingGroupId")
-            Prelude.<*> (x Data..?> "arn")
-            Prelude.<*> (x Data..?> "id")
+            Prelude.<$> (x Data..?> "arn")
             Prelude.<*> (x Data..?> "createdAt")
             Prelude.<*> ( x Data..?> "egressEndpoints"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "packagingGroupId")
+            Prelude.<*> (x Data..?> "resourceId")
+            Prelude.<*> (x Data..?> "sourceArn")
+            Prelude.<*> (x Data..?> "sourceRoleArn")
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,23 +132,23 @@ instance Data.ToQuery DescribeAsset where
 
 -- | /See:/ 'newDescribeAssetResponse' smart constructor.
 data DescribeAssetResponse = DescribeAssetResponse'
-  { -- | The resource ID to include in SPEKE key requests.
-    resourceId :: Prelude.Maybe Prelude.Text,
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The IAM role_arn used to access the source S3 bucket.
-    sourceRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | ARN of the source object in S3.
-    sourceArn :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the PackagingGroup for the Asset.
-    packagingGroupId :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the Asset.
+  { -- | The ARN of the Asset.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the Asset.
-    id :: Prelude.Maybe Prelude.Text,
     -- | The time the Asset was initially submitted for Ingest.
     createdAt :: Prelude.Maybe Prelude.Text,
     -- | The list of egress endpoints available for the Asset.
     egressEndpoints :: Prelude.Maybe [EgressEndpoint],
+    -- | The unique identifier for the Asset.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the PackagingGroup for the Asset.
+    packagingGroupId :: Prelude.Maybe Prelude.Text,
+    -- | The resource ID to include in SPEKE key requests.
+    resourceId :: Prelude.Maybe Prelude.Text,
+    -- | ARN of the source object in S3.
+    sourceArn :: Prelude.Maybe Prelude.Text,
+    -- | The IAM role_arn used to access the source S3 bucket.
+    sourceRoleArn :: Prelude.Maybe Prelude.Text,
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -162,23 +162,23 @@ data DescribeAssetResponse = DescribeAssetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceId', 'describeAssetResponse_resourceId' - The resource ID to include in SPEKE key requests.
---
--- 'tags', 'describeAssetResponse_tags' - Undocumented member.
---
--- 'sourceRoleArn', 'describeAssetResponse_sourceRoleArn' - The IAM role_arn used to access the source S3 bucket.
---
--- 'sourceArn', 'describeAssetResponse_sourceArn' - ARN of the source object in S3.
---
--- 'packagingGroupId', 'describeAssetResponse_packagingGroupId' - The ID of the PackagingGroup for the Asset.
---
 -- 'arn', 'describeAssetResponse_arn' - The ARN of the Asset.
---
--- 'id', 'describeAssetResponse_id' - The unique identifier for the Asset.
 --
 -- 'createdAt', 'describeAssetResponse_createdAt' - The time the Asset was initially submitted for Ingest.
 --
 -- 'egressEndpoints', 'describeAssetResponse_egressEndpoints' - The list of egress endpoints available for the Asset.
+--
+-- 'id', 'describeAssetResponse_id' - The unique identifier for the Asset.
+--
+-- 'packagingGroupId', 'describeAssetResponse_packagingGroupId' - The ID of the PackagingGroup for the Asset.
+--
+-- 'resourceId', 'describeAssetResponse_resourceId' - The resource ID to include in SPEKE key requests.
+--
+-- 'sourceArn', 'describeAssetResponse_sourceArn' - ARN of the source object in S3.
+--
+-- 'sourceRoleArn', 'describeAssetResponse_sourceRoleArn' - The IAM role_arn used to access the source S3 bucket.
+--
+-- 'tags', 'describeAssetResponse_tags' - Undocumented member.
 --
 -- 'httpStatus', 'describeAssetResponse_httpStatus' - The response's http status code.
 newDescribeAssetResponse ::
@@ -187,46 +187,21 @@ newDescribeAssetResponse ::
   DescribeAssetResponse
 newDescribeAssetResponse pHttpStatus_ =
   DescribeAssetResponse'
-    { resourceId =
-        Prelude.Nothing,
-      tags = Prelude.Nothing,
-      sourceRoleArn = Prelude.Nothing,
-      sourceArn = Prelude.Nothing,
-      packagingGroupId = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      id = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       createdAt = Prelude.Nothing,
       egressEndpoints = Prelude.Nothing,
+      id = Prelude.Nothing,
+      packagingGroupId = Prelude.Nothing,
+      resourceId = Prelude.Nothing,
+      sourceArn = Prelude.Nothing,
+      sourceRoleArn = Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The resource ID to include in SPEKE key requests.
-describeAssetResponse_resourceId :: Lens.Lens' DescribeAssetResponse (Prelude.Maybe Prelude.Text)
-describeAssetResponse_resourceId = Lens.lens (\DescribeAssetResponse' {resourceId} -> resourceId) (\s@DescribeAssetResponse' {} a -> s {resourceId = a} :: DescribeAssetResponse)
-
--- | Undocumented member.
-describeAssetResponse_tags :: Lens.Lens' DescribeAssetResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-describeAssetResponse_tags = Lens.lens (\DescribeAssetResponse' {tags} -> tags) (\s@DescribeAssetResponse' {} a -> s {tags = a} :: DescribeAssetResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The IAM role_arn used to access the source S3 bucket.
-describeAssetResponse_sourceRoleArn :: Lens.Lens' DescribeAssetResponse (Prelude.Maybe Prelude.Text)
-describeAssetResponse_sourceRoleArn = Lens.lens (\DescribeAssetResponse' {sourceRoleArn} -> sourceRoleArn) (\s@DescribeAssetResponse' {} a -> s {sourceRoleArn = a} :: DescribeAssetResponse)
-
--- | ARN of the source object in S3.
-describeAssetResponse_sourceArn :: Lens.Lens' DescribeAssetResponse (Prelude.Maybe Prelude.Text)
-describeAssetResponse_sourceArn = Lens.lens (\DescribeAssetResponse' {sourceArn} -> sourceArn) (\s@DescribeAssetResponse' {} a -> s {sourceArn = a} :: DescribeAssetResponse)
-
--- | The ID of the PackagingGroup for the Asset.
-describeAssetResponse_packagingGroupId :: Lens.Lens' DescribeAssetResponse (Prelude.Maybe Prelude.Text)
-describeAssetResponse_packagingGroupId = Lens.lens (\DescribeAssetResponse' {packagingGroupId} -> packagingGroupId) (\s@DescribeAssetResponse' {} a -> s {packagingGroupId = a} :: DescribeAssetResponse)
 
 -- | The ARN of the Asset.
 describeAssetResponse_arn :: Lens.Lens' DescribeAssetResponse (Prelude.Maybe Prelude.Text)
 describeAssetResponse_arn = Lens.lens (\DescribeAssetResponse' {arn} -> arn) (\s@DescribeAssetResponse' {} a -> s {arn = a} :: DescribeAssetResponse)
-
--- | The unique identifier for the Asset.
-describeAssetResponse_id :: Lens.Lens' DescribeAssetResponse (Prelude.Maybe Prelude.Text)
-describeAssetResponse_id = Lens.lens (\DescribeAssetResponse' {id} -> id) (\s@DescribeAssetResponse' {} a -> s {id = a} :: DescribeAssetResponse)
 
 -- | The time the Asset was initially submitted for Ingest.
 describeAssetResponse_createdAt :: Lens.Lens' DescribeAssetResponse (Prelude.Maybe Prelude.Text)
@@ -236,19 +211,43 @@ describeAssetResponse_createdAt = Lens.lens (\DescribeAssetResponse' {createdAt}
 describeAssetResponse_egressEndpoints :: Lens.Lens' DescribeAssetResponse (Prelude.Maybe [EgressEndpoint])
 describeAssetResponse_egressEndpoints = Lens.lens (\DescribeAssetResponse' {egressEndpoints} -> egressEndpoints) (\s@DescribeAssetResponse' {} a -> s {egressEndpoints = a} :: DescribeAssetResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The unique identifier for the Asset.
+describeAssetResponse_id :: Lens.Lens' DescribeAssetResponse (Prelude.Maybe Prelude.Text)
+describeAssetResponse_id = Lens.lens (\DescribeAssetResponse' {id} -> id) (\s@DescribeAssetResponse' {} a -> s {id = a} :: DescribeAssetResponse)
+
+-- | The ID of the PackagingGroup for the Asset.
+describeAssetResponse_packagingGroupId :: Lens.Lens' DescribeAssetResponse (Prelude.Maybe Prelude.Text)
+describeAssetResponse_packagingGroupId = Lens.lens (\DescribeAssetResponse' {packagingGroupId} -> packagingGroupId) (\s@DescribeAssetResponse' {} a -> s {packagingGroupId = a} :: DescribeAssetResponse)
+
+-- | The resource ID to include in SPEKE key requests.
+describeAssetResponse_resourceId :: Lens.Lens' DescribeAssetResponse (Prelude.Maybe Prelude.Text)
+describeAssetResponse_resourceId = Lens.lens (\DescribeAssetResponse' {resourceId} -> resourceId) (\s@DescribeAssetResponse' {} a -> s {resourceId = a} :: DescribeAssetResponse)
+
+-- | ARN of the source object in S3.
+describeAssetResponse_sourceArn :: Lens.Lens' DescribeAssetResponse (Prelude.Maybe Prelude.Text)
+describeAssetResponse_sourceArn = Lens.lens (\DescribeAssetResponse' {sourceArn} -> sourceArn) (\s@DescribeAssetResponse' {} a -> s {sourceArn = a} :: DescribeAssetResponse)
+
+-- | The IAM role_arn used to access the source S3 bucket.
+describeAssetResponse_sourceRoleArn :: Lens.Lens' DescribeAssetResponse (Prelude.Maybe Prelude.Text)
+describeAssetResponse_sourceRoleArn = Lens.lens (\DescribeAssetResponse' {sourceRoleArn} -> sourceRoleArn) (\s@DescribeAssetResponse' {} a -> s {sourceRoleArn = a} :: DescribeAssetResponse)
+
+-- | Undocumented member.
+describeAssetResponse_tags :: Lens.Lens' DescribeAssetResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+describeAssetResponse_tags = Lens.lens (\DescribeAssetResponse' {tags} -> tags) (\s@DescribeAssetResponse' {} a -> s {tags = a} :: DescribeAssetResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 describeAssetResponse_httpStatus :: Lens.Lens' DescribeAssetResponse Prelude.Int
 describeAssetResponse_httpStatus = Lens.lens (\DescribeAssetResponse' {httpStatus} -> httpStatus) (\s@DescribeAssetResponse' {} a -> s {httpStatus = a} :: DescribeAssetResponse)
 
 instance Prelude.NFData DescribeAssetResponse where
   rnf DescribeAssetResponse' {..} =
-    Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf sourceRoleArn
-      `Prelude.seq` Prelude.rnf sourceArn
-      `Prelude.seq` Prelude.rnf packagingGroupId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf egressEndpoints
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf packagingGroupId
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf sourceArn
+      `Prelude.seq` Prelude.rnf sourceRoleArn
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

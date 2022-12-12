@@ -31,9 +31,7 @@ import Amazonka.WorkSpaces.Types.AssociationStatus
 --
 -- /See:/ 'newConnectionAliasAssociation' smart constructor.
 data ConnectionAliasAssociation = ConnectionAliasAssociation'
-  { -- | The identifier of the directory associated with a connection alias.
-    resourceId :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Web Services account that associated the
+  { -- | The identifier of the Amazon Web Services account that associated the
     -- connection alias with a directory.
     associatedAccountId :: Prelude.Maybe Prelude.Text,
     -- | The association status of the connection alias.
@@ -41,7 +39,9 @@ data ConnectionAliasAssociation = ConnectionAliasAssociation'
     -- | The identifier of the connection alias association. You use the
     -- connection identifier in the DNS TXT record when you\'re configuring
     -- your DNS routing policies.
-    connectionIdentifier :: Prelude.Maybe Prelude.Text
+    connectionIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the directory associated with a connection alias.
+    resourceId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,8 +53,6 @@ data ConnectionAliasAssociation = ConnectionAliasAssociation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceId', 'connectionAliasAssociation_resourceId' - The identifier of the directory associated with a connection alias.
---
 -- 'associatedAccountId', 'connectionAliasAssociation_associatedAccountId' - The identifier of the Amazon Web Services account that associated the
 -- connection alias with a directory.
 --
@@ -63,20 +61,18 @@ data ConnectionAliasAssociation = ConnectionAliasAssociation'
 -- 'connectionIdentifier', 'connectionAliasAssociation_connectionIdentifier' - The identifier of the connection alias association. You use the
 -- connection identifier in the DNS TXT record when you\'re configuring
 -- your DNS routing policies.
+--
+-- 'resourceId', 'connectionAliasAssociation_resourceId' - The identifier of the directory associated with a connection alias.
 newConnectionAliasAssociation ::
   ConnectionAliasAssociation
 newConnectionAliasAssociation =
   ConnectionAliasAssociation'
-    { resourceId =
+    { associatedAccountId =
         Prelude.Nothing,
-      associatedAccountId = Prelude.Nothing,
       associationStatus = Prelude.Nothing,
-      connectionIdentifier = Prelude.Nothing
+      connectionIdentifier = Prelude.Nothing,
+      resourceId = Prelude.Nothing
     }
-
--- | The identifier of the directory associated with a connection alias.
-connectionAliasAssociation_resourceId :: Lens.Lens' ConnectionAliasAssociation (Prelude.Maybe Prelude.Text)
-connectionAliasAssociation_resourceId = Lens.lens (\ConnectionAliasAssociation' {resourceId} -> resourceId) (\s@ConnectionAliasAssociation' {} a -> s {resourceId = a} :: ConnectionAliasAssociation)
 
 -- | The identifier of the Amazon Web Services account that associated the
 -- connection alias with a directory.
@@ -93,28 +89,32 @@ connectionAliasAssociation_associationStatus = Lens.lens (\ConnectionAliasAssoci
 connectionAliasAssociation_connectionIdentifier :: Lens.Lens' ConnectionAliasAssociation (Prelude.Maybe Prelude.Text)
 connectionAliasAssociation_connectionIdentifier = Lens.lens (\ConnectionAliasAssociation' {connectionIdentifier} -> connectionIdentifier) (\s@ConnectionAliasAssociation' {} a -> s {connectionIdentifier = a} :: ConnectionAliasAssociation)
 
+-- | The identifier of the directory associated with a connection alias.
+connectionAliasAssociation_resourceId :: Lens.Lens' ConnectionAliasAssociation (Prelude.Maybe Prelude.Text)
+connectionAliasAssociation_resourceId = Lens.lens (\ConnectionAliasAssociation' {resourceId} -> resourceId) (\s@ConnectionAliasAssociation' {} a -> s {resourceId = a} :: ConnectionAliasAssociation)
+
 instance Data.FromJSON ConnectionAliasAssociation where
   parseJSON =
     Data.withObject
       "ConnectionAliasAssociation"
       ( \x ->
           ConnectionAliasAssociation'
-            Prelude.<$> (x Data..:? "ResourceId")
-            Prelude.<*> (x Data..:? "AssociatedAccountId")
+            Prelude.<$> (x Data..:? "AssociatedAccountId")
             Prelude.<*> (x Data..:? "AssociationStatus")
             Prelude.<*> (x Data..:? "ConnectionIdentifier")
+            Prelude.<*> (x Data..:? "ResourceId")
       )
 
 instance Prelude.Hashable ConnectionAliasAssociation where
   hashWithSalt _salt ConnectionAliasAssociation' {..} =
-    _salt `Prelude.hashWithSalt` resourceId
-      `Prelude.hashWithSalt` associatedAccountId
+    _salt `Prelude.hashWithSalt` associatedAccountId
       `Prelude.hashWithSalt` associationStatus
       `Prelude.hashWithSalt` connectionIdentifier
+      `Prelude.hashWithSalt` resourceId
 
 instance Prelude.NFData ConnectionAliasAssociation where
   rnf ConnectionAliasAssociation' {..} =
-    Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf associatedAccountId
+    Prelude.rnf associatedAccountId
       `Prelude.seq` Prelude.rnf associationStatus
       `Prelude.seq` Prelude.rnf connectionIdentifier
+      `Prelude.seq` Prelude.rnf resourceId

@@ -29,8 +29,8 @@ module Amazonka.Inspector.ListRulesPackages
     newListRulesPackages,
 
     -- * Request Lenses
-    listRulesPackages_nextToken,
     listRulesPackages_maxResults,
+    listRulesPackages_nextToken,
 
     -- * Destructuring the Response
     ListRulesPackagesResponse (..),
@@ -53,15 +53,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListRulesPackages' smart constructor.
 data ListRulesPackages = ListRulesPackages'
-  { -- | You can use this parameter when paginating results. Set the value of
+  { -- | You can use this parameter to indicate the maximum number of items you
+    -- want in the response. The default value is 10. The maximum value is 500.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | You can use this parameter when paginating results. Set the value of
     -- this parameter to null on your first call to the __ListRulesPackages__
     -- action. Subsequent calls to the action fill __nextToken__ in the request
     -- with the value of __NextToken__ from the previous response to continue
     -- listing data.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | You can use this parameter to indicate the maximum number of items you
-    -- want in the response. The default value is 10. The maximum value is 500.
-    maxResults :: Prelude.Maybe Prelude.Int
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,21 +73,26 @@ data ListRulesPackages = ListRulesPackages'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listRulesPackages_maxResults' - You can use this parameter to indicate the maximum number of items you
+-- want in the response. The default value is 10. The maximum value is 500.
+--
 -- 'nextToken', 'listRulesPackages_nextToken' - You can use this parameter when paginating results. Set the value of
 -- this parameter to null on your first call to the __ListRulesPackages__
 -- action. Subsequent calls to the action fill __nextToken__ in the request
 -- with the value of __NextToken__ from the previous response to continue
 -- listing data.
---
--- 'maxResults', 'listRulesPackages_maxResults' - You can use this parameter to indicate the maximum number of items you
--- want in the response. The default value is 10. The maximum value is 500.
 newListRulesPackages ::
   ListRulesPackages
 newListRulesPackages =
   ListRulesPackages'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | You can use this parameter to indicate the maximum number of items you
+-- want in the response. The default value is 10. The maximum value is 500.
+listRulesPackages_maxResults :: Lens.Lens' ListRulesPackages (Prelude.Maybe Prelude.Int)
+listRulesPackages_maxResults = Lens.lens (\ListRulesPackages' {maxResults} -> maxResults) (\s@ListRulesPackages' {} a -> s {maxResults = a} :: ListRulesPackages)
 
 -- | You can use this parameter when paginating results. Set the value of
 -- this parameter to null on your first call to the __ListRulesPackages__
@@ -96,11 +101,6 @@ newListRulesPackages =
 -- listing data.
 listRulesPackages_nextToken :: Lens.Lens' ListRulesPackages (Prelude.Maybe Prelude.Text)
 listRulesPackages_nextToken = Lens.lens (\ListRulesPackages' {nextToken} -> nextToken) (\s@ListRulesPackages' {} a -> s {nextToken = a} :: ListRulesPackages)
-
--- | You can use this parameter to indicate the maximum number of items you
--- want in the response. The default value is 10. The maximum value is 500.
-listRulesPackages_maxResults :: Lens.Lens' ListRulesPackages (Prelude.Maybe Prelude.Int)
-listRulesPackages_maxResults = Lens.lens (\ListRulesPackages' {maxResults} -> maxResults) (\s@ListRulesPackages' {} a -> s {maxResults = a} :: ListRulesPackages)
 
 instance Core.AWSPager ListRulesPackages where
   page rq rs
@@ -142,13 +142,13 @@ instance Core.AWSRequest ListRulesPackages where
 
 instance Prelude.Hashable ListRulesPackages where
   hashWithSalt _salt ListRulesPackages' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListRulesPackages where
   rnf ListRulesPackages' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListRulesPackages where
   toHeaders =
@@ -169,8 +169,8 @@ instance Data.ToJSON ListRulesPackages where
   toJSON ListRulesPackages' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

@@ -29,8 +29,8 @@ module Amazonka.MigrationHubOrchestrator.ListWorkflowSteps
     newListWorkflowSteps,
 
     -- * Request Lenses
-    listWorkflowSteps_nextToken,
     listWorkflowSteps_maxResults,
+    listWorkflowSteps_nextToken,
     listWorkflowSteps_workflowId,
     listWorkflowSteps_stepGroupId,
 
@@ -55,10 +55,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListWorkflowSteps' smart constructor.
 data ListWorkflowSteps = ListWorkflowSteps'
-  { -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results that can be returned.
+  { -- | The maximum number of results that can be returned.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the migration workflow.
     workflowId :: Prelude.Text,
     -- | The ID of the step group.
@@ -74,9 +74,9 @@ data ListWorkflowSteps = ListWorkflowSteps'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listWorkflowSteps_nextToken' - The pagination token.
---
 -- 'maxResults', 'listWorkflowSteps_maxResults' - The maximum number of results that can be returned.
+--
+-- 'nextToken', 'listWorkflowSteps_nextToken' - The pagination token.
 --
 -- 'workflowId', 'listWorkflowSteps_workflowId' - The ID of the migration workflow.
 --
@@ -89,19 +89,19 @@ newListWorkflowSteps ::
   ListWorkflowSteps
 newListWorkflowSteps pWorkflowId_ pStepGroupId_ =
   ListWorkflowSteps'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       workflowId = pWorkflowId_,
       stepGroupId = pStepGroupId_
     }
 
--- | The pagination token.
-listWorkflowSteps_nextToken :: Lens.Lens' ListWorkflowSteps (Prelude.Maybe Prelude.Text)
-listWorkflowSteps_nextToken = Lens.lens (\ListWorkflowSteps' {nextToken} -> nextToken) (\s@ListWorkflowSteps' {} a -> s {nextToken = a} :: ListWorkflowSteps)
-
 -- | The maximum number of results that can be returned.
 listWorkflowSteps_maxResults :: Lens.Lens' ListWorkflowSteps (Prelude.Maybe Prelude.Natural)
 listWorkflowSteps_maxResults = Lens.lens (\ListWorkflowSteps' {maxResults} -> maxResults) (\s@ListWorkflowSteps' {} a -> s {maxResults = a} :: ListWorkflowSteps)
+
+-- | The pagination token.
+listWorkflowSteps_nextToken :: Lens.Lens' ListWorkflowSteps (Prelude.Maybe Prelude.Text)
+listWorkflowSteps_nextToken = Lens.lens (\ListWorkflowSteps' {nextToken} -> nextToken) (\s@ListWorkflowSteps' {} a -> s {nextToken = a} :: ListWorkflowSteps)
 
 -- | The ID of the migration workflow.
 listWorkflowSteps_workflowId :: Lens.Lens' ListWorkflowSteps Prelude.Text
@@ -151,15 +151,15 @@ instance Core.AWSRequest ListWorkflowSteps where
 
 instance Prelude.Hashable ListWorkflowSteps where
   hashWithSalt _salt ListWorkflowSteps' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` workflowId
       `Prelude.hashWithSalt` stepGroupId
 
 instance Prelude.NFData ListWorkflowSteps where
   rnf ListWorkflowSteps' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf workflowId
       `Prelude.seq` Prelude.rnf stepGroupId
 
@@ -187,8 +187,8 @@ instance Data.ToPath ListWorkflowSteps where
 instance Data.ToQuery ListWorkflowSteps where
   toQuery ListWorkflowSteps' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListWorkflowStepsResponse' smart constructor.

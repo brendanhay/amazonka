@@ -34,9 +34,9 @@ module Amazonka.CloudFront.CreateDistributionWithTags
     newCreateDistributionWithTagsResponse,
 
     -- * Response Lenses
-    createDistributionWithTagsResponse_location,
     createDistributionWithTagsResponse_distribution,
     createDistributionWithTagsResponse_eTag,
+    createDistributionWithTagsResponse_location,
     createDistributionWithTagsResponse_httpStatus,
   )
 where
@@ -92,9 +92,9 @@ instance Core.AWSRequest CreateDistributionWithTags where
     Response.receiveXML
       ( \s h x ->
           CreateDistributionWithTagsResponse'
-            Prelude.<$> (h Data..#? "Location")
-            Prelude.<*> (Data.parseXML x)
+            Prelude.<$> (Data.parseXML x)
             Prelude.<*> (h Data..#? "ETag")
+            Prelude.<*> (h Data..#? "Location")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -127,12 +127,12 @@ instance Data.ToQuery CreateDistributionWithTags where
 --
 -- /See:/ 'newCreateDistributionWithTagsResponse' smart constructor.
 data CreateDistributionWithTagsResponse = CreateDistributionWithTagsResponse'
-  { -- | The fully qualified URI of the new distribution resource just created.
-    location :: Prelude.Maybe Prelude.Text,
-    -- | The distribution\'s information.
+  { -- | The distribution\'s information.
     distribution :: Prelude.Maybe Distribution,
     -- | The current version of the distribution created.
     eTag :: Prelude.Maybe Prelude.Text,
+    -- | The fully qualified URI of the new distribution resource just created.
+    location :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -146,11 +146,11 @@ data CreateDistributionWithTagsResponse = CreateDistributionWithTagsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'location', 'createDistributionWithTagsResponse_location' - The fully qualified URI of the new distribution resource just created.
---
 -- 'distribution', 'createDistributionWithTagsResponse_distribution' - The distribution\'s information.
 --
 -- 'eTag', 'createDistributionWithTagsResponse_eTag' - The current version of the distribution created.
+--
+-- 'location', 'createDistributionWithTagsResponse_location' - The fully qualified URI of the new distribution resource just created.
 --
 -- 'httpStatus', 'createDistributionWithTagsResponse_httpStatus' - The response's http status code.
 newCreateDistributionWithTagsResponse ::
@@ -159,16 +159,12 @@ newCreateDistributionWithTagsResponse ::
   CreateDistributionWithTagsResponse
 newCreateDistributionWithTagsResponse pHttpStatus_ =
   CreateDistributionWithTagsResponse'
-    { location =
+    { distribution =
         Prelude.Nothing,
-      distribution = Prelude.Nothing,
       eTag = Prelude.Nothing,
+      location = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The fully qualified URI of the new distribution resource just created.
-createDistributionWithTagsResponse_location :: Lens.Lens' CreateDistributionWithTagsResponse (Prelude.Maybe Prelude.Text)
-createDistributionWithTagsResponse_location = Lens.lens (\CreateDistributionWithTagsResponse' {location} -> location) (\s@CreateDistributionWithTagsResponse' {} a -> s {location = a} :: CreateDistributionWithTagsResponse)
 
 -- | The distribution\'s information.
 createDistributionWithTagsResponse_distribution :: Lens.Lens' CreateDistributionWithTagsResponse (Prelude.Maybe Distribution)
@@ -177,6 +173,10 @@ createDistributionWithTagsResponse_distribution = Lens.lens (\CreateDistribution
 -- | The current version of the distribution created.
 createDistributionWithTagsResponse_eTag :: Lens.Lens' CreateDistributionWithTagsResponse (Prelude.Maybe Prelude.Text)
 createDistributionWithTagsResponse_eTag = Lens.lens (\CreateDistributionWithTagsResponse' {eTag} -> eTag) (\s@CreateDistributionWithTagsResponse' {} a -> s {eTag = a} :: CreateDistributionWithTagsResponse)
+
+-- | The fully qualified URI of the new distribution resource just created.
+createDistributionWithTagsResponse_location :: Lens.Lens' CreateDistributionWithTagsResponse (Prelude.Maybe Prelude.Text)
+createDistributionWithTagsResponse_location = Lens.lens (\CreateDistributionWithTagsResponse' {location} -> location) (\s@CreateDistributionWithTagsResponse' {} a -> s {location = a} :: CreateDistributionWithTagsResponse)
 
 -- | The response's http status code.
 createDistributionWithTagsResponse_httpStatus :: Lens.Lens' CreateDistributionWithTagsResponse Prelude.Int
@@ -187,7 +187,7 @@ instance
     CreateDistributionWithTagsResponse
   where
   rnf CreateDistributionWithTagsResponse' {..} =
-    Prelude.rnf location
-      `Prelude.seq` Prelude.rnf distribution
+    Prelude.rnf distribution
       `Prelude.seq` Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf location
       `Prelude.seq` Prelude.rnf httpStatus

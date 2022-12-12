@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEnvironmentDescriptionsMessage' smart constructor.
 data EnvironmentDescriptionsMessage = EnvironmentDescriptionsMessage'
-  { -- | In a paginated request, the token that you can pass in a subsequent
+  { -- | Returns an EnvironmentDescription list.
+    environments :: Prelude.Maybe [EnvironmentDescription],
+    -- | In a paginated request, the token that you can pass in a subsequent
     -- request to get the next response page.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Returns an EnvironmentDescription list.
-    environments :: Prelude.Maybe [EnvironmentDescription]
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,35 +45,35 @@ data EnvironmentDescriptionsMessage = EnvironmentDescriptionsMessage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'environments', 'environmentDescriptionsMessage_environments' - Returns an EnvironmentDescription list.
+--
 -- 'nextToken', 'environmentDescriptionsMessage_nextToken' - In a paginated request, the token that you can pass in a subsequent
 -- request to get the next response page.
---
--- 'environments', 'environmentDescriptionsMessage_environments' - Returns an EnvironmentDescription list.
 newEnvironmentDescriptionsMessage ::
   EnvironmentDescriptionsMessage
 newEnvironmentDescriptionsMessage =
   EnvironmentDescriptionsMessage'
-    { nextToken =
+    { environments =
         Prelude.Nothing,
-      environments = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
+
+-- | Returns an EnvironmentDescription list.
+environmentDescriptionsMessage_environments :: Lens.Lens' EnvironmentDescriptionsMessage (Prelude.Maybe [EnvironmentDescription])
+environmentDescriptionsMessage_environments = Lens.lens (\EnvironmentDescriptionsMessage' {environments} -> environments) (\s@EnvironmentDescriptionsMessage' {} a -> s {environments = a} :: EnvironmentDescriptionsMessage) Prelude.. Lens.mapping Lens.coerced
 
 -- | In a paginated request, the token that you can pass in a subsequent
 -- request to get the next response page.
 environmentDescriptionsMessage_nextToken :: Lens.Lens' EnvironmentDescriptionsMessage (Prelude.Maybe Prelude.Text)
 environmentDescriptionsMessage_nextToken = Lens.lens (\EnvironmentDescriptionsMessage' {nextToken} -> nextToken) (\s@EnvironmentDescriptionsMessage' {} a -> s {nextToken = a} :: EnvironmentDescriptionsMessage)
 
--- | Returns an EnvironmentDescription list.
-environmentDescriptionsMessage_environments :: Lens.Lens' EnvironmentDescriptionsMessage (Prelude.Maybe [EnvironmentDescription])
-environmentDescriptionsMessage_environments = Lens.lens (\EnvironmentDescriptionsMessage' {environments} -> environments) (\s@EnvironmentDescriptionsMessage' {} a -> s {environments = a} :: EnvironmentDescriptionsMessage) Prelude.. Lens.mapping Lens.coerced
-
 instance Data.FromXML EnvironmentDescriptionsMessage where
   parseXML x =
     EnvironmentDescriptionsMessage'
-      Prelude.<$> (x Data..@? "NextToken")
-      Prelude.<*> ( x Data..@? "Environments" Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Environments" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
+      Prelude.<*> (x Data..@? "NextToken")
 
 instance
   Prelude.Hashable
@@ -82,13 +82,13 @@ instance
   hashWithSalt
     _salt
     EnvironmentDescriptionsMessage' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` environments
+      _salt `Prelude.hashWithSalt` environments
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     EnvironmentDescriptionsMessage
   where
   rnf EnvironmentDescriptionsMessage' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf environments
+    Prelude.rnf environments
+      `Prelude.seq` Prelude.rnf nextToken

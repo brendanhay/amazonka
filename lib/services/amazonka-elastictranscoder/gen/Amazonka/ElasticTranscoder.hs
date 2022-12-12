@@ -24,23 +24,23 @@ module Amazonka.ElasticTranscoder
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
+    -- ** IncompatibleVersionException
+    _IncompatibleVersionException,
 
-    -- ** ResourceInUseException
-    _ResourceInUseException,
+    -- ** InternalServiceException
+    _InternalServiceException,
 
     -- ** LimitExceededException
     _LimitExceededException,
 
-    -- ** IncompatibleVersionException
-    _IncompatibleVersionException,
+    -- ** ResourceInUseException
+    _ResourceInUseException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- ** ValidationException
     _ValidationException,
-
-    -- ** InternalServiceException
-    _InternalServiceException,
 
     -- * Waiters
     -- $waiters

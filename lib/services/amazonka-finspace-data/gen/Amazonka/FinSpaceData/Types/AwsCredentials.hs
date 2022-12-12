@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsCredentials' smart constructor.
 data AwsCredentials = AwsCredentials'
-  { -- | The Epoch time when the current credentials expire.
+  { -- | The unique identifier for the security credentials.
+    accessKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The Epoch time when the current credentials expire.
     expiration :: Prelude.Maybe Prelude.Integer,
-    -- | The token that users must pass to use the credentials.
-    sessionToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The secret access key that can be used to sign requests.
     secretAccessKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The unique identifier for the security credentials.
-    accessKeyId :: Prelude.Maybe Prelude.Text
+    -- | The token that users must pass to use the credentials.
+    sessionToken :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -48,38 +48,38 @@ data AwsCredentials = AwsCredentials'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expiration', 'awsCredentials_expiration' - The Epoch time when the current credentials expire.
+-- 'accessKeyId', 'awsCredentials_accessKeyId' - The unique identifier for the security credentials.
 --
--- 'sessionToken', 'awsCredentials_sessionToken' - The token that users must pass to use the credentials.
+-- 'expiration', 'awsCredentials_expiration' - The Epoch time when the current credentials expire.
 --
 -- 'secretAccessKey', 'awsCredentials_secretAccessKey' - The secret access key that can be used to sign requests.
 --
--- 'accessKeyId', 'awsCredentials_accessKeyId' - The unique identifier for the security credentials.
+-- 'sessionToken', 'awsCredentials_sessionToken' - The token that users must pass to use the credentials.
 newAwsCredentials ::
   AwsCredentials
 newAwsCredentials =
   AwsCredentials'
-    { expiration = Prelude.Nothing,
-      sessionToken = Prelude.Nothing,
+    { accessKeyId = Prelude.Nothing,
+      expiration = Prelude.Nothing,
       secretAccessKey = Prelude.Nothing,
-      accessKeyId = Prelude.Nothing
+      sessionToken = Prelude.Nothing
     }
+
+-- | The unique identifier for the security credentials.
+awsCredentials_accessKeyId :: Lens.Lens' AwsCredentials (Prelude.Maybe Prelude.Text)
+awsCredentials_accessKeyId = Lens.lens (\AwsCredentials' {accessKeyId} -> accessKeyId) (\s@AwsCredentials' {} a -> s {accessKeyId = a} :: AwsCredentials)
 
 -- | The Epoch time when the current credentials expire.
 awsCredentials_expiration :: Lens.Lens' AwsCredentials (Prelude.Maybe Prelude.Integer)
 awsCredentials_expiration = Lens.lens (\AwsCredentials' {expiration} -> expiration) (\s@AwsCredentials' {} a -> s {expiration = a} :: AwsCredentials)
 
--- | The token that users must pass to use the credentials.
-awsCredentials_sessionToken :: Lens.Lens' AwsCredentials (Prelude.Maybe Prelude.Text)
-awsCredentials_sessionToken = Lens.lens (\AwsCredentials' {sessionToken} -> sessionToken) (\s@AwsCredentials' {} a -> s {sessionToken = a} :: AwsCredentials) Prelude.. Lens.mapping Data._Sensitive
-
 -- | The secret access key that can be used to sign requests.
 awsCredentials_secretAccessKey :: Lens.Lens' AwsCredentials (Prelude.Maybe Prelude.Text)
 awsCredentials_secretAccessKey = Lens.lens (\AwsCredentials' {secretAccessKey} -> secretAccessKey) (\s@AwsCredentials' {} a -> s {secretAccessKey = a} :: AwsCredentials) Prelude.. Lens.mapping Data._Sensitive
 
--- | The unique identifier for the security credentials.
-awsCredentials_accessKeyId :: Lens.Lens' AwsCredentials (Prelude.Maybe Prelude.Text)
-awsCredentials_accessKeyId = Lens.lens (\AwsCredentials' {accessKeyId} -> accessKeyId) (\s@AwsCredentials' {} a -> s {accessKeyId = a} :: AwsCredentials)
+-- | The token that users must pass to use the credentials.
+awsCredentials_sessionToken :: Lens.Lens' AwsCredentials (Prelude.Maybe Prelude.Text)
+awsCredentials_sessionToken = Lens.lens (\AwsCredentials' {sessionToken} -> sessionToken) (\s@AwsCredentials' {} a -> s {sessionToken = a} :: AwsCredentials) Prelude.. Lens.mapping Data._Sensitive
 
 instance Data.FromJSON AwsCredentials where
   parseJSON =
@@ -87,22 +87,22 @@ instance Data.FromJSON AwsCredentials where
       "AwsCredentials"
       ( \x ->
           AwsCredentials'
-            Prelude.<$> (x Data..:? "expiration")
-            Prelude.<*> (x Data..:? "sessionToken")
+            Prelude.<$> (x Data..:? "accessKeyId")
+            Prelude.<*> (x Data..:? "expiration")
             Prelude.<*> (x Data..:? "secretAccessKey")
-            Prelude.<*> (x Data..:? "accessKeyId")
+            Prelude.<*> (x Data..:? "sessionToken")
       )
 
 instance Prelude.Hashable AwsCredentials where
   hashWithSalt _salt AwsCredentials' {..} =
-    _salt `Prelude.hashWithSalt` expiration
-      `Prelude.hashWithSalt` sessionToken
+    _salt `Prelude.hashWithSalt` accessKeyId
+      `Prelude.hashWithSalt` expiration
       `Prelude.hashWithSalt` secretAccessKey
-      `Prelude.hashWithSalt` accessKeyId
+      `Prelude.hashWithSalt` sessionToken
 
 instance Prelude.NFData AwsCredentials where
   rnf AwsCredentials' {..} =
-    Prelude.rnf expiration
-      `Prelude.seq` Prelude.rnf sessionToken
+    Prelude.rnf accessKeyId
+      `Prelude.seq` Prelude.rnf expiration
       `Prelude.seq` Prelude.rnf secretAccessKey
-      `Prelude.seq` Prelude.rnf accessKeyId
+      `Prelude.seq` Prelude.rnf sessionToken

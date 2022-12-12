@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTrafficMirrorPortRange' smart constructor.
 data TrafficMirrorPortRange = TrafficMirrorPortRange'
-  { -- | The end of the Traffic Mirror port range. This applies to the TCP and
+  { -- | The start of the Traffic Mirror port range. This applies to the TCP and
     -- UDP protocols.
-    toPort :: Prelude.Maybe Prelude.Int,
-    -- | The start of the Traffic Mirror port range. This applies to the TCP and
+    fromPort :: Prelude.Maybe Prelude.Int,
+    -- | The end of the Traffic Mirror port range. This applies to the TCP and
     -- UDP protocols.
-    fromPort :: Prelude.Maybe Prelude.Int
+    toPort :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,41 +46,41 @@ data TrafficMirrorPortRange = TrafficMirrorPortRange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'toPort', 'trafficMirrorPortRange_toPort' - The end of the Traffic Mirror port range. This applies to the TCP and
+-- 'fromPort', 'trafficMirrorPortRange_fromPort' - The start of the Traffic Mirror port range. This applies to the TCP and
 -- UDP protocols.
 --
--- 'fromPort', 'trafficMirrorPortRange_fromPort' - The start of the Traffic Mirror port range. This applies to the TCP and
+-- 'toPort', 'trafficMirrorPortRange_toPort' - The end of the Traffic Mirror port range. This applies to the TCP and
 -- UDP protocols.
 newTrafficMirrorPortRange ::
   TrafficMirrorPortRange
 newTrafficMirrorPortRange =
   TrafficMirrorPortRange'
-    { toPort = Prelude.Nothing,
-      fromPort = Prelude.Nothing
+    { fromPort = Prelude.Nothing,
+      toPort = Prelude.Nothing
     }
-
--- | The end of the Traffic Mirror port range. This applies to the TCP and
--- UDP protocols.
-trafficMirrorPortRange_toPort :: Lens.Lens' TrafficMirrorPortRange (Prelude.Maybe Prelude.Int)
-trafficMirrorPortRange_toPort = Lens.lens (\TrafficMirrorPortRange' {toPort} -> toPort) (\s@TrafficMirrorPortRange' {} a -> s {toPort = a} :: TrafficMirrorPortRange)
 
 -- | The start of the Traffic Mirror port range. This applies to the TCP and
 -- UDP protocols.
 trafficMirrorPortRange_fromPort :: Lens.Lens' TrafficMirrorPortRange (Prelude.Maybe Prelude.Int)
 trafficMirrorPortRange_fromPort = Lens.lens (\TrafficMirrorPortRange' {fromPort} -> fromPort) (\s@TrafficMirrorPortRange' {} a -> s {fromPort = a} :: TrafficMirrorPortRange)
 
+-- | The end of the Traffic Mirror port range. This applies to the TCP and
+-- UDP protocols.
+trafficMirrorPortRange_toPort :: Lens.Lens' TrafficMirrorPortRange (Prelude.Maybe Prelude.Int)
+trafficMirrorPortRange_toPort = Lens.lens (\TrafficMirrorPortRange' {toPort} -> toPort) (\s@TrafficMirrorPortRange' {} a -> s {toPort = a} :: TrafficMirrorPortRange)
+
 instance Data.FromXML TrafficMirrorPortRange where
   parseXML x =
     TrafficMirrorPortRange'
-      Prelude.<$> (x Data..@? "toPort")
-      Prelude.<*> (x Data..@? "fromPort")
+      Prelude.<$> (x Data..@? "fromPort")
+      Prelude.<*> (x Data..@? "toPort")
 
 instance Prelude.Hashable TrafficMirrorPortRange where
   hashWithSalt _salt TrafficMirrorPortRange' {..} =
-    _salt `Prelude.hashWithSalt` toPort
-      `Prelude.hashWithSalt` fromPort
+    _salt `Prelude.hashWithSalt` fromPort
+      `Prelude.hashWithSalt` toPort
 
 instance Prelude.NFData TrafficMirrorPortRange where
   rnf TrafficMirrorPortRange' {..} =
-    Prelude.rnf toPort
-      `Prelude.seq` Prelude.rnf fromPort
+    Prelude.rnf fromPort
+      `Prelude.seq` Prelude.rnf toPort

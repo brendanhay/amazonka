@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRelationshipValue' smart constructor.
 data RelationshipValue = RelationshipValue'
-  { -- | The ID of the target entity associated with this relationship value.
-    targetEntityId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the target component associated with the relationship value.
-    targetComponentName :: Prelude.Maybe Prelude.Text
+  { -- | The name of the target component associated with the relationship value.
+    targetComponentName :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the target entity associated with this relationship value.
+    targetEntityId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data RelationshipValue = RelationshipValue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetEntityId', 'relationshipValue_targetEntityId' - The ID of the target entity associated with this relationship value.
---
 -- 'targetComponentName', 'relationshipValue_targetComponentName' - The name of the target component associated with the relationship value.
+--
+-- 'targetEntityId', 'relationshipValue_targetEntityId' - The ID of the target entity associated with this relationship value.
 newRelationshipValue ::
   RelationshipValue
 newRelationshipValue =
   RelationshipValue'
-    { targetEntityId =
+    { targetComponentName =
         Prelude.Nothing,
-      targetComponentName = Prelude.Nothing
+      targetEntityId = Prelude.Nothing
     }
-
--- | The ID of the target entity associated with this relationship value.
-relationshipValue_targetEntityId :: Lens.Lens' RelationshipValue (Prelude.Maybe Prelude.Text)
-relationshipValue_targetEntityId = Lens.lens (\RelationshipValue' {targetEntityId} -> targetEntityId) (\s@RelationshipValue' {} a -> s {targetEntityId = a} :: RelationshipValue)
 
 -- | The name of the target component associated with the relationship value.
 relationshipValue_targetComponentName :: Lens.Lens' RelationshipValue (Prelude.Maybe Prelude.Text)
 relationshipValue_targetComponentName = Lens.lens (\RelationshipValue' {targetComponentName} -> targetComponentName) (\s@RelationshipValue' {} a -> s {targetComponentName = a} :: RelationshipValue)
+
+-- | The ID of the target entity associated with this relationship value.
+relationshipValue_targetEntityId :: Lens.Lens' RelationshipValue (Prelude.Maybe Prelude.Text)
+relationshipValue_targetEntityId = Lens.lens (\RelationshipValue' {targetEntityId} -> targetEntityId) (\s@RelationshipValue' {} a -> s {targetEntityId = a} :: RelationshipValue)
 
 instance Data.FromJSON RelationshipValue where
   parseJSON =
@@ -69,27 +69,27 @@ instance Data.FromJSON RelationshipValue where
       "RelationshipValue"
       ( \x ->
           RelationshipValue'
-            Prelude.<$> (x Data..:? "targetEntityId")
-            Prelude.<*> (x Data..:? "targetComponentName")
+            Prelude.<$> (x Data..:? "targetComponentName")
+            Prelude.<*> (x Data..:? "targetEntityId")
       )
 
 instance Prelude.Hashable RelationshipValue where
   hashWithSalt _salt RelationshipValue' {..} =
-    _salt `Prelude.hashWithSalt` targetEntityId
-      `Prelude.hashWithSalt` targetComponentName
+    _salt `Prelude.hashWithSalt` targetComponentName
+      `Prelude.hashWithSalt` targetEntityId
 
 instance Prelude.NFData RelationshipValue where
   rnf RelationshipValue' {..} =
-    Prelude.rnf targetEntityId
-      `Prelude.seq` Prelude.rnf targetComponentName
+    Prelude.rnf targetComponentName
+      `Prelude.seq` Prelude.rnf targetEntityId
 
 instance Data.ToJSON RelationshipValue where
   toJSON RelationshipValue' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("targetEntityId" Data..=)
-              Prelude.<$> targetEntityId,
-            ("targetComponentName" Data..=)
-              Prelude.<$> targetComponentName
+          [ ("targetComponentName" Data..=)
+              Prelude.<$> targetComponentName,
+            ("targetEntityId" Data..=)
+              Prelude.<$> targetEntityId
           ]
       )

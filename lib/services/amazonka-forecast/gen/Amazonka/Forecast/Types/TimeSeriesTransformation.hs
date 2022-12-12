@@ -35,13 +35,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTimeSeriesTransformation' smart constructor.
 data TimeSeriesTransformation = TimeSeriesTransformation'
-  { -- | An array of conditions that define which members of the related time
-    -- series are transformed.
-    timeSeriesConditions :: Prelude.Maybe [TimeSeriesCondition],
-    -- | An array of actions that define a time series and how it is transformed.
+  { -- | An array of actions that define a time series and how it is transformed.
     -- These transformations create a new time series that is used for the
     -- what-if analysis.
-    action :: Prelude.Maybe Action
+    action :: Prelude.Maybe Action,
+    -- | An array of conditions that define which members of the related time
+    -- series are transformed.
+    timeSeriesConditions :: Prelude.Maybe [TimeSeriesCondition]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,25 +53,19 @@ data TimeSeriesTransformation = TimeSeriesTransformation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'timeSeriesConditions', 'timeSeriesTransformation_timeSeriesConditions' - An array of conditions that define which members of the related time
--- series are transformed.
---
 -- 'action', 'timeSeriesTransformation_action' - An array of actions that define a time series and how it is transformed.
 -- These transformations create a new time series that is used for the
 -- what-if analysis.
+--
+-- 'timeSeriesConditions', 'timeSeriesTransformation_timeSeriesConditions' - An array of conditions that define which members of the related time
+-- series are transformed.
 newTimeSeriesTransformation ::
   TimeSeriesTransformation
 newTimeSeriesTransformation =
   TimeSeriesTransformation'
-    { timeSeriesConditions =
-        Prelude.Nothing,
-      action = Prelude.Nothing
+    { action = Prelude.Nothing,
+      timeSeriesConditions = Prelude.Nothing
     }
-
--- | An array of conditions that define which members of the related time
--- series are transformed.
-timeSeriesTransformation_timeSeriesConditions :: Lens.Lens' TimeSeriesTransformation (Prelude.Maybe [TimeSeriesCondition])
-timeSeriesTransformation_timeSeriesConditions = Lens.lens (\TimeSeriesTransformation' {timeSeriesConditions} -> timeSeriesConditions) (\s@TimeSeriesTransformation' {} a -> s {timeSeriesConditions = a} :: TimeSeriesTransformation) Prelude.. Lens.mapping Lens.coerced
 
 -- | An array of actions that define a time series and how it is transformed.
 -- These transformations create a new time series that is used for the
@@ -79,34 +73,39 @@ timeSeriesTransformation_timeSeriesConditions = Lens.lens (\TimeSeriesTransforma
 timeSeriesTransformation_action :: Lens.Lens' TimeSeriesTransformation (Prelude.Maybe Action)
 timeSeriesTransformation_action = Lens.lens (\TimeSeriesTransformation' {action} -> action) (\s@TimeSeriesTransformation' {} a -> s {action = a} :: TimeSeriesTransformation)
 
+-- | An array of conditions that define which members of the related time
+-- series are transformed.
+timeSeriesTransformation_timeSeriesConditions :: Lens.Lens' TimeSeriesTransformation (Prelude.Maybe [TimeSeriesCondition])
+timeSeriesTransformation_timeSeriesConditions = Lens.lens (\TimeSeriesTransformation' {timeSeriesConditions} -> timeSeriesConditions) (\s@TimeSeriesTransformation' {} a -> s {timeSeriesConditions = a} :: TimeSeriesTransformation) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON TimeSeriesTransformation where
   parseJSON =
     Data.withObject
       "TimeSeriesTransformation"
       ( \x ->
           TimeSeriesTransformation'
-            Prelude.<$> ( x Data..:? "TimeSeriesConditions"
+            Prelude.<$> (x Data..:? "Action")
+            Prelude.<*> ( x Data..:? "TimeSeriesConditions"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "Action")
       )
 
 instance Prelude.Hashable TimeSeriesTransformation where
   hashWithSalt _salt TimeSeriesTransformation' {..} =
-    _salt `Prelude.hashWithSalt` timeSeriesConditions
-      `Prelude.hashWithSalt` action
+    _salt `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` timeSeriesConditions
 
 instance Prelude.NFData TimeSeriesTransformation where
   rnf TimeSeriesTransformation' {..} =
-    Prelude.rnf timeSeriesConditions
-      `Prelude.seq` Prelude.rnf action
+    Prelude.rnf action
+      `Prelude.seq` Prelude.rnf timeSeriesConditions
 
 instance Data.ToJSON TimeSeriesTransformation where
   toJSON TimeSeriesTransformation' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("TimeSeriesConditions" Data..=)
-              Prelude.<$> timeSeriesConditions,
-            ("Action" Data..=) Prelude.<$> action
+          [ ("Action" Data..=) Prelude.<$> action,
+            ("TimeSeriesConditions" Data..=)
+              Prelude.<$> timeSeriesConditions
           ]
       )

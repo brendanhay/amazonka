@@ -35,8 +35,8 @@ module Amazonka.StorageGateway.DescribeTapeRecoveryPoints
     newDescribeTapeRecoveryPoints,
 
     -- * Request Lenses
-    describeTapeRecoveryPoints_marker,
     describeTapeRecoveryPoints_limit,
+    describeTapeRecoveryPoints_marker,
     describeTapeRecoveryPoints_gatewayARN,
 
     -- * Destructuring the Response
@@ -44,9 +44,9 @@ module Amazonka.StorageGateway.DescribeTapeRecoveryPoints
     newDescribeTapeRecoveryPointsResponse,
 
     -- * Response Lenses
+    describeTapeRecoveryPointsResponse_gatewayARN,
     describeTapeRecoveryPointsResponse_marker,
     describeTapeRecoveryPointsResponse_tapeRecoveryPointInfos,
-    describeTapeRecoveryPointsResponse_gatewayARN,
     describeTapeRecoveryPointsResponse_httpStatus,
   )
 where
@@ -63,12 +63,12 @@ import Amazonka.StorageGateway.Types
 --
 -- /See:/ 'newDescribeTapeRecoveryPoints' smart constructor.
 data DescribeTapeRecoveryPoints = DescribeTapeRecoveryPoints'
-  { -- | An opaque string that indicates the position at which to begin
-    -- describing the virtual tape recovery points.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | Specifies that the number of virtual tape recovery points that are
+  { -- | Specifies that the number of virtual tape recovery points that are
     -- described be limited to the specified number.
     limit :: Prelude.Maybe Prelude.Natural,
+    -- | An opaque string that indicates the position at which to begin
+    -- describing the virtual tape recovery points.
+    marker :: Prelude.Maybe Prelude.Text,
     gatewayARN :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -81,11 +81,11 @@ data DescribeTapeRecoveryPoints = DescribeTapeRecoveryPoints'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'marker', 'describeTapeRecoveryPoints_marker' - An opaque string that indicates the position at which to begin
--- describing the virtual tape recovery points.
---
 -- 'limit', 'describeTapeRecoveryPoints_limit' - Specifies that the number of virtual tape recovery points that are
 -- described be limited to the specified number.
+--
+-- 'marker', 'describeTapeRecoveryPoints_marker' - An opaque string that indicates the position at which to begin
+-- describing the virtual tape recovery points.
 --
 -- 'gatewayARN', 'describeTapeRecoveryPoints_gatewayARN' - Undocumented member.
 newDescribeTapeRecoveryPoints ::
@@ -94,21 +94,21 @@ newDescribeTapeRecoveryPoints ::
   DescribeTapeRecoveryPoints
 newDescribeTapeRecoveryPoints pGatewayARN_ =
   DescribeTapeRecoveryPoints'
-    { marker =
+    { limit =
         Prelude.Nothing,
-      limit = Prelude.Nothing,
+      marker = Prelude.Nothing,
       gatewayARN = pGatewayARN_
     }
-
--- | An opaque string that indicates the position at which to begin
--- describing the virtual tape recovery points.
-describeTapeRecoveryPoints_marker :: Lens.Lens' DescribeTapeRecoveryPoints (Prelude.Maybe Prelude.Text)
-describeTapeRecoveryPoints_marker = Lens.lens (\DescribeTapeRecoveryPoints' {marker} -> marker) (\s@DescribeTapeRecoveryPoints' {} a -> s {marker = a} :: DescribeTapeRecoveryPoints)
 
 -- | Specifies that the number of virtual tape recovery points that are
 -- described be limited to the specified number.
 describeTapeRecoveryPoints_limit :: Lens.Lens' DescribeTapeRecoveryPoints (Prelude.Maybe Prelude.Natural)
 describeTapeRecoveryPoints_limit = Lens.lens (\DescribeTapeRecoveryPoints' {limit} -> limit) (\s@DescribeTapeRecoveryPoints' {} a -> s {limit = a} :: DescribeTapeRecoveryPoints)
+
+-- | An opaque string that indicates the position at which to begin
+-- describing the virtual tape recovery points.
+describeTapeRecoveryPoints_marker :: Lens.Lens' DescribeTapeRecoveryPoints (Prelude.Maybe Prelude.Text)
+describeTapeRecoveryPoints_marker = Lens.lens (\DescribeTapeRecoveryPoints' {marker} -> marker) (\s@DescribeTapeRecoveryPoints' {} a -> s {marker = a} :: DescribeTapeRecoveryPoints)
 
 -- | Undocumented member.
 describeTapeRecoveryPoints_gatewayARN :: Lens.Lens' DescribeTapeRecoveryPoints Prelude.Text
@@ -146,24 +146,24 @@ instance Core.AWSRequest DescribeTapeRecoveryPoints where
     Response.receiveJSON
       ( \s h x ->
           DescribeTapeRecoveryPointsResponse'
-            Prelude.<$> (x Data..?> "Marker")
+            Prelude.<$> (x Data..?> "GatewayARN")
+            Prelude.<*> (x Data..?> "Marker")
             Prelude.<*> ( x Data..?> "TapeRecoveryPointInfos"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeTapeRecoveryPoints where
   hashWithSalt _salt DescribeTapeRecoveryPoints' {..} =
-    _salt `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` limit
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` gatewayARN
 
 instance Prelude.NFData DescribeTapeRecoveryPoints where
   rnf DescribeTapeRecoveryPoints' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf gatewayARN
 
 instance Data.ToHeaders DescribeTapeRecoveryPoints where
@@ -185,8 +185,8 @@ instance Data.ToJSON DescribeTapeRecoveryPoints where
   toJSON DescribeTapeRecoveryPoints' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Data..=) Prelude.<$> marker,
-            ("Limit" Data..=) Prelude.<$> limit,
+          [ ("Limit" Data..=) Prelude.<$> limit,
+            ("Marker" Data..=) Prelude.<$> marker,
             Prelude.Just ("GatewayARN" Data..= gatewayARN)
           ]
       )
@@ -201,7 +201,8 @@ instance Data.ToQuery DescribeTapeRecoveryPoints where
 --
 -- /See:/ 'newDescribeTapeRecoveryPointsResponse' smart constructor.
 data DescribeTapeRecoveryPointsResponse = DescribeTapeRecoveryPointsResponse'
-  { -- | An opaque string that indicates the position at which the virtual tape
+  { gatewayARN :: Prelude.Maybe Prelude.Text,
+    -- | An opaque string that indicates the position at which the virtual tape
     -- recovery points that were listed for description ended.
     --
     -- Use this marker in your next request to list the next set of virtual
@@ -211,7 +212,6 @@ data DescribeTapeRecoveryPointsResponse = DescribeTapeRecoveryPointsResponse'
     -- | An array of TapeRecoveryPointInfos that are available for the specified
     -- gateway.
     tapeRecoveryPointInfos :: Prelude.Maybe [TapeRecoveryPointInfo],
-    gatewayARN :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -225,6 +225,8 @@ data DescribeTapeRecoveryPointsResponse = DescribeTapeRecoveryPointsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'gatewayARN', 'describeTapeRecoveryPointsResponse_gatewayARN' - Undocumented member.
+--
 -- 'marker', 'describeTapeRecoveryPointsResponse_marker' - An opaque string that indicates the position at which the virtual tape
 -- recovery points that were listed for description ended.
 --
@@ -235,8 +237,6 @@ data DescribeTapeRecoveryPointsResponse = DescribeTapeRecoveryPointsResponse'
 -- 'tapeRecoveryPointInfos', 'describeTapeRecoveryPointsResponse_tapeRecoveryPointInfos' - An array of TapeRecoveryPointInfos that are available for the specified
 -- gateway.
 --
--- 'gatewayARN', 'describeTapeRecoveryPointsResponse_gatewayARN' - Undocumented member.
---
 -- 'httpStatus', 'describeTapeRecoveryPointsResponse_httpStatus' - The response's http status code.
 newDescribeTapeRecoveryPointsResponse ::
   -- | 'httpStatus'
@@ -244,13 +244,17 @@ newDescribeTapeRecoveryPointsResponse ::
   DescribeTapeRecoveryPointsResponse
 newDescribeTapeRecoveryPointsResponse pHttpStatus_ =
   DescribeTapeRecoveryPointsResponse'
-    { marker =
+    { gatewayARN =
         Prelude.Nothing,
+      marker = Prelude.Nothing,
       tapeRecoveryPointInfos =
         Prelude.Nothing,
-      gatewayARN = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Undocumented member.
+describeTapeRecoveryPointsResponse_gatewayARN :: Lens.Lens' DescribeTapeRecoveryPointsResponse (Prelude.Maybe Prelude.Text)
+describeTapeRecoveryPointsResponse_gatewayARN = Lens.lens (\DescribeTapeRecoveryPointsResponse' {gatewayARN} -> gatewayARN) (\s@DescribeTapeRecoveryPointsResponse' {} a -> s {gatewayARN = a} :: DescribeTapeRecoveryPointsResponse)
 
 -- | An opaque string that indicates the position at which the virtual tape
 -- recovery points that were listed for description ended.
@@ -266,10 +270,6 @@ describeTapeRecoveryPointsResponse_marker = Lens.lens (\DescribeTapeRecoveryPoin
 describeTapeRecoveryPointsResponse_tapeRecoveryPointInfos :: Lens.Lens' DescribeTapeRecoveryPointsResponse (Prelude.Maybe [TapeRecoveryPointInfo])
 describeTapeRecoveryPointsResponse_tapeRecoveryPointInfos = Lens.lens (\DescribeTapeRecoveryPointsResponse' {tapeRecoveryPointInfos} -> tapeRecoveryPointInfos) (\s@DescribeTapeRecoveryPointsResponse' {} a -> s {tapeRecoveryPointInfos = a} :: DescribeTapeRecoveryPointsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Undocumented member.
-describeTapeRecoveryPointsResponse_gatewayARN :: Lens.Lens' DescribeTapeRecoveryPointsResponse (Prelude.Maybe Prelude.Text)
-describeTapeRecoveryPointsResponse_gatewayARN = Lens.lens (\DescribeTapeRecoveryPointsResponse' {gatewayARN} -> gatewayARN) (\s@DescribeTapeRecoveryPointsResponse' {} a -> s {gatewayARN = a} :: DescribeTapeRecoveryPointsResponse)
-
 -- | The response's http status code.
 describeTapeRecoveryPointsResponse_httpStatus :: Lens.Lens' DescribeTapeRecoveryPointsResponse Prelude.Int
 describeTapeRecoveryPointsResponse_httpStatus = Lens.lens (\DescribeTapeRecoveryPointsResponse' {httpStatus} -> httpStatus) (\s@DescribeTapeRecoveryPointsResponse' {} a -> s {httpStatus = a} :: DescribeTapeRecoveryPointsResponse)
@@ -279,7 +279,7 @@ instance
     DescribeTapeRecoveryPointsResponse
   where
   rnf DescribeTapeRecoveryPointsResponse' {..} =
-    Prelude.rnf marker
+    Prelude.rnf gatewayARN
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf tapeRecoveryPointInfos
-      `Prelude.seq` Prelude.rnf gatewayARN
       `Prelude.seq` Prelude.rnf httpStatus

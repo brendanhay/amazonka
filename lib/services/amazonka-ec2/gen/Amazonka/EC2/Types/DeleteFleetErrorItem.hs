@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeleteFleetErrorItem' smart constructor.
 data DeleteFleetErrorItem = DeleteFleetErrorItem'
-  { -- | The ID of the EC2 Fleet.
-    fleetId :: Prelude.Maybe Prelude.Text,
-    -- | The error.
-    error :: Prelude.Maybe DeleteFleetError
+  { -- | The error.
+    error :: Prelude.Maybe DeleteFleetError,
+    -- | The ID of the EC2 Fleet.
+    fleetId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,36 +45,36 @@ data DeleteFleetErrorItem = DeleteFleetErrorItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fleetId', 'deleteFleetErrorItem_fleetId' - The ID of the EC2 Fleet.
---
 -- 'error', 'deleteFleetErrorItem_error' - The error.
+--
+-- 'fleetId', 'deleteFleetErrorItem_fleetId' - The ID of the EC2 Fleet.
 newDeleteFleetErrorItem ::
   DeleteFleetErrorItem
 newDeleteFleetErrorItem =
   DeleteFleetErrorItem'
-    { fleetId = Prelude.Nothing,
-      error = Prelude.Nothing
+    { error = Prelude.Nothing,
+      fleetId = Prelude.Nothing
     }
-
--- | The ID of the EC2 Fleet.
-deleteFleetErrorItem_fleetId :: Lens.Lens' DeleteFleetErrorItem (Prelude.Maybe Prelude.Text)
-deleteFleetErrorItem_fleetId = Lens.lens (\DeleteFleetErrorItem' {fleetId} -> fleetId) (\s@DeleteFleetErrorItem' {} a -> s {fleetId = a} :: DeleteFleetErrorItem)
 
 -- | The error.
 deleteFleetErrorItem_error :: Lens.Lens' DeleteFleetErrorItem (Prelude.Maybe DeleteFleetError)
 deleteFleetErrorItem_error = Lens.lens (\DeleteFleetErrorItem' {error} -> error) (\s@DeleteFleetErrorItem' {} a -> s {error = a} :: DeleteFleetErrorItem)
 
+-- | The ID of the EC2 Fleet.
+deleteFleetErrorItem_fleetId :: Lens.Lens' DeleteFleetErrorItem (Prelude.Maybe Prelude.Text)
+deleteFleetErrorItem_fleetId = Lens.lens (\DeleteFleetErrorItem' {fleetId} -> fleetId) (\s@DeleteFleetErrorItem' {} a -> s {fleetId = a} :: DeleteFleetErrorItem)
+
 instance Data.FromXML DeleteFleetErrorItem where
   parseXML x =
     DeleteFleetErrorItem'
-      Prelude.<$> (x Data..@? "fleetId")
-      Prelude.<*> (x Data..@? "error")
+      Prelude.<$> (x Data..@? "error")
+      Prelude.<*> (x Data..@? "fleetId")
 
 instance Prelude.Hashable DeleteFleetErrorItem where
   hashWithSalt _salt DeleteFleetErrorItem' {..} =
-    _salt `Prelude.hashWithSalt` fleetId
-      `Prelude.hashWithSalt` error
+    _salt `Prelude.hashWithSalt` error
+      `Prelude.hashWithSalt` fleetId
 
 instance Prelude.NFData DeleteFleetErrorItem where
   rnf DeleteFleetErrorItem' {..} =
-    Prelude.rnf fleetId `Prelude.seq` Prelude.rnf error
+    Prelude.rnf error `Prelude.seq` Prelude.rnf fleetId

@@ -37,13 +37,13 @@ module Amazonka.Lambda.GetLayerVersionByArn
 
     -- * Response Lenses
     getLayerVersionResponse_compatibleArchitectures,
+    getLayerVersionResponse_compatibleRuntimes,
+    getLayerVersionResponse_content,
+    getLayerVersionResponse_createdDate,
+    getLayerVersionResponse_description,
     getLayerVersionResponse_layerArn,
     getLayerVersionResponse_layerVersionArn,
     getLayerVersionResponse_licenseInfo,
-    getLayerVersionResponse_description,
-    getLayerVersionResponse_compatibleRuntimes,
-    getLayerVersionResponse_createdDate,
-    getLayerVersionResponse_content,
     getLayerVersionResponse_version,
   )
 where

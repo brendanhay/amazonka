@@ -43,8 +43,8 @@ module Amazonka.IoTSiteWise.DeleteTimeSeries
 
     -- * Request Lenses
     deleteTimeSeries_alias,
-    deleteTimeSeries_clientToken,
     deleteTimeSeries_assetId,
+    deleteTimeSeries_clientToken,
     deleteTimeSeries_propertyId,
 
     -- * Destructuring the Response
@@ -65,12 +65,12 @@ import qualified Amazonka.Response as Response
 data DeleteTimeSeries = DeleteTimeSeries'
   { -- | The alias that identifies the time series.
     alias :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the asset in which the asset property was created.
+    assetId :: Prelude.Maybe Prelude.Text,
     -- | A unique case-sensitive identifier that you can provide to ensure the
     -- idempotency of the request. Don\'t reuse this client token if a new
     -- idempotent request is required.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the asset in which the asset property was created.
-    assetId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the asset property.
     propertyId :: Prelude.Maybe Prelude.Text
   }
@@ -86,11 +86,11 @@ data DeleteTimeSeries = DeleteTimeSeries'
 --
 -- 'alias', 'deleteTimeSeries_alias' - The alias that identifies the time series.
 --
+-- 'assetId', 'deleteTimeSeries_assetId' - The ID of the asset in which the asset property was created.
+--
 -- 'clientToken', 'deleteTimeSeries_clientToken' - A unique case-sensitive identifier that you can provide to ensure the
 -- idempotency of the request. Don\'t reuse this client token if a new
 -- idempotent request is required.
---
--- 'assetId', 'deleteTimeSeries_assetId' - The ID of the asset in which the asset property was created.
 --
 -- 'propertyId', 'deleteTimeSeries_propertyId' - The ID of the asset property.
 newDeleteTimeSeries ::
@@ -98,8 +98,8 @@ newDeleteTimeSeries ::
 newDeleteTimeSeries =
   DeleteTimeSeries'
     { alias = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
       assetId = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
       propertyId = Prelude.Nothing
     }
 
@@ -107,15 +107,15 @@ newDeleteTimeSeries =
 deleteTimeSeries_alias :: Lens.Lens' DeleteTimeSeries (Prelude.Maybe Prelude.Text)
 deleteTimeSeries_alias = Lens.lens (\DeleteTimeSeries' {alias} -> alias) (\s@DeleteTimeSeries' {} a -> s {alias = a} :: DeleteTimeSeries)
 
+-- | The ID of the asset in which the asset property was created.
+deleteTimeSeries_assetId :: Lens.Lens' DeleteTimeSeries (Prelude.Maybe Prelude.Text)
+deleteTimeSeries_assetId = Lens.lens (\DeleteTimeSeries' {assetId} -> assetId) (\s@DeleteTimeSeries' {} a -> s {assetId = a} :: DeleteTimeSeries)
+
 -- | A unique case-sensitive identifier that you can provide to ensure the
 -- idempotency of the request. Don\'t reuse this client token if a new
 -- idempotent request is required.
 deleteTimeSeries_clientToken :: Lens.Lens' DeleteTimeSeries (Prelude.Maybe Prelude.Text)
 deleteTimeSeries_clientToken = Lens.lens (\DeleteTimeSeries' {clientToken} -> clientToken) (\s@DeleteTimeSeries' {} a -> s {clientToken = a} :: DeleteTimeSeries)
-
--- | The ID of the asset in which the asset property was created.
-deleteTimeSeries_assetId :: Lens.Lens' DeleteTimeSeries (Prelude.Maybe Prelude.Text)
-deleteTimeSeries_assetId = Lens.lens (\DeleteTimeSeries' {assetId} -> assetId) (\s@DeleteTimeSeries' {} a -> s {assetId = a} :: DeleteTimeSeries)
 
 -- | The ID of the asset property.
 deleteTimeSeries_propertyId :: Lens.Lens' DeleteTimeSeries (Prelude.Maybe Prelude.Text)
@@ -133,15 +133,15 @@ instance Core.AWSRequest DeleteTimeSeries where
 instance Prelude.Hashable DeleteTimeSeries where
   hashWithSalt _salt DeleteTimeSeries' {..} =
     _salt `Prelude.hashWithSalt` alias
-      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` assetId
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` propertyId
 
 instance Prelude.NFData DeleteTimeSeries where
   rnf DeleteTimeSeries' {..} =
     Prelude.rnf alias
-      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf assetId
+      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf propertyId
 
 instance Data.ToHeaders DeleteTimeSeries where

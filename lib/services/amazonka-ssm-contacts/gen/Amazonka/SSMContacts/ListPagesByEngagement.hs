@@ -30,8 +30,8 @@ module Amazonka.SSMContacts.ListPagesByEngagement
     newListPagesByEngagement,
 
     -- * Request Lenses
-    listPagesByEngagement_nextToken,
     listPagesByEngagement_maxResults,
+    listPagesByEngagement_nextToken,
     listPagesByEngagement_engagementId,
 
     -- * Destructuring the Response
@@ -55,11 +55,11 @@ import Amazonka.SSMContacts.Types
 
 -- | /See:/ 'newListPagesByEngagement' smart constructor.
 data ListPagesByEngagement = ListPagesByEngagement'
-  { -- | The pagination token to continue to the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of engagements to contact channels to list per page
+  { -- | The maximum number of engagements to contact channels to list per page
     -- of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token to continue to the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the engagement.
     engagementId :: Prelude.Text
   }
@@ -73,10 +73,10 @@ data ListPagesByEngagement = ListPagesByEngagement'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPagesByEngagement_nextToken' - The pagination token to continue to the next page of results.
---
 -- 'maxResults', 'listPagesByEngagement_maxResults' - The maximum number of engagements to contact channels to list per page
 -- of results.
+--
+-- 'nextToken', 'listPagesByEngagement_nextToken' - The pagination token to continue to the next page of results.
 --
 -- 'engagementId', 'listPagesByEngagement_engagementId' - The Amazon Resource Name (ARN) of the engagement.
 newListPagesByEngagement ::
@@ -85,19 +85,20 @@ newListPagesByEngagement ::
   ListPagesByEngagement
 newListPagesByEngagement pEngagementId_ =
   ListPagesByEngagement'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       engagementId = pEngagementId_
     }
-
--- | The pagination token to continue to the next page of results.
-listPagesByEngagement_nextToken :: Lens.Lens' ListPagesByEngagement (Prelude.Maybe Prelude.Text)
-listPagesByEngagement_nextToken = Lens.lens (\ListPagesByEngagement' {nextToken} -> nextToken) (\s@ListPagesByEngagement' {} a -> s {nextToken = a} :: ListPagesByEngagement)
 
 -- | The maximum number of engagements to contact channels to list per page
 -- of results.
 listPagesByEngagement_maxResults :: Lens.Lens' ListPagesByEngagement (Prelude.Maybe Prelude.Natural)
 listPagesByEngagement_maxResults = Lens.lens (\ListPagesByEngagement' {maxResults} -> maxResults) (\s@ListPagesByEngagement' {} a -> s {maxResults = a} :: ListPagesByEngagement)
+
+-- | The pagination token to continue to the next page of results.
+listPagesByEngagement_nextToken :: Lens.Lens' ListPagesByEngagement (Prelude.Maybe Prelude.Text)
+listPagesByEngagement_nextToken = Lens.lens (\ListPagesByEngagement' {nextToken} -> nextToken) (\s@ListPagesByEngagement' {} a -> s {nextToken = a} :: ListPagesByEngagement)
 
 -- | The Amazon Resource Name (ARN) of the engagement.
 listPagesByEngagement_engagementId :: Lens.Lens' ListPagesByEngagement Prelude.Text
@@ -139,14 +140,14 @@ instance Core.AWSRequest ListPagesByEngagement where
 
 instance Prelude.Hashable ListPagesByEngagement where
   hashWithSalt _salt ListPagesByEngagement' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` engagementId
 
 instance Prelude.NFData ListPagesByEngagement where
   rnf ListPagesByEngagement' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf engagementId
 
 instance Data.ToHeaders ListPagesByEngagement where
@@ -168,8 +169,8 @@ instance Data.ToJSON ListPagesByEngagement where
   toJSON ListPagesByEngagement' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("EngagementId" Data..= engagementId)
           ]
       )

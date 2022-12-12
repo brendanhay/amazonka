@@ -85,6 +85,11 @@ module Amazonka.EC2.Types.ResourceType
         ResourceType_Transit_gateway_policy_table,
         ResourceType_Transit_gateway_route_table,
         ResourceType_Transit_gateway_route_table_announcement,
+        ResourceType_Verified_access_endpoint,
+        ResourceType_Verified_access_group,
+        ResourceType_Verified_access_instance,
+        ResourceType_Verified_access_policy,
+        ResourceType_Verified_access_trust_provider,
         ResourceType_Volume,
         ResourceType_Vpc,
         ResourceType_Vpc_endpoint,
@@ -329,6 +334,21 @@ pattern ResourceType_Transit_gateway_route_table = ResourceType' "transit-gatewa
 pattern ResourceType_Transit_gateway_route_table_announcement :: ResourceType
 pattern ResourceType_Transit_gateway_route_table_announcement = ResourceType' "transit-gateway-route-table-announcement"
 
+pattern ResourceType_Verified_access_endpoint :: ResourceType
+pattern ResourceType_Verified_access_endpoint = ResourceType' "verified-access-endpoint"
+
+pattern ResourceType_Verified_access_group :: ResourceType
+pattern ResourceType_Verified_access_group = ResourceType' "verified-access-group"
+
+pattern ResourceType_Verified_access_instance :: ResourceType
+pattern ResourceType_Verified_access_instance = ResourceType' "verified-access-instance"
+
+pattern ResourceType_Verified_access_policy :: ResourceType
+pattern ResourceType_Verified_access_policy = ResourceType' "verified-access-policy"
+
+pattern ResourceType_Verified_access_trust_provider :: ResourceType
+pattern ResourceType_Verified_access_trust_provider = ResourceType' "verified-access-trust-provider"
+
 pattern ResourceType_Volume :: ResourceType
 pattern ResourceType_Volume = ResourceType' "volume"
 
@@ -431,6 +451,11 @@ pattern ResourceType_Vpn_gateway = ResourceType' "vpn-gateway"
   ResourceType_Transit_gateway_policy_table,
   ResourceType_Transit_gateway_route_table,
   ResourceType_Transit_gateway_route_table_announcement,
+  ResourceType_Verified_access_endpoint,
+  ResourceType_Verified_access_group,
+  ResourceType_Verified_access_instance,
+  ResourceType_Verified_access_policy,
+  ResourceType_Verified_access_trust_provider,
   ResourceType_Volume,
   ResourceType_Vpc,
   ResourceType_Vpc_endpoint,

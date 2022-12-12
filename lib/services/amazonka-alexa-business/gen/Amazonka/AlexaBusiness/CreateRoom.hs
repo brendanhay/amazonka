@@ -27,11 +27,11 @@ module Amazonka.AlexaBusiness.CreateRoom
     newCreateRoom,
 
     -- * Request Lenses
-    createRoom_tags,
     createRoom_clientRequestToken,
-    createRoom_profileArn,
     createRoom_description,
+    createRoom_profileArn,
     createRoom_providerCalendarId,
+    createRoom_tags,
     createRoom_roomName,
 
     -- * Destructuring the Response
@@ -54,17 +54,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateRoom' smart constructor.
 data CreateRoom = CreateRoom'
-  { -- | The tags for the room.
-    tags :: Prelude.Maybe [Tag],
-    -- | A unique, user-specified identifier for this request that ensures
+  { -- | A unique, user-specified identifier for this request that ensures
     -- idempotency.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | The profile ARN for the room. This is required.
-    profileArn :: Prelude.Maybe Prelude.Text,
     -- | The description for the room.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The profile ARN for the room. This is required.
+    profileArn :: Prelude.Maybe Prelude.Text,
     -- | The calendar ARN for the room.
     providerCalendarId :: Prelude.Maybe Prelude.Text,
+    -- | The tags for the room.
+    tags :: Prelude.Maybe [Tag],
     -- | The name for the room.
     roomName :: Prelude.Text
   }
@@ -78,16 +78,16 @@ data CreateRoom = CreateRoom'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createRoom_tags' - The tags for the room.
---
 -- 'clientRequestToken', 'createRoom_clientRequestToken' - A unique, user-specified identifier for this request that ensures
 -- idempotency.
 --
--- 'profileArn', 'createRoom_profileArn' - The profile ARN for the room. This is required.
---
 -- 'description', 'createRoom_description' - The description for the room.
 --
+-- 'profileArn', 'createRoom_profileArn' - The profile ARN for the room. This is required.
+--
 -- 'providerCalendarId', 'createRoom_providerCalendarId' - The calendar ARN for the room.
+--
+-- 'tags', 'createRoom_tags' - The tags for the room.
 --
 -- 'roomName', 'createRoom_roomName' - The name for the room.
 newCreateRoom ::
@@ -96,34 +96,34 @@ newCreateRoom ::
   CreateRoom
 newCreateRoom pRoomName_ =
   CreateRoom'
-    { tags = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
-      profileArn = Prelude.Nothing,
+    { clientRequestToken = Prelude.Nothing,
       description = Prelude.Nothing,
+      profileArn = Prelude.Nothing,
       providerCalendarId = Prelude.Nothing,
+      tags = Prelude.Nothing,
       roomName = pRoomName_
     }
-
--- | The tags for the room.
-createRoom_tags :: Lens.Lens' CreateRoom (Prelude.Maybe [Tag])
-createRoom_tags = Lens.lens (\CreateRoom' {tags} -> tags) (\s@CreateRoom' {} a -> s {tags = a} :: CreateRoom) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique, user-specified identifier for this request that ensures
 -- idempotency.
 createRoom_clientRequestToken :: Lens.Lens' CreateRoom (Prelude.Maybe Prelude.Text)
 createRoom_clientRequestToken = Lens.lens (\CreateRoom' {clientRequestToken} -> clientRequestToken) (\s@CreateRoom' {} a -> s {clientRequestToken = a} :: CreateRoom)
 
--- | The profile ARN for the room. This is required.
-createRoom_profileArn :: Lens.Lens' CreateRoom (Prelude.Maybe Prelude.Text)
-createRoom_profileArn = Lens.lens (\CreateRoom' {profileArn} -> profileArn) (\s@CreateRoom' {} a -> s {profileArn = a} :: CreateRoom)
-
 -- | The description for the room.
 createRoom_description :: Lens.Lens' CreateRoom (Prelude.Maybe Prelude.Text)
 createRoom_description = Lens.lens (\CreateRoom' {description} -> description) (\s@CreateRoom' {} a -> s {description = a} :: CreateRoom)
 
+-- | The profile ARN for the room. This is required.
+createRoom_profileArn :: Lens.Lens' CreateRoom (Prelude.Maybe Prelude.Text)
+createRoom_profileArn = Lens.lens (\CreateRoom' {profileArn} -> profileArn) (\s@CreateRoom' {} a -> s {profileArn = a} :: CreateRoom)
+
 -- | The calendar ARN for the room.
 createRoom_providerCalendarId :: Lens.Lens' CreateRoom (Prelude.Maybe Prelude.Text)
 createRoom_providerCalendarId = Lens.lens (\CreateRoom' {providerCalendarId} -> providerCalendarId) (\s@CreateRoom' {} a -> s {providerCalendarId = a} :: CreateRoom)
+
+-- | The tags for the room.
+createRoom_tags :: Lens.Lens' CreateRoom (Prelude.Maybe [Tag])
+createRoom_tags = Lens.lens (\CreateRoom' {tags} -> tags) (\s@CreateRoom' {} a -> s {tags = a} :: CreateRoom) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name for the room.
 createRoom_roomName :: Lens.Lens' CreateRoom Prelude.Text
@@ -143,20 +143,20 @@ instance Core.AWSRequest CreateRoom where
 
 instance Prelude.Hashable CreateRoom where
   hashWithSalt _salt CreateRoom' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientRequestToken
-      `Prelude.hashWithSalt` profileArn
+    _salt `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` profileArn
       `Prelude.hashWithSalt` providerCalendarId
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` roomName
 
 instance Prelude.NFData CreateRoom where
   rnf CreateRoom' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf profileArn
+    Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf profileArn
       `Prelude.seq` Prelude.rnf providerCalendarId
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf roomName
 
 instance Data.ToHeaders CreateRoom where
@@ -178,13 +178,13 @@ instance Data.ToJSON CreateRoom where
   toJSON CreateRoom' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ClientRequestToken" Data..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("ProfileArn" Data..=) Prelude.<$> profileArn,
             ("Description" Data..=) Prelude.<$> description,
+            ("ProfileArn" Data..=) Prelude.<$> profileArn,
             ("ProviderCalendarId" Data..=)
               Prelude.<$> providerCalendarId,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("RoomName" Data..= roomName)
           ]
       )

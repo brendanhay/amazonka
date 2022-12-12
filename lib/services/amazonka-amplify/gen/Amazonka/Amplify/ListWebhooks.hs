@@ -27,8 +27,8 @@ module Amazonka.Amplify.ListWebhooks
     newListWebhooks,
 
     -- * Request Lenses
-    listWebhooks_nextToken,
     listWebhooks_maxResults,
+    listWebhooks_nextToken,
     listWebhooks_appId,
 
     -- * Destructuring the Response
@@ -54,12 +54,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListWebhooks' smart constructor.
 data ListWebhooks = ListWebhooks'
-  { -- | A pagination token. Set to null to start listing webhooks from the
+  { -- | The maximum number of records to list in a single response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A pagination token. Set to null to start listing webhooks from the
     -- start. If non-null,the pagination token is returned in a result. Pass
     -- its value in here to list more webhooks.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of records to list in a single response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The unique ID for an Amplify app.
     appId :: Prelude.Text
   }
@@ -73,11 +73,11 @@ data ListWebhooks = ListWebhooks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listWebhooks_maxResults' - The maximum number of records to list in a single response.
+--
 -- 'nextToken', 'listWebhooks_nextToken' - A pagination token. Set to null to start listing webhooks from the
 -- start. If non-null,the pagination token is returned in a result. Pass
 -- its value in here to list more webhooks.
---
--- 'maxResults', 'listWebhooks_maxResults' - The maximum number of records to list in a single response.
 --
 -- 'appId', 'listWebhooks_appId' - The unique ID for an Amplify app.
 newListWebhooks ::
@@ -86,20 +86,20 @@ newListWebhooks ::
   ListWebhooks
 newListWebhooks pAppId_ =
   ListWebhooks'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       appId = pAppId_
     }
+
+-- | The maximum number of records to list in a single response.
+listWebhooks_maxResults :: Lens.Lens' ListWebhooks (Prelude.Maybe Prelude.Natural)
+listWebhooks_maxResults = Lens.lens (\ListWebhooks' {maxResults} -> maxResults) (\s@ListWebhooks' {} a -> s {maxResults = a} :: ListWebhooks)
 
 -- | A pagination token. Set to null to start listing webhooks from the
 -- start. If non-null,the pagination token is returned in a result. Pass
 -- its value in here to list more webhooks.
 listWebhooks_nextToken :: Lens.Lens' ListWebhooks (Prelude.Maybe Prelude.Text)
 listWebhooks_nextToken = Lens.lens (\ListWebhooks' {nextToken} -> nextToken) (\s@ListWebhooks' {} a -> s {nextToken = a} :: ListWebhooks)
-
--- | The maximum number of records to list in a single response.
-listWebhooks_maxResults :: Lens.Lens' ListWebhooks (Prelude.Maybe Prelude.Natural)
-listWebhooks_maxResults = Lens.lens (\ListWebhooks' {maxResults} -> maxResults) (\s@ListWebhooks' {} a -> s {maxResults = a} :: ListWebhooks)
 
 -- | The unique ID for an Amplify app.
 listWebhooks_appId :: Lens.Lens' ListWebhooks Prelude.Text
@@ -120,14 +120,14 @@ instance Core.AWSRequest ListWebhooks where
 
 instance Prelude.Hashable ListWebhooks where
   hashWithSalt _salt ListWebhooks' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` appId
 
 instance Prelude.NFData ListWebhooks where
   rnf ListWebhooks' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf appId
 
 instance Data.ToHeaders ListWebhooks where
@@ -149,8 +149,8 @@ instance Data.ToPath ListWebhooks where
 instance Data.ToQuery ListWebhooks where
   toQuery ListWebhooks' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | The result structure for the list webhooks request.

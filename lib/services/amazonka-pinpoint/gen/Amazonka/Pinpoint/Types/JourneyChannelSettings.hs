@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJourneyChannelSettings' smart constructor.
 data JourneyChannelSettings = JourneyChannelSettings'
-  { -- | IAM role ARN to be assumed when invoking Connect campaign execution APIs
+  { -- | Amazon Resource Name (ARN) of the Connect Campaign.
+    connectCampaignArn :: Prelude.Maybe Prelude.Text,
+    -- | IAM role ARN to be assumed when invoking Connect campaign execution APIs
     -- for dialing.
-    connectCampaignExecutionRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | Amazon Resource Name (ARN) of the Connect Campaign.
-    connectCampaignArn :: Prelude.Maybe Prelude.Text
+    connectCampaignExecutionRoleArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,27 +44,27 @@ data JourneyChannelSettings = JourneyChannelSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'connectCampaignArn', 'journeyChannelSettings_connectCampaignArn' - Amazon Resource Name (ARN) of the Connect Campaign.
+--
 -- 'connectCampaignExecutionRoleArn', 'journeyChannelSettings_connectCampaignExecutionRoleArn' - IAM role ARN to be assumed when invoking Connect campaign execution APIs
 -- for dialing.
---
--- 'connectCampaignArn', 'journeyChannelSettings_connectCampaignArn' - Amazon Resource Name (ARN) of the Connect Campaign.
 newJourneyChannelSettings ::
   JourneyChannelSettings
 newJourneyChannelSettings =
   JourneyChannelSettings'
-    { connectCampaignExecutionRoleArn =
+    { connectCampaignArn =
         Prelude.Nothing,
-      connectCampaignArn = Prelude.Nothing
+      connectCampaignExecutionRoleArn = Prelude.Nothing
     }
+
+-- | Amazon Resource Name (ARN) of the Connect Campaign.
+journeyChannelSettings_connectCampaignArn :: Lens.Lens' JourneyChannelSettings (Prelude.Maybe Prelude.Text)
+journeyChannelSettings_connectCampaignArn = Lens.lens (\JourneyChannelSettings' {connectCampaignArn} -> connectCampaignArn) (\s@JourneyChannelSettings' {} a -> s {connectCampaignArn = a} :: JourneyChannelSettings)
 
 -- | IAM role ARN to be assumed when invoking Connect campaign execution APIs
 -- for dialing.
 journeyChannelSettings_connectCampaignExecutionRoleArn :: Lens.Lens' JourneyChannelSettings (Prelude.Maybe Prelude.Text)
 journeyChannelSettings_connectCampaignExecutionRoleArn = Lens.lens (\JourneyChannelSettings' {connectCampaignExecutionRoleArn} -> connectCampaignExecutionRoleArn) (\s@JourneyChannelSettings' {} a -> s {connectCampaignExecutionRoleArn = a} :: JourneyChannelSettings)
-
--- | Amazon Resource Name (ARN) of the Connect Campaign.
-journeyChannelSettings_connectCampaignArn :: Lens.Lens' JourneyChannelSettings (Prelude.Maybe Prelude.Text)
-journeyChannelSettings_connectCampaignArn = Lens.lens (\JourneyChannelSettings' {connectCampaignArn} -> connectCampaignArn) (\s@JourneyChannelSettings' {} a -> s {connectCampaignArn = a} :: JourneyChannelSettings)
 
 instance Data.FromJSON JourneyChannelSettings where
   parseJSON =
@@ -72,28 +72,27 @@ instance Data.FromJSON JourneyChannelSettings where
       "JourneyChannelSettings"
       ( \x ->
           JourneyChannelSettings'
-            Prelude.<$> (x Data..:? "ConnectCampaignExecutionRoleArn")
-            Prelude.<*> (x Data..:? "ConnectCampaignArn")
+            Prelude.<$> (x Data..:? "ConnectCampaignArn")
+            Prelude.<*> (x Data..:? "ConnectCampaignExecutionRoleArn")
       )
 
 instance Prelude.Hashable JourneyChannelSettings where
   hashWithSalt _salt JourneyChannelSettings' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` connectCampaignArn
       `Prelude.hashWithSalt` connectCampaignExecutionRoleArn
-      `Prelude.hashWithSalt` connectCampaignArn
 
 instance Prelude.NFData JourneyChannelSettings where
   rnf JourneyChannelSettings' {..} =
-    Prelude.rnf connectCampaignExecutionRoleArn
-      `Prelude.seq` Prelude.rnf connectCampaignArn
+    Prelude.rnf connectCampaignArn
+      `Prelude.seq` Prelude.rnf connectCampaignExecutionRoleArn
 
 instance Data.ToJSON JourneyChannelSettings where
   toJSON JourneyChannelSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ConnectCampaignExecutionRoleArn" Data..=)
-              Prelude.<$> connectCampaignExecutionRoleArn,
-            ("ConnectCampaignArn" Data..=)
-              Prelude.<$> connectCampaignArn
+          [ ("ConnectCampaignArn" Data..=)
+              Prelude.<$> connectCampaignArn,
+            ("ConnectCampaignExecutionRoleArn" Data..=)
+              Prelude.<$> connectCampaignExecutionRoleArn
           ]
       )

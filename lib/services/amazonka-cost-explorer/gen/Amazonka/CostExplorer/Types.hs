@@ -18,17 +18,18 @@ module Amazonka.CostExplorer.Types
     defaultService,
 
     -- * Errors
-    _RequestChangedException,
-    _UnknownSubscriptionException,
-    _TooManyTagsException,
-    _ServiceQuotaExceededException,
-    _ResourceNotFoundException,
-    _UnresolvableUsageUnitException,
     _BillExpirationException,
-    _LimitExceededException,
-    _InvalidNextTokenException,
-    _UnknownMonitorException,
     _DataUnavailableException,
+    _GenerationExistsException,
+    _InvalidNextTokenException,
+    _LimitExceededException,
+    _RequestChangedException,
+    _ResourceNotFoundException,
+    _ServiceQuotaExceededException,
+    _TooManyTagsException,
+    _UnknownMonitorException,
+    _UnknownSubscriptionException,
+    _UnresolvableUsageUnitException,
 
     -- * AccountScope
     AccountScope (..),
@@ -74,6 +75,9 @@ module Amazonka.CostExplorer.Types
 
     -- * FindingReasonCode
     FindingReasonCode (..),
+
+    -- * GenerationStatus
+    GenerationStatus (..),
 
     -- * Granularity
     Granularity (..),
@@ -135,10 +139,10 @@ module Amazonka.CostExplorer.Types
     -- * Anomaly
     Anomaly (..),
     newAnomaly,
-    anomaly_dimensionValue,
     anomaly_anomalyEndDate,
-    anomaly_feedback,
     anomaly_anomalyStartDate,
+    anomaly_dimensionValue,
+    anomaly_feedback,
     anomaly_rootCauses,
     anomaly_anomalyId,
     anomaly_anomalyScore,
@@ -154,13 +158,13 @@ module Amazonka.CostExplorer.Types
     -- * AnomalyMonitor
     AnomalyMonitor (..),
     newAnomalyMonitor,
-    anomalyMonitor_monitorDimension,
-    anomalyMonitor_monitorSpecification,
-    anomalyMonitor_lastUpdatedDate,
-    anomalyMonitor_monitorArn,
     anomalyMonitor_creationDate,
     anomalyMonitor_dimensionalValueCount,
     anomalyMonitor_lastEvaluatedDate,
+    anomalyMonitor_lastUpdatedDate,
+    anomalyMonitor_monitorArn,
+    anomalyMonitor_monitorDimension,
+    anomalyMonitor_monitorSpecification,
     anomalyMonitor_monitorName,
     anomalyMonitor_monitorType,
 
@@ -173,8 +177,8 @@ module Amazonka.CostExplorer.Types
     -- * AnomalySubscription
     AnomalySubscription (..),
     newAnomalySubscription,
-    anomalySubscription_subscriptionArn,
     anomalySubscription_accountId,
+    anomalySubscription_subscriptionArn,
     anomalySubscription_monitorArnList,
     anomalySubscription_subscribers,
     anomalySubscription_threshold,
@@ -197,10 +201,10 @@ module Amazonka.CostExplorer.Types
     -- * CostCategory
     CostCategory (..),
     newCostCategory,
-    costCategory_splitChargeRules,
-    costCategory_effectiveEnd,
     costCategory_defaultValue,
+    costCategory_effectiveEnd,
     costCategory_processingStatus,
+    costCategory_splitChargeRules,
     costCategory_costCategoryArn,
     costCategory_effectiveStart,
     costCategory_name,
@@ -216,27 +220,27 @@ module Amazonka.CostExplorer.Types
     -- * CostCategoryProcessingStatus
     CostCategoryProcessingStatus (..),
     newCostCategoryProcessingStatus,
-    costCategoryProcessingStatus_status,
     costCategoryProcessingStatus_component,
+    costCategoryProcessingStatus_status,
 
     -- * CostCategoryReference
     CostCategoryReference (..),
     newCostCategoryReference,
-    costCategoryReference_name,
-    costCategoryReference_effectiveEnd,
-    costCategoryReference_defaultValue,
-    costCategoryReference_processingStatus,
-    costCategoryReference_effectiveStart,
-    costCategoryReference_values,
     costCategoryReference_costCategoryArn,
+    costCategoryReference_defaultValue,
+    costCategoryReference_effectiveEnd,
+    costCategoryReference_effectiveStart,
+    costCategoryReference_name,
     costCategoryReference_numberOfRules,
+    costCategoryReference_processingStatus,
+    costCategoryReference_values,
 
     -- * CostCategoryRule
     CostCategoryRule (..),
     newCostCategoryRule,
-    costCategoryRule_type,
     costCategoryRule_inheritedValue,
     costCategoryRule_rule,
+    costCategoryRule_type,
     costCategoryRule_value,
 
     -- * CostCategorySplitChargeRule
@@ -263,16 +267,16 @@ module Amazonka.CostExplorer.Types
     -- * Coverage
     Coverage (..),
     newCoverage,
-    coverage_coverageNormalizedUnits,
-    coverage_coverageHours,
     coverage_coverageCost,
+    coverage_coverageHours,
+    coverage_coverageNormalizedUnits,
 
     -- * CoverageByTime
     CoverageByTime (..),
     newCoverageByTime,
-    coverageByTime_total,
-    coverageByTime_timePeriod,
     coverageByTime_groups,
+    coverageByTime_timePeriod,
+    coverageByTime_total,
 
     -- * CoverageCost
     CoverageCost (..),
@@ -282,33 +286,33 @@ module Amazonka.CostExplorer.Types
     -- * CoverageHours
     CoverageHours (..),
     newCoverageHours,
-    coverageHours_onDemandHours,
-    coverageHours_totalRunningHours,
-    coverageHours_reservedHours,
     coverageHours_coverageHoursPercentage,
+    coverageHours_onDemandHours,
+    coverageHours_reservedHours,
+    coverageHours_totalRunningHours,
 
     -- * CoverageNormalizedUnits
     CoverageNormalizedUnits (..),
     newCoverageNormalizedUnits,
-    coverageNormalizedUnits_totalRunningNormalizedUnits,
-    coverageNormalizedUnits_reservedNormalizedUnits,
     coverageNormalizedUnits_coverageNormalizedUnitsPercentage,
     coverageNormalizedUnits_onDemandNormalizedUnits,
+    coverageNormalizedUnits_reservedNormalizedUnits,
+    coverageNormalizedUnits_totalRunningNormalizedUnits,
 
     -- * CurrentInstance
     CurrentInstance (..),
     newCurrentInstance,
-    currentInstance_resourceId,
-    currentInstance_tags,
-    currentInstance_savingsPlansCoveredHoursInLookbackPeriod,
-    currentInstance_instanceName,
-    currentInstance_reservationCoveredHoursInLookbackPeriod,
-    currentInstance_totalRunningHoursInLookbackPeriod,
-    currentInstance_resourceDetails,
     currentInstance_currencyCode,
-    currentInstance_resourceUtilization,
+    currentInstance_instanceName,
     currentInstance_monthlyCost,
     currentInstance_onDemandHoursInLookbackPeriod,
+    currentInstance_reservationCoveredHoursInLookbackPeriod,
+    currentInstance_resourceDetails,
+    currentInstance_resourceId,
+    currentInstance_resourceUtilization,
+    currentInstance_savingsPlansCoveredHoursInLookbackPeriod,
+    currentInstance_tags,
+    currentInstance_totalRunningHoursInLookbackPeriod,
 
     -- * DateInterval
     DateInterval (..),
@@ -332,53 +336,53 @@ module Amazonka.CostExplorer.Types
     -- * DiskResourceUtilization
     DiskResourceUtilization (..),
     newDiskResourceUtilization,
+    diskResourceUtilization_diskReadBytesPerSecond,
     diskResourceUtilization_diskReadOpsPerSecond,
     diskResourceUtilization_diskWriteBytesPerSecond,
     diskResourceUtilization_diskWriteOpsPerSecond,
-    diskResourceUtilization_diskReadBytesPerSecond,
 
     -- * EBSResourceUtilization
     EBSResourceUtilization (..),
     newEBSResourceUtilization,
-    eBSResourceUtilization_ebsWriteOpsPerSecond,
     eBSResourceUtilization_ebsReadBytesPerSecond,
     eBSResourceUtilization_ebsReadOpsPerSecond,
     eBSResourceUtilization_ebsWriteBytesPerSecond,
+    eBSResourceUtilization_ebsWriteOpsPerSecond,
 
     -- * EC2InstanceDetails
     EC2InstanceDetails (..),
     newEC2InstanceDetails,
-    eC2InstanceDetails_platform,
-    eC2InstanceDetails_sizeFlexEligible,
     eC2InstanceDetails_availabilityZone,
-    eC2InstanceDetails_instanceType,
-    eC2InstanceDetails_region,
-    eC2InstanceDetails_family,
     eC2InstanceDetails_currentGeneration,
+    eC2InstanceDetails_family,
+    eC2InstanceDetails_instanceType,
+    eC2InstanceDetails_platform,
+    eC2InstanceDetails_region,
+    eC2InstanceDetails_sizeFlexEligible,
     eC2InstanceDetails_tenancy,
 
     -- * EC2ResourceDetails
     EC2ResourceDetails (..),
     newEC2ResourceDetails,
     eC2ResourceDetails_hourlyOnDemandRate,
-    eC2ResourceDetails_networkPerformance,
-    eC2ResourceDetails_memory,
-    eC2ResourceDetails_vcpu,
-    eC2ResourceDetails_storage,
-    eC2ResourceDetails_platform,
     eC2ResourceDetails_instanceType,
+    eC2ResourceDetails_memory,
+    eC2ResourceDetails_networkPerformance,
+    eC2ResourceDetails_platform,
     eC2ResourceDetails_region,
     eC2ResourceDetails_sku,
+    eC2ResourceDetails_storage,
+    eC2ResourceDetails_vcpu,
 
     -- * EC2ResourceUtilization
     EC2ResourceUtilization (..),
     newEC2ResourceUtilization,
-    eC2ResourceUtilization_maxCpuUtilizationPercentage,
-    eC2ResourceUtilization_eBSResourceUtilization,
     eC2ResourceUtilization_diskResourceUtilization,
+    eC2ResourceUtilization_eBSResourceUtilization,
+    eC2ResourceUtilization_maxCpuUtilizationPercentage,
     eC2ResourceUtilization_maxMemoryUtilizationPercentage,
-    eC2ResourceUtilization_networkResourceUtilization,
     eC2ResourceUtilization_maxStorageUtilizationPercentage,
+    eC2ResourceUtilization_networkResourceUtilization,
 
     -- * EC2Specification
     EC2Specification (..),
@@ -388,45 +392,54 @@ module Amazonka.CostExplorer.Types
     -- * ESInstanceDetails
     ESInstanceDetails (..),
     newESInstanceDetails,
-    eSInstanceDetails_sizeFlexEligible,
-    eSInstanceDetails_region,
-    eSInstanceDetails_instanceClass,
     eSInstanceDetails_currentGeneration,
+    eSInstanceDetails_instanceClass,
     eSInstanceDetails_instanceSize,
+    eSInstanceDetails_region,
+    eSInstanceDetails_sizeFlexEligible,
 
     -- * ElastiCacheInstanceDetails
     ElastiCacheInstanceDetails (..),
     newElastiCacheInstanceDetails,
-    elastiCacheInstanceDetails_sizeFlexEligible,
-    elastiCacheInstanceDetails_nodeType,
-    elastiCacheInstanceDetails_region,
-    elastiCacheInstanceDetails_productDescription,
-    elastiCacheInstanceDetails_family,
     elastiCacheInstanceDetails_currentGeneration,
+    elastiCacheInstanceDetails_family,
+    elastiCacheInstanceDetails_nodeType,
+    elastiCacheInstanceDetails_productDescription,
+    elastiCacheInstanceDetails_region,
+    elastiCacheInstanceDetails_sizeFlexEligible,
 
     -- * Expression
     Expression (..),
     newExpression,
-    expression_tags,
+    expression_and,
     expression_costCategories,
     expression_dimensions,
-    expression_or,
     expression_not,
-    expression_and,
+    expression_or,
+    expression_tags,
 
     -- * ForecastResult
     ForecastResult (..),
     newForecastResult,
+    forecastResult_meanValue,
     forecastResult_predictionIntervalLowerBound,
     forecastResult_predictionIntervalUpperBound,
-    forecastResult_meanValue,
     forecastResult_timePeriod,
+
+    -- * GenerationSummary
+    GenerationSummary (..),
+    newGenerationSummary,
+    generationSummary_estimatedCompletionTime,
+    generationSummary_generationCompletionTime,
+    generationSummary_generationStartedTime,
+    generationSummary_generationStatus,
+    generationSummary_recommendationId,
 
     -- * Group
     Group (..),
     newGroup,
-    group_metrics,
     group_keys,
+    group_metrics,
 
     -- * GroupDefinition
     GroupDefinition (..),
@@ -444,16 +457,16 @@ module Amazonka.CostExplorer.Types
     InstanceDetails (..),
     newInstanceDetails,
     instanceDetails_eC2InstanceDetails,
+    instanceDetails_eSInstanceDetails,
     instanceDetails_elastiCacheInstanceDetails,
     instanceDetails_rDSInstanceDetails,
     instanceDetails_redshiftInstanceDetails,
-    instanceDetails_eSInstanceDetails,
 
     -- * MetricValue
     MetricValue (..),
     newMetricValue,
-    metricValue_unit,
     metricValue_amount,
+    metricValue_unit,
 
     -- * ModifyRecommendationDetail
     ModifyRecommendationDetail (..),
@@ -463,113 +476,113 @@ module Amazonka.CostExplorer.Types
     -- * NetworkResourceUtilization
     NetworkResourceUtilization (..),
     newNetworkResourceUtilization,
+    networkResourceUtilization_networkInBytesPerSecond,
     networkResourceUtilization_networkOutBytesPerSecond,
     networkResourceUtilization_networkPacketsInPerSecond,
     networkResourceUtilization_networkPacketsOutPerSecond,
-    networkResourceUtilization_networkInBytesPerSecond,
 
     -- * RDSInstanceDetails
     RDSInstanceDetails (..),
     newRDSInstanceDetails,
-    rDSInstanceDetails_databaseEngine,
-    rDSInstanceDetails_sizeFlexEligible,
-    rDSInstanceDetails_instanceType,
-    rDSInstanceDetails_region,
-    rDSInstanceDetails_family,
     rDSInstanceDetails_currentGeneration,
     rDSInstanceDetails_databaseEdition,
+    rDSInstanceDetails_databaseEngine,
     rDSInstanceDetails_deploymentOption,
+    rDSInstanceDetails_family,
+    rDSInstanceDetails_instanceType,
     rDSInstanceDetails_licenseModel,
+    rDSInstanceDetails_region,
+    rDSInstanceDetails_sizeFlexEligible,
 
     -- * RedshiftInstanceDetails
     RedshiftInstanceDetails (..),
     newRedshiftInstanceDetails,
-    redshiftInstanceDetails_sizeFlexEligible,
+    redshiftInstanceDetails_currentGeneration,
+    redshiftInstanceDetails_family,
     redshiftInstanceDetails_nodeType,
     redshiftInstanceDetails_region,
-    redshiftInstanceDetails_family,
-    redshiftInstanceDetails_currentGeneration,
+    redshiftInstanceDetails_sizeFlexEligible,
 
     -- * ReservationAggregates
     ReservationAggregates (..),
     newReservationAggregates,
-    reservationAggregates_totalAmortizedFee,
-    reservationAggregates_onDemandCostOfRIHoursUsed,
-    reservationAggregates_totalActualHours,
     reservationAggregates_amortizedRecurringFee,
     reservationAggregates_amortizedUpfrontFee,
-    reservationAggregates_totalActualUnits,
-    reservationAggregates_purchasedHours,
     reservationAggregates_netRISavings,
-    reservationAggregates_rICostForUnusedHours,
-    reservationAggregates_unusedUnits,
-    reservationAggregates_unusedHours,
-    reservationAggregates_unrealizedSavings,
-    reservationAggregates_totalPotentialRISavings,
-    reservationAggregates_utilizationPercentageInUnits,
+    reservationAggregates_onDemandCostOfRIHoursUsed,
+    reservationAggregates_purchasedHours,
     reservationAggregates_purchasedUnits,
-    reservationAggregates_utilizationPercentage,
+    reservationAggregates_rICostForUnusedHours,
     reservationAggregates_realizedSavings,
+    reservationAggregates_totalActualHours,
+    reservationAggregates_totalActualUnits,
+    reservationAggregates_totalAmortizedFee,
+    reservationAggregates_totalPotentialRISavings,
+    reservationAggregates_unrealizedSavings,
+    reservationAggregates_unusedHours,
+    reservationAggregates_unusedUnits,
+    reservationAggregates_utilizationPercentage,
+    reservationAggregates_utilizationPercentageInUnits,
 
     -- * ReservationCoverageGroup
     ReservationCoverageGroup (..),
     newReservationCoverageGroup,
-    reservationCoverageGroup_coverage,
     reservationCoverageGroup_attributes,
+    reservationCoverageGroup_coverage,
 
     -- * ReservationPurchaseRecommendation
     ReservationPurchaseRecommendation (..),
     newReservationPurchaseRecommendation,
+    reservationPurchaseRecommendation_accountScope,
+    reservationPurchaseRecommendation_lookbackPeriodInDays,
+    reservationPurchaseRecommendation_paymentOption,
+    reservationPurchaseRecommendation_recommendationDetails,
     reservationPurchaseRecommendation_recommendationSummary,
     reservationPurchaseRecommendation_serviceSpecification,
-    reservationPurchaseRecommendation_lookbackPeriodInDays,
     reservationPurchaseRecommendation_termInYears,
-    reservationPurchaseRecommendation_recommendationDetails,
-    reservationPurchaseRecommendation_paymentOption,
-    reservationPurchaseRecommendation_accountScope,
 
     -- * ReservationPurchaseRecommendationDetail
     ReservationPurchaseRecommendationDetail (..),
     newReservationPurchaseRecommendationDetail,
-    reservationPurchaseRecommendationDetail_recommendedNumberOfInstancesToPurchase,
-    reservationPurchaseRecommendationDetail_maximumNumberOfInstancesUsedPerHour,
-    reservationPurchaseRecommendationDetail_averageNumberOfInstancesUsedPerHour,
-    reservationPurchaseRecommendationDetail_estimatedMonthlySavingsAmount,
-    reservationPurchaseRecommendationDetail_minimumNumberOfInstancesUsedPerHour,
-    reservationPurchaseRecommendationDetail_recurringStandardMonthlyCost,
-    reservationPurchaseRecommendationDetail_instanceDetails,
-    reservationPurchaseRecommendationDetail_upfrontCost,
-    reservationPurchaseRecommendationDetail_estimatedMonthlyOnDemandCost,
-    reservationPurchaseRecommendationDetail_averageUtilization,
-    reservationPurchaseRecommendationDetail_estimatedBreakEvenInMonths,
-    reservationPurchaseRecommendationDetail_currencyCode,
     reservationPurchaseRecommendationDetail_accountId,
-    reservationPurchaseRecommendationDetail_maximumNormalizedUnitsUsedPerHour,
-    reservationPurchaseRecommendationDetail_estimatedReservationCostForLookbackPeriod,
     reservationPurchaseRecommendationDetail_averageNormalizedUnitsUsedPerHour,
-    reservationPurchaseRecommendationDetail_recommendedNormalizedUnitsToPurchase,
-    reservationPurchaseRecommendationDetail_minimumNormalizedUnitsUsedPerHour,
+    reservationPurchaseRecommendationDetail_averageNumberOfInstancesUsedPerHour,
+    reservationPurchaseRecommendationDetail_averageUtilization,
+    reservationPurchaseRecommendationDetail_currencyCode,
+    reservationPurchaseRecommendationDetail_estimatedBreakEvenInMonths,
+    reservationPurchaseRecommendationDetail_estimatedMonthlyOnDemandCost,
+    reservationPurchaseRecommendationDetail_estimatedMonthlySavingsAmount,
     reservationPurchaseRecommendationDetail_estimatedMonthlySavingsPercentage,
+    reservationPurchaseRecommendationDetail_estimatedReservationCostForLookbackPeriod,
+    reservationPurchaseRecommendationDetail_instanceDetails,
+    reservationPurchaseRecommendationDetail_maximumNormalizedUnitsUsedPerHour,
+    reservationPurchaseRecommendationDetail_maximumNumberOfInstancesUsedPerHour,
+    reservationPurchaseRecommendationDetail_minimumNormalizedUnitsUsedPerHour,
+    reservationPurchaseRecommendationDetail_minimumNumberOfInstancesUsedPerHour,
+    reservationPurchaseRecommendationDetail_recommendedNormalizedUnitsToPurchase,
+    reservationPurchaseRecommendationDetail_recommendedNumberOfInstancesToPurchase,
+    reservationPurchaseRecommendationDetail_recurringStandardMonthlyCost,
+    reservationPurchaseRecommendationDetail_upfrontCost,
 
     -- * ReservationPurchaseRecommendationMetadata
     ReservationPurchaseRecommendationMetadata (..),
     newReservationPurchaseRecommendationMetadata,
-    reservationPurchaseRecommendationMetadata_recommendationId,
     reservationPurchaseRecommendationMetadata_generationTimestamp,
+    reservationPurchaseRecommendationMetadata_recommendationId,
 
     -- * ReservationPurchaseRecommendationSummary
     ReservationPurchaseRecommendationSummary (..),
     newReservationPurchaseRecommendationSummary,
     reservationPurchaseRecommendationSummary_currencyCode,
-    reservationPurchaseRecommendationSummary_totalEstimatedMonthlySavingsPercentage,
     reservationPurchaseRecommendationSummary_totalEstimatedMonthlySavingsAmount,
+    reservationPurchaseRecommendationSummary_totalEstimatedMonthlySavingsPercentage,
 
     -- * ReservationUtilizationGroup
     ReservationUtilizationGroup (..),
     newReservationUtilizationGroup,
+    reservationUtilizationGroup_attributes,
     reservationUtilizationGroup_key,
     reservationUtilizationGroup_utilization,
-    reservationUtilizationGroup_attributes,
     reservationUtilizationGroup_value,
 
     -- * ResourceDetails
@@ -591,20 +604,20 @@ module Amazonka.CostExplorer.Types
     -- * ResultByTime
     ResultByTime (..),
     newResultByTime,
-    resultByTime_total,
     resultByTime_estimated,
-    resultByTime_timePeriod,
     resultByTime_groups,
+    resultByTime_timePeriod,
+    resultByTime_total,
 
     -- * RightsizingRecommendation
     RightsizingRecommendation (..),
     newRightsizingRecommendation,
-    rightsizingRecommendation_findingReasonCodes,
-    rightsizingRecommendation_terminateRecommendationDetail,
-    rightsizingRecommendation_modifyRecommendationDetail,
     rightsizingRecommendation_accountId,
     rightsizingRecommendation_currentInstance,
+    rightsizingRecommendation_findingReasonCodes,
+    rightsizingRecommendation_modifyRecommendationDetail,
     rightsizingRecommendation_rightsizingType,
+    rightsizingRecommendation_terminateRecommendationDetail,
 
     -- * RightsizingRecommendationConfiguration
     RightsizingRecommendationConfiguration (..),
@@ -615,107 +628,108 @@ module Amazonka.CostExplorer.Types
     -- * RightsizingRecommendationMetadata
     RightsizingRecommendationMetadata (..),
     newRightsizingRecommendationMetadata,
-    rightsizingRecommendationMetadata_recommendationId,
-    rightsizingRecommendationMetadata_lookbackPeriodInDays,
     rightsizingRecommendationMetadata_additionalMetadata,
     rightsizingRecommendationMetadata_generationTimestamp,
+    rightsizingRecommendationMetadata_lookbackPeriodInDays,
+    rightsizingRecommendationMetadata_recommendationId,
 
     -- * RightsizingRecommendationSummary
     RightsizingRecommendationSummary (..),
     newRightsizingRecommendationSummary,
-    rightsizingRecommendationSummary_savingsPercentage,
-    rightsizingRecommendationSummary_savingsCurrencyCode,
     rightsizingRecommendationSummary_estimatedTotalMonthlySavingsAmount,
+    rightsizingRecommendationSummary_savingsCurrencyCode,
+    rightsizingRecommendationSummary_savingsPercentage,
     rightsizingRecommendationSummary_totalRecommendationCount,
 
     -- * RootCause
     RootCause (..),
     newRootCause,
-    rootCause_usageType,
-    rootCause_service,
-    rootCause_region,
     rootCause_linkedAccount,
+    rootCause_linkedAccountName,
+    rootCause_region,
+    rootCause_service,
+    rootCause_usageType,
 
     -- * SavingsPlansAmortizedCommitment
     SavingsPlansAmortizedCommitment (..),
     newSavingsPlansAmortizedCommitment,
+    savingsPlansAmortizedCommitment_amortizedRecurringCommitment,
     savingsPlansAmortizedCommitment_amortizedUpfrontCommitment,
     savingsPlansAmortizedCommitment_totalAmortizedCommitment,
-    savingsPlansAmortizedCommitment_amortizedRecurringCommitment,
 
     -- * SavingsPlansCoverage
     SavingsPlansCoverage (..),
     newSavingsPlansCoverage,
+    savingsPlansCoverage_attributes,
     savingsPlansCoverage_coverage,
     savingsPlansCoverage_timePeriod,
-    savingsPlansCoverage_attributes,
 
     -- * SavingsPlansCoverageData
     SavingsPlansCoverageData (..),
     newSavingsPlansCoverageData,
-    savingsPlansCoverageData_spendCoveredBySavingsPlans,
     savingsPlansCoverageData_coveragePercentage,
-    savingsPlansCoverageData_totalCost,
     savingsPlansCoverageData_onDemandCost,
+    savingsPlansCoverageData_spendCoveredBySavingsPlans,
+    savingsPlansCoverageData_totalCost,
 
     -- * SavingsPlansDetails
     SavingsPlansDetails (..),
     newSavingsPlansDetails,
-    savingsPlansDetails_region,
     savingsPlansDetails_instanceFamily,
     savingsPlansDetails_offeringId,
+    savingsPlansDetails_region,
 
     -- * SavingsPlansPurchaseRecommendation
     SavingsPlansPurchaseRecommendation (..),
     newSavingsPlansPurchaseRecommendation,
-    savingsPlansPurchaseRecommendation_savingsPlansType,
-    savingsPlansPurchaseRecommendation_savingsPlansPurchaseRecommendationDetails,
-    savingsPlansPurchaseRecommendation_lookbackPeriodInDays,
-    savingsPlansPurchaseRecommendation_savingsPlansPurchaseRecommendationSummary,
-    savingsPlansPurchaseRecommendation_termInYears,
-    savingsPlansPurchaseRecommendation_paymentOption,
     savingsPlansPurchaseRecommendation_accountScope,
+    savingsPlansPurchaseRecommendation_lookbackPeriodInDays,
+    savingsPlansPurchaseRecommendation_paymentOption,
+    savingsPlansPurchaseRecommendation_savingsPlansPurchaseRecommendationDetails,
+    savingsPlansPurchaseRecommendation_savingsPlansPurchaseRecommendationSummary,
+    savingsPlansPurchaseRecommendation_savingsPlansType,
+    savingsPlansPurchaseRecommendation_termInYears,
 
     -- * SavingsPlansPurchaseRecommendationDetail
     SavingsPlansPurchaseRecommendationDetail (..),
     newSavingsPlansPurchaseRecommendationDetail,
-    savingsPlansPurchaseRecommendationDetail_hourlyCommitmentToPurchase,
-    savingsPlansPurchaseRecommendationDetail_estimatedSavingsPercentage,
-    savingsPlansPurchaseRecommendationDetail_estimatedMonthlySavingsAmount,
-    savingsPlansPurchaseRecommendationDetail_estimatedOnDemandCostWithCurrentCommitment,
-    savingsPlansPurchaseRecommendationDetail_upfrontCost,
-    savingsPlansPurchaseRecommendationDetail_estimatedAverageUtilization,
-    savingsPlansPurchaseRecommendationDetail_currentMinimumHourlyOnDemandSpend,
-    savingsPlansPurchaseRecommendationDetail_currencyCode,
     savingsPlansPurchaseRecommendationDetail_accountId,
-    savingsPlansPurchaseRecommendationDetail_estimatedOnDemandCost,
+    savingsPlansPurchaseRecommendationDetail_currencyCode,
     savingsPlansPurchaseRecommendationDetail_currentAverageHourlyOnDemandSpend,
-    savingsPlansPurchaseRecommendationDetail_estimatedSavingsAmount,
-    savingsPlansPurchaseRecommendationDetail_estimatedSPCost,
-    savingsPlansPurchaseRecommendationDetail_savingsPlansDetails,
     savingsPlansPurchaseRecommendationDetail_currentMaximumHourlyOnDemandSpend,
+    savingsPlansPurchaseRecommendationDetail_currentMinimumHourlyOnDemandSpend,
+    savingsPlansPurchaseRecommendationDetail_estimatedAverageUtilization,
+    savingsPlansPurchaseRecommendationDetail_estimatedMonthlySavingsAmount,
+    savingsPlansPurchaseRecommendationDetail_estimatedOnDemandCost,
+    savingsPlansPurchaseRecommendationDetail_estimatedOnDemandCostWithCurrentCommitment,
     savingsPlansPurchaseRecommendationDetail_estimatedROI,
+    savingsPlansPurchaseRecommendationDetail_estimatedSPCost,
+    savingsPlansPurchaseRecommendationDetail_estimatedSavingsAmount,
+    savingsPlansPurchaseRecommendationDetail_estimatedSavingsPercentage,
+    savingsPlansPurchaseRecommendationDetail_hourlyCommitmentToPurchase,
+    savingsPlansPurchaseRecommendationDetail_savingsPlansDetails,
+    savingsPlansPurchaseRecommendationDetail_upfrontCost,
 
     -- * SavingsPlansPurchaseRecommendationMetadata
     SavingsPlansPurchaseRecommendationMetadata (..),
     newSavingsPlansPurchaseRecommendationMetadata,
-    savingsPlansPurchaseRecommendationMetadata_recommendationId,
     savingsPlansPurchaseRecommendationMetadata_additionalMetadata,
     savingsPlansPurchaseRecommendationMetadata_generationTimestamp,
+    savingsPlansPurchaseRecommendationMetadata_recommendationId,
 
     -- * SavingsPlansPurchaseRecommendationSummary
     SavingsPlansPurchaseRecommendationSummary (..),
     newSavingsPlansPurchaseRecommendationSummary,
-    savingsPlansPurchaseRecommendationSummary_hourlyCommitmentToPurchase,
-    savingsPlansPurchaseRecommendationSummary_estimatedSavingsPercentage,
-    savingsPlansPurchaseRecommendationSummary_estimatedMonthlySavingsAmount,
-    savingsPlansPurchaseRecommendationSummary_dailyCommitmentToPurchase,
-    savingsPlansPurchaseRecommendationSummary_estimatedOnDemandCostWithCurrentCommitment,
-    savingsPlansPurchaseRecommendationSummary_estimatedTotalCost,
-    savingsPlansPurchaseRecommendationSummary_currentOnDemandSpend,
     savingsPlansPurchaseRecommendationSummary_currencyCode,
-    savingsPlansPurchaseRecommendationSummary_estimatedSavingsAmount,
+    savingsPlansPurchaseRecommendationSummary_currentOnDemandSpend,
+    savingsPlansPurchaseRecommendationSummary_dailyCommitmentToPurchase,
+    savingsPlansPurchaseRecommendationSummary_estimatedMonthlySavingsAmount,
+    savingsPlansPurchaseRecommendationSummary_estimatedOnDemandCostWithCurrentCommitment,
     savingsPlansPurchaseRecommendationSummary_estimatedROI,
+    savingsPlansPurchaseRecommendationSummary_estimatedSavingsAmount,
+    savingsPlansPurchaseRecommendationSummary_estimatedSavingsPercentage,
+    savingsPlansPurchaseRecommendationSummary_estimatedTotalCost,
+    savingsPlansPurchaseRecommendationSummary_hourlyCommitmentToPurchase,
     savingsPlansPurchaseRecommendationSummary_totalRecommendationCount,
 
     -- * SavingsPlansSavings
@@ -751,10 +765,10 @@ module Amazonka.CostExplorer.Types
     SavingsPlansUtilizationDetail (..),
     newSavingsPlansUtilizationDetail,
     savingsPlansUtilizationDetail_amortizedCommitment,
-    savingsPlansUtilizationDetail_utilization,
+    savingsPlansUtilizationDetail_attributes,
     savingsPlansUtilizationDetail_savings,
     savingsPlansUtilizationDetail_savingsPlanArn,
-    savingsPlansUtilizationDetail_attributes,
+    savingsPlansUtilizationDetail_utilization,
 
     -- * ServiceSpecification
     ServiceSpecification (..),
@@ -770,9 +784,9 @@ module Amazonka.CostExplorer.Types
     -- * Subscriber
     Subscriber (..),
     newSubscriber,
-    subscriber_type,
-    subscriber_status,
     subscriber_address,
+    subscriber_status,
+    subscriber_type,
 
     -- * TagValues
     TagValues (..),
@@ -784,19 +798,19 @@ module Amazonka.CostExplorer.Types
     -- * TargetInstance
     TargetInstance (..),
     newTargetInstance,
-    targetInstance_estimatedMonthlyCost,
-    targetInstance_platformDifferences,
-    targetInstance_expectedResourceUtilization,
-    targetInstance_defaultTargetInstance,
-    targetInstance_estimatedMonthlySavings,
-    targetInstance_resourceDetails,
     targetInstance_currencyCode,
+    targetInstance_defaultTargetInstance,
+    targetInstance_estimatedMonthlyCost,
+    targetInstance_estimatedMonthlySavings,
+    targetInstance_expectedResourceUtilization,
+    targetInstance_platformDifferences,
+    targetInstance_resourceDetails,
 
     -- * TerminateRecommendationDetail
     TerminateRecommendationDetail (..),
     newTerminateRecommendationDetail,
-    terminateRecommendationDetail_estimatedMonthlySavings,
     terminateRecommendationDetail_currencyCode,
+    terminateRecommendationDetail_estimatedMonthlySavings,
 
     -- * TotalImpactFilter
     TotalImpactFilter (..),
@@ -808,16 +822,16 @@ module Amazonka.CostExplorer.Types
     -- * UpdateCostAllocationTagsStatusError
     UpdateCostAllocationTagsStatusError (..),
     newUpdateCostAllocationTagsStatusError,
-    updateCostAllocationTagsStatusError_message,
     updateCostAllocationTagsStatusError_code,
+    updateCostAllocationTagsStatusError_message,
     updateCostAllocationTagsStatusError_tagKey,
 
     -- * UtilizationByTime
     UtilizationByTime (..),
     newUtilizationByTime,
-    utilizationByTime_total,
-    utilizationByTime_timePeriod,
     utilizationByTime_groups,
+    utilizationByTime_timePeriod,
+    utilizationByTime_total,
   )
 where
 
@@ -872,6 +886,8 @@ import Amazonka.CostExplorer.Types.ElastiCacheInstanceDetails
 import Amazonka.CostExplorer.Types.Expression
 import Amazonka.CostExplorer.Types.FindingReasonCode
 import Amazonka.CostExplorer.Types.ForecastResult
+import Amazonka.CostExplorer.Types.GenerationStatus
+import Amazonka.CostExplorer.Types.GenerationSummary
 import Amazonka.CostExplorer.Types.Granularity
 import Amazonka.CostExplorer.Types.Group
 import Amazonka.CostExplorer.Types.GroupDefinition
@@ -966,28 +982,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -995,13 +1005,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -1009,7 +1023,44 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
+
+-- | The requested report expired. Update the date interval and try again.
+_BillExpirationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BillExpirationException =
+  Core._MatchServiceError
+    defaultService
+    "BillExpirationException"
+
+-- | The requested data is unavailable.
+_DataUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DataUnavailableException =
+  Core._MatchServiceError
+    defaultService
+    "DataUnavailableException"
+
+-- | A request to generate a recommendation is already in progress.
+_GenerationExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_GenerationExistsException =
+  Core._MatchServiceError
+    defaultService
+    "GenerationExistsException"
+
+-- | The pagination token is invalid. Try again without a pagination token.
+_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNextTokenException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidNextTokenException"
+
+-- | You made too many calls in a short period of time. Try again later.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
 
 -- | Your request parameters changed between pages. Try again with the old
 -- parameters or without a pagination token.
@@ -1019,20 +1070,12 @@ _RequestChangedException =
     defaultService
     "RequestChangedException"
 
--- | The cost anomaly subscription does not exist for the account.
-_UnknownSubscriptionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnknownSubscriptionException =
+-- | The specified ARN in the request doesn\'t exist.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
-    "UnknownSubscriptionException"
-
--- | Can occur if you specify a number of tags for a resource greater than
--- the maximum 50 user tags per resource.
-_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyTagsException =
-  Core._MatchServiceError
-    defaultService
-    "TooManyTagsException"
+    "ResourceNotFoundException"
 
 -- | You\'ve reached the limit on the number of resources you can create, or
 -- exceeded the size of an individual resource.
@@ -1042,12 +1085,27 @@ _ServiceQuotaExceededException =
     defaultService
     "ServiceQuotaExceededException"
 
--- | The specified ARN in the request doesn\'t exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
+-- | Can occur if you specify a number of tags for a resource greater than
+-- the maximum 50 user tags per resource.
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException =
   Core._MatchServiceError
     defaultService
-    "ResourceNotFoundException"
+    "TooManyTagsException"
+
+-- | The cost anomaly monitor does not exist for the account.
+_UnknownMonitorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnknownMonitorException =
+  Core._MatchServiceError
+    defaultService
+    "UnknownMonitorException"
+
+-- | The cost anomaly subscription does not exist for the account.
+_UnknownSubscriptionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnknownSubscriptionException =
+  Core._MatchServiceError
+    defaultService
+    "UnknownSubscriptionException"
 
 -- | Cost Explorer was unable to identify the usage unit. Provide
 -- @UsageType\/UsageTypeGroup@ filter selections that contain matching
@@ -1057,38 +1115,3 @@ _UnresolvableUsageUnitException =
   Core._MatchServiceError
     defaultService
     "UnresolvableUsageUnitException"
-
--- | The requested report expired. Update the date interval and try again.
-_BillExpirationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_BillExpirationException =
-  Core._MatchServiceError
-    defaultService
-    "BillExpirationException"
-
--- | You made too many calls in a short period of time. Try again later.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "LimitExceededException"
-
--- | The pagination token is invalid. Try again without a pagination token.
-_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidNextTokenException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidNextTokenException"
-
--- | The cost anomaly monitor does not exist for the account.
-_UnknownMonitorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnknownMonitorException =
-  Core._MatchServiceError
-    defaultService
-    "UnknownMonitorException"
-
--- | The requested data is unavailable.
-_DataUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DataUnavailableException =
-  Core._MatchServiceError
-    defaultService
-    "DataUnavailableException"

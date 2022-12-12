@@ -31,8 +31,8 @@ module Amazonka.CloudDirectory.ListTypedLinkFacetNames
     newListTypedLinkFacetNames,
 
     -- * Request Lenses
-    listTypedLinkFacetNames_nextToken,
     listTypedLinkFacetNames_maxResults,
+    listTypedLinkFacetNames_nextToken,
     listTypedLinkFacetNames_schemaArn,
 
     -- * Destructuring the Response
@@ -40,8 +40,8 @@ module Amazonka.CloudDirectory.ListTypedLinkFacetNames
     newListTypedLinkFacetNamesResponse,
 
     -- * Response Lenses
-    listTypedLinkFacetNamesResponse_nextToken,
     listTypedLinkFacetNamesResponse_facetNames,
+    listTypedLinkFacetNamesResponse_nextToken,
     listTypedLinkFacetNamesResponse_httpStatus,
   )
 where
@@ -56,10 +56,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTypedLinkFacetNames' smart constructor.
 data ListTypedLinkFacetNames = ListTypedLinkFacetNames'
-  { -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to retrieve.
+  { -- | The maximum number of results to retrieve.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) that is associated with the schema. For
     -- more information, see arns.
     schemaArn :: Prelude.Text
@@ -74,9 +74,9 @@ data ListTypedLinkFacetNames = ListTypedLinkFacetNames'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTypedLinkFacetNames_nextToken' - The pagination token.
---
 -- 'maxResults', 'listTypedLinkFacetNames_maxResults' - The maximum number of results to retrieve.
+--
+-- 'nextToken', 'listTypedLinkFacetNames_nextToken' - The pagination token.
 --
 -- 'schemaArn', 'listTypedLinkFacetNames_schemaArn' - The Amazon Resource Name (ARN) that is associated with the schema. For
 -- more information, see arns.
@@ -86,19 +86,19 @@ newListTypedLinkFacetNames ::
   ListTypedLinkFacetNames
 newListTypedLinkFacetNames pSchemaArn_ =
   ListTypedLinkFacetNames'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       schemaArn = pSchemaArn_
     }
-
--- | The pagination token.
-listTypedLinkFacetNames_nextToken :: Lens.Lens' ListTypedLinkFacetNames (Prelude.Maybe Prelude.Text)
-listTypedLinkFacetNames_nextToken = Lens.lens (\ListTypedLinkFacetNames' {nextToken} -> nextToken) (\s@ListTypedLinkFacetNames' {} a -> s {nextToken = a} :: ListTypedLinkFacetNames)
 
 -- | The maximum number of results to retrieve.
 listTypedLinkFacetNames_maxResults :: Lens.Lens' ListTypedLinkFacetNames (Prelude.Maybe Prelude.Natural)
 listTypedLinkFacetNames_maxResults = Lens.lens (\ListTypedLinkFacetNames' {maxResults} -> maxResults) (\s@ListTypedLinkFacetNames' {} a -> s {maxResults = a} :: ListTypedLinkFacetNames)
+
+-- | The pagination token.
+listTypedLinkFacetNames_nextToken :: Lens.Lens' ListTypedLinkFacetNames (Prelude.Maybe Prelude.Text)
+listTypedLinkFacetNames_nextToken = Lens.lens (\ListTypedLinkFacetNames' {nextToken} -> nextToken) (\s@ListTypedLinkFacetNames' {} a -> s {nextToken = a} :: ListTypedLinkFacetNames)
 
 -- | The Amazon Resource Name (ARN) that is associated with the schema. For
 -- more information, see arns.
@@ -137,21 +137,21 @@ instance Core.AWSRequest ListTypedLinkFacetNames where
     Response.receiveJSON
       ( \s h x ->
           ListTypedLinkFacetNamesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "FacetNames" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "FacetNames" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListTypedLinkFacetNames where
   hashWithSalt _salt ListTypedLinkFacetNames' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` schemaArn
 
 instance Prelude.NFData ListTypedLinkFacetNames where
   rnf ListTypedLinkFacetNames' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf schemaArn
 
 instance Data.ToHeaders ListTypedLinkFacetNames where
@@ -163,8 +163,8 @@ instance Data.ToJSON ListTypedLinkFacetNames where
   toJSON ListTypedLinkFacetNames' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -178,10 +178,10 @@ instance Data.ToQuery ListTypedLinkFacetNames where
 
 -- | /See:/ 'newListTypedLinkFacetNamesResponse' smart constructor.
 data ListTypedLinkFacetNamesResponse = ListTypedLinkFacetNamesResponse'
-  { -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The names of typed link facets that exist within the schema.
+  { -- | The names of typed link facets that exist within the schema.
     facetNames :: Prelude.Maybe [Prelude.Text],
+    -- | The pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -195,9 +195,9 @@ data ListTypedLinkFacetNamesResponse = ListTypedLinkFacetNamesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTypedLinkFacetNamesResponse_nextToken' - The pagination token.
---
 -- 'facetNames', 'listTypedLinkFacetNamesResponse_facetNames' - The names of typed link facets that exist within the schema.
+--
+-- 'nextToken', 'listTypedLinkFacetNamesResponse_nextToken' - The pagination token.
 --
 -- 'httpStatus', 'listTypedLinkFacetNamesResponse_httpStatus' - The response's http status code.
 newListTypedLinkFacetNamesResponse ::
@@ -206,19 +206,19 @@ newListTypedLinkFacetNamesResponse ::
   ListTypedLinkFacetNamesResponse
 newListTypedLinkFacetNamesResponse pHttpStatus_ =
   ListTypedLinkFacetNamesResponse'
-    { nextToken =
+    { facetNames =
         Prelude.Nothing,
-      facetNames = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The pagination token.
-listTypedLinkFacetNamesResponse_nextToken :: Lens.Lens' ListTypedLinkFacetNamesResponse (Prelude.Maybe Prelude.Text)
-listTypedLinkFacetNamesResponse_nextToken = Lens.lens (\ListTypedLinkFacetNamesResponse' {nextToken} -> nextToken) (\s@ListTypedLinkFacetNamesResponse' {} a -> s {nextToken = a} :: ListTypedLinkFacetNamesResponse)
 
 -- | The names of typed link facets that exist within the schema.
 listTypedLinkFacetNamesResponse_facetNames :: Lens.Lens' ListTypedLinkFacetNamesResponse (Prelude.Maybe [Prelude.Text])
 listTypedLinkFacetNamesResponse_facetNames = Lens.lens (\ListTypedLinkFacetNamesResponse' {facetNames} -> facetNames) (\s@ListTypedLinkFacetNamesResponse' {} a -> s {facetNames = a} :: ListTypedLinkFacetNamesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The pagination token.
+listTypedLinkFacetNamesResponse_nextToken :: Lens.Lens' ListTypedLinkFacetNamesResponse (Prelude.Maybe Prelude.Text)
+listTypedLinkFacetNamesResponse_nextToken = Lens.lens (\ListTypedLinkFacetNamesResponse' {nextToken} -> nextToken) (\s@ListTypedLinkFacetNamesResponse' {} a -> s {nextToken = a} :: ListTypedLinkFacetNamesResponse)
 
 -- | The response's http status code.
 listTypedLinkFacetNamesResponse_httpStatus :: Lens.Lens' ListTypedLinkFacetNamesResponse Prelude.Int
@@ -229,6 +229,6 @@ instance
     ListTypedLinkFacetNamesResponse
   where
   rnf ListTypedLinkFacetNamesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf facetNames
+    Prelude.rnf facetNames
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

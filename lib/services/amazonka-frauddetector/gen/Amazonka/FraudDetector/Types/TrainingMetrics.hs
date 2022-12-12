@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTrainingMetrics' smart constructor.
 data TrainingMetrics = TrainingMetrics'
-  { -- | The data points details.
-    metricDataPoints :: Prelude.Maybe [MetricDataPoint],
-    -- | The area under the curve. This summarizes true positive rate (TPR) and
+  { -- | The area under the curve. This summarizes true positive rate (TPR) and
     -- false positive rate (FPR) across all possible model score thresholds. A
     -- model with no predictive power has an AUC of 0.5, whereas a perfect
     -- model has a score of 1.0.
-    auc :: Prelude.Maybe Prelude.Double
+    auc :: Prelude.Maybe Prelude.Double,
+    -- | The data points details.
+    metricDataPoints :: Prelude.Maybe [MetricDataPoint]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,24 +47,19 @@ data TrainingMetrics = TrainingMetrics'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metricDataPoints', 'trainingMetrics_metricDataPoints' - The data points details.
---
 -- 'auc', 'trainingMetrics_auc' - The area under the curve. This summarizes true positive rate (TPR) and
 -- false positive rate (FPR) across all possible model score thresholds. A
 -- model with no predictive power has an AUC of 0.5, whereas a perfect
 -- model has a score of 1.0.
+--
+-- 'metricDataPoints', 'trainingMetrics_metricDataPoints' - The data points details.
 newTrainingMetrics ::
   TrainingMetrics
 newTrainingMetrics =
   TrainingMetrics'
-    { metricDataPoints =
-        Prelude.Nothing,
-      auc = Prelude.Nothing
+    { auc = Prelude.Nothing,
+      metricDataPoints = Prelude.Nothing
     }
-
--- | The data points details.
-trainingMetrics_metricDataPoints :: Lens.Lens' TrainingMetrics (Prelude.Maybe [MetricDataPoint])
-trainingMetrics_metricDataPoints = Lens.lens (\TrainingMetrics' {metricDataPoints} -> metricDataPoints) (\s@TrainingMetrics' {} a -> s {metricDataPoints = a} :: TrainingMetrics) Prelude.. Lens.mapping Lens.coerced
 
 -- | The area under the curve. This summarizes true positive rate (TPR) and
 -- false positive rate (FPR) across all possible model score thresholds. A
@@ -73,24 +68,28 @@ trainingMetrics_metricDataPoints = Lens.lens (\TrainingMetrics' {metricDataPoint
 trainingMetrics_auc :: Lens.Lens' TrainingMetrics (Prelude.Maybe Prelude.Double)
 trainingMetrics_auc = Lens.lens (\TrainingMetrics' {auc} -> auc) (\s@TrainingMetrics' {} a -> s {auc = a} :: TrainingMetrics)
 
+-- | The data points details.
+trainingMetrics_metricDataPoints :: Lens.Lens' TrainingMetrics (Prelude.Maybe [MetricDataPoint])
+trainingMetrics_metricDataPoints = Lens.lens (\TrainingMetrics' {metricDataPoints} -> metricDataPoints) (\s@TrainingMetrics' {} a -> s {metricDataPoints = a} :: TrainingMetrics) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON TrainingMetrics where
   parseJSON =
     Data.withObject
       "TrainingMetrics"
       ( \x ->
           TrainingMetrics'
-            Prelude.<$> ( x Data..:? "metricDataPoints"
+            Prelude.<$> (x Data..:? "auc")
+            Prelude.<*> ( x Data..:? "metricDataPoints"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "auc")
       )
 
 instance Prelude.Hashable TrainingMetrics where
   hashWithSalt _salt TrainingMetrics' {..} =
-    _salt `Prelude.hashWithSalt` metricDataPoints
-      `Prelude.hashWithSalt` auc
+    _salt `Prelude.hashWithSalt` auc
+      `Prelude.hashWithSalt` metricDataPoints
 
 instance Prelude.NFData TrainingMetrics where
   rnf TrainingMetrics' {..} =
-    Prelude.rnf metricDataPoints
-      `Prelude.seq` Prelude.rnf auc
+    Prelude.rnf auc
+      `Prelude.seq` Prelude.rnf metricDataPoints

@@ -32,14 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSalesforceDestinationProperties' smart constructor.
 data SalesforceDestinationProperties = SalesforceDestinationProperties'
-  { -- | The settings that determine how Amazon AppFlow handles an error when
-    -- placing data in the Salesforce destination. For example, this setting
-    -- would determine if the flow should fail after one insertion error, or
-    -- continue and attempt to insert every record regardless of the initial
-    -- failure. @ErrorHandlingConfig@ is a part of the destination connector
-    -- details.
-    errorHandlingConfig :: Prelude.Maybe ErrorHandlingConfig,
-    -- | Specifies which Salesforce API is used by Amazon AppFlow when your flow
+  { -- | Specifies which Salesforce API is used by Amazon AppFlow when your flow
     -- transfers data to Salesforce.
     --
     -- [AUTOMATIC]
@@ -80,6 +73,13 @@ data SalesforceDestinationProperties = SalesforceDestinationProperties'
     --     for Bulk API 2.0. In some cases, if your flow attempts to transfer a
     --     vary large set of data, it might fail with a timed out error.
     dataTransferApi :: Prelude.Maybe SalesforceDataTransferApi,
+    -- | The settings that determine how Amazon AppFlow handles an error when
+    -- placing data in the Salesforce destination. For example, this setting
+    -- would determine if the flow should fail after one insertion error, or
+    -- continue and attempt to insert every record regardless of the initial
+    -- failure. @ErrorHandlingConfig@ is a part of the destination connector
+    -- details.
+    errorHandlingConfig :: Prelude.Maybe ErrorHandlingConfig,
     -- | The name of the field that Amazon AppFlow uses as an ID when performing
     -- a write operation such as update or delete.
     idFieldNames :: Prelude.Maybe [Prelude.Text],
@@ -98,13 +98,6 @@ data SalesforceDestinationProperties = SalesforceDestinationProperties'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'errorHandlingConfig', 'salesforceDestinationProperties_errorHandlingConfig' - The settings that determine how Amazon AppFlow handles an error when
--- placing data in the Salesforce destination. For example, this setting
--- would determine if the flow should fail after one insertion error, or
--- continue and attempt to insert every record regardless of the initial
--- failure. @ErrorHandlingConfig@ is a part of the destination connector
--- details.
 --
 -- 'dataTransferApi', 'salesforceDestinationProperties_dataTransferApi' - Specifies which Salesforce API is used by Amazon AppFlow when your flow
 -- transfers data to Salesforce.
@@ -147,6 +140,13 @@ data SalesforceDestinationProperties = SalesforceDestinationProperties'
 --     for Bulk API 2.0. In some cases, if your flow attempts to transfer a
 --     vary large set of data, it might fail with a timed out error.
 --
+-- 'errorHandlingConfig', 'salesforceDestinationProperties_errorHandlingConfig' - The settings that determine how Amazon AppFlow handles an error when
+-- placing data in the Salesforce destination. For example, this setting
+-- would determine if the flow should fail after one insertion error, or
+-- continue and attempt to insert every record regardless of the initial
+-- failure. @ErrorHandlingConfig@ is a part of the destination connector
+-- details.
+--
 -- 'idFieldNames', 'salesforceDestinationProperties_idFieldNames' - The name of the field that Amazon AppFlow uses as an ID when performing
 -- a write operation such as update or delete.
 --
@@ -160,22 +160,13 @@ newSalesforceDestinationProperties ::
   SalesforceDestinationProperties
 newSalesforceDestinationProperties pObject_ =
   SalesforceDestinationProperties'
-    { errorHandlingConfig =
+    { dataTransferApi =
         Prelude.Nothing,
-      dataTransferApi = Prelude.Nothing,
+      errorHandlingConfig = Prelude.Nothing,
       idFieldNames = Prelude.Nothing,
       writeOperationType = Prelude.Nothing,
       object' = pObject_
     }
-
--- | The settings that determine how Amazon AppFlow handles an error when
--- placing data in the Salesforce destination. For example, this setting
--- would determine if the flow should fail after one insertion error, or
--- continue and attempt to insert every record regardless of the initial
--- failure. @ErrorHandlingConfig@ is a part of the destination connector
--- details.
-salesforceDestinationProperties_errorHandlingConfig :: Lens.Lens' SalesforceDestinationProperties (Prelude.Maybe ErrorHandlingConfig)
-salesforceDestinationProperties_errorHandlingConfig = Lens.lens (\SalesforceDestinationProperties' {errorHandlingConfig} -> errorHandlingConfig) (\s@SalesforceDestinationProperties' {} a -> s {errorHandlingConfig = a} :: SalesforceDestinationProperties)
 
 -- | Specifies which Salesforce API is used by Amazon AppFlow when your flow
 -- transfers data to Salesforce.
@@ -220,6 +211,15 @@ salesforceDestinationProperties_errorHandlingConfig = Lens.lens (\SalesforceDest
 salesforceDestinationProperties_dataTransferApi :: Lens.Lens' SalesforceDestinationProperties (Prelude.Maybe SalesforceDataTransferApi)
 salesforceDestinationProperties_dataTransferApi = Lens.lens (\SalesforceDestinationProperties' {dataTransferApi} -> dataTransferApi) (\s@SalesforceDestinationProperties' {} a -> s {dataTransferApi = a} :: SalesforceDestinationProperties)
 
+-- | The settings that determine how Amazon AppFlow handles an error when
+-- placing data in the Salesforce destination. For example, this setting
+-- would determine if the flow should fail after one insertion error, or
+-- continue and attempt to insert every record regardless of the initial
+-- failure. @ErrorHandlingConfig@ is a part of the destination connector
+-- details.
+salesforceDestinationProperties_errorHandlingConfig :: Lens.Lens' SalesforceDestinationProperties (Prelude.Maybe ErrorHandlingConfig)
+salesforceDestinationProperties_errorHandlingConfig = Lens.lens (\SalesforceDestinationProperties' {errorHandlingConfig} -> errorHandlingConfig) (\s@SalesforceDestinationProperties' {} a -> s {errorHandlingConfig = a} :: SalesforceDestinationProperties)
+
 -- | The name of the field that Amazon AppFlow uses as an ID when performing
 -- a write operation such as update or delete.
 salesforceDestinationProperties_idFieldNames :: Lens.Lens' SalesforceDestinationProperties (Prelude.Maybe [Prelude.Text])
@@ -243,8 +243,8 @@ instance
       "SalesforceDestinationProperties"
       ( \x ->
           SalesforceDestinationProperties'
-            Prelude.<$> (x Data..:? "errorHandlingConfig")
-            Prelude.<*> (x Data..:? "dataTransferApi")
+            Prelude.<$> (x Data..:? "dataTransferApi")
+            Prelude.<*> (x Data..:? "errorHandlingConfig")
             Prelude.<*> (x Data..:? "idFieldNames" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "writeOperationType")
             Prelude.<*> (x Data..: "object")
@@ -257,8 +257,8 @@ instance
   hashWithSalt
     _salt
     SalesforceDestinationProperties' {..} =
-      _salt `Prelude.hashWithSalt` errorHandlingConfig
-        `Prelude.hashWithSalt` dataTransferApi
+      _salt `Prelude.hashWithSalt` dataTransferApi
+        `Prelude.hashWithSalt` errorHandlingConfig
         `Prelude.hashWithSalt` idFieldNames
         `Prelude.hashWithSalt` writeOperationType
         `Prelude.hashWithSalt` object'
@@ -268,8 +268,8 @@ instance
     SalesforceDestinationProperties
   where
   rnf SalesforceDestinationProperties' {..} =
-    Prelude.rnf errorHandlingConfig
-      `Prelude.seq` Prelude.rnf dataTransferApi
+    Prelude.rnf dataTransferApi
+      `Prelude.seq` Prelude.rnf errorHandlingConfig
       `Prelude.seq` Prelude.rnf idFieldNames
       `Prelude.seq` Prelude.rnf writeOperationType
       `Prelude.seq` Prelude.rnf object'
@@ -278,10 +278,10 @@ instance Data.ToJSON SalesforceDestinationProperties where
   toJSON SalesforceDestinationProperties' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("errorHandlingConfig" Data..=)
-              Prelude.<$> errorHandlingConfig,
-            ("dataTransferApi" Data..=)
+          [ ("dataTransferApi" Data..=)
               Prelude.<$> dataTransferApi,
+            ("errorHandlingConfig" Data..=)
+              Prelude.<$> errorHandlingConfig,
             ("idFieldNames" Data..=) Prelude.<$> idFieldNames,
             ("writeOperationType" Data..=)
               Prelude.<$> writeOperationType,

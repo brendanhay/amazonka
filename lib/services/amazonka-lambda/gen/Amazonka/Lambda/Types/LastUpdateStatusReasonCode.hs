@@ -20,15 +20,26 @@
 module Amazonka.Lambda.Types.LastUpdateStatusReasonCode
   ( LastUpdateStatusReasonCode
       ( ..,
+        LastUpdateStatusReasonCode_DisabledKMSKey,
+        LastUpdateStatusReasonCode_EFSIOError,
+        LastUpdateStatusReasonCode_EFSMountConnectivityError,
+        LastUpdateStatusReasonCode_EFSMountFailure,
+        LastUpdateStatusReasonCode_EFSMountTimeout,
         LastUpdateStatusReasonCode_EniLimitExceeded,
+        LastUpdateStatusReasonCode_FunctionError,
         LastUpdateStatusReasonCode_ImageAccessDenied,
         LastUpdateStatusReasonCode_ImageDeleted,
         LastUpdateStatusReasonCode_InsufficientRolePermissions,
         LastUpdateStatusReasonCode_InternalError,
         LastUpdateStatusReasonCode_InvalidConfiguration,
         LastUpdateStatusReasonCode_InvalidImage,
+        LastUpdateStatusReasonCode_InvalidRuntime,
         LastUpdateStatusReasonCode_InvalidSecurityGroup,
+        LastUpdateStatusReasonCode_InvalidStateKMSKey,
         LastUpdateStatusReasonCode_InvalidSubnet,
+        LastUpdateStatusReasonCode_InvalidZipFileException,
+        LastUpdateStatusReasonCode_KMSKeyAccessDenied,
+        LastUpdateStatusReasonCode_KMSKeyNotFound,
         LastUpdateStatusReasonCode_SubnetOutOfIPAddresses
       ),
   )
@@ -66,8 +77,26 @@ newtype LastUpdateStatusReasonCode = LastUpdateStatusReasonCode'
       Data.ToXML
     )
 
+pattern LastUpdateStatusReasonCode_DisabledKMSKey :: LastUpdateStatusReasonCode
+pattern LastUpdateStatusReasonCode_DisabledKMSKey = LastUpdateStatusReasonCode' "DisabledKMSKey"
+
+pattern LastUpdateStatusReasonCode_EFSIOError :: LastUpdateStatusReasonCode
+pattern LastUpdateStatusReasonCode_EFSIOError = LastUpdateStatusReasonCode' "EFSIOError"
+
+pattern LastUpdateStatusReasonCode_EFSMountConnectivityError :: LastUpdateStatusReasonCode
+pattern LastUpdateStatusReasonCode_EFSMountConnectivityError = LastUpdateStatusReasonCode' "EFSMountConnectivityError"
+
+pattern LastUpdateStatusReasonCode_EFSMountFailure :: LastUpdateStatusReasonCode
+pattern LastUpdateStatusReasonCode_EFSMountFailure = LastUpdateStatusReasonCode' "EFSMountFailure"
+
+pattern LastUpdateStatusReasonCode_EFSMountTimeout :: LastUpdateStatusReasonCode
+pattern LastUpdateStatusReasonCode_EFSMountTimeout = LastUpdateStatusReasonCode' "EFSMountTimeout"
+
 pattern LastUpdateStatusReasonCode_EniLimitExceeded :: LastUpdateStatusReasonCode
 pattern LastUpdateStatusReasonCode_EniLimitExceeded = LastUpdateStatusReasonCode' "EniLimitExceeded"
+
+pattern LastUpdateStatusReasonCode_FunctionError :: LastUpdateStatusReasonCode
+pattern LastUpdateStatusReasonCode_FunctionError = LastUpdateStatusReasonCode' "FunctionError"
 
 pattern LastUpdateStatusReasonCode_ImageAccessDenied :: LastUpdateStatusReasonCode
 pattern LastUpdateStatusReasonCode_ImageAccessDenied = LastUpdateStatusReasonCode' "ImageAccessDenied"
@@ -87,25 +116,51 @@ pattern LastUpdateStatusReasonCode_InvalidConfiguration = LastUpdateStatusReason
 pattern LastUpdateStatusReasonCode_InvalidImage :: LastUpdateStatusReasonCode
 pattern LastUpdateStatusReasonCode_InvalidImage = LastUpdateStatusReasonCode' "InvalidImage"
 
+pattern LastUpdateStatusReasonCode_InvalidRuntime :: LastUpdateStatusReasonCode
+pattern LastUpdateStatusReasonCode_InvalidRuntime = LastUpdateStatusReasonCode' "InvalidRuntime"
+
 pattern LastUpdateStatusReasonCode_InvalidSecurityGroup :: LastUpdateStatusReasonCode
 pattern LastUpdateStatusReasonCode_InvalidSecurityGroup = LastUpdateStatusReasonCode' "InvalidSecurityGroup"
 
+pattern LastUpdateStatusReasonCode_InvalidStateKMSKey :: LastUpdateStatusReasonCode
+pattern LastUpdateStatusReasonCode_InvalidStateKMSKey = LastUpdateStatusReasonCode' "InvalidStateKMSKey"
+
 pattern LastUpdateStatusReasonCode_InvalidSubnet :: LastUpdateStatusReasonCode
 pattern LastUpdateStatusReasonCode_InvalidSubnet = LastUpdateStatusReasonCode' "InvalidSubnet"
+
+pattern LastUpdateStatusReasonCode_InvalidZipFileException :: LastUpdateStatusReasonCode
+pattern LastUpdateStatusReasonCode_InvalidZipFileException = LastUpdateStatusReasonCode' "InvalidZipFileException"
+
+pattern LastUpdateStatusReasonCode_KMSKeyAccessDenied :: LastUpdateStatusReasonCode
+pattern LastUpdateStatusReasonCode_KMSKeyAccessDenied = LastUpdateStatusReasonCode' "KMSKeyAccessDenied"
+
+pattern LastUpdateStatusReasonCode_KMSKeyNotFound :: LastUpdateStatusReasonCode
+pattern LastUpdateStatusReasonCode_KMSKeyNotFound = LastUpdateStatusReasonCode' "KMSKeyNotFound"
 
 pattern LastUpdateStatusReasonCode_SubnetOutOfIPAddresses :: LastUpdateStatusReasonCode
 pattern LastUpdateStatusReasonCode_SubnetOutOfIPAddresses = LastUpdateStatusReasonCode' "SubnetOutOfIPAddresses"
 
 {-# COMPLETE
+  LastUpdateStatusReasonCode_DisabledKMSKey,
+  LastUpdateStatusReasonCode_EFSIOError,
+  LastUpdateStatusReasonCode_EFSMountConnectivityError,
+  LastUpdateStatusReasonCode_EFSMountFailure,
+  LastUpdateStatusReasonCode_EFSMountTimeout,
   LastUpdateStatusReasonCode_EniLimitExceeded,
+  LastUpdateStatusReasonCode_FunctionError,
   LastUpdateStatusReasonCode_ImageAccessDenied,
   LastUpdateStatusReasonCode_ImageDeleted,
   LastUpdateStatusReasonCode_InsufficientRolePermissions,
   LastUpdateStatusReasonCode_InternalError,
   LastUpdateStatusReasonCode_InvalidConfiguration,
   LastUpdateStatusReasonCode_InvalidImage,
+  LastUpdateStatusReasonCode_InvalidRuntime,
   LastUpdateStatusReasonCode_InvalidSecurityGroup,
+  LastUpdateStatusReasonCode_InvalidStateKMSKey,
   LastUpdateStatusReasonCode_InvalidSubnet,
+  LastUpdateStatusReasonCode_InvalidZipFileException,
+  LastUpdateStatusReasonCode_KMSKeyAccessDenied,
+  LastUpdateStatusReasonCode_KMSKeyNotFound,
   LastUpdateStatusReasonCode_SubnetOutOfIPAddresses,
   LastUpdateStatusReasonCode'
   #-}

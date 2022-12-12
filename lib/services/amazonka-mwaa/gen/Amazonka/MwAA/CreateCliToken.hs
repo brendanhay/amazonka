@@ -35,8 +35,8 @@ module Amazonka.MwAA.CreateCliToken
     newCreateCliTokenResponse,
 
     -- * Response Lenses
-    createCliTokenResponse_webServerHostname,
     createCliTokenResponse_cliToken,
+    createCliTokenResponse_webServerHostname,
     createCliTokenResponse_httpStatus,
   )
 where
@@ -89,8 +89,8 @@ instance Core.AWSRequest CreateCliToken where
     Response.receiveJSON
       ( \s h x ->
           CreateCliTokenResponse'
-            Prelude.<$> (x Data..?> "WebServerHostname")
-            Prelude.<*> (x Data..?> "CliToken")
+            Prelude.<$> (x Data..?> "CliToken")
+            Prelude.<*> (x Data..?> "WebServerHostname")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,10 +124,10 @@ instance Data.ToQuery CreateCliToken where
 
 -- | /See:/ 'newCreateCliTokenResponse' smart constructor.
 data CreateCliTokenResponse = CreateCliTokenResponse'
-  { -- | The Airflow web server hostname for the environment.
-    webServerHostname :: Prelude.Maybe Prelude.Text,
-    -- | An Airflow CLI login token.
+  { -- | An Airflow CLI login token.
     cliToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The Airflow web server hostname for the environment.
+    webServerHostname :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -141,9 +141,9 @@ data CreateCliTokenResponse = CreateCliTokenResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'webServerHostname', 'createCliTokenResponse_webServerHostname' - The Airflow web server hostname for the environment.
---
 -- 'cliToken', 'createCliTokenResponse_cliToken' - An Airflow CLI login token.
+--
+-- 'webServerHostname', 'createCliTokenResponse_webServerHostname' - The Airflow web server hostname for the environment.
 --
 -- 'httpStatus', 'createCliTokenResponse_httpStatus' - The response's http status code.
 newCreateCliTokenResponse ::
@@ -152,19 +152,18 @@ newCreateCliTokenResponse ::
   CreateCliTokenResponse
 newCreateCliTokenResponse pHttpStatus_ =
   CreateCliTokenResponse'
-    { webServerHostname =
-        Prelude.Nothing,
-      cliToken = Prelude.Nothing,
+    { cliToken = Prelude.Nothing,
+      webServerHostname = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The Airflow web server hostname for the environment.
-createCliTokenResponse_webServerHostname :: Lens.Lens' CreateCliTokenResponse (Prelude.Maybe Prelude.Text)
-createCliTokenResponse_webServerHostname = Lens.lens (\CreateCliTokenResponse' {webServerHostname} -> webServerHostname) (\s@CreateCliTokenResponse' {} a -> s {webServerHostname = a} :: CreateCliTokenResponse)
 
 -- | An Airflow CLI login token.
 createCliTokenResponse_cliToken :: Lens.Lens' CreateCliTokenResponse (Prelude.Maybe Prelude.Text)
 createCliTokenResponse_cliToken = Lens.lens (\CreateCliTokenResponse' {cliToken} -> cliToken) (\s@CreateCliTokenResponse' {} a -> s {cliToken = a} :: CreateCliTokenResponse) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The Airflow web server hostname for the environment.
+createCliTokenResponse_webServerHostname :: Lens.Lens' CreateCliTokenResponse (Prelude.Maybe Prelude.Text)
+createCliTokenResponse_webServerHostname = Lens.lens (\CreateCliTokenResponse' {webServerHostname} -> webServerHostname) (\s@CreateCliTokenResponse' {} a -> s {webServerHostname = a} :: CreateCliTokenResponse)
 
 -- | The response's http status code.
 createCliTokenResponse_httpStatus :: Lens.Lens' CreateCliTokenResponse Prelude.Int
@@ -172,6 +171,6 @@ createCliTokenResponse_httpStatus = Lens.lens (\CreateCliTokenResponse' {httpSta
 
 instance Prelude.NFData CreateCliTokenResponse where
   rnf CreateCliTokenResponse' {..} =
-    Prelude.rnf webServerHostname
-      `Prelude.seq` Prelude.rnf cliToken
+    Prelude.rnf cliToken
+      `Prelude.seq` Prelude.rnf webServerHostname
       `Prelude.seq` Prelude.rnf httpStatus

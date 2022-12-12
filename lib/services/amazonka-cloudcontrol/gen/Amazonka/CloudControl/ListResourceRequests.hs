@@ -34,8 +34,8 @@ module Amazonka.CloudControl.ListResourceRequests
     newListResourceRequests,
 
     -- * Request Lenses
-    listResourceRequests_nextToken,
     listResourceRequests_maxResults,
+    listResourceRequests_nextToken,
     listResourceRequests_resourceRequestStatusFilter,
 
     -- * Destructuring the Response
@@ -59,20 +59,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListResourceRequests' smart constructor.
 data ListResourceRequests = ListResourceRequests'
-  { -- | If the previous paginated request didn\'t return all of the remaining
-    -- results, the response object\'s @NextToken@ parameter value is set to a
-    -- token. To retrieve the next set of results, call this action again and
-    -- assign that token to the request object\'s @NextToken@ parameter. If
-    -- there are no remaining results, the previous response object\'s
-    -- @NextToken@ parameter is set to @null@.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be returned with a single call. If the
+  { -- | The maximum number of results to be returned with a single call. If the
     -- number of available results exceeds this maximum, the response includes
     -- a @NextToken@ value that you can assign to the @NextToken@ request
     -- parameter to get the next set of results.
     --
     -- The default is @20@.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the previous paginated request didn\'t return all of the remaining
+    -- results, the response object\'s @NextToken@ parameter value is set to a
+    -- token. To retrieve the next set of results, call this action again and
+    -- assign that token to the request object\'s @NextToken@ parameter. If
+    -- there are no remaining results, the previous response object\'s
+    -- @NextToken@ parameter is set to @null@.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The filter criteria to apply to the requests returned.
     resourceRequestStatusFilter :: Prelude.Maybe ResourceRequestStatusFilter
   }
@@ -86,13 +86,6 @@ data ListResourceRequests = ListResourceRequests'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listResourceRequests_nextToken' - If the previous paginated request didn\'t return all of the remaining
--- results, the response object\'s @NextToken@ parameter value is set to a
--- token. To retrieve the next set of results, call this action again and
--- assign that token to the request object\'s @NextToken@ parameter. If
--- there are no remaining results, the previous response object\'s
--- @NextToken@ parameter is set to @null@.
---
 -- 'maxResults', 'listResourceRequests_maxResults' - The maximum number of results to be returned with a single call. If the
 -- number of available results exceeds this maximum, the response includes
 -- a @NextToken@ value that you can assign to the @NextToken@ request
@@ -100,24 +93,22 @@ data ListResourceRequests = ListResourceRequests'
 --
 -- The default is @20@.
 --
--- 'resourceRequestStatusFilter', 'listResourceRequests_resourceRequestStatusFilter' - The filter criteria to apply to the requests returned.
-newListResourceRequests ::
-  ListResourceRequests
-newListResourceRequests =
-  ListResourceRequests'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      resourceRequestStatusFilter = Prelude.Nothing
-    }
-
--- | If the previous paginated request didn\'t return all of the remaining
+-- 'nextToken', 'listResourceRequests_nextToken' - If the previous paginated request didn\'t return all of the remaining
 -- results, the response object\'s @NextToken@ parameter value is set to a
 -- token. To retrieve the next set of results, call this action again and
 -- assign that token to the request object\'s @NextToken@ parameter. If
 -- there are no remaining results, the previous response object\'s
 -- @NextToken@ parameter is set to @null@.
-listResourceRequests_nextToken :: Lens.Lens' ListResourceRequests (Prelude.Maybe Prelude.Text)
-listResourceRequests_nextToken = Lens.lens (\ListResourceRequests' {nextToken} -> nextToken) (\s@ListResourceRequests' {} a -> s {nextToken = a} :: ListResourceRequests)
+--
+-- 'resourceRequestStatusFilter', 'listResourceRequests_resourceRequestStatusFilter' - The filter criteria to apply to the requests returned.
+newListResourceRequests ::
+  ListResourceRequests
+newListResourceRequests =
+  ListResourceRequests'
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      resourceRequestStatusFilter = Prelude.Nothing
+    }
 
 -- | The maximum number of results to be returned with a single call. If the
 -- number of available results exceeds this maximum, the response includes
@@ -127,6 +118,15 @@ listResourceRequests_nextToken = Lens.lens (\ListResourceRequests' {nextToken} -
 -- The default is @20@.
 listResourceRequests_maxResults :: Lens.Lens' ListResourceRequests (Prelude.Maybe Prelude.Natural)
 listResourceRequests_maxResults = Lens.lens (\ListResourceRequests' {maxResults} -> maxResults) (\s@ListResourceRequests' {} a -> s {maxResults = a} :: ListResourceRequests)
+
+-- | If the previous paginated request didn\'t return all of the remaining
+-- results, the response object\'s @NextToken@ parameter value is set to a
+-- token. To retrieve the next set of results, call this action again and
+-- assign that token to the request object\'s @NextToken@ parameter. If
+-- there are no remaining results, the previous response object\'s
+-- @NextToken@ parameter is set to @null@.
+listResourceRequests_nextToken :: Lens.Lens' ListResourceRequests (Prelude.Maybe Prelude.Text)
+listResourceRequests_nextToken = Lens.lens (\ListResourceRequests' {nextToken} -> nextToken) (\s@ListResourceRequests' {} a -> s {nextToken = a} :: ListResourceRequests)
 
 -- | The filter criteria to apply to the requests returned.
 listResourceRequests_resourceRequestStatusFilter :: Lens.Lens' ListResourceRequests (Prelude.Maybe ResourceRequestStatusFilter)
@@ -173,14 +173,14 @@ instance Core.AWSRequest ListResourceRequests where
 
 instance Prelude.Hashable ListResourceRequests where
   hashWithSalt _salt ListResourceRequests' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceRequestStatusFilter
 
 instance Prelude.NFData ListResourceRequests where
   rnf ListResourceRequests' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf resourceRequestStatusFilter
 
 instance Data.ToHeaders ListResourceRequests where
@@ -202,8 +202,8 @@ instance Data.ToJSON ListResourceRequests where
   toJSON ListResourceRequests' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("ResourceRequestStatusFilter" Data..=)
               Prelude.<$> resourceRequestStatusFilter
           ]

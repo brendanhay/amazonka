@@ -25,11 +25,13 @@
 -- @VerifyMac@ computes an HMAC using the message, HMAC KMS key, and MAC
 -- algorithm that you specify, and compares the computed HMAC to the HMAC
 -- that you specify. If the HMACs are identical, the verification succeeds;
--- otherwise, it fails.
+-- otherwise, it fails. Verification indicates that the message hasn\'t
+-- changed since the HMAC was calculated, and the specified key was used to
+-- generate and verify the HMAC.
 --
--- Verification indicates that the message hasn\'t changed since the HMAC
--- was calculated, and the specified key was used to generate and verify
--- the HMAC.
+-- HMAC KMS keys and the HMAC algorithms that KMS uses conform to industry
+-- standards defined in
+-- <https://datatracker.ietf.org/doc/html/rfc2104 RFC 2104>.
 --
 -- This operation is part of KMS support for HMAC KMS keys. For details,
 -- see
@@ -67,9 +69,9 @@ module Amazonka.KMS.VerifyMac
     newVerifyMacResponse,
 
     -- * Response Lenses
+    verifyMacResponse_keyId,
     verifyMacResponse_macAlgorithm,
     verifyMacResponse_macValid,
-    verifyMacResponse_keyId,
     verifyMacResponse_httpStatus,
   )
 where
@@ -239,9 +241,9 @@ instance Core.AWSRequest VerifyMac where
     Response.receiveJSON
       ( \s h x ->
           VerifyMacResponse'
-            Prelude.<$> (x Data..?> "MacAlgorithm")
+            Prelude.<$> (x Data..?> "KeyId")
+            Prelude.<*> (x Data..?> "MacAlgorithm")
             Prelude.<*> (x Data..?> "MacValid")
-            Prelude.<*> (x Data..?> "KeyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -294,7 +296,9 @@ instance Data.ToQuery VerifyMac where
 
 -- | /See:/ 'newVerifyMacResponse' smart constructor.
 data VerifyMacResponse = VerifyMacResponse'
-  { -- | The MAC algorithm used in the verification.
+  { -- | The HMAC KMS key used in the verification.
+    keyId :: Prelude.Maybe Prelude.Text,
+    -- | The MAC algorithm used in the verification.
     macAlgorithm :: Prelude.Maybe MacAlgorithmSpec,
     -- | A Boolean value that indicates whether the HMAC was verified. A value of
     -- @True@ indicates that the HMAC (@Mac@) was generated with the specified
@@ -304,8 +308,6 @@ data VerifyMacResponse = VerifyMacResponse'
     -- @KMSInvalidMacException@ exception. This exception indicates that one or
     -- more of the inputs changed since the HMAC was computed.
     macValid :: Prelude.Maybe Prelude.Bool,
-    -- | The HMAC KMS key used in the verification.
-    keyId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -319,6 +321,8 @@ data VerifyMacResponse = VerifyMacResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'keyId', 'verifyMacResponse_keyId' - The HMAC KMS key used in the verification.
+--
 -- 'macAlgorithm', 'verifyMacResponse_macAlgorithm' - The MAC algorithm used in the verification.
 --
 -- 'macValid', 'verifyMacResponse_macValid' - A Boolean value that indicates whether the HMAC was verified. A value of
@@ -329,8 +333,6 @@ data VerifyMacResponse = VerifyMacResponse'
 -- @KMSInvalidMacException@ exception. This exception indicates that one or
 -- more of the inputs changed since the HMAC was computed.
 --
--- 'keyId', 'verifyMacResponse_keyId' - The HMAC KMS key used in the verification.
---
 -- 'httpStatus', 'verifyMacResponse_httpStatus' - The response's http status code.
 newVerifyMacResponse ::
   -- | 'httpStatus'
@@ -338,11 +340,15 @@ newVerifyMacResponse ::
   VerifyMacResponse
 newVerifyMacResponse pHttpStatus_ =
   VerifyMacResponse'
-    { macAlgorithm = Prelude.Nothing,
+    { keyId = Prelude.Nothing,
+      macAlgorithm = Prelude.Nothing,
       macValid = Prelude.Nothing,
-      keyId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The HMAC KMS key used in the verification.
+verifyMacResponse_keyId :: Lens.Lens' VerifyMacResponse (Prelude.Maybe Prelude.Text)
+verifyMacResponse_keyId = Lens.lens (\VerifyMacResponse' {keyId} -> keyId) (\s@VerifyMacResponse' {} a -> s {keyId = a} :: VerifyMacResponse)
 
 -- | The MAC algorithm used in the verification.
 verifyMacResponse_macAlgorithm :: Lens.Lens' VerifyMacResponse (Prelude.Maybe MacAlgorithmSpec)
@@ -358,17 +364,13 @@ verifyMacResponse_macAlgorithm = Lens.lens (\VerifyMacResponse' {macAlgorithm} -
 verifyMacResponse_macValid :: Lens.Lens' VerifyMacResponse (Prelude.Maybe Prelude.Bool)
 verifyMacResponse_macValid = Lens.lens (\VerifyMacResponse' {macValid} -> macValid) (\s@VerifyMacResponse' {} a -> s {macValid = a} :: VerifyMacResponse)
 
--- | The HMAC KMS key used in the verification.
-verifyMacResponse_keyId :: Lens.Lens' VerifyMacResponse (Prelude.Maybe Prelude.Text)
-verifyMacResponse_keyId = Lens.lens (\VerifyMacResponse' {keyId} -> keyId) (\s@VerifyMacResponse' {} a -> s {keyId = a} :: VerifyMacResponse)
-
 -- | The response's http status code.
 verifyMacResponse_httpStatus :: Lens.Lens' VerifyMacResponse Prelude.Int
 verifyMacResponse_httpStatus = Lens.lens (\VerifyMacResponse' {httpStatus} -> httpStatus) (\s@VerifyMacResponse' {} a -> s {httpStatus = a} :: VerifyMacResponse)
 
 instance Prelude.NFData VerifyMacResponse where
   rnf VerifyMacResponse' {..} =
-    Prelude.rnf macAlgorithm
+    Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf macAlgorithm
       `Prelude.seq` Prelude.rnf macValid
-      `Prelude.seq` Prelude.rnf keyId
       `Prelude.seq` Prelude.rnf httpStatus

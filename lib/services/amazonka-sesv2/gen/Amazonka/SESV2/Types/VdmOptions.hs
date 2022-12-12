@@ -32,11 +32,11 @@ import Amazonka.SESV2.Types.GuardianOptions
 -- /See:/ 'newVdmOptions' smart constructor.
 data VdmOptions = VdmOptions'
   { -- | Specifies additional settings for your VDM configuration as applicable
-    -- to the Guardian.
-    guardianOptions :: Prelude.Maybe GuardianOptions,
-    -- | Specifies additional settings for your VDM configuration as applicable
     -- to the Dashboard.
-    dashboardOptions :: Prelude.Maybe DashboardOptions
+    dashboardOptions :: Prelude.Maybe DashboardOptions,
+    -- | Specifies additional settings for your VDM configuration as applicable
+    -- to the Guardian.
+    guardianOptions :: Prelude.Maybe GuardianOptions
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,28 +48,28 @@ data VdmOptions = VdmOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'guardianOptions', 'vdmOptions_guardianOptions' - Specifies additional settings for your VDM configuration as applicable
--- to the Guardian.
---
 -- 'dashboardOptions', 'vdmOptions_dashboardOptions' - Specifies additional settings for your VDM configuration as applicable
 -- to the Dashboard.
+--
+-- 'guardianOptions', 'vdmOptions_guardianOptions' - Specifies additional settings for your VDM configuration as applicable
+-- to the Guardian.
 newVdmOptions ::
   VdmOptions
 newVdmOptions =
   VdmOptions'
-    { guardianOptions = Prelude.Nothing,
-      dashboardOptions = Prelude.Nothing
+    { dashboardOptions = Prelude.Nothing,
+      guardianOptions = Prelude.Nothing
     }
-
--- | Specifies additional settings for your VDM configuration as applicable
--- to the Guardian.
-vdmOptions_guardianOptions :: Lens.Lens' VdmOptions (Prelude.Maybe GuardianOptions)
-vdmOptions_guardianOptions = Lens.lens (\VdmOptions' {guardianOptions} -> guardianOptions) (\s@VdmOptions' {} a -> s {guardianOptions = a} :: VdmOptions)
 
 -- | Specifies additional settings for your VDM configuration as applicable
 -- to the Dashboard.
 vdmOptions_dashboardOptions :: Lens.Lens' VdmOptions (Prelude.Maybe DashboardOptions)
 vdmOptions_dashboardOptions = Lens.lens (\VdmOptions' {dashboardOptions} -> dashboardOptions) (\s@VdmOptions' {} a -> s {dashboardOptions = a} :: VdmOptions)
+
+-- | Specifies additional settings for your VDM configuration as applicable
+-- to the Guardian.
+vdmOptions_guardianOptions :: Lens.Lens' VdmOptions (Prelude.Maybe GuardianOptions)
+vdmOptions_guardianOptions = Lens.lens (\VdmOptions' {guardianOptions} -> guardianOptions) (\s@VdmOptions' {} a -> s {guardianOptions = a} :: VdmOptions)
 
 instance Data.FromJSON VdmOptions where
   parseJSON =
@@ -77,27 +77,27 @@ instance Data.FromJSON VdmOptions where
       "VdmOptions"
       ( \x ->
           VdmOptions'
-            Prelude.<$> (x Data..:? "GuardianOptions")
-            Prelude.<*> (x Data..:? "DashboardOptions")
+            Prelude.<$> (x Data..:? "DashboardOptions")
+            Prelude.<*> (x Data..:? "GuardianOptions")
       )
 
 instance Prelude.Hashable VdmOptions where
   hashWithSalt _salt VdmOptions' {..} =
-    _salt `Prelude.hashWithSalt` guardianOptions
-      `Prelude.hashWithSalt` dashboardOptions
+    _salt `Prelude.hashWithSalt` dashboardOptions
+      `Prelude.hashWithSalt` guardianOptions
 
 instance Prelude.NFData VdmOptions where
   rnf VdmOptions' {..} =
-    Prelude.rnf guardianOptions
-      `Prelude.seq` Prelude.rnf dashboardOptions
+    Prelude.rnf dashboardOptions
+      `Prelude.seq` Prelude.rnf guardianOptions
 
 instance Data.ToJSON VdmOptions where
   toJSON VdmOptions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("GuardianOptions" Data..=)
-              Prelude.<$> guardianOptions,
-            ("DashboardOptions" Data..=)
-              Prelude.<$> dashboardOptions
+          [ ("DashboardOptions" Data..=)
+              Prelude.<$> dashboardOptions,
+            ("GuardianOptions" Data..=)
+              Prelude.<$> guardianOptions
           ]
       )

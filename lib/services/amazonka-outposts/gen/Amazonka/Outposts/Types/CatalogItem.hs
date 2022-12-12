@@ -31,21 +31,21 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCatalogItem' smart constructor.
 data CatalogItem = CatalogItem'
-  { -- | Information about the power draw of an item.
-    powerKva :: Prelude.Maybe Prelude.Double,
-    -- | The weight of the item in pounds.
-    weightLbs :: Prelude.Maybe Prelude.Int,
+  { -- | The ID of the catalog item.
+    catalogItemId :: Prelude.Maybe Prelude.Text,
     -- | Information about the EC2 capacity of an item.
     eC2Capacities :: Prelude.Maybe [EC2Capacity],
-    -- | The ID of the catalog item.
-    catalogItemId :: Prelude.Maybe Prelude.Text,
     -- | The status of a catalog item.
     itemStatus :: Prelude.Maybe CatalogItemStatus,
+    -- | Information about the power draw of an item.
+    powerKva :: Prelude.Maybe Prelude.Double,
+    -- | The supported storage options for the catalog item.
+    supportedStorage :: Prelude.Maybe [SupportedStorageEnum],
     -- | The uplink speed this catalog item requires for the connection to the
     -- Region.
     supportedUplinkGbps :: Prelude.Maybe [Prelude.Int],
-    -- | The supported storage options for the catalog item.
-    supportedStorage :: Prelude.Maybe [SupportedStorageEnum]
+    -- | The weight of the item in pounds.
+    weightLbs :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,61 +57,61 @@ data CatalogItem = CatalogItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'powerKva', 'catalogItem_powerKva' - Information about the power draw of an item.
---
--- 'weightLbs', 'catalogItem_weightLbs' - The weight of the item in pounds.
+-- 'catalogItemId', 'catalogItem_catalogItemId' - The ID of the catalog item.
 --
 -- 'eC2Capacities', 'catalogItem_eC2Capacities' - Information about the EC2 capacity of an item.
 --
--- 'catalogItemId', 'catalogItem_catalogItemId' - The ID of the catalog item.
---
 -- 'itemStatus', 'catalogItem_itemStatus' - The status of a catalog item.
+--
+-- 'powerKva', 'catalogItem_powerKva' - Information about the power draw of an item.
+--
+-- 'supportedStorage', 'catalogItem_supportedStorage' - The supported storage options for the catalog item.
 --
 -- 'supportedUplinkGbps', 'catalogItem_supportedUplinkGbps' - The uplink speed this catalog item requires for the connection to the
 -- Region.
 --
--- 'supportedStorage', 'catalogItem_supportedStorage' - The supported storage options for the catalog item.
+-- 'weightLbs', 'catalogItem_weightLbs' - The weight of the item in pounds.
 newCatalogItem ::
   CatalogItem
 newCatalogItem =
   CatalogItem'
-    { powerKva = Prelude.Nothing,
-      weightLbs = Prelude.Nothing,
+    { catalogItemId = Prelude.Nothing,
       eC2Capacities = Prelude.Nothing,
-      catalogItemId = Prelude.Nothing,
       itemStatus = Prelude.Nothing,
+      powerKva = Prelude.Nothing,
+      supportedStorage = Prelude.Nothing,
       supportedUplinkGbps = Prelude.Nothing,
-      supportedStorage = Prelude.Nothing
+      weightLbs = Prelude.Nothing
     }
-
--- | Information about the power draw of an item.
-catalogItem_powerKva :: Lens.Lens' CatalogItem (Prelude.Maybe Prelude.Double)
-catalogItem_powerKva = Lens.lens (\CatalogItem' {powerKva} -> powerKva) (\s@CatalogItem' {} a -> s {powerKva = a} :: CatalogItem)
-
--- | The weight of the item in pounds.
-catalogItem_weightLbs :: Lens.Lens' CatalogItem (Prelude.Maybe Prelude.Int)
-catalogItem_weightLbs = Lens.lens (\CatalogItem' {weightLbs} -> weightLbs) (\s@CatalogItem' {} a -> s {weightLbs = a} :: CatalogItem)
-
--- | Information about the EC2 capacity of an item.
-catalogItem_eC2Capacities :: Lens.Lens' CatalogItem (Prelude.Maybe [EC2Capacity])
-catalogItem_eC2Capacities = Lens.lens (\CatalogItem' {eC2Capacities} -> eC2Capacities) (\s@CatalogItem' {} a -> s {eC2Capacities = a} :: CatalogItem) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the catalog item.
 catalogItem_catalogItemId :: Lens.Lens' CatalogItem (Prelude.Maybe Prelude.Text)
 catalogItem_catalogItemId = Lens.lens (\CatalogItem' {catalogItemId} -> catalogItemId) (\s@CatalogItem' {} a -> s {catalogItemId = a} :: CatalogItem)
 
+-- | Information about the EC2 capacity of an item.
+catalogItem_eC2Capacities :: Lens.Lens' CatalogItem (Prelude.Maybe [EC2Capacity])
+catalogItem_eC2Capacities = Lens.lens (\CatalogItem' {eC2Capacities} -> eC2Capacities) (\s@CatalogItem' {} a -> s {eC2Capacities = a} :: CatalogItem) Prelude.. Lens.mapping Lens.coerced
+
 -- | The status of a catalog item.
 catalogItem_itemStatus :: Lens.Lens' CatalogItem (Prelude.Maybe CatalogItemStatus)
 catalogItem_itemStatus = Lens.lens (\CatalogItem' {itemStatus} -> itemStatus) (\s@CatalogItem' {} a -> s {itemStatus = a} :: CatalogItem)
+
+-- | Information about the power draw of an item.
+catalogItem_powerKva :: Lens.Lens' CatalogItem (Prelude.Maybe Prelude.Double)
+catalogItem_powerKva = Lens.lens (\CatalogItem' {powerKva} -> powerKva) (\s@CatalogItem' {} a -> s {powerKva = a} :: CatalogItem)
+
+-- | The supported storage options for the catalog item.
+catalogItem_supportedStorage :: Lens.Lens' CatalogItem (Prelude.Maybe [SupportedStorageEnum])
+catalogItem_supportedStorage = Lens.lens (\CatalogItem' {supportedStorage} -> supportedStorage) (\s@CatalogItem' {} a -> s {supportedStorage = a} :: CatalogItem) Prelude.. Lens.mapping Lens.coerced
 
 -- | The uplink speed this catalog item requires for the connection to the
 -- Region.
 catalogItem_supportedUplinkGbps :: Lens.Lens' CatalogItem (Prelude.Maybe [Prelude.Int])
 catalogItem_supportedUplinkGbps = Lens.lens (\CatalogItem' {supportedUplinkGbps} -> supportedUplinkGbps) (\s@CatalogItem' {} a -> s {supportedUplinkGbps = a} :: CatalogItem) Prelude.. Lens.mapping Lens.coerced
 
--- | The supported storage options for the catalog item.
-catalogItem_supportedStorage :: Lens.Lens' CatalogItem (Prelude.Maybe [SupportedStorageEnum])
-catalogItem_supportedStorage = Lens.lens (\CatalogItem' {supportedStorage} -> supportedStorage) (\s@CatalogItem' {} a -> s {supportedStorage = a} :: CatalogItem) Prelude.. Lens.mapping Lens.coerced
+-- | The weight of the item in pounds.
+catalogItem_weightLbs :: Lens.Lens' CatalogItem (Prelude.Maybe Prelude.Int)
+catalogItem_weightLbs = Lens.lens (\CatalogItem' {weightLbs} -> weightLbs) (\s@CatalogItem' {} a -> s {weightLbs = a} :: CatalogItem)
 
 instance Data.FromJSON CatalogItem where
   parseJSON =
@@ -119,35 +119,35 @@ instance Data.FromJSON CatalogItem where
       "CatalogItem"
       ( \x ->
           CatalogItem'
-            Prelude.<$> (x Data..:? "PowerKva")
-            Prelude.<*> (x Data..:? "WeightLbs")
+            Prelude.<$> (x Data..:? "CatalogItemId")
             Prelude.<*> (x Data..:? "EC2Capacities" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "CatalogItemId")
             Prelude.<*> (x Data..:? "ItemStatus")
-            Prelude.<*> ( x Data..:? "SupportedUplinkGbps"
-                            Data..!= Prelude.mempty
-                        )
+            Prelude.<*> (x Data..:? "PowerKva")
             Prelude.<*> ( x Data..:? "SupportedStorage"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> ( x Data..:? "SupportedUplinkGbps"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "WeightLbs")
       )
 
 instance Prelude.Hashable CatalogItem where
   hashWithSalt _salt CatalogItem' {..} =
-    _salt `Prelude.hashWithSalt` powerKva
-      `Prelude.hashWithSalt` weightLbs
+    _salt `Prelude.hashWithSalt` catalogItemId
       `Prelude.hashWithSalt` eC2Capacities
-      `Prelude.hashWithSalt` catalogItemId
       `Prelude.hashWithSalt` itemStatus
-      `Prelude.hashWithSalt` supportedUplinkGbps
+      `Prelude.hashWithSalt` powerKva
       `Prelude.hashWithSalt` supportedStorage
+      `Prelude.hashWithSalt` supportedUplinkGbps
+      `Prelude.hashWithSalt` weightLbs
 
 instance Prelude.NFData CatalogItem where
   rnf CatalogItem' {..} =
-    Prelude.rnf powerKva
-      `Prelude.seq` Prelude.rnf weightLbs
+    Prelude.rnf catalogItemId
       `Prelude.seq` Prelude.rnf eC2Capacities
-      `Prelude.seq` Prelude.rnf catalogItemId
       `Prelude.seq` Prelude.rnf itemStatus
-      `Prelude.seq` Prelude.rnf supportedUplinkGbps
+      `Prelude.seq` Prelude.rnf powerKva
       `Prelude.seq` Prelude.rnf supportedStorage
+      `Prelude.seq` Prelude.rnf supportedUplinkGbps
+      `Prelude.seq` Prelude.rnf weightLbs

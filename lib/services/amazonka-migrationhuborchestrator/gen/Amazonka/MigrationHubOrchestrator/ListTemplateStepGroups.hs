@@ -29,8 +29,8 @@ module Amazonka.MigrationHubOrchestrator.ListTemplateStepGroups
     newListTemplateStepGroups,
 
     -- * Request Lenses
-    listTemplateStepGroups_nextToken,
     listTemplateStepGroups_maxResults,
+    listTemplateStepGroups_nextToken,
     listTemplateStepGroups_templateId,
 
     -- * Destructuring the Response
@@ -54,10 +54,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTemplateStepGroups' smart constructor.
 data ListTemplateStepGroups = ListTemplateStepGroups'
-  { -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results that can be returned.
+  { -- | The maximum number of results that can be returned.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the template.
     templateId :: Prelude.Text
   }
@@ -71,9 +71,9 @@ data ListTemplateStepGroups = ListTemplateStepGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTemplateStepGroups_nextToken' - The pagination token.
---
 -- 'maxResults', 'listTemplateStepGroups_maxResults' - The maximum number of results that can be returned.
+--
+-- 'nextToken', 'listTemplateStepGroups_nextToken' - The pagination token.
 --
 -- 'templateId', 'listTemplateStepGroups_templateId' - The ID of the template.
 newListTemplateStepGroups ::
@@ -82,19 +82,19 @@ newListTemplateStepGroups ::
   ListTemplateStepGroups
 newListTemplateStepGroups pTemplateId_ =
   ListTemplateStepGroups'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       templateId = pTemplateId_
     }
-
--- | The pagination token.
-listTemplateStepGroups_nextToken :: Lens.Lens' ListTemplateStepGroups (Prelude.Maybe Prelude.Text)
-listTemplateStepGroups_nextToken = Lens.lens (\ListTemplateStepGroups' {nextToken} -> nextToken) (\s@ListTemplateStepGroups' {} a -> s {nextToken = a} :: ListTemplateStepGroups)
 
 -- | The maximum number of results that can be returned.
 listTemplateStepGroups_maxResults :: Lens.Lens' ListTemplateStepGroups (Prelude.Maybe Prelude.Natural)
 listTemplateStepGroups_maxResults = Lens.lens (\ListTemplateStepGroups' {maxResults} -> maxResults) (\s@ListTemplateStepGroups' {} a -> s {maxResults = a} :: ListTemplateStepGroups)
+
+-- | The pagination token.
+listTemplateStepGroups_nextToken :: Lens.Lens' ListTemplateStepGroups (Prelude.Maybe Prelude.Text)
+listTemplateStepGroups_nextToken = Lens.lens (\ListTemplateStepGroups' {nextToken} -> nextToken) (\s@ListTemplateStepGroups' {} a -> s {nextToken = a} :: ListTemplateStepGroups)
 
 -- | The ID of the template.
 listTemplateStepGroups_templateId :: Lens.Lens' ListTemplateStepGroups Prelude.Text
@@ -140,14 +140,14 @@ instance Core.AWSRequest ListTemplateStepGroups where
 
 instance Prelude.Hashable ListTemplateStepGroups where
   hashWithSalt _salt ListTemplateStepGroups' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` templateId
 
 instance Prelude.NFData ListTemplateStepGroups where
   rnf ListTemplateStepGroups' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf templateId
 
 instance Data.ToHeaders ListTemplateStepGroups where
@@ -169,8 +169,8 @@ instance Data.ToPath ListTemplateStepGroups where
 instance Data.ToQuery ListTemplateStepGroups where
   toQuery ListTemplateStepGroups' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListTemplateStepGroupsResponse' smart constructor.

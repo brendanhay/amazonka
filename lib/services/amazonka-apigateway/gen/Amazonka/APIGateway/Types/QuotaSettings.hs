@@ -29,15 +29,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newQuotaSettings' smart constructor.
 data QuotaSettings = QuotaSettings'
-  { -- | The number of requests subtracted from the given limit in the initial
+  { -- | The target maximum number of requests that can be made in a given time
+    -- period.
+    limit :: Prelude.Maybe Prelude.Int,
+    -- | The number of requests subtracted from the given limit in the initial
     -- time period.
     offset :: Prelude.Maybe Prelude.Int,
     -- | The time period in which the limit applies. Valid values are \"DAY\",
     -- \"WEEK\" or \"MONTH\".
-    period :: Prelude.Maybe QuotaPeriodType,
-    -- | The target maximum number of requests that can be made in a given time
-    -- period.
-    limit :: Prelude.Maybe Prelude.Int
+    period :: Prelude.Maybe QuotaPeriodType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,22 +49,27 @@ data QuotaSettings = QuotaSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'limit', 'quotaSettings_limit' - The target maximum number of requests that can be made in a given time
+-- period.
+--
 -- 'offset', 'quotaSettings_offset' - The number of requests subtracted from the given limit in the initial
 -- time period.
 --
 -- 'period', 'quotaSettings_period' - The time period in which the limit applies. Valid values are \"DAY\",
 -- \"WEEK\" or \"MONTH\".
---
--- 'limit', 'quotaSettings_limit' - The target maximum number of requests that can be made in a given time
--- period.
 newQuotaSettings ::
   QuotaSettings
 newQuotaSettings =
   QuotaSettings'
-    { offset = Prelude.Nothing,
-      period = Prelude.Nothing,
-      limit = Prelude.Nothing
+    { limit = Prelude.Nothing,
+      offset = Prelude.Nothing,
+      period = Prelude.Nothing
     }
+
+-- | The target maximum number of requests that can be made in a given time
+-- period.
+quotaSettings_limit :: Lens.Lens' QuotaSettings (Prelude.Maybe Prelude.Int)
+quotaSettings_limit = Lens.lens (\QuotaSettings' {limit} -> limit) (\s@QuotaSettings' {} a -> s {limit = a} :: QuotaSettings)
 
 -- | The number of requests subtracted from the given limit in the initial
 -- time period.
@@ -76,40 +81,35 @@ quotaSettings_offset = Lens.lens (\QuotaSettings' {offset} -> offset) (\s@QuotaS
 quotaSettings_period :: Lens.Lens' QuotaSettings (Prelude.Maybe QuotaPeriodType)
 quotaSettings_period = Lens.lens (\QuotaSettings' {period} -> period) (\s@QuotaSettings' {} a -> s {period = a} :: QuotaSettings)
 
--- | The target maximum number of requests that can be made in a given time
--- period.
-quotaSettings_limit :: Lens.Lens' QuotaSettings (Prelude.Maybe Prelude.Int)
-quotaSettings_limit = Lens.lens (\QuotaSettings' {limit} -> limit) (\s@QuotaSettings' {} a -> s {limit = a} :: QuotaSettings)
-
 instance Data.FromJSON QuotaSettings where
   parseJSON =
     Data.withObject
       "QuotaSettings"
       ( \x ->
           QuotaSettings'
-            Prelude.<$> (x Data..:? "offset")
+            Prelude.<$> (x Data..:? "limit")
+            Prelude.<*> (x Data..:? "offset")
             Prelude.<*> (x Data..:? "period")
-            Prelude.<*> (x Data..:? "limit")
       )
 
 instance Prelude.Hashable QuotaSettings where
   hashWithSalt _salt QuotaSettings' {..} =
-    _salt `Prelude.hashWithSalt` offset
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` offset
       `Prelude.hashWithSalt` period
-      `Prelude.hashWithSalt` limit
 
 instance Prelude.NFData QuotaSettings where
   rnf QuotaSettings' {..} =
-    Prelude.rnf offset
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf offset
       `Prelude.seq` Prelude.rnf period
-      `Prelude.seq` Prelude.rnf limit
 
 instance Data.ToJSON QuotaSettings where
   toJSON QuotaSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("offset" Data..=) Prelude.<$> offset,
-            ("period" Data..=) Prelude.<$> period,
-            ("limit" Data..=) Prelude.<$> limit
+          [ ("limit" Data..=) Prelude.<$> limit,
+            ("offset" Data..=) Prelude.<$> offset,
+            ("period" Data..=) Prelude.<$> period
           ]
       )

@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPredicate' smart constructor.
 data Predicate = Predicate'
-  { -- | An optional field if only one condition is listed. If multiple
+  { -- | A list of the conditions that determine when the trigger will fire.
+    conditions :: Prelude.Maybe [Condition],
+    -- | An optional field if only one condition is listed. If multiple
     -- conditions are listed, then this field is required.
-    logical :: Prelude.Maybe Logical,
-    -- | A list of the conditions that determine when the trigger will fire.
-    conditions :: Prelude.Maybe [Condition]
+    logical :: Prelude.Maybe Logical
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,26 +46,26 @@ data Predicate = Predicate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'conditions', 'predicate_conditions' - A list of the conditions that determine when the trigger will fire.
+--
 -- 'logical', 'predicate_logical' - An optional field if only one condition is listed. If multiple
 -- conditions are listed, then this field is required.
---
--- 'conditions', 'predicate_conditions' - A list of the conditions that determine when the trigger will fire.
 newPredicate ::
   Predicate
 newPredicate =
   Predicate'
-    { logical = Prelude.Nothing,
-      conditions = Prelude.Nothing
+    { conditions = Prelude.Nothing,
+      logical = Prelude.Nothing
     }
+
+-- | A list of the conditions that determine when the trigger will fire.
+predicate_conditions :: Lens.Lens' Predicate (Prelude.Maybe [Condition])
+predicate_conditions = Lens.lens (\Predicate' {conditions} -> conditions) (\s@Predicate' {} a -> s {conditions = a} :: Predicate) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional field if only one condition is listed. If multiple
 -- conditions are listed, then this field is required.
 predicate_logical :: Lens.Lens' Predicate (Prelude.Maybe Logical)
 predicate_logical = Lens.lens (\Predicate' {logical} -> logical) (\s@Predicate' {} a -> s {logical = a} :: Predicate)
-
--- | A list of the conditions that determine when the trigger will fire.
-predicate_conditions :: Lens.Lens' Predicate (Prelude.Maybe [Condition])
-predicate_conditions = Lens.lens (\Predicate' {conditions} -> conditions) (\s@Predicate' {} a -> s {conditions = a} :: Predicate) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON Predicate where
   parseJSON =
@@ -73,25 +73,25 @@ instance Data.FromJSON Predicate where
       "Predicate"
       ( \x ->
           Predicate'
-            Prelude.<$> (x Data..:? "Logical")
-            Prelude.<*> (x Data..:? "Conditions" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Conditions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Logical")
       )
 
 instance Prelude.Hashable Predicate where
   hashWithSalt _salt Predicate' {..} =
-    _salt `Prelude.hashWithSalt` logical
-      `Prelude.hashWithSalt` conditions
+    _salt `Prelude.hashWithSalt` conditions
+      `Prelude.hashWithSalt` logical
 
 instance Prelude.NFData Predicate where
   rnf Predicate' {..} =
-    Prelude.rnf logical
-      `Prelude.seq` Prelude.rnf conditions
+    Prelude.rnf conditions
+      `Prelude.seq` Prelude.rnf logical
 
 instance Data.ToJSON Predicate where
   toJSON Predicate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Logical" Data..=) Prelude.<$> logical,
-            ("Conditions" Data..=) Prelude.<$> conditions
+          [ ("Conditions" Data..=) Prelude.<$> conditions,
+            ("Logical" Data..=) Prelude.<$> logical
           ]
       )

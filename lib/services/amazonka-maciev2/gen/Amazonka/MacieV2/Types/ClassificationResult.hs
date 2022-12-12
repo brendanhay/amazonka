@@ -33,9 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newClassificationResult' smart constructor.
 data ClassificationResult = ClassificationResult'
-  { -- | The status of the finding.
-    status :: Prelude.Maybe ClassificationResultStatus,
-    -- | Specifies whether Amazon Macie detected additional occurrences of
+  { -- | Specifies whether Amazon Macie detected additional occurrences of
     -- sensitive data in the S3 object. A finding includes location data for a
     -- maximum of 15 occurrences of sensitive data.
     --
@@ -51,11 +49,13 @@ data ClassificationResult = ClassificationResult'
     -- example, application\/gzip, for a GNU Gzip compressed archive file, or
     -- application\/pdf, for an Adobe Portable Document Format file.
     mimeType :: Prelude.Maybe Prelude.Text,
-    -- | The total size, in bytes, of the data that the finding applies to.
-    sizeClassified :: Prelude.Maybe Prelude.Integer,
     -- | The category, types, and number of occurrences of the sensitive data
     -- that produced the finding.
-    sensitiveData :: Prelude.Maybe [SensitiveDataItem]
+    sensitiveData :: Prelude.Maybe [SensitiveDataItem],
+    -- | The total size, in bytes, of the data that the finding applies to.
+    sizeClassified :: Prelude.Maybe Prelude.Integer,
+    -- | The status of the finding.
+    status :: Prelude.Maybe ClassificationResultStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,8 +66,6 @@ data ClassificationResult = ClassificationResult'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'status', 'classificationResult_status' - The status of the finding.
 --
 -- 'additionalOccurrences', 'classificationResult_additionalOccurrences' - Specifies whether Amazon Macie detected additional occurrences of
 -- sensitive data in the S3 object. A finding includes location data for a
@@ -85,25 +83,24 @@ data ClassificationResult = ClassificationResult'
 -- example, application\/gzip, for a GNU Gzip compressed archive file, or
 -- application\/pdf, for an Adobe Portable Document Format file.
 --
--- 'sizeClassified', 'classificationResult_sizeClassified' - The total size, in bytes, of the data that the finding applies to.
---
 -- 'sensitiveData', 'classificationResult_sensitiveData' - The category, types, and number of occurrences of the sensitive data
 -- that produced the finding.
+--
+-- 'sizeClassified', 'classificationResult_sizeClassified' - The total size, in bytes, of the data that the finding applies to.
+--
+-- 'status', 'classificationResult_status' - The status of the finding.
 newClassificationResult ::
   ClassificationResult
 newClassificationResult =
   ClassificationResult'
-    { status = Prelude.Nothing,
-      additionalOccurrences = Prelude.Nothing,
+    { additionalOccurrences =
+        Prelude.Nothing,
       customDataIdentifiers = Prelude.Nothing,
       mimeType = Prelude.Nothing,
+      sensitiveData = Prelude.Nothing,
       sizeClassified = Prelude.Nothing,
-      sensitiveData = Prelude.Nothing
+      status = Prelude.Nothing
     }
-
--- | The status of the finding.
-classificationResult_status :: Lens.Lens' ClassificationResult (Prelude.Maybe ClassificationResultStatus)
-classificationResult_status = Lens.lens (\ClassificationResult' {status} -> status) (\s@ClassificationResult' {} a -> s {status = a} :: ClassificationResult)
 
 -- | Specifies whether Amazon Macie detected additional occurrences of
 -- sensitive data in the S3 object. A finding includes location data for a
@@ -127,14 +124,18 @@ classificationResult_customDataIdentifiers = Lens.lens (\ClassificationResult' {
 classificationResult_mimeType :: Lens.Lens' ClassificationResult (Prelude.Maybe Prelude.Text)
 classificationResult_mimeType = Lens.lens (\ClassificationResult' {mimeType} -> mimeType) (\s@ClassificationResult' {} a -> s {mimeType = a} :: ClassificationResult)
 
--- | The total size, in bytes, of the data that the finding applies to.
-classificationResult_sizeClassified :: Lens.Lens' ClassificationResult (Prelude.Maybe Prelude.Integer)
-classificationResult_sizeClassified = Lens.lens (\ClassificationResult' {sizeClassified} -> sizeClassified) (\s@ClassificationResult' {} a -> s {sizeClassified = a} :: ClassificationResult)
-
 -- | The category, types, and number of occurrences of the sensitive data
 -- that produced the finding.
 classificationResult_sensitiveData :: Lens.Lens' ClassificationResult (Prelude.Maybe [SensitiveDataItem])
 classificationResult_sensitiveData = Lens.lens (\ClassificationResult' {sensitiveData} -> sensitiveData) (\s@ClassificationResult' {} a -> s {sensitiveData = a} :: ClassificationResult) Prelude.. Lens.mapping Lens.coerced
+
+-- | The total size, in bytes, of the data that the finding applies to.
+classificationResult_sizeClassified :: Lens.Lens' ClassificationResult (Prelude.Maybe Prelude.Integer)
+classificationResult_sizeClassified = Lens.lens (\ClassificationResult' {sizeClassified} -> sizeClassified) (\s@ClassificationResult' {} a -> s {sizeClassified = a} :: ClassificationResult)
+
+-- | The status of the finding.
+classificationResult_status :: Lens.Lens' ClassificationResult (Prelude.Maybe ClassificationResultStatus)
+classificationResult_status = Lens.lens (\ClassificationResult' {status} -> status) (\s@ClassificationResult' {} a -> s {status = a} :: ClassificationResult)
 
 instance Data.FromJSON ClassificationResult where
   parseJSON =
@@ -142,28 +143,28 @@ instance Data.FromJSON ClassificationResult where
       "ClassificationResult"
       ( \x ->
           ClassificationResult'
-            Prelude.<$> (x Data..:? "status")
-            Prelude.<*> (x Data..:? "additionalOccurrences")
+            Prelude.<$> (x Data..:? "additionalOccurrences")
             Prelude.<*> (x Data..:? "customDataIdentifiers")
             Prelude.<*> (x Data..:? "mimeType")
-            Prelude.<*> (x Data..:? "sizeClassified")
             Prelude.<*> (x Data..:? "sensitiveData" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "sizeClassified")
+            Prelude.<*> (x Data..:? "status")
       )
 
 instance Prelude.Hashable ClassificationResult where
   hashWithSalt _salt ClassificationResult' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` additionalOccurrences
+    _salt `Prelude.hashWithSalt` additionalOccurrences
       `Prelude.hashWithSalt` customDataIdentifiers
       `Prelude.hashWithSalt` mimeType
-      `Prelude.hashWithSalt` sizeClassified
       `Prelude.hashWithSalt` sensitiveData
+      `Prelude.hashWithSalt` sizeClassified
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ClassificationResult where
   rnf ClassificationResult' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf additionalOccurrences
+    Prelude.rnf additionalOccurrences
       `Prelude.seq` Prelude.rnf customDataIdentifiers
       `Prelude.seq` Prelude.rnf mimeType
-      `Prelude.seq` Prelude.rnf sizeClassified
       `Prelude.seq` Prelude.rnf sensitiveData
+      `Prelude.seq` Prelude.rnf sizeClassified
+      `Prelude.seq` Prelude.rnf status

@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 data NetworkInterface = NetworkInterface'
   { -- | Network interface IPs.
     ips :: Prelude.Maybe [Prelude.Text],
-    -- | The MAC address of the network interface.
-    macAddress :: Prelude.Maybe Prelude.Text,
     -- | Whether this is the primary network interface.
-    isPrimary :: Prelude.Maybe Prelude.Bool
+    isPrimary :: Prelude.Maybe Prelude.Bool,
+    -- | The MAC address of the network interface.
+    macAddress :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,29 +47,29 @@ data NetworkInterface = NetworkInterface'
 --
 -- 'ips', 'networkInterface_ips' - Network interface IPs.
 --
--- 'macAddress', 'networkInterface_macAddress' - The MAC address of the network interface.
---
 -- 'isPrimary', 'networkInterface_isPrimary' - Whether this is the primary network interface.
+--
+-- 'macAddress', 'networkInterface_macAddress' - The MAC address of the network interface.
 newNetworkInterface ::
   NetworkInterface
 newNetworkInterface =
   NetworkInterface'
     { ips = Prelude.Nothing,
-      macAddress = Prelude.Nothing,
-      isPrimary = Prelude.Nothing
+      isPrimary = Prelude.Nothing,
+      macAddress = Prelude.Nothing
     }
 
 -- | Network interface IPs.
 networkInterface_ips :: Lens.Lens' NetworkInterface (Prelude.Maybe [Prelude.Text])
 networkInterface_ips = Lens.lens (\NetworkInterface' {ips} -> ips) (\s@NetworkInterface' {} a -> s {ips = a} :: NetworkInterface) Prelude.. Lens.mapping Lens.coerced
 
--- | The MAC address of the network interface.
-networkInterface_macAddress :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
-networkInterface_macAddress = Lens.lens (\NetworkInterface' {macAddress} -> macAddress) (\s@NetworkInterface' {} a -> s {macAddress = a} :: NetworkInterface)
-
 -- | Whether this is the primary network interface.
 networkInterface_isPrimary :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Bool)
 networkInterface_isPrimary = Lens.lens (\NetworkInterface' {isPrimary} -> isPrimary) (\s@NetworkInterface' {} a -> s {isPrimary = a} :: NetworkInterface)
+
+-- | The MAC address of the network interface.
+networkInterface_macAddress :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
+networkInterface_macAddress = Lens.lens (\NetworkInterface' {macAddress} -> macAddress) (\s@NetworkInterface' {} a -> s {macAddress = a} :: NetworkInterface)
 
 instance Data.FromJSON NetworkInterface where
   parseJSON =
@@ -78,18 +78,18 @@ instance Data.FromJSON NetworkInterface where
       ( \x ->
           NetworkInterface'
             Prelude.<$> (x Data..:? "ips" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "macAddress")
             Prelude.<*> (x Data..:? "isPrimary")
+            Prelude.<*> (x Data..:? "macAddress")
       )
 
 instance Prelude.Hashable NetworkInterface where
   hashWithSalt _salt NetworkInterface' {..} =
     _salt `Prelude.hashWithSalt` ips
-      `Prelude.hashWithSalt` macAddress
       `Prelude.hashWithSalt` isPrimary
+      `Prelude.hashWithSalt` macAddress
 
 instance Prelude.NFData NetworkInterface where
   rnf NetworkInterface' {..} =
     Prelude.rnf ips
-      `Prelude.seq` Prelude.rnf macAddress
       `Prelude.seq` Prelude.rnf isPrimary
+      `Prelude.seq` Prelude.rnf macAddress

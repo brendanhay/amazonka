@@ -35,9 +35,9 @@ module Amazonka.OpsWorks.DescribeInstances
     newDescribeInstances,
 
     -- * Request Lenses
-    describeInstances_stackId,
     describeInstances_instanceIds,
     describeInstances_layerId,
+    describeInstances_stackId,
 
     -- * Destructuring the Response
     DescribeInstancesResponse (..),
@@ -59,16 +59,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeInstances' smart constructor.
 data DescribeInstances = DescribeInstances'
-  { -- | A stack ID. If you use this parameter, @DescribeInstances@ returns
-    -- descriptions of the instances associated with the specified stack.
-    stackId :: Prelude.Maybe Prelude.Text,
-    -- | An array of instance IDs to be described. If you use this parameter,
+  { -- | An array of instance IDs to be described. If you use this parameter,
     -- @DescribeInstances@ returns a description of the specified instances.
     -- Otherwise, it returns a description of every instance.
     instanceIds :: Prelude.Maybe [Prelude.Text],
     -- | A layer ID. If you use this parameter, @DescribeInstances@ returns
     -- descriptions of the instances associated with the specified layer.
-    layerId :: Prelude.Maybe Prelude.Text
+    layerId :: Prelude.Maybe Prelude.Text,
+    -- | A stack ID. If you use this parameter, @DescribeInstances@ returns
+    -- descriptions of the instances associated with the specified stack.
+    stackId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,28 +80,23 @@ data DescribeInstances = DescribeInstances'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stackId', 'describeInstances_stackId' - A stack ID. If you use this parameter, @DescribeInstances@ returns
--- descriptions of the instances associated with the specified stack.
---
 -- 'instanceIds', 'describeInstances_instanceIds' - An array of instance IDs to be described. If you use this parameter,
 -- @DescribeInstances@ returns a description of the specified instances.
 -- Otherwise, it returns a description of every instance.
 --
 -- 'layerId', 'describeInstances_layerId' - A layer ID. If you use this parameter, @DescribeInstances@ returns
 -- descriptions of the instances associated with the specified layer.
+--
+-- 'stackId', 'describeInstances_stackId' - A stack ID. If you use this parameter, @DescribeInstances@ returns
+-- descriptions of the instances associated with the specified stack.
 newDescribeInstances ::
   DescribeInstances
 newDescribeInstances =
   DescribeInstances'
-    { stackId = Prelude.Nothing,
-      instanceIds = Prelude.Nothing,
-      layerId = Prelude.Nothing
+    { instanceIds = Prelude.Nothing,
+      layerId = Prelude.Nothing,
+      stackId = Prelude.Nothing
     }
-
--- | A stack ID. If you use this parameter, @DescribeInstances@ returns
--- descriptions of the instances associated with the specified stack.
-describeInstances_stackId :: Lens.Lens' DescribeInstances (Prelude.Maybe Prelude.Text)
-describeInstances_stackId = Lens.lens (\DescribeInstances' {stackId} -> stackId) (\s@DescribeInstances' {} a -> s {stackId = a} :: DescribeInstances)
 
 -- | An array of instance IDs to be described. If you use this parameter,
 -- @DescribeInstances@ returns a description of the specified instances.
@@ -113,6 +108,11 @@ describeInstances_instanceIds = Lens.lens (\DescribeInstances' {instanceIds} -> 
 -- descriptions of the instances associated with the specified layer.
 describeInstances_layerId :: Lens.Lens' DescribeInstances (Prelude.Maybe Prelude.Text)
 describeInstances_layerId = Lens.lens (\DescribeInstances' {layerId} -> layerId) (\s@DescribeInstances' {} a -> s {layerId = a} :: DescribeInstances)
+
+-- | A stack ID. If you use this parameter, @DescribeInstances@ returns
+-- descriptions of the instances associated with the specified stack.
+describeInstances_stackId :: Lens.Lens' DescribeInstances (Prelude.Maybe Prelude.Text)
+describeInstances_stackId = Lens.lens (\DescribeInstances' {stackId} -> stackId) (\s@DescribeInstances' {} a -> s {stackId = a} :: DescribeInstances)
 
 instance Core.AWSRequest DescribeInstances where
   type
@@ -130,15 +130,15 @@ instance Core.AWSRequest DescribeInstances where
 
 instance Prelude.Hashable DescribeInstances where
   hashWithSalt _salt DescribeInstances' {..} =
-    _salt `Prelude.hashWithSalt` stackId
-      `Prelude.hashWithSalt` instanceIds
+    _salt `Prelude.hashWithSalt` instanceIds
       `Prelude.hashWithSalt` layerId
+      `Prelude.hashWithSalt` stackId
 
 instance Prelude.NFData DescribeInstances where
   rnf DescribeInstances' {..} =
-    Prelude.rnf stackId
-      `Prelude.seq` Prelude.rnf instanceIds
+    Prelude.rnf instanceIds
       `Prelude.seq` Prelude.rnf layerId
+      `Prelude.seq` Prelude.rnf stackId
 
 instance Data.ToHeaders DescribeInstances where
   toHeaders =
@@ -159,9 +159,9 @@ instance Data.ToJSON DescribeInstances where
   toJSON DescribeInstances' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("StackId" Data..=) Prelude.<$> stackId,
-            ("InstanceIds" Data..=) Prelude.<$> instanceIds,
-            ("LayerId" Data..=) Prelude.<$> layerId
+          [ ("InstanceIds" Data..=) Prelude.<$> instanceIds,
+            ("LayerId" Data..=) Prelude.<$> layerId,
+            ("StackId" Data..=) Prelude.<$> stackId
           ]
       )
 

@@ -34,25 +34,25 @@ module Amazonka.MigrationHubOrchestrator.GetWorkflow
     newGetWorkflowResponse,
 
     -- * Response Lenses
-    getWorkflowResponse_tags,
-    getWorkflowResponse_name,
-    getWorkflowResponse_workflowBucket,
-    getWorkflowResponse_adsApplicationName,
     getWorkflowResponse_adsApplicationConfigurationId,
-    getWorkflowResponse_tools,
-    getWorkflowResponse_lastStartTime,
+    getWorkflowResponse_adsApplicationName,
     getWorkflowResponse_arn,
-    getWorkflowResponse_status,
+    getWorkflowResponse_completedSteps,
+    getWorkflowResponse_creationTime,
     getWorkflowResponse_description,
-    getWorkflowResponse_templateId,
     getWorkflowResponse_endTime,
     getWorkflowResponse_id,
     getWorkflowResponse_lastModifiedTime,
+    getWorkflowResponse_lastStartTime,
     getWorkflowResponse_lastStopTime,
-    getWorkflowResponse_completedSteps,
-    getWorkflowResponse_creationTime,
+    getWorkflowResponse_name,
+    getWorkflowResponse_status,
     getWorkflowResponse_statusMessage,
+    getWorkflowResponse_tags,
+    getWorkflowResponse_templateId,
+    getWorkflowResponse_tools,
     getWorkflowResponse_totalSteps,
+    getWorkflowResponse_workflowBucket,
     getWorkflowResponse_workflowInputs,
     getWorkflowResponse_httpStatus,
   )
@@ -100,25 +100,25 @@ instance Core.AWSRequest GetWorkflow where
     Response.receiveJSON
       ( \s h x ->
           GetWorkflowResponse'
-            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "name")
-            Prelude.<*> (x Data..?> "workflowBucket")
+            Prelude.<$> (x Data..?> "adsApplicationConfigurationId")
             Prelude.<*> (x Data..?> "adsApplicationName")
-            Prelude.<*> (x Data..?> "adsApplicationConfigurationId")
-            Prelude.<*> (x Data..?> "tools" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "lastStartTime")
             Prelude.<*> (x Data..?> "arn")
-            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "completedSteps")
+            Prelude.<*> (x Data..?> "creationTime")
             Prelude.<*> (x Data..?> "description")
-            Prelude.<*> (x Data..?> "templateId")
             Prelude.<*> (x Data..?> "endTime")
             Prelude.<*> (x Data..?> "id")
             Prelude.<*> (x Data..?> "lastModifiedTime")
+            Prelude.<*> (x Data..?> "lastStartTime")
             Prelude.<*> (x Data..?> "lastStopTime")
-            Prelude.<*> (x Data..?> "completedSteps")
-            Prelude.<*> (x Data..?> "creationTime")
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "status")
             Prelude.<*> (x Data..?> "statusMessage")
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "templateId")
+            Prelude.<*> (x Data..?> "tools" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "totalSteps")
+            Prelude.<*> (x Data..?> "workflowBucket")
             Prelude.<*> (x Data..?> "workflowInputs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -151,45 +151,45 @@ instance Data.ToQuery GetWorkflow where
 
 -- | /See:/ 'newGetWorkflowResponse' smart constructor.
 data GetWorkflowResponse = GetWorkflowResponse'
-  { -- | The tags added to the migration workflow.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The name of the migration workflow.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon S3 bucket where the migration logs are stored.
-    workflowBucket :: Prelude.Maybe Prelude.Text,
-    -- | The name of the application configured in Application Discovery Service.
-    adsApplicationName :: Prelude.Maybe Prelude.Text,
-    -- | The configuration ID of the application configured in Application
+  { -- | The configuration ID of the application configured in Application
     -- Discovery Service.
     adsApplicationConfigurationId :: Prelude.Maybe Prelude.Text,
-    -- | List of AWS services utilized in a migration workflow.
-    tools :: Prelude.Maybe [Tool],
-    -- | The time at which the migration workflow was last started.
-    lastStartTime :: Prelude.Maybe Data.POSIX,
+    -- | The name of the application configured in Application Discovery Service.
+    adsApplicationName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the migration workflow.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The status of the migration workflow.
-    status :: Prelude.Maybe MigrationWorkflowStatusEnum,
+    -- | Get a list of completed steps in the migration workflow.
+    completedSteps :: Prelude.Maybe Prelude.Int,
+    -- | The time at which the migration workflow was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The description of the migration workflow.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the template.
-    templateId :: Prelude.Maybe Prelude.Text,
     -- | The time at which the migration workflow ended.
     endTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the migration workflow.
     id :: Prelude.Maybe Prelude.Text,
     -- | The time at which the migration workflow was last modified.
     lastModifiedTime :: Prelude.Maybe Data.POSIX,
+    -- | The time at which the migration workflow was last started.
+    lastStartTime :: Prelude.Maybe Data.POSIX,
     -- | The time at which the migration workflow was last stopped.
     lastStopTime :: Prelude.Maybe Data.POSIX,
-    -- | Get a list of completed steps in the migration workflow.
-    completedSteps :: Prelude.Maybe Prelude.Int,
-    -- | The time at which the migration workflow was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The name of the migration workflow.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The status of the migration workflow.
+    status :: Prelude.Maybe MigrationWorkflowStatusEnum,
     -- | The status message of the migration workflow.
     statusMessage :: Prelude.Maybe Prelude.Text,
+    -- | The tags added to the migration workflow.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The ID of the template.
+    templateId :: Prelude.Maybe Prelude.Text,
+    -- | List of AWS services utilized in a migration workflow.
+    tools :: Prelude.Maybe [Tool],
     -- | The total number of steps in the migration workflow.
     totalSteps :: Prelude.Maybe Prelude.Int,
+    -- | The Amazon S3 bucket where the migration logs are stored.
+    workflowBucket :: Prelude.Maybe Prelude.Text,
     -- | The inputs required for creating the migration workflow.
     workflowInputs :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text StepInput)),
     -- | The response's http status code.
@@ -205,28 +205,18 @@ data GetWorkflowResponse = GetWorkflowResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'getWorkflowResponse_tags' - The tags added to the migration workflow.
---
--- 'name', 'getWorkflowResponse_name' - The name of the migration workflow.
---
--- 'workflowBucket', 'getWorkflowResponse_workflowBucket' - The Amazon S3 bucket where the migration logs are stored.
---
--- 'adsApplicationName', 'getWorkflowResponse_adsApplicationName' - The name of the application configured in Application Discovery Service.
---
 -- 'adsApplicationConfigurationId', 'getWorkflowResponse_adsApplicationConfigurationId' - The configuration ID of the application configured in Application
 -- Discovery Service.
 --
--- 'tools', 'getWorkflowResponse_tools' - List of AWS services utilized in a migration workflow.
---
--- 'lastStartTime', 'getWorkflowResponse_lastStartTime' - The time at which the migration workflow was last started.
+-- 'adsApplicationName', 'getWorkflowResponse_adsApplicationName' - The name of the application configured in Application Discovery Service.
 --
 -- 'arn', 'getWorkflowResponse_arn' - The Amazon Resource Name (ARN) of the migration workflow.
 --
--- 'status', 'getWorkflowResponse_status' - The status of the migration workflow.
+-- 'completedSteps', 'getWorkflowResponse_completedSteps' - Get a list of completed steps in the migration workflow.
+--
+-- 'creationTime', 'getWorkflowResponse_creationTime' - The time at which the migration workflow was created.
 --
 -- 'description', 'getWorkflowResponse_description' - The description of the migration workflow.
---
--- 'templateId', 'getWorkflowResponse_templateId' - The ID of the template.
 --
 -- 'endTime', 'getWorkflowResponse_endTime' - The time at which the migration workflow ended.
 --
@@ -234,15 +224,25 @@ data GetWorkflowResponse = GetWorkflowResponse'
 --
 -- 'lastModifiedTime', 'getWorkflowResponse_lastModifiedTime' - The time at which the migration workflow was last modified.
 --
+-- 'lastStartTime', 'getWorkflowResponse_lastStartTime' - The time at which the migration workflow was last started.
+--
 -- 'lastStopTime', 'getWorkflowResponse_lastStopTime' - The time at which the migration workflow was last stopped.
 --
--- 'completedSteps', 'getWorkflowResponse_completedSteps' - Get a list of completed steps in the migration workflow.
+-- 'name', 'getWorkflowResponse_name' - The name of the migration workflow.
 --
--- 'creationTime', 'getWorkflowResponse_creationTime' - The time at which the migration workflow was created.
+-- 'status', 'getWorkflowResponse_status' - The status of the migration workflow.
 --
 -- 'statusMessage', 'getWorkflowResponse_statusMessage' - The status message of the migration workflow.
 --
+-- 'tags', 'getWorkflowResponse_tags' - The tags added to the migration workflow.
+--
+-- 'templateId', 'getWorkflowResponse_templateId' - The ID of the template.
+--
+-- 'tools', 'getWorkflowResponse_tools' - List of AWS services utilized in a migration workflow.
+--
 -- 'totalSteps', 'getWorkflowResponse_totalSteps' - The total number of steps in the migration workflow.
+--
+-- 'workflowBucket', 'getWorkflowResponse_workflowBucket' - The Amazon S3 bucket where the migration logs are stored.
 --
 -- 'workflowInputs', 'getWorkflowResponse_workflowInputs' - The inputs required for creating the migration workflow.
 --
@@ -253,73 +253,54 @@ newGetWorkflowResponse ::
   GetWorkflowResponse
 newGetWorkflowResponse pHttpStatus_ =
   GetWorkflowResponse'
-    { tags = Prelude.Nothing,
-      name = Prelude.Nothing,
-      workflowBucket = Prelude.Nothing,
+    { adsApplicationConfigurationId =
+        Prelude.Nothing,
       adsApplicationName = Prelude.Nothing,
-      adsApplicationConfigurationId = Prelude.Nothing,
-      tools = Prelude.Nothing,
-      lastStartTime = Prelude.Nothing,
       arn = Prelude.Nothing,
-      status = Prelude.Nothing,
+      completedSteps = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
       description = Prelude.Nothing,
-      templateId = Prelude.Nothing,
       endTime = Prelude.Nothing,
       id = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
+      lastStartTime = Prelude.Nothing,
       lastStopTime = Prelude.Nothing,
-      completedSteps = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
+      name = Prelude.Nothing,
+      status = Prelude.Nothing,
       statusMessage = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      templateId = Prelude.Nothing,
+      tools = Prelude.Nothing,
       totalSteps = Prelude.Nothing,
+      workflowBucket = Prelude.Nothing,
       workflowInputs = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The tags added to the migration workflow.
-getWorkflowResponse_tags :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getWorkflowResponse_tags = Lens.lens (\GetWorkflowResponse' {tags} -> tags) (\s@GetWorkflowResponse' {} a -> s {tags = a} :: GetWorkflowResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the migration workflow.
-getWorkflowResponse_name :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.Text)
-getWorkflowResponse_name = Lens.lens (\GetWorkflowResponse' {name} -> name) (\s@GetWorkflowResponse' {} a -> s {name = a} :: GetWorkflowResponse)
-
--- | The Amazon S3 bucket where the migration logs are stored.
-getWorkflowResponse_workflowBucket :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.Text)
-getWorkflowResponse_workflowBucket = Lens.lens (\GetWorkflowResponse' {workflowBucket} -> workflowBucket) (\s@GetWorkflowResponse' {} a -> s {workflowBucket = a} :: GetWorkflowResponse)
-
--- | The name of the application configured in Application Discovery Service.
-getWorkflowResponse_adsApplicationName :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.Text)
-getWorkflowResponse_adsApplicationName = Lens.lens (\GetWorkflowResponse' {adsApplicationName} -> adsApplicationName) (\s@GetWorkflowResponse' {} a -> s {adsApplicationName = a} :: GetWorkflowResponse)
 
 -- | The configuration ID of the application configured in Application
 -- Discovery Service.
 getWorkflowResponse_adsApplicationConfigurationId :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.Text)
 getWorkflowResponse_adsApplicationConfigurationId = Lens.lens (\GetWorkflowResponse' {adsApplicationConfigurationId} -> adsApplicationConfigurationId) (\s@GetWorkflowResponse' {} a -> s {adsApplicationConfigurationId = a} :: GetWorkflowResponse)
 
--- | List of AWS services utilized in a migration workflow.
-getWorkflowResponse_tools :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe [Tool])
-getWorkflowResponse_tools = Lens.lens (\GetWorkflowResponse' {tools} -> tools) (\s@GetWorkflowResponse' {} a -> s {tools = a} :: GetWorkflowResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The time at which the migration workflow was last started.
-getWorkflowResponse_lastStartTime :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.UTCTime)
-getWorkflowResponse_lastStartTime = Lens.lens (\GetWorkflowResponse' {lastStartTime} -> lastStartTime) (\s@GetWorkflowResponse' {} a -> s {lastStartTime = a} :: GetWorkflowResponse) Prelude.. Lens.mapping Data._Time
+-- | The name of the application configured in Application Discovery Service.
+getWorkflowResponse_adsApplicationName :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.Text)
+getWorkflowResponse_adsApplicationName = Lens.lens (\GetWorkflowResponse' {adsApplicationName} -> adsApplicationName) (\s@GetWorkflowResponse' {} a -> s {adsApplicationName = a} :: GetWorkflowResponse)
 
 -- | The Amazon Resource Name (ARN) of the migration workflow.
 getWorkflowResponse_arn :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.Text)
 getWorkflowResponse_arn = Lens.lens (\GetWorkflowResponse' {arn} -> arn) (\s@GetWorkflowResponse' {} a -> s {arn = a} :: GetWorkflowResponse)
 
--- | The status of the migration workflow.
-getWorkflowResponse_status :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe MigrationWorkflowStatusEnum)
-getWorkflowResponse_status = Lens.lens (\GetWorkflowResponse' {status} -> status) (\s@GetWorkflowResponse' {} a -> s {status = a} :: GetWorkflowResponse)
+-- | Get a list of completed steps in the migration workflow.
+getWorkflowResponse_completedSteps :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.Int)
+getWorkflowResponse_completedSteps = Lens.lens (\GetWorkflowResponse' {completedSteps} -> completedSteps) (\s@GetWorkflowResponse' {} a -> s {completedSteps = a} :: GetWorkflowResponse)
+
+-- | The time at which the migration workflow was created.
+getWorkflowResponse_creationTime :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.UTCTime)
+getWorkflowResponse_creationTime = Lens.lens (\GetWorkflowResponse' {creationTime} -> creationTime) (\s@GetWorkflowResponse' {} a -> s {creationTime = a} :: GetWorkflowResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The description of the migration workflow.
 getWorkflowResponse_description :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.Text)
 getWorkflowResponse_description = Lens.lens (\GetWorkflowResponse' {description} -> description) (\s@GetWorkflowResponse' {} a -> s {description = a} :: GetWorkflowResponse)
-
--- | The ID of the template.
-getWorkflowResponse_templateId :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.Text)
-getWorkflowResponse_templateId = Lens.lens (\GetWorkflowResponse' {templateId} -> templateId) (\s@GetWorkflowResponse' {} a -> s {templateId = a} :: GetWorkflowResponse)
 
 -- | The time at which the migration workflow ended.
 getWorkflowResponse_endTime :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.UTCTime)
@@ -333,25 +314,45 @@ getWorkflowResponse_id = Lens.lens (\GetWorkflowResponse' {id} -> id) (\s@GetWor
 getWorkflowResponse_lastModifiedTime :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.UTCTime)
 getWorkflowResponse_lastModifiedTime = Lens.lens (\GetWorkflowResponse' {lastModifiedTime} -> lastModifiedTime) (\s@GetWorkflowResponse' {} a -> s {lastModifiedTime = a} :: GetWorkflowResponse) Prelude.. Lens.mapping Data._Time
 
+-- | The time at which the migration workflow was last started.
+getWorkflowResponse_lastStartTime :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.UTCTime)
+getWorkflowResponse_lastStartTime = Lens.lens (\GetWorkflowResponse' {lastStartTime} -> lastStartTime) (\s@GetWorkflowResponse' {} a -> s {lastStartTime = a} :: GetWorkflowResponse) Prelude.. Lens.mapping Data._Time
+
 -- | The time at which the migration workflow was last stopped.
 getWorkflowResponse_lastStopTime :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.UTCTime)
 getWorkflowResponse_lastStopTime = Lens.lens (\GetWorkflowResponse' {lastStopTime} -> lastStopTime) (\s@GetWorkflowResponse' {} a -> s {lastStopTime = a} :: GetWorkflowResponse) Prelude.. Lens.mapping Data._Time
 
--- | Get a list of completed steps in the migration workflow.
-getWorkflowResponse_completedSteps :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.Int)
-getWorkflowResponse_completedSteps = Lens.lens (\GetWorkflowResponse' {completedSteps} -> completedSteps) (\s@GetWorkflowResponse' {} a -> s {completedSteps = a} :: GetWorkflowResponse)
+-- | The name of the migration workflow.
+getWorkflowResponse_name :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.Text)
+getWorkflowResponse_name = Lens.lens (\GetWorkflowResponse' {name} -> name) (\s@GetWorkflowResponse' {} a -> s {name = a} :: GetWorkflowResponse)
 
--- | The time at which the migration workflow was created.
-getWorkflowResponse_creationTime :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.UTCTime)
-getWorkflowResponse_creationTime = Lens.lens (\GetWorkflowResponse' {creationTime} -> creationTime) (\s@GetWorkflowResponse' {} a -> s {creationTime = a} :: GetWorkflowResponse) Prelude.. Lens.mapping Data._Time
+-- | The status of the migration workflow.
+getWorkflowResponse_status :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe MigrationWorkflowStatusEnum)
+getWorkflowResponse_status = Lens.lens (\GetWorkflowResponse' {status} -> status) (\s@GetWorkflowResponse' {} a -> s {status = a} :: GetWorkflowResponse)
 
 -- | The status message of the migration workflow.
 getWorkflowResponse_statusMessage :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.Text)
 getWorkflowResponse_statusMessage = Lens.lens (\GetWorkflowResponse' {statusMessage} -> statusMessage) (\s@GetWorkflowResponse' {} a -> s {statusMessage = a} :: GetWorkflowResponse)
 
+-- | The tags added to the migration workflow.
+getWorkflowResponse_tags :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getWorkflowResponse_tags = Lens.lens (\GetWorkflowResponse' {tags} -> tags) (\s@GetWorkflowResponse' {} a -> s {tags = a} :: GetWorkflowResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ID of the template.
+getWorkflowResponse_templateId :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.Text)
+getWorkflowResponse_templateId = Lens.lens (\GetWorkflowResponse' {templateId} -> templateId) (\s@GetWorkflowResponse' {} a -> s {templateId = a} :: GetWorkflowResponse)
+
+-- | List of AWS services utilized in a migration workflow.
+getWorkflowResponse_tools :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe [Tool])
+getWorkflowResponse_tools = Lens.lens (\GetWorkflowResponse' {tools} -> tools) (\s@GetWorkflowResponse' {} a -> s {tools = a} :: GetWorkflowResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The total number of steps in the migration workflow.
 getWorkflowResponse_totalSteps :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.Int)
 getWorkflowResponse_totalSteps = Lens.lens (\GetWorkflowResponse' {totalSteps} -> totalSteps) (\s@GetWorkflowResponse' {} a -> s {totalSteps = a} :: GetWorkflowResponse)
+
+-- | The Amazon S3 bucket where the migration logs are stored.
+getWorkflowResponse_workflowBucket :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.Text)
+getWorkflowResponse_workflowBucket = Lens.lens (\GetWorkflowResponse' {workflowBucket} -> workflowBucket) (\s@GetWorkflowResponse' {} a -> s {workflowBucket = a} :: GetWorkflowResponse)
 
 -- | The inputs required for creating the migration workflow.
 getWorkflowResponse_workflowInputs :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text StepInput))
@@ -363,24 +364,24 @@ getWorkflowResponse_httpStatus = Lens.lens (\GetWorkflowResponse' {httpStatus} -
 
 instance Prelude.NFData GetWorkflowResponse where
   rnf GetWorkflowResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf workflowBucket
+    Prelude.rnf adsApplicationConfigurationId
       `Prelude.seq` Prelude.rnf adsApplicationName
-      `Prelude.seq` Prelude.rnf adsApplicationConfigurationId
-      `Prelude.seq` Prelude.rnf tools
-      `Prelude.seq` Prelude.rnf lastStartTime
       `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf completedSteps
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf templateId
       `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf lastStartTime
       `Prelude.seq` Prelude.rnf lastStopTime
-      `Prelude.seq` Prelude.rnf completedSteps
-      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf templateId
+      `Prelude.seq` Prelude.rnf tools
       `Prelude.seq` Prelude.rnf totalSteps
+      `Prelude.seq` Prelude.rnf workflowBucket
       `Prelude.seq` Prelude.rnf workflowInputs
       `Prelude.seq` Prelude.rnf httpStatus

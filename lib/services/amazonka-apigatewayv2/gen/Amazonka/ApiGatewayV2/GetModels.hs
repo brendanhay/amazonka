@@ -29,8 +29,8 @@ module Amazonka.ApiGatewayV2.GetModels
     newGetModels,
 
     -- * Request Lenses
-    getModels_nextToken,
     getModels_maxResults,
+    getModels_nextToken,
     getModels_apiId,
 
     -- * Destructuring the Response
@@ -54,11 +54,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetModels' smart constructor.
 data GetModels = GetModels'
-  { -- | The next page of elements from this collection. Not valid for the last
+  { -- | The maximum number of elements to be returned for this resource.
+    maxResults :: Prelude.Maybe Prelude.Text,
+    -- | The next page of elements from this collection. Not valid for the last
     -- element of the collection.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of elements to be returned for this resource.
-    maxResults :: Prelude.Maybe Prelude.Text,
     -- | The API identifier.
     apiId :: Prelude.Text
   }
@@ -72,10 +72,10 @@ data GetModels = GetModels'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'getModels_maxResults' - The maximum number of elements to be returned for this resource.
+--
 -- 'nextToken', 'getModels_nextToken' - The next page of elements from this collection. Not valid for the last
 -- element of the collection.
---
--- 'maxResults', 'getModels_maxResults' - The maximum number of elements to be returned for this resource.
 --
 -- 'apiId', 'getModels_apiId' - The API identifier.
 newGetModels ::
@@ -84,19 +84,19 @@ newGetModels ::
   GetModels
 newGetModels pApiId_ =
   GetModels'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       apiId = pApiId_
     }
+
+-- | The maximum number of elements to be returned for this resource.
+getModels_maxResults :: Lens.Lens' GetModels (Prelude.Maybe Prelude.Text)
+getModels_maxResults = Lens.lens (\GetModels' {maxResults} -> maxResults) (\s@GetModels' {} a -> s {maxResults = a} :: GetModels)
 
 -- | The next page of elements from this collection. Not valid for the last
 -- element of the collection.
 getModels_nextToken :: Lens.Lens' GetModels (Prelude.Maybe Prelude.Text)
 getModels_nextToken = Lens.lens (\GetModels' {nextToken} -> nextToken) (\s@GetModels' {} a -> s {nextToken = a} :: GetModels)
-
--- | The maximum number of elements to be returned for this resource.
-getModels_maxResults :: Lens.Lens' GetModels (Prelude.Maybe Prelude.Text)
-getModels_maxResults = Lens.lens (\GetModels' {maxResults} -> maxResults) (\s@GetModels' {} a -> s {maxResults = a} :: GetModels)
 
 -- | The API identifier.
 getModels_apiId :: Lens.Lens' GetModels Prelude.Text
@@ -136,14 +136,14 @@ instance Core.AWSRequest GetModels where
 
 instance Prelude.Hashable GetModels where
   hashWithSalt _salt GetModels' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` apiId
 
 instance Prelude.NFData GetModels where
   rnf GetModels' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf apiId
 
 instance Data.ToHeaders GetModels where
@@ -165,8 +165,8 @@ instance Data.ToPath GetModels where
 instance Data.ToQuery GetModels where
   toQuery GetModels' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newGetModelsResponse' smart constructor.

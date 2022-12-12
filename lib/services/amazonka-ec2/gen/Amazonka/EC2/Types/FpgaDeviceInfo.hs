@@ -30,14 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFpgaDeviceInfo' smart constructor.
 data FpgaDeviceInfo = FpgaDeviceInfo'
-  { -- | Describes the memory for the FPGA accelerator for the instance type.
-    memoryInfo :: Prelude.Maybe FpgaDeviceMemoryInfo,
-    -- | The name of the FPGA accelerator.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The count of FPGA accelerators for the instance type.
+  { -- | The count of FPGA accelerators for the instance type.
     count :: Prelude.Maybe Prelude.Int,
     -- | The manufacturer of the FPGA accelerator.
-    manufacturer :: Prelude.Maybe Prelude.Text
+    manufacturer :: Prelude.Maybe Prelude.Text,
+    -- | Describes the memory for the FPGA accelerator for the instance type.
+    memoryInfo :: Prelude.Maybe FpgaDeviceMemoryInfo,
+    -- | The name of the FPGA accelerator.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,30 +49,22 @@ data FpgaDeviceInfo = FpgaDeviceInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'memoryInfo', 'fpgaDeviceInfo_memoryInfo' - Describes the memory for the FPGA accelerator for the instance type.
---
--- 'name', 'fpgaDeviceInfo_name' - The name of the FPGA accelerator.
---
 -- 'count', 'fpgaDeviceInfo_count' - The count of FPGA accelerators for the instance type.
 --
 -- 'manufacturer', 'fpgaDeviceInfo_manufacturer' - The manufacturer of the FPGA accelerator.
+--
+-- 'memoryInfo', 'fpgaDeviceInfo_memoryInfo' - Describes the memory for the FPGA accelerator for the instance type.
+--
+-- 'name', 'fpgaDeviceInfo_name' - The name of the FPGA accelerator.
 newFpgaDeviceInfo ::
   FpgaDeviceInfo
 newFpgaDeviceInfo =
   FpgaDeviceInfo'
-    { memoryInfo = Prelude.Nothing,
-      name = Prelude.Nothing,
-      count = Prelude.Nothing,
-      manufacturer = Prelude.Nothing
+    { count = Prelude.Nothing,
+      manufacturer = Prelude.Nothing,
+      memoryInfo = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | Describes the memory for the FPGA accelerator for the instance type.
-fpgaDeviceInfo_memoryInfo :: Lens.Lens' FpgaDeviceInfo (Prelude.Maybe FpgaDeviceMemoryInfo)
-fpgaDeviceInfo_memoryInfo = Lens.lens (\FpgaDeviceInfo' {memoryInfo} -> memoryInfo) (\s@FpgaDeviceInfo' {} a -> s {memoryInfo = a} :: FpgaDeviceInfo)
-
--- | The name of the FPGA accelerator.
-fpgaDeviceInfo_name :: Lens.Lens' FpgaDeviceInfo (Prelude.Maybe Prelude.Text)
-fpgaDeviceInfo_name = Lens.lens (\FpgaDeviceInfo' {name} -> name) (\s@FpgaDeviceInfo' {} a -> s {name = a} :: FpgaDeviceInfo)
 
 -- | The count of FPGA accelerators for the instance type.
 fpgaDeviceInfo_count :: Lens.Lens' FpgaDeviceInfo (Prelude.Maybe Prelude.Int)
@@ -82,24 +74,32 @@ fpgaDeviceInfo_count = Lens.lens (\FpgaDeviceInfo' {count} -> count) (\s@FpgaDev
 fpgaDeviceInfo_manufacturer :: Lens.Lens' FpgaDeviceInfo (Prelude.Maybe Prelude.Text)
 fpgaDeviceInfo_manufacturer = Lens.lens (\FpgaDeviceInfo' {manufacturer} -> manufacturer) (\s@FpgaDeviceInfo' {} a -> s {manufacturer = a} :: FpgaDeviceInfo)
 
+-- | Describes the memory for the FPGA accelerator for the instance type.
+fpgaDeviceInfo_memoryInfo :: Lens.Lens' FpgaDeviceInfo (Prelude.Maybe FpgaDeviceMemoryInfo)
+fpgaDeviceInfo_memoryInfo = Lens.lens (\FpgaDeviceInfo' {memoryInfo} -> memoryInfo) (\s@FpgaDeviceInfo' {} a -> s {memoryInfo = a} :: FpgaDeviceInfo)
+
+-- | The name of the FPGA accelerator.
+fpgaDeviceInfo_name :: Lens.Lens' FpgaDeviceInfo (Prelude.Maybe Prelude.Text)
+fpgaDeviceInfo_name = Lens.lens (\FpgaDeviceInfo' {name} -> name) (\s@FpgaDeviceInfo' {} a -> s {name = a} :: FpgaDeviceInfo)
+
 instance Data.FromXML FpgaDeviceInfo where
   parseXML x =
     FpgaDeviceInfo'
-      Prelude.<$> (x Data..@? "memoryInfo")
-      Prelude.<*> (x Data..@? "name")
-      Prelude.<*> (x Data..@? "count")
+      Prelude.<$> (x Data..@? "count")
       Prelude.<*> (x Data..@? "manufacturer")
+      Prelude.<*> (x Data..@? "memoryInfo")
+      Prelude.<*> (x Data..@? "name")
 
 instance Prelude.Hashable FpgaDeviceInfo where
   hashWithSalt _salt FpgaDeviceInfo' {..} =
-    _salt `Prelude.hashWithSalt` memoryInfo
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` count
+    _salt `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` manufacturer
+      `Prelude.hashWithSalt` memoryInfo
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData FpgaDeviceInfo where
   rnf FpgaDeviceInfo' {..} =
-    Prelude.rnf memoryInfo
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf count
+    Prelude.rnf count
       `Prelude.seq` Prelude.rnf manufacturer
+      `Prelude.seq` Prelude.rnf memoryInfo
+      `Prelude.seq` Prelude.rnf name

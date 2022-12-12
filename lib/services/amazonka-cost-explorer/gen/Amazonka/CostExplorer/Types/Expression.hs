@@ -70,18 +70,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newExpression' smart constructor.
 data Expression = Expression'
-  { -- | The specific @Tag@ to use for @Expression@.
-    tags :: Prelude.Maybe TagValues,
+  { -- | Return results that match both @Dimension@ objects.
+    and :: Prelude.Maybe [Expression],
     -- | The filter that\'s based on @CostCategory@ values.
     costCategories :: Prelude.Maybe CostCategoryValues,
     -- | The specific @Dimension@ to use for @Expression@.
     dimensions :: Prelude.Maybe DimensionValues,
-    -- | Return results that match either @Dimension@ object.
-    or :: Prelude.Maybe [Expression],
     -- | Return results that don\'t match a @Dimension@ object.
     not :: Prelude.Maybe Expression,
-    -- | Return results that match both @Dimension@ objects.
-    and :: Prelude.Maybe [Expression]
+    -- | Return results that match either @Dimension@ object.
+    or :: Prelude.Maybe [Expression],
+    -- | The specific @Tag@ to use for @Expression@.
+    tags :: Prelude.Maybe TagValues
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -93,32 +93,32 @@ data Expression = Expression'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'expression_tags' - The specific @Tag@ to use for @Expression@.
+-- 'and', 'expression_and' - Return results that match both @Dimension@ objects.
 --
 -- 'costCategories', 'expression_costCategories' - The filter that\'s based on @CostCategory@ values.
 --
 -- 'dimensions', 'expression_dimensions' - The specific @Dimension@ to use for @Expression@.
 --
--- 'or', 'expression_or' - Return results that match either @Dimension@ object.
---
 -- 'not', 'expression_not' - Return results that don\'t match a @Dimension@ object.
 --
--- 'and', 'expression_and' - Return results that match both @Dimension@ objects.
+-- 'or', 'expression_or' - Return results that match either @Dimension@ object.
+--
+-- 'tags', 'expression_tags' - The specific @Tag@ to use for @Expression@.
 newExpression ::
   Expression
 newExpression =
   Expression'
-    { tags = Prelude.Nothing,
+    { and = Prelude.Nothing,
       costCategories = Prelude.Nothing,
       dimensions = Prelude.Nothing,
-      or = Prelude.Nothing,
       not = Prelude.Nothing,
-      and = Prelude.Nothing
+      or = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
 
--- | The specific @Tag@ to use for @Expression@.
-expression_tags :: Lens.Lens' Expression (Prelude.Maybe TagValues)
-expression_tags = Lens.lens (\Expression' {tags} -> tags) (\s@Expression' {} a -> s {tags = a} :: Expression)
+-- | Return results that match both @Dimension@ objects.
+expression_and :: Lens.Lens' Expression (Prelude.Maybe [Expression])
+expression_and = Lens.lens (\Expression' {and} -> and) (\s@Expression' {} a -> s {and = a} :: Expression) Prelude.. Lens.mapping Lens.coerced
 
 -- | The filter that\'s based on @CostCategory@ values.
 expression_costCategories :: Lens.Lens' Expression (Prelude.Maybe CostCategoryValues)
@@ -128,17 +128,17 @@ expression_costCategories = Lens.lens (\Expression' {costCategories} -> costCate
 expression_dimensions :: Lens.Lens' Expression (Prelude.Maybe DimensionValues)
 expression_dimensions = Lens.lens (\Expression' {dimensions} -> dimensions) (\s@Expression' {} a -> s {dimensions = a} :: Expression)
 
--- | Return results that match either @Dimension@ object.
-expression_or :: Lens.Lens' Expression (Prelude.Maybe [Expression])
-expression_or = Lens.lens (\Expression' {or} -> or) (\s@Expression' {} a -> s {or = a} :: Expression) Prelude.. Lens.mapping Lens.coerced
-
 -- | Return results that don\'t match a @Dimension@ object.
 expression_not :: Lens.Lens' Expression (Prelude.Maybe Expression)
 expression_not = Lens.lens (\Expression' {not} -> not) (\s@Expression' {} a -> s {not = a} :: Expression)
 
--- | Return results that match both @Dimension@ objects.
-expression_and :: Lens.Lens' Expression (Prelude.Maybe [Expression])
-expression_and = Lens.lens (\Expression' {and} -> and) (\s@Expression' {} a -> s {and = a} :: Expression) Prelude.. Lens.mapping Lens.coerced
+-- | Return results that match either @Dimension@ object.
+expression_or :: Lens.Lens' Expression (Prelude.Maybe [Expression])
+expression_or = Lens.lens (\Expression' {or} -> or) (\s@Expression' {} a -> s {or = a} :: Expression) Prelude.. Lens.mapping Lens.coerced
+
+-- | The specific @Tag@ to use for @Expression@.
+expression_tags :: Lens.Lens' Expression (Prelude.Maybe TagValues)
+expression_tags = Lens.lens (\Expression' {tags} -> tags) (\s@Expression' {} a -> s {tags = a} :: Expression)
 
 instance Data.FromJSON Expression where
   parseJSON =
@@ -146,42 +146,42 @@ instance Data.FromJSON Expression where
       "Expression"
       ( \x ->
           Expression'
-            Prelude.<$> (x Data..:? "Tags")
+            Prelude.<$> (x Data..:? "And" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "CostCategories")
             Prelude.<*> (x Data..:? "Dimensions")
-            Prelude.<*> (x Data..:? "Or" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Not")
-            Prelude.<*> (x Data..:? "And" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Or" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Tags")
       )
 
 instance Prelude.Hashable Expression where
   hashWithSalt _salt Expression' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` and
       `Prelude.hashWithSalt` costCategories
       `Prelude.hashWithSalt` dimensions
-      `Prelude.hashWithSalt` or
       `Prelude.hashWithSalt` not
-      `Prelude.hashWithSalt` and
+      `Prelude.hashWithSalt` or
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData Expression where
   rnf Expression' {..} =
-    Prelude.rnf tags
+    Prelude.rnf and
       `Prelude.seq` Prelude.rnf costCategories
       `Prelude.seq` Prelude.rnf dimensions
-      `Prelude.seq` Prelude.rnf or
       `Prelude.seq` Prelude.rnf not
-      `Prelude.seq` Prelude.rnf and
+      `Prelude.seq` Prelude.rnf or
+      `Prelude.seq` Prelude.rnf tags
 
 instance Data.ToJSON Expression where
   toJSON Expression' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
+          [ ("And" Data..=) Prelude.<$> and,
             ("CostCategories" Data..=)
               Prelude.<$> costCategories,
             ("Dimensions" Data..=) Prelude.<$> dimensions,
-            ("Or" Data..=) Prelude.<$> or,
             ("Not" Data..=) Prelude.<$> not,
-            ("And" Data..=) Prelude.<$> and
+            ("Or" Data..=) Prelude.<$> or,
+            ("Tags" Data..=) Prelude.<$> tags
           ]
       )

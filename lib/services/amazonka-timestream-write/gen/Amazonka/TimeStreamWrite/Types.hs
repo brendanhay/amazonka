@@ -19,14 +19,14 @@ module Amazonka.TimeStreamWrite.Types
 
     -- * Errors
     _AccessDeniedException,
-    _InternalServerException,
-    _ServiceQuotaExceededException,
-    _ResourceNotFoundException,
     _ConflictException,
-    _ThrottlingException,
-    _ValidationException,
+    _InternalServerException,
     _InvalidEndpointException,
     _RejectedRecordsException,
+    _ResourceNotFoundException,
+    _ServiceQuotaExceededException,
+    _ThrottlingException,
+    _ValidationException,
 
     -- * DimensionValueType
     DimensionValueType (..),
@@ -46,11 +46,11 @@ module Amazonka.TimeStreamWrite.Types
     -- * Database
     Database (..),
     newDatabase,
-    database_databaseName,
     database_arn,
-    database_lastUpdatedTime,
-    database_kmsKeyId,
     database_creationTime,
+    database_databaseName,
+    database_kmsKeyId,
+    database_lastUpdatedTime,
     database_tableCount,
 
     -- * Dimension
@@ -87,21 +87,21 @@ module Amazonka.TimeStreamWrite.Types
     -- * Record
     Record (..),
     newRecord,
-    record_timeUnit,
-    record_measureValue,
-    record_measureValues,
-    record_time,
     record_dimensions,
     record_measureName,
+    record_measureValue,
     record_measureValueType,
+    record_measureValues,
+    record_time,
+    record_timeUnit,
     record_version,
 
     -- * RecordsIngested
     RecordsIngested (..),
     newRecordsIngested,
-    recordsIngested_total,
     recordsIngested_magneticStore,
     recordsIngested_memoryStore,
+    recordsIngested_total,
 
     -- * RetentionProperties
     RetentionProperties (..),
@@ -112,22 +112,22 @@ module Amazonka.TimeStreamWrite.Types
     -- * S3Configuration
     S3Configuration (..),
     newS3Configuration,
-    s3Configuration_objectKeyPrefix,
-    s3Configuration_encryptionOption,
     s3Configuration_bucketName,
+    s3Configuration_encryptionOption,
     s3Configuration_kmsKeyId,
+    s3Configuration_objectKeyPrefix,
 
     -- * Table
     Table (..),
     newTable,
+    table_arn,
+    table_creationTime,
+    table_databaseName,
+    table_lastUpdatedTime,
+    table_magneticStoreWriteProperties,
+    table_retentionProperties,
     table_tableName,
     table_tableStatus,
-    table_databaseName,
-    table_arn,
-    table_lastUpdatedTime,
-    table_retentionProperties,
-    table_magneticStoreWriteProperties,
-    table_creationTime,
 
     -- * Tag
     Tag (..),
@@ -184,28 +184,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -213,13 +207,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -227,6 +225,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You are not authorized to perform this action.
@@ -236,29 +236,6 @@ _AccessDeniedException =
     defaultService
     "AccessDeniedException"
 
--- | Timestream was unable to fully process this request because of an
--- internal server error.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServerException"
-
--- | Instance quota of resource exceeded for this account.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceQuotaExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceQuotaExceededException"
-
--- | The operation tried to access a nonexistent resource. The resource might
--- not be specified correctly, or its status might not be ACTIVE.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-
 -- | Timestream was unable to process this request because it contains
 -- resource that already exists.
 _ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -267,20 +244,13 @@ _ConflictException =
     defaultService
     "ConflictException"
 
--- | Too many requests were made by a user exceeding service quotas. The
--- request was throttled.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ThrottlingException =
+-- | Timestream was unable to fully process this request because of an
+-- internal server error.
+_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException =
   Core._MatchServiceError
     defaultService
-    "ThrottlingException"
-
--- | Invalid or malformed request.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
-  Core._MatchServiceError
-    defaultService
-    "ValidationException"
+    "InternalServerException"
 
 -- | The requested endpoint was invalid.
 _InvalidEndpointException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -319,3 +289,33 @@ _RejectedRecordsException =
   Core._MatchServiceError
     defaultService
     "RejectedRecordsException"
+
+-- | The operation tried to access a nonexistent resource. The resource might
+-- not be specified correctly, or its status might not be ACTIVE.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+
+-- | Instance quota of resource exceeded for this account.
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceQuotaExceededException"
+
+-- | Too many requests were made by a user exceeding service quotas. The
+-- request was throttled.
+_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottlingException"
+
+-- | Invalid or malformed request.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
+  Core._MatchServiceError
+    defaultService
+    "ValidationException"

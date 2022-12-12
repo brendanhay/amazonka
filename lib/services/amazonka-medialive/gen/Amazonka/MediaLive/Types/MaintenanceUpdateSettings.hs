@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMaintenanceUpdateSettings' smart constructor.
 data MaintenanceUpdateSettings = MaintenanceUpdateSettings'
-  { -- | Choose a specific date for maintenance to occur. The chosen date is used
-    -- for the next maintenance window only.
-    maintenanceScheduledDate :: Prelude.Maybe Prelude.Text,
-    -- | Choose one day of the week for maintenance. The chosen day is used for
+  { -- | Choose one day of the week for maintenance. The chosen day is used for
     -- all future maintenance windows.
     maintenanceDay :: Prelude.Maybe MaintenanceDay,
+    -- | Choose a specific date for maintenance to occur. The chosen date is used
+    -- for the next maintenance window only.
+    maintenanceScheduledDate :: Prelude.Maybe Prelude.Text,
     -- | Choose the hour that maintenance will start. The chosen time is used for
     -- all future maintenance windows.
     maintenanceStartTime :: Prelude.Maybe Prelude.Text
@@ -49,11 +49,11 @@ data MaintenanceUpdateSettings = MaintenanceUpdateSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maintenanceScheduledDate', 'maintenanceUpdateSettings_maintenanceScheduledDate' - Choose a specific date for maintenance to occur. The chosen date is used
--- for the next maintenance window only.
---
 -- 'maintenanceDay', 'maintenanceUpdateSettings_maintenanceDay' - Choose one day of the week for maintenance. The chosen day is used for
 -- all future maintenance windows.
+--
+-- 'maintenanceScheduledDate', 'maintenanceUpdateSettings_maintenanceScheduledDate' - Choose a specific date for maintenance to occur. The chosen date is used
+-- for the next maintenance window only.
 --
 -- 'maintenanceStartTime', 'maintenanceUpdateSettings_maintenanceStartTime' - Choose the hour that maintenance will start. The chosen time is used for
 -- all future maintenance windows.
@@ -61,21 +61,21 @@ newMaintenanceUpdateSettings ::
   MaintenanceUpdateSettings
 newMaintenanceUpdateSettings =
   MaintenanceUpdateSettings'
-    { maintenanceScheduledDate =
+    { maintenanceDay =
         Prelude.Nothing,
-      maintenanceDay = Prelude.Nothing,
+      maintenanceScheduledDate = Prelude.Nothing,
       maintenanceStartTime = Prelude.Nothing
     }
-
--- | Choose a specific date for maintenance to occur. The chosen date is used
--- for the next maintenance window only.
-maintenanceUpdateSettings_maintenanceScheduledDate :: Lens.Lens' MaintenanceUpdateSettings (Prelude.Maybe Prelude.Text)
-maintenanceUpdateSettings_maintenanceScheduledDate = Lens.lens (\MaintenanceUpdateSettings' {maintenanceScheduledDate} -> maintenanceScheduledDate) (\s@MaintenanceUpdateSettings' {} a -> s {maintenanceScheduledDate = a} :: MaintenanceUpdateSettings)
 
 -- | Choose one day of the week for maintenance. The chosen day is used for
 -- all future maintenance windows.
 maintenanceUpdateSettings_maintenanceDay :: Lens.Lens' MaintenanceUpdateSettings (Prelude.Maybe MaintenanceDay)
 maintenanceUpdateSettings_maintenanceDay = Lens.lens (\MaintenanceUpdateSettings' {maintenanceDay} -> maintenanceDay) (\s@MaintenanceUpdateSettings' {} a -> s {maintenanceDay = a} :: MaintenanceUpdateSettings)
+
+-- | Choose a specific date for maintenance to occur. The chosen date is used
+-- for the next maintenance window only.
+maintenanceUpdateSettings_maintenanceScheduledDate :: Lens.Lens' MaintenanceUpdateSettings (Prelude.Maybe Prelude.Text)
+maintenanceUpdateSettings_maintenanceScheduledDate = Lens.lens (\MaintenanceUpdateSettings' {maintenanceScheduledDate} -> maintenanceScheduledDate) (\s@MaintenanceUpdateSettings' {} a -> s {maintenanceScheduledDate = a} :: MaintenanceUpdateSettings)
 
 -- | Choose the hour that maintenance will start. The chosen time is used for
 -- all future maintenance windows.
@@ -84,25 +84,24 @@ maintenanceUpdateSettings_maintenanceStartTime = Lens.lens (\MaintenanceUpdateSe
 
 instance Prelude.Hashable MaintenanceUpdateSettings where
   hashWithSalt _salt MaintenanceUpdateSettings' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` maintenanceDay
       `Prelude.hashWithSalt` maintenanceScheduledDate
-      `Prelude.hashWithSalt` maintenanceDay
       `Prelude.hashWithSalt` maintenanceStartTime
 
 instance Prelude.NFData MaintenanceUpdateSettings where
   rnf MaintenanceUpdateSettings' {..} =
-    Prelude.rnf maintenanceScheduledDate
-      `Prelude.seq` Prelude.rnf maintenanceDay
+    Prelude.rnf maintenanceDay
+      `Prelude.seq` Prelude.rnf maintenanceScheduledDate
       `Prelude.seq` Prelude.rnf maintenanceStartTime
 
 instance Data.ToJSON MaintenanceUpdateSettings where
   toJSON MaintenanceUpdateSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("maintenanceScheduledDate" Data..=)
-              Prelude.<$> maintenanceScheduledDate,
-            ("maintenanceDay" Data..=)
+          [ ("maintenanceDay" Data..=)
               Prelude.<$> maintenanceDay,
+            ("maintenanceScheduledDate" Data..=)
+              Prelude.<$> maintenanceScheduledDate,
             ("maintenanceStartTime" Data..=)
               Prelude.<$> maintenanceStartTime
           ]

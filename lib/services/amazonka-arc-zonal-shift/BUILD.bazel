@@ -1,0 +1,69 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
+
+# rule generated from lib/services/amazonka-arc-zonal-shift/amazonka-arc-zonal-shift.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-arc-zonal-shift",
+    srcs = [
+        "gen/Amazonka/ArcZonalShift.hs",
+        "gen/Amazonka/ArcZonalShift/CancelZonalShift.hs",
+        "gen/Amazonka/ArcZonalShift/GetManagedResource.hs",
+        "gen/Amazonka/ArcZonalShift/Lens.hs",
+        "gen/Amazonka/ArcZonalShift/ListManagedResources.hs",
+        "gen/Amazonka/ArcZonalShift/ListZonalShifts.hs",
+        "gen/Amazonka/ArcZonalShift/StartZonalShift.hs",
+        "gen/Amazonka/ArcZonalShift/Types.hs",
+        "gen/Amazonka/ArcZonalShift/Types/AppliedStatus.hs",
+        "gen/Amazonka/ArcZonalShift/Types/ManagedResourceSummary.hs",
+        "gen/Amazonka/ArcZonalShift/Types/ZonalShift.hs",
+        "gen/Amazonka/ArcZonalShift/Types/ZonalShiftInResource.hs",
+        "gen/Amazonka/ArcZonalShift/Types/ZonalShiftStatus.hs",
+        "gen/Amazonka/ArcZonalShift/Types/ZonalShiftSummary.hs",
+        "gen/Amazonka/ArcZonalShift/UpdateZonalShift.hs",
+        "gen/Amazonka/ArcZonalShift/Waiters.hs",
+    ],
+    ghcopts = [
+        "-DVERSION_amazonka_arc_zonal_shift=\"2.0\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
+    ],
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//lib/amazonka-core",
+        "@stackage//:base",
+    ],
+)
+
+# rule generated from lib/services/amazonka-arc-zonal-shift/amazonka-arc-zonal-shift.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-arc-zonal-shift-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/Amazonka/ArcZonalShift.hs",
+        "test/Test/Amazonka/ArcZonalShift/Internal.hs",
+        "test/Test/Amazonka/Gen/ArcZonalShift.hs",
+    ],
+    ghcopts = [
+        "-DVERSION_amazonka_arc_zonal_shift=\"2.0\"",
+        "-Wall",
+        "-threaded",
+    ],
+    main_file = "test/Main.hs",
+    version = "2.0",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-arc-zonal-shift",
+        "//lib/amazonka-core",
+        "//lib/amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+    ],
+)

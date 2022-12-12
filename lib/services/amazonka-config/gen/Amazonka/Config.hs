@@ -45,164 +45,167 @@ module Amazonka.Config
     -- * Errors
     -- $errors
 
-    -- ** InvalidExpressionException
-    _InvalidExpressionException,
-
-    -- ** InvalidConfigurationRecorderNameException
-    _InvalidConfigurationRecorderNameException,
-
-    -- ** MaxActiveResourcesExceededException
-    _MaxActiveResourcesExceededException,
-
-    -- ** NoSuchRetentionConfigurationException
-    _NoSuchRetentionConfigurationException,
-
-    -- ** MaxNumberOfConfigurationRecordersExceededException
-    _MaxNumberOfConfigurationRecordersExceededException,
-
     -- ** ConformancePackTemplateValidationException
     _ConformancePackTemplateValidationException,
 
-    -- ** InvalidRecordingGroupException
-    _InvalidRecordingGroupException,
-
-    -- ** InsufficientPermissionsException
-    _InsufficientPermissionsException,
-
-    -- ** MaxNumberOfDeliveryChannelsExceededException
-    _MaxNumberOfDeliveryChannelsExceededException,
-
-    -- ** TooManyTagsException
-    _TooManyTagsException,
-
-    -- ** InvalidRoleException
-    _InvalidRoleException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** NoSuchRemediationConfigurationException
-    _NoSuchRemediationConfigurationException,
-
-    -- ** ResourceInUseException
-    _ResourceInUseException,
-
-    -- ** InvalidDeliveryChannelNameException
-    _InvalidDeliveryChannelNameException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
-
-    -- ** OrganizationAllFeaturesNotEnabledException
-    _OrganizationAllFeaturesNotEnabledException,
-
-    -- ** InvalidLimitException
-    _InvalidLimitException,
-
-    -- ** InvalidS3KeyPrefixException
-    _InvalidS3KeyPrefixException,
-
-    -- ** OrganizationConformancePackTemplateValidationException
-    _OrganizationConformancePackTemplateValidationException,
-
-    -- ** NoSuchConfigurationRecorderException
-    _NoSuchConfigurationRecorderException,
-
-    -- ** InvalidSNSTopicARNException
-    _InvalidSNSTopicARNException,
-
-    -- ** InvalidNextTokenException
-    _InvalidNextTokenException,
-
-    -- ** NoSuchBucketException
-    _NoSuchBucketException,
-
-    -- ** NoRunningConfigurationRecorderException
-    _NoRunningConfigurationRecorderException,
-
-    -- ** NoSuchOrganizationConformancePackException
-    _NoSuchOrganizationConformancePackException,
-
-    -- ** MaxNumberOfRetentionConfigurationsExceededException
-    _MaxNumberOfRetentionConfigurationsExceededException,
-
-    -- ** NoAvailableDeliveryChannelException
-    _NoAvailableDeliveryChannelException,
-
-    -- ** NoAvailableConfigurationRecorderException
-    _NoAvailableConfigurationRecorderException,
+    -- ** IdempotentParameterMismatch
+    _IdempotentParameterMismatch,
 
     -- ** InsufficientDeliveryPolicyException
     _InsufficientDeliveryPolicyException,
 
-    -- ** MaxNumberOfOrganizationConfigRulesExceededException
-    _MaxNumberOfOrganizationConfigRulesExceededException,
+    -- ** InsufficientPermissionsException
+    _InsufficientPermissionsException,
 
-    -- ** OrganizationAccessDeniedException
-    _OrganizationAccessDeniedException,
+    -- ** InvalidConfigurationRecorderNameException
+    _InvalidConfigurationRecorderNameException,
 
-    -- ** LastDeliveryChannelDeleteFailedException
-    _LastDeliveryChannelDeleteFailedException,
+    -- ** InvalidDeliveryChannelNameException
+    _InvalidDeliveryChannelNameException,
 
-    -- ** InvalidS3KmsKeyArnException
-    _InvalidS3KmsKeyArnException,
+    -- ** InvalidExpressionException
+    _InvalidExpressionException,
 
-    -- ** NoSuchConfigRuleException
-    _NoSuchConfigRuleException,
+    -- ** InvalidLimitException
+    _InvalidLimitException,
 
-    -- ** MaxNumberOfConfigRulesExceededException
-    _MaxNumberOfConfigRulesExceededException,
-
-    -- ** ValidationException
-    _ValidationException,
-
-    -- ** InvalidResultTokenException
-    _InvalidResultTokenException,
-
-    -- ** ResourceConcurrentModificationException
-    _ResourceConcurrentModificationException,
-
-    -- ** MaxNumberOfOrganizationConformancePacksExceededException
-    _MaxNumberOfOrganizationConformancePacksExceededException,
-
-    -- ** NoSuchConfigRuleInConformancePackException
-    _NoSuchConfigRuleInConformancePackException,
-
-    -- ** InvalidTimeRangeException
-    _InvalidTimeRangeException,
-
-    -- ** RemediationInProgressException
-    _RemediationInProgressException,
-
-    -- ** OversizedConfigurationItemException
-    _OversizedConfigurationItemException,
-
-    -- ** NoSuchConfigurationAggregatorException
-    _NoSuchConfigurationAggregatorException,
-
-    -- ** NoAvailableOrganizationException
-    _NoAvailableOrganizationException,
-
-    -- ** ResourceNotDiscoveredException
-    _ResourceNotDiscoveredException,
-
-    -- ** MaxNumberOfConformancePacksExceededException
-    _MaxNumberOfConformancePacksExceededException,
-
-    -- ** NoSuchConformancePackException
-    _NoSuchConformancePackException,
-
-    -- ** NoSuchRemediationExceptionException
-    _NoSuchRemediationExceptionException,
-
-    -- ** NoSuchDeliveryChannelException
-    _NoSuchDeliveryChannelException,
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
 
     -- ** InvalidParameterValueException
     _InvalidParameterValueException,
 
+    -- ** InvalidRecordingGroupException
+    _InvalidRecordingGroupException,
+
+    -- ** InvalidResultTokenException
+    _InvalidResultTokenException,
+
+    -- ** InvalidRoleException
+    _InvalidRoleException,
+
+    -- ** InvalidS3KeyPrefixException
+    _InvalidS3KeyPrefixException,
+
+    -- ** InvalidS3KmsKeyArnException
+    _InvalidS3KmsKeyArnException,
+
+    -- ** InvalidSNSTopicARNException
+    _InvalidSNSTopicARNException,
+
+    -- ** InvalidTimeRangeException
+    _InvalidTimeRangeException,
+
+    -- ** LastDeliveryChannelDeleteFailedException
+    _LastDeliveryChannelDeleteFailedException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** MaxActiveResourcesExceededException
+    _MaxActiveResourcesExceededException,
+
+    -- ** MaxNumberOfConfigRulesExceededException
+    _MaxNumberOfConfigRulesExceededException,
+
+    -- ** MaxNumberOfConfigurationRecordersExceededException
+    _MaxNumberOfConfigurationRecordersExceededException,
+
+    -- ** MaxNumberOfConformancePacksExceededException
+    _MaxNumberOfConformancePacksExceededException,
+
+    -- ** MaxNumberOfDeliveryChannelsExceededException
+    _MaxNumberOfDeliveryChannelsExceededException,
+
+    -- ** MaxNumberOfOrganizationConfigRulesExceededException
+    _MaxNumberOfOrganizationConfigRulesExceededException,
+
+    -- ** MaxNumberOfOrganizationConformancePacksExceededException
+    _MaxNumberOfOrganizationConformancePacksExceededException,
+
+    -- ** MaxNumberOfRetentionConfigurationsExceededException
+    _MaxNumberOfRetentionConfigurationsExceededException,
+
+    -- ** NoAvailableConfigurationRecorderException
+    _NoAvailableConfigurationRecorderException,
+
+    -- ** NoAvailableDeliveryChannelException
+    _NoAvailableDeliveryChannelException,
+
+    -- ** NoAvailableOrganizationException
+    _NoAvailableOrganizationException,
+
+    -- ** NoRunningConfigurationRecorderException
+    _NoRunningConfigurationRecorderException,
+
+    -- ** NoSuchBucketException
+    _NoSuchBucketException,
+
+    -- ** NoSuchConfigRuleException
+    _NoSuchConfigRuleException,
+
+    -- ** NoSuchConfigRuleInConformancePackException
+    _NoSuchConfigRuleInConformancePackException,
+
+    -- ** NoSuchConfigurationAggregatorException
+    _NoSuchConfigurationAggregatorException,
+
+    -- ** NoSuchConfigurationRecorderException
+    _NoSuchConfigurationRecorderException,
+
+    -- ** NoSuchConformancePackException
+    _NoSuchConformancePackException,
+
+    -- ** NoSuchDeliveryChannelException
+    _NoSuchDeliveryChannelException,
+
     -- ** NoSuchOrganizationConfigRuleException
     _NoSuchOrganizationConfigRuleException,
+
+    -- ** NoSuchOrganizationConformancePackException
+    _NoSuchOrganizationConformancePackException,
+
+    -- ** NoSuchRemediationConfigurationException
+    _NoSuchRemediationConfigurationException,
+
+    -- ** NoSuchRemediationExceptionException
+    _NoSuchRemediationExceptionException,
+
+    -- ** NoSuchRetentionConfigurationException
+    _NoSuchRetentionConfigurationException,
+
+    -- ** OrganizationAccessDeniedException
+    _OrganizationAccessDeniedException,
+
+    -- ** OrganizationAllFeaturesNotEnabledException
+    _OrganizationAllFeaturesNotEnabledException,
+
+    -- ** OrganizationConformancePackTemplateValidationException
+    _OrganizationConformancePackTemplateValidationException,
+
+    -- ** OversizedConfigurationItemException
+    _OversizedConfigurationItemException,
+
+    -- ** RemediationInProgressException
+    _RemediationInProgressException,
+
+    -- ** ResourceConcurrentModificationException
+    _ResourceConcurrentModificationException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
+
+    -- ** ResourceNotDiscoveredException
+    _ResourceNotDiscoveredException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters
@@ -570,6 +573,12 @@ module Amazonka.Config
     GetResourceConfigHistoryResponse (GetResourceConfigHistoryResponse'),
     newGetResourceConfigHistoryResponse,
 
+    -- ** GetResourceEvaluationSummary
+    GetResourceEvaluationSummary (GetResourceEvaluationSummary'),
+    newGetResourceEvaluationSummary,
+    GetResourceEvaluationSummaryResponse (GetResourceEvaluationSummaryResponse'),
+    newGetResourceEvaluationSummaryResponse,
+
     -- ** GetStoredQuery
     GetStoredQuery (GetStoredQuery'),
     newGetStoredQuery,
@@ -593,6 +602,12 @@ module Amazonka.Config
     newListDiscoveredResources,
     ListDiscoveredResourcesResponse (ListDiscoveredResourcesResponse'),
     newListDiscoveredResourcesResponse,
+
+    -- ** ListResourceEvaluations (Paginated)
+    ListResourceEvaluations (ListResourceEvaluations'),
+    newListResourceEvaluations,
+    ListResourceEvaluationsResponse (ListResourceEvaluationsResponse'),
+    newListResourceEvaluationsResponse,
 
     -- ** ListStoredQueries
     ListStoredQueries (ListStoredQueries'),
@@ -726,6 +741,12 @@ module Amazonka.Config
     StartRemediationExecutionResponse (StartRemediationExecutionResponse'),
     newStartRemediationExecutionResponse,
 
+    -- ** StartResourceEvaluation
+    StartResourceEvaluation (StartResourceEvaluation'),
+    newStartResourceEvaluation,
+    StartResourceEvaluationResponse (StartResourceEvaluationResponse'),
+    newStartResourceEvaluationResponse,
+
     -- ** StopConfigurationRecorder
     StopConfigurationRecorder (StopConfigurationRecorder'),
     newStopConfigurationRecorder,
@@ -779,6 +800,9 @@ module Amazonka.Config
     -- ** DeliveryStatus
     DeliveryStatus (..),
 
+    -- ** EvaluationMode
+    EvaluationMode (..),
+
     -- ** EventSource
     EventSource (..),
 
@@ -821,8 +845,14 @@ module Amazonka.Config
     -- ** RemediationTargetType
     RemediationTargetType (..),
 
+    -- ** ResourceConfigurationSchemaType
+    ResourceConfigurationSchemaType (..),
+
     -- ** ResourceCountGroupKey
     ResourceCountGroupKey (..),
+
+    -- ** ResourceEvaluationStatus
+    ResourceEvaluationStatus (..),
 
     -- ** ResourceType
     ResourceType (..),
@@ -1012,9 +1042,21 @@ module Amazonka.Config
     DeliveryChannelStatus (DeliveryChannelStatus'),
     newDeliveryChannelStatus,
 
+    -- ** DescribeConfigRulesFilters
+    DescribeConfigRulesFilters (DescribeConfigRulesFilters'),
+    newDescribeConfigRulesFilters,
+
     -- ** Evaluation
     Evaluation (Evaluation'),
     newEvaluation,
+
+    -- ** EvaluationContext
+    EvaluationContext (EvaluationContext'),
+    newEvaluationContext,
+
+    -- ** EvaluationModeConfiguration
+    EvaluationModeConfiguration (EvaluationModeConfiguration'),
+    newEvaluationModeConfiguration,
 
     -- ** EvaluationResult
     EvaluationResult (EvaluationResult'),
@@ -1027,6 +1069,10 @@ module Amazonka.Config
     -- ** EvaluationResultQualifier
     EvaluationResultQualifier (EvaluationResultQualifier'),
     newEvaluationResultQualifier,
+
+    -- ** EvaluationStatus
+    EvaluationStatus (EvaluationStatus'),
+    newEvaluationStatus,
 
     -- ** ExecutionControls
     ExecutionControls (ExecutionControls'),
@@ -1152,6 +1198,18 @@ module Amazonka.Config
     ResourceCountFilters (ResourceCountFilters'),
     newResourceCountFilters,
 
+    -- ** ResourceDetails
+    ResourceDetails (ResourceDetails'),
+    newResourceDetails,
+
+    -- ** ResourceEvaluation
+    ResourceEvaluation (ResourceEvaluation'),
+    newResourceEvaluation,
+
+    -- ** ResourceEvaluationFilters
+    ResourceEvaluationFilters (ResourceEvaluationFilters'),
+    newResourceEvaluationFilters,
+
     -- ** ResourceFilters
     ResourceFilters (ResourceFilters'),
     newResourceFilters,
@@ -1211,6 +1269,10 @@ module Amazonka.Config
     -- ** TemplateSSMDocumentDetails
     TemplateSSMDocumentDetails (TemplateSSMDocumentDetails'),
     newTemplateSSMDocumentDetails,
+
+    -- ** TimeWindow
+    TimeWindow (TimeWindow'),
+    newTimeWindow,
   )
 where
 
@@ -1274,11 +1336,13 @@ import Amazonka.Config.GetOrganizationConfigRuleDetailedStatus
 import Amazonka.Config.GetOrganizationConformancePackDetailedStatus
 import Amazonka.Config.GetOrganizationCustomRulePolicy
 import Amazonka.Config.GetResourceConfigHistory
+import Amazonka.Config.GetResourceEvaluationSummary
 import Amazonka.Config.GetStoredQuery
 import Amazonka.Config.Lens
 import Amazonka.Config.ListAggregateDiscoveredResources
 import Amazonka.Config.ListConformancePackComplianceScores
 import Amazonka.Config.ListDiscoveredResources
+import Amazonka.Config.ListResourceEvaluations
 import Amazonka.Config.ListStoredQueries
 import Amazonka.Config.ListTagsForResource
 import Amazonka.Config.PutAggregationAuthorization
@@ -1301,6 +1365,7 @@ import Amazonka.Config.SelectResourceConfig
 import Amazonka.Config.StartConfigRulesEvaluation
 import Amazonka.Config.StartConfigurationRecorder
 import Amazonka.Config.StartRemediationExecution
+import Amazonka.Config.StartResourceEvaluation
 import Amazonka.Config.StopConfigurationRecorder
 import Amazonka.Config.TagResource
 import Amazonka.Config.Types

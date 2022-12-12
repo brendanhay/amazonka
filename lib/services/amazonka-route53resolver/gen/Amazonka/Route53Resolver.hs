@@ -57,53 +57,53 @@ module Amazonka.Route53Resolver
     -- * Errors
     -- $errors
 
-    -- ** ResourceUnavailableException
-    _ResourceUnavailableException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** InvalidPolicyDocument
-    _InvalidPolicyDocument,
-
-    -- ** UnknownResourceException
-    _UnknownResourceException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** ResourceInUseException
-    _ResourceInUseException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
-
-    -- ** InvalidNextTokenException
-    _InvalidNextTokenException,
 
     -- ** ConflictException
     _ConflictException,
 
-    -- ** ThrottlingException
-    _ThrottlingException,
-
-    -- ** ResourceExistsException
-    _ResourceExistsException,
-
-    -- ** ValidationException
-    _ValidationException,
-
-    -- ** InvalidTagException
-    _InvalidTagException,
-
     -- ** InternalServiceErrorException
     _InternalServiceErrorException,
+
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
+    -- ** InvalidPolicyDocument
+    _InvalidPolicyDocument,
 
     -- ** InvalidRequestException
     _InvalidRequestException,
 
-    -- ** InvalidParameterException
-    _InvalidParameterException,
+    -- ** InvalidTagException
+    _InvalidTagException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** ResourceExistsException
+    _ResourceExistsException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ResourceUnavailableException
+    _ResourceUnavailableException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** UnknownResourceException
+    _UnknownResourceException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters

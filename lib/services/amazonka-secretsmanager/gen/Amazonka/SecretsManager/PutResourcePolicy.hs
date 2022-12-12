@@ -52,8 +52,8 @@ module Amazonka.SecretsManager.PutResourcePolicy
     newPutResourcePolicyResponse,
 
     -- * Response Lenses
-    putResourcePolicyResponse_name,
     putResourcePolicyResponse_arn,
+    putResourcePolicyResponse_name,
     putResourcePolicyResponse_httpStatus,
   )
 where
@@ -150,8 +150,8 @@ instance Core.AWSRequest PutResourcePolicy where
     Response.receiveJSON
       ( \s h x ->
           PutResourcePolicyResponse'
-            Prelude.<$> (x Data..?> "Name")
-            Prelude.<*> (x Data..?> "ARN")
+            Prelude.<$> (x Data..?> "ARN")
+            Prelude.<*> (x Data..?> "Name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -202,10 +202,10 @@ instance Data.ToQuery PutResourcePolicy where
 
 -- | /See:/ 'newPutResourcePolicyResponse' smart constructor.
 data PutResourcePolicyResponse = PutResourcePolicyResponse'
-  { -- | The name of the secret.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the secret.
+  { -- | The ARN of the secret.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the secret.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -219,9 +219,9 @@ data PutResourcePolicyResponse = PutResourcePolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'putResourcePolicyResponse_name' - The name of the secret.
---
 -- 'arn', 'putResourcePolicyResponse_arn' - The ARN of the secret.
+--
+-- 'name', 'putResourcePolicyResponse_name' - The name of the secret.
 --
 -- 'httpStatus', 'putResourcePolicyResponse_httpStatus' - The response's http status code.
 newPutResourcePolicyResponse ::
@@ -230,18 +230,18 @@ newPutResourcePolicyResponse ::
   PutResourcePolicyResponse
 newPutResourcePolicyResponse pHttpStatus_ =
   PutResourcePolicyResponse'
-    { name = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      name = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The name of the secret.
-putResourcePolicyResponse_name :: Lens.Lens' PutResourcePolicyResponse (Prelude.Maybe Prelude.Text)
-putResourcePolicyResponse_name = Lens.lens (\PutResourcePolicyResponse' {name} -> name) (\s@PutResourcePolicyResponse' {} a -> s {name = a} :: PutResourcePolicyResponse)
 
 -- | The ARN of the secret.
 putResourcePolicyResponse_arn :: Lens.Lens' PutResourcePolicyResponse (Prelude.Maybe Prelude.Text)
 putResourcePolicyResponse_arn = Lens.lens (\PutResourcePolicyResponse' {arn} -> arn) (\s@PutResourcePolicyResponse' {} a -> s {arn = a} :: PutResourcePolicyResponse)
+
+-- | The name of the secret.
+putResourcePolicyResponse_name :: Lens.Lens' PutResourcePolicyResponse (Prelude.Maybe Prelude.Text)
+putResourcePolicyResponse_name = Lens.lens (\PutResourcePolicyResponse' {name} -> name) (\s@PutResourcePolicyResponse' {} a -> s {name = a} :: PutResourcePolicyResponse)
 
 -- | The response's http status code.
 putResourcePolicyResponse_httpStatus :: Lens.Lens' PutResourcePolicyResponse Prelude.Int
@@ -249,6 +249,6 @@ putResourcePolicyResponse_httpStatus = Lens.lens (\PutResourcePolicyResponse' {h
 
 instance Prelude.NFData PutResourcePolicyResponse where
   rnf PutResourcePolicyResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf httpStatus

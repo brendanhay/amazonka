@@ -39,15 +39,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResponseHeadersPolicyCorsConfig' smart constructor.
 data ResponseHeadersPolicyCorsConfig = ResponseHeadersPolicyCorsConfig'
-  { -- | A number that CloudFront uses as the value for the
-    -- @Access-Control-Max-Age@ HTTP response header.
-    --
-    -- For more information about the @Access-Control-Max-Age@ HTTP response
-    -- header, see
-    -- <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Max-Age Access-Control-Max-Age>
-    -- in the MDN Web Docs.
-    accessControlMaxAgeSec :: Prelude.Maybe Prelude.Int,
-    -- | A list of HTTP headers that CloudFront includes as values for the
+  { -- | A list of HTTP headers that CloudFront includes as values for the
     -- @Access-Control-Expose-Headers@ HTTP response header.
     --
     -- For more information about the @Access-Control-Expose-Headers@ HTTP
@@ -55,6 +47,14 @@ data ResponseHeadersPolicyCorsConfig = ResponseHeadersPolicyCorsConfig'
     -- <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Expose-Headers Access-Control-Expose-Headers>
     -- in the MDN Web Docs.
     accessControlExposeHeaders :: Prelude.Maybe ResponseHeadersPolicyAccessControlExposeHeaders,
+    -- | A number that CloudFront uses as the value for the
+    -- @Access-Control-Max-Age@ HTTP response header.
+    --
+    -- For more information about the @Access-Control-Max-Age@ HTTP response
+    -- header, see
+    -- <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Max-Age Access-Control-Max-Age>
+    -- in the MDN Web Docs.
+    accessControlMaxAgeSec :: Prelude.Maybe Prelude.Int,
     -- | A list of origins (domain names) that CloudFront can use as the value
     -- for the @Access-Control-Allow-Origin@ HTTP response header.
     --
@@ -102,20 +102,20 @@ data ResponseHeadersPolicyCorsConfig = ResponseHeadersPolicyCorsConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accessControlMaxAgeSec', 'responseHeadersPolicyCorsConfig_accessControlMaxAgeSec' - A number that CloudFront uses as the value for the
--- @Access-Control-Max-Age@ HTTP response header.
---
--- For more information about the @Access-Control-Max-Age@ HTTP response
--- header, see
--- <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Max-Age Access-Control-Max-Age>
--- in the MDN Web Docs.
---
 -- 'accessControlExposeHeaders', 'responseHeadersPolicyCorsConfig_accessControlExposeHeaders' - A list of HTTP headers that CloudFront includes as values for the
 -- @Access-Control-Expose-Headers@ HTTP response header.
 --
 -- For more information about the @Access-Control-Expose-Headers@ HTTP
 -- response header, see
 -- <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Expose-Headers Access-Control-Expose-Headers>
+-- in the MDN Web Docs.
+--
+-- 'accessControlMaxAgeSec', 'responseHeadersPolicyCorsConfig_accessControlMaxAgeSec' - A number that CloudFront uses as the value for the
+-- @Access-Control-Max-Age@ HTTP response header.
+--
+-- For more information about the @Access-Control-Max-Age@ HTTP response
+-- header, see
+-- <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Max-Age Access-Control-Max-Age>
 -- in the MDN Web Docs.
 --
 -- 'accessControlAllowOrigins', 'responseHeadersPolicyCorsConfig_accessControlAllowOrigins' - A list of origins (domain names) that CloudFront can use as the value
@@ -172,10 +172,9 @@ newResponseHeadersPolicyCorsConfig
   pAccessControlAllowCredentials_
   pOriginOverride_ =
     ResponseHeadersPolicyCorsConfig'
-      { accessControlMaxAgeSec =
+      { accessControlExposeHeaders =
           Prelude.Nothing,
-        accessControlExposeHeaders =
-          Prelude.Nothing,
+        accessControlMaxAgeSec = Prelude.Nothing,
         accessControlAllowOrigins =
           pAccessControlAllowOrigins_,
         accessControlAllowHeaders =
@@ -187,16 +186,6 @@ newResponseHeadersPolicyCorsConfig
         originOverride = pOriginOverride_
       }
 
--- | A number that CloudFront uses as the value for the
--- @Access-Control-Max-Age@ HTTP response header.
---
--- For more information about the @Access-Control-Max-Age@ HTTP response
--- header, see
--- <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Max-Age Access-Control-Max-Age>
--- in the MDN Web Docs.
-responseHeadersPolicyCorsConfig_accessControlMaxAgeSec :: Lens.Lens' ResponseHeadersPolicyCorsConfig (Prelude.Maybe Prelude.Int)
-responseHeadersPolicyCorsConfig_accessControlMaxAgeSec = Lens.lens (\ResponseHeadersPolicyCorsConfig' {accessControlMaxAgeSec} -> accessControlMaxAgeSec) (\s@ResponseHeadersPolicyCorsConfig' {} a -> s {accessControlMaxAgeSec = a} :: ResponseHeadersPolicyCorsConfig)
-
 -- | A list of HTTP headers that CloudFront includes as values for the
 -- @Access-Control-Expose-Headers@ HTTP response header.
 --
@@ -206,6 +195,16 @@ responseHeadersPolicyCorsConfig_accessControlMaxAgeSec = Lens.lens (\ResponseHea
 -- in the MDN Web Docs.
 responseHeadersPolicyCorsConfig_accessControlExposeHeaders :: Lens.Lens' ResponseHeadersPolicyCorsConfig (Prelude.Maybe ResponseHeadersPolicyAccessControlExposeHeaders)
 responseHeadersPolicyCorsConfig_accessControlExposeHeaders = Lens.lens (\ResponseHeadersPolicyCorsConfig' {accessControlExposeHeaders} -> accessControlExposeHeaders) (\s@ResponseHeadersPolicyCorsConfig' {} a -> s {accessControlExposeHeaders = a} :: ResponseHeadersPolicyCorsConfig)
+
+-- | A number that CloudFront uses as the value for the
+-- @Access-Control-Max-Age@ HTTP response header.
+--
+-- For more information about the @Access-Control-Max-Age@ HTTP response
+-- header, see
+-- <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Max-Age Access-Control-Max-Age>
+-- in the MDN Web Docs.
+responseHeadersPolicyCorsConfig_accessControlMaxAgeSec :: Lens.Lens' ResponseHeadersPolicyCorsConfig (Prelude.Maybe Prelude.Int)
+responseHeadersPolicyCorsConfig_accessControlMaxAgeSec = Lens.lens (\ResponseHeadersPolicyCorsConfig' {accessControlMaxAgeSec} -> accessControlMaxAgeSec) (\s@ResponseHeadersPolicyCorsConfig' {} a -> s {accessControlMaxAgeSec = a} :: ResponseHeadersPolicyCorsConfig)
 
 -- | A list of origins (domain names) that CloudFront can use as the value
 -- for the @Access-Control-Allow-Origin@ HTTP response header.
@@ -256,8 +255,8 @@ responseHeadersPolicyCorsConfig_originOverride = Lens.lens (\ResponseHeadersPoli
 instance Data.FromXML ResponseHeadersPolicyCorsConfig where
   parseXML x =
     ResponseHeadersPolicyCorsConfig'
-      Prelude.<$> (x Data..@? "AccessControlMaxAgeSec")
-      Prelude.<*> (x Data..@? "AccessControlExposeHeaders")
+      Prelude.<$> (x Data..@? "AccessControlExposeHeaders")
+      Prelude.<*> (x Data..@? "AccessControlMaxAgeSec")
       Prelude.<*> (x Data..@ "AccessControlAllowOrigins")
       Prelude.<*> (x Data..@ "AccessControlAllowHeaders")
       Prelude.<*> (x Data..@ "AccessControlAllowMethods")
@@ -271,8 +270,9 @@ instance
   hashWithSalt
     _salt
     ResponseHeadersPolicyCorsConfig' {..} =
-      _salt `Prelude.hashWithSalt` accessControlMaxAgeSec
+      _salt
         `Prelude.hashWithSalt` accessControlExposeHeaders
+        `Prelude.hashWithSalt` accessControlMaxAgeSec
         `Prelude.hashWithSalt` accessControlAllowOrigins
         `Prelude.hashWithSalt` accessControlAllowHeaders
         `Prelude.hashWithSalt` accessControlAllowMethods
@@ -284,8 +284,8 @@ instance
     ResponseHeadersPolicyCorsConfig
   where
   rnf ResponseHeadersPolicyCorsConfig' {..} =
-    Prelude.rnf accessControlMaxAgeSec
-      `Prelude.seq` Prelude.rnf accessControlExposeHeaders
+    Prelude.rnf accessControlExposeHeaders
+      `Prelude.seq` Prelude.rnf accessControlMaxAgeSec
       `Prelude.seq` Prelude.rnf accessControlAllowOrigins
       `Prelude.seq` Prelude.rnf accessControlAllowHeaders
       `Prelude.seq` Prelude.rnf accessControlAllowMethods
@@ -295,10 +295,10 @@ instance
 instance Data.ToXML ResponseHeadersPolicyCorsConfig where
   toXML ResponseHeadersPolicyCorsConfig' {..} =
     Prelude.mconcat
-      [ "AccessControlMaxAgeSec"
-          Data.@= accessControlMaxAgeSec,
-        "AccessControlExposeHeaders"
+      [ "AccessControlExposeHeaders"
           Data.@= accessControlExposeHeaders,
+        "AccessControlMaxAgeSec"
+          Data.@= accessControlMaxAgeSec,
         "AccessControlAllowOrigins"
           Data.@= accessControlAllowOrigins,
         "AccessControlAllowHeaders"

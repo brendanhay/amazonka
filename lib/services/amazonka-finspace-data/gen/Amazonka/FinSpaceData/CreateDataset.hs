@@ -30,8 +30,8 @@ module Amazonka.FinSpaceData.CreateDataset
     createDataset_alias,
     createDataset_clientToken,
     createDataset_datasetDescription,
-    createDataset_schemaDefinition,
     createDataset_ownerInfo,
+    createDataset_schemaDefinition,
     createDataset_datasetTitle,
     createDataset_kind,
     createDataset_permissionGroupParams,
@@ -64,10 +64,10 @@ data CreateDataset = CreateDataset'
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | Description of a Dataset.
     datasetDescription :: Prelude.Maybe Prelude.Text,
-    -- | Definition for a schema on a tabular Dataset.
-    schemaDefinition :: Prelude.Maybe SchemaUnion,
     -- | Contact information for a Dataset owner.
     ownerInfo :: Prelude.Maybe DatasetOwnerInfo,
+    -- | Definition for a schema on a tabular Dataset.
+    schemaDefinition :: Prelude.Maybe SchemaUnion,
     -- | Display title for a FinSpace Dataset.
     datasetTitle :: Prelude.Text,
     -- | The format in which Dataset data is structured.
@@ -95,9 +95,9 @@ data CreateDataset = CreateDataset'
 --
 -- 'datasetDescription', 'createDataset_datasetDescription' - Description of a Dataset.
 --
--- 'schemaDefinition', 'createDataset_schemaDefinition' - Definition for a schema on a tabular Dataset.
---
 -- 'ownerInfo', 'createDataset_ownerInfo' - Contact information for a Dataset owner.
+--
+-- 'schemaDefinition', 'createDataset_schemaDefinition' - Definition for a schema on a tabular Dataset.
 --
 -- 'datasetTitle', 'createDataset_datasetTitle' - Display title for a FinSpace Dataset.
 --
@@ -124,8 +124,8 @@ newCreateDataset
       { alias = Prelude.Nothing,
         clientToken = Prelude.Nothing,
         datasetDescription = Prelude.Nothing,
-        schemaDefinition = Prelude.Nothing,
         ownerInfo = Prelude.Nothing,
+        schemaDefinition = Prelude.Nothing,
         datasetTitle = pDatasetTitle_,
         kind = pKind_,
         permissionGroupParams = pPermissionGroupParams_
@@ -143,13 +143,13 @@ createDataset_clientToken = Lens.lens (\CreateDataset' {clientToken} -> clientTo
 createDataset_datasetDescription :: Lens.Lens' CreateDataset (Prelude.Maybe Prelude.Text)
 createDataset_datasetDescription = Lens.lens (\CreateDataset' {datasetDescription} -> datasetDescription) (\s@CreateDataset' {} a -> s {datasetDescription = a} :: CreateDataset)
 
--- | Definition for a schema on a tabular Dataset.
-createDataset_schemaDefinition :: Lens.Lens' CreateDataset (Prelude.Maybe SchemaUnion)
-createDataset_schemaDefinition = Lens.lens (\CreateDataset' {schemaDefinition} -> schemaDefinition) (\s@CreateDataset' {} a -> s {schemaDefinition = a} :: CreateDataset)
-
 -- | Contact information for a Dataset owner.
 createDataset_ownerInfo :: Lens.Lens' CreateDataset (Prelude.Maybe DatasetOwnerInfo)
 createDataset_ownerInfo = Lens.lens (\CreateDataset' {ownerInfo} -> ownerInfo) (\s@CreateDataset' {} a -> s {ownerInfo = a} :: CreateDataset)
+
+-- | Definition for a schema on a tabular Dataset.
+createDataset_schemaDefinition :: Lens.Lens' CreateDataset (Prelude.Maybe SchemaUnion)
+createDataset_schemaDefinition = Lens.lens (\CreateDataset' {schemaDefinition} -> schemaDefinition) (\s@CreateDataset' {} a -> s {schemaDefinition = a} :: CreateDataset)
 
 -- | Display title for a FinSpace Dataset.
 createDataset_datasetTitle :: Lens.Lens' CreateDataset Prelude.Text
@@ -186,8 +186,8 @@ instance Prelude.Hashable CreateDataset where
     _salt `Prelude.hashWithSalt` alias
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` datasetDescription
-      `Prelude.hashWithSalt` schemaDefinition
       `Prelude.hashWithSalt` ownerInfo
+      `Prelude.hashWithSalt` schemaDefinition
       `Prelude.hashWithSalt` datasetTitle
       `Prelude.hashWithSalt` kind
       `Prelude.hashWithSalt` permissionGroupParams
@@ -197,8 +197,8 @@ instance Prelude.NFData CreateDataset where
     Prelude.rnf alias
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf datasetDescription
-      `Prelude.seq` Prelude.rnf schemaDefinition
       `Prelude.seq` Prelude.rnf ownerInfo
+      `Prelude.seq` Prelude.rnf schemaDefinition
       `Prelude.seq` Prelude.rnf datasetTitle
       `Prelude.seq` Prelude.rnf kind
       `Prelude.seq` Prelude.rnf permissionGroupParams
@@ -222,9 +222,9 @@ instance Data.ToJSON CreateDataset where
             ("clientToken" Data..=) Prelude.<$> clientToken,
             ("datasetDescription" Data..=)
               Prelude.<$> datasetDescription,
+            ("ownerInfo" Data..=) Prelude.<$> ownerInfo,
             ("schemaDefinition" Data..=)
               Prelude.<$> schemaDefinition,
-            ("ownerInfo" Data..=) Prelude.<$> ownerInfo,
             Prelude.Just ("datasetTitle" Data..= datasetTitle),
             Prelude.Just ("kind" Data..= kind),
             Prelude.Just

@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFilterCondition' smart constructor.
 data FilterCondition = FilterCondition'
-  { -- | The field to filter in the filter condition.
-    field :: Prelude.Maybe FieldNameString,
-    -- | The comparison operator used in the filter condition.
+  { -- | The comparison operator used in the filter condition.
     comparisonOperator :: Prelude.Maybe ComparisonOperator,
+    -- | The field to filter in the filter condition.
+    field :: Prelude.Maybe FieldNameString,
     -- | A string with values used in evaluating the filter condition.
     stringValueList :: Prelude.Maybe [Prelude.Text]
   }
@@ -48,27 +48,28 @@ data FilterCondition = FilterCondition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'field', 'filterCondition_field' - The field to filter in the filter condition.
---
 -- 'comparisonOperator', 'filterCondition_comparisonOperator' - The comparison operator used in the filter condition.
+--
+-- 'field', 'filterCondition_field' - The field to filter in the filter condition.
 --
 -- 'stringValueList', 'filterCondition_stringValueList' - A string with values used in evaluating the filter condition.
 newFilterCondition ::
   FilterCondition
 newFilterCondition =
   FilterCondition'
-    { field = Prelude.Nothing,
-      comparisonOperator = Prelude.Nothing,
+    { comparisonOperator =
+        Prelude.Nothing,
+      field = Prelude.Nothing,
       stringValueList = Prelude.Nothing
     }
-
--- | The field to filter in the filter condition.
-filterCondition_field :: Lens.Lens' FilterCondition (Prelude.Maybe FieldNameString)
-filterCondition_field = Lens.lens (\FilterCondition' {field} -> field) (\s@FilterCondition' {} a -> s {field = a} :: FilterCondition)
 
 -- | The comparison operator used in the filter condition.
 filterCondition_comparisonOperator :: Lens.Lens' FilterCondition (Prelude.Maybe ComparisonOperator)
 filterCondition_comparisonOperator = Lens.lens (\FilterCondition' {comparisonOperator} -> comparisonOperator) (\s@FilterCondition' {} a -> s {comparisonOperator = a} :: FilterCondition)
+
+-- | The field to filter in the filter condition.
+filterCondition_field :: Lens.Lens' FilterCondition (Prelude.Maybe FieldNameString)
+filterCondition_field = Lens.lens (\FilterCondition' {field} -> field) (\s@FilterCondition' {} a -> s {field = a} :: FilterCondition)
 
 -- | A string with values used in evaluating the filter condition.
 filterCondition_stringValueList :: Lens.Lens' FilterCondition (Prelude.Maybe [Prelude.Text])
@@ -76,23 +77,23 @@ filterCondition_stringValueList = Lens.lens (\FilterCondition' {stringValueList}
 
 instance Prelude.Hashable FilterCondition where
   hashWithSalt _salt FilterCondition' {..} =
-    _salt `Prelude.hashWithSalt` field
-      `Prelude.hashWithSalt` comparisonOperator
+    _salt `Prelude.hashWithSalt` comparisonOperator
+      `Prelude.hashWithSalt` field
       `Prelude.hashWithSalt` stringValueList
 
 instance Prelude.NFData FilterCondition where
   rnf FilterCondition' {..} =
-    Prelude.rnf field
-      `Prelude.seq` Prelude.rnf comparisonOperator
+    Prelude.rnf comparisonOperator
+      `Prelude.seq` Prelude.rnf field
       `Prelude.seq` Prelude.rnf stringValueList
 
 instance Data.ToJSON FilterCondition where
   toJSON FilterCondition' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Field" Data..=) Prelude.<$> field,
-            ("ComparisonOperator" Data..=)
+          [ ("ComparisonOperator" Data..=)
               Prelude.<$> comparisonOperator,
+            ("Field" Data..=) Prelude.<$> field,
             ("StringValueList" Data..=)
               Prelude.<$> stringValueList
           ]

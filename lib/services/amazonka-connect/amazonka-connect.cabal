@@ -64,6 +64,7 @@ library
     Amazonka.Connect.CreateQueue
     Amazonka.Connect.CreateQuickConnect
     Amazonka.Connect.CreateRoutingProfile
+    Amazonka.Connect.CreateRule
     Amazonka.Connect.CreateSecurityProfile
     Amazonka.Connect.CreateTaskTemplate
     Amazonka.Connect.CreateTrafficDistributionGroup
@@ -77,6 +78,7 @@ library
     Amazonka.Connect.DeleteInstance
     Amazonka.Connect.DeleteIntegrationAssociation
     Amazonka.Connect.DeleteQuickConnect
+    Amazonka.Connect.DeleteRule
     Amazonka.Connect.DeleteSecurityProfile
     Amazonka.Connect.DeleteTaskTemplate
     Amazonka.Connect.DeleteTrafficDistributionGroup
@@ -96,6 +98,7 @@ library
     Amazonka.Connect.DescribeQueue
     Amazonka.Connect.DescribeQuickConnect
     Amazonka.Connect.DescribeRoutingProfile
+    Amazonka.Connect.DescribeRule
     Amazonka.Connect.DescribeSecurityProfile
     Amazonka.Connect.DescribeTrafficDistributionGroup
     Amazonka.Connect.DescribeUser
@@ -142,6 +145,7 @@ library
     Amazonka.Connect.ListQuickConnects
     Amazonka.Connect.ListRoutingProfileQueues
     Amazonka.Connect.ListRoutingProfiles
+    Amazonka.Connect.ListRules
     Amazonka.Connect.ListSecurityKeys
     Amazonka.Connect.ListSecurityProfilePermissions
     Amazonka.Connect.ListSecurityProfiles
@@ -174,6 +178,8 @@ library
     Amazonka.Connect.TagResource
     Amazonka.Connect.TransferContact
     Amazonka.Connect.Types
+    Amazonka.Connect.Types.ActionSummary
+    Amazonka.Connect.Types.ActionType
     Amazonka.Connect.Types.AgentContactReference
     Amazonka.Connect.Types.AgentInfo
     Amazonka.Connect.Types.AgentStatus
@@ -182,6 +188,7 @@ library
     Amazonka.Connect.Types.AgentStatusSummary
     Amazonka.Connect.Types.AgentStatusType
     Amazonka.Connect.Types.AnswerMachineDetectionConfig
+    Amazonka.Connect.Types.AssignContactCategoryActionDefinition
     Amazonka.Connect.Types.AttachmentReference
     Amazonka.Connect.Types.Attribute
     Amazonka.Connect.Types.AvailableNumberSummary
@@ -216,6 +223,8 @@ library
     Amazonka.Connect.Types.EmailReference
     Amazonka.Connect.Types.EncryptionConfig
     Amazonka.Connect.Types.EncryptionType
+    Amazonka.Connect.Types.EventBridgeActionDefinition
+    Amazonka.Connect.Types.EventSourceName
     Amazonka.Connect.Types.Filters
     Amazonka.Connect.Types.Grouping
     Amazonka.Connect.Types.HierarchyGroup
@@ -258,6 +267,9 @@ library
     Amazonka.Connect.Types.ListPhoneNumbersSummary
     Amazonka.Connect.Types.MediaConcurrency
     Amazonka.Connect.Types.MonitorCapability
+    Amazonka.Connect.Types.NotificationContentType
+    Amazonka.Connect.Types.NotificationDeliveryType
+    Amazonka.Connect.Types.NotificationRecipientType
     Amazonka.Connect.Types.NumberReference
     Amazonka.Connect.Types.OutboundCallerConfig
     Amazonka.Connect.Types.ParticipantDetails
@@ -296,6 +308,11 @@ library
     Amazonka.Connect.Types.RoutingProfileSearchCriteria
     Amazonka.Connect.Types.RoutingProfileSearchFilter
     Amazonka.Connect.Types.RoutingProfileSummary
+    Amazonka.Connect.Types.Rule
+    Amazonka.Connect.Types.RuleAction
+    Amazonka.Connect.Types.RulePublishStatus
+    Amazonka.Connect.Types.RuleSummary
+    Amazonka.Connect.Types.RuleTriggerEventSource
     Amazonka.Connect.Types.S3Config
     Amazonka.Connect.Types.SearchableQueueType
     Amazonka.Connect.Types.SecurityKey
@@ -304,6 +321,7 @@ library
     Amazonka.Connect.Types.SecurityProfileSearchSummary
     Amazonka.Connect.Types.SecurityProfilesSearchFilter
     Amazonka.Connect.Types.SecurityProfileSummary
+    Amazonka.Connect.Types.SendNotificationActionDefinition
     Amazonka.Connect.Types.SourceType
     Amazonka.Connect.Types.Statistic
     Amazonka.Connect.Types.StorageType
@@ -311,6 +329,7 @@ library
     Amazonka.Connect.Types.StringCondition
     Amazonka.Connect.Types.StringReference
     Amazonka.Connect.Types.TagCondition
+    Amazonka.Connect.Types.TaskActionDefinition
     Amazonka.Connect.Types.TaskTemplateConstraints
     Amazonka.Connect.Types.TaskTemplateDefaultFieldValue
     Amazonka.Connect.Types.TaskTemplateDefaults
@@ -372,6 +391,7 @@ library
     Amazonka.Connect.UpdateRoutingProfileDefaultOutboundQueue
     Amazonka.Connect.UpdateRoutingProfileName
     Amazonka.Connect.UpdateRoutingProfileQueues
+    Amazonka.Connect.UpdateRule
     Amazonka.Connect.UpdateSecurityProfile
     Amazonka.Connect.UpdateTaskTemplate
     Amazonka.Connect.UpdateTrafficDistribution

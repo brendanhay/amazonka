@@ -35,10 +35,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVpcClassicLink' smart constructor.
 data VpcClassicLink = VpcClassicLink'
-  { -- | Any tags assigned to the VPC.
-    tags :: Prelude.Maybe [Tag],
-    -- | Indicates whether the VPC is enabled for ClassicLink.
+  { -- | Indicates whether the VPC is enabled for ClassicLink.
     classicLinkEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | Any tags assigned to the VPC.
+    tags :: Prelude.Maybe [Tag],
     -- | The ID of the VPC.
     vpcId :: Prelude.Maybe Prelude.Text
   }
@@ -52,27 +52,28 @@ data VpcClassicLink = VpcClassicLink'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'vpcClassicLink_tags' - Any tags assigned to the VPC.
---
 -- 'classicLinkEnabled', 'vpcClassicLink_classicLinkEnabled' - Indicates whether the VPC is enabled for ClassicLink.
+--
+-- 'tags', 'vpcClassicLink_tags' - Any tags assigned to the VPC.
 --
 -- 'vpcId', 'vpcClassicLink_vpcId' - The ID of the VPC.
 newVpcClassicLink ::
   VpcClassicLink
 newVpcClassicLink =
   VpcClassicLink'
-    { tags = Prelude.Nothing,
-      classicLinkEnabled = Prelude.Nothing,
+    { classicLinkEnabled =
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
       vpcId = Prelude.Nothing
     }
-
--- | Any tags assigned to the VPC.
-vpcClassicLink_tags :: Lens.Lens' VpcClassicLink (Prelude.Maybe [Tag])
-vpcClassicLink_tags = Lens.lens (\VpcClassicLink' {tags} -> tags) (\s@VpcClassicLink' {} a -> s {tags = a} :: VpcClassicLink) Prelude.. Lens.mapping Lens.coerced
 
 -- | Indicates whether the VPC is enabled for ClassicLink.
 vpcClassicLink_classicLinkEnabled :: Lens.Lens' VpcClassicLink (Prelude.Maybe Prelude.Bool)
 vpcClassicLink_classicLinkEnabled = Lens.lens (\VpcClassicLink' {classicLinkEnabled} -> classicLinkEnabled) (\s@VpcClassicLink' {} a -> s {classicLinkEnabled = a} :: VpcClassicLink)
+
+-- | Any tags assigned to the VPC.
+vpcClassicLink_tags :: Lens.Lens' VpcClassicLink (Prelude.Maybe [Tag])
+vpcClassicLink_tags = Lens.lens (\VpcClassicLink' {tags} -> tags) (\s@VpcClassicLink' {} a -> s {tags = a} :: VpcClassicLink) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the VPC.
 vpcClassicLink_vpcId :: Lens.Lens' VpcClassicLink (Prelude.Maybe Prelude.Text)
@@ -81,20 +82,20 @@ vpcClassicLink_vpcId = Lens.lens (\VpcClassicLink' {vpcId} -> vpcId) (\s@VpcClas
 instance Data.FromXML VpcClassicLink where
   parseXML x =
     VpcClassicLink'
-      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<$> (x Data..@? "classicLinkEnabled")
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Data..@? "classicLinkEnabled")
       Prelude.<*> (x Data..@? "vpcId")
 
 instance Prelude.Hashable VpcClassicLink where
   hashWithSalt _salt VpcClassicLink' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` classicLinkEnabled
+    _salt `Prelude.hashWithSalt` classicLinkEnabled
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` vpcId
 
 instance Prelude.NFData VpcClassicLink where
   rnf VpcClassicLink' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf classicLinkEnabled
+    Prelude.rnf classicLinkEnabled
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf vpcId

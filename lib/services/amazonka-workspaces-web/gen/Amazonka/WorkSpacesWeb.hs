@@ -29,23 +29,23 @@ module Amazonka.WorkSpacesWeb
     -- ** AccessDeniedException
     _AccessDeniedException,
 
+    -- ** ConflictException
+    _ConflictException,
+
     -- ** InternalServerException
     _InternalServerException,
-
-    -- ** TooManyTagsException
-    _TooManyTagsException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** ConflictException
-    _ConflictException,
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
 
     -- ** ThrottlingException
     _ThrottlingException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
 
     -- ** ValidationException
     _ValidationException,

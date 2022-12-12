@@ -35,12 +35,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNetworkInterface' smart constructor.
 data NetworkInterface = NetworkInterface'
-  { -- | Information about a network interface specified by the On-board
-    -- diagnostic (OBD) II protocol.
-    obdInterface :: Prelude.Maybe ObdInterface,
-    -- | Information about a network interface specified by the Controller Area
+  { -- | Information about a network interface specified by the Controller Area
     -- Network (CAN) protocol.
     canInterface :: Prelude.Maybe CanInterface,
+    -- | Information about a network interface specified by the On-board
+    -- diagnostic (OBD) II protocol.
+    obdInterface :: Prelude.Maybe ObdInterface,
     -- | The ID of the network interface.
     interfaceId :: Prelude.Text,
     -- | The network protocol for the vehicle. For example, @CAN_SIGNAL@
@@ -59,11 +59,11 @@ data NetworkInterface = NetworkInterface'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'obdInterface', 'networkInterface_obdInterface' - Information about a network interface specified by the On-board
--- diagnostic (OBD) II protocol.
---
 -- 'canInterface', 'networkInterface_canInterface' - Information about a network interface specified by the Controller Area
 -- Network (CAN) protocol.
+--
+-- 'obdInterface', 'networkInterface_obdInterface' - Information about a network interface specified by the On-board
+-- diagnostic (OBD) II protocol.
 --
 -- 'interfaceId', 'networkInterface_interfaceId' - The ID of the network interface.
 --
@@ -79,21 +79,21 @@ newNetworkInterface ::
   NetworkInterface
 newNetworkInterface pInterfaceId_ pType_ =
   NetworkInterface'
-    { obdInterface = Prelude.Nothing,
-      canInterface = Prelude.Nothing,
+    { canInterface = Prelude.Nothing,
+      obdInterface = Prelude.Nothing,
       interfaceId = pInterfaceId_,
       type' = pType_
     }
-
--- | Information about a network interface specified by the On-board
--- diagnostic (OBD) II protocol.
-networkInterface_obdInterface :: Lens.Lens' NetworkInterface (Prelude.Maybe ObdInterface)
-networkInterface_obdInterface = Lens.lens (\NetworkInterface' {obdInterface} -> obdInterface) (\s@NetworkInterface' {} a -> s {obdInterface = a} :: NetworkInterface)
 
 -- | Information about a network interface specified by the Controller Area
 -- Network (CAN) protocol.
 networkInterface_canInterface :: Lens.Lens' NetworkInterface (Prelude.Maybe CanInterface)
 networkInterface_canInterface = Lens.lens (\NetworkInterface' {canInterface} -> canInterface) (\s@NetworkInterface' {} a -> s {canInterface = a} :: NetworkInterface)
+
+-- | Information about a network interface specified by the On-board
+-- diagnostic (OBD) II protocol.
+networkInterface_obdInterface :: Lens.Lens' NetworkInterface (Prelude.Maybe ObdInterface)
+networkInterface_obdInterface = Lens.lens (\NetworkInterface' {obdInterface} -> obdInterface) (\s@NetworkInterface' {} a -> s {obdInterface = a} :: NetworkInterface)
 
 -- | The ID of the network interface.
 networkInterface_interfaceId :: Lens.Lens' NetworkInterface Prelude.Text
@@ -112,23 +112,23 @@ instance Data.FromJSON NetworkInterface where
       "NetworkInterface"
       ( \x ->
           NetworkInterface'
-            Prelude.<$> (x Data..:? "obdInterface")
-            Prelude.<*> (x Data..:? "canInterface")
+            Prelude.<$> (x Data..:? "canInterface")
+            Prelude.<*> (x Data..:? "obdInterface")
             Prelude.<*> (x Data..: "interfaceId")
             Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable NetworkInterface where
   hashWithSalt _salt NetworkInterface' {..} =
-    _salt `Prelude.hashWithSalt` obdInterface
-      `Prelude.hashWithSalt` canInterface
+    _salt `Prelude.hashWithSalt` canInterface
+      `Prelude.hashWithSalt` obdInterface
       `Prelude.hashWithSalt` interfaceId
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData NetworkInterface where
   rnf NetworkInterface' {..} =
-    Prelude.rnf obdInterface
-      `Prelude.seq` Prelude.rnf canInterface
+    Prelude.rnf canInterface
+      `Prelude.seq` Prelude.rnf obdInterface
       `Prelude.seq` Prelude.rnf interfaceId
       `Prelude.seq` Prelude.rnf type'
 
@@ -136,8 +136,8 @@ instance Data.ToJSON NetworkInterface where
   toJSON NetworkInterface' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("obdInterface" Data..=) Prelude.<$> obdInterface,
-            ("canInterface" Data..=) Prelude.<$> canInterface,
+          [ ("canInterface" Data..=) Prelude.<$> canInterface,
+            ("obdInterface" Data..=) Prelude.<$> obdInterface,
             Prelude.Just ("interfaceId" Data..= interfaceId),
             Prelude.Just ("type" Data..= type')
           ]

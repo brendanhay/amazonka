@@ -30,26 +30,26 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newChangeProgressStatusDetails' smart constructor.
 data ChangeProgressStatusDetails = ChangeProgressStatusDetails'
-  { -- | The total number of stages required for the configuration change.
-    totalNumberOfStages :: Prelude.Maybe Prelude.Int,
-    -- | The unique change identifier associated with a specific domain
+  { -- | The unique change identifier associated with a specific domain
     -- configuration change.
     changeId :: Prelude.Maybe Prelude.Text,
-    -- | The list of properties involved in the domain configuration change that
-    -- are still in pending.
-    pendingProperties :: Prelude.Maybe [Prelude.Text],
-    -- | The overall status of the domain configuration change. This field can
-    -- take the following values: @PENDING@, @PROCESSING@, @COMPLETED@ and
-    -- @FAILED@
-    status :: Prelude.Maybe OverallChangeStatus,
     -- | The specific stages that the domain is going through to perform the
     -- configuration change.
     changeProgressStages :: Prelude.Maybe [ChangeProgressStage],
     -- | The list of properties involved in the domain configuration change that
     -- are completed.
     completedProperties :: Prelude.Maybe [Prelude.Text],
+    -- | The list of properties involved in the domain configuration change that
+    -- are still in pending.
+    pendingProperties :: Prelude.Maybe [Prelude.Text],
     -- | The time at which the configuration change is made on the domain.
-    startTime :: Prelude.Maybe Data.POSIX
+    startTime :: Prelude.Maybe Data.POSIX,
+    -- | The overall status of the domain configuration change. This field can
+    -- take the following values: @PENDING@, @PROCESSING@, @COMPLETED@ and
+    -- @FAILED@
+    status :: Prelude.Maybe OverallChangeStatus,
+    -- | The total number of stages required for the configuration change.
+    totalNumberOfStages :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,17 +61,8 @@ data ChangeProgressStatusDetails = ChangeProgressStatusDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'totalNumberOfStages', 'changeProgressStatusDetails_totalNumberOfStages' - The total number of stages required for the configuration change.
---
 -- 'changeId', 'changeProgressStatusDetails_changeId' - The unique change identifier associated with a specific domain
 -- configuration change.
---
--- 'pendingProperties', 'changeProgressStatusDetails_pendingProperties' - The list of properties involved in the domain configuration change that
--- are still in pending.
---
--- 'status', 'changeProgressStatusDetails_status' - The overall status of the domain configuration change. This field can
--- take the following values: @PENDING@, @PROCESSING@, @COMPLETED@ and
--- @FAILED@
 --
 -- 'changeProgressStages', 'changeProgressStatusDetails_changeProgressStages' - The specific stages that the domain is going through to perform the
 -- configuration change.
@@ -79,40 +70,34 @@ data ChangeProgressStatusDetails = ChangeProgressStatusDetails'
 -- 'completedProperties', 'changeProgressStatusDetails_completedProperties' - The list of properties involved in the domain configuration change that
 -- are completed.
 --
+-- 'pendingProperties', 'changeProgressStatusDetails_pendingProperties' - The list of properties involved in the domain configuration change that
+-- are still in pending.
+--
 -- 'startTime', 'changeProgressStatusDetails_startTime' - The time at which the configuration change is made on the domain.
+--
+-- 'status', 'changeProgressStatusDetails_status' - The overall status of the domain configuration change. This field can
+-- take the following values: @PENDING@, @PROCESSING@, @COMPLETED@ and
+-- @FAILED@
+--
+-- 'totalNumberOfStages', 'changeProgressStatusDetails_totalNumberOfStages' - The total number of stages required for the configuration change.
 newChangeProgressStatusDetails ::
   ChangeProgressStatusDetails
 newChangeProgressStatusDetails =
   ChangeProgressStatusDetails'
-    { totalNumberOfStages =
+    { changeId =
         Prelude.Nothing,
-      changeId = Prelude.Nothing,
-      pendingProperties = Prelude.Nothing,
-      status = Prelude.Nothing,
       changeProgressStages = Prelude.Nothing,
       completedProperties = Prelude.Nothing,
-      startTime = Prelude.Nothing
+      pendingProperties = Prelude.Nothing,
+      startTime = Prelude.Nothing,
+      status = Prelude.Nothing,
+      totalNumberOfStages = Prelude.Nothing
     }
-
--- | The total number of stages required for the configuration change.
-changeProgressStatusDetails_totalNumberOfStages :: Lens.Lens' ChangeProgressStatusDetails (Prelude.Maybe Prelude.Int)
-changeProgressStatusDetails_totalNumberOfStages = Lens.lens (\ChangeProgressStatusDetails' {totalNumberOfStages} -> totalNumberOfStages) (\s@ChangeProgressStatusDetails' {} a -> s {totalNumberOfStages = a} :: ChangeProgressStatusDetails)
 
 -- | The unique change identifier associated with a specific domain
 -- configuration change.
 changeProgressStatusDetails_changeId :: Lens.Lens' ChangeProgressStatusDetails (Prelude.Maybe Prelude.Text)
 changeProgressStatusDetails_changeId = Lens.lens (\ChangeProgressStatusDetails' {changeId} -> changeId) (\s@ChangeProgressStatusDetails' {} a -> s {changeId = a} :: ChangeProgressStatusDetails)
-
--- | The list of properties involved in the domain configuration change that
--- are still in pending.
-changeProgressStatusDetails_pendingProperties :: Lens.Lens' ChangeProgressStatusDetails (Prelude.Maybe [Prelude.Text])
-changeProgressStatusDetails_pendingProperties = Lens.lens (\ChangeProgressStatusDetails' {pendingProperties} -> pendingProperties) (\s@ChangeProgressStatusDetails' {} a -> s {pendingProperties = a} :: ChangeProgressStatusDetails) Prelude.. Lens.mapping Lens.coerced
-
--- | The overall status of the domain configuration change. This field can
--- take the following values: @PENDING@, @PROCESSING@, @COMPLETED@ and
--- @FAILED@
-changeProgressStatusDetails_status :: Lens.Lens' ChangeProgressStatusDetails (Prelude.Maybe OverallChangeStatus)
-changeProgressStatusDetails_status = Lens.lens (\ChangeProgressStatusDetails' {status} -> status) (\s@ChangeProgressStatusDetails' {} a -> s {status = a} :: ChangeProgressStatusDetails)
 
 -- | The specific stages that the domain is going through to perform the
 -- configuration change.
@@ -124,9 +109,24 @@ changeProgressStatusDetails_changeProgressStages = Lens.lens (\ChangeProgressSta
 changeProgressStatusDetails_completedProperties :: Lens.Lens' ChangeProgressStatusDetails (Prelude.Maybe [Prelude.Text])
 changeProgressStatusDetails_completedProperties = Lens.lens (\ChangeProgressStatusDetails' {completedProperties} -> completedProperties) (\s@ChangeProgressStatusDetails' {} a -> s {completedProperties = a} :: ChangeProgressStatusDetails) Prelude.. Lens.mapping Lens.coerced
 
+-- | The list of properties involved in the domain configuration change that
+-- are still in pending.
+changeProgressStatusDetails_pendingProperties :: Lens.Lens' ChangeProgressStatusDetails (Prelude.Maybe [Prelude.Text])
+changeProgressStatusDetails_pendingProperties = Lens.lens (\ChangeProgressStatusDetails' {pendingProperties} -> pendingProperties) (\s@ChangeProgressStatusDetails' {} a -> s {pendingProperties = a} :: ChangeProgressStatusDetails) Prelude.. Lens.mapping Lens.coerced
+
 -- | The time at which the configuration change is made on the domain.
 changeProgressStatusDetails_startTime :: Lens.Lens' ChangeProgressStatusDetails (Prelude.Maybe Prelude.UTCTime)
 changeProgressStatusDetails_startTime = Lens.lens (\ChangeProgressStatusDetails' {startTime} -> startTime) (\s@ChangeProgressStatusDetails' {} a -> s {startTime = a} :: ChangeProgressStatusDetails) Prelude.. Lens.mapping Data._Time
+
+-- | The overall status of the domain configuration change. This field can
+-- take the following values: @PENDING@, @PROCESSING@, @COMPLETED@ and
+-- @FAILED@
+changeProgressStatusDetails_status :: Lens.Lens' ChangeProgressStatusDetails (Prelude.Maybe OverallChangeStatus)
+changeProgressStatusDetails_status = Lens.lens (\ChangeProgressStatusDetails' {status} -> status) (\s@ChangeProgressStatusDetails' {} a -> s {status = a} :: ChangeProgressStatusDetails)
+
+-- | The total number of stages required for the configuration change.
+changeProgressStatusDetails_totalNumberOfStages :: Lens.Lens' ChangeProgressStatusDetails (Prelude.Maybe Prelude.Int)
+changeProgressStatusDetails_totalNumberOfStages = Lens.lens (\ChangeProgressStatusDetails' {totalNumberOfStages} -> totalNumberOfStages) (\s@ChangeProgressStatusDetails' {} a -> s {totalNumberOfStages = a} :: ChangeProgressStatusDetails)
 
 instance Data.FromJSON ChangeProgressStatusDetails where
   parseJSON =
@@ -134,37 +134,37 @@ instance Data.FromJSON ChangeProgressStatusDetails where
       "ChangeProgressStatusDetails"
       ( \x ->
           ChangeProgressStatusDetails'
-            Prelude.<$> (x Data..:? "TotalNumberOfStages")
-            Prelude.<*> (x Data..:? "ChangeId")
-            Prelude.<*> ( x Data..:? "PendingProperties"
-                            Data..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Data..:? "Status")
+            Prelude.<$> (x Data..:? "ChangeId")
             Prelude.<*> ( x Data..:? "ChangeProgressStages"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> ( x Data..:? "CompletedProperties"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> ( x Data..:? "PendingProperties"
+                            Data..!= Prelude.mempty
+                        )
             Prelude.<*> (x Data..:? "StartTime")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "TotalNumberOfStages")
       )
 
 instance Prelude.Hashable ChangeProgressStatusDetails where
   hashWithSalt _salt ChangeProgressStatusDetails' {..} =
-    _salt `Prelude.hashWithSalt` totalNumberOfStages
-      `Prelude.hashWithSalt` changeId
-      `Prelude.hashWithSalt` pendingProperties
-      `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` changeId
       `Prelude.hashWithSalt` changeProgressStages
       `Prelude.hashWithSalt` completedProperties
+      `Prelude.hashWithSalt` pendingProperties
       `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` totalNumberOfStages
 
 instance Prelude.NFData ChangeProgressStatusDetails where
   rnf ChangeProgressStatusDetails' {..} =
-    Prelude.rnf totalNumberOfStages
-      `Prelude.seq` Prelude.rnf changeId
-      `Prelude.seq` Prelude.rnf pendingProperties
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf changeId
       `Prelude.seq` Prelude.rnf changeProgressStages
       `Prelude.seq` Prelude.rnf completedProperties
+      `Prelude.seq` Prelude.rnf pendingProperties
       `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf totalNumberOfStages

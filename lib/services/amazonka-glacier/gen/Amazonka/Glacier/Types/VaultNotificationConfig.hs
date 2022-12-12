@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVaultNotificationConfig' smart constructor.
 data VaultNotificationConfig = VaultNotificationConfig'
-  { -- | The Amazon Simple Notification Service (Amazon SNS) topic Amazon
-    -- Resource Name (ARN).
-    sNSTopic :: Prelude.Maybe Prelude.Text,
-    -- | A list of one or more events for which Amazon S3 Glacier will send a
+  { -- | A list of one or more events for which Amazon S3 Glacier will send a
     -- notification to the specified Amazon SNS topic.
-    events :: Prelude.Maybe [Prelude.Text]
+    events :: Prelude.Maybe [Prelude.Text],
+    -- | The Amazon Simple Notification Service (Amazon SNS) topic Amazon
+    -- Resource Name (ARN).
+    sNSTopic :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,29 +45,28 @@ data VaultNotificationConfig = VaultNotificationConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sNSTopic', 'vaultNotificationConfig_sNSTopic' - The Amazon Simple Notification Service (Amazon SNS) topic Amazon
--- Resource Name (ARN).
---
 -- 'events', 'vaultNotificationConfig_events' - A list of one or more events for which Amazon S3 Glacier will send a
 -- notification to the specified Amazon SNS topic.
+--
+-- 'sNSTopic', 'vaultNotificationConfig_sNSTopic' - The Amazon Simple Notification Service (Amazon SNS) topic Amazon
+-- Resource Name (ARN).
 newVaultNotificationConfig ::
   VaultNotificationConfig
 newVaultNotificationConfig =
   VaultNotificationConfig'
-    { sNSTopic =
-        Prelude.Nothing,
-      events = Prelude.Nothing
+    { events = Prelude.Nothing,
+      sNSTopic = Prelude.Nothing
     }
-
--- | The Amazon Simple Notification Service (Amazon SNS) topic Amazon
--- Resource Name (ARN).
-vaultNotificationConfig_sNSTopic :: Lens.Lens' VaultNotificationConfig (Prelude.Maybe Prelude.Text)
-vaultNotificationConfig_sNSTopic = Lens.lens (\VaultNotificationConfig' {sNSTopic} -> sNSTopic) (\s@VaultNotificationConfig' {} a -> s {sNSTopic = a} :: VaultNotificationConfig)
 
 -- | A list of one or more events for which Amazon S3 Glacier will send a
 -- notification to the specified Amazon SNS topic.
 vaultNotificationConfig_events :: Lens.Lens' VaultNotificationConfig (Prelude.Maybe [Prelude.Text])
 vaultNotificationConfig_events = Lens.lens (\VaultNotificationConfig' {events} -> events) (\s@VaultNotificationConfig' {} a -> s {events = a} :: VaultNotificationConfig) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Simple Notification Service (Amazon SNS) topic Amazon
+-- Resource Name (ARN).
+vaultNotificationConfig_sNSTopic :: Lens.Lens' VaultNotificationConfig (Prelude.Maybe Prelude.Text)
+vaultNotificationConfig_sNSTopic = Lens.lens (\VaultNotificationConfig' {sNSTopic} -> sNSTopic) (\s@VaultNotificationConfig' {} a -> s {sNSTopic = a} :: VaultNotificationConfig)
 
 instance Data.FromJSON VaultNotificationConfig where
   parseJSON =
@@ -75,25 +74,25 @@ instance Data.FromJSON VaultNotificationConfig where
       "VaultNotificationConfig"
       ( \x ->
           VaultNotificationConfig'
-            Prelude.<$> (x Data..:? "SNSTopic")
-            Prelude.<*> (x Data..:? "Events" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Events" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "SNSTopic")
       )
 
 instance Prelude.Hashable VaultNotificationConfig where
   hashWithSalt _salt VaultNotificationConfig' {..} =
-    _salt `Prelude.hashWithSalt` sNSTopic
-      `Prelude.hashWithSalt` events
+    _salt `Prelude.hashWithSalt` events
+      `Prelude.hashWithSalt` sNSTopic
 
 instance Prelude.NFData VaultNotificationConfig where
   rnf VaultNotificationConfig' {..} =
-    Prelude.rnf sNSTopic
-      `Prelude.seq` Prelude.rnf events
+    Prelude.rnf events
+      `Prelude.seq` Prelude.rnf sNSTopic
 
 instance Data.ToJSON VaultNotificationConfig where
   toJSON VaultNotificationConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SNSTopic" Data..=) Prelude.<$> sNSTopic,
-            ("Events" Data..=) Prelude.<$> events
+          [ ("Events" Data..=) Prelude.<$> events,
+            ("SNSTopic" Data..=) Prelude.<$> sNSTopic
           ]
       )

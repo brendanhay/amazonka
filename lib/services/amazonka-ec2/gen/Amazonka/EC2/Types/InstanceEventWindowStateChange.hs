@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceEventWindowStateChange' smart constructor.
 data InstanceEventWindowStateChange = InstanceEventWindowStateChange'
-  { -- | The current state of the event window.
-    state :: Prelude.Maybe InstanceEventWindowState,
-    -- | The ID of the event window.
-    instanceEventWindowId :: Prelude.Maybe Prelude.Text
+  { -- | The ID of the event window.
+    instanceEventWindowId :: Prelude.Maybe Prelude.Text,
+    -- | The current state of the event window.
+    state :: Prelude.Maybe InstanceEventWindowState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,31 +45,31 @@ data InstanceEventWindowStateChange = InstanceEventWindowStateChange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'state', 'instanceEventWindowStateChange_state' - The current state of the event window.
---
 -- 'instanceEventWindowId', 'instanceEventWindowStateChange_instanceEventWindowId' - The ID of the event window.
+--
+-- 'state', 'instanceEventWindowStateChange_state' - The current state of the event window.
 newInstanceEventWindowStateChange ::
   InstanceEventWindowStateChange
 newInstanceEventWindowStateChange =
   InstanceEventWindowStateChange'
-    { state =
+    { instanceEventWindowId =
         Prelude.Nothing,
-      instanceEventWindowId = Prelude.Nothing
+      state = Prelude.Nothing
     }
-
--- | The current state of the event window.
-instanceEventWindowStateChange_state :: Lens.Lens' InstanceEventWindowStateChange (Prelude.Maybe InstanceEventWindowState)
-instanceEventWindowStateChange_state = Lens.lens (\InstanceEventWindowStateChange' {state} -> state) (\s@InstanceEventWindowStateChange' {} a -> s {state = a} :: InstanceEventWindowStateChange)
 
 -- | The ID of the event window.
 instanceEventWindowStateChange_instanceEventWindowId :: Lens.Lens' InstanceEventWindowStateChange (Prelude.Maybe Prelude.Text)
 instanceEventWindowStateChange_instanceEventWindowId = Lens.lens (\InstanceEventWindowStateChange' {instanceEventWindowId} -> instanceEventWindowId) (\s@InstanceEventWindowStateChange' {} a -> s {instanceEventWindowId = a} :: InstanceEventWindowStateChange)
 
+-- | The current state of the event window.
+instanceEventWindowStateChange_state :: Lens.Lens' InstanceEventWindowStateChange (Prelude.Maybe InstanceEventWindowState)
+instanceEventWindowStateChange_state = Lens.lens (\InstanceEventWindowStateChange' {state} -> state) (\s@InstanceEventWindowStateChange' {} a -> s {state = a} :: InstanceEventWindowStateChange)
+
 instance Data.FromXML InstanceEventWindowStateChange where
   parseXML x =
     InstanceEventWindowStateChange'
-      Prelude.<$> (x Data..@? "state")
-      Prelude.<*> (x Data..@? "instanceEventWindowId")
+      Prelude.<$> (x Data..@? "instanceEventWindowId")
+      Prelude.<*> (x Data..@? "state")
 
 instance
   Prelude.Hashable
@@ -78,13 +78,13 @@ instance
   hashWithSalt
     _salt
     InstanceEventWindowStateChange' {..} =
-      _salt `Prelude.hashWithSalt` state
-        `Prelude.hashWithSalt` instanceEventWindowId
+      _salt `Prelude.hashWithSalt` instanceEventWindowId
+        `Prelude.hashWithSalt` state
 
 instance
   Prelude.NFData
     InstanceEventWindowStateChange
   where
   rnf InstanceEventWindowStateChange' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf instanceEventWindowId
+    Prelude.rnf instanceEventWindowId
+      `Prelude.seq` Prelude.rnf state

@@ -33,11 +33,11 @@ module Amazonka.IAM.CreateRole
     newCreateRole,
 
     -- * Request Lenses
-    createRole_tags,
-    createRole_path,
     createRole_description,
-    createRole_permissionsBoundary,
     createRole_maxSessionDuration,
+    createRole_path,
+    createRole_permissionsBoundary,
+    createRole_tags,
     createRole_roleName,
     createRole_assumeRolePolicyDocument,
 
@@ -61,36 +61,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateRole' smart constructor.
 data CreateRole = CreateRole'
-  { -- | A list of tags that you want to attach to the new role. Each tag
-    -- consists of a key name and an associated value. For more information
-    -- about tagging, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
-    -- in the /IAM User Guide/.
-    --
-    -- If any one of the tags is invalid or if you exceed the allowed maximum
-    -- number of tags, then the entire request fails and the resource is not
-    -- created.
-    tags :: Prelude.Maybe [Tag],
-    -- | The path to the role. For more information about paths, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
-    -- in the /IAM User Guide/.
-    --
-    -- This parameter is optional. If it is not included, it defaults to a
-    -- slash (\/).
-    --
-    -- This parameter allows (through its
-    -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
-    -- consisting of either a forward slash (\/) by itself or a string that
-    -- must begin and end with forward slashes. In addition, it can contain any
-    -- ASCII character from the ! (@\\u0021@) through the DEL character
-    -- (@\\u007F@), including most punctuation characters, digits, and upper
-    -- and lowercased letters.
-    path :: Prelude.Maybe Prelude.Text,
-    -- | A description of the role.
+  { -- | A description of the role.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the policy that is used to set the permissions boundary for
-    -- the role.
-    permissionsBoundary :: Prelude.Maybe Prelude.Text,
     -- | The maximum session duration (in seconds) that you want to set for the
     -- specified role. If you do not specify a value for this setting, the
     -- default value of one hour is applied. This setting can have a value from
@@ -108,6 +80,34 @@ data CreateRole = CreateRole'
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html Using IAM roles>
     -- in the /IAM User Guide/.
     maxSessionDuration :: Prelude.Maybe Prelude.Natural,
+    -- | The path to the role. For more information about paths, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
+    -- in the /IAM User Guide/.
+    --
+    -- This parameter is optional. If it is not included, it defaults to a
+    -- slash (\/).
+    --
+    -- This parameter allows (through its
+    -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+    -- consisting of either a forward slash (\/) by itself or a string that
+    -- must begin and end with forward slashes. In addition, it can contain any
+    -- ASCII character from the ! (@\\u0021@) through the DEL character
+    -- (@\\u007F@), including most punctuation characters, digits, and upper
+    -- and lowercased letters.
+    path :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the policy that is used to set the permissions boundary for
+    -- the role.
+    permissionsBoundary :: Prelude.Maybe Prelude.Text,
+    -- | A list of tags that you want to attach to the new role. Each tag
+    -- consists of a key name and an associated value. For more information
+    -- about tagging, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
+    -- in the /IAM User Guide/.
+    --
+    -- If any one of the tags is invalid or if you exceed the allowed maximum
+    -- number of tags, then the entire request fails and the resource is not
+    -- created.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the role to create.
     --
     -- IAM user, group, role, and policy names must be unique within the
@@ -148,35 +148,7 @@ data CreateRole = CreateRole'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createRole_tags' - A list of tags that you want to attach to the new role. Each tag
--- consists of a key name and an associated value. For more information
--- about tagging, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
--- in the /IAM User Guide/.
---
--- If any one of the tags is invalid or if you exceed the allowed maximum
--- number of tags, then the entire request fails and the resource is not
--- created.
---
--- 'path', 'createRole_path' - The path to the role. For more information about paths, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
--- in the /IAM User Guide/.
---
--- This parameter is optional. If it is not included, it defaults to a
--- slash (\/).
---
--- This parameter allows (through its
--- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
--- consisting of either a forward slash (\/) by itself or a string that
--- must begin and end with forward slashes. In addition, it can contain any
--- ASCII character from the ! (@\\u0021@) through the DEL character
--- (@\\u007F@), including most punctuation characters, digits, and upper
--- and lowercased letters.
---
 -- 'description', 'createRole_description' - A description of the role.
---
--- 'permissionsBoundary', 'createRole_permissionsBoundary' - The ARN of the policy that is used to set the permissions boundary for
--- the role.
 --
 -- 'maxSessionDuration', 'createRole_maxSessionDuration' - The maximum session duration (in seconds) that you want to set for the
 -- specified role. If you do not specify a value for this setting, the
@@ -194,6 +166,34 @@ data CreateRole = CreateRole'
 -- operations to create a console URL. For more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html Using IAM roles>
 -- in the /IAM User Guide/.
+--
+-- 'path', 'createRole_path' - The path to the role. For more information about paths, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
+-- in the /IAM User Guide/.
+--
+-- This parameter is optional. If it is not included, it defaults to a
+-- slash (\/).
+--
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of either a forward slash (\/) by itself or a string that
+-- must begin and end with forward slashes. In addition, it can contain any
+-- ASCII character from the ! (@\\u0021@) through the DEL character
+-- (@\\u007F@), including most punctuation characters, digits, and upper
+-- and lowercased letters.
+--
+-- 'permissionsBoundary', 'createRole_permissionsBoundary' - The ARN of the policy that is used to set the permissions boundary for
+-- the role.
+--
+-- 'tags', 'createRole_tags' - A list of tags that you want to attach to the new role. Each tag
+-- consists of a key name and an associated value. For more information
+-- about tagging, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
+-- in the /IAM User Guide/.
+--
+-- If any one of the tags is invalid or if you exceed the allowed maximum
+-- number of tags, then the entire request fails and the resource is not
+-- created.
 --
 -- 'roleName', 'createRole_roleName' - The name of the role to create.
 --
@@ -231,53 +231,19 @@ newCreateRole ::
   CreateRole
 newCreateRole pRoleName_ pAssumeRolePolicyDocument_ =
   CreateRole'
-    { tags = Prelude.Nothing,
-      path = Prelude.Nothing,
-      description = Prelude.Nothing,
-      permissionsBoundary = Prelude.Nothing,
+    { description = Prelude.Nothing,
       maxSessionDuration = Prelude.Nothing,
+      path = Prelude.Nothing,
+      permissionsBoundary = Prelude.Nothing,
+      tags = Prelude.Nothing,
       roleName = pRoleName_,
       assumeRolePolicyDocument =
         pAssumeRolePolicyDocument_
     }
 
--- | A list of tags that you want to attach to the new role. Each tag
--- consists of a key name and an associated value. For more information
--- about tagging, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
--- in the /IAM User Guide/.
---
--- If any one of the tags is invalid or if you exceed the allowed maximum
--- number of tags, then the entire request fails and the resource is not
--- created.
-createRole_tags :: Lens.Lens' CreateRole (Prelude.Maybe [Tag])
-createRole_tags = Lens.lens (\CreateRole' {tags} -> tags) (\s@CreateRole' {} a -> s {tags = a} :: CreateRole) Prelude.. Lens.mapping Lens.coerced
-
--- | The path to the role. For more information about paths, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
--- in the /IAM User Guide/.
---
--- This parameter is optional. If it is not included, it defaults to a
--- slash (\/).
---
--- This parameter allows (through its
--- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
--- consisting of either a forward slash (\/) by itself or a string that
--- must begin and end with forward slashes. In addition, it can contain any
--- ASCII character from the ! (@\\u0021@) through the DEL character
--- (@\\u007F@), including most punctuation characters, digits, and upper
--- and lowercased letters.
-createRole_path :: Lens.Lens' CreateRole (Prelude.Maybe Prelude.Text)
-createRole_path = Lens.lens (\CreateRole' {path} -> path) (\s@CreateRole' {} a -> s {path = a} :: CreateRole)
-
 -- | A description of the role.
 createRole_description :: Lens.Lens' CreateRole (Prelude.Maybe Prelude.Text)
 createRole_description = Lens.lens (\CreateRole' {description} -> description) (\s@CreateRole' {} a -> s {description = a} :: CreateRole)
-
--- | The ARN of the policy that is used to set the permissions boundary for
--- the role.
-createRole_permissionsBoundary :: Lens.Lens' CreateRole (Prelude.Maybe Prelude.Text)
-createRole_permissionsBoundary = Lens.lens (\CreateRole' {permissionsBoundary} -> permissionsBoundary) (\s@CreateRole' {} a -> s {permissionsBoundary = a} :: CreateRole)
 
 -- | The maximum session duration (in seconds) that you want to set for the
 -- specified role. If you do not specify a value for this setting, the
@@ -297,6 +263,40 @@ createRole_permissionsBoundary = Lens.lens (\CreateRole' {permissionsBoundary} -
 -- in the /IAM User Guide/.
 createRole_maxSessionDuration :: Lens.Lens' CreateRole (Prelude.Maybe Prelude.Natural)
 createRole_maxSessionDuration = Lens.lens (\CreateRole' {maxSessionDuration} -> maxSessionDuration) (\s@CreateRole' {} a -> s {maxSessionDuration = a} :: CreateRole)
+
+-- | The path to the role. For more information about paths, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
+-- in the /IAM User Guide/.
+--
+-- This parameter is optional. If it is not included, it defaults to a
+-- slash (\/).
+--
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of either a forward slash (\/) by itself or a string that
+-- must begin and end with forward slashes. In addition, it can contain any
+-- ASCII character from the ! (@\\u0021@) through the DEL character
+-- (@\\u007F@), including most punctuation characters, digits, and upper
+-- and lowercased letters.
+createRole_path :: Lens.Lens' CreateRole (Prelude.Maybe Prelude.Text)
+createRole_path = Lens.lens (\CreateRole' {path} -> path) (\s@CreateRole' {} a -> s {path = a} :: CreateRole)
+
+-- | The ARN of the policy that is used to set the permissions boundary for
+-- the role.
+createRole_permissionsBoundary :: Lens.Lens' CreateRole (Prelude.Maybe Prelude.Text)
+createRole_permissionsBoundary = Lens.lens (\CreateRole' {permissionsBoundary} -> permissionsBoundary) (\s@CreateRole' {} a -> s {permissionsBoundary = a} :: CreateRole)
+
+-- | A list of tags that you want to attach to the new role. Each tag
+-- consists of a key name and an associated value. For more information
+-- about tagging, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
+-- in the /IAM User Guide/.
+--
+-- If any one of the tags is invalid or if you exceed the allowed maximum
+-- number of tags, then the entire request fails and the resource is not
+-- created.
+createRole_tags :: Lens.Lens' CreateRole (Prelude.Maybe [Tag])
+createRole_tags = Lens.lens (\CreateRole' {tags} -> tags) (\s@CreateRole' {} a -> s {tags = a} :: CreateRole) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the role to create.
 --
@@ -346,21 +346,21 @@ instance Core.AWSRequest CreateRole where
 
 instance Prelude.Hashable CreateRole where
   hashWithSalt _salt CreateRole' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` path
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` permissionsBoundary
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` maxSessionDuration
+      `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` permissionsBoundary
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` roleName
       `Prelude.hashWithSalt` assumeRolePolicyDocument
 
 instance Prelude.NFData CreateRole where
   rnf CreateRole' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf permissionsBoundary
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf maxSessionDuration
+      `Prelude.seq` Prelude.rnf path
+      `Prelude.seq` Prelude.rnf permissionsBoundary
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf roleName
       `Prelude.seq` Prelude.rnf assumeRolePolicyDocument
 
@@ -377,13 +377,13 @@ instance Data.ToQuery CreateRole where
           Data.=: ("CreateRole" :: Prelude.ByteString),
         "Version"
           Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "Description" Data.=: description,
+        "MaxSessionDuration" Data.=: maxSessionDuration,
+        "Path" Data.=: path,
+        "PermissionsBoundary" Data.=: permissionsBoundary,
         "Tags"
           Data.=: Data.toQuery
             (Data.toQueryList "member" Prelude.<$> tags),
-        "Path" Data.=: path,
-        "Description" Data.=: description,
-        "PermissionsBoundary" Data.=: permissionsBoundary,
-        "MaxSessionDuration" Data.=: maxSessionDuration,
         "RoleName" Data.=: roleName,
         "AssumeRolePolicyDocument"
           Data.=: assumeRolePolicyDocument

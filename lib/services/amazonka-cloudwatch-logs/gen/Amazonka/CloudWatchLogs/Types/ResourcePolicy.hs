@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResourcePolicy' smart constructor.
 data ResourcePolicy = ResourcePolicy'
-  { -- | The name of the resource policy.
-    policyName :: Prelude.Maybe Prelude.Text,
-    -- | Timestamp showing when this policy was last updated, expressed as the
-    -- number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+  { -- | Timestamp showing when this policy was last updated, expressed as the
+    -- number of milliseconds after @Jan 1, 1970 00:00:00 UTC@.
     lastUpdatedTime :: Prelude.Maybe Prelude.Natural,
     -- | The details of the policy.
-    policyDocument :: Prelude.Maybe Prelude.Text
+    policyDocument :: Prelude.Maybe Prelude.Text,
+    -- | The name of the resource policy.
+    policyName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,27 +47,23 @@ data ResourcePolicy = ResourcePolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyName', 'resourcePolicy_policyName' - The name of the resource policy.
---
 -- 'lastUpdatedTime', 'resourcePolicy_lastUpdatedTime' - Timestamp showing when this policy was last updated, expressed as the
--- number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+-- number of milliseconds after @Jan 1, 1970 00:00:00 UTC@.
 --
 -- 'policyDocument', 'resourcePolicy_policyDocument' - The details of the policy.
+--
+-- 'policyName', 'resourcePolicy_policyName' - The name of the resource policy.
 newResourcePolicy ::
   ResourcePolicy
 newResourcePolicy =
   ResourcePolicy'
-    { policyName = Prelude.Nothing,
-      lastUpdatedTime = Prelude.Nothing,
-      policyDocument = Prelude.Nothing
+    { lastUpdatedTime = Prelude.Nothing,
+      policyDocument = Prelude.Nothing,
+      policyName = Prelude.Nothing
     }
 
--- | The name of the resource policy.
-resourcePolicy_policyName :: Lens.Lens' ResourcePolicy (Prelude.Maybe Prelude.Text)
-resourcePolicy_policyName = Lens.lens (\ResourcePolicy' {policyName} -> policyName) (\s@ResourcePolicy' {} a -> s {policyName = a} :: ResourcePolicy)
-
 -- | Timestamp showing when this policy was last updated, expressed as the
--- number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+-- number of milliseconds after @Jan 1, 1970 00:00:00 UTC@.
 resourcePolicy_lastUpdatedTime :: Lens.Lens' ResourcePolicy (Prelude.Maybe Prelude.Natural)
 resourcePolicy_lastUpdatedTime = Lens.lens (\ResourcePolicy' {lastUpdatedTime} -> lastUpdatedTime) (\s@ResourcePolicy' {} a -> s {lastUpdatedTime = a} :: ResourcePolicy)
 
@@ -75,25 +71,29 @@ resourcePolicy_lastUpdatedTime = Lens.lens (\ResourcePolicy' {lastUpdatedTime} -
 resourcePolicy_policyDocument :: Lens.Lens' ResourcePolicy (Prelude.Maybe Prelude.Text)
 resourcePolicy_policyDocument = Lens.lens (\ResourcePolicy' {policyDocument} -> policyDocument) (\s@ResourcePolicy' {} a -> s {policyDocument = a} :: ResourcePolicy)
 
+-- | The name of the resource policy.
+resourcePolicy_policyName :: Lens.Lens' ResourcePolicy (Prelude.Maybe Prelude.Text)
+resourcePolicy_policyName = Lens.lens (\ResourcePolicy' {policyName} -> policyName) (\s@ResourcePolicy' {} a -> s {policyName = a} :: ResourcePolicy)
+
 instance Data.FromJSON ResourcePolicy where
   parseJSON =
     Data.withObject
       "ResourcePolicy"
       ( \x ->
           ResourcePolicy'
-            Prelude.<$> (x Data..:? "policyName")
-            Prelude.<*> (x Data..:? "lastUpdatedTime")
+            Prelude.<$> (x Data..:? "lastUpdatedTime")
             Prelude.<*> (x Data..:? "policyDocument")
+            Prelude.<*> (x Data..:? "policyName")
       )
 
 instance Prelude.Hashable ResourcePolicy where
   hashWithSalt _salt ResourcePolicy' {..} =
-    _salt `Prelude.hashWithSalt` policyName
-      `Prelude.hashWithSalt` lastUpdatedTime
+    _salt `Prelude.hashWithSalt` lastUpdatedTime
       `Prelude.hashWithSalt` policyDocument
+      `Prelude.hashWithSalt` policyName
 
 instance Prelude.NFData ResourcePolicy where
   rnf ResourcePolicy' {..} =
-    Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
+    Prelude.rnf lastUpdatedTime
       `Prelude.seq` Prelude.rnf policyDocument
+      `Prelude.seq` Prelude.rnf policyName

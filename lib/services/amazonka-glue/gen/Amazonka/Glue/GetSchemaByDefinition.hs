@@ -42,9 +42,9 @@ module Amazonka.Glue.GetSchemaByDefinition
     -- * Response Lenses
     getSchemaByDefinitionResponse_createdTime,
     getSchemaByDefinitionResponse_dataFormat,
-    getSchemaByDefinitionResponse_status,
     getSchemaByDefinitionResponse_schemaArn,
     getSchemaByDefinitionResponse_schemaVersionId,
+    getSchemaByDefinitionResponse_status,
     getSchemaByDefinitionResponse_httpStatus,
   )
 where
@@ -132,9 +132,9 @@ instance Core.AWSRequest GetSchemaByDefinition where
           GetSchemaByDefinitionResponse'
             Prelude.<$> (x Data..?> "CreatedTime")
             Prelude.<*> (x Data..?> "DataFormat")
-            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (x Data..?> "SchemaArn")
             Prelude.<*> (x Data..?> "SchemaVersionId")
+            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -186,12 +186,12 @@ data GetSchemaByDefinitionResponse = GetSchemaByDefinitionResponse'
     -- | The data format of the schema definition. Currently @AVRO@, @JSON@ and
     -- @PROTOBUF@ are supported.
     dataFormat :: Prelude.Maybe DataFormat,
-    -- | The status of the schema version.
-    status :: Prelude.Maybe SchemaVersionStatus,
     -- | The Amazon Resource Name (ARN) of the schema.
     schemaArn :: Prelude.Maybe Prelude.Text,
     -- | The schema ID of the schema version.
     schemaVersionId :: Prelude.Maybe Prelude.Text,
+    -- | The status of the schema version.
+    status :: Prelude.Maybe SchemaVersionStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -210,11 +210,11 @@ data GetSchemaByDefinitionResponse = GetSchemaByDefinitionResponse'
 -- 'dataFormat', 'getSchemaByDefinitionResponse_dataFormat' - The data format of the schema definition. Currently @AVRO@, @JSON@ and
 -- @PROTOBUF@ are supported.
 --
--- 'status', 'getSchemaByDefinitionResponse_status' - The status of the schema version.
---
 -- 'schemaArn', 'getSchemaByDefinitionResponse_schemaArn' - The Amazon Resource Name (ARN) of the schema.
 --
 -- 'schemaVersionId', 'getSchemaByDefinitionResponse_schemaVersionId' - The schema ID of the schema version.
+--
+-- 'status', 'getSchemaByDefinitionResponse_status' - The status of the schema version.
 --
 -- 'httpStatus', 'getSchemaByDefinitionResponse_httpStatus' - The response's http status code.
 newGetSchemaByDefinitionResponse ::
@@ -226,9 +226,9 @@ newGetSchemaByDefinitionResponse pHttpStatus_ =
     { createdTime =
         Prelude.Nothing,
       dataFormat = Prelude.Nothing,
-      status = Prelude.Nothing,
       schemaArn = Prelude.Nothing,
       schemaVersionId = Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -241,10 +241,6 @@ getSchemaByDefinitionResponse_createdTime = Lens.lens (\GetSchemaByDefinitionRes
 getSchemaByDefinitionResponse_dataFormat :: Lens.Lens' GetSchemaByDefinitionResponse (Prelude.Maybe DataFormat)
 getSchemaByDefinitionResponse_dataFormat = Lens.lens (\GetSchemaByDefinitionResponse' {dataFormat} -> dataFormat) (\s@GetSchemaByDefinitionResponse' {} a -> s {dataFormat = a} :: GetSchemaByDefinitionResponse)
 
--- | The status of the schema version.
-getSchemaByDefinitionResponse_status :: Lens.Lens' GetSchemaByDefinitionResponse (Prelude.Maybe SchemaVersionStatus)
-getSchemaByDefinitionResponse_status = Lens.lens (\GetSchemaByDefinitionResponse' {status} -> status) (\s@GetSchemaByDefinitionResponse' {} a -> s {status = a} :: GetSchemaByDefinitionResponse)
-
 -- | The Amazon Resource Name (ARN) of the schema.
 getSchemaByDefinitionResponse_schemaArn :: Lens.Lens' GetSchemaByDefinitionResponse (Prelude.Maybe Prelude.Text)
 getSchemaByDefinitionResponse_schemaArn = Lens.lens (\GetSchemaByDefinitionResponse' {schemaArn} -> schemaArn) (\s@GetSchemaByDefinitionResponse' {} a -> s {schemaArn = a} :: GetSchemaByDefinitionResponse)
@@ -252,6 +248,10 @@ getSchemaByDefinitionResponse_schemaArn = Lens.lens (\GetSchemaByDefinitionRespo
 -- | The schema ID of the schema version.
 getSchemaByDefinitionResponse_schemaVersionId :: Lens.Lens' GetSchemaByDefinitionResponse (Prelude.Maybe Prelude.Text)
 getSchemaByDefinitionResponse_schemaVersionId = Lens.lens (\GetSchemaByDefinitionResponse' {schemaVersionId} -> schemaVersionId) (\s@GetSchemaByDefinitionResponse' {} a -> s {schemaVersionId = a} :: GetSchemaByDefinitionResponse)
+
+-- | The status of the schema version.
+getSchemaByDefinitionResponse_status :: Lens.Lens' GetSchemaByDefinitionResponse (Prelude.Maybe SchemaVersionStatus)
+getSchemaByDefinitionResponse_status = Lens.lens (\GetSchemaByDefinitionResponse' {status} -> status) (\s@GetSchemaByDefinitionResponse' {} a -> s {status = a} :: GetSchemaByDefinitionResponse)
 
 -- | The response's http status code.
 getSchemaByDefinitionResponse_httpStatus :: Lens.Lens' GetSchemaByDefinitionResponse Prelude.Int
@@ -261,7 +261,7 @@ instance Prelude.NFData GetSchemaByDefinitionResponse where
   rnf GetSchemaByDefinitionResponse' {..} =
     Prelude.rnf createdTime
       `Prelude.seq` Prelude.rnf dataFormat
-      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf schemaArn
       `Prelude.seq` Prelude.rnf schemaVersionId
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

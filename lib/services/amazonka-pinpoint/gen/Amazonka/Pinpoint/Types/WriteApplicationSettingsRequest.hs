@@ -31,15 +31,22 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newWriteApplicationSettingsRequest' smart constructor.
 data WriteApplicationSettingsRequest = WriteApplicationSettingsRequest'
-  { -- | The default sending limits for campaigns in the application. To override
+  { -- | The settings for the AWS Lambda function to invoke by default as a code
+    -- hook for campaigns in the application. You can use this hook to
+    -- customize segments that are used by campaigns in the application.
+    --
+    -- To override these settings and define custom settings for a specific
+    -- campaign, use the CampaignHook object of the Campaign resource.
+    campaignHook :: Prelude.Maybe CampaignHook,
+    -- | Specifies whether to enable application-related alarms in Amazon
+    -- CloudWatch.
+    cloudWatchMetricsEnabled :: Prelude.Maybe Prelude.Bool,
+    eventTaggingEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The default sending limits for campaigns in the application. To override
     -- these limits and define custom limits for a specific campaign or
     -- journey, use the Campaign resource or the Journey resource,
     -- respectively.
     limits :: Prelude.Maybe CampaignLimits,
-    eventTaggingEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies whether to enable application-related alarms in Amazon
-    -- CloudWatch.
-    cloudWatchMetricsEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The default quiet time for campaigns in the application. Quiet time is a
     -- specific time range when messages aren\'t sent to endpoints, if all the
     -- following conditions are met:
@@ -63,14 +70,7 @@ data WriteApplicationSettingsRequest = WriteApplicationSettingsRequest'
     -- To override the default quiet time settings for a specific campaign or
     -- journey, use the Campaign resource or the Journey resource to define a
     -- custom quiet time for the campaign or journey.
-    quietTime :: Prelude.Maybe QuietTime,
-    -- | The settings for the AWS Lambda function to invoke by default as a code
-    -- hook for campaigns in the application. You can use this hook to
-    -- customize segments that are used by campaigns in the application.
-    --
-    -- To override these settings and define custom settings for a specific
-    -- campaign, use the CampaignHook object of the Campaign resource.
-    campaignHook :: Prelude.Maybe CampaignHook
+    quietTime :: Prelude.Maybe QuietTime
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,15 +82,22 @@ data WriteApplicationSettingsRequest = WriteApplicationSettingsRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'campaignHook', 'writeApplicationSettingsRequest_campaignHook' - The settings for the AWS Lambda function to invoke by default as a code
+-- hook for campaigns in the application. You can use this hook to
+-- customize segments that are used by campaigns in the application.
+--
+-- To override these settings and define custom settings for a specific
+-- campaign, use the CampaignHook object of the Campaign resource.
+--
+-- 'cloudWatchMetricsEnabled', 'writeApplicationSettingsRequest_cloudWatchMetricsEnabled' - Specifies whether to enable application-related alarms in Amazon
+-- CloudWatch.
+--
+-- 'eventTaggingEnabled', 'writeApplicationSettingsRequest_eventTaggingEnabled' - Undocumented member.
+--
 -- 'limits', 'writeApplicationSettingsRequest_limits' - The default sending limits for campaigns in the application. To override
 -- these limits and define custom limits for a specific campaign or
 -- journey, use the Campaign resource or the Journey resource,
 -- respectively.
---
--- 'eventTaggingEnabled', 'writeApplicationSettingsRequest_eventTaggingEnabled' - Undocumented member.
---
--- 'cloudWatchMetricsEnabled', 'writeApplicationSettingsRequest_cloudWatchMetricsEnabled' - Specifies whether to enable application-related alarms in Amazon
--- CloudWatch.
 --
 -- 'quietTime', 'writeApplicationSettingsRequest_quietTime' - The default quiet time for campaigns in the application. Quiet time is a
 -- specific time range when messages aren\'t sent to endpoints, if all the
@@ -115,24 +122,35 @@ data WriteApplicationSettingsRequest = WriteApplicationSettingsRequest'
 -- To override the default quiet time settings for a specific campaign or
 -- journey, use the Campaign resource or the Journey resource to define a
 -- custom quiet time for the campaign or journey.
---
--- 'campaignHook', 'writeApplicationSettingsRequest_campaignHook' - The settings for the AWS Lambda function to invoke by default as a code
+newWriteApplicationSettingsRequest ::
+  WriteApplicationSettingsRequest
+newWriteApplicationSettingsRequest =
+  WriteApplicationSettingsRequest'
+    { campaignHook =
+        Prelude.Nothing,
+      cloudWatchMetricsEnabled = Prelude.Nothing,
+      eventTaggingEnabled = Prelude.Nothing,
+      limits = Prelude.Nothing,
+      quietTime = Prelude.Nothing
+    }
+
+-- | The settings for the AWS Lambda function to invoke by default as a code
 -- hook for campaigns in the application. You can use this hook to
 -- customize segments that are used by campaigns in the application.
 --
 -- To override these settings and define custom settings for a specific
 -- campaign, use the CampaignHook object of the Campaign resource.
-newWriteApplicationSettingsRequest ::
-  WriteApplicationSettingsRequest
-newWriteApplicationSettingsRequest =
-  WriteApplicationSettingsRequest'
-    { limits =
-        Prelude.Nothing,
-      eventTaggingEnabled = Prelude.Nothing,
-      cloudWatchMetricsEnabled = Prelude.Nothing,
-      quietTime = Prelude.Nothing,
-      campaignHook = Prelude.Nothing
-    }
+writeApplicationSettingsRequest_campaignHook :: Lens.Lens' WriteApplicationSettingsRequest (Prelude.Maybe CampaignHook)
+writeApplicationSettingsRequest_campaignHook = Lens.lens (\WriteApplicationSettingsRequest' {campaignHook} -> campaignHook) (\s@WriteApplicationSettingsRequest' {} a -> s {campaignHook = a} :: WriteApplicationSettingsRequest)
+
+-- | Specifies whether to enable application-related alarms in Amazon
+-- CloudWatch.
+writeApplicationSettingsRequest_cloudWatchMetricsEnabled :: Lens.Lens' WriteApplicationSettingsRequest (Prelude.Maybe Prelude.Bool)
+writeApplicationSettingsRequest_cloudWatchMetricsEnabled = Lens.lens (\WriteApplicationSettingsRequest' {cloudWatchMetricsEnabled} -> cloudWatchMetricsEnabled) (\s@WriteApplicationSettingsRequest' {} a -> s {cloudWatchMetricsEnabled = a} :: WriteApplicationSettingsRequest)
+
+-- | Undocumented member.
+writeApplicationSettingsRequest_eventTaggingEnabled :: Lens.Lens' WriteApplicationSettingsRequest (Prelude.Maybe Prelude.Bool)
+writeApplicationSettingsRequest_eventTaggingEnabled = Lens.lens (\WriteApplicationSettingsRequest' {eventTaggingEnabled} -> eventTaggingEnabled) (\s@WriteApplicationSettingsRequest' {} a -> s {eventTaggingEnabled = a} :: WriteApplicationSettingsRequest)
 
 -- | The default sending limits for campaigns in the application. To override
 -- these limits and define custom limits for a specific campaign or
@@ -140,15 +158,6 @@ newWriteApplicationSettingsRequest =
 -- respectively.
 writeApplicationSettingsRequest_limits :: Lens.Lens' WriteApplicationSettingsRequest (Prelude.Maybe CampaignLimits)
 writeApplicationSettingsRequest_limits = Lens.lens (\WriteApplicationSettingsRequest' {limits} -> limits) (\s@WriteApplicationSettingsRequest' {} a -> s {limits = a} :: WriteApplicationSettingsRequest)
-
--- | Undocumented member.
-writeApplicationSettingsRequest_eventTaggingEnabled :: Lens.Lens' WriteApplicationSettingsRequest (Prelude.Maybe Prelude.Bool)
-writeApplicationSettingsRequest_eventTaggingEnabled = Lens.lens (\WriteApplicationSettingsRequest' {eventTaggingEnabled} -> eventTaggingEnabled) (\s@WriteApplicationSettingsRequest' {} a -> s {eventTaggingEnabled = a} :: WriteApplicationSettingsRequest)
-
--- | Specifies whether to enable application-related alarms in Amazon
--- CloudWatch.
-writeApplicationSettingsRequest_cloudWatchMetricsEnabled :: Lens.Lens' WriteApplicationSettingsRequest (Prelude.Maybe Prelude.Bool)
-writeApplicationSettingsRequest_cloudWatchMetricsEnabled = Lens.lens (\WriteApplicationSettingsRequest' {cloudWatchMetricsEnabled} -> cloudWatchMetricsEnabled) (\s@WriteApplicationSettingsRequest' {} a -> s {cloudWatchMetricsEnabled = a} :: WriteApplicationSettingsRequest)
 
 -- | The default quiet time for campaigns in the application. Quiet time is a
 -- specific time range when messages aren\'t sent to endpoints, if all the
@@ -176,15 +185,6 @@ writeApplicationSettingsRequest_cloudWatchMetricsEnabled = Lens.lens (\WriteAppl
 writeApplicationSettingsRequest_quietTime :: Lens.Lens' WriteApplicationSettingsRequest (Prelude.Maybe QuietTime)
 writeApplicationSettingsRequest_quietTime = Lens.lens (\WriteApplicationSettingsRequest' {quietTime} -> quietTime) (\s@WriteApplicationSettingsRequest' {} a -> s {quietTime = a} :: WriteApplicationSettingsRequest)
 
--- | The settings for the AWS Lambda function to invoke by default as a code
--- hook for campaigns in the application. You can use this hook to
--- customize segments that are used by campaigns in the application.
---
--- To override these settings and define custom settings for a specific
--- campaign, use the CampaignHook object of the Campaign resource.
-writeApplicationSettingsRequest_campaignHook :: Lens.Lens' WriteApplicationSettingsRequest (Prelude.Maybe CampaignHook)
-writeApplicationSettingsRequest_campaignHook = Lens.lens (\WriteApplicationSettingsRequest' {campaignHook} -> campaignHook) (\s@WriteApplicationSettingsRequest' {} a -> s {campaignHook = a} :: WriteApplicationSettingsRequest)
-
 instance
   Prelude.Hashable
     WriteApplicationSettingsRequest
@@ -192,33 +192,33 @@ instance
   hashWithSalt
     _salt
     WriteApplicationSettingsRequest' {..} =
-      _salt `Prelude.hashWithSalt` limits
-        `Prelude.hashWithSalt` eventTaggingEnabled
+      _salt `Prelude.hashWithSalt` campaignHook
         `Prelude.hashWithSalt` cloudWatchMetricsEnabled
+        `Prelude.hashWithSalt` eventTaggingEnabled
+        `Prelude.hashWithSalt` limits
         `Prelude.hashWithSalt` quietTime
-        `Prelude.hashWithSalt` campaignHook
 
 instance
   Prelude.NFData
     WriteApplicationSettingsRequest
   where
   rnf WriteApplicationSettingsRequest' {..} =
-    Prelude.rnf limits
-      `Prelude.seq` Prelude.rnf eventTaggingEnabled
+    Prelude.rnf campaignHook
       `Prelude.seq` Prelude.rnf cloudWatchMetricsEnabled
+      `Prelude.seq` Prelude.rnf eventTaggingEnabled
+      `Prelude.seq` Prelude.rnf limits
       `Prelude.seq` Prelude.rnf quietTime
-      `Prelude.seq` Prelude.rnf campaignHook
 
 instance Data.ToJSON WriteApplicationSettingsRequest where
   toJSON WriteApplicationSettingsRequest' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Limits" Data..=) Prelude.<$> limits,
-            ("EventTaggingEnabled" Data..=)
-              Prelude.<$> eventTaggingEnabled,
+          [ ("CampaignHook" Data..=) Prelude.<$> campaignHook,
             ("CloudWatchMetricsEnabled" Data..=)
               Prelude.<$> cloudWatchMetricsEnabled,
-            ("QuietTime" Data..=) Prelude.<$> quietTime,
-            ("CampaignHook" Data..=) Prelude.<$> campaignHook
+            ("EventTaggingEnabled" Data..=)
+              Prelude.<$> eventTaggingEnabled,
+            ("Limits" Data..=) Prelude.<$> limits,
+            ("QuietTime" Data..=) Prelude.<$> quietTime
           ]
       )

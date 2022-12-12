@@ -33,23 +33,23 @@ import Amazonka.Proton.Types.DeploymentStatus
 --
 -- /See:/ 'newComponent' smart constructor.
 data Component = Component'
-  { -- | The time when a deployment of the component was last attempted.
-    lastDeploymentAttemptedAt :: Prelude.Maybe Data.POSIX,
-    -- | The service spec that the component uses to access service inputs.
-    -- Provided when a component is attached to a service instance.
-    serviceSpec :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+  { -- | The message associated with the component deployment status.
+    deploymentStatusMessage :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A description of the component.
     description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The message associated with the component deployment status.
-    deploymentStatusMessage :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The name of the service that @serviceInstanceName@ is associated with.
-    -- Provided when a component is attached to a service instance.
-    serviceName :: Prelude.Maybe Prelude.Text,
+    -- | The time when a deployment of the component was last attempted.
+    lastDeploymentAttemptedAt :: Prelude.Maybe Data.POSIX,
+    -- | The time when the component was last deployed successfully.
+    lastDeploymentSucceededAt :: Prelude.Maybe Data.POSIX,
     -- | The name of the service instance that this component is attached to.
     -- Provided when a component is attached to a service instance.
     serviceInstanceName :: Prelude.Maybe Prelude.Text,
-    -- | The time when the component was last deployed successfully.
-    lastDeploymentSucceededAt :: Prelude.Maybe Data.POSIX,
+    -- | The name of the service that @serviceInstanceName@ is associated with.
+    -- Provided when a component is attached to a service instance.
+    serviceName :: Prelude.Maybe Prelude.Text,
+    -- | The service spec that the component uses to access service inputs.
+    -- Provided when a component is attached to a service instance.
+    serviceSpec :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the component.
     arn :: Prelude.Text,
     -- | The time when the component was created.
@@ -74,22 +74,22 @@ data Component = Component'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastDeploymentAttemptedAt', 'component_lastDeploymentAttemptedAt' - The time when a deployment of the component was last attempted.
---
--- 'serviceSpec', 'component_serviceSpec' - The service spec that the component uses to access service inputs.
--- Provided when a component is attached to a service instance.
+-- 'deploymentStatusMessage', 'component_deploymentStatusMessage' - The message associated with the component deployment status.
 --
 -- 'description', 'component_description' - A description of the component.
 --
--- 'deploymentStatusMessage', 'component_deploymentStatusMessage' - The message associated with the component deployment status.
+-- 'lastDeploymentAttemptedAt', 'component_lastDeploymentAttemptedAt' - The time when a deployment of the component was last attempted.
 --
--- 'serviceName', 'component_serviceName' - The name of the service that @serviceInstanceName@ is associated with.
--- Provided when a component is attached to a service instance.
+-- 'lastDeploymentSucceededAt', 'component_lastDeploymentSucceededAt' - The time when the component was last deployed successfully.
 --
 -- 'serviceInstanceName', 'component_serviceInstanceName' - The name of the service instance that this component is attached to.
 -- Provided when a component is attached to a service instance.
 --
--- 'lastDeploymentSucceededAt', 'component_lastDeploymentSucceededAt' - The time when the component was last deployed successfully.
+-- 'serviceName', 'component_serviceName' - The name of the service that @serviceInstanceName@ is associated with.
+-- Provided when a component is attached to a service instance.
+--
+-- 'serviceSpec', 'component_serviceSpec' - The service spec that the component uses to access service inputs.
+-- Provided when a component is attached to a service instance.
 --
 -- 'arn', 'component_arn' - The Amazon Resource Name (ARN) of the component.
 --
@@ -125,14 +125,14 @@ newComponent
   pLastModifiedAt_
   pName_ =
     Component'
-      { lastDeploymentAttemptedAt =
+      { deploymentStatusMessage =
           Prelude.Nothing,
-        serviceSpec = Prelude.Nothing,
         description = Prelude.Nothing,
-        deploymentStatusMessage = Prelude.Nothing,
-        serviceName = Prelude.Nothing,
-        serviceInstanceName = Prelude.Nothing,
+        lastDeploymentAttemptedAt = Prelude.Nothing,
         lastDeploymentSucceededAt = Prelude.Nothing,
+        serviceInstanceName = Prelude.Nothing,
+        serviceName = Prelude.Nothing,
+        serviceSpec = Prelude.Nothing,
         arn = pArn_,
         createdAt = Data._Time Lens.# pCreatedAt_,
         deploymentStatus = pDeploymentStatus_,
@@ -141,36 +141,36 @@ newComponent
         name = pName_
       }
 
--- | The time when a deployment of the component was last attempted.
-component_lastDeploymentAttemptedAt :: Lens.Lens' Component (Prelude.Maybe Prelude.UTCTime)
-component_lastDeploymentAttemptedAt = Lens.lens (\Component' {lastDeploymentAttemptedAt} -> lastDeploymentAttemptedAt) (\s@Component' {} a -> s {lastDeploymentAttemptedAt = a} :: Component) Prelude.. Lens.mapping Data._Time
-
--- | The service spec that the component uses to access service inputs.
--- Provided when a component is attached to a service instance.
-component_serviceSpec :: Lens.Lens' Component (Prelude.Maybe Prelude.Text)
-component_serviceSpec = Lens.lens (\Component' {serviceSpec} -> serviceSpec) (\s@Component' {} a -> s {serviceSpec = a} :: Component) Prelude.. Lens.mapping Data._Sensitive
+-- | The message associated with the component deployment status.
+component_deploymentStatusMessage :: Lens.Lens' Component (Prelude.Maybe Prelude.Text)
+component_deploymentStatusMessage = Lens.lens (\Component' {deploymentStatusMessage} -> deploymentStatusMessage) (\s@Component' {} a -> s {deploymentStatusMessage = a} :: Component) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A description of the component.
 component_description :: Lens.Lens' Component (Prelude.Maybe Prelude.Text)
 component_description = Lens.lens (\Component' {description} -> description) (\s@Component' {} a -> s {description = a} :: Component) Prelude.. Lens.mapping Data._Sensitive
 
--- | The message associated with the component deployment status.
-component_deploymentStatusMessage :: Lens.Lens' Component (Prelude.Maybe Prelude.Text)
-component_deploymentStatusMessage = Lens.lens (\Component' {deploymentStatusMessage} -> deploymentStatusMessage) (\s@Component' {} a -> s {deploymentStatusMessage = a} :: Component) Prelude.. Lens.mapping Data._Sensitive
+-- | The time when a deployment of the component was last attempted.
+component_lastDeploymentAttemptedAt :: Lens.Lens' Component (Prelude.Maybe Prelude.UTCTime)
+component_lastDeploymentAttemptedAt = Lens.lens (\Component' {lastDeploymentAttemptedAt} -> lastDeploymentAttemptedAt) (\s@Component' {} a -> s {lastDeploymentAttemptedAt = a} :: Component) Prelude.. Lens.mapping Data._Time
 
--- | The name of the service that @serviceInstanceName@ is associated with.
--- Provided when a component is attached to a service instance.
-component_serviceName :: Lens.Lens' Component (Prelude.Maybe Prelude.Text)
-component_serviceName = Lens.lens (\Component' {serviceName} -> serviceName) (\s@Component' {} a -> s {serviceName = a} :: Component)
+-- | The time when the component was last deployed successfully.
+component_lastDeploymentSucceededAt :: Lens.Lens' Component (Prelude.Maybe Prelude.UTCTime)
+component_lastDeploymentSucceededAt = Lens.lens (\Component' {lastDeploymentSucceededAt} -> lastDeploymentSucceededAt) (\s@Component' {} a -> s {lastDeploymentSucceededAt = a} :: Component) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the service instance that this component is attached to.
 -- Provided when a component is attached to a service instance.
 component_serviceInstanceName :: Lens.Lens' Component (Prelude.Maybe Prelude.Text)
 component_serviceInstanceName = Lens.lens (\Component' {serviceInstanceName} -> serviceInstanceName) (\s@Component' {} a -> s {serviceInstanceName = a} :: Component)
 
--- | The time when the component was last deployed successfully.
-component_lastDeploymentSucceededAt :: Lens.Lens' Component (Prelude.Maybe Prelude.UTCTime)
-component_lastDeploymentSucceededAt = Lens.lens (\Component' {lastDeploymentSucceededAt} -> lastDeploymentSucceededAt) (\s@Component' {} a -> s {lastDeploymentSucceededAt = a} :: Component) Prelude.. Lens.mapping Data._Time
+-- | The name of the service that @serviceInstanceName@ is associated with.
+-- Provided when a component is attached to a service instance.
+component_serviceName :: Lens.Lens' Component (Prelude.Maybe Prelude.Text)
+component_serviceName = Lens.lens (\Component' {serviceName} -> serviceName) (\s@Component' {} a -> s {serviceName = a} :: Component)
+
+-- | The service spec that the component uses to access service inputs.
+-- Provided when a component is attached to a service instance.
+component_serviceSpec :: Lens.Lens' Component (Prelude.Maybe Prelude.Text)
+component_serviceSpec = Lens.lens (\Component' {serviceSpec} -> serviceSpec) (\s@Component' {} a -> s {serviceSpec = a} :: Component) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon Resource Name (ARN) of the component.
 component_arn :: Lens.Lens' Component Prelude.Text
@@ -203,13 +203,13 @@ instance Data.FromJSON Component where
       "Component"
       ( \x ->
           Component'
-            Prelude.<$> (x Data..:? "lastDeploymentAttemptedAt")
-            Prelude.<*> (x Data..:? "serviceSpec")
+            Prelude.<$> (x Data..:? "deploymentStatusMessage")
             Prelude.<*> (x Data..:? "description")
-            Prelude.<*> (x Data..:? "deploymentStatusMessage")
-            Prelude.<*> (x Data..:? "serviceName")
-            Prelude.<*> (x Data..:? "serviceInstanceName")
+            Prelude.<*> (x Data..:? "lastDeploymentAttemptedAt")
             Prelude.<*> (x Data..:? "lastDeploymentSucceededAt")
+            Prelude.<*> (x Data..:? "serviceInstanceName")
+            Prelude.<*> (x Data..:? "serviceName")
+            Prelude.<*> (x Data..:? "serviceSpec")
             Prelude.<*> (x Data..: "arn")
             Prelude.<*> (x Data..: "createdAt")
             Prelude.<*> (x Data..: "deploymentStatus")
@@ -221,13 +221,13 @@ instance Data.FromJSON Component where
 instance Prelude.Hashable Component where
   hashWithSalt _salt Component' {..} =
     _salt
-      `Prelude.hashWithSalt` lastDeploymentAttemptedAt
-      `Prelude.hashWithSalt` serviceSpec
-      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` deploymentStatusMessage
-      `Prelude.hashWithSalt` serviceName
-      `Prelude.hashWithSalt` serviceInstanceName
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` lastDeploymentAttemptedAt
       `Prelude.hashWithSalt` lastDeploymentSucceededAt
+      `Prelude.hashWithSalt` serviceInstanceName
+      `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` serviceSpec
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` deploymentStatus
@@ -237,13 +237,13 @@ instance Prelude.Hashable Component where
 
 instance Prelude.NFData Component where
   rnf Component' {..} =
-    Prelude.rnf lastDeploymentAttemptedAt
-      `Prelude.seq` Prelude.rnf serviceSpec
+    Prelude.rnf deploymentStatusMessage
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf deploymentStatusMessage
-      `Prelude.seq` Prelude.rnf serviceName
-      `Prelude.seq` Prelude.rnf serviceInstanceName
+      `Prelude.seq` Prelude.rnf lastDeploymentAttemptedAt
       `Prelude.seq` Prelude.rnf lastDeploymentSucceededAt
+      `Prelude.seq` Prelude.rnf serviceInstanceName
+      `Prelude.seq` Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf serviceSpec
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf deploymentStatus

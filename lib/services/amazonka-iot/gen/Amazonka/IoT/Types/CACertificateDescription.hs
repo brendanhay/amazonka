@@ -32,25 +32,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCACertificateDescription' smart constructor.
 data CACertificateDescription = CACertificateDescription'
-  { -- | The customer version of the CA certificate.
-    customerVersion :: Prelude.Maybe Prelude.Natural,
-    -- | The date the CA certificate was last modified.
-    lastModifiedDate :: Prelude.Maybe Data.POSIX,
-    -- | The date the CA certificate was created.
-    creationDate :: Prelude.Maybe Data.POSIX,
-    -- | The status of a CA certificate.
-    status :: Prelude.Maybe CACertificateStatus,
+  { -- | Whether the CA certificate configured for auto registration of device
+    -- certificates. Valid values are \"ENABLE\" and \"DISABLE\"
+    autoRegistrationStatus :: Prelude.Maybe AutoRegistrationStatus,
     -- | The CA certificate ARN.
     certificateArn :: Prelude.Maybe Prelude.Text,
     -- | The CA certificate ID.
     certificateId :: Prelude.Maybe Prelude.Text,
-    -- | The CA certificate data, in PEM format.
-    certificatePem :: Prelude.Maybe Prelude.Text,
-    -- | Whether the CA certificate configured for auto registration of device
-    -- certificates. Valid values are \"ENABLE\" and \"DISABLE\"
-    autoRegistrationStatus :: Prelude.Maybe AutoRegistrationStatus,
-    -- | The generation ID of the CA certificate.
-    generationId :: Prelude.Maybe Prelude.Text,
     -- | The mode of the CA.
     --
     -- All the device certificates that are registered using this CA will be
@@ -58,8 +46,20 @@ data CACertificateDescription = CACertificateDescription'
     -- certificate mode for device certificates, see
     -- <https://docs.aws.amazon.com/iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode certificate mode>.
     certificateMode :: Prelude.Maybe CertificateMode,
+    -- | The CA certificate data, in PEM format.
+    certificatePem :: Prelude.Maybe Prelude.Text,
+    -- | The date the CA certificate was created.
+    creationDate :: Prelude.Maybe Data.POSIX,
+    -- | The customer version of the CA certificate.
+    customerVersion :: Prelude.Maybe Prelude.Natural,
+    -- | The generation ID of the CA certificate.
+    generationId :: Prelude.Maybe Prelude.Text,
+    -- | The date the CA certificate was last modified.
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | The owner of the CA certificate.
     ownedBy :: Prelude.Maybe Prelude.Text,
+    -- | The status of a CA certificate.
+    status :: Prelude.Maybe CACertificateStatus,
     -- | When the CA certificate is valid.
     validity :: Prelude.Maybe CertificateValidity
   }
@@ -73,24 +73,12 @@ data CACertificateDescription = CACertificateDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'customerVersion', 'cACertificateDescription_customerVersion' - The customer version of the CA certificate.
---
--- 'lastModifiedDate', 'cACertificateDescription_lastModifiedDate' - The date the CA certificate was last modified.
---
--- 'creationDate', 'cACertificateDescription_creationDate' - The date the CA certificate was created.
---
--- 'status', 'cACertificateDescription_status' - The status of a CA certificate.
+-- 'autoRegistrationStatus', 'cACertificateDescription_autoRegistrationStatus' - Whether the CA certificate configured for auto registration of device
+-- certificates. Valid values are \"ENABLE\" and \"DISABLE\"
 --
 -- 'certificateArn', 'cACertificateDescription_certificateArn' - The CA certificate ARN.
 --
 -- 'certificateId', 'cACertificateDescription_certificateId' - The CA certificate ID.
---
--- 'certificatePem', 'cACertificateDescription_certificatePem' - The CA certificate data, in PEM format.
---
--- 'autoRegistrationStatus', 'cACertificateDescription_autoRegistrationStatus' - Whether the CA certificate configured for auto registration of device
--- certificates. Valid values are \"ENABLE\" and \"DISABLE\"
---
--- 'generationId', 'cACertificateDescription_generationId' - The generation ID of the CA certificate.
 --
 -- 'certificateMode', 'cACertificateDescription_certificateMode' - The mode of the CA.
 --
@@ -99,43 +87,44 @@ data CACertificateDescription = CACertificateDescription'
 -- certificate mode for device certificates, see
 -- <https://docs.aws.amazon.com/iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode certificate mode>.
 --
+-- 'certificatePem', 'cACertificateDescription_certificatePem' - The CA certificate data, in PEM format.
+--
+-- 'creationDate', 'cACertificateDescription_creationDate' - The date the CA certificate was created.
+--
+-- 'customerVersion', 'cACertificateDescription_customerVersion' - The customer version of the CA certificate.
+--
+-- 'generationId', 'cACertificateDescription_generationId' - The generation ID of the CA certificate.
+--
+-- 'lastModifiedDate', 'cACertificateDescription_lastModifiedDate' - The date the CA certificate was last modified.
+--
 -- 'ownedBy', 'cACertificateDescription_ownedBy' - The owner of the CA certificate.
+--
+-- 'status', 'cACertificateDescription_status' - The status of a CA certificate.
 --
 -- 'validity', 'cACertificateDescription_validity' - When the CA certificate is valid.
 newCACertificateDescription ::
   CACertificateDescription
 newCACertificateDescription =
   CACertificateDescription'
-    { customerVersion =
+    { autoRegistrationStatus =
         Prelude.Nothing,
-      lastModifiedDate = Prelude.Nothing,
-      creationDate = Prelude.Nothing,
-      status = Prelude.Nothing,
       certificateArn = Prelude.Nothing,
       certificateId = Prelude.Nothing,
-      certificatePem = Prelude.Nothing,
-      autoRegistrationStatus = Prelude.Nothing,
-      generationId = Prelude.Nothing,
       certificateMode = Prelude.Nothing,
+      certificatePem = Prelude.Nothing,
+      creationDate = Prelude.Nothing,
+      customerVersion = Prelude.Nothing,
+      generationId = Prelude.Nothing,
+      lastModifiedDate = Prelude.Nothing,
       ownedBy = Prelude.Nothing,
+      status = Prelude.Nothing,
       validity = Prelude.Nothing
     }
 
--- | The customer version of the CA certificate.
-cACertificateDescription_customerVersion :: Lens.Lens' CACertificateDescription (Prelude.Maybe Prelude.Natural)
-cACertificateDescription_customerVersion = Lens.lens (\CACertificateDescription' {customerVersion} -> customerVersion) (\s@CACertificateDescription' {} a -> s {customerVersion = a} :: CACertificateDescription)
-
--- | The date the CA certificate was last modified.
-cACertificateDescription_lastModifiedDate :: Lens.Lens' CACertificateDescription (Prelude.Maybe Prelude.UTCTime)
-cACertificateDescription_lastModifiedDate = Lens.lens (\CACertificateDescription' {lastModifiedDate} -> lastModifiedDate) (\s@CACertificateDescription' {} a -> s {lastModifiedDate = a} :: CACertificateDescription) Prelude.. Lens.mapping Data._Time
-
--- | The date the CA certificate was created.
-cACertificateDescription_creationDate :: Lens.Lens' CACertificateDescription (Prelude.Maybe Prelude.UTCTime)
-cACertificateDescription_creationDate = Lens.lens (\CACertificateDescription' {creationDate} -> creationDate) (\s@CACertificateDescription' {} a -> s {creationDate = a} :: CACertificateDescription) Prelude.. Lens.mapping Data._Time
-
--- | The status of a CA certificate.
-cACertificateDescription_status :: Lens.Lens' CACertificateDescription (Prelude.Maybe CACertificateStatus)
-cACertificateDescription_status = Lens.lens (\CACertificateDescription' {status} -> status) (\s@CACertificateDescription' {} a -> s {status = a} :: CACertificateDescription)
+-- | Whether the CA certificate configured for auto registration of device
+-- certificates. Valid values are \"ENABLE\" and \"DISABLE\"
+cACertificateDescription_autoRegistrationStatus :: Lens.Lens' CACertificateDescription (Prelude.Maybe AutoRegistrationStatus)
+cACertificateDescription_autoRegistrationStatus = Lens.lens (\CACertificateDescription' {autoRegistrationStatus} -> autoRegistrationStatus) (\s@CACertificateDescription' {} a -> s {autoRegistrationStatus = a} :: CACertificateDescription)
 
 -- | The CA certificate ARN.
 cACertificateDescription_certificateArn :: Lens.Lens' CACertificateDescription (Prelude.Maybe Prelude.Text)
@@ -144,19 +133,6 @@ cACertificateDescription_certificateArn = Lens.lens (\CACertificateDescription' 
 -- | The CA certificate ID.
 cACertificateDescription_certificateId :: Lens.Lens' CACertificateDescription (Prelude.Maybe Prelude.Text)
 cACertificateDescription_certificateId = Lens.lens (\CACertificateDescription' {certificateId} -> certificateId) (\s@CACertificateDescription' {} a -> s {certificateId = a} :: CACertificateDescription)
-
--- | The CA certificate data, in PEM format.
-cACertificateDescription_certificatePem :: Lens.Lens' CACertificateDescription (Prelude.Maybe Prelude.Text)
-cACertificateDescription_certificatePem = Lens.lens (\CACertificateDescription' {certificatePem} -> certificatePem) (\s@CACertificateDescription' {} a -> s {certificatePem = a} :: CACertificateDescription)
-
--- | Whether the CA certificate configured for auto registration of device
--- certificates. Valid values are \"ENABLE\" and \"DISABLE\"
-cACertificateDescription_autoRegistrationStatus :: Lens.Lens' CACertificateDescription (Prelude.Maybe AutoRegistrationStatus)
-cACertificateDescription_autoRegistrationStatus = Lens.lens (\CACertificateDescription' {autoRegistrationStatus} -> autoRegistrationStatus) (\s@CACertificateDescription' {} a -> s {autoRegistrationStatus = a} :: CACertificateDescription)
-
--- | The generation ID of the CA certificate.
-cACertificateDescription_generationId :: Lens.Lens' CACertificateDescription (Prelude.Maybe Prelude.Text)
-cACertificateDescription_generationId = Lens.lens (\CACertificateDescription' {generationId} -> generationId) (\s@CACertificateDescription' {} a -> s {generationId = a} :: CACertificateDescription)
 
 -- | The mode of the CA.
 --
@@ -167,9 +143,33 @@ cACertificateDescription_generationId = Lens.lens (\CACertificateDescription' {g
 cACertificateDescription_certificateMode :: Lens.Lens' CACertificateDescription (Prelude.Maybe CertificateMode)
 cACertificateDescription_certificateMode = Lens.lens (\CACertificateDescription' {certificateMode} -> certificateMode) (\s@CACertificateDescription' {} a -> s {certificateMode = a} :: CACertificateDescription)
 
+-- | The CA certificate data, in PEM format.
+cACertificateDescription_certificatePem :: Lens.Lens' CACertificateDescription (Prelude.Maybe Prelude.Text)
+cACertificateDescription_certificatePem = Lens.lens (\CACertificateDescription' {certificatePem} -> certificatePem) (\s@CACertificateDescription' {} a -> s {certificatePem = a} :: CACertificateDescription)
+
+-- | The date the CA certificate was created.
+cACertificateDescription_creationDate :: Lens.Lens' CACertificateDescription (Prelude.Maybe Prelude.UTCTime)
+cACertificateDescription_creationDate = Lens.lens (\CACertificateDescription' {creationDate} -> creationDate) (\s@CACertificateDescription' {} a -> s {creationDate = a} :: CACertificateDescription) Prelude.. Lens.mapping Data._Time
+
+-- | The customer version of the CA certificate.
+cACertificateDescription_customerVersion :: Lens.Lens' CACertificateDescription (Prelude.Maybe Prelude.Natural)
+cACertificateDescription_customerVersion = Lens.lens (\CACertificateDescription' {customerVersion} -> customerVersion) (\s@CACertificateDescription' {} a -> s {customerVersion = a} :: CACertificateDescription)
+
+-- | The generation ID of the CA certificate.
+cACertificateDescription_generationId :: Lens.Lens' CACertificateDescription (Prelude.Maybe Prelude.Text)
+cACertificateDescription_generationId = Lens.lens (\CACertificateDescription' {generationId} -> generationId) (\s@CACertificateDescription' {} a -> s {generationId = a} :: CACertificateDescription)
+
+-- | The date the CA certificate was last modified.
+cACertificateDescription_lastModifiedDate :: Lens.Lens' CACertificateDescription (Prelude.Maybe Prelude.UTCTime)
+cACertificateDescription_lastModifiedDate = Lens.lens (\CACertificateDescription' {lastModifiedDate} -> lastModifiedDate) (\s@CACertificateDescription' {} a -> s {lastModifiedDate = a} :: CACertificateDescription) Prelude.. Lens.mapping Data._Time
+
 -- | The owner of the CA certificate.
 cACertificateDescription_ownedBy :: Lens.Lens' CACertificateDescription (Prelude.Maybe Prelude.Text)
 cACertificateDescription_ownedBy = Lens.lens (\CACertificateDescription' {ownedBy} -> ownedBy) (\s@CACertificateDescription' {} a -> s {ownedBy = a} :: CACertificateDescription)
+
+-- | The status of a CA certificate.
+cACertificateDescription_status :: Lens.Lens' CACertificateDescription (Prelude.Maybe CACertificateStatus)
+cACertificateDescription_status = Lens.lens (\CACertificateDescription' {status} -> status) (\s@CACertificateDescription' {} a -> s {status = a} :: CACertificateDescription)
 
 -- | When the CA certificate is valid.
 cACertificateDescription_validity :: Lens.Lens' CACertificateDescription (Prelude.Maybe CertificateValidity)
@@ -181,46 +181,46 @@ instance Data.FromJSON CACertificateDescription where
       "CACertificateDescription"
       ( \x ->
           CACertificateDescription'
-            Prelude.<$> (x Data..:? "customerVersion")
-            Prelude.<*> (x Data..:? "lastModifiedDate")
-            Prelude.<*> (x Data..:? "creationDate")
-            Prelude.<*> (x Data..:? "status")
+            Prelude.<$> (x Data..:? "autoRegistrationStatus")
             Prelude.<*> (x Data..:? "certificateArn")
             Prelude.<*> (x Data..:? "certificateId")
-            Prelude.<*> (x Data..:? "certificatePem")
-            Prelude.<*> (x Data..:? "autoRegistrationStatus")
-            Prelude.<*> (x Data..:? "generationId")
             Prelude.<*> (x Data..:? "certificateMode")
+            Prelude.<*> (x Data..:? "certificatePem")
+            Prelude.<*> (x Data..:? "creationDate")
+            Prelude.<*> (x Data..:? "customerVersion")
+            Prelude.<*> (x Data..:? "generationId")
+            Prelude.<*> (x Data..:? "lastModifiedDate")
             Prelude.<*> (x Data..:? "ownedBy")
+            Prelude.<*> (x Data..:? "status")
             Prelude.<*> (x Data..:? "validity")
       )
 
 instance Prelude.Hashable CACertificateDescription where
   hashWithSalt _salt CACertificateDescription' {..} =
-    _salt `Prelude.hashWithSalt` customerVersion
-      `Prelude.hashWithSalt` lastModifiedDate
-      `Prelude.hashWithSalt` creationDate
-      `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` autoRegistrationStatus
       `Prelude.hashWithSalt` certificateArn
       `Prelude.hashWithSalt` certificateId
-      `Prelude.hashWithSalt` certificatePem
-      `Prelude.hashWithSalt` autoRegistrationStatus
-      `Prelude.hashWithSalt` generationId
       `Prelude.hashWithSalt` certificateMode
+      `Prelude.hashWithSalt` certificatePem
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` customerVersion
+      `Prelude.hashWithSalt` generationId
+      `Prelude.hashWithSalt` lastModifiedDate
       `Prelude.hashWithSalt` ownedBy
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` validity
 
 instance Prelude.NFData CACertificateDescription where
   rnf CACertificateDescription' {..} =
-    Prelude.rnf customerVersion
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf autoRegistrationStatus
       `Prelude.seq` Prelude.rnf certificateArn
       `Prelude.seq` Prelude.rnf certificateId
-      `Prelude.seq` Prelude.rnf certificatePem
-      `Prelude.seq` Prelude.rnf autoRegistrationStatus
-      `Prelude.seq` Prelude.rnf generationId
       `Prelude.seq` Prelude.rnf certificateMode
+      `Prelude.seq` Prelude.rnf certificatePem
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf customerVersion
+      `Prelude.seq` Prelude.rnf generationId
+      `Prelude.seq` Prelude.rnf lastModifiedDate
       `Prelude.seq` Prelude.rnf ownedBy
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf validity

@@ -19,23 +19,23 @@ module Amazonka.Forecast
     -- * Errors
     -- $errors
 
-    -- ** ResourceAlreadyExistsException
-    _ResourceAlreadyExistsException,
-
     -- ** InvalidInputException
     _InvalidInputException,
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** ResourceInUseException
-    _ResourceInUseException,
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
 
     -- ** LimitExceededException
     _LimitExceededException,
 
-    -- ** InvalidNextTokenException
-    _InvalidNextTokenException,
+    -- ** ResourceAlreadyExistsException
+    _ResourceAlreadyExistsException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- * Waiters
     -- $waiters

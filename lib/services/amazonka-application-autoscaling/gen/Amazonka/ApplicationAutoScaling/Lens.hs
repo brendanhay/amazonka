@@ -35,41 +35,41 @@ module Amazonka.ApplicationAutoScaling.Lens
     deregisterScalableTargetResponse_httpStatus,
 
     -- ** DescribeScalableTargets
-    describeScalableTargets_nextToken,
-    describeScalableTargets_scalableDimension,
-    describeScalableTargets_resourceIds,
     describeScalableTargets_maxResults,
+    describeScalableTargets_nextToken,
+    describeScalableTargets_resourceIds,
+    describeScalableTargets_scalableDimension,
     describeScalableTargets_serviceNamespace,
     describeScalableTargetsResponse_nextToken,
     describeScalableTargetsResponse_scalableTargets,
     describeScalableTargetsResponse_httpStatus,
 
     -- ** DescribeScalingActivities
-    describeScalingActivities_resourceId,
-    describeScalingActivities_nextToken,
-    describeScalingActivities_scalableDimension,
     describeScalingActivities_maxResults,
+    describeScalingActivities_nextToken,
+    describeScalingActivities_resourceId,
+    describeScalingActivities_scalableDimension,
     describeScalingActivities_serviceNamespace,
     describeScalingActivitiesResponse_nextToken,
     describeScalingActivitiesResponse_scalingActivities,
     describeScalingActivitiesResponse_httpStatus,
 
     -- ** DescribeScalingPolicies
-    describeScalingPolicies_resourceId,
-    describeScalingPolicies_nextToken,
-    describeScalingPolicies_scalableDimension,
-    describeScalingPolicies_policyNames,
     describeScalingPolicies_maxResults,
+    describeScalingPolicies_nextToken,
+    describeScalingPolicies_policyNames,
+    describeScalingPolicies_resourceId,
+    describeScalingPolicies_scalableDimension,
     describeScalingPolicies_serviceNamespace,
     describeScalingPoliciesResponse_nextToken,
     describeScalingPoliciesResponse_scalingPolicies,
     describeScalingPoliciesResponse_httpStatus,
 
     -- ** DescribeScheduledActions
-    describeScheduledActions_resourceId,
-    describeScheduledActions_nextToken,
-    describeScheduledActions_scalableDimension,
     describeScheduledActions_maxResults,
+    describeScheduledActions_nextToken,
+    describeScheduledActions_resourceId,
+    describeScheduledActions_scalableDimension,
     describeScheduledActions_scheduledActionNames,
     describeScheduledActions_serviceNamespace,
     describeScheduledActionsResponse_nextToken,
@@ -89,11 +89,11 @@ module Amazonka.ApplicationAutoScaling.Lens
     putScalingPolicyResponse_policyARN,
 
     -- ** PutScheduledAction
-    putScheduledAction_schedule,
-    putScheduledAction_timezone,
     putScheduledAction_endTime,
     putScheduledAction_scalableTargetAction,
+    putScheduledAction_schedule,
     putScheduledAction_startTime,
+    putScheduledAction_timezone,
     putScheduledAction_serviceNamespace,
     putScheduledAction_scheduledActionName,
     putScheduledAction_resourceId,
@@ -101,10 +101,10 @@ module Amazonka.ApplicationAutoScaling.Lens
     putScheduledActionResponse_httpStatus,
 
     -- ** RegisterScalableTarget
-    registerScalableTarget_roleARN,
-    registerScalableTarget_suspendedState,
     registerScalableTarget_maxCapacity,
     registerScalableTarget_minCapacity,
+    registerScalableTarget_roleARN,
+    registerScalableTarget_suspendedState,
     registerScalableTarget_serviceNamespace,
     registerScalableTarget_resourceId,
     registerScalableTarget_scalableDimension,
@@ -146,8 +146,8 @@ module Amazonka.ApplicationAutoScaling.Lens
     scalableTargetAction_minCapacity,
 
     -- ** ScalingActivity
-    scalingActivity_endTime,
     scalingActivity_details,
+    scalingActivity_endTime,
     scalingActivity_statusMessage,
     scalingActivity_activityId,
     scalingActivity_serviceNamespace,
@@ -171,11 +171,11 @@ module Amazonka.ApplicationAutoScaling.Lens
     scalingPolicy_creationTime,
 
     -- ** ScheduledAction
-    scheduledAction_scalableDimension,
-    scheduledAction_timezone,
     scheduledAction_endTime,
+    scheduledAction_scalableDimension,
     scheduledAction_scalableTargetAction,
     scheduledAction_startTime,
+    scheduledAction_timezone,
     scheduledAction_scheduledActionName,
     scheduledAction_scheduledActionARN,
     scheduledAction_serviceNamespace,
@@ -184,28 +184,28 @@ module Amazonka.ApplicationAutoScaling.Lens
     scheduledAction_creationTime,
 
     -- ** StepAdjustment
-    stepAdjustment_metricIntervalUpperBound,
     stepAdjustment_metricIntervalLowerBound,
+    stepAdjustment_metricIntervalUpperBound,
     stepAdjustment_scalingAdjustment,
 
     -- ** StepScalingPolicyConfiguration
-    stepScalingPolicyConfiguration_metricAggregationType,
-    stepScalingPolicyConfiguration_cooldown,
     stepScalingPolicyConfiguration_adjustmentType,
-    stepScalingPolicyConfiguration_stepAdjustments,
+    stepScalingPolicyConfiguration_cooldown,
+    stepScalingPolicyConfiguration_metricAggregationType,
     stepScalingPolicyConfiguration_minAdjustmentMagnitude,
+    stepScalingPolicyConfiguration_stepAdjustments,
 
     -- ** SuspendedState
-    suspendedState_dynamicScalingOutSuspended,
     suspendedState_dynamicScalingInSuspended,
+    suspendedState_dynamicScalingOutSuspended,
     suspendedState_scheduledScalingSuspended,
 
     -- ** TargetTrackingScalingPolicyConfiguration
-    targetTrackingScalingPolicyConfiguration_disableScaleIn,
     targetTrackingScalingPolicyConfiguration_customizedMetricSpecification,
+    targetTrackingScalingPolicyConfiguration_disableScaleIn,
+    targetTrackingScalingPolicyConfiguration_predefinedMetricSpecification,
     targetTrackingScalingPolicyConfiguration_scaleInCooldown,
     targetTrackingScalingPolicyConfiguration_scaleOutCooldown,
-    targetTrackingScalingPolicyConfiguration_predefinedMetricSpecification,
     targetTrackingScalingPolicyConfiguration_targetValue,
   )
 where

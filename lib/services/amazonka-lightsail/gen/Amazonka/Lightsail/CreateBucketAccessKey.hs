@@ -51,8 +51,8 @@ module Amazonka.Lightsail.CreateBucketAccessKey
     newCreateBucketAccessKeyResponse,
 
     -- * Response Lenses
-    createBucketAccessKeyResponse_operations,
     createBucketAccessKeyResponse_accessKey,
+    createBucketAccessKeyResponse_operations,
     createBucketAccessKeyResponse_httpStatus,
   )
 where
@@ -105,8 +105,8 @@ instance Core.AWSRequest CreateBucketAccessKey where
     Response.receiveJSON
       ( \s h x ->
           CreateBucketAccessKeyResponse'
-            Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "accessKey")
+            Prelude.<$> (x Data..?> "accessKey")
+            Prelude.<*> (x Data..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,12 +148,12 @@ instance Data.ToQuery CreateBucketAccessKey where
 
 -- | /See:/ 'newCreateBucketAccessKeyResponse' smart constructor.
 data CreateBucketAccessKeyResponse = CreateBucketAccessKeyResponse'
-  { -- | An array of objects that describe the result of the action, such as the
+  { -- | An object that describes the access key that is created.
+    accessKey :: Prelude.Maybe AccessKey,
+    -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
     operations :: Prelude.Maybe [Operation],
-    -- | An object that describes the access key that is created.
-    accessKey :: Prelude.Maybe AccessKey,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -167,11 +167,11 @@ data CreateBucketAccessKeyResponse = CreateBucketAccessKeyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'accessKey', 'createBucketAccessKeyResponse_accessKey' - An object that describes the access key that is created.
+--
 -- 'operations', 'createBucketAccessKeyResponse_operations' - An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
---
--- 'accessKey', 'createBucketAccessKeyResponse_accessKey' - An object that describes the access key that is created.
 --
 -- 'httpStatus', 'createBucketAccessKeyResponse_httpStatus' - The response's http status code.
 newCreateBucketAccessKeyResponse ::
@@ -180,11 +180,15 @@ newCreateBucketAccessKeyResponse ::
   CreateBucketAccessKeyResponse
 newCreateBucketAccessKeyResponse pHttpStatus_ =
   CreateBucketAccessKeyResponse'
-    { operations =
+    { accessKey =
         Prelude.Nothing,
-      accessKey = Prelude.Nothing,
+      operations = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An object that describes the access key that is created.
+createBucketAccessKeyResponse_accessKey :: Lens.Lens' CreateBucketAccessKeyResponse (Prelude.Maybe AccessKey)
+createBucketAccessKeyResponse_accessKey = Lens.lens (\CreateBucketAccessKeyResponse' {accessKey} -> accessKey) (\s@CreateBucketAccessKeyResponse' {} a -> s {accessKey = a} :: CreateBucketAccessKeyResponse)
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
@@ -192,16 +196,12 @@ newCreateBucketAccessKeyResponse pHttpStatus_ =
 createBucketAccessKeyResponse_operations :: Lens.Lens' CreateBucketAccessKeyResponse (Prelude.Maybe [Operation])
 createBucketAccessKeyResponse_operations = Lens.lens (\CreateBucketAccessKeyResponse' {operations} -> operations) (\s@CreateBucketAccessKeyResponse' {} a -> s {operations = a} :: CreateBucketAccessKeyResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | An object that describes the access key that is created.
-createBucketAccessKeyResponse_accessKey :: Lens.Lens' CreateBucketAccessKeyResponse (Prelude.Maybe AccessKey)
-createBucketAccessKeyResponse_accessKey = Lens.lens (\CreateBucketAccessKeyResponse' {accessKey} -> accessKey) (\s@CreateBucketAccessKeyResponse' {} a -> s {accessKey = a} :: CreateBucketAccessKeyResponse)
-
 -- | The response's http status code.
 createBucketAccessKeyResponse_httpStatus :: Lens.Lens' CreateBucketAccessKeyResponse Prelude.Int
 createBucketAccessKeyResponse_httpStatus = Lens.lens (\CreateBucketAccessKeyResponse' {httpStatus} -> httpStatus) (\s@CreateBucketAccessKeyResponse' {} a -> s {httpStatus = a} :: CreateBucketAccessKeyResponse)
 
 instance Prelude.NFData CreateBucketAccessKeyResponse where
   rnf CreateBucketAccessKeyResponse' {..} =
-    Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf accessKey
+    Prelude.rnf accessKey
+      `Prelude.seq` Prelude.rnf operations
       `Prelude.seq` Prelude.rnf httpStatus

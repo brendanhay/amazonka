@@ -30,8 +30,8 @@ module Amazonka.Transfer.ListTagsForResource
     newListTagsForResource,
 
     -- * Request Lenses
-    listTagsForResource_nextToken,
     listTagsForResource_maxResults,
+    listTagsForResource_nextToken,
     listTagsForResource_arn,
 
     -- * Destructuring the Response
@@ -39,9 +39,9 @@ module Amazonka.Transfer.ListTagsForResource
     newListTagsForResourceResponse,
 
     -- * Response Lenses
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_nextToken,
     listTagsForResourceResponse_arn,
+    listTagsForResourceResponse_nextToken,
+    listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
   )
 where
@@ -56,14 +56,14 @@ import Amazonka.Transfer.Types
 
 -- | /See:/ 'newListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { -- | When you request additional results from the @ListTagsForResource@
+  { -- | Specifies the number of tags to return as a response to the
+    -- @ListTagsForResource@ request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | When you request additional results from the @ListTagsForResource@
     -- operation, a @NextToken@ parameter is returned in the input. You can
     -- then pass in a subsequent command to the @NextToken@ parameter to
     -- continue listing additional tags.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the number of tags to return as a response to the
-    -- @ListTagsForResource@ request.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Requests the tags associated with a particular Amazon Resource Name
     -- (ARN). An ARN is an identifier for a specific Amazon Web Services
     -- resource, such as a server, user, or role.
@@ -79,13 +79,13 @@ data ListTagsForResource = ListTagsForResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listTagsForResource_maxResults' - Specifies the number of tags to return as a response to the
+-- @ListTagsForResource@ request.
+--
 -- 'nextToken', 'listTagsForResource_nextToken' - When you request additional results from the @ListTagsForResource@
 -- operation, a @NextToken@ parameter is returned in the input. You can
 -- then pass in a subsequent command to the @NextToken@ parameter to
 -- continue listing additional tags.
---
--- 'maxResults', 'listTagsForResource_maxResults' - Specifies the number of tags to return as a response to the
--- @ListTagsForResource@ request.
 --
 -- 'arn', 'listTagsForResource_arn' - Requests the tags associated with a particular Amazon Resource Name
 -- (ARN). An ARN is an identifier for a specific Amazon Web Services
@@ -96,10 +96,15 @@ newListTagsForResource ::
   ListTagsForResource
 newListTagsForResource pArn_ =
   ListTagsForResource'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       arn = pArn_
     }
+
+-- | Specifies the number of tags to return as a response to the
+-- @ListTagsForResource@ request.
+listTagsForResource_maxResults :: Lens.Lens' ListTagsForResource (Prelude.Maybe Prelude.Natural)
+listTagsForResource_maxResults = Lens.lens (\ListTagsForResource' {maxResults} -> maxResults) (\s@ListTagsForResource' {} a -> s {maxResults = a} :: ListTagsForResource)
 
 -- | When you request additional results from the @ListTagsForResource@
 -- operation, a @NextToken@ parameter is returned in the input. You can
@@ -107,11 +112,6 @@ newListTagsForResource pArn_ =
 -- continue listing additional tags.
 listTagsForResource_nextToken :: Lens.Lens' ListTagsForResource (Prelude.Maybe Prelude.Text)
 listTagsForResource_nextToken = Lens.lens (\ListTagsForResource' {nextToken} -> nextToken) (\s@ListTagsForResource' {} a -> s {nextToken = a} :: ListTagsForResource)
-
--- | Specifies the number of tags to return as a response to the
--- @ListTagsForResource@ request.
-listTagsForResource_maxResults :: Lens.Lens' ListTagsForResource (Prelude.Maybe Prelude.Natural)
-listTagsForResource_maxResults = Lens.lens (\ListTagsForResource' {maxResults} -> maxResults) (\s@ListTagsForResource' {} a -> s {maxResults = a} :: ListTagsForResource)
 
 -- | Requests the tags associated with a particular Amazon Resource Name
 -- (ARN). An ARN is an identifier for a specific Amazon Web Services
@@ -151,22 +151,22 @@ instance Core.AWSRequest ListTagsForResource where
     Response.receiveJSON
       ( \s h x ->
           ListTagsForResourceResponse'
-            Prelude.<$> (x Data..?> "Tags")
+            Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Tags")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListTagsForResource where
   hashWithSalt _salt ListTagsForResource' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData ListTagsForResource where
   rnf ListTagsForResource' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf arn
 
 instance Data.ToHeaders ListTagsForResource where
@@ -188,8 +188,8 @@ instance Data.ToJSON ListTagsForResource where
   toJSON ListTagsForResource' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("Arn" Data..= arn)
           ]
       )
@@ -202,16 +202,16 @@ instance Data.ToQuery ListTagsForResource where
 
 -- | /See:/ 'newListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-  { -- | Key-value pairs that are assigned to a resource, usually for the purpose
-    -- of grouping and searching for items. Tags are metadata that you define.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+  { -- | The ARN you specified to list the tags of.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | When you can get additional results from the @ListTagsForResource@ call,
     -- a @NextToken@ parameter is returned in the output. You can then pass in
     -- a subsequent command to the @NextToken@ parameter to continue listing
     -- additional tags.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The ARN you specified to list the tags of.
-    arn :: Prelude.Maybe Prelude.Text,
+    -- | Key-value pairs that are assigned to a resource, usually for the purpose
+    -- of grouping and searching for items. Tags are metadata that you define.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -225,15 +225,15 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'listTagsForResourceResponse_tags' - Key-value pairs that are assigned to a resource, usually for the purpose
--- of grouping and searching for items. Tags are metadata that you define.
+-- 'arn', 'listTagsForResourceResponse_arn' - The ARN you specified to list the tags of.
 --
 -- 'nextToken', 'listTagsForResourceResponse_nextToken' - When you can get additional results from the @ListTagsForResource@ call,
 -- a @NextToken@ parameter is returned in the output. You can then pass in
 -- a subsequent command to the @NextToken@ parameter to continue listing
 -- additional tags.
 --
--- 'arn', 'listTagsForResourceResponse_arn' - The ARN you specified to list the tags of.
+-- 'tags', 'listTagsForResourceResponse_tags' - Key-value pairs that are assigned to a resource, usually for the purpose
+-- of grouping and searching for items. Tags are metadata that you define.
 --
 -- 'httpStatus', 'listTagsForResourceResponse_httpStatus' - The response's http status code.
 newListTagsForResourceResponse ::
@@ -242,17 +242,15 @@ newListTagsForResourceResponse ::
   ListTagsForResourceResponse
 newListTagsForResourceResponse pHttpStatus_ =
   ListTagsForResourceResponse'
-    { tags =
-        Prelude.Nothing,
+    { arn = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      arn = Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | Key-value pairs that are assigned to a resource, usually for the purpose
--- of grouping and searching for items. Tags are metadata that you define.
-listTagsForResourceResponse_tags :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe (Prelude.NonEmpty Tag))
-listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tags} -> tags) (\s@ListTagsForResourceResponse' {} a -> s {tags = a} :: ListTagsForResourceResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The ARN you specified to list the tags of.
+listTagsForResourceResponse_arn :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe Prelude.Text)
+listTagsForResourceResponse_arn = Lens.lens (\ListTagsForResourceResponse' {arn} -> arn) (\s@ListTagsForResourceResponse' {} a -> s {arn = a} :: ListTagsForResourceResponse)
 
 -- | When you can get additional results from the @ListTagsForResource@ call,
 -- a @NextToken@ parameter is returned in the output. You can then pass in
@@ -261,9 +259,10 @@ listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tag
 listTagsForResourceResponse_nextToken :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe Prelude.Text)
 listTagsForResourceResponse_nextToken = Lens.lens (\ListTagsForResourceResponse' {nextToken} -> nextToken) (\s@ListTagsForResourceResponse' {} a -> s {nextToken = a} :: ListTagsForResourceResponse)
 
--- | The ARN you specified to list the tags of.
-listTagsForResourceResponse_arn :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe Prelude.Text)
-listTagsForResourceResponse_arn = Lens.lens (\ListTagsForResourceResponse' {arn} -> arn) (\s@ListTagsForResourceResponse' {} a -> s {arn = a} :: ListTagsForResourceResponse)
+-- | Key-value pairs that are assigned to a resource, usually for the purpose
+-- of grouping and searching for items. Tags are metadata that you define.
+listTagsForResourceResponse_tags :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe (Prelude.NonEmpty Tag))
+listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tags} -> tags) (\s@ListTagsForResourceResponse' {} a -> s {tags = a} :: ListTagsForResourceResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens.Lens' ListTagsForResourceResponse Prelude.Int
@@ -271,7 +270,7 @@ listTagsForResourceResponse_httpStatus = Lens.lens (\ListTagsForResourceResponse
 
 instance Prelude.NFData ListTagsForResourceResponse where
   rnf ListTagsForResourceResponse' {..} =
-    Prelude.rnf tags
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

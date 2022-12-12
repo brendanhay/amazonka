@@ -35,9 +35,9 @@ module Amazonka.QuickSight.DescribeThemePermissions
     newDescribeThemePermissionsResponse,
 
     -- * Response Lenses
-    describeThemePermissionsResponse_themeArn,
-    describeThemePermissionsResponse_requestId,
     describeThemePermissionsResponse_permissions,
+    describeThemePermissionsResponse_requestId,
+    describeThemePermissionsResponse_themeArn,
     describeThemePermissionsResponse_themeId,
     describeThemePermissionsResponse_status,
   )
@@ -105,9 +105,9 @@ instance Core.AWSRequest DescribeThemePermissions where
     Response.receiveJSON
       ( \s h x ->
           DescribeThemePermissionsResponse'
-            Prelude.<$> (x Data..?> "ThemeArn")
+            Prelude.<$> (x Data..?> "Permissions")
             Prelude.<*> (x Data..?> "RequestId")
-            Prelude.<*> (x Data..?> "Permissions")
+            Prelude.<*> (x Data..?> "ThemeArn")
             Prelude.<*> (x Data..?> "ThemeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -148,12 +148,12 @@ instance Data.ToQuery DescribeThemePermissions where
 
 -- | /See:/ 'newDescribeThemePermissionsResponse' smart constructor.
 data DescribeThemePermissionsResponse = DescribeThemePermissionsResponse'
-  { -- | The Amazon Resource Name (ARN) of the theme.
-    themeArn :: Prelude.Maybe Prelude.Text,
+  { -- | A list of resource permissions set on the theme.
+    permissions :: Prelude.Maybe (Prelude.NonEmpty ResourcePermission),
     -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Maybe Prelude.Text,
-    -- | A list of resource permissions set on the theme.
-    permissions :: Prelude.Maybe (Prelude.NonEmpty ResourcePermission),
+    -- | The Amazon Resource Name (ARN) of the theme.
+    themeArn :: Prelude.Maybe Prelude.Text,
     -- | The ID for the theme.
     themeId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
@@ -169,11 +169,11 @@ data DescribeThemePermissionsResponse = DescribeThemePermissionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'themeArn', 'describeThemePermissionsResponse_themeArn' - The Amazon Resource Name (ARN) of the theme.
+-- 'permissions', 'describeThemePermissionsResponse_permissions' - A list of resource permissions set on the theme.
 --
 -- 'requestId', 'describeThemePermissionsResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
--- 'permissions', 'describeThemePermissionsResponse_permissions' - A list of resource permissions set on the theme.
+-- 'themeArn', 'describeThemePermissionsResponse_themeArn' - The Amazon Resource Name (ARN) of the theme.
 --
 -- 'themeId', 'describeThemePermissionsResponse_themeId' - The ID for the theme.
 --
@@ -184,25 +184,25 @@ newDescribeThemePermissionsResponse ::
   DescribeThemePermissionsResponse
 newDescribeThemePermissionsResponse pStatus_ =
   DescribeThemePermissionsResponse'
-    { themeArn =
+    { permissions =
         Prelude.Nothing,
       requestId = Prelude.Nothing,
-      permissions = Prelude.Nothing,
+      themeArn = Prelude.Nothing,
       themeId = Prelude.Nothing,
       status = pStatus_
     }
 
--- | The Amazon Resource Name (ARN) of the theme.
-describeThemePermissionsResponse_themeArn :: Lens.Lens' DescribeThemePermissionsResponse (Prelude.Maybe Prelude.Text)
-describeThemePermissionsResponse_themeArn = Lens.lens (\DescribeThemePermissionsResponse' {themeArn} -> themeArn) (\s@DescribeThemePermissionsResponse' {} a -> s {themeArn = a} :: DescribeThemePermissionsResponse)
+-- | A list of resource permissions set on the theme.
+describeThemePermissionsResponse_permissions :: Lens.Lens' DescribeThemePermissionsResponse (Prelude.Maybe (Prelude.NonEmpty ResourcePermission))
+describeThemePermissionsResponse_permissions = Lens.lens (\DescribeThemePermissionsResponse' {permissions} -> permissions) (\s@DescribeThemePermissionsResponse' {} a -> s {permissions = a} :: DescribeThemePermissionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Web Services request ID for this operation.
 describeThemePermissionsResponse_requestId :: Lens.Lens' DescribeThemePermissionsResponse (Prelude.Maybe Prelude.Text)
 describeThemePermissionsResponse_requestId = Lens.lens (\DescribeThemePermissionsResponse' {requestId} -> requestId) (\s@DescribeThemePermissionsResponse' {} a -> s {requestId = a} :: DescribeThemePermissionsResponse)
 
--- | A list of resource permissions set on the theme.
-describeThemePermissionsResponse_permissions :: Lens.Lens' DescribeThemePermissionsResponse (Prelude.Maybe (Prelude.NonEmpty ResourcePermission))
-describeThemePermissionsResponse_permissions = Lens.lens (\DescribeThemePermissionsResponse' {permissions} -> permissions) (\s@DescribeThemePermissionsResponse' {} a -> s {permissions = a} :: DescribeThemePermissionsResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The Amazon Resource Name (ARN) of the theme.
+describeThemePermissionsResponse_themeArn :: Lens.Lens' DescribeThemePermissionsResponse (Prelude.Maybe Prelude.Text)
+describeThemePermissionsResponse_themeArn = Lens.lens (\DescribeThemePermissionsResponse' {themeArn} -> themeArn) (\s@DescribeThemePermissionsResponse' {} a -> s {themeArn = a} :: DescribeThemePermissionsResponse)
 
 -- | The ID for the theme.
 describeThemePermissionsResponse_themeId :: Lens.Lens' DescribeThemePermissionsResponse (Prelude.Maybe Prelude.Text)
@@ -217,8 +217,8 @@ instance
     DescribeThemePermissionsResponse
   where
   rnf DescribeThemePermissionsResponse' {..} =
-    Prelude.rnf themeArn
+    Prelude.rnf permissions
       `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf permissions
+      `Prelude.seq` Prelude.rnf themeArn
       `Prelude.seq` Prelude.rnf themeId
       `Prelude.seq` Prelude.rnf status

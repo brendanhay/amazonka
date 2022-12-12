@@ -29,21 +29,24 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVulnerablePackage' smart constructor.
 data VulnerablePackage = VulnerablePackage'
-  { -- | The file path of the vulnerable package.
-    filePath :: Prelude.Maybe Prelude.Text,
-    -- | The version of the package that contains the vulnerability fix.
-    fixedInVersion :: Prelude.Maybe Prelude.Text,
-    -- | The code to run in your environment to update packages with a fix
-    -- available.
-    remediation :: Prelude.Maybe Prelude.Text,
-    -- | The architecture of the vulnerable package.
+  { -- | The architecture of the vulnerable package.
     arch :: Prelude.Maybe Prelude.Text,
     -- | The epoch of the vulnerable package.
     epoch :: Prelude.Maybe Prelude.Int,
+    -- | The file path of the vulnerable package.
+    filePath :: Prelude.Maybe Prelude.Text,
+    -- | The version of the package that contains the vulnerability fix.
+    fixedInVersion :: Prelude.Maybe Prelude.Text,
     -- | The package manager of the vulnerable package.
     packageManager :: Prelude.Maybe PackageManager,
     -- | The release of the vulnerable package.
     release :: Prelude.Maybe Prelude.Text,
+    -- | The code to run in your environment to update packages with a fix
+    -- available.
+    remediation :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Number (ARN) of the AWS Lambda function affected by
+    -- a finding.
+    sourceLambdaLayerArn :: Prelude.Maybe Prelude.Text,
     -- | The source layer hash of the vulnerable package.
     sourceLayerHash :: Prelude.Maybe Prelude.Text,
     -- | The name of the vulnerable package.
@@ -61,20 +64,23 @@ data VulnerablePackage = VulnerablePackage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filePath', 'vulnerablePackage_filePath' - The file path of the vulnerable package.
---
--- 'fixedInVersion', 'vulnerablePackage_fixedInVersion' - The version of the package that contains the vulnerability fix.
---
--- 'remediation', 'vulnerablePackage_remediation' - The code to run in your environment to update packages with a fix
--- available.
---
 -- 'arch', 'vulnerablePackage_arch' - The architecture of the vulnerable package.
 --
 -- 'epoch', 'vulnerablePackage_epoch' - The epoch of the vulnerable package.
 --
+-- 'filePath', 'vulnerablePackage_filePath' - The file path of the vulnerable package.
+--
+-- 'fixedInVersion', 'vulnerablePackage_fixedInVersion' - The version of the package that contains the vulnerability fix.
+--
 -- 'packageManager', 'vulnerablePackage_packageManager' - The package manager of the vulnerable package.
 --
 -- 'release', 'vulnerablePackage_release' - The release of the vulnerable package.
+--
+-- 'remediation', 'vulnerablePackage_remediation' - The code to run in your environment to update packages with a fix
+-- available.
+--
+-- 'sourceLambdaLayerArn', 'vulnerablePackage_sourceLambdaLayerArn' - The Amazon Resource Number (ARN) of the AWS Lambda function affected by
+-- a finding.
 --
 -- 'sourceLayerHash', 'vulnerablePackage_sourceLayerHash' - The source layer hash of the vulnerable package.
 --
@@ -89,30 +95,18 @@ newVulnerablePackage ::
   VulnerablePackage
 newVulnerablePackage pName_ pVersion_ =
   VulnerablePackage'
-    { filePath = Prelude.Nothing,
-      fixedInVersion = Prelude.Nothing,
-      remediation = Prelude.Nothing,
-      arch = Prelude.Nothing,
+    { arch = Prelude.Nothing,
       epoch = Prelude.Nothing,
+      filePath = Prelude.Nothing,
+      fixedInVersion = Prelude.Nothing,
       packageManager = Prelude.Nothing,
       release = Prelude.Nothing,
+      remediation = Prelude.Nothing,
+      sourceLambdaLayerArn = Prelude.Nothing,
       sourceLayerHash = Prelude.Nothing,
       name = pName_,
       version = pVersion_
     }
-
--- | The file path of the vulnerable package.
-vulnerablePackage_filePath :: Lens.Lens' VulnerablePackage (Prelude.Maybe Prelude.Text)
-vulnerablePackage_filePath = Lens.lens (\VulnerablePackage' {filePath} -> filePath) (\s@VulnerablePackage' {} a -> s {filePath = a} :: VulnerablePackage)
-
--- | The version of the package that contains the vulnerability fix.
-vulnerablePackage_fixedInVersion :: Lens.Lens' VulnerablePackage (Prelude.Maybe Prelude.Text)
-vulnerablePackage_fixedInVersion = Lens.lens (\VulnerablePackage' {fixedInVersion} -> fixedInVersion) (\s@VulnerablePackage' {} a -> s {fixedInVersion = a} :: VulnerablePackage)
-
--- | The code to run in your environment to update packages with a fix
--- available.
-vulnerablePackage_remediation :: Lens.Lens' VulnerablePackage (Prelude.Maybe Prelude.Text)
-vulnerablePackage_remediation = Lens.lens (\VulnerablePackage' {remediation} -> remediation) (\s@VulnerablePackage' {} a -> s {remediation = a} :: VulnerablePackage)
 
 -- | The architecture of the vulnerable package.
 vulnerablePackage_arch :: Lens.Lens' VulnerablePackage (Prelude.Maybe Prelude.Text)
@@ -122,6 +116,14 @@ vulnerablePackage_arch = Lens.lens (\VulnerablePackage' {arch} -> arch) (\s@Vuln
 vulnerablePackage_epoch :: Lens.Lens' VulnerablePackage (Prelude.Maybe Prelude.Int)
 vulnerablePackage_epoch = Lens.lens (\VulnerablePackage' {epoch} -> epoch) (\s@VulnerablePackage' {} a -> s {epoch = a} :: VulnerablePackage)
 
+-- | The file path of the vulnerable package.
+vulnerablePackage_filePath :: Lens.Lens' VulnerablePackage (Prelude.Maybe Prelude.Text)
+vulnerablePackage_filePath = Lens.lens (\VulnerablePackage' {filePath} -> filePath) (\s@VulnerablePackage' {} a -> s {filePath = a} :: VulnerablePackage)
+
+-- | The version of the package that contains the vulnerability fix.
+vulnerablePackage_fixedInVersion :: Lens.Lens' VulnerablePackage (Prelude.Maybe Prelude.Text)
+vulnerablePackage_fixedInVersion = Lens.lens (\VulnerablePackage' {fixedInVersion} -> fixedInVersion) (\s@VulnerablePackage' {} a -> s {fixedInVersion = a} :: VulnerablePackage)
+
 -- | The package manager of the vulnerable package.
 vulnerablePackage_packageManager :: Lens.Lens' VulnerablePackage (Prelude.Maybe PackageManager)
 vulnerablePackage_packageManager = Lens.lens (\VulnerablePackage' {packageManager} -> packageManager) (\s@VulnerablePackage' {} a -> s {packageManager = a} :: VulnerablePackage)
@@ -129,6 +131,16 @@ vulnerablePackage_packageManager = Lens.lens (\VulnerablePackage' {packageManage
 -- | The release of the vulnerable package.
 vulnerablePackage_release :: Lens.Lens' VulnerablePackage (Prelude.Maybe Prelude.Text)
 vulnerablePackage_release = Lens.lens (\VulnerablePackage' {release} -> release) (\s@VulnerablePackage' {} a -> s {release = a} :: VulnerablePackage)
+
+-- | The code to run in your environment to update packages with a fix
+-- available.
+vulnerablePackage_remediation :: Lens.Lens' VulnerablePackage (Prelude.Maybe Prelude.Text)
+vulnerablePackage_remediation = Lens.lens (\VulnerablePackage' {remediation} -> remediation) (\s@VulnerablePackage' {} a -> s {remediation = a} :: VulnerablePackage)
+
+-- | The Amazon Resource Number (ARN) of the AWS Lambda function affected by
+-- a finding.
+vulnerablePackage_sourceLambdaLayerArn :: Lens.Lens' VulnerablePackage (Prelude.Maybe Prelude.Text)
+vulnerablePackage_sourceLambdaLayerArn = Lens.lens (\VulnerablePackage' {sourceLambdaLayerArn} -> sourceLambdaLayerArn) (\s@VulnerablePackage' {} a -> s {sourceLambdaLayerArn = a} :: VulnerablePackage)
 
 -- | The source layer hash of the vulnerable package.
 vulnerablePackage_sourceLayerHash :: Lens.Lens' VulnerablePackage (Prelude.Maybe Prelude.Text)
@@ -148,13 +160,14 @@ instance Data.FromJSON VulnerablePackage where
       "VulnerablePackage"
       ( \x ->
           VulnerablePackage'
-            Prelude.<$> (x Data..:? "filePath")
-            Prelude.<*> (x Data..:? "fixedInVersion")
-            Prelude.<*> (x Data..:? "remediation")
-            Prelude.<*> (x Data..:? "arch")
+            Prelude.<$> (x Data..:? "arch")
             Prelude.<*> (x Data..:? "epoch")
+            Prelude.<*> (x Data..:? "filePath")
+            Prelude.<*> (x Data..:? "fixedInVersion")
             Prelude.<*> (x Data..:? "packageManager")
             Prelude.<*> (x Data..:? "release")
+            Prelude.<*> (x Data..:? "remediation")
+            Prelude.<*> (x Data..:? "sourceLambdaLayerArn")
             Prelude.<*> (x Data..:? "sourceLayerHash")
             Prelude.<*> (x Data..: "name")
             Prelude.<*> (x Data..: "version")
@@ -162,26 +175,28 @@ instance Data.FromJSON VulnerablePackage where
 
 instance Prelude.Hashable VulnerablePackage where
   hashWithSalt _salt VulnerablePackage' {..} =
-    _salt `Prelude.hashWithSalt` filePath
-      `Prelude.hashWithSalt` fixedInVersion
-      `Prelude.hashWithSalt` remediation
-      `Prelude.hashWithSalt` arch
+    _salt `Prelude.hashWithSalt` arch
       `Prelude.hashWithSalt` epoch
+      `Prelude.hashWithSalt` filePath
+      `Prelude.hashWithSalt` fixedInVersion
       `Prelude.hashWithSalt` packageManager
       `Prelude.hashWithSalt` release
+      `Prelude.hashWithSalt` remediation
+      `Prelude.hashWithSalt` sourceLambdaLayerArn
       `Prelude.hashWithSalt` sourceLayerHash
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData VulnerablePackage where
   rnf VulnerablePackage' {..} =
-    Prelude.rnf filePath
-      `Prelude.seq` Prelude.rnf fixedInVersion
-      `Prelude.seq` Prelude.rnf remediation
-      `Prelude.seq` Prelude.rnf arch
+    Prelude.rnf arch
       `Prelude.seq` Prelude.rnf epoch
+      `Prelude.seq` Prelude.rnf filePath
+      `Prelude.seq` Prelude.rnf fixedInVersion
       `Prelude.seq` Prelude.rnf packageManager
       `Prelude.seq` Prelude.rnf release
+      `Prelude.seq` Prelude.rnf remediation
+      `Prelude.seq` Prelude.rnf sourceLambdaLayerArn
       `Prelude.seq` Prelude.rnf sourceLayerHash
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf version

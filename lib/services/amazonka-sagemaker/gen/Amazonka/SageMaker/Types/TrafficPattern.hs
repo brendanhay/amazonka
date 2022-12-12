@@ -30,10 +30,10 @@ import Amazonka.SageMaker.Types.TrafficType
 --
 -- /See:/ 'newTrafficPattern' smart constructor.
 data TrafficPattern = TrafficPattern'
-  { -- | Defines the traffic patterns.
-    trafficType :: Prelude.Maybe TrafficType,
-    -- | Defines the phases traffic specification.
-    phases :: Prelude.Maybe (Prelude.NonEmpty Phase)
+  { -- | Defines the phases traffic specification.
+    phases :: Prelude.Maybe (Prelude.NonEmpty Phase),
+    -- | Defines the traffic patterns.
+    trafficType :: Prelude.Maybe TrafficType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,24 @@ data TrafficPattern = TrafficPattern'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'trafficType', 'trafficPattern_trafficType' - Defines the traffic patterns.
---
 -- 'phases', 'trafficPattern_phases' - Defines the phases traffic specification.
+--
+-- 'trafficType', 'trafficPattern_trafficType' - Defines the traffic patterns.
 newTrafficPattern ::
   TrafficPattern
 newTrafficPattern =
   TrafficPattern'
-    { trafficType = Prelude.Nothing,
-      phases = Prelude.Nothing
+    { phases = Prelude.Nothing,
+      trafficType = Prelude.Nothing
     }
-
--- | Defines the traffic patterns.
-trafficPattern_trafficType :: Lens.Lens' TrafficPattern (Prelude.Maybe TrafficType)
-trafficPattern_trafficType = Lens.lens (\TrafficPattern' {trafficType} -> trafficType) (\s@TrafficPattern' {} a -> s {trafficType = a} :: TrafficPattern)
 
 -- | Defines the phases traffic specification.
 trafficPattern_phases :: Lens.Lens' TrafficPattern (Prelude.Maybe (Prelude.NonEmpty Phase))
 trafficPattern_phases = Lens.lens (\TrafficPattern' {phases} -> phases) (\s@TrafficPattern' {} a -> s {phases = a} :: TrafficPattern) Prelude.. Lens.mapping Lens.coerced
+
+-- | Defines the traffic patterns.
+trafficPattern_trafficType :: Lens.Lens' TrafficPattern (Prelude.Maybe TrafficType)
+trafficPattern_trafficType = Lens.lens (\TrafficPattern' {trafficType} -> trafficType) (\s@TrafficPattern' {} a -> s {trafficType = a} :: TrafficPattern)
 
 instance Data.FromJSON TrafficPattern where
   parseJSON =
@@ -70,25 +70,25 @@ instance Data.FromJSON TrafficPattern where
       "TrafficPattern"
       ( \x ->
           TrafficPattern'
-            Prelude.<$> (x Data..:? "TrafficType")
-            Prelude.<*> (x Data..:? "Phases")
+            Prelude.<$> (x Data..:? "Phases")
+            Prelude.<*> (x Data..:? "TrafficType")
       )
 
 instance Prelude.Hashable TrafficPattern where
   hashWithSalt _salt TrafficPattern' {..} =
-    _salt `Prelude.hashWithSalt` trafficType
-      `Prelude.hashWithSalt` phases
+    _salt `Prelude.hashWithSalt` phases
+      `Prelude.hashWithSalt` trafficType
 
 instance Prelude.NFData TrafficPattern where
   rnf TrafficPattern' {..} =
-    Prelude.rnf trafficType
-      `Prelude.seq` Prelude.rnf phases
+    Prelude.rnf phases
+      `Prelude.seq` Prelude.rnf trafficType
 
 instance Data.ToJSON TrafficPattern where
   toJSON TrafficPattern' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("TrafficType" Data..=) Prelude.<$> trafficType,
-            ("Phases" Data..=) Prelude.<$> phases
+          [ ("Phases" Data..=) Prelude.<$> phases,
+            ("TrafficType" Data..=) Prelude.<$> trafficType
           ]
       )

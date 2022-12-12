@@ -58,11 +58,11 @@ module Amazonka.RDS.CreateEventSubscription
     newCreateEventSubscription,
 
     -- * Request Lenses
-    createEventSubscription_tags,
-    createEventSubscription_sourceIds,
-    createEventSubscription_sourceType,
     createEventSubscription_enabled,
     createEventSubscription_eventCategories,
+    createEventSubscription_sourceIds,
+    createEventSubscription_sourceType,
+    createEventSubscription_tags,
     createEventSubscription_subscriptionName,
     createEventSubscription_snsTopicArn,
 
@@ -88,7 +88,20 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateEventSubscription' smart constructor.
 data CreateEventSubscription = CreateEventSubscription'
-  { tags :: Prelude.Maybe [Tag],
+  { -- | A value that indicates whether to activate the subscription. If the
+    -- event notification subscription isn\'t activated, the subscription is
+    -- created but not active.
+    enabled :: Prelude.Maybe Prelude.Bool,
+    -- | A list of event categories for a particular source type (@SourceType@)
+    -- that you want to subscribe to. You can see a list of the categories for
+    -- a given source type in the \"Amazon RDS event categories and event
+    -- messages\" section of the
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.Messages.html Amazon RDS User Guide>
+    -- or the
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Events.Messages.html Amazon Aurora User Guide>
+    -- . You can also see this list by using the @DescribeEventCategories@
+    -- operation.
+    eventCategories :: Prelude.Maybe [Prelude.Text],
     -- | The list of identifiers of the event sources for which events are
     -- returned. If not specified, then all sources are included in the
     -- response. An identifier must begin with a letter and must contain only
@@ -128,20 +141,7 @@ data CreateEventSubscription = CreateEventSubscription'
     -- Valid values: @db-instance@ | @db-cluster@ | @db-parameter-group@ |
     -- @db-security-group@ | @db-snapshot@ | @db-cluster-snapshot@ | @db-proxy@
     sourceType :: Prelude.Maybe Prelude.Text,
-    -- | A value that indicates whether to activate the subscription. If the
-    -- event notification subscription isn\'t activated, the subscription is
-    -- created but not active.
-    enabled :: Prelude.Maybe Prelude.Bool,
-    -- | A list of event categories for a particular source type (@SourceType@)
-    -- that you want to subscribe to. You can see a list of the categories for
-    -- a given source type in the \"Amazon RDS event categories and event
-    -- messages\" section of the
-    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.Messages.html Amazon RDS User Guide>
-    -- or the
-    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Events.Messages.html Amazon Aurora User Guide>
-    -- . You can also see this list by using the @DescribeEventCategories@
-    -- operation.
-    eventCategories :: Prelude.Maybe [Prelude.Text],
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the subscription.
     --
     -- Constraints: The name must be less than 255 characters.
@@ -161,7 +161,19 @@ data CreateEventSubscription = CreateEventSubscription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createEventSubscription_tags' - Undocumented member.
+-- 'enabled', 'createEventSubscription_enabled' - A value that indicates whether to activate the subscription. If the
+-- event notification subscription isn\'t activated, the subscription is
+-- created but not active.
+--
+-- 'eventCategories', 'createEventSubscription_eventCategories' - A list of event categories for a particular source type (@SourceType@)
+-- that you want to subscribe to. You can see a list of the categories for
+-- a given source type in the \"Amazon RDS event categories and event
+-- messages\" section of the
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.Messages.html Amazon RDS User Guide>
+-- or the
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Events.Messages.html Amazon Aurora User Guide>
+-- . You can also see this list by using the @DescribeEventCategories@
+-- operation.
 --
 -- 'sourceIds', 'createEventSubscription_sourceIds' - The list of identifiers of the event sources for which events are
 -- returned. If not specified, then all sources are included in the
@@ -202,19 +214,7 @@ data CreateEventSubscription = CreateEventSubscription'
 -- Valid values: @db-instance@ | @db-cluster@ | @db-parameter-group@ |
 -- @db-security-group@ | @db-snapshot@ | @db-cluster-snapshot@ | @db-proxy@
 --
--- 'enabled', 'createEventSubscription_enabled' - A value that indicates whether to activate the subscription. If the
--- event notification subscription isn\'t activated, the subscription is
--- created but not active.
---
--- 'eventCategories', 'createEventSubscription_eventCategories' - A list of event categories for a particular source type (@SourceType@)
--- that you want to subscribe to. You can see a list of the categories for
--- a given source type in the \"Amazon RDS event categories and event
--- messages\" section of the
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.Messages.html Amazon RDS User Guide>
--- or the
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Events.Messages.html Amazon Aurora User Guide>
--- . You can also see this list by using the @DescribeEventCategories@
--- operation.
+-- 'tags', 'createEventSubscription_tags' - Undocumented member.
 --
 -- 'subscriptionName', 'createEventSubscription_subscriptionName' - The name of the subscription.
 --
@@ -233,18 +233,32 @@ newCreateEventSubscription
   pSubscriptionName_
   pSnsTopicArn_ =
     CreateEventSubscription'
-      { tags = Prelude.Nothing,
+      { enabled = Prelude.Nothing,
+        eventCategories = Prelude.Nothing,
         sourceIds = Prelude.Nothing,
         sourceType = Prelude.Nothing,
-        enabled = Prelude.Nothing,
-        eventCategories = Prelude.Nothing,
+        tags = Prelude.Nothing,
         subscriptionName = pSubscriptionName_,
         snsTopicArn = pSnsTopicArn_
       }
 
--- | Undocumented member.
-createEventSubscription_tags :: Lens.Lens' CreateEventSubscription (Prelude.Maybe [Tag])
-createEventSubscription_tags = Lens.lens (\CreateEventSubscription' {tags} -> tags) (\s@CreateEventSubscription' {} a -> s {tags = a} :: CreateEventSubscription) Prelude.. Lens.mapping Lens.coerced
+-- | A value that indicates whether to activate the subscription. If the
+-- event notification subscription isn\'t activated, the subscription is
+-- created but not active.
+createEventSubscription_enabled :: Lens.Lens' CreateEventSubscription (Prelude.Maybe Prelude.Bool)
+createEventSubscription_enabled = Lens.lens (\CreateEventSubscription' {enabled} -> enabled) (\s@CreateEventSubscription' {} a -> s {enabled = a} :: CreateEventSubscription)
+
+-- | A list of event categories for a particular source type (@SourceType@)
+-- that you want to subscribe to. You can see a list of the categories for
+-- a given source type in the \"Amazon RDS event categories and event
+-- messages\" section of the
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.Messages.html Amazon RDS User Guide>
+-- or the
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Events.Messages.html Amazon Aurora User Guide>
+-- . You can also see this list by using the @DescribeEventCategories@
+-- operation.
+createEventSubscription_eventCategories :: Lens.Lens' CreateEventSubscription (Prelude.Maybe [Prelude.Text])
+createEventSubscription_eventCategories = Lens.lens (\CreateEventSubscription' {eventCategories} -> eventCategories) (\s@CreateEventSubscription' {} a -> s {eventCategories = a} :: CreateEventSubscription) Prelude.. Lens.mapping Lens.coerced
 
 -- | The list of identifiers of the event sources for which events are
 -- returned. If not specified, then all sources are included in the
@@ -289,23 +303,9 @@ createEventSubscription_sourceIds = Lens.lens (\CreateEventSubscription' {source
 createEventSubscription_sourceType :: Lens.Lens' CreateEventSubscription (Prelude.Maybe Prelude.Text)
 createEventSubscription_sourceType = Lens.lens (\CreateEventSubscription' {sourceType} -> sourceType) (\s@CreateEventSubscription' {} a -> s {sourceType = a} :: CreateEventSubscription)
 
--- | A value that indicates whether to activate the subscription. If the
--- event notification subscription isn\'t activated, the subscription is
--- created but not active.
-createEventSubscription_enabled :: Lens.Lens' CreateEventSubscription (Prelude.Maybe Prelude.Bool)
-createEventSubscription_enabled = Lens.lens (\CreateEventSubscription' {enabled} -> enabled) (\s@CreateEventSubscription' {} a -> s {enabled = a} :: CreateEventSubscription)
-
--- | A list of event categories for a particular source type (@SourceType@)
--- that you want to subscribe to. You can see a list of the categories for
--- a given source type in the \"Amazon RDS event categories and event
--- messages\" section of the
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.Messages.html Amazon RDS User Guide>
--- or the
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Events.Messages.html Amazon Aurora User Guide>
--- . You can also see this list by using the @DescribeEventCategories@
--- operation.
-createEventSubscription_eventCategories :: Lens.Lens' CreateEventSubscription (Prelude.Maybe [Prelude.Text])
-createEventSubscription_eventCategories = Lens.lens (\CreateEventSubscription' {eventCategories} -> eventCategories) (\s@CreateEventSubscription' {} a -> s {eventCategories = a} :: CreateEventSubscription) Prelude.. Lens.mapping Lens.coerced
+-- | Undocumented member.
+createEventSubscription_tags :: Lens.Lens' CreateEventSubscription (Prelude.Maybe [Tag])
+createEventSubscription_tags = Lens.lens (\CreateEventSubscription' {tags} -> tags) (\s@CreateEventSubscription' {} a -> s {tags = a} :: CreateEventSubscription) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the subscription.
 --
@@ -336,21 +336,21 @@ instance Core.AWSRequest CreateEventSubscription where
 
 instance Prelude.Hashable CreateEventSubscription where
   hashWithSalt _salt CreateEventSubscription' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` eventCategories
       `Prelude.hashWithSalt` sourceIds
       `Prelude.hashWithSalt` sourceType
-      `Prelude.hashWithSalt` enabled
-      `Prelude.hashWithSalt` eventCategories
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` subscriptionName
       `Prelude.hashWithSalt` snsTopicArn
 
 instance Prelude.NFData CreateEventSubscription where
   rnf CreateEventSubscription' {..} =
-    Prelude.rnf tags
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf eventCategories
       `Prelude.seq` Prelude.rnf sourceIds
       `Prelude.seq` Prelude.rnf sourceType
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf eventCategories
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf subscriptionName
       `Prelude.seq` Prelude.rnf snsTopicArn
 
@@ -367,19 +367,19 @@ instance Data.ToQuery CreateEventSubscription where
           Data.=: ("CreateEventSubscription" :: Prelude.ByteString),
         "Version"
           Data.=: ("2014-10-31" :: Prelude.ByteString),
-        "Tags"
-          Data.=: Data.toQuery
-            (Data.toQueryList "Tag" Prelude.<$> tags),
-        "SourceIds"
-          Data.=: Data.toQuery
-            (Data.toQueryList "SourceId" Prelude.<$> sourceIds),
-        "SourceType" Data.=: sourceType,
         "Enabled" Data.=: enabled,
         "EventCategories"
           Data.=: Data.toQuery
             ( Data.toQueryList "EventCategory"
                 Prelude.<$> eventCategories
             ),
+        "SourceIds"
+          Data.=: Data.toQuery
+            (Data.toQueryList "SourceId" Prelude.<$> sourceIds),
+        "SourceType" Data.=: sourceType,
+        "Tags"
+          Data.=: Data.toQuery
+            (Data.toQueryList "Tag" Prelude.<$> tags),
         "SubscriptionName" Data.=: subscriptionName,
         "SnsTopicArn" Data.=: snsTopicArn
       ]

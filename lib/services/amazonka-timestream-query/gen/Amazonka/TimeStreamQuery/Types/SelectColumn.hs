@@ -29,15 +29,15 @@ import Amazonka.TimeStreamQuery.Types.Type
 --
 -- /See:/ 'newSelectColumn' smart constructor.
 data SelectColumn = SelectColumn'
-  { -- | Table within the database that has this column.
-    tableName :: Prelude.Maybe Prelude.Text,
-    -- | Name of the column.
-    name :: Prelude.Maybe Prelude.Text,
-    type' :: Prelude.Maybe Type,
+  { -- | True, if the column name was aliased by the query. False otherwise.
+    aliased :: Prelude.Maybe Prelude.Bool,
     -- | Database that has this column.
     databaseName :: Prelude.Maybe Prelude.Text,
-    -- | True, if the column name was aliased by the query. False otherwise.
-    aliased :: Prelude.Maybe Prelude.Bool
+    -- | Name of the column.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Table within the database that has this column.
+    tableName :: Prelude.Maybe Prelude.Text,
+    type' :: Prelude.Maybe Type
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,45 +49,45 @@ data SelectColumn = SelectColumn'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tableName', 'selectColumn_tableName' - Table within the database that has this column.
---
--- 'name', 'selectColumn_name' - Name of the column.
---
--- 'type'', 'selectColumn_type' - Undocumented member.
+-- 'aliased', 'selectColumn_aliased' - True, if the column name was aliased by the query. False otherwise.
 --
 -- 'databaseName', 'selectColumn_databaseName' - Database that has this column.
 --
--- 'aliased', 'selectColumn_aliased' - True, if the column name was aliased by the query. False otherwise.
+-- 'name', 'selectColumn_name' - Name of the column.
+--
+-- 'tableName', 'selectColumn_tableName' - Table within the database that has this column.
+--
+-- 'type'', 'selectColumn_type' - Undocumented member.
 newSelectColumn ::
   SelectColumn
 newSelectColumn =
   SelectColumn'
-    { tableName = Prelude.Nothing,
-      name = Prelude.Nothing,
-      type' = Prelude.Nothing,
+    { aliased = Prelude.Nothing,
       databaseName = Prelude.Nothing,
-      aliased = Prelude.Nothing
+      name = Prelude.Nothing,
+      tableName = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
--- | Table within the database that has this column.
-selectColumn_tableName :: Lens.Lens' SelectColumn (Prelude.Maybe Prelude.Text)
-selectColumn_tableName = Lens.lens (\SelectColumn' {tableName} -> tableName) (\s@SelectColumn' {} a -> s {tableName = a} :: SelectColumn)
-
--- | Name of the column.
-selectColumn_name :: Lens.Lens' SelectColumn (Prelude.Maybe Prelude.Text)
-selectColumn_name = Lens.lens (\SelectColumn' {name} -> name) (\s@SelectColumn' {} a -> s {name = a} :: SelectColumn)
-
--- | Undocumented member.
-selectColumn_type :: Lens.Lens' SelectColumn (Prelude.Maybe Type)
-selectColumn_type = Lens.lens (\SelectColumn' {type'} -> type') (\s@SelectColumn' {} a -> s {type' = a} :: SelectColumn)
+-- | True, if the column name was aliased by the query. False otherwise.
+selectColumn_aliased :: Lens.Lens' SelectColumn (Prelude.Maybe Prelude.Bool)
+selectColumn_aliased = Lens.lens (\SelectColumn' {aliased} -> aliased) (\s@SelectColumn' {} a -> s {aliased = a} :: SelectColumn)
 
 -- | Database that has this column.
 selectColumn_databaseName :: Lens.Lens' SelectColumn (Prelude.Maybe Prelude.Text)
 selectColumn_databaseName = Lens.lens (\SelectColumn' {databaseName} -> databaseName) (\s@SelectColumn' {} a -> s {databaseName = a} :: SelectColumn)
 
--- | True, if the column name was aliased by the query. False otherwise.
-selectColumn_aliased :: Lens.Lens' SelectColumn (Prelude.Maybe Prelude.Bool)
-selectColumn_aliased = Lens.lens (\SelectColumn' {aliased} -> aliased) (\s@SelectColumn' {} a -> s {aliased = a} :: SelectColumn)
+-- | Name of the column.
+selectColumn_name :: Lens.Lens' SelectColumn (Prelude.Maybe Prelude.Text)
+selectColumn_name = Lens.lens (\SelectColumn' {name} -> name) (\s@SelectColumn' {} a -> s {name = a} :: SelectColumn)
+
+-- | Table within the database that has this column.
+selectColumn_tableName :: Lens.Lens' SelectColumn (Prelude.Maybe Prelude.Text)
+selectColumn_tableName = Lens.lens (\SelectColumn' {tableName} -> tableName) (\s@SelectColumn' {} a -> s {tableName = a} :: SelectColumn)
+
+-- | Undocumented member.
+selectColumn_type :: Lens.Lens' SelectColumn (Prelude.Maybe Type)
+selectColumn_type = Lens.lens (\SelectColumn' {type'} -> type') (\s@SelectColumn' {} a -> s {type' = a} :: SelectColumn)
 
 instance Data.FromJSON SelectColumn where
   parseJSON =
@@ -95,25 +95,25 @@ instance Data.FromJSON SelectColumn where
       "SelectColumn"
       ( \x ->
           SelectColumn'
-            Prelude.<$> (x Data..:? "TableName")
-            Prelude.<*> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Type")
+            Prelude.<$> (x Data..:? "Aliased")
             Prelude.<*> (x Data..:? "DatabaseName")
-            Prelude.<*> (x Data..:? "Aliased")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "TableName")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable SelectColumn where
   hashWithSalt _salt SelectColumn' {..} =
-    _salt `Prelude.hashWithSalt` tableName
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` aliased
       `Prelude.hashWithSalt` databaseName
-      `Prelude.hashWithSalt` aliased
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData SelectColumn where
   rnf SelectColumn' {..} =
-    Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf aliased
       `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf aliased
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf type'

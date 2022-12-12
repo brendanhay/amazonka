@@ -30,14 +30,14 @@ module Amazonka.RDS.DescribeDBSnapshots
     newDescribeDBSnapshots,
 
     -- * Request Lenses
-    describeDBSnapshots_includeShared,
-    describeDBSnapshots_marker,
     describeDBSnapshots_dbInstanceIdentifier,
     describeDBSnapshots_dbSnapshotIdentifier,
-    describeDBSnapshots_filters,
-    describeDBSnapshots_maxRecords,
-    describeDBSnapshots_includePublic,
     describeDBSnapshots_dbiResourceId,
+    describeDBSnapshots_filters,
+    describeDBSnapshots_includePublic,
+    describeDBSnapshots_includeShared,
+    describeDBSnapshots_marker,
+    describeDBSnapshots_maxRecords,
     describeDBSnapshots_snapshotType,
 
     -- * Destructuring the Response
@@ -45,8 +45,8 @@ module Amazonka.RDS.DescribeDBSnapshots
     newDescribeDBSnapshotsResponse,
 
     -- * Response Lenses
-    describeDBSnapshotsResponse_marker,
     describeDBSnapshotsResponse_dbSnapshots,
+    describeDBSnapshotsResponse_marker,
     describeDBSnapshotsResponse_httpStatus,
   )
 where
@@ -63,23 +63,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeDBSnapshots' smart constructor.
 data DescribeDBSnapshots = DescribeDBSnapshots'
-  { -- | A value that indicates whether to include shared manual DB cluster
-    -- snapshots from other Amazon Web Services accounts that this Amazon Web
-    -- Services account has been given permission to copy or restore. By
-    -- default, these snapshots are not included.
-    --
-    -- You can give an Amazon Web Services account permission to restore a
-    -- manual DB snapshot from another Amazon Web Services account by using the
-    -- @ModifyDBSnapshotAttribute@ API action.
-    --
-    -- This setting doesn\'t apply to RDS Custom.
-    includeShared :: Prelude.Maybe Prelude.Bool,
-    -- | An optional pagination token provided by a previous
-    -- @DescribeDBSnapshots@ request. If this parameter is specified, the
-    -- response includes only records beyond the marker, up to the value
-    -- specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the DB instance to retrieve the list of DB snapshots for. This
+  { -- | The ID of the DB instance to retrieve the list of DB snapshots for. This
     -- parameter isn\'t case-sensitive.
     --
     -- Constraints:
@@ -96,6 +80,8 @@ data DescribeDBSnapshots = DescribeDBSnapshots'
     -- -   If this identifier is for an automated snapshot, the @SnapshotType@
     --     parameter must also be specified.
     dbSnapshotIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | A specific DB resource ID to describe.
+    dbiResourceId :: Prelude.Maybe Prelude.Text,
     -- | A filter that specifies one or more DB snapshots to describe.
     --
     -- Supported filters:
@@ -111,15 +97,6 @@ data DescribeDBSnapshots = DescribeDBSnapshots'
     --
     -- -   @engine@ - Accepts names of database engines.
     filters :: Prelude.Maybe [Filter],
-    -- | The maximum number of records to include in the response. If more
-    -- records exist than the specified @MaxRecords@ value, a pagination token
-    -- called a marker is included in the response so that you can retrieve the
-    -- remaining results.
-    --
-    -- Default: 100
-    --
-    -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int,
     -- | A value that indicates whether to include manual DB cluster snapshots
     -- that are public and can be copied or restored by any Amazon Web Services
     -- account. By default, the public snapshots are not included.
@@ -129,8 +106,31 @@ data DescribeDBSnapshots = DescribeDBSnapshots'
     --
     -- This setting doesn\'t apply to RDS Custom.
     includePublic :: Prelude.Maybe Prelude.Bool,
-    -- | A specific DB resource ID to describe.
-    dbiResourceId :: Prelude.Maybe Prelude.Text,
+    -- | A value that indicates whether to include shared manual DB cluster
+    -- snapshots from other Amazon Web Services accounts that this Amazon Web
+    -- Services account has been given permission to copy or restore. By
+    -- default, these snapshots are not included.
+    --
+    -- You can give an Amazon Web Services account permission to restore a
+    -- manual DB snapshot from another Amazon Web Services account by using the
+    -- @ModifyDBSnapshotAttribute@ API action.
+    --
+    -- This setting doesn\'t apply to RDS Custom.
+    includeShared :: Prelude.Maybe Prelude.Bool,
+    -- | An optional pagination token provided by a previous
+    -- @DescribeDBSnapshots@ request. If this parameter is specified, the
+    -- response includes only records beyond the marker, up to the value
+    -- specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of records to include in the response. If more
+    -- records exist than the specified @MaxRecords@ value, a pagination token
+    -- called a marker is included in the response so that you can retrieve the
+    -- remaining results.
+    --
+    -- Default: 100
+    --
+    -- Constraints: Minimum 20, maximum 100.
+    maxRecords :: Prelude.Maybe Prelude.Int,
     -- | The type of snapshots to be returned. You can specify one of the
     -- following values:
     --
@@ -177,22 +177,6 @@ data DescribeDBSnapshots = DescribeDBSnapshots'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'includeShared', 'describeDBSnapshots_includeShared' - A value that indicates whether to include shared manual DB cluster
--- snapshots from other Amazon Web Services accounts that this Amazon Web
--- Services account has been given permission to copy or restore. By
--- default, these snapshots are not included.
---
--- You can give an Amazon Web Services account permission to restore a
--- manual DB snapshot from another Amazon Web Services account by using the
--- @ModifyDBSnapshotAttribute@ API action.
---
--- This setting doesn\'t apply to RDS Custom.
---
--- 'marker', 'describeDBSnapshots_marker' - An optional pagination token provided by a previous
--- @DescribeDBSnapshots@ request. If this parameter is specified, the
--- response includes only records beyond the marker, up to the value
--- specified by @MaxRecords@.
---
 -- 'dbInstanceIdentifier', 'describeDBSnapshots_dbInstanceIdentifier' - The ID of the DB instance to retrieve the list of DB snapshots for. This
 -- parameter isn\'t case-sensitive.
 --
@@ -210,6 +194,8 @@ data DescribeDBSnapshots = DescribeDBSnapshots'
 -- -   If this identifier is for an automated snapshot, the @SnapshotType@
 --     parameter must also be specified.
 --
+-- 'dbiResourceId', 'describeDBSnapshots_dbiResourceId' - A specific DB resource ID to describe.
+--
 -- 'filters', 'describeDBSnapshots_filters' - A filter that specifies one or more DB snapshots to describe.
 --
 -- Supported filters:
@@ -225,15 +211,6 @@ data DescribeDBSnapshots = DescribeDBSnapshots'
 --
 -- -   @engine@ - Accepts names of database engines.
 --
--- 'maxRecords', 'describeDBSnapshots_maxRecords' - The maximum number of records to include in the response. If more
--- records exist than the specified @MaxRecords@ value, a pagination token
--- called a marker is included in the response so that you can retrieve the
--- remaining results.
---
--- Default: 100
---
--- Constraints: Minimum 20, maximum 100.
---
 -- 'includePublic', 'describeDBSnapshots_includePublic' - A value that indicates whether to include manual DB cluster snapshots
 -- that are public and can be copied or restored by any Amazon Web Services
 -- account. By default, the public snapshots are not included.
@@ -243,7 +220,30 @@ data DescribeDBSnapshots = DescribeDBSnapshots'
 --
 -- This setting doesn\'t apply to RDS Custom.
 --
--- 'dbiResourceId', 'describeDBSnapshots_dbiResourceId' - A specific DB resource ID to describe.
+-- 'includeShared', 'describeDBSnapshots_includeShared' - A value that indicates whether to include shared manual DB cluster
+-- snapshots from other Amazon Web Services accounts that this Amazon Web
+-- Services account has been given permission to copy or restore. By
+-- default, these snapshots are not included.
+--
+-- You can give an Amazon Web Services account permission to restore a
+-- manual DB snapshot from another Amazon Web Services account by using the
+-- @ModifyDBSnapshotAttribute@ API action.
+--
+-- This setting doesn\'t apply to RDS Custom.
+--
+-- 'marker', 'describeDBSnapshots_marker' - An optional pagination token provided by a previous
+-- @DescribeDBSnapshots@ request. If this parameter is specified, the
+-- response includes only records beyond the marker, up to the value
+-- specified by @MaxRecords@.
+--
+-- 'maxRecords', 'describeDBSnapshots_maxRecords' - The maximum number of records to include in the response. If more
+-- records exist than the specified @MaxRecords@ value, a pagination token
+-- called a marker is included in the response so that you can retrieve the
+-- remaining results.
+--
+-- Default: 100
+--
+-- Constraints: Minimum 20, maximum 100.
 --
 -- 'snapshotType', 'describeDBSnapshots_snapshotType' - The type of snapshots to be returned. You can specify one of the
 -- following values:
@@ -283,37 +283,17 @@ newDescribeDBSnapshots ::
   DescribeDBSnapshots
 newDescribeDBSnapshots =
   DescribeDBSnapshots'
-    { includeShared =
+    { dbInstanceIdentifier =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
-      dbInstanceIdentifier = Prelude.Nothing,
       dbSnapshotIdentifier = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxRecords = Prelude.Nothing,
-      includePublic = Prelude.Nothing,
       dbiResourceId = Prelude.Nothing,
+      filters = Prelude.Nothing,
+      includePublic = Prelude.Nothing,
+      includeShared = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing,
       snapshotType = Prelude.Nothing
     }
-
--- | A value that indicates whether to include shared manual DB cluster
--- snapshots from other Amazon Web Services accounts that this Amazon Web
--- Services account has been given permission to copy or restore. By
--- default, these snapshots are not included.
---
--- You can give an Amazon Web Services account permission to restore a
--- manual DB snapshot from another Amazon Web Services account by using the
--- @ModifyDBSnapshotAttribute@ API action.
---
--- This setting doesn\'t apply to RDS Custom.
-describeDBSnapshots_includeShared :: Lens.Lens' DescribeDBSnapshots (Prelude.Maybe Prelude.Bool)
-describeDBSnapshots_includeShared = Lens.lens (\DescribeDBSnapshots' {includeShared} -> includeShared) (\s@DescribeDBSnapshots' {} a -> s {includeShared = a} :: DescribeDBSnapshots)
-
--- | An optional pagination token provided by a previous
--- @DescribeDBSnapshots@ request. If this parameter is specified, the
--- response includes only records beyond the marker, up to the value
--- specified by @MaxRecords@.
-describeDBSnapshots_marker :: Lens.Lens' DescribeDBSnapshots (Prelude.Maybe Prelude.Text)
-describeDBSnapshots_marker = Lens.lens (\DescribeDBSnapshots' {marker} -> marker) (\s@DescribeDBSnapshots' {} a -> s {marker = a} :: DescribeDBSnapshots)
 
 -- | The ID of the DB instance to retrieve the list of DB snapshots for. This
 -- parameter isn\'t case-sensitive.
@@ -336,6 +316,10 @@ describeDBSnapshots_dbInstanceIdentifier = Lens.lens (\DescribeDBSnapshots' {dbI
 describeDBSnapshots_dbSnapshotIdentifier :: Lens.Lens' DescribeDBSnapshots (Prelude.Maybe Prelude.Text)
 describeDBSnapshots_dbSnapshotIdentifier = Lens.lens (\DescribeDBSnapshots' {dbSnapshotIdentifier} -> dbSnapshotIdentifier) (\s@DescribeDBSnapshots' {} a -> s {dbSnapshotIdentifier = a} :: DescribeDBSnapshots)
 
+-- | A specific DB resource ID to describe.
+describeDBSnapshots_dbiResourceId :: Lens.Lens' DescribeDBSnapshots (Prelude.Maybe Prelude.Text)
+describeDBSnapshots_dbiResourceId = Lens.lens (\DescribeDBSnapshots' {dbiResourceId} -> dbiResourceId) (\s@DescribeDBSnapshots' {} a -> s {dbiResourceId = a} :: DescribeDBSnapshots)
+
 -- | A filter that specifies one or more DB snapshots to describe.
 --
 -- Supported filters:
@@ -353,17 +337,6 @@ describeDBSnapshots_dbSnapshotIdentifier = Lens.lens (\DescribeDBSnapshots' {dbS
 describeDBSnapshots_filters :: Lens.Lens' DescribeDBSnapshots (Prelude.Maybe [Filter])
 describeDBSnapshots_filters = Lens.lens (\DescribeDBSnapshots' {filters} -> filters) (\s@DescribeDBSnapshots' {} a -> s {filters = a} :: DescribeDBSnapshots) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum number of records to include in the response. If more
--- records exist than the specified @MaxRecords@ value, a pagination token
--- called a marker is included in the response so that you can retrieve the
--- remaining results.
---
--- Default: 100
---
--- Constraints: Minimum 20, maximum 100.
-describeDBSnapshots_maxRecords :: Lens.Lens' DescribeDBSnapshots (Prelude.Maybe Prelude.Int)
-describeDBSnapshots_maxRecords = Lens.lens (\DescribeDBSnapshots' {maxRecords} -> maxRecords) (\s@DescribeDBSnapshots' {} a -> s {maxRecords = a} :: DescribeDBSnapshots)
-
 -- | A value that indicates whether to include manual DB cluster snapshots
 -- that are public and can be copied or restored by any Amazon Web Services
 -- account. By default, the public snapshots are not included.
@@ -375,9 +348,36 @@ describeDBSnapshots_maxRecords = Lens.lens (\DescribeDBSnapshots' {maxRecords} -
 describeDBSnapshots_includePublic :: Lens.Lens' DescribeDBSnapshots (Prelude.Maybe Prelude.Bool)
 describeDBSnapshots_includePublic = Lens.lens (\DescribeDBSnapshots' {includePublic} -> includePublic) (\s@DescribeDBSnapshots' {} a -> s {includePublic = a} :: DescribeDBSnapshots)
 
--- | A specific DB resource ID to describe.
-describeDBSnapshots_dbiResourceId :: Lens.Lens' DescribeDBSnapshots (Prelude.Maybe Prelude.Text)
-describeDBSnapshots_dbiResourceId = Lens.lens (\DescribeDBSnapshots' {dbiResourceId} -> dbiResourceId) (\s@DescribeDBSnapshots' {} a -> s {dbiResourceId = a} :: DescribeDBSnapshots)
+-- | A value that indicates whether to include shared manual DB cluster
+-- snapshots from other Amazon Web Services accounts that this Amazon Web
+-- Services account has been given permission to copy or restore. By
+-- default, these snapshots are not included.
+--
+-- You can give an Amazon Web Services account permission to restore a
+-- manual DB snapshot from another Amazon Web Services account by using the
+-- @ModifyDBSnapshotAttribute@ API action.
+--
+-- This setting doesn\'t apply to RDS Custom.
+describeDBSnapshots_includeShared :: Lens.Lens' DescribeDBSnapshots (Prelude.Maybe Prelude.Bool)
+describeDBSnapshots_includeShared = Lens.lens (\DescribeDBSnapshots' {includeShared} -> includeShared) (\s@DescribeDBSnapshots' {} a -> s {includeShared = a} :: DescribeDBSnapshots)
+
+-- | An optional pagination token provided by a previous
+-- @DescribeDBSnapshots@ request. If this parameter is specified, the
+-- response includes only records beyond the marker, up to the value
+-- specified by @MaxRecords@.
+describeDBSnapshots_marker :: Lens.Lens' DescribeDBSnapshots (Prelude.Maybe Prelude.Text)
+describeDBSnapshots_marker = Lens.lens (\DescribeDBSnapshots' {marker} -> marker) (\s@DescribeDBSnapshots' {} a -> s {marker = a} :: DescribeDBSnapshots)
+
+-- | The maximum number of records to include in the response. If more
+-- records exist than the specified @MaxRecords@ value, a pagination token
+-- called a marker is included in the response so that you can retrieve the
+-- remaining results.
+--
+-- Default: 100
+--
+-- Constraints: Minimum 20, maximum 100.
+describeDBSnapshots_maxRecords :: Lens.Lens' DescribeDBSnapshots (Prelude.Maybe Prelude.Int)
+describeDBSnapshots_maxRecords = Lens.lens (\DescribeDBSnapshots' {maxRecords} -> maxRecords) (\s@DescribeDBSnapshots' {} a -> s {maxRecords = a} :: DescribeDBSnapshots)
 
 -- | The type of snapshots to be returned. You can specify one of the
 -- following values:
@@ -449,35 +449,35 @@ instance Core.AWSRequest DescribeDBSnapshots where
       "DescribeDBSnapshotsResult"
       ( \s h x ->
           DescribeDBSnapshotsResponse'
-            Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> ( x Data..@? "DBSnapshots" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "DBSnapshots" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "DBSnapshot")
                         )
+            Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeDBSnapshots where
   hashWithSalt _salt DescribeDBSnapshots' {..} =
-    _salt `Prelude.hashWithSalt` includeShared
-      `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` dbInstanceIdentifier
+    _salt `Prelude.hashWithSalt` dbInstanceIdentifier
       `Prelude.hashWithSalt` dbSnapshotIdentifier
-      `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` maxRecords
-      `Prelude.hashWithSalt` includePublic
       `Prelude.hashWithSalt` dbiResourceId
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` includePublic
+      `Prelude.hashWithSalt` includeShared
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` snapshotType
 
 instance Prelude.NFData DescribeDBSnapshots where
   rnf DescribeDBSnapshots' {..} =
-    Prelude.rnf includeShared
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf dbInstanceIdentifier
+    Prelude.rnf dbInstanceIdentifier
       `Prelude.seq` Prelude.rnf dbSnapshotIdentifier
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf includePublic
       `Prelude.seq` Prelude.rnf dbiResourceId
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf includePublic
+      `Prelude.seq` Prelude.rnf includeShared
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf snapshotType
 
 instance Data.ToHeaders DescribeDBSnapshots where
@@ -493,16 +493,16 @@ instance Data.ToQuery DescribeDBSnapshots where
           Data.=: ("DescribeDBSnapshots" :: Prelude.ByteString),
         "Version"
           Data.=: ("2014-10-31" :: Prelude.ByteString),
-        "IncludeShared" Data.=: includeShared,
-        "Marker" Data.=: marker,
         "DBInstanceIdentifier" Data.=: dbInstanceIdentifier,
         "DBSnapshotIdentifier" Data.=: dbSnapshotIdentifier,
+        "DbiResourceId" Data.=: dbiResourceId,
         "Filters"
           Data.=: Data.toQuery
             (Data.toQueryList "Filter" Prelude.<$> filters),
-        "MaxRecords" Data.=: maxRecords,
         "IncludePublic" Data.=: includePublic,
-        "DbiResourceId" Data.=: dbiResourceId,
+        "IncludeShared" Data.=: includeShared,
+        "Marker" Data.=: marker,
+        "MaxRecords" Data.=: maxRecords,
         "SnapshotType" Data.=: snapshotType
       ]
 
@@ -511,12 +511,12 @@ instance Data.ToQuery DescribeDBSnapshots where
 --
 -- /See:/ 'newDescribeDBSnapshotsResponse' smart constructor.
 data DescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse'
-  { -- | An optional pagination token provided by a previous request. If this
+  { -- | A list of @DBSnapshot@ instances.
+    dbSnapshots :: Prelude.Maybe [DBSnapshot],
+    -- | An optional pagination token provided by a previous request. If this
     -- parameter is specified, the response includes only records beyond the
     -- marker, up to the value specified by @MaxRecords@.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | A list of @DBSnapshot@ instances.
-    dbSnapshots :: Prelude.Maybe [DBSnapshot],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -530,11 +530,11 @@ data DescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dbSnapshots', 'describeDBSnapshotsResponse_dbSnapshots' - A list of @DBSnapshot@ instances.
+--
 -- 'marker', 'describeDBSnapshotsResponse_marker' - An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
---
--- 'dbSnapshots', 'describeDBSnapshotsResponse_dbSnapshots' - A list of @DBSnapshot@ instances.
 --
 -- 'httpStatus', 'describeDBSnapshotsResponse_httpStatus' - The response's http status code.
 newDescribeDBSnapshotsResponse ::
@@ -543,11 +543,15 @@ newDescribeDBSnapshotsResponse ::
   DescribeDBSnapshotsResponse
 newDescribeDBSnapshotsResponse pHttpStatus_ =
   DescribeDBSnapshotsResponse'
-    { marker =
+    { dbSnapshots =
         Prelude.Nothing,
-      dbSnapshots = Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of @DBSnapshot@ instances.
+describeDBSnapshotsResponse_dbSnapshots :: Lens.Lens' DescribeDBSnapshotsResponse (Prelude.Maybe [DBSnapshot])
+describeDBSnapshotsResponse_dbSnapshots = Lens.lens (\DescribeDBSnapshotsResponse' {dbSnapshots} -> dbSnapshots) (\s@DescribeDBSnapshotsResponse' {} a -> s {dbSnapshots = a} :: DescribeDBSnapshotsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
@@ -555,16 +559,12 @@ newDescribeDBSnapshotsResponse pHttpStatus_ =
 describeDBSnapshotsResponse_marker :: Lens.Lens' DescribeDBSnapshotsResponse (Prelude.Maybe Prelude.Text)
 describeDBSnapshotsResponse_marker = Lens.lens (\DescribeDBSnapshotsResponse' {marker} -> marker) (\s@DescribeDBSnapshotsResponse' {} a -> s {marker = a} :: DescribeDBSnapshotsResponse)
 
--- | A list of @DBSnapshot@ instances.
-describeDBSnapshotsResponse_dbSnapshots :: Lens.Lens' DescribeDBSnapshotsResponse (Prelude.Maybe [DBSnapshot])
-describeDBSnapshotsResponse_dbSnapshots = Lens.lens (\DescribeDBSnapshotsResponse' {dbSnapshots} -> dbSnapshots) (\s@DescribeDBSnapshotsResponse' {} a -> s {dbSnapshots = a} :: DescribeDBSnapshotsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 describeDBSnapshotsResponse_httpStatus :: Lens.Lens' DescribeDBSnapshotsResponse Prelude.Int
 describeDBSnapshotsResponse_httpStatus = Lens.lens (\DescribeDBSnapshotsResponse' {httpStatus} -> httpStatus) (\s@DescribeDBSnapshotsResponse' {} a -> s {httpStatus = a} :: DescribeDBSnapshotsResponse)
 
 instance Prelude.NFData DescribeDBSnapshotsResponse where
   rnf DescribeDBSnapshotsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf dbSnapshots
+    Prelude.rnf dbSnapshots
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf httpStatus

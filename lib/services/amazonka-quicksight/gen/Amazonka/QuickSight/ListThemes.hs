@@ -29,9 +29,9 @@ module Amazonka.QuickSight.ListThemes
     newListThemes,
 
     -- * Request Lenses
+    listThemes_maxResults,
     listThemes_nextToken,
     listThemes_type,
-    listThemes_maxResults,
     listThemes_awsAccountId,
 
     -- * Destructuring the Response
@@ -56,7 +56,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListThemes' smart constructor.
 data ListThemes = ListThemes'
-  { -- | The token for the next set of results, or null if there are no more
+  { -- | The maximum number of results to be returned per request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results, or null if there are no more
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The type of themes that you want to list. Valid options include the
@@ -70,8 +72,6 @@ data ListThemes = ListThemes'
     -- -   @QUICKSIGHT@ - Display only the starting themes defined by Amazon
     --     QuickSight.
     type' :: Prelude.Maybe ThemeType,
-    -- | The maximum number of results to be returned per request.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the Amazon Web Services account that contains the themes that
     -- you\'re listing.
     awsAccountId :: Prelude.Text
@@ -85,6 +85,8 @@ data ListThemes = ListThemes'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'maxResults', 'listThemes_maxResults' - The maximum number of results to be returned per request.
 --
 -- 'nextToken', 'listThemes_nextToken' - The token for the next set of results, or null if there are no more
 -- results.
@@ -100,8 +102,6 @@ data ListThemes = ListThemes'
 -- -   @QUICKSIGHT@ - Display only the starting themes defined by Amazon
 --     QuickSight.
 --
--- 'maxResults', 'listThemes_maxResults' - The maximum number of results to be returned per request.
---
 -- 'awsAccountId', 'listThemes_awsAccountId' - The ID of the Amazon Web Services account that contains the themes that
 -- you\'re listing.
 newListThemes ::
@@ -110,11 +110,15 @@ newListThemes ::
   ListThemes
 newListThemes pAwsAccountId_ =
   ListThemes'
-    { nextToken = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       type' = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       awsAccountId = pAwsAccountId_
     }
+
+-- | The maximum number of results to be returned per request.
+listThemes_maxResults :: Lens.Lens' ListThemes (Prelude.Maybe Prelude.Natural)
+listThemes_maxResults = Lens.lens (\ListThemes' {maxResults} -> maxResults) (\s@ListThemes' {} a -> s {maxResults = a} :: ListThemes)
 
 -- | The token for the next set of results, or null if there are no more
 -- results.
@@ -133,10 +137,6 @@ listThemes_nextToken = Lens.lens (\ListThemes' {nextToken} -> nextToken) (\s@Lis
 --     QuickSight.
 listThemes_type :: Lens.Lens' ListThemes (Prelude.Maybe ThemeType)
 listThemes_type = Lens.lens (\ListThemes' {type'} -> type') (\s@ListThemes' {} a -> s {type' = a} :: ListThemes)
-
--- | The maximum number of results to be returned per request.
-listThemes_maxResults :: Lens.Lens' ListThemes (Prelude.Maybe Prelude.Natural)
-listThemes_maxResults = Lens.lens (\ListThemes' {maxResults} -> maxResults) (\s@ListThemes' {} a -> s {maxResults = a} :: ListThemes)
 
 -- | The ID of the Amazon Web Services account that contains the themes that
 -- you\'re listing.
@@ -181,16 +181,16 @@ instance Core.AWSRequest ListThemes where
 
 instance Prelude.Hashable ListThemes where
   hashWithSalt _salt ListThemes' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` awsAccountId
 
 instance Prelude.NFData ListThemes where
   rnf ListThemes' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf awsAccountId
 
 instance Data.ToHeaders ListThemes where
@@ -212,9 +212,9 @@ instance Data.ToPath ListThemes where
 instance Data.ToQuery ListThemes where
   toQuery ListThemes' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
-        "type" Data.=: type',
-        "max-results" Data.=: maxResults
+      [ "max-results" Data.=: maxResults,
+        "next-token" Data.=: nextToken,
+        "type" Data.=: type'
       ]
 
 -- | /See:/ 'newListThemesResponse' smart constructor.

@@ -34,7 +34,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRdsDbSnapshotConfiguration' smart constructor.
 data RdsDbSnapshotConfiguration = RdsDbSnapshotConfiguration'
-  { -- | The KMS key identifier for an encrypted Amazon RDS DB snapshot. The KMS
+  { -- | The names and values of manual DB snapshot attributes. Manual DB
+    -- snapshot attributes are used to authorize other Amazon Web Services
+    -- accounts to restore a manual DB snapshot. The only valid value for
+    -- @attributeName@ for the attribute map is restore.
+    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text RdsDbSnapshotAttributeValue),
+    -- | The KMS key identifier for an encrypted Amazon RDS DB snapshot. The KMS
     -- key identifier is the key ARN, key ID, alias ARN, or alias name for the
     -- KMS key.
     --
@@ -46,12 +51,7 @@ data RdsDbSnapshotConfiguration = RdsDbSnapshotConfiguration'
     -- -   If the access preview is for a new resource and you do not specify
     --     the specify the @kmsKeyId@, then the access preview considers the
     --     snapshot as unencrypted.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The names and values of manual DB snapshot attributes. Manual DB
-    -- snapshot attributes are used to authorize other Amazon Web Services
-    -- accounts to restore a manual DB snapshot. The only valid value for
-    -- @attributeName@ for the attribute map is restore.
-    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text RdsDbSnapshotAttributeValue)
+    kmsKeyId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,6 +62,11 @@ data RdsDbSnapshotConfiguration = RdsDbSnapshotConfiguration'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'attributes', 'rdsDbSnapshotConfiguration_attributes' - The names and values of manual DB snapshot attributes. Manual DB
+-- snapshot attributes are used to authorize other Amazon Web Services
+-- accounts to restore a manual DB snapshot. The only valid value for
+-- @attributeName@ for the attribute map is restore.
 --
 -- 'kmsKeyId', 'rdsDbSnapshotConfiguration_kmsKeyId' - The KMS key identifier for an encrypted Amazon RDS DB snapshot. The KMS
 -- key identifier is the key ARN, key ID, alias ARN, or alias name for the
@@ -75,19 +80,21 @@ data RdsDbSnapshotConfiguration = RdsDbSnapshotConfiguration'
 -- -   If the access preview is for a new resource and you do not specify
 --     the specify the @kmsKeyId@, then the access preview considers the
 --     snapshot as unencrypted.
---
--- 'attributes', 'rdsDbSnapshotConfiguration_attributes' - The names and values of manual DB snapshot attributes. Manual DB
--- snapshot attributes are used to authorize other Amazon Web Services
--- accounts to restore a manual DB snapshot. The only valid value for
--- @attributeName@ for the attribute map is restore.
 newRdsDbSnapshotConfiguration ::
   RdsDbSnapshotConfiguration
 newRdsDbSnapshotConfiguration =
   RdsDbSnapshotConfiguration'
-    { kmsKeyId =
+    { attributes =
         Prelude.Nothing,
-      attributes = Prelude.Nothing
+      kmsKeyId = Prelude.Nothing
     }
+
+-- | The names and values of manual DB snapshot attributes. Manual DB
+-- snapshot attributes are used to authorize other Amazon Web Services
+-- accounts to restore a manual DB snapshot. The only valid value for
+-- @attributeName@ for the attribute map is restore.
+rdsDbSnapshotConfiguration_attributes :: Lens.Lens' RdsDbSnapshotConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text RdsDbSnapshotAttributeValue))
+rdsDbSnapshotConfiguration_attributes = Lens.lens (\RdsDbSnapshotConfiguration' {attributes} -> attributes) (\s@RdsDbSnapshotConfiguration' {} a -> s {attributes = a} :: RdsDbSnapshotConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The KMS key identifier for an encrypted Amazon RDS DB snapshot. The KMS
 -- key identifier is the key ARN, key ID, alias ARN, or alias name for the
@@ -104,38 +111,31 @@ newRdsDbSnapshotConfiguration =
 rdsDbSnapshotConfiguration_kmsKeyId :: Lens.Lens' RdsDbSnapshotConfiguration (Prelude.Maybe Prelude.Text)
 rdsDbSnapshotConfiguration_kmsKeyId = Lens.lens (\RdsDbSnapshotConfiguration' {kmsKeyId} -> kmsKeyId) (\s@RdsDbSnapshotConfiguration' {} a -> s {kmsKeyId = a} :: RdsDbSnapshotConfiguration)
 
--- | The names and values of manual DB snapshot attributes. Manual DB
--- snapshot attributes are used to authorize other Amazon Web Services
--- accounts to restore a manual DB snapshot. The only valid value for
--- @attributeName@ for the attribute map is restore.
-rdsDbSnapshotConfiguration_attributes :: Lens.Lens' RdsDbSnapshotConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text RdsDbSnapshotAttributeValue))
-rdsDbSnapshotConfiguration_attributes = Lens.lens (\RdsDbSnapshotConfiguration' {attributes} -> attributes) (\s@RdsDbSnapshotConfiguration' {} a -> s {attributes = a} :: RdsDbSnapshotConfiguration) Prelude.. Lens.mapping Lens.coerced
-
 instance Data.FromJSON RdsDbSnapshotConfiguration where
   parseJSON =
     Data.withObject
       "RdsDbSnapshotConfiguration"
       ( \x ->
           RdsDbSnapshotConfiguration'
-            Prelude.<$> (x Data..:? "kmsKeyId")
-            Prelude.<*> (x Data..:? "attributes" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "attributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "kmsKeyId")
       )
 
 instance Prelude.Hashable RdsDbSnapshotConfiguration where
   hashWithSalt _salt RdsDbSnapshotConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
-      `Prelude.hashWithSalt` attributes
+    _salt `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` kmsKeyId
 
 instance Prelude.NFData RdsDbSnapshotConfiguration where
   rnf RdsDbSnapshotConfiguration' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf attributes
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf kmsKeyId
 
 instance Data.ToJSON RdsDbSnapshotConfiguration where
   toJSON RdsDbSnapshotConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("kmsKeyId" Data..=) Prelude.<$> kmsKeyId,
-            ("attributes" Data..=) Prelude.<$> attributes
+          [ ("attributes" Data..=) Prelude.<$> attributes,
+            ("kmsKeyId" Data..=) Prelude.<$> kmsKeyId
           ]
       )

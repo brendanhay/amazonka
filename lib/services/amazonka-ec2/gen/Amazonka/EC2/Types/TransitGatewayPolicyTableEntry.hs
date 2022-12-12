@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTransitGatewayPolicyTableEntry' smart constructor.
 data TransitGatewayPolicyTableEntry = TransitGatewayPolicyTableEntry'
-  { -- | The rule number for the transit gateway policy table entry.
-    policyRuleNumber :: Prelude.Maybe Prelude.Text,
-    -- | The policy rule associated with the transit gateway policy table.
+  { -- | The policy rule associated with the transit gateway policy table.
     policyRule :: Prelude.Maybe TransitGatewayPolicyRule,
+    -- | The rule number for the transit gateway policy table entry.
+    policyRuleNumber :: Prelude.Maybe Prelude.Text,
     -- | The ID of the target route table.
     targetRouteTableId :: Prelude.Maybe Prelude.Text
   }
@@ -47,28 +47,28 @@ data TransitGatewayPolicyTableEntry = TransitGatewayPolicyTableEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyRuleNumber', 'transitGatewayPolicyTableEntry_policyRuleNumber' - The rule number for the transit gateway policy table entry.
---
 -- 'policyRule', 'transitGatewayPolicyTableEntry_policyRule' - The policy rule associated with the transit gateway policy table.
+--
+-- 'policyRuleNumber', 'transitGatewayPolicyTableEntry_policyRuleNumber' - The rule number for the transit gateway policy table entry.
 --
 -- 'targetRouteTableId', 'transitGatewayPolicyTableEntry_targetRouteTableId' - The ID of the target route table.
 newTransitGatewayPolicyTableEntry ::
   TransitGatewayPolicyTableEntry
 newTransitGatewayPolicyTableEntry =
   TransitGatewayPolicyTableEntry'
-    { policyRuleNumber =
+    { policyRule =
         Prelude.Nothing,
-      policyRule = Prelude.Nothing,
+      policyRuleNumber = Prelude.Nothing,
       targetRouteTableId = Prelude.Nothing
     }
-
--- | The rule number for the transit gateway policy table entry.
-transitGatewayPolicyTableEntry_policyRuleNumber :: Lens.Lens' TransitGatewayPolicyTableEntry (Prelude.Maybe Prelude.Text)
-transitGatewayPolicyTableEntry_policyRuleNumber = Lens.lens (\TransitGatewayPolicyTableEntry' {policyRuleNumber} -> policyRuleNumber) (\s@TransitGatewayPolicyTableEntry' {} a -> s {policyRuleNumber = a} :: TransitGatewayPolicyTableEntry)
 
 -- | The policy rule associated with the transit gateway policy table.
 transitGatewayPolicyTableEntry_policyRule :: Lens.Lens' TransitGatewayPolicyTableEntry (Prelude.Maybe TransitGatewayPolicyRule)
 transitGatewayPolicyTableEntry_policyRule = Lens.lens (\TransitGatewayPolicyTableEntry' {policyRule} -> policyRule) (\s@TransitGatewayPolicyTableEntry' {} a -> s {policyRule = a} :: TransitGatewayPolicyTableEntry)
+
+-- | The rule number for the transit gateway policy table entry.
+transitGatewayPolicyTableEntry_policyRuleNumber :: Lens.Lens' TransitGatewayPolicyTableEntry (Prelude.Maybe Prelude.Text)
+transitGatewayPolicyTableEntry_policyRuleNumber = Lens.lens (\TransitGatewayPolicyTableEntry' {policyRuleNumber} -> policyRuleNumber) (\s@TransitGatewayPolicyTableEntry' {} a -> s {policyRuleNumber = a} :: TransitGatewayPolicyTableEntry)
 
 -- | The ID of the target route table.
 transitGatewayPolicyTableEntry_targetRouteTableId :: Lens.Lens' TransitGatewayPolicyTableEntry (Prelude.Maybe Prelude.Text)
@@ -77,8 +77,8 @@ transitGatewayPolicyTableEntry_targetRouteTableId = Lens.lens (\TransitGatewayPo
 instance Data.FromXML TransitGatewayPolicyTableEntry where
   parseXML x =
     TransitGatewayPolicyTableEntry'
-      Prelude.<$> (x Data..@? "policyRuleNumber")
-      Prelude.<*> (x Data..@? "policyRule")
+      Prelude.<$> (x Data..@? "policyRule")
+      Prelude.<*> (x Data..@? "policyRuleNumber")
       Prelude.<*> (x Data..@? "targetRouteTableId")
 
 instance
@@ -88,8 +88,8 @@ instance
   hashWithSalt
     _salt
     TransitGatewayPolicyTableEntry' {..} =
-      _salt `Prelude.hashWithSalt` policyRuleNumber
-        `Prelude.hashWithSalt` policyRule
+      _salt `Prelude.hashWithSalt` policyRule
+        `Prelude.hashWithSalt` policyRuleNumber
         `Prelude.hashWithSalt` targetRouteTableId
 
 instance
@@ -97,6 +97,6 @@ instance
     TransitGatewayPolicyTableEntry
   where
   rnf TransitGatewayPolicyTableEntry' {..} =
-    Prelude.rnf policyRuleNumber
-      `Prelude.seq` Prelude.rnf policyRule
+    Prelude.rnf policyRule
+      `Prelude.seq` Prelude.rnf policyRuleNumber
       `Prelude.seq` Prelude.rnf targetRouteTableId

@@ -16,8 +16,8 @@ module Amazonka.SupportApp.Lens
 
     -- ** CreateSlackChannelConfiguration
     createSlackChannelConfiguration_channelName,
-    createSlackChannelConfiguration_notifyOnCreateOrReopenCase,
     createSlackChannelConfiguration_notifyOnAddCorrespondenceToCase,
+    createSlackChannelConfiguration_notifyOnCreateOrReopenCase,
     createSlackChannelConfiguration_notifyOnResolveCase,
     createSlackChannelConfiguration_channelId,
     createSlackChannelConfiguration_channelRoleArn,
@@ -59,45 +59,45 @@ module Amazonka.SupportApp.Lens
 
     -- ** RegisterSlackWorkspaceForOrganization
     registerSlackWorkspaceForOrganization_teamId,
-    registerSlackWorkspaceForOrganizationResponse_teamName,
-    registerSlackWorkspaceForOrganizationResponse_teamId,
     registerSlackWorkspaceForOrganizationResponse_accountType,
+    registerSlackWorkspaceForOrganizationResponse_teamId,
+    registerSlackWorkspaceForOrganizationResponse_teamName,
     registerSlackWorkspaceForOrganizationResponse_httpStatus,
 
     -- ** UpdateSlackChannelConfiguration
-    updateSlackChannelConfiguration_channelRoleArn,
-    updateSlackChannelConfiguration_notifyOnCaseSeverity,
     updateSlackChannelConfiguration_channelName,
-    updateSlackChannelConfiguration_notifyOnCreateOrReopenCase,
+    updateSlackChannelConfiguration_channelRoleArn,
     updateSlackChannelConfiguration_notifyOnAddCorrespondenceToCase,
+    updateSlackChannelConfiguration_notifyOnCaseSeverity,
+    updateSlackChannelConfiguration_notifyOnCreateOrReopenCase,
     updateSlackChannelConfiguration_notifyOnResolveCase,
     updateSlackChannelConfiguration_channelId,
     updateSlackChannelConfiguration_teamId,
-    updateSlackChannelConfigurationResponse_channelRoleArn,
-    updateSlackChannelConfigurationResponse_notifyOnCaseSeverity,
-    updateSlackChannelConfigurationResponse_channelName,
-    updateSlackChannelConfigurationResponse_teamId,
-    updateSlackChannelConfigurationResponse_notifyOnCreateOrReopenCase,
-    updateSlackChannelConfigurationResponse_notifyOnAddCorrespondenceToCase,
     updateSlackChannelConfigurationResponse_channelId,
+    updateSlackChannelConfigurationResponse_channelName,
+    updateSlackChannelConfigurationResponse_channelRoleArn,
+    updateSlackChannelConfigurationResponse_notifyOnAddCorrespondenceToCase,
+    updateSlackChannelConfigurationResponse_notifyOnCaseSeverity,
+    updateSlackChannelConfigurationResponse_notifyOnCreateOrReopenCase,
     updateSlackChannelConfigurationResponse_notifyOnResolveCase,
+    updateSlackChannelConfigurationResponse_teamId,
     updateSlackChannelConfigurationResponse_httpStatus,
 
     -- * Types
 
     -- ** SlackChannelConfiguration
-    slackChannelConfiguration_channelRoleArn,
-    slackChannelConfiguration_notifyOnCaseSeverity,
     slackChannelConfiguration_channelName,
-    slackChannelConfiguration_notifyOnCreateOrReopenCase,
+    slackChannelConfiguration_channelRoleArn,
     slackChannelConfiguration_notifyOnAddCorrespondenceToCase,
+    slackChannelConfiguration_notifyOnCaseSeverity,
+    slackChannelConfiguration_notifyOnCreateOrReopenCase,
     slackChannelConfiguration_notifyOnResolveCase,
     slackChannelConfiguration_channelId,
     slackChannelConfiguration_teamId,
 
     -- ** SlackWorkspaceConfiguration
-    slackWorkspaceConfiguration_teamName,
     slackWorkspaceConfiguration_allowOrganizationMemberAccount,
+    slackWorkspaceConfiguration_teamName,
     slackWorkspaceConfiguration_teamId,
   )
 where

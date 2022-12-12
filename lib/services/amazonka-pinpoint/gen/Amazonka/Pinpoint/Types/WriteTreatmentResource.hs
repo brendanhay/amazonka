@@ -33,20 +33,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newWriteTreatmentResource' smart constructor.
 data WriteTreatmentResource = WriteTreatmentResource'
-  { -- | The schedule settings for the treatment.
-    schedule :: Prelude.Maybe Schedule,
-    -- | The delivery configuration settings for sending the treatment through a
+  { -- | The delivery configuration settings for sending the treatment through a
     -- custom channel. This object is required if the MessageConfiguration
     -- object for the treatment specifies a CustomMessage object.
     customDeliveryConfiguration :: Prelude.Maybe CustomDeliveryConfiguration,
-    -- | A custom name for the treatment.
-    treatmentName :: Prelude.Maybe Prelude.Text,
     -- | The message configuration settings for the treatment.
     messageConfiguration :: Prelude.Maybe MessageConfiguration,
-    -- | A custom description of the treatment.
-    treatmentDescription :: Prelude.Maybe Prelude.Text,
+    -- | The schedule settings for the treatment.
+    schedule :: Prelude.Maybe Schedule,
     -- | The message template to use for the treatment.
     templateConfiguration :: Prelude.Maybe TemplateConfiguration,
+    -- | A custom description of the treatment.
+    treatmentDescription :: Prelude.Maybe Prelude.Text,
+    -- | A custom name for the treatment.
+    treatmentName :: Prelude.Maybe Prelude.Text,
     -- | The allocated percentage of users (segment members) to send the
     -- treatment to.
     sizePercent :: Prelude.Int
@@ -61,19 +61,19 @@ data WriteTreatmentResource = WriteTreatmentResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'schedule', 'writeTreatmentResource_schedule' - The schedule settings for the treatment.
---
 -- 'customDeliveryConfiguration', 'writeTreatmentResource_customDeliveryConfiguration' - The delivery configuration settings for sending the treatment through a
 -- custom channel. This object is required if the MessageConfiguration
 -- object for the treatment specifies a CustomMessage object.
 --
--- 'treatmentName', 'writeTreatmentResource_treatmentName' - A custom name for the treatment.
---
 -- 'messageConfiguration', 'writeTreatmentResource_messageConfiguration' - The message configuration settings for the treatment.
+--
+-- 'schedule', 'writeTreatmentResource_schedule' - The schedule settings for the treatment.
+--
+-- 'templateConfiguration', 'writeTreatmentResource_templateConfiguration' - The message template to use for the treatment.
 --
 -- 'treatmentDescription', 'writeTreatmentResource_treatmentDescription' - A custom description of the treatment.
 --
--- 'templateConfiguration', 'writeTreatmentResource_templateConfiguration' - The message template to use for the treatment.
+-- 'treatmentName', 'writeTreatmentResource_treatmentName' - A custom name for the treatment.
 --
 -- 'sizePercent', 'writeTreatmentResource_sizePercent' - The allocated percentage of users (segment members) to send the
 -- treatment to.
@@ -83,18 +83,15 @@ newWriteTreatmentResource ::
   WriteTreatmentResource
 newWriteTreatmentResource pSizePercent_ =
   WriteTreatmentResource'
-    { schedule = Prelude.Nothing,
-      customDeliveryConfiguration = Prelude.Nothing,
-      treatmentName = Prelude.Nothing,
+    { customDeliveryConfiguration =
+        Prelude.Nothing,
       messageConfiguration = Prelude.Nothing,
-      treatmentDescription = Prelude.Nothing,
+      schedule = Prelude.Nothing,
       templateConfiguration = Prelude.Nothing,
+      treatmentDescription = Prelude.Nothing,
+      treatmentName = Prelude.Nothing,
       sizePercent = pSizePercent_
     }
-
--- | The schedule settings for the treatment.
-writeTreatmentResource_schedule :: Lens.Lens' WriteTreatmentResource (Prelude.Maybe Schedule)
-writeTreatmentResource_schedule = Lens.lens (\WriteTreatmentResource' {schedule} -> schedule) (\s@WriteTreatmentResource' {} a -> s {schedule = a} :: WriteTreatmentResource)
 
 -- | The delivery configuration settings for sending the treatment through a
 -- custom channel. This object is required if the MessageConfiguration
@@ -102,21 +99,25 @@ writeTreatmentResource_schedule = Lens.lens (\WriteTreatmentResource' {schedule}
 writeTreatmentResource_customDeliveryConfiguration :: Lens.Lens' WriteTreatmentResource (Prelude.Maybe CustomDeliveryConfiguration)
 writeTreatmentResource_customDeliveryConfiguration = Lens.lens (\WriteTreatmentResource' {customDeliveryConfiguration} -> customDeliveryConfiguration) (\s@WriteTreatmentResource' {} a -> s {customDeliveryConfiguration = a} :: WriteTreatmentResource)
 
--- | A custom name for the treatment.
-writeTreatmentResource_treatmentName :: Lens.Lens' WriteTreatmentResource (Prelude.Maybe Prelude.Text)
-writeTreatmentResource_treatmentName = Lens.lens (\WriteTreatmentResource' {treatmentName} -> treatmentName) (\s@WriteTreatmentResource' {} a -> s {treatmentName = a} :: WriteTreatmentResource)
-
 -- | The message configuration settings for the treatment.
 writeTreatmentResource_messageConfiguration :: Lens.Lens' WriteTreatmentResource (Prelude.Maybe MessageConfiguration)
 writeTreatmentResource_messageConfiguration = Lens.lens (\WriteTreatmentResource' {messageConfiguration} -> messageConfiguration) (\s@WriteTreatmentResource' {} a -> s {messageConfiguration = a} :: WriteTreatmentResource)
+
+-- | The schedule settings for the treatment.
+writeTreatmentResource_schedule :: Lens.Lens' WriteTreatmentResource (Prelude.Maybe Schedule)
+writeTreatmentResource_schedule = Lens.lens (\WriteTreatmentResource' {schedule} -> schedule) (\s@WriteTreatmentResource' {} a -> s {schedule = a} :: WriteTreatmentResource)
+
+-- | The message template to use for the treatment.
+writeTreatmentResource_templateConfiguration :: Lens.Lens' WriteTreatmentResource (Prelude.Maybe TemplateConfiguration)
+writeTreatmentResource_templateConfiguration = Lens.lens (\WriteTreatmentResource' {templateConfiguration} -> templateConfiguration) (\s@WriteTreatmentResource' {} a -> s {templateConfiguration = a} :: WriteTreatmentResource)
 
 -- | A custom description of the treatment.
 writeTreatmentResource_treatmentDescription :: Lens.Lens' WriteTreatmentResource (Prelude.Maybe Prelude.Text)
 writeTreatmentResource_treatmentDescription = Lens.lens (\WriteTreatmentResource' {treatmentDescription} -> treatmentDescription) (\s@WriteTreatmentResource' {} a -> s {treatmentDescription = a} :: WriteTreatmentResource)
 
--- | The message template to use for the treatment.
-writeTreatmentResource_templateConfiguration :: Lens.Lens' WriteTreatmentResource (Prelude.Maybe TemplateConfiguration)
-writeTreatmentResource_templateConfiguration = Lens.lens (\WriteTreatmentResource' {templateConfiguration} -> templateConfiguration) (\s@WriteTreatmentResource' {} a -> s {templateConfiguration = a} :: WriteTreatmentResource)
+-- | A custom name for the treatment.
+writeTreatmentResource_treatmentName :: Lens.Lens' WriteTreatmentResource (Prelude.Maybe Prelude.Text)
+writeTreatmentResource_treatmentName = Lens.lens (\WriteTreatmentResource' {treatmentName} -> treatmentName) (\s@WriteTreatmentResource' {} a -> s {treatmentName = a} :: WriteTreatmentResource)
 
 -- | The allocated percentage of users (segment members) to send the
 -- treatment to.
@@ -125,38 +126,39 @@ writeTreatmentResource_sizePercent = Lens.lens (\WriteTreatmentResource' {sizePe
 
 instance Prelude.Hashable WriteTreatmentResource where
   hashWithSalt _salt WriteTreatmentResource' {..} =
-    _salt `Prelude.hashWithSalt` schedule
+    _salt
       `Prelude.hashWithSalt` customDeliveryConfiguration
-      `Prelude.hashWithSalt` treatmentName
       `Prelude.hashWithSalt` messageConfiguration
-      `Prelude.hashWithSalt` treatmentDescription
+      `Prelude.hashWithSalt` schedule
       `Prelude.hashWithSalt` templateConfiguration
+      `Prelude.hashWithSalt` treatmentDescription
+      `Prelude.hashWithSalt` treatmentName
       `Prelude.hashWithSalt` sizePercent
 
 instance Prelude.NFData WriteTreatmentResource where
   rnf WriteTreatmentResource' {..} =
-    Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf customDeliveryConfiguration
-      `Prelude.seq` Prelude.rnf treatmentName
+    Prelude.rnf customDeliveryConfiguration
       `Prelude.seq` Prelude.rnf messageConfiguration
-      `Prelude.seq` Prelude.rnf treatmentDescription
+      `Prelude.seq` Prelude.rnf schedule
       `Prelude.seq` Prelude.rnf templateConfiguration
+      `Prelude.seq` Prelude.rnf treatmentDescription
+      `Prelude.seq` Prelude.rnf treatmentName
       `Prelude.seq` Prelude.rnf sizePercent
 
 instance Data.ToJSON WriteTreatmentResource where
   toJSON WriteTreatmentResource' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Schedule" Data..=) Prelude.<$> schedule,
-            ("CustomDeliveryConfiguration" Data..=)
+          [ ("CustomDeliveryConfiguration" Data..=)
               Prelude.<$> customDeliveryConfiguration,
-            ("TreatmentName" Data..=) Prelude.<$> treatmentName,
             ("MessageConfiguration" Data..=)
               Prelude.<$> messageConfiguration,
-            ("TreatmentDescription" Data..=)
-              Prelude.<$> treatmentDescription,
+            ("Schedule" Data..=) Prelude.<$> schedule,
             ("TemplateConfiguration" Data..=)
               Prelude.<$> templateConfiguration,
+            ("TreatmentDescription" Data..=)
+              Prelude.<$> treatmentDescription,
+            ("TreatmentName" Data..=) Prelude.<$> treatmentName,
             Prelude.Just ("SizePercent" Data..= sizePercent)
           ]
       )

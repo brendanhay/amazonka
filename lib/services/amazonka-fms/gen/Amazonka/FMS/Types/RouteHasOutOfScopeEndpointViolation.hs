@@ -30,29 +30,29 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRouteHasOutOfScopeEndpointViolation' smart constructor.
 data RouteHasOutOfScopeEndpointViolation = RouteHasOutOfScopeEndpointViolation'
-  { -- | The list of routes that violate the route table.
-    violatingRoutes :: Prelude.Maybe [Route],
-    -- | The ID of the subnet\'s Availability Zone.
-    subnetAvailabilityZoneId :: Prelude.Maybe Prelude.Text,
+  { -- | The route table associated with the current firewall subnet.
+    currentFirewallSubnetRouteTable :: Prelude.Maybe Prelude.Text,
+    -- | The current route table associated with the Internet Gateway.
+    currentInternetGatewayRouteTable :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the firewall subnet.
+    firewallSubnetId :: Prelude.Maybe Prelude.Text,
+    -- | The list of firewall subnet routes.
+    firewallSubnetRoutes :: Prelude.Maybe [Route],
+    -- | The ID of the Internet Gateway.
+    internetGatewayId :: Prelude.Maybe Prelude.Text,
     -- | The routes in the route table associated with the Internet Gateway.
     internetGatewayRoutes :: Prelude.Maybe [Route],
+    -- | The ID of the route table.
+    routeTableId :: Prelude.Maybe Prelude.Text,
+    -- | The subnet\'s Availability Zone.
+    subnetAvailabilityZone :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the subnet\'s Availability Zone.
+    subnetAvailabilityZoneId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the subnet associated with the route that violates the policy
     -- scope.
     subnetId :: Prelude.Maybe Prelude.Text,
-    -- | The route table associated with the current firewall subnet.
-    currentFirewallSubnetRouteTable :: Prelude.Maybe Prelude.Text,
-    -- | The list of firewall subnet routes.
-    firewallSubnetRoutes :: Prelude.Maybe [Route],
-    -- | The current route table associated with the Internet Gateway.
-    currentInternetGatewayRouteTable :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the route table.
-    routeTableId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the Internet Gateway.
-    internetGatewayId :: Prelude.Maybe Prelude.Text,
-    -- | The subnet\'s Availability Zone.
-    subnetAvailabilityZone :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the firewall subnet.
-    firewallSubnetId :: Prelude.Maybe Prelude.Text,
+    -- | The list of routes that violate the route table.
+    violatingRoutes :: Prelude.Maybe [Route],
     -- | The VPC ID of the route that violates the policy scope.
     vpcId :: Prelude.Maybe Prelude.Text
   }
@@ -66,98 +66,97 @@ data RouteHasOutOfScopeEndpointViolation = RouteHasOutOfScopeEndpointViolation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'violatingRoutes', 'routeHasOutOfScopeEndpointViolation_violatingRoutes' - The list of routes that violate the route table.
+-- 'currentFirewallSubnetRouteTable', 'routeHasOutOfScopeEndpointViolation_currentFirewallSubnetRouteTable' - The route table associated with the current firewall subnet.
 --
--- 'subnetAvailabilityZoneId', 'routeHasOutOfScopeEndpointViolation_subnetAvailabilityZoneId' - The ID of the subnet\'s Availability Zone.
+-- 'currentInternetGatewayRouteTable', 'routeHasOutOfScopeEndpointViolation_currentInternetGatewayRouteTable' - The current route table associated with the Internet Gateway.
+--
+-- 'firewallSubnetId', 'routeHasOutOfScopeEndpointViolation_firewallSubnetId' - The ID of the firewall subnet.
+--
+-- 'firewallSubnetRoutes', 'routeHasOutOfScopeEndpointViolation_firewallSubnetRoutes' - The list of firewall subnet routes.
+--
+-- 'internetGatewayId', 'routeHasOutOfScopeEndpointViolation_internetGatewayId' - The ID of the Internet Gateway.
 --
 -- 'internetGatewayRoutes', 'routeHasOutOfScopeEndpointViolation_internetGatewayRoutes' - The routes in the route table associated with the Internet Gateway.
+--
+-- 'routeTableId', 'routeHasOutOfScopeEndpointViolation_routeTableId' - The ID of the route table.
+--
+-- 'subnetAvailabilityZone', 'routeHasOutOfScopeEndpointViolation_subnetAvailabilityZone' - The subnet\'s Availability Zone.
+--
+-- 'subnetAvailabilityZoneId', 'routeHasOutOfScopeEndpointViolation_subnetAvailabilityZoneId' - The ID of the subnet\'s Availability Zone.
 --
 -- 'subnetId', 'routeHasOutOfScopeEndpointViolation_subnetId' - The ID of the subnet associated with the route that violates the policy
 -- scope.
 --
--- 'currentFirewallSubnetRouteTable', 'routeHasOutOfScopeEndpointViolation_currentFirewallSubnetRouteTable' - The route table associated with the current firewall subnet.
---
--- 'firewallSubnetRoutes', 'routeHasOutOfScopeEndpointViolation_firewallSubnetRoutes' - The list of firewall subnet routes.
---
--- 'currentInternetGatewayRouteTable', 'routeHasOutOfScopeEndpointViolation_currentInternetGatewayRouteTable' - The current route table associated with the Internet Gateway.
---
--- 'routeTableId', 'routeHasOutOfScopeEndpointViolation_routeTableId' - The ID of the route table.
---
--- 'internetGatewayId', 'routeHasOutOfScopeEndpointViolation_internetGatewayId' - The ID of the Internet Gateway.
---
--- 'subnetAvailabilityZone', 'routeHasOutOfScopeEndpointViolation_subnetAvailabilityZone' - The subnet\'s Availability Zone.
---
--- 'firewallSubnetId', 'routeHasOutOfScopeEndpointViolation_firewallSubnetId' - The ID of the firewall subnet.
+-- 'violatingRoutes', 'routeHasOutOfScopeEndpointViolation_violatingRoutes' - The list of routes that violate the route table.
 --
 -- 'vpcId', 'routeHasOutOfScopeEndpointViolation_vpcId' - The VPC ID of the route that violates the policy scope.
 newRouteHasOutOfScopeEndpointViolation ::
   RouteHasOutOfScopeEndpointViolation
 newRouteHasOutOfScopeEndpointViolation =
   RouteHasOutOfScopeEndpointViolation'
-    { violatingRoutes =
+    { currentFirewallSubnetRouteTable =
+        Prelude.Nothing,
+      currentInternetGatewayRouteTable =
+        Prelude.Nothing,
+      firewallSubnetId = Prelude.Nothing,
+      firewallSubnetRoutes = Prelude.Nothing,
+      internetGatewayId = Prelude.Nothing,
+      internetGatewayRoutes =
+        Prelude.Nothing,
+      routeTableId = Prelude.Nothing,
+      subnetAvailabilityZone =
         Prelude.Nothing,
       subnetAvailabilityZoneId =
         Prelude.Nothing,
-      internetGatewayRoutes =
-        Prelude.Nothing,
       subnetId = Prelude.Nothing,
-      currentFirewallSubnetRouteTable =
-        Prelude.Nothing,
-      firewallSubnetRoutes = Prelude.Nothing,
-      currentInternetGatewayRouteTable =
-        Prelude.Nothing,
-      routeTableId = Prelude.Nothing,
-      internetGatewayId = Prelude.Nothing,
-      subnetAvailabilityZone =
-        Prelude.Nothing,
-      firewallSubnetId = Prelude.Nothing,
+      violatingRoutes = Prelude.Nothing,
       vpcId = Prelude.Nothing
     }
 
--- | The list of routes that violate the route table.
-routeHasOutOfScopeEndpointViolation_violatingRoutes :: Lens.Lens' RouteHasOutOfScopeEndpointViolation (Prelude.Maybe [Route])
-routeHasOutOfScopeEndpointViolation_violatingRoutes = Lens.lens (\RouteHasOutOfScopeEndpointViolation' {violatingRoutes} -> violatingRoutes) (\s@RouteHasOutOfScopeEndpointViolation' {} a -> s {violatingRoutes = a} :: RouteHasOutOfScopeEndpointViolation) Prelude.. Lens.mapping Lens.coerced
+-- | The route table associated with the current firewall subnet.
+routeHasOutOfScopeEndpointViolation_currentFirewallSubnetRouteTable :: Lens.Lens' RouteHasOutOfScopeEndpointViolation (Prelude.Maybe Prelude.Text)
+routeHasOutOfScopeEndpointViolation_currentFirewallSubnetRouteTable = Lens.lens (\RouteHasOutOfScopeEndpointViolation' {currentFirewallSubnetRouteTable} -> currentFirewallSubnetRouteTable) (\s@RouteHasOutOfScopeEndpointViolation' {} a -> s {currentFirewallSubnetRouteTable = a} :: RouteHasOutOfScopeEndpointViolation)
 
--- | The ID of the subnet\'s Availability Zone.
-routeHasOutOfScopeEndpointViolation_subnetAvailabilityZoneId :: Lens.Lens' RouteHasOutOfScopeEndpointViolation (Prelude.Maybe Prelude.Text)
-routeHasOutOfScopeEndpointViolation_subnetAvailabilityZoneId = Lens.lens (\RouteHasOutOfScopeEndpointViolation' {subnetAvailabilityZoneId} -> subnetAvailabilityZoneId) (\s@RouteHasOutOfScopeEndpointViolation' {} a -> s {subnetAvailabilityZoneId = a} :: RouteHasOutOfScopeEndpointViolation)
+-- | The current route table associated with the Internet Gateway.
+routeHasOutOfScopeEndpointViolation_currentInternetGatewayRouteTable :: Lens.Lens' RouteHasOutOfScopeEndpointViolation (Prelude.Maybe Prelude.Text)
+routeHasOutOfScopeEndpointViolation_currentInternetGatewayRouteTable = Lens.lens (\RouteHasOutOfScopeEndpointViolation' {currentInternetGatewayRouteTable} -> currentInternetGatewayRouteTable) (\s@RouteHasOutOfScopeEndpointViolation' {} a -> s {currentInternetGatewayRouteTable = a} :: RouteHasOutOfScopeEndpointViolation)
+
+-- | The ID of the firewall subnet.
+routeHasOutOfScopeEndpointViolation_firewallSubnetId :: Lens.Lens' RouteHasOutOfScopeEndpointViolation (Prelude.Maybe Prelude.Text)
+routeHasOutOfScopeEndpointViolation_firewallSubnetId = Lens.lens (\RouteHasOutOfScopeEndpointViolation' {firewallSubnetId} -> firewallSubnetId) (\s@RouteHasOutOfScopeEndpointViolation' {} a -> s {firewallSubnetId = a} :: RouteHasOutOfScopeEndpointViolation)
+
+-- | The list of firewall subnet routes.
+routeHasOutOfScopeEndpointViolation_firewallSubnetRoutes :: Lens.Lens' RouteHasOutOfScopeEndpointViolation (Prelude.Maybe [Route])
+routeHasOutOfScopeEndpointViolation_firewallSubnetRoutes = Lens.lens (\RouteHasOutOfScopeEndpointViolation' {firewallSubnetRoutes} -> firewallSubnetRoutes) (\s@RouteHasOutOfScopeEndpointViolation' {} a -> s {firewallSubnetRoutes = a} :: RouteHasOutOfScopeEndpointViolation) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ID of the Internet Gateway.
+routeHasOutOfScopeEndpointViolation_internetGatewayId :: Lens.Lens' RouteHasOutOfScopeEndpointViolation (Prelude.Maybe Prelude.Text)
+routeHasOutOfScopeEndpointViolation_internetGatewayId = Lens.lens (\RouteHasOutOfScopeEndpointViolation' {internetGatewayId} -> internetGatewayId) (\s@RouteHasOutOfScopeEndpointViolation' {} a -> s {internetGatewayId = a} :: RouteHasOutOfScopeEndpointViolation)
 
 -- | The routes in the route table associated with the Internet Gateway.
 routeHasOutOfScopeEndpointViolation_internetGatewayRoutes :: Lens.Lens' RouteHasOutOfScopeEndpointViolation (Prelude.Maybe [Route])
 routeHasOutOfScopeEndpointViolation_internetGatewayRoutes = Lens.lens (\RouteHasOutOfScopeEndpointViolation' {internetGatewayRoutes} -> internetGatewayRoutes) (\s@RouteHasOutOfScopeEndpointViolation' {} a -> s {internetGatewayRoutes = a} :: RouteHasOutOfScopeEndpointViolation) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ID of the route table.
+routeHasOutOfScopeEndpointViolation_routeTableId :: Lens.Lens' RouteHasOutOfScopeEndpointViolation (Prelude.Maybe Prelude.Text)
+routeHasOutOfScopeEndpointViolation_routeTableId = Lens.lens (\RouteHasOutOfScopeEndpointViolation' {routeTableId} -> routeTableId) (\s@RouteHasOutOfScopeEndpointViolation' {} a -> s {routeTableId = a} :: RouteHasOutOfScopeEndpointViolation)
+
+-- | The subnet\'s Availability Zone.
+routeHasOutOfScopeEndpointViolation_subnetAvailabilityZone :: Lens.Lens' RouteHasOutOfScopeEndpointViolation (Prelude.Maybe Prelude.Text)
+routeHasOutOfScopeEndpointViolation_subnetAvailabilityZone = Lens.lens (\RouteHasOutOfScopeEndpointViolation' {subnetAvailabilityZone} -> subnetAvailabilityZone) (\s@RouteHasOutOfScopeEndpointViolation' {} a -> s {subnetAvailabilityZone = a} :: RouteHasOutOfScopeEndpointViolation)
+
+-- | The ID of the subnet\'s Availability Zone.
+routeHasOutOfScopeEndpointViolation_subnetAvailabilityZoneId :: Lens.Lens' RouteHasOutOfScopeEndpointViolation (Prelude.Maybe Prelude.Text)
+routeHasOutOfScopeEndpointViolation_subnetAvailabilityZoneId = Lens.lens (\RouteHasOutOfScopeEndpointViolation' {subnetAvailabilityZoneId} -> subnetAvailabilityZoneId) (\s@RouteHasOutOfScopeEndpointViolation' {} a -> s {subnetAvailabilityZoneId = a} :: RouteHasOutOfScopeEndpointViolation)
 
 -- | The ID of the subnet associated with the route that violates the policy
 -- scope.
 routeHasOutOfScopeEndpointViolation_subnetId :: Lens.Lens' RouteHasOutOfScopeEndpointViolation (Prelude.Maybe Prelude.Text)
 routeHasOutOfScopeEndpointViolation_subnetId = Lens.lens (\RouteHasOutOfScopeEndpointViolation' {subnetId} -> subnetId) (\s@RouteHasOutOfScopeEndpointViolation' {} a -> s {subnetId = a} :: RouteHasOutOfScopeEndpointViolation)
 
--- | The route table associated with the current firewall subnet.
-routeHasOutOfScopeEndpointViolation_currentFirewallSubnetRouteTable :: Lens.Lens' RouteHasOutOfScopeEndpointViolation (Prelude.Maybe Prelude.Text)
-routeHasOutOfScopeEndpointViolation_currentFirewallSubnetRouteTable = Lens.lens (\RouteHasOutOfScopeEndpointViolation' {currentFirewallSubnetRouteTable} -> currentFirewallSubnetRouteTable) (\s@RouteHasOutOfScopeEndpointViolation' {} a -> s {currentFirewallSubnetRouteTable = a} :: RouteHasOutOfScopeEndpointViolation)
-
--- | The list of firewall subnet routes.
-routeHasOutOfScopeEndpointViolation_firewallSubnetRoutes :: Lens.Lens' RouteHasOutOfScopeEndpointViolation (Prelude.Maybe [Route])
-routeHasOutOfScopeEndpointViolation_firewallSubnetRoutes = Lens.lens (\RouteHasOutOfScopeEndpointViolation' {firewallSubnetRoutes} -> firewallSubnetRoutes) (\s@RouteHasOutOfScopeEndpointViolation' {} a -> s {firewallSubnetRoutes = a} :: RouteHasOutOfScopeEndpointViolation) Prelude.. Lens.mapping Lens.coerced
-
--- | The current route table associated with the Internet Gateway.
-routeHasOutOfScopeEndpointViolation_currentInternetGatewayRouteTable :: Lens.Lens' RouteHasOutOfScopeEndpointViolation (Prelude.Maybe Prelude.Text)
-routeHasOutOfScopeEndpointViolation_currentInternetGatewayRouteTable = Lens.lens (\RouteHasOutOfScopeEndpointViolation' {currentInternetGatewayRouteTable} -> currentInternetGatewayRouteTable) (\s@RouteHasOutOfScopeEndpointViolation' {} a -> s {currentInternetGatewayRouteTable = a} :: RouteHasOutOfScopeEndpointViolation)
-
--- | The ID of the route table.
-routeHasOutOfScopeEndpointViolation_routeTableId :: Lens.Lens' RouteHasOutOfScopeEndpointViolation (Prelude.Maybe Prelude.Text)
-routeHasOutOfScopeEndpointViolation_routeTableId = Lens.lens (\RouteHasOutOfScopeEndpointViolation' {routeTableId} -> routeTableId) (\s@RouteHasOutOfScopeEndpointViolation' {} a -> s {routeTableId = a} :: RouteHasOutOfScopeEndpointViolation)
-
--- | The ID of the Internet Gateway.
-routeHasOutOfScopeEndpointViolation_internetGatewayId :: Lens.Lens' RouteHasOutOfScopeEndpointViolation (Prelude.Maybe Prelude.Text)
-routeHasOutOfScopeEndpointViolation_internetGatewayId = Lens.lens (\RouteHasOutOfScopeEndpointViolation' {internetGatewayId} -> internetGatewayId) (\s@RouteHasOutOfScopeEndpointViolation' {} a -> s {internetGatewayId = a} :: RouteHasOutOfScopeEndpointViolation)
-
--- | The subnet\'s Availability Zone.
-routeHasOutOfScopeEndpointViolation_subnetAvailabilityZone :: Lens.Lens' RouteHasOutOfScopeEndpointViolation (Prelude.Maybe Prelude.Text)
-routeHasOutOfScopeEndpointViolation_subnetAvailabilityZone = Lens.lens (\RouteHasOutOfScopeEndpointViolation' {subnetAvailabilityZone} -> subnetAvailabilityZone) (\s@RouteHasOutOfScopeEndpointViolation' {} a -> s {subnetAvailabilityZone = a} :: RouteHasOutOfScopeEndpointViolation)
-
--- | The ID of the firewall subnet.
-routeHasOutOfScopeEndpointViolation_firewallSubnetId :: Lens.Lens' RouteHasOutOfScopeEndpointViolation (Prelude.Maybe Prelude.Text)
-routeHasOutOfScopeEndpointViolation_firewallSubnetId = Lens.lens (\RouteHasOutOfScopeEndpointViolation' {firewallSubnetId} -> firewallSubnetId) (\s@RouteHasOutOfScopeEndpointViolation' {} a -> s {firewallSubnetId = a} :: RouteHasOutOfScopeEndpointViolation)
+-- | The list of routes that violate the route table.
+routeHasOutOfScopeEndpointViolation_violatingRoutes :: Lens.Lens' RouteHasOutOfScopeEndpointViolation (Prelude.Maybe [Route])
+routeHasOutOfScopeEndpointViolation_violatingRoutes = Lens.lens (\RouteHasOutOfScopeEndpointViolation' {violatingRoutes} -> violatingRoutes) (\s@RouteHasOutOfScopeEndpointViolation' {} a -> s {violatingRoutes = a} :: RouteHasOutOfScopeEndpointViolation) Prelude.. Lens.mapping Lens.coerced
 
 -- | The VPC ID of the route that violates the policy scope.
 routeHasOutOfScopeEndpointViolation_vpcId :: Lens.Lens' RouteHasOutOfScopeEndpointViolation (Prelude.Maybe Prelude.Text)
@@ -172,23 +171,23 @@ instance
       "RouteHasOutOfScopeEndpointViolation"
       ( \x ->
           RouteHasOutOfScopeEndpointViolation'
-            Prelude.<$> ( x Data..:? "ViolatingRoutes"
-                            Data..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Data..:? "SubnetAvailabilityZoneId")
-            Prelude.<*> ( x Data..:? "InternetGatewayRoutes"
-                            Data..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Data..:? "SubnetId")
-            Prelude.<*> (x Data..:? "CurrentFirewallSubnetRouteTable")
+            Prelude.<$> (x Data..:? "CurrentFirewallSubnetRouteTable")
+            Prelude.<*> (x Data..:? "CurrentInternetGatewayRouteTable")
+            Prelude.<*> (x Data..:? "FirewallSubnetId")
             Prelude.<*> ( x Data..:? "FirewallSubnetRoutes"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "CurrentInternetGatewayRouteTable")
-            Prelude.<*> (x Data..:? "RouteTableId")
             Prelude.<*> (x Data..:? "InternetGatewayId")
+            Prelude.<*> ( x Data..:? "InternetGatewayRoutes"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "RouteTableId")
             Prelude.<*> (x Data..:? "SubnetAvailabilityZone")
-            Prelude.<*> (x Data..:? "FirewallSubnetId")
+            Prelude.<*> (x Data..:? "SubnetAvailabilityZoneId")
+            Prelude.<*> (x Data..:? "SubnetId")
+            Prelude.<*> ( x Data..:? "ViolatingRoutes"
+                            Data..!= Prelude.mempty
+                        )
             Prelude.<*> (x Data..:? "VpcId")
       )
 
@@ -199,17 +198,18 @@ instance
   hashWithSalt
     _salt
     RouteHasOutOfScopeEndpointViolation' {..} =
-      _salt `Prelude.hashWithSalt` violatingRoutes
-        `Prelude.hashWithSalt` subnetAvailabilityZoneId
-        `Prelude.hashWithSalt` internetGatewayRoutes
-        `Prelude.hashWithSalt` subnetId
+      _salt
         `Prelude.hashWithSalt` currentFirewallSubnetRouteTable
-        `Prelude.hashWithSalt` firewallSubnetRoutes
         `Prelude.hashWithSalt` currentInternetGatewayRouteTable
-        `Prelude.hashWithSalt` routeTableId
-        `Prelude.hashWithSalt` internetGatewayId
-        `Prelude.hashWithSalt` subnetAvailabilityZone
         `Prelude.hashWithSalt` firewallSubnetId
+        `Prelude.hashWithSalt` firewallSubnetRoutes
+        `Prelude.hashWithSalt` internetGatewayId
+        `Prelude.hashWithSalt` internetGatewayRoutes
+        `Prelude.hashWithSalt` routeTableId
+        `Prelude.hashWithSalt` subnetAvailabilityZone
+        `Prelude.hashWithSalt` subnetAvailabilityZoneId
+        `Prelude.hashWithSalt` subnetId
+        `Prelude.hashWithSalt` violatingRoutes
         `Prelude.hashWithSalt` vpcId
 
 instance
@@ -217,15 +217,15 @@ instance
     RouteHasOutOfScopeEndpointViolation
   where
   rnf RouteHasOutOfScopeEndpointViolation' {..} =
-    Prelude.rnf violatingRoutes
-      `Prelude.seq` Prelude.rnf subnetAvailabilityZoneId
-      `Prelude.seq` Prelude.rnf internetGatewayRoutes
-      `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf currentFirewallSubnetRouteTable
-      `Prelude.seq` Prelude.rnf firewallSubnetRoutes
+    Prelude.rnf currentFirewallSubnetRouteTable
       `Prelude.seq` Prelude.rnf currentInternetGatewayRouteTable
-      `Prelude.seq` Prelude.rnf routeTableId
-      `Prelude.seq` Prelude.rnf internetGatewayId
-      `Prelude.seq` Prelude.rnf subnetAvailabilityZone
       `Prelude.seq` Prelude.rnf firewallSubnetId
+      `Prelude.seq` Prelude.rnf firewallSubnetRoutes
+      `Prelude.seq` Prelude.rnf internetGatewayId
+      `Prelude.seq` Prelude.rnf internetGatewayRoutes
+      `Prelude.seq` Prelude.rnf routeTableId
+      `Prelude.seq` Prelude.rnf subnetAvailabilityZone
+      `Prelude.seq` Prelude.rnf subnetAvailabilityZoneId
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf violatingRoutes
       `Prelude.seq` Prelude.rnf vpcId

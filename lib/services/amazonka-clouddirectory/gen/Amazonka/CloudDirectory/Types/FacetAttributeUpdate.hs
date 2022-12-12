@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFacetAttributeUpdate' smart constructor.
 data FacetAttributeUpdate = FacetAttributeUpdate'
-  { -- | The attribute to update.
-    attribute :: Prelude.Maybe FacetAttribute,
-    -- | The action to perform when updating the attribute.
-    action :: Prelude.Maybe UpdateActionType
+  { -- | The action to perform when updating the attribute.
+    action :: Prelude.Maybe UpdateActionType,
+    -- | The attribute to update.
+    attribute :: Prelude.Maybe FacetAttribute
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,40 +45,40 @@ data FacetAttributeUpdate = FacetAttributeUpdate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'attribute', 'facetAttributeUpdate_attribute' - The attribute to update.
---
 -- 'action', 'facetAttributeUpdate_action' - The action to perform when updating the attribute.
+--
+-- 'attribute', 'facetAttributeUpdate_attribute' - The attribute to update.
 newFacetAttributeUpdate ::
   FacetAttributeUpdate
 newFacetAttributeUpdate =
   FacetAttributeUpdate'
-    { attribute = Prelude.Nothing,
-      action = Prelude.Nothing
+    { action = Prelude.Nothing,
+      attribute = Prelude.Nothing
     }
-
--- | The attribute to update.
-facetAttributeUpdate_attribute :: Lens.Lens' FacetAttributeUpdate (Prelude.Maybe FacetAttribute)
-facetAttributeUpdate_attribute = Lens.lens (\FacetAttributeUpdate' {attribute} -> attribute) (\s@FacetAttributeUpdate' {} a -> s {attribute = a} :: FacetAttributeUpdate)
 
 -- | The action to perform when updating the attribute.
 facetAttributeUpdate_action :: Lens.Lens' FacetAttributeUpdate (Prelude.Maybe UpdateActionType)
 facetAttributeUpdate_action = Lens.lens (\FacetAttributeUpdate' {action} -> action) (\s@FacetAttributeUpdate' {} a -> s {action = a} :: FacetAttributeUpdate)
 
+-- | The attribute to update.
+facetAttributeUpdate_attribute :: Lens.Lens' FacetAttributeUpdate (Prelude.Maybe FacetAttribute)
+facetAttributeUpdate_attribute = Lens.lens (\FacetAttributeUpdate' {attribute} -> attribute) (\s@FacetAttributeUpdate' {} a -> s {attribute = a} :: FacetAttributeUpdate)
+
 instance Prelude.Hashable FacetAttributeUpdate where
   hashWithSalt _salt FacetAttributeUpdate' {..} =
-    _salt `Prelude.hashWithSalt` attribute
-      `Prelude.hashWithSalt` action
+    _salt `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` attribute
 
 instance Prelude.NFData FacetAttributeUpdate where
   rnf FacetAttributeUpdate' {..} =
-    Prelude.rnf attribute
-      `Prelude.seq` Prelude.rnf action
+    Prelude.rnf action
+      `Prelude.seq` Prelude.rnf attribute
 
 instance Data.ToJSON FacetAttributeUpdate where
   toJSON FacetAttributeUpdate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Attribute" Data..=) Prelude.<$> attribute,
-            ("Action" Data..=) Prelude.<$> action
+          [ ("Action" Data..=) Prelude.<$> action,
+            ("Attribute" Data..=) Prelude.<$> attribute
           ]
       )

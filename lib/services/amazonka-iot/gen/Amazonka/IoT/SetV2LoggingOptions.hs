@@ -31,9 +31,9 @@ module Amazonka.IoT.SetV2LoggingOptions
     newSetV2LoggingOptions,
 
     -- * Request Lenses
-    setV2LoggingOptions_roleArn,
-    setV2LoggingOptions_disableAllLogs,
     setV2LoggingOptions_defaultLogLevel,
+    setV2LoggingOptions_disableAllLogs,
+    setV2LoggingOptions_roleArn,
 
     -- * Destructuring the Response
     SetV2LoggingOptionsResponse (..),
@@ -51,12 +51,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSetV2LoggingOptions' smart constructor.
 data SetV2LoggingOptions = SetV2LoggingOptions'
-  { -- | The ARN of the role that allows IoT to write to Cloudwatch logs.
-    roleArn :: Prelude.Maybe Prelude.Text,
+  { -- | The default logging level.
+    defaultLogLevel :: Prelude.Maybe LogLevel,
     -- | If true all logs are disabled. The default is false.
     disableAllLogs :: Prelude.Maybe Prelude.Bool,
-    -- | The default logging level.
-    defaultLogLevel :: Prelude.Maybe LogLevel
+    -- | The ARN of the role that allows IoT to write to Cloudwatch logs.
+    roleArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,31 +68,32 @@ data SetV2LoggingOptions = SetV2LoggingOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'setV2LoggingOptions_roleArn' - The ARN of the role that allows IoT to write to Cloudwatch logs.
+-- 'defaultLogLevel', 'setV2LoggingOptions_defaultLogLevel' - The default logging level.
 --
 -- 'disableAllLogs', 'setV2LoggingOptions_disableAllLogs' - If true all logs are disabled. The default is false.
 --
--- 'defaultLogLevel', 'setV2LoggingOptions_defaultLogLevel' - The default logging level.
+-- 'roleArn', 'setV2LoggingOptions_roleArn' - The ARN of the role that allows IoT to write to Cloudwatch logs.
 newSetV2LoggingOptions ::
   SetV2LoggingOptions
 newSetV2LoggingOptions =
   SetV2LoggingOptions'
-    { roleArn = Prelude.Nothing,
+    { defaultLogLevel =
+        Prelude.Nothing,
       disableAllLogs = Prelude.Nothing,
-      defaultLogLevel = Prelude.Nothing
+      roleArn = Prelude.Nothing
     }
 
--- | The ARN of the role that allows IoT to write to Cloudwatch logs.
-setV2LoggingOptions_roleArn :: Lens.Lens' SetV2LoggingOptions (Prelude.Maybe Prelude.Text)
-setV2LoggingOptions_roleArn = Lens.lens (\SetV2LoggingOptions' {roleArn} -> roleArn) (\s@SetV2LoggingOptions' {} a -> s {roleArn = a} :: SetV2LoggingOptions)
+-- | The default logging level.
+setV2LoggingOptions_defaultLogLevel :: Lens.Lens' SetV2LoggingOptions (Prelude.Maybe LogLevel)
+setV2LoggingOptions_defaultLogLevel = Lens.lens (\SetV2LoggingOptions' {defaultLogLevel} -> defaultLogLevel) (\s@SetV2LoggingOptions' {} a -> s {defaultLogLevel = a} :: SetV2LoggingOptions)
 
 -- | If true all logs are disabled. The default is false.
 setV2LoggingOptions_disableAllLogs :: Lens.Lens' SetV2LoggingOptions (Prelude.Maybe Prelude.Bool)
 setV2LoggingOptions_disableAllLogs = Lens.lens (\SetV2LoggingOptions' {disableAllLogs} -> disableAllLogs) (\s@SetV2LoggingOptions' {} a -> s {disableAllLogs = a} :: SetV2LoggingOptions)
 
--- | The default logging level.
-setV2LoggingOptions_defaultLogLevel :: Lens.Lens' SetV2LoggingOptions (Prelude.Maybe LogLevel)
-setV2LoggingOptions_defaultLogLevel = Lens.lens (\SetV2LoggingOptions' {defaultLogLevel} -> defaultLogLevel) (\s@SetV2LoggingOptions' {} a -> s {defaultLogLevel = a} :: SetV2LoggingOptions)
+-- | The ARN of the role that allows IoT to write to Cloudwatch logs.
+setV2LoggingOptions_roleArn :: Lens.Lens' SetV2LoggingOptions (Prelude.Maybe Prelude.Text)
+setV2LoggingOptions_roleArn = Lens.lens (\SetV2LoggingOptions' {roleArn} -> roleArn) (\s@SetV2LoggingOptions' {} a -> s {roleArn = a} :: SetV2LoggingOptions)
 
 instance Core.AWSRequest SetV2LoggingOptions where
   type
@@ -105,15 +106,15 @@ instance Core.AWSRequest SetV2LoggingOptions where
 
 instance Prelude.Hashable SetV2LoggingOptions where
   hashWithSalt _salt SetV2LoggingOptions' {..} =
-    _salt `Prelude.hashWithSalt` roleArn
+    _salt `Prelude.hashWithSalt` defaultLogLevel
       `Prelude.hashWithSalt` disableAllLogs
-      `Prelude.hashWithSalt` defaultLogLevel
+      `Prelude.hashWithSalt` roleArn
 
 instance Prelude.NFData SetV2LoggingOptions where
   rnf SetV2LoggingOptions' {..} =
-    Prelude.rnf roleArn
+    Prelude.rnf defaultLogLevel
       `Prelude.seq` Prelude.rnf disableAllLogs
-      `Prelude.seq` Prelude.rnf defaultLogLevel
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Data.ToHeaders SetV2LoggingOptions where
   toHeaders = Prelude.const Prelude.mempty
@@ -122,11 +123,11 @@ instance Data.ToJSON SetV2LoggingOptions where
   toJSON SetV2LoggingOptions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("roleArn" Data..=) Prelude.<$> roleArn,
+          [ ("defaultLogLevel" Data..=)
+              Prelude.<$> defaultLogLevel,
             ("disableAllLogs" Data..=)
               Prelude.<$> disableAllLogs,
-            ("defaultLogLevel" Data..=)
-              Prelude.<$> defaultLogLevel
+            ("roleArn" Data..=) Prelude.<$> roleArn
           ]
       )
 

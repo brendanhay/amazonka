@@ -30,13 +30,13 @@ import Amazonka.SecurityHub.Types.RuleGroupSourceStatefulRulesOptionsDetails
 --
 -- /See:/ 'newRuleGroupSourceStatefulRulesDetails' smart constructor.
 data RuleGroupSourceStatefulRulesDetails = RuleGroupSourceStatefulRulesDetails'
-  { -- | The stateful inspection criteria for the rule.
+  { -- | Defines what Network Firewall should do with the packets in a traffic
+    -- flow when the flow matches the stateful rule criteria.
+    action :: Prelude.Maybe Prelude.Text,
+    -- | The stateful inspection criteria for the rule.
     header :: Prelude.Maybe RuleGroupSourceStatefulRulesHeaderDetails,
     -- | Additional options for the rule.
-    ruleOptions :: Prelude.Maybe [RuleGroupSourceStatefulRulesOptionsDetails],
-    -- | Defines what Network Firewall should do with the packets in a traffic
-    -- flow when the flow matches the stateful rule criteria.
-    action :: Prelude.Maybe Prelude.Text
+    ruleOptions :: Prelude.Maybe [RuleGroupSourceStatefulRulesOptionsDetails]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,21 +48,26 @@ data RuleGroupSourceStatefulRulesDetails = RuleGroupSourceStatefulRulesDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'action', 'ruleGroupSourceStatefulRulesDetails_action' - Defines what Network Firewall should do with the packets in a traffic
+-- flow when the flow matches the stateful rule criteria.
+--
 -- 'header', 'ruleGroupSourceStatefulRulesDetails_header' - The stateful inspection criteria for the rule.
 --
 -- 'ruleOptions', 'ruleGroupSourceStatefulRulesDetails_ruleOptions' - Additional options for the rule.
---
--- 'action', 'ruleGroupSourceStatefulRulesDetails_action' - Defines what Network Firewall should do with the packets in a traffic
--- flow when the flow matches the stateful rule criteria.
 newRuleGroupSourceStatefulRulesDetails ::
   RuleGroupSourceStatefulRulesDetails
 newRuleGroupSourceStatefulRulesDetails =
   RuleGroupSourceStatefulRulesDetails'
-    { header =
+    { action =
         Prelude.Nothing,
-      ruleOptions = Prelude.Nothing,
-      action = Prelude.Nothing
+      header = Prelude.Nothing,
+      ruleOptions = Prelude.Nothing
     }
+
+-- | Defines what Network Firewall should do with the packets in a traffic
+-- flow when the flow matches the stateful rule criteria.
+ruleGroupSourceStatefulRulesDetails_action :: Lens.Lens' RuleGroupSourceStatefulRulesDetails (Prelude.Maybe Prelude.Text)
+ruleGroupSourceStatefulRulesDetails_action = Lens.lens (\RuleGroupSourceStatefulRulesDetails' {action} -> action) (\s@RuleGroupSourceStatefulRulesDetails' {} a -> s {action = a} :: RuleGroupSourceStatefulRulesDetails)
 
 -- | The stateful inspection criteria for the rule.
 ruleGroupSourceStatefulRulesDetails_header :: Lens.Lens' RuleGroupSourceStatefulRulesDetails (Prelude.Maybe RuleGroupSourceStatefulRulesHeaderDetails)
@@ -71,11 +76,6 @@ ruleGroupSourceStatefulRulesDetails_header = Lens.lens (\RuleGroupSourceStateful
 -- | Additional options for the rule.
 ruleGroupSourceStatefulRulesDetails_ruleOptions :: Lens.Lens' RuleGroupSourceStatefulRulesDetails (Prelude.Maybe [RuleGroupSourceStatefulRulesOptionsDetails])
 ruleGroupSourceStatefulRulesDetails_ruleOptions = Lens.lens (\RuleGroupSourceStatefulRulesDetails' {ruleOptions} -> ruleOptions) (\s@RuleGroupSourceStatefulRulesDetails' {} a -> s {ruleOptions = a} :: RuleGroupSourceStatefulRulesDetails) Prelude.. Lens.mapping Lens.coerced
-
--- | Defines what Network Firewall should do with the packets in a traffic
--- flow when the flow matches the stateful rule criteria.
-ruleGroupSourceStatefulRulesDetails_action :: Lens.Lens' RuleGroupSourceStatefulRulesDetails (Prelude.Maybe Prelude.Text)
-ruleGroupSourceStatefulRulesDetails_action = Lens.lens (\RuleGroupSourceStatefulRulesDetails' {action} -> action) (\s@RuleGroupSourceStatefulRulesDetails' {} a -> s {action = a} :: RuleGroupSourceStatefulRulesDetails)
 
 instance
   Data.FromJSON
@@ -86,9 +86,9 @@ instance
       "RuleGroupSourceStatefulRulesDetails"
       ( \x ->
           RuleGroupSourceStatefulRulesDetails'
-            Prelude.<$> (x Data..:? "Header")
+            Prelude.<$> (x Data..:? "Action")
+            Prelude.<*> (x Data..:? "Header")
             Prelude.<*> (x Data..:? "RuleOptions" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "Action")
       )
 
 instance
@@ -98,18 +98,18 @@ instance
   hashWithSalt
     _salt
     RuleGroupSourceStatefulRulesDetails' {..} =
-      _salt `Prelude.hashWithSalt` header
+      _salt `Prelude.hashWithSalt` action
+        `Prelude.hashWithSalt` header
         `Prelude.hashWithSalt` ruleOptions
-        `Prelude.hashWithSalt` action
 
 instance
   Prelude.NFData
     RuleGroupSourceStatefulRulesDetails
   where
   rnf RuleGroupSourceStatefulRulesDetails' {..} =
-    Prelude.rnf header
+    Prelude.rnf action
+      `Prelude.seq` Prelude.rnf header
       `Prelude.seq` Prelude.rnf ruleOptions
-      `Prelude.seq` Prelude.rnf action
 
 instance
   Data.ToJSON
@@ -118,8 +118,8 @@ instance
   toJSON RuleGroupSourceStatefulRulesDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Header" Data..=) Prelude.<$> header,
-            ("RuleOptions" Data..=) Prelude.<$> ruleOptions,
-            ("Action" Data..=) Prelude.<$> action
+          [ ("Action" Data..=) Prelude.<$> action,
+            ("Header" Data..=) Prelude.<$> header,
+            ("RuleOptions" Data..=) Prelude.<$> ruleOptions
           ]
       )

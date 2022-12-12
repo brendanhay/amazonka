@@ -28,8 +28,8 @@ module Amazonka.Location.UpdateGeofenceCollection
 
     -- * Request Lenses
     updateGeofenceCollection_description,
-    updateGeofenceCollection_pricingPlanDataSource,
     updateGeofenceCollection_pricingPlan,
+    updateGeofenceCollection_pricingPlanDataSource,
     updateGeofenceCollection_collectionName,
 
     -- * Destructuring the Response
@@ -56,11 +56,11 @@ import qualified Amazonka.Response as Response
 data UpdateGeofenceCollection = UpdateGeofenceCollection'
   { -- | Updates the description for the geofence collection.
     description :: Prelude.Maybe Prelude.Text,
-    -- | This parameter is no longer used.
-    pricingPlanDataSource :: Prelude.Maybe Prelude.Text,
     -- | No longer used. If included, the only allowed value is
     -- @RequestBasedUsage@.
     pricingPlan :: Prelude.Maybe PricingPlan,
+    -- | This parameter is no longer used.
+    pricingPlanDataSource :: Prelude.Maybe Prelude.Text,
     -- | The name of the geofence collection to update.
     collectionName :: Prelude.Text
   }
@@ -76,10 +76,10 @@ data UpdateGeofenceCollection = UpdateGeofenceCollection'
 --
 -- 'description', 'updateGeofenceCollection_description' - Updates the description for the geofence collection.
 --
--- 'pricingPlanDataSource', 'updateGeofenceCollection_pricingPlanDataSource' - This parameter is no longer used.
---
 -- 'pricingPlan', 'updateGeofenceCollection_pricingPlan' - No longer used. If included, the only allowed value is
 -- @RequestBasedUsage@.
+--
+-- 'pricingPlanDataSource', 'updateGeofenceCollection_pricingPlanDataSource' - This parameter is no longer used.
 --
 -- 'collectionName', 'updateGeofenceCollection_collectionName' - The name of the geofence collection to update.
 newUpdateGeofenceCollection ::
@@ -90,8 +90,8 @@ newUpdateGeofenceCollection pCollectionName_ =
   UpdateGeofenceCollection'
     { description =
         Prelude.Nothing,
-      pricingPlanDataSource = Prelude.Nothing,
       pricingPlan = Prelude.Nothing,
+      pricingPlanDataSource = Prelude.Nothing,
       collectionName = pCollectionName_
     }
 
@@ -99,14 +99,14 @@ newUpdateGeofenceCollection pCollectionName_ =
 updateGeofenceCollection_description :: Lens.Lens' UpdateGeofenceCollection (Prelude.Maybe Prelude.Text)
 updateGeofenceCollection_description = Lens.lens (\UpdateGeofenceCollection' {description} -> description) (\s@UpdateGeofenceCollection' {} a -> s {description = a} :: UpdateGeofenceCollection)
 
--- | This parameter is no longer used.
-updateGeofenceCollection_pricingPlanDataSource :: Lens.Lens' UpdateGeofenceCollection (Prelude.Maybe Prelude.Text)
-updateGeofenceCollection_pricingPlanDataSource = Lens.lens (\UpdateGeofenceCollection' {pricingPlanDataSource} -> pricingPlanDataSource) (\s@UpdateGeofenceCollection' {} a -> s {pricingPlanDataSource = a} :: UpdateGeofenceCollection)
-
 -- | No longer used. If included, the only allowed value is
 -- @RequestBasedUsage@.
 updateGeofenceCollection_pricingPlan :: Lens.Lens' UpdateGeofenceCollection (Prelude.Maybe PricingPlan)
 updateGeofenceCollection_pricingPlan = Lens.lens (\UpdateGeofenceCollection' {pricingPlan} -> pricingPlan) (\s@UpdateGeofenceCollection' {} a -> s {pricingPlan = a} :: UpdateGeofenceCollection)
+
+-- | This parameter is no longer used.
+updateGeofenceCollection_pricingPlanDataSource :: Lens.Lens' UpdateGeofenceCollection (Prelude.Maybe Prelude.Text)
+updateGeofenceCollection_pricingPlanDataSource = Lens.lens (\UpdateGeofenceCollection' {pricingPlanDataSource} -> pricingPlanDataSource) (\s@UpdateGeofenceCollection' {} a -> s {pricingPlanDataSource = a} :: UpdateGeofenceCollection)
 
 -- | The name of the geofence collection to update.
 updateGeofenceCollection_collectionName :: Lens.Lens' UpdateGeofenceCollection Prelude.Text
@@ -131,15 +131,15 @@ instance Core.AWSRequest UpdateGeofenceCollection where
 instance Prelude.Hashable UpdateGeofenceCollection where
   hashWithSalt _salt UpdateGeofenceCollection' {..} =
     _salt `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` pricingPlanDataSource
       `Prelude.hashWithSalt` pricingPlan
+      `Prelude.hashWithSalt` pricingPlanDataSource
       `Prelude.hashWithSalt` collectionName
 
 instance Prelude.NFData UpdateGeofenceCollection where
   rnf UpdateGeofenceCollection' {..} =
     Prelude.rnf description
-      `Prelude.seq` Prelude.rnf pricingPlanDataSource
       `Prelude.seq` Prelude.rnf pricingPlan
+      `Prelude.seq` Prelude.rnf pricingPlanDataSource
       `Prelude.seq` Prelude.rnf collectionName
 
 instance Data.ToHeaders UpdateGeofenceCollection where
@@ -158,9 +158,9 @@ instance Data.ToJSON UpdateGeofenceCollection where
     Data.object
       ( Prelude.catMaybes
           [ ("Description" Data..=) Prelude.<$> description,
+            ("PricingPlan" Data..=) Prelude.<$> pricingPlan,
             ("PricingPlanDataSource" Data..=)
-              Prelude.<$> pricingPlanDataSource,
-            ("PricingPlan" Data..=) Prelude.<$> pricingPlan
+              Prelude.<$> pricingPlanDataSource
           ]
       )
 

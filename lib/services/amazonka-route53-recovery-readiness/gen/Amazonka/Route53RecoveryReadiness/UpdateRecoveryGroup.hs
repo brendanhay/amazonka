@@ -35,10 +35,10 @@ module Amazonka.Route53RecoveryReadiness.UpdateRecoveryGroup
     newUpdateRecoveryGroupResponse,
 
     -- * Response Lenses
-    updateRecoveryGroupResponse_tags,
+    updateRecoveryGroupResponse_cells,
     updateRecoveryGroupResponse_recoveryGroupArn,
     updateRecoveryGroupResponse_recoveryGroupName,
-    updateRecoveryGroupResponse_cells,
+    updateRecoveryGroupResponse_tags,
     updateRecoveryGroupResponse_httpStatus,
   )
 where
@@ -105,10 +105,10 @@ instance Core.AWSRequest UpdateRecoveryGroup where
     Response.receiveJSON
       ( \s h x ->
           UpdateRecoveryGroupResponse'
-            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "cells" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "recoveryGroupArn")
             Prelude.<*> (x Data..?> "recoveryGroupName")
-            Prelude.<*> (x Data..?> "cells" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -150,14 +150,14 @@ instance Data.ToQuery UpdateRecoveryGroup where
 
 -- | /See:/ 'newUpdateRecoveryGroupResponse' smart constructor.
 data UpdateRecoveryGroupResponse = UpdateRecoveryGroupResponse'
-  { -- | The tags associated with the recovery group.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | A list of a cell\'s Amazon Resource Names (ARNs).
+    cells :: Prelude.Maybe [Prelude.Text],
     -- | The Amazon Resource Name (ARN) for the recovery group.
     recoveryGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the recovery group.
     recoveryGroupName :: Prelude.Maybe Prelude.Text,
-    -- | A list of a cell\'s Amazon Resource Names (ARNs).
-    cells :: Prelude.Maybe [Prelude.Text],
+    -- | The tags associated with the recovery group.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -171,13 +171,13 @@ data UpdateRecoveryGroupResponse = UpdateRecoveryGroupResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'updateRecoveryGroupResponse_tags' - The tags associated with the recovery group.
+-- 'cells', 'updateRecoveryGroupResponse_cells' - A list of a cell\'s Amazon Resource Names (ARNs).
 --
 -- 'recoveryGroupArn', 'updateRecoveryGroupResponse_recoveryGroupArn' - The Amazon Resource Name (ARN) for the recovery group.
 --
 -- 'recoveryGroupName', 'updateRecoveryGroupResponse_recoveryGroupName' - The name of the recovery group.
 --
--- 'cells', 'updateRecoveryGroupResponse_cells' - A list of a cell\'s Amazon Resource Names (ARNs).
+-- 'tags', 'updateRecoveryGroupResponse_tags' - The tags associated with the recovery group.
 --
 -- 'httpStatus', 'updateRecoveryGroupResponse_httpStatus' - The response's http status code.
 newUpdateRecoveryGroupResponse ::
@@ -186,17 +186,17 @@ newUpdateRecoveryGroupResponse ::
   UpdateRecoveryGroupResponse
 newUpdateRecoveryGroupResponse pHttpStatus_ =
   UpdateRecoveryGroupResponse'
-    { tags =
+    { cells =
         Prelude.Nothing,
       recoveryGroupArn = Prelude.Nothing,
       recoveryGroupName = Prelude.Nothing,
-      cells = Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The tags associated with the recovery group.
-updateRecoveryGroupResponse_tags :: Lens.Lens' UpdateRecoveryGroupResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-updateRecoveryGroupResponse_tags = Lens.lens (\UpdateRecoveryGroupResponse' {tags} -> tags) (\s@UpdateRecoveryGroupResponse' {} a -> s {tags = a} :: UpdateRecoveryGroupResponse) Prelude.. Lens.mapping Lens.coerced
+-- | A list of a cell\'s Amazon Resource Names (ARNs).
+updateRecoveryGroupResponse_cells :: Lens.Lens' UpdateRecoveryGroupResponse (Prelude.Maybe [Prelude.Text])
+updateRecoveryGroupResponse_cells = Lens.lens (\UpdateRecoveryGroupResponse' {cells} -> cells) (\s@UpdateRecoveryGroupResponse' {} a -> s {cells = a} :: UpdateRecoveryGroupResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) for the recovery group.
 updateRecoveryGroupResponse_recoveryGroupArn :: Lens.Lens' UpdateRecoveryGroupResponse (Prelude.Maybe Prelude.Text)
@@ -206,9 +206,9 @@ updateRecoveryGroupResponse_recoveryGroupArn = Lens.lens (\UpdateRecoveryGroupRe
 updateRecoveryGroupResponse_recoveryGroupName :: Lens.Lens' UpdateRecoveryGroupResponse (Prelude.Maybe Prelude.Text)
 updateRecoveryGroupResponse_recoveryGroupName = Lens.lens (\UpdateRecoveryGroupResponse' {recoveryGroupName} -> recoveryGroupName) (\s@UpdateRecoveryGroupResponse' {} a -> s {recoveryGroupName = a} :: UpdateRecoveryGroupResponse)
 
--- | A list of a cell\'s Amazon Resource Names (ARNs).
-updateRecoveryGroupResponse_cells :: Lens.Lens' UpdateRecoveryGroupResponse (Prelude.Maybe [Prelude.Text])
-updateRecoveryGroupResponse_cells = Lens.lens (\UpdateRecoveryGroupResponse' {cells} -> cells) (\s@UpdateRecoveryGroupResponse' {} a -> s {cells = a} :: UpdateRecoveryGroupResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The tags associated with the recovery group.
+updateRecoveryGroupResponse_tags :: Lens.Lens' UpdateRecoveryGroupResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+updateRecoveryGroupResponse_tags = Lens.lens (\UpdateRecoveryGroupResponse' {tags} -> tags) (\s@UpdateRecoveryGroupResponse' {} a -> s {tags = a} :: UpdateRecoveryGroupResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 updateRecoveryGroupResponse_httpStatus :: Lens.Lens' UpdateRecoveryGroupResponse Prelude.Int
@@ -216,8 +216,8 @@ updateRecoveryGroupResponse_httpStatus = Lens.lens (\UpdateRecoveryGroupResponse
 
 instance Prelude.NFData UpdateRecoveryGroupResponse where
   rnf UpdateRecoveryGroupResponse' {..} =
-    Prelude.rnf tags
+    Prelude.rnf cells
       `Prelude.seq` Prelude.rnf recoveryGroupArn
       `Prelude.seq` Prelude.rnf recoveryGroupName
-      `Prelude.seq` Prelude.rnf cells
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

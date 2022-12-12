@@ -33,19 +33,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLoadBalancerTlsPolicy' smart constructor.
 data LoadBalancerTlsPolicy = LoadBalancerTlsPolicy'
-  { -- | The name of the TLS security policy.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The protocols used in a given TLS security policy.
-    protocols :: Prelude.Maybe [Prelude.Text],
+  { -- | The ciphers used by the TLS security policy.
+    --
+    -- The ciphers are listed in order of preference.
+    ciphers :: Prelude.Maybe [Prelude.Text],
     -- | The description of the TLS security policy.
     description :: Prelude.Maybe Prelude.Text,
     -- | A Boolean value that indicates whether the TLS security policy is the
     -- default.
     isDefault :: Prelude.Maybe Prelude.Bool,
-    -- | The ciphers used by the TLS security policy.
-    --
-    -- The ciphers are listed in order of preference.
-    ciphers :: Prelude.Maybe [Prelude.Text]
+    -- | The name of the TLS security policy.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The protocols used in a given TLS security policy.
+    protocols :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,36 +57,34 @@ data LoadBalancerTlsPolicy = LoadBalancerTlsPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'loadBalancerTlsPolicy_name' - The name of the TLS security policy.
+-- 'ciphers', 'loadBalancerTlsPolicy_ciphers' - The ciphers used by the TLS security policy.
 --
--- 'protocols', 'loadBalancerTlsPolicy_protocols' - The protocols used in a given TLS security policy.
+-- The ciphers are listed in order of preference.
 --
 -- 'description', 'loadBalancerTlsPolicy_description' - The description of the TLS security policy.
 --
 -- 'isDefault', 'loadBalancerTlsPolicy_isDefault' - A Boolean value that indicates whether the TLS security policy is the
 -- default.
 --
--- 'ciphers', 'loadBalancerTlsPolicy_ciphers' - The ciphers used by the TLS security policy.
+-- 'name', 'loadBalancerTlsPolicy_name' - The name of the TLS security policy.
 --
--- The ciphers are listed in order of preference.
+-- 'protocols', 'loadBalancerTlsPolicy_protocols' - The protocols used in a given TLS security policy.
 newLoadBalancerTlsPolicy ::
   LoadBalancerTlsPolicy
 newLoadBalancerTlsPolicy =
   LoadBalancerTlsPolicy'
-    { name = Prelude.Nothing,
-      protocols = Prelude.Nothing,
+    { ciphers = Prelude.Nothing,
       description = Prelude.Nothing,
       isDefault = Prelude.Nothing,
-      ciphers = Prelude.Nothing
+      name = Prelude.Nothing,
+      protocols = Prelude.Nothing
     }
 
--- | The name of the TLS security policy.
-loadBalancerTlsPolicy_name :: Lens.Lens' LoadBalancerTlsPolicy (Prelude.Maybe Prelude.Text)
-loadBalancerTlsPolicy_name = Lens.lens (\LoadBalancerTlsPolicy' {name} -> name) (\s@LoadBalancerTlsPolicy' {} a -> s {name = a} :: LoadBalancerTlsPolicy)
-
--- | The protocols used in a given TLS security policy.
-loadBalancerTlsPolicy_protocols :: Lens.Lens' LoadBalancerTlsPolicy (Prelude.Maybe [Prelude.Text])
-loadBalancerTlsPolicy_protocols = Lens.lens (\LoadBalancerTlsPolicy' {protocols} -> protocols) (\s@LoadBalancerTlsPolicy' {} a -> s {protocols = a} :: LoadBalancerTlsPolicy) Prelude.. Lens.mapping Lens.coerced
+-- | The ciphers used by the TLS security policy.
+--
+-- The ciphers are listed in order of preference.
+loadBalancerTlsPolicy_ciphers :: Lens.Lens' LoadBalancerTlsPolicy (Prelude.Maybe [Prelude.Text])
+loadBalancerTlsPolicy_ciphers = Lens.lens (\LoadBalancerTlsPolicy' {ciphers} -> ciphers) (\s@LoadBalancerTlsPolicy' {} a -> s {ciphers = a} :: LoadBalancerTlsPolicy) Prelude.. Lens.mapping Lens.coerced
 
 -- | The description of the TLS security policy.
 loadBalancerTlsPolicy_description :: Lens.Lens' LoadBalancerTlsPolicy (Prelude.Maybe Prelude.Text)
@@ -97,11 +95,13 @@ loadBalancerTlsPolicy_description = Lens.lens (\LoadBalancerTlsPolicy' {descript
 loadBalancerTlsPolicy_isDefault :: Lens.Lens' LoadBalancerTlsPolicy (Prelude.Maybe Prelude.Bool)
 loadBalancerTlsPolicy_isDefault = Lens.lens (\LoadBalancerTlsPolicy' {isDefault} -> isDefault) (\s@LoadBalancerTlsPolicy' {} a -> s {isDefault = a} :: LoadBalancerTlsPolicy)
 
--- | The ciphers used by the TLS security policy.
---
--- The ciphers are listed in order of preference.
-loadBalancerTlsPolicy_ciphers :: Lens.Lens' LoadBalancerTlsPolicy (Prelude.Maybe [Prelude.Text])
-loadBalancerTlsPolicy_ciphers = Lens.lens (\LoadBalancerTlsPolicy' {ciphers} -> ciphers) (\s@LoadBalancerTlsPolicy' {} a -> s {ciphers = a} :: LoadBalancerTlsPolicy) Prelude.. Lens.mapping Lens.coerced
+-- | The name of the TLS security policy.
+loadBalancerTlsPolicy_name :: Lens.Lens' LoadBalancerTlsPolicy (Prelude.Maybe Prelude.Text)
+loadBalancerTlsPolicy_name = Lens.lens (\LoadBalancerTlsPolicy' {name} -> name) (\s@LoadBalancerTlsPolicy' {} a -> s {name = a} :: LoadBalancerTlsPolicy)
+
+-- | The protocols used in a given TLS security policy.
+loadBalancerTlsPolicy_protocols :: Lens.Lens' LoadBalancerTlsPolicy (Prelude.Maybe [Prelude.Text])
+loadBalancerTlsPolicy_protocols = Lens.lens (\LoadBalancerTlsPolicy' {protocols} -> protocols) (\s@LoadBalancerTlsPolicy' {} a -> s {protocols = a} :: LoadBalancerTlsPolicy) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON LoadBalancerTlsPolicy where
   parseJSON =
@@ -109,25 +109,25 @@ instance Data.FromJSON LoadBalancerTlsPolicy where
       "LoadBalancerTlsPolicy"
       ( \x ->
           LoadBalancerTlsPolicy'
-            Prelude.<$> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "protocols" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "ciphers" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "isDefault")
-            Prelude.<*> (x Data..:? "ciphers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "protocols" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable LoadBalancerTlsPolicy where
   hashWithSalt _salt LoadBalancerTlsPolicy' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` protocols
+    _salt `Prelude.hashWithSalt` ciphers
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` isDefault
-      `Prelude.hashWithSalt` ciphers
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` protocols
 
 instance Prelude.NFData LoadBalancerTlsPolicy where
   rnf LoadBalancerTlsPolicy' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf protocols
+    Prelude.rnf ciphers
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf isDefault
-      `Prelude.seq` Prelude.rnf ciphers
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf protocols

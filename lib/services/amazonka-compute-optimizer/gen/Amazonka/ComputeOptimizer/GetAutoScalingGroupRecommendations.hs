@@ -34,20 +34,20 @@ module Amazonka.ComputeOptimizer.GetAutoScalingGroupRecommendations
 
     -- * Request Lenses
     getAutoScalingGroupRecommendations_accountIds,
-    getAutoScalingGroupRecommendations_nextToken,
-    getAutoScalingGroupRecommendations_recommendationPreferences,
+    getAutoScalingGroupRecommendations_autoScalingGroupArns,
     getAutoScalingGroupRecommendations_filters,
     getAutoScalingGroupRecommendations_maxResults,
-    getAutoScalingGroupRecommendations_autoScalingGroupArns,
+    getAutoScalingGroupRecommendations_nextToken,
+    getAutoScalingGroupRecommendations_recommendationPreferences,
 
     -- * Destructuring the Response
     GetAutoScalingGroupRecommendationsResponse (..),
     newGetAutoScalingGroupRecommendationsResponse,
 
     -- * Response Lenses
-    getAutoScalingGroupRecommendationsResponse_nextToken,
-    getAutoScalingGroupRecommendationsResponse_errors,
     getAutoScalingGroupRecommendationsResponse_autoScalingGroupRecommendations,
+    getAutoScalingGroupRecommendationsResponse_errors,
+    getAutoScalingGroupRecommendationsResponse_nextToken,
     getAutoScalingGroupRecommendationsResponse_httpStatus,
   )
 where
@@ -71,12 +71,9 @@ data GetAutoScalingGroupRecommendations = GetAutoScalingGroupRecommendations'
     --
     -- Only one account ID can be specified per request.
     accountIds :: Prelude.Maybe [Prelude.Text],
-    -- | The token to advance to the next page of Auto Scaling group
-    -- recommendations.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An object to specify the preferences for the Auto Scaling group
-    -- recommendations to return in the response.
-    recommendationPreferences :: Prelude.Maybe RecommendationPreferences,
+    -- | The Amazon Resource Name (ARN) of the Auto Scaling groups for which to
+    -- return recommendations.
+    autoScalingGroupArns :: Prelude.Maybe [Prelude.Text],
     -- | An array of objects to specify a filter that returns a more specific
     -- list of Auto Scaling group recommendations.
     filters :: Prelude.Maybe [Filter],
@@ -86,9 +83,12 @@ data GetAutoScalingGroupRecommendations = GetAutoScalingGroupRecommendations'
     -- To retrieve the remaining results, make another request with the
     -- returned @nextToken@ value.
     maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The Amazon Resource Name (ARN) of the Auto Scaling groups for which to
-    -- return recommendations.
-    autoScalingGroupArns :: Prelude.Maybe [Prelude.Text]
+    -- | The token to advance to the next page of Auto Scaling group
+    -- recommendations.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An object to specify the preferences for the Auto Scaling group
+    -- recommendations to return in the response.
+    recommendationPreferences :: Prelude.Maybe RecommendationPreferences
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -109,11 +109,8 @@ data GetAutoScalingGroupRecommendations = GetAutoScalingGroupRecommendations'
 --
 -- Only one account ID can be specified per request.
 --
--- 'nextToken', 'getAutoScalingGroupRecommendations_nextToken' - The token to advance to the next page of Auto Scaling group
--- recommendations.
---
--- 'recommendationPreferences', 'getAutoScalingGroupRecommendations_recommendationPreferences' - An object to specify the preferences for the Auto Scaling group
--- recommendations to return in the response.
+-- 'autoScalingGroupArns', 'getAutoScalingGroupRecommendations_autoScalingGroupArns' - The Amazon Resource Name (ARN) of the Auto Scaling groups for which to
+-- return recommendations.
 --
 -- 'filters', 'getAutoScalingGroupRecommendations_filters' - An array of objects to specify a filter that returns a more specific
 -- list of Auto Scaling group recommendations.
@@ -124,20 +121,23 @@ data GetAutoScalingGroupRecommendations = GetAutoScalingGroupRecommendations'
 -- To retrieve the remaining results, make another request with the
 -- returned @nextToken@ value.
 --
--- 'autoScalingGroupArns', 'getAutoScalingGroupRecommendations_autoScalingGroupArns' - The Amazon Resource Name (ARN) of the Auto Scaling groups for which to
--- return recommendations.
+-- 'nextToken', 'getAutoScalingGroupRecommendations_nextToken' - The token to advance to the next page of Auto Scaling group
+-- recommendations.
+--
+-- 'recommendationPreferences', 'getAutoScalingGroupRecommendations_recommendationPreferences' - An object to specify the preferences for the Auto Scaling group
+-- recommendations to return in the response.
 newGetAutoScalingGroupRecommendations ::
   GetAutoScalingGroupRecommendations
 newGetAutoScalingGroupRecommendations =
   GetAutoScalingGroupRecommendations'
     { accountIds =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      recommendationPreferences =
-        Prelude.Nothing,
+      autoScalingGroupArns = Prelude.Nothing,
       filters = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      autoScalingGroupArns = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      recommendationPreferences =
+        Prelude.Nothing
     }
 
 -- | The ID of the Amazon Web Services account for which to return Auto
@@ -151,15 +151,10 @@ newGetAutoScalingGroupRecommendations =
 getAutoScalingGroupRecommendations_accountIds :: Lens.Lens' GetAutoScalingGroupRecommendations (Prelude.Maybe [Prelude.Text])
 getAutoScalingGroupRecommendations_accountIds = Lens.lens (\GetAutoScalingGroupRecommendations' {accountIds} -> accountIds) (\s@GetAutoScalingGroupRecommendations' {} a -> s {accountIds = a} :: GetAutoScalingGroupRecommendations) Prelude.. Lens.mapping Lens.coerced
 
--- | The token to advance to the next page of Auto Scaling group
--- recommendations.
-getAutoScalingGroupRecommendations_nextToken :: Lens.Lens' GetAutoScalingGroupRecommendations (Prelude.Maybe Prelude.Text)
-getAutoScalingGroupRecommendations_nextToken = Lens.lens (\GetAutoScalingGroupRecommendations' {nextToken} -> nextToken) (\s@GetAutoScalingGroupRecommendations' {} a -> s {nextToken = a} :: GetAutoScalingGroupRecommendations)
-
--- | An object to specify the preferences for the Auto Scaling group
--- recommendations to return in the response.
-getAutoScalingGroupRecommendations_recommendationPreferences :: Lens.Lens' GetAutoScalingGroupRecommendations (Prelude.Maybe RecommendationPreferences)
-getAutoScalingGroupRecommendations_recommendationPreferences = Lens.lens (\GetAutoScalingGroupRecommendations' {recommendationPreferences} -> recommendationPreferences) (\s@GetAutoScalingGroupRecommendations' {} a -> s {recommendationPreferences = a} :: GetAutoScalingGroupRecommendations)
+-- | The Amazon Resource Name (ARN) of the Auto Scaling groups for which to
+-- return recommendations.
+getAutoScalingGroupRecommendations_autoScalingGroupArns :: Lens.Lens' GetAutoScalingGroupRecommendations (Prelude.Maybe [Prelude.Text])
+getAutoScalingGroupRecommendations_autoScalingGroupArns = Lens.lens (\GetAutoScalingGroupRecommendations' {autoScalingGroupArns} -> autoScalingGroupArns) (\s@GetAutoScalingGroupRecommendations' {} a -> s {autoScalingGroupArns = a} :: GetAutoScalingGroupRecommendations) Prelude.. Lens.mapping Lens.coerced
 
 -- | An array of objects to specify a filter that returns a more specific
 -- list of Auto Scaling group recommendations.
@@ -174,10 +169,15 @@ getAutoScalingGroupRecommendations_filters = Lens.lens (\GetAutoScalingGroupReco
 getAutoScalingGroupRecommendations_maxResults :: Lens.Lens' GetAutoScalingGroupRecommendations (Prelude.Maybe Prelude.Int)
 getAutoScalingGroupRecommendations_maxResults = Lens.lens (\GetAutoScalingGroupRecommendations' {maxResults} -> maxResults) (\s@GetAutoScalingGroupRecommendations' {} a -> s {maxResults = a} :: GetAutoScalingGroupRecommendations)
 
--- | The Amazon Resource Name (ARN) of the Auto Scaling groups for which to
--- return recommendations.
-getAutoScalingGroupRecommendations_autoScalingGroupArns :: Lens.Lens' GetAutoScalingGroupRecommendations (Prelude.Maybe [Prelude.Text])
-getAutoScalingGroupRecommendations_autoScalingGroupArns = Lens.lens (\GetAutoScalingGroupRecommendations' {autoScalingGroupArns} -> autoScalingGroupArns) (\s@GetAutoScalingGroupRecommendations' {} a -> s {autoScalingGroupArns = a} :: GetAutoScalingGroupRecommendations) Prelude.. Lens.mapping Lens.coerced
+-- | The token to advance to the next page of Auto Scaling group
+-- recommendations.
+getAutoScalingGroupRecommendations_nextToken :: Lens.Lens' GetAutoScalingGroupRecommendations (Prelude.Maybe Prelude.Text)
+getAutoScalingGroupRecommendations_nextToken = Lens.lens (\GetAutoScalingGroupRecommendations' {nextToken} -> nextToken) (\s@GetAutoScalingGroupRecommendations' {} a -> s {nextToken = a} :: GetAutoScalingGroupRecommendations)
+
+-- | An object to specify the preferences for the Auto Scaling group
+-- recommendations to return in the response.
+getAutoScalingGroupRecommendations_recommendationPreferences :: Lens.Lens' GetAutoScalingGroupRecommendations (Prelude.Maybe RecommendationPreferences)
+getAutoScalingGroupRecommendations_recommendationPreferences = Lens.lens (\GetAutoScalingGroupRecommendations' {recommendationPreferences} -> recommendationPreferences) (\s@GetAutoScalingGroupRecommendations' {} a -> s {recommendationPreferences = a} :: GetAutoScalingGroupRecommendations)
 
 instance
   Core.AWSRequest
@@ -192,11 +192,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetAutoScalingGroupRecommendationsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<$> ( x Data..?> "autoScalingGroupRecommendations"
+                            Core..!@ Prelude.mempty
+                        )
               Prelude.<*> (x Data..?> "errors" Core..!@ Prelude.mempty)
-              Prelude.<*> ( x Data..?> "autoScalingGroupRecommendations"
-                              Core..!@ Prelude.mempty
-                          )
+              Prelude.<*> (x Data..?> "nextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -208,11 +208,11 @@ instance
     _salt
     GetAutoScalingGroupRecommendations' {..} =
       _salt `Prelude.hashWithSalt` accountIds
-        `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` recommendationPreferences
+        `Prelude.hashWithSalt` autoScalingGroupArns
         `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
-        `Prelude.hashWithSalt` autoScalingGroupArns
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` recommendationPreferences
 
 instance
   Prelude.NFData
@@ -220,11 +220,11 @@ instance
   where
   rnf GetAutoScalingGroupRecommendations' {..} =
     Prelude.rnf accountIds
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf recommendationPreferences
+      `Prelude.seq` Prelude.rnf autoScalingGroupArns
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf autoScalingGroupArns
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf recommendationPreferences
 
 instance
   Data.ToHeaders
@@ -252,13 +252,13 @@ instance
     Data.object
       ( Prelude.catMaybes
           [ ("accountIds" Data..=) Prelude.<$> accountIds,
-            ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("recommendationPreferences" Data..=)
-              Prelude.<$> recommendationPreferences,
+            ("autoScalingGroupArns" Data..=)
+              Prelude.<$> autoScalingGroupArns,
             ("filters" Data..=) Prelude.<$> filters,
             ("maxResults" Data..=) Prelude.<$> maxResults,
-            ("autoScalingGroupArns" Data..=)
-              Prelude.<$> autoScalingGroupArns
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("recommendationPreferences" Data..=)
+              Prelude.<$> recommendationPreferences
           ]
       )
 
@@ -276,19 +276,19 @@ instance
 
 -- | /See:/ 'newGetAutoScalingGroupRecommendationsResponse' smart constructor.
 data GetAutoScalingGroupRecommendationsResponse = GetAutoScalingGroupRecommendationsResponse'
-  { -- | The token to use to advance to the next page of Auto Scaling group
-    -- recommendations.
-    --
-    -- This value is null when there are no more pages of Auto Scaling group
-    -- recommendations to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | An array of objects that describe Auto Scaling group recommendations.
+    autoScalingGroupRecommendations :: Prelude.Maybe [AutoScalingGroupRecommendation],
     -- | An array of objects that describe errors of the request.
     --
     -- For example, an error is returned if you request recommendations for an
     -- unsupported Auto Scaling group.
     errors :: Prelude.Maybe [GetRecommendationError],
-    -- | An array of objects that describe Auto Scaling group recommendations.
-    autoScalingGroupRecommendations :: Prelude.Maybe [AutoScalingGroupRecommendation],
+    -- | The token to use to advance to the next page of Auto Scaling group
+    -- recommendations.
+    --
+    -- This value is null when there are no more pages of Auto Scaling group
+    -- recommendations to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -302,18 +302,18 @@ data GetAutoScalingGroupRecommendationsResponse = GetAutoScalingGroupRecommendat
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getAutoScalingGroupRecommendationsResponse_nextToken' - The token to use to advance to the next page of Auto Scaling group
--- recommendations.
---
--- This value is null when there are no more pages of Auto Scaling group
--- recommendations to return.
+-- 'autoScalingGroupRecommendations', 'getAutoScalingGroupRecommendationsResponse_autoScalingGroupRecommendations' - An array of objects that describe Auto Scaling group recommendations.
 --
 -- 'errors', 'getAutoScalingGroupRecommendationsResponse_errors' - An array of objects that describe errors of the request.
 --
 -- For example, an error is returned if you request recommendations for an
 -- unsupported Auto Scaling group.
 --
--- 'autoScalingGroupRecommendations', 'getAutoScalingGroupRecommendationsResponse_autoScalingGroupRecommendations' - An array of objects that describe Auto Scaling group recommendations.
+-- 'nextToken', 'getAutoScalingGroupRecommendationsResponse_nextToken' - The token to use to advance to the next page of Auto Scaling group
+-- recommendations.
+--
+-- This value is null when there are no more pages of Auto Scaling group
+-- recommendations to return.
 --
 -- 'httpStatus', 'getAutoScalingGroupRecommendationsResponse_httpStatus' - The response's http status code.
 newGetAutoScalingGroupRecommendationsResponse ::
@@ -323,21 +323,16 @@ newGetAutoScalingGroupRecommendationsResponse ::
 newGetAutoScalingGroupRecommendationsResponse
   pHttpStatus_ =
     GetAutoScalingGroupRecommendationsResponse'
-      { nextToken =
+      { autoScalingGroupRecommendations =
           Prelude.Nothing,
         errors = Prelude.Nothing,
-        autoScalingGroupRecommendations =
-          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
--- | The token to use to advance to the next page of Auto Scaling group
--- recommendations.
---
--- This value is null when there are no more pages of Auto Scaling group
--- recommendations to return.
-getAutoScalingGroupRecommendationsResponse_nextToken :: Lens.Lens' GetAutoScalingGroupRecommendationsResponse (Prelude.Maybe Prelude.Text)
-getAutoScalingGroupRecommendationsResponse_nextToken = Lens.lens (\GetAutoScalingGroupRecommendationsResponse' {nextToken} -> nextToken) (\s@GetAutoScalingGroupRecommendationsResponse' {} a -> s {nextToken = a} :: GetAutoScalingGroupRecommendationsResponse)
+-- | An array of objects that describe Auto Scaling group recommendations.
+getAutoScalingGroupRecommendationsResponse_autoScalingGroupRecommendations :: Lens.Lens' GetAutoScalingGroupRecommendationsResponse (Prelude.Maybe [AutoScalingGroupRecommendation])
+getAutoScalingGroupRecommendationsResponse_autoScalingGroupRecommendations = Lens.lens (\GetAutoScalingGroupRecommendationsResponse' {autoScalingGroupRecommendations} -> autoScalingGroupRecommendations) (\s@GetAutoScalingGroupRecommendationsResponse' {} a -> s {autoScalingGroupRecommendations = a} :: GetAutoScalingGroupRecommendationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An array of objects that describe errors of the request.
 --
@@ -346,9 +341,13 @@ getAutoScalingGroupRecommendationsResponse_nextToken = Lens.lens (\GetAutoScalin
 getAutoScalingGroupRecommendationsResponse_errors :: Lens.Lens' GetAutoScalingGroupRecommendationsResponse (Prelude.Maybe [GetRecommendationError])
 getAutoScalingGroupRecommendationsResponse_errors = Lens.lens (\GetAutoScalingGroupRecommendationsResponse' {errors} -> errors) (\s@GetAutoScalingGroupRecommendationsResponse' {} a -> s {errors = a} :: GetAutoScalingGroupRecommendationsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | An array of objects that describe Auto Scaling group recommendations.
-getAutoScalingGroupRecommendationsResponse_autoScalingGroupRecommendations :: Lens.Lens' GetAutoScalingGroupRecommendationsResponse (Prelude.Maybe [AutoScalingGroupRecommendation])
-getAutoScalingGroupRecommendationsResponse_autoScalingGroupRecommendations = Lens.lens (\GetAutoScalingGroupRecommendationsResponse' {autoScalingGroupRecommendations} -> autoScalingGroupRecommendations) (\s@GetAutoScalingGroupRecommendationsResponse' {} a -> s {autoScalingGroupRecommendations = a} :: GetAutoScalingGroupRecommendationsResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The token to use to advance to the next page of Auto Scaling group
+-- recommendations.
+--
+-- This value is null when there are no more pages of Auto Scaling group
+-- recommendations to return.
+getAutoScalingGroupRecommendationsResponse_nextToken :: Lens.Lens' GetAutoScalingGroupRecommendationsResponse (Prelude.Maybe Prelude.Text)
+getAutoScalingGroupRecommendationsResponse_nextToken = Lens.lens (\GetAutoScalingGroupRecommendationsResponse' {nextToken} -> nextToken) (\s@GetAutoScalingGroupRecommendationsResponse' {} a -> s {nextToken = a} :: GetAutoScalingGroupRecommendationsResponse)
 
 -- | The response's http status code.
 getAutoScalingGroupRecommendationsResponse_httpStatus :: Lens.Lens' GetAutoScalingGroupRecommendationsResponse Prelude.Int
@@ -359,7 +358,7 @@ instance
     GetAutoScalingGroupRecommendationsResponse
   where
   rnf GetAutoScalingGroupRecommendationsResponse' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf autoScalingGroupRecommendations
       `Prelude.seq` Prelude.rnf errors
-      `Prelude.seq` Prelude.rnf autoScalingGroupRecommendations
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

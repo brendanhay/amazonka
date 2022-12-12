@@ -31,8 +31,8 @@ module Amazonka.SESV2.CreateDedicatedIpPool
     newCreateDedicatedIpPool,
 
     -- * Request Lenses
-    createDedicatedIpPool_tags,
     createDedicatedIpPool_scalingMode,
+    createDedicatedIpPool_tags,
     createDedicatedIpPool_poolName,
 
     -- * Destructuring the Response
@@ -56,11 +56,11 @@ import Amazonka.SESV2.Types
 --
 -- /See:/ 'newCreateDedicatedIpPool' smart constructor.
 data CreateDedicatedIpPool = CreateDedicatedIpPool'
-  { -- | An object that defines the tags (keys and values) that you want to
+  { -- | The type of scaling mode.
+    scalingMode :: Prelude.Maybe ScalingMode,
+    -- | An object that defines the tags (keys and values) that you want to
     -- associate with the pool.
     tags :: Prelude.Maybe [Tag],
-    -- | The type of scaling mode.
-    scalingMode :: Prelude.Maybe ScalingMode,
     -- | The name of the dedicated IP pool.
     poolName :: Prelude.Text
   }
@@ -74,10 +74,10 @@ data CreateDedicatedIpPool = CreateDedicatedIpPool'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'scalingMode', 'createDedicatedIpPool_scalingMode' - The type of scaling mode.
+--
 -- 'tags', 'createDedicatedIpPool_tags' - An object that defines the tags (keys and values) that you want to
 -- associate with the pool.
---
--- 'scalingMode', 'createDedicatedIpPool_scalingMode' - The type of scaling mode.
 --
 -- 'poolName', 'createDedicatedIpPool_poolName' - The name of the dedicated IP pool.
 newCreateDedicatedIpPool ::
@@ -86,19 +86,20 @@ newCreateDedicatedIpPool ::
   CreateDedicatedIpPool
 newCreateDedicatedIpPool pPoolName_ =
   CreateDedicatedIpPool'
-    { tags = Prelude.Nothing,
-      scalingMode = Prelude.Nothing,
+    { scalingMode =
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
       poolName = pPoolName_
     }
+
+-- | The type of scaling mode.
+createDedicatedIpPool_scalingMode :: Lens.Lens' CreateDedicatedIpPool (Prelude.Maybe ScalingMode)
+createDedicatedIpPool_scalingMode = Lens.lens (\CreateDedicatedIpPool' {scalingMode} -> scalingMode) (\s@CreateDedicatedIpPool' {} a -> s {scalingMode = a} :: CreateDedicatedIpPool)
 
 -- | An object that defines the tags (keys and values) that you want to
 -- associate with the pool.
 createDedicatedIpPool_tags :: Lens.Lens' CreateDedicatedIpPool (Prelude.Maybe [Tag])
 createDedicatedIpPool_tags = Lens.lens (\CreateDedicatedIpPool' {tags} -> tags) (\s@CreateDedicatedIpPool' {} a -> s {tags = a} :: CreateDedicatedIpPool) Prelude.. Lens.mapping Lens.coerced
-
--- | The type of scaling mode.
-createDedicatedIpPool_scalingMode :: Lens.Lens' CreateDedicatedIpPool (Prelude.Maybe ScalingMode)
-createDedicatedIpPool_scalingMode = Lens.lens (\CreateDedicatedIpPool' {scalingMode} -> scalingMode) (\s@CreateDedicatedIpPool' {} a -> s {scalingMode = a} :: CreateDedicatedIpPool)
 
 -- | The name of the dedicated IP pool.
 createDedicatedIpPool_poolName :: Lens.Lens' CreateDedicatedIpPool Prelude.Text
@@ -119,14 +120,14 @@ instance Core.AWSRequest CreateDedicatedIpPool where
 
 instance Prelude.Hashable CreateDedicatedIpPool where
   hashWithSalt _salt CreateDedicatedIpPool' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` scalingMode
+    _salt `Prelude.hashWithSalt` scalingMode
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` poolName
 
 instance Prelude.NFData CreateDedicatedIpPool where
   rnf CreateDedicatedIpPool' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf scalingMode
+    Prelude.rnf scalingMode
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf poolName
 
 instance Data.ToHeaders CreateDedicatedIpPool where
@@ -144,8 +145,8 @@ instance Data.ToJSON CreateDedicatedIpPool where
   toJSON CreateDedicatedIpPool' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ScalingMode" Data..=) Prelude.<$> scalingMode,
+          [ ("ScalingMode" Data..=) Prelude.<$> scalingMode,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("PoolName" Data..= poolName)
           ]
       )

@@ -30,9 +30,9 @@ module Amazonka.SSOAdmin.ListAccountAssignmentDeletionStatus
     newListAccountAssignmentDeletionStatus,
 
     -- * Request Lenses
-    listAccountAssignmentDeletionStatus_nextToken,
     listAccountAssignmentDeletionStatus_filter,
     listAccountAssignmentDeletionStatus_maxResults,
+    listAccountAssignmentDeletionStatus_nextToken,
     listAccountAssignmentDeletionStatus_instanceArn,
 
     -- * Destructuring the Response
@@ -40,8 +40,8 @@ module Amazonka.SSOAdmin.ListAccountAssignmentDeletionStatus
     newListAccountAssignmentDeletionStatusResponse,
 
     -- * Response Lenses
-    listAccountAssignmentDeletionStatusResponse_nextToken,
     listAccountAssignmentDeletionStatusResponse_accountAssignmentsDeletionStatus,
+    listAccountAssignmentDeletionStatusResponse_nextToken,
     listAccountAssignmentDeletionStatusResponse_httpStatus,
   )
 where
@@ -56,13 +56,13 @@ import Amazonka.SSOAdmin.Types
 
 -- | /See:/ 'newListAccountAssignmentDeletionStatus' smart constructor.
 data ListAccountAssignmentDeletionStatus = ListAccountAssignmentDeletionStatus'
-  { -- | The pagination token for the list API. Initially the value is null. Use
-    -- the output of previous API calls to make subsequent calls.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters results based on the passed attribute value.
+  { -- | Filters results based on the passed attribute value.
     filter' :: Prelude.Maybe OperationStatusFilter,
     -- | The maximum number of results to display for the assignment.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token for the list API. Initially the value is null. Use
+    -- the output of previous API calls to make subsequent calls.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the IAM Identity Center instance under which the operation
     -- will be executed. For more information about ARNs, see
     -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
@@ -79,12 +79,12 @@ data ListAccountAssignmentDeletionStatus = ListAccountAssignmentDeletionStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAccountAssignmentDeletionStatus_nextToken' - The pagination token for the list API. Initially the value is null. Use
--- the output of previous API calls to make subsequent calls.
---
 -- 'filter'', 'listAccountAssignmentDeletionStatus_filter' - Filters results based on the passed attribute value.
 --
 -- 'maxResults', 'listAccountAssignmentDeletionStatus_maxResults' - The maximum number of results to display for the assignment.
+--
+-- 'nextToken', 'listAccountAssignmentDeletionStatus_nextToken' - The pagination token for the list API. Initially the value is null. Use
+-- the output of previous API calls to make subsequent calls.
 --
 -- 'instanceArn', 'listAccountAssignmentDeletionStatus_instanceArn' - The ARN of the IAM Identity Center instance under which the operation
 -- will be executed. For more information about ARNs, see
@@ -96,17 +96,12 @@ newListAccountAssignmentDeletionStatus ::
   ListAccountAssignmentDeletionStatus
 newListAccountAssignmentDeletionStatus pInstanceArn_ =
   ListAccountAssignmentDeletionStatus'
-    { nextToken =
+    { filter' =
         Prelude.Nothing,
-      filter' = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       instanceArn = pInstanceArn_
     }
-
--- | The pagination token for the list API. Initially the value is null. Use
--- the output of previous API calls to make subsequent calls.
-listAccountAssignmentDeletionStatus_nextToken :: Lens.Lens' ListAccountAssignmentDeletionStatus (Prelude.Maybe Prelude.Text)
-listAccountAssignmentDeletionStatus_nextToken = Lens.lens (\ListAccountAssignmentDeletionStatus' {nextToken} -> nextToken) (\s@ListAccountAssignmentDeletionStatus' {} a -> s {nextToken = a} :: ListAccountAssignmentDeletionStatus)
 
 -- | Filters results based on the passed attribute value.
 listAccountAssignmentDeletionStatus_filter :: Lens.Lens' ListAccountAssignmentDeletionStatus (Prelude.Maybe OperationStatusFilter)
@@ -115,6 +110,11 @@ listAccountAssignmentDeletionStatus_filter = Lens.lens (\ListAccountAssignmentDe
 -- | The maximum number of results to display for the assignment.
 listAccountAssignmentDeletionStatus_maxResults :: Lens.Lens' ListAccountAssignmentDeletionStatus (Prelude.Maybe Prelude.Natural)
 listAccountAssignmentDeletionStatus_maxResults = Lens.lens (\ListAccountAssignmentDeletionStatus' {maxResults} -> maxResults) (\s@ListAccountAssignmentDeletionStatus' {} a -> s {maxResults = a} :: ListAccountAssignmentDeletionStatus)
+
+-- | The pagination token for the list API. Initially the value is null. Use
+-- the output of previous API calls to make subsequent calls.
+listAccountAssignmentDeletionStatus_nextToken :: Lens.Lens' ListAccountAssignmentDeletionStatus (Prelude.Maybe Prelude.Text)
+listAccountAssignmentDeletionStatus_nextToken = Lens.lens (\ListAccountAssignmentDeletionStatus' {nextToken} -> nextToken) (\s@ListAccountAssignmentDeletionStatus' {} a -> s {nextToken = a} :: ListAccountAssignmentDeletionStatus)
 
 -- | The ARN of the IAM Identity Center instance under which the operation
 -- will be executed. For more information about ARNs, see
@@ -161,10 +161,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListAccountAssignmentDeletionStatusResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-              Prelude.<*> ( x Data..?> "AccountAssignmentsDeletionStatus"
-                              Core..!@ Prelude.mempty
-                          )
+            Prelude.<$> ( x Data..?> "AccountAssignmentsDeletionStatus"
+                            Core..!@ Prelude.mempty
+                        )
+              Prelude.<*> (x Data..?> "NextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -175,9 +175,9 @@ instance
   hashWithSalt
     _salt
     ListAccountAssignmentDeletionStatus' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` filter'
+      _salt `Prelude.hashWithSalt` filter'
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` instanceArn
 
 instance
@@ -185,9 +185,9 @@ instance
     ListAccountAssignmentDeletionStatus
   where
   rnf ListAccountAssignmentDeletionStatus' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filter'
+    Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf instanceArn
 
 instance
@@ -215,9 +215,9 @@ instance
   toJSON ListAccountAssignmentDeletionStatus' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filter" Data..=) Prelude.<$> filter',
+          [ ("Filter" Data..=) Prelude.<$> filter',
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("InstanceArn" Data..= instanceArn)
           ]
       )
@@ -236,11 +236,11 @@ instance
 
 -- | /See:/ 'newListAccountAssignmentDeletionStatusResponse' smart constructor.
 data ListAccountAssignmentDeletionStatusResponse = ListAccountAssignmentDeletionStatusResponse'
-  { -- | The pagination token for the list API. Initially the value is null. Use
+  { -- | The status object for the account assignment deletion operation.
+    accountAssignmentsDeletionStatus :: Prelude.Maybe [AccountAssignmentOperationStatusMetadata],
+    -- | The pagination token for the list API. Initially the value is null. Use
     -- the output of previous API calls to make subsequent calls.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The status object for the account assignment deletion operation.
-    accountAssignmentsDeletionStatus :: Prelude.Maybe [AccountAssignmentOperationStatusMetadata],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -254,10 +254,10 @@ data ListAccountAssignmentDeletionStatusResponse = ListAccountAssignmentDeletion
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'accountAssignmentsDeletionStatus', 'listAccountAssignmentDeletionStatusResponse_accountAssignmentsDeletionStatus' - The status object for the account assignment deletion operation.
+--
 -- 'nextToken', 'listAccountAssignmentDeletionStatusResponse_nextToken' - The pagination token for the list API. Initially the value is null. Use
 -- the output of previous API calls to make subsequent calls.
---
--- 'accountAssignmentsDeletionStatus', 'listAccountAssignmentDeletionStatusResponse_accountAssignmentsDeletionStatus' - The status object for the account assignment deletion operation.
 --
 -- 'httpStatus', 'listAccountAssignmentDeletionStatusResponse_httpStatus' - The response's http status code.
 newListAccountAssignmentDeletionStatusResponse ::
@@ -267,21 +267,20 @@ newListAccountAssignmentDeletionStatusResponse ::
 newListAccountAssignmentDeletionStatusResponse
   pHttpStatus_ =
     ListAccountAssignmentDeletionStatusResponse'
-      { nextToken =
+      { accountAssignmentsDeletionStatus =
           Prelude.Nothing,
-        accountAssignmentsDeletionStatus =
-          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | The status object for the account assignment deletion operation.
+listAccountAssignmentDeletionStatusResponse_accountAssignmentsDeletionStatus :: Lens.Lens' ListAccountAssignmentDeletionStatusResponse (Prelude.Maybe [AccountAssignmentOperationStatusMetadata])
+listAccountAssignmentDeletionStatusResponse_accountAssignmentsDeletionStatus = Lens.lens (\ListAccountAssignmentDeletionStatusResponse' {accountAssignmentsDeletionStatus} -> accountAssignmentsDeletionStatus) (\s@ListAccountAssignmentDeletionStatusResponse' {} a -> s {accountAssignmentsDeletionStatus = a} :: ListAccountAssignmentDeletionStatusResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token for the list API. Initially the value is null. Use
 -- the output of previous API calls to make subsequent calls.
 listAccountAssignmentDeletionStatusResponse_nextToken :: Lens.Lens' ListAccountAssignmentDeletionStatusResponse (Prelude.Maybe Prelude.Text)
 listAccountAssignmentDeletionStatusResponse_nextToken = Lens.lens (\ListAccountAssignmentDeletionStatusResponse' {nextToken} -> nextToken) (\s@ListAccountAssignmentDeletionStatusResponse' {} a -> s {nextToken = a} :: ListAccountAssignmentDeletionStatusResponse)
-
--- | The status object for the account assignment deletion operation.
-listAccountAssignmentDeletionStatusResponse_accountAssignmentsDeletionStatus :: Lens.Lens' ListAccountAssignmentDeletionStatusResponse (Prelude.Maybe [AccountAssignmentOperationStatusMetadata])
-listAccountAssignmentDeletionStatusResponse_accountAssignmentsDeletionStatus = Lens.lens (\ListAccountAssignmentDeletionStatusResponse' {accountAssignmentsDeletionStatus} -> accountAssignmentsDeletionStatus) (\s@ListAccountAssignmentDeletionStatusResponse' {} a -> s {accountAssignmentsDeletionStatus = a} :: ListAccountAssignmentDeletionStatusResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAccountAssignmentDeletionStatusResponse_httpStatus :: Lens.Lens' ListAccountAssignmentDeletionStatusResponse Prelude.Int
@@ -292,6 +291,6 @@ instance
     ListAccountAssignmentDeletionStatusResponse
   where
   rnf ListAccountAssignmentDeletionStatusResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf accountAssignmentsDeletionStatus
+    Prelude.rnf accountAssignmentsDeletionStatus
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -30,10 +30,8 @@ import Amazonka.SNS.Types.RouteType
 --
 -- /See:/ 'newPhoneNumberInformation' smart constructor.
 data PhoneNumberInformation = PhoneNumberInformation'
-  { -- | The list of supported routes.
-    routeType :: Prelude.Maybe RouteType,
-    -- | The status of the phone number.
-    status :: Prelude.Maybe Prelude.Text,
+  { -- | The date and time when the phone number was created.
+    createdAt :: Prelude.Maybe Data.ISO8601,
     -- | The two-character code for the country or region, in ISO 3166-1 alpha-2
     -- format.
     iso2CountryCode :: Prelude.Maybe Prelude.Text,
@@ -41,8 +39,10 @@ data PhoneNumberInformation = PhoneNumberInformation'
     numberCapabilities :: Prelude.Maybe [NumberCapability],
     -- | The phone number.
     phoneNumber :: Prelude.Maybe Prelude.Text,
-    -- | The date and time when the phone number was created.
-    createdAt :: Prelude.Maybe Data.ISO8601
+    -- | The list of supported routes.
+    routeType :: Prelude.Maybe RouteType,
+    -- | The status of the phone number.
+    status :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,9 +54,7 @@ data PhoneNumberInformation = PhoneNumberInformation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'routeType', 'phoneNumberInformation_routeType' - The list of supported routes.
---
--- 'status', 'phoneNumberInformation_status' - The status of the phone number.
+-- 'createdAt', 'phoneNumberInformation_createdAt' - The date and time when the phone number was created.
 --
 -- 'iso2CountryCode', 'phoneNumberInformation_iso2CountryCode' - The two-character code for the country or region, in ISO 3166-1 alpha-2
 -- format.
@@ -65,27 +63,25 @@ data PhoneNumberInformation = PhoneNumberInformation'
 --
 -- 'phoneNumber', 'phoneNumberInformation_phoneNumber' - The phone number.
 --
--- 'createdAt', 'phoneNumberInformation_createdAt' - The date and time when the phone number was created.
+-- 'routeType', 'phoneNumberInformation_routeType' - The list of supported routes.
+--
+-- 'status', 'phoneNumberInformation_status' - The status of the phone number.
 newPhoneNumberInformation ::
   PhoneNumberInformation
 newPhoneNumberInformation =
   PhoneNumberInformation'
-    { routeType =
+    { createdAt =
         Prelude.Nothing,
-      status = Prelude.Nothing,
       iso2CountryCode = Prelude.Nothing,
       numberCapabilities = Prelude.Nothing,
       phoneNumber = Prelude.Nothing,
-      createdAt = Prelude.Nothing
+      routeType = Prelude.Nothing,
+      status = Prelude.Nothing
     }
 
--- | The list of supported routes.
-phoneNumberInformation_routeType :: Lens.Lens' PhoneNumberInformation (Prelude.Maybe RouteType)
-phoneNumberInformation_routeType = Lens.lens (\PhoneNumberInformation' {routeType} -> routeType) (\s@PhoneNumberInformation' {} a -> s {routeType = a} :: PhoneNumberInformation)
-
--- | The status of the phone number.
-phoneNumberInformation_status :: Lens.Lens' PhoneNumberInformation (Prelude.Maybe Prelude.Text)
-phoneNumberInformation_status = Lens.lens (\PhoneNumberInformation' {status} -> status) (\s@PhoneNumberInformation' {} a -> s {status = a} :: PhoneNumberInformation)
+-- | The date and time when the phone number was created.
+phoneNumberInformation_createdAt :: Lens.Lens' PhoneNumberInformation (Prelude.Maybe Prelude.UTCTime)
+phoneNumberInformation_createdAt = Lens.lens (\PhoneNumberInformation' {createdAt} -> createdAt) (\s@PhoneNumberInformation' {} a -> s {createdAt = a} :: PhoneNumberInformation) Prelude.. Lens.mapping Data._Time
 
 -- | The two-character code for the country or region, in ISO 3166-1 alpha-2
 -- format.
@@ -100,37 +96,41 @@ phoneNumberInformation_numberCapabilities = Lens.lens (\PhoneNumberInformation' 
 phoneNumberInformation_phoneNumber :: Lens.Lens' PhoneNumberInformation (Prelude.Maybe Prelude.Text)
 phoneNumberInformation_phoneNumber = Lens.lens (\PhoneNumberInformation' {phoneNumber} -> phoneNumber) (\s@PhoneNumberInformation' {} a -> s {phoneNumber = a} :: PhoneNumberInformation)
 
--- | The date and time when the phone number was created.
-phoneNumberInformation_createdAt :: Lens.Lens' PhoneNumberInformation (Prelude.Maybe Prelude.UTCTime)
-phoneNumberInformation_createdAt = Lens.lens (\PhoneNumberInformation' {createdAt} -> createdAt) (\s@PhoneNumberInformation' {} a -> s {createdAt = a} :: PhoneNumberInformation) Prelude.. Lens.mapping Data._Time
+-- | The list of supported routes.
+phoneNumberInformation_routeType :: Lens.Lens' PhoneNumberInformation (Prelude.Maybe RouteType)
+phoneNumberInformation_routeType = Lens.lens (\PhoneNumberInformation' {routeType} -> routeType) (\s@PhoneNumberInformation' {} a -> s {routeType = a} :: PhoneNumberInformation)
+
+-- | The status of the phone number.
+phoneNumberInformation_status :: Lens.Lens' PhoneNumberInformation (Prelude.Maybe Prelude.Text)
+phoneNumberInformation_status = Lens.lens (\PhoneNumberInformation' {status} -> status) (\s@PhoneNumberInformation' {} a -> s {status = a} :: PhoneNumberInformation)
 
 instance Data.FromXML PhoneNumberInformation where
   parseXML x =
     PhoneNumberInformation'
-      Prelude.<$> (x Data..@? "RouteType")
-      Prelude.<*> (x Data..@? "Status")
+      Prelude.<$> (x Data..@? "CreatedAt")
       Prelude.<*> (x Data..@? "Iso2CountryCode")
       Prelude.<*> ( x Data..@? "NumberCapabilities"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "PhoneNumber")
-      Prelude.<*> (x Data..@? "CreatedAt")
+      Prelude.<*> (x Data..@? "RouteType")
+      Prelude.<*> (x Data..@? "Status")
 
 instance Prelude.Hashable PhoneNumberInformation where
   hashWithSalt _salt PhoneNumberInformation' {..} =
-    _salt `Prelude.hashWithSalt` routeType
-      `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` iso2CountryCode
       `Prelude.hashWithSalt` numberCapabilities
       `Prelude.hashWithSalt` phoneNumber
-      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` routeType
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData PhoneNumberInformation where
   rnf PhoneNumberInformation' {..} =
-    Prelude.rnf routeType
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf iso2CountryCode
       `Prelude.seq` Prelude.rnf numberCapabilities
       `Prelude.seq` Prelude.rnf phoneNumber
-      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf routeType
+      `Prelude.seq` Prelude.rnf status

@@ -40,6 +40,15 @@ data Invitation = Invitation'
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the invitation was created.
     creationDate :: Prelude.Maybe Data.POSIX,
+    -- | The date and time that the invitation expires. This is the
+    -- @CreationDate@ plus the @ProposalDurationInHours@ that is specified in
+    -- the @ProposalThresholdPolicy@. After this date and time, the invitee can
+    -- no longer create a member and join the network using this
+    -- @InvitationId@.
+    expirationDate :: Prelude.Maybe Data.POSIX,
+    -- | The unique identifier for the invitation.
+    invitationId :: Prelude.Maybe Prelude.Text,
+    networkSummary :: Prelude.Maybe NetworkSummary,
     -- | The status of the invitation:
     --
     -- -   @PENDING@ - The invitee hasn\'t created a member to join the
@@ -55,16 +64,7 @@ data Invitation = Invitation'
     --
     -- -   @EXPIRED@ - The invitee neither created a member nor rejected the
     --     invitation before the @ExpirationDate@.
-    status :: Prelude.Maybe InvitationStatus,
-    networkSummary :: Prelude.Maybe NetworkSummary,
-    -- | The date and time that the invitation expires. This is the
-    -- @CreationDate@ plus the @ProposalDurationInHours@ that is specified in
-    -- the @ProposalThresholdPolicy@. After this date and time, the invitee can
-    -- no longer create a member and join the network using this
-    -- @InvitationId@.
-    expirationDate :: Prelude.Maybe Data.POSIX,
-    -- | The unique identifier for the invitation.
-    invitationId :: Prelude.Maybe Prelude.Text
+    status :: Prelude.Maybe InvitationStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -83,6 +83,16 @@ data Invitation = Invitation'
 --
 -- 'creationDate', 'invitation_creationDate' - The date and time that the invitation was created.
 --
+-- 'expirationDate', 'invitation_expirationDate' - The date and time that the invitation expires. This is the
+-- @CreationDate@ plus the @ProposalDurationInHours@ that is specified in
+-- the @ProposalThresholdPolicy@. After this date and time, the invitee can
+-- no longer create a member and join the network using this
+-- @InvitationId@.
+--
+-- 'invitationId', 'invitation_invitationId' - The unique identifier for the invitation.
+--
+-- 'networkSummary', 'invitation_networkSummary' - Undocumented member.
+--
 -- 'status', 'invitation_status' - The status of the invitation:
 --
 -- -   @PENDING@ - The invitee hasn\'t created a member to join the
@@ -98,26 +108,16 @@ data Invitation = Invitation'
 --
 -- -   @EXPIRED@ - The invitee neither created a member nor rejected the
 --     invitation before the @ExpirationDate@.
---
--- 'networkSummary', 'invitation_networkSummary' - Undocumented member.
---
--- 'expirationDate', 'invitation_expirationDate' - The date and time that the invitation expires. This is the
--- @CreationDate@ plus the @ProposalDurationInHours@ that is specified in
--- the @ProposalThresholdPolicy@. After this date and time, the invitee can
--- no longer create a member and join the network using this
--- @InvitationId@.
---
--- 'invitationId', 'invitation_invitationId' - The unique identifier for the invitation.
 newInvitation ::
   Invitation
 newInvitation =
   Invitation'
     { arn = Prelude.Nothing,
       creationDate = Prelude.Nothing,
-      status = Prelude.Nothing,
-      networkSummary = Prelude.Nothing,
       expirationDate = Prelude.Nothing,
-      invitationId = Prelude.Nothing
+      invitationId = Prelude.Nothing,
+      networkSummary = Prelude.Nothing,
+      status = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the invitation. For more information
@@ -130,6 +130,22 @@ invitation_arn = Lens.lens (\Invitation' {arn} -> arn) (\s@Invitation' {} a -> s
 -- | The date and time that the invitation was created.
 invitation_creationDate :: Lens.Lens' Invitation (Prelude.Maybe Prelude.UTCTime)
 invitation_creationDate = Lens.lens (\Invitation' {creationDate} -> creationDate) (\s@Invitation' {} a -> s {creationDate = a} :: Invitation) Prelude.. Lens.mapping Data._Time
+
+-- | The date and time that the invitation expires. This is the
+-- @CreationDate@ plus the @ProposalDurationInHours@ that is specified in
+-- the @ProposalThresholdPolicy@. After this date and time, the invitee can
+-- no longer create a member and join the network using this
+-- @InvitationId@.
+invitation_expirationDate :: Lens.Lens' Invitation (Prelude.Maybe Prelude.UTCTime)
+invitation_expirationDate = Lens.lens (\Invitation' {expirationDate} -> expirationDate) (\s@Invitation' {} a -> s {expirationDate = a} :: Invitation) Prelude.. Lens.mapping Data._Time
+
+-- | The unique identifier for the invitation.
+invitation_invitationId :: Lens.Lens' Invitation (Prelude.Maybe Prelude.Text)
+invitation_invitationId = Lens.lens (\Invitation' {invitationId} -> invitationId) (\s@Invitation' {} a -> s {invitationId = a} :: Invitation)
+
+-- | Undocumented member.
+invitation_networkSummary :: Lens.Lens' Invitation (Prelude.Maybe NetworkSummary)
+invitation_networkSummary = Lens.lens (\Invitation' {networkSummary} -> networkSummary) (\s@Invitation' {} a -> s {networkSummary = a} :: Invitation)
 
 -- | The status of the invitation:
 --
@@ -149,22 +165,6 @@ invitation_creationDate = Lens.lens (\Invitation' {creationDate} -> creationDate
 invitation_status :: Lens.Lens' Invitation (Prelude.Maybe InvitationStatus)
 invitation_status = Lens.lens (\Invitation' {status} -> status) (\s@Invitation' {} a -> s {status = a} :: Invitation)
 
--- | Undocumented member.
-invitation_networkSummary :: Lens.Lens' Invitation (Prelude.Maybe NetworkSummary)
-invitation_networkSummary = Lens.lens (\Invitation' {networkSummary} -> networkSummary) (\s@Invitation' {} a -> s {networkSummary = a} :: Invitation)
-
--- | The date and time that the invitation expires. This is the
--- @CreationDate@ plus the @ProposalDurationInHours@ that is specified in
--- the @ProposalThresholdPolicy@. After this date and time, the invitee can
--- no longer create a member and join the network using this
--- @InvitationId@.
-invitation_expirationDate :: Lens.Lens' Invitation (Prelude.Maybe Prelude.UTCTime)
-invitation_expirationDate = Lens.lens (\Invitation' {expirationDate} -> expirationDate) (\s@Invitation' {} a -> s {expirationDate = a} :: Invitation) Prelude.. Lens.mapping Data._Time
-
--- | The unique identifier for the invitation.
-invitation_invitationId :: Lens.Lens' Invitation (Prelude.Maybe Prelude.Text)
-invitation_invitationId = Lens.lens (\Invitation' {invitationId} -> invitationId) (\s@Invitation' {} a -> s {invitationId = a} :: Invitation)
-
 instance Data.FromJSON Invitation where
   parseJSON =
     Data.withObject
@@ -173,26 +173,26 @@ instance Data.FromJSON Invitation where
           Invitation'
             Prelude.<$> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "CreationDate")
-            Prelude.<*> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "NetworkSummary")
             Prelude.<*> (x Data..:? "ExpirationDate")
             Prelude.<*> (x Data..:? "InvitationId")
+            Prelude.<*> (x Data..:? "NetworkSummary")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable Invitation where
   hashWithSalt _salt Invitation' {..} =
     _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationDate
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` networkSummary
       `Prelude.hashWithSalt` expirationDate
       `Prelude.hashWithSalt` invitationId
+      `Prelude.hashWithSalt` networkSummary
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData Invitation where
   rnf Invitation' {..} =
     Prelude.rnf arn
       `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf networkSummary
       `Prelude.seq` Prelude.rnf expirationDate
       `Prelude.seq` Prelude.rnf invitationId
+      `Prelude.seq` Prelude.rnf networkSummary
+      `Prelude.seq` Prelude.rnf status

@@ -29,15 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRecoveryPointByResource' smart constructor.
 data RecoveryPointByResource = RecoveryPointByResource'
-  { -- | The server-side encryption key that is used to protect your backups; for
-    -- example,
-    -- @arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@.
-    encryptionKeyArn :: Prelude.Maybe Prelude.Text,
-    -- | An Amazon Resource Name (ARN) that uniquely identifies a recovery point;
-    -- for example,
-    -- @arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45@.
-    recoveryPointArn :: Prelude.Maybe Prelude.Text,
-    -- | The size, in bytes, of a backup.
+  { -- | The size, in bytes, of a backup.
     backupSizeBytes :: Prelude.Maybe Prelude.Integer,
     -- | The name of a logical container where backups are stored. Backup vaults
     -- are identified by names that are unique to the account used to create
@@ -49,6 +41,20 @@ data RecoveryPointByResource = RecoveryPointByResource'
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
     creationDate :: Prelude.Maybe Data.POSIX,
+    -- | The server-side encryption key that is used to protect your backups; for
+    -- example,
+    -- @arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@.
+    encryptionKeyArn :: Prelude.Maybe Prelude.Text,
+    -- | This is a boolean value indicating this is a parent (composite) recovery
+    -- point.
+    isParent :: Prelude.Maybe Prelude.Bool,
+    -- | This is the Amazon Resource Name (ARN) of the parent (composite)
+    -- recovery point.
+    parentRecoveryPointArn :: Prelude.Maybe Prelude.Text,
+    -- | An Amazon Resource Name (ARN) that uniquely identifies a recovery point;
+    -- for example,
+    -- @arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45@.
+    recoveryPointArn :: Prelude.Maybe Prelude.Text,
     -- | A status code specifying the state of the recovery point.
     status :: Prelude.Maybe RecoveryPointStatus,
     -- | A message explaining the reason of the recovery point deletion failure.
@@ -64,14 +70,6 @@ data RecoveryPointByResource = RecoveryPointByResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'encryptionKeyArn', 'recoveryPointByResource_encryptionKeyArn' - The server-side encryption key that is used to protect your backups; for
--- example,
--- @arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@.
---
--- 'recoveryPointArn', 'recoveryPointByResource_recoveryPointArn' - An Amazon Resource Name (ARN) that uniquely identifies a recovery point;
--- for example,
--- @arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45@.
---
 -- 'backupSizeBytes', 'recoveryPointByResource_backupSizeBytes' - The size, in bytes, of a backup.
 --
 -- 'backupVaultName', 'recoveryPointByResource_backupVaultName' - The name of a logical container where backups are stored. Backup vaults
@@ -84,6 +82,20 @@ data RecoveryPointByResource = RecoveryPointByResource'
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 --
+-- 'encryptionKeyArn', 'recoveryPointByResource_encryptionKeyArn' - The server-side encryption key that is used to protect your backups; for
+-- example,
+-- @arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@.
+--
+-- 'isParent', 'recoveryPointByResource_isParent' - This is a boolean value indicating this is a parent (composite) recovery
+-- point.
+--
+-- 'parentRecoveryPointArn', 'recoveryPointByResource_parentRecoveryPointArn' - This is the Amazon Resource Name (ARN) of the parent (composite)
+-- recovery point.
+--
+-- 'recoveryPointArn', 'recoveryPointByResource_recoveryPointArn' - An Amazon Resource Name (ARN) that uniquely identifies a recovery point;
+-- for example,
+-- @arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45@.
+--
 -- 'status', 'recoveryPointByResource_status' - A status code specifying the state of the recovery point.
 --
 -- 'statusMessage', 'recoveryPointByResource_statusMessage' - A message explaining the reason of the recovery point deletion failure.
@@ -91,27 +103,17 @@ newRecoveryPointByResource ::
   RecoveryPointByResource
 newRecoveryPointByResource =
   RecoveryPointByResource'
-    { encryptionKeyArn =
+    { backupSizeBytes =
         Prelude.Nothing,
-      recoveryPointArn = Prelude.Nothing,
-      backupSizeBytes = Prelude.Nothing,
       backupVaultName = Prelude.Nothing,
       creationDate = Prelude.Nothing,
+      encryptionKeyArn = Prelude.Nothing,
+      isParent = Prelude.Nothing,
+      parentRecoveryPointArn = Prelude.Nothing,
+      recoveryPointArn = Prelude.Nothing,
       status = Prelude.Nothing,
       statusMessage = Prelude.Nothing
     }
-
--- | The server-side encryption key that is used to protect your backups; for
--- example,
--- @arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@.
-recoveryPointByResource_encryptionKeyArn :: Lens.Lens' RecoveryPointByResource (Prelude.Maybe Prelude.Text)
-recoveryPointByResource_encryptionKeyArn = Lens.lens (\RecoveryPointByResource' {encryptionKeyArn} -> encryptionKeyArn) (\s@RecoveryPointByResource' {} a -> s {encryptionKeyArn = a} :: RecoveryPointByResource)
-
--- | An Amazon Resource Name (ARN) that uniquely identifies a recovery point;
--- for example,
--- @arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45@.
-recoveryPointByResource_recoveryPointArn :: Lens.Lens' RecoveryPointByResource (Prelude.Maybe Prelude.Text)
-recoveryPointByResource_recoveryPointArn = Lens.lens (\RecoveryPointByResource' {recoveryPointArn} -> recoveryPointArn) (\s@RecoveryPointByResource' {} a -> s {recoveryPointArn = a} :: RecoveryPointByResource)
 
 -- | The size, in bytes, of a backup.
 recoveryPointByResource_backupSizeBytes :: Lens.Lens' RecoveryPointByResource (Prelude.Maybe Prelude.Integer)
@@ -131,6 +133,28 @@ recoveryPointByResource_backupVaultName = Lens.lens (\RecoveryPointByResource' {
 recoveryPointByResource_creationDate :: Lens.Lens' RecoveryPointByResource (Prelude.Maybe Prelude.UTCTime)
 recoveryPointByResource_creationDate = Lens.lens (\RecoveryPointByResource' {creationDate} -> creationDate) (\s@RecoveryPointByResource' {} a -> s {creationDate = a} :: RecoveryPointByResource) Prelude.. Lens.mapping Data._Time
 
+-- | The server-side encryption key that is used to protect your backups; for
+-- example,
+-- @arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@.
+recoveryPointByResource_encryptionKeyArn :: Lens.Lens' RecoveryPointByResource (Prelude.Maybe Prelude.Text)
+recoveryPointByResource_encryptionKeyArn = Lens.lens (\RecoveryPointByResource' {encryptionKeyArn} -> encryptionKeyArn) (\s@RecoveryPointByResource' {} a -> s {encryptionKeyArn = a} :: RecoveryPointByResource)
+
+-- | This is a boolean value indicating this is a parent (composite) recovery
+-- point.
+recoveryPointByResource_isParent :: Lens.Lens' RecoveryPointByResource (Prelude.Maybe Prelude.Bool)
+recoveryPointByResource_isParent = Lens.lens (\RecoveryPointByResource' {isParent} -> isParent) (\s@RecoveryPointByResource' {} a -> s {isParent = a} :: RecoveryPointByResource)
+
+-- | This is the Amazon Resource Name (ARN) of the parent (composite)
+-- recovery point.
+recoveryPointByResource_parentRecoveryPointArn :: Lens.Lens' RecoveryPointByResource (Prelude.Maybe Prelude.Text)
+recoveryPointByResource_parentRecoveryPointArn = Lens.lens (\RecoveryPointByResource' {parentRecoveryPointArn} -> parentRecoveryPointArn) (\s@RecoveryPointByResource' {} a -> s {parentRecoveryPointArn = a} :: RecoveryPointByResource)
+
+-- | An Amazon Resource Name (ARN) that uniquely identifies a recovery point;
+-- for example,
+-- @arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45@.
+recoveryPointByResource_recoveryPointArn :: Lens.Lens' RecoveryPointByResource (Prelude.Maybe Prelude.Text)
+recoveryPointByResource_recoveryPointArn = Lens.lens (\RecoveryPointByResource' {recoveryPointArn} -> recoveryPointArn) (\s@RecoveryPointByResource' {} a -> s {recoveryPointArn = a} :: RecoveryPointByResource)
+
 -- | A status code specifying the state of the recovery point.
 recoveryPointByResource_status :: Lens.Lens' RecoveryPointByResource (Prelude.Maybe RecoveryPointStatus)
 recoveryPointByResource_status = Lens.lens (\RecoveryPointByResource' {status} -> status) (\s@RecoveryPointByResource' {} a -> s {status = a} :: RecoveryPointByResource)
@@ -145,31 +169,37 @@ instance Data.FromJSON RecoveryPointByResource where
       "RecoveryPointByResource"
       ( \x ->
           RecoveryPointByResource'
-            Prelude.<$> (x Data..:? "EncryptionKeyArn")
-            Prelude.<*> (x Data..:? "RecoveryPointArn")
-            Prelude.<*> (x Data..:? "BackupSizeBytes")
+            Prelude.<$> (x Data..:? "BackupSizeBytes")
             Prelude.<*> (x Data..:? "BackupVaultName")
             Prelude.<*> (x Data..:? "CreationDate")
+            Prelude.<*> (x Data..:? "EncryptionKeyArn")
+            Prelude.<*> (x Data..:? "IsParent")
+            Prelude.<*> (x Data..:? "ParentRecoveryPointArn")
+            Prelude.<*> (x Data..:? "RecoveryPointArn")
             Prelude.<*> (x Data..:? "Status")
             Prelude.<*> (x Data..:? "StatusMessage")
       )
 
 instance Prelude.Hashable RecoveryPointByResource where
   hashWithSalt _salt RecoveryPointByResource' {..} =
-    _salt `Prelude.hashWithSalt` encryptionKeyArn
-      `Prelude.hashWithSalt` recoveryPointArn
-      `Prelude.hashWithSalt` backupSizeBytes
+    _salt `Prelude.hashWithSalt` backupSizeBytes
       `Prelude.hashWithSalt` backupVaultName
       `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` encryptionKeyArn
+      `Prelude.hashWithSalt` isParent
+      `Prelude.hashWithSalt` parentRecoveryPointArn
+      `Prelude.hashWithSalt` recoveryPointArn
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` statusMessage
 
 instance Prelude.NFData RecoveryPointByResource where
   rnf RecoveryPointByResource' {..} =
-    Prelude.rnf encryptionKeyArn
-      `Prelude.seq` Prelude.rnf recoveryPointArn
-      `Prelude.seq` Prelude.rnf backupSizeBytes
+    Prelude.rnf backupSizeBytes
       `Prelude.seq` Prelude.rnf backupVaultName
       `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf encryptionKeyArn
+      `Prelude.seq` Prelude.rnf isParent
+      `Prelude.seq` Prelude.rnf parentRecoveryPointArn
+      `Prelude.seq` Prelude.rnf recoveryPointArn
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf statusMessage

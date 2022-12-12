@@ -44,18 +44,18 @@ module Amazonka.EC2.CreateFlowLogs
     newCreateFlowLogs,
 
     -- * Request Lenses
-    createFlowLogs_destinationOptions,
     createFlowLogs_clientToken,
-    createFlowLogs_trafficType,
+    createFlowLogs_deliverCrossAccountRole,
     createFlowLogs_deliverLogsPermissionArn,
-    createFlowLogs_logFormat,
+    createFlowLogs_destinationOptions,
     createFlowLogs_dryRun,
     createFlowLogs_logDestination,
-    createFlowLogs_deliverCrossAccountRole,
     createFlowLogs_logDestinationType,
-    createFlowLogs_tagSpecifications,
-    createFlowLogs_maxAggregationInterval,
+    createFlowLogs_logFormat,
     createFlowLogs_logGroupName,
+    createFlowLogs_maxAggregationInterval,
+    createFlowLogs_tagSpecifications,
+    createFlowLogs_trafficType,
     createFlowLogs_resourceIds,
     createFlowLogs_resourceType,
 
@@ -65,8 +65,8 @@ module Amazonka.EC2.CreateFlowLogs
 
     -- * Response Lenses
     createFlowLogsResponse_clientToken,
-    createFlowLogsResponse_unsuccessful,
     createFlowLogsResponse_flowLogIds,
+    createFlowLogsResponse_unsuccessful,
     createFlowLogsResponse_httpStatus,
   )
 where
@@ -81,36 +81,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateFlowLogs' smart constructor.
 data CreateFlowLogs = CreateFlowLogs'
-  { -- | The destination options.
-    destinationOptions :: Prelude.Maybe DestinationOptionsRequest,
-    -- | Unique, case-sensitive identifier that you provide to ensure the
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The type of traffic to monitor (accepted traffic, rejected traffic, or
-    -- all traffic). This parameter is not supported for transit gateway
-    -- resource types. It is required for the other resource types.
-    trafficType :: Prelude.Maybe TrafficType,
+    -- | The ARN of the IAM role that allows Amazon EC2 to publish flow logs
+    -- across accounts.
+    deliverCrossAccountRole :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the IAM role that allows Amazon EC2 to publish flow logs to a
     -- CloudWatch Logs log group in your account.
     --
     -- This parameter is required if the destination type is @cloud-watch-logs@
     -- and unsupported otherwise.
     deliverLogsPermissionArn :: Prelude.Maybe Prelude.Text,
-    -- | The fields to include in the flow log record. List the fields in the
-    -- order in which they should appear. If you omit this parameter, the flow
-    -- log is created using the default format. If you specify this parameter,
-    -- you must include at least one field. For more information about the
-    -- available fields, see
-    -- <https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records Flow log records>
-    -- in the /Amazon VPC User Guide/ or
-    -- <https://docs.aws.amazon.com/vpc/latest/tgw/tgw-flow-logs.html#flow-log-records Transit Gateway Flow Log records>
-    -- in the /Amazon Web Services Transit Gateway Guide/.
-    --
-    -- Specify the fields using the @${field-id}@ format, separated by spaces.
-    -- For the CLI, surround this parameter value with single quotes on Linux
-    -- or double quotes on Windows.
-    logFormat :: Prelude.Maybe Prelude.Text,
+    -- | The destination options.
+    destinationOptions :: Prelude.Maybe DestinationOptionsRequest,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -139,15 +124,30 @@ data CreateFlowLogs = CreateFlowLogs'
     --
     --     arn:aws:firehose:/region/:/account_id/:deliverystream:/my_stream/
     logDestination :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the IAM role that allows Amazon EC2 to publish flow logs
-    -- across accounts.
-    deliverCrossAccountRole :: Prelude.Maybe Prelude.Text,
     -- | The type of destination for the flow log data.
     --
     -- Default: @cloud-watch-logs@
     logDestinationType :: Prelude.Maybe LogDestinationType,
-    -- | The tags to apply to the flow logs.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
+    -- | The fields to include in the flow log record. List the fields in the
+    -- order in which they should appear. If you omit this parameter, the flow
+    -- log is created using the default format. If you specify this parameter,
+    -- you must include at least one field. For more information about the
+    -- available fields, see
+    -- <https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records Flow log records>
+    -- in the /Amazon VPC User Guide/ or
+    -- <https://docs.aws.amazon.com/vpc/latest/tgw/tgw-flow-logs.html#flow-log-records Transit Gateway Flow Log records>
+    -- in the /Amazon Web Services Transit Gateway Guide/.
+    --
+    -- Specify the fields using the @${field-id}@ format, separated by spaces.
+    -- For the CLI, surround this parameter value with single quotes on Linux
+    -- or double quotes on Windows.
+    logFormat :: Prelude.Maybe Prelude.Text,
+    -- | The name of a new or existing CloudWatch Logs log group where Amazon EC2
+    -- publishes your flow logs.
+    --
+    -- This parameter is valid only if the destination type is
+    -- @cloud-watch-logs@.
+    logGroupName :: Prelude.Maybe Prelude.Text,
     -- | The maximum interval of time during which a flow of packets is captured
     -- and aggregated into a flow log record. The possible values are 60
     -- seconds (1 minute) or 600 seconds (10 minutes). This parameter must be
@@ -160,12 +160,12 @@ data CreateFlowLogs = CreateFlowLogs'
     --
     -- Default: 600
     maxAggregationInterval :: Prelude.Maybe Prelude.Int,
-    -- | The name of a new or existing CloudWatch Logs log group where Amazon EC2
-    -- publishes your flow logs.
-    --
-    -- This parameter is valid only if the destination type is
-    -- @cloud-watch-logs@.
-    logGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The tags to apply to the flow logs.
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
+    -- | The type of traffic to monitor (accepted traffic, rejected traffic, or
+    -- all traffic). This parameter is not supported for transit gateway
+    -- resource types. It is required for the other resource types.
+    trafficType :: Prelude.Maybe TrafficType,
     -- | The IDs of the resources to monitor. For example, if the resource type
     -- is @VPC@, specify the IDs of the VPCs.
     --
@@ -185,15 +185,12 @@ data CreateFlowLogs = CreateFlowLogs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'destinationOptions', 'createFlowLogs_destinationOptions' - The destination options.
---
 -- 'clientToken', 'createFlowLogs_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
 --
--- 'trafficType', 'createFlowLogs_trafficType' - The type of traffic to monitor (accepted traffic, rejected traffic, or
--- all traffic). This parameter is not supported for transit gateway
--- resource types. It is required for the other resource types.
+-- 'deliverCrossAccountRole', 'createFlowLogs_deliverCrossAccountRole' - The ARN of the IAM role that allows Amazon EC2 to publish flow logs
+-- across accounts.
 --
 -- 'deliverLogsPermissionArn', 'createFlowLogs_deliverLogsPermissionArn' - The ARN of the IAM role that allows Amazon EC2 to publish flow logs to a
 -- CloudWatch Logs log group in your account.
@@ -201,19 +198,7 @@ data CreateFlowLogs = CreateFlowLogs'
 -- This parameter is required if the destination type is @cloud-watch-logs@
 -- and unsupported otherwise.
 --
--- 'logFormat', 'createFlowLogs_logFormat' - The fields to include in the flow log record. List the fields in the
--- order in which they should appear. If you omit this parameter, the flow
--- log is created using the default format. If you specify this parameter,
--- you must include at least one field. For more information about the
--- available fields, see
--- <https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records Flow log records>
--- in the /Amazon VPC User Guide/ or
--- <https://docs.aws.amazon.com/vpc/latest/tgw/tgw-flow-logs.html#flow-log-records Transit Gateway Flow Log records>
--- in the /Amazon Web Services Transit Gateway Guide/.
---
--- Specify the fields using the @${field-id}@ format, separated by spaces.
--- For the CLI, surround this parameter value with single quotes on Linux
--- or double quotes on Windows.
+-- 'destinationOptions', 'createFlowLogs_destinationOptions' - The destination options.
 --
 -- 'dryRun', 'createFlowLogs_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -243,14 +228,29 @@ data CreateFlowLogs = CreateFlowLogs'
 --
 --     arn:aws:firehose:/region/:/account_id/:deliverystream:/my_stream/
 --
--- 'deliverCrossAccountRole', 'createFlowLogs_deliverCrossAccountRole' - The ARN of the IAM role that allows Amazon EC2 to publish flow logs
--- across accounts.
---
 -- 'logDestinationType', 'createFlowLogs_logDestinationType' - The type of destination for the flow log data.
 --
 -- Default: @cloud-watch-logs@
 --
--- 'tagSpecifications', 'createFlowLogs_tagSpecifications' - The tags to apply to the flow logs.
+-- 'logFormat', 'createFlowLogs_logFormat' - The fields to include in the flow log record. List the fields in the
+-- order in which they should appear. If you omit this parameter, the flow
+-- log is created using the default format. If you specify this parameter,
+-- you must include at least one field. For more information about the
+-- available fields, see
+-- <https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records Flow log records>
+-- in the /Amazon VPC User Guide/ or
+-- <https://docs.aws.amazon.com/vpc/latest/tgw/tgw-flow-logs.html#flow-log-records Transit Gateway Flow Log records>
+-- in the /Amazon Web Services Transit Gateway Guide/.
+--
+-- Specify the fields using the @${field-id}@ format, separated by spaces.
+-- For the CLI, surround this parameter value with single quotes on Linux
+-- or double quotes on Windows.
+--
+-- 'logGroupName', 'createFlowLogs_logGroupName' - The name of a new or existing CloudWatch Logs log group where Amazon EC2
+-- publishes your flow logs.
+--
+-- This parameter is valid only if the destination type is
+-- @cloud-watch-logs@.
 --
 -- 'maxAggregationInterval', 'createFlowLogs_maxAggregationInterval' - The maximum interval of time during which a flow of packets is captured
 -- and aggregated into a flow log record. The possible values are 60
@@ -264,11 +264,11 @@ data CreateFlowLogs = CreateFlowLogs'
 --
 -- Default: 600
 --
--- 'logGroupName', 'createFlowLogs_logGroupName' - The name of a new or existing CloudWatch Logs log group where Amazon EC2
--- publishes your flow logs.
+-- 'tagSpecifications', 'createFlowLogs_tagSpecifications' - The tags to apply to the flow logs.
 --
--- This parameter is valid only if the destination type is
--- @cloud-watch-logs@.
+-- 'trafficType', 'createFlowLogs_trafficType' - The type of traffic to monitor (accepted traffic, rejected traffic, or
+-- all traffic). This parameter is not supported for transit gateway
+-- resource types. It is required for the other resource types.
 --
 -- 'resourceIds', 'createFlowLogs_resourceIds' - The IDs of the resources to monitor. For example, if the resource type
 -- is @VPC@, specify the IDs of the VPCs.
@@ -283,26 +283,21 @@ newCreateFlowLogs ::
   CreateFlowLogs
 newCreateFlowLogs pResourceType_ =
   CreateFlowLogs'
-    { destinationOptions =
-        Prelude.Nothing,
-      clientToken = Prelude.Nothing,
-      trafficType = Prelude.Nothing,
+    { clientToken = Prelude.Nothing,
+      deliverCrossAccountRole = Prelude.Nothing,
       deliverLogsPermissionArn = Prelude.Nothing,
-      logFormat = Prelude.Nothing,
+      destinationOptions = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       logDestination = Prelude.Nothing,
-      deliverCrossAccountRole = Prelude.Nothing,
       logDestinationType = Prelude.Nothing,
-      tagSpecifications = Prelude.Nothing,
-      maxAggregationInterval = Prelude.Nothing,
+      logFormat = Prelude.Nothing,
       logGroupName = Prelude.Nothing,
+      maxAggregationInterval = Prelude.Nothing,
+      tagSpecifications = Prelude.Nothing,
+      trafficType = Prelude.Nothing,
       resourceIds = Prelude.mempty,
       resourceType = pResourceType_
     }
-
--- | The destination options.
-createFlowLogs_destinationOptions :: Lens.Lens' CreateFlowLogs (Prelude.Maybe DestinationOptionsRequest)
-createFlowLogs_destinationOptions = Lens.lens (\CreateFlowLogs' {destinationOptions} -> destinationOptions) (\s@CreateFlowLogs' {} a -> s {destinationOptions = a} :: CreateFlowLogs)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
@@ -310,11 +305,10 @@ createFlowLogs_destinationOptions = Lens.lens (\CreateFlowLogs' {destinationOpti
 createFlowLogs_clientToken :: Lens.Lens' CreateFlowLogs (Prelude.Maybe Prelude.Text)
 createFlowLogs_clientToken = Lens.lens (\CreateFlowLogs' {clientToken} -> clientToken) (\s@CreateFlowLogs' {} a -> s {clientToken = a} :: CreateFlowLogs)
 
--- | The type of traffic to monitor (accepted traffic, rejected traffic, or
--- all traffic). This parameter is not supported for transit gateway
--- resource types. It is required for the other resource types.
-createFlowLogs_trafficType :: Lens.Lens' CreateFlowLogs (Prelude.Maybe TrafficType)
-createFlowLogs_trafficType = Lens.lens (\CreateFlowLogs' {trafficType} -> trafficType) (\s@CreateFlowLogs' {} a -> s {trafficType = a} :: CreateFlowLogs)
+-- | The ARN of the IAM role that allows Amazon EC2 to publish flow logs
+-- across accounts.
+createFlowLogs_deliverCrossAccountRole :: Lens.Lens' CreateFlowLogs (Prelude.Maybe Prelude.Text)
+createFlowLogs_deliverCrossAccountRole = Lens.lens (\CreateFlowLogs' {deliverCrossAccountRole} -> deliverCrossAccountRole) (\s@CreateFlowLogs' {} a -> s {deliverCrossAccountRole = a} :: CreateFlowLogs)
 
 -- | The ARN of the IAM role that allows Amazon EC2 to publish flow logs to a
 -- CloudWatch Logs log group in your account.
@@ -324,21 +318,9 @@ createFlowLogs_trafficType = Lens.lens (\CreateFlowLogs' {trafficType} -> traffi
 createFlowLogs_deliverLogsPermissionArn :: Lens.Lens' CreateFlowLogs (Prelude.Maybe Prelude.Text)
 createFlowLogs_deliverLogsPermissionArn = Lens.lens (\CreateFlowLogs' {deliverLogsPermissionArn} -> deliverLogsPermissionArn) (\s@CreateFlowLogs' {} a -> s {deliverLogsPermissionArn = a} :: CreateFlowLogs)
 
--- | The fields to include in the flow log record. List the fields in the
--- order in which they should appear. If you omit this parameter, the flow
--- log is created using the default format. If you specify this parameter,
--- you must include at least one field. For more information about the
--- available fields, see
--- <https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records Flow log records>
--- in the /Amazon VPC User Guide/ or
--- <https://docs.aws.amazon.com/vpc/latest/tgw/tgw-flow-logs.html#flow-log-records Transit Gateway Flow Log records>
--- in the /Amazon Web Services Transit Gateway Guide/.
---
--- Specify the fields using the @${field-id}@ format, separated by spaces.
--- For the CLI, surround this parameter value with single quotes on Linux
--- or double quotes on Windows.
-createFlowLogs_logFormat :: Lens.Lens' CreateFlowLogs (Prelude.Maybe Prelude.Text)
-createFlowLogs_logFormat = Lens.lens (\CreateFlowLogs' {logFormat} -> logFormat) (\s@CreateFlowLogs' {} a -> s {logFormat = a} :: CreateFlowLogs)
+-- | The destination options.
+createFlowLogs_destinationOptions :: Lens.Lens' CreateFlowLogs (Prelude.Maybe DestinationOptionsRequest)
+createFlowLogs_destinationOptions = Lens.lens (\CreateFlowLogs' {destinationOptions} -> destinationOptions) (\s@CreateFlowLogs' {} a -> s {destinationOptions = a} :: CreateFlowLogs)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -372,20 +354,35 @@ createFlowLogs_dryRun = Lens.lens (\CreateFlowLogs' {dryRun} -> dryRun) (\s@Crea
 createFlowLogs_logDestination :: Lens.Lens' CreateFlowLogs (Prelude.Maybe Prelude.Text)
 createFlowLogs_logDestination = Lens.lens (\CreateFlowLogs' {logDestination} -> logDestination) (\s@CreateFlowLogs' {} a -> s {logDestination = a} :: CreateFlowLogs)
 
--- | The ARN of the IAM role that allows Amazon EC2 to publish flow logs
--- across accounts.
-createFlowLogs_deliverCrossAccountRole :: Lens.Lens' CreateFlowLogs (Prelude.Maybe Prelude.Text)
-createFlowLogs_deliverCrossAccountRole = Lens.lens (\CreateFlowLogs' {deliverCrossAccountRole} -> deliverCrossAccountRole) (\s@CreateFlowLogs' {} a -> s {deliverCrossAccountRole = a} :: CreateFlowLogs)
-
 -- | The type of destination for the flow log data.
 --
 -- Default: @cloud-watch-logs@
 createFlowLogs_logDestinationType :: Lens.Lens' CreateFlowLogs (Prelude.Maybe LogDestinationType)
 createFlowLogs_logDestinationType = Lens.lens (\CreateFlowLogs' {logDestinationType} -> logDestinationType) (\s@CreateFlowLogs' {} a -> s {logDestinationType = a} :: CreateFlowLogs)
 
--- | The tags to apply to the flow logs.
-createFlowLogs_tagSpecifications :: Lens.Lens' CreateFlowLogs (Prelude.Maybe [TagSpecification])
-createFlowLogs_tagSpecifications = Lens.lens (\CreateFlowLogs' {tagSpecifications} -> tagSpecifications) (\s@CreateFlowLogs' {} a -> s {tagSpecifications = a} :: CreateFlowLogs) Prelude.. Lens.mapping Lens.coerced
+-- | The fields to include in the flow log record. List the fields in the
+-- order in which they should appear. If you omit this parameter, the flow
+-- log is created using the default format. If you specify this parameter,
+-- you must include at least one field. For more information about the
+-- available fields, see
+-- <https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records Flow log records>
+-- in the /Amazon VPC User Guide/ or
+-- <https://docs.aws.amazon.com/vpc/latest/tgw/tgw-flow-logs.html#flow-log-records Transit Gateway Flow Log records>
+-- in the /Amazon Web Services Transit Gateway Guide/.
+--
+-- Specify the fields using the @${field-id}@ format, separated by spaces.
+-- For the CLI, surround this parameter value with single quotes on Linux
+-- or double quotes on Windows.
+createFlowLogs_logFormat :: Lens.Lens' CreateFlowLogs (Prelude.Maybe Prelude.Text)
+createFlowLogs_logFormat = Lens.lens (\CreateFlowLogs' {logFormat} -> logFormat) (\s@CreateFlowLogs' {} a -> s {logFormat = a} :: CreateFlowLogs)
+
+-- | The name of a new or existing CloudWatch Logs log group where Amazon EC2
+-- publishes your flow logs.
+--
+-- This parameter is valid only if the destination type is
+-- @cloud-watch-logs@.
+createFlowLogs_logGroupName :: Lens.Lens' CreateFlowLogs (Prelude.Maybe Prelude.Text)
+createFlowLogs_logGroupName = Lens.lens (\CreateFlowLogs' {logGroupName} -> logGroupName) (\s@CreateFlowLogs' {} a -> s {logGroupName = a} :: CreateFlowLogs)
 
 -- | The maximum interval of time during which a flow of packets is captured
 -- and aggregated into a flow log record. The possible values are 60
@@ -401,13 +398,15 @@ createFlowLogs_tagSpecifications = Lens.lens (\CreateFlowLogs' {tagSpecification
 createFlowLogs_maxAggregationInterval :: Lens.Lens' CreateFlowLogs (Prelude.Maybe Prelude.Int)
 createFlowLogs_maxAggregationInterval = Lens.lens (\CreateFlowLogs' {maxAggregationInterval} -> maxAggregationInterval) (\s@CreateFlowLogs' {} a -> s {maxAggregationInterval = a} :: CreateFlowLogs)
 
--- | The name of a new or existing CloudWatch Logs log group where Amazon EC2
--- publishes your flow logs.
---
--- This parameter is valid only if the destination type is
--- @cloud-watch-logs@.
-createFlowLogs_logGroupName :: Lens.Lens' CreateFlowLogs (Prelude.Maybe Prelude.Text)
-createFlowLogs_logGroupName = Lens.lens (\CreateFlowLogs' {logGroupName} -> logGroupName) (\s@CreateFlowLogs' {} a -> s {logGroupName = a} :: CreateFlowLogs)
+-- | The tags to apply to the flow logs.
+createFlowLogs_tagSpecifications :: Lens.Lens' CreateFlowLogs (Prelude.Maybe [TagSpecification])
+createFlowLogs_tagSpecifications = Lens.lens (\CreateFlowLogs' {tagSpecifications} -> tagSpecifications) (\s@CreateFlowLogs' {} a -> s {tagSpecifications = a} :: CreateFlowLogs) Prelude.. Lens.mapping Lens.coerced
+
+-- | The type of traffic to monitor (accepted traffic, rejected traffic, or
+-- all traffic). This parameter is not supported for transit gateway
+-- resource types. It is required for the other resource types.
+createFlowLogs_trafficType :: Lens.Lens' CreateFlowLogs (Prelude.Maybe TrafficType)
+createFlowLogs_trafficType = Lens.lens (\CreateFlowLogs' {trafficType} -> trafficType) (\s@CreateFlowLogs' {} a -> s {trafficType = a} :: CreateFlowLogs)
 
 -- | The IDs of the resources to monitor. For example, if the resource type
 -- is @VPC@, specify the IDs of the VPCs.
@@ -432,10 +431,10 @@ instance Core.AWSRequest CreateFlowLogs where
       ( \s h x ->
           CreateFlowLogsResponse'
             Prelude.<$> (x Data..@? "clientToken")
-            Prelude.<*> ( x Data..@? "unsuccessful" Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "flowLogIdSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> ( x Data..@? "flowLogIdSet" Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "unsuccessful" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -443,35 +442,35 @@ instance Core.AWSRequest CreateFlowLogs where
 
 instance Prelude.Hashable CreateFlowLogs where
   hashWithSalt _salt CreateFlowLogs' {..} =
-    _salt `Prelude.hashWithSalt` destinationOptions
-      `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` trafficType
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` deliverCrossAccountRole
       `Prelude.hashWithSalt` deliverLogsPermissionArn
-      `Prelude.hashWithSalt` logFormat
+      `Prelude.hashWithSalt` destinationOptions
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` logDestination
-      `Prelude.hashWithSalt` deliverCrossAccountRole
       `Prelude.hashWithSalt` logDestinationType
-      `Prelude.hashWithSalt` tagSpecifications
-      `Prelude.hashWithSalt` maxAggregationInterval
+      `Prelude.hashWithSalt` logFormat
       `Prelude.hashWithSalt` logGroupName
+      `Prelude.hashWithSalt` maxAggregationInterval
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` trafficType
       `Prelude.hashWithSalt` resourceIds
       `Prelude.hashWithSalt` resourceType
 
 instance Prelude.NFData CreateFlowLogs where
   rnf CreateFlowLogs' {..} =
-    Prelude.rnf destinationOptions
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf trafficType
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf deliverCrossAccountRole
       `Prelude.seq` Prelude.rnf deliverLogsPermissionArn
-      `Prelude.seq` Prelude.rnf logFormat
+      `Prelude.seq` Prelude.rnf destinationOptions
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf logDestination
-      `Prelude.seq` Prelude.rnf deliverCrossAccountRole
       `Prelude.seq` Prelude.rnf logDestinationType
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf maxAggregationInterval
+      `Prelude.seq` Prelude.rnf logFormat
       `Prelude.seq` Prelude.rnf logGroupName
+      `Prelude.seq` Prelude.rnf maxAggregationInterval
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf trafficType
       `Prelude.seq` Prelude.rnf resourceIds
       `Prelude.seq` Prelude.rnf resourceType
 
@@ -488,24 +487,24 @@ instance Data.ToQuery CreateFlowLogs where
           Data.=: ("CreateFlowLogs" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "DestinationOptions" Data.=: destinationOptions,
         "ClientToken" Data.=: clientToken,
-        "TrafficType" Data.=: trafficType,
-        "DeliverLogsPermissionArn"
-          Data.=: deliverLogsPermissionArn,
-        "LogFormat" Data.=: logFormat,
-        "DryRun" Data.=: dryRun,
-        "LogDestination" Data.=: logDestination,
         "DeliverCrossAccountRole"
           Data.=: deliverCrossAccountRole,
+        "DeliverLogsPermissionArn"
+          Data.=: deliverLogsPermissionArn,
+        "DestinationOptions" Data.=: destinationOptions,
+        "DryRun" Data.=: dryRun,
+        "LogDestination" Data.=: logDestination,
         "LogDestinationType" Data.=: logDestinationType,
+        "LogFormat" Data.=: logFormat,
+        "LogGroupName" Data.=: logGroupName,
+        "MaxAggregationInterval"
+          Data.=: maxAggregationInterval,
         Data.toQuery
           ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "MaxAggregationInterval"
-          Data.=: maxAggregationInterval,
-        "LogGroupName" Data.=: logGroupName,
+        "TrafficType" Data.=: trafficType,
         Data.toQueryList "ResourceId" resourceIds,
         "ResourceType" Data.=: resourceType
       ]
@@ -515,10 +514,10 @@ data CreateFlowLogsResponse = CreateFlowLogsResponse'
   { -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the flow logs that could not be created successfully.
-    unsuccessful :: Prelude.Maybe [UnsuccessfulItem],
     -- | The IDs of the flow logs.
     flowLogIds :: Prelude.Maybe [Prelude.Text],
+    -- | Information about the flow logs that could not be created successfully.
+    unsuccessful :: Prelude.Maybe [UnsuccessfulItem],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -535,9 +534,9 @@ data CreateFlowLogsResponse = CreateFlowLogsResponse'
 -- 'clientToken', 'createFlowLogsResponse_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
 --
--- 'unsuccessful', 'createFlowLogsResponse_unsuccessful' - Information about the flow logs that could not be created successfully.
---
 -- 'flowLogIds', 'createFlowLogsResponse_flowLogIds' - The IDs of the flow logs.
+--
+-- 'unsuccessful', 'createFlowLogsResponse_unsuccessful' - Information about the flow logs that could not be created successfully.
 --
 -- 'httpStatus', 'createFlowLogsResponse_httpStatus' - The response's http status code.
 newCreateFlowLogsResponse ::
@@ -548,8 +547,8 @@ newCreateFlowLogsResponse pHttpStatus_ =
   CreateFlowLogsResponse'
     { clientToken =
         Prelude.Nothing,
-      unsuccessful = Prelude.Nothing,
       flowLogIds = Prelude.Nothing,
+      unsuccessful = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -558,13 +557,13 @@ newCreateFlowLogsResponse pHttpStatus_ =
 createFlowLogsResponse_clientToken :: Lens.Lens' CreateFlowLogsResponse (Prelude.Maybe Prelude.Text)
 createFlowLogsResponse_clientToken = Lens.lens (\CreateFlowLogsResponse' {clientToken} -> clientToken) (\s@CreateFlowLogsResponse' {} a -> s {clientToken = a} :: CreateFlowLogsResponse)
 
--- | Information about the flow logs that could not be created successfully.
-createFlowLogsResponse_unsuccessful :: Lens.Lens' CreateFlowLogsResponse (Prelude.Maybe [UnsuccessfulItem])
-createFlowLogsResponse_unsuccessful = Lens.lens (\CreateFlowLogsResponse' {unsuccessful} -> unsuccessful) (\s@CreateFlowLogsResponse' {} a -> s {unsuccessful = a} :: CreateFlowLogsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The IDs of the flow logs.
 createFlowLogsResponse_flowLogIds :: Lens.Lens' CreateFlowLogsResponse (Prelude.Maybe [Prelude.Text])
 createFlowLogsResponse_flowLogIds = Lens.lens (\CreateFlowLogsResponse' {flowLogIds} -> flowLogIds) (\s@CreateFlowLogsResponse' {} a -> s {flowLogIds = a} :: CreateFlowLogsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Information about the flow logs that could not be created successfully.
+createFlowLogsResponse_unsuccessful :: Lens.Lens' CreateFlowLogsResponse (Prelude.Maybe [UnsuccessfulItem])
+createFlowLogsResponse_unsuccessful = Lens.lens (\CreateFlowLogsResponse' {unsuccessful} -> unsuccessful) (\s@CreateFlowLogsResponse' {} a -> s {unsuccessful = a} :: CreateFlowLogsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 createFlowLogsResponse_httpStatus :: Lens.Lens' CreateFlowLogsResponse Prelude.Int
@@ -573,6 +572,6 @@ createFlowLogsResponse_httpStatus = Lens.lens (\CreateFlowLogsResponse' {httpSta
 instance Prelude.NFData CreateFlowLogsResponse where
   rnf CreateFlowLogsResponse' {..} =
     Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf unsuccessful
       `Prelude.seq` Prelude.rnf flowLogIds
+      `Prelude.seq` Prelude.rnf unsuccessful
       `Prelude.seq` Prelude.rnf httpStatus

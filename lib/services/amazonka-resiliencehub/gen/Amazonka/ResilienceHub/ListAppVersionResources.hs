@@ -27,9 +27,9 @@ module Amazonka.ResilienceHub.ListAppVersionResources
     newListAppVersionResources,
 
     -- * Request Lenses
+    listAppVersionResources_maxResults,
     listAppVersionResources_nextToken,
     listAppVersionResources_resolutionId,
-    listAppVersionResources_maxResults,
     listAppVersionResources_appArn,
     listAppVersionResources_appVersion,
 
@@ -55,14 +55,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAppVersionResources' smart constructor.
 data ListAppVersionResources = ListAppVersionResources'
-  { -- | Null, or the token from a previous call to get the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The identifier for a specific resolution.
-    resolutionId :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to include in the response. If more
+  { -- | The maximum number of results to include in the response. If more
     -- results exist than the specified @MaxResults@ value, a token is included
     -- in the response so that the remaining results can be retrieved.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Null, or the token from a previous call to get the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The identifier for a specific resolution.
+    resolutionId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the application. The format for this
     -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
     -- For more information about ARNs, see
@@ -82,13 +82,13 @@ data ListAppVersionResources = ListAppVersionResources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAppVersionResources_nextToken' - Null, or the token from a previous call to get the next set of results.
---
--- 'resolutionId', 'listAppVersionResources_resolutionId' - The identifier for a specific resolution.
---
 -- 'maxResults', 'listAppVersionResources_maxResults' - The maximum number of results to include in the response. If more
 -- results exist than the specified @MaxResults@ value, a token is included
 -- in the response so that the remaining results can be retrieved.
+--
+-- 'nextToken', 'listAppVersionResources_nextToken' - Null, or the token from a previous call to get the next set of results.
+--
+-- 'resolutionId', 'listAppVersionResources_resolutionId' - The identifier for a specific resolution.
 --
 -- 'appArn', 'listAppVersionResources_appArn' - The Amazon Resource Name (ARN) of the application. The format for this
 -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
@@ -105,13 +105,19 @@ newListAppVersionResources ::
   ListAppVersionResources
 newListAppVersionResources pAppArn_ pAppVersion_ =
   ListAppVersionResources'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       resolutionId = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       appArn = pAppArn_,
       appVersion = pAppVersion_
     }
+
+-- | The maximum number of results to include in the response. If more
+-- results exist than the specified @MaxResults@ value, a token is included
+-- in the response so that the remaining results can be retrieved.
+listAppVersionResources_maxResults :: Lens.Lens' ListAppVersionResources (Prelude.Maybe Prelude.Natural)
+listAppVersionResources_maxResults = Lens.lens (\ListAppVersionResources' {maxResults} -> maxResults) (\s@ListAppVersionResources' {} a -> s {maxResults = a} :: ListAppVersionResources)
 
 -- | Null, or the token from a previous call to get the next set of results.
 listAppVersionResources_nextToken :: Lens.Lens' ListAppVersionResources (Prelude.Maybe Prelude.Text)
@@ -120,12 +126,6 @@ listAppVersionResources_nextToken = Lens.lens (\ListAppVersionResources' {nextTo
 -- | The identifier for a specific resolution.
 listAppVersionResources_resolutionId :: Lens.Lens' ListAppVersionResources (Prelude.Maybe Prelude.Text)
 listAppVersionResources_resolutionId = Lens.lens (\ListAppVersionResources' {resolutionId} -> resolutionId) (\s@ListAppVersionResources' {} a -> s {resolutionId = a} :: ListAppVersionResources)
-
--- | The maximum number of results to include in the response. If more
--- results exist than the specified @MaxResults@ value, a token is included
--- in the response so that the remaining results can be retrieved.
-listAppVersionResources_maxResults :: Lens.Lens' ListAppVersionResources (Prelude.Maybe Prelude.Natural)
-listAppVersionResources_maxResults = Lens.lens (\ListAppVersionResources' {maxResults} -> maxResults) (\s@ListAppVersionResources' {} a -> s {maxResults = a} :: ListAppVersionResources)
 
 -- | The Amazon Resource Name (ARN) of the application. The format for this
 -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
@@ -159,17 +159,17 @@ instance Core.AWSRequest ListAppVersionResources where
 
 instance Prelude.Hashable ListAppVersionResources where
   hashWithSalt _salt ListAppVersionResources' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resolutionId
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` appArn
       `Prelude.hashWithSalt` appVersion
 
 instance Prelude.NFData ListAppVersionResources where
   rnf ListAppVersionResources' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf resolutionId
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf appArn
       `Prelude.seq` Prelude.rnf appVersion
 
@@ -188,9 +188,9 @@ instance Data.ToJSON ListAppVersionResources where
   toJSON ListAppVersionResources' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             ("resolutionId" Data..=) Prelude.<$> resolutionId,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just ("appArn" Data..= appArn),
             Prelude.Just ("appVersion" Data..= appVersion)
           ]

@@ -32,8 +32,8 @@ module Amazonka.Glue.ListSchemaVersions
     newListSchemaVersions,
 
     -- * Request Lenses
-    listSchemaVersions_nextToken,
     listSchemaVersions_maxResults,
+    listSchemaVersions_nextToken,
     listSchemaVersions_schemaId,
 
     -- * Destructuring the Response
@@ -57,11 +57,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListSchemaVersions' smart constructor.
 data ListSchemaVersions = ListSchemaVersions'
-  { -- | A continuation token, if this is a continuation call.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Maximum number of results required per page. If the value is not
+  { -- | Maximum number of results required per page. If the value is not
     -- supplied, this will be defaulted to 25 per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A continuation token, if this is a continuation call.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | This is a wrapper structure to contain schema identity fields. The
     -- structure contains:
     --
@@ -83,10 +83,10 @@ data ListSchemaVersions = ListSchemaVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listSchemaVersions_nextToken' - A continuation token, if this is a continuation call.
---
 -- 'maxResults', 'listSchemaVersions_maxResults' - Maximum number of results required per page. If the value is not
 -- supplied, this will be defaulted to 25 per page.
+--
+-- 'nextToken', 'listSchemaVersions_nextToken' - A continuation token, if this is a continuation call.
 --
 -- 'schemaId', 'listSchemaVersions_schemaId' - This is a wrapper structure to contain schema identity fields. The
 -- structure contains:
@@ -103,19 +103,19 @@ newListSchemaVersions ::
   ListSchemaVersions
 newListSchemaVersions pSchemaId_ =
   ListSchemaVersions'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       schemaId = pSchemaId_
     }
-
--- | A continuation token, if this is a continuation call.
-listSchemaVersions_nextToken :: Lens.Lens' ListSchemaVersions (Prelude.Maybe Prelude.Text)
-listSchemaVersions_nextToken = Lens.lens (\ListSchemaVersions' {nextToken} -> nextToken) (\s@ListSchemaVersions' {} a -> s {nextToken = a} :: ListSchemaVersions)
 
 -- | Maximum number of results required per page. If the value is not
 -- supplied, this will be defaulted to 25 per page.
 listSchemaVersions_maxResults :: Lens.Lens' ListSchemaVersions (Prelude.Maybe Prelude.Natural)
 listSchemaVersions_maxResults = Lens.lens (\ListSchemaVersions' {maxResults} -> maxResults) (\s@ListSchemaVersions' {} a -> s {maxResults = a} :: ListSchemaVersions)
+
+-- | A continuation token, if this is a continuation call.
+listSchemaVersions_nextToken :: Lens.Lens' ListSchemaVersions (Prelude.Maybe Prelude.Text)
+listSchemaVersions_nextToken = Lens.lens (\ListSchemaVersions' {nextToken} -> nextToken) (\s@ListSchemaVersions' {} a -> s {nextToken = a} :: ListSchemaVersions)
 
 -- | This is a wrapper structure to contain schema identity fields. The
 -- structure contains:
@@ -168,14 +168,14 @@ instance Core.AWSRequest ListSchemaVersions where
 
 instance Prelude.Hashable ListSchemaVersions where
   hashWithSalt _salt ListSchemaVersions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` schemaId
 
 instance Prelude.NFData ListSchemaVersions where
   rnf ListSchemaVersions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf schemaId
 
 instance Data.ToHeaders ListSchemaVersions where
@@ -195,8 +195,8 @@ instance Data.ToJSON ListSchemaVersions where
   toJSON ListSchemaVersions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("SchemaId" Data..= schemaId)
           ]
       )

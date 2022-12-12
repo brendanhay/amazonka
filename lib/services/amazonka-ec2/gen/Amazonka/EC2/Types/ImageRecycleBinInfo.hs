@@ -29,17 +29,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newImageRecycleBinInfo' smart constructor.
 data ImageRecycleBinInfo = ImageRecycleBinInfo'
-  { -- | The date and time when the AMI entered the Recycle Bin.
-    recycleBinEnterTime :: Prelude.Maybe Data.ISO8601,
+  { -- | The description of the AMI.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the AMI.
+    imageId :: Prelude.Maybe Prelude.Text,
     -- | The name of the AMI.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The description of the AMI.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | The date and time when the AMI entered the Recycle Bin.
+    recycleBinEnterTime :: Prelude.Maybe Data.ISO8601,
     -- | The date and time when the AMI is to be permanently deleted from the
     -- Recycle Bin.
-    recycleBinExitTime :: Prelude.Maybe Data.ISO8601,
-    -- | The ID of the AMI.
-    imageId :: Prelude.Maybe Prelude.Text
+    recycleBinExitTime :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,70 +51,69 @@ data ImageRecycleBinInfo = ImageRecycleBinInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'recycleBinEnterTime', 'imageRecycleBinInfo_recycleBinEnterTime' - The date and time when the AMI entered the Recycle Bin.
+-- 'description', 'imageRecycleBinInfo_description' - The description of the AMI.
+--
+-- 'imageId', 'imageRecycleBinInfo_imageId' - The ID of the AMI.
 --
 -- 'name', 'imageRecycleBinInfo_name' - The name of the AMI.
 --
--- 'description', 'imageRecycleBinInfo_description' - The description of the AMI.
+-- 'recycleBinEnterTime', 'imageRecycleBinInfo_recycleBinEnterTime' - The date and time when the AMI entered the Recycle Bin.
 --
 -- 'recycleBinExitTime', 'imageRecycleBinInfo_recycleBinExitTime' - The date and time when the AMI is to be permanently deleted from the
 -- Recycle Bin.
---
--- 'imageId', 'imageRecycleBinInfo_imageId' - The ID of the AMI.
 newImageRecycleBinInfo ::
   ImageRecycleBinInfo
 newImageRecycleBinInfo =
   ImageRecycleBinInfo'
-    { recycleBinEnterTime =
-        Prelude.Nothing,
+    { description = Prelude.Nothing,
+      imageId = Prelude.Nothing,
       name = Prelude.Nothing,
-      description = Prelude.Nothing,
-      recycleBinExitTime = Prelude.Nothing,
-      imageId = Prelude.Nothing
+      recycleBinEnterTime = Prelude.Nothing,
+      recycleBinExitTime = Prelude.Nothing
     }
 
--- | The date and time when the AMI entered the Recycle Bin.
-imageRecycleBinInfo_recycleBinEnterTime :: Lens.Lens' ImageRecycleBinInfo (Prelude.Maybe Prelude.UTCTime)
-imageRecycleBinInfo_recycleBinEnterTime = Lens.lens (\ImageRecycleBinInfo' {recycleBinEnterTime} -> recycleBinEnterTime) (\s@ImageRecycleBinInfo' {} a -> s {recycleBinEnterTime = a} :: ImageRecycleBinInfo) Prelude.. Lens.mapping Data._Time
+-- | The description of the AMI.
+imageRecycleBinInfo_description :: Lens.Lens' ImageRecycleBinInfo (Prelude.Maybe Prelude.Text)
+imageRecycleBinInfo_description = Lens.lens (\ImageRecycleBinInfo' {description} -> description) (\s@ImageRecycleBinInfo' {} a -> s {description = a} :: ImageRecycleBinInfo)
+
+-- | The ID of the AMI.
+imageRecycleBinInfo_imageId :: Lens.Lens' ImageRecycleBinInfo (Prelude.Maybe Prelude.Text)
+imageRecycleBinInfo_imageId = Lens.lens (\ImageRecycleBinInfo' {imageId} -> imageId) (\s@ImageRecycleBinInfo' {} a -> s {imageId = a} :: ImageRecycleBinInfo)
 
 -- | The name of the AMI.
 imageRecycleBinInfo_name :: Lens.Lens' ImageRecycleBinInfo (Prelude.Maybe Prelude.Text)
 imageRecycleBinInfo_name = Lens.lens (\ImageRecycleBinInfo' {name} -> name) (\s@ImageRecycleBinInfo' {} a -> s {name = a} :: ImageRecycleBinInfo)
 
--- | The description of the AMI.
-imageRecycleBinInfo_description :: Lens.Lens' ImageRecycleBinInfo (Prelude.Maybe Prelude.Text)
-imageRecycleBinInfo_description = Lens.lens (\ImageRecycleBinInfo' {description} -> description) (\s@ImageRecycleBinInfo' {} a -> s {description = a} :: ImageRecycleBinInfo)
+-- | The date and time when the AMI entered the Recycle Bin.
+imageRecycleBinInfo_recycleBinEnterTime :: Lens.Lens' ImageRecycleBinInfo (Prelude.Maybe Prelude.UTCTime)
+imageRecycleBinInfo_recycleBinEnterTime = Lens.lens (\ImageRecycleBinInfo' {recycleBinEnterTime} -> recycleBinEnterTime) (\s@ImageRecycleBinInfo' {} a -> s {recycleBinEnterTime = a} :: ImageRecycleBinInfo) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time when the AMI is to be permanently deleted from the
 -- Recycle Bin.
 imageRecycleBinInfo_recycleBinExitTime :: Lens.Lens' ImageRecycleBinInfo (Prelude.Maybe Prelude.UTCTime)
 imageRecycleBinInfo_recycleBinExitTime = Lens.lens (\ImageRecycleBinInfo' {recycleBinExitTime} -> recycleBinExitTime) (\s@ImageRecycleBinInfo' {} a -> s {recycleBinExitTime = a} :: ImageRecycleBinInfo) Prelude.. Lens.mapping Data._Time
 
--- | The ID of the AMI.
-imageRecycleBinInfo_imageId :: Lens.Lens' ImageRecycleBinInfo (Prelude.Maybe Prelude.Text)
-imageRecycleBinInfo_imageId = Lens.lens (\ImageRecycleBinInfo' {imageId} -> imageId) (\s@ImageRecycleBinInfo' {} a -> s {imageId = a} :: ImageRecycleBinInfo)
-
 instance Data.FromXML ImageRecycleBinInfo where
   parseXML x =
     ImageRecycleBinInfo'
-      Prelude.<$> (x Data..@? "recycleBinEnterTime")
-      Prelude.<*> (x Data..@? "name")
-      Prelude.<*> (x Data..@? "description")
-      Prelude.<*> (x Data..@? "recycleBinExitTime")
+      Prelude.<$> (x Data..@? "description")
       Prelude.<*> (x Data..@? "imageId")
+      Prelude.<*> (x Data..@? "name")
+      Prelude.<*> (x Data..@? "recycleBinEnterTime")
+      Prelude.<*> (x Data..@? "recycleBinExitTime")
 
 instance Prelude.Hashable ImageRecycleBinInfo where
   hashWithSalt _salt ImageRecycleBinInfo' {..} =
-    _salt `Prelude.hashWithSalt` recycleBinEnterTime
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` recycleBinExitTime
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` imageId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` recycleBinEnterTime
+      `Prelude.hashWithSalt` recycleBinExitTime
 
 instance Prelude.NFData ImageRecycleBinInfo where
   rnf ImageRecycleBinInfo' {..} =
-    Prelude.rnf recycleBinEnterTime
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf recycleBinExitTime
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf recycleBinEnterTime
+      `Prelude.seq` Prelude.rnf recycleBinExitTime

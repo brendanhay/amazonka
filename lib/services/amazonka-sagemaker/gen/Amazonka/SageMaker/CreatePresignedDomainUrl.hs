@@ -52,6 +52,7 @@ module Amazonka.SageMaker.CreatePresignedDomainUrl
     -- * Request Lenses
     createPresignedDomainUrl_expiresInSeconds,
     createPresignedDomainUrl_sessionExpirationDurationInSeconds,
+    createPresignedDomainUrl_spaceName,
     createPresignedDomainUrl_domainId,
     createPresignedDomainUrl_userProfileName,
 
@@ -81,6 +82,8 @@ data CreatePresignedDomainUrl = CreatePresignedDomainUrl'
     -- | The session expiration duration in seconds. This value defaults to
     -- 43200.
     sessionExpirationDurationInSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | The name of the space.
+    spaceName :: Prelude.Maybe Prelude.Text,
     -- | The domain ID.
     domainId :: Prelude.Text,
     -- | The name of the UserProfile to sign-in as.
@@ -102,6 +105,8 @@ data CreatePresignedDomainUrl = CreatePresignedDomainUrl'
 -- 'sessionExpirationDurationInSeconds', 'createPresignedDomainUrl_sessionExpirationDurationInSeconds' - The session expiration duration in seconds. This value defaults to
 -- 43200.
 --
+-- 'spaceName', 'createPresignedDomainUrl_spaceName' - The name of the space.
+--
 -- 'domainId', 'createPresignedDomainUrl_domainId' - The domain ID.
 --
 -- 'userProfileName', 'createPresignedDomainUrl_userProfileName' - The name of the UserProfile to sign-in as.
@@ -119,6 +124,7 @@ newCreatePresignedDomainUrl
           Prelude.Nothing,
         sessionExpirationDurationInSeconds =
           Prelude.Nothing,
+        spaceName = Prelude.Nothing,
         domainId = pDomainId_,
         userProfileName = pUserProfileName_
       }
@@ -132,6 +138,10 @@ createPresignedDomainUrl_expiresInSeconds = Lens.lens (\CreatePresignedDomainUrl
 -- 43200.
 createPresignedDomainUrl_sessionExpirationDurationInSeconds :: Lens.Lens' CreatePresignedDomainUrl (Prelude.Maybe Prelude.Natural)
 createPresignedDomainUrl_sessionExpirationDurationInSeconds = Lens.lens (\CreatePresignedDomainUrl' {sessionExpirationDurationInSeconds} -> sessionExpirationDurationInSeconds) (\s@CreatePresignedDomainUrl' {} a -> s {sessionExpirationDurationInSeconds = a} :: CreatePresignedDomainUrl)
+
+-- | The name of the space.
+createPresignedDomainUrl_spaceName :: Lens.Lens' CreatePresignedDomainUrl (Prelude.Maybe Prelude.Text)
+createPresignedDomainUrl_spaceName = Lens.lens (\CreatePresignedDomainUrl' {spaceName} -> spaceName) (\s@CreatePresignedDomainUrl' {} a -> s {spaceName = a} :: CreatePresignedDomainUrl)
 
 -- | The domain ID.
 createPresignedDomainUrl_domainId :: Lens.Lens' CreatePresignedDomainUrl Prelude.Text
@@ -159,6 +169,7 @@ instance Prelude.Hashable CreatePresignedDomainUrl where
   hashWithSalt _salt CreatePresignedDomainUrl' {..} =
     _salt `Prelude.hashWithSalt` expiresInSeconds
       `Prelude.hashWithSalt` sessionExpirationDurationInSeconds
+      `Prelude.hashWithSalt` spaceName
       `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` userProfileName
 
@@ -166,6 +177,7 @@ instance Prelude.NFData CreatePresignedDomainUrl where
   rnf CreatePresignedDomainUrl' {..} =
     Prelude.rnf expiresInSeconds
       `Prelude.seq` Prelude.rnf sessionExpirationDurationInSeconds
+      `Prelude.seq` Prelude.rnf spaceName
       `Prelude.seq` Prelude.rnf domainId
       `Prelude.seq` Prelude.rnf userProfileName
 
@@ -192,6 +204,7 @@ instance Data.ToJSON CreatePresignedDomainUrl where
               Prelude.<$> expiresInSeconds,
             ("SessionExpirationDurationInSeconds" Data..=)
               Prelude.<$> sessionExpirationDurationInSeconds,
+            ("SpaceName" Data..=) Prelude.<$> spaceName,
             Prelude.Just ("DomainId" Data..= domainId),
             Prelude.Just
               ("UserProfileName" Data..= userProfileName)

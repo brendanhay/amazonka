@@ -32,9 +32,9 @@ module Amazonka.FraudDetector.GetVariables
     newGetVariables,
 
     -- * Request Lenses
+    getVariables_maxResults,
     getVariables_name,
     getVariables_nextToken,
-    getVariables_maxResults,
 
     -- * Destructuring the Response
     GetVariablesResponse (..),
@@ -57,12 +57,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetVariables' smart constructor.
 data GetVariables = GetVariables'
-  { -- | The name of the variable.
+  { -- | The max size per page determined for the get variable request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The name of the variable.
     name :: Prelude.Maybe Prelude.Text,
     -- | The next page token of the get variable request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The max size per page determined for the get variable request.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,19 +74,23 @@ data GetVariables = GetVariables'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'getVariables_maxResults' - The max size per page determined for the get variable request.
+--
 -- 'name', 'getVariables_name' - The name of the variable.
 --
 -- 'nextToken', 'getVariables_nextToken' - The next page token of the get variable request.
---
--- 'maxResults', 'getVariables_maxResults' - The max size per page determined for the get variable request.
 newGetVariables ::
   GetVariables
 newGetVariables =
   GetVariables'
-    { name = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      name = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The max size per page determined for the get variable request.
+getVariables_maxResults :: Lens.Lens' GetVariables (Prelude.Maybe Prelude.Natural)
+getVariables_maxResults = Lens.lens (\GetVariables' {maxResults} -> maxResults) (\s@GetVariables' {} a -> s {maxResults = a} :: GetVariables)
 
 -- | The name of the variable.
 getVariables_name :: Lens.Lens' GetVariables (Prelude.Maybe Prelude.Text)
@@ -95,10 +99,6 @@ getVariables_name = Lens.lens (\GetVariables' {name} -> name) (\s@GetVariables' 
 -- | The next page token of the get variable request.
 getVariables_nextToken :: Lens.Lens' GetVariables (Prelude.Maybe Prelude.Text)
 getVariables_nextToken = Lens.lens (\GetVariables' {nextToken} -> nextToken) (\s@GetVariables' {} a -> s {nextToken = a} :: GetVariables)
-
--- | The max size per page determined for the get variable request.
-getVariables_maxResults :: Lens.Lens' GetVariables (Prelude.Maybe Prelude.Natural)
-getVariables_maxResults = Lens.lens (\GetVariables' {maxResults} -> maxResults) (\s@GetVariables' {} a -> s {maxResults = a} :: GetVariables)
 
 instance Core.AWSRequest GetVariables where
   type AWSResponse GetVariables = GetVariablesResponse
@@ -115,15 +115,15 @@ instance Core.AWSRequest GetVariables where
 
 instance Prelude.Hashable GetVariables where
   hashWithSalt _salt GetVariables' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData GetVariables where
   rnf GetVariables' {..} =
-    Prelude.rnf name
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
 
 instance Data.ToHeaders GetVariables where
   toHeaders =
@@ -144,9 +144,9 @@ instance Data.ToJSON GetVariables where
   toJSON GetVariables' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("name" Data..=) Prelude.<$> name,
-            ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("name" Data..=) Prelude.<$> name,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

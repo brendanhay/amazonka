@@ -45,11 +45,11 @@ module Amazonka.DMS.CreateEventSubscription
     newCreateEventSubscription,
 
     -- * Request Lenses
-    createEventSubscription_tags,
-    createEventSubscription_sourceIds,
-    createEventSubscription_sourceType,
     createEventSubscription_enabled,
     createEventSubscription_eventCategories,
+    createEventSubscription_sourceIds,
+    createEventSubscription_sourceType,
+    createEventSubscription_tags,
     createEventSubscription_subscriptionName,
     createEventSubscription_snsTopicArn,
 
@@ -75,8 +75,14 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateEventSubscription' smart constructor.
 data CreateEventSubscription = CreateEventSubscription'
-  { -- | One or more tags to be assigned to the event subscription.
-    tags :: Prelude.Maybe [Tag],
+  { -- | A Boolean value; set to @true@ to activate the subscription, or set to
+    -- @false@ to create the subscription but not activate it.
+    enabled :: Prelude.Maybe Prelude.Bool,
+    -- | A list of event categories for a source type that you want to subscribe
+    -- to. For more information, see
+    -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html Working with Events and Notifications>
+    -- in the /Database Migration Service User Guide./
+    eventCategories :: Prelude.Maybe [Prelude.Text],
     -- | A list of identifiers for which DMS provides notification events.
     --
     -- If you don\'t specify a value, notifications are provided for all
@@ -93,14 +99,8 @@ data CreateEventSubscription = CreateEventSubscription'
     --
     -- Valid values: @replication-instance@ | @replication-task@
     sourceType :: Prelude.Maybe Prelude.Text,
-    -- | A Boolean value; set to @true@ to activate the subscription, or set to
-    -- @false@ to create the subscription but not activate it.
-    enabled :: Prelude.Maybe Prelude.Bool,
-    -- | A list of event categories for a source type that you want to subscribe
-    -- to. For more information, see
-    -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html Working with Events and Notifications>
-    -- in the /Database Migration Service User Guide./
-    eventCategories :: Prelude.Maybe [Prelude.Text],
+    -- | One or more tags to be assigned to the event subscription.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the DMS event notification subscription. This name must be
     -- less than 255 characters.
     subscriptionName :: Prelude.Text,
@@ -119,7 +119,13 @@ data CreateEventSubscription = CreateEventSubscription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createEventSubscription_tags' - One or more tags to be assigned to the event subscription.
+-- 'enabled', 'createEventSubscription_enabled' - A Boolean value; set to @true@ to activate the subscription, or set to
+-- @false@ to create the subscription but not activate it.
+--
+-- 'eventCategories', 'createEventSubscription_eventCategories' - A list of event categories for a source type that you want to subscribe
+-- to. For more information, see
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html Working with Events and Notifications>
+-- in the /Database Migration Service User Guide./
 --
 -- 'sourceIds', 'createEventSubscription_sourceIds' - A list of identifiers for which DMS provides notification events.
 --
@@ -137,13 +143,7 @@ data CreateEventSubscription = CreateEventSubscription'
 --
 -- Valid values: @replication-instance@ | @replication-task@
 --
--- 'enabled', 'createEventSubscription_enabled' - A Boolean value; set to @true@ to activate the subscription, or set to
--- @false@ to create the subscription but not activate it.
---
--- 'eventCategories', 'createEventSubscription_eventCategories' - A list of event categories for a source type that you want to subscribe
--- to. For more information, see
--- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html Working with Events and Notifications>
--- in the /Database Migration Service User Guide./
+-- 'tags', 'createEventSubscription_tags' - One or more tags to be assigned to the event subscription.
 --
 -- 'subscriptionName', 'createEventSubscription_subscriptionName' - The name of the DMS event notification subscription. This name must be
 -- less than 255 characters.
@@ -161,18 +161,26 @@ newCreateEventSubscription
   pSubscriptionName_
   pSnsTopicArn_ =
     CreateEventSubscription'
-      { tags = Prelude.Nothing,
+      { enabled = Prelude.Nothing,
+        eventCategories = Prelude.Nothing,
         sourceIds = Prelude.Nothing,
         sourceType = Prelude.Nothing,
-        enabled = Prelude.Nothing,
-        eventCategories = Prelude.Nothing,
+        tags = Prelude.Nothing,
         subscriptionName = pSubscriptionName_,
         snsTopicArn = pSnsTopicArn_
       }
 
--- | One or more tags to be assigned to the event subscription.
-createEventSubscription_tags :: Lens.Lens' CreateEventSubscription (Prelude.Maybe [Tag])
-createEventSubscription_tags = Lens.lens (\CreateEventSubscription' {tags} -> tags) (\s@CreateEventSubscription' {} a -> s {tags = a} :: CreateEventSubscription) Prelude.. Lens.mapping Lens.coerced
+-- | A Boolean value; set to @true@ to activate the subscription, or set to
+-- @false@ to create the subscription but not activate it.
+createEventSubscription_enabled :: Lens.Lens' CreateEventSubscription (Prelude.Maybe Prelude.Bool)
+createEventSubscription_enabled = Lens.lens (\CreateEventSubscription' {enabled} -> enabled) (\s@CreateEventSubscription' {} a -> s {enabled = a} :: CreateEventSubscription)
+
+-- | A list of event categories for a source type that you want to subscribe
+-- to. For more information, see
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html Working with Events and Notifications>
+-- in the /Database Migration Service User Guide./
+createEventSubscription_eventCategories :: Lens.Lens' CreateEventSubscription (Prelude.Maybe [Prelude.Text])
+createEventSubscription_eventCategories = Lens.lens (\CreateEventSubscription' {eventCategories} -> eventCategories) (\s@CreateEventSubscription' {} a -> s {eventCategories = a} :: CreateEventSubscription) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of identifiers for which DMS provides notification events.
 --
@@ -194,17 +202,9 @@ createEventSubscription_sourceIds = Lens.lens (\CreateEventSubscription' {source
 createEventSubscription_sourceType :: Lens.Lens' CreateEventSubscription (Prelude.Maybe Prelude.Text)
 createEventSubscription_sourceType = Lens.lens (\CreateEventSubscription' {sourceType} -> sourceType) (\s@CreateEventSubscription' {} a -> s {sourceType = a} :: CreateEventSubscription)
 
--- | A Boolean value; set to @true@ to activate the subscription, or set to
--- @false@ to create the subscription but not activate it.
-createEventSubscription_enabled :: Lens.Lens' CreateEventSubscription (Prelude.Maybe Prelude.Bool)
-createEventSubscription_enabled = Lens.lens (\CreateEventSubscription' {enabled} -> enabled) (\s@CreateEventSubscription' {} a -> s {enabled = a} :: CreateEventSubscription)
-
--- | A list of event categories for a source type that you want to subscribe
--- to. For more information, see
--- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html Working with Events and Notifications>
--- in the /Database Migration Service User Guide./
-createEventSubscription_eventCategories :: Lens.Lens' CreateEventSubscription (Prelude.Maybe [Prelude.Text])
-createEventSubscription_eventCategories = Lens.lens (\CreateEventSubscription' {eventCategories} -> eventCategories) (\s@CreateEventSubscription' {} a -> s {eventCategories = a} :: CreateEventSubscription) Prelude.. Lens.mapping Lens.coerced
+-- | One or more tags to be assigned to the event subscription.
+createEventSubscription_tags :: Lens.Lens' CreateEventSubscription (Prelude.Maybe [Tag])
+createEventSubscription_tags = Lens.lens (\CreateEventSubscription' {tags} -> tags) (\s@CreateEventSubscription' {} a -> s {tags = a} :: CreateEventSubscription) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the DMS event notification subscription. This name must be
 -- less than 255 characters.
@@ -233,21 +233,21 @@ instance Core.AWSRequest CreateEventSubscription where
 
 instance Prelude.Hashable CreateEventSubscription where
   hashWithSalt _salt CreateEventSubscription' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` eventCategories
       `Prelude.hashWithSalt` sourceIds
       `Prelude.hashWithSalt` sourceType
-      `Prelude.hashWithSalt` enabled
-      `Prelude.hashWithSalt` eventCategories
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` subscriptionName
       `Prelude.hashWithSalt` snsTopicArn
 
 instance Prelude.NFData CreateEventSubscription where
   rnf CreateEventSubscription' {..} =
-    Prelude.rnf tags
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf eventCategories
       `Prelude.seq` Prelude.rnf sourceIds
       `Prelude.seq` Prelude.rnf sourceType
-      `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf eventCategories
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf subscriptionName
       `Prelude.seq` Prelude.rnf snsTopicArn
 
@@ -270,12 +270,12 @@ instance Data.ToJSON CreateEventSubscription where
   toJSON CreateEventSubscription' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("SourceIds" Data..=) Prelude.<$> sourceIds,
-            ("SourceType" Data..=) Prelude.<$> sourceType,
-            ("Enabled" Data..=) Prelude.<$> enabled,
+          [ ("Enabled" Data..=) Prelude.<$> enabled,
             ("EventCategories" Data..=)
               Prelude.<$> eventCategories,
+            ("SourceIds" Data..=) Prelude.<$> sourceIds,
+            ("SourceType" Data..=) Prelude.<$> sourceType,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("SubscriptionName" Data..= subscriptionName),
             Prelude.Just ("SnsTopicArn" Data..= snsTopicArn)

@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGroupResult' smart constructor.
 data GroupResult = GroupResult'
-  { -- | Tests under Group Result.
-    tests :: Prelude.Maybe [TestCaseRun],
+  { -- | Group result ID.
+    groupId :: Prelude.Maybe Prelude.Text,
     -- | Group Result Name.
     groupName :: Prelude.Maybe Prelude.Text,
-    -- | Group result ID.
-    groupId :: Prelude.Maybe Prelude.Text
+    -- | Tests under Group Result.
+    tests :: Prelude.Maybe [TestCaseRun]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,31 +46,31 @@ data GroupResult = GroupResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tests', 'groupResult_tests' - Tests under Group Result.
+-- 'groupId', 'groupResult_groupId' - Group result ID.
 --
 -- 'groupName', 'groupResult_groupName' - Group Result Name.
 --
--- 'groupId', 'groupResult_groupId' - Group result ID.
+-- 'tests', 'groupResult_tests' - Tests under Group Result.
 newGroupResult ::
   GroupResult
 newGroupResult =
   GroupResult'
-    { tests = Prelude.Nothing,
+    { groupId = Prelude.Nothing,
       groupName = Prelude.Nothing,
-      groupId = Prelude.Nothing
+      tests = Prelude.Nothing
     }
 
--- | Tests under Group Result.
-groupResult_tests :: Lens.Lens' GroupResult (Prelude.Maybe [TestCaseRun])
-groupResult_tests = Lens.lens (\GroupResult' {tests} -> tests) (\s@GroupResult' {} a -> s {tests = a} :: GroupResult) Prelude.. Lens.mapping Lens.coerced
+-- | Group result ID.
+groupResult_groupId :: Lens.Lens' GroupResult (Prelude.Maybe Prelude.Text)
+groupResult_groupId = Lens.lens (\GroupResult' {groupId} -> groupId) (\s@GroupResult' {} a -> s {groupId = a} :: GroupResult)
 
 -- | Group Result Name.
 groupResult_groupName :: Lens.Lens' GroupResult (Prelude.Maybe Prelude.Text)
 groupResult_groupName = Lens.lens (\GroupResult' {groupName} -> groupName) (\s@GroupResult' {} a -> s {groupName = a} :: GroupResult)
 
--- | Group result ID.
-groupResult_groupId :: Lens.Lens' GroupResult (Prelude.Maybe Prelude.Text)
-groupResult_groupId = Lens.lens (\GroupResult' {groupId} -> groupId) (\s@GroupResult' {} a -> s {groupId = a} :: GroupResult)
+-- | Tests under Group Result.
+groupResult_tests :: Lens.Lens' GroupResult (Prelude.Maybe [TestCaseRun])
+groupResult_tests = Lens.lens (\GroupResult' {tests} -> tests) (\s@GroupResult' {} a -> s {tests = a} :: GroupResult) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON GroupResult where
   parseJSON =
@@ -78,19 +78,19 @@ instance Data.FromJSON GroupResult where
       "GroupResult"
       ( \x ->
           GroupResult'
-            Prelude.<$> (x Data..:? "tests" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "groupId")
             Prelude.<*> (x Data..:? "groupName")
-            Prelude.<*> (x Data..:? "groupId")
+            Prelude.<*> (x Data..:? "tests" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable GroupResult where
   hashWithSalt _salt GroupResult' {..} =
-    _salt `Prelude.hashWithSalt` tests
+    _salt `Prelude.hashWithSalt` groupId
       `Prelude.hashWithSalt` groupName
-      `Prelude.hashWithSalt` groupId
+      `Prelude.hashWithSalt` tests
 
 instance Prelude.NFData GroupResult where
   rnf GroupResult' {..} =
-    Prelude.rnf tests
+    Prelude.rnf groupId
       `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf tests

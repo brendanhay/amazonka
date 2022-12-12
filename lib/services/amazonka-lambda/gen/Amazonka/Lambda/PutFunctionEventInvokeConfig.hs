@@ -48,8 +48,8 @@ module Amazonka.Lambda.PutFunctionEventInvokeConfig
     newPutFunctionEventInvokeConfig,
 
     -- * Request Lenses
-    putFunctionEventInvokeConfig_maximumEventAgeInSeconds,
     putFunctionEventInvokeConfig_destinationConfig,
+    putFunctionEventInvokeConfig_maximumEventAgeInSeconds,
     putFunctionEventInvokeConfig_maximumRetryAttempts,
     putFunctionEventInvokeConfig_qualifier,
     putFunctionEventInvokeConfig_functionName,
@@ -59,11 +59,11 @@ module Amazonka.Lambda.PutFunctionEventInvokeConfig
     newFunctionEventInvokeConfig,
 
     -- * Response Lenses
-    functionEventInvokeConfig_functionArn,
-    functionEventInvokeConfig_maximumEventAgeInSeconds,
     functionEventInvokeConfig_destinationConfig,
-    functionEventInvokeConfig_maximumRetryAttempts,
+    functionEventInvokeConfig_functionArn,
     functionEventInvokeConfig_lastModified,
+    functionEventInvokeConfig_maximumEventAgeInSeconds,
+    functionEventInvokeConfig_maximumRetryAttempts,
   )
 where
 
@@ -77,10 +77,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutFunctionEventInvokeConfig' smart constructor.
 data PutFunctionEventInvokeConfig = PutFunctionEventInvokeConfig'
-  { -- | The maximum age of a request that Lambda sends to a function for
-    -- processing.
-    maximumEventAgeInSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | A destination for events after they have been sent to a function for
+  { -- | A destination for events after they have been sent to a function for
     -- processing.
     --
     -- __Destinations__
@@ -93,6 +90,9 @@ data PutFunctionEventInvokeConfig = PutFunctionEventInvokeConfig'
     --
     -- -   __Event Bus__ - The ARN of an Amazon EventBridge event bus.
     destinationConfig :: Prelude.Maybe DestinationConfig,
+    -- | The maximum age of a request that Lambda sends to a function for
+    -- processing.
+    maximumEventAgeInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The maximum number of times to retry when the function returns an error.
     maximumRetryAttempts :: Prelude.Maybe Prelude.Natural,
     -- | A version number or alias name.
@@ -124,9 +124,6 @@ data PutFunctionEventInvokeConfig = PutFunctionEventInvokeConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maximumEventAgeInSeconds', 'putFunctionEventInvokeConfig_maximumEventAgeInSeconds' - The maximum age of a request that Lambda sends to a function for
--- processing.
---
 -- 'destinationConfig', 'putFunctionEventInvokeConfig_destinationConfig' - A destination for events after they have been sent to a function for
 -- processing.
 --
@@ -139,6 +136,9 @@ data PutFunctionEventInvokeConfig = PutFunctionEventInvokeConfig'
 -- -   __Topic__ - The ARN of an SNS topic.
 --
 -- -   __Event Bus__ - The ARN of an Amazon EventBridge event bus.
+--
+-- 'maximumEventAgeInSeconds', 'putFunctionEventInvokeConfig_maximumEventAgeInSeconds' - The maximum age of a request that Lambda sends to a function for
+-- processing.
 --
 -- 'maximumRetryAttempts', 'putFunctionEventInvokeConfig_maximumRetryAttempts' - The maximum number of times to retry when the function returns an error.
 --
@@ -165,18 +165,13 @@ newPutFunctionEventInvokeConfig ::
   PutFunctionEventInvokeConfig
 newPutFunctionEventInvokeConfig pFunctionName_ =
   PutFunctionEventInvokeConfig'
-    { maximumEventAgeInSeconds =
+    { destinationConfig =
         Prelude.Nothing,
-      destinationConfig = Prelude.Nothing,
+      maximumEventAgeInSeconds = Prelude.Nothing,
       maximumRetryAttempts = Prelude.Nothing,
       qualifier = Prelude.Nothing,
       functionName = pFunctionName_
     }
-
--- | The maximum age of a request that Lambda sends to a function for
--- processing.
-putFunctionEventInvokeConfig_maximumEventAgeInSeconds :: Lens.Lens' PutFunctionEventInvokeConfig (Prelude.Maybe Prelude.Natural)
-putFunctionEventInvokeConfig_maximumEventAgeInSeconds = Lens.lens (\PutFunctionEventInvokeConfig' {maximumEventAgeInSeconds} -> maximumEventAgeInSeconds) (\s@PutFunctionEventInvokeConfig' {} a -> s {maximumEventAgeInSeconds = a} :: PutFunctionEventInvokeConfig)
 
 -- | A destination for events after they have been sent to a function for
 -- processing.
@@ -192,6 +187,11 @@ putFunctionEventInvokeConfig_maximumEventAgeInSeconds = Lens.lens (\PutFunctionE
 -- -   __Event Bus__ - The ARN of an Amazon EventBridge event bus.
 putFunctionEventInvokeConfig_destinationConfig :: Lens.Lens' PutFunctionEventInvokeConfig (Prelude.Maybe DestinationConfig)
 putFunctionEventInvokeConfig_destinationConfig = Lens.lens (\PutFunctionEventInvokeConfig' {destinationConfig} -> destinationConfig) (\s@PutFunctionEventInvokeConfig' {} a -> s {destinationConfig = a} :: PutFunctionEventInvokeConfig)
+
+-- | The maximum age of a request that Lambda sends to a function for
+-- processing.
+putFunctionEventInvokeConfig_maximumEventAgeInSeconds :: Lens.Lens' PutFunctionEventInvokeConfig (Prelude.Maybe Prelude.Natural)
+putFunctionEventInvokeConfig_maximumEventAgeInSeconds = Lens.lens (\PutFunctionEventInvokeConfig' {maximumEventAgeInSeconds} -> maximumEventAgeInSeconds) (\s@PutFunctionEventInvokeConfig' {} a -> s {maximumEventAgeInSeconds = a} :: PutFunctionEventInvokeConfig)
 
 -- | The maximum number of times to retry when the function returns an error.
 putFunctionEventInvokeConfig_maximumRetryAttempts :: Lens.Lens' PutFunctionEventInvokeConfig (Prelude.Maybe Prelude.Natural)
@@ -234,17 +234,16 @@ instance
     PutFunctionEventInvokeConfig
   where
   hashWithSalt _salt PutFunctionEventInvokeConfig' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` destinationConfig
       `Prelude.hashWithSalt` maximumEventAgeInSeconds
-      `Prelude.hashWithSalt` destinationConfig
       `Prelude.hashWithSalt` maximumRetryAttempts
       `Prelude.hashWithSalt` qualifier
       `Prelude.hashWithSalt` functionName
 
 instance Prelude.NFData PutFunctionEventInvokeConfig where
   rnf PutFunctionEventInvokeConfig' {..} =
-    Prelude.rnf maximumEventAgeInSeconds
-      `Prelude.seq` Prelude.rnf destinationConfig
+    Prelude.rnf destinationConfig
+      `Prelude.seq` Prelude.rnf maximumEventAgeInSeconds
       `Prelude.seq` Prelude.rnf maximumRetryAttempts
       `Prelude.seq` Prelude.rnf qualifier
       `Prelude.seq` Prelude.rnf functionName
@@ -256,10 +255,10 @@ instance Data.ToJSON PutFunctionEventInvokeConfig where
   toJSON PutFunctionEventInvokeConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("MaximumEventAgeInSeconds" Data..=)
-              Prelude.<$> maximumEventAgeInSeconds,
-            ("DestinationConfig" Data..=)
+          [ ("DestinationConfig" Data..=)
               Prelude.<$> destinationConfig,
+            ("MaximumEventAgeInSeconds" Data..=)
+              Prelude.<$> maximumEventAgeInSeconds,
             ("MaximumRetryAttempts" Data..=)
               Prelude.<$> maximumRetryAttempts
           ]

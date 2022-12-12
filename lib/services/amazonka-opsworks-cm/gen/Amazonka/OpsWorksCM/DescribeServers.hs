@@ -37,17 +37,17 @@ module Amazonka.OpsWorksCM.DescribeServers
     newDescribeServers,
 
     -- * Request Lenses
+    describeServers_maxResults,
     describeServers_nextToken,
     describeServers_serverName,
-    describeServers_maxResults,
 
     -- * Destructuring the Response
     DescribeServersResponse (..),
     newDescribeServersResponse,
 
     -- * Response Lenses
-    describeServersResponse_servers,
     describeServersResponse_nextToken,
+    describeServersResponse_servers,
     describeServersResponse_httpStatus,
   )
 where
@@ -63,11 +63,11 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newDescribeServers' smart constructor.
 data DescribeServers = DescribeServers'
   { -- | This is not currently implemented for @DescribeServers@ requests.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | This is not currently implemented for @DescribeServers@ requests.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Describes the server with the specified ServerName.
-    serverName :: Prelude.Maybe Prelude.Text,
-    -- | This is not currently implemented for @DescribeServers@ requests.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    serverName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,19 +79,23 @@ data DescribeServers = DescribeServers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'describeServers_maxResults' - This is not currently implemented for @DescribeServers@ requests.
+--
 -- 'nextToken', 'describeServers_nextToken' - This is not currently implemented for @DescribeServers@ requests.
 --
 -- 'serverName', 'describeServers_serverName' - Describes the server with the specified ServerName.
---
--- 'maxResults', 'describeServers_maxResults' - This is not currently implemented for @DescribeServers@ requests.
 newDescribeServers ::
   DescribeServers
 newDescribeServers =
   DescribeServers'
-    { nextToken = Prelude.Nothing,
-      serverName = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      serverName = Prelude.Nothing
     }
+
+-- | This is not currently implemented for @DescribeServers@ requests.
+describeServers_maxResults :: Lens.Lens' DescribeServers (Prelude.Maybe Prelude.Natural)
+describeServers_maxResults = Lens.lens (\DescribeServers' {maxResults} -> maxResults) (\s@DescribeServers' {} a -> s {maxResults = a} :: DescribeServers)
 
 -- | This is not currently implemented for @DescribeServers@ requests.
 describeServers_nextToken :: Lens.Lens' DescribeServers (Prelude.Maybe Prelude.Text)
@@ -100,10 +104,6 @@ describeServers_nextToken = Lens.lens (\DescribeServers' {nextToken} -> nextToke
 -- | Describes the server with the specified ServerName.
 describeServers_serverName :: Lens.Lens' DescribeServers (Prelude.Maybe Prelude.Text)
 describeServers_serverName = Lens.lens (\DescribeServers' {serverName} -> serverName) (\s@DescribeServers' {} a -> s {serverName = a} :: DescribeServers)
-
--- | This is not currently implemented for @DescribeServers@ requests.
-describeServers_maxResults :: Lens.Lens' DescribeServers (Prelude.Maybe Prelude.Natural)
-describeServers_maxResults = Lens.lens (\DescribeServers' {maxResults} -> maxResults) (\s@DescribeServers' {} a -> s {maxResults = a} :: DescribeServers)
 
 instance Core.AWSPager DescribeServers where
   page rq rs
@@ -136,22 +136,22 @@ instance Core.AWSRequest DescribeServers where
     Response.receiveJSON
       ( \s h x ->
           DescribeServersResponse'
-            Prelude.<$> (x Data..?> "Servers" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Servers" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeServers where
   hashWithSalt _salt DescribeServers' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` serverName
-      `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData DescribeServers where
   rnf DescribeServers' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf serverName
-      `Prelude.seq` Prelude.rnf maxResults
 
 instance Data.ToHeaders DescribeServers where
   toHeaders =
@@ -172,9 +172,9 @@ instance Data.ToJSON DescribeServers where
   toJSON DescribeServers' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("ServerName" Data..=) Prelude.<$> serverName,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ServerName" Data..=) Prelude.<$> serverName
           ]
       )
 
@@ -186,7 +186,9 @@ instance Data.ToQuery DescribeServers where
 
 -- | /See:/ 'newDescribeServersResponse' smart constructor.
 data DescribeServersResponse = DescribeServersResponse'
-  { -- | Contains the response to a @DescribeServers@ request.
+  { -- | This is not currently implemented for @DescribeServers@ requests.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Contains the response to a @DescribeServers@ request.
     --
     -- /For Chef Automate servers:/ If
     -- @DescribeServersResponse$Servers$EngineAttributes@ includes
@@ -208,8 +210,6 @@ data DescribeServersResponse = DescribeServersResponse'
     --     <https://puppet.com/docs/puppet/5.5/man/certificate_revocation_list.html Man Page: puppet certificate_revocation_list>
     --     in the Puppet documentation.
     servers :: Prelude.Maybe [Server],
-    -- | This is not currently implemented for @DescribeServers@ requests.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -222,6 +222,8 @@ data DescribeServersResponse = DescribeServersResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'nextToken', 'describeServersResponse_nextToken' - This is not currently implemented for @DescribeServers@ requests.
 --
 -- 'servers', 'describeServersResponse_servers' - Contains the response to a @DescribeServers@ request.
 --
@@ -245,8 +247,6 @@ data DescribeServersResponse = DescribeServersResponse'
 --     <https://puppet.com/docs/puppet/5.5/man/certificate_revocation_list.html Man Page: puppet certificate_revocation_list>
 --     in the Puppet documentation.
 --
--- 'nextToken', 'describeServersResponse_nextToken' - This is not currently implemented for @DescribeServers@ requests.
---
 -- 'httpStatus', 'describeServersResponse_httpStatus' - The response's http status code.
 newDescribeServersResponse ::
   -- | 'httpStatus'
@@ -254,10 +254,15 @@ newDescribeServersResponse ::
   DescribeServersResponse
 newDescribeServersResponse pHttpStatus_ =
   DescribeServersResponse'
-    { servers = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      servers = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | This is not currently implemented for @DescribeServers@ requests.
+describeServersResponse_nextToken :: Lens.Lens' DescribeServersResponse (Prelude.Maybe Prelude.Text)
+describeServersResponse_nextToken = Lens.lens (\DescribeServersResponse' {nextToken} -> nextToken) (\s@DescribeServersResponse' {} a -> s {nextToken = a} :: DescribeServersResponse)
 
 -- | Contains the response to a @DescribeServers@ request.
 --
@@ -283,16 +288,12 @@ newDescribeServersResponse pHttpStatus_ =
 describeServersResponse_servers :: Lens.Lens' DescribeServersResponse (Prelude.Maybe [Server])
 describeServersResponse_servers = Lens.lens (\DescribeServersResponse' {servers} -> servers) (\s@DescribeServersResponse' {} a -> s {servers = a} :: DescribeServersResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | This is not currently implemented for @DescribeServers@ requests.
-describeServersResponse_nextToken :: Lens.Lens' DescribeServersResponse (Prelude.Maybe Prelude.Text)
-describeServersResponse_nextToken = Lens.lens (\DescribeServersResponse' {nextToken} -> nextToken) (\s@DescribeServersResponse' {} a -> s {nextToken = a} :: DescribeServersResponse)
-
 -- | The response's http status code.
 describeServersResponse_httpStatus :: Lens.Lens' DescribeServersResponse Prelude.Int
 describeServersResponse_httpStatus = Lens.lens (\DescribeServersResponse' {httpStatus} -> httpStatus) (\s@DescribeServersResponse' {} a -> s {httpStatus = a} :: DescribeServersResponse)
 
 instance Prelude.NFData DescribeServersResponse where
   rnf DescribeServersResponse' {..} =
-    Prelude.rnf servers
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf servers
       `Prelude.seq` Prelude.rnf httpStatus

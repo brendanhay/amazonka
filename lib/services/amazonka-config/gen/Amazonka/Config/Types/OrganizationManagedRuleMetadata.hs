@@ -32,7 +32,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOrganizationManagedRuleMetadata' smart constructor.
 data OrganizationManagedRuleMetadata = OrganizationManagedRuleMetadata'
-  { -- | The maximum frequency with which Config runs evaluations for a rule.
+  { -- | The description that you provide for your organization Config rule.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | A string, in JSON format, that is passed to your organization Config
+    -- rule Lambda function.
+    inputParameters :: Prelude.Maybe Prelude.Text,
+    -- | The maximum frequency with which Config runs evaluations for a rule.
     -- This is for an Config managed rule that is triggered at a periodic
     -- frequency.
     --
@@ -40,21 +45,16 @@ data OrganizationManagedRuleMetadata = OrganizationManagedRuleMetadata'
     -- To change the frequency, specify a valid value for the
     -- @MaximumExecutionFrequency@ parameter.
     maximumExecutionFrequency :: Prelude.Maybe MaximumExecutionFrequency,
-    -- | The type of the Amazon Web Services resource that was evaluated.
-    resourceTypesScope :: Prelude.Maybe [Prelude.Text],
-    -- | A string, in JSON format, that is passed to your organization Config
-    -- rule Lambda function.
-    inputParameters :: Prelude.Maybe Prelude.Text,
-    -- | The optional part of a key-value pair that make up a tag. A value acts
-    -- as a descriptor within a tag category (key).
-    tagValueScope :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Amazon Web Services resource that was evaluated.
     resourceIdScope :: Prelude.Maybe Prelude.Text,
-    -- | The description that you provide for your organization Config rule.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | The type of the Amazon Web Services resource that was evaluated.
+    resourceTypesScope :: Prelude.Maybe [Prelude.Text],
     -- | One part of a key-value pair that make up a tag. A key is a general
     -- label that acts like a category for more specific tag values.
     tagKeyScope :: Prelude.Maybe Prelude.Text,
+    -- | The optional part of a key-value pair that make up a tag. A value acts
+    -- as a descriptor within a tag category (key).
+    tagValueScope :: Prelude.Maybe Prelude.Text,
     -- | For organization config managed rules, a predefined identifier from a
     -- list. For example, @IAM_PASSWORD_POLICY@ is a managed rule. To reference
     -- a managed rule, see
@@ -71,6 +71,11 @@ data OrganizationManagedRuleMetadata = OrganizationManagedRuleMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'organizationManagedRuleMetadata_description' - The description that you provide for your organization Config rule.
+--
+-- 'inputParameters', 'organizationManagedRuleMetadata_inputParameters' - A string, in JSON format, that is passed to your organization Config
+-- rule Lambda function.
+--
 -- 'maximumExecutionFrequency', 'organizationManagedRuleMetadata_maximumExecutionFrequency' - The maximum frequency with which Config runs evaluations for a rule.
 -- This is for an Config managed rule that is triggered at a periodic
 -- frequency.
@@ -79,20 +84,15 @@ data OrganizationManagedRuleMetadata = OrganizationManagedRuleMetadata'
 -- To change the frequency, specify a valid value for the
 -- @MaximumExecutionFrequency@ parameter.
 --
--- 'resourceTypesScope', 'organizationManagedRuleMetadata_resourceTypesScope' - The type of the Amazon Web Services resource that was evaluated.
---
--- 'inputParameters', 'organizationManagedRuleMetadata_inputParameters' - A string, in JSON format, that is passed to your organization Config
--- rule Lambda function.
---
--- 'tagValueScope', 'organizationManagedRuleMetadata_tagValueScope' - The optional part of a key-value pair that make up a tag. A value acts
--- as a descriptor within a tag category (key).
---
 -- 'resourceIdScope', 'organizationManagedRuleMetadata_resourceIdScope' - The ID of the Amazon Web Services resource that was evaluated.
 --
--- 'description', 'organizationManagedRuleMetadata_description' - The description that you provide for your organization Config rule.
+-- 'resourceTypesScope', 'organizationManagedRuleMetadata_resourceTypesScope' - The type of the Amazon Web Services resource that was evaluated.
 --
 -- 'tagKeyScope', 'organizationManagedRuleMetadata_tagKeyScope' - One part of a key-value pair that make up a tag. A key is a general
 -- label that acts like a category for more specific tag values.
+--
+-- 'tagValueScope', 'organizationManagedRuleMetadata_tagValueScope' - The optional part of a key-value pair that make up a tag. A value acts
+-- as a descriptor within a tag category (key).
 --
 -- 'ruleIdentifier', 'organizationManagedRuleMetadata_ruleIdentifier' - For organization config managed rules, a predefined identifier from a
 -- list. For example, @IAM_PASSWORD_POLICY@ is a managed rule. To reference
@@ -104,16 +104,26 @@ newOrganizationManagedRuleMetadata ::
   OrganizationManagedRuleMetadata
 newOrganizationManagedRuleMetadata pRuleIdentifier_ =
   OrganizationManagedRuleMetadata'
-    { maximumExecutionFrequency =
+    { description =
         Prelude.Nothing,
-      resourceTypesScope = Prelude.Nothing,
       inputParameters = Prelude.Nothing,
-      tagValueScope = Prelude.Nothing,
+      maximumExecutionFrequency =
+        Prelude.Nothing,
       resourceIdScope = Prelude.Nothing,
-      description = Prelude.Nothing,
+      resourceTypesScope = Prelude.Nothing,
       tagKeyScope = Prelude.Nothing,
+      tagValueScope = Prelude.Nothing,
       ruleIdentifier = pRuleIdentifier_
     }
+
+-- | The description that you provide for your organization Config rule.
+organizationManagedRuleMetadata_description :: Lens.Lens' OrganizationManagedRuleMetadata (Prelude.Maybe Prelude.Text)
+organizationManagedRuleMetadata_description = Lens.lens (\OrganizationManagedRuleMetadata' {description} -> description) (\s@OrganizationManagedRuleMetadata' {} a -> s {description = a} :: OrganizationManagedRuleMetadata)
+
+-- | A string, in JSON format, that is passed to your organization Config
+-- rule Lambda function.
+organizationManagedRuleMetadata_inputParameters :: Lens.Lens' OrganizationManagedRuleMetadata (Prelude.Maybe Prelude.Text)
+organizationManagedRuleMetadata_inputParameters = Lens.lens (\OrganizationManagedRuleMetadata' {inputParameters} -> inputParameters) (\s@OrganizationManagedRuleMetadata' {} a -> s {inputParameters = a} :: OrganizationManagedRuleMetadata)
 
 -- | The maximum frequency with which Config runs evaluations for a rule.
 -- This is for an Config managed rule that is triggered at a periodic
@@ -125,32 +135,23 @@ newOrganizationManagedRuleMetadata pRuleIdentifier_ =
 organizationManagedRuleMetadata_maximumExecutionFrequency :: Lens.Lens' OrganizationManagedRuleMetadata (Prelude.Maybe MaximumExecutionFrequency)
 organizationManagedRuleMetadata_maximumExecutionFrequency = Lens.lens (\OrganizationManagedRuleMetadata' {maximumExecutionFrequency} -> maximumExecutionFrequency) (\s@OrganizationManagedRuleMetadata' {} a -> s {maximumExecutionFrequency = a} :: OrganizationManagedRuleMetadata)
 
--- | The type of the Amazon Web Services resource that was evaluated.
-organizationManagedRuleMetadata_resourceTypesScope :: Lens.Lens' OrganizationManagedRuleMetadata (Prelude.Maybe [Prelude.Text])
-organizationManagedRuleMetadata_resourceTypesScope = Lens.lens (\OrganizationManagedRuleMetadata' {resourceTypesScope} -> resourceTypesScope) (\s@OrganizationManagedRuleMetadata' {} a -> s {resourceTypesScope = a} :: OrganizationManagedRuleMetadata) Prelude.. Lens.mapping Lens.coerced
-
--- | A string, in JSON format, that is passed to your organization Config
--- rule Lambda function.
-organizationManagedRuleMetadata_inputParameters :: Lens.Lens' OrganizationManagedRuleMetadata (Prelude.Maybe Prelude.Text)
-organizationManagedRuleMetadata_inputParameters = Lens.lens (\OrganizationManagedRuleMetadata' {inputParameters} -> inputParameters) (\s@OrganizationManagedRuleMetadata' {} a -> s {inputParameters = a} :: OrganizationManagedRuleMetadata)
-
--- | The optional part of a key-value pair that make up a tag. A value acts
--- as a descriptor within a tag category (key).
-organizationManagedRuleMetadata_tagValueScope :: Lens.Lens' OrganizationManagedRuleMetadata (Prelude.Maybe Prelude.Text)
-organizationManagedRuleMetadata_tagValueScope = Lens.lens (\OrganizationManagedRuleMetadata' {tagValueScope} -> tagValueScope) (\s@OrganizationManagedRuleMetadata' {} a -> s {tagValueScope = a} :: OrganizationManagedRuleMetadata)
-
 -- | The ID of the Amazon Web Services resource that was evaluated.
 organizationManagedRuleMetadata_resourceIdScope :: Lens.Lens' OrganizationManagedRuleMetadata (Prelude.Maybe Prelude.Text)
 organizationManagedRuleMetadata_resourceIdScope = Lens.lens (\OrganizationManagedRuleMetadata' {resourceIdScope} -> resourceIdScope) (\s@OrganizationManagedRuleMetadata' {} a -> s {resourceIdScope = a} :: OrganizationManagedRuleMetadata)
 
--- | The description that you provide for your organization Config rule.
-organizationManagedRuleMetadata_description :: Lens.Lens' OrganizationManagedRuleMetadata (Prelude.Maybe Prelude.Text)
-organizationManagedRuleMetadata_description = Lens.lens (\OrganizationManagedRuleMetadata' {description} -> description) (\s@OrganizationManagedRuleMetadata' {} a -> s {description = a} :: OrganizationManagedRuleMetadata)
+-- | The type of the Amazon Web Services resource that was evaluated.
+organizationManagedRuleMetadata_resourceTypesScope :: Lens.Lens' OrganizationManagedRuleMetadata (Prelude.Maybe [Prelude.Text])
+organizationManagedRuleMetadata_resourceTypesScope = Lens.lens (\OrganizationManagedRuleMetadata' {resourceTypesScope} -> resourceTypesScope) (\s@OrganizationManagedRuleMetadata' {} a -> s {resourceTypesScope = a} :: OrganizationManagedRuleMetadata) Prelude.. Lens.mapping Lens.coerced
 
 -- | One part of a key-value pair that make up a tag. A key is a general
 -- label that acts like a category for more specific tag values.
 organizationManagedRuleMetadata_tagKeyScope :: Lens.Lens' OrganizationManagedRuleMetadata (Prelude.Maybe Prelude.Text)
 organizationManagedRuleMetadata_tagKeyScope = Lens.lens (\OrganizationManagedRuleMetadata' {tagKeyScope} -> tagKeyScope) (\s@OrganizationManagedRuleMetadata' {} a -> s {tagKeyScope = a} :: OrganizationManagedRuleMetadata)
+
+-- | The optional part of a key-value pair that make up a tag. A value acts
+-- as a descriptor within a tag category (key).
+organizationManagedRuleMetadata_tagValueScope :: Lens.Lens' OrganizationManagedRuleMetadata (Prelude.Maybe Prelude.Text)
+organizationManagedRuleMetadata_tagValueScope = Lens.lens (\OrganizationManagedRuleMetadata' {tagValueScope} -> tagValueScope) (\s@OrganizationManagedRuleMetadata' {} a -> s {tagValueScope = a} :: OrganizationManagedRuleMetadata)
 
 -- | For organization config managed rules, a predefined identifier from a
 -- list. For example, @IAM_PASSWORD_POLICY@ is a managed rule. To reference
@@ -168,15 +169,15 @@ instance
       "OrganizationManagedRuleMetadata"
       ( \x ->
           OrganizationManagedRuleMetadata'
-            Prelude.<$> (x Data..:? "MaximumExecutionFrequency")
+            Prelude.<$> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "InputParameters")
+            Prelude.<*> (x Data..:? "MaximumExecutionFrequency")
+            Prelude.<*> (x Data..:? "ResourceIdScope")
             Prelude.<*> ( x Data..:? "ResourceTypesScope"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "InputParameters")
-            Prelude.<*> (x Data..:? "TagValueScope")
-            Prelude.<*> (x Data..:? "ResourceIdScope")
-            Prelude.<*> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "TagKeyScope")
+            Prelude.<*> (x Data..:? "TagValueScope")
             Prelude.<*> (x Data..: "RuleIdentifier")
       )
 
@@ -187,14 +188,13 @@ instance
   hashWithSalt
     _salt
     OrganizationManagedRuleMetadata' {..} =
-      _salt
-        `Prelude.hashWithSalt` maximumExecutionFrequency
-        `Prelude.hashWithSalt` resourceTypesScope
+      _salt `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` inputParameters
-        `Prelude.hashWithSalt` tagValueScope
+        `Prelude.hashWithSalt` maximumExecutionFrequency
         `Prelude.hashWithSalt` resourceIdScope
-        `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` resourceTypesScope
         `Prelude.hashWithSalt` tagKeyScope
+        `Prelude.hashWithSalt` tagValueScope
         `Prelude.hashWithSalt` ruleIdentifier
 
 instance
@@ -202,30 +202,30 @@ instance
     OrganizationManagedRuleMetadata
   where
   rnf OrganizationManagedRuleMetadata' {..} =
-    Prelude.rnf maximumExecutionFrequency
-      `Prelude.seq` Prelude.rnf resourceTypesScope
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf inputParameters
-      `Prelude.seq` Prelude.rnf tagValueScope
+      `Prelude.seq` Prelude.rnf maximumExecutionFrequency
       `Prelude.seq` Prelude.rnf resourceIdScope
-      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf resourceTypesScope
       `Prelude.seq` Prelude.rnf tagKeyScope
+      `Prelude.seq` Prelude.rnf tagValueScope
       `Prelude.seq` Prelude.rnf ruleIdentifier
 
 instance Data.ToJSON OrganizationManagedRuleMetadata where
   toJSON OrganizationManagedRuleMetadata' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("MaximumExecutionFrequency" Data..=)
-              Prelude.<$> maximumExecutionFrequency,
-            ("ResourceTypesScope" Data..=)
-              Prelude.<$> resourceTypesScope,
+          [ ("Description" Data..=) Prelude.<$> description,
             ("InputParameters" Data..=)
               Prelude.<$> inputParameters,
-            ("TagValueScope" Data..=) Prelude.<$> tagValueScope,
+            ("MaximumExecutionFrequency" Data..=)
+              Prelude.<$> maximumExecutionFrequency,
             ("ResourceIdScope" Data..=)
               Prelude.<$> resourceIdScope,
-            ("Description" Data..=) Prelude.<$> description,
+            ("ResourceTypesScope" Data..=)
+              Prelude.<$> resourceTypesScope,
             ("TagKeyScope" Data..=) Prelude.<$> tagKeyScope,
+            ("TagValueScope" Data..=) Prelude.<$> tagValueScope,
             Prelude.Just
               ("RuleIdentifier" Data..= ruleIdentifier)
           ]

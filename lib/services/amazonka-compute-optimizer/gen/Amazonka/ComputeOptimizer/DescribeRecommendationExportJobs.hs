@@ -32,10 +32,10 @@ module Amazonka.ComputeOptimizer.DescribeRecommendationExportJobs
     newDescribeRecommendationExportJobs,
 
     -- * Request Lenses
-    describeRecommendationExportJobs_nextToken,
     describeRecommendationExportJobs_filters,
-    describeRecommendationExportJobs_maxResults,
     describeRecommendationExportJobs_jobIds,
+    describeRecommendationExportJobs_maxResults,
+    describeRecommendationExportJobs_nextToken,
 
     -- * Destructuring the Response
     DescribeRecommendationExportJobsResponse (..),
@@ -58,16 +58,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeRecommendationExportJobs' smart constructor.
 data DescribeRecommendationExportJobs = DescribeRecommendationExportJobs'
-  { -- | The token to advance to the next page of export jobs.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of objects to specify a filter that returns a more specific
+  { -- | An array of objects to specify a filter that returns a more specific
     -- list of export jobs.
     filters :: Prelude.Maybe [JobFilter],
-    -- | The maximum number of export jobs to return with a single request.
-    --
-    -- To retrieve the remaining results, make another request with the
-    -- returned @nextToken@ value.
-    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The identification numbers of the export jobs to return.
     --
     -- An export job ID is returned when you create an export using the
@@ -76,7 +69,14 @@ data DescribeRecommendationExportJobs = DescribeRecommendationExportJobs'
     --
     -- All export jobs created in the last seven days are returned if this
     -- parameter is omitted.
-    jobIds :: Prelude.Maybe [Prelude.Text]
+    jobIds :: Prelude.Maybe [Prelude.Text],
+    -- | The maximum number of export jobs to return with a single request.
+    --
+    -- To retrieve the remaining results, make another request with the
+    -- returned @nextToken@ value.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The token to advance to the next page of export jobs.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -88,15 +88,8 @@ data DescribeRecommendationExportJobs = DescribeRecommendationExportJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeRecommendationExportJobs_nextToken' - The token to advance to the next page of export jobs.
---
 -- 'filters', 'describeRecommendationExportJobs_filters' - An array of objects to specify a filter that returns a more specific
 -- list of export jobs.
---
--- 'maxResults', 'describeRecommendationExportJobs_maxResults' - The maximum number of export jobs to return with a single request.
---
--- To retrieve the remaining results, make another request with the
--- returned @nextToken@ value.
 --
 -- 'jobIds', 'describeRecommendationExportJobs_jobIds' - The identification numbers of the export jobs to return.
 --
@@ -106,32 +99,28 @@ data DescribeRecommendationExportJobs = DescribeRecommendationExportJobs'
 --
 -- All export jobs created in the last seven days are returned if this
 -- parameter is omitted.
+--
+-- 'maxResults', 'describeRecommendationExportJobs_maxResults' - The maximum number of export jobs to return with a single request.
+--
+-- To retrieve the remaining results, make another request with the
+-- returned @nextToken@ value.
+--
+-- 'nextToken', 'describeRecommendationExportJobs_nextToken' - The token to advance to the next page of export jobs.
 newDescribeRecommendationExportJobs ::
   DescribeRecommendationExportJobs
 newDescribeRecommendationExportJobs =
   DescribeRecommendationExportJobs'
-    { nextToken =
+    { filters =
         Prelude.Nothing,
-      filters = Prelude.Nothing,
+      jobIds = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      jobIds = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | The token to advance to the next page of export jobs.
-describeRecommendationExportJobs_nextToken :: Lens.Lens' DescribeRecommendationExportJobs (Prelude.Maybe Prelude.Text)
-describeRecommendationExportJobs_nextToken = Lens.lens (\DescribeRecommendationExportJobs' {nextToken} -> nextToken) (\s@DescribeRecommendationExportJobs' {} a -> s {nextToken = a} :: DescribeRecommendationExportJobs)
 
 -- | An array of objects to specify a filter that returns a more specific
 -- list of export jobs.
 describeRecommendationExportJobs_filters :: Lens.Lens' DescribeRecommendationExportJobs (Prelude.Maybe [JobFilter])
 describeRecommendationExportJobs_filters = Lens.lens (\DescribeRecommendationExportJobs' {filters} -> filters) (\s@DescribeRecommendationExportJobs' {} a -> s {filters = a} :: DescribeRecommendationExportJobs) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum number of export jobs to return with a single request.
---
--- To retrieve the remaining results, make another request with the
--- returned @nextToken@ value.
-describeRecommendationExportJobs_maxResults :: Lens.Lens' DescribeRecommendationExportJobs (Prelude.Maybe Prelude.Int)
-describeRecommendationExportJobs_maxResults = Lens.lens (\DescribeRecommendationExportJobs' {maxResults} -> maxResults) (\s@DescribeRecommendationExportJobs' {} a -> s {maxResults = a} :: DescribeRecommendationExportJobs)
 
 -- | The identification numbers of the export jobs to return.
 --
@@ -143,6 +132,17 @@ describeRecommendationExportJobs_maxResults = Lens.lens (\DescribeRecommendation
 -- parameter is omitted.
 describeRecommendationExportJobs_jobIds :: Lens.Lens' DescribeRecommendationExportJobs (Prelude.Maybe [Prelude.Text])
 describeRecommendationExportJobs_jobIds = Lens.lens (\DescribeRecommendationExportJobs' {jobIds} -> jobIds) (\s@DescribeRecommendationExportJobs' {} a -> s {jobIds = a} :: DescribeRecommendationExportJobs) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum number of export jobs to return with a single request.
+--
+-- To retrieve the remaining results, make another request with the
+-- returned @nextToken@ value.
+describeRecommendationExportJobs_maxResults :: Lens.Lens' DescribeRecommendationExportJobs (Prelude.Maybe Prelude.Int)
+describeRecommendationExportJobs_maxResults = Lens.lens (\DescribeRecommendationExportJobs' {maxResults} -> maxResults) (\s@DescribeRecommendationExportJobs' {} a -> s {maxResults = a} :: DescribeRecommendationExportJobs)
+
+-- | The token to advance to the next page of export jobs.
+describeRecommendationExportJobs_nextToken :: Lens.Lens' DescribeRecommendationExportJobs (Prelude.Maybe Prelude.Text)
+describeRecommendationExportJobs_nextToken = Lens.lens (\DescribeRecommendationExportJobs' {nextToken} -> nextToken) (\s@DescribeRecommendationExportJobs' {} a -> s {nextToken = a} :: DescribeRecommendationExportJobs)
 
 instance
   Core.AWSRequest
@@ -171,20 +171,20 @@ instance
   hashWithSalt
     _salt
     DescribeRecommendationExportJobs' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` jobIds
+        `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     DescribeRecommendationExportJobs
   where
   rnf DescribeRecommendationExportJobs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf jobIds
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -208,10 +208,10 @@ instance Data.ToJSON DescribeRecommendationExportJobs where
   toJSON DescribeRecommendationExportJobs' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("filters" Data..=) Prelude.<$> filters,
+          [ ("filters" Data..=) Prelude.<$> filters,
+            ("jobIds" Data..=) Prelude.<$> jobIds,
             ("maxResults" Data..=) Prelude.<$> maxResults,
-            ("jobIds" Data..=) Prelude.<$> jobIds
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

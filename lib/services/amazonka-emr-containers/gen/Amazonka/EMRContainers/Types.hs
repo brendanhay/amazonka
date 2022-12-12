@@ -58,8 +58,8 @@ module Amazonka.EMRContainers.Types
     -- * Configuration
     Configuration (..),
     newConfiguration,
-    configuration_properties,
     configuration_configurations,
+    configuration_properties,
     configuration_classification,
 
     -- * ConfigurationOverrides
@@ -88,24 +88,24 @@ module Amazonka.EMRContainers.Types
     -- * Endpoint
     Endpoint (..),
     newEndpoint,
-    endpoint_tags,
-    endpoint_name,
-    endpoint_type,
-    endpoint_stateDetails,
-    endpoint_securityGroup,
-    endpoint_releaseLabel,
     endpoint_arn,
-    endpoint_state,
-    endpoint_serverUrl,
-    endpoint_id,
     endpoint_certificateArn,
-    endpoint_configurationOverrides,
     endpoint_certificateAuthority,
-    endpoint_virtualClusterId,
-    endpoint_executionRoleArn,
-    endpoint_subnetIds,
+    endpoint_configurationOverrides,
     endpoint_createdAt,
+    endpoint_executionRoleArn,
     endpoint_failureReason,
+    endpoint_id,
+    endpoint_name,
+    endpoint_releaseLabel,
+    endpoint_securityGroup,
+    endpoint_serverUrl,
+    endpoint_state,
+    endpoint_stateDetails,
+    endpoint_subnetIds,
+    endpoint_tags,
+    endpoint_type,
+    endpoint_virtualClusterId,
 
     -- * JobDriver
     JobDriver (..),
@@ -116,41 +116,41 @@ module Amazonka.EMRContainers.Types
     -- * JobRun
     JobRun (..),
     newJobRun,
-    jobRun_tags,
-    jobRun_name,
-    jobRun_clientToken,
-    jobRun_stateDetails,
-    jobRun_finishedAt,
-    jobRun_jobDriver,
-    jobRun_releaseLabel,
     jobRun_arn,
-    jobRun_state,
-    jobRun_id,
+    jobRun_clientToken,
     jobRun_configurationOverrides,
-    jobRun_virtualClusterId,
-    jobRun_executionRoleArn,
-    jobRun_createdBy,
     jobRun_createdAt,
+    jobRun_createdBy,
+    jobRun_executionRoleArn,
     jobRun_failureReason,
+    jobRun_finishedAt,
+    jobRun_id,
+    jobRun_jobDriver,
+    jobRun_name,
+    jobRun_releaseLabel,
+    jobRun_state,
+    jobRun_stateDetails,
+    jobRun_tags,
+    jobRun_virtualClusterId,
 
     -- * JobTemplate
     JobTemplate (..),
     newJobTemplate,
-    jobTemplate_tags,
-    jobTemplate_name,
     jobTemplate_arn,
+    jobTemplate_createdAt,
+    jobTemplate_createdBy,
+    jobTemplate_decryptionError,
     jobTemplate_id,
     jobTemplate_kmsKeyArn,
-    jobTemplate_createdBy,
-    jobTemplate_createdAt,
-    jobTemplate_decryptionError,
+    jobTemplate_name,
+    jobTemplate_tags,
     jobTemplate_jobTemplateData,
 
     -- * JobTemplateData
     JobTemplateData (..),
     newJobTemplateData,
-    jobTemplateData_jobTags,
     jobTemplateData_configurationOverrides,
+    jobTemplateData_jobTags,
     jobTemplateData_parameterConfiguration,
     jobTemplateData_executionRoleArn,
     jobTemplateData_releaseLabel,
@@ -159,15 +159,15 @@ module Amazonka.EMRContainers.Types
     -- * MonitoringConfiguration
     MonitoringConfiguration (..),
     newMonitoringConfiguration,
+    monitoringConfiguration_cloudWatchMonitoringConfiguration,
     monitoringConfiguration_persistentAppUI,
     monitoringConfiguration_s3MonitoringConfiguration,
-    monitoringConfiguration_cloudWatchMonitoringConfiguration,
 
     -- * ParametricCloudWatchMonitoringConfiguration
     ParametricCloudWatchMonitoringConfiguration (..),
     newParametricCloudWatchMonitoringConfiguration,
-    parametricCloudWatchMonitoringConfiguration_logStreamNamePrefix,
     parametricCloudWatchMonitoringConfiguration_logGroupName,
+    parametricCloudWatchMonitoringConfiguration_logStreamNamePrefix,
 
     -- * ParametricConfigurationOverrides
     ParametricConfigurationOverrides (..),
@@ -178,9 +178,9 @@ module Amazonka.EMRContainers.Types
     -- * ParametricMonitoringConfiguration
     ParametricMonitoringConfiguration (..),
     newParametricMonitoringConfiguration,
+    parametricMonitoringConfiguration_cloudWatchMonitoringConfiguration,
     parametricMonitoringConfiguration_persistentAppUI,
     parametricMonitoringConfiguration_s3MonitoringConfiguration,
-    parametricMonitoringConfiguration_cloudWatchMonitoringConfiguration,
 
     -- * ParametricS3MonitoringConfiguration
     ParametricS3MonitoringConfiguration (..),
@@ -208,19 +208,19 @@ module Amazonka.EMRContainers.Types
     -- * TemplateParameterConfiguration
     TemplateParameterConfiguration (..),
     newTemplateParameterConfiguration,
-    templateParameterConfiguration_type,
     templateParameterConfiguration_defaultValue,
+    templateParameterConfiguration_type,
 
     -- * VirtualCluster
     VirtualCluster (..),
     newVirtualCluster,
-    virtualCluster_tags,
-    virtualCluster_name,
-    virtualCluster_containerProvider,
     virtualCluster_arn,
-    virtualCluster_state,
-    virtualCluster_id,
+    virtualCluster_containerProvider,
     virtualCluster_createdAt,
+    virtualCluster_id,
+    virtualCluster_name,
+    virtualCluster_state,
+    virtualCluster_tags,
   )
 where
 
@@ -283,28 +283,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -312,13 +306,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -326,6 +324,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | This is an internal server exception.

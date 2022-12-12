@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAccountAssociationsListElement' smart constructor.
 data AccountAssociationsListElement = AccountAssociationsListElement'
-  { -- | The Billing Group Arn that the linked account is associated to.
-    billingGroupArn :: Prelude.Maybe Prelude.Text,
+  { -- | The Amazon Web Services account email.
+    accountEmail :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The associating array of account IDs.
     accountId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services account name.
     accountName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The Amazon Web Services account email.
-    accountEmail :: Prelude.Maybe (Data.Sensitive Prelude.Text)
+    -- | The Billing Group Arn that the linked account is associated to.
+    billingGroupArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -47,27 +47,27 @@ data AccountAssociationsListElement = AccountAssociationsListElement'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'billingGroupArn', 'accountAssociationsListElement_billingGroupArn' - The Billing Group Arn that the linked account is associated to.
+-- 'accountEmail', 'accountAssociationsListElement_accountEmail' - The Amazon Web Services account email.
 --
 -- 'accountId', 'accountAssociationsListElement_accountId' - The associating array of account IDs.
 --
 -- 'accountName', 'accountAssociationsListElement_accountName' - The Amazon Web Services account name.
 --
--- 'accountEmail', 'accountAssociationsListElement_accountEmail' - The Amazon Web Services account email.
+-- 'billingGroupArn', 'accountAssociationsListElement_billingGroupArn' - The Billing Group Arn that the linked account is associated to.
 newAccountAssociationsListElement ::
   AccountAssociationsListElement
 newAccountAssociationsListElement =
   AccountAssociationsListElement'
-    { billingGroupArn =
+    { accountEmail =
         Prelude.Nothing,
       accountId = Prelude.Nothing,
       accountName = Prelude.Nothing,
-      accountEmail = Prelude.Nothing
+      billingGroupArn = Prelude.Nothing
     }
 
--- | The Billing Group Arn that the linked account is associated to.
-accountAssociationsListElement_billingGroupArn :: Lens.Lens' AccountAssociationsListElement (Prelude.Maybe Prelude.Text)
-accountAssociationsListElement_billingGroupArn = Lens.lens (\AccountAssociationsListElement' {billingGroupArn} -> billingGroupArn) (\s@AccountAssociationsListElement' {} a -> s {billingGroupArn = a} :: AccountAssociationsListElement)
+-- | The Amazon Web Services account email.
+accountAssociationsListElement_accountEmail :: Lens.Lens' AccountAssociationsListElement (Prelude.Maybe Prelude.Text)
+accountAssociationsListElement_accountEmail = Lens.lens (\AccountAssociationsListElement' {accountEmail} -> accountEmail) (\s@AccountAssociationsListElement' {} a -> s {accountEmail = a} :: AccountAssociationsListElement) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The associating array of account IDs.
 accountAssociationsListElement_accountId :: Lens.Lens' AccountAssociationsListElement (Prelude.Maybe Prelude.Text)
@@ -77,9 +77,9 @@ accountAssociationsListElement_accountId = Lens.lens (\AccountAssociationsListEl
 accountAssociationsListElement_accountName :: Lens.Lens' AccountAssociationsListElement (Prelude.Maybe Prelude.Text)
 accountAssociationsListElement_accountName = Lens.lens (\AccountAssociationsListElement' {accountName} -> accountName) (\s@AccountAssociationsListElement' {} a -> s {accountName = a} :: AccountAssociationsListElement) Prelude.. Lens.mapping Data._Sensitive
 
--- | The Amazon Web Services account email.
-accountAssociationsListElement_accountEmail :: Lens.Lens' AccountAssociationsListElement (Prelude.Maybe Prelude.Text)
-accountAssociationsListElement_accountEmail = Lens.lens (\AccountAssociationsListElement' {accountEmail} -> accountEmail) (\s@AccountAssociationsListElement' {} a -> s {accountEmail = a} :: AccountAssociationsListElement) Prelude.. Lens.mapping Data._Sensitive
+-- | The Billing Group Arn that the linked account is associated to.
+accountAssociationsListElement_billingGroupArn :: Lens.Lens' AccountAssociationsListElement (Prelude.Maybe Prelude.Text)
+accountAssociationsListElement_billingGroupArn = Lens.lens (\AccountAssociationsListElement' {billingGroupArn} -> billingGroupArn) (\s@AccountAssociationsListElement' {} a -> s {billingGroupArn = a} :: AccountAssociationsListElement)
 
 instance Data.FromJSON AccountAssociationsListElement where
   parseJSON =
@@ -87,10 +87,10 @@ instance Data.FromJSON AccountAssociationsListElement where
       "AccountAssociationsListElement"
       ( \x ->
           AccountAssociationsListElement'
-            Prelude.<$> (x Data..:? "BillingGroupArn")
+            Prelude.<$> (x Data..:? "AccountEmail")
             Prelude.<*> (x Data..:? "AccountId")
             Prelude.<*> (x Data..:? "AccountName")
-            Prelude.<*> (x Data..:? "AccountEmail")
+            Prelude.<*> (x Data..:? "BillingGroupArn")
       )
 
 instance
@@ -100,17 +100,17 @@ instance
   hashWithSalt
     _salt
     AccountAssociationsListElement' {..} =
-      _salt `Prelude.hashWithSalt` billingGroupArn
+      _salt `Prelude.hashWithSalt` accountEmail
         `Prelude.hashWithSalt` accountId
         `Prelude.hashWithSalt` accountName
-        `Prelude.hashWithSalt` accountEmail
+        `Prelude.hashWithSalt` billingGroupArn
 
 instance
   Prelude.NFData
     AccountAssociationsListElement
   where
   rnf AccountAssociationsListElement' {..} =
-    Prelude.rnf billingGroupArn
+    Prelude.rnf accountEmail
       `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf accountName
-      `Prelude.seq` Prelude.rnf accountEmail
+      `Prelude.seq` Prelude.rnf billingGroupArn

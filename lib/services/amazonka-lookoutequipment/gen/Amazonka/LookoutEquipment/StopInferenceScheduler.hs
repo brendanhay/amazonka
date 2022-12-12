@@ -34,11 +34,11 @@ module Amazonka.LookoutEquipment.StopInferenceScheduler
     newStopInferenceSchedulerResponse,
 
     -- * Response Lenses
+    stopInferenceSchedulerResponse_inferenceSchedulerArn,
     stopInferenceSchedulerResponse_inferenceSchedulerName,
-    stopInferenceSchedulerResponse_status,
     stopInferenceSchedulerResponse_modelArn,
     stopInferenceSchedulerResponse_modelName,
-    stopInferenceSchedulerResponse_inferenceSchedulerArn,
+    stopInferenceSchedulerResponse_status,
     stopInferenceSchedulerResponse_httpStatus,
   )
 where
@@ -91,11 +91,11 @@ instance Core.AWSRequest StopInferenceScheduler where
     Response.receiveJSON
       ( \s h x ->
           StopInferenceSchedulerResponse'
-            Prelude.<$> (x Data..?> "InferenceSchedulerName")
-            Prelude.<*> (x Data..?> "Status")
+            Prelude.<$> (x Data..?> "InferenceSchedulerArn")
+            Prelude.<*> (x Data..?> "InferenceSchedulerName")
             Prelude.<*> (x Data..?> "ModelArn")
             Prelude.<*> (x Data..?> "ModelName")
-            Prelude.<*> (x Data..?> "InferenceSchedulerArn")
+            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -141,17 +141,17 @@ instance Data.ToQuery StopInferenceScheduler where
 
 -- | /See:/ 'newStopInferenceSchedulerResponse' smart constructor.
 data StopInferenceSchedulerResponse = StopInferenceSchedulerResponse'
-  { -- | The name of the inference scheduler being stopped.
+  { -- | The Amazon Resource Name (ARN) of the inference schedule being stopped.
+    inferenceSchedulerArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the inference scheduler being stopped.
     inferenceSchedulerName :: Prelude.Maybe Prelude.Text,
-    -- | Indicates the status of the inference scheduler.
-    status :: Prelude.Maybe InferenceSchedulerStatus,
     -- | The Amazon Resource Name (ARN) of the ML model used by the inference
     -- scheduler being stopped.
     modelArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the ML model used by the inference scheduler being stopped.
     modelName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the inference schedule being stopped.
-    inferenceSchedulerArn :: Prelude.Maybe Prelude.Text,
+    -- | Indicates the status of the inference scheduler.
+    status :: Prelude.Maybe InferenceSchedulerStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -165,16 +165,16 @@ data StopInferenceSchedulerResponse = StopInferenceSchedulerResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'inferenceSchedulerName', 'stopInferenceSchedulerResponse_inferenceSchedulerName' - The name of the inference scheduler being stopped.
+-- 'inferenceSchedulerArn', 'stopInferenceSchedulerResponse_inferenceSchedulerArn' - The Amazon Resource Name (ARN) of the inference schedule being stopped.
 --
--- 'status', 'stopInferenceSchedulerResponse_status' - Indicates the status of the inference scheduler.
+-- 'inferenceSchedulerName', 'stopInferenceSchedulerResponse_inferenceSchedulerName' - The name of the inference scheduler being stopped.
 --
 -- 'modelArn', 'stopInferenceSchedulerResponse_modelArn' - The Amazon Resource Name (ARN) of the ML model used by the inference
 -- scheduler being stopped.
 --
 -- 'modelName', 'stopInferenceSchedulerResponse_modelName' - The name of the ML model used by the inference scheduler being stopped.
 --
--- 'inferenceSchedulerArn', 'stopInferenceSchedulerResponse_inferenceSchedulerArn' - The Amazon Resource Name (ARN) of the inference schedule being stopped.
+-- 'status', 'stopInferenceSchedulerResponse_status' - Indicates the status of the inference scheduler.
 --
 -- 'httpStatus', 'stopInferenceSchedulerResponse_httpStatus' - The response's http status code.
 newStopInferenceSchedulerResponse ::
@@ -183,22 +183,22 @@ newStopInferenceSchedulerResponse ::
   StopInferenceSchedulerResponse
 newStopInferenceSchedulerResponse pHttpStatus_ =
   StopInferenceSchedulerResponse'
-    { inferenceSchedulerName =
+    { inferenceSchedulerArn =
         Prelude.Nothing,
-      status = Prelude.Nothing,
+      inferenceSchedulerName = Prelude.Nothing,
       modelArn = Prelude.Nothing,
       modelName = Prelude.Nothing,
-      inferenceSchedulerArn = Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Amazon Resource Name (ARN) of the inference schedule being stopped.
+stopInferenceSchedulerResponse_inferenceSchedulerArn :: Lens.Lens' StopInferenceSchedulerResponse (Prelude.Maybe Prelude.Text)
+stopInferenceSchedulerResponse_inferenceSchedulerArn = Lens.lens (\StopInferenceSchedulerResponse' {inferenceSchedulerArn} -> inferenceSchedulerArn) (\s@StopInferenceSchedulerResponse' {} a -> s {inferenceSchedulerArn = a} :: StopInferenceSchedulerResponse)
 
 -- | The name of the inference scheduler being stopped.
 stopInferenceSchedulerResponse_inferenceSchedulerName :: Lens.Lens' StopInferenceSchedulerResponse (Prelude.Maybe Prelude.Text)
 stopInferenceSchedulerResponse_inferenceSchedulerName = Lens.lens (\StopInferenceSchedulerResponse' {inferenceSchedulerName} -> inferenceSchedulerName) (\s@StopInferenceSchedulerResponse' {} a -> s {inferenceSchedulerName = a} :: StopInferenceSchedulerResponse)
-
--- | Indicates the status of the inference scheduler.
-stopInferenceSchedulerResponse_status :: Lens.Lens' StopInferenceSchedulerResponse (Prelude.Maybe InferenceSchedulerStatus)
-stopInferenceSchedulerResponse_status = Lens.lens (\StopInferenceSchedulerResponse' {status} -> status) (\s@StopInferenceSchedulerResponse' {} a -> s {status = a} :: StopInferenceSchedulerResponse)
 
 -- | The Amazon Resource Name (ARN) of the ML model used by the inference
 -- scheduler being stopped.
@@ -209,9 +209,9 @@ stopInferenceSchedulerResponse_modelArn = Lens.lens (\StopInferenceSchedulerResp
 stopInferenceSchedulerResponse_modelName :: Lens.Lens' StopInferenceSchedulerResponse (Prelude.Maybe Prelude.Text)
 stopInferenceSchedulerResponse_modelName = Lens.lens (\StopInferenceSchedulerResponse' {modelName} -> modelName) (\s@StopInferenceSchedulerResponse' {} a -> s {modelName = a} :: StopInferenceSchedulerResponse)
 
--- | The Amazon Resource Name (ARN) of the inference schedule being stopped.
-stopInferenceSchedulerResponse_inferenceSchedulerArn :: Lens.Lens' StopInferenceSchedulerResponse (Prelude.Maybe Prelude.Text)
-stopInferenceSchedulerResponse_inferenceSchedulerArn = Lens.lens (\StopInferenceSchedulerResponse' {inferenceSchedulerArn} -> inferenceSchedulerArn) (\s@StopInferenceSchedulerResponse' {} a -> s {inferenceSchedulerArn = a} :: StopInferenceSchedulerResponse)
+-- | Indicates the status of the inference scheduler.
+stopInferenceSchedulerResponse_status :: Lens.Lens' StopInferenceSchedulerResponse (Prelude.Maybe InferenceSchedulerStatus)
+stopInferenceSchedulerResponse_status = Lens.lens (\StopInferenceSchedulerResponse' {status} -> status) (\s@StopInferenceSchedulerResponse' {} a -> s {status = a} :: StopInferenceSchedulerResponse)
 
 -- | The response's http status code.
 stopInferenceSchedulerResponse_httpStatus :: Lens.Lens' StopInferenceSchedulerResponse Prelude.Int
@@ -222,9 +222,9 @@ instance
     StopInferenceSchedulerResponse
   where
   rnf StopInferenceSchedulerResponse' {..} =
-    Prelude.rnf inferenceSchedulerName
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf inferenceSchedulerArn
+      `Prelude.seq` Prelude.rnf inferenceSchedulerName
       `Prelude.seq` Prelude.rnf modelArn
       `Prelude.seq` Prelude.rnf modelName
-      `Prelude.seq` Prelude.rnf inferenceSchedulerArn
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

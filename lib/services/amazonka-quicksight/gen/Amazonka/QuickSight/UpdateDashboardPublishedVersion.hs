@@ -36,9 +36,9 @@ module Amazonka.QuickSight.UpdateDashboardPublishedVersion
     newUpdateDashboardPublishedVersionResponse,
 
     -- * Response Lenses
-    updateDashboardPublishedVersionResponse_requestId,
-    updateDashboardPublishedVersionResponse_dashboardId,
     updateDashboardPublishedVersionResponse_dashboardArn,
+    updateDashboardPublishedVersionResponse_dashboardId,
+    updateDashboardPublishedVersionResponse_requestId,
     updateDashboardPublishedVersionResponse_status,
   )
 where
@@ -122,9 +122,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           UpdateDashboardPublishedVersionResponse'
-            Prelude.<$> (x Data..?> "RequestId")
+            Prelude.<$> (x Data..?> "DashboardArn")
             Prelude.<*> (x Data..?> "DashboardId")
-            Prelude.<*> (x Data..?> "DashboardArn")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,12 +181,12 @@ instance Data.ToQuery UpdateDashboardPublishedVersion where
 
 -- | /See:/ 'newUpdateDashboardPublishedVersionResponse' smart constructor.
 data UpdateDashboardPublishedVersionResponse = UpdateDashboardPublishedVersionResponse'
-  { -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
+  { -- | The Amazon Resource Name (ARN) of the dashboard.
+    dashboardArn :: Prelude.Maybe Prelude.Text,
     -- | The ID for the dashboard.
     dashboardId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the dashboard.
-    dashboardArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -200,11 +200,11 @@ data UpdateDashboardPublishedVersionResponse = UpdateDashboardPublishedVersionRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'updateDashboardPublishedVersionResponse_requestId' - The Amazon Web Services request ID for this operation.
+-- 'dashboardArn', 'updateDashboardPublishedVersionResponse_dashboardArn' - The Amazon Resource Name (ARN) of the dashboard.
 --
 -- 'dashboardId', 'updateDashboardPublishedVersionResponse_dashboardId' - The ID for the dashboard.
 --
--- 'dashboardArn', 'updateDashboardPublishedVersionResponse_dashboardArn' - The Amazon Resource Name (ARN) of the dashboard.
+-- 'requestId', 'updateDashboardPublishedVersionResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'status', 'updateDashboardPublishedVersionResponse_status' - The HTTP status of the request.
 newUpdateDashboardPublishedVersionResponse ::
@@ -213,24 +213,24 @@ newUpdateDashboardPublishedVersionResponse ::
   UpdateDashboardPublishedVersionResponse
 newUpdateDashboardPublishedVersionResponse pStatus_ =
   UpdateDashboardPublishedVersionResponse'
-    { requestId =
+    { dashboardArn =
         Prelude.Nothing,
       dashboardId = Prelude.Nothing,
-      dashboardArn = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       status = pStatus_
     }
 
--- | The Amazon Web Services request ID for this operation.
-updateDashboardPublishedVersionResponse_requestId :: Lens.Lens' UpdateDashboardPublishedVersionResponse (Prelude.Maybe Prelude.Text)
-updateDashboardPublishedVersionResponse_requestId = Lens.lens (\UpdateDashboardPublishedVersionResponse' {requestId} -> requestId) (\s@UpdateDashboardPublishedVersionResponse' {} a -> s {requestId = a} :: UpdateDashboardPublishedVersionResponse)
+-- | The Amazon Resource Name (ARN) of the dashboard.
+updateDashboardPublishedVersionResponse_dashboardArn :: Lens.Lens' UpdateDashboardPublishedVersionResponse (Prelude.Maybe Prelude.Text)
+updateDashboardPublishedVersionResponse_dashboardArn = Lens.lens (\UpdateDashboardPublishedVersionResponse' {dashboardArn} -> dashboardArn) (\s@UpdateDashboardPublishedVersionResponse' {} a -> s {dashboardArn = a} :: UpdateDashboardPublishedVersionResponse)
 
 -- | The ID for the dashboard.
 updateDashboardPublishedVersionResponse_dashboardId :: Lens.Lens' UpdateDashboardPublishedVersionResponse (Prelude.Maybe Prelude.Text)
 updateDashboardPublishedVersionResponse_dashboardId = Lens.lens (\UpdateDashboardPublishedVersionResponse' {dashboardId} -> dashboardId) (\s@UpdateDashboardPublishedVersionResponse' {} a -> s {dashboardId = a} :: UpdateDashboardPublishedVersionResponse)
 
--- | The Amazon Resource Name (ARN) of the dashboard.
-updateDashboardPublishedVersionResponse_dashboardArn :: Lens.Lens' UpdateDashboardPublishedVersionResponse (Prelude.Maybe Prelude.Text)
-updateDashboardPublishedVersionResponse_dashboardArn = Lens.lens (\UpdateDashboardPublishedVersionResponse' {dashboardArn} -> dashboardArn) (\s@UpdateDashboardPublishedVersionResponse' {} a -> s {dashboardArn = a} :: UpdateDashboardPublishedVersionResponse)
+-- | The Amazon Web Services request ID for this operation.
+updateDashboardPublishedVersionResponse_requestId :: Lens.Lens' UpdateDashboardPublishedVersionResponse (Prelude.Maybe Prelude.Text)
+updateDashboardPublishedVersionResponse_requestId = Lens.lens (\UpdateDashboardPublishedVersionResponse' {requestId} -> requestId) (\s@UpdateDashboardPublishedVersionResponse' {} a -> s {requestId = a} :: UpdateDashboardPublishedVersionResponse)
 
 -- | The HTTP status of the request.
 updateDashboardPublishedVersionResponse_status :: Lens.Lens' UpdateDashboardPublishedVersionResponse Prelude.Int
@@ -241,7 +241,7 @@ instance
     UpdateDashboardPublishedVersionResponse
   where
   rnf UpdateDashboardPublishedVersionResponse' {..} =
-    Prelude.rnf requestId
+    Prelude.rnf dashboardArn
       `Prelude.seq` Prelude.rnf dashboardId
-      `Prelude.seq` Prelude.rnf dashboardArn
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf status

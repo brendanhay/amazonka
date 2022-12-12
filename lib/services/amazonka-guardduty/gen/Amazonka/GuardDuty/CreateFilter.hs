@@ -27,11 +27,11 @@ module Amazonka.GuardDuty.CreateFilter
     newCreateFilter,
 
     -- * Request Lenses
-    createFilter_tags,
-    createFilter_clientToken,
-    createFilter_rank,
-    createFilter_description,
     createFilter_action,
+    createFilter_clientToken,
+    createFilter_description,
+    createFilter_rank,
+    createFilter_tags,
     createFilter_detectorId,
     createFilter_name,
     createFilter_findingCriteria,
@@ -56,19 +56,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateFilter' smart constructor.
 data CreateFilter = CreateFilter'
-  { -- | The tags to be added to a new filter resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | Specifies the action that is to be applied to the findings that match
+    -- the filter.
+    action :: Prelude.Maybe FilterAction,
     -- | The idempotency token for the create request.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The description of the filter.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Specifies the position of the filter in the list of current filters.
     -- Also specifies the order in which this filter is applied to the
     -- findings.
     rank :: Prelude.Maybe Prelude.Natural,
-    -- | The description of the filter.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the action that is to be applied to the findings that match
-    -- the filter.
-    action :: Prelude.Maybe FilterAction,
+    -- | The tags to be added to a new filter resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The ID of the detector belonging to the GuardDuty account that you want
     -- to create a filter for.
     detectorId :: Prelude.Text,
@@ -214,18 +214,18 @@ data CreateFilter = CreateFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createFilter_tags' - The tags to be added to a new filter resource.
+-- 'action', 'createFilter_action' - Specifies the action that is to be applied to the findings that match
+-- the filter.
 --
 -- 'clientToken', 'createFilter_clientToken' - The idempotency token for the create request.
+--
+-- 'description', 'createFilter_description' - The description of the filter.
 --
 -- 'rank', 'createFilter_rank' - Specifies the position of the filter in the list of current filters.
 -- Also specifies the order in which this filter is applied to the
 -- findings.
 --
--- 'description', 'createFilter_description' - The description of the filter.
---
--- 'action', 'createFilter_action' - Specifies the action that is to be applied to the findings that match
--- the filter.
+-- 'tags', 'createFilter_tags' - The tags to be added to a new filter resource.
 --
 -- 'detectorId', 'createFilter_detectorId' - The ID of the detector belonging to the GuardDuty account that you want
 -- to create a filter for.
@@ -370,23 +370,28 @@ newCreateFilter ::
   CreateFilter
 newCreateFilter pDetectorId_ pName_ pFindingCriteria_ =
   CreateFilter'
-    { tags = Prelude.Nothing,
+    { action = Prelude.Nothing,
       clientToken = Prelude.Nothing,
-      rank = Prelude.Nothing,
       description = Prelude.Nothing,
-      action = Prelude.Nothing,
+      rank = Prelude.Nothing,
+      tags = Prelude.Nothing,
       detectorId = pDetectorId_,
       name = pName_,
       findingCriteria = pFindingCriteria_
     }
 
--- | The tags to be added to a new filter resource.
-createFilter_tags :: Lens.Lens' CreateFilter (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createFilter_tags = Lens.lens (\CreateFilter' {tags} -> tags) (\s@CreateFilter' {} a -> s {tags = a} :: CreateFilter) Prelude.. Lens.mapping Lens.coerced
+-- | Specifies the action that is to be applied to the findings that match
+-- the filter.
+createFilter_action :: Lens.Lens' CreateFilter (Prelude.Maybe FilterAction)
+createFilter_action = Lens.lens (\CreateFilter' {action} -> action) (\s@CreateFilter' {} a -> s {action = a} :: CreateFilter)
 
 -- | The idempotency token for the create request.
 createFilter_clientToken :: Lens.Lens' CreateFilter (Prelude.Maybe Prelude.Text)
 createFilter_clientToken = Lens.lens (\CreateFilter' {clientToken} -> clientToken) (\s@CreateFilter' {} a -> s {clientToken = a} :: CreateFilter)
+
+-- | The description of the filter.
+createFilter_description :: Lens.Lens' CreateFilter (Prelude.Maybe Prelude.Text)
+createFilter_description = Lens.lens (\CreateFilter' {description} -> description) (\s@CreateFilter' {} a -> s {description = a} :: CreateFilter)
 
 -- | Specifies the position of the filter in the list of current filters.
 -- Also specifies the order in which this filter is applied to the
@@ -394,14 +399,9 @@ createFilter_clientToken = Lens.lens (\CreateFilter' {clientToken} -> clientToke
 createFilter_rank :: Lens.Lens' CreateFilter (Prelude.Maybe Prelude.Natural)
 createFilter_rank = Lens.lens (\CreateFilter' {rank} -> rank) (\s@CreateFilter' {} a -> s {rank = a} :: CreateFilter)
 
--- | The description of the filter.
-createFilter_description :: Lens.Lens' CreateFilter (Prelude.Maybe Prelude.Text)
-createFilter_description = Lens.lens (\CreateFilter' {description} -> description) (\s@CreateFilter' {} a -> s {description = a} :: CreateFilter)
-
--- | Specifies the action that is to be applied to the findings that match
--- the filter.
-createFilter_action :: Lens.Lens' CreateFilter (Prelude.Maybe FilterAction)
-createFilter_action = Lens.lens (\CreateFilter' {action} -> action) (\s@CreateFilter' {} a -> s {action = a} :: CreateFilter)
+-- | The tags to be added to a new filter resource.
+createFilter_tags :: Lens.Lens' CreateFilter (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createFilter_tags = Lens.lens (\CreateFilter' {tags} -> tags) (\s@CreateFilter' {} a -> s {tags = a} :: CreateFilter) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the detector belonging to the GuardDuty account that you want
 -- to create a filter for.
@@ -557,22 +557,22 @@ instance Core.AWSRequest CreateFilter where
 
 instance Prelude.Hashable CreateFilter where
   hashWithSalt _salt CreateFilter' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` rank
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` rank
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` findingCriteria
 
 instance Prelude.NFData CreateFilter where
   rnf CreateFilter' {..} =
-    Prelude.rnf tags
+    Prelude.rnf action
       `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf rank
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf rank
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf detectorId
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf findingCriteria
@@ -592,11 +592,11 @@ instance Data.ToJSON CreateFilter where
   toJSON CreateFilter' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
+          [ ("action" Data..=) Prelude.<$> action,
             ("clientToken" Data..=) Prelude.<$> clientToken,
-            ("rank" Data..=) Prelude.<$> rank,
             ("description" Data..=) Prelude.<$> description,
-            ("action" Data..=) Prelude.<$> action,
+            ("rank" Data..=) Prelude.<$> rank,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("name" Data..= name),
             Prelude.Just
               ("findingCriteria" Data..= findingCriteria)

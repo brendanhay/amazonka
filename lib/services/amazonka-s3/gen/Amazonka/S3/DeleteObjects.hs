@@ -70,11 +70,11 @@ module Amazonka.S3.DeleteObjects
     newDeleteObjects,
 
     -- * Request Lenses
+    deleteObjects_bypassGovernanceRetention,
     deleteObjects_checksumAlgorithm,
     deleteObjects_expectedBucketOwner,
-    deleteObjects_requestPayer,
-    deleteObjects_bypassGovernanceRetention,
     deleteObjects_mfa,
+    deleteObjects_requestPayer,
     deleteObjects_bucket,
     deleteObjects_delete,
 
@@ -83,9 +83,9 @@ module Amazonka.S3.DeleteObjects
     newDeleteObjectsResponse,
 
     -- * Response Lenses
-    deleteObjectsResponse_requestCharged,
     deleteObjectsResponse_deleted,
     deleteObjectsResponse_errors,
+    deleteObjectsResponse_requestCharged,
     deleteObjectsResponse_httpStatus,
   )
 where
@@ -100,7 +100,11 @@ import Amazonka.S3.Types
 
 -- | /See:/ 'newDeleteObjects' smart constructor.
 data DeleteObjects = DeleteObjects'
-  { -- | Indicates the algorithm used to create the checksum for the object when
+  { -- | Specifies whether you want to delete this object even if it has a
+    -- Governance-type Object Lock in place. To use this header, you must have
+    -- the @s3:BypassGovernanceRetention@ permission.
+    bypassGovernanceRetention :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates the algorithm used to create the checksum for the object when
     -- using the SDK. This header will not provide any additional functionality
     -- if not using the SDK. When sending this header, there must be a
     -- corresponding @x-amz-checksum@ or @x-amz-trailer@ header sent.
@@ -119,16 +123,12 @@ data DeleteObjects = DeleteObjects'
     -- different account, the request fails with the HTTP status code
     -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
-    requestPayer :: Prelude.Maybe RequestPayer,
-    -- | Specifies whether you want to delete this object even if it has a
-    -- Governance-type Object Lock in place. To use this header, you must have
-    -- the @s3:BypassGovernanceRetention@ permission.
-    bypassGovernanceRetention :: Prelude.Maybe Prelude.Bool,
     -- | The concatenation of the authentication device\'s serial number, a
     -- space, and the value that is displayed on your authentication device.
     -- Required to permanently delete a versioned object if versioning is
     -- configured with MFA delete enabled.
     mfa :: Prelude.Maybe Prelude.Text,
+    requestPayer :: Prelude.Maybe RequestPayer,
     -- | The bucket name containing the objects to delete.
     --
     -- When using this action with an access point, you must direct requests to
@@ -163,6 +163,10 @@ data DeleteObjects = DeleteObjects'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'bypassGovernanceRetention', 'deleteObjects_bypassGovernanceRetention' - Specifies whether you want to delete this object even if it has a
+-- Governance-type Object Lock in place. To use this header, you must have
+-- the @s3:BypassGovernanceRetention@ permission.
+--
 -- 'checksumAlgorithm', 'deleteObjects_checksumAlgorithm' - Indicates the algorithm used to create the checksum for the object when
 -- using the SDK. This header will not provide any additional functionality
 -- if not using the SDK. When sending this header, there must be a
@@ -182,16 +186,12 @@ data DeleteObjects = DeleteObjects'
 -- different account, the request fails with the HTTP status code
 -- @403 Forbidden@ (access denied).
 --
--- 'requestPayer', 'deleteObjects_requestPayer' - Undocumented member.
---
--- 'bypassGovernanceRetention', 'deleteObjects_bypassGovernanceRetention' - Specifies whether you want to delete this object even if it has a
--- Governance-type Object Lock in place. To use this header, you must have
--- the @s3:BypassGovernanceRetention@ permission.
---
 -- 'mfa', 'deleteObjects_mfa' - The concatenation of the authentication device\'s serial number, a
 -- space, and the value that is displayed on your authentication device.
 -- Required to permanently delete a versioned object if versioning is
 -- configured with MFA delete enabled.
+--
+-- 'requestPayer', 'deleteObjects_requestPayer' - Undocumented member.
 --
 -- 'bucket', 'deleteObjects_bucket' - The bucket name containing the objects to delete.
 --
@@ -223,14 +223,21 @@ newDeleteObjects ::
   DeleteObjects
 newDeleteObjects pBucket_ pDelete_ =
   DeleteObjects'
-    { checksumAlgorithm = Prelude.Nothing,
+    { bypassGovernanceRetention =
+        Prelude.Nothing,
+      checksumAlgorithm = Prelude.Nothing,
       expectedBucketOwner = Prelude.Nothing,
-      requestPayer = Prelude.Nothing,
-      bypassGovernanceRetention = Prelude.Nothing,
       mfa = Prelude.Nothing,
+      requestPayer = Prelude.Nothing,
       bucket = pBucket_,
       delete' = pDelete_
     }
+
+-- | Specifies whether you want to delete this object even if it has a
+-- Governance-type Object Lock in place. To use this header, you must have
+-- the @s3:BypassGovernanceRetention@ permission.
+deleteObjects_bypassGovernanceRetention :: Lens.Lens' DeleteObjects (Prelude.Maybe Prelude.Bool)
+deleteObjects_bypassGovernanceRetention = Lens.lens (\DeleteObjects' {bypassGovernanceRetention} -> bypassGovernanceRetention) (\s@DeleteObjects' {} a -> s {bypassGovernanceRetention = a} :: DeleteObjects)
 
 -- | Indicates the algorithm used to create the checksum for the object when
 -- using the SDK. This header will not provide any additional functionality
@@ -255,22 +262,16 @@ deleteObjects_checksumAlgorithm = Lens.lens (\DeleteObjects' {checksumAlgorithm}
 deleteObjects_expectedBucketOwner :: Lens.Lens' DeleteObjects (Prelude.Maybe Prelude.Text)
 deleteObjects_expectedBucketOwner = Lens.lens (\DeleteObjects' {expectedBucketOwner} -> expectedBucketOwner) (\s@DeleteObjects' {} a -> s {expectedBucketOwner = a} :: DeleteObjects)
 
--- | Undocumented member.
-deleteObjects_requestPayer :: Lens.Lens' DeleteObjects (Prelude.Maybe RequestPayer)
-deleteObjects_requestPayer = Lens.lens (\DeleteObjects' {requestPayer} -> requestPayer) (\s@DeleteObjects' {} a -> s {requestPayer = a} :: DeleteObjects)
-
--- | Specifies whether you want to delete this object even if it has a
--- Governance-type Object Lock in place. To use this header, you must have
--- the @s3:BypassGovernanceRetention@ permission.
-deleteObjects_bypassGovernanceRetention :: Lens.Lens' DeleteObjects (Prelude.Maybe Prelude.Bool)
-deleteObjects_bypassGovernanceRetention = Lens.lens (\DeleteObjects' {bypassGovernanceRetention} -> bypassGovernanceRetention) (\s@DeleteObjects' {} a -> s {bypassGovernanceRetention = a} :: DeleteObjects)
-
 -- | The concatenation of the authentication device\'s serial number, a
 -- space, and the value that is displayed on your authentication device.
 -- Required to permanently delete a versioned object if versioning is
 -- configured with MFA delete enabled.
 deleteObjects_mfa :: Lens.Lens' DeleteObjects (Prelude.Maybe Prelude.Text)
 deleteObjects_mfa = Lens.lens (\DeleteObjects' {mfa} -> mfa) (\s@DeleteObjects' {} a -> s {mfa = a} :: DeleteObjects)
+
+-- | Undocumented member.
+deleteObjects_requestPayer :: Lens.Lens' DeleteObjects (Prelude.Maybe RequestPayer)
+deleteObjects_requestPayer = Lens.lens (\DeleteObjects' {requestPayer} -> requestPayer) (\s@DeleteObjects' {} a -> s {requestPayer = a} :: DeleteObjects)
 
 -- | The bucket name containing the objects to delete.
 --
@@ -311,29 +312,30 @@ instance Core.AWSRequest DeleteObjects where
     Response.receiveXML
       ( \s h x ->
           DeleteObjectsResponse'
-            Prelude.<$> (h Data..#? "x-amz-request-charged")
-            Prelude.<*> (Core.may (Data.parseXMLList "Deleted") x)
+            Prelude.<$> (Core.may (Data.parseXMLList "Deleted") x)
             Prelude.<*> (Core.may (Data.parseXMLList "Error") x)
+            Prelude.<*> (h Data..#? "x-amz-request-charged")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DeleteObjects where
   hashWithSalt _salt DeleteObjects' {..} =
-    _salt `Prelude.hashWithSalt` checksumAlgorithm
-      `Prelude.hashWithSalt` expectedBucketOwner
-      `Prelude.hashWithSalt` requestPayer
+    _salt
       `Prelude.hashWithSalt` bypassGovernanceRetention
+      `Prelude.hashWithSalt` checksumAlgorithm
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` mfa
+      `Prelude.hashWithSalt` requestPayer
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` delete'
 
 instance Prelude.NFData DeleteObjects where
   rnf DeleteObjects' {..} =
-    Prelude.rnf checksumAlgorithm
+    Prelude.rnf bypassGovernanceRetention
+      `Prelude.seq` Prelude.rnf checksumAlgorithm
       `Prelude.seq` Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf requestPayer
-      `Prelude.seq` Prelude.rnf bypassGovernanceRetention
       `Prelude.seq` Prelude.rnf mfa
+      `Prelude.seq` Prelude.rnf requestPayer
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf delete'
 
@@ -346,14 +348,14 @@ instance Data.ToElement DeleteObjects where
 instance Data.ToHeaders DeleteObjects where
   toHeaders DeleteObjects' {..} =
     Prelude.mconcat
-      [ "x-amz-sdk-checksum-algorithm"
+      [ "x-amz-bypass-governance-retention"
+          Data.=# bypassGovernanceRetention,
+        "x-amz-sdk-checksum-algorithm"
           Data.=# checksumAlgorithm,
         "x-amz-expected-bucket-owner"
           Data.=# expectedBucketOwner,
-        "x-amz-request-payer" Data.=# requestPayer,
-        "x-amz-bypass-governance-retention"
-          Data.=# bypassGovernanceRetention,
-        "x-amz-mfa" Data.=# mfa
+        "x-amz-mfa" Data.=# mfa,
+        "x-amz-request-payer" Data.=# requestPayer
       ]
 
 instance Data.ToPath DeleteObjects where
@@ -365,13 +367,13 @@ instance Data.ToQuery DeleteObjects where
 
 -- | /See:/ 'newDeleteObjectsResponse' smart constructor.
 data DeleteObjectsResponse = DeleteObjectsResponse'
-  { requestCharged :: Prelude.Maybe RequestCharged,
-    -- | Container element for a successful delete. It identifies the object that
+  { -- | Container element for a successful delete. It identifies the object that
     -- was successfully deleted.
     deleted :: Prelude.Maybe [DeletedObject],
     -- | Container for a failed delete action that describes the object that
     -- Amazon S3 attempted to delete and the error it encountered.
     errors :: Prelude.Maybe [S3ServiceError],
+    requestCharged :: Prelude.Maybe RequestCharged,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -385,13 +387,13 @@ data DeleteObjectsResponse = DeleteObjectsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestCharged', 'deleteObjectsResponse_requestCharged' - Undocumented member.
---
 -- 'deleted', 'deleteObjectsResponse_deleted' - Container element for a successful delete. It identifies the object that
 -- was successfully deleted.
 --
 -- 'errors', 'deleteObjectsResponse_errors' - Container for a failed delete action that describes the object that
 -- Amazon S3 attempted to delete and the error it encountered.
+--
+-- 'requestCharged', 'deleteObjectsResponse_requestCharged' - Undocumented member.
 --
 -- 'httpStatus', 'deleteObjectsResponse_httpStatus' - The response's http status code.
 newDeleteObjectsResponse ::
@@ -400,16 +402,11 @@ newDeleteObjectsResponse ::
   DeleteObjectsResponse
 newDeleteObjectsResponse pHttpStatus_ =
   DeleteObjectsResponse'
-    { requestCharged =
-        Prelude.Nothing,
-      deleted = Prelude.Nothing,
+    { deleted = Prelude.Nothing,
       errors = Prelude.Nothing,
+      requestCharged = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Undocumented member.
-deleteObjectsResponse_requestCharged :: Lens.Lens' DeleteObjectsResponse (Prelude.Maybe RequestCharged)
-deleteObjectsResponse_requestCharged = Lens.lens (\DeleteObjectsResponse' {requestCharged} -> requestCharged) (\s@DeleteObjectsResponse' {} a -> s {requestCharged = a} :: DeleteObjectsResponse)
 
 -- | Container element for a successful delete. It identifies the object that
 -- was successfully deleted.
@@ -421,13 +418,17 @@ deleteObjectsResponse_deleted = Lens.lens (\DeleteObjectsResponse' {deleted} -> 
 deleteObjectsResponse_errors :: Lens.Lens' DeleteObjectsResponse (Prelude.Maybe [S3ServiceError])
 deleteObjectsResponse_errors = Lens.lens (\DeleteObjectsResponse' {errors} -> errors) (\s@DeleteObjectsResponse' {} a -> s {errors = a} :: DeleteObjectsResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | Undocumented member.
+deleteObjectsResponse_requestCharged :: Lens.Lens' DeleteObjectsResponse (Prelude.Maybe RequestCharged)
+deleteObjectsResponse_requestCharged = Lens.lens (\DeleteObjectsResponse' {requestCharged} -> requestCharged) (\s@DeleteObjectsResponse' {} a -> s {requestCharged = a} :: DeleteObjectsResponse)
+
 -- | The response's http status code.
 deleteObjectsResponse_httpStatus :: Lens.Lens' DeleteObjectsResponse Prelude.Int
 deleteObjectsResponse_httpStatus = Lens.lens (\DeleteObjectsResponse' {httpStatus} -> httpStatus) (\s@DeleteObjectsResponse' {} a -> s {httpStatus = a} :: DeleteObjectsResponse)
 
 instance Prelude.NFData DeleteObjectsResponse where
   rnf DeleteObjectsResponse' {..} =
-    Prelude.rnf requestCharged
-      `Prelude.seq` Prelude.rnf deleted
+    Prelude.rnf deleted
       `Prelude.seq` Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf requestCharged
       `Prelude.seq` Prelude.rnf httpStatus

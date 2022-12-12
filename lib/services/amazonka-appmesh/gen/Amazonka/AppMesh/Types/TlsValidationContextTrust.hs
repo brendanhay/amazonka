@@ -33,14 +33,14 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newTlsValidationContextTrust' smart constructor.
 data TlsValidationContextTrust = TlsValidationContextTrust'
   { -- | A reference to an object that represents a Transport Layer Security
-    -- (TLS) Secret Discovery Service validation context trust.
-    sds :: Prelude.Maybe TlsValidationContextSdsTrust,
+    -- (TLS) validation context trust for an Certificate Manager certificate.
+    acm :: Prelude.Maybe TlsValidationContextAcmTrust,
     -- | An object that represents a Transport Layer Security (TLS) validation
     -- context trust for a local file.
     file :: Prelude.Maybe TlsValidationContextFileTrust,
     -- | A reference to an object that represents a Transport Layer Security
-    -- (TLS) validation context trust for an Certificate Manager certificate.
-    acm :: Prelude.Maybe TlsValidationContextAcmTrust
+    -- (TLS) Secret Discovery Service validation context trust.
+    sds :: Prelude.Maybe TlsValidationContextSdsTrust
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,27 +52,27 @@ data TlsValidationContextTrust = TlsValidationContextTrust'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sds', 'tlsValidationContextTrust_sds' - A reference to an object that represents a Transport Layer Security
--- (TLS) Secret Discovery Service validation context trust.
+-- 'acm', 'tlsValidationContextTrust_acm' - A reference to an object that represents a Transport Layer Security
+-- (TLS) validation context trust for an Certificate Manager certificate.
 --
 -- 'file', 'tlsValidationContextTrust_file' - An object that represents a Transport Layer Security (TLS) validation
 -- context trust for a local file.
 --
--- 'acm', 'tlsValidationContextTrust_acm' - A reference to an object that represents a Transport Layer Security
--- (TLS) validation context trust for an Certificate Manager certificate.
+-- 'sds', 'tlsValidationContextTrust_sds' - A reference to an object that represents a Transport Layer Security
+-- (TLS) Secret Discovery Service validation context trust.
 newTlsValidationContextTrust ::
   TlsValidationContextTrust
 newTlsValidationContextTrust =
   TlsValidationContextTrust'
-    { sds = Prelude.Nothing,
+    { acm = Prelude.Nothing,
       file = Prelude.Nothing,
-      acm = Prelude.Nothing
+      sds = Prelude.Nothing
     }
 
 -- | A reference to an object that represents a Transport Layer Security
--- (TLS) Secret Discovery Service validation context trust.
-tlsValidationContextTrust_sds :: Lens.Lens' TlsValidationContextTrust (Prelude.Maybe TlsValidationContextSdsTrust)
-tlsValidationContextTrust_sds = Lens.lens (\TlsValidationContextTrust' {sds} -> sds) (\s@TlsValidationContextTrust' {} a -> s {sds = a} :: TlsValidationContextTrust)
+-- (TLS) validation context trust for an Certificate Manager certificate.
+tlsValidationContextTrust_acm :: Lens.Lens' TlsValidationContextTrust (Prelude.Maybe TlsValidationContextAcmTrust)
+tlsValidationContextTrust_acm = Lens.lens (\TlsValidationContextTrust' {acm} -> acm) (\s@TlsValidationContextTrust' {} a -> s {acm = a} :: TlsValidationContextTrust)
 
 -- | An object that represents a Transport Layer Security (TLS) validation
 -- context trust for a local file.
@@ -80,9 +80,9 @@ tlsValidationContextTrust_file :: Lens.Lens' TlsValidationContextTrust (Prelude.
 tlsValidationContextTrust_file = Lens.lens (\TlsValidationContextTrust' {file} -> file) (\s@TlsValidationContextTrust' {} a -> s {file = a} :: TlsValidationContextTrust)
 
 -- | A reference to an object that represents a Transport Layer Security
--- (TLS) validation context trust for an Certificate Manager certificate.
-tlsValidationContextTrust_acm :: Lens.Lens' TlsValidationContextTrust (Prelude.Maybe TlsValidationContextAcmTrust)
-tlsValidationContextTrust_acm = Lens.lens (\TlsValidationContextTrust' {acm} -> acm) (\s@TlsValidationContextTrust' {} a -> s {acm = a} :: TlsValidationContextTrust)
+-- (TLS) Secret Discovery Service validation context trust.
+tlsValidationContextTrust_sds :: Lens.Lens' TlsValidationContextTrust (Prelude.Maybe TlsValidationContextSdsTrust)
+tlsValidationContextTrust_sds = Lens.lens (\TlsValidationContextTrust' {sds} -> sds) (\s@TlsValidationContextTrust' {} a -> s {sds = a} :: TlsValidationContextTrust)
 
 instance Data.FromJSON TlsValidationContextTrust where
   parseJSON =
@@ -90,29 +90,29 @@ instance Data.FromJSON TlsValidationContextTrust where
       "TlsValidationContextTrust"
       ( \x ->
           TlsValidationContextTrust'
-            Prelude.<$> (x Data..:? "sds")
+            Prelude.<$> (x Data..:? "acm")
             Prelude.<*> (x Data..:? "file")
-            Prelude.<*> (x Data..:? "acm")
+            Prelude.<*> (x Data..:? "sds")
       )
 
 instance Prelude.Hashable TlsValidationContextTrust where
   hashWithSalt _salt TlsValidationContextTrust' {..} =
-    _salt `Prelude.hashWithSalt` sds
+    _salt `Prelude.hashWithSalt` acm
       `Prelude.hashWithSalt` file
-      `Prelude.hashWithSalt` acm
+      `Prelude.hashWithSalt` sds
 
 instance Prelude.NFData TlsValidationContextTrust where
   rnf TlsValidationContextTrust' {..} =
-    Prelude.rnf sds
+    Prelude.rnf acm
       `Prelude.seq` Prelude.rnf file
-      `Prelude.seq` Prelude.rnf acm
+      `Prelude.seq` Prelude.rnf sds
 
 instance Data.ToJSON TlsValidationContextTrust where
   toJSON TlsValidationContextTrust' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("sds" Data..=) Prelude.<$> sds,
+          [ ("acm" Data..=) Prelude.<$> acm,
             ("file" Data..=) Prelude.<$> file,
-            ("acm" Data..=) Prelude.<$> acm
+            ("sds" Data..=) Prelude.<$> sds
           ]
       )

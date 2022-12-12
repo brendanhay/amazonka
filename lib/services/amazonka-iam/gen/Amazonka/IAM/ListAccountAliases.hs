@@ -41,8 +41,8 @@ module Amazonka.IAM.ListAccountAliases
     newListAccountAliasesResponse,
 
     -- * Response Lenses
-    listAccountAliasesResponse_marker,
     listAccountAliasesResponse_isTruncated,
+    listAccountAliasesResponse_marker,
     listAccountAliasesResponse_httpStatus,
     listAccountAliasesResponse_accountAliases,
   )
@@ -158,8 +158,8 @@ instance Core.AWSRequest ListAccountAliases where
       "ListAccountAliasesResult"
       ( \s h x ->
           ListAccountAliasesResponse'
-            Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> (x Data..@? "IsTruncated")
+            Prelude.<$> (x Data..@? "IsTruncated")
+            Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> ( x Data..@? "AccountAliases" Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
@@ -197,11 +197,7 @@ instance Data.ToQuery ListAccountAliases where
 --
 -- /See:/ 'newListAccountAliasesResponse' smart constructor.
 data ListAccountAliasesResponse = ListAccountAliasesResponse'
-  { -- | When @IsTruncated@ is @true@, this element is present and contains the
-    -- value to use for the @Marker@ parameter in a subsequent pagination
-    -- request.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | A flag that indicates whether there are more items to return. If your
+  { -- | A flag that indicates whether there are more items to return. If your
     -- results were truncated, you can make a subsequent pagination request
     -- using the @Marker@ request parameter to retrieve more items. Note that
     -- IAM might return fewer than the @MaxItems@ number of results even when
@@ -209,6 +205,10 @@ data ListAccountAliasesResponse = ListAccountAliasesResponse'
     -- @IsTruncated@ after every call to ensure that you receive all your
     -- results.
     isTruncated :: Prelude.Maybe Prelude.Bool,
+    -- | When @IsTruncated@ is @true@, this element is present and contains the
+    -- value to use for the @Marker@ parameter in a subsequent pagination
+    -- request.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | A list of aliases associated with the account. Amazon Web Services
@@ -225,10 +225,6 @@ data ListAccountAliasesResponse = ListAccountAliasesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'marker', 'listAccountAliasesResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
---
 -- 'isTruncated', 'listAccountAliasesResponse_isTruncated' - A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
 -- using the @Marker@ request parameter to retrieve more items. Note that
@@ -236,6 +232,10 @@ data ListAccountAliasesResponse = ListAccountAliasesResponse'
 -- there are more results available. We recommend that you check
 -- @IsTruncated@ after every call to ensure that you receive all your
 -- results.
+--
+-- 'marker', 'listAccountAliasesResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
 --
 -- 'httpStatus', 'listAccountAliasesResponse_httpStatus' - The response's http status code.
 --
@@ -247,18 +247,12 @@ newListAccountAliasesResponse ::
   ListAccountAliasesResponse
 newListAccountAliasesResponse pHttpStatus_ =
   ListAccountAliasesResponse'
-    { marker =
+    { isTruncated =
         Prelude.Nothing,
-      isTruncated = Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_,
       accountAliases = Prelude.mempty
     }
-
--- | When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
-listAccountAliasesResponse_marker :: Lens.Lens' ListAccountAliasesResponse (Prelude.Maybe Prelude.Text)
-listAccountAliasesResponse_marker = Lens.lens (\ListAccountAliasesResponse' {marker} -> marker) (\s@ListAccountAliasesResponse' {} a -> s {marker = a} :: ListAccountAliasesResponse)
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
@@ -269,6 +263,12 @@ listAccountAliasesResponse_marker = Lens.lens (\ListAccountAliasesResponse' {mar
 -- results.
 listAccountAliasesResponse_isTruncated :: Lens.Lens' ListAccountAliasesResponse (Prelude.Maybe Prelude.Bool)
 listAccountAliasesResponse_isTruncated = Lens.lens (\ListAccountAliasesResponse' {isTruncated} -> isTruncated) (\s@ListAccountAliasesResponse' {} a -> s {isTruncated = a} :: ListAccountAliasesResponse)
+
+-- | When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+listAccountAliasesResponse_marker :: Lens.Lens' ListAccountAliasesResponse (Prelude.Maybe Prelude.Text)
+listAccountAliasesResponse_marker = Lens.lens (\ListAccountAliasesResponse' {marker} -> marker) (\s@ListAccountAliasesResponse' {} a -> s {marker = a} :: ListAccountAliasesResponse)
 
 -- | The response's http status code.
 listAccountAliasesResponse_httpStatus :: Lens.Lens' ListAccountAliasesResponse Prelude.Int
@@ -281,7 +281,7 @@ listAccountAliasesResponse_accountAliases = Lens.lens (\ListAccountAliasesRespon
 
 instance Prelude.NFData ListAccountAliasesResponse where
   rnf ListAccountAliasesResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf isTruncated
+    Prelude.rnf isTruncated
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf accountAliases

@@ -30,18 +30,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPipeline' smart constructor.
 data Pipeline = Pipeline'
-  { -- | The name of the pipeline.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The activities that perform transformations on the messages.
+  { -- | The activities that perform transformations on the messages.
     activities :: Prelude.Maybe (Prelude.NonEmpty PipelineActivity),
-    -- | A summary of information about the pipeline reprocessing.
-    reprocessingSummaries :: Prelude.Maybe [ReprocessingSummary],
     -- | The ARN of the pipeline.
     arn :: Prelude.Maybe Prelude.Text,
     -- | When the pipeline was created.
     creationTime :: Prelude.Maybe Data.POSIX,
     -- | The last time the pipeline was updated.
-    lastUpdateTime :: Prelude.Maybe Data.POSIX
+    lastUpdateTime :: Prelude.Maybe Data.POSIX,
+    -- | The name of the pipeline.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | A summary of information about the pipeline reprocessing.
+    reprocessingSummaries :: Prelude.Maybe [ReprocessingSummary]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,40 +53,32 @@ data Pipeline = Pipeline'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'pipeline_name' - The name of the pipeline.
---
 -- 'activities', 'pipeline_activities' - The activities that perform transformations on the messages.
---
--- 'reprocessingSummaries', 'pipeline_reprocessingSummaries' - A summary of information about the pipeline reprocessing.
 --
 -- 'arn', 'pipeline_arn' - The ARN of the pipeline.
 --
 -- 'creationTime', 'pipeline_creationTime' - When the pipeline was created.
 --
 -- 'lastUpdateTime', 'pipeline_lastUpdateTime' - The last time the pipeline was updated.
+--
+-- 'name', 'pipeline_name' - The name of the pipeline.
+--
+-- 'reprocessingSummaries', 'pipeline_reprocessingSummaries' - A summary of information about the pipeline reprocessing.
 newPipeline ::
   Pipeline
 newPipeline =
   Pipeline'
-    { name = Prelude.Nothing,
-      activities = Prelude.Nothing,
-      reprocessingSummaries = Prelude.Nothing,
+    { activities = Prelude.Nothing,
       arn = Prelude.Nothing,
       creationTime = Prelude.Nothing,
-      lastUpdateTime = Prelude.Nothing
+      lastUpdateTime = Prelude.Nothing,
+      name = Prelude.Nothing,
+      reprocessingSummaries = Prelude.Nothing
     }
-
--- | The name of the pipeline.
-pipeline_name :: Lens.Lens' Pipeline (Prelude.Maybe Prelude.Text)
-pipeline_name = Lens.lens (\Pipeline' {name} -> name) (\s@Pipeline' {} a -> s {name = a} :: Pipeline)
 
 -- | The activities that perform transformations on the messages.
 pipeline_activities :: Lens.Lens' Pipeline (Prelude.Maybe (Prelude.NonEmpty PipelineActivity))
 pipeline_activities = Lens.lens (\Pipeline' {activities} -> activities) (\s@Pipeline' {} a -> s {activities = a} :: Pipeline) Prelude.. Lens.mapping Lens.coerced
-
--- | A summary of information about the pipeline reprocessing.
-pipeline_reprocessingSummaries :: Lens.Lens' Pipeline (Prelude.Maybe [ReprocessingSummary])
-pipeline_reprocessingSummaries = Lens.lens (\Pipeline' {reprocessingSummaries} -> reprocessingSummaries) (\s@Pipeline' {} a -> s {reprocessingSummaries = a} :: Pipeline) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the pipeline.
 pipeline_arn :: Lens.Lens' Pipeline (Prelude.Maybe Prelude.Text)
@@ -100,36 +92,44 @@ pipeline_creationTime = Lens.lens (\Pipeline' {creationTime} -> creationTime) (\
 pipeline_lastUpdateTime :: Lens.Lens' Pipeline (Prelude.Maybe Prelude.UTCTime)
 pipeline_lastUpdateTime = Lens.lens (\Pipeline' {lastUpdateTime} -> lastUpdateTime) (\s@Pipeline' {} a -> s {lastUpdateTime = a} :: Pipeline) Prelude.. Lens.mapping Data._Time
 
+-- | The name of the pipeline.
+pipeline_name :: Lens.Lens' Pipeline (Prelude.Maybe Prelude.Text)
+pipeline_name = Lens.lens (\Pipeline' {name} -> name) (\s@Pipeline' {} a -> s {name = a} :: Pipeline)
+
+-- | A summary of information about the pipeline reprocessing.
+pipeline_reprocessingSummaries :: Lens.Lens' Pipeline (Prelude.Maybe [ReprocessingSummary])
+pipeline_reprocessingSummaries = Lens.lens (\Pipeline' {reprocessingSummaries} -> reprocessingSummaries) (\s@Pipeline' {} a -> s {reprocessingSummaries = a} :: Pipeline) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON Pipeline where
   parseJSON =
     Data.withObject
       "Pipeline"
       ( \x ->
           Pipeline'
-            Prelude.<$> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "activities")
-            Prelude.<*> ( x Data..:? "reprocessingSummaries"
-                            Data..!= Prelude.mempty
-                        )
+            Prelude.<$> (x Data..:? "activities")
             Prelude.<*> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "creationTime")
             Prelude.<*> (x Data..:? "lastUpdateTime")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> ( x Data..:? "reprocessingSummaries"
+                            Data..!= Prelude.mempty
+                        )
       )
 
 instance Prelude.Hashable Pipeline where
   hashWithSalt _salt Pipeline' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` activities
-      `Prelude.hashWithSalt` reprocessingSummaries
+    _salt `Prelude.hashWithSalt` activities
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` lastUpdateTime
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` reprocessingSummaries
 
 instance Prelude.NFData Pipeline where
   rnf Pipeline' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf activities
-      `Prelude.seq` Prelude.rnf reprocessingSummaries
+    Prelude.rnf activities
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf lastUpdateTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf reprocessingSummaries

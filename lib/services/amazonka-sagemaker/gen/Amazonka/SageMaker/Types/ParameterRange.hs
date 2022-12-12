@@ -32,15 +32,15 @@ import Amazonka.SageMaker.Types.IntegerParameterRangeSpecification
 --
 -- /See:/ 'newParameterRange' smart constructor.
 data ParameterRange = ParameterRange'
-  { -- | A @ContinuousParameterRangeSpecification@ object that defines the
+  { -- | A @CategoricalParameterRangeSpecification@ object that defines the
+    -- possible values for a categorical hyperparameter.
+    categoricalParameterRangeSpecification :: Prelude.Maybe CategoricalParameterRangeSpecification,
+    -- | A @ContinuousParameterRangeSpecification@ object that defines the
     -- possible values for a continuous hyperparameter.
     continuousParameterRangeSpecification :: Prelude.Maybe ContinuousParameterRangeSpecification,
     -- | A @IntegerParameterRangeSpecification@ object that defines the possible
     -- values for an integer hyperparameter.
-    integerParameterRangeSpecification :: Prelude.Maybe IntegerParameterRangeSpecification,
-    -- | A @CategoricalParameterRangeSpecification@ object that defines the
-    -- possible values for a categorical hyperparameter.
-    categoricalParameterRangeSpecification :: Prelude.Maybe CategoricalParameterRangeSpecification
+    integerParameterRangeSpecification :: Prelude.Maybe IntegerParameterRangeSpecification
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,24 +52,29 @@ data ParameterRange = ParameterRange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'categoricalParameterRangeSpecification', 'parameterRange_categoricalParameterRangeSpecification' - A @CategoricalParameterRangeSpecification@ object that defines the
+-- possible values for a categorical hyperparameter.
+--
 -- 'continuousParameterRangeSpecification', 'parameterRange_continuousParameterRangeSpecification' - A @ContinuousParameterRangeSpecification@ object that defines the
 -- possible values for a continuous hyperparameter.
 --
 -- 'integerParameterRangeSpecification', 'parameterRange_integerParameterRangeSpecification' - A @IntegerParameterRangeSpecification@ object that defines the possible
 -- values for an integer hyperparameter.
---
--- 'categoricalParameterRangeSpecification', 'parameterRange_categoricalParameterRangeSpecification' - A @CategoricalParameterRangeSpecification@ object that defines the
--- possible values for a categorical hyperparameter.
 newParameterRange ::
   ParameterRange
 newParameterRange =
   ParameterRange'
-    { continuousParameterRangeSpecification =
+    { categoricalParameterRangeSpecification =
         Prelude.Nothing,
-      integerParameterRangeSpecification = Prelude.Nothing,
-      categoricalParameterRangeSpecification =
-        Prelude.Nothing
+      continuousParameterRangeSpecification =
+        Prelude.Nothing,
+      integerParameterRangeSpecification = Prelude.Nothing
     }
+
+-- | A @CategoricalParameterRangeSpecification@ object that defines the
+-- possible values for a categorical hyperparameter.
+parameterRange_categoricalParameterRangeSpecification :: Lens.Lens' ParameterRange (Prelude.Maybe CategoricalParameterRangeSpecification)
+parameterRange_categoricalParameterRangeSpecification = Lens.lens (\ParameterRange' {categoricalParameterRangeSpecification} -> categoricalParameterRangeSpecification) (\s@ParameterRange' {} a -> s {categoricalParameterRangeSpecification = a} :: ParameterRange)
 
 -- | A @ContinuousParameterRangeSpecification@ object that defines the
 -- possible values for a continuous hyperparameter.
@@ -81,46 +86,39 @@ parameterRange_continuousParameterRangeSpecification = Lens.lens (\ParameterRang
 parameterRange_integerParameterRangeSpecification :: Lens.Lens' ParameterRange (Prelude.Maybe IntegerParameterRangeSpecification)
 parameterRange_integerParameterRangeSpecification = Lens.lens (\ParameterRange' {integerParameterRangeSpecification} -> integerParameterRangeSpecification) (\s@ParameterRange' {} a -> s {integerParameterRangeSpecification = a} :: ParameterRange)
 
--- | A @CategoricalParameterRangeSpecification@ object that defines the
--- possible values for a categorical hyperparameter.
-parameterRange_categoricalParameterRangeSpecification :: Lens.Lens' ParameterRange (Prelude.Maybe CategoricalParameterRangeSpecification)
-parameterRange_categoricalParameterRangeSpecification = Lens.lens (\ParameterRange' {categoricalParameterRangeSpecification} -> categoricalParameterRangeSpecification) (\s@ParameterRange' {} a -> s {categoricalParameterRangeSpecification = a} :: ParameterRange)
-
 instance Data.FromJSON ParameterRange where
   parseJSON =
     Data.withObject
       "ParameterRange"
       ( \x ->
           ParameterRange'
-            Prelude.<$> (x Data..:? "ContinuousParameterRangeSpecification")
+            Prelude.<$> (x Data..:? "CategoricalParameterRangeSpecification")
+            Prelude.<*> (x Data..:? "ContinuousParameterRangeSpecification")
             Prelude.<*> (x Data..:? "IntegerParameterRangeSpecification")
-            Prelude.<*> ( x
-                            Data..:? "CategoricalParameterRangeSpecification"
-                        )
       )
 
 instance Prelude.Hashable ParameterRange where
   hashWithSalt _salt ParameterRange' {..} =
     _salt
+      `Prelude.hashWithSalt` categoricalParameterRangeSpecification
       `Prelude.hashWithSalt` continuousParameterRangeSpecification
       `Prelude.hashWithSalt` integerParameterRangeSpecification
-      `Prelude.hashWithSalt` categoricalParameterRangeSpecification
 
 instance Prelude.NFData ParameterRange where
   rnf ParameterRange' {..} =
-    Prelude.rnf continuousParameterRangeSpecification
+    Prelude.rnf categoricalParameterRangeSpecification
+      `Prelude.seq` Prelude.rnf continuousParameterRangeSpecification
       `Prelude.seq` Prelude.rnf integerParameterRangeSpecification
-      `Prelude.seq` Prelude.rnf categoricalParameterRangeSpecification
 
 instance Data.ToJSON ParameterRange where
   toJSON ParameterRange' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ContinuousParameterRangeSpecification" Data..=)
+          [ ("CategoricalParameterRangeSpecification" Data..=)
+              Prelude.<$> categoricalParameterRangeSpecification,
+            ("ContinuousParameterRangeSpecification" Data..=)
               Prelude.<$> continuousParameterRangeSpecification,
             ("IntegerParameterRangeSpecification" Data..=)
-              Prelude.<$> integerParameterRangeSpecification,
-            ("CategoricalParameterRangeSpecification" Data..=)
-              Prelude.<$> categoricalParameterRangeSpecification
+              Prelude.<$> integerParameterRangeSpecification
           ]
       )

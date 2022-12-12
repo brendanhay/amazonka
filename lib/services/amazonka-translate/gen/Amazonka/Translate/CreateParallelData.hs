@@ -31,9 +31,9 @@ module Amazonka.Translate.CreateParallelData
     newCreateParallelData,
 
     -- * Request Lenses
-    createParallelData_tags,
     createParallelData_description,
     createParallelData_encryptionKey,
+    createParallelData_tags,
     createParallelData_name,
     createParallelData_parallelDataConfig,
     createParallelData_clientToken,
@@ -59,14 +59,14 @@ import Amazonka.Translate.Types
 
 -- | /See:/ 'newCreateParallelData' smart constructor.
 data CreateParallelData = CreateParallelData'
-  { -- | Tags to be associated with this resource. A tag is a key-value pair that
+  { -- | A custom description for the parallel data resource in Amazon Translate.
+    description :: Prelude.Maybe Prelude.Text,
+    encryptionKey :: Prelude.Maybe EncryptionKey,
+    -- | Tags to be associated with this resource. A tag is a key-value pair that
     -- adds metadata to a resource. Each tag key for the resource must be
     -- unique. For more information, see
     -- <https://docs.aws.amazon.com/translate/latest/dg/tagging.html Tagging your resources>.
     tags :: Prelude.Maybe [Tag],
-    -- | A custom description for the parallel data resource in Amazon Translate.
-    description :: Prelude.Maybe Prelude.Text,
-    encryptionKey :: Prelude.Maybe EncryptionKey,
     -- | A custom name for the parallel data resource in Amazon Translate. You
     -- must assign a name that is unique in the account and region.
     name :: Prelude.Text,
@@ -86,14 +86,14 @@ data CreateParallelData = CreateParallelData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'createParallelData_description' - A custom description for the parallel data resource in Amazon Translate.
+--
+-- 'encryptionKey', 'createParallelData_encryptionKey' - Undocumented member.
+--
 -- 'tags', 'createParallelData_tags' - Tags to be associated with this resource. A tag is a key-value pair that
 -- adds metadata to a resource. Each tag key for the resource must be
 -- unique. For more information, see
 -- <https://docs.aws.amazon.com/translate/latest/dg/tagging.html Tagging your resources>.
---
--- 'description', 'createParallelData_description' - A custom description for the parallel data resource in Amazon Translate.
---
--- 'encryptionKey', 'createParallelData_encryptionKey' - Undocumented member.
 --
 -- 'name', 'createParallelData_name' - A custom name for the parallel data resource in Amazon Translate. You
 -- must assign a name that is unique in the account and region.
@@ -115,20 +115,13 @@ newCreateParallelData
   pParallelDataConfig_
   pClientToken_ =
     CreateParallelData'
-      { tags = Prelude.Nothing,
-        description = Prelude.Nothing,
+      { description = Prelude.Nothing,
         encryptionKey = Prelude.Nothing,
+        tags = Prelude.Nothing,
         name = pName_,
         parallelDataConfig = pParallelDataConfig_,
         clientToken = pClientToken_
       }
-
--- | Tags to be associated with this resource. A tag is a key-value pair that
--- adds metadata to a resource. Each tag key for the resource must be
--- unique. For more information, see
--- <https://docs.aws.amazon.com/translate/latest/dg/tagging.html Tagging your resources>.
-createParallelData_tags :: Lens.Lens' CreateParallelData (Prelude.Maybe [Tag])
-createParallelData_tags = Lens.lens (\CreateParallelData' {tags} -> tags) (\s@CreateParallelData' {} a -> s {tags = a} :: CreateParallelData) Prelude.. Lens.mapping Lens.coerced
 
 -- | A custom description for the parallel data resource in Amazon Translate.
 createParallelData_description :: Lens.Lens' CreateParallelData (Prelude.Maybe Prelude.Text)
@@ -137,6 +130,13 @@ createParallelData_description = Lens.lens (\CreateParallelData' {description} -
 -- | Undocumented member.
 createParallelData_encryptionKey :: Lens.Lens' CreateParallelData (Prelude.Maybe EncryptionKey)
 createParallelData_encryptionKey = Lens.lens (\CreateParallelData' {encryptionKey} -> encryptionKey) (\s@CreateParallelData' {} a -> s {encryptionKey = a} :: CreateParallelData)
+
+-- | Tags to be associated with this resource. A tag is a key-value pair that
+-- adds metadata to a resource. Each tag key for the resource must be
+-- unique. For more information, see
+-- <https://docs.aws.amazon.com/translate/latest/dg/tagging.html Tagging your resources>.
+createParallelData_tags :: Lens.Lens' CreateParallelData (Prelude.Maybe [Tag])
+createParallelData_tags = Lens.lens (\CreateParallelData' {tags} -> tags) (\s@CreateParallelData' {} a -> s {tags = a} :: CreateParallelData) Prelude.. Lens.mapping Lens.coerced
 
 -- | A custom name for the parallel data resource in Amazon Translate. You
 -- must assign a name that is unique in the account and region.
@@ -169,18 +169,18 @@ instance Core.AWSRequest CreateParallelData where
 
 instance Prelude.Hashable CreateParallelData where
   hashWithSalt _salt CreateParallelData' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` encryptionKey
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` parallelDataConfig
       `Prelude.hashWithSalt` clientToken
 
 instance Prelude.NFData CreateParallelData where
   rnf CreateParallelData' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf encryptionKey
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf parallelDataConfig
       `Prelude.seq` Prelude.rnf clientToken
@@ -204,9 +204,9 @@ instance Data.ToJSON CreateParallelData where
   toJSON CreateParallelData' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
             ("EncryptionKey" Data..=) Prelude.<$> encryptionKey,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just
               ("ParallelDataConfig" Data..= parallelDataConfig),

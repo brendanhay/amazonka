@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUnprocessedScramSecret' smart constructor.
 data UnprocessedScramSecret = UnprocessedScramSecret'
-  { -- | Error message for associate\/disassociate failure.
+  { -- | Error code for associate\/disassociate failure.
+    errorCode :: Prelude.Maybe Prelude.Text,
+    -- | Error message for associate\/disassociate failure.
     errorMessage :: Prelude.Maybe Prelude.Text,
     -- | AWS Secrets Manager secret ARN.
-    secretArn :: Prelude.Maybe Prelude.Text,
-    -- | Error code for associate\/disassociate failure.
-    errorCode :: Prelude.Maybe Prelude.Text
+    secretArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,20 +45,24 @@ data UnprocessedScramSecret = UnprocessedScramSecret'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'errorCode', 'unprocessedScramSecret_errorCode' - Error code for associate\/disassociate failure.
+--
 -- 'errorMessage', 'unprocessedScramSecret_errorMessage' - Error message for associate\/disassociate failure.
 --
 -- 'secretArn', 'unprocessedScramSecret_secretArn' - AWS Secrets Manager secret ARN.
---
--- 'errorCode', 'unprocessedScramSecret_errorCode' - Error code for associate\/disassociate failure.
 newUnprocessedScramSecret ::
   UnprocessedScramSecret
 newUnprocessedScramSecret =
   UnprocessedScramSecret'
-    { errorMessage =
+    { errorCode =
         Prelude.Nothing,
-      secretArn = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+      errorMessage = Prelude.Nothing,
+      secretArn = Prelude.Nothing
     }
+
+-- | Error code for associate\/disassociate failure.
+unprocessedScramSecret_errorCode :: Lens.Lens' UnprocessedScramSecret (Prelude.Maybe Prelude.Text)
+unprocessedScramSecret_errorCode = Lens.lens (\UnprocessedScramSecret' {errorCode} -> errorCode) (\s@UnprocessedScramSecret' {} a -> s {errorCode = a} :: UnprocessedScramSecret)
 
 -- | Error message for associate\/disassociate failure.
 unprocessedScramSecret_errorMessage :: Lens.Lens' UnprocessedScramSecret (Prelude.Maybe Prelude.Text)
@@ -68,29 +72,25 @@ unprocessedScramSecret_errorMessage = Lens.lens (\UnprocessedScramSecret' {error
 unprocessedScramSecret_secretArn :: Lens.Lens' UnprocessedScramSecret (Prelude.Maybe Prelude.Text)
 unprocessedScramSecret_secretArn = Lens.lens (\UnprocessedScramSecret' {secretArn} -> secretArn) (\s@UnprocessedScramSecret' {} a -> s {secretArn = a} :: UnprocessedScramSecret)
 
--- | Error code for associate\/disassociate failure.
-unprocessedScramSecret_errorCode :: Lens.Lens' UnprocessedScramSecret (Prelude.Maybe Prelude.Text)
-unprocessedScramSecret_errorCode = Lens.lens (\UnprocessedScramSecret' {errorCode} -> errorCode) (\s@UnprocessedScramSecret' {} a -> s {errorCode = a} :: UnprocessedScramSecret)
-
 instance Data.FromJSON UnprocessedScramSecret where
   parseJSON =
     Data.withObject
       "UnprocessedScramSecret"
       ( \x ->
           UnprocessedScramSecret'
-            Prelude.<$> (x Data..:? "errorMessage")
+            Prelude.<$> (x Data..:? "errorCode")
+            Prelude.<*> (x Data..:? "errorMessage")
             Prelude.<*> (x Data..:? "secretArn")
-            Prelude.<*> (x Data..:? "errorCode")
       )
 
 instance Prelude.Hashable UnprocessedScramSecret where
   hashWithSalt _salt UnprocessedScramSecret' {..} =
-    _salt `Prelude.hashWithSalt` errorMessage
+    _salt `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` secretArn
-      `Prelude.hashWithSalt` errorCode
 
 instance Prelude.NFData UnprocessedScramSecret where
   rnf UnprocessedScramSecret' {..} =
-    Prelude.rnf errorMessage
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage
       `Prelude.seq` Prelude.rnf secretArn
-      `Prelude.seq` Prelude.rnf errorCode

@@ -59,7 +59,33 @@ import Amazonka.SWF.Types.TaskList
 --
 -- /See:/ 'newScheduleActivityTaskDecisionAttributes' smart constructor.
 data ScheduleActivityTaskDecisionAttributes = ScheduleActivityTaskDecisionAttributes'
-  { -- | If set, specifies the maximum duration the activity task can wait to be
+  { -- | Data attached to the event that can be used by the decider in subsequent
+    -- workflow tasks. This data isn\'t sent to the activity.
+    control :: Prelude.Maybe Prelude.Text,
+    -- | If set, specifies the maximum time before which a worker processing a
+    -- task of this type must report progress by calling
+    -- RecordActivityTaskHeartbeat. If the timeout is exceeded, the activity
+    -- task is automatically timed out. If the worker subsequently attempts to
+    -- record a heartbeat or returns a result, it is ignored. This overrides
+    -- the default heartbeat timeout specified when registering the activity
+    -- type using RegisterActivityType.
+    --
+    -- The duration is specified in seconds, an integer greater than or equal
+    -- to @0@. You can use @NONE@ to specify unlimited duration.
+    heartbeatTimeout :: Prelude.Maybe Prelude.Text,
+    -- | The input provided to the activity task.
+    input :: Prelude.Maybe Prelude.Text,
+    -- | The maximum duration for this activity task.
+    --
+    -- The duration is specified in seconds, an integer greater than or equal
+    -- to @0@. You can use @NONE@ to specify unlimited duration.
+    --
+    -- A schedule-to-close timeout for this activity task must be specified
+    -- either as a default for the activity type or through this field. If
+    -- neither this field is set nor a default schedule-to-close timeout was
+    -- specified at registration time then a fault is returned.
+    scheduleToCloseTimeout :: Prelude.Maybe Prelude.Text,
+    -- | If set, specifies the maximum duration the activity task can wait to be
     -- assigned to a worker. This overrides the default schedule-to-start
     -- timeout specified when registering the activity type using
     -- RegisterActivityType.
@@ -72,29 +98,18 @@ data ScheduleActivityTaskDecisionAttributes = ScheduleActivityTaskDecisionAttrib
     -- neither this field is set nor a default schedule-to-start timeout was
     -- specified at registration time then a fault is returned.
     scheduleToStartTimeout :: Prelude.Maybe Prelude.Text,
-    -- | The maximum duration for this activity task.
+    -- | If set, specifies the maximum duration a worker may take to process this
+    -- activity task. This overrides the default start-to-close timeout
+    -- specified when registering the activity type using RegisterActivityType.
     --
     -- The duration is specified in seconds, an integer greater than or equal
     -- to @0@. You can use @NONE@ to specify unlimited duration.
     --
-    -- A schedule-to-close timeout for this activity task must be specified
-    -- either as a default for the activity type or through this field. If
-    -- neither this field is set nor a default schedule-to-close timeout was
-    -- specified at registration time then a fault is returned.
-    scheduleToCloseTimeout :: Prelude.Maybe Prelude.Text,
-    -- | If set, specifies the priority with which the activity task is to be
-    -- assigned to a worker. This overrides the defaultTaskPriority specified
-    -- when registering the activity type using RegisterActivityType. Valid
-    -- values are integers that range from Java\'s @Integer.MIN_VALUE@
-    -- (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers
-    -- indicate higher priority.
-    --
-    -- For more information about setting task priority, see
-    -- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
-    -- in the /Amazon SWF Developer Guide/.
-    taskPriority :: Prelude.Maybe Prelude.Text,
-    -- | The input provided to the activity task.
-    input :: Prelude.Maybe Prelude.Text,
+    -- A start-to-close timeout for this activity task must be specified either
+    -- as a default for the activity type or through this field. If neither
+    -- this field is set nor a default start-to-close timeout was specified at
+    -- registration time then a fault is returned.
+    startToCloseTimeout :: Prelude.Maybe Prelude.Text,
     -- | If set, specifies the name of the task list in which to schedule the
     -- activity task. If not specified, the @defaultTaskList@ registered with
     -- the activity type is used.
@@ -109,32 +124,17 @@ data ScheduleActivityTaskDecisionAttributes = ScheduleActivityTaskDecisionAttrib
     -- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
     -- contain the literal string @arn@.
     taskList :: Prelude.Maybe TaskList,
-    -- | If set, specifies the maximum duration a worker may take to process this
-    -- activity task. This overrides the default start-to-close timeout
-    -- specified when registering the activity type using RegisterActivityType.
+    -- | If set, specifies the priority with which the activity task is to be
+    -- assigned to a worker. This overrides the defaultTaskPriority specified
+    -- when registering the activity type using RegisterActivityType. Valid
+    -- values are integers that range from Java\'s @Integer.MIN_VALUE@
+    -- (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers
+    -- indicate higher priority.
     --
-    -- The duration is specified in seconds, an integer greater than or equal
-    -- to @0@. You can use @NONE@ to specify unlimited duration.
-    --
-    -- A start-to-close timeout for this activity task must be specified either
-    -- as a default for the activity type or through this field. If neither
-    -- this field is set nor a default start-to-close timeout was specified at
-    -- registration time then a fault is returned.
-    startToCloseTimeout :: Prelude.Maybe Prelude.Text,
-    -- | If set, specifies the maximum time before which a worker processing a
-    -- task of this type must report progress by calling
-    -- RecordActivityTaskHeartbeat. If the timeout is exceeded, the activity
-    -- task is automatically timed out. If the worker subsequently attempts to
-    -- record a heartbeat or returns a result, it is ignored. This overrides
-    -- the default heartbeat timeout specified when registering the activity
-    -- type using RegisterActivityType.
-    --
-    -- The duration is specified in seconds, an integer greater than or equal
-    -- to @0@. You can use @NONE@ to specify unlimited duration.
-    heartbeatTimeout :: Prelude.Maybe Prelude.Text,
-    -- | Data attached to the event that can be used by the decider in subsequent
-    -- workflow tasks. This data isn\'t sent to the activity.
-    control :: Prelude.Maybe Prelude.Text,
+    -- For more information about setting task priority, see
+    -- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
+    -- in the /Amazon SWF Developer Guide/.
+    taskPriority :: Prelude.Maybe Prelude.Text,
     -- | The type of the activity task to schedule.
     activityType :: ActivityType,
     -- | The @activityId@ of the activity task.
@@ -155,6 +155,32 @@ data ScheduleActivityTaskDecisionAttributes = ScheduleActivityTaskDecisionAttrib
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'control', 'scheduleActivityTaskDecisionAttributes_control' - Data attached to the event that can be used by the decider in subsequent
+-- workflow tasks. This data isn\'t sent to the activity.
+--
+-- 'heartbeatTimeout', 'scheduleActivityTaskDecisionAttributes_heartbeatTimeout' - If set, specifies the maximum time before which a worker processing a
+-- task of this type must report progress by calling
+-- RecordActivityTaskHeartbeat. If the timeout is exceeded, the activity
+-- task is automatically timed out. If the worker subsequently attempts to
+-- record a heartbeat or returns a result, it is ignored. This overrides
+-- the default heartbeat timeout specified when registering the activity
+-- type using RegisterActivityType.
+--
+-- The duration is specified in seconds, an integer greater than or equal
+-- to @0@. You can use @NONE@ to specify unlimited duration.
+--
+-- 'input', 'scheduleActivityTaskDecisionAttributes_input' - The input provided to the activity task.
+--
+-- 'scheduleToCloseTimeout', 'scheduleActivityTaskDecisionAttributes_scheduleToCloseTimeout' - The maximum duration for this activity task.
+--
+-- The duration is specified in seconds, an integer greater than or equal
+-- to @0@. You can use @NONE@ to specify unlimited duration.
+--
+-- A schedule-to-close timeout for this activity task must be specified
+-- either as a default for the activity type or through this field. If
+-- neither this field is set nor a default schedule-to-close timeout was
+-- specified at registration time then a fault is returned.
+--
 -- 'scheduleToStartTimeout', 'scheduleActivityTaskDecisionAttributes_scheduleToStartTimeout' - If set, specifies the maximum duration the activity task can wait to be
 -- assigned to a worker. This overrides the default schedule-to-start
 -- timeout specified when registering the activity type using
@@ -168,28 +194,17 @@ data ScheduleActivityTaskDecisionAttributes = ScheduleActivityTaskDecisionAttrib
 -- neither this field is set nor a default schedule-to-start timeout was
 -- specified at registration time then a fault is returned.
 --
--- 'scheduleToCloseTimeout', 'scheduleActivityTaskDecisionAttributes_scheduleToCloseTimeout' - The maximum duration for this activity task.
+-- 'startToCloseTimeout', 'scheduleActivityTaskDecisionAttributes_startToCloseTimeout' - If set, specifies the maximum duration a worker may take to process this
+-- activity task. This overrides the default start-to-close timeout
+-- specified when registering the activity type using RegisterActivityType.
 --
 -- The duration is specified in seconds, an integer greater than or equal
 -- to @0@. You can use @NONE@ to specify unlimited duration.
 --
--- A schedule-to-close timeout for this activity task must be specified
--- either as a default for the activity type or through this field. If
--- neither this field is set nor a default schedule-to-close timeout was
--- specified at registration time then a fault is returned.
---
--- 'taskPriority', 'scheduleActivityTaskDecisionAttributes_taskPriority' - If set, specifies the priority with which the activity task is to be
--- assigned to a worker. This overrides the defaultTaskPriority specified
--- when registering the activity type using RegisterActivityType. Valid
--- values are integers that range from Java\'s @Integer.MIN_VALUE@
--- (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers
--- indicate higher priority.
---
--- For more information about setting task priority, see
--- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
--- in the /Amazon SWF Developer Guide/.
---
--- 'input', 'scheduleActivityTaskDecisionAttributes_input' - The input provided to the activity task.
+-- A start-to-close timeout for this activity task must be specified either
+-- as a default for the activity type or through this field. If neither
+-- this field is set nor a default start-to-close timeout was specified at
+-- registration time then a fault is returned.
 --
 -- 'taskList', 'scheduleActivityTaskDecisionAttributes_taskList' - If set, specifies the name of the task list in which to schedule the
 -- activity task. If not specified, the @defaultTaskList@ registered with
@@ -205,31 +220,16 @@ data ScheduleActivityTaskDecisionAttributes = ScheduleActivityTaskDecisionAttrib
 -- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
 -- contain the literal string @arn@.
 --
--- 'startToCloseTimeout', 'scheduleActivityTaskDecisionAttributes_startToCloseTimeout' - If set, specifies the maximum duration a worker may take to process this
--- activity task. This overrides the default start-to-close timeout
--- specified when registering the activity type using RegisterActivityType.
+-- 'taskPriority', 'scheduleActivityTaskDecisionAttributes_taskPriority' - If set, specifies the priority with which the activity task is to be
+-- assigned to a worker. This overrides the defaultTaskPriority specified
+-- when registering the activity type using RegisterActivityType. Valid
+-- values are integers that range from Java\'s @Integer.MIN_VALUE@
+-- (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers
+-- indicate higher priority.
 --
--- The duration is specified in seconds, an integer greater than or equal
--- to @0@. You can use @NONE@ to specify unlimited duration.
---
--- A start-to-close timeout for this activity task must be specified either
--- as a default for the activity type or through this field. If neither
--- this field is set nor a default start-to-close timeout was specified at
--- registration time then a fault is returned.
---
--- 'heartbeatTimeout', 'scheduleActivityTaskDecisionAttributes_heartbeatTimeout' - If set, specifies the maximum time before which a worker processing a
--- task of this type must report progress by calling
--- RecordActivityTaskHeartbeat. If the timeout is exceeded, the activity
--- task is automatically timed out. If the worker subsequently attempts to
--- record a heartbeat or returns a result, it is ignored. This overrides
--- the default heartbeat timeout specified when registering the activity
--- type using RegisterActivityType.
---
--- The duration is specified in seconds, an integer greater than or equal
--- to @0@. You can use @NONE@ to specify unlimited duration.
---
--- 'control', 'scheduleActivityTaskDecisionAttributes_control' - Data attached to the event that can be used by the decider in subsequent
--- workflow tasks. This data isn\'t sent to the activity.
+-- For more information about setting task priority, see
+-- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
+-- in the /Amazon SWF Developer Guide/.
 --
 -- 'activityType', 'scheduleActivityTaskDecisionAttributes_activityType' - The type of the activity task to schedule.
 --
@@ -249,20 +249,55 @@ newScheduleActivityTaskDecisionAttributes
   pActivityType_
   pActivityId_ =
     ScheduleActivityTaskDecisionAttributes'
-      { scheduleToStartTimeout =
-          Prelude.Nothing,
-        scheduleToCloseTimeout =
-          Prelude.Nothing,
-        taskPriority = Prelude.Nothing,
-        input = Prelude.Nothing,
-        taskList = Prelude.Nothing,
-        startToCloseTimeout =
+      { control =
           Prelude.Nothing,
         heartbeatTimeout = Prelude.Nothing,
-        control = Prelude.Nothing,
+        input = Prelude.Nothing,
+        scheduleToCloseTimeout =
+          Prelude.Nothing,
+        scheduleToStartTimeout =
+          Prelude.Nothing,
+        startToCloseTimeout =
+          Prelude.Nothing,
+        taskList = Prelude.Nothing,
+        taskPriority = Prelude.Nothing,
         activityType = pActivityType_,
         activityId = pActivityId_
       }
+
+-- | Data attached to the event that can be used by the decider in subsequent
+-- workflow tasks. This data isn\'t sent to the activity.
+scheduleActivityTaskDecisionAttributes_control :: Lens.Lens' ScheduleActivityTaskDecisionAttributes (Prelude.Maybe Prelude.Text)
+scheduleActivityTaskDecisionAttributes_control = Lens.lens (\ScheduleActivityTaskDecisionAttributes' {control} -> control) (\s@ScheduleActivityTaskDecisionAttributes' {} a -> s {control = a} :: ScheduleActivityTaskDecisionAttributes)
+
+-- | If set, specifies the maximum time before which a worker processing a
+-- task of this type must report progress by calling
+-- RecordActivityTaskHeartbeat. If the timeout is exceeded, the activity
+-- task is automatically timed out. If the worker subsequently attempts to
+-- record a heartbeat or returns a result, it is ignored. This overrides
+-- the default heartbeat timeout specified when registering the activity
+-- type using RegisterActivityType.
+--
+-- The duration is specified in seconds, an integer greater than or equal
+-- to @0@. You can use @NONE@ to specify unlimited duration.
+scheduleActivityTaskDecisionAttributes_heartbeatTimeout :: Lens.Lens' ScheduleActivityTaskDecisionAttributes (Prelude.Maybe Prelude.Text)
+scheduleActivityTaskDecisionAttributes_heartbeatTimeout = Lens.lens (\ScheduleActivityTaskDecisionAttributes' {heartbeatTimeout} -> heartbeatTimeout) (\s@ScheduleActivityTaskDecisionAttributes' {} a -> s {heartbeatTimeout = a} :: ScheduleActivityTaskDecisionAttributes)
+
+-- | The input provided to the activity task.
+scheduleActivityTaskDecisionAttributes_input :: Lens.Lens' ScheduleActivityTaskDecisionAttributes (Prelude.Maybe Prelude.Text)
+scheduleActivityTaskDecisionAttributes_input = Lens.lens (\ScheduleActivityTaskDecisionAttributes' {input} -> input) (\s@ScheduleActivityTaskDecisionAttributes' {} a -> s {input = a} :: ScheduleActivityTaskDecisionAttributes)
+
+-- | The maximum duration for this activity task.
+--
+-- The duration is specified in seconds, an integer greater than or equal
+-- to @0@. You can use @NONE@ to specify unlimited duration.
+--
+-- A schedule-to-close timeout for this activity task must be specified
+-- either as a default for the activity type or through this field. If
+-- neither this field is set nor a default schedule-to-close timeout was
+-- specified at registration time then a fault is returned.
+scheduleActivityTaskDecisionAttributes_scheduleToCloseTimeout :: Lens.Lens' ScheduleActivityTaskDecisionAttributes (Prelude.Maybe Prelude.Text)
+scheduleActivityTaskDecisionAttributes_scheduleToCloseTimeout = Lens.lens (\ScheduleActivityTaskDecisionAttributes' {scheduleToCloseTimeout} -> scheduleToCloseTimeout) (\s@ScheduleActivityTaskDecisionAttributes' {} a -> s {scheduleToCloseTimeout = a} :: ScheduleActivityTaskDecisionAttributes)
 
 -- | If set, specifies the maximum duration the activity task can wait to be
 -- assigned to a worker. This overrides the default schedule-to-start
@@ -279,34 +314,19 @@ newScheduleActivityTaskDecisionAttributes
 scheduleActivityTaskDecisionAttributes_scheduleToStartTimeout :: Lens.Lens' ScheduleActivityTaskDecisionAttributes (Prelude.Maybe Prelude.Text)
 scheduleActivityTaskDecisionAttributes_scheduleToStartTimeout = Lens.lens (\ScheduleActivityTaskDecisionAttributes' {scheduleToStartTimeout} -> scheduleToStartTimeout) (\s@ScheduleActivityTaskDecisionAttributes' {} a -> s {scheduleToStartTimeout = a} :: ScheduleActivityTaskDecisionAttributes)
 
--- | The maximum duration for this activity task.
+-- | If set, specifies the maximum duration a worker may take to process this
+-- activity task. This overrides the default start-to-close timeout
+-- specified when registering the activity type using RegisterActivityType.
 --
 -- The duration is specified in seconds, an integer greater than or equal
 -- to @0@. You can use @NONE@ to specify unlimited duration.
 --
--- A schedule-to-close timeout for this activity task must be specified
--- either as a default for the activity type or through this field. If
--- neither this field is set nor a default schedule-to-close timeout was
--- specified at registration time then a fault is returned.
-scheduleActivityTaskDecisionAttributes_scheduleToCloseTimeout :: Lens.Lens' ScheduleActivityTaskDecisionAttributes (Prelude.Maybe Prelude.Text)
-scheduleActivityTaskDecisionAttributes_scheduleToCloseTimeout = Lens.lens (\ScheduleActivityTaskDecisionAttributes' {scheduleToCloseTimeout} -> scheduleToCloseTimeout) (\s@ScheduleActivityTaskDecisionAttributes' {} a -> s {scheduleToCloseTimeout = a} :: ScheduleActivityTaskDecisionAttributes)
-
--- | If set, specifies the priority with which the activity task is to be
--- assigned to a worker. This overrides the defaultTaskPriority specified
--- when registering the activity type using RegisterActivityType. Valid
--- values are integers that range from Java\'s @Integer.MIN_VALUE@
--- (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers
--- indicate higher priority.
---
--- For more information about setting task priority, see
--- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
--- in the /Amazon SWF Developer Guide/.
-scheduleActivityTaskDecisionAttributes_taskPriority :: Lens.Lens' ScheduleActivityTaskDecisionAttributes (Prelude.Maybe Prelude.Text)
-scheduleActivityTaskDecisionAttributes_taskPriority = Lens.lens (\ScheduleActivityTaskDecisionAttributes' {taskPriority} -> taskPriority) (\s@ScheduleActivityTaskDecisionAttributes' {} a -> s {taskPriority = a} :: ScheduleActivityTaskDecisionAttributes)
-
--- | The input provided to the activity task.
-scheduleActivityTaskDecisionAttributes_input :: Lens.Lens' ScheduleActivityTaskDecisionAttributes (Prelude.Maybe Prelude.Text)
-scheduleActivityTaskDecisionAttributes_input = Lens.lens (\ScheduleActivityTaskDecisionAttributes' {input} -> input) (\s@ScheduleActivityTaskDecisionAttributes' {} a -> s {input = a} :: ScheduleActivityTaskDecisionAttributes)
+-- A start-to-close timeout for this activity task must be specified either
+-- as a default for the activity type or through this field. If neither
+-- this field is set nor a default start-to-close timeout was specified at
+-- registration time then a fault is returned.
+scheduleActivityTaskDecisionAttributes_startToCloseTimeout :: Lens.Lens' ScheduleActivityTaskDecisionAttributes (Prelude.Maybe Prelude.Text)
+scheduleActivityTaskDecisionAttributes_startToCloseTimeout = Lens.lens (\ScheduleActivityTaskDecisionAttributes' {startToCloseTimeout} -> startToCloseTimeout) (\s@ScheduleActivityTaskDecisionAttributes' {} a -> s {startToCloseTimeout = a} :: ScheduleActivityTaskDecisionAttributes)
 
 -- | If set, specifies the name of the task list in which to schedule the
 -- activity task. If not specified, the @defaultTaskList@ registered with
@@ -324,37 +344,18 @@ scheduleActivityTaskDecisionAttributes_input = Lens.lens (\ScheduleActivityTaskD
 scheduleActivityTaskDecisionAttributes_taskList :: Lens.Lens' ScheduleActivityTaskDecisionAttributes (Prelude.Maybe TaskList)
 scheduleActivityTaskDecisionAttributes_taskList = Lens.lens (\ScheduleActivityTaskDecisionAttributes' {taskList} -> taskList) (\s@ScheduleActivityTaskDecisionAttributes' {} a -> s {taskList = a} :: ScheduleActivityTaskDecisionAttributes)
 
--- | If set, specifies the maximum duration a worker may take to process this
--- activity task. This overrides the default start-to-close timeout
--- specified when registering the activity type using RegisterActivityType.
+-- | If set, specifies the priority with which the activity task is to be
+-- assigned to a worker. This overrides the defaultTaskPriority specified
+-- when registering the activity type using RegisterActivityType. Valid
+-- values are integers that range from Java\'s @Integer.MIN_VALUE@
+-- (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers
+-- indicate higher priority.
 --
--- The duration is specified in seconds, an integer greater than or equal
--- to @0@. You can use @NONE@ to specify unlimited duration.
---
--- A start-to-close timeout for this activity task must be specified either
--- as a default for the activity type or through this field. If neither
--- this field is set nor a default start-to-close timeout was specified at
--- registration time then a fault is returned.
-scheduleActivityTaskDecisionAttributes_startToCloseTimeout :: Lens.Lens' ScheduleActivityTaskDecisionAttributes (Prelude.Maybe Prelude.Text)
-scheduleActivityTaskDecisionAttributes_startToCloseTimeout = Lens.lens (\ScheduleActivityTaskDecisionAttributes' {startToCloseTimeout} -> startToCloseTimeout) (\s@ScheduleActivityTaskDecisionAttributes' {} a -> s {startToCloseTimeout = a} :: ScheduleActivityTaskDecisionAttributes)
-
--- | If set, specifies the maximum time before which a worker processing a
--- task of this type must report progress by calling
--- RecordActivityTaskHeartbeat. If the timeout is exceeded, the activity
--- task is automatically timed out. If the worker subsequently attempts to
--- record a heartbeat or returns a result, it is ignored. This overrides
--- the default heartbeat timeout specified when registering the activity
--- type using RegisterActivityType.
---
--- The duration is specified in seconds, an integer greater than or equal
--- to @0@. You can use @NONE@ to specify unlimited duration.
-scheduleActivityTaskDecisionAttributes_heartbeatTimeout :: Lens.Lens' ScheduleActivityTaskDecisionAttributes (Prelude.Maybe Prelude.Text)
-scheduleActivityTaskDecisionAttributes_heartbeatTimeout = Lens.lens (\ScheduleActivityTaskDecisionAttributes' {heartbeatTimeout} -> heartbeatTimeout) (\s@ScheduleActivityTaskDecisionAttributes' {} a -> s {heartbeatTimeout = a} :: ScheduleActivityTaskDecisionAttributes)
-
--- | Data attached to the event that can be used by the decider in subsequent
--- workflow tasks. This data isn\'t sent to the activity.
-scheduleActivityTaskDecisionAttributes_control :: Lens.Lens' ScheduleActivityTaskDecisionAttributes (Prelude.Maybe Prelude.Text)
-scheduleActivityTaskDecisionAttributes_control = Lens.lens (\ScheduleActivityTaskDecisionAttributes' {control} -> control) (\s@ScheduleActivityTaskDecisionAttributes' {} a -> s {control = a} :: ScheduleActivityTaskDecisionAttributes)
+-- For more information about setting task priority, see
+-- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
+-- in the /Amazon SWF Developer Guide/.
+scheduleActivityTaskDecisionAttributes_taskPriority :: Lens.Lens' ScheduleActivityTaskDecisionAttributes (Prelude.Maybe Prelude.Text)
+scheduleActivityTaskDecisionAttributes_taskPriority = Lens.lens (\ScheduleActivityTaskDecisionAttributes' {taskPriority} -> taskPriority) (\s@ScheduleActivityTaskDecisionAttributes' {} a -> s {taskPriority = a} :: ScheduleActivityTaskDecisionAttributes)
 
 -- | The type of the activity task to schedule.
 scheduleActivityTaskDecisionAttributes_activityType :: Lens.Lens' ScheduleActivityTaskDecisionAttributes ActivityType
@@ -376,14 +377,14 @@ instance
   hashWithSalt
     _salt
     ScheduleActivityTaskDecisionAttributes' {..} =
-      _salt `Prelude.hashWithSalt` scheduleToStartTimeout
-        `Prelude.hashWithSalt` scheduleToCloseTimeout
-        `Prelude.hashWithSalt` taskPriority
-        `Prelude.hashWithSalt` input
-        `Prelude.hashWithSalt` taskList
-        `Prelude.hashWithSalt` startToCloseTimeout
+      _salt `Prelude.hashWithSalt` control
         `Prelude.hashWithSalt` heartbeatTimeout
-        `Prelude.hashWithSalt` control
+        `Prelude.hashWithSalt` input
+        `Prelude.hashWithSalt` scheduleToCloseTimeout
+        `Prelude.hashWithSalt` scheduleToStartTimeout
+        `Prelude.hashWithSalt` startToCloseTimeout
+        `Prelude.hashWithSalt` taskList
+        `Prelude.hashWithSalt` taskPriority
         `Prelude.hashWithSalt` activityType
         `Prelude.hashWithSalt` activityId
 
@@ -392,14 +393,14 @@ instance
     ScheduleActivityTaskDecisionAttributes
   where
   rnf ScheduleActivityTaskDecisionAttributes' {..} =
-    Prelude.rnf scheduleToStartTimeout
-      `Prelude.seq` Prelude.rnf scheduleToCloseTimeout
-      `Prelude.seq` Prelude.rnf taskPriority
-      `Prelude.seq` Prelude.rnf input
-      `Prelude.seq` Prelude.rnf taskList
-      `Prelude.seq` Prelude.rnf startToCloseTimeout
+    Prelude.rnf control
       `Prelude.seq` Prelude.rnf heartbeatTimeout
-      `Prelude.seq` Prelude.rnf control
+      `Prelude.seq` Prelude.rnf input
+      `Prelude.seq` Prelude.rnf scheduleToCloseTimeout
+      `Prelude.seq` Prelude.rnf scheduleToStartTimeout
+      `Prelude.seq` Prelude.rnf startToCloseTimeout
+      `Prelude.seq` Prelude.rnf taskList
+      `Prelude.seq` Prelude.rnf taskPriority
       `Prelude.seq` Prelude.rnf activityType
       `Prelude.seq` Prelude.rnf activityId
 
@@ -410,18 +411,18 @@ instance
   toJSON ScheduleActivityTaskDecisionAttributes' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("scheduleToStartTimeout" Data..=)
-              Prelude.<$> scheduleToStartTimeout,
-            ("scheduleToCloseTimeout" Data..=)
-              Prelude.<$> scheduleToCloseTimeout,
-            ("taskPriority" Data..=) Prelude.<$> taskPriority,
-            ("input" Data..=) Prelude.<$> input,
-            ("taskList" Data..=) Prelude.<$> taskList,
-            ("startToCloseTimeout" Data..=)
-              Prelude.<$> startToCloseTimeout,
+          [ ("control" Data..=) Prelude.<$> control,
             ("heartbeatTimeout" Data..=)
               Prelude.<$> heartbeatTimeout,
-            ("control" Data..=) Prelude.<$> control,
+            ("input" Data..=) Prelude.<$> input,
+            ("scheduleToCloseTimeout" Data..=)
+              Prelude.<$> scheduleToCloseTimeout,
+            ("scheduleToStartTimeout" Data..=)
+              Prelude.<$> scheduleToStartTimeout,
+            ("startToCloseTimeout" Data..=)
+              Prelude.<$> startToCloseTimeout,
+            ("taskList" Data..=) Prelude.<$> taskList,
+            ("taskPriority" Data..=) Prelude.<$> taskPriority,
             Prelude.Just ("activityType" Data..= activityType),
             Prelude.Just ("activityId" Data..= activityId)
           ]

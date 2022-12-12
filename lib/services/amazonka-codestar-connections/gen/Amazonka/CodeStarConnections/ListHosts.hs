@@ -27,16 +27,16 @@ module Amazonka.CodeStarConnections.ListHosts
     newListHosts,
 
     -- * Request Lenses
-    listHosts_nextToken,
     listHosts_maxResults,
+    listHosts_nextToken,
 
     -- * Destructuring the Response
     ListHostsResponse (..),
     newListHostsResponse,
 
     -- * Response Lenses
-    listHostsResponse_nextToken,
     listHostsResponse_hosts,
+    listHostsResponse_nextToken,
     listHostsResponse_httpStatus,
   )
 where
@@ -51,13 +51,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListHosts' smart constructor.
 data ListHosts = ListHosts'
-  { -- | The token that was returned from the previous @ListHosts@ call, which
-    -- can be used to return the next set of hosts in the list.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in a single call. To retrieve
+  { -- | The maximum number of results to return in a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token that was returned from the previous @ListHosts@ call, which
+    -- can be used to return the next set of hosts in the list.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,30 +69,30 @@ data ListHosts = ListHosts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listHosts_nextToken' - The token that was returned from the previous @ListHosts@ call, which
--- can be used to return the next set of hosts in the list.
---
 -- 'maxResults', 'listHosts_maxResults' - The maximum number of results to return in a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
+--
+-- 'nextToken', 'listHosts_nextToken' - The token that was returned from the previous @ListHosts@ call, which
+-- can be used to return the next set of hosts in the list.
 newListHosts ::
   ListHosts
 newListHosts =
   ListHosts'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token that was returned from the previous @ListHosts@ call, which
--- can be used to return the next set of hosts in the list.
-listHosts_nextToken :: Lens.Lens' ListHosts (Prelude.Maybe Prelude.Text)
-listHosts_nextToken = Lens.lens (\ListHosts' {nextToken} -> nextToken) (\s@ListHosts' {} a -> s {nextToken = a} :: ListHosts)
 
 -- | The maximum number of results to return in a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
 listHosts_maxResults :: Lens.Lens' ListHosts (Prelude.Maybe Prelude.Natural)
 listHosts_maxResults = Lens.lens (\ListHosts' {maxResults} -> maxResults) (\s@ListHosts' {} a -> s {maxResults = a} :: ListHosts)
+
+-- | The token that was returned from the previous @ListHosts@ call, which
+-- can be used to return the next set of hosts in the list.
+listHosts_nextToken :: Lens.Lens' ListHosts (Prelude.Maybe Prelude.Text)
+listHosts_nextToken = Lens.lens (\ListHosts' {nextToken} -> nextToken) (\s@ListHosts' {} a -> s {nextToken = a} :: ListHosts)
 
 instance Core.AWSRequest ListHosts where
   type AWSResponse ListHosts = ListHostsResponse
@@ -102,20 +102,20 @@ instance Core.AWSRequest ListHosts where
     Response.receiveJSON
       ( \s h x ->
           ListHostsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Hosts" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Hosts" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListHosts where
   hashWithSalt _salt ListHosts' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListHosts where
   rnf ListHosts' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListHosts where
   toHeaders =
@@ -136,8 +136,8 @@ instance Data.ToJSON ListHosts where
   toJSON ListHosts' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -149,13 +149,13 @@ instance Data.ToQuery ListHosts where
 
 -- | /See:/ 'newListHostsResponse' smart constructor.
 data ListHostsResponse = ListHostsResponse'
-  { -- | A token that can be used in the next @ListHosts@ call. To view all items
+  { -- | A list of hosts and the details for each host, such as status, endpoint,
+    -- and provider type.
+    hosts :: Prelude.Maybe [Host],
+    -- | A token that can be used in the next @ListHosts@ call. To view all items
     -- in the list, continue to call this operation with each subsequent token
     -- until no more @nextToken@ values are returned.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of hosts and the details for each host, such as status, endpoint,
-    -- and provider type.
-    hosts :: Prelude.Maybe [Host],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -169,12 +169,12 @@ data ListHostsResponse = ListHostsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'hosts', 'listHostsResponse_hosts' - A list of hosts and the details for each host, such as status, endpoint,
+-- and provider type.
+--
 -- 'nextToken', 'listHostsResponse_nextToken' - A token that can be used in the next @ListHosts@ call. To view all items
 -- in the list, continue to call this operation with each subsequent token
 -- until no more @nextToken@ values are returned.
---
--- 'hosts', 'listHostsResponse_hosts' - A list of hosts and the details for each host, such as status, endpoint,
--- and provider type.
 --
 -- 'httpStatus', 'listHostsResponse_httpStatus' - The response's http status code.
 newListHostsResponse ::
@@ -183,10 +183,15 @@ newListHostsResponse ::
   ListHostsResponse
 newListHostsResponse pHttpStatus_ =
   ListHostsResponse'
-    { nextToken = Prelude.Nothing,
-      hosts = Prelude.Nothing,
+    { hosts = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of hosts and the details for each host, such as status, endpoint,
+-- and provider type.
+listHostsResponse_hosts :: Lens.Lens' ListHostsResponse (Prelude.Maybe [Host])
+listHostsResponse_hosts = Lens.lens (\ListHostsResponse' {hosts} -> hosts) (\s@ListHostsResponse' {} a -> s {hosts = a} :: ListHostsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that can be used in the next @ListHosts@ call. To view all items
 -- in the list, continue to call this operation with each subsequent token
@@ -194,17 +199,12 @@ newListHostsResponse pHttpStatus_ =
 listHostsResponse_nextToken :: Lens.Lens' ListHostsResponse (Prelude.Maybe Prelude.Text)
 listHostsResponse_nextToken = Lens.lens (\ListHostsResponse' {nextToken} -> nextToken) (\s@ListHostsResponse' {} a -> s {nextToken = a} :: ListHostsResponse)
 
--- | A list of hosts and the details for each host, such as status, endpoint,
--- and provider type.
-listHostsResponse_hosts :: Lens.Lens' ListHostsResponse (Prelude.Maybe [Host])
-listHostsResponse_hosts = Lens.lens (\ListHostsResponse' {hosts} -> hosts) (\s@ListHostsResponse' {} a -> s {hosts = a} :: ListHostsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listHostsResponse_httpStatus :: Lens.Lens' ListHostsResponse Prelude.Int
 listHostsResponse_httpStatus = Lens.lens (\ListHostsResponse' {httpStatus} -> httpStatus) (\s@ListHostsResponse' {} a -> s {httpStatus = a} :: ListHostsResponse)
 
 instance Prelude.NFData ListHostsResponse where
   rnf ListHostsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf hosts
+    Prelude.rnf hosts
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

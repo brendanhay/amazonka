@@ -28,18 +28,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGroup' smart constructor.
 data Group = Group'
-  { -- | The list of key-value pairs that are associated with the canary.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The name of the group.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | The ARN of the group.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the group was created.
     createdTime :: Prelude.Maybe Data.POSIX,
-    -- | The ARN of the group.
-    arn :: Prelude.Maybe Prelude.Text,
     -- | The unique ID of the group.
     id :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the group was most recently updated.
-    lastModifiedTime :: Prelude.Maybe Data.POSIX
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
+    -- | The name of the group.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The list of key-value pairs that are associated with the canary.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,44 +51,36 @@ data Group = Group'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'group_tags' - The list of key-value pairs that are associated with the canary.
---
--- 'name', 'group_name' - The name of the group.
+-- 'arn', 'group_arn' - The ARN of the group.
 --
 -- 'createdTime', 'group_createdTime' - The date and time that the group was created.
---
--- 'arn', 'group_arn' - The ARN of the group.
 --
 -- 'id', 'group_id' - The unique ID of the group.
 --
 -- 'lastModifiedTime', 'group_lastModifiedTime' - The date and time that the group was most recently updated.
+--
+-- 'name', 'group_name' - The name of the group.
+--
+-- 'tags', 'group_tags' - The list of key-value pairs that are associated with the canary.
 newGroup ::
   Group
 newGroup =
   Group'
-    { tags = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       createdTime = Prelude.Nothing,
-      arn = Prelude.Nothing,
       id = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing
+      lastModifiedTime = Prelude.Nothing,
+      name = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
-
--- | The list of key-value pairs that are associated with the canary.
-group_tags :: Lens.Lens' Group (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-group_tags = Lens.lens (\Group' {tags} -> tags) (\s@Group' {} a -> s {tags = a} :: Group) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the group.
-group_name :: Lens.Lens' Group (Prelude.Maybe Prelude.Text)
-group_name = Lens.lens (\Group' {name} -> name) (\s@Group' {} a -> s {name = a} :: Group)
-
--- | The date and time that the group was created.
-group_createdTime :: Lens.Lens' Group (Prelude.Maybe Prelude.UTCTime)
-group_createdTime = Lens.lens (\Group' {createdTime} -> createdTime) (\s@Group' {} a -> s {createdTime = a} :: Group) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the group.
 group_arn :: Lens.Lens' Group (Prelude.Maybe Prelude.Text)
 group_arn = Lens.lens (\Group' {arn} -> arn) (\s@Group' {} a -> s {arn = a} :: Group)
+
+-- | The date and time that the group was created.
+group_createdTime :: Lens.Lens' Group (Prelude.Maybe Prelude.UTCTime)
+group_createdTime = Lens.lens (\Group' {createdTime} -> createdTime) (\s@Group' {} a -> s {createdTime = a} :: Group) Prelude.. Lens.mapping Data._Time
 
 -- | The unique ID of the group.
 group_id :: Lens.Lens' Group (Prelude.Maybe Prelude.Text)
@@ -98,34 +90,42 @@ group_id = Lens.lens (\Group' {id} -> id) (\s@Group' {} a -> s {id = a} :: Group
 group_lastModifiedTime :: Lens.Lens' Group (Prelude.Maybe Prelude.UTCTime)
 group_lastModifiedTime = Lens.lens (\Group' {lastModifiedTime} -> lastModifiedTime) (\s@Group' {} a -> s {lastModifiedTime = a} :: Group) Prelude.. Lens.mapping Data._Time
 
+-- | The name of the group.
+group_name :: Lens.Lens' Group (Prelude.Maybe Prelude.Text)
+group_name = Lens.lens (\Group' {name} -> name) (\s@Group' {} a -> s {name = a} :: Group)
+
+-- | The list of key-value pairs that are associated with the canary.
+group_tags :: Lens.Lens' Group (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+group_tags = Lens.lens (\Group' {tags} -> tags) (\s@Group' {} a -> s {tags = a} :: Group) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON Group where
   parseJSON =
     Data.withObject
       "Group"
       ( \x ->
           Group'
-            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "Name")
+            Prelude.<$> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "CreatedTime")
-            Prelude.<*> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "Id")
             Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Group where
   hashWithSalt _salt Group' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
-      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData Group where
   rnf Group' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags

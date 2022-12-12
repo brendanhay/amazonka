@@ -32,8 +32,8 @@ module Amazonka.SecurityHub.UpdateFindings
     newUpdateFindings,
 
     -- * Request Lenses
-    updateFindings_recordState,
     updateFindings_note,
+    updateFindings_recordState,
     updateFindings_filters,
 
     -- * Destructuring the Response
@@ -55,10 +55,10 @@ import Amazonka.SecurityHub.Types
 
 -- | /See:/ 'newUpdateFindings' smart constructor.
 data UpdateFindings = UpdateFindings'
-  { -- | The updated record state for the finding.
-    recordState :: Prelude.Maybe RecordState,
-    -- | The updated note for the finding.
+  { -- | The updated note for the finding.
     note :: Prelude.Maybe NoteUpdate,
+    -- | The updated record state for the finding.
+    recordState :: Prelude.Maybe RecordState,
     -- | A collection of attributes that specify which findings you want to
     -- update.
     filters :: AwsSecurityFindingFilters
@@ -73,9 +73,9 @@ data UpdateFindings = UpdateFindings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'recordState', 'updateFindings_recordState' - The updated record state for the finding.
---
 -- 'note', 'updateFindings_note' - The updated note for the finding.
+--
+-- 'recordState', 'updateFindings_recordState' - The updated record state for the finding.
 --
 -- 'filters', 'updateFindings_filters' - A collection of attributes that specify which findings you want to
 -- update.
@@ -85,18 +85,18 @@ newUpdateFindings ::
   UpdateFindings
 newUpdateFindings pFilters_ =
   UpdateFindings'
-    { recordState = Prelude.Nothing,
-      note = Prelude.Nothing,
+    { note = Prelude.Nothing,
+      recordState = Prelude.Nothing,
       filters = pFilters_
     }
-
--- | The updated record state for the finding.
-updateFindings_recordState :: Lens.Lens' UpdateFindings (Prelude.Maybe RecordState)
-updateFindings_recordState = Lens.lens (\UpdateFindings' {recordState} -> recordState) (\s@UpdateFindings' {} a -> s {recordState = a} :: UpdateFindings)
 
 -- | The updated note for the finding.
 updateFindings_note :: Lens.Lens' UpdateFindings (Prelude.Maybe NoteUpdate)
 updateFindings_note = Lens.lens (\UpdateFindings' {note} -> note) (\s@UpdateFindings' {} a -> s {note = a} :: UpdateFindings)
+
+-- | The updated record state for the finding.
+updateFindings_recordState :: Lens.Lens' UpdateFindings (Prelude.Maybe RecordState)
+updateFindings_recordState = Lens.lens (\UpdateFindings' {recordState} -> recordState) (\s@UpdateFindings' {} a -> s {recordState = a} :: UpdateFindings)
 
 -- | A collection of attributes that specify which findings you want to
 -- update.
@@ -118,14 +118,14 @@ instance Core.AWSRequest UpdateFindings where
 
 instance Prelude.Hashable UpdateFindings where
   hashWithSalt _salt UpdateFindings' {..} =
-    _salt `Prelude.hashWithSalt` recordState
-      `Prelude.hashWithSalt` note
+    _salt `Prelude.hashWithSalt` note
+      `Prelude.hashWithSalt` recordState
       `Prelude.hashWithSalt` filters
 
 instance Prelude.NFData UpdateFindings where
   rnf UpdateFindings' {..} =
-    Prelude.rnf recordState
-      `Prelude.seq` Prelude.rnf note
+    Prelude.rnf note
+      `Prelude.seq` Prelude.rnf recordState
       `Prelude.seq` Prelude.rnf filters
 
 instance Data.ToHeaders UpdateFindings where
@@ -143,8 +143,8 @@ instance Data.ToJSON UpdateFindings where
   toJSON UpdateFindings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("RecordState" Data..=) Prelude.<$> recordState,
-            ("Note" Data..=) Prelude.<$> note,
+          [ ("Note" Data..=) Prelude.<$> note,
+            ("RecordState" Data..=) Prelude.<$> recordState,
             Prelude.Just ("Filters" Data..= filters)
           ]
       )

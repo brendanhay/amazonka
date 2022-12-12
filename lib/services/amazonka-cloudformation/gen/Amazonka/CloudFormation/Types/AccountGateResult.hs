@@ -43,10 +43,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAccountGateResult' smart constructor.
 data AccountGateResult = AccountGateResult'
-  { -- | The reason for the account gate status assigned to this account and
-    -- Region for the stack set operation.
-    statusReason :: Prelude.Maybe Prelude.Text,
-    -- | The status of the account gate function.
+  { -- | The status of the account gate function.
     --
     -- -   @SUCCEEDED@: The account gate function has determined that the
     --     account and Region passes any requirements for a stack set operation
@@ -75,7 +72,10 @@ data AccountGateResult = AccountGateResult'
     --     -   Either no action is necessary, or no action is possible, on the
     --         stack. CloudFormation skips the stack set operation in this
     --         account and Region.
-    status :: Prelude.Maybe AccountGateStatus
+    status :: Prelude.Maybe AccountGateStatus,
+    -- | The reason for the account gate status assigned to this account and
+    -- Region for the stack set operation.
+    statusReason :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -86,9 +86,6 @@ data AccountGateResult = AccountGateResult'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'statusReason', 'accountGateResult_statusReason' - The reason for the account gate status assigned to this account and
--- Region for the stack set operation.
 --
 -- 'status', 'accountGateResult_status' - The status of the account gate function.
 --
@@ -119,18 +116,16 @@ data AccountGateResult = AccountGateResult'
 --     -   Either no action is necessary, or no action is possible, on the
 --         stack. CloudFormation skips the stack set operation in this
 --         account and Region.
+--
+-- 'statusReason', 'accountGateResult_statusReason' - The reason for the account gate status assigned to this account and
+-- Region for the stack set operation.
 newAccountGateResult ::
   AccountGateResult
 newAccountGateResult =
   AccountGateResult'
-    { statusReason = Prelude.Nothing,
-      status = Prelude.Nothing
+    { status = Prelude.Nothing,
+      statusReason = Prelude.Nothing
     }
-
--- | The reason for the account gate status assigned to this account and
--- Region for the stack set operation.
-accountGateResult_statusReason :: Lens.Lens' AccountGateResult (Prelude.Maybe Prelude.Text)
-accountGateResult_statusReason = Lens.lens (\AccountGateResult' {statusReason} -> statusReason) (\s@AccountGateResult' {} a -> s {statusReason = a} :: AccountGateResult)
 
 -- | The status of the account gate function.
 --
@@ -164,18 +159,23 @@ accountGateResult_statusReason = Lens.lens (\AccountGateResult' {statusReason} -
 accountGateResult_status :: Lens.Lens' AccountGateResult (Prelude.Maybe AccountGateStatus)
 accountGateResult_status = Lens.lens (\AccountGateResult' {status} -> status) (\s@AccountGateResult' {} a -> s {status = a} :: AccountGateResult)
 
+-- | The reason for the account gate status assigned to this account and
+-- Region for the stack set operation.
+accountGateResult_statusReason :: Lens.Lens' AccountGateResult (Prelude.Maybe Prelude.Text)
+accountGateResult_statusReason = Lens.lens (\AccountGateResult' {statusReason} -> statusReason) (\s@AccountGateResult' {} a -> s {statusReason = a} :: AccountGateResult)
+
 instance Data.FromXML AccountGateResult where
   parseXML x =
     AccountGateResult'
-      Prelude.<$> (x Data..@? "StatusReason")
-      Prelude.<*> (x Data..@? "Status")
+      Prelude.<$> (x Data..@? "Status")
+      Prelude.<*> (x Data..@? "StatusReason")
 
 instance Prelude.Hashable AccountGateResult where
   hashWithSalt _salt AccountGateResult' {..} =
-    _salt `Prelude.hashWithSalt` statusReason
-      `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` statusReason
 
 instance Prelude.NFData AccountGateResult where
   rnf AccountGateResult' {..} =
-    Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf status
+      `Prelude.seq` Prelude.rnf statusReason

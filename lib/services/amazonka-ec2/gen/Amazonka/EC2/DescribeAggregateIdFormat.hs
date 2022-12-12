@@ -51,8 +51,8 @@ module Amazonka.EC2.DescribeAggregateIdFormat
     newDescribeAggregateIdFormatResponse,
 
     -- * Response Lenses
-    describeAggregateIdFormatResponse_useLongIdsAggregated,
     describeAggregateIdFormatResponse_statuses,
+    describeAggregateIdFormatResponse_useLongIdsAggregated,
     describeAggregateIdFormatResponse_httpStatus,
   )
 where
@@ -112,10 +112,10 @@ instance Core.AWSRequest DescribeAggregateIdFormat where
     Response.receiveXML
       ( \s h x ->
           DescribeAggregateIdFormatResponse'
-            Prelude.<$> (x Data..@? "useLongIdsAggregated")
-            Prelude.<*> ( x Data..@? "statusSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "statusSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
+            Prelude.<*> (x Data..@? "useLongIdsAggregated")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,12 +145,12 @@ instance Data.ToQuery DescribeAggregateIdFormat where
 
 -- | /See:/ 'newDescribeAggregateIdFormatResponse' smart constructor.
 data DescribeAggregateIdFormatResponse = DescribeAggregateIdFormatResponse'
-  { -- | Indicates whether all resource types in the Region are configured to use
+  { -- | Information about each resource\'s ID format.
+    statuses :: Prelude.Maybe [IdFormat],
+    -- | Indicates whether all resource types in the Region are configured to use
     -- longer IDs. This value is only @true@ if all users are configured to use
     -- longer IDs for all resources types in the Region.
     useLongIdsAggregated :: Prelude.Maybe Prelude.Bool,
-    -- | Information about each resource\'s ID format.
-    statuses :: Prelude.Maybe [IdFormat],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -164,11 +164,11 @@ data DescribeAggregateIdFormatResponse = DescribeAggregateIdFormatResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'statuses', 'describeAggregateIdFormatResponse_statuses' - Information about each resource\'s ID format.
+--
 -- 'useLongIdsAggregated', 'describeAggregateIdFormatResponse_useLongIdsAggregated' - Indicates whether all resource types in the Region are configured to use
 -- longer IDs. This value is only @true@ if all users are configured to use
 -- longer IDs for all resources types in the Region.
---
--- 'statuses', 'describeAggregateIdFormatResponse_statuses' - Information about each resource\'s ID format.
 --
 -- 'httpStatus', 'describeAggregateIdFormatResponse_httpStatus' - The response's http status code.
 newDescribeAggregateIdFormatResponse ::
@@ -177,21 +177,21 @@ newDescribeAggregateIdFormatResponse ::
   DescribeAggregateIdFormatResponse
 newDescribeAggregateIdFormatResponse pHttpStatus_ =
   DescribeAggregateIdFormatResponse'
-    { useLongIdsAggregated =
+    { statuses =
         Prelude.Nothing,
-      statuses = Prelude.Nothing,
+      useLongIdsAggregated = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about each resource\'s ID format.
+describeAggregateIdFormatResponse_statuses :: Lens.Lens' DescribeAggregateIdFormatResponse (Prelude.Maybe [IdFormat])
+describeAggregateIdFormatResponse_statuses = Lens.lens (\DescribeAggregateIdFormatResponse' {statuses} -> statuses) (\s@DescribeAggregateIdFormatResponse' {} a -> s {statuses = a} :: DescribeAggregateIdFormatResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Indicates whether all resource types in the Region are configured to use
 -- longer IDs. This value is only @true@ if all users are configured to use
 -- longer IDs for all resources types in the Region.
 describeAggregateIdFormatResponse_useLongIdsAggregated :: Lens.Lens' DescribeAggregateIdFormatResponse (Prelude.Maybe Prelude.Bool)
 describeAggregateIdFormatResponse_useLongIdsAggregated = Lens.lens (\DescribeAggregateIdFormatResponse' {useLongIdsAggregated} -> useLongIdsAggregated) (\s@DescribeAggregateIdFormatResponse' {} a -> s {useLongIdsAggregated = a} :: DescribeAggregateIdFormatResponse)
-
--- | Information about each resource\'s ID format.
-describeAggregateIdFormatResponse_statuses :: Lens.Lens' DescribeAggregateIdFormatResponse (Prelude.Maybe [IdFormat])
-describeAggregateIdFormatResponse_statuses = Lens.lens (\DescribeAggregateIdFormatResponse' {statuses} -> statuses) (\s@DescribeAggregateIdFormatResponse' {} a -> s {statuses = a} :: DescribeAggregateIdFormatResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeAggregateIdFormatResponse_httpStatus :: Lens.Lens' DescribeAggregateIdFormatResponse Prelude.Int
@@ -202,6 +202,6 @@ instance
     DescribeAggregateIdFormatResponse
   where
   rnf DescribeAggregateIdFormatResponse' {..} =
-    Prelude.rnf useLongIdsAggregated
-      `Prelude.seq` Prelude.rnf statuses
+    Prelude.rnf statuses
+      `Prelude.seq` Prelude.rnf useLongIdsAggregated
       `Prelude.seq` Prelude.rnf httpStatus

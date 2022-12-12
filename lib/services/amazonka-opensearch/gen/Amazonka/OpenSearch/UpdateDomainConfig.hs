@@ -28,20 +28,20 @@ module Amazonka.OpenSearch.UpdateDomainConfig
     newUpdateDomainConfig,
 
     -- * Request Lenses
-    updateDomainConfig_nodeToNodeEncryptionOptions,
-    updateDomainConfig_clusterConfig,
+    updateDomainConfig_accessPolicies,
     updateDomainConfig_advancedOptions,
     updateDomainConfig_advancedSecurityOptions,
+    updateDomainConfig_autoTuneOptions,
+    updateDomainConfig_clusterConfig,
     updateDomainConfig_cognitoOptions,
-    updateDomainConfig_encryptionAtRestOptions,
+    updateDomainConfig_domainEndpointOptions,
     updateDomainConfig_dryRun,
     updateDomainConfig_eBSOptions,
-    updateDomainConfig_accessPolicies,
-    updateDomainConfig_vPCOptions,
-    updateDomainConfig_autoTuneOptions,
-    updateDomainConfig_domainEndpointOptions,
-    updateDomainConfig_snapshotOptions,
+    updateDomainConfig_encryptionAtRestOptions,
     updateDomainConfig_logPublishingOptions,
+    updateDomainConfig_nodeToNodeEncryptionOptions,
+    updateDomainConfig_snapshotOptions,
+    updateDomainConfig_vPCOptions,
     updateDomainConfig_domainName,
 
     -- * Destructuring the Response
@@ -67,11 +67,9 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateDomainConfig' smart constructor.
 data UpdateDomainConfig = UpdateDomainConfig'
-  { -- | Node-To-Node Encryption options for the domain.
-    nodeToNodeEncryptionOptions :: Prelude.Maybe NodeToNodeEncryptionOptions,
-    -- | Changes that you want to make to the cluster configuration, such as the
-    -- instance type and number of EC2 instances.
-    clusterConfig :: Prelude.Maybe ClusterConfig,
+  { -- | Identity and Access Management (IAM) access policy as a JSON-formatted
+    -- string.
+    accessPolicies :: Prelude.Maybe Prelude.Text,
     -- | Key-value pairs to specify advanced configuration options. The following
     -- key-value pairs are supported:
     --
@@ -103,11 +101,17 @@ data UpdateDomainConfig = UpdateDomainConfig'
     advancedOptions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Options for fine-grained access control.
     advancedSecurityOptions :: Prelude.Maybe AdvancedSecurityOptionsInput,
+    -- | Options for Auto-Tune.
+    autoTuneOptions :: Prelude.Maybe AutoTuneOptions,
+    -- | Changes that you want to make to the cluster configuration, such as the
+    -- instance type and number of EC2 instances.
+    clusterConfig :: Prelude.Maybe ClusterConfig,
     -- | Key-value pairs to configure Amazon Cognito authentication for
     -- OpenSearch Dashboards.
     cognitoOptions :: Prelude.Maybe CognitoOptions,
-    -- | Encryption at rest options for the domain.
-    encryptionAtRestOptions :: Prelude.Maybe EncryptionAtRestOptions,
+    -- | Additional options for the domain endpoint, such as whether to require
+    -- HTTPS for all traffic.
+    domainEndpointOptions :: Prelude.Maybe DomainEndpointOptions,
     -- | This flag, when set to True, specifies whether the @UpdateDomain@
     -- request should return the results of validation check without actually
     -- applying the change.
@@ -115,23 +119,19 @@ data UpdateDomainConfig = UpdateDomainConfig'
     -- | The type and size of the EBS volume to attach to instances in the
     -- domain.
     eBSOptions :: Prelude.Maybe EBSOptions,
-    -- | Identity and Access Management (IAM) access policy as a JSON-formatted
-    -- string.
-    accessPolicies :: Prelude.Maybe Prelude.Text,
+    -- | Encryption at rest options for the domain.
+    encryptionAtRestOptions :: Prelude.Maybe EncryptionAtRestOptions,
+    -- | Options to publish OpenSearch lots to Amazon CloudWatch Logs.
+    logPublishingOptions :: Prelude.Maybe (Prelude.HashMap LogType LogPublishingOption),
+    -- | Node-To-Node Encryption options for the domain.
+    nodeToNodeEncryptionOptions :: Prelude.Maybe NodeToNodeEncryptionOptions,
+    -- | Option to set the time, in UTC format, for the daily automated snapshot.
+    -- Default value is @0@ hours.
+    snapshotOptions :: Prelude.Maybe SnapshotOptions,
     -- | Options to specify the subnets and security groups for a VPC endpoint.
     -- For more information, see
     -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html Launching your Amazon OpenSearch Service domains using a VPC>.
     vPCOptions :: Prelude.Maybe VPCOptions,
-    -- | Options for Auto-Tune.
-    autoTuneOptions :: Prelude.Maybe AutoTuneOptions,
-    -- | Additional options for the domain endpoint, such as whether to require
-    -- HTTPS for all traffic.
-    domainEndpointOptions :: Prelude.Maybe DomainEndpointOptions,
-    -- | Option to set the time, in UTC format, for the daily automated snapshot.
-    -- Default value is @0@ hours.
-    snapshotOptions :: Prelude.Maybe SnapshotOptions,
-    -- | Options to publish OpenSearch lots to Amazon CloudWatch Logs.
-    logPublishingOptions :: Prelude.Maybe (Prelude.HashMap LogType LogPublishingOption),
     -- | The name of the domain that you\'re updating.
     domainName :: Prelude.Text
   }
@@ -145,10 +145,8 @@ data UpdateDomainConfig = UpdateDomainConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nodeToNodeEncryptionOptions', 'updateDomainConfig_nodeToNodeEncryptionOptions' - Node-To-Node Encryption options for the domain.
---
--- 'clusterConfig', 'updateDomainConfig_clusterConfig' - Changes that you want to make to the cluster configuration, such as the
--- instance type and number of EC2 instances.
+-- 'accessPolicies', 'updateDomainConfig_accessPolicies' - Identity and Access Management (IAM) access policy as a JSON-formatted
+-- string.
 --
 -- 'advancedOptions', 'updateDomainConfig_advancedOptions' - Key-value pairs to specify advanced configuration options. The following
 -- key-value pairs are supported:
@@ -181,10 +179,16 @@ data UpdateDomainConfig = UpdateDomainConfig'
 --
 -- 'advancedSecurityOptions', 'updateDomainConfig_advancedSecurityOptions' - Options for fine-grained access control.
 --
+-- 'autoTuneOptions', 'updateDomainConfig_autoTuneOptions' - Options for Auto-Tune.
+--
+-- 'clusterConfig', 'updateDomainConfig_clusterConfig' - Changes that you want to make to the cluster configuration, such as the
+-- instance type and number of EC2 instances.
+--
 -- 'cognitoOptions', 'updateDomainConfig_cognitoOptions' - Key-value pairs to configure Amazon Cognito authentication for
 -- OpenSearch Dashboards.
 --
--- 'encryptionAtRestOptions', 'updateDomainConfig_encryptionAtRestOptions' - Encryption at rest options for the domain.
+-- 'domainEndpointOptions', 'updateDomainConfig_domainEndpointOptions' - Additional options for the domain endpoint, such as whether to require
+-- HTTPS for all traffic.
 --
 -- 'dryRun', 'updateDomainConfig_dryRun' - This flag, when set to True, specifies whether the @UpdateDomain@
 -- request should return the results of validation check without actually
@@ -193,22 +197,18 @@ data UpdateDomainConfig = UpdateDomainConfig'
 -- 'eBSOptions', 'updateDomainConfig_eBSOptions' - The type and size of the EBS volume to attach to instances in the
 -- domain.
 --
--- 'accessPolicies', 'updateDomainConfig_accessPolicies' - Identity and Access Management (IAM) access policy as a JSON-formatted
--- string.
+-- 'encryptionAtRestOptions', 'updateDomainConfig_encryptionAtRestOptions' - Encryption at rest options for the domain.
 --
--- 'vPCOptions', 'updateDomainConfig_vPCOptions' - Options to specify the subnets and security groups for a VPC endpoint.
--- For more information, see
--- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html Launching your Amazon OpenSearch Service domains using a VPC>.
+-- 'logPublishingOptions', 'updateDomainConfig_logPublishingOptions' - Options to publish OpenSearch lots to Amazon CloudWatch Logs.
 --
--- 'autoTuneOptions', 'updateDomainConfig_autoTuneOptions' - Options for Auto-Tune.
---
--- 'domainEndpointOptions', 'updateDomainConfig_domainEndpointOptions' - Additional options for the domain endpoint, such as whether to require
--- HTTPS for all traffic.
+-- 'nodeToNodeEncryptionOptions', 'updateDomainConfig_nodeToNodeEncryptionOptions' - Node-To-Node Encryption options for the domain.
 --
 -- 'snapshotOptions', 'updateDomainConfig_snapshotOptions' - Option to set the time, in UTC format, for the daily automated snapshot.
 -- Default value is @0@ hours.
 --
--- 'logPublishingOptions', 'updateDomainConfig_logPublishingOptions' - Options to publish OpenSearch lots to Amazon CloudWatch Logs.
+-- 'vPCOptions', 'updateDomainConfig_vPCOptions' - Options to specify the subnets and security groups for a VPC endpoint.
+-- For more information, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html Launching your Amazon OpenSearch Service domains using a VPC>.
 --
 -- 'domainName', 'updateDomainConfig_domainName' - The name of the domain that you\'re updating.
 newUpdateDomainConfig ::
@@ -217,32 +217,28 @@ newUpdateDomainConfig ::
   UpdateDomainConfig
 newUpdateDomainConfig pDomainName_ =
   UpdateDomainConfig'
-    { nodeToNodeEncryptionOptions =
+    { accessPolicies =
         Prelude.Nothing,
-      clusterConfig = Prelude.Nothing,
       advancedOptions = Prelude.Nothing,
       advancedSecurityOptions = Prelude.Nothing,
+      autoTuneOptions = Prelude.Nothing,
+      clusterConfig = Prelude.Nothing,
       cognitoOptions = Prelude.Nothing,
-      encryptionAtRestOptions = Prelude.Nothing,
+      domainEndpointOptions = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       eBSOptions = Prelude.Nothing,
-      accessPolicies = Prelude.Nothing,
-      vPCOptions = Prelude.Nothing,
-      autoTuneOptions = Prelude.Nothing,
-      domainEndpointOptions = Prelude.Nothing,
-      snapshotOptions = Prelude.Nothing,
+      encryptionAtRestOptions = Prelude.Nothing,
       logPublishingOptions = Prelude.Nothing,
+      nodeToNodeEncryptionOptions = Prelude.Nothing,
+      snapshotOptions = Prelude.Nothing,
+      vPCOptions = Prelude.Nothing,
       domainName = pDomainName_
     }
 
--- | Node-To-Node Encryption options for the domain.
-updateDomainConfig_nodeToNodeEncryptionOptions :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe NodeToNodeEncryptionOptions)
-updateDomainConfig_nodeToNodeEncryptionOptions = Lens.lens (\UpdateDomainConfig' {nodeToNodeEncryptionOptions} -> nodeToNodeEncryptionOptions) (\s@UpdateDomainConfig' {} a -> s {nodeToNodeEncryptionOptions = a} :: UpdateDomainConfig)
-
--- | Changes that you want to make to the cluster configuration, such as the
--- instance type and number of EC2 instances.
-updateDomainConfig_clusterConfig :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe ClusterConfig)
-updateDomainConfig_clusterConfig = Lens.lens (\UpdateDomainConfig' {clusterConfig} -> clusterConfig) (\s@UpdateDomainConfig' {} a -> s {clusterConfig = a} :: UpdateDomainConfig)
+-- | Identity and Access Management (IAM) access policy as a JSON-formatted
+-- string.
+updateDomainConfig_accessPolicies :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe Prelude.Text)
+updateDomainConfig_accessPolicies = Lens.lens (\UpdateDomainConfig' {accessPolicies} -> accessPolicies) (\s@UpdateDomainConfig' {} a -> s {accessPolicies = a} :: UpdateDomainConfig)
 
 -- | Key-value pairs to specify advanced configuration options. The following
 -- key-value pairs are supported:
@@ -279,14 +275,24 @@ updateDomainConfig_advancedOptions = Lens.lens (\UpdateDomainConfig' {advancedOp
 updateDomainConfig_advancedSecurityOptions :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe AdvancedSecurityOptionsInput)
 updateDomainConfig_advancedSecurityOptions = Lens.lens (\UpdateDomainConfig' {advancedSecurityOptions} -> advancedSecurityOptions) (\s@UpdateDomainConfig' {} a -> s {advancedSecurityOptions = a} :: UpdateDomainConfig)
 
+-- | Options for Auto-Tune.
+updateDomainConfig_autoTuneOptions :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe AutoTuneOptions)
+updateDomainConfig_autoTuneOptions = Lens.lens (\UpdateDomainConfig' {autoTuneOptions} -> autoTuneOptions) (\s@UpdateDomainConfig' {} a -> s {autoTuneOptions = a} :: UpdateDomainConfig)
+
+-- | Changes that you want to make to the cluster configuration, such as the
+-- instance type and number of EC2 instances.
+updateDomainConfig_clusterConfig :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe ClusterConfig)
+updateDomainConfig_clusterConfig = Lens.lens (\UpdateDomainConfig' {clusterConfig} -> clusterConfig) (\s@UpdateDomainConfig' {} a -> s {clusterConfig = a} :: UpdateDomainConfig)
+
 -- | Key-value pairs to configure Amazon Cognito authentication for
 -- OpenSearch Dashboards.
 updateDomainConfig_cognitoOptions :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe CognitoOptions)
 updateDomainConfig_cognitoOptions = Lens.lens (\UpdateDomainConfig' {cognitoOptions} -> cognitoOptions) (\s@UpdateDomainConfig' {} a -> s {cognitoOptions = a} :: UpdateDomainConfig)
 
--- | Encryption at rest options for the domain.
-updateDomainConfig_encryptionAtRestOptions :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe EncryptionAtRestOptions)
-updateDomainConfig_encryptionAtRestOptions = Lens.lens (\UpdateDomainConfig' {encryptionAtRestOptions} -> encryptionAtRestOptions) (\s@UpdateDomainConfig' {} a -> s {encryptionAtRestOptions = a} :: UpdateDomainConfig)
+-- | Additional options for the domain endpoint, such as whether to require
+-- HTTPS for all traffic.
+updateDomainConfig_domainEndpointOptions :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe DomainEndpointOptions)
+updateDomainConfig_domainEndpointOptions = Lens.lens (\UpdateDomainConfig' {domainEndpointOptions} -> domainEndpointOptions) (\s@UpdateDomainConfig' {} a -> s {domainEndpointOptions = a} :: UpdateDomainConfig)
 
 -- | This flag, when set to True, specifies whether the @UpdateDomain@
 -- request should return the results of validation check without actually
@@ -299,34 +305,28 @@ updateDomainConfig_dryRun = Lens.lens (\UpdateDomainConfig' {dryRun} -> dryRun) 
 updateDomainConfig_eBSOptions :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe EBSOptions)
 updateDomainConfig_eBSOptions = Lens.lens (\UpdateDomainConfig' {eBSOptions} -> eBSOptions) (\s@UpdateDomainConfig' {} a -> s {eBSOptions = a} :: UpdateDomainConfig)
 
--- | Identity and Access Management (IAM) access policy as a JSON-formatted
--- string.
-updateDomainConfig_accessPolicies :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe Prelude.Text)
-updateDomainConfig_accessPolicies = Lens.lens (\UpdateDomainConfig' {accessPolicies} -> accessPolicies) (\s@UpdateDomainConfig' {} a -> s {accessPolicies = a} :: UpdateDomainConfig)
+-- | Encryption at rest options for the domain.
+updateDomainConfig_encryptionAtRestOptions :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe EncryptionAtRestOptions)
+updateDomainConfig_encryptionAtRestOptions = Lens.lens (\UpdateDomainConfig' {encryptionAtRestOptions} -> encryptionAtRestOptions) (\s@UpdateDomainConfig' {} a -> s {encryptionAtRestOptions = a} :: UpdateDomainConfig)
 
--- | Options to specify the subnets and security groups for a VPC endpoint.
--- For more information, see
--- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html Launching your Amazon OpenSearch Service domains using a VPC>.
-updateDomainConfig_vPCOptions :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe VPCOptions)
-updateDomainConfig_vPCOptions = Lens.lens (\UpdateDomainConfig' {vPCOptions} -> vPCOptions) (\s@UpdateDomainConfig' {} a -> s {vPCOptions = a} :: UpdateDomainConfig)
+-- | Options to publish OpenSearch lots to Amazon CloudWatch Logs.
+updateDomainConfig_logPublishingOptions :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe (Prelude.HashMap LogType LogPublishingOption))
+updateDomainConfig_logPublishingOptions = Lens.lens (\UpdateDomainConfig' {logPublishingOptions} -> logPublishingOptions) (\s@UpdateDomainConfig' {} a -> s {logPublishingOptions = a} :: UpdateDomainConfig) Prelude.. Lens.mapping Lens.coerced
 
--- | Options for Auto-Tune.
-updateDomainConfig_autoTuneOptions :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe AutoTuneOptions)
-updateDomainConfig_autoTuneOptions = Lens.lens (\UpdateDomainConfig' {autoTuneOptions} -> autoTuneOptions) (\s@UpdateDomainConfig' {} a -> s {autoTuneOptions = a} :: UpdateDomainConfig)
-
--- | Additional options for the domain endpoint, such as whether to require
--- HTTPS for all traffic.
-updateDomainConfig_domainEndpointOptions :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe DomainEndpointOptions)
-updateDomainConfig_domainEndpointOptions = Lens.lens (\UpdateDomainConfig' {domainEndpointOptions} -> domainEndpointOptions) (\s@UpdateDomainConfig' {} a -> s {domainEndpointOptions = a} :: UpdateDomainConfig)
+-- | Node-To-Node Encryption options for the domain.
+updateDomainConfig_nodeToNodeEncryptionOptions :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe NodeToNodeEncryptionOptions)
+updateDomainConfig_nodeToNodeEncryptionOptions = Lens.lens (\UpdateDomainConfig' {nodeToNodeEncryptionOptions} -> nodeToNodeEncryptionOptions) (\s@UpdateDomainConfig' {} a -> s {nodeToNodeEncryptionOptions = a} :: UpdateDomainConfig)
 
 -- | Option to set the time, in UTC format, for the daily automated snapshot.
 -- Default value is @0@ hours.
 updateDomainConfig_snapshotOptions :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe SnapshotOptions)
 updateDomainConfig_snapshotOptions = Lens.lens (\UpdateDomainConfig' {snapshotOptions} -> snapshotOptions) (\s@UpdateDomainConfig' {} a -> s {snapshotOptions = a} :: UpdateDomainConfig)
 
--- | Options to publish OpenSearch lots to Amazon CloudWatch Logs.
-updateDomainConfig_logPublishingOptions :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe (Prelude.HashMap LogType LogPublishingOption))
-updateDomainConfig_logPublishingOptions = Lens.lens (\UpdateDomainConfig' {logPublishingOptions} -> logPublishingOptions) (\s@UpdateDomainConfig' {} a -> s {logPublishingOptions = a} :: UpdateDomainConfig) Prelude.. Lens.mapping Lens.coerced
+-- | Options to specify the subnets and security groups for a VPC endpoint.
+-- For more information, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html Launching your Amazon OpenSearch Service domains using a VPC>.
+updateDomainConfig_vPCOptions :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe VPCOptions)
+updateDomainConfig_vPCOptions = Lens.lens (\UpdateDomainConfig' {vPCOptions} -> vPCOptions) (\s@UpdateDomainConfig' {} a -> s {vPCOptions = a} :: UpdateDomainConfig)
 
 -- | The name of the domain that you\'re updating.
 updateDomainConfig_domainName :: Lens.Lens' UpdateDomainConfig Prelude.Text
@@ -349,39 +349,38 @@ instance Core.AWSRequest UpdateDomainConfig where
 
 instance Prelude.Hashable UpdateDomainConfig where
   hashWithSalt _salt UpdateDomainConfig' {..} =
-    _salt
-      `Prelude.hashWithSalt` nodeToNodeEncryptionOptions
-      `Prelude.hashWithSalt` clusterConfig
+    _salt `Prelude.hashWithSalt` accessPolicies
       `Prelude.hashWithSalt` advancedOptions
       `Prelude.hashWithSalt` advancedSecurityOptions
+      `Prelude.hashWithSalt` autoTuneOptions
+      `Prelude.hashWithSalt` clusterConfig
       `Prelude.hashWithSalt` cognitoOptions
-      `Prelude.hashWithSalt` encryptionAtRestOptions
+      `Prelude.hashWithSalt` domainEndpointOptions
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` eBSOptions
-      `Prelude.hashWithSalt` accessPolicies
-      `Prelude.hashWithSalt` vPCOptions
-      `Prelude.hashWithSalt` autoTuneOptions
-      `Prelude.hashWithSalt` domainEndpointOptions
-      `Prelude.hashWithSalt` snapshotOptions
+      `Prelude.hashWithSalt` encryptionAtRestOptions
       `Prelude.hashWithSalt` logPublishingOptions
+      `Prelude.hashWithSalt` nodeToNodeEncryptionOptions
+      `Prelude.hashWithSalt` snapshotOptions
+      `Prelude.hashWithSalt` vPCOptions
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData UpdateDomainConfig where
   rnf UpdateDomainConfig' {..} =
-    Prelude.rnf nodeToNodeEncryptionOptions
-      `Prelude.seq` Prelude.rnf clusterConfig
+    Prelude.rnf accessPolicies
       `Prelude.seq` Prelude.rnf advancedOptions
       `Prelude.seq` Prelude.rnf advancedSecurityOptions
+      `Prelude.seq` Prelude.rnf autoTuneOptions
+      `Prelude.seq` Prelude.rnf clusterConfig
       `Prelude.seq` Prelude.rnf cognitoOptions
-      `Prelude.seq` Prelude.rnf encryptionAtRestOptions
+      `Prelude.seq` Prelude.rnf domainEndpointOptions
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf eBSOptions
-      `Prelude.seq` Prelude.rnf accessPolicies
-      `Prelude.seq` Prelude.rnf vPCOptions
-      `Prelude.seq` Prelude.rnf autoTuneOptions
-      `Prelude.seq` Prelude.rnf domainEndpointOptions
-      `Prelude.seq` Prelude.rnf snapshotOptions
+      `Prelude.seq` Prelude.rnf encryptionAtRestOptions
       `Prelude.seq` Prelude.rnf logPublishingOptions
+      `Prelude.seq` Prelude.rnf nodeToNodeEncryptionOptions
+      `Prelude.seq` Prelude.rnf snapshotOptions
+      `Prelude.seq` Prelude.rnf vPCOptions
       `Prelude.seq` Prelude.rnf domainName
 
 instance Data.ToHeaders UpdateDomainConfig where
@@ -391,30 +390,30 @@ instance Data.ToJSON UpdateDomainConfig where
   toJSON UpdateDomainConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NodeToNodeEncryptionOptions" Data..=)
-              Prelude.<$> nodeToNodeEncryptionOptions,
-            ("ClusterConfig" Data..=) Prelude.<$> clusterConfig,
+          [ ("AccessPolicies" Data..=)
+              Prelude.<$> accessPolicies,
             ("AdvancedOptions" Data..=)
               Prelude.<$> advancedOptions,
             ("AdvancedSecurityOptions" Data..=)
               Prelude.<$> advancedSecurityOptions,
-            ("CognitoOptions" Data..=)
-              Prelude.<$> cognitoOptions,
-            ("EncryptionAtRestOptions" Data..=)
-              Prelude.<$> encryptionAtRestOptions,
-            ("DryRun" Data..=) Prelude.<$> dryRun,
-            ("EBSOptions" Data..=) Prelude.<$> eBSOptions,
-            ("AccessPolicies" Data..=)
-              Prelude.<$> accessPolicies,
-            ("VPCOptions" Data..=) Prelude.<$> vPCOptions,
             ("AutoTuneOptions" Data..=)
               Prelude.<$> autoTuneOptions,
+            ("ClusterConfig" Data..=) Prelude.<$> clusterConfig,
+            ("CognitoOptions" Data..=)
+              Prelude.<$> cognitoOptions,
             ("DomainEndpointOptions" Data..=)
               Prelude.<$> domainEndpointOptions,
+            ("DryRun" Data..=) Prelude.<$> dryRun,
+            ("EBSOptions" Data..=) Prelude.<$> eBSOptions,
+            ("EncryptionAtRestOptions" Data..=)
+              Prelude.<$> encryptionAtRestOptions,
+            ("LogPublishingOptions" Data..=)
+              Prelude.<$> logPublishingOptions,
+            ("NodeToNodeEncryptionOptions" Data..=)
+              Prelude.<$> nodeToNodeEncryptionOptions,
             ("SnapshotOptions" Data..=)
               Prelude.<$> snapshotOptions,
-            ("LogPublishingOptions" Data..=)
-              Prelude.<$> logPublishingOptions
+            ("VPCOptions" Data..=) Prelude.<$> vPCOptions
           ]
       )
 

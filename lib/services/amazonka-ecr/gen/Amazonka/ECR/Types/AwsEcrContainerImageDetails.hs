@@ -28,22 +28,22 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEcrContainerImageDetails' smart constructor.
 data AwsEcrContainerImageDetails = AwsEcrContainerImageDetails'
-  { -- | The image author of the Amazon ECR container image.
+  { -- | The architecture of the Amazon ECR container image.
+    architecture :: Prelude.Maybe Prelude.Text,
+    -- | The image author of the Amazon ECR container image.
     author :: Prelude.Maybe Prelude.Text,
+    -- | The image hash of the Amazon ECR container image.
+    imageHash :: Prelude.Maybe Prelude.Text,
+    -- | The image tags attached to the Amazon ECR container image.
+    imageTags :: Prelude.Maybe [Prelude.Text],
+    -- | The platform of the Amazon ECR container image.
+    platform :: Prelude.Maybe Prelude.Text,
+    -- | The date and time the Amazon ECR container image was pushed.
+    pushedAt :: Prelude.Maybe Data.POSIX,
     -- | The registry the Amazon ECR container image belongs to.
     registry :: Prelude.Maybe Prelude.Text,
     -- | The name of the repository the Amazon ECR container image resides in.
-    repositoryName :: Prelude.Maybe Prelude.Text,
-    -- | The platform of the Amazon ECR container image.
-    platform :: Prelude.Maybe Prelude.Text,
-    -- | The image tags attached to the Amazon ECR container image.
-    imageTags :: Prelude.Maybe [Prelude.Text],
-    -- | The architecture of the Amazon ECR container image.
-    architecture :: Prelude.Maybe Prelude.Text,
-    -- | The image hash of the Amazon ECR container image.
-    imageHash :: Prelude.Maybe Prelude.Text,
-    -- | The date and time the Amazon ECR container image was pushed.
-    pushedAt :: Prelude.Maybe Data.POSIX
+    repositoryName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,39 +55,59 @@ data AwsEcrContainerImageDetails = AwsEcrContainerImageDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'architecture', 'awsEcrContainerImageDetails_architecture' - The architecture of the Amazon ECR container image.
+--
 -- 'author', 'awsEcrContainerImageDetails_author' - The image author of the Amazon ECR container image.
+--
+-- 'imageHash', 'awsEcrContainerImageDetails_imageHash' - The image hash of the Amazon ECR container image.
+--
+-- 'imageTags', 'awsEcrContainerImageDetails_imageTags' - The image tags attached to the Amazon ECR container image.
+--
+-- 'platform', 'awsEcrContainerImageDetails_platform' - The platform of the Amazon ECR container image.
+--
+-- 'pushedAt', 'awsEcrContainerImageDetails_pushedAt' - The date and time the Amazon ECR container image was pushed.
 --
 -- 'registry', 'awsEcrContainerImageDetails_registry' - The registry the Amazon ECR container image belongs to.
 --
 -- 'repositoryName', 'awsEcrContainerImageDetails_repositoryName' - The name of the repository the Amazon ECR container image resides in.
---
--- 'platform', 'awsEcrContainerImageDetails_platform' - The platform of the Amazon ECR container image.
---
--- 'imageTags', 'awsEcrContainerImageDetails_imageTags' - The image tags attached to the Amazon ECR container image.
---
--- 'architecture', 'awsEcrContainerImageDetails_architecture' - The architecture of the Amazon ECR container image.
---
--- 'imageHash', 'awsEcrContainerImageDetails_imageHash' - The image hash of the Amazon ECR container image.
---
--- 'pushedAt', 'awsEcrContainerImageDetails_pushedAt' - The date and time the Amazon ECR container image was pushed.
 newAwsEcrContainerImageDetails ::
   AwsEcrContainerImageDetails
 newAwsEcrContainerImageDetails =
   AwsEcrContainerImageDetails'
-    { author =
+    { architecture =
         Prelude.Nothing,
-      registry = Prelude.Nothing,
-      repositoryName = Prelude.Nothing,
-      platform = Prelude.Nothing,
-      imageTags = Prelude.Nothing,
-      architecture = Prelude.Nothing,
+      author = Prelude.Nothing,
       imageHash = Prelude.Nothing,
-      pushedAt = Prelude.Nothing
+      imageTags = Prelude.Nothing,
+      platform = Prelude.Nothing,
+      pushedAt = Prelude.Nothing,
+      registry = Prelude.Nothing,
+      repositoryName = Prelude.Nothing
     }
+
+-- | The architecture of the Amazon ECR container image.
+awsEcrContainerImageDetails_architecture :: Lens.Lens' AwsEcrContainerImageDetails (Prelude.Maybe Prelude.Text)
+awsEcrContainerImageDetails_architecture = Lens.lens (\AwsEcrContainerImageDetails' {architecture} -> architecture) (\s@AwsEcrContainerImageDetails' {} a -> s {architecture = a} :: AwsEcrContainerImageDetails)
 
 -- | The image author of the Amazon ECR container image.
 awsEcrContainerImageDetails_author :: Lens.Lens' AwsEcrContainerImageDetails (Prelude.Maybe Prelude.Text)
 awsEcrContainerImageDetails_author = Lens.lens (\AwsEcrContainerImageDetails' {author} -> author) (\s@AwsEcrContainerImageDetails' {} a -> s {author = a} :: AwsEcrContainerImageDetails)
+
+-- | The image hash of the Amazon ECR container image.
+awsEcrContainerImageDetails_imageHash :: Lens.Lens' AwsEcrContainerImageDetails (Prelude.Maybe Prelude.Text)
+awsEcrContainerImageDetails_imageHash = Lens.lens (\AwsEcrContainerImageDetails' {imageHash} -> imageHash) (\s@AwsEcrContainerImageDetails' {} a -> s {imageHash = a} :: AwsEcrContainerImageDetails)
+
+-- | The image tags attached to the Amazon ECR container image.
+awsEcrContainerImageDetails_imageTags :: Lens.Lens' AwsEcrContainerImageDetails (Prelude.Maybe [Prelude.Text])
+awsEcrContainerImageDetails_imageTags = Lens.lens (\AwsEcrContainerImageDetails' {imageTags} -> imageTags) (\s@AwsEcrContainerImageDetails' {} a -> s {imageTags = a} :: AwsEcrContainerImageDetails) Prelude.. Lens.mapping Lens.coerced
+
+-- | The platform of the Amazon ECR container image.
+awsEcrContainerImageDetails_platform :: Lens.Lens' AwsEcrContainerImageDetails (Prelude.Maybe Prelude.Text)
+awsEcrContainerImageDetails_platform = Lens.lens (\AwsEcrContainerImageDetails' {platform} -> platform) (\s@AwsEcrContainerImageDetails' {} a -> s {platform = a} :: AwsEcrContainerImageDetails)
+
+-- | The date and time the Amazon ECR container image was pushed.
+awsEcrContainerImageDetails_pushedAt :: Lens.Lens' AwsEcrContainerImageDetails (Prelude.Maybe Prelude.UTCTime)
+awsEcrContainerImageDetails_pushedAt = Lens.lens (\AwsEcrContainerImageDetails' {pushedAt} -> pushedAt) (\s@AwsEcrContainerImageDetails' {} a -> s {pushedAt = a} :: AwsEcrContainerImageDetails) Prelude.. Lens.mapping Data._Time
 
 -- | The registry the Amazon ECR container image belongs to.
 awsEcrContainerImageDetails_registry :: Lens.Lens' AwsEcrContainerImageDetails (Prelude.Maybe Prelude.Text)
@@ -97,60 +117,40 @@ awsEcrContainerImageDetails_registry = Lens.lens (\AwsEcrContainerImageDetails' 
 awsEcrContainerImageDetails_repositoryName :: Lens.Lens' AwsEcrContainerImageDetails (Prelude.Maybe Prelude.Text)
 awsEcrContainerImageDetails_repositoryName = Lens.lens (\AwsEcrContainerImageDetails' {repositoryName} -> repositoryName) (\s@AwsEcrContainerImageDetails' {} a -> s {repositoryName = a} :: AwsEcrContainerImageDetails)
 
--- | The platform of the Amazon ECR container image.
-awsEcrContainerImageDetails_platform :: Lens.Lens' AwsEcrContainerImageDetails (Prelude.Maybe Prelude.Text)
-awsEcrContainerImageDetails_platform = Lens.lens (\AwsEcrContainerImageDetails' {platform} -> platform) (\s@AwsEcrContainerImageDetails' {} a -> s {platform = a} :: AwsEcrContainerImageDetails)
-
--- | The image tags attached to the Amazon ECR container image.
-awsEcrContainerImageDetails_imageTags :: Lens.Lens' AwsEcrContainerImageDetails (Prelude.Maybe [Prelude.Text])
-awsEcrContainerImageDetails_imageTags = Lens.lens (\AwsEcrContainerImageDetails' {imageTags} -> imageTags) (\s@AwsEcrContainerImageDetails' {} a -> s {imageTags = a} :: AwsEcrContainerImageDetails) Prelude.. Lens.mapping Lens.coerced
-
--- | The architecture of the Amazon ECR container image.
-awsEcrContainerImageDetails_architecture :: Lens.Lens' AwsEcrContainerImageDetails (Prelude.Maybe Prelude.Text)
-awsEcrContainerImageDetails_architecture = Lens.lens (\AwsEcrContainerImageDetails' {architecture} -> architecture) (\s@AwsEcrContainerImageDetails' {} a -> s {architecture = a} :: AwsEcrContainerImageDetails)
-
--- | The image hash of the Amazon ECR container image.
-awsEcrContainerImageDetails_imageHash :: Lens.Lens' AwsEcrContainerImageDetails (Prelude.Maybe Prelude.Text)
-awsEcrContainerImageDetails_imageHash = Lens.lens (\AwsEcrContainerImageDetails' {imageHash} -> imageHash) (\s@AwsEcrContainerImageDetails' {} a -> s {imageHash = a} :: AwsEcrContainerImageDetails)
-
--- | The date and time the Amazon ECR container image was pushed.
-awsEcrContainerImageDetails_pushedAt :: Lens.Lens' AwsEcrContainerImageDetails (Prelude.Maybe Prelude.UTCTime)
-awsEcrContainerImageDetails_pushedAt = Lens.lens (\AwsEcrContainerImageDetails' {pushedAt} -> pushedAt) (\s@AwsEcrContainerImageDetails' {} a -> s {pushedAt = a} :: AwsEcrContainerImageDetails) Prelude.. Lens.mapping Data._Time
-
 instance Data.FromJSON AwsEcrContainerImageDetails where
   parseJSON =
     Data.withObject
       "AwsEcrContainerImageDetails"
       ( \x ->
           AwsEcrContainerImageDetails'
-            Prelude.<$> (x Data..:? "author")
+            Prelude.<$> (x Data..:? "architecture")
+            Prelude.<*> (x Data..:? "author")
+            Prelude.<*> (x Data..:? "imageHash")
+            Prelude.<*> (x Data..:? "imageTags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "platform")
+            Prelude.<*> (x Data..:? "pushedAt")
             Prelude.<*> (x Data..:? "registry")
             Prelude.<*> (x Data..:? "repositoryName")
-            Prelude.<*> (x Data..:? "platform")
-            Prelude.<*> (x Data..:? "imageTags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "architecture")
-            Prelude.<*> (x Data..:? "imageHash")
-            Prelude.<*> (x Data..:? "pushedAt")
       )
 
 instance Prelude.Hashable AwsEcrContainerImageDetails where
   hashWithSalt _salt AwsEcrContainerImageDetails' {..} =
-    _salt `Prelude.hashWithSalt` author
+    _salt `Prelude.hashWithSalt` architecture
+      `Prelude.hashWithSalt` author
+      `Prelude.hashWithSalt` imageHash
+      `Prelude.hashWithSalt` imageTags
+      `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` pushedAt
       `Prelude.hashWithSalt` registry
       `Prelude.hashWithSalt` repositoryName
-      `Prelude.hashWithSalt` platform
-      `Prelude.hashWithSalt` imageTags
-      `Prelude.hashWithSalt` architecture
-      `Prelude.hashWithSalt` imageHash
-      `Prelude.hashWithSalt` pushedAt
 
 instance Prelude.NFData AwsEcrContainerImageDetails where
   rnf AwsEcrContainerImageDetails' {..} =
-    Prelude.rnf author
+    Prelude.rnf architecture
+      `Prelude.seq` Prelude.rnf author
+      `Prelude.seq` Prelude.rnf imageHash
+      `Prelude.seq` Prelude.rnf imageTags
+      `Prelude.seq` Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf pushedAt
       `Prelude.seq` Prelude.rnf registry
       `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf imageTags
-      `Prelude.seq` Prelude.rnf architecture
-      `Prelude.seq` Prelude.rnf imageHash
-      `Prelude.seq` Prelude.rnf pushedAt

@@ -30,12 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPackageDescription' smart constructor.
 data PackageDescription = PackageDescription'
-  { -- | The name of the package.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | A format that specifies the type of the package.
+  { -- | A format that specifies the type of the package.
     format :: Prelude.Maybe PackageFormat,
-    -- | The package origin configuration for the package.
-    originConfiguration :: Prelude.Maybe PackageOriginConfiguration,
+    -- | The name of the package.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The namespace of the package. The package component that specifies its
     -- namespace depends on its type. For example:
     --
@@ -45,7 +43,9 @@ data PackageDescription = PackageDescription'
     --
     -- -   Python and NuGet packages do not contain a corresponding component,
     --     packages of those formats do not have a namespace.
-    namespace :: Prelude.Maybe Prelude.Text
+    namespace :: Prelude.Maybe Prelude.Text,
+    -- | The package origin configuration for the package.
+    originConfiguration :: Prelude.Maybe PackageOriginConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,11 +57,9 @@ data PackageDescription = PackageDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'packageDescription_name' - The name of the package.
---
 -- 'format', 'packageDescription_format' - A format that specifies the type of the package.
 --
--- 'originConfiguration', 'packageDescription_originConfiguration' - The package origin configuration for the package.
+-- 'name', 'packageDescription_name' - The name of the package.
 --
 -- 'namespace', 'packageDescription_namespace' - The namespace of the package. The package component that specifies its
 -- namespace depends on its type. For example:
@@ -72,27 +70,25 @@ data PackageDescription = PackageDescription'
 --
 -- -   Python and NuGet packages do not contain a corresponding component,
 --     packages of those formats do not have a namespace.
+--
+-- 'originConfiguration', 'packageDescription_originConfiguration' - The package origin configuration for the package.
 newPackageDescription ::
   PackageDescription
 newPackageDescription =
   PackageDescription'
-    { name = Prelude.Nothing,
-      format = Prelude.Nothing,
-      originConfiguration = Prelude.Nothing,
-      namespace = Prelude.Nothing
+    { format = Prelude.Nothing,
+      name = Prelude.Nothing,
+      namespace = Prelude.Nothing,
+      originConfiguration = Prelude.Nothing
     }
-
--- | The name of the package.
-packageDescription_name :: Lens.Lens' PackageDescription (Prelude.Maybe Prelude.Text)
-packageDescription_name = Lens.lens (\PackageDescription' {name} -> name) (\s@PackageDescription' {} a -> s {name = a} :: PackageDescription)
 
 -- | A format that specifies the type of the package.
 packageDescription_format :: Lens.Lens' PackageDescription (Prelude.Maybe PackageFormat)
 packageDescription_format = Lens.lens (\PackageDescription' {format} -> format) (\s@PackageDescription' {} a -> s {format = a} :: PackageDescription)
 
--- | The package origin configuration for the package.
-packageDescription_originConfiguration :: Lens.Lens' PackageDescription (Prelude.Maybe PackageOriginConfiguration)
-packageDescription_originConfiguration = Lens.lens (\PackageDescription' {originConfiguration} -> originConfiguration) (\s@PackageDescription' {} a -> s {originConfiguration = a} :: PackageDescription)
+-- | The name of the package.
+packageDescription_name :: Lens.Lens' PackageDescription (Prelude.Maybe Prelude.Text)
+packageDescription_name = Lens.lens (\PackageDescription' {name} -> name) (\s@PackageDescription' {} a -> s {name = a} :: PackageDescription)
 
 -- | The namespace of the package. The package component that specifies its
 -- namespace depends on its type. For example:
@@ -106,28 +102,32 @@ packageDescription_originConfiguration = Lens.lens (\PackageDescription' {origin
 packageDescription_namespace :: Lens.Lens' PackageDescription (Prelude.Maybe Prelude.Text)
 packageDescription_namespace = Lens.lens (\PackageDescription' {namespace} -> namespace) (\s@PackageDescription' {} a -> s {namespace = a} :: PackageDescription)
 
+-- | The package origin configuration for the package.
+packageDescription_originConfiguration :: Lens.Lens' PackageDescription (Prelude.Maybe PackageOriginConfiguration)
+packageDescription_originConfiguration = Lens.lens (\PackageDescription' {originConfiguration} -> originConfiguration) (\s@PackageDescription' {} a -> s {originConfiguration = a} :: PackageDescription)
+
 instance Data.FromJSON PackageDescription where
   parseJSON =
     Data.withObject
       "PackageDescription"
       ( \x ->
           PackageDescription'
-            Prelude.<$> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "format")
-            Prelude.<*> (x Data..:? "originConfiguration")
+            Prelude.<$> (x Data..:? "format")
+            Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "namespace")
+            Prelude.<*> (x Data..:? "originConfiguration")
       )
 
 instance Prelude.Hashable PackageDescription where
   hashWithSalt _salt PackageDescription' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` format
-      `Prelude.hashWithSalt` originConfiguration
+    _salt `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` originConfiguration
 
 instance Prelude.NFData PackageDescription where
   rnf PackageDescription' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf originConfiguration
+    Prelude.rnf format
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf originConfiguration

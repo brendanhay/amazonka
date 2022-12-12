@@ -35,13 +35,13 @@ data HyperParameterSpecification = HyperParameterSpecification'
     defaultValue :: Prelude.Maybe Prelude.Text,
     -- | A brief description of the hyperparameter.
     description :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether this hyperparameter is required.
+    isRequired :: Prelude.Maybe Prelude.Bool,
     -- | Indicates whether this hyperparameter is tunable in a hyperparameter
     -- tuning job.
     isTunable :: Prelude.Maybe Prelude.Bool,
     -- | The allowed range for this hyperparameter.
     range :: Prelude.Maybe ParameterRange,
-    -- | Indicates whether this hyperparameter is required.
-    isRequired :: Prelude.Maybe Prelude.Bool,
     -- | The name of this hyperparameter. The name must be unique.
     name :: Prelude.Text,
     -- | The type of this hyperparameter. The valid types are @Integer@,
@@ -63,12 +63,12 @@ data HyperParameterSpecification = HyperParameterSpecification'
 --
 -- 'description', 'hyperParameterSpecification_description' - A brief description of the hyperparameter.
 --
+-- 'isRequired', 'hyperParameterSpecification_isRequired' - Indicates whether this hyperparameter is required.
+--
 -- 'isTunable', 'hyperParameterSpecification_isTunable' - Indicates whether this hyperparameter is tunable in a hyperparameter
 -- tuning job.
 --
 -- 'range', 'hyperParameterSpecification_range' - The allowed range for this hyperparameter.
---
--- 'isRequired', 'hyperParameterSpecification_isRequired' - Indicates whether this hyperparameter is required.
 --
 -- 'name', 'hyperParameterSpecification_name' - The name of this hyperparameter. The name must be unique.
 --
@@ -85,9 +85,9 @@ newHyperParameterSpecification pName_ pType_ =
     { defaultValue =
         Prelude.Nothing,
       description = Prelude.Nothing,
+      isRequired = Prelude.Nothing,
       isTunable = Prelude.Nothing,
       range = Prelude.Nothing,
-      isRequired = Prelude.Nothing,
       name = pName_,
       type' = pType_
     }
@@ -101,6 +101,10 @@ hyperParameterSpecification_defaultValue = Lens.lens (\HyperParameterSpecificati
 hyperParameterSpecification_description :: Lens.Lens' HyperParameterSpecification (Prelude.Maybe Prelude.Text)
 hyperParameterSpecification_description = Lens.lens (\HyperParameterSpecification' {description} -> description) (\s@HyperParameterSpecification' {} a -> s {description = a} :: HyperParameterSpecification)
 
+-- | Indicates whether this hyperparameter is required.
+hyperParameterSpecification_isRequired :: Lens.Lens' HyperParameterSpecification (Prelude.Maybe Prelude.Bool)
+hyperParameterSpecification_isRequired = Lens.lens (\HyperParameterSpecification' {isRequired} -> isRequired) (\s@HyperParameterSpecification' {} a -> s {isRequired = a} :: HyperParameterSpecification)
+
 -- | Indicates whether this hyperparameter is tunable in a hyperparameter
 -- tuning job.
 hyperParameterSpecification_isTunable :: Lens.Lens' HyperParameterSpecification (Prelude.Maybe Prelude.Bool)
@@ -109,10 +113,6 @@ hyperParameterSpecification_isTunable = Lens.lens (\HyperParameterSpecification'
 -- | The allowed range for this hyperparameter.
 hyperParameterSpecification_range :: Lens.Lens' HyperParameterSpecification (Prelude.Maybe ParameterRange)
 hyperParameterSpecification_range = Lens.lens (\HyperParameterSpecification' {range} -> range) (\s@HyperParameterSpecification' {} a -> s {range = a} :: HyperParameterSpecification)
-
--- | Indicates whether this hyperparameter is required.
-hyperParameterSpecification_isRequired :: Lens.Lens' HyperParameterSpecification (Prelude.Maybe Prelude.Bool)
-hyperParameterSpecification_isRequired = Lens.lens (\HyperParameterSpecification' {isRequired} -> isRequired) (\s@HyperParameterSpecification' {} a -> s {isRequired = a} :: HyperParameterSpecification)
 
 -- | The name of this hyperparameter. The name must be unique.
 hyperParameterSpecification_name :: Lens.Lens' HyperParameterSpecification Prelude.Text
@@ -131,9 +131,9 @@ instance Data.FromJSON HyperParameterSpecification where
           HyperParameterSpecification'
             Prelude.<$> (x Data..:? "DefaultValue")
             Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "IsRequired")
             Prelude.<*> (x Data..:? "IsTunable")
             Prelude.<*> (x Data..:? "Range")
-            Prelude.<*> (x Data..:? "IsRequired")
             Prelude.<*> (x Data..: "Name")
             Prelude.<*> (x Data..: "Type")
       )
@@ -142,9 +142,9 @@ instance Prelude.Hashable HyperParameterSpecification where
   hashWithSalt _salt HyperParameterSpecification' {..} =
     _salt `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` isRequired
       `Prelude.hashWithSalt` isTunable
       `Prelude.hashWithSalt` range
-      `Prelude.hashWithSalt` isRequired
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
 
@@ -152,9 +152,9 @@ instance Prelude.NFData HyperParameterSpecification where
   rnf HyperParameterSpecification' {..} =
     Prelude.rnf defaultValue
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf isRequired
       `Prelude.seq` Prelude.rnf isTunable
       `Prelude.seq` Prelude.rnf range
-      `Prelude.seq` Prelude.rnf isRequired
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf type'
 
@@ -164,9 +164,9 @@ instance Data.ToJSON HyperParameterSpecification where
       ( Prelude.catMaybes
           [ ("DefaultValue" Data..=) Prelude.<$> defaultValue,
             ("Description" Data..=) Prelude.<$> description,
+            ("IsRequired" Data..=) Prelude.<$> isRequired,
             ("IsTunable" Data..=) Prelude.<$> isTunable,
             ("Range" Data..=) Prelude.<$> range,
-            ("IsRequired" Data..=) Prelude.<$> isRequired,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("Type" Data..= type')
           ]

@@ -33,13 +33,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSecurityProfileSearchCriteria' smart constructor.
 data SecurityProfileSearchCriteria = SecurityProfileSearchCriteria'
-  { stringCondition :: Prelude.Maybe StringCondition,
+  { -- | A list of conditions which would be applied together with an AND
+    -- condition.
+    andConditions :: Prelude.Maybe [SecurityProfileSearchCriteria],
     -- | A list of conditions which would be applied together with an OR
     -- condition.
     orConditions :: Prelude.Maybe [SecurityProfileSearchCriteria],
-    -- | A list of conditions which would be applied together with an AND
-    -- condition.
-    andConditions :: Prelude.Maybe [SecurityProfileSearchCriteria]
+    stringCondition :: Prelude.Maybe StringCondition
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,59 +51,59 @@ data SecurityProfileSearchCriteria = SecurityProfileSearchCriteria'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stringCondition', 'securityProfileSearchCriteria_stringCondition' - Undocumented member.
+-- 'andConditions', 'securityProfileSearchCriteria_andConditions' - A list of conditions which would be applied together with an AND
+-- condition.
 --
 -- 'orConditions', 'securityProfileSearchCriteria_orConditions' - A list of conditions which would be applied together with an OR
 -- condition.
 --
--- 'andConditions', 'securityProfileSearchCriteria_andConditions' - A list of conditions which would be applied together with an AND
--- condition.
+-- 'stringCondition', 'securityProfileSearchCriteria_stringCondition' - Undocumented member.
 newSecurityProfileSearchCriteria ::
   SecurityProfileSearchCriteria
 newSecurityProfileSearchCriteria =
   SecurityProfileSearchCriteria'
-    { stringCondition =
+    { andConditions =
         Prelude.Nothing,
       orConditions = Prelude.Nothing,
-      andConditions = Prelude.Nothing
+      stringCondition = Prelude.Nothing
     }
-
--- | Undocumented member.
-securityProfileSearchCriteria_stringCondition :: Lens.Lens' SecurityProfileSearchCriteria (Prelude.Maybe StringCondition)
-securityProfileSearchCriteria_stringCondition = Lens.lens (\SecurityProfileSearchCriteria' {stringCondition} -> stringCondition) (\s@SecurityProfileSearchCriteria' {} a -> s {stringCondition = a} :: SecurityProfileSearchCriteria)
-
--- | A list of conditions which would be applied together with an OR
--- condition.
-securityProfileSearchCriteria_orConditions :: Lens.Lens' SecurityProfileSearchCriteria (Prelude.Maybe [SecurityProfileSearchCriteria])
-securityProfileSearchCriteria_orConditions = Lens.lens (\SecurityProfileSearchCriteria' {orConditions} -> orConditions) (\s@SecurityProfileSearchCriteria' {} a -> s {orConditions = a} :: SecurityProfileSearchCriteria) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of conditions which would be applied together with an AND
 -- condition.
 securityProfileSearchCriteria_andConditions :: Lens.Lens' SecurityProfileSearchCriteria (Prelude.Maybe [SecurityProfileSearchCriteria])
 securityProfileSearchCriteria_andConditions = Lens.lens (\SecurityProfileSearchCriteria' {andConditions} -> andConditions) (\s@SecurityProfileSearchCriteria' {} a -> s {andConditions = a} :: SecurityProfileSearchCriteria) Prelude.. Lens.mapping Lens.coerced
 
+-- | A list of conditions which would be applied together with an OR
+-- condition.
+securityProfileSearchCriteria_orConditions :: Lens.Lens' SecurityProfileSearchCriteria (Prelude.Maybe [SecurityProfileSearchCriteria])
+securityProfileSearchCriteria_orConditions = Lens.lens (\SecurityProfileSearchCriteria' {orConditions} -> orConditions) (\s@SecurityProfileSearchCriteria' {} a -> s {orConditions = a} :: SecurityProfileSearchCriteria) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+securityProfileSearchCriteria_stringCondition :: Lens.Lens' SecurityProfileSearchCriteria (Prelude.Maybe StringCondition)
+securityProfileSearchCriteria_stringCondition = Lens.lens (\SecurityProfileSearchCriteria' {stringCondition} -> stringCondition) (\s@SecurityProfileSearchCriteria' {} a -> s {stringCondition = a} :: SecurityProfileSearchCriteria)
+
 instance
   Prelude.Hashable
     SecurityProfileSearchCriteria
   where
   hashWithSalt _salt SecurityProfileSearchCriteria' {..} =
-    _salt `Prelude.hashWithSalt` stringCondition
+    _salt `Prelude.hashWithSalt` andConditions
       `Prelude.hashWithSalt` orConditions
-      `Prelude.hashWithSalt` andConditions
+      `Prelude.hashWithSalt` stringCondition
 
 instance Prelude.NFData SecurityProfileSearchCriteria where
   rnf SecurityProfileSearchCriteria' {..} =
-    Prelude.rnf stringCondition
+    Prelude.rnf andConditions
       `Prelude.seq` Prelude.rnf orConditions
-      `Prelude.seq` Prelude.rnf andConditions
+      `Prelude.seq` Prelude.rnf stringCondition
 
 instance Data.ToJSON SecurityProfileSearchCriteria where
   toJSON SecurityProfileSearchCriteria' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("StringCondition" Data..=)
-              Prelude.<$> stringCondition,
+          [ ("AndConditions" Data..=) Prelude.<$> andConditions,
             ("OrConditions" Data..=) Prelude.<$> orConditions,
-            ("AndConditions" Data..=) Prelude.<$> andConditions
+            ("StringCondition" Data..=)
+              Prelude.<$> stringCondition
           ]
       )

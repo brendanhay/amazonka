@@ -27,8 +27,8 @@ module Amazonka.ChimeSdkMediaPipelines.CreateMediaConcatenationPipeline
     newCreateMediaConcatenationPipeline,
 
     -- * Request Lenses
-    createMediaConcatenationPipeline_tags,
     createMediaConcatenationPipeline_clientRequestToken,
+    createMediaConcatenationPipeline_tags,
     createMediaConcatenationPipeline_sources,
     createMediaConcatenationPipeline_sinks,
 
@@ -52,12 +52,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateMediaConcatenationPipeline' smart constructor.
 data CreateMediaConcatenationPipeline = CreateMediaConcatenationPipeline'
-  { -- | The tags associated with the media concatenation pipeline.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | The unique identifier for the client request. The token makes the API
+  { -- | The unique identifier for the client request. The token makes the API
     -- request idempotent. Use a unique token for each media concatenation
     -- pipeline request.
     clientRequestToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The tags associated with the media concatenation pipeline.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | An object that specifies the sources for the media concatenation
     -- pipeline.
     sources :: Prelude.NonEmpty ConcatenationSource,
@@ -75,11 +75,11 @@ data CreateMediaConcatenationPipeline = CreateMediaConcatenationPipeline'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createMediaConcatenationPipeline_tags' - The tags associated with the media concatenation pipeline.
---
 -- 'clientRequestToken', 'createMediaConcatenationPipeline_clientRequestToken' - The unique identifier for the client request. The token makes the API
 -- request idempotent. Use a unique token for each media concatenation
 -- pipeline request.
+--
+-- 'tags', 'createMediaConcatenationPipeline_tags' - The tags associated with the media concatenation pipeline.
 --
 -- 'sources', 'createMediaConcatenationPipeline_sources' - An object that specifies the sources for the media concatenation
 -- pipeline.
@@ -94,22 +94,22 @@ newCreateMediaConcatenationPipeline ::
   CreateMediaConcatenationPipeline
 newCreateMediaConcatenationPipeline pSources_ pSinks_ =
   CreateMediaConcatenationPipeline'
-    { tags =
+    { clientRequestToken =
         Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
+      tags = Prelude.Nothing,
       sources = Lens.coerced Lens.# pSources_,
       sinks = Lens.coerced Lens.# pSinks_
     }
-
--- | The tags associated with the media concatenation pipeline.
-createMediaConcatenationPipeline_tags :: Lens.Lens' CreateMediaConcatenationPipeline (Prelude.Maybe (Prelude.NonEmpty Tag))
-createMediaConcatenationPipeline_tags = Lens.lens (\CreateMediaConcatenationPipeline' {tags} -> tags) (\s@CreateMediaConcatenationPipeline' {} a -> s {tags = a} :: CreateMediaConcatenationPipeline) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique identifier for the client request. The token makes the API
 -- request idempotent. Use a unique token for each media concatenation
 -- pipeline request.
 createMediaConcatenationPipeline_clientRequestToken :: Lens.Lens' CreateMediaConcatenationPipeline (Prelude.Maybe Prelude.Text)
 createMediaConcatenationPipeline_clientRequestToken = Lens.lens (\CreateMediaConcatenationPipeline' {clientRequestToken} -> clientRequestToken) (\s@CreateMediaConcatenationPipeline' {} a -> s {clientRequestToken = a} :: CreateMediaConcatenationPipeline) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The tags associated with the media concatenation pipeline.
+createMediaConcatenationPipeline_tags :: Lens.Lens' CreateMediaConcatenationPipeline (Prelude.Maybe (Prelude.NonEmpty Tag))
+createMediaConcatenationPipeline_tags = Lens.lens (\CreateMediaConcatenationPipeline' {tags} -> tags) (\s@CreateMediaConcatenationPipeline' {} a -> s {tags = a} :: CreateMediaConcatenationPipeline) Prelude.. Lens.mapping Lens.coerced
 
 -- | An object that specifies the sources for the media concatenation
 -- pipeline.
@@ -145,8 +145,8 @@ instance
   hashWithSalt
     _salt
     CreateMediaConcatenationPipeline' {..} =
-      _salt `Prelude.hashWithSalt` tags
-        `Prelude.hashWithSalt` clientRequestToken
+      _salt `Prelude.hashWithSalt` clientRequestToken
+        `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` sources
         `Prelude.hashWithSalt` sinks
 
@@ -155,8 +155,8 @@ instance
     CreateMediaConcatenationPipeline
   where
   rnf CreateMediaConcatenationPipeline' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf sources
       `Prelude.seq` Prelude.rnf sinks
 
@@ -170,9 +170,9 @@ instance Data.ToJSON CreateMediaConcatenationPipeline where
   toJSON CreateMediaConcatenationPipeline' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ClientRequestToken" Data..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Sources" Data..= sources),
             Prelude.Just ("Sinks" Data..= sinks)
           ]

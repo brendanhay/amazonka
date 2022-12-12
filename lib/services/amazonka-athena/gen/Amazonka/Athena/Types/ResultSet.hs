@@ -32,11 +32,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResultSet' smart constructor.
 data ResultSet = ResultSet'
-  { -- | The rows in the table.
-    rows :: Prelude.Maybe [Row],
-    -- | The metadata that describes the column structure and data types of a
+  { -- | The metadata that describes the column structure and data types of a
     -- table of query results.
-    resultSetMetadata :: Prelude.Maybe ResultSetMetadata
+    resultSetMetadata :: Prelude.Maybe ResultSetMetadata,
+    -- | The rows in the table.
+    rows :: Prelude.Maybe [Row]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,26 +48,26 @@ data ResultSet = ResultSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'rows', 'resultSet_rows' - The rows in the table.
---
 -- 'resultSetMetadata', 'resultSet_resultSetMetadata' - The metadata that describes the column structure and data types of a
 -- table of query results.
+--
+-- 'rows', 'resultSet_rows' - The rows in the table.
 newResultSet ::
   ResultSet
 newResultSet =
   ResultSet'
-    { rows = Prelude.Nothing,
-      resultSetMetadata = Prelude.Nothing
+    { resultSetMetadata = Prelude.Nothing,
+      rows = Prelude.Nothing
     }
-
--- | The rows in the table.
-resultSet_rows :: Lens.Lens' ResultSet (Prelude.Maybe [Row])
-resultSet_rows = Lens.lens (\ResultSet' {rows} -> rows) (\s@ResultSet' {} a -> s {rows = a} :: ResultSet) Prelude.. Lens.mapping Lens.coerced
 
 -- | The metadata that describes the column structure and data types of a
 -- table of query results.
 resultSet_resultSetMetadata :: Lens.Lens' ResultSet (Prelude.Maybe ResultSetMetadata)
 resultSet_resultSetMetadata = Lens.lens (\ResultSet' {resultSetMetadata} -> resultSetMetadata) (\s@ResultSet' {} a -> s {resultSetMetadata = a} :: ResultSet)
+
+-- | The rows in the table.
+resultSet_rows :: Lens.Lens' ResultSet (Prelude.Maybe [Row])
+resultSet_rows = Lens.lens (\ResultSet' {rows} -> rows) (\s@ResultSet' {} a -> s {rows = a} :: ResultSet) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON ResultSet where
   parseJSON =
@@ -75,16 +75,16 @@ instance Data.FromJSON ResultSet where
       "ResultSet"
       ( \x ->
           ResultSet'
-            Prelude.<$> (x Data..:? "Rows" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "ResultSetMetadata")
+            Prelude.<$> (x Data..:? "ResultSetMetadata")
+            Prelude.<*> (x Data..:? "Rows" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ResultSet where
   hashWithSalt _salt ResultSet' {..} =
-    _salt `Prelude.hashWithSalt` rows
-      `Prelude.hashWithSalt` resultSetMetadata
+    _salt `Prelude.hashWithSalt` resultSetMetadata
+      `Prelude.hashWithSalt` rows
 
 instance Prelude.NFData ResultSet where
   rnf ResultSet' {..} =
-    Prelude.rnf rows
-      `Prelude.seq` Prelude.rnf resultSetMetadata
+    Prelude.rnf resultSetMetadata
+      `Prelude.seq` Prelude.rnf rows

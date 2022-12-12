@@ -33,8 +33,8 @@ module Amazonka.ECR.DescribeRegistry
     newDescribeRegistryResponse,
 
     -- * Response Lenses
-    describeRegistryResponse_replicationConfiguration,
     describeRegistryResponse_registryId,
+    describeRegistryResponse_replicationConfiguration,
     describeRegistryResponse_httpStatus,
   )
 where
@@ -71,8 +71,8 @@ instance Core.AWSRequest DescribeRegistry where
     Response.receiveJSON
       ( \s h x ->
           DescribeRegistryResponse'
-            Prelude.<$> (x Data..?> "replicationConfiguration")
-            Prelude.<*> (x Data..?> "registryId")
+            Prelude.<$> (x Data..?> "registryId")
+            Prelude.<*> (x Data..?> "replicationConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -109,10 +109,10 @@ instance Data.ToQuery DescribeRegistry where
 
 -- | /See:/ 'newDescribeRegistryResponse' smart constructor.
 data DescribeRegistryResponse = DescribeRegistryResponse'
-  { -- | The replication configuration for the registry.
-    replicationConfiguration :: Prelude.Maybe ReplicationConfiguration,
-    -- | The ID of the registry.
+  { -- | The ID of the registry.
     registryId :: Prelude.Maybe Prelude.Text,
+    -- | The replication configuration for the registry.
+    replicationConfiguration :: Prelude.Maybe ReplicationConfiguration,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -126,9 +126,9 @@ data DescribeRegistryResponse = DescribeRegistryResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'replicationConfiguration', 'describeRegistryResponse_replicationConfiguration' - The replication configuration for the registry.
---
 -- 'registryId', 'describeRegistryResponse_registryId' - The ID of the registry.
+--
+-- 'replicationConfiguration', 'describeRegistryResponse_replicationConfiguration' - The replication configuration for the registry.
 --
 -- 'httpStatus', 'describeRegistryResponse_httpStatus' - The response's http status code.
 newDescribeRegistryResponse ::
@@ -137,19 +137,19 @@ newDescribeRegistryResponse ::
   DescribeRegistryResponse
 newDescribeRegistryResponse pHttpStatus_ =
   DescribeRegistryResponse'
-    { replicationConfiguration =
+    { registryId =
         Prelude.Nothing,
-      registryId = Prelude.Nothing,
+      replicationConfiguration = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The replication configuration for the registry.
-describeRegistryResponse_replicationConfiguration :: Lens.Lens' DescribeRegistryResponse (Prelude.Maybe ReplicationConfiguration)
-describeRegistryResponse_replicationConfiguration = Lens.lens (\DescribeRegistryResponse' {replicationConfiguration} -> replicationConfiguration) (\s@DescribeRegistryResponse' {} a -> s {replicationConfiguration = a} :: DescribeRegistryResponse)
 
 -- | The ID of the registry.
 describeRegistryResponse_registryId :: Lens.Lens' DescribeRegistryResponse (Prelude.Maybe Prelude.Text)
 describeRegistryResponse_registryId = Lens.lens (\DescribeRegistryResponse' {registryId} -> registryId) (\s@DescribeRegistryResponse' {} a -> s {registryId = a} :: DescribeRegistryResponse)
+
+-- | The replication configuration for the registry.
+describeRegistryResponse_replicationConfiguration :: Lens.Lens' DescribeRegistryResponse (Prelude.Maybe ReplicationConfiguration)
+describeRegistryResponse_replicationConfiguration = Lens.lens (\DescribeRegistryResponse' {replicationConfiguration} -> replicationConfiguration) (\s@DescribeRegistryResponse' {} a -> s {replicationConfiguration = a} :: DescribeRegistryResponse)
 
 -- | The response's http status code.
 describeRegistryResponse_httpStatus :: Lens.Lens' DescribeRegistryResponse Prelude.Int
@@ -157,6 +157,6 @@ describeRegistryResponse_httpStatus = Lens.lens (\DescribeRegistryResponse' {htt
 
 instance Prelude.NFData DescribeRegistryResponse where
   rnf DescribeRegistryResponse' {..} =
-    Prelude.rnf replicationConfiguration
-      `Prelude.seq` Prelude.rnf registryId
+    Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf replicationConfiguration
       `Prelude.seq` Prelude.rnf httpStatus

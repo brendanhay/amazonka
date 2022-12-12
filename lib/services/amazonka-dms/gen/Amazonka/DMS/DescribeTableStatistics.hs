@@ -34,8 +34,8 @@ module Amazonka.DMS.DescribeTableStatistics
     newDescribeTableStatistics,
 
     -- * Request Lenses
-    describeTableStatistics_marker,
     describeTableStatistics_filters,
+    describeTableStatistics_marker,
     describeTableStatistics_maxRecords,
     describeTableStatistics_replicationTaskArn,
 
@@ -45,8 +45,8 @@ module Amazonka.DMS.DescribeTableStatistics
 
     -- * Response Lenses
     describeTableStatisticsResponse_marker,
-    describeTableStatisticsResponse_tableStatistics,
     describeTableStatisticsResponse_replicationTaskArn,
+    describeTableStatisticsResponse_tableStatistics,
     describeTableStatisticsResponse_httpStatus,
   )
 where
@@ -63,17 +63,17 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeTableStatistics' smart constructor.
 data DescribeTableStatistics = DescribeTableStatistics'
-  { -- | An optional pagination token provided by a previous request. If this
-    -- parameter is specified, the response includes only records beyond the
-    -- marker, up to the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | Filters applied to table statistics.
+  { -- | Filters applied to table statistics.
     --
     -- Valid filter names: schema-name | table-name | table-state
     --
     -- A combination of filters creates an AND condition where each record
     -- matches all specified filters.
     filters :: Prelude.Maybe [Filter],
+    -- | An optional pagination token provided by a previous request. If this
+    -- parameter is specified, the response includes only records beyond the
+    -- marker, up to the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that the remaining
@@ -96,16 +96,16 @@ data DescribeTableStatistics = DescribeTableStatistics'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'marker', 'describeTableStatistics_marker' - An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
---
 -- 'filters', 'describeTableStatistics_filters' - Filters applied to table statistics.
 --
 -- Valid filter names: schema-name | table-name | table-state
 --
 -- A combination of filters creates an AND condition where each record
 -- matches all specified filters.
+--
+-- 'marker', 'describeTableStatistics_marker' - An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
 --
 -- 'maxRecords', 'describeTableStatistics_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -123,17 +123,11 @@ newDescribeTableStatistics ::
   DescribeTableStatistics
 newDescribeTableStatistics pReplicationTaskArn_ =
   DescribeTableStatistics'
-    { marker = Prelude.Nothing,
-      filters = Prelude.Nothing,
+    { filters = Prelude.Nothing,
+      marker = Prelude.Nothing,
       maxRecords = Prelude.Nothing,
       replicationTaskArn = pReplicationTaskArn_
     }
-
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
-describeTableStatistics_marker :: Lens.Lens' DescribeTableStatistics (Prelude.Maybe Prelude.Text)
-describeTableStatistics_marker = Lens.lens (\DescribeTableStatistics' {marker} -> marker) (\s@DescribeTableStatistics' {} a -> s {marker = a} :: DescribeTableStatistics)
 
 -- | Filters applied to table statistics.
 --
@@ -143,6 +137,12 @@ describeTableStatistics_marker = Lens.lens (\DescribeTableStatistics' {marker} -
 -- matches all specified filters.
 describeTableStatistics_filters :: Lens.Lens' DescribeTableStatistics (Prelude.Maybe [Filter])
 describeTableStatistics_filters = Lens.lens (\DescribeTableStatistics' {filters} -> filters) (\s@DescribeTableStatistics' {} a -> s {filters = a} :: DescribeTableStatistics) Prelude.. Lens.mapping Lens.coerced
+
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+describeTableStatistics_marker :: Lens.Lens' DescribeTableStatistics (Prelude.Maybe Prelude.Text)
+describeTableStatistics_marker = Lens.lens (\DescribeTableStatistics' {marker} -> marker) (\s@DescribeTableStatistics' {} a -> s {marker = a} :: DescribeTableStatistics)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -192,24 +192,24 @@ instance Core.AWSRequest DescribeTableStatistics where
       ( \s h x ->
           DescribeTableStatisticsResponse'
             Prelude.<$> (x Data..?> "Marker")
+            Prelude.<*> (x Data..?> "ReplicationTaskArn")
             Prelude.<*> ( x Data..?> "TableStatistics"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "ReplicationTaskArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeTableStatistics where
   hashWithSalt _salt DescribeTableStatistics' {..} =
-    _salt `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` replicationTaskArn
 
 instance Prelude.NFData DescribeTableStatistics where
   rnf DescribeTableStatistics' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf replicationTaskArn
 
@@ -232,8 +232,8 @@ instance Data.ToJSON DescribeTableStatistics where
   toJSON DescribeTableStatistics' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Data..=) Prelude.<$> marker,
-            ("Filters" Data..=) Prelude.<$> filters,
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("Marker" Data..=) Prelude.<$> marker,
             ("MaxRecords" Data..=) Prelude.<$> maxRecords,
             Prelude.Just
               ("ReplicationTaskArn" Data..= replicationTaskArn)
@@ -254,10 +254,10 @@ data DescribeTableStatisticsResponse = DescribeTableStatisticsResponse'
     -- parameter is specified, the response includes only records beyond the
     -- marker, up to the value specified by @MaxRecords@.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | The table statistics.
-    tableStatistics :: Prelude.Maybe [TableStatistics],
     -- | The Amazon Resource Name (ARN) of the replication task.
     replicationTaskArn :: Prelude.Maybe Prelude.Text,
+    -- | The table statistics.
+    tableStatistics :: Prelude.Maybe [TableStatistics],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -275,9 +275,9 @@ data DescribeTableStatisticsResponse = DescribeTableStatisticsResponse'
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
 --
--- 'tableStatistics', 'describeTableStatisticsResponse_tableStatistics' - The table statistics.
---
 -- 'replicationTaskArn', 'describeTableStatisticsResponse_replicationTaskArn' - The Amazon Resource Name (ARN) of the replication task.
+--
+-- 'tableStatistics', 'describeTableStatisticsResponse_tableStatistics' - The table statistics.
 --
 -- 'httpStatus', 'describeTableStatisticsResponse_httpStatus' - The response's http status code.
 newDescribeTableStatisticsResponse ::
@@ -288,8 +288,8 @@ newDescribeTableStatisticsResponse pHttpStatus_ =
   DescribeTableStatisticsResponse'
     { marker =
         Prelude.Nothing,
-      tableStatistics = Prelude.Nothing,
       replicationTaskArn = Prelude.Nothing,
+      tableStatistics = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -299,13 +299,13 @@ newDescribeTableStatisticsResponse pHttpStatus_ =
 describeTableStatisticsResponse_marker :: Lens.Lens' DescribeTableStatisticsResponse (Prelude.Maybe Prelude.Text)
 describeTableStatisticsResponse_marker = Lens.lens (\DescribeTableStatisticsResponse' {marker} -> marker) (\s@DescribeTableStatisticsResponse' {} a -> s {marker = a} :: DescribeTableStatisticsResponse)
 
--- | The table statistics.
-describeTableStatisticsResponse_tableStatistics :: Lens.Lens' DescribeTableStatisticsResponse (Prelude.Maybe [TableStatistics])
-describeTableStatisticsResponse_tableStatistics = Lens.lens (\DescribeTableStatisticsResponse' {tableStatistics} -> tableStatistics) (\s@DescribeTableStatisticsResponse' {} a -> s {tableStatistics = a} :: DescribeTableStatisticsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The Amazon Resource Name (ARN) of the replication task.
 describeTableStatisticsResponse_replicationTaskArn :: Lens.Lens' DescribeTableStatisticsResponse (Prelude.Maybe Prelude.Text)
 describeTableStatisticsResponse_replicationTaskArn = Lens.lens (\DescribeTableStatisticsResponse' {replicationTaskArn} -> replicationTaskArn) (\s@DescribeTableStatisticsResponse' {} a -> s {replicationTaskArn = a} :: DescribeTableStatisticsResponse)
+
+-- | The table statistics.
+describeTableStatisticsResponse_tableStatistics :: Lens.Lens' DescribeTableStatisticsResponse (Prelude.Maybe [TableStatistics])
+describeTableStatisticsResponse_tableStatistics = Lens.lens (\DescribeTableStatisticsResponse' {tableStatistics} -> tableStatistics) (\s@DescribeTableStatisticsResponse' {} a -> s {tableStatistics = a} :: DescribeTableStatisticsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeTableStatisticsResponse_httpStatus :: Lens.Lens' DescribeTableStatisticsResponse Prelude.Int
@@ -317,6 +317,6 @@ instance
   where
   rnf DescribeTableStatisticsResponse' {..} =
     Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf tableStatistics
       `Prelude.seq` Prelude.rnf replicationTaskArn
+      `Prelude.seq` Prelude.rnf tableStatistics
       `Prelude.seq` Prelude.rnf httpStatus

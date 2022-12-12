@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPutTargetsResultEntry' smart constructor.
 data PutTargetsResultEntry = PutTargetsResultEntry'
-  { -- | The ID of the target.
-    targetId :: Prelude.Maybe Prelude.Text,
-    -- | The error message that explains why the target addition failed.
-    errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | The error code that indicates why the target addition failed. If the
+  { -- | The error code that indicates why the target addition failed. If the
     -- value is @ConcurrentModificationException@, too many requests were made
     -- at the same time.
-    errorCode :: Prelude.Maybe Prelude.Text
+    errorCode :: Prelude.Maybe Prelude.Text,
+    -- | The error message that explains why the target addition failed.
+    errorMessage :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the target.
+    targetId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,29 +47,21 @@ data PutTargetsResultEntry = PutTargetsResultEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetId', 'putTargetsResultEntry_targetId' - The ID of the target.
---
--- 'errorMessage', 'putTargetsResultEntry_errorMessage' - The error message that explains why the target addition failed.
---
 -- 'errorCode', 'putTargetsResultEntry_errorCode' - The error code that indicates why the target addition failed. If the
 -- value is @ConcurrentModificationException@, too many requests were made
 -- at the same time.
+--
+-- 'errorMessage', 'putTargetsResultEntry_errorMessage' - The error message that explains why the target addition failed.
+--
+-- 'targetId', 'putTargetsResultEntry_targetId' - The ID of the target.
 newPutTargetsResultEntry ::
   PutTargetsResultEntry
 newPutTargetsResultEntry =
   PutTargetsResultEntry'
-    { targetId = Prelude.Nothing,
+    { errorCode = Prelude.Nothing,
       errorMessage = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+      targetId = Prelude.Nothing
     }
-
--- | The ID of the target.
-putTargetsResultEntry_targetId :: Lens.Lens' PutTargetsResultEntry (Prelude.Maybe Prelude.Text)
-putTargetsResultEntry_targetId = Lens.lens (\PutTargetsResultEntry' {targetId} -> targetId) (\s@PutTargetsResultEntry' {} a -> s {targetId = a} :: PutTargetsResultEntry)
-
--- | The error message that explains why the target addition failed.
-putTargetsResultEntry_errorMessage :: Lens.Lens' PutTargetsResultEntry (Prelude.Maybe Prelude.Text)
-putTargetsResultEntry_errorMessage = Lens.lens (\PutTargetsResultEntry' {errorMessage} -> errorMessage) (\s@PutTargetsResultEntry' {} a -> s {errorMessage = a} :: PutTargetsResultEntry)
 
 -- | The error code that indicates why the target addition failed. If the
 -- value is @ConcurrentModificationException@, too many requests were made
@@ -77,25 +69,33 @@ putTargetsResultEntry_errorMessage = Lens.lens (\PutTargetsResultEntry' {errorMe
 putTargetsResultEntry_errorCode :: Lens.Lens' PutTargetsResultEntry (Prelude.Maybe Prelude.Text)
 putTargetsResultEntry_errorCode = Lens.lens (\PutTargetsResultEntry' {errorCode} -> errorCode) (\s@PutTargetsResultEntry' {} a -> s {errorCode = a} :: PutTargetsResultEntry)
 
+-- | The error message that explains why the target addition failed.
+putTargetsResultEntry_errorMessage :: Lens.Lens' PutTargetsResultEntry (Prelude.Maybe Prelude.Text)
+putTargetsResultEntry_errorMessage = Lens.lens (\PutTargetsResultEntry' {errorMessage} -> errorMessage) (\s@PutTargetsResultEntry' {} a -> s {errorMessage = a} :: PutTargetsResultEntry)
+
+-- | The ID of the target.
+putTargetsResultEntry_targetId :: Lens.Lens' PutTargetsResultEntry (Prelude.Maybe Prelude.Text)
+putTargetsResultEntry_targetId = Lens.lens (\PutTargetsResultEntry' {targetId} -> targetId) (\s@PutTargetsResultEntry' {} a -> s {targetId = a} :: PutTargetsResultEntry)
+
 instance Data.FromJSON PutTargetsResultEntry where
   parseJSON =
     Data.withObject
       "PutTargetsResultEntry"
       ( \x ->
           PutTargetsResultEntry'
-            Prelude.<$> (x Data..:? "TargetId")
+            Prelude.<$> (x Data..:? "ErrorCode")
             Prelude.<*> (x Data..:? "ErrorMessage")
-            Prelude.<*> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "TargetId")
       )
 
 instance Prelude.Hashable PutTargetsResultEntry where
   hashWithSalt _salt PutTargetsResultEntry' {..} =
-    _salt `Prelude.hashWithSalt` targetId
+    _salt `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage
-      `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` targetId
 
 instance Prelude.NFData PutTargetsResultEntry where
   rnf PutTargetsResultEntry' {..} =
-    Prelude.rnf targetId
+    Prelude.rnf errorCode
       `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf targetId

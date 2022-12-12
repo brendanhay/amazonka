@@ -35,14 +35,14 @@ module Amazonka.LexV2Models.DescribeImport
 
     -- * Response Lenses
     describeImportResponse_creationDateTime,
-    describeImportResponse_importedResourceName,
-    describeImportResponse_resourceSpecification,
+    describeImportResponse_failureReasons,
     describeImportResponse_importId,
     describeImportResponse_importStatus,
     describeImportResponse_importedResourceId,
-    describeImportResponse_failureReasons,
+    describeImportResponse_importedResourceName,
     describeImportResponse_lastUpdatedDateTime,
     describeImportResponse_mergeStrategy,
+    describeImportResponse_resourceSpecification,
     describeImportResponse_httpStatus,
   )
 where
@@ -93,14 +93,14 @@ instance Core.AWSRequest DescribeImport where
       ( \s h x ->
           DescribeImportResponse'
             Prelude.<$> (x Data..?> "creationDateTime")
-            Prelude.<*> (x Data..?> "importedResourceName")
-            Prelude.<*> (x Data..?> "resourceSpecification")
+            Prelude.<*> (x Data..?> "failureReasons" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "importId")
             Prelude.<*> (x Data..?> "importStatus")
             Prelude.<*> (x Data..?> "importedResourceId")
-            Prelude.<*> (x Data..?> "failureReasons" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "importedResourceName")
             Prelude.<*> (x Data..?> "lastUpdatedDateTime")
             Prelude.<*> (x Data..?> "mergeStrategy")
+            Prelude.<*> (x Data..?> "resourceSpecification")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,11 +134,9 @@ instance Data.ToQuery DescribeImport where
 data DescribeImportResponse = DescribeImportResponse'
   { -- | The date and time that the import was created.
     creationDateTime :: Prelude.Maybe Data.POSIX,
-    -- | The name of the imported resource.
-    importedResourceName :: Prelude.Maybe Prelude.Text,
-    -- | The specifications of the imported bot, bot locale, or custom
-    -- vocabulary.
-    resourceSpecification :: Prelude.Maybe ImportResourceSpecification,
+    -- | If the @importStatus@ field is @Failed@, this provides one or more
+    -- reasons for the failure.
+    failureReasons :: Prelude.Maybe [Prelude.Text],
     -- | The unique identifier of the described import.
     importId :: Prelude.Maybe Prelude.Text,
     -- | The status of the import process. When the status is @Completed@ the
@@ -147,9 +145,8 @@ data DescribeImportResponse = DescribeImportResponse'
     -- | The unique identifier that Amazon Lex assigned to the resource created
     -- by the import.
     importedResourceId :: Prelude.Maybe Prelude.Text,
-    -- | If the @importStatus@ field is @Failed@, this provides one or more
-    -- reasons for the failure.
-    failureReasons :: Prelude.Maybe [Prelude.Text],
+    -- | The name of the imported resource.
+    importedResourceName :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the import was last updated.
     lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | The strategy used when there was a name conflict between the imported
@@ -157,6 +154,9 @@ data DescribeImportResponse = DescribeImportResponse'
     -- @FailOnConflict@ existing resources are not overwritten and the import
     -- fails.
     mergeStrategy :: Prelude.Maybe MergeStrategy,
+    -- | The specifications of the imported bot, bot locale, or custom
+    -- vocabulary.
+    resourceSpecification :: Prelude.Maybe ImportResourceSpecification,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -172,10 +172,8 @@ data DescribeImportResponse = DescribeImportResponse'
 --
 -- 'creationDateTime', 'describeImportResponse_creationDateTime' - The date and time that the import was created.
 --
--- 'importedResourceName', 'describeImportResponse_importedResourceName' - The name of the imported resource.
---
--- 'resourceSpecification', 'describeImportResponse_resourceSpecification' - The specifications of the imported bot, bot locale, or custom
--- vocabulary.
+-- 'failureReasons', 'describeImportResponse_failureReasons' - If the @importStatus@ field is @Failed@, this provides one or more
+-- reasons for the failure.
 --
 -- 'importId', 'describeImportResponse_importId' - The unique identifier of the described import.
 --
@@ -185,8 +183,7 @@ data DescribeImportResponse = DescribeImportResponse'
 -- 'importedResourceId', 'describeImportResponse_importedResourceId' - The unique identifier that Amazon Lex assigned to the resource created
 -- by the import.
 --
--- 'failureReasons', 'describeImportResponse_failureReasons' - If the @importStatus@ field is @Failed@, this provides one or more
--- reasons for the failure.
+-- 'importedResourceName', 'describeImportResponse_importedResourceName' - The name of the imported resource.
 --
 -- 'lastUpdatedDateTime', 'describeImportResponse_lastUpdatedDateTime' - The date and time that the import was last updated.
 --
@@ -194,6 +191,9 @@ data DescribeImportResponse = DescribeImportResponse'
 -- resource and an existing resource. When the merge strategy is
 -- @FailOnConflict@ existing resources are not overwritten and the import
 -- fails.
+--
+-- 'resourceSpecification', 'describeImportResponse_resourceSpecification' - The specifications of the imported bot, bot locale, or custom
+-- vocabulary.
 --
 -- 'httpStatus', 'describeImportResponse_httpStatus' - The response's http status code.
 newDescribeImportResponse ::
@@ -204,14 +204,14 @@ newDescribeImportResponse pHttpStatus_ =
   DescribeImportResponse'
     { creationDateTime =
         Prelude.Nothing,
-      importedResourceName = Prelude.Nothing,
-      resourceSpecification = Prelude.Nothing,
+      failureReasons = Prelude.Nothing,
       importId = Prelude.Nothing,
       importStatus = Prelude.Nothing,
       importedResourceId = Prelude.Nothing,
-      failureReasons = Prelude.Nothing,
+      importedResourceName = Prelude.Nothing,
       lastUpdatedDateTime = Prelude.Nothing,
       mergeStrategy = Prelude.Nothing,
+      resourceSpecification = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -219,14 +219,10 @@ newDescribeImportResponse pHttpStatus_ =
 describeImportResponse_creationDateTime :: Lens.Lens' DescribeImportResponse (Prelude.Maybe Prelude.UTCTime)
 describeImportResponse_creationDateTime = Lens.lens (\DescribeImportResponse' {creationDateTime} -> creationDateTime) (\s@DescribeImportResponse' {} a -> s {creationDateTime = a} :: DescribeImportResponse) Prelude.. Lens.mapping Data._Time
 
--- | The name of the imported resource.
-describeImportResponse_importedResourceName :: Lens.Lens' DescribeImportResponse (Prelude.Maybe Prelude.Text)
-describeImportResponse_importedResourceName = Lens.lens (\DescribeImportResponse' {importedResourceName} -> importedResourceName) (\s@DescribeImportResponse' {} a -> s {importedResourceName = a} :: DescribeImportResponse)
-
--- | The specifications of the imported bot, bot locale, or custom
--- vocabulary.
-describeImportResponse_resourceSpecification :: Lens.Lens' DescribeImportResponse (Prelude.Maybe ImportResourceSpecification)
-describeImportResponse_resourceSpecification = Lens.lens (\DescribeImportResponse' {resourceSpecification} -> resourceSpecification) (\s@DescribeImportResponse' {} a -> s {resourceSpecification = a} :: DescribeImportResponse)
+-- | If the @importStatus@ field is @Failed@, this provides one or more
+-- reasons for the failure.
+describeImportResponse_failureReasons :: Lens.Lens' DescribeImportResponse (Prelude.Maybe [Prelude.Text])
+describeImportResponse_failureReasons = Lens.lens (\DescribeImportResponse' {failureReasons} -> failureReasons) (\s@DescribeImportResponse' {} a -> s {failureReasons = a} :: DescribeImportResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique identifier of the described import.
 describeImportResponse_importId :: Lens.Lens' DescribeImportResponse (Prelude.Maybe Prelude.Text)
@@ -242,10 +238,9 @@ describeImportResponse_importStatus = Lens.lens (\DescribeImportResponse' {impor
 describeImportResponse_importedResourceId :: Lens.Lens' DescribeImportResponse (Prelude.Maybe Prelude.Text)
 describeImportResponse_importedResourceId = Lens.lens (\DescribeImportResponse' {importedResourceId} -> importedResourceId) (\s@DescribeImportResponse' {} a -> s {importedResourceId = a} :: DescribeImportResponse)
 
--- | If the @importStatus@ field is @Failed@, this provides one or more
--- reasons for the failure.
-describeImportResponse_failureReasons :: Lens.Lens' DescribeImportResponse (Prelude.Maybe [Prelude.Text])
-describeImportResponse_failureReasons = Lens.lens (\DescribeImportResponse' {failureReasons} -> failureReasons) (\s@DescribeImportResponse' {} a -> s {failureReasons = a} :: DescribeImportResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The name of the imported resource.
+describeImportResponse_importedResourceName :: Lens.Lens' DescribeImportResponse (Prelude.Maybe Prelude.Text)
+describeImportResponse_importedResourceName = Lens.lens (\DescribeImportResponse' {importedResourceName} -> importedResourceName) (\s@DescribeImportResponse' {} a -> s {importedResourceName = a} :: DescribeImportResponse)
 
 -- | The date and time that the import was last updated.
 describeImportResponse_lastUpdatedDateTime :: Lens.Lens' DescribeImportResponse (Prelude.Maybe Prelude.UTCTime)
@@ -258,6 +253,11 @@ describeImportResponse_lastUpdatedDateTime = Lens.lens (\DescribeImportResponse'
 describeImportResponse_mergeStrategy :: Lens.Lens' DescribeImportResponse (Prelude.Maybe MergeStrategy)
 describeImportResponse_mergeStrategy = Lens.lens (\DescribeImportResponse' {mergeStrategy} -> mergeStrategy) (\s@DescribeImportResponse' {} a -> s {mergeStrategy = a} :: DescribeImportResponse)
 
+-- | The specifications of the imported bot, bot locale, or custom
+-- vocabulary.
+describeImportResponse_resourceSpecification :: Lens.Lens' DescribeImportResponse (Prelude.Maybe ImportResourceSpecification)
+describeImportResponse_resourceSpecification = Lens.lens (\DescribeImportResponse' {resourceSpecification} -> resourceSpecification) (\s@DescribeImportResponse' {} a -> s {resourceSpecification = a} :: DescribeImportResponse)
+
 -- | The response's http status code.
 describeImportResponse_httpStatus :: Lens.Lens' DescribeImportResponse Prelude.Int
 describeImportResponse_httpStatus = Lens.lens (\DescribeImportResponse' {httpStatus} -> httpStatus) (\s@DescribeImportResponse' {} a -> s {httpStatus = a} :: DescribeImportResponse)
@@ -265,12 +265,12 @@ describeImportResponse_httpStatus = Lens.lens (\DescribeImportResponse' {httpSta
 instance Prelude.NFData DescribeImportResponse where
   rnf DescribeImportResponse' {..} =
     Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf importedResourceName
-      `Prelude.seq` Prelude.rnf resourceSpecification
+      `Prelude.seq` Prelude.rnf failureReasons
       `Prelude.seq` Prelude.rnf importId
       `Prelude.seq` Prelude.rnf importStatus
       `Prelude.seq` Prelude.rnf importedResourceId
-      `Prelude.seq` Prelude.rnf failureReasons
+      `Prelude.seq` Prelude.rnf importedResourceName
       `Prelude.seq` Prelude.rnf lastUpdatedDateTime
       `Prelude.seq` Prelude.rnf mergeStrategy
+      `Prelude.seq` Prelude.rnf resourceSpecification
       `Prelude.seq` Prelude.rnf httpStatus

@@ -29,9 +29,9 @@ module Amazonka.ECR.DescribePullThroughCacheRules
     newDescribePullThroughCacheRules,
 
     -- * Request Lenses
-    describePullThroughCacheRules_nextToken,
     describePullThroughCacheRules_ecrRepositoryPrefixes,
     describePullThroughCacheRules_maxResults,
+    describePullThroughCacheRules_nextToken,
     describePullThroughCacheRules_registryId,
 
     -- * Destructuring the Response
@@ -55,14 +55,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribePullThroughCacheRules' smart constructor.
 data DescribePullThroughCacheRules = DescribePullThroughCacheRules'
-  { -- | The @nextToken@ value returned from a previous paginated
-    -- @DescribePullThroughCacheRulesRequest@ request where @maxResults@ was
-    -- used and the results exceeded the value of that parameter. Pagination
-    -- continues from the end of the previous results that returned the
-    -- @nextToken@ value. This value is null when there are no more results to
-    -- return.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon ECR repository prefixes associated with the pull through
+  { -- | The Amazon ECR repository prefixes associated with the pull through
     -- cache rules to return. If no repository prefix value is specified, all
     -- pull through cache rules are returned.
     ecrRepositoryPrefixes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
@@ -76,6 +69,13 @@ data DescribePullThroughCacheRules = DescribePullThroughCacheRules'
     -- this parameter is not used, then @DescribePullThroughCacheRulesRequest@
     -- returns up to 100 results and a @nextToken@ value, if applicable.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The @nextToken@ value returned from a previous paginated
+    -- @DescribePullThroughCacheRulesRequest@ request where @maxResults@ was
+    -- used and the results exceeded the value of that parameter. Pagination
+    -- continues from the end of the previous results that returned the
+    -- @nextToken@ value. This value is null when there are no more results to
+    -- return.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services account ID associated with the registry to
     -- return the pull through cache rules for. If you do not specify a
     -- registry, the default registry is assumed.
@@ -91,13 +91,6 @@ data DescribePullThroughCacheRules = DescribePullThroughCacheRules'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describePullThroughCacheRules_nextToken' - The @nextToken@ value returned from a previous paginated
--- @DescribePullThroughCacheRulesRequest@ request where @maxResults@ was
--- used and the results exceeded the value of that parameter. Pagination
--- continues from the end of the previous results that returned the
--- @nextToken@ value. This value is null when there are no more results to
--- return.
---
 -- 'ecrRepositoryPrefixes', 'describePullThroughCacheRules_ecrRepositoryPrefixes' - The Amazon ECR repository prefixes associated with the pull through
 -- cache rules to return. If no repository prefix value is specified, all
 -- pull through cache rules are returned.
@@ -112,6 +105,13 @@ data DescribePullThroughCacheRules = DescribePullThroughCacheRules'
 -- this parameter is not used, then @DescribePullThroughCacheRulesRequest@
 -- returns up to 100 results and a @nextToken@ value, if applicable.
 --
+-- 'nextToken', 'describePullThroughCacheRules_nextToken' - The @nextToken@ value returned from a previous paginated
+-- @DescribePullThroughCacheRulesRequest@ request where @maxResults@ was
+-- used and the results exceeded the value of that parameter. Pagination
+-- continues from the end of the previous results that returned the
+-- @nextToken@ value. This value is null when there are no more results to
+-- return.
+--
 -- 'registryId', 'describePullThroughCacheRules_registryId' - The Amazon Web Services account ID associated with the registry to
 -- return the pull through cache rules for. If you do not specify a
 -- registry, the default registry is assumed.
@@ -119,21 +119,12 @@ newDescribePullThroughCacheRules ::
   DescribePullThroughCacheRules
 newDescribePullThroughCacheRules =
   DescribePullThroughCacheRules'
-    { nextToken =
+    { ecrRepositoryPrefixes =
         Prelude.Nothing,
-      ecrRepositoryPrefixes = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       registryId = Prelude.Nothing
     }
-
--- | The @nextToken@ value returned from a previous paginated
--- @DescribePullThroughCacheRulesRequest@ request where @maxResults@ was
--- used and the results exceeded the value of that parameter. Pagination
--- continues from the end of the previous results that returned the
--- @nextToken@ value. This value is null when there are no more results to
--- return.
-describePullThroughCacheRules_nextToken :: Lens.Lens' DescribePullThroughCacheRules (Prelude.Maybe Prelude.Text)
-describePullThroughCacheRules_nextToken = Lens.lens (\DescribePullThroughCacheRules' {nextToken} -> nextToken) (\s@DescribePullThroughCacheRules' {} a -> s {nextToken = a} :: DescribePullThroughCacheRules)
 
 -- | The Amazon ECR repository prefixes associated with the pull through
 -- cache rules to return. If no repository prefix value is specified, all
@@ -152,6 +143,15 @@ describePullThroughCacheRules_ecrRepositoryPrefixes = Lens.lens (\DescribePullTh
 -- returns up to 100 results and a @nextToken@ value, if applicable.
 describePullThroughCacheRules_maxResults :: Lens.Lens' DescribePullThroughCacheRules (Prelude.Maybe Prelude.Natural)
 describePullThroughCacheRules_maxResults = Lens.lens (\DescribePullThroughCacheRules' {maxResults} -> maxResults) (\s@DescribePullThroughCacheRules' {} a -> s {maxResults = a} :: DescribePullThroughCacheRules)
+
+-- | The @nextToken@ value returned from a previous paginated
+-- @DescribePullThroughCacheRulesRequest@ request where @maxResults@ was
+-- used and the results exceeded the value of that parameter. Pagination
+-- continues from the end of the previous results that returned the
+-- @nextToken@ value. This value is null when there are no more results to
+-- return.
+describePullThroughCacheRules_nextToken :: Lens.Lens' DescribePullThroughCacheRules (Prelude.Maybe Prelude.Text)
+describePullThroughCacheRules_nextToken = Lens.lens (\DescribePullThroughCacheRules' {nextToken} -> nextToken) (\s@DescribePullThroughCacheRules' {} a -> s {nextToken = a} :: DescribePullThroughCacheRules)
 
 -- | The Amazon Web Services account ID associated with the registry to
 -- return the pull through cache rules for. If you do not specify a
@@ -206,16 +206,16 @@ instance
     DescribePullThroughCacheRules
   where
   hashWithSalt _salt DescribePullThroughCacheRules' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` ecrRepositoryPrefixes
+    _salt `Prelude.hashWithSalt` ecrRepositoryPrefixes
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` registryId
 
 instance Prelude.NFData DescribePullThroughCacheRules where
   rnf DescribePullThroughCacheRules' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf ecrRepositoryPrefixes
+    Prelude.rnf ecrRepositoryPrefixes
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf registryId
 
 instance Data.ToHeaders DescribePullThroughCacheRules where
@@ -237,10 +237,10 @@ instance Data.ToJSON DescribePullThroughCacheRules where
   toJSON DescribePullThroughCacheRules' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("ecrRepositoryPrefixes" Data..=)
+          [ ("ecrRepositoryPrefixes" Data..=)
               Prelude.<$> ecrRepositoryPrefixes,
             ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             ("registryId" Data..=) Prelude.<$> registryId
           ]
       )

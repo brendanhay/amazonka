@@ -64,35 +64,35 @@ module Amazonka.Budgets
     -- * Errors
     -- $errors
 
-    -- ** ExpiredNextTokenException
-    _ExpiredNextTokenException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** DuplicateRecordException
-    _DuplicateRecordException,
-
-    -- ** InternalErrorException
-    _InternalErrorException,
-
-    -- ** NotFoundException
-    _NotFoundException,
-
-    -- ** InvalidNextTokenException
-    _InvalidNextTokenException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
-
-    -- ** ResourceLockedException
-    _ResourceLockedException,
 
     -- ** CreationLimitExceededException
     _CreationLimitExceededException,
 
+    -- ** DuplicateRecordException
+    _DuplicateRecordException,
+
+    -- ** ExpiredNextTokenException
+    _ExpiredNextTokenException,
+
+    -- ** InternalErrorException
+    _InternalErrorException,
+
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
     -- ** InvalidParameterException
     _InvalidParameterException,
+
+    -- ** NotFoundException
+    _NotFoundException,
+
+    -- ** ResourceLockedException
+    _ResourceLockedException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
 
     -- * Waiters
     -- $waiters

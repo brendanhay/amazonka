@@ -29,8 +29,8 @@ module Amazonka.Wisdom.ListKnowledgeBases
     newListKnowledgeBases,
 
     -- * Request Lenses
-    listKnowledgeBases_nextToken,
     listKnowledgeBases_maxResults,
+    listKnowledgeBases_nextToken,
 
     -- * Destructuring the Response
     ListKnowledgeBasesResponse (..),
@@ -53,12 +53,12 @@ import Amazonka.Wisdom.Types
 
 -- | /See:/ 'newListKnowledgeBases' smart constructor.
 data ListKnowledgeBases = ListKnowledgeBases'
-  { -- | The token for the next set of results. Use the value returned in the
+  { -- | The maximum number of results to return per page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per page.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,28 +70,28 @@ data ListKnowledgeBases = ListKnowledgeBases'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listKnowledgeBases_maxResults' - The maximum number of results to return per page.
+--
 -- 'nextToken', 'listKnowledgeBases_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
---
--- 'maxResults', 'listKnowledgeBases_maxResults' - The maximum number of results to return per page.
 newListKnowledgeBases ::
   ListKnowledgeBases
 newListKnowledgeBases =
   ListKnowledgeBases'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of results to return per page.
+listKnowledgeBases_maxResults :: Lens.Lens' ListKnowledgeBases (Prelude.Maybe Prelude.Natural)
+listKnowledgeBases_maxResults = Lens.lens (\ListKnowledgeBases' {maxResults} -> maxResults) (\s@ListKnowledgeBases' {} a -> s {maxResults = a} :: ListKnowledgeBases)
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
 listKnowledgeBases_nextToken :: Lens.Lens' ListKnowledgeBases (Prelude.Maybe Prelude.Text)
 listKnowledgeBases_nextToken = Lens.lens (\ListKnowledgeBases' {nextToken} -> nextToken) (\s@ListKnowledgeBases' {} a -> s {nextToken = a} :: ListKnowledgeBases)
-
--- | The maximum number of results to return per page.
-listKnowledgeBases_maxResults :: Lens.Lens' ListKnowledgeBases (Prelude.Maybe Prelude.Natural)
-listKnowledgeBases_maxResults = Lens.lens (\ListKnowledgeBases' {maxResults} -> maxResults) (\s@ListKnowledgeBases' {} a -> s {maxResults = a} :: ListKnowledgeBases)
 
 instance Core.AWSPager ListKnowledgeBases where
   page rq rs
@@ -133,13 +133,13 @@ instance Core.AWSRequest ListKnowledgeBases where
 
 instance Prelude.Hashable ListKnowledgeBases where
   hashWithSalt _salt ListKnowledgeBases' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListKnowledgeBases where
   rnf ListKnowledgeBases' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListKnowledgeBases where
   toHeaders =
@@ -158,8 +158,8 @@ instance Data.ToPath ListKnowledgeBases where
 instance Data.ToQuery ListKnowledgeBases where
   toQuery ListKnowledgeBases' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListKnowledgeBasesResponse' smart constructor.

@@ -29,9 +29,9 @@ module Amazonka.CodeDeploy.ListDeploymentTargets
     newListDeploymentTargets,
 
     -- * Request Lenses
+    listDeploymentTargets_deploymentId,
     listDeploymentTargets_nextToken,
     listDeploymentTargets_targetFilters,
-    listDeploymentTargets_deploymentId,
 
     -- * Destructuring the Response
     ListDeploymentTargetsResponse (..),
@@ -54,7 +54,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDeploymentTargets' smart constructor.
 data ListDeploymentTargets = ListDeploymentTargets'
-  { -- | A token identifier returned from the previous @ListDeploymentTargets@
+  { -- | The unique ID of a deployment.
+    deploymentId :: Prelude.Maybe Prelude.Text,
+    -- | A token identifier returned from the previous @ListDeploymentTargets@
     -- call. It can be used to return the next set of deployment targets in the
     -- list.
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -66,9 +68,7 @@ data ListDeploymentTargets = ListDeploymentTargets'
     --
     -- -   @ServerInstanceLabel@ - A @ServerInstanceLabel@ filter string can be
     --     @Blue@ or @Green@.
-    targetFilters :: Prelude.Maybe (Prelude.HashMap TargetFilterName [Prelude.Text]),
-    -- | The unique ID of a deployment.
-    deploymentId :: Prelude.Maybe Prelude.Text
+    targetFilters :: Prelude.Maybe (Prelude.HashMap TargetFilterName [Prelude.Text])
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,6 +79,8 @@ data ListDeploymentTargets = ListDeploymentTargets'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'deploymentId', 'listDeploymentTargets_deploymentId' - The unique ID of a deployment.
 --
 -- 'nextToken', 'listDeploymentTargets_nextToken' - A token identifier returned from the previous @ListDeploymentTargets@
 -- call. It can be used to return the next set of deployment targets in the
@@ -92,16 +94,19 @@ data ListDeploymentTargets = ListDeploymentTargets'
 --
 -- -   @ServerInstanceLabel@ - A @ServerInstanceLabel@ filter string can be
 --     @Blue@ or @Green@.
---
--- 'deploymentId', 'listDeploymentTargets_deploymentId' - The unique ID of a deployment.
 newListDeploymentTargets ::
   ListDeploymentTargets
 newListDeploymentTargets =
   ListDeploymentTargets'
-    { nextToken = Prelude.Nothing,
-      targetFilters = Prelude.Nothing,
-      deploymentId = Prelude.Nothing
+    { deploymentId =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      targetFilters = Prelude.Nothing
     }
+
+-- | The unique ID of a deployment.
+listDeploymentTargets_deploymentId :: Lens.Lens' ListDeploymentTargets (Prelude.Maybe Prelude.Text)
+listDeploymentTargets_deploymentId = Lens.lens (\ListDeploymentTargets' {deploymentId} -> deploymentId) (\s@ListDeploymentTargets' {} a -> s {deploymentId = a} :: ListDeploymentTargets)
 
 -- | A token identifier returned from the previous @ListDeploymentTargets@
 -- call. It can be used to return the next set of deployment targets in the
@@ -119,10 +124,6 @@ listDeploymentTargets_nextToken = Lens.lens (\ListDeploymentTargets' {nextToken}
 --     @Blue@ or @Green@.
 listDeploymentTargets_targetFilters :: Lens.Lens' ListDeploymentTargets (Prelude.Maybe (Prelude.HashMap TargetFilterName [Prelude.Text]))
 listDeploymentTargets_targetFilters = Lens.lens (\ListDeploymentTargets' {targetFilters} -> targetFilters) (\s@ListDeploymentTargets' {} a -> s {targetFilters = a} :: ListDeploymentTargets) Prelude.. Lens.mapping Lens.coerced
-
--- | The unique ID of a deployment.
-listDeploymentTargets_deploymentId :: Lens.Lens' ListDeploymentTargets (Prelude.Maybe Prelude.Text)
-listDeploymentTargets_deploymentId = Lens.lens (\ListDeploymentTargets' {deploymentId} -> deploymentId) (\s@ListDeploymentTargets' {} a -> s {deploymentId = a} :: ListDeploymentTargets)
 
 instance Core.AWSPager ListDeploymentTargets where
   page rq rs
@@ -163,15 +164,15 @@ instance Core.AWSRequest ListDeploymentTargets where
 
 instance Prelude.Hashable ListDeploymentTargets where
   hashWithSalt _salt ListDeploymentTargets' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` deploymentId
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` targetFilters
-      `Prelude.hashWithSalt` deploymentId
 
 instance Prelude.NFData ListDeploymentTargets where
   rnf ListDeploymentTargets' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf deploymentId
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf targetFilters
-      `Prelude.seq` Prelude.rnf deploymentId
 
 instance Data.ToHeaders ListDeploymentTargets where
   toHeaders =
@@ -192,9 +193,9 @@ instance Data.ToJSON ListDeploymentTargets where
   toJSON ListDeploymentTargets' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("targetFilters" Data..=) Prelude.<$> targetFilters,
-            ("deploymentId" Data..=) Prelude.<$> deploymentId
+          [ ("deploymentId" Data..=) Prelude.<$> deploymentId,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("targetFilters" Data..=) Prelude.<$> targetFilters
           ]
       )
 

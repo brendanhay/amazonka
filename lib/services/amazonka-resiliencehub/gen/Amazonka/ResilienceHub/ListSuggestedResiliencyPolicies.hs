@@ -28,8 +28,8 @@ module Amazonka.ResilienceHub.ListSuggestedResiliencyPolicies
     newListSuggestedResiliencyPolicies,
 
     -- * Request Lenses
-    listSuggestedResiliencyPolicies_nextToken,
     listSuggestedResiliencyPolicies_maxResults,
+    listSuggestedResiliencyPolicies_nextToken,
 
     -- * Destructuring the Response
     ListSuggestedResiliencyPoliciesResponse (..),
@@ -52,12 +52,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListSuggestedResiliencyPolicies' smart constructor.
 data ListSuggestedResiliencyPolicies = ListSuggestedResiliencyPolicies'
-  { -- | Null, or the token from a previous call to get the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to include in the response. If more
+  { -- | The maximum number of results to include in the response. If more
     -- results exist than the specified @MaxResults@ value, a token is included
     -- in the response so that the remaining results can be retrieved.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Null, or the token from a previous call to get the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,29 +69,29 @@ data ListSuggestedResiliencyPolicies = ListSuggestedResiliencyPolicies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listSuggestedResiliencyPolicies_nextToken' - Null, or the token from a previous call to get the next set of results.
---
 -- 'maxResults', 'listSuggestedResiliencyPolicies_maxResults' - The maximum number of results to include in the response. If more
 -- results exist than the specified @MaxResults@ value, a token is included
 -- in the response so that the remaining results can be retrieved.
+--
+-- 'nextToken', 'listSuggestedResiliencyPolicies_nextToken' - Null, or the token from a previous call to get the next set of results.
 newListSuggestedResiliencyPolicies ::
   ListSuggestedResiliencyPolicies
 newListSuggestedResiliencyPolicies =
   ListSuggestedResiliencyPolicies'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | Null, or the token from a previous call to get the next set of results.
-listSuggestedResiliencyPolicies_nextToken :: Lens.Lens' ListSuggestedResiliencyPolicies (Prelude.Maybe Prelude.Text)
-listSuggestedResiliencyPolicies_nextToken = Lens.lens (\ListSuggestedResiliencyPolicies' {nextToken} -> nextToken) (\s@ListSuggestedResiliencyPolicies' {} a -> s {nextToken = a} :: ListSuggestedResiliencyPolicies)
 
 -- | The maximum number of results to include in the response. If more
 -- results exist than the specified @MaxResults@ value, a token is included
 -- in the response so that the remaining results can be retrieved.
 listSuggestedResiliencyPolicies_maxResults :: Lens.Lens' ListSuggestedResiliencyPolicies (Prelude.Maybe Prelude.Natural)
 listSuggestedResiliencyPolicies_maxResults = Lens.lens (\ListSuggestedResiliencyPolicies' {maxResults} -> maxResults) (\s@ListSuggestedResiliencyPolicies' {} a -> s {maxResults = a} :: ListSuggestedResiliencyPolicies)
+
+-- | Null, or the token from a previous call to get the next set of results.
+listSuggestedResiliencyPolicies_nextToken :: Lens.Lens' ListSuggestedResiliencyPolicies (Prelude.Maybe Prelude.Text)
+listSuggestedResiliencyPolicies_nextToken = Lens.lens (\ListSuggestedResiliencyPolicies' {nextToken} -> nextToken) (\s@ListSuggestedResiliencyPolicies' {} a -> s {nextToken = a} :: ListSuggestedResiliencyPolicies)
 
 instance
   Core.AWSRequest
@@ -120,16 +120,16 @@ instance
   hashWithSalt
     _salt
     ListSuggestedResiliencyPolicies' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     ListSuggestedResiliencyPolicies
   where
   rnf ListSuggestedResiliencyPolicies' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -152,8 +152,8 @@ instance Data.ToPath ListSuggestedResiliencyPolicies where
 instance Data.ToQuery ListSuggestedResiliencyPolicies where
   toQuery ListSuggestedResiliencyPolicies' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListSuggestedResiliencyPoliciesResponse' smart constructor.

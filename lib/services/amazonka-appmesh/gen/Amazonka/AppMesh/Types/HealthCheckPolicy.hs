@@ -30,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHealthCheckPolicy' smart constructor.
 data HealthCheckPolicy = HealthCheckPolicy'
-  { -- | The destination port for the health check request. This port must match
-    -- the port defined in the PortMapping for the listener.
-    port :: Prelude.Maybe Prelude.Natural,
-    -- | The destination path for the health check request. This value is only
+  { -- | The destination path for the health check request. This value is only
     -- used if the specified protocol is HTTP or HTTP\/2. For any other
     -- protocol, this value is ignored.
     path :: Prelude.Maybe Prelude.Text,
+    -- | The destination port for the health check request. This port must match
+    -- the port defined in the PortMapping for the listener.
+    port :: Prelude.Maybe Prelude.Natural,
     -- | The number of consecutive successful health checks that must occur
     -- before declaring listener healthy.
     healthyThreshold :: Prelude.Natural,
@@ -63,12 +63,12 @@ data HealthCheckPolicy = HealthCheckPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'port', 'healthCheckPolicy_port' - The destination port for the health check request. This port must match
--- the port defined in the PortMapping for the listener.
---
 -- 'path', 'healthCheckPolicy_path' - The destination path for the health check request. This value is only
 -- used if the specified protocol is HTTP or HTTP\/2. For any other
 -- protocol, this value is ignored.
+--
+-- 'port', 'healthCheckPolicy_port' - The destination port for the health check request. This port must match
+-- the port defined in the PortMapping for the listener.
 --
 -- 'healthyThreshold', 'healthCheckPolicy_healthyThreshold' - The number of consecutive successful health checks that must occur
 -- before declaring listener healthy.
@@ -103,8 +103,8 @@ newHealthCheckPolicy
   pTimeoutMillis_
   pUnhealthyThreshold_ =
     HealthCheckPolicy'
-      { port = Prelude.Nothing,
-        path = Prelude.Nothing,
+      { path = Prelude.Nothing,
+        port = Prelude.Nothing,
         healthyThreshold = pHealthyThreshold_,
         intervalMillis = pIntervalMillis_,
         protocol = pProtocol_,
@@ -112,16 +112,16 @@ newHealthCheckPolicy
         unhealthyThreshold = pUnhealthyThreshold_
       }
 
--- | The destination port for the health check request. This port must match
--- the port defined in the PortMapping for the listener.
-healthCheckPolicy_port :: Lens.Lens' HealthCheckPolicy (Prelude.Maybe Prelude.Natural)
-healthCheckPolicy_port = Lens.lens (\HealthCheckPolicy' {port} -> port) (\s@HealthCheckPolicy' {} a -> s {port = a} :: HealthCheckPolicy)
-
 -- | The destination path for the health check request. This value is only
 -- used if the specified protocol is HTTP or HTTP\/2. For any other
 -- protocol, this value is ignored.
 healthCheckPolicy_path :: Lens.Lens' HealthCheckPolicy (Prelude.Maybe Prelude.Text)
 healthCheckPolicy_path = Lens.lens (\HealthCheckPolicy' {path} -> path) (\s@HealthCheckPolicy' {} a -> s {path = a} :: HealthCheckPolicy)
+
+-- | The destination port for the health check request. This port must match
+-- the port defined in the PortMapping for the listener.
+healthCheckPolicy_port :: Lens.Lens' HealthCheckPolicy (Prelude.Maybe Prelude.Natural)
+healthCheckPolicy_port = Lens.lens (\HealthCheckPolicy' {port} -> port) (\s@HealthCheckPolicy' {} a -> s {port = a} :: HealthCheckPolicy)
 
 -- | The number of consecutive successful health checks that must occur
 -- before declaring listener healthy.
@@ -154,8 +154,8 @@ instance Data.FromJSON HealthCheckPolicy where
       "HealthCheckPolicy"
       ( \x ->
           HealthCheckPolicy'
-            Prelude.<$> (x Data..:? "port")
-            Prelude.<*> (x Data..:? "path")
+            Prelude.<$> (x Data..:? "path")
+            Prelude.<*> (x Data..:? "port")
             Prelude.<*> (x Data..: "healthyThreshold")
             Prelude.<*> (x Data..: "intervalMillis")
             Prelude.<*> (x Data..: "protocol")
@@ -165,8 +165,8 @@ instance Data.FromJSON HealthCheckPolicy where
 
 instance Prelude.Hashable HealthCheckPolicy where
   hashWithSalt _salt HealthCheckPolicy' {..} =
-    _salt `Prelude.hashWithSalt` port
-      `Prelude.hashWithSalt` path
+    _salt `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` healthyThreshold
       `Prelude.hashWithSalt` intervalMillis
       `Prelude.hashWithSalt` protocol
@@ -175,8 +175,8 @@ instance Prelude.Hashable HealthCheckPolicy where
 
 instance Prelude.NFData HealthCheckPolicy where
   rnf HealthCheckPolicy' {..} =
-    Prelude.rnf port
-      `Prelude.seq` Prelude.rnf path
+    Prelude.rnf path
+      `Prelude.seq` Prelude.rnf port
       `Prelude.seq` Prelude.rnf healthyThreshold
       `Prelude.seq` Prelude.rnf intervalMillis
       `Prelude.seq` Prelude.rnf protocol
@@ -187,8 +187,8 @@ instance Data.ToJSON HealthCheckPolicy where
   toJSON HealthCheckPolicy' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("port" Data..=) Prelude.<$> port,
-            ("path" Data..=) Prelude.<$> path,
+          [ ("path" Data..=) Prelude.<$> path,
+            ("port" Data..=) Prelude.<$> port,
             Prelude.Just
               ("healthyThreshold" Data..= healthyThreshold),
             Prelude.Just

@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSSMLMessageType' smart constructor.
 data SSMLMessageType = SSMLMessageType'
-  { -- | The name of the voice that you want to use to deliver the message. For a
-    -- complete list of supported voices, see the Amazon Polly Developer Guide.
-    voiceId :: Prelude.Maybe Prelude.Text,
-    -- | The language to use when delivering the message. For a complete list of
+  { -- | The language to use when delivering the message. For a complete list of
     -- supported languages, see the Amazon Polly Developer Guide.
     languageCode :: Prelude.Maybe Prelude.Text,
     -- | The SSML-formatted text to deliver to the recipient.
-    text :: Prelude.Maybe Prelude.Text
+    text :: Prelude.Maybe Prelude.Text,
+    -- | The name of the voice that you want to use to deliver the message. For a
+    -- complete list of supported voices, see the Amazon Polly Developer Guide.
+    voiceId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,26 +47,21 @@ data SSMLMessageType = SSMLMessageType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceId', 'sSMLMessageType_voiceId' - The name of the voice that you want to use to deliver the message. For a
--- complete list of supported voices, see the Amazon Polly Developer Guide.
---
 -- 'languageCode', 'sSMLMessageType_languageCode' - The language to use when delivering the message. For a complete list of
 -- supported languages, see the Amazon Polly Developer Guide.
 --
 -- 'text', 'sSMLMessageType_text' - The SSML-formatted text to deliver to the recipient.
+--
+-- 'voiceId', 'sSMLMessageType_voiceId' - The name of the voice that you want to use to deliver the message. For a
+-- complete list of supported voices, see the Amazon Polly Developer Guide.
 newSSMLMessageType ::
   SSMLMessageType
 newSSMLMessageType =
   SSMLMessageType'
-    { voiceId = Prelude.Nothing,
-      languageCode = Prelude.Nothing,
-      text = Prelude.Nothing
+    { languageCode = Prelude.Nothing,
+      text = Prelude.Nothing,
+      voiceId = Prelude.Nothing
     }
-
--- | The name of the voice that you want to use to deliver the message. For a
--- complete list of supported voices, see the Amazon Polly Developer Guide.
-sSMLMessageType_voiceId :: Lens.Lens' SSMLMessageType (Prelude.Maybe Prelude.Text)
-sSMLMessageType_voiceId = Lens.lens (\SSMLMessageType' {voiceId} -> voiceId) (\s@SSMLMessageType' {} a -> s {voiceId = a} :: SSMLMessageType)
 
 -- | The language to use when delivering the message. For a complete list of
 -- supported languages, see the Amazon Polly Developer Guide.
@@ -77,24 +72,29 @@ sSMLMessageType_languageCode = Lens.lens (\SSMLMessageType' {languageCode} -> la
 sSMLMessageType_text :: Lens.Lens' SSMLMessageType (Prelude.Maybe Prelude.Text)
 sSMLMessageType_text = Lens.lens (\SSMLMessageType' {text} -> text) (\s@SSMLMessageType' {} a -> s {text = a} :: SSMLMessageType)
 
+-- | The name of the voice that you want to use to deliver the message. For a
+-- complete list of supported voices, see the Amazon Polly Developer Guide.
+sSMLMessageType_voiceId :: Lens.Lens' SSMLMessageType (Prelude.Maybe Prelude.Text)
+sSMLMessageType_voiceId = Lens.lens (\SSMLMessageType' {voiceId} -> voiceId) (\s@SSMLMessageType' {} a -> s {voiceId = a} :: SSMLMessageType)
+
 instance Prelude.Hashable SSMLMessageType where
   hashWithSalt _salt SSMLMessageType' {..} =
-    _salt `Prelude.hashWithSalt` voiceId
-      `Prelude.hashWithSalt` languageCode
+    _salt `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` text
+      `Prelude.hashWithSalt` voiceId
 
 instance Prelude.NFData SSMLMessageType where
   rnf SSMLMessageType' {..} =
-    Prelude.rnf voiceId
-      `Prelude.seq` Prelude.rnf languageCode
+    Prelude.rnf languageCode
       `Prelude.seq` Prelude.rnf text
+      `Prelude.seq` Prelude.rnf voiceId
 
 instance Data.ToJSON SSMLMessageType where
   toJSON SSMLMessageType' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("VoiceId" Data..=) Prelude.<$> voiceId,
-            ("LanguageCode" Data..=) Prelude.<$> languageCode,
-            ("Text" Data..=) Prelude.<$> text
+          [ ("LanguageCode" Data..=) Prelude.<$> languageCode,
+            ("Text" Data..=) Prelude.<$> text,
+            ("VoiceId" Data..=) Prelude.<$> voiceId
           ]
       )

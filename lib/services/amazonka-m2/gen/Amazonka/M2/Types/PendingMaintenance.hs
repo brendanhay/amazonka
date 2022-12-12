@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPendingMaintenance' smart constructor.
 data PendingMaintenance = PendingMaintenance'
-  { -- | The maintenance schedule for the engine version.
-    schedule :: Prelude.Maybe MaintenanceSchedule,
-    -- | The specific runtime engine that the maintenance schedule applies to.
-    engineVersion :: Prelude.Maybe Prelude.Text
+  { -- | The specific runtime engine that the maintenance schedule applies to.
+    engineVersion :: Prelude.Maybe Prelude.Text,
+    -- | The maintenance schedule for the engine version.
+    schedule :: Prelude.Maybe MaintenanceSchedule
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,25 @@ data PendingMaintenance = PendingMaintenance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'schedule', 'pendingMaintenance_schedule' - The maintenance schedule for the engine version.
---
 -- 'engineVersion', 'pendingMaintenance_engineVersion' - The specific runtime engine that the maintenance schedule applies to.
+--
+-- 'schedule', 'pendingMaintenance_schedule' - The maintenance schedule for the engine version.
 newPendingMaintenance ::
   PendingMaintenance
 newPendingMaintenance =
   PendingMaintenance'
-    { schedule = Prelude.Nothing,
-      engineVersion = Prelude.Nothing
+    { engineVersion =
+        Prelude.Nothing,
+      schedule = Prelude.Nothing
     }
-
--- | The maintenance schedule for the engine version.
-pendingMaintenance_schedule :: Lens.Lens' PendingMaintenance (Prelude.Maybe MaintenanceSchedule)
-pendingMaintenance_schedule = Lens.lens (\PendingMaintenance' {schedule} -> schedule) (\s@PendingMaintenance' {} a -> s {schedule = a} :: PendingMaintenance)
 
 -- | The specific runtime engine that the maintenance schedule applies to.
 pendingMaintenance_engineVersion :: Lens.Lens' PendingMaintenance (Prelude.Maybe Prelude.Text)
 pendingMaintenance_engineVersion = Lens.lens (\PendingMaintenance' {engineVersion} -> engineVersion) (\s@PendingMaintenance' {} a -> s {engineVersion = a} :: PendingMaintenance)
+
+-- | The maintenance schedule for the engine version.
+pendingMaintenance_schedule :: Lens.Lens' PendingMaintenance (Prelude.Maybe MaintenanceSchedule)
+pendingMaintenance_schedule = Lens.lens (\PendingMaintenance' {schedule} -> schedule) (\s@PendingMaintenance' {} a -> s {schedule = a} :: PendingMaintenance)
 
 instance Data.FromJSON PendingMaintenance where
   parseJSON =
@@ -69,16 +70,16 @@ instance Data.FromJSON PendingMaintenance where
       "PendingMaintenance"
       ( \x ->
           PendingMaintenance'
-            Prelude.<$> (x Data..:? "schedule")
-            Prelude.<*> (x Data..:? "engineVersion")
+            Prelude.<$> (x Data..:? "engineVersion")
+            Prelude.<*> (x Data..:? "schedule")
       )
 
 instance Prelude.Hashable PendingMaintenance where
   hashWithSalt _salt PendingMaintenance' {..} =
-    _salt `Prelude.hashWithSalt` schedule
-      `Prelude.hashWithSalt` engineVersion
+    _salt `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` schedule
 
 instance Prelude.NFData PendingMaintenance where
   rnf PendingMaintenance' {..} =
-    Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf engineVersion
+    Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf schedule

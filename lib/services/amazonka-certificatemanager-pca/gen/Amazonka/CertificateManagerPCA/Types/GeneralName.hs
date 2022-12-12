@@ -35,21 +35,21 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newGeneralName' smart constructor.
 data GeneralName = GeneralName'
   { directoryName :: Prelude.Maybe ASN1Subject,
+    -- | Represents @GeneralName@ as a DNS name.
+    dnsName :: Prelude.Maybe Prelude.Text,
+    -- | Represents @GeneralName@ as an @EdiPartyName@ object.
+    ediPartyName :: Prelude.Maybe EdiPartyName,
+    -- | Represents @GeneralName@ as an IPv4 or IPv6 address.
+    ipAddress :: Prelude.Maybe Prelude.Text,
+    -- | Represents @GeneralName@ using an @OtherName@ object.
+    otherName :: Prelude.Maybe OtherName,
     -- | Represents @GeneralName@ as an object identifier (OID).
     registeredId :: Prelude.Maybe Prelude.Text,
     -- | Represents @GeneralName@ as an
     -- <https://datatracker.ietf.org/doc/html/rfc822 RFC 822> email address.
     rfc822Name :: Prelude.Maybe Prelude.Text,
-    -- | Represents @GeneralName@ as an @EdiPartyName@ object.
-    ediPartyName :: Prelude.Maybe EdiPartyName,
-    -- | Represents @GeneralName@ using an @OtherName@ object.
-    otherName :: Prelude.Maybe OtherName,
-    -- | Represents @GeneralName@ as a DNS name.
-    dnsName :: Prelude.Maybe Prelude.Text,
     -- | Represents @GeneralName@ as a URI.
-    uniformResourceIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | Represents @GeneralName@ as an IPv4 or IPv6 address.
-    ipAddress :: Prelude.Maybe Prelude.Text
+    uniformResourceIdentifier :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,37 +63,53 @@ data GeneralName = GeneralName'
 --
 -- 'directoryName', 'generalName_directoryName' - Undocumented member.
 --
+-- 'dnsName', 'generalName_dnsName' - Represents @GeneralName@ as a DNS name.
+--
+-- 'ediPartyName', 'generalName_ediPartyName' - Represents @GeneralName@ as an @EdiPartyName@ object.
+--
+-- 'ipAddress', 'generalName_ipAddress' - Represents @GeneralName@ as an IPv4 or IPv6 address.
+--
+-- 'otherName', 'generalName_otherName' - Represents @GeneralName@ using an @OtherName@ object.
+--
 -- 'registeredId', 'generalName_registeredId' - Represents @GeneralName@ as an object identifier (OID).
 --
 -- 'rfc822Name', 'generalName_rfc822Name' - Represents @GeneralName@ as an
 -- <https://datatracker.ietf.org/doc/html/rfc822 RFC 822> email address.
 --
--- 'ediPartyName', 'generalName_ediPartyName' - Represents @GeneralName@ as an @EdiPartyName@ object.
---
--- 'otherName', 'generalName_otherName' - Represents @GeneralName@ using an @OtherName@ object.
---
--- 'dnsName', 'generalName_dnsName' - Represents @GeneralName@ as a DNS name.
---
 -- 'uniformResourceIdentifier', 'generalName_uniformResourceIdentifier' - Represents @GeneralName@ as a URI.
---
--- 'ipAddress', 'generalName_ipAddress' - Represents @GeneralName@ as an IPv4 or IPv6 address.
 newGeneralName ::
   GeneralName
 newGeneralName =
   GeneralName'
     { directoryName = Prelude.Nothing,
+      dnsName = Prelude.Nothing,
+      ediPartyName = Prelude.Nothing,
+      ipAddress = Prelude.Nothing,
+      otherName = Prelude.Nothing,
       registeredId = Prelude.Nothing,
       rfc822Name = Prelude.Nothing,
-      ediPartyName = Prelude.Nothing,
-      otherName = Prelude.Nothing,
-      dnsName = Prelude.Nothing,
-      uniformResourceIdentifier = Prelude.Nothing,
-      ipAddress = Prelude.Nothing
+      uniformResourceIdentifier = Prelude.Nothing
     }
 
 -- | Undocumented member.
 generalName_directoryName :: Lens.Lens' GeneralName (Prelude.Maybe ASN1Subject)
 generalName_directoryName = Lens.lens (\GeneralName' {directoryName} -> directoryName) (\s@GeneralName' {} a -> s {directoryName = a} :: GeneralName)
+
+-- | Represents @GeneralName@ as a DNS name.
+generalName_dnsName :: Lens.Lens' GeneralName (Prelude.Maybe Prelude.Text)
+generalName_dnsName = Lens.lens (\GeneralName' {dnsName} -> dnsName) (\s@GeneralName' {} a -> s {dnsName = a} :: GeneralName)
+
+-- | Represents @GeneralName@ as an @EdiPartyName@ object.
+generalName_ediPartyName :: Lens.Lens' GeneralName (Prelude.Maybe EdiPartyName)
+generalName_ediPartyName = Lens.lens (\GeneralName' {ediPartyName} -> ediPartyName) (\s@GeneralName' {} a -> s {ediPartyName = a} :: GeneralName)
+
+-- | Represents @GeneralName@ as an IPv4 or IPv6 address.
+generalName_ipAddress :: Lens.Lens' GeneralName (Prelude.Maybe Prelude.Text)
+generalName_ipAddress = Lens.lens (\GeneralName' {ipAddress} -> ipAddress) (\s@GeneralName' {} a -> s {ipAddress = a} :: GeneralName)
+
+-- | Represents @GeneralName@ using an @OtherName@ object.
+generalName_otherName :: Lens.Lens' GeneralName (Prelude.Maybe OtherName)
+generalName_otherName = Lens.lens (\GeneralName' {otherName} -> otherName) (\s@GeneralName' {} a -> s {otherName = a} :: GeneralName)
 
 -- | Represents @GeneralName@ as an object identifier (OID).
 generalName_registeredId :: Lens.Lens' GeneralName (Prelude.Maybe Prelude.Text)
@@ -104,25 +120,9 @@ generalName_registeredId = Lens.lens (\GeneralName' {registeredId} -> registered
 generalName_rfc822Name :: Lens.Lens' GeneralName (Prelude.Maybe Prelude.Text)
 generalName_rfc822Name = Lens.lens (\GeneralName' {rfc822Name} -> rfc822Name) (\s@GeneralName' {} a -> s {rfc822Name = a} :: GeneralName)
 
--- | Represents @GeneralName@ as an @EdiPartyName@ object.
-generalName_ediPartyName :: Lens.Lens' GeneralName (Prelude.Maybe EdiPartyName)
-generalName_ediPartyName = Lens.lens (\GeneralName' {ediPartyName} -> ediPartyName) (\s@GeneralName' {} a -> s {ediPartyName = a} :: GeneralName)
-
--- | Represents @GeneralName@ using an @OtherName@ object.
-generalName_otherName :: Lens.Lens' GeneralName (Prelude.Maybe OtherName)
-generalName_otherName = Lens.lens (\GeneralName' {otherName} -> otherName) (\s@GeneralName' {} a -> s {otherName = a} :: GeneralName)
-
--- | Represents @GeneralName@ as a DNS name.
-generalName_dnsName :: Lens.Lens' GeneralName (Prelude.Maybe Prelude.Text)
-generalName_dnsName = Lens.lens (\GeneralName' {dnsName} -> dnsName) (\s@GeneralName' {} a -> s {dnsName = a} :: GeneralName)
-
 -- | Represents @GeneralName@ as a URI.
 generalName_uniformResourceIdentifier :: Lens.Lens' GeneralName (Prelude.Maybe Prelude.Text)
 generalName_uniformResourceIdentifier = Lens.lens (\GeneralName' {uniformResourceIdentifier} -> uniformResourceIdentifier) (\s@GeneralName' {} a -> s {uniformResourceIdentifier = a} :: GeneralName)
-
--- | Represents @GeneralName@ as an IPv4 or IPv6 address.
-generalName_ipAddress :: Lens.Lens' GeneralName (Prelude.Maybe Prelude.Text)
-generalName_ipAddress = Lens.lens (\GeneralName' {ipAddress} -> ipAddress) (\s@GeneralName' {} a -> s {ipAddress = a} :: GeneralName)
 
 instance Data.FromJSON GeneralName where
   parseJSON =
@@ -131,49 +131,49 @@ instance Data.FromJSON GeneralName where
       ( \x ->
           GeneralName'
             Prelude.<$> (x Data..:? "DirectoryName")
+            Prelude.<*> (x Data..:? "DnsName")
+            Prelude.<*> (x Data..:? "EdiPartyName")
+            Prelude.<*> (x Data..:? "IpAddress")
+            Prelude.<*> (x Data..:? "OtherName")
             Prelude.<*> (x Data..:? "RegisteredId")
             Prelude.<*> (x Data..:? "Rfc822Name")
-            Prelude.<*> (x Data..:? "EdiPartyName")
-            Prelude.<*> (x Data..:? "OtherName")
-            Prelude.<*> (x Data..:? "DnsName")
             Prelude.<*> (x Data..:? "UniformResourceIdentifier")
-            Prelude.<*> (x Data..:? "IpAddress")
       )
 
 instance Prelude.Hashable GeneralName where
   hashWithSalt _salt GeneralName' {..} =
     _salt `Prelude.hashWithSalt` directoryName
+      `Prelude.hashWithSalt` dnsName
+      `Prelude.hashWithSalt` ediPartyName
+      `Prelude.hashWithSalt` ipAddress
+      `Prelude.hashWithSalt` otherName
       `Prelude.hashWithSalt` registeredId
       `Prelude.hashWithSalt` rfc822Name
-      `Prelude.hashWithSalt` ediPartyName
-      `Prelude.hashWithSalt` otherName
-      `Prelude.hashWithSalt` dnsName
       `Prelude.hashWithSalt` uniformResourceIdentifier
-      `Prelude.hashWithSalt` ipAddress
 
 instance Prelude.NFData GeneralName where
   rnf GeneralName' {..} =
     Prelude.rnf directoryName
+      `Prelude.seq` Prelude.rnf dnsName
+      `Prelude.seq` Prelude.rnf ediPartyName
+      `Prelude.seq` Prelude.rnf ipAddress
+      `Prelude.seq` Prelude.rnf otherName
       `Prelude.seq` Prelude.rnf registeredId
       `Prelude.seq` Prelude.rnf rfc822Name
-      `Prelude.seq` Prelude.rnf ediPartyName
-      `Prelude.seq` Prelude.rnf otherName
-      `Prelude.seq` Prelude.rnf dnsName
       `Prelude.seq` Prelude.rnf uniformResourceIdentifier
-      `Prelude.seq` Prelude.rnf ipAddress
 
 instance Data.ToJSON GeneralName where
   toJSON GeneralName' {..} =
     Data.object
       ( Prelude.catMaybes
           [ ("DirectoryName" Data..=) Prelude.<$> directoryName,
+            ("DnsName" Data..=) Prelude.<$> dnsName,
+            ("EdiPartyName" Data..=) Prelude.<$> ediPartyName,
+            ("IpAddress" Data..=) Prelude.<$> ipAddress,
+            ("OtherName" Data..=) Prelude.<$> otherName,
             ("RegisteredId" Data..=) Prelude.<$> registeredId,
             ("Rfc822Name" Data..=) Prelude.<$> rfc822Name,
-            ("EdiPartyName" Data..=) Prelude.<$> ediPartyName,
-            ("OtherName" Data..=) Prelude.<$> otherName,
-            ("DnsName" Data..=) Prelude.<$> dnsName,
             ("UniformResourceIdentifier" Data..=)
-              Prelude.<$> uniformResourceIdentifier,
-            ("IpAddress" Data..=) Prelude.<$> ipAddress
+              Prelude.<$> uniformResourceIdentifier
           ]
       )

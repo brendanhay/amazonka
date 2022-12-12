@@ -35,15 +35,17 @@ module Amazonka.IotTwinMaker.GetComponentType
     newGetComponentTypeResponse,
 
     -- * Response Lenses
-    getComponentTypeResponse_isSchemaInitialized,
+    getComponentTypeResponse_componentTypeName,
+    getComponentTypeResponse_description,
+    getComponentTypeResponse_extendsFrom,
     getComponentTypeResponse_functions,
     getComponentTypeResponse_isAbstract,
-    getComponentTypeResponse_propertyDefinitions,
-    getComponentTypeResponse_status,
-    getComponentTypeResponse_description,
-    getComponentTypeResponse_propertyGroups,
+    getComponentTypeResponse_isSchemaInitialized,
     getComponentTypeResponse_isSingleton,
-    getComponentTypeResponse_extendsFrom,
+    getComponentTypeResponse_propertyDefinitions,
+    getComponentTypeResponse_propertyGroups,
+    getComponentTypeResponse_status,
+    getComponentTypeResponse_syncSource,
     getComponentTypeResponse_httpStatus,
     getComponentTypeResponse_workspaceId,
     getComponentTypeResponse_componentTypeId,
@@ -111,17 +113,19 @@ instance Core.AWSRequest GetComponentType where
     Response.receiveJSON
       ( \s h x ->
           GetComponentTypeResponse'
-            Prelude.<$> (x Data..?> "isSchemaInitialized")
+            Prelude.<$> (x Data..?> "componentTypeName")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "extendsFrom" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "functions" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "isAbstract")
+            Prelude.<*> (x Data..?> "isSchemaInitialized")
+            Prelude.<*> (x Data..?> "isSingleton")
             Prelude.<*> ( x Data..?> "propertyDefinitions"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "status")
-            Prelude.<*> (x Data..?> "description")
             Prelude.<*> (x Data..?> "propertyGroups" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "isSingleton")
-            Prelude.<*> (x Data..?> "extendsFrom" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "syncSource")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "workspaceId")
             Prelude.<*> (x Data..:> "componentTypeId")
@@ -165,30 +169,35 @@ instance Data.ToQuery GetComponentType where
 
 -- | /See:/ 'newGetComponentTypeResponse' smart constructor.
 data GetComponentTypeResponse = GetComponentTypeResponse'
-  { -- | A Boolean value that specifies whether the component type has a schema
-    -- initializer and that the schema initializer has run.
-    isSchemaInitialized :: Prelude.Maybe Prelude.Bool,
+  { -- | The component type name.
+    componentTypeName :: Prelude.Maybe Prelude.Text,
+    -- | The description of the component type.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The name of the parent component type that this component type extends.
+    extendsFrom :: Prelude.Maybe [Prelude.Text],
     -- | An object that maps strings to the functions in the component type. Each
     -- string in the mapping must be unique to this object.
     functions :: Prelude.Maybe (Prelude.HashMap Prelude.Text FunctionResponse),
     -- | A Boolean value that specifies whether the component type is abstract.
     isAbstract :: Prelude.Maybe Prelude.Bool,
+    -- | A Boolean value that specifies whether the component type has a schema
+    -- initializer and that the schema initializer has run.
+    isSchemaInitialized :: Prelude.Maybe Prelude.Bool,
+    -- | A Boolean value that specifies whether an entity can have more than one
+    -- component of this type.
+    isSingleton :: Prelude.Maybe Prelude.Bool,
     -- | An object that maps strings to the property definitions in the component
     -- type. Each string in the mapping must be unique to this object.
     propertyDefinitions :: Prelude.Maybe (Prelude.HashMap Prelude.Text PropertyDefinitionResponse),
-    -- | The current status of the component type.
-    status :: Prelude.Maybe Status,
-    -- | The description of the component type.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return at one time. The default is 25.
     --
     -- Valid Range: Minimum value of 1. Maximum value of 250.
     propertyGroups :: Prelude.Maybe (Prelude.HashMap Prelude.Text PropertyGroupResponse),
-    -- | A Boolean value that specifies whether an entity can have more than one
-    -- component of this type.
-    isSingleton :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the parent component type that this component type extends.
-    extendsFrom :: Prelude.Maybe [Prelude.Text],
+    -- | The current status of the component type.
+    status :: Prelude.Maybe Status,
+    -- | The syncSource of the sync job, if this entity was created by a sync
+    -- job.
+    syncSource :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The ID of the workspace that contains the component type.
@@ -212,29 +221,34 @@ data GetComponentTypeResponse = GetComponentTypeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'isSchemaInitialized', 'getComponentTypeResponse_isSchemaInitialized' - A Boolean value that specifies whether the component type has a schema
--- initializer and that the schema initializer has run.
+-- 'componentTypeName', 'getComponentTypeResponse_componentTypeName' - The component type name.
+--
+-- 'description', 'getComponentTypeResponse_description' - The description of the component type.
+--
+-- 'extendsFrom', 'getComponentTypeResponse_extendsFrom' - The name of the parent component type that this component type extends.
 --
 -- 'functions', 'getComponentTypeResponse_functions' - An object that maps strings to the functions in the component type. Each
 -- string in the mapping must be unique to this object.
 --
 -- 'isAbstract', 'getComponentTypeResponse_isAbstract' - A Boolean value that specifies whether the component type is abstract.
 --
+-- 'isSchemaInitialized', 'getComponentTypeResponse_isSchemaInitialized' - A Boolean value that specifies whether the component type has a schema
+-- initializer and that the schema initializer has run.
+--
+-- 'isSingleton', 'getComponentTypeResponse_isSingleton' - A Boolean value that specifies whether an entity can have more than one
+-- component of this type.
+--
 -- 'propertyDefinitions', 'getComponentTypeResponse_propertyDefinitions' - An object that maps strings to the property definitions in the component
 -- type. Each string in the mapping must be unique to this object.
---
--- 'status', 'getComponentTypeResponse_status' - The current status of the component type.
---
--- 'description', 'getComponentTypeResponse_description' - The description of the component type.
 --
 -- 'propertyGroups', 'getComponentTypeResponse_propertyGroups' - The maximum number of results to return at one time. The default is 25.
 --
 -- Valid Range: Minimum value of 1. Maximum value of 250.
 --
--- 'isSingleton', 'getComponentTypeResponse_isSingleton' - A Boolean value that specifies whether an entity can have more than one
--- component of this type.
+-- 'status', 'getComponentTypeResponse_status' - The current status of the component type.
 --
--- 'extendsFrom', 'getComponentTypeResponse_extendsFrom' - The name of the parent component type that this component type extends.
+-- 'syncSource', 'getComponentTypeResponse_syncSource' - The syncSource of the sync job, if this entity was created by a sync
+-- job.
 --
 -- 'httpStatus', 'getComponentTypeResponse_httpStatus' - The response's http status code.
 --
@@ -269,16 +283,18 @@ newGetComponentTypeResponse
   pUpdateDateTime_
   pArn_ =
     GetComponentTypeResponse'
-      { isSchemaInitialized =
+      { componentTypeName =
           Prelude.Nothing,
+        description = Prelude.Nothing,
+        extendsFrom = Prelude.Nothing,
         functions = Prelude.Nothing,
         isAbstract = Prelude.Nothing,
-        propertyDefinitions = Prelude.Nothing,
-        status = Prelude.Nothing,
-        description = Prelude.Nothing,
-        propertyGroups = Prelude.Nothing,
+        isSchemaInitialized = Prelude.Nothing,
         isSingleton = Prelude.Nothing,
-        extendsFrom = Prelude.Nothing,
+        propertyDefinitions = Prelude.Nothing,
+        propertyGroups = Prelude.Nothing,
+        status = Prelude.Nothing,
+        syncSource = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         workspaceId = pWorkspaceId_,
         componentTypeId = pComponentTypeId_,
@@ -289,10 +305,17 @@ newGetComponentTypeResponse
         arn = pArn_
       }
 
--- | A Boolean value that specifies whether the component type has a schema
--- initializer and that the schema initializer has run.
-getComponentTypeResponse_isSchemaInitialized :: Lens.Lens' GetComponentTypeResponse (Prelude.Maybe Prelude.Bool)
-getComponentTypeResponse_isSchemaInitialized = Lens.lens (\GetComponentTypeResponse' {isSchemaInitialized} -> isSchemaInitialized) (\s@GetComponentTypeResponse' {} a -> s {isSchemaInitialized = a} :: GetComponentTypeResponse)
+-- | The component type name.
+getComponentTypeResponse_componentTypeName :: Lens.Lens' GetComponentTypeResponse (Prelude.Maybe Prelude.Text)
+getComponentTypeResponse_componentTypeName = Lens.lens (\GetComponentTypeResponse' {componentTypeName} -> componentTypeName) (\s@GetComponentTypeResponse' {} a -> s {componentTypeName = a} :: GetComponentTypeResponse)
+
+-- | The description of the component type.
+getComponentTypeResponse_description :: Lens.Lens' GetComponentTypeResponse (Prelude.Maybe Prelude.Text)
+getComponentTypeResponse_description = Lens.lens (\GetComponentTypeResponse' {description} -> description) (\s@GetComponentTypeResponse' {} a -> s {description = a} :: GetComponentTypeResponse)
+
+-- | The name of the parent component type that this component type extends.
+getComponentTypeResponse_extendsFrom :: Lens.Lens' GetComponentTypeResponse (Prelude.Maybe [Prelude.Text])
+getComponentTypeResponse_extendsFrom = Lens.lens (\GetComponentTypeResponse' {extendsFrom} -> extendsFrom) (\s@GetComponentTypeResponse' {} a -> s {extendsFrom = a} :: GetComponentTypeResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An object that maps strings to the functions in the component type. Each
 -- string in the mapping must be unique to this object.
@@ -303,18 +326,20 @@ getComponentTypeResponse_functions = Lens.lens (\GetComponentTypeResponse' {func
 getComponentTypeResponse_isAbstract :: Lens.Lens' GetComponentTypeResponse (Prelude.Maybe Prelude.Bool)
 getComponentTypeResponse_isAbstract = Lens.lens (\GetComponentTypeResponse' {isAbstract} -> isAbstract) (\s@GetComponentTypeResponse' {} a -> s {isAbstract = a} :: GetComponentTypeResponse)
 
+-- | A Boolean value that specifies whether the component type has a schema
+-- initializer and that the schema initializer has run.
+getComponentTypeResponse_isSchemaInitialized :: Lens.Lens' GetComponentTypeResponse (Prelude.Maybe Prelude.Bool)
+getComponentTypeResponse_isSchemaInitialized = Lens.lens (\GetComponentTypeResponse' {isSchemaInitialized} -> isSchemaInitialized) (\s@GetComponentTypeResponse' {} a -> s {isSchemaInitialized = a} :: GetComponentTypeResponse)
+
+-- | A Boolean value that specifies whether an entity can have more than one
+-- component of this type.
+getComponentTypeResponse_isSingleton :: Lens.Lens' GetComponentTypeResponse (Prelude.Maybe Prelude.Bool)
+getComponentTypeResponse_isSingleton = Lens.lens (\GetComponentTypeResponse' {isSingleton} -> isSingleton) (\s@GetComponentTypeResponse' {} a -> s {isSingleton = a} :: GetComponentTypeResponse)
+
 -- | An object that maps strings to the property definitions in the component
 -- type. Each string in the mapping must be unique to this object.
 getComponentTypeResponse_propertyDefinitions :: Lens.Lens' GetComponentTypeResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text PropertyDefinitionResponse))
 getComponentTypeResponse_propertyDefinitions = Lens.lens (\GetComponentTypeResponse' {propertyDefinitions} -> propertyDefinitions) (\s@GetComponentTypeResponse' {} a -> s {propertyDefinitions = a} :: GetComponentTypeResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The current status of the component type.
-getComponentTypeResponse_status :: Lens.Lens' GetComponentTypeResponse (Prelude.Maybe Status)
-getComponentTypeResponse_status = Lens.lens (\GetComponentTypeResponse' {status} -> status) (\s@GetComponentTypeResponse' {} a -> s {status = a} :: GetComponentTypeResponse)
-
--- | The description of the component type.
-getComponentTypeResponse_description :: Lens.Lens' GetComponentTypeResponse (Prelude.Maybe Prelude.Text)
-getComponentTypeResponse_description = Lens.lens (\GetComponentTypeResponse' {description} -> description) (\s@GetComponentTypeResponse' {} a -> s {description = a} :: GetComponentTypeResponse)
 
 -- | The maximum number of results to return at one time. The default is 25.
 --
@@ -322,14 +347,14 @@ getComponentTypeResponse_description = Lens.lens (\GetComponentTypeResponse' {de
 getComponentTypeResponse_propertyGroups :: Lens.Lens' GetComponentTypeResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text PropertyGroupResponse))
 getComponentTypeResponse_propertyGroups = Lens.lens (\GetComponentTypeResponse' {propertyGroups} -> propertyGroups) (\s@GetComponentTypeResponse' {} a -> s {propertyGroups = a} :: GetComponentTypeResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | A Boolean value that specifies whether an entity can have more than one
--- component of this type.
-getComponentTypeResponse_isSingleton :: Lens.Lens' GetComponentTypeResponse (Prelude.Maybe Prelude.Bool)
-getComponentTypeResponse_isSingleton = Lens.lens (\GetComponentTypeResponse' {isSingleton} -> isSingleton) (\s@GetComponentTypeResponse' {} a -> s {isSingleton = a} :: GetComponentTypeResponse)
+-- | The current status of the component type.
+getComponentTypeResponse_status :: Lens.Lens' GetComponentTypeResponse (Prelude.Maybe Status)
+getComponentTypeResponse_status = Lens.lens (\GetComponentTypeResponse' {status} -> status) (\s@GetComponentTypeResponse' {} a -> s {status = a} :: GetComponentTypeResponse)
 
--- | The name of the parent component type that this component type extends.
-getComponentTypeResponse_extendsFrom :: Lens.Lens' GetComponentTypeResponse (Prelude.Maybe [Prelude.Text])
-getComponentTypeResponse_extendsFrom = Lens.lens (\GetComponentTypeResponse' {extendsFrom} -> extendsFrom) (\s@GetComponentTypeResponse' {} a -> s {extendsFrom = a} :: GetComponentTypeResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The syncSource of the sync job, if this entity was created by a sync
+-- job.
+getComponentTypeResponse_syncSource :: Lens.Lens' GetComponentTypeResponse (Prelude.Maybe Prelude.Text)
+getComponentTypeResponse_syncSource = Lens.lens (\GetComponentTypeResponse' {syncSource} -> syncSource) (\s@GetComponentTypeResponse' {} a -> s {syncSource = a} :: GetComponentTypeResponse)
 
 -- | The response's http status code.
 getComponentTypeResponse_httpStatus :: Lens.Lens' GetComponentTypeResponse Prelude.Int
@@ -357,15 +382,17 @@ getComponentTypeResponse_arn = Lens.lens (\GetComponentTypeResponse' {arn} -> ar
 
 instance Prelude.NFData GetComponentTypeResponse where
   rnf GetComponentTypeResponse' {..} =
-    Prelude.rnf isSchemaInitialized
+    Prelude.rnf componentTypeName
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf extendsFrom
       `Prelude.seq` Prelude.rnf functions
       `Prelude.seq` Prelude.rnf isAbstract
-      `Prelude.seq` Prelude.rnf propertyDefinitions
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf propertyGroups
+      `Prelude.seq` Prelude.rnf isSchemaInitialized
       `Prelude.seq` Prelude.rnf isSingleton
-      `Prelude.seq` Prelude.rnf extendsFrom
+      `Prelude.seq` Prelude.rnf propertyDefinitions
+      `Prelude.seq` Prelude.rnf propertyGroups
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf syncSource
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf workspaceId
       `Prelude.seq` Prelude.rnf componentTypeId

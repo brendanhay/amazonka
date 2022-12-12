@@ -41,10 +41,10 @@ import qualified Amazonka.Prelude as Prelude
 data AppBlock = AppBlock'
   { -- | The created time of the app block.
     createdTime :: Prelude.Maybe Data.POSIX,
-    -- | The display name of the app block.
-    displayName :: Prelude.Maybe Prelude.Text,
     -- | The description of the app block.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The display name of the app block.
+    displayName :: Prelude.Maybe Prelude.Text,
     -- | The source S3 location of the app block.
     sourceS3Location :: Prelude.Maybe S3Location,
     -- | The name of the app block.
@@ -66,9 +66,9 @@ data AppBlock = AppBlock'
 --
 -- 'createdTime', 'appBlock_createdTime' - The created time of the app block.
 --
--- 'displayName', 'appBlock_displayName' - The display name of the app block.
---
 -- 'description', 'appBlock_description' - The description of the app block.
+--
+-- 'displayName', 'appBlock_displayName' - The display name of the app block.
 --
 -- 'sourceS3Location', 'appBlock_sourceS3Location' - The source S3 location of the app block.
 --
@@ -88,8 +88,8 @@ newAppBlock ::
 newAppBlock pName_ pArn_ pSetupScriptDetails_ =
   AppBlock'
     { createdTime = Prelude.Nothing,
-      displayName = Prelude.Nothing,
       description = Prelude.Nothing,
+      displayName = Prelude.Nothing,
       sourceS3Location = Prelude.Nothing,
       name = pName_,
       arn = pArn_,
@@ -100,13 +100,13 @@ newAppBlock pName_ pArn_ pSetupScriptDetails_ =
 appBlock_createdTime :: Lens.Lens' AppBlock (Prelude.Maybe Prelude.UTCTime)
 appBlock_createdTime = Lens.lens (\AppBlock' {createdTime} -> createdTime) (\s@AppBlock' {} a -> s {createdTime = a} :: AppBlock) Prelude.. Lens.mapping Data._Time
 
--- | The display name of the app block.
-appBlock_displayName :: Lens.Lens' AppBlock (Prelude.Maybe Prelude.Text)
-appBlock_displayName = Lens.lens (\AppBlock' {displayName} -> displayName) (\s@AppBlock' {} a -> s {displayName = a} :: AppBlock)
-
 -- | The description of the app block.
 appBlock_description :: Lens.Lens' AppBlock (Prelude.Maybe Prelude.Text)
 appBlock_description = Lens.lens (\AppBlock' {description} -> description) (\s@AppBlock' {} a -> s {description = a} :: AppBlock)
+
+-- | The display name of the app block.
+appBlock_displayName :: Lens.Lens' AppBlock (Prelude.Maybe Prelude.Text)
+appBlock_displayName = Lens.lens (\AppBlock' {displayName} -> displayName) (\s@AppBlock' {} a -> s {displayName = a} :: AppBlock)
 
 -- | The source S3 location of the app block.
 appBlock_sourceS3Location :: Lens.Lens' AppBlock (Prelude.Maybe S3Location)
@@ -131,8 +131,8 @@ instance Data.FromJSON AppBlock where
       ( \x ->
           AppBlock'
             Prelude.<$> (x Data..:? "CreatedTime")
-            Prelude.<*> (x Data..:? "DisplayName")
             Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "DisplayName")
             Prelude.<*> (x Data..:? "SourceS3Location")
             Prelude.<*> (x Data..: "Name")
             Prelude.<*> (x Data..: "Arn")
@@ -142,8 +142,8 @@ instance Data.FromJSON AppBlock where
 instance Prelude.Hashable AppBlock where
   hashWithSalt _salt AppBlock' {..} =
     _salt `Prelude.hashWithSalt` createdTime
-      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` sourceS3Location
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` arn
@@ -152,8 +152,8 @@ instance Prelude.Hashable AppBlock where
 instance Prelude.NFData AppBlock where
   rnf AppBlock' {..} =
     Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf sourceS3Location
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf arn

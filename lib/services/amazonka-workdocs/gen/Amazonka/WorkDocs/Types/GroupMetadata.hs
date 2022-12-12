@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGroupMetadata' smart constructor.
 data GroupMetadata = GroupMetadata'
-  { -- | The name of the group.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the user group.
-    id :: Prelude.Maybe Prelude.Text
+  { -- | The ID of the user group.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The name of the group.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data GroupMetadata = GroupMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'groupMetadata_name' - The name of the group.
---
 -- 'id', 'groupMetadata_id' - The ID of the user group.
+--
+-- 'name', 'groupMetadata_name' - The name of the group.
 newGroupMetadata ::
   GroupMetadata
 newGroupMetadata =
   GroupMetadata'
-    { name = Prelude.Nothing,
-      id = Prelude.Nothing
+    { id = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | The name of the group.
-groupMetadata_name :: Lens.Lens' GroupMetadata (Prelude.Maybe Prelude.Text)
-groupMetadata_name = Lens.lens (\GroupMetadata' {name} -> name) (\s@GroupMetadata' {} a -> s {name = a} :: GroupMetadata)
 
 -- | The ID of the user group.
 groupMetadata_id :: Lens.Lens' GroupMetadata (Prelude.Maybe Prelude.Text)
 groupMetadata_id = Lens.lens (\GroupMetadata' {id} -> id) (\s@GroupMetadata' {} a -> s {id = a} :: GroupMetadata)
+
+-- | The name of the group.
+groupMetadata_name :: Lens.Lens' GroupMetadata (Prelude.Maybe Prelude.Text)
+groupMetadata_name = Lens.lens (\GroupMetadata' {name} -> name) (\s@GroupMetadata' {} a -> s {name = a} :: GroupMetadata)
 
 instance Data.FromJSON GroupMetadata where
   parseJSON =
@@ -68,14 +68,14 @@ instance Data.FromJSON GroupMetadata where
       "GroupMetadata"
       ( \x ->
           GroupMetadata'
-            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Id")
+            Prelude.<$> (x Data..:? "Id") Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable GroupMetadata where
   hashWithSalt _salt GroupMetadata' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` id
+    _salt `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData GroupMetadata where
   rnf GroupMetadata' {..} =
-    Prelude.rnf name `Prelude.seq` Prelude.rnf id
+    Prelude.rnf id `Prelude.seq` Prelude.rnf name

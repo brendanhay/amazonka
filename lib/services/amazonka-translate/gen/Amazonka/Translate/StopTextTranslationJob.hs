@@ -44,8 +44,8 @@ module Amazonka.Translate.StopTextTranslationJob
     newStopTextTranslationJobResponse,
 
     -- * Response Lenses
-    stopTextTranslationJobResponse_jobStatus,
     stopTextTranslationJobResponse_jobId,
+    stopTextTranslationJobResponse_jobStatus,
     stopTextTranslationJobResponse_httpStatus,
   )
 where
@@ -95,8 +95,8 @@ instance Core.AWSRequest StopTextTranslationJob where
     Response.receiveJSON
       ( \s h x ->
           StopTextTranslationJobResponse'
-            Prelude.<$> (x Data..?> "JobStatus")
-            Prelude.<*> (x Data..?> "JobId")
+            Prelude.<$> (x Data..?> "JobId")
+            Prelude.<*> (x Data..?> "JobStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,11 +137,11 @@ instance Data.ToQuery StopTextTranslationJob where
 
 -- | /See:/ 'newStopTextTranslationJobResponse' smart constructor.
 data StopTextTranslationJobResponse = StopTextTranslationJobResponse'
-  { -- | The status of the designated job. Upon successful completion, the job\'s
+  { -- | The job ID of the stopped batch translation job.
+    jobId :: Prelude.Maybe Prelude.Text,
+    -- | The status of the designated job. Upon successful completion, the job\'s
     -- status will be @STOPPED@.
     jobStatus :: Prelude.Maybe JobStatus,
-    -- | The job ID of the stopped batch translation job.
-    jobId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -155,10 +155,10 @@ data StopTextTranslationJobResponse = StopTextTranslationJobResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'jobId', 'stopTextTranslationJobResponse_jobId' - The job ID of the stopped batch translation job.
+--
 -- 'jobStatus', 'stopTextTranslationJobResponse_jobStatus' - The status of the designated job. Upon successful completion, the job\'s
 -- status will be @STOPPED@.
---
--- 'jobId', 'stopTextTranslationJobResponse_jobId' - The job ID of the stopped batch translation job.
 --
 -- 'httpStatus', 'stopTextTranslationJobResponse_httpStatus' - The response's http status code.
 newStopTextTranslationJobResponse ::
@@ -167,20 +167,20 @@ newStopTextTranslationJobResponse ::
   StopTextTranslationJobResponse
 newStopTextTranslationJobResponse pHttpStatus_ =
   StopTextTranslationJobResponse'
-    { jobStatus =
+    { jobId =
         Prelude.Nothing,
-      jobId = Prelude.Nothing,
+      jobStatus = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The job ID of the stopped batch translation job.
+stopTextTranslationJobResponse_jobId :: Lens.Lens' StopTextTranslationJobResponse (Prelude.Maybe Prelude.Text)
+stopTextTranslationJobResponse_jobId = Lens.lens (\StopTextTranslationJobResponse' {jobId} -> jobId) (\s@StopTextTranslationJobResponse' {} a -> s {jobId = a} :: StopTextTranslationJobResponse)
 
 -- | The status of the designated job. Upon successful completion, the job\'s
 -- status will be @STOPPED@.
 stopTextTranslationJobResponse_jobStatus :: Lens.Lens' StopTextTranslationJobResponse (Prelude.Maybe JobStatus)
 stopTextTranslationJobResponse_jobStatus = Lens.lens (\StopTextTranslationJobResponse' {jobStatus} -> jobStatus) (\s@StopTextTranslationJobResponse' {} a -> s {jobStatus = a} :: StopTextTranslationJobResponse)
-
--- | The job ID of the stopped batch translation job.
-stopTextTranslationJobResponse_jobId :: Lens.Lens' StopTextTranslationJobResponse (Prelude.Maybe Prelude.Text)
-stopTextTranslationJobResponse_jobId = Lens.lens (\StopTextTranslationJobResponse' {jobId} -> jobId) (\s@StopTextTranslationJobResponse' {} a -> s {jobId = a} :: StopTextTranslationJobResponse)
 
 -- | The response's http status code.
 stopTextTranslationJobResponse_httpStatus :: Lens.Lens' StopTextTranslationJobResponse Prelude.Int
@@ -191,6 +191,6 @@ instance
     StopTextTranslationJobResponse
   where
   rnf StopTextTranslationJobResponse' {..} =
-    Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf jobStatus
       `Prelude.seq` Prelude.rnf httpStatus

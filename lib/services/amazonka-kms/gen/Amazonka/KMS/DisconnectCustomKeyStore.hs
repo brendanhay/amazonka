@@ -22,10 +22,20 @@
 --
 -- Disconnects the
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store>
--- from its associated CloudHSM cluster. While a custom key store is
--- disconnected, you can manage the custom key store and its KMS keys, but
--- you cannot create or use KMS keys in the custom key store. You can
--- reconnect the custom key store at any time.
+-- from its backing key store. This operation disconnects an CloudHSM key
+-- store from its associated CloudHSM cluster or disconnects an external
+-- key store from the external key store proxy that communicates with your
+-- external key manager.
+--
+-- This operation is part of the
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key stores>
+-- feature in KMS, which combines the convenience and extensive integration
+-- of KMS with the isolation and control of a key store that you own and
+-- manage.
+--
+-- While a custom key store is disconnected, you can manage the custom key
+-- store and its KMS keys, but you cannot create or use its KMS keys. You
+-- can reconnect the custom key store at any time.
 --
 -- While a custom key store is disconnected, all attempts to create KMS
 -- keys in the custom key store or to use existing KMS keys in
@@ -33,16 +43,12 @@
 -- will fail. This action can prevent users from storing and accessing
 -- sensitive data.
 --
--- To find the connection state of a custom key store, use the
--- DescribeCustomKeyStores operation. To reconnect a custom key store, use
--- the ConnectCustomKeyStore operation.
+-- When you disconnect a custom key store, its @ConnectionState@ changes to
+-- @Disconnected@. To find the connection state of a custom key store, use
+-- the DescribeCustomKeyStores operation. To reconnect a custom key store,
+-- use the ConnectCustomKeyStore operation.
 --
 -- If the operation succeeds, it returns a JSON object with no properties.
---
--- This operation is part of the
--- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store feature>
--- feature in KMS, which combines the convenience and extensive integration
--- of KMS with the isolation and control of a single-tenant key store.
 --
 -- __Cross-account use__: No. You cannot perform this operation on a custom
 -- key store in a different Amazon Web Services account.

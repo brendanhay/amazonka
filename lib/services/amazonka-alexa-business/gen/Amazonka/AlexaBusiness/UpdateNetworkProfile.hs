@@ -28,11 +28,11 @@ module Amazonka.AlexaBusiness.UpdateNetworkProfile
 
     -- * Request Lenses
     updateNetworkProfile_certificateAuthorityArn,
-    updateNetworkProfile_description,
-    updateNetworkProfile_trustAnchors,
     updateNetworkProfile_currentPassword,
-    updateNetworkProfile_nextPassword,
+    updateNetworkProfile_description,
     updateNetworkProfile_networkProfileName,
+    updateNetworkProfile_nextPassword,
+    updateNetworkProfile_trustAnchors,
     updateNetworkProfile_networkProfileArn,
 
     -- * Destructuring the Response
@@ -58,20 +58,20 @@ data UpdateNetworkProfile = UpdateNetworkProfile'
     -- Certificate Manager (ACM). This is used to issue certificates to the
     -- devices.
     certificateAuthorityArn :: Prelude.Maybe Prelude.Text,
-    -- | Detailed information about a device\'s network profile.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The root certificate(s) of your authentication server that will be
-    -- installed on your devices and used to trust your authentication server
-    -- during EAP negotiation.
-    trustAnchors :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The current password of the Wi-Fi network.
     currentPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | Detailed information about a device\'s network profile.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The name of the network profile associated with a device.
+    networkProfileName :: Prelude.Maybe Prelude.Text,
     -- | The next, or subsequent, password of the Wi-Fi network. This password is
     -- asynchronously transmitted to the device and is used when the password
     -- of the network changes to NextPassword.
     nextPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The name of the network profile associated with a device.
-    networkProfileName :: Prelude.Maybe Prelude.Text,
+    -- | The root certificate(s) of your authentication server that will be
+    -- installed on your devices and used to trust your authentication server
+    -- during EAP negotiation.
+    trustAnchors :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The ARN of the network profile associated with a device.
     networkProfileArn :: Prelude.Text
   }
@@ -89,19 +89,19 @@ data UpdateNetworkProfile = UpdateNetworkProfile'
 -- Certificate Manager (ACM). This is used to issue certificates to the
 -- devices.
 --
+-- 'currentPassword', 'updateNetworkProfile_currentPassword' - The current password of the Wi-Fi network.
+--
 -- 'description', 'updateNetworkProfile_description' - Detailed information about a device\'s network profile.
 --
--- 'trustAnchors', 'updateNetworkProfile_trustAnchors' - The root certificate(s) of your authentication server that will be
--- installed on your devices and used to trust your authentication server
--- during EAP negotiation.
---
--- 'currentPassword', 'updateNetworkProfile_currentPassword' - The current password of the Wi-Fi network.
+-- 'networkProfileName', 'updateNetworkProfile_networkProfileName' - The name of the network profile associated with a device.
 --
 -- 'nextPassword', 'updateNetworkProfile_nextPassword' - The next, or subsequent, password of the Wi-Fi network. This password is
 -- asynchronously transmitted to the device and is used when the password
 -- of the network changes to NextPassword.
 --
--- 'networkProfileName', 'updateNetworkProfile_networkProfileName' - The name of the network profile associated with a device.
+-- 'trustAnchors', 'updateNetworkProfile_trustAnchors' - The root certificate(s) of your authentication server that will be
+-- installed on your devices and used to trust your authentication server
+-- during EAP negotiation.
 --
 -- 'networkProfileArn', 'updateNetworkProfile_networkProfileArn' - The ARN of the network profile associated with a device.
 newUpdateNetworkProfile ::
@@ -112,11 +112,11 @@ newUpdateNetworkProfile pNetworkProfileArn_ =
   UpdateNetworkProfile'
     { certificateAuthorityArn =
         Prelude.Nothing,
-      description = Prelude.Nothing,
-      trustAnchors = Prelude.Nothing,
       currentPassword = Prelude.Nothing,
-      nextPassword = Prelude.Nothing,
+      description = Prelude.Nothing,
       networkProfileName = Prelude.Nothing,
+      nextPassword = Prelude.Nothing,
+      trustAnchors = Prelude.Nothing,
       networkProfileArn = pNetworkProfileArn_
     }
 
@@ -126,19 +126,17 @@ newUpdateNetworkProfile pNetworkProfileArn_ =
 updateNetworkProfile_certificateAuthorityArn :: Lens.Lens' UpdateNetworkProfile (Prelude.Maybe Prelude.Text)
 updateNetworkProfile_certificateAuthorityArn = Lens.lens (\UpdateNetworkProfile' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@UpdateNetworkProfile' {} a -> s {certificateAuthorityArn = a} :: UpdateNetworkProfile)
 
+-- | The current password of the Wi-Fi network.
+updateNetworkProfile_currentPassword :: Lens.Lens' UpdateNetworkProfile (Prelude.Maybe Prelude.Text)
+updateNetworkProfile_currentPassword = Lens.lens (\UpdateNetworkProfile' {currentPassword} -> currentPassword) (\s@UpdateNetworkProfile' {} a -> s {currentPassword = a} :: UpdateNetworkProfile) Prelude.. Lens.mapping Data._Sensitive
+
 -- | Detailed information about a device\'s network profile.
 updateNetworkProfile_description :: Lens.Lens' UpdateNetworkProfile (Prelude.Maybe Prelude.Text)
 updateNetworkProfile_description = Lens.lens (\UpdateNetworkProfile' {description} -> description) (\s@UpdateNetworkProfile' {} a -> s {description = a} :: UpdateNetworkProfile)
 
--- | The root certificate(s) of your authentication server that will be
--- installed on your devices and used to trust your authentication server
--- during EAP negotiation.
-updateNetworkProfile_trustAnchors :: Lens.Lens' UpdateNetworkProfile (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-updateNetworkProfile_trustAnchors = Lens.lens (\UpdateNetworkProfile' {trustAnchors} -> trustAnchors) (\s@UpdateNetworkProfile' {} a -> s {trustAnchors = a} :: UpdateNetworkProfile) Prelude.. Lens.mapping Lens.coerced
-
--- | The current password of the Wi-Fi network.
-updateNetworkProfile_currentPassword :: Lens.Lens' UpdateNetworkProfile (Prelude.Maybe Prelude.Text)
-updateNetworkProfile_currentPassword = Lens.lens (\UpdateNetworkProfile' {currentPassword} -> currentPassword) (\s@UpdateNetworkProfile' {} a -> s {currentPassword = a} :: UpdateNetworkProfile) Prelude.. Lens.mapping Data._Sensitive
+-- | The name of the network profile associated with a device.
+updateNetworkProfile_networkProfileName :: Lens.Lens' UpdateNetworkProfile (Prelude.Maybe Prelude.Text)
+updateNetworkProfile_networkProfileName = Lens.lens (\UpdateNetworkProfile' {networkProfileName} -> networkProfileName) (\s@UpdateNetworkProfile' {} a -> s {networkProfileName = a} :: UpdateNetworkProfile)
 
 -- | The next, or subsequent, password of the Wi-Fi network. This password is
 -- asynchronously transmitted to the device and is used when the password
@@ -146,9 +144,11 @@ updateNetworkProfile_currentPassword = Lens.lens (\UpdateNetworkProfile' {curren
 updateNetworkProfile_nextPassword :: Lens.Lens' UpdateNetworkProfile (Prelude.Maybe Prelude.Text)
 updateNetworkProfile_nextPassword = Lens.lens (\UpdateNetworkProfile' {nextPassword} -> nextPassword) (\s@UpdateNetworkProfile' {} a -> s {nextPassword = a} :: UpdateNetworkProfile) Prelude.. Lens.mapping Data._Sensitive
 
--- | The name of the network profile associated with a device.
-updateNetworkProfile_networkProfileName :: Lens.Lens' UpdateNetworkProfile (Prelude.Maybe Prelude.Text)
-updateNetworkProfile_networkProfileName = Lens.lens (\UpdateNetworkProfile' {networkProfileName} -> networkProfileName) (\s@UpdateNetworkProfile' {} a -> s {networkProfileName = a} :: UpdateNetworkProfile)
+-- | The root certificate(s) of your authentication server that will be
+-- installed on your devices and used to trust your authentication server
+-- during EAP negotiation.
+updateNetworkProfile_trustAnchors :: Lens.Lens' UpdateNetworkProfile (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+updateNetworkProfile_trustAnchors = Lens.lens (\UpdateNetworkProfile' {trustAnchors} -> trustAnchors) (\s@UpdateNetworkProfile' {} a -> s {trustAnchors = a} :: UpdateNetworkProfile) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the network profile associated with a device.
 updateNetworkProfile_networkProfileArn :: Lens.Lens' UpdateNetworkProfile Prelude.Text
@@ -171,21 +171,21 @@ instance Prelude.Hashable UpdateNetworkProfile where
   hashWithSalt _salt UpdateNetworkProfile' {..} =
     _salt
       `Prelude.hashWithSalt` certificateAuthorityArn
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` trustAnchors
       `Prelude.hashWithSalt` currentPassword
-      `Prelude.hashWithSalt` nextPassword
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` networkProfileName
+      `Prelude.hashWithSalt` nextPassword
+      `Prelude.hashWithSalt` trustAnchors
       `Prelude.hashWithSalt` networkProfileArn
 
 instance Prelude.NFData UpdateNetworkProfile where
   rnf UpdateNetworkProfile' {..} =
     Prelude.rnf certificateAuthorityArn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf trustAnchors
       `Prelude.seq` Prelude.rnf currentPassword
-      `Prelude.seq` Prelude.rnf nextPassword
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf networkProfileName
+      `Prelude.seq` Prelude.rnf nextPassword
+      `Prelude.seq` Prelude.rnf trustAnchors
       `Prelude.seq` Prelude.rnf networkProfileArn
 
 instance Data.ToHeaders UpdateNetworkProfile where
@@ -209,13 +209,13 @@ instance Data.ToJSON UpdateNetworkProfile where
       ( Prelude.catMaybes
           [ ("CertificateAuthorityArn" Data..=)
               Prelude.<$> certificateAuthorityArn,
-            ("Description" Data..=) Prelude.<$> description,
-            ("TrustAnchors" Data..=) Prelude.<$> trustAnchors,
             ("CurrentPassword" Data..=)
               Prelude.<$> currentPassword,
-            ("NextPassword" Data..=) Prelude.<$> nextPassword,
+            ("Description" Data..=) Prelude.<$> description,
             ("NetworkProfileName" Data..=)
               Prelude.<$> networkProfileName,
+            ("NextPassword" Data..=) Prelude.<$> nextPassword,
+            ("TrustAnchors" Data..=) Prelude.<$> trustAnchors,
             Prelude.Just
               ("NetworkProfileArn" Data..= networkProfileArn)
           ]

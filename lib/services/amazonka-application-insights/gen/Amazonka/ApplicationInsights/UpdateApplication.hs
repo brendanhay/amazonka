@@ -28,10 +28,10 @@ module Amazonka.ApplicationInsights.UpdateApplication
 
     -- * Request Lenses
     updateApplication_autoConfigEnabled,
-    updateApplication_opsItemSNSTopicArn,
     updateApplication_cWEMonitorEnabled,
-    updateApplication_removeSNSTopic,
     updateApplication_opsCenterEnabled,
+    updateApplication_opsItemSNSTopicArn,
+    updateApplication_removeSNSTopic,
     updateApplication_resourceGroupName,
 
     -- * Destructuring the Response
@@ -56,20 +56,20 @@ import qualified Amazonka.Response as Response
 data UpdateApplication = UpdateApplication'
   { -- | Turns auto-configuration on or off.
     autoConfigEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The SNS topic provided to Application Insights that is associated to the
-    -- created opsItem. Allows you to receive notifications for updates to the
-    -- opsItem.
-    opsItemSNSTopicArn :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether Application Insights can listen to CloudWatch events
     -- for the application resources, such as @instance terminated@,
     -- @failed deployment@, and others.
     cWEMonitorEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | Disassociates the SNS topic from the opsItem created for detected
-    -- problems.
-    removeSNSTopic :: Prelude.Maybe Prelude.Bool,
     -- | When set to @true@, creates opsItems for any problems detected on an
     -- application.
     opsCenterEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The SNS topic provided to Application Insights that is associated to the
+    -- created opsItem. Allows you to receive notifications for updates to the
+    -- opsItem.
+    opsItemSNSTopicArn :: Prelude.Maybe Prelude.Text,
+    -- | Disassociates the SNS topic from the opsItem created for detected
+    -- problems.
+    removeSNSTopic :: Prelude.Maybe Prelude.Bool,
     -- | The name of the resource group.
     resourceGroupName :: Prelude.Text
   }
@@ -85,19 +85,19 @@ data UpdateApplication = UpdateApplication'
 --
 -- 'autoConfigEnabled', 'updateApplication_autoConfigEnabled' - Turns auto-configuration on or off.
 --
--- 'opsItemSNSTopicArn', 'updateApplication_opsItemSNSTopicArn' - The SNS topic provided to Application Insights that is associated to the
--- created opsItem. Allows you to receive notifications for updates to the
--- opsItem.
---
 -- 'cWEMonitorEnabled', 'updateApplication_cWEMonitorEnabled' - Indicates whether Application Insights can listen to CloudWatch events
 -- for the application resources, such as @instance terminated@,
 -- @failed deployment@, and others.
 --
--- 'removeSNSTopic', 'updateApplication_removeSNSTopic' - Disassociates the SNS topic from the opsItem created for detected
--- problems.
---
 -- 'opsCenterEnabled', 'updateApplication_opsCenterEnabled' - When set to @true@, creates opsItems for any problems detected on an
 -- application.
+--
+-- 'opsItemSNSTopicArn', 'updateApplication_opsItemSNSTopicArn' - The SNS topic provided to Application Insights that is associated to the
+-- created opsItem. Allows you to receive notifications for updates to the
+-- opsItem.
+--
+-- 'removeSNSTopic', 'updateApplication_removeSNSTopic' - Disassociates the SNS topic from the opsItem created for detected
+-- problems.
 --
 -- 'resourceGroupName', 'updateApplication_resourceGroupName' - The name of the resource group.
 newUpdateApplication ::
@@ -108,10 +108,10 @@ newUpdateApplication pResourceGroupName_ =
   UpdateApplication'
     { autoConfigEnabled =
         Prelude.Nothing,
-      opsItemSNSTopicArn = Prelude.Nothing,
       cWEMonitorEnabled = Prelude.Nothing,
-      removeSNSTopic = Prelude.Nothing,
       opsCenterEnabled = Prelude.Nothing,
+      opsItemSNSTopicArn = Prelude.Nothing,
+      removeSNSTopic = Prelude.Nothing,
       resourceGroupName = pResourceGroupName_
     }
 
@@ -119,27 +119,27 @@ newUpdateApplication pResourceGroupName_ =
 updateApplication_autoConfigEnabled :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Bool)
 updateApplication_autoConfigEnabled = Lens.lens (\UpdateApplication' {autoConfigEnabled} -> autoConfigEnabled) (\s@UpdateApplication' {} a -> s {autoConfigEnabled = a} :: UpdateApplication)
 
--- | The SNS topic provided to Application Insights that is associated to the
--- created opsItem. Allows you to receive notifications for updates to the
--- opsItem.
-updateApplication_opsItemSNSTopicArn :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Text)
-updateApplication_opsItemSNSTopicArn = Lens.lens (\UpdateApplication' {opsItemSNSTopicArn} -> opsItemSNSTopicArn) (\s@UpdateApplication' {} a -> s {opsItemSNSTopicArn = a} :: UpdateApplication)
-
 -- | Indicates whether Application Insights can listen to CloudWatch events
 -- for the application resources, such as @instance terminated@,
 -- @failed deployment@, and others.
 updateApplication_cWEMonitorEnabled :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Bool)
 updateApplication_cWEMonitorEnabled = Lens.lens (\UpdateApplication' {cWEMonitorEnabled} -> cWEMonitorEnabled) (\s@UpdateApplication' {} a -> s {cWEMonitorEnabled = a} :: UpdateApplication)
 
--- | Disassociates the SNS topic from the opsItem created for detected
--- problems.
-updateApplication_removeSNSTopic :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Bool)
-updateApplication_removeSNSTopic = Lens.lens (\UpdateApplication' {removeSNSTopic} -> removeSNSTopic) (\s@UpdateApplication' {} a -> s {removeSNSTopic = a} :: UpdateApplication)
-
 -- | When set to @true@, creates opsItems for any problems detected on an
 -- application.
 updateApplication_opsCenterEnabled :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Bool)
 updateApplication_opsCenterEnabled = Lens.lens (\UpdateApplication' {opsCenterEnabled} -> opsCenterEnabled) (\s@UpdateApplication' {} a -> s {opsCenterEnabled = a} :: UpdateApplication)
+
+-- | The SNS topic provided to Application Insights that is associated to the
+-- created opsItem. Allows you to receive notifications for updates to the
+-- opsItem.
+updateApplication_opsItemSNSTopicArn :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Text)
+updateApplication_opsItemSNSTopicArn = Lens.lens (\UpdateApplication' {opsItemSNSTopicArn} -> opsItemSNSTopicArn) (\s@UpdateApplication' {} a -> s {opsItemSNSTopicArn = a} :: UpdateApplication)
+
+-- | Disassociates the SNS topic from the opsItem created for detected
+-- problems.
+updateApplication_removeSNSTopic :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Bool)
+updateApplication_removeSNSTopic = Lens.lens (\UpdateApplication' {removeSNSTopic} -> removeSNSTopic) (\s@UpdateApplication' {} a -> s {removeSNSTopic = a} :: UpdateApplication)
 
 -- | The name of the resource group.
 updateApplication_resourceGroupName :: Lens.Lens' UpdateApplication Prelude.Text
@@ -162,19 +162,19 @@ instance Core.AWSRequest UpdateApplication where
 instance Prelude.Hashable UpdateApplication where
   hashWithSalt _salt UpdateApplication' {..} =
     _salt `Prelude.hashWithSalt` autoConfigEnabled
-      `Prelude.hashWithSalt` opsItemSNSTopicArn
       `Prelude.hashWithSalt` cWEMonitorEnabled
-      `Prelude.hashWithSalt` removeSNSTopic
       `Prelude.hashWithSalt` opsCenterEnabled
+      `Prelude.hashWithSalt` opsItemSNSTopicArn
+      `Prelude.hashWithSalt` removeSNSTopic
       `Prelude.hashWithSalt` resourceGroupName
 
 instance Prelude.NFData UpdateApplication where
   rnf UpdateApplication' {..} =
     Prelude.rnf autoConfigEnabled
-      `Prelude.seq` Prelude.rnf opsItemSNSTopicArn
       `Prelude.seq` Prelude.rnf cWEMonitorEnabled
-      `Prelude.seq` Prelude.rnf removeSNSTopic
       `Prelude.seq` Prelude.rnf opsCenterEnabled
+      `Prelude.seq` Prelude.rnf opsItemSNSTopicArn
+      `Prelude.seq` Prelude.rnf removeSNSTopic
       `Prelude.seq` Prelude.rnf resourceGroupName
 
 instance Data.ToHeaders UpdateApplication where
@@ -198,14 +198,14 @@ instance Data.ToJSON UpdateApplication where
       ( Prelude.catMaybes
           [ ("AutoConfigEnabled" Data..=)
               Prelude.<$> autoConfigEnabled,
-            ("OpsItemSNSTopicArn" Data..=)
-              Prelude.<$> opsItemSNSTopicArn,
             ("CWEMonitorEnabled" Data..=)
               Prelude.<$> cWEMonitorEnabled,
-            ("RemoveSNSTopic" Data..=)
-              Prelude.<$> removeSNSTopic,
             ("OpsCenterEnabled" Data..=)
               Prelude.<$> opsCenterEnabled,
+            ("OpsItemSNSTopicArn" Data..=)
+              Prelude.<$> opsItemSNSTopicArn,
+            ("RemoveSNSTopic" Data..=)
+              Prelude.<$> removeSNSTopic,
             Prelude.Just
               ("ResourceGroupName" Data..= resourceGroupName)
           ]

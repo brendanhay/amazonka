@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIpamPoolCidrFailureReason' smart constructor.
 data IpamPoolCidrFailureReason = IpamPoolCidrFailureReason'
-  { -- | A message related to why an IPAM pool CIDR failed to be provisioned.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | An error code related to why an IPAM pool CIDR failed to be provisioned.
-    code :: Prelude.Maybe IpamPoolCidrFailureCode
+  { -- | An error code related to why an IPAM pool CIDR failed to be provisioned.
+    code :: Prelude.Maybe IpamPoolCidrFailureCode,
+    -- | A message related to why an IPAM pool CIDR failed to be provisioned.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,37 +45,36 @@ data IpamPoolCidrFailureReason = IpamPoolCidrFailureReason'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'ipamPoolCidrFailureReason_message' - A message related to why an IPAM pool CIDR failed to be provisioned.
---
 -- 'code', 'ipamPoolCidrFailureReason_code' - An error code related to why an IPAM pool CIDR failed to be provisioned.
+--
+-- 'message', 'ipamPoolCidrFailureReason_message' - A message related to why an IPAM pool CIDR failed to be provisioned.
 newIpamPoolCidrFailureReason ::
   IpamPoolCidrFailureReason
 newIpamPoolCidrFailureReason =
   IpamPoolCidrFailureReason'
-    { message =
-        Prelude.Nothing,
-      code = Prelude.Nothing
+    { code = Prelude.Nothing,
+      message = Prelude.Nothing
     }
-
--- | A message related to why an IPAM pool CIDR failed to be provisioned.
-ipamPoolCidrFailureReason_message :: Lens.Lens' IpamPoolCidrFailureReason (Prelude.Maybe Prelude.Text)
-ipamPoolCidrFailureReason_message = Lens.lens (\IpamPoolCidrFailureReason' {message} -> message) (\s@IpamPoolCidrFailureReason' {} a -> s {message = a} :: IpamPoolCidrFailureReason)
 
 -- | An error code related to why an IPAM pool CIDR failed to be provisioned.
 ipamPoolCidrFailureReason_code :: Lens.Lens' IpamPoolCidrFailureReason (Prelude.Maybe IpamPoolCidrFailureCode)
 ipamPoolCidrFailureReason_code = Lens.lens (\IpamPoolCidrFailureReason' {code} -> code) (\s@IpamPoolCidrFailureReason' {} a -> s {code = a} :: IpamPoolCidrFailureReason)
 
+-- | A message related to why an IPAM pool CIDR failed to be provisioned.
+ipamPoolCidrFailureReason_message :: Lens.Lens' IpamPoolCidrFailureReason (Prelude.Maybe Prelude.Text)
+ipamPoolCidrFailureReason_message = Lens.lens (\IpamPoolCidrFailureReason' {message} -> message) (\s@IpamPoolCidrFailureReason' {} a -> s {message = a} :: IpamPoolCidrFailureReason)
+
 instance Data.FromXML IpamPoolCidrFailureReason where
   parseXML x =
     IpamPoolCidrFailureReason'
-      Prelude.<$> (x Data..@? "message")
-      Prelude.<*> (x Data..@? "code")
+      Prelude.<$> (x Data..@? "code")
+      Prelude.<*> (x Data..@? "message")
 
 instance Prelude.Hashable IpamPoolCidrFailureReason where
   hashWithSalt _salt IpamPoolCidrFailureReason' {..} =
-    _salt `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` code
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` message
 
 instance Prelude.NFData IpamPoolCidrFailureReason where
   rnf IpamPoolCidrFailureReason' {..} =
-    Prelude.rnf message `Prelude.seq` Prelude.rnf code
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

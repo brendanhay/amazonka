@@ -32,14 +32,14 @@ module Amazonka.NetworkManager.GetNetworkResources
     newGetNetworkResources,
 
     -- * Request Lenses
-    getNetworkResources_resourceType,
-    getNetworkResources_coreNetworkId,
-    getNetworkResources_nextToken,
     getNetworkResources_accountId,
-    getNetworkResources_maxResults,
-    getNetworkResources_registeredGatewayArn,
     getNetworkResources_awsRegion,
+    getNetworkResources_coreNetworkId,
+    getNetworkResources_maxResults,
+    getNetworkResources_nextToken,
+    getNetworkResources_registeredGatewayArn,
     getNetworkResources_resourceArn,
+    getNetworkResources_resourceType,
     getNetworkResources_globalNetworkId,
 
     -- * Destructuring the Response
@@ -47,8 +47,8 @@ module Amazonka.NetworkManager.GetNetworkResources
     newGetNetworkResourcesResponse,
 
     -- * Response Lenses
-    getNetworkResourcesResponse_nextToken,
     getNetworkResourcesResponse_networkResources,
+    getNetworkResourcesResponse_nextToken,
     getNetworkResourcesResponse_httpStatus,
   )
 where
@@ -63,7 +63,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetNetworkResources' smart constructor.
 data GetNetworkResources = GetNetworkResources'
-  { -- | The resource type.
+  { -- | The Amazon Web Services account ID.
+    accountId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services Region.
+    awsRegion :: Prelude.Maybe Prelude.Text,
+    -- | The ID of a core network.
+    coreNetworkId :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the gateway.
+    registeredGatewayArn :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the resource.
+    resourceArn :: Prelude.Maybe Prelude.Text,
+    -- | The resource type.
     --
     -- The following are the supported resource types for Direct Connect:
     --
@@ -110,20 +124,6 @@ data GetNetworkResources = GetNetworkResources'
     -- -   @vpn-connection@ - The definition model is
     --     <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpnConnection.html VpnConnection>.
     resourceType :: Prelude.Maybe Prelude.Text,
-    -- | The ID of a core network.
-    coreNetworkId :: Prelude.Maybe Prelude.Text,
-    -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services account ID.
-    accountId :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The ARN of the gateway.
-    registeredGatewayArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services Region.
-    awsRegion :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the resource.
-    resourceArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the global network.
     globalNetworkId :: Prelude.Text
   }
@@ -136,6 +136,20 @@ data GetNetworkResources = GetNetworkResources'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'accountId', 'getNetworkResources_accountId' - The Amazon Web Services account ID.
+--
+-- 'awsRegion', 'getNetworkResources_awsRegion' - The Amazon Web Services Region.
+--
+-- 'coreNetworkId', 'getNetworkResources_coreNetworkId' - The ID of a core network.
+--
+-- 'maxResults', 'getNetworkResources_maxResults' - The maximum number of results to return.
+--
+-- 'nextToken', 'getNetworkResources_nextToken' - The token for the next page of results.
+--
+-- 'registeredGatewayArn', 'getNetworkResources_registeredGatewayArn' - The ARN of the gateway.
+--
+-- 'resourceArn', 'getNetworkResources_resourceArn' - The ARN of the resource.
 --
 -- 'resourceType', 'getNetworkResources_resourceType' - The resource type.
 --
@@ -184,20 +198,6 @@ data GetNetworkResources = GetNetworkResources'
 -- -   @vpn-connection@ - The definition model is
 --     <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpnConnection.html VpnConnection>.
 --
--- 'coreNetworkId', 'getNetworkResources_coreNetworkId' - The ID of a core network.
---
--- 'nextToken', 'getNetworkResources_nextToken' - The token for the next page of results.
---
--- 'accountId', 'getNetworkResources_accountId' - The Amazon Web Services account ID.
---
--- 'maxResults', 'getNetworkResources_maxResults' - The maximum number of results to return.
---
--- 'registeredGatewayArn', 'getNetworkResources_registeredGatewayArn' - The ARN of the gateway.
---
--- 'awsRegion', 'getNetworkResources_awsRegion' - The Amazon Web Services Region.
---
--- 'resourceArn', 'getNetworkResources_resourceArn' - The ARN of the resource.
---
 -- 'globalNetworkId', 'getNetworkResources_globalNetworkId' - The ID of the global network.
 newGetNetworkResources ::
   -- | 'globalNetworkId'
@@ -205,17 +205,44 @@ newGetNetworkResources ::
   GetNetworkResources
 newGetNetworkResources pGlobalNetworkId_ =
   GetNetworkResources'
-    { resourceType =
-        Prelude.Nothing,
-      coreNetworkId = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      accountId = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      registeredGatewayArn = Prelude.Nothing,
+    { accountId = Prelude.Nothing,
       awsRegion = Prelude.Nothing,
+      coreNetworkId = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      registeredGatewayArn = Prelude.Nothing,
       resourceArn = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
       globalNetworkId = pGlobalNetworkId_
     }
+
+-- | The Amazon Web Services account ID.
+getNetworkResources_accountId :: Lens.Lens' GetNetworkResources (Prelude.Maybe Prelude.Text)
+getNetworkResources_accountId = Lens.lens (\GetNetworkResources' {accountId} -> accountId) (\s@GetNetworkResources' {} a -> s {accountId = a} :: GetNetworkResources)
+
+-- | The Amazon Web Services Region.
+getNetworkResources_awsRegion :: Lens.Lens' GetNetworkResources (Prelude.Maybe Prelude.Text)
+getNetworkResources_awsRegion = Lens.lens (\GetNetworkResources' {awsRegion} -> awsRegion) (\s@GetNetworkResources' {} a -> s {awsRegion = a} :: GetNetworkResources)
+
+-- | The ID of a core network.
+getNetworkResources_coreNetworkId :: Lens.Lens' GetNetworkResources (Prelude.Maybe Prelude.Text)
+getNetworkResources_coreNetworkId = Lens.lens (\GetNetworkResources' {coreNetworkId} -> coreNetworkId) (\s@GetNetworkResources' {} a -> s {coreNetworkId = a} :: GetNetworkResources)
+
+-- | The maximum number of results to return.
+getNetworkResources_maxResults :: Lens.Lens' GetNetworkResources (Prelude.Maybe Prelude.Natural)
+getNetworkResources_maxResults = Lens.lens (\GetNetworkResources' {maxResults} -> maxResults) (\s@GetNetworkResources' {} a -> s {maxResults = a} :: GetNetworkResources)
+
+-- | The token for the next page of results.
+getNetworkResources_nextToken :: Lens.Lens' GetNetworkResources (Prelude.Maybe Prelude.Text)
+getNetworkResources_nextToken = Lens.lens (\GetNetworkResources' {nextToken} -> nextToken) (\s@GetNetworkResources' {} a -> s {nextToken = a} :: GetNetworkResources)
+
+-- | The ARN of the gateway.
+getNetworkResources_registeredGatewayArn :: Lens.Lens' GetNetworkResources (Prelude.Maybe Prelude.Text)
+getNetworkResources_registeredGatewayArn = Lens.lens (\GetNetworkResources' {registeredGatewayArn} -> registeredGatewayArn) (\s@GetNetworkResources' {} a -> s {registeredGatewayArn = a} :: GetNetworkResources)
+
+-- | The ARN of the resource.
+getNetworkResources_resourceArn :: Lens.Lens' GetNetworkResources (Prelude.Maybe Prelude.Text)
+getNetworkResources_resourceArn = Lens.lens (\GetNetworkResources' {resourceArn} -> resourceArn) (\s@GetNetworkResources' {} a -> s {resourceArn = a} :: GetNetworkResources)
 
 -- | The resource type.
 --
@@ -266,34 +293,6 @@ newGetNetworkResources pGlobalNetworkId_ =
 getNetworkResources_resourceType :: Lens.Lens' GetNetworkResources (Prelude.Maybe Prelude.Text)
 getNetworkResources_resourceType = Lens.lens (\GetNetworkResources' {resourceType} -> resourceType) (\s@GetNetworkResources' {} a -> s {resourceType = a} :: GetNetworkResources)
 
--- | The ID of a core network.
-getNetworkResources_coreNetworkId :: Lens.Lens' GetNetworkResources (Prelude.Maybe Prelude.Text)
-getNetworkResources_coreNetworkId = Lens.lens (\GetNetworkResources' {coreNetworkId} -> coreNetworkId) (\s@GetNetworkResources' {} a -> s {coreNetworkId = a} :: GetNetworkResources)
-
--- | The token for the next page of results.
-getNetworkResources_nextToken :: Lens.Lens' GetNetworkResources (Prelude.Maybe Prelude.Text)
-getNetworkResources_nextToken = Lens.lens (\GetNetworkResources' {nextToken} -> nextToken) (\s@GetNetworkResources' {} a -> s {nextToken = a} :: GetNetworkResources)
-
--- | The Amazon Web Services account ID.
-getNetworkResources_accountId :: Lens.Lens' GetNetworkResources (Prelude.Maybe Prelude.Text)
-getNetworkResources_accountId = Lens.lens (\GetNetworkResources' {accountId} -> accountId) (\s@GetNetworkResources' {} a -> s {accountId = a} :: GetNetworkResources)
-
--- | The maximum number of results to return.
-getNetworkResources_maxResults :: Lens.Lens' GetNetworkResources (Prelude.Maybe Prelude.Natural)
-getNetworkResources_maxResults = Lens.lens (\GetNetworkResources' {maxResults} -> maxResults) (\s@GetNetworkResources' {} a -> s {maxResults = a} :: GetNetworkResources)
-
--- | The ARN of the gateway.
-getNetworkResources_registeredGatewayArn :: Lens.Lens' GetNetworkResources (Prelude.Maybe Prelude.Text)
-getNetworkResources_registeredGatewayArn = Lens.lens (\GetNetworkResources' {registeredGatewayArn} -> registeredGatewayArn) (\s@GetNetworkResources' {} a -> s {registeredGatewayArn = a} :: GetNetworkResources)
-
--- | The Amazon Web Services Region.
-getNetworkResources_awsRegion :: Lens.Lens' GetNetworkResources (Prelude.Maybe Prelude.Text)
-getNetworkResources_awsRegion = Lens.lens (\GetNetworkResources' {awsRegion} -> awsRegion) (\s@GetNetworkResources' {} a -> s {awsRegion = a} :: GetNetworkResources)
-
--- | The ARN of the resource.
-getNetworkResources_resourceArn :: Lens.Lens' GetNetworkResources (Prelude.Maybe Prelude.Text)
-getNetworkResources_resourceArn = Lens.lens (\GetNetworkResources' {resourceArn} -> resourceArn) (\s@GetNetworkResources' {} a -> s {resourceArn = a} :: GetNetworkResources)
-
 -- | The ID of the global network.
 getNetworkResources_globalNetworkId :: Lens.Lens' GetNetworkResources Prelude.Text
 getNetworkResources_globalNetworkId = Lens.lens (\GetNetworkResources' {globalNetworkId} -> globalNetworkId) (\s@GetNetworkResources' {} a -> s {globalNetworkId = a} :: GetNetworkResources)
@@ -330,35 +329,35 @@ instance Core.AWSRequest GetNetworkResources where
     Response.receiveJSON
       ( \s h x ->
           GetNetworkResourcesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "NetworkResources"
+            Prelude.<$> ( x Data..?> "NetworkResources"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetNetworkResources where
   hashWithSalt _salt GetNetworkResources' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
-      `Prelude.hashWithSalt` coreNetworkId
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` accountId
-      `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` registeredGatewayArn
+    _salt `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` awsRegion
+      `Prelude.hashWithSalt` coreNetworkId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` registeredGatewayArn
       `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` globalNetworkId
 
 instance Prelude.NFData GetNetworkResources where
   rnf GetNetworkResources' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf coreNetworkId
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf registeredGatewayArn
+    Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf awsRegion
+      `Prelude.seq` Prelude.rnf coreNetworkId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf registeredGatewayArn
       `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf globalNetworkId
 
 instance Data.ToHeaders GetNetworkResources where
@@ -383,22 +382,22 @@ instance Data.ToPath GetNetworkResources where
 instance Data.ToQuery GetNetworkResources where
   toQuery GetNetworkResources' {..} =
     Prelude.mconcat
-      [ "resourceType" Data.=: resourceType,
-        "coreNetworkId" Data.=: coreNetworkId,
-        "nextToken" Data.=: nextToken,
-        "accountId" Data.=: accountId,
-        "maxResults" Data.=: maxResults,
-        "registeredGatewayArn" Data.=: registeredGatewayArn,
+      [ "accountId" Data.=: accountId,
         "awsRegion" Data.=: awsRegion,
-        "resourceArn" Data.=: resourceArn
+        "coreNetworkId" Data.=: coreNetworkId,
+        "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
+        "registeredGatewayArn" Data.=: registeredGatewayArn,
+        "resourceArn" Data.=: resourceArn,
+        "resourceType" Data.=: resourceType
       ]
 
 -- | /See:/ 'newGetNetworkResourcesResponse' smart constructor.
 data GetNetworkResourcesResponse = GetNetworkResourcesResponse'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The network resources.
+  { -- | The network resources.
     networkResources :: Prelude.Maybe [NetworkResource],
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -412,9 +411,9 @@ data GetNetworkResourcesResponse = GetNetworkResourcesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getNetworkResourcesResponse_nextToken' - The token for the next page of results.
---
 -- 'networkResources', 'getNetworkResourcesResponse_networkResources' - The network resources.
+--
+-- 'nextToken', 'getNetworkResourcesResponse_nextToken' - The token for the next page of results.
 --
 -- 'httpStatus', 'getNetworkResourcesResponse_httpStatus' - The response's http status code.
 newGetNetworkResourcesResponse ::
@@ -423,19 +422,19 @@ newGetNetworkResourcesResponse ::
   GetNetworkResourcesResponse
 newGetNetworkResourcesResponse pHttpStatus_ =
   GetNetworkResourcesResponse'
-    { nextToken =
+    { networkResources =
         Prelude.Nothing,
-      networkResources = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token for the next page of results.
-getNetworkResourcesResponse_nextToken :: Lens.Lens' GetNetworkResourcesResponse (Prelude.Maybe Prelude.Text)
-getNetworkResourcesResponse_nextToken = Lens.lens (\GetNetworkResourcesResponse' {nextToken} -> nextToken) (\s@GetNetworkResourcesResponse' {} a -> s {nextToken = a} :: GetNetworkResourcesResponse)
 
 -- | The network resources.
 getNetworkResourcesResponse_networkResources :: Lens.Lens' GetNetworkResourcesResponse (Prelude.Maybe [NetworkResource])
 getNetworkResourcesResponse_networkResources = Lens.lens (\GetNetworkResourcesResponse' {networkResources} -> networkResources) (\s@GetNetworkResourcesResponse' {} a -> s {networkResources = a} :: GetNetworkResourcesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next page of results.
+getNetworkResourcesResponse_nextToken :: Lens.Lens' GetNetworkResourcesResponse (Prelude.Maybe Prelude.Text)
+getNetworkResourcesResponse_nextToken = Lens.lens (\GetNetworkResourcesResponse' {nextToken} -> nextToken) (\s@GetNetworkResourcesResponse' {} a -> s {nextToken = a} :: GetNetworkResourcesResponse)
 
 -- | The response's http status code.
 getNetworkResourcesResponse_httpStatus :: Lens.Lens' GetNetworkResourcesResponse Prelude.Int
@@ -443,6 +442,6 @@ getNetworkResourcesResponse_httpStatus = Lens.lens (\GetNetworkResourcesResponse
 
 instance Prelude.NFData GetNetworkResourcesResponse where
   rnf GetNetworkResourcesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf networkResources
+    Prelude.rnf networkResources
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

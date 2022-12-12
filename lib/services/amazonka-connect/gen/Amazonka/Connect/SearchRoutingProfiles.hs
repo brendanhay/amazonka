@@ -33,10 +33,10 @@ module Amazonka.Connect.SearchRoutingProfiles
     newSearchRoutingProfiles,
 
     -- * Request Lenses
+    searchRoutingProfiles_maxResults,
     searchRoutingProfiles_nextToken,
     searchRoutingProfiles_searchCriteria,
     searchRoutingProfiles_searchFilter,
-    searchRoutingProfiles_maxResults,
     searchRoutingProfiles_instanceId,
 
     -- * Destructuring the Response
@@ -44,8 +44,8 @@ module Amazonka.Connect.SearchRoutingProfiles
     newSearchRoutingProfilesResponse,
 
     -- * Response Lenses
-    searchRoutingProfilesResponse_nextToken,
     searchRoutingProfilesResponse_approximateTotalCount,
+    searchRoutingProfilesResponse_nextToken,
     searchRoutingProfilesResponse_routingProfiles,
     searchRoutingProfilesResponse_httpStatus,
   )
@@ -61,7 +61,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSearchRoutingProfiles' smart constructor.
 data SearchRoutingProfiles = SearchRoutingProfiles'
-  { -- | The token for the next set of results. Use the value returned in the
+  { -- | The maximum number of results to return per page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -73,8 +75,6 @@ data SearchRoutingProfiles = SearchRoutingProfiles'
     searchCriteria :: Prelude.Maybe RoutingProfileSearchCriteria,
     -- | Filters to be applied to search results.
     searchFilter :: Prelude.Maybe RoutingProfileSearchFilter,
-    -- | The maximum number of results to return per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
@@ -89,6 +89,8 @@ data SearchRoutingProfiles = SearchRoutingProfiles'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'searchRoutingProfiles_maxResults' - The maximum number of results to return per page.
+--
 -- 'nextToken', 'searchRoutingProfiles_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
@@ -101,8 +103,6 @@ data SearchRoutingProfiles = SearchRoutingProfiles'
 --
 -- 'searchFilter', 'searchRoutingProfiles_searchFilter' - Filters to be applied to search results.
 --
--- 'maxResults', 'searchRoutingProfiles_maxResults' - The maximum number of results to return per page.
---
 -- 'instanceId', 'searchRoutingProfiles_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
 newSearchRoutingProfiles ::
@@ -111,12 +111,17 @@ newSearchRoutingProfiles ::
   SearchRoutingProfiles
 newSearchRoutingProfiles pInstanceId_ =
   SearchRoutingProfiles'
-    { nextToken = Prelude.Nothing,
+    { maxResults =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       searchCriteria = Prelude.Nothing,
       searchFilter = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       instanceId = pInstanceId_
     }
+
+-- | The maximum number of results to return per page.
+searchRoutingProfiles_maxResults :: Lens.Lens' SearchRoutingProfiles (Prelude.Maybe Prelude.Natural)
+searchRoutingProfiles_maxResults = Lens.lens (\SearchRoutingProfiles' {maxResults} -> maxResults) (\s@SearchRoutingProfiles' {} a -> s {maxResults = a} :: SearchRoutingProfiles)
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
@@ -135,10 +140,6 @@ searchRoutingProfiles_searchCriteria = Lens.lens (\SearchRoutingProfiles' {searc
 -- | Filters to be applied to search results.
 searchRoutingProfiles_searchFilter :: Lens.Lens' SearchRoutingProfiles (Prelude.Maybe RoutingProfileSearchFilter)
 searchRoutingProfiles_searchFilter = Lens.lens (\SearchRoutingProfiles' {searchFilter} -> searchFilter) (\s@SearchRoutingProfiles' {} a -> s {searchFilter = a} :: SearchRoutingProfiles)
-
--- | The maximum number of results to return per page.
-searchRoutingProfiles_maxResults :: Lens.Lens' SearchRoutingProfiles (Prelude.Maybe Prelude.Natural)
-searchRoutingProfiles_maxResults = Lens.lens (\SearchRoutingProfiles' {maxResults} -> maxResults) (\s@SearchRoutingProfiles' {} a -> s {maxResults = a} :: SearchRoutingProfiles)
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -177,8 +178,8 @@ instance Core.AWSRequest SearchRoutingProfiles where
     Response.receiveJSON
       ( \s h x ->
           SearchRoutingProfilesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "ApproximateTotalCount")
+            Prelude.<$> (x Data..?> "ApproximateTotalCount")
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> ( x Data..?> "RoutingProfiles"
                             Core..!@ Prelude.mempty
                         )
@@ -187,18 +188,18 @@ instance Core.AWSRequest SearchRoutingProfiles where
 
 instance Prelude.Hashable SearchRoutingProfiles where
   hashWithSalt _salt SearchRoutingProfiles' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` searchCriteria
       `Prelude.hashWithSalt` searchFilter
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData SearchRoutingProfiles where
   rnf SearchRoutingProfiles' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf searchCriteria
       `Prelude.seq` Prelude.rnf searchFilter
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf instanceId
 
 instance Data.ToHeaders SearchRoutingProfiles where
@@ -216,11 +217,11 @@ instance Data.ToJSON SearchRoutingProfiles where
   toJSON SearchRoutingProfiles' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("SearchCriteria" Data..=)
               Prelude.<$> searchCriteria,
             ("SearchFilter" Data..=) Prelude.<$> searchFilter,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just ("InstanceId" Data..= instanceId)
           ]
       )
@@ -233,11 +234,11 @@ instance Data.ToQuery SearchRoutingProfiles where
 
 -- | /See:/ 'newSearchRoutingProfilesResponse' smart constructor.
 data SearchRoutingProfilesResponse = SearchRoutingProfilesResponse'
-  { -- | If there are additional results, this is the token for the next set of
+  { -- | The total number of routing profiles which matched your search query.
+    approximateTotalCount :: Prelude.Maybe Prelude.Integer,
+    -- | If there are additional results, this is the token for the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The total number of routing profiles which matched your search query.
-    approximateTotalCount :: Prelude.Maybe Prelude.Integer,
     -- | Information about the routing profiles.
     routingProfiles :: Prelude.Maybe [RoutingProfile],
     -- | The response's http status code.
@@ -253,10 +254,10 @@ data SearchRoutingProfilesResponse = SearchRoutingProfilesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'approximateTotalCount', 'searchRoutingProfilesResponse_approximateTotalCount' - The total number of routing profiles which matched your search query.
+--
 -- 'nextToken', 'searchRoutingProfilesResponse_nextToken' - If there are additional results, this is the token for the next set of
 -- results.
---
--- 'approximateTotalCount', 'searchRoutingProfilesResponse_approximateTotalCount' - The total number of routing profiles which matched your search query.
 --
 -- 'routingProfiles', 'searchRoutingProfilesResponse_routingProfiles' - Information about the routing profiles.
 --
@@ -267,21 +268,21 @@ newSearchRoutingProfilesResponse ::
   SearchRoutingProfilesResponse
 newSearchRoutingProfilesResponse pHttpStatus_ =
   SearchRoutingProfilesResponse'
-    { nextToken =
+    { approximateTotalCount =
         Prelude.Nothing,
-      approximateTotalCount = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       routingProfiles = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The total number of routing profiles which matched your search query.
+searchRoutingProfilesResponse_approximateTotalCount :: Lens.Lens' SearchRoutingProfilesResponse (Prelude.Maybe Prelude.Integer)
+searchRoutingProfilesResponse_approximateTotalCount = Lens.lens (\SearchRoutingProfilesResponse' {approximateTotalCount} -> approximateTotalCount) (\s@SearchRoutingProfilesResponse' {} a -> s {approximateTotalCount = a} :: SearchRoutingProfilesResponse)
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
 searchRoutingProfilesResponse_nextToken :: Lens.Lens' SearchRoutingProfilesResponse (Prelude.Maybe Prelude.Text)
 searchRoutingProfilesResponse_nextToken = Lens.lens (\SearchRoutingProfilesResponse' {nextToken} -> nextToken) (\s@SearchRoutingProfilesResponse' {} a -> s {nextToken = a} :: SearchRoutingProfilesResponse)
-
--- | The total number of routing profiles which matched your search query.
-searchRoutingProfilesResponse_approximateTotalCount :: Lens.Lens' SearchRoutingProfilesResponse (Prelude.Maybe Prelude.Integer)
-searchRoutingProfilesResponse_approximateTotalCount = Lens.lens (\SearchRoutingProfilesResponse' {approximateTotalCount} -> approximateTotalCount) (\s@SearchRoutingProfilesResponse' {} a -> s {approximateTotalCount = a} :: SearchRoutingProfilesResponse)
 
 -- | Information about the routing profiles.
 searchRoutingProfilesResponse_routingProfiles :: Lens.Lens' SearchRoutingProfilesResponse (Prelude.Maybe [RoutingProfile])
@@ -293,7 +294,7 @@ searchRoutingProfilesResponse_httpStatus = Lens.lens (\SearchRoutingProfilesResp
 
 instance Prelude.NFData SearchRoutingProfilesResponse where
   rnf SearchRoutingProfilesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf approximateTotalCount
+    Prelude.rnf approximateTotalCount
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf routingProfiles
       `Prelude.seq` Prelude.rnf httpStatus

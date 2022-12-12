@@ -37,8 +37,8 @@ module Amazonka.ComputeOptimizer.GetRecommendationPreferences
     newGetRecommendationPreferences,
 
     -- * Request Lenses
-    getRecommendationPreferences_nextToken,
     getRecommendationPreferences_maxResults,
+    getRecommendationPreferences_nextToken,
     getRecommendationPreferences_scope,
     getRecommendationPreferences_resourceType,
 
@@ -63,14 +63,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetRecommendationPreferences' smart constructor.
 data GetRecommendationPreferences = GetRecommendationPreferences'
-  { -- | The token to advance to the next page of recommendation preferences.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of recommendation preferences to return with a single
+  { -- | The maximum number of recommendation preferences to return with a single
     -- request.
     --
     -- To retrieve the remaining results, make another request with the
     -- returned @nextToken@ value.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The token to advance to the next page of recommendation preferences.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | An object that describes the scope of the recommendation preference to
     -- return.
     --
@@ -101,13 +101,13 @@ data GetRecommendationPreferences = GetRecommendationPreferences'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getRecommendationPreferences_nextToken' - The token to advance to the next page of recommendation preferences.
---
 -- 'maxResults', 'getRecommendationPreferences_maxResults' - The maximum number of recommendation preferences to return with a single
 -- request.
 --
 -- To retrieve the remaining results, make another request with the
 -- returned @nextToken@ value.
+--
+-- 'nextToken', 'getRecommendationPreferences_nextToken' - The token to advance to the next page of recommendation preferences.
 --
 -- 'scope', 'getRecommendationPreferences_scope' - An object that describes the scope of the recommendation preference to
 -- return.
@@ -133,16 +133,12 @@ newGetRecommendationPreferences ::
   GetRecommendationPreferences
 newGetRecommendationPreferences pResourceType_ =
   GetRecommendationPreferences'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       scope = Prelude.Nothing,
       resourceType = pResourceType_
     }
-
--- | The token to advance to the next page of recommendation preferences.
-getRecommendationPreferences_nextToken :: Lens.Lens' GetRecommendationPreferences (Prelude.Maybe Prelude.Text)
-getRecommendationPreferences_nextToken = Lens.lens (\GetRecommendationPreferences' {nextToken} -> nextToken) (\s@GetRecommendationPreferences' {} a -> s {nextToken = a} :: GetRecommendationPreferences)
 
 -- | The maximum number of recommendation preferences to return with a single
 -- request.
@@ -151,6 +147,10 @@ getRecommendationPreferences_nextToken = Lens.lens (\GetRecommendationPreference
 -- returned @nextToken@ value.
 getRecommendationPreferences_maxResults :: Lens.Lens' GetRecommendationPreferences (Prelude.Maybe Prelude.Int)
 getRecommendationPreferences_maxResults = Lens.lens (\GetRecommendationPreferences' {maxResults} -> maxResults) (\s@GetRecommendationPreferences' {} a -> s {maxResults = a} :: GetRecommendationPreferences)
+
+-- | The token to advance to the next page of recommendation preferences.
+getRecommendationPreferences_nextToken :: Lens.Lens' GetRecommendationPreferences (Prelude.Maybe Prelude.Text)
+getRecommendationPreferences_nextToken = Lens.lens (\GetRecommendationPreferences' {nextToken} -> nextToken) (\s@GetRecommendationPreferences' {} a -> s {nextToken = a} :: GetRecommendationPreferences)
 
 -- | An object that describes the scope of the recommendation preference to
 -- return.
@@ -197,15 +197,15 @@ instance
     GetRecommendationPreferences
   where
   hashWithSalt _salt GetRecommendationPreferences' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` scope
       `Prelude.hashWithSalt` resourceType
 
 instance Prelude.NFData GetRecommendationPreferences where
   rnf GetRecommendationPreferences' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf scope
       `Prelude.seq` Prelude.rnf resourceType
 
@@ -228,8 +228,8 @@ instance Data.ToJSON GetRecommendationPreferences where
   toJSON GetRecommendationPreferences' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             ("scope" Data..=) Prelude.<$> scope,
             Prelude.Just ("resourceType" Data..= resourceType)
           ]

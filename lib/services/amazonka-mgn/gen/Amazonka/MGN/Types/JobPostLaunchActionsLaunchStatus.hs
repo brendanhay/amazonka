@@ -27,20 +27,21 @@ import Amazonka.MGN.Types.SsmDocument
 import Amazonka.MGN.Types.SsmDocumentType
 import qualified Amazonka.Prelude as Prelude
 
--- | Job type.
+-- | Launch Status of the Job Post Launch Actions.
 --
 -- /See:/ 'newJobPostLaunchActionsLaunchStatus' smart constructor.
 data JobPostLaunchActionsLaunchStatus = JobPostLaunchActionsLaunchStatus'
-  { -- | Job type.
+  { -- | AWS Systems Manager Document\'s execution ID of the of the Job Post
+    -- Launch Actions.
     executionID :: Prelude.Maybe Prelude.Text,
-    -- | Job type.
-    ssmDocument :: Prelude.Maybe SsmDocument,
-    -- | Job type.
-    ssmDocumentType :: Prelude.Maybe SsmDocumentType,
-    -- | Job type.
+    -- | AWS Systems Manager Document\'s execution status.
     executionStatus :: Prelude.Maybe PostLaunchActionExecutionStatus,
-    -- | Job type.
-    failureReason :: Prelude.Maybe Prelude.Text
+    -- | AWS Systems Manager Document\'s failure reason.
+    failureReason :: Prelude.Maybe Prelude.Text,
+    -- | AWS Systems Manager\'s Document of the of the Job Post Launch Actions.
+    ssmDocument :: Prelude.Maybe SsmDocument,
+    -- | AWS Systems Manager Document type.
+    ssmDocumentType :: Prelude.Maybe SsmDocumentType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,46 +53,48 @@ data JobPostLaunchActionsLaunchStatus = JobPostLaunchActionsLaunchStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'executionID', 'jobPostLaunchActionsLaunchStatus_executionID' - Job type.
+-- 'executionID', 'jobPostLaunchActionsLaunchStatus_executionID' - AWS Systems Manager Document\'s execution ID of the of the Job Post
+-- Launch Actions.
 --
--- 'ssmDocument', 'jobPostLaunchActionsLaunchStatus_ssmDocument' - Job type.
+-- 'executionStatus', 'jobPostLaunchActionsLaunchStatus_executionStatus' - AWS Systems Manager Document\'s execution status.
 --
--- 'ssmDocumentType', 'jobPostLaunchActionsLaunchStatus_ssmDocumentType' - Job type.
+-- 'failureReason', 'jobPostLaunchActionsLaunchStatus_failureReason' - AWS Systems Manager Document\'s failure reason.
 --
--- 'executionStatus', 'jobPostLaunchActionsLaunchStatus_executionStatus' - Job type.
+-- 'ssmDocument', 'jobPostLaunchActionsLaunchStatus_ssmDocument' - AWS Systems Manager\'s Document of the of the Job Post Launch Actions.
 --
--- 'failureReason', 'jobPostLaunchActionsLaunchStatus_failureReason' - Job type.
+-- 'ssmDocumentType', 'jobPostLaunchActionsLaunchStatus_ssmDocumentType' - AWS Systems Manager Document type.
 newJobPostLaunchActionsLaunchStatus ::
   JobPostLaunchActionsLaunchStatus
 newJobPostLaunchActionsLaunchStatus =
   JobPostLaunchActionsLaunchStatus'
     { executionID =
         Prelude.Nothing,
-      ssmDocument = Prelude.Nothing,
-      ssmDocumentType = Prelude.Nothing,
       executionStatus = Prelude.Nothing,
-      failureReason = Prelude.Nothing
+      failureReason = Prelude.Nothing,
+      ssmDocument = Prelude.Nothing,
+      ssmDocumentType = Prelude.Nothing
     }
 
--- | Job type.
+-- | AWS Systems Manager Document\'s execution ID of the of the Job Post
+-- Launch Actions.
 jobPostLaunchActionsLaunchStatus_executionID :: Lens.Lens' JobPostLaunchActionsLaunchStatus (Prelude.Maybe Prelude.Text)
 jobPostLaunchActionsLaunchStatus_executionID = Lens.lens (\JobPostLaunchActionsLaunchStatus' {executionID} -> executionID) (\s@JobPostLaunchActionsLaunchStatus' {} a -> s {executionID = a} :: JobPostLaunchActionsLaunchStatus)
 
--- | Job type.
-jobPostLaunchActionsLaunchStatus_ssmDocument :: Lens.Lens' JobPostLaunchActionsLaunchStatus (Prelude.Maybe SsmDocument)
-jobPostLaunchActionsLaunchStatus_ssmDocument = Lens.lens (\JobPostLaunchActionsLaunchStatus' {ssmDocument} -> ssmDocument) (\s@JobPostLaunchActionsLaunchStatus' {} a -> s {ssmDocument = a} :: JobPostLaunchActionsLaunchStatus)
-
--- | Job type.
-jobPostLaunchActionsLaunchStatus_ssmDocumentType :: Lens.Lens' JobPostLaunchActionsLaunchStatus (Prelude.Maybe SsmDocumentType)
-jobPostLaunchActionsLaunchStatus_ssmDocumentType = Lens.lens (\JobPostLaunchActionsLaunchStatus' {ssmDocumentType} -> ssmDocumentType) (\s@JobPostLaunchActionsLaunchStatus' {} a -> s {ssmDocumentType = a} :: JobPostLaunchActionsLaunchStatus)
-
--- | Job type.
+-- | AWS Systems Manager Document\'s execution status.
 jobPostLaunchActionsLaunchStatus_executionStatus :: Lens.Lens' JobPostLaunchActionsLaunchStatus (Prelude.Maybe PostLaunchActionExecutionStatus)
 jobPostLaunchActionsLaunchStatus_executionStatus = Lens.lens (\JobPostLaunchActionsLaunchStatus' {executionStatus} -> executionStatus) (\s@JobPostLaunchActionsLaunchStatus' {} a -> s {executionStatus = a} :: JobPostLaunchActionsLaunchStatus)
 
--- | Job type.
+-- | AWS Systems Manager Document\'s failure reason.
 jobPostLaunchActionsLaunchStatus_failureReason :: Lens.Lens' JobPostLaunchActionsLaunchStatus (Prelude.Maybe Prelude.Text)
 jobPostLaunchActionsLaunchStatus_failureReason = Lens.lens (\JobPostLaunchActionsLaunchStatus' {failureReason} -> failureReason) (\s@JobPostLaunchActionsLaunchStatus' {} a -> s {failureReason = a} :: JobPostLaunchActionsLaunchStatus)
+
+-- | AWS Systems Manager\'s Document of the of the Job Post Launch Actions.
+jobPostLaunchActionsLaunchStatus_ssmDocument :: Lens.Lens' JobPostLaunchActionsLaunchStatus (Prelude.Maybe SsmDocument)
+jobPostLaunchActionsLaunchStatus_ssmDocument = Lens.lens (\JobPostLaunchActionsLaunchStatus' {ssmDocument} -> ssmDocument) (\s@JobPostLaunchActionsLaunchStatus' {} a -> s {ssmDocument = a} :: JobPostLaunchActionsLaunchStatus)
+
+-- | AWS Systems Manager Document type.
+jobPostLaunchActionsLaunchStatus_ssmDocumentType :: Lens.Lens' JobPostLaunchActionsLaunchStatus (Prelude.Maybe SsmDocumentType)
+jobPostLaunchActionsLaunchStatus_ssmDocumentType = Lens.lens (\JobPostLaunchActionsLaunchStatus' {ssmDocumentType} -> ssmDocumentType) (\s@JobPostLaunchActionsLaunchStatus' {} a -> s {ssmDocumentType = a} :: JobPostLaunchActionsLaunchStatus)
 
 instance
   Data.FromJSON
@@ -103,10 +106,10 @@ instance
       ( \x ->
           JobPostLaunchActionsLaunchStatus'
             Prelude.<$> (x Data..:? "executionID")
-            Prelude.<*> (x Data..:? "ssmDocument")
-            Prelude.<*> (x Data..:? "ssmDocumentType")
             Prelude.<*> (x Data..:? "executionStatus")
             Prelude.<*> (x Data..:? "failureReason")
+            Prelude.<*> (x Data..:? "ssmDocument")
+            Prelude.<*> (x Data..:? "ssmDocumentType")
       )
 
 instance
@@ -117,10 +120,10 @@ instance
     _salt
     JobPostLaunchActionsLaunchStatus' {..} =
       _salt `Prelude.hashWithSalt` executionID
-        `Prelude.hashWithSalt` ssmDocument
-        `Prelude.hashWithSalt` ssmDocumentType
         `Prelude.hashWithSalt` executionStatus
         `Prelude.hashWithSalt` failureReason
+        `Prelude.hashWithSalt` ssmDocument
+        `Prelude.hashWithSalt` ssmDocumentType
 
 instance
   Prelude.NFData
@@ -128,7 +131,7 @@ instance
   where
   rnf JobPostLaunchActionsLaunchStatus' {..} =
     Prelude.rnf executionID
-      `Prelude.seq` Prelude.rnf ssmDocument
-      `Prelude.seq` Prelude.rnf ssmDocumentType
       `Prelude.seq` Prelude.rnf executionStatus
       `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf ssmDocument
+      `Prelude.seq` Prelude.rnf ssmDocumentType

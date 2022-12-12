@@ -34,16 +34,16 @@ data RoutingControl = RoutingControl'
   { -- | The Amazon Resource Name (ARN) of the control panel where the routing
     -- control is located.
     controlPanelArn :: Prelude.Maybe Prelude.Text,
-    -- | The current state of the routing control. When a routing control state
-    -- is On, traffic flows to a cell. When the state is Off, traffic does not
-    -- flow.
-    routingControlState :: Prelude.Maybe RoutingControlState,
     -- | The name of the control panel where the routing control is located.
     controlPanelName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the routing control.
     routingControlArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the routing control.
-    routingControlName :: Prelude.Maybe Prelude.Text
+    routingControlName :: Prelude.Maybe Prelude.Text,
+    -- | The current state of the routing control. When a routing control state
+    -- is On, traffic flows to a cell. When the state is Off, traffic does not
+    -- flow.
+    routingControlState :: Prelude.Maybe RoutingControlState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,36 +58,30 @@ data RoutingControl = RoutingControl'
 -- 'controlPanelArn', 'routingControl_controlPanelArn' - The Amazon Resource Name (ARN) of the control panel where the routing
 -- control is located.
 --
--- 'routingControlState', 'routingControl_routingControlState' - The current state of the routing control. When a routing control state
--- is On, traffic flows to a cell. When the state is Off, traffic does not
--- flow.
---
 -- 'controlPanelName', 'routingControl_controlPanelName' - The name of the control panel where the routing control is located.
 --
 -- 'routingControlArn', 'routingControl_routingControlArn' - The Amazon Resource Name (ARN) of the routing control.
 --
 -- 'routingControlName', 'routingControl_routingControlName' - The name of the routing control.
+--
+-- 'routingControlState', 'routingControl_routingControlState' - The current state of the routing control. When a routing control state
+-- is On, traffic flows to a cell. When the state is Off, traffic does not
+-- flow.
 newRoutingControl ::
   RoutingControl
 newRoutingControl =
   RoutingControl'
     { controlPanelArn = Prelude.Nothing,
-      routingControlState = Prelude.Nothing,
       controlPanelName = Prelude.Nothing,
       routingControlArn = Prelude.Nothing,
-      routingControlName = Prelude.Nothing
+      routingControlName = Prelude.Nothing,
+      routingControlState = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the control panel where the routing
 -- control is located.
 routingControl_controlPanelArn :: Lens.Lens' RoutingControl (Prelude.Maybe Prelude.Text)
 routingControl_controlPanelArn = Lens.lens (\RoutingControl' {controlPanelArn} -> controlPanelArn) (\s@RoutingControl' {} a -> s {controlPanelArn = a} :: RoutingControl)
-
--- | The current state of the routing control. When a routing control state
--- is On, traffic flows to a cell. When the state is Off, traffic does not
--- flow.
-routingControl_routingControlState :: Lens.Lens' RoutingControl (Prelude.Maybe RoutingControlState)
-routingControl_routingControlState = Lens.lens (\RoutingControl' {routingControlState} -> routingControlState) (\s@RoutingControl' {} a -> s {routingControlState = a} :: RoutingControl)
 
 -- | The name of the control panel where the routing control is located.
 routingControl_controlPanelName :: Lens.Lens' RoutingControl (Prelude.Maybe Prelude.Text)
@@ -101,6 +95,12 @@ routingControl_routingControlArn = Lens.lens (\RoutingControl' {routingControlAr
 routingControl_routingControlName :: Lens.Lens' RoutingControl (Prelude.Maybe Prelude.Text)
 routingControl_routingControlName = Lens.lens (\RoutingControl' {routingControlName} -> routingControlName) (\s@RoutingControl' {} a -> s {routingControlName = a} :: RoutingControl)
 
+-- | The current state of the routing control. When a routing control state
+-- is On, traffic flows to a cell. When the state is Off, traffic does not
+-- flow.
+routingControl_routingControlState :: Lens.Lens' RoutingControl (Prelude.Maybe RoutingControlState)
+routingControl_routingControlState = Lens.lens (\RoutingControl' {routingControlState} -> routingControlState) (\s@RoutingControl' {} a -> s {routingControlState = a} :: RoutingControl)
+
 instance Data.FromJSON RoutingControl where
   parseJSON =
     Data.withObject
@@ -108,24 +108,24 @@ instance Data.FromJSON RoutingControl where
       ( \x ->
           RoutingControl'
             Prelude.<$> (x Data..:? "ControlPanelArn")
-            Prelude.<*> (x Data..:? "RoutingControlState")
             Prelude.<*> (x Data..:? "ControlPanelName")
             Prelude.<*> (x Data..:? "RoutingControlArn")
             Prelude.<*> (x Data..:? "RoutingControlName")
+            Prelude.<*> (x Data..:? "RoutingControlState")
       )
 
 instance Prelude.Hashable RoutingControl where
   hashWithSalt _salt RoutingControl' {..} =
     _salt `Prelude.hashWithSalt` controlPanelArn
-      `Prelude.hashWithSalt` routingControlState
       `Prelude.hashWithSalt` controlPanelName
       `Prelude.hashWithSalt` routingControlArn
       `Prelude.hashWithSalt` routingControlName
+      `Prelude.hashWithSalt` routingControlState
 
 instance Prelude.NFData RoutingControl where
   rnf RoutingControl' {..} =
     Prelude.rnf controlPanelArn
-      `Prelude.seq` Prelude.rnf routingControlState
       `Prelude.seq` Prelude.rnf controlPanelName
       `Prelude.seq` Prelude.rnf routingControlArn
       `Prelude.seq` Prelude.rnf routingControlName
+      `Prelude.seq` Prelude.rnf routingControlState

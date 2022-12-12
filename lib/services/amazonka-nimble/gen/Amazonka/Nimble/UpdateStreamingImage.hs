@@ -27,9 +27,9 @@ module Amazonka.Nimble.UpdateStreamingImage
     newUpdateStreamingImage,
 
     -- * Request Lenses
-    updateStreamingImage_name,
     updateStreamingImage_clientToken,
     updateStreamingImage_description,
+    updateStreamingImage_name,
     updateStreamingImage_streamingImageId,
     updateStreamingImage_studioId,
 
@@ -53,15 +53,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateStreamingImage' smart constructor.
 data UpdateStreamingImage = UpdateStreamingImage'
-  { -- | The name for the streaming image.
-    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | Unique, case-sensitive identifier that you provide to ensure the
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. If you don’t specify a client token, the AWS
     -- SDK automatically generates a client token and uses it for the request
     -- to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The description.
     description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The name for the streaming image.
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The streaming image ID.
     streamingImageId :: Prelude.Text,
     -- | The studio ID.
@@ -77,14 +77,14 @@ data UpdateStreamingImage = UpdateStreamingImage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateStreamingImage_name' - The name for the streaming image.
---
 -- 'clientToken', 'updateStreamingImage_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. If you don’t specify a client token, the AWS
 -- SDK automatically generates a client token and uses it for the request
 -- to ensure idempotency.
 --
 -- 'description', 'updateStreamingImage_description' - The description.
+--
+-- 'name', 'updateStreamingImage_name' - The name for the streaming image.
 --
 -- 'streamingImageId', 'updateStreamingImage_streamingImageId' - The streaming image ID.
 --
@@ -97,16 +97,13 @@ newUpdateStreamingImage ::
   UpdateStreamingImage
 newUpdateStreamingImage pStreamingImageId_ pStudioId_ =
   UpdateStreamingImage'
-    { name = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+    { clientToken =
+        Prelude.Nothing,
       description = Prelude.Nothing,
+      name = Prelude.Nothing,
       streamingImageId = pStreamingImageId_,
       studioId = pStudioId_
     }
-
--- | The name for the streaming image.
-updateStreamingImage_name :: Lens.Lens' UpdateStreamingImage (Prelude.Maybe Prelude.Text)
-updateStreamingImage_name = Lens.lens (\UpdateStreamingImage' {name} -> name) (\s@UpdateStreamingImage' {} a -> s {name = a} :: UpdateStreamingImage) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. If you don’t specify a client token, the AWS
@@ -118,6 +115,10 @@ updateStreamingImage_clientToken = Lens.lens (\UpdateStreamingImage' {clientToke
 -- | The description.
 updateStreamingImage_description :: Lens.Lens' UpdateStreamingImage (Prelude.Maybe Prelude.Text)
 updateStreamingImage_description = Lens.lens (\UpdateStreamingImage' {description} -> description) (\s@UpdateStreamingImage' {} a -> s {description = a} :: UpdateStreamingImage) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The name for the streaming image.
+updateStreamingImage_name :: Lens.Lens' UpdateStreamingImage (Prelude.Maybe Prelude.Text)
+updateStreamingImage_name = Lens.lens (\UpdateStreamingImage' {name} -> name) (\s@UpdateStreamingImage' {} a -> s {name = a} :: UpdateStreamingImage) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The streaming image ID.
 updateStreamingImage_streamingImageId :: Lens.Lens' UpdateStreamingImage Prelude.Text
@@ -143,17 +144,17 @@ instance Core.AWSRequest UpdateStreamingImage where
 
 instance Prelude.Hashable UpdateStreamingImage where
   hashWithSalt _salt UpdateStreamingImage' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` streamingImageId
       `Prelude.hashWithSalt` studioId
 
 instance Prelude.NFData UpdateStreamingImage where
   rnf UpdateStreamingImage' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf streamingImageId
       `Prelude.seq` Prelude.rnf studioId
 
@@ -169,8 +170,8 @@ instance Data.ToJSON UpdateStreamingImage where
   toJSON UpdateStreamingImage' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("name" Data..=) Prelude.<$> name,
-            ("description" Data..=) Prelude.<$> description
+          [ ("description" Data..=) Prelude.<$> description,
+            ("name" Data..=) Prelude.<$> name
           ]
       )
 

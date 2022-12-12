@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConnectionHealth' smart constructor.
 data ConnectionHealth = ConnectionHealth'
-  { -- | The connection type.
-    type' :: Prelude.Maybe ConnectionType,
+  { -- | The connection status.
+    status :: Prelude.Maybe ConnectionStatus,
     -- | The time the status was last updated.
     timestamp :: Prelude.Maybe Data.POSIX,
-    -- | The connection status.
-    status :: Prelude.Maybe ConnectionStatus
+    -- | The connection type.
+    type' :: Prelude.Maybe ConnectionType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,31 +47,31 @@ data ConnectionHealth = ConnectionHealth'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'connectionHealth_type' - The connection type.
+-- 'status', 'connectionHealth_status' - The connection status.
 --
 -- 'timestamp', 'connectionHealth_timestamp' - The time the status was last updated.
 --
--- 'status', 'connectionHealth_status' - The connection status.
+-- 'type'', 'connectionHealth_type' - The connection type.
 newConnectionHealth ::
   ConnectionHealth
 newConnectionHealth =
   ConnectionHealth'
-    { type' = Prelude.Nothing,
+    { status = Prelude.Nothing,
       timestamp = Prelude.Nothing,
-      status = Prelude.Nothing
+      type' = Prelude.Nothing
     }
 
--- | The connection type.
-connectionHealth_type :: Lens.Lens' ConnectionHealth (Prelude.Maybe ConnectionType)
-connectionHealth_type = Lens.lens (\ConnectionHealth' {type'} -> type') (\s@ConnectionHealth' {} a -> s {type' = a} :: ConnectionHealth)
+-- | The connection status.
+connectionHealth_status :: Lens.Lens' ConnectionHealth (Prelude.Maybe ConnectionStatus)
+connectionHealth_status = Lens.lens (\ConnectionHealth' {status} -> status) (\s@ConnectionHealth' {} a -> s {status = a} :: ConnectionHealth)
 
 -- | The time the status was last updated.
 connectionHealth_timestamp :: Lens.Lens' ConnectionHealth (Prelude.Maybe Prelude.UTCTime)
 connectionHealth_timestamp = Lens.lens (\ConnectionHealth' {timestamp} -> timestamp) (\s@ConnectionHealth' {} a -> s {timestamp = a} :: ConnectionHealth) Prelude.. Lens.mapping Data._Time
 
--- | The connection status.
-connectionHealth_status :: Lens.Lens' ConnectionHealth (Prelude.Maybe ConnectionStatus)
-connectionHealth_status = Lens.lens (\ConnectionHealth' {status} -> status) (\s@ConnectionHealth' {} a -> s {status = a} :: ConnectionHealth)
+-- | The connection type.
+connectionHealth_type :: Lens.Lens' ConnectionHealth (Prelude.Maybe ConnectionType)
+connectionHealth_type = Lens.lens (\ConnectionHealth' {type'} -> type') (\s@ConnectionHealth' {} a -> s {type' = a} :: ConnectionHealth)
 
 instance Data.FromJSON ConnectionHealth where
   parseJSON =
@@ -79,19 +79,19 @@ instance Data.FromJSON ConnectionHealth where
       "ConnectionHealth"
       ( \x ->
           ConnectionHealth'
-            Prelude.<$> (x Data..:? "Type")
+            Prelude.<$> (x Data..:? "Status")
             Prelude.<*> (x Data..:? "Timestamp")
-            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable ConnectionHealth where
   hashWithSalt _salt ConnectionHealth' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` timestamp
-      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData ConnectionHealth where
   rnf ConnectionHealth' {..} =
-    Prelude.rnf type'
+    Prelude.rnf status
       `Prelude.seq` Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf type'

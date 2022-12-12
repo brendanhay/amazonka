@@ -28,8 +28,8 @@ module Amazonka.Transfer.ListHostKeys
     newListHostKeys,
 
     -- * Request Lenses
-    listHostKeys_nextToken,
     listHostKeys_maxResults,
+    listHostKeys_nextToken,
     listHostKeys_serverId,
 
     -- * Destructuring the Response
@@ -54,12 +54,12 @@ import Amazonka.Transfer.Types
 
 -- | /See:/ 'newListHostKeys' smart constructor.
 data ListHostKeys = ListHostKeys'
-  { -- | When there are additional results that were not returned, a @NextToken@
+  { -- | The maximum number of host keys to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | When there are additional results that were not returned, a @NextToken@
     -- parameter is returned. You can use that value for a subsequent call to
     -- @ListHostKeys@ to continue listing results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of host keys to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the server that contains the host keys that you want
     -- to view.
     serverId :: Prelude.Text
@@ -74,11 +74,11 @@ data ListHostKeys = ListHostKeys'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listHostKeys_maxResults' - The maximum number of host keys to return.
+--
 -- 'nextToken', 'listHostKeys_nextToken' - When there are additional results that were not returned, a @NextToken@
 -- parameter is returned. You can use that value for a subsequent call to
 -- @ListHostKeys@ to continue listing results.
---
--- 'maxResults', 'listHostKeys_maxResults' - The maximum number of host keys to return.
 --
 -- 'serverId', 'listHostKeys_serverId' - The identifier of the server that contains the host keys that you want
 -- to view.
@@ -88,20 +88,20 @@ newListHostKeys ::
   ListHostKeys
 newListHostKeys pServerId_ =
   ListHostKeys'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       serverId = pServerId_
     }
+
+-- | The maximum number of host keys to return.
+listHostKeys_maxResults :: Lens.Lens' ListHostKeys (Prelude.Maybe Prelude.Natural)
+listHostKeys_maxResults = Lens.lens (\ListHostKeys' {maxResults} -> maxResults) (\s@ListHostKeys' {} a -> s {maxResults = a} :: ListHostKeys)
 
 -- | When there are additional results that were not returned, a @NextToken@
 -- parameter is returned. You can use that value for a subsequent call to
 -- @ListHostKeys@ to continue listing results.
 listHostKeys_nextToken :: Lens.Lens' ListHostKeys (Prelude.Maybe Prelude.Text)
 listHostKeys_nextToken = Lens.lens (\ListHostKeys' {nextToken} -> nextToken) (\s@ListHostKeys' {} a -> s {nextToken = a} :: ListHostKeys)
-
--- | The maximum number of host keys to return.
-listHostKeys_maxResults :: Lens.Lens' ListHostKeys (Prelude.Maybe Prelude.Natural)
-listHostKeys_maxResults = Lens.lens (\ListHostKeys' {maxResults} -> maxResults) (\s@ListHostKeys' {} a -> s {maxResults = a} :: ListHostKeys)
 
 -- | The identifier of the server that contains the host keys that you want
 -- to view.
@@ -124,14 +124,14 @@ instance Core.AWSRequest ListHostKeys where
 
 instance Prelude.Hashable ListHostKeys where
   hashWithSalt _salt ListHostKeys' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` serverId
 
 instance Prelude.NFData ListHostKeys where
   rnf ListHostKeys' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf serverId
 
 instance Data.ToHeaders ListHostKeys where
@@ -153,8 +153,8 @@ instance Data.ToJSON ListHostKeys where
   toJSON ListHostKeys' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("ServerId" Data..= serverId)
           ]
       )

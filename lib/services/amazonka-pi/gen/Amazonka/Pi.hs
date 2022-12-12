@@ -52,11 +52,11 @@ module Amazonka.Pi
     -- * Errors
     -- $errors
 
-    -- ** InvalidArgumentException
-    _InvalidArgumentException,
-
     -- ** InternalServiceError
     _InternalServiceError,
+
+    -- ** InvalidArgumentException
+    _InvalidArgumentException,
 
     -- ** NotAuthorizedException
     _NotAuthorizedException,

@@ -29,15 +29,15 @@ import Amazonka.SecurityHub.Types.Occurrences
 --
 -- /See:/ 'newCustomDataIdentifiersDetections' smart constructor.
 data CustomDataIdentifiersDetections = CustomDataIdentifiersDetections'
-  { -- | Details about the sensitive data that was detected.
-    occurrences :: Prelude.Maybe Occurrences,
-    -- | he name of the custom identifier that detected the sensitive data.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the custom identifier that was used to detect the sensitive
+  { -- | The ARN of the custom identifier that was used to detect the sensitive
     -- data.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The total number of occurrences of sensitive data that were detected.
-    count :: Prelude.Maybe Prelude.Integer
+    count :: Prelude.Maybe Prelude.Integer,
+    -- | he name of the custom identifier that detected the sensitive data.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Details about the sensitive data that was detected.
+    occurrences :: Prelude.Maybe Occurrences
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,32 +49,24 @@ data CustomDataIdentifiersDetections = CustomDataIdentifiersDetections'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'occurrences', 'customDataIdentifiersDetections_occurrences' - Details about the sensitive data that was detected.
---
--- 'name', 'customDataIdentifiersDetections_name' - he name of the custom identifier that detected the sensitive data.
---
 -- 'arn', 'customDataIdentifiersDetections_arn' - The ARN of the custom identifier that was used to detect the sensitive
 -- data.
 --
 -- 'count', 'customDataIdentifiersDetections_count' - The total number of occurrences of sensitive data that were detected.
+--
+-- 'name', 'customDataIdentifiersDetections_name' - he name of the custom identifier that detected the sensitive data.
+--
+-- 'occurrences', 'customDataIdentifiersDetections_occurrences' - Details about the sensitive data that was detected.
 newCustomDataIdentifiersDetections ::
   CustomDataIdentifiersDetections
 newCustomDataIdentifiersDetections =
   CustomDataIdentifiersDetections'
-    { occurrences =
+    { arn =
         Prelude.Nothing,
+      count = Prelude.Nothing,
       name = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      count = Prelude.Nothing
+      occurrences = Prelude.Nothing
     }
-
--- | Details about the sensitive data that was detected.
-customDataIdentifiersDetections_occurrences :: Lens.Lens' CustomDataIdentifiersDetections (Prelude.Maybe Occurrences)
-customDataIdentifiersDetections_occurrences = Lens.lens (\CustomDataIdentifiersDetections' {occurrences} -> occurrences) (\s@CustomDataIdentifiersDetections' {} a -> s {occurrences = a} :: CustomDataIdentifiersDetections)
-
--- | he name of the custom identifier that detected the sensitive data.
-customDataIdentifiersDetections_name :: Lens.Lens' CustomDataIdentifiersDetections (Prelude.Maybe Prelude.Text)
-customDataIdentifiersDetections_name = Lens.lens (\CustomDataIdentifiersDetections' {name} -> name) (\s@CustomDataIdentifiersDetections' {} a -> s {name = a} :: CustomDataIdentifiersDetections)
 
 -- | The ARN of the custom identifier that was used to detect the sensitive
 -- data.
@@ -85,6 +77,14 @@ customDataIdentifiersDetections_arn = Lens.lens (\CustomDataIdentifiersDetection
 customDataIdentifiersDetections_count :: Lens.Lens' CustomDataIdentifiersDetections (Prelude.Maybe Prelude.Integer)
 customDataIdentifiersDetections_count = Lens.lens (\CustomDataIdentifiersDetections' {count} -> count) (\s@CustomDataIdentifiersDetections' {} a -> s {count = a} :: CustomDataIdentifiersDetections)
 
+-- | he name of the custom identifier that detected the sensitive data.
+customDataIdentifiersDetections_name :: Lens.Lens' CustomDataIdentifiersDetections (Prelude.Maybe Prelude.Text)
+customDataIdentifiersDetections_name = Lens.lens (\CustomDataIdentifiersDetections' {name} -> name) (\s@CustomDataIdentifiersDetections' {} a -> s {name = a} :: CustomDataIdentifiersDetections)
+
+-- | Details about the sensitive data that was detected.
+customDataIdentifiersDetections_occurrences :: Lens.Lens' CustomDataIdentifiersDetections (Prelude.Maybe Occurrences)
+customDataIdentifiersDetections_occurrences = Lens.lens (\CustomDataIdentifiersDetections' {occurrences} -> occurrences) (\s@CustomDataIdentifiersDetections' {} a -> s {occurrences = a} :: CustomDataIdentifiersDetections)
+
 instance
   Data.FromJSON
     CustomDataIdentifiersDetections
@@ -94,10 +94,10 @@ instance
       "CustomDataIdentifiersDetections"
       ( \x ->
           CustomDataIdentifiersDetections'
-            Prelude.<$> (x Data..:? "Occurrences")
-            Prelude.<*> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<$> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "Count")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Occurrences")
       )
 
 instance
@@ -107,28 +107,28 @@ instance
   hashWithSalt
     _salt
     CustomDataIdentifiersDetections' {..} =
-      _salt `Prelude.hashWithSalt` occurrences
-        `Prelude.hashWithSalt` name
-        `Prelude.hashWithSalt` arn
+      _salt `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` count
+        `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` occurrences
 
 instance
   Prelude.NFData
     CustomDataIdentifiersDetections
   where
   rnf CustomDataIdentifiersDetections' {..} =
-    Prelude.rnf occurrences
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf count
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf occurrences
 
 instance Data.ToJSON CustomDataIdentifiersDetections where
   toJSON CustomDataIdentifiersDetections' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Occurrences" Data..=) Prelude.<$> occurrences,
+          [ ("Arn" Data..=) Prelude.<$> arn,
+            ("Count" Data..=) Prelude.<$> count,
             ("Name" Data..=) Prelude.<$> name,
-            ("Arn" Data..=) Prelude.<$> arn,
-            ("Count" Data..=) Prelude.<$> count
+            ("Occurrences" Data..=) Prelude.<$> occurrences
           ]
       )

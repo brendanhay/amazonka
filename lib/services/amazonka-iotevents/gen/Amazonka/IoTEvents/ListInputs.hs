@@ -27,16 +27,16 @@ module Amazonka.IoTEvents.ListInputs
     newListInputs,
 
     -- * Request Lenses
-    listInputs_nextToken,
     listInputs_maxResults,
+    listInputs_nextToken,
 
     -- * Destructuring the Response
     ListInputsResponse (..),
     newListInputsResponse,
 
     -- * Response Lenses
-    listInputsResponse_nextToken,
     listInputsResponse_inputSummaries,
+    listInputsResponse_nextToken,
     listInputsResponse_httpStatus,
   )
 where
@@ -51,10 +51,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListInputs' smart constructor.
 data ListInputs = ListInputs'
-  { -- | The token that you can use to return the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be returned per request.
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { -- | The maximum number of results to be returned per request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token that you can use to return the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,24 +66,24 @@ data ListInputs = ListInputs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listInputs_nextToken' - The token that you can use to return the next set of results.
---
 -- 'maxResults', 'listInputs_maxResults' - The maximum number of results to be returned per request.
+--
+-- 'nextToken', 'listInputs_nextToken' - The token that you can use to return the next set of results.
 newListInputs ::
   ListInputs
 newListInputs =
   ListInputs'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token that you can use to return the next set of results.
-listInputs_nextToken :: Lens.Lens' ListInputs (Prelude.Maybe Prelude.Text)
-listInputs_nextToken = Lens.lens (\ListInputs' {nextToken} -> nextToken) (\s@ListInputs' {} a -> s {nextToken = a} :: ListInputs)
 
 -- | The maximum number of results to be returned per request.
 listInputs_maxResults :: Lens.Lens' ListInputs (Prelude.Maybe Prelude.Natural)
 listInputs_maxResults = Lens.lens (\ListInputs' {maxResults} -> maxResults) (\s@ListInputs' {} a -> s {maxResults = a} :: ListInputs)
+
+-- | The token that you can use to return the next set of results.
+listInputs_nextToken :: Lens.Lens' ListInputs (Prelude.Maybe Prelude.Text)
+listInputs_nextToken = Lens.lens (\ListInputs' {nextToken} -> nextToken) (\s@ListInputs' {} a -> s {nextToken = a} :: ListInputs)
 
 instance Core.AWSRequest ListInputs where
   type AWSResponse ListInputs = ListInputsResponse
@@ -93,20 +93,20 @@ instance Core.AWSRequest ListInputs where
     Response.receiveJSON
       ( \s h x ->
           ListInputsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "inputSummaries" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "inputSummaries" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListInputs where
   hashWithSalt _salt ListInputs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListInputs where
   rnf ListInputs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListInputs where
   toHeaders = Prelude.const Prelude.mempty
@@ -117,17 +117,17 @@ instance Data.ToPath ListInputs where
 instance Data.ToQuery ListInputs where
   toQuery ListInputs' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListInputsResponse' smart constructor.
 data ListInputsResponse = ListInputsResponse'
-  { -- | The token that you can use to return the next set of results, or @null@
+  { -- | Summary information about the inputs.
+    inputSummaries :: Prelude.Maybe [InputSummary],
+    -- | The token that you can use to return the next set of results, or @null@
     -- if there are no more results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Summary information about the inputs.
-    inputSummaries :: Prelude.Maybe [InputSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -141,10 +141,10 @@ data ListInputsResponse = ListInputsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'inputSummaries', 'listInputsResponse_inputSummaries' - Summary information about the inputs.
+--
 -- 'nextToken', 'listInputsResponse_nextToken' - The token that you can use to return the next set of results, or @null@
 -- if there are no more results.
---
--- 'inputSummaries', 'listInputsResponse_inputSummaries' - Summary information about the inputs.
 --
 -- 'httpStatus', 'listInputsResponse_httpStatus' - The response's http status code.
 newListInputsResponse ::
@@ -153,19 +153,20 @@ newListInputsResponse ::
   ListInputsResponse
 newListInputsResponse pHttpStatus_ =
   ListInputsResponse'
-    { nextToken = Prelude.Nothing,
-      inputSummaries = Prelude.Nothing,
+    { inputSummaries =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Summary information about the inputs.
+listInputsResponse_inputSummaries :: Lens.Lens' ListInputsResponse (Prelude.Maybe [InputSummary])
+listInputsResponse_inputSummaries = Lens.lens (\ListInputsResponse' {inputSummaries} -> inputSummaries) (\s@ListInputsResponse' {} a -> s {inputSummaries = a} :: ListInputsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token that you can use to return the next set of results, or @null@
 -- if there are no more results.
 listInputsResponse_nextToken :: Lens.Lens' ListInputsResponse (Prelude.Maybe Prelude.Text)
 listInputsResponse_nextToken = Lens.lens (\ListInputsResponse' {nextToken} -> nextToken) (\s@ListInputsResponse' {} a -> s {nextToken = a} :: ListInputsResponse)
-
--- | Summary information about the inputs.
-listInputsResponse_inputSummaries :: Lens.Lens' ListInputsResponse (Prelude.Maybe [InputSummary])
-listInputsResponse_inputSummaries = Lens.lens (\ListInputsResponse' {inputSummaries} -> inputSummaries) (\s@ListInputsResponse' {} a -> s {inputSummaries = a} :: ListInputsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listInputsResponse_httpStatus :: Lens.Lens' ListInputsResponse Prelude.Int
@@ -173,6 +174,6 @@ listInputsResponse_httpStatus = Lens.lens (\ListInputsResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListInputsResponse where
   rnf ListInputsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf inputSummaries
+    Prelude.rnf inputSummaries
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

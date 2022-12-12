@@ -31,7 +31,10 @@ import Amazonka.Transfer.Types.WorkflowStepType
 --
 -- /See:/ 'newExecutionStepResult' smart constructor.
 data ExecutionStepResult = ExecutionStepResult'
-  { -- | The values for the key\/value pair applied as a tag to the file. Only
+  { -- | Specifies the details for an error, if it occurred during execution of
+    -- the specified workflow step.
+    error :: Prelude.Maybe ExecutionError,
+    -- | The values for the key\/value pair applied as a tag to the file. Only
     -- applicable if the step type is @TAG@.
     outputs :: Prelude.Maybe Prelude.Text,
     -- | One of the available step types.
@@ -43,10 +46,7 @@ data ExecutionStepResult = ExecutionStepResult'
     -- -   /DELETE/: Delete the file.
     --
     -- -   /TAG/: Add a tag to the file.
-    stepType :: Prelude.Maybe WorkflowStepType,
-    -- | Specifies the details for an error, if it occurred during execution of
-    -- the specified workflow step.
-    error :: Prelude.Maybe ExecutionError
+    stepType :: Prelude.Maybe WorkflowStepType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,6 +57,9 @@ data ExecutionStepResult = ExecutionStepResult'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'error', 'executionStepResult_error' - Specifies the details for an error, if it occurred during execution of
+-- the specified workflow step.
 --
 -- 'outputs', 'executionStepResult_outputs' - The values for the key\/value pair applied as a tag to the file. Only
 -- applicable if the step type is @TAG@.
@@ -70,17 +73,19 @@ data ExecutionStepResult = ExecutionStepResult'
 -- -   /DELETE/: Delete the file.
 --
 -- -   /TAG/: Add a tag to the file.
---
--- 'error', 'executionStepResult_error' - Specifies the details for an error, if it occurred during execution of
--- the specified workflow step.
 newExecutionStepResult ::
   ExecutionStepResult
 newExecutionStepResult =
   ExecutionStepResult'
-    { outputs = Prelude.Nothing,
-      stepType = Prelude.Nothing,
-      error = Prelude.Nothing
+    { error = Prelude.Nothing,
+      outputs = Prelude.Nothing,
+      stepType = Prelude.Nothing
     }
+
+-- | Specifies the details for an error, if it occurred during execution of
+-- the specified workflow step.
+executionStepResult_error :: Lens.Lens' ExecutionStepResult (Prelude.Maybe ExecutionError)
+executionStepResult_error = Lens.lens (\ExecutionStepResult' {error} -> error) (\s@ExecutionStepResult' {} a -> s {error = a} :: ExecutionStepResult)
 
 -- | The values for the key\/value pair applied as a tag to the file. Only
 -- applicable if the step type is @TAG@.
@@ -99,30 +104,25 @@ executionStepResult_outputs = Lens.lens (\ExecutionStepResult' {outputs} -> outp
 executionStepResult_stepType :: Lens.Lens' ExecutionStepResult (Prelude.Maybe WorkflowStepType)
 executionStepResult_stepType = Lens.lens (\ExecutionStepResult' {stepType} -> stepType) (\s@ExecutionStepResult' {} a -> s {stepType = a} :: ExecutionStepResult)
 
--- | Specifies the details for an error, if it occurred during execution of
--- the specified workflow step.
-executionStepResult_error :: Lens.Lens' ExecutionStepResult (Prelude.Maybe ExecutionError)
-executionStepResult_error = Lens.lens (\ExecutionStepResult' {error} -> error) (\s@ExecutionStepResult' {} a -> s {error = a} :: ExecutionStepResult)
-
 instance Data.FromJSON ExecutionStepResult where
   parseJSON =
     Data.withObject
       "ExecutionStepResult"
       ( \x ->
           ExecutionStepResult'
-            Prelude.<$> (x Data..:? "Outputs")
+            Prelude.<$> (x Data..:? "Error")
+            Prelude.<*> (x Data..:? "Outputs")
             Prelude.<*> (x Data..:? "StepType")
-            Prelude.<*> (x Data..:? "Error")
       )
 
 instance Prelude.Hashable ExecutionStepResult where
   hashWithSalt _salt ExecutionStepResult' {..} =
-    _salt `Prelude.hashWithSalt` outputs
+    _salt `Prelude.hashWithSalt` error
+      `Prelude.hashWithSalt` outputs
       `Prelude.hashWithSalt` stepType
-      `Prelude.hashWithSalt` error
 
 instance Prelude.NFData ExecutionStepResult where
   rnf ExecutionStepResult' {..} =
-    Prelude.rnf outputs
+    Prelude.rnf error
+      `Prelude.seq` Prelude.rnf outputs
       `Prelude.seq` Prelude.rnf stepType
-      `Prelude.seq` Prelude.rnf error

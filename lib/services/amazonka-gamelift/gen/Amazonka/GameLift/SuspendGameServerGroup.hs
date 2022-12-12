@@ -25,7 +25,8 @@
 --
 -- Temporarily stops activity on a game server group without terminating
 -- instances or the game server group. You can restart activity by calling
--- ResumeGameServerGroup. You can suspend the following activity:
+-- <gamelift/latest/apireference/API_ResumeGameServerGroup.html ResumeGameServerGroup>.
+-- You can suspend the following activity:
 --
 -- -   __Instance type replacement__ - This activity evaluates the current
 --     game hosting viability of all Spot instance types that are defined
@@ -38,19 +39,12 @@
 --     metrics, and capacity scaling activities continue to be active.
 --
 -- To suspend activity, specify a game server group ARN and the type of
--- activity to be suspended. If successful, a GameServerGroup object is
+-- activity to be suspended. If successful, a @GameServerGroup@ object is
 -- returned showing that the activity is listed in @SuspendedActions@.
 --
 -- __Learn more__
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html GameLift FleetIQ Guide>
---
--- __Related actions__
---
--- CreateGameServerGroup | ListGameServerGroups | DescribeGameServerGroup |
--- UpdateGameServerGroup | DeleteGameServerGroup | ResumeGameServerGroup |
--- SuspendGameServerGroup | DescribeGameServerInstances |
--- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html All APIs by task>
 module Amazonka.GameLift.SuspendGameServerGroup
   ( -- * Creating a Request
     SuspendGameServerGroup (..),
@@ -80,8 +74,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSuspendGameServerGroup' smart constructor.
 data SuspendGameServerGroup = SuspendGameServerGroup'
-  { -- | A unique identifier for the game server group. Use either the
-    -- GameServerGroup name or ARN value.
+  { -- | A unique identifier for the game server group. Use either the name or
+    -- ARN value.
     gameServerGroupName :: Prelude.Text,
     -- | The activity to suspend for this game server group.
     suspendActions :: Prelude.NonEmpty GameServerGroupAction
@@ -96,8 +90,8 @@ data SuspendGameServerGroup = SuspendGameServerGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'gameServerGroupName', 'suspendGameServerGroup_gameServerGroupName' - A unique identifier for the game server group. Use either the
--- GameServerGroup name or ARN value.
+-- 'gameServerGroupName', 'suspendGameServerGroup_gameServerGroupName' - A unique identifier for the game server group. Use either the name or
+-- ARN value.
 --
 -- 'suspendActions', 'suspendGameServerGroup_suspendActions' - The activity to suspend for this game server group.
 newSuspendGameServerGroup ::
@@ -116,8 +110,8 @@ newSuspendGameServerGroup
           Lens.coerced Lens.# pSuspendActions_
       }
 
--- | A unique identifier for the game server group. Use either the
--- GameServerGroup name or ARN value.
+-- | A unique identifier for the game server group. Use either the name or
+-- ARN value.
 suspendGameServerGroup_gameServerGroupName :: Lens.Lens' SuspendGameServerGroup Prelude.Text
 suspendGameServerGroup_gameServerGroupName = Lens.lens (\SuspendGameServerGroup' {gameServerGroupName} -> gameServerGroupName) (\s@SuspendGameServerGroup' {} a -> s {gameServerGroupName = a} :: SuspendGameServerGroup)
 

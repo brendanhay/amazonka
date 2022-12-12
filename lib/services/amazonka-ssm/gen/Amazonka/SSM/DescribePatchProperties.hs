@@ -68,8 +68,8 @@ module Amazonka.SSM.DescribePatchProperties
     newDescribePatchProperties,
 
     -- * Request Lenses
-    describePatchProperties_nextToken,
     describePatchProperties_maxResults,
+    describePatchProperties_nextToken,
     describePatchProperties_patchSet,
     describePatchProperties_operatingSystem,
     describePatchProperties_property,
@@ -95,13 +95,13 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newDescribePatchProperties' smart constructor.
 data DescribePatchProperties = DescribePatchProperties'
-  { -- | The token for the next set of items to return. (You received this token
-    -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return for this call. The call also
+  { -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether to list patches for the Windows operating system or
     -- for applications released by Microsoft. Not applicable for the Linux or
     -- macOS operating systems.
@@ -121,12 +121,12 @@ data DescribePatchProperties = DescribePatchProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describePatchProperties_nextToken' - The token for the next set of items to return. (You received this token
--- from a previous call.)
---
 -- 'maxResults', 'describePatchProperties_maxResults' - The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
+--
+-- 'nextToken', 'describePatchProperties_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
 --
 -- 'patchSet', 'describePatchProperties_patchSet' - Indicates whether to list patches for the Windows operating system or
 -- for applications released by Microsoft. Not applicable for the Linux or
@@ -145,24 +145,24 @@ newDescribePatchProperties
   pOperatingSystem_
   pProperty_ =
     DescribePatchProperties'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         patchSet = Prelude.Nothing,
         operatingSystem = pOperatingSystem_,
         property = pProperty_
       }
-
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
-describePatchProperties_nextToken :: Lens.Lens' DescribePatchProperties (Prelude.Maybe Prelude.Text)
-describePatchProperties_nextToken = Lens.lens (\DescribePatchProperties' {nextToken} -> nextToken) (\s@DescribePatchProperties' {} a -> s {nextToken = a} :: DescribePatchProperties)
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
 describePatchProperties_maxResults :: Lens.Lens' DescribePatchProperties (Prelude.Maybe Prelude.Natural)
 describePatchProperties_maxResults = Lens.lens (\DescribePatchProperties' {maxResults} -> maxResults) (\s@DescribePatchProperties' {} a -> s {maxResults = a} :: DescribePatchProperties)
+
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+describePatchProperties_nextToken :: Lens.Lens' DescribePatchProperties (Prelude.Maybe Prelude.Text)
+describePatchProperties_nextToken = Lens.lens (\DescribePatchProperties' {nextToken} -> nextToken) (\s@DescribePatchProperties' {} a -> s {nextToken = a} :: DescribePatchProperties)
 
 -- | Indicates whether to list patches for the Windows operating system or
 -- for applications released by Microsoft. Not applicable for the Linux or
@@ -217,16 +217,16 @@ instance Core.AWSRequest DescribePatchProperties where
 
 instance Prelude.Hashable DescribePatchProperties where
   hashWithSalt _salt DescribePatchProperties' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` patchSet
       `Prelude.hashWithSalt` operatingSystem
       `Prelude.hashWithSalt` property
 
 instance Prelude.NFData DescribePatchProperties where
   rnf DescribePatchProperties' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf patchSet
       `Prelude.seq` Prelude.rnf operatingSystem
       `Prelude.seq` Prelude.rnf property
@@ -250,8 +250,8 @@ instance Data.ToJSON DescribePatchProperties where
   toJSON DescribePatchProperties' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("PatchSet" Data..=) Prelude.<$> patchSet,
             Prelude.Just
               ("OperatingSystem" Data..= operatingSystem),

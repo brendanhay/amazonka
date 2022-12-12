@@ -31,27 +31,27 @@ import Amazonka.Transfer.Types.CertificateUsageType
 --
 -- /See:/ 'newListedCertificate' smart constructor.
 data ListedCertificate = ListedCertificate'
-  { -- | Specifies whether this certificate is used for signing or encryption.
-    usage :: Prelude.Maybe CertificateUsageType,
-    -- | The type for the certificate. If a private key has been specified for
-    -- the certificate, its type is @CERTIFICATE_WITH_PRIVATE_KEY@. If there is
-    -- no private key, the type is @CERTIFICATE@.
-    type' :: Prelude.Maybe CertificateType,
+  { -- | An optional date that specifies when the certificate becomes active.
+    activeDate :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the specified certificate.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | An array of identifiers for the imported certificates. You use this
+    -- identifier for working with profiles and partner profiles.
+    certificateId :: Prelude.Maybe Prelude.Text,
+    -- | The name or short description that\'s used to identify the certificate.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | An optional date that specifies when the certificate becomes inactive.
+    inactiveDate :: Prelude.Maybe Data.POSIX,
     -- | The certificate can be either @ACTIVE@, @PENDING_ROTATION@, or
     -- @INACTIVE@. @PENDING_ROTATION@ means that this certificate will replace
     -- the current certificate when it expires.
     status :: Prelude.Maybe CertificateStatusType,
-    -- | The name or short description that\'s used to identify the certificate.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | An array of identifiers for the imported certificates. You use this
-    -- identifier for working with profiles and partner profiles.
-    certificateId :: Prelude.Maybe Prelude.Text,
-    -- | An optional date that specifies when the certificate becomes active.
-    activeDate :: Prelude.Maybe Data.POSIX,
-    -- | An optional date that specifies when the certificate becomes inactive.
-    inactiveDate :: Prelude.Maybe Data.POSIX
+    -- | The type for the certificate. If a private key has been specified for
+    -- the certificate, its type is @CERTIFICATE_WITH_PRIVATE_KEY@. If there is
+    -- no private key, the type is @CERTIFICATE@.
+    type' :: Prelude.Maybe CertificateType,
+    -- | Specifies whether this certificate is used for signing or encryption.
+    usage :: Prelude.Maybe CertificateUsageType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,53 +63,60 @@ data ListedCertificate = ListedCertificate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'usage', 'listedCertificate_usage' - Specifies whether this certificate is used for signing or encryption.
---
--- 'type'', 'listedCertificate_type' - The type for the certificate. If a private key has been specified for
--- the certificate, its type is @CERTIFICATE_WITH_PRIVATE_KEY@. If there is
--- no private key, the type is @CERTIFICATE@.
+-- 'activeDate', 'listedCertificate_activeDate' - An optional date that specifies when the certificate becomes active.
 --
 -- 'arn', 'listedCertificate_arn' - The Amazon Resource Name (ARN) of the specified certificate.
+--
+-- 'certificateId', 'listedCertificate_certificateId' - An array of identifiers for the imported certificates. You use this
+-- identifier for working with profiles and partner profiles.
+--
+-- 'description', 'listedCertificate_description' - The name or short description that\'s used to identify the certificate.
+--
+-- 'inactiveDate', 'listedCertificate_inactiveDate' - An optional date that specifies when the certificate becomes inactive.
 --
 -- 'status', 'listedCertificate_status' - The certificate can be either @ACTIVE@, @PENDING_ROTATION@, or
 -- @INACTIVE@. @PENDING_ROTATION@ means that this certificate will replace
 -- the current certificate when it expires.
 --
--- 'description', 'listedCertificate_description' - The name or short description that\'s used to identify the certificate.
+-- 'type'', 'listedCertificate_type' - The type for the certificate. If a private key has been specified for
+-- the certificate, its type is @CERTIFICATE_WITH_PRIVATE_KEY@. If there is
+-- no private key, the type is @CERTIFICATE@.
 --
--- 'certificateId', 'listedCertificate_certificateId' - An array of identifiers for the imported certificates. You use this
--- identifier for working with profiles and partner profiles.
---
--- 'activeDate', 'listedCertificate_activeDate' - An optional date that specifies when the certificate becomes active.
---
--- 'inactiveDate', 'listedCertificate_inactiveDate' - An optional date that specifies when the certificate becomes inactive.
+-- 'usage', 'listedCertificate_usage' - Specifies whether this certificate is used for signing or encryption.
 newListedCertificate ::
   ListedCertificate
 newListedCertificate =
   ListedCertificate'
-    { usage = Prelude.Nothing,
-      type' = Prelude.Nothing,
+    { activeDate = Prelude.Nothing,
       arn = Prelude.Nothing,
-      status = Prelude.Nothing,
-      description = Prelude.Nothing,
       certificateId = Prelude.Nothing,
-      activeDate = Prelude.Nothing,
-      inactiveDate = Prelude.Nothing
+      description = Prelude.Nothing,
+      inactiveDate = Prelude.Nothing,
+      status = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      usage = Prelude.Nothing
     }
 
--- | Specifies whether this certificate is used for signing or encryption.
-listedCertificate_usage :: Lens.Lens' ListedCertificate (Prelude.Maybe CertificateUsageType)
-listedCertificate_usage = Lens.lens (\ListedCertificate' {usage} -> usage) (\s@ListedCertificate' {} a -> s {usage = a} :: ListedCertificate)
-
--- | The type for the certificate. If a private key has been specified for
--- the certificate, its type is @CERTIFICATE_WITH_PRIVATE_KEY@. If there is
--- no private key, the type is @CERTIFICATE@.
-listedCertificate_type :: Lens.Lens' ListedCertificate (Prelude.Maybe CertificateType)
-listedCertificate_type = Lens.lens (\ListedCertificate' {type'} -> type') (\s@ListedCertificate' {} a -> s {type' = a} :: ListedCertificate)
+-- | An optional date that specifies when the certificate becomes active.
+listedCertificate_activeDate :: Lens.Lens' ListedCertificate (Prelude.Maybe Prelude.UTCTime)
+listedCertificate_activeDate = Lens.lens (\ListedCertificate' {activeDate} -> activeDate) (\s@ListedCertificate' {} a -> s {activeDate = a} :: ListedCertificate) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the specified certificate.
 listedCertificate_arn :: Lens.Lens' ListedCertificate (Prelude.Maybe Prelude.Text)
 listedCertificate_arn = Lens.lens (\ListedCertificate' {arn} -> arn) (\s@ListedCertificate' {} a -> s {arn = a} :: ListedCertificate)
+
+-- | An array of identifiers for the imported certificates. You use this
+-- identifier for working with profiles and partner profiles.
+listedCertificate_certificateId :: Lens.Lens' ListedCertificate (Prelude.Maybe Prelude.Text)
+listedCertificate_certificateId = Lens.lens (\ListedCertificate' {certificateId} -> certificateId) (\s@ListedCertificate' {} a -> s {certificateId = a} :: ListedCertificate)
+
+-- | The name or short description that\'s used to identify the certificate.
+listedCertificate_description :: Lens.Lens' ListedCertificate (Prelude.Maybe Prelude.Text)
+listedCertificate_description = Lens.lens (\ListedCertificate' {description} -> description) (\s@ListedCertificate' {} a -> s {description = a} :: ListedCertificate)
+
+-- | An optional date that specifies when the certificate becomes inactive.
+listedCertificate_inactiveDate :: Lens.Lens' ListedCertificate (Prelude.Maybe Prelude.UTCTime)
+listedCertificate_inactiveDate = Lens.lens (\ListedCertificate' {inactiveDate} -> inactiveDate) (\s@ListedCertificate' {} a -> s {inactiveDate = a} :: ListedCertificate) Prelude.. Lens.mapping Data._Time
 
 -- | The certificate can be either @ACTIVE@, @PENDING_ROTATION@, or
 -- @INACTIVE@. @PENDING_ROTATION@ means that this certificate will replace
@@ -117,22 +124,15 @@ listedCertificate_arn = Lens.lens (\ListedCertificate' {arn} -> arn) (\s@ListedC
 listedCertificate_status :: Lens.Lens' ListedCertificate (Prelude.Maybe CertificateStatusType)
 listedCertificate_status = Lens.lens (\ListedCertificate' {status} -> status) (\s@ListedCertificate' {} a -> s {status = a} :: ListedCertificate)
 
--- | The name or short description that\'s used to identify the certificate.
-listedCertificate_description :: Lens.Lens' ListedCertificate (Prelude.Maybe Prelude.Text)
-listedCertificate_description = Lens.lens (\ListedCertificate' {description} -> description) (\s@ListedCertificate' {} a -> s {description = a} :: ListedCertificate)
+-- | The type for the certificate. If a private key has been specified for
+-- the certificate, its type is @CERTIFICATE_WITH_PRIVATE_KEY@. If there is
+-- no private key, the type is @CERTIFICATE@.
+listedCertificate_type :: Lens.Lens' ListedCertificate (Prelude.Maybe CertificateType)
+listedCertificate_type = Lens.lens (\ListedCertificate' {type'} -> type') (\s@ListedCertificate' {} a -> s {type' = a} :: ListedCertificate)
 
--- | An array of identifiers for the imported certificates. You use this
--- identifier for working with profiles and partner profiles.
-listedCertificate_certificateId :: Lens.Lens' ListedCertificate (Prelude.Maybe Prelude.Text)
-listedCertificate_certificateId = Lens.lens (\ListedCertificate' {certificateId} -> certificateId) (\s@ListedCertificate' {} a -> s {certificateId = a} :: ListedCertificate)
-
--- | An optional date that specifies when the certificate becomes active.
-listedCertificate_activeDate :: Lens.Lens' ListedCertificate (Prelude.Maybe Prelude.UTCTime)
-listedCertificate_activeDate = Lens.lens (\ListedCertificate' {activeDate} -> activeDate) (\s@ListedCertificate' {} a -> s {activeDate = a} :: ListedCertificate) Prelude.. Lens.mapping Data._Time
-
--- | An optional date that specifies when the certificate becomes inactive.
-listedCertificate_inactiveDate :: Lens.Lens' ListedCertificate (Prelude.Maybe Prelude.UTCTime)
-listedCertificate_inactiveDate = Lens.lens (\ListedCertificate' {inactiveDate} -> inactiveDate) (\s@ListedCertificate' {} a -> s {inactiveDate = a} :: ListedCertificate) Prelude.. Lens.mapping Data._Time
+-- | Specifies whether this certificate is used for signing or encryption.
+listedCertificate_usage :: Lens.Lens' ListedCertificate (Prelude.Maybe CertificateUsageType)
+listedCertificate_usage = Lens.lens (\ListedCertificate' {usage} -> usage) (\s@ListedCertificate' {} a -> s {usage = a} :: ListedCertificate)
 
 instance Data.FromJSON ListedCertificate where
   parseJSON =
@@ -140,34 +140,34 @@ instance Data.FromJSON ListedCertificate where
       "ListedCertificate"
       ( \x ->
           ListedCertificate'
-            Prelude.<$> (x Data..:? "Usage")
-            Prelude.<*> (x Data..:? "Type")
+            Prelude.<$> (x Data..:? "ActiveDate")
             Prelude.<*> (x Data..:? "Arn")
-            Prelude.<*> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "CertificateId")
-            Prelude.<*> (x Data..:? "ActiveDate")
+            Prelude.<*> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "InactiveDate")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Usage")
       )
 
 instance Prelude.Hashable ListedCertificate where
   hashWithSalt _salt ListedCertificate' {..} =
-    _salt `Prelude.hashWithSalt` usage
-      `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` activeDate
       `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` certificateId
-      `Prelude.hashWithSalt` activeDate
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` inactiveDate
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` usage
 
 instance Prelude.NFData ListedCertificate where
   rnf ListedCertificate' {..} =
-    Prelude.rnf usage
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf activeDate
       `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf certificateId
-      `Prelude.seq` Prelude.rnf activeDate
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf inactiveDate
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf usage

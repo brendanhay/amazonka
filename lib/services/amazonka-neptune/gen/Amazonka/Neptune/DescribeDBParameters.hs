@@ -29,8 +29,8 @@ module Amazonka.Neptune.DescribeDBParameters
     newDescribeDBParameters,
 
     -- * Request Lenses
-    describeDBParameters_marker,
     describeDBParameters_filters,
+    describeDBParameters_marker,
     describeDBParameters_maxRecords,
     describeDBParameters_source,
     describeDBParameters_dbParameterGroupName,
@@ -56,13 +56,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeDBParameters' smart constructor.
 data DescribeDBParameters = DescribeDBParameters'
-  { -- | An optional pagination token provided by a previous
+  { -- | This parameter is not currently supported.
+    filters :: Prelude.Maybe [Filter],
+    -- | An optional pagination token provided by a previous
     -- @DescribeDBParameters@ request. If this parameter is specified, the
     -- response includes only records beyond the marker, up to the value
     -- specified by @MaxRecords@.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | This parameter is not currently supported.
-    filters :: Prelude.Maybe [Filter],
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that the remaining
@@ -95,12 +95,12 @@ data DescribeDBParameters = DescribeDBParameters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'filters', 'describeDBParameters_filters' - This parameter is not currently supported.
+--
 -- 'marker', 'describeDBParameters_marker' - An optional pagination token provided by a previous
 -- @DescribeDBParameters@ request. If this parameter is specified, the
 -- response includes only records beyond the marker, up to the value
 -- specified by @MaxRecords@.
---
--- 'filters', 'describeDBParameters_filters' - This parameter is not currently supported.
 --
 -- 'maxRecords', 'describeDBParameters_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -128,12 +128,16 @@ newDescribeDBParameters ::
   DescribeDBParameters
 newDescribeDBParameters pDBParameterGroupName_ =
   DescribeDBParameters'
-    { marker = Prelude.Nothing,
-      filters = Prelude.Nothing,
+    { filters = Prelude.Nothing,
+      marker = Prelude.Nothing,
       maxRecords = Prelude.Nothing,
       source = Prelude.Nothing,
       dbParameterGroupName = pDBParameterGroupName_
     }
+
+-- | This parameter is not currently supported.
+describeDBParameters_filters :: Lens.Lens' DescribeDBParameters (Prelude.Maybe [Filter])
+describeDBParameters_filters = Lens.lens (\DescribeDBParameters' {filters} -> filters) (\s@DescribeDBParameters' {} a -> s {filters = a} :: DescribeDBParameters) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional pagination token provided by a previous
 -- @DescribeDBParameters@ request. If this parameter is specified, the
@@ -141,10 +145,6 @@ newDescribeDBParameters pDBParameterGroupName_ =
 -- specified by @MaxRecords@.
 describeDBParameters_marker :: Lens.Lens' DescribeDBParameters (Prelude.Maybe Prelude.Text)
 describeDBParameters_marker = Lens.lens (\DescribeDBParameters' {marker} -> marker) (\s@DescribeDBParameters' {} a -> s {marker = a} :: DescribeDBParameters)
-
--- | This parameter is not currently supported.
-describeDBParameters_filters :: Lens.Lens' DescribeDBParameters (Prelude.Maybe [Filter])
-describeDBParameters_filters = Lens.lens (\DescribeDBParameters' {filters} -> filters) (\s@DescribeDBParameters' {} a -> s {filters = a} :: DescribeDBParameters) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -215,16 +215,16 @@ instance Core.AWSRequest DescribeDBParameters where
 
 instance Prelude.Hashable DescribeDBParameters where
   hashWithSalt _salt DescribeDBParameters' {..} =
-    _salt `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` dbParameterGroupName
 
 instance Prelude.NFData DescribeDBParameters where
   rnf DescribeDBParameters' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf dbParameterGroupName
@@ -242,10 +242,10 @@ instance Data.ToQuery DescribeDBParameters where
           Data.=: ("DescribeDBParameters" :: Prelude.ByteString),
         "Version"
           Data.=: ("2014-10-31" :: Prelude.ByteString),
-        "Marker" Data.=: marker,
         "Filters"
           Data.=: Data.toQuery
             (Data.toQueryList "Filter" Prelude.<$> filters),
+        "Marker" Data.=: marker,
         "MaxRecords" Data.=: maxRecords,
         "Source" Data.=: source,
         "DBParameterGroupName" Data.=: dbParameterGroupName

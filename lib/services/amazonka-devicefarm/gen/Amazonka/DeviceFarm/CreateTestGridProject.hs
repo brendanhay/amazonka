@@ -28,8 +28,8 @@ module Amazonka.DeviceFarm.CreateTestGridProject
     newCreateTestGridProject,
 
     -- * Request Lenses
-    createTestGridProject_vpcConfig,
     createTestGridProject_description,
+    createTestGridProject_vpcConfig,
     createTestGridProject_name,
 
     -- * Destructuring the Response
@@ -52,10 +52,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateTestGridProject' smart constructor.
 data CreateTestGridProject = CreateTestGridProject'
-  { -- | The VPC security groups and subnets that are attached to a project.
-    vpcConfig :: Prelude.Maybe TestGridVpcConfig,
-    -- | Human-readable description of the project.
+  { -- | Human-readable description of the project.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The VPC security groups and subnets that are attached to a project.
+    vpcConfig :: Prelude.Maybe TestGridVpcConfig,
     -- | Human-readable name of the Selenium testing project.
     name :: Prelude.Text
   }
@@ -69,9 +69,9 @@ data CreateTestGridProject = CreateTestGridProject'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vpcConfig', 'createTestGridProject_vpcConfig' - The VPC security groups and subnets that are attached to a project.
---
 -- 'description', 'createTestGridProject_description' - Human-readable description of the project.
+--
+-- 'vpcConfig', 'createTestGridProject_vpcConfig' - The VPC security groups and subnets that are attached to a project.
 --
 -- 'name', 'createTestGridProject_name' - Human-readable name of the Selenium testing project.
 newCreateTestGridProject ::
@@ -80,18 +80,19 @@ newCreateTestGridProject ::
   CreateTestGridProject
 newCreateTestGridProject pName_ =
   CreateTestGridProject'
-    { vpcConfig = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description =
+        Prelude.Nothing,
+      vpcConfig = Prelude.Nothing,
       name = pName_
     }
-
--- | The VPC security groups and subnets that are attached to a project.
-createTestGridProject_vpcConfig :: Lens.Lens' CreateTestGridProject (Prelude.Maybe TestGridVpcConfig)
-createTestGridProject_vpcConfig = Lens.lens (\CreateTestGridProject' {vpcConfig} -> vpcConfig) (\s@CreateTestGridProject' {} a -> s {vpcConfig = a} :: CreateTestGridProject)
 
 -- | Human-readable description of the project.
 createTestGridProject_description :: Lens.Lens' CreateTestGridProject (Prelude.Maybe Prelude.Text)
 createTestGridProject_description = Lens.lens (\CreateTestGridProject' {description} -> description) (\s@CreateTestGridProject' {} a -> s {description = a} :: CreateTestGridProject)
+
+-- | The VPC security groups and subnets that are attached to a project.
+createTestGridProject_vpcConfig :: Lens.Lens' CreateTestGridProject (Prelude.Maybe TestGridVpcConfig)
+createTestGridProject_vpcConfig = Lens.lens (\CreateTestGridProject' {vpcConfig} -> vpcConfig) (\s@CreateTestGridProject' {} a -> s {vpcConfig = a} :: CreateTestGridProject)
 
 -- | Human-readable name of the Selenium testing project.
 createTestGridProject_name :: Lens.Lens' CreateTestGridProject Prelude.Text
@@ -113,14 +114,14 @@ instance Core.AWSRequest CreateTestGridProject where
 
 instance Prelude.Hashable CreateTestGridProject where
   hashWithSalt _salt CreateTestGridProject' {..} =
-    _salt `Prelude.hashWithSalt` vpcConfig
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` vpcConfig
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateTestGridProject where
   rnf CreateTestGridProject' {..} =
-    Prelude.rnf vpcConfig
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf vpcConfig
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders CreateTestGridProject where
@@ -142,8 +143,8 @@ instance Data.ToJSON CreateTestGridProject where
   toJSON CreateTestGridProject' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("vpcConfig" Data..=) Prelude.<$> vpcConfig,
-            ("description" Data..=) Prelude.<$> description,
+          [ ("description" Data..=) Prelude.<$> description,
+            ("vpcConfig" Data..=) Prelude.<$> vpcConfig,
             Prelude.Just ("name" Data..= name)
           ]
       )

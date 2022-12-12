@@ -62,9 +62,9 @@ module Amazonka.Route53.Lens
     createHealthCheckResponse_location,
 
     -- ** CreateHostedZone
+    createHostedZone_delegationSetId,
     createHostedZone_hostedZoneConfig,
     createHostedZone_vpc,
-    createHostedZone_delegationSetId,
     createHostedZone_name,
     createHostedZone_callerReference,
     createHostedZoneResponse_vpc,
@@ -218,9 +218,9 @@ module Amazonka.Route53.Lens
     getDNSSECResponse_keySigningKeys,
 
     -- ** GetGeoLocation
-    getGeoLocation_subdivisionCode,
-    getGeoLocation_countryCode,
     getGeoLocation_continentCode,
+    getGeoLocation_countryCode,
+    getGeoLocation_subdivisionCode,
     getGeoLocationResponse_httpStatus,
     getGeoLocationResponse_geoLocationDetails,
 
@@ -245,8 +245,8 @@ module Amazonka.Route53.Lens
 
     -- ** GetHostedZone
     getHostedZone_id,
-    getHostedZoneResponse_vPCs,
     getHostedZoneResponse_delegationSet,
+    getHostedZoneResponse_vPCs,
     getHostedZoneResponse_httpStatus,
     getHostedZoneResponse_hostedZone,
 
@@ -294,37 +294,37 @@ module Amazonka.Route53.Lens
     getTrafficPolicyInstanceCountResponse_trafficPolicyInstanceCount,
 
     -- ** ListCidrBlocks
-    listCidrBlocks_nextToken,
-    listCidrBlocks_maxResults,
     listCidrBlocks_locationName,
+    listCidrBlocks_maxResults,
+    listCidrBlocks_nextToken,
     listCidrBlocks_collectionId,
-    listCidrBlocksResponse_nextToken,
     listCidrBlocksResponse_cidrBlocks,
+    listCidrBlocksResponse_nextToken,
     listCidrBlocksResponse_httpStatus,
 
     -- ** ListCidrCollections
-    listCidrCollections_nextToken,
     listCidrCollections_maxResults,
-    listCidrCollectionsResponse_nextToken,
+    listCidrCollections_nextToken,
     listCidrCollectionsResponse_cidrCollections,
+    listCidrCollectionsResponse_nextToken,
     listCidrCollectionsResponse_httpStatus,
 
     -- ** ListCidrLocations
-    listCidrLocations_nextToken,
     listCidrLocations_maxResults,
+    listCidrLocations_nextToken,
     listCidrLocations_collectionId,
-    listCidrLocationsResponse_nextToken,
     listCidrLocationsResponse_cidrLocations,
+    listCidrLocationsResponse_nextToken,
     listCidrLocationsResponse_httpStatus,
 
     -- ** ListGeoLocations
-    listGeoLocations_startCountryCode,
-    listGeoLocations_startSubdivisionCode,
     listGeoLocations_maxItems,
     listGeoLocations_startContinentCode,
-    listGeoLocationsResponse_nextSubdivisionCode,
-    listGeoLocationsResponse_nextCountryCode,
+    listGeoLocations_startCountryCode,
+    listGeoLocations_startSubdivisionCode,
     listGeoLocationsResponse_nextContinentCode,
+    listGeoLocationsResponse_nextCountryCode,
+    listGeoLocationsResponse_nextSubdivisionCode,
     listGeoLocationsResponse_httpStatus,
     listGeoLocationsResponse_geoLocationDetailsList,
     listGeoLocationsResponse_isTruncated,
@@ -341,8 +341,8 @@ module Amazonka.Route53.Lens
     listHealthChecksResponse_maxItems,
 
     -- ** ListHostedZones
-    listHostedZones_marker,
     listHostedZones_delegationSetId,
+    listHostedZones_marker,
     listHostedZones_maxItems,
     listHostedZonesResponse_marker,
     listHostedZonesResponse_nextMarker,
@@ -352,21 +352,21 @@ module Amazonka.Route53.Lens
     listHostedZonesResponse_maxItems,
 
     -- ** ListHostedZonesByName
+    listHostedZonesByName_dNSName,
     listHostedZonesByName_hostedZoneId,
     listHostedZonesByName_maxItems,
-    listHostedZonesByName_dNSName,
+    listHostedZonesByNameResponse_dNSName,
     listHostedZonesByNameResponse_hostedZoneId,
     listHostedZonesByNameResponse_nextDNSName,
     listHostedZonesByNameResponse_nextHostedZoneId,
-    listHostedZonesByNameResponse_dNSName,
     listHostedZonesByNameResponse_httpStatus,
     listHostedZonesByNameResponse_hostedZones,
     listHostedZonesByNameResponse_isTruncated,
     listHostedZonesByNameResponse_maxItems,
 
     -- ** ListHostedZonesByVPC
-    listHostedZonesByVPC_nextToken,
     listHostedZonesByVPC_maxItems,
+    listHostedZonesByVPC_nextToken,
     listHostedZonesByVPC_vPCId,
     listHostedZonesByVPC_vPCRegion,
     listHostedZonesByVPCResponse_nextToken,
@@ -376,17 +376,17 @@ module Amazonka.Route53.Lens
 
     -- ** ListQueryLoggingConfigs
     listQueryLoggingConfigs_hostedZoneId,
-    listQueryLoggingConfigs_nextToken,
     listQueryLoggingConfigs_maxResults,
+    listQueryLoggingConfigs_nextToken,
     listQueryLoggingConfigsResponse_nextToken,
     listQueryLoggingConfigsResponse_httpStatus,
     listQueryLoggingConfigsResponse_queryLoggingConfigs,
 
     -- ** ListResourceRecordSets
-    listResourceRecordSets_startRecordType,
     listResourceRecordSets_maxItems,
     listResourceRecordSets_startRecordIdentifier,
     listResourceRecordSets_startRecordName,
+    listResourceRecordSets_startRecordType,
     listResourceRecordSets_hostedZoneId,
     listResourceRecordSetsResponse_nextRecordIdentifier,
     listResourceRecordSetsResponse_nextRecordName,
@@ -419,8 +419,8 @@ module Amazonka.Route53.Lens
     listTagsForResourcesResponse_resourceTagSets,
 
     -- ** ListTrafficPolicies
-    listTrafficPolicies_trafficPolicyIdMarker,
     listTrafficPolicies_maxItems,
+    listTrafficPolicies_trafficPolicyIdMarker,
     listTrafficPoliciesResponse_httpStatus,
     listTrafficPoliciesResponse_trafficPolicySummaries,
     listTrafficPoliciesResponse_isTruncated,
@@ -429,24 +429,24 @@ module Amazonka.Route53.Lens
 
     -- ** ListTrafficPolicyInstances
     listTrafficPolicyInstances_hostedZoneIdMarker,
-    listTrafficPolicyInstances_trafficPolicyInstanceTypeMarker,
-    listTrafficPolicyInstances_trafficPolicyInstanceNameMarker,
     listTrafficPolicyInstances_maxItems,
+    listTrafficPolicyInstances_trafficPolicyInstanceNameMarker,
+    listTrafficPolicyInstances_trafficPolicyInstanceTypeMarker,
     listTrafficPolicyInstancesResponse_hostedZoneIdMarker,
-    listTrafficPolicyInstancesResponse_trafficPolicyInstanceTypeMarker,
     listTrafficPolicyInstancesResponse_trafficPolicyInstanceNameMarker,
+    listTrafficPolicyInstancesResponse_trafficPolicyInstanceTypeMarker,
     listTrafficPolicyInstancesResponse_httpStatus,
     listTrafficPolicyInstancesResponse_trafficPolicyInstances,
     listTrafficPolicyInstancesResponse_isTruncated,
     listTrafficPolicyInstancesResponse_maxItems,
 
     -- ** ListTrafficPolicyInstancesByHostedZone
-    listTrafficPolicyInstancesByHostedZone_trafficPolicyInstanceTypeMarker,
-    listTrafficPolicyInstancesByHostedZone_trafficPolicyInstanceNameMarker,
     listTrafficPolicyInstancesByHostedZone_maxItems,
+    listTrafficPolicyInstancesByHostedZone_trafficPolicyInstanceNameMarker,
+    listTrafficPolicyInstancesByHostedZone_trafficPolicyInstanceTypeMarker,
     listTrafficPolicyInstancesByHostedZone_hostedZoneId,
-    listTrafficPolicyInstancesByHostedZoneResponse_trafficPolicyInstanceTypeMarker,
     listTrafficPolicyInstancesByHostedZoneResponse_trafficPolicyInstanceNameMarker,
+    listTrafficPolicyInstancesByHostedZoneResponse_trafficPolicyInstanceTypeMarker,
     listTrafficPolicyInstancesByHostedZoneResponse_httpStatus,
     listTrafficPolicyInstancesByHostedZoneResponse_trafficPolicyInstances,
     listTrafficPolicyInstancesByHostedZoneResponse_isTruncated,
@@ -454,22 +454,22 @@ module Amazonka.Route53.Lens
 
     -- ** ListTrafficPolicyInstancesByPolicy
     listTrafficPolicyInstancesByPolicy_hostedZoneIdMarker,
-    listTrafficPolicyInstancesByPolicy_trafficPolicyInstanceTypeMarker,
-    listTrafficPolicyInstancesByPolicy_trafficPolicyInstanceNameMarker,
     listTrafficPolicyInstancesByPolicy_maxItems,
+    listTrafficPolicyInstancesByPolicy_trafficPolicyInstanceNameMarker,
+    listTrafficPolicyInstancesByPolicy_trafficPolicyInstanceTypeMarker,
     listTrafficPolicyInstancesByPolicy_trafficPolicyId,
     listTrafficPolicyInstancesByPolicy_trafficPolicyVersion,
     listTrafficPolicyInstancesByPolicyResponse_hostedZoneIdMarker,
-    listTrafficPolicyInstancesByPolicyResponse_trafficPolicyInstanceTypeMarker,
     listTrafficPolicyInstancesByPolicyResponse_trafficPolicyInstanceNameMarker,
+    listTrafficPolicyInstancesByPolicyResponse_trafficPolicyInstanceTypeMarker,
     listTrafficPolicyInstancesByPolicyResponse_httpStatus,
     listTrafficPolicyInstancesByPolicyResponse_trafficPolicyInstances,
     listTrafficPolicyInstancesByPolicyResponse_isTruncated,
     listTrafficPolicyInstancesByPolicyResponse_maxItems,
 
     -- ** ListTrafficPolicyVersions
-    listTrafficPolicyVersions_trafficPolicyVersionMarker,
     listTrafficPolicyVersions_maxItems,
+    listTrafficPolicyVersions_trafficPolicyVersionMarker,
     listTrafficPolicyVersions_id,
     listTrafficPolicyVersionsResponse_httpStatus,
     listTrafficPolicyVersionsResponse_trafficPolicies,
@@ -478,8 +478,8 @@ module Amazonka.Route53.Lens
     listTrafficPolicyVersionsResponse_maxItems,
 
     -- ** ListVPCAssociationAuthorizations
-    listVPCAssociationAuthorizations_nextToken,
     listVPCAssociationAuthorizations_maxResults,
+    listVPCAssociationAuthorizations_nextToken,
     listVPCAssociationAuthorizations_hostedZoneId,
     listVPCAssociationAuthorizationsResponse_nextToken,
     listVPCAssociationAuthorizationsResponse_httpStatus,
@@ -487,9 +487,9 @@ module Amazonka.Route53.Lens
     listVPCAssociationAuthorizationsResponse_vPCs,
 
     -- ** TestDNSAnswer
-    testDNSAnswer_resolverIP,
-    testDNSAnswer_eDNS0ClientSubnetMask,
     testDNSAnswer_eDNS0ClientSubnetIP,
+    testDNSAnswer_eDNS0ClientSubnetMask,
+    testDNSAnswer_resolverIP,
     testDNSAnswer_hostedZoneId,
     testDNSAnswer_recordName,
     testDNSAnswer_recordType,
@@ -502,22 +502,22 @@ module Amazonka.Route53.Lens
     testDNSAnswerResponse_protocol,
 
     -- ** UpdateHealthCheck
-    updateHealthCheck_port,
-    updateHealthCheck_healthThreshold,
-    updateHealthCheck_healthCheckVersion,
-    updateHealthCheck_failureThreshold,
     updateHealthCheck_alarmIdentifier,
-    updateHealthCheck_regions,
-    updateHealthCheck_resourcePath,
     updateHealthCheck_childHealthChecks,
-    updateHealthCheck_searchString,
-    updateHealthCheck_resetElements,
     updateHealthCheck_disabled,
-    updateHealthCheck_inverted,
-    updateHealthCheck_fullyQualifiedDomainName,
-    updateHealthCheck_insufficientDataHealthStatus,
     updateHealthCheck_enableSNI,
+    updateHealthCheck_failureThreshold,
+    updateHealthCheck_fullyQualifiedDomainName,
+    updateHealthCheck_healthCheckVersion,
+    updateHealthCheck_healthThreshold,
     updateHealthCheck_iPAddress,
+    updateHealthCheck_insufficientDataHealthStatus,
+    updateHealthCheck_inverted,
+    updateHealthCheck_port,
+    updateHealthCheck_regions,
+    updateHealthCheck_resetElements,
+    updateHealthCheck_resourcePath,
+    updateHealthCheck_searchString,
     updateHealthCheck_healthCheckId,
     updateHealthCheckResponse_httpStatus,
     updateHealthCheckResponse_healthCheck,
@@ -577,9 +577,9 @@ module Amazonka.Route53.Lens
     cidrBlockSummary_locationName,
 
     -- ** CidrCollection
-    cidrCollection_name,
     cidrCollection_arn,
     cidrCollection_id,
+    cidrCollection_name,
     cidrCollection_version,
 
     -- ** CidrCollectionChange
@@ -602,9 +602,9 @@ module Amazonka.Route53.Lens
     cloudWatchAlarmConfiguration_statistic,
 
     -- ** CollectionSummary
-    collectionSummary_name,
     collectionSummary_arn,
     collectionSummary_id,
+    collectionSummary_name,
     collectionSummary_version,
 
     -- ** DNSSECStatus
@@ -612,8 +612,8 @@ module Amazonka.Route53.Lens
     dNSSECStatus_statusMessage,
 
     -- ** DelegationSet
-    delegationSet_id,
     delegationSet_callerReference,
+    delegationSet_id,
     delegationSet_nameServers,
 
     -- ** Dimension
@@ -621,17 +621,17 @@ module Amazonka.Route53.Lens
     dimension_value,
 
     -- ** GeoLocation
-    geoLocation_subdivisionCode,
-    geoLocation_countryCode,
     geoLocation_continentCode,
+    geoLocation_countryCode,
+    geoLocation_subdivisionCode,
 
     -- ** GeoLocationDetails
-    geoLocationDetails_subdivisionCode,
-    geoLocationDetails_countryName,
-    geoLocationDetails_countryCode,
-    geoLocationDetails_subdivisionName,
     geoLocationDetails_continentCode,
     geoLocationDetails_continentName,
+    geoLocationDetails_countryCode,
+    geoLocationDetails_countryName,
+    geoLocationDetails_subdivisionCode,
+    geoLocationDetails_subdivisionName,
 
     -- ** HealthCheck
     healthCheck_cloudWatchAlarmConfiguration,
@@ -642,41 +642,41 @@ module Amazonka.Route53.Lens
     healthCheck_healthCheckVersion,
 
     -- ** HealthCheckConfig
-    healthCheckConfig_port,
-    healthCheckConfig_healthThreshold,
-    healthCheckConfig_failureThreshold,
     healthCheckConfig_alarmIdentifier,
-    healthCheckConfig_regions,
-    healthCheckConfig_resourcePath,
     healthCheckConfig_childHealthChecks,
-    healthCheckConfig_searchString,
-    healthCheckConfig_requestInterval,
-    healthCheckConfig_routingControlArn,
     healthCheckConfig_disabled,
-    healthCheckConfig_measureLatency,
-    healthCheckConfig_inverted,
-    healthCheckConfig_fullyQualifiedDomainName,
-    healthCheckConfig_insufficientDataHealthStatus,
     healthCheckConfig_enableSNI,
+    healthCheckConfig_failureThreshold,
+    healthCheckConfig_fullyQualifiedDomainName,
+    healthCheckConfig_healthThreshold,
     healthCheckConfig_iPAddress,
+    healthCheckConfig_insufficientDataHealthStatus,
+    healthCheckConfig_inverted,
+    healthCheckConfig_measureLatency,
+    healthCheckConfig_port,
+    healthCheckConfig_regions,
+    healthCheckConfig_requestInterval,
+    healthCheckConfig_resourcePath,
+    healthCheckConfig_routingControlArn,
+    healthCheckConfig_searchString,
     healthCheckConfig_type,
 
     -- ** HealthCheckObservation
-    healthCheckObservation_statusReport,
-    healthCheckObservation_region,
     healthCheckObservation_iPAddress,
+    healthCheckObservation_region,
+    healthCheckObservation_statusReport,
 
     -- ** HostedZone
-    hostedZone_linkedService,
     hostedZone_config,
+    hostedZone_linkedService,
     hostedZone_resourceRecordSetCount,
     hostedZone_id,
     hostedZone_name,
     hostedZone_callerReference,
 
     -- ** HostedZoneConfig
-    hostedZoneConfig_privateZone,
     hostedZoneConfig_comment,
+    hostedZoneConfig_privateZone,
 
     -- ** HostedZoneLimit
     hostedZoneLimit_type,
@@ -692,22 +692,22 @@ module Amazonka.Route53.Lens
     hostedZoneSummary_owner,
 
     -- ** KeySigningKey
-    keySigningKey_kmsArn,
-    keySigningKey_digestAlgorithmType,
-    keySigningKey_name,
-    keySigningKey_signingAlgorithmMnemonic,
-    keySigningKey_publicKey,
-    keySigningKey_lastModifiedDate,
-    keySigningKey_flag,
-    keySigningKey_dSRecord,
-    keySigningKey_status,
-    keySigningKey_dNSKEYRecord,
-    keySigningKey_signingAlgorithmType,
     keySigningKey_createdDate,
-    keySigningKey_keyTag,
-    keySigningKey_statusMessage,
+    keySigningKey_dNSKEYRecord,
+    keySigningKey_dSRecord,
     keySigningKey_digestAlgorithmMnemonic,
+    keySigningKey_digestAlgorithmType,
     keySigningKey_digestValue,
+    keySigningKey_flag,
+    keySigningKey_keyTag,
+    keySigningKey_kmsArn,
+    keySigningKey_lastModifiedDate,
+    keySigningKey_name,
+    keySigningKey_publicKey,
+    keySigningKey_signingAlgorithmMnemonic,
+    keySigningKey_signingAlgorithmType,
+    keySigningKey_status,
+    keySigningKey_statusMessage,
 
     -- ** LinkedService
     linkedService_description,
@@ -725,25 +725,25 @@ module Amazonka.Route53.Lens
     resourceRecord_value,
 
     -- ** ResourceRecordSet
-    resourceRecordSet_cidrRoutingConfig,
-    resourceRecordSet_ttl,
-    resourceRecordSet_multiValueAnswer,
-    resourceRecordSet_trafficPolicyInstanceId,
-    resourceRecordSet_region,
     resourceRecordSet_aliasTarget,
-    resourceRecordSet_resourceRecords,
-    resourceRecordSet_setIdentifier,
-    resourceRecordSet_weight,
-    resourceRecordSet_healthCheckId,
+    resourceRecordSet_cidrRoutingConfig,
     resourceRecordSet_failover,
     resourceRecordSet_geoLocation,
+    resourceRecordSet_healthCheckId,
+    resourceRecordSet_multiValueAnswer,
+    resourceRecordSet_region,
+    resourceRecordSet_resourceRecords,
+    resourceRecordSet_setIdentifier,
+    resourceRecordSet_ttl,
+    resourceRecordSet_trafficPolicyInstanceId,
+    resourceRecordSet_weight,
     resourceRecordSet_name,
     resourceRecordSet_type,
 
     -- ** ResourceTagSet
     resourceTagSet_resourceId,
-    resourceTagSet_tags,
     resourceTagSet_resourceType,
+    resourceTagSet_tags,
 
     -- ** ReusableDelegationSetLimit
     reusableDelegationSetLimit_type,

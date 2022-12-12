@@ -30,6 +30,19 @@ import qualified Amazonka.Prelude as Prelude
 data MetricsSummary = MetricsSummary'
   { -- | Total number of recommendations found in the code review.
     findingsCount :: Prelude.Maybe Prelude.Integer,
+    -- | Lines of code metered in the code review. For the initial code review
+    -- pull request and all subsequent revisions, this includes all lines of
+    -- code in the files added to the pull request. In subsequent revisions,
+    -- for files that already existed in the pull request, this includes only
+    -- the changed lines of code. In both cases, this does not include non-code
+    -- lines such as comments and import statements. For example, if you submit
+    -- a pull request containing 5 files, each with 500 lines of code, and in a
+    -- subsequent revision you added a new file with 200 lines of code, and
+    -- also modified a total of 25 lines across the initial 5 files,
+    -- @MeteredLinesOfCodeCount@ includes the first 5 files (5 * 500 = 2,500
+    -- lines), the new file (200 lines) and the 25 changed lines of code for a
+    -- total of 2,725 lines of code.
+    meteredLinesOfCodeCount :: Prelude.Maybe Prelude.Integer,
     -- | Lines of code suppressed in the code review based on the @excludeFiles@
     -- element in the @aws-codeguru-reviewer.yml@ file. For full repository
     -- analyses, this number includes all lines of code in the files that are
@@ -45,20 +58,7 @@ data MetricsSummary = MetricsSummary'
     -- lines in the 2 files that changed. If only 1 of the 2 files changed in
     -- the pull request, then @SuppressedLinesOfCodeCount@ returns 100 (1 *
     -- 100) as the total number of lines of code suppressed.
-    suppressedLinesOfCodeCount :: Prelude.Maybe Prelude.Integer,
-    -- | Lines of code metered in the code review. For the initial code review
-    -- pull request and all subsequent revisions, this includes all lines of
-    -- code in the files added to the pull request. In subsequent revisions,
-    -- for files that already existed in the pull request, this includes only
-    -- the changed lines of code. In both cases, this does not include non-code
-    -- lines such as comments and import statements. For example, if you submit
-    -- a pull request containing 5 files, each with 500 lines of code, and in a
-    -- subsequent revision you added a new file with 200 lines of code, and
-    -- also modified a total of 25 lines across the initial 5 files,
-    -- @MeteredLinesOfCodeCount@ includes the first 5 files (5 * 500 = 2,500
-    -- lines), the new file (200 lines) and the 25 changed lines of code for a
-    -- total of 2,725 lines of code.
-    meteredLinesOfCodeCount :: Prelude.Maybe Prelude.Integer
+    suppressedLinesOfCodeCount :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,6 +71,19 @@ data MetricsSummary = MetricsSummary'
 -- for backwards compatibility:
 --
 -- 'findingsCount', 'metricsSummary_findingsCount' - Total number of recommendations found in the code review.
+--
+-- 'meteredLinesOfCodeCount', 'metricsSummary_meteredLinesOfCodeCount' - Lines of code metered in the code review. For the initial code review
+-- pull request and all subsequent revisions, this includes all lines of
+-- code in the files added to the pull request. In subsequent revisions,
+-- for files that already existed in the pull request, this includes only
+-- the changed lines of code. In both cases, this does not include non-code
+-- lines such as comments and import statements. For example, if you submit
+-- a pull request containing 5 files, each with 500 lines of code, and in a
+-- subsequent revision you added a new file with 200 lines of code, and
+-- also modified a total of 25 lines across the initial 5 files,
+-- @MeteredLinesOfCodeCount@ includes the first 5 files (5 * 500 = 2,500
+-- lines), the new file (200 lines) and the 25 changed lines of code for a
+-- total of 2,725 lines of code.
 --
 -- 'suppressedLinesOfCodeCount', 'metricsSummary_suppressedLinesOfCodeCount' - Lines of code suppressed in the code review based on the @excludeFiles@
 -- element in the @aws-codeguru-reviewer.yml@ file. For full repository
@@ -87,8 +100,20 @@ data MetricsSummary = MetricsSummary'
 -- lines in the 2 files that changed. If only 1 of the 2 files changed in
 -- the pull request, then @SuppressedLinesOfCodeCount@ returns 100 (1 *
 -- 100) as the total number of lines of code suppressed.
---
--- 'meteredLinesOfCodeCount', 'metricsSummary_meteredLinesOfCodeCount' - Lines of code metered in the code review. For the initial code review
+newMetricsSummary ::
+  MetricsSummary
+newMetricsSummary =
+  MetricsSummary'
+    { findingsCount = Prelude.Nothing,
+      meteredLinesOfCodeCount = Prelude.Nothing,
+      suppressedLinesOfCodeCount = Prelude.Nothing
+    }
+
+-- | Total number of recommendations found in the code review.
+metricsSummary_findingsCount :: Lens.Lens' MetricsSummary (Prelude.Maybe Prelude.Integer)
+metricsSummary_findingsCount = Lens.lens (\MetricsSummary' {findingsCount} -> findingsCount) (\s@MetricsSummary' {} a -> s {findingsCount = a} :: MetricsSummary)
+
+-- | Lines of code metered in the code review. For the initial code review
 -- pull request and all subsequent revisions, this includes all lines of
 -- code in the files added to the pull request. In subsequent revisions,
 -- for files that already existed in the pull request, this includes only
@@ -100,18 +125,8 @@ data MetricsSummary = MetricsSummary'
 -- @MeteredLinesOfCodeCount@ includes the first 5 files (5 * 500 = 2,500
 -- lines), the new file (200 lines) and the 25 changed lines of code for a
 -- total of 2,725 lines of code.
-newMetricsSummary ::
-  MetricsSummary
-newMetricsSummary =
-  MetricsSummary'
-    { findingsCount = Prelude.Nothing,
-      suppressedLinesOfCodeCount = Prelude.Nothing,
-      meteredLinesOfCodeCount = Prelude.Nothing
-    }
-
--- | Total number of recommendations found in the code review.
-metricsSummary_findingsCount :: Lens.Lens' MetricsSummary (Prelude.Maybe Prelude.Integer)
-metricsSummary_findingsCount = Lens.lens (\MetricsSummary' {findingsCount} -> findingsCount) (\s@MetricsSummary' {} a -> s {findingsCount = a} :: MetricsSummary)
+metricsSummary_meteredLinesOfCodeCount :: Lens.Lens' MetricsSummary (Prelude.Maybe Prelude.Integer)
+metricsSummary_meteredLinesOfCodeCount = Lens.lens (\MetricsSummary' {meteredLinesOfCodeCount} -> meteredLinesOfCodeCount) (\s@MetricsSummary' {} a -> s {meteredLinesOfCodeCount = a} :: MetricsSummary)
 
 -- | Lines of code suppressed in the code review based on the @excludeFiles@
 -- element in the @aws-codeguru-reviewer.yml@ file. For full repository
@@ -131,21 +146,6 @@ metricsSummary_findingsCount = Lens.lens (\MetricsSummary' {findingsCount} -> fi
 metricsSummary_suppressedLinesOfCodeCount :: Lens.Lens' MetricsSummary (Prelude.Maybe Prelude.Integer)
 metricsSummary_suppressedLinesOfCodeCount = Lens.lens (\MetricsSummary' {suppressedLinesOfCodeCount} -> suppressedLinesOfCodeCount) (\s@MetricsSummary' {} a -> s {suppressedLinesOfCodeCount = a} :: MetricsSummary)
 
--- | Lines of code metered in the code review. For the initial code review
--- pull request and all subsequent revisions, this includes all lines of
--- code in the files added to the pull request. In subsequent revisions,
--- for files that already existed in the pull request, this includes only
--- the changed lines of code. In both cases, this does not include non-code
--- lines such as comments and import statements. For example, if you submit
--- a pull request containing 5 files, each with 500 lines of code, and in a
--- subsequent revision you added a new file with 200 lines of code, and
--- also modified a total of 25 lines across the initial 5 files,
--- @MeteredLinesOfCodeCount@ includes the first 5 files (5 * 500 = 2,500
--- lines), the new file (200 lines) and the 25 changed lines of code for a
--- total of 2,725 lines of code.
-metricsSummary_meteredLinesOfCodeCount :: Lens.Lens' MetricsSummary (Prelude.Maybe Prelude.Integer)
-metricsSummary_meteredLinesOfCodeCount = Lens.lens (\MetricsSummary' {meteredLinesOfCodeCount} -> meteredLinesOfCodeCount) (\s@MetricsSummary' {} a -> s {meteredLinesOfCodeCount = a} :: MetricsSummary)
-
 instance Data.FromJSON MetricsSummary where
   parseJSON =
     Data.withObject
@@ -153,18 +153,18 @@ instance Data.FromJSON MetricsSummary where
       ( \x ->
           MetricsSummary'
             Prelude.<$> (x Data..:? "FindingsCount")
-            Prelude.<*> (x Data..:? "SuppressedLinesOfCodeCount")
             Prelude.<*> (x Data..:? "MeteredLinesOfCodeCount")
+            Prelude.<*> (x Data..:? "SuppressedLinesOfCodeCount")
       )
 
 instance Prelude.Hashable MetricsSummary where
   hashWithSalt _salt MetricsSummary' {..} =
     _salt `Prelude.hashWithSalt` findingsCount
-      `Prelude.hashWithSalt` suppressedLinesOfCodeCount
       `Prelude.hashWithSalt` meteredLinesOfCodeCount
+      `Prelude.hashWithSalt` suppressedLinesOfCodeCount
 
 instance Prelude.NFData MetricsSummary where
   rnf MetricsSummary' {..} =
     Prelude.rnf findingsCount
-      `Prelude.seq` Prelude.rnf suppressedLinesOfCodeCount
       `Prelude.seq` Prelude.rnf meteredLinesOfCodeCount
+      `Prelude.seq` Prelude.rnf suppressedLinesOfCodeCount

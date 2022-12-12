@@ -32,10 +32,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUpdateServiceIntegrationConfig' smart constructor.
 data UpdateServiceIntegrationConfig = UpdateServiceIntegrationConfig'
-  { opsCenter :: Prelude.Maybe OpsCenterIntegrationConfig,
-    -- | Information about whether DevOps Guru is configured to perform log
+  { -- | Information about whether DevOps Guru is configured to perform log
     -- anomaly detection on Amazon CloudWatch log groups.
-    logsAnomalyDetection :: Prelude.Maybe LogsAnomalyDetectionIntegrationConfig
+    logsAnomalyDetection :: Prelude.Maybe LogsAnomalyDetectionIntegrationConfig,
+    opsCenter :: Prelude.Maybe OpsCenterIntegrationConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,27 +47,27 @@ data UpdateServiceIntegrationConfig = UpdateServiceIntegrationConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'opsCenter', 'updateServiceIntegrationConfig_opsCenter' - Undocumented member.
---
 -- 'logsAnomalyDetection', 'updateServiceIntegrationConfig_logsAnomalyDetection' - Information about whether DevOps Guru is configured to perform log
 -- anomaly detection on Amazon CloudWatch log groups.
+--
+-- 'opsCenter', 'updateServiceIntegrationConfig_opsCenter' - Undocumented member.
 newUpdateServiceIntegrationConfig ::
   UpdateServiceIntegrationConfig
 newUpdateServiceIntegrationConfig =
   UpdateServiceIntegrationConfig'
-    { opsCenter =
+    { logsAnomalyDetection =
         Prelude.Nothing,
-      logsAnomalyDetection = Prelude.Nothing
+      opsCenter = Prelude.Nothing
     }
-
--- | Undocumented member.
-updateServiceIntegrationConfig_opsCenter :: Lens.Lens' UpdateServiceIntegrationConfig (Prelude.Maybe OpsCenterIntegrationConfig)
-updateServiceIntegrationConfig_opsCenter = Lens.lens (\UpdateServiceIntegrationConfig' {opsCenter} -> opsCenter) (\s@UpdateServiceIntegrationConfig' {} a -> s {opsCenter = a} :: UpdateServiceIntegrationConfig)
 
 -- | Information about whether DevOps Guru is configured to perform log
 -- anomaly detection on Amazon CloudWatch log groups.
 updateServiceIntegrationConfig_logsAnomalyDetection :: Lens.Lens' UpdateServiceIntegrationConfig (Prelude.Maybe LogsAnomalyDetectionIntegrationConfig)
 updateServiceIntegrationConfig_logsAnomalyDetection = Lens.lens (\UpdateServiceIntegrationConfig' {logsAnomalyDetection} -> logsAnomalyDetection) (\s@UpdateServiceIntegrationConfig' {} a -> s {logsAnomalyDetection = a} :: UpdateServiceIntegrationConfig)
+
+-- | Undocumented member.
+updateServiceIntegrationConfig_opsCenter :: Lens.Lens' UpdateServiceIntegrationConfig (Prelude.Maybe OpsCenterIntegrationConfig)
+updateServiceIntegrationConfig_opsCenter = Lens.lens (\UpdateServiceIntegrationConfig' {opsCenter} -> opsCenter) (\s@UpdateServiceIntegrationConfig' {} a -> s {opsCenter = a} :: UpdateServiceIntegrationConfig)
 
 instance
   Prelude.Hashable
@@ -76,23 +76,23 @@ instance
   hashWithSalt
     _salt
     UpdateServiceIntegrationConfig' {..} =
-      _salt `Prelude.hashWithSalt` opsCenter
-        `Prelude.hashWithSalt` logsAnomalyDetection
+      _salt `Prelude.hashWithSalt` logsAnomalyDetection
+        `Prelude.hashWithSalt` opsCenter
 
 instance
   Prelude.NFData
     UpdateServiceIntegrationConfig
   where
   rnf UpdateServiceIntegrationConfig' {..} =
-    Prelude.rnf opsCenter
-      `Prelude.seq` Prelude.rnf logsAnomalyDetection
+    Prelude.rnf logsAnomalyDetection
+      `Prelude.seq` Prelude.rnf opsCenter
 
 instance Data.ToJSON UpdateServiceIntegrationConfig where
   toJSON UpdateServiceIntegrationConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("OpsCenter" Data..=) Prelude.<$> opsCenter,
-            ("LogsAnomalyDetection" Data..=)
-              Prelude.<$> logsAnomalyDetection
+          [ ("LogsAnomalyDetection" Data..=)
+              Prelude.<$> logsAnomalyDetection,
+            ("OpsCenter" Data..=) Prelude.<$> opsCenter
           ]
       )

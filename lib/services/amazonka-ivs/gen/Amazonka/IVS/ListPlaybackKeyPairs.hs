@@ -32,8 +32,8 @@ module Amazonka.IVS.ListPlaybackKeyPairs
     newListPlaybackKeyPairs,
 
     -- * Request Lenses
-    listPlaybackKeyPairs_nextToken,
     listPlaybackKeyPairs_maxResults,
+    listPlaybackKeyPairs_nextToken,
 
     -- * Destructuring the Response
     ListPlaybackKeyPairsResponse (..),
@@ -56,12 +56,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPlaybackKeyPairs' smart constructor.
 data ListPlaybackKeyPairs = ListPlaybackKeyPairs'
-  { -- | The first key pair to retrieve. This is used for pagination; see the
-    -- @nextToken@ response field.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Maximum number of key pairs to return. Default: your service quota or
+  { -- | Maximum number of key pairs to return. Default: your service quota or
     -- 100, whichever is smaller.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The first key pair to retrieve. This is used for pagination; see the
+    -- @nextToken@ response field.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,28 +73,28 @@ data ListPlaybackKeyPairs = ListPlaybackKeyPairs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPlaybackKeyPairs_nextToken' - The first key pair to retrieve. This is used for pagination; see the
--- @nextToken@ response field.
---
 -- 'maxResults', 'listPlaybackKeyPairs_maxResults' - Maximum number of key pairs to return. Default: your service quota or
 -- 100, whichever is smaller.
+--
+-- 'nextToken', 'listPlaybackKeyPairs_nextToken' - The first key pair to retrieve. This is used for pagination; see the
+-- @nextToken@ response field.
 newListPlaybackKeyPairs ::
   ListPlaybackKeyPairs
 newListPlaybackKeyPairs =
   ListPlaybackKeyPairs'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The first key pair to retrieve. This is used for pagination; see the
--- @nextToken@ response field.
-listPlaybackKeyPairs_nextToken :: Lens.Lens' ListPlaybackKeyPairs (Prelude.Maybe Prelude.Text)
-listPlaybackKeyPairs_nextToken = Lens.lens (\ListPlaybackKeyPairs' {nextToken} -> nextToken) (\s@ListPlaybackKeyPairs' {} a -> s {nextToken = a} :: ListPlaybackKeyPairs)
 
 -- | Maximum number of key pairs to return. Default: your service quota or
 -- 100, whichever is smaller.
 listPlaybackKeyPairs_maxResults :: Lens.Lens' ListPlaybackKeyPairs (Prelude.Maybe Prelude.Natural)
 listPlaybackKeyPairs_maxResults = Lens.lens (\ListPlaybackKeyPairs' {maxResults} -> maxResults) (\s@ListPlaybackKeyPairs' {} a -> s {maxResults = a} :: ListPlaybackKeyPairs)
+
+-- | The first key pair to retrieve. This is used for pagination; see the
+-- @nextToken@ response field.
+listPlaybackKeyPairs_nextToken :: Lens.Lens' ListPlaybackKeyPairs (Prelude.Maybe Prelude.Text)
+listPlaybackKeyPairs_nextToken = Lens.lens (\ListPlaybackKeyPairs' {nextToken} -> nextToken) (\s@ListPlaybackKeyPairs' {} a -> s {nextToken = a} :: ListPlaybackKeyPairs)
 
 instance Core.AWSPager ListPlaybackKeyPairs where
   page rq rs
@@ -132,13 +132,13 @@ instance Core.AWSRequest ListPlaybackKeyPairs where
 
 instance Prelude.Hashable ListPlaybackKeyPairs where
   hashWithSalt _salt ListPlaybackKeyPairs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListPlaybackKeyPairs where
   rnf ListPlaybackKeyPairs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListPlaybackKeyPairs where
   toHeaders =
@@ -155,8 +155,8 @@ instance Data.ToJSON ListPlaybackKeyPairs where
   toJSON ListPlaybackKeyPairs' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

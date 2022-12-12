@@ -34,18 +34,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPipelineContext' smart constructor.
 data PipelineContext = PipelineContext'
-  { -- | The execution ID of the pipeline.
-    pipelineExecutionId :: Prelude.Maybe Prelude.Text,
+  { -- | The context of an action to a job worker in the stage of a pipeline.
+    action :: Prelude.Maybe ActionContext,
     -- | The Amazon Resource Name (ARN) of the pipeline.
     pipelineArn :: Prelude.Maybe Prelude.Text,
+    -- | The execution ID of the pipeline.
+    pipelineExecutionId :: Prelude.Maybe Prelude.Text,
     -- | The name of the pipeline. This is a user-specified value. Pipeline names
     -- must be unique across all pipeline names under an Amazon Web Services
     -- account.
     pipelineName :: Prelude.Maybe Prelude.Text,
     -- | The stage of the pipeline.
-    stage :: Prelude.Maybe StageContext,
-    -- | The context of an action to a job worker in the stage of a pipeline.
-    action :: Prelude.Maybe ActionContext
+    stage :: Prelude.Maybe StageContext
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,36 +57,39 @@ data PipelineContext = PipelineContext'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pipelineExecutionId', 'pipelineContext_pipelineExecutionId' - The execution ID of the pipeline.
+-- 'action', 'pipelineContext_action' - The context of an action to a job worker in the stage of a pipeline.
 --
 -- 'pipelineArn', 'pipelineContext_pipelineArn' - The Amazon Resource Name (ARN) of the pipeline.
+--
+-- 'pipelineExecutionId', 'pipelineContext_pipelineExecutionId' - The execution ID of the pipeline.
 --
 -- 'pipelineName', 'pipelineContext_pipelineName' - The name of the pipeline. This is a user-specified value. Pipeline names
 -- must be unique across all pipeline names under an Amazon Web Services
 -- account.
 --
 -- 'stage', 'pipelineContext_stage' - The stage of the pipeline.
---
--- 'action', 'pipelineContext_action' - The context of an action to a job worker in the stage of a pipeline.
 newPipelineContext ::
   PipelineContext
 newPipelineContext =
   PipelineContext'
-    { pipelineExecutionId =
-        Prelude.Nothing,
+    { action = Prelude.Nothing,
       pipelineArn = Prelude.Nothing,
+      pipelineExecutionId = Prelude.Nothing,
       pipelineName = Prelude.Nothing,
-      stage = Prelude.Nothing,
-      action = Prelude.Nothing
+      stage = Prelude.Nothing
     }
 
--- | The execution ID of the pipeline.
-pipelineContext_pipelineExecutionId :: Lens.Lens' PipelineContext (Prelude.Maybe Prelude.Text)
-pipelineContext_pipelineExecutionId = Lens.lens (\PipelineContext' {pipelineExecutionId} -> pipelineExecutionId) (\s@PipelineContext' {} a -> s {pipelineExecutionId = a} :: PipelineContext)
+-- | The context of an action to a job worker in the stage of a pipeline.
+pipelineContext_action :: Lens.Lens' PipelineContext (Prelude.Maybe ActionContext)
+pipelineContext_action = Lens.lens (\PipelineContext' {action} -> action) (\s@PipelineContext' {} a -> s {action = a} :: PipelineContext)
 
 -- | The Amazon Resource Name (ARN) of the pipeline.
 pipelineContext_pipelineArn :: Lens.Lens' PipelineContext (Prelude.Maybe Prelude.Text)
 pipelineContext_pipelineArn = Lens.lens (\PipelineContext' {pipelineArn} -> pipelineArn) (\s@PipelineContext' {} a -> s {pipelineArn = a} :: PipelineContext)
+
+-- | The execution ID of the pipeline.
+pipelineContext_pipelineExecutionId :: Lens.Lens' PipelineContext (Prelude.Maybe Prelude.Text)
+pipelineContext_pipelineExecutionId = Lens.lens (\PipelineContext' {pipelineExecutionId} -> pipelineExecutionId) (\s@PipelineContext' {} a -> s {pipelineExecutionId = a} :: PipelineContext)
 
 -- | The name of the pipeline. This is a user-specified value. Pipeline names
 -- must be unique across all pipeline names under an Amazon Web Services
@@ -98,35 +101,31 @@ pipelineContext_pipelineName = Lens.lens (\PipelineContext' {pipelineName} -> pi
 pipelineContext_stage :: Lens.Lens' PipelineContext (Prelude.Maybe StageContext)
 pipelineContext_stage = Lens.lens (\PipelineContext' {stage} -> stage) (\s@PipelineContext' {} a -> s {stage = a} :: PipelineContext)
 
--- | The context of an action to a job worker in the stage of a pipeline.
-pipelineContext_action :: Lens.Lens' PipelineContext (Prelude.Maybe ActionContext)
-pipelineContext_action = Lens.lens (\PipelineContext' {action} -> action) (\s@PipelineContext' {} a -> s {action = a} :: PipelineContext)
-
 instance Data.FromJSON PipelineContext where
   parseJSON =
     Data.withObject
       "PipelineContext"
       ( \x ->
           PipelineContext'
-            Prelude.<$> (x Data..:? "pipelineExecutionId")
+            Prelude.<$> (x Data..:? "action")
             Prelude.<*> (x Data..:? "pipelineArn")
+            Prelude.<*> (x Data..:? "pipelineExecutionId")
             Prelude.<*> (x Data..:? "pipelineName")
             Prelude.<*> (x Data..:? "stage")
-            Prelude.<*> (x Data..:? "action")
       )
 
 instance Prelude.Hashable PipelineContext where
   hashWithSalt _salt PipelineContext' {..} =
-    _salt `Prelude.hashWithSalt` pipelineExecutionId
+    _salt `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` pipelineArn
+      `Prelude.hashWithSalt` pipelineExecutionId
       `Prelude.hashWithSalt` pipelineName
       `Prelude.hashWithSalt` stage
-      `Prelude.hashWithSalt` action
 
 instance Prelude.NFData PipelineContext where
   rnf PipelineContext' {..} =
-    Prelude.rnf pipelineExecutionId
+    Prelude.rnf action
       `Prelude.seq` Prelude.rnf pipelineArn
+      `Prelude.seq` Prelude.rnf pipelineExecutionId
       `Prelude.seq` Prelude.rnf pipelineName
       `Prelude.seq` Prelude.rnf stage
-      `Prelude.seq` Prelude.rnf action

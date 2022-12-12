@@ -28,9 +28,9 @@ module Amazonka.IoT1ClickProjects.Lens
     createPlacementResponse_httpStatus,
 
     -- ** CreateProject
-    createProject_tags,
     createProject_description,
     createProject_placementTemplate,
+    createProject_tags,
     createProject_projectName,
     createProjectResponse_httpStatus,
 
@@ -67,16 +67,16 @@ module Amazonka.IoT1ClickProjects.Lens
     getDevicesInPlacementResponse_devices,
 
     -- ** ListPlacements
-    listPlacements_nextToken,
     listPlacements_maxResults,
+    listPlacements_nextToken,
     listPlacements_projectName,
     listPlacementsResponse_nextToken,
     listPlacementsResponse_httpStatus,
     listPlacementsResponse_placements,
 
     -- ** ListProjects
-    listProjects_nextToken,
     listProjects_maxResults,
+    listProjects_nextToken,
     listProjectsResponse_nextToken,
     listProjectsResponse_httpStatus,
     listProjectsResponse_projects,
@@ -128,21 +128,21 @@ module Amazonka.IoT1ClickProjects.Lens
     placementSummary_updatedDate,
 
     -- ** PlacementTemplate
-    placementTemplate_deviceTemplates,
     placementTemplate_defaultAttributes,
+    placementTemplate_deviceTemplates,
 
     -- ** ProjectDescription
-    projectDescription_tags,
     projectDescription_arn,
     projectDescription_description,
     projectDescription_placementTemplate,
+    projectDescription_tags,
     projectDescription_projectName,
     projectDescription_createdDate,
     projectDescription_updatedDate,
 
     -- ** ProjectSummary
-    projectSummary_tags,
     projectSummary_arn,
+    projectSummary_tags,
     projectSummary_projectName,
     projectSummary_createdDate,
     projectSummary_updatedDate,

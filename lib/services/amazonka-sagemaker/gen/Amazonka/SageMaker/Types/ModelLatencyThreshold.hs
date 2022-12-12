@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newModelLatencyThreshold' smart constructor.
 data ModelLatencyThreshold = ModelLatencyThreshold'
-  { -- | The model latency percentile value in milliseconds.
-    valueInMilliseconds :: Prelude.Maybe Prelude.Int,
-    -- | The model latency percentile threshold.
-    percentile :: Prelude.Maybe Prelude.Text
+  { -- | The model latency percentile threshold.
+    percentile :: Prelude.Maybe Prelude.Text,
+    -- | The model latency percentile value in milliseconds.
+    valueInMilliseconds :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data ModelLatencyThreshold = ModelLatencyThreshold'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'valueInMilliseconds', 'modelLatencyThreshold_valueInMilliseconds' - The model latency percentile value in milliseconds.
---
 -- 'percentile', 'modelLatencyThreshold_percentile' - The model latency percentile threshold.
+--
+-- 'valueInMilliseconds', 'modelLatencyThreshold_valueInMilliseconds' - The model latency percentile value in milliseconds.
 newModelLatencyThreshold ::
   ModelLatencyThreshold
 newModelLatencyThreshold =
   ModelLatencyThreshold'
-    { valueInMilliseconds =
+    { percentile =
         Prelude.Nothing,
-      percentile = Prelude.Nothing
+      valueInMilliseconds = Prelude.Nothing
     }
-
--- | The model latency percentile value in milliseconds.
-modelLatencyThreshold_valueInMilliseconds :: Lens.Lens' ModelLatencyThreshold (Prelude.Maybe Prelude.Int)
-modelLatencyThreshold_valueInMilliseconds = Lens.lens (\ModelLatencyThreshold' {valueInMilliseconds} -> valueInMilliseconds) (\s@ModelLatencyThreshold' {} a -> s {valueInMilliseconds = a} :: ModelLatencyThreshold)
 
 -- | The model latency percentile threshold.
 modelLatencyThreshold_percentile :: Lens.Lens' ModelLatencyThreshold (Prelude.Maybe Prelude.Text)
 modelLatencyThreshold_percentile = Lens.lens (\ModelLatencyThreshold' {percentile} -> percentile) (\s@ModelLatencyThreshold' {} a -> s {percentile = a} :: ModelLatencyThreshold)
+
+-- | The model latency percentile value in milliseconds.
+modelLatencyThreshold_valueInMilliseconds :: Lens.Lens' ModelLatencyThreshold (Prelude.Maybe Prelude.Int)
+modelLatencyThreshold_valueInMilliseconds = Lens.lens (\ModelLatencyThreshold' {valueInMilliseconds} -> valueInMilliseconds) (\s@ModelLatencyThreshold' {} a -> s {valueInMilliseconds = a} :: ModelLatencyThreshold)
 
 instance Data.FromJSON ModelLatencyThreshold where
   parseJSON =
@@ -69,26 +69,26 @@ instance Data.FromJSON ModelLatencyThreshold where
       "ModelLatencyThreshold"
       ( \x ->
           ModelLatencyThreshold'
-            Prelude.<$> (x Data..:? "ValueInMilliseconds")
-            Prelude.<*> (x Data..:? "Percentile")
+            Prelude.<$> (x Data..:? "Percentile")
+            Prelude.<*> (x Data..:? "ValueInMilliseconds")
       )
 
 instance Prelude.Hashable ModelLatencyThreshold where
   hashWithSalt _salt ModelLatencyThreshold' {..} =
-    _salt `Prelude.hashWithSalt` valueInMilliseconds
-      `Prelude.hashWithSalt` percentile
+    _salt `Prelude.hashWithSalt` percentile
+      `Prelude.hashWithSalt` valueInMilliseconds
 
 instance Prelude.NFData ModelLatencyThreshold where
   rnf ModelLatencyThreshold' {..} =
-    Prelude.rnf valueInMilliseconds
-      `Prelude.seq` Prelude.rnf percentile
+    Prelude.rnf percentile
+      `Prelude.seq` Prelude.rnf valueInMilliseconds
 
 instance Data.ToJSON ModelLatencyThreshold where
   toJSON ModelLatencyThreshold' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ValueInMilliseconds" Data..=)
-              Prelude.<$> valueInMilliseconds,
-            ("Percentile" Data..=) Prelude.<$> percentile
+          [ ("Percentile" Data..=) Prelude.<$> percentile,
+            ("ValueInMilliseconds" Data..=)
+              Prelude.<$> valueInMilliseconds
           ]
       )

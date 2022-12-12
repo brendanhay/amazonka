@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newExperimentLogConfiguration' smart constructor.
 data ExperimentLogConfiguration = ExperimentLogConfiguration'
-  { -- | The configuration for experiment logging to Amazon S3.
-    s3Configuration :: Prelude.Maybe ExperimentS3LogConfiguration,
+  { -- | The configuration for experiment logging to Amazon CloudWatch Logs.
+    cloudWatchLogsConfiguration :: Prelude.Maybe ExperimentCloudWatchLogsLogConfiguration,
     -- | The schema version.
     logSchemaVersion :: Prelude.Maybe Prelude.Int,
-    -- | The configuration for experiment logging to Amazon CloudWatch Logs.
-    cloudWatchLogsConfiguration :: Prelude.Maybe ExperimentCloudWatchLogsLogConfiguration
+    -- | The configuration for experiment logging to Amazon S3.
+    s3Configuration :: Prelude.Maybe ExperimentS3LogConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,32 +47,32 @@ data ExperimentLogConfiguration = ExperimentLogConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 's3Configuration', 'experimentLogConfiguration_s3Configuration' - The configuration for experiment logging to Amazon S3.
+-- 'cloudWatchLogsConfiguration', 'experimentLogConfiguration_cloudWatchLogsConfiguration' - The configuration for experiment logging to Amazon CloudWatch Logs.
 --
 -- 'logSchemaVersion', 'experimentLogConfiguration_logSchemaVersion' - The schema version.
 --
--- 'cloudWatchLogsConfiguration', 'experimentLogConfiguration_cloudWatchLogsConfiguration' - The configuration for experiment logging to Amazon CloudWatch Logs.
+-- 's3Configuration', 'experimentLogConfiguration_s3Configuration' - The configuration for experiment logging to Amazon S3.
 newExperimentLogConfiguration ::
   ExperimentLogConfiguration
 newExperimentLogConfiguration =
   ExperimentLogConfiguration'
-    { s3Configuration =
+    { cloudWatchLogsConfiguration =
         Prelude.Nothing,
       logSchemaVersion = Prelude.Nothing,
-      cloudWatchLogsConfiguration = Prelude.Nothing
+      s3Configuration = Prelude.Nothing
     }
 
--- | The configuration for experiment logging to Amazon S3.
-experimentLogConfiguration_s3Configuration :: Lens.Lens' ExperimentLogConfiguration (Prelude.Maybe ExperimentS3LogConfiguration)
-experimentLogConfiguration_s3Configuration = Lens.lens (\ExperimentLogConfiguration' {s3Configuration} -> s3Configuration) (\s@ExperimentLogConfiguration' {} a -> s {s3Configuration = a} :: ExperimentLogConfiguration)
+-- | The configuration for experiment logging to Amazon CloudWatch Logs.
+experimentLogConfiguration_cloudWatchLogsConfiguration :: Lens.Lens' ExperimentLogConfiguration (Prelude.Maybe ExperimentCloudWatchLogsLogConfiguration)
+experimentLogConfiguration_cloudWatchLogsConfiguration = Lens.lens (\ExperimentLogConfiguration' {cloudWatchLogsConfiguration} -> cloudWatchLogsConfiguration) (\s@ExperimentLogConfiguration' {} a -> s {cloudWatchLogsConfiguration = a} :: ExperimentLogConfiguration)
 
 -- | The schema version.
 experimentLogConfiguration_logSchemaVersion :: Lens.Lens' ExperimentLogConfiguration (Prelude.Maybe Prelude.Int)
 experimentLogConfiguration_logSchemaVersion = Lens.lens (\ExperimentLogConfiguration' {logSchemaVersion} -> logSchemaVersion) (\s@ExperimentLogConfiguration' {} a -> s {logSchemaVersion = a} :: ExperimentLogConfiguration)
 
--- | The configuration for experiment logging to Amazon CloudWatch Logs.
-experimentLogConfiguration_cloudWatchLogsConfiguration :: Lens.Lens' ExperimentLogConfiguration (Prelude.Maybe ExperimentCloudWatchLogsLogConfiguration)
-experimentLogConfiguration_cloudWatchLogsConfiguration = Lens.lens (\ExperimentLogConfiguration' {cloudWatchLogsConfiguration} -> cloudWatchLogsConfiguration) (\s@ExperimentLogConfiguration' {} a -> s {cloudWatchLogsConfiguration = a} :: ExperimentLogConfiguration)
+-- | The configuration for experiment logging to Amazon S3.
+experimentLogConfiguration_s3Configuration :: Lens.Lens' ExperimentLogConfiguration (Prelude.Maybe ExperimentS3LogConfiguration)
+experimentLogConfiguration_s3Configuration = Lens.lens (\ExperimentLogConfiguration' {s3Configuration} -> s3Configuration) (\s@ExperimentLogConfiguration' {} a -> s {s3Configuration = a} :: ExperimentLogConfiguration)
 
 instance Data.FromJSON ExperimentLogConfiguration where
   parseJSON =
@@ -80,19 +80,20 @@ instance Data.FromJSON ExperimentLogConfiguration where
       "ExperimentLogConfiguration"
       ( \x ->
           ExperimentLogConfiguration'
-            Prelude.<$> (x Data..:? "s3Configuration")
+            Prelude.<$> (x Data..:? "cloudWatchLogsConfiguration")
             Prelude.<*> (x Data..:? "logSchemaVersion")
-            Prelude.<*> (x Data..:? "cloudWatchLogsConfiguration")
+            Prelude.<*> (x Data..:? "s3Configuration")
       )
 
 instance Prelude.Hashable ExperimentLogConfiguration where
   hashWithSalt _salt ExperimentLogConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` s3Configuration
-      `Prelude.hashWithSalt` logSchemaVersion
+    _salt
       `Prelude.hashWithSalt` cloudWatchLogsConfiguration
+      `Prelude.hashWithSalt` logSchemaVersion
+      `Prelude.hashWithSalt` s3Configuration
 
 instance Prelude.NFData ExperimentLogConfiguration where
   rnf ExperimentLogConfiguration' {..} =
-    Prelude.rnf s3Configuration
+    Prelude.rnf cloudWatchLogsConfiguration
       `Prelude.seq` Prelude.rnf logSchemaVersion
-      `Prelude.seq` Prelude.rnf cloudWatchLogsConfiguration
+      `Prelude.seq` Prelude.rnf s3Configuration

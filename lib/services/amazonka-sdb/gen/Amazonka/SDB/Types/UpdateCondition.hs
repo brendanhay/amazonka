@@ -32,14 +32,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUpdateCondition' smart constructor.
 data UpdateCondition = UpdateCondition'
-  { -- | The name of the attribute involved in the condition.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | A value specifying whether or not the specified attribute must exist
+  { -- | A value specifying whether or not the specified attribute must exist
     -- with the specified value in order for the update condition to be
     -- satisfied. Specify @true@ if the attribute must exist for the update
     -- condition to be satisfied. Specify @false@ if the attribute should not
     -- exist in order for the update condition to be satisfied.
     exists :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the attribute involved in the condition.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The value of an attribute. This value can only be specified when the
     -- @Exists@ parameter is equal to @true@.
     value :: Prelude.Maybe Prelude.Text
@@ -54,13 +54,13 @@ data UpdateCondition = UpdateCondition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateCondition_name' - The name of the attribute involved in the condition.
---
 -- 'exists', 'updateCondition_exists' - A value specifying whether or not the specified attribute must exist
 -- with the specified value in order for the update condition to be
 -- satisfied. Specify @true@ if the attribute must exist for the update
 -- condition to be satisfied. Specify @false@ if the attribute should not
 -- exist in order for the update condition to be satisfied.
+--
+-- 'name', 'updateCondition_name' - The name of the attribute involved in the condition.
 --
 -- 'value', 'updateCondition_value' - The value of an attribute. This value can only be specified when the
 -- @Exists@ parameter is equal to @true@.
@@ -68,14 +68,10 @@ newUpdateCondition ::
   UpdateCondition
 newUpdateCondition =
   UpdateCondition'
-    { name = Prelude.Nothing,
-      exists = Prelude.Nothing,
+    { exists = Prelude.Nothing,
+      name = Prelude.Nothing,
       value = Prelude.Nothing
     }
-
--- | The name of the attribute involved in the condition.
-updateCondition_name :: Lens.Lens' UpdateCondition (Prelude.Maybe Prelude.Text)
-updateCondition_name = Lens.lens (\UpdateCondition' {name} -> name) (\s@UpdateCondition' {} a -> s {name = a} :: UpdateCondition)
 
 -- | A value specifying whether or not the specified attribute must exist
 -- with the specified value in order for the update condition to be
@@ -85,6 +81,10 @@ updateCondition_name = Lens.lens (\UpdateCondition' {name} -> name) (\s@UpdateCo
 updateCondition_exists :: Lens.Lens' UpdateCondition (Prelude.Maybe Prelude.Bool)
 updateCondition_exists = Lens.lens (\UpdateCondition' {exists} -> exists) (\s@UpdateCondition' {} a -> s {exists = a} :: UpdateCondition)
 
+-- | The name of the attribute involved in the condition.
+updateCondition_name :: Lens.Lens' UpdateCondition (Prelude.Maybe Prelude.Text)
+updateCondition_name = Lens.lens (\UpdateCondition' {name} -> name) (\s@UpdateCondition' {} a -> s {name = a} :: UpdateCondition)
+
 -- | The value of an attribute. This value can only be specified when the
 -- @Exists@ parameter is equal to @true@.
 updateCondition_value :: Lens.Lens' UpdateCondition (Prelude.Maybe Prelude.Text)
@@ -92,20 +92,20 @@ updateCondition_value = Lens.lens (\UpdateCondition' {value} -> value) (\s@Updat
 
 instance Prelude.Hashable UpdateCondition where
   hashWithSalt _salt UpdateCondition' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` exists
+    _salt `Prelude.hashWithSalt` exists
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData UpdateCondition where
   rnf UpdateCondition' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf exists
+    Prelude.rnf exists
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf value
 
 instance Data.ToQuery UpdateCondition where
   toQuery UpdateCondition' {..} =
     Prelude.mconcat
-      [ "Name" Data.=: name,
-        "Exists" Data.=: exists,
+      [ "Exists" Data.=: exists,
+        "Name" Data.=: name,
         "Value" Data.=: value
       ]

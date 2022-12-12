@@ -39,6 +39,13 @@ data AudioCodecOptions = AudioCodecOptions'
     --
     -- The most common bit depth is @24@.
     bitDepth :: Prelude.Maybe Prelude.Text,
+    -- | You can only choose an audio bit order when you specify @pcm@ for the
+    -- value of Audio:Codec.
+    --
+    -- The order the bits of a PCM sample are stored in.
+    --
+    -- The supported value is @LittleEndian@.
+    bitOrder :: Prelude.Maybe Prelude.Text,
     -- | You can only choose an audio profile when you specify AAC for the value
     -- of Audio:Codec.
     --
@@ -64,13 +71,6 @@ data AudioCodecOptions = AudioCodecOptions'
     -- Transcoder automatically updated your presets to use AAC-LC. You can
     -- change the value as required.
     profile :: Prelude.Maybe Prelude.Text,
-    -- | You can only choose an audio bit order when you specify @pcm@ for the
-    -- value of Audio:Codec.
-    --
-    -- The order the bits of a PCM sample are stored in.
-    --
-    -- The supported value is @LittleEndian@.
-    bitOrder :: Prelude.Maybe Prelude.Text,
     -- | You can only choose whether an audio sample is signed when you specify
     -- @pcm@ for the value of Audio:Codec.
     --
@@ -101,6 +101,13 @@ data AudioCodecOptions = AudioCodecOptions'
 --
 -- The most common bit depth is @24@.
 --
+-- 'bitOrder', 'audioCodecOptions_bitOrder' - You can only choose an audio bit order when you specify @pcm@ for the
+-- value of Audio:Codec.
+--
+-- The order the bits of a PCM sample are stored in.
+--
+-- The supported value is @LittleEndian@.
+--
 -- 'profile', 'audioCodecOptions_profile' - You can only choose an audio profile when you specify AAC for the value
 -- of Audio:Codec.
 --
@@ -126,13 +133,6 @@ data AudioCodecOptions = AudioCodecOptions'
 -- Transcoder automatically updated your presets to use AAC-LC. You can
 -- change the value as required.
 --
--- 'bitOrder', 'audioCodecOptions_bitOrder' - You can only choose an audio bit order when you specify @pcm@ for the
--- value of Audio:Codec.
---
--- The order the bits of a PCM sample are stored in.
---
--- The supported value is @LittleEndian@.
---
 -- 'signed', 'audioCodecOptions_signed' - You can only choose whether an audio sample is signed when you specify
 -- @pcm@ for the value of Audio:Codec.
 --
@@ -145,8 +145,8 @@ newAudioCodecOptions ::
 newAudioCodecOptions =
   AudioCodecOptions'
     { bitDepth = Prelude.Nothing,
-      profile = Prelude.Nothing,
       bitOrder = Prelude.Nothing,
+      profile = Prelude.Nothing,
       signed = Prelude.Nothing
     }
 
@@ -162,6 +162,15 @@ newAudioCodecOptions =
 -- The most common bit depth is @24@.
 audioCodecOptions_bitDepth :: Lens.Lens' AudioCodecOptions (Prelude.Maybe Prelude.Text)
 audioCodecOptions_bitDepth = Lens.lens (\AudioCodecOptions' {bitDepth} -> bitDepth) (\s@AudioCodecOptions' {} a -> s {bitDepth = a} :: AudioCodecOptions)
+
+-- | You can only choose an audio bit order when you specify @pcm@ for the
+-- value of Audio:Codec.
+--
+-- The order the bits of a PCM sample are stored in.
+--
+-- The supported value is @LittleEndian@.
+audioCodecOptions_bitOrder :: Lens.Lens' AudioCodecOptions (Prelude.Maybe Prelude.Text)
+audioCodecOptions_bitOrder = Lens.lens (\AudioCodecOptions' {bitOrder} -> bitOrder) (\s@AudioCodecOptions' {} a -> s {bitOrder = a} :: AudioCodecOptions)
 
 -- | You can only choose an audio profile when you specify AAC for the value
 -- of Audio:Codec.
@@ -190,15 +199,6 @@ audioCodecOptions_bitDepth = Lens.lens (\AudioCodecOptions' {bitDepth} -> bitDep
 audioCodecOptions_profile :: Lens.Lens' AudioCodecOptions (Prelude.Maybe Prelude.Text)
 audioCodecOptions_profile = Lens.lens (\AudioCodecOptions' {profile} -> profile) (\s@AudioCodecOptions' {} a -> s {profile = a} :: AudioCodecOptions)
 
--- | You can only choose an audio bit order when you specify @pcm@ for the
--- value of Audio:Codec.
---
--- The order the bits of a PCM sample are stored in.
---
--- The supported value is @LittleEndian@.
-audioCodecOptions_bitOrder :: Lens.Lens' AudioCodecOptions (Prelude.Maybe Prelude.Text)
-audioCodecOptions_bitOrder = Lens.lens (\AudioCodecOptions' {bitOrder} -> bitOrder) (\s@AudioCodecOptions' {} a -> s {bitOrder = a} :: AudioCodecOptions)
-
 -- | You can only choose whether an audio sample is signed when you specify
 -- @pcm@ for the value of Audio:Codec.
 --
@@ -216,23 +216,23 @@ instance Data.FromJSON AudioCodecOptions where
       ( \x ->
           AudioCodecOptions'
             Prelude.<$> (x Data..:? "BitDepth")
-            Prelude.<*> (x Data..:? "Profile")
             Prelude.<*> (x Data..:? "BitOrder")
+            Prelude.<*> (x Data..:? "Profile")
             Prelude.<*> (x Data..:? "Signed")
       )
 
 instance Prelude.Hashable AudioCodecOptions where
   hashWithSalt _salt AudioCodecOptions' {..} =
     _salt `Prelude.hashWithSalt` bitDepth
-      `Prelude.hashWithSalt` profile
       `Prelude.hashWithSalt` bitOrder
+      `Prelude.hashWithSalt` profile
       `Prelude.hashWithSalt` signed
 
 instance Prelude.NFData AudioCodecOptions where
   rnf AudioCodecOptions' {..} =
     Prelude.rnf bitDepth
-      `Prelude.seq` Prelude.rnf profile
       `Prelude.seq` Prelude.rnf bitOrder
+      `Prelude.seq` Prelude.rnf profile
       `Prelude.seq` Prelude.rnf signed
 
 instance Data.ToJSON AudioCodecOptions where
@@ -240,8 +240,8 @@ instance Data.ToJSON AudioCodecOptions where
     Data.object
       ( Prelude.catMaybes
           [ ("BitDepth" Data..=) Prelude.<$> bitDepth,
-            ("Profile" Data..=) Prelude.<$> profile,
             ("BitOrder" Data..=) Prelude.<$> bitOrder,
+            ("Profile" Data..=) Prelude.<$> profile,
             ("Signed" Data..=) Prelude.<$> signed
           ]
       )

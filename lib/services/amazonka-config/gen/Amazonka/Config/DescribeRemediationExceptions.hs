@@ -41,9 +41,9 @@ module Amazonka.Config.DescribeRemediationExceptions
     newDescribeRemediationExceptions,
 
     -- * Request Lenses
+    describeRemediationExceptions_limit,
     describeRemediationExceptions_nextToken,
     describeRemediationExceptions_resourceKeys,
-    describeRemediationExceptions_limit,
     describeRemediationExceptions_configRuleName,
 
     -- * Destructuring the Response
@@ -67,16 +67,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeRemediationExceptions' smart constructor.
 data DescribeRemediationExceptions = DescribeRemediationExceptions'
-  { -- | The @nextToken@ string returned in a previous request that you use to
+  { -- | The maximum number of RemediationExceptionResourceKey returned on each
+    -- page. The default is 25. If you specify 0, Config uses the default.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | The @nextToken@ string returned in a previous request that you use to
     -- request the next page of results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | An exception list of resource exception keys to be processed with the
     -- current request. Config adds exception for each resource key. For
     -- example, Config adds 3 exceptions for 3 resource keys.
     resourceKeys :: Prelude.Maybe (Prelude.NonEmpty RemediationExceptionResourceKey),
-    -- | The maximum number of RemediationExceptionResourceKey returned on each
-    -- page. The default is 25. If you specify 0, Config uses the default.
-    limit :: Prelude.Maybe Prelude.Natural,
     -- | The name of the Config rule.
     configRuleName :: Prelude.Text
   }
@@ -90,15 +90,15 @@ data DescribeRemediationExceptions = DescribeRemediationExceptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'limit', 'describeRemediationExceptions_limit' - The maximum number of RemediationExceptionResourceKey returned on each
+-- page. The default is 25. If you specify 0, Config uses the default.
+--
 -- 'nextToken', 'describeRemediationExceptions_nextToken' - The @nextToken@ string returned in a previous request that you use to
 -- request the next page of results in a paginated response.
 --
 -- 'resourceKeys', 'describeRemediationExceptions_resourceKeys' - An exception list of resource exception keys to be processed with the
 -- current request. Config adds exception for each resource key. For
 -- example, Config adds 3 exceptions for 3 resource keys.
---
--- 'limit', 'describeRemediationExceptions_limit' - The maximum number of RemediationExceptionResourceKey returned on each
--- page. The default is 25. If you specify 0, Config uses the default.
 --
 -- 'configRuleName', 'describeRemediationExceptions_configRuleName' - The name of the Config rule.
 newDescribeRemediationExceptions ::
@@ -107,12 +107,17 @@ newDescribeRemediationExceptions ::
   DescribeRemediationExceptions
 newDescribeRemediationExceptions pConfigRuleName_ =
   DescribeRemediationExceptions'
-    { nextToken =
+    { limit =
         Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       resourceKeys = Prelude.Nothing,
-      limit = Prelude.Nothing,
       configRuleName = pConfigRuleName_
     }
+
+-- | The maximum number of RemediationExceptionResourceKey returned on each
+-- page. The default is 25. If you specify 0, Config uses the default.
+describeRemediationExceptions_limit :: Lens.Lens' DescribeRemediationExceptions (Prelude.Maybe Prelude.Natural)
+describeRemediationExceptions_limit = Lens.lens (\DescribeRemediationExceptions' {limit} -> limit) (\s@DescribeRemediationExceptions' {} a -> s {limit = a} :: DescribeRemediationExceptions)
 
 -- | The @nextToken@ string returned in a previous request that you use to
 -- request the next page of results in a paginated response.
@@ -124,11 +129,6 @@ describeRemediationExceptions_nextToken = Lens.lens (\DescribeRemediationExcepti
 -- example, Config adds 3 exceptions for 3 resource keys.
 describeRemediationExceptions_resourceKeys :: Lens.Lens' DescribeRemediationExceptions (Prelude.Maybe (Prelude.NonEmpty RemediationExceptionResourceKey))
 describeRemediationExceptions_resourceKeys = Lens.lens (\DescribeRemediationExceptions' {resourceKeys} -> resourceKeys) (\s@DescribeRemediationExceptions' {} a -> s {resourceKeys = a} :: DescribeRemediationExceptions) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum number of RemediationExceptionResourceKey returned on each
--- page. The default is 25. If you specify 0, Config uses the default.
-describeRemediationExceptions_limit :: Lens.Lens' DescribeRemediationExceptions (Prelude.Maybe Prelude.Natural)
-describeRemediationExceptions_limit = Lens.lens (\DescribeRemediationExceptions' {limit} -> limit) (\s@DescribeRemediationExceptions' {} a -> s {limit = a} :: DescribeRemediationExceptions)
 
 -- | The name of the Config rule.
 describeRemediationExceptions_configRuleName :: Lens.Lens' DescribeRemediationExceptions Prelude.Text
@@ -159,16 +159,16 @@ instance
     DescribeRemediationExceptions
   where
   hashWithSalt _salt DescribeRemediationExceptions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceKeys
-      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` configRuleName
 
 instance Prelude.NFData DescribeRemediationExceptions where
   rnf DescribeRemediationExceptions' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf resourceKeys
-      `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf configRuleName
 
 instance Data.ToHeaders DescribeRemediationExceptions where
@@ -190,9 +190,9 @@ instance Data.ToJSON DescribeRemediationExceptions where
   toJSON DescribeRemediationExceptions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("Limit" Data..=) Prelude.<$> limit,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("ResourceKeys" Data..=) Prelude.<$> resourceKeys,
-            ("Limit" Data..=) Prelude.<$> limit,
             Prelude.Just
               ("ConfigRuleName" Data..= configRuleName)
           ]

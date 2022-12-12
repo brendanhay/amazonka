@@ -37,11 +37,11 @@ module Amazonka.KinesisAnalyticsV2.UpdateApplication
 
     -- * Request Lenses
     updateApplication_applicationConfigurationUpdate,
-    updateApplication_serviceExecutionRoleUpdate,
+    updateApplication_cloudWatchLoggingOptionUpdates,
     updateApplication_conditionalToken,
     updateApplication_currentApplicationVersionId,
     updateApplication_runConfigurationUpdate,
-    updateApplication_cloudWatchLoggingOptionUpdates,
+    updateApplication_serviceExecutionRoleUpdate,
     updateApplication_applicationName,
 
     -- * Destructuring the Response
@@ -66,8 +66,11 @@ import qualified Amazonka.Response as Response
 data UpdateApplication = UpdateApplication'
   { -- | Describes application configuration updates.
     applicationConfigurationUpdate :: Prelude.Maybe ApplicationConfigurationUpdate,
-    -- | Describes updates to the service execution role.
-    serviceExecutionRoleUpdate :: Prelude.Maybe Prelude.Text,
+    -- | Describes application Amazon CloudWatch logging option updates. You can
+    -- only update existing CloudWatch logging options with this action. To add
+    -- a new CloudWatch logging option, use
+    -- AddApplicationCloudWatchLoggingOption.
+    cloudWatchLoggingOptionUpdates :: Prelude.Maybe [CloudWatchLoggingOptionUpdate],
     -- | A value you use to implement strong concurrency for application updates.
     -- You must provide the @CurrentApplicationVersionId@ or the
     -- @ConditionalToken@. You get the application\'s current
@@ -83,11 +86,8 @@ data UpdateApplication = UpdateApplication'
     currentApplicationVersionId :: Prelude.Maybe Prelude.Natural,
     -- | Describes updates to the application\'s starting parameters.
     runConfigurationUpdate :: Prelude.Maybe RunConfigurationUpdate,
-    -- | Describes application Amazon CloudWatch logging option updates. You can
-    -- only update existing CloudWatch logging options with this action. To add
-    -- a new CloudWatch logging option, use
-    -- AddApplicationCloudWatchLoggingOption.
-    cloudWatchLoggingOptionUpdates :: Prelude.Maybe [CloudWatchLoggingOptionUpdate],
+    -- | Describes updates to the service execution role.
+    serviceExecutionRoleUpdate :: Prelude.Maybe Prelude.Text,
     -- | The name of the application to update.
     applicationName :: Prelude.Text
   }
@@ -103,7 +103,10 @@ data UpdateApplication = UpdateApplication'
 --
 -- 'applicationConfigurationUpdate', 'updateApplication_applicationConfigurationUpdate' - Describes application configuration updates.
 --
--- 'serviceExecutionRoleUpdate', 'updateApplication_serviceExecutionRoleUpdate' - Describes updates to the service execution role.
+-- 'cloudWatchLoggingOptionUpdates', 'updateApplication_cloudWatchLoggingOptionUpdates' - Describes application Amazon CloudWatch logging option updates. You can
+-- only update existing CloudWatch logging options with this action. To add
+-- a new CloudWatch logging option, use
+-- AddApplicationCloudWatchLoggingOption.
 --
 -- 'conditionalToken', 'updateApplication_conditionalToken' - A value you use to implement strong concurrency for application updates.
 -- You must provide the @CurrentApplicationVersionId@ or the
@@ -120,10 +123,7 @@ data UpdateApplication = UpdateApplication'
 --
 -- 'runConfigurationUpdate', 'updateApplication_runConfigurationUpdate' - Describes updates to the application\'s starting parameters.
 --
--- 'cloudWatchLoggingOptionUpdates', 'updateApplication_cloudWatchLoggingOptionUpdates' - Describes application Amazon CloudWatch logging option updates. You can
--- only update existing CloudWatch logging options with this action. To add
--- a new CloudWatch logging option, use
--- AddApplicationCloudWatchLoggingOption.
+-- 'serviceExecutionRoleUpdate', 'updateApplication_serviceExecutionRoleUpdate' - Describes updates to the service execution role.
 --
 -- 'applicationName', 'updateApplication_applicationName' - The name of the application to update.
 newUpdateApplication ::
@@ -134,11 +134,11 @@ newUpdateApplication pApplicationName_ =
   UpdateApplication'
     { applicationConfigurationUpdate =
         Prelude.Nothing,
-      serviceExecutionRoleUpdate = Prelude.Nothing,
+      cloudWatchLoggingOptionUpdates = Prelude.Nothing,
       conditionalToken = Prelude.Nothing,
       currentApplicationVersionId = Prelude.Nothing,
       runConfigurationUpdate = Prelude.Nothing,
-      cloudWatchLoggingOptionUpdates = Prelude.Nothing,
+      serviceExecutionRoleUpdate = Prelude.Nothing,
       applicationName = pApplicationName_
     }
 
@@ -146,9 +146,12 @@ newUpdateApplication pApplicationName_ =
 updateApplication_applicationConfigurationUpdate :: Lens.Lens' UpdateApplication (Prelude.Maybe ApplicationConfigurationUpdate)
 updateApplication_applicationConfigurationUpdate = Lens.lens (\UpdateApplication' {applicationConfigurationUpdate} -> applicationConfigurationUpdate) (\s@UpdateApplication' {} a -> s {applicationConfigurationUpdate = a} :: UpdateApplication)
 
--- | Describes updates to the service execution role.
-updateApplication_serviceExecutionRoleUpdate :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Text)
-updateApplication_serviceExecutionRoleUpdate = Lens.lens (\UpdateApplication' {serviceExecutionRoleUpdate} -> serviceExecutionRoleUpdate) (\s@UpdateApplication' {} a -> s {serviceExecutionRoleUpdate = a} :: UpdateApplication)
+-- | Describes application Amazon CloudWatch logging option updates. You can
+-- only update existing CloudWatch logging options with this action. To add
+-- a new CloudWatch logging option, use
+-- AddApplicationCloudWatchLoggingOption.
+updateApplication_cloudWatchLoggingOptionUpdates :: Lens.Lens' UpdateApplication (Prelude.Maybe [CloudWatchLoggingOptionUpdate])
+updateApplication_cloudWatchLoggingOptionUpdates = Lens.lens (\UpdateApplication' {cloudWatchLoggingOptionUpdates} -> cloudWatchLoggingOptionUpdates) (\s@UpdateApplication' {} a -> s {cloudWatchLoggingOptionUpdates = a} :: UpdateApplication) Prelude.. Lens.mapping Lens.coerced
 
 -- | A value you use to implement strong concurrency for application updates.
 -- You must provide the @CurrentApplicationVersionId@ or the
@@ -171,12 +174,9 @@ updateApplication_currentApplicationVersionId = Lens.lens (\UpdateApplication' {
 updateApplication_runConfigurationUpdate :: Lens.Lens' UpdateApplication (Prelude.Maybe RunConfigurationUpdate)
 updateApplication_runConfigurationUpdate = Lens.lens (\UpdateApplication' {runConfigurationUpdate} -> runConfigurationUpdate) (\s@UpdateApplication' {} a -> s {runConfigurationUpdate = a} :: UpdateApplication)
 
--- | Describes application Amazon CloudWatch logging option updates. You can
--- only update existing CloudWatch logging options with this action. To add
--- a new CloudWatch logging option, use
--- AddApplicationCloudWatchLoggingOption.
-updateApplication_cloudWatchLoggingOptionUpdates :: Lens.Lens' UpdateApplication (Prelude.Maybe [CloudWatchLoggingOptionUpdate])
-updateApplication_cloudWatchLoggingOptionUpdates = Lens.lens (\UpdateApplication' {cloudWatchLoggingOptionUpdates} -> cloudWatchLoggingOptionUpdates) (\s@UpdateApplication' {} a -> s {cloudWatchLoggingOptionUpdates = a} :: UpdateApplication) Prelude.. Lens.mapping Lens.coerced
+-- | Describes updates to the service execution role.
+updateApplication_serviceExecutionRoleUpdate :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Text)
+updateApplication_serviceExecutionRoleUpdate = Lens.lens (\UpdateApplication' {serviceExecutionRoleUpdate} -> serviceExecutionRoleUpdate) (\s@UpdateApplication' {} a -> s {serviceExecutionRoleUpdate = a} :: UpdateApplication)
 
 -- | The name of the application to update.
 updateApplication_applicationName :: Lens.Lens' UpdateApplication Prelude.Text
@@ -200,21 +200,21 @@ instance Prelude.Hashable UpdateApplication where
   hashWithSalt _salt UpdateApplication' {..} =
     _salt
       `Prelude.hashWithSalt` applicationConfigurationUpdate
-      `Prelude.hashWithSalt` serviceExecutionRoleUpdate
+      `Prelude.hashWithSalt` cloudWatchLoggingOptionUpdates
       `Prelude.hashWithSalt` conditionalToken
       `Prelude.hashWithSalt` currentApplicationVersionId
       `Prelude.hashWithSalt` runConfigurationUpdate
-      `Prelude.hashWithSalt` cloudWatchLoggingOptionUpdates
+      `Prelude.hashWithSalt` serviceExecutionRoleUpdate
       `Prelude.hashWithSalt` applicationName
 
 instance Prelude.NFData UpdateApplication where
   rnf UpdateApplication' {..} =
     Prelude.rnf applicationConfigurationUpdate
-      `Prelude.seq` Prelude.rnf serviceExecutionRoleUpdate
+      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptionUpdates
       `Prelude.seq` Prelude.rnf conditionalToken
       `Prelude.seq` Prelude.rnf currentApplicationVersionId
       `Prelude.seq` Prelude.rnf runConfigurationUpdate
-      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptionUpdates
+      `Prelude.seq` Prelude.rnf serviceExecutionRoleUpdate
       `Prelude.seq` Prelude.rnf applicationName
 
 instance Data.ToHeaders UpdateApplication where
@@ -238,16 +238,16 @@ instance Data.ToJSON UpdateApplication where
       ( Prelude.catMaybes
           [ ("ApplicationConfigurationUpdate" Data..=)
               Prelude.<$> applicationConfigurationUpdate,
-            ("ServiceExecutionRoleUpdate" Data..=)
-              Prelude.<$> serviceExecutionRoleUpdate,
+            ("CloudWatchLoggingOptionUpdates" Data..=)
+              Prelude.<$> cloudWatchLoggingOptionUpdates,
             ("ConditionalToken" Data..=)
               Prelude.<$> conditionalToken,
             ("CurrentApplicationVersionId" Data..=)
               Prelude.<$> currentApplicationVersionId,
             ("RunConfigurationUpdate" Data..=)
               Prelude.<$> runConfigurationUpdate,
-            ("CloudWatchLoggingOptionUpdates" Data..=)
-              Prelude.<$> cloudWatchLoggingOptionUpdates,
+            ("ServiceExecutionRoleUpdate" Data..=)
+              Prelude.<$> serviceExecutionRoleUpdate,
             Prelude.Just
               ("ApplicationName" Data..= applicationName)
           ]

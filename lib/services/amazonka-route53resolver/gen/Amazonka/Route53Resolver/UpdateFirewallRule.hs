@@ -27,13 +27,13 @@ module Amazonka.Route53Resolver.UpdateFirewallRule
     newUpdateFirewallRule,
 
     -- * Request Lenses
-    updateFirewallRule_name,
-    updateFirewallRule_blockResponse,
-    updateFirewallRule_blockOverrideTtl,
+    updateFirewallRule_action,
     updateFirewallRule_blockOverrideDnsType,
     updateFirewallRule_blockOverrideDomain,
+    updateFirewallRule_blockOverrideTtl,
+    updateFirewallRule_blockResponse,
+    updateFirewallRule_name,
     updateFirewallRule_priority,
-    updateFirewallRule_action,
     updateFirewallRule_firewallRuleGroupId,
     updateFirewallRule_firewallDomainListId,
 
@@ -57,8 +57,28 @@ import Amazonka.Route53Resolver.Types
 
 -- | /See:/ 'newUpdateFirewallRule' smart constructor.
 data UpdateFirewallRule = UpdateFirewallRule'
-  { -- | The name of the rule.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | The action that DNS Firewall should take on a DNS query when it matches
+    -- one of the domains in the rule\'s domain list:
+    --
+    -- -   @ALLOW@ - Permit the request to go through.
+    --
+    -- -   @ALERT@ - Permit the request to go through but send an alert to the
+    --     logs.
+    --
+    -- -   @BLOCK@ - Disallow the request. This option requires additional
+    --     details in the rule\'s @BlockResponse@.
+    action :: Prelude.Maybe Action,
+    -- | The DNS record\'s type. This determines the format of the record value
+    -- that you provided in @BlockOverrideDomain@. Used for the rule action
+    -- @BLOCK@ with a @BlockResponse@ setting of @OVERRIDE@.
+    blockOverrideDnsType :: Prelude.Maybe BlockOverrideDnsType,
+    -- | The custom DNS record to send back in response to the query. Used for
+    -- the rule action @BLOCK@ with a @BlockResponse@ setting of @OVERRIDE@.
+    blockOverrideDomain :: Prelude.Maybe Prelude.Text,
+    -- | The recommended amount of time, in seconds, for the DNS resolver or web
+    -- browser to cache the provided override record. Used for the rule action
+    -- @BLOCK@ with a @BlockResponse@ setting of @OVERRIDE@.
+    blockOverrideTtl :: Prelude.Maybe Prelude.Natural,
     -- | The way that you want DNS Firewall to block the request. Used for the
     -- rule action setting @BLOCK@.
     --
@@ -72,17 +92,8 @@ data UpdateFirewallRule = UpdateFirewallRule'
     --     requires custom handling details in the rule\'s @BlockOverride*@
     --     settings.
     blockResponse :: Prelude.Maybe BlockResponse,
-    -- | The recommended amount of time, in seconds, for the DNS resolver or web
-    -- browser to cache the provided override record. Used for the rule action
-    -- @BLOCK@ with a @BlockResponse@ setting of @OVERRIDE@.
-    blockOverrideTtl :: Prelude.Maybe Prelude.Natural,
-    -- | The DNS record\'s type. This determines the format of the record value
-    -- that you provided in @BlockOverrideDomain@. Used for the rule action
-    -- @BLOCK@ with a @BlockResponse@ setting of @OVERRIDE@.
-    blockOverrideDnsType :: Prelude.Maybe BlockOverrideDnsType,
-    -- | The custom DNS record to send back in response to the query. Used for
-    -- the rule action @BLOCK@ with a @BlockResponse@ setting of @OVERRIDE@.
-    blockOverrideDomain :: Prelude.Maybe Prelude.Text,
+    -- | The name of the rule.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The setting that determines the processing order of the rule in the rule
     -- group. DNS Firewall processes the rules in a rule group by order of
     -- priority, starting from the lowest setting.
@@ -92,17 +103,6 @@ data UpdateFirewallRule = UpdateFirewallRule'
     -- for example, use 100, 200, and so on. You can change the priority
     -- setting for the rules in a rule group at any time.
     priority :: Prelude.Maybe Prelude.Int,
-    -- | The action that DNS Firewall should take on a DNS query when it matches
-    -- one of the domains in the rule\'s domain list:
-    --
-    -- -   @ALLOW@ - Permit the request to go through.
-    --
-    -- -   @ALERT@ - Permit the request to go through but send an alert to the
-    --     logs.
-    --
-    -- -   @BLOCK@ - Disallow the request. This option requires additional
-    --     details in the rule\'s @BlockResponse@.
-    action :: Prelude.Maybe Action,
     -- | The unique identifier of the firewall rule group for the rule.
     firewallRuleGroupId :: Prelude.Text,
     -- | The ID of the domain list to use in the rule.
@@ -118,7 +118,27 @@ data UpdateFirewallRule = UpdateFirewallRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateFirewallRule_name' - The name of the rule.
+-- 'action', 'updateFirewallRule_action' - The action that DNS Firewall should take on a DNS query when it matches
+-- one of the domains in the rule\'s domain list:
+--
+-- -   @ALLOW@ - Permit the request to go through.
+--
+-- -   @ALERT@ - Permit the request to go through but send an alert to the
+--     logs.
+--
+-- -   @BLOCK@ - Disallow the request. This option requires additional
+--     details in the rule\'s @BlockResponse@.
+--
+-- 'blockOverrideDnsType', 'updateFirewallRule_blockOverrideDnsType' - The DNS record\'s type. This determines the format of the record value
+-- that you provided in @BlockOverrideDomain@. Used for the rule action
+-- @BLOCK@ with a @BlockResponse@ setting of @OVERRIDE@.
+--
+-- 'blockOverrideDomain', 'updateFirewallRule_blockOverrideDomain' - The custom DNS record to send back in response to the query. Used for
+-- the rule action @BLOCK@ with a @BlockResponse@ setting of @OVERRIDE@.
+--
+-- 'blockOverrideTtl', 'updateFirewallRule_blockOverrideTtl' - The recommended amount of time, in seconds, for the DNS resolver or web
+-- browser to cache the provided override record. Used for the rule action
+-- @BLOCK@ with a @BlockResponse@ setting of @OVERRIDE@.
 --
 -- 'blockResponse', 'updateFirewallRule_blockResponse' - The way that you want DNS Firewall to block the request. Used for the
 -- rule action setting @BLOCK@.
@@ -133,16 +153,7 @@ data UpdateFirewallRule = UpdateFirewallRule'
 --     requires custom handling details in the rule\'s @BlockOverride*@
 --     settings.
 --
--- 'blockOverrideTtl', 'updateFirewallRule_blockOverrideTtl' - The recommended amount of time, in seconds, for the DNS resolver or web
--- browser to cache the provided override record. Used for the rule action
--- @BLOCK@ with a @BlockResponse@ setting of @OVERRIDE@.
---
--- 'blockOverrideDnsType', 'updateFirewallRule_blockOverrideDnsType' - The DNS record\'s type. This determines the format of the record value
--- that you provided in @BlockOverrideDomain@. Used for the rule action
--- @BLOCK@ with a @BlockResponse@ setting of @OVERRIDE@.
---
--- 'blockOverrideDomain', 'updateFirewallRule_blockOverrideDomain' - The custom DNS record to send back in response to the query. Used for
--- the rule action @BLOCK@ with a @BlockResponse@ setting of @OVERRIDE@.
+-- 'name', 'updateFirewallRule_name' - The name of the rule.
 --
 -- 'priority', 'updateFirewallRule_priority' - The setting that determines the processing order of the rule in the rule
 -- group. DNS Firewall processes the rules in a rule group by order of
@@ -152,17 +163,6 @@ data UpdateFirewallRule = UpdateFirewallRule'
 -- make it easier to insert rules later, leave space between the numbers,
 -- for example, use 100, 200, and so on. You can change the priority
 -- setting for the rules in a rule group at any time.
---
--- 'action', 'updateFirewallRule_action' - The action that DNS Firewall should take on a DNS query when it matches
--- one of the domains in the rule\'s domain list:
---
--- -   @ALLOW@ - Permit the request to go through.
---
--- -   @ALERT@ - Permit the request to go through but send an alert to the
---     logs.
---
--- -   @BLOCK@ - Disallow the request. This option requires additional
---     details in the rule\'s @BlockResponse@.
 --
 -- 'firewallRuleGroupId', 'updateFirewallRule_firewallRuleGroupId' - The unique identifier of the firewall rule group for the rule.
 --
@@ -177,20 +177,46 @@ newUpdateFirewallRule
   pFirewallRuleGroupId_
   pFirewallDomainListId_ =
     UpdateFirewallRule'
-      { name = Prelude.Nothing,
-        blockResponse = Prelude.Nothing,
-        blockOverrideTtl = Prelude.Nothing,
+      { action = Prelude.Nothing,
         blockOverrideDnsType = Prelude.Nothing,
         blockOverrideDomain = Prelude.Nothing,
+        blockOverrideTtl = Prelude.Nothing,
+        blockResponse = Prelude.Nothing,
+        name = Prelude.Nothing,
         priority = Prelude.Nothing,
-        action = Prelude.Nothing,
         firewallRuleGroupId = pFirewallRuleGroupId_,
         firewallDomainListId = pFirewallDomainListId_
       }
 
--- | The name of the rule.
-updateFirewallRule_name :: Lens.Lens' UpdateFirewallRule (Prelude.Maybe Prelude.Text)
-updateFirewallRule_name = Lens.lens (\UpdateFirewallRule' {name} -> name) (\s@UpdateFirewallRule' {} a -> s {name = a} :: UpdateFirewallRule)
+-- | The action that DNS Firewall should take on a DNS query when it matches
+-- one of the domains in the rule\'s domain list:
+--
+-- -   @ALLOW@ - Permit the request to go through.
+--
+-- -   @ALERT@ - Permit the request to go through but send an alert to the
+--     logs.
+--
+-- -   @BLOCK@ - Disallow the request. This option requires additional
+--     details in the rule\'s @BlockResponse@.
+updateFirewallRule_action :: Lens.Lens' UpdateFirewallRule (Prelude.Maybe Action)
+updateFirewallRule_action = Lens.lens (\UpdateFirewallRule' {action} -> action) (\s@UpdateFirewallRule' {} a -> s {action = a} :: UpdateFirewallRule)
+
+-- | The DNS record\'s type. This determines the format of the record value
+-- that you provided in @BlockOverrideDomain@. Used for the rule action
+-- @BLOCK@ with a @BlockResponse@ setting of @OVERRIDE@.
+updateFirewallRule_blockOverrideDnsType :: Lens.Lens' UpdateFirewallRule (Prelude.Maybe BlockOverrideDnsType)
+updateFirewallRule_blockOverrideDnsType = Lens.lens (\UpdateFirewallRule' {blockOverrideDnsType} -> blockOverrideDnsType) (\s@UpdateFirewallRule' {} a -> s {blockOverrideDnsType = a} :: UpdateFirewallRule)
+
+-- | The custom DNS record to send back in response to the query. Used for
+-- the rule action @BLOCK@ with a @BlockResponse@ setting of @OVERRIDE@.
+updateFirewallRule_blockOverrideDomain :: Lens.Lens' UpdateFirewallRule (Prelude.Maybe Prelude.Text)
+updateFirewallRule_blockOverrideDomain = Lens.lens (\UpdateFirewallRule' {blockOverrideDomain} -> blockOverrideDomain) (\s@UpdateFirewallRule' {} a -> s {blockOverrideDomain = a} :: UpdateFirewallRule)
+
+-- | The recommended amount of time, in seconds, for the DNS resolver or web
+-- browser to cache the provided override record. Used for the rule action
+-- @BLOCK@ with a @BlockResponse@ setting of @OVERRIDE@.
+updateFirewallRule_blockOverrideTtl :: Lens.Lens' UpdateFirewallRule (Prelude.Maybe Prelude.Natural)
+updateFirewallRule_blockOverrideTtl = Lens.lens (\UpdateFirewallRule' {blockOverrideTtl} -> blockOverrideTtl) (\s@UpdateFirewallRule' {} a -> s {blockOverrideTtl = a} :: UpdateFirewallRule)
 
 -- | The way that you want DNS Firewall to block the request. Used for the
 -- rule action setting @BLOCK@.
@@ -207,22 +233,9 @@ updateFirewallRule_name = Lens.lens (\UpdateFirewallRule' {name} -> name) (\s@Up
 updateFirewallRule_blockResponse :: Lens.Lens' UpdateFirewallRule (Prelude.Maybe BlockResponse)
 updateFirewallRule_blockResponse = Lens.lens (\UpdateFirewallRule' {blockResponse} -> blockResponse) (\s@UpdateFirewallRule' {} a -> s {blockResponse = a} :: UpdateFirewallRule)
 
--- | The recommended amount of time, in seconds, for the DNS resolver or web
--- browser to cache the provided override record. Used for the rule action
--- @BLOCK@ with a @BlockResponse@ setting of @OVERRIDE@.
-updateFirewallRule_blockOverrideTtl :: Lens.Lens' UpdateFirewallRule (Prelude.Maybe Prelude.Natural)
-updateFirewallRule_blockOverrideTtl = Lens.lens (\UpdateFirewallRule' {blockOverrideTtl} -> blockOverrideTtl) (\s@UpdateFirewallRule' {} a -> s {blockOverrideTtl = a} :: UpdateFirewallRule)
-
--- | The DNS record\'s type. This determines the format of the record value
--- that you provided in @BlockOverrideDomain@. Used for the rule action
--- @BLOCK@ with a @BlockResponse@ setting of @OVERRIDE@.
-updateFirewallRule_blockOverrideDnsType :: Lens.Lens' UpdateFirewallRule (Prelude.Maybe BlockOverrideDnsType)
-updateFirewallRule_blockOverrideDnsType = Lens.lens (\UpdateFirewallRule' {blockOverrideDnsType} -> blockOverrideDnsType) (\s@UpdateFirewallRule' {} a -> s {blockOverrideDnsType = a} :: UpdateFirewallRule)
-
--- | The custom DNS record to send back in response to the query. Used for
--- the rule action @BLOCK@ with a @BlockResponse@ setting of @OVERRIDE@.
-updateFirewallRule_blockOverrideDomain :: Lens.Lens' UpdateFirewallRule (Prelude.Maybe Prelude.Text)
-updateFirewallRule_blockOverrideDomain = Lens.lens (\UpdateFirewallRule' {blockOverrideDomain} -> blockOverrideDomain) (\s@UpdateFirewallRule' {} a -> s {blockOverrideDomain = a} :: UpdateFirewallRule)
+-- | The name of the rule.
+updateFirewallRule_name :: Lens.Lens' UpdateFirewallRule (Prelude.Maybe Prelude.Text)
+updateFirewallRule_name = Lens.lens (\UpdateFirewallRule' {name} -> name) (\s@UpdateFirewallRule' {} a -> s {name = a} :: UpdateFirewallRule)
 
 -- | The setting that determines the processing order of the rule in the rule
 -- group. DNS Firewall processes the rules in a rule group by order of
@@ -234,19 +247,6 @@ updateFirewallRule_blockOverrideDomain = Lens.lens (\UpdateFirewallRule' {blockO
 -- setting for the rules in a rule group at any time.
 updateFirewallRule_priority :: Lens.Lens' UpdateFirewallRule (Prelude.Maybe Prelude.Int)
 updateFirewallRule_priority = Lens.lens (\UpdateFirewallRule' {priority} -> priority) (\s@UpdateFirewallRule' {} a -> s {priority = a} :: UpdateFirewallRule)
-
--- | The action that DNS Firewall should take on a DNS query when it matches
--- one of the domains in the rule\'s domain list:
---
--- -   @ALLOW@ - Permit the request to go through.
---
--- -   @ALERT@ - Permit the request to go through but send an alert to the
---     logs.
---
--- -   @BLOCK@ - Disallow the request. This option requires additional
---     details in the rule\'s @BlockResponse@.
-updateFirewallRule_action :: Lens.Lens' UpdateFirewallRule (Prelude.Maybe Action)
-updateFirewallRule_action = Lens.lens (\UpdateFirewallRule' {action} -> action) (\s@UpdateFirewallRule' {} a -> s {action = a} :: UpdateFirewallRule)
 
 -- | The unique identifier of the firewall rule group for the rule.
 updateFirewallRule_firewallRuleGroupId :: Lens.Lens' UpdateFirewallRule Prelude.Text
@@ -272,25 +272,25 @@ instance Core.AWSRequest UpdateFirewallRule where
 
 instance Prelude.Hashable UpdateFirewallRule where
   hashWithSalt _salt UpdateFirewallRule' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` blockResponse
-      `Prelude.hashWithSalt` blockOverrideTtl
+    _salt `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` blockOverrideDnsType
       `Prelude.hashWithSalt` blockOverrideDomain
+      `Prelude.hashWithSalt` blockOverrideTtl
+      `Prelude.hashWithSalt` blockResponse
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` priority
-      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` firewallRuleGroupId
       `Prelude.hashWithSalt` firewallDomainListId
 
 instance Prelude.NFData UpdateFirewallRule where
   rnf UpdateFirewallRule' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf blockResponse
-      `Prelude.seq` Prelude.rnf blockOverrideTtl
+    Prelude.rnf action
       `Prelude.seq` Prelude.rnf blockOverrideDnsType
       `Prelude.seq` Prelude.rnf blockOverrideDomain
+      `Prelude.seq` Prelude.rnf blockOverrideTtl
+      `Prelude.seq` Prelude.rnf blockResponse
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf action
       `Prelude.seq` Prelude.rnf firewallRuleGroupId
       `Prelude.seq` Prelude.rnf firewallDomainListId
 
@@ -313,16 +313,16 @@ instance Data.ToJSON UpdateFirewallRule where
   toJSON UpdateFirewallRule' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
-            ("BlockResponse" Data..=) Prelude.<$> blockResponse,
-            ("BlockOverrideTtl" Data..=)
-              Prelude.<$> blockOverrideTtl,
+          [ ("Action" Data..=) Prelude.<$> action,
             ("BlockOverrideDnsType" Data..=)
               Prelude.<$> blockOverrideDnsType,
             ("BlockOverrideDomain" Data..=)
               Prelude.<$> blockOverrideDomain,
+            ("BlockOverrideTtl" Data..=)
+              Prelude.<$> blockOverrideTtl,
+            ("BlockResponse" Data..=) Prelude.<$> blockResponse,
+            ("Name" Data..=) Prelude.<$> name,
             ("Priority" Data..=) Prelude.<$> priority,
-            ("Action" Data..=) Prelude.<$> action,
             Prelude.Just
               ("FirewallRuleGroupId" Data..= firewallRuleGroupId),
             Prelude.Just

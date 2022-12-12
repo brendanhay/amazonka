@@ -35,13 +35,13 @@ module Amazonka.WorkMail.GetImpersonationRole
     newGetImpersonationRoleResponse,
 
     -- * Response Lenses
-    getImpersonationRoleResponse_name,
-    getImpersonationRoleResponse_type,
-    getImpersonationRoleResponse_rules,
-    getImpersonationRoleResponse_description,
     getImpersonationRoleResponse_dateCreated,
-    getImpersonationRoleResponse_impersonationRoleId,
     getImpersonationRoleResponse_dateModified,
+    getImpersonationRoleResponse_description,
+    getImpersonationRoleResponse_impersonationRoleId,
+    getImpersonationRoleResponse_name,
+    getImpersonationRoleResponse_rules,
+    getImpersonationRoleResponse_type,
     getImpersonationRoleResponse_httpStatus,
   )
 where
@@ -107,13 +107,13 @@ instance Core.AWSRequest GetImpersonationRole where
     Response.receiveJSON
       ( \s h x ->
           GetImpersonationRoleResponse'
-            Prelude.<$> (x Data..?> "Name")
-            Prelude.<*> (x Data..?> "Type")
-            Prelude.<*> (x Data..?> "Rules" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "Description")
-            Prelude.<*> (x Data..?> "DateCreated")
-            Prelude.<*> (x Data..?> "ImpersonationRoleId")
+            Prelude.<$> (x Data..?> "DateCreated")
             Prelude.<*> (x Data..?> "DateModified")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "ImpersonationRoleId")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "Rules" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,20 +161,20 @@ instance Data.ToQuery GetImpersonationRole where
 
 -- | /See:/ 'newGetImpersonationRoleResponse' smart constructor.
 data GetImpersonationRoleResponse = GetImpersonationRoleResponse'
-  { -- | The impersonation role name.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The impersonation role type.
-    type' :: Prelude.Maybe ImpersonationRoleType,
-    -- | The list of rules for the given impersonation role.
-    rules :: Prelude.Maybe [ImpersonationRule],
-    -- | The impersonation role description.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The date when the impersonation role was created.
+  { -- | The date when the impersonation role was created.
     dateCreated :: Prelude.Maybe Data.POSIX,
-    -- | The impersonation role ID.
-    impersonationRoleId :: Prelude.Maybe Prelude.Text,
     -- | The date when the impersonation role was last modified.
     dateModified :: Prelude.Maybe Data.POSIX,
+    -- | The impersonation role description.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The impersonation role ID.
+    impersonationRoleId :: Prelude.Maybe Prelude.Text,
+    -- | The impersonation role name.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The list of rules for the given impersonation role.
+    rules :: Prelude.Maybe [ImpersonationRule],
+    -- | The impersonation role type.
+    type' :: Prelude.Maybe ImpersonationRoleType,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -188,19 +188,19 @@ data GetImpersonationRoleResponse = GetImpersonationRoleResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'getImpersonationRoleResponse_name' - The impersonation role name.
+-- 'dateCreated', 'getImpersonationRoleResponse_dateCreated' - The date when the impersonation role was created.
 --
--- 'type'', 'getImpersonationRoleResponse_type' - The impersonation role type.
---
--- 'rules', 'getImpersonationRoleResponse_rules' - The list of rules for the given impersonation role.
+-- 'dateModified', 'getImpersonationRoleResponse_dateModified' - The date when the impersonation role was last modified.
 --
 -- 'description', 'getImpersonationRoleResponse_description' - The impersonation role description.
 --
--- 'dateCreated', 'getImpersonationRoleResponse_dateCreated' - The date when the impersonation role was created.
---
 -- 'impersonationRoleId', 'getImpersonationRoleResponse_impersonationRoleId' - The impersonation role ID.
 --
--- 'dateModified', 'getImpersonationRoleResponse_dateModified' - The date when the impersonation role was last modified.
+-- 'name', 'getImpersonationRoleResponse_name' - The impersonation role name.
+--
+-- 'rules', 'getImpersonationRoleResponse_rules' - The list of rules for the given impersonation role.
+--
+-- 'type'', 'getImpersonationRoleResponse_type' - The impersonation role type.
 --
 -- 'httpStatus', 'getImpersonationRoleResponse_httpStatus' - The response's http status code.
 newGetImpersonationRoleResponse ::
@@ -209,44 +209,44 @@ newGetImpersonationRoleResponse ::
   GetImpersonationRoleResponse
 newGetImpersonationRoleResponse pHttpStatus_ =
   GetImpersonationRoleResponse'
-    { name =
+    { dateCreated =
         Prelude.Nothing,
-      type' = Prelude.Nothing,
-      rules = Prelude.Nothing,
-      description = Prelude.Nothing,
-      dateCreated = Prelude.Nothing,
-      impersonationRoleId = Prelude.Nothing,
       dateModified = Prelude.Nothing,
+      description = Prelude.Nothing,
+      impersonationRoleId = Prelude.Nothing,
+      name = Prelude.Nothing,
+      rules = Prelude.Nothing,
+      type' = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The impersonation role name.
-getImpersonationRoleResponse_name :: Lens.Lens' GetImpersonationRoleResponse (Prelude.Maybe Prelude.Text)
-getImpersonationRoleResponse_name = Lens.lens (\GetImpersonationRoleResponse' {name} -> name) (\s@GetImpersonationRoleResponse' {} a -> s {name = a} :: GetImpersonationRoleResponse)
-
--- | The impersonation role type.
-getImpersonationRoleResponse_type :: Lens.Lens' GetImpersonationRoleResponse (Prelude.Maybe ImpersonationRoleType)
-getImpersonationRoleResponse_type = Lens.lens (\GetImpersonationRoleResponse' {type'} -> type') (\s@GetImpersonationRoleResponse' {} a -> s {type' = a} :: GetImpersonationRoleResponse)
-
--- | The list of rules for the given impersonation role.
-getImpersonationRoleResponse_rules :: Lens.Lens' GetImpersonationRoleResponse (Prelude.Maybe [ImpersonationRule])
-getImpersonationRoleResponse_rules = Lens.lens (\GetImpersonationRoleResponse' {rules} -> rules) (\s@GetImpersonationRoleResponse' {} a -> s {rules = a} :: GetImpersonationRoleResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The impersonation role description.
-getImpersonationRoleResponse_description :: Lens.Lens' GetImpersonationRoleResponse (Prelude.Maybe Prelude.Text)
-getImpersonationRoleResponse_description = Lens.lens (\GetImpersonationRoleResponse' {description} -> description) (\s@GetImpersonationRoleResponse' {} a -> s {description = a} :: GetImpersonationRoleResponse)
 
 -- | The date when the impersonation role was created.
 getImpersonationRoleResponse_dateCreated :: Lens.Lens' GetImpersonationRoleResponse (Prelude.Maybe Prelude.UTCTime)
 getImpersonationRoleResponse_dateCreated = Lens.lens (\GetImpersonationRoleResponse' {dateCreated} -> dateCreated) (\s@GetImpersonationRoleResponse' {} a -> s {dateCreated = a} :: GetImpersonationRoleResponse) Prelude.. Lens.mapping Data._Time
 
+-- | The date when the impersonation role was last modified.
+getImpersonationRoleResponse_dateModified :: Lens.Lens' GetImpersonationRoleResponse (Prelude.Maybe Prelude.UTCTime)
+getImpersonationRoleResponse_dateModified = Lens.lens (\GetImpersonationRoleResponse' {dateModified} -> dateModified) (\s@GetImpersonationRoleResponse' {} a -> s {dateModified = a} :: GetImpersonationRoleResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The impersonation role description.
+getImpersonationRoleResponse_description :: Lens.Lens' GetImpersonationRoleResponse (Prelude.Maybe Prelude.Text)
+getImpersonationRoleResponse_description = Lens.lens (\GetImpersonationRoleResponse' {description} -> description) (\s@GetImpersonationRoleResponse' {} a -> s {description = a} :: GetImpersonationRoleResponse)
+
 -- | The impersonation role ID.
 getImpersonationRoleResponse_impersonationRoleId :: Lens.Lens' GetImpersonationRoleResponse (Prelude.Maybe Prelude.Text)
 getImpersonationRoleResponse_impersonationRoleId = Lens.lens (\GetImpersonationRoleResponse' {impersonationRoleId} -> impersonationRoleId) (\s@GetImpersonationRoleResponse' {} a -> s {impersonationRoleId = a} :: GetImpersonationRoleResponse)
 
--- | The date when the impersonation role was last modified.
-getImpersonationRoleResponse_dateModified :: Lens.Lens' GetImpersonationRoleResponse (Prelude.Maybe Prelude.UTCTime)
-getImpersonationRoleResponse_dateModified = Lens.lens (\GetImpersonationRoleResponse' {dateModified} -> dateModified) (\s@GetImpersonationRoleResponse' {} a -> s {dateModified = a} :: GetImpersonationRoleResponse) Prelude.. Lens.mapping Data._Time
+-- | The impersonation role name.
+getImpersonationRoleResponse_name :: Lens.Lens' GetImpersonationRoleResponse (Prelude.Maybe Prelude.Text)
+getImpersonationRoleResponse_name = Lens.lens (\GetImpersonationRoleResponse' {name} -> name) (\s@GetImpersonationRoleResponse' {} a -> s {name = a} :: GetImpersonationRoleResponse)
+
+-- | The list of rules for the given impersonation role.
+getImpersonationRoleResponse_rules :: Lens.Lens' GetImpersonationRoleResponse (Prelude.Maybe [ImpersonationRule])
+getImpersonationRoleResponse_rules = Lens.lens (\GetImpersonationRoleResponse' {rules} -> rules) (\s@GetImpersonationRoleResponse' {} a -> s {rules = a} :: GetImpersonationRoleResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The impersonation role type.
+getImpersonationRoleResponse_type :: Lens.Lens' GetImpersonationRoleResponse (Prelude.Maybe ImpersonationRoleType)
+getImpersonationRoleResponse_type = Lens.lens (\GetImpersonationRoleResponse' {type'} -> type') (\s@GetImpersonationRoleResponse' {} a -> s {type' = a} :: GetImpersonationRoleResponse)
 
 -- | The response's http status code.
 getImpersonationRoleResponse_httpStatus :: Lens.Lens' GetImpersonationRoleResponse Prelude.Int
@@ -254,11 +254,11 @@ getImpersonationRoleResponse_httpStatus = Lens.lens (\GetImpersonationRoleRespon
 
 instance Prelude.NFData GetImpersonationRoleResponse where
   rnf GetImpersonationRoleResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf rules
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dateCreated
-      `Prelude.seq` Prelude.rnf impersonationRoleId
+    Prelude.rnf dateCreated
       `Prelude.seq` Prelude.rnf dateModified
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf impersonationRoleId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf rules
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf httpStatus

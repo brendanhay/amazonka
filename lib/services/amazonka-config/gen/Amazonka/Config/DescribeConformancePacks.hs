@@ -29,17 +29,17 @@ module Amazonka.Config.DescribeConformancePacks
     newDescribeConformancePacks,
 
     -- * Request Lenses
-    describeConformancePacks_nextToken,
-    describeConformancePacks_limit,
     describeConformancePacks_conformancePackNames,
+    describeConformancePacks_limit,
+    describeConformancePacks_nextToken,
 
     -- * Destructuring the Response
     DescribeConformancePacksResponse (..),
     newDescribeConformancePacksResponse,
 
     -- * Response Lenses
-    describeConformancePacksResponse_nextToken,
     describeConformancePacksResponse_conformancePackDetails,
+    describeConformancePacksResponse_nextToken,
     describeConformancePacksResponse_httpStatus,
   )
 where
@@ -54,15 +54,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeConformancePacks' smart constructor.
 data DescribeConformancePacks = DescribeConformancePacks'
-  { -- | The @nextToken@ string returned in a previous request that you use to
-    -- request the next page of results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of conformance packs returned on each page.
-    limit :: Prelude.Maybe Prelude.Natural,
-    -- | Comma-separated list of conformance pack names for which you want
+  { -- | Comma-separated list of conformance pack names for which you want
     -- details. If you do not specify any names, Config returns details for all
     -- your conformance packs.
-    conformancePackNames :: Prelude.Maybe [Prelude.Text]
+    conformancePackNames :: Prelude.Maybe [Prelude.Text],
+    -- | The maximum number of conformance packs returned on each page.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | The @nextToken@ string returned in a previous request that you use to
+    -- request the next page of results in a paginated response.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,38 +74,38 @@ data DescribeConformancePacks = DescribeConformancePacks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeConformancePacks_nextToken' - The @nextToken@ string returned in a previous request that you use to
--- request the next page of results in a paginated response.
---
--- 'limit', 'describeConformancePacks_limit' - The maximum number of conformance packs returned on each page.
---
 -- 'conformancePackNames', 'describeConformancePacks_conformancePackNames' - Comma-separated list of conformance pack names for which you want
 -- details. If you do not specify any names, Config returns details for all
 -- your conformance packs.
+--
+-- 'limit', 'describeConformancePacks_limit' - The maximum number of conformance packs returned on each page.
+--
+-- 'nextToken', 'describeConformancePacks_nextToken' - The @nextToken@ string returned in a previous request that you use to
+-- request the next page of results in a paginated response.
 newDescribeConformancePacks ::
   DescribeConformancePacks
 newDescribeConformancePacks =
   DescribeConformancePacks'
-    { nextToken =
+    { conformancePackNames =
         Prelude.Nothing,
       limit = Prelude.Nothing,
-      conformancePackNames = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | The @nextToken@ string returned in a previous request that you use to
--- request the next page of results in a paginated response.
-describeConformancePacks_nextToken :: Lens.Lens' DescribeConformancePacks (Prelude.Maybe Prelude.Text)
-describeConformancePacks_nextToken = Lens.lens (\DescribeConformancePacks' {nextToken} -> nextToken) (\s@DescribeConformancePacks' {} a -> s {nextToken = a} :: DescribeConformancePacks)
-
--- | The maximum number of conformance packs returned on each page.
-describeConformancePacks_limit :: Lens.Lens' DescribeConformancePacks (Prelude.Maybe Prelude.Natural)
-describeConformancePacks_limit = Lens.lens (\DescribeConformancePacks' {limit} -> limit) (\s@DescribeConformancePacks' {} a -> s {limit = a} :: DescribeConformancePacks)
 
 -- | Comma-separated list of conformance pack names for which you want
 -- details. If you do not specify any names, Config returns details for all
 -- your conformance packs.
 describeConformancePacks_conformancePackNames :: Lens.Lens' DescribeConformancePacks (Prelude.Maybe [Prelude.Text])
 describeConformancePacks_conformancePackNames = Lens.lens (\DescribeConformancePacks' {conformancePackNames} -> conformancePackNames) (\s@DescribeConformancePacks' {} a -> s {conformancePackNames = a} :: DescribeConformancePacks) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum number of conformance packs returned on each page.
+describeConformancePacks_limit :: Lens.Lens' DescribeConformancePacks (Prelude.Maybe Prelude.Natural)
+describeConformancePacks_limit = Lens.lens (\DescribeConformancePacks' {limit} -> limit) (\s@DescribeConformancePacks' {} a -> s {limit = a} :: DescribeConformancePacks)
+
+-- | The @nextToken@ string returned in a previous request that you use to
+-- request the next page of results in a paginated response.
+describeConformancePacks_nextToken :: Lens.Lens' DescribeConformancePacks (Prelude.Maybe Prelude.Text)
+describeConformancePacks_nextToken = Lens.lens (\DescribeConformancePacks' {nextToken} -> nextToken) (\s@DescribeConformancePacks' {} a -> s {nextToken = a} :: DescribeConformancePacks)
 
 instance Core.AWSPager DescribeConformancePacks where
   page rq rs
@@ -139,24 +139,24 @@ instance Core.AWSRequest DescribeConformancePacks where
     Response.receiveJSON
       ( \s h x ->
           DescribeConformancePacksResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ConformancePackDetails"
+            Prelude.<$> ( x Data..?> "ConformancePackDetails"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeConformancePacks where
   hashWithSalt _salt DescribeConformancePacks' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` conformancePackNames
       `Prelude.hashWithSalt` limit
-      `Prelude.hashWithSalt` conformancePackNames
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeConformancePacks where
   rnf DescribeConformancePacks' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf conformancePackNames
       `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf conformancePackNames
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeConformancePacks where
   toHeaders =
@@ -177,10 +177,10 @@ instance Data.ToJSON DescribeConformancePacks where
   toJSON DescribeConformancePacks' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("ConformancePackNames" Data..=)
+              Prelude.<$> conformancePackNames,
             ("Limit" Data..=) Prelude.<$> limit,
-            ("ConformancePackNames" Data..=)
-              Prelude.<$> conformancePackNames
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -192,11 +192,11 @@ instance Data.ToQuery DescribeConformancePacks where
 
 -- | /See:/ 'newDescribeConformancePacksResponse' smart constructor.
 data DescribeConformancePacksResponse = DescribeConformancePacksResponse'
-  { -- | The @nextToken@ string returned in a previous request that you use to
+  { -- | Returns a list of @ConformancePackDetail@ objects.
+    conformancePackDetails :: Prelude.Maybe [ConformancePackDetail],
+    -- | The @nextToken@ string returned in a previous request that you use to
     -- request the next page of results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Returns a list of @ConformancePackDetail@ objects.
-    conformancePackDetails :: Prelude.Maybe [ConformancePackDetail],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -210,10 +210,10 @@ data DescribeConformancePacksResponse = DescribeConformancePacksResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'conformancePackDetails', 'describeConformancePacksResponse_conformancePackDetails' - Returns a list of @ConformancePackDetail@ objects.
+--
 -- 'nextToken', 'describeConformancePacksResponse_nextToken' - The @nextToken@ string returned in a previous request that you use to
 -- request the next page of results in a paginated response.
---
--- 'conformancePackDetails', 'describeConformancePacksResponse_conformancePackDetails' - Returns a list of @ConformancePackDetail@ objects.
 --
 -- 'httpStatus', 'describeConformancePacksResponse_httpStatus' - The response's http status code.
 newDescribeConformancePacksResponse ::
@@ -222,20 +222,20 @@ newDescribeConformancePacksResponse ::
   DescribeConformancePacksResponse
 newDescribeConformancePacksResponse pHttpStatus_ =
   DescribeConformancePacksResponse'
-    { nextToken =
+    { conformancePackDetails =
         Prelude.Nothing,
-      conformancePackDetails = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Returns a list of @ConformancePackDetail@ objects.
+describeConformancePacksResponse_conformancePackDetails :: Lens.Lens' DescribeConformancePacksResponse (Prelude.Maybe [ConformancePackDetail])
+describeConformancePacksResponse_conformancePackDetails = Lens.lens (\DescribeConformancePacksResponse' {conformancePackDetails} -> conformancePackDetails) (\s@DescribeConformancePacksResponse' {} a -> s {conformancePackDetails = a} :: DescribeConformancePacksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The @nextToken@ string returned in a previous request that you use to
 -- request the next page of results in a paginated response.
 describeConformancePacksResponse_nextToken :: Lens.Lens' DescribeConformancePacksResponse (Prelude.Maybe Prelude.Text)
 describeConformancePacksResponse_nextToken = Lens.lens (\DescribeConformancePacksResponse' {nextToken} -> nextToken) (\s@DescribeConformancePacksResponse' {} a -> s {nextToken = a} :: DescribeConformancePacksResponse)
-
--- | Returns a list of @ConformancePackDetail@ objects.
-describeConformancePacksResponse_conformancePackDetails :: Lens.Lens' DescribeConformancePacksResponse (Prelude.Maybe [ConformancePackDetail])
-describeConformancePacksResponse_conformancePackDetails = Lens.lens (\DescribeConformancePacksResponse' {conformancePackDetails} -> conformancePackDetails) (\s@DescribeConformancePacksResponse' {} a -> s {conformancePackDetails = a} :: DescribeConformancePacksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeConformancePacksResponse_httpStatus :: Lens.Lens' DescribeConformancePacksResponse Prelude.Int
@@ -246,6 +246,6 @@ instance
     DescribeConformancePacksResponse
   where
   rnf DescribeConformancePacksResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf conformancePackDetails
+    Prelude.rnf conformancePackDetails
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

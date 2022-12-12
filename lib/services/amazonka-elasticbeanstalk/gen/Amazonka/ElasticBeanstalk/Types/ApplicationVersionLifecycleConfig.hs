@@ -36,12 +36,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newApplicationVersionLifecycleConfig' smart constructor.
 data ApplicationVersionLifecycleConfig = ApplicationVersionLifecycleConfig'
-  { -- | Specify a max count rule to restrict the number of application versions
-    -- that are retained for an application.
-    maxCountRule :: Prelude.Maybe MaxCountRule,
-    -- | Specify a max age rule to restrict the length of time that application
+  { -- | Specify a max age rule to restrict the length of time that application
     -- versions are retained for an application.
-    maxAgeRule :: Prelude.Maybe MaxAgeRule
+    maxAgeRule :: Prelude.Maybe MaxAgeRule,
+    -- | Specify a max count rule to restrict the number of application versions
+    -- that are retained for an application.
+    maxCountRule :: Prelude.Maybe MaxCountRule
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,29 +53,29 @@ data ApplicationVersionLifecycleConfig = ApplicationVersionLifecycleConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxCountRule', 'applicationVersionLifecycleConfig_maxCountRule' - Specify a max count rule to restrict the number of application versions
--- that are retained for an application.
---
 -- 'maxAgeRule', 'applicationVersionLifecycleConfig_maxAgeRule' - Specify a max age rule to restrict the length of time that application
 -- versions are retained for an application.
+--
+-- 'maxCountRule', 'applicationVersionLifecycleConfig_maxCountRule' - Specify a max count rule to restrict the number of application versions
+-- that are retained for an application.
 newApplicationVersionLifecycleConfig ::
   ApplicationVersionLifecycleConfig
 newApplicationVersionLifecycleConfig =
   ApplicationVersionLifecycleConfig'
-    { maxCountRule =
+    { maxAgeRule =
         Prelude.Nothing,
-      maxAgeRule = Prelude.Nothing
+      maxCountRule = Prelude.Nothing
     }
-
--- | Specify a max count rule to restrict the number of application versions
--- that are retained for an application.
-applicationVersionLifecycleConfig_maxCountRule :: Lens.Lens' ApplicationVersionLifecycleConfig (Prelude.Maybe MaxCountRule)
-applicationVersionLifecycleConfig_maxCountRule = Lens.lens (\ApplicationVersionLifecycleConfig' {maxCountRule} -> maxCountRule) (\s@ApplicationVersionLifecycleConfig' {} a -> s {maxCountRule = a} :: ApplicationVersionLifecycleConfig)
 
 -- | Specify a max age rule to restrict the length of time that application
 -- versions are retained for an application.
 applicationVersionLifecycleConfig_maxAgeRule :: Lens.Lens' ApplicationVersionLifecycleConfig (Prelude.Maybe MaxAgeRule)
 applicationVersionLifecycleConfig_maxAgeRule = Lens.lens (\ApplicationVersionLifecycleConfig' {maxAgeRule} -> maxAgeRule) (\s@ApplicationVersionLifecycleConfig' {} a -> s {maxAgeRule = a} :: ApplicationVersionLifecycleConfig)
+
+-- | Specify a max count rule to restrict the number of application versions
+-- that are retained for an application.
+applicationVersionLifecycleConfig_maxCountRule :: Lens.Lens' ApplicationVersionLifecycleConfig (Prelude.Maybe MaxCountRule)
+applicationVersionLifecycleConfig_maxCountRule = Lens.lens (\ApplicationVersionLifecycleConfig' {maxCountRule} -> maxCountRule) (\s@ApplicationVersionLifecycleConfig' {} a -> s {maxCountRule = a} :: ApplicationVersionLifecycleConfig)
 
 instance
   Data.FromXML
@@ -83,8 +83,8 @@ instance
   where
   parseXML x =
     ApplicationVersionLifecycleConfig'
-      Prelude.<$> (x Data..@? "MaxCountRule")
-      Prelude.<*> (x Data..@? "MaxAgeRule")
+      Prelude.<$> (x Data..@? "MaxAgeRule")
+      Prelude.<*> (x Data..@? "MaxCountRule")
 
 instance
   Prelude.Hashable
@@ -93,16 +93,16 @@ instance
   hashWithSalt
     _salt
     ApplicationVersionLifecycleConfig' {..} =
-      _salt `Prelude.hashWithSalt` maxCountRule
-        `Prelude.hashWithSalt` maxAgeRule
+      _salt `Prelude.hashWithSalt` maxAgeRule
+        `Prelude.hashWithSalt` maxCountRule
 
 instance
   Prelude.NFData
     ApplicationVersionLifecycleConfig
   where
   rnf ApplicationVersionLifecycleConfig' {..} =
-    Prelude.rnf maxCountRule
-      `Prelude.seq` Prelude.rnf maxAgeRule
+    Prelude.rnf maxAgeRule
+      `Prelude.seq` Prelude.rnf maxCountRule
 
 instance
   Data.ToQuery
@@ -110,6 +110,6 @@ instance
   where
   toQuery ApplicationVersionLifecycleConfig' {..} =
     Prelude.mconcat
-      [ "MaxCountRule" Data.=: maxCountRule,
-        "MaxAgeRule" Data.=: maxAgeRule
+      [ "MaxAgeRule" Data.=: maxAgeRule,
+        "MaxCountRule" Data.=: maxCountRule
       ]

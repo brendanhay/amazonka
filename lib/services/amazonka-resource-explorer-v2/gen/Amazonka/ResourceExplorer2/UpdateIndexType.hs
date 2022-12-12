@@ -90,10 +90,10 @@ module Amazonka.ResourceExplorer2.UpdateIndexType
     newUpdateIndexTypeResponse,
 
     -- * Response Lenses
-    updateIndexTypeResponse_type,
-    updateIndexTypeResponse_lastUpdatedAt,
     updateIndexTypeResponse_arn,
+    updateIndexTypeResponse_lastUpdatedAt,
     updateIndexTypeResponse_state,
+    updateIndexTypeResponse_type,
     updateIndexTypeResponse_httpStatus,
   )
 where
@@ -168,10 +168,10 @@ instance Core.AWSRequest UpdateIndexType where
     Response.receiveJSON
       ( \s h x ->
           UpdateIndexTypeResponse'
-            Prelude.<$> (x Data..?> "Type")
+            Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (x Data..?> "LastUpdatedAt")
-            Prelude.<*> (x Data..?> "Arn")
             Prelude.<*> (x Data..?> "State")
+            Prelude.<*> (x Data..?> "Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -212,17 +212,17 @@ instance Data.ToQuery UpdateIndexType where
 
 -- | /See:/ 'newUpdateIndexTypeResponse' smart constructor.
 data UpdateIndexTypeResponse = UpdateIndexTypeResponse'
-  { -- | Specifies the type of the specified index after the operation completes.
-    type' :: Prelude.Maybe IndexType,
-    -- | The date and timestamp when the index was last updated.
-    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
-    -- | The
+  { -- | The
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon resource name (ARN)>
     -- of the index that you updated.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The date and timestamp when the index was last updated.
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | Indicates the state of the request to update the index. This operation
     -- is asynchronous. Call the GetIndex operation to check for changes.
     state :: Prelude.Maybe IndexState,
+    -- | Specifies the type of the specified index after the operation completes.
+    type' :: Prelude.Maybe IndexType,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -236,16 +236,16 @@ data UpdateIndexTypeResponse = UpdateIndexTypeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'updateIndexTypeResponse_type' - Specifies the type of the specified index after the operation completes.
---
--- 'lastUpdatedAt', 'updateIndexTypeResponse_lastUpdatedAt' - The date and timestamp when the index was last updated.
---
 -- 'arn', 'updateIndexTypeResponse_arn' - The
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon resource name (ARN)>
 -- of the index that you updated.
 --
+-- 'lastUpdatedAt', 'updateIndexTypeResponse_lastUpdatedAt' - The date and timestamp when the index was last updated.
+--
 -- 'state', 'updateIndexTypeResponse_state' - Indicates the state of the request to update the index. This operation
 -- is asynchronous. Call the GetIndex operation to check for changes.
+--
+-- 'type'', 'updateIndexTypeResponse_type' - Specifies the type of the specified index after the operation completes.
 --
 -- 'httpStatus', 'updateIndexTypeResponse_httpStatus' - The response's http status code.
 newUpdateIndexTypeResponse ::
@@ -254,20 +254,12 @@ newUpdateIndexTypeResponse ::
   UpdateIndexTypeResponse
 newUpdateIndexTypeResponse pHttpStatus_ =
   UpdateIndexTypeResponse'
-    { type' = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       lastUpdatedAt = Prelude.Nothing,
-      arn = Prelude.Nothing,
       state = Prelude.Nothing,
+      type' = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Specifies the type of the specified index after the operation completes.
-updateIndexTypeResponse_type :: Lens.Lens' UpdateIndexTypeResponse (Prelude.Maybe IndexType)
-updateIndexTypeResponse_type = Lens.lens (\UpdateIndexTypeResponse' {type'} -> type') (\s@UpdateIndexTypeResponse' {} a -> s {type' = a} :: UpdateIndexTypeResponse)
-
--- | The date and timestamp when the index was last updated.
-updateIndexTypeResponse_lastUpdatedAt :: Lens.Lens' UpdateIndexTypeResponse (Prelude.Maybe Prelude.UTCTime)
-updateIndexTypeResponse_lastUpdatedAt = Lens.lens (\UpdateIndexTypeResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@UpdateIndexTypeResponse' {} a -> s {lastUpdatedAt = a} :: UpdateIndexTypeResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon resource name (ARN)>
@@ -275,10 +267,18 @@ updateIndexTypeResponse_lastUpdatedAt = Lens.lens (\UpdateIndexTypeResponse' {la
 updateIndexTypeResponse_arn :: Lens.Lens' UpdateIndexTypeResponse (Prelude.Maybe Prelude.Text)
 updateIndexTypeResponse_arn = Lens.lens (\UpdateIndexTypeResponse' {arn} -> arn) (\s@UpdateIndexTypeResponse' {} a -> s {arn = a} :: UpdateIndexTypeResponse)
 
+-- | The date and timestamp when the index was last updated.
+updateIndexTypeResponse_lastUpdatedAt :: Lens.Lens' UpdateIndexTypeResponse (Prelude.Maybe Prelude.UTCTime)
+updateIndexTypeResponse_lastUpdatedAt = Lens.lens (\UpdateIndexTypeResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@UpdateIndexTypeResponse' {} a -> s {lastUpdatedAt = a} :: UpdateIndexTypeResponse) Prelude.. Lens.mapping Data._Time
+
 -- | Indicates the state of the request to update the index. This operation
 -- is asynchronous. Call the GetIndex operation to check for changes.
 updateIndexTypeResponse_state :: Lens.Lens' UpdateIndexTypeResponse (Prelude.Maybe IndexState)
 updateIndexTypeResponse_state = Lens.lens (\UpdateIndexTypeResponse' {state} -> state) (\s@UpdateIndexTypeResponse' {} a -> s {state = a} :: UpdateIndexTypeResponse)
+
+-- | Specifies the type of the specified index after the operation completes.
+updateIndexTypeResponse_type :: Lens.Lens' UpdateIndexTypeResponse (Prelude.Maybe IndexType)
+updateIndexTypeResponse_type = Lens.lens (\UpdateIndexTypeResponse' {type'} -> type') (\s@UpdateIndexTypeResponse' {} a -> s {type' = a} :: UpdateIndexTypeResponse)
 
 -- | The response's http status code.
 updateIndexTypeResponse_httpStatus :: Lens.Lens' UpdateIndexTypeResponse Prelude.Int
@@ -286,8 +286,8 @@ updateIndexTypeResponse_httpStatus = Lens.lens (\UpdateIndexTypeResponse' {httpS
 
 instance Prelude.NFData UpdateIndexTypeResponse where
   rnf UpdateIndexTypeResponse' {..} =
-    Prelude.rnf type'
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf httpStatus

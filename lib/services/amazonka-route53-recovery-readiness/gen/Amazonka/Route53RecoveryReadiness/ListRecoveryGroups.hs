@@ -29,8 +29,8 @@ module Amazonka.Route53RecoveryReadiness.ListRecoveryGroups
     newListRecoveryGroups,
 
     -- * Request Lenses
-    listRecoveryGroups_nextToken,
     listRecoveryGroups_maxResults,
+    listRecoveryGroups_nextToken,
 
     -- * Destructuring the Response
     ListRecoveryGroupsResponse (..),
@@ -53,10 +53,10 @@ import Amazonka.Route53RecoveryReadiness.Types
 
 -- | /See:/ 'newListRecoveryGroups' smart constructor.
 data ListRecoveryGroups = ListRecoveryGroups'
-  { -- | The token that identifies which batch of results you want to see.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The number of objects that you want to return with this call.
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { -- | The number of objects that you want to return with this call.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token that identifies which batch of results you want to see.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,24 +68,24 @@ data ListRecoveryGroups = ListRecoveryGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listRecoveryGroups_nextToken' - The token that identifies which batch of results you want to see.
---
 -- 'maxResults', 'listRecoveryGroups_maxResults' - The number of objects that you want to return with this call.
+--
+-- 'nextToken', 'listRecoveryGroups_nextToken' - The token that identifies which batch of results you want to see.
 newListRecoveryGroups ::
   ListRecoveryGroups
 newListRecoveryGroups =
   ListRecoveryGroups'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token that identifies which batch of results you want to see.
-listRecoveryGroups_nextToken :: Lens.Lens' ListRecoveryGroups (Prelude.Maybe Prelude.Text)
-listRecoveryGroups_nextToken = Lens.lens (\ListRecoveryGroups' {nextToken} -> nextToken) (\s@ListRecoveryGroups' {} a -> s {nextToken = a} :: ListRecoveryGroups)
 
 -- | The number of objects that you want to return with this call.
 listRecoveryGroups_maxResults :: Lens.Lens' ListRecoveryGroups (Prelude.Maybe Prelude.Natural)
 listRecoveryGroups_maxResults = Lens.lens (\ListRecoveryGroups' {maxResults} -> maxResults) (\s@ListRecoveryGroups' {} a -> s {maxResults = a} :: ListRecoveryGroups)
+
+-- | The token that identifies which batch of results you want to see.
+listRecoveryGroups_nextToken :: Lens.Lens' ListRecoveryGroups (Prelude.Maybe Prelude.Text)
+listRecoveryGroups_nextToken = Lens.lens (\ListRecoveryGroups' {nextToken} -> nextToken) (\s@ListRecoveryGroups' {} a -> s {nextToken = a} :: ListRecoveryGroups)
 
 instance Core.AWSPager ListRecoveryGroups where
   page rq rs
@@ -126,13 +126,13 @@ instance Core.AWSRequest ListRecoveryGroups where
 
 instance Prelude.Hashable ListRecoveryGroups where
   hashWithSalt _salt ListRecoveryGroups' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListRecoveryGroups where
   rnf ListRecoveryGroups' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListRecoveryGroups where
   toHeaders =
@@ -151,8 +151,8 @@ instance Data.ToPath ListRecoveryGroups where
 instance Data.ToQuery ListRecoveryGroups where
   toQuery ListRecoveryGroups' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListRecoveryGroupsResponse' smart constructor.

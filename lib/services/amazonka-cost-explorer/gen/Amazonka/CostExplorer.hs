@@ -33,38 +33,41 @@ module Amazonka.CostExplorer
     -- * Errors
     -- $errors
 
-    -- ** RequestChangedException
-    _RequestChangedException,
-
-    -- ** UnknownSubscriptionException
-    _UnknownSubscriptionException,
-
-    -- ** TooManyTagsException
-    _TooManyTagsException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** UnresolvableUsageUnitException
-    _UnresolvableUsageUnitException,
-
     -- ** BillExpirationException
     _BillExpirationException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
+    -- ** DataUnavailableException
+    _DataUnavailableException,
+
+    -- ** GenerationExistsException
+    _GenerationExistsException,
 
     -- ** InvalidNextTokenException
     _InvalidNextTokenException,
 
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** RequestChangedException
+    _RequestChangedException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
+
     -- ** UnknownMonitorException
     _UnknownMonitorException,
 
-    -- ** DataUnavailableException
-    _DataUnavailableException,
+    -- ** UnknownSubscriptionException
+    _UnknownSubscriptionException,
+
+    -- ** UnresolvableUsageUnitException
+    _UnresolvableUsageUnitException,
 
     -- * Waiters
     -- $waiters
@@ -234,6 +237,12 @@ module Amazonka.CostExplorer
     ListCostCategoryDefinitionsResponse (ListCostCategoryDefinitionsResponse'),
     newListCostCategoryDefinitionsResponse,
 
+    -- ** ListSavingsPlansPurchaseRecommendationGeneration
+    ListSavingsPlansPurchaseRecommendationGeneration (ListSavingsPlansPurchaseRecommendationGeneration'),
+    newListSavingsPlansPurchaseRecommendationGeneration,
+    ListSavingsPlansPurchaseRecommendationGenerationResponse (ListSavingsPlansPurchaseRecommendationGenerationResponse'),
+    newListSavingsPlansPurchaseRecommendationGenerationResponse,
+
     -- ** ListTagsForResource
     ListTagsForResource (ListTagsForResource'),
     newListTagsForResource,
@@ -245,6 +254,12 @@ module Amazonka.CostExplorer
     newProvideAnomalyFeedback,
     ProvideAnomalyFeedbackResponse (ProvideAnomalyFeedbackResponse'),
     newProvideAnomalyFeedbackResponse,
+
+    -- ** StartSavingsPlansPurchaseRecommendationGeneration
+    StartSavingsPlansPurchaseRecommendationGeneration (StartSavingsPlansPurchaseRecommendationGeneration'),
+    newStartSavingsPlansPurchaseRecommendationGeneration,
+    StartSavingsPlansPurchaseRecommendationGenerationResponse (StartSavingsPlansPurchaseRecommendationGenerationResponse'),
+    newStartSavingsPlansPurchaseRecommendationGenerationResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -328,6 +343,9 @@ module Amazonka.CostExplorer
 
     -- ** FindingReasonCode
     FindingReasonCode (..),
+
+    -- ** GenerationStatus
+    GenerationStatus (..),
 
     -- ** Granularity
     Granularity (..),
@@ -521,6 +539,10 @@ module Amazonka.CostExplorer
     -- ** ForecastResult
     ForecastResult (ForecastResult'),
     newForecastResult,
+
+    -- ** GenerationSummary
+    GenerationSummary (GenerationSummary'),
+    newGenerationSummary,
 
     -- ** Group
     Group (Group'),
@@ -740,8 +762,10 @@ import Amazonka.CostExplorer.GetUsageForecast
 import Amazonka.CostExplorer.Lens
 import Amazonka.CostExplorer.ListCostAllocationTags
 import Amazonka.CostExplorer.ListCostCategoryDefinitions
+import Amazonka.CostExplorer.ListSavingsPlansPurchaseRecommendationGeneration
 import Amazonka.CostExplorer.ListTagsForResource
 import Amazonka.CostExplorer.ProvideAnomalyFeedback
+import Amazonka.CostExplorer.StartSavingsPlansPurchaseRecommendationGeneration
 import Amazonka.CostExplorer.TagResource
 import Amazonka.CostExplorer.Types
 import Amazonka.CostExplorer.UntagResource

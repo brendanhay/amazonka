@@ -35,8 +35,9 @@ module Amazonka.IotTwinMaker.GetEntity
     newGetEntityResponse,
 
     -- * Response Lenses
-    getEntityResponse_description,
     getEntityResponse_components,
+    getEntityResponse_description,
+    getEntityResponse_syncSource,
     getEntityResponse_httpStatus,
     getEntityResponse_entityId,
     getEntityResponse_entityName,
@@ -106,8 +107,9 @@ instance Core.AWSRequest GetEntity where
     Response.receiveJSON
       ( \s h x ->
           GetEntityResponse'
-            Prelude.<$> (x Data..?> "description")
-            Prelude.<*> (x Data..?> "components" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "components" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "syncSource")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "entityId")
             Prelude.<*> (x Data..:> "entityName")
@@ -155,11 +157,14 @@ instance Data.ToQuery GetEntity where
 
 -- | /See:/ 'newGetEntityResponse' smart constructor.
 data GetEntityResponse = GetEntityResponse'
-  { -- | The description of the entity.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | An object that maps strings to the components in the entity. Each string
+  { -- | An object that maps strings to the components in the entity. Each string
     -- in the mapping must be unique to this object.
     components :: Prelude.Maybe (Prelude.HashMap Prelude.Text ComponentResponse),
+    -- | The description of the entity.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The syncSource of the sync job, if this entity was created by a sync
+    -- job.
+    syncSource :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The ID of the entity.
@@ -192,10 +197,13 @@ data GetEntityResponse = GetEntityResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'getEntityResponse_description' - The description of the entity.
---
 -- 'components', 'getEntityResponse_components' - An object that maps strings to the components in the entity. Each string
 -- in the mapping must be unique to this object.
+--
+-- 'description', 'getEntityResponse_description' - The description of the entity.
+--
+-- 'syncSource', 'getEntityResponse_syncSource' - The syncSource of the sync job, if this entity was created by a sync
+-- job.
 --
 -- 'httpStatus', 'getEntityResponse_httpStatus' - The response's http status code.
 --
@@ -251,8 +259,9 @@ newGetEntityResponse
   pCreationDateTime_
   pUpdateDateTime_ =
     GetEntityResponse'
-      { description = Prelude.Nothing,
-        components = Prelude.Nothing,
+      { components = Prelude.Nothing,
+        description = Prelude.Nothing,
+        syncSource = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         entityId = pEntityId_,
         entityName = pEntityName_,
@@ -266,14 +275,19 @@ newGetEntityResponse
         updateDateTime = Data._Time Lens.# pUpdateDateTime_
       }
 
--- | The description of the entity.
-getEntityResponse_description :: Lens.Lens' GetEntityResponse (Prelude.Maybe Prelude.Text)
-getEntityResponse_description = Lens.lens (\GetEntityResponse' {description} -> description) (\s@GetEntityResponse' {} a -> s {description = a} :: GetEntityResponse)
-
 -- | An object that maps strings to the components in the entity. Each string
 -- in the mapping must be unique to this object.
 getEntityResponse_components :: Lens.Lens' GetEntityResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text ComponentResponse))
 getEntityResponse_components = Lens.lens (\GetEntityResponse' {components} -> components) (\s@GetEntityResponse' {} a -> s {components = a} :: GetEntityResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The description of the entity.
+getEntityResponse_description :: Lens.Lens' GetEntityResponse (Prelude.Maybe Prelude.Text)
+getEntityResponse_description = Lens.lens (\GetEntityResponse' {description} -> description) (\s@GetEntityResponse' {} a -> s {description = a} :: GetEntityResponse)
+
+-- | The syncSource of the sync job, if this entity was created by a sync
+-- job.
+getEntityResponse_syncSource :: Lens.Lens' GetEntityResponse (Prelude.Maybe Prelude.Text)
+getEntityResponse_syncSource = Lens.lens (\GetEntityResponse' {syncSource} -> syncSource) (\s@GetEntityResponse' {} a -> s {syncSource = a} :: GetEntityResponse)
 
 -- | The response's http status code.
 getEntityResponse_httpStatus :: Lens.Lens' GetEntityResponse Prelude.Int
@@ -318,8 +332,9 @@ getEntityResponse_updateDateTime = Lens.lens (\GetEntityResponse' {updateDateTim
 
 instance Prelude.NFData GetEntityResponse where
   rnf GetEntityResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf components
+    Prelude.rnf components
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf syncSource
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf entityId
       `Prelude.seq` Prelude.rnf entityName

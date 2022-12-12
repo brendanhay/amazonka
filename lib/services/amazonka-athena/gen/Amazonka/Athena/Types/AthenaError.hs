@@ -33,9 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAthenaError' smart constructor.
 data AthenaError = AthenaError'
-  { -- | True if the query might succeed if resubmitted.
-    retryable :: Prelude.Maybe Prelude.Bool,
-    -- | An integer value that specifies the category of a query failure error.
+  { -- | An integer value that specifies the category of a query failure error.
     -- The following list shows the category for each integer value.
     --
     -- __1__ - System
@@ -50,7 +48,9 @@ data AthenaError = AthenaError'
     -- query error. For the meaning of specific values, see the
     -- <https://docs.aws.amazon.com/athena/latest/ug/error-reference.html#error-reference-error-type-reference Error Type Reference>
     -- in the /Amazon Athena User Guide/.
-    errorType :: Prelude.Maybe Prelude.Natural
+    errorType :: Prelude.Maybe Prelude.Natural,
+    -- | True if the query might succeed if resubmitted.
+    retryable :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,8 +61,6 @@ data AthenaError = AthenaError'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'retryable', 'athenaError_retryable' - True if the query might succeed if resubmitted.
 --
 -- 'errorCategory', 'athenaError_errorCategory' - An integer value that specifies the category of a query failure error.
 -- The following list shows the category for each integer value.
@@ -79,19 +77,17 @@ data AthenaError = AthenaError'
 -- query error. For the meaning of specific values, see the
 -- <https://docs.aws.amazon.com/athena/latest/ug/error-reference.html#error-reference-error-type-reference Error Type Reference>
 -- in the /Amazon Athena User Guide/.
+--
+-- 'retryable', 'athenaError_retryable' - True if the query might succeed if resubmitted.
 newAthenaError ::
   AthenaError
 newAthenaError =
   AthenaError'
-    { retryable = Prelude.Nothing,
-      errorCategory = Prelude.Nothing,
+    { errorCategory = Prelude.Nothing,
       errorMessage = Prelude.Nothing,
-      errorType = Prelude.Nothing
+      errorType = Prelude.Nothing,
+      retryable = Prelude.Nothing
     }
-
--- | True if the query might succeed if resubmitted.
-athenaError_retryable :: Lens.Lens' AthenaError (Prelude.Maybe Prelude.Bool)
-athenaError_retryable = Lens.lens (\AthenaError' {retryable} -> retryable) (\s@AthenaError' {} a -> s {retryable = a} :: AthenaError)
 
 -- | An integer value that specifies the category of a query failure error.
 -- The following list shows the category for each integer value.
@@ -115,28 +111,32 @@ athenaError_errorMessage = Lens.lens (\AthenaError' {errorMessage} -> errorMessa
 athenaError_errorType :: Lens.Lens' AthenaError (Prelude.Maybe Prelude.Natural)
 athenaError_errorType = Lens.lens (\AthenaError' {errorType} -> errorType) (\s@AthenaError' {} a -> s {errorType = a} :: AthenaError)
 
+-- | True if the query might succeed if resubmitted.
+athenaError_retryable :: Lens.Lens' AthenaError (Prelude.Maybe Prelude.Bool)
+athenaError_retryable = Lens.lens (\AthenaError' {retryable} -> retryable) (\s@AthenaError' {} a -> s {retryable = a} :: AthenaError)
+
 instance Data.FromJSON AthenaError where
   parseJSON =
     Data.withObject
       "AthenaError"
       ( \x ->
           AthenaError'
-            Prelude.<$> (x Data..:? "Retryable")
-            Prelude.<*> (x Data..:? "ErrorCategory")
+            Prelude.<$> (x Data..:? "ErrorCategory")
             Prelude.<*> (x Data..:? "ErrorMessage")
             Prelude.<*> (x Data..:? "ErrorType")
+            Prelude.<*> (x Data..:? "Retryable")
       )
 
 instance Prelude.Hashable AthenaError where
   hashWithSalt _salt AthenaError' {..} =
-    _salt `Prelude.hashWithSalt` retryable
-      `Prelude.hashWithSalt` errorCategory
+    _salt `Prelude.hashWithSalt` errorCategory
       `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` errorType
+      `Prelude.hashWithSalt` retryable
 
 instance Prelude.NFData AthenaError where
   rnf AthenaError' {..} =
-    Prelude.rnf retryable
-      `Prelude.seq` Prelude.rnf errorCategory
+    Prelude.rnf errorCategory
       `Prelude.seq` Prelude.rnf errorMessage
       `Prelude.seq` Prelude.rnf errorType
+      `Prelude.seq` Prelude.rnf retryable

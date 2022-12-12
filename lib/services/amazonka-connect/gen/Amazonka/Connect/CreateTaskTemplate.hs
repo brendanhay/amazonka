@@ -29,10 +29,10 @@ module Amazonka.Connect.CreateTaskTemplate
     -- * Request Lenses
     createTaskTemplate_clientToken,
     createTaskTemplate_constraints,
-    createTaskTemplate_status,
-    createTaskTemplate_description,
-    createTaskTemplate_defaults,
     createTaskTemplate_contactFlowId,
+    createTaskTemplate_defaults,
+    createTaskTemplate_description,
+    createTaskTemplate_status,
     createTaskTemplate_instanceId,
     createTaskTemplate_name,
     createTaskTemplate_fields,
@@ -65,19 +65,19 @@ data CreateTaskTemplate = CreateTaskTemplate'
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | Constraints that are applicable to the fields listed.
     constraints :: Prelude.Maybe TaskTemplateConstraints,
+    -- | The identifier of the flow that runs by default when a task is created
+    -- by referencing this template.
+    contactFlowId :: Prelude.Maybe Prelude.Text,
+    -- | The default values for fields when a task is created by referencing this
+    -- template.
+    defaults :: Prelude.Maybe TaskTemplateDefaults,
+    -- | The description of the task template.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Marks a template as @ACTIVE@ or @INACTIVE@ for a task to refer to it.
     -- Tasks can only be created from @ACTIVE@ templates. If a template is
     -- marked as @INACTIVE@, then a task that refers to this template cannot be
     -- created.
     status :: Prelude.Maybe TaskTemplateStatus,
-    -- | The description of the task template.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The default values for fields when a task is created by referencing this
-    -- template.
-    defaults :: Prelude.Maybe TaskTemplateDefaults,
-    -- | The identifier of the flow that runs by default when a task is created
-    -- by referencing this template.
-    contactFlowId :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
@@ -103,18 +103,18 @@ data CreateTaskTemplate = CreateTaskTemplate'
 --
 -- 'constraints', 'createTaskTemplate_constraints' - Constraints that are applicable to the fields listed.
 --
--- 'status', 'createTaskTemplate_status' - Marks a template as @ACTIVE@ or @INACTIVE@ for a task to refer to it.
--- Tasks can only be created from @ACTIVE@ templates. If a template is
--- marked as @INACTIVE@, then a task that refers to this template cannot be
--- created.
---
--- 'description', 'createTaskTemplate_description' - The description of the task template.
+-- 'contactFlowId', 'createTaskTemplate_contactFlowId' - The identifier of the flow that runs by default when a task is created
+-- by referencing this template.
 --
 -- 'defaults', 'createTaskTemplate_defaults' - The default values for fields when a task is created by referencing this
 -- template.
 --
--- 'contactFlowId', 'createTaskTemplate_contactFlowId' - The identifier of the flow that runs by default when a task is created
--- by referencing this template.
+-- 'description', 'createTaskTemplate_description' - The description of the task template.
+--
+-- 'status', 'createTaskTemplate_status' - Marks a template as @ACTIVE@ or @INACTIVE@ for a task to refer to it.
+-- Tasks can only be created from @ACTIVE@ templates. If a template is
+-- marked as @INACTIVE@, then a task that refers to this template cannot be
+-- created.
 --
 -- 'instanceId', 'createTaskTemplate_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -132,10 +132,10 @@ newCreateTaskTemplate pInstanceId_ pName_ =
   CreateTaskTemplate'
     { clientToken = Prelude.Nothing,
       constraints = Prelude.Nothing,
-      status = Prelude.Nothing,
-      description = Prelude.Nothing,
-      defaults = Prelude.Nothing,
       contactFlowId = Prelude.Nothing,
+      defaults = Prelude.Nothing,
+      description = Prelude.Nothing,
+      status = Prelude.Nothing,
       instanceId = pInstanceId_,
       name = pName_,
       fields = Prelude.mempty
@@ -152,26 +152,26 @@ createTaskTemplate_clientToken = Lens.lens (\CreateTaskTemplate' {clientToken} -
 createTaskTemplate_constraints :: Lens.Lens' CreateTaskTemplate (Prelude.Maybe TaskTemplateConstraints)
 createTaskTemplate_constraints = Lens.lens (\CreateTaskTemplate' {constraints} -> constraints) (\s@CreateTaskTemplate' {} a -> s {constraints = a} :: CreateTaskTemplate)
 
--- | Marks a template as @ACTIVE@ or @INACTIVE@ for a task to refer to it.
--- Tasks can only be created from @ACTIVE@ templates. If a template is
--- marked as @INACTIVE@, then a task that refers to this template cannot be
--- created.
-createTaskTemplate_status :: Lens.Lens' CreateTaskTemplate (Prelude.Maybe TaskTemplateStatus)
-createTaskTemplate_status = Lens.lens (\CreateTaskTemplate' {status} -> status) (\s@CreateTaskTemplate' {} a -> s {status = a} :: CreateTaskTemplate)
-
--- | The description of the task template.
-createTaskTemplate_description :: Lens.Lens' CreateTaskTemplate (Prelude.Maybe Prelude.Text)
-createTaskTemplate_description = Lens.lens (\CreateTaskTemplate' {description} -> description) (\s@CreateTaskTemplate' {} a -> s {description = a} :: CreateTaskTemplate)
+-- | The identifier of the flow that runs by default when a task is created
+-- by referencing this template.
+createTaskTemplate_contactFlowId :: Lens.Lens' CreateTaskTemplate (Prelude.Maybe Prelude.Text)
+createTaskTemplate_contactFlowId = Lens.lens (\CreateTaskTemplate' {contactFlowId} -> contactFlowId) (\s@CreateTaskTemplate' {} a -> s {contactFlowId = a} :: CreateTaskTemplate)
 
 -- | The default values for fields when a task is created by referencing this
 -- template.
 createTaskTemplate_defaults :: Lens.Lens' CreateTaskTemplate (Prelude.Maybe TaskTemplateDefaults)
 createTaskTemplate_defaults = Lens.lens (\CreateTaskTemplate' {defaults} -> defaults) (\s@CreateTaskTemplate' {} a -> s {defaults = a} :: CreateTaskTemplate)
 
--- | The identifier of the flow that runs by default when a task is created
--- by referencing this template.
-createTaskTemplate_contactFlowId :: Lens.Lens' CreateTaskTemplate (Prelude.Maybe Prelude.Text)
-createTaskTemplate_contactFlowId = Lens.lens (\CreateTaskTemplate' {contactFlowId} -> contactFlowId) (\s@CreateTaskTemplate' {} a -> s {contactFlowId = a} :: CreateTaskTemplate)
+-- | The description of the task template.
+createTaskTemplate_description :: Lens.Lens' CreateTaskTemplate (Prelude.Maybe Prelude.Text)
+createTaskTemplate_description = Lens.lens (\CreateTaskTemplate' {description} -> description) (\s@CreateTaskTemplate' {} a -> s {description = a} :: CreateTaskTemplate)
+
+-- | Marks a template as @ACTIVE@ or @INACTIVE@ for a task to refer to it.
+-- Tasks can only be created from @ACTIVE@ templates. If a template is
+-- marked as @INACTIVE@, then a task that refers to this template cannot be
+-- created.
+createTaskTemplate_status :: Lens.Lens' CreateTaskTemplate (Prelude.Maybe TaskTemplateStatus)
+createTaskTemplate_status = Lens.lens (\CreateTaskTemplate' {status} -> status) (\s@CreateTaskTemplate' {} a -> s {status = a} :: CreateTaskTemplate)
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -205,10 +205,10 @@ instance Prelude.Hashable CreateTaskTemplate where
   hashWithSalt _salt CreateTaskTemplate' {..} =
     _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` constraints
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` defaults
       `Prelude.hashWithSalt` contactFlowId
+      `Prelude.hashWithSalt` defaults
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` fields
@@ -217,10 +217,10 @@ instance Prelude.NFData CreateTaskTemplate where
   rnf CreateTaskTemplate' {..} =
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf constraints
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf defaults
       `Prelude.seq` Prelude.rnf contactFlowId
+      `Prelude.seq` Prelude.rnf defaults
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf fields
@@ -242,10 +242,10 @@ instance Data.ToJSON CreateTaskTemplate where
       ( Prelude.catMaybes
           [ ("ClientToken" Data..=) Prelude.<$> clientToken,
             ("Constraints" Data..=) Prelude.<$> constraints,
-            ("Status" Data..=) Prelude.<$> status,
-            ("Description" Data..=) Prelude.<$> description,
-            ("Defaults" Data..=) Prelude.<$> defaults,
             ("ContactFlowId" Data..=) Prelude.<$> contactFlowId,
+            ("Defaults" Data..=) Prelude.<$> defaults,
+            ("Description" Data..=) Prelude.<$> description,
+            ("Status" Data..=) Prelude.<$> status,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("Fields" Data..= fields)
           ]

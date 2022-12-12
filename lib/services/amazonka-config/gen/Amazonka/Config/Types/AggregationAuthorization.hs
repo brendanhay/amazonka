@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAggregationAuthorization' smart constructor.
 data AggregationAuthorization = AggregationAuthorization'
-  { -- | The region authorized to collect aggregated data.
-    authorizedAwsRegion :: Prelude.Maybe Prelude.Text,
+  { -- | The Amazon Resource Name (ARN) of the aggregation object.
+    aggregationAuthorizationArn :: Prelude.Maybe Prelude.Text,
     -- | The 12-digit account ID of the account authorized to aggregate data.
     authorizedAccountId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the aggregation object.
-    aggregationAuthorizationArn :: Prelude.Maybe Prelude.Text,
+    -- | The region authorized to collect aggregated data.
+    authorizedAwsRegion :: Prelude.Maybe Prelude.Text,
     -- | The time stamp when the aggregation authorization was created.
     creationTime :: Prelude.Maybe Data.POSIX
   }
@@ -48,35 +48,35 @@ data AggregationAuthorization = AggregationAuthorization'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authorizedAwsRegion', 'aggregationAuthorization_authorizedAwsRegion' - The region authorized to collect aggregated data.
+-- 'aggregationAuthorizationArn', 'aggregationAuthorization_aggregationAuthorizationArn' - The Amazon Resource Name (ARN) of the aggregation object.
 --
 -- 'authorizedAccountId', 'aggregationAuthorization_authorizedAccountId' - The 12-digit account ID of the account authorized to aggregate data.
 --
--- 'aggregationAuthorizationArn', 'aggregationAuthorization_aggregationAuthorizationArn' - The Amazon Resource Name (ARN) of the aggregation object.
+-- 'authorizedAwsRegion', 'aggregationAuthorization_authorizedAwsRegion' - The region authorized to collect aggregated data.
 --
 -- 'creationTime', 'aggregationAuthorization_creationTime' - The time stamp when the aggregation authorization was created.
 newAggregationAuthorization ::
   AggregationAuthorization
 newAggregationAuthorization =
   AggregationAuthorization'
-    { authorizedAwsRegion =
+    { aggregationAuthorizationArn =
         Prelude.Nothing,
       authorizedAccountId = Prelude.Nothing,
-      aggregationAuthorizationArn = Prelude.Nothing,
+      authorizedAwsRegion = Prelude.Nothing,
       creationTime = Prelude.Nothing
     }
 
--- | The region authorized to collect aggregated data.
-aggregationAuthorization_authorizedAwsRegion :: Lens.Lens' AggregationAuthorization (Prelude.Maybe Prelude.Text)
-aggregationAuthorization_authorizedAwsRegion = Lens.lens (\AggregationAuthorization' {authorizedAwsRegion} -> authorizedAwsRegion) (\s@AggregationAuthorization' {} a -> s {authorizedAwsRegion = a} :: AggregationAuthorization)
+-- | The Amazon Resource Name (ARN) of the aggregation object.
+aggregationAuthorization_aggregationAuthorizationArn :: Lens.Lens' AggregationAuthorization (Prelude.Maybe Prelude.Text)
+aggregationAuthorization_aggregationAuthorizationArn = Lens.lens (\AggregationAuthorization' {aggregationAuthorizationArn} -> aggregationAuthorizationArn) (\s@AggregationAuthorization' {} a -> s {aggregationAuthorizationArn = a} :: AggregationAuthorization)
 
 -- | The 12-digit account ID of the account authorized to aggregate data.
 aggregationAuthorization_authorizedAccountId :: Lens.Lens' AggregationAuthorization (Prelude.Maybe Prelude.Text)
 aggregationAuthorization_authorizedAccountId = Lens.lens (\AggregationAuthorization' {authorizedAccountId} -> authorizedAccountId) (\s@AggregationAuthorization' {} a -> s {authorizedAccountId = a} :: AggregationAuthorization)
 
--- | The Amazon Resource Name (ARN) of the aggregation object.
-aggregationAuthorization_aggregationAuthorizationArn :: Lens.Lens' AggregationAuthorization (Prelude.Maybe Prelude.Text)
-aggregationAuthorization_aggregationAuthorizationArn = Lens.lens (\AggregationAuthorization' {aggregationAuthorizationArn} -> aggregationAuthorizationArn) (\s@AggregationAuthorization' {} a -> s {aggregationAuthorizationArn = a} :: AggregationAuthorization)
+-- | The region authorized to collect aggregated data.
+aggregationAuthorization_authorizedAwsRegion :: Lens.Lens' AggregationAuthorization (Prelude.Maybe Prelude.Text)
+aggregationAuthorization_authorizedAwsRegion = Lens.lens (\AggregationAuthorization' {authorizedAwsRegion} -> authorizedAwsRegion) (\s@AggregationAuthorization' {} a -> s {authorizedAwsRegion = a} :: AggregationAuthorization)
 
 -- | The time stamp when the aggregation authorization was created.
 aggregationAuthorization_creationTime :: Lens.Lens' AggregationAuthorization (Prelude.Maybe Prelude.UTCTime)
@@ -88,22 +88,23 @@ instance Data.FromJSON AggregationAuthorization where
       "AggregationAuthorization"
       ( \x ->
           AggregationAuthorization'
-            Prelude.<$> (x Data..:? "AuthorizedAwsRegion")
+            Prelude.<$> (x Data..:? "AggregationAuthorizationArn")
             Prelude.<*> (x Data..:? "AuthorizedAccountId")
-            Prelude.<*> (x Data..:? "AggregationAuthorizationArn")
+            Prelude.<*> (x Data..:? "AuthorizedAwsRegion")
             Prelude.<*> (x Data..:? "CreationTime")
       )
 
 instance Prelude.Hashable AggregationAuthorization where
   hashWithSalt _salt AggregationAuthorization' {..} =
-    _salt `Prelude.hashWithSalt` authorizedAwsRegion
-      `Prelude.hashWithSalt` authorizedAccountId
+    _salt
       `Prelude.hashWithSalt` aggregationAuthorizationArn
+      `Prelude.hashWithSalt` authorizedAccountId
+      `Prelude.hashWithSalt` authorizedAwsRegion
       `Prelude.hashWithSalt` creationTime
 
 instance Prelude.NFData AggregationAuthorization where
   rnf AggregationAuthorization' {..} =
-    Prelude.rnf authorizedAwsRegion
+    Prelude.rnf aggregationAuthorizationArn
       `Prelude.seq` Prelude.rnf authorizedAccountId
-      `Prelude.seq` Prelude.rnf aggregationAuthorizationArn
+      `Prelude.seq` Prelude.rnf authorizedAwsRegion
       `Prelude.seq` Prelude.rnf creationTime

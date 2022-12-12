@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 data DatasetStats = DatasetStats'
   { -- | The total number of entries that contain at least one error.
     errorEntries :: Prelude.Maybe Prelude.Natural,
+    -- | The total number of images in the dataset that have labels.
+    labeledEntries :: Prelude.Maybe Prelude.Natural,
     -- | The total number of images in the dataset.
     totalEntries :: Prelude.Maybe Prelude.Natural,
     -- | The total number of labels declared in the dataset.
-    totalLabels :: Prelude.Maybe Prelude.Natural,
-    -- | The total number of images in the dataset that have labels.
-    labeledEntries :: Prelude.Maybe Prelude.Natural
+    totalLabels :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,24 +50,28 @@ data DatasetStats = DatasetStats'
 --
 -- 'errorEntries', 'datasetStats_errorEntries' - The total number of entries that contain at least one error.
 --
+-- 'labeledEntries', 'datasetStats_labeledEntries' - The total number of images in the dataset that have labels.
+--
 -- 'totalEntries', 'datasetStats_totalEntries' - The total number of images in the dataset.
 --
 -- 'totalLabels', 'datasetStats_totalLabels' - The total number of labels declared in the dataset.
---
--- 'labeledEntries', 'datasetStats_labeledEntries' - The total number of images in the dataset that have labels.
 newDatasetStats ::
   DatasetStats
 newDatasetStats =
   DatasetStats'
     { errorEntries = Prelude.Nothing,
+      labeledEntries = Prelude.Nothing,
       totalEntries = Prelude.Nothing,
-      totalLabels = Prelude.Nothing,
-      labeledEntries = Prelude.Nothing
+      totalLabels = Prelude.Nothing
     }
 
 -- | The total number of entries that contain at least one error.
 datasetStats_errorEntries :: Lens.Lens' DatasetStats (Prelude.Maybe Prelude.Natural)
 datasetStats_errorEntries = Lens.lens (\DatasetStats' {errorEntries} -> errorEntries) (\s@DatasetStats' {} a -> s {errorEntries = a} :: DatasetStats)
+
+-- | The total number of images in the dataset that have labels.
+datasetStats_labeledEntries :: Lens.Lens' DatasetStats (Prelude.Maybe Prelude.Natural)
+datasetStats_labeledEntries = Lens.lens (\DatasetStats' {labeledEntries} -> labeledEntries) (\s@DatasetStats' {} a -> s {labeledEntries = a} :: DatasetStats)
 
 -- | The total number of images in the dataset.
 datasetStats_totalEntries :: Lens.Lens' DatasetStats (Prelude.Maybe Prelude.Natural)
@@ -77,10 +81,6 @@ datasetStats_totalEntries = Lens.lens (\DatasetStats' {totalEntries} -> totalEnt
 datasetStats_totalLabels :: Lens.Lens' DatasetStats (Prelude.Maybe Prelude.Natural)
 datasetStats_totalLabels = Lens.lens (\DatasetStats' {totalLabels} -> totalLabels) (\s@DatasetStats' {} a -> s {totalLabels = a} :: DatasetStats)
 
--- | The total number of images in the dataset that have labels.
-datasetStats_labeledEntries :: Lens.Lens' DatasetStats (Prelude.Maybe Prelude.Natural)
-datasetStats_labeledEntries = Lens.lens (\DatasetStats' {labeledEntries} -> labeledEntries) (\s@DatasetStats' {} a -> s {labeledEntries = a} :: DatasetStats)
-
 instance Data.FromJSON DatasetStats where
   parseJSON =
     Data.withObject
@@ -88,21 +88,21 @@ instance Data.FromJSON DatasetStats where
       ( \x ->
           DatasetStats'
             Prelude.<$> (x Data..:? "ErrorEntries")
+            Prelude.<*> (x Data..:? "LabeledEntries")
             Prelude.<*> (x Data..:? "TotalEntries")
             Prelude.<*> (x Data..:? "TotalLabels")
-            Prelude.<*> (x Data..:? "LabeledEntries")
       )
 
 instance Prelude.Hashable DatasetStats where
   hashWithSalt _salt DatasetStats' {..} =
     _salt `Prelude.hashWithSalt` errorEntries
+      `Prelude.hashWithSalt` labeledEntries
       `Prelude.hashWithSalt` totalEntries
       `Prelude.hashWithSalt` totalLabels
-      `Prelude.hashWithSalt` labeledEntries
 
 instance Prelude.NFData DatasetStats where
   rnf DatasetStats' {..} =
     Prelude.rnf errorEntries
+      `Prelude.seq` Prelude.rnf labeledEntries
       `Prelude.seq` Prelude.rnf totalEntries
       `Prelude.seq` Prelude.rnf totalLabels
-      `Prelude.seq` Prelude.rnf labeledEntries

@@ -27,8 +27,8 @@ module Amazonka.IotTwinMaker.CreateWorkspace
     newCreateWorkspace,
 
     -- * Request Lenses
-    createWorkspace_tags,
     createWorkspace_description,
+    createWorkspace_tags,
     createWorkspace_workspaceId,
     createWorkspace_s3Location,
     createWorkspace_role,
@@ -54,10 +54,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateWorkspace' smart constructor.
 data CreateWorkspace = CreateWorkspace'
-  { -- | Metadata that you can use to manage the workspace
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The description of the workspace.
+  { -- | The description of the workspace.
     description :: Prelude.Maybe Prelude.Text,
+    -- | Metadata that you can use to manage the workspace
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The ID of the workspace.
     workspaceId :: Prelude.Text,
     -- | The ARN of the S3 bucket where resources associated with the workspace
@@ -76,9 +76,9 @@ data CreateWorkspace = CreateWorkspace'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createWorkspace_tags' - Metadata that you can use to manage the workspace
---
 -- 'description', 'createWorkspace_description' - The description of the workspace.
+--
+-- 'tags', 'createWorkspace_tags' - Metadata that you can use to manage the workspace
 --
 -- 'workspaceId', 'createWorkspace_workspaceId' - The ID of the workspace.
 --
@@ -96,20 +96,20 @@ newCreateWorkspace ::
   CreateWorkspace
 newCreateWorkspace pWorkspaceId_ pS3Location_ pRole_ =
   CreateWorkspace'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       workspaceId = pWorkspaceId_,
       s3Location = pS3Location_,
       role' = pRole_
     }
 
--- | Metadata that you can use to manage the workspace
-createWorkspace_tags :: Lens.Lens' CreateWorkspace (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createWorkspace_tags = Lens.lens (\CreateWorkspace' {tags} -> tags) (\s@CreateWorkspace' {} a -> s {tags = a} :: CreateWorkspace) Prelude.. Lens.mapping Lens.coerced
-
 -- | The description of the workspace.
 createWorkspace_description :: Lens.Lens' CreateWorkspace (Prelude.Maybe Prelude.Text)
 createWorkspace_description = Lens.lens (\CreateWorkspace' {description} -> description) (\s@CreateWorkspace' {} a -> s {description = a} :: CreateWorkspace)
+
+-- | Metadata that you can use to manage the workspace
+createWorkspace_tags :: Lens.Lens' CreateWorkspace (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createWorkspace_tags = Lens.lens (\CreateWorkspace' {tags} -> tags) (\s@CreateWorkspace' {} a -> s {tags = a} :: CreateWorkspace) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the workspace.
 createWorkspace_workspaceId :: Lens.Lens' CreateWorkspace Prelude.Text
@@ -141,16 +141,16 @@ instance Core.AWSRequest CreateWorkspace where
 
 instance Prelude.Hashable CreateWorkspace where
   hashWithSalt _salt CreateWorkspace' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` workspaceId
       `Prelude.hashWithSalt` s3Location
       `Prelude.hashWithSalt` role'
 
 instance Prelude.NFData CreateWorkspace where
   rnf CreateWorkspace' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf workspaceId
       `Prelude.seq` Prelude.rnf s3Location
       `Prelude.seq` Prelude.rnf role'
@@ -170,8 +170,8 @@ instance Data.ToJSON CreateWorkspace where
   toJSON CreateWorkspace' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("description" Data..=) Prelude.<$> description,
+          [ ("description" Data..=) Prelude.<$> description,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("s3Location" Data..= s3Location),
             Prelude.Just ("role" Data..= role')
           ]

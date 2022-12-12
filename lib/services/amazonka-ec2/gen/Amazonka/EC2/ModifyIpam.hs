@@ -27,10 +27,10 @@ module Amazonka.EC2.ModifyIpam
     newModifyIpam,
 
     -- * Request Lenses
-    modifyIpam_removeOperatingRegions,
+    modifyIpam_addOperatingRegions,
     modifyIpam_description,
     modifyIpam_dryRun,
-    modifyIpam_addOperatingRegions,
+    modifyIpam_removeOperatingRegions,
     modifyIpam_ipamId,
 
     -- * Destructuring the Response
@@ -53,16 +53,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newModifyIpam' smart constructor.
 data ModifyIpam = ModifyIpam'
-  { -- | The operating Regions to remove.
-    removeOperatingRegions :: Prelude.Maybe [RemoveIpamOperatingRegion],
-    -- | The description of the IPAM you want to modify.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | A check for whether you have the required permissions for the action
-    -- without actually making the request and provides an error response. If
-    -- you have the required permissions, the error response is
-    -- @DryRunOperation@. Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | Choose the operating Regions for the IPAM. Operating Regions are Amazon
+  { -- | Choose the operating Regions for the IPAM. Operating Regions are Amazon
     -- Web Services Regions where the IPAM is allowed to manage IP address
     -- CIDRs. IPAM only discovers and monitors resources in the Amazon Web
     -- Services Regions you select as operating Regions.
@@ -71,6 +62,15 @@ data ModifyIpam = ModifyIpam'
     -- <https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html Create an IPAM>
     -- in the /Amazon VPC IPAM User Guide/.
     addOperatingRegions :: Prelude.Maybe [AddIpamOperatingRegion],
+    -- | The description of the IPAM you want to modify.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | A check for whether you have the required permissions for the action
+    -- without actually making the request and provides an error response. If
+    -- you have the required permissions, the error response is
+    -- @DryRunOperation@. Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The operating Regions to remove.
+    removeOperatingRegions :: Prelude.Maybe [RemoveIpamOperatingRegion],
     -- | The ID of the IPAM you want to modify.
     ipamId :: Prelude.Text
   }
@@ -84,15 +84,6 @@ data ModifyIpam = ModifyIpam'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'removeOperatingRegions', 'modifyIpam_removeOperatingRegions' - The operating Regions to remove.
---
--- 'description', 'modifyIpam_description' - The description of the IPAM you want to modify.
---
--- 'dryRun', 'modifyIpam_dryRun' - A check for whether you have the required permissions for the action
--- without actually making the request and provides an error response. If
--- you have the required permissions, the error response is
--- @DryRunOperation@. Otherwise, it is @UnauthorizedOperation@.
---
 -- 'addOperatingRegions', 'modifyIpam_addOperatingRegions' - Choose the operating Regions for the IPAM. Operating Regions are Amazon
 -- Web Services Regions where the IPAM is allowed to manage IP address
 -- CIDRs. IPAM only discovers and monitors resources in the Amazon Web
@@ -102,6 +93,15 @@ data ModifyIpam = ModifyIpam'
 -- <https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html Create an IPAM>
 -- in the /Amazon VPC IPAM User Guide/.
 --
+-- 'description', 'modifyIpam_description' - The description of the IPAM you want to modify.
+--
+-- 'dryRun', 'modifyIpam_dryRun' - A check for whether you have the required permissions for the action
+-- without actually making the request and provides an error response. If
+-- you have the required permissions, the error response is
+-- @DryRunOperation@. Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'removeOperatingRegions', 'modifyIpam_removeOperatingRegions' - The operating Regions to remove.
+--
 -- 'ipamId', 'modifyIpam_ipamId' - The ID of the IPAM you want to modify.
 newModifyIpam ::
   -- | 'ipamId'
@@ -109,17 +109,23 @@ newModifyIpam ::
   ModifyIpam
 newModifyIpam pIpamId_ =
   ModifyIpam'
-    { removeOperatingRegions =
-        Prelude.Nothing,
+    { addOperatingRegions = Prelude.Nothing,
       description = Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      addOperatingRegions = Prelude.Nothing,
+      removeOperatingRegions = Prelude.Nothing,
       ipamId = pIpamId_
     }
 
--- | The operating Regions to remove.
-modifyIpam_removeOperatingRegions :: Lens.Lens' ModifyIpam (Prelude.Maybe [RemoveIpamOperatingRegion])
-modifyIpam_removeOperatingRegions = Lens.lens (\ModifyIpam' {removeOperatingRegions} -> removeOperatingRegions) (\s@ModifyIpam' {} a -> s {removeOperatingRegions = a} :: ModifyIpam) Prelude.. Lens.mapping Lens.coerced
+-- | Choose the operating Regions for the IPAM. Operating Regions are Amazon
+-- Web Services Regions where the IPAM is allowed to manage IP address
+-- CIDRs. IPAM only discovers and monitors resources in the Amazon Web
+-- Services Regions you select as operating Regions.
+--
+-- For more information about operating Regions, see
+-- <https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html Create an IPAM>
+-- in the /Amazon VPC IPAM User Guide/.
+modifyIpam_addOperatingRegions :: Lens.Lens' ModifyIpam (Prelude.Maybe [AddIpamOperatingRegion])
+modifyIpam_addOperatingRegions = Lens.lens (\ModifyIpam' {addOperatingRegions} -> addOperatingRegions) (\s@ModifyIpam' {} a -> s {addOperatingRegions = a} :: ModifyIpam) Prelude.. Lens.mapping Lens.coerced
 
 -- | The description of the IPAM you want to modify.
 modifyIpam_description :: Lens.Lens' ModifyIpam (Prelude.Maybe Prelude.Text)
@@ -132,16 +138,9 @@ modifyIpam_description = Lens.lens (\ModifyIpam' {description} -> description) (
 modifyIpam_dryRun :: Lens.Lens' ModifyIpam (Prelude.Maybe Prelude.Bool)
 modifyIpam_dryRun = Lens.lens (\ModifyIpam' {dryRun} -> dryRun) (\s@ModifyIpam' {} a -> s {dryRun = a} :: ModifyIpam)
 
--- | Choose the operating Regions for the IPAM. Operating Regions are Amazon
--- Web Services Regions where the IPAM is allowed to manage IP address
--- CIDRs. IPAM only discovers and monitors resources in the Amazon Web
--- Services Regions you select as operating Regions.
---
--- For more information about operating Regions, see
--- <https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html Create an IPAM>
--- in the /Amazon VPC IPAM User Guide/.
-modifyIpam_addOperatingRegions :: Lens.Lens' ModifyIpam (Prelude.Maybe [AddIpamOperatingRegion])
-modifyIpam_addOperatingRegions = Lens.lens (\ModifyIpam' {addOperatingRegions} -> addOperatingRegions) (\s@ModifyIpam' {} a -> s {addOperatingRegions = a} :: ModifyIpam) Prelude.. Lens.mapping Lens.coerced
+-- | The operating Regions to remove.
+modifyIpam_removeOperatingRegions :: Lens.Lens' ModifyIpam (Prelude.Maybe [RemoveIpamOperatingRegion])
+modifyIpam_removeOperatingRegions = Lens.lens (\ModifyIpam' {removeOperatingRegions} -> removeOperatingRegions) (\s@ModifyIpam' {} a -> s {removeOperatingRegions = a} :: ModifyIpam) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the IPAM you want to modify.
 modifyIpam_ipamId :: Lens.Lens' ModifyIpam Prelude.Text
@@ -161,18 +160,18 @@ instance Core.AWSRequest ModifyIpam where
 
 instance Prelude.Hashable ModifyIpam where
   hashWithSalt _salt ModifyIpam' {..} =
-    _salt `Prelude.hashWithSalt` removeOperatingRegions
+    _salt `Prelude.hashWithSalt` addOperatingRegions
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
-      `Prelude.hashWithSalt` addOperatingRegions
+      `Prelude.hashWithSalt` removeOperatingRegions
       `Prelude.hashWithSalt` ipamId
 
 instance Prelude.NFData ModifyIpam where
   rnf ModifyIpam' {..} =
-    Prelude.rnf removeOperatingRegions
+    Prelude.rnf addOperatingRegions
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf addOperatingRegions
+      `Prelude.seq` Prelude.rnf removeOperatingRegions
       `Prelude.seq` Prelude.rnf ipamId
 
 instance Data.ToHeaders ModifyIpam where
@@ -189,14 +188,14 @@ instance Data.ToQuery ModifyIpam where
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
         Data.toQuery
-          ( Data.toQueryList "RemoveOperatingRegion"
-              Prelude.<$> removeOperatingRegions
+          ( Data.toQueryList "AddOperatingRegion"
+              Prelude.<$> addOperatingRegions
           ),
         "Description" Data.=: description,
         "DryRun" Data.=: dryRun,
         Data.toQuery
-          ( Data.toQueryList "AddOperatingRegion"
-              Prelude.<$> addOperatingRegions
+          ( Data.toQueryList "RemoveOperatingRegion"
+              Prelude.<$> removeOperatingRegions
           ),
         "IpamId" Data.=: ipamId
       ]

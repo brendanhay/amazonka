@@ -31,16 +31,16 @@ module Amazonka.NetworkFirewall.ListFirewallPolicies
     newListFirewallPolicies,
 
     -- * Request Lenses
-    listFirewallPolicies_nextToken,
     listFirewallPolicies_maxResults,
+    listFirewallPolicies_nextToken,
 
     -- * Destructuring the Response
     ListFirewallPoliciesResponse (..),
     newListFirewallPoliciesResponse,
 
     -- * Response Lenses
-    listFirewallPoliciesResponse_nextToken,
     listFirewallPoliciesResponse_firewallPolicies,
+    listFirewallPoliciesResponse_nextToken,
     listFirewallPoliciesResponse_httpStatus,
   )
 where
@@ -55,17 +55,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListFirewallPolicies' smart constructor.
 data ListFirewallPolicies = ListFirewallPolicies'
-  { -- | When you request a list of objects with a @MaxResults@ setting, if the
+  { -- | The maximum number of objects that you want Network Firewall to return
+    -- for this request. If more objects are available, in the response,
+    -- Network Firewall provides a @NextToken@ value that you can use in a
+    -- subsequent call to get the next batch of objects.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | When you request a list of objects with a @MaxResults@ setting, if the
     -- number of objects that are still available for retrieval exceeds the
     -- maximum you requested, Network Firewall returns a @NextToken@ value in
     -- the response. To retrieve the next batch of objects, use the token
     -- returned from the prior request in your next request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of objects that you want Network Firewall to return
-    -- for this request. If more objects are available, in the response,
-    -- Network Firewall provides a @NextToken@ value that you can use in a
-    -- subsequent call to get the next batch of objects.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,23 +77,30 @@ data ListFirewallPolicies = ListFirewallPolicies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listFirewallPolicies_maxResults' - The maximum number of objects that you want Network Firewall to return
+-- for this request. If more objects are available, in the response,
+-- Network Firewall provides a @NextToken@ value that you can use in a
+-- subsequent call to get the next batch of objects.
+--
 -- 'nextToken', 'listFirewallPolicies_nextToken' - When you request a list of objects with a @MaxResults@ setting, if the
 -- number of objects that are still available for retrieval exceeds the
 -- maximum you requested, Network Firewall returns a @NextToken@ value in
 -- the response. To retrieve the next batch of objects, use the token
 -- returned from the prior request in your next request.
---
--- 'maxResults', 'listFirewallPolicies_maxResults' - The maximum number of objects that you want Network Firewall to return
--- for this request. If more objects are available, in the response,
--- Network Firewall provides a @NextToken@ value that you can use in a
--- subsequent call to get the next batch of objects.
 newListFirewallPolicies ::
   ListFirewallPolicies
 newListFirewallPolicies =
   ListFirewallPolicies'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of objects that you want Network Firewall to return
+-- for this request. If more objects are available, in the response,
+-- Network Firewall provides a @NextToken@ value that you can use in a
+-- subsequent call to get the next batch of objects.
+listFirewallPolicies_maxResults :: Lens.Lens' ListFirewallPolicies (Prelude.Maybe Prelude.Natural)
+listFirewallPolicies_maxResults = Lens.lens (\ListFirewallPolicies' {maxResults} -> maxResults) (\s@ListFirewallPolicies' {} a -> s {maxResults = a} :: ListFirewallPolicies)
 
 -- | When you request a list of objects with a @MaxResults@ setting, if the
 -- number of objects that are still available for retrieval exceeds the
@@ -102,13 +109,6 @@ newListFirewallPolicies =
 -- returned from the prior request in your next request.
 listFirewallPolicies_nextToken :: Lens.Lens' ListFirewallPolicies (Prelude.Maybe Prelude.Text)
 listFirewallPolicies_nextToken = Lens.lens (\ListFirewallPolicies' {nextToken} -> nextToken) (\s@ListFirewallPolicies' {} a -> s {nextToken = a} :: ListFirewallPolicies)
-
--- | The maximum number of objects that you want Network Firewall to return
--- for this request. If more objects are available, in the response,
--- Network Firewall provides a @NextToken@ value that you can use in a
--- subsequent call to get the next batch of objects.
-listFirewallPolicies_maxResults :: Lens.Lens' ListFirewallPolicies (Prelude.Maybe Prelude.Natural)
-listFirewallPolicies_maxResults = Lens.lens (\ListFirewallPolicies' {maxResults} -> maxResults) (\s@ListFirewallPolicies' {} a -> s {maxResults = a} :: ListFirewallPolicies)
 
 instance Core.AWSPager ListFirewallPolicies where
   page rq rs
@@ -142,22 +142,22 @@ instance Core.AWSRequest ListFirewallPolicies where
     Response.receiveJSON
       ( \s h x ->
           ListFirewallPoliciesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "FirewallPolicies"
+            Prelude.<$> ( x Data..?> "FirewallPolicies"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListFirewallPolicies where
   hashWithSalt _salt ListFirewallPolicies' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListFirewallPolicies where
   rnf ListFirewallPolicies' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListFirewallPolicies where
   toHeaders =
@@ -178,8 +178,8 @@ instance Data.ToJSON ListFirewallPolicies where
   toJSON ListFirewallPolicies' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -191,16 +191,16 @@ instance Data.ToQuery ListFirewallPolicies where
 
 -- | /See:/ 'newListFirewallPoliciesResponse' smart constructor.
 data ListFirewallPoliciesResponse = ListFirewallPoliciesResponse'
-  { -- | When you request a list of objects with a @MaxResults@ setting, if the
+  { -- | The metadata for the firewall policies. Depending on your setting for
+    -- max results and the number of firewall policies that you have, this
+    -- might not be the full list.
+    firewallPolicies :: Prelude.Maybe [FirewallPolicyMetadata],
+    -- | When you request a list of objects with a @MaxResults@ setting, if the
     -- number of objects that are still available for retrieval exceeds the
     -- maximum you requested, Network Firewall returns a @NextToken@ value in
     -- the response. To retrieve the next batch of objects, use the token
     -- returned from the prior request in your next request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The metadata for the firewall policies. Depending on your setting for
-    -- max results and the number of firewall policies that you have, this
-    -- might not be the full list.
-    firewallPolicies :: Prelude.Maybe [FirewallPolicyMetadata],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -214,15 +214,15 @@ data ListFirewallPoliciesResponse = ListFirewallPoliciesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'firewallPolicies', 'listFirewallPoliciesResponse_firewallPolicies' - The metadata for the firewall policies. Depending on your setting for
+-- max results and the number of firewall policies that you have, this
+-- might not be the full list.
+--
 -- 'nextToken', 'listFirewallPoliciesResponse_nextToken' - When you request a list of objects with a @MaxResults@ setting, if the
 -- number of objects that are still available for retrieval exceeds the
 -- maximum you requested, Network Firewall returns a @NextToken@ value in
 -- the response. To retrieve the next batch of objects, use the token
 -- returned from the prior request in your next request.
---
--- 'firewallPolicies', 'listFirewallPoliciesResponse_firewallPolicies' - The metadata for the firewall policies. Depending on your setting for
--- max results and the number of firewall policies that you have, this
--- might not be the full list.
 --
 -- 'httpStatus', 'listFirewallPoliciesResponse_httpStatus' - The response's http status code.
 newListFirewallPoliciesResponse ::
@@ -231,11 +231,17 @@ newListFirewallPoliciesResponse ::
   ListFirewallPoliciesResponse
 newListFirewallPoliciesResponse pHttpStatus_ =
   ListFirewallPoliciesResponse'
-    { nextToken =
+    { firewallPolicies =
         Prelude.Nothing,
-      firewallPolicies = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The metadata for the firewall policies. Depending on your setting for
+-- max results and the number of firewall policies that you have, this
+-- might not be the full list.
+listFirewallPoliciesResponse_firewallPolicies :: Lens.Lens' ListFirewallPoliciesResponse (Prelude.Maybe [FirewallPolicyMetadata])
+listFirewallPoliciesResponse_firewallPolicies = Lens.lens (\ListFirewallPoliciesResponse' {firewallPolicies} -> firewallPolicies) (\s@ListFirewallPoliciesResponse' {} a -> s {firewallPolicies = a} :: ListFirewallPoliciesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | When you request a list of objects with a @MaxResults@ setting, if the
 -- number of objects that are still available for retrieval exceeds the
@@ -245,18 +251,12 @@ newListFirewallPoliciesResponse pHttpStatus_ =
 listFirewallPoliciesResponse_nextToken :: Lens.Lens' ListFirewallPoliciesResponse (Prelude.Maybe Prelude.Text)
 listFirewallPoliciesResponse_nextToken = Lens.lens (\ListFirewallPoliciesResponse' {nextToken} -> nextToken) (\s@ListFirewallPoliciesResponse' {} a -> s {nextToken = a} :: ListFirewallPoliciesResponse)
 
--- | The metadata for the firewall policies. Depending on your setting for
--- max results and the number of firewall policies that you have, this
--- might not be the full list.
-listFirewallPoliciesResponse_firewallPolicies :: Lens.Lens' ListFirewallPoliciesResponse (Prelude.Maybe [FirewallPolicyMetadata])
-listFirewallPoliciesResponse_firewallPolicies = Lens.lens (\ListFirewallPoliciesResponse' {firewallPolicies} -> firewallPolicies) (\s@ListFirewallPoliciesResponse' {} a -> s {firewallPolicies = a} :: ListFirewallPoliciesResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listFirewallPoliciesResponse_httpStatus :: Lens.Lens' ListFirewallPoliciesResponse Prelude.Int
 listFirewallPoliciesResponse_httpStatus = Lens.lens (\ListFirewallPoliciesResponse' {httpStatus} -> httpStatus) (\s@ListFirewallPoliciesResponse' {} a -> s {httpStatus = a} :: ListFirewallPoliciesResponse)
 
 instance Prelude.NFData ListFirewallPoliciesResponse where
   rnf ListFirewallPoliciesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf firewallPolicies
+    Prelude.rnf firewallPolicies
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

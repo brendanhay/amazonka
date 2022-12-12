@@ -40,8 +40,8 @@ module Amazonka.StorageGateway.UpdateBandwidthRateLimit
     newUpdateBandwidthRateLimit,
 
     -- * Request Lenses
-    updateBandwidthRateLimit_averageUploadRateLimitInBitsPerSec,
     updateBandwidthRateLimit_averageDownloadRateLimitInBitsPerSec,
+    updateBandwidthRateLimit_averageUploadRateLimitInBitsPerSec,
     updateBandwidthRateLimit_gatewayARN,
 
     -- * Destructuring the Response
@@ -70,10 +70,10 @@ import Amazonka.StorageGateway.Types
 --
 -- /See:/ 'newUpdateBandwidthRateLimit' smart constructor.
 data UpdateBandwidthRateLimit = UpdateBandwidthRateLimit'
-  { -- | The average upload bandwidth rate limit in bits per second.
-    averageUploadRateLimitInBitsPerSec :: Prelude.Maybe Prelude.Natural,
-    -- | The average download bandwidth rate limit in bits per second.
+  { -- | The average download bandwidth rate limit in bits per second.
     averageDownloadRateLimitInBitsPerSec :: Prelude.Maybe Prelude.Natural,
+    -- | The average upload bandwidth rate limit in bits per second.
+    averageUploadRateLimitInBitsPerSec :: Prelude.Maybe Prelude.Natural,
     gatewayARN :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -86,9 +86,9 @@ data UpdateBandwidthRateLimit = UpdateBandwidthRateLimit'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'averageUploadRateLimitInBitsPerSec', 'updateBandwidthRateLimit_averageUploadRateLimitInBitsPerSec' - The average upload bandwidth rate limit in bits per second.
---
 -- 'averageDownloadRateLimitInBitsPerSec', 'updateBandwidthRateLimit_averageDownloadRateLimitInBitsPerSec' - The average download bandwidth rate limit in bits per second.
+--
+-- 'averageUploadRateLimitInBitsPerSec', 'updateBandwidthRateLimit_averageUploadRateLimitInBitsPerSec' - The average upload bandwidth rate limit in bits per second.
 --
 -- 'gatewayARN', 'updateBandwidthRateLimit_gatewayARN' - Undocumented member.
 newUpdateBandwidthRateLimit ::
@@ -97,20 +97,20 @@ newUpdateBandwidthRateLimit ::
   UpdateBandwidthRateLimit
 newUpdateBandwidthRateLimit pGatewayARN_ =
   UpdateBandwidthRateLimit'
-    { averageUploadRateLimitInBitsPerSec =
+    { averageDownloadRateLimitInBitsPerSec =
         Prelude.Nothing,
-      averageDownloadRateLimitInBitsPerSec =
+      averageUploadRateLimitInBitsPerSec =
         Prelude.Nothing,
       gatewayARN = pGatewayARN_
     }
 
--- | The average upload bandwidth rate limit in bits per second.
-updateBandwidthRateLimit_averageUploadRateLimitInBitsPerSec :: Lens.Lens' UpdateBandwidthRateLimit (Prelude.Maybe Prelude.Natural)
-updateBandwidthRateLimit_averageUploadRateLimitInBitsPerSec = Lens.lens (\UpdateBandwidthRateLimit' {averageUploadRateLimitInBitsPerSec} -> averageUploadRateLimitInBitsPerSec) (\s@UpdateBandwidthRateLimit' {} a -> s {averageUploadRateLimitInBitsPerSec = a} :: UpdateBandwidthRateLimit)
-
 -- | The average download bandwidth rate limit in bits per second.
 updateBandwidthRateLimit_averageDownloadRateLimitInBitsPerSec :: Lens.Lens' UpdateBandwidthRateLimit (Prelude.Maybe Prelude.Natural)
 updateBandwidthRateLimit_averageDownloadRateLimitInBitsPerSec = Lens.lens (\UpdateBandwidthRateLimit' {averageDownloadRateLimitInBitsPerSec} -> averageDownloadRateLimitInBitsPerSec) (\s@UpdateBandwidthRateLimit' {} a -> s {averageDownloadRateLimitInBitsPerSec = a} :: UpdateBandwidthRateLimit)
+
+-- | The average upload bandwidth rate limit in bits per second.
+updateBandwidthRateLimit_averageUploadRateLimitInBitsPerSec :: Lens.Lens' UpdateBandwidthRateLimit (Prelude.Maybe Prelude.Natural)
+updateBandwidthRateLimit_averageUploadRateLimitInBitsPerSec = Lens.lens (\UpdateBandwidthRateLimit' {averageUploadRateLimitInBitsPerSec} -> averageUploadRateLimitInBitsPerSec) (\s@UpdateBandwidthRateLimit' {} a -> s {averageUploadRateLimitInBitsPerSec = a} :: UpdateBandwidthRateLimit)
 
 -- | Undocumented member.
 updateBandwidthRateLimit_gatewayARN :: Lens.Lens' UpdateBandwidthRateLimit Prelude.Text
@@ -133,14 +133,14 @@ instance Core.AWSRequest UpdateBandwidthRateLimit where
 instance Prelude.Hashable UpdateBandwidthRateLimit where
   hashWithSalt _salt UpdateBandwidthRateLimit' {..} =
     _salt
-      `Prelude.hashWithSalt` averageUploadRateLimitInBitsPerSec
       `Prelude.hashWithSalt` averageDownloadRateLimitInBitsPerSec
+      `Prelude.hashWithSalt` averageUploadRateLimitInBitsPerSec
       `Prelude.hashWithSalt` gatewayARN
 
 instance Prelude.NFData UpdateBandwidthRateLimit where
   rnf UpdateBandwidthRateLimit' {..} =
-    Prelude.rnf averageUploadRateLimitInBitsPerSec
-      `Prelude.seq` Prelude.rnf averageDownloadRateLimitInBitsPerSec
+    Prelude.rnf averageDownloadRateLimitInBitsPerSec
+      `Prelude.seq` Prelude.rnf averageUploadRateLimitInBitsPerSec
       `Prelude.seq` Prelude.rnf gatewayARN
 
 instance Data.ToHeaders UpdateBandwidthRateLimit where
@@ -162,10 +162,10 @@ instance Data.ToJSON UpdateBandwidthRateLimit where
   toJSON UpdateBandwidthRateLimit' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("AverageUploadRateLimitInBitsPerSec" Data..=)
-              Prelude.<$> averageUploadRateLimitInBitsPerSec,
-            ("AverageDownloadRateLimitInBitsPerSec" Data..=)
+          [ ("AverageDownloadRateLimitInBitsPerSec" Data..=)
               Prelude.<$> averageDownloadRateLimitInBitsPerSec,
+            ("AverageUploadRateLimitInBitsPerSec" Data..=)
+              Prelude.<$> averageUploadRateLimitInBitsPerSec,
             Prelude.Just ("GatewayARN" Data..= gatewayARN)
           ]
       )

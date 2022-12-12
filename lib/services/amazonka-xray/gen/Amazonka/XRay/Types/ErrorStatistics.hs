@@ -32,11 +32,11 @@ data ErrorStatistics = ErrorStatistics'
   { -- | The number of requests that failed with untracked 4xx Client Error
     -- status codes.
     otherCount :: Prelude.Maybe Prelude.Integer,
+    -- | The number of requests that failed with a 419 throttling status code.
+    throttleCount :: Prelude.Maybe Prelude.Integer,
     -- | The total number of requests that failed with a 4xx Client Error status
     -- code.
-    totalCount :: Prelude.Maybe Prelude.Integer,
-    -- | The number of requests that failed with a 419 throttling status code.
-    throttleCount :: Prelude.Maybe Prelude.Integer
+    totalCount :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,17 +51,17 @@ data ErrorStatistics = ErrorStatistics'
 -- 'otherCount', 'errorStatistics_otherCount' - The number of requests that failed with untracked 4xx Client Error
 -- status codes.
 --
+-- 'throttleCount', 'errorStatistics_throttleCount' - The number of requests that failed with a 419 throttling status code.
+--
 -- 'totalCount', 'errorStatistics_totalCount' - The total number of requests that failed with a 4xx Client Error status
 -- code.
---
--- 'throttleCount', 'errorStatistics_throttleCount' - The number of requests that failed with a 419 throttling status code.
 newErrorStatistics ::
   ErrorStatistics
 newErrorStatistics =
   ErrorStatistics'
     { otherCount = Prelude.Nothing,
-      totalCount = Prelude.Nothing,
-      throttleCount = Prelude.Nothing
+      throttleCount = Prelude.Nothing,
+      totalCount = Prelude.Nothing
     }
 
 -- | The number of requests that failed with untracked 4xx Client Error
@@ -69,14 +69,14 @@ newErrorStatistics =
 errorStatistics_otherCount :: Lens.Lens' ErrorStatistics (Prelude.Maybe Prelude.Integer)
 errorStatistics_otherCount = Lens.lens (\ErrorStatistics' {otherCount} -> otherCount) (\s@ErrorStatistics' {} a -> s {otherCount = a} :: ErrorStatistics)
 
+-- | The number of requests that failed with a 419 throttling status code.
+errorStatistics_throttleCount :: Lens.Lens' ErrorStatistics (Prelude.Maybe Prelude.Integer)
+errorStatistics_throttleCount = Lens.lens (\ErrorStatistics' {throttleCount} -> throttleCount) (\s@ErrorStatistics' {} a -> s {throttleCount = a} :: ErrorStatistics)
+
 -- | The total number of requests that failed with a 4xx Client Error status
 -- code.
 errorStatistics_totalCount :: Lens.Lens' ErrorStatistics (Prelude.Maybe Prelude.Integer)
 errorStatistics_totalCount = Lens.lens (\ErrorStatistics' {totalCount} -> totalCount) (\s@ErrorStatistics' {} a -> s {totalCount = a} :: ErrorStatistics)
-
--- | The number of requests that failed with a 419 throttling status code.
-errorStatistics_throttleCount :: Lens.Lens' ErrorStatistics (Prelude.Maybe Prelude.Integer)
-errorStatistics_throttleCount = Lens.lens (\ErrorStatistics' {throttleCount} -> throttleCount) (\s@ErrorStatistics' {} a -> s {throttleCount = a} :: ErrorStatistics)
 
 instance Data.FromJSON ErrorStatistics where
   parseJSON =
@@ -85,18 +85,18 @@ instance Data.FromJSON ErrorStatistics where
       ( \x ->
           ErrorStatistics'
             Prelude.<$> (x Data..:? "OtherCount")
-            Prelude.<*> (x Data..:? "TotalCount")
             Prelude.<*> (x Data..:? "ThrottleCount")
+            Prelude.<*> (x Data..:? "TotalCount")
       )
 
 instance Prelude.Hashable ErrorStatistics where
   hashWithSalt _salt ErrorStatistics' {..} =
     _salt `Prelude.hashWithSalt` otherCount
-      `Prelude.hashWithSalt` totalCount
       `Prelude.hashWithSalt` throttleCount
+      `Prelude.hashWithSalt` totalCount
 
 instance Prelude.NFData ErrorStatistics where
   rnf ErrorStatistics' {..} =
     Prelude.rnf otherCount
-      `Prelude.seq` Prelude.rnf totalCount
       `Prelude.seq` Prelude.rnf throttleCount
+      `Prelude.seq` Prelude.rnf totalCount

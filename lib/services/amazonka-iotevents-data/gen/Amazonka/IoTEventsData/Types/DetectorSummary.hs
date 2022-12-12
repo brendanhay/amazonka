@@ -29,8 +29,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDetectorSummary' smart constructor.
 data DetectorSummary = DetectorSummary'
-  { -- | The current state of the detector (instance).
-    state :: Prelude.Maybe DetectorStateSummary,
+  { -- | The time the detector (instance) was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the detector model that created this detector (instance).
     detectorModelName :: Prelude.Maybe Prelude.Text,
     -- | The version of the detector model that created this detector (instance).
@@ -38,10 +38,10 @@ data DetectorSummary = DetectorSummary'
     -- | The value of the key (identifying the device or system) that caused the
     -- creation of this detector (instance).
     keyValue :: Prelude.Maybe Prelude.Text,
-    -- | The time the detector (instance) was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The time the detector (instance) was last updated.
-    lastUpdateTime :: Prelude.Maybe Data.POSIX
+    lastUpdateTime :: Prelude.Maybe Data.POSIX,
+    -- | The current state of the detector (instance).
+    state :: Prelude.Maybe DetectorStateSummary
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,7 +53,7 @@ data DetectorSummary = DetectorSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'state', 'detectorSummary_state' - The current state of the detector (instance).
+-- 'creationTime', 'detectorSummary_creationTime' - The time the detector (instance) was created.
 --
 -- 'detectorModelName', 'detectorSummary_detectorModelName' - The name of the detector model that created this detector (instance).
 --
@@ -62,24 +62,24 @@ data DetectorSummary = DetectorSummary'
 -- 'keyValue', 'detectorSummary_keyValue' - The value of the key (identifying the device or system) that caused the
 -- creation of this detector (instance).
 --
--- 'creationTime', 'detectorSummary_creationTime' - The time the detector (instance) was created.
---
 -- 'lastUpdateTime', 'detectorSummary_lastUpdateTime' - The time the detector (instance) was last updated.
+--
+-- 'state', 'detectorSummary_state' - The current state of the detector (instance).
 newDetectorSummary ::
   DetectorSummary
 newDetectorSummary =
   DetectorSummary'
-    { state = Prelude.Nothing,
+    { creationTime = Prelude.Nothing,
       detectorModelName = Prelude.Nothing,
       detectorModelVersion = Prelude.Nothing,
       keyValue = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      lastUpdateTime = Prelude.Nothing
+      lastUpdateTime = Prelude.Nothing,
+      state = Prelude.Nothing
     }
 
--- | The current state of the detector (instance).
-detectorSummary_state :: Lens.Lens' DetectorSummary (Prelude.Maybe DetectorStateSummary)
-detectorSummary_state = Lens.lens (\DetectorSummary' {state} -> state) (\s@DetectorSummary' {} a -> s {state = a} :: DetectorSummary)
+-- | The time the detector (instance) was created.
+detectorSummary_creationTime :: Lens.Lens' DetectorSummary (Prelude.Maybe Prelude.UTCTime)
+detectorSummary_creationTime = Lens.lens (\DetectorSummary' {creationTime} -> creationTime) (\s@DetectorSummary' {} a -> s {creationTime = a} :: DetectorSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the detector model that created this detector (instance).
 detectorSummary_detectorModelName :: Lens.Lens' DetectorSummary (Prelude.Maybe Prelude.Text)
@@ -94,13 +94,13 @@ detectorSummary_detectorModelVersion = Lens.lens (\DetectorSummary' {detectorMod
 detectorSummary_keyValue :: Lens.Lens' DetectorSummary (Prelude.Maybe Prelude.Text)
 detectorSummary_keyValue = Lens.lens (\DetectorSummary' {keyValue} -> keyValue) (\s@DetectorSummary' {} a -> s {keyValue = a} :: DetectorSummary)
 
--- | The time the detector (instance) was created.
-detectorSummary_creationTime :: Lens.Lens' DetectorSummary (Prelude.Maybe Prelude.UTCTime)
-detectorSummary_creationTime = Lens.lens (\DetectorSummary' {creationTime} -> creationTime) (\s@DetectorSummary' {} a -> s {creationTime = a} :: DetectorSummary) Prelude.. Lens.mapping Data._Time
-
 -- | The time the detector (instance) was last updated.
 detectorSummary_lastUpdateTime :: Lens.Lens' DetectorSummary (Prelude.Maybe Prelude.UTCTime)
 detectorSummary_lastUpdateTime = Lens.lens (\DetectorSummary' {lastUpdateTime} -> lastUpdateTime) (\s@DetectorSummary' {} a -> s {lastUpdateTime = a} :: DetectorSummary) Prelude.. Lens.mapping Data._Time
+
+-- | The current state of the detector (instance).
+detectorSummary_state :: Lens.Lens' DetectorSummary (Prelude.Maybe DetectorStateSummary)
+detectorSummary_state = Lens.lens (\DetectorSummary' {state} -> state) (\s@DetectorSummary' {} a -> s {state = a} :: DetectorSummary)
 
 instance Data.FromJSON DetectorSummary where
   parseJSON =
@@ -108,28 +108,28 @@ instance Data.FromJSON DetectorSummary where
       "DetectorSummary"
       ( \x ->
           DetectorSummary'
-            Prelude.<$> (x Data..:? "state")
+            Prelude.<$> (x Data..:? "creationTime")
             Prelude.<*> (x Data..:? "detectorModelName")
             Prelude.<*> (x Data..:? "detectorModelVersion")
             Prelude.<*> (x Data..:? "keyValue")
-            Prelude.<*> (x Data..:? "creationTime")
             Prelude.<*> (x Data..:? "lastUpdateTime")
+            Prelude.<*> (x Data..:? "state")
       )
 
 instance Prelude.Hashable DetectorSummary where
   hashWithSalt _salt DetectorSummary' {..} =
-    _salt `Prelude.hashWithSalt` state
+    _salt `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` detectorModelName
       `Prelude.hashWithSalt` detectorModelVersion
       `Prelude.hashWithSalt` keyValue
-      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` lastUpdateTime
+      `Prelude.hashWithSalt` state
 
 instance Prelude.NFData DetectorSummary where
   rnf DetectorSummary' {..} =
-    Prelude.rnf state
+    Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf detectorModelName
       `Prelude.seq` Prelude.rnf detectorModelVersion
       `Prelude.seq` Prelude.rnf keyValue
-      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf lastUpdateTime
+      `Prelude.seq` Prelude.rnf state

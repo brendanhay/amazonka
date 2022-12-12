@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMsSmoothOutputSettings' smart constructor.
 data MsSmoothOutputSettings = MsSmoothOutputSettings'
-  { -- | String concatenated to the end of the destination filename. Required for
-    -- multiple outputs of the same type.
-    nameModifier :: Prelude.Maybe Prelude.Text,
-    -- | Only applicable when this output is referencing an H.265 video
+  { -- | Only applicable when this output is referencing an H.265 video
     -- description. Specifies whether MP4 segments should be packaged as HEV1
     -- or HVC1.
-    h265PackagingType :: Prelude.Maybe MsSmoothH265PackagingType
+    h265PackagingType :: Prelude.Maybe MsSmoothH265PackagingType,
+    -- | String concatenated to the end of the destination filename. Required for
+    -- multiple outputs of the same type.
+    nameModifier :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,25 +47,20 @@ data MsSmoothOutputSettings = MsSmoothOutputSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nameModifier', 'msSmoothOutputSettings_nameModifier' - String concatenated to the end of the destination filename. Required for
--- multiple outputs of the same type.
---
 -- 'h265PackagingType', 'msSmoothOutputSettings_h265PackagingType' - Only applicable when this output is referencing an H.265 video
 -- description. Specifies whether MP4 segments should be packaged as HEV1
 -- or HVC1.
+--
+-- 'nameModifier', 'msSmoothOutputSettings_nameModifier' - String concatenated to the end of the destination filename. Required for
+-- multiple outputs of the same type.
 newMsSmoothOutputSettings ::
   MsSmoothOutputSettings
 newMsSmoothOutputSettings =
   MsSmoothOutputSettings'
-    { nameModifier =
+    { h265PackagingType =
         Prelude.Nothing,
-      h265PackagingType = Prelude.Nothing
+      nameModifier = Prelude.Nothing
     }
-
--- | String concatenated to the end of the destination filename. Required for
--- multiple outputs of the same type.
-msSmoothOutputSettings_nameModifier :: Lens.Lens' MsSmoothOutputSettings (Prelude.Maybe Prelude.Text)
-msSmoothOutputSettings_nameModifier = Lens.lens (\MsSmoothOutputSettings' {nameModifier} -> nameModifier) (\s@MsSmoothOutputSettings' {} a -> s {nameModifier = a} :: MsSmoothOutputSettings)
 
 -- | Only applicable when this output is referencing an H.265 video
 -- description. Specifies whether MP4 segments should be packaged as HEV1
@@ -73,32 +68,37 @@ msSmoothOutputSettings_nameModifier = Lens.lens (\MsSmoothOutputSettings' {nameM
 msSmoothOutputSettings_h265PackagingType :: Lens.Lens' MsSmoothOutputSettings (Prelude.Maybe MsSmoothH265PackagingType)
 msSmoothOutputSettings_h265PackagingType = Lens.lens (\MsSmoothOutputSettings' {h265PackagingType} -> h265PackagingType) (\s@MsSmoothOutputSettings' {} a -> s {h265PackagingType = a} :: MsSmoothOutputSettings)
 
+-- | String concatenated to the end of the destination filename. Required for
+-- multiple outputs of the same type.
+msSmoothOutputSettings_nameModifier :: Lens.Lens' MsSmoothOutputSettings (Prelude.Maybe Prelude.Text)
+msSmoothOutputSettings_nameModifier = Lens.lens (\MsSmoothOutputSettings' {nameModifier} -> nameModifier) (\s@MsSmoothOutputSettings' {} a -> s {nameModifier = a} :: MsSmoothOutputSettings)
+
 instance Data.FromJSON MsSmoothOutputSettings where
   parseJSON =
     Data.withObject
       "MsSmoothOutputSettings"
       ( \x ->
           MsSmoothOutputSettings'
-            Prelude.<$> (x Data..:? "nameModifier")
-            Prelude.<*> (x Data..:? "h265PackagingType")
+            Prelude.<$> (x Data..:? "h265PackagingType")
+            Prelude.<*> (x Data..:? "nameModifier")
       )
 
 instance Prelude.Hashable MsSmoothOutputSettings where
   hashWithSalt _salt MsSmoothOutputSettings' {..} =
-    _salt `Prelude.hashWithSalt` nameModifier
-      `Prelude.hashWithSalt` h265PackagingType
+    _salt `Prelude.hashWithSalt` h265PackagingType
+      `Prelude.hashWithSalt` nameModifier
 
 instance Prelude.NFData MsSmoothOutputSettings where
   rnf MsSmoothOutputSettings' {..} =
-    Prelude.rnf nameModifier
-      `Prelude.seq` Prelude.rnf h265PackagingType
+    Prelude.rnf h265PackagingType
+      `Prelude.seq` Prelude.rnf nameModifier
 
 instance Data.ToJSON MsSmoothOutputSettings where
   toJSON MsSmoothOutputSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nameModifier" Data..=) Prelude.<$> nameModifier,
-            ("h265PackagingType" Data..=)
-              Prelude.<$> h265PackagingType
+          [ ("h265PackagingType" Data..=)
+              Prelude.<$> h265PackagingType,
+            ("nameModifier" Data..=) Prelude.<$> nameModifier
           ]
       )

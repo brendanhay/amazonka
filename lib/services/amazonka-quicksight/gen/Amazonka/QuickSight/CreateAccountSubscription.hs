@@ -61,16 +61,16 @@ module Amazonka.QuickSight.CreateAccountSubscription
     newCreateAccountSubscription,
 
     -- * Request Lenses
-    createAccountSubscription_directoryId,
     createAccountSubscription_activeDirectoryName,
-    createAccountSubscription_readerGroup,
-    createAccountSubscription_firstName,
     createAccountSubscription_adminGroup,
-    createAccountSubscription_contactNumber,
-    createAccountSubscription_lastName,
     createAccountSubscription_authorGroup,
-    createAccountSubscription_realm,
+    createAccountSubscription_contactNumber,
+    createAccountSubscription_directoryId,
     createAccountSubscription_emailAddress,
+    createAccountSubscription_firstName,
+    createAccountSubscription_lastName,
+    createAccountSubscription_readerGroup,
+    createAccountSubscription_realm,
     createAccountSubscription_edition,
     createAccountSubscription_authenticationMethod,
     createAccountSubscription_awsAccountId,
@@ -98,22 +98,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateAccountSubscription' smart constructor.
 data CreateAccountSubscription = CreateAccountSubscription'
-  { -- | The ID of the Active Directory that is associated with your Amazon
-    -- QuickSight account.
-    directoryId :: Prelude.Maybe Prelude.Text,
-    -- | The name of your Active Directory. This field is required if
+  { -- | The name of your Active Directory. This field is required if
     -- @ACTIVE_DIRECTORY@ is the selected authentication method of the new
     -- Amazon QuickSight account.
     activeDirectoryName :: Prelude.Maybe Prelude.Text,
-    -- | The reader group associated with your Active Direcrtory. For more
-    -- information about using Active Directory in Amazon QuickSight, see
-    -- <https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html Using Active Directory with Amazon QuickSight Enterprise Edition>
-    -- in the /Amazon QuickSight User Guide/.
-    readerGroup :: Prelude.Maybe [Prelude.Text],
-    -- | The first name of the author of the Amazon QuickSight account to use for
-    -- future communications. This field is required if @ENTERPPRISE_AND_Q@ is
-    -- the selected edition of the new Amazon QuickSight account.
-    firstName :: Prelude.Maybe Prelude.Text,
     -- | The admin group associated with your Active Directory. This field is
     -- required if @ACTIVE_DIRECTORY@ is the selected authentication method of
     -- the new Amazon QuickSight account. For more information about using
@@ -121,28 +109,40 @@ data CreateAccountSubscription = CreateAccountSubscription'
     -- <https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html Using Active Directory with Amazon QuickSight Enterprise Edition>
     -- in the Amazon QuickSight User Guide.
     adminGroup :: Prelude.Maybe [Prelude.Text],
-    -- | A 10-digit phone number for the author of the Amazon QuickSight account
-    -- to use for future communications. This field is required if
-    -- @ENTERPPRISE_AND_Q@ is the selected edition of the new Amazon QuickSight
-    -- account.
-    contactNumber :: Prelude.Maybe Prelude.Text,
-    -- | The last name of the author of the Amazon QuickSight account to use for
-    -- future communications. This field is required if @ENTERPPRISE_AND_Q@ is
-    -- the selected edition of the new Amazon QuickSight account.
-    lastName :: Prelude.Maybe Prelude.Text,
     -- | The author group associated with your Active Directory. For more
     -- information about using Active Directory in Amazon QuickSight, see
     -- <https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html Using Active Directory with Amazon QuickSight Enterprise Edition>
     -- in the Amazon QuickSight User Guide.
     authorGroup :: Prelude.Maybe [Prelude.Text],
-    -- | The realm of the Active Directory that is associated with your Amazon
-    -- QuickSight account. This field is required if @ACTIVE_DIRECTORY@ is the
-    -- selected authentication method of the new Amazon QuickSight account.
-    realm :: Prelude.Maybe Prelude.Text,
+    -- | A 10-digit phone number for the author of the Amazon QuickSight account
+    -- to use for future communications. This field is required if
+    -- @ENTERPPRISE_AND_Q@ is the selected edition of the new Amazon QuickSight
+    -- account.
+    contactNumber :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Active Directory that is associated with your Amazon
+    -- QuickSight account.
+    directoryId :: Prelude.Maybe Prelude.Text,
     -- | The email address of the author of the Amazon QuickSight account to use
     -- for future communications. This field is required if @ENTERPPRISE_AND_Q@
     -- is the selected edition of the new Amazon QuickSight account.
     emailAddress :: Prelude.Maybe Prelude.Text,
+    -- | The first name of the author of the Amazon QuickSight account to use for
+    -- future communications. This field is required if @ENTERPPRISE_AND_Q@ is
+    -- the selected edition of the new Amazon QuickSight account.
+    firstName :: Prelude.Maybe Prelude.Text,
+    -- | The last name of the author of the Amazon QuickSight account to use for
+    -- future communications. This field is required if @ENTERPPRISE_AND_Q@ is
+    -- the selected edition of the new Amazon QuickSight account.
+    lastName :: Prelude.Maybe Prelude.Text,
+    -- | The reader group associated with your Active Direcrtory. For more
+    -- information about using Active Directory in Amazon QuickSight, see
+    -- <https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html Using Active Directory with Amazon QuickSight Enterprise Edition>
+    -- in the /Amazon QuickSight User Guide/.
+    readerGroup :: Prelude.Maybe [Prelude.Text],
+    -- | The realm of the Active Directory that is associated with your Amazon
+    -- QuickSight account. This field is required if @ACTIVE_DIRECTORY@ is the
+    -- selected authentication method of the new Amazon QuickSight account.
+    realm :: Prelude.Maybe Prelude.Text,
     -- | The edition of Amazon QuickSight that you want your account to have.
     -- Currently, you can choose from @ENTERPRISE@ or @ENTERPRISE_AND_Q@.
     --
@@ -186,21 +186,9 @@ data CreateAccountSubscription = CreateAccountSubscription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'directoryId', 'createAccountSubscription_directoryId' - The ID of the Active Directory that is associated with your Amazon
--- QuickSight account.
---
 -- 'activeDirectoryName', 'createAccountSubscription_activeDirectoryName' - The name of your Active Directory. This field is required if
 -- @ACTIVE_DIRECTORY@ is the selected authentication method of the new
 -- Amazon QuickSight account.
---
--- 'readerGroup', 'createAccountSubscription_readerGroup' - The reader group associated with your Active Direcrtory. For more
--- information about using Active Directory in Amazon QuickSight, see
--- <https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html Using Active Directory with Amazon QuickSight Enterprise Edition>
--- in the /Amazon QuickSight User Guide/.
---
--- 'firstName', 'createAccountSubscription_firstName' - The first name of the author of the Amazon QuickSight account to use for
--- future communications. This field is required if @ENTERPPRISE_AND_Q@ is
--- the selected edition of the new Amazon QuickSight account.
 --
 -- 'adminGroup', 'createAccountSubscription_adminGroup' - The admin group associated with your Active Directory. This field is
 -- required if @ACTIVE_DIRECTORY@ is the selected authentication method of
@@ -209,27 +197,39 @@ data CreateAccountSubscription = CreateAccountSubscription'
 -- <https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html Using Active Directory with Amazon QuickSight Enterprise Edition>
 -- in the Amazon QuickSight User Guide.
 --
--- 'contactNumber', 'createAccountSubscription_contactNumber' - A 10-digit phone number for the author of the Amazon QuickSight account
--- to use for future communications. This field is required if
--- @ENTERPPRISE_AND_Q@ is the selected edition of the new Amazon QuickSight
--- account.
---
--- 'lastName', 'createAccountSubscription_lastName' - The last name of the author of the Amazon QuickSight account to use for
--- future communications. This field is required if @ENTERPPRISE_AND_Q@ is
--- the selected edition of the new Amazon QuickSight account.
---
 -- 'authorGroup', 'createAccountSubscription_authorGroup' - The author group associated with your Active Directory. For more
 -- information about using Active Directory in Amazon QuickSight, see
 -- <https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html Using Active Directory with Amazon QuickSight Enterprise Edition>
 -- in the Amazon QuickSight User Guide.
 --
--- 'realm', 'createAccountSubscription_realm' - The realm of the Active Directory that is associated with your Amazon
--- QuickSight account. This field is required if @ACTIVE_DIRECTORY@ is the
--- selected authentication method of the new Amazon QuickSight account.
+-- 'contactNumber', 'createAccountSubscription_contactNumber' - A 10-digit phone number for the author of the Amazon QuickSight account
+-- to use for future communications. This field is required if
+-- @ENTERPPRISE_AND_Q@ is the selected edition of the new Amazon QuickSight
+-- account.
+--
+-- 'directoryId', 'createAccountSubscription_directoryId' - The ID of the Active Directory that is associated with your Amazon
+-- QuickSight account.
 --
 -- 'emailAddress', 'createAccountSubscription_emailAddress' - The email address of the author of the Amazon QuickSight account to use
 -- for future communications. This field is required if @ENTERPPRISE_AND_Q@
 -- is the selected edition of the new Amazon QuickSight account.
+--
+-- 'firstName', 'createAccountSubscription_firstName' - The first name of the author of the Amazon QuickSight account to use for
+-- future communications. This field is required if @ENTERPPRISE_AND_Q@ is
+-- the selected edition of the new Amazon QuickSight account.
+--
+-- 'lastName', 'createAccountSubscription_lastName' - The last name of the author of the Amazon QuickSight account to use for
+-- future communications. This field is required if @ENTERPPRISE_AND_Q@ is
+-- the selected edition of the new Amazon QuickSight account.
+--
+-- 'readerGroup', 'createAccountSubscription_readerGroup' - The reader group associated with your Active Direcrtory. For more
+-- information about using Active Directory in Amazon QuickSight, see
+-- <https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html Using Active Directory with Amazon QuickSight Enterprise Edition>
+-- in the /Amazon QuickSight User Guide/.
+--
+-- 'realm', 'createAccountSubscription_realm' - The realm of the Active Directory that is associated with your Amazon
+-- QuickSight account. This field is required if @ACTIVE_DIRECTORY@ is the
+-- selected authentication method of the new Amazon QuickSight account.
 --
 -- 'edition', 'createAccountSubscription_edition' - The edition of Amazon QuickSight that you want your account to have.
 -- Currently, you can choose from @ENTERPRISE@ or @ENTERPRISE_AND_Q@.
@@ -281,17 +281,17 @@ newCreateAccountSubscription
   pAccountName_
   pNotificationEmail_ =
     CreateAccountSubscription'
-      { directoryId =
+      { activeDirectoryName =
           Prelude.Nothing,
-        activeDirectoryName = Prelude.Nothing,
-        readerGroup = Prelude.Nothing,
-        firstName = Prelude.Nothing,
         adminGroup = Prelude.Nothing,
-        contactNumber = Prelude.Nothing,
-        lastName = Prelude.Nothing,
         authorGroup = Prelude.Nothing,
-        realm = Prelude.Nothing,
+        contactNumber = Prelude.Nothing,
+        directoryId = Prelude.Nothing,
         emailAddress = Prelude.Nothing,
+        firstName = Prelude.Nothing,
+        lastName = Prelude.Nothing,
+        readerGroup = Prelude.Nothing,
+        realm = Prelude.Nothing,
         edition = pEdition_,
         authenticationMethod = pAuthenticationMethod_,
         awsAccountId = pAwsAccountId_,
@@ -299,29 +299,11 @@ newCreateAccountSubscription
         notificationEmail = pNotificationEmail_
       }
 
--- | The ID of the Active Directory that is associated with your Amazon
--- QuickSight account.
-createAccountSubscription_directoryId :: Lens.Lens' CreateAccountSubscription (Prelude.Maybe Prelude.Text)
-createAccountSubscription_directoryId = Lens.lens (\CreateAccountSubscription' {directoryId} -> directoryId) (\s@CreateAccountSubscription' {} a -> s {directoryId = a} :: CreateAccountSubscription)
-
 -- | The name of your Active Directory. This field is required if
 -- @ACTIVE_DIRECTORY@ is the selected authentication method of the new
 -- Amazon QuickSight account.
 createAccountSubscription_activeDirectoryName :: Lens.Lens' CreateAccountSubscription (Prelude.Maybe Prelude.Text)
 createAccountSubscription_activeDirectoryName = Lens.lens (\CreateAccountSubscription' {activeDirectoryName} -> activeDirectoryName) (\s@CreateAccountSubscription' {} a -> s {activeDirectoryName = a} :: CreateAccountSubscription)
-
--- | The reader group associated with your Active Direcrtory. For more
--- information about using Active Directory in Amazon QuickSight, see
--- <https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html Using Active Directory with Amazon QuickSight Enterprise Edition>
--- in the /Amazon QuickSight User Guide/.
-createAccountSubscription_readerGroup :: Lens.Lens' CreateAccountSubscription (Prelude.Maybe [Prelude.Text])
-createAccountSubscription_readerGroup = Lens.lens (\CreateAccountSubscription' {readerGroup} -> readerGroup) (\s@CreateAccountSubscription' {} a -> s {readerGroup = a} :: CreateAccountSubscription) Prelude.. Lens.mapping Lens.coerced
-
--- | The first name of the author of the Amazon QuickSight account to use for
--- future communications. This field is required if @ENTERPPRISE_AND_Q@ is
--- the selected edition of the new Amazon QuickSight account.
-createAccountSubscription_firstName :: Lens.Lens' CreateAccountSubscription (Prelude.Maybe Prelude.Text)
-createAccountSubscription_firstName = Lens.lens (\CreateAccountSubscription' {firstName} -> firstName) (\s@CreateAccountSubscription' {} a -> s {firstName = a} :: CreateAccountSubscription)
 
 -- | The admin group associated with your Active Directory. This field is
 -- required if @ACTIVE_DIRECTORY@ is the selected authentication method of
@@ -332,19 +314,6 @@ createAccountSubscription_firstName = Lens.lens (\CreateAccountSubscription' {fi
 createAccountSubscription_adminGroup :: Lens.Lens' CreateAccountSubscription (Prelude.Maybe [Prelude.Text])
 createAccountSubscription_adminGroup = Lens.lens (\CreateAccountSubscription' {adminGroup} -> adminGroup) (\s@CreateAccountSubscription' {} a -> s {adminGroup = a} :: CreateAccountSubscription) Prelude.. Lens.mapping Lens.coerced
 
--- | A 10-digit phone number for the author of the Amazon QuickSight account
--- to use for future communications. This field is required if
--- @ENTERPPRISE_AND_Q@ is the selected edition of the new Amazon QuickSight
--- account.
-createAccountSubscription_contactNumber :: Lens.Lens' CreateAccountSubscription (Prelude.Maybe Prelude.Text)
-createAccountSubscription_contactNumber = Lens.lens (\CreateAccountSubscription' {contactNumber} -> contactNumber) (\s@CreateAccountSubscription' {} a -> s {contactNumber = a} :: CreateAccountSubscription)
-
--- | The last name of the author of the Amazon QuickSight account to use for
--- future communications. This field is required if @ENTERPPRISE_AND_Q@ is
--- the selected edition of the new Amazon QuickSight account.
-createAccountSubscription_lastName :: Lens.Lens' CreateAccountSubscription (Prelude.Maybe Prelude.Text)
-createAccountSubscription_lastName = Lens.lens (\CreateAccountSubscription' {lastName} -> lastName) (\s@CreateAccountSubscription' {} a -> s {lastName = a} :: CreateAccountSubscription)
-
 -- | The author group associated with your Active Directory. For more
 -- information about using Active Directory in Amazon QuickSight, see
 -- <https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html Using Active Directory with Amazon QuickSight Enterprise Edition>
@@ -352,17 +321,48 @@ createAccountSubscription_lastName = Lens.lens (\CreateAccountSubscription' {las
 createAccountSubscription_authorGroup :: Lens.Lens' CreateAccountSubscription (Prelude.Maybe [Prelude.Text])
 createAccountSubscription_authorGroup = Lens.lens (\CreateAccountSubscription' {authorGroup} -> authorGroup) (\s@CreateAccountSubscription' {} a -> s {authorGroup = a} :: CreateAccountSubscription) Prelude.. Lens.mapping Lens.coerced
 
--- | The realm of the Active Directory that is associated with your Amazon
--- QuickSight account. This field is required if @ACTIVE_DIRECTORY@ is the
--- selected authentication method of the new Amazon QuickSight account.
-createAccountSubscription_realm :: Lens.Lens' CreateAccountSubscription (Prelude.Maybe Prelude.Text)
-createAccountSubscription_realm = Lens.lens (\CreateAccountSubscription' {realm} -> realm) (\s@CreateAccountSubscription' {} a -> s {realm = a} :: CreateAccountSubscription)
+-- | A 10-digit phone number for the author of the Amazon QuickSight account
+-- to use for future communications. This field is required if
+-- @ENTERPPRISE_AND_Q@ is the selected edition of the new Amazon QuickSight
+-- account.
+createAccountSubscription_contactNumber :: Lens.Lens' CreateAccountSubscription (Prelude.Maybe Prelude.Text)
+createAccountSubscription_contactNumber = Lens.lens (\CreateAccountSubscription' {contactNumber} -> contactNumber) (\s@CreateAccountSubscription' {} a -> s {contactNumber = a} :: CreateAccountSubscription)
+
+-- | The ID of the Active Directory that is associated with your Amazon
+-- QuickSight account.
+createAccountSubscription_directoryId :: Lens.Lens' CreateAccountSubscription (Prelude.Maybe Prelude.Text)
+createAccountSubscription_directoryId = Lens.lens (\CreateAccountSubscription' {directoryId} -> directoryId) (\s@CreateAccountSubscription' {} a -> s {directoryId = a} :: CreateAccountSubscription)
 
 -- | The email address of the author of the Amazon QuickSight account to use
 -- for future communications. This field is required if @ENTERPPRISE_AND_Q@
 -- is the selected edition of the new Amazon QuickSight account.
 createAccountSubscription_emailAddress :: Lens.Lens' CreateAccountSubscription (Prelude.Maybe Prelude.Text)
 createAccountSubscription_emailAddress = Lens.lens (\CreateAccountSubscription' {emailAddress} -> emailAddress) (\s@CreateAccountSubscription' {} a -> s {emailAddress = a} :: CreateAccountSubscription)
+
+-- | The first name of the author of the Amazon QuickSight account to use for
+-- future communications. This field is required if @ENTERPPRISE_AND_Q@ is
+-- the selected edition of the new Amazon QuickSight account.
+createAccountSubscription_firstName :: Lens.Lens' CreateAccountSubscription (Prelude.Maybe Prelude.Text)
+createAccountSubscription_firstName = Lens.lens (\CreateAccountSubscription' {firstName} -> firstName) (\s@CreateAccountSubscription' {} a -> s {firstName = a} :: CreateAccountSubscription)
+
+-- | The last name of the author of the Amazon QuickSight account to use for
+-- future communications. This field is required if @ENTERPPRISE_AND_Q@ is
+-- the selected edition of the new Amazon QuickSight account.
+createAccountSubscription_lastName :: Lens.Lens' CreateAccountSubscription (Prelude.Maybe Prelude.Text)
+createAccountSubscription_lastName = Lens.lens (\CreateAccountSubscription' {lastName} -> lastName) (\s@CreateAccountSubscription' {} a -> s {lastName = a} :: CreateAccountSubscription)
+
+-- | The reader group associated with your Active Direcrtory. For more
+-- information about using Active Directory in Amazon QuickSight, see
+-- <https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html Using Active Directory with Amazon QuickSight Enterprise Edition>
+-- in the /Amazon QuickSight User Guide/.
+createAccountSubscription_readerGroup :: Lens.Lens' CreateAccountSubscription (Prelude.Maybe [Prelude.Text])
+createAccountSubscription_readerGroup = Lens.lens (\CreateAccountSubscription' {readerGroup} -> readerGroup) (\s@CreateAccountSubscription' {} a -> s {readerGroup = a} :: CreateAccountSubscription) Prelude.. Lens.mapping Lens.coerced
+
+-- | The realm of the Active Directory that is associated with your Amazon
+-- QuickSight account. This field is required if @ACTIVE_DIRECTORY@ is the
+-- selected authentication method of the new Amazon QuickSight account.
+createAccountSubscription_realm :: Lens.Lens' CreateAccountSubscription (Prelude.Maybe Prelude.Text)
+createAccountSubscription_realm = Lens.lens (\CreateAccountSubscription' {realm} -> realm) (\s@CreateAccountSubscription' {} a -> s {realm = a} :: CreateAccountSubscription)
 
 -- | The edition of Amazon QuickSight that you want your account to have.
 -- Currently, you can choose from @ENTERPRISE@ or @ENTERPRISE_AND_Q@.
@@ -423,16 +423,16 @@ instance Core.AWSRequest CreateAccountSubscription where
 
 instance Prelude.Hashable CreateAccountSubscription where
   hashWithSalt _salt CreateAccountSubscription' {..} =
-    _salt `Prelude.hashWithSalt` directoryId
-      `Prelude.hashWithSalt` activeDirectoryName
-      `Prelude.hashWithSalt` readerGroup
-      `Prelude.hashWithSalt` firstName
+    _salt `Prelude.hashWithSalt` activeDirectoryName
       `Prelude.hashWithSalt` adminGroup
-      `Prelude.hashWithSalt` contactNumber
-      `Prelude.hashWithSalt` lastName
       `Prelude.hashWithSalt` authorGroup
-      `Prelude.hashWithSalt` realm
+      `Prelude.hashWithSalt` contactNumber
+      `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` emailAddress
+      `Prelude.hashWithSalt` firstName
+      `Prelude.hashWithSalt` lastName
+      `Prelude.hashWithSalt` readerGroup
+      `Prelude.hashWithSalt` realm
       `Prelude.hashWithSalt` edition
       `Prelude.hashWithSalt` authenticationMethod
       `Prelude.hashWithSalt` awsAccountId
@@ -441,16 +441,16 @@ instance Prelude.Hashable CreateAccountSubscription where
 
 instance Prelude.NFData CreateAccountSubscription where
   rnf CreateAccountSubscription' {..} =
-    Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf activeDirectoryName
-      `Prelude.seq` Prelude.rnf readerGroup
-      `Prelude.seq` Prelude.rnf firstName
+    Prelude.rnf activeDirectoryName
       `Prelude.seq` Prelude.rnf adminGroup
-      `Prelude.seq` Prelude.rnf contactNumber
-      `Prelude.seq` Prelude.rnf lastName
       `Prelude.seq` Prelude.rnf authorGroup
-      `Prelude.seq` Prelude.rnf realm
+      `Prelude.seq` Prelude.rnf contactNumber
+      `Prelude.seq` Prelude.rnf directoryId
       `Prelude.seq` Prelude.rnf emailAddress
+      `Prelude.seq` Prelude.rnf firstName
+      `Prelude.seq` Prelude.rnf lastName
+      `Prelude.seq` Prelude.rnf readerGroup
+      `Prelude.seq` Prelude.rnf realm
       `Prelude.seq` Prelude.rnf edition
       `Prelude.seq` Prelude.rnf authenticationMethod
       `Prelude.seq` Prelude.rnf awsAccountId
@@ -472,17 +472,17 @@ instance Data.ToJSON CreateAccountSubscription where
   toJSON CreateAccountSubscription' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DirectoryId" Data..=) Prelude.<$> directoryId,
-            ("ActiveDirectoryName" Data..=)
+          [ ("ActiveDirectoryName" Data..=)
               Prelude.<$> activeDirectoryName,
-            ("ReaderGroup" Data..=) Prelude.<$> readerGroup,
-            ("FirstName" Data..=) Prelude.<$> firstName,
             ("AdminGroup" Data..=) Prelude.<$> adminGroup,
-            ("ContactNumber" Data..=) Prelude.<$> contactNumber,
-            ("LastName" Data..=) Prelude.<$> lastName,
             ("AuthorGroup" Data..=) Prelude.<$> authorGroup,
-            ("Realm" Data..=) Prelude.<$> realm,
+            ("ContactNumber" Data..=) Prelude.<$> contactNumber,
+            ("DirectoryId" Data..=) Prelude.<$> directoryId,
             ("EmailAddress" Data..=) Prelude.<$> emailAddress,
+            ("FirstName" Data..=) Prelude.<$> firstName,
+            ("LastName" Data..=) Prelude.<$> lastName,
+            ("ReaderGroup" Data..=) Prelude.<$> readerGroup,
+            ("Realm" Data..=) Prelude.<$> realm,
             Prelude.Just ("Edition" Data..= edition),
             Prelude.Just
               ( "AuthenticationMethod"

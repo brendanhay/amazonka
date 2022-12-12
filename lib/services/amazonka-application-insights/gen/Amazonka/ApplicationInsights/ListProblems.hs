@@ -27,11 +27,11 @@ module Amazonka.ApplicationInsights.ListProblems
     newListProblems,
 
     -- * Request Lenses
-    listProblems_nextToken,
     listProblems_componentName,
     listProblems_endTime,
-    listProblems_resourceGroupName,
     listProblems_maxResults,
+    listProblems_nextToken,
+    listProblems_resourceGroupName,
     listProblems_startTime,
 
     -- * Destructuring the Response
@@ -56,19 +56,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListProblems' smart constructor.
 data ListProblems = ListProblems'
-  { -- | The token to request the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The name of the component.
+  { -- | The name of the component.
     componentName :: Prelude.Maybe Prelude.Text,
     -- | The time when the problem ended, in epoch seconds. If not specified,
     -- problems within the past seven days are returned.
     endTime :: Prelude.Maybe Data.POSIX,
-    -- | The name of the resource group.
-    resourceGroupName :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return in a single call. To retrieve
     -- the remaining results, make another call with the returned @NextToken@
     -- value.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to request the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The name of the resource group.
+    resourceGroupName :: Prelude.Maybe Prelude.Text,
     -- | The time when the problem was detected, in epoch seconds. If you don\'t
     -- specify a time frame for the request, problems within the past seven
     -- days are returned.
@@ -84,18 +84,18 @@ data ListProblems = ListProblems'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listProblems_nextToken' - The token to request the next page of results.
---
 -- 'componentName', 'listProblems_componentName' - The name of the component.
 --
 -- 'endTime', 'listProblems_endTime' - The time when the problem ended, in epoch seconds. If not specified,
 -- problems within the past seven days are returned.
 --
--- 'resourceGroupName', 'listProblems_resourceGroupName' - The name of the resource group.
---
 -- 'maxResults', 'listProblems_maxResults' - The maximum number of results to return in a single call. To retrieve
 -- the remaining results, make another call with the returned @NextToken@
 -- value.
+--
+-- 'nextToken', 'listProblems_nextToken' - The token to request the next page of results.
+--
+-- 'resourceGroupName', 'listProblems_resourceGroupName' - The name of the resource group.
 --
 -- 'startTime', 'listProblems_startTime' - The time when the problem was detected, in epoch seconds. If you don\'t
 -- specify a time frame for the request, problems within the past seven
@@ -104,17 +104,13 @@ newListProblems ::
   ListProblems
 newListProblems =
   ListProblems'
-    { nextToken = Prelude.Nothing,
-      componentName = Prelude.Nothing,
+    { componentName = Prelude.Nothing,
       endTime = Prelude.Nothing,
-      resourceGroupName = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      resourceGroupName = Prelude.Nothing,
       startTime = Prelude.Nothing
     }
-
--- | The token to request the next page of results.
-listProblems_nextToken :: Lens.Lens' ListProblems (Prelude.Maybe Prelude.Text)
-listProblems_nextToken = Lens.lens (\ListProblems' {nextToken} -> nextToken) (\s@ListProblems' {} a -> s {nextToken = a} :: ListProblems)
 
 -- | The name of the component.
 listProblems_componentName :: Lens.Lens' ListProblems (Prelude.Maybe Prelude.Text)
@@ -125,15 +121,19 @@ listProblems_componentName = Lens.lens (\ListProblems' {componentName} -> compon
 listProblems_endTime :: Lens.Lens' ListProblems (Prelude.Maybe Prelude.UTCTime)
 listProblems_endTime = Lens.lens (\ListProblems' {endTime} -> endTime) (\s@ListProblems' {} a -> s {endTime = a} :: ListProblems) Prelude.. Lens.mapping Data._Time
 
--- | The name of the resource group.
-listProblems_resourceGroupName :: Lens.Lens' ListProblems (Prelude.Maybe Prelude.Text)
-listProblems_resourceGroupName = Lens.lens (\ListProblems' {resourceGroupName} -> resourceGroupName) (\s@ListProblems' {} a -> s {resourceGroupName = a} :: ListProblems)
-
 -- | The maximum number of results to return in a single call. To retrieve
 -- the remaining results, make another call with the returned @NextToken@
 -- value.
 listProblems_maxResults :: Lens.Lens' ListProblems (Prelude.Maybe Prelude.Natural)
 listProblems_maxResults = Lens.lens (\ListProblems' {maxResults} -> maxResults) (\s@ListProblems' {} a -> s {maxResults = a} :: ListProblems)
+
+-- | The token to request the next page of results.
+listProblems_nextToken :: Lens.Lens' ListProblems (Prelude.Maybe Prelude.Text)
+listProblems_nextToken = Lens.lens (\ListProblems' {nextToken} -> nextToken) (\s@ListProblems' {} a -> s {nextToken = a} :: ListProblems)
+
+-- | The name of the resource group.
+listProblems_resourceGroupName :: Lens.Lens' ListProblems (Prelude.Maybe Prelude.Text)
+listProblems_resourceGroupName = Lens.lens (\ListProblems' {resourceGroupName} -> resourceGroupName) (\s@ListProblems' {} a -> s {resourceGroupName = a} :: ListProblems)
 
 -- | The time when the problem was detected, in epoch seconds. If you don\'t
 -- specify a time frame for the request, problems within the past seven
@@ -157,20 +157,20 @@ instance Core.AWSRequest ListProblems where
 
 instance Prelude.Hashable ListProblems where
   hashWithSalt _salt ListProblems' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` componentName
+    _salt `Prelude.hashWithSalt` componentName
       `Prelude.hashWithSalt` endTime
-      `Prelude.hashWithSalt` resourceGroupName
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` resourceGroupName
       `Prelude.hashWithSalt` startTime
 
 instance Prelude.NFData ListProblems where
   rnf ListProblems' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf componentName
+    Prelude.rnf componentName
       `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf resourceGroupName
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceGroupName
       `Prelude.seq` Prelude.rnf startTime
 
 instance Data.ToHeaders ListProblems where
@@ -192,12 +192,12 @@ instance Data.ToJSON ListProblems where
   toJSON ListProblems' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("ComponentName" Data..=) Prelude.<$> componentName,
+          [ ("ComponentName" Data..=) Prelude.<$> componentName,
             ("EndTime" Data..=) Prelude.<$> endTime,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("ResourceGroupName" Data..=)
               Prelude.<$> resourceGroupName,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("StartTime" Data..=) Prelude.<$> startTime
           ]
       )

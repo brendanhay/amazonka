@@ -39,10 +39,10 @@ module Amazonka.PinpointSmsVoiceV2.DescribePhoneNumbers
     newDescribePhoneNumbers,
 
     -- * Request Lenses
-    describePhoneNumbers_nextToken,
-    describePhoneNumbers_phoneNumberIds,
     describePhoneNumbers_filters,
     describePhoneNumbers_maxResults,
+    describePhoneNumbers_nextToken,
+    describePhoneNumbers_phoneNumberIds,
 
     -- * Destructuring the Response
     DescribePhoneNumbersResponse (..),
@@ -65,17 +65,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribePhoneNumbers' smart constructor.
 data DescribePhoneNumbers = DescribePhoneNumbers'
-  { -- | The token to be used for the next set of paginated results. You don\'t
+  { -- | An array of PhoneNumberFilter objects to filter the results.
+    filters :: Prelude.Maybe [PhoneNumberFilter],
+    -- | The maximum number of results to return per each request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to be used for the next set of paginated results. You don\'t
     -- need to supply a value for this field in the initial request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of phone numbers to find information about. This
     -- is an array of strings that can be either the PhoneNumberId or
     -- PhoneNumberArn.
-    phoneNumberIds :: Prelude.Maybe [Prelude.Text],
-    -- | An array of PhoneNumberFilter objects to filter the results.
-    filters :: Prelude.Maybe [PhoneNumberFilter],
-    -- | The maximum number of results to return per each request.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    phoneNumberIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,25 +87,33 @@ data DescribePhoneNumbers = DescribePhoneNumbers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'filters', 'describePhoneNumbers_filters' - An array of PhoneNumberFilter objects to filter the results.
+--
+-- 'maxResults', 'describePhoneNumbers_maxResults' - The maximum number of results to return per each request.
+--
 -- 'nextToken', 'describePhoneNumbers_nextToken' - The token to be used for the next set of paginated results. You don\'t
 -- need to supply a value for this field in the initial request.
 --
 -- 'phoneNumberIds', 'describePhoneNumbers_phoneNumberIds' - The unique identifier of phone numbers to find information about. This
 -- is an array of strings that can be either the PhoneNumberId or
 -- PhoneNumberArn.
---
--- 'filters', 'describePhoneNumbers_filters' - An array of PhoneNumberFilter objects to filter the results.
---
--- 'maxResults', 'describePhoneNumbers_maxResults' - The maximum number of results to return per each request.
 newDescribePhoneNumbers ::
   DescribePhoneNumbers
 newDescribePhoneNumbers =
   DescribePhoneNumbers'
-    { nextToken = Prelude.Nothing,
-      phoneNumberIds = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      phoneNumberIds = Prelude.Nothing
     }
+
+-- | An array of PhoneNumberFilter objects to filter the results.
+describePhoneNumbers_filters :: Lens.Lens' DescribePhoneNumbers (Prelude.Maybe [PhoneNumberFilter])
+describePhoneNumbers_filters = Lens.lens (\DescribePhoneNumbers' {filters} -> filters) (\s@DescribePhoneNumbers' {} a -> s {filters = a} :: DescribePhoneNumbers) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum number of results to return per each request.
+describePhoneNumbers_maxResults :: Lens.Lens' DescribePhoneNumbers (Prelude.Maybe Prelude.Natural)
+describePhoneNumbers_maxResults = Lens.lens (\DescribePhoneNumbers' {maxResults} -> maxResults) (\s@DescribePhoneNumbers' {} a -> s {maxResults = a} :: DescribePhoneNumbers)
 
 -- | The token to be used for the next set of paginated results. You don\'t
 -- need to supply a value for this field in the initial request.
@@ -117,14 +125,6 @@ describePhoneNumbers_nextToken = Lens.lens (\DescribePhoneNumbers' {nextToken} -
 -- PhoneNumberArn.
 describePhoneNumbers_phoneNumberIds :: Lens.Lens' DescribePhoneNumbers (Prelude.Maybe [Prelude.Text])
 describePhoneNumbers_phoneNumberIds = Lens.lens (\DescribePhoneNumbers' {phoneNumberIds} -> phoneNumberIds) (\s@DescribePhoneNumbers' {} a -> s {phoneNumberIds = a} :: DescribePhoneNumbers) Prelude.. Lens.mapping Lens.coerced
-
--- | An array of PhoneNumberFilter objects to filter the results.
-describePhoneNumbers_filters :: Lens.Lens' DescribePhoneNumbers (Prelude.Maybe [PhoneNumberFilter])
-describePhoneNumbers_filters = Lens.lens (\DescribePhoneNumbers' {filters} -> filters) (\s@DescribePhoneNumbers' {} a -> s {filters = a} :: DescribePhoneNumbers) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum number of results to return per each request.
-describePhoneNumbers_maxResults :: Lens.Lens' DescribePhoneNumbers (Prelude.Maybe Prelude.Natural)
-describePhoneNumbers_maxResults = Lens.lens (\DescribePhoneNumbers' {maxResults} -> maxResults) (\s@DescribePhoneNumbers' {} a -> s {maxResults = a} :: DescribePhoneNumbers)
 
 instance Core.AWSPager DescribePhoneNumbers where
   page rq rs
@@ -165,17 +165,17 @@ instance Core.AWSRequest DescribePhoneNumbers where
 
 instance Prelude.Hashable DescribePhoneNumbers where
   hashWithSalt _salt DescribePhoneNumbers' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` phoneNumberIds
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` phoneNumberIds
 
 instance Prelude.NFData DescribePhoneNumbers where
   rnf DescribePhoneNumbers' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf phoneNumberIds
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf phoneNumberIds
 
 instance Data.ToHeaders DescribePhoneNumbers where
   toHeaders =
@@ -196,11 +196,11 @@ instance Data.ToJSON DescribePhoneNumbers where
   toJSON DescribePhoneNumbers' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("PhoneNumberIds" Data..=)
-              Prelude.<$> phoneNumberIds,
-            ("Filters" Data..=) Prelude.<$> filters,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+              Prelude.<$> phoneNumberIds
           ]
       )
 

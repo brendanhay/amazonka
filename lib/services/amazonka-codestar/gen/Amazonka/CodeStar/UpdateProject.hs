@@ -27,8 +27,8 @@ module Amazonka.CodeStar.UpdateProject
     newUpdateProject,
 
     -- * Request Lenses
-    updateProject_name,
     updateProject_description,
+    updateProject_name,
     updateProject_id,
 
     -- * Destructuring the Response
@@ -50,10 +50,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateProject' smart constructor.
 data UpdateProject = UpdateProject'
-  { -- | The name of the project you want to update.
-    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The description of the project, if any.
+  { -- | The description of the project, if any.
     description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The name of the project you want to update.
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the project you want to update.
     id :: Prelude.Text
   }
@@ -67,9 +67,9 @@ data UpdateProject = UpdateProject'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateProject_name' - The name of the project you want to update.
---
 -- 'description', 'updateProject_description' - The description of the project, if any.
+--
+-- 'name', 'updateProject_name' - The name of the project you want to update.
 --
 -- 'id', 'updateProject_id' - The ID of the project you want to update.
 newUpdateProject ::
@@ -78,18 +78,18 @@ newUpdateProject ::
   UpdateProject
 newUpdateProject pId_ =
   UpdateProject'
-    { name = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      name = Prelude.Nothing,
       id = pId_
     }
-
--- | The name of the project you want to update.
-updateProject_name :: Lens.Lens' UpdateProject (Prelude.Maybe Prelude.Text)
-updateProject_name = Lens.lens (\UpdateProject' {name} -> name) (\s@UpdateProject' {} a -> s {name = a} :: UpdateProject) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The description of the project, if any.
 updateProject_description :: Lens.Lens' UpdateProject (Prelude.Maybe Prelude.Text)
 updateProject_description = Lens.lens (\UpdateProject' {description} -> description) (\s@UpdateProject' {} a -> s {description = a} :: UpdateProject) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The name of the project you want to update.
+updateProject_name :: Lens.Lens' UpdateProject (Prelude.Maybe Prelude.Text)
+updateProject_name = Lens.lens (\UpdateProject' {name} -> name) (\s@UpdateProject' {} a -> s {name = a} :: UpdateProject) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ID of the project you want to update.
 updateProject_id :: Lens.Lens' UpdateProject Prelude.Text
@@ -110,14 +110,14 @@ instance Core.AWSRequest UpdateProject where
 
 instance Prelude.Hashable UpdateProject where
   hashWithSalt _salt UpdateProject' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData UpdateProject where
   rnf UpdateProject' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf id
 
 instance Data.ToHeaders UpdateProject where
@@ -139,8 +139,8 @@ instance Data.ToJSON UpdateProject where
   toJSON UpdateProject' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("name" Data..=) Prelude.<$> name,
-            ("description" Data..=) Prelude.<$> description,
+          [ ("description" Data..=) Prelude.<$> description,
+            ("name" Data..=) Prelude.<$> name,
             Prelude.Just ("id" Data..= id)
           ]
       )

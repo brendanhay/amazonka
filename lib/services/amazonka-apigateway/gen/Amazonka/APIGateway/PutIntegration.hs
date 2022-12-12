@@ -28,18 +28,18 @@ module Amazonka.APIGateway.PutIntegration
 
     -- * Request Lenses
     putIntegration_cacheKeyParameters,
-    putIntegration_requestParameters,
-    putIntegration_integrationHttpMethod,
-    putIntegration_connectionType,
-    putIntegration_tlsConfig,
     putIntegration_cacheNamespace,
-    putIntegration_uri,
     putIntegration_connectionId,
-    putIntegration_credentials,
-    putIntegration_timeoutInMillis,
+    putIntegration_connectionType,
     putIntegration_contentHandling,
-    putIntegration_requestTemplates,
+    putIntegration_credentials,
+    putIntegration_integrationHttpMethod,
     putIntegration_passthroughBehavior,
+    putIntegration_requestParameters,
+    putIntegration_requestTemplates,
+    putIntegration_timeoutInMillis,
+    putIntegration_tlsConfig,
+    putIntegration_uri,
     putIntegration_restApiId,
     putIntegration_resourceId,
     putIntegration_httpMethod,
@@ -51,20 +51,20 @@ module Amazonka.APIGateway.PutIntegration
 
     -- * Response Lenses
     integration_cacheKeyParameters,
-    integration_requestParameters,
-    integration_type,
-    integration_connectionType,
-    integration_tlsConfig,
     integration_cacheNamespace,
-    integration_uri,
     integration_connectionId,
-    integration_httpMethod,
-    integration_credentials,
-    integration_integrationResponses,
-    integration_timeoutInMillis,
+    integration_connectionType,
     integration_contentHandling,
-    integration_requestTemplates,
+    integration_credentials,
+    integration_httpMethod,
+    integration_integrationResponses,
     integration_passthroughBehavior,
+    integration_requestParameters,
+    integration_requestTemplates,
+    integration_timeoutInMillis,
+    integration_tlsConfig,
+    integration_type,
+    integration_uri,
   )
 where
 
@@ -84,6 +84,38 @@ data PutIntegration = PutIntegration'
     -- valid values for @cacheKeyParameters@, these parameters must also be
     -- specified for Method @requestParameters@.
     cacheKeyParameters :: Prelude.Maybe [Prelude.Text],
+    -- | Specifies a group of related cached parameters. By default, API Gateway
+    -- uses the resource ID as the @cacheNamespace@. You can specify the same
+    -- @cacheNamespace@ across resources to return the same cached data for
+    -- requests to different resources.
+    cacheNamespace :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the VpcLink used for the integration. Specify this value only
+    -- if you specify @VPC_LINK@ as the connection type.
+    connectionId :: Prelude.Maybe Prelude.Text,
+    -- | The type of the network connection to the integration endpoint. The
+    -- valid value is @INTERNET@ for connections through the public routable
+    -- internet or @VPC_LINK@ for private connections between API Gateway and a
+    -- network load balancer in a VPC. The default value is @INTERNET@.
+    connectionType :: Prelude.Maybe ConnectionType,
+    -- | Specifies how to handle request payload content type conversions.
+    -- Supported values are @CONVERT_TO_BINARY@ and @CONVERT_TO_TEXT@, with the
+    -- following behaviors:
+    --
+    -- If this property is not defined, the request payload will be passed
+    -- through from the method request to integration request without
+    -- modification, provided that the @passthroughBehavior@ is configured to
+    -- support payload pass-through.
+    contentHandling :: Prelude.Maybe ContentHandlingStrategy,
+    -- | Specifies whether credentials are required for a put integration.
+    credentials :: Prelude.Maybe Prelude.Text,
+    -- | The HTTP method for the integration.
+    integrationHttpMethod :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the pass-through behavior for incoming requests based on the
+    -- Content-Type header in the request, and the available mapping templates
+    -- specified as the @requestTemplates@ property on the Integration
+    -- resource. There are three valid values: @WHEN_NO_MATCH@,
+    -- @WHEN_NO_TEMPLATES@, and @NEVER@.
+    passthroughBehavior :: Prelude.Maybe Prelude.Text,
     -- | A key-value map specifying request parameters that are passed from the
     -- method request to the back end. The key is an integration request
     -- parameter name and the associated value is a method request parameter
@@ -93,19 +125,15 @@ data PutIntegration = PutIntegration'
     -- where @location@ is @querystring@, @path@, or @header@ and @name@ must
     -- be a valid and unique method request parameter name.
     requestParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The HTTP method for the integration.
-    integrationHttpMethod :: Prelude.Maybe Prelude.Text,
-    -- | The type of the network connection to the integration endpoint. The
-    -- valid value is @INTERNET@ for connections through the public routable
-    -- internet or @VPC_LINK@ for private connections between API Gateway and a
-    -- network load balancer in a VPC. The default value is @INTERNET@.
-    connectionType :: Prelude.Maybe ConnectionType,
+    -- | Represents a map of Velocity templates that are applied on the request
+    -- payload based on the value of the Content-Type header sent by the
+    -- client. The content type value is the key in this map, and the template
+    -- (as a String) is the value.
+    requestTemplates :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Custom timeout between 50 and 29,000 milliseconds. The default value is
+    -- 29,000 milliseconds or 29 seconds.
+    timeoutInMillis :: Prelude.Maybe Prelude.Int,
     tlsConfig :: Prelude.Maybe TlsConfig,
-    -- | Specifies a group of related cached parameters. By default, API Gateway
-    -- uses the resource ID as the @cacheNamespace@. You can specify the same
-    -- @cacheNamespace@ across resources to return the same cached data for
-    -- requests to different resources.
-    cacheNamespace :: Prelude.Maybe Prelude.Text,
     -- | Specifies Uniform Resource Identifier (URI) of the integration endpoint.
     -- For HTTP or @HTTP_PROXY@ integrations, the URI must be a fully formed,
     -- encoded HTTP(S) URL according to the RFC-3986 specification, for either
@@ -129,34 +157,6 @@ data PutIntegration = PutIntegration'
     -- @arn:aws:apigateway:us-west-2:s3:action\/GetObject&Bucket={bucket}&Key={key}@
     -- or @arn:aws:apigateway:us-west-2:s3:path\/{bucket}\/{key}@.
     uri :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the VpcLink used for the integration. Specify this value only
-    -- if you specify @VPC_LINK@ as the connection type.
-    connectionId :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether credentials are required for a put integration.
-    credentials :: Prelude.Maybe Prelude.Text,
-    -- | Custom timeout between 50 and 29,000 milliseconds. The default value is
-    -- 29,000 milliseconds or 29 seconds.
-    timeoutInMillis :: Prelude.Maybe Prelude.Int,
-    -- | Specifies how to handle request payload content type conversions.
-    -- Supported values are @CONVERT_TO_BINARY@ and @CONVERT_TO_TEXT@, with the
-    -- following behaviors:
-    --
-    -- If this property is not defined, the request payload will be passed
-    -- through from the method request to integration request without
-    -- modification, provided that the @passthroughBehavior@ is configured to
-    -- support payload pass-through.
-    contentHandling :: Prelude.Maybe ContentHandlingStrategy,
-    -- | Represents a map of Velocity templates that are applied on the request
-    -- payload based on the value of the Content-Type header sent by the
-    -- client. The content type value is the key in this map, and the template
-    -- (as a String) is the value.
-    requestTemplates :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Specifies the pass-through behavior for incoming requests based on the
-    -- Content-Type header in the request, and the available mapping templates
-    -- specified as the @requestTemplates@ property on the Integration
-    -- resource. There are three valid values: @WHEN_NO_MATCH@,
-    -- @WHEN_NO_TEMPLATES@, and @NEVER@.
-    passthroughBehavior :: Prelude.Maybe Prelude.Text,
     -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
     -- | Specifies a put integration request\'s resource ID.
@@ -180,6 +180,38 @@ data PutIntegration = PutIntegration'
 -- valid values for @cacheKeyParameters@, these parameters must also be
 -- specified for Method @requestParameters@.
 --
+-- 'cacheNamespace', 'putIntegration_cacheNamespace' - Specifies a group of related cached parameters. By default, API Gateway
+-- uses the resource ID as the @cacheNamespace@. You can specify the same
+-- @cacheNamespace@ across resources to return the same cached data for
+-- requests to different resources.
+--
+-- 'connectionId', 'putIntegration_connectionId' - The ID of the VpcLink used for the integration. Specify this value only
+-- if you specify @VPC_LINK@ as the connection type.
+--
+-- 'connectionType', 'putIntegration_connectionType' - The type of the network connection to the integration endpoint. The
+-- valid value is @INTERNET@ for connections through the public routable
+-- internet or @VPC_LINK@ for private connections between API Gateway and a
+-- network load balancer in a VPC. The default value is @INTERNET@.
+--
+-- 'contentHandling', 'putIntegration_contentHandling' - Specifies how to handle request payload content type conversions.
+-- Supported values are @CONVERT_TO_BINARY@ and @CONVERT_TO_TEXT@, with the
+-- following behaviors:
+--
+-- If this property is not defined, the request payload will be passed
+-- through from the method request to integration request without
+-- modification, provided that the @passthroughBehavior@ is configured to
+-- support payload pass-through.
+--
+-- 'credentials', 'putIntegration_credentials' - Specifies whether credentials are required for a put integration.
+--
+-- 'integrationHttpMethod', 'putIntegration_integrationHttpMethod' - The HTTP method for the integration.
+--
+-- 'passthroughBehavior', 'putIntegration_passthroughBehavior' - Specifies the pass-through behavior for incoming requests based on the
+-- Content-Type header in the request, and the available mapping templates
+-- specified as the @requestTemplates@ property on the Integration
+-- resource. There are three valid values: @WHEN_NO_MATCH@,
+-- @WHEN_NO_TEMPLATES@, and @NEVER@.
+--
 -- 'requestParameters', 'putIntegration_requestParameters' - A key-value map specifying request parameters that are passed from the
 -- method request to the back end. The key is an integration request
 -- parameter name and the associated value is a method request parameter
@@ -189,19 +221,15 @@ data PutIntegration = PutIntegration'
 -- where @location@ is @querystring@, @path@, or @header@ and @name@ must
 -- be a valid and unique method request parameter name.
 --
--- 'integrationHttpMethod', 'putIntegration_integrationHttpMethod' - The HTTP method for the integration.
+-- 'requestTemplates', 'putIntegration_requestTemplates' - Represents a map of Velocity templates that are applied on the request
+-- payload based on the value of the Content-Type header sent by the
+-- client. The content type value is the key in this map, and the template
+-- (as a String) is the value.
 --
--- 'connectionType', 'putIntegration_connectionType' - The type of the network connection to the integration endpoint. The
--- valid value is @INTERNET@ for connections through the public routable
--- internet or @VPC_LINK@ for private connections between API Gateway and a
--- network load balancer in a VPC. The default value is @INTERNET@.
+-- 'timeoutInMillis', 'putIntegration_timeoutInMillis' - Custom timeout between 50 and 29,000 milliseconds. The default value is
+-- 29,000 milliseconds or 29 seconds.
 --
 -- 'tlsConfig', 'putIntegration_tlsConfig' - Undocumented member.
---
--- 'cacheNamespace', 'putIntegration_cacheNamespace' - Specifies a group of related cached parameters. By default, API Gateway
--- uses the resource ID as the @cacheNamespace@. You can specify the same
--- @cacheNamespace@ across resources to return the same cached data for
--- requests to different resources.
 --
 -- 'uri', 'putIntegration_uri' - Specifies Uniform Resource Identifier (URI) of the integration endpoint.
 -- For HTTP or @HTTP_PROXY@ integrations, the URI must be a fully formed,
@@ -225,34 +253,6 @@ data PutIntegration = PutIntegration'
 -- for integration with the S3 API of @GetObject@, the @uri@ can be either
 -- @arn:aws:apigateway:us-west-2:s3:action\/GetObject&Bucket={bucket}&Key={key}@
 -- or @arn:aws:apigateway:us-west-2:s3:path\/{bucket}\/{key}@.
---
--- 'connectionId', 'putIntegration_connectionId' - The ID of the VpcLink used for the integration. Specify this value only
--- if you specify @VPC_LINK@ as the connection type.
---
--- 'credentials', 'putIntegration_credentials' - Specifies whether credentials are required for a put integration.
---
--- 'timeoutInMillis', 'putIntegration_timeoutInMillis' - Custom timeout between 50 and 29,000 milliseconds. The default value is
--- 29,000 milliseconds or 29 seconds.
---
--- 'contentHandling', 'putIntegration_contentHandling' - Specifies how to handle request payload content type conversions.
--- Supported values are @CONVERT_TO_BINARY@ and @CONVERT_TO_TEXT@, with the
--- following behaviors:
---
--- If this property is not defined, the request payload will be passed
--- through from the method request to integration request without
--- modification, provided that the @passthroughBehavior@ is configured to
--- support payload pass-through.
---
--- 'requestTemplates', 'putIntegration_requestTemplates' - Represents a map of Velocity templates that are applied on the request
--- payload based on the value of the Content-Type header sent by the
--- client. The content type value is the key in this map, and the template
--- (as a String) is the value.
---
--- 'passthroughBehavior', 'putIntegration_passthroughBehavior' - Specifies the pass-through behavior for incoming requests based on the
--- Content-Type header in the request, and the available mapping templates
--- specified as the @requestTemplates@ property on the Integration
--- resource. There are three valid values: @WHEN_NO_MATCH@,
--- @WHEN_NO_TEMPLATES@, and @NEVER@.
 --
 -- 'restApiId', 'putIntegration_restApiId' - The string identifier of the associated RestApi.
 --
@@ -279,18 +279,18 @@ newPutIntegration
     PutIntegration'
       { cacheKeyParameters =
           Prelude.Nothing,
-        requestParameters = Prelude.Nothing,
-        integrationHttpMethod = Prelude.Nothing,
-        connectionType = Prelude.Nothing,
-        tlsConfig = Prelude.Nothing,
         cacheNamespace = Prelude.Nothing,
-        uri = Prelude.Nothing,
         connectionId = Prelude.Nothing,
-        credentials = Prelude.Nothing,
-        timeoutInMillis = Prelude.Nothing,
+        connectionType = Prelude.Nothing,
         contentHandling = Prelude.Nothing,
-        requestTemplates = Prelude.Nothing,
+        credentials = Prelude.Nothing,
+        integrationHttpMethod = Prelude.Nothing,
         passthroughBehavior = Prelude.Nothing,
+        requestParameters = Prelude.Nothing,
+        requestTemplates = Prelude.Nothing,
+        timeoutInMillis = Prelude.Nothing,
+        tlsConfig = Prelude.Nothing,
+        uri = Prelude.Nothing,
         restApiId = pRestApiId_,
         resourceId = pResourceId_,
         httpMethod = pHttpMethod_,
@@ -303,6 +303,52 @@ newPutIntegration
 putIntegration_cacheKeyParameters :: Lens.Lens' PutIntegration (Prelude.Maybe [Prelude.Text])
 putIntegration_cacheKeyParameters = Lens.lens (\PutIntegration' {cacheKeyParameters} -> cacheKeyParameters) (\s@PutIntegration' {} a -> s {cacheKeyParameters = a} :: PutIntegration) Prelude.. Lens.mapping Lens.coerced
 
+-- | Specifies a group of related cached parameters. By default, API Gateway
+-- uses the resource ID as the @cacheNamespace@. You can specify the same
+-- @cacheNamespace@ across resources to return the same cached data for
+-- requests to different resources.
+putIntegration_cacheNamespace :: Lens.Lens' PutIntegration (Prelude.Maybe Prelude.Text)
+putIntegration_cacheNamespace = Lens.lens (\PutIntegration' {cacheNamespace} -> cacheNamespace) (\s@PutIntegration' {} a -> s {cacheNamespace = a} :: PutIntegration)
+
+-- | The ID of the VpcLink used for the integration. Specify this value only
+-- if you specify @VPC_LINK@ as the connection type.
+putIntegration_connectionId :: Lens.Lens' PutIntegration (Prelude.Maybe Prelude.Text)
+putIntegration_connectionId = Lens.lens (\PutIntegration' {connectionId} -> connectionId) (\s@PutIntegration' {} a -> s {connectionId = a} :: PutIntegration)
+
+-- | The type of the network connection to the integration endpoint. The
+-- valid value is @INTERNET@ for connections through the public routable
+-- internet or @VPC_LINK@ for private connections between API Gateway and a
+-- network load balancer in a VPC. The default value is @INTERNET@.
+putIntegration_connectionType :: Lens.Lens' PutIntegration (Prelude.Maybe ConnectionType)
+putIntegration_connectionType = Lens.lens (\PutIntegration' {connectionType} -> connectionType) (\s@PutIntegration' {} a -> s {connectionType = a} :: PutIntegration)
+
+-- | Specifies how to handle request payload content type conversions.
+-- Supported values are @CONVERT_TO_BINARY@ and @CONVERT_TO_TEXT@, with the
+-- following behaviors:
+--
+-- If this property is not defined, the request payload will be passed
+-- through from the method request to integration request without
+-- modification, provided that the @passthroughBehavior@ is configured to
+-- support payload pass-through.
+putIntegration_contentHandling :: Lens.Lens' PutIntegration (Prelude.Maybe ContentHandlingStrategy)
+putIntegration_contentHandling = Lens.lens (\PutIntegration' {contentHandling} -> contentHandling) (\s@PutIntegration' {} a -> s {contentHandling = a} :: PutIntegration)
+
+-- | Specifies whether credentials are required for a put integration.
+putIntegration_credentials :: Lens.Lens' PutIntegration (Prelude.Maybe Prelude.Text)
+putIntegration_credentials = Lens.lens (\PutIntegration' {credentials} -> credentials) (\s@PutIntegration' {} a -> s {credentials = a} :: PutIntegration)
+
+-- | The HTTP method for the integration.
+putIntegration_integrationHttpMethod :: Lens.Lens' PutIntegration (Prelude.Maybe Prelude.Text)
+putIntegration_integrationHttpMethod = Lens.lens (\PutIntegration' {integrationHttpMethod} -> integrationHttpMethod) (\s@PutIntegration' {} a -> s {integrationHttpMethod = a} :: PutIntegration)
+
+-- | Specifies the pass-through behavior for incoming requests based on the
+-- Content-Type header in the request, and the available mapping templates
+-- specified as the @requestTemplates@ property on the Integration
+-- resource. There are three valid values: @WHEN_NO_MATCH@,
+-- @WHEN_NO_TEMPLATES@, and @NEVER@.
+putIntegration_passthroughBehavior :: Lens.Lens' PutIntegration (Prelude.Maybe Prelude.Text)
+putIntegration_passthroughBehavior = Lens.lens (\PutIntegration' {passthroughBehavior} -> passthroughBehavior) (\s@PutIntegration' {} a -> s {passthroughBehavior = a} :: PutIntegration)
+
 -- | A key-value map specifying request parameters that are passed from the
 -- method request to the back end. The key is an integration request
 -- parameter name and the associated value is a method request parameter
@@ -314,27 +360,21 @@ putIntegration_cacheKeyParameters = Lens.lens (\PutIntegration' {cacheKeyParamet
 putIntegration_requestParameters :: Lens.Lens' PutIntegration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 putIntegration_requestParameters = Lens.lens (\PutIntegration' {requestParameters} -> requestParameters) (\s@PutIntegration' {} a -> s {requestParameters = a} :: PutIntegration) Prelude.. Lens.mapping Lens.coerced
 
--- | The HTTP method for the integration.
-putIntegration_integrationHttpMethod :: Lens.Lens' PutIntegration (Prelude.Maybe Prelude.Text)
-putIntegration_integrationHttpMethod = Lens.lens (\PutIntegration' {integrationHttpMethod} -> integrationHttpMethod) (\s@PutIntegration' {} a -> s {integrationHttpMethod = a} :: PutIntegration)
+-- | Represents a map of Velocity templates that are applied on the request
+-- payload based on the value of the Content-Type header sent by the
+-- client. The content type value is the key in this map, and the template
+-- (as a String) is the value.
+putIntegration_requestTemplates :: Lens.Lens' PutIntegration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+putIntegration_requestTemplates = Lens.lens (\PutIntegration' {requestTemplates} -> requestTemplates) (\s@PutIntegration' {} a -> s {requestTemplates = a} :: PutIntegration) Prelude.. Lens.mapping Lens.coerced
 
--- | The type of the network connection to the integration endpoint. The
--- valid value is @INTERNET@ for connections through the public routable
--- internet or @VPC_LINK@ for private connections between API Gateway and a
--- network load balancer in a VPC. The default value is @INTERNET@.
-putIntegration_connectionType :: Lens.Lens' PutIntegration (Prelude.Maybe ConnectionType)
-putIntegration_connectionType = Lens.lens (\PutIntegration' {connectionType} -> connectionType) (\s@PutIntegration' {} a -> s {connectionType = a} :: PutIntegration)
+-- | Custom timeout between 50 and 29,000 milliseconds. The default value is
+-- 29,000 milliseconds or 29 seconds.
+putIntegration_timeoutInMillis :: Lens.Lens' PutIntegration (Prelude.Maybe Prelude.Int)
+putIntegration_timeoutInMillis = Lens.lens (\PutIntegration' {timeoutInMillis} -> timeoutInMillis) (\s@PutIntegration' {} a -> s {timeoutInMillis = a} :: PutIntegration)
 
 -- | Undocumented member.
 putIntegration_tlsConfig :: Lens.Lens' PutIntegration (Prelude.Maybe TlsConfig)
 putIntegration_tlsConfig = Lens.lens (\PutIntegration' {tlsConfig} -> tlsConfig) (\s@PutIntegration' {} a -> s {tlsConfig = a} :: PutIntegration)
-
--- | Specifies a group of related cached parameters. By default, API Gateway
--- uses the resource ID as the @cacheNamespace@. You can specify the same
--- @cacheNamespace@ across resources to return the same cached data for
--- requests to different resources.
-putIntegration_cacheNamespace :: Lens.Lens' PutIntegration (Prelude.Maybe Prelude.Text)
-putIntegration_cacheNamespace = Lens.lens (\PutIntegration' {cacheNamespace} -> cacheNamespace) (\s@PutIntegration' {} a -> s {cacheNamespace = a} :: PutIntegration)
 
 -- | Specifies Uniform Resource Identifier (URI) of the integration endpoint.
 -- For HTTP or @HTTP_PROXY@ integrations, the URI must be a fully formed,
@@ -360,46 +400,6 @@ putIntegration_cacheNamespace = Lens.lens (\PutIntegration' {cacheNamespace} -> 
 -- or @arn:aws:apigateway:us-west-2:s3:path\/{bucket}\/{key}@.
 putIntegration_uri :: Lens.Lens' PutIntegration (Prelude.Maybe Prelude.Text)
 putIntegration_uri = Lens.lens (\PutIntegration' {uri} -> uri) (\s@PutIntegration' {} a -> s {uri = a} :: PutIntegration)
-
--- | The ID of the VpcLink used for the integration. Specify this value only
--- if you specify @VPC_LINK@ as the connection type.
-putIntegration_connectionId :: Lens.Lens' PutIntegration (Prelude.Maybe Prelude.Text)
-putIntegration_connectionId = Lens.lens (\PutIntegration' {connectionId} -> connectionId) (\s@PutIntegration' {} a -> s {connectionId = a} :: PutIntegration)
-
--- | Specifies whether credentials are required for a put integration.
-putIntegration_credentials :: Lens.Lens' PutIntegration (Prelude.Maybe Prelude.Text)
-putIntegration_credentials = Lens.lens (\PutIntegration' {credentials} -> credentials) (\s@PutIntegration' {} a -> s {credentials = a} :: PutIntegration)
-
--- | Custom timeout between 50 and 29,000 milliseconds. The default value is
--- 29,000 milliseconds or 29 seconds.
-putIntegration_timeoutInMillis :: Lens.Lens' PutIntegration (Prelude.Maybe Prelude.Int)
-putIntegration_timeoutInMillis = Lens.lens (\PutIntegration' {timeoutInMillis} -> timeoutInMillis) (\s@PutIntegration' {} a -> s {timeoutInMillis = a} :: PutIntegration)
-
--- | Specifies how to handle request payload content type conversions.
--- Supported values are @CONVERT_TO_BINARY@ and @CONVERT_TO_TEXT@, with the
--- following behaviors:
---
--- If this property is not defined, the request payload will be passed
--- through from the method request to integration request without
--- modification, provided that the @passthroughBehavior@ is configured to
--- support payload pass-through.
-putIntegration_contentHandling :: Lens.Lens' PutIntegration (Prelude.Maybe ContentHandlingStrategy)
-putIntegration_contentHandling = Lens.lens (\PutIntegration' {contentHandling} -> contentHandling) (\s@PutIntegration' {} a -> s {contentHandling = a} :: PutIntegration)
-
--- | Represents a map of Velocity templates that are applied on the request
--- payload based on the value of the Content-Type header sent by the
--- client. The content type value is the key in this map, and the template
--- (as a String) is the value.
-putIntegration_requestTemplates :: Lens.Lens' PutIntegration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-putIntegration_requestTemplates = Lens.lens (\PutIntegration' {requestTemplates} -> requestTemplates) (\s@PutIntegration' {} a -> s {requestTemplates = a} :: PutIntegration) Prelude.. Lens.mapping Lens.coerced
-
--- | Specifies the pass-through behavior for incoming requests based on the
--- Content-Type header in the request, and the available mapping templates
--- specified as the @requestTemplates@ property on the Integration
--- resource. There are three valid values: @WHEN_NO_MATCH@,
--- @WHEN_NO_TEMPLATES@, and @NEVER@.
-putIntegration_passthroughBehavior :: Lens.Lens' PutIntegration (Prelude.Maybe Prelude.Text)
-putIntegration_passthroughBehavior = Lens.lens (\PutIntegration' {passthroughBehavior} -> passthroughBehavior) (\s@PutIntegration' {} a -> s {passthroughBehavior = a} :: PutIntegration)
 
 -- | The string identifier of the associated RestApi.
 putIntegration_restApiId :: Lens.Lens' PutIntegration Prelude.Text
@@ -428,18 +428,18 @@ instance Core.AWSRequest PutIntegration where
 instance Prelude.Hashable PutIntegration where
   hashWithSalt _salt PutIntegration' {..} =
     _salt `Prelude.hashWithSalt` cacheKeyParameters
-      `Prelude.hashWithSalt` requestParameters
-      `Prelude.hashWithSalt` integrationHttpMethod
-      `Prelude.hashWithSalt` connectionType
-      `Prelude.hashWithSalt` tlsConfig
       `Prelude.hashWithSalt` cacheNamespace
-      `Prelude.hashWithSalt` uri
       `Prelude.hashWithSalt` connectionId
-      `Prelude.hashWithSalt` credentials
-      `Prelude.hashWithSalt` timeoutInMillis
+      `Prelude.hashWithSalt` connectionType
       `Prelude.hashWithSalt` contentHandling
-      `Prelude.hashWithSalt` requestTemplates
+      `Prelude.hashWithSalt` credentials
+      `Prelude.hashWithSalt` integrationHttpMethod
       `Prelude.hashWithSalt` passthroughBehavior
+      `Prelude.hashWithSalt` requestParameters
+      `Prelude.hashWithSalt` requestTemplates
+      `Prelude.hashWithSalt` timeoutInMillis
+      `Prelude.hashWithSalt` tlsConfig
+      `Prelude.hashWithSalt` uri
       `Prelude.hashWithSalt` restApiId
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` httpMethod
@@ -448,18 +448,18 @@ instance Prelude.Hashable PutIntegration where
 instance Prelude.NFData PutIntegration where
   rnf PutIntegration' {..} =
     Prelude.rnf cacheKeyParameters
-      `Prelude.seq` Prelude.rnf requestParameters
-      `Prelude.seq` Prelude.rnf integrationHttpMethod
-      `Prelude.seq` Prelude.rnf connectionType
-      `Prelude.seq` Prelude.rnf tlsConfig
       `Prelude.seq` Prelude.rnf cacheNamespace
-      `Prelude.seq` Prelude.rnf uri
       `Prelude.seq` Prelude.rnf connectionId
-      `Prelude.seq` Prelude.rnf credentials
-      `Prelude.seq` Prelude.rnf timeoutInMillis
+      `Prelude.seq` Prelude.rnf connectionType
       `Prelude.seq` Prelude.rnf contentHandling
-      `Prelude.seq` Prelude.rnf requestTemplates
+      `Prelude.seq` Prelude.rnf credentials
+      `Prelude.seq` Prelude.rnf integrationHttpMethod
       `Prelude.seq` Prelude.rnf passthroughBehavior
+      `Prelude.seq` Prelude.rnf requestParameters
+      `Prelude.seq` Prelude.rnf requestTemplates
+      `Prelude.seq` Prelude.rnf timeoutInMillis
+      `Prelude.seq` Prelude.rnf tlsConfig
+      `Prelude.seq` Prelude.rnf uri
       `Prelude.seq` Prelude.rnf restApiId
       `Prelude.seq` Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf httpMethod
@@ -480,26 +480,26 @@ instance Data.ToJSON PutIntegration where
       ( Prelude.catMaybes
           [ ("cacheKeyParameters" Data..=)
               Prelude.<$> cacheKeyParameters,
-            ("requestParameters" Data..=)
-              Prelude.<$> requestParameters,
-            ("httpMethod" Data..=)
-              Prelude.<$> integrationHttpMethod,
-            ("connectionType" Data..=)
-              Prelude.<$> connectionType,
-            ("tlsConfig" Data..=) Prelude.<$> tlsConfig,
             ("cacheNamespace" Data..=)
               Prelude.<$> cacheNamespace,
-            ("uri" Data..=) Prelude.<$> uri,
             ("connectionId" Data..=) Prelude.<$> connectionId,
-            ("credentials" Data..=) Prelude.<$> credentials,
-            ("timeoutInMillis" Data..=)
-              Prelude.<$> timeoutInMillis,
+            ("connectionType" Data..=)
+              Prelude.<$> connectionType,
             ("contentHandling" Data..=)
               Prelude.<$> contentHandling,
-            ("requestTemplates" Data..=)
-              Prelude.<$> requestTemplates,
+            ("credentials" Data..=) Prelude.<$> credentials,
+            ("httpMethod" Data..=)
+              Prelude.<$> integrationHttpMethod,
             ("passthroughBehavior" Data..=)
               Prelude.<$> passthroughBehavior,
+            ("requestParameters" Data..=)
+              Prelude.<$> requestParameters,
+            ("requestTemplates" Data..=)
+              Prelude.<$> requestTemplates,
+            ("timeoutInMillis" Data..=)
+              Prelude.<$> timeoutInMillis,
+            ("tlsConfig" Data..=) Prelude.<$> tlsConfig,
+            ("uri" Data..=) Prelude.<$> uri,
             Prelude.Just ("type" Data..= type')
           ]
       )

@@ -40,12 +40,7 @@ import Amazonka.WAFV2.Types.ManagedRuleSetVersion
 --
 -- /See:/ 'newManagedRuleSet' smart constructor.
 data ManagedRuleSet = ManagedRuleSet'
-  { -- | The version that you would like your customers to use.
-    recommendedVersion :: Prelude.Maybe Prelude.Text,
-    -- | The versions of this managed rule set that are available for use by
-    -- customers.
-    publishedVersions :: Prelude.Maybe (Prelude.HashMap Prelude.Text ManagedRuleSetVersion),
-    -- | A description of the set that helps with identification.
+  { -- | A description of the set that helps with identification.
     description :: Prelude.Maybe Prelude.Text,
     -- | The label namespace prefix for the managed rule groups that are offered
     -- to customers from this managed rule set. All labels that are added by
@@ -63,6 +58,11 @@ data ManagedRuleSet = ManagedRuleSet'
     --
     --     @\<label namespace>:\<label from rule>@
     labelNamespace :: Prelude.Maybe Prelude.Text,
+    -- | The versions of this managed rule set that are available for use by
+    -- customers.
+    publishedVersions :: Prelude.Maybe (Prelude.HashMap Prelude.Text ManagedRuleSetVersion),
+    -- | The version that you would like your customers to use.
+    recommendedVersion :: Prelude.Maybe Prelude.Text,
     -- | The name of the managed rule set. You use this, along with the rule set
     -- ID, to identify the rule set.
     --
@@ -86,11 +86,6 @@ data ManagedRuleSet = ManagedRuleSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'recommendedVersion', 'managedRuleSet_recommendedVersion' - The version that you would like your customers to use.
---
--- 'publishedVersions', 'managedRuleSet_publishedVersions' - The versions of this managed rule set that are available for use by
--- customers.
---
 -- 'description', 'managedRuleSet_description' - A description of the set that helps with identification.
 --
 -- 'labelNamespace', 'managedRuleSet_labelNamespace' - The label namespace prefix for the managed rule groups that are offered
@@ -108,6 +103,11 @@ data ManagedRuleSet = ManagedRuleSet'
 --     is defined and the label from the rule, separated by a colon:
 --
 --     @\<label namespace>:\<label from rule>@
+--
+-- 'publishedVersions', 'managedRuleSet_publishedVersions' - The versions of this managed rule set that are available for use by
+-- customers.
+--
+-- 'recommendedVersion', 'managedRuleSet_recommendedVersion' - The version that you would like your customers to use.
 --
 -- 'name', 'managedRuleSet_name' - The name of the managed rule set. You use this, along with the rule set
 -- ID, to identify the rule set.
@@ -130,24 +130,14 @@ newManagedRuleSet ::
   ManagedRuleSet
 newManagedRuleSet pName_ pId_ pARN_ =
   ManagedRuleSet'
-    { recommendedVersion =
-        Prelude.Nothing,
-      publishedVersions = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
       labelNamespace = Prelude.Nothing,
+      publishedVersions = Prelude.Nothing,
+      recommendedVersion = Prelude.Nothing,
       name = pName_,
       id = pId_,
       arn = pARN_
     }
-
--- | The version that you would like your customers to use.
-managedRuleSet_recommendedVersion :: Lens.Lens' ManagedRuleSet (Prelude.Maybe Prelude.Text)
-managedRuleSet_recommendedVersion = Lens.lens (\ManagedRuleSet' {recommendedVersion} -> recommendedVersion) (\s@ManagedRuleSet' {} a -> s {recommendedVersion = a} :: ManagedRuleSet)
-
--- | The versions of this managed rule set that are available for use by
--- customers.
-managedRuleSet_publishedVersions :: Lens.Lens' ManagedRuleSet (Prelude.Maybe (Prelude.HashMap Prelude.Text ManagedRuleSetVersion))
-managedRuleSet_publishedVersions = Lens.lens (\ManagedRuleSet' {publishedVersions} -> publishedVersions) (\s@ManagedRuleSet' {} a -> s {publishedVersions = a} :: ManagedRuleSet) Prelude.. Lens.mapping Lens.coerced
 
 -- | A description of the set that helps with identification.
 managedRuleSet_description :: Lens.Lens' ManagedRuleSet (Prelude.Maybe Prelude.Text)
@@ -170,6 +160,15 @@ managedRuleSet_description = Lens.lens (\ManagedRuleSet' {description} -> descri
 --     @\<label namespace>:\<label from rule>@
 managedRuleSet_labelNamespace :: Lens.Lens' ManagedRuleSet (Prelude.Maybe Prelude.Text)
 managedRuleSet_labelNamespace = Lens.lens (\ManagedRuleSet' {labelNamespace} -> labelNamespace) (\s@ManagedRuleSet' {} a -> s {labelNamespace = a} :: ManagedRuleSet)
+
+-- | The versions of this managed rule set that are available for use by
+-- customers.
+managedRuleSet_publishedVersions :: Lens.Lens' ManagedRuleSet (Prelude.Maybe (Prelude.HashMap Prelude.Text ManagedRuleSetVersion))
+managedRuleSet_publishedVersions = Lens.lens (\ManagedRuleSet' {publishedVersions} -> publishedVersions) (\s@ManagedRuleSet' {} a -> s {publishedVersions = a} :: ManagedRuleSet) Prelude.. Lens.mapping Lens.coerced
+
+-- | The version that you would like your customers to use.
+managedRuleSet_recommendedVersion :: Lens.Lens' ManagedRuleSet (Prelude.Maybe Prelude.Text)
+managedRuleSet_recommendedVersion = Lens.lens (\ManagedRuleSet' {recommendedVersion} -> recommendedVersion) (\s@ManagedRuleSet' {} a -> s {recommendedVersion = a} :: ManagedRuleSet)
 
 -- | The name of the managed rule set. You use this, along with the rule set
 -- ID, to identify the rule set.
@@ -195,12 +194,12 @@ instance Data.FromJSON ManagedRuleSet where
       "ManagedRuleSet"
       ( \x ->
           ManagedRuleSet'
-            Prelude.<$> (x Data..:? "RecommendedVersion")
+            Prelude.<$> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "LabelNamespace")
             Prelude.<*> ( x Data..:? "PublishedVersions"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "Description")
-            Prelude.<*> (x Data..:? "LabelNamespace")
+            Prelude.<*> (x Data..:? "RecommendedVersion")
             Prelude.<*> (x Data..: "Name")
             Prelude.<*> (x Data..: "Id")
             Prelude.<*> (x Data..: "ARN")
@@ -208,20 +207,20 @@ instance Data.FromJSON ManagedRuleSet where
 
 instance Prelude.Hashable ManagedRuleSet where
   hashWithSalt _salt ManagedRuleSet' {..} =
-    _salt `Prelude.hashWithSalt` recommendedVersion
-      `Prelude.hashWithSalt` publishedVersions
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` labelNamespace
+      `Prelude.hashWithSalt` publishedVersions
+      `Prelude.hashWithSalt` recommendedVersion
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData ManagedRuleSet where
   rnf ManagedRuleSet' {..} =
-    Prelude.rnf recommendedVersion
-      `Prelude.seq` Prelude.rnf publishedVersions
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf labelNamespace
+      `Prelude.seq` Prelude.rnf publishedVersions
+      `Prelude.seq` Prelude.rnf recommendedVersion
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf arn

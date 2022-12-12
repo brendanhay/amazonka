@@ -33,12 +33,12 @@ data InstanceProperty = InstanceProperty'
     -- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
     -- operation was successful.
     failed :: Prelude.Maybe Prelude.Bool,
+    -- | A list of instanceProperty objects.
+    properties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The ISO-8601 time stamp of when the certificate was last used in a
     -- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
     -- operation.
-    seenAt :: Prelude.Maybe Data.POSIX,
-    -- | A list of instanceProperty objects.
-    properties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    seenAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,18 +54,18 @@ data InstanceProperty = InstanceProperty'
 -- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
 -- operation was successful.
 --
+-- 'properties', 'instanceProperty_properties' - A list of instanceProperty objects.
+--
 -- 'seenAt', 'instanceProperty_seenAt' - The ISO-8601 time stamp of when the certificate was last used in a
 -- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
 -- operation.
---
--- 'properties', 'instanceProperty_properties' - A list of instanceProperty objects.
 newInstanceProperty ::
   InstanceProperty
 newInstanceProperty =
   InstanceProperty'
     { failed = Prelude.Nothing,
-      seenAt = Prelude.Nothing,
-      properties = Prelude.Nothing
+      properties = Prelude.Nothing,
+      seenAt = Prelude.Nothing
     }
 
 -- | Indicates whether the
@@ -74,15 +74,15 @@ newInstanceProperty =
 instanceProperty_failed :: Lens.Lens' InstanceProperty (Prelude.Maybe Prelude.Bool)
 instanceProperty_failed = Lens.lens (\InstanceProperty' {failed} -> failed) (\s@InstanceProperty' {} a -> s {failed = a} :: InstanceProperty)
 
+-- | A list of instanceProperty objects.
+instanceProperty_properties :: Lens.Lens' InstanceProperty (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+instanceProperty_properties = Lens.lens (\InstanceProperty' {properties} -> properties) (\s@InstanceProperty' {} a -> s {properties = a} :: InstanceProperty) Prelude.. Lens.mapping Lens.coerced
+
 -- | The ISO-8601 time stamp of when the certificate was last used in a
 -- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
 -- operation.
 instanceProperty_seenAt :: Lens.Lens' InstanceProperty (Prelude.Maybe Prelude.UTCTime)
 instanceProperty_seenAt = Lens.lens (\InstanceProperty' {seenAt} -> seenAt) (\s@InstanceProperty' {} a -> s {seenAt = a} :: InstanceProperty) Prelude.. Lens.mapping Data._Time
-
--- | A list of instanceProperty objects.
-instanceProperty_properties :: Lens.Lens' InstanceProperty (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-instanceProperty_properties = Lens.lens (\InstanceProperty' {properties} -> properties) (\s@InstanceProperty' {} a -> s {properties = a} :: InstanceProperty) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON InstanceProperty where
   parseJSON =
@@ -91,18 +91,18 @@ instance Data.FromJSON InstanceProperty where
       ( \x ->
           InstanceProperty'
             Prelude.<$> (x Data..:? "failed")
-            Prelude.<*> (x Data..:? "seenAt")
             Prelude.<*> (x Data..:? "properties" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "seenAt")
       )
 
 instance Prelude.Hashable InstanceProperty where
   hashWithSalt _salt InstanceProperty' {..} =
     _salt `Prelude.hashWithSalt` failed
-      `Prelude.hashWithSalt` seenAt
       `Prelude.hashWithSalt` properties
+      `Prelude.hashWithSalt` seenAt
 
 instance Prelude.NFData InstanceProperty where
   rnf InstanceProperty' {..} =
     Prelude.rnf failed
-      `Prelude.seq` Prelude.rnf seenAt
       `Prelude.seq` Prelude.rnf properties
+      `Prelude.seq` Prelude.rnf seenAt

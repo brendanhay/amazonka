@@ -32,14 +32,14 @@ module Amazonka.DLM
     -- ** InternalServerException
     _InternalServerException,
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
+    -- ** InvalidRequestException
+    _InvalidRequestException,
 
     -- ** LimitExceededException
     _LimitExceededException,
 
-    -- ** InvalidRequestException
-    _InvalidRequestException,
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- * Waiters
     -- $waiters

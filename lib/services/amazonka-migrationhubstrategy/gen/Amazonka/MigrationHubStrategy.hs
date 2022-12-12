@@ -24,26 +24,29 @@ module Amazonka.MigrationHubStrategy
     -- ** AccessDeniedException
     _AccessDeniedException,
 
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** DependencyException
+    _DependencyException,
+
     -- ** InternalServerException
     _InternalServerException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** ConflictException
-    _ConflictException,
+    -- ** ServiceLinkedRoleLockClientException
+    _ServiceLinkedRoleLockClientException,
+
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
 
     -- ** ThrottlingException
     _ThrottlingException,
 
     -- ** ValidationException
     _ValidationException,
-
-    -- ** ServiceLinkedRoleLockClientException
-    _ServiceLinkedRoleLockClientException,
 
     -- * Waiters
     -- $waiters
@@ -74,6 +77,12 @@ module Amazonka.MigrationHubStrategy
     newGetImportFileTask,
     GetImportFileTaskResponse (GetImportFileTaskResponse'),
     newGetImportFileTaskResponse,
+
+    -- ** GetLatestAssessmentId
+    GetLatestAssessmentId (GetLatestAssessmentId'),
+    newGetLatestAssessmentId,
+    GetLatestAssessmentIdResponse (GetLatestAssessmentIdResponse'),
+    newGetLatestAssessmentIdResponse,
 
     -- ** GetPortfolioPreferences
     GetPortfolioPreferences (GetPortfolioPreferences'),
@@ -179,17 +188,29 @@ module Amazonka.MigrationHubStrategy
     -- ** AppType
     AppType (..),
 
+    -- ** AppUnitErrorCategory
+    AppUnitErrorCategory (..),
+
     -- ** ApplicationComponentCriteria
     ApplicationComponentCriteria (..),
 
+    -- ** ApplicationMode
+    ApplicationMode (..),
+
     -- ** AssessmentStatus
     AssessmentStatus (..),
+
+    -- ** AuthType
+    AuthType (..),
 
     -- ** AwsManagedTargetDestination
     AwsManagedTargetDestination (..),
 
     -- ** CollectorHealth
     CollectorHealth (..),
+
+    -- ** Condition
+    Condition (..),
 
     -- ** DataSourceType
     DataSourceType (..),
@@ -221,6 +242,9 @@ module Amazonka.MigrationHubStrategy
     -- ** OutputFormat
     OutputFormat (..),
 
+    -- ** PipelineType
+    PipelineType (..),
+
     -- ** RecommendationReportStatus
     RecommendationReportStatus (..),
 
@@ -230,11 +254,17 @@ module Amazonka.MigrationHubStrategy
     -- ** RunTimeAssessmentStatus
     RunTimeAssessmentStatus (..),
 
+    -- ** RuntimeAnalysisStatus
+    RuntimeAnalysisStatus (..),
+
     -- ** SelfManageTargetDestination
     SelfManageTargetDestination (..),
 
     -- ** ServerCriteria
     ServerCriteria (..),
+
+    -- ** ServerErrorCategory
+    ServerErrorCategory (..),
 
     -- ** ServerOsType
     ServerOsType (..),
@@ -266,13 +296,24 @@ module Amazonka.MigrationHubStrategy
     -- ** VersionControl
     VersionControl (..),
 
+    -- ** VersionControlType
+    VersionControlType (..),
+
     -- ** AntipatternSeveritySummary
     AntipatternSeveritySummary (AntipatternSeveritySummary'),
     newAntipatternSeveritySummary,
 
+    -- ** AppUnitError
+    AppUnitError (AppUnitError'),
+    newAppUnitError,
+
     -- ** ApplicationComponentDetail
     ApplicationComponentDetail (ApplicationComponentDetail'),
     newApplicationComponentDetail,
+
+    -- ** ApplicationComponentStatusSummary
+    ApplicationComponentStatusSummary (ApplicationComponentStatusSummary'),
+    newApplicationComponentStatusSummary,
 
     -- ** ApplicationComponentStrategy
     ApplicationComponentStrategy (ApplicationComponentStrategy'),
@@ -290,6 +331,10 @@ module Amazonka.MigrationHubStrategy
     AssessmentSummary (AssessmentSummary'),
     newAssessmentSummary,
 
+    -- ** AssessmentTarget
+    AssessmentTarget (AssessmentTarget'),
+    newAssessmentTarget,
+
     -- ** AssociatedApplication
     AssociatedApplication (AssociatedApplication'),
     newAssociatedApplication,
@@ -305,6 +350,10 @@ module Amazonka.MigrationHubStrategy
     -- ** Collector
     Collector (Collector'),
     newCollector,
+
+    -- ** ConfigurationSummary
+    ConfigurationSummary (ConfigurationSummary'),
+    newConfigurationSummary,
 
     -- ** DataCollectionDetails
     DataCollectionDetails (DataCollectionDetails'),
@@ -334,6 +383,10 @@ module Amazonka.MigrationHubStrategy
     Homogeneous (Homogeneous'),
     newHomogeneous,
 
+    -- ** IPAddressBasedRemoteInfo
+    IPAddressBasedRemoteInfo (IPAddressBasedRemoteInfo'),
+    newIPAddressBasedRemoteInfo,
+
     -- ** ImportFileTaskInformation
     ImportFileTaskInformation (ImportFileTaskInformation'),
     newImportFileTaskInformation,
@@ -358,6 +411,10 @@ module Amazonka.MigrationHubStrategy
     OSInfo (OSInfo'),
     newOSInfo,
 
+    -- ** PipelineInfo
+    PipelineInfo (PipelineInfo'),
+    newPipelineInfo,
+
     -- ** PrioritizeBusinessGoals
     PrioritizeBusinessGoals (PrioritizeBusinessGoals'),
     newPrioritizeBusinessGoals,
@@ -370,6 +427,10 @@ module Amazonka.MigrationHubStrategy
     RecommendationSet (RecommendationSet'),
     newRecommendationSet,
 
+    -- ** RemoteSourceCodeAnalysisServerInfo
+    RemoteSourceCodeAnalysisServerInfo (RemoteSourceCodeAnalysisServerInfo'),
+    newRemoteSourceCodeAnalysisServerInfo,
+
     -- ** S3Object
     S3Object (S3Object'),
     newS3Object,
@@ -381,6 +442,14 @@ module Amazonka.MigrationHubStrategy
     -- ** ServerDetail
     ServerDetail (ServerDetail'),
     newServerDetail,
+
+    -- ** ServerError
+    ServerError (ServerError'),
+    newServerError,
+
+    -- ** ServerStatusSummary
+    ServerStatusSummary (ServerStatusSummary'),
+    newServerStatusSummary,
 
     -- ** ServerStrategy
     ServerStrategy (ServerStrategy'),
@@ -413,6 +482,14 @@ module Amazonka.MigrationHubStrategy
     -- ** TransformationTool
     TransformationTool (TransformationTool'),
     newTransformationTool,
+
+    -- ** VcenterBasedRemoteInfo
+    VcenterBasedRemoteInfo (VcenterBasedRemoteInfo'),
+    newVcenterBasedRemoteInfo,
+
+    -- ** VersionControlInfo
+    VersionControlInfo (VersionControlInfo'),
+    newVersionControlInfo,
   )
 where
 
@@ -420,6 +497,7 @@ import Amazonka.MigrationHubStrategy.GetApplicationComponentDetails
 import Amazonka.MigrationHubStrategy.GetApplicationComponentStrategies
 import Amazonka.MigrationHubStrategy.GetAssessment
 import Amazonka.MigrationHubStrategy.GetImportFileTask
+import Amazonka.MigrationHubStrategy.GetLatestAssessmentId
 import Amazonka.MigrationHubStrategy.GetPortfolioPreferences
 import Amazonka.MigrationHubStrategy.GetPortfolioSummary
 import Amazonka.MigrationHubStrategy.GetRecommendationReportDetails

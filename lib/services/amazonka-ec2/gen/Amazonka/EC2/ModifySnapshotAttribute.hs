@@ -40,11 +40,11 @@ module Amazonka.EC2.ModifySnapshotAttribute
     newModifySnapshotAttribute,
 
     -- * Request Lenses
-    modifySnapshotAttribute_operationType,
     modifySnapshotAttribute_attribute,
     modifySnapshotAttribute_createVolumePermission,
     modifySnapshotAttribute_dryRun,
     modifySnapshotAttribute_groupNames,
+    modifySnapshotAttribute_operationType,
     modifySnapshotAttribute_userIds,
     modifySnapshotAttribute_snapshotId,
 
@@ -64,9 +64,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newModifySnapshotAttribute' smart constructor.
 data ModifySnapshotAttribute = ModifySnapshotAttribute'
-  { -- | The type of operation to perform to the attribute.
-    operationType :: Prelude.Maybe OperationType,
-    -- | The snapshot attribute to modify. Only volume creation permissions can
+  { -- | The snapshot attribute to modify. Only volume creation permissions can
     -- be modified.
     attribute :: Prelude.Maybe SnapshotAttributeName,
     -- | A JSON representation of the snapshot attribute modification.
@@ -78,6 +76,8 @@ data ModifySnapshotAttribute = ModifySnapshotAttribute'
     dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The group to modify for the snapshot.
     groupNames :: Prelude.Maybe [Prelude.Text],
+    -- | The type of operation to perform to the attribute.
+    operationType :: Prelude.Maybe OperationType,
     -- | The account ID to modify for the snapshot.
     userIds :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the snapshot.
@@ -93,8 +93,6 @@ data ModifySnapshotAttribute = ModifySnapshotAttribute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'operationType', 'modifySnapshotAttribute_operationType' - The type of operation to perform to the attribute.
---
 -- 'attribute', 'modifySnapshotAttribute_attribute' - The snapshot attribute to modify. Only volume creation permissions can
 -- be modified.
 --
@@ -107,6 +105,8 @@ data ModifySnapshotAttribute = ModifySnapshotAttribute'
 --
 -- 'groupNames', 'modifySnapshotAttribute_groupNames' - The group to modify for the snapshot.
 --
+-- 'operationType', 'modifySnapshotAttribute_operationType' - The type of operation to perform to the attribute.
+--
 -- 'userIds', 'modifySnapshotAttribute_userIds' - The account ID to modify for the snapshot.
 --
 -- 'snapshotId', 'modifySnapshotAttribute_snapshotId' - The ID of the snapshot.
@@ -116,19 +116,15 @@ newModifySnapshotAttribute ::
   ModifySnapshotAttribute
 newModifySnapshotAttribute pSnapshotId_ =
   ModifySnapshotAttribute'
-    { operationType =
+    { attribute =
         Prelude.Nothing,
-      attribute = Prelude.Nothing,
       createVolumePermission = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       groupNames = Prelude.Nothing,
+      operationType = Prelude.Nothing,
       userIds = Prelude.Nothing,
       snapshotId = pSnapshotId_
     }
-
--- | The type of operation to perform to the attribute.
-modifySnapshotAttribute_operationType :: Lens.Lens' ModifySnapshotAttribute (Prelude.Maybe OperationType)
-modifySnapshotAttribute_operationType = Lens.lens (\ModifySnapshotAttribute' {operationType} -> operationType) (\s@ModifySnapshotAttribute' {} a -> s {operationType = a} :: ModifySnapshotAttribute)
 
 -- | The snapshot attribute to modify. Only volume creation permissions can
 -- be modified.
@@ -150,6 +146,10 @@ modifySnapshotAttribute_dryRun = Lens.lens (\ModifySnapshotAttribute' {dryRun} -
 modifySnapshotAttribute_groupNames :: Lens.Lens' ModifySnapshotAttribute (Prelude.Maybe [Prelude.Text])
 modifySnapshotAttribute_groupNames = Lens.lens (\ModifySnapshotAttribute' {groupNames} -> groupNames) (\s@ModifySnapshotAttribute' {} a -> s {groupNames = a} :: ModifySnapshotAttribute) Prelude.. Lens.mapping Lens.coerced
 
+-- | The type of operation to perform to the attribute.
+modifySnapshotAttribute_operationType :: Lens.Lens' ModifySnapshotAttribute (Prelude.Maybe OperationType)
+modifySnapshotAttribute_operationType = Lens.lens (\ModifySnapshotAttribute' {operationType} -> operationType) (\s@ModifySnapshotAttribute' {} a -> s {operationType = a} :: ModifySnapshotAttribute)
+
 -- | The account ID to modify for the snapshot.
 modifySnapshotAttribute_userIds :: Lens.Lens' ModifySnapshotAttribute (Prelude.Maybe [Prelude.Text])
 modifySnapshotAttribute_userIds = Lens.lens (\ModifySnapshotAttribute' {userIds} -> userIds) (\s@ModifySnapshotAttribute' {} a -> s {userIds = a} :: ModifySnapshotAttribute) Prelude.. Lens.mapping Lens.coerced
@@ -170,21 +170,21 @@ instance Core.AWSRequest ModifySnapshotAttribute where
 
 instance Prelude.Hashable ModifySnapshotAttribute where
   hashWithSalt _salt ModifySnapshotAttribute' {..} =
-    _salt `Prelude.hashWithSalt` operationType
-      `Prelude.hashWithSalt` attribute
+    _salt `Prelude.hashWithSalt` attribute
       `Prelude.hashWithSalt` createVolumePermission
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` groupNames
+      `Prelude.hashWithSalt` operationType
       `Prelude.hashWithSalt` userIds
       `Prelude.hashWithSalt` snapshotId
 
 instance Prelude.NFData ModifySnapshotAttribute where
   rnf ModifySnapshotAttribute' {..} =
-    Prelude.rnf operationType
-      `Prelude.seq` Prelude.rnf attribute
+    Prelude.rnf attribute
       `Prelude.seq` Prelude.rnf createVolumePermission
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf groupNames
+      `Prelude.seq` Prelude.rnf operationType
       `Prelude.seq` Prelude.rnf userIds
       `Prelude.seq` Prelude.rnf snapshotId
 
@@ -201,7 +201,6 @@ instance Data.ToQuery ModifySnapshotAttribute where
           Data.=: ("ModifySnapshotAttribute" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "OperationType" Data.=: operationType,
         "Attribute" Data.=: attribute,
         "CreateVolumePermission"
           Data.=: createVolumePermission,
@@ -210,6 +209,7 @@ instance Data.ToQuery ModifySnapshotAttribute where
           ( Data.toQueryList "UserGroup"
               Prelude.<$> groupNames
           ),
+        "OperationType" Data.=: operationType,
         Data.toQuery
           (Data.toQueryList "UserId" Prelude.<$> userIds),
         "SnapshotId" Data.=: snapshotId

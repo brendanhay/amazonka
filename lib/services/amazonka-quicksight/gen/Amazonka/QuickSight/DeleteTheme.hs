@@ -36,8 +36,8 @@ module Amazonka.QuickSight.DeleteTheme
     newDeleteThemeResponse,
 
     -- * Response Lenses
-    deleteThemeResponse_requestId,
     deleteThemeResponse_arn,
+    deleteThemeResponse_requestId,
     deleteThemeResponse_themeId,
     deleteThemeResponse_status,
   )
@@ -120,8 +120,8 @@ instance Core.AWSRequest DeleteTheme where
     Response.receiveJSON
       ( \s h x ->
           DeleteThemeResponse'
-            Prelude.<$> (x Data..?> "RequestId")
-            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<$> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (x Data..?> "ThemeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -165,10 +165,10 @@ instance Data.ToQuery DeleteTheme where
 
 -- | /See:/ 'newDeleteThemeResponse' smart constructor.
 data DeleteThemeResponse = DeleteThemeResponse'
-  { -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the resource.
+  { -- | The Amazon Resource Name (ARN) of the resource.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | An ID for the theme.
     themeId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
@@ -184,9 +184,9 @@ data DeleteThemeResponse = DeleteThemeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'deleteThemeResponse_requestId' - The Amazon Web Services request ID for this operation.
---
 -- 'arn', 'deleteThemeResponse_arn' - The Amazon Resource Name (ARN) of the resource.
+--
+-- 'requestId', 'deleteThemeResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'themeId', 'deleteThemeResponse_themeId' - An ID for the theme.
 --
@@ -197,19 +197,19 @@ newDeleteThemeResponse ::
   DeleteThemeResponse
 newDeleteThemeResponse pStatus_ =
   DeleteThemeResponse'
-    { requestId = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       themeId = Prelude.Nothing,
       status = pStatus_
     }
 
--- | The Amazon Web Services request ID for this operation.
-deleteThemeResponse_requestId :: Lens.Lens' DeleteThemeResponse (Prelude.Maybe Prelude.Text)
-deleteThemeResponse_requestId = Lens.lens (\DeleteThemeResponse' {requestId} -> requestId) (\s@DeleteThemeResponse' {} a -> s {requestId = a} :: DeleteThemeResponse)
-
 -- | The Amazon Resource Name (ARN) of the resource.
 deleteThemeResponse_arn :: Lens.Lens' DeleteThemeResponse (Prelude.Maybe Prelude.Text)
 deleteThemeResponse_arn = Lens.lens (\DeleteThemeResponse' {arn} -> arn) (\s@DeleteThemeResponse' {} a -> s {arn = a} :: DeleteThemeResponse)
+
+-- | The Amazon Web Services request ID for this operation.
+deleteThemeResponse_requestId :: Lens.Lens' DeleteThemeResponse (Prelude.Maybe Prelude.Text)
+deleteThemeResponse_requestId = Lens.lens (\DeleteThemeResponse' {requestId} -> requestId) (\s@DeleteThemeResponse' {} a -> s {requestId = a} :: DeleteThemeResponse)
 
 -- | An ID for the theme.
 deleteThemeResponse_themeId :: Lens.Lens' DeleteThemeResponse (Prelude.Maybe Prelude.Text)
@@ -221,7 +221,7 @@ deleteThemeResponse_status = Lens.lens (\DeleteThemeResponse' {status} -> status
 
 instance Prelude.NFData DeleteThemeResponse where
   rnf DeleteThemeResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf themeId
       `Prelude.seq` Prelude.rnf status

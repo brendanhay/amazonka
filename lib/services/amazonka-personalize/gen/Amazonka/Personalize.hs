@@ -20,29 +20,29 @@ module Amazonka.Personalize
     -- * Errors
     -- $errors
 
-    -- ** ResourceAlreadyExistsException
-    _ResourceAlreadyExistsException,
-
     -- ** InvalidInputException
     _InvalidInputException,
 
-    -- ** TooManyTagsException
-    _TooManyTagsException,
-
-    -- ** TooManyTagKeysException
-    _TooManyTagKeysException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** ResourceInUseException
-    _ResourceInUseException,
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
 
     -- ** LimitExceededException
     _LimitExceededException,
 
-    -- ** InvalidNextTokenException
-    _InvalidNextTokenException,
+    -- ** ResourceAlreadyExistsException
+    _ResourceAlreadyExistsException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** TooManyTagKeysException
+    _TooManyTagKeysException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
 
     -- * Waiters
     -- $waiters

@@ -31,8 +31,8 @@ module Amazonka.SSM.DescribeEffectivePatchesForPatchBaseline
     newDescribeEffectivePatchesForPatchBaseline,
 
     -- * Request Lenses
-    describeEffectivePatchesForPatchBaseline_nextToken,
     describeEffectivePatchesForPatchBaseline_maxResults,
+    describeEffectivePatchesForPatchBaseline_nextToken,
     describeEffectivePatchesForPatchBaseline_baselineId,
 
     -- * Destructuring the Response
@@ -40,8 +40,8 @@ module Amazonka.SSM.DescribeEffectivePatchesForPatchBaseline
     newDescribeEffectivePatchesForPatchBaselineResponse,
 
     -- * Response Lenses
-    describeEffectivePatchesForPatchBaselineResponse_nextToken,
     describeEffectivePatchesForPatchBaselineResponse_effectivePatches,
+    describeEffectivePatchesForPatchBaselineResponse_nextToken,
     describeEffectivePatchesForPatchBaselineResponse_httpStatus,
   )
 where
@@ -56,11 +56,11 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newDescribeEffectivePatchesForPatchBaseline' smart constructor.
 data DescribeEffectivePatchesForPatchBaseline = DescribeEffectivePatchesForPatchBaseline'
-  { -- | The token for the next set of items to return. (You received this token
+  { -- | The maximum number of patches to return (per page).
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of patches to return (per page).
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the patch baseline to retrieve the effective patches for.
     baselineId :: Prelude.Text
   }
@@ -74,10 +74,10 @@ data DescribeEffectivePatchesForPatchBaseline = DescribeEffectivePatchesForPatch
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'describeEffectivePatchesForPatchBaseline_maxResults' - The maximum number of patches to return (per page).
+--
 -- 'nextToken', 'describeEffectivePatchesForPatchBaseline_nextToken' - The token for the next set of items to return. (You received this token
 -- from a previous call.)
---
--- 'maxResults', 'describeEffectivePatchesForPatchBaseline_maxResults' - The maximum number of patches to return (per page).
 --
 -- 'baselineId', 'describeEffectivePatchesForPatchBaseline_baselineId' - The ID of the patch baseline to retrieve the effective patches for.
 newDescribeEffectivePatchesForPatchBaseline ::
@@ -87,20 +87,20 @@ newDescribeEffectivePatchesForPatchBaseline ::
 newDescribeEffectivePatchesForPatchBaseline
   pBaselineId_ =
     DescribeEffectivePatchesForPatchBaseline'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         baselineId = pBaselineId_
       }
+
+-- | The maximum number of patches to return (per page).
+describeEffectivePatchesForPatchBaseline_maxResults :: Lens.Lens' DescribeEffectivePatchesForPatchBaseline (Prelude.Maybe Prelude.Natural)
+describeEffectivePatchesForPatchBaseline_maxResults = Lens.lens (\DescribeEffectivePatchesForPatchBaseline' {maxResults} -> maxResults) (\s@DescribeEffectivePatchesForPatchBaseline' {} a -> s {maxResults = a} :: DescribeEffectivePatchesForPatchBaseline)
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
 describeEffectivePatchesForPatchBaseline_nextToken :: Lens.Lens' DescribeEffectivePatchesForPatchBaseline (Prelude.Maybe Prelude.Text)
 describeEffectivePatchesForPatchBaseline_nextToken = Lens.lens (\DescribeEffectivePatchesForPatchBaseline' {nextToken} -> nextToken) (\s@DescribeEffectivePatchesForPatchBaseline' {} a -> s {nextToken = a} :: DescribeEffectivePatchesForPatchBaseline)
-
--- | The maximum number of patches to return (per page).
-describeEffectivePatchesForPatchBaseline_maxResults :: Lens.Lens' DescribeEffectivePatchesForPatchBaseline (Prelude.Maybe Prelude.Natural)
-describeEffectivePatchesForPatchBaseline_maxResults = Lens.lens (\DescribeEffectivePatchesForPatchBaseline' {maxResults} -> maxResults) (\s@DescribeEffectivePatchesForPatchBaseline' {} a -> s {maxResults = a} :: DescribeEffectivePatchesForPatchBaseline)
 
 -- | The ID of the patch baseline to retrieve the effective patches for.
 describeEffectivePatchesForPatchBaseline_baselineId :: Lens.Lens' DescribeEffectivePatchesForPatchBaseline Prelude.Text
@@ -145,10 +145,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeEffectivePatchesForPatchBaselineResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-              Prelude.<*> ( x Data..?> "EffectivePatches"
-                              Core..!@ Prelude.mempty
-                          )
+            Prelude.<$> ( x Data..?> "EffectivePatches"
+                            Core..!@ Prelude.mempty
+                        )
+              Prelude.<*> (x Data..?> "NextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,8 +159,8 @@ instance
   hashWithSalt
     _salt
     DescribeEffectivePatchesForPatchBaseline' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` baselineId
 
 instance
@@ -168,8 +168,8 @@ instance
     DescribeEffectivePatchesForPatchBaseline
   where
   rnf DescribeEffectivePatchesForPatchBaseline' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf baselineId
 
 instance
@@ -197,8 +197,8 @@ instance
   toJSON DescribeEffectivePatchesForPatchBaseline' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("BaselineId" Data..= baselineId)
           ]
       )
@@ -217,11 +217,11 @@ instance
 
 -- | /See:/ 'newDescribeEffectivePatchesForPatchBaselineResponse' smart constructor.
 data DescribeEffectivePatchesForPatchBaselineResponse = DescribeEffectivePatchesForPatchBaselineResponse'
-  { -- | The token to use when requesting the next set of items. If there are no
+  { -- | An array of patches and patch status.
+    effectivePatches :: Prelude.Maybe [EffectivePatch],
+    -- | The token to use when requesting the next set of items. If there are no
     -- additional items to return, the string is empty.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of patches and patch status.
-    effectivePatches :: Prelude.Maybe [EffectivePatch],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -235,10 +235,10 @@ data DescribeEffectivePatchesForPatchBaselineResponse = DescribeEffectivePatches
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'effectivePatches', 'describeEffectivePatchesForPatchBaselineResponse_effectivePatches' - An array of patches and patch status.
+--
 -- 'nextToken', 'describeEffectivePatchesForPatchBaselineResponse_nextToken' - The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
---
--- 'effectivePatches', 'describeEffectivePatchesForPatchBaselineResponse_effectivePatches' - An array of patches and patch status.
 --
 -- 'httpStatus', 'describeEffectivePatchesForPatchBaselineResponse_httpStatus' - The response's http status code.
 newDescribeEffectivePatchesForPatchBaselineResponse ::
@@ -248,21 +248,21 @@ newDescribeEffectivePatchesForPatchBaselineResponse ::
 newDescribeEffectivePatchesForPatchBaselineResponse
   pHttpStatus_ =
     DescribeEffectivePatchesForPatchBaselineResponse'
-      { nextToken =
+      { effectivePatches =
           Prelude.Nothing,
-        effectivePatches =
+        nextToken =
           Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | An array of patches and patch status.
+describeEffectivePatchesForPatchBaselineResponse_effectivePatches :: Lens.Lens' DescribeEffectivePatchesForPatchBaselineResponse (Prelude.Maybe [EffectivePatch])
+describeEffectivePatchesForPatchBaselineResponse_effectivePatches = Lens.lens (\DescribeEffectivePatchesForPatchBaselineResponse' {effectivePatches} -> effectivePatches) (\s@DescribeEffectivePatchesForPatchBaselineResponse' {} a -> s {effectivePatches = a} :: DescribeEffectivePatchesForPatchBaselineResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
 describeEffectivePatchesForPatchBaselineResponse_nextToken :: Lens.Lens' DescribeEffectivePatchesForPatchBaselineResponse (Prelude.Maybe Prelude.Text)
 describeEffectivePatchesForPatchBaselineResponse_nextToken = Lens.lens (\DescribeEffectivePatchesForPatchBaselineResponse' {nextToken} -> nextToken) (\s@DescribeEffectivePatchesForPatchBaselineResponse' {} a -> s {nextToken = a} :: DescribeEffectivePatchesForPatchBaselineResponse)
-
--- | An array of patches and patch status.
-describeEffectivePatchesForPatchBaselineResponse_effectivePatches :: Lens.Lens' DescribeEffectivePatchesForPatchBaselineResponse (Prelude.Maybe [EffectivePatch])
-describeEffectivePatchesForPatchBaselineResponse_effectivePatches = Lens.lens (\DescribeEffectivePatchesForPatchBaselineResponse' {effectivePatches} -> effectivePatches) (\s@DescribeEffectivePatchesForPatchBaselineResponse' {} a -> s {effectivePatches = a} :: DescribeEffectivePatchesForPatchBaselineResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeEffectivePatchesForPatchBaselineResponse_httpStatus :: Lens.Lens' DescribeEffectivePatchesForPatchBaselineResponse Prelude.Int
@@ -274,6 +274,6 @@ instance
   where
   rnf
     DescribeEffectivePatchesForPatchBaselineResponse' {..} =
-      Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf effectivePatches
+      Prelude.rnf effectivePatches
+        `Prelude.seq` Prelude.rnf nextToken
         `Prelude.seq` Prelude.rnf httpStatus

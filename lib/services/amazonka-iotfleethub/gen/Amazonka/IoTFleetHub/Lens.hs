@@ -15,9 +15,9 @@ module Amazonka.IoTFleetHub.Lens
   ( -- * Operations
 
     -- ** CreateApplication
-    createApplication_tags,
-    createApplication_clientToken,
     createApplication_applicationDescription,
+    createApplication_clientToken,
+    createApplication_tags,
     createApplication_applicationName,
     createApplication_roleArn,
     createApplicationResponse_httpStatus,
@@ -31,10 +31,10 @@ module Amazonka.IoTFleetHub.Lens
 
     -- ** DescribeApplication
     describeApplication_applicationId,
-    describeApplicationResponse_tags,
-    describeApplicationResponse_ssoClientId,
-    describeApplicationResponse_errorMessage,
     describeApplicationResponse_applicationDescription,
+    describeApplicationResponse_errorMessage,
+    describeApplicationResponse_ssoClientId,
+    describeApplicationResponse_tags,
     describeApplicationResponse_httpStatus,
     describeApplicationResponse_applicationId,
     describeApplicationResponse_applicationArn,
@@ -47,8 +47,8 @@ module Amazonka.IoTFleetHub.Lens
 
     -- ** ListApplications
     listApplications_nextToken,
-    listApplicationsResponse_nextToken,
     listApplicationsResponse_applicationSummaries,
+    listApplicationsResponse_nextToken,
     listApplicationsResponse_httpStatus,
 
     -- ** ListTagsForResource
@@ -67,19 +67,19 @@ module Amazonka.IoTFleetHub.Lens
     untagResourceResponse_httpStatus,
 
     -- ** UpdateApplication
-    updateApplication_clientToken,
     updateApplication_applicationDescription,
     updateApplication_applicationName,
+    updateApplication_clientToken,
     updateApplication_applicationId,
     updateApplicationResponse_httpStatus,
 
     -- * Types
 
     -- ** ApplicationSummary
-    applicationSummary_applicationState,
     applicationSummary_applicationCreationDate,
-    applicationSummary_applicationLastUpdateDate,
     applicationSummary_applicationDescription,
+    applicationSummary_applicationLastUpdateDate,
+    applicationSummary_applicationState,
     applicationSummary_applicationId,
     applicationSummary_applicationName,
     applicationSummary_applicationUrl,

@@ -35,53 +35,53 @@ module Amazonka.CloudWatch
     -- * Errors
     -- $errors
 
-    -- ** DashboardInvalidInputError
-    _DashboardInvalidInputError,
-
-    -- ** ResourceNotFound
-    _ResourceNotFound,
-
     -- ** ConcurrentModificationException
     _ConcurrentModificationException,
 
-    -- ** InvalidNextToken
-    _InvalidNextToken,
-
-    -- ** LimitExceededFault
-    _LimitExceededFault,
-
-    -- ** InternalServiceFault
-    _InternalServiceFault,
-
-    -- ** MissingRequiredParameterException
-    _MissingRequiredParameterException,
+    -- ** DashboardInvalidInputError
+    _DashboardInvalidInputError,
 
     -- ** DashboardNotFoundError
     _DashboardNotFoundError,
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** InvalidParameterCombinationException
-    _InvalidParameterCombinationException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
+    -- ** InternalServiceFault
+    _InternalServiceFault,
 
     -- ** InvalidFormatFault
     _InvalidFormatFault,
 
+    -- ** InvalidNextToken
+    _InvalidNextToken,
+
+    -- ** InvalidParameterCombinationException
+    _InvalidParameterCombinationException,
+
     -- ** InvalidParameterValueException
     _InvalidParameterValueException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** LimitExceededFault
+    _LimitExceededFault,
+
+    -- ** MissingRequiredParameterException
+    _MissingRequiredParameterException,
+
+    -- ** ResourceNotFound
+    _ResourceNotFound,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- * Waiters
     -- $waiters
 
-    -- ** CompositeAlarmExists
-    newCompositeAlarmExists,
-
     -- ** AlarmExists
     newAlarmExists,
+
+    -- ** CompositeAlarmExists
+    newCompositeAlarmExists,
 
     -- * Operations
     -- $operations

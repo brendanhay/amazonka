@@ -31,15 +31,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newComponentRequest' smart constructor.
 data ComponentRequest = ComponentRequest'
-  { -- | An object that maps strings to the properties to set in the component
-    -- type. Each string in the mapping must be unique to this object.
-    properties :: Prelude.Maybe (Prelude.HashMap Prelude.Text PropertyRequest),
+  { -- | The ID of the component type.
+    componentTypeId :: Prelude.Maybe Prelude.Text,
     -- | The description of the component request.
     description :: Prelude.Maybe Prelude.Text,
+    -- | An object that maps strings to the properties to set in the component
+    -- type. Each string in the mapping must be unique to this object.
+    properties :: Prelude.Maybe (Prelude.HashMap Prelude.Text PropertyRequest),
     -- | The property groups.
-    propertyGroups :: Prelude.Maybe (Prelude.HashMap Prelude.Text ComponentPropertyGroupRequest),
-    -- | The ID of the component type.
-    componentTypeId :: Prelude.Maybe Prelude.Text
+    propertyGroups :: Prelude.Maybe (Prelude.HashMap Prelude.Text ComponentPropertyGroupRequest)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,64 +51,65 @@ data ComponentRequest = ComponentRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'properties', 'componentRequest_properties' - An object that maps strings to the properties to set in the component
--- type. Each string in the mapping must be unique to this object.
+-- 'componentTypeId', 'componentRequest_componentTypeId' - The ID of the component type.
 --
 -- 'description', 'componentRequest_description' - The description of the component request.
 --
--- 'propertyGroups', 'componentRequest_propertyGroups' - The property groups.
+-- 'properties', 'componentRequest_properties' - An object that maps strings to the properties to set in the component
+-- type. Each string in the mapping must be unique to this object.
 --
--- 'componentTypeId', 'componentRequest_componentTypeId' - The ID of the component type.
+-- 'propertyGroups', 'componentRequest_propertyGroups' - The property groups.
 newComponentRequest ::
   ComponentRequest
 newComponentRequest =
   ComponentRequest'
-    { properties = Prelude.Nothing,
+    { componentTypeId =
+        Prelude.Nothing,
       description = Prelude.Nothing,
-      propertyGroups = Prelude.Nothing,
-      componentTypeId = Prelude.Nothing
+      properties = Prelude.Nothing,
+      propertyGroups = Prelude.Nothing
     }
+
+-- | The ID of the component type.
+componentRequest_componentTypeId :: Lens.Lens' ComponentRequest (Prelude.Maybe Prelude.Text)
+componentRequest_componentTypeId = Lens.lens (\ComponentRequest' {componentTypeId} -> componentTypeId) (\s@ComponentRequest' {} a -> s {componentTypeId = a} :: ComponentRequest)
+
+-- | The description of the component request.
+componentRequest_description :: Lens.Lens' ComponentRequest (Prelude.Maybe Prelude.Text)
+componentRequest_description = Lens.lens (\ComponentRequest' {description} -> description) (\s@ComponentRequest' {} a -> s {description = a} :: ComponentRequest)
 
 -- | An object that maps strings to the properties to set in the component
 -- type. Each string in the mapping must be unique to this object.
 componentRequest_properties :: Lens.Lens' ComponentRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text PropertyRequest))
 componentRequest_properties = Lens.lens (\ComponentRequest' {properties} -> properties) (\s@ComponentRequest' {} a -> s {properties = a} :: ComponentRequest) Prelude.. Lens.mapping Lens.coerced
 
--- | The description of the component request.
-componentRequest_description :: Lens.Lens' ComponentRequest (Prelude.Maybe Prelude.Text)
-componentRequest_description = Lens.lens (\ComponentRequest' {description} -> description) (\s@ComponentRequest' {} a -> s {description = a} :: ComponentRequest)
-
 -- | The property groups.
 componentRequest_propertyGroups :: Lens.Lens' ComponentRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text ComponentPropertyGroupRequest))
 componentRequest_propertyGroups = Lens.lens (\ComponentRequest' {propertyGroups} -> propertyGroups) (\s@ComponentRequest' {} a -> s {propertyGroups = a} :: ComponentRequest) Prelude.. Lens.mapping Lens.coerced
 
--- | The ID of the component type.
-componentRequest_componentTypeId :: Lens.Lens' ComponentRequest (Prelude.Maybe Prelude.Text)
-componentRequest_componentTypeId = Lens.lens (\ComponentRequest' {componentTypeId} -> componentTypeId) (\s@ComponentRequest' {} a -> s {componentTypeId = a} :: ComponentRequest)
-
 instance Prelude.Hashable ComponentRequest where
   hashWithSalt _salt ComponentRequest' {..} =
-    _salt `Prelude.hashWithSalt` properties
+    _salt `Prelude.hashWithSalt` componentTypeId
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` properties
       `Prelude.hashWithSalt` propertyGroups
-      `Prelude.hashWithSalt` componentTypeId
 
 instance Prelude.NFData ComponentRequest where
   rnf ComponentRequest' {..} =
-    Prelude.rnf properties
+    Prelude.rnf componentTypeId
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf properties
       `Prelude.seq` Prelude.rnf propertyGroups
-      `Prelude.seq` Prelude.rnf componentTypeId
 
 instance Data.ToJSON ComponentRequest where
   toJSON ComponentRequest' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("properties" Data..=) Prelude.<$> properties,
+          [ ("componentTypeId" Data..=)
+              Prelude.<$> componentTypeId,
             ("description" Data..=) Prelude.<$> description,
+            ("properties" Data..=) Prelude.<$> properties,
             ("propertyGroups" Data..=)
-              Prelude.<$> propertyGroups,
-            ("componentTypeId" Data..=)
-              Prelude.<$> componentTypeId
+              Prelude.<$> propertyGroups
           ]
       )

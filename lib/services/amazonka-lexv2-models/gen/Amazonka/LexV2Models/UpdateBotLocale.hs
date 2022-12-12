@@ -39,18 +39,18 @@ module Amazonka.LexV2Models.UpdateBotLocale
     newUpdateBotLocaleResponse,
 
     -- * Response Lenses
-    updateBotLocaleResponse_nluIntentConfidenceThreshold,
-    updateBotLocaleResponse_botVersion,
-    updateBotLocaleResponse_creationDateTime,
-    updateBotLocaleResponse_localeName,
-    updateBotLocaleResponse_localeId,
-    updateBotLocaleResponse_recommendedActions,
-    updateBotLocaleResponse_description,
     updateBotLocaleResponse_botId,
     updateBotLocaleResponse_botLocaleStatus,
-    updateBotLocaleResponse_voiceSettings,
+    updateBotLocaleResponse_botVersion,
+    updateBotLocaleResponse_creationDateTime,
+    updateBotLocaleResponse_description,
     updateBotLocaleResponse_failureReasons,
     updateBotLocaleResponse_lastUpdatedDateTime,
+    updateBotLocaleResponse_localeId,
+    updateBotLocaleResponse_localeName,
+    updateBotLocaleResponse_nluIntentConfidenceThreshold,
+    updateBotLocaleResponse_recommendedActions,
+    updateBotLocaleResponse_voiceSettings,
     updateBotLocaleResponse_httpStatus,
   )
 where
@@ -176,20 +176,20 @@ instance Core.AWSRequest UpdateBotLocale where
     Response.receiveJSON
       ( \s h x ->
           UpdateBotLocaleResponse'
-            Prelude.<$> (x Data..?> "nluIntentConfidenceThreshold")
+            Prelude.<$> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "botLocaleStatus")
             Prelude.<*> (x Data..?> "botVersion")
             Prelude.<*> (x Data..?> "creationDateTime")
-            Prelude.<*> (x Data..?> "localeName")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "failureReasons" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "lastUpdatedDateTime")
             Prelude.<*> (x Data..?> "localeId")
+            Prelude.<*> (x Data..?> "localeName")
+            Prelude.<*> (x Data..?> "nluIntentConfidenceThreshold")
             Prelude.<*> ( x Data..?> "recommendedActions"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "description")
-            Prelude.<*> (x Data..?> "botId")
-            Prelude.<*> (x Data..?> "botLocaleStatus")
             Prelude.<*> (x Data..?> "voiceSettings")
-            Prelude.<*> (x Data..?> "failureReasons" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "lastUpdatedDateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -252,36 +252,36 @@ instance Data.ToQuery UpdateBotLocale where
 
 -- | /See:/ 'newUpdateBotLocaleResponse' smart constructor.
 data UpdateBotLocaleResponse = UpdateBotLocaleResponse'
-  { -- | The updated confidence threshold for inserting the
-    -- @AMAZON.FallbackIntent@ and @AMAZON.KendraSearchIntent@ intents in the
-    -- list of possible intents for an utterance.
-    nluIntentConfidenceThreshold :: Prelude.Maybe Prelude.Double,
-    -- | The version of the bot that contains the updated locale.
-    botVersion :: Prelude.Maybe Prelude.Text,
-    -- | A timestamp of the date and time that the locale was created.
-    creationDateTime :: Prelude.Maybe Data.POSIX,
-    -- | The updated locale name for the locale.
-    localeName :: Prelude.Maybe Prelude.Text,
-    -- | The language and locale of the updated bot locale.
-    localeId :: Prelude.Maybe Prelude.Text,
-    -- | Recommended actions to take to resolve an error in the @failureReasons@
-    -- field.
-    recommendedActions :: Prelude.Maybe [Prelude.Text],
-    -- | The updated description of the locale.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the bot that contains the updated locale.
+  { -- | The identifier of the bot that contains the updated locale.
     botId :: Prelude.Maybe Prelude.Text,
     -- | The current status of the locale. When the bot status is @Built@ the
     -- locale is ready for use.
     botLocaleStatus :: Prelude.Maybe BotLocaleStatus,
-    -- | The updated Amazon Polly voice to use for voice interaction with the
-    -- user.
-    voiceSettings :: Prelude.Maybe VoiceSettings,
+    -- | The version of the bot that contains the updated locale.
+    botVersion :: Prelude.Maybe Prelude.Text,
+    -- | A timestamp of the date and time that the locale was created.
+    creationDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The updated description of the locale.
+    description :: Prelude.Maybe Prelude.Text,
     -- | If the @botLocaleStatus@ is @Failed@, the @failureReasons@ field lists
     -- the errors that occurred while building the bot.
     failureReasons :: Prelude.Maybe [Prelude.Text],
     -- | A timestamp of the date and time that the locale was last updated.
     lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The language and locale of the updated bot locale.
+    localeId :: Prelude.Maybe Prelude.Text,
+    -- | The updated locale name for the locale.
+    localeName :: Prelude.Maybe Prelude.Text,
+    -- | The updated confidence threshold for inserting the
+    -- @AMAZON.FallbackIntent@ and @AMAZON.KendraSearchIntent@ intents in the
+    -- list of possible intents for an utterance.
+    nluIntentConfidenceThreshold :: Prelude.Maybe Prelude.Double,
+    -- | Recommended actions to take to resolve an error in the @failureReasons@
+    -- field.
+    recommendedActions :: Prelude.Maybe [Prelude.Text],
+    -- | The updated Amazon Polly voice to use for voice interaction with the
+    -- user.
+    voiceSettings :: Prelude.Maybe VoiceSettings,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -295,35 +295,35 @@ data UpdateBotLocaleResponse = UpdateBotLocaleResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nluIntentConfidenceThreshold', 'updateBotLocaleResponse_nluIntentConfidenceThreshold' - The updated confidence threshold for inserting the
--- @AMAZON.FallbackIntent@ and @AMAZON.KendraSearchIntent@ intents in the
--- list of possible intents for an utterance.
---
--- 'botVersion', 'updateBotLocaleResponse_botVersion' - The version of the bot that contains the updated locale.
---
--- 'creationDateTime', 'updateBotLocaleResponse_creationDateTime' - A timestamp of the date and time that the locale was created.
---
--- 'localeName', 'updateBotLocaleResponse_localeName' - The updated locale name for the locale.
---
--- 'localeId', 'updateBotLocaleResponse_localeId' - The language and locale of the updated bot locale.
---
--- 'recommendedActions', 'updateBotLocaleResponse_recommendedActions' - Recommended actions to take to resolve an error in the @failureReasons@
--- field.
---
--- 'description', 'updateBotLocaleResponse_description' - The updated description of the locale.
---
 -- 'botId', 'updateBotLocaleResponse_botId' - The identifier of the bot that contains the updated locale.
 --
 -- 'botLocaleStatus', 'updateBotLocaleResponse_botLocaleStatus' - The current status of the locale. When the bot status is @Built@ the
 -- locale is ready for use.
 --
--- 'voiceSettings', 'updateBotLocaleResponse_voiceSettings' - The updated Amazon Polly voice to use for voice interaction with the
--- user.
+-- 'botVersion', 'updateBotLocaleResponse_botVersion' - The version of the bot that contains the updated locale.
+--
+-- 'creationDateTime', 'updateBotLocaleResponse_creationDateTime' - A timestamp of the date and time that the locale was created.
+--
+-- 'description', 'updateBotLocaleResponse_description' - The updated description of the locale.
 --
 -- 'failureReasons', 'updateBotLocaleResponse_failureReasons' - If the @botLocaleStatus@ is @Failed@, the @failureReasons@ field lists
 -- the errors that occurred while building the bot.
 --
 -- 'lastUpdatedDateTime', 'updateBotLocaleResponse_lastUpdatedDateTime' - A timestamp of the date and time that the locale was last updated.
+--
+-- 'localeId', 'updateBotLocaleResponse_localeId' - The language and locale of the updated bot locale.
+--
+-- 'localeName', 'updateBotLocaleResponse_localeName' - The updated locale name for the locale.
+--
+-- 'nluIntentConfidenceThreshold', 'updateBotLocaleResponse_nluIntentConfidenceThreshold' - The updated confidence threshold for inserting the
+-- @AMAZON.FallbackIntent@ and @AMAZON.KendraSearchIntent@ intents in the
+-- list of possible intents for an utterance.
+--
+-- 'recommendedActions', 'updateBotLocaleResponse_recommendedActions' - Recommended actions to take to resolve an error in the @failureReasons@
+-- field.
+--
+-- 'voiceSettings', 'updateBotLocaleResponse_voiceSettings' - The updated Amazon Polly voice to use for voice interaction with the
+-- user.
 --
 -- 'httpStatus', 'updateBotLocaleResponse_httpStatus' - The response's http status code.
 newUpdateBotLocaleResponse ::
@@ -332,52 +332,20 @@ newUpdateBotLocaleResponse ::
   UpdateBotLocaleResponse
 newUpdateBotLocaleResponse pHttpStatus_ =
   UpdateBotLocaleResponse'
-    { nluIntentConfidenceThreshold =
-        Prelude.Nothing,
+    { botId = Prelude.Nothing,
+      botLocaleStatus = Prelude.Nothing,
       botVersion = Prelude.Nothing,
       creationDateTime = Prelude.Nothing,
-      localeName = Prelude.Nothing,
-      localeId = Prelude.Nothing,
-      recommendedActions = Prelude.Nothing,
       description = Prelude.Nothing,
-      botId = Prelude.Nothing,
-      botLocaleStatus = Prelude.Nothing,
-      voiceSettings = Prelude.Nothing,
       failureReasons = Prelude.Nothing,
       lastUpdatedDateTime = Prelude.Nothing,
+      localeId = Prelude.Nothing,
+      localeName = Prelude.Nothing,
+      nluIntentConfidenceThreshold = Prelude.Nothing,
+      recommendedActions = Prelude.Nothing,
+      voiceSettings = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The updated confidence threshold for inserting the
--- @AMAZON.FallbackIntent@ and @AMAZON.KendraSearchIntent@ intents in the
--- list of possible intents for an utterance.
-updateBotLocaleResponse_nluIntentConfidenceThreshold :: Lens.Lens' UpdateBotLocaleResponse (Prelude.Maybe Prelude.Double)
-updateBotLocaleResponse_nluIntentConfidenceThreshold = Lens.lens (\UpdateBotLocaleResponse' {nluIntentConfidenceThreshold} -> nluIntentConfidenceThreshold) (\s@UpdateBotLocaleResponse' {} a -> s {nluIntentConfidenceThreshold = a} :: UpdateBotLocaleResponse)
-
--- | The version of the bot that contains the updated locale.
-updateBotLocaleResponse_botVersion :: Lens.Lens' UpdateBotLocaleResponse (Prelude.Maybe Prelude.Text)
-updateBotLocaleResponse_botVersion = Lens.lens (\UpdateBotLocaleResponse' {botVersion} -> botVersion) (\s@UpdateBotLocaleResponse' {} a -> s {botVersion = a} :: UpdateBotLocaleResponse)
-
--- | A timestamp of the date and time that the locale was created.
-updateBotLocaleResponse_creationDateTime :: Lens.Lens' UpdateBotLocaleResponse (Prelude.Maybe Prelude.UTCTime)
-updateBotLocaleResponse_creationDateTime = Lens.lens (\UpdateBotLocaleResponse' {creationDateTime} -> creationDateTime) (\s@UpdateBotLocaleResponse' {} a -> s {creationDateTime = a} :: UpdateBotLocaleResponse) Prelude.. Lens.mapping Data._Time
-
--- | The updated locale name for the locale.
-updateBotLocaleResponse_localeName :: Lens.Lens' UpdateBotLocaleResponse (Prelude.Maybe Prelude.Text)
-updateBotLocaleResponse_localeName = Lens.lens (\UpdateBotLocaleResponse' {localeName} -> localeName) (\s@UpdateBotLocaleResponse' {} a -> s {localeName = a} :: UpdateBotLocaleResponse)
-
--- | The language and locale of the updated bot locale.
-updateBotLocaleResponse_localeId :: Lens.Lens' UpdateBotLocaleResponse (Prelude.Maybe Prelude.Text)
-updateBotLocaleResponse_localeId = Lens.lens (\UpdateBotLocaleResponse' {localeId} -> localeId) (\s@UpdateBotLocaleResponse' {} a -> s {localeId = a} :: UpdateBotLocaleResponse)
-
--- | Recommended actions to take to resolve an error in the @failureReasons@
--- field.
-updateBotLocaleResponse_recommendedActions :: Lens.Lens' UpdateBotLocaleResponse (Prelude.Maybe [Prelude.Text])
-updateBotLocaleResponse_recommendedActions = Lens.lens (\UpdateBotLocaleResponse' {recommendedActions} -> recommendedActions) (\s@UpdateBotLocaleResponse' {} a -> s {recommendedActions = a} :: UpdateBotLocaleResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The updated description of the locale.
-updateBotLocaleResponse_description :: Lens.Lens' UpdateBotLocaleResponse (Prelude.Maybe Prelude.Text)
-updateBotLocaleResponse_description = Lens.lens (\UpdateBotLocaleResponse' {description} -> description) (\s@UpdateBotLocaleResponse' {} a -> s {description = a} :: UpdateBotLocaleResponse)
 
 -- | The identifier of the bot that contains the updated locale.
 updateBotLocaleResponse_botId :: Lens.Lens' UpdateBotLocaleResponse (Prelude.Maybe Prelude.Text)
@@ -388,10 +356,17 @@ updateBotLocaleResponse_botId = Lens.lens (\UpdateBotLocaleResponse' {botId} -> 
 updateBotLocaleResponse_botLocaleStatus :: Lens.Lens' UpdateBotLocaleResponse (Prelude.Maybe BotLocaleStatus)
 updateBotLocaleResponse_botLocaleStatus = Lens.lens (\UpdateBotLocaleResponse' {botLocaleStatus} -> botLocaleStatus) (\s@UpdateBotLocaleResponse' {} a -> s {botLocaleStatus = a} :: UpdateBotLocaleResponse)
 
--- | The updated Amazon Polly voice to use for voice interaction with the
--- user.
-updateBotLocaleResponse_voiceSettings :: Lens.Lens' UpdateBotLocaleResponse (Prelude.Maybe VoiceSettings)
-updateBotLocaleResponse_voiceSettings = Lens.lens (\UpdateBotLocaleResponse' {voiceSettings} -> voiceSettings) (\s@UpdateBotLocaleResponse' {} a -> s {voiceSettings = a} :: UpdateBotLocaleResponse)
+-- | The version of the bot that contains the updated locale.
+updateBotLocaleResponse_botVersion :: Lens.Lens' UpdateBotLocaleResponse (Prelude.Maybe Prelude.Text)
+updateBotLocaleResponse_botVersion = Lens.lens (\UpdateBotLocaleResponse' {botVersion} -> botVersion) (\s@UpdateBotLocaleResponse' {} a -> s {botVersion = a} :: UpdateBotLocaleResponse)
+
+-- | A timestamp of the date and time that the locale was created.
+updateBotLocaleResponse_creationDateTime :: Lens.Lens' UpdateBotLocaleResponse (Prelude.Maybe Prelude.UTCTime)
+updateBotLocaleResponse_creationDateTime = Lens.lens (\UpdateBotLocaleResponse' {creationDateTime} -> creationDateTime) (\s@UpdateBotLocaleResponse' {} a -> s {creationDateTime = a} :: UpdateBotLocaleResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The updated description of the locale.
+updateBotLocaleResponse_description :: Lens.Lens' UpdateBotLocaleResponse (Prelude.Maybe Prelude.Text)
+updateBotLocaleResponse_description = Lens.lens (\UpdateBotLocaleResponse' {description} -> description) (\s@UpdateBotLocaleResponse' {} a -> s {description = a} :: UpdateBotLocaleResponse)
 
 -- | If the @botLocaleStatus@ is @Failed@, the @failureReasons@ field lists
 -- the errors that occurred while building the bot.
@@ -402,22 +377,46 @@ updateBotLocaleResponse_failureReasons = Lens.lens (\UpdateBotLocaleResponse' {f
 updateBotLocaleResponse_lastUpdatedDateTime :: Lens.Lens' UpdateBotLocaleResponse (Prelude.Maybe Prelude.UTCTime)
 updateBotLocaleResponse_lastUpdatedDateTime = Lens.lens (\UpdateBotLocaleResponse' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@UpdateBotLocaleResponse' {} a -> s {lastUpdatedDateTime = a} :: UpdateBotLocaleResponse) Prelude.. Lens.mapping Data._Time
 
+-- | The language and locale of the updated bot locale.
+updateBotLocaleResponse_localeId :: Lens.Lens' UpdateBotLocaleResponse (Prelude.Maybe Prelude.Text)
+updateBotLocaleResponse_localeId = Lens.lens (\UpdateBotLocaleResponse' {localeId} -> localeId) (\s@UpdateBotLocaleResponse' {} a -> s {localeId = a} :: UpdateBotLocaleResponse)
+
+-- | The updated locale name for the locale.
+updateBotLocaleResponse_localeName :: Lens.Lens' UpdateBotLocaleResponse (Prelude.Maybe Prelude.Text)
+updateBotLocaleResponse_localeName = Lens.lens (\UpdateBotLocaleResponse' {localeName} -> localeName) (\s@UpdateBotLocaleResponse' {} a -> s {localeName = a} :: UpdateBotLocaleResponse)
+
+-- | The updated confidence threshold for inserting the
+-- @AMAZON.FallbackIntent@ and @AMAZON.KendraSearchIntent@ intents in the
+-- list of possible intents for an utterance.
+updateBotLocaleResponse_nluIntentConfidenceThreshold :: Lens.Lens' UpdateBotLocaleResponse (Prelude.Maybe Prelude.Double)
+updateBotLocaleResponse_nluIntentConfidenceThreshold = Lens.lens (\UpdateBotLocaleResponse' {nluIntentConfidenceThreshold} -> nluIntentConfidenceThreshold) (\s@UpdateBotLocaleResponse' {} a -> s {nluIntentConfidenceThreshold = a} :: UpdateBotLocaleResponse)
+
+-- | Recommended actions to take to resolve an error in the @failureReasons@
+-- field.
+updateBotLocaleResponse_recommendedActions :: Lens.Lens' UpdateBotLocaleResponse (Prelude.Maybe [Prelude.Text])
+updateBotLocaleResponse_recommendedActions = Lens.lens (\UpdateBotLocaleResponse' {recommendedActions} -> recommendedActions) (\s@UpdateBotLocaleResponse' {} a -> s {recommendedActions = a} :: UpdateBotLocaleResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The updated Amazon Polly voice to use for voice interaction with the
+-- user.
+updateBotLocaleResponse_voiceSettings :: Lens.Lens' UpdateBotLocaleResponse (Prelude.Maybe VoiceSettings)
+updateBotLocaleResponse_voiceSettings = Lens.lens (\UpdateBotLocaleResponse' {voiceSettings} -> voiceSettings) (\s@UpdateBotLocaleResponse' {} a -> s {voiceSettings = a} :: UpdateBotLocaleResponse)
+
 -- | The response's http status code.
 updateBotLocaleResponse_httpStatus :: Lens.Lens' UpdateBotLocaleResponse Prelude.Int
 updateBotLocaleResponse_httpStatus = Lens.lens (\UpdateBotLocaleResponse' {httpStatus} -> httpStatus) (\s@UpdateBotLocaleResponse' {} a -> s {httpStatus = a} :: UpdateBotLocaleResponse)
 
 instance Prelude.NFData UpdateBotLocaleResponse where
   rnf UpdateBotLocaleResponse' {..} =
-    Prelude.rnf nluIntentConfidenceThreshold
+    Prelude.rnf botId
+      `Prelude.seq` Prelude.rnf botLocaleStatus
       `Prelude.seq` Prelude.rnf botVersion
       `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf localeName
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf recommendedActions
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botLocaleStatus
-      `Prelude.seq` Prelude.rnf voiceSettings
       `Prelude.seq` Prelude.rnf failureReasons
       `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf localeId
+      `Prelude.seq` Prelude.rnf localeName
+      `Prelude.seq` Prelude.rnf nluIntentConfidenceThreshold
+      `Prelude.seq` Prelude.rnf recommendedActions
+      `Prelude.seq` Prelude.rnf voiceSettings
       `Prelude.seq` Prelude.rnf httpStatus

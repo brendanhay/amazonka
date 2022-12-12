@@ -31,8 +31,8 @@ module Amazonka.SSM.DescribeDocumentPermission
     newDescribeDocumentPermission,
 
     -- * Request Lenses
-    describeDocumentPermission_nextToken,
     describeDocumentPermission_maxResults,
+    describeDocumentPermission_nextToken,
     describeDocumentPermission_name,
     describeDocumentPermission_permissionType,
 
@@ -42,8 +42,8 @@ module Amazonka.SSM.DescribeDocumentPermission
 
     -- * Response Lenses
     describeDocumentPermissionResponse_accountIds,
-    describeDocumentPermissionResponse_nextToken,
     describeDocumentPermissionResponse_accountSharingInfoList,
+    describeDocumentPermissionResponse_nextToken,
     describeDocumentPermissionResponse_httpStatus,
   )
 where
@@ -58,13 +58,13 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newDescribeDocumentPermission' smart constructor.
 data DescribeDocumentPermission = DescribeDocumentPermission'
-  { -- | The token for the next set of items to return. (You received this token
-    -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return for this call. The call also
+  { -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the document for which you are the owner.
     name :: Prelude.Text,
     -- | The permission type for the document. The permission type can be
@@ -81,12 +81,12 @@ data DescribeDocumentPermission = DescribeDocumentPermission'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeDocumentPermission_nextToken' - The token for the next set of items to return. (You received this token
--- from a previous call.)
---
 -- 'maxResults', 'describeDocumentPermission_maxResults' - The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
+--
+-- 'nextToken', 'describeDocumentPermission_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
 --
 -- 'name', 'describeDocumentPermission_name' - The name of the document for which you are the owner.
 --
@@ -100,23 +100,23 @@ newDescribeDocumentPermission ::
   DescribeDocumentPermission
 newDescribeDocumentPermission pName_ pPermissionType_ =
   DescribeDocumentPermission'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       name = pName_,
       permissionType = pPermissionType_
     }
-
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
-describeDocumentPermission_nextToken :: Lens.Lens' DescribeDocumentPermission (Prelude.Maybe Prelude.Text)
-describeDocumentPermission_nextToken = Lens.lens (\DescribeDocumentPermission' {nextToken} -> nextToken) (\s@DescribeDocumentPermission' {} a -> s {nextToken = a} :: DescribeDocumentPermission)
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
 describeDocumentPermission_maxResults :: Lens.Lens' DescribeDocumentPermission (Prelude.Maybe Prelude.Natural)
 describeDocumentPermission_maxResults = Lens.lens (\DescribeDocumentPermission' {maxResults} -> maxResults) (\s@DescribeDocumentPermission' {} a -> s {maxResults = a} :: DescribeDocumentPermission)
+
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+describeDocumentPermission_nextToken :: Lens.Lens' DescribeDocumentPermission (Prelude.Maybe Prelude.Text)
+describeDocumentPermission_nextToken = Lens.lens (\DescribeDocumentPermission' {nextToken} -> nextToken) (\s@DescribeDocumentPermission' {} a -> s {nextToken = a} :: DescribeDocumentPermission)
 
 -- | The name of the document for which you are the owner.
 describeDocumentPermission_name :: Lens.Lens' DescribeDocumentPermission Prelude.Text
@@ -138,24 +138,24 @@ instance Core.AWSRequest DescribeDocumentPermission where
       ( \s h x ->
           DescribeDocumentPermissionResponse'
             Prelude.<$> (x Data..?> "AccountIds" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> ( x Data..?> "AccountSharingInfoList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeDocumentPermission where
   hashWithSalt _salt DescribeDocumentPermission' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` permissionType
 
 instance Prelude.NFData DescribeDocumentPermission where
   rnf DescribeDocumentPermission' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf permissionType
 
@@ -178,8 +178,8 @@ instance Data.ToJSON DescribeDocumentPermission where
   toJSON DescribeDocumentPermission' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just
               ("PermissionType" Data..= permissionType)
@@ -197,12 +197,12 @@ data DescribeDocumentPermissionResponse = DescribeDocumentPermissionResponse'
   { -- | The account IDs that have permission to use this document. The ID can be
     -- either an Amazon Web Services account or /All/.
     accountIds :: Prelude.Maybe [Prelude.Text],
-    -- | The token for the next set of items to return. Use this token to get the
-    -- next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of Amazon Web Services accounts where the current document is
     -- shared and the version shared with each account.
     accountSharingInfoList :: Prelude.Maybe [AccountSharingInfo],
+    -- | The token for the next set of items to return. Use this token to get the
+    -- next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -219,11 +219,11 @@ data DescribeDocumentPermissionResponse = DescribeDocumentPermissionResponse'
 -- 'accountIds', 'describeDocumentPermissionResponse_accountIds' - The account IDs that have permission to use this document. The ID can be
 -- either an Amazon Web Services account or /All/.
 --
--- 'nextToken', 'describeDocumentPermissionResponse_nextToken' - The token for the next set of items to return. Use this token to get the
--- next set of results.
---
 -- 'accountSharingInfoList', 'describeDocumentPermissionResponse_accountSharingInfoList' - A list of Amazon Web Services accounts where the current document is
 -- shared and the version shared with each account.
+--
+-- 'nextToken', 'describeDocumentPermissionResponse_nextToken' - The token for the next set of items to return. Use this token to get the
+-- next set of results.
 --
 -- 'httpStatus', 'describeDocumentPermissionResponse_httpStatus' - The response's http status code.
 newDescribeDocumentPermissionResponse ::
@@ -234,9 +234,9 @@ newDescribeDocumentPermissionResponse pHttpStatus_ =
   DescribeDocumentPermissionResponse'
     { accountIds =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       accountSharingInfoList =
         Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -245,15 +245,15 @@ newDescribeDocumentPermissionResponse pHttpStatus_ =
 describeDocumentPermissionResponse_accountIds :: Lens.Lens' DescribeDocumentPermissionResponse (Prelude.Maybe [Prelude.Text])
 describeDocumentPermissionResponse_accountIds = Lens.lens (\DescribeDocumentPermissionResponse' {accountIds} -> accountIds) (\s@DescribeDocumentPermissionResponse' {} a -> s {accountIds = a} :: DescribeDocumentPermissionResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The token for the next set of items to return. Use this token to get the
--- next set of results.
-describeDocumentPermissionResponse_nextToken :: Lens.Lens' DescribeDocumentPermissionResponse (Prelude.Maybe Prelude.Text)
-describeDocumentPermissionResponse_nextToken = Lens.lens (\DescribeDocumentPermissionResponse' {nextToken} -> nextToken) (\s@DescribeDocumentPermissionResponse' {} a -> s {nextToken = a} :: DescribeDocumentPermissionResponse)
-
 -- | A list of Amazon Web Services accounts where the current document is
 -- shared and the version shared with each account.
 describeDocumentPermissionResponse_accountSharingInfoList :: Lens.Lens' DescribeDocumentPermissionResponse (Prelude.Maybe [AccountSharingInfo])
 describeDocumentPermissionResponse_accountSharingInfoList = Lens.lens (\DescribeDocumentPermissionResponse' {accountSharingInfoList} -> accountSharingInfoList) (\s@DescribeDocumentPermissionResponse' {} a -> s {accountSharingInfoList = a} :: DescribeDocumentPermissionResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next set of items to return. Use this token to get the
+-- next set of results.
+describeDocumentPermissionResponse_nextToken :: Lens.Lens' DescribeDocumentPermissionResponse (Prelude.Maybe Prelude.Text)
+describeDocumentPermissionResponse_nextToken = Lens.lens (\DescribeDocumentPermissionResponse' {nextToken} -> nextToken) (\s@DescribeDocumentPermissionResponse' {} a -> s {nextToken = a} :: DescribeDocumentPermissionResponse)
 
 -- | The response's http status code.
 describeDocumentPermissionResponse_httpStatus :: Lens.Lens' DescribeDocumentPermissionResponse Prelude.Int
@@ -265,6 +265,6 @@ instance
   where
   rnf DescribeDocumentPermissionResponse' {..} =
     Prelude.rnf accountIds
-      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf accountSharingInfoList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

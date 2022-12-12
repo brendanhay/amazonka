@@ -30,10 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSourceCode' smart constructor.
 data SourceCode = SourceCode'
-  { -- | The branch of the source code.
-    sourceVersion :: Prelude.Maybe Prelude.Text,
-    -- | The repository name for the source code.
+  { -- | The repository name for the source code.
     location :: Prelude.Maybe Prelude.Text,
+    -- | The name of the project.
+    projectName :: Prelude.Maybe Prelude.Text,
+    -- | The branch of the source code.
+    sourceVersion :: Prelude.Maybe Prelude.Text,
     -- | The type of repository to use for the source code.
     versionControl :: Prelude.Maybe VersionControl
   }
@@ -47,27 +49,34 @@ data SourceCode = SourceCode'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceVersion', 'sourceCode_sourceVersion' - The branch of the source code.
---
 -- 'location', 'sourceCode_location' - The repository name for the source code.
+--
+-- 'projectName', 'sourceCode_projectName' - The name of the project.
+--
+-- 'sourceVersion', 'sourceCode_sourceVersion' - The branch of the source code.
 --
 -- 'versionControl', 'sourceCode_versionControl' - The type of repository to use for the source code.
 newSourceCode ::
   SourceCode
 newSourceCode =
   SourceCode'
-    { sourceVersion = Prelude.Nothing,
-      location = Prelude.Nothing,
+    { location = Prelude.Nothing,
+      projectName = Prelude.Nothing,
+      sourceVersion = Prelude.Nothing,
       versionControl = Prelude.Nothing
     }
-
--- | The branch of the source code.
-sourceCode_sourceVersion :: Lens.Lens' SourceCode (Prelude.Maybe Prelude.Text)
-sourceCode_sourceVersion = Lens.lens (\SourceCode' {sourceVersion} -> sourceVersion) (\s@SourceCode' {} a -> s {sourceVersion = a} :: SourceCode)
 
 -- | The repository name for the source code.
 sourceCode_location :: Lens.Lens' SourceCode (Prelude.Maybe Prelude.Text)
 sourceCode_location = Lens.lens (\SourceCode' {location} -> location) (\s@SourceCode' {} a -> s {location = a} :: SourceCode)
+
+-- | The name of the project.
+sourceCode_projectName :: Lens.Lens' SourceCode (Prelude.Maybe Prelude.Text)
+sourceCode_projectName = Lens.lens (\SourceCode' {projectName} -> projectName) (\s@SourceCode' {} a -> s {projectName = a} :: SourceCode)
+
+-- | The branch of the source code.
+sourceCode_sourceVersion :: Lens.Lens' SourceCode (Prelude.Maybe Prelude.Text)
+sourceCode_sourceVersion = Lens.lens (\SourceCode' {sourceVersion} -> sourceVersion) (\s@SourceCode' {} a -> s {sourceVersion = a} :: SourceCode)
 
 -- | The type of repository to use for the source code.
 sourceCode_versionControl :: Lens.Lens' SourceCode (Prelude.Maybe VersionControl)
@@ -75,22 +84,25 @@ sourceCode_versionControl = Lens.lens (\SourceCode' {versionControl} -> versionC
 
 instance Prelude.Hashable SourceCode where
   hashWithSalt _salt SourceCode' {..} =
-    _salt `Prelude.hashWithSalt` sourceVersion
-      `Prelude.hashWithSalt` location
+    _salt `Prelude.hashWithSalt` location
+      `Prelude.hashWithSalt` projectName
+      `Prelude.hashWithSalt` sourceVersion
       `Prelude.hashWithSalt` versionControl
 
 instance Prelude.NFData SourceCode where
   rnf SourceCode' {..} =
-    Prelude.rnf sourceVersion
-      `Prelude.seq` Prelude.rnf location
+    Prelude.rnf location
+      `Prelude.seq` Prelude.rnf projectName
+      `Prelude.seq` Prelude.rnf sourceVersion
       `Prelude.seq` Prelude.rnf versionControl
 
 instance Data.ToJSON SourceCode where
   toJSON SourceCode' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("sourceVersion" Data..=) Prelude.<$> sourceVersion,
-            ("location" Data..=) Prelude.<$> location,
+          [ ("location" Data..=) Prelude.<$> location,
+            ("projectName" Data..=) Prelude.<$> projectName,
+            ("sourceVersion" Data..=) Prelude.<$> sourceVersion,
             ("versionControl" Data..=)
               Prelude.<$> versionControl
           ]

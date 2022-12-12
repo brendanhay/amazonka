@@ -44,8 +44,8 @@ module Amazonka.EC2.DetachVolume
     -- * Request Lenses
     detachVolume_device,
     detachVolume_dryRun,
-    detachVolume_instanceId,
     detachVolume_force,
+    detachVolume_instanceId,
     detachVolume_volumeId,
 
     -- * Destructuring the Response
@@ -53,11 +53,11 @@ module Amazonka.EC2.DetachVolume
     newVolumeAttachment,
 
     -- * Response Lenses
+    volumeAttachment_attachTime,
     volumeAttachment_deleteOnTermination,
     volumeAttachment_device,
-    volumeAttachment_state,
     volumeAttachment_instanceId,
-    volumeAttachment_attachTime,
+    volumeAttachment_state,
     volumeAttachment_volumeId,
   )
 where
@@ -79,9 +79,6 @@ data DetachVolume = DetachVolume'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the instance. If you are detaching a Multi-Attach enabled
-    -- volume, you must specify an instance ID.
-    instanceId :: Prelude.Maybe Prelude.Text,
     -- | Forces detachment if the previous detachment attempt did not occur
     -- cleanly (for example, logging into an instance, unmounting the volume,
     -- and detaching normally). This option can lead to data loss or a
@@ -90,6 +87,9 @@ data DetachVolume = DetachVolume'
     -- to flush file system caches or file system metadata. If you use this
     -- option, you must perform file system check and repair procedures.
     force :: Prelude.Maybe Prelude.Bool,
+    -- | The ID of the instance. If you are detaching a Multi-Attach enabled
+    -- volume, you must specify an instance ID.
+    instanceId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the volume.
     volumeId :: Prelude.Text
   }
@@ -110,9 +110,6 @@ data DetachVolume = DetachVolume'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'instanceId', 'detachVolume_instanceId' - The ID of the instance. If you are detaching a Multi-Attach enabled
--- volume, you must specify an instance ID.
---
 -- 'force', 'detachVolume_force' - Forces detachment if the previous detachment attempt did not occur
 -- cleanly (for example, logging into an instance, unmounting the volume,
 -- and detaching normally). This option can lead to data loss or a
@@ -120,6 +117,9 @@ data DetachVolume = DetachVolume'
 -- volume from a failed instance. The instance won\'t have an opportunity
 -- to flush file system caches or file system metadata. If you use this
 -- option, you must perform file system check and repair procedures.
+--
+-- 'instanceId', 'detachVolume_instanceId' - The ID of the instance. If you are detaching a Multi-Attach enabled
+-- volume, you must specify an instance ID.
 --
 -- 'volumeId', 'detachVolume_volumeId' - The ID of the volume.
 newDetachVolume ::
@@ -130,8 +130,8 @@ newDetachVolume pVolumeId_ =
   DetachVolume'
     { device = Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      instanceId = Prelude.Nothing,
       force = Prelude.Nothing,
+      instanceId = Prelude.Nothing,
       volumeId = pVolumeId_
     }
 
@@ -146,11 +146,6 @@ detachVolume_device = Lens.lens (\DetachVolume' {device} -> device) (\s@DetachVo
 detachVolume_dryRun :: Lens.Lens' DetachVolume (Prelude.Maybe Prelude.Bool)
 detachVolume_dryRun = Lens.lens (\DetachVolume' {dryRun} -> dryRun) (\s@DetachVolume' {} a -> s {dryRun = a} :: DetachVolume)
 
--- | The ID of the instance. If you are detaching a Multi-Attach enabled
--- volume, you must specify an instance ID.
-detachVolume_instanceId :: Lens.Lens' DetachVolume (Prelude.Maybe Prelude.Text)
-detachVolume_instanceId = Lens.lens (\DetachVolume' {instanceId} -> instanceId) (\s@DetachVolume' {} a -> s {instanceId = a} :: DetachVolume)
-
 -- | Forces detachment if the previous detachment attempt did not occur
 -- cleanly (for example, logging into an instance, unmounting the volume,
 -- and detaching normally). This option can lead to data loss or a
@@ -160,6 +155,11 @@ detachVolume_instanceId = Lens.lens (\DetachVolume' {instanceId} -> instanceId) 
 -- option, you must perform file system check and repair procedures.
 detachVolume_force :: Lens.Lens' DetachVolume (Prelude.Maybe Prelude.Bool)
 detachVolume_force = Lens.lens (\DetachVolume' {force} -> force) (\s@DetachVolume' {} a -> s {force = a} :: DetachVolume)
+
+-- | The ID of the instance. If you are detaching a Multi-Attach enabled
+-- volume, you must specify an instance ID.
+detachVolume_instanceId :: Lens.Lens' DetachVolume (Prelude.Maybe Prelude.Text)
+detachVolume_instanceId = Lens.lens (\DetachVolume' {instanceId} -> instanceId) (\s@DetachVolume' {} a -> s {instanceId = a} :: DetachVolume)
 
 -- | The ID of the volume.
 detachVolume_volumeId :: Lens.Lens' DetachVolume Prelude.Text
@@ -176,16 +176,16 @@ instance Prelude.Hashable DetachVolume where
   hashWithSalt _salt DetachVolume' {..} =
     _salt `Prelude.hashWithSalt` device
       `Prelude.hashWithSalt` dryRun
-      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` force
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` volumeId
 
 instance Prelude.NFData DetachVolume where
   rnf DetachVolume' {..} =
     Prelude.rnf device
       `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf force
+      `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf volumeId
 
 instance Data.ToHeaders DetachVolume where
@@ -203,7 +203,7 @@ instance Data.ToQuery DetachVolume where
           Data.=: ("2016-11-15" :: Prelude.ByteString),
         "Device" Data.=: device,
         "DryRun" Data.=: dryRun,
-        "InstanceId" Data.=: instanceId,
         "Force" Data.=: force,
+        "InstanceId" Data.=: instanceId,
         "VolumeId" Data.=: volumeId
       ]

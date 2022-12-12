@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInventoryData' smart constructor.
 data InventoryData = InventoryData'
-  { -- | The number of schemas in the Fleet Advisor collector inventory.
-    numberOfSchemas :: Prelude.Maybe Prelude.Int,
-    -- | The number of databases in the Fleet Advisor collector inventory.
-    numberOfDatabases :: Prelude.Maybe Prelude.Int
+  { -- | The number of databases in the Fleet Advisor collector inventory.
+    numberOfDatabases :: Prelude.Maybe Prelude.Int,
+    -- | The number of schemas in the Fleet Advisor collector inventory.
+    numberOfSchemas :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data InventoryData = InventoryData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'numberOfSchemas', 'inventoryData_numberOfSchemas' - The number of schemas in the Fleet Advisor collector inventory.
---
 -- 'numberOfDatabases', 'inventoryData_numberOfDatabases' - The number of databases in the Fleet Advisor collector inventory.
+--
+-- 'numberOfSchemas', 'inventoryData_numberOfSchemas' - The number of schemas in the Fleet Advisor collector inventory.
 newInventoryData ::
   InventoryData
 newInventoryData =
   InventoryData'
-    { numberOfSchemas = Prelude.Nothing,
-      numberOfDatabases = Prelude.Nothing
+    { numberOfDatabases = Prelude.Nothing,
+      numberOfSchemas = Prelude.Nothing
     }
-
--- | The number of schemas in the Fleet Advisor collector inventory.
-inventoryData_numberOfSchemas :: Lens.Lens' InventoryData (Prelude.Maybe Prelude.Int)
-inventoryData_numberOfSchemas = Lens.lens (\InventoryData' {numberOfSchemas} -> numberOfSchemas) (\s@InventoryData' {} a -> s {numberOfSchemas = a} :: InventoryData)
 
 -- | The number of databases in the Fleet Advisor collector inventory.
 inventoryData_numberOfDatabases :: Lens.Lens' InventoryData (Prelude.Maybe Prelude.Int)
 inventoryData_numberOfDatabases = Lens.lens (\InventoryData' {numberOfDatabases} -> numberOfDatabases) (\s@InventoryData' {} a -> s {numberOfDatabases = a} :: InventoryData)
+
+-- | The number of schemas in the Fleet Advisor collector inventory.
+inventoryData_numberOfSchemas :: Lens.Lens' InventoryData (Prelude.Maybe Prelude.Int)
+inventoryData_numberOfSchemas = Lens.lens (\InventoryData' {numberOfSchemas} -> numberOfSchemas) (\s@InventoryData' {} a -> s {numberOfSchemas = a} :: InventoryData)
 
 instance Data.FromJSON InventoryData where
   parseJSON =
@@ -68,16 +68,16 @@ instance Data.FromJSON InventoryData where
       "InventoryData"
       ( \x ->
           InventoryData'
-            Prelude.<$> (x Data..:? "NumberOfSchemas")
-            Prelude.<*> (x Data..:? "NumberOfDatabases")
+            Prelude.<$> (x Data..:? "NumberOfDatabases")
+            Prelude.<*> (x Data..:? "NumberOfSchemas")
       )
 
 instance Prelude.Hashable InventoryData where
   hashWithSalt _salt InventoryData' {..} =
-    _salt `Prelude.hashWithSalt` numberOfSchemas
-      `Prelude.hashWithSalt` numberOfDatabases
+    _salt `Prelude.hashWithSalt` numberOfDatabases
+      `Prelude.hashWithSalt` numberOfSchemas
 
 instance Prelude.NFData InventoryData where
   rnf InventoryData' {..} =
-    Prelude.rnf numberOfSchemas
-      `Prelude.seq` Prelude.rnf numberOfDatabases
+    Prelude.rnf numberOfDatabases
+      `Prelude.seq` Prelude.rnf numberOfSchemas

@@ -32,24 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHlsManifest' smart constructor.
 data HlsManifest = HlsManifest'
-  { -- | Time window (in seconds) contained in each parent manifest.
-    playlistWindowSeconds :: Prelude.Maybe Prelude.Int,
-    adsOnDeliveryRestrictions :: Prelude.Maybe AdsOnDeliveryRestrictions,
-    -- | The URL of the packaged OriginEndpoint for consumption.
-    url :: Prelude.Maybe Prelude.Text,
-    -- | The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag
-    -- inserted into manifests. Additionally, when an interval is specified
-    -- ID3Timed Metadata messages will be generated every 5 seconds using the
-    -- ingest time of the content. If the interval is not specified, or set to
-    -- 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests
-    -- and no ID3Timed Metadata messages will be generated. Note that
-    -- irrespective of this parameter, if any ID3 Timed Metadata is found in
-    -- HTTP Live Streaming (HLS) input, it will be passed through to HLS
-    -- output.
-    programDateTimeIntervalSeconds :: Prelude.Maybe Prelude.Int,
-    -- | When enabled, an I-Frame only stream will be included in the output.
-    includeIframeOnlyStream :: Prelude.Maybe Prelude.Bool,
-    -- | This setting controls how ad markers are included in the packaged
+  { -- | This setting controls how ad markers are included in the packaged
     -- OriginEndpoint. \"NONE\" will omit all SCTE-35 ad markers from the
     -- output. \"PASSTHROUGH\" causes the manifest to contain a copy of the
     -- SCTE-35 ad markers (comments) taken directly from the input HTTP Live
@@ -60,6 +43,9 @@ data HlsManifest = HlsManifest'
     -- set a programDateTimeIntervalSeconds value that is greater than 0.
     adMarkers :: Prelude.Maybe AdMarkers,
     adTriggers :: Prelude.Maybe [AdTriggersElement],
+    adsOnDeliveryRestrictions :: Prelude.Maybe AdsOnDeliveryRestrictions,
+    -- | When enabled, an I-Frame only stream will be included in the output.
+    includeIframeOnlyStream :: Prelude.Maybe Prelude.Bool,
     -- | An optional short string appended to the end of the OriginEndpoint URL.
     -- If not specified, defaults to the manifestName for the OriginEndpoint.
     manifestName :: Prelude.Maybe Prelude.Text,
@@ -67,6 +53,20 @@ data HlsManifest = HlsManifest'
     -- \"VOD\" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be
     -- included in the media playlist.
     playlistType :: Prelude.Maybe PlaylistType,
+    -- | Time window (in seconds) contained in each parent manifest.
+    playlistWindowSeconds :: Prelude.Maybe Prelude.Int,
+    -- | The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag
+    -- inserted into manifests. Additionally, when an interval is specified
+    -- ID3Timed Metadata messages will be generated every 5 seconds using the
+    -- ingest time of the content. If the interval is not specified, or set to
+    -- 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests
+    -- and no ID3Timed Metadata messages will be generated. Note that
+    -- irrespective of this parameter, if any ID3 Timed Metadata is found in
+    -- HTTP Live Streaming (HLS) input, it will be passed through to HLS
+    -- output.
+    programDateTimeIntervalSeconds :: Prelude.Maybe Prelude.Int,
+    -- | The URL of the packaged OriginEndpoint for consumption.
+    url :: Prelude.Maybe Prelude.Text,
     -- | The ID of the manifest. The ID must be unique within the OriginEndpoint
     -- and it cannot be changed after it is created.
     id :: Prelude.Text
@@ -81,24 +81,6 @@ data HlsManifest = HlsManifest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'playlistWindowSeconds', 'hlsManifest_playlistWindowSeconds' - Time window (in seconds) contained in each parent manifest.
---
--- 'adsOnDeliveryRestrictions', 'hlsManifest_adsOnDeliveryRestrictions' - Undocumented member.
---
--- 'url', 'hlsManifest_url' - The URL of the packaged OriginEndpoint for consumption.
---
--- 'programDateTimeIntervalSeconds', 'hlsManifest_programDateTimeIntervalSeconds' - The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag
--- inserted into manifests. Additionally, when an interval is specified
--- ID3Timed Metadata messages will be generated every 5 seconds using the
--- ingest time of the content. If the interval is not specified, or set to
--- 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests
--- and no ID3Timed Metadata messages will be generated. Note that
--- irrespective of this parameter, if any ID3 Timed Metadata is found in
--- HTTP Live Streaming (HLS) input, it will be passed through to HLS
--- output.
---
--- 'includeIframeOnlyStream', 'hlsManifest_includeIframeOnlyStream' - When enabled, an I-Frame only stream will be included in the output.
---
 -- 'adMarkers', 'hlsManifest_adMarkers' - This setting controls how ad markers are included in the packaged
 -- OriginEndpoint. \"NONE\" will omit all SCTE-35 ad markers from the
 -- output. \"PASSTHROUGH\" causes the manifest to contain a copy of the
@@ -111,12 +93,30 @@ data HlsManifest = HlsManifest'
 --
 -- 'adTriggers', 'hlsManifest_adTriggers' - Undocumented member.
 --
+-- 'adsOnDeliveryRestrictions', 'hlsManifest_adsOnDeliveryRestrictions' - Undocumented member.
+--
+-- 'includeIframeOnlyStream', 'hlsManifest_includeIframeOnlyStream' - When enabled, an I-Frame only stream will be included in the output.
+--
 -- 'manifestName', 'hlsManifest_manifestName' - An optional short string appended to the end of the OriginEndpoint URL.
 -- If not specified, defaults to the manifestName for the OriginEndpoint.
 --
 -- 'playlistType', 'hlsManifest_playlistType' - The HTTP Live Streaming (HLS) playlist type. When either \"EVENT\" or
 -- \"VOD\" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be
 -- included in the media playlist.
+--
+-- 'playlistWindowSeconds', 'hlsManifest_playlistWindowSeconds' - Time window (in seconds) contained in each parent manifest.
+--
+-- 'programDateTimeIntervalSeconds', 'hlsManifest_programDateTimeIntervalSeconds' - The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag
+-- inserted into manifests. Additionally, when an interval is specified
+-- ID3Timed Metadata messages will be generated every 5 seconds using the
+-- ingest time of the content. If the interval is not specified, or set to
+-- 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests
+-- and no ID3Timed Metadata messages will be generated. Note that
+-- irrespective of this parameter, if any ID3 Timed Metadata is found in
+-- HTTP Live Streaming (HLS) input, it will be passed through to HLS
+-- output.
+--
+-- 'url', 'hlsManifest_url' - The URL of the packaged OriginEndpoint for consumption.
 --
 -- 'id', 'hlsManifest_id' - The ID of the manifest. The ID must be unique within the OriginEndpoint
 -- and it cannot be changed after it is created.
@@ -126,46 +126,17 @@ newHlsManifest ::
   HlsManifest
 newHlsManifest pId_ =
   HlsManifest'
-    { playlistWindowSeconds =
-        Prelude.Nothing,
-      adsOnDeliveryRestrictions = Prelude.Nothing,
-      url = Prelude.Nothing,
-      programDateTimeIntervalSeconds = Prelude.Nothing,
-      includeIframeOnlyStream = Prelude.Nothing,
-      adMarkers = Prelude.Nothing,
+    { adMarkers = Prelude.Nothing,
       adTriggers = Prelude.Nothing,
+      adsOnDeliveryRestrictions = Prelude.Nothing,
+      includeIframeOnlyStream = Prelude.Nothing,
       manifestName = Prelude.Nothing,
       playlistType = Prelude.Nothing,
+      playlistWindowSeconds = Prelude.Nothing,
+      programDateTimeIntervalSeconds = Prelude.Nothing,
+      url = Prelude.Nothing,
       id = pId_
     }
-
--- | Time window (in seconds) contained in each parent manifest.
-hlsManifest_playlistWindowSeconds :: Lens.Lens' HlsManifest (Prelude.Maybe Prelude.Int)
-hlsManifest_playlistWindowSeconds = Lens.lens (\HlsManifest' {playlistWindowSeconds} -> playlistWindowSeconds) (\s@HlsManifest' {} a -> s {playlistWindowSeconds = a} :: HlsManifest)
-
--- | Undocumented member.
-hlsManifest_adsOnDeliveryRestrictions :: Lens.Lens' HlsManifest (Prelude.Maybe AdsOnDeliveryRestrictions)
-hlsManifest_adsOnDeliveryRestrictions = Lens.lens (\HlsManifest' {adsOnDeliveryRestrictions} -> adsOnDeliveryRestrictions) (\s@HlsManifest' {} a -> s {adsOnDeliveryRestrictions = a} :: HlsManifest)
-
--- | The URL of the packaged OriginEndpoint for consumption.
-hlsManifest_url :: Lens.Lens' HlsManifest (Prelude.Maybe Prelude.Text)
-hlsManifest_url = Lens.lens (\HlsManifest' {url} -> url) (\s@HlsManifest' {} a -> s {url = a} :: HlsManifest)
-
--- | The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag
--- inserted into manifests. Additionally, when an interval is specified
--- ID3Timed Metadata messages will be generated every 5 seconds using the
--- ingest time of the content. If the interval is not specified, or set to
--- 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests
--- and no ID3Timed Metadata messages will be generated. Note that
--- irrespective of this parameter, if any ID3 Timed Metadata is found in
--- HTTP Live Streaming (HLS) input, it will be passed through to HLS
--- output.
-hlsManifest_programDateTimeIntervalSeconds :: Lens.Lens' HlsManifest (Prelude.Maybe Prelude.Int)
-hlsManifest_programDateTimeIntervalSeconds = Lens.lens (\HlsManifest' {programDateTimeIntervalSeconds} -> programDateTimeIntervalSeconds) (\s@HlsManifest' {} a -> s {programDateTimeIntervalSeconds = a} :: HlsManifest)
-
--- | When enabled, an I-Frame only stream will be included in the output.
-hlsManifest_includeIframeOnlyStream :: Lens.Lens' HlsManifest (Prelude.Maybe Prelude.Bool)
-hlsManifest_includeIframeOnlyStream = Lens.lens (\HlsManifest' {includeIframeOnlyStream} -> includeIframeOnlyStream) (\s@HlsManifest' {} a -> s {includeIframeOnlyStream = a} :: HlsManifest)
 
 -- | This setting controls how ad markers are included in the packaged
 -- OriginEndpoint. \"NONE\" will omit all SCTE-35 ad markers from the
@@ -183,6 +154,14 @@ hlsManifest_adMarkers = Lens.lens (\HlsManifest' {adMarkers} -> adMarkers) (\s@H
 hlsManifest_adTriggers :: Lens.Lens' HlsManifest (Prelude.Maybe [AdTriggersElement])
 hlsManifest_adTriggers = Lens.lens (\HlsManifest' {adTriggers} -> adTriggers) (\s@HlsManifest' {} a -> s {adTriggers = a} :: HlsManifest) Prelude.. Lens.mapping Lens.coerced
 
+-- | Undocumented member.
+hlsManifest_adsOnDeliveryRestrictions :: Lens.Lens' HlsManifest (Prelude.Maybe AdsOnDeliveryRestrictions)
+hlsManifest_adsOnDeliveryRestrictions = Lens.lens (\HlsManifest' {adsOnDeliveryRestrictions} -> adsOnDeliveryRestrictions) (\s@HlsManifest' {} a -> s {adsOnDeliveryRestrictions = a} :: HlsManifest)
+
+-- | When enabled, an I-Frame only stream will be included in the output.
+hlsManifest_includeIframeOnlyStream :: Lens.Lens' HlsManifest (Prelude.Maybe Prelude.Bool)
+hlsManifest_includeIframeOnlyStream = Lens.lens (\HlsManifest' {includeIframeOnlyStream} -> includeIframeOnlyStream) (\s@HlsManifest' {} a -> s {includeIframeOnlyStream = a} :: HlsManifest)
+
 -- | An optional short string appended to the end of the OriginEndpoint URL.
 -- If not specified, defaults to the manifestName for the OriginEndpoint.
 hlsManifest_manifestName :: Lens.Lens' HlsManifest (Prelude.Maybe Prelude.Text)
@@ -193,6 +172,26 @@ hlsManifest_manifestName = Lens.lens (\HlsManifest' {manifestName} -> manifestNa
 -- included in the media playlist.
 hlsManifest_playlistType :: Lens.Lens' HlsManifest (Prelude.Maybe PlaylistType)
 hlsManifest_playlistType = Lens.lens (\HlsManifest' {playlistType} -> playlistType) (\s@HlsManifest' {} a -> s {playlistType = a} :: HlsManifest)
+
+-- | Time window (in seconds) contained in each parent manifest.
+hlsManifest_playlistWindowSeconds :: Lens.Lens' HlsManifest (Prelude.Maybe Prelude.Int)
+hlsManifest_playlistWindowSeconds = Lens.lens (\HlsManifest' {playlistWindowSeconds} -> playlistWindowSeconds) (\s@HlsManifest' {} a -> s {playlistWindowSeconds = a} :: HlsManifest)
+
+-- | The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag
+-- inserted into manifests. Additionally, when an interval is specified
+-- ID3Timed Metadata messages will be generated every 5 seconds using the
+-- ingest time of the content. If the interval is not specified, or set to
+-- 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests
+-- and no ID3Timed Metadata messages will be generated. Note that
+-- irrespective of this parameter, if any ID3 Timed Metadata is found in
+-- HTTP Live Streaming (HLS) input, it will be passed through to HLS
+-- output.
+hlsManifest_programDateTimeIntervalSeconds :: Lens.Lens' HlsManifest (Prelude.Maybe Prelude.Int)
+hlsManifest_programDateTimeIntervalSeconds = Lens.lens (\HlsManifest' {programDateTimeIntervalSeconds} -> programDateTimeIntervalSeconds) (\s@HlsManifest' {} a -> s {programDateTimeIntervalSeconds = a} :: HlsManifest)
+
+-- | The URL of the packaged OriginEndpoint for consumption.
+hlsManifest_url :: Lens.Lens' HlsManifest (Prelude.Maybe Prelude.Text)
+hlsManifest_url = Lens.lens (\HlsManifest' {url} -> url) (\s@HlsManifest' {} a -> s {url = a} :: HlsManifest)
 
 -- | The ID of the manifest. The ID must be unique within the OriginEndpoint
 -- and it cannot be changed after it is created.
@@ -205,40 +204,40 @@ instance Data.FromJSON HlsManifest where
       "HlsManifest"
       ( \x ->
           HlsManifest'
-            Prelude.<$> (x Data..:? "playlistWindowSeconds")
-            Prelude.<*> (x Data..:? "adsOnDeliveryRestrictions")
-            Prelude.<*> (x Data..:? "url")
-            Prelude.<*> (x Data..:? "programDateTimeIntervalSeconds")
-            Prelude.<*> (x Data..:? "includeIframeOnlyStream")
-            Prelude.<*> (x Data..:? "adMarkers")
+            Prelude.<$> (x Data..:? "adMarkers")
             Prelude.<*> (x Data..:? "adTriggers" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "adsOnDeliveryRestrictions")
+            Prelude.<*> (x Data..:? "includeIframeOnlyStream")
             Prelude.<*> (x Data..:? "manifestName")
             Prelude.<*> (x Data..:? "playlistType")
+            Prelude.<*> (x Data..:? "playlistWindowSeconds")
+            Prelude.<*> (x Data..:? "programDateTimeIntervalSeconds")
+            Prelude.<*> (x Data..:? "url")
             Prelude.<*> (x Data..: "id")
       )
 
 instance Prelude.Hashable HlsManifest where
   hashWithSalt _salt HlsManifest' {..} =
-    _salt `Prelude.hashWithSalt` playlistWindowSeconds
-      `Prelude.hashWithSalt` adsOnDeliveryRestrictions
-      `Prelude.hashWithSalt` url
-      `Prelude.hashWithSalt` programDateTimeIntervalSeconds
-      `Prelude.hashWithSalt` includeIframeOnlyStream
-      `Prelude.hashWithSalt` adMarkers
+    _salt `Prelude.hashWithSalt` adMarkers
       `Prelude.hashWithSalt` adTriggers
+      `Prelude.hashWithSalt` adsOnDeliveryRestrictions
+      `Prelude.hashWithSalt` includeIframeOnlyStream
       `Prelude.hashWithSalt` manifestName
       `Prelude.hashWithSalt` playlistType
+      `Prelude.hashWithSalt` playlistWindowSeconds
+      `Prelude.hashWithSalt` programDateTimeIntervalSeconds
+      `Prelude.hashWithSalt` url
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData HlsManifest where
   rnf HlsManifest' {..} =
-    Prelude.rnf playlistWindowSeconds
-      `Prelude.seq` Prelude.rnf adsOnDeliveryRestrictions
-      `Prelude.seq` Prelude.rnf url
-      `Prelude.seq` Prelude.rnf programDateTimeIntervalSeconds
-      `Prelude.seq` Prelude.rnf includeIframeOnlyStream
-      `Prelude.seq` Prelude.rnf adMarkers
+    Prelude.rnf adMarkers
       `Prelude.seq` Prelude.rnf adTriggers
+      `Prelude.seq` Prelude.rnf adsOnDeliveryRestrictions
+      `Prelude.seq` Prelude.rnf includeIframeOnlyStream
       `Prelude.seq` Prelude.rnf manifestName
       `Prelude.seq` Prelude.rnf playlistType
+      `Prelude.seq` Prelude.rnf playlistWindowSeconds
+      `Prelude.seq` Prelude.rnf programDateTimeIntervalSeconds
+      `Prelude.seq` Prelude.rnf url
       `Prelude.seq` Prelude.rnf id

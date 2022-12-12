@@ -54,46 +54,46 @@ module Amazonka.BackupGateway.Lens
     getVirtualMachineResponse_httpStatus,
 
     -- ** ImportHypervisorConfiguration
-    importHypervisorConfiguration_tags,
-    importHypervisorConfiguration_password,
-    importHypervisorConfiguration_username,
     importHypervisorConfiguration_kmsKeyArn,
+    importHypervisorConfiguration_password,
+    importHypervisorConfiguration_tags,
+    importHypervisorConfiguration_username,
     importHypervisorConfiguration_host,
     importHypervisorConfiguration_name,
     importHypervisorConfigurationResponse_hypervisorArn,
     importHypervisorConfigurationResponse_httpStatus,
 
     -- ** ListGateways
-    listGateways_nextToken,
     listGateways_maxResults,
-    listGatewaysResponse_nextToken,
+    listGateways_nextToken,
     listGatewaysResponse_gateways,
+    listGatewaysResponse_nextToken,
     listGatewaysResponse_httpStatus,
 
     -- ** ListHypervisors
-    listHypervisors_nextToken,
     listHypervisors_maxResults,
-    listHypervisorsResponse_nextToken,
+    listHypervisors_nextToken,
     listHypervisorsResponse_hypervisors,
+    listHypervisorsResponse_nextToken,
     listHypervisorsResponse_httpStatus,
 
     -- ** ListTagsForResource
     listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
     listTagsForResourceResponse_resourceArn,
+    listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
 
     -- ** ListVirtualMachines
-    listVirtualMachines_nextToken,
-    listVirtualMachines_maxResults,
     listVirtualMachines_hypervisorArn,
+    listVirtualMachines_maxResults,
+    listVirtualMachines_nextToken,
     listVirtualMachinesResponse_nextToken,
     listVirtualMachinesResponse_virtualMachines,
     listVirtualMachinesResponse_httpStatus,
 
     -- ** PutMaintenanceStartTime
-    putMaintenanceStartTime_dayOfWeek,
     putMaintenanceStartTime_dayOfMonth,
+    putMaintenanceStartTime_dayOfWeek,
     putMaintenanceStartTime_gatewayArn,
     putMaintenanceStartTime_hourOfDay,
     putMaintenanceStartTime_minuteOfHour,
@@ -131,8 +131,8 @@ module Amazonka.BackupGateway.Lens
     updateGatewaySoftwareNowResponse_httpStatus,
 
     -- ** UpdateHypervisor
-    updateHypervisor_name,
     updateHypervisor_host,
+    updateHypervisor_name,
     updateHypervisor_password,
     updateHypervisor_username,
     updateHypervisor_hypervisorArn,
@@ -142,32 +142,32 @@ module Amazonka.BackupGateway.Lens
     -- * Types
 
     -- ** Gateway
-    gateway_gatewayType,
     gateway_gatewayArn,
+    gateway_gatewayDisplayName,
+    gateway_gatewayType,
     gateway_hypervisorId,
     gateway_lastSeenTime,
-    gateway_gatewayDisplayName,
 
     -- ** GatewayDetails
-    gatewayDetails_gatewayType,
     gatewayDetails_gatewayArn,
-    gatewayDetails_nextUpdateAvailabilityTime,
-    gatewayDetails_maintenanceStartTime,
+    gatewayDetails_gatewayDisplayName,
+    gatewayDetails_gatewayType,
     gatewayDetails_hypervisorId,
     gatewayDetails_lastSeenTime,
-    gatewayDetails_gatewayDisplayName,
+    gatewayDetails_maintenanceStartTime,
+    gatewayDetails_nextUpdateAvailabilityTime,
     gatewayDetails_vpcEndpoint,
 
     -- ** Hypervisor
-    hypervisor_name,
     hypervisor_host,
-    hypervisor_state,
-    hypervisor_kmsKeyArn,
     hypervisor_hypervisorArn,
+    hypervisor_kmsKeyArn,
+    hypervisor_name,
+    hypervisor_state,
 
     -- ** MaintenanceStartTime
-    maintenanceStartTime_dayOfWeek,
     maintenanceStartTime_dayOfMonth,
+    maintenanceStartTime_dayOfWeek,
     maintenanceStartTime_hourOfDay,
     maintenanceStartTime_minuteOfHour,
 
@@ -176,20 +176,20 @@ module Amazonka.BackupGateway.Lens
     tag_value,
 
     -- ** VirtualMachine
-    virtualMachine_name,
-    virtualMachine_path,
     virtualMachine_hostName,
-    virtualMachine_resourceArn,
     virtualMachine_hypervisorId,
     virtualMachine_lastBackupDate,
+    virtualMachine_name,
+    virtualMachine_path,
+    virtualMachine_resourceArn,
 
     -- ** VirtualMachineDetails
-    virtualMachineDetails_name,
-    virtualMachineDetails_path,
     virtualMachineDetails_hostName,
-    virtualMachineDetails_resourceArn,
     virtualMachineDetails_hypervisorId,
     virtualMachineDetails_lastBackupDate,
+    virtualMachineDetails_name,
+    virtualMachineDetails_path,
+    virtualMachineDetails_resourceArn,
   )
 where
 

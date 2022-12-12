@@ -30,15 +30,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIndexConfigurationSummary' smart constructor.
 data IndexConfigurationSummary = IndexConfigurationSummary'
-  { -- | The identifier of the index.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether the index is a enterprise edition index or a developer
-    -- edition index.
+  { -- | Indicates whether the index is a Enterprise Edition index or a Developer
+    -- Edition index.
     edition :: Prelude.Maybe IndexEdition,
-    -- | A unique identifier for the index. Use this to identify the index when
-    -- you are using APIs such as @Query@, @DescribeIndex@, @UpdateIndex@, and
+    -- | A identifier for the index. Use this to identify the index when you are
+    -- using APIs such as @Query@, @DescribeIndex@, @UpdateIndex@, and
     -- @DeleteIndex@.
     id :: Prelude.Maybe Prelude.Text,
+    -- | The name of the index.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The Unix timestamp when the index was created.
     createdAt :: Data.POSIX,
     -- | The Unix timestamp when the index was last updated by the @UpdateIndex@
@@ -58,14 +58,14 @@ data IndexConfigurationSummary = IndexConfigurationSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'indexConfigurationSummary_name' - The identifier of the index.
+-- 'edition', 'indexConfigurationSummary_edition' - Indicates whether the index is a Enterprise Edition index or a Developer
+-- Edition index.
 --
--- 'edition', 'indexConfigurationSummary_edition' - Indicates whether the index is a enterprise edition index or a developer
--- edition index.
---
--- 'id', 'indexConfigurationSummary_id' - A unique identifier for the index. Use this to identify the index when
--- you are using APIs such as @Query@, @DescribeIndex@, @UpdateIndex@, and
+-- 'id', 'indexConfigurationSummary_id' - A identifier for the index. Use this to identify the index when you are
+-- using APIs such as @Query@, @DescribeIndex@, @UpdateIndex@, and
 -- @DeleteIndex@.
+--
+-- 'name', 'indexConfigurationSummary_name' - The name of the index.
 --
 -- 'createdAt', 'indexConfigurationSummary_createdAt' - The Unix timestamp when the index was created.
 --
@@ -87,28 +87,29 @@ newIndexConfigurationSummary
   pUpdatedAt_
   pStatus_ =
     IndexConfigurationSummary'
-      { name = Prelude.Nothing,
-        edition = Prelude.Nothing,
+      { edition =
+          Prelude.Nothing,
         id = Prelude.Nothing,
+        name = Prelude.Nothing,
         createdAt = Data._Time Lens.# pCreatedAt_,
         updatedAt = Data._Time Lens.# pUpdatedAt_,
         status = pStatus_
       }
 
--- | The identifier of the index.
-indexConfigurationSummary_name :: Lens.Lens' IndexConfigurationSummary (Prelude.Maybe Prelude.Text)
-indexConfigurationSummary_name = Lens.lens (\IndexConfigurationSummary' {name} -> name) (\s@IndexConfigurationSummary' {} a -> s {name = a} :: IndexConfigurationSummary)
-
--- | Indicates whether the index is a enterprise edition index or a developer
--- edition index.
+-- | Indicates whether the index is a Enterprise Edition index or a Developer
+-- Edition index.
 indexConfigurationSummary_edition :: Lens.Lens' IndexConfigurationSummary (Prelude.Maybe IndexEdition)
 indexConfigurationSummary_edition = Lens.lens (\IndexConfigurationSummary' {edition} -> edition) (\s@IndexConfigurationSummary' {} a -> s {edition = a} :: IndexConfigurationSummary)
 
--- | A unique identifier for the index. Use this to identify the index when
--- you are using APIs such as @Query@, @DescribeIndex@, @UpdateIndex@, and
+-- | A identifier for the index. Use this to identify the index when you are
+-- using APIs such as @Query@, @DescribeIndex@, @UpdateIndex@, and
 -- @DeleteIndex@.
 indexConfigurationSummary_id :: Lens.Lens' IndexConfigurationSummary (Prelude.Maybe Prelude.Text)
 indexConfigurationSummary_id = Lens.lens (\IndexConfigurationSummary' {id} -> id) (\s@IndexConfigurationSummary' {} a -> s {id = a} :: IndexConfigurationSummary)
+
+-- | The name of the index.
+indexConfigurationSummary_name :: Lens.Lens' IndexConfigurationSummary (Prelude.Maybe Prelude.Text)
+indexConfigurationSummary_name = Lens.lens (\IndexConfigurationSummary' {name} -> name) (\s@IndexConfigurationSummary' {} a -> s {name = a} :: IndexConfigurationSummary)
 
 -- | The Unix timestamp when the index was created.
 indexConfigurationSummary_createdAt :: Lens.Lens' IndexConfigurationSummary Prelude.UTCTime
@@ -130,9 +131,9 @@ instance Data.FromJSON IndexConfigurationSummary where
       "IndexConfigurationSummary"
       ( \x ->
           IndexConfigurationSummary'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Edition")
+            Prelude.<$> (x Data..:? "Edition")
             Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..: "CreatedAt")
             Prelude.<*> (x Data..: "UpdatedAt")
             Prelude.<*> (x Data..: "Status")
@@ -140,18 +141,18 @@ instance Data.FromJSON IndexConfigurationSummary where
 
 instance Prelude.Hashable IndexConfigurationSummary where
   hashWithSalt _salt IndexConfigurationSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` edition
+    _salt `Prelude.hashWithSalt` edition
       `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` updatedAt
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData IndexConfigurationSummary where
   rnf IndexConfigurationSummary' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf edition
+    Prelude.rnf edition
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf updatedAt
       `Prelude.seq` Prelude.rnf status

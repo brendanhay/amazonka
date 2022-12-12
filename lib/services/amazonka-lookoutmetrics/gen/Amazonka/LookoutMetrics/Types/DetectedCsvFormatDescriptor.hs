@@ -29,18 +29,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDetectedCsvFormatDescriptor' smart constructor.
 data DetectedCsvFormatDescriptor = DetectedCsvFormatDescriptor'
-  { -- | The format\'s quote symbol.
-    quoteSymbol :: Prelude.Maybe DetectedField,
+  { -- | The format\'s charset.
+    charset :: Prelude.Maybe DetectedField,
     -- | Whether the format includes a header.
     containsHeader :: Prelude.Maybe DetectedField,
     -- | The format\'s delimiter.
     delimiter :: Prelude.Maybe DetectedField,
-    -- | The format\'s header list.
-    headerList :: Prelude.Maybe DetectedField,
     -- | The format\'s file compression.
     fileCompression :: Prelude.Maybe DetectedField,
-    -- | The format\'s charset.
-    charset :: Prelude.Maybe DetectedField
+    -- | The format\'s header list.
+    headerList :: Prelude.Maybe DetectedField,
+    -- | The format\'s quote symbol.
+    quoteSymbol :: Prelude.Maybe DetectedField
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,33 +52,33 @@ data DetectedCsvFormatDescriptor = DetectedCsvFormatDescriptor'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'quoteSymbol', 'detectedCsvFormatDescriptor_quoteSymbol' - The format\'s quote symbol.
+-- 'charset', 'detectedCsvFormatDescriptor_charset' - The format\'s charset.
 --
 -- 'containsHeader', 'detectedCsvFormatDescriptor_containsHeader' - Whether the format includes a header.
 --
 -- 'delimiter', 'detectedCsvFormatDescriptor_delimiter' - The format\'s delimiter.
 --
--- 'headerList', 'detectedCsvFormatDescriptor_headerList' - The format\'s header list.
---
 -- 'fileCompression', 'detectedCsvFormatDescriptor_fileCompression' - The format\'s file compression.
 --
--- 'charset', 'detectedCsvFormatDescriptor_charset' - The format\'s charset.
+-- 'headerList', 'detectedCsvFormatDescriptor_headerList' - The format\'s header list.
+--
+-- 'quoteSymbol', 'detectedCsvFormatDescriptor_quoteSymbol' - The format\'s quote symbol.
 newDetectedCsvFormatDescriptor ::
   DetectedCsvFormatDescriptor
 newDetectedCsvFormatDescriptor =
   DetectedCsvFormatDescriptor'
-    { quoteSymbol =
+    { charset =
         Prelude.Nothing,
       containsHeader = Prelude.Nothing,
       delimiter = Prelude.Nothing,
-      headerList = Prelude.Nothing,
       fileCompression = Prelude.Nothing,
-      charset = Prelude.Nothing
+      headerList = Prelude.Nothing,
+      quoteSymbol = Prelude.Nothing
     }
 
--- | The format\'s quote symbol.
-detectedCsvFormatDescriptor_quoteSymbol :: Lens.Lens' DetectedCsvFormatDescriptor (Prelude.Maybe DetectedField)
-detectedCsvFormatDescriptor_quoteSymbol = Lens.lens (\DetectedCsvFormatDescriptor' {quoteSymbol} -> quoteSymbol) (\s@DetectedCsvFormatDescriptor' {} a -> s {quoteSymbol = a} :: DetectedCsvFormatDescriptor)
+-- | The format\'s charset.
+detectedCsvFormatDescriptor_charset :: Lens.Lens' DetectedCsvFormatDescriptor (Prelude.Maybe DetectedField)
+detectedCsvFormatDescriptor_charset = Lens.lens (\DetectedCsvFormatDescriptor' {charset} -> charset) (\s@DetectedCsvFormatDescriptor' {} a -> s {charset = a} :: DetectedCsvFormatDescriptor)
 
 -- | Whether the format includes a header.
 detectedCsvFormatDescriptor_containsHeader :: Lens.Lens' DetectedCsvFormatDescriptor (Prelude.Maybe DetectedField)
@@ -88,17 +88,17 @@ detectedCsvFormatDescriptor_containsHeader = Lens.lens (\DetectedCsvFormatDescri
 detectedCsvFormatDescriptor_delimiter :: Lens.Lens' DetectedCsvFormatDescriptor (Prelude.Maybe DetectedField)
 detectedCsvFormatDescriptor_delimiter = Lens.lens (\DetectedCsvFormatDescriptor' {delimiter} -> delimiter) (\s@DetectedCsvFormatDescriptor' {} a -> s {delimiter = a} :: DetectedCsvFormatDescriptor)
 
--- | The format\'s header list.
-detectedCsvFormatDescriptor_headerList :: Lens.Lens' DetectedCsvFormatDescriptor (Prelude.Maybe DetectedField)
-detectedCsvFormatDescriptor_headerList = Lens.lens (\DetectedCsvFormatDescriptor' {headerList} -> headerList) (\s@DetectedCsvFormatDescriptor' {} a -> s {headerList = a} :: DetectedCsvFormatDescriptor)
-
 -- | The format\'s file compression.
 detectedCsvFormatDescriptor_fileCompression :: Lens.Lens' DetectedCsvFormatDescriptor (Prelude.Maybe DetectedField)
 detectedCsvFormatDescriptor_fileCompression = Lens.lens (\DetectedCsvFormatDescriptor' {fileCompression} -> fileCompression) (\s@DetectedCsvFormatDescriptor' {} a -> s {fileCompression = a} :: DetectedCsvFormatDescriptor)
 
--- | The format\'s charset.
-detectedCsvFormatDescriptor_charset :: Lens.Lens' DetectedCsvFormatDescriptor (Prelude.Maybe DetectedField)
-detectedCsvFormatDescriptor_charset = Lens.lens (\DetectedCsvFormatDescriptor' {charset} -> charset) (\s@DetectedCsvFormatDescriptor' {} a -> s {charset = a} :: DetectedCsvFormatDescriptor)
+-- | The format\'s header list.
+detectedCsvFormatDescriptor_headerList :: Lens.Lens' DetectedCsvFormatDescriptor (Prelude.Maybe DetectedField)
+detectedCsvFormatDescriptor_headerList = Lens.lens (\DetectedCsvFormatDescriptor' {headerList} -> headerList) (\s@DetectedCsvFormatDescriptor' {} a -> s {headerList = a} :: DetectedCsvFormatDescriptor)
+
+-- | The format\'s quote symbol.
+detectedCsvFormatDescriptor_quoteSymbol :: Lens.Lens' DetectedCsvFormatDescriptor (Prelude.Maybe DetectedField)
+detectedCsvFormatDescriptor_quoteSymbol = Lens.lens (\DetectedCsvFormatDescriptor' {quoteSymbol} -> quoteSymbol) (\s@DetectedCsvFormatDescriptor' {} a -> s {quoteSymbol = a} :: DetectedCsvFormatDescriptor)
 
 instance Data.FromJSON DetectedCsvFormatDescriptor where
   parseJSON =
@@ -106,28 +106,28 @@ instance Data.FromJSON DetectedCsvFormatDescriptor where
       "DetectedCsvFormatDescriptor"
       ( \x ->
           DetectedCsvFormatDescriptor'
-            Prelude.<$> (x Data..:? "QuoteSymbol")
+            Prelude.<$> (x Data..:? "Charset")
             Prelude.<*> (x Data..:? "ContainsHeader")
             Prelude.<*> (x Data..:? "Delimiter")
-            Prelude.<*> (x Data..:? "HeaderList")
             Prelude.<*> (x Data..:? "FileCompression")
-            Prelude.<*> (x Data..:? "Charset")
+            Prelude.<*> (x Data..:? "HeaderList")
+            Prelude.<*> (x Data..:? "QuoteSymbol")
       )
 
 instance Prelude.Hashable DetectedCsvFormatDescriptor where
   hashWithSalt _salt DetectedCsvFormatDescriptor' {..} =
-    _salt `Prelude.hashWithSalt` quoteSymbol
+    _salt `Prelude.hashWithSalt` charset
       `Prelude.hashWithSalt` containsHeader
       `Prelude.hashWithSalt` delimiter
-      `Prelude.hashWithSalt` headerList
       `Prelude.hashWithSalt` fileCompression
-      `Prelude.hashWithSalt` charset
+      `Prelude.hashWithSalt` headerList
+      `Prelude.hashWithSalt` quoteSymbol
 
 instance Prelude.NFData DetectedCsvFormatDescriptor where
   rnf DetectedCsvFormatDescriptor' {..} =
-    Prelude.rnf quoteSymbol
+    Prelude.rnf charset
       `Prelude.seq` Prelude.rnf containsHeader
       `Prelude.seq` Prelude.rnf delimiter
-      `Prelude.seq` Prelude.rnf headerList
       `Prelude.seq` Prelude.rnf fileCompression
-      `Prelude.seq` Prelude.rnf charset
+      `Prelude.seq` Prelude.rnf headerList
+      `Prelude.seq` Prelude.rnf quoteSymbol

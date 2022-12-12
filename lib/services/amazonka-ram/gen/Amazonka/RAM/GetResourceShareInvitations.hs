@@ -30,8 +30,8 @@ module Amazonka.RAM.GetResourceShareInvitations
     newGetResourceShareInvitations,
 
     -- * Request Lenses
-    getResourceShareInvitations_nextToken,
     getResourceShareInvitations_maxResults,
+    getResourceShareInvitations_nextToken,
     getResourceShareInvitations_resourceShareArns,
     getResourceShareInvitations_resourceShareInvitationArns,
 
@@ -40,8 +40,8 @@ module Amazonka.RAM.GetResourceShareInvitations
     newGetResourceShareInvitationsResponse,
 
     -- * Response Lenses
-    getResourceShareInvitationsResponse_resourceShareInvitations,
     getResourceShareInvitationsResponse_nextToken,
+    getResourceShareInvitationsResponse_resourceShareInvitations,
     getResourceShareInvitationsResponse_httpStatus,
   )
 where
@@ -56,13 +56,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetResourceShareInvitations' smart constructor.
 data GetResourceShareInvitations = GetResourceShareInvitations'
-  { -- | Specifies that you want to receive the next page of results. Valid only
-    -- if you received a @NextToken@ response in the previous request. If you
-    -- did, it indicates that more output is available. Set this parameter to
-    -- the value provided by the previous call\'s @NextToken@ response to
-    -- request the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the total number of results that you want included on each
+  { -- | Specifies the total number of results that you want included on each
     -- page of the response. If you do not include this parameter, it defaults
     -- to a value that is specific to the operation. If additional items exist
     -- beyond the number you specify, the @NextToken@ response element is
@@ -73,6 +67,12 @@ data GetResourceShareInvitations = GetResourceShareInvitations'
     -- should check @NextToken@ after every operation to ensure that you
     -- receive all of the results.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Specifies that you want to receive the next page of results. Valid only
+    -- if you received a @NextToken@ response in the previous request. If you
+    -- did, it indicates that more output is available. Set this parameter to
+    -- the value provided by the previous call\'s @NextToken@ response to
+    -- request the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies that you want details about invitations only for the resource
     -- shares described by this list of
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
@@ -92,12 +92,6 @@ data GetResourceShareInvitations = GetResourceShareInvitations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getResourceShareInvitations_nextToken' - Specifies that you want to receive the next page of results. Valid only
--- if you received a @NextToken@ response in the previous request. If you
--- did, it indicates that more output is available. Set this parameter to
--- the value provided by the previous call\'s @NextToken@ response to
--- request the next page of results.
---
 -- 'maxResults', 'getResourceShareInvitations_maxResults' - Specifies the total number of results that you want included on each
 -- page of the response. If you do not include this parameter, it defaults
 -- to a value that is specific to the operation. If additional items exist
@@ -108,6 +102,12 @@ data GetResourceShareInvitations = GetResourceShareInvitations'
 -- results than the maximum even when there are more results available. You
 -- should check @NextToken@ after every operation to ensure that you
 -- receive all of the results.
+--
+-- 'nextToken', 'getResourceShareInvitations_nextToken' - Specifies that you want to receive the next page of results. Valid only
+-- if you received a @NextToken@ response in the previous request. If you
+-- did, it indicates that more output is available. Set this parameter to
+-- the value provided by the previous call\'s @NextToken@ response to
+-- request the next page of results.
 --
 -- 'resourceShareArns', 'getResourceShareInvitations_resourceShareArns' - Specifies that you want details about invitations only for the resource
 -- shares described by this list of
@@ -120,20 +120,12 @@ newGetResourceShareInvitations ::
   GetResourceShareInvitations
 newGetResourceShareInvitations =
   GetResourceShareInvitations'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       resourceShareArns = Prelude.Nothing,
       resourceShareInvitationArns = Prelude.Nothing
     }
-
--- | Specifies that you want to receive the next page of results. Valid only
--- if you received a @NextToken@ response in the previous request. If you
--- did, it indicates that more output is available. Set this parameter to
--- the value provided by the previous call\'s @NextToken@ response to
--- request the next page of results.
-getResourceShareInvitations_nextToken :: Lens.Lens' GetResourceShareInvitations (Prelude.Maybe Prelude.Text)
-getResourceShareInvitations_nextToken = Lens.lens (\GetResourceShareInvitations' {nextToken} -> nextToken) (\s@GetResourceShareInvitations' {} a -> s {nextToken = a} :: GetResourceShareInvitations)
 
 -- | Specifies the total number of results that you want included on each
 -- page of the response. If you do not include this parameter, it defaults
@@ -147,6 +139,14 @@ getResourceShareInvitations_nextToken = Lens.lens (\GetResourceShareInvitations'
 -- receive all of the results.
 getResourceShareInvitations_maxResults :: Lens.Lens' GetResourceShareInvitations (Prelude.Maybe Prelude.Natural)
 getResourceShareInvitations_maxResults = Lens.lens (\GetResourceShareInvitations' {maxResults} -> maxResults) (\s@GetResourceShareInvitations' {} a -> s {maxResults = a} :: GetResourceShareInvitations)
+
+-- | Specifies that you want to receive the next page of results. Valid only
+-- if you received a @NextToken@ response in the previous request. If you
+-- did, it indicates that more output is available. Set this parameter to
+-- the value provided by the previous call\'s @NextToken@ response to
+-- request the next page of results.
+getResourceShareInvitations_nextToken :: Lens.Lens' GetResourceShareInvitations (Prelude.Maybe Prelude.Text)
+getResourceShareInvitations_nextToken = Lens.lens (\GetResourceShareInvitations' {nextToken} -> nextToken) (\s@GetResourceShareInvitations' {} a -> s {nextToken = a} :: GetResourceShareInvitations)
 
 -- | Specifies that you want details about invitations only for the resource
 -- shares described by this list of
@@ -192,24 +192,24 @@ instance Core.AWSRequest GetResourceShareInvitations where
     Response.receiveJSON
       ( \s h x ->
           GetResourceShareInvitationsResponse'
-            Prelude.<$> ( x Data..?> "resourceShareInvitations"
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> ( x Data..?> "resourceShareInvitations"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetResourceShareInvitations where
   hashWithSalt _salt GetResourceShareInvitations' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceShareArns
       `Prelude.hashWithSalt` resourceShareInvitationArns
 
 instance Prelude.NFData GetResourceShareInvitations where
   rnf GetResourceShareInvitations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf resourceShareArns
       `Prelude.seq` Prelude.rnf resourceShareInvitationArns
 
@@ -228,8 +228,8 @@ instance Data.ToJSON GetResourceShareInvitations where
   toJSON GetResourceShareInvitations' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             ("resourceShareArns" Data..=)
               Prelude.<$> resourceShareArns,
             ("resourceShareInvitationArns" Data..=)
@@ -245,15 +245,15 @@ instance Data.ToQuery GetResourceShareInvitations where
 
 -- | /See:/ 'newGetResourceShareInvitationsResponse' smart constructor.
 data GetResourceShareInvitationsResponse = GetResourceShareInvitationsResponse'
-  { -- | An array of objects that contain the details about the invitations.
-    resourceShareInvitations :: Prelude.Maybe [ResourceShareInvitation],
-    -- | If present, this value indicates that more output is available than is
+  { -- | If present, this value indicates that more output is available than is
     -- included in the current response. Use this value in the @NextToken@
     -- request parameter in a subsequent call to the operation to get the next
     -- part of the output. You should repeat this until the @NextToken@
     -- response element comes back as @null@. This indicates that this is the
     -- last page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of objects that contain the details about the invitations.
+    resourceShareInvitations :: Prelude.Maybe [ResourceShareInvitation],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -267,14 +267,14 @@ data GetResourceShareInvitationsResponse = GetResourceShareInvitationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceShareInvitations', 'getResourceShareInvitationsResponse_resourceShareInvitations' - An array of objects that contain the details about the invitations.
---
 -- 'nextToken', 'getResourceShareInvitationsResponse_nextToken' - If present, this value indicates that more output is available than is
 -- included in the current response. Use this value in the @NextToken@
 -- request parameter in a subsequent call to the operation to get the next
 -- part of the output. You should repeat this until the @NextToken@
 -- response element comes back as @null@. This indicates that this is the
 -- last page of results.
+--
+-- 'resourceShareInvitations', 'getResourceShareInvitationsResponse_resourceShareInvitations' - An array of objects that contain the details about the invitations.
 --
 -- 'httpStatus', 'getResourceShareInvitationsResponse_httpStatus' - The response's http status code.
 newGetResourceShareInvitationsResponse ::
@@ -283,15 +283,12 @@ newGetResourceShareInvitationsResponse ::
   GetResourceShareInvitationsResponse
 newGetResourceShareInvitationsResponse pHttpStatus_ =
   GetResourceShareInvitationsResponse'
-    { resourceShareInvitations =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      resourceShareInvitations =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of objects that contain the details about the invitations.
-getResourceShareInvitationsResponse_resourceShareInvitations :: Lens.Lens' GetResourceShareInvitationsResponse (Prelude.Maybe [ResourceShareInvitation])
-getResourceShareInvitationsResponse_resourceShareInvitations = Lens.lens (\GetResourceShareInvitationsResponse' {resourceShareInvitations} -> resourceShareInvitations) (\s@GetResourceShareInvitationsResponse' {} a -> s {resourceShareInvitations = a} :: GetResourceShareInvitationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If present, this value indicates that more output is available than is
 -- included in the current response. Use this value in the @NextToken@
@@ -302,6 +299,10 @@ getResourceShareInvitationsResponse_resourceShareInvitations = Lens.lens (\GetRe
 getResourceShareInvitationsResponse_nextToken :: Lens.Lens' GetResourceShareInvitationsResponse (Prelude.Maybe Prelude.Text)
 getResourceShareInvitationsResponse_nextToken = Lens.lens (\GetResourceShareInvitationsResponse' {nextToken} -> nextToken) (\s@GetResourceShareInvitationsResponse' {} a -> s {nextToken = a} :: GetResourceShareInvitationsResponse)
 
+-- | An array of objects that contain the details about the invitations.
+getResourceShareInvitationsResponse_resourceShareInvitations :: Lens.Lens' GetResourceShareInvitationsResponse (Prelude.Maybe [ResourceShareInvitation])
+getResourceShareInvitationsResponse_resourceShareInvitations = Lens.lens (\GetResourceShareInvitationsResponse' {resourceShareInvitations} -> resourceShareInvitations) (\s@GetResourceShareInvitationsResponse' {} a -> s {resourceShareInvitations = a} :: GetResourceShareInvitationsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 getResourceShareInvitationsResponse_httpStatus :: Lens.Lens' GetResourceShareInvitationsResponse Prelude.Int
 getResourceShareInvitationsResponse_httpStatus = Lens.lens (\GetResourceShareInvitationsResponse' {httpStatus} -> httpStatus) (\s@GetResourceShareInvitationsResponse' {} a -> s {httpStatus = a} :: GetResourceShareInvitationsResponse)
@@ -311,6 +312,6 @@ instance
     GetResourceShareInvitationsResponse
   where
   rnf GetResourceShareInvitationsResponse' {..} =
-    Prelude.rnf resourceShareInvitations
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceShareInvitations
       `Prelude.seq` Prelude.rnf httpStatus

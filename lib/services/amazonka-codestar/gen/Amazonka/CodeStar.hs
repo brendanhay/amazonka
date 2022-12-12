@@ -74,20 +74,8 @@ module Amazonka.CodeStar
     -- * Errors
     -- $errors
 
-    -- ** ProjectCreationFailedException
-    _ProjectCreationFailedException,
-
     -- ** ConcurrentModificationException
     _ConcurrentModificationException,
-
-    -- ** TeamMemberNotFoundException
-    _TeamMemberNotFoundException,
-
-    -- ** ProjectConfigurationException
-    _ProjectConfigurationException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
 
     -- ** InvalidNextTokenException
     _InvalidNextTokenException,
@@ -95,23 +83,35 @@ module Amazonka.CodeStar
     -- ** InvalidServiceRoleException
     _InvalidServiceRoleException,
 
-    -- ** UserProfileAlreadyExistsException
-    _UserProfileAlreadyExistsException,
-
-    -- ** ProjectNotFoundException
-    _ProjectNotFoundException,
-
-    -- ** UserProfileNotFoundException
-    _UserProfileNotFoundException,
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- ** ProjectAlreadyExistsException
     _ProjectAlreadyExistsException,
 
-    -- ** ValidationException
-    _ValidationException,
+    -- ** ProjectConfigurationException
+    _ProjectConfigurationException,
+
+    -- ** ProjectCreationFailedException
+    _ProjectCreationFailedException,
+
+    -- ** ProjectNotFoundException
+    _ProjectNotFoundException,
 
     -- ** TeamMemberAlreadyAssociatedException
     _TeamMemberAlreadyAssociatedException,
+
+    -- ** TeamMemberNotFoundException
+    _TeamMemberNotFoundException,
+
+    -- ** UserProfileAlreadyExistsException
+    _UserProfileAlreadyExistsException,
+
+    -- ** UserProfileNotFoundException
+    _UserProfileNotFoundException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters

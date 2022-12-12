@@ -30,18 +30,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFunctionConfigurationEnvironment' smart constructor.
 data FunctionConfigurationEnvironment = FunctionConfigurationEnvironment'
-  { -- | A list of the resources, with their permissions, to which the Lambda
-    -- function will be granted access. A Lambda function can have at most 10
-    -- resources. ResourceAccessPolicies apply only when you run the Lambda
-    -- function in a Greengrass container.
-    resourceAccessPolicies :: Prelude.Maybe [ResourceAccessPolicy],
-    -- | Configuration related to executing the Lambda function
-    execution :: Prelude.Maybe FunctionExecutionConfig,
-    -- | If true, the Lambda function is allowed to access the host\'s \/sys
+  { -- | If true, the Lambda function is allowed to access the host\'s \/sys
     -- folder. Use this when the Lambda function needs to read device
     -- information from \/sys. This setting applies only when you run the
     -- Lambda function in a Greengrass container.
     accessSysfs :: Prelude.Maybe Prelude.Bool,
+    -- | Configuration related to executing the Lambda function
+    execution :: Prelude.Maybe FunctionExecutionConfig,
+    -- | A list of the resources, with their permissions, to which the Lambda
+    -- function will be granted access. A Lambda function can have at most 10
+    -- resources. ResourceAccessPolicies apply only when you run the Lambda
+    -- function in a Greengrass container.
+    resourceAccessPolicies :: Prelude.Maybe [ResourceAccessPolicy],
     -- | Environment variables for the Lambda function\'s configuration.
     variables :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
@@ -55,40 +55,29 @@ data FunctionConfigurationEnvironment = FunctionConfigurationEnvironment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceAccessPolicies', 'functionConfigurationEnvironment_resourceAccessPolicies' - A list of the resources, with their permissions, to which the Lambda
--- function will be granted access. A Lambda function can have at most 10
--- resources. ResourceAccessPolicies apply only when you run the Lambda
--- function in a Greengrass container.
---
--- 'execution', 'functionConfigurationEnvironment_execution' - Configuration related to executing the Lambda function
---
 -- 'accessSysfs', 'functionConfigurationEnvironment_accessSysfs' - If true, the Lambda function is allowed to access the host\'s \/sys
 -- folder. Use this when the Lambda function needs to read device
 -- information from \/sys. This setting applies only when you run the
 -- Lambda function in a Greengrass container.
+--
+-- 'execution', 'functionConfigurationEnvironment_execution' - Configuration related to executing the Lambda function
+--
+-- 'resourceAccessPolicies', 'functionConfigurationEnvironment_resourceAccessPolicies' - A list of the resources, with their permissions, to which the Lambda
+-- function will be granted access. A Lambda function can have at most 10
+-- resources. ResourceAccessPolicies apply only when you run the Lambda
+-- function in a Greengrass container.
 --
 -- 'variables', 'functionConfigurationEnvironment_variables' - Environment variables for the Lambda function\'s configuration.
 newFunctionConfigurationEnvironment ::
   FunctionConfigurationEnvironment
 newFunctionConfigurationEnvironment =
   FunctionConfigurationEnvironment'
-    { resourceAccessPolicies =
+    { accessSysfs =
         Prelude.Nothing,
       execution = Prelude.Nothing,
-      accessSysfs = Prelude.Nothing,
+      resourceAccessPolicies = Prelude.Nothing,
       variables = Prelude.Nothing
     }
-
--- | A list of the resources, with their permissions, to which the Lambda
--- function will be granted access. A Lambda function can have at most 10
--- resources. ResourceAccessPolicies apply only when you run the Lambda
--- function in a Greengrass container.
-functionConfigurationEnvironment_resourceAccessPolicies :: Lens.Lens' FunctionConfigurationEnvironment (Prelude.Maybe [ResourceAccessPolicy])
-functionConfigurationEnvironment_resourceAccessPolicies = Lens.lens (\FunctionConfigurationEnvironment' {resourceAccessPolicies} -> resourceAccessPolicies) (\s@FunctionConfigurationEnvironment' {} a -> s {resourceAccessPolicies = a} :: FunctionConfigurationEnvironment) Prelude.. Lens.mapping Lens.coerced
-
--- | Configuration related to executing the Lambda function
-functionConfigurationEnvironment_execution :: Lens.Lens' FunctionConfigurationEnvironment (Prelude.Maybe FunctionExecutionConfig)
-functionConfigurationEnvironment_execution = Lens.lens (\FunctionConfigurationEnvironment' {execution} -> execution) (\s@FunctionConfigurationEnvironment' {} a -> s {execution = a} :: FunctionConfigurationEnvironment)
 
 -- | If true, the Lambda function is allowed to access the host\'s \/sys
 -- folder. Use this when the Lambda function needs to read device
@@ -96,6 +85,17 @@ functionConfigurationEnvironment_execution = Lens.lens (\FunctionConfigurationEn
 -- Lambda function in a Greengrass container.
 functionConfigurationEnvironment_accessSysfs :: Lens.Lens' FunctionConfigurationEnvironment (Prelude.Maybe Prelude.Bool)
 functionConfigurationEnvironment_accessSysfs = Lens.lens (\FunctionConfigurationEnvironment' {accessSysfs} -> accessSysfs) (\s@FunctionConfigurationEnvironment' {} a -> s {accessSysfs = a} :: FunctionConfigurationEnvironment)
+
+-- | Configuration related to executing the Lambda function
+functionConfigurationEnvironment_execution :: Lens.Lens' FunctionConfigurationEnvironment (Prelude.Maybe FunctionExecutionConfig)
+functionConfigurationEnvironment_execution = Lens.lens (\FunctionConfigurationEnvironment' {execution} -> execution) (\s@FunctionConfigurationEnvironment' {} a -> s {execution = a} :: FunctionConfigurationEnvironment)
+
+-- | A list of the resources, with their permissions, to which the Lambda
+-- function will be granted access. A Lambda function can have at most 10
+-- resources. ResourceAccessPolicies apply only when you run the Lambda
+-- function in a Greengrass container.
+functionConfigurationEnvironment_resourceAccessPolicies :: Lens.Lens' FunctionConfigurationEnvironment (Prelude.Maybe [ResourceAccessPolicy])
+functionConfigurationEnvironment_resourceAccessPolicies = Lens.lens (\FunctionConfigurationEnvironment' {resourceAccessPolicies} -> resourceAccessPolicies) (\s@FunctionConfigurationEnvironment' {} a -> s {resourceAccessPolicies = a} :: FunctionConfigurationEnvironment) Prelude.. Lens.mapping Lens.coerced
 
 -- | Environment variables for the Lambda function\'s configuration.
 functionConfigurationEnvironment_variables :: Lens.Lens' FunctionConfigurationEnvironment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -110,11 +110,11 @@ instance
       "FunctionConfigurationEnvironment"
       ( \x ->
           FunctionConfigurationEnvironment'
-            Prelude.<$> ( x Data..:? "ResourceAccessPolicies"
+            Prelude.<$> (x Data..:? "AccessSysfs")
+            Prelude.<*> (x Data..:? "Execution")
+            Prelude.<*> ( x Data..:? "ResourceAccessPolicies"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "Execution")
-            Prelude.<*> (x Data..:? "AccessSysfs")
             Prelude.<*> (x Data..:? "Variables" Data..!= Prelude.mempty)
       )
 
@@ -125,9 +125,9 @@ instance
   hashWithSalt
     _salt
     FunctionConfigurationEnvironment' {..} =
-      _salt `Prelude.hashWithSalt` resourceAccessPolicies
+      _salt `Prelude.hashWithSalt` accessSysfs
         `Prelude.hashWithSalt` execution
-        `Prelude.hashWithSalt` accessSysfs
+        `Prelude.hashWithSalt` resourceAccessPolicies
         `Prelude.hashWithSalt` variables
 
 instance
@@ -135,19 +135,19 @@ instance
     FunctionConfigurationEnvironment
   where
   rnf FunctionConfigurationEnvironment' {..} =
-    Prelude.rnf resourceAccessPolicies
+    Prelude.rnf accessSysfs
       `Prelude.seq` Prelude.rnf execution
-      `Prelude.seq` Prelude.rnf accessSysfs
+      `Prelude.seq` Prelude.rnf resourceAccessPolicies
       `Prelude.seq` Prelude.rnf variables
 
 instance Data.ToJSON FunctionConfigurationEnvironment where
   toJSON FunctionConfigurationEnvironment' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ResourceAccessPolicies" Data..=)
-              Prelude.<$> resourceAccessPolicies,
+          [ ("AccessSysfs" Data..=) Prelude.<$> accessSysfs,
             ("Execution" Data..=) Prelude.<$> execution,
-            ("AccessSysfs" Data..=) Prelude.<$> accessSysfs,
+            ("ResourceAccessPolicies" Data..=)
+              Prelude.<$> resourceAccessPolicies,
             ("Variables" Data..=) Prelude.<$> variables
           ]
       )

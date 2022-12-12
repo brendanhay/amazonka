@@ -24,25 +24,19 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Information about a player session that was created as part of a
--- StartGameSessionPlacement request. This object contains only the player
+-- | Information about a player session. This object contains only the player
 -- ID and player session ID. To retrieve full details on a player session,
--- call DescribePlayerSessions with the player session ID.
---
--- __Related actions__
---
--- CreatePlayerSession | CreatePlayerSessions | DescribePlayerSessions |
--- StartGameSessionPlacement | DescribeGameSessionPlacement |
--- StopGameSessionPlacement |
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
+-- call
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribePlayerSessions.html DescribePlayerSessions>
+-- with the player session ID.
 --
 -- /See:/ 'newPlacedPlayerSession' smart constructor.
 data PlacedPlayerSession = PlacedPlayerSession'
-  { -- | A unique identifier for a player session.
-    playerSessionId :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for a player that is associated with this player
+  { -- | A unique identifier for a player that is associated with this player
     -- session.
-    playerId :: Prelude.Maybe Prelude.Text
+    playerId :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for a player session.
+    playerSessionId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,27 +48,26 @@ data PlacedPlayerSession = PlacedPlayerSession'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'playerSessionId', 'placedPlayerSession_playerSessionId' - A unique identifier for a player session.
---
 -- 'playerId', 'placedPlayerSession_playerId' - A unique identifier for a player that is associated with this player
 -- session.
+--
+-- 'playerSessionId', 'placedPlayerSession_playerSessionId' - A unique identifier for a player session.
 newPlacedPlayerSession ::
   PlacedPlayerSession
 newPlacedPlayerSession =
   PlacedPlayerSession'
-    { playerSessionId =
-        Prelude.Nothing,
-      playerId = Prelude.Nothing
+    { playerId = Prelude.Nothing,
+      playerSessionId = Prelude.Nothing
     }
-
--- | A unique identifier for a player session.
-placedPlayerSession_playerSessionId :: Lens.Lens' PlacedPlayerSession (Prelude.Maybe Prelude.Text)
-placedPlayerSession_playerSessionId = Lens.lens (\PlacedPlayerSession' {playerSessionId} -> playerSessionId) (\s@PlacedPlayerSession' {} a -> s {playerSessionId = a} :: PlacedPlayerSession)
 
 -- | A unique identifier for a player that is associated with this player
 -- session.
 placedPlayerSession_playerId :: Lens.Lens' PlacedPlayerSession (Prelude.Maybe Prelude.Text)
 placedPlayerSession_playerId = Lens.lens (\PlacedPlayerSession' {playerId} -> playerId) (\s@PlacedPlayerSession' {} a -> s {playerId = a} :: PlacedPlayerSession)
+
+-- | A unique identifier for a player session.
+placedPlayerSession_playerSessionId :: Lens.Lens' PlacedPlayerSession (Prelude.Maybe Prelude.Text)
+placedPlayerSession_playerSessionId = Lens.lens (\PlacedPlayerSession' {playerSessionId} -> playerSessionId) (\s@PlacedPlayerSession' {} a -> s {playerSessionId = a} :: PlacedPlayerSession)
 
 instance Data.FromJSON PlacedPlayerSession where
   parseJSON =
@@ -82,16 +75,16 @@ instance Data.FromJSON PlacedPlayerSession where
       "PlacedPlayerSession"
       ( \x ->
           PlacedPlayerSession'
-            Prelude.<$> (x Data..:? "PlayerSessionId")
-            Prelude.<*> (x Data..:? "PlayerId")
+            Prelude.<$> (x Data..:? "PlayerId")
+            Prelude.<*> (x Data..:? "PlayerSessionId")
       )
 
 instance Prelude.Hashable PlacedPlayerSession where
   hashWithSalt _salt PlacedPlayerSession' {..} =
-    _salt `Prelude.hashWithSalt` playerSessionId
-      `Prelude.hashWithSalt` playerId
+    _salt `Prelude.hashWithSalt` playerId
+      `Prelude.hashWithSalt` playerSessionId
 
 instance Prelude.NFData PlacedPlayerSession where
   rnf PlacedPlayerSession' {..} =
-    Prelude.rnf playerSessionId
-      `Prelude.seq` Prelude.rnf playerId
+    Prelude.rnf playerId
+      `Prelude.seq` Prelude.rnf playerSessionId

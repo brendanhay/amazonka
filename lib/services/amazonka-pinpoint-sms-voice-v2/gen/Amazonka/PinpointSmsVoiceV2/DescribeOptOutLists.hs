@@ -38,9 +38,9 @@ module Amazonka.PinpointSmsVoiceV2.DescribeOptOutLists
     newDescribeOptOutLists,
 
     -- * Request Lenses
+    describeOptOutLists_maxResults,
     describeOptOutLists_nextToken,
     describeOptOutLists_optOutListNames,
-    describeOptOutLists_maxResults,
 
     -- * Destructuring the Response
     DescribeOptOutListsResponse (..),
@@ -63,14 +63,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeOptOutLists' smart constructor.
 data DescribeOptOutLists = DescribeOptOutLists'
-  { -- | The token to be used for the next set of paginated results. You don\'t
+  { -- | The maximum number of results to return per each request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to be used for the next set of paginated results. You don\'t
     -- need to supply a value for this field in the initial request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The OptOutLists to show the details of. This is an array of strings that
     -- can be either the OptOutListName or OptOutListArn.
-    optOutListNames :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of results to return per each request.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    optOutListNames :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,21 +82,25 @@ data DescribeOptOutLists = DescribeOptOutLists'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'describeOptOutLists_maxResults' - The maximum number of results to return per each request.
+--
 -- 'nextToken', 'describeOptOutLists_nextToken' - The token to be used for the next set of paginated results. You don\'t
 -- need to supply a value for this field in the initial request.
 --
 -- 'optOutListNames', 'describeOptOutLists_optOutListNames' - The OptOutLists to show the details of. This is an array of strings that
 -- can be either the OptOutListName or OptOutListArn.
---
--- 'maxResults', 'describeOptOutLists_maxResults' - The maximum number of results to return per each request.
 newDescribeOptOutLists ::
   DescribeOptOutLists
 newDescribeOptOutLists =
   DescribeOptOutLists'
-    { nextToken = Prelude.Nothing,
-      optOutListNames = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      optOutListNames = Prelude.Nothing
     }
+
+-- | The maximum number of results to return per each request.
+describeOptOutLists_maxResults :: Lens.Lens' DescribeOptOutLists (Prelude.Maybe Prelude.Natural)
+describeOptOutLists_maxResults = Lens.lens (\DescribeOptOutLists' {maxResults} -> maxResults) (\s@DescribeOptOutLists' {} a -> s {maxResults = a} :: DescribeOptOutLists)
 
 -- | The token to be used for the next set of paginated results. You don\'t
 -- need to supply a value for this field in the initial request.
@@ -107,10 +111,6 @@ describeOptOutLists_nextToken = Lens.lens (\DescribeOptOutLists' {nextToken} -> 
 -- can be either the OptOutListName or OptOutListArn.
 describeOptOutLists_optOutListNames :: Lens.Lens' DescribeOptOutLists (Prelude.Maybe [Prelude.Text])
 describeOptOutLists_optOutListNames = Lens.lens (\DescribeOptOutLists' {optOutListNames} -> optOutListNames) (\s@DescribeOptOutLists' {} a -> s {optOutListNames = a} :: DescribeOptOutLists) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum number of results to return per each request.
-describeOptOutLists_maxResults :: Lens.Lens' DescribeOptOutLists (Prelude.Maybe Prelude.Natural)
-describeOptOutLists_maxResults = Lens.lens (\DescribeOptOutLists' {maxResults} -> maxResults) (\s@DescribeOptOutLists' {} a -> s {maxResults = a} :: DescribeOptOutLists)
 
 instance Core.AWSPager DescribeOptOutLists where
   page rq rs
@@ -151,15 +151,15 @@ instance Core.AWSRequest DescribeOptOutLists where
 
 instance Prelude.Hashable DescribeOptOutLists where
   hashWithSalt _salt DescribeOptOutLists' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` optOutListNames
-      `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData DescribeOptOutLists where
   rnf DescribeOptOutLists' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf optOutListNames
-      `Prelude.seq` Prelude.rnf maxResults
 
 instance Data.ToHeaders DescribeOptOutLists where
   toHeaders =
@@ -180,10 +180,10 @@ instance Data.ToJSON DescribeOptOutLists where
   toJSON DescribeOptOutLists' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("OptOutListNames" Data..=)
-              Prelude.<$> optOutListNames,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+              Prelude.<$> optOutListNames
           ]
       )
 

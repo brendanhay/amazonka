@@ -37,8 +37,9 @@ module Amazonka.SageMaker.DescribeEndpointConfig
     -- * Response Lenses
     describeEndpointConfigResponse_asyncInferenceConfig,
     describeEndpointConfigResponse_dataCaptureConfig,
-    describeEndpointConfigResponse_kmsKeyId,
     describeEndpointConfigResponse_explainerConfig,
+    describeEndpointConfigResponse_kmsKeyId,
+    describeEndpointConfigResponse_shadowProductionVariants,
     describeEndpointConfigResponse_httpStatus,
     describeEndpointConfigResponse_endpointConfigName,
     describeEndpointConfigResponse_endpointConfigArn,
@@ -97,8 +98,9 @@ instance Core.AWSRequest DescribeEndpointConfig where
           DescribeEndpointConfigResponse'
             Prelude.<$> (x Data..?> "AsyncInferenceConfig")
             Prelude.<*> (x Data..?> "DataCaptureConfig")
-            Prelude.<*> (x Data..?> "KmsKeyId")
             Prelude.<*> (x Data..?> "ExplainerConfig")
+            Prelude.<*> (x Data..?> "KmsKeyId")
+            Prelude.<*> (x Data..?> "ShadowProductionVariants")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "EndpointConfigName")
             Prelude.<*> (x Data..:> "EndpointConfigArn")
@@ -151,11 +153,17 @@ data DescribeEndpointConfigResponse = DescribeEndpointConfigResponse'
     -- API.
     asyncInferenceConfig :: Prelude.Maybe AsyncInferenceConfig,
     dataCaptureConfig :: Prelude.Maybe DataCaptureConfig,
+    -- | The configuration parameters for an explainer.
+    explainerConfig :: Prelude.Maybe ExplainerConfig,
     -- | Amazon Web Services KMS key ID Amazon SageMaker uses to encrypt data
     -- when storing it on the ML storage volume attached to the instance.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The configuration parameters for an explainer.
-    explainerConfig :: Prelude.Maybe ExplainerConfig,
+    -- | Array of @ProductionVariant@ objects. There is one for each model that
+    -- you want to host at this endpoint in shadow mode with production traffic
+    -- replicated from the model specified on @ProductionVariants@.If you use
+    -- this field, you can only specify one variant for @ProductionVariants@
+    -- and one variant for @ShadowProductionVariants@.
+    shadowProductionVariants :: Prelude.Maybe (Prelude.NonEmpty ProductionVariant),
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | Name of the SageMaker endpoint configuration.
@@ -184,10 +192,16 @@ data DescribeEndpointConfigResponse = DescribeEndpointConfigResponse'
 --
 -- 'dataCaptureConfig', 'describeEndpointConfigResponse_dataCaptureConfig' - Undocumented member.
 --
+-- 'explainerConfig', 'describeEndpointConfigResponse_explainerConfig' - The configuration parameters for an explainer.
+--
 -- 'kmsKeyId', 'describeEndpointConfigResponse_kmsKeyId' - Amazon Web Services KMS key ID Amazon SageMaker uses to encrypt data
 -- when storing it on the ML storage volume attached to the instance.
 --
--- 'explainerConfig', 'describeEndpointConfigResponse_explainerConfig' - The configuration parameters for an explainer.
+-- 'shadowProductionVariants', 'describeEndpointConfigResponse_shadowProductionVariants' - Array of @ProductionVariant@ objects. There is one for each model that
+-- you want to host at this endpoint in shadow mode with production traffic
+-- replicated from the model specified on @ProductionVariants@.If you use
+-- this field, you can only specify one variant for @ProductionVariants@
+-- and one variant for @ShadowProductionVariants@.
 --
 -- 'httpStatus', 'describeEndpointConfigResponse_httpStatus' - The response's http status code.
 --
@@ -221,8 +235,9 @@ newDescribeEndpointConfigResponse
       { asyncInferenceConfig =
           Prelude.Nothing,
         dataCaptureConfig = Prelude.Nothing,
-        kmsKeyId = Prelude.Nothing,
         explainerConfig = Prelude.Nothing,
+        kmsKeyId = Prelude.Nothing,
+        shadowProductionVariants = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         endpointConfigName = pEndpointConfigName_,
         endpointConfigArn = pEndpointConfigArn_,
@@ -242,14 +257,22 @@ describeEndpointConfigResponse_asyncInferenceConfig = Lens.lens (\DescribeEndpoi
 describeEndpointConfigResponse_dataCaptureConfig :: Lens.Lens' DescribeEndpointConfigResponse (Prelude.Maybe DataCaptureConfig)
 describeEndpointConfigResponse_dataCaptureConfig = Lens.lens (\DescribeEndpointConfigResponse' {dataCaptureConfig} -> dataCaptureConfig) (\s@DescribeEndpointConfigResponse' {} a -> s {dataCaptureConfig = a} :: DescribeEndpointConfigResponse)
 
+-- | The configuration parameters for an explainer.
+describeEndpointConfigResponse_explainerConfig :: Lens.Lens' DescribeEndpointConfigResponse (Prelude.Maybe ExplainerConfig)
+describeEndpointConfigResponse_explainerConfig = Lens.lens (\DescribeEndpointConfigResponse' {explainerConfig} -> explainerConfig) (\s@DescribeEndpointConfigResponse' {} a -> s {explainerConfig = a} :: DescribeEndpointConfigResponse)
+
 -- | Amazon Web Services KMS key ID Amazon SageMaker uses to encrypt data
 -- when storing it on the ML storage volume attached to the instance.
 describeEndpointConfigResponse_kmsKeyId :: Lens.Lens' DescribeEndpointConfigResponse (Prelude.Maybe Prelude.Text)
 describeEndpointConfigResponse_kmsKeyId = Lens.lens (\DescribeEndpointConfigResponse' {kmsKeyId} -> kmsKeyId) (\s@DescribeEndpointConfigResponse' {} a -> s {kmsKeyId = a} :: DescribeEndpointConfigResponse)
 
--- | The configuration parameters for an explainer.
-describeEndpointConfigResponse_explainerConfig :: Lens.Lens' DescribeEndpointConfigResponse (Prelude.Maybe ExplainerConfig)
-describeEndpointConfigResponse_explainerConfig = Lens.lens (\DescribeEndpointConfigResponse' {explainerConfig} -> explainerConfig) (\s@DescribeEndpointConfigResponse' {} a -> s {explainerConfig = a} :: DescribeEndpointConfigResponse)
+-- | Array of @ProductionVariant@ objects. There is one for each model that
+-- you want to host at this endpoint in shadow mode with production traffic
+-- replicated from the model specified on @ProductionVariants@.If you use
+-- this field, you can only specify one variant for @ProductionVariants@
+-- and one variant for @ShadowProductionVariants@.
+describeEndpointConfigResponse_shadowProductionVariants :: Lens.Lens' DescribeEndpointConfigResponse (Prelude.Maybe (Prelude.NonEmpty ProductionVariant))
+describeEndpointConfigResponse_shadowProductionVariants = Lens.lens (\DescribeEndpointConfigResponse' {shadowProductionVariants} -> shadowProductionVariants) (\s@DescribeEndpointConfigResponse' {} a -> s {shadowProductionVariants = a} :: DescribeEndpointConfigResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeEndpointConfigResponse_httpStatus :: Lens.Lens' DescribeEndpointConfigResponse Prelude.Int
@@ -279,8 +302,9 @@ instance
   rnf DescribeEndpointConfigResponse' {..} =
     Prelude.rnf asyncInferenceConfig
       `Prelude.seq` Prelude.rnf dataCaptureConfig
-      `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf explainerConfig
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf shadowProductionVariants
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf endpointConfigName
       `Prelude.seq` Prelude.rnf endpointConfigArn

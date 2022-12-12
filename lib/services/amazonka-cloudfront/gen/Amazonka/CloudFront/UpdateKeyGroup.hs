@@ -48,8 +48,8 @@ module Amazonka.CloudFront.UpdateKeyGroup
     newUpdateKeyGroupResponse,
 
     -- * Response Lenses
-    updateKeyGroupResponse_keyGroup,
     updateKeyGroupResponse_eTag,
+    updateKeyGroupResponse_keyGroup,
     updateKeyGroupResponse_httpStatus,
   )
 where
@@ -124,8 +124,8 @@ instance Core.AWSRequest UpdateKeyGroup where
     Response.receiveXML
       ( \s h x ->
           UpdateKeyGroupResponse'
-            Prelude.<$> (Data.parseXML x)
-            Prelude.<*> (h Data..#? "ETag")
+            Prelude.<$> (h Data..#? "ETag")
+            Prelude.<*> (Data.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,10 +161,10 @@ instance Data.ToQuery UpdateKeyGroup where
 
 -- | /See:/ 'newUpdateKeyGroupResponse' smart constructor.
 data UpdateKeyGroupResponse = UpdateKeyGroupResponse'
-  { -- | The key group that was just updated.
-    keyGroup :: Prelude.Maybe KeyGroup,
-    -- | The identifier for this version of the key group.
+  { -- | The identifier for this version of the key group.
     eTag :: Prelude.Maybe Prelude.Text,
+    -- | The key group that was just updated.
+    keyGroup :: Prelude.Maybe KeyGroup,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -178,9 +178,9 @@ data UpdateKeyGroupResponse = UpdateKeyGroupResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'keyGroup', 'updateKeyGroupResponse_keyGroup' - The key group that was just updated.
---
 -- 'eTag', 'updateKeyGroupResponse_eTag' - The identifier for this version of the key group.
+--
+-- 'keyGroup', 'updateKeyGroupResponse_keyGroup' - The key group that was just updated.
 --
 -- 'httpStatus', 'updateKeyGroupResponse_httpStatus' - The response's http status code.
 newUpdateKeyGroupResponse ::
@@ -189,18 +189,18 @@ newUpdateKeyGroupResponse ::
   UpdateKeyGroupResponse
 newUpdateKeyGroupResponse pHttpStatus_ =
   UpdateKeyGroupResponse'
-    { keyGroup = Prelude.Nothing,
-      eTag = Prelude.Nothing,
+    { eTag = Prelude.Nothing,
+      keyGroup = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The key group that was just updated.
-updateKeyGroupResponse_keyGroup :: Lens.Lens' UpdateKeyGroupResponse (Prelude.Maybe KeyGroup)
-updateKeyGroupResponse_keyGroup = Lens.lens (\UpdateKeyGroupResponse' {keyGroup} -> keyGroup) (\s@UpdateKeyGroupResponse' {} a -> s {keyGroup = a} :: UpdateKeyGroupResponse)
 
 -- | The identifier for this version of the key group.
 updateKeyGroupResponse_eTag :: Lens.Lens' UpdateKeyGroupResponse (Prelude.Maybe Prelude.Text)
 updateKeyGroupResponse_eTag = Lens.lens (\UpdateKeyGroupResponse' {eTag} -> eTag) (\s@UpdateKeyGroupResponse' {} a -> s {eTag = a} :: UpdateKeyGroupResponse)
+
+-- | The key group that was just updated.
+updateKeyGroupResponse_keyGroup :: Lens.Lens' UpdateKeyGroupResponse (Prelude.Maybe KeyGroup)
+updateKeyGroupResponse_keyGroup = Lens.lens (\UpdateKeyGroupResponse' {keyGroup} -> keyGroup) (\s@UpdateKeyGroupResponse' {} a -> s {keyGroup = a} :: UpdateKeyGroupResponse)
 
 -- | The response's http status code.
 updateKeyGroupResponse_httpStatus :: Lens.Lens' UpdateKeyGroupResponse Prelude.Int
@@ -208,6 +208,6 @@ updateKeyGroupResponse_httpStatus = Lens.lens (\UpdateKeyGroupResponse' {httpSta
 
 instance Prelude.NFData UpdateKeyGroupResponse where
   rnf UpdateKeyGroupResponse' {..} =
-    Prelude.rnf keyGroup
-      `Prelude.seq` Prelude.rnf eTag
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf keyGroup
       `Prelude.seq` Prelude.rnf httpStatus

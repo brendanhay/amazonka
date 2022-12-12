@@ -29,17 +29,17 @@ import Amazonka.SageMaker.Types.StudioLifecycleConfigAppType
 --
 -- /See:/ 'newStudioLifecycleConfigDetails' smart constructor.
 data StudioLifecycleConfigDetails = StudioLifecycleConfigDetails'
-  { -- | The name of the Studio Lifecycle Configuration.
-    studioLifecycleConfigName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the Lifecycle Configuration.
-    studioLifecycleConfigArn :: Prelude.Maybe Prelude.Text,
-    -- | The App type to which the Lifecycle Configuration is attached.
-    studioLifecycleConfigAppType :: Prelude.Maybe StudioLifecycleConfigAppType,
+  { -- | The creation time of the Studio Lifecycle Configuration.
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | This value is equivalent to CreationTime because Studio Lifecycle
     -- Configurations are immutable.
     lastModifiedTime :: Prelude.Maybe Data.POSIX,
-    -- | The creation time of the Studio Lifecycle Configuration.
-    creationTime :: Prelude.Maybe Data.POSIX
+    -- | The App type to which the Lifecycle Configuration is attached.
+    studioLifecycleConfigAppType :: Prelude.Maybe StudioLifecycleConfigAppType,
+    -- | The Amazon Resource Name (ARN) of the Lifecycle Configuration.
+    studioLifecycleConfigArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the Studio Lifecycle Configuration.
+    studioLifecycleConfigName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,49 +51,49 @@ data StudioLifecycleConfigDetails = StudioLifecycleConfigDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'studioLifecycleConfigName', 'studioLifecycleConfigDetails_studioLifecycleConfigName' - The name of the Studio Lifecycle Configuration.
---
--- 'studioLifecycleConfigArn', 'studioLifecycleConfigDetails_studioLifecycleConfigArn' - The Amazon Resource Name (ARN) of the Lifecycle Configuration.
---
--- 'studioLifecycleConfigAppType', 'studioLifecycleConfigDetails_studioLifecycleConfigAppType' - The App type to which the Lifecycle Configuration is attached.
+-- 'creationTime', 'studioLifecycleConfigDetails_creationTime' - The creation time of the Studio Lifecycle Configuration.
 --
 -- 'lastModifiedTime', 'studioLifecycleConfigDetails_lastModifiedTime' - This value is equivalent to CreationTime because Studio Lifecycle
 -- Configurations are immutable.
 --
--- 'creationTime', 'studioLifecycleConfigDetails_creationTime' - The creation time of the Studio Lifecycle Configuration.
+-- 'studioLifecycleConfigAppType', 'studioLifecycleConfigDetails_studioLifecycleConfigAppType' - The App type to which the Lifecycle Configuration is attached.
+--
+-- 'studioLifecycleConfigArn', 'studioLifecycleConfigDetails_studioLifecycleConfigArn' - The Amazon Resource Name (ARN) of the Lifecycle Configuration.
+--
+-- 'studioLifecycleConfigName', 'studioLifecycleConfigDetails_studioLifecycleConfigName' - The name of the Studio Lifecycle Configuration.
 newStudioLifecycleConfigDetails ::
   StudioLifecycleConfigDetails
 newStudioLifecycleConfigDetails =
   StudioLifecycleConfigDetails'
-    { studioLifecycleConfigName =
-        Prelude.Nothing,
-      studioLifecycleConfigArn = Prelude.Nothing,
-      studioLifecycleConfigAppType =
+    { creationTime =
         Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
-      creationTime = Prelude.Nothing
+      studioLifecycleConfigAppType =
+        Prelude.Nothing,
+      studioLifecycleConfigArn = Prelude.Nothing,
+      studioLifecycleConfigName = Prelude.Nothing
     }
 
--- | The name of the Studio Lifecycle Configuration.
-studioLifecycleConfigDetails_studioLifecycleConfigName :: Lens.Lens' StudioLifecycleConfigDetails (Prelude.Maybe Prelude.Text)
-studioLifecycleConfigDetails_studioLifecycleConfigName = Lens.lens (\StudioLifecycleConfigDetails' {studioLifecycleConfigName} -> studioLifecycleConfigName) (\s@StudioLifecycleConfigDetails' {} a -> s {studioLifecycleConfigName = a} :: StudioLifecycleConfigDetails)
-
--- | The Amazon Resource Name (ARN) of the Lifecycle Configuration.
-studioLifecycleConfigDetails_studioLifecycleConfigArn :: Lens.Lens' StudioLifecycleConfigDetails (Prelude.Maybe Prelude.Text)
-studioLifecycleConfigDetails_studioLifecycleConfigArn = Lens.lens (\StudioLifecycleConfigDetails' {studioLifecycleConfigArn} -> studioLifecycleConfigArn) (\s@StudioLifecycleConfigDetails' {} a -> s {studioLifecycleConfigArn = a} :: StudioLifecycleConfigDetails)
-
--- | The App type to which the Lifecycle Configuration is attached.
-studioLifecycleConfigDetails_studioLifecycleConfigAppType :: Lens.Lens' StudioLifecycleConfigDetails (Prelude.Maybe StudioLifecycleConfigAppType)
-studioLifecycleConfigDetails_studioLifecycleConfigAppType = Lens.lens (\StudioLifecycleConfigDetails' {studioLifecycleConfigAppType} -> studioLifecycleConfigAppType) (\s@StudioLifecycleConfigDetails' {} a -> s {studioLifecycleConfigAppType = a} :: StudioLifecycleConfigDetails)
+-- | The creation time of the Studio Lifecycle Configuration.
+studioLifecycleConfigDetails_creationTime :: Lens.Lens' StudioLifecycleConfigDetails (Prelude.Maybe Prelude.UTCTime)
+studioLifecycleConfigDetails_creationTime = Lens.lens (\StudioLifecycleConfigDetails' {creationTime} -> creationTime) (\s@StudioLifecycleConfigDetails' {} a -> s {creationTime = a} :: StudioLifecycleConfigDetails) Prelude.. Lens.mapping Data._Time
 
 -- | This value is equivalent to CreationTime because Studio Lifecycle
 -- Configurations are immutable.
 studioLifecycleConfigDetails_lastModifiedTime :: Lens.Lens' StudioLifecycleConfigDetails (Prelude.Maybe Prelude.UTCTime)
 studioLifecycleConfigDetails_lastModifiedTime = Lens.lens (\StudioLifecycleConfigDetails' {lastModifiedTime} -> lastModifiedTime) (\s@StudioLifecycleConfigDetails' {} a -> s {lastModifiedTime = a} :: StudioLifecycleConfigDetails) Prelude.. Lens.mapping Data._Time
 
--- | The creation time of the Studio Lifecycle Configuration.
-studioLifecycleConfigDetails_creationTime :: Lens.Lens' StudioLifecycleConfigDetails (Prelude.Maybe Prelude.UTCTime)
-studioLifecycleConfigDetails_creationTime = Lens.lens (\StudioLifecycleConfigDetails' {creationTime} -> creationTime) (\s@StudioLifecycleConfigDetails' {} a -> s {creationTime = a} :: StudioLifecycleConfigDetails) Prelude.. Lens.mapping Data._Time
+-- | The App type to which the Lifecycle Configuration is attached.
+studioLifecycleConfigDetails_studioLifecycleConfigAppType :: Lens.Lens' StudioLifecycleConfigDetails (Prelude.Maybe StudioLifecycleConfigAppType)
+studioLifecycleConfigDetails_studioLifecycleConfigAppType = Lens.lens (\StudioLifecycleConfigDetails' {studioLifecycleConfigAppType} -> studioLifecycleConfigAppType) (\s@StudioLifecycleConfigDetails' {} a -> s {studioLifecycleConfigAppType = a} :: StudioLifecycleConfigDetails)
+
+-- | The Amazon Resource Name (ARN) of the Lifecycle Configuration.
+studioLifecycleConfigDetails_studioLifecycleConfigArn :: Lens.Lens' StudioLifecycleConfigDetails (Prelude.Maybe Prelude.Text)
+studioLifecycleConfigDetails_studioLifecycleConfigArn = Lens.lens (\StudioLifecycleConfigDetails' {studioLifecycleConfigArn} -> studioLifecycleConfigArn) (\s@StudioLifecycleConfigDetails' {} a -> s {studioLifecycleConfigArn = a} :: StudioLifecycleConfigDetails)
+
+-- | The name of the Studio Lifecycle Configuration.
+studioLifecycleConfigDetails_studioLifecycleConfigName :: Lens.Lens' StudioLifecycleConfigDetails (Prelude.Maybe Prelude.Text)
+studioLifecycleConfigDetails_studioLifecycleConfigName = Lens.lens (\StudioLifecycleConfigDetails' {studioLifecycleConfigName} -> studioLifecycleConfigName) (\s@StudioLifecycleConfigDetails' {} a -> s {studioLifecycleConfigName = a} :: StudioLifecycleConfigDetails)
 
 instance Data.FromJSON StudioLifecycleConfigDetails where
   parseJSON =
@@ -101,11 +101,11 @@ instance Data.FromJSON StudioLifecycleConfigDetails where
       "StudioLifecycleConfigDetails"
       ( \x ->
           StudioLifecycleConfigDetails'
-            Prelude.<$> (x Data..:? "StudioLifecycleConfigName")
-            Prelude.<*> (x Data..:? "StudioLifecycleConfigArn")
-            Prelude.<*> (x Data..:? "StudioLifecycleConfigAppType")
+            Prelude.<$> (x Data..:? "CreationTime")
             Prelude.<*> (x Data..:? "LastModifiedTime")
-            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "StudioLifecycleConfigAppType")
+            Prelude.<*> (x Data..:? "StudioLifecycleConfigArn")
+            Prelude.<*> (x Data..:? "StudioLifecycleConfigName")
       )
 
 instance
@@ -113,17 +113,16 @@ instance
     StudioLifecycleConfigDetails
   where
   hashWithSalt _salt StudioLifecycleConfigDetails' {..} =
-    _salt
-      `Prelude.hashWithSalt` studioLifecycleConfigName
-      `Prelude.hashWithSalt` studioLifecycleConfigArn
-      `Prelude.hashWithSalt` studioLifecycleConfigAppType
+    _salt `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` lastModifiedTime
-      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` studioLifecycleConfigAppType
+      `Prelude.hashWithSalt` studioLifecycleConfigArn
+      `Prelude.hashWithSalt` studioLifecycleConfigName
 
 instance Prelude.NFData StudioLifecycleConfigDetails where
   rnf StudioLifecycleConfigDetails' {..} =
-    Prelude.rnf studioLifecycleConfigName
-      `Prelude.seq` Prelude.rnf studioLifecycleConfigArn
-      `Prelude.seq` Prelude.rnf studioLifecycleConfigAppType
+    Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf studioLifecycleConfigAppType
+      `Prelude.seq` Prelude.rnf studioLifecycleConfigArn
+      `Prelude.seq` Prelude.rnf studioLifecycleConfigName

@@ -42,8 +42,14 @@ import Test.Tasty
 --         , requestCreateNamedQuery $
 --             newCreateNamedQuery
 --
+--         , requestCreateNotebook $
+--             newCreateNotebook
+--
 --         , requestCreatePreparedStatement $
 --             newCreatePreparedStatement
+--
+--         , requestCreatePresignedNotebookUrl $
+--             newCreatePresignedNotebookUrl
 --
 --         , requestCreateWorkGroup $
 --             newCreateWorkGroup
@@ -54,11 +60,26 @@ import Test.Tasty
 --         , requestDeleteNamedQuery $
 --             newDeleteNamedQuery
 --
+--         , requestDeleteNotebook $
+--             newDeleteNotebook
+--
 --         , requestDeletePreparedStatement $
 --             newDeletePreparedStatement
 --
 --         , requestDeleteWorkGroup $
 --             newDeleteWorkGroup
+--
+--         , requestExportNotebook $
+--             newExportNotebook
+--
+--         , requestGetCalculationExecution $
+--             newGetCalculationExecution
+--
+--         , requestGetCalculationExecutionCode $
+--             newGetCalculationExecutionCode
+--
+--         , requestGetCalculationExecutionStatus $
+--             newGetCalculationExecutionStatus
 --
 --         , requestGetDataCatalog $
 --             newGetDataCatalog
@@ -68,6 +89,9 @@ import Test.Tasty
 --
 --         , requestGetNamedQuery $
 --             newGetNamedQuery
+--
+--         , requestGetNotebookMetadata $
+--             newGetNotebookMetadata
 --
 --         , requestGetPreparedStatement $
 --             newGetPreparedStatement
@@ -81,11 +105,26 @@ import Test.Tasty
 --         , requestGetQueryRuntimeStatistics $
 --             newGetQueryRuntimeStatistics
 --
+--         , requestGetSession $
+--             newGetSession
+--
+--         , requestGetSessionStatus $
+--             newGetSessionStatus
+--
 --         , requestGetTableMetadata $
 --             newGetTableMetadata
 --
 --         , requestGetWorkGroup $
 --             newGetWorkGroup
+--
+--         , requestImportNotebook $
+--             newImportNotebook
+--
+--         , requestListApplicationDPUSizes $
+--             newListApplicationDPUSizes
+--
+--         , requestListCalculationExecutions $
+--             newListCalculationExecutions
 --
 --         , requestListDataCatalogs $
 --             newListDataCatalogs
@@ -96,14 +135,26 @@ import Test.Tasty
 --         , requestListEngineVersions $
 --             newListEngineVersions
 --
+--         , requestListExecutors $
+--             newListExecutors
+--
 --         , requestListNamedQueries $
 --             newListNamedQueries
+--
+--         , requestListNotebookMetadata $
+--             newListNotebookMetadata
+--
+--         , requestListNotebookSessions $
+--             newListNotebookSessions
 --
 --         , requestListPreparedStatements $
 --             newListPreparedStatements
 --
 --         , requestListQueryExecutions $
 --             newListQueryExecutions
+--
+--         , requestListSessions $
+--             newListSessions
 --
 --         , requestListTableMetadata $
 --             newListTableMetadata
@@ -114,14 +165,26 @@ import Test.Tasty
 --         , requestListWorkGroups $
 --             newListWorkGroups
 --
+--         , requestStartCalculationExecution $
+--             newStartCalculationExecution
+--
 --         , requestStartQueryExecution $
 --             newStartQueryExecution
+--
+--         , requestStartSession $
+--             newStartSession
+--
+--         , requestStopCalculationExecution $
+--             newStopCalculationExecution
 --
 --         , requestStopQueryExecution $
 --             newStopQueryExecution
 --
 --         , requestTagResource $
 --             newTagResource
+--
+--         , requestTerminateSession $
+--             newTerminateSession
 --
 --         , requestUntagResource $
 --             newUntagResource
@@ -131,6 +194,12 @@ import Test.Tasty
 --
 --         , requestUpdateNamedQuery $
 --             newUpdateNamedQuery
+--
+--         , requestUpdateNotebook $
+--             newUpdateNotebook
+--
+--         , requestUpdateNotebookMetadata $
+--             newUpdateNotebookMetadata
 --
 --         , requestUpdatePreparedStatement $
 --             newUpdatePreparedStatement
@@ -156,8 +225,14 @@ import Test.Tasty
 --         , responseCreateNamedQuery $
 --             newCreateNamedQueryResponse
 --
+--         , responseCreateNotebook $
+--             newCreateNotebookResponse
+--
 --         , responseCreatePreparedStatement $
 --             newCreatePreparedStatementResponse
+--
+--         , responseCreatePresignedNotebookUrl $
+--             newCreatePresignedNotebookUrlResponse
 --
 --         , responseCreateWorkGroup $
 --             newCreateWorkGroupResponse
@@ -168,11 +243,26 @@ import Test.Tasty
 --         , responseDeleteNamedQuery $
 --             newDeleteNamedQueryResponse
 --
+--         , responseDeleteNotebook $
+--             newDeleteNotebookResponse
+--
 --         , responseDeletePreparedStatement $
 --             newDeletePreparedStatementResponse
 --
 --         , responseDeleteWorkGroup $
 --             newDeleteWorkGroupResponse
+--
+--         , responseExportNotebook $
+--             newExportNotebookResponse
+--
+--         , responseGetCalculationExecution $
+--             newGetCalculationExecutionResponse
+--
+--         , responseGetCalculationExecutionCode $
+--             newGetCalculationExecutionCodeResponse
+--
+--         , responseGetCalculationExecutionStatus $
+--             newGetCalculationExecutionStatusResponse
 --
 --         , responseGetDataCatalog $
 --             newGetDataCatalogResponse
@@ -182,6 +272,9 @@ import Test.Tasty
 --
 --         , responseGetNamedQuery $
 --             newGetNamedQueryResponse
+--
+--         , responseGetNotebookMetadata $
+--             newGetNotebookMetadataResponse
 --
 --         , responseGetPreparedStatement $
 --             newGetPreparedStatementResponse
@@ -195,11 +288,26 @@ import Test.Tasty
 --         , responseGetQueryRuntimeStatistics $
 --             newGetQueryRuntimeStatisticsResponse
 --
+--         , responseGetSession $
+--             newGetSessionResponse
+--
+--         , responseGetSessionStatus $
+--             newGetSessionStatusResponse
+--
 --         , responseGetTableMetadata $
 --             newGetTableMetadataResponse
 --
 --         , responseGetWorkGroup $
 --             newGetWorkGroupResponse
+--
+--         , responseImportNotebook $
+--             newImportNotebookResponse
+--
+--         , responseListApplicationDPUSizes $
+--             newListApplicationDPUSizesResponse
+--
+--         , responseListCalculationExecutions $
+--             newListCalculationExecutionsResponse
 --
 --         , responseListDataCatalogs $
 --             newListDataCatalogsResponse
@@ -210,14 +318,26 @@ import Test.Tasty
 --         , responseListEngineVersions $
 --             newListEngineVersionsResponse
 --
+--         , responseListExecutors $
+--             newListExecutorsResponse
+--
 --         , responseListNamedQueries $
 --             newListNamedQueriesResponse
+--
+--         , responseListNotebookMetadata $
+--             newListNotebookMetadataResponse
+--
+--         , responseListNotebookSessions $
+--             newListNotebookSessionsResponse
 --
 --         , responseListPreparedStatements $
 --             newListPreparedStatementsResponse
 --
 --         , responseListQueryExecutions $
 --             newListQueryExecutionsResponse
+--
+--         , responseListSessions $
+--             newListSessionsResponse
 --
 --         , responseListTableMetadata $
 --             newListTableMetadataResponse
@@ -228,14 +348,26 @@ import Test.Tasty
 --         , responseListWorkGroups $
 --             newListWorkGroupsResponse
 --
+--         , responseStartCalculationExecution $
+--             newStartCalculationExecutionResponse
+--
 --         , responseStartQueryExecution $
 --             newStartQueryExecutionResponse
+--
+--         , responseStartSession $
+--             newStartSessionResponse
+--
+--         , responseStopCalculationExecution $
+--             newStopCalculationExecutionResponse
 --
 --         , responseStopQueryExecution $
 --             newStopQueryExecutionResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
+--
+--         , responseTerminateSession $
+--             newTerminateSessionResponse
 --
 --         , responseUntagResource $
 --             newUntagResourceResponse
@@ -245,6 +377,12 @@ import Test.Tasty
 --
 --         , responseUpdateNamedQuery $
 --             newUpdateNamedQueryResponse
+--
+--         , responseUpdateNotebook $
+--             newUpdateNotebookResponse
+--
+--         , responseUpdateNotebookMetadata $
+--             newUpdateNotebookMetadataResponse
 --
 --         , responseUpdatePreparedStatement $
 --             newUpdatePreparedStatementResponse
@@ -287,11 +425,23 @@ requestCreateNamedQuery =
     "CreateNamedQuery"
     "fixture/CreateNamedQuery.yaml"
 
+requestCreateNotebook :: CreateNotebook -> TestTree
+requestCreateNotebook =
+  req
+    "CreateNotebook"
+    "fixture/CreateNotebook.yaml"
+
 requestCreatePreparedStatement :: CreatePreparedStatement -> TestTree
 requestCreatePreparedStatement =
   req
     "CreatePreparedStatement"
     "fixture/CreatePreparedStatement.yaml"
+
+requestCreatePresignedNotebookUrl :: CreatePresignedNotebookUrl -> TestTree
+requestCreatePresignedNotebookUrl =
+  req
+    "CreatePresignedNotebookUrl"
+    "fixture/CreatePresignedNotebookUrl.yaml"
 
 requestCreateWorkGroup :: CreateWorkGroup -> TestTree
 requestCreateWorkGroup =
@@ -311,6 +461,12 @@ requestDeleteNamedQuery =
     "DeleteNamedQuery"
     "fixture/DeleteNamedQuery.yaml"
 
+requestDeleteNotebook :: DeleteNotebook -> TestTree
+requestDeleteNotebook =
+  req
+    "DeleteNotebook"
+    "fixture/DeleteNotebook.yaml"
+
 requestDeletePreparedStatement :: DeletePreparedStatement -> TestTree
 requestDeletePreparedStatement =
   req
@@ -322,6 +478,30 @@ requestDeleteWorkGroup =
   req
     "DeleteWorkGroup"
     "fixture/DeleteWorkGroup.yaml"
+
+requestExportNotebook :: ExportNotebook -> TestTree
+requestExportNotebook =
+  req
+    "ExportNotebook"
+    "fixture/ExportNotebook.yaml"
+
+requestGetCalculationExecution :: GetCalculationExecution -> TestTree
+requestGetCalculationExecution =
+  req
+    "GetCalculationExecution"
+    "fixture/GetCalculationExecution.yaml"
+
+requestGetCalculationExecutionCode :: GetCalculationExecutionCode -> TestTree
+requestGetCalculationExecutionCode =
+  req
+    "GetCalculationExecutionCode"
+    "fixture/GetCalculationExecutionCode.yaml"
+
+requestGetCalculationExecutionStatus :: GetCalculationExecutionStatus -> TestTree
+requestGetCalculationExecutionStatus =
+  req
+    "GetCalculationExecutionStatus"
+    "fixture/GetCalculationExecutionStatus.yaml"
 
 requestGetDataCatalog :: GetDataCatalog -> TestTree
 requestGetDataCatalog =
@@ -340,6 +520,12 @@ requestGetNamedQuery =
   req
     "GetNamedQuery"
     "fixture/GetNamedQuery.yaml"
+
+requestGetNotebookMetadata :: GetNotebookMetadata -> TestTree
+requestGetNotebookMetadata =
+  req
+    "GetNotebookMetadata"
+    "fixture/GetNotebookMetadata.yaml"
 
 requestGetPreparedStatement :: GetPreparedStatement -> TestTree
 requestGetPreparedStatement =
@@ -365,6 +551,18 @@ requestGetQueryRuntimeStatistics =
     "GetQueryRuntimeStatistics"
     "fixture/GetQueryRuntimeStatistics.yaml"
 
+requestGetSession :: GetSession -> TestTree
+requestGetSession =
+  req
+    "GetSession"
+    "fixture/GetSession.yaml"
+
+requestGetSessionStatus :: GetSessionStatus -> TestTree
+requestGetSessionStatus =
+  req
+    "GetSessionStatus"
+    "fixture/GetSessionStatus.yaml"
+
 requestGetTableMetadata :: GetTableMetadata -> TestTree
 requestGetTableMetadata =
   req
@@ -376,6 +574,24 @@ requestGetWorkGroup =
   req
     "GetWorkGroup"
     "fixture/GetWorkGroup.yaml"
+
+requestImportNotebook :: ImportNotebook -> TestTree
+requestImportNotebook =
+  req
+    "ImportNotebook"
+    "fixture/ImportNotebook.yaml"
+
+requestListApplicationDPUSizes :: ListApplicationDPUSizes -> TestTree
+requestListApplicationDPUSizes =
+  req
+    "ListApplicationDPUSizes"
+    "fixture/ListApplicationDPUSizes.yaml"
+
+requestListCalculationExecutions :: ListCalculationExecutions -> TestTree
+requestListCalculationExecutions =
+  req
+    "ListCalculationExecutions"
+    "fixture/ListCalculationExecutions.yaml"
 
 requestListDataCatalogs :: ListDataCatalogs -> TestTree
 requestListDataCatalogs =
@@ -395,11 +611,29 @@ requestListEngineVersions =
     "ListEngineVersions"
     "fixture/ListEngineVersions.yaml"
 
+requestListExecutors :: ListExecutors -> TestTree
+requestListExecutors =
+  req
+    "ListExecutors"
+    "fixture/ListExecutors.yaml"
+
 requestListNamedQueries :: ListNamedQueries -> TestTree
 requestListNamedQueries =
   req
     "ListNamedQueries"
     "fixture/ListNamedQueries.yaml"
+
+requestListNotebookMetadata :: ListNotebookMetadata -> TestTree
+requestListNotebookMetadata =
+  req
+    "ListNotebookMetadata"
+    "fixture/ListNotebookMetadata.yaml"
+
+requestListNotebookSessions :: ListNotebookSessions -> TestTree
+requestListNotebookSessions =
+  req
+    "ListNotebookSessions"
+    "fixture/ListNotebookSessions.yaml"
 
 requestListPreparedStatements :: ListPreparedStatements -> TestTree
 requestListPreparedStatements =
@@ -412,6 +646,12 @@ requestListQueryExecutions =
   req
     "ListQueryExecutions"
     "fixture/ListQueryExecutions.yaml"
+
+requestListSessions :: ListSessions -> TestTree
+requestListSessions =
+  req
+    "ListSessions"
+    "fixture/ListSessions.yaml"
 
 requestListTableMetadata :: ListTableMetadata -> TestTree
 requestListTableMetadata =
@@ -431,11 +671,29 @@ requestListWorkGroups =
     "ListWorkGroups"
     "fixture/ListWorkGroups.yaml"
 
+requestStartCalculationExecution :: StartCalculationExecution -> TestTree
+requestStartCalculationExecution =
+  req
+    "StartCalculationExecution"
+    "fixture/StartCalculationExecution.yaml"
+
 requestStartQueryExecution :: StartQueryExecution -> TestTree
 requestStartQueryExecution =
   req
     "StartQueryExecution"
     "fixture/StartQueryExecution.yaml"
+
+requestStartSession :: StartSession -> TestTree
+requestStartSession =
+  req
+    "StartSession"
+    "fixture/StartSession.yaml"
+
+requestStopCalculationExecution :: StopCalculationExecution -> TestTree
+requestStopCalculationExecution =
+  req
+    "StopCalculationExecution"
+    "fixture/StopCalculationExecution.yaml"
 
 requestStopQueryExecution :: StopQueryExecution -> TestTree
 requestStopQueryExecution =
@@ -448,6 +706,12 @@ requestTagResource =
   req
     "TagResource"
     "fixture/TagResource.yaml"
+
+requestTerminateSession :: TerminateSession -> TestTree
+requestTerminateSession =
+  req
+    "TerminateSession"
+    "fixture/TerminateSession.yaml"
 
 requestUntagResource :: UntagResource -> TestTree
 requestUntagResource =
@@ -466,6 +730,18 @@ requestUpdateNamedQuery =
   req
     "UpdateNamedQuery"
     "fixture/UpdateNamedQuery.yaml"
+
+requestUpdateNotebook :: UpdateNotebook -> TestTree
+requestUpdateNotebook =
+  req
+    "UpdateNotebook"
+    "fixture/UpdateNotebook.yaml"
+
+requestUpdateNotebookMetadata :: UpdateNotebookMetadata -> TestTree
+requestUpdateNotebookMetadata =
+  req
+    "UpdateNotebookMetadata"
+    "fixture/UpdateNotebookMetadata.yaml"
 
 requestUpdatePreparedStatement :: UpdatePreparedStatement -> TestTree
 requestUpdatePreparedStatement =
@@ -521,6 +797,14 @@ responseCreateNamedQuery =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateNamedQuery)
 
+responseCreateNotebook :: CreateNotebookResponse -> TestTree
+responseCreateNotebook =
+  res
+    "CreateNotebookResponse"
+    "fixture/CreateNotebookResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateNotebook)
+
 responseCreatePreparedStatement :: CreatePreparedStatementResponse -> TestTree
 responseCreatePreparedStatement =
   res
@@ -528,6 +812,14 @@ responseCreatePreparedStatement =
     "fixture/CreatePreparedStatementResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreatePreparedStatement)
+
+responseCreatePresignedNotebookUrl :: CreatePresignedNotebookUrlResponse -> TestTree
+responseCreatePresignedNotebookUrl =
+  res
+    "CreatePresignedNotebookUrlResponse"
+    "fixture/CreatePresignedNotebookUrlResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreatePresignedNotebookUrl)
 
 responseCreateWorkGroup :: CreateWorkGroupResponse -> TestTree
 responseCreateWorkGroup =
@@ -553,6 +845,14 @@ responseDeleteNamedQuery =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteNamedQuery)
 
+responseDeleteNotebook :: DeleteNotebookResponse -> TestTree
+responseDeleteNotebook =
+  res
+    "DeleteNotebookResponse"
+    "fixture/DeleteNotebookResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteNotebook)
+
 responseDeletePreparedStatement :: DeletePreparedStatementResponse -> TestTree
 responseDeletePreparedStatement =
   res
@@ -568,6 +868,38 @@ responseDeleteWorkGroup =
     "fixture/DeleteWorkGroupResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteWorkGroup)
+
+responseExportNotebook :: ExportNotebookResponse -> TestTree
+responseExportNotebook =
+  res
+    "ExportNotebookResponse"
+    "fixture/ExportNotebookResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ExportNotebook)
+
+responseGetCalculationExecution :: GetCalculationExecutionResponse -> TestTree
+responseGetCalculationExecution =
+  res
+    "GetCalculationExecutionResponse"
+    "fixture/GetCalculationExecutionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetCalculationExecution)
+
+responseGetCalculationExecutionCode :: GetCalculationExecutionCodeResponse -> TestTree
+responseGetCalculationExecutionCode =
+  res
+    "GetCalculationExecutionCodeResponse"
+    "fixture/GetCalculationExecutionCodeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetCalculationExecutionCode)
+
+responseGetCalculationExecutionStatus :: GetCalculationExecutionStatusResponse -> TestTree
+responseGetCalculationExecutionStatus =
+  res
+    "GetCalculationExecutionStatusResponse"
+    "fixture/GetCalculationExecutionStatusResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetCalculationExecutionStatus)
 
 responseGetDataCatalog :: GetDataCatalogResponse -> TestTree
 responseGetDataCatalog =
@@ -592,6 +924,14 @@ responseGetNamedQuery =
     "fixture/GetNamedQueryResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetNamedQuery)
+
+responseGetNotebookMetadata :: GetNotebookMetadataResponse -> TestTree
+responseGetNotebookMetadata =
+  res
+    "GetNotebookMetadataResponse"
+    "fixture/GetNotebookMetadataResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetNotebookMetadata)
 
 responseGetPreparedStatement :: GetPreparedStatementResponse -> TestTree
 responseGetPreparedStatement =
@@ -625,6 +965,22 @@ responseGetQueryRuntimeStatistics =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetQueryRuntimeStatistics)
 
+responseGetSession :: GetSessionResponse -> TestTree
+responseGetSession =
+  res
+    "GetSessionResponse"
+    "fixture/GetSessionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetSession)
+
+responseGetSessionStatus :: GetSessionStatusResponse -> TestTree
+responseGetSessionStatus =
+  res
+    "GetSessionStatusResponse"
+    "fixture/GetSessionStatusResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetSessionStatus)
+
 responseGetTableMetadata :: GetTableMetadataResponse -> TestTree
 responseGetTableMetadata =
   res
@@ -640,6 +996,30 @@ responseGetWorkGroup =
     "fixture/GetWorkGroupResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetWorkGroup)
+
+responseImportNotebook :: ImportNotebookResponse -> TestTree
+responseImportNotebook =
+  res
+    "ImportNotebookResponse"
+    "fixture/ImportNotebookResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ImportNotebook)
+
+responseListApplicationDPUSizes :: ListApplicationDPUSizesResponse -> TestTree
+responseListApplicationDPUSizes =
+  res
+    "ListApplicationDPUSizesResponse"
+    "fixture/ListApplicationDPUSizesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListApplicationDPUSizes)
+
+responseListCalculationExecutions :: ListCalculationExecutionsResponse -> TestTree
+responseListCalculationExecutions =
+  res
+    "ListCalculationExecutionsResponse"
+    "fixture/ListCalculationExecutionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListCalculationExecutions)
 
 responseListDataCatalogs :: ListDataCatalogsResponse -> TestTree
 responseListDataCatalogs =
@@ -665,6 +1045,14 @@ responseListEngineVersions =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListEngineVersions)
 
+responseListExecutors :: ListExecutorsResponse -> TestTree
+responseListExecutors =
+  res
+    "ListExecutorsResponse"
+    "fixture/ListExecutorsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListExecutors)
+
 responseListNamedQueries :: ListNamedQueriesResponse -> TestTree
 responseListNamedQueries =
   res
@@ -672,6 +1060,22 @@ responseListNamedQueries =
     "fixture/ListNamedQueriesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListNamedQueries)
+
+responseListNotebookMetadata :: ListNotebookMetadataResponse -> TestTree
+responseListNotebookMetadata =
+  res
+    "ListNotebookMetadataResponse"
+    "fixture/ListNotebookMetadataResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListNotebookMetadata)
+
+responseListNotebookSessions :: ListNotebookSessionsResponse -> TestTree
+responseListNotebookSessions =
+  res
+    "ListNotebookSessionsResponse"
+    "fixture/ListNotebookSessionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListNotebookSessions)
 
 responseListPreparedStatements :: ListPreparedStatementsResponse -> TestTree
 responseListPreparedStatements =
@@ -688,6 +1092,14 @@ responseListQueryExecutions =
     "fixture/ListQueryExecutionsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListQueryExecutions)
+
+responseListSessions :: ListSessionsResponse -> TestTree
+responseListSessions =
+  res
+    "ListSessionsResponse"
+    "fixture/ListSessionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListSessions)
 
 responseListTableMetadata :: ListTableMetadataResponse -> TestTree
 responseListTableMetadata =
@@ -713,6 +1125,14 @@ responseListWorkGroups =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListWorkGroups)
 
+responseStartCalculationExecution :: StartCalculationExecutionResponse -> TestTree
+responseStartCalculationExecution =
+  res
+    "StartCalculationExecutionResponse"
+    "fixture/StartCalculationExecutionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartCalculationExecution)
+
 responseStartQueryExecution :: StartQueryExecutionResponse -> TestTree
 responseStartQueryExecution =
   res
@@ -720,6 +1140,22 @@ responseStartQueryExecution =
     "fixture/StartQueryExecutionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StartQueryExecution)
+
+responseStartSession :: StartSessionResponse -> TestTree
+responseStartSession =
+  res
+    "StartSessionResponse"
+    "fixture/StartSessionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartSession)
+
+responseStopCalculationExecution :: StopCalculationExecutionResponse -> TestTree
+responseStopCalculationExecution =
+  res
+    "StopCalculationExecutionResponse"
+    "fixture/StopCalculationExecutionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopCalculationExecution)
 
 responseStopQueryExecution :: StopQueryExecutionResponse -> TestTree
 responseStopQueryExecution =
@@ -736,6 +1172,14 @@ responseTagResource =
     "fixture/TagResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseTerminateSession :: TerminateSessionResponse -> TestTree
+responseTerminateSession =
+  res
+    "TerminateSessionResponse"
+    "fixture/TerminateSessionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TerminateSession)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -760,6 +1204,22 @@ responseUpdateNamedQuery =
     "fixture/UpdateNamedQueryResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateNamedQuery)
+
+responseUpdateNotebook :: UpdateNotebookResponse -> TestTree
+responseUpdateNotebook =
+  res
+    "UpdateNotebookResponse"
+    "fixture/UpdateNotebookResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateNotebook)
+
+responseUpdateNotebookMetadata :: UpdateNotebookMetadataResponse -> TestTree
+responseUpdateNotebookMetadata =
+  res
+    "UpdateNotebookMetadataResponse"
+    "fixture/UpdateNotebookMetadataResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateNotebookMetadata)
 
 responseUpdatePreparedStatement :: UpdatePreparedStatementResponse -> TestTree
 responseUpdatePreparedStatement =

@@ -30,15 +30,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJDBCConnectorSource' smart constructor.
 data JDBCConnectorSource = JDBCConnectorSource'
-  { -- | Specifies the data schema for the custom JDBC source.
-    outputSchemas :: Prelude.Maybe [GlueSchema],
-    -- | Additional connection options for the connector.
+  { -- | Additional connection options for the connector.
     additionalOptions :: Prelude.Maybe JDBCConnectorOptions,
+    -- | The name of the table in the data source.
+    connectionTable :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the data schema for the custom JDBC source.
+    outputSchemas :: Prelude.Maybe [GlueSchema],
     -- | The table or SQL query to get the data from. You can specify either
     -- @ConnectionTable@ or @query@, but not both.
     query :: Prelude.Maybe Prelude.Text,
-    -- | The name of the table in the data source.
-    connectionTable :: Prelude.Maybe Prelude.Text,
     -- | The name of the data source.
     name :: Prelude.Text,
     -- | The name of the connection that is associated with the connector.
@@ -60,14 +60,14 @@ data JDBCConnectorSource = JDBCConnectorSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'outputSchemas', 'jDBCConnectorSource_outputSchemas' - Specifies the data schema for the custom JDBC source.
---
 -- 'additionalOptions', 'jDBCConnectorSource_additionalOptions' - Additional connection options for the connector.
+--
+-- 'connectionTable', 'jDBCConnectorSource_connectionTable' - The name of the table in the data source.
+--
+-- 'outputSchemas', 'jDBCConnectorSource_outputSchemas' - Specifies the data schema for the custom JDBC source.
 --
 -- 'query', 'jDBCConnectorSource_query' - The table or SQL query to get the data from. You can specify either
 -- @ConnectionTable@ or @query@, but not both.
---
--- 'connectionTable', 'jDBCConnectorSource_connectionTable' - The name of the table in the data source.
 --
 -- 'name', 'jDBCConnectorSource_name' - The name of the data source.
 --
@@ -94,33 +94,33 @@ newJDBCConnectorSource
   pConnectorName_
   pConnectionType_ =
     JDBCConnectorSource'
-      { outputSchemas =
+      { additionalOptions =
           Prelude.Nothing,
-        additionalOptions = Prelude.Nothing,
-        query = Prelude.Nothing,
         connectionTable = Prelude.Nothing,
+        outputSchemas = Prelude.Nothing,
+        query = Prelude.Nothing,
         name = pName_,
         connectionName = pConnectionName_,
         connectorName = pConnectorName_,
         connectionType = pConnectionType_
       }
 
--- | Specifies the data schema for the custom JDBC source.
-jDBCConnectorSource_outputSchemas :: Lens.Lens' JDBCConnectorSource (Prelude.Maybe [GlueSchema])
-jDBCConnectorSource_outputSchemas = Lens.lens (\JDBCConnectorSource' {outputSchemas} -> outputSchemas) (\s@JDBCConnectorSource' {} a -> s {outputSchemas = a} :: JDBCConnectorSource) Prelude.. Lens.mapping Lens.coerced
-
 -- | Additional connection options for the connector.
 jDBCConnectorSource_additionalOptions :: Lens.Lens' JDBCConnectorSource (Prelude.Maybe JDBCConnectorOptions)
 jDBCConnectorSource_additionalOptions = Lens.lens (\JDBCConnectorSource' {additionalOptions} -> additionalOptions) (\s@JDBCConnectorSource' {} a -> s {additionalOptions = a} :: JDBCConnectorSource)
+
+-- | The name of the table in the data source.
+jDBCConnectorSource_connectionTable :: Lens.Lens' JDBCConnectorSource (Prelude.Maybe Prelude.Text)
+jDBCConnectorSource_connectionTable = Lens.lens (\JDBCConnectorSource' {connectionTable} -> connectionTable) (\s@JDBCConnectorSource' {} a -> s {connectionTable = a} :: JDBCConnectorSource)
+
+-- | Specifies the data schema for the custom JDBC source.
+jDBCConnectorSource_outputSchemas :: Lens.Lens' JDBCConnectorSource (Prelude.Maybe [GlueSchema])
+jDBCConnectorSource_outputSchemas = Lens.lens (\JDBCConnectorSource' {outputSchemas} -> outputSchemas) (\s@JDBCConnectorSource' {} a -> s {outputSchemas = a} :: JDBCConnectorSource) Prelude.. Lens.mapping Lens.coerced
 
 -- | The table or SQL query to get the data from. You can specify either
 -- @ConnectionTable@ or @query@, but not both.
 jDBCConnectorSource_query :: Lens.Lens' JDBCConnectorSource (Prelude.Maybe Prelude.Text)
 jDBCConnectorSource_query = Lens.lens (\JDBCConnectorSource' {query} -> query) (\s@JDBCConnectorSource' {} a -> s {query = a} :: JDBCConnectorSource)
-
--- | The name of the table in the data source.
-jDBCConnectorSource_connectionTable :: Lens.Lens' JDBCConnectorSource (Prelude.Maybe Prelude.Text)
-jDBCConnectorSource_connectionTable = Lens.lens (\JDBCConnectorSource' {connectionTable} -> connectionTable) (\s@JDBCConnectorSource' {} a -> s {connectionTable = a} :: JDBCConnectorSource)
 
 -- | The name of the data source.
 jDBCConnectorSource_name :: Lens.Lens' JDBCConnectorSource Prelude.Text
@@ -146,10 +146,10 @@ instance Data.FromJSON JDBCConnectorSource where
       "JDBCConnectorSource"
       ( \x ->
           JDBCConnectorSource'
-            Prelude.<$> (x Data..:? "OutputSchemas" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "AdditionalOptions")
-            Prelude.<*> (x Data..:? "Query")
+            Prelude.<$> (x Data..:? "AdditionalOptions")
             Prelude.<*> (x Data..:? "ConnectionTable")
+            Prelude.<*> (x Data..:? "OutputSchemas" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Query")
             Prelude.<*> (x Data..: "Name")
             Prelude.<*> (x Data..: "ConnectionName")
             Prelude.<*> (x Data..: "ConnectorName")
@@ -158,10 +158,10 @@ instance Data.FromJSON JDBCConnectorSource where
 
 instance Prelude.Hashable JDBCConnectorSource where
   hashWithSalt _salt JDBCConnectorSource' {..} =
-    _salt `Prelude.hashWithSalt` outputSchemas
-      `Prelude.hashWithSalt` additionalOptions
-      `Prelude.hashWithSalt` query
+    _salt `Prelude.hashWithSalt` additionalOptions
       `Prelude.hashWithSalt` connectionTable
+      `Prelude.hashWithSalt` outputSchemas
+      `Prelude.hashWithSalt` query
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` connectionName
       `Prelude.hashWithSalt` connectorName
@@ -169,10 +169,10 @@ instance Prelude.Hashable JDBCConnectorSource where
 
 instance Prelude.NFData JDBCConnectorSource where
   rnf JDBCConnectorSource' {..} =
-    Prelude.rnf outputSchemas
-      `Prelude.seq` Prelude.rnf additionalOptions
-      `Prelude.seq` Prelude.rnf query
+    Prelude.rnf additionalOptions
       `Prelude.seq` Prelude.rnf connectionTable
+      `Prelude.seq` Prelude.rnf outputSchemas
+      `Prelude.seq` Prelude.rnf query
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf connectionName
       `Prelude.seq` Prelude.rnf connectorName
@@ -182,12 +182,12 @@ instance Data.ToJSON JDBCConnectorSource where
   toJSON JDBCConnectorSource' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("OutputSchemas" Data..=) Prelude.<$> outputSchemas,
-            ("AdditionalOptions" Data..=)
+          [ ("AdditionalOptions" Data..=)
               Prelude.<$> additionalOptions,
-            ("Query" Data..=) Prelude.<$> query,
             ("ConnectionTable" Data..=)
               Prelude.<$> connectionTable,
+            ("OutputSchemas" Data..=) Prelude.<$> outputSchemas,
+            ("Query" Data..=) Prelude.<$> query,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just
               ("ConnectionName" Data..= connectionName),

@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCompatibleVersionsMap' smart constructor.
 data CompatibleVersionsMap = CompatibleVersionsMap'
-  { -- | The possible versions that you can upgrade the domain to.
-    targetVersions :: Prelude.Maybe [Prelude.Text],
-    -- | The current version that the OpenSearch Service domain is running.
-    sourceVersion :: Prelude.Maybe Prelude.Text
+  { -- | The current version that the OpenSearch Service domain is running.
+    sourceVersion :: Prelude.Maybe Prelude.Text,
+    -- | The possible versions that you can upgrade the domain to.
+    targetVersions :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data CompatibleVersionsMap = CompatibleVersionsMap'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetVersions', 'compatibleVersionsMap_targetVersions' - The possible versions that you can upgrade the domain to.
---
 -- 'sourceVersion', 'compatibleVersionsMap_sourceVersion' - The current version that the OpenSearch Service domain is running.
+--
+-- 'targetVersions', 'compatibleVersionsMap_targetVersions' - The possible versions that you can upgrade the domain to.
 newCompatibleVersionsMap ::
   CompatibleVersionsMap
 newCompatibleVersionsMap =
   CompatibleVersionsMap'
-    { targetVersions =
+    { sourceVersion =
         Prelude.Nothing,
-      sourceVersion = Prelude.Nothing
+      targetVersions = Prelude.Nothing
     }
-
--- | The possible versions that you can upgrade the domain to.
-compatibleVersionsMap_targetVersions :: Lens.Lens' CompatibleVersionsMap (Prelude.Maybe [Prelude.Text])
-compatibleVersionsMap_targetVersions = Lens.lens (\CompatibleVersionsMap' {targetVersions} -> targetVersions) (\s@CompatibleVersionsMap' {} a -> s {targetVersions = a} :: CompatibleVersionsMap) Prelude.. Lens.mapping Lens.coerced
 
 -- | The current version that the OpenSearch Service domain is running.
 compatibleVersionsMap_sourceVersion :: Lens.Lens' CompatibleVersionsMap (Prelude.Maybe Prelude.Text)
 compatibleVersionsMap_sourceVersion = Lens.lens (\CompatibleVersionsMap' {sourceVersion} -> sourceVersion) (\s@CompatibleVersionsMap' {} a -> s {sourceVersion = a} :: CompatibleVersionsMap)
+
+-- | The possible versions that you can upgrade the domain to.
+compatibleVersionsMap_targetVersions :: Lens.Lens' CompatibleVersionsMap (Prelude.Maybe [Prelude.Text])
+compatibleVersionsMap_targetVersions = Lens.lens (\CompatibleVersionsMap' {targetVersions} -> targetVersions) (\s@CompatibleVersionsMap' {} a -> s {targetVersions = a} :: CompatibleVersionsMap) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON CompatibleVersionsMap where
   parseJSON =
@@ -70,16 +70,18 @@ instance Data.FromJSON CompatibleVersionsMap where
       "CompatibleVersionsMap"
       ( \x ->
           CompatibleVersionsMap'
-            Prelude.<$> (x Data..:? "TargetVersions" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "SourceVersion")
+            Prelude.<$> (x Data..:? "SourceVersion")
+            Prelude.<*> ( x Data..:? "TargetVersions"
+                            Data..!= Prelude.mempty
+                        )
       )
 
 instance Prelude.Hashable CompatibleVersionsMap where
   hashWithSalt _salt CompatibleVersionsMap' {..} =
-    _salt `Prelude.hashWithSalt` targetVersions
-      `Prelude.hashWithSalt` sourceVersion
+    _salt `Prelude.hashWithSalt` sourceVersion
+      `Prelude.hashWithSalt` targetVersions
 
 instance Prelude.NFData CompatibleVersionsMap where
   rnf CompatibleVersionsMap' {..} =
-    Prelude.rnf targetVersions
-      `Prelude.seq` Prelude.rnf sourceVersion
+    Prelude.rnf sourceVersion
+      `Prelude.seq` Prelude.rnf targetVersions

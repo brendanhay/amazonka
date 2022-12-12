@@ -36,19 +36,19 @@ module Amazonka.EC2.CreateIpamPool
     newCreateIpamPool,
 
     -- * Request Lenses
-    createIpamPool_clientToken,
+    createIpamPool_allocationDefaultNetmaskLength,
     createIpamPool_allocationMaxNetmaskLength,
-    createIpamPool_publiclyAdvertisable,
-    createIpamPool_locale,
-    createIpamPool_sourceIpamPoolId,
+    createIpamPool_allocationMinNetmaskLength,
+    createIpamPool_allocationResourceTags,
+    createIpamPool_autoImport,
+    createIpamPool_awsService,
+    createIpamPool_clientToken,
     createIpamPool_description,
     createIpamPool_dryRun,
-    createIpamPool_allocationResourceTags,
-    createIpamPool_allocationMinNetmaskLength,
+    createIpamPool_locale,
+    createIpamPool_publiclyAdvertisable,
+    createIpamPool_sourceIpamPoolId,
     createIpamPool_tagSpecifications,
-    createIpamPool_allocationDefaultNetmaskLength,
-    createIpamPool_awsService,
-    createIpamPool_autoImport,
     createIpamPool_ipamScopeId,
     createIpamPool_addressFamily,
 
@@ -72,65 +72,26 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateIpamPool' smart constructor.
 data CreateIpamPool = CreateIpamPool'
-  { -- | A unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
-    clientToken :: Prelude.Maybe Prelude.Text,
+  { -- | The default netmask length for allocations added to this pool. If, for
+    -- example, the CIDR assigned to this pool is 10.0.0.0\/8 and you enter 16
+    -- here, new allocations will default to 10.0.0.0\/16.
+    allocationDefaultNetmaskLength :: Prelude.Maybe Prelude.Natural,
     -- | The maximum netmask length possible for CIDR allocations in this IPAM
     -- pool to be compliant. The maximum netmask length must be greater than
     -- the minimum netmask length. Possible netmask lengths for IPv4 addresses
     -- are 0 - 32. Possible netmask lengths for IPv6 addresses are 0 - 128.
     allocationMaxNetmaskLength :: Prelude.Maybe Prelude.Natural,
-    -- | Determines if the pool is publicly advertisable. This option is not
-    -- available for pools with AddressFamily set to @ipv4@.
-    publiclyAdvertisable :: Prelude.Maybe Prelude.Bool,
-    -- | In IPAM, the locale is the Amazon Web Services Region where you want to
-    -- make an IPAM pool available for allocations. Only resources in the same
-    -- Region as the locale of the pool can get IP address allocations from the
-    -- pool. You can only allocate a CIDR for a VPC, for example, from an IPAM
-    -- pool that shares a locale with the VPC’s Region. Note that once you
-    -- choose a Locale for a pool, you cannot modify it. If you do not choose a
-    -- locale, resources in Regions others than the IPAM\'s home region cannot
-    -- use CIDRs from this pool.
-    --
-    -- Possible values: Any Amazon Web Services Region, such as us-east-1.
-    locale :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the source IPAM pool. Use this option to create a pool within
-    -- an existing pool. Note that the CIDR you provision for the pool within
-    -- the source pool must be available in the source pool\'s CIDR range.
-    sourceIpamPoolId :: Prelude.Maybe Prelude.Text,
-    -- | A description for the IPAM pool.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | A check for whether you have the required permissions for the action
-    -- without actually making the request and provides an error response. If
-    -- you have the required permissions, the error response is
-    -- @DryRunOperation@. Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The minimum netmask length required for CIDR allocations in this IPAM
+    -- pool to be compliant. The minimum netmask length must be less than the
+    -- maximum netmask length. Possible netmask lengths for IPv4 addresses are
+    -- 0 - 32. Possible netmask lengths for IPv6 addresses are 0 - 128.
+    allocationMinNetmaskLength :: Prelude.Maybe Prelude.Natural,
     -- | Tags that are required for resources that use CIDRs from this IPAM pool.
     -- Resources that do not have these tags will not be allowed to allocate
     -- space from the pool. If the resources have their tags changed after they
     -- have allocated space or if the allocation tagging requirements are
     -- changed on the pool, the resource may be marked as noncompliant.
     allocationResourceTags :: Prelude.Maybe [RequestIpamResourceTag],
-    -- | The minimum netmask length required for CIDR allocations in this IPAM
-    -- pool to be compliant. The minimum netmask length must be less than the
-    -- maximum netmask length. Possible netmask lengths for IPv4 addresses are
-    -- 0 - 32. Possible netmask lengths for IPv6 addresses are 0 - 128.
-    allocationMinNetmaskLength :: Prelude.Maybe Prelude.Natural,
-    -- | The key\/value combination of a tag assigned to the resource. Use the
-    -- tag key in the filter name and the tag value as the filter value. For
-    -- example, to find all resources that have a tag with the key @Owner@ and
-    -- the value @TeamA@, specify @tag:Owner@ for the filter name and @TeamA@
-    -- for the filter value.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
-    -- | The default netmask length for allocations added to this pool. If, for
-    -- example, the CIDR assigned to this pool is 10.0.0.0\/8 and you enter 16
-    -- here, new allocations will default to 10.0.0.0\/16.
-    allocationDefaultNetmaskLength :: Prelude.Maybe Prelude.Natural,
-    -- | Limits which service in Amazon Web Services that the pool can be used
-    -- in. \"ec2\", for example, allows users to use space for Elastic IP
-    -- addresses and VPCs.
-    awsService :: Prelude.Maybe IpamPoolAwsService,
     -- | If selected, IPAM will continuously look for resources within the CIDR
     -- range of this pool and automatically import them as allocations into
     -- your IPAM. The CIDRs that will be allocated for these resources must not
@@ -144,6 +105,45 @@ data CreateIpamPool = CreateIpamPool'
     --
     -- A locale must be set on the pool for this feature to work.
     autoImport :: Prelude.Maybe Prelude.Bool,
+    -- | Limits which service in Amazon Web Services that the pool can be used
+    -- in. \"ec2\", for example, allows users to use space for Elastic IP
+    -- addresses and VPCs.
+    awsService :: Prelude.Maybe IpamPoolAwsService,
+    -- | A unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | A description for the IPAM pool.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | A check for whether you have the required permissions for the action
+    -- without actually making the request and provides an error response. If
+    -- you have the required permissions, the error response is
+    -- @DryRunOperation@. Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | In IPAM, the locale is the Amazon Web Services Region where you want to
+    -- make an IPAM pool available for allocations. Only resources in the same
+    -- Region as the locale of the pool can get IP address allocations from the
+    -- pool. You can only allocate a CIDR for a VPC, for example, from an IPAM
+    -- pool that shares a locale with the VPC’s Region. Note that once you
+    -- choose a Locale for a pool, you cannot modify it. If you do not choose a
+    -- locale, resources in Regions others than the IPAM\'s home region cannot
+    -- use CIDRs from this pool.
+    --
+    -- Possible values: Any Amazon Web Services Region, such as us-east-1.
+    locale :: Prelude.Maybe Prelude.Text,
+    -- | Determines if the pool is publicly advertisable. This option is not
+    -- available for pools with AddressFamily set to @ipv4@.
+    publiclyAdvertisable :: Prelude.Maybe Prelude.Bool,
+    -- | The ID of the source IPAM pool. Use this option to create a pool within
+    -- an existing pool. Note that the CIDR you provision for the pool within
+    -- the source pool must be available in the source pool\'s CIDR range.
+    sourceIpamPoolId :: Prelude.Maybe Prelude.Text,
+    -- | The key\/value combination of a tag assigned to the resource. Use the
+    -- tag key in the filter name and the tag value as the filter value. For
+    -- example, to find all resources that have a tag with the key @Owner@ and
+    -- the value @TeamA@, specify @tag:Owner@ for the filter name and @TeamA@
+    -- for the filter value.
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | The ID of the scope in which you would like to create the IPAM pool.
     ipamScopeId :: Prelude.Text,
     -- | The IP protocol assigned to this IPAM pool. You must choose either IPv4
@@ -160,64 +160,25 @@ data CreateIpamPool = CreateIpamPool'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'createIpamPool_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+-- 'allocationDefaultNetmaskLength', 'createIpamPool_allocationDefaultNetmaskLength' - The default netmask length for allocations added to this pool. If, for
+-- example, the CIDR assigned to this pool is 10.0.0.0\/8 and you enter 16
+-- here, new allocations will default to 10.0.0.0\/16.
 --
 -- 'allocationMaxNetmaskLength', 'createIpamPool_allocationMaxNetmaskLength' - The maximum netmask length possible for CIDR allocations in this IPAM
 -- pool to be compliant. The maximum netmask length must be greater than
 -- the minimum netmask length. Possible netmask lengths for IPv4 addresses
 -- are 0 - 32. Possible netmask lengths for IPv6 addresses are 0 - 128.
 --
--- 'publiclyAdvertisable', 'createIpamPool_publiclyAdvertisable' - Determines if the pool is publicly advertisable. This option is not
--- available for pools with AddressFamily set to @ipv4@.
---
--- 'locale', 'createIpamPool_locale' - In IPAM, the locale is the Amazon Web Services Region where you want to
--- make an IPAM pool available for allocations. Only resources in the same
--- Region as the locale of the pool can get IP address allocations from the
--- pool. You can only allocate a CIDR for a VPC, for example, from an IPAM
--- pool that shares a locale with the VPC’s Region. Note that once you
--- choose a Locale for a pool, you cannot modify it. If you do not choose a
--- locale, resources in Regions others than the IPAM\'s home region cannot
--- use CIDRs from this pool.
---
--- Possible values: Any Amazon Web Services Region, such as us-east-1.
---
--- 'sourceIpamPoolId', 'createIpamPool_sourceIpamPoolId' - The ID of the source IPAM pool. Use this option to create a pool within
--- an existing pool. Note that the CIDR you provision for the pool within
--- the source pool must be available in the source pool\'s CIDR range.
---
--- 'description', 'createIpamPool_description' - A description for the IPAM pool.
---
--- 'dryRun', 'createIpamPool_dryRun' - A check for whether you have the required permissions for the action
--- without actually making the request and provides an error response. If
--- you have the required permissions, the error response is
--- @DryRunOperation@. Otherwise, it is @UnauthorizedOperation@.
+-- 'allocationMinNetmaskLength', 'createIpamPool_allocationMinNetmaskLength' - The minimum netmask length required for CIDR allocations in this IPAM
+-- pool to be compliant. The minimum netmask length must be less than the
+-- maximum netmask length. Possible netmask lengths for IPv4 addresses are
+-- 0 - 32. Possible netmask lengths for IPv6 addresses are 0 - 128.
 --
 -- 'allocationResourceTags', 'createIpamPool_allocationResourceTags' - Tags that are required for resources that use CIDRs from this IPAM pool.
 -- Resources that do not have these tags will not be allowed to allocate
 -- space from the pool. If the resources have their tags changed after they
 -- have allocated space or if the allocation tagging requirements are
 -- changed on the pool, the resource may be marked as noncompliant.
---
--- 'allocationMinNetmaskLength', 'createIpamPool_allocationMinNetmaskLength' - The minimum netmask length required for CIDR allocations in this IPAM
--- pool to be compliant. The minimum netmask length must be less than the
--- maximum netmask length. Possible netmask lengths for IPv4 addresses are
--- 0 - 32. Possible netmask lengths for IPv6 addresses are 0 - 128.
---
--- 'tagSpecifications', 'createIpamPool_tagSpecifications' - The key\/value combination of a tag assigned to the resource. Use the
--- tag key in the filter name and the tag value as the filter value. For
--- example, to find all resources that have a tag with the key @Owner@ and
--- the value @TeamA@, specify @tag:Owner@ for the filter name and @TeamA@
--- for the filter value.
---
--- 'allocationDefaultNetmaskLength', 'createIpamPool_allocationDefaultNetmaskLength' - The default netmask length for allocations added to this pool. If, for
--- example, the CIDR assigned to this pool is 10.0.0.0\/8 and you enter 16
--- here, new allocations will default to 10.0.0.0\/16.
---
--- 'awsService', 'createIpamPool_awsService' - Limits which service in Amazon Web Services that the pool can be used
--- in. \"ec2\", for example, allows users to use space for Elastic IP
--- addresses and VPCs.
 --
 -- 'autoImport', 'createIpamPool_autoImport' - If selected, IPAM will continuously look for resources within the CIDR
 -- range of this pool and automatically import them as allocations into
@@ -232,6 +193,45 @@ data CreateIpamPool = CreateIpamPool'
 --
 -- A locale must be set on the pool for this feature to work.
 --
+-- 'awsService', 'createIpamPool_awsService' - Limits which service in Amazon Web Services that the pool can be used
+-- in. \"ec2\", for example, allows users to use space for Elastic IP
+-- addresses and VPCs.
+--
+-- 'clientToken', 'createIpamPool_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+--
+-- 'description', 'createIpamPool_description' - A description for the IPAM pool.
+--
+-- 'dryRun', 'createIpamPool_dryRun' - A check for whether you have the required permissions for the action
+-- without actually making the request and provides an error response. If
+-- you have the required permissions, the error response is
+-- @DryRunOperation@. Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'locale', 'createIpamPool_locale' - In IPAM, the locale is the Amazon Web Services Region where you want to
+-- make an IPAM pool available for allocations. Only resources in the same
+-- Region as the locale of the pool can get IP address allocations from the
+-- pool. You can only allocate a CIDR for a VPC, for example, from an IPAM
+-- pool that shares a locale with the VPC’s Region. Note that once you
+-- choose a Locale for a pool, you cannot modify it. If you do not choose a
+-- locale, resources in Regions others than the IPAM\'s home region cannot
+-- use CIDRs from this pool.
+--
+-- Possible values: Any Amazon Web Services Region, such as us-east-1.
+--
+-- 'publiclyAdvertisable', 'createIpamPool_publiclyAdvertisable' - Determines if the pool is publicly advertisable. This option is not
+-- available for pools with AddressFamily set to @ipv4@.
+--
+-- 'sourceIpamPoolId', 'createIpamPool_sourceIpamPoolId' - The ID of the source IPAM pool. Use this option to create a pool within
+-- an existing pool. Note that the CIDR you provision for the pool within
+-- the source pool must be available in the source pool\'s CIDR range.
+--
+-- 'tagSpecifications', 'createIpamPool_tagSpecifications' - The key\/value combination of a tag assigned to the resource. Use the
+-- tag key in the filter name and the tag value as the filter value. For
+-- example, to find all resources that have a tag with the key @Owner@ and
+-- the value @TeamA@, specify @tag:Owner@ for the filter name and @TeamA@
+-- for the filter value.
+--
 -- 'ipamScopeId', 'createIpamPool_ipamScopeId' - The ID of the scope in which you would like to create the IPAM pool.
 --
 -- 'addressFamily', 'createIpamPool_addressFamily' - The IP protocol assigned to this IPAM pool. You must choose either IPv4
@@ -244,28 +244,29 @@ newCreateIpamPool ::
   CreateIpamPool
 newCreateIpamPool pIpamScopeId_ pAddressFamily_ =
   CreateIpamPool'
-    { clientToken = Prelude.Nothing,
+    { allocationDefaultNetmaskLength =
+        Prelude.Nothing,
       allocationMaxNetmaskLength = Prelude.Nothing,
-      publiclyAdvertisable = Prelude.Nothing,
-      locale = Prelude.Nothing,
-      sourceIpamPoolId = Prelude.Nothing,
+      allocationMinNetmaskLength = Prelude.Nothing,
+      allocationResourceTags = Prelude.Nothing,
+      autoImport = Prelude.Nothing,
+      awsService = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
       description = Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      allocationResourceTags = Prelude.Nothing,
-      allocationMinNetmaskLength = Prelude.Nothing,
+      locale = Prelude.Nothing,
+      publiclyAdvertisable = Prelude.Nothing,
+      sourceIpamPoolId = Prelude.Nothing,
       tagSpecifications = Prelude.Nothing,
-      allocationDefaultNetmaskLength = Prelude.Nothing,
-      awsService = Prelude.Nothing,
-      autoImport = Prelude.Nothing,
       ipamScopeId = pIpamScopeId_,
       addressFamily = pAddressFamily_
     }
 
--- | A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
-createIpamPool_clientToken :: Lens.Lens' CreateIpamPool (Prelude.Maybe Prelude.Text)
-createIpamPool_clientToken = Lens.lens (\CreateIpamPool' {clientToken} -> clientToken) (\s@CreateIpamPool' {} a -> s {clientToken = a} :: CreateIpamPool)
+-- | The default netmask length for allocations added to this pool. If, for
+-- example, the CIDR assigned to this pool is 10.0.0.0\/8 and you enter 16
+-- here, new allocations will default to 10.0.0.0\/16.
+createIpamPool_allocationDefaultNetmaskLength :: Lens.Lens' CreateIpamPool (Prelude.Maybe Prelude.Natural)
+createIpamPool_allocationDefaultNetmaskLength = Lens.lens (\CreateIpamPool' {allocationDefaultNetmaskLength} -> allocationDefaultNetmaskLength) (\s@CreateIpamPool' {} a -> s {allocationDefaultNetmaskLength = a} :: CreateIpamPool)
 
 -- | The maximum netmask length possible for CIDR allocations in this IPAM
 -- pool to be compliant. The maximum netmask length must be greater than
@@ -274,40 +275,12 @@ createIpamPool_clientToken = Lens.lens (\CreateIpamPool' {clientToken} -> client
 createIpamPool_allocationMaxNetmaskLength :: Lens.Lens' CreateIpamPool (Prelude.Maybe Prelude.Natural)
 createIpamPool_allocationMaxNetmaskLength = Lens.lens (\CreateIpamPool' {allocationMaxNetmaskLength} -> allocationMaxNetmaskLength) (\s@CreateIpamPool' {} a -> s {allocationMaxNetmaskLength = a} :: CreateIpamPool)
 
--- | Determines if the pool is publicly advertisable. This option is not
--- available for pools with AddressFamily set to @ipv4@.
-createIpamPool_publiclyAdvertisable :: Lens.Lens' CreateIpamPool (Prelude.Maybe Prelude.Bool)
-createIpamPool_publiclyAdvertisable = Lens.lens (\CreateIpamPool' {publiclyAdvertisable} -> publiclyAdvertisable) (\s@CreateIpamPool' {} a -> s {publiclyAdvertisable = a} :: CreateIpamPool)
-
--- | In IPAM, the locale is the Amazon Web Services Region where you want to
--- make an IPAM pool available for allocations. Only resources in the same
--- Region as the locale of the pool can get IP address allocations from the
--- pool. You can only allocate a CIDR for a VPC, for example, from an IPAM
--- pool that shares a locale with the VPC’s Region. Note that once you
--- choose a Locale for a pool, you cannot modify it. If you do not choose a
--- locale, resources in Regions others than the IPAM\'s home region cannot
--- use CIDRs from this pool.
---
--- Possible values: Any Amazon Web Services Region, such as us-east-1.
-createIpamPool_locale :: Lens.Lens' CreateIpamPool (Prelude.Maybe Prelude.Text)
-createIpamPool_locale = Lens.lens (\CreateIpamPool' {locale} -> locale) (\s@CreateIpamPool' {} a -> s {locale = a} :: CreateIpamPool)
-
--- | The ID of the source IPAM pool. Use this option to create a pool within
--- an existing pool. Note that the CIDR you provision for the pool within
--- the source pool must be available in the source pool\'s CIDR range.
-createIpamPool_sourceIpamPoolId :: Lens.Lens' CreateIpamPool (Prelude.Maybe Prelude.Text)
-createIpamPool_sourceIpamPoolId = Lens.lens (\CreateIpamPool' {sourceIpamPoolId} -> sourceIpamPoolId) (\s@CreateIpamPool' {} a -> s {sourceIpamPoolId = a} :: CreateIpamPool)
-
--- | A description for the IPAM pool.
-createIpamPool_description :: Lens.Lens' CreateIpamPool (Prelude.Maybe Prelude.Text)
-createIpamPool_description = Lens.lens (\CreateIpamPool' {description} -> description) (\s@CreateIpamPool' {} a -> s {description = a} :: CreateIpamPool)
-
--- | A check for whether you have the required permissions for the action
--- without actually making the request and provides an error response. If
--- you have the required permissions, the error response is
--- @DryRunOperation@. Otherwise, it is @UnauthorizedOperation@.
-createIpamPool_dryRun :: Lens.Lens' CreateIpamPool (Prelude.Maybe Prelude.Bool)
-createIpamPool_dryRun = Lens.lens (\CreateIpamPool' {dryRun} -> dryRun) (\s@CreateIpamPool' {} a -> s {dryRun = a} :: CreateIpamPool)
+-- | The minimum netmask length required for CIDR allocations in this IPAM
+-- pool to be compliant. The minimum netmask length must be less than the
+-- maximum netmask length. Possible netmask lengths for IPv4 addresses are
+-- 0 - 32. Possible netmask lengths for IPv6 addresses are 0 - 128.
+createIpamPool_allocationMinNetmaskLength :: Lens.Lens' CreateIpamPool (Prelude.Maybe Prelude.Natural)
+createIpamPool_allocationMinNetmaskLength = Lens.lens (\CreateIpamPool' {allocationMinNetmaskLength} -> allocationMinNetmaskLength) (\s@CreateIpamPool' {} a -> s {allocationMinNetmaskLength = a} :: CreateIpamPool)
 
 -- | Tags that are required for resources that use CIDRs from this IPAM pool.
 -- Resources that do not have these tags will not be allowed to allocate
@@ -316,33 +289,6 @@ createIpamPool_dryRun = Lens.lens (\CreateIpamPool' {dryRun} -> dryRun) (\s@Crea
 -- changed on the pool, the resource may be marked as noncompliant.
 createIpamPool_allocationResourceTags :: Lens.Lens' CreateIpamPool (Prelude.Maybe [RequestIpamResourceTag])
 createIpamPool_allocationResourceTags = Lens.lens (\CreateIpamPool' {allocationResourceTags} -> allocationResourceTags) (\s@CreateIpamPool' {} a -> s {allocationResourceTags = a} :: CreateIpamPool) Prelude.. Lens.mapping Lens.coerced
-
--- | The minimum netmask length required for CIDR allocations in this IPAM
--- pool to be compliant. The minimum netmask length must be less than the
--- maximum netmask length. Possible netmask lengths for IPv4 addresses are
--- 0 - 32. Possible netmask lengths for IPv6 addresses are 0 - 128.
-createIpamPool_allocationMinNetmaskLength :: Lens.Lens' CreateIpamPool (Prelude.Maybe Prelude.Natural)
-createIpamPool_allocationMinNetmaskLength = Lens.lens (\CreateIpamPool' {allocationMinNetmaskLength} -> allocationMinNetmaskLength) (\s@CreateIpamPool' {} a -> s {allocationMinNetmaskLength = a} :: CreateIpamPool)
-
--- | The key\/value combination of a tag assigned to the resource. Use the
--- tag key in the filter name and the tag value as the filter value. For
--- example, to find all resources that have a tag with the key @Owner@ and
--- the value @TeamA@, specify @tag:Owner@ for the filter name and @TeamA@
--- for the filter value.
-createIpamPool_tagSpecifications :: Lens.Lens' CreateIpamPool (Prelude.Maybe [TagSpecification])
-createIpamPool_tagSpecifications = Lens.lens (\CreateIpamPool' {tagSpecifications} -> tagSpecifications) (\s@CreateIpamPool' {} a -> s {tagSpecifications = a} :: CreateIpamPool) Prelude.. Lens.mapping Lens.coerced
-
--- | The default netmask length for allocations added to this pool. If, for
--- example, the CIDR assigned to this pool is 10.0.0.0\/8 and you enter 16
--- here, new allocations will default to 10.0.0.0\/16.
-createIpamPool_allocationDefaultNetmaskLength :: Lens.Lens' CreateIpamPool (Prelude.Maybe Prelude.Natural)
-createIpamPool_allocationDefaultNetmaskLength = Lens.lens (\CreateIpamPool' {allocationDefaultNetmaskLength} -> allocationDefaultNetmaskLength) (\s@CreateIpamPool' {} a -> s {allocationDefaultNetmaskLength = a} :: CreateIpamPool)
-
--- | Limits which service in Amazon Web Services that the pool can be used
--- in. \"ec2\", for example, allows users to use space for Elastic IP
--- addresses and VPCs.
-createIpamPool_awsService :: Lens.Lens' CreateIpamPool (Prelude.Maybe IpamPoolAwsService)
-createIpamPool_awsService = Lens.lens (\CreateIpamPool' {awsService} -> awsService) (\s@CreateIpamPool' {} a -> s {awsService = a} :: CreateIpamPool)
 
 -- | If selected, IPAM will continuously look for resources within the CIDR
 -- range of this pool and automatically import them as allocations into
@@ -358,6 +304,61 @@ createIpamPool_awsService = Lens.lens (\CreateIpamPool' {awsService} -> awsServi
 -- A locale must be set on the pool for this feature to work.
 createIpamPool_autoImport :: Lens.Lens' CreateIpamPool (Prelude.Maybe Prelude.Bool)
 createIpamPool_autoImport = Lens.lens (\CreateIpamPool' {autoImport} -> autoImport) (\s@CreateIpamPool' {} a -> s {autoImport = a} :: CreateIpamPool)
+
+-- | Limits which service in Amazon Web Services that the pool can be used
+-- in. \"ec2\", for example, allows users to use space for Elastic IP
+-- addresses and VPCs.
+createIpamPool_awsService :: Lens.Lens' CreateIpamPool (Prelude.Maybe IpamPoolAwsService)
+createIpamPool_awsService = Lens.lens (\CreateIpamPool' {awsService} -> awsService) (\s@CreateIpamPool' {} a -> s {awsService = a} :: CreateIpamPool)
+
+-- | A unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+createIpamPool_clientToken :: Lens.Lens' CreateIpamPool (Prelude.Maybe Prelude.Text)
+createIpamPool_clientToken = Lens.lens (\CreateIpamPool' {clientToken} -> clientToken) (\s@CreateIpamPool' {} a -> s {clientToken = a} :: CreateIpamPool)
+
+-- | A description for the IPAM pool.
+createIpamPool_description :: Lens.Lens' CreateIpamPool (Prelude.Maybe Prelude.Text)
+createIpamPool_description = Lens.lens (\CreateIpamPool' {description} -> description) (\s@CreateIpamPool' {} a -> s {description = a} :: CreateIpamPool)
+
+-- | A check for whether you have the required permissions for the action
+-- without actually making the request and provides an error response. If
+-- you have the required permissions, the error response is
+-- @DryRunOperation@. Otherwise, it is @UnauthorizedOperation@.
+createIpamPool_dryRun :: Lens.Lens' CreateIpamPool (Prelude.Maybe Prelude.Bool)
+createIpamPool_dryRun = Lens.lens (\CreateIpamPool' {dryRun} -> dryRun) (\s@CreateIpamPool' {} a -> s {dryRun = a} :: CreateIpamPool)
+
+-- | In IPAM, the locale is the Amazon Web Services Region where you want to
+-- make an IPAM pool available for allocations. Only resources in the same
+-- Region as the locale of the pool can get IP address allocations from the
+-- pool. You can only allocate a CIDR for a VPC, for example, from an IPAM
+-- pool that shares a locale with the VPC’s Region. Note that once you
+-- choose a Locale for a pool, you cannot modify it. If you do not choose a
+-- locale, resources in Regions others than the IPAM\'s home region cannot
+-- use CIDRs from this pool.
+--
+-- Possible values: Any Amazon Web Services Region, such as us-east-1.
+createIpamPool_locale :: Lens.Lens' CreateIpamPool (Prelude.Maybe Prelude.Text)
+createIpamPool_locale = Lens.lens (\CreateIpamPool' {locale} -> locale) (\s@CreateIpamPool' {} a -> s {locale = a} :: CreateIpamPool)
+
+-- | Determines if the pool is publicly advertisable. This option is not
+-- available for pools with AddressFamily set to @ipv4@.
+createIpamPool_publiclyAdvertisable :: Lens.Lens' CreateIpamPool (Prelude.Maybe Prelude.Bool)
+createIpamPool_publiclyAdvertisable = Lens.lens (\CreateIpamPool' {publiclyAdvertisable} -> publiclyAdvertisable) (\s@CreateIpamPool' {} a -> s {publiclyAdvertisable = a} :: CreateIpamPool)
+
+-- | The ID of the source IPAM pool. Use this option to create a pool within
+-- an existing pool. Note that the CIDR you provision for the pool within
+-- the source pool must be available in the source pool\'s CIDR range.
+createIpamPool_sourceIpamPoolId :: Lens.Lens' CreateIpamPool (Prelude.Maybe Prelude.Text)
+createIpamPool_sourceIpamPoolId = Lens.lens (\CreateIpamPool' {sourceIpamPoolId} -> sourceIpamPoolId) (\s@CreateIpamPool' {} a -> s {sourceIpamPoolId = a} :: CreateIpamPool)
+
+-- | The key\/value combination of a tag assigned to the resource. Use the
+-- tag key in the filter name and the tag value as the filter value. For
+-- example, to find all resources that have a tag with the key @Owner@ and
+-- the value @TeamA@, specify @tag:Owner@ for the filter name and @TeamA@
+-- for the filter value.
+createIpamPool_tagSpecifications :: Lens.Lens' CreateIpamPool (Prelude.Maybe [TagSpecification])
+createIpamPool_tagSpecifications = Lens.lens (\CreateIpamPool' {tagSpecifications} -> tagSpecifications) (\s@CreateIpamPool' {} a -> s {tagSpecifications = a} :: CreateIpamPool) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the scope in which you would like to create the IPAM pool.
 createIpamPool_ipamScopeId :: Lens.Lens' CreateIpamPool Prelude.Text
@@ -384,37 +385,38 @@ instance Core.AWSRequest CreateIpamPool where
 
 instance Prelude.Hashable CreateIpamPool where
   hashWithSalt _salt CreateIpamPool' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` allocationDefaultNetmaskLength
       `Prelude.hashWithSalt` allocationMaxNetmaskLength
-      `Prelude.hashWithSalt` publiclyAdvertisable
-      `Prelude.hashWithSalt` locale
-      `Prelude.hashWithSalt` sourceIpamPoolId
+      `Prelude.hashWithSalt` allocationMinNetmaskLength
+      `Prelude.hashWithSalt` allocationResourceTags
+      `Prelude.hashWithSalt` autoImport
+      `Prelude.hashWithSalt` awsService
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
-      `Prelude.hashWithSalt` allocationResourceTags
-      `Prelude.hashWithSalt` allocationMinNetmaskLength
+      `Prelude.hashWithSalt` locale
+      `Prelude.hashWithSalt` publiclyAdvertisable
+      `Prelude.hashWithSalt` sourceIpamPoolId
       `Prelude.hashWithSalt` tagSpecifications
-      `Prelude.hashWithSalt` allocationDefaultNetmaskLength
-      `Prelude.hashWithSalt` awsService
-      `Prelude.hashWithSalt` autoImport
       `Prelude.hashWithSalt` ipamScopeId
       `Prelude.hashWithSalt` addressFamily
 
 instance Prelude.NFData CreateIpamPool where
   rnf CreateIpamPool' {..} =
-    Prelude.rnf clientToken
+    Prelude.rnf allocationDefaultNetmaskLength
       `Prelude.seq` Prelude.rnf allocationMaxNetmaskLength
-      `Prelude.seq` Prelude.rnf publiclyAdvertisable
-      `Prelude.seq` Prelude.rnf locale
-      `Prelude.seq` Prelude.rnf sourceIpamPoolId
+      `Prelude.seq` Prelude.rnf allocationMinNetmaskLength
+      `Prelude.seq` Prelude.rnf allocationResourceTags
+      `Prelude.seq` Prelude.rnf autoImport
+      `Prelude.seq` Prelude.rnf awsService
+      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf allocationResourceTags
-      `Prelude.seq` Prelude.rnf allocationMinNetmaskLength
+      `Prelude.seq` Prelude.rnf locale
+      `Prelude.seq` Prelude.rnf publiclyAdvertisable
+      `Prelude.seq` Prelude.rnf sourceIpamPoolId
       `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf allocationDefaultNetmaskLength
-      `Prelude.seq` Prelude.rnf awsService
-      `Prelude.seq` Prelude.rnf autoImport
       `Prelude.seq` Prelude.rnf ipamScopeId
       `Prelude.seq` Prelude.rnf addressFamily
 
@@ -431,28 +433,28 @@ instance Data.ToQuery CreateIpamPool where
           Data.=: ("CreateIpamPool" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "ClientToken" Data.=: clientToken,
+        "AllocationDefaultNetmaskLength"
+          Data.=: allocationDefaultNetmaskLength,
         "AllocationMaxNetmaskLength"
           Data.=: allocationMaxNetmaskLength,
-        "PubliclyAdvertisable" Data.=: publiclyAdvertisable,
-        "Locale" Data.=: locale,
-        "SourceIpamPoolId" Data.=: sourceIpamPoolId,
-        "Description" Data.=: description,
-        "DryRun" Data.=: dryRun,
+        "AllocationMinNetmaskLength"
+          Data.=: allocationMinNetmaskLength,
         Data.toQuery
           ( Data.toQueryList "AllocationResourceTag"
               Prelude.<$> allocationResourceTags
           ),
-        "AllocationMinNetmaskLength"
-          Data.=: allocationMinNetmaskLength,
+        "AutoImport" Data.=: autoImport,
+        "AwsService" Data.=: awsService,
+        "ClientToken" Data.=: clientToken,
+        "Description" Data.=: description,
+        "DryRun" Data.=: dryRun,
+        "Locale" Data.=: locale,
+        "PubliclyAdvertisable" Data.=: publiclyAdvertisable,
+        "SourceIpamPoolId" Data.=: sourceIpamPoolId,
         Data.toQuery
           ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "AllocationDefaultNetmaskLength"
-          Data.=: allocationDefaultNetmaskLength,
-        "AwsService" Data.=: awsService,
-        "AutoImport" Data.=: autoImport,
         "IpamScopeId" Data.=: ipamScopeId,
         "AddressFamily" Data.=: addressFamily
       ]

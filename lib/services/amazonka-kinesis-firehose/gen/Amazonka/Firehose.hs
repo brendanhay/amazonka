@@ -15,8 +15,8 @@
 --
 -- Amazon Kinesis Data Firehose is a fully managed service that delivers
 -- real-time streaming data to destinations such as Amazon Simple Storage
--- Service (Amazon S3), Amazon Elasticsearch Service (Amazon ES), Amazon
--- Redshift, and Splunk.
+-- Service (Amazon S3), Amazon OpenSearch Service, Amazon Redshift, Splunk,
+-- and various other supportd destinations.
 module Amazonka.Firehose
   ( -- * Service Configuration
     defaultService,
@@ -24,26 +24,26 @@ module Amazonka.Firehose
     -- * Errors
     -- $errors
 
-    -- ** InvalidArgumentException
-    _InvalidArgumentException,
-
     -- ** ConcurrentModificationException
     _ConcurrentModificationException,
+
+    -- ** InvalidArgumentException
+    _InvalidArgumentException,
 
     -- ** InvalidKMSResourceException
     _InvalidKMSResourceException,
 
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- ** ResourceInUseException
     _ResourceInUseException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
 
     -- * Waiters
     -- $waiters
@@ -125,6 +125,9 @@ module Amazonka.Firehose
 
     -- * Types
 
+    -- ** AmazonOpenSearchServerlessS3BackupMode
+    AmazonOpenSearchServerlessS3BackupMode (..),
+
     -- ** AmazonopensearchserviceIndexRotationPeriod
     AmazonopensearchserviceIndexRotationPeriod (..),
 
@@ -193,6 +196,26 @@ module Amazonka.Firehose
 
     -- ** SplunkS3BackupMode
     SplunkS3BackupMode (..),
+
+    -- ** AmazonOpenSearchServerlessBufferingHints
+    AmazonOpenSearchServerlessBufferingHints (AmazonOpenSearchServerlessBufferingHints'),
+    newAmazonOpenSearchServerlessBufferingHints,
+
+    -- ** AmazonOpenSearchServerlessDestinationConfiguration
+    AmazonOpenSearchServerlessDestinationConfiguration (AmazonOpenSearchServerlessDestinationConfiguration'),
+    newAmazonOpenSearchServerlessDestinationConfiguration,
+
+    -- ** AmazonOpenSearchServerlessDestinationDescription
+    AmazonOpenSearchServerlessDestinationDescription (AmazonOpenSearchServerlessDestinationDescription'),
+    newAmazonOpenSearchServerlessDestinationDescription,
+
+    -- ** AmazonOpenSearchServerlessDestinationUpdate
+    AmazonOpenSearchServerlessDestinationUpdate (AmazonOpenSearchServerlessDestinationUpdate'),
+    newAmazonOpenSearchServerlessDestinationUpdate,
+
+    -- ** AmazonOpenSearchServerlessRetryOptions
+    AmazonOpenSearchServerlessRetryOptions (AmazonOpenSearchServerlessRetryOptions'),
+    newAmazonOpenSearchServerlessRetryOptions,
 
     -- ** AmazonopensearchserviceBufferingHints
     AmazonopensearchserviceBufferingHints (AmazonopensearchserviceBufferingHints'),

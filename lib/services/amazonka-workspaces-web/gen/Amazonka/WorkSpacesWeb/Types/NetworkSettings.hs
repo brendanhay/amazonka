@@ -35,12 +35,12 @@ data NetworkSettings = NetworkSettings'
     -- | One or more security groups used to control access from streaming
     -- instances to your VPC.
     securityGroupIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The VPC that streaming instances will connect to.
-    vpcId :: Prelude.Maybe Prelude.Text,
     -- | The subnets in which network interfaces are created to connect streaming
     -- instances to your VPC. At least two of these subnets must be in
     -- different availability zones.
     subnetIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The VPC that streaming instances will connect to.
+    vpcId :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the network settings.
     networkSettingsArn :: Prelude.Text
   }
@@ -59,11 +59,11 @@ data NetworkSettings = NetworkSettings'
 -- 'securityGroupIds', 'networkSettings_securityGroupIds' - One or more security groups used to control access from streaming
 -- instances to your VPC.
 --
--- 'vpcId', 'networkSettings_vpcId' - The VPC that streaming instances will connect to.
---
 -- 'subnetIds', 'networkSettings_subnetIds' - The subnets in which network interfaces are created to connect streaming
 -- instances to your VPC. At least two of these subnets must be in
 -- different availability zones.
+--
+-- 'vpcId', 'networkSettings_vpcId' - The VPC that streaming instances will connect to.
 --
 -- 'networkSettingsArn', 'networkSettings_networkSettingsArn' - The ARN of the network settings.
 newNetworkSettings ::
@@ -75,8 +75,8 @@ newNetworkSettings pNetworkSettingsArn_ =
     { associatedPortalArns =
         Prelude.Nothing,
       securityGroupIds = Prelude.Nothing,
-      vpcId = Prelude.Nothing,
       subnetIds = Prelude.Nothing,
+      vpcId = Prelude.Nothing,
       networkSettingsArn = pNetworkSettingsArn_
     }
 
@@ -89,15 +89,15 @@ networkSettings_associatedPortalArns = Lens.lens (\NetworkSettings' {associatedP
 networkSettings_securityGroupIds :: Lens.Lens' NetworkSettings (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 networkSettings_securityGroupIds = Lens.lens (\NetworkSettings' {securityGroupIds} -> securityGroupIds) (\s@NetworkSettings' {} a -> s {securityGroupIds = a} :: NetworkSettings) Prelude.. Lens.mapping Lens.coerced
 
--- | The VPC that streaming instances will connect to.
-networkSettings_vpcId :: Lens.Lens' NetworkSettings (Prelude.Maybe Prelude.Text)
-networkSettings_vpcId = Lens.lens (\NetworkSettings' {vpcId} -> vpcId) (\s@NetworkSettings' {} a -> s {vpcId = a} :: NetworkSettings)
-
 -- | The subnets in which network interfaces are created to connect streaming
 -- instances to your VPC. At least two of these subnets must be in
 -- different availability zones.
 networkSettings_subnetIds :: Lens.Lens' NetworkSettings (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 networkSettings_subnetIds = Lens.lens (\NetworkSettings' {subnetIds} -> subnetIds) (\s@NetworkSettings' {} a -> s {subnetIds = a} :: NetworkSettings) Prelude.. Lens.mapping Lens.coerced
+
+-- | The VPC that streaming instances will connect to.
+networkSettings_vpcId :: Lens.Lens' NetworkSettings (Prelude.Maybe Prelude.Text)
+networkSettings_vpcId = Lens.lens (\NetworkSettings' {vpcId} -> vpcId) (\s@NetworkSettings' {} a -> s {vpcId = a} :: NetworkSettings)
 
 -- | The ARN of the network settings.
 networkSettings_networkSettingsArn :: Lens.Lens' NetworkSettings Prelude.Text
@@ -113,8 +113,8 @@ instance Data.FromJSON NetworkSettings where
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "securityGroupIds")
-            Prelude.<*> (x Data..:? "vpcId")
             Prelude.<*> (x Data..:? "subnetIds")
+            Prelude.<*> (x Data..:? "vpcId")
             Prelude.<*> (x Data..: "networkSettingsArn")
       )
 
@@ -122,14 +122,14 @@ instance Prelude.Hashable NetworkSettings where
   hashWithSalt _salt NetworkSettings' {..} =
     _salt `Prelude.hashWithSalt` associatedPortalArns
       `Prelude.hashWithSalt` securityGroupIds
-      `Prelude.hashWithSalt` vpcId
       `Prelude.hashWithSalt` subnetIds
+      `Prelude.hashWithSalt` vpcId
       `Prelude.hashWithSalt` networkSettingsArn
 
 instance Prelude.NFData NetworkSettings where
   rnf NetworkSettings' {..} =
     Prelude.rnf associatedPortalArns
       `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf vpcId
       `Prelude.seq` Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf vpcId
       `Prelude.seq` Prelude.rnf networkSettingsArn

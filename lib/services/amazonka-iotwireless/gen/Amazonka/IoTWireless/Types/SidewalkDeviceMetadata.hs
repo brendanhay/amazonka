@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSidewalkDeviceMetadata' smart constructor.
 data SidewalkDeviceMetadata = SidewalkDeviceMetadata'
-  { -- | Device state defines the device status of sidewalk device.
-    deviceState :: Prelude.Maybe DeviceState,
-    -- | Sidewalk device battery level.
+  { -- | Sidewalk device battery level.
     batteryLevel :: Prelude.Maybe BatteryLevel,
+    -- | Device state defines the device status of sidewalk device.
+    deviceState :: Prelude.Maybe DeviceState,
     -- | Sidewalk device status notification.
     event :: Prelude.Maybe Event,
     -- | The RSSI value.
@@ -50,9 +50,9 @@ data SidewalkDeviceMetadata = SidewalkDeviceMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deviceState', 'sidewalkDeviceMetadata_deviceState' - Device state defines the device status of sidewalk device.
---
 -- 'batteryLevel', 'sidewalkDeviceMetadata_batteryLevel' - Sidewalk device battery level.
+--
+-- 'deviceState', 'sidewalkDeviceMetadata_deviceState' - Device state defines the device status of sidewalk device.
 --
 -- 'event', 'sidewalkDeviceMetadata_event' - Sidewalk device status notification.
 --
@@ -61,20 +61,20 @@ newSidewalkDeviceMetadata ::
   SidewalkDeviceMetadata
 newSidewalkDeviceMetadata =
   SidewalkDeviceMetadata'
-    { deviceState =
+    { batteryLevel =
         Prelude.Nothing,
-      batteryLevel = Prelude.Nothing,
+      deviceState = Prelude.Nothing,
       event = Prelude.Nothing,
       rssi = Prelude.Nothing
     }
 
--- | Device state defines the device status of sidewalk device.
-sidewalkDeviceMetadata_deviceState :: Lens.Lens' SidewalkDeviceMetadata (Prelude.Maybe DeviceState)
-sidewalkDeviceMetadata_deviceState = Lens.lens (\SidewalkDeviceMetadata' {deviceState} -> deviceState) (\s@SidewalkDeviceMetadata' {} a -> s {deviceState = a} :: SidewalkDeviceMetadata)
-
 -- | Sidewalk device battery level.
 sidewalkDeviceMetadata_batteryLevel :: Lens.Lens' SidewalkDeviceMetadata (Prelude.Maybe BatteryLevel)
 sidewalkDeviceMetadata_batteryLevel = Lens.lens (\SidewalkDeviceMetadata' {batteryLevel} -> batteryLevel) (\s@SidewalkDeviceMetadata' {} a -> s {batteryLevel = a} :: SidewalkDeviceMetadata)
+
+-- | Device state defines the device status of sidewalk device.
+sidewalkDeviceMetadata_deviceState :: Lens.Lens' SidewalkDeviceMetadata (Prelude.Maybe DeviceState)
+sidewalkDeviceMetadata_deviceState = Lens.lens (\SidewalkDeviceMetadata' {deviceState} -> deviceState) (\s@SidewalkDeviceMetadata' {} a -> s {deviceState = a} :: SidewalkDeviceMetadata)
 
 -- | Sidewalk device status notification.
 sidewalkDeviceMetadata_event :: Lens.Lens' SidewalkDeviceMetadata (Prelude.Maybe Event)
@@ -90,22 +90,22 @@ instance Data.FromJSON SidewalkDeviceMetadata where
       "SidewalkDeviceMetadata"
       ( \x ->
           SidewalkDeviceMetadata'
-            Prelude.<$> (x Data..:? "DeviceState")
-            Prelude.<*> (x Data..:? "BatteryLevel")
+            Prelude.<$> (x Data..:? "BatteryLevel")
+            Prelude.<*> (x Data..:? "DeviceState")
             Prelude.<*> (x Data..:? "Event")
             Prelude.<*> (x Data..:? "Rssi")
       )
 
 instance Prelude.Hashable SidewalkDeviceMetadata where
   hashWithSalt _salt SidewalkDeviceMetadata' {..} =
-    _salt `Prelude.hashWithSalt` deviceState
-      `Prelude.hashWithSalt` batteryLevel
+    _salt `Prelude.hashWithSalt` batteryLevel
+      `Prelude.hashWithSalt` deviceState
       `Prelude.hashWithSalt` event
       `Prelude.hashWithSalt` rssi
 
 instance Prelude.NFData SidewalkDeviceMetadata where
   rnf SidewalkDeviceMetadata' {..} =
-    Prelude.rnf deviceState
-      `Prelude.seq` Prelude.rnf batteryLevel
+    Prelude.rnf batteryLevel
+      `Prelude.seq` Prelude.rnf deviceState
       `Prelude.seq` Prelude.rnf event
       `Prelude.seq` Prelude.rnf rssi

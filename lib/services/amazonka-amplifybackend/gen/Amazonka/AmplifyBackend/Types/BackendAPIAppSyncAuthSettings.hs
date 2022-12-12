@@ -29,28 +29,28 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBackendAPIAppSyncAuthSettings' smart constructor.
 data BackendAPIAppSyncAuthSettings = BackendAPIAppSyncAuthSettings'
-  { -- | The API key expiration time for API_KEY, if it was used as an
+  { -- | The Amazon Cognito user pool ID, if Amazon Cognito was used as an
+    -- authentication setting to access your data models.
+    cognitoUserPoolId :: Prelude.Maybe Prelude.Text,
+    -- | The API key description for API_KEY, if it was used as an authentication
+    -- mechanism to access your data models.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The API key expiration time for API_KEY, if it was used as an
     -- authentication mechanism to access your data models.
     expirationTime :: Prelude.Maybe Prelude.Double,
     -- | The expiry time for the OpenID authentication mechanism.
     openIDAuthTTL :: Prelude.Maybe Prelude.Text,
-    -- | The API key description for API_KEY, if it was used as an authentication
-    -- mechanism to access your data models.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The openID issuer URL, if openID was used as an authentication setting
-    -- to access your data models.
-    openIDIssueURL :: Prelude.Maybe Prelude.Text,
     -- | The clientID for openID, if openID was used as an authentication setting
     -- to access your data models.
     openIDClientId :: Prelude.Maybe Prelude.Text,
     -- | The expiry time for the OpenID authentication mechanism.
     openIDIatTTL :: Prelude.Maybe Prelude.Text,
+    -- | The openID issuer URL, if openID was used as an authentication setting
+    -- to access your data models.
+    openIDIssueURL :: Prelude.Maybe Prelude.Text,
     -- | The OpenID provider name, if OpenID was used as an authentication
     -- mechanism to access your data models.
-    openIDProviderName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Cognito user pool ID, if Amazon Cognito was used as an
-    -- authentication setting to access your data models.
-    cognitoUserPoolId :: Prelude.Maybe Prelude.Text
+    openIDProviderName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,41 +62,51 @@ data BackendAPIAppSyncAuthSettings = BackendAPIAppSyncAuthSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expirationTime', 'backendAPIAppSyncAuthSettings_expirationTime' - The API key expiration time for API_KEY, if it was used as an
--- authentication mechanism to access your data models.
---
--- 'openIDAuthTTL', 'backendAPIAppSyncAuthSettings_openIDAuthTTL' - The expiry time for the OpenID authentication mechanism.
+-- 'cognitoUserPoolId', 'backendAPIAppSyncAuthSettings_cognitoUserPoolId' - The Amazon Cognito user pool ID, if Amazon Cognito was used as an
+-- authentication setting to access your data models.
 --
 -- 'description', 'backendAPIAppSyncAuthSettings_description' - The API key description for API_KEY, if it was used as an authentication
 -- mechanism to access your data models.
 --
--- 'openIDIssueURL', 'backendAPIAppSyncAuthSettings_openIDIssueURL' - The openID issuer URL, if openID was used as an authentication setting
--- to access your data models.
+-- 'expirationTime', 'backendAPIAppSyncAuthSettings_expirationTime' - The API key expiration time for API_KEY, if it was used as an
+-- authentication mechanism to access your data models.
+--
+-- 'openIDAuthTTL', 'backendAPIAppSyncAuthSettings_openIDAuthTTL' - The expiry time for the OpenID authentication mechanism.
 --
 -- 'openIDClientId', 'backendAPIAppSyncAuthSettings_openIDClientId' - The clientID for openID, if openID was used as an authentication setting
 -- to access your data models.
 --
 -- 'openIDIatTTL', 'backendAPIAppSyncAuthSettings_openIDIatTTL' - The expiry time for the OpenID authentication mechanism.
 --
+-- 'openIDIssueURL', 'backendAPIAppSyncAuthSettings_openIDIssueURL' - The openID issuer URL, if openID was used as an authentication setting
+-- to access your data models.
+--
 -- 'openIDProviderName', 'backendAPIAppSyncAuthSettings_openIDProviderName' - The OpenID provider name, if OpenID was used as an authentication
 -- mechanism to access your data models.
---
--- 'cognitoUserPoolId', 'backendAPIAppSyncAuthSettings_cognitoUserPoolId' - The Amazon Cognito user pool ID, if Amazon Cognito was used as an
--- authentication setting to access your data models.
 newBackendAPIAppSyncAuthSettings ::
   BackendAPIAppSyncAuthSettings
 newBackendAPIAppSyncAuthSettings =
   BackendAPIAppSyncAuthSettings'
-    { expirationTime =
+    { cognitoUserPoolId =
         Prelude.Nothing,
-      openIDAuthTTL = Prelude.Nothing,
       description = Prelude.Nothing,
-      openIDIssueURL = Prelude.Nothing,
+      expirationTime = Prelude.Nothing,
+      openIDAuthTTL = Prelude.Nothing,
       openIDClientId = Prelude.Nothing,
       openIDIatTTL = Prelude.Nothing,
-      openIDProviderName = Prelude.Nothing,
-      cognitoUserPoolId = Prelude.Nothing
+      openIDIssueURL = Prelude.Nothing,
+      openIDProviderName = Prelude.Nothing
     }
+
+-- | The Amazon Cognito user pool ID, if Amazon Cognito was used as an
+-- authentication setting to access your data models.
+backendAPIAppSyncAuthSettings_cognitoUserPoolId :: Lens.Lens' BackendAPIAppSyncAuthSettings (Prelude.Maybe Prelude.Text)
+backendAPIAppSyncAuthSettings_cognitoUserPoolId = Lens.lens (\BackendAPIAppSyncAuthSettings' {cognitoUserPoolId} -> cognitoUserPoolId) (\s@BackendAPIAppSyncAuthSettings' {} a -> s {cognitoUserPoolId = a} :: BackendAPIAppSyncAuthSettings)
+
+-- | The API key description for API_KEY, if it was used as an authentication
+-- mechanism to access your data models.
+backendAPIAppSyncAuthSettings_description :: Lens.Lens' BackendAPIAppSyncAuthSettings (Prelude.Maybe Prelude.Text)
+backendAPIAppSyncAuthSettings_description = Lens.lens (\BackendAPIAppSyncAuthSettings' {description} -> description) (\s@BackendAPIAppSyncAuthSettings' {} a -> s {description = a} :: BackendAPIAppSyncAuthSettings)
 
 -- | The API key expiration time for API_KEY, if it was used as an
 -- authentication mechanism to access your data models.
@@ -107,16 +117,6 @@ backendAPIAppSyncAuthSettings_expirationTime = Lens.lens (\BackendAPIAppSyncAuth
 backendAPIAppSyncAuthSettings_openIDAuthTTL :: Lens.Lens' BackendAPIAppSyncAuthSettings (Prelude.Maybe Prelude.Text)
 backendAPIAppSyncAuthSettings_openIDAuthTTL = Lens.lens (\BackendAPIAppSyncAuthSettings' {openIDAuthTTL} -> openIDAuthTTL) (\s@BackendAPIAppSyncAuthSettings' {} a -> s {openIDAuthTTL = a} :: BackendAPIAppSyncAuthSettings)
 
--- | The API key description for API_KEY, if it was used as an authentication
--- mechanism to access your data models.
-backendAPIAppSyncAuthSettings_description :: Lens.Lens' BackendAPIAppSyncAuthSettings (Prelude.Maybe Prelude.Text)
-backendAPIAppSyncAuthSettings_description = Lens.lens (\BackendAPIAppSyncAuthSettings' {description} -> description) (\s@BackendAPIAppSyncAuthSettings' {} a -> s {description = a} :: BackendAPIAppSyncAuthSettings)
-
--- | The openID issuer URL, if openID was used as an authentication setting
--- to access your data models.
-backendAPIAppSyncAuthSettings_openIDIssueURL :: Lens.Lens' BackendAPIAppSyncAuthSettings (Prelude.Maybe Prelude.Text)
-backendAPIAppSyncAuthSettings_openIDIssueURL = Lens.lens (\BackendAPIAppSyncAuthSettings' {openIDIssueURL} -> openIDIssueURL) (\s@BackendAPIAppSyncAuthSettings' {} a -> s {openIDIssueURL = a} :: BackendAPIAppSyncAuthSettings)
-
 -- | The clientID for openID, if openID was used as an authentication setting
 -- to access your data models.
 backendAPIAppSyncAuthSettings_openIDClientId :: Lens.Lens' BackendAPIAppSyncAuthSettings (Prelude.Maybe Prelude.Text)
@@ -126,15 +126,15 @@ backendAPIAppSyncAuthSettings_openIDClientId = Lens.lens (\BackendAPIAppSyncAuth
 backendAPIAppSyncAuthSettings_openIDIatTTL :: Lens.Lens' BackendAPIAppSyncAuthSettings (Prelude.Maybe Prelude.Text)
 backendAPIAppSyncAuthSettings_openIDIatTTL = Lens.lens (\BackendAPIAppSyncAuthSettings' {openIDIatTTL} -> openIDIatTTL) (\s@BackendAPIAppSyncAuthSettings' {} a -> s {openIDIatTTL = a} :: BackendAPIAppSyncAuthSettings)
 
+-- | The openID issuer URL, if openID was used as an authentication setting
+-- to access your data models.
+backendAPIAppSyncAuthSettings_openIDIssueURL :: Lens.Lens' BackendAPIAppSyncAuthSettings (Prelude.Maybe Prelude.Text)
+backendAPIAppSyncAuthSettings_openIDIssueURL = Lens.lens (\BackendAPIAppSyncAuthSettings' {openIDIssueURL} -> openIDIssueURL) (\s@BackendAPIAppSyncAuthSettings' {} a -> s {openIDIssueURL = a} :: BackendAPIAppSyncAuthSettings)
+
 -- | The OpenID provider name, if OpenID was used as an authentication
 -- mechanism to access your data models.
 backendAPIAppSyncAuthSettings_openIDProviderName :: Lens.Lens' BackendAPIAppSyncAuthSettings (Prelude.Maybe Prelude.Text)
 backendAPIAppSyncAuthSettings_openIDProviderName = Lens.lens (\BackendAPIAppSyncAuthSettings' {openIDProviderName} -> openIDProviderName) (\s@BackendAPIAppSyncAuthSettings' {} a -> s {openIDProviderName = a} :: BackendAPIAppSyncAuthSettings)
-
--- | The Amazon Cognito user pool ID, if Amazon Cognito was used as an
--- authentication setting to access your data models.
-backendAPIAppSyncAuthSettings_cognitoUserPoolId :: Lens.Lens' BackendAPIAppSyncAuthSettings (Prelude.Maybe Prelude.Text)
-backendAPIAppSyncAuthSettings_cognitoUserPoolId = Lens.lens (\BackendAPIAppSyncAuthSettings' {cognitoUserPoolId} -> cognitoUserPoolId) (\s@BackendAPIAppSyncAuthSettings' {} a -> s {cognitoUserPoolId = a} :: BackendAPIAppSyncAuthSettings)
 
 instance Data.FromJSON BackendAPIAppSyncAuthSettings where
   parseJSON =
@@ -142,14 +142,14 @@ instance Data.FromJSON BackendAPIAppSyncAuthSettings where
       "BackendAPIAppSyncAuthSettings"
       ( \x ->
           BackendAPIAppSyncAuthSettings'
-            Prelude.<$> (x Data..:? "expirationTime")
-            Prelude.<*> (x Data..:? "openIDAuthTTL")
+            Prelude.<$> (x Data..:? "cognitoUserPoolId")
             Prelude.<*> (x Data..:? "description")
-            Prelude.<*> (x Data..:? "openIDIssueURL")
+            Prelude.<*> (x Data..:? "expirationTime")
+            Prelude.<*> (x Data..:? "openIDAuthTTL")
             Prelude.<*> (x Data..:? "openIDClientId")
             Prelude.<*> (x Data..:? "openIDIatTTL")
+            Prelude.<*> (x Data..:? "openIDIssueURL")
             Prelude.<*> (x Data..:? "openIDProviderName")
-            Prelude.<*> (x Data..:? "cognitoUserPoolId")
       )
 
 instance
@@ -157,42 +157,42 @@ instance
     BackendAPIAppSyncAuthSettings
   where
   hashWithSalt _salt BackendAPIAppSyncAuthSettings' {..} =
-    _salt `Prelude.hashWithSalt` expirationTime
-      `Prelude.hashWithSalt` openIDAuthTTL
+    _salt `Prelude.hashWithSalt` cognitoUserPoolId
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` openIDIssueURL
+      `Prelude.hashWithSalt` expirationTime
+      `Prelude.hashWithSalt` openIDAuthTTL
       `Prelude.hashWithSalt` openIDClientId
       `Prelude.hashWithSalt` openIDIatTTL
+      `Prelude.hashWithSalt` openIDIssueURL
       `Prelude.hashWithSalt` openIDProviderName
-      `Prelude.hashWithSalt` cognitoUserPoolId
 
 instance Prelude.NFData BackendAPIAppSyncAuthSettings where
   rnf BackendAPIAppSyncAuthSettings' {..} =
-    Prelude.rnf expirationTime
-      `Prelude.seq` Prelude.rnf openIDAuthTTL
+    Prelude.rnf cognitoUserPoolId
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf openIDIssueURL
+      `Prelude.seq` Prelude.rnf expirationTime
+      `Prelude.seq` Prelude.rnf openIDAuthTTL
       `Prelude.seq` Prelude.rnf openIDClientId
       `Prelude.seq` Prelude.rnf openIDIatTTL
+      `Prelude.seq` Prelude.rnf openIDIssueURL
       `Prelude.seq` Prelude.rnf openIDProviderName
-      `Prelude.seq` Prelude.rnf cognitoUserPoolId
 
 instance Data.ToJSON BackendAPIAppSyncAuthSettings where
   toJSON BackendAPIAppSyncAuthSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("expirationTime" Data..=)
+          [ ("cognitoUserPoolId" Data..=)
+              Prelude.<$> cognitoUserPoolId,
+            ("description" Data..=) Prelude.<$> description,
+            ("expirationTime" Data..=)
               Prelude.<$> expirationTime,
             ("openIDAuthTTL" Data..=) Prelude.<$> openIDAuthTTL,
-            ("description" Data..=) Prelude.<$> description,
-            ("openIDIssueURL" Data..=)
-              Prelude.<$> openIDIssueURL,
             ("openIDClientId" Data..=)
               Prelude.<$> openIDClientId,
             ("openIDIatTTL" Data..=) Prelude.<$> openIDIatTTL,
+            ("openIDIssueURL" Data..=)
+              Prelude.<$> openIDIssueURL,
             ("openIDProviderName" Data..=)
-              Prelude.<$> openIDProviderName,
-            ("cognitoUserPoolId" Data..=)
-              Prelude.<$> cognitoUserPoolId
+              Prelude.<$> openIDProviderName
           ]
       )

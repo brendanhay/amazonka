@@ -29,11 +29,11 @@ module Amazonka.EC2.DescribeClientVpnEndpoints
     newDescribeClientVpnEndpoints,
 
     -- * Request Lenses
-    describeClientVpnEndpoints_nextToken,
-    describeClientVpnEndpoints_filters,
-    describeClientVpnEndpoints_dryRun,
-    describeClientVpnEndpoints_maxResults,
     describeClientVpnEndpoints_clientVpnEndpointIds,
+    describeClientVpnEndpoints_dryRun,
+    describeClientVpnEndpoints_filters,
+    describeClientVpnEndpoints_maxResults,
+    describeClientVpnEndpoints_nextToken,
 
     -- * Destructuring the Response
     DescribeClientVpnEndpointsResponse (..),
@@ -56,25 +56,25 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeClientVpnEndpoints' smart constructor.
 data DescribeClientVpnEndpoints = DescribeClientVpnEndpoints'
-  { -- | The token to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The ID of the Client VPN endpoint.
+    clientVpnEndpointIds :: Prelude.Maybe [Prelude.Text],
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | One or more filters. Filter names and values are case-sensitive.
     --
     -- -   @endpoint-id@ - The ID of the Client VPN endpoint.
     --
     -- -   @transport-protocol@ - The transport protocol (@tcp@ | @udp@).
     filters :: Prelude.Maybe [Filter],
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return for the request in a single
     -- page. The remaining results can be seen by sending another request with
     -- the nextToken value.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The ID of the Client VPN endpoint.
-    clientVpnEndpointIds :: Prelude.Maybe [Prelude.Text]
+    -- | The token to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -86,7 +86,12 @@ data DescribeClientVpnEndpoints = DescribeClientVpnEndpoints'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeClientVpnEndpoints_nextToken' - The token to retrieve the next page of results.
+-- 'clientVpnEndpointIds', 'describeClientVpnEndpoints_clientVpnEndpointIds' - The ID of the Client VPN endpoint.
+--
+-- 'dryRun', 'describeClientVpnEndpoints_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'filters', 'describeClientVpnEndpoints_filters' - One or more filters. Filter names and values are case-sensitive.
 --
@@ -94,31 +99,33 @@ data DescribeClientVpnEndpoints = DescribeClientVpnEndpoints'
 --
 -- -   @transport-protocol@ - The transport protocol (@tcp@ | @udp@).
 --
--- 'dryRun', 'describeClientVpnEndpoints_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'maxResults', 'describeClientVpnEndpoints_maxResults' - The maximum number of results to return for the request in a single
 -- page. The remaining results can be seen by sending another request with
 -- the nextToken value.
 --
--- 'clientVpnEndpointIds', 'describeClientVpnEndpoints_clientVpnEndpointIds' - The ID of the Client VPN endpoint.
+-- 'nextToken', 'describeClientVpnEndpoints_nextToken' - The token to retrieve the next page of results.
 newDescribeClientVpnEndpoints ::
   DescribeClientVpnEndpoints
 newDescribeClientVpnEndpoints =
   DescribeClientVpnEndpoints'
-    { nextToken =
+    { clientVpnEndpointIds =
         Prelude.Nothing,
-      filters = Prelude.Nothing,
       dryRun = Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      clientVpnEndpointIds = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
 
--- | The token to retrieve the next page of results.
-describeClientVpnEndpoints_nextToken :: Lens.Lens' DescribeClientVpnEndpoints (Prelude.Maybe Prelude.Text)
-describeClientVpnEndpoints_nextToken = Lens.lens (\DescribeClientVpnEndpoints' {nextToken} -> nextToken) (\s@DescribeClientVpnEndpoints' {} a -> s {nextToken = a} :: DescribeClientVpnEndpoints)
+-- | The ID of the Client VPN endpoint.
+describeClientVpnEndpoints_clientVpnEndpointIds :: Lens.Lens' DescribeClientVpnEndpoints (Prelude.Maybe [Prelude.Text])
+describeClientVpnEndpoints_clientVpnEndpointIds = Lens.lens (\DescribeClientVpnEndpoints' {clientVpnEndpointIds} -> clientVpnEndpointIds) (\s@DescribeClientVpnEndpoints' {} a -> s {clientVpnEndpointIds = a} :: DescribeClientVpnEndpoints) Prelude.. Lens.mapping Lens.coerced
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeClientVpnEndpoints_dryRun :: Lens.Lens' DescribeClientVpnEndpoints (Prelude.Maybe Prelude.Bool)
+describeClientVpnEndpoints_dryRun = Lens.lens (\DescribeClientVpnEndpoints' {dryRun} -> dryRun) (\s@DescribeClientVpnEndpoints' {} a -> s {dryRun = a} :: DescribeClientVpnEndpoints)
 
 -- | One or more filters. Filter names and values are case-sensitive.
 --
@@ -128,22 +135,15 @@ describeClientVpnEndpoints_nextToken = Lens.lens (\DescribeClientVpnEndpoints' {
 describeClientVpnEndpoints_filters :: Lens.Lens' DescribeClientVpnEndpoints (Prelude.Maybe [Filter])
 describeClientVpnEndpoints_filters = Lens.lens (\DescribeClientVpnEndpoints' {filters} -> filters) (\s@DescribeClientVpnEndpoints' {} a -> s {filters = a} :: DescribeClientVpnEndpoints) Prelude.. Lens.mapping Lens.coerced
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeClientVpnEndpoints_dryRun :: Lens.Lens' DescribeClientVpnEndpoints (Prelude.Maybe Prelude.Bool)
-describeClientVpnEndpoints_dryRun = Lens.lens (\DescribeClientVpnEndpoints' {dryRun} -> dryRun) (\s@DescribeClientVpnEndpoints' {} a -> s {dryRun = a} :: DescribeClientVpnEndpoints)
-
 -- | The maximum number of results to return for the request in a single
 -- page. The remaining results can be seen by sending another request with
 -- the nextToken value.
 describeClientVpnEndpoints_maxResults :: Lens.Lens' DescribeClientVpnEndpoints (Prelude.Maybe Prelude.Natural)
 describeClientVpnEndpoints_maxResults = Lens.lens (\DescribeClientVpnEndpoints' {maxResults} -> maxResults) (\s@DescribeClientVpnEndpoints' {} a -> s {maxResults = a} :: DescribeClientVpnEndpoints)
 
--- | The ID of the Client VPN endpoint.
-describeClientVpnEndpoints_clientVpnEndpointIds :: Lens.Lens' DescribeClientVpnEndpoints (Prelude.Maybe [Prelude.Text])
-describeClientVpnEndpoints_clientVpnEndpointIds = Lens.lens (\DescribeClientVpnEndpoints' {clientVpnEndpointIds} -> clientVpnEndpointIds) (\s@DescribeClientVpnEndpoints' {} a -> s {clientVpnEndpointIds = a} :: DescribeClientVpnEndpoints) Prelude.. Lens.mapping Lens.coerced
+-- | The token to retrieve the next page of results.
+describeClientVpnEndpoints_nextToken :: Lens.Lens' DescribeClientVpnEndpoints (Prelude.Maybe Prelude.Text)
+describeClientVpnEndpoints_nextToken = Lens.lens (\DescribeClientVpnEndpoints' {nextToken} -> nextToken) (\s@DescribeClientVpnEndpoints' {} a -> s {nextToken = a} :: DescribeClientVpnEndpoints)
 
 instance Core.AWSPager DescribeClientVpnEndpoints where
   page rq rs
@@ -187,19 +187,19 @@ instance Core.AWSRequest DescribeClientVpnEndpoints where
 
 instance Prelude.Hashable DescribeClientVpnEndpoints where
   hashWithSalt _salt DescribeClientVpnEndpoints' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` clientVpnEndpointIds
       `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` clientVpnEndpointIds
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeClientVpnEndpoints where
   rnf DescribeClientVpnEndpoints' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf clientVpnEndpointIds
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf clientVpnEndpointIds
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeClientVpnEndpoints where
   toHeaders = Prelude.const Prelude.mempty
@@ -214,15 +214,15 @@ instance Data.ToQuery DescribeClientVpnEndpoints where
           Data.=: ("DescribeClientVpnEndpoints" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
-        Data.toQuery
-          (Data.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Data.=: dryRun,
-        "MaxResults" Data.=: maxResults,
         Data.toQuery
           ( Data.toQueryList "ClientVpnEndpointId"
               Prelude.<$> clientVpnEndpointIds
-          )
+          ),
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newDescribeClientVpnEndpointsResponse' smart constructor.

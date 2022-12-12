@@ -38,12 +38,12 @@ data Property = Property'
     -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html Mapping industrial data streams to asset properties>
     -- in the /IoT SiteWise User Guide/.
     alias :: Prelude.Maybe Prelude.Text,
-    -- | The property type (see @PropertyType@). A property contains one type.
-    type' :: Prelude.Maybe PropertyType,
     -- | The asset property\'s notification topic and state. For more
     -- information, see
     -- <https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html UpdateAssetProperty>.
     notification :: Prelude.Maybe PropertyNotification,
+    -- | The property type (see @PropertyType@). A property contains one type.
+    type' :: Prelude.Maybe PropertyType,
     -- | The unit (such as @Newtons@ or @RPM@) of the asset property.
     unit :: Prelude.Maybe Prelude.Text,
     -- | The ID of the asset property.
@@ -70,11 +70,11 @@ data Property = Property'
 -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html Mapping industrial data streams to asset properties>
 -- in the /IoT SiteWise User Guide/.
 --
--- 'type'', 'property_type' - The property type (see @PropertyType@). A property contains one type.
---
 -- 'notification', 'property_notification' - The asset property\'s notification topic and state. For more
 -- information, see
 -- <https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html UpdateAssetProperty>.
+--
+-- 'type'', 'property_type' - The property type (see @PropertyType@). A property contains one type.
 --
 -- 'unit', 'property_unit' - The unit (such as @Newtons@ or @RPM@) of the asset property.
 --
@@ -94,8 +94,8 @@ newProperty ::
 newProperty pId_ pName_ pDataType_ =
   Property'
     { alias = Prelude.Nothing,
-      type' = Prelude.Nothing,
       notification = Prelude.Nothing,
+      type' = Prelude.Nothing,
       unit = Prelude.Nothing,
       id = pId_,
       name = pName_,
@@ -111,15 +111,15 @@ newProperty pId_ pName_ pDataType_ =
 property_alias :: Lens.Lens' Property (Prelude.Maybe Prelude.Text)
 property_alias = Lens.lens (\Property' {alias} -> alias) (\s@Property' {} a -> s {alias = a} :: Property)
 
--- | The property type (see @PropertyType@). A property contains one type.
-property_type :: Lens.Lens' Property (Prelude.Maybe PropertyType)
-property_type = Lens.lens (\Property' {type'} -> type') (\s@Property' {} a -> s {type' = a} :: Property)
-
 -- | The asset property\'s notification topic and state. For more
 -- information, see
 -- <https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html UpdateAssetProperty>.
 property_notification :: Lens.Lens' Property (Prelude.Maybe PropertyNotification)
 property_notification = Lens.lens (\Property' {notification} -> notification) (\s@Property' {} a -> s {notification = a} :: Property)
+
+-- | The property type (see @PropertyType@). A property contains one type.
+property_type :: Lens.Lens' Property (Prelude.Maybe PropertyType)
+property_type = Lens.lens (\Property' {type'} -> type') (\s@Property' {} a -> s {type' = a} :: Property)
 
 -- | The unit (such as @Newtons@ or @RPM@) of the asset property.
 property_unit :: Lens.Lens' Property (Prelude.Maybe Prelude.Text)
@@ -144,8 +144,8 @@ instance Data.FromJSON Property where
       ( \x ->
           Property'
             Prelude.<$> (x Data..:? "alias")
-            Prelude.<*> (x Data..:? "type")
             Prelude.<*> (x Data..:? "notification")
+            Prelude.<*> (x Data..:? "type")
             Prelude.<*> (x Data..:? "unit")
             Prelude.<*> (x Data..: "id")
             Prelude.<*> (x Data..: "name")
@@ -155,8 +155,8 @@ instance Data.FromJSON Property where
 instance Prelude.Hashable Property where
   hashWithSalt _salt Property' {..} =
     _salt `Prelude.hashWithSalt` alias
-      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` notification
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` unit
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
@@ -165,8 +165,8 @@ instance Prelude.Hashable Property where
 instance Prelude.NFData Property where
   rnf Property' {..} =
     Prelude.rnf alias
-      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf notification
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf unit
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf name

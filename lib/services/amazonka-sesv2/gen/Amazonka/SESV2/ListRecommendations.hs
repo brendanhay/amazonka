@@ -30,8 +30,8 @@ module Amazonka.SESV2.ListRecommendations
     newListRecommendations,
 
     -- * Request Lenses
-    listRecommendations_nextToken,
     listRecommendations_filter,
+    listRecommendations_nextToken,
     listRecommendations_pageSize,
 
     -- * Destructuring the Response
@@ -58,13 +58,13 @@ import Amazonka.SESV2.Types
 --
 -- /See:/ 'newListRecommendations' smart constructor.
 data ListRecommendations = ListRecommendations'
-  { -- | A token returned from a previous call to @ListRecommendations@ to
-    -- indicate the position in the list of recommendations.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters applied when retrieving recommendations. Can eiter be an
+  { -- | Filters applied when retrieving recommendations. Can eiter be an
     -- individual filter, or combinations of @STATUS@ and @IMPACT@ or @STATUS@
     -- and @TYPE@
     filter' :: Prelude.Maybe (Prelude.HashMap ListRecommendationsFilterKey Prelude.Text),
+    -- | A token returned from a previous call to @ListRecommendations@ to
+    -- indicate the position in the list of recommendations.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The number of results to show in a single call to @ListRecommendations@.
     -- If the number of results is larger than the number you specified in this
     -- parameter, then the response includes a @NextToken@ element, which you
@@ -83,12 +83,12 @@ data ListRecommendations = ListRecommendations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listRecommendations_nextToken' - A token returned from a previous call to @ListRecommendations@ to
--- indicate the position in the list of recommendations.
---
 -- 'filter'', 'listRecommendations_filter' - Filters applied when retrieving recommendations. Can eiter be an
 -- individual filter, or combinations of @STATUS@ and @IMPACT@ or @STATUS@
 -- and @TYPE@
+--
+-- 'nextToken', 'listRecommendations_nextToken' - A token returned from a previous call to @ListRecommendations@ to
+-- indicate the position in the list of recommendations.
 --
 -- 'pageSize', 'listRecommendations_pageSize' - The number of results to show in a single call to @ListRecommendations@.
 -- If the number of results is larger than the number you specified in this
@@ -100,21 +100,21 @@ newListRecommendations ::
   ListRecommendations
 newListRecommendations =
   ListRecommendations'
-    { nextToken = Prelude.Nothing,
-      filter' = Prelude.Nothing,
+    { filter' = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       pageSize = Prelude.Nothing
     }
-
--- | A token returned from a previous call to @ListRecommendations@ to
--- indicate the position in the list of recommendations.
-listRecommendations_nextToken :: Lens.Lens' ListRecommendations (Prelude.Maybe Prelude.Text)
-listRecommendations_nextToken = Lens.lens (\ListRecommendations' {nextToken} -> nextToken) (\s@ListRecommendations' {} a -> s {nextToken = a} :: ListRecommendations)
 
 -- | Filters applied when retrieving recommendations. Can eiter be an
 -- individual filter, or combinations of @STATUS@ and @IMPACT@ or @STATUS@
 -- and @TYPE@
 listRecommendations_filter :: Lens.Lens' ListRecommendations (Prelude.Maybe (Prelude.HashMap ListRecommendationsFilterKey Prelude.Text))
 listRecommendations_filter = Lens.lens (\ListRecommendations' {filter'} -> filter') (\s@ListRecommendations' {} a -> s {filter' = a} :: ListRecommendations) Prelude.. Lens.mapping Lens.coerced
+
+-- | A token returned from a previous call to @ListRecommendations@ to
+-- indicate the position in the list of recommendations.
+listRecommendations_nextToken :: Lens.Lens' ListRecommendations (Prelude.Maybe Prelude.Text)
+listRecommendations_nextToken = Lens.lens (\ListRecommendations' {nextToken} -> nextToken) (\s@ListRecommendations' {} a -> s {nextToken = a} :: ListRecommendations)
 
 -- | The number of results to show in a single call to @ListRecommendations@.
 -- If the number of results is larger than the number you specified in this
@@ -144,14 +144,14 @@ instance Core.AWSRequest ListRecommendations where
 
 instance Prelude.Hashable ListRecommendations where
   hashWithSalt _salt ListRecommendations' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filter'
+    _salt `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` pageSize
 
 instance Prelude.NFData ListRecommendations where
   rnf ListRecommendations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filter'
+    Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf pageSize
 
 instance Data.ToHeaders ListRecommendations where
@@ -169,8 +169,8 @@ instance Data.ToJSON ListRecommendations where
   toJSON ListRecommendations' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filter" Data..=) Prelude.<$> filter',
+          [ ("Filter" Data..=) Prelude.<$> filter',
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("PageSize" Data..=) Prelude.<$> pageSize
           ]
       )

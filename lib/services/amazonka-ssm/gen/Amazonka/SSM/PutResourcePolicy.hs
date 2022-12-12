@@ -33,8 +33,8 @@ module Amazonka.SSM.PutResourcePolicy
     newPutResourcePolicy,
 
     -- * Request Lenses
-    putResourcePolicy_policyId,
     putResourcePolicy_policyHash,
+    putResourcePolicy_policyId,
     putResourcePolicy_resourceArn,
     putResourcePolicy_policy,
 
@@ -43,8 +43,8 @@ module Amazonka.SSM.PutResourcePolicy
     newPutResourcePolicyResponse,
 
     -- * Response Lenses
-    putResourcePolicyResponse_policyId,
     putResourcePolicyResponse_policyHash,
+    putResourcePolicyResponse_policyId,
     putResourcePolicyResponse_httpStatus,
   )
 where
@@ -59,11 +59,11 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newPutResourcePolicy' smart constructor.
 data PutResourcePolicy = PutResourcePolicy'
-  { -- | The policy ID.
-    policyId :: Prelude.Maybe Prelude.Text,
-    -- | ID of the current policy version. The hash helps to prevent a situation
+  { -- | ID of the current policy version. The hash helps to prevent a situation
     -- where multiple users attempt to overwrite a policy.
     policyHash :: Prelude.Maybe Prelude.Text,
+    -- | The policy ID.
+    policyId :: Prelude.Maybe Prelude.Text,
     -- | Amazon Resource Name (ARN) of the resource to which the policies are
     -- attached.
     resourceArn :: Prelude.Text,
@@ -80,10 +80,10 @@ data PutResourcePolicy = PutResourcePolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyId', 'putResourcePolicy_policyId' - The policy ID.
---
 -- 'policyHash', 'putResourcePolicy_policyHash' - ID of the current policy version. The hash helps to prevent a situation
 -- where multiple users attempt to overwrite a policy.
+--
+-- 'policyId', 'putResourcePolicy_policyId' - The policy ID.
 --
 -- 'resourceArn', 'putResourcePolicy_resourceArn' - Amazon Resource Name (ARN) of the resource to which the policies are
 -- attached.
@@ -97,20 +97,20 @@ newPutResourcePolicy ::
   PutResourcePolicy
 newPutResourcePolicy pResourceArn_ pPolicy_ =
   PutResourcePolicy'
-    { policyId = Prelude.Nothing,
-      policyHash = Prelude.Nothing,
+    { policyHash = Prelude.Nothing,
+      policyId = Prelude.Nothing,
       resourceArn = pResourceArn_,
       policy = pPolicy_
     }
-
--- | The policy ID.
-putResourcePolicy_policyId :: Lens.Lens' PutResourcePolicy (Prelude.Maybe Prelude.Text)
-putResourcePolicy_policyId = Lens.lens (\PutResourcePolicy' {policyId} -> policyId) (\s@PutResourcePolicy' {} a -> s {policyId = a} :: PutResourcePolicy)
 
 -- | ID of the current policy version. The hash helps to prevent a situation
 -- where multiple users attempt to overwrite a policy.
 putResourcePolicy_policyHash :: Lens.Lens' PutResourcePolicy (Prelude.Maybe Prelude.Text)
 putResourcePolicy_policyHash = Lens.lens (\PutResourcePolicy' {policyHash} -> policyHash) (\s@PutResourcePolicy' {} a -> s {policyHash = a} :: PutResourcePolicy)
+
+-- | The policy ID.
+putResourcePolicy_policyId :: Lens.Lens' PutResourcePolicy (Prelude.Maybe Prelude.Text)
+putResourcePolicy_policyId = Lens.lens (\PutResourcePolicy' {policyId} -> policyId) (\s@PutResourcePolicy' {} a -> s {policyId = a} :: PutResourcePolicy)
 
 -- | Amazon Resource Name (ARN) of the resource to which the policies are
 -- attached.
@@ -131,22 +131,22 @@ instance Core.AWSRequest PutResourcePolicy where
     Response.receiveJSON
       ( \s h x ->
           PutResourcePolicyResponse'
-            Prelude.<$> (x Data..?> "PolicyId")
-            Prelude.<*> (x Data..?> "PolicyHash")
+            Prelude.<$> (x Data..?> "PolicyHash")
+            Prelude.<*> (x Data..?> "PolicyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable PutResourcePolicy where
   hashWithSalt _salt PutResourcePolicy' {..} =
-    _salt `Prelude.hashWithSalt` policyId
-      `Prelude.hashWithSalt` policyHash
+    _salt `Prelude.hashWithSalt` policyHash
+      `Prelude.hashWithSalt` policyId
       `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` policy
 
 instance Prelude.NFData PutResourcePolicy where
   rnf PutResourcePolicy' {..} =
-    Prelude.rnf policyId
-      `Prelude.seq` Prelude.rnf policyHash
+    Prelude.rnf policyHash
+      `Prelude.seq` Prelude.rnf policyId
       `Prelude.seq` Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf policy
 
@@ -169,8 +169,8 @@ instance Data.ToJSON PutResourcePolicy where
   toJSON PutResourcePolicy' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("PolicyId" Data..=) Prelude.<$> policyId,
-            ("PolicyHash" Data..=) Prelude.<$> policyHash,
+          [ ("PolicyHash" Data..=) Prelude.<$> policyHash,
+            ("PolicyId" Data..=) Prelude.<$> policyId,
             Prelude.Just ("ResourceArn" Data..= resourceArn),
             Prelude.Just ("Policy" Data..= policy)
           ]
@@ -184,13 +184,13 @@ instance Data.ToQuery PutResourcePolicy where
 
 -- | /See:/ 'newPutResourcePolicyResponse' smart constructor.
 data PutResourcePolicyResponse = PutResourcePolicyResponse'
-  { -- | The policy ID. To update a policy, you must specify @PolicyId@ and
-    -- @PolicyHash@.
-    policyId :: Prelude.Maybe Prelude.Text,
-    -- | ID of the current policy version. The hash helps to prevent a situation
+  { -- | ID of the current policy version. The hash helps to prevent a situation
     -- where multiple users attempt to overwrite a policy. You must provide
     -- this hash when updating or deleting a policy.
     policyHash :: Prelude.Maybe Prelude.Text,
+    -- | The policy ID. To update a policy, you must specify @PolicyId@ and
+    -- @PolicyHash@.
+    policyId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -204,12 +204,12 @@ data PutResourcePolicyResponse = PutResourcePolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyId', 'putResourcePolicyResponse_policyId' - The policy ID. To update a policy, you must specify @PolicyId@ and
--- @PolicyHash@.
---
 -- 'policyHash', 'putResourcePolicyResponse_policyHash' - ID of the current policy version. The hash helps to prevent a situation
 -- where multiple users attempt to overwrite a policy. You must provide
 -- this hash when updating or deleting a policy.
+--
+-- 'policyId', 'putResourcePolicyResponse_policyId' - The policy ID. To update a policy, you must specify @PolicyId@ and
+-- @PolicyHash@.
 --
 -- 'httpStatus', 'putResourcePolicyResponse_httpStatus' - The response's http status code.
 newPutResourcePolicyResponse ::
@@ -218,16 +218,11 @@ newPutResourcePolicyResponse ::
   PutResourcePolicyResponse
 newPutResourcePolicyResponse pHttpStatus_ =
   PutResourcePolicyResponse'
-    { policyId =
+    { policyHash =
         Prelude.Nothing,
-      policyHash = Prelude.Nothing,
+      policyId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The policy ID. To update a policy, you must specify @PolicyId@ and
--- @PolicyHash@.
-putResourcePolicyResponse_policyId :: Lens.Lens' PutResourcePolicyResponse (Prelude.Maybe Prelude.Text)
-putResourcePolicyResponse_policyId = Lens.lens (\PutResourcePolicyResponse' {policyId} -> policyId) (\s@PutResourcePolicyResponse' {} a -> s {policyId = a} :: PutResourcePolicyResponse)
 
 -- | ID of the current policy version. The hash helps to prevent a situation
 -- where multiple users attempt to overwrite a policy. You must provide
@@ -235,12 +230,17 @@ putResourcePolicyResponse_policyId = Lens.lens (\PutResourcePolicyResponse' {pol
 putResourcePolicyResponse_policyHash :: Lens.Lens' PutResourcePolicyResponse (Prelude.Maybe Prelude.Text)
 putResourcePolicyResponse_policyHash = Lens.lens (\PutResourcePolicyResponse' {policyHash} -> policyHash) (\s@PutResourcePolicyResponse' {} a -> s {policyHash = a} :: PutResourcePolicyResponse)
 
+-- | The policy ID. To update a policy, you must specify @PolicyId@ and
+-- @PolicyHash@.
+putResourcePolicyResponse_policyId :: Lens.Lens' PutResourcePolicyResponse (Prelude.Maybe Prelude.Text)
+putResourcePolicyResponse_policyId = Lens.lens (\PutResourcePolicyResponse' {policyId} -> policyId) (\s@PutResourcePolicyResponse' {} a -> s {policyId = a} :: PutResourcePolicyResponse)
+
 -- | The response's http status code.
 putResourcePolicyResponse_httpStatus :: Lens.Lens' PutResourcePolicyResponse Prelude.Int
 putResourcePolicyResponse_httpStatus = Lens.lens (\PutResourcePolicyResponse' {httpStatus} -> httpStatus) (\s@PutResourcePolicyResponse' {} a -> s {httpStatus = a} :: PutResourcePolicyResponse)
 
 instance Prelude.NFData PutResourcePolicyResponse where
   rnf PutResourcePolicyResponse' {..} =
-    Prelude.rnf policyId
-      `Prelude.seq` Prelude.rnf policyHash
+    Prelude.rnf policyHash
+      `Prelude.seq` Prelude.rnf policyId
       `Prelude.seq` Prelude.rnf httpStatus

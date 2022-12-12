@@ -37,9 +37,9 @@ module Amazonka.QuickSight.CreateFolderMembership
     newCreateFolderMembershipResponse,
 
     -- * Response Lenses
+    createFolderMembershipResponse_folderMember,
     createFolderMembershipResponse_requestId,
     createFolderMembershipResponse_status,
-    createFolderMembershipResponse_folderMember,
     createFolderMembershipResponse_httpStatus,
   )
 where
@@ -132,9 +132,9 @@ instance Core.AWSRequest CreateFolderMembership where
     Response.receiveJSON
       ( \s h x ->
           CreateFolderMembershipResponse'
-            Prelude.<$> (x Data..?> "RequestId")
+            Prelude.<$> (x Data..?> "FolderMember")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (x Data..?> "Status")
-            Prelude.<*> (x Data..?> "FolderMember")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -184,12 +184,12 @@ instance Data.ToQuery CreateFolderMembership where
 
 -- | /See:/ 'newCreateFolderMembershipResponse' smart constructor.
 data CreateFolderMembershipResponse = CreateFolderMembershipResponse'
-  { -- | The Amazon Web Services request ID for this operation.
+  { -- | Information about the member in the folder.
+    folderMember :: Prelude.Maybe FolderMember,
+    -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Maybe Prelude.Int,
-    -- | Information about the member in the folder.
-    folderMember :: Prelude.Maybe FolderMember,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -203,11 +203,11 @@ data CreateFolderMembershipResponse = CreateFolderMembershipResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'folderMember', 'createFolderMembershipResponse_folderMember' - Information about the member in the folder.
+--
 -- 'requestId', 'createFolderMembershipResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'status', 'createFolderMembershipResponse_status' - The HTTP status of the request.
---
--- 'folderMember', 'createFolderMembershipResponse_folderMember' - Information about the member in the folder.
 --
 -- 'httpStatus', 'createFolderMembershipResponse_httpStatus' - The response's http status code.
 newCreateFolderMembershipResponse ::
@@ -216,12 +216,16 @@ newCreateFolderMembershipResponse ::
   CreateFolderMembershipResponse
 newCreateFolderMembershipResponse pHttpStatus_ =
   CreateFolderMembershipResponse'
-    { requestId =
+    { folderMember =
         Prelude.Nothing,
+      requestId = Prelude.Nothing,
       status = Prelude.Nothing,
-      folderMember = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about the member in the folder.
+createFolderMembershipResponse_folderMember :: Lens.Lens' CreateFolderMembershipResponse (Prelude.Maybe FolderMember)
+createFolderMembershipResponse_folderMember = Lens.lens (\CreateFolderMembershipResponse' {folderMember} -> folderMember) (\s@CreateFolderMembershipResponse' {} a -> s {folderMember = a} :: CreateFolderMembershipResponse)
 
 -- | The Amazon Web Services request ID for this operation.
 createFolderMembershipResponse_requestId :: Lens.Lens' CreateFolderMembershipResponse (Prelude.Maybe Prelude.Text)
@@ -230,10 +234,6 @@ createFolderMembershipResponse_requestId = Lens.lens (\CreateFolderMembershipRes
 -- | The HTTP status of the request.
 createFolderMembershipResponse_status :: Lens.Lens' CreateFolderMembershipResponse (Prelude.Maybe Prelude.Int)
 createFolderMembershipResponse_status = Lens.lens (\CreateFolderMembershipResponse' {status} -> status) (\s@CreateFolderMembershipResponse' {} a -> s {status = a} :: CreateFolderMembershipResponse)
-
--- | Information about the member in the folder.
-createFolderMembershipResponse_folderMember :: Lens.Lens' CreateFolderMembershipResponse (Prelude.Maybe FolderMember)
-createFolderMembershipResponse_folderMember = Lens.lens (\CreateFolderMembershipResponse' {folderMember} -> folderMember) (\s@CreateFolderMembershipResponse' {} a -> s {folderMember = a} :: CreateFolderMembershipResponse)
 
 -- | The response's http status code.
 createFolderMembershipResponse_httpStatus :: Lens.Lens' CreateFolderMembershipResponse Prelude.Int
@@ -244,7 +244,7 @@ instance
     CreateFolderMembershipResponse
   where
   rnf CreateFolderMembershipResponse' {..} =
-    Prelude.rnf requestId
+    Prelude.rnf folderMember
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf folderMember
       `Prelude.seq` Prelude.rnf httpStatus

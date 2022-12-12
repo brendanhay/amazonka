@@ -21,11 +21,11 @@ module Amazonka.CodeGuruProfiler.Lens
     addNotificationChannelsResponse_httpStatus,
 
     -- ** BatchGetFrameMetricData
-    batchGetFrameMetricData_period,
     batchGetFrameMetricData_endTime,
     batchGetFrameMetricData_frameMetrics,
-    batchGetFrameMetricData_targetResolution,
+    batchGetFrameMetricData_period,
     batchGetFrameMetricData_startTime,
+    batchGetFrameMetricData_targetResolution,
     batchGetFrameMetricData_profilingGroupName,
     batchGetFrameMetricDataResponse_httpStatus,
     batchGetFrameMetricDataResponse_endTime,
@@ -36,16 +36,16 @@ module Amazonka.CodeGuruProfiler.Lens
     batchGetFrameMetricDataResponse_unprocessedEndTimes,
 
     -- ** ConfigureAgent
-    configureAgent_metadata,
     configureAgent_fleetInstanceId,
+    configureAgent_metadata,
     configureAgent_profilingGroupName,
     configureAgentResponse_httpStatus,
     configureAgentResponse_configuration,
 
     -- ** CreateProfilingGroup
-    createProfilingGroup_tags,
-    createProfilingGroup_computePlatform,
     createProfilingGroup_agentOrchestrationConfig,
+    createProfilingGroup_computePlatform,
+    createProfilingGroup_tags,
     createProfilingGroup_clientToken,
     createProfilingGroup_profilingGroupName,
     createProfilingGroupResponse_httpStatus,
@@ -61,9 +61,9 @@ module Amazonka.CodeGuruProfiler.Lens
     describeProfilingGroupResponse_profilingGroup,
 
     -- ** GetFindingsReportAccountSummary
-    getFindingsReportAccountSummary_nextToken,
-    getFindingsReportAccountSummary_maxResults,
     getFindingsReportAccountSummary_dailyReportsOnly,
+    getFindingsReportAccountSummary_maxResults,
+    getFindingsReportAccountSummary_nextToken,
     getFindingsReportAccountSummaryResponse_nextToken,
     getFindingsReportAccountSummaryResponse_httpStatus,
     getFindingsReportAccountSummaryResponse_reportSummaries,
@@ -81,9 +81,9 @@ module Amazonka.CodeGuruProfiler.Lens
 
     -- ** GetProfile
     getProfile_accept,
-    getProfile_period,
-    getProfile_maxDepth,
     getProfile_endTime,
+    getProfile_maxDepth,
+    getProfile_period,
     getProfile_startTime,
     getProfile_profilingGroupName,
     getProfileResponse_contentEncoding,
@@ -104,9 +104,9 @@ module Amazonka.CodeGuruProfiler.Lens
     getRecommendationsResponse_recommendations,
 
     -- ** ListFindingsReports
-    listFindingsReports_nextToken,
-    listFindingsReports_maxResults,
     listFindingsReports_dailyReportsOnly,
+    listFindingsReports_maxResults,
+    listFindingsReports_nextToken,
     listFindingsReports_endTime,
     listFindingsReports_profilingGroupName,
     listFindingsReports_startTime,
@@ -115,8 +115,8 @@ module Amazonka.CodeGuruProfiler.Lens
     listFindingsReportsResponse_findingsReportSummaries,
 
     -- ** ListProfileTimes
-    listProfileTimes_nextToken,
     listProfileTimes_maxResults,
+    listProfileTimes_nextToken,
     listProfileTimes_orderBy,
     listProfileTimes_endTime,
     listProfileTimes_period,
@@ -127,9 +127,9 @@ module Amazonka.CodeGuruProfiler.Lens
     listProfileTimesResponse_profileTimes,
 
     -- ** ListProfilingGroups
-    listProfilingGroups_nextToken,
-    listProfilingGroups_maxResults,
     listProfilingGroups_includeDescription,
+    listProfilingGroups_maxResults,
+    listProfilingGroups_nextToken,
     listProfilingGroupsResponse_nextToken,
     listProfilingGroupsResponse_profilingGroups,
     listProfilingGroupsResponse_httpStatus,
@@ -204,8 +204,8 @@ module Amazonka.CodeGuruProfiler.Lens
     agentOrchestrationConfig_profilingEnabled,
 
     -- ** AggregatedProfileTime
-    aggregatedProfileTime_start,
     aggregatedProfileTime_period,
+    aggregatedProfileTime_start,
 
     -- ** Anomaly
     anomaly_instances,
@@ -213,8 +213,8 @@ module Amazonka.CodeGuruProfiler.Lens
     anomaly_reason,
 
     -- ** AnomalyInstance
-    anomalyInstance_userFeedback,
     anomalyInstance_endTime,
+    anomalyInstance_userFeedback,
     anomalyInstance_id,
     anomalyInstance_startTime,
 
@@ -224,11 +224,11 @@ module Amazonka.CodeGuruProfiler.Lens
     channel_uri,
 
     -- ** FindingsReportSummary
-    findingsReportSummary_profileStartTime,
-    findingsReportSummary_totalNumberOfFindings,
     findingsReportSummary_id,
-    findingsReportSummary_profilingGroupName,
     findingsReportSummary_profileEndTime,
+    findingsReportSummary_profileStartTime,
+    findingsReportSummary_profilingGroupName,
+    findingsReportSummary_totalNumberOfFindings,
 
     -- ** FrameMetric
     frameMetric_frameName,
@@ -240,9 +240,9 @@ module Amazonka.CodeGuruProfiler.Lens
     frameMetricDatum_values,
 
     -- ** Match
-    match_thresholdBreachValue,
     match_frameAddress,
     match_targetFramesIndex,
+    match_thresholdBreachValue,
 
     -- ** Metric
     metric_frameName,
@@ -253,26 +253,26 @@ module Amazonka.CodeGuruProfiler.Lens
     notificationConfiguration_channels,
 
     -- ** Pattern
-    pattern_name,
     pattern_countersToAggregate,
     pattern_description,
     pattern_id,
+    pattern_name,
+    pattern_resolutionSteps,
     pattern_targetFrames,
     pattern_thresholdPercent,
-    pattern_resolutionSteps,
 
     -- ** ProfileTime
     profileTime_start,
 
     -- ** ProfilingGroupDescription
-    profilingGroupDescription_tags,
-    profilingGroupDescription_name,
+    profilingGroupDescription_agentOrchestrationConfig,
     profilingGroupDescription_arn,
     profilingGroupDescription_computePlatform,
-    profilingGroupDescription_profilingStatus,
     profilingGroupDescription_createdAt,
+    profilingGroupDescription_name,
+    profilingGroupDescription_profilingStatus,
+    profilingGroupDescription_tags,
     profilingGroupDescription_updatedAt,
-    profilingGroupDescription_agentOrchestrationConfig,
 
     -- ** ProfilingStatus
     profilingStatus_latestAgentOrchestratedAt,

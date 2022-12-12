@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUnprocessedCluster' smart constructor.
 data UnprocessedCluster = UnprocessedCluster'
-  { -- | The error message associated with the update failure
-    errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | The name of the cluster
+  { -- | The name of the cluster
     clusterName :: Prelude.Maybe Prelude.Text,
+    -- | The error message associated with the update failure
+    errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The error type associated with the update failure
     errorType :: Prelude.Maybe Prelude.Text
   }
@@ -45,27 +45,27 @@ data UnprocessedCluster = UnprocessedCluster'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'errorMessage', 'unprocessedCluster_errorMessage' - The error message associated with the update failure
---
 -- 'clusterName', 'unprocessedCluster_clusterName' - The name of the cluster
+--
+-- 'errorMessage', 'unprocessedCluster_errorMessage' - The error message associated with the update failure
 --
 -- 'errorType', 'unprocessedCluster_errorType' - The error type associated with the update failure
 newUnprocessedCluster ::
   UnprocessedCluster
 newUnprocessedCluster =
   UnprocessedCluster'
-    { errorMessage = Prelude.Nothing,
-      clusterName = Prelude.Nothing,
+    { clusterName = Prelude.Nothing,
+      errorMessage = Prelude.Nothing,
       errorType = Prelude.Nothing
     }
-
--- | The error message associated with the update failure
-unprocessedCluster_errorMessage :: Lens.Lens' UnprocessedCluster (Prelude.Maybe Prelude.Text)
-unprocessedCluster_errorMessage = Lens.lens (\UnprocessedCluster' {errorMessage} -> errorMessage) (\s@UnprocessedCluster' {} a -> s {errorMessage = a} :: UnprocessedCluster)
 
 -- | The name of the cluster
 unprocessedCluster_clusterName :: Lens.Lens' UnprocessedCluster (Prelude.Maybe Prelude.Text)
 unprocessedCluster_clusterName = Lens.lens (\UnprocessedCluster' {clusterName} -> clusterName) (\s@UnprocessedCluster' {} a -> s {clusterName = a} :: UnprocessedCluster)
+
+-- | The error message associated with the update failure
+unprocessedCluster_errorMessage :: Lens.Lens' UnprocessedCluster (Prelude.Maybe Prelude.Text)
+unprocessedCluster_errorMessage = Lens.lens (\UnprocessedCluster' {errorMessage} -> errorMessage) (\s@UnprocessedCluster' {} a -> s {errorMessage = a} :: UnprocessedCluster)
 
 -- | The error type associated with the update failure
 unprocessedCluster_errorType :: Lens.Lens' UnprocessedCluster (Prelude.Maybe Prelude.Text)
@@ -77,19 +77,19 @@ instance Data.FromJSON UnprocessedCluster where
       "UnprocessedCluster"
       ( \x ->
           UnprocessedCluster'
-            Prelude.<$> (x Data..:? "ErrorMessage")
-            Prelude.<*> (x Data..:? "ClusterName")
+            Prelude.<$> (x Data..:? "ClusterName")
+            Prelude.<*> (x Data..:? "ErrorMessage")
             Prelude.<*> (x Data..:? "ErrorType")
       )
 
 instance Prelude.Hashable UnprocessedCluster where
   hashWithSalt _salt UnprocessedCluster' {..} =
-    _salt `Prelude.hashWithSalt` errorMessage
-      `Prelude.hashWithSalt` clusterName
+    _salt `Prelude.hashWithSalt` clusterName
+      `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` errorType
 
 instance Prelude.NFData UnprocessedCluster where
   rnf UnprocessedCluster' {..} =
-    Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf clusterName
+    Prelude.rnf clusterName
+      `Prelude.seq` Prelude.rnf errorMessage
       `Prelude.seq` Prelude.rnf errorType

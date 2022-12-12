@@ -54,12 +54,13 @@
 --     a public key and token from the same @GetParametersForImport@
 --     response.
 --
--- -   Whether the key material expires and if so, when. If you set an
---     expiration date, KMS deletes the key material from the KMS key on
---     the specified date, and the KMS key becomes unusable. To use the KMS
---     key again, you must reimport the same key material. The only way to
---     change an expiration date is by reimporting the same key material
---     and specifying a new expiration date.
+-- -   Whether the key material expires (@ExpirationModel@) and, if so,
+--     when (@ValidTo@). If you set an expiration date, on the specified
+--     date, KMS deletes the key material from the KMS key, making the KMS
+--     key unusable. To use the KMS key in cryptographic operations again,
+--     you must reimport the same key material. The only way to change the
+--     expiration model or expiration date is by reimporting the same key
+--     material and specifying a new expiration date.
 --
 -- When this operation is successful, the key state of the KMS key changes
 -- from @PendingImport@ to @Enabled@, and you can use the KMS key.
@@ -121,15 +122,31 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newImportKeyMaterial' smart constructor.
 data ImportKeyMaterial = ImportKeyMaterial'
   { -- | Specifies whether the key material expires. The default is
-    -- @KEY_MATERIAL_EXPIRES@, in which case you must include the @ValidTo@
-    -- parameter. When this parameter is set to @KEY_MATERIAL_DOES_NOT_EXPIRE@,
-    -- you must omit the @ValidTo@ parameter.
+    -- @KEY_MATERIAL_EXPIRES@.
+    --
+    -- When the value of @ExpirationModel@ is @KEY_MATERIAL_EXPIRES@, you must
+    -- specify a value for the @ValidTo@ parameter. When value is
+    -- @KEY_MATERIAL_DOES_NOT_EXPIRE@, you must omit the @ValidTo@ parameter.
+    --
+    -- You cannot change the @ExpirationModel@ or @ValidTo@ values for the
+    -- current import after the request completes. To change either value, you
+    -- must delete (DeleteImportedKeyMaterial) and reimport the key material.
     expirationModel :: Prelude.Maybe ExpirationModelType,
-    -- | The time at which the imported key material expires. When the key
-    -- material expires, KMS deletes the key material and the KMS key becomes
-    -- unusable. You must omit this parameter when the @ExpirationModel@
-    -- parameter is set to @KEY_MATERIAL_DOES_NOT_EXPIRE@. Otherwise it is
-    -- required.
+    -- | The date and time when the imported key material expires. This parameter
+    -- is required when the value of the @ExpirationModel@ parameter is
+    -- @KEY_MATERIAL_EXPIRES@. Otherwise it is not valid.
+    --
+    -- The value of this parameter must be a future date and time. The maximum
+    -- value is 365 days from the request date.
+    --
+    -- When the key material expires, KMS deletes the key material from the KMS
+    -- key. Without its key material, the KMS key is unusable. To use the KMS
+    -- key in cryptographic operations, you must reimport the same key
+    -- material.
+    --
+    -- You cannot change the @ExpirationModel@ or @ValidTo@ values for the
+    -- current import after the request completes. To change either value, you
+    -- must delete (DeleteImportedKeyMaterial) and reimport the key material.
     validTo :: Prelude.Maybe Data.POSIX,
     -- | The identifier of the symmetric encryption KMS key that receives the
     -- imported key material. This must be the same KMS key specified in the
@@ -172,15 +189,31 @@ data ImportKeyMaterial = ImportKeyMaterial'
 -- for backwards compatibility:
 --
 -- 'expirationModel', 'importKeyMaterial_expirationModel' - Specifies whether the key material expires. The default is
--- @KEY_MATERIAL_EXPIRES@, in which case you must include the @ValidTo@
--- parameter. When this parameter is set to @KEY_MATERIAL_DOES_NOT_EXPIRE@,
--- you must omit the @ValidTo@ parameter.
+-- @KEY_MATERIAL_EXPIRES@.
 --
--- 'validTo', 'importKeyMaterial_validTo' - The time at which the imported key material expires. When the key
--- material expires, KMS deletes the key material and the KMS key becomes
--- unusable. You must omit this parameter when the @ExpirationModel@
--- parameter is set to @KEY_MATERIAL_DOES_NOT_EXPIRE@. Otherwise it is
--- required.
+-- When the value of @ExpirationModel@ is @KEY_MATERIAL_EXPIRES@, you must
+-- specify a value for the @ValidTo@ parameter. When value is
+-- @KEY_MATERIAL_DOES_NOT_EXPIRE@, you must omit the @ValidTo@ parameter.
+--
+-- You cannot change the @ExpirationModel@ or @ValidTo@ values for the
+-- current import after the request completes. To change either value, you
+-- must delete (DeleteImportedKeyMaterial) and reimport the key material.
+--
+-- 'validTo', 'importKeyMaterial_validTo' - The date and time when the imported key material expires. This parameter
+-- is required when the value of the @ExpirationModel@ parameter is
+-- @KEY_MATERIAL_EXPIRES@. Otherwise it is not valid.
+--
+-- The value of this parameter must be a future date and time. The maximum
+-- value is 365 days from the request date.
+--
+-- When the key material expires, KMS deletes the key material from the KMS
+-- key. Without its key material, the KMS key is unusable. To use the KMS
+-- key in cryptographic operations, you must reimport the same key
+-- material.
+--
+-- You cannot change the @ExpirationModel@ or @ValidTo@ values for the
+-- current import after the request completes. To change either value, you
+-- must delete (DeleteImportedKeyMaterial) and reimport the key material.
 --
 -- 'keyId', 'importKeyMaterial_keyId' - The identifier of the symmetric encryption KMS key that receives the
 -- imported key material. This must be the same KMS key specified in the
@@ -241,17 +274,33 @@ newImportKeyMaterial
       }
 
 -- | Specifies whether the key material expires. The default is
--- @KEY_MATERIAL_EXPIRES@, in which case you must include the @ValidTo@
--- parameter. When this parameter is set to @KEY_MATERIAL_DOES_NOT_EXPIRE@,
--- you must omit the @ValidTo@ parameter.
+-- @KEY_MATERIAL_EXPIRES@.
+--
+-- When the value of @ExpirationModel@ is @KEY_MATERIAL_EXPIRES@, you must
+-- specify a value for the @ValidTo@ parameter. When value is
+-- @KEY_MATERIAL_DOES_NOT_EXPIRE@, you must omit the @ValidTo@ parameter.
+--
+-- You cannot change the @ExpirationModel@ or @ValidTo@ values for the
+-- current import after the request completes. To change either value, you
+-- must delete (DeleteImportedKeyMaterial) and reimport the key material.
 importKeyMaterial_expirationModel :: Lens.Lens' ImportKeyMaterial (Prelude.Maybe ExpirationModelType)
 importKeyMaterial_expirationModel = Lens.lens (\ImportKeyMaterial' {expirationModel} -> expirationModel) (\s@ImportKeyMaterial' {} a -> s {expirationModel = a} :: ImportKeyMaterial)
 
--- | The time at which the imported key material expires. When the key
--- material expires, KMS deletes the key material and the KMS key becomes
--- unusable. You must omit this parameter when the @ExpirationModel@
--- parameter is set to @KEY_MATERIAL_DOES_NOT_EXPIRE@. Otherwise it is
--- required.
+-- | The date and time when the imported key material expires. This parameter
+-- is required when the value of the @ExpirationModel@ parameter is
+-- @KEY_MATERIAL_EXPIRES@. Otherwise it is not valid.
+--
+-- The value of this parameter must be a future date and time. The maximum
+-- value is 365 days from the request date.
+--
+-- When the key material expires, KMS deletes the key material from the KMS
+-- key. Without its key material, the KMS key is unusable. To use the KMS
+-- key in cryptographic operations, you must reimport the same key
+-- material.
+--
+-- You cannot change the @ExpirationModel@ or @ValidTo@ values for the
+-- current import after the request completes. To change either value, you
+-- must delete (DeleteImportedKeyMaterial) and reimport the key material.
 importKeyMaterial_validTo :: Lens.Lens' ImportKeyMaterial (Prelude.Maybe Prelude.UTCTime)
 importKeyMaterial_validTo = Lens.lens (\ImportKeyMaterial' {validTo} -> validTo) (\s@ImportKeyMaterial' {} a -> s {validTo = a} :: ImportKeyMaterial) Prelude.. Lens.mapping Data._Time
 

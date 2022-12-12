@@ -30,16 +30,16 @@ module Amazonka.DirectoryService.ListLogSubscriptions
 
     -- * Request Lenses
     listLogSubscriptions_directoryId,
-    listLogSubscriptions_nextToken,
     listLogSubscriptions_limit,
+    listLogSubscriptions_nextToken,
 
     -- * Destructuring the Response
     ListLogSubscriptionsResponse (..),
     newListLogSubscriptionsResponse,
 
     -- * Response Lenses
-    listLogSubscriptionsResponse_nextToken,
     listLogSubscriptionsResponse_logSubscriptions,
+    listLogSubscriptionsResponse_nextToken,
     listLogSubscriptionsResponse_httpStatus,
   )
 where
@@ -60,10 +60,10 @@ data ListLogSubscriptions = ListLogSubscriptions'
     -- If there are no log subscriptions for the Amazon Web Services account or
     -- the directory, an empty list will be returned.
     directoryId :: Prelude.Maybe Prelude.Text,
-    -- | The token for the next set of items to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items returned.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of items to return.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,17 +81,17 @@ data ListLogSubscriptions = ListLogSubscriptions'
 -- If there are no log subscriptions for the Amazon Web Services account or
 -- the directory, an empty list will be returned.
 --
--- 'nextToken', 'listLogSubscriptions_nextToken' - The token for the next set of items to return.
---
 -- 'limit', 'listLogSubscriptions_limit' - The maximum number of items returned.
+--
+-- 'nextToken', 'listLogSubscriptions_nextToken' - The token for the next set of items to return.
 newListLogSubscriptions ::
   ListLogSubscriptions
 newListLogSubscriptions =
   ListLogSubscriptions'
     { directoryId =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      limit = Prelude.Nothing
+      limit = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
 
 -- | If a /DirectoryID/ is provided, lists only the log subscription
@@ -102,13 +102,13 @@ newListLogSubscriptions =
 listLogSubscriptions_directoryId :: Lens.Lens' ListLogSubscriptions (Prelude.Maybe Prelude.Text)
 listLogSubscriptions_directoryId = Lens.lens (\ListLogSubscriptions' {directoryId} -> directoryId) (\s@ListLogSubscriptions' {} a -> s {directoryId = a} :: ListLogSubscriptions)
 
--- | The token for the next set of items to return.
-listLogSubscriptions_nextToken :: Lens.Lens' ListLogSubscriptions (Prelude.Maybe Prelude.Text)
-listLogSubscriptions_nextToken = Lens.lens (\ListLogSubscriptions' {nextToken} -> nextToken) (\s@ListLogSubscriptions' {} a -> s {nextToken = a} :: ListLogSubscriptions)
-
 -- | The maximum number of items returned.
 listLogSubscriptions_limit :: Lens.Lens' ListLogSubscriptions (Prelude.Maybe Prelude.Natural)
 listLogSubscriptions_limit = Lens.lens (\ListLogSubscriptions' {limit} -> limit) (\s@ListLogSubscriptions' {} a -> s {limit = a} :: ListLogSubscriptions)
+
+-- | The token for the next set of items to return.
+listLogSubscriptions_nextToken :: Lens.Lens' ListLogSubscriptions (Prelude.Maybe Prelude.Text)
+listLogSubscriptions_nextToken = Lens.lens (\ListLogSubscriptions' {nextToken} -> nextToken) (\s@ListLogSubscriptions' {} a -> s {nextToken = a} :: ListLogSubscriptions)
 
 instance Core.AWSPager ListLogSubscriptions where
   page rq rs
@@ -142,24 +142,24 @@ instance Core.AWSRequest ListLogSubscriptions where
     Response.receiveJSON
       ( \s h x ->
           ListLogSubscriptionsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "LogSubscriptions"
+            Prelude.<$> ( x Data..?> "LogSubscriptions"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListLogSubscriptions where
   hashWithSalt _salt ListLogSubscriptions' {..} =
     _salt `Prelude.hashWithSalt` directoryId
-      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListLogSubscriptions where
   rnf ListLogSubscriptions' {..} =
     Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListLogSubscriptions where
   toHeaders =
@@ -181,8 +181,8 @@ instance Data.ToJSON ListLogSubscriptions where
     Data.object
       ( Prelude.catMaybes
           [ ("DirectoryId" Data..=) Prelude.<$> directoryId,
-            ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Limit" Data..=) Prelude.<$> limit
+            ("Limit" Data..=) Prelude.<$> limit,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -194,11 +194,11 @@ instance Data.ToQuery ListLogSubscriptions where
 
 -- | /See:/ 'newListLogSubscriptionsResponse' smart constructor.
 data ListLogSubscriptionsResponse = ListLogSubscriptionsResponse'
-  { -- | The token for the next set of items to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of active LogSubscription objects for calling the Amazon Web
+  { -- | A list of active LogSubscription objects for calling the Amazon Web
     -- Services account.
     logSubscriptions :: Prelude.Maybe [LogSubscription],
+    -- | The token for the next set of items to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -212,10 +212,10 @@ data ListLogSubscriptionsResponse = ListLogSubscriptionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listLogSubscriptionsResponse_nextToken' - The token for the next set of items to return.
---
 -- 'logSubscriptions', 'listLogSubscriptionsResponse_logSubscriptions' - A list of active LogSubscription objects for calling the Amazon Web
 -- Services account.
+--
+-- 'nextToken', 'listLogSubscriptionsResponse_nextToken' - The token for the next set of items to return.
 --
 -- 'httpStatus', 'listLogSubscriptionsResponse_httpStatus' - The response's http status code.
 newListLogSubscriptionsResponse ::
@@ -224,20 +224,20 @@ newListLogSubscriptionsResponse ::
   ListLogSubscriptionsResponse
 newListLogSubscriptionsResponse pHttpStatus_ =
   ListLogSubscriptionsResponse'
-    { nextToken =
+    { logSubscriptions =
         Prelude.Nothing,
-      logSubscriptions = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token for the next set of items to return.
-listLogSubscriptionsResponse_nextToken :: Lens.Lens' ListLogSubscriptionsResponse (Prelude.Maybe Prelude.Text)
-listLogSubscriptionsResponse_nextToken = Lens.lens (\ListLogSubscriptionsResponse' {nextToken} -> nextToken) (\s@ListLogSubscriptionsResponse' {} a -> s {nextToken = a} :: ListLogSubscriptionsResponse)
 
 -- | A list of active LogSubscription objects for calling the Amazon Web
 -- Services account.
 listLogSubscriptionsResponse_logSubscriptions :: Lens.Lens' ListLogSubscriptionsResponse (Prelude.Maybe [LogSubscription])
 listLogSubscriptionsResponse_logSubscriptions = Lens.lens (\ListLogSubscriptionsResponse' {logSubscriptions} -> logSubscriptions) (\s@ListLogSubscriptionsResponse' {} a -> s {logSubscriptions = a} :: ListLogSubscriptionsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next set of items to return.
+listLogSubscriptionsResponse_nextToken :: Lens.Lens' ListLogSubscriptionsResponse (Prelude.Maybe Prelude.Text)
+listLogSubscriptionsResponse_nextToken = Lens.lens (\ListLogSubscriptionsResponse' {nextToken} -> nextToken) (\s@ListLogSubscriptionsResponse' {} a -> s {nextToken = a} :: ListLogSubscriptionsResponse)
 
 -- | The response's http status code.
 listLogSubscriptionsResponse_httpStatus :: Lens.Lens' ListLogSubscriptionsResponse Prelude.Int
@@ -245,6 +245,6 @@ listLogSubscriptionsResponse_httpStatus = Lens.lens (\ListLogSubscriptionsRespon
 
 instance Prelude.NFData ListLogSubscriptionsResponse where
   rnf ListLogSubscriptionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf logSubscriptions
+    Prelude.rnf logSubscriptions
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMinimumEngineVersionPerAllowedValue' smart constructor.
 data MinimumEngineVersionPerAllowedValue = MinimumEngineVersionPerAllowedValue'
-  { -- | The minimum DB engine version required for the allowed value.
-    minimumEngineVersion :: Prelude.Maybe Prelude.Text,
-    -- | The allowed value for an option setting.
-    allowedValue :: Prelude.Maybe Prelude.Text
+  { -- | The allowed value for an option setting.
+    allowedValue :: Prelude.Maybe Prelude.Text,
+    -- | The minimum DB engine version required for the allowed value.
+    minimumEngineVersion :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data MinimumEngineVersionPerAllowedValue = MinimumEngineVersionPerAllowedValue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'minimumEngineVersion', 'minimumEngineVersionPerAllowedValue_minimumEngineVersion' - The minimum DB engine version required for the allowed value.
---
 -- 'allowedValue', 'minimumEngineVersionPerAllowedValue_allowedValue' - The allowed value for an option setting.
+--
+-- 'minimumEngineVersion', 'minimumEngineVersionPerAllowedValue_minimumEngineVersion' - The minimum DB engine version required for the allowed value.
 newMinimumEngineVersionPerAllowedValue ::
   MinimumEngineVersionPerAllowedValue
 newMinimumEngineVersionPerAllowedValue =
   MinimumEngineVersionPerAllowedValue'
-    { minimumEngineVersion =
+    { allowedValue =
         Prelude.Nothing,
-      allowedValue = Prelude.Nothing
+      minimumEngineVersion = Prelude.Nothing
     }
-
--- | The minimum DB engine version required for the allowed value.
-minimumEngineVersionPerAllowedValue_minimumEngineVersion :: Lens.Lens' MinimumEngineVersionPerAllowedValue (Prelude.Maybe Prelude.Text)
-minimumEngineVersionPerAllowedValue_minimumEngineVersion = Lens.lens (\MinimumEngineVersionPerAllowedValue' {minimumEngineVersion} -> minimumEngineVersion) (\s@MinimumEngineVersionPerAllowedValue' {} a -> s {minimumEngineVersion = a} :: MinimumEngineVersionPerAllowedValue)
 
 -- | The allowed value for an option setting.
 minimumEngineVersionPerAllowedValue_allowedValue :: Lens.Lens' MinimumEngineVersionPerAllowedValue (Prelude.Maybe Prelude.Text)
 minimumEngineVersionPerAllowedValue_allowedValue = Lens.lens (\MinimumEngineVersionPerAllowedValue' {allowedValue} -> allowedValue) (\s@MinimumEngineVersionPerAllowedValue' {} a -> s {allowedValue = a} :: MinimumEngineVersionPerAllowedValue)
+
+-- | The minimum DB engine version required for the allowed value.
+minimumEngineVersionPerAllowedValue_minimumEngineVersion :: Lens.Lens' MinimumEngineVersionPerAllowedValue (Prelude.Maybe Prelude.Text)
+minimumEngineVersionPerAllowedValue_minimumEngineVersion = Lens.lens (\MinimumEngineVersionPerAllowedValue' {minimumEngineVersion} -> minimumEngineVersion) (\s@MinimumEngineVersionPerAllowedValue' {} a -> s {minimumEngineVersion = a} :: MinimumEngineVersionPerAllowedValue)
 
 instance
   Data.FromXML
@@ -70,8 +70,8 @@ instance
   where
   parseXML x =
     MinimumEngineVersionPerAllowedValue'
-      Prelude.<$> (x Data..@? "MinimumEngineVersion")
-      Prelude.<*> (x Data..@? "AllowedValue")
+      Prelude.<$> (x Data..@? "AllowedValue")
+      Prelude.<*> (x Data..@? "MinimumEngineVersion")
 
 instance
   Prelude.Hashable
@@ -80,13 +80,13 @@ instance
   hashWithSalt
     _salt
     MinimumEngineVersionPerAllowedValue' {..} =
-      _salt `Prelude.hashWithSalt` minimumEngineVersion
-        `Prelude.hashWithSalt` allowedValue
+      _salt `Prelude.hashWithSalt` allowedValue
+        `Prelude.hashWithSalt` minimumEngineVersion
 
 instance
   Prelude.NFData
     MinimumEngineVersionPerAllowedValue
   where
   rnf MinimumEngineVersionPerAllowedValue' {..} =
-    Prelude.rnf minimumEngineVersion
-      `Prelude.seq` Prelude.rnf allowedValue
+    Prelude.rnf allowedValue
+      `Prelude.seq` Prelude.rnf minimumEngineVersion

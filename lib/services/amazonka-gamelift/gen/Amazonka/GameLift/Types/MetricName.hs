@@ -25,6 +25,7 @@ module Amazonka.GameLift.Types.MetricName
         MetricName_ActiveInstances,
         MetricName_AvailableGameSessions,
         MetricName_AvailablePlayerSessions,
+        MetricName_ConcurrentActivatableGameSessions,
         MetricName_CurrentPlayerSessions,
         MetricName_IdleInstances,
         MetricName_PercentAvailableGameSessions,
@@ -82,6 +83,9 @@ pattern MetricName_AvailableGameSessions = MetricName' "AvailableGameSessions"
 pattern MetricName_AvailablePlayerSessions :: MetricName
 pattern MetricName_AvailablePlayerSessions = MetricName' "AvailablePlayerSessions"
 
+pattern MetricName_ConcurrentActivatableGameSessions :: MetricName
+pattern MetricName_ConcurrentActivatableGameSessions = MetricName' "ConcurrentActivatableGameSessions"
+
 pattern MetricName_CurrentPlayerSessions :: MetricName
 pattern MetricName_CurrentPlayerSessions = MetricName' "CurrentPlayerSessions"
 
@@ -106,6 +110,7 @@ pattern MetricName_WaitTime = MetricName' "WaitTime"
   MetricName_ActiveInstances,
   MetricName_AvailableGameSessions,
   MetricName_AvailablePlayerSessions,
+  MetricName_ConcurrentActivatableGameSessions,
   MetricName_CurrentPlayerSessions,
   MetricName_IdleInstances,
   MetricName_PercentAvailableGameSessions,

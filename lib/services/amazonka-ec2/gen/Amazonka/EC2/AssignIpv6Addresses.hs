@@ -44,9 +44,9 @@ module Amazonka.EC2.AssignIpv6Addresses
 
     -- * Request Lenses
     assignIpv6Addresses_ipv6AddressCount,
+    assignIpv6Addresses_ipv6Addresses,
     assignIpv6Addresses_ipv6PrefixCount,
     assignIpv6Addresses_ipv6Prefixes,
-    assignIpv6Addresses_ipv6Addresses,
     assignIpv6Addresses_networkInterfaceId,
 
     -- * Destructuring the Response
@@ -54,9 +54,9 @@ module Amazonka.EC2.AssignIpv6Addresses
     newAssignIpv6AddressesResponse,
 
     -- * Response Lenses
+    assignIpv6AddressesResponse_assignedIpv6Addresses,
     assignIpv6AddressesResponse_assignedIpv6Prefixes,
     assignIpv6AddressesResponse_networkInterfaceId,
-    assignIpv6AddressesResponse_assignedIpv6Addresses,
     assignIpv6AddressesResponse_httpStatus,
   )
 where
@@ -78,6 +78,9 @@ data AssignIpv6Addresses = AssignIpv6Addresses'
     -- from the subnet range. You can\'t use this option if specifying specific
     -- IPv6 addresses.
     ipv6AddressCount :: Prelude.Maybe Prelude.Int,
+    -- | The IPv6 addresses to be assigned to the network interface. You can\'t
+    -- use this option if you\'re specifying a number of IPv6 addresses.
+    ipv6Addresses :: Prelude.Maybe [Prelude.Text],
     -- | The number of IPv6 prefixes that Amazon Web Services automatically
     -- assigns to the network interface. You cannot use this option if you use
     -- the @Ipv6Prefixes@ option.
@@ -85,9 +88,6 @@ data AssignIpv6Addresses = AssignIpv6Addresses'
     -- | One or more IPv6 prefixes assigned to the network interface. You cannot
     -- use this option if you use the @Ipv6PrefixCount@ option.
     ipv6Prefixes :: Prelude.Maybe [Prelude.Text],
-    -- | The IPv6 addresses to be assigned to the network interface. You can\'t
-    -- use this option if you\'re specifying a number of IPv6 addresses.
-    ipv6Addresses :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the network interface.
     networkInterfaceId :: Prelude.Text
   }
@@ -108,15 +108,15 @@ data AssignIpv6Addresses = AssignIpv6Addresses'
 -- from the subnet range. You can\'t use this option if specifying specific
 -- IPv6 addresses.
 --
+-- 'ipv6Addresses', 'assignIpv6Addresses_ipv6Addresses' - The IPv6 addresses to be assigned to the network interface. You can\'t
+-- use this option if you\'re specifying a number of IPv6 addresses.
+--
 -- 'ipv6PrefixCount', 'assignIpv6Addresses_ipv6PrefixCount' - The number of IPv6 prefixes that Amazon Web Services automatically
 -- assigns to the network interface. You cannot use this option if you use
 -- the @Ipv6Prefixes@ option.
 --
 -- 'ipv6Prefixes', 'assignIpv6Addresses_ipv6Prefixes' - One or more IPv6 prefixes assigned to the network interface. You cannot
 -- use this option if you use the @Ipv6PrefixCount@ option.
---
--- 'ipv6Addresses', 'assignIpv6Addresses_ipv6Addresses' - The IPv6 addresses to be assigned to the network interface. You can\'t
--- use this option if you\'re specifying a number of IPv6 addresses.
 --
 -- 'networkInterfaceId', 'assignIpv6Addresses_networkInterfaceId' - The ID of the network interface.
 newAssignIpv6Addresses ::
@@ -127,9 +127,9 @@ newAssignIpv6Addresses pNetworkInterfaceId_ =
   AssignIpv6Addresses'
     { ipv6AddressCount =
         Prelude.Nothing,
+      ipv6Addresses = Prelude.Nothing,
       ipv6PrefixCount = Prelude.Nothing,
       ipv6Prefixes = Prelude.Nothing,
-      ipv6Addresses = Prelude.Nothing,
       networkInterfaceId = pNetworkInterfaceId_
     }
 
@@ -142,6 +142,11 @@ newAssignIpv6Addresses pNetworkInterfaceId_ =
 assignIpv6Addresses_ipv6AddressCount :: Lens.Lens' AssignIpv6Addresses (Prelude.Maybe Prelude.Int)
 assignIpv6Addresses_ipv6AddressCount = Lens.lens (\AssignIpv6Addresses' {ipv6AddressCount} -> ipv6AddressCount) (\s@AssignIpv6Addresses' {} a -> s {ipv6AddressCount = a} :: AssignIpv6Addresses)
 
+-- | The IPv6 addresses to be assigned to the network interface. You can\'t
+-- use this option if you\'re specifying a number of IPv6 addresses.
+assignIpv6Addresses_ipv6Addresses :: Lens.Lens' AssignIpv6Addresses (Prelude.Maybe [Prelude.Text])
+assignIpv6Addresses_ipv6Addresses = Lens.lens (\AssignIpv6Addresses' {ipv6Addresses} -> ipv6Addresses) (\s@AssignIpv6Addresses' {} a -> s {ipv6Addresses = a} :: AssignIpv6Addresses) Prelude.. Lens.mapping Lens.coerced
+
 -- | The number of IPv6 prefixes that Amazon Web Services automatically
 -- assigns to the network interface. You cannot use this option if you use
 -- the @Ipv6Prefixes@ option.
@@ -152,11 +157,6 @@ assignIpv6Addresses_ipv6PrefixCount = Lens.lens (\AssignIpv6Addresses' {ipv6Pref
 -- use this option if you use the @Ipv6PrefixCount@ option.
 assignIpv6Addresses_ipv6Prefixes :: Lens.Lens' AssignIpv6Addresses (Prelude.Maybe [Prelude.Text])
 assignIpv6Addresses_ipv6Prefixes = Lens.lens (\AssignIpv6Addresses' {ipv6Prefixes} -> ipv6Prefixes) (\s@AssignIpv6Addresses' {} a -> s {ipv6Prefixes = a} :: AssignIpv6Addresses) Prelude.. Lens.mapping Lens.coerced
-
--- | The IPv6 addresses to be assigned to the network interface. You can\'t
--- use this option if you\'re specifying a number of IPv6 addresses.
-assignIpv6Addresses_ipv6Addresses :: Lens.Lens' AssignIpv6Addresses (Prelude.Maybe [Prelude.Text])
-assignIpv6Addresses_ipv6Addresses = Lens.lens (\AssignIpv6Addresses' {ipv6Addresses} -> ipv6Addresses) (\s@AssignIpv6Addresses' {} a -> s {ipv6Addresses = a} :: AssignIpv6Addresses) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the network interface.
 assignIpv6Addresses_networkInterfaceId :: Lens.Lens' AssignIpv6Addresses Prelude.Text
@@ -172,32 +172,32 @@ instance Core.AWSRequest AssignIpv6Addresses where
     Response.receiveXML
       ( \s h x ->
           AssignIpv6AddressesResponse'
-            Prelude.<$> ( x Data..@? "assignedIpv6PrefixSet"
+            Prelude.<$> ( x Data..@? "assignedIpv6Addresses"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
+                        )
+            Prelude.<*> ( x Data..@? "assignedIpv6PrefixSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "networkInterfaceId")
-            Prelude.<*> ( x Data..@? "assignedIpv6Addresses"
-                            Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Data.parseXMLList "item")
-                        )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable AssignIpv6Addresses where
   hashWithSalt _salt AssignIpv6Addresses' {..} =
     _salt `Prelude.hashWithSalt` ipv6AddressCount
+      `Prelude.hashWithSalt` ipv6Addresses
       `Prelude.hashWithSalt` ipv6PrefixCount
       `Prelude.hashWithSalt` ipv6Prefixes
-      `Prelude.hashWithSalt` ipv6Addresses
       `Prelude.hashWithSalt` networkInterfaceId
 
 instance Prelude.NFData AssignIpv6Addresses where
   rnf AssignIpv6Addresses' {..} =
     Prelude.rnf ipv6AddressCount
+      `Prelude.seq` Prelude.rnf ipv6Addresses
       `Prelude.seq` Prelude.rnf ipv6PrefixCount
       `Prelude.seq` Prelude.rnf ipv6Prefixes
-      `Prelude.seq` Prelude.rnf ipv6Addresses
       `Prelude.seq` Prelude.rnf networkInterfaceId
 
 instance Data.ToHeaders AssignIpv6Addresses where
@@ -214,28 +214,28 @@ instance Data.ToQuery AssignIpv6Addresses where
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
         "Ipv6AddressCount" Data.=: ipv6AddressCount,
+        Data.toQuery
+          ( Data.toQueryList "Ipv6Addresses"
+              Prelude.<$> ipv6Addresses
+          ),
         "Ipv6PrefixCount" Data.=: ipv6PrefixCount,
         Data.toQuery
           ( Data.toQueryList "Ipv6Prefix"
               Prelude.<$> ipv6Prefixes
-          ),
-        Data.toQuery
-          ( Data.toQueryList "Ipv6Addresses"
-              Prelude.<$> ipv6Addresses
           ),
         "NetworkInterfaceId" Data.=: networkInterfaceId
       ]
 
 -- | /See:/ 'newAssignIpv6AddressesResponse' smart constructor.
 data AssignIpv6AddressesResponse = AssignIpv6AddressesResponse'
-  { -- | The IPv6 prefixes that are assigned to the network interface.
-    assignedIpv6Prefixes :: Prelude.Maybe [Prelude.Text],
-    -- | The ID of the network interface.
-    networkInterfaceId :: Prelude.Maybe Prelude.Text,
-    -- | The new IPv6 addresses assigned to the network interface. Existing IPv6
+  { -- | The new IPv6 addresses assigned to the network interface. Existing IPv6
     -- addresses that were assigned to the network interface before the request
     -- are not included.
     assignedIpv6Addresses :: Prelude.Maybe [Prelude.Text],
+    -- | The IPv6 prefixes that are assigned to the network interface.
+    assignedIpv6Prefixes :: Prelude.Maybe [Prelude.Text],
+    -- | The ID of the network interface.
+    networkInterfaceId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -249,13 +249,13 @@ data AssignIpv6AddressesResponse = AssignIpv6AddressesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'assignedIpv6Prefixes', 'assignIpv6AddressesResponse_assignedIpv6Prefixes' - The IPv6 prefixes that are assigned to the network interface.
---
--- 'networkInterfaceId', 'assignIpv6AddressesResponse_networkInterfaceId' - The ID of the network interface.
---
 -- 'assignedIpv6Addresses', 'assignIpv6AddressesResponse_assignedIpv6Addresses' - The new IPv6 addresses assigned to the network interface. Existing IPv6
 -- addresses that were assigned to the network interface before the request
 -- are not included.
+--
+-- 'assignedIpv6Prefixes', 'assignIpv6AddressesResponse_assignedIpv6Prefixes' - The IPv6 prefixes that are assigned to the network interface.
+--
+-- 'networkInterfaceId', 'assignIpv6AddressesResponse_networkInterfaceId' - The ID of the network interface.
 --
 -- 'httpStatus', 'assignIpv6AddressesResponse_httpStatus' - The response's http status code.
 newAssignIpv6AddressesResponse ::
@@ -264,12 +264,18 @@ newAssignIpv6AddressesResponse ::
   AssignIpv6AddressesResponse
 newAssignIpv6AddressesResponse pHttpStatus_ =
   AssignIpv6AddressesResponse'
-    { assignedIpv6Prefixes =
+    { assignedIpv6Addresses =
         Prelude.Nothing,
+      assignedIpv6Prefixes = Prelude.Nothing,
       networkInterfaceId = Prelude.Nothing,
-      assignedIpv6Addresses = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The new IPv6 addresses assigned to the network interface. Existing IPv6
+-- addresses that were assigned to the network interface before the request
+-- are not included.
+assignIpv6AddressesResponse_assignedIpv6Addresses :: Lens.Lens' AssignIpv6AddressesResponse (Prelude.Maybe [Prelude.Text])
+assignIpv6AddressesResponse_assignedIpv6Addresses = Lens.lens (\AssignIpv6AddressesResponse' {assignedIpv6Addresses} -> assignedIpv6Addresses) (\s@AssignIpv6AddressesResponse' {} a -> s {assignedIpv6Addresses = a} :: AssignIpv6AddressesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The IPv6 prefixes that are assigned to the network interface.
 assignIpv6AddressesResponse_assignedIpv6Prefixes :: Lens.Lens' AssignIpv6AddressesResponse (Prelude.Maybe [Prelude.Text])
@@ -279,19 +285,13 @@ assignIpv6AddressesResponse_assignedIpv6Prefixes = Lens.lens (\AssignIpv6Address
 assignIpv6AddressesResponse_networkInterfaceId :: Lens.Lens' AssignIpv6AddressesResponse (Prelude.Maybe Prelude.Text)
 assignIpv6AddressesResponse_networkInterfaceId = Lens.lens (\AssignIpv6AddressesResponse' {networkInterfaceId} -> networkInterfaceId) (\s@AssignIpv6AddressesResponse' {} a -> s {networkInterfaceId = a} :: AssignIpv6AddressesResponse)
 
--- | The new IPv6 addresses assigned to the network interface. Existing IPv6
--- addresses that were assigned to the network interface before the request
--- are not included.
-assignIpv6AddressesResponse_assignedIpv6Addresses :: Lens.Lens' AssignIpv6AddressesResponse (Prelude.Maybe [Prelude.Text])
-assignIpv6AddressesResponse_assignedIpv6Addresses = Lens.lens (\AssignIpv6AddressesResponse' {assignedIpv6Addresses} -> assignedIpv6Addresses) (\s@AssignIpv6AddressesResponse' {} a -> s {assignedIpv6Addresses = a} :: AssignIpv6AddressesResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 assignIpv6AddressesResponse_httpStatus :: Lens.Lens' AssignIpv6AddressesResponse Prelude.Int
 assignIpv6AddressesResponse_httpStatus = Lens.lens (\AssignIpv6AddressesResponse' {httpStatus} -> httpStatus) (\s@AssignIpv6AddressesResponse' {} a -> s {httpStatus = a} :: AssignIpv6AddressesResponse)
 
 instance Prelude.NFData AssignIpv6AddressesResponse where
   rnf AssignIpv6AddressesResponse' {..} =
-    Prelude.rnf assignedIpv6Prefixes
+    Prelude.rnf assignedIpv6Addresses
+      `Prelude.seq` Prelude.rnf assignedIpv6Prefixes
       `Prelude.seq` Prelude.rnf networkInterfaceId
-      `Prelude.seq` Prelude.rnf assignedIpv6Addresses
       `Prelude.seq` Prelude.rnf httpStatus

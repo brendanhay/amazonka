@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNode' smart constructor.
 data Node = Node'
-  { -- | The node\'s ARN.
-    packageArn :: Prelude.Maybe Prelude.Text,
-    -- | The node\'s description.
+  { -- | The node\'s description.
     description :: Prelude.Maybe Prelude.Text,
     -- | The account ID of the node\'s owner.
     ownerAccount :: Prelude.Maybe Prelude.Text,
+    -- | The node\'s ARN.
+    packageArn :: Prelude.Maybe Prelude.Text,
     -- | The node\'s category.
     category :: NodeCategory,
     -- | When the node was created.
@@ -63,11 +63,11 @@ data Node = Node'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'packageArn', 'node_packageArn' - The node\'s ARN.
---
 -- 'description', 'node_description' - The node\'s description.
 --
 -- 'ownerAccount', 'node_ownerAccount' - The account ID of the node\'s owner.
+--
+-- 'packageArn', 'node_packageArn' - The node\'s ARN.
 --
 -- 'category', 'node_category' - The node\'s category.
 --
@@ -112,9 +112,9 @@ newNode
   pPackageVersion_
   pPatchVersion_ =
     Node'
-      { packageArn = Prelude.Nothing,
-        description = Prelude.Nothing,
+      { description = Prelude.Nothing,
         ownerAccount = Prelude.Nothing,
+        packageArn = Prelude.Nothing,
         category = pCategory_,
         createdTime = Data._Time Lens.# pCreatedTime_,
         name = pName_,
@@ -125,10 +125,6 @@ newNode
         patchVersion = pPatchVersion_
       }
 
--- | The node\'s ARN.
-node_packageArn :: Lens.Lens' Node (Prelude.Maybe Prelude.Text)
-node_packageArn = Lens.lens (\Node' {packageArn} -> packageArn) (\s@Node' {} a -> s {packageArn = a} :: Node)
-
 -- | The node\'s description.
 node_description :: Lens.Lens' Node (Prelude.Maybe Prelude.Text)
 node_description = Lens.lens (\Node' {description} -> description) (\s@Node' {} a -> s {description = a} :: Node)
@@ -136,6 +132,10 @@ node_description = Lens.lens (\Node' {description} -> description) (\s@Node' {} 
 -- | The account ID of the node\'s owner.
 node_ownerAccount :: Lens.Lens' Node (Prelude.Maybe Prelude.Text)
 node_ownerAccount = Lens.lens (\Node' {ownerAccount} -> ownerAccount) (\s@Node' {} a -> s {ownerAccount = a} :: Node)
+
+-- | The node\'s ARN.
+node_packageArn :: Lens.Lens' Node (Prelude.Maybe Prelude.Text)
+node_packageArn = Lens.lens (\Node' {packageArn} -> packageArn) (\s@Node' {} a -> s {packageArn = a} :: Node)
 
 -- | The node\'s category.
 node_category :: Lens.Lens' Node NodeCategory
@@ -175,9 +175,9 @@ instance Data.FromJSON Node where
       "Node"
       ( \x ->
           Node'
-            Prelude.<$> (x Data..:? "PackageArn")
-            Prelude.<*> (x Data..:? "Description")
+            Prelude.<$> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "OwnerAccount")
+            Prelude.<*> (x Data..:? "PackageArn")
             Prelude.<*> (x Data..: "Category")
             Prelude.<*> (x Data..: "CreatedTime")
             Prelude.<*> (x Data..: "Name")
@@ -190,9 +190,9 @@ instance Data.FromJSON Node where
 
 instance Prelude.Hashable Node where
   hashWithSalt _salt Node' {..} =
-    _salt `Prelude.hashWithSalt` packageArn
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` ownerAccount
+      `Prelude.hashWithSalt` packageArn
       `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` name
@@ -204,9 +204,9 @@ instance Prelude.Hashable Node where
 
 instance Prelude.NFData Node where
   rnf Node' {..} =
-    Prelude.rnf packageArn
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf ownerAccount
+      `Prelude.seq` Prelude.rnf packageArn
       `Prelude.seq` Prelude.rnf category
       `Prelude.seq` Prelude.rnf createdTime
       `Prelude.seq` Prelude.rnf name

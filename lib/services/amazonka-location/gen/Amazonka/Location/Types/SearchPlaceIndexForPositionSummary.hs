@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSearchPlaceIndexForPositionSummary' smart constructor.
 data SearchPlaceIndexForPositionSummary = SearchPlaceIndexForPositionSummary'
-  { -- | Contains the optional result count limit that is specified in the
-    -- request.
-    --
-    -- Default value: @50@
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The preferred language used to return results. Matches the language in
+  { -- | The preferred language used to return results. Matches the language in
     -- the request. The value is a valid
     -- <https://tools.ietf.org/search/bcp47 BCP 47> language tag, for example,
     -- @en@ for English.
     language :: Prelude.Maybe Prelude.Text,
+    -- | Contains the optional result count limit that is specified in the
+    -- request.
+    --
+    -- Default value: @50@
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The geospatial data provider attached to the place index resource
     -- specified in the request. Values can be one of the following:
     --
@@ -61,15 +61,15 @@ data SearchPlaceIndexForPositionSummary = SearchPlaceIndexForPositionSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxResults', 'searchPlaceIndexForPositionSummary_maxResults' - Contains the optional result count limit that is specified in the
--- request.
---
--- Default value: @50@
---
 -- 'language', 'searchPlaceIndexForPositionSummary_language' - The preferred language used to return results. Matches the language in
 -- the request. The value is a valid
 -- <https://tools.ietf.org/search/bcp47 BCP 47> language tag, for example,
 -- @en@ for English.
+--
+-- 'maxResults', 'searchPlaceIndexForPositionSummary_maxResults' - Contains the optional result count limit that is specified in the
+-- request.
+--
+-- Default value: @50@
 --
 -- 'dataSource', 'searchPlaceIndexForPositionSummary_dataSource' - The geospatial data provider attached to the place index resource
 -- specified in the request. Values can be one of the following:
@@ -92,21 +92,14 @@ newSearchPlaceIndexForPositionSummary
   pDataSource_
   pPosition_ =
     SearchPlaceIndexForPositionSummary'
-      { maxResults =
+      { language =
           Prelude.Nothing,
-        language = Prelude.Nothing,
+        maxResults = Prelude.Nothing,
         dataSource = pDataSource_,
         position =
           Data._Sensitive Prelude.. Lens.coerced
             Lens.# pPosition_
       }
-
--- | Contains the optional result count limit that is specified in the
--- request.
---
--- Default value: @50@
-searchPlaceIndexForPositionSummary_maxResults :: Lens.Lens' SearchPlaceIndexForPositionSummary (Prelude.Maybe Prelude.Natural)
-searchPlaceIndexForPositionSummary_maxResults = Lens.lens (\SearchPlaceIndexForPositionSummary' {maxResults} -> maxResults) (\s@SearchPlaceIndexForPositionSummary' {} a -> s {maxResults = a} :: SearchPlaceIndexForPositionSummary)
 
 -- | The preferred language used to return results. Matches the language in
 -- the request. The value is a valid
@@ -114,6 +107,13 @@ searchPlaceIndexForPositionSummary_maxResults = Lens.lens (\SearchPlaceIndexForP
 -- @en@ for English.
 searchPlaceIndexForPositionSummary_language :: Lens.Lens' SearchPlaceIndexForPositionSummary (Prelude.Maybe Prelude.Text)
 searchPlaceIndexForPositionSummary_language = Lens.lens (\SearchPlaceIndexForPositionSummary' {language} -> language) (\s@SearchPlaceIndexForPositionSummary' {} a -> s {language = a} :: SearchPlaceIndexForPositionSummary)
+
+-- | Contains the optional result count limit that is specified in the
+-- request.
+--
+-- Default value: @50@
+searchPlaceIndexForPositionSummary_maxResults :: Lens.Lens' SearchPlaceIndexForPositionSummary (Prelude.Maybe Prelude.Natural)
+searchPlaceIndexForPositionSummary_maxResults = Lens.lens (\SearchPlaceIndexForPositionSummary' {maxResults} -> maxResults) (\s@SearchPlaceIndexForPositionSummary' {} a -> s {maxResults = a} :: SearchPlaceIndexForPositionSummary)
 
 -- | The geospatial data provider attached to the place index resource
 -- specified in the request. Values can be one of the following:
@@ -140,8 +140,8 @@ instance
       "SearchPlaceIndexForPositionSummary"
       ( \x ->
           SearchPlaceIndexForPositionSummary'
-            Prelude.<$> (x Data..:? "MaxResults")
-            Prelude.<*> (x Data..:? "Language")
+            Prelude.<$> (x Data..:? "Language")
+            Prelude.<*> (x Data..:? "MaxResults")
             Prelude.<*> (x Data..: "DataSource")
             Prelude.<*> (x Data..: "Position")
       )
@@ -153,8 +153,8 @@ instance
   hashWithSalt
     _salt
     SearchPlaceIndexForPositionSummary' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
-        `Prelude.hashWithSalt` language
+      _salt `Prelude.hashWithSalt` language
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` dataSource
         `Prelude.hashWithSalt` position
 
@@ -163,7 +163,7 @@ instance
     SearchPlaceIndexForPositionSummary
   where
   rnf SearchPlaceIndexForPositionSummary' {..} =
-    Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf language
+    Prelude.rnf language
+      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf dataSource
       `Prelude.seq` Prelude.rnf position

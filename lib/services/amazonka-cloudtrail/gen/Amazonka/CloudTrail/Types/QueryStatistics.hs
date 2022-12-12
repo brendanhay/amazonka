@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newQueryStatistics' smart constructor.
 data QueryStatistics = QueryStatistics'
-  { -- | The total number of results returned by a query.
-    totalResultsCount :: Prelude.Maybe Prelude.Int,
-    -- | The total bytes that the query scanned in the event data store. This
+  { -- | The total bytes that the query scanned in the event data store. This
     -- value matches the number of bytes for which your account is billed for
     -- the query, unless the query is still running.
     bytesScanned :: Prelude.Maybe Prelude.Integer,
     -- | The number of results returned.
-    resultsCount :: Prelude.Maybe Prelude.Int
+    resultsCount :: Prelude.Maybe Prelude.Int,
+    -- | The total number of results returned by a query.
+    totalResultsCount :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,26 +47,21 @@ data QueryStatistics = QueryStatistics'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'totalResultsCount', 'queryStatistics_totalResultsCount' - The total number of results returned by a query.
---
 -- 'bytesScanned', 'queryStatistics_bytesScanned' - The total bytes that the query scanned in the event data store. This
 -- value matches the number of bytes for which your account is billed for
 -- the query, unless the query is still running.
 --
 -- 'resultsCount', 'queryStatistics_resultsCount' - The number of results returned.
+--
+-- 'totalResultsCount', 'queryStatistics_totalResultsCount' - The total number of results returned by a query.
 newQueryStatistics ::
   QueryStatistics
 newQueryStatistics =
   QueryStatistics'
-    { totalResultsCount =
-        Prelude.Nothing,
-      bytesScanned = Prelude.Nothing,
-      resultsCount = Prelude.Nothing
+    { bytesScanned = Prelude.Nothing,
+      resultsCount = Prelude.Nothing,
+      totalResultsCount = Prelude.Nothing
     }
-
--- | The total number of results returned by a query.
-queryStatistics_totalResultsCount :: Lens.Lens' QueryStatistics (Prelude.Maybe Prelude.Int)
-queryStatistics_totalResultsCount = Lens.lens (\QueryStatistics' {totalResultsCount} -> totalResultsCount) (\s@QueryStatistics' {} a -> s {totalResultsCount = a} :: QueryStatistics)
 
 -- | The total bytes that the query scanned in the event data store. This
 -- value matches the number of bytes for which your account is billed for
@@ -78,25 +73,29 @@ queryStatistics_bytesScanned = Lens.lens (\QueryStatistics' {bytesScanned} -> by
 queryStatistics_resultsCount :: Lens.Lens' QueryStatistics (Prelude.Maybe Prelude.Int)
 queryStatistics_resultsCount = Lens.lens (\QueryStatistics' {resultsCount} -> resultsCount) (\s@QueryStatistics' {} a -> s {resultsCount = a} :: QueryStatistics)
 
+-- | The total number of results returned by a query.
+queryStatistics_totalResultsCount :: Lens.Lens' QueryStatistics (Prelude.Maybe Prelude.Int)
+queryStatistics_totalResultsCount = Lens.lens (\QueryStatistics' {totalResultsCount} -> totalResultsCount) (\s@QueryStatistics' {} a -> s {totalResultsCount = a} :: QueryStatistics)
+
 instance Data.FromJSON QueryStatistics where
   parseJSON =
     Data.withObject
       "QueryStatistics"
       ( \x ->
           QueryStatistics'
-            Prelude.<$> (x Data..:? "TotalResultsCount")
-            Prelude.<*> (x Data..:? "BytesScanned")
+            Prelude.<$> (x Data..:? "BytesScanned")
             Prelude.<*> (x Data..:? "ResultsCount")
+            Prelude.<*> (x Data..:? "TotalResultsCount")
       )
 
 instance Prelude.Hashable QueryStatistics where
   hashWithSalt _salt QueryStatistics' {..} =
-    _salt `Prelude.hashWithSalt` totalResultsCount
-      `Prelude.hashWithSalt` bytesScanned
+    _salt `Prelude.hashWithSalt` bytesScanned
       `Prelude.hashWithSalt` resultsCount
+      `Prelude.hashWithSalt` totalResultsCount
 
 instance Prelude.NFData QueryStatistics where
   rnf QueryStatistics' {..} =
-    Prelude.rnf totalResultsCount
-      `Prelude.seq` Prelude.rnf bytesScanned
+    Prelude.rnf bytesScanned
       `Prelude.seq` Prelude.rnf resultsCount
+      `Prelude.seq` Prelude.rnf totalResultsCount

@@ -28,9 +28,9 @@ module Amazonka.RAM.ListPermissions
     newListPermissions,
 
     -- * Request Lenses
-    listPermissions_resourceType,
-    listPermissions_nextToken,
     listPermissions_maxResults,
+    listPermissions_nextToken,
+    listPermissions_resourceType,
 
     -- * Destructuring the Response
     ListPermissionsResponse (..),
@@ -53,18 +53,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPermissions' smart constructor.
 data ListPermissions = ListPermissions'
-  { -- | Specifies that you want to list permissions for only the specified
-    -- resource type. For example, to list only permissions that apply to EC2
-    -- subnets, specify @ec2:Subnet@. You can use the ListResourceTypes
-    -- operation to get the specific string required.
-    resourceType :: Prelude.Maybe Prelude.Text,
-    -- | Specifies that you want to receive the next page of results. Valid only
-    -- if you received a @NextToken@ response in the previous request. If you
-    -- did, it indicates that more output is available. Set this parameter to
-    -- the value provided by the previous call\'s @NextToken@ response to
-    -- request the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the total number of results that you want included on each
+  { -- | Specifies the total number of results that you want included on each
     -- page of the response. If you do not include this parameter, it defaults
     -- to a value that is specific to the operation. If additional items exist
     -- beyond the number you specify, the @NextToken@ response element is
@@ -74,7 +63,18 @@ data ListPermissions = ListPermissions'
     -- results than the maximum even when there are more results available. You
     -- should check @NextToken@ after every operation to ensure that you
     -- receive all of the results.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Specifies that you want to receive the next page of results. Valid only
+    -- if you received a @NextToken@ response in the previous request. If you
+    -- did, it indicates that more output is available. Set this parameter to
+    -- the value provided by the previous call\'s @NextToken@ response to
+    -- request the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Specifies that you want to list permissions for only the specified
+    -- resource type. For example, to list only permissions that apply to EC2
+    -- subnets, specify @ec2:Subnet@. You can use the ListResourceTypes
+    -- operation to get the specific string required.
+    resourceType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -86,17 +86,6 @@ data ListPermissions = ListPermissions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceType', 'listPermissions_resourceType' - Specifies that you want to list permissions for only the specified
--- resource type. For example, to list only permissions that apply to EC2
--- subnets, specify @ec2:Subnet@. You can use the ListResourceTypes
--- operation to get the specific string required.
---
--- 'nextToken', 'listPermissions_nextToken' - Specifies that you want to receive the next page of results. Valid only
--- if you received a @NextToken@ response in the previous request. If you
--- did, it indicates that more output is available. Set this parameter to
--- the value provided by the previous call\'s @NextToken@ response to
--- request the next page of results.
---
 -- 'maxResults', 'listPermissions_maxResults' - Specifies the total number of results that you want included on each
 -- page of the response. If you do not include this parameter, it defaults
 -- to a value that is specific to the operation. If additional items exist
@@ -107,29 +96,25 @@ data ListPermissions = ListPermissions'
 -- results than the maximum even when there are more results available. You
 -- should check @NextToken@ after every operation to ensure that you
 -- receive all of the results.
-newListPermissions ::
-  ListPermissions
-newListPermissions =
-  ListPermissions'
-    { resourceType = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
-    }
-
--- | Specifies that you want to list permissions for only the specified
--- resource type. For example, to list only permissions that apply to EC2
--- subnets, specify @ec2:Subnet@. You can use the ListResourceTypes
--- operation to get the specific string required.
-listPermissions_resourceType :: Lens.Lens' ListPermissions (Prelude.Maybe Prelude.Text)
-listPermissions_resourceType = Lens.lens (\ListPermissions' {resourceType} -> resourceType) (\s@ListPermissions' {} a -> s {resourceType = a} :: ListPermissions)
-
--- | Specifies that you want to receive the next page of results. Valid only
+--
+-- 'nextToken', 'listPermissions_nextToken' - Specifies that you want to receive the next page of results. Valid only
 -- if you received a @NextToken@ response in the previous request. If you
 -- did, it indicates that more output is available. Set this parameter to
 -- the value provided by the previous call\'s @NextToken@ response to
 -- request the next page of results.
-listPermissions_nextToken :: Lens.Lens' ListPermissions (Prelude.Maybe Prelude.Text)
-listPermissions_nextToken = Lens.lens (\ListPermissions' {nextToken} -> nextToken) (\s@ListPermissions' {} a -> s {nextToken = a} :: ListPermissions)
+--
+-- 'resourceType', 'listPermissions_resourceType' - Specifies that you want to list permissions for only the specified
+-- resource type. For example, to list only permissions that apply to EC2
+-- subnets, specify @ec2:Subnet@. You can use the ListResourceTypes
+-- operation to get the specific string required.
+newListPermissions ::
+  ListPermissions
+newListPermissions =
+  ListPermissions'
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      resourceType = Prelude.Nothing
+    }
 
 -- | Specifies the total number of results that you want included on each
 -- page of the response. If you do not include this parameter, it defaults
@@ -143,6 +128,21 @@ listPermissions_nextToken = Lens.lens (\ListPermissions' {nextToken} -> nextToke
 -- receive all of the results.
 listPermissions_maxResults :: Lens.Lens' ListPermissions (Prelude.Maybe Prelude.Natural)
 listPermissions_maxResults = Lens.lens (\ListPermissions' {maxResults} -> maxResults) (\s@ListPermissions' {} a -> s {maxResults = a} :: ListPermissions)
+
+-- | Specifies that you want to receive the next page of results. Valid only
+-- if you received a @NextToken@ response in the previous request. If you
+-- did, it indicates that more output is available. Set this parameter to
+-- the value provided by the previous call\'s @NextToken@ response to
+-- request the next page of results.
+listPermissions_nextToken :: Lens.Lens' ListPermissions (Prelude.Maybe Prelude.Text)
+listPermissions_nextToken = Lens.lens (\ListPermissions' {nextToken} -> nextToken) (\s@ListPermissions' {} a -> s {nextToken = a} :: ListPermissions)
+
+-- | Specifies that you want to list permissions for only the specified
+-- resource type. For example, to list only permissions that apply to EC2
+-- subnets, specify @ec2:Subnet@. You can use the ListResourceTypes
+-- operation to get the specific string required.
+listPermissions_resourceType :: Lens.Lens' ListPermissions (Prelude.Maybe Prelude.Text)
+listPermissions_resourceType = Lens.lens (\ListPermissions' {resourceType} -> resourceType) (\s@ListPermissions' {} a -> s {resourceType = a} :: ListPermissions)
 
 instance Core.AWSRequest ListPermissions where
   type
@@ -161,15 +161,15 @@ instance Core.AWSRequest ListPermissions where
 
 instance Prelude.Hashable ListPermissions where
   hashWithSalt _salt ListPermissions' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` resourceType
 
 instance Prelude.NFData ListPermissions where
   rnf ListPermissions' {..} =
-    Prelude.rnf resourceType
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf resourceType
 
 instance Data.ToHeaders ListPermissions where
   toHeaders =
@@ -186,9 +186,9 @@ instance Data.ToJSON ListPermissions where
   toJSON ListPermissions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("resourceType" Data..=) Prelude.<$> resourceType,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
             ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+            ("resourceType" Data..=) Prelude.<$> resourceType
           ]
       )
 

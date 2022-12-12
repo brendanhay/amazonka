@@ -29,9 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPackageVersionError' smart constructor.
 data PackageVersionError = PackageVersionError'
-  { -- | The error message associated with the error.
-    errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | The error code associated with the error. Valid error codes are:
+  { -- | The error code associated with the error. Valid error codes are:
     --
     -- -   @ALREADY_EXISTS@
     --
@@ -44,7 +42,9 @@ data PackageVersionError = PackageVersionError'
     -- -   @NOT_FOUND@
     --
     -- -   @SKIPPED@
-    errorCode :: Prelude.Maybe PackageVersionErrorCode
+    errorCode :: Prelude.Maybe PackageVersionErrorCode,
+    -- | The error message associated with the error.
+    errorMessage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,8 +55,6 @@ data PackageVersionError = PackageVersionError'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'errorMessage', 'packageVersionError_errorMessage' - The error message associated with the error.
 --
 -- 'errorCode', 'packageVersionError_errorCode' - The error code associated with the error. Valid error codes are:
 --
@@ -71,18 +69,15 @@ data PackageVersionError = PackageVersionError'
 -- -   @NOT_FOUND@
 --
 -- -   @SKIPPED@
+--
+-- 'errorMessage', 'packageVersionError_errorMessage' - The error message associated with the error.
 newPackageVersionError ::
   PackageVersionError
 newPackageVersionError =
   PackageVersionError'
-    { errorMessage =
-        Prelude.Nothing,
-      errorCode = Prelude.Nothing
+    { errorCode = Prelude.Nothing,
+      errorMessage = Prelude.Nothing
     }
-
--- | The error message associated with the error.
-packageVersionError_errorMessage :: Lens.Lens' PackageVersionError (Prelude.Maybe Prelude.Text)
-packageVersionError_errorMessage = Lens.lens (\PackageVersionError' {errorMessage} -> errorMessage) (\s@PackageVersionError' {} a -> s {errorMessage = a} :: PackageVersionError)
 
 -- | The error code associated with the error. Valid error codes are:
 --
@@ -100,22 +95,26 @@ packageVersionError_errorMessage = Lens.lens (\PackageVersionError' {errorMessag
 packageVersionError_errorCode :: Lens.Lens' PackageVersionError (Prelude.Maybe PackageVersionErrorCode)
 packageVersionError_errorCode = Lens.lens (\PackageVersionError' {errorCode} -> errorCode) (\s@PackageVersionError' {} a -> s {errorCode = a} :: PackageVersionError)
 
+-- | The error message associated with the error.
+packageVersionError_errorMessage :: Lens.Lens' PackageVersionError (Prelude.Maybe Prelude.Text)
+packageVersionError_errorMessage = Lens.lens (\PackageVersionError' {errorMessage} -> errorMessage) (\s@PackageVersionError' {} a -> s {errorMessage = a} :: PackageVersionError)
+
 instance Data.FromJSON PackageVersionError where
   parseJSON =
     Data.withObject
       "PackageVersionError"
       ( \x ->
           PackageVersionError'
-            Prelude.<$> (x Data..:? "errorMessage")
-            Prelude.<*> (x Data..:? "errorCode")
+            Prelude.<$> (x Data..:? "errorCode")
+            Prelude.<*> (x Data..:? "errorMessage")
       )
 
 instance Prelude.Hashable PackageVersionError where
   hashWithSalt _salt PackageVersionError' {..} =
-    _salt `Prelude.hashWithSalt` errorMessage
-      `Prelude.hashWithSalt` errorCode
+    _salt `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` errorMessage
 
 instance Prelude.NFData PackageVersionError where
   rnf PackageVersionError' {..} =
-    Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf errorCode
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage

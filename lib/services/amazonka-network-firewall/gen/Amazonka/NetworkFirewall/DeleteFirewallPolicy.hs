@@ -27,8 +27,8 @@ module Amazonka.NetworkFirewall.DeleteFirewallPolicy
     newDeleteFirewallPolicy,
 
     -- * Request Lenses
-    deleteFirewallPolicy_firewallPolicyName,
     deleteFirewallPolicy_firewallPolicyArn,
+    deleteFirewallPolicy_firewallPolicyName,
 
     -- * Destructuring the Response
     DeleteFirewallPolicyResponse (..),
@@ -50,15 +50,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteFirewallPolicy' smart constructor.
 data DeleteFirewallPolicy = DeleteFirewallPolicy'
-  { -- | The descriptive name of the firewall policy. You can\'t change the name
+  { -- | The Amazon Resource Name (ARN) of the firewall policy.
+    --
+    -- You must specify the ARN or the name, and you can specify both.
+    firewallPolicyArn :: Prelude.Maybe Prelude.Text,
+    -- | The descriptive name of the firewall policy. You can\'t change the name
     -- of a firewall policy after you create it.
     --
     -- You must specify the ARN or the name, and you can specify both.
-    firewallPolicyName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the firewall policy.
-    --
-    -- You must specify the ARN or the name, and you can specify both.
-    firewallPolicyArn :: Prelude.Maybe Prelude.Text
+    firewallPolicyName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,22 +70,28 @@ data DeleteFirewallPolicy = DeleteFirewallPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'firewallPolicyName', 'deleteFirewallPolicy_firewallPolicyName' - The descriptive name of the firewall policy. You can\'t change the name
--- of a firewall policy after you create it.
+-- 'firewallPolicyArn', 'deleteFirewallPolicy_firewallPolicyArn' - The Amazon Resource Name (ARN) of the firewall policy.
 --
 -- You must specify the ARN or the name, and you can specify both.
 --
--- 'firewallPolicyArn', 'deleteFirewallPolicy_firewallPolicyArn' - The Amazon Resource Name (ARN) of the firewall policy.
+-- 'firewallPolicyName', 'deleteFirewallPolicy_firewallPolicyName' - The descriptive name of the firewall policy. You can\'t change the name
+-- of a firewall policy after you create it.
 --
 -- You must specify the ARN or the name, and you can specify both.
 newDeleteFirewallPolicy ::
   DeleteFirewallPolicy
 newDeleteFirewallPolicy =
   DeleteFirewallPolicy'
-    { firewallPolicyName =
+    { firewallPolicyArn =
         Prelude.Nothing,
-      firewallPolicyArn = Prelude.Nothing
+      firewallPolicyName = Prelude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the firewall policy.
+--
+-- You must specify the ARN or the name, and you can specify both.
+deleteFirewallPolicy_firewallPolicyArn :: Lens.Lens' DeleteFirewallPolicy (Prelude.Maybe Prelude.Text)
+deleteFirewallPolicy_firewallPolicyArn = Lens.lens (\DeleteFirewallPolicy' {firewallPolicyArn} -> firewallPolicyArn) (\s@DeleteFirewallPolicy' {} a -> s {firewallPolicyArn = a} :: DeleteFirewallPolicy)
 
 -- | The descriptive name of the firewall policy. You can\'t change the name
 -- of a firewall policy after you create it.
@@ -93,12 +99,6 @@ newDeleteFirewallPolicy =
 -- You must specify the ARN or the name, and you can specify both.
 deleteFirewallPolicy_firewallPolicyName :: Lens.Lens' DeleteFirewallPolicy (Prelude.Maybe Prelude.Text)
 deleteFirewallPolicy_firewallPolicyName = Lens.lens (\DeleteFirewallPolicy' {firewallPolicyName} -> firewallPolicyName) (\s@DeleteFirewallPolicy' {} a -> s {firewallPolicyName = a} :: DeleteFirewallPolicy)
-
--- | The Amazon Resource Name (ARN) of the firewall policy.
---
--- You must specify the ARN or the name, and you can specify both.
-deleteFirewallPolicy_firewallPolicyArn :: Lens.Lens' DeleteFirewallPolicy (Prelude.Maybe Prelude.Text)
-deleteFirewallPolicy_firewallPolicyArn = Lens.lens (\DeleteFirewallPolicy' {firewallPolicyArn} -> firewallPolicyArn) (\s@DeleteFirewallPolicy' {} a -> s {firewallPolicyArn = a} :: DeleteFirewallPolicy)
 
 instance Core.AWSRequest DeleteFirewallPolicy where
   type
@@ -116,13 +116,13 @@ instance Core.AWSRequest DeleteFirewallPolicy where
 
 instance Prelude.Hashable DeleteFirewallPolicy where
   hashWithSalt _salt DeleteFirewallPolicy' {..} =
-    _salt `Prelude.hashWithSalt` firewallPolicyName
-      `Prelude.hashWithSalt` firewallPolicyArn
+    _salt `Prelude.hashWithSalt` firewallPolicyArn
+      `Prelude.hashWithSalt` firewallPolicyName
 
 instance Prelude.NFData DeleteFirewallPolicy where
   rnf DeleteFirewallPolicy' {..} =
-    Prelude.rnf firewallPolicyName
-      `Prelude.seq` Prelude.rnf firewallPolicyArn
+    Prelude.rnf firewallPolicyArn
+      `Prelude.seq` Prelude.rnf firewallPolicyName
 
 instance Data.ToHeaders DeleteFirewallPolicy where
   toHeaders =
@@ -143,10 +143,10 @@ instance Data.ToJSON DeleteFirewallPolicy where
   toJSON DeleteFirewallPolicy' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("FirewallPolicyName" Data..=)
-              Prelude.<$> firewallPolicyName,
-            ("FirewallPolicyArn" Data..=)
-              Prelude.<$> firewallPolicyArn
+          [ ("FirewallPolicyArn" Data..=)
+              Prelude.<$> firewallPolicyArn,
+            ("FirewallPolicyName" Data..=)
+              Prelude.<$> firewallPolicyName
           ]
       )
 

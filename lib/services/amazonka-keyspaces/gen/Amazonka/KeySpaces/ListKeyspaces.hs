@@ -29,8 +29,8 @@ module Amazonka.KeySpaces.ListKeyspaces
     newListKeyspaces,
 
     -- * Request Lenses
-    listKeyspaces_nextToken,
     listKeyspaces_maxResults,
+    listKeyspaces_nextToken,
 
     -- * Destructuring the Response
     ListKeyspacesResponse (..),
@@ -53,14 +53,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListKeyspaces' smart constructor.
 data ListKeyspaces = ListKeyspaces'
-  { -- | The pagination token. To resume pagination, provide the @NextToken@
-    -- value as argument of a subsequent API invocation.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The total number of keyspaces to return in the output. If the total
+  { -- | The total number of keyspaces to return in the output. If the total
     -- number of keyspaces available is more than the value specified, a
     -- @NextToken@ is provided in the output. To resume pagination, provide the
     -- @NextToken@ value as an argument of a subsequent API invocation.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token. To resume pagination, provide the @NextToken@
+    -- value as argument of a subsequent API invocation.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,25 +72,20 @@ data ListKeyspaces = ListKeyspaces'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listKeyspaces_nextToken' - The pagination token. To resume pagination, provide the @NextToken@
--- value as argument of a subsequent API invocation.
---
 -- 'maxResults', 'listKeyspaces_maxResults' - The total number of keyspaces to return in the output. If the total
 -- number of keyspaces available is more than the value specified, a
 -- @NextToken@ is provided in the output. To resume pagination, provide the
 -- @NextToken@ value as an argument of a subsequent API invocation.
+--
+-- 'nextToken', 'listKeyspaces_nextToken' - The pagination token. To resume pagination, provide the @NextToken@
+-- value as argument of a subsequent API invocation.
 newListKeyspaces ::
   ListKeyspaces
 newListKeyspaces =
   ListKeyspaces'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The pagination token. To resume pagination, provide the @NextToken@
--- value as argument of a subsequent API invocation.
-listKeyspaces_nextToken :: Lens.Lens' ListKeyspaces (Prelude.Maybe Prelude.Text)
-listKeyspaces_nextToken = Lens.lens (\ListKeyspaces' {nextToken} -> nextToken) (\s@ListKeyspaces' {} a -> s {nextToken = a} :: ListKeyspaces)
 
 -- | The total number of keyspaces to return in the output. If the total
 -- number of keyspaces available is more than the value specified, a
@@ -98,6 +93,11 @@ listKeyspaces_nextToken = Lens.lens (\ListKeyspaces' {nextToken} -> nextToken) (
 -- @NextToken@ value as an argument of a subsequent API invocation.
 listKeyspaces_maxResults :: Lens.Lens' ListKeyspaces (Prelude.Maybe Prelude.Natural)
 listKeyspaces_maxResults = Lens.lens (\ListKeyspaces' {maxResults} -> maxResults) (\s@ListKeyspaces' {} a -> s {maxResults = a} :: ListKeyspaces)
+
+-- | The pagination token. To resume pagination, provide the @NextToken@
+-- value as argument of a subsequent API invocation.
+listKeyspaces_nextToken :: Lens.Lens' ListKeyspaces (Prelude.Maybe Prelude.Text)
+listKeyspaces_nextToken = Lens.lens (\ListKeyspaces' {nextToken} -> nextToken) (\s@ListKeyspaces' {} a -> s {nextToken = a} :: ListKeyspaces)
 
 instance Core.AWSPager ListKeyspaces where
   page rq rs
@@ -133,13 +133,13 @@ instance Core.AWSRequest ListKeyspaces where
 
 instance Prelude.Hashable ListKeyspaces where
   hashWithSalt _salt ListKeyspaces' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListKeyspaces where
   rnf ListKeyspaces' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListKeyspaces where
   toHeaders =
@@ -160,8 +160,8 @@ instance Data.ToJSON ListKeyspaces where
   toJSON ListKeyspaces' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

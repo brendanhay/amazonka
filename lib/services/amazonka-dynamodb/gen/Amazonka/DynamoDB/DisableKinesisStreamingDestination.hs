@@ -36,9 +36,9 @@ module Amazonka.DynamoDB.DisableKinesisStreamingDestination
     newKinesisStreamingDestinationOutput,
 
     -- * Response Lenses
-    kinesisStreamingDestinationOutput_tableName,
-    kinesisStreamingDestinationOutput_streamArn,
     kinesisStreamingDestinationOutput_destinationStatus,
+    kinesisStreamingDestinationOutput_streamArn,
+    kinesisStreamingDestinationOutput_tableName,
   )
 where
 

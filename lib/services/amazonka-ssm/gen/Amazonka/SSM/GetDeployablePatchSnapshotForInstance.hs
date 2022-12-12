@@ -47,10 +47,10 @@ module Amazonka.SSM.GetDeployablePatchSnapshotForInstance
     newGetDeployablePatchSnapshotForInstanceResponse,
 
     -- * Response Lenses
-    getDeployablePatchSnapshotForInstanceResponse_product,
-    getDeployablePatchSnapshotForInstanceResponse_snapshotId,
     getDeployablePatchSnapshotForInstanceResponse_instanceId,
+    getDeployablePatchSnapshotForInstanceResponse_product,
     getDeployablePatchSnapshotForInstanceResponse_snapshotDownloadUrl,
+    getDeployablePatchSnapshotForInstanceResponse_snapshotId,
     getDeployablePatchSnapshotForInstanceResponse_httpStatus,
   )
 where
@@ -135,10 +135,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetDeployablePatchSnapshotForInstanceResponse'
-            Prelude.<$> (x Data..?> "Product")
-              Prelude.<*> (x Data..?> "SnapshotId")
-              Prelude.<*> (x Data..?> "InstanceId")
+            Prelude.<$> (x Data..?> "InstanceId")
+              Prelude.<*> (x Data..?> "Product")
               Prelude.<*> (x Data..?> "SnapshotDownloadUrl")
+              Prelude.<*> (x Data..?> "SnapshotId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -208,17 +208,17 @@ instance
 
 -- | /See:/ 'newGetDeployablePatchSnapshotForInstanceResponse' smart constructor.
 data GetDeployablePatchSnapshotForInstanceResponse = GetDeployablePatchSnapshotForInstanceResponse'
-  { -- | Returns the specific operating system (for example Windows Server 2012
+  { -- | The managed node ID.
+    instanceId :: Prelude.Maybe Prelude.Text,
+    -- | Returns the specific operating system (for example Windows Server 2012
     -- or Amazon Linux 2015.09) on the managed node for the specified patch
     -- snapshot.
     product :: Prelude.Maybe Prelude.Text,
-    -- | The user-defined snapshot ID.
-    snapshotId :: Prelude.Maybe Prelude.Text,
-    -- | The managed node ID.
-    instanceId :: Prelude.Maybe Prelude.Text,
     -- | A pre-signed Amazon Simple Storage Service (Amazon S3) URL that can be
     -- used to download the patch snapshot.
     snapshotDownloadUrl :: Prelude.Maybe Prelude.Text,
+    -- | The user-defined snapshot ID.
+    snapshotId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -232,16 +232,16 @@ data GetDeployablePatchSnapshotForInstanceResponse = GetDeployablePatchSnapshotF
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'instanceId', 'getDeployablePatchSnapshotForInstanceResponse_instanceId' - The managed node ID.
+--
 -- 'product', 'getDeployablePatchSnapshotForInstanceResponse_product' - Returns the specific operating system (for example Windows Server 2012
 -- or Amazon Linux 2015.09) on the managed node for the specified patch
 -- snapshot.
 --
--- 'snapshotId', 'getDeployablePatchSnapshotForInstanceResponse_snapshotId' - The user-defined snapshot ID.
---
--- 'instanceId', 'getDeployablePatchSnapshotForInstanceResponse_instanceId' - The managed node ID.
---
 -- 'snapshotDownloadUrl', 'getDeployablePatchSnapshotForInstanceResponse_snapshotDownloadUrl' - A pre-signed Amazon Simple Storage Service (Amazon S3) URL that can be
 -- used to download the patch snapshot.
+--
+-- 'snapshotId', 'getDeployablePatchSnapshotForInstanceResponse_snapshotId' - The user-defined snapshot ID.
 --
 -- 'httpStatus', 'getDeployablePatchSnapshotForInstanceResponse_httpStatus' - The response's http status code.
 newGetDeployablePatchSnapshotForInstanceResponse ::
@@ -251,14 +251,18 @@ newGetDeployablePatchSnapshotForInstanceResponse ::
 newGetDeployablePatchSnapshotForInstanceResponse
   pHttpStatus_ =
     GetDeployablePatchSnapshotForInstanceResponse'
-      { product =
+      { instanceId =
           Prelude.Nothing,
-        snapshotId = Prelude.Nothing,
-        instanceId = Prelude.Nothing,
+        product = Prelude.Nothing,
         snapshotDownloadUrl =
           Prelude.Nothing,
+        snapshotId = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | The managed node ID.
+getDeployablePatchSnapshotForInstanceResponse_instanceId :: Lens.Lens' GetDeployablePatchSnapshotForInstanceResponse (Prelude.Maybe Prelude.Text)
+getDeployablePatchSnapshotForInstanceResponse_instanceId = Lens.lens (\GetDeployablePatchSnapshotForInstanceResponse' {instanceId} -> instanceId) (\s@GetDeployablePatchSnapshotForInstanceResponse' {} a -> s {instanceId = a} :: GetDeployablePatchSnapshotForInstanceResponse)
 
 -- | Returns the specific operating system (for example Windows Server 2012
 -- or Amazon Linux 2015.09) on the managed node for the specified patch
@@ -266,18 +270,14 @@ newGetDeployablePatchSnapshotForInstanceResponse
 getDeployablePatchSnapshotForInstanceResponse_product :: Lens.Lens' GetDeployablePatchSnapshotForInstanceResponse (Prelude.Maybe Prelude.Text)
 getDeployablePatchSnapshotForInstanceResponse_product = Lens.lens (\GetDeployablePatchSnapshotForInstanceResponse' {product} -> product) (\s@GetDeployablePatchSnapshotForInstanceResponse' {} a -> s {product = a} :: GetDeployablePatchSnapshotForInstanceResponse)
 
--- | The user-defined snapshot ID.
-getDeployablePatchSnapshotForInstanceResponse_snapshotId :: Lens.Lens' GetDeployablePatchSnapshotForInstanceResponse (Prelude.Maybe Prelude.Text)
-getDeployablePatchSnapshotForInstanceResponse_snapshotId = Lens.lens (\GetDeployablePatchSnapshotForInstanceResponse' {snapshotId} -> snapshotId) (\s@GetDeployablePatchSnapshotForInstanceResponse' {} a -> s {snapshotId = a} :: GetDeployablePatchSnapshotForInstanceResponse)
-
--- | The managed node ID.
-getDeployablePatchSnapshotForInstanceResponse_instanceId :: Lens.Lens' GetDeployablePatchSnapshotForInstanceResponse (Prelude.Maybe Prelude.Text)
-getDeployablePatchSnapshotForInstanceResponse_instanceId = Lens.lens (\GetDeployablePatchSnapshotForInstanceResponse' {instanceId} -> instanceId) (\s@GetDeployablePatchSnapshotForInstanceResponse' {} a -> s {instanceId = a} :: GetDeployablePatchSnapshotForInstanceResponse)
-
 -- | A pre-signed Amazon Simple Storage Service (Amazon S3) URL that can be
 -- used to download the patch snapshot.
 getDeployablePatchSnapshotForInstanceResponse_snapshotDownloadUrl :: Lens.Lens' GetDeployablePatchSnapshotForInstanceResponse (Prelude.Maybe Prelude.Text)
 getDeployablePatchSnapshotForInstanceResponse_snapshotDownloadUrl = Lens.lens (\GetDeployablePatchSnapshotForInstanceResponse' {snapshotDownloadUrl} -> snapshotDownloadUrl) (\s@GetDeployablePatchSnapshotForInstanceResponse' {} a -> s {snapshotDownloadUrl = a} :: GetDeployablePatchSnapshotForInstanceResponse)
+
+-- | The user-defined snapshot ID.
+getDeployablePatchSnapshotForInstanceResponse_snapshotId :: Lens.Lens' GetDeployablePatchSnapshotForInstanceResponse (Prelude.Maybe Prelude.Text)
+getDeployablePatchSnapshotForInstanceResponse_snapshotId = Lens.lens (\GetDeployablePatchSnapshotForInstanceResponse' {snapshotId} -> snapshotId) (\s@GetDeployablePatchSnapshotForInstanceResponse' {} a -> s {snapshotId = a} :: GetDeployablePatchSnapshotForInstanceResponse)
 
 -- | The response's http status code.
 getDeployablePatchSnapshotForInstanceResponse_httpStatus :: Lens.Lens' GetDeployablePatchSnapshotForInstanceResponse Prelude.Int
@@ -289,8 +289,8 @@ instance
   where
   rnf
     GetDeployablePatchSnapshotForInstanceResponse' {..} =
-      Prelude.rnf product
-        `Prelude.seq` Prelude.rnf snapshotId
-        `Prelude.seq` Prelude.rnf instanceId
+      Prelude.rnf instanceId
+        `Prelude.seq` Prelude.rnf product
         `Prelude.seq` Prelude.rnf snapshotDownloadUrl
+        `Prelude.seq` Prelude.rnf snapshotId
         `Prelude.seq` Prelude.rnf httpStatus

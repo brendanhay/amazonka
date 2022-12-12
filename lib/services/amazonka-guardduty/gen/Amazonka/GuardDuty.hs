@@ -42,11 +42,11 @@ module Amazonka.GuardDuty
     -- * Errors
     -- $errors
 
-    -- ** InternalServerErrorException
-    _InternalServerErrorException,
-
     -- ** BadRequestException
     _BadRequestException,
+
+    -- ** InternalServerErrorException
+    _InternalServerErrorException,
 
     -- * Waiters
     -- $waiters

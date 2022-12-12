@@ -24,8 +24,10 @@ module Amazonka.Inspector2.Types.AggregationType
         AggregationType_AMI,
         AggregationType_AWS_EC2_INSTANCE,
         AggregationType_AWS_ECR_CONTAINER,
+        AggregationType_AWS_LAMBDA_FUNCTION,
         AggregationType_FINDING_TYPE,
         AggregationType_IMAGE_LAYER,
+        AggregationType_LAMBDA_LAYER,
         AggregationType_PACKAGE,
         AggregationType_REPOSITORY,
         AggregationType_TITLE
@@ -77,11 +79,17 @@ pattern AggregationType_AWS_EC2_INSTANCE = AggregationType' "AWS_EC2_INSTANCE"
 pattern AggregationType_AWS_ECR_CONTAINER :: AggregationType
 pattern AggregationType_AWS_ECR_CONTAINER = AggregationType' "AWS_ECR_CONTAINER"
 
+pattern AggregationType_AWS_LAMBDA_FUNCTION :: AggregationType
+pattern AggregationType_AWS_LAMBDA_FUNCTION = AggregationType' "AWS_LAMBDA_FUNCTION"
+
 pattern AggregationType_FINDING_TYPE :: AggregationType
 pattern AggregationType_FINDING_TYPE = AggregationType' "FINDING_TYPE"
 
 pattern AggregationType_IMAGE_LAYER :: AggregationType
 pattern AggregationType_IMAGE_LAYER = AggregationType' "IMAGE_LAYER"
+
+pattern AggregationType_LAMBDA_LAYER :: AggregationType
+pattern AggregationType_LAMBDA_LAYER = AggregationType' "LAMBDA_LAYER"
 
 pattern AggregationType_PACKAGE :: AggregationType
 pattern AggregationType_PACKAGE = AggregationType' "PACKAGE"
@@ -97,8 +105,10 @@ pattern AggregationType_TITLE = AggregationType' "TITLE"
   AggregationType_AMI,
   AggregationType_AWS_EC2_INSTANCE,
   AggregationType_AWS_ECR_CONTAINER,
+  AggregationType_AWS_LAMBDA_FUNCTION,
   AggregationType_FINDING_TYPE,
   AggregationType_IMAGE_LAYER,
+  AggregationType_LAMBDA_LAYER,
   AggregationType_PACKAGE,
   AggregationType_REPOSITORY,
   AggregationType_TITLE,

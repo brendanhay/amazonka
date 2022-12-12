@@ -32,11 +32,11 @@ import Amazonka.SESV2.Types.GuardianAttributes
 -- /See:/ 'newVdmAttributes' smart constructor.
 data VdmAttributes = VdmAttributes'
   { -- | Specifies additional settings for your VDM configuration as applicable
-    -- to the Guardian.
-    guardianAttributes :: Prelude.Maybe GuardianAttributes,
-    -- | Specifies additional settings for your VDM configuration as applicable
     -- to the Dashboard.
     dashboardAttributes :: Prelude.Maybe DashboardAttributes,
+    -- | Specifies additional settings for your VDM configuration as applicable
+    -- to the Guardian.
+    guardianAttributes :: Prelude.Maybe GuardianAttributes,
     -- | Specifies the status of your VDM configuration. Can be one of the
     -- following:
     --
@@ -55,11 +55,11 @@ data VdmAttributes = VdmAttributes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'guardianAttributes', 'vdmAttributes_guardianAttributes' - Specifies additional settings for your VDM configuration as applicable
--- to the Guardian.
---
 -- 'dashboardAttributes', 'vdmAttributes_dashboardAttributes' - Specifies additional settings for your VDM configuration as applicable
 -- to the Dashboard.
+--
+-- 'guardianAttributes', 'vdmAttributes_guardianAttributes' - Specifies additional settings for your VDM configuration as applicable
+-- to the Guardian.
 --
 -- 'vdmEnabled', 'vdmAttributes_vdmEnabled' - Specifies the status of your VDM configuration. Can be one of the
 -- following:
@@ -73,21 +73,21 @@ newVdmAttributes ::
   VdmAttributes
 newVdmAttributes pVdmEnabled_ =
   VdmAttributes'
-    { guardianAttributes =
+    { dashboardAttributes =
         Prelude.Nothing,
-      dashboardAttributes = Prelude.Nothing,
+      guardianAttributes = Prelude.Nothing,
       vdmEnabled = pVdmEnabled_
     }
-
--- | Specifies additional settings for your VDM configuration as applicable
--- to the Guardian.
-vdmAttributes_guardianAttributes :: Lens.Lens' VdmAttributes (Prelude.Maybe GuardianAttributes)
-vdmAttributes_guardianAttributes = Lens.lens (\VdmAttributes' {guardianAttributes} -> guardianAttributes) (\s@VdmAttributes' {} a -> s {guardianAttributes = a} :: VdmAttributes)
 
 -- | Specifies additional settings for your VDM configuration as applicable
 -- to the Dashboard.
 vdmAttributes_dashboardAttributes :: Lens.Lens' VdmAttributes (Prelude.Maybe DashboardAttributes)
 vdmAttributes_dashboardAttributes = Lens.lens (\VdmAttributes' {dashboardAttributes} -> dashboardAttributes) (\s@VdmAttributes' {} a -> s {dashboardAttributes = a} :: VdmAttributes)
+
+-- | Specifies additional settings for your VDM configuration as applicable
+-- to the Guardian.
+vdmAttributes_guardianAttributes :: Lens.Lens' VdmAttributes (Prelude.Maybe GuardianAttributes)
+vdmAttributes_guardianAttributes = Lens.lens (\VdmAttributes' {guardianAttributes} -> guardianAttributes) (\s@VdmAttributes' {} a -> s {guardianAttributes = a} :: VdmAttributes)
 
 -- | Specifies the status of your VDM configuration. Can be one of the
 -- following:
@@ -104,31 +104,31 @@ instance Data.FromJSON VdmAttributes where
       "VdmAttributes"
       ( \x ->
           VdmAttributes'
-            Prelude.<$> (x Data..:? "GuardianAttributes")
-            Prelude.<*> (x Data..:? "DashboardAttributes")
+            Prelude.<$> (x Data..:? "DashboardAttributes")
+            Prelude.<*> (x Data..:? "GuardianAttributes")
             Prelude.<*> (x Data..: "VdmEnabled")
       )
 
 instance Prelude.Hashable VdmAttributes where
   hashWithSalt _salt VdmAttributes' {..} =
-    _salt `Prelude.hashWithSalt` guardianAttributes
-      `Prelude.hashWithSalt` dashboardAttributes
+    _salt `Prelude.hashWithSalt` dashboardAttributes
+      `Prelude.hashWithSalt` guardianAttributes
       `Prelude.hashWithSalt` vdmEnabled
 
 instance Prelude.NFData VdmAttributes where
   rnf VdmAttributes' {..} =
-    Prelude.rnf guardianAttributes
-      `Prelude.seq` Prelude.rnf dashboardAttributes
+    Prelude.rnf dashboardAttributes
+      `Prelude.seq` Prelude.rnf guardianAttributes
       `Prelude.seq` Prelude.rnf vdmEnabled
 
 instance Data.ToJSON VdmAttributes where
   toJSON VdmAttributes' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("GuardianAttributes" Data..=)
-              Prelude.<$> guardianAttributes,
-            ("DashboardAttributes" Data..=)
+          [ ("DashboardAttributes" Data..=)
               Prelude.<$> dashboardAttributes,
+            ("GuardianAttributes" Data..=)
+              Prelude.<$> guardianAttributes,
             Prelude.Just ("VdmEnabled" Data..= vdmEnabled)
           ]
       )

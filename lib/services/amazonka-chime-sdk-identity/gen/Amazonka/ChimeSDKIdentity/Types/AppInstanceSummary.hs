@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAppInstanceSummary' smart constructor.
 data AppInstanceSummary = AppInstanceSummary'
-  { -- | The name of the @AppInstance@.
-    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+  { -- | The @AppInstance@ ARN.
+    appInstanceArn :: Prelude.Maybe Prelude.Text,
     -- | The metadata of the @AppInstance@.
     metadata :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The @AppInstance@ ARN.
-    appInstanceArn :: Prelude.Maybe Prelude.Text
+    -- | The name of the @AppInstance@.
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -45,31 +45,32 @@ data AppInstanceSummary = AppInstanceSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'appInstanceSummary_name' - The name of the @AppInstance@.
+-- 'appInstanceArn', 'appInstanceSummary_appInstanceArn' - The @AppInstance@ ARN.
 --
 -- 'metadata', 'appInstanceSummary_metadata' - The metadata of the @AppInstance@.
 --
--- 'appInstanceArn', 'appInstanceSummary_appInstanceArn' - The @AppInstance@ ARN.
+-- 'name', 'appInstanceSummary_name' - The name of the @AppInstance@.
 newAppInstanceSummary ::
   AppInstanceSummary
 newAppInstanceSummary =
   AppInstanceSummary'
-    { name = Prelude.Nothing,
+    { appInstanceArn =
+        Prelude.Nothing,
       metadata = Prelude.Nothing,
-      appInstanceArn = Prelude.Nothing
+      name = Prelude.Nothing
     }
 
--- | The name of the @AppInstance@.
-appInstanceSummary_name :: Lens.Lens' AppInstanceSummary (Prelude.Maybe Prelude.Text)
-appInstanceSummary_name = Lens.lens (\AppInstanceSummary' {name} -> name) (\s@AppInstanceSummary' {} a -> s {name = a} :: AppInstanceSummary) Prelude.. Lens.mapping Data._Sensitive
+-- | The @AppInstance@ ARN.
+appInstanceSummary_appInstanceArn :: Lens.Lens' AppInstanceSummary (Prelude.Maybe Prelude.Text)
+appInstanceSummary_appInstanceArn = Lens.lens (\AppInstanceSummary' {appInstanceArn} -> appInstanceArn) (\s@AppInstanceSummary' {} a -> s {appInstanceArn = a} :: AppInstanceSummary)
 
 -- | The metadata of the @AppInstance@.
 appInstanceSummary_metadata :: Lens.Lens' AppInstanceSummary (Prelude.Maybe Prelude.Text)
 appInstanceSummary_metadata = Lens.lens (\AppInstanceSummary' {metadata} -> metadata) (\s@AppInstanceSummary' {} a -> s {metadata = a} :: AppInstanceSummary) Prelude.. Lens.mapping Data._Sensitive
 
--- | The @AppInstance@ ARN.
-appInstanceSummary_appInstanceArn :: Lens.Lens' AppInstanceSummary (Prelude.Maybe Prelude.Text)
-appInstanceSummary_appInstanceArn = Lens.lens (\AppInstanceSummary' {appInstanceArn} -> appInstanceArn) (\s@AppInstanceSummary' {} a -> s {appInstanceArn = a} :: AppInstanceSummary)
+-- | The name of the @AppInstance@.
+appInstanceSummary_name :: Lens.Lens' AppInstanceSummary (Prelude.Maybe Prelude.Text)
+appInstanceSummary_name = Lens.lens (\AppInstanceSummary' {name} -> name) (\s@AppInstanceSummary' {} a -> s {name = a} :: AppInstanceSummary) Prelude.. Lens.mapping Data._Sensitive
 
 instance Data.FromJSON AppInstanceSummary where
   parseJSON =
@@ -77,19 +78,19 @@ instance Data.FromJSON AppInstanceSummary where
       "AppInstanceSummary"
       ( \x ->
           AppInstanceSummary'
-            Prelude.<$> (x Data..:? "Name")
+            Prelude.<$> (x Data..:? "AppInstanceArn")
             Prelude.<*> (x Data..:? "Metadata")
-            Prelude.<*> (x Data..:? "AppInstanceArn")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable AppInstanceSummary where
   hashWithSalt _salt AppInstanceSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` appInstanceArn
       `Prelude.hashWithSalt` metadata
-      `Prelude.hashWithSalt` appInstanceArn
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData AppInstanceSummary where
   rnf AppInstanceSummary' {..} =
-    Prelude.rnf name
+    Prelude.rnf appInstanceArn
       `Prelude.seq` Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf appInstanceArn
+      `Prelude.seq` Prelude.rnf name

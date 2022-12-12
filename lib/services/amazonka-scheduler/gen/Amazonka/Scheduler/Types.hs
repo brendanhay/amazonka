@@ -18,10 +18,10 @@ module Amazonka.Scheduler.Types
     defaultService,
 
     -- * Errors
-    _InternalServerException,
-    _ServiceQuotaExceededException,
-    _ResourceNotFoundException,
     _ConflictException,
+    _InternalServerException,
+    _ResourceNotFoundException,
+    _ServiceQuotaExceededException,
     _ThrottlingException,
     _ValidationException,
 
@@ -52,8 +52,8 @@ module Amazonka.Scheduler.Types
     -- * AwsVpcConfiguration
     AwsVpcConfiguration (..),
     newAwsVpcConfiguration,
-    awsVpcConfiguration_securityGroups,
     awsVpcConfiguration_assignPublicIp,
+    awsVpcConfiguration_securityGroups,
     awsVpcConfiguration_subnets,
 
     -- * CapacityProviderStrategyItem
@@ -71,18 +71,18 @@ module Amazonka.Scheduler.Types
     -- * EcsParameters
     EcsParameters (..),
     newEcsParameters,
-    ecsParameters_tags,
-    ecsParameters_placementStrategy,
-    ecsParameters_networkConfiguration,
-    ecsParameters_enableExecuteCommand,
     ecsParameters_capacityProviderStrategy,
+    ecsParameters_enableECSManagedTags,
+    ecsParameters_enableExecuteCommand,
+    ecsParameters_group,
+    ecsParameters_launchType,
+    ecsParameters_networkConfiguration,
     ecsParameters_placementConstraints,
+    ecsParameters_placementStrategy,
+    ecsParameters_platformVersion,
     ecsParameters_propagateTags,
     ecsParameters_referenceId,
-    ecsParameters_launchType,
-    ecsParameters_platformVersion,
-    ecsParameters_enableECSManagedTags,
-    ecsParameters_group,
+    ecsParameters_tags,
     ecsParameters_taskCount,
     ecsParameters_taskDefinitionArn,
 
@@ -111,14 +111,14 @@ module Amazonka.Scheduler.Types
     -- * PlacementConstraint
     PlacementConstraint (..),
     newPlacementConstraint,
-    placementConstraint_type,
     placementConstraint_expression,
+    placementConstraint_type,
 
     -- * PlacementStrategy
     PlacementStrategy (..),
     newPlacementStrategy,
-    placementStrategy_type,
     placementStrategy_field,
+    placementStrategy_type,
 
     -- * RetryPolicy
     RetryPolicy (..),
@@ -140,22 +140,22 @@ module Amazonka.Scheduler.Types
     -- * ScheduleGroupSummary
     ScheduleGroupSummary (..),
     newScheduleGroupSummary,
-    scheduleGroupSummary_name,
     scheduleGroupSummary_arn,
-    scheduleGroupSummary_state,
     scheduleGroupSummary_creationDate,
     scheduleGroupSummary_lastModificationDate,
+    scheduleGroupSummary_name,
+    scheduleGroupSummary_state,
 
     -- * ScheduleSummary
     ScheduleSummary (..),
     newScheduleSummary,
-    scheduleSummary_name,
     scheduleSummary_arn,
-    scheduleSummary_state,
     scheduleSummary_creationDate,
-    scheduleSummary_target,
     scheduleSummary_groupName,
     scheduleSummary_lastModificationDate,
+    scheduleSummary_name,
+    scheduleSummary_state,
+    scheduleSummary_target,
 
     -- * SqsParameters
     SqsParameters (..),
@@ -171,14 +171,14 @@ module Amazonka.Scheduler.Types
     -- * Target
     Target (..),
     newTarget,
-    target_kinesisParameters,
-    target_sageMakerPipelineParameters,
-    target_input,
-    target_sqsParameters,
-    target_ecsParameters,
-    target_retryPolicy,
-    target_eventBridgeParameters,
     target_deadLetterConfig,
+    target_ecsParameters,
+    target_eventBridgeParameters,
+    target_input,
+    target_kinesisParameters,
+    target_retryPolicy,
+    target_sageMakerPipelineParameters,
+    target_sqsParameters,
     target_arn,
     target_roleArn,
 
@@ -246,28 +246,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -275,13 +269,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -289,7 +287,17 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
+
+-- | Updating or deleting the resource can cause an inconsistent state.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
 
 -- | Unexpected error encountered while processing the request.
 _InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -299,14 +307,6 @@ _InternalServerException =
     "InternalServerException"
     Prelude.. Core.hasStatus 500
 
--- | The request exceeds a service quota.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceQuotaExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceQuotaExceededException"
-    Prelude.. Core.hasStatus 402
-
 -- | The request references a resource which does not exist.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
@@ -315,13 +315,13 @@ _ResourceNotFoundException =
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
 
--- | Updating or deleting the resource can cause an inconsistent state.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
+-- | The request exceeds a service quota.
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
+    "ServiceQuotaExceededException"
+    Prelude.. Core.hasStatus 402
 
 -- | The request was denied due to request throttling.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

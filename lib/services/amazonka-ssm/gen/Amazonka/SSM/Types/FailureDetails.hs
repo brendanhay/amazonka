@@ -28,15 +28,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFailureDetails' smart constructor.
 data FailureDetails = FailureDetails'
-  { -- | The type of Automation failure. Failure types include the following:
-    -- Action, Permission, Throttling, Verification, Internal.
-    failureType :: Prelude.Maybe Prelude.Text,
-    -- | Detailed information about the Automation step failure.
+  { -- | Detailed information about the Automation step failure.
     details :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
     -- | The stage of the Automation execution when the failure occurred. The
     -- stages include the following: InputValidation, PreVerification,
     -- Invocation, PostVerification.
-    failureStage :: Prelude.Maybe Prelude.Text
+    failureStage :: Prelude.Maybe Prelude.Text,
+    -- | The type of Automation failure. Failure types include the following:
+    -- Action, Permission, Throttling, Verification, Internal.
+    failureType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,27 +48,22 @@ data FailureDetails = FailureDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'failureType', 'failureDetails_failureType' - The type of Automation failure. Failure types include the following:
--- Action, Permission, Throttling, Verification, Internal.
---
 -- 'details', 'failureDetails_details' - Detailed information about the Automation step failure.
 --
 -- 'failureStage', 'failureDetails_failureStage' - The stage of the Automation execution when the failure occurred. The
 -- stages include the following: InputValidation, PreVerification,
 -- Invocation, PostVerification.
+--
+-- 'failureType', 'failureDetails_failureType' - The type of Automation failure. Failure types include the following:
+-- Action, Permission, Throttling, Verification, Internal.
 newFailureDetails ::
   FailureDetails
 newFailureDetails =
   FailureDetails'
-    { failureType = Prelude.Nothing,
-      details = Prelude.Nothing,
-      failureStage = Prelude.Nothing
+    { details = Prelude.Nothing,
+      failureStage = Prelude.Nothing,
+      failureType = Prelude.Nothing
     }
-
--- | The type of Automation failure. Failure types include the following:
--- Action, Permission, Throttling, Verification, Internal.
-failureDetails_failureType :: Lens.Lens' FailureDetails (Prelude.Maybe Prelude.Text)
-failureDetails_failureType = Lens.lens (\FailureDetails' {failureType} -> failureType) (\s@FailureDetails' {} a -> s {failureType = a} :: FailureDetails)
 
 -- | Detailed information about the Automation step failure.
 failureDetails_details :: Lens.Lens' FailureDetails (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
@@ -80,25 +75,30 @@ failureDetails_details = Lens.lens (\FailureDetails' {details} -> details) (\s@F
 failureDetails_failureStage :: Lens.Lens' FailureDetails (Prelude.Maybe Prelude.Text)
 failureDetails_failureStage = Lens.lens (\FailureDetails' {failureStage} -> failureStage) (\s@FailureDetails' {} a -> s {failureStage = a} :: FailureDetails)
 
+-- | The type of Automation failure. Failure types include the following:
+-- Action, Permission, Throttling, Verification, Internal.
+failureDetails_failureType :: Lens.Lens' FailureDetails (Prelude.Maybe Prelude.Text)
+failureDetails_failureType = Lens.lens (\FailureDetails' {failureType} -> failureType) (\s@FailureDetails' {} a -> s {failureType = a} :: FailureDetails)
+
 instance Data.FromJSON FailureDetails where
   parseJSON =
     Data.withObject
       "FailureDetails"
       ( \x ->
           FailureDetails'
-            Prelude.<$> (x Data..:? "FailureType")
-            Prelude.<*> (x Data..:? "Details" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Details" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "FailureStage")
+            Prelude.<*> (x Data..:? "FailureType")
       )
 
 instance Prelude.Hashable FailureDetails where
   hashWithSalt _salt FailureDetails' {..} =
-    _salt `Prelude.hashWithSalt` failureType
-      `Prelude.hashWithSalt` details
+    _salt `Prelude.hashWithSalt` details
       `Prelude.hashWithSalt` failureStage
+      `Prelude.hashWithSalt` failureType
 
 instance Prelude.NFData FailureDetails where
   rnf FailureDetails' {..} =
-    Prelude.rnf failureType
-      `Prelude.seq` Prelude.rnf details
+    Prelude.rnf details
       `Prelude.seq` Prelude.rnf failureStage
+      `Prelude.seq` Prelude.rnf failureType

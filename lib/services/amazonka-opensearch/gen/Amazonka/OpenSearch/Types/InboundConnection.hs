@@ -32,14 +32,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInboundConnection' smart constructor.
 data InboundConnection = InboundConnection'
-  { -- | Information about the destination (remote) domain.
-    remoteDomainInfo :: Prelude.Maybe DomainInformationContainer,
-    -- | The unique identifier of the connection.
+  { -- | The unique identifier of the connection.
     connectionId :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the connection.
+    connectionStatus :: Prelude.Maybe InboundConnectionStatus,
     -- | Information about the source (local) domain.
     localDomainInfo :: Prelude.Maybe DomainInformationContainer,
-    -- | The current status of the connection.
-    connectionStatus :: Prelude.Maybe InboundConnectionStatus
+    -- | Information about the destination (remote) domain.
+    remoteDomainInfo :: Prelude.Maybe DomainInformationContainer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,39 +51,38 @@ data InboundConnection = InboundConnection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'remoteDomainInfo', 'inboundConnection_remoteDomainInfo' - Information about the destination (remote) domain.
---
 -- 'connectionId', 'inboundConnection_connectionId' - The unique identifier of the connection.
+--
+-- 'connectionStatus', 'inboundConnection_connectionStatus' - The current status of the connection.
 --
 -- 'localDomainInfo', 'inboundConnection_localDomainInfo' - Information about the source (local) domain.
 --
--- 'connectionStatus', 'inboundConnection_connectionStatus' - The current status of the connection.
+-- 'remoteDomainInfo', 'inboundConnection_remoteDomainInfo' - Information about the destination (remote) domain.
 newInboundConnection ::
   InboundConnection
 newInboundConnection =
   InboundConnection'
-    { remoteDomainInfo =
-        Prelude.Nothing,
-      connectionId = Prelude.Nothing,
+    { connectionId = Prelude.Nothing,
+      connectionStatus = Prelude.Nothing,
       localDomainInfo = Prelude.Nothing,
-      connectionStatus = Prelude.Nothing
+      remoteDomainInfo = Prelude.Nothing
     }
-
--- | Information about the destination (remote) domain.
-inboundConnection_remoteDomainInfo :: Lens.Lens' InboundConnection (Prelude.Maybe DomainInformationContainer)
-inboundConnection_remoteDomainInfo = Lens.lens (\InboundConnection' {remoteDomainInfo} -> remoteDomainInfo) (\s@InboundConnection' {} a -> s {remoteDomainInfo = a} :: InboundConnection)
 
 -- | The unique identifier of the connection.
 inboundConnection_connectionId :: Lens.Lens' InboundConnection (Prelude.Maybe Prelude.Text)
 inboundConnection_connectionId = Lens.lens (\InboundConnection' {connectionId} -> connectionId) (\s@InboundConnection' {} a -> s {connectionId = a} :: InboundConnection)
 
+-- | The current status of the connection.
+inboundConnection_connectionStatus :: Lens.Lens' InboundConnection (Prelude.Maybe InboundConnectionStatus)
+inboundConnection_connectionStatus = Lens.lens (\InboundConnection' {connectionStatus} -> connectionStatus) (\s@InboundConnection' {} a -> s {connectionStatus = a} :: InboundConnection)
+
 -- | Information about the source (local) domain.
 inboundConnection_localDomainInfo :: Lens.Lens' InboundConnection (Prelude.Maybe DomainInformationContainer)
 inboundConnection_localDomainInfo = Lens.lens (\InboundConnection' {localDomainInfo} -> localDomainInfo) (\s@InboundConnection' {} a -> s {localDomainInfo = a} :: InboundConnection)
 
--- | The current status of the connection.
-inboundConnection_connectionStatus :: Lens.Lens' InboundConnection (Prelude.Maybe InboundConnectionStatus)
-inboundConnection_connectionStatus = Lens.lens (\InboundConnection' {connectionStatus} -> connectionStatus) (\s@InboundConnection' {} a -> s {connectionStatus = a} :: InboundConnection)
+-- | Information about the destination (remote) domain.
+inboundConnection_remoteDomainInfo :: Lens.Lens' InboundConnection (Prelude.Maybe DomainInformationContainer)
+inboundConnection_remoteDomainInfo = Lens.lens (\InboundConnection' {remoteDomainInfo} -> remoteDomainInfo) (\s@InboundConnection' {} a -> s {remoteDomainInfo = a} :: InboundConnection)
 
 instance Data.FromJSON InboundConnection where
   parseJSON =
@@ -91,22 +90,22 @@ instance Data.FromJSON InboundConnection where
       "InboundConnection"
       ( \x ->
           InboundConnection'
-            Prelude.<$> (x Data..:? "RemoteDomainInfo")
-            Prelude.<*> (x Data..:? "ConnectionId")
-            Prelude.<*> (x Data..:? "LocalDomainInfo")
+            Prelude.<$> (x Data..:? "ConnectionId")
             Prelude.<*> (x Data..:? "ConnectionStatus")
+            Prelude.<*> (x Data..:? "LocalDomainInfo")
+            Prelude.<*> (x Data..:? "RemoteDomainInfo")
       )
 
 instance Prelude.Hashable InboundConnection where
   hashWithSalt _salt InboundConnection' {..} =
-    _salt `Prelude.hashWithSalt` remoteDomainInfo
-      `Prelude.hashWithSalt` connectionId
-      `Prelude.hashWithSalt` localDomainInfo
+    _salt `Prelude.hashWithSalt` connectionId
       `Prelude.hashWithSalt` connectionStatus
+      `Prelude.hashWithSalt` localDomainInfo
+      `Prelude.hashWithSalt` remoteDomainInfo
 
 instance Prelude.NFData InboundConnection where
   rnf InboundConnection' {..} =
-    Prelude.rnf remoteDomainInfo
-      `Prelude.seq` Prelude.rnf connectionId
-      `Prelude.seq` Prelude.rnf localDomainInfo
+    Prelude.rnf connectionId
       `Prelude.seq` Prelude.rnf connectionStatus
+      `Prelude.seq` Prelude.rnf localDomainInfo
+      `Prelude.seq` Prelude.rnf remoteDomainInfo

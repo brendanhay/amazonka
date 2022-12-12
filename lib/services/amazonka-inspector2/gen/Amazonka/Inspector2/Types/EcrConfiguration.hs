@@ -26,7 +26,7 @@ import Amazonka.Inspector2.Types.EcrRescanDuration
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details about the ECR automated re-scan duration setting for your
--- environment
+-- environment.
 --
 -- /See:/ 'newEcrConfiguration' smart constructor.
 data EcrConfiguration = EcrConfiguration'

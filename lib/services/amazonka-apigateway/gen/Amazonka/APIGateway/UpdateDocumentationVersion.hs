@@ -36,8 +36,8 @@ module Amazonka.APIGateway.UpdateDocumentationVersion
     newDocumentationVersion,
 
     -- * Response Lenses
-    documentationVersion_description,
     documentationVersion_createdDate,
+    documentationVersion_description,
     documentationVersion_version,
   )
 where

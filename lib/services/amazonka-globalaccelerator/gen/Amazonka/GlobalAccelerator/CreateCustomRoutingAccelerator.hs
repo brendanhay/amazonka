@@ -42,10 +42,10 @@ module Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator
     newCreateCustomRoutingAccelerator,
 
     -- * Request Lenses
-    createCustomRoutingAccelerator_tags,
     createCustomRoutingAccelerator_enabled,
     createCustomRoutingAccelerator_ipAddressType,
     createCustomRoutingAccelerator_ipAddresses,
+    createCustomRoutingAccelerator_tags,
     createCustomRoutingAccelerator_name,
     createCustomRoutingAccelerator_idempotencyToken,
 
@@ -69,13 +69,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateCustomRoutingAccelerator' smart constructor.
 data CreateCustomRoutingAccelerator = CreateCustomRoutingAccelerator'
-  { -- | Create tags for an accelerator.
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html Tagging in Global Accelerator>
-    -- in the /Global Accelerator Developer Guide/.
-    tags :: Prelude.Maybe [Tag],
-    -- | Indicates whether an accelerator is enabled. The value is true or false.
+  { -- | Indicates whether an accelerator is enabled. The value is true or false.
     -- The default value is true.
     --
     -- If the value is set to true, an accelerator cannot be deleted. If set to
@@ -108,6 +102,12 @@ data CreateCustomRoutingAccelerator = CreateCustomRoutingAccelerator'
     -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html Bring your own IP addresses (BYOIP)>
     -- in the /Global Accelerator Developer Guide/.
     ipAddresses :: Prelude.Maybe [Prelude.Text],
+    -- | Create tags for an accelerator.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html Tagging in Global Accelerator>
+    -- in the /Global Accelerator Developer Guide/.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of a custom routing accelerator. The name can have a maximum of
     -- 64 characters, must contain only alphanumeric characters or hyphens (-),
     -- and must not begin or end with a hyphen.
@@ -125,12 +125,6 @@ data CreateCustomRoutingAccelerator = CreateCustomRoutingAccelerator'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'tags', 'createCustomRoutingAccelerator_tags' - Create tags for an accelerator.
---
--- For more information, see
--- <https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html Tagging in Global Accelerator>
--- in the /Global Accelerator Developer Guide/.
 --
 -- 'enabled', 'createCustomRoutingAccelerator_enabled' - Indicates whether an accelerator is enabled. The value is true or false.
 -- The default value is true.
@@ -165,6 +159,12 @@ data CreateCustomRoutingAccelerator = CreateCustomRoutingAccelerator'
 -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html Bring your own IP addresses (BYOIP)>
 -- in the /Global Accelerator Developer Guide/.
 --
+-- 'tags', 'createCustomRoutingAccelerator_tags' - Create tags for an accelerator.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html Tagging in Global Accelerator>
+-- in the /Global Accelerator Developer Guide/.
+--
 -- 'name', 'createCustomRoutingAccelerator_name' - The name of a custom routing accelerator. The name can have a maximum of
 -- 64 characters, must contain only alphanumeric characters or hyphens (-),
 -- and must not begin or end with a hyphen.
@@ -181,22 +181,14 @@ newCreateCustomRoutingAccelerator
   pName_
   pIdempotencyToken_ =
     CreateCustomRoutingAccelerator'
-      { tags =
+      { enabled =
           Prelude.Nothing,
-        enabled = Prelude.Nothing,
         ipAddressType = Prelude.Nothing,
         ipAddresses = Prelude.Nothing,
+        tags = Prelude.Nothing,
         name = pName_,
         idempotencyToken = pIdempotencyToken_
       }
-
--- | Create tags for an accelerator.
---
--- For more information, see
--- <https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html Tagging in Global Accelerator>
--- in the /Global Accelerator Developer Guide/.
-createCustomRoutingAccelerator_tags :: Lens.Lens' CreateCustomRoutingAccelerator (Prelude.Maybe [Tag])
-createCustomRoutingAccelerator_tags = Lens.lens (\CreateCustomRoutingAccelerator' {tags} -> tags) (\s@CreateCustomRoutingAccelerator' {} a -> s {tags = a} :: CreateCustomRoutingAccelerator) Prelude.. Lens.mapping Lens.coerced
 
 -- | Indicates whether an accelerator is enabled. The value is true or false.
 -- The default value is true.
@@ -237,6 +229,14 @@ createCustomRoutingAccelerator_ipAddressType = Lens.lens (\CreateCustomRoutingAc
 createCustomRoutingAccelerator_ipAddresses :: Lens.Lens' CreateCustomRoutingAccelerator (Prelude.Maybe [Prelude.Text])
 createCustomRoutingAccelerator_ipAddresses = Lens.lens (\CreateCustomRoutingAccelerator' {ipAddresses} -> ipAddresses) (\s@CreateCustomRoutingAccelerator' {} a -> s {ipAddresses = a} :: CreateCustomRoutingAccelerator) Prelude.. Lens.mapping Lens.coerced
 
+-- | Create tags for an accelerator.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html Tagging in Global Accelerator>
+-- in the /Global Accelerator Developer Guide/.
+createCustomRoutingAccelerator_tags :: Lens.Lens' CreateCustomRoutingAccelerator (Prelude.Maybe [Tag])
+createCustomRoutingAccelerator_tags = Lens.lens (\CreateCustomRoutingAccelerator' {tags} -> tags) (\s@CreateCustomRoutingAccelerator' {} a -> s {tags = a} :: CreateCustomRoutingAccelerator) Prelude.. Lens.mapping Lens.coerced
+
 -- | The name of a custom routing accelerator. The name can have a maximum of
 -- 64 characters, must contain only alphanumeric characters or hyphens (-),
 -- and must not begin or end with a hyphen.
@@ -272,10 +272,10 @@ instance
   hashWithSalt
     _salt
     CreateCustomRoutingAccelerator' {..} =
-      _salt `Prelude.hashWithSalt` tags
-        `Prelude.hashWithSalt` enabled
+      _salt `Prelude.hashWithSalt` enabled
         `Prelude.hashWithSalt` ipAddressType
         `Prelude.hashWithSalt` ipAddresses
+        `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` idempotencyToken
 
@@ -284,10 +284,10 @@ instance
     CreateCustomRoutingAccelerator
   where
   rnf CreateCustomRoutingAccelerator' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf ipAddressType
       `Prelude.seq` Prelude.rnf ipAddresses
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf idempotencyToken
 
@@ -313,10 +313,10 @@ instance Data.ToJSON CreateCustomRoutingAccelerator where
   toJSON CreateCustomRoutingAccelerator' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Enabled" Data..=) Prelude.<$> enabled,
+          [ ("Enabled" Data..=) Prelude.<$> enabled,
             ("IpAddressType" Data..=) Prelude.<$> ipAddressType,
             ("IpAddresses" Data..=) Prelude.<$> ipAddresses,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just
               ("IdempotencyToken" Data..= idempotencyToken)

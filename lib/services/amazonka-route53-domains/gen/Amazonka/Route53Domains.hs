@@ -19,20 +19,20 @@ module Amazonka.Route53Domains
     -- * Errors
     -- $errors
 
+    -- ** DomainLimitExceeded
+    _DomainLimitExceeded,
+
+    -- ** DuplicateRequest
+    _DuplicateRequest,
+
     -- ** InvalidInput
     _InvalidInput,
 
     -- ** OperationLimitExceeded
     _OperationLimitExceeded,
 
-    -- ** DomainLimitExceeded
-    _DomainLimitExceeded,
-
     -- ** TLDRulesViolation
     _TLDRulesViolation,
-
-    -- ** DuplicateRequest
-    _DuplicateRequest,
 
     -- ** UnsupportedTLD
     _UnsupportedTLD,

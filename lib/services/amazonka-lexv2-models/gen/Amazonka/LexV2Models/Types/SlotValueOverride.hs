@@ -35,12 +35,12 @@ data SlotValueOverride = SlotValueOverride'
     -- contains a list of slot values. When the value is @Scalar@, it indicates
     -- that the @value@ field contains a single value.
     shape :: Prelude.Maybe SlotShape,
+    -- | The current value of the slot.
+    value :: Prelude.Maybe SlotValue,
     -- | A list of one or more values that the user provided for the slot. For
     -- example, for a slot that elicits pizza toppings, the values might be
     -- \"pepperoni\" and \"pineapple.\"
-    values :: Prelude.Maybe [SlotValueOverride],
-    -- | The current value of the slot.
-    value :: Prelude.Maybe SlotValue
+    values :: Prelude.Maybe [SlotValueOverride]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,18 +56,18 @@ data SlotValueOverride = SlotValueOverride'
 -- contains a list of slot values. When the value is @Scalar@, it indicates
 -- that the @value@ field contains a single value.
 --
+-- 'value', 'slotValueOverride_value' - The current value of the slot.
+--
 -- 'values', 'slotValueOverride_values' - A list of one or more values that the user provided for the slot. For
 -- example, for a slot that elicits pizza toppings, the values might be
 -- \"pepperoni\" and \"pineapple.\"
---
--- 'value', 'slotValueOverride_value' - The current value of the slot.
 newSlotValueOverride ::
   SlotValueOverride
 newSlotValueOverride =
   SlotValueOverride'
     { shape = Prelude.Nothing,
-      values = Prelude.Nothing,
-      value = Prelude.Nothing
+      value = Prelude.Nothing,
+      values = Prelude.Nothing
     }
 
 -- | When the shape value is @List@, it indicates that the @values@ field
@@ -76,15 +76,15 @@ newSlotValueOverride =
 slotValueOverride_shape :: Lens.Lens' SlotValueOverride (Prelude.Maybe SlotShape)
 slotValueOverride_shape = Lens.lens (\SlotValueOverride' {shape} -> shape) (\s@SlotValueOverride' {} a -> s {shape = a} :: SlotValueOverride)
 
+-- | The current value of the slot.
+slotValueOverride_value :: Lens.Lens' SlotValueOverride (Prelude.Maybe SlotValue)
+slotValueOverride_value = Lens.lens (\SlotValueOverride' {value} -> value) (\s@SlotValueOverride' {} a -> s {value = a} :: SlotValueOverride)
+
 -- | A list of one or more values that the user provided for the slot. For
 -- example, for a slot that elicits pizza toppings, the values might be
 -- \"pepperoni\" and \"pineapple.\"
 slotValueOverride_values :: Lens.Lens' SlotValueOverride (Prelude.Maybe [SlotValueOverride])
 slotValueOverride_values = Lens.lens (\SlotValueOverride' {values} -> values) (\s@SlotValueOverride' {} a -> s {values = a} :: SlotValueOverride) Prelude.. Lens.mapping Lens.coerced
-
--- | The current value of the slot.
-slotValueOverride_value :: Lens.Lens' SlotValueOverride (Prelude.Maybe SlotValue)
-slotValueOverride_value = Lens.lens (\SlotValueOverride' {value} -> value) (\s@SlotValueOverride' {} a -> s {value = a} :: SlotValueOverride)
 
 instance Data.FromJSON SlotValueOverride where
   parseJSON =
@@ -93,28 +93,28 @@ instance Data.FromJSON SlotValueOverride where
       ( \x ->
           SlotValueOverride'
             Prelude.<$> (x Data..:? "shape")
-            Prelude.<*> (x Data..:? "values" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "value")
+            Prelude.<*> (x Data..:? "values" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable SlotValueOverride where
   hashWithSalt _salt SlotValueOverride' {..} =
     _salt `Prelude.hashWithSalt` shape
-      `Prelude.hashWithSalt` values
       `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` values
 
 instance Prelude.NFData SlotValueOverride where
   rnf SlotValueOverride' {..} =
     Prelude.rnf shape
-      `Prelude.seq` Prelude.rnf values
       `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf values
 
 instance Data.ToJSON SlotValueOverride where
   toJSON SlotValueOverride' {..} =
     Data.object
       ( Prelude.catMaybes
           [ ("shape" Data..=) Prelude.<$> shape,
-            ("values" Data..=) Prelude.<$> values,
-            ("value" Data..=) Prelude.<$> value
+            ("value" Data..=) Prelude.<$> value,
+            ("values" Data..=) Prelude.<$> values
           ]
       )

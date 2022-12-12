@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsOpenSearchServiceDomainLogPublishingOption' smart constructor.
 data AwsOpenSearchServiceDomainLogPublishingOption = AwsOpenSearchServiceDomainLogPublishingOption'
-  { -- | Whether the log publishing is enabled.
-    enabled :: Prelude.Maybe Prelude.Bool,
-    -- | The ARN of the CloudWatch Logs group to publish the logs to.
-    cloudWatchLogsLogGroupArn :: Prelude.Maybe Prelude.Text
+  { -- | The ARN of the CloudWatch Logs group to publish the logs to.
+    cloudWatchLogsLogGroupArn :: Prelude.Maybe Prelude.Text,
+    -- | Whether the log publishing is enabled.
+    enabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,26 +43,25 @@ data AwsOpenSearchServiceDomainLogPublishingOption = AwsOpenSearchServiceDomainL
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enabled', 'awsOpenSearchServiceDomainLogPublishingOption_enabled' - Whether the log publishing is enabled.
---
 -- 'cloudWatchLogsLogGroupArn', 'awsOpenSearchServiceDomainLogPublishingOption_cloudWatchLogsLogGroupArn' - The ARN of the CloudWatch Logs group to publish the logs to.
+--
+-- 'enabled', 'awsOpenSearchServiceDomainLogPublishingOption_enabled' - Whether the log publishing is enabled.
 newAwsOpenSearchServiceDomainLogPublishingOption ::
   AwsOpenSearchServiceDomainLogPublishingOption
 newAwsOpenSearchServiceDomainLogPublishingOption =
   AwsOpenSearchServiceDomainLogPublishingOption'
-    { enabled =
+    { cloudWatchLogsLogGroupArn =
         Prelude.Nothing,
-      cloudWatchLogsLogGroupArn =
-        Prelude.Nothing
+      enabled = Prelude.Nothing
     }
-
--- | Whether the log publishing is enabled.
-awsOpenSearchServiceDomainLogPublishingOption_enabled :: Lens.Lens' AwsOpenSearchServiceDomainLogPublishingOption (Prelude.Maybe Prelude.Bool)
-awsOpenSearchServiceDomainLogPublishingOption_enabled = Lens.lens (\AwsOpenSearchServiceDomainLogPublishingOption' {enabled} -> enabled) (\s@AwsOpenSearchServiceDomainLogPublishingOption' {} a -> s {enabled = a} :: AwsOpenSearchServiceDomainLogPublishingOption)
 
 -- | The ARN of the CloudWatch Logs group to publish the logs to.
 awsOpenSearchServiceDomainLogPublishingOption_cloudWatchLogsLogGroupArn :: Lens.Lens' AwsOpenSearchServiceDomainLogPublishingOption (Prelude.Maybe Prelude.Text)
 awsOpenSearchServiceDomainLogPublishingOption_cloudWatchLogsLogGroupArn = Lens.lens (\AwsOpenSearchServiceDomainLogPublishingOption' {cloudWatchLogsLogGroupArn} -> cloudWatchLogsLogGroupArn) (\s@AwsOpenSearchServiceDomainLogPublishingOption' {} a -> s {cloudWatchLogsLogGroupArn = a} :: AwsOpenSearchServiceDomainLogPublishingOption)
+
+-- | Whether the log publishing is enabled.
+awsOpenSearchServiceDomainLogPublishingOption_enabled :: Lens.Lens' AwsOpenSearchServiceDomainLogPublishingOption (Prelude.Maybe Prelude.Bool)
+awsOpenSearchServiceDomainLogPublishingOption_enabled = Lens.lens (\AwsOpenSearchServiceDomainLogPublishingOption' {enabled} -> enabled) (\s@AwsOpenSearchServiceDomainLogPublishingOption' {} a -> s {enabled = a} :: AwsOpenSearchServiceDomainLogPublishingOption)
 
 instance
   Data.FromJSON
@@ -73,8 +72,8 @@ instance
       "AwsOpenSearchServiceDomainLogPublishingOption"
       ( \x ->
           AwsOpenSearchServiceDomainLogPublishingOption'
-            Prelude.<$> (x Data..:? "Enabled")
-              Prelude.<*> (x Data..:? "CloudWatchLogsLogGroupArn")
+            Prelude.<$> (x Data..:? "CloudWatchLogsLogGroupArn")
+              Prelude.<*> (x Data..:? "Enabled")
       )
 
 instance
@@ -84,8 +83,9 @@ instance
   hashWithSalt
     _salt
     AwsOpenSearchServiceDomainLogPublishingOption' {..} =
-      _salt `Prelude.hashWithSalt` enabled
+      _salt
         `Prelude.hashWithSalt` cloudWatchLogsLogGroupArn
+        `Prelude.hashWithSalt` enabled
 
 instance
   Prelude.NFData
@@ -93,8 +93,8 @@ instance
   where
   rnf
     AwsOpenSearchServiceDomainLogPublishingOption' {..} =
-      Prelude.rnf enabled
-        `Prelude.seq` Prelude.rnf cloudWatchLogsLogGroupArn
+      Prelude.rnf cloudWatchLogsLogGroupArn
+        `Prelude.seq` Prelude.rnf enabled
 
 instance
   Data.ToJSON
@@ -104,8 +104,8 @@ instance
     AwsOpenSearchServiceDomainLogPublishingOption' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("Enabled" Data..=) Prelude.<$> enabled,
-              ("CloudWatchLogsLogGroupArn" Data..=)
-                Prelude.<$> cloudWatchLogsLogGroupArn
+            [ ("CloudWatchLogsLogGroupArn" Data..=)
+                Prelude.<$> cloudWatchLogsLogGroupArn,
+              ("Enabled" Data..=) Prelude.<$> enabled
             ]
         )

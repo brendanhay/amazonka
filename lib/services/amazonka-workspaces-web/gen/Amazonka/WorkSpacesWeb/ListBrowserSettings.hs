@@ -27,16 +27,16 @@ module Amazonka.WorkSpacesWeb.ListBrowserSettings
     newListBrowserSettings,
 
     -- * Request Lenses
-    listBrowserSettings_nextToken,
     listBrowserSettings_maxResults,
+    listBrowserSettings_nextToken,
 
     -- * Destructuring the Response
     ListBrowserSettingsResponse (..),
     newListBrowserSettingsResponse,
 
     -- * Response Lenses
-    listBrowserSettingsResponse_nextToken,
     listBrowserSettingsResponse_browserSettings,
+    listBrowserSettingsResponse_nextToken,
     listBrowserSettingsResponse_httpStatus,
   )
 where
@@ -51,11 +51,11 @@ import Amazonka.WorkSpacesWeb.Types
 
 -- | /See:/ 'newListBrowserSettings' smart constructor.
 data ListBrowserSettings = ListBrowserSettings'
-  { -- | The pagination token used to retrieve the next page of results for this
+  { -- | The maximum number of results to be included in the next page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token used to retrieve the next page of results for this
     -- operation.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be included in the next page.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,26 +67,26 @@ data ListBrowserSettings = ListBrowserSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listBrowserSettings_maxResults' - The maximum number of results to be included in the next page.
+--
 -- 'nextToken', 'listBrowserSettings_nextToken' - The pagination token used to retrieve the next page of results for this
 -- operation.
---
--- 'maxResults', 'listBrowserSettings_maxResults' - The maximum number of results to be included in the next page.
 newListBrowserSettings ::
   ListBrowserSettings
 newListBrowserSettings =
   ListBrowserSettings'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of results to be included in the next page.
+listBrowserSettings_maxResults :: Lens.Lens' ListBrowserSettings (Prelude.Maybe Prelude.Natural)
+listBrowserSettings_maxResults = Lens.lens (\ListBrowserSettings' {maxResults} -> maxResults) (\s@ListBrowserSettings' {} a -> s {maxResults = a} :: ListBrowserSettings)
 
 -- | The pagination token used to retrieve the next page of results for this
 -- operation.
 listBrowserSettings_nextToken :: Lens.Lens' ListBrowserSettings (Prelude.Maybe Prelude.Text)
 listBrowserSettings_nextToken = Lens.lens (\ListBrowserSettings' {nextToken} -> nextToken) (\s@ListBrowserSettings' {} a -> s {nextToken = a} :: ListBrowserSettings)
-
--- | The maximum number of results to be included in the next page.
-listBrowserSettings_maxResults :: Lens.Lens' ListBrowserSettings (Prelude.Maybe Prelude.Natural)
-listBrowserSettings_maxResults = Lens.lens (\ListBrowserSettings' {maxResults} -> maxResults) (\s@ListBrowserSettings' {} a -> s {maxResults = a} :: ListBrowserSettings)
 
 instance Core.AWSRequest ListBrowserSettings where
   type
@@ -98,22 +98,22 @@ instance Core.AWSRequest ListBrowserSettings where
     Response.receiveJSON
       ( \s h x ->
           ListBrowserSettingsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "browserSettings"
+            Prelude.<$> ( x Data..?> "browserSettings"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListBrowserSettings where
   hashWithSalt _salt ListBrowserSettings' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListBrowserSettings where
   rnf ListBrowserSettings' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListBrowserSettings where
   toHeaders =
@@ -132,17 +132,17 @@ instance Data.ToPath ListBrowserSettings where
 instance Data.ToQuery ListBrowserSettings where
   toQuery ListBrowserSettings' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListBrowserSettingsResponse' smart constructor.
 data ListBrowserSettingsResponse = ListBrowserSettingsResponse'
-  { -- | The pagination token used to retrieve the next page of results for this
+  { -- | The browser settings.
+    browserSettings :: Prelude.Maybe [BrowserSettingsSummary],
+    -- | The pagination token used to retrieve the next page of results for this
     -- operation.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The browser settings.
-    browserSettings :: Prelude.Maybe [BrowserSettingsSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -156,10 +156,10 @@ data ListBrowserSettingsResponse = ListBrowserSettingsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'browserSettings', 'listBrowserSettingsResponse_browserSettings' - The browser settings.
+--
 -- 'nextToken', 'listBrowserSettingsResponse_nextToken' - The pagination token used to retrieve the next page of results for this
 -- operation.
---
--- 'browserSettings', 'listBrowserSettingsResponse_browserSettings' - The browser settings.
 --
 -- 'httpStatus', 'listBrowserSettingsResponse_httpStatus' - The response's http status code.
 newListBrowserSettingsResponse ::
@@ -168,20 +168,20 @@ newListBrowserSettingsResponse ::
   ListBrowserSettingsResponse
 newListBrowserSettingsResponse pHttpStatus_ =
   ListBrowserSettingsResponse'
-    { nextToken =
+    { browserSettings =
         Prelude.Nothing,
-      browserSettings = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The browser settings.
+listBrowserSettingsResponse_browserSettings :: Lens.Lens' ListBrowserSettingsResponse (Prelude.Maybe [BrowserSettingsSummary])
+listBrowserSettingsResponse_browserSettings = Lens.lens (\ListBrowserSettingsResponse' {browserSettings} -> browserSettings) (\s@ListBrowserSettingsResponse' {} a -> s {browserSettings = a} :: ListBrowserSettingsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token used to retrieve the next page of results for this
 -- operation.
 listBrowserSettingsResponse_nextToken :: Lens.Lens' ListBrowserSettingsResponse (Prelude.Maybe Prelude.Text)
 listBrowserSettingsResponse_nextToken = Lens.lens (\ListBrowserSettingsResponse' {nextToken} -> nextToken) (\s@ListBrowserSettingsResponse' {} a -> s {nextToken = a} :: ListBrowserSettingsResponse)
-
--- | The browser settings.
-listBrowserSettingsResponse_browserSettings :: Lens.Lens' ListBrowserSettingsResponse (Prelude.Maybe [BrowserSettingsSummary])
-listBrowserSettingsResponse_browserSettings = Lens.lens (\ListBrowserSettingsResponse' {browserSettings} -> browserSettings) (\s@ListBrowserSettingsResponse' {} a -> s {browserSettings = a} :: ListBrowserSettingsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listBrowserSettingsResponse_httpStatus :: Lens.Lens' ListBrowserSettingsResponse Prelude.Int
@@ -189,6 +189,6 @@ listBrowserSettingsResponse_httpStatus = Lens.lens (\ListBrowserSettingsResponse
 
 instance Prelude.NFData ListBrowserSettingsResponse where
   rnf ListBrowserSettingsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf browserSettings
+    Prelude.rnf browserSettings
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -43,11 +43,11 @@ module Amazonka.IoTSiteWise.UpdateAssetModel
     newUpdateAssetModel,
 
     -- * Request Lenses
-    updateAssetModel_clientToken,
     updateAssetModel_assetModelCompositeModels,
     updateAssetModel_assetModelDescription,
     updateAssetModel_assetModelHierarchies,
     updateAssetModel_assetModelProperties,
+    updateAssetModel_clientToken,
     updateAssetModel_assetModelId,
     updateAssetModel_assetModelName,
 
@@ -71,11 +71,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateAssetModel' smart constructor.
 data UpdateAssetModel = UpdateAssetModel'
-  { -- | A unique case-sensitive identifier that you can provide to ensure the
-    -- idempotency of the request. Don\'t reuse this client token if a new
-    -- idempotent request is required.
-    clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The composite asset models that are part of this asset model. Composite
+  { -- | The composite asset models that are part of this asset model. Composite
     -- asset models are asset models that contain specific properties. Each
     -- composite model has a type that defines the properties that the
     -- composite model supports. Use composite asset models to define alarms on
@@ -104,6 +100,10 @@ data UpdateAssetModel = UpdateAssetModel'
     -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html Quotas>
     -- in the /IoT SiteWise User Guide/.
     assetModelProperties :: Prelude.Maybe [AssetModelProperty],
+    -- | A unique case-sensitive identifier that you can provide to ensure the
+    -- idempotency of the request. Don\'t reuse this client token if a new
+    -- idempotent request is required.
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the asset model to update.
     assetModelId :: Prelude.Text,
     -- | A unique, friendly name for the asset model.
@@ -118,10 +118,6 @@ data UpdateAssetModel = UpdateAssetModel'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'clientToken', 'updateAssetModel_clientToken' - A unique case-sensitive identifier that you can provide to ensure the
--- idempotency of the request. Don\'t reuse this client token if a new
--- idempotent request is required.
 --
 -- 'assetModelCompositeModels', 'updateAssetModel_assetModelCompositeModels' - The composite asset models that are part of this asset model. Composite
 -- asset models are asset models that contain specific properties. Each
@@ -152,6 +148,10 @@ data UpdateAssetModel = UpdateAssetModel'
 -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html Quotas>
 -- in the /IoT SiteWise User Guide/.
 --
+-- 'clientToken', 'updateAssetModel_clientToken' - A unique case-sensitive identifier that you can provide to ensure the
+-- idempotency of the request. Don\'t reuse this client token if a new
+-- idempotent request is required.
+--
 -- 'assetModelId', 'updateAssetModel_assetModelId' - The ID of the asset model to update.
 --
 -- 'assetModelName', 'updateAssetModel_assetModelName' - A unique, friendly name for the asset model.
@@ -163,20 +163,15 @@ newUpdateAssetModel ::
   UpdateAssetModel
 newUpdateAssetModel pAssetModelId_ pAssetModelName_ =
   UpdateAssetModel'
-    { clientToken = Prelude.Nothing,
-      assetModelCompositeModels = Prelude.Nothing,
+    { assetModelCompositeModels =
+        Prelude.Nothing,
       assetModelDescription = Prelude.Nothing,
       assetModelHierarchies = Prelude.Nothing,
       assetModelProperties = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
       assetModelId = pAssetModelId_,
       assetModelName = pAssetModelName_
     }
-
--- | A unique case-sensitive identifier that you can provide to ensure the
--- idempotency of the request. Don\'t reuse this client token if a new
--- idempotent request is required.
-updateAssetModel_clientToken :: Lens.Lens' UpdateAssetModel (Prelude.Maybe Prelude.Text)
-updateAssetModel_clientToken = Lens.lens (\UpdateAssetModel' {clientToken} -> clientToken) (\s@UpdateAssetModel' {} a -> s {clientToken = a} :: UpdateAssetModel)
 
 -- | The composite asset models that are part of this asset model. Composite
 -- asset models are asset models that contain specific properties. Each
@@ -215,6 +210,12 @@ updateAssetModel_assetModelHierarchies = Lens.lens (\UpdateAssetModel' {assetMod
 updateAssetModel_assetModelProperties :: Lens.Lens' UpdateAssetModel (Prelude.Maybe [AssetModelProperty])
 updateAssetModel_assetModelProperties = Lens.lens (\UpdateAssetModel' {assetModelProperties} -> assetModelProperties) (\s@UpdateAssetModel' {} a -> s {assetModelProperties = a} :: UpdateAssetModel) Prelude.. Lens.mapping Lens.coerced
 
+-- | A unique case-sensitive identifier that you can provide to ensure the
+-- idempotency of the request. Don\'t reuse this client token if a new
+-- idempotent request is required.
+updateAssetModel_clientToken :: Lens.Lens' UpdateAssetModel (Prelude.Maybe Prelude.Text)
+updateAssetModel_clientToken = Lens.lens (\UpdateAssetModel' {clientToken} -> clientToken) (\s@UpdateAssetModel' {} a -> s {clientToken = a} :: UpdateAssetModel)
+
 -- | The ID of the asset model to update.
 updateAssetModel_assetModelId :: Lens.Lens' UpdateAssetModel Prelude.Text
 updateAssetModel_assetModelId = Lens.lens (\UpdateAssetModel' {assetModelId} -> assetModelId) (\s@UpdateAssetModel' {} a -> s {assetModelId = a} :: UpdateAssetModel)
@@ -239,21 +240,22 @@ instance Core.AWSRequest UpdateAssetModel where
 
 instance Prelude.Hashable UpdateAssetModel where
   hashWithSalt _salt UpdateAssetModel' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
       `Prelude.hashWithSalt` assetModelCompositeModels
       `Prelude.hashWithSalt` assetModelDescription
       `Prelude.hashWithSalt` assetModelHierarchies
       `Prelude.hashWithSalt` assetModelProperties
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` assetModelId
       `Prelude.hashWithSalt` assetModelName
 
 instance Prelude.NFData UpdateAssetModel where
   rnf UpdateAssetModel' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf assetModelCompositeModels
+    Prelude.rnf assetModelCompositeModels
       `Prelude.seq` Prelude.rnf assetModelDescription
       `Prelude.seq` Prelude.rnf assetModelHierarchies
       `Prelude.seq` Prelude.rnf assetModelProperties
+      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf assetModelId
       `Prelude.seq` Prelude.rnf assetModelName
 
@@ -272,8 +274,7 @@ instance Data.ToJSON UpdateAssetModel where
   toJSON UpdateAssetModel' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Data..=) Prelude.<$> clientToken,
-            ("assetModelCompositeModels" Data..=)
+          [ ("assetModelCompositeModels" Data..=)
               Prelude.<$> assetModelCompositeModels,
             ("assetModelDescription" Data..=)
               Prelude.<$> assetModelDescription,
@@ -281,6 +282,7 @@ instance Data.ToJSON UpdateAssetModel where
               Prelude.<$> assetModelHierarchies,
             ("assetModelProperties" Data..=)
               Prelude.<$> assetModelProperties,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
             Prelude.Just
               ("assetModelName" Data..= assetModelName)
           ]

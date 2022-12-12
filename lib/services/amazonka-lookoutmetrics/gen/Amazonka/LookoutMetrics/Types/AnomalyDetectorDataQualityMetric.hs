@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAnomalyDetectorDataQualityMetric' smart constructor.
 data AnomalyDetectorDataQualityMetric = AnomalyDetectorDataQualityMetric'
-  { -- | The start time for the data quality metrics collection.
-    startTimestamp :: Prelude.Maybe Data.POSIX,
-    -- | An array of @DataQualityMetricList@ objects. Each object in the array
+  { -- | An array of @DataQualityMetricList@ objects. Each object in the array
     -- contains information about a data quality metric.
-    metricSetDataQualityMetricList :: Prelude.Maybe [MetricSetDataQualityMetric]
+    metricSetDataQualityMetricList :: Prelude.Maybe [MetricSetDataQualityMetric],
+    -- | The start time for the data quality metrics collection.
+    startTimestamp :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,28 +46,27 @@ data AnomalyDetectorDataQualityMetric = AnomalyDetectorDataQualityMetric'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'startTimestamp', 'anomalyDetectorDataQualityMetric_startTimestamp' - The start time for the data quality metrics collection.
---
 -- 'metricSetDataQualityMetricList', 'anomalyDetectorDataQualityMetric_metricSetDataQualityMetricList' - An array of @DataQualityMetricList@ objects. Each object in the array
 -- contains information about a data quality metric.
+--
+-- 'startTimestamp', 'anomalyDetectorDataQualityMetric_startTimestamp' - The start time for the data quality metrics collection.
 newAnomalyDetectorDataQualityMetric ::
   AnomalyDetectorDataQualityMetric
 newAnomalyDetectorDataQualityMetric =
   AnomalyDetectorDataQualityMetric'
-    { startTimestamp =
+    { metricSetDataQualityMetricList =
         Prelude.Nothing,
-      metricSetDataQualityMetricList =
-        Prelude.Nothing
+      startTimestamp = Prelude.Nothing
     }
-
--- | The start time for the data quality metrics collection.
-anomalyDetectorDataQualityMetric_startTimestamp :: Lens.Lens' AnomalyDetectorDataQualityMetric (Prelude.Maybe Prelude.UTCTime)
-anomalyDetectorDataQualityMetric_startTimestamp = Lens.lens (\AnomalyDetectorDataQualityMetric' {startTimestamp} -> startTimestamp) (\s@AnomalyDetectorDataQualityMetric' {} a -> s {startTimestamp = a} :: AnomalyDetectorDataQualityMetric) Prelude.. Lens.mapping Data._Time
 
 -- | An array of @DataQualityMetricList@ objects. Each object in the array
 -- contains information about a data quality metric.
 anomalyDetectorDataQualityMetric_metricSetDataQualityMetricList :: Lens.Lens' AnomalyDetectorDataQualityMetric (Prelude.Maybe [MetricSetDataQualityMetric])
 anomalyDetectorDataQualityMetric_metricSetDataQualityMetricList = Lens.lens (\AnomalyDetectorDataQualityMetric' {metricSetDataQualityMetricList} -> metricSetDataQualityMetricList) (\s@AnomalyDetectorDataQualityMetric' {} a -> s {metricSetDataQualityMetricList = a} :: AnomalyDetectorDataQualityMetric) Prelude.. Lens.mapping Lens.coerced
+
+-- | The start time for the data quality metrics collection.
+anomalyDetectorDataQualityMetric_startTimestamp :: Lens.Lens' AnomalyDetectorDataQualityMetric (Prelude.Maybe Prelude.UTCTime)
+anomalyDetectorDataQualityMetric_startTimestamp = Lens.lens (\AnomalyDetectorDataQualityMetric' {startTimestamp} -> startTimestamp) (\s@AnomalyDetectorDataQualityMetric' {} a -> s {startTimestamp = a} :: AnomalyDetectorDataQualityMetric) Prelude.. Lens.mapping Data._Time
 
 instance
   Data.FromJSON
@@ -78,10 +77,10 @@ instance
       "AnomalyDetectorDataQualityMetric"
       ( \x ->
           AnomalyDetectorDataQualityMetric'
-            Prelude.<$> (x Data..:? "StartTimestamp")
-            Prelude.<*> ( x Data..:? "MetricSetDataQualityMetricList"
+            Prelude.<$> ( x Data..:? "MetricSetDataQualityMetricList"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "StartTimestamp")
       )
 
 instance
@@ -91,13 +90,14 @@ instance
   hashWithSalt
     _salt
     AnomalyDetectorDataQualityMetric' {..} =
-      _salt `Prelude.hashWithSalt` startTimestamp
+      _salt
         `Prelude.hashWithSalt` metricSetDataQualityMetricList
+        `Prelude.hashWithSalt` startTimestamp
 
 instance
   Prelude.NFData
     AnomalyDetectorDataQualityMetric
   where
   rnf AnomalyDetectorDataQualityMetric' {..} =
-    Prelude.rnf startTimestamp
-      `Prelude.seq` Prelude.rnf metricSetDataQualityMetricList
+    Prelude.rnf metricSetDataQualityMetricList
+      `Prelude.seq` Prelude.rnf startTimestamp

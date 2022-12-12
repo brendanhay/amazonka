@@ -46,8 +46,8 @@ module Amazonka.Forecast.CreatePredictorBacktestExportJob
     newCreatePredictorBacktestExportJob,
 
     -- * Request Lenses
-    createPredictorBacktestExportJob_tags,
     createPredictorBacktestExportJob_format,
+    createPredictorBacktestExportJob_tags,
     createPredictorBacktestExportJob_predictorBacktestExportJobName,
     createPredictorBacktestExportJob_predictorArn,
     createPredictorBacktestExportJob_destination,
@@ -72,7 +72,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreatePredictorBacktestExportJob' smart constructor.
 data CreatePredictorBacktestExportJob = CreatePredictorBacktestExportJob'
-  { -- | Optional metadata to help you categorize and organize your backtests.
+  { -- | The format of the exported data, CSV or PARQUET. The default value is
+    -- CSV.
+    format :: Prelude.Maybe Prelude.Text,
+    -- | Optional metadata to help you categorize and organize your backtests.
     -- Each tag consists of a key and an optional value, both of which you
     -- define. Tag keys and values are case sensitive.
     --
@@ -99,9 +102,6 @@ data CreatePredictorBacktestExportJob = CreatePredictorBacktestExportJob'
     --     only the key prefix of @aws@ do not count against your tags per
     --     resource limit. You cannot edit or delete tag keys with this prefix.
     tags :: Prelude.Maybe [Tag],
-    -- | The format of the exported data, CSV or PARQUET. The default value is
-    -- CSV.
-    format :: Prelude.Maybe Prelude.Text,
     -- | The name for the backtest export job.
     predictorBacktestExportJobName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the predictor that you want to export.
@@ -117,6 +117,9 @@ data CreatePredictorBacktestExportJob = CreatePredictorBacktestExportJob'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'format', 'createPredictorBacktestExportJob_format' - The format of the exported data, CSV or PARQUET. The default value is
+-- CSV.
 --
 -- 'tags', 'createPredictorBacktestExportJob_tags' - Optional metadata to help you categorize and organize your backtests.
 -- Each tag consists of a key and an optional value, both of which you
@@ -145,9 +148,6 @@ data CreatePredictorBacktestExportJob = CreatePredictorBacktestExportJob'
 --     only the key prefix of @aws@ do not count against your tags per
 --     resource limit. You cannot edit or delete tag keys with this prefix.
 --
--- 'format', 'createPredictorBacktestExportJob_format' - The format of the exported data, CSV or PARQUET. The default value is
--- CSV.
---
 -- 'predictorBacktestExportJobName', 'createPredictorBacktestExportJob_predictorBacktestExportJobName' - The name for the backtest export job.
 --
 -- 'predictorArn', 'createPredictorBacktestExportJob_predictorArn' - The Amazon Resource Name (ARN) of the predictor that you want to export.
@@ -166,14 +166,19 @@ newCreatePredictorBacktestExportJob
   pPredictorArn_
   pDestination_ =
     CreatePredictorBacktestExportJob'
-      { tags =
+      { format =
           Prelude.Nothing,
-        format = Prelude.Nothing,
+        tags = Prelude.Nothing,
         predictorBacktestExportJobName =
           pPredictorBacktestExportJobName_,
         predictorArn = pPredictorArn_,
         destination = pDestination_
       }
+
+-- | The format of the exported data, CSV or PARQUET. The default value is
+-- CSV.
+createPredictorBacktestExportJob_format :: Lens.Lens' CreatePredictorBacktestExportJob (Prelude.Maybe Prelude.Text)
+createPredictorBacktestExportJob_format = Lens.lens (\CreatePredictorBacktestExportJob' {format} -> format) (\s@CreatePredictorBacktestExportJob' {} a -> s {format = a} :: CreatePredictorBacktestExportJob)
 
 -- | Optional metadata to help you categorize and organize your backtests.
 -- Each tag consists of a key and an optional value, both of which you
@@ -203,11 +208,6 @@ newCreatePredictorBacktestExportJob
 --     resource limit. You cannot edit or delete tag keys with this prefix.
 createPredictorBacktestExportJob_tags :: Lens.Lens' CreatePredictorBacktestExportJob (Prelude.Maybe [Tag])
 createPredictorBacktestExportJob_tags = Lens.lens (\CreatePredictorBacktestExportJob' {tags} -> tags) (\s@CreatePredictorBacktestExportJob' {} a -> s {tags = a} :: CreatePredictorBacktestExportJob) Prelude.. Lens.mapping Lens.coerced
-
--- | The format of the exported data, CSV or PARQUET. The default value is
--- CSV.
-createPredictorBacktestExportJob_format :: Lens.Lens' CreatePredictorBacktestExportJob (Prelude.Maybe Prelude.Text)
-createPredictorBacktestExportJob_format = Lens.lens (\CreatePredictorBacktestExportJob' {format} -> format) (\s@CreatePredictorBacktestExportJob' {} a -> s {format = a} :: CreatePredictorBacktestExportJob)
 
 -- | The name for the backtest export job.
 createPredictorBacktestExportJob_predictorBacktestExportJobName :: Lens.Lens' CreatePredictorBacktestExportJob Prelude.Text
@@ -245,8 +245,8 @@ instance
   hashWithSalt
     _salt
     CreatePredictorBacktestExportJob' {..} =
-      _salt `Prelude.hashWithSalt` tags
-        `Prelude.hashWithSalt` format
+      _salt `Prelude.hashWithSalt` format
+        `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` predictorBacktestExportJobName
         `Prelude.hashWithSalt` predictorArn
         `Prelude.hashWithSalt` destination
@@ -256,8 +256,8 @@ instance
     CreatePredictorBacktestExportJob
   where
   rnf CreatePredictorBacktestExportJob' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf format
+    Prelude.rnf format
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf predictorBacktestExportJobName
       `Prelude.seq` Prelude.rnf predictorArn
       `Prelude.seq` Prelude.rnf destination
@@ -284,8 +284,8 @@ instance Data.ToJSON CreatePredictorBacktestExportJob where
   toJSON CreatePredictorBacktestExportJob' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Format" Data..=) Prelude.<$> format,
+          [ ("Format" Data..=) Prelude.<$> format,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ( "PredictorBacktestExportJobName"
                   Data..= predictorBacktestExportJobName

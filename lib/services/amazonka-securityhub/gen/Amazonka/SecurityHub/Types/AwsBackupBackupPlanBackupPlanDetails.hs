@@ -31,13 +31,13 @@ import Amazonka.SecurityHub.Types.AwsBackupBackupPlanRuleDetails
 --
 -- /See:/ 'newAwsBackupBackupPlanBackupPlanDetails' smart constructor.
 data AwsBackupBackupPlanBackupPlanDetails = AwsBackupBackupPlanBackupPlanDetails'
-  { -- | The display name of a backup plan.
+  { -- | A list of backup options for each resource type.
+    advancedBackupSettings :: Prelude.Maybe [AwsBackupBackupPlanAdvancedBackupSettingsDetails],
+    -- | The display name of a backup plan.
     backupPlanName :: Prelude.Maybe Prelude.Text,
     -- | An array of @BackupRule@ objects, each of which specifies a scheduled
     -- task that is used to back up a selection of resources.
-    backupPlanRule :: Prelude.Maybe [AwsBackupBackupPlanRuleDetails],
-    -- | A list of backup options for each resource type.
-    advancedBackupSettings :: Prelude.Maybe [AwsBackupBackupPlanAdvancedBackupSettingsDetails]
+    backupPlanRule :: Prelude.Maybe [AwsBackupBackupPlanRuleDetails]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,22 +49,25 @@ data AwsBackupBackupPlanBackupPlanDetails = AwsBackupBackupPlanBackupPlanDetails
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'advancedBackupSettings', 'awsBackupBackupPlanBackupPlanDetails_advancedBackupSettings' - A list of backup options for each resource type.
+--
 -- 'backupPlanName', 'awsBackupBackupPlanBackupPlanDetails_backupPlanName' - The display name of a backup plan.
 --
 -- 'backupPlanRule', 'awsBackupBackupPlanBackupPlanDetails_backupPlanRule' - An array of @BackupRule@ objects, each of which specifies a scheduled
 -- task that is used to back up a selection of resources.
---
--- 'advancedBackupSettings', 'awsBackupBackupPlanBackupPlanDetails_advancedBackupSettings' - A list of backup options for each resource type.
 newAwsBackupBackupPlanBackupPlanDetails ::
   AwsBackupBackupPlanBackupPlanDetails
 newAwsBackupBackupPlanBackupPlanDetails =
   AwsBackupBackupPlanBackupPlanDetails'
-    { backupPlanName =
+    { advancedBackupSettings =
         Prelude.Nothing,
-      backupPlanRule = Prelude.Nothing,
-      advancedBackupSettings =
-        Prelude.Nothing
+      backupPlanName = Prelude.Nothing,
+      backupPlanRule = Prelude.Nothing
     }
+
+-- | A list of backup options for each resource type.
+awsBackupBackupPlanBackupPlanDetails_advancedBackupSettings :: Lens.Lens' AwsBackupBackupPlanBackupPlanDetails (Prelude.Maybe [AwsBackupBackupPlanAdvancedBackupSettingsDetails])
+awsBackupBackupPlanBackupPlanDetails_advancedBackupSettings = Lens.lens (\AwsBackupBackupPlanBackupPlanDetails' {advancedBackupSettings} -> advancedBackupSettings) (\s@AwsBackupBackupPlanBackupPlanDetails' {} a -> s {advancedBackupSettings = a} :: AwsBackupBackupPlanBackupPlanDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | The display name of a backup plan.
 awsBackupBackupPlanBackupPlanDetails_backupPlanName :: Lens.Lens' AwsBackupBackupPlanBackupPlanDetails (Prelude.Maybe Prelude.Text)
@@ -75,10 +78,6 @@ awsBackupBackupPlanBackupPlanDetails_backupPlanName = Lens.lens (\AwsBackupBacku
 awsBackupBackupPlanBackupPlanDetails_backupPlanRule :: Lens.Lens' AwsBackupBackupPlanBackupPlanDetails (Prelude.Maybe [AwsBackupBackupPlanRuleDetails])
 awsBackupBackupPlanBackupPlanDetails_backupPlanRule = Lens.lens (\AwsBackupBackupPlanBackupPlanDetails' {backupPlanRule} -> backupPlanRule) (\s@AwsBackupBackupPlanBackupPlanDetails' {} a -> s {backupPlanRule = a} :: AwsBackupBackupPlanBackupPlanDetails) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of backup options for each resource type.
-awsBackupBackupPlanBackupPlanDetails_advancedBackupSettings :: Lens.Lens' AwsBackupBackupPlanBackupPlanDetails (Prelude.Maybe [AwsBackupBackupPlanAdvancedBackupSettingsDetails])
-awsBackupBackupPlanBackupPlanDetails_advancedBackupSettings = Lens.lens (\AwsBackupBackupPlanBackupPlanDetails' {advancedBackupSettings} -> advancedBackupSettings) (\s@AwsBackupBackupPlanBackupPlanDetails' {} a -> s {advancedBackupSettings = a} :: AwsBackupBackupPlanBackupPlanDetails) Prelude.. Lens.mapping Lens.coerced
-
 instance
   Data.FromJSON
     AwsBackupBackupPlanBackupPlanDetails
@@ -88,9 +87,11 @@ instance
       "AwsBackupBackupPlanBackupPlanDetails"
       ( \x ->
           AwsBackupBackupPlanBackupPlanDetails'
-            Prelude.<$> (x Data..:? "BackupPlanName")
-            Prelude.<*> (x Data..:? "BackupPlanRule" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "AdvancedBackupSettings"
+            Prelude.<$> ( x Data..:? "AdvancedBackupSettings"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "BackupPlanName")
+            Prelude.<*> ( x Data..:? "BackupPlanRule"
                             Data..!= Prelude.mempty
                         )
       )
@@ -102,18 +103,18 @@ instance
   hashWithSalt
     _salt
     AwsBackupBackupPlanBackupPlanDetails' {..} =
-      _salt `Prelude.hashWithSalt` backupPlanName
+      _salt `Prelude.hashWithSalt` advancedBackupSettings
+        `Prelude.hashWithSalt` backupPlanName
         `Prelude.hashWithSalt` backupPlanRule
-        `Prelude.hashWithSalt` advancedBackupSettings
 
 instance
   Prelude.NFData
     AwsBackupBackupPlanBackupPlanDetails
   where
   rnf AwsBackupBackupPlanBackupPlanDetails' {..} =
-    Prelude.rnf backupPlanName
+    Prelude.rnf advancedBackupSettings
+      `Prelude.seq` Prelude.rnf backupPlanName
       `Prelude.seq` Prelude.rnf backupPlanRule
-      `Prelude.seq` Prelude.rnf advancedBackupSettings
 
 instance
   Data.ToJSON
@@ -122,11 +123,11 @@ instance
   toJSON AwsBackupBackupPlanBackupPlanDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("BackupPlanName" Data..=)
+          [ ("AdvancedBackupSettings" Data..=)
+              Prelude.<$> advancedBackupSettings,
+            ("BackupPlanName" Data..=)
               Prelude.<$> backupPlanName,
             ("BackupPlanRule" Data..=)
-              Prelude.<$> backupPlanRule,
-            ("AdvancedBackupSettings" Data..=)
-              Prelude.<$> advancedBackupSettings
+              Prelude.<$> backupPlanRule
           ]
       )

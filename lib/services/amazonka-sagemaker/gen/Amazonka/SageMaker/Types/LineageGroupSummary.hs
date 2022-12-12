@@ -29,16 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLineageGroupSummary' smart constructor.
 data LineageGroupSummary = LineageGroupSummary'
-  { -- | The name or Amazon Resource Name (ARN) of the lineage group.
-    lineageGroupName :: Prelude.Maybe Prelude.Text,
+  { -- | The creation time of the lineage group summary.
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The display name of the lineage group summary.
     displayName :: Prelude.Maybe Prelude.Text,
     -- | The last modified time of the lineage group summary.
     lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the lineage group resource.
     lineageGroupArn :: Prelude.Maybe Prelude.Text,
-    -- | The creation time of the lineage group summary.
-    creationTime :: Prelude.Maybe Data.POSIX
+    -- | The name or Amazon Resource Name (ARN) of the lineage group.
+    lineageGroupName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,7 +50,7 @@ data LineageGroupSummary = LineageGroupSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lineageGroupName', 'lineageGroupSummary_lineageGroupName' - The name or Amazon Resource Name (ARN) of the lineage group.
+-- 'creationTime', 'lineageGroupSummary_creationTime' - The creation time of the lineage group summary.
 --
 -- 'displayName', 'lineageGroupSummary_displayName' - The display name of the lineage group summary.
 --
@@ -58,22 +58,22 @@ data LineageGroupSummary = LineageGroupSummary'
 --
 -- 'lineageGroupArn', 'lineageGroupSummary_lineageGroupArn' - The Amazon Resource Name (ARN) of the lineage group resource.
 --
--- 'creationTime', 'lineageGroupSummary_creationTime' - The creation time of the lineage group summary.
+-- 'lineageGroupName', 'lineageGroupSummary_lineageGroupName' - The name or Amazon Resource Name (ARN) of the lineage group.
 newLineageGroupSummary ::
   LineageGroupSummary
 newLineageGroupSummary =
   LineageGroupSummary'
-    { lineageGroupName =
+    { creationTime =
         Prelude.Nothing,
       displayName = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
       lineageGroupArn = Prelude.Nothing,
-      creationTime = Prelude.Nothing
+      lineageGroupName = Prelude.Nothing
     }
 
--- | The name or Amazon Resource Name (ARN) of the lineage group.
-lineageGroupSummary_lineageGroupName :: Lens.Lens' LineageGroupSummary (Prelude.Maybe Prelude.Text)
-lineageGroupSummary_lineageGroupName = Lens.lens (\LineageGroupSummary' {lineageGroupName} -> lineageGroupName) (\s@LineageGroupSummary' {} a -> s {lineageGroupName = a} :: LineageGroupSummary)
+-- | The creation time of the lineage group summary.
+lineageGroupSummary_creationTime :: Lens.Lens' LineageGroupSummary (Prelude.Maybe Prelude.UTCTime)
+lineageGroupSummary_creationTime = Lens.lens (\LineageGroupSummary' {creationTime} -> creationTime) (\s@LineageGroupSummary' {} a -> s {creationTime = a} :: LineageGroupSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The display name of the lineage group summary.
 lineageGroupSummary_displayName :: Lens.Lens' LineageGroupSummary (Prelude.Maybe Prelude.Text)
@@ -87,9 +87,9 @@ lineageGroupSummary_lastModifiedTime = Lens.lens (\LineageGroupSummary' {lastMod
 lineageGroupSummary_lineageGroupArn :: Lens.Lens' LineageGroupSummary (Prelude.Maybe Prelude.Text)
 lineageGroupSummary_lineageGroupArn = Lens.lens (\LineageGroupSummary' {lineageGroupArn} -> lineageGroupArn) (\s@LineageGroupSummary' {} a -> s {lineageGroupArn = a} :: LineageGroupSummary)
 
--- | The creation time of the lineage group summary.
-lineageGroupSummary_creationTime :: Lens.Lens' LineageGroupSummary (Prelude.Maybe Prelude.UTCTime)
-lineageGroupSummary_creationTime = Lens.lens (\LineageGroupSummary' {creationTime} -> creationTime) (\s@LineageGroupSummary' {} a -> s {creationTime = a} :: LineageGroupSummary) Prelude.. Lens.mapping Data._Time
+-- | The name or Amazon Resource Name (ARN) of the lineage group.
+lineageGroupSummary_lineageGroupName :: Lens.Lens' LineageGroupSummary (Prelude.Maybe Prelude.Text)
+lineageGroupSummary_lineageGroupName = Lens.lens (\LineageGroupSummary' {lineageGroupName} -> lineageGroupName) (\s@LineageGroupSummary' {} a -> s {lineageGroupName = a} :: LineageGroupSummary)
 
 instance Data.FromJSON LineageGroupSummary where
   parseJSON =
@@ -97,25 +97,25 @@ instance Data.FromJSON LineageGroupSummary where
       "LineageGroupSummary"
       ( \x ->
           LineageGroupSummary'
-            Prelude.<$> (x Data..:? "LineageGroupName")
+            Prelude.<$> (x Data..:? "CreationTime")
             Prelude.<*> (x Data..:? "DisplayName")
             Prelude.<*> (x Data..:? "LastModifiedTime")
             Prelude.<*> (x Data..:? "LineageGroupArn")
-            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "LineageGroupName")
       )
 
 instance Prelude.Hashable LineageGroupSummary where
   hashWithSalt _salt LineageGroupSummary' {..} =
-    _salt `Prelude.hashWithSalt` lineageGroupName
+    _salt `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` lineageGroupArn
-      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` lineageGroupName
 
 instance Prelude.NFData LineageGroupSummary where
   rnf LineageGroupSummary' {..} =
-    Prelude.rnf lineageGroupName
+    Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf lastModifiedTime
       `Prelude.seq` Prelude.rnf lineageGroupArn
-      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf lineageGroupName

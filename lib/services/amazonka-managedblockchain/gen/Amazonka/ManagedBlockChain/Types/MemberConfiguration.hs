@@ -32,16 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMemberConfiguration' smart constructor.
 data MemberConfiguration = MemberConfiguration'
-  { -- | Tags assigned to the member. Tags consist of a key and optional value.
-    -- For more information about tags, see
-    -- <https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html Tagging Resources>
-    -- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.
-    --
-    -- When specifying tags during creation, you can specify multiple key-value
-    -- pairs in a single request, with an overall maximum of 50 tags added to
-    -- each resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | An optional description of the member.
+  { -- | An optional description of the member.
     description :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the customer managed key in Key
     -- Management Service (KMS) to use for encryption at rest in the member.
@@ -69,6 +60,15 @@ data MemberConfiguration = MemberConfiguration'
     -- | Configuration properties for logging events associated with a member of
     -- a Managed Blockchain network.
     logPublishingConfiguration :: Prelude.Maybe MemberLogPublishingConfiguration,
+    -- | Tags assigned to the member. Tags consist of a key and optional value.
+    -- For more information about tags, see
+    -- <https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html Tagging Resources>
+    -- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.
+    --
+    -- When specifying tags during creation, you can specify multiple key-value
+    -- pairs in a single request, with an overall maximum of 50 tags added to
+    -- each resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the member.
     name :: Prelude.Text,
     -- | Configuration properties of the blockchain framework relevant to the
@@ -84,15 +84,6 @@ data MemberConfiguration = MemberConfiguration'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'tags', 'memberConfiguration_tags' - Tags assigned to the member. Tags consist of a key and optional value.
--- For more information about tags, see
--- <https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html Tagging Resources>
--- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.
---
--- When specifying tags during creation, you can specify multiple key-value
--- pairs in a single request, with an overall maximum of 50 tags added to
--- each resource.
 --
 -- 'description', 'memberConfiguration_description' - An optional description of the member.
 --
@@ -122,6 +113,15 @@ data MemberConfiguration = MemberConfiguration'
 -- 'logPublishingConfiguration', 'memberConfiguration_logPublishingConfiguration' - Configuration properties for logging events associated with a member of
 -- a Managed Blockchain network.
 --
+-- 'tags', 'memberConfiguration_tags' - Tags assigned to the member. Tags consist of a key and optional value.
+-- For more information about tags, see
+-- <https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html Tagging Resources>
+-- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.
+--
+-- When specifying tags during creation, you can specify multiple key-value
+-- pairs in a single request, with an overall maximum of 50 tags added to
+-- each resource.
+--
 -- 'name', 'memberConfiguration_name' - The name of the member.
 --
 -- 'frameworkConfiguration', 'memberConfiguration_frameworkConfiguration' - Configuration properties of the blockchain framework relevant to the
@@ -136,24 +136,13 @@ newMemberConfiguration
   pName_
   pFrameworkConfiguration_ =
     MemberConfiguration'
-      { tags = Prelude.Nothing,
-        description = Prelude.Nothing,
+      { description = Prelude.Nothing,
         kmsKeyArn = Prelude.Nothing,
         logPublishingConfiguration = Prelude.Nothing,
+        tags = Prelude.Nothing,
         name = pName_,
         frameworkConfiguration = pFrameworkConfiguration_
       }
-
--- | Tags assigned to the member. Tags consist of a key and optional value.
--- For more information about tags, see
--- <https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html Tagging Resources>
--- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.
---
--- When specifying tags during creation, you can specify multiple key-value
--- pairs in a single request, with an overall maximum of 50 tags added to
--- each resource.
-memberConfiguration_tags :: Lens.Lens' MemberConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-memberConfiguration_tags = Lens.lens (\MemberConfiguration' {tags} -> tags) (\s@MemberConfiguration' {} a -> s {tags = a} :: MemberConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional description of the member.
 memberConfiguration_description :: Lens.Lens' MemberConfiguration (Prelude.Maybe Prelude.Text)
@@ -189,6 +178,17 @@ memberConfiguration_kmsKeyArn = Lens.lens (\MemberConfiguration' {kmsKeyArn} -> 
 memberConfiguration_logPublishingConfiguration :: Lens.Lens' MemberConfiguration (Prelude.Maybe MemberLogPublishingConfiguration)
 memberConfiguration_logPublishingConfiguration = Lens.lens (\MemberConfiguration' {logPublishingConfiguration} -> logPublishingConfiguration) (\s@MemberConfiguration' {} a -> s {logPublishingConfiguration = a} :: MemberConfiguration)
 
+-- | Tags assigned to the member. Tags consist of a key and optional value.
+-- For more information about tags, see
+-- <https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html Tagging Resources>
+-- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.
+--
+-- When specifying tags during creation, you can specify multiple key-value
+-- pairs in a single request, with an overall maximum of 50 tags added to
+-- each resource.
+memberConfiguration_tags :: Lens.Lens' MemberConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+memberConfiguration_tags = Lens.lens (\MemberConfiguration' {tags} -> tags) (\s@MemberConfiguration' {} a -> s {tags = a} :: MemberConfiguration) Prelude.. Lens.mapping Lens.coerced
+
 -- | The name of the member.
 memberConfiguration_name :: Lens.Lens' MemberConfiguration Prelude.Text
 memberConfiguration_name = Lens.lens (\MemberConfiguration' {name} -> name) (\s@MemberConfiguration' {} a -> s {name = a} :: MemberConfiguration)
@@ -200,19 +200,19 @@ memberConfiguration_frameworkConfiguration = Lens.lens (\MemberConfiguration' {f
 
 instance Prelude.Hashable MemberConfiguration where
   hashWithSalt _salt MemberConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` kmsKeyArn
       `Prelude.hashWithSalt` logPublishingConfiguration
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` frameworkConfiguration
 
 instance Prelude.NFData MemberConfiguration where
   rnf MemberConfiguration' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf kmsKeyArn
       `Prelude.seq` Prelude.rnf logPublishingConfiguration
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf frameworkConfiguration
 
@@ -220,11 +220,11 @@ instance Data.ToJSON MemberConfiguration where
   toJSON MemberConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
             ("KmsKeyArn" Data..=) Prelude.<$> kmsKeyArn,
             ("LogPublishingConfiguration" Data..=)
               Prelude.<$> logPublishingConfiguration,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just
               ( "FrameworkConfiguration"

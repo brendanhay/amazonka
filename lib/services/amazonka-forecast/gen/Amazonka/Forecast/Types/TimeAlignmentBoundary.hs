@@ -39,16 +39,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTimeAlignmentBoundary' smart constructor.
 data TimeAlignmentBoundary = TimeAlignmentBoundary'
-  { -- | The day of week to use for time alignment during aggregation. The day
+  { -- | The day of the month to use for time alignment during aggregation.
+    dayOfMonth :: Prelude.Maybe Prelude.Natural,
+    -- | The day of week to use for time alignment during aggregation. The day
     -- must be in uppercase.
     dayOfWeek :: Prelude.Maybe DayOfWeek,
-    -- | The month to use for time alignment during aggregation. The month must
-    -- be in uppercase.
-    month :: Prelude.Maybe Month,
     -- | The hour of day to use for time alignment during aggregation.
     hour :: Prelude.Maybe Prelude.Natural,
-    -- | The day of the month to use for time alignment during aggregation.
-    dayOfMonth :: Prelude.Maybe Prelude.Natural
+    -- | The month to use for time alignment during aggregation. The month must
+    -- be in uppercase.
+    month :: Prelude.Maybe Month
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,42 +60,43 @@ data TimeAlignmentBoundary = TimeAlignmentBoundary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dayOfMonth', 'timeAlignmentBoundary_dayOfMonth' - The day of the month to use for time alignment during aggregation.
+--
 -- 'dayOfWeek', 'timeAlignmentBoundary_dayOfWeek' - The day of week to use for time alignment during aggregation. The day
 -- must be in uppercase.
 --
--- 'month', 'timeAlignmentBoundary_month' - The month to use for time alignment during aggregation. The month must
--- be in uppercase.
---
 -- 'hour', 'timeAlignmentBoundary_hour' - The hour of day to use for time alignment during aggregation.
 --
--- 'dayOfMonth', 'timeAlignmentBoundary_dayOfMonth' - The day of the month to use for time alignment during aggregation.
+-- 'month', 'timeAlignmentBoundary_month' - The month to use for time alignment during aggregation. The month must
+-- be in uppercase.
 newTimeAlignmentBoundary ::
   TimeAlignmentBoundary
 newTimeAlignmentBoundary =
   TimeAlignmentBoundary'
-    { dayOfWeek = Prelude.Nothing,
-      month = Prelude.Nothing,
+    { dayOfMonth =
+        Prelude.Nothing,
+      dayOfWeek = Prelude.Nothing,
       hour = Prelude.Nothing,
-      dayOfMonth = Prelude.Nothing
+      month = Prelude.Nothing
     }
+
+-- | The day of the month to use for time alignment during aggregation.
+timeAlignmentBoundary_dayOfMonth :: Lens.Lens' TimeAlignmentBoundary (Prelude.Maybe Prelude.Natural)
+timeAlignmentBoundary_dayOfMonth = Lens.lens (\TimeAlignmentBoundary' {dayOfMonth} -> dayOfMonth) (\s@TimeAlignmentBoundary' {} a -> s {dayOfMonth = a} :: TimeAlignmentBoundary)
 
 -- | The day of week to use for time alignment during aggregation. The day
 -- must be in uppercase.
 timeAlignmentBoundary_dayOfWeek :: Lens.Lens' TimeAlignmentBoundary (Prelude.Maybe DayOfWeek)
 timeAlignmentBoundary_dayOfWeek = Lens.lens (\TimeAlignmentBoundary' {dayOfWeek} -> dayOfWeek) (\s@TimeAlignmentBoundary' {} a -> s {dayOfWeek = a} :: TimeAlignmentBoundary)
 
--- | The month to use for time alignment during aggregation. The month must
--- be in uppercase.
-timeAlignmentBoundary_month :: Lens.Lens' TimeAlignmentBoundary (Prelude.Maybe Month)
-timeAlignmentBoundary_month = Lens.lens (\TimeAlignmentBoundary' {month} -> month) (\s@TimeAlignmentBoundary' {} a -> s {month = a} :: TimeAlignmentBoundary)
-
 -- | The hour of day to use for time alignment during aggregation.
 timeAlignmentBoundary_hour :: Lens.Lens' TimeAlignmentBoundary (Prelude.Maybe Prelude.Natural)
 timeAlignmentBoundary_hour = Lens.lens (\TimeAlignmentBoundary' {hour} -> hour) (\s@TimeAlignmentBoundary' {} a -> s {hour = a} :: TimeAlignmentBoundary)
 
--- | The day of the month to use for time alignment during aggregation.
-timeAlignmentBoundary_dayOfMonth :: Lens.Lens' TimeAlignmentBoundary (Prelude.Maybe Prelude.Natural)
-timeAlignmentBoundary_dayOfMonth = Lens.lens (\TimeAlignmentBoundary' {dayOfMonth} -> dayOfMonth) (\s@TimeAlignmentBoundary' {} a -> s {dayOfMonth = a} :: TimeAlignmentBoundary)
+-- | The month to use for time alignment during aggregation. The month must
+-- be in uppercase.
+timeAlignmentBoundary_month :: Lens.Lens' TimeAlignmentBoundary (Prelude.Maybe Month)
+timeAlignmentBoundary_month = Lens.lens (\TimeAlignmentBoundary' {month} -> month) (\s@TimeAlignmentBoundary' {} a -> s {month = a} :: TimeAlignmentBoundary)
 
 instance Data.FromJSON TimeAlignmentBoundary where
   parseJSON =
@@ -103,33 +104,33 @@ instance Data.FromJSON TimeAlignmentBoundary where
       "TimeAlignmentBoundary"
       ( \x ->
           TimeAlignmentBoundary'
-            Prelude.<$> (x Data..:? "DayOfWeek")
-            Prelude.<*> (x Data..:? "Month")
+            Prelude.<$> (x Data..:? "DayOfMonth")
+            Prelude.<*> (x Data..:? "DayOfWeek")
             Prelude.<*> (x Data..:? "Hour")
-            Prelude.<*> (x Data..:? "DayOfMonth")
+            Prelude.<*> (x Data..:? "Month")
       )
 
 instance Prelude.Hashable TimeAlignmentBoundary where
   hashWithSalt _salt TimeAlignmentBoundary' {..} =
-    _salt `Prelude.hashWithSalt` dayOfWeek
-      `Prelude.hashWithSalt` month
+    _salt `Prelude.hashWithSalt` dayOfMonth
+      `Prelude.hashWithSalt` dayOfWeek
       `Prelude.hashWithSalt` hour
-      `Prelude.hashWithSalt` dayOfMonth
+      `Prelude.hashWithSalt` month
 
 instance Prelude.NFData TimeAlignmentBoundary where
   rnf TimeAlignmentBoundary' {..} =
-    Prelude.rnf dayOfWeek
-      `Prelude.seq` Prelude.rnf month
+    Prelude.rnf dayOfMonth
+      `Prelude.seq` Prelude.rnf dayOfWeek
       `Prelude.seq` Prelude.rnf hour
-      `Prelude.seq` Prelude.rnf dayOfMonth
+      `Prelude.seq` Prelude.rnf month
 
 instance Data.ToJSON TimeAlignmentBoundary where
   toJSON TimeAlignmentBoundary' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DayOfWeek" Data..=) Prelude.<$> dayOfWeek,
-            ("Month" Data..=) Prelude.<$> month,
+          [ ("DayOfMonth" Data..=) Prelude.<$> dayOfMonth,
+            ("DayOfWeek" Data..=) Prelude.<$> dayOfWeek,
             ("Hour" Data..=) Prelude.<$> hour,
-            ("DayOfMonth" Data..=) Prelude.<$> dayOfMonth
+            ("Month" Data..=) Prelude.<$> month
           ]
       )

@@ -32,10 +32,10 @@ import qualified Amazonka.Prelude as Prelude
 data ConnectAttachment = ConnectAttachment'
   { -- | The attachment details.
     attachment :: Prelude.Maybe Attachment,
-    -- | The ID of the transport attachment.
-    transportAttachmentId :: Prelude.Maybe Prelude.Text,
     -- | Options for connecting an attachment.
-    options :: Prelude.Maybe ConnectAttachmentOptions
+    options :: Prelude.Maybe ConnectAttachmentOptions,
+    -- | The ID of the transport attachment.
+    transportAttachmentId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,29 +49,29 @@ data ConnectAttachment = ConnectAttachment'
 --
 -- 'attachment', 'connectAttachment_attachment' - The attachment details.
 --
--- 'transportAttachmentId', 'connectAttachment_transportAttachmentId' - The ID of the transport attachment.
---
 -- 'options', 'connectAttachment_options' - Options for connecting an attachment.
+--
+-- 'transportAttachmentId', 'connectAttachment_transportAttachmentId' - The ID of the transport attachment.
 newConnectAttachment ::
   ConnectAttachment
 newConnectAttachment =
   ConnectAttachment'
     { attachment = Prelude.Nothing,
-      transportAttachmentId = Prelude.Nothing,
-      options = Prelude.Nothing
+      options = Prelude.Nothing,
+      transportAttachmentId = Prelude.Nothing
     }
 
 -- | The attachment details.
 connectAttachment_attachment :: Lens.Lens' ConnectAttachment (Prelude.Maybe Attachment)
 connectAttachment_attachment = Lens.lens (\ConnectAttachment' {attachment} -> attachment) (\s@ConnectAttachment' {} a -> s {attachment = a} :: ConnectAttachment)
 
--- | The ID of the transport attachment.
-connectAttachment_transportAttachmentId :: Lens.Lens' ConnectAttachment (Prelude.Maybe Prelude.Text)
-connectAttachment_transportAttachmentId = Lens.lens (\ConnectAttachment' {transportAttachmentId} -> transportAttachmentId) (\s@ConnectAttachment' {} a -> s {transportAttachmentId = a} :: ConnectAttachment)
-
 -- | Options for connecting an attachment.
 connectAttachment_options :: Lens.Lens' ConnectAttachment (Prelude.Maybe ConnectAttachmentOptions)
 connectAttachment_options = Lens.lens (\ConnectAttachment' {options} -> options) (\s@ConnectAttachment' {} a -> s {options = a} :: ConnectAttachment)
+
+-- | The ID of the transport attachment.
+connectAttachment_transportAttachmentId :: Lens.Lens' ConnectAttachment (Prelude.Maybe Prelude.Text)
+connectAttachment_transportAttachmentId = Lens.lens (\ConnectAttachment' {transportAttachmentId} -> transportAttachmentId) (\s@ConnectAttachment' {} a -> s {transportAttachmentId = a} :: ConnectAttachment)
 
 instance Data.FromJSON ConnectAttachment where
   parseJSON =
@@ -80,18 +80,18 @@ instance Data.FromJSON ConnectAttachment where
       ( \x ->
           ConnectAttachment'
             Prelude.<$> (x Data..:? "Attachment")
-            Prelude.<*> (x Data..:? "TransportAttachmentId")
             Prelude.<*> (x Data..:? "Options")
+            Prelude.<*> (x Data..:? "TransportAttachmentId")
       )
 
 instance Prelude.Hashable ConnectAttachment where
   hashWithSalt _salt ConnectAttachment' {..} =
     _salt `Prelude.hashWithSalt` attachment
-      `Prelude.hashWithSalt` transportAttachmentId
       `Prelude.hashWithSalt` options
+      `Prelude.hashWithSalt` transportAttachmentId
 
 instance Prelude.NFData ConnectAttachment where
   rnf ConnectAttachment' {..} =
     Prelude.rnf attachment
-      `Prelude.seq` Prelude.rnf transportAttachmentId
       `Prelude.seq` Prelude.rnf options
+      `Prelude.seq` Prelude.rnf transportAttachmentId

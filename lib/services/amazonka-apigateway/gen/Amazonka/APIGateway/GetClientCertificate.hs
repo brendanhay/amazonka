@@ -34,12 +34,12 @@ module Amazonka.APIGateway.GetClientCertificate
     newClientCertificate,
 
     -- * Response Lenses
-    clientCertificate_tags,
-    clientCertificate_pemEncodedCertificate,
-    clientCertificate_description,
     clientCertificate_clientCertificateId,
     clientCertificate_createdDate,
+    clientCertificate_description,
     clientCertificate_expirationDate,
+    clientCertificate_pemEncodedCertificate,
+    clientCertificate_tags,
   )
 where
 

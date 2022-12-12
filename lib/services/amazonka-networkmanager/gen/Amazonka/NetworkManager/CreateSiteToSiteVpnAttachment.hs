@@ -28,8 +28,8 @@ module Amazonka.NetworkManager.CreateSiteToSiteVpnAttachment
     newCreateSiteToSiteVpnAttachment,
 
     -- * Request Lenses
-    createSiteToSiteVpnAttachment_tags,
     createSiteToSiteVpnAttachment_clientToken,
+    createSiteToSiteVpnAttachment_tags,
     createSiteToSiteVpnAttachment_coreNetworkId,
     createSiteToSiteVpnAttachment_vpnConnectionArn,
 
@@ -53,10 +53,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateSiteToSiteVpnAttachment' smart constructor.
 data CreateSiteToSiteVpnAttachment = CreateSiteToSiteVpnAttachment'
-  { -- | The tags associated with the request.
-    tags :: Prelude.Maybe [Tag],
-    -- | The client token associated with the request.
+  { -- | The client token associated with the request.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The tags associated with the request.
+    tags :: Prelude.Maybe [Tag],
     -- | The ID of a core network where you\'re creating a site-to-site VPN
     -- attachment.
     coreNetworkId :: Prelude.Text,
@@ -73,9 +73,9 @@ data CreateSiteToSiteVpnAttachment = CreateSiteToSiteVpnAttachment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createSiteToSiteVpnAttachment_tags' - The tags associated with the request.
---
 -- 'clientToken', 'createSiteToSiteVpnAttachment_clientToken' - The client token associated with the request.
+--
+-- 'tags', 'createSiteToSiteVpnAttachment_tags' - The tags associated with the request.
 --
 -- 'coreNetworkId', 'createSiteToSiteVpnAttachment_coreNetworkId' - The ID of a core network where you\'re creating a site-to-site VPN
 -- attachment.
@@ -91,20 +91,20 @@ newCreateSiteToSiteVpnAttachment
   pCoreNetworkId_
   pVpnConnectionArn_ =
     CreateSiteToSiteVpnAttachment'
-      { tags =
+      { clientToken =
           Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+        tags = Prelude.Nothing,
         coreNetworkId = pCoreNetworkId_,
         vpnConnectionArn = pVpnConnectionArn_
       }
 
--- | The tags associated with the request.
-createSiteToSiteVpnAttachment_tags :: Lens.Lens' CreateSiteToSiteVpnAttachment (Prelude.Maybe [Tag])
-createSiteToSiteVpnAttachment_tags = Lens.lens (\CreateSiteToSiteVpnAttachment' {tags} -> tags) (\s@CreateSiteToSiteVpnAttachment' {} a -> s {tags = a} :: CreateSiteToSiteVpnAttachment) Prelude.. Lens.mapping Lens.coerced
-
 -- | The client token associated with the request.
 createSiteToSiteVpnAttachment_clientToken :: Lens.Lens' CreateSiteToSiteVpnAttachment (Prelude.Maybe Prelude.Text)
 createSiteToSiteVpnAttachment_clientToken = Lens.lens (\CreateSiteToSiteVpnAttachment' {clientToken} -> clientToken) (\s@CreateSiteToSiteVpnAttachment' {} a -> s {clientToken = a} :: CreateSiteToSiteVpnAttachment)
+
+-- | The tags associated with the request.
+createSiteToSiteVpnAttachment_tags :: Lens.Lens' CreateSiteToSiteVpnAttachment (Prelude.Maybe [Tag])
+createSiteToSiteVpnAttachment_tags = Lens.lens (\CreateSiteToSiteVpnAttachment' {tags} -> tags) (\s@CreateSiteToSiteVpnAttachment' {} a -> s {tags = a} :: CreateSiteToSiteVpnAttachment) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of a core network where you\'re creating a site-to-site VPN
 -- attachment.
@@ -137,15 +137,15 @@ instance
     CreateSiteToSiteVpnAttachment
   where
   hashWithSalt _salt CreateSiteToSiteVpnAttachment' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` coreNetworkId
       `Prelude.hashWithSalt` vpnConnectionArn
 
 instance Prelude.NFData CreateSiteToSiteVpnAttachment where
   rnf CreateSiteToSiteVpnAttachment' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf coreNetworkId
       `Prelude.seq` Prelude.rnf vpnConnectionArn
 
@@ -164,8 +164,8 @@ instance Data.ToJSON CreateSiteToSiteVpnAttachment where
   toJSON CreateSiteToSiteVpnAttachment' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ClientToken" Data..=) Prelude.<$> clientToken,
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("CoreNetworkId" Data..= coreNetworkId),
             Prelude.Just
               ("VpnConnectionArn" Data..= vpnConnectionArn)

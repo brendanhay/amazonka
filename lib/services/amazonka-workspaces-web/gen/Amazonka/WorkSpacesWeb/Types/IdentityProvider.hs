@@ -92,10 +92,10 @@ data IdentityProvider = IdentityProvider'
     --
     --     -   @IDPSignout@ /optional/
     identityProviderDetails :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
-    -- | The identity provider type.
-    identityProviderType :: Prelude.Maybe IdentityProviderType,
     -- | The identity provider name.
     identityProviderName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The identity provider type.
+    identityProviderType :: Prelude.Maybe IdentityProviderType,
     -- | The ARN of the identity provider.
     identityProviderArn :: Prelude.Text
   }
@@ -172,9 +172,9 @@ data IdentityProvider = IdentityProvider'
 --
 --     -   @IDPSignout@ /optional/
 --
--- 'identityProviderType', 'identityProvider_identityProviderType' - The identity provider type.
---
 -- 'identityProviderName', 'identityProvider_identityProviderName' - The identity provider name.
+--
+-- 'identityProviderType', 'identityProvider_identityProviderType' - The identity provider type.
 --
 -- 'identityProviderArn', 'identityProvider_identityProviderArn' - The ARN of the identity provider.
 newIdentityProvider ::
@@ -185,8 +185,8 @@ newIdentityProvider pIdentityProviderArn_ =
   IdentityProvider'
     { identityProviderDetails =
         Prelude.Nothing,
-      identityProviderType = Prelude.Nothing,
       identityProviderName = Prelude.Nothing,
+      identityProviderType = Prelude.Nothing,
       identityProviderArn = pIdentityProviderArn_
     }
 
@@ -255,13 +255,13 @@ newIdentityProvider pIdentityProviderArn_ =
 identityProvider_identityProviderDetails :: Lens.Lens' IdentityProvider (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 identityProvider_identityProviderDetails = Lens.lens (\IdentityProvider' {identityProviderDetails} -> identityProviderDetails) (\s@IdentityProvider' {} a -> s {identityProviderDetails = a} :: IdentityProvider) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
--- | The identity provider type.
-identityProvider_identityProviderType :: Lens.Lens' IdentityProvider (Prelude.Maybe IdentityProviderType)
-identityProvider_identityProviderType = Lens.lens (\IdentityProvider' {identityProviderType} -> identityProviderType) (\s@IdentityProvider' {} a -> s {identityProviderType = a} :: IdentityProvider)
-
 -- | The identity provider name.
 identityProvider_identityProviderName :: Lens.Lens' IdentityProvider (Prelude.Maybe Prelude.Text)
 identityProvider_identityProviderName = Lens.lens (\IdentityProvider' {identityProviderName} -> identityProviderName) (\s@IdentityProvider' {} a -> s {identityProviderName = a} :: IdentityProvider) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The identity provider type.
+identityProvider_identityProviderType :: Lens.Lens' IdentityProvider (Prelude.Maybe IdentityProviderType)
+identityProvider_identityProviderType = Lens.lens (\IdentityProvider' {identityProviderType} -> identityProviderType) (\s@IdentityProvider' {} a -> s {identityProviderType = a} :: IdentityProvider)
 
 -- | The ARN of the identity provider.
 identityProvider_identityProviderArn :: Lens.Lens' IdentityProvider Prelude.Text
@@ -276,8 +276,8 @@ instance Data.FromJSON IdentityProvider where
             Prelude.<$> ( x Data..:? "identityProviderDetails"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "identityProviderType")
             Prelude.<*> (x Data..:? "identityProviderName")
+            Prelude.<*> (x Data..:? "identityProviderType")
             Prelude.<*> (x Data..: "identityProviderArn")
       )
 
@@ -285,13 +285,13 @@ instance Prelude.Hashable IdentityProvider where
   hashWithSalt _salt IdentityProvider' {..} =
     _salt
       `Prelude.hashWithSalt` identityProviderDetails
-      `Prelude.hashWithSalt` identityProviderType
       `Prelude.hashWithSalt` identityProviderName
+      `Prelude.hashWithSalt` identityProviderType
       `Prelude.hashWithSalt` identityProviderArn
 
 instance Prelude.NFData IdentityProvider where
   rnf IdentityProvider' {..} =
     Prelude.rnf identityProviderDetails
-      `Prelude.seq` Prelude.rnf identityProviderType
       `Prelude.seq` Prelude.rnf identityProviderName
+      `Prelude.seq` Prelude.rnf identityProviderType
       `Prelude.seq` Prelude.rnf identityProviderArn

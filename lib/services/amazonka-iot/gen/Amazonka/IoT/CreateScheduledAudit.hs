@@ -31,9 +31,9 @@ module Amazonka.IoT.CreateScheduledAudit
     newCreateScheduledAudit,
 
     -- * Request Lenses
-    createScheduledAudit_tags,
-    createScheduledAudit_dayOfWeek,
     createScheduledAudit_dayOfMonth,
+    createScheduledAudit_dayOfWeek,
+    createScheduledAudit_tags,
     createScheduledAudit_frequency,
     createScheduledAudit_targetCheckNames,
     createScheduledAudit_scheduledAuditName,
@@ -58,18 +58,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateScheduledAudit' smart constructor.
 data CreateScheduledAudit = CreateScheduledAudit'
-  { -- | Metadata that can be used to manage the scheduled audit.
-    tags :: Prelude.Maybe [Tag],
-    -- | The day of the week on which the scheduled audit takes place, either
-    -- @SUN@, @MON@, @TUE@, @WED@, @THU@, @FRI@, or @SAT@. This field is
-    -- required if the @frequency@ parameter is set to @WEEKLY@ or @BIWEEKLY@.
-    dayOfWeek :: Prelude.Maybe DayOfWeek,
-    -- | The day of the month on which the scheduled audit takes place. This can
+  { -- | The day of the month on which the scheduled audit takes place. This can
     -- be \"1\" through \"31\" or \"LAST\". This field is required if the
     -- \"frequency\" parameter is set to @MONTHLY@. If days 29 to 31 are
     -- specified, and the month doesn\'t have that many days, the audit takes
     -- place on the @LAST@ day of the month.
     dayOfMonth :: Prelude.Maybe Prelude.Text,
+    -- | The day of the week on which the scheduled audit takes place, either
+    -- @SUN@, @MON@, @TUE@, @WED@, @THU@, @FRI@, or @SAT@. This field is
+    -- required if the @frequency@ parameter is set to @WEEKLY@ or @BIWEEKLY@.
+    dayOfWeek :: Prelude.Maybe DayOfWeek,
+    -- | Metadata that can be used to manage the scheduled audit.
+    tags :: Prelude.Maybe [Tag],
     -- | How often the scheduled audit takes place, either @DAILY@, @WEEKLY@,
     -- @BIWEEKLY@ or @MONTHLY@. The start time of each audit is determined by
     -- the system.
@@ -92,17 +92,17 @@ data CreateScheduledAudit = CreateScheduledAudit'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createScheduledAudit_tags' - Metadata that can be used to manage the scheduled audit.
---
--- 'dayOfWeek', 'createScheduledAudit_dayOfWeek' - The day of the week on which the scheduled audit takes place, either
--- @SUN@, @MON@, @TUE@, @WED@, @THU@, @FRI@, or @SAT@. This field is
--- required if the @frequency@ parameter is set to @WEEKLY@ or @BIWEEKLY@.
---
 -- 'dayOfMonth', 'createScheduledAudit_dayOfMonth' - The day of the month on which the scheduled audit takes place. This can
 -- be \"1\" through \"31\" or \"LAST\". This field is required if the
 -- \"frequency\" parameter is set to @MONTHLY@. If days 29 to 31 are
 -- specified, and the month doesn\'t have that many days, the audit takes
 -- place on the @LAST@ day of the month.
+--
+-- 'dayOfWeek', 'createScheduledAudit_dayOfWeek' - The day of the week on which the scheduled audit takes place, either
+-- @SUN@, @MON@, @TUE@, @WED@, @THU@, @FRI@, or @SAT@. This field is
+-- required if the @frequency@ parameter is set to @WEEKLY@ or @BIWEEKLY@.
+--
+-- 'tags', 'createScheduledAudit_tags' - Metadata that can be used to manage the scheduled audit.
 --
 -- 'frequency', 'createScheduledAudit_frequency' - How often the scheduled audit takes place, either @DAILY@, @WEEKLY@,
 -- @BIWEEKLY@ or @MONTHLY@. The start time of each audit is determined by
@@ -124,23 +124,13 @@ newCreateScheduledAudit
   pFrequency_
   pScheduledAuditName_ =
     CreateScheduledAudit'
-      { tags = Prelude.Nothing,
+      { dayOfMonth = Prelude.Nothing,
         dayOfWeek = Prelude.Nothing,
-        dayOfMonth = Prelude.Nothing,
+        tags = Prelude.Nothing,
         frequency = pFrequency_,
         targetCheckNames = Prelude.mempty,
         scheduledAuditName = pScheduledAuditName_
       }
-
--- | Metadata that can be used to manage the scheduled audit.
-createScheduledAudit_tags :: Lens.Lens' CreateScheduledAudit (Prelude.Maybe [Tag])
-createScheduledAudit_tags = Lens.lens (\CreateScheduledAudit' {tags} -> tags) (\s@CreateScheduledAudit' {} a -> s {tags = a} :: CreateScheduledAudit) Prelude.. Lens.mapping Lens.coerced
-
--- | The day of the week on which the scheduled audit takes place, either
--- @SUN@, @MON@, @TUE@, @WED@, @THU@, @FRI@, or @SAT@. This field is
--- required if the @frequency@ parameter is set to @WEEKLY@ or @BIWEEKLY@.
-createScheduledAudit_dayOfWeek :: Lens.Lens' CreateScheduledAudit (Prelude.Maybe DayOfWeek)
-createScheduledAudit_dayOfWeek = Lens.lens (\CreateScheduledAudit' {dayOfWeek} -> dayOfWeek) (\s@CreateScheduledAudit' {} a -> s {dayOfWeek = a} :: CreateScheduledAudit)
 
 -- | The day of the month on which the scheduled audit takes place. This can
 -- be \"1\" through \"31\" or \"LAST\". This field is required if the
@@ -149,6 +139,16 @@ createScheduledAudit_dayOfWeek = Lens.lens (\CreateScheduledAudit' {dayOfWeek} -
 -- place on the @LAST@ day of the month.
 createScheduledAudit_dayOfMonth :: Lens.Lens' CreateScheduledAudit (Prelude.Maybe Prelude.Text)
 createScheduledAudit_dayOfMonth = Lens.lens (\CreateScheduledAudit' {dayOfMonth} -> dayOfMonth) (\s@CreateScheduledAudit' {} a -> s {dayOfMonth = a} :: CreateScheduledAudit)
+
+-- | The day of the week on which the scheduled audit takes place, either
+-- @SUN@, @MON@, @TUE@, @WED@, @THU@, @FRI@, or @SAT@. This field is
+-- required if the @frequency@ parameter is set to @WEEKLY@ or @BIWEEKLY@.
+createScheduledAudit_dayOfWeek :: Lens.Lens' CreateScheduledAudit (Prelude.Maybe DayOfWeek)
+createScheduledAudit_dayOfWeek = Lens.lens (\CreateScheduledAudit' {dayOfWeek} -> dayOfWeek) (\s@CreateScheduledAudit' {} a -> s {dayOfWeek = a} :: CreateScheduledAudit)
+
+-- | Metadata that can be used to manage the scheduled audit.
+createScheduledAudit_tags :: Lens.Lens' CreateScheduledAudit (Prelude.Maybe [Tag])
+createScheduledAudit_tags = Lens.lens (\CreateScheduledAudit' {tags} -> tags) (\s@CreateScheduledAudit' {} a -> s {tags = a} :: CreateScheduledAudit) Prelude.. Lens.mapping Lens.coerced
 
 -- | How often the scheduled audit takes place, either @DAILY@, @WEEKLY@,
 -- @BIWEEKLY@ or @MONTHLY@. The start time of each audit is determined by
@@ -183,18 +183,18 @@ instance Core.AWSRequest CreateScheduledAudit where
 
 instance Prelude.Hashable CreateScheduledAudit where
   hashWithSalt _salt CreateScheduledAudit' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` dayOfMonth
       `Prelude.hashWithSalt` dayOfWeek
-      `Prelude.hashWithSalt` dayOfMonth
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` frequency
       `Prelude.hashWithSalt` targetCheckNames
       `Prelude.hashWithSalt` scheduledAuditName
 
 instance Prelude.NFData CreateScheduledAudit where
   rnf CreateScheduledAudit' {..} =
-    Prelude.rnf tags
+    Prelude.rnf dayOfMonth
       `Prelude.seq` Prelude.rnf dayOfWeek
-      `Prelude.seq` Prelude.rnf dayOfMonth
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf frequency
       `Prelude.seq` Prelude.rnf targetCheckNames
       `Prelude.seq` Prelude.rnf scheduledAuditName
@@ -206,9 +206,9 @@ instance Data.ToJSON CreateScheduledAudit where
   toJSON CreateScheduledAudit' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
+          [ ("dayOfMonth" Data..=) Prelude.<$> dayOfMonth,
             ("dayOfWeek" Data..=) Prelude.<$> dayOfWeek,
-            ("dayOfMonth" Data..=) Prelude.<$> dayOfMonth,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("frequency" Data..= frequency),
             Prelude.Just
               ("targetCheckNames" Data..= targetCheckNames)

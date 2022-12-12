@@ -40,15 +40,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBatchGetAssetPropertyValueEntry' smart constructor.
 data BatchGetAssetPropertyValueEntry = BatchGetAssetPropertyValueEntry'
-  { -- | The alias that identifies the property, such as an OPC-UA server data
+  { -- | The ID of the asset in which the asset property was created.
+    assetId :: Prelude.Maybe Prelude.Text,
+    -- | The alias that identifies the property, such as an OPC-UA server data
     -- stream path (for example,
     -- @\/company\/windfarm\/3\/turbine\/7\/temperature@). For more
     -- information, see
     -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html Mapping industrial data streams to asset properties>
     -- in the /IoT SiteWise User Guide/.
     propertyAlias :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the asset in which the asset property was created.
-    assetId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the asset property.
     propertyId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the entry.
@@ -64,14 +64,14 @@ data BatchGetAssetPropertyValueEntry = BatchGetAssetPropertyValueEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'assetId', 'batchGetAssetPropertyValueEntry_assetId' - The ID of the asset in which the asset property was created.
+--
 -- 'propertyAlias', 'batchGetAssetPropertyValueEntry_propertyAlias' - The alias that identifies the property, such as an OPC-UA server data
 -- stream path (for example,
 -- @\/company\/windfarm\/3\/turbine\/7\/temperature@). For more
 -- information, see
 -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html Mapping industrial data streams to asset properties>
 -- in the /IoT SiteWise User Guide/.
---
--- 'assetId', 'batchGetAssetPropertyValueEntry_assetId' - The ID of the asset in which the asset property was created.
 --
 -- 'propertyId', 'batchGetAssetPropertyValueEntry_propertyId' - The ID of the asset property.
 --
@@ -82,12 +82,16 @@ newBatchGetAssetPropertyValueEntry ::
   BatchGetAssetPropertyValueEntry
 newBatchGetAssetPropertyValueEntry pEntryId_ =
   BatchGetAssetPropertyValueEntry'
-    { propertyAlias =
+    { assetId =
         Prelude.Nothing,
-      assetId = Prelude.Nothing,
+      propertyAlias = Prelude.Nothing,
       propertyId = Prelude.Nothing,
       entryId = pEntryId_
     }
+
+-- | The ID of the asset in which the asset property was created.
+batchGetAssetPropertyValueEntry_assetId :: Lens.Lens' BatchGetAssetPropertyValueEntry (Prelude.Maybe Prelude.Text)
+batchGetAssetPropertyValueEntry_assetId = Lens.lens (\BatchGetAssetPropertyValueEntry' {assetId} -> assetId) (\s@BatchGetAssetPropertyValueEntry' {} a -> s {assetId = a} :: BatchGetAssetPropertyValueEntry)
 
 -- | The alias that identifies the property, such as an OPC-UA server data
 -- stream path (for example,
@@ -97,10 +101,6 @@ newBatchGetAssetPropertyValueEntry pEntryId_ =
 -- in the /IoT SiteWise User Guide/.
 batchGetAssetPropertyValueEntry_propertyAlias :: Lens.Lens' BatchGetAssetPropertyValueEntry (Prelude.Maybe Prelude.Text)
 batchGetAssetPropertyValueEntry_propertyAlias = Lens.lens (\BatchGetAssetPropertyValueEntry' {propertyAlias} -> propertyAlias) (\s@BatchGetAssetPropertyValueEntry' {} a -> s {propertyAlias = a} :: BatchGetAssetPropertyValueEntry)
-
--- | The ID of the asset in which the asset property was created.
-batchGetAssetPropertyValueEntry_assetId :: Lens.Lens' BatchGetAssetPropertyValueEntry (Prelude.Maybe Prelude.Text)
-batchGetAssetPropertyValueEntry_assetId = Lens.lens (\BatchGetAssetPropertyValueEntry' {assetId} -> assetId) (\s@BatchGetAssetPropertyValueEntry' {} a -> s {assetId = a} :: BatchGetAssetPropertyValueEntry)
 
 -- | The ID of the asset property.
 batchGetAssetPropertyValueEntry_propertyId :: Lens.Lens' BatchGetAssetPropertyValueEntry (Prelude.Maybe Prelude.Text)
@@ -117,8 +117,8 @@ instance
   hashWithSalt
     _salt
     BatchGetAssetPropertyValueEntry' {..} =
-      _salt `Prelude.hashWithSalt` propertyAlias
-        `Prelude.hashWithSalt` assetId
+      _salt `Prelude.hashWithSalt` assetId
+        `Prelude.hashWithSalt` propertyAlias
         `Prelude.hashWithSalt` propertyId
         `Prelude.hashWithSalt` entryId
 
@@ -127,8 +127,8 @@ instance
     BatchGetAssetPropertyValueEntry
   where
   rnf BatchGetAssetPropertyValueEntry' {..} =
-    Prelude.rnf propertyAlias
-      `Prelude.seq` Prelude.rnf assetId
+    Prelude.rnf assetId
+      `Prelude.seq` Prelude.rnf propertyAlias
       `Prelude.seq` Prelude.rnf propertyId
       `Prelude.seq` Prelude.rnf entryId
 
@@ -136,8 +136,8 @@ instance Data.ToJSON BatchGetAssetPropertyValueEntry where
   toJSON BatchGetAssetPropertyValueEntry' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("propertyAlias" Data..=) Prelude.<$> propertyAlias,
-            ("assetId" Data..=) Prelude.<$> assetId,
+          [ ("assetId" Data..=) Prelude.<$> assetId,
+            ("propertyAlias" Data..=) Prelude.<$> propertyAlias,
             ("propertyId" Data..=) Prelude.<$> propertyId,
             Prelude.Just ("entryId" Data..= entryId)
           ]

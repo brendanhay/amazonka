@@ -40,10 +40,10 @@ module Amazonka.EC2.ModifyInstanceEventWindow
     newModifyInstanceEventWindow,
 
     -- * Request Lenses
-    modifyInstanceEventWindow_name,
-    modifyInstanceEventWindow_dryRun,
-    modifyInstanceEventWindow_timeRanges,
     modifyInstanceEventWindow_cronExpression,
+    modifyInstanceEventWindow_dryRun,
+    modifyInstanceEventWindow_name,
+    modifyInstanceEventWindow_timeRanges,
     modifyInstanceEventWindow_instanceEventWindowId,
 
     -- * Destructuring the Response
@@ -66,16 +66,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newModifyInstanceEventWindow' smart constructor.
 data ModifyInstanceEventWindow = ModifyInstanceEventWindow'
-  { -- | The name of the event window.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The time ranges of the event window.
-    timeRanges :: Prelude.Maybe [InstanceEventWindowTimeRangeRequest],
-    -- | The cron expression of the event window, for example,
+  { -- | The cron expression of the event window, for example,
     -- @* 0-4,20-23 * * 1,5@.
     --
     -- Constraints:
@@ -98,6 +89,15 @@ data ModifyInstanceEventWindow = ModifyInstanceEventWindow'
     -- For more information about cron expressions, see
     -- <https://en.wikipedia.org/wiki/Cron cron> on the /Wikipedia website/.
     cronExpression :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the event window.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The time ranges of the event window.
+    timeRanges :: Prelude.Maybe [InstanceEventWindowTimeRangeRequest],
     -- | The ID of the event window.
     instanceEventWindowId :: Prelude.Text
   }
@@ -110,15 +110,6 @@ data ModifyInstanceEventWindow = ModifyInstanceEventWindow'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'name', 'modifyInstanceEventWindow_name' - The name of the event window.
---
--- 'dryRun', 'modifyInstanceEventWindow_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
--- 'timeRanges', 'modifyInstanceEventWindow_timeRanges' - The time ranges of the event window.
 --
 -- 'cronExpression', 'modifyInstanceEventWindow_cronExpression' - The cron expression of the event window, for example,
 -- @* 0-4,20-23 * * 1,5@.
@@ -143,6 +134,15 @@ data ModifyInstanceEventWindow = ModifyInstanceEventWindow'
 -- For more information about cron expressions, see
 -- <https://en.wikipedia.org/wiki/Cron cron> on the /Wikipedia website/.
 --
+-- 'dryRun', 'modifyInstanceEventWindow_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'name', 'modifyInstanceEventWindow_name' - The name of the event window.
+--
+-- 'timeRanges', 'modifyInstanceEventWindow_timeRanges' - The time ranges of the event window.
+--
 -- 'instanceEventWindowId', 'modifyInstanceEventWindow_instanceEventWindowId' - The ID of the event window.
 newModifyInstanceEventWindow ::
   -- | 'instanceEventWindowId'
@@ -150,27 +150,13 @@ newModifyInstanceEventWindow ::
   ModifyInstanceEventWindow
 newModifyInstanceEventWindow pInstanceEventWindowId_ =
   ModifyInstanceEventWindow'
-    { name = Prelude.Nothing,
+    { cronExpression =
+        Prelude.Nothing,
       dryRun = Prelude.Nothing,
+      name = Prelude.Nothing,
       timeRanges = Prelude.Nothing,
-      cronExpression = Prelude.Nothing,
       instanceEventWindowId = pInstanceEventWindowId_
     }
-
--- | The name of the event window.
-modifyInstanceEventWindow_name :: Lens.Lens' ModifyInstanceEventWindow (Prelude.Maybe Prelude.Text)
-modifyInstanceEventWindow_name = Lens.lens (\ModifyInstanceEventWindow' {name} -> name) (\s@ModifyInstanceEventWindow' {} a -> s {name = a} :: ModifyInstanceEventWindow)
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-modifyInstanceEventWindow_dryRun :: Lens.Lens' ModifyInstanceEventWindow (Prelude.Maybe Prelude.Bool)
-modifyInstanceEventWindow_dryRun = Lens.lens (\ModifyInstanceEventWindow' {dryRun} -> dryRun) (\s@ModifyInstanceEventWindow' {} a -> s {dryRun = a} :: ModifyInstanceEventWindow)
-
--- | The time ranges of the event window.
-modifyInstanceEventWindow_timeRanges :: Lens.Lens' ModifyInstanceEventWindow (Prelude.Maybe [InstanceEventWindowTimeRangeRequest])
-modifyInstanceEventWindow_timeRanges = Lens.lens (\ModifyInstanceEventWindow' {timeRanges} -> timeRanges) (\s@ModifyInstanceEventWindow' {} a -> s {timeRanges = a} :: ModifyInstanceEventWindow) Prelude.. Lens.mapping Lens.coerced
 
 -- | The cron expression of the event window, for example,
 -- @* 0-4,20-23 * * 1,5@.
@@ -197,6 +183,21 @@ modifyInstanceEventWindow_timeRanges = Lens.lens (\ModifyInstanceEventWindow' {t
 modifyInstanceEventWindow_cronExpression :: Lens.Lens' ModifyInstanceEventWindow (Prelude.Maybe Prelude.Text)
 modifyInstanceEventWindow_cronExpression = Lens.lens (\ModifyInstanceEventWindow' {cronExpression} -> cronExpression) (\s@ModifyInstanceEventWindow' {} a -> s {cronExpression = a} :: ModifyInstanceEventWindow)
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+modifyInstanceEventWindow_dryRun :: Lens.Lens' ModifyInstanceEventWindow (Prelude.Maybe Prelude.Bool)
+modifyInstanceEventWindow_dryRun = Lens.lens (\ModifyInstanceEventWindow' {dryRun} -> dryRun) (\s@ModifyInstanceEventWindow' {} a -> s {dryRun = a} :: ModifyInstanceEventWindow)
+
+-- | The name of the event window.
+modifyInstanceEventWindow_name :: Lens.Lens' ModifyInstanceEventWindow (Prelude.Maybe Prelude.Text)
+modifyInstanceEventWindow_name = Lens.lens (\ModifyInstanceEventWindow' {name} -> name) (\s@ModifyInstanceEventWindow' {} a -> s {name = a} :: ModifyInstanceEventWindow)
+
+-- | The time ranges of the event window.
+modifyInstanceEventWindow_timeRanges :: Lens.Lens' ModifyInstanceEventWindow (Prelude.Maybe [InstanceEventWindowTimeRangeRequest])
+modifyInstanceEventWindow_timeRanges = Lens.lens (\ModifyInstanceEventWindow' {timeRanges} -> timeRanges) (\s@ModifyInstanceEventWindow' {} a -> s {timeRanges = a} :: ModifyInstanceEventWindow) Prelude.. Lens.mapping Lens.coerced
+
 -- | The ID of the event window.
 modifyInstanceEventWindow_instanceEventWindowId :: Lens.Lens' ModifyInstanceEventWindow Prelude.Text
 modifyInstanceEventWindow_instanceEventWindowId = Lens.lens (\ModifyInstanceEventWindow' {instanceEventWindowId} -> instanceEventWindowId) (\s@ModifyInstanceEventWindow' {} a -> s {instanceEventWindowId = a} :: ModifyInstanceEventWindow)
@@ -217,18 +218,18 @@ instance Core.AWSRequest ModifyInstanceEventWindow where
 
 instance Prelude.Hashable ModifyInstanceEventWindow where
   hashWithSalt _salt ModifyInstanceEventWindow' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` cronExpression
       `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` timeRanges
-      `Prelude.hashWithSalt` cronExpression
       `Prelude.hashWithSalt` instanceEventWindowId
 
 instance Prelude.NFData ModifyInstanceEventWindow where
   rnf ModifyInstanceEventWindow' {..} =
-    Prelude.rnf name
+    Prelude.rnf cronExpression
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf timeRanges
-      `Prelude.seq` Prelude.rnf cronExpression
       `Prelude.seq` Prelude.rnf instanceEventWindowId
 
 instance Data.ToHeaders ModifyInstanceEventWindow where
@@ -244,13 +245,13 @@ instance Data.ToQuery ModifyInstanceEventWindow where
           Data.=: ("ModifyInstanceEventWindow" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "Name" Data.=: name,
+        "CronExpression" Data.=: cronExpression,
         "DryRun" Data.=: dryRun,
+        "Name" Data.=: name,
         Data.toQuery
           ( Data.toQueryList "TimeRange"
               Prelude.<$> timeRanges
           ),
-        "CronExpression" Data.=: cronExpression,
         "InstanceEventWindowId"
           Data.=: instanceEventWindowId
       ]

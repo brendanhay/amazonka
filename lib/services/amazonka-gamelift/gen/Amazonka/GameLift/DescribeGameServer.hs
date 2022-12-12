@@ -33,12 +33,6 @@
 -- __Learn more__
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html GameLift FleetIQ Guide>
---
--- __Related actions__
---
--- RegisterGameServer | ListGameServers | ClaimGameServer |
--- DescribeGameServer | UpdateGameServer | DeregisterGameServer |
--- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html All APIs by task>
 module Amazonka.GameLift.DescribeGameServer
   ( -- * Creating a Request
     DescribeGameServer (..),
@@ -69,7 +63,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newDescribeGameServer' smart constructor.
 data DescribeGameServer = DescribeGameServer'
   { -- | A unique identifier for the game server group where the game server is
-    -- running. Use either the GameServerGroup name or ARN value.
+    -- running.
     gameServerGroupName :: Prelude.Text,
     -- | A custom string that uniquely identifies the game server information to
     -- be retrieved.
@@ -86,7 +80,7 @@ data DescribeGameServer = DescribeGameServer'
 -- for backwards compatibility:
 --
 -- 'gameServerGroupName', 'describeGameServer_gameServerGroupName' - A unique identifier for the game server group where the game server is
--- running. Use either the GameServerGroup name or ARN value.
+-- running.
 --
 -- 'gameServerId', 'describeGameServer_gameServerId' - A custom string that uniquely identifies the game server information to
 -- be retrieved.
@@ -106,7 +100,7 @@ newDescribeGameServer
       }
 
 -- | A unique identifier for the game server group where the game server is
--- running. Use either the GameServerGroup name or ARN value.
+-- running.
 describeGameServer_gameServerGroupName :: Lens.Lens' DescribeGameServer Prelude.Text
 describeGameServer_gameServerGroupName = Lens.lens (\DescribeGameServer' {gameServerGroupName} -> gameServerGroupName) (\s@DescribeGameServer' {} a -> s {gameServerGroupName = a} :: DescribeGameServer)
 

@@ -28,10 +28,10 @@ module Amazonka.IoTFleetWise.UpdateModelManifest
     newUpdateModelManifest,
 
     -- * Request Lenses
-    updateModelManifest_nodesToRemove,
-    updateModelManifest_nodesToAdd,
-    updateModelManifest_status,
     updateModelManifest_description,
+    updateModelManifest_nodesToAdd,
+    updateModelManifest_nodesToRemove,
+    updateModelManifest_status,
     updateModelManifest_name,
 
     -- * Destructuring the Response
@@ -55,18 +55,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateModelManifest' smart constructor.
 data UpdateModelManifest = UpdateModelManifest'
-  { -- | A list of @fullyQualifiedName@ of nodes, which are a general abstraction
-    -- of signals, to remove from the vehicle model.
-    nodesToRemove :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+  { -- | A brief description of the vehicle model.
+    description :: Prelude.Maybe Prelude.Text,
     -- | A list of @fullyQualifiedName@ of nodes, which are a general abstraction
     -- of signals, to add to the vehicle model.
     nodesToAdd :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | A list of @fullyQualifiedName@ of nodes, which are a general abstraction
+    -- of signals, to remove from the vehicle model.
+    nodesToRemove :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The state of the vehicle model. If the status is @ACTIVE@, the vehicle
     -- model can\'t be edited. If the status is @DRAFT@, you can edit the
     -- vehicle model.
     status :: Prelude.Maybe ManifestStatus,
-    -- | A brief description of the vehicle model.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the vehicle model to update.
     name :: Prelude.Text
   }
@@ -80,17 +80,17 @@ data UpdateModelManifest = UpdateModelManifest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nodesToRemove', 'updateModelManifest_nodesToRemove' - A list of @fullyQualifiedName@ of nodes, which are a general abstraction
--- of signals, to remove from the vehicle model.
+-- 'description', 'updateModelManifest_description' - A brief description of the vehicle model.
 --
 -- 'nodesToAdd', 'updateModelManifest_nodesToAdd' - A list of @fullyQualifiedName@ of nodes, which are a general abstraction
 -- of signals, to add to the vehicle model.
 --
+-- 'nodesToRemove', 'updateModelManifest_nodesToRemove' - A list of @fullyQualifiedName@ of nodes, which are a general abstraction
+-- of signals, to remove from the vehicle model.
+--
 -- 'status', 'updateModelManifest_status' - The state of the vehicle model. If the status is @ACTIVE@, the vehicle
 -- model can\'t be edited. If the status is @DRAFT@, you can edit the
 -- vehicle model.
---
--- 'description', 'updateModelManifest_description' - A brief description of the vehicle model.
 --
 -- 'name', 'updateModelManifest_name' - The name of the vehicle model to update.
 newUpdateModelManifest ::
@@ -99,33 +99,32 @@ newUpdateModelManifest ::
   UpdateModelManifest
 newUpdateModelManifest pName_ =
   UpdateModelManifest'
-    { nodesToRemove =
-        Prelude.Nothing,
+    { description = Prelude.Nothing,
       nodesToAdd = Prelude.Nothing,
+      nodesToRemove = Prelude.Nothing,
       status = Prelude.Nothing,
-      description = Prelude.Nothing,
       name = pName_
     }
 
--- | A list of @fullyQualifiedName@ of nodes, which are a general abstraction
--- of signals, to remove from the vehicle model.
-updateModelManifest_nodesToRemove :: Lens.Lens' UpdateModelManifest (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-updateModelManifest_nodesToRemove = Lens.lens (\UpdateModelManifest' {nodesToRemove} -> nodesToRemove) (\s@UpdateModelManifest' {} a -> s {nodesToRemove = a} :: UpdateModelManifest) Prelude.. Lens.mapping Lens.coerced
+-- | A brief description of the vehicle model.
+updateModelManifest_description :: Lens.Lens' UpdateModelManifest (Prelude.Maybe Prelude.Text)
+updateModelManifest_description = Lens.lens (\UpdateModelManifest' {description} -> description) (\s@UpdateModelManifest' {} a -> s {description = a} :: UpdateModelManifest)
 
 -- | A list of @fullyQualifiedName@ of nodes, which are a general abstraction
 -- of signals, to add to the vehicle model.
 updateModelManifest_nodesToAdd :: Lens.Lens' UpdateModelManifest (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 updateModelManifest_nodesToAdd = Lens.lens (\UpdateModelManifest' {nodesToAdd} -> nodesToAdd) (\s@UpdateModelManifest' {} a -> s {nodesToAdd = a} :: UpdateModelManifest) Prelude.. Lens.mapping Lens.coerced
 
+-- | A list of @fullyQualifiedName@ of nodes, which are a general abstraction
+-- of signals, to remove from the vehicle model.
+updateModelManifest_nodesToRemove :: Lens.Lens' UpdateModelManifest (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+updateModelManifest_nodesToRemove = Lens.lens (\UpdateModelManifest' {nodesToRemove} -> nodesToRemove) (\s@UpdateModelManifest' {} a -> s {nodesToRemove = a} :: UpdateModelManifest) Prelude.. Lens.mapping Lens.coerced
+
 -- | The state of the vehicle model. If the status is @ACTIVE@, the vehicle
 -- model can\'t be edited. If the status is @DRAFT@, you can edit the
 -- vehicle model.
 updateModelManifest_status :: Lens.Lens' UpdateModelManifest (Prelude.Maybe ManifestStatus)
 updateModelManifest_status = Lens.lens (\UpdateModelManifest' {status} -> status) (\s@UpdateModelManifest' {} a -> s {status = a} :: UpdateModelManifest)
-
--- | A brief description of the vehicle model.
-updateModelManifest_description :: Lens.Lens' UpdateModelManifest (Prelude.Maybe Prelude.Text)
-updateModelManifest_description = Lens.lens (\UpdateModelManifest' {description} -> description) (\s@UpdateModelManifest' {} a -> s {description = a} :: UpdateModelManifest)
 
 -- | The name of the vehicle model to update.
 updateModelManifest_name :: Lens.Lens' UpdateModelManifest Prelude.Text
@@ -148,18 +147,18 @@ instance Core.AWSRequest UpdateModelManifest where
 
 instance Prelude.Hashable UpdateModelManifest where
   hashWithSalt _salt UpdateModelManifest' {..} =
-    _salt `Prelude.hashWithSalt` nodesToRemove
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` nodesToAdd
+      `Prelude.hashWithSalt` nodesToRemove
       `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData UpdateModelManifest where
   rnf UpdateModelManifest' {..} =
-    Prelude.rnf nodesToRemove
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf nodesToAdd
+      `Prelude.seq` Prelude.rnf nodesToRemove
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders UpdateModelManifest where
@@ -181,10 +180,10 @@ instance Data.ToJSON UpdateModelManifest where
   toJSON UpdateModelManifest' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nodesToRemove" Data..=) Prelude.<$> nodesToRemove,
+          [ ("description" Data..=) Prelude.<$> description,
             ("nodesToAdd" Data..=) Prelude.<$> nodesToAdd,
+            ("nodesToRemove" Data..=) Prelude.<$> nodesToRemove,
             ("status" Data..=) Prelude.<$> status,
-            ("description" Data..=) Prelude.<$> description,
             Prelude.Just ("name" Data..= name)
           ]
       )

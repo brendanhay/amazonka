@@ -33,18 +33,18 @@ module Amazonka.IoTDeviceAdvisor.ListSuiteRuns
     newListSuiteRuns,
 
     -- * Request Lenses
-    listSuiteRuns_nextToken,
     listSuiteRuns_maxResults,
-    listSuiteRuns_suiteDefinitionVersion,
+    listSuiteRuns_nextToken,
     listSuiteRuns_suiteDefinitionId,
+    listSuiteRuns_suiteDefinitionVersion,
 
     -- * Destructuring the Response
     ListSuiteRunsResponse (..),
     newListSuiteRunsResponse,
 
     -- * Response Lenses
-    listSuiteRunsResponse_suiteRunsList,
     listSuiteRunsResponse_nextToken,
+    listSuiteRunsResponse_suiteRunsList,
     listSuiteRunsResponse_httpStatus,
   )
 where
@@ -59,16 +59,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListSuiteRuns' smart constructor.
 data ListSuiteRuns = ListSuiteRuns'
-  { -- | A token to retrieve the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return at once.
+  { -- | The maximum number of results to return at once.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Must be passed along with @suiteDefinitionId@. Lists the test suite runs
-    -- of the specified test suite based on suite definition version.
-    suiteDefinitionVersion :: Prelude.Maybe Prelude.Text,
+    -- | A token to retrieve the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Lists the test suite runs of the specified test suite based on suite
     -- definition ID.
-    suiteDefinitionId :: Prelude.Maybe Prelude.Text
+    suiteDefinitionId :: Prelude.Maybe Prelude.Text,
+    -- | Must be passed along with @suiteDefinitionId@. Lists the test suite runs
+    -- of the specified test suite based on suite definition version.
+    suiteDefinitionVersion :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,42 +80,42 @@ data ListSuiteRuns = ListSuiteRuns'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listSuiteRuns_nextToken' - A token to retrieve the next set of results.
---
 -- 'maxResults', 'listSuiteRuns_maxResults' - The maximum number of results to return at once.
 --
--- 'suiteDefinitionVersion', 'listSuiteRuns_suiteDefinitionVersion' - Must be passed along with @suiteDefinitionId@. Lists the test suite runs
--- of the specified test suite based on suite definition version.
+-- 'nextToken', 'listSuiteRuns_nextToken' - A token to retrieve the next set of results.
 --
 -- 'suiteDefinitionId', 'listSuiteRuns_suiteDefinitionId' - Lists the test suite runs of the specified test suite based on suite
 -- definition ID.
+--
+-- 'suiteDefinitionVersion', 'listSuiteRuns_suiteDefinitionVersion' - Must be passed along with @suiteDefinitionId@. Lists the test suite runs
+-- of the specified test suite based on suite definition version.
 newListSuiteRuns ::
   ListSuiteRuns
 newListSuiteRuns =
   ListSuiteRuns'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      suiteDefinitionVersion = Prelude.Nothing,
-      suiteDefinitionId = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      suiteDefinitionId = Prelude.Nothing,
+      suiteDefinitionVersion = Prelude.Nothing
     }
-
--- | A token to retrieve the next set of results.
-listSuiteRuns_nextToken :: Lens.Lens' ListSuiteRuns (Prelude.Maybe Prelude.Text)
-listSuiteRuns_nextToken = Lens.lens (\ListSuiteRuns' {nextToken} -> nextToken) (\s@ListSuiteRuns' {} a -> s {nextToken = a} :: ListSuiteRuns)
 
 -- | The maximum number of results to return at once.
 listSuiteRuns_maxResults :: Lens.Lens' ListSuiteRuns (Prelude.Maybe Prelude.Natural)
 listSuiteRuns_maxResults = Lens.lens (\ListSuiteRuns' {maxResults} -> maxResults) (\s@ListSuiteRuns' {} a -> s {maxResults = a} :: ListSuiteRuns)
 
--- | Must be passed along with @suiteDefinitionId@. Lists the test suite runs
--- of the specified test suite based on suite definition version.
-listSuiteRuns_suiteDefinitionVersion :: Lens.Lens' ListSuiteRuns (Prelude.Maybe Prelude.Text)
-listSuiteRuns_suiteDefinitionVersion = Lens.lens (\ListSuiteRuns' {suiteDefinitionVersion} -> suiteDefinitionVersion) (\s@ListSuiteRuns' {} a -> s {suiteDefinitionVersion = a} :: ListSuiteRuns)
+-- | A token to retrieve the next set of results.
+listSuiteRuns_nextToken :: Lens.Lens' ListSuiteRuns (Prelude.Maybe Prelude.Text)
+listSuiteRuns_nextToken = Lens.lens (\ListSuiteRuns' {nextToken} -> nextToken) (\s@ListSuiteRuns' {} a -> s {nextToken = a} :: ListSuiteRuns)
 
 -- | Lists the test suite runs of the specified test suite based on suite
 -- definition ID.
 listSuiteRuns_suiteDefinitionId :: Lens.Lens' ListSuiteRuns (Prelude.Maybe Prelude.Text)
 listSuiteRuns_suiteDefinitionId = Lens.lens (\ListSuiteRuns' {suiteDefinitionId} -> suiteDefinitionId) (\s@ListSuiteRuns' {} a -> s {suiteDefinitionId = a} :: ListSuiteRuns)
+
+-- | Must be passed along with @suiteDefinitionId@. Lists the test suite runs
+-- of the specified test suite based on suite definition version.
+listSuiteRuns_suiteDefinitionVersion :: Lens.Lens' ListSuiteRuns (Prelude.Maybe Prelude.Text)
+listSuiteRuns_suiteDefinitionVersion = Lens.lens (\ListSuiteRuns' {suiteDefinitionVersion} -> suiteDefinitionVersion) (\s@ListSuiteRuns' {} a -> s {suiteDefinitionVersion = a} :: ListSuiteRuns)
 
 instance Core.AWSRequest ListSuiteRuns where
   type
@@ -127,24 +127,24 @@ instance Core.AWSRequest ListSuiteRuns where
     Response.receiveJSON
       ( \s h x ->
           ListSuiteRunsResponse'
-            Prelude.<$> (x Data..?> "suiteRunsList" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "suiteRunsList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListSuiteRuns where
   hashWithSalt _salt ListSuiteRuns' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` suiteDefinitionVersion
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` suiteDefinitionId
+      `Prelude.hashWithSalt` suiteDefinitionVersion
 
 instance Prelude.NFData ListSuiteRuns where
   rnf ListSuiteRuns' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf suiteDefinitionVersion
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf suiteDefinitionId
+      `Prelude.seq` Prelude.rnf suiteDefinitionVersion
 
 instance Data.ToHeaders ListSuiteRuns where
   toHeaders =
@@ -163,20 +163,20 @@ instance Data.ToPath ListSuiteRuns where
 instance Data.ToQuery ListSuiteRuns where
   toQuery ListSuiteRuns' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults,
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
+        "suiteDefinitionId" Data.=: suiteDefinitionId,
         "suiteDefinitionVersion"
-          Data.=: suiteDefinitionVersion,
-        "suiteDefinitionId" Data.=: suiteDefinitionId
+          Data.=: suiteDefinitionVersion
       ]
 
 -- | /See:/ 'newListSuiteRunsResponse' smart constructor.
 data ListSuiteRunsResponse = ListSuiteRunsResponse'
-  { -- | An array of objects that provide summaries of information about the
+  { -- | A token to retrieve the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of objects that provide summaries of information about the
     -- suite runs in the list.
     suiteRunsList :: Prelude.Maybe [SuiteRunInformation],
-    -- | A token to retrieve the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -190,10 +190,10 @@ data ListSuiteRunsResponse = ListSuiteRunsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'listSuiteRunsResponse_nextToken' - A token to retrieve the next set of results.
+--
 -- 'suiteRunsList', 'listSuiteRunsResponse_suiteRunsList' - An array of objects that provide summaries of information about the
 -- suite runs in the list.
---
--- 'nextToken', 'listSuiteRunsResponse_nextToken' - A token to retrieve the next set of results.
 --
 -- 'httpStatus', 'listSuiteRunsResponse_httpStatus' - The response's http status code.
 newListSuiteRunsResponse ::
@@ -202,20 +202,19 @@ newListSuiteRunsResponse ::
   ListSuiteRunsResponse
 newListSuiteRunsResponse pHttpStatus_ =
   ListSuiteRunsResponse'
-    { suiteRunsList =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      suiteRunsList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A token to retrieve the next set of results.
+listSuiteRunsResponse_nextToken :: Lens.Lens' ListSuiteRunsResponse (Prelude.Maybe Prelude.Text)
+listSuiteRunsResponse_nextToken = Lens.lens (\ListSuiteRunsResponse' {nextToken} -> nextToken) (\s@ListSuiteRunsResponse' {} a -> s {nextToken = a} :: ListSuiteRunsResponse)
 
 -- | An array of objects that provide summaries of information about the
 -- suite runs in the list.
 listSuiteRunsResponse_suiteRunsList :: Lens.Lens' ListSuiteRunsResponse (Prelude.Maybe [SuiteRunInformation])
 listSuiteRunsResponse_suiteRunsList = Lens.lens (\ListSuiteRunsResponse' {suiteRunsList} -> suiteRunsList) (\s@ListSuiteRunsResponse' {} a -> s {suiteRunsList = a} :: ListSuiteRunsResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | A token to retrieve the next set of results.
-listSuiteRunsResponse_nextToken :: Lens.Lens' ListSuiteRunsResponse (Prelude.Maybe Prelude.Text)
-listSuiteRunsResponse_nextToken = Lens.lens (\ListSuiteRunsResponse' {nextToken} -> nextToken) (\s@ListSuiteRunsResponse' {} a -> s {nextToken = a} :: ListSuiteRunsResponse)
 
 -- | The response's http status code.
 listSuiteRunsResponse_httpStatus :: Lens.Lens' ListSuiteRunsResponse Prelude.Int
@@ -223,6 +222,6 @@ listSuiteRunsResponse_httpStatus = Lens.lens (\ListSuiteRunsResponse' {httpStatu
 
 instance Prelude.NFData ListSuiteRunsResponse where
   rnf ListSuiteRunsResponse' {..} =
-    Prelude.rnf suiteRunsList
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf suiteRunsList
       `Prelude.seq` Prelude.rnf httpStatus

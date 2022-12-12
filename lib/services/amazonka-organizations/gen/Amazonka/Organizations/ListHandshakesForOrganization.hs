@@ -46,9 +46,9 @@ module Amazonka.Organizations.ListHandshakesForOrganization
     newListHandshakesForOrganization,
 
     -- * Request Lenses
-    listHandshakesForOrganization_nextToken,
     listHandshakesForOrganization_filter,
     listHandshakesForOrganization_maxResults,
+    listHandshakesForOrganization_nextToken,
 
     -- * Destructuring the Response
     ListHandshakesForOrganizationResponse (..),
@@ -71,13 +71,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListHandshakesForOrganization' smart constructor.
 data ListHandshakesForOrganization = ListHandshakesForOrganization'
-  { -- | The parameter for receiving additional results if you receive a
-    -- @NextToken@ response in a previous request. A @NextToken@ response
-    -- indicates that more output is available. Set this parameter to the value
-    -- of the previous call\'s @NextToken@ response to indicate where the
-    -- output should continue from.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A filter of the handshakes that you want included in the response. The
+  { -- | A filter of the handshakes that you want included in the response. The
     -- default is all types. Use the @ActionType@ element to limit the output
     -- to only a specified type, such as @INVITE@, @ENABLE-ALL-FEATURES@, or
     -- @APPROVE-ALL-FEATURES@. Alternatively, for the @ENABLE-ALL-FEATURES@
@@ -95,7 +89,13 @@ data ListHandshakesForOrganization = ListHandshakesForOrganization'
     -- maximum even when there are more results available. You should check
     -- @NextToken@ after every operation to ensure that you receive all of the
     -- results.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The parameter for receiving additional results if you receive a
+    -- @NextToken@ response in a previous request. A @NextToken@ response
+    -- indicates that more output is available. Set this parameter to the value
+    -- of the previous call\'s @NextToken@ response to indicate where the
+    -- output should continue from.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -106,12 +106,6 @@ data ListHandshakesForOrganization = ListHandshakesForOrganization'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'listHandshakesForOrganization_nextToken' - The parameter for receiving additional results if you receive a
--- @NextToken@ response in a previous request. A @NextToken@ response
--- indicates that more output is available. Set this parameter to the value
--- of the previous call\'s @NextToken@ response to indicate where the
--- output should continue from.
 --
 -- 'filter'', 'listHandshakesForOrganization_filter' - A filter of the handshakes that you want included in the response. The
 -- default is all types. Use the @ActionType@ element to limit the output
@@ -131,23 +125,21 @@ data ListHandshakesForOrganization = ListHandshakesForOrganization'
 -- maximum even when there are more results available. You should check
 -- @NextToken@ after every operation to ensure that you receive all of the
 -- results.
-newListHandshakesForOrganization ::
-  ListHandshakesForOrganization
-newListHandshakesForOrganization =
-  ListHandshakesForOrganization'
-    { nextToken =
-        Prelude.Nothing,
-      filter' = Prelude.Nothing,
-      maxResults = Prelude.Nothing
-    }
-
--- | The parameter for receiving additional results if you receive a
+--
+-- 'nextToken', 'listHandshakesForOrganization_nextToken' - The parameter for receiving additional results if you receive a
 -- @NextToken@ response in a previous request. A @NextToken@ response
 -- indicates that more output is available. Set this parameter to the value
 -- of the previous call\'s @NextToken@ response to indicate where the
 -- output should continue from.
-listHandshakesForOrganization_nextToken :: Lens.Lens' ListHandshakesForOrganization (Prelude.Maybe Prelude.Text)
-listHandshakesForOrganization_nextToken = Lens.lens (\ListHandshakesForOrganization' {nextToken} -> nextToken) (\s@ListHandshakesForOrganization' {} a -> s {nextToken = a} :: ListHandshakesForOrganization)
+newListHandshakesForOrganization ::
+  ListHandshakesForOrganization
+newListHandshakesForOrganization =
+  ListHandshakesForOrganization'
+    { filter' =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
+    }
 
 -- | A filter of the handshakes that you want included in the response. The
 -- default is all types. Use the @ActionType@ element to limit the output
@@ -171,6 +163,14 @@ listHandshakesForOrganization_filter = Lens.lens (\ListHandshakesForOrganization
 -- results.
 listHandshakesForOrganization_maxResults :: Lens.Lens' ListHandshakesForOrganization (Prelude.Maybe Prelude.Natural)
 listHandshakesForOrganization_maxResults = Lens.lens (\ListHandshakesForOrganization' {maxResults} -> maxResults) (\s@ListHandshakesForOrganization' {} a -> s {maxResults = a} :: ListHandshakesForOrganization)
+
+-- | The parameter for receiving additional results if you receive a
+-- @NextToken@ response in a previous request. A @NextToken@ response
+-- indicates that more output is available. Set this parameter to the value
+-- of the previous call\'s @NextToken@ response to indicate where the
+-- output should continue from.
+listHandshakesForOrganization_nextToken :: Lens.Lens' ListHandshakesForOrganization (Prelude.Maybe Prelude.Text)
+listHandshakesForOrganization_nextToken = Lens.lens (\ListHandshakesForOrganization' {nextToken} -> nextToken) (\s@ListHandshakesForOrganization' {} a -> s {nextToken = a} :: ListHandshakesForOrganization)
 
 instance Core.AWSPager ListHandshakesForOrganization where
   page rq rs
@@ -217,15 +217,15 @@ instance
     ListHandshakesForOrganization
   where
   hashWithSalt _salt ListHandshakesForOrganization' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filter'
+    _salt `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListHandshakesForOrganization where
   rnf ListHandshakesForOrganization' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filter'
+    Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListHandshakesForOrganization where
   toHeaders =
@@ -246,9 +246,9 @@ instance Data.ToJSON ListHandshakesForOrganization where
   toJSON ListHandshakesForOrganization' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filter" Data..=) Prelude.<$> filter',
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("Filter" Data..=) Prelude.<$> filter',
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

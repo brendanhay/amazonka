@@ -35,13 +35,13 @@ module Amazonka.DataSync.DescribeLocationEfs
     newDescribeLocationEfsResponse,
 
     -- * Response Lenses
-    describeLocationEfsResponse_inTransitEncryption,
     describeLocationEfsResponse_accessPointArn,
-    describeLocationEfsResponse_fileSystemAccessRoleArn,
-    describeLocationEfsResponse_locationArn,
-    describeLocationEfsResponse_ec2Config,
-    describeLocationEfsResponse_locationUri,
     describeLocationEfsResponse_creationTime,
+    describeLocationEfsResponse_ec2Config,
+    describeLocationEfsResponse_fileSystemAccessRoleArn,
+    describeLocationEfsResponse_inTransitEncryption,
+    describeLocationEfsResponse_locationArn,
+    describeLocationEfsResponse_locationUri,
     describeLocationEfsResponse_httpStatus,
   )
 where
@@ -96,13 +96,13 @@ instance Core.AWSRequest DescribeLocationEfs where
     Response.receiveJSON
       ( \s h x ->
           DescribeLocationEfsResponse'
-            Prelude.<$> (x Data..?> "InTransitEncryption")
-            Prelude.<*> (x Data..?> "AccessPointArn")
-            Prelude.<*> (x Data..?> "FileSystemAccessRoleArn")
-            Prelude.<*> (x Data..?> "LocationArn")
-            Prelude.<*> (x Data..?> "Ec2Config")
-            Prelude.<*> (x Data..?> "LocationUri")
+            Prelude.<$> (x Data..?> "AccessPointArn")
             Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "Ec2Config")
+            Prelude.<*> (x Data..?> "FileSystemAccessRoleArn")
+            Prelude.<*> (x Data..?> "InTransitEncryption")
+            Prelude.<*> (x Data..?> "LocationArn")
+            Prelude.<*> (x Data..?> "LocationUri")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,22 +146,22 @@ instance Data.ToQuery DescribeLocationEfs where
 --
 -- /See:/ 'newDescribeLocationEfsResponse' smart constructor.
 data DescribeLocationEfsResponse = DescribeLocationEfsResponse'
-  { -- | Describes whether DataSync uses Transport Layer Security (TLS)
-    -- encryption when copying data to or from the Amazon EFS file system.
-    inTransitEncryption :: Prelude.Maybe EfsInTransitEncryption,
-    -- | The ARN of the access point that DataSync uses to access the Amazon EFS
+  { -- | The ARN of the access point that DataSync uses to access the Amazon EFS
     -- file system.
     accessPointArn :: Prelude.Maybe Prelude.Text,
+    -- | The time that the location was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
+    ec2Config :: Prelude.Maybe Ec2Config,
     -- | The Identity and Access Management (IAM) role that DataSync assumes when
     -- mounting the Amazon EFS file system.
     fileSystemAccessRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | Describes whether DataSync uses Transport Layer Security (TLS)
+    -- encryption when copying data to or from the Amazon EFS file system.
+    inTransitEncryption :: Prelude.Maybe EfsInTransitEncryption,
     -- | The ARN of the Amazon EFS file system location.
     locationArn :: Prelude.Maybe Prelude.Text,
-    ec2Config :: Prelude.Maybe Ec2Config,
     -- | The URL of the Amazon EFS file system location.
     locationUri :: Prelude.Maybe Prelude.Text,
-    -- | The time that the location was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -175,22 +175,22 @@ data DescribeLocationEfsResponse = DescribeLocationEfsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'inTransitEncryption', 'describeLocationEfsResponse_inTransitEncryption' - Describes whether DataSync uses Transport Layer Security (TLS)
--- encryption when copying data to or from the Amazon EFS file system.
---
 -- 'accessPointArn', 'describeLocationEfsResponse_accessPointArn' - The ARN of the access point that DataSync uses to access the Amazon EFS
 -- file system.
+--
+-- 'creationTime', 'describeLocationEfsResponse_creationTime' - The time that the location was created.
+--
+-- 'ec2Config', 'describeLocationEfsResponse_ec2Config' - Undocumented member.
 --
 -- 'fileSystemAccessRoleArn', 'describeLocationEfsResponse_fileSystemAccessRoleArn' - The Identity and Access Management (IAM) role that DataSync assumes when
 -- mounting the Amazon EFS file system.
 --
+-- 'inTransitEncryption', 'describeLocationEfsResponse_inTransitEncryption' - Describes whether DataSync uses Transport Layer Security (TLS)
+-- encryption when copying data to or from the Amazon EFS file system.
+--
 -- 'locationArn', 'describeLocationEfsResponse_locationArn' - The ARN of the Amazon EFS file system location.
 --
--- 'ec2Config', 'describeLocationEfsResponse_ec2Config' - Undocumented member.
---
 -- 'locationUri', 'describeLocationEfsResponse_locationUri' - The URL of the Amazon EFS file system location.
---
--- 'creationTime', 'describeLocationEfsResponse_creationTime' - The time that the location was created.
 --
 -- 'httpStatus', 'describeLocationEfsResponse_httpStatus' - The response's http status code.
 newDescribeLocationEfsResponse ::
@@ -199,47 +199,47 @@ newDescribeLocationEfsResponse ::
   DescribeLocationEfsResponse
 newDescribeLocationEfsResponse pHttpStatus_ =
   DescribeLocationEfsResponse'
-    { inTransitEncryption =
+    { accessPointArn =
         Prelude.Nothing,
-      accessPointArn = Prelude.Nothing,
-      fileSystemAccessRoleArn = Prelude.Nothing,
-      locationArn = Prelude.Nothing,
-      ec2Config = Prelude.Nothing,
-      locationUri = Prelude.Nothing,
       creationTime = Prelude.Nothing,
+      ec2Config = Prelude.Nothing,
+      fileSystemAccessRoleArn = Prelude.Nothing,
+      inTransitEncryption = Prelude.Nothing,
+      locationArn = Prelude.Nothing,
+      locationUri = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Describes whether DataSync uses Transport Layer Security (TLS)
--- encryption when copying data to or from the Amazon EFS file system.
-describeLocationEfsResponse_inTransitEncryption :: Lens.Lens' DescribeLocationEfsResponse (Prelude.Maybe EfsInTransitEncryption)
-describeLocationEfsResponse_inTransitEncryption = Lens.lens (\DescribeLocationEfsResponse' {inTransitEncryption} -> inTransitEncryption) (\s@DescribeLocationEfsResponse' {} a -> s {inTransitEncryption = a} :: DescribeLocationEfsResponse)
 
 -- | The ARN of the access point that DataSync uses to access the Amazon EFS
 -- file system.
 describeLocationEfsResponse_accessPointArn :: Lens.Lens' DescribeLocationEfsResponse (Prelude.Maybe Prelude.Text)
 describeLocationEfsResponse_accessPointArn = Lens.lens (\DescribeLocationEfsResponse' {accessPointArn} -> accessPointArn) (\s@DescribeLocationEfsResponse' {} a -> s {accessPointArn = a} :: DescribeLocationEfsResponse)
 
--- | The Identity and Access Management (IAM) role that DataSync assumes when
--- mounting the Amazon EFS file system.
-describeLocationEfsResponse_fileSystemAccessRoleArn :: Lens.Lens' DescribeLocationEfsResponse (Prelude.Maybe Prelude.Text)
-describeLocationEfsResponse_fileSystemAccessRoleArn = Lens.lens (\DescribeLocationEfsResponse' {fileSystemAccessRoleArn} -> fileSystemAccessRoleArn) (\s@DescribeLocationEfsResponse' {} a -> s {fileSystemAccessRoleArn = a} :: DescribeLocationEfsResponse)
-
--- | The ARN of the Amazon EFS file system location.
-describeLocationEfsResponse_locationArn :: Lens.Lens' DescribeLocationEfsResponse (Prelude.Maybe Prelude.Text)
-describeLocationEfsResponse_locationArn = Lens.lens (\DescribeLocationEfsResponse' {locationArn} -> locationArn) (\s@DescribeLocationEfsResponse' {} a -> s {locationArn = a} :: DescribeLocationEfsResponse)
+-- | The time that the location was created.
+describeLocationEfsResponse_creationTime :: Lens.Lens' DescribeLocationEfsResponse (Prelude.Maybe Prelude.UTCTime)
+describeLocationEfsResponse_creationTime = Lens.lens (\DescribeLocationEfsResponse' {creationTime} -> creationTime) (\s@DescribeLocationEfsResponse' {} a -> s {creationTime = a} :: DescribeLocationEfsResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 describeLocationEfsResponse_ec2Config :: Lens.Lens' DescribeLocationEfsResponse (Prelude.Maybe Ec2Config)
 describeLocationEfsResponse_ec2Config = Lens.lens (\DescribeLocationEfsResponse' {ec2Config} -> ec2Config) (\s@DescribeLocationEfsResponse' {} a -> s {ec2Config = a} :: DescribeLocationEfsResponse)
 
+-- | The Identity and Access Management (IAM) role that DataSync assumes when
+-- mounting the Amazon EFS file system.
+describeLocationEfsResponse_fileSystemAccessRoleArn :: Lens.Lens' DescribeLocationEfsResponse (Prelude.Maybe Prelude.Text)
+describeLocationEfsResponse_fileSystemAccessRoleArn = Lens.lens (\DescribeLocationEfsResponse' {fileSystemAccessRoleArn} -> fileSystemAccessRoleArn) (\s@DescribeLocationEfsResponse' {} a -> s {fileSystemAccessRoleArn = a} :: DescribeLocationEfsResponse)
+
+-- | Describes whether DataSync uses Transport Layer Security (TLS)
+-- encryption when copying data to or from the Amazon EFS file system.
+describeLocationEfsResponse_inTransitEncryption :: Lens.Lens' DescribeLocationEfsResponse (Prelude.Maybe EfsInTransitEncryption)
+describeLocationEfsResponse_inTransitEncryption = Lens.lens (\DescribeLocationEfsResponse' {inTransitEncryption} -> inTransitEncryption) (\s@DescribeLocationEfsResponse' {} a -> s {inTransitEncryption = a} :: DescribeLocationEfsResponse)
+
+-- | The ARN of the Amazon EFS file system location.
+describeLocationEfsResponse_locationArn :: Lens.Lens' DescribeLocationEfsResponse (Prelude.Maybe Prelude.Text)
+describeLocationEfsResponse_locationArn = Lens.lens (\DescribeLocationEfsResponse' {locationArn} -> locationArn) (\s@DescribeLocationEfsResponse' {} a -> s {locationArn = a} :: DescribeLocationEfsResponse)
+
 -- | The URL of the Amazon EFS file system location.
 describeLocationEfsResponse_locationUri :: Lens.Lens' DescribeLocationEfsResponse (Prelude.Maybe Prelude.Text)
 describeLocationEfsResponse_locationUri = Lens.lens (\DescribeLocationEfsResponse' {locationUri} -> locationUri) (\s@DescribeLocationEfsResponse' {} a -> s {locationUri = a} :: DescribeLocationEfsResponse)
-
--- | The time that the location was created.
-describeLocationEfsResponse_creationTime :: Lens.Lens' DescribeLocationEfsResponse (Prelude.Maybe Prelude.UTCTime)
-describeLocationEfsResponse_creationTime = Lens.lens (\DescribeLocationEfsResponse' {creationTime} -> creationTime) (\s@DescribeLocationEfsResponse' {} a -> s {creationTime = a} :: DescribeLocationEfsResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeLocationEfsResponse_httpStatus :: Lens.Lens' DescribeLocationEfsResponse Prelude.Int
@@ -247,11 +247,11 @@ describeLocationEfsResponse_httpStatus = Lens.lens (\DescribeLocationEfsResponse
 
 instance Prelude.NFData DescribeLocationEfsResponse where
   rnf DescribeLocationEfsResponse' {..} =
-    Prelude.rnf inTransitEncryption
-      `Prelude.seq` Prelude.rnf accessPointArn
-      `Prelude.seq` Prelude.rnf fileSystemAccessRoleArn
-      `Prelude.seq` Prelude.rnf locationArn
-      `Prelude.seq` Prelude.rnf ec2Config
-      `Prelude.seq` Prelude.rnf locationUri
+    Prelude.rnf accessPointArn
       `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf ec2Config
+      `Prelude.seq` Prelude.rnf fileSystemAccessRoleArn
+      `Prelude.seq` Prelude.rnf inTransitEncryption
+      `Prelude.seq` Prelude.rnf locationArn
+      `Prelude.seq` Prelude.rnf locationUri
       `Prelude.seq` Prelude.rnf httpStatus

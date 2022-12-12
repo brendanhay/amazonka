@@ -19,20 +19,20 @@ module Amazonka.SmsVoice
     -- * Errors
     -- $errors
 
-    -- ** NotFoundException
-    _NotFoundException,
-
     -- ** AlreadyExistsException
     _AlreadyExistsException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
 
     -- ** BadRequestException
     _BadRequestException,
 
     -- ** InternalServiceErrorException
     _InternalServiceErrorException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** NotFoundException
+    _NotFoundException,
 
     -- ** TooManyRequestsException
     _TooManyRequestsException,

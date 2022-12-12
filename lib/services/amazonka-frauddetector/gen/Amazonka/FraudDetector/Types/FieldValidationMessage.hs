@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFieldValidationMessage' smart constructor.
 data FieldValidationMessage = FieldValidationMessage'
-  { -- | The message type.
-    type' :: Prelude.Maybe Prelude.Text,
+  { -- | The message content.
+    content :: Prelude.Maybe Prelude.Text,
     -- | The field name.
     fieldName :: Prelude.Maybe Prelude.Text,
-    -- | The message title.
-    title :: Prelude.Maybe Prelude.Text,
     -- | The message ID.
     identifier :: Prelude.Maybe Prelude.Text,
-    -- | The message content.
-    content :: Prelude.Maybe Prelude.Text
+    -- | The message title.
+    title :: Prelude.Maybe Prelude.Text,
+    -- | The message type.
+    type' :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,45 +49,45 @@ data FieldValidationMessage = FieldValidationMessage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'fieldValidationMessage_type' - The message type.
+-- 'content', 'fieldValidationMessage_content' - The message content.
 --
 -- 'fieldName', 'fieldValidationMessage_fieldName' - The field name.
 --
--- 'title', 'fieldValidationMessage_title' - The message title.
---
 -- 'identifier', 'fieldValidationMessage_identifier' - The message ID.
 --
--- 'content', 'fieldValidationMessage_content' - The message content.
+-- 'title', 'fieldValidationMessage_title' - The message title.
+--
+-- 'type'', 'fieldValidationMessage_type' - The message type.
 newFieldValidationMessage ::
   FieldValidationMessage
 newFieldValidationMessage =
   FieldValidationMessage'
-    { type' = Prelude.Nothing,
+    { content = Prelude.Nothing,
       fieldName = Prelude.Nothing,
-      title = Prelude.Nothing,
       identifier = Prelude.Nothing,
-      content = Prelude.Nothing
+      title = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
--- | The message type.
-fieldValidationMessage_type :: Lens.Lens' FieldValidationMessage (Prelude.Maybe Prelude.Text)
-fieldValidationMessage_type = Lens.lens (\FieldValidationMessage' {type'} -> type') (\s@FieldValidationMessage' {} a -> s {type' = a} :: FieldValidationMessage)
+-- | The message content.
+fieldValidationMessage_content :: Lens.Lens' FieldValidationMessage (Prelude.Maybe Prelude.Text)
+fieldValidationMessage_content = Lens.lens (\FieldValidationMessage' {content} -> content) (\s@FieldValidationMessage' {} a -> s {content = a} :: FieldValidationMessage)
 
 -- | The field name.
 fieldValidationMessage_fieldName :: Lens.Lens' FieldValidationMessage (Prelude.Maybe Prelude.Text)
 fieldValidationMessage_fieldName = Lens.lens (\FieldValidationMessage' {fieldName} -> fieldName) (\s@FieldValidationMessage' {} a -> s {fieldName = a} :: FieldValidationMessage)
 
--- | The message title.
-fieldValidationMessage_title :: Lens.Lens' FieldValidationMessage (Prelude.Maybe Prelude.Text)
-fieldValidationMessage_title = Lens.lens (\FieldValidationMessage' {title} -> title) (\s@FieldValidationMessage' {} a -> s {title = a} :: FieldValidationMessage)
-
 -- | The message ID.
 fieldValidationMessage_identifier :: Lens.Lens' FieldValidationMessage (Prelude.Maybe Prelude.Text)
 fieldValidationMessage_identifier = Lens.lens (\FieldValidationMessage' {identifier} -> identifier) (\s@FieldValidationMessage' {} a -> s {identifier = a} :: FieldValidationMessage)
 
--- | The message content.
-fieldValidationMessage_content :: Lens.Lens' FieldValidationMessage (Prelude.Maybe Prelude.Text)
-fieldValidationMessage_content = Lens.lens (\FieldValidationMessage' {content} -> content) (\s@FieldValidationMessage' {} a -> s {content = a} :: FieldValidationMessage)
+-- | The message title.
+fieldValidationMessage_title :: Lens.Lens' FieldValidationMessage (Prelude.Maybe Prelude.Text)
+fieldValidationMessage_title = Lens.lens (\FieldValidationMessage' {title} -> title) (\s@FieldValidationMessage' {} a -> s {title = a} :: FieldValidationMessage)
+
+-- | The message type.
+fieldValidationMessage_type :: Lens.Lens' FieldValidationMessage (Prelude.Maybe Prelude.Text)
+fieldValidationMessage_type = Lens.lens (\FieldValidationMessage' {type'} -> type') (\s@FieldValidationMessage' {} a -> s {type' = a} :: FieldValidationMessage)
 
 instance Data.FromJSON FieldValidationMessage where
   parseJSON =
@@ -95,25 +95,25 @@ instance Data.FromJSON FieldValidationMessage where
       "FieldValidationMessage"
       ( \x ->
           FieldValidationMessage'
-            Prelude.<$> (x Data..:? "type")
+            Prelude.<$> (x Data..:? "content")
             Prelude.<*> (x Data..:? "fieldName")
-            Prelude.<*> (x Data..:? "title")
             Prelude.<*> (x Data..:? "identifier")
-            Prelude.<*> (x Data..:? "content")
+            Prelude.<*> (x Data..:? "title")
+            Prelude.<*> (x Data..:? "type")
       )
 
 instance Prelude.Hashable FieldValidationMessage where
   hashWithSalt _salt FieldValidationMessage' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` fieldName
-      `Prelude.hashWithSalt` title
       `Prelude.hashWithSalt` identifier
-      `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData FieldValidationMessage where
   rnf FieldValidationMessage' {..} =
-    Prelude.rnf type'
+    Prelude.rnf content
       `Prelude.seq` Prelude.rnf fieldName
-      `Prelude.seq` Prelude.rnf title
       `Prelude.seq` Prelude.rnf identifier
-      `Prelude.seq` Prelude.rnf content
+      `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf type'

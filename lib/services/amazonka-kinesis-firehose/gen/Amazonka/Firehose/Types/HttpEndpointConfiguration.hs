@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHttpEndpointConfiguration' smart constructor.
 data HttpEndpointConfiguration = HttpEndpointConfiguration'
-  { -- | The name of the HTTP endpoint selected as the destination.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The access key required for Kinesis Firehose to authenticate with the
+  { -- | The access key required for Kinesis Firehose to authenticate with the
     -- HTTP endpoint selected as the destination.
     accessKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The name of the HTTP endpoint selected as the destination.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The URL of the HTTP endpoint selected as the destination.
     --
     -- If you choose an HTTP endpoint as your destination, review and follow
@@ -51,10 +51,10 @@ data HttpEndpointConfiguration = HttpEndpointConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'httpEndpointConfiguration_name' - The name of the HTTP endpoint selected as the destination.
---
 -- 'accessKey', 'httpEndpointConfiguration_accessKey' - The access key required for Kinesis Firehose to authenticate with the
 -- HTTP endpoint selected as the destination.
+--
+-- 'name', 'httpEndpointConfiguration_name' - The name of the HTTP endpoint selected as the destination.
 --
 -- 'url', 'httpEndpointConfiguration_url' - The URL of the HTTP endpoint selected as the destination.
 --
@@ -67,19 +67,20 @@ newHttpEndpointConfiguration ::
   HttpEndpointConfiguration
 newHttpEndpointConfiguration pUrl_ =
   HttpEndpointConfiguration'
-    { name = Prelude.Nothing,
-      accessKey = Prelude.Nothing,
+    { accessKey =
+        Prelude.Nothing,
+      name = Prelude.Nothing,
       url = Data._Sensitive Lens.# pUrl_
     }
-
--- | The name of the HTTP endpoint selected as the destination.
-httpEndpointConfiguration_name :: Lens.Lens' HttpEndpointConfiguration (Prelude.Maybe Prelude.Text)
-httpEndpointConfiguration_name = Lens.lens (\HttpEndpointConfiguration' {name} -> name) (\s@HttpEndpointConfiguration' {} a -> s {name = a} :: HttpEndpointConfiguration)
 
 -- | The access key required for Kinesis Firehose to authenticate with the
 -- HTTP endpoint selected as the destination.
 httpEndpointConfiguration_accessKey :: Lens.Lens' HttpEndpointConfiguration (Prelude.Maybe Prelude.Text)
 httpEndpointConfiguration_accessKey = Lens.lens (\HttpEndpointConfiguration' {accessKey} -> accessKey) (\s@HttpEndpointConfiguration' {} a -> s {accessKey = a} :: HttpEndpointConfiguration) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The name of the HTTP endpoint selected as the destination.
+httpEndpointConfiguration_name :: Lens.Lens' HttpEndpointConfiguration (Prelude.Maybe Prelude.Text)
+httpEndpointConfiguration_name = Lens.lens (\HttpEndpointConfiguration' {name} -> name) (\s@HttpEndpointConfiguration' {} a -> s {name = a} :: HttpEndpointConfiguration)
 
 -- | The URL of the HTTP endpoint selected as the destination.
 --
@@ -91,22 +92,22 @@ httpEndpointConfiguration_url = Lens.lens (\HttpEndpointConfiguration' {url} -> 
 
 instance Prelude.Hashable HttpEndpointConfiguration where
   hashWithSalt _salt HttpEndpointConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` accessKey
+    _salt `Prelude.hashWithSalt` accessKey
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` url
 
 instance Prelude.NFData HttpEndpointConfiguration where
   rnf HttpEndpointConfiguration' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf accessKey
+    Prelude.rnf accessKey
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf url
 
 instance Data.ToJSON HttpEndpointConfiguration where
   toJSON HttpEndpointConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
-            ("AccessKey" Data..=) Prelude.<$> accessKey,
+          [ ("AccessKey" Data..=) Prelude.<$> accessKey,
+            ("Name" Data..=) Prelude.<$> name,
             Prelude.Just ("Url" Data..= url)
           ]
       )

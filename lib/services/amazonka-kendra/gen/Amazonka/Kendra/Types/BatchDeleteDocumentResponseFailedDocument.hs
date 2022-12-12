@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBatchDeleteDocumentResponseFailedDocument' smart constructor.
 data BatchDeleteDocumentResponseFailedDocument = BatchDeleteDocumentResponseFailedDocument'
-  { -- | An explanation for why the document couldn\'t be removed from the index.
+  { -- | The error code for why the document couldn\'t be removed from the index.
+    errorCode :: Prelude.Maybe ErrorCode,
+    -- | An explanation for why the document couldn\'t be removed from the index.
     errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the document that couldn\'t be removed from the index.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The error code for why the document couldn\'t be removed from the index.
-    errorCode :: Prelude.Maybe ErrorCode
+    id :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,20 +47,24 @@ data BatchDeleteDocumentResponseFailedDocument = BatchDeleteDocumentResponseFail
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'errorCode', 'batchDeleteDocumentResponseFailedDocument_errorCode' - The error code for why the document couldn\'t be removed from the index.
+--
 -- 'errorMessage', 'batchDeleteDocumentResponseFailedDocument_errorMessage' - An explanation for why the document couldn\'t be removed from the index.
 --
 -- 'id', 'batchDeleteDocumentResponseFailedDocument_id' - The identifier of the document that couldn\'t be removed from the index.
---
--- 'errorCode', 'batchDeleteDocumentResponseFailedDocument_errorCode' - The error code for why the document couldn\'t be removed from the index.
 newBatchDeleteDocumentResponseFailedDocument ::
   BatchDeleteDocumentResponseFailedDocument
 newBatchDeleteDocumentResponseFailedDocument =
   BatchDeleteDocumentResponseFailedDocument'
-    { errorMessage =
+    { errorCode =
         Prelude.Nothing,
-      id = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+      errorMessage = Prelude.Nothing,
+      id = Prelude.Nothing
     }
+
+-- | The error code for why the document couldn\'t be removed from the index.
+batchDeleteDocumentResponseFailedDocument_errorCode :: Lens.Lens' BatchDeleteDocumentResponseFailedDocument (Prelude.Maybe ErrorCode)
+batchDeleteDocumentResponseFailedDocument_errorCode = Lens.lens (\BatchDeleteDocumentResponseFailedDocument' {errorCode} -> errorCode) (\s@BatchDeleteDocumentResponseFailedDocument' {} a -> s {errorCode = a} :: BatchDeleteDocumentResponseFailedDocument)
 
 -- | An explanation for why the document couldn\'t be removed from the index.
 batchDeleteDocumentResponseFailedDocument_errorMessage :: Lens.Lens' BatchDeleteDocumentResponseFailedDocument (Prelude.Maybe Prelude.Text)
@@ -69,10 +73,6 @@ batchDeleteDocumentResponseFailedDocument_errorMessage = Lens.lens (\BatchDelete
 -- | The identifier of the document that couldn\'t be removed from the index.
 batchDeleteDocumentResponseFailedDocument_id :: Lens.Lens' BatchDeleteDocumentResponseFailedDocument (Prelude.Maybe Prelude.Text)
 batchDeleteDocumentResponseFailedDocument_id = Lens.lens (\BatchDeleteDocumentResponseFailedDocument' {id} -> id) (\s@BatchDeleteDocumentResponseFailedDocument' {} a -> s {id = a} :: BatchDeleteDocumentResponseFailedDocument)
-
--- | The error code for why the document couldn\'t be removed from the index.
-batchDeleteDocumentResponseFailedDocument_errorCode :: Lens.Lens' BatchDeleteDocumentResponseFailedDocument (Prelude.Maybe ErrorCode)
-batchDeleteDocumentResponseFailedDocument_errorCode = Lens.lens (\BatchDeleteDocumentResponseFailedDocument' {errorCode} -> errorCode) (\s@BatchDeleteDocumentResponseFailedDocument' {} a -> s {errorCode = a} :: BatchDeleteDocumentResponseFailedDocument)
 
 instance
   Data.FromJSON
@@ -83,9 +83,9 @@ instance
       "BatchDeleteDocumentResponseFailedDocument"
       ( \x ->
           BatchDeleteDocumentResponseFailedDocument'
-            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<$> (x Data..:? "ErrorCode")
+              Prelude.<*> (x Data..:? "ErrorMessage")
               Prelude.<*> (x Data..:? "Id")
-              Prelude.<*> (x Data..:? "ErrorCode")
       )
 
 instance
@@ -95,15 +95,15 @@ instance
   hashWithSalt
     _salt
     BatchDeleteDocumentResponseFailedDocument' {..} =
-      _salt `Prelude.hashWithSalt` errorMessage
+      _salt `Prelude.hashWithSalt` errorCode
+        `Prelude.hashWithSalt` errorMessage
         `Prelude.hashWithSalt` id
-        `Prelude.hashWithSalt` errorCode
 
 instance
   Prelude.NFData
     BatchDeleteDocumentResponseFailedDocument
   where
   rnf BatchDeleteDocumentResponseFailedDocument' {..} =
-    Prelude.rnf errorMessage
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf errorCode

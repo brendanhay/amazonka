@@ -27,8 +27,8 @@ module Amazonka.WorkSpacesWeb.ListUserSettings
     newListUserSettings,
 
     -- * Request Lenses
-    listUserSettings_nextToken,
     listUserSettings_maxResults,
+    listUserSettings_nextToken,
 
     -- * Destructuring the Response
     ListUserSettingsResponse (..),
@@ -51,11 +51,11 @@ import Amazonka.WorkSpacesWeb.Types
 
 -- | /See:/ 'newListUserSettings' smart constructor.
 data ListUserSettings = ListUserSettings'
-  { -- | The pagination token used to retrieve the next page of results for this
+  { -- | The maximum number of results to be included in the next page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token used to retrieve the next page of results for this
     -- operation.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be included in the next page.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,26 +67,26 @@ data ListUserSettings = ListUserSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listUserSettings_maxResults' - The maximum number of results to be included in the next page.
+--
 -- 'nextToken', 'listUserSettings_nextToken' - The pagination token used to retrieve the next page of results for this
 -- operation.
---
--- 'maxResults', 'listUserSettings_maxResults' - The maximum number of results to be included in the next page.
 newListUserSettings ::
   ListUserSettings
 newListUserSettings =
   ListUserSettings'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of results to be included in the next page.
+listUserSettings_maxResults :: Lens.Lens' ListUserSettings (Prelude.Maybe Prelude.Natural)
+listUserSettings_maxResults = Lens.lens (\ListUserSettings' {maxResults} -> maxResults) (\s@ListUserSettings' {} a -> s {maxResults = a} :: ListUserSettings)
 
 -- | The pagination token used to retrieve the next page of results for this
 -- operation.
 listUserSettings_nextToken :: Lens.Lens' ListUserSettings (Prelude.Maybe Prelude.Text)
 listUserSettings_nextToken = Lens.lens (\ListUserSettings' {nextToken} -> nextToken) (\s@ListUserSettings' {} a -> s {nextToken = a} :: ListUserSettings)
-
--- | The maximum number of results to be included in the next page.
-listUserSettings_maxResults :: Lens.Lens' ListUserSettings (Prelude.Maybe Prelude.Natural)
-listUserSettings_maxResults = Lens.lens (\ListUserSettings' {maxResults} -> maxResults) (\s@ListUserSettings' {} a -> s {maxResults = a} :: ListUserSettings)
 
 instance Core.AWSRequest ListUserSettings where
   type
@@ -105,13 +105,13 @@ instance Core.AWSRequest ListUserSettings where
 
 instance Prelude.Hashable ListUserSettings where
   hashWithSalt _salt ListUserSettings' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListUserSettings where
   rnf ListUserSettings' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListUserSettings where
   toHeaders =
@@ -130,8 +130,8 @@ instance Data.ToPath ListUserSettings where
 instance Data.ToQuery ListUserSettings where
   toQuery ListUserSettings' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListUserSettingsResponse' smart constructor.

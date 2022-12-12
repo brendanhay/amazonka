@@ -35,7 +35,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newThingIndexingConfiguration' smart constructor.
 data ThingIndexingConfiguration = ThingIndexingConfiguration'
-  { -- | Device Defender indexing mode. Valid values are:
+  { -- | Contains custom field names and their data type.
+    customFields :: Prelude.Maybe [Field],
+    -- | Device Defender indexing mode. Valid values are:
     --
     -- -   VIOLATIONS – Your thing index contains Device Defender violations.
     --     To enable Device Defender indexing, /deviceDefenderIndexingMode/
@@ -52,14 +54,6 @@ data ThingIndexingConfiguration = ThingIndexingConfiguration'
     -- @namedShadowIndexingMode@ to be @ON@ and specify your shadow names in
     -- @filter@.
     filter' :: Prelude.Maybe IndexingFilter,
-    -- | Thing connectivity indexing mode. Valid values are:
-    --
-    -- -   STATUS – Your thing index contains connectivity status. To enable
-    --     thing connectivity indexing, /thingIndexMode/ must not be set to
-    --     OFF.
-    --
-    -- -   OFF - Thing connectivity status indexing is disabled.
-    thingConnectivityIndexingMode :: Prelude.Maybe ThingConnectivityIndexingMode,
     -- | Contains fields that are indexed and whose types are already known by
     -- the Fleet Indexing service.
     managedFields :: Prelude.Maybe [Field],
@@ -73,8 +67,14 @@ data ThingIndexingConfiguration = ThingIndexingConfiguration'
     -- For more information about Shadows, see
     -- <https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html IoT Device Shadow service.>
     namedShadowIndexingMode :: Prelude.Maybe NamedShadowIndexingMode,
-    -- | Contains custom field names and their data type.
-    customFields :: Prelude.Maybe [Field],
+    -- | Thing connectivity indexing mode. Valid values are:
+    --
+    -- -   STATUS – Your thing index contains connectivity status. To enable
+    --     thing connectivity indexing, /thingIndexMode/ must not be set to
+    --     OFF.
+    --
+    -- -   OFF - Thing connectivity status indexing is disabled.
+    thingConnectivityIndexingMode :: Prelude.Maybe ThingConnectivityIndexingMode,
     -- | Thing indexing mode. Valid values are:
     --
     -- -   REGISTRY – Your thing index contains registry data only.
@@ -95,6 +95,8 @@ data ThingIndexingConfiguration = ThingIndexingConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'customFields', 'thingIndexingConfiguration_customFields' - Contains custom field names and their data type.
+--
 -- 'deviceDefenderIndexingMode', 'thingIndexingConfiguration_deviceDefenderIndexingMode' - Device Defender indexing mode. Valid values are:
 --
 -- -   VIOLATIONS – Your thing index contains Device Defender violations.
@@ -112,14 +114,6 @@ data ThingIndexingConfiguration = ThingIndexingConfiguration'
 -- @namedShadowIndexingMode@ to be @ON@ and specify your shadow names in
 -- @filter@.
 --
--- 'thingConnectivityIndexingMode', 'thingIndexingConfiguration_thingConnectivityIndexingMode' - Thing connectivity indexing mode. Valid values are:
---
--- -   STATUS – Your thing index contains connectivity status. To enable
---     thing connectivity indexing, /thingIndexMode/ must not be set to
---     OFF.
---
--- -   OFF - Thing connectivity status indexing is disabled.
---
 -- 'managedFields', 'thingIndexingConfiguration_managedFields' - Contains fields that are indexed and whose types are already known by
 -- the Fleet Indexing service.
 --
@@ -133,7 +127,13 @@ data ThingIndexingConfiguration = ThingIndexingConfiguration'
 -- For more information about Shadows, see
 -- <https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html IoT Device Shadow service.>
 --
--- 'customFields', 'thingIndexingConfiguration_customFields' - Contains custom field names and their data type.
+-- 'thingConnectivityIndexingMode', 'thingIndexingConfiguration_thingConnectivityIndexingMode' - Thing connectivity indexing mode. Valid values are:
+--
+-- -   STATUS – Your thing index contains connectivity status. To enable
+--     thing connectivity indexing, /thingIndexMode/ must not be set to
+--     OFF.
+--
+-- -   OFF - Thing connectivity status indexing is disabled.
 --
 -- 'thingIndexingMode', 'thingIndexingConfiguration_thingIndexingMode' - Thing indexing mode. Valid values are:
 --
@@ -149,15 +149,19 @@ newThingIndexingConfiguration ::
   ThingIndexingConfiguration
 newThingIndexingConfiguration pThingIndexingMode_ =
   ThingIndexingConfiguration'
-    { deviceDefenderIndexingMode =
+    { customFields =
         Prelude.Nothing,
+      deviceDefenderIndexingMode = Prelude.Nothing,
       filter' = Prelude.Nothing,
-      thingConnectivityIndexingMode = Prelude.Nothing,
       managedFields = Prelude.Nothing,
       namedShadowIndexingMode = Prelude.Nothing,
-      customFields = Prelude.Nothing,
+      thingConnectivityIndexingMode = Prelude.Nothing,
       thingIndexingMode = pThingIndexingMode_
     }
+
+-- | Contains custom field names and their data type.
+thingIndexingConfiguration_customFields :: Lens.Lens' ThingIndexingConfiguration (Prelude.Maybe [Field])
+thingIndexingConfiguration_customFields = Lens.lens (\ThingIndexingConfiguration' {customFields} -> customFields) (\s@ThingIndexingConfiguration' {} a -> s {customFields = a} :: ThingIndexingConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | Device Defender indexing mode. Valid values are:
 --
@@ -180,16 +184,6 @@ thingIndexingConfiguration_deviceDefenderIndexingMode = Lens.lens (\ThingIndexin
 thingIndexingConfiguration_filter :: Lens.Lens' ThingIndexingConfiguration (Prelude.Maybe IndexingFilter)
 thingIndexingConfiguration_filter = Lens.lens (\ThingIndexingConfiguration' {filter'} -> filter') (\s@ThingIndexingConfiguration' {} a -> s {filter' = a} :: ThingIndexingConfiguration)
 
--- | Thing connectivity indexing mode. Valid values are:
---
--- -   STATUS – Your thing index contains connectivity status. To enable
---     thing connectivity indexing, /thingIndexMode/ must not be set to
---     OFF.
---
--- -   OFF - Thing connectivity status indexing is disabled.
-thingIndexingConfiguration_thingConnectivityIndexingMode :: Lens.Lens' ThingIndexingConfiguration (Prelude.Maybe ThingConnectivityIndexingMode)
-thingIndexingConfiguration_thingConnectivityIndexingMode = Lens.lens (\ThingIndexingConfiguration' {thingConnectivityIndexingMode} -> thingConnectivityIndexingMode) (\s@ThingIndexingConfiguration' {} a -> s {thingConnectivityIndexingMode = a} :: ThingIndexingConfiguration)
-
 -- | Contains fields that are indexed and whose types are already known by
 -- the Fleet Indexing service.
 thingIndexingConfiguration_managedFields :: Lens.Lens' ThingIndexingConfiguration (Prelude.Maybe [Field])
@@ -207,9 +201,15 @@ thingIndexingConfiguration_managedFields = Lens.lens (\ThingIndexingConfiguratio
 thingIndexingConfiguration_namedShadowIndexingMode :: Lens.Lens' ThingIndexingConfiguration (Prelude.Maybe NamedShadowIndexingMode)
 thingIndexingConfiguration_namedShadowIndexingMode = Lens.lens (\ThingIndexingConfiguration' {namedShadowIndexingMode} -> namedShadowIndexingMode) (\s@ThingIndexingConfiguration' {} a -> s {namedShadowIndexingMode = a} :: ThingIndexingConfiguration)
 
--- | Contains custom field names and their data type.
-thingIndexingConfiguration_customFields :: Lens.Lens' ThingIndexingConfiguration (Prelude.Maybe [Field])
-thingIndexingConfiguration_customFields = Lens.lens (\ThingIndexingConfiguration' {customFields} -> customFields) (\s@ThingIndexingConfiguration' {} a -> s {customFields = a} :: ThingIndexingConfiguration) Prelude.. Lens.mapping Lens.coerced
+-- | Thing connectivity indexing mode. Valid values are:
+--
+-- -   STATUS – Your thing index contains connectivity status. To enable
+--     thing connectivity indexing, /thingIndexMode/ must not be set to
+--     OFF.
+--
+-- -   OFF - Thing connectivity status indexing is disabled.
+thingIndexingConfiguration_thingConnectivityIndexingMode :: Lens.Lens' ThingIndexingConfiguration (Prelude.Maybe ThingConnectivityIndexingMode)
+thingIndexingConfiguration_thingConnectivityIndexingMode = Lens.lens (\ThingIndexingConfiguration' {thingConnectivityIndexingMode} -> thingConnectivityIndexingMode) (\s@ThingIndexingConfiguration' {} a -> s {thingConnectivityIndexingMode = a} :: ThingIndexingConfiguration)
 
 -- | Thing indexing mode. Valid values are:
 --
@@ -228,49 +228,48 @@ instance Data.FromJSON ThingIndexingConfiguration where
       "ThingIndexingConfiguration"
       ( \x ->
           ThingIndexingConfiguration'
-            Prelude.<$> (x Data..:? "deviceDefenderIndexingMode")
+            Prelude.<$> (x Data..:? "customFields" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "deviceDefenderIndexingMode")
             Prelude.<*> (x Data..:? "filter")
-            Prelude.<*> (x Data..:? "thingConnectivityIndexingMode")
             Prelude.<*> (x Data..:? "managedFields" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "namedShadowIndexingMode")
-            Prelude.<*> (x Data..:? "customFields" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "thingConnectivityIndexingMode")
             Prelude.<*> (x Data..: "thingIndexingMode")
       )
 
 instance Prelude.Hashable ThingIndexingConfiguration where
   hashWithSalt _salt ThingIndexingConfiguration' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` customFields
       `Prelude.hashWithSalt` deviceDefenderIndexingMode
       `Prelude.hashWithSalt` filter'
-      `Prelude.hashWithSalt` thingConnectivityIndexingMode
       `Prelude.hashWithSalt` managedFields
       `Prelude.hashWithSalt` namedShadowIndexingMode
-      `Prelude.hashWithSalt` customFields
+      `Prelude.hashWithSalt` thingConnectivityIndexingMode
       `Prelude.hashWithSalt` thingIndexingMode
 
 instance Prelude.NFData ThingIndexingConfiguration where
   rnf ThingIndexingConfiguration' {..} =
-    Prelude.rnf deviceDefenderIndexingMode
+    Prelude.rnf customFields
+      `Prelude.seq` Prelude.rnf deviceDefenderIndexingMode
       `Prelude.seq` Prelude.rnf filter'
-      `Prelude.seq` Prelude.rnf thingConnectivityIndexingMode
       `Prelude.seq` Prelude.rnf managedFields
       `Prelude.seq` Prelude.rnf namedShadowIndexingMode
-      `Prelude.seq` Prelude.rnf customFields
+      `Prelude.seq` Prelude.rnf thingConnectivityIndexingMode
       `Prelude.seq` Prelude.rnf thingIndexingMode
 
 instance Data.ToJSON ThingIndexingConfiguration where
   toJSON ThingIndexingConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("deviceDefenderIndexingMode" Data..=)
+          [ ("customFields" Data..=) Prelude.<$> customFields,
+            ("deviceDefenderIndexingMode" Data..=)
               Prelude.<$> deviceDefenderIndexingMode,
             ("filter" Data..=) Prelude.<$> filter',
-            ("thingConnectivityIndexingMode" Data..=)
-              Prelude.<$> thingConnectivityIndexingMode,
             ("managedFields" Data..=) Prelude.<$> managedFields,
             ("namedShadowIndexingMode" Data..=)
               Prelude.<$> namedShadowIndexingMode,
-            ("customFields" Data..=) Prelude.<$> customFields,
+            ("thingConnectivityIndexingMode" Data..=)
+              Prelude.<$> thingConnectivityIndexingMode,
             Prelude.Just
               ("thingIndexingMode" Data..= thingIndexingMode)
           ]

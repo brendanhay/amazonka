@@ -32,18 +32,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCurrentPerformanceRiskRatings' smart constructor.
 data CurrentPerformanceRiskRatings = CurrentPerformanceRiskRatings'
-  { -- | A count of the applicable resource types with a very low performance
-    -- risk rating.
-    veryLow :: Prelude.Maybe Prelude.Integer,
+  { -- | A count of the applicable resource types with a high performance risk
+    -- rating.
+    high :: Prelude.Maybe Prelude.Integer,
     -- | A count of the applicable resource types with a low performance risk
     -- rating.
     low :: Prelude.Maybe Prelude.Integer,
-    -- | A count of the applicable resource types with a high performance risk
-    -- rating.
-    high :: Prelude.Maybe Prelude.Integer,
     -- | A count of the applicable resource types with a medium performance risk
     -- rating.
-    medium :: Prelude.Maybe Prelude.Integer
+    medium :: Prelude.Maybe Prelude.Integer,
+    -- | A count of the applicable resource types with a very low performance
+    -- risk rating.
+    veryLow :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,47 +55,47 @@ data CurrentPerformanceRiskRatings = CurrentPerformanceRiskRatings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'veryLow', 'currentPerformanceRiskRatings_veryLow' - A count of the applicable resource types with a very low performance
--- risk rating.
+-- 'high', 'currentPerformanceRiskRatings_high' - A count of the applicable resource types with a high performance risk
+-- rating.
 --
 -- 'low', 'currentPerformanceRiskRatings_low' - A count of the applicable resource types with a low performance risk
 -- rating.
 --
--- 'high', 'currentPerformanceRiskRatings_high' - A count of the applicable resource types with a high performance risk
--- rating.
---
 -- 'medium', 'currentPerformanceRiskRatings_medium' - A count of the applicable resource types with a medium performance risk
 -- rating.
+--
+-- 'veryLow', 'currentPerformanceRiskRatings_veryLow' - A count of the applicable resource types with a very low performance
+-- risk rating.
 newCurrentPerformanceRiskRatings ::
   CurrentPerformanceRiskRatings
 newCurrentPerformanceRiskRatings =
   CurrentPerformanceRiskRatings'
-    { veryLow =
+    { high =
         Prelude.Nothing,
       low = Prelude.Nothing,
-      high = Prelude.Nothing,
-      medium = Prelude.Nothing
+      medium = Prelude.Nothing,
+      veryLow = Prelude.Nothing
     }
-
--- | A count of the applicable resource types with a very low performance
--- risk rating.
-currentPerformanceRiskRatings_veryLow :: Lens.Lens' CurrentPerformanceRiskRatings (Prelude.Maybe Prelude.Integer)
-currentPerformanceRiskRatings_veryLow = Lens.lens (\CurrentPerformanceRiskRatings' {veryLow} -> veryLow) (\s@CurrentPerformanceRiskRatings' {} a -> s {veryLow = a} :: CurrentPerformanceRiskRatings)
-
--- | A count of the applicable resource types with a low performance risk
--- rating.
-currentPerformanceRiskRatings_low :: Lens.Lens' CurrentPerformanceRiskRatings (Prelude.Maybe Prelude.Integer)
-currentPerformanceRiskRatings_low = Lens.lens (\CurrentPerformanceRiskRatings' {low} -> low) (\s@CurrentPerformanceRiskRatings' {} a -> s {low = a} :: CurrentPerformanceRiskRatings)
 
 -- | A count of the applicable resource types with a high performance risk
 -- rating.
 currentPerformanceRiskRatings_high :: Lens.Lens' CurrentPerformanceRiskRatings (Prelude.Maybe Prelude.Integer)
 currentPerformanceRiskRatings_high = Lens.lens (\CurrentPerformanceRiskRatings' {high} -> high) (\s@CurrentPerformanceRiskRatings' {} a -> s {high = a} :: CurrentPerformanceRiskRatings)
 
+-- | A count of the applicable resource types with a low performance risk
+-- rating.
+currentPerformanceRiskRatings_low :: Lens.Lens' CurrentPerformanceRiskRatings (Prelude.Maybe Prelude.Integer)
+currentPerformanceRiskRatings_low = Lens.lens (\CurrentPerformanceRiskRatings' {low} -> low) (\s@CurrentPerformanceRiskRatings' {} a -> s {low = a} :: CurrentPerformanceRiskRatings)
+
 -- | A count of the applicable resource types with a medium performance risk
 -- rating.
 currentPerformanceRiskRatings_medium :: Lens.Lens' CurrentPerformanceRiskRatings (Prelude.Maybe Prelude.Integer)
 currentPerformanceRiskRatings_medium = Lens.lens (\CurrentPerformanceRiskRatings' {medium} -> medium) (\s@CurrentPerformanceRiskRatings' {} a -> s {medium = a} :: CurrentPerformanceRiskRatings)
+
+-- | A count of the applicable resource types with a very low performance
+-- risk rating.
+currentPerformanceRiskRatings_veryLow :: Lens.Lens' CurrentPerformanceRiskRatings (Prelude.Maybe Prelude.Integer)
+currentPerformanceRiskRatings_veryLow = Lens.lens (\CurrentPerformanceRiskRatings' {veryLow} -> veryLow) (\s@CurrentPerformanceRiskRatings' {} a -> s {veryLow = a} :: CurrentPerformanceRiskRatings)
 
 instance Data.FromJSON CurrentPerformanceRiskRatings where
   parseJSON =
@@ -103,10 +103,10 @@ instance Data.FromJSON CurrentPerformanceRiskRatings where
       "CurrentPerformanceRiskRatings"
       ( \x ->
           CurrentPerformanceRiskRatings'
-            Prelude.<$> (x Data..:? "veryLow")
+            Prelude.<$> (x Data..:? "high")
             Prelude.<*> (x Data..:? "low")
-            Prelude.<*> (x Data..:? "high")
             Prelude.<*> (x Data..:? "medium")
+            Prelude.<*> (x Data..:? "veryLow")
       )
 
 instance
@@ -114,14 +114,14 @@ instance
     CurrentPerformanceRiskRatings
   where
   hashWithSalt _salt CurrentPerformanceRiskRatings' {..} =
-    _salt `Prelude.hashWithSalt` veryLow
+    _salt `Prelude.hashWithSalt` high
       `Prelude.hashWithSalt` low
-      `Prelude.hashWithSalt` high
       `Prelude.hashWithSalt` medium
+      `Prelude.hashWithSalt` veryLow
 
 instance Prelude.NFData CurrentPerformanceRiskRatings where
   rnf CurrentPerformanceRiskRatings' {..} =
-    Prelude.rnf veryLow
+    Prelude.rnf high
       `Prelude.seq` Prelude.rnf low
-      `Prelude.seq` Prelude.rnf high
       `Prelude.seq` Prelude.rnf medium
+      `Prelude.seq` Prelude.rnf veryLow

@@ -31,11 +31,11 @@ module Amazonka.AppConfig.CreateDeploymentStrategy
     newCreateDeploymentStrategy,
 
     -- * Request Lenses
-    createDeploymentStrategy_tags,
-    createDeploymentStrategy_growthType,
     createDeploymentStrategy_description,
     createDeploymentStrategy_finalBakeTimeInMinutes,
+    createDeploymentStrategy_growthType,
     createDeploymentStrategy_replicateTo,
+    createDeploymentStrategy_tags,
     createDeploymentStrategy_name,
     createDeploymentStrategy_deploymentDurationInMinutes,
     createDeploymentStrategy_growthFactor,
@@ -45,14 +45,14 @@ module Amazonka.AppConfig.CreateDeploymentStrategy
     newDeploymentStrategy,
 
     -- * Response Lenses
-    deploymentStrategy_name,
-    deploymentStrategy_growthType,
     deploymentStrategy_deploymentDurationInMinutes,
-    deploymentStrategy_id,
     deploymentStrategy_description,
     deploymentStrategy_finalBakeTimeInMinutes,
-    deploymentStrategy_replicateTo,
     deploymentStrategy_growthFactor,
+    deploymentStrategy_growthType,
+    deploymentStrategy_id,
+    deploymentStrategy_name,
+    deploymentStrategy_replicateTo,
   )
 where
 
@@ -66,10 +66,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDeploymentStrategy' smart constructor.
 data CreateDeploymentStrategy = CreateDeploymentStrategy'
-  { -- | Metadata to assign to the deployment strategy. Tags help organize and
-    -- categorize your AppConfig resources. Each tag consists of a key and an
-    -- optional value, both of which you define.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | A description of the deployment strategy.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the amount of time AppConfig monitors for Amazon CloudWatch
+    -- alarms after the configuration has been deployed to 100% of its targets,
+    -- before considering the deployment to be complete. If an alarm is
+    -- triggered during this time, AppConfig rolls back the deployment. You
+    -- must configure permissions for AppConfig to roll back based on
+    -- CloudWatch alarms. For more information, see
+    -- <https://docs.aws.amazon.com/appconfig/latest/userguide/getting-started-with-appconfig-cloudwatch-alarms-permissions.html Configuring permissions for rollback based on Amazon CloudWatch alarms>
+    -- in the /AppConfig User Guide/.
+    finalBakeTimeInMinutes :: Prelude.Maybe Prelude.Natural,
     -- | The algorithm used to define how percentage grows over time. AppConfig
     -- supports the following growth types:
     --
@@ -98,19 +105,12 @@ data CreateDeploymentStrategy = CreateDeploymentStrategy'
     -- targets, 4% of the targets, 8% of the targets, and continues until the
     -- configuration has been deployed to all targets.
     growthType :: Prelude.Maybe GrowthType,
-    -- | A description of the deployment strategy.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the amount of time AppConfig monitors for Amazon CloudWatch
-    -- alarms after the configuration has been deployed to 100% of its targets,
-    -- before considering the deployment to be complete. If an alarm is
-    -- triggered during this time, AppConfig rolls back the deployment. You
-    -- must configure permissions for AppConfig to roll back based on
-    -- CloudWatch alarms. For more information, see
-    -- <https://docs.aws.amazon.com/appconfig/latest/userguide/getting-started-with-appconfig-cloudwatch-alarms-permissions.html Configuring permissions for rollback based on Amazon CloudWatch alarms>
-    -- in the /AppConfig User Guide/.
-    finalBakeTimeInMinutes :: Prelude.Maybe Prelude.Natural,
     -- | Save the deployment strategy to a Systems Manager (SSM) document.
     replicateTo :: Prelude.Maybe ReplicateTo,
+    -- | Metadata to assign to the deployment strategy. Tags help organize and
+    -- categorize your AppConfig resources. Each tag consists of a key and an
+    -- optional value, both of which you define.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A name for the deployment strategy.
     name :: Prelude.Text,
     -- | Total amount of time for a deployment to last.
@@ -129,9 +129,16 @@ data CreateDeploymentStrategy = CreateDeploymentStrategy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createDeploymentStrategy_tags' - Metadata to assign to the deployment strategy. Tags help organize and
--- categorize your AppConfig resources. Each tag consists of a key and an
--- optional value, both of which you define.
+-- 'description', 'createDeploymentStrategy_description' - A description of the deployment strategy.
+--
+-- 'finalBakeTimeInMinutes', 'createDeploymentStrategy_finalBakeTimeInMinutes' - Specifies the amount of time AppConfig monitors for Amazon CloudWatch
+-- alarms after the configuration has been deployed to 100% of its targets,
+-- before considering the deployment to be complete. If an alarm is
+-- triggered during this time, AppConfig rolls back the deployment. You
+-- must configure permissions for AppConfig to roll back based on
+-- CloudWatch alarms. For more information, see
+-- <https://docs.aws.amazon.com/appconfig/latest/userguide/getting-started-with-appconfig-cloudwatch-alarms-permissions.html Configuring permissions for rollback based on Amazon CloudWatch alarms>
+-- in the /AppConfig User Guide/.
 --
 -- 'growthType', 'createDeploymentStrategy_growthType' - The algorithm used to define how percentage grows over time. AppConfig
 -- supports the following growth types:
@@ -161,18 +168,11 @@ data CreateDeploymentStrategy = CreateDeploymentStrategy'
 -- targets, 4% of the targets, 8% of the targets, and continues until the
 -- configuration has been deployed to all targets.
 --
--- 'description', 'createDeploymentStrategy_description' - A description of the deployment strategy.
---
--- 'finalBakeTimeInMinutes', 'createDeploymentStrategy_finalBakeTimeInMinutes' - Specifies the amount of time AppConfig monitors for Amazon CloudWatch
--- alarms after the configuration has been deployed to 100% of its targets,
--- before considering the deployment to be complete. If an alarm is
--- triggered during this time, AppConfig rolls back the deployment. You
--- must configure permissions for AppConfig to roll back based on
--- CloudWatch alarms. For more information, see
--- <https://docs.aws.amazon.com/appconfig/latest/userguide/getting-started-with-appconfig-cloudwatch-alarms-permissions.html Configuring permissions for rollback based on Amazon CloudWatch alarms>
--- in the /AppConfig User Guide/.
---
 -- 'replicateTo', 'createDeploymentStrategy_replicateTo' - Save the deployment strategy to a Systems Manager (SSM) document.
+--
+-- 'tags', 'createDeploymentStrategy_tags' - Metadata to assign to the deployment strategy. Tags help organize and
+-- categorize your AppConfig resources. Each tag consists of a key and an
+-- optional value, both of which you define.
 --
 -- 'name', 'createDeploymentStrategy_name' - A name for the deployment strategy.
 --
@@ -193,22 +193,32 @@ newCreateDeploymentStrategy
   pDeploymentDurationInMinutes_
   pGrowthFactor_ =
     CreateDeploymentStrategy'
-      { tags = Prelude.Nothing,
-        growthType = Prelude.Nothing,
-        description = Prelude.Nothing,
+      { description =
+          Prelude.Nothing,
         finalBakeTimeInMinutes = Prelude.Nothing,
+        growthType = Prelude.Nothing,
         replicateTo = Prelude.Nothing,
+        tags = Prelude.Nothing,
         name = pName_,
         deploymentDurationInMinutes =
           pDeploymentDurationInMinutes_,
         growthFactor = pGrowthFactor_
       }
 
--- | Metadata to assign to the deployment strategy. Tags help organize and
--- categorize your AppConfig resources. Each tag consists of a key and an
--- optional value, both of which you define.
-createDeploymentStrategy_tags :: Lens.Lens' CreateDeploymentStrategy (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createDeploymentStrategy_tags = Lens.lens (\CreateDeploymentStrategy' {tags} -> tags) (\s@CreateDeploymentStrategy' {} a -> s {tags = a} :: CreateDeploymentStrategy) Prelude.. Lens.mapping Lens.coerced
+-- | A description of the deployment strategy.
+createDeploymentStrategy_description :: Lens.Lens' CreateDeploymentStrategy (Prelude.Maybe Prelude.Text)
+createDeploymentStrategy_description = Lens.lens (\CreateDeploymentStrategy' {description} -> description) (\s@CreateDeploymentStrategy' {} a -> s {description = a} :: CreateDeploymentStrategy)
+
+-- | Specifies the amount of time AppConfig monitors for Amazon CloudWatch
+-- alarms after the configuration has been deployed to 100% of its targets,
+-- before considering the deployment to be complete. If an alarm is
+-- triggered during this time, AppConfig rolls back the deployment. You
+-- must configure permissions for AppConfig to roll back based on
+-- CloudWatch alarms. For more information, see
+-- <https://docs.aws.amazon.com/appconfig/latest/userguide/getting-started-with-appconfig-cloudwatch-alarms-permissions.html Configuring permissions for rollback based on Amazon CloudWatch alarms>
+-- in the /AppConfig User Guide/.
+createDeploymentStrategy_finalBakeTimeInMinutes :: Lens.Lens' CreateDeploymentStrategy (Prelude.Maybe Prelude.Natural)
+createDeploymentStrategy_finalBakeTimeInMinutes = Lens.lens (\CreateDeploymentStrategy' {finalBakeTimeInMinutes} -> finalBakeTimeInMinutes) (\s@CreateDeploymentStrategy' {} a -> s {finalBakeTimeInMinutes = a} :: CreateDeploymentStrategy)
 
 -- | The algorithm used to define how percentage grows over time. AppConfig
 -- supports the following growth types:
@@ -240,24 +250,15 @@ createDeploymentStrategy_tags = Lens.lens (\CreateDeploymentStrategy' {tags} -> 
 createDeploymentStrategy_growthType :: Lens.Lens' CreateDeploymentStrategy (Prelude.Maybe GrowthType)
 createDeploymentStrategy_growthType = Lens.lens (\CreateDeploymentStrategy' {growthType} -> growthType) (\s@CreateDeploymentStrategy' {} a -> s {growthType = a} :: CreateDeploymentStrategy)
 
--- | A description of the deployment strategy.
-createDeploymentStrategy_description :: Lens.Lens' CreateDeploymentStrategy (Prelude.Maybe Prelude.Text)
-createDeploymentStrategy_description = Lens.lens (\CreateDeploymentStrategy' {description} -> description) (\s@CreateDeploymentStrategy' {} a -> s {description = a} :: CreateDeploymentStrategy)
-
--- | Specifies the amount of time AppConfig monitors for Amazon CloudWatch
--- alarms after the configuration has been deployed to 100% of its targets,
--- before considering the deployment to be complete. If an alarm is
--- triggered during this time, AppConfig rolls back the deployment. You
--- must configure permissions for AppConfig to roll back based on
--- CloudWatch alarms. For more information, see
--- <https://docs.aws.amazon.com/appconfig/latest/userguide/getting-started-with-appconfig-cloudwatch-alarms-permissions.html Configuring permissions for rollback based on Amazon CloudWatch alarms>
--- in the /AppConfig User Guide/.
-createDeploymentStrategy_finalBakeTimeInMinutes :: Lens.Lens' CreateDeploymentStrategy (Prelude.Maybe Prelude.Natural)
-createDeploymentStrategy_finalBakeTimeInMinutes = Lens.lens (\CreateDeploymentStrategy' {finalBakeTimeInMinutes} -> finalBakeTimeInMinutes) (\s@CreateDeploymentStrategy' {} a -> s {finalBakeTimeInMinutes = a} :: CreateDeploymentStrategy)
-
 -- | Save the deployment strategy to a Systems Manager (SSM) document.
 createDeploymentStrategy_replicateTo :: Lens.Lens' CreateDeploymentStrategy (Prelude.Maybe ReplicateTo)
 createDeploymentStrategy_replicateTo = Lens.lens (\CreateDeploymentStrategy' {replicateTo} -> replicateTo) (\s@CreateDeploymentStrategy' {} a -> s {replicateTo = a} :: CreateDeploymentStrategy)
+
+-- | Metadata to assign to the deployment strategy. Tags help organize and
+-- categorize your AppConfig resources. Each tag consists of a key and an
+-- optional value, both of which you define.
+createDeploymentStrategy_tags :: Lens.Lens' CreateDeploymentStrategy (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createDeploymentStrategy_tags = Lens.lens (\CreateDeploymentStrategy' {tags} -> tags) (\s@CreateDeploymentStrategy' {} a -> s {tags = a} :: CreateDeploymentStrategy) Prelude.. Lens.mapping Lens.coerced
 
 -- | A name for the deployment strategy.
 createDeploymentStrategy_name :: Lens.Lens' CreateDeploymentStrategy Prelude.Text
@@ -284,22 +285,22 @@ instance Core.AWSRequest CreateDeploymentStrategy where
 
 instance Prelude.Hashable CreateDeploymentStrategy where
   hashWithSalt _salt CreateDeploymentStrategy' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` growthType
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` finalBakeTimeInMinutes
+      `Prelude.hashWithSalt` growthType
       `Prelude.hashWithSalt` replicateTo
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` deploymentDurationInMinutes
       `Prelude.hashWithSalt` growthFactor
 
 instance Prelude.NFData CreateDeploymentStrategy where
   rnf CreateDeploymentStrategy' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf growthType
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf finalBakeTimeInMinutes
+      `Prelude.seq` Prelude.rnf growthType
       `Prelude.seq` Prelude.rnf replicateTo
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf deploymentDurationInMinutes
       `Prelude.seq` Prelude.rnf growthFactor
@@ -319,12 +320,12 @@ instance Data.ToJSON CreateDeploymentStrategy where
   toJSON CreateDeploymentStrategy' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("GrowthType" Data..=) Prelude.<$> growthType,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
             ("FinalBakeTimeInMinutes" Data..=)
               Prelude.<$> finalBakeTimeInMinutes,
+            ("GrowthType" Data..=) Prelude.<$> growthType,
             ("ReplicateTo" Data..=) Prelude.<$> replicateTo,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just
               ( "DeploymentDurationInMinutes"

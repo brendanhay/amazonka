@@ -31,9 +31,9 @@ module Amazonka.SageMaker.ListSubscribedWorkteams
     newListSubscribedWorkteams,
 
     -- * Request Lenses
-    listSubscribedWorkteams_nextToken,
-    listSubscribedWorkteams_nameContains,
     listSubscribedWorkteams_maxResults,
+    listSubscribedWorkteams_nameContains,
+    listSubscribedWorkteams_nextToken,
 
     -- * Destructuring the Response
     ListSubscribedWorkteamsResponse (..),
@@ -56,15 +56,15 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newListSubscribedWorkteams' smart constructor.
 data ListSubscribedWorkteams = ListSubscribedWorkteams'
-  { -- | If the result of the previous @ListSubscribedWorkteams@ request was
-    -- truncated, the response includes a @NextToken@. To retrieve the next set
-    -- of labeling jobs, use the token in the next request.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The maximum number of work teams to return in each page of the response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A string in the work team name. This filter returns only work teams
     -- whose name contains the specified string.
     nameContains :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of work teams to return in each page of the response.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    -- | If the result of the previous @ListSubscribedWorkteams@ request was
+    -- truncated, the response includes a @NextToken@. To retrieve the next set
+    -- of labeling jobs, use the token in the next request.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,38 +76,38 @@ data ListSubscribedWorkteams = ListSubscribedWorkteams'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listSubscribedWorkteams_nextToken' - If the result of the previous @ListSubscribedWorkteams@ request was
--- truncated, the response includes a @NextToken@. To retrieve the next set
--- of labeling jobs, use the token in the next request.
+-- 'maxResults', 'listSubscribedWorkteams_maxResults' - The maximum number of work teams to return in each page of the response.
 --
 -- 'nameContains', 'listSubscribedWorkteams_nameContains' - A string in the work team name. This filter returns only work teams
 -- whose name contains the specified string.
 --
--- 'maxResults', 'listSubscribedWorkteams_maxResults' - The maximum number of work teams to return in each page of the response.
+-- 'nextToken', 'listSubscribedWorkteams_nextToken' - If the result of the previous @ListSubscribedWorkteams@ request was
+-- truncated, the response includes a @NextToken@. To retrieve the next set
+-- of labeling jobs, use the token in the next request.
 newListSubscribedWorkteams ::
   ListSubscribedWorkteams
 newListSubscribedWorkteams =
   ListSubscribedWorkteams'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
       nameContains = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
 
--- | If the result of the previous @ListSubscribedWorkteams@ request was
--- truncated, the response includes a @NextToken@. To retrieve the next set
--- of labeling jobs, use the token in the next request.
-listSubscribedWorkteams_nextToken :: Lens.Lens' ListSubscribedWorkteams (Prelude.Maybe Prelude.Text)
-listSubscribedWorkteams_nextToken = Lens.lens (\ListSubscribedWorkteams' {nextToken} -> nextToken) (\s@ListSubscribedWorkteams' {} a -> s {nextToken = a} :: ListSubscribedWorkteams)
+-- | The maximum number of work teams to return in each page of the response.
+listSubscribedWorkteams_maxResults :: Lens.Lens' ListSubscribedWorkteams (Prelude.Maybe Prelude.Natural)
+listSubscribedWorkteams_maxResults = Lens.lens (\ListSubscribedWorkteams' {maxResults} -> maxResults) (\s@ListSubscribedWorkteams' {} a -> s {maxResults = a} :: ListSubscribedWorkteams)
 
 -- | A string in the work team name. This filter returns only work teams
 -- whose name contains the specified string.
 listSubscribedWorkteams_nameContains :: Lens.Lens' ListSubscribedWorkteams (Prelude.Maybe Prelude.Text)
 listSubscribedWorkteams_nameContains = Lens.lens (\ListSubscribedWorkteams' {nameContains} -> nameContains) (\s@ListSubscribedWorkteams' {} a -> s {nameContains = a} :: ListSubscribedWorkteams)
 
--- | The maximum number of work teams to return in each page of the response.
-listSubscribedWorkteams_maxResults :: Lens.Lens' ListSubscribedWorkteams (Prelude.Maybe Prelude.Natural)
-listSubscribedWorkteams_maxResults = Lens.lens (\ListSubscribedWorkteams' {maxResults} -> maxResults) (\s@ListSubscribedWorkteams' {} a -> s {maxResults = a} :: ListSubscribedWorkteams)
+-- | If the result of the previous @ListSubscribedWorkteams@ request was
+-- truncated, the response includes a @NextToken@. To retrieve the next set
+-- of labeling jobs, use the token in the next request.
+listSubscribedWorkteams_nextToken :: Lens.Lens' ListSubscribedWorkteams (Prelude.Maybe Prelude.Text)
+listSubscribedWorkteams_nextToken = Lens.lens (\ListSubscribedWorkteams' {nextToken} -> nextToken) (\s@ListSubscribedWorkteams' {} a -> s {nextToken = a} :: ListSubscribedWorkteams)
 
 instance Core.AWSPager ListSubscribedWorkteams where
   page rq rs
@@ -149,15 +149,15 @@ instance Core.AWSRequest ListSubscribedWorkteams where
 
 instance Prelude.Hashable ListSubscribedWorkteams where
   hashWithSalt _salt ListSubscribedWorkteams' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nameContains
-      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListSubscribedWorkteams where
   rnf ListSubscribedWorkteams' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListSubscribedWorkteams where
   toHeaders =
@@ -178,9 +178,9 @@ instance Data.ToJSON ListSubscribedWorkteams where
   toJSON ListSubscribedWorkteams' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("NameContains" Data..=) Prelude.<$> nameContains,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

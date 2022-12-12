@@ -29,8 +29,8 @@ module Amazonka.LicenseManagerUserSubscriptions.ListIdentityProviders
     newListIdentityProviders,
 
     -- * Request Lenses
-    listIdentityProviders_nextToken,
     listIdentityProviders_maxResults,
+    listIdentityProviders_nextToken,
 
     -- * Destructuring the Response
     ListIdentityProvidersResponse (..),
@@ -53,10 +53,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListIdentityProviders' smart constructor.
 data ListIdentityProviders = ListIdentityProviders'
-  { -- | Token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Maximum number of results to return in a single call.
-    maxResults :: Prelude.Maybe Prelude.Int
+  { -- | Maximum number of results to return in a single call.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | Token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,24 +68,25 @@ data ListIdentityProviders = ListIdentityProviders'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listIdentityProviders_nextToken' - Token for the next set of results.
---
 -- 'maxResults', 'listIdentityProviders_maxResults' - Maximum number of results to return in a single call.
+--
+-- 'nextToken', 'listIdentityProviders_nextToken' - Token for the next set of results.
 newListIdentityProviders ::
   ListIdentityProviders
 newListIdentityProviders =
   ListIdentityProviders'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | Token for the next set of results.
-listIdentityProviders_nextToken :: Lens.Lens' ListIdentityProviders (Prelude.Maybe Prelude.Text)
-listIdentityProviders_nextToken = Lens.lens (\ListIdentityProviders' {nextToken} -> nextToken) (\s@ListIdentityProviders' {} a -> s {nextToken = a} :: ListIdentityProviders)
 
 -- | Maximum number of results to return in a single call.
 listIdentityProviders_maxResults :: Lens.Lens' ListIdentityProviders (Prelude.Maybe Prelude.Int)
 listIdentityProviders_maxResults = Lens.lens (\ListIdentityProviders' {maxResults} -> maxResults) (\s@ListIdentityProviders' {} a -> s {maxResults = a} :: ListIdentityProviders)
+
+-- | Token for the next set of results.
+listIdentityProviders_nextToken :: Lens.Lens' ListIdentityProviders (Prelude.Maybe Prelude.Text)
+listIdentityProviders_nextToken = Lens.lens (\ListIdentityProviders' {nextToken} -> nextToken) (\s@ListIdentityProviders' {} a -> s {nextToken = a} :: ListIdentityProviders)
 
 instance Core.AWSPager ListIdentityProviders where
   page rq rs
@@ -127,13 +128,13 @@ instance Core.AWSRequest ListIdentityProviders where
 
 instance Prelude.Hashable ListIdentityProviders where
   hashWithSalt _salt ListIdentityProviders' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListIdentityProviders where
   rnf ListIdentityProviders' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListIdentityProviders where
   toHeaders =
@@ -150,8 +151,8 @@ instance Data.ToJSON ListIdentityProviders where
   toJSON ListIdentityProviders' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

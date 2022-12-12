@@ -36,8 +36,8 @@ data MetricMathAnomalyDetector = MetricMathAnomalyDetector'
     -- item in @MetricDataQueries@ gets a metric or performs a math expression.
     -- One item in @MetricDataQueries@ is the expression that provides the time
     -- series that the anomaly detector uses as input. Designate the expression
-    -- by setting @ReturnData@ to @True@ for this object in the array. For all
-    -- other expressions and metrics, set @ReturnData@ to @False@. The
+    -- by setting @ReturnData@ to @true@ for this object in the array. For all
+    -- other expressions and metrics, set @ReturnData@ to @false@. The
     -- designated expression must return a single time series.
     metricDataQueries :: Prelude.Maybe [MetricDataQuery]
   }
@@ -56,8 +56,8 @@ data MetricMathAnomalyDetector = MetricMathAnomalyDetector'
 -- item in @MetricDataQueries@ gets a metric or performs a math expression.
 -- One item in @MetricDataQueries@ is the expression that provides the time
 -- series that the anomaly detector uses as input. Designate the expression
--- by setting @ReturnData@ to @True@ for this object in the array. For all
--- other expressions and metrics, set @ReturnData@ to @False@. The
+-- by setting @ReturnData@ to @true@ for this object in the array. For all
+-- other expressions and metrics, set @ReturnData@ to @false@. The
 -- designated expression must return a single time series.
 newMetricMathAnomalyDetector ::
   MetricMathAnomalyDetector
@@ -72,8 +72,8 @@ newMetricMathAnomalyDetector =
 -- item in @MetricDataQueries@ gets a metric or performs a math expression.
 -- One item in @MetricDataQueries@ is the expression that provides the time
 -- series that the anomaly detector uses as input. Designate the expression
--- by setting @ReturnData@ to @True@ for this object in the array. For all
--- other expressions and metrics, set @ReturnData@ to @False@. The
+-- by setting @ReturnData@ to @true@ for this object in the array. For all
+-- other expressions and metrics, set @ReturnData@ to @false@. The
 -- designated expression must return a single time series.
 metricMathAnomalyDetector_metricDataQueries :: Lens.Lens' MetricMathAnomalyDetector (Prelude.Maybe [MetricDataQuery])
 metricMathAnomalyDetector_metricDataQueries = Lens.lens (\MetricMathAnomalyDetector' {metricDataQueries} -> metricDataQueries) (\s@MetricMathAnomalyDetector' {} a -> s {metricDataQueries = a} :: MetricMathAnomalyDetector) Prelude.. Lens.mapping Lens.coerced

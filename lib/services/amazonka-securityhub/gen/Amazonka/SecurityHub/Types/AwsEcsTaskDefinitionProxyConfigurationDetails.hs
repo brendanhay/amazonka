@@ -31,11 +31,11 @@ import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionProxyConfigurationProxyCon
 data AwsEcsTaskDefinitionProxyConfigurationDetails = AwsEcsTaskDefinitionProxyConfigurationDetails'
   { -- | The name of the container that will serve as the App Mesh proxy.
     containerName :: Prelude.Maybe Prelude.Text,
-    -- | The proxy type.
-    type' :: Prelude.Maybe Prelude.Text,
     -- | The set of network configuration parameters to provide to the Container
     -- Network Interface (CNI) plugin, specified as key-value pairs.
-    proxyConfigurationProperties :: Prelude.Maybe [AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails]
+    proxyConfigurationProperties :: Prelude.Maybe [AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails],
+    -- | The proxy type.
+    type' :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,33 +49,33 @@ data AwsEcsTaskDefinitionProxyConfigurationDetails = AwsEcsTaskDefinitionProxyCo
 --
 -- 'containerName', 'awsEcsTaskDefinitionProxyConfigurationDetails_containerName' - The name of the container that will serve as the App Mesh proxy.
 --
--- 'type'', 'awsEcsTaskDefinitionProxyConfigurationDetails_type' - The proxy type.
---
 -- 'proxyConfigurationProperties', 'awsEcsTaskDefinitionProxyConfigurationDetails_proxyConfigurationProperties' - The set of network configuration parameters to provide to the Container
 -- Network Interface (CNI) plugin, specified as key-value pairs.
+--
+-- 'type'', 'awsEcsTaskDefinitionProxyConfigurationDetails_type' - The proxy type.
 newAwsEcsTaskDefinitionProxyConfigurationDetails ::
   AwsEcsTaskDefinitionProxyConfigurationDetails
 newAwsEcsTaskDefinitionProxyConfigurationDetails =
   AwsEcsTaskDefinitionProxyConfigurationDetails'
     { containerName =
         Prelude.Nothing,
-      type' = Prelude.Nothing,
       proxyConfigurationProperties =
-        Prelude.Nothing
+        Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | The name of the container that will serve as the App Mesh proxy.
 awsEcsTaskDefinitionProxyConfigurationDetails_containerName :: Lens.Lens' AwsEcsTaskDefinitionProxyConfigurationDetails (Prelude.Maybe Prelude.Text)
 awsEcsTaskDefinitionProxyConfigurationDetails_containerName = Lens.lens (\AwsEcsTaskDefinitionProxyConfigurationDetails' {containerName} -> containerName) (\s@AwsEcsTaskDefinitionProxyConfigurationDetails' {} a -> s {containerName = a} :: AwsEcsTaskDefinitionProxyConfigurationDetails)
 
--- | The proxy type.
-awsEcsTaskDefinitionProxyConfigurationDetails_type :: Lens.Lens' AwsEcsTaskDefinitionProxyConfigurationDetails (Prelude.Maybe Prelude.Text)
-awsEcsTaskDefinitionProxyConfigurationDetails_type = Lens.lens (\AwsEcsTaskDefinitionProxyConfigurationDetails' {type'} -> type') (\s@AwsEcsTaskDefinitionProxyConfigurationDetails' {} a -> s {type' = a} :: AwsEcsTaskDefinitionProxyConfigurationDetails)
-
 -- | The set of network configuration parameters to provide to the Container
 -- Network Interface (CNI) plugin, specified as key-value pairs.
 awsEcsTaskDefinitionProxyConfigurationDetails_proxyConfigurationProperties :: Lens.Lens' AwsEcsTaskDefinitionProxyConfigurationDetails (Prelude.Maybe [AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails])
 awsEcsTaskDefinitionProxyConfigurationDetails_proxyConfigurationProperties = Lens.lens (\AwsEcsTaskDefinitionProxyConfigurationDetails' {proxyConfigurationProperties} -> proxyConfigurationProperties) (\s@AwsEcsTaskDefinitionProxyConfigurationDetails' {} a -> s {proxyConfigurationProperties = a} :: AwsEcsTaskDefinitionProxyConfigurationDetails) Prelude.. Lens.mapping Lens.coerced
+
+-- | The proxy type.
+awsEcsTaskDefinitionProxyConfigurationDetails_type :: Lens.Lens' AwsEcsTaskDefinitionProxyConfigurationDetails (Prelude.Maybe Prelude.Text)
+awsEcsTaskDefinitionProxyConfigurationDetails_type = Lens.lens (\AwsEcsTaskDefinitionProxyConfigurationDetails' {type'} -> type') (\s@AwsEcsTaskDefinitionProxyConfigurationDetails' {} a -> s {type' = a} :: AwsEcsTaskDefinitionProxyConfigurationDetails)
 
 instance
   Data.FromJSON
@@ -87,10 +87,10 @@ instance
       ( \x ->
           AwsEcsTaskDefinitionProxyConfigurationDetails'
             Prelude.<$> (x Data..:? "ContainerName")
-              Prelude.<*> (x Data..:? "Type")
               Prelude.<*> ( x Data..:? "ProxyConfigurationProperties"
                               Data..!= Prelude.mempty
                           )
+              Prelude.<*> (x Data..:? "Type")
       )
 
 instance
@@ -101,8 +101,8 @@ instance
     _salt
     AwsEcsTaskDefinitionProxyConfigurationDetails' {..} =
       _salt `Prelude.hashWithSalt` containerName
-        `Prelude.hashWithSalt` type'
         `Prelude.hashWithSalt` proxyConfigurationProperties
+        `Prelude.hashWithSalt` type'
 
 instance
   Prelude.NFData
@@ -111,8 +111,8 @@ instance
   rnf
     AwsEcsTaskDefinitionProxyConfigurationDetails' {..} =
       Prelude.rnf containerName
-        `Prelude.seq` Prelude.rnf type'
         `Prelude.seq` Prelude.rnf proxyConfigurationProperties
+        `Prelude.seq` Prelude.rnf type'
 
 instance
   Data.ToJSON
@@ -123,8 +123,8 @@ instance
       Data.object
         ( Prelude.catMaybes
             [ ("ContainerName" Data..=) Prelude.<$> containerName,
-              ("Type" Data..=) Prelude.<$> type',
               ("ProxyConfigurationProperties" Data..=)
-                Prelude.<$> proxyConfigurationProperties
+                Prelude.<$> proxyConfigurationProperties,
+              ("Type" Data..=) Prelude.<$> type'
             ]
         )

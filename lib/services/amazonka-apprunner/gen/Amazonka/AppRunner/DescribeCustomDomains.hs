@@ -28,8 +28,8 @@ module Amazonka.AppRunner.DescribeCustomDomains
     newDescribeCustomDomains,
 
     -- * Request Lenses
-    describeCustomDomains_nextToken,
     describeCustomDomains_maxResults,
+    describeCustomDomains_nextToken,
     describeCustomDomains_serviceArn,
 
     -- * Destructuring the Response
@@ -56,19 +56,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeCustomDomains' smart constructor.
 data DescribeCustomDomains = DescribeCustomDomains'
-  { -- | A token from a previous result page. It\'s used for a paginated request.
+  { -- | The maximum number of results that each response (result page) can
+    -- include. It\'s used for a paginated request.
+    --
+    -- If you don\'t specify @MaxResults@, the request retrieves all available
+    -- results in a single response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token from a previous result page. It\'s used for a paginated request.
     -- The request retrieves the next result page. All other parameter values
     -- must be identical to the ones that are specified in the initial request.
     --
     -- If you don\'t specify @NextToken@, the request retrieves the first
     -- result page.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results that each response (result page) can
-    -- include. It\'s used for a paginated request.
-    --
-    -- If you don\'t specify @MaxResults@, the request retrieves all available
-    -- results in a single response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) of the App Runner service that you want
     -- associated custom domain names to be described for.
     serviceArn :: Prelude.Text
@@ -83,18 +83,18 @@ data DescribeCustomDomains = DescribeCustomDomains'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'describeCustomDomains_maxResults' - The maximum number of results that each response (result page) can
+-- include. It\'s used for a paginated request.
+--
+-- If you don\'t specify @MaxResults@, the request retrieves all available
+-- results in a single response.
+--
 -- 'nextToken', 'describeCustomDomains_nextToken' - A token from a previous result page. It\'s used for a paginated request.
 -- The request retrieves the next result page. All other parameter values
 -- must be identical to the ones that are specified in the initial request.
 --
 -- If you don\'t specify @NextToken@, the request retrieves the first
 -- result page.
---
--- 'maxResults', 'describeCustomDomains_maxResults' - The maximum number of results that each response (result page) can
--- include. It\'s used for a paginated request.
---
--- If you don\'t specify @MaxResults@, the request retrieves all available
--- results in a single response.
 --
 -- 'serviceArn', 'describeCustomDomains_serviceArn' - The Amazon Resource Name (ARN) of the App Runner service that you want
 -- associated custom domain names to be described for.
@@ -104,10 +104,19 @@ newDescribeCustomDomains ::
   DescribeCustomDomains
 newDescribeCustomDomains pServiceArn_ =
   DescribeCustomDomains'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       serviceArn = pServiceArn_
     }
+
+-- | The maximum number of results that each response (result page) can
+-- include. It\'s used for a paginated request.
+--
+-- If you don\'t specify @MaxResults@, the request retrieves all available
+-- results in a single response.
+describeCustomDomains_maxResults :: Lens.Lens' DescribeCustomDomains (Prelude.Maybe Prelude.Natural)
+describeCustomDomains_maxResults = Lens.lens (\DescribeCustomDomains' {maxResults} -> maxResults) (\s@DescribeCustomDomains' {} a -> s {maxResults = a} :: DescribeCustomDomains)
 
 -- | A token from a previous result page. It\'s used for a paginated request.
 -- The request retrieves the next result page. All other parameter values
@@ -117,14 +126,6 @@ newDescribeCustomDomains pServiceArn_ =
 -- result page.
 describeCustomDomains_nextToken :: Lens.Lens' DescribeCustomDomains (Prelude.Maybe Prelude.Text)
 describeCustomDomains_nextToken = Lens.lens (\DescribeCustomDomains' {nextToken} -> nextToken) (\s@DescribeCustomDomains' {} a -> s {nextToken = a} :: DescribeCustomDomains)
-
--- | The maximum number of results that each response (result page) can
--- include. It\'s used for a paginated request.
---
--- If you don\'t specify @MaxResults@, the request retrieves all available
--- results in a single response.
-describeCustomDomains_maxResults :: Lens.Lens' DescribeCustomDomains (Prelude.Maybe Prelude.Natural)
-describeCustomDomains_maxResults = Lens.lens (\DescribeCustomDomains' {maxResults} -> maxResults) (\s@DescribeCustomDomains' {} a -> s {maxResults = a} :: DescribeCustomDomains)
 
 -- | The Amazon Resource Name (ARN) of the App Runner service that you want
 -- associated custom domain names to be described for.
@@ -151,14 +152,14 @@ instance Core.AWSRequest DescribeCustomDomains where
 
 instance Prelude.Hashable DescribeCustomDomains where
   hashWithSalt _salt DescribeCustomDomains' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` serviceArn
 
 instance Prelude.NFData DescribeCustomDomains where
   rnf DescribeCustomDomains' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf serviceArn
 
 instance Data.ToHeaders DescribeCustomDomains where
@@ -180,8 +181,8 @@ instance Data.ToJSON DescribeCustomDomains where
   toJSON DescribeCustomDomains' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("ServiceArn" Data..= serviceArn)
           ]
       )

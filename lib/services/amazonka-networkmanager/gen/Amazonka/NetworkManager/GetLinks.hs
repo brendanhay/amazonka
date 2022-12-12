@@ -34,11 +34,11 @@ module Amazonka.NetworkManager.GetLinks
 
     -- * Request Lenses
     getLinks_linkIds,
+    getLinks_maxResults,
     getLinks_nextToken,
-    getLinks_type,
     getLinks_provider,
     getLinks_siteId,
-    getLinks_maxResults,
+    getLinks_type,
     getLinks_globalNetworkId,
 
     -- * Destructuring the Response
@@ -46,8 +46,8 @@ module Amazonka.NetworkManager.GetLinks
     newGetLinksResponse,
 
     -- * Response Lenses
-    getLinksResponse_nextToken,
     getLinksResponse_links,
+    getLinksResponse_nextToken,
     getLinksResponse_httpStatus,
   )
 where
@@ -64,16 +64,16 @@ import qualified Amazonka.Response as Response
 data GetLinks = GetLinks'
   { -- | One or more link IDs. The maximum is 10.
     linkIds :: Prelude.Maybe [Prelude.Text],
+    -- | The maximum number of results to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The link type.
-    type' :: Prelude.Maybe Prelude.Text,
     -- | The link provider.
     provider :: Prelude.Maybe Prelude.Text,
     -- | The ID of the site.
     siteId :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The link type.
+    type' :: Prelude.Maybe Prelude.Text,
     -- | The ID of the global network.
     globalNetworkId :: Prelude.Text
   }
@@ -89,15 +89,15 @@ data GetLinks = GetLinks'
 --
 -- 'linkIds', 'getLinks_linkIds' - One or more link IDs. The maximum is 10.
 --
--- 'nextToken', 'getLinks_nextToken' - The token for the next page of results.
+-- 'maxResults', 'getLinks_maxResults' - The maximum number of results to return.
 --
--- 'type'', 'getLinks_type' - The link type.
+-- 'nextToken', 'getLinks_nextToken' - The token for the next page of results.
 --
 -- 'provider', 'getLinks_provider' - The link provider.
 --
 -- 'siteId', 'getLinks_siteId' - The ID of the site.
 --
--- 'maxResults', 'getLinks_maxResults' - The maximum number of results to return.
+-- 'type'', 'getLinks_type' - The link type.
 --
 -- 'globalNetworkId', 'getLinks_globalNetworkId' - The ID of the global network.
 newGetLinks ::
@@ -107,11 +107,11 @@ newGetLinks ::
 newGetLinks pGlobalNetworkId_ =
   GetLinks'
     { linkIds = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      type' = Prelude.Nothing,
       provider = Prelude.Nothing,
       siteId = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      type' = Prelude.Nothing,
       globalNetworkId = pGlobalNetworkId_
     }
 
@@ -119,13 +119,13 @@ newGetLinks pGlobalNetworkId_ =
 getLinks_linkIds :: Lens.Lens' GetLinks (Prelude.Maybe [Prelude.Text])
 getLinks_linkIds = Lens.lens (\GetLinks' {linkIds} -> linkIds) (\s@GetLinks' {} a -> s {linkIds = a} :: GetLinks) Prelude.. Lens.mapping Lens.coerced
 
+-- | The maximum number of results to return.
+getLinks_maxResults :: Lens.Lens' GetLinks (Prelude.Maybe Prelude.Natural)
+getLinks_maxResults = Lens.lens (\GetLinks' {maxResults} -> maxResults) (\s@GetLinks' {} a -> s {maxResults = a} :: GetLinks)
+
 -- | The token for the next page of results.
 getLinks_nextToken :: Lens.Lens' GetLinks (Prelude.Maybe Prelude.Text)
 getLinks_nextToken = Lens.lens (\GetLinks' {nextToken} -> nextToken) (\s@GetLinks' {} a -> s {nextToken = a} :: GetLinks)
-
--- | The link type.
-getLinks_type :: Lens.Lens' GetLinks (Prelude.Maybe Prelude.Text)
-getLinks_type = Lens.lens (\GetLinks' {type'} -> type') (\s@GetLinks' {} a -> s {type' = a} :: GetLinks)
 
 -- | The link provider.
 getLinks_provider :: Lens.Lens' GetLinks (Prelude.Maybe Prelude.Text)
@@ -135,9 +135,9 @@ getLinks_provider = Lens.lens (\GetLinks' {provider} -> provider) (\s@GetLinks' 
 getLinks_siteId :: Lens.Lens' GetLinks (Prelude.Maybe Prelude.Text)
 getLinks_siteId = Lens.lens (\GetLinks' {siteId} -> siteId) (\s@GetLinks' {} a -> s {siteId = a} :: GetLinks)
 
--- | The maximum number of results to return.
-getLinks_maxResults :: Lens.Lens' GetLinks (Prelude.Maybe Prelude.Natural)
-getLinks_maxResults = Lens.lens (\GetLinks' {maxResults} -> maxResults) (\s@GetLinks' {} a -> s {maxResults = a} :: GetLinks)
+-- | The link type.
+getLinks_type :: Lens.Lens' GetLinks (Prelude.Maybe Prelude.Text)
+getLinks_type = Lens.lens (\GetLinks' {type'} -> type') (\s@GetLinks' {} a -> s {type' = a} :: GetLinks)
 
 -- | The ID of the global network.
 getLinks_globalNetworkId :: Lens.Lens' GetLinks Prelude.Text
@@ -170,29 +170,29 @@ instance Core.AWSRequest GetLinks where
     Response.receiveJSON
       ( \s h x ->
           GetLinksResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Links" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Links" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetLinks where
   hashWithSalt _salt GetLinks' {..} =
     _salt `Prelude.hashWithSalt` linkIds
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` provider
       `Prelude.hashWithSalt` siteId
-      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` globalNetworkId
 
 instance Prelude.NFData GetLinks where
   rnf GetLinks' {..} =
     Prelude.rnf linkIds
+      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf provider
       `Prelude.seq` Prelude.rnf siteId
-      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf globalNetworkId
 
 instance Data.ToHeaders GetLinks where
@@ -220,19 +220,19 @@ instance Data.ToQuery GetLinks where
       [ "linkIds"
           Data.=: Data.toQuery
             (Data.toQueryList "member" Prelude.<$> linkIds),
+        "maxResults" Data.=: maxResults,
         "nextToken" Data.=: nextToken,
-        "type" Data.=: type',
         "provider" Data.=: provider,
         "siteId" Data.=: siteId,
-        "maxResults" Data.=: maxResults
+        "type" Data.=: type'
       ]
 
 -- | /See:/ 'newGetLinksResponse' smart constructor.
 data GetLinksResponse = GetLinksResponse'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The links.
+  { -- | The links.
     links :: Prelude.Maybe [Link],
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -246,9 +246,9 @@ data GetLinksResponse = GetLinksResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getLinksResponse_nextToken' - The token for the next page of results.
---
 -- 'links', 'getLinksResponse_links' - The links.
+--
+-- 'nextToken', 'getLinksResponse_nextToken' - The token for the next page of results.
 --
 -- 'httpStatus', 'getLinksResponse_httpStatus' - The response's http status code.
 newGetLinksResponse ::
@@ -257,18 +257,18 @@ newGetLinksResponse ::
   GetLinksResponse
 newGetLinksResponse pHttpStatus_ =
   GetLinksResponse'
-    { nextToken = Prelude.Nothing,
-      links = Prelude.Nothing,
+    { links = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token for the next page of results.
-getLinksResponse_nextToken :: Lens.Lens' GetLinksResponse (Prelude.Maybe Prelude.Text)
-getLinksResponse_nextToken = Lens.lens (\GetLinksResponse' {nextToken} -> nextToken) (\s@GetLinksResponse' {} a -> s {nextToken = a} :: GetLinksResponse)
 
 -- | The links.
 getLinksResponse_links :: Lens.Lens' GetLinksResponse (Prelude.Maybe [Link])
 getLinksResponse_links = Lens.lens (\GetLinksResponse' {links} -> links) (\s@GetLinksResponse' {} a -> s {links = a} :: GetLinksResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next page of results.
+getLinksResponse_nextToken :: Lens.Lens' GetLinksResponse (Prelude.Maybe Prelude.Text)
+getLinksResponse_nextToken = Lens.lens (\GetLinksResponse' {nextToken} -> nextToken) (\s@GetLinksResponse' {} a -> s {nextToken = a} :: GetLinksResponse)
 
 -- | The response's http status code.
 getLinksResponse_httpStatus :: Lens.Lens' GetLinksResponse Prelude.Int
@@ -276,6 +276,6 @@ getLinksResponse_httpStatus = Lens.lens (\GetLinksResponse' {httpStatus} -> http
 
 instance Prelude.NFData GetLinksResponse where
   rnf GetLinksResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf links
+    Prelude.rnf links
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

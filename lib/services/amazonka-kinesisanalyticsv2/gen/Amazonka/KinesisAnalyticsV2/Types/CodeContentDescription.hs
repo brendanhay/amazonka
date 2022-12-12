@@ -30,16 +30,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCodeContentDescription' smart constructor.
 data CodeContentDescription = CodeContentDescription'
-  { -- | The text-format code
-    textContent :: Prelude.Maybe Prelude.Text,
-    -- | The checksum that can be used to validate zip-format code.
+  { -- | The checksum that can be used to validate zip-format code.
     codeMD5 :: Prelude.Maybe Prelude.Text,
+    -- | The size in bytes of the application code. Can be used to validate
+    -- zip-format code.
+    codeSize :: Prelude.Maybe Prelude.Natural,
     -- | The S3 bucket Amazon Resource Name (ARN), file key, and object version
     -- of the application code stored in Amazon S3.
     s3ApplicationCodeLocationDescription :: Prelude.Maybe S3ApplicationCodeLocationDescription,
-    -- | The size in bytes of the application code. Can be used to validate
-    -- zip-format code.
-    codeSize :: Prelude.Maybe Prelude.Natural
+    -- | The text-format code
+    textContent :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,44 +51,43 @@ data CodeContentDescription = CodeContentDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'textContent', 'codeContentDescription_textContent' - The text-format code
---
 -- 'codeMD5', 'codeContentDescription_codeMD5' - The checksum that can be used to validate zip-format code.
+--
+-- 'codeSize', 'codeContentDescription_codeSize' - The size in bytes of the application code. Can be used to validate
+-- zip-format code.
 --
 -- 's3ApplicationCodeLocationDescription', 'codeContentDescription_s3ApplicationCodeLocationDescription' - The S3 bucket Amazon Resource Name (ARN), file key, and object version
 -- of the application code stored in Amazon S3.
 --
--- 'codeSize', 'codeContentDescription_codeSize' - The size in bytes of the application code. Can be used to validate
--- zip-format code.
+-- 'textContent', 'codeContentDescription_textContent' - The text-format code
 newCodeContentDescription ::
   CodeContentDescription
 newCodeContentDescription =
   CodeContentDescription'
-    { textContent =
-        Prelude.Nothing,
-      codeMD5 = Prelude.Nothing,
+    { codeMD5 = Prelude.Nothing,
+      codeSize = Prelude.Nothing,
       s3ApplicationCodeLocationDescription =
         Prelude.Nothing,
-      codeSize = Prelude.Nothing
+      textContent = Prelude.Nothing
     }
-
--- | The text-format code
-codeContentDescription_textContent :: Lens.Lens' CodeContentDescription (Prelude.Maybe Prelude.Text)
-codeContentDescription_textContent = Lens.lens (\CodeContentDescription' {textContent} -> textContent) (\s@CodeContentDescription' {} a -> s {textContent = a} :: CodeContentDescription)
 
 -- | The checksum that can be used to validate zip-format code.
 codeContentDescription_codeMD5 :: Lens.Lens' CodeContentDescription (Prelude.Maybe Prelude.Text)
 codeContentDescription_codeMD5 = Lens.lens (\CodeContentDescription' {codeMD5} -> codeMD5) (\s@CodeContentDescription' {} a -> s {codeMD5 = a} :: CodeContentDescription)
+
+-- | The size in bytes of the application code. Can be used to validate
+-- zip-format code.
+codeContentDescription_codeSize :: Lens.Lens' CodeContentDescription (Prelude.Maybe Prelude.Natural)
+codeContentDescription_codeSize = Lens.lens (\CodeContentDescription' {codeSize} -> codeSize) (\s@CodeContentDescription' {} a -> s {codeSize = a} :: CodeContentDescription)
 
 -- | The S3 bucket Amazon Resource Name (ARN), file key, and object version
 -- of the application code stored in Amazon S3.
 codeContentDescription_s3ApplicationCodeLocationDescription :: Lens.Lens' CodeContentDescription (Prelude.Maybe S3ApplicationCodeLocationDescription)
 codeContentDescription_s3ApplicationCodeLocationDescription = Lens.lens (\CodeContentDescription' {s3ApplicationCodeLocationDescription} -> s3ApplicationCodeLocationDescription) (\s@CodeContentDescription' {} a -> s {s3ApplicationCodeLocationDescription = a} :: CodeContentDescription)
 
--- | The size in bytes of the application code. Can be used to validate
--- zip-format code.
-codeContentDescription_codeSize :: Lens.Lens' CodeContentDescription (Prelude.Maybe Prelude.Natural)
-codeContentDescription_codeSize = Lens.lens (\CodeContentDescription' {codeSize} -> codeSize) (\s@CodeContentDescription' {} a -> s {codeSize = a} :: CodeContentDescription)
+-- | The text-format code
+codeContentDescription_textContent :: Lens.Lens' CodeContentDescription (Prelude.Maybe Prelude.Text)
+codeContentDescription_textContent = Lens.lens (\CodeContentDescription' {textContent} -> textContent) (\s@CodeContentDescription' {} a -> s {textContent = a} :: CodeContentDescription)
 
 instance Data.FromJSON CodeContentDescription where
   parseJSON =
@@ -96,22 +95,22 @@ instance Data.FromJSON CodeContentDescription where
       "CodeContentDescription"
       ( \x ->
           CodeContentDescription'
-            Prelude.<$> (x Data..:? "TextContent")
-            Prelude.<*> (x Data..:? "CodeMD5")
-            Prelude.<*> (x Data..:? "S3ApplicationCodeLocationDescription")
+            Prelude.<$> (x Data..:? "CodeMD5")
             Prelude.<*> (x Data..:? "CodeSize")
+            Prelude.<*> (x Data..:? "S3ApplicationCodeLocationDescription")
+            Prelude.<*> (x Data..:? "TextContent")
       )
 
 instance Prelude.Hashable CodeContentDescription where
   hashWithSalt _salt CodeContentDescription' {..} =
-    _salt `Prelude.hashWithSalt` textContent
-      `Prelude.hashWithSalt` codeMD5
-      `Prelude.hashWithSalt` s3ApplicationCodeLocationDescription
+    _salt `Prelude.hashWithSalt` codeMD5
       `Prelude.hashWithSalt` codeSize
+      `Prelude.hashWithSalt` s3ApplicationCodeLocationDescription
+      `Prelude.hashWithSalt` textContent
 
 instance Prelude.NFData CodeContentDescription where
   rnf CodeContentDescription' {..} =
-    Prelude.rnf textContent
-      `Prelude.seq` Prelude.rnf codeMD5
-      `Prelude.seq` Prelude.rnf s3ApplicationCodeLocationDescription
+    Prelude.rnf codeMD5
       `Prelude.seq` Prelude.rnf codeSize
+      `Prelude.seq` Prelude.rnf s3ApplicationCodeLocationDescription
+      `Prelude.seq` Prelude.rnf textContent

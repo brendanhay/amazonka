@@ -102,8 +102,8 @@ module Amazonka.SageMaker.CreateEndpoint
     newCreateEndpoint,
 
     -- * Request Lenses
-    createEndpoint_tags,
     createEndpoint_deploymentConfig,
+    createEndpoint_tags,
     createEndpoint_endpointName,
     createEndpoint_endpointConfigName,
 
@@ -127,12 +127,12 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newCreateEndpoint' smart constructor.
 data CreateEndpoint = CreateEndpoint'
-  { -- | An array of key-value pairs. You can use tags to categorize your Amazon
+  { deploymentConfig :: Prelude.Maybe DeploymentConfig,
+    -- | An array of key-value pairs. You can use tags to categorize your Amazon
     -- Web Services resources in different ways, for example, by purpose,
     -- owner, or environment. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
     tags :: Prelude.Maybe [Tag],
-    deploymentConfig :: Prelude.Maybe DeploymentConfig,
     -- | The name of the endpoint.The name must be unique within an Amazon Web
     -- Services Region in your Amazon Web Services account. The name is
     -- case-insensitive in @CreateEndpoint@, but the case is preserved and must
@@ -152,12 +152,12 @@ data CreateEndpoint = CreateEndpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'deploymentConfig', 'createEndpoint_deploymentConfig' - Undocumented member.
+--
 -- 'tags', 'createEndpoint_tags' - An array of key-value pairs. You can use tags to categorize your Amazon
 -- Web Services resources in different ways, for example, by purpose,
 -- owner, or environment. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
---
--- 'deploymentConfig', 'createEndpoint_deploymentConfig' - Undocumented member.
 --
 -- 'endpointName', 'createEndpoint_endpointName' - The name of the endpoint.The name must be unique within an Amazon Web
 -- Services Region in your Amazon Web Services account. The name is
@@ -174,11 +174,15 @@ newCreateEndpoint ::
   CreateEndpoint
 newCreateEndpoint pEndpointName_ pEndpointConfigName_ =
   CreateEndpoint'
-    { tags = Prelude.Nothing,
-      deploymentConfig = Prelude.Nothing,
+    { deploymentConfig = Prelude.Nothing,
+      tags = Prelude.Nothing,
       endpointName = pEndpointName_,
       endpointConfigName = pEndpointConfigName_
     }
+
+-- | Undocumented member.
+createEndpoint_deploymentConfig :: Lens.Lens' CreateEndpoint (Prelude.Maybe DeploymentConfig)
+createEndpoint_deploymentConfig = Lens.lens (\CreateEndpoint' {deploymentConfig} -> deploymentConfig) (\s@CreateEndpoint' {} a -> s {deploymentConfig = a} :: CreateEndpoint)
 
 -- | An array of key-value pairs. You can use tags to categorize your Amazon
 -- Web Services resources in different ways, for example, by purpose,
@@ -186,10 +190,6 @@ newCreateEndpoint pEndpointName_ pEndpointConfigName_ =
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
 createEndpoint_tags :: Lens.Lens' CreateEndpoint (Prelude.Maybe [Tag])
 createEndpoint_tags = Lens.lens (\CreateEndpoint' {tags} -> tags) (\s@CreateEndpoint' {} a -> s {tags = a} :: CreateEndpoint) Prelude.. Lens.mapping Lens.coerced
-
--- | Undocumented member.
-createEndpoint_deploymentConfig :: Lens.Lens' CreateEndpoint (Prelude.Maybe DeploymentConfig)
-createEndpoint_deploymentConfig = Lens.lens (\CreateEndpoint' {deploymentConfig} -> deploymentConfig) (\s@CreateEndpoint' {} a -> s {deploymentConfig = a} :: CreateEndpoint)
 
 -- | The name of the endpoint.The name must be unique within an Amazon Web
 -- Services Region in your Amazon Web Services account. The name is
@@ -219,15 +219,15 @@ instance Core.AWSRequest CreateEndpoint where
 
 instance Prelude.Hashable CreateEndpoint where
   hashWithSalt _salt CreateEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` deploymentConfig
+    _salt `Prelude.hashWithSalt` deploymentConfig
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` endpointName
       `Prelude.hashWithSalt` endpointConfigName
 
 instance Prelude.NFData CreateEndpoint where
   rnf CreateEndpoint' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf deploymentConfig
+    Prelude.rnf deploymentConfig
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf endpointName
       `Prelude.seq` Prelude.rnf endpointConfigName
 
@@ -248,9 +248,9 @@ instance Data.ToJSON CreateEndpoint where
   toJSON CreateEndpoint' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("DeploymentConfig" Data..=)
+          [ ("DeploymentConfig" Data..=)
               Prelude.<$> deploymentConfig,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("EndpointName" Data..= endpointName),
             Prelude.Just
               ("EndpointConfigName" Data..= endpointConfigName)

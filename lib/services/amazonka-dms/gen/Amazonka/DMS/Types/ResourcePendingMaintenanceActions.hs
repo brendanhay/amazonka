@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResourcePendingMaintenanceActions' smart constructor.
 data ResourcePendingMaintenanceActions = ResourcePendingMaintenanceActions'
-  { -- | The Amazon Resource Name (ARN) of the DMS resource that the pending
+  { -- | Detailed information about the pending maintenance action.
+    pendingMaintenanceActionDetails :: Prelude.Maybe [PendingMaintenanceAction],
+    -- | The Amazon Resource Name (ARN) of the DMS resource that the pending
     -- maintenance action applies to. For information about creating an ARN,
     -- see
     -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.AWS.ARN.html Constructing an Amazon Resource Name (ARN) for DMS>
     -- in the DMS documentation.
-    resourceIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | Detailed information about the pending maintenance action.
-    pendingMaintenanceActionDetails :: Prelude.Maybe [PendingMaintenanceAction]
+    resourceIdentifier :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,22 +48,25 @@ data ResourcePendingMaintenanceActions = ResourcePendingMaintenanceActions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'pendingMaintenanceActionDetails', 'resourcePendingMaintenanceActions_pendingMaintenanceActionDetails' - Detailed information about the pending maintenance action.
+--
 -- 'resourceIdentifier', 'resourcePendingMaintenanceActions_resourceIdentifier' - The Amazon Resource Name (ARN) of the DMS resource that the pending
 -- maintenance action applies to. For information about creating an ARN,
 -- see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.AWS.ARN.html Constructing an Amazon Resource Name (ARN) for DMS>
 -- in the DMS documentation.
---
--- 'pendingMaintenanceActionDetails', 'resourcePendingMaintenanceActions_pendingMaintenanceActionDetails' - Detailed information about the pending maintenance action.
 newResourcePendingMaintenanceActions ::
   ResourcePendingMaintenanceActions
 newResourcePendingMaintenanceActions =
   ResourcePendingMaintenanceActions'
-    { resourceIdentifier =
+    { pendingMaintenanceActionDetails =
         Prelude.Nothing,
-      pendingMaintenanceActionDetails =
-        Prelude.Nothing
+      resourceIdentifier = Prelude.Nothing
     }
+
+-- | Detailed information about the pending maintenance action.
+resourcePendingMaintenanceActions_pendingMaintenanceActionDetails :: Lens.Lens' ResourcePendingMaintenanceActions (Prelude.Maybe [PendingMaintenanceAction])
+resourcePendingMaintenanceActions_pendingMaintenanceActionDetails = Lens.lens (\ResourcePendingMaintenanceActions' {pendingMaintenanceActionDetails} -> pendingMaintenanceActionDetails) (\s@ResourcePendingMaintenanceActions' {} a -> s {pendingMaintenanceActionDetails = a} :: ResourcePendingMaintenanceActions) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the DMS resource that the pending
 -- maintenance action applies to. For information about creating an ARN,
@@ -72,10 +75,6 @@ newResourcePendingMaintenanceActions =
 -- in the DMS documentation.
 resourcePendingMaintenanceActions_resourceIdentifier :: Lens.Lens' ResourcePendingMaintenanceActions (Prelude.Maybe Prelude.Text)
 resourcePendingMaintenanceActions_resourceIdentifier = Lens.lens (\ResourcePendingMaintenanceActions' {resourceIdentifier} -> resourceIdentifier) (\s@ResourcePendingMaintenanceActions' {} a -> s {resourceIdentifier = a} :: ResourcePendingMaintenanceActions)
-
--- | Detailed information about the pending maintenance action.
-resourcePendingMaintenanceActions_pendingMaintenanceActionDetails :: Lens.Lens' ResourcePendingMaintenanceActions (Prelude.Maybe [PendingMaintenanceAction])
-resourcePendingMaintenanceActions_pendingMaintenanceActionDetails = Lens.lens (\ResourcePendingMaintenanceActions' {pendingMaintenanceActionDetails} -> pendingMaintenanceActionDetails) (\s@ResourcePendingMaintenanceActions' {} a -> s {pendingMaintenanceActionDetails = a} :: ResourcePendingMaintenanceActions) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Data.FromJSON
@@ -86,10 +85,10 @@ instance
       "ResourcePendingMaintenanceActions"
       ( \x ->
           ResourcePendingMaintenanceActions'
-            Prelude.<$> (x Data..:? "ResourceIdentifier")
-            Prelude.<*> ( x Data..:? "PendingMaintenanceActionDetails"
+            Prelude.<$> ( x Data..:? "PendingMaintenanceActionDetails"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "ResourceIdentifier")
       )
 
 instance
@@ -99,13 +98,14 @@ instance
   hashWithSalt
     _salt
     ResourcePendingMaintenanceActions' {..} =
-      _salt `Prelude.hashWithSalt` resourceIdentifier
+      _salt
         `Prelude.hashWithSalt` pendingMaintenanceActionDetails
+        `Prelude.hashWithSalt` resourceIdentifier
 
 instance
   Prelude.NFData
     ResourcePendingMaintenanceActions
   where
   rnf ResourcePendingMaintenanceActions' {..} =
-    Prelude.rnf resourceIdentifier
-      `Prelude.seq` Prelude.rnf pendingMaintenanceActionDetails
+    Prelude.rnf pendingMaintenanceActionDetails
+      `Prelude.seq` Prelude.rnf resourceIdentifier

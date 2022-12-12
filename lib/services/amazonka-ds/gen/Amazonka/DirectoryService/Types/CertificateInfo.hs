@@ -30,18 +30,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCertificateInfo' smart constructor.
 data CertificateInfo = CertificateInfo'
-  { -- | The function that the registered certificate performs. Valid values
-    -- include @ClientLDAPS@ or @ClientCertAuth@. The default value is
-    -- @ClientLDAPS@.
-    type' :: Prelude.Maybe CertificateType,
-    -- | The state of the certificate.
-    state :: Prelude.Maybe CertificateState,
-    -- | The identifier of the certificate.
+  { -- | The identifier of the certificate.
     certificateId :: Prelude.Maybe Prelude.Text,
     -- | The common name for the certificate.
     commonName :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the certificate will expire.
-    expiryDateTime :: Prelude.Maybe Data.POSIX
+    expiryDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The state of the certificate.
+    state :: Prelude.Maybe CertificateState,
+    -- | The function that the registered certificate performs. Valid values
+    -- include @ClientLDAPS@ or @ClientCertAuth@. The default value is
+    -- @ClientLDAPS@.
+    type' :: Prelude.Maybe CertificateType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,37 +53,27 @@ data CertificateInfo = CertificateInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'certificateInfo_type' - The function that the registered certificate performs. Valid values
--- include @ClientLDAPS@ or @ClientCertAuth@. The default value is
--- @ClientLDAPS@.
---
--- 'state', 'certificateInfo_state' - The state of the certificate.
---
 -- 'certificateId', 'certificateInfo_certificateId' - The identifier of the certificate.
 --
 -- 'commonName', 'certificateInfo_commonName' - The common name for the certificate.
 --
 -- 'expiryDateTime', 'certificateInfo_expiryDateTime' - The date and time when the certificate will expire.
+--
+-- 'state', 'certificateInfo_state' - The state of the certificate.
+--
+-- 'type'', 'certificateInfo_type' - The function that the registered certificate performs. Valid values
+-- include @ClientLDAPS@ or @ClientCertAuth@. The default value is
+-- @ClientLDAPS@.
 newCertificateInfo ::
   CertificateInfo
 newCertificateInfo =
   CertificateInfo'
-    { type' = Prelude.Nothing,
-      state = Prelude.Nothing,
-      certificateId = Prelude.Nothing,
+    { certificateId = Prelude.Nothing,
       commonName = Prelude.Nothing,
-      expiryDateTime = Prelude.Nothing
+      expiryDateTime = Prelude.Nothing,
+      state = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
-
--- | The function that the registered certificate performs. Valid values
--- include @ClientLDAPS@ or @ClientCertAuth@. The default value is
--- @ClientLDAPS@.
-certificateInfo_type :: Lens.Lens' CertificateInfo (Prelude.Maybe CertificateType)
-certificateInfo_type = Lens.lens (\CertificateInfo' {type'} -> type') (\s@CertificateInfo' {} a -> s {type' = a} :: CertificateInfo)
-
--- | The state of the certificate.
-certificateInfo_state :: Lens.Lens' CertificateInfo (Prelude.Maybe CertificateState)
-certificateInfo_state = Lens.lens (\CertificateInfo' {state} -> state) (\s@CertificateInfo' {} a -> s {state = a} :: CertificateInfo)
 
 -- | The identifier of the certificate.
 certificateInfo_certificateId :: Lens.Lens' CertificateInfo (Prelude.Maybe Prelude.Text)
@@ -97,31 +87,41 @@ certificateInfo_commonName = Lens.lens (\CertificateInfo' {commonName} -> common
 certificateInfo_expiryDateTime :: Lens.Lens' CertificateInfo (Prelude.Maybe Prelude.UTCTime)
 certificateInfo_expiryDateTime = Lens.lens (\CertificateInfo' {expiryDateTime} -> expiryDateTime) (\s@CertificateInfo' {} a -> s {expiryDateTime = a} :: CertificateInfo) Prelude.. Lens.mapping Data._Time
 
+-- | The state of the certificate.
+certificateInfo_state :: Lens.Lens' CertificateInfo (Prelude.Maybe CertificateState)
+certificateInfo_state = Lens.lens (\CertificateInfo' {state} -> state) (\s@CertificateInfo' {} a -> s {state = a} :: CertificateInfo)
+
+-- | The function that the registered certificate performs. Valid values
+-- include @ClientLDAPS@ or @ClientCertAuth@. The default value is
+-- @ClientLDAPS@.
+certificateInfo_type :: Lens.Lens' CertificateInfo (Prelude.Maybe CertificateType)
+certificateInfo_type = Lens.lens (\CertificateInfo' {type'} -> type') (\s@CertificateInfo' {} a -> s {type' = a} :: CertificateInfo)
+
 instance Data.FromJSON CertificateInfo where
   parseJSON =
     Data.withObject
       "CertificateInfo"
       ( \x ->
           CertificateInfo'
-            Prelude.<$> (x Data..:? "Type")
-            Prelude.<*> (x Data..:? "State")
-            Prelude.<*> (x Data..:? "CertificateId")
+            Prelude.<$> (x Data..:? "CertificateId")
             Prelude.<*> (x Data..:? "CommonName")
             Prelude.<*> (x Data..:? "ExpiryDateTime")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable CertificateInfo where
   hashWithSalt _salt CertificateInfo' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` certificateId
+    _salt `Prelude.hashWithSalt` certificateId
       `Prelude.hashWithSalt` commonName
       `Prelude.hashWithSalt` expiryDateTime
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData CertificateInfo where
   rnf CertificateInfo' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf certificateId
+    Prelude.rnf certificateId
       `Prelude.seq` Prelude.rnf commonName
       `Prelude.seq` Prelude.rnf expiryDateTime
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf type'

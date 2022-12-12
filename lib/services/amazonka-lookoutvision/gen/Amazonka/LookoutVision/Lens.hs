@@ -23,10 +23,10 @@ module Amazonka.LookoutVision.Lens
     createDatasetResponse_httpStatus,
 
     -- ** CreateModel
-    createModel_tags,
     createModel_clientToken,
     createModel_description,
     createModel_kmsKeyId,
+    createModel_tags,
     createModel_projectName,
     createModel_outputConfig,
     createModelResponse_modelMetadata,
@@ -89,40 +89,40 @@ module Amazonka.LookoutVision.Lens
     detectAnomaliesResponse_httpStatus,
 
     -- ** ListDatasetEntries
-    listDatasetEntries_nextToken,
-    listDatasetEntries_labeled,
-    listDatasetEntries_sourceRefContains,
     listDatasetEntries_afterCreationDate,
-    listDatasetEntries_beforeCreationDate,
     listDatasetEntries_anomalyClass,
+    listDatasetEntries_beforeCreationDate,
+    listDatasetEntries_labeled,
     listDatasetEntries_maxResults,
+    listDatasetEntries_nextToken,
+    listDatasetEntries_sourceRefContains,
     listDatasetEntries_projectName,
     listDatasetEntries_datasetType,
-    listDatasetEntriesResponse_nextToken,
     listDatasetEntriesResponse_datasetEntries,
+    listDatasetEntriesResponse_nextToken,
     listDatasetEntriesResponse_httpStatus,
 
     -- ** ListModelPackagingJobs
-    listModelPackagingJobs_nextToken,
     listModelPackagingJobs_maxResults,
+    listModelPackagingJobs_nextToken,
     listModelPackagingJobs_projectName,
-    listModelPackagingJobsResponse_nextToken,
     listModelPackagingJobsResponse_modelPackagingJobs,
+    listModelPackagingJobsResponse_nextToken,
     listModelPackagingJobsResponse_httpStatus,
 
     -- ** ListModels
-    listModels_nextToken,
     listModels_maxResults,
+    listModels_nextToken,
     listModels_projectName,
-    listModelsResponse_nextToken,
     listModelsResponse_models,
+    listModelsResponse_nextToken,
     listModelsResponse_httpStatus,
 
     -- ** ListProjects
-    listProjects_nextToken,
     listProjects_maxResults,
-    listProjectsResponse_projects,
+    listProjects_nextToken,
     listProjectsResponse_nextToken,
+    listProjectsResponse_projects,
     listProjectsResponse_httpStatus,
 
     -- ** ListTagsForResource
@@ -141,8 +141,8 @@ module Amazonka.LookoutVision.Lens
 
     -- ** StartModelPackagingJob
     startModelPackagingJob_clientToken,
-    startModelPackagingJob_jobName,
     startModelPackagingJob_description,
+    startModelPackagingJob_jobName,
     startModelPackagingJob_projectName,
     startModelPackagingJob_modelVersion,
     startModelPackagingJob_configuration,
@@ -181,27 +181,27 @@ module Amazonka.LookoutVision.Lens
     anomaly_pixelAnomaly,
 
     -- ** DatasetDescription
-    datasetDescription_lastUpdatedTimestamp,
-    datasetDescription_datasetType,
-    datasetDescription_status,
     datasetDescription_creationTimestamp,
-    datasetDescription_projectName,
-    datasetDescription_statusMessage,
+    datasetDescription_datasetType,
     datasetDescription_imageStats,
+    datasetDescription_lastUpdatedTimestamp,
+    datasetDescription_projectName,
+    datasetDescription_status,
+    datasetDescription_statusMessage,
 
     -- ** DatasetGroundTruthManifest
     datasetGroundTruthManifest_s3Object,
 
     -- ** DatasetImageStats
-    datasetImageStats_total,
-    datasetImageStats_labeled,
     datasetImageStats_anomaly,
+    datasetImageStats_labeled,
     datasetImageStats_normal,
+    datasetImageStats_total,
 
     -- ** DatasetMetadata
+    datasetMetadata_creationTimestamp,
     datasetMetadata_datasetType,
     datasetMetadata_status,
-    datasetMetadata_creationTimestamp,
     datasetMetadata_statusMessage,
 
     -- ** DatasetSource
@@ -209,24 +209,24 @@ module Amazonka.LookoutVision.Lens
 
     -- ** DetectAnomalyResult
     detectAnomalyResult_anomalies,
-    detectAnomalyResult_confidence,
-    detectAnomalyResult_source,
-    detectAnomalyResult_isAnomalous,
     detectAnomalyResult_anomalyMask,
+    detectAnomalyResult_confidence,
+    detectAnomalyResult_isAnomalous,
+    detectAnomalyResult_source,
 
     -- ** GreengrassConfiguration
+    greengrassConfiguration_compilerOptions,
     greengrassConfiguration_componentDescription,
-    greengrassConfiguration_tags,
     greengrassConfiguration_componentVersion,
+    greengrassConfiguration_tags,
     greengrassConfiguration_targetDevice,
     greengrassConfiguration_targetPlatform,
-    greengrassConfiguration_compilerOptions,
     greengrassConfiguration_s3OutputLocation,
     greengrassConfiguration_componentName,
 
     -- ** GreengrassOutputDetails
-    greengrassOutputDetails_componentVersion,
     greengrassOutputDetails_componentName,
+    greengrassOutputDetails_componentVersion,
     greengrassOutputDetails_componentVersionArn,
 
     -- ** ImageSource
@@ -238,55 +238,55 @@ module Amazonka.LookoutVision.Lens
     inputS3Object_key,
 
     -- ** ModelDescription
-    modelDescription_evaluationManifest,
-    modelDescription_minInferenceUnits,
-    modelDescription_modelVersion,
-    modelDescription_evaluationEndTimestamp,
-    modelDescription_status,
-    modelDescription_description,
     modelDescription_creationTimestamp,
-    modelDescription_performance,
-    modelDescription_modelArn,
+    modelDescription_description,
+    modelDescription_evaluationEndTimestamp,
+    modelDescription_evaluationManifest,
     modelDescription_evaluationResult,
     modelDescription_kmsKeyId,
     modelDescription_maxInferenceUnits,
-    modelDescription_statusMessage,
+    modelDescription_minInferenceUnits,
+    modelDescription_modelArn,
+    modelDescription_modelVersion,
     modelDescription_outputConfig,
+    modelDescription_performance,
+    modelDescription_status,
+    modelDescription_statusMessage,
 
     -- ** ModelMetadata
-    modelMetadata_modelVersion,
-    modelMetadata_status,
-    modelMetadata_description,
     modelMetadata_creationTimestamp,
-    modelMetadata_performance,
+    modelMetadata_description,
     modelMetadata_modelArn,
+    modelMetadata_modelVersion,
+    modelMetadata_performance,
+    modelMetadata_status,
     modelMetadata_statusMessage,
 
     -- ** ModelPackagingConfiguration
     modelPackagingConfiguration_greengrass,
 
     -- ** ModelPackagingDescription
-    modelPackagingDescription_lastUpdatedTimestamp,
-    modelPackagingDescription_jobName,
-    modelPackagingDescription_modelPackagingOutputDetails,
-    modelPackagingDescription_modelVersion,
-    modelPackagingDescription_status,
     modelPackagingDescription_creationTimestamp,
+    modelPackagingDescription_jobName,
+    modelPackagingDescription_lastUpdatedTimestamp,
+    modelPackagingDescription_modelPackagingConfiguration,
     modelPackagingDescription_modelPackagingJobDescription,
     modelPackagingDescription_modelPackagingMethod,
+    modelPackagingDescription_modelPackagingOutputDetails,
+    modelPackagingDescription_modelVersion,
     modelPackagingDescription_projectName,
+    modelPackagingDescription_status,
     modelPackagingDescription_statusMessage,
-    modelPackagingDescription_modelPackagingConfiguration,
 
     -- ** ModelPackagingJobMetadata
-    modelPackagingJobMetadata_lastUpdatedTimestamp,
-    modelPackagingJobMetadata_jobName,
-    modelPackagingJobMetadata_modelVersion,
-    modelPackagingJobMetadata_status,
     modelPackagingJobMetadata_creationTimestamp,
+    modelPackagingJobMetadata_jobName,
+    modelPackagingJobMetadata_lastUpdatedTimestamp,
     modelPackagingJobMetadata_modelPackagingJobDescription,
     modelPackagingJobMetadata_modelPackagingMethod,
+    modelPackagingJobMetadata_modelVersion,
     modelPackagingJobMetadata_projectName,
+    modelPackagingJobMetadata_status,
     modelPackagingJobMetadata_statusMessage,
 
     -- ** ModelPackagingOutputDetails
@@ -294,8 +294,8 @@ module Amazonka.LookoutVision.Lens
 
     -- ** ModelPerformance
     modelPerformance_f1Score,
-    modelPerformance_recall,
     modelPerformance_precision,
+    modelPerformance_recall,
 
     -- ** OutputConfig
     outputConfig_s3Location,
@@ -309,15 +309,15 @@ module Amazonka.LookoutVision.Lens
     pixelAnomaly_totalPercentageArea,
 
     -- ** ProjectDescription
-    projectDescription_datasets,
     projectDescription_creationTimestamp,
-    projectDescription_projectName,
+    projectDescription_datasets,
     projectDescription_projectArn,
+    projectDescription_projectName,
 
     -- ** ProjectMetadata
     projectMetadata_creationTimestamp,
-    projectMetadata_projectName,
     projectMetadata_projectArn,
+    projectMetadata_projectName,
 
     -- ** S3Location
     s3Location_prefix,

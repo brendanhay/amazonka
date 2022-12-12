@@ -32,9 +32,9 @@ module Amazonka.IAM.CreateUser
     newCreateUser,
 
     -- * Request Lenses
-    createUser_tags,
     createUser_path,
     createUser_permissionsBoundary,
+    createUser_tags,
     createUser_userName,
 
     -- * Destructuring the Response
@@ -57,17 +57,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateUser' smart constructor.
 data CreateUser = CreateUser'
-  { -- | A list of tags that you want to attach to the new user. Each tag
-    -- consists of a key name and an associated value. For more information
-    -- about tagging, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
-    -- in the /IAM User Guide/.
-    --
-    -- If any one of the tags is invalid or if you exceed the allowed maximum
-    -- number of tags, then the entire request fails and the resource is not
-    -- created.
-    tags :: Prelude.Maybe [Tag],
-    -- | The path for the user name. For more information about paths, see
+  { -- | The path for the user name. For more information about paths, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
     -- in the /IAM User Guide/.
     --
@@ -85,6 +75,16 @@ data CreateUser = CreateUser'
     -- | The ARN of the policy that is used to set the permissions boundary for
     -- the user.
     permissionsBoundary :: Prelude.Maybe Prelude.Text,
+    -- | A list of tags that you want to attach to the new user. Each tag
+    -- consists of a key name and an associated value. For more information
+    -- about tagging, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
+    -- in the /IAM User Guide/.
+    --
+    -- If any one of the tags is invalid or if you exceed the allowed maximum
+    -- number of tags, then the entire request fails and the resource is not
+    -- created.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the user to create.
     --
     -- IAM user, group, role, and policy names must be unique within the
@@ -101,16 +101,6 @@ data CreateUser = CreateUser'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'tags', 'createUser_tags' - A list of tags that you want to attach to the new user. Each tag
--- consists of a key name and an associated value. For more information
--- about tagging, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
--- in the /IAM User Guide/.
---
--- If any one of the tags is invalid or if you exceed the allowed maximum
--- number of tags, then the entire request fails and the resource is not
--- created.
 --
 -- 'path', 'createUser_path' - The path for the user name. For more information about paths, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
@@ -130,6 +120,16 @@ data CreateUser = CreateUser'
 -- 'permissionsBoundary', 'createUser_permissionsBoundary' - The ARN of the policy that is used to set the permissions boundary for
 -- the user.
 --
+-- 'tags', 'createUser_tags' - A list of tags that you want to attach to the new user. Each tag
+-- consists of a key name and an associated value. For more information
+-- about tagging, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
+-- in the /IAM User Guide/.
+--
+-- If any one of the tags is invalid or if you exceed the allowed maximum
+-- number of tags, then the entire request fails and the resource is not
+-- created.
+--
 -- 'userName', 'createUser_userName' - The name of the user to create.
 --
 -- IAM user, group, role, and policy names must be unique within the
@@ -141,23 +141,11 @@ newCreateUser ::
   CreateUser
 newCreateUser pUserName_ =
   CreateUser'
-    { tags = Prelude.Nothing,
-      path = Prelude.Nothing,
+    { path = Prelude.Nothing,
       permissionsBoundary = Prelude.Nothing,
+      tags = Prelude.Nothing,
       userName = pUserName_
     }
-
--- | A list of tags that you want to attach to the new user. Each tag
--- consists of a key name and an associated value. For more information
--- about tagging, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
--- in the /IAM User Guide/.
---
--- If any one of the tags is invalid or if you exceed the allowed maximum
--- number of tags, then the entire request fails and the resource is not
--- created.
-createUser_tags :: Lens.Lens' CreateUser (Prelude.Maybe [Tag])
-createUser_tags = Lens.lens (\CreateUser' {tags} -> tags) (\s@CreateUser' {} a -> s {tags = a} :: CreateUser) Prelude.. Lens.mapping Lens.coerced
 
 -- | The path for the user name. For more information about paths, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
@@ -180,6 +168,18 @@ createUser_path = Lens.lens (\CreateUser' {path} -> path) (\s@CreateUser' {} a -
 -- the user.
 createUser_permissionsBoundary :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
 createUser_permissionsBoundary = Lens.lens (\CreateUser' {permissionsBoundary} -> permissionsBoundary) (\s@CreateUser' {} a -> s {permissionsBoundary = a} :: CreateUser)
+
+-- | A list of tags that you want to attach to the new user. Each tag
+-- consists of a key name and an associated value. For more information
+-- about tagging, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
+-- in the /IAM User Guide/.
+--
+-- If any one of the tags is invalid or if you exceed the allowed maximum
+-- number of tags, then the entire request fails and the resource is not
+-- created.
+createUser_tags :: Lens.Lens' CreateUser (Prelude.Maybe [Tag])
+createUser_tags = Lens.lens (\CreateUser' {tags} -> tags) (\s@CreateUser' {} a -> s {tags = a} :: CreateUser) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the user to create.
 --
@@ -204,16 +204,16 @@ instance Core.AWSRequest CreateUser where
 
 instance Prelude.Hashable CreateUser where
   hashWithSalt _salt CreateUser' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` path
+    _salt `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` permissionsBoundary
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` userName
 
 instance Prelude.NFData CreateUser where
   rnf CreateUser' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf path
+    Prelude.rnf path
       `Prelude.seq` Prelude.rnf permissionsBoundary
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf userName
 
 instance Data.ToHeaders CreateUser where
@@ -229,11 +229,11 @@ instance Data.ToQuery CreateUser where
           Data.=: ("CreateUser" :: Prelude.ByteString),
         "Version"
           Data.=: ("2010-05-08" :: Prelude.ByteString),
+        "Path" Data.=: path,
+        "PermissionsBoundary" Data.=: permissionsBoundary,
         "Tags"
           Data.=: Data.toQuery
             (Data.toQueryList "member" Prelude.<$> tags),
-        "Path" Data.=: path,
-        "PermissionsBoundary" Data.=: permissionsBoundary,
         "UserName" Data.=: userName
       ]
 

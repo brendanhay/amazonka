@@ -29,11 +29,11 @@ module Amazonka.SageMaker.ListCandidatesForAutoMLJob
     newListCandidatesForAutoMLJob,
 
     -- * Request Lenses
-    listCandidatesForAutoMLJob_sortOrder,
-    listCandidatesForAutoMLJob_nextToken,
     listCandidatesForAutoMLJob_candidateNameEquals,
-    listCandidatesForAutoMLJob_sortBy,
     listCandidatesForAutoMLJob_maxResults,
+    listCandidatesForAutoMLJob_nextToken,
+    listCandidatesForAutoMLJob_sortBy,
+    listCandidatesForAutoMLJob_sortOrder,
     listCandidatesForAutoMLJob_statusEquals,
     listCandidatesForAutoMLJob_autoMLJobName,
 
@@ -58,17 +58,17 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newListCandidatesForAutoMLJob' smart constructor.
 data ListCandidatesForAutoMLJob = ListCandidatesForAutoMLJob'
-  { -- | The sort order for the results. The default is @Ascending@.
-    sortOrder :: Prelude.Maybe AutoMLSortOrder,
+  { -- | List the candidates for the job and filter by candidate name.
+    candidateNameEquals :: Prelude.Maybe Prelude.Text,
+    -- | List the job\'s candidates up to a specified limit.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | If the previous response was truncated, you receive this token. Use it
     -- in your next request to receive the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | List the candidates for the job and filter by candidate name.
-    candidateNameEquals :: Prelude.Maybe Prelude.Text,
     -- | The parameter by which to sort the results. The default is @Descending@.
     sortBy :: Prelude.Maybe CandidateSortBy,
-    -- | List the job\'s candidates up to a specified limit.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The sort order for the results. The default is @Ascending@.
+    sortOrder :: Prelude.Maybe AutoMLSortOrder,
     -- | List the candidates for the job and filter by status.
     statusEquals :: Prelude.Maybe CandidateStatus,
     -- | List the candidates created for the job by providing the job\'s name.
@@ -84,16 +84,16 @@ data ListCandidatesForAutoMLJob = ListCandidatesForAutoMLJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listCandidatesForAutoMLJob_sortOrder' - The sort order for the results. The default is @Ascending@.
+-- 'candidateNameEquals', 'listCandidatesForAutoMLJob_candidateNameEquals' - List the candidates for the job and filter by candidate name.
+--
+-- 'maxResults', 'listCandidatesForAutoMLJob_maxResults' - List the job\'s candidates up to a specified limit.
 --
 -- 'nextToken', 'listCandidatesForAutoMLJob_nextToken' - If the previous response was truncated, you receive this token. Use it
 -- in your next request to receive the next set of results.
 --
--- 'candidateNameEquals', 'listCandidatesForAutoMLJob_candidateNameEquals' - List the candidates for the job and filter by candidate name.
---
 -- 'sortBy', 'listCandidatesForAutoMLJob_sortBy' - The parameter by which to sort the results. The default is @Descending@.
 --
--- 'maxResults', 'listCandidatesForAutoMLJob_maxResults' - List the job\'s candidates up to a specified limit.
+-- 'sortOrder', 'listCandidatesForAutoMLJob_sortOrder' - The sort order for the results. The default is @Ascending@.
 --
 -- 'statusEquals', 'listCandidatesForAutoMLJob_statusEquals' - List the candidates for the job and filter by status.
 --
@@ -104,36 +104,36 @@ newListCandidatesForAutoMLJob ::
   ListCandidatesForAutoMLJob
 newListCandidatesForAutoMLJob pAutoMLJobName_ =
   ListCandidatesForAutoMLJob'
-    { sortOrder =
+    { candidateNameEquals =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      candidateNameEquals = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       statusEquals = Prelude.Nothing,
       autoMLJobName = pAutoMLJobName_
     }
 
--- | The sort order for the results. The default is @Ascending@.
-listCandidatesForAutoMLJob_sortOrder :: Lens.Lens' ListCandidatesForAutoMLJob (Prelude.Maybe AutoMLSortOrder)
-listCandidatesForAutoMLJob_sortOrder = Lens.lens (\ListCandidatesForAutoMLJob' {sortOrder} -> sortOrder) (\s@ListCandidatesForAutoMLJob' {} a -> s {sortOrder = a} :: ListCandidatesForAutoMLJob)
+-- | List the candidates for the job and filter by candidate name.
+listCandidatesForAutoMLJob_candidateNameEquals :: Lens.Lens' ListCandidatesForAutoMLJob (Prelude.Maybe Prelude.Text)
+listCandidatesForAutoMLJob_candidateNameEquals = Lens.lens (\ListCandidatesForAutoMLJob' {candidateNameEquals} -> candidateNameEquals) (\s@ListCandidatesForAutoMLJob' {} a -> s {candidateNameEquals = a} :: ListCandidatesForAutoMLJob)
+
+-- | List the job\'s candidates up to a specified limit.
+listCandidatesForAutoMLJob_maxResults :: Lens.Lens' ListCandidatesForAutoMLJob (Prelude.Maybe Prelude.Natural)
+listCandidatesForAutoMLJob_maxResults = Lens.lens (\ListCandidatesForAutoMLJob' {maxResults} -> maxResults) (\s@ListCandidatesForAutoMLJob' {} a -> s {maxResults = a} :: ListCandidatesForAutoMLJob)
 
 -- | If the previous response was truncated, you receive this token. Use it
 -- in your next request to receive the next set of results.
 listCandidatesForAutoMLJob_nextToken :: Lens.Lens' ListCandidatesForAutoMLJob (Prelude.Maybe Prelude.Text)
 listCandidatesForAutoMLJob_nextToken = Lens.lens (\ListCandidatesForAutoMLJob' {nextToken} -> nextToken) (\s@ListCandidatesForAutoMLJob' {} a -> s {nextToken = a} :: ListCandidatesForAutoMLJob)
 
--- | List the candidates for the job and filter by candidate name.
-listCandidatesForAutoMLJob_candidateNameEquals :: Lens.Lens' ListCandidatesForAutoMLJob (Prelude.Maybe Prelude.Text)
-listCandidatesForAutoMLJob_candidateNameEquals = Lens.lens (\ListCandidatesForAutoMLJob' {candidateNameEquals} -> candidateNameEquals) (\s@ListCandidatesForAutoMLJob' {} a -> s {candidateNameEquals = a} :: ListCandidatesForAutoMLJob)
-
 -- | The parameter by which to sort the results. The default is @Descending@.
 listCandidatesForAutoMLJob_sortBy :: Lens.Lens' ListCandidatesForAutoMLJob (Prelude.Maybe CandidateSortBy)
 listCandidatesForAutoMLJob_sortBy = Lens.lens (\ListCandidatesForAutoMLJob' {sortBy} -> sortBy) (\s@ListCandidatesForAutoMLJob' {} a -> s {sortBy = a} :: ListCandidatesForAutoMLJob)
 
--- | List the job\'s candidates up to a specified limit.
-listCandidatesForAutoMLJob_maxResults :: Lens.Lens' ListCandidatesForAutoMLJob (Prelude.Maybe Prelude.Natural)
-listCandidatesForAutoMLJob_maxResults = Lens.lens (\ListCandidatesForAutoMLJob' {maxResults} -> maxResults) (\s@ListCandidatesForAutoMLJob' {} a -> s {maxResults = a} :: ListCandidatesForAutoMLJob)
+-- | The sort order for the results. The default is @Ascending@.
+listCandidatesForAutoMLJob_sortOrder :: Lens.Lens' ListCandidatesForAutoMLJob (Prelude.Maybe AutoMLSortOrder)
+listCandidatesForAutoMLJob_sortOrder = Lens.lens (\ListCandidatesForAutoMLJob' {sortOrder} -> sortOrder) (\s@ListCandidatesForAutoMLJob' {} a -> s {sortOrder = a} :: ListCandidatesForAutoMLJob)
 
 -- | List the candidates for the job and filter by status.
 listCandidatesForAutoMLJob_statusEquals :: Lens.Lens' ListCandidatesForAutoMLJob (Prelude.Maybe CandidateStatus)
@@ -181,21 +181,21 @@ instance Core.AWSRequest ListCandidatesForAutoMLJob where
 
 instance Prelude.Hashable ListCandidatesForAutoMLJob where
   hashWithSalt _salt ListCandidatesForAutoMLJob' {..} =
-    _salt `Prelude.hashWithSalt` sortOrder
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` candidateNameEquals
-      `Prelude.hashWithSalt` sortBy
+    _salt `Prelude.hashWithSalt` candidateNameEquals
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` sortOrder
       `Prelude.hashWithSalt` statusEquals
       `Prelude.hashWithSalt` autoMLJobName
 
 instance Prelude.NFData ListCandidatesForAutoMLJob where
   rnf ListCandidatesForAutoMLJob' {..} =
-    Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf candidateNameEquals
-      `Prelude.seq` Prelude.rnf sortBy
+    Prelude.rnf candidateNameEquals
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf sortOrder
       `Prelude.seq` Prelude.rnf statusEquals
       `Prelude.seq` Prelude.rnf autoMLJobName
 
@@ -218,12 +218,12 @@ instance Data.ToJSON ListCandidatesForAutoMLJob where
   toJSON ListCandidatesForAutoMLJob' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
-            ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("CandidateNameEquals" Data..=)
+          [ ("CandidateNameEquals" Data..=)
               Prelude.<$> candidateNameEquals,
-            ("SortBy" Data..=) Prelude.<$> sortBy,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("SortOrder" Data..=) Prelude.<$> sortOrder,
             ("StatusEquals" Data..=) Prelude.<$> statusEquals,
             Prelude.Just
               ("AutoMLJobName" Data..= autoMLJobName)

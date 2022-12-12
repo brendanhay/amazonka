@@ -29,21 +29,9 @@ import Amazonka.SecurityHub.Types.AwsEcsServiceDeploymentConfigurationDeployment
 --
 -- /See:/ 'newAwsEcsServiceDeploymentConfigurationDetails' smart constructor.
 data AwsEcsServiceDeploymentConfigurationDetails = AwsEcsServiceDeploymentConfigurationDetails'
-  { -- | For a service that uses the rolling update (@ECS@) deployment type, the
-    -- minimum number of tasks in a service that must remain in the @RUNNING@
-    -- state during a deployment, and while any container instances are in the
-    -- @DRAINING@ state if the service contains tasks using the EC2 launch
-    -- type. Expressed as a percentage of the desired number of tasks. The
-    -- default value is 100%.
-    --
-    -- For a service that uses the blue\/green (@CODE_DEPLOY@) or @EXTERNAL@
-    -- deployment types and tasks that use the EC2 launch type, the minimum
-    -- number of the tasks in the service that remain in the @RUNNING@ state
-    -- while the container instances are in the @DRAINING@ state.
-    --
-    -- For the Fargate launch type, the minimum healthy percent value is not
-    -- used.
-    minimumHealthyPercent :: Prelude.Maybe Prelude.Int,
+  { -- | Determines whether a service deployment fails if a service cannot reach
+    -- a steady state.
+    deploymentCircuitBreaker :: Prelude.Maybe AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails,
     -- | For a service that uses the rolling update (@ECS@) deployment type, the
     -- maximum number of tasks in a service that are allowed in the @RUNNING@
     -- or @PENDING@ state during a deployment, and for tasks that use the EC2
@@ -58,9 +46,21 @@ data AwsEcsServiceDeploymentConfigurationDetails = AwsEcsServiceDeploymentConfig
     --
     -- For the Fargate launch type, the maximum percent value is not used.
     maximumPercent :: Prelude.Maybe Prelude.Int,
-    -- | Determines whether a service deployment fails if a service cannot reach
-    -- a steady state.
-    deploymentCircuitBreaker :: Prelude.Maybe AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails
+    -- | For a service that uses the rolling update (@ECS@) deployment type, the
+    -- minimum number of tasks in a service that must remain in the @RUNNING@
+    -- state during a deployment, and while any container instances are in the
+    -- @DRAINING@ state if the service contains tasks using the EC2 launch
+    -- type. Expressed as a percentage of the desired number of tasks. The
+    -- default value is 100%.
+    --
+    -- For a service that uses the blue\/green (@CODE_DEPLOY@) or @EXTERNAL@
+    -- deployment types and tasks that use the EC2 launch type, the minimum
+    -- number of the tasks in the service that remain in the @RUNNING@ state
+    -- while the container instances are in the @DRAINING@ state.
+    --
+    -- For the Fargate launch type, the minimum healthy percent value is not
+    -- used.
+    minimumHealthyPercent :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,20 +72,8 @@ data AwsEcsServiceDeploymentConfigurationDetails = AwsEcsServiceDeploymentConfig
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'minimumHealthyPercent', 'awsEcsServiceDeploymentConfigurationDetails_minimumHealthyPercent' - For a service that uses the rolling update (@ECS@) deployment type, the
--- minimum number of tasks in a service that must remain in the @RUNNING@
--- state during a deployment, and while any container instances are in the
--- @DRAINING@ state if the service contains tasks using the EC2 launch
--- type. Expressed as a percentage of the desired number of tasks. The
--- default value is 100%.
---
--- For a service that uses the blue\/green (@CODE_DEPLOY@) or @EXTERNAL@
--- deployment types and tasks that use the EC2 launch type, the minimum
--- number of the tasks in the service that remain in the @RUNNING@ state
--- while the container instances are in the @DRAINING@ state.
---
--- For the Fargate launch type, the minimum healthy percent value is not
--- used.
+-- 'deploymentCircuitBreaker', 'awsEcsServiceDeploymentConfigurationDetails_deploymentCircuitBreaker' - Determines whether a service deployment fails if a service cannot reach
+-- a steady state.
 --
 -- 'maximumPercent', 'awsEcsServiceDeploymentConfigurationDetails_maximumPercent' - For a service that uses the rolling update (@ECS@) deployment type, the
 -- maximum number of tasks in a service that are allowed in the @RUNNING@
@@ -101,19 +89,52 @@ data AwsEcsServiceDeploymentConfigurationDetails = AwsEcsServiceDeploymentConfig
 --
 -- For the Fargate launch type, the maximum percent value is not used.
 --
--- 'deploymentCircuitBreaker', 'awsEcsServiceDeploymentConfigurationDetails_deploymentCircuitBreaker' - Determines whether a service deployment fails if a service cannot reach
--- a steady state.
+-- 'minimumHealthyPercent', 'awsEcsServiceDeploymentConfigurationDetails_minimumHealthyPercent' - For a service that uses the rolling update (@ECS@) deployment type, the
+-- minimum number of tasks in a service that must remain in the @RUNNING@
+-- state during a deployment, and while any container instances are in the
+-- @DRAINING@ state if the service contains tasks using the EC2 launch
+-- type. Expressed as a percentage of the desired number of tasks. The
+-- default value is 100%.
+--
+-- For a service that uses the blue\/green (@CODE_DEPLOY@) or @EXTERNAL@
+-- deployment types and tasks that use the EC2 launch type, the minimum
+-- number of the tasks in the service that remain in the @RUNNING@ state
+-- while the container instances are in the @DRAINING@ state.
+--
+-- For the Fargate launch type, the minimum healthy percent value is not
+-- used.
 newAwsEcsServiceDeploymentConfigurationDetails ::
   AwsEcsServiceDeploymentConfigurationDetails
 newAwsEcsServiceDeploymentConfigurationDetails =
   AwsEcsServiceDeploymentConfigurationDetails'
-    { minimumHealthyPercent =
+    { deploymentCircuitBreaker =
         Prelude.Nothing,
       maximumPercent =
         Prelude.Nothing,
-      deploymentCircuitBreaker =
+      minimumHealthyPercent =
         Prelude.Nothing
     }
+
+-- | Determines whether a service deployment fails if a service cannot reach
+-- a steady state.
+awsEcsServiceDeploymentConfigurationDetails_deploymentCircuitBreaker :: Lens.Lens' AwsEcsServiceDeploymentConfigurationDetails (Prelude.Maybe AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails)
+awsEcsServiceDeploymentConfigurationDetails_deploymentCircuitBreaker = Lens.lens (\AwsEcsServiceDeploymentConfigurationDetails' {deploymentCircuitBreaker} -> deploymentCircuitBreaker) (\s@AwsEcsServiceDeploymentConfigurationDetails' {} a -> s {deploymentCircuitBreaker = a} :: AwsEcsServiceDeploymentConfigurationDetails)
+
+-- | For a service that uses the rolling update (@ECS@) deployment type, the
+-- maximum number of tasks in a service that are allowed in the @RUNNING@
+-- or @PENDING@ state during a deployment, and for tasks that use the EC2
+-- launch type, when any container instances are in the @DRAINING@ state.
+-- Provided as a percentage of the desired number of tasks. The default
+-- value is 200%.
+--
+-- For a service that uses the blue\/green (@CODE_DEPLOY@) or @EXTERNAL@
+-- deployment types, and tasks that use the EC2 launch type, the maximum
+-- number of tasks in the service that remain in the @RUNNING@ state while
+-- the container instances are in the @DRAINING@ state.
+--
+-- For the Fargate launch type, the maximum percent value is not used.
+awsEcsServiceDeploymentConfigurationDetails_maximumPercent :: Lens.Lens' AwsEcsServiceDeploymentConfigurationDetails (Prelude.Maybe Prelude.Int)
+awsEcsServiceDeploymentConfigurationDetails_maximumPercent = Lens.lens (\AwsEcsServiceDeploymentConfigurationDetails' {maximumPercent} -> maximumPercent) (\s@AwsEcsServiceDeploymentConfigurationDetails' {} a -> s {maximumPercent = a} :: AwsEcsServiceDeploymentConfigurationDetails)
 
 -- | For a service that uses the rolling update (@ECS@) deployment type, the
 -- minimum number of tasks in a service that must remain in the @RUNNING@
@@ -132,27 +153,6 @@ newAwsEcsServiceDeploymentConfigurationDetails =
 awsEcsServiceDeploymentConfigurationDetails_minimumHealthyPercent :: Lens.Lens' AwsEcsServiceDeploymentConfigurationDetails (Prelude.Maybe Prelude.Int)
 awsEcsServiceDeploymentConfigurationDetails_minimumHealthyPercent = Lens.lens (\AwsEcsServiceDeploymentConfigurationDetails' {minimumHealthyPercent} -> minimumHealthyPercent) (\s@AwsEcsServiceDeploymentConfigurationDetails' {} a -> s {minimumHealthyPercent = a} :: AwsEcsServiceDeploymentConfigurationDetails)
 
--- | For a service that uses the rolling update (@ECS@) deployment type, the
--- maximum number of tasks in a service that are allowed in the @RUNNING@
--- or @PENDING@ state during a deployment, and for tasks that use the EC2
--- launch type, when any container instances are in the @DRAINING@ state.
--- Provided as a percentage of the desired number of tasks. The default
--- value is 200%.
---
--- For a service that uses the blue\/green (@CODE_DEPLOY@) or @EXTERNAL@
--- deployment types, and tasks that use the EC2 launch type, the maximum
--- number of tasks in the service that remain in the @RUNNING@ state while
--- the container instances are in the @DRAINING@ state.
---
--- For the Fargate launch type, the maximum percent value is not used.
-awsEcsServiceDeploymentConfigurationDetails_maximumPercent :: Lens.Lens' AwsEcsServiceDeploymentConfigurationDetails (Prelude.Maybe Prelude.Int)
-awsEcsServiceDeploymentConfigurationDetails_maximumPercent = Lens.lens (\AwsEcsServiceDeploymentConfigurationDetails' {maximumPercent} -> maximumPercent) (\s@AwsEcsServiceDeploymentConfigurationDetails' {} a -> s {maximumPercent = a} :: AwsEcsServiceDeploymentConfigurationDetails)
-
--- | Determines whether a service deployment fails if a service cannot reach
--- a steady state.
-awsEcsServiceDeploymentConfigurationDetails_deploymentCircuitBreaker :: Lens.Lens' AwsEcsServiceDeploymentConfigurationDetails (Prelude.Maybe AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails)
-awsEcsServiceDeploymentConfigurationDetails_deploymentCircuitBreaker = Lens.lens (\AwsEcsServiceDeploymentConfigurationDetails' {deploymentCircuitBreaker} -> deploymentCircuitBreaker) (\s@AwsEcsServiceDeploymentConfigurationDetails' {} a -> s {deploymentCircuitBreaker = a} :: AwsEcsServiceDeploymentConfigurationDetails)
-
 instance
   Data.FromJSON
     AwsEcsServiceDeploymentConfigurationDetails
@@ -162,9 +162,9 @@ instance
       "AwsEcsServiceDeploymentConfigurationDetails"
       ( \x ->
           AwsEcsServiceDeploymentConfigurationDetails'
-            Prelude.<$> (x Data..:? "MinimumHealthyPercent")
+            Prelude.<$> (x Data..:? "DeploymentCircuitBreaker")
               Prelude.<*> (x Data..:? "MaximumPercent")
-              Prelude.<*> (x Data..:? "DeploymentCircuitBreaker")
+              Prelude.<*> (x Data..:? "MinimumHealthyPercent")
       )
 
 instance
@@ -174,18 +174,19 @@ instance
   hashWithSalt
     _salt
     AwsEcsServiceDeploymentConfigurationDetails' {..} =
-      _salt `Prelude.hashWithSalt` minimumHealthyPercent
-        `Prelude.hashWithSalt` maximumPercent
+      _salt
         `Prelude.hashWithSalt` deploymentCircuitBreaker
+        `Prelude.hashWithSalt` maximumPercent
+        `Prelude.hashWithSalt` minimumHealthyPercent
 
 instance
   Prelude.NFData
     AwsEcsServiceDeploymentConfigurationDetails
   where
   rnf AwsEcsServiceDeploymentConfigurationDetails' {..} =
-    Prelude.rnf minimumHealthyPercent
+    Prelude.rnf deploymentCircuitBreaker
       `Prelude.seq` Prelude.rnf maximumPercent
-      `Prelude.seq` Prelude.rnf deploymentCircuitBreaker
+      `Prelude.seq` Prelude.rnf minimumHealthyPercent
 
 instance
   Data.ToJSON
@@ -195,11 +196,11 @@ instance
     AwsEcsServiceDeploymentConfigurationDetails' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("MinimumHealthyPercent" Data..=)
-                Prelude.<$> minimumHealthyPercent,
+            [ ("DeploymentCircuitBreaker" Data..=)
+                Prelude.<$> deploymentCircuitBreaker,
               ("MaximumPercent" Data..=)
                 Prelude.<$> maximumPercent,
-              ("DeploymentCircuitBreaker" Data..=)
-                Prelude.<$> deploymentCircuitBreaker
+              ("MinimumHealthyPercent" Data..=)
+                Prelude.<$> minimumHealthyPercent
             ]
         )

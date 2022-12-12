@@ -27,8 +27,8 @@ module Amazonka.WorkMail.ListImpersonationRoles
     newListImpersonationRoles,
 
     -- * Request Lenses
-    listImpersonationRoles_nextToken,
     listImpersonationRoles_maxResults,
+    listImpersonationRoles_nextToken,
     listImpersonationRoles_organizationId,
 
     -- * Destructuring the Response
@@ -52,11 +52,11 @@ import Amazonka.WorkMail.Types
 
 -- | /See:/ 'newListImpersonationRoles' smart constructor.
 data ListImpersonationRoles = ListImpersonationRoles'
-  { -- | The token used to retrieve the next page of results. The first call
+  { -- | The maximum number of results returned in a single call.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token used to retrieve the next page of results. The first call
     -- doesn\'t require a token.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results returned in a single call.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The WorkMail organization to which the listed impersonation roles
     -- belong.
     organizationId :: Prelude.Text
@@ -71,10 +71,10 @@ data ListImpersonationRoles = ListImpersonationRoles'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listImpersonationRoles_maxResults' - The maximum number of results returned in a single call.
+--
 -- 'nextToken', 'listImpersonationRoles_nextToken' - The token used to retrieve the next page of results. The first call
 -- doesn\'t require a token.
---
--- 'maxResults', 'listImpersonationRoles_maxResults' - The maximum number of results returned in a single call.
 --
 -- 'organizationId', 'listImpersonationRoles_organizationId' - The WorkMail organization to which the listed impersonation roles
 -- belong.
@@ -84,20 +84,20 @@ newListImpersonationRoles ::
   ListImpersonationRoles
 newListImpersonationRoles pOrganizationId_ =
   ListImpersonationRoles'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       organizationId = pOrganizationId_
     }
+
+-- | The maximum number of results returned in a single call.
+listImpersonationRoles_maxResults :: Lens.Lens' ListImpersonationRoles (Prelude.Maybe Prelude.Natural)
+listImpersonationRoles_maxResults = Lens.lens (\ListImpersonationRoles' {maxResults} -> maxResults) (\s@ListImpersonationRoles' {} a -> s {maxResults = a} :: ListImpersonationRoles)
 
 -- | The token used to retrieve the next page of results. The first call
 -- doesn\'t require a token.
 listImpersonationRoles_nextToken :: Lens.Lens' ListImpersonationRoles (Prelude.Maybe Prelude.Text)
 listImpersonationRoles_nextToken = Lens.lens (\ListImpersonationRoles' {nextToken} -> nextToken) (\s@ListImpersonationRoles' {} a -> s {nextToken = a} :: ListImpersonationRoles)
-
--- | The maximum number of results returned in a single call.
-listImpersonationRoles_maxResults :: Lens.Lens' ListImpersonationRoles (Prelude.Maybe Prelude.Natural)
-listImpersonationRoles_maxResults = Lens.lens (\ListImpersonationRoles' {maxResults} -> maxResults) (\s@ListImpersonationRoles' {} a -> s {maxResults = a} :: ListImpersonationRoles)
 
 -- | The WorkMail organization to which the listed impersonation roles
 -- belong.
@@ -121,14 +121,14 @@ instance Core.AWSRequest ListImpersonationRoles where
 
 instance Prelude.Hashable ListImpersonationRoles where
   hashWithSalt _salt ListImpersonationRoles' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` organizationId
 
 instance Prelude.NFData ListImpersonationRoles where
   rnf ListImpersonationRoles' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf organizationId
 
 instance Data.ToHeaders ListImpersonationRoles where
@@ -150,8 +150,8 @@ instance Data.ToJSON ListImpersonationRoles where
   toJSON ListImpersonationRoles' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("OrganizationId" Data..= organizationId)
           ]

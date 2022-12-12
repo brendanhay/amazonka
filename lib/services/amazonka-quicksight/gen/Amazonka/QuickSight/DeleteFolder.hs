@@ -35,9 +35,9 @@ module Amazonka.QuickSight.DeleteFolder
     newDeleteFolderResponse,
 
     -- * Response Lenses
-    deleteFolderResponse_requestId,
     deleteFolderResponse_arn,
     deleteFolderResponse_folderId,
+    deleteFolderResponse_requestId,
     deleteFolderResponse_status,
   )
 where
@@ -98,9 +98,9 @@ instance Core.AWSRequest DeleteFolder where
     Response.receiveJSON
       ( \s h x ->
           DeleteFolderResponse'
-            Prelude.<$> (x Data..?> "RequestId")
-            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (x Data..?> "FolderId")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,12 +139,12 @@ instance Data.ToQuery DeleteFolder where
 
 -- | /See:/ 'newDeleteFolderResponse' smart constructor.
 data DeleteFolderResponse = DeleteFolderResponse'
-  { -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name of the deleted folder.
+  { -- | The Amazon Resource Name of the deleted folder.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the folder.
     folderId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -158,11 +158,11 @@ data DeleteFolderResponse = DeleteFolderResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'deleteFolderResponse_requestId' - The Amazon Web Services request ID for this operation.
---
 -- 'arn', 'deleteFolderResponse_arn' - The Amazon Resource Name of the deleted folder.
 --
 -- 'folderId', 'deleteFolderResponse_folderId' - The ID of the folder.
+--
+-- 'requestId', 'deleteFolderResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'status', 'deleteFolderResponse_status' - The HTTP status of the request.
 newDeleteFolderResponse ::
@@ -171,15 +171,11 @@ newDeleteFolderResponse ::
   DeleteFolderResponse
 newDeleteFolderResponse pStatus_ =
   DeleteFolderResponse'
-    { requestId = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       folderId = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       status = pStatus_
     }
-
--- | The Amazon Web Services request ID for this operation.
-deleteFolderResponse_requestId :: Lens.Lens' DeleteFolderResponse (Prelude.Maybe Prelude.Text)
-deleteFolderResponse_requestId = Lens.lens (\DeleteFolderResponse' {requestId} -> requestId) (\s@DeleteFolderResponse' {} a -> s {requestId = a} :: DeleteFolderResponse)
 
 -- | The Amazon Resource Name of the deleted folder.
 deleteFolderResponse_arn :: Lens.Lens' DeleteFolderResponse (Prelude.Maybe Prelude.Text)
@@ -189,13 +185,17 @@ deleteFolderResponse_arn = Lens.lens (\DeleteFolderResponse' {arn} -> arn) (\s@D
 deleteFolderResponse_folderId :: Lens.Lens' DeleteFolderResponse (Prelude.Maybe Prelude.Text)
 deleteFolderResponse_folderId = Lens.lens (\DeleteFolderResponse' {folderId} -> folderId) (\s@DeleteFolderResponse' {} a -> s {folderId = a} :: DeleteFolderResponse)
 
+-- | The Amazon Web Services request ID for this operation.
+deleteFolderResponse_requestId :: Lens.Lens' DeleteFolderResponse (Prelude.Maybe Prelude.Text)
+deleteFolderResponse_requestId = Lens.lens (\DeleteFolderResponse' {requestId} -> requestId) (\s@DeleteFolderResponse' {} a -> s {requestId = a} :: DeleteFolderResponse)
+
 -- | The HTTP status of the request.
 deleteFolderResponse_status :: Lens.Lens' DeleteFolderResponse Prelude.Int
 deleteFolderResponse_status = Lens.lens (\DeleteFolderResponse' {status} -> status) (\s@DeleteFolderResponse' {} a -> s {status = a} :: DeleteFolderResponse)
 
 instance Prelude.NFData DeleteFolderResponse where
   rnf DeleteFolderResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf folderId
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf status

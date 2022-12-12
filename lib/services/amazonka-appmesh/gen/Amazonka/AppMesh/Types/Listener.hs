@@ -34,17 +34,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newListener' smart constructor.
 data Listener = Listener'
-  { -- | An object that represents timeouts for different protocols.
-    timeout :: Prelude.Maybe ListenerTimeout,
+  { -- | The connection pool information for the listener.
+    connectionPool :: Prelude.Maybe VirtualNodeConnectionPool,
     -- | The health check information for the listener.
     healthCheck :: Prelude.Maybe HealthCheckPolicy,
+    -- | The outlier detection information for the listener.
+    outlierDetection :: Prelude.Maybe OutlierDetection,
+    -- | An object that represents timeouts for different protocols.
+    timeout :: Prelude.Maybe ListenerTimeout,
     -- | A reference to an object that represents the Transport Layer Security
     -- (TLS) properties for a listener.
     tls :: Prelude.Maybe ListenerTls,
-    -- | The connection pool information for the listener.
-    connectionPool :: Prelude.Maybe VirtualNodeConnectionPool,
-    -- | The outlier detection information for the listener.
-    outlierDetection :: Prelude.Maybe OutlierDetection,
     -- | The port mapping information for the listener.
     portMapping :: PortMapping
   }
@@ -58,16 +58,16 @@ data Listener = Listener'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'timeout', 'listener_timeout' - An object that represents timeouts for different protocols.
+-- 'connectionPool', 'listener_connectionPool' - The connection pool information for the listener.
 --
 -- 'healthCheck', 'listener_healthCheck' - The health check information for the listener.
 --
+-- 'outlierDetection', 'listener_outlierDetection' - The outlier detection information for the listener.
+--
+-- 'timeout', 'listener_timeout' - An object that represents timeouts for different protocols.
+--
 -- 'tls', 'listener_tls' - A reference to an object that represents the Transport Layer Security
 -- (TLS) properties for a listener.
---
--- 'connectionPool', 'listener_connectionPool' - The connection pool information for the listener.
---
--- 'outlierDetection', 'listener_outlierDetection' - The outlier detection information for the listener.
 --
 -- 'portMapping', 'listener_portMapping' - The port mapping information for the listener.
 newListener ::
@@ -76,34 +76,34 @@ newListener ::
   Listener
 newListener pPortMapping_ =
   Listener'
-    { timeout = Prelude.Nothing,
+    { connectionPool = Prelude.Nothing,
       healthCheck = Prelude.Nothing,
-      tls = Prelude.Nothing,
-      connectionPool = Prelude.Nothing,
       outlierDetection = Prelude.Nothing,
+      timeout = Prelude.Nothing,
+      tls = Prelude.Nothing,
       portMapping = pPortMapping_
     }
-
--- | An object that represents timeouts for different protocols.
-listener_timeout :: Lens.Lens' Listener (Prelude.Maybe ListenerTimeout)
-listener_timeout = Lens.lens (\Listener' {timeout} -> timeout) (\s@Listener' {} a -> s {timeout = a} :: Listener)
-
--- | The health check information for the listener.
-listener_healthCheck :: Lens.Lens' Listener (Prelude.Maybe HealthCheckPolicy)
-listener_healthCheck = Lens.lens (\Listener' {healthCheck} -> healthCheck) (\s@Listener' {} a -> s {healthCheck = a} :: Listener)
-
--- | A reference to an object that represents the Transport Layer Security
--- (TLS) properties for a listener.
-listener_tls :: Lens.Lens' Listener (Prelude.Maybe ListenerTls)
-listener_tls = Lens.lens (\Listener' {tls} -> tls) (\s@Listener' {} a -> s {tls = a} :: Listener)
 
 -- | The connection pool information for the listener.
 listener_connectionPool :: Lens.Lens' Listener (Prelude.Maybe VirtualNodeConnectionPool)
 listener_connectionPool = Lens.lens (\Listener' {connectionPool} -> connectionPool) (\s@Listener' {} a -> s {connectionPool = a} :: Listener)
 
+-- | The health check information for the listener.
+listener_healthCheck :: Lens.Lens' Listener (Prelude.Maybe HealthCheckPolicy)
+listener_healthCheck = Lens.lens (\Listener' {healthCheck} -> healthCheck) (\s@Listener' {} a -> s {healthCheck = a} :: Listener)
+
 -- | The outlier detection information for the listener.
 listener_outlierDetection :: Lens.Lens' Listener (Prelude.Maybe OutlierDetection)
 listener_outlierDetection = Lens.lens (\Listener' {outlierDetection} -> outlierDetection) (\s@Listener' {} a -> s {outlierDetection = a} :: Listener)
+
+-- | An object that represents timeouts for different protocols.
+listener_timeout :: Lens.Lens' Listener (Prelude.Maybe ListenerTimeout)
+listener_timeout = Lens.lens (\Listener' {timeout} -> timeout) (\s@Listener' {} a -> s {timeout = a} :: Listener)
+
+-- | A reference to an object that represents the Transport Layer Security
+-- (TLS) properties for a listener.
+listener_tls :: Lens.Lens' Listener (Prelude.Maybe ListenerTls)
+listener_tls = Lens.lens (\Listener' {tls} -> tls) (\s@Listener' {} a -> s {tls = a} :: Listener)
 
 -- | The port mapping information for the listener.
 listener_portMapping :: Lens.Lens' Listener PortMapping
@@ -115,43 +115,43 @@ instance Data.FromJSON Listener where
       "Listener"
       ( \x ->
           Listener'
-            Prelude.<$> (x Data..:? "timeout")
+            Prelude.<$> (x Data..:? "connectionPool")
             Prelude.<*> (x Data..:? "healthCheck")
-            Prelude.<*> (x Data..:? "tls")
-            Prelude.<*> (x Data..:? "connectionPool")
             Prelude.<*> (x Data..:? "outlierDetection")
+            Prelude.<*> (x Data..:? "timeout")
+            Prelude.<*> (x Data..:? "tls")
             Prelude.<*> (x Data..: "portMapping")
       )
 
 instance Prelude.Hashable Listener where
   hashWithSalt _salt Listener' {..} =
-    _salt `Prelude.hashWithSalt` timeout
+    _salt `Prelude.hashWithSalt` connectionPool
       `Prelude.hashWithSalt` healthCheck
-      `Prelude.hashWithSalt` tls
-      `Prelude.hashWithSalt` connectionPool
       `Prelude.hashWithSalt` outlierDetection
+      `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` tls
       `Prelude.hashWithSalt` portMapping
 
 instance Prelude.NFData Listener where
   rnf Listener' {..} =
-    Prelude.rnf timeout
+    Prelude.rnf connectionPool
       `Prelude.seq` Prelude.rnf healthCheck
-      `Prelude.seq` Prelude.rnf tls
-      `Prelude.seq` Prelude.rnf connectionPool
       `Prelude.seq` Prelude.rnf outlierDetection
+      `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf tls
       `Prelude.seq` Prelude.rnf portMapping
 
 instance Data.ToJSON Listener where
   toJSON Listener' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("timeout" Data..=) Prelude.<$> timeout,
-            ("healthCheck" Data..=) Prelude.<$> healthCheck,
-            ("tls" Data..=) Prelude.<$> tls,
-            ("connectionPool" Data..=)
+          [ ("connectionPool" Data..=)
               Prelude.<$> connectionPool,
+            ("healthCheck" Data..=) Prelude.<$> healthCheck,
             ("outlierDetection" Data..=)
               Prelude.<$> outlierDetection,
+            ("timeout" Data..=) Prelude.<$> timeout,
+            ("tls" Data..=) Prelude.<$> tls,
             Prelude.Just ("portMapping" Data..= portMapping)
           ]
       )

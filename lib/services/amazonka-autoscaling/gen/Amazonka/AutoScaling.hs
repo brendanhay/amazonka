@@ -31,29 +31,29 @@ module Amazonka.AutoScaling
     -- ** ActiveInstanceRefreshNotFoundFault
     _ActiveInstanceRefreshNotFoundFault,
 
-    -- ** InvalidNextToken
-    _InvalidNextToken,
-
-    -- ** ResourceInUseFault
-    _ResourceInUseFault,
-
-    -- ** LimitExceededFault
-    _LimitExceededFault,
-
-    -- ** ServiceLinkedRoleFailure
-    _ServiceLinkedRoleFailure,
-
-    -- ** ScalingActivityInProgressFault
-    _ScalingActivityInProgressFault,
+    -- ** AlreadyExistsFault
+    _AlreadyExistsFault,
 
     -- ** InstanceRefreshInProgressFault
     _InstanceRefreshInProgressFault,
 
-    -- ** AlreadyExistsFault
-    _AlreadyExistsFault,
+    -- ** InvalidNextToken
+    _InvalidNextToken,
+
+    -- ** LimitExceededFault
+    _LimitExceededFault,
 
     -- ** ResourceContentionFault
     _ResourceContentionFault,
+
+    -- ** ResourceInUseFault
+    _ResourceInUseFault,
+
+    -- ** ScalingActivityInProgressFault
+    _ScalingActivityInProgressFault,
+
+    -- ** ServiceLinkedRoleFailure
+    _ServiceLinkedRoleFailure,
 
     -- * Waiters
     -- $waiters
@@ -78,6 +78,12 @@ module Amazonka.AutoScaling
     newAttachLoadBalancers,
     AttachLoadBalancersResponse (AttachLoadBalancersResponse'),
     newAttachLoadBalancersResponse,
+
+    -- ** AttachTrafficSources
+    AttachTrafficSources (AttachTrafficSources'),
+    newAttachTrafficSources,
+    AttachTrafficSourcesResponse (AttachTrafficSourcesResponse'),
+    newAttachTrafficSourcesResponse,
 
     -- ** BatchDeleteScheduledAction
     BatchDeleteScheduledAction (BatchDeleteScheduledAction'),
@@ -283,6 +289,12 @@ module Amazonka.AutoScaling
     DescribeTerminationPolicyTypesResponse (DescribeTerminationPolicyTypesResponse'),
     newDescribeTerminationPolicyTypesResponse,
 
+    -- ** DescribeTrafficSources
+    DescribeTrafficSources (DescribeTrafficSources'),
+    newDescribeTrafficSources,
+    DescribeTrafficSourcesResponse (DescribeTrafficSourcesResponse'),
+    newDescribeTrafficSourcesResponse,
+
     -- ** DescribeWarmPool
     DescribeWarmPool (DescribeWarmPool'),
     newDescribeWarmPool,
@@ -306,6 +318,12 @@ module Amazonka.AutoScaling
     newDetachLoadBalancers,
     DetachLoadBalancersResponse (DetachLoadBalancersResponse'),
     newDetachLoadBalancersResponse,
+
+    -- ** DetachTrafficSources
+    DetachTrafficSources (DetachTrafficSources'),
+    newDetachTrafficSources,
+    DetachTrafficSourcesResponse (DetachTrafficSourcesResponse'),
+    newDetachTrafficSourcesResponse,
 
     -- ** DisableMetricsCollection
     DisableMetricsCollection (DisableMetricsCollection'),
@@ -769,9 +787,25 @@ module Amazonka.AutoScaling
     TargetTrackingConfiguration (TargetTrackingConfiguration'),
     newTargetTrackingConfiguration,
 
+    -- ** TargetTrackingMetricDataQuery
+    TargetTrackingMetricDataQuery (TargetTrackingMetricDataQuery'),
+    newTargetTrackingMetricDataQuery,
+
+    -- ** TargetTrackingMetricStat
+    TargetTrackingMetricStat (TargetTrackingMetricStat'),
+    newTargetTrackingMetricStat,
+
     -- ** TotalLocalStorageGBRequest
     TotalLocalStorageGBRequest (TotalLocalStorageGBRequest'),
     newTotalLocalStorageGBRequest,
+
+    -- ** TrafficSourceIdentifier
+    TrafficSourceIdentifier (TrafficSourceIdentifier'),
+    newTrafficSourceIdentifier,
+
+    -- ** TrafficSourceState
+    TrafficSourceState (TrafficSourceState'),
+    newTrafficSourceState,
 
     -- ** VCpuCountRequest
     VCpuCountRequest (VCpuCountRequest'),
@@ -786,6 +820,7 @@ where
 import Amazonka.AutoScaling.AttachInstances
 import Amazonka.AutoScaling.AttachLoadBalancerTargetGroups
 import Amazonka.AutoScaling.AttachLoadBalancers
+import Amazonka.AutoScaling.AttachTrafficSources
 import Amazonka.AutoScaling.BatchDeleteScheduledAction
 import Amazonka.AutoScaling.BatchPutScheduledUpdateGroupAction
 import Amazonka.AutoScaling.CancelInstanceRefresh
@@ -820,10 +855,12 @@ import Amazonka.AutoScaling.DescribeScalingProcessTypes
 import Amazonka.AutoScaling.DescribeScheduledActions
 import Amazonka.AutoScaling.DescribeTags
 import Amazonka.AutoScaling.DescribeTerminationPolicyTypes
+import Amazonka.AutoScaling.DescribeTrafficSources
 import Amazonka.AutoScaling.DescribeWarmPool
 import Amazonka.AutoScaling.DetachInstances
 import Amazonka.AutoScaling.DetachLoadBalancerTargetGroups
 import Amazonka.AutoScaling.DetachLoadBalancers
+import Amazonka.AutoScaling.DetachTrafficSources
 import Amazonka.AutoScaling.DisableMetricsCollection
 import Amazonka.AutoScaling.EnableMetricsCollection
 import Amazonka.AutoScaling.EnterStandby

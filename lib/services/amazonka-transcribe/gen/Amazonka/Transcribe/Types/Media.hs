@@ -27,9 +27,26 @@ import qualified Amazonka.Prelude as Prelude
 -- | Describes the Amazon S3 location of the media file you want to use in
 -- your request.
 --
+-- For information on supported media formats, refer to the
+-- <https://docs.aws.amazon.com/APIReference/API_StartTranscriptionJob.html#transcribe-StartTranscriptionJob-request-MediaFormat MediaFormat>
+-- parameter or the
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/how-input.html#how-input-audio Media formats>
+-- section in the Amazon S3 Developer Guide.
+--
 -- /See:/ 'newMedia' smart constructor.
 data Media = Media'
-  { -- | The Amazon S3 location of the media file you want to redact. For
+  { -- | The Amazon S3 location of the media file you want to transcribe. For
+    -- example:
+    --
+    -- -   @s3:\/\/DOC-EXAMPLE-BUCKET\/my-media-file.flac@
+    --
+    -- -   @s3:\/\/DOC-EXAMPLE-BUCKET\/media-files\/my-media-file.flac@
+    --
+    -- Note that the Amazon S3 bucket that contains your input media must be
+    -- located in the same Amazon Web Services Region where you\'re making your
+    -- transcription request.
+    mediaFileUri :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon S3 location of the media file you want to redact. For
     -- example:
     --
     -- -   @s3:\/\/DOC-EXAMPLE-BUCKET\/my-media-file.flac@
@@ -40,20 +57,10 @@ data Media = Media'
     -- located in the same Amazon Web Services Region where you\'re making your
     -- transcription request.
     --
-    -- @RedactedMediaFileUri@ is only supported for Call Analytics
+    -- @RedactedMediaFileUri@ produces a redacted audio file in addition to a
+    -- redacted transcript. It is only supported for Call Analytics
     -- (@StartCallAnalyticsJob@) transcription requests.
-    redactedMediaFileUri :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon S3 location of the media file you want to transcribe. For
-    -- example:
-    --
-    -- -   @s3:\/\/DOC-EXAMPLE-BUCKET\/my-media-file.flac@
-    --
-    -- -   @s3:\/\/DOC-EXAMPLE-BUCKET\/media-files\/my-media-file.flac@
-    --
-    -- Note that the Amazon S3 bucket that contains your input media must be
-    -- located in the same Amazon Web Services Region where you\'re making your
-    -- transcription request.
-    mediaFileUri :: Prelude.Maybe Prelude.Text
+    redactedMediaFileUri :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -64,6 +71,17 @@ data Media = Media'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'mediaFileUri', 'media_mediaFileUri' - The Amazon S3 location of the media file you want to transcribe. For
+-- example:
+--
+-- -   @s3:\/\/DOC-EXAMPLE-BUCKET\/my-media-file.flac@
+--
+-- -   @s3:\/\/DOC-EXAMPLE-BUCKET\/media-files\/my-media-file.flac@
+--
+-- Note that the Amazon S3 bucket that contains your input media must be
+-- located in the same Amazon Web Services Region where you\'re making your
+-- transcription request.
 --
 -- 'redactedMediaFileUri', 'media_redactedMediaFileUri' - The Amazon S3 location of the media file you want to redact. For
 -- example:
@@ -76,42 +94,16 @@ data Media = Media'
 -- located in the same Amazon Web Services Region where you\'re making your
 -- transcription request.
 --
--- @RedactedMediaFileUri@ is only supported for Call Analytics
+-- @RedactedMediaFileUri@ produces a redacted audio file in addition to a
+-- redacted transcript. It is only supported for Call Analytics
 -- (@StartCallAnalyticsJob@) transcription requests.
---
--- 'mediaFileUri', 'media_mediaFileUri' - The Amazon S3 location of the media file you want to transcribe. For
--- example:
---
--- -   @s3:\/\/DOC-EXAMPLE-BUCKET\/my-media-file.flac@
---
--- -   @s3:\/\/DOC-EXAMPLE-BUCKET\/media-files\/my-media-file.flac@
---
--- Note that the Amazon S3 bucket that contains your input media must be
--- located in the same Amazon Web Services Region where you\'re making your
--- transcription request.
 newMedia ::
   Media
 newMedia =
   Media'
-    { redactedMediaFileUri = Prelude.Nothing,
-      mediaFileUri = Prelude.Nothing
+    { mediaFileUri = Prelude.Nothing,
+      redactedMediaFileUri = Prelude.Nothing
     }
-
--- | The Amazon S3 location of the media file you want to redact. For
--- example:
---
--- -   @s3:\/\/DOC-EXAMPLE-BUCKET\/my-media-file.flac@
---
--- -   @s3:\/\/DOC-EXAMPLE-BUCKET\/media-files\/my-media-file.flac@
---
--- Note that the Amazon S3 bucket that contains your input media must be
--- located in the same Amazon Web Services Region where you\'re making your
--- transcription request.
---
--- @RedactedMediaFileUri@ is only supported for Call Analytics
--- (@StartCallAnalyticsJob@) transcription requests.
-media_redactedMediaFileUri :: Lens.Lens' Media (Prelude.Maybe Prelude.Text)
-media_redactedMediaFileUri = Lens.lens (\Media' {redactedMediaFileUri} -> redactedMediaFileUri) (\s@Media' {} a -> s {redactedMediaFileUri = a} :: Media)
 
 -- | The Amazon S3 location of the media file you want to transcribe. For
 -- example:
@@ -126,32 +118,49 @@ media_redactedMediaFileUri = Lens.lens (\Media' {redactedMediaFileUri} -> redact
 media_mediaFileUri :: Lens.Lens' Media (Prelude.Maybe Prelude.Text)
 media_mediaFileUri = Lens.lens (\Media' {mediaFileUri} -> mediaFileUri) (\s@Media' {} a -> s {mediaFileUri = a} :: Media)
 
+-- | The Amazon S3 location of the media file you want to redact. For
+-- example:
+--
+-- -   @s3:\/\/DOC-EXAMPLE-BUCKET\/my-media-file.flac@
+--
+-- -   @s3:\/\/DOC-EXAMPLE-BUCKET\/media-files\/my-media-file.flac@
+--
+-- Note that the Amazon S3 bucket that contains your input media must be
+-- located in the same Amazon Web Services Region where you\'re making your
+-- transcription request.
+--
+-- @RedactedMediaFileUri@ produces a redacted audio file in addition to a
+-- redacted transcript. It is only supported for Call Analytics
+-- (@StartCallAnalyticsJob@) transcription requests.
+media_redactedMediaFileUri :: Lens.Lens' Media (Prelude.Maybe Prelude.Text)
+media_redactedMediaFileUri = Lens.lens (\Media' {redactedMediaFileUri} -> redactedMediaFileUri) (\s@Media' {} a -> s {redactedMediaFileUri = a} :: Media)
+
 instance Data.FromJSON Media where
   parseJSON =
     Data.withObject
       "Media"
       ( \x ->
           Media'
-            Prelude.<$> (x Data..:? "RedactedMediaFileUri")
-            Prelude.<*> (x Data..:? "MediaFileUri")
+            Prelude.<$> (x Data..:? "MediaFileUri")
+            Prelude.<*> (x Data..:? "RedactedMediaFileUri")
       )
 
 instance Prelude.Hashable Media where
   hashWithSalt _salt Media' {..} =
-    _salt `Prelude.hashWithSalt` redactedMediaFileUri
-      `Prelude.hashWithSalt` mediaFileUri
+    _salt `Prelude.hashWithSalt` mediaFileUri
+      `Prelude.hashWithSalt` redactedMediaFileUri
 
 instance Prelude.NFData Media where
   rnf Media' {..} =
-    Prelude.rnf redactedMediaFileUri
-      `Prelude.seq` Prelude.rnf mediaFileUri
+    Prelude.rnf mediaFileUri
+      `Prelude.seq` Prelude.rnf redactedMediaFileUri
 
 instance Data.ToJSON Media where
   toJSON Media' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("RedactedMediaFileUri" Data..=)
-              Prelude.<$> redactedMediaFileUri,
-            ("MediaFileUri" Data..=) Prelude.<$> mediaFileUri
+          [ ("MediaFileUri" Data..=) Prelude.<$> mediaFileUri,
+            ("RedactedMediaFileUri" Data..=)
+              Prelude.<$> redactedMediaFileUri
           ]
       )

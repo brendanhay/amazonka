@@ -50,9 +50,9 @@ module Amazonka.Textract.DetectDocumentText
     newDetectDocumentTextResponse,
 
     -- * Response Lenses
-    detectDocumentTextResponse_documentMetadata,
-    detectDocumentTextResponse_detectDocumentTextModelVersion,
     detectDocumentTextResponse_blocks,
+    detectDocumentTextResponse_detectDocumentTextModelVersion,
+    detectDocumentTextResponse_documentMetadata,
     detectDocumentTextResponse_httpStatus,
   )
 where
@@ -117,9 +117,9 @@ instance Core.AWSRequest DetectDocumentText where
     Response.receiveJSON
       ( \s h x ->
           DetectDocumentTextResponse'
-            Prelude.<$> (x Data..?> "DocumentMetadata")
+            Prelude.<$> (x Data..?> "Blocks" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "DetectDocumentTextModelVersion")
-            Prelude.<*> (x Data..?> "Blocks" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "DocumentMetadata")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,13 +160,13 @@ instance Data.ToQuery DetectDocumentText where
 
 -- | /See:/ 'newDetectDocumentTextResponse' smart constructor.
 data DetectDocumentTextResponse = DetectDocumentTextResponse'
-  { -- | Metadata about the document. It contains the number of pages that are
-    -- detected in the document.
-    documentMetadata :: Prelude.Maybe DocumentMetadata,
-    detectDocumentTextModelVersion :: Prelude.Maybe Prelude.Text,
-    -- | An array of @Block@ objects that contain the text that\'s detected in
+  { -- | An array of @Block@ objects that contain the text that\'s detected in
     -- the document.
     blocks :: Prelude.Maybe [Block],
+    detectDocumentTextModelVersion :: Prelude.Maybe Prelude.Text,
+    -- | Metadata about the document. It contains the number of pages that are
+    -- detected in the document.
+    documentMetadata :: Prelude.Maybe DocumentMetadata,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -180,13 +180,13 @@ data DetectDocumentTextResponse = DetectDocumentTextResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'documentMetadata', 'detectDocumentTextResponse_documentMetadata' - Metadata about the document. It contains the number of pages that are
--- detected in the document.
+-- 'blocks', 'detectDocumentTextResponse_blocks' - An array of @Block@ objects that contain the text that\'s detected in
+-- the document.
 --
 -- 'detectDocumentTextModelVersion', 'detectDocumentTextResponse_detectDocumentTextModelVersion' -
 --
--- 'blocks', 'detectDocumentTextResponse_blocks' - An array of @Block@ objects that contain the text that\'s detected in
--- the document.
+-- 'documentMetadata', 'detectDocumentTextResponse_documentMetadata' - Metadata about the document. It contains the number of pages that are
+-- detected in the document.
 --
 -- 'httpStatus', 'detectDocumentTextResponse_httpStatus' - The response's http status code.
 newDetectDocumentTextResponse ::
@@ -195,27 +195,27 @@ newDetectDocumentTextResponse ::
   DetectDocumentTextResponse
 newDetectDocumentTextResponse pHttpStatus_ =
   DetectDocumentTextResponse'
-    { documentMetadata =
+    { blocks =
         Prelude.Nothing,
       detectDocumentTextModelVersion =
         Prelude.Nothing,
-      blocks = Prelude.Nothing,
+      documentMetadata = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Metadata about the document. It contains the number of pages that are
--- detected in the document.
-detectDocumentTextResponse_documentMetadata :: Lens.Lens' DetectDocumentTextResponse (Prelude.Maybe DocumentMetadata)
-detectDocumentTextResponse_documentMetadata = Lens.lens (\DetectDocumentTextResponse' {documentMetadata} -> documentMetadata) (\s@DetectDocumentTextResponse' {} a -> s {documentMetadata = a} :: DetectDocumentTextResponse)
-
--- |
-detectDocumentTextResponse_detectDocumentTextModelVersion :: Lens.Lens' DetectDocumentTextResponse (Prelude.Maybe Prelude.Text)
-detectDocumentTextResponse_detectDocumentTextModelVersion = Lens.lens (\DetectDocumentTextResponse' {detectDocumentTextModelVersion} -> detectDocumentTextModelVersion) (\s@DetectDocumentTextResponse' {} a -> s {detectDocumentTextModelVersion = a} :: DetectDocumentTextResponse)
 
 -- | An array of @Block@ objects that contain the text that\'s detected in
 -- the document.
 detectDocumentTextResponse_blocks :: Lens.Lens' DetectDocumentTextResponse (Prelude.Maybe [Block])
 detectDocumentTextResponse_blocks = Lens.lens (\DetectDocumentTextResponse' {blocks} -> blocks) (\s@DetectDocumentTextResponse' {} a -> s {blocks = a} :: DetectDocumentTextResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- |
+detectDocumentTextResponse_detectDocumentTextModelVersion :: Lens.Lens' DetectDocumentTextResponse (Prelude.Maybe Prelude.Text)
+detectDocumentTextResponse_detectDocumentTextModelVersion = Lens.lens (\DetectDocumentTextResponse' {detectDocumentTextModelVersion} -> detectDocumentTextModelVersion) (\s@DetectDocumentTextResponse' {} a -> s {detectDocumentTextModelVersion = a} :: DetectDocumentTextResponse)
+
+-- | Metadata about the document. It contains the number of pages that are
+-- detected in the document.
+detectDocumentTextResponse_documentMetadata :: Lens.Lens' DetectDocumentTextResponse (Prelude.Maybe DocumentMetadata)
+detectDocumentTextResponse_documentMetadata = Lens.lens (\DetectDocumentTextResponse' {documentMetadata} -> documentMetadata) (\s@DetectDocumentTextResponse' {} a -> s {documentMetadata = a} :: DetectDocumentTextResponse)
 
 -- | The response's http status code.
 detectDocumentTextResponse_httpStatus :: Lens.Lens' DetectDocumentTextResponse Prelude.Int
@@ -223,7 +223,7 @@ detectDocumentTextResponse_httpStatus = Lens.lens (\DetectDocumentTextResponse' 
 
 instance Prelude.NFData DetectDocumentTextResponse where
   rnf DetectDocumentTextResponse' {..} =
-    Prelude.rnf documentMetadata
+    Prelude.rnf blocks
       `Prelude.seq` Prelude.rnf detectDocumentTextModelVersion
-      `Prelude.seq` Prelude.rnf blocks
+      `Prelude.seq` Prelude.rnf documentMetadata
       `Prelude.seq` Prelude.rnf httpStatus

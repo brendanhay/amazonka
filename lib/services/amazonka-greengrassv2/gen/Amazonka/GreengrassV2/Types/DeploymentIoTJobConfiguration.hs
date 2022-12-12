@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeploymentIoTJobConfiguration' smart constructor.
 data DeploymentIoTJobConfiguration = DeploymentIoTJobConfiguration'
-  { -- | The rollout configuration for the job. This configuration defines the
-    -- rate at which the job rolls out to the fleet of target devices.
-    jobExecutionsRolloutConfig :: Prelude.Maybe IoTJobExecutionsRolloutConfig,
-    -- | The stop configuration for the job. This configuration defines when and
+  { -- | The stop configuration for the job. This configuration defines when and
     -- how to stop a job rollout.
     abortConfig :: Prelude.Maybe IoTJobAbortConfig,
+    -- | The rollout configuration for the job. This configuration defines the
+    -- rate at which the job rolls out to the fleet of target devices.
+    jobExecutionsRolloutConfig :: Prelude.Maybe IoTJobExecutionsRolloutConfig,
     -- | The timeout configuration for the job. This configuration defines the
     -- amount of time each device has to complete the job.
     timeoutConfig :: Prelude.Maybe IoTJobTimeoutConfig
@@ -51,11 +51,11 @@ data DeploymentIoTJobConfiguration = DeploymentIoTJobConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobExecutionsRolloutConfig', 'deploymentIoTJobConfiguration_jobExecutionsRolloutConfig' - The rollout configuration for the job. This configuration defines the
--- rate at which the job rolls out to the fleet of target devices.
---
 -- 'abortConfig', 'deploymentIoTJobConfiguration_abortConfig' - The stop configuration for the job. This configuration defines when and
 -- how to stop a job rollout.
+--
+-- 'jobExecutionsRolloutConfig', 'deploymentIoTJobConfiguration_jobExecutionsRolloutConfig' - The rollout configuration for the job. This configuration defines the
+-- rate at which the job rolls out to the fleet of target devices.
 --
 -- 'timeoutConfig', 'deploymentIoTJobConfiguration_timeoutConfig' - The timeout configuration for the job. This configuration defines the
 -- amount of time each device has to complete the job.
@@ -63,21 +63,21 @@ newDeploymentIoTJobConfiguration ::
   DeploymentIoTJobConfiguration
 newDeploymentIoTJobConfiguration =
   DeploymentIoTJobConfiguration'
-    { jobExecutionsRolloutConfig =
+    { abortConfig =
         Prelude.Nothing,
-      abortConfig = Prelude.Nothing,
+      jobExecutionsRolloutConfig = Prelude.Nothing,
       timeoutConfig = Prelude.Nothing
     }
-
--- | The rollout configuration for the job. This configuration defines the
--- rate at which the job rolls out to the fleet of target devices.
-deploymentIoTJobConfiguration_jobExecutionsRolloutConfig :: Lens.Lens' DeploymentIoTJobConfiguration (Prelude.Maybe IoTJobExecutionsRolloutConfig)
-deploymentIoTJobConfiguration_jobExecutionsRolloutConfig = Lens.lens (\DeploymentIoTJobConfiguration' {jobExecutionsRolloutConfig} -> jobExecutionsRolloutConfig) (\s@DeploymentIoTJobConfiguration' {} a -> s {jobExecutionsRolloutConfig = a} :: DeploymentIoTJobConfiguration)
 
 -- | The stop configuration for the job. This configuration defines when and
 -- how to stop a job rollout.
 deploymentIoTJobConfiguration_abortConfig :: Lens.Lens' DeploymentIoTJobConfiguration (Prelude.Maybe IoTJobAbortConfig)
 deploymentIoTJobConfiguration_abortConfig = Lens.lens (\DeploymentIoTJobConfiguration' {abortConfig} -> abortConfig) (\s@DeploymentIoTJobConfiguration' {} a -> s {abortConfig = a} :: DeploymentIoTJobConfiguration)
+
+-- | The rollout configuration for the job. This configuration defines the
+-- rate at which the job rolls out to the fleet of target devices.
+deploymentIoTJobConfiguration_jobExecutionsRolloutConfig :: Lens.Lens' DeploymentIoTJobConfiguration (Prelude.Maybe IoTJobExecutionsRolloutConfig)
+deploymentIoTJobConfiguration_jobExecutionsRolloutConfig = Lens.lens (\DeploymentIoTJobConfiguration' {jobExecutionsRolloutConfig} -> jobExecutionsRolloutConfig) (\s@DeploymentIoTJobConfiguration' {} a -> s {jobExecutionsRolloutConfig = a} :: DeploymentIoTJobConfiguration)
 
 -- | The timeout configuration for the job. This configuration defines the
 -- amount of time each device has to complete the job.
@@ -90,8 +90,8 @@ instance Data.FromJSON DeploymentIoTJobConfiguration where
       "DeploymentIoTJobConfiguration"
       ( \x ->
           DeploymentIoTJobConfiguration'
-            Prelude.<$> (x Data..:? "jobExecutionsRolloutConfig")
-            Prelude.<*> (x Data..:? "abortConfig")
+            Prelude.<$> (x Data..:? "abortConfig")
+            Prelude.<*> (x Data..:? "jobExecutionsRolloutConfig")
             Prelude.<*> (x Data..:? "timeoutConfig")
       )
 
@@ -100,24 +100,23 @@ instance
     DeploymentIoTJobConfiguration
   where
   hashWithSalt _salt DeploymentIoTJobConfiguration' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` abortConfig
       `Prelude.hashWithSalt` jobExecutionsRolloutConfig
-      `Prelude.hashWithSalt` abortConfig
       `Prelude.hashWithSalt` timeoutConfig
 
 instance Prelude.NFData DeploymentIoTJobConfiguration where
   rnf DeploymentIoTJobConfiguration' {..} =
-    Prelude.rnf jobExecutionsRolloutConfig
-      `Prelude.seq` Prelude.rnf abortConfig
+    Prelude.rnf abortConfig
+      `Prelude.seq` Prelude.rnf jobExecutionsRolloutConfig
       `Prelude.seq` Prelude.rnf timeoutConfig
 
 instance Data.ToJSON DeploymentIoTJobConfiguration where
   toJSON DeploymentIoTJobConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("jobExecutionsRolloutConfig" Data..=)
+          [ ("abortConfig" Data..=) Prelude.<$> abortConfig,
+            ("jobExecutionsRolloutConfig" Data..=)
               Prelude.<$> jobExecutionsRolloutConfig,
-            ("abortConfig" Data..=) Prelude.<$> abortConfig,
             ("timeoutConfig" Data..=) Prelude.<$> timeoutConfig
           ]
       )

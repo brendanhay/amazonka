@@ -16,22 +16,25 @@
 -- create, update, manage, and access file-based data set in the AWS Cloud.
 --
 -- As a subscriber, you can view and access the data sets that you have an
--- entitlement to through a subscription. You can use the APIS to download
--- or copy your entitled data sets to Amazon S3 for use across a variety of
--- AWS analytics and machine learning services.
+-- entitlement to through a subscription. You can use the APIs to download
+-- or copy your entitled data sets to Amazon Simple Storage Service (Amazon
+-- S3) for use across a variety of AWS analytics and machine learning
+-- services.
 --
 -- As a provider, you can create and manage your data sets that you would
 -- like to publish to a product. Being able to package and provide your
 -- data sets into products requires a few steps to determine eligibility.
--- For more information, visit the AWS Data Exchange User Guide.
+-- For more information, visit the /AWS Data Exchange User Guide/.
 --
 -- A data set is a collection of data that can be changed or updated over
 -- time. Data sets can be updated using revisions, which represent a new
 -- version or incremental change to a data set. A revision contains one or
 -- more assets. An asset in AWS Data Exchange is a piece of data that can
--- be stored as an Amazon S3 object. The asset can be a structured data
--- file, an image file, or some other data file. Jobs are asynchronous
--- import or export operations used to create or copy assets.
+-- be stored as an Amazon S3 object, Redshift datashare, API Gateway API,
+-- AWS Lake Formation data permission, or Amazon S3 data access. The asset
+-- can be a structured data file, an image file, or some other data file.
+-- Jobs are asynchronous import or export operations used to create or copy
+-- assets.
 module Amazonka.DataExchange
   ( -- * Service Configuration
     defaultService,
@@ -42,20 +45,20 @@ module Amazonka.DataExchange
     -- ** AccessDeniedException
     _AccessDeniedException,
 
+    -- ** ConflictException
+    _ConflictException,
+
     -- ** InternalServerException
     _InternalServerException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** ConflictException
-    _ConflictException,
+    -- ** ServiceLimitExceededException
+    _ServiceLimitExceededException,
 
     -- ** ThrottlingException
     _ThrottlingException,
-
-    -- ** ServiceLimitExceededException
-    _ServiceLimitExceededException,
 
     -- ** ValidationException
     _ValidationException,
@@ -248,11 +251,23 @@ module Amazonka.DataExchange
     -- ** Code
     Code (..),
 
+    -- ** DatabaseLFTagPolicyPermission
+    DatabaseLFTagPolicyPermission (..),
+
     -- ** JobErrorLimitName
     JobErrorLimitName (..),
 
     -- ** JobErrorResourceTypes
     JobErrorResourceTypes (..),
+
+    -- ** LFPermission
+    LFPermission (..),
+
+    -- ** LFResourceType
+    LFResourceType (..),
+
+    -- ** LakeFormationDataPermissionType
+    LakeFormationDataPermissionType (..),
 
     -- ** Origin
     Origin (..),
@@ -265,6 +280,9 @@ module Amazonka.DataExchange
 
     -- ** State
     State (..),
+
+    -- ** TableTagPolicyLFPermission
+    TableTagPolicyLFPermission (..),
 
     -- ** Type
     Type (..),
@@ -301,9 +319,25 @@ module Amazonka.DataExchange
     AutoExportRevisionToS3RequestDetails (AutoExportRevisionToS3RequestDetails'),
     newAutoExportRevisionToS3RequestDetails,
 
+    -- ** CreateS3DataAccessFromS3BucketRequestDetails
+    CreateS3DataAccessFromS3BucketRequestDetails (CreateS3DataAccessFromS3BucketRequestDetails'),
+    newCreateS3DataAccessFromS3BucketRequestDetails,
+
+    -- ** CreateS3DataAccessFromS3BucketResponseDetails
+    CreateS3DataAccessFromS3BucketResponseDetails (CreateS3DataAccessFromS3BucketResponseDetails'),
+    newCreateS3DataAccessFromS3BucketResponseDetails,
+
     -- ** DataSetEntry
     DataSetEntry (DataSetEntry'),
     newDataSetEntry,
+
+    -- ** DatabaseLFTagPolicy
+    DatabaseLFTagPolicy (DatabaseLFTagPolicy'),
+    newDatabaseLFTagPolicy,
+
+    -- ** DatabaseLFTagPolicyAndPermissions
+    DatabaseLFTagPolicyAndPermissions (DatabaseLFTagPolicyAndPermissions'),
+    newDatabaseLFTagPolicyAndPermissions,
 
     -- ** Details
     Details (Details'),
@@ -365,6 +399,14 @@ module Amazonka.DataExchange
     ImportAssetFromSignedUrlResponseDetails (ImportAssetFromSignedUrlResponseDetails'),
     newImportAssetFromSignedUrlResponseDetails,
 
+    -- ** ImportAssetsFromLakeFormationTagPolicyRequestDetails
+    ImportAssetsFromLakeFormationTagPolicyRequestDetails (ImportAssetsFromLakeFormationTagPolicyRequestDetails'),
+    newImportAssetsFromLakeFormationTagPolicyRequestDetails,
+
+    -- ** ImportAssetsFromLakeFormationTagPolicyResponseDetails
+    ImportAssetsFromLakeFormationTagPolicyResponseDetails (ImportAssetsFromLakeFormationTagPolicyResponseDetails'),
+    newImportAssetsFromLakeFormationTagPolicyResponseDetails,
+
     -- ** ImportAssetsFromRedshiftDataSharesRequestDetails
     ImportAssetsFromRedshiftDataSharesRequestDetails (ImportAssetsFromRedshiftDataSharesRequestDetails'),
     newImportAssetsFromRedshiftDataSharesRequestDetails,
@@ -388,6 +430,26 @@ module Amazonka.DataExchange
     -- ** JobError
     JobError (JobError'),
     newJobError,
+
+    -- ** LFResourceDetails
+    LFResourceDetails (LFResourceDetails'),
+    newLFResourceDetails,
+
+    -- ** LFTag
+    LFTag (LFTag'),
+    newLFTag,
+
+    -- ** LFTagPolicyDetails
+    LFTagPolicyDetails (LFTagPolicyDetails'),
+    newLFTagPolicyDetails,
+
+    -- ** LakeFormationDataPermissionAsset
+    LakeFormationDataPermissionAsset (LakeFormationDataPermissionAsset'),
+    newLakeFormationDataPermissionAsset,
+
+    -- ** LakeFormationDataPermissionDetails
+    LakeFormationDataPermissionDetails (LakeFormationDataPermissionDetails'),
+    newLakeFormationDataPermissionDetails,
 
     -- ** OriginDetails
     OriginDetails (OriginDetails'),
@@ -421,9 +483,25 @@ module Amazonka.DataExchange
     RevisionPublished (RevisionPublished'),
     newRevisionPublished,
 
+    -- ** S3DataAccessAsset
+    S3DataAccessAsset (S3DataAccessAsset'),
+    newS3DataAccessAsset,
+
+    -- ** S3DataAccessAssetSourceEntry
+    S3DataAccessAssetSourceEntry (S3DataAccessAssetSourceEntry'),
+    newS3DataAccessAssetSourceEntry,
+
     -- ** S3SnapshotAsset
     S3SnapshotAsset (S3SnapshotAsset'),
     newS3SnapshotAsset,
+
+    -- ** TableLFTagPolicy
+    TableLFTagPolicy (TableLFTagPolicy'),
+    newTableLFTagPolicy,
+
+    -- ** TableLFTagPolicyAndPermissions
+    TableLFTagPolicyAndPermissions (TableLFTagPolicyAndPermissions'),
+    newTableLFTagPolicyAndPermissions,
   )
 where
 

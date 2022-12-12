@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newProjectSummary' smart constructor.
 data ProjectSummary = ProjectSummary'
-  { -- | The tags (metadata key\/value pairs) associated with the project.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The ARN of the project.
+  { -- | The ARN of the project.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The tags (metadata key\/value pairs) associated with the project.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the project being summarized.
     projectName :: Prelude.Text,
     -- | The date when the project was originally created, in UNIX epoch time
@@ -53,9 +53,9 @@ data ProjectSummary = ProjectSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'projectSummary_tags' - The tags (metadata key\/value pairs) associated with the project.
---
 -- 'arn', 'projectSummary_arn' - The ARN of the project.
+--
+-- 'tags', 'projectSummary_tags' - The tags (metadata key\/value pairs) associated with the project.
 --
 -- 'projectName', 'projectSummary_projectName' - The name of the project being summarized.
 --
@@ -78,20 +78,20 @@ newProjectSummary
   pCreatedDate_
   pUpdatedDate_ =
     ProjectSummary'
-      { tags = Prelude.Nothing,
-        arn = Prelude.Nothing,
+      { arn = Prelude.Nothing,
+        tags = Prelude.Nothing,
         projectName = pProjectName_,
         createdDate = Data._Time Lens.# pCreatedDate_,
         updatedDate = Data._Time Lens.# pUpdatedDate_
       }
 
--- | The tags (metadata key\/value pairs) associated with the project.
-projectSummary_tags :: Lens.Lens' ProjectSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-projectSummary_tags = Lens.lens (\ProjectSummary' {tags} -> tags) (\s@ProjectSummary' {} a -> s {tags = a} :: ProjectSummary) Prelude.. Lens.mapping Lens.coerced
-
 -- | The ARN of the project.
 projectSummary_arn :: Lens.Lens' ProjectSummary (Prelude.Maybe Prelude.Text)
 projectSummary_arn = Lens.lens (\ProjectSummary' {arn} -> arn) (\s@ProjectSummary' {} a -> s {arn = a} :: ProjectSummary)
+
+-- | The tags (metadata key\/value pairs) associated with the project.
+projectSummary_tags :: Lens.Lens' ProjectSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+projectSummary_tags = Lens.lens (\ProjectSummary' {tags} -> tags) (\s@ProjectSummary' {} a -> s {tags = a} :: ProjectSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the project being summarized.
 projectSummary_projectName :: Lens.Lens' ProjectSummary Prelude.Text
@@ -114,8 +114,8 @@ instance Data.FromJSON ProjectSummary where
       "ProjectSummary"
       ( \x ->
           ProjectSummary'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "arn")
+            Prelude.<$> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "projectName")
             Prelude.<*> (x Data..: "createdDate")
             Prelude.<*> (x Data..: "updatedDate")
@@ -123,16 +123,16 @@ instance Data.FromJSON ProjectSummary where
 
 instance Prelude.Hashable ProjectSummary where
   hashWithSalt _salt ProjectSummary' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` projectName
       `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` updatedDate
 
 instance Prelude.NFData ProjectSummary where
   rnf ProjectSummary' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf projectName
       `Prelude.seq` Prelude.rnf createdDate
       `Prelude.seq` Prelude.rnf updatedDate

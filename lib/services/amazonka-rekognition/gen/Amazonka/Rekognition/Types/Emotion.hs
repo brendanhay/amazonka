@@ -34,10 +34,10 @@ import Amazonka.Rekognition.Types.EmotionName
 --
 -- /See:/ 'newEmotion' smart constructor.
 data Emotion = Emotion'
-  { -- | Type of emotion detected.
-    type' :: Prelude.Maybe EmotionName,
-    -- | Level of confidence in the determination.
-    confidence :: Prelude.Maybe Prelude.Double
+  { -- | Level of confidence in the determination.
+    confidence :: Prelude.Maybe Prelude.Double,
+    -- | Type of emotion detected.
+    type' :: Prelude.Maybe EmotionName
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,24 +49,24 @@ data Emotion = Emotion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'emotion_type' - Type of emotion detected.
---
 -- 'confidence', 'emotion_confidence' - Level of confidence in the determination.
+--
+-- 'type'', 'emotion_type' - Type of emotion detected.
 newEmotion ::
   Emotion
 newEmotion =
   Emotion'
-    { type' = Prelude.Nothing,
-      confidence = Prelude.Nothing
+    { confidence = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
-
--- | Type of emotion detected.
-emotion_type :: Lens.Lens' Emotion (Prelude.Maybe EmotionName)
-emotion_type = Lens.lens (\Emotion' {type'} -> type') (\s@Emotion' {} a -> s {type' = a} :: Emotion)
 
 -- | Level of confidence in the determination.
 emotion_confidence :: Lens.Lens' Emotion (Prelude.Maybe Prelude.Double)
 emotion_confidence = Lens.lens (\Emotion' {confidence} -> confidence) (\s@Emotion' {} a -> s {confidence = a} :: Emotion)
+
+-- | Type of emotion detected.
+emotion_type :: Lens.Lens' Emotion (Prelude.Maybe EmotionName)
+emotion_type = Lens.lens (\Emotion' {type'} -> type') (\s@Emotion' {} a -> s {type' = a} :: Emotion)
 
 instance Data.FromJSON Emotion where
   parseJSON =
@@ -74,16 +74,16 @@ instance Data.FromJSON Emotion where
       "Emotion"
       ( \x ->
           Emotion'
-            Prelude.<$> (x Data..:? "Type")
-            Prelude.<*> (x Data..:? "Confidence")
+            Prelude.<$> (x Data..:? "Confidence")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable Emotion where
   hashWithSalt _salt Emotion' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` confidence
+    _salt `Prelude.hashWithSalt` confidence
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Emotion where
   rnf Emotion' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf confidence
+    Prelude.rnf confidence
+      `Prelude.seq` Prelude.rnf type'

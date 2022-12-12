@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newImageState' smart constructor.
 data ImageState = ImageState'
-  { -- | The status of the image.
-    status :: Prelude.Maybe ImageStatus,
-    -- | The reason for the image\'s status.
-    reason :: Prelude.Maybe Prelude.Text
+  { -- | The reason for the image\'s status.
+    reason :: Prelude.Maybe Prelude.Text,
+    -- | The status of the image.
+    status :: Prelude.Maybe ImageStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data ImageState = ImageState'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'imageState_status' - The status of the image.
---
 -- 'reason', 'imageState_reason' - The reason for the image\'s status.
+--
+-- 'status', 'imageState_status' - The status of the image.
 newImageState ::
   ImageState
 newImageState =
   ImageState'
-    { status = Prelude.Nothing,
-      reason = Prelude.Nothing
+    { reason = Prelude.Nothing,
+      status = Prelude.Nothing
     }
-
--- | The status of the image.
-imageState_status :: Lens.Lens' ImageState (Prelude.Maybe ImageStatus)
-imageState_status = Lens.lens (\ImageState' {status} -> status) (\s@ImageState' {} a -> s {status = a} :: ImageState)
 
 -- | The reason for the image\'s status.
 imageState_reason :: Lens.Lens' ImageState (Prelude.Maybe Prelude.Text)
 imageState_reason = Lens.lens (\ImageState' {reason} -> reason) (\s@ImageState' {} a -> s {reason = a} :: ImageState)
+
+-- | The status of the image.
+imageState_status :: Lens.Lens' ImageState (Prelude.Maybe ImageStatus)
+imageState_status = Lens.lens (\ImageState' {status} -> status) (\s@ImageState' {} a -> s {status = a} :: ImageState)
 
 instance Data.FromJSON ImageState where
   parseJSON =
@@ -69,15 +69,15 @@ instance Data.FromJSON ImageState where
       "ImageState"
       ( \x ->
           ImageState'
-            Prelude.<$> (x Data..:? "status")
-            Prelude.<*> (x Data..:? "reason")
+            Prelude.<$> (x Data..:? "reason")
+            Prelude.<*> (x Data..:? "status")
       )
 
 instance Prelude.Hashable ImageState where
   hashWithSalt _salt ImageState' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` reason
+    _salt `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ImageState where
   rnf ImageState' {..} =
-    Prelude.rnf status `Prelude.seq` Prelude.rnf reason
+    Prelude.rnf reason `Prelude.seq` Prelude.rnf status

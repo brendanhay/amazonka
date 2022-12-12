@@ -28,9 +28,9 @@ module Amazonka.EMR.UpdateStudio
     newUpdateStudio,
 
     -- * Request Lenses
-    updateStudio_name,
-    updateStudio_description,
     updateStudio_defaultS3Location,
+    updateStudio_description,
+    updateStudio_name,
     updateStudio_subnetIds,
     updateStudio_studioId,
 
@@ -50,13 +50,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateStudio' smart constructor.
 data UpdateStudio = UpdateStudio'
-  { -- | A descriptive name for the Amazon EMR Studio.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | A detailed description to assign to the Amazon EMR Studio.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon S3 location to back up Workspaces and notebook files for the
+  { -- | The Amazon S3 location to back up Workspaces and notebook files for the
     -- Amazon EMR Studio.
     defaultS3Location :: Prelude.Maybe Prelude.Text,
+    -- | A detailed description to assign to the Amazon EMR Studio.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | A descriptive name for the Amazon EMR Studio.
+    name :: Prelude.Maybe Prelude.Text,
     -- | A list of subnet IDs to associate with the Amazon EMR Studio. The list
     -- can include new subnet IDs, but must also include all of the subnet IDs
     -- previously associated with the Studio. The list order does not matter. A
@@ -76,12 +76,12 @@ data UpdateStudio = UpdateStudio'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateStudio_name' - A descriptive name for the Amazon EMR Studio.
+-- 'defaultS3Location', 'updateStudio_defaultS3Location' - The Amazon S3 location to back up Workspaces and notebook files for the
+-- Amazon EMR Studio.
 --
 -- 'description', 'updateStudio_description' - A detailed description to assign to the Amazon EMR Studio.
 --
--- 'defaultS3Location', 'updateStudio_defaultS3Location' - The Amazon S3 location to back up Workspaces and notebook files for the
--- Amazon EMR Studio.
+-- 'name', 'updateStudio_name' - A descriptive name for the Amazon EMR Studio.
 --
 -- 'subnetIds', 'updateStudio_subnetIds' - A list of subnet IDs to associate with the Amazon EMR Studio. The list
 -- can include new subnet IDs, but must also include all of the subnet IDs
@@ -96,25 +96,25 @@ newUpdateStudio ::
   UpdateStudio
 newUpdateStudio pStudioId_ =
   UpdateStudio'
-    { name = Prelude.Nothing,
+    { defaultS3Location = Prelude.Nothing,
       description = Prelude.Nothing,
-      defaultS3Location = Prelude.Nothing,
+      name = Prelude.Nothing,
       subnetIds = Prelude.Nothing,
       studioId = pStudioId_
     }
-
--- | A descriptive name for the Amazon EMR Studio.
-updateStudio_name :: Lens.Lens' UpdateStudio (Prelude.Maybe Prelude.Text)
-updateStudio_name = Lens.lens (\UpdateStudio' {name} -> name) (\s@UpdateStudio' {} a -> s {name = a} :: UpdateStudio)
-
--- | A detailed description to assign to the Amazon EMR Studio.
-updateStudio_description :: Lens.Lens' UpdateStudio (Prelude.Maybe Prelude.Text)
-updateStudio_description = Lens.lens (\UpdateStudio' {description} -> description) (\s@UpdateStudio' {} a -> s {description = a} :: UpdateStudio)
 
 -- | The Amazon S3 location to back up Workspaces and notebook files for the
 -- Amazon EMR Studio.
 updateStudio_defaultS3Location :: Lens.Lens' UpdateStudio (Prelude.Maybe Prelude.Text)
 updateStudio_defaultS3Location = Lens.lens (\UpdateStudio' {defaultS3Location} -> defaultS3Location) (\s@UpdateStudio' {} a -> s {defaultS3Location = a} :: UpdateStudio)
+
+-- | A detailed description to assign to the Amazon EMR Studio.
+updateStudio_description :: Lens.Lens' UpdateStudio (Prelude.Maybe Prelude.Text)
+updateStudio_description = Lens.lens (\UpdateStudio' {description} -> description) (\s@UpdateStudio' {} a -> s {description = a} :: UpdateStudio)
+
+-- | A descriptive name for the Amazon EMR Studio.
+updateStudio_name :: Lens.Lens' UpdateStudio (Prelude.Maybe Prelude.Text)
+updateStudio_name = Lens.lens (\UpdateStudio' {name} -> name) (\s@UpdateStudio' {} a -> s {name = a} :: UpdateStudio)
 
 -- | A list of subnet IDs to associate with the Amazon EMR Studio. The list
 -- can include new subnet IDs, but must also include all of the subnet IDs
@@ -136,17 +136,17 @@ instance Core.AWSRequest UpdateStudio where
 
 instance Prelude.Hashable UpdateStudio where
   hashWithSalt _salt UpdateStudio' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` defaultS3Location
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` defaultS3Location
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` subnetIds
       `Prelude.hashWithSalt` studioId
 
 instance Prelude.NFData UpdateStudio where
   rnf UpdateStudio' {..} =
-    Prelude.rnf name
+    Prelude.rnf defaultS3Location
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf defaultS3Location
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf subnetIds
       `Prelude.seq` Prelude.rnf studioId
 
@@ -169,10 +169,10 @@ instance Data.ToJSON UpdateStudio where
   toJSON UpdateStudio' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
-            ("Description" Data..=) Prelude.<$> description,
-            ("DefaultS3Location" Data..=)
+          [ ("DefaultS3Location" Data..=)
               Prelude.<$> defaultS3Location,
+            ("Description" Data..=) Prelude.<$> description,
+            ("Name" Data..=) Prelude.<$> name,
             ("SubnetIds" Data..=) Prelude.<$> subnetIds,
             Prelude.Just ("StudioId" Data..= studioId)
           ]

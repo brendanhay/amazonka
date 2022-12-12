@@ -31,10 +31,10 @@ import Amazonka.SageMaker.Types.DeviceSubsetType
 data DeviceSelectionConfig = DeviceSelectionConfig'
   { -- | A filter to select devices with names containing this name.
     deviceNameContains :: Prelude.Maybe Prelude.Text,
-    -- | Percentage of devices in the fleet to deploy to the current stage.
-    percentage :: Prelude.Maybe Prelude.Int,
     -- | List of devices chosen to deploy.
     deviceNames :: Prelude.Maybe [Prelude.Text],
+    -- | Percentage of devices in the fleet to deploy to the current stage.
+    percentage :: Prelude.Maybe Prelude.Int,
     -- | Type of device subsets to deploy to the current stage.
     deviceSubsetType :: DeviceSubsetType
   }
@@ -50,9 +50,9 @@ data DeviceSelectionConfig = DeviceSelectionConfig'
 --
 -- 'deviceNameContains', 'deviceSelectionConfig_deviceNameContains' - A filter to select devices with names containing this name.
 --
--- 'percentage', 'deviceSelectionConfig_percentage' - Percentage of devices in the fleet to deploy to the current stage.
---
 -- 'deviceNames', 'deviceSelectionConfig_deviceNames' - List of devices chosen to deploy.
+--
+-- 'percentage', 'deviceSelectionConfig_percentage' - Percentage of devices in the fleet to deploy to the current stage.
 --
 -- 'deviceSubsetType', 'deviceSelectionConfig_deviceSubsetType' - Type of device subsets to deploy to the current stage.
 newDeviceSelectionConfig ::
@@ -63,8 +63,8 @@ newDeviceSelectionConfig pDeviceSubsetType_ =
   DeviceSelectionConfig'
     { deviceNameContains =
         Prelude.Nothing,
-      percentage = Prelude.Nothing,
       deviceNames = Prelude.Nothing,
+      percentage = Prelude.Nothing,
       deviceSubsetType = pDeviceSubsetType_
     }
 
@@ -72,13 +72,13 @@ newDeviceSelectionConfig pDeviceSubsetType_ =
 deviceSelectionConfig_deviceNameContains :: Lens.Lens' DeviceSelectionConfig (Prelude.Maybe Prelude.Text)
 deviceSelectionConfig_deviceNameContains = Lens.lens (\DeviceSelectionConfig' {deviceNameContains} -> deviceNameContains) (\s@DeviceSelectionConfig' {} a -> s {deviceNameContains = a} :: DeviceSelectionConfig)
 
--- | Percentage of devices in the fleet to deploy to the current stage.
-deviceSelectionConfig_percentage :: Lens.Lens' DeviceSelectionConfig (Prelude.Maybe Prelude.Int)
-deviceSelectionConfig_percentage = Lens.lens (\DeviceSelectionConfig' {percentage} -> percentage) (\s@DeviceSelectionConfig' {} a -> s {percentage = a} :: DeviceSelectionConfig)
-
 -- | List of devices chosen to deploy.
 deviceSelectionConfig_deviceNames :: Lens.Lens' DeviceSelectionConfig (Prelude.Maybe [Prelude.Text])
 deviceSelectionConfig_deviceNames = Lens.lens (\DeviceSelectionConfig' {deviceNames} -> deviceNames) (\s@DeviceSelectionConfig' {} a -> s {deviceNames = a} :: DeviceSelectionConfig) Prelude.. Lens.mapping Lens.coerced
+
+-- | Percentage of devices in the fleet to deploy to the current stage.
+deviceSelectionConfig_percentage :: Lens.Lens' DeviceSelectionConfig (Prelude.Maybe Prelude.Int)
+deviceSelectionConfig_percentage = Lens.lens (\DeviceSelectionConfig' {percentage} -> percentage) (\s@DeviceSelectionConfig' {} a -> s {percentage = a} :: DeviceSelectionConfig)
 
 -- | Type of device subsets to deploy to the current stage.
 deviceSelectionConfig_deviceSubsetType :: Lens.Lens' DeviceSelectionConfig DeviceSubsetType
@@ -91,23 +91,23 @@ instance Data.FromJSON DeviceSelectionConfig where
       ( \x ->
           DeviceSelectionConfig'
             Prelude.<$> (x Data..:? "DeviceNameContains")
-            Prelude.<*> (x Data..:? "Percentage")
             Prelude.<*> (x Data..:? "DeviceNames" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Percentage")
             Prelude.<*> (x Data..: "DeviceSubsetType")
       )
 
 instance Prelude.Hashable DeviceSelectionConfig where
   hashWithSalt _salt DeviceSelectionConfig' {..} =
     _salt `Prelude.hashWithSalt` deviceNameContains
-      `Prelude.hashWithSalt` percentage
       `Prelude.hashWithSalt` deviceNames
+      `Prelude.hashWithSalt` percentage
       `Prelude.hashWithSalt` deviceSubsetType
 
 instance Prelude.NFData DeviceSelectionConfig where
   rnf DeviceSelectionConfig' {..} =
     Prelude.rnf deviceNameContains
-      `Prelude.seq` Prelude.rnf percentage
       `Prelude.seq` Prelude.rnf deviceNames
+      `Prelude.seq` Prelude.rnf percentage
       `Prelude.seq` Prelude.rnf deviceSubsetType
 
 instance Data.ToJSON DeviceSelectionConfig where
@@ -116,8 +116,8 @@ instance Data.ToJSON DeviceSelectionConfig where
       ( Prelude.catMaybes
           [ ("DeviceNameContains" Data..=)
               Prelude.<$> deviceNameContains,
-            ("Percentage" Data..=) Prelude.<$> percentage,
             ("DeviceNames" Data..=) Prelude.<$> deviceNames,
+            ("Percentage" Data..=) Prelude.<$> percentage,
             Prelude.Just
               ("DeviceSubsetType" Data..= deviceSubsetType)
           ]

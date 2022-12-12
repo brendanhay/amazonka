@@ -26,6 +26,7 @@ module Amazonka.FSx.Types.AdministrativeActionType
         AdministrativeActionType_RELEASE_NFS_V3_LOCKS,
         AdministrativeActionType_SNAPSHOT_UPDATE,
         AdministrativeActionType_STORAGE_OPTIMIZATION,
+        AdministrativeActionType_VOLUME_RESTORE,
         AdministrativeActionType_VOLUME_UPDATE
       ),
   )
@@ -75,6 +76,11 @@ import qualified Amazonka.Prelude as Prelude
 -- -   @VOLUME_UPDATE@ - A volume update to an Amazon FSx for NetApp ONTAP
 --     or Amazon FSx for OpenZFS volume initiated from the Amazon FSx
 --     console, API (@UpdateVolume@), or CLI (@update-volume@).
+--
+-- -   @VOLUME_RESTORE@ - An Amazon FSx for OpenZFS volume is returned to
+--     the state saved by the specified snapshot, initiated from an API
+--     (@RestoreVolumeFromSnapshot@) or CLI
+--     (@restore-volume-from-snapshot@).
 --
 -- -   @SNAPSHOT_UPDATE@ - A snapshot update to an Amazon FSx for OpenZFS
 --     volume initiated from the Amazon FSx console, API
@@ -128,6 +134,9 @@ pattern AdministrativeActionType_SNAPSHOT_UPDATE = AdministrativeActionType' "SN
 pattern AdministrativeActionType_STORAGE_OPTIMIZATION :: AdministrativeActionType
 pattern AdministrativeActionType_STORAGE_OPTIMIZATION = AdministrativeActionType' "STORAGE_OPTIMIZATION"
 
+pattern AdministrativeActionType_VOLUME_RESTORE :: AdministrativeActionType
+pattern AdministrativeActionType_VOLUME_RESTORE = AdministrativeActionType' "VOLUME_RESTORE"
+
 pattern AdministrativeActionType_VOLUME_UPDATE :: AdministrativeActionType
 pattern AdministrativeActionType_VOLUME_UPDATE = AdministrativeActionType' "VOLUME_UPDATE"
 
@@ -138,6 +147,7 @@ pattern AdministrativeActionType_VOLUME_UPDATE = AdministrativeActionType' "VOLU
   AdministrativeActionType_RELEASE_NFS_V3_LOCKS,
   AdministrativeActionType_SNAPSHOT_UPDATE,
   AdministrativeActionType_STORAGE_OPTIMIZATION,
+  AdministrativeActionType_VOLUME_RESTORE,
   AdministrativeActionType_VOLUME_UPDATE,
   AdministrativeActionType'
   #-}

@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAWSLocation' smart constructor.
 data AWSLocation = AWSLocation'
-  { -- | The Zone that the device is located in. Specify the ID of an
-    -- Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
-    zone :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the subnet that the device is located
+  { -- | The Amazon Resource Name (ARN) of the subnet that the device is located
     -- in.
-    subnetArn :: Prelude.Maybe Prelude.Text
+    subnetArn :: Prelude.Maybe Prelude.Text,
+    -- | The Zone that the device is located in. Specify the ID of an
+    -- Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
+    zone :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,28 +45,28 @@ data AWSLocation = AWSLocation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'zone', 'aWSLocation_zone' - The Zone that the device is located in. Specify the ID of an
--- Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
---
 -- 'subnetArn', 'aWSLocation_subnetArn' - The Amazon Resource Name (ARN) of the subnet that the device is located
 -- in.
+--
+-- 'zone', 'aWSLocation_zone' - The Zone that the device is located in. Specify the ID of an
+-- Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
 newAWSLocation ::
   AWSLocation
 newAWSLocation =
   AWSLocation'
-    { zone = Prelude.Nothing,
-      subnetArn = Prelude.Nothing
+    { subnetArn = Prelude.Nothing,
+      zone = Prelude.Nothing
     }
-
--- | The Zone that the device is located in. Specify the ID of an
--- Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
-aWSLocation_zone :: Lens.Lens' AWSLocation (Prelude.Maybe Prelude.Text)
-aWSLocation_zone = Lens.lens (\AWSLocation' {zone} -> zone) (\s@AWSLocation' {} a -> s {zone = a} :: AWSLocation)
 
 -- | The Amazon Resource Name (ARN) of the subnet that the device is located
 -- in.
 aWSLocation_subnetArn :: Lens.Lens' AWSLocation (Prelude.Maybe Prelude.Text)
 aWSLocation_subnetArn = Lens.lens (\AWSLocation' {subnetArn} -> subnetArn) (\s@AWSLocation' {} a -> s {subnetArn = a} :: AWSLocation)
+
+-- | The Zone that the device is located in. Specify the ID of an
+-- Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
+aWSLocation_zone :: Lens.Lens' AWSLocation (Prelude.Maybe Prelude.Text)
+aWSLocation_zone = Lens.lens (\AWSLocation' {zone} -> zone) (\s@AWSLocation' {} a -> s {zone = a} :: AWSLocation)
 
 instance Data.FromJSON AWSLocation where
   parseJSON =
@@ -74,25 +74,25 @@ instance Data.FromJSON AWSLocation where
       "AWSLocation"
       ( \x ->
           AWSLocation'
-            Prelude.<$> (x Data..:? "Zone")
-            Prelude.<*> (x Data..:? "SubnetArn")
+            Prelude.<$> (x Data..:? "SubnetArn")
+            Prelude.<*> (x Data..:? "Zone")
       )
 
 instance Prelude.Hashable AWSLocation where
   hashWithSalt _salt AWSLocation' {..} =
-    _salt `Prelude.hashWithSalt` zone
-      `Prelude.hashWithSalt` subnetArn
+    _salt `Prelude.hashWithSalt` subnetArn
+      `Prelude.hashWithSalt` zone
 
 instance Prelude.NFData AWSLocation where
   rnf AWSLocation' {..} =
-    Prelude.rnf zone
-      `Prelude.seq` Prelude.rnf subnetArn
+    Prelude.rnf subnetArn
+      `Prelude.seq` Prelude.rnf zone
 
 instance Data.ToJSON AWSLocation where
   toJSON AWSLocation' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Zone" Data..=) Prelude.<$> zone,
-            ("SubnetArn" Data..=) Prelude.<$> subnetArn
+          [ ("SubnetArn" Data..=) Prelude.<$> subnetArn,
+            ("Zone" Data..=) Prelude.<$> zone
           ]
       )

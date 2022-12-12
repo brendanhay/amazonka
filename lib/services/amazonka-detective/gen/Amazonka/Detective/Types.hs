@@ -18,12 +18,12 @@ module Amazonka.Detective.Types
     defaultService,
 
     -- * Errors
-    _InternalServerException,
-    _ServiceQuotaExceededException,
-    _ResourceNotFoundException,
     _ConflictException,
-    _ValidationException,
+    _InternalServerException,
+    _ResourceNotFoundException,
+    _ServiceQuotaExceededException,
     _TooManyRequestsException,
+    _ValidationException,
 
     -- * DatasourcePackage
     DatasourcePackage (..),
@@ -49,9 +49,9 @@ module Amazonka.Detective.Types
     -- * Administrator
     Administrator (..),
     newAdministrator,
-    administrator_graphArn,
     administrator_accountId,
     administrator_delegationTime,
+    administrator_graphArn,
 
     -- * DatasourcePackageIngestDetail
     DatasourcePackageIngestDetail (..),
@@ -68,35 +68,35 @@ module Amazonka.Detective.Types
     -- * Graph
     Graph (..),
     newGraph,
-    graph_createdTime,
     graph_arn,
+    graph_createdTime,
 
     -- * MemberDetail
     MemberDetail (..),
     newMemberDetail,
-    memberDetail_percentOfGraphUtilization,
-    memberDetail_volumeUsageInBytes,
-    memberDetail_invitedTime,
-    memberDetail_graphArn,
-    memberDetail_administratorId,
-    memberDetail_disabledReason,
-    memberDetail_status,
-    memberDetail_volumeUsageByDatasourcePackage,
-    memberDetail_percentOfGraphUtilizationUpdatedTime,
     memberDetail_accountId,
-    memberDetail_volumeUsageUpdatedTime,
-    memberDetail_masterId,
-    memberDetail_invitationType,
-    memberDetail_emailAddress,
-    memberDetail_updatedTime,
+    memberDetail_administratorId,
     memberDetail_datasourcePackageIngestStates,
+    memberDetail_disabledReason,
+    memberDetail_emailAddress,
+    memberDetail_graphArn,
+    memberDetail_invitationType,
+    memberDetail_invitedTime,
+    memberDetail_masterId,
+    memberDetail_percentOfGraphUtilization,
+    memberDetail_percentOfGraphUtilizationUpdatedTime,
+    memberDetail_status,
+    memberDetail_updatedTime,
+    memberDetail_volumeUsageByDatasourcePackage,
+    memberDetail_volumeUsageInBytes,
+    memberDetail_volumeUsageUpdatedTime,
 
     -- * MembershipDatasources
     MembershipDatasources (..),
     newMembershipDatasources,
+    membershipDatasources_accountId,
     membershipDatasources_datasourcePackageIngestHistory,
     membershipDatasources_graphArn,
-    membershipDatasources_accountId,
 
     -- * TimestampForCollection
     TimestampForCollection (..),
@@ -162,28 +162,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -191,13 +185,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -205,7 +203,17 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
+
+-- | The request attempted an invalid action.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
 
 -- | The request was valid but failed because of a problem with the service.
 _InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -214,6 +222,14 @@ _InternalServerException =
     defaultService
     "InternalServerException"
     Prelude.. Core.hasStatus 500
+
+-- | The request refers to a nonexistent resource.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
 
 -- | This request cannot be completed for one of the following reasons.
 --
@@ -234,30 +250,6 @@ _ServiceQuotaExceededException =
     "ServiceQuotaExceededException"
     Prelude.. Core.hasStatus 402
 
--- | The request refers to a nonexistent resource.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
-
--- | The request attempted an invalid action.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
-
--- | The request parameters are invalid.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
-  Core._MatchServiceError
-    defaultService
-    "ValidationException"
-    Prelude.. Core.hasStatus 400
-
 -- | The request cannot be completed because too many other requests are
 -- occurring at the same time.
 _TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -266,3 +258,11 @@ _TooManyRequestsException =
     defaultService
     "TooManyRequestsException"
     Prelude.. Core.hasStatus 429
+
+-- | The request parameters are invalid.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
+  Core._MatchServiceError
+    defaultService
+    "ValidationException"
+    Prelude.. Core.hasStatus 400

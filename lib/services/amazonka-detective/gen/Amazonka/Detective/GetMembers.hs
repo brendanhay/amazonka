@@ -36,8 +36,8 @@ module Amazonka.Detective.GetMembers
     newGetMembersResponse,
 
     -- * Response Lenses
-    getMembersResponse_unprocessedAccounts,
     getMembersResponse_memberDetails,
+    getMembersResponse_unprocessedAccounts,
     getMembersResponse_httpStatus,
   )
 where
@@ -113,10 +113,10 @@ instance Core.AWSRequest GetMembers where
     Response.receiveJSON
       ( \s h x ->
           GetMembersResponse'
-            Prelude.<$> ( x Data..?> "UnprocessedAccounts"
+            Prelude.<$> (x Data..?> "MemberDetails" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "UnprocessedAccounts"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "MemberDetails" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,15 +158,15 @@ instance Data.ToQuery GetMembers where
 
 -- | /See:/ 'newGetMembersResponse' smart constructor.
 data GetMembersResponse = GetMembersResponse'
-  { -- | The requested member accounts for which Detective was unable to return
+  { -- | The member account details that Detective is returning in response to
+    -- the request.
+    memberDetails :: Prelude.Maybe [MemberDetail],
+    -- | The requested member accounts for which Detective was unable to return
     -- member details.
     --
     -- For each account, provides the reason why the request could not be
     -- processed.
     unprocessedAccounts :: Prelude.Maybe [UnprocessedAccount],
-    -- | The member account details that Detective is returning in response to
-    -- the request.
-    memberDetails :: Prelude.Maybe [MemberDetail],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -180,14 +180,14 @@ data GetMembersResponse = GetMembersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'memberDetails', 'getMembersResponse_memberDetails' - The member account details that Detective is returning in response to
+-- the request.
+--
 -- 'unprocessedAccounts', 'getMembersResponse_unprocessedAccounts' - The requested member accounts for which Detective was unable to return
 -- member details.
 --
 -- For each account, provides the reason why the request could not be
 -- processed.
---
--- 'memberDetails', 'getMembersResponse_memberDetails' - The member account details that Detective is returning in response to
--- the request.
 --
 -- 'httpStatus', 'getMembersResponse_httpStatus' - The response's http status code.
 newGetMembersResponse ::
@@ -196,11 +196,16 @@ newGetMembersResponse ::
   GetMembersResponse
 newGetMembersResponse pHttpStatus_ =
   GetMembersResponse'
-    { unprocessedAccounts =
+    { memberDetails =
         Prelude.Nothing,
-      memberDetails = Prelude.Nothing,
+      unprocessedAccounts = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The member account details that Detective is returning in response to
+-- the request.
+getMembersResponse_memberDetails :: Lens.Lens' GetMembersResponse (Prelude.Maybe [MemberDetail])
+getMembersResponse_memberDetails = Lens.lens (\GetMembersResponse' {memberDetails} -> memberDetails) (\s@GetMembersResponse' {} a -> s {memberDetails = a} :: GetMembersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The requested member accounts for which Detective was unable to return
 -- member details.
@@ -210,17 +215,12 @@ newGetMembersResponse pHttpStatus_ =
 getMembersResponse_unprocessedAccounts :: Lens.Lens' GetMembersResponse (Prelude.Maybe [UnprocessedAccount])
 getMembersResponse_unprocessedAccounts = Lens.lens (\GetMembersResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@GetMembersResponse' {} a -> s {unprocessedAccounts = a} :: GetMembersResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The member account details that Detective is returning in response to
--- the request.
-getMembersResponse_memberDetails :: Lens.Lens' GetMembersResponse (Prelude.Maybe [MemberDetail])
-getMembersResponse_memberDetails = Lens.lens (\GetMembersResponse' {memberDetails} -> memberDetails) (\s@GetMembersResponse' {} a -> s {memberDetails = a} :: GetMembersResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 getMembersResponse_httpStatus :: Lens.Lens' GetMembersResponse Prelude.Int
 getMembersResponse_httpStatus = Lens.lens (\GetMembersResponse' {httpStatus} -> httpStatus) (\s@GetMembersResponse' {} a -> s {httpStatus = a} :: GetMembersResponse)
 
 instance Prelude.NFData GetMembersResponse where
   rnf GetMembersResponse' {..} =
-    Prelude.rnf unprocessedAccounts
-      `Prelude.seq` Prelude.rnf memberDetails
+    Prelude.rnf memberDetails
+      `Prelude.seq` Prelude.rnf unprocessedAccounts
       `Prelude.seq` Prelude.rnf httpStatus

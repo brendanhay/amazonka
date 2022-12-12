@@ -32,10 +32,10 @@ data Computer = Computer'
   { -- | An array of Attribute objects containing the LDAP attributes that belong
     -- to the computer account.
     computerAttributes :: Prelude.Maybe [Attribute],
-    -- | The computer name.
-    computerName :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the computer.
-    computerId :: Prelude.Maybe Prelude.Text
+    computerId :: Prelude.Maybe Prelude.Text,
+    -- | The computer name.
+    computerName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,16 +50,16 @@ data Computer = Computer'
 -- 'computerAttributes', 'computer_computerAttributes' - An array of Attribute objects containing the LDAP attributes that belong
 -- to the computer account.
 --
--- 'computerName', 'computer_computerName' - The computer name.
---
 -- 'computerId', 'computer_computerId' - The identifier of the computer.
+--
+-- 'computerName', 'computer_computerName' - The computer name.
 newComputer ::
   Computer
 newComputer =
   Computer'
     { computerAttributes = Prelude.Nothing,
-      computerName = Prelude.Nothing,
-      computerId = Prelude.Nothing
+      computerId = Prelude.Nothing,
+      computerName = Prelude.Nothing
     }
 
 -- | An array of Attribute objects containing the LDAP attributes that belong
@@ -67,13 +67,13 @@ newComputer =
 computer_computerAttributes :: Lens.Lens' Computer (Prelude.Maybe [Attribute])
 computer_computerAttributes = Lens.lens (\Computer' {computerAttributes} -> computerAttributes) (\s@Computer' {} a -> s {computerAttributes = a} :: Computer) Prelude.. Lens.mapping Lens.coerced
 
--- | The computer name.
-computer_computerName :: Lens.Lens' Computer (Prelude.Maybe Prelude.Text)
-computer_computerName = Lens.lens (\Computer' {computerName} -> computerName) (\s@Computer' {} a -> s {computerName = a} :: Computer)
-
 -- | The identifier of the computer.
 computer_computerId :: Lens.Lens' Computer (Prelude.Maybe Prelude.Text)
 computer_computerId = Lens.lens (\Computer' {computerId} -> computerId) (\s@Computer' {} a -> s {computerId = a} :: Computer)
+
+-- | The computer name.
+computer_computerName :: Lens.Lens' Computer (Prelude.Maybe Prelude.Text)
+computer_computerName = Lens.lens (\Computer' {computerName} -> computerName) (\s@Computer' {} a -> s {computerName = a} :: Computer)
 
 instance Data.FromJSON Computer where
   parseJSON =
@@ -84,18 +84,18 @@ instance Data.FromJSON Computer where
             Prelude.<$> ( x Data..:? "ComputerAttributes"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "ComputerName")
             Prelude.<*> (x Data..:? "ComputerId")
+            Prelude.<*> (x Data..:? "ComputerName")
       )
 
 instance Prelude.Hashable Computer where
   hashWithSalt _salt Computer' {..} =
     _salt `Prelude.hashWithSalt` computerAttributes
-      `Prelude.hashWithSalt` computerName
       `Prelude.hashWithSalt` computerId
+      `Prelude.hashWithSalt` computerName
 
 instance Prelude.NFData Computer where
   rnf Computer' {..} =
     Prelude.rnf computerAttributes
-      `Prelude.seq` Prelude.rnf computerName
       `Prelude.seq` Prelude.rnf computerId
+      `Prelude.seq` Prelude.rnf computerName

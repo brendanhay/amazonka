@@ -18,12 +18,12 @@ module Amazonka.Forecast.Types
     defaultService,
 
     -- * Errors
-    _ResourceAlreadyExistsException,
     _InvalidInputException,
-    _ResourceNotFoundException,
-    _ResourceInUseException,
-    _LimitExceededException,
     _InvalidNextTokenException,
+    _LimitExceededException,
+    _ResourceAlreadyExistsException,
+    _ResourceInUseException,
+    _ResourceNotFoundException,
 
     -- * AttributeType
     AttributeType (..),
@@ -137,31 +137,31 @@ module Amazonka.Forecast.Types
     -- * DatasetGroupSummary
     DatasetGroupSummary (..),
     newDatasetGroupSummary,
-    datasetGroupSummary_lastModificationTime,
-    datasetGroupSummary_datasetGroupName,
     datasetGroupSummary_creationTime,
     datasetGroupSummary_datasetGroupArn,
+    datasetGroupSummary_datasetGroupName,
+    datasetGroupSummary_lastModificationTime,
 
     -- * DatasetImportJobSummary
     DatasetImportJobSummary (..),
     newDatasetImportJobSummary,
+    datasetImportJobSummary_creationTime,
+    datasetImportJobSummary_dataSource,
+    datasetImportJobSummary_datasetImportJobArn,
+    datasetImportJobSummary_datasetImportJobName,
     datasetImportJobSummary_lastModificationTime,
     datasetImportJobSummary_message,
     datasetImportJobSummary_status,
-    datasetImportJobSummary_datasetImportJobArn,
-    datasetImportJobSummary_dataSource,
-    datasetImportJobSummary_creationTime,
-    datasetImportJobSummary_datasetImportJobName,
 
     -- * DatasetSummary
     DatasetSummary (..),
     newDatasetSummary,
-    datasetSummary_lastModificationTime,
-    datasetSummary_domain,
-    datasetSummary_datasetType,
-    datasetSummary_datasetName,
-    datasetSummary_datasetArn,
     datasetSummary_creationTime,
+    datasetSummary_datasetArn,
+    datasetSummary_datasetName,
+    datasetSummary_datasetType,
+    datasetSummary_domain,
+    datasetSummary_lastModificationTime,
 
     -- * EncryptionConfig
     EncryptionConfig (..),
@@ -172,23 +172,23 @@ module Amazonka.Forecast.Types
     -- * ErrorMetric
     ErrorMetric (..),
     newErrorMetric,
-    errorMetric_wape,
-    errorMetric_mase,
     errorMetric_forecastType,
-    errorMetric_rmse,
     errorMetric_mape,
+    errorMetric_mase,
+    errorMetric_rmse,
+    errorMetric_wape,
 
     -- * EvaluationParameters
     EvaluationParameters (..),
     newEvaluationParameters,
-    evaluationParameters_numberOfBacktestWindows,
     evaluationParameters_backTestWindowOffset,
+    evaluationParameters_numberOfBacktestWindows,
 
     -- * EvaluationResult
     EvaluationResult (..),
     newEvaluationResult,
-    evaluationResult_testWindows,
     evaluationResult_algorithmArn,
+    evaluationResult_testWindows,
 
     -- * ExplainabilityConfig
     ExplainabilityConfig (..),
@@ -199,31 +199,31 @@ module Amazonka.Forecast.Types
     -- * ExplainabilityExportSummary
     ExplainabilityExportSummary (..),
     newExplainabilityExportSummary,
-    explainabilityExportSummary_lastModificationTime,
-    explainabilityExportSummary_destination,
-    explainabilityExportSummary_explainabilityExportName,
-    explainabilityExportSummary_message,
-    explainabilityExportSummary_explainabilityExportArn,
-    explainabilityExportSummary_status,
     explainabilityExportSummary_creationTime,
+    explainabilityExportSummary_destination,
+    explainabilityExportSummary_explainabilityExportArn,
+    explainabilityExportSummary_explainabilityExportName,
+    explainabilityExportSummary_lastModificationTime,
+    explainabilityExportSummary_message,
+    explainabilityExportSummary_status,
 
     -- * ExplainabilityInfo
     ExplainabilityInfo (..),
     newExplainabilityInfo,
-    explainabilityInfo_status,
     explainabilityInfo_explainabilityArn,
+    explainabilityInfo_status,
 
     -- * ExplainabilitySummary
     ExplainabilitySummary (..),
     newExplainabilitySummary,
+    explainabilitySummary_creationTime,
+    explainabilitySummary_explainabilityArn,
+    explainabilitySummary_explainabilityConfig,
+    explainabilitySummary_explainabilityName,
     explainabilitySummary_lastModificationTime,
     explainabilitySummary_message,
-    explainabilitySummary_explainabilityConfig,
-    explainabilitySummary_status,
-    explainabilitySummary_explainabilityArn,
-    explainabilitySummary_explainabilityName,
-    explainabilitySummary_creationTime,
     explainabilitySummary_resourceArn,
+    explainabilitySummary_status,
 
     -- * Featurization
     Featurization (..),
@@ -234,8 +234,8 @@ module Amazonka.Forecast.Types
     -- * FeaturizationConfig
     FeaturizationConfig (..),
     newFeaturizationConfig,
-    featurizationConfig_forecastDimensions,
     featurizationConfig_featurizations,
+    featurizationConfig_forecastDimensions,
     featurizationConfig_forecastFrequency,
 
     -- * FeaturizationMethod
@@ -254,26 +254,26 @@ module Amazonka.Forecast.Types
     -- * ForecastExportJobSummary
     ForecastExportJobSummary (..),
     newForecastExportJobSummary,
-    forecastExportJobSummary_lastModificationTime,
-    forecastExportJobSummary_destination,
-    forecastExportJobSummary_message,
-    forecastExportJobSummary_forecastExportJobName,
-    forecastExportJobSummary_forecastExportJobArn,
-    forecastExportJobSummary_status,
     forecastExportJobSummary_creationTime,
+    forecastExportJobSummary_destination,
+    forecastExportJobSummary_forecastExportJobArn,
+    forecastExportJobSummary_forecastExportJobName,
+    forecastExportJobSummary_lastModificationTime,
+    forecastExportJobSummary_message,
+    forecastExportJobSummary_status,
 
     -- * ForecastSummary
     ForecastSummary (..),
     newForecastSummary,
-    forecastSummary_lastModificationTime,
-    forecastSummary_message,
-    forecastSummary_status,
-    forecastSummary_predictorArn,
-    forecastSummary_forecastArn,
+    forecastSummary_createdUsingAutoPredictor,
     forecastSummary_creationTime,
     forecastSummary_datasetGroupArn,
-    forecastSummary_createdUsingAutoPredictor,
+    forecastSummary_forecastArn,
     forecastSummary_forecastName,
+    forecastSummary_lastModificationTime,
+    forecastSummary_message,
+    forecastSummary_predictorArn,
+    forecastSummary_status,
 
     -- * HyperParameterTuningJobConfig
     HyperParameterTuningJobConfig (..),
@@ -297,16 +297,16 @@ module Amazonka.Forecast.Types
     -- * MetricResult
     MetricResult (..),
     newMetricResult,
-    metricResult_metricValue,
     metricResult_metricName,
+    metricResult_metricValue,
 
     -- * Metrics
     Metrics (..),
     newMetrics,
     metrics_averageWeightedQuantileLoss,
-    metrics_weightedQuantileLosses,
     metrics_errorMetrics,
     metrics_rmse,
+    metrics_weightedQuantileLosses,
 
     -- * MonitorConfig
     MonitorConfig (..),
@@ -317,8 +317,8 @@ module Amazonka.Forecast.Types
     MonitorDataSource (..),
     newMonitorDataSource,
     monitorDataSource_datasetImportJobArn,
-    monitorDataSource_predictorArn,
     monitorDataSource_forecastArn,
+    monitorDataSource_predictorArn,
 
     -- * MonitorInfo
     MonitorInfo (..),
@@ -329,30 +329,30 @@ module Amazonka.Forecast.Types
     -- * MonitorSummary
     MonitorSummary (..),
     newMonitorSummary,
+    monitorSummary_creationTime,
     monitorSummary_lastModificationTime,
     monitorSummary_monitorArn,
-    monitorSummary_status,
     monitorSummary_monitorName,
-    monitorSummary_creationTime,
     monitorSummary_resourceArn,
+    monitorSummary_status,
 
     -- * ParameterRanges
     ParameterRanges (..),
     newParameterRanges,
     parameterRanges_categoricalParameterRanges,
-    parameterRanges_integerParameterRanges,
     parameterRanges_continuousParameterRanges,
+    parameterRanges_integerParameterRanges,
 
     -- * PredictorBacktestExportJobSummary
     PredictorBacktestExportJobSummary (..),
     newPredictorBacktestExportJobSummary,
-    predictorBacktestExportJobSummary_lastModificationTime,
-    predictorBacktestExportJobSummary_destination,
-    predictorBacktestExportJobSummary_message,
-    predictorBacktestExportJobSummary_status,
-    predictorBacktestExportJobSummary_predictorBacktestExportJobName,
-    predictorBacktestExportJobSummary_predictorBacktestExportJobArn,
     predictorBacktestExportJobSummary_creationTime,
+    predictorBacktestExportJobSummary_destination,
+    predictorBacktestExportJobSummary_lastModificationTime,
+    predictorBacktestExportJobSummary_message,
+    predictorBacktestExportJobSummary_predictorBacktestExportJobArn,
+    predictorBacktestExportJobSummary_predictorBacktestExportJobName,
+    predictorBacktestExportJobSummary_status,
 
     -- * PredictorBaseline
     PredictorBaseline (..),
@@ -368,8 +368,8 @@ module Amazonka.Forecast.Types
     -- * PredictorExecution
     PredictorExecution (..),
     newPredictorExecution,
-    predictorExecution_testWindows,
     predictorExecution_algorithmArn,
+    predictorExecution_testWindows,
 
     -- * PredictorExecutionDetails
     PredictorExecutionDetails (..),
@@ -379,30 +379,30 @@ module Amazonka.Forecast.Types
     -- * PredictorMonitorEvaluation
     PredictorMonitorEvaluation (..),
     newPredictorMonitorEvaluation,
+    predictorMonitorEvaluation_evaluationState,
     predictorMonitorEvaluation_evaluationTime,
     predictorMonitorEvaluation_message,
-    predictorMonitorEvaluation_evaluationState,
-    predictorMonitorEvaluation_monitorArn,
-    predictorMonitorEvaluation_numItemsEvaluated,
-    predictorMonitorEvaluation_windowEndDatetime,
-    predictorMonitorEvaluation_monitorDataSource,
-    predictorMonitorEvaluation_windowStartDatetime,
-    predictorMonitorEvaluation_predictorEvent,
     predictorMonitorEvaluation_metricResults,
+    predictorMonitorEvaluation_monitorArn,
+    predictorMonitorEvaluation_monitorDataSource,
+    predictorMonitorEvaluation_numItemsEvaluated,
+    predictorMonitorEvaluation_predictorEvent,
     predictorMonitorEvaluation_resourceArn,
+    predictorMonitorEvaluation_windowEndDatetime,
+    predictorMonitorEvaluation_windowStartDatetime,
 
     -- * PredictorSummary
     PredictorSummary (..),
     newPredictorSummary,
-    predictorSummary_lastModificationTime,
-    predictorSummary_message,
-    predictorSummary_isAutoPredictor,
-    predictorSummary_predictorName,
-    predictorSummary_status,
-    predictorSummary_predictorArn,
     predictorSummary_creationTime,
     predictorSummary_datasetGroupArn,
+    predictorSummary_isAutoPredictor,
+    predictorSummary_lastModificationTime,
+    predictorSummary_message,
+    predictorSummary_predictorArn,
+    predictorSummary_predictorName,
     predictorSummary_referencePredictorSummary,
+    predictorSummary_status,
 
     -- * ReferencePredictorSummary
     ReferencePredictorSummary (..),
@@ -425,24 +425,24 @@ module Amazonka.Forecast.Types
     -- * SchemaAttribute
     SchemaAttribute (..),
     newSchemaAttribute,
-    schemaAttribute_attributeType,
     schemaAttribute_attributeName,
+    schemaAttribute_attributeType,
 
     -- * Statistics
     Statistics (..),
     newStatistics,
-    statistics_countNanLong,
-    statistics_countNullLong,
-    statistics_countNull,
-    statistics_max,
-    statistics_countLong,
-    statistics_countDistinctLong,
     statistics_avg,
     statistics_count,
-    statistics_min,
-    statistics_countNan,
-    statistics_stddev,
     statistics_countDistinct,
+    statistics_countDistinctLong,
+    statistics_countLong,
+    statistics_countNan,
+    statistics_countNanLong,
+    statistics_countNull,
+    statistics_countNullLong,
+    statistics_max,
+    statistics_min,
+    statistics_stddev,
 
     -- * SupplementaryFeature
     SupplementaryFeature (..),
@@ -467,10 +467,10 @@ module Amazonka.Forecast.Types
     -- * TimeAlignmentBoundary
     TimeAlignmentBoundary (..),
     newTimeAlignmentBoundary,
-    timeAlignmentBoundary_dayOfWeek,
-    timeAlignmentBoundary_month,
-    timeAlignmentBoundary_hour,
     timeAlignmentBoundary_dayOfMonth,
+    timeAlignmentBoundary_dayOfWeek,
+    timeAlignmentBoundary_hour,
+    timeAlignmentBoundary_month,
 
     -- * TimeSeriesCondition
     TimeSeriesCondition (..),
@@ -482,9 +482,9 @@ module Amazonka.Forecast.Types
     -- * TimeSeriesIdentifiers
     TimeSeriesIdentifiers (..),
     newTimeSeriesIdentifiers,
+    timeSeriesIdentifiers_dataSource,
     timeSeriesIdentifiers_format,
     timeSeriesIdentifiers_schema,
-    timeSeriesIdentifiers_dataSource,
 
     -- * TimeSeriesReplacementsDataSource
     TimeSeriesReplacementsDataSource (..),
@@ -502,55 +502,55 @@ module Amazonka.Forecast.Types
     -- * TimeSeriesTransformation
     TimeSeriesTransformation (..),
     newTimeSeriesTransformation,
-    timeSeriesTransformation_timeSeriesConditions,
     timeSeriesTransformation_action,
+    timeSeriesTransformation_timeSeriesConditions,
 
     -- * WeightedQuantileLoss
     WeightedQuantileLoss (..),
     newWeightedQuantileLoss,
-    weightedQuantileLoss_quantile,
     weightedQuantileLoss_lossValue,
+    weightedQuantileLoss_quantile,
 
     -- * WhatIfAnalysisSummary
     WhatIfAnalysisSummary (..),
     newWhatIfAnalysisSummary,
-    whatIfAnalysisSummary_lastModificationTime,
-    whatIfAnalysisSummary_whatIfAnalysisArn,
-    whatIfAnalysisSummary_message,
-    whatIfAnalysisSummary_whatIfAnalysisName,
-    whatIfAnalysisSummary_status,
-    whatIfAnalysisSummary_forecastArn,
     whatIfAnalysisSummary_creationTime,
+    whatIfAnalysisSummary_forecastArn,
+    whatIfAnalysisSummary_lastModificationTime,
+    whatIfAnalysisSummary_message,
+    whatIfAnalysisSummary_status,
+    whatIfAnalysisSummary_whatIfAnalysisArn,
+    whatIfAnalysisSummary_whatIfAnalysisName,
 
     -- * WhatIfForecastExportSummary
     WhatIfForecastExportSummary (..),
     newWhatIfForecastExportSummary,
-    whatIfForecastExportSummary_lastModificationTime,
+    whatIfForecastExportSummary_creationTime,
     whatIfForecastExportSummary_destination,
+    whatIfForecastExportSummary_lastModificationTime,
     whatIfForecastExportSummary_message,
-    whatIfForecastExportSummary_whatIfForecastExportName,
+    whatIfForecastExportSummary_status,
     whatIfForecastExportSummary_whatIfForecastArns,
     whatIfForecastExportSummary_whatIfForecastExportArn,
-    whatIfForecastExportSummary_status,
-    whatIfForecastExportSummary_creationTime,
+    whatIfForecastExportSummary_whatIfForecastExportName,
 
     -- * WhatIfForecastSummary
     WhatIfForecastSummary (..),
     newWhatIfForecastSummary,
-    whatIfForecastSummary_lastModificationTime,
-    whatIfForecastSummary_whatIfAnalysisArn,
-    whatIfForecastSummary_message,
-    whatIfForecastSummary_whatIfForecastName,
-    whatIfForecastSummary_whatIfForecastArn,
-    whatIfForecastSummary_status,
     whatIfForecastSummary_creationTime,
+    whatIfForecastSummary_lastModificationTime,
+    whatIfForecastSummary_message,
+    whatIfForecastSummary_status,
+    whatIfForecastSummary_whatIfAnalysisArn,
+    whatIfForecastSummary_whatIfForecastArn,
+    whatIfForecastSummary_whatIfForecastName,
 
     -- * WindowSummary
     WindowSummary (..),
     newWindowSummary,
+    windowSummary_evaluationType,
     windowSummary_itemCount,
     windowSummary_metrics,
-    windowSummary_evaluationType,
     windowSummary_testWindowEnd,
     windowSummary_testWindowStart,
   )
@@ -665,28 +665,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -694,13 +688,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -708,15 +706,9 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
-
--- | There is already a resource with this name. Try again with a different
--- name.
-_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceAlreadyExistsException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceAlreadyExistsException"
 
 -- | We can\'t process the request because it includes an invalid value or a
 -- value that exceeds the valid range.
@@ -726,20 +718,12 @@ _InvalidInputException =
     defaultService
     "InvalidInputException"
 
--- | We can\'t find a resource with that Amazon Resource Name (ARN). Check
--- the ARN and try again.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
+-- | The token is not valid. Tokens expire after 24 hours.
+_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNextTokenException =
   Core._MatchServiceError
     defaultService
-    "ResourceNotFoundException"
-
--- | The specified resource is in use.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceInUseException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceInUseException"
+    "InvalidNextTokenException"
 
 -- | The limit on the number of resources per account has been exceeded.
 _LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -748,9 +732,25 @@ _LimitExceededException =
     defaultService
     "LimitExceededException"
 
--- | The token is not valid. Tokens expire after 24 hours.
-_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidNextTokenException =
+-- | There is already a resource with this name. Try again with a different
+-- name.
+_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceAlreadyExistsException =
   Core._MatchServiceError
     defaultService
-    "InvalidNextTokenException"
+    "ResourceAlreadyExistsException"
+
+-- | The specified resource is in use.
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceInUseException"
+
+-- | We can\'t find a resource with that Amazon Resource Name (ARN). Check
+-- the ARN and try again.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"

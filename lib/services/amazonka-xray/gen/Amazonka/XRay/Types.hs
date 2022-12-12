@@ -18,16 +18,16 @@ module Amazonka.XRay.Types
     defaultService,
 
     -- * Errors
-    _PolicyCountLimitExceededException,
-    _RuleLimitExceededException,
-    _TooManyTagsException,
-    _PolicySizeLimitExceededException,
-    _ResourceNotFoundException,
     _InvalidPolicyRevisionIdException,
+    _InvalidRequestException,
     _LockoutPreventionException,
     _MalformedPolicyDocumentException,
+    _PolicyCountLimitExceededException,
+    _PolicySizeLimitExceededException,
+    _ResourceNotFoundException,
+    _RuleLimitExceededException,
     _ThrottledException,
-    _InvalidRequestException,
+    _TooManyTagsException,
 
     -- * EncryptionStatus
     EncryptionStatus (..),
@@ -51,14 +51,14 @@ module Amazonka.XRay.Types
     Alias (..),
     newAlias,
     alias_name,
-    alias_type,
     alias_names,
+    alias_type,
 
     -- * AnnotationValue
     AnnotationValue (..),
     newAnnotationValue,
-    annotationValue_numberValue,
     annotationValue_booleanValue,
+    annotationValue_numberValue,
     annotationValue_stringValue,
 
     -- * AnomalousService
@@ -74,46 +74,46 @@ module Amazonka.XRay.Types
     -- * BackendConnectionErrors
     BackendConnectionErrors (..),
     newBackendConnectionErrors,
-    backendConnectionErrors_otherCount,
-    backendConnectionErrors_unknownHostCount,
-    backendConnectionErrors_hTTPCode4XXCount,
     backendConnectionErrors_connectionRefusedCount,
-    backendConnectionErrors_timeoutCount,
+    backendConnectionErrors_hTTPCode4XXCount,
     backendConnectionErrors_hTTPCode5XXCount,
+    backendConnectionErrors_otherCount,
+    backendConnectionErrors_timeoutCount,
+    backendConnectionErrors_unknownHostCount,
 
     -- * Edge
     Edge (..),
     newEdge,
     edge_aliases,
-    edge_summaryStatistics,
-    edge_endTime,
-    edge_responseTimeHistogram,
     edge_edgeType,
-    edge_referenceId,
-    edge_startTime,
+    edge_endTime,
     edge_receivedEventAgeHistogram,
+    edge_referenceId,
+    edge_responseTimeHistogram,
+    edge_startTime,
+    edge_summaryStatistics,
 
     -- * EdgeStatistics
     EdgeStatistics (..),
     newEdgeStatistics,
+    edgeStatistics_errorStatistics,
     edgeStatistics_faultStatistics,
     edgeStatistics_okCount,
-    edgeStatistics_totalResponseTime,
     edgeStatistics_totalCount,
-    edgeStatistics_errorStatistics,
+    edgeStatistics_totalResponseTime,
 
     -- * EncryptionConfig
     EncryptionConfig (..),
     newEncryptionConfig,
-    encryptionConfig_type,
-    encryptionConfig_status,
     encryptionConfig_keyId,
+    encryptionConfig_status,
+    encryptionConfig_type,
 
     -- * ErrorRootCause
     ErrorRootCause (..),
     newErrorRootCause,
-    errorRootCause_services,
     errorRootCause_clientImpacting,
+    errorRootCause_services,
 
     -- * ErrorRootCauseEntity
     ErrorRootCauseEntity (..),
@@ -125,25 +125,25 @@ module Amazonka.XRay.Types
     -- * ErrorRootCauseService
     ErrorRootCauseService (..),
     newErrorRootCauseService,
-    errorRootCauseService_name,
-    errorRootCauseService_type,
-    errorRootCauseService_entityPath,
-    errorRootCauseService_names,
     errorRootCauseService_accountId,
+    errorRootCauseService_entityPath,
     errorRootCauseService_inferred,
+    errorRootCauseService_name,
+    errorRootCauseService_names,
+    errorRootCauseService_type,
 
     -- * ErrorStatistics
     ErrorStatistics (..),
     newErrorStatistics,
     errorStatistics_otherCount,
-    errorStatistics_totalCount,
     errorStatistics_throttleCount,
+    errorStatistics_totalCount,
 
     -- * FaultRootCause
     FaultRootCause (..),
     newFaultRootCause,
-    faultRootCause_services,
     faultRootCause_clientImpacting,
+    faultRootCause_services,
 
     -- * FaultRootCauseEntity
     FaultRootCauseEntity (..),
@@ -155,12 +155,12 @@ module Amazonka.XRay.Types
     -- * FaultRootCauseService
     FaultRootCauseService (..),
     newFaultRootCauseService,
-    faultRootCauseService_name,
-    faultRootCauseService_type,
-    faultRootCauseService_entityPath,
-    faultRootCauseService_names,
     faultRootCauseService_accountId,
+    faultRootCauseService_entityPath,
     faultRootCauseService_inferred,
+    faultRootCauseService_name,
+    faultRootCauseService_names,
+    faultRootCauseService_type,
 
     -- * FaultStatistics
     FaultStatistics (..),
@@ -171,24 +171,24 @@ module Amazonka.XRay.Types
     -- * ForecastStatistics
     ForecastStatistics (..),
     newForecastStatistics,
-    forecastStatistics_faultCountLow,
     forecastStatistics_faultCountHigh,
+    forecastStatistics_faultCountLow,
 
     -- * Group
     Group (..),
     newGroup,
-    group_insightsConfiguration,
     group_filterExpression,
-    group_groupName,
     group_groupARN,
+    group_groupName,
+    group_insightsConfiguration,
 
     -- * GroupSummary
     GroupSummary (..),
     newGroupSummary,
-    groupSummary_insightsConfiguration,
     groupSummary_filterExpression,
-    groupSummary_groupName,
     groupSummary_groupARN,
+    groupSummary_groupName,
+    groupSummary_insightsConfiguration,
 
     -- * HistogramEntry
     HistogramEntry (..),
@@ -199,36 +199,36 @@ module Amazonka.XRay.Types
     -- * Http
     Http (..),
     newHttp,
-    http_httpURL,
-    http_httpStatus,
-    http_httpMethod,
-    http_userAgent,
     http_clientIp,
+    http_httpMethod,
+    http_httpStatus,
+    http_httpURL,
+    http_userAgent,
 
     -- * Insight
     Insight (..),
     newInsight,
-    insight_rootCauseServiceId,
-    insight_rootCauseServiceRequestImpactStatistics,
-    insight_topAnomalousServices,
-    insight_insightId,
-    insight_state,
-    insight_summary,
-    insight_groupName,
-    insight_endTime,
     insight_categories,
     insight_clientRequestImpactStatistics,
+    insight_endTime,
     insight_groupARN,
+    insight_groupName,
+    insight_insightId,
+    insight_rootCauseServiceId,
+    insight_rootCauseServiceRequestImpactStatistics,
     insight_startTime,
+    insight_state,
+    insight_summary,
+    insight_topAnomalousServices,
 
     -- * InsightEvent
     InsightEvent (..),
     newInsightEvent,
-    insightEvent_rootCauseServiceRequestImpactStatistics,
-    insightEvent_topAnomalousServices,
-    insightEvent_summary,
-    insightEvent_eventTime,
     insightEvent_clientRequestImpactStatistics,
+    insightEvent_eventTime,
+    insightEvent_rootCauseServiceRequestImpactStatistics,
+    insightEvent_summary,
+    insightEvent_topAnomalousServices,
 
     -- * InsightImpactGraphEdge
     InsightImpactGraphEdge (..),
@@ -238,29 +238,29 @@ module Amazonka.XRay.Types
     -- * InsightImpactGraphService
     InsightImpactGraphService (..),
     newInsightImpactGraphService,
+    insightImpactGraphService_accountId,
     insightImpactGraphService_edges,
     insightImpactGraphService_name,
-    insightImpactGraphService_type,
     insightImpactGraphService_names,
-    insightImpactGraphService_accountId,
     insightImpactGraphService_referenceId,
+    insightImpactGraphService_type,
 
     -- * InsightSummary
     InsightSummary (..),
     newInsightSummary,
-    insightSummary_rootCauseServiceId,
-    insightSummary_rootCauseServiceRequestImpactStatistics,
-    insightSummary_topAnomalousServices,
-    insightSummary_insightId,
-    insightSummary_state,
-    insightSummary_summary,
-    insightSummary_groupName,
-    insightSummary_endTime,
-    insightSummary_lastUpdateTime,
     insightSummary_categories,
     insightSummary_clientRequestImpactStatistics,
+    insightSummary_endTime,
     insightSummary_groupARN,
+    insightSummary_groupName,
+    insightSummary_insightId,
+    insightSummary_lastUpdateTime,
+    insightSummary_rootCauseServiceId,
+    insightSummary_rootCauseServiceRequestImpactStatistics,
     insightSummary_startTime,
+    insightSummary_state,
+    insightSummary_summary,
+    insightSummary_topAnomalousServices,
 
     -- * InsightsConfiguration
     InsightsConfiguration (..),
@@ -276,9 +276,9 @@ module Amazonka.XRay.Types
     -- * RequestImpactStatistics
     RequestImpactStatistics (..),
     newRequestImpactStatistics,
+    requestImpactStatistics_faultCount,
     requestImpactStatistics_okCount,
     requestImpactStatistics_totalCount,
-    requestImpactStatistics_faultCount,
 
     -- * ResourceARNDetail
     ResourceARNDetail (..),
@@ -288,33 +288,33 @@ module Amazonka.XRay.Types
     -- * ResourcePolicy
     ResourcePolicy (..),
     newResourcePolicy,
-    resourcePolicy_policyName,
     resourcePolicy_lastUpdatedTime,
-    resourcePolicy_policyRevisionId,
     resourcePolicy_policyDocument,
+    resourcePolicy_policyName,
+    resourcePolicy_policyRevisionId,
 
     -- * ResponseTimeRootCause
     ResponseTimeRootCause (..),
     newResponseTimeRootCause,
-    responseTimeRootCause_services,
     responseTimeRootCause_clientImpacting,
+    responseTimeRootCause_services,
 
     -- * ResponseTimeRootCauseEntity
     ResponseTimeRootCauseEntity (..),
     newResponseTimeRootCauseEntity,
-    responseTimeRootCauseEntity_name,
     responseTimeRootCauseEntity_coverage,
+    responseTimeRootCauseEntity_name,
     responseTimeRootCauseEntity_remote,
 
     -- * ResponseTimeRootCauseService
     ResponseTimeRootCauseService (..),
     newResponseTimeRootCauseService,
-    responseTimeRootCauseService_name,
-    responseTimeRootCauseService_type,
-    responseTimeRootCauseService_entityPath,
-    responseTimeRootCauseService_names,
     responseTimeRootCauseService_accountId,
+    responseTimeRootCauseService_entityPath,
     responseTimeRootCauseService_inferred,
+    responseTimeRootCauseService_name,
+    responseTimeRootCauseService_names,
+    responseTimeRootCauseService_type,
 
     -- * RootCauseException
     RootCauseException (..),
@@ -325,9 +325,9 @@ module Amazonka.XRay.Types
     -- * SamplingRule
     SamplingRule (..),
     newSamplingRule,
+    samplingRule_attributes,
     samplingRule_ruleARN,
     samplingRule_ruleName,
-    samplingRule_attributes,
     samplingRule_resourceARN,
     samplingRule_priority,
     samplingRule_fixedRate,
@@ -342,34 +342,34 @@ module Amazonka.XRay.Types
     -- * SamplingRuleRecord
     SamplingRuleRecord (..),
     newSamplingRuleRecord,
+    samplingRuleRecord_createdAt,
     samplingRuleRecord_modifiedAt,
     samplingRuleRecord_samplingRule,
-    samplingRuleRecord_createdAt,
 
     -- * SamplingRuleUpdate
     SamplingRuleUpdate (..),
     newSamplingRuleUpdate,
-    samplingRuleUpdate_ruleARN,
-    samplingRuleUpdate_fixedRate,
-    samplingRuleUpdate_host,
-    samplingRuleUpdate_reservoirSize,
-    samplingRuleUpdate_serviceType,
-    samplingRuleUpdate_hTTPMethod,
-    samplingRuleUpdate_ruleName,
-    samplingRuleUpdate_priority,
     samplingRuleUpdate_attributes,
+    samplingRuleUpdate_fixedRate,
+    samplingRuleUpdate_hTTPMethod,
+    samplingRuleUpdate_host,
+    samplingRuleUpdate_priority,
+    samplingRuleUpdate_reservoirSize,
     samplingRuleUpdate_resourceARN,
+    samplingRuleUpdate_ruleARN,
+    samplingRuleUpdate_ruleName,
     samplingRuleUpdate_serviceName,
+    samplingRuleUpdate_serviceType,
     samplingRuleUpdate_uRLPath,
 
     -- * SamplingStatisticSummary
     SamplingStatisticSummary (..),
     newSamplingStatisticSummary,
     samplingStatisticSummary_borrowCount,
-    samplingStatisticSummary_timestamp,
     samplingStatisticSummary_requestCount,
     samplingStatisticSummary_ruleName,
     samplingStatisticSummary_sampledCount,
+    samplingStatisticSummary_timestamp,
 
     -- * SamplingStatisticsDocument
     SamplingStatisticsDocument (..),
@@ -391,50 +391,50 @@ module Amazonka.XRay.Types
     SamplingTargetDocument (..),
     newSamplingTargetDocument,
     samplingTargetDocument_fixedRate,
-    samplingTargetDocument_reservoirQuota,
     samplingTargetDocument_interval,
+    samplingTargetDocument_reservoirQuota,
     samplingTargetDocument_reservoirQuotaTTL,
     samplingTargetDocument_ruleName,
 
     -- * Segment
     Segment (..),
     newSegment,
-    segment_id,
     segment_document,
+    segment_id,
 
     -- * ServiceId
     ServiceId (..),
     newServiceId,
-    serviceId_name,
-    serviceId_type,
-    serviceId_names,
     serviceId_accountId,
+    serviceId_name,
+    serviceId_names,
+    serviceId_type,
 
     -- * ServiceInfo
     ServiceInfo (..),
     newServiceInfo,
-    serviceInfo_edges,
-    serviceInfo_name,
-    serviceInfo_type,
-    serviceInfo_summaryStatistics,
-    serviceInfo_state,
-    serviceInfo_endTime,
-    serviceInfo_names,
-    serviceInfo_responseTimeHistogram,
     serviceInfo_accountId,
-    serviceInfo_root,
-    serviceInfo_referenceId,
     serviceInfo_durationHistogram,
+    serviceInfo_edges,
+    serviceInfo_endTime,
+    serviceInfo_name,
+    serviceInfo_names,
+    serviceInfo_referenceId,
+    serviceInfo_responseTimeHistogram,
+    serviceInfo_root,
     serviceInfo_startTime,
+    serviceInfo_state,
+    serviceInfo_summaryStatistics,
+    serviceInfo_type,
 
     -- * ServiceStatistics
     ServiceStatistics (..),
     newServiceStatistics,
+    serviceStatistics_errorStatistics,
     serviceStatistics_faultStatistics,
     serviceStatistics_okCount,
-    serviceStatistics_totalResponseTime,
     serviceStatistics_totalCount,
-    serviceStatistics_errorStatistics,
+    serviceStatistics_totalResponseTime,
 
     -- * Tag
     Tag (..),
@@ -446,78 +446,78 @@ module Amazonka.XRay.Types
     TelemetryRecord (..),
     newTelemetryRecord,
     telemetryRecord_backendConnectionErrors,
-    telemetryRecord_segmentsSentCount,
-    telemetryRecord_segmentsSpilloverCount,
     telemetryRecord_segmentsReceivedCount,
     telemetryRecord_segmentsRejectedCount,
+    telemetryRecord_segmentsSentCount,
+    telemetryRecord_segmentsSpilloverCount,
     telemetryRecord_timestamp,
 
     -- * TimeSeriesServiceStatistics
     TimeSeriesServiceStatistics (..),
     newTimeSeriesServiceStatistics,
-    timeSeriesServiceStatistics_serviceSummaryStatistics,
     timeSeriesServiceStatistics_edgeSummaryStatistics,
-    timeSeriesServiceStatistics_timestamp,
     timeSeriesServiceStatistics_responseTimeHistogram,
     timeSeriesServiceStatistics_serviceForecastStatistics,
+    timeSeriesServiceStatistics_serviceSummaryStatistics,
+    timeSeriesServiceStatistics_timestamp,
 
     -- * Trace
     Trace (..),
     newTrace,
-    trace_id,
     trace_duration,
+    trace_id,
     trace_limitExceeded,
     trace_segments,
 
     -- * TraceSummary
     TraceSummary (..),
     newTraceSummary,
-    traceSummary_http,
-    traceSummary_responseTimeRootCauses,
-    traceSummary_hasFault,
-    traceSummary_isPartial,
-    traceSummary_availabilityZones,
-    traceSummary_matchedEventTime,
-    traceSummary_revision,
-    traceSummary_errorRootCauses,
-    traceSummary_users,
-    traceSummary_hasError,
-    traceSummary_id,
     traceSummary_annotations,
+    traceSummary_availabilityZones,
     traceSummary_duration,
-    traceSummary_hasThrottle,
-    traceSummary_faultRootCauses,
-    traceSummary_serviceIds,
-    traceSummary_responseTime,
     traceSummary_entryPoint,
+    traceSummary_errorRootCauses,
+    traceSummary_faultRootCauses,
+    traceSummary_hasError,
+    traceSummary_hasFault,
+    traceSummary_hasThrottle,
+    traceSummary_http,
+    traceSummary_id,
     traceSummary_instanceIds,
+    traceSummary_isPartial,
+    traceSummary_matchedEventTime,
     traceSummary_resourceARNs,
+    traceSummary_responseTime,
+    traceSummary_responseTimeRootCauses,
+    traceSummary_revision,
+    traceSummary_serviceIds,
+    traceSummary_users,
 
     -- * TraceUser
     TraceUser (..),
     newTraceUser,
-    traceUser_userName,
     traceUser_serviceIds,
+    traceUser_userName,
 
     -- * UnprocessedStatistics
     UnprocessedStatistics (..),
     newUnprocessedStatistics,
+    unprocessedStatistics_errorCode,
     unprocessedStatistics_message,
     unprocessedStatistics_ruleName,
-    unprocessedStatistics_errorCode,
 
     -- * UnprocessedTraceSegment
     UnprocessedTraceSegment (..),
     newUnprocessedTraceSegment,
-    unprocessedTraceSegment_message,
-    unprocessedTraceSegment_id,
     unprocessedTraceSegment_errorCode,
+    unprocessedTraceSegment_id,
+    unprocessedTraceSegment_message,
 
     -- * ValueWithServiceIds
     ValueWithServiceIds (..),
     newValueWithServiceIds,
-    valueWithServiceIds_serviceIds,
     valueWithServiceIds_annotationValue,
+    valueWithServiceIds_serviceIds,
   )
 where
 
@@ -612,28 +612,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -641,13 +635,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -655,7 +653,44 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
+
+-- | A policy revision id was provided which does not match the latest policy
+-- revision. This exception is also if a policy revision id of 0 is
+-- provided via @PutResourcePolicy@ and a policy with the same name already
+-- exists.
+_InvalidPolicyRevisionIdException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidPolicyRevisionIdException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidPolicyRevisionIdException"
+    Prelude.. Core.hasStatus 400
+
+-- | The request is missing required parameters or has invalid parameters.
+_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRequestException"
+
+-- | The provided resource policy would prevent the caller of this request
+-- from calling PutResourcePolicy in the future.
+_LockoutPreventionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LockoutPreventionException =
+  Core._MatchServiceError
+    defaultService
+    "LockoutPreventionException"
+    Prelude.. Core.hasStatus 400
+
+-- | Invalid policy document provided in request.
+_MalformedPolicyDocumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MalformedPolicyDocumentException =
+  Core._MatchServiceError
+    defaultService
+    "MalformedPolicyDocumentException"
+    Prelude.. Core.hasStatus 400
 
 -- | Exceeded the maximum number of resource policies for a target Amazon Web
 -- Services account.
@@ -664,22 +699,6 @@ _PolicyCountLimitExceededException =
   Core._MatchServiceError
     defaultService
     "PolicyCountLimitExceededException"
-    Prelude.. Core.hasStatus 400
-
--- | You have reached the maximum number of sampling rules.
-_RuleLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_RuleLimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "RuleLimitExceededException"
-
--- | You have exceeded the maximum number of tags you can apply to this
--- resource.
-_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyTagsException =
-  Core._MatchServiceError
-    defaultService
-    "TooManyTagsException"
     Prelude.. Core.hasStatus 400
 
 -- | Exceeded the maximum size for a resource policy.
@@ -699,33 +718,12 @@ _ResourceNotFoundException =
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
 
--- | A policy revision id was provided which does not match the latest policy
--- revision. This exception is also if a policy revision id of 0 is
--- provided via @PutResourcePolicy@ and a policy with the same name already
--- exists.
-_InvalidPolicyRevisionIdException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidPolicyRevisionIdException =
+-- | You have reached the maximum number of sampling rules.
+_RuleLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RuleLimitExceededException =
   Core._MatchServiceError
     defaultService
-    "InvalidPolicyRevisionIdException"
-    Prelude.. Core.hasStatus 400
-
--- | The provided resource policy would prevent the caller of this request
--- from calling PutResourcePolicy in the future.
-_LockoutPreventionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LockoutPreventionException =
-  Core._MatchServiceError
-    defaultService
-    "LockoutPreventionException"
-    Prelude.. Core.hasStatus 400
-
--- | Invalid policy document provided in request.
-_MalformedPolicyDocumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_MalformedPolicyDocumentException =
-  Core._MatchServiceError
-    defaultService
-    "MalformedPolicyDocumentException"
-    Prelude.. Core.hasStatus 400
+    "RuleLimitExceededException"
 
 -- | The request exceeds the maximum number of requests per second.
 _ThrottledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -735,9 +733,11 @@ _ThrottledException =
     "ThrottledException"
     Prelude.. Core.hasStatus 429
 
--- | The request is missing required parameters or has invalid parameters.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidRequestException =
+-- | You have exceeded the maximum number of tags you can apply to this
+-- resource.
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException =
   Core._MatchServiceError
     defaultService
-    "InvalidRequestException"
+    "TooManyTagsException"
+    Prelude.. Core.hasStatus 400

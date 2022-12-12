@@ -30,12 +30,12 @@ import Amazonka.SecurityHub.Types.AwsRedshiftClusterClusterParameterStatus
 --
 -- /See:/ 'newAwsRedshiftClusterClusterParameterGroup' smart constructor.
 data AwsRedshiftClusterClusterParameterGroup = AwsRedshiftClusterClusterParameterGroup'
-  { -- | The name of the parameter group.
-    parameterGroupName :: Prelude.Maybe Prelude.Text,
-    -- | The list of parameter statuses.
+  { -- | The list of parameter statuses.
     clusterParameterStatusList :: Prelude.Maybe [AwsRedshiftClusterClusterParameterStatus],
     -- | The status of updates to the parameters.
-    parameterApplyStatus :: Prelude.Maybe Prelude.Text
+    parameterApplyStatus :: Prelude.Maybe Prelude.Text,
+    -- | The name of the parameter group.
+    parameterGroupName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,26 +47,22 @@ data AwsRedshiftClusterClusterParameterGroup = AwsRedshiftClusterClusterParamete
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'parameterGroupName', 'awsRedshiftClusterClusterParameterGroup_parameterGroupName' - The name of the parameter group.
---
 -- 'clusterParameterStatusList', 'awsRedshiftClusterClusterParameterGroup_clusterParameterStatusList' - The list of parameter statuses.
 --
 -- 'parameterApplyStatus', 'awsRedshiftClusterClusterParameterGroup_parameterApplyStatus' - The status of updates to the parameters.
+--
+-- 'parameterGroupName', 'awsRedshiftClusterClusterParameterGroup_parameterGroupName' - The name of the parameter group.
 newAwsRedshiftClusterClusterParameterGroup ::
   AwsRedshiftClusterClusterParameterGroup
 newAwsRedshiftClusterClusterParameterGroup =
   AwsRedshiftClusterClusterParameterGroup'
-    { parameterGroupName =
-        Prelude.Nothing,
-      clusterParameterStatusList =
+    { clusterParameterStatusList =
         Prelude.Nothing,
       parameterApplyStatus =
+        Prelude.Nothing,
+      parameterGroupName =
         Prelude.Nothing
     }
-
--- | The name of the parameter group.
-awsRedshiftClusterClusterParameterGroup_parameterGroupName :: Lens.Lens' AwsRedshiftClusterClusterParameterGroup (Prelude.Maybe Prelude.Text)
-awsRedshiftClusterClusterParameterGroup_parameterGroupName = Lens.lens (\AwsRedshiftClusterClusterParameterGroup' {parameterGroupName} -> parameterGroupName) (\s@AwsRedshiftClusterClusterParameterGroup' {} a -> s {parameterGroupName = a} :: AwsRedshiftClusterClusterParameterGroup)
 
 -- | The list of parameter statuses.
 awsRedshiftClusterClusterParameterGroup_clusterParameterStatusList :: Lens.Lens' AwsRedshiftClusterClusterParameterGroup (Prelude.Maybe [AwsRedshiftClusterClusterParameterStatus])
@@ -75,6 +71,10 @@ awsRedshiftClusterClusterParameterGroup_clusterParameterStatusList = Lens.lens (
 -- | The status of updates to the parameters.
 awsRedshiftClusterClusterParameterGroup_parameterApplyStatus :: Lens.Lens' AwsRedshiftClusterClusterParameterGroup (Prelude.Maybe Prelude.Text)
 awsRedshiftClusterClusterParameterGroup_parameterApplyStatus = Lens.lens (\AwsRedshiftClusterClusterParameterGroup' {parameterApplyStatus} -> parameterApplyStatus) (\s@AwsRedshiftClusterClusterParameterGroup' {} a -> s {parameterApplyStatus = a} :: AwsRedshiftClusterClusterParameterGroup)
+
+-- | The name of the parameter group.
+awsRedshiftClusterClusterParameterGroup_parameterGroupName :: Lens.Lens' AwsRedshiftClusterClusterParameterGroup (Prelude.Maybe Prelude.Text)
+awsRedshiftClusterClusterParameterGroup_parameterGroupName = Lens.lens (\AwsRedshiftClusterClusterParameterGroup' {parameterGroupName} -> parameterGroupName) (\s@AwsRedshiftClusterClusterParameterGroup' {} a -> s {parameterGroupName = a} :: AwsRedshiftClusterClusterParameterGroup)
 
 instance
   Data.FromJSON
@@ -85,11 +85,11 @@ instance
       "AwsRedshiftClusterClusterParameterGroup"
       ( \x ->
           AwsRedshiftClusterClusterParameterGroup'
-            Prelude.<$> (x Data..:? "ParameterGroupName")
-            Prelude.<*> ( x Data..:? "ClusterParameterStatusList"
+            Prelude.<$> ( x Data..:? "ClusterParameterStatusList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ParameterApplyStatus")
+            Prelude.<*> (x Data..:? "ParameterGroupName")
       )
 
 instance
@@ -99,18 +99,19 @@ instance
   hashWithSalt
     _salt
     AwsRedshiftClusterClusterParameterGroup' {..} =
-      _salt `Prelude.hashWithSalt` parameterGroupName
+      _salt
         `Prelude.hashWithSalt` clusterParameterStatusList
         `Prelude.hashWithSalt` parameterApplyStatus
+        `Prelude.hashWithSalt` parameterGroupName
 
 instance
   Prelude.NFData
     AwsRedshiftClusterClusterParameterGroup
   where
   rnf AwsRedshiftClusterClusterParameterGroup' {..} =
-    Prelude.rnf parameterGroupName
-      `Prelude.seq` Prelude.rnf clusterParameterStatusList
+    Prelude.rnf clusterParameterStatusList
       `Prelude.seq` Prelude.rnf parameterApplyStatus
+      `Prelude.seq` Prelude.rnf parameterGroupName
 
 instance
   Data.ToJSON
@@ -119,11 +120,11 @@ instance
   toJSON AwsRedshiftClusterClusterParameterGroup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ParameterGroupName" Data..=)
-              Prelude.<$> parameterGroupName,
-            ("ClusterParameterStatusList" Data..=)
+          [ ("ClusterParameterStatusList" Data..=)
               Prelude.<$> clusterParameterStatusList,
             ("ParameterApplyStatus" Data..=)
-              Prelude.<$> parameterApplyStatus
+              Prelude.<$> parameterApplyStatus,
+            ("ParameterGroupName" Data..=)
+              Prelude.<$> parameterGroupName
           ]
       )

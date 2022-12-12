@@ -27,9 +27,9 @@ module Amazonka.DeviceFarm.UpdateTestGridProject
     newUpdateTestGridProject,
 
     -- * Request Lenses
+    updateTestGridProject_description,
     updateTestGridProject_name,
     updateTestGridProject_vpcConfig,
-    updateTestGridProject_description,
     updateTestGridProject_projectArn,
 
     -- * Destructuring the Response
@@ -52,12 +52,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateTestGridProject' smart constructor.
 data UpdateTestGridProject = UpdateTestGridProject'
-  { -- | Human-readable name for the project.
+  { -- | Human-readable description for the project.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Human-readable name for the project.
     name :: Prelude.Maybe Prelude.Text,
     -- | The VPC security groups and subnets that are attached to a project.
     vpcConfig :: Prelude.Maybe TestGridVpcConfig,
-    -- | Human-readable description for the project.
-    description :: Prelude.Maybe Prelude.Text,
     -- | ARN of the project to update.
     projectArn :: Prelude.Text
   }
@@ -71,11 +71,11 @@ data UpdateTestGridProject = UpdateTestGridProject'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'updateTestGridProject_description' - Human-readable description for the project.
+--
 -- 'name', 'updateTestGridProject_name' - Human-readable name for the project.
 --
 -- 'vpcConfig', 'updateTestGridProject_vpcConfig' - The VPC security groups and subnets that are attached to a project.
---
--- 'description', 'updateTestGridProject_description' - Human-readable description for the project.
 --
 -- 'projectArn', 'updateTestGridProject_projectArn' - ARN of the project to update.
 newUpdateTestGridProject ::
@@ -84,11 +84,16 @@ newUpdateTestGridProject ::
   UpdateTestGridProject
 newUpdateTestGridProject pProjectArn_ =
   UpdateTestGridProject'
-    { name = Prelude.Nothing,
+    { description =
+        Prelude.Nothing,
+      name = Prelude.Nothing,
       vpcConfig = Prelude.Nothing,
-      description = Prelude.Nothing,
       projectArn = pProjectArn_
     }
+
+-- | Human-readable description for the project.
+updateTestGridProject_description :: Lens.Lens' UpdateTestGridProject (Prelude.Maybe Prelude.Text)
+updateTestGridProject_description = Lens.lens (\UpdateTestGridProject' {description} -> description) (\s@UpdateTestGridProject' {} a -> s {description = a} :: UpdateTestGridProject)
 
 -- | Human-readable name for the project.
 updateTestGridProject_name :: Lens.Lens' UpdateTestGridProject (Prelude.Maybe Prelude.Text)
@@ -97,10 +102,6 @@ updateTestGridProject_name = Lens.lens (\UpdateTestGridProject' {name} -> name) 
 -- | The VPC security groups and subnets that are attached to a project.
 updateTestGridProject_vpcConfig :: Lens.Lens' UpdateTestGridProject (Prelude.Maybe TestGridVpcConfig)
 updateTestGridProject_vpcConfig = Lens.lens (\UpdateTestGridProject' {vpcConfig} -> vpcConfig) (\s@UpdateTestGridProject' {} a -> s {vpcConfig = a} :: UpdateTestGridProject)
-
--- | Human-readable description for the project.
-updateTestGridProject_description :: Lens.Lens' UpdateTestGridProject (Prelude.Maybe Prelude.Text)
-updateTestGridProject_description = Lens.lens (\UpdateTestGridProject' {description} -> description) (\s@UpdateTestGridProject' {} a -> s {description = a} :: UpdateTestGridProject)
 
 -- | ARN of the project to update.
 updateTestGridProject_projectArn :: Lens.Lens' UpdateTestGridProject Prelude.Text
@@ -122,16 +123,16 @@ instance Core.AWSRequest UpdateTestGridProject where
 
 instance Prelude.Hashable UpdateTestGridProject where
   hashWithSalt _salt UpdateTestGridProject' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` vpcConfig
-      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` projectArn
 
 instance Prelude.NFData UpdateTestGridProject where
   rnf UpdateTestGridProject' {..} =
-    Prelude.rnf name
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf vpcConfig
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf projectArn
 
 instance Data.ToHeaders UpdateTestGridProject where
@@ -153,9 +154,9 @@ instance Data.ToJSON UpdateTestGridProject where
   toJSON UpdateTestGridProject' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("name" Data..=) Prelude.<$> name,
+          [ ("description" Data..=) Prelude.<$> description,
+            ("name" Data..=) Prelude.<$> name,
             ("vpcConfig" Data..=) Prelude.<$> vpcConfig,
-            ("description" Data..=) Prelude.<$> description,
             Prelude.Just ("projectArn" Data..= projectArn)
           ]
       )

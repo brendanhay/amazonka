@@ -37,20 +37,20 @@ module Amazonka.AmplifyUiBuilder
     -- ** InternalServerException
     _InternalServerException,
 
-    -- ** UnauthorizedException
-    _UnauthorizedException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
+    -- ** InvalidParameterException
+    _InvalidParameterException,
 
     -- ** ResourceConflictException
     _ResourceConflictException,
 
-    -- ** InvalidParameterException
-    _InvalidParameterException,
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
+
+    -- ** UnauthorizedException
+    _UnauthorizedException,
 
     -- * Waiters
     -- $waiters

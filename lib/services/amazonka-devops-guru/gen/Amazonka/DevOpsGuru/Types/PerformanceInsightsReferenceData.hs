@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPerformanceInsightsReferenceData' smart constructor.
 data PerformanceInsightsReferenceData = PerformanceInsightsReferenceData'
-  { -- | The name of the reference data.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The specific reference values used to evaluate the Performance Insights.
+  { -- | The specific reference values used to evaluate the Performance Insights.
     -- For more information, see
     -- @ PerformanceInsightsReferenceComparisonValues @.
-    comparisonValues :: Prelude.Maybe PerformanceInsightsReferenceComparisonValues
+    comparisonValues :: Prelude.Maybe PerformanceInsightsReferenceComparisonValues,
+    -- | The name of the reference data.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,29 +47,29 @@ data PerformanceInsightsReferenceData = PerformanceInsightsReferenceData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'performanceInsightsReferenceData_name' - The name of the reference data.
---
 -- 'comparisonValues', 'performanceInsightsReferenceData_comparisonValues' - The specific reference values used to evaluate the Performance Insights.
 -- For more information, see
 -- @ PerformanceInsightsReferenceComparisonValues @.
+--
+-- 'name', 'performanceInsightsReferenceData_name' - The name of the reference data.
 newPerformanceInsightsReferenceData ::
   PerformanceInsightsReferenceData
 newPerformanceInsightsReferenceData =
   PerformanceInsightsReferenceData'
-    { name =
+    { comparisonValues =
         Prelude.Nothing,
-      comparisonValues = Prelude.Nothing
+      name = Prelude.Nothing
     }
-
--- | The name of the reference data.
-performanceInsightsReferenceData_name :: Lens.Lens' PerformanceInsightsReferenceData (Prelude.Maybe Prelude.Text)
-performanceInsightsReferenceData_name = Lens.lens (\PerformanceInsightsReferenceData' {name} -> name) (\s@PerformanceInsightsReferenceData' {} a -> s {name = a} :: PerformanceInsightsReferenceData)
 
 -- | The specific reference values used to evaluate the Performance Insights.
 -- For more information, see
 -- @ PerformanceInsightsReferenceComparisonValues @.
 performanceInsightsReferenceData_comparisonValues :: Lens.Lens' PerformanceInsightsReferenceData (Prelude.Maybe PerformanceInsightsReferenceComparisonValues)
 performanceInsightsReferenceData_comparisonValues = Lens.lens (\PerformanceInsightsReferenceData' {comparisonValues} -> comparisonValues) (\s@PerformanceInsightsReferenceData' {} a -> s {comparisonValues = a} :: PerformanceInsightsReferenceData)
+
+-- | The name of the reference data.
+performanceInsightsReferenceData_name :: Lens.Lens' PerformanceInsightsReferenceData (Prelude.Maybe Prelude.Text)
+performanceInsightsReferenceData_name = Lens.lens (\PerformanceInsightsReferenceData' {name} -> name) (\s@PerformanceInsightsReferenceData' {} a -> s {name = a} :: PerformanceInsightsReferenceData)
 
 instance
   Data.FromJSON
@@ -80,8 +80,8 @@ instance
       "PerformanceInsightsReferenceData"
       ( \x ->
           PerformanceInsightsReferenceData'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "ComparisonValues")
+            Prelude.<$> (x Data..:? "ComparisonValues")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance
@@ -91,13 +91,13 @@ instance
   hashWithSalt
     _salt
     PerformanceInsightsReferenceData' {..} =
-      _salt `Prelude.hashWithSalt` name
-        `Prelude.hashWithSalt` comparisonValues
+      _salt `Prelude.hashWithSalt` comparisonValues
+        `Prelude.hashWithSalt` name
 
 instance
   Prelude.NFData
     PerformanceInsightsReferenceData
   where
   rnf PerformanceInsightsReferenceData' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf comparisonValues
+    Prelude.rnf comparisonValues
+      `Prelude.seq` Prelude.rnf name

@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResourceCount' smart constructor.
 data ResourceCount = ResourceCount'
-  { -- | The resource type (for example, @\"AWS::EC2::Instance\"@).
-    resourceType :: Prelude.Maybe ResourceType,
-    -- | The number of resources.
-    count :: Prelude.Maybe Prelude.Integer
+  { -- | The number of resources.
+    count :: Prelude.Maybe Prelude.Integer,
+    -- | The resource type (for example, @\"AWS::EC2::Instance\"@).
+    resourceType :: Prelude.Maybe ResourceType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data ResourceCount = ResourceCount'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceType', 'resourceCount_resourceType' - The resource type (for example, @\"AWS::EC2::Instance\"@).
---
 -- 'count', 'resourceCount_count' - The number of resources.
+--
+-- 'resourceType', 'resourceCount_resourceType' - The resource type (for example, @\"AWS::EC2::Instance\"@).
 newResourceCount ::
   ResourceCount
 newResourceCount =
   ResourceCount'
-    { resourceType = Prelude.Nothing,
-      count = Prelude.Nothing
+    { count = Prelude.Nothing,
+      resourceType = Prelude.Nothing
     }
-
--- | The resource type (for example, @\"AWS::EC2::Instance\"@).
-resourceCount_resourceType :: Lens.Lens' ResourceCount (Prelude.Maybe ResourceType)
-resourceCount_resourceType = Lens.lens (\ResourceCount' {resourceType} -> resourceType) (\s@ResourceCount' {} a -> s {resourceType = a} :: ResourceCount)
 
 -- | The number of resources.
 resourceCount_count :: Lens.Lens' ResourceCount (Prelude.Maybe Prelude.Integer)
 resourceCount_count = Lens.lens (\ResourceCount' {count} -> count) (\s@ResourceCount' {} a -> s {count = a} :: ResourceCount)
+
+-- | The resource type (for example, @\"AWS::EC2::Instance\"@).
+resourceCount_resourceType :: Lens.Lens' ResourceCount (Prelude.Maybe ResourceType)
+resourceCount_resourceType = Lens.lens (\ResourceCount' {resourceType} -> resourceType) (\s@ResourceCount' {} a -> s {resourceType = a} :: ResourceCount)
 
 instance Data.FromJSON ResourceCount where
   parseJSON =
@@ -69,16 +69,16 @@ instance Data.FromJSON ResourceCount where
       "ResourceCount"
       ( \x ->
           ResourceCount'
-            Prelude.<$> (x Data..:? "resourceType")
-            Prelude.<*> (x Data..:? "count")
+            Prelude.<$> (x Data..:? "count")
+            Prelude.<*> (x Data..:? "resourceType")
       )
 
 instance Prelude.Hashable ResourceCount where
   hashWithSalt _salt ResourceCount' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
-      `Prelude.hashWithSalt` count
+    _salt `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` resourceType
 
 instance Prelude.NFData ResourceCount where
   rnf ResourceCount' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf count
+    Prelude.rnf count
+      `Prelude.seq` Prelude.rnf resourceType

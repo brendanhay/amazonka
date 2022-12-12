@@ -36,12 +36,12 @@ module Amazonka.RDSData.ExecuteStatement
     -- * Request Lenses
     executeStatement_continueAfterTimeout,
     executeStatement_database,
-    executeStatement_resultSetOptions,
-    executeStatement_includeResultMetadata,
-    executeStatement_transactionId,
     executeStatement_formatRecordsAs,
-    executeStatement_schema,
+    executeStatement_includeResultMetadata,
     executeStatement_parameters,
+    executeStatement_resultSetOptions,
+    executeStatement_schema,
+    executeStatement_transactionId,
     executeStatement_resourceArn,
     executeStatement_secretArn,
     executeStatement_sql,
@@ -51,11 +51,11 @@ module Amazonka.RDSData.ExecuteStatement
     newExecuteStatementResponse,
 
     -- * Response Lenses
-    executeStatementResponse_records,
     executeStatementResponse_columnMetadata,
-    executeStatementResponse_numberOfRecordsUpdated,
     executeStatementResponse_formattedRecords,
     executeStatementResponse_generatedFields,
+    executeStatementResponse_numberOfRecordsUpdated,
+    executeStatementResponse_records,
     executeStatementResponse_httpStatus,
   )
 where
@@ -84,17 +84,6 @@ data ExecuteStatement = ExecuteStatement'
     continueAfterTimeout :: Prelude.Maybe Prelude.Bool,
     -- | The name of the database.
     database :: Prelude.Maybe Prelude.Text,
-    -- | Options that control how the result set is returned.
-    resultSetOptions :: Prelude.Maybe ResultSetOptions,
-    -- | A value that indicates whether to include metadata in the results.
-    includeResultMetadata :: Prelude.Maybe Prelude.Bool,
-    -- | The identifier of a transaction that was started by using the
-    -- @BeginTransaction@ operation. Specify the transaction ID of the
-    -- transaction that you want to include the SQL statement in.
-    --
-    -- If the SQL statement is not part of a transaction, don\'t set this
-    -- parameter.
-    transactionId :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether to format the result set as a single JSON
     -- string. This parameter only applies to @SELECT@ statements and is
     -- ignored for other types of statements. Allowed values are @NONE@ and
@@ -105,14 +94,25 @@ data ExecuteStatement = ExecuteStatement'
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html Using the Data API>
     -- in the /Amazon Aurora User Guide/.
     formatRecordsAs :: Prelude.Maybe RecordsFormatType,
-    -- | The name of the database schema.
-    --
-    -- Currently, the @schema@ parameter isn\'t supported.
-    schema :: Prelude.Maybe Prelude.Text,
+    -- | A value that indicates whether to include metadata in the results.
+    includeResultMetadata :: Prelude.Maybe Prelude.Bool,
     -- | The parameters for the SQL statement.
     --
     -- Array parameters are not supported.
     parameters :: Prelude.Maybe [SqlParameter],
+    -- | Options that control how the result set is returned.
+    resultSetOptions :: Prelude.Maybe ResultSetOptions,
+    -- | The name of the database schema.
+    --
+    -- Currently, the @schema@ parameter isn\'t supported.
+    schema :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of a transaction that was started by using the
+    -- @BeginTransaction@ operation. Specify the transaction ID of the
+    -- transaction that you want to include the SQL statement in.
+    --
+    -- If the SQL statement is not part of a transaction, don\'t set this
+    -- parameter.
+    transactionId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.
     resourceArn :: Prelude.Text,
     -- | The ARN of the secret that enables access to the DB cluster. Enter the
@@ -145,17 +145,6 @@ data ExecuteStatement = ExecuteStatement'
 --
 -- 'database', 'executeStatement_database' - The name of the database.
 --
--- 'resultSetOptions', 'executeStatement_resultSetOptions' - Options that control how the result set is returned.
---
--- 'includeResultMetadata', 'executeStatement_includeResultMetadata' - A value that indicates whether to include metadata in the results.
---
--- 'transactionId', 'executeStatement_transactionId' - The identifier of a transaction that was started by using the
--- @BeginTransaction@ operation. Specify the transaction ID of the
--- transaction that you want to include the SQL statement in.
---
--- If the SQL statement is not part of a transaction, don\'t set this
--- parameter.
---
 -- 'formatRecordsAs', 'executeStatement_formatRecordsAs' - A value that indicates whether to format the result set as a single JSON
 -- string. This parameter only applies to @SELECT@ statements and is
 -- ignored for other types of statements. Allowed values are @NONE@ and
@@ -166,13 +155,24 @@ data ExecuteStatement = ExecuteStatement'
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html Using the Data API>
 -- in the /Amazon Aurora User Guide/.
 --
--- 'schema', 'executeStatement_schema' - The name of the database schema.
---
--- Currently, the @schema@ parameter isn\'t supported.
+-- 'includeResultMetadata', 'executeStatement_includeResultMetadata' - A value that indicates whether to include metadata in the results.
 --
 -- 'parameters', 'executeStatement_parameters' - The parameters for the SQL statement.
 --
 -- Array parameters are not supported.
+--
+-- 'resultSetOptions', 'executeStatement_resultSetOptions' - Options that control how the result set is returned.
+--
+-- 'schema', 'executeStatement_schema' - The name of the database schema.
+--
+-- Currently, the @schema@ parameter isn\'t supported.
+--
+-- 'transactionId', 'executeStatement_transactionId' - The identifier of a transaction that was started by using the
+-- @BeginTransaction@ operation. Specify the transaction ID of the
+-- transaction that you want to include the SQL statement in.
+--
+-- If the SQL statement is not part of a transaction, don\'t set this
+-- parameter.
 --
 -- 'resourceArn', 'executeStatement_resourceArn' - The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.
 --
@@ -196,12 +196,12 @@ newExecuteStatement pResourceArn_ pSecretArn_ pSql_ =
     { continueAfterTimeout =
         Prelude.Nothing,
       database = Prelude.Nothing,
-      resultSetOptions = Prelude.Nothing,
-      includeResultMetadata = Prelude.Nothing,
-      transactionId = Prelude.Nothing,
       formatRecordsAs = Prelude.Nothing,
-      schema = Prelude.Nothing,
+      includeResultMetadata = Prelude.Nothing,
       parameters = Prelude.Nothing,
+      resultSetOptions = Prelude.Nothing,
+      schema = Prelude.Nothing,
+      transactionId = Prelude.Nothing,
       resourceArn = pResourceArn_,
       secretArn = pSecretArn_,
       sql = pSql_
@@ -222,23 +222,6 @@ executeStatement_continueAfterTimeout = Lens.lens (\ExecuteStatement' {continueA
 executeStatement_database :: Lens.Lens' ExecuteStatement (Prelude.Maybe Prelude.Text)
 executeStatement_database = Lens.lens (\ExecuteStatement' {database} -> database) (\s@ExecuteStatement' {} a -> s {database = a} :: ExecuteStatement)
 
--- | Options that control how the result set is returned.
-executeStatement_resultSetOptions :: Lens.Lens' ExecuteStatement (Prelude.Maybe ResultSetOptions)
-executeStatement_resultSetOptions = Lens.lens (\ExecuteStatement' {resultSetOptions} -> resultSetOptions) (\s@ExecuteStatement' {} a -> s {resultSetOptions = a} :: ExecuteStatement)
-
--- | A value that indicates whether to include metadata in the results.
-executeStatement_includeResultMetadata :: Lens.Lens' ExecuteStatement (Prelude.Maybe Prelude.Bool)
-executeStatement_includeResultMetadata = Lens.lens (\ExecuteStatement' {includeResultMetadata} -> includeResultMetadata) (\s@ExecuteStatement' {} a -> s {includeResultMetadata = a} :: ExecuteStatement)
-
--- | The identifier of a transaction that was started by using the
--- @BeginTransaction@ operation. Specify the transaction ID of the
--- transaction that you want to include the SQL statement in.
---
--- If the SQL statement is not part of a transaction, don\'t set this
--- parameter.
-executeStatement_transactionId :: Lens.Lens' ExecuteStatement (Prelude.Maybe Prelude.Text)
-executeStatement_transactionId = Lens.lens (\ExecuteStatement' {transactionId} -> transactionId) (\s@ExecuteStatement' {} a -> s {transactionId = a} :: ExecuteStatement)
-
 -- | A value that indicates whether to format the result set as a single JSON
 -- string. This parameter only applies to @SELECT@ statements and is
 -- ignored for other types of statements. Allowed values are @NONE@ and
@@ -251,17 +234,34 @@ executeStatement_transactionId = Lens.lens (\ExecuteStatement' {transactionId} -
 executeStatement_formatRecordsAs :: Lens.Lens' ExecuteStatement (Prelude.Maybe RecordsFormatType)
 executeStatement_formatRecordsAs = Lens.lens (\ExecuteStatement' {formatRecordsAs} -> formatRecordsAs) (\s@ExecuteStatement' {} a -> s {formatRecordsAs = a} :: ExecuteStatement)
 
--- | The name of the database schema.
---
--- Currently, the @schema@ parameter isn\'t supported.
-executeStatement_schema :: Lens.Lens' ExecuteStatement (Prelude.Maybe Prelude.Text)
-executeStatement_schema = Lens.lens (\ExecuteStatement' {schema} -> schema) (\s@ExecuteStatement' {} a -> s {schema = a} :: ExecuteStatement)
+-- | A value that indicates whether to include metadata in the results.
+executeStatement_includeResultMetadata :: Lens.Lens' ExecuteStatement (Prelude.Maybe Prelude.Bool)
+executeStatement_includeResultMetadata = Lens.lens (\ExecuteStatement' {includeResultMetadata} -> includeResultMetadata) (\s@ExecuteStatement' {} a -> s {includeResultMetadata = a} :: ExecuteStatement)
 
 -- | The parameters for the SQL statement.
 --
 -- Array parameters are not supported.
 executeStatement_parameters :: Lens.Lens' ExecuteStatement (Prelude.Maybe [SqlParameter])
 executeStatement_parameters = Lens.lens (\ExecuteStatement' {parameters} -> parameters) (\s@ExecuteStatement' {} a -> s {parameters = a} :: ExecuteStatement) Prelude.. Lens.mapping Lens.coerced
+
+-- | Options that control how the result set is returned.
+executeStatement_resultSetOptions :: Lens.Lens' ExecuteStatement (Prelude.Maybe ResultSetOptions)
+executeStatement_resultSetOptions = Lens.lens (\ExecuteStatement' {resultSetOptions} -> resultSetOptions) (\s@ExecuteStatement' {} a -> s {resultSetOptions = a} :: ExecuteStatement)
+
+-- | The name of the database schema.
+--
+-- Currently, the @schema@ parameter isn\'t supported.
+executeStatement_schema :: Lens.Lens' ExecuteStatement (Prelude.Maybe Prelude.Text)
+executeStatement_schema = Lens.lens (\ExecuteStatement' {schema} -> schema) (\s@ExecuteStatement' {} a -> s {schema = a} :: ExecuteStatement)
+
+-- | The identifier of a transaction that was started by using the
+-- @BeginTransaction@ operation. Specify the transaction ID of the
+-- transaction that you want to include the SQL statement in.
+--
+-- If the SQL statement is not part of a transaction, don\'t set this
+-- parameter.
+executeStatement_transactionId :: Lens.Lens' ExecuteStatement (Prelude.Maybe Prelude.Text)
+executeStatement_transactionId = Lens.lens (\ExecuteStatement' {transactionId} -> transactionId) (\s@ExecuteStatement' {} a -> s {transactionId = a} :: ExecuteStatement)
 
 -- | The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.
 executeStatement_resourceArn :: Lens.Lens' ExecuteStatement Prelude.Text
@@ -289,13 +289,13 @@ instance Core.AWSRequest ExecuteStatement where
     Response.receiveJSON
       ( \s h x ->
           ExecuteStatementResponse'
-            Prelude.<$> (x Data..?> "records" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "columnMetadata" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "numberOfRecordsUpdated")
+            Prelude.<$> (x Data..?> "columnMetadata" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "formattedRecords")
             Prelude.<*> ( x Data..?> "generatedFields"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "numberOfRecordsUpdated")
+            Prelude.<*> (x Data..?> "records" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -303,12 +303,12 @@ instance Prelude.Hashable ExecuteStatement where
   hashWithSalt _salt ExecuteStatement' {..} =
     _salt `Prelude.hashWithSalt` continueAfterTimeout
       `Prelude.hashWithSalt` database
-      `Prelude.hashWithSalt` resultSetOptions
-      `Prelude.hashWithSalt` includeResultMetadata
-      `Prelude.hashWithSalt` transactionId
       `Prelude.hashWithSalt` formatRecordsAs
-      `Prelude.hashWithSalt` schema
+      `Prelude.hashWithSalt` includeResultMetadata
       `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` resultSetOptions
+      `Prelude.hashWithSalt` schema
+      `Prelude.hashWithSalt` transactionId
       `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` secretArn
       `Prelude.hashWithSalt` sql
@@ -317,12 +317,12 @@ instance Prelude.NFData ExecuteStatement where
   rnf ExecuteStatement' {..} =
     Prelude.rnf continueAfterTimeout
       `Prelude.seq` Prelude.rnf database
-      `Prelude.seq` Prelude.rnf resultSetOptions
-      `Prelude.seq` Prelude.rnf includeResultMetadata
-      `Prelude.seq` Prelude.rnf transactionId
       `Prelude.seq` Prelude.rnf formatRecordsAs
-      `Prelude.seq` Prelude.rnf schema
+      `Prelude.seq` Prelude.rnf includeResultMetadata
       `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf resultSetOptions
+      `Prelude.seq` Prelude.rnf schema
+      `Prelude.seq` Prelude.rnf transactionId
       `Prelude.seq` Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf secretArn
       `Prelude.seq` Prelude.rnf sql
@@ -345,15 +345,15 @@ instance Data.ToJSON ExecuteStatement where
           [ ("continueAfterTimeout" Data..=)
               Prelude.<$> continueAfterTimeout,
             ("database" Data..=) Prelude.<$> database,
-            ("resultSetOptions" Data..=)
-              Prelude.<$> resultSetOptions,
-            ("includeResultMetadata" Data..=)
-              Prelude.<$> includeResultMetadata,
-            ("transactionId" Data..=) Prelude.<$> transactionId,
             ("formatRecordsAs" Data..=)
               Prelude.<$> formatRecordsAs,
-            ("schema" Data..=) Prelude.<$> schema,
+            ("includeResultMetadata" Data..=)
+              Prelude.<$> includeResultMetadata,
             ("parameters" Data..=) Prelude.<$> parameters,
+            ("resultSetOptions" Data..=)
+              Prelude.<$> resultSetOptions,
+            ("schema" Data..=) Prelude.<$> schema,
+            ("transactionId" Data..=) Prelude.<$> transactionId,
             Prelude.Just ("resourceArn" Data..= resourceArn),
             Prelude.Just ("secretArn" Data..= secretArn),
             Prelude.Just ("sql" Data..= sql)
@@ -371,14 +371,9 @@ instance Data.ToQuery ExecuteStatement where
 --
 -- /See:/ 'newExecuteStatementResponse' smart constructor.
 data ExecuteStatementResponse = ExecuteStatementResponse'
-  { -- | The records returned by the SQL statement. This field is blank if the
-    -- @formatRecordsAs@ parameter is set to @JSON@.
-    records :: Prelude.Maybe [[Field]],
-    -- | Metadata for the columns included in the results. This field is blank if
+  { -- | Metadata for the columns included in the results. This field is blank if
     -- the @formatRecordsAs@ parameter is set to @JSON@.
     columnMetadata :: Prelude.Maybe [ColumnMetadata],
-    -- | The number of records updated by the request.
-    numberOfRecordsUpdated :: Prelude.Maybe Prelude.Integer,
     -- | A string value that represents the result set of a @SELECT@ statement in
     -- JSON format. This value is only present when the @formatRecordsAs@
     -- parameter is set to @JSON@.
@@ -391,6 +386,11 @@ data ExecuteStatementResponse = ExecuteStatementResponse'
     --
     -- >  <note> <p>The <code>generatedFields</code> data isn't supported by Aurora PostgreSQL. To get the values of generated fields, use the <code>RETURNING</code> clause. For more information, see <a href="https://www.postgresql.org/docs/10/dml-returning.html">Returning Data From Modified Rows</a> in the PostgreSQL documentation.</p> </note>
     generatedFields :: Prelude.Maybe [Field],
+    -- | The number of records updated by the request.
+    numberOfRecordsUpdated :: Prelude.Maybe Prelude.Integer,
+    -- | The records returned by the SQL statement. This field is blank if the
+    -- @formatRecordsAs@ parameter is set to @JSON@.
+    records :: Prelude.Maybe [[Field]],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -404,13 +404,8 @@ data ExecuteStatementResponse = ExecuteStatementResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'records', 'executeStatementResponse_records' - The records returned by the SQL statement. This field is blank if the
--- @formatRecordsAs@ parameter is set to @JSON@.
---
 -- 'columnMetadata', 'executeStatementResponse_columnMetadata' - Metadata for the columns included in the results. This field is blank if
 -- the @formatRecordsAs@ parameter is set to @JSON@.
---
--- 'numberOfRecordsUpdated', 'executeStatementResponse_numberOfRecordsUpdated' - The number of records updated by the request.
 --
 -- 'formattedRecords', 'executeStatementResponse_formattedRecords' - A string value that represents the result set of a @SELECT@ statement in
 -- JSON format. This value is only present when the @formatRecordsAs@
@@ -424,6 +419,11 @@ data ExecuteStatementResponse = ExecuteStatementResponse'
 --
 -- >  <note> <p>The <code>generatedFields</code> data isn't supported by Aurora PostgreSQL. To get the values of generated fields, use the <code>RETURNING</code> clause. For more information, see <a href="https://www.postgresql.org/docs/10/dml-returning.html">Returning Data From Modified Rows</a> in the PostgreSQL documentation.</p> </note>
 --
+-- 'numberOfRecordsUpdated', 'executeStatementResponse_numberOfRecordsUpdated' - The number of records updated by the request.
+--
+-- 'records', 'executeStatementResponse_records' - The records returned by the SQL statement. This field is blank if the
+-- @formatRecordsAs@ parameter is set to @JSON@.
+--
 -- 'httpStatus', 'executeStatementResponse_httpStatus' - The response's http status code.
 newExecuteStatementResponse ::
   -- | 'httpStatus'
@@ -431,28 +431,19 @@ newExecuteStatementResponse ::
   ExecuteStatementResponse
 newExecuteStatementResponse pHttpStatus_ =
   ExecuteStatementResponse'
-    { records =
+    { columnMetadata =
         Prelude.Nothing,
-      columnMetadata = Prelude.Nothing,
-      numberOfRecordsUpdated = Prelude.Nothing,
       formattedRecords = Prelude.Nothing,
       generatedFields = Prelude.Nothing,
+      numberOfRecordsUpdated = Prelude.Nothing,
+      records = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The records returned by the SQL statement. This field is blank if the
--- @formatRecordsAs@ parameter is set to @JSON@.
-executeStatementResponse_records :: Lens.Lens' ExecuteStatementResponse (Prelude.Maybe [[Field]])
-executeStatementResponse_records = Lens.lens (\ExecuteStatementResponse' {records} -> records) (\s@ExecuteStatementResponse' {} a -> s {records = a} :: ExecuteStatementResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Metadata for the columns included in the results. This field is blank if
 -- the @formatRecordsAs@ parameter is set to @JSON@.
 executeStatementResponse_columnMetadata :: Lens.Lens' ExecuteStatementResponse (Prelude.Maybe [ColumnMetadata])
 executeStatementResponse_columnMetadata = Lens.lens (\ExecuteStatementResponse' {columnMetadata} -> columnMetadata) (\s@ExecuteStatementResponse' {} a -> s {columnMetadata = a} :: ExecuteStatementResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The number of records updated by the request.
-executeStatementResponse_numberOfRecordsUpdated :: Lens.Lens' ExecuteStatementResponse (Prelude.Maybe Prelude.Integer)
-executeStatementResponse_numberOfRecordsUpdated = Lens.lens (\ExecuteStatementResponse' {numberOfRecordsUpdated} -> numberOfRecordsUpdated) (\s@ExecuteStatementResponse' {} a -> s {numberOfRecordsUpdated = a} :: ExecuteStatementResponse)
 
 -- | A string value that represents the result set of a @SELECT@ statement in
 -- JSON format. This value is only present when the @formatRecordsAs@
@@ -470,15 +461,24 @@ executeStatementResponse_formattedRecords = Lens.lens (\ExecuteStatementResponse
 executeStatementResponse_generatedFields :: Lens.Lens' ExecuteStatementResponse (Prelude.Maybe [Field])
 executeStatementResponse_generatedFields = Lens.lens (\ExecuteStatementResponse' {generatedFields} -> generatedFields) (\s@ExecuteStatementResponse' {} a -> s {generatedFields = a} :: ExecuteStatementResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The number of records updated by the request.
+executeStatementResponse_numberOfRecordsUpdated :: Lens.Lens' ExecuteStatementResponse (Prelude.Maybe Prelude.Integer)
+executeStatementResponse_numberOfRecordsUpdated = Lens.lens (\ExecuteStatementResponse' {numberOfRecordsUpdated} -> numberOfRecordsUpdated) (\s@ExecuteStatementResponse' {} a -> s {numberOfRecordsUpdated = a} :: ExecuteStatementResponse)
+
+-- | The records returned by the SQL statement. This field is blank if the
+-- @formatRecordsAs@ parameter is set to @JSON@.
+executeStatementResponse_records :: Lens.Lens' ExecuteStatementResponse (Prelude.Maybe [[Field]])
+executeStatementResponse_records = Lens.lens (\ExecuteStatementResponse' {records} -> records) (\s@ExecuteStatementResponse' {} a -> s {records = a} :: ExecuteStatementResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 executeStatementResponse_httpStatus :: Lens.Lens' ExecuteStatementResponse Prelude.Int
 executeStatementResponse_httpStatus = Lens.lens (\ExecuteStatementResponse' {httpStatus} -> httpStatus) (\s@ExecuteStatementResponse' {} a -> s {httpStatus = a} :: ExecuteStatementResponse)
 
 instance Prelude.NFData ExecuteStatementResponse where
   rnf ExecuteStatementResponse' {..} =
-    Prelude.rnf records
-      `Prelude.seq` Prelude.rnf columnMetadata
-      `Prelude.seq` Prelude.rnf numberOfRecordsUpdated
+    Prelude.rnf columnMetadata
       `Prelude.seq` Prelude.rnf formattedRecords
       `Prelude.seq` Prelude.rnf generatedFields
+      `Prelude.seq` Prelude.rnf numberOfRecordsUpdated
+      `Prelude.seq` Prelude.rnf records
       `Prelude.seq` Prelude.rnf httpStatus

@@ -24,8 +24,8 @@
 -- destinations for cross-account subscriptions.
 --
 -- A destination encapsulates a physical resource (such as an Amazon
--- Kinesis stream) and enables you to subscribe to a real-time stream of
--- log events for a different account, ingested using
+-- Kinesis stream). With a destination, you can subscribe to a real-time
+-- stream of log events for a different account, ingested using
 -- <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html PutLogEvents>.
 --
 -- Through an access policy, a destination controls what is written to it.

@@ -30,8 +30,8 @@ module Amazonka.Budgets.DescribeBudgetNotificationsForAccount
     newDescribeBudgetNotificationsForAccount,
 
     -- * Request Lenses
-    describeBudgetNotificationsForAccount_nextToken,
     describeBudgetNotificationsForAccount_maxResults,
+    describeBudgetNotificationsForAccount_nextToken,
     describeBudgetNotificationsForAccount_accountId,
 
     -- * Destructuring the Response
@@ -39,8 +39,8 @@ module Amazonka.Budgets.DescribeBudgetNotificationsForAccount
     newDescribeBudgetNotificationsForAccountResponse,
 
     -- * Response Lenses
-    describeBudgetNotificationsForAccountResponse_nextToken,
     describeBudgetNotificationsForAccountResponse_budgetNotificationsForAccount,
+    describeBudgetNotificationsForAccountResponse_nextToken,
     describeBudgetNotificationsForAccountResponse_httpStatus,
   )
 where
@@ -55,10 +55,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeBudgetNotificationsForAccount' smart constructor.
 data DescribeBudgetNotificationsForAccount = DescribeBudgetNotificationsForAccount'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An integer that shows how many budget name entries a paginated response
+  { -- | An integer that shows how many budget name entries a paginated response
     -- contains.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    nextToken :: Prelude.Maybe Prelude.Text,
     accountId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -71,10 +71,10 @@ data DescribeBudgetNotificationsForAccount = DescribeBudgetNotificationsForAccou
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeBudgetNotificationsForAccount_nextToken' - Undocumented member.
---
 -- 'maxResults', 'describeBudgetNotificationsForAccount_maxResults' - An integer that shows how many budget name entries a paginated response
 -- contains.
+--
+-- 'nextToken', 'describeBudgetNotificationsForAccount_nextToken' - Undocumented member.
 --
 -- 'accountId', 'describeBudgetNotificationsForAccount_accountId' - Undocumented member.
 newDescribeBudgetNotificationsForAccount ::
@@ -83,20 +83,20 @@ newDescribeBudgetNotificationsForAccount ::
   DescribeBudgetNotificationsForAccount
 newDescribeBudgetNotificationsForAccount pAccountId_ =
   DescribeBudgetNotificationsForAccount'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       accountId = pAccountId_
     }
-
--- | Undocumented member.
-describeBudgetNotificationsForAccount_nextToken :: Lens.Lens' DescribeBudgetNotificationsForAccount (Prelude.Maybe Prelude.Text)
-describeBudgetNotificationsForAccount_nextToken = Lens.lens (\DescribeBudgetNotificationsForAccount' {nextToken} -> nextToken) (\s@DescribeBudgetNotificationsForAccount' {} a -> s {nextToken = a} :: DescribeBudgetNotificationsForAccount)
 
 -- | An integer that shows how many budget name entries a paginated response
 -- contains.
 describeBudgetNotificationsForAccount_maxResults :: Lens.Lens' DescribeBudgetNotificationsForAccount (Prelude.Maybe Prelude.Natural)
 describeBudgetNotificationsForAccount_maxResults = Lens.lens (\DescribeBudgetNotificationsForAccount' {maxResults} -> maxResults) (\s@DescribeBudgetNotificationsForAccount' {} a -> s {maxResults = a} :: DescribeBudgetNotificationsForAccount)
+
+-- | Undocumented member.
+describeBudgetNotificationsForAccount_nextToken :: Lens.Lens' DescribeBudgetNotificationsForAccount (Prelude.Maybe Prelude.Text)
+describeBudgetNotificationsForAccount_nextToken = Lens.lens (\DescribeBudgetNotificationsForAccount' {nextToken} -> nextToken) (\s@DescribeBudgetNotificationsForAccount' {} a -> s {nextToken = a} :: DescribeBudgetNotificationsForAccount)
 
 -- | Undocumented member.
 describeBudgetNotificationsForAccount_accountId :: Lens.Lens' DescribeBudgetNotificationsForAccount Prelude.Text
@@ -141,10 +141,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeBudgetNotificationsForAccountResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-              Prelude.<*> ( x Data..?> "BudgetNotificationsForAccount"
-                              Core..!@ Prelude.mempty
-                          )
+            Prelude.<$> ( x Data..?> "BudgetNotificationsForAccount"
+                            Core..!@ Prelude.mempty
+                        )
+              Prelude.<*> (x Data..?> "NextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,8 +155,8 @@ instance
   hashWithSalt
     _salt
     DescribeBudgetNotificationsForAccount' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` accountId
 
 instance
@@ -164,8 +164,8 @@ instance
     DescribeBudgetNotificationsForAccount
   where
   rnf DescribeBudgetNotificationsForAccount' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf accountId
 
 instance
@@ -193,8 +193,8 @@ instance
   toJSON DescribeBudgetNotificationsForAccount' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("AccountId" Data..= accountId)
           ]
       )
@@ -213,9 +213,9 @@ instance
 
 -- | /See:/ 'newDescribeBudgetNotificationsForAccountResponse' smart constructor.
 data DescribeBudgetNotificationsForAccountResponse = DescribeBudgetNotificationsForAccountResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of budget names and associated notifications for an account.
+  { -- | A list of budget names and associated notifications for an account.
     budgetNotificationsForAccount :: Prelude.Maybe [BudgetNotificationsForAccount],
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -229,9 +229,9 @@ data DescribeBudgetNotificationsForAccountResponse = DescribeBudgetNotifications
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeBudgetNotificationsForAccountResponse_nextToken' - Undocumented member.
---
 -- 'budgetNotificationsForAccount', 'describeBudgetNotificationsForAccountResponse_budgetNotificationsForAccount' - A list of budget names and associated notifications for an account.
+--
+-- 'nextToken', 'describeBudgetNotificationsForAccountResponse_nextToken' - Undocumented member.
 --
 -- 'httpStatus', 'describeBudgetNotificationsForAccountResponse_httpStatus' - The response's http status code.
 newDescribeBudgetNotificationsForAccountResponse ::
@@ -241,20 +241,19 @@ newDescribeBudgetNotificationsForAccountResponse ::
 newDescribeBudgetNotificationsForAccountResponse
   pHttpStatus_ =
     DescribeBudgetNotificationsForAccountResponse'
-      { nextToken =
+      { budgetNotificationsForAccount =
           Prelude.Nothing,
-        budgetNotificationsForAccount =
-          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | Undocumented member.
-describeBudgetNotificationsForAccountResponse_nextToken :: Lens.Lens' DescribeBudgetNotificationsForAccountResponse (Prelude.Maybe Prelude.Text)
-describeBudgetNotificationsForAccountResponse_nextToken = Lens.lens (\DescribeBudgetNotificationsForAccountResponse' {nextToken} -> nextToken) (\s@DescribeBudgetNotificationsForAccountResponse' {} a -> s {nextToken = a} :: DescribeBudgetNotificationsForAccountResponse)
 
 -- | A list of budget names and associated notifications for an account.
 describeBudgetNotificationsForAccountResponse_budgetNotificationsForAccount :: Lens.Lens' DescribeBudgetNotificationsForAccountResponse (Prelude.Maybe [BudgetNotificationsForAccount])
 describeBudgetNotificationsForAccountResponse_budgetNotificationsForAccount = Lens.lens (\DescribeBudgetNotificationsForAccountResponse' {budgetNotificationsForAccount} -> budgetNotificationsForAccount) (\s@DescribeBudgetNotificationsForAccountResponse' {} a -> s {budgetNotificationsForAccount = a} :: DescribeBudgetNotificationsForAccountResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+describeBudgetNotificationsForAccountResponse_nextToken :: Lens.Lens' DescribeBudgetNotificationsForAccountResponse (Prelude.Maybe Prelude.Text)
+describeBudgetNotificationsForAccountResponse_nextToken = Lens.lens (\DescribeBudgetNotificationsForAccountResponse' {nextToken} -> nextToken) (\s@DescribeBudgetNotificationsForAccountResponse' {} a -> s {nextToken = a} :: DescribeBudgetNotificationsForAccountResponse)
 
 -- | The response's http status code.
 describeBudgetNotificationsForAccountResponse_httpStatus :: Lens.Lens' DescribeBudgetNotificationsForAccountResponse Prelude.Int
@@ -266,6 +265,6 @@ instance
   where
   rnf
     DescribeBudgetNotificationsForAccountResponse' {..} =
-      Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf budgetNotificationsForAccount
+      Prelude.rnf budgetNotificationsForAccount
+        `Prelude.seq` Prelude.rnf nextToken
         `Prelude.seq` Prelude.rnf httpStatus

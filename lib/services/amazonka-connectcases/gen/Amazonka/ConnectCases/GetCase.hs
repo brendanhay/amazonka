@@ -37,8 +37,8 @@ module Amazonka.ConnectCases.GetCase
     newGetCaseResponse,
 
     -- * Response Lenses
-    getCaseResponse_tags,
     getCaseResponse_nextToken,
+    getCaseResponse_tags,
     getCaseResponse_httpStatus,
     getCaseResponse_fields,
     getCaseResponse_templateId,
@@ -127,8 +127,8 @@ instance Core.AWSRequest GetCase where
     Response.receiveJSON
       ( \s h x ->
           GetCaseResponse'
-            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "fields" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..:> "templateId")
@@ -182,12 +182,12 @@ instance Data.ToQuery GetCase where
 
 -- | /See:/ 'newGetCaseResponse' smart constructor.
 data GetCaseResponse = GetCaseResponse'
-  { -- | A map of of key-value pairs that represent tags on a resource. Tags are
-    -- used to organize, track, or control access for this resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The token for the next set of results. This is null if there are no more
+  { -- | The token for the next set of results. This is null if there are no more
     -- results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A map of of key-value pairs that represent tags on a resource. Tags are
+    -- used to organize, track, or control access for this resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | A list of detailed field information.
@@ -205,11 +205,11 @@ data GetCaseResponse = GetCaseResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'getCaseResponse_tags' - A map of of key-value pairs that represent tags on a resource. Tags are
--- used to organize, track, or control access for this resource.
---
 -- 'nextToken', 'getCaseResponse_nextToken' - The token for the next set of results. This is null if there are no more
 -- results to return.
+--
+-- 'tags', 'getCaseResponse_tags' - A map of of key-value pairs that represent tags on a resource. Tags are
+-- used to organize, track, or control access for this resource.
 --
 -- 'httpStatus', 'getCaseResponse_httpStatus' - The response's http status code.
 --
@@ -224,22 +224,22 @@ newGetCaseResponse ::
   GetCaseResponse
 newGetCaseResponse pHttpStatus_ pTemplateId_ =
   GetCaseResponse'
-    { tags = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_,
       fields = Prelude.mempty,
       templateId = pTemplateId_
     }
 
--- | A map of of key-value pairs that represent tags on a resource. Tags are
--- used to organize, track, or control access for this resource.
-getCaseResponse_tags :: Lens.Lens' GetCaseResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getCaseResponse_tags = Lens.lens (\GetCaseResponse' {tags} -> tags) (\s@GetCaseResponse' {} a -> s {tags = a} :: GetCaseResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The token for the next set of results. This is null if there are no more
 -- results to return.
 getCaseResponse_nextToken :: Lens.Lens' GetCaseResponse (Prelude.Maybe Prelude.Text)
 getCaseResponse_nextToken = Lens.lens (\GetCaseResponse' {nextToken} -> nextToken) (\s@GetCaseResponse' {} a -> s {nextToken = a} :: GetCaseResponse)
+
+-- | A map of of key-value pairs that represent tags on a resource. Tags are
+-- used to organize, track, or control access for this resource.
+getCaseResponse_tags :: Lens.Lens' GetCaseResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getCaseResponse_tags = Lens.lens (\GetCaseResponse' {tags} -> tags) (\s@GetCaseResponse' {} a -> s {tags = a} :: GetCaseResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getCaseResponse_httpStatus :: Lens.Lens' GetCaseResponse Prelude.Int
@@ -255,8 +255,8 @@ getCaseResponse_templateId = Lens.lens (\GetCaseResponse' {templateId} -> templa
 
 instance Prelude.NFData GetCaseResponse where
   rnf GetCaseResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf fields
       `Prelude.seq` Prelude.rnf templateId

@@ -29,21 +29,21 @@ import Amazonka.XRay.Types.InsightsConfiguration
 --
 -- /See:/ 'newGroup' smart constructor.
 data Group = Group'
-  { -- | The structure containing configurations related to insights.
+  { -- | The filter expression defining the parameters to include traces.
+    filterExpression :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the group generated based on the
+    -- GroupName.
+    groupARN :: Prelude.Maybe Prelude.Text,
+    -- | The unique case-sensitive name of the group.
+    groupName :: Prelude.Maybe Prelude.Text,
+    -- | The structure containing configurations related to insights.
     --
     -- -   The InsightsEnabled boolean can be set to true to enable insights
     --     for the group or false to disable insights for the group.
     --
     -- -   The NotificationsEnabled boolean can be set to true to enable
     --     insights notifications through Amazon EventBridge for the group.
-    insightsConfiguration :: Prelude.Maybe InsightsConfiguration,
-    -- | The filter expression defining the parameters to include traces.
-    filterExpression :: Prelude.Maybe Prelude.Text,
-    -- | The unique case-sensitive name of the group.
-    groupName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the group generated based on the
-    -- GroupName.
-    groupARN :: Prelude.Maybe Prelude.Text
+    insightsConfiguration :: Prelude.Maybe InsightsConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,6 +55,13 @@ data Group = Group'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'filterExpression', 'group_filterExpression' - The filter expression defining the parameters to include traces.
+--
+-- 'groupARN', 'group_groupARN' - The Amazon Resource Name (ARN) of the group generated based on the
+-- GroupName.
+--
+-- 'groupName', 'group_groupName' - The unique case-sensitive name of the group.
+--
 -- 'insightsConfiguration', 'group_insightsConfiguration' - The structure containing configurations related to insights.
 --
 -- -   The InsightsEnabled boolean can be set to true to enable insights
@@ -62,22 +69,28 @@ data Group = Group'
 --
 -- -   The NotificationsEnabled boolean can be set to true to enable
 --     insights notifications through Amazon EventBridge for the group.
---
--- 'filterExpression', 'group_filterExpression' - The filter expression defining the parameters to include traces.
---
--- 'groupName', 'group_groupName' - The unique case-sensitive name of the group.
---
--- 'groupARN', 'group_groupARN' - The Amazon Resource Name (ARN) of the group generated based on the
--- GroupName.
 newGroup ::
   Group
 newGroup =
   Group'
-    { insightsConfiguration = Prelude.Nothing,
-      filterExpression = Prelude.Nothing,
+    { filterExpression = Prelude.Nothing,
+      groupARN = Prelude.Nothing,
       groupName = Prelude.Nothing,
-      groupARN = Prelude.Nothing
+      insightsConfiguration = Prelude.Nothing
     }
+
+-- | The filter expression defining the parameters to include traces.
+group_filterExpression :: Lens.Lens' Group (Prelude.Maybe Prelude.Text)
+group_filterExpression = Lens.lens (\Group' {filterExpression} -> filterExpression) (\s@Group' {} a -> s {filterExpression = a} :: Group)
+
+-- | The Amazon Resource Name (ARN) of the group generated based on the
+-- GroupName.
+group_groupARN :: Lens.Lens' Group (Prelude.Maybe Prelude.Text)
+group_groupARN = Lens.lens (\Group' {groupARN} -> groupARN) (\s@Group' {} a -> s {groupARN = a} :: Group)
+
+-- | The unique case-sensitive name of the group.
+group_groupName :: Lens.Lens' Group (Prelude.Maybe Prelude.Text)
+group_groupName = Lens.lens (\Group' {groupName} -> groupName) (\s@Group' {} a -> s {groupName = a} :: Group)
 
 -- | The structure containing configurations related to insights.
 --
@@ -89,41 +102,28 @@ newGroup =
 group_insightsConfiguration :: Lens.Lens' Group (Prelude.Maybe InsightsConfiguration)
 group_insightsConfiguration = Lens.lens (\Group' {insightsConfiguration} -> insightsConfiguration) (\s@Group' {} a -> s {insightsConfiguration = a} :: Group)
 
--- | The filter expression defining the parameters to include traces.
-group_filterExpression :: Lens.Lens' Group (Prelude.Maybe Prelude.Text)
-group_filterExpression = Lens.lens (\Group' {filterExpression} -> filterExpression) (\s@Group' {} a -> s {filterExpression = a} :: Group)
-
--- | The unique case-sensitive name of the group.
-group_groupName :: Lens.Lens' Group (Prelude.Maybe Prelude.Text)
-group_groupName = Lens.lens (\Group' {groupName} -> groupName) (\s@Group' {} a -> s {groupName = a} :: Group)
-
--- | The Amazon Resource Name (ARN) of the group generated based on the
--- GroupName.
-group_groupARN :: Lens.Lens' Group (Prelude.Maybe Prelude.Text)
-group_groupARN = Lens.lens (\Group' {groupARN} -> groupARN) (\s@Group' {} a -> s {groupARN = a} :: Group)
-
 instance Data.FromJSON Group where
   parseJSON =
     Data.withObject
       "Group"
       ( \x ->
           Group'
-            Prelude.<$> (x Data..:? "InsightsConfiguration")
-            Prelude.<*> (x Data..:? "FilterExpression")
-            Prelude.<*> (x Data..:? "GroupName")
+            Prelude.<$> (x Data..:? "FilterExpression")
             Prelude.<*> (x Data..:? "GroupARN")
+            Prelude.<*> (x Data..:? "GroupName")
+            Prelude.<*> (x Data..:? "InsightsConfiguration")
       )
 
 instance Prelude.Hashable Group where
   hashWithSalt _salt Group' {..} =
-    _salt `Prelude.hashWithSalt` insightsConfiguration
-      `Prelude.hashWithSalt` filterExpression
-      `Prelude.hashWithSalt` groupName
+    _salt `Prelude.hashWithSalt` filterExpression
       `Prelude.hashWithSalt` groupARN
+      `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` insightsConfiguration
 
 instance Prelude.NFData Group where
   rnf Group' {..} =
-    Prelude.rnf insightsConfiguration
-      `Prelude.seq` Prelude.rnf filterExpression
-      `Prelude.seq` Prelude.rnf groupName
+    Prelude.rnf filterExpression
       `Prelude.seq` Prelude.rnf groupARN
+      `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf insightsConfiguration

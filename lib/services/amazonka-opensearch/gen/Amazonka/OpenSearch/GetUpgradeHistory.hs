@@ -28,8 +28,8 @@ module Amazonka.OpenSearch.GetUpgradeHistory
     newGetUpgradeHistory,
 
     -- * Request Lenses
-    getUpgradeHistory_nextToken,
     getUpgradeHistory_maxResults,
+    getUpgradeHistory_nextToken,
     getUpgradeHistory_domainName,
 
     -- * Destructuring the Response
@@ -56,13 +56,13 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newGetUpgradeHistory' smart constructor.
 data GetUpgradeHistory = GetUpgradeHistory'
-  { -- | If your initial @GetUpgradeHistory@ operation returns a @nextToken@, you
+  { -- | An optional parameter that specifies the maximum number of results to
+    -- return. You can use @nextToken@ to get the next page of results.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | If your initial @GetUpgradeHistory@ operation returns a @nextToken@, you
     -- can include the returned @nextToken@ in subsequent @GetUpgradeHistory@
     -- operations, which returns results in the next page.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An optional parameter that specifies the maximum number of results to
-    -- return. You can use @nextToken@ to get the next page of results.
-    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The name of an existing domain.
     domainName :: Prelude.Text
   }
@@ -76,12 +76,12 @@ data GetUpgradeHistory = GetUpgradeHistory'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'getUpgradeHistory_maxResults' - An optional parameter that specifies the maximum number of results to
+-- return. You can use @nextToken@ to get the next page of results.
+--
 -- 'nextToken', 'getUpgradeHistory_nextToken' - If your initial @GetUpgradeHistory@ operation returns a @nextToken@, you
 -- can include the returned @nextToken@ in subsequent @GetUpgradeHistory@
 -- operations, which returns results in the next page.
---
--- 'maxResults', 'getUpgradeHistory_maxResults' - An optional parameter that specifies the maximum number of results to
--- return. You can use @nextToken@ to get the next page of results.
 --
 -- 'domainName', 'getUpgradeHistory_domainName' - The name of an existing domain.
 newGetUpgradeHistory ::
@@ -90,21 +90,21 @@ newGetUpgradeHistory ::
   GetUpgradeHistory
 newGetUpgradeHistory pDomainName_ =
   GetUpgradeHistory'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       domainName = pDomainName_
     }
+
+-- | An optional parameter that specifies the maximum number of results to
+-- return. You can use @nextToken@ to get the next page of results.
+getUpgradeHistory_maxResults :: Lens.Lens' GetUpgradeHistory (Prelude.Maybe Prelude.Int)
+getUpgradeHistory_maxResults = Lens.lens (\GetUpgradeHistory' {maxResults} -> maxResults) (\s@GetUpgradeHistory' {} a -> s {maxResults = a} :: GetUpgradeHistory)
 
 -- | If your initial @GetUpgradeHistory@ operation returns a @nextToken@, you
 -- can include the returned @nextToken@ in subsequent @GetUpgradeHistory@
 -- operations, which returns results in the next page.
 getUpgradeHistory_nextToken :: Lens.Lens' GetUpgradeHistory (Prelude.Maybe Prelude.Text)
 getUpgradeHistory_nextToken = Lens.lens (\GetUpgradeHistory' {nextToken} -> nextToken) (\s@GetUpgradeHistory' {} a -> s {nextToken = a} :: GetUpgradeHistory)
-
--- | An optional parameter that specifies the maximum number of results to
--- return. You can use @nextToken@ to get the next page of results.
-getUpgradeHistory_maxResults :: Lens.Lens' GetUpgradeHistory (Prelude.Maybe Prelude.Int)
-getUpgradeHistory_maxResults = Lens.lens (\GetUpgradeHistory' {maxResults} -> maxResults) (\s@GetUpgradeHistory' {} a -> s {maxResults = a} :: GetUpgradeHistory)
 
 -- | The name of an existing domain.
 getUpgradeHistory_domainName :: Lens.Lens' GetUpgradeHistory Prelude.Text
@@ -129,14 +129,14 @@ instance Core.AWSRequest GetUpgradeHistory where
 
 instance Prelude.Hashable GetUpgradeHistory where
   hashWithSalt _salt GetUpgradeHistory' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData GetUpgradeHistory where
   rnf GetUpgradeHistory' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf domainName
 
 instance Data.ToHeaders GetUpgradeHistory where
@@ -153,8 +153,8 @@ instance Data.ToPath GetUpgradeHistory where
 instance Data.ToQuery GetUpgradeHistory where
   toQuery GetUpgradeHistory' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | Container for the response returned by the @GetUpgradeHistory@

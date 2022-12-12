@@ -34,8 +34,8 @@ module Amazonka.Redshift.RevokeSnapshotAccess
 
     -- * Request Lenses
     revokeSnapshotAccess_snapshotArn,
-    revokeSnapshotAccess_snapshotIdentifier,
     revokeSnapshotAccess_snapshotClusterIdentifier,
+    revokeSnapshotAccess_snapshotIdentifier,
     revokeSnapshotAccess_accountWithRestoreAccess,
 
     -- * Destructuring the Response
@@ -63,13 +63,13 @@ data RevokeSnapshotAccess = RevokeSnapshotAccess'
   { -- | The Amazon Resource Name (ARN) of the snapshot associated with the
     -- message to revoke access.
     snapshotArn :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the snapshot that the account can no longer access.
-    snapshotIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the cluster the snapshot was created from. This
     -- parameter is required if your IAM user has a policy containing a
     -- snapshot resource element that specifies anything other than * for the
     -- cluster name.
     snapshotClusterIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the snapshot that the account can no longer access.
+    snapshotIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the Amazon Web Services account that can no longer
     -- restore the specified snapshot.
     accountWithRestoreAccess :: Prelude.Text
@@ -87,12 +87,12 @@ data RevokeSnapshotAccess = RevokeSnapshotAccess'
 -- 'snapshotArn', 'revokeSnapshotAccess_snapshotArn' - The Amazon Resource Name (ARN) of the snapshot associated with the
 -- message to revoke access.
 --
--- 'snapshotIdentifier', 'revokeSnapshotAccess_snapshotIdentifier' - The identifier of the snapshot that the account can no longer access.
---
 -- 'snapshotClusterIdentifier', 'revokeSnapshotAccess_snapshotClusterIdentifier' - The identifier of the cluster the snapshot was created from. This
 -- parameter is required if your IAM user has a policy containing a
 -- snapshot resource element that specifies anything other than * for the
 -- cluster name.
+--
+-- 'snapshotIdentifier', 'revokeSnapshotAccess_snapshotIdentifier' - The identifier of the snapshot that the account can no longer access.
 --
 -- 'accountWithRestoreAccess', 'revokeSnapshotAccess_accountWithRestoreAccess' - The identifier of the Amazon Web Services account that can no longer
 -- restore the specified snapshot.
@@ -104,8 +104,8 @@ newRevokeSnapshotAccess pAccountWithRestoreAccess_ =
   RevokeSnapshotAccess'
     { snapshotArn =
         Prelude.Nothing,
-      snapshotIdentifier = Prelude.Nothing,
       snapshotClusterIdentifier = Prelude.Nothing,
+      snapshotIdentifier = Prelude.Nothing,
       accountWithRestoreAccess =
         pAccountWithRestoreAccess_
     }
@@ -115,16 +115,16 @@ newRevokeSnapshotAccess pAccountWithRestoreAccess_ =
 revokeSnapshotAccess_snapshotArn :: Lens.Lens' RevokeSnapshotAccess (Prelude.Maybe Prelude.Text)
 revokeSnapshotAccess_snapshotArn = Lens.lens (\RevokeSnapshotAccess' {snapshotArn} -> snapshotArn) (\s@RevokeSnapshotAccess' {} a -> s {snapshotArn = a} :: RevokeSnapshotAccess)
 
--- | The identifier of the snapshot that the account can no longer access.
-revokeSnapshotAccess_snapshotIdentifier :: Lens.Lens' RevokeSnapshotAccess (Prelude.Maybe Prelude.Text)
-revokeSnapshotAccess_snapshotIdentifier = Lens.lens (\RevokeSnapshotAccess' {snapshotIdentifier} -> snapshotIdentifier) (\s@RevokeSnapshotAccess' {} a -> s {snapshotIdentifier = a} :: RevokeSnapshotAccess)
-
 -- | The identifier of the cluster the snapshot was created from. This
 -- parameter is required if your IAM user has a policy containing a
 -- snapshot resource element that specifies anything other than * for the
 -- cluster name.
 revokeSnapshotAccess_snapshotClusterIdentifier :: Lens.Lens' RevokeSnapshotAccess (Prelude.Maybe Prelude.Text)
 revokeSnapshotAccess_snapshotClusterIdentifier = Lens.lens (\RevokeSnapshotAccess' {snapshotClusterIdentifier} -> snapshotClusterIdentifier) (\s@RevokeSnapshotAccess' {} a -> s {snapshotClusterIdentifier = a} :: RevokeSnapshotAccess)
+
+-- | The identifier of the snapshot that the account can no longer access.
+revokeSnapshotAccess_snapshotIdentifier :: Lens.Lens' RevokeSnapshotAccess (Prelude.Maybe Prelude.Text)
+revokeSnapshotAccess_snapshotIdentifier = Lens.lens (\RevokeSnapshotAccess' {snapshotIdentifier} -> snapshotIdentifier) (\s@RevokeSnapshotAccess' {} a -> s {snapshotIdentifier = a} :: RevokeSnapshotAccess)
 
 -- | The identifier of the Amazon Web Services account that can no longer
 -- restore the specified snapshot.
@@ -149,15 +149,15 @@ instance Core.AWSRequest RevokeSnapshotAccess where
 instance Prelude.Hashable RevokeSnapshotAccess where
   hashWithSalt _salt RevokeSnapshotAccess' {..} =
     _salt `Prelude.hashWithSalt` snapshotArn
-      `Prelude.hashWithSalt` snapshotIdentifier
       `Prelude.hashWithSalt` snapshotClusterIdentifier
+      `Prelude.hashWithSalt` snapshotIdentifier
       `Prelude.hashWithSalt` accountWithRestoreAccess
 
 instance Prelude.NFData RevokeSnapshotAccess where
   rnf RevokeSnapshotAccess' {..} =
     Prelude.rnf snapshotArn
-      `Prelude.seq` Prelude.rnf snapshotIdentifier
       `Prelude.seq` Prelude.rnf snapshotClusterIdentifier
+      `Prelude.seq` Prelude.rnf snapshotIdentifier
       `Prelude.seq` Prelude.rnf accountWithRestoreAccess
 
 instance Data.ToHeaders RevokeSnapshotAccess where
@@ -174,9 +174,9 @@ instance Data.ToQuery RevokeSnapshotAccess where
         "Version"
           Data.=: ("2012-12-01" :: Prelude.ByteString),
         "SnapshotArn" Data.=: snapshotArn,
-        "SnapshotIdentifier" Data.=: snapshotIdentifier,
         "SnapshotClusterIdentifier"
           Data.=: snapshotClusterIdentifier,
+        "SnapshotIdentifier" Data.=: snapshotIdentifier,
         "AccountWithRestoreAccess"
           Data.=: accountWithRestoreAccess
       ]

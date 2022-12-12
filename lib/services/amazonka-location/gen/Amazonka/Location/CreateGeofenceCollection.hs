@@ -27,11 +27,11 @@ module Amazonka.Location.CreateGeofenceCollection
     newCreateGeofenceCollection,
 
     -- * Request Lenses
-    createGeofenceCollection_tags,
     createGeofenceCollection_description,
-    createGeofenceCollection_pricingPlanDataSource,
-    createGeofenceCollection_pricingPlan,
     createGeofenceCollection_kmsKeyId,
+    createGeofenceCollection_pricingPlan,
+    createGeofenceCollection_pricingPlanDataSource,
+    createGeofenceCollection_tags,
     createGeofenceCollection_collectionName,
 
     -- * Destructuring the Response
@@ -56,7 +56,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateGeofenceCollection' smart constructor.
 data CreateGeofenceCollection = CreateGeofenceCollection'
-  { -- | Applies one or more tags to the geofence collection. A tag is a
+  { -- | An optional description for the geofence collection.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | A key identifier for an
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>.
+    -- Enter a key ID, key ARN, alias name, or alias ARN.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | No longer used. If included, the only allowed value is
+    -- @RequestBasedUsage@.
+    pricingPlan :: Prelude.Maybe PricingPlan,
+    -- | This parameter is no longer used.
+    pricingPlanDataSource :: Prelude.Maybe Prelude.Text,
+    -- | Applies one or more tags to the geofence collection. A tag is a
     -- key-value pair helps manage, identify, search, and filter your resources
     -- by labelling them.
     --
@@ -77,17 +88,6 @@ data CreateGeofenceCollection = CreateGeofenceCollection'
     --
     -- -   Cannot use \"aws:\" as a prefix for a key.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | An optional description for the geofence collection.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | This parameter is no longer used.
-    pricingPlanDataSource :: Prelude.Maybe Prelude.Text,
-    -- | No longer used. If included, the only allowed value is
-    -- @RequestBasedUsage@.
-    pricingPlan :: Prelude.Maybe PricingPlan,
-    -- | A key identifier for an
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>.
-    -- Enter a key ID, key ARN, alias name, or alias ARN.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | A custom name for the geofence collection.
     --
     -- Requirements:
@@ -110,6 +110,17 @@ data CreateGeofenceCollection = CreateGeofenceCollection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'createGeofenceCollection_description' - An optional description for the geofence collection.
+--
+-- 'kmsKeyId', 'createGeofenceCollection_kmsKeyId' - A key identifier for an
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>.
+-- Enter a key ID, key ARN, alias name, or alias ARN.
+--
+-- 'pricingPlan', 'createGeofenceCollection_pricingPlan' - No longer used. If included, the only allowed value is
+-- @RequestBasedUsage@.
+--
+-- 'pricingPlanDataSource', 'createGeofenceCollection_pricingPlanDataSource' - This parameter is no longer used.
+--
 -- 'tags', 'createGeofenceCollection_tags' - Applies one or more tags to the geofence collection. A tag is a
 -- key-value pair helps manage, identify, search, and filter your resources
 -- by labelling them.
@@ -131,17 +142,6 @@ data CreateGeofenceCollection = CreateGeofenceCollection'
 --
 -- -   Cannot use \"aws:\" as a prefix for a key.
 --
--- 'description', 'createGeofenceCollection_description' - An optional description for the geofence collection.
---
--- 'pricingPlanDataSource', 'createGeofenceCollection_pricingPlanDataSource' - This parameter is no longer used.
---
--- 'pricingPlan', 'createGeofenceCollection_pricingPlan' - No longer used. If included, the only allowed value is
--- @RequestBasedUsage@.
---
--- 'kmsKeyId', 'createGeofenceCollection_kmsKeyId' - A key identifier for an
--- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>.
--- Enter a key ID, key ARN, alias name, or alias ARN.
---
 -- 'collectionName', 'createGeofenceCollection_collectionName' - A custom name for the geofence collection.
 --
 -- Requirements:
@@ -158,13 +158,33 @@ newCreateGeofenceCollection ::
   CreateGeofenceCollection
 newCreateGeofenceCollection pCollectionName_ =
   CreateGeofenceCollection'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing,
-      pricingPlanDataSource = Prelude.Nothing,
-      pricingPlan = Prelude.Nothing,
+    { description =
+        Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
+      pricingPlan = Prelude.Nothing,
+      pricingPlanDataSource = Prelude.Nothing,
+      tags = Prelude.Nothing,
       collectionName = pCollectionName_
     }
+
+-- | An optional description for the geofence collection.
+createGeofenceCollection_description :: Lens.Lens' CreateGeofenceCollection (Prelude.Maybe Prelude.Text)
+createGeofenceCollection_description = Lens.lens (\CreateGeofenceCollection' {description} -> description) (\s@CreateGeofenceCollection' {} a -> s {description = a} :: CreateGeofenceCollection)
+
+-- | A key identifier for an
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>.
+-- Enter a key ID, key ARN, alias name, or alias ARN.
+createGeofenceCollection_kmsKeyId :: Lens.Lens' CreateGeofenceCollection (Prelude.Maybe Prelude.Text)
+createGeofenceCollection_kmsKeyId = Lens.lens (\CreateGeofenceCollection' {kmsKeyId} -> kmsKeyId) (\s@CreateGeofenceCollection' {} a -> s {kmsKeyId = a} :: CreateGeofenceCollection)
+
+-- | No longer used. If included, the only allowed value is
+-- @RequestBasedUsage@.
+createGeofenceCollection_pricingPlan :: Lens.Lens' CreateGeofenceCollection (Prelude.Maybe PricingPlan)
+createGeofenceCollection_pricingPlan = Lens.lens (\CreateGeofenceCollection' {pricingPlan} -> pricingPlan) (\s@CreateGeofenceCollection' {} a -> s {pricingPlan = a} :: CreateGeofenceCollection)
+
+-- | This parameter is no longer used.
+createGeofenceCollection_pricingPlanDataSource :: Lens.Lens' CreateGeofenceCollection (Prelude.Maybe Prelude.Text)
+createGeofenceCollection_pricingPlanDataSource = Lens.lens (\CreateGeofenceCollection' {pricingPlanDataSource} -> pricingPlanDataSource) (\s@CreateGeofenceCollection' {} a -> s {pricingPlanDataSource = a} :: CreateGeofenceCollection)
 
 -- | Applies one or more tags to the geofence collection. A tag is a
 -- key-value pair helps manage, identify, search, and filter your resources
@@ -188,25 +208,6 @@ newCreateGeofenceCollection pCollectionName_ =
 -- -   Cannot use \"aws:\" as a prefix for a key.
 createGeofenceCollection_tags :: Lens.Lens' CreateGeofenceCollection (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createGeofenceCollection_tags = Lens.lens (\CreateGeofenceCollection' {tags} -> tags) (\s@CreateGeofenceCollection' {} a -> s {tags = a} :: CreateGeofenceCollection) Prelude.. Lens.mapping Lens.coerced
-
--- | An optional description for the geofence collection.
-createGeofenceCollection_description :: Lens.Lens' CreateGeofenceCollection (Prelude.Maybe Prelude.Text)
-createGeofenceCollection_description = Lens.lens (\CreateGeofenceCollection' {description} -> description) (\s@CreateGeofenceCollection' {} a -> s {description = a} :: CreateGeofenceCollection)
-
--- | This parameter is no longer used.
-createGeofenceCollection_pricingPlanDataSource :: Lens.Lens' CreateGeofenceCollection (Prelude.Maybe Prelude.Text)
-createGeofenceCollection_pricingPlanDataSource = Lens.lens (\CreateGeofenceCollection' {pricingPlanDataSource} -> pricingPlanDataSource) (\s@CreateGeofenceCollection' {} a -> s {pricingPlanDataSource = a} :: CreateGeofenceCollection)
-
--- | No longer used. If included, the only allowed value is
--- @RequestBasedUsage@.
-createGeofenceCollection_pricingPlan :: Lens.Lens' CreateGeofenceCollection (Prelude.Maybe PricingPlan)
-createGeofenceCollection_pricingPlan = Lens.lens (\CreateGeofenceCollection' {pricingPlan} -> pricingPlan) (\s@CreateGeofenceCollection' {} a -> s {pricingPlan = a} :: CreateGeofenceCollection)
-
--- | A key identifier for an
--- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>.
--- Enter a key ID, key ARN, alias name, or alias ARN.
-createGeofenceCollection_kmsKeyId :: Lens.Lens' CreateGeofenceCollection (Prelude.Maybe Prelude.Text)
-createGeofenceCollection_kmsKeyId = Lens.lens (\CreateGeofenceCollection' {kmsKeyId} -> kmsKeyId) (\s@CreateGeofenceCollection' {} a -> s {kmsKeyId = a} :: CreateGeofenceCollection)
 
 -- | A custom name for the geofence collection.
 --
@@ -239,20 +240,20 @@ instance Core.AWSRequest CreateGeofenceCollection where
 
 instance Prelude.Hashable CreateGeofenceCollection where
   hashWithSalt _salt CreateGeofenceCollection' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` pricingPlanDataSource
-      `Prelude.hashWithSalt` pricingPlan
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` pricingPlan
+      `Prelude.hashWithSalt` pricingPlanDataSource
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` collectionName
 
 instance Prelude.NFData CreateGeofenceCollection where
   rnf CreateGeofenceCollection' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf pricingPlanDataSource
-      `Prelude.seq` Prelude.rnf pricingPlan
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf pricingPlan
+      `Prelude.seq` Prelude.rnf pricingPlanDataSource
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf collectionName
 
 instance Data.ToHeaders CreateGeofenceCollection where
@@ -270,12 +271,12 @@ instance Data.ToJSON CreateGeofenceCollection where
   toJSON CreateGeofenceCollection' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("PricingPlan" Data..=) Prelude.<$> pricingPlan,
             ("PricingPlanDataSource" Data..=)
               Prelude.<$> pricingPlanDataSource,
-            ("PricingPlan" Data..=) Prelude.<$> pricingPlan,
-            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("CollectionName" Data..= collectionName)
           ]

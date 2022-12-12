@@ -23,17 +23,17 @@ module Amazonka.Route53RecoveryControlConfig
     -- ** AccessDeniedException
     _AccessDeniedException,
 
+    -- ** ConflictException
+    _ConflictException,
+
     -- ** InternalServerException
     _InternalServerException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** ConflictException
-    _ConflictException,
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
 
     -- ** ThrottlingException
     _ThrottlingException,
@@ -44,11 +44,11 @@ module Amazonka.Route53RecoveryControlConfig
     -- * Waiters
     -- $waiters
 
-    -- ** RoutingControlDeleted
-    newRoutingControlDeleted,
-
     -- ** ClusterCreated
     newClusterCreated,
+
+    -- ** ClusterDeleted
+    newClusterDeleted,
 
     -- ** ControlPanelCreated
     newControlPanelCreated,
@@ -56,11 +56,11 @@ module Amazonka.Route53RecoveryControlConfig
     -- ** ControlPanelDeleted
     newControlPanelDeleted,
 
-    -- ** ClusterDeleted
-    newClusterDeleted,
-
     -- ** RoutingControlCreated
     newRoutingControlCreated,
+
+    -- ** RoutingControlDeleted
+    newRoutingControlDeleted,
 
     -- * Operations
     -- $operations

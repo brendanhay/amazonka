@@ -34,9 +34,9 @@ module Amazonka.LakeFormation.GetQueryStatistics
     newGetQueryStatisticsResponse,
 
     -- * Response Lenses
-    getQueryStatisticsResponse_querySubmissionTime,
     getQueryStatisticsResponse_executionStatistics,
     getQueryStatisticsResponse_planningStatistics,
+    getQueryStatisticsResponse_querySubmissionTime,
     getQueryStatisticsResponse_httpStatus,
   )
 where
@@ -86,9 +86,9 @@ instance Core.AWSRequest GetQueryStatistics where
     Response.receiveJSON
       ( \s h x ->
           GetQueryStatisticsResponse'
-            Prelude.<$> (x Data..?> "QuerySubmissionTime")
-            Prelude.<*> (x Data..?> "ExecutionStatistics")
+            Prelude.<$> (x Data..?> "ExecutionStatistics")
             Prelude.<*> (x Data..?> "PlanningStatistics")
+            Prelude.<*> (x Data..?> "QuerySubmissionTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -125,12 +125,12 @@ instance Data.ToQuery GetQueryStatistics where
 
 -- | /See:/ 'newGetQueryStatisticsResponse' smart constructor.
 data GetQueryStatisticsResponse = GetQueryStatisticsResponse'
-  { -- | The time that the query was submitted.
-    querySubmissionTime :: Prelude.Maybe Data.POSIX,
-    -- | An @ExecutionStatistics@ structure containing execution statistics.
+  { -- | An @ExecutionStatistics@ structure containing execution statistics.
     executionStatistics :: Prelude.Maybe ExecutionStatistics,
     -- | A @PlanningStatistics@ structure containing query planning statistics.
     planningStatistics :: Prelude.Maybe PlanningStatistics,
+    -- | The time that the query was submitted.
+    querySubmissionTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -144,11 +144,11 @@ data GetQueryStatisticsResponse = GetQueryStatisticsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'querySubmissionTime', 'getQueryStatisticsResponse_querySubmissionTime' - The time that the query was submitted.
---
 -- 'executionStatistics', 'getQueryStatisticsResponse_executionStatistics' - An @ExecutionStatistics@ structure containing execution statistics.
 --
 -- 'planningStatistics', 'getQueryStatisticsResponse_planningStatistics' - A @PlanningStatistics@ structure containing query planning statistics.
+--
+-- 'querySubmissionTime', 'getQueryStatisticsResponse_querySubmissionTime' - The time that the query was submitted.
 --
 -- 'httpStatus', 'getQueryStatisticsResponse_httpStatus' - The response's http status code.
 newGetQueryStatisticsResponse ::
@@ -157,16 +157,12 @@ newGetQueryStatisticsResponse ::
   GetQueryStatisticsResponse
 newGetQueryStatisticsResponse pHttpStatus_ =
   GetQueryStatisticsResponse'
-    { querySubmissionTime =
+    { executionStatistics =
         Prelude.Nothing,
-      executionStatistics = Prelude.Nothing,
       planningStatistics = Prelude.Nothing,
+      querySubmissionTime = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The time that the query was submitted.
-getQueryStatisticsResponse_querySubmissionTime :: Lens.Lens' GetQueryStatisticsResponse (Prelude.Maybe Prelude.UTCTime)
-getQueryStatisticsResponse_querySubmissionTime = Lens.lens (\GetQueryStatisticsResponse' {querySubmissionTime} -> querySubmissionTime) (\s@GetQueryStatisticsResponse' {} a -> s {querySubmissionTime = a} :: GetQueryStatisticsResponse) Prelude.. Lens.mapping Data._Time
 
 -- | An @ExecutionStatistics@ structure containing execution statistics.
 getQueryStatisticsResponse_executionStatistics :: Lens.Lens' GetQueryStatisticsResponse (Prelude.Maybe ExecutionStatistics)
@@ -176,13 +172,17 @@ getQueryStatisticsResponse_executionStatistics = Lens.lens (\GetQueryStatisticsR
 getQueryStatisticsResponse_planningStatistics :: Lens.Lens' GetQueryStatisticsResponse (Prelude.Maybe PlanningStatistics)
 getQueryStatisticsResponse_planningStatistics = Lens.lens (\GetQueryStatisticsResponse' {planningStatistics} -> planningStatistics) (\s@GetQueryStatisticsResponse' {} a -> s {planningStatistics = a} :: GetQueryStatisticsResponse)
 
+-- | The time that the query was submitted.
+getQueryStatisticsResponse_querySubmissionTime :: Lens.Lens' GetQueryStatisticsResponse (Prelude.Maybe Prelude.UTCTime)
+getQueryStatisticsResponse_querySubmissionTime = Lens.lens (\GetQueryStatisticsResponse' {querySubmissionTime} -> querySubmissionTime) (\s@GetQueryStatisticsResponse' {} a -> s {querySubmissionTime = a} :: GetQueryStatisticsResponse) Prelude.. Lens.mapping Data._Time
+
 -- | The response's http status code.
 getQueryStatisticsResponse_httpStatus :: Lens.Lens' GetQueryStatisticsResponse Prelude.Int
 getQueryStatisticsResponse_httpStatus = Lens.lens (\GetQueryStatisticsResponse' {httpStatus} -> httpStatus) (\s@GetQueryStatisticsResponse' {} a -> s {httpStatus = a} :: GetQueryStatisticsResponse)
 
 instance Prelude.NFData GetQueryStatisticsResponse where
   rnf GetQueryStatisticsResponse' {..} =
-    Prelude.rnf querySubmissionTime
-      `Prelude.seq` Prelude.rnf executionStatistics
+    Prelude.rnf executionStatistics
       `Prelude.seq` Prelude.rnf planningStatistics
+      `Prelude.seq` Prelude.rnf querySubmissionTime
       `Prelude.seq` Prelude.rnf httpStatus

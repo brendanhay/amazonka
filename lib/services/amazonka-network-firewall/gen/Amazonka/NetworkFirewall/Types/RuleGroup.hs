@@ -44,15 +44,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRuleGroup' smart constructor.
 data RuleGroup = RuleGroup'
-  { -- | Additional options governing how Network Firewall handles stateful
-    -- rules. The policies where you use your stateful rule group must have
-    -- stateful rule options settings that are compatible with these settings.
-    statefulRuleOptions :: Prelude.Maybe StatefulRuleOptions,
-    -- | The list of a rule group\'s reference sets.
+  { -- | The list of a rule group\'s reference sets.
     referenceSets :: Prelude.Maybe ReferenceSets,
     -- | Settings that are available for use in the rules in the rule group. You
     -- can only use these for stateful rule groups.
     ruleVariables :: Prelude.Maybe RuleVariables,
+    -- | Additional options governing how Network Firewall handles stateful
+    -- rules. The policies where you use your stateful rule group must have
+    -- stateful rule options settings that are compatible with these settings.
+    statefulRuleOptions :: Prelude.Maybe StatefulRuleOptions,
     -- | The stateful rules or stateless rules for the rule group.
     rulesSource :: RulesSource
   }
@@ -66,14 +66,14 @@ data RuleGroup = RuleGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statefulRuleOptions', 'ruleGroup_statefulRuleOptions' - Additional options governing how Network Firewall handles stateful
--- rules. The policies where you use your stateful rule group must have
--- stateful rule options settings that are compatible with these settings.
---
 -- 'referenceSets', 'ruleGroup_referenceSets' - The list of a rule group\'s reference sets.
 --
 -- 'ruleVariables', 'ruleGroup_ruleVariables' - Settings that are available for use in the rules in the rule group. You
 -- can only use these for stateful rule groups.
+--
+-- 'statefulRuleOptions', 'ruleGroup_statefulRuleOptions' - Additional options governing how Network Firewall handles stateful
+-- rules. The policies where you use your stateful rule group must have
+-- stateful rule options settings that are compatible with these settings.
 --
 -- 'rulesSource', 'ruleGroup_rulesSource' - The stateful rules or stateless rules for the rule group.
 newRuleGroup ::
@@ -82,17 +82,11 @@ newRuleGroup ::
   RuleGroup
 newRuleGroup pRulesSource_ =
   RuleGroup'
-    { statefulRuleOptions = Prelude.Nothing,
-      referenceSets = Prelude.Nothing,
+    { referenceSets = Prelude.Nothing,
       ruleVariables = Prelude.Nothing,
+      statefulRuleOptions = Prelude.Nothing,
       rulesSource = pRulesSource_
     }
-
--- | Additional options governing how Network Firewall handles stateful
--- rules. The policies where you use your stateful rule group must have
--- stateful rule options settings that are compatible with these settings.
-ruleGroup_statefulRuleOptions :: Lens.Lens' RuleGroup (Prelude.Maybe StatefulRuleOptions)
-ruleGroup_statefulRuleOptions = Lens.lens (\RuleGroup' {statefulRuleOptions} -> statefulRuleOptions) (\s@RuleGroup' {} a -> s {statefulRuleOptions = a} :: RuleGroup)
 
 -- | The list of a rule group\'s reference sets.
 ruleGroup_referenceSets :: Lens.Lens' RuleGroup (Prelude.Maybe ReferenceSets)
@@ -102,6 +96,12 @@ ruleGroup_referenceSets = Lens.lens (\RuleGroup' {referenceSets} -> referenceSet
 -- can only use these for stateful rule groups.
 ruleGroup_ruleVariables :: Lens.Lens' RuleGroup (Prelude.Maybe RuleVariables)
 ruleGroup_ruleVariables = Lens.lens (\RuleGroup' {ruleVariables} -> ruleVariables) (\s@RuleGroup' {} a -> s {ruleVariables = a} :: RuleGroup)
+
+-- | Additional options governing how Network Firewall handles stateful
+-- rules. The policies where you use your stateful rule group must have
+-- stateful rule options settings that are compatible with these settings.
+ruleGroup_statefulRuleOptions :: Lens.Lens' RuleGroup (Prelude.Maybe StatefulRuleOptions)
+ruleGroup_statefulRuleOptions = Lens.lens (\RuleGroup' {statefulRuleOptions} -> statefulRuleOptions) (\s@RuleGroup' {} a -> s {statefulRuleOptions = a} :: RuleGroup)
 
 -- | The stateful rules or stateless rules for the rule group.
 ruleGroup_rulesSource :: Lens.Lens' RuleGroup RulesSource
@@ -113,34 +113,34 @@ instance Data.FromJSON RuleGroup where
       "RuleGroup"
       ( \x ->
           RuleGroup'
-            Prelude.<$> (x Data..:? "StatefulRuleOptions")
-            Prelude.<*> (x Data..:? "ReferenceSets")
+            Prelude.<$> (x Data..:? "ReferenceSets")
             Prelude.<*> (x Data..:? "RuleVariables")
+            Prelude.<*> (x Data..:? "StatefulRuleOptions")
             Prelude.<*> (x Data..: "RulesSource")
       )
 
 instance Prelude.Hashable RuleGroup where
   hashWithSalt _salt RuleGroup' {..} =
-    _salt `Prelude.hashWithSalt` statefulRuleOptions
-      `Prelude.hashWithSalt` referenceSets
+    _salt `Prelude.hashWithSalt` referenceSets
       `Prelude.hashWithSalt` ruleVariables
+      `Prelude.hashWithSalt` statefulRuleOptions
       `Prelude.hashWithSalt` rulesSource
 
 instance Prelude.NFData RuleGroup where
   rnf RuleGroup' {..} =
-    Prelude.rnf statefulRuleOptions
-      `Prelude.seq` Prelude.rnf referenceSets
+    Prelude.rnf referenceSets
       `Prelude.seq` Prelude.rnf ruleVariables
+      `Prelude.seq` Prelude.rnf statefulRuleOptions
       `Prelude.seq` Prelude.rnf rulesSource
 
 instance Data.ToJSON RuleGroup where
   toJSON RuleGroup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("StatefulRuleOptions" Data..=)
-              Prelude.<$> statefulRuleOptions,
-            ("ReferenceSets" Data..=) Prelude.<$> referenceSets,
+          [ ("ReferenceSets" Data..=) Prelude.<$> referenceSets,
             ("RuleVariables" Data..=) Prelude.<$> ruleVariables,
+            ("StatefulRuleOptions" Data..=)
+              Prelude.<$> statefulRuleOptions,
             Prelude.Just ("RulesSource" Data..= rulesSource)
           ]
       )

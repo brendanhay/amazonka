@@ -28,7 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newExplainabilityInfo' smart constructor.
 data ExplainabilityInfo = ExplainabilityInfo'
-  { -- | The status of the Explainability. States include:
+  { -- | The Amazon Resource Name (ARN) of the Explainability.
+    explainabilityArn :: Prelude.Maybe Prelude.Text,
+    -- | The status of the Explainability. States include:
     --
     -- -   @ACTIVE@
     --
@@ -37,9 +39,7 @@ data ExplainabilityInfo = ExplainabilityInfo'
     -- -   @CREATE_STOPPING@, @CREATE_STOPPED@
     --
     -- -   @DELETE_PENDING@, @DELETE_IN_PROGRESS@, @DELETE_FAILED@
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the Explainability.
-    explainabilityArn :: Prelude.Maybe Prelude.Text
+    status :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,6 +51,8 @@ data ExplainabilityInfo = ExplainabilityInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'explainabilityArn', 'explainabilityInfo_explainabilityArn' - The Amazon Resource Name (ARN) of the Explainability.
+--
 -- 'status', 'explainabilityInfo_status' - The status of the Explainability. States include:
 --
 -- -   @ACTIVE@
@@ -60,15 +62,18 @@ data ExplainabilityInfo = ExplainabilityInfo'
 -- -   @CREATE_STOPPING@, @CREATE_STOPPED@
 --
 -- -   @DELETE_PENDING@, @DELETE_IN_PROGRESS@, @DELETE_FAILED@
---
--- 'explainabilityArn', 'explainabilityInfo_explainabilityArn' - The Amazon Resource Name (ARN) of the Explainability.
 newExplainabilityInfo ::
   ExplainabilityInfo
 newExplainabilityInfo =
   ExplainabilityInfo'
-    { status = Prelude.Nothing,
-      explainabilityArn = Prelude.Nothing
+    { explainabilityArn =
+        Prelude.Nothing,
+      status = Prelude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the Explainability.
+explainabilityInfo_explainabilityArn :: Lens.Lens' ExplainabilityInfo (Prelude.Maybe Prelude.Text)
+explainabilityInfo_explainabilityArn = Lens.lens (\ExplainabilityInfo' {explainabilityArn} -> explainabilityArn) (\s@ExplainabilityInfo' {} a -> s {explainabilityArn = a} :: ExplainabilityInfo)
 
 -- | The status of the Explainability. States include:
 --
@@ -82,26 +87,22 @@ newExplainabilityInfo =
 explainabilityInfo_status :: Lens.Lens' ExplainabilityInfo (Prelude.Maybe Prelude.Text)
 explainabilityInfo_status = Lens.lens (\ExplainabilityInfo' {status} -> status) (\s@ExplainabilityInfo' {} a -> s {status = a} :: ExplainabilityInfo)
 
--- | The Amazon Resource Name (ARN) of the Explainability.
-explainabilityInfo_explainabilityArn :: Lens.Lens' ExplainabilityInfo (Prelude.Maybe Prelude.Text)
-explainabilityInfo_explainabilityArn = Lens.lens (\ExplainabilityInfo' {explainabilityArn} -> explainabilityArn) (\s@ExplainabilityInfo' {} a -> s {explainabilityArn = a} :: ExplainabilityInfo)
-
 instance Data.FromJSON ExplainabilityInfo where
   parseJSON =
     Data.withObject
       "ExplainabilityInfo"
       ( \x ->
           ExplainabilityInfo'
-            Prelude.<$> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "ExplainabilityArn")
+            Prelude.<$> (x Data..:? "ExplainabilityArn")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable ExplainabilityInfo where
   hashWithSalt _salt ExplainabilityInfo' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` explainabilityArn
+    _salt `Prelude.hashWithSalt` explainabilityArn
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ExplainabilityInfo where
   rnf ExplainabilityInfo' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf explainabilityArn
+    Prelude.rnf explainabilityArn
+      `Prelude.seq` Prelude.rnf status

@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newS3CatalogTarget' smart constructor.
 data S3CatalogTarget = S3CatalogTarget'
-  { -- | A policy that specifies update behavior for the crawler.
-    schemaChangePolicy :: Prelude.Maybe CatalogSchemaChangePolicy,
-    -- | Specifies native partitioning using a sequence of keys.
+  { -- | Specifies native partitioning using a sequence of keys.
     partitionKeys :: Prelude.Maybe [[Prelude.Text]],
+    -- | A policy that specifies update behavior for the crawler.
+    schemaChangePolicy :: Prelude.Maybe CatalogSchemaChangePolicy,
     -- | The name of the data target.
     name :: Prelude.Text,
     -- | The nodes that are inputs to the data target.
@@ -53,9 +53,9 @@ data S3CatalogTarget = S3CatalogTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'schemaChangePolicy', 's3CatalogTarget_schemaChangePolicy' - A policy that specifies update behavior for the crawler.
---
 -- 'partitionKeys', 's3CatalogTarget_partitionKeys' - Specifies native partitioning using a sequence of keys.
+--
+-- 'schemaChangePolicy', 's3CatalogTarget_schemaChangePolicy' - A policy that specifies update behavior for the crawler.
 --
 -- 'name', 's3CatalogTarget_name' - The name of the data target.
 --
@@ -76,22 +76,21 @@ newS3CatalogTarget ::
   S3CatalogTarget
 newS3CatalogTarget pName_ pInputs_ pTable_ pDatabase_ =
   S3CatalogTarget'
-    { schemaChangePolicy =
-        Prelude.Nothing,
-      partitionKeys = Prelude.Nothing,
+    { partitionKeys = Prelude.Nothing,
+      schemaChangePolicy = Prelude.Nothing,
       name = pName_,
       inputs = Lens.coerced Lens.# pInputs_,
       table = pTable_,
       database = pDatabase_
     }
 
--- | A policy that specifies update behavior for the crawler.
-s3CatalogTarget_schemaChangePolicy :: Lens.Lens' S3CatalogTarget (Prelude.Maybe CatalogSchemaChangePolicy)
-s3CatalogTarget_schemaChangePolicy = Lens.lens (\S3CatalogTarget' {schemaChangePolicy} -> schemaChangePolicy) (\s@S3CatalogTarget' {} a -> s {schemaChangePolicy = a} :: S3CatalogTarget)
-
 -- | Specifies native partitioning using a sequence of keys.
 s3CatalogTarget_partitionKeys :: Lens.Lens' S3CatalogTarget (Prelude.Maybe [[Prelude.Text]])
 s3CatalogTarget_partitionKeys = Lens.lens (\S3CatalogTarget' {partitionKeys} -> partitionKeys) (\s@S3CatalogTarget' {} a -> s {partitionKeys = a} :: S3CatalogTarget) Prelude.. Lens.mapping Lens.coerced
+
+-- | A policy that specifies update behavior for the crawler.
+s3CatalogTarget_schemaChangePolicy :: Lens.Lens' S3CatalogTarget (Prelude.Maybe CatalogSchemaChangePolicy)
+s3CatalogTarget_schemaChangePolicy = Lens.lens (\S3CatalogTarget' {schemaChangePolicy} -> schemaChangePolicy) (\s@S3CatalogTarget' {} a -> s {schemaChangePolicy = a} :: S3CatalogTarget)
 
 -- | The name of the data target.
 s3CatalogTarget_name :: Lens.Lens' S3CatalogTarget Prelude.Text
@@ -115,8 +114,8 @@ instance Data.FromJSON S3CatalogTarget where
       "S3CatalogTarget"
       ( \x ->
           S3CatalogTarget'
-            Prelude.<$> (x Data..:? "SchemaChangePolicy")
-            Prelude.<*> (x Data..:? "PartitionKeys" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "PartitionKeys" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "SchemaChangePolicy")
             Prelude.<*> (x Data..: "Name")
             Prelude.<*> (x Data..: "Inputs")
             Prelude.<*> (x Data..: "Table")
@@ -125,8 +124,8 @@ instance Data.FromJSON S3CatalogTarget where
 
 instance Prelude.Hashable S3CatalogTarget where
   hashWithSalt _salt S3CatalogTarget' {..} =
-    _salt `Prelude.hashWithSalt` schemaChangePolicy
-      `Prelude.hashWithSalt` partitionKeys
+    _salt `Prelude.hashWithSalt` partitionKeys
+      `Prelude.hashWithSalt` schemaChangePolicy
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` inputs
       `Prelude.hashWithSalt` table
@@ -134,8 +133,8 @@ instance Prelude.Hashable S3CatalogTarget where
 
 instance Prelude.NFData S3CatalogTarget where
   rnf S3CatalogTarget' {..} =
-    Prelude.rnf schemaChangePolicy
-      `Prelude.seq` Prelude.rnf partitionKeys
+    Prelude.rnf partitionKeys
+      `Prelude.seq` Prelude.rnf schemaChangePolicy
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf inputs
       `Prelude.seq` Prelude.rnf table
@@ -145,9 +144,9 @@ instance Data.ToJSON S3CatalogTarget where
   toJSON S3CatalogTarget' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SchemaChangePolicy" Data..=)
+          [ ("PartitionKeys" Data..=) Prelude.<$> partitionKeys,
+            ("SchemaChangePolicy" Data..=)
               Prelude.<$> schemaChangePolicy,
-            ("PartitionKeys" Data..=) Prelude.<$> partitionKeys,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("Inputs" Data..= inputs),
             Prelude.Just ("Table" Data..= table),

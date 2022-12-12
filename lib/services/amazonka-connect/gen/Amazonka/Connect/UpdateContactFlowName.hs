@@ -30,8 +30,8 @@ module Amazonka.Connect.UpdateContactFlowName
     newUpdateContactFlowName,
 
     -- * Request Lenses
-    updateContactFlowName_name,
     updateContactFlowName_description,
+    updateContactFlowName_name,
     updateContactFlowName_instanceId,
     updateContactFlowName_contactFlowId,
 
@@ -51,10 +51,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateContactFlowName' smart constructor.
 data UpdateContactFlowName = UpdateContactFlowName'
-  { -- | The name of the flow.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The description of the flow.
+  { -- | The description of the flow.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The name of the flow.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the Amazon Connect instance.
     instanceId :: Prelude.Text,
     -- | The identifier of the flow.
@@ -70,9 +70,9 @@ data UpdateContactFlowName = UpdateContactFlowName'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateContactFlowName_name' - The name of the flow.
---
 -- 'description', 'updateContactFlowName_description' - The description of the flow.
+--
+-- 'name', 'updateContactFlowName_name' - The name of the flow.
 --
 -- 'instanceId', 'updateContactFlowName_instanceId' - The identifier of the Amazon Connect instance.
 --
@@ -85,19 +85,20 @@ newUpdateContactFlowName ::
   UpdateContactFlowName
 newUpdateContactFlowName pInstanceId_ pContactFlowId_ =
   UpdateContactFlowName'
-    { name = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description =
+        Prelude.Nothing,
+      name = Prelude.Nothing,
       instanceId = pInstanceId_,
       contactFlowId = pContactFlowId_
     }
 
--- | The name of the flow.
-updateContactFlowName_name :: Lens.Lens' UpdateContactFlowName (Prelude.Maybe Prelude.Text)
-updateContactFlowName_name = Lens.lens (\UpdateContactFlowName' {name} -> name) (\s@UpdateContactFlowName' {} a -> s {name = a} :: UpdateContactFlowName)
-
 -- | The description of the flow.
 updateContactFlowName_description :: Lens.Lens' UpdateContactFlowName (Prelude.Maybe Prelude.Text)
 updateContactFlowName_description = Lens.lens (\UpdateContactFlowName' {description} -> description) (\s@UpdateContactFlowName' {} a -> s {description = a} :: UpdateContactFlowName)
+
+-- | The name of the flow.
+updateContactFlowName_name :: Lens.Lens' UpdateContactFlowName (Prelude.Maybe Prelude.Text)
+updateContactFlowName_name = Lens.lens (\UpdateContactFlowName' {name} -> name) (\s@UpdateContactFlowName' {} a -> s {name = a} :: UpdateContactFlowName)
 
 -- | The identifier of the Amazon Connect instance.
 updateContactFlowName_instanceId :: Lens.Lens' UpdateContactFlowName Prelude.Text
@@ -118,15 +119,15 @@ instance Core.AWSRequest UpdateContactFlowName where
 
 instance Prelude.Hashable UpdateContactFlowName where
   hashWithSalt _salt UpdateContactFlowName' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` contactFlowId
 
 instance Prelude.NFData UpdateContactFlowName where
   rnf UpdateContactFlowName' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf contactFlowId
 
@@ -145,8 +146,8 @@ instance Data.ToJSON UpdateContactFlowName where
   toJSON UpdateContactFlowName' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
-            ("Description" Data..=) Prelude.<$> description
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("Name" Data..=) Prelude.<$> name
           ]
       )
 

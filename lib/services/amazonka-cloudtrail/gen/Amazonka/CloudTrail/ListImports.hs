@@ -31,9 +31,9 @@ module Amazonka.CloudTrail.ListImports
 
     -- * Request Lenses
     listImports_destination,
-    listImports_nextToken,
-    listImports_maxResults,
     listImports_importStatus,
+    listImports_maxResults,
+    listImports_nextToken,
 
     -- * Destructuring the Response
     ListImportsResponse (..),
@@ -58,12 +58,12 @@ import qualified Amazonka.Response as Response
 data ListImports = ListImports'
   { -- | The ARN of the destination event data store.
     destination :: Prelude.Maybe Prelude.Text,
-    -- | A token you can use to get the next page of import results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The status of the import.
+    importStatus :: Prelude.Maybe ImportStatus,
     -- | The maximum number of imports to display on a single page.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The status of the import.
-    importStatus :: Prelude.Maybe ImportStatus
+    -- | A token you can use to get the next page of import results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,36 +77,36 @@ data ListImports = ListImports'
 --
 -- 'destination', 'listImports_destination' - The ARN of the destination event data store.
 --
--- 'nextToken', 'listImports_nextToken' - A token you can use to get the next page of import results.
+-- 'importStatus', 'listImports_importStatus' - The status of the import.
 --
 -- 'maxResults', 'listImports_maxResults' - The maximum number of imports to display on a single page.
 --
--- 'importStatus', 'listImports_importStatus' - The status of the import.
+-- 'nextToken', 'listImports_nextToken' - A token you can use to get the next page of import results.
 newListImports ::
   ListImports
 newListImports =
   ListImports'
     { destination = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      importStatus = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      importStatus = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
 
 -- | The ARN of the destination event data store.
 listImports_destination :: Lens.Lens' ListImports (Prelude.Maybe Prelude.Text)
 listImports_destination = Lens.lens (\ListImports' {destination} -> destination) (\s@ListImports' {} a -> s {destination = a} :: ListImports)
 
--- | A token you can use to get the next page of import results.
-listImports_nextToken :: Lens.Lens' ListImports (Prelude.Maybe Prelude.Text)
-listImports_nextToken = Lens.lens (\ListImports' {nextToken} -> nextToken) (\s@ListImports' {} a -> s {nextToken = a} :: ListImports)
+-- | The status of the import.
+listImports_importStatus :: Lens.Lens' ListImports (Prelude.Maybe ImportStatus)
+listImports_importStatus = Lens.lens (\ListImports' {importStatus} -> importStatus) (\s@ListImports' {} a -> s {importStatus = a} :: ListImports)
 
 -- | The maximum number of imports to display on a single page.
 listImports_maxResults :: Lens.Lens' ListImports (Prelude.Maybe Prelude.Natural)
 listImports_maxResults = Lens.lens (\ListImports' {maxResults} -> maxResults) (\s@ListImports' {} a -> s {maxResults = a} :: ListImports)
 
--- | The status of the import.
-listImports_importStatus :: Lens.Lens' ListImports (Prelude.Maybe ImportStatus)
-listImports_importStatus = Lens.lens (\ListImports' {importStatus} -> importStatus) (\s@ListImports' {} a -> s {importStatus = a} :: ListImports)
+-- | A token you can use to get the next page of import results.
+listImports_nextToken :: Lens.Lens' ListImports (Prelude.Maybe Prelude.Text)
+listImports_nextToken = Lens.lens (\ListImports' {nextToken} -> nextToken) (\s@ListImports' {} a -> s {nextToken = a} :: ListImports)
 
 instance Core.AWSPager ListImports where
   page rq rs
@@ -143,16 +143,16 @@ instance Core.AWSRequest ListImports where
 instance Prelude.Hashable ListImports where
   hashWithSalt _salt ListImports' {..} =
     _salt `Prelude.hashWithSalt` destination
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` importStatus
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListImports where
   rnf ListImports' {..} =
     Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf importStatus
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListImports where
   toHeaders =
@@ -174,9 +174,9 @@ instance Data.ToJSON ListImports where
     Data.object
       ( Prelude.catMaybes
           [ ("Destination" Data..=) Prelude.<$> destination,
-            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ImportStatus" Data..=) Prelude.<$> importStatus,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("ImportStatus" Data..=) Prelude.<$> importStatus
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

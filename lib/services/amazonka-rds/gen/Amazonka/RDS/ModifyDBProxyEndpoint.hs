@@ -27,8 +27,8 @@ module Amazonka.RDS.ModifyDBProxyEndpoint
     newModifyDBProxyEndpoint,
 
     -- * Request Lenses
-    modifyDBProxyEndpoint_vpcSecurityGroupIds,
     modifyDBProxyEndpoint_newDBProxyEndpointName,
+    modifyDBProxyEndpoint_vpcSecurityGroupIds,
     modifyDBProxyEndpoint_dbProxyEndpointName,
 
     -- * Destructuring the Response
@@ -51,14 +51,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newModifyDBProxyEndpoint' smart constructor.
 data ModifyDBProxyEndpoint = ModifyDBProxyEndpoint'
-  { -- | The VPC security group IDs for the DB proxy endpoint. When the DB proxy
-    -- endpoint uses a different VPC than the original proxy, you also specify
-    -- a different set of security group IDs than for the original proxy.
-    vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | The new identifier for the @DBProxyEndpoint@. An identifier must begin
+  { -- | The new identifier for the @DBProxyEndpoint@. An identifier must begin
     -- with a letter and must contain only ASCII letters, digits, and hyphens;
     -- it can\'t end with a hyphen or contain two consecutive hyphens.
     newDBProxyEndpointName' :: Prelude.Maybe Prelude.Text,
+    -- | The VPC security group IDs for the DB proxy endpoint. When the DB proxy
+    -- endpoint uses a different VPC than the original proxy, you also specify
+    -- a different set of security group IDs than for the original proxy.
+    vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | The name of the DB proxy sociated with the DB proxy endpoint that you
     -- want to modify.
     dbProxyEndpointName :: Prelude.Text
@@ -73,13 +73,13 @@ data ModifyDBProxyEndpoint = ModifyDBProxyEndpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vpcSecurityGroupIds', 'modifyDBProxyEndpoint_vpcSecurityGroupIds' - The VPC security group IDs for the DB proxy endpoint. When the DB proxy
--- endpoint uses a different VPC than the original proxy, you also specify
--- a different set of security group IDs than for the original proxy.
---
 -- 'newDBProxyEndpointName'', 'modifyDBProxyEndpoint_newDBProxyEndpointName' - The new identifier for the @DBProxyEndpoint@. An identifier must begin
 -- with a letter and must contain only ASCII letters, digits, and hyphens;
 -- it can\'t end with a hyphen or contain two consecutive hyphens.
+--
+-- 'vpcSecurityGroupIds', 'modifyDBProxyEndpoint_vpcSecurityGroupIds' - The VPC security group IDs for the DB proxy endpoint. When the DB proxy
+-- endpoint uses a different VPC than the original proxy, you also specify
+-- a different set of security group IDs than for the original proxy.
 --
 -- 'dbProxyEndpointName', 'modifyDBProxyEndpoint_dbProxyEndpointName' - The name of the DB proxy sociated with the DB proxy endpoint that you
 -- want to modify.
@@ -89,23 +89,23 @@ newModifyDBProxyEndpoint ::
   ModifyDBProxyEndpoint
 newModifyDBProxyEndpoint pDBProxyEndpointName_ =
   ModifyDBProxyEndpoint'
-    { vpcSecurityGroupIds =
+    { newDBProxyEndpointName' =
         Prelude.Nothing,
-      newDBProxyEndpointName' = Prelude.Nothing,
+      vpcSecurityGroupIds = Prelude.Nothing,
       dbProxyEndpointName = pDBProxyEndpointName_
     }
-
--- | The VPC security group IDs for the DB proxy endpoint. When the DB proxy
--- endpoint uses a different VPC than the original proxy, you also specify
--- a different set of security group IDs than for the original proxy.
-modifyDBProxyEndpoint_vpcSecurityGroupIds :: Lens.Lens' ModifyDBProxyEndpoint (Prelude.Maybe [Prelude.Text])
-modifyDBProxyEndpoint_vpcSecurityGroupIds = Lens.lens (\ModifyDBProxyEndpoint' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@ModifyDBProxyEndpoint' {} a -> s {vpcSecurityGroupIds = a} :: ModifyDBProxyEndpoint) Prelude.. Lens.mapping Lens.coerced
 
 -- | The new identifier for the @DBProxyEndpoint@. An identifier must begin
 -- with a letter and must contain only ASCII letters, digits, and hyphens;
 -- it can\'t end with a hyphen or contain two consecutive hyphens.
 modifyDBProxyEndpoint_newDBProxyEndpointName :: Lens.Lens' ModifyDBProxyEndpoint (Prelude.Maybe Prelude.Text)
 modifyDBProxyEndpoint_newDBProxyEndpointName = Lens.lens (\ModifyDBProxyEndpoint' {newDBProxyEndpointName'} -> newDBProxyEndpointName') (\s@ModifyDBProxyEndpoint' {} a -> s {newDBProxyEndpointName' = a} :: ModifyDBProxyEndpoint)
+
+-- | The VPC security group IDs for the DB proxy endpoint. When the DB proxy
+-- endpoint uses a different VPC than the original proxy, you also specify
+-- a different set of security group IDs than for the original proxy.
+modifyDBProxyEndpoint_vpcSecurityGroupIds :: Lens.Lens' ModifyDBProxyEndpoint (Prelude.Maybe [Prelude.Text])
+modifyDBProxyEndpoint_vpcSecurityGroupIds = Lens.lens (\ModifyDBProxyEndpoint' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@ModifyDBProxyEndpoint' {} a -> s {vpcSecurityGroupIds = a} :: ModifyDBProxyEndpoint) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the DB proxy sociated with the DB proxy endpoint that you
 -- want to modify.
@@ -129,14 +129,15 @@ instance Core.AWSRequest ModifyDBProxyEndpoint where
 
 instance Prelude.Hashable ModifyDBProxyEndpoint where
   hashWithSalt _salt ModifyDBProxyEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` vpcSecurityGroupIds
+    _salt
       `Prelude.hashWithSalt` newDBProxyEndpointName'
+      `Prelude.hashWithSalt` vpcSecurityGroupIds
       `Prelude.hashWithSalt` dbProxyEndpointName
 
 instance Prelude.NFData ModifyDBProxyEndpoint where
   rnf ModifyDBProxyEndpoint' {..} =
-    Prelude.rnf vpcSecurityGroupIds
-      `Prelude.seq` Prelude.rnf newDBProxyEndpointName'
+    Prelude.rnf newDBProxyEndpointName'
+      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
       `Prelude.seq` Prelude.rnf dbProxyEndpointName
 
 instance Data.ToHeaders ModifyDBProxyEndpoint where
@@ -152,13 +153,13 @@ instance Data.ToQuery ModifyDBProxyEndpoint where
           Data.=: ("ModifyDBProxyEndpoint" :: Prelude.ByteString),
         "Version"
           Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "NewDBProxyEndpointName"
+          Data.=: newDBProxyEndpointName',
         "VpcSecurityGroupIds"
           Data.=: Data.toQuery
             ( Data.toQueryList "member"
                 Prelude.<$> vpcSecurityGroupIds
             ),
-        "NewDBProxyEndpointName"
-          Data.=: newDBProxyEndpointName',
         "DBProxyEndpointName" Data.=: dbProxyEndpointName
       ]
 

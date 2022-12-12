@@ -31,11 +31,11 @@ data BrokerSoftwareInfo = BrokerSoftwareInfo'
   { -- | The Amazon Resource Name (ARN) of the configuration used for the
     -- cluster. This field isn\'t visible in this preview release.
     configurationArn :: Prelude.Maybe Prelude.Text,
-    -- | The version of Apache Kafka.
-    kafkaVersion :: Prelude.Maybe Prelude.Text,
     -- | The revision of the configuration to use. This field isn\'t visible in
     -- this preview release.
-    configurationRevision :: Prelude.Maybe Prelude.Integer
+    configurationRevision :: Prelude.Maybe Prelude.Integer,
+    -- | The version of Apache Kafka.
+    kafkaVersion :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,18 +50,18 @@ data BrokerSoftwareInfo = BrokerSoftwareInfo'
 -- 'configurationArn', 'brokerSoftwareInfo_configurationArn' - The Amazon Resource Name (ARN) of the configuration used for the
 -- cluster. This field isn\'t visible in this preview release.
 --
--- 'kafkaVersion', 'brokerSoftwareInfo_kafkaVersion' - The version of Apache Kafka.
---
 -- 'configurationRevision', 'brokerSoftwareInfo_configurationRevision' - The revision of the configuration to use. This field isn\'t visible in
 -- this preview release.
+--
+-- 'kafkaVersion', 'brokerSoftwareInfo_kafkaVersion' - The version of Apache Kafka.
 newBrokerSoftwareInfo ::
   BrokerSoftwareInfo
 newBrokerSoftwareInfo =
   BrokerSoftwareInfo'
     { configurationArn =
         Prelude.Nothing,
-      kafkaVersion = Prelude.Nothing,
-      configurationRevision = Prelude.Nothing
+      configurationRevision = Prelude.Nothing,
+      kafkaVersion = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the configuration used for the
@@ -69,14 +69,14 @@ newBrokerSoftwareInfo =
 brokerSoftwareInfo_configurationArn :: Lens.Lens' BrokerSoftwareInfo (Prelude.Maybe Prelude.Text)
 brokerSoftwareInfo_configurationArn = Lens.lens (\BrokerSoftwareInfo' {configurationArn} -> configurationArn) (\s@BrokerSoftwareInfo' {} a -> s {configurationArn = a} :: BrokerSoftwareInfo)
 
--- | The version of Apache Kafka.
-brokerSoftwareInfo_kafkaVersion :: Lens.Lens' BrokerSoftwareInfo (Prelude.Maybe Prelude.Text)
-brokerSoftwareInfo_kafkaVersion = Lens.lens (\BrokerSoftwareInfo' {kafkaVersion} -> kafkaVersion) (\s@BrokerSoftwareInfo' {} a -> s {kafkaVersion = a} :: BrokerSoftwareInfo)
-
 -- | The revision of the configuration to use. This field isn\'t visible in
 -- this preview release.
 brokerSoftwareInfo_configurationRevision :: Lens.Lens' BrokerSoftwareInfo (Prelude.Maybe Prelude.Integer)
 brokerSoftwareInfo_configurationRevision = Lens.lens (\BrokerSoftwareInfo' {configurationRevision} -> configurationRevision) (\s@BrokerSoftwareInfo' {} a -> s {configurationRevision = a} :: BrokerSoftwareInfo)
+
+-- | The version of Apache Kafka.
+brokerSoftwareInfo_kafkaVersion :: Lens.Lens' BrokerSoftwareInfo (Prelude.Maybe Prelude.Text)
+brokerSoftwareInfo_kafkaVersion = Lens.lens (\BrokerSoftwareInfo' {kafkaVersion} -> kafkaVersion) (\s@BrokerSoftwareInfo' {} a -> s {kafkaVersion = a} :: BrokerSoftwareInfo)
 
 instance Data.FromJSON BrokerSoftwareInfo where
   parseJSON =
@@ -85,18 +85,18 @@ instance Data.FromJSON BrokerSoftwareInfo where
       ( \x ->
           BrokerSoftwareInfo'
             Prelude.<$> (x Data..:? "configurationArn")
-            Prelude.<*> (x Data..:? "kafkaVersion")
             Prelude.<*> (x Data..:? "configurationRevision")
+            Prelude.<*> (x Data..:? "kafkaVersion")
       )
 
 instance Prelude.Hashable BrokerSoftwareInfo where
   hashWithSalt _salt BrokerSoftwareInfo' {..} =
     _salt `Prelude.hashWithSalt` configurationArn
-      `Prelude.hashWithSalt` kafkaVersion
       `Prelude.hashWithSalt` configurationRevision
+      `Prelude.hashWithSalt` kafkaVersion
 
 instance Prelude.NFData BrokerSoftwareInfo where
   rnf BrokerSoftwareInfo' {..} =
     Prelude.rnf configurationArn
-      `Prelude.seq` Prelude.rnf kafkaVersion
       `Prelude.seq` Prelude.rnf configurationRevision
+      `Prelude.seq` Prelude.rnf kafkaVersion

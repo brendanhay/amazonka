@@ -29,8 +29,8 @@ module Amazonka.LexV2Models.ListRecommendedIntents
     newListRecommendedIntents,
 
     -- * Request Lenses
-    listRecommendedIntents_nextToken,
     listRecommendedIntents_maxResults,
+    listRecommendedIntents_nextToken,
     listRecommendedIntents_botId,
     listRecommendedIntents_botVersion,
     listRecommendedIntents_localeId,
@@ -41,11 +41,11 @@ module Amazonka.LexV2Models.ListRecommendedIntents
     newListRecommendedIntentsResponse,
 
     -- * Response Lenses
-    listRecommendedIntentsResponse_nextToken,
+    listRecommendedIntentsResponse_botId,
+    listRecommendedIntentsResponse_botRecommendationId,
     listRecommendedIntentsResponse_botVersion,
     listRecommendedIntentsResponse_localeId,
-    listRecommendedIntentsResponse_botRecommendationId,
-    listRecommendedIntentsResponse_botId,
+    listRecommendedIntentsResponse_nextToken,
     listRecommendedIntentsResponse_summaryList,
     listRecommendedIntentsResponse_httpStatus,
   )
@@ -61,15 +61,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListRecommendedIntents' smart constructor.
 data ListRecommendedIntents = ListRecommendedIntents'
-  { -- | If the response from the ListRecommendedIntents operation contains more
+  { -- | The maximum number of bot recommendations to return in each page of
+    -- results. If there are fewer results than the max page size, only the
+    -- actual number of results are returned.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the response from the ListRecommendedIntents operation contains more
     -- results than specified in the maxResults parameter, a token is returned
     -- in the response. Use that token in the nextToken parameter to return the
     -- next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of bot recommendations to return in each page of
-    -- results. If there are fewer results than the max page size, only the
-    -- actual number of results are returned.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The unique identifier of the bot associated with the recommended
     -- intents.
     botId :: Prelude.Text,
@@ -91,14 +91,14 @@ data ListRecommendedIntents = ListRecommendedIntents'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listRecommendedIntents_maxResults' - The maximum number of bot recommendations to return in each page of
+-- results. If there are fewer results than the max page size, only the
+-- actual number of results are returned.
+--
 -- 'nextToken', 'listRecommendedIntents_nextToken' - If the response from the ListRecommendedIntents operation contains more
 -- results than specified in the maxResults parameter, a token is returned
 -- in the response. Use that token in the nextToken parameter to return the
 -- next page of results.
---
--- 'maxResults', 'listRecommendedIntents_maxResults' - The maximum number of bot recommendations to return in each page of
--- results. If there are fewer results than the max page size, only the
--- actual number of results are returned.
 --
 -- 'botId', 'listRecommendedIntents_botId' - The unique identifier of the bot associated with the recommended
 -- intents.
@@ -125,14 +125,20 @@ newListRecommendedIntents
   pLocaleId_
   pBotRecommendationId_ =
     ListRecommendedIntents'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         botId = pBotId_,
         botVersion = pBotVersion_,
         localeId = pLocaleId_,
         botRecommendationId = pBotRecommendationId_
       }
+
+-- | The maximum number of bot recommendations to return in each page of
+-- results. If there are fewer results than the max page size, only the
+-- actual number of results are returned.
+listRecommendedIntents_maxResults :: Lens.Lens' ListRecommendedIntents (Prelude.Maybe Prelude.Natural)
+listRecommendedIntents_maxResults = Lens.lens (\ListRecommendedIntents' {maxResults} -> maxResults) (\s@ListRecommendedIntents' {} a -> s {maxResults = a} :: ListRecommendedIntents)
 
 -- | If the response from the ListRecommendedIntents operation contains more
 -- results than specified in the maxResults parameter, a token is returned
@@ -140,12 +146,6 @@ newListRecommendedIntents
 -- next page of results.
 listRecommendedIntents_nextToken :: Lens.Lens' ListRecommendedIntents (Prelude.Maybe Prelude.Text)
 listRecommendedIntents_nextToken = Lens.lens (\ListRecommendedIntents' {nextToken} -> nextToken) (\s@ListRecommendedIntents' {} a -> s {nextToken = a} :: ListRecommendedIntents)
-
--- | The maximum number of bot recommendations to return in each page of
--- results. If there are fewer results than the max page size, only the
--- actual number of results are returned.
-listRecommendedIntents_maxResults :: Lens.Lens' ListRecommendedIntents (Prelude.Maybe Prelude.Natural)
-listRecommendedIntents_maxResults = Lens.lens (\ListRecommendedIntents' {maxResults} -> maxResults) (\s@ListRecommendedIntents' {} a -> s {maxResults = a} :: ListRecommendedIntents)
 
 -- | The unique identifier of the bot associated with the recommended
 -- intents.
@@ -175,19 +175,19 @@ instance Core.AWSRequest ListRecommendedIntents where
     Response.receiveJSON
       ( \s h x ->
           ListRecommendedIntentsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<$> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "botRecommendationId")
             Prelude.<*> (x Data..?> "botVersion")
             Prelude.<*> (x Data..?> "localeId")
-            Prelude.<*> (x Data..?> "botRecommendationId")
-            Prelude.<*> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (x Data..?> "summaryList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListRecommendedIntents where
   hashWithSalt _salt ListRecommendedIntents' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` botId
       `Prelude.hashWithSalt` botVersion
       `Prelude.hashWithSalt` localeId
@@ -195,8 +195,8 @@ instance Prelude.Hashable ListRecommendedIntents where
 
 instance Prelude.NFData ListRecommendedIntents where
   rnf ListRecommendedIntents' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf botId
       `Prelude.seq` Prelude.rnf botVersion
       `Prelude.seq` Prelude.rnf localeId
@@ -217,8 +217,8 @@ instance Data.ToJSON ListRecommendedIntents where
   toJSON ListRecommendedIntents' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -241,12 +241,11 @@ instance Data.ToQuery ListRecommendedIntents where
 
 -- | /See:/ 'newListRecommendedIntentsResponse' smart constructor.
 data ListRecommendedIntentsResponse = ListRecommendedIntentsResponse'
-  { -- | A token that indicates whether there are more results to return in a
-    -- response to the ListRecommendedIntents operation. If the nextToken field
-    -- is present, you send the contents as the nextToken parameter of a
-    -- ListRecommendedIntents operation request to get the next page of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The unique identifier of the bot associated with the recommended intent.
+    botId :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the bot recommendation that contains the recommended
+    -- intent.
+    botRecommendationId :: Prelude.Maybe Prelude.Text,
     -- | The version of the bot that contains the intent.
     botVersion :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the language and locale of the intents to list. The
@@ -254,11 +253,12 @@ data ListRecommendedIntentsResponse = ListRecommendedIntentsResponse'
     -- see
     -- <https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html Supported languages>.
     localeId :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the bot recommendation that contains the recommended
-    -- intent.
-    botRecommendationId :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier of the bot associated with the recommended intent.
-    botId :: Prelude.Maybe Prelude.Text,
+    -- | A token that indicates whether there are more results to return in a
+    -- response to the ListRecommendedIntents operation. If the nextToken field
+    -- is present, you send the contents as the nextToken parameter of a
+    -- ListRecommendedIntents operation request to get the next page of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Summary information for the intents that meet the filter criteria
     -- specified in the request. The length of the list is specified in the
     -- maxResults parameter of the request. If there are more intents
@@ -278,11 +278,10 @@ data ListRecommendedIntentsResponse = ListRecommendedIntentsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listRecommendedIntentsResponse_nextToken' - A token that indicates whether there are more results to return in a
--- response to the ListRecommendedIntents operation. If the nextToken field
--- is present, you send the contents as the nextToken parameter of a
--- ListRecommendedIntents operation request to get the next page of
--- results.
+-- 'botId', 'listRecommendedIntentsResponse_botId' - The unique identifier of the bot associated with the recommended intent.
+--
+-- 'botRecommendationId', 'listRecommendedIntentsResponse_botRecommendationId' - The identifier of the bot recommendation that contains the recommended
+-- intent.
 --
 -- 'botVersion', 'listRecommendedIntentsResponse_botVersion' - The version of the bot that contains the intent.
 --
@@ -291,10 +290,11 @@ data ListRecommendedIntentsResponse = ListRecommendedIntentsResponse'
 -- see
 -- <https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html Supported languages>.
 --
--- 'botRecommendationId', 'listRecommendedIntentsResponse_botRecommendationId' - The identifier of the bot recommendation that contains the recommended
--- intent.
---
--- 'botId', 'listRecommendedIntentsResponse_botId' - The unique identifier of the bot associated with the recommended intent.
+-- 'nextToken', 'listRecommendedIntentsResponse_nextToken' - A token that indicates whether there are more results to return in a
+-- response to the ListRecommendedIntents operation. If the nextToken field
+-- is present, you send the contents as the nextToken parameter of a
+-- ListRecommendedIntents operation request to get the next page of
+-- results.
 --
 -- 'summaryList', 'listRecommendedIntentsResponse_summaryList' - Summary information for the intents that meet the filter criteria
 -- specified in the request. The length of the list is specified in the
@@ -309,23 +309,24 @@ newListRecommendedIntentsResponse ::
   ListRecommendedIntentsResponse
 newListRecommendedIntentsResponse pHttpStatus_ =
   ListRecommendedIntentsResponse'
-    { nextToken =
+    { botId =
         Prelude.Nothing,
+      botRecommendationId = Prelude.Nothing,
       botVersion = Prelude.Nothing,
       localeId = Prelude.Nothing,
-      botRecommendationId = Prelude.Nothing,
-      botId = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       summaryList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | A token that indicates whether there are more results to return in a
--- response to the ListRecommendedIntents operation. If the nextToken field
--- is present, you send the contents as the nextToken parameter of a
--- ListRecommendedIntents operation request to get the next page of
--- results.
-listRecommendedIntentsResponse_nextToken :: Lens.Lens' ListRecommendedIntentsResponse (Prelude.Maybe Prelude.Text)
-listRecommendedIntentsResponse_nextToken = Lens.lens (\ListRecommendedIntentsResponse' {nextToken} -> nextToken) (\s@ListRecommendedIntentsResponse' {} a -> s {nextToken = a} :: ListRecommendedIntentsResponse)
+-- | The unique identifier of the bot associated with the recommended intent.
+listRecommendedIntentsResponse_botId :: Lens.Lens' ListRecommendedIntentsResponse (Prelude.Maybe Prelude.Text)
+listRecommendedIntentsResponse_botId = Lens.lens (\ListRecommendedIntentsResponse' {botId} -> botId) (\s@ListRecommendedIntentsResponse' {} a -> s {botId = a} :: ListRecommendedIntentsResponse)
+
+-- | The identifier of the bot recommendation that contains the recommended
+-- intent.
+listRecommendedIntentsResponse_botRecommendationId :: Lens.Lens' ListRecommendedIntentsResponse (Prelude.Maybe Prelude.Text)
+listRecommendedIntentsResponse_botRecommendationId = Lens.lens (\ListRecommendedIntentsResponse' {botRecommendationId} -> botRecommendationId) (\s@ListRecommendedIntentsResponse' {} a -> s {botRecommendationId = a} :: ListRecommendedIntentsResponse)
 
 -- | The version of the bot that contains the intent.
 listRecommendedIntentsResponse_botVersion :: Lens.Lens' ListRecommendedIntentsResponse (Prelude.Maybe Prelude.Text)
@@ -338,14 +339,13 @@ listRecommendedIntentsResponse_botVersion = Lens.lens (\ListRecommendedIntentsRe
 listRecommendedIntentsResponse_localeId :: Lens.Lens' ListRecommendedIntentsResponse (Prelude.Maybe Prelude.Text)
 listRecommendedIntentsResponse_localeId = Lens.lens (\ListRecommendedIntentsResponse' {localeId} -> localeId) (\s@ListRecommendedIntentsResponse' {} a -> s {localeId = a} :: ListRecommendedIntentsResponse)
 
--- | The identifier of the bot recommendation that contains the recommended
--- intent.
-listRecommendedIntentsResponse_botRecommendationId :: Lens.Lens' ListRecommendedIntentsResponse (Prelude.Maybe Prelude.Text)
-listRecommendedIntentsResponse_botRecommendationId = Lens.lens (\ListRecommendedIntentsResponse' {botRecommendationId} -> botRecommendationId) (\s@ListRecommendedIntentsResponse' {} a -> s {botRecommendationId = a} :: ListRecommendedIntentsResponse)
-
--- | The unique identifier of the bot associated with the recommended intent.
-listRecommendedIntentsResponse_botId :: Lens.Lens' ListRecommendedIntentsResponse (Prelude.Maybe Prelude.Text)
-listRecommendedIntentsResponse_botId = Lens.lens (\ListRecommendedIntentsResponse' {botId} -> botId) (\s@ListRecommendedIntentsResponse' {} a -> s {botId = a} :: ListRecommendedIntentsResponse)
+-- | A token that indicates whether there are more results to return in a
+-- response to the ListRecommendedIntents operation. If the nextToken field
+-- is present, you send the contents as the nextToken parameter of a
+-- ListRecommendedIntents operation request to get the next page of
+-- results.
+listRecommendedIntentsResponse_nextToken :: Lens.Lens' ListRecommendedIntentsResponse (Prelude.Maybe Prelude.Text)
+listRecommendedIntentsResponse_nextToken = Lens.lens (\ListRecommendedIntentsResponse' {nextToken} -> nextToken) (\s@ListRecommendedIntentsResponse' {} a -> s {nextToken = a} :: ListRecommendedIntentsResponse)
 
 -- | Summary information for the intents that meet the filter criteria
 -- specified in the request. The length of the list is specified in the
@@ -364,10 +364,10 @@ instance
     ListRecommendedIntentsResponse
   where
   rnf ListRecommendedIntentsResponse' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf botId
+      `Prelude.seq` Prelude.rnf botRecommendationId
       `Prelude.seq` Prelude.rnf botVersion
       `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf botRecommendationId
-      `Prelude.seq` Prelude.rnf botId
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf summaryList
       `Prelude.seq` Prelude.rnf httpStatus

@@ -29,20 +29,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRouteSettings' smart constructor.
 data RouteSettings = RouteSettings'
-  { -- | Specifies the throttling rate limit.
-    throttlingRateLimit :: Prelude.Maybe Prelude.Double,
+  { -- | Specifies whether (true) or not (false) data trace logging is enabled
+    -- for this route. This property affects the log entries pushed to Amazon
+    -- CloudWatch Logs. Supported only for WebSocket APIs.
+    dataTraceEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies whether detailed metrics are enabled.
+    detailedMetricsEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the logging level for this route: INFO, ERROR, or OFF. This
     -- property affects the log entries pushed to Amazon CloudWatch Logs.
     -- Supported only for WebSocket APIs.
     loggingLevel :: Prelude.Maybe LoggingLevel,
     -- | Specifies the throttling burst limit.
     throttlingBurstLimit :: Prelude.Maybe Prelude.Int,
-    -- | Specifies whether detailed metrics are enabled.
-    detailedMetricsEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies whether (true) or not (false) data trace logging is enabled
-    -- for this route. This property affects the log entries pushed to Amazon
-    -- CloudWatch Logs. Supported only for WebSocket APIs.
-    dataTraceEnabled :: Prelude.Maybe Prelude.Bool
+    -- | Specifies the throttling rate limit.
+    throttlingRateLimit :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,7 +54,11 @@ data RouteSettings = RouteSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'throttlingRateLimit', 'routeSettings_throttlingRateLimit' - Specifies the throttling rate limit.
+-- 'dataTraceEnabled', 'routeSettings_dataTraceEnabled' - Specifies whether (true) or not (false) data trace logging is enabled
+-- for this route. This property affects the log entries pushed to Amazon
+-- CloudWatch Logs. Supported only for WebSocket APIs.
+--
+-- 'detailedMetricsEnabled', 'routeSettings_detailedMetricsEnabled' - Specifies whether detailed metrics are enabled.
 --
 -- 'loggingLevel', 'routeSettings_loggingLevel' - Specifies the logging level for this route: INFO, ERROR, or OFF. This
 -- property affects the log entries pushed to Amazon CloudWatch Logs.
@@ -62,26 +66,27 @@ data RouteSettings = RouteSettings'
 --
 -- 'throttlingBurstLimit', 'routeSettings_throttlingBurstLimit' - Specifies the throttling burst limit.
 --
--- 'detailedMetricsEnabled', 'routeSettings_detailedMetricsEnabled' - Specifies whether detailed metrics are enabled.
---
--- 'dataTraceEnabled', 'routeSettings_dataTraceEnabled' - Specifies whether (true) or not (false) data trace logging is enabled
--- for this route. This property affects the log entries pushed to Amazon
--- CloudWatch Logs. Supported only for WebSocket APIs.
+-- 'throttlingRateLimit', 'routeSettings_throttlingRateLimit' - Specifies the throttling rate limit.
 newRouteSettings ::
   RouteSettings
 newRouteSettings =
   RouteSettings'
-    { throttlingRateLimit =
-        Prelude.Nothing,
+    { dataTraceEnabled = Prelude.Nothing,
+      detailedMetricsEnabled = Prelude.Nothing,
       loggingLevel = Prelude.Nothing,
       throttlingBurstLimit = Prelude.Nothing,
-      detailedMetricsEnabled = Prelude.Nothing,
-      dataTraceEnabled = Prelude.Nothing
+      throttlingRateLimit = Prelude.Nothing
     }
 
--- | Specifies the throttling rate limit.
-routeSettings_throttlingRateLimit :: Lens.Lens' RouteSettings (Prelude.Maybe Prelude.Double)
-routeSettings_throttlingRateLimit = Lens.lens (\RouteSettings' {throttlingRateLimit} -> throttlingRateLimit) (\s@RouteSettings' {} a -> s {throttlingRateLimit = a} :: RouteSettings)
+-- | Specifies whether (true) or not (false) data trace logging is enabled
+-- for this route. This property affects the log entries pushed to Amazon
+-- CloudWatch Logs. Supported only for WebSocket APIs.
+routeSettings_dataTraceEnabled :: Lens.Lens' RouteSettings (Prelude.Maybe Prelude.Bool)
+routeSettings_dataTraceEnabled = Lens.lens (\RouteSettings' {dataTraceEnabled} -> dataTraceEnabled) (\s@RouteSettings' {} a -> s {dataTraceEnabled = a} :: RouteSettings)
+
+-- | Specifies whether detailed metrics are enabled.
+routeSettings_detailedMetricsEnabled :: Lens.Lens' RouteSettings (Prelude.Maybe Prelude.Bool)
+routeSettings_detailedMetricsEnabled = Lens.lens (\RouteSettings' {detailedMetricsEnabled} -> detailedMetricsEnabled) (\s@RouteSettings' {} a -> s {detailedMetricsEnabled = a} :: RouteSettings)
 
 -- | Specifies the logging level for this route: INFO, ERROR, or OFF. This
 -- property affects the log entries pushed to Amazon CloudWatch Logs.
@@ -93,15 +98,9 @@ routeSettings_loggingLevel = Lens.lens (\RouteSettings' {loggingLevel} -> loggin
 routeSettings_throttlingBurstLimit :: Lens.Lens' RouteSettings (Prelude.Maybe Prelude.Int)
 routeSettings_throttlingBurstLimit = Lens.lens (\RouteSettings' {throttlingBurstLimit} -> throttlingBurstLimit) (\s@RouteSettings' {} a -> s {throttlingBurstLimit = a} :: RouteSettings)
 
--- | Specifies whether detailed metrics are enabled.
-routeSettings_detailedMetricsEnabled :: Lens.Lens' RouteSettings (Prelude.Maybe Prelude.Bool)
-routeSettings_detailedMetricsEnabled = Lens.lens (\RouteSettings' {detailedMetricsEnabled} -> detailedMetricsEnabled) (\s@RouteSettings' {} a -> s {detailedMetricsEnabled = a} :: RouteSettings)
-
--- | Specifies whether (true) or not (false) data trace logging is enabled
--- for this route. This property affects the log entries pushed to Amazon
--- CloudWatch Logs. Supported only for WebSocket APIs.
-routeSettings_dataTraceEnabled :: Lens.Lens' RouteSettings (Prelude.Maybe Prelude.Bool)
-routeSettings_dataTraceEnabled = Lens.lens (\RouteSettings' {dataTraceEnabled} -> dataTraceEnabled) (\s@RouteSettings' {} a -> s {dataTraceEnabled = a} :: RouteSettings)
+-- | Specifies the throttling rate limit.
+routeSettings_throttlingRateLimit :: Lens.Lens' RouteSettings (Prelude.Maybe Prelude.Double)
+routeSettings_throttlingRateLimit = Lens.lens (\RouteSettings' {throttlingRateLimit} -> throttlingRateLimit) (\s@RouteSettings' {} a -> s {throttlingRateLimit = a} :: RouteSettings)
 
 instance Data.FromJSON RouteSettings where
   parseJSON =
@@ -109,41 +108,41 @@ instance Data.FromJSON RouteSettings where
       "RouteSettings"
       ( \x ->
           RouteSettings'
-            Prelude.<$> (x Data..:? "throttlingRateLimit")
+            Prelude.<$> (x Data..:? "dataTraceEnabled")
+            Prelude.<*> (x Data..:? "detailedMetricsEnabled")
             Prelude.<*> (x Data..:? "loggingLevel")
             Prelude.<*> (x Data..:? "throttlingBurstLimit")
-            Prelude.<*> (x Data..:? "detailedMetricsEnabled")
-            Prelude.<*> (x Data..:? "dataTraceEnabled")
+            Prelude.<*> (x Data..:? "throttlingRateLimit")
       )
 
 instance Prelude.Hashable RouteSettings where
   hashWithSalt _salt RouteSettings' {..} =
-    _salt `Prelude.hashWithSalt` throttlingRateLimit
+    _salt `Prelude.hashWithSalt` dataTraceEnabled
+      `Prelude.hashWithSalt` detailedMetricsEnabled
       `Prelude.hashWithSalt` loggingLevel
       `Prelude.hashWithSalt` throttlingBurstLimit
-      `Prelude.hashWithSalt` detailedMetricsEnabled
-      `Prelude.hashWithSalt` dataTraceEnabled
+      `Prelude.hashWithSalt` throttlingRateLimit
 
 instance Prelude.NFData RouteSettings where
   rnf RouteSettings' {..} =
-    Prelude.rnf throttlingRateLimit
+    Prelude.rnf dataTraceEnabled
+      `Prelude.seq` Prelude.rnf detailedMetricsEnabled
       `Prelude.seq` Prelude.rnf loggingLevel
       `Prelude.seq` Prelude.rnf throttlingBurstLimit
-      `Prelude.seq` Prelude.rnf detailedMetricsEnabled
-      `Prelude.seq` Prelude.rnf dataTraceEnabled
+      `Prelude.seq` Prelude.rnf throttlingRateLimit
 
 instance Data.ToJSON RouteSettings where
   toJSON RouteSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("throttlingRateLimit" Data..=)
-              Prelude.<$> throttlingRateLimit,
+          [ ("dataTraceEnabled" Data..=)
+              Prelude.<$> dataTraceEnabled,
+            ("detailedMetricsEnabled" Data..=)
+              Prelude.<$> detailedMetricsEnabled,
             ("loggingLevel" Data..=) Prelude.<$> loggingLevel,
             ("throttlingBurstLimit" Data..=)
               Prelude.<$> throttlingBurstLimit,
-            ("detailedMetricsEnabled" Data..=)
-              Prelude.<$> detailedMetricsEnabled,
-            ("dataTraceEnabled" Data..=)
-              Prelude.<$> dataTraceEnabled
+            ("throttlingRateLimit" Data..=)
+              Prelude.<$> throttlingRateLimit
           ]
       )

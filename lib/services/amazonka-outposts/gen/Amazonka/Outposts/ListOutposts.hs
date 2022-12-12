@@ -33,11 +33,11 @@ module Amazonka.Outposts.ListOutposts
     newListOutposts,
 
     -- * Request Lenses
-    listOutposts_nextToken,
-    listOutposts_maxResults,
-    listOutposts_lifeCycleStatusFilter,
     listOutposts_availabilityZoneFilter,
     listOutposts_availabilityZoneIdFilter,
+    listOutposts_lifeCycleStatusFilter,
+    listOutposts_maxResults,
+    listOutposts_nextToken,
 
     -- * Destructuring the Response
     ListOutpostsResponse (..),
@@ -60,14 +60,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListOutposts' smart constructor.
 data ListOutposts = ListOutposts'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Filters the results by the lifecycle status.
-    lifeCycleStatusFilter :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | Filters the results by Availability Zone (for example, @us-east-1a@).
+  { -- | Filters the results by Availability Zone (for example, @us-east-1a@).
     availabilityZoneFilter :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | Filters the results by AZ ID (for example, @use1-az1@).
-    availabilityZoneIdFilter :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
+    availabilityZoneIdFilter :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | Filters the results by the lifecycle status.
+    lifeCycleStatusFilter :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,37 +79,26 @@ data ListOutposts = ListOutposts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listOutposts_nextToken' - Undocumented member.
---
--- 'maxResults', 'listOutposts_maxResults' - Undocumented member.
---
--- 'lifeCycleStatusFilter', 'listOutposts_lifeCycleStatusFilter' - Filters the results by the lifecycle status.
---
 -- 'availabilityZoneFilter', 'listOutposts_availabilityZoneFilter' - Filters the results by Availability Zone (for example, @us-east-1a@).
 --
 -- 'availabilityZoneIdFilter', 'listOutposts_availabilityZoneIdFilter' - Filters the results by AZ ID (for example, @use1-az1@).
+--
+-- 'lifeCycleStatusFilter', 'listOutposts_lifeCycleStatusFilter' - Filters the results by the lifecycle status.
+--
+-- 'maxResults', 'listOutposts_maxResults' - Undocumented member.
+--
+-- 'nextToken', 'listOutposts_nextToken' - Undocumented member.
 newListOutposts ::
   ListOutposts
 newListOutposts =
   ListOutposts'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { availabilityZoneFilter =
+        Prelude.Nothing,
+      availabilityZoneIdFilter = Prelude.Nothing,
       lifeCycleStatusFilter = Prelude.Nothing,
-      availabilityZoneFilter = Prelude.Nothing,
-      availabilityZoneIdFilter = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | Undocumented member.
-listOutposts_nextToken :: Lens.Lens' ListOutposts (Prelude.Maybe Prelude.Text)
-listOutposts_nextToken = Lens.lens (\ListOutposts' {nextToken} -> nextToken) (\s@ListOutposts' {} a -> s {nextToken = a} :: ListOutposts)
-
--- | Undocumented member.
-listOutposts_maxResults :: Lens.Lens' ListOutposts (Prelude.Maybe Prelude.Natural)
-listOutposts_maxResults = Lens.lens (\ListOutposts' {maxResults} -> maxResults) (\s@ListOutposts' {} a -> s {maxResults = a} :: ListOutposts)
-
--- | Filters the results by the lifecycle status.
-listOutposts_lifeCycleStatusFilter :: Lens.Lens' ListOutposts (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-listOutposts_lifeCycleStatusFilter = Lens.lens (\ListOutposts' {lifeCycleStatusFilter} -> lifeCycleStatusFilter) (\s@ListOutposts' {} a -> s {lifeCycleStatusFilter = a} :: ListOutposts) Prelude.. Lens.mapping Lens.coerced
 
 -- | Filters the results by Availability Zone (for example, @us-east-1a@).
 listOutposts_availabilityZoneFilter :: Lens.Lens' ListOutposts (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
@@ -118,6 +107,18 @@ listOutposts_availabilityZoneFilter = Lens.lens (\ListOutposts' {availabilityZon
 -- | Filters the results by AZ ID (for example, @use1-az1@).
 listOutposts_availabilityZoneIdFilter :: Lens.Lens' ListOutposts (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 listOutposts_availabilityZoneIdFilter = Lens.lens (\ListOutposts' {availabilityZoneIdFilter} -> availabilityZoneIdFilter) (\s@ListOutposts' {} a -> s {availabilityZoneIdFilter = a} :: ListOutposts) Prelude.. Lens.mapping Lens.coerced
+
+-- | Filters the results by the lifecycle status.
+listOutposts_lifeCycleStatusFilter :: Lens.Lens' ListOutposts (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+listOutposts_lifeCycleStatusFilter = Lens.lens (\ListOutposts' {lifeCycleStatusFilter} -> lifeCycleStatusFilter) (\s@ListOutposts' {} a -> s {lifeCycleStatusFilter = a} :: ListOutposts) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+listOutposts_maxResults :: Lens.Lens' ListOutposts (Prelude.Maybe Prelude.Natural)
+listOutposts_maxResults = Lens.lens (\ListOutposts' {maxResults} -> maxResults) (\s@ListOutposts' {} a -> s {maxResults = a} :: ListOutposts)
+
+-- | Undocumented member.
+listOutposts_nextToken :: Lens.Lens' ListOutposts (Prelude.Maybe Prelude.Text)
+listOutposts_nextToken = Lens.lens (\ListOutposts' {nextToken} -> nextToken) (\s@ListOutposts' {} a -> s {nextToken = a} :: ListOutposts)
 
 instance Core.AWSRequest ListOutposts where
   type AWSResponse ListOutposts = ListOutpostsResponse
@@ -134,19 +135,19 @@ instance Core.AWSRequest ListOutposts where
 
 instance Prelude.Hashable ListOutposts where
   hashWithSalt _salt ListOutposts' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` lifeCycleStatusFilter
-      `Prelude.hashWithSalt` availabilityZoneFilter
+    _salt `Prelude.hashWithSalt` availabilityZoneFilter
       `Prelude.hashWithSalt` availabilityZoneIdFilter
+      `Prelude.hashWithSalt` lifeCycleStatusFilter
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListOutposts where
   rnf ListOutposts' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf lifeCycleStatusFilter
-      `Prelude.seq` Prelude.rnf availabilityZoneFilter
+    Prelude.rnf availabilityZoneFilter
       `Prelude.seq` Prelude.rnf availabilityZoneIdFilter
+      `Prelude.seq` Prelude.rnf lifeCycleStatusFilter
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListOutposts where
   toHeaders =
@@ -165,14 +166,7 @@ instance Data.ToPath ListOutposts where
 instance Data.ToQuery ListOutposts where
   toQuery ListOutposts' {..} =
     Prelude.mconcat
-      [ "NextToken" Data.=: nextToken,
-        "MaxResults" Data.=: maxResults,
-        "LifeCycleStatusFilter"
-          Data.=: Data.toQuery
-            ( Data.toQueryList "member"
-                Prelude.<$> lifeCycleStatusFilter
-            ),
-        "AvailabilityZoneFilter"
+      [ "AvailabilityZoneFilter"
           Data.=: Data.toQuery
             ( Data.toQueryList "member"
                 Prelude.<$> availabilityZoneFilter
@@ -181,7 +175,14 @@ instance Data.ToQuery ListOutposts where
           Data.=: Data.toQuery
             ( Data.toQueryList "member"
                 Prelude.<$> availabilityZoneIdFilter
-            )
+            ),
+        "LifeCycleStatusFilter"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "member"
+                Prelude.<$> lifeCycleStatusFilter
+            ),
+        "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListOutpostsResponse' smart constructor.

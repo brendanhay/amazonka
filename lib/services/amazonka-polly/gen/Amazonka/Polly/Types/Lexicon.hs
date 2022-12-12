@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLexicon' smart constructor.
 data Lexicon = Lexicon'
-  { -- | Name of the lexicon.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Lexicon content in string format. The content of a lexicon must be in
+  { -- | Lexicon content in string format. The content of a lexicon must be in
     -- PLS format.
-    content :: Prelude.Maybe (Data.Sensitive Prelude.Text)
+    content :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | Name of the lexicon.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -46,26 +46,26 @@ data Lexicon = Lexicon'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'lexicon_name' - Name of the lexicon.
---
 -- 'content', 'lexicon_content' - Lexicon content in string format. The content of a lexicon must be in
 -- PLS format.
+--
+-- 'name', 'lexicon_name' - Name of the lexicon.
 newLexicon ::
   Lexicon
 newLexicon =
   Lexicon'
-    { name = Prelude.Nothing,
-      content = Prelude.Nothing
+    { content = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | Name of the lexicon.
-lexicon_name :: Lens.Lens' Lexicon (Prelude.Maybe Prelude.Text)
-lexicon_name = Lens.lens (\Lexicon' {name} -> name) (\s@Lexicon' {} a -> s {name = a} :: Lexicon)
 
 -- | Lexicon content in string format. The content of a lexicon must be in
 -- PLS format.
 lexicon_content :: Lens.Lens' Lexicon (Prelude.Maybe Prelude.Text)
 lexicon_content = Lens.lens (\Lexicon' {content} -> content) (\s@Lexicon' {} a -> s {content = a} :: Lexicon) Prelude.. Lens.mapping Data._Sensitive
+
+-- | Name of the lexicon.
+lexicon_name :: Lens.Lens' Lexicon (Prelude.Maybe Prelude.Text)
+lexicon_name = Lens.lens (\Lexicon' {name} -> name) (\s@Lexicon' {} a -> s {name = a} :: Lexicon)
 
 instance Data.FromJSON Lexicon where
   parseJSON =
@@ -73,15 +73,15 @@ instance Data.FromJSON Lexicon where
       "Lexicon"
       ( \x ->
           Lexicon'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Content")
+            Prelude.<$> (x Data..:? "Content")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable Lexicon where
   hashWithSalt _salt Lexicon' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` content
+    _salt `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData Lexicon where
   rnf Lexicon' {..} =
-    Prelude.rnf name `Prelude.seq` Prelude.rnf content
+    Prelude.rnf content `Prelude.seq` Prelude.rnf name

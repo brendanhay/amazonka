@@ -27,8 +27,8 @@ module Amazonka.ForecastQuery.QueryWhatIfForecast
     newQueryWhatIfForecast,
 
     -- * Request Lenses
-    queryWhatIfForecast_nextToken,
     queryWhatIfForecast_endDate,
+    queryWhatIfForecast_nextToken,
     queryWhatIfForecast_startDate,
     queryWhatIfForecast_whatIfForecastArn,
     queryWhatIfForecast_filters,
@@ -53,14 +53,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newQueryWhatIfForecast' smart constructor.
 data QueryWhatIfForecast = QueryWhatIfForecast'
-  { -- | If the result of the previous request was truncated, the response
-    -- includes a @NextToken@. To retrieve the next set of results, use the
-    -- token in the next request. Tokens expire after 24 hours.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The end date for the what-if forecast. Specify the date using this
+  { -- | The end date for the what-if forecast. Specify the date using this
     -- format: yyyy-MM-dd\'T\'HH:mm:ss (ISO 8601 format). For example,
     -- 2015-01-01T20:00:00.
     endDate :: Prelude.Maybe Prelude.Text,
+    -- | If the result of the previous request was truncated, the response
+    -- includes a @NextToken@. To retrieve the next set of results, use the
+    -- token in the next request. Tokens expire after 24 hours.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The start date for the what-if forecast. Specify the date using this
     -- format: yyyy-MM-dd\'T\'HH:mm:ss (ISO 8601 format). For example,
     -- 2015-01-01T08:00:00.
@@ -88,13 +88,13 @@ data QueryWhatIfForecast = QueryWhatIfForecast'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'queryWhatIfForecast_nextToken' - If the result of the previous request was truncated, the response
--- includes a @NextToken@. To retrieve the next set of results, use the
--- token in the next request. Tokens expire after 24 hours.
---
 -- 'endDate', 'queryWhatIfForecast_endDate' - The end date for the what-if forecast. Specify the date using this
 -- format: yyyy-MM-dd\'T\'HH:mm:ss (ISO 8601 format). For example,
 -- 2015-01-01T20:00:00.
+--
+-- 'nextToken', 'queryWhatIfForecast_nextToken' - If the result of the previous request was truncated, the response
+-- includes a @NextToken@. To retrieve the next set of results, use the
+-- token in the next request. Tokens expire after 24 hours.
 --
 -- 'startDate', 'queryWhatIfForecast_startDate' - The start date for the what-if forecast. Specify the date using this
 -- format: yyyy-MM-dd\'T\'HH:mm:ss (ISO 8601 format). For example,
@@ -117,24 +117,24 @@ newQueryWhatIfForecast ::
   QueryWhatIfForecast
 newQueryWhatIfForecast pWhatIfForecastArn_ =
   QueryWhatIfForecast'
-    { nextToken = Prelude.Nothing,
-      endDate = Prelude.Nothing,
+    { endDate = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       startDate = Prelude.Nothing,
       whatIfForecastArn = pWhatIfForecastArn_,
       filters = Prelude.mempty
     }
-
--- | If the result of the previous request was truncated, the response
--- includes a @NextToken@. To retrieve the next set of results, use the
--- token in the next request. Tokens expire after 24 hours.
-queryWhatIfForecast_nextToken :: Lens.Lens' QueryWhatIfForecast (Prelude.Maybe Prelude.Text)
-queryWhatIfForecast_nextToken = Lens.lens (\QueryWhatIfForecast' {nextToken} -> nextToken) (\s@QueryWhatIfForecast' {} a -> s {nextToken = a} :: QueryWhatIfForecast)
 
 -- | The end date for the what-if forecast. Specify the date using this
 -- format: yyyy-MM-dd\'T\'HH:mm:ss (ISO 8601 format). For example,
 -- 2015-01-01T20:00:00.
 queryWhatIfForecast_endDate :: Lens.Lens' QueryWhatIfForecast (Prelude.Maybe Prelude.Text)
 queryWhatIfForecast_endDate = Lens.lens (\QueryWhatIfForecast' {endDate} -> endDate) (\s@QueryWhatIfForecast' {} a -> s {endDate = a} :: QueryWhatIfForecast)
+
+-- | If the result of the previous request was truncated, the response
+-- includes a @NextToken@. To retrieve the next set of results, use the
+-- token in the next request. Tokens expire after 24 hours.
+queryWhatIfForecast_nextToken :: Lens.Lens' QueryWhatIfForecast (Prelude.Maybe Prelude.Text)
+queryWhatIfForecast_nextToken = Lens.lens (\QueryWhatIfForecast' {nextToken} -> nextToken) (\s@QueryWhatIfForecast' {} a -> s {nextToken = a} :: QueryWhatIfForecast)
 
 -- | The start date for the what-if forecast. Specify the date using this
 -- format: yyyy-MM-dd\'T\'HH:mm:ss (ISO 8601 format). For example,
@@ -174,16 +174,16 @@ instance Core.AWSRequest QueryWhatIfForecast where
 
 instance Prelude.Hashable QueryWhatIfForecast where
   hashWithSalt _salt QueryWhatIfForecast' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` endDate
+    _salt `Prelude.hashWithSalt` endDate
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` startDate
       `Prelude.hashWithSalt` whatIfForecastArn
       `Prelude.hashWithSalt` filters
 
 instance Prelude.NFData QueryWhatIfForecast where
   rnf QueryWhatIfForecast' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf endDate
+    Prelude.rnf endDate
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf startDate
       `Prelude.seq` Prelude.rnf whatIfForecastArn
       `Prelude.seq` Prelude.rnf filters
@@ -207,8 +207,8 @@ instance Data.ToJSON QueryWhatIfForecast where
   toJSON QueryWhatIfForecast' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("EndDate" Data..=) Prelude.<$> endDate,
+          [ ("EndDate" Data..=) Prelude.<$> endDate,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("StartDate" Data..=) Prelude.<$> startDate,
             Prelude.Just
               ("WhatIfForecastArn" Data..= whatIfForecastArn),

@@ -29,8 +29,8 @@ module Amazonka.QuickSight.UpdateIpRestriction
     newUpdateIpRestriction,
 
     -- * Request Lenses
-    updateIpRestriction_ipRestrictionRuleMap,
     updateIpRestriction_enabled,
+    updateIpRestriction_ipRestrictionRuleMap,
     updateIpRestriction_awsAccountId,
 
     -- * Destructuring the Response
@@ -54,11 +54,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateIpRestriction' smart constructor.
 data UpdateIpRestriction = UpdateIpRestriction'
-  { -- | A map that describes the updated IP rules with CIDR ranges and
+  { -- | A value that specifies whether IP rules are turned on.
+    enabled :: Prelude.Maybe Prelude.Bool,
+    -- | A map that describes the updated IP rules with CIDR ranges and
     -- descriptions.
     ipRestrictionRuleMap :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A value that specifies whether IP rules are turned on.
-    enabled :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the Amazon Web Services account that contains the IP rules.
     awsAccountId :: Prelude.Text
   }
@@ -72,10 +72,10 @@ data UpdateIpRestriction = UpdateIpRestriction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'enabled', 'updateIpRestriction_enabled' - A value that specifies whether IP rules are turned on.
+--
 -- 'ipRestrictionRuleMap', 'updateIpRestriction_ipRestrictionRuleMap' - A map that describes the updated IP rules with CIDR ranges and
 -- descriptions.
---
--- 'enabled', 'updateIpRestriction_enabled' - A value that specifies whether IP rules are turned on.
 --
 -- 'awsAccountId', 'updateIpRestriction_awsAccountId' - The ID of the Amazon Web Services account that contains the IP rules.
 newUpdateIpRestriction ::
@@ -84,20 +84,19 @@ newUpdateIpRestriction ::
   UpdateIpRestriction
 newUpdateIpRestriction pAwsAccountId_ =
   UpdateIpRestriction'
-    { ipRestrictionRuleMap =
-        Prelude.Nothing,
-      enabled = Prelude.Nothing,
+    { enabled = Prelude.Nothing,
+      ipRestrictionRuleMap = Prelude.Nothing,
       awsAccountId = pAwsAccountId_
     }
+
+-- | A value that specifies whether IP rules are turned on.
+updateIpRestriction_enabled :: Lens.Lens' UpdateIpRestriction (Prelude.Maybe Prelude.Bool)
+updateIpRestriction_enabled = Lens.lens (\UpdateIpRestriction' {enabled} -> enabled) (\s@UpdateIpRestriction' {} a -> s {enabled = a} :: UpdateIpRestriction)
 
 -- | A map that describes the updated IP rules with CIDR ranges and
 -- descriptions.
 updateIpRestriction_ipRestrictionRuleMap :: Lens.Lens' UpdateIpRestriction (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 updateIpRestriction_ipRestrictionRuleMap = Lens.lens (\UpdateIpRestriction' {ipRestrictionRuleMap} -> ipRestrictionRuleMap) (\s@UpdateIpRestriction' {} a -> s {ipRestrictionRuleMap = a} :: UpdateIpRestriction) Prelude.. Lens.mapping Lens.coerced
-
--- | A value that specifies whether IP rules are turned on.
-updateIpRestriction_enabled :: Lens.Lens' UpdateIpRestriction (Prelude.Maybe Prelude.Bool)
-updateIpRestriction_enabled = Lens.lens (\UpdateIpRestriction' {enabled} -> enabled) (\s@UpdateIpRestriction' {} a -> s {enabled = a} :: UpdateIpRestriction)
 
 -- | The ID of the Amazon Web Services account that contains the IP rules.
 updateIpRestriction_awsAccountId :: Lens.Lens' UpdateIpRestriction Prelude.Text
@@ -120,14 +119,14 @@ instance Core.AWSRequest UpdateIpRestriction where
 
 instance Prelude.Hashable UpdateIpRestriction where
   hashWithSalt _salt UpdateIpRestriction' {..} =
-    _salt `Prelude.hashWithSalt` ipRestrictionRuleMap
-      `Prelude.hashWithSalt` enabled
+    _salt `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` ipRestrictionRuleMap
       `Prelude.hashWithSalt` awsAccountId
 
 instance Prelude.NFData UpdateIpRestriction where
   rnf UpdateIpRestriction' {..} =
-    Prelude.rnf ipRestrictionRuleMap
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf ipRestrictionRuleMap
       `Prelude.seq` Prelude.rnf awsAccountId
 
 instance Data.ToHeaders UpdateIpRestriction where
@@ -145,9 +144,9 @@ instance Data.ToJSON UpdateIpRestriction where
   toJSON UpdateIpRestriction' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("IpRestrictionRuleMap" Data..=)
-              Prelude.<$> ipRestrictionRuleMap,
-            ("Enabled" Data..=) Prelude.<$> enabled
+          [ ("Enabled" Data..=) Prelude.<$> enabled,
+            ("IpRestrictionRuleMap" Data..=)
+              Prelude.<$> ipRestrictionRuleMap
           ]
       )
 

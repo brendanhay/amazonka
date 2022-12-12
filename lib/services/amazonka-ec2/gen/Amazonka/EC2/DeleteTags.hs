@@ -32,8 +32,8 @@ module Amazonka.EC2.DeleteTags
     newDeleteTags,
 
     -- * Request Lenses
-    deleteTags_tags,
     deleteTags_dryRun,
+    deleteTags_tags,
     deleteTags_resources,
 
     -- * Destructuring the Response
@@ -52,7 +52,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteTags' smart constructor.
 data DeleteTags = DeleteTags'
-  { -- | The tags to delete. Specify a tag key and an optional tag value to
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The tags to delete. Specify a tag key and an optional tag value to
     -- delete specific tags. If you specify a tag key without a tag value, we
     -- delete any tag with this key regardless of its value. If you specify a
     -- tag key with an empty string as the tag value, we delete the tag only if
@@ -64,11 +69,6 @@ data DeleteTags = DeleteTags'
     --
     -- Constraints: Up to 1000 tags.
     tags :: Prelude.Maybe [Tag],
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The IDs of the resources, separated by spaces.
     --
     -- Constraints: Up to 1000 resource IDs. We recommend breaking up this
@@ -85,6 +85,11 @@ data DeleteTags = DeleteTags'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dryRun', 'deleteTags_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
 -- 'tags', 'deleteTags_tags' - The tags to delete. Specify a tag key and an optional tag value to
 -- delete specific tags. If you specify a tag key without a tag value, we
 -- delete any tag with this key regardless of its value. If you specify a
@@ -97,11 +102,6 @@ data DeleteTags = DeleteTags'
 --
 -- Constraints: Up to 1000 tags.
 --
--- 'dryRun', 'deleteTags_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'resources', 'deleteTags_resources' - The IDs of the resources, separated by spaces.
 --
 -- Constraints: Up to 1000 resource IDs. We recommend breaking up this
@@ -110,10 +110,17 @@ newDeleteTags ::
   DeleteTags
 newDeleteTags =
   DeleteTags'
-    { tags = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
+    { dryRun = Prelude.Nothing,
+      tags = Prelude.Nothing,
       resources = Prelude.mempty
     }
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+deleteTags_dryRun :: Lens.Lens' DeleteTags (Prelude.Maybe Prelude.Bool)
+deleteTags_dryRun = Lens.lens (\DeleteTags' {dryRun} -> dryRun) (\s@DeleteTags' {} a -> s {dryRun = a} :: DeleteTags)
 
 -- | The tags to delete. Specify a tag key and an optional tag value to
 -- delete specific tags. If you specify a tag key without a tag value, we
@@ -128,13 +135,6 @@ newDeleteTags =
 -- Constraints: Up to 1000 tags.
 deleteTags_tags :: Lens.Lens' DeleteTags (Prelude.Maybe [Tag])
 deleteTags_tags = Lens.lens (\DeleteTags' {tags} -> tags) (\s@DeleteTags' {} a -> s {tags = a} :: DeleteTags) Prelude.. Lens.mapping Lens.coerced
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-deleteTags_dryRun :: Lens.Lens' DeleteTags (Prelude.Maybe Prelude.Bool)
-deleteTags_dryRun = Lens.lens (\DeleteTags' {dryRun} -> dryRun) (\s@DeleteTags' {} a -> s {dryRun = a} :: DeleteTags)
 
 -- | The IDs of the resources, separated by spaces.
 --
@@ -151,14 +151,14 @@ instance Core.AWSRequest DeleteTags where
 
 instance Prelude.Hashable DeleteTags where
   hashWithSalt _salt DeleteTags' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` dryRun
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` resources
 
 instance Prelude.NFData DeleteTags where
   rnf DeleteTags' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf dryRun
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf resources
 
 instance Data.ToHeaders DeleteTags where
@@ -174,9 +174,9 @@ instance Data.ToQuery DeleteTags where
           Data.=: ("DeleteTags" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
         Data.toQuery
           (Data.toQueryList "Tag" Prelude.<$> tags),
-        "DryRun" Data.=: dryRun,
         Data.toQueryList "ResourceId" resources
       ]
 

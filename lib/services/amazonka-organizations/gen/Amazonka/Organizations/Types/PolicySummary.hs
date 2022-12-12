@@ -30,15 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPolicySummary' smart constructor.
 data PolicySummary = PolicySummary'
-  { -- | The friendly name of the policy.
-    --
-    -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
-    -- validate this parameter is a string of any of the characters in the
-    -- ASCII character range.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The type of policy.
-    type' :: Prelude.Maybe PolicyType,
-    -- | The Amazon Resource Name (ARN) of the policy.
+  { -- | The Amazon Resource Name (ARN) of the policy.
     --
     -- For more information about ARNs in Organizations, see
     -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
@@ -48,14 +40,22 @@ data PolicySummary = PolicySummary'
     -- Web Services managed policy. If true, then you can attach the policy to
     -- roots, OUs, or accounts, but you cannot edit it.
     awsManaged :: Prelude.Maybe Prelude.Bool,
+    -- | The description of the policy.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier (ID) of the policy.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID
     -- string requires \"p-\" followed by from 8 to 128 lowercase or uppercase
     -- letters, digits, or the underscore character (_).
     id :: Prelude.Maybe Prelude.Text,
-    -- | The description of the policy.
-    description :: Prelude.Maybe Prelude.Text
+    -- | The friendly name of the policy.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
+    -- validate this parameter is a string of any of the characters in the
+    -- ASCII character range.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The type of policy.
+    type' :: Prelude.Maybe PolicyType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,14 +67,6 @@ data PolicySummary = PolicySummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'policySummary_name' - The friendly name of the policy.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
--- validate this parameter is a string of any of the characters in the
--- ASCII character range.
---
--- 'type'', 'policySummary_type' - The type of policy.
---
 -- 'arn', 'policySummary_arn' - The Amazon Resource Name (ARN) of the policy.
 --
 -- For more information about ARNs in Organizations, see
@@ -85,36 +77,32 @@ data PolicySummary = PolicySummary'
 -- Web Services managed policy. If true, then you can attach the policy to
 -- roots, OUs, or accounts, but you cannot edit it.
 --
+-- 'description', 'policySummary_description' - The description of the policy.
+--
 -- 'id', 'policySummary_id' - The unique identifier (ID) of the policy.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID
 -- string requires \"p-\" followed by from 8 to 128 lowercase or uppercase
 -- letters, digits, or the underscore character (_).
 --
--- 'description', 'policySummary_description' - The description of the policy.
-newPolicySummary ::
-  PolicySummary
-newPolicySummary =
-  PolicySummary'
-    { name = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      awsManaged = Prelude.Nothing,
-      id = Prelude.Nothing,
-      description = Prelude.Nothing
-    }
-
--- | The friendly name of the policy.
+-- 'name', 'policySummary_name' - The friendly name of the policy.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
 -- validate this parameter is a string of any of the characters in the
 -- ASCII character range.
-policySummary_name :: Lens.Lens' PolicySummary (Prelude.Maybe Prelude.Text)
-policySummary_name = Lens.lens (\PolicySummary' {name} -> name) (\s@PolicySummary' {} a -> s {name = a} :: PolicySummary)
-
--- | The type of policy.
-policySummary_type :: Lens.Lens' PolicySummary (Prelude.Maybe PolicyType)
-policySummary_type = Lens.lens (\PolicySummary' {type'} -> type') (\s@PolicySummary' {} a -> s {type' = a} :: PolicySummary)
+--
+-- 'type'', 'policySummary_type' - The type of policy.
+newPolicySummary ::
+  PolicySummary
+newPolicySummary =
+  PolicySummary'
+    { arn = Prelude.Nothing,
+      awsManaged = Prelude.Nothing,
+      description = Prelude.Nothing,
+      id = Prelude.Nothing,
+      name = Prelude.Nothing,
+      type' = Prelude.Nothing
+    }
 
 -- | The Amazon Resource Name (ARN) of the policy.
 --
@@ -130,6 +118,10 @@ policySummary_arn = Lens.lens (\PolicySummary' {arn} -> arn) (\s@PolicySummary' 
 policySummary_awsManaged :: Lens.Lens' PolicySummary (Prelude.Maybe Prelude.Bool)
 policySummary_awsManaged = Lens.lens (\PolicySummary' {awsManaged} -> awsManaged) (\s@PolicySummary' {} a -> s {awsManaged = a} :: PolicySummary)
 
+-- | The description of the policy.
+policySummary_description :: Lens.Lens' PolicySummary (Prelude.Maybe Prelude.Text)
+policySummary_description = Lens.lens (\PolicySummary' {description} -> description) (\s@PolicySummary' {} a -> s {description = a} :: PolicySummary)
+
 -- | The unique identifier (ID) of the policy.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID
@@ -138,9 +130,17 @@ policySummary_awsManaged = Lens.lens (\PolicySummary' {awsManaged} -> awsManaged
 policySummary_id :: Lens.Lens' PolicySummary (Prelude.Maybe Prelude.Text)
 policySummary_id = Lens.lens (\PolicySummary' {id} -> id) (\s@PolicySummary' {} a -> s {id = a} :: PolicySummary)
 
--- | The description of the policy.
-policySummary_description :: Lens.Lens' PolicySummary (Prelude.Maybe Prelude.Text)
-policySummary_description = Lens.lens (\PolicySummary' {description} -> description) (\s@PolicySummary' {} a -> s {description = a} :: PolicySummary)
+-- | The friendly name of the policy.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
+-- validate this parameter is a string of any of the characters in the
+-- ASCII character range.
+policySummary_name :: Lens.Lens' PolicySummary (Prelude.Maybe Prelude.Text)
+policySummary_name = Lens.lens (\PolicySummary' {name} -> name) (\s@PolicySummary' {} a -> s {name = a} :: PolicySummary)
+
+-- | The type of policy.
+policySummary_type :: Lens.Lens' PolicySummary (Prelude.Maybe PolicyType)
+policySummary_type = Lens.lens (\PolicySummary' {type'} -> type') (\s@PolicySummary' {} a -> s {type' = a} :: PolicySummary)
 
 instance Data.FromJSON PolicySummary where
   parseJSON =
@@ -148,28 +148,28 @@ instance Data.FromJSON PolicySummary where
       "PolicySummary"
       ( \x ->
           PolicySummary'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Type")
-            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<$> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "AwsManaged")
-            Prelude.<*> (x Data..:? "Id")
             Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable PolicySummary where
   hashWithSalt _salt PolicySummary' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` awsManaged
-      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData PolicySummary where
   rnf PolicySummary' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf awsManaged
-      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf type'

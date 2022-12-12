@@ -45,9 +45,9 @@ module Amazonka.CloudFront.CreateOriginAccessControl
     newCreateOriginAccessControlResponse,
 
     -- * Response Lenses
-    createOriginAccessControlResponse_originAccessControl,
-    createOriginAccessControlResponse_location,
     createOriginAccessControlResponse_eTag,
+    createOriginAccessControlResponse_location,
+    createOriginAccessControlResponse_originAccessControl,
     createOriginAccessControlResponse_httpStatus,
   )
 where
@@ -101,9 +101,9 @@ instance Core.AWSRequest CreateOriginAccessControl where
     Response.receiveXML
       ( \s h x ->
           CreateOriginAccessControlResponse'
-            Prelude.<$> (Data.parseXML x)
+            Prelude.<$> (h Data..#? "ETag")
             Prelude.<*> (h Data..#? "Location")
-            Prelude.<*> (h Data..#? "ETag")
+            Prelude.<*> (Data.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -134,13 +134,13 @@ instance Data.ToQuery CreateOriginAccessControl where
 
 -- | /See:/ 'newCreateOriginAccessControlResponse' smart constructor.
 data CreateOriginAccessControlResponse = CreateOriginAccessControlResponse'
-  { -- | Contains an origin access control.
-    originAccessControl :: Prelude.Maybe OriginAccessControl,
-    -- | The URL of the origin access control.
-    location :: Prelude.Maybe Prelude.Text,
-    -- | The version identifier for the current version of the origin access
+  { -- | The version identifier for the current version of the origin access
     -- control.
     eTag :: Prelude.Maybe Prelude.Text,
+    -- | The URL of the origin access control.
+    location :: Prelude.Maybe Prelude.Text,
+    -- | Contains an origin access control.
+    originAccessControl :: Prelude.Maybe OriginAccessControl,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -154,12 +154,12 @@ data CreateOriginAccessControlResponse = CreateOriginAccessControlResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'originAccessControl', 'createOriginAccessControlResponse_originAccessControl' - Contains an origin access control.
+-- 'eTag', 'createOriginAccessControlResponse_eTag' - The version identifier for the current version of the origin access
+-- control.
 --
 -- 'location', 'createOriginAccessControlResponse_location' - The URL of the origin access control.
 --
--- 'eTag', 'createOriginAccessControlResponse_eTag' - The version identifier for the current version of the origin access
--- control.
+-- 'originAccessControl', 'createOriginAccessControlResponse_originAccessControl' - Contains an origin access control.
 --
 -- 'httpStatus', 'createOriginAccessControlResponse_httpStatus' - The response's http status code.
 newCreateOriginAccessControlResponse ::
@@ -168,25 +168,25 @@ newCreateOriginAccessControlResponse ::
   CreateOriginAccessControlResponse
 newCreateOriginAccessControlResponse pHttpStatus_ =
   CreateOriginAccessControlResponse'
-    { originAccessControl =
+    { eTag =
         Prelude.Nothing,
       location = Prelude.Nothing,
-      eTag = Prelude.Nothing,
+      originAccessControl = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Contains an origin access control.
-createOriginAccessControlResponse_originAccessControl :: Lens.Lens' CreateOriginAccessControlResponse (Prelude.Maybe OriginAccessControl)
-createOriginAccessControlResponse_originAccessControl = Lens.lens (\CreateOriginAccessControlResponse' {originAccessControl} -> originAccessControl) (\s@CreateOriginAccessControlResponse' {} a -> s {originAccessControl = a} :: CreateOriginAccessControlResponse)
-
--- | The URL of the origin access control.
-createOriginAccessControlResponse_location :: Lens.Lens' CreateOriginAccessControlResponse (Prelude.Maybe Prelude.Text)
-createOriginAccessControlResponse_location = Lens.lens (\CreateOriginAccessControlResponse' {location} -> location) (\s@CreateOriginAccessControlResponse' {} a -> s {location = a} :: CreateOriginAccessControlResponse)
 
 -- | The version identifier for the current version of the origin access
 -- control.
 createOriginAccessControlResponse_eTag :: Lens.Lens' CreateOriginAccessControlResponse (Prelude.Maybe Prelude.Text)
 createOriginAccessControlResponse_eTag = Lens.lens (\CreateOriginAccessControlResponse' {eTag} -> eTag) (\s@CreateOriginAccessControlResponse' {} a -> s {eTag = a} :: CreateOriginAccessControlResponse)
+
+-- | The URL of the origin access control.
+createOriginAccessControlResponse_location :: Lens.Lens' CreateOriginAccessControlResponse (Prelude.Maybe Prelude.Text)
+createOriginAccessControlResponse_location = Lens.lens (\CreateOriginAccessControlResponse' {location} -> location) (\s@CreateOriginAccessControlResponse' {} a -> s {location = a} :: CreateOriginAccessControlResponse)
+
+-- | Contains an origin access control.
+createOriginAccessControlResponse_originAccessControl :: Lens.Lens' CreateOriginAccessControlResponse (Prelude.Maybe OriginAccessControl)
+createOriginAccessControlResponse_originAccessControl = Lens.lens (\CreateOriginAccessControlResponse' {originAccessControl} -> originAccessControl) (\s@CreateOriginAccessControlResponse' {} a -> s {originAccessControl = a} :: CreateOriginAccessControlResponse)
 
 -- | The response's http status code.
 createOriginAccessControlResponse_httpStatus :: Lens.Lens' CreateOriginAccessControlResponse Prelude.Int
@@ -197,7 +197,7 @@ instance
     CreateOriginAccessControlResponse
   where
   rnf CreateOriginAccessControlResponse' {..} =
-    Prelude.rnf originAccessControl
+    Prelude.rnf eTag
       `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf originAccessControl
       `Prelude.seq` Prelude.rnf httpStatus

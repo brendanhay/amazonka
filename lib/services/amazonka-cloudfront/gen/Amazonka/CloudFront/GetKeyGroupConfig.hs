@@ -41,8 +41,8 @@ module Amazonka.CloudFront.GetKeyGroupConfig
     newGetKeyGroupConfigResponse,
 
     -- * Response Lenses
-    getKeyGroupConfigResponse_keyGroupConfig,
     getKeyGroupConfigResponse_eTag,
+    getKeyGroupConfigResponse_keyGroupConfig,
     getKeyGroupConfigResponse_httpStatus,
   )
 where
@@ -95,8 +95,8 @@ instance Core.AWSRequest GetKeyGroupConfig where
     Response.receiveXML
       ( \s h x ->
           GetKeyGroupConfigResponse'
-            Prelude.<$> (Data.parseXML x)
-            Prelude.<*> (h Data..#? "ETag")
+            Prelude.<$> (h Data..#? "ETag")
+            Prelude.<*> (Data.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -120,10 +120,10 @@ instance Data.ToQuery GetKeyGroupConfig where
 
 -- | /See:/ 'newGetKeyGroupConfigResponse' smart constructor.
 data GetKeyGroupConfigResponse = GetKeyGroupConfigResponse'
-  { -- | The key group configuration.
-    keyGroupConfig :: Prelude.Maybe KeyGroupConfig,
-    -- | The identifier for this version of the key group.
+  { -- | The identifier for this version of the key group.
     eTag :: Prelude.Maybe Prelude.Text,
+    -- | The key group configuration.
+    keyGroupConfig :: Prelude.Maybe KeyGroupConfig,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -137,9 +137,9 @@ data GetKeyGroupConfigResponse = GetKeyGroupConfigResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'keyGroupConfig', 'getKeyGroupConfigResponse_keyGroupConfig' - The key group configuration.
---
 -- 'eTag', 'getKeyGroupConfigResponse_eTag' - The identifier for this version of the key group.
+--
+-- 'keyGroupConfig', 'getKeyGroupConfigResponse_keyGroupConfig' - The key group configuration.
 --
 -- 'httpStatus', 'getKeyGroupConfigResponse_httpStatus' - The response's http status code.
 newGetKeyGroupConfigResponse ::
@@ -148,19 +148,18 @@ newGetKeyGroupConfigResponse ::
   GetKeyGroupConfigResponse
 newGetKeyGroupConfigResponse pHttpStatus_ =
   GetKeyGroupConfigResponse'
-    { keyGroupConfig =
-        Prelude.Nothing,
-      eTag = Prelude.Nothing,
+    { eTag = Prelude.Nothing,
+      keyGroupConfig = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The key group configuration.
-getKeyGroupConfigResponse_keyGroupConfig :: Lens.Lens' GetKeyGroupConfigResponse (Prelude.Maybe KeyGroupConfig)
-getKeyGroupConfigResponse_keyGroupConfig = Lens.lens (\GetKeyGroupConfigResponse' {keyGroupConfig} -> keyGroupConfig) (\s@GetKeyGroupConfigResponse' {} a -> s {keyGroupConfig = a} :: GetKeyGroupConfigResponse)
 
 -- | The identifier for this version of the key group.
 getKeyGroupConfigResponse_eTag :: Lens.Lens' GetKeyGroupConfigResponse (Prelude.Maybe Prelude.Text)
 getKeyGroupConfigResponse_eTag = Lens.lens (\GetKeyGroupConfigResponse' {eTag} -> eTag) (\s@GetKeyGroupConfigResponse' {} a -> s {eTag = a} :: GetKeyGroupConfigResponse)
+
+-- | The key group configuration.
+getKeyGroupConfigResponse_keyGroupConfig :: Lens.Lens' GetKeyGroupConfigResponse (Prelude.Maybe KeyGroupConfig)
+getKeyGroupConfigResponse_keyGroupConfig = Lens.lens (\GetKeyGroupConfigResponse' {keyGroupConfig} -> keyGroupConfig) (\s@GetKeyGroupConfigResponse' {} a -> s {keyGroupConfig = a} :: GetKeyGroupConfigResponse)
 
 -- | The response's http status code.
 getKeyGroupConfigResponse_httpStatus :: Lens.Lens' GetKeyGroupConfigResponse Prelude.Int
@@ -168,6 +167,6 @@ getKeyGroupConfigResponse_httpStatus = Lens.lens (\GetKeyGroupConfigResponse' {h
 
 instance Prelude.NFData GetKeyGroupConfigResponse where
   rnf GetKeyGroupConfigResponse' {..} =
-    Prelude.rnf keyGroupConfig
-      `Prelude.seq` Prelude.rnf eTag
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf keyGroupConfig
       `Prelude.seq` Prelude.rnf httpStatus

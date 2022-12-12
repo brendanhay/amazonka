@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newObjectAttributeAction' smart constructor.
 data ObjectAttributeAction = ObjectAttributeAction'
-  { -- | The value that you want to update to.
-    objectAttributeUpdateValue :: Prelude.Maybe TypedAttributeValue,
-    -- | A type that can be either @Update@ or @Delete@.
-    objectAttributeActionType :: Prelude.Maybe UpdateActionType
+  { -- | A type that can be either @Update@ or @Delete@.
+    objectAttributeActionType :: Prelude.Maybe UpdateActionType,
+    -- | The value that you want to update to.
+    objectAttributeUpdateValue :: Prelude.Maybe TypedAttributeValue
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,44 +45,44 @@ data ObjectAttributeAction = ObjectAttributeAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'objectAttributeUpdateValue', 'objectAttributeAction_objectAttributeUpdateValue' - The value that you want to update to.
---
 -- 'objectAttributeActionType', 'objectAttributeAction_objectAttributeActionType' - A type that can be either @Update@ or @Delete@.
+--
+-- 'objectAttributeUpdateValue', 'objectAttributeAction_objectAttributeUpdateValue' - The value that you want to update to.
 newObjectAttributeAction ::
   ObjectAttributeAction
 newObjectAttributeAction =
   ObjectAttributeAction'
-    { objectAttributeUpdateValue =
+    { objectAttributeActionType =
         Prelude.Nothing,
-      objectAttributeActionType = Prelude.Nothing
+      objectAttributeUpdateValue = Prelude.Nothing
     }
-
--- | The value that you want to update to.
-objectAttributeAction_objectAttributeUpdateValue :: Lens.Lens' ObjectAttributeAction (Prelude.Maybe TypedAttributeValue)
-objectAttributeAction_objectAttributeUpdateValue = Lens.lens (\ObjectAttributeAction' {objectAttributeUpdateValue} -> objectAttributeUpdateValue) (\s@ObjectAttributeAction' {} a -> s {objectAttributeUpdateValue = a} :: ObjectAttributeAction)
 
 -- | A type that can be either @Update@ or @Delete@.
 objectAttributeAction_objectAttributeActionType :: Lens.Lens' ObjectAttributeAction (Prelude.Maybe UpdateActionType)
 objectAttributeAction_objectAttributeActionType = Lens.lens (\ObjectAttributeAction' {objectAttributeActionType} -> objectAttributeActionType) (\s@ObjectAttributeAction' {} a -> s {objectAttributeActionType = a} :: ObjectAttributeAction)
 
+-- | The value that you want to update to.
+objectAttributeAction_objectAttributeUpdateValue :: Lens.Lens' ObjectAttributeAction (Prelude.Maybe TypedAttributeValue)
+objectAttributeAction_objectAttributeUpdateValue = Lens.lens (\ObjectAttributeAction' {objectAttributeUpdateValue} -> objectAttributeUpdateValue) (\s@ObjectAttributeAction' {} a -> s {objectAttributeUpdateValue = a} :: ObjectAttributeAction)
+
 instance Prelude.Hashable ObjectAttributeAction where
   hashWithSalt _salt ObjectAttributeAction' {..} =
     _salt
-      `Prelude.hashWithSalt` objectAttributeUpdateValue
       `Prelude.hashWithSalt` objectAttributeActionType
+      `Prelude.hashWithSalt` objectAttributeUpdateValue
 
 instance Prelude.NFData ObjectAttributeAction where
   rnf ObjectAttributeAction' {..} =
-    Prelude.rnf objectAttributeUpdateValue
-      `Prelude.seq` Prelude.rnf objectAttributeActionType
+    Prelude.rnf objectAttributeActionType
+      `Prelude.seq` Prelude.rnf objectAttributeUpdateValue
 
 instance Data.ToJSON ObjectAttributeAction where
   toJSON ObjectAttributeAction' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ObjectAttributeUpdateValue" Data..=)
-              Prelude.<$> objectAttributeUpdateValue,
-            ("ObjectAttributeActionType" Data..=)
-              Prelude.<$> objectAttributeActionType
+          [ ("ObjectAttributeActionType" Data..=)
+              Prelude.<$> objectAttributeActionType,
+            ("ObjectAttributeUpdateValue" Data..=)
+              Prelude.<$> objectAttributeUpdateValue
           ]
       )

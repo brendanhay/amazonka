@@ -121,13 +121,13 @@ module Amazonka.S3.GetObjectAttributes
 
     -- * Request Lenses
     getObjectAttributes_expectedBucketOwner,
+    getObjectAttributes_maxParts,
+    getObjectAttributes_partNumberMarker,
     getObjectAttributes_requestPayer,
     getObjectAttributes_sSECustomerAlgorithm,
-    getObjectAttributes_maxParts,
-    getObjectAttributes_sSECustomerKeyMD5,
-    getObjectAttributes_partNumberMarker,
-    getObjectAttributes_versionId,
     getObjectAttributes_sSECustomerKey,
+    getObjectAttributes_sSECustomerKeyMD5,
+    getObjectAttributes_versionId,
     getObjectAttributes_bucket,
     getObjectAttributes_key,
     getObjectAttributes_objectAttributes,
@@ -137,14 +137,14 @@ module Amazonka.S3.GetObjectAttributes
     newGetObjectAttributesResponse,
 
     -- * Response Lenses
-    getObjectAttributesResponse_requestCharged,
     getObjectAttributesResponse_checksum,
+    getObjectAttributesResponse_deleteMarker,
+    getObjectAttributesResponse_eTag,
     getObjectAttributesResponse_lastModified,
     getObjectAttributesResponse_objectParts,
-    getObjectAttributesResponse_storageClass,
-    getObjectAttributesResponse_eTag,
     getObjectAttributesResponse_objectSize,
-    getObjectAttributesResponse_deleteMarker,
+    getObjectAttributesResponse_requestCharged,
+    getObjectAttributesResponse_storageClass,
     getObjectAttributesResponse_versionId,
     getObjectAttributesResponse_httpStatus,
   )
@@ -164,27 +164,27 @@ data GetObjectAttributes = GetObjectAttributes'
     -- different account, the request fails with the HTTP status code
     -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    -- | Sets the maximum number of parts to return.
+    maxParts :: Prelude.Maybe Prelude.Int,
+    -- | Specifies the part after which listing should begin. Only parts with
+    -- higher part numbers will be listed.
+    partNumberMarker :: Prelude.Maybe Prelude.Int,
     requestPayer :: Prelude.Maybe RequestPayer,
     -- | Specifies the algorithm to use when encrypting the object (for example,
     -- AES256).
     sSECustomerAlgorithm :: Prelude.Maybe Prelude.Text,
-    -- | Sets the maximum number of parts to return.
-    maxParts :: Prelude.Maybe Prelude.Int,
-    -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
-    -- 1321. Amazon S3 uses this header for a message integrity check to ensure
-    -- that the encryption key was transmitted without error.
-    sSECustomerKeyMD5 :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the part after which listing should begin. Only parts with
-    -- higher part numbers will be listed.
-    partNumberMarker :: Prelude.Maybe Prelude.Int,
-    -- | The version ID used to reference a specific version of the object.
-    versionId :: Prelude.Maybe ObjectVersionId,
     -- | Specifies the customer-provided encryption key for Amazon S3 to use in
     -- encrypting data. This value is used to store the object and then it is
     -- discarded; Amazon S3 does not store the encryption key. The key must be
     -- appropriate for use with the algorithm specified in the
     -- @x-amz-server-side-encryption-customer-algorithm@ header.
     sSECustomerKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
+    -- 1321. Amazon S3 uses this header for a message integrity check to ensure
+    -- that the encryption key was transmitted without error.
+    sSECustomerKeyMD5 :: Prelude.Maybe Prelude.Text,
+    -- | The version ID used to reference a specific version of the object.
+    versionId :: Prelude.Maybe ObjectVersionId,
     -- | The name of the bucket that contains the object.
     --
     -- When using this action with an access point, you must direct requests to
@@ -227,27 +227,27 @@ data GetObjectAttributes = GetObjectAttributes'
 -- different account, the request fails with the HTTP status code
 -- @403 Forbidden@ (access denied).
 --
--- 'requestPayer', 'getObjectAttributes_requestPayer' - Undocumented member.
---
--- 'sSECustomerAlgorithm', 'getObjectAttributes_sSECustomerAlgorithm' - Specifies the algorithm to use when encrypting the object (for example,
--- AES256).
---
 -- 'maxParts', 'getObjectAttributes_maxParts' - Sets the maximum number of parts to return.
---
--- 'sSECustomerKeyMD5', 'getObjectAttributes_sSECustomerKeyMD5' - Specifies the 128-bit MD5 digest of the encryption key according to RFC
--- 1321. Amazon S3 uses this header for a message integrity check to ensure
--- that the encryption key was transmitted without error.
 --
 -- 'partNumberMarker', 'getObjectAttributes_partNumberMarker' - Specifies the part after which listing should begin. Only parts with
 -- higher part numbers will be listed.
 --
--- 'versionId', 'getObjectAttributes_versionId' - The version ID used to reference a specific version of the object.
+-- 'requestPayer', 'getObjectAttributes_requestPayer' - Undocumented member.
+--
+-- 'sSECustomerAlgorithm', 'getObjectAttributes_sSECustomerAlgorithm' - Specifies the algorithm to use when encrypting the object (for example,
+-- AES256).
 --
 -- 'sSECustomerKey', 'getObjectAttributes_sSECustomerKey' - Specifies the customer-provided encryption key for Amazon S3 to use in
 -- encrypting data. This value is used to store the object and then it is
 -- discarded; Amazon S3 does not store the encryption key. The key must be
 -- appropriate for use with the algorithm specified in the
 -- @x-amz-server-side-encryption-customer-algorithm@ header.
+--
+-- 'sSECustomerKeyMD5', 'getObjectAttributes_sSECustomerKeyMD5' - Specifies the 128-bit MD5 digest of the encryption key according to RFC
+-- 1321. Amazon S3 uses this header for a message integrity check to ensure
+-- that the encryption key was transmitted without error.
+--
+-- 'versionId', 'getObjectAttributes_versionId' - The version ID used to reference a specific version of the object.
 --
 -- 'bucket', 'getObjectAttributes_bucket' - The name of the bucket that contains the object.
 --
@@ -285,13 +285,13 @@ newGetObjectAttributes pBucket_ pKey_ =
   GetObjectAttributes'
     { expectedBucketOwner =
         Prelude.Nothing,
+      maxParts = Prelude.Nothing,
+      partNumberMarker = Prelude.Nothing,
       requestPayer = Prelude.Nothing,
       sSECustomerAlgorithm = Prelude.Nothing,
-      maxParts = Prelude.Nothing,
-      sSECustomerKeyMD5 = Prelude.Nothing,
-      partNumberMarker = Prelude.Nothing,
-      versionId = Prelude.Nothing,
       sSECustomerKey = Prelude.Nothing,
+      sSECustomerKeyMD5 = Prelude.Nothing,
+      versionId = Prelude.Nothing,
       bucket = pBucket_,
       key = pKey_,
       objectAttributes = Prelude.mempty
@@ -303,6 +303,15 @@ newGetObjectAttributes pBucket_ pKey_ =
 getObjectAttributes_expectedBucketOwner :: Lens.Lens' GetObjectAttributes (Prelude.Maybe Prelude.Text)
 getObjectAttributes_expectedBucketOwner = Lens.lens (\GetObjectAttributes' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetObjectAttributes' {} a -> s {expectedBucketOwner = a} :: GetObjectAttributes)
 
+-- | Sets the maximum number of parts to return.
+getObjectAttributes_maxParts :: Lens.Lens' GetObjectAttributes (Prelude.Maybe Prelude.Int)
+getObjectAttributes_maxParts = Lens.lens (\GetObjectAttributes' {maxParts} -> maxParts) (\s@GetObjectAttributes' {} a -> s {maxParts = a} :: GetObjectAttributes)
+
+-- | Specifies the part after which listing should begin. Only parts with
+-- higher part numbers will be listed.
+getObjectAttributes_partNumberMarker :: Lens.Lens' GetObjectAttributes (Prelude.Maybe Prelude.Int)
+getObjectAttributes_partNumberMarker = Lens.lens (\GetObjectAttributes' {partNumberMarker} -> partNumberMarker) (\s@GetObjectAttributes' {} a -> s {partNumberMarker = a} :: GetObjectAttributes)
+
 -- | Undocumented member.
 getObjectAttributes_requestPayer :: Lens.Lens' GetObjectAttributes (Prelude.Maybe RequestPayer)
 getObjectAttributes_requestPayer = Lens.lens (\GetObjectAttributes' {requestPayer} -> requestPayer) (\s@GetObjectAttributes' {} a -> s {requestPayer = a} :: GetObjectAttributes)
@@ -312,25 +321,6 @@ getObjectAttributes_requestPayer = Lens.lens (\GetObjectAttributes' {requestPaye
 getObjectAttributes_sSECustomerAlgorithm :: Lens.Lens' GetObjectAttributes (Prelude.Maybe Prelude.Text)
 getObjectAttributes_sSECustomerAlgorithm = Lens.lens (\GetObjectAttributes' {sSECustomerAlgorithm} -> sSECustomerAlgorithm) (\s@GetObjectAttributes' {} a -> s {sSECustomerAlgorithm = a} :: GetObjectAttributes)
 
--- | Sets the maximum number of parts to return.
-getObjectAttributes_maxParts :: Lens.Lens' GetObjectAttributes (Prelude.Maybe Prelude.Int)
-getObjectAttributes_maxParts = Lens.lens (\GetObjectAttributes' {maxParts} -> maxParts) (\s@GetObjectAttributes' {} a -> s {maxParts = a} :: GetObjectAttributes)
-
--- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
--- 1321. Amazon S3 uses this header for a message integrity check to ensure
--- that the encryption key was transmitted without error.
-getObjectAttributes_sSECustomerKeyMD5 :: Lens.Lens' GetObjectAttributes (Prelude.Maybe Prelude.Text)
-getObjectAttributes_sSECustomerKeyMD5 = Lens.lens (\GetObjectAttributes' {sSECustomerKeyMD5} -> sSECustomerKeyMD5) (\s@GetObjectAttributes' {} a -> s {sSECustomerKeyMD5 = a} :: GetObjectAttributes)
-
--- | Specifies the part after which listing should begin. Only parts with
--- higher part numbers will be listed.
-getObjectAttributes_partNumberMarker :: Lens.Lens' GetObjectAttributes (Prelude.Maybe Prelude.Int)
-getObjectAttributes_partNumberMarker = Lens.lens (\GetObjectAttributes' {partNumberMarker} -> partNumberMarker) (\s@GetObjectAttributes' {} a -> s {partNumberMarker = a} :: GetObjectAttributes)
-
--- | The version ID used to reference a specific version of the object.
-getObjectAttributes_versionId :: Lens.Lens' GetObjectAttributes (Prelude.Maybe ObjectVersionId)
-getObjectAttributes_versionId = Lens.lens (\GetObjectAttributes' {versionId} -> versionId) (\s@GetObjectAttributes' {} a -> s {versionId = a} :: GetObjectAttributes)
-
 -- | Specifies the customer-provided encryption key for Amazon S3 to use in
 -- encrypting data. This value is used to store the object and then it is
 -- discarded; Amazon S3 does not store the encryption key. The key must be
@@ -338,6 +328,16 @@ getObjectAttributes_versionId = Lens.lens (\GetObjectAttributes' {versionId} -> 
 -- @x-amz-server-side-encryption-customer-algorithm@ header.
 getObjectAttributes_sSECustomerKey :: Lens.Lens' GetObjectAttributes (Prelude.Maybe Prelude.Text)
 getObjectAttributes_sSECustomerKey = Lens.lens (\GetObjectAttributes' {sSECustomerKey} -> sSECustomerKey) (\s@GetObjectAttributes' {} a -> s {sSECustomerKey = a} :: GetObjectAttributes) Prelude.. Lens.mapping Data._Sensitive
+
+-- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
+-- 1321. Amazon S3 uses this header for a message integrity check to ensure
+-- that the encryption key was transmitted without error.
+getObjectAttributes_sSECustomerKeyMD5 :: Lens.Lens' GetObjectAttributes (Prelude.Maybe Prelude.Text)
+getObjectAttributes_sSECustomerKeyMD5 = Lens.lens (\GetObjectAttributes' {sSECustomerKeyMD5} -> sSECustomerKeyMD5) (\s@GetObjectAttributes' {} a -> s {sSECustomerKeyMD5 = a} :: GetObjectAttributes)
+
+-- | The version ID used to reference a specific version of the object.
+getObjectAttributes_versionId :: Lens.Lens' GetObjectAttributes (Prelude.Maybe ObjectVersionId)
+getObjectAttributes_versionId = Lens.lens (\GetObjectAttributes' {versionId} -> versionId) (\s@GetObjectAttributes' {} a -> s {versionId = a} :: GetObjectAttributes)
 
 -- | The name of the bucket that contains the object.
 --
@@ -383,14 +383,14 @@ instance Core.AWSRequest GetObjectAttributes where
     Response.receiveXML
       ( \s h x ->
           GetObjectAttributesResponse'
-            Prelude.<$> (h Data..#? "x-amz-request-charged")
-            Prelude.<*> (x Data..@? "Checksum")
+            Prelude.<$> (x Data..@? "Checksum")
+            Prelude.<*> (h Data..#? "x-amz-delete-marker")
+            Prelude.<*> (x Data..@? "ETag")
             Prelude.<*> (h Data..#? "Last-Modified")
             Prelude.<*> (x Data..@? "ObjectParts")
-            Prelude.<*> (x Data..@? "StorageClass")
-            Prelude.<*> (x Data..@? "ETag")
             Prelude.<*> (x Data..@? "ObjectSize")
-            Prelude.<*> (h Data..#? "x-amz-delete-marker")
+            Prelude.<*> (h Data..#? "x-amz-request-charged")
+            Prelude.<*> (x Data..@? "StorageClass")
             Prelude.<*> (h Data..#? "x-amz-version-id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -398,13 +398,13 @@ instance Core.AWSRequest GetObjectAttributes where
 instance Prelude.Hashable GetObjectAttributes where
   hashWithSalt _salt GetObjectAttributes' {..} =
     _salt `Prelude.hashWithSalt` expectedBucketOwner
+      `Prelude.hashWithSalt` maxParts
+      `Prelude.hashWithSalt` partNumberMarker
       `Prelude.hashWithSalt` requestPayer
       `Prelude.hashWithSalt` sSECustomerAlgorithm
-      `Prelude.hashWithSalt` maxParts
-      `Prelude.hashWithSalt` sSECustomerKeyMD5
-      `Prelude.hashWithSalt` partNumberMarker
-      `Prelude.hashWithSalt` versionId
       `Prelude.hashWithSalt` sSECustomerKey
+      `Prelude.hashWithSalt` sSECustomerKeyMD5
+      `Prelude.hashWithSalt` versionId
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` objectAttributes
@@ -412,13 +412,13 @@ instance Prelude.Hashable GetObjectAttributes where
 instance Prelude.NFData GetObjectAttributes where
   rnf GetObjectAttributes' {..} =
     Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf maxParts
+      `Prelude.seq` Prelude.rnf partNumberMarker
       `Prelude.seq` Prelude.rnf requestPayer
       `Prelude.seq` Prelude.rnf sSECustomerAlgorithm
-      `Prelude.seq` Prelude.rnf maxParts
-      `Prelude.seq` Prelude.rnf sSECustomerKeyMD5
-      `Prelude.seq` Prelude.rnf partNumberMarker
-      `Prelude.seq` Prelude.rnf versionId
       `Prelude.seq` Prelude.rnf sSECustomerKey
+      `Prelude.seq` Prelude.rnf sSECustomerKeyMD5
+      `Prelude.seq` Prelude.rnf versionId
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf objectAttributes
@@ -428,15 +428,15 @@ instance Data.ToHeaders GetObjectAttributes where
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
           Data.=# expectedBucketOwner,
+        "x-amz-max-parts" Data.=# maxParts,
+        "x-amz-part-number-marker" Data.=# partNumberMarker,
         "x-amz-request-payer" Data.=# requestPayer,
         "x-amz-server-side-encryption-customer-algorithm"
           Data.=# sSECustomerAlgorithm,
-        "x-amz-max-parts" Data.=# maxParts,
-        "x-amz-server-side-encryption-customer-key-MD5"
-          Data.=# sSECustomerKeyMD5,
-        "x-amz-part-number-marker" Data.=# partNumberMarker,
         "x-amz-server-side-encryption-customer-key"
           Data.=# sSECustomerKey,
+        "x-amz-server-side-encryption-customer-key-MD5"
+          Data.=# sSECustomerKeyMD5,
         "x-amz-object-attributes" Data.=# objectAttributes
       ]
 
@@ -452,13 +452,22 @@ instance Data.ToQuery GetObjectAttributes where
 
 -- | /See:/ 'newGetObjectAttributesResponse' smart constructor.
 data GetObjectAttributesResponse = GetObjectAttributesResponse'
-  { requestCharged :: Prelude.Maybe RequestCharged,
-    -- | The checksum or digest of the object.
+  { -- | The checksum or digest of the object.
     checksum :: Prelude.Maybe Checksum,
+    -- | Specifies whether the object retrieved was (@true@) or was not (@false@)
+    -- a delete marker. If @false@, this response header does not appear in the
+    -- response.
+    deleteMarker :: Prelude.Maybe Prelude.Bool,
+    -- | An ETag is an opaque identifier assigned by a web server to a specific
+    -- version of a resource found at a URL.
+    eTag :: Prelude.Maybe ETag,
     -- | The creation date of the object.
     lastModified :: Prelude.Maybe Data.ISO8601,
     -- | A collection of parts associated with a multipart upload.
     objectParts :: Prelude.Maybe GetObjectAttributesParts,
+    -- | The size of the object in bytes.
+    objectSize :: Prelude.Maybe Prelude.Integer,
+    requestCharged :: Prelude.Maybe RequestCharged,
     -- | Provides the storage class information of the object. Amazon S3 returns
     -- this header for all objects except for S3 Standard storage class
     -- objects.
@@ -466,15 +475,6 @@ data GetObjectAttributesResponse = GetObjectAttributesResponse'
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes>.
     storageClass :: Prelude.Maybe StorageClass,
-    -- | An ETag is an opaque identifier assigned by a web server to a specific
-    -- version of a resource found at a URL.
-    eTag :: Prelude.Maybe ETag,
-    -- | The size of the object in bytes.
-    objectSize :: Prelude.Maybe Prelude.Integer,
-    -- | Specifies whether the object retrieved was (@true@) or was not (@false@)
-    -- a delete marker. If @false@, this response header does not appear in the
-    -- response.
-    deleteMarker :: Prelude.Maybe Prelude.Bool,
     -- | The version ID of the object.
     versionId :: Prelude.Maybe ObjectVersionId,
     -- | The response's http status code.
@@ -490,13 +490,22 @@ data GetObjectAttributesResponse = GetObjectAttributesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestCharged', 'getObjectAttributesResponse_requestCharged' - Undocumented member.
---
 -- 'checksum', 'getObjectAttributesResponse_checksum' - The checksum or digest of the object.
+--
+-- 'deleteMarker', 'getObjectAttributesResponse_deleteMarker' - Specifies whether the object retrieved was (@true@) or was not (@false@)
+-- a delete marker. If @false@, this response header does not appear in the
+-- response.
+--
+-- 'eTag', 'getObjectAttributesResponse_eTag' - An ETag is an opaque identifier assigned by a web server to a specific
+-- version of a resource found at a URL.
 --
 -- 'lastModified', 'getObjectAttributesResponse_lastModified' - The creation date of the object.
 --
 -- 'objectParts', 'getObjectAttributesResponse_objectParts' - A collection of parts associated with a multipart upload.
+--
+-- 'objectSize', 'getObjectAttributesResponse_objectSize' - The size of the object in bytes.
+--
+-- 'requestCharged', 'getObjectAttributesResponse_requestCharged' - Undocumented member.
 --
 -- 'storageClass', 'getObjectAttributesResponse_storageClass' - Provides the storage class information of the object. Amazon S3 returns
 -- this header for all objects except for S3 Standard storage class
@@ -504,15 +513,6 @@ data GetObjectAttributesResponse = GetObjectAttributesResponse'
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes>.
---
--- 'eTag', 'getObjectAttributesResponse_eTag' - An ETag is an opaque identifier assigned by a web server to a specific
--- version of a resource found at a URL.
---
--- 'objectSize', 'getObjectAttributesResponse_objectSize' - The size of the object in bytes.
---
--- 'deleteMarker', 'getObjectAttributesResponse_deleteMarker' - Specifies whether the object retrieved was (@true@) or was not (@false@)
--- a delete marker. If @false@, this response header does not appear in the
--- response.
 --
 -- 'versionId', 'getObjectAttributesResponse_versionId' - The version ID of the object.
 --
@@ -523,26 +523,33 @@ newGetObjectAttributesResponse ::
   GetObjectAttributesResponse
 newGetObjectAttributesResponse pHttpStatus_ =
   GetObjectAttributesResponse'
-    { requestCharged =
+    { checksum =
         Prelude.Nothing,
-      checksum = Prelude.Nothing,
+      deleteMarker = Prelude.Nothing,
+      eTag = Prelude.Nothing,
       lastModified = Prelude.Nothing,
       objectParts = Prelude.Nothing,
-      storageClass = Prelude.Nothing,
-      eTag = Prelude.Nothing,
       objectSize = Prelude.Nothing,
-      deleteMarker = Prelude.Nothing,
+      requestCharged = Prelude.Nothing,
+      storageClass = Prelude.Nothing,
       versionId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
-getObjectAttributesResponse_requestCharged :: Lens.Lens' GetObjectAttributesResponse (Prelude.Maybe RequestCharged)
-getObjectAttributesResponse_requestCharged = Lens.lens (\GetObjectAttributesResponse' {requestCharged} -> requestCharged) (\s@GetObjectAttributesResponse' {} a -> s {requestCharged = a} :: GetObjectAttributesResponse)
-
 -- | The checksum or digest of the object.
 getObjectAttributesResponse_checksum :: Lens.Lens' GetObjectAttributesResponse (Prelude.Maybe Checksum)
 getObjectAttributesResponse_checksum = Lens.lens (\GetObjectAttributesResponse' {checksum} -> checksum) (\s@GetObjectAttributesResponse' {} a -> s {checksum = a} :: GetObjectAttributesResponse)
+
+-- | Specifies whether the object retrieved was (@true@) or was not (@false@)
+-- a delete marker. If @false@, this response header does not appear in the
+-- response.
+getObjectAttributesResponse_deleteMarker :: Lens.Lens' GetObjectAttributesResponse (Prelude.Maybe Prelude.Bool)
+getObjectAttributesResponse_deleteMarker = Lens.lens (\GetObjectAttributesResponse' {deleteMarker} -> deleteMarker) (\s@GetObjectAttributesResponse' {} a -> s {deleteMarker = a} :: GetObjectAttributesResponse)
+
+-- | An ETag is an opaque identifier assigned by a web server to a specific
+-- version of a resource found at a URL.
+getObjectAttributesResponse_eTag :: Lens.Lens' GetObjectAttributesResponse (Prelude.Maybe ETag)
+getObjectAttributesResponse_eTag = Lens.lens (\GetObjectAttributesResponse' {eTag} -> eTag) (\s@GetObjectAttributesResponse' {} a -> s {eTag = a} :: GetObjectAttributesResponse)
 
 -- | The creation date of the object.
 getObjectAttributesResponse_lastModified :: Lens.Lens' GetObjectAttributesResponse (Prelude.Maybe Prelude.UTCTime)
@@ -552,6 +559,14 @@ getObjectAttributesResponse_lastModified = Lens.lens (\GetObjectAttributesRespon
 getObjectAttributesResponse_objectParts :: Lens.Lens' GetObjectAttributesResponse (Prelude.Maybe GetObjectAttributesParts)
 getObjectAttributesResponse_objectParts = Lens.lens (\GetObjectAttributesResponse' {objectParts} -> objectParts) (\s@GetObjectAttributesResponse' {} a -> s {objectParts = a} :: GetObjectAttributesResponse)
 
+-- | The size of the object in bytes.
+getObjectAttributesResponse_objectSize :: Lens.Lens' GetObjectAttributesResponse (Prelude.Maybe Prelude.Integer)
+getObjectAttributesResponse_objectSize = Lens.lens (\GetObjectAttributesResponse' {objectSize} -> objectSize) (\s@GetObjectAttributesResponse' {} a -> s {objectSize = a} :: GetObjectAttributesResponse)
+
+-- | Undocumented member.
+getObjectAttributesResponse_requestCharged :: Lens.Lens' GetObjectAttributesResponse (Prelude.Maybe RequestCharged)
+getObjectAttributesResponse_requestCharged = Lens.lens (\GetObjectAttributesResponse' {requestCharged} -> requestCharged) (\s@GetObjectAttributesResponse' {} a -> s {requestCharged = a} :: GetObjectAttributesResponse)
+
 -- | Provides the storage class information of the object. Amazon S3 returns
 -- this header for all objects except for S3 Standard storage class
 -- objects.
@@ -560,21 +575,6 @@ getObjectAttributesResponse_objectParts = Lens.lens (\GetObjectAttributesRespons
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes>.
 getObjectAttributesResponse_storageClass :: Lens.Lens' GetObjectAttributesResponse (Prelude.Maybe StorageClass)
 getObjectAttributesResponse_storageClass = Lens.lens (\GetObjectAttributesResponse' {storageClass} -> storageClass) (\s@GetObjectAttributesResponse' {} a -> s {storageClass = a} :: GetObjectAttributesResponse)
-
--- | An ETag is an opaque identifier assigned by a web server to a specific
--- version of a resource found at a URL.
-getObjectAttributesResponse_eTag :: Lens.Lens' GetObjectAttributesResponse (Prelude.Maybe ETag)
-getObjectAttributesResponse_eTag = Lens.lens (\GetObjectAttributesResponse' {eTag} -> eTag) (\s@GetObjectAttributesResponse' {} a -> s {eTag = a} :: GetObjectAttributesResponse)
-
--- | The size of the object in bytes.
-getObjectAttributesResponse_objectSize :: Lens.Lens' GetObjectAttributesResponse (Prelude.Maybe Prelude.Integer)
-getObjectAttributesResponse_objectSize = Lens.lens (\GetObjectAttributesResponse' {objectSize} -> objectSize) (\s@GetObjectAttributesResponse' {} a -> s {objectSize = a} :: GetObjectAttributesResponse)
-
--- | Specifies whether the object retrieved was (@true@) or was not (@false@)
--- a delete marker. If @false@, this response header does not appear in the
--- response.
-getObjectAttributesResponse_deleteMarker :: Lens.Lens' GetObjectAttributesResponse (Prelude.Maybe Prelude.Bool)
-getObjectAttributesResponse_deleteMarker = Lens.lens (\GetObjectAttributesResponse' {deleteMarker} -> deleteMarker) (\s@GetObjectAttributesResponse' {} a -> s {deleteMarker = a} :: GetObjectAttributesResponse)
 
 -- | The version ID of the object.
 getObjectAttributesResponse_versionId :: Lens.Lens' GetObjectAttributesResponse (Prelude.Maybe ObjectVersionId)
@@ -586,13 +586,13 @@ getObjectAttributesResponse_httpStatus = Lens.lens (\GetObjectAttributesResponse
 
 instance Prelude.NFData GetObjectAttributesResponse where
   rnf GetObjectAttributesResponse' {..} =
-    Prelude.rnf requestCharged
-      `Prelude.seq` Prelude.rnf checksum
+    Prelude.rnf checksum
+      `Prelude.seq` Prelude.rnf deleteMarker
+      `Prelude.seq` Prelude.rnf eTag
       `Prelude.seq` Prelude.rnf lastModified
       `Prelude.seq` Prelude.rnf objectParts
-      `Prelude.seq` Prelude.rnf storageClass
-      `Prelude.seq` Prelude.rnf eTag
       `Prelude.seq` Prelude.rnf objectSize
-      `Prelude.seq` Prelude.rnf deleteMarker
+      `Prelude.seq` Prelude.rnf requestCharged
+      `Prelude.seq` Prelude.rnf storageClass
       `Prelude.seq` Prelude.rnf versionId
       `Prelude.seq` Prelude.rnf httpStatus

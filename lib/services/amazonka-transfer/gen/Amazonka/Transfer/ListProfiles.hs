@@ -33,8 +33,8 @@ module Amazonka.Transfer.ListProfiles
     newListProfiles,
 
     -- * Request Lenses
-    listProfiles_nextToken,
     listProfiles_maxResults,
+    listProfiles_nextToken,
     listProfiles_profileType,
 
     -- * Destructuring the Response
@@ -58,12 +58,12 @@ import Amazonka.Transfer.Types
 
 -- | /See:/ 'newListProfiles' smart constructor.
 data ListProfiles = ListProfiles'
-  { -- | When there are additional results that were not returned, a @NextToken@
+  { -- | The maximum number of profiles to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | When there are additional results that were not returned, a @NextToken@
     -- parameter is returned. You can use that value for a subsequent call to
     -- @ListProfiles@ to continue listing results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of profiles to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Indicates whether to list only @LOCAL@ type profiles or only @PARTNER@
     -- type profiles. If not supplied in the request, the command lists all
     -- types of profiles.
@@ -79,11 +79,11 @@ data ListProfiles = ListProfiles'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listProfiles_maxResults' - The maximum number of profiles to return.
+--
 -- 'nextToken', 'listProfiles_nextToken' - When there are additional results that were not returned, a @NextToken@
 -- parameter is returned. You can use that value for a subsequent call to
 -- @ListProfiles@ to continue listing results.
---
--- 'maxResults', 'listProfiles_maxResults' - The maximum number of profiles to return.
 --
 -- 'profileType', 'listProfiles_profileType' - Indicates whether to list only @LOCAL@ type profiles or only @PARTNER@
 -- type profiles. If not supplied in the request, the command lists all
@@ -92,20 +92,20 @@ newListProfiles ::
   ListProfiles
 newListProfiles =
   ListProfiles'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       profileType = Prelude.Nothing
     }
+
+-- | The maximum number of profiles to return.
+listProfiles_maxResults :: Lens.Lens' ListProfiles (Prelude.Maybe Prelude.Natural)
+listProfiles_maxResults = Lens.lens (\ListProfiles' {maxResults} -> maxResults) (\s@ListProfiles' {} a -> s {maxResults = a} :: ListProfiles)
 
 -- | When there are additional results that were not returned, a @NextToken@
 -- parameter is returned. You can use that value for a subsequent call to
 -- @ListProfiles@ to continue listing results.
 listProfiles_nextToken :: Lens.Lens' ListProfiles (Prelude.Maybe Prelude.Text)
 listProfiles_nextToken = Lens.lens (\ListProfiles' {nextToken} -> nextToken) (\s@ListProfiles' {} a -> s {nextToken = a} :: ListProfiles)
-
--- | The maximum number of profiles to return.
-listProfiles_maxResults :: Lens.Lens' ListProfiles (Prelude.Maybe Prelude.Natural)
-listProfiles_maxResults = Lens.lens (\ListProfiles' {maxResults} -> maxResults) (\s@ListProfiles' {} a -> s {maxResults = a} :: ListProfiles)
 
 -- | Indicates whether to list only @LOCAL@ type profiles or only @PARTNER@
 -- type profiles. If not supplied in the request, the command lists all
@@ -145,14 +145,14 @@ instance Core.AWSRequest ListProfiles where
 
 instance Prelude.Hashable ListProfiles where
   hashWithSalt _salt ListProfiles' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` profileType
 
 instance Prelude.NFData ListProfiles where
   rnf ListProfiles' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf profileType
 
 instance Data.ToHeaders ListProfiles where
@@ -174,8 +174,8 @@ instance Data.ToJSON ListProfiles where
   toJSON ListProfiles' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("ProfileType" Data..=) Prelude.<$> profileType
           ]
       )

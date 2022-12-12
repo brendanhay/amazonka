@@ -33,8 +33,8 @@ module Amazonka.QuickSight.ListDataSets
     newListDataSets,
 
     -- * Request Lenses
-    listDataSets_nextToken,
     listDataSets_maxResults,
+    listDataSets_nextToken,
     listDataSets_awsAccountId,
 
     -- * Destructuring the Response
@@ -42,8 +42,8 @@ module Amazonka.QuickSight.ListDataSets
     newListDataSetsResponse,
 
     -- * Response Lenses
-    listDataSetsResponse_nextToken,
     listDataSetsResponse_dataSetSummaries,
+    listDataSetsResponse_nextToken,
     listDataSetsResponse_requestId,
     listDataSetsResponse_status,
   )
@@ -59,11 +59,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDataSets' smart constructor.
 data ListDataSets = ListDataSets'
-  { -- | The token for the next set of results, or null if there are no more
+  { -- | The maximum number of results to be returned per request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results, or null if there are no more
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be returned per request.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Web Services account ID.
     awsAccountId :: Prelude.Text
   }
@@ -77,10 +77,10 @@ data ListDataSets = ListDataSets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listDataSets_maxResults' - The maximum number of results to be returned per request.
+--
 -- 'nextToken', 'listDataSets_nextToken' - The token for the next set of results, or null if there are no more
 -- results.
---
--- 'maxResults', 'listDataSets_maxResults' - The maximum number of results to be returned per request.
 --
 -- 'awsAccountId', 'listDataSets_awsAccountId' - The Amazon Web Services account ID.
 newListDataSets ::
@@ -89,19 +89,19 @@ newListDataSets ::
   ListDataSets
 newListDataSets pAwsAccountId_ =
   ListDataSets'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       awsAccountId = pAwsAccountId_
     }
+
+-- | The maximum number of results to be returned per request.
+listDataSets_maxResults :: Lens.Lens' ListDataSets (Prelude.Maybe Prelude.Natural)
+listDataSets_maxResults = Lens.lens (\ListDataSets' {maxResults} -> maxResults) (\s@ListDataSets' {} a -> s {maxResults = a} :: ListDataSets)
 
 -- | The token for the next set of results, or null if there are no more
 -- results.
 listDataSets_nextToken :: Lens.Lens' ListDataSets (Prelude.Maybe Prelude.Text)
 listDataSets_nextToken = Lens.lens (\ListDataSets' {nextToken} -> nextToken) (\s@ListDataSets' {} a -> s {nextToken = a} :: ListDataSets)
-
--- | The maximum number of results to be returned per request.
-listDataSets_maxResults :: Lens.Lens' ListDataSets (Prelude.Maybe Prelude.Natural)
-listDataSets_maxResults = Lens.lens (\ListDataSets' {maxResults} -> maxResults) (\s@ListDataSets' {} a -> s {maxResults = a} :: ListDataSets)
 
 -- | The Amazon Web Services account ID.
 listDataSets_awsAccountId :: Lens.Lens' ListDataSets Prelude.Text
@@ -135,24 +135,24 @@ instance Core.AWSRequest ListDataSets where
     Response.receiveJSON
       ( \s h x ->
           ListDataSetsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "DataSetSummaries"
+            Prelude.<$> ( x Data..?> "DataSetSummaries"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListDataSets where
   hashWithSalt _salt ListDataSets' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` awsAccountId
 
 instance Prelude.NFData ListDataSets where
   rnf ListDataSets' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf awsAccountId
 
 instance Data.ToHeaders ListDataSets where
@@ -174,17 +174,17 @@ instance Data.ToPath ListDataSets where
 instance Data.ToQuery ListDataSets where
   toQuery ListDataSets' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
-        "max-results" Data.=: maxResults
+      [ "max-results" Data.=: maxResults,
+        "next-token" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListDataSetsResponse' smart constructor.
 data ListDataSetsResponse = ListDataSetsResponse'
-  { -- | The token for the next set of results, or null if there are no more
+  { -- | The list of dataset summaries.
+    dataSetSummaries :: Prelude.Maybe [DataSetSummary],
+    -- | The token for the next set of results, or null if there are no more
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of dataset summaries.
-    dataSetSummaries :: Prelude.Maybe [DataSetSummary],
     -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
@@ -200,10 +200,10 @@ data ListDataSetsResponse = ListDataSetsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dataSetSummaries', 'listDataSetsResponse_dataSetSummaries' - The list of dataset summaries.
+--
 -- 'nextToken', 'listDataSetsResponse_nextToken' - The token for the next set of results, or null if there are no more
 -- results.
---
--- 'dataSetSummaries', 'listDataSetsResponse_dataSetSummaries' - The list of dataset summaries.
 --
 -- 'requestId', 'listDataSetsResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
@@ -214,20 +214,21 @@ newListDataSetsResponse ::
   ListDataSetsResponse
 newListDataSetsResponse pStatus_ =
   ListDataSetsResponse'
-    { nextToken = Prelude.Nothing,
-      dataSetSummaries = Prelude.Nothing,
+    { dataSetSummaries =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       requestId = Prelude.Nothing,
       status = pStatus_
     }
+
+-- | The list of dataset summaries.
+listDataSetsResponse_dataSetSummaries :: Lens.Lens' ListDataSetsResponse (Prelude.Maybe [DataSetSummary])
+listDataSetsResponse_dataSetSummaries = Lens.lens (\ListDataSetsResponse' {dataSetSummaries} -> dataSetSummaries) (\s@ListDataSetsResponse' {} a -> s {dataSetSummaries = a} :: ListDataSetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results, or null if there are no more
 -- results.
 listDataSetsResponse_nextToken :: Lens.Lens' ListDataSetsResponse (Prelude.Maybe Prelude.Text)
 listDataSetsResponse_nextToken = Lens.lens (\ListDataSetsResponse' {nextToken} -> nextToken) (\s@ListDataSetsResponse' {} a -> s {nextToken = a} :: ListDataSetsResponse)
-
--- | The list of dataset summaries.
-listDataSetsResponse_dataSetSummaries :: Lens.Lens' ListDataSetsResponse (Prelude.Maybe [DataSetSummary])
-listDataSetsResponse_dataSetSummaries = Lens.lens (\ListDataSetsResponse' {dataSetSummaries} -> dataSetSummaries) (\s@ListDataSetsResponse' {} a -> s {dataSetSummaries = a} :: ListDataSetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Web Services request ID for this operation.
 listDataSetsResponse_requestId :: Lens.Lens' ListDataSetsResponse (Prelude.Maybe Prelude.Text)
@@ -239,7 +240,7 @@ listDataSetsResponse_status = Lens.lens (\ListDataSetsResponse' {status} -> stat
 
 instance Prelude.NFData ListDataSetsResponse where
   rnf ListDataSetsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf dataSetSummaries
+    Prelude.rnf dataSetSummaries
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf status

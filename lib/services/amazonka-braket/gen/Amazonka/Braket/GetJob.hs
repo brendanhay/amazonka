@@ -34,17 +34,17 @@ module Amazonka.Braket.GetJob
     newGetJobResponse,
 
     -- * Response Lenses
-    getJobResponse_tags,
-    getJobResponse_endedAt,
+    getJobResponse_billableDuration,
     getJobResponse_checkpointConfig,
     getJobResponse_deviceConfig,
+    getJobResponse_endedAt,
+    getJobResponse_events,
+    getJobResponse_failureReason,
+    getJobResponse_hyperParameters,
+    getJobResponse_inputDataConfig,
     getJobResponse_startedAt,
     getJobResponse_stoppingCondition,
-    getJobResponse_events,
-    getJobResponse_inputDataConfig,
-    getJobResponse_hyperParameters,
-    getJobResponse_billableDuration,
-    getJobResponse_failureReason,
+    getJobResponse_tags,
     getJobResponse_httpStatus,
     getJobResponse_algorithmSpecification,
     getJobResponse_createdAt,
@@ -99,21 +99,21 @@ instance Core.AWSRequest GetJob where
     Response.receiveJSON
       ( \s h x ->
           GetJobResponse'
-            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "endedAt")
+            Prelude.<$> (x Data..?> "billableDuration")
             Prelude.<*> (x Data..?> "checkpointConfig")
             Prelude.<*> (x Data..?> "deviceConfig")
-            Prelude.<*> (x Data..?> "startedAt")
-            Prelude.<*> (x Data..?> "stoppingCondition")
+            Prelude.<*> (x Data..?> "endedAt")
             Prelude.<*> (x Data..?> "events" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "inputDataConfig"
-                            Core..!@ Prelude.mempty
-                        )
+            Prelude.<*> (x Data..?> "failureReason")
             Prelude.<*> ( x Data..?> "hyperParameters"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "billableDuration")
-            Prelude.<*> (x Data..?> "failureReason")
+            Prelude.<*> ( x Data..?> "inputDataConfig"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Data..?> "startedAt")
+            Prelude.<*> (x Data..?> "stoppingCondition")
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "algorithmSpecification")
             Prelude.<*> (x Data..:> "createdAt")
@@ -152,36 +152,36 @@ instance Data.ToQuery GetJob where
 
 -- | /See:/ 'newGetJobResponse' smart constructor.
 data GetJobResponse = GetJobResponse'
-  { -- | A tag object that consists of a key and an optional value, used to
-    -- manage metadata for Amazon Braket resources.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The date and time that the Amazon Braket job ended.
-    endedAt :: Prelude.Maybe Data.POSIX,
+  { -- | The billable time the Amazon Braket job used to complete.
+    billableDuration :: Prelude.Maybe Prelude.Int,
     -- | Information about the output locations for job checkpoint data.
     checkpointConfig :: Prelude.Maybe JobCheckpointConfig,
     -- | The quantum processing unit (QPU) or simulator used to run the Amazon
     -- Braket job.
     deviceConfig :: Prelude.Maybe DeviceConfig,
-    -- | The date and time that the Amazon Braket job was started.
-    startedAt :: Prelude.Maybe Data.POSIX,
-    -- | The user-defined criteria that specifies when to stop a job running.
-    stoppingCondition :: Prelude.Maybe JobStoppingCondition,
+    -- | The date and time that the Amazon Braket job ended.
+    endedAt :: Prelude.Maybe Data.POSIX,
     -- | Details about the type and time events occurred related to the Amazon
     -- Braket job.
     events :: Prelude.Maybe [JobEventDetails],
-    -- | A list of parameters that specify the name and type of input data and
-    -- where it is located.
-    inputDataConfig :: Prelude.Maybe [InputFileConfig],
+    -- | A description of the reason why an Amazon Braket job failed, if it
+    -- failed.
+    failureReason :: Prelude.Maybe Prelude.Text,
     -- | Algorithm-specific parameters used by an Amazon Braket job that
     -- influence the quality of the traiing job. The values are set with a
     -- string of JSON key:value pairs, where the key is the name of the
     -- hyperparameter and the value is the value of th hyperparameter.
     hyperParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The billable time the Amazon Braket job used to complete.
-    billableDuration :: Prelude.Maybe Prelude.Int,
-    -- | A description of the reason why an Amazon Braket job failed, if it
-    -- failed.
-    failureReason :: Prelude.Maybe Prelude.Text,
+    -- | A list of parameters that specify the name and type of input data and
+    -- where it is located.
+    inputDataConfig :: Prelude.Maybe [InputFileConfig],
+    -- | The date and time that the Amazon Braket job was started.
+    startedAt :: Prelude.Maybe Data.POSIX,
+    -- | The user-defined criteria that specifies when to stop a job running.
+    stoppingCondition :: Prelude.Maybe JobStoppingCondition,
+    -- | A tag object that consists of a key and an optional value, used to
+    -- manage metadata for Amazon Braket resources.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | Definition of the Amazon Braket job created. Specifies the container
@@ -218,35 +218,35 @@ data GetJobResponse = GetJobResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'getJobResponse_tags' - A tag object that consists of a key and an optional value, used to
--- manage metadata for Amazon Braket resources.
---
--- 'endedAt', 'getJobResponse_endedAt' - The date and time that the Amazon Braket job ended.
+-- 'billableDuration', 'getJobResponse_billableDuration' - The billable time the Amazon Braket job used to complete.
 --
 -- 'checkpointConfig', 'getJobResponse_checkpointConfig' - Information about the output locations for job checkpoint data.
 --
 -- 'deviceConfig', 'getJobResponse_deviceConfig' - The quantum processing unit (QPU) or simulator used to run the Amazon
 -- Braket job.
 --
--- 'startedAt', 'getJobResponse_startedAt' - The date and time that the Amazon Braket job was started.
---
--- 'stoppingCondition', 'getJobResponse_stoppingCondition' - The user-defined criteria that specifies when to stop a job running.
+-- 'endedAt', 'getJobResponse_endedAt' - The date and time that the Amazon Braket job ended.
 --
 -- 'events', 'getJobResponse_events' - Details about the type and time events occurred related to the Amazon
 -- Braket job.
 --
--- 'inputDataConfig', 'getJobResponse_inputDataConfig' - A list of parameters that specify the name and type of input data and
--- where it is located.
+-- 'failureReason', 'getJobResponse_failureReason' - A description of the reason why an Amazon Braket job failed, if it
+-- failed.
 --
 -- 'hyperParameters', 'getJobResponse_hyperParameters' - Algorithm-specific parameters used by an Amazon Braket job that
 -- influence the quality of the traiing job. The values are set with a
 -- string of JSON key:value pairs, where the key is the name of the
 -- hyperparameter and the value is the value of th hyperparameter.
 --
--- 'billableDuration', 'getJobResponse_billableDuration' - The billable time the Amazon Braket job used to complete.
+-- 'inputDataConfig', 'getJobResponse_inputDataConfig' - A list of parameters that specify the name and type of input data and
+-- where it is located.
 --
--- 'failureReason', 'getJobResponse_failureReason' - A description of the reason why an Amazon Braket job failed, if it
--- failed.
+-- 'startedAt', 'getJobResponse_startedAt' - The date and time that the Amazon Braket job was started.
+--
+-- 'stoppingCondition', 'getJobResponse_stoppingCondition' - The user-defined criteria that specifies when to stop a job running.
+--
+-- 'tags', 'getJobResponse_tags' - A tag object that consists of a key and an optional value, used to
+-- manage metadata for Amazon Braket resources.
 --
 -- 'httpStatus', 'getJobResponse_httpStatus' - The response's http status code.
 --
@@ -303,17 +303,17 @@ newGetJobResponse
   pRoleArn_
   pStatus_ =
     GetJobResponse'
-      { tags = Prelude.Nothing,
-        endedAt = Prelude.Nothing,
+      { billableDuration = Prelude.Nothing,
         checkpointConfig = Prelude.Nothing,
         deviceConfig = Prelude.Nothing,
+        endedAt = Prelude.Nothing,
+        events = Prelude.Nothing,
+        failureReason = Prelude.Nothing,
+        hyperParameters = Prelude.Nothing,
+        inputDataConfig = Prelude.Nothing,
         startedAt = Prelude.Nothing,
         stoppingCondition = Prelude.Nothing,
-        events = Prelude.Nothing,
-        inputDataConfig = Prelude.Nothing,
-        hyperParameters = Prelude.Nothing,
-        billableDuration = Prelude.Nothing,
-        failureReason = Prelude.Nothing,
+        tags = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         algorithmSpecification = pAlgorithmSpecification_,
         createdAt = Data._Time Lens.# pCreatedAt_,
@@ -325,14 +325,9 @@ newGetJobResponse
         status = pStatus_
       }
 
--- | A tag object that consists of a key and an optional value, used to
--- manage metadata for Amazon Braket resources.
-getJobResponse_tags :: Lens.Lens' GetJobResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getJobResponse_tags = Lens.lens (\GetJobResponse' {tags} -> tags) (\s@GetJobResponse' {} a -> s {tags = a} :: GetJobResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The date and time that the Amazon Braket job ended.
-getJobResponse_endedAt :: Lens.Lens' GetJobResponse (Prelude.Maybe Prelude.UTCTime)
-getJobResponse_endedAt = Lens.lens (\GetJobResponse' {endedAt} -> endedAt) (\s@GetJobResponse' {} a -> s {endedAt = a} :: GetJobResponse) Prelude.. Lens.mapping Data._Time
+-- | The billable time the Amazon Braket job used to complete.
+getJobResponse_billableDuration :: Lens.Lens' GetJobResponse (Prelude.Maybe Prelude.Int)
+getJobResponse_billableDuration = Lens.lens (\GetJobResponse' {billableDuration} -> billableDuration) (\s@GetJobResponse' {} a -> s {billableDuration = a} :: GetJobResponse)
 
 -- | Information about the output locations for job checkpoint data.
 getJobResponse_checkpointConfig :: Lens.Lens' GetJobResponse (Prelude.Maybe JobCheckpointConfig)
@@ -343,23 +338,19 @@ getJobResponse_checkpointConfig = Lens.lens (\GetJobResponse' {checkpointConfig}
 getJobResponse_deviceConfig :: Lens.Lens' GetJobResponse (Prelude.Maybe DeviceConfig)
 getJobResponse_deviceConfig = Lens.lens (\GetJobResponse' {deviceConfig} -> deviceConfig) (\s@GetJobResponse' {} a -> s {deviceConfig = a} :: GetJobResponse)
 
--- | The date and time that the Amazon Braket job was started.
-getJobResponse_startedAt :: Lens.Lens' GetJobResponse (Prelude.Maybe Prelude.UTCTime)
-getJobResponse_startedAt = Lens.lens (\GetJobResponse' {startedAt} -> startedAt) (\s@GetJobResponse' {} a -> s {startedAt = a} :: GetJobResponse) Prelude.. Lens.mapping Data._Time
-
--- | The user-defined criteria that specifies when to stop a job running.
-getJobResponse_stoppingCondition :: Lens.Lens' GetJobResponse (Prelude.Maybe JobStoppingCondition)
-getJobResponse_stoppingCondition = Lens.lens (\GetJobResponse' {stoppingCondition} -> stoppingCondition) (\s@GetJobResponse' {} a -> s {stoppingCondition = a} :: GetJobResponse)
+-- | The date and time that the Amazon Braket job ended.
+getJobResponse_endedAt :: Lens.Lens' GetJobResponse (Prelude.Maybe Prelude.UTCTime)
+getJobResponse_endedAt = Lens.lens (\GetJobResponse' {endedAt} -> endedAt) (\s@GetJobResponse' {} a -> s {endedAt = a} :: GetJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Details about the type and time events occurred related to the Amazon
 -- Braket job.
 getJobResponse_events :: Lens.Lens' GetJobResponse (Prelude.Maybe [JobEventDetails])
 getJobResponse_events = Lens.lens (\GetJobResponse' {events} -> events) (\s@GetJobResponse' {} a -> s {events = a} :: GetJobResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of parameters that specify the name and type of input data and
--- where it is located.
-getJobResponse_inputDataConfig :: Lens.Lens' GetJobResponse (Prelude.Maybe [InputFileConfig])
-getJobResponse_inputDataConfig = Lens.lens (\GetJobResponse' {inputDataConfig} -> inputDataConfig) (\s@GetJobResponse' {} a -> s {inputDataConfig = a} :: GetJobResponse) Prelude.. Lens.mapping Lens.coerced
+-- | A description of the reason why an Amazon Braket job failed, if it
+-- failed.
+getJobResponse_failureReason :: Lens.Lens' GetJobResponse (Prelude.Maybe Prelude.Text)
+getJobResponse_failureReason = Lens.lens (\GetJobResponse' {failureReason} -> failureReason) (\s@GetJobResponse' {} a -> s {failureReason = a} :: GetJobResponse)
 
 -- | Algorithm-specific parameters used by an Amazon Braket job that
 -- influence the quality of the traiing job. The values are set with a
@@ -368,14 +359,23 @@ getJobResponse_inputDataConfig = Lens.lens (\GetJobResponse' {inputDataConfig} -
 getJobResponse_hyperParameters :: Lens.Lens' GetJobResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 getJobResponse_hyperParameters = Lens.lens (\GetJobResponse' {hyperParameters} -> hyperParameters) (\s@GetJobResponse' {} a -> s {hyperParameters = a} :: GetJobResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The billable time the Amazon Braket job used to complete.
-getJobResponse_billableDuration :: Lens.Lens' GetJobResponse (Prelude.Maybe Prelude.Int)
-getJobResponse_billableDuration = Lens.lens (\GetJobResponse' {billableDuration} -> billableDuration) (\s@GetJobResponse' {} a -> s {billableDuration = a} :: GetJobResponse)
+-- | A list of parameters that specify the name and type of input data and
+-- where it is located.
+getJobResponse_inputDataConfig :: Lens.Lens' GetJobResponse (Prelude.Maybe [InputFileConfig])
+getJobResponse_inputDataConfig = Lens.lens (\GetJobResponse' {inputDataConfig} -> inputDataConfig) (\s@GetJobResponse' {} a -> s {inputDataConfig = a} :: GetJobResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | A description of the reason why an Amazon Braket job failed, if it
--- failed.
-getJobResponse_failureReason :: Lens.Lens' GetJobResponse (Prelude.Maybe Prelude.Text)
-getJobResponse_failureReason = Lens.lens (\GetJobResponse' {failureReason} -> failureReason) (\s@GetJobResponse' {} a -> s {failureReason = a} :: GetJobResponse)
+-- | The date and time that the Amazon Braket job was started.
+getJobResponse_startedAt :: Lens.Lens' GetJobResponse (Prelude.Maybe Prelude.UTCTime)
+getJobResponse_startedAt = Lens.lens (\GetJobResponse' {startedAt} -> startedAt) (\s@GetJobResponse' {} a -> s {startedAt = a} :: GetJobResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The user-defined criteria that specifies when to stop a job running.
+getJobResponse_stoppingCondition :: Lens.Lens' GetJobResponse (Prelude.Maybe JobStoppingCondition)
+getJobResponse_stoppingCondition = Lens.lens (\GetJobResponse' {stoppingCondition} -> stoppingCondition) (\s@GetJobResponse' {} a -> s {stoppingCondition = a} :: GetJobResponse)
+
+-- | A tag object that consists of a key and an optional value, used to
+-- manage metadata for Amazon Braket resources.
+getJobResponse_tags :: Lens.Lens' GetJobResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getJobResponse_tags = Lens.lens (\GetJobResponse' {tags} -> tags) (\s@GetJobResponse' {} a -> s {tags = a} :: GetJobResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getJobResponse_httpStatus :: Lens.Lens' GetJobResponse Prelude.Int
@@ -422,17 +422,17 @@ getJobResponse_status = Lens.lens (\GetJobResponse' {status} -> status) (\s@GetJ
 
 instance Prelude.NFData GetJobResponse where
   rnf GetJobResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf endedAt
+    Prelude.rnf billableDuration
       `Prelude.seq` Prelude.rnf checkpointConfig
       `Prelude.seq` Prelude.rnf deviceConfig
+      `Prelude.seq` Prelude.rnf endedAt
+      `Prelude.seq` Prelude.rnf events
+      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf hyperParameters
+      `Prelude.seq` Prelude.rnf inputDataConfig
       `Prelude.seq` Prelude.rnf startedAt
       `Prelude.seq` Prelude.rnf stoppingCondition
-      `Prelude.seq` Prelude.rnf events
-      `Prelude.seq` Prelude.rnf inputDataConfig
-      `Prelude.seq` Prelude.rnf hyperParameters
-      `Prelude.seq` Prelude.rnf billableDuration
-      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf algorithmSpecification
       `Prelude.seq` Prelude.rnf createdAt

@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newArtifactLocation' smart constructor.
 data ArtifactLocation = ArtifactLocation'
-  { -- | The type of artifact in the location.
-    type' :: Prelude.Maybe ArtifactLocationType,
-    -- | The S3 bucket that contains the artifact.
-    s3Location :: Prelude.Maybe S3ArtifactLocation
+  { -- | The S3 bucket that contains the artifact.
+    s3Location :: Prelude.Maybe S3ArtifactLocation,
+    -- | The type of artifact in the location.
+    type' :: Prelude.Maybe ArtifactLocationType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,24 @@ data ArtifactLocation = ArtifactLocation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'artifactLocation_type' - The type of artifact in the location.
---
 -- 's3Location', 'artifactLocation_s3Location' - The S3 bucket that contains the artifact.
+--
+-- 'type'', 'artifactLocation_type' - The type of artifact in the location.
 newArtifactLocation ::
   ArtifactLocation
 newArtifactLocation =
   ArtifactLocation'
-    { type' = Prelude.Nothing,
-      s3Location = Prelude.Nothing
+    { s3Location = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
-
--- | The type of artifact in the location.
-artifactLocation_type :: Lens.Lens' ArtifactLocation (Prelude.Maybe ArtifactLocationType)
-artifactLocation_type = Lens.lens (\ArtifactLocation' {type'} -> type') (\s@ArtifactLocation' {} a -> s {type' = a} :: ArtifactLocation)
 
 -- | The S3 bucket that contains the artifact.
 artifactLocation_s3Location :: Lens.Lens' ArtifactLocation (Prelude.Maybe S3ArtifactLocation)
 artifactLocation_s3Location = Lens.lens (\ArtifactLocation' {s3Location} -> s3Location) (\s@ArtifactLocation' {} a -> s {s3Location = a} :: ArtifactLocation)
+
+-- | The type of artifact in the location.
+artifactLocation_type :: Lens.Lens' ArtifactLocation (Prelude.Maybe ArtifactLocationType)
+artifactLocation_type = Lens.lens (\ArtifactLocation' {type'} -> type') (\s@ArtifactLocation' {} a -> s {type' = a} :: ArtifactLocation)
 
 instance Data.FromJSON ArtifactLocation where
   parseJSON =
@@ -70,16 +70,16 @@ instance Data.FromJSON ArtifactLocation where
       "ArtifactLocation"
       ( \x ->
           ArtifactLocation'
-            Prelude.<$> (x Data..:? "type")
-            Prelude.<*> (x Data..:? "s3Location")
+            Prelude.<$> (x Data..:? "s3Location")
+            Prelude.<*> (x Data..:? "type")
       )
 
 instance Prelude.Hashable ArtifactLocation where
   hashWithSalt _salt ArtifactLocation' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` s3Location
+    _salt `Prelude.hashWithSalt` s3Location
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData ArtifactLocation where
   rnf ArtifactLocation' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf s3Location
+    Prelude.rnf s3Location
+      `Prelude.seq` Prelude.rnf type'

@@ -28,19 +28,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNetworkResourceSummary' smart constructor.
 data NetworkResourceSummary = NetworkResourceSummary'
-  { -- | The resource type.
-    resourceType :: Prelude.Maybe Prelude.Text,
+  { -- | Information about the resource, in JSON format. Network Manager gets
+    -- this information by describing the resource using its Describe API call.
+    definition :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether this is a middlebox appliance.
     isMiddlebox :: Prelude.Maybe Prelude.Bool,
+    -- | The value for the Name tag.
+    nameTag :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the gateway.
     registeredGatewayArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the resource.
     resourceArn :: Prelude.Maybe Prelude.Text,
-    -- | Information about the resource, in JSON format. Network Manager gets
-    -- this information by describing the resource using its Describe API call.
-    definition :: Prelude.Maybe Prelude.Text,
-    -- | The value for the Name tag.
-    nameTag :: Prelude.Maybe Prelude.Text
+    -- | The resource type.
+    resourceType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,38 +52,43 @@ data NetworkResourceSummary = NetworkResourceSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceType', 'networkResourceSummary_resourceType' - The resource type.
+-- 'definition', 'networkResourceSummary_definition' - Information about the resource, in JSON format. Network Manager gets
+-- this information by describing the resource using its Describe API call.
 --
 -- 'isMiddlebox', 'networkResourceSummary_isMiddlebox' - Indicates whether this is a middlebox appliance.
+--
+-- 'nameTag', 'networkResourceSummary_nameTag' - The value for the Name tag.
 --
 -- 'registeredGatewayArn', 'networkResourceSummary_registeredGatewayArn' - The ARN of the gateway.
 --
 -- 'resourceArn', 'networkResourceSummary_resourceArn' - The ARN of the resource.
 --
--- 'definition', 'networkResourceSummary_definition' - Information about the resource, in JSON format. Network Manager gets
--- this information by describing the resource using its Describe API call.
---
--- 'nameTag', 'networkResourceSummary_nameTag' - The value for the Name tag.
+-- 'resourceType', 'networkResourceSummary_resourceType' - The resource type.
 newNetworkResourceSummary ::
   NetworkResourceSummary
 newNetworkResourceSummary =
   NetworkResourceSummary'
-    { resourceType =
+    { definition =
         Prelude.Nothing,
       isMiddlebox = Prelude.Nothing,
+      nameTag = Prelude.Nothing,
       registeredGatewayArn = Prelude.Nothing,
       resourceArn = Prelude.Nothing,
-      definition = Prelude.Nothing,
-      nameTag = Prelude.Nothing
+      resourceType = Prelude.Nothing
     }
 
--- | The resource type.
-networkResourceSummary_resourceType :: Lens.Lens' NetworkResourceSummary (Prelude.Maybe Prelude.Text)
-networkResourceSummary_resourceType = Lens.lens (\NetworkResourceSummary' {resourceType} -> resourceType) (\s@NetworkResourceSummary' {} a -> s {resourceType = a} :: NetworkResourceSummary)
+-- | Information about the resource, in JSON format. Network Manager gets
+-- this information by describing the resource using its Describe API call.
+networkResourceSummary_definition :: Lens.Lens' NetworkResourceSummary (Prelude.Maybe Prelude.Text)
+networkResourceSummary_definition = Lens.lens (\NetworkResourceSummary' {definition} -> definition) (\s@NetworkResourceSummary' {} a -> s {definition = a} :: NetworkResourceSummary)
 
 -- | Indicates whether this is a middlebox appliance.
 networkResourceSummary_isMiddlebox :: Lens.Lens' NetworkResourceSummary (Prelude.Maybe Prelude.Bool)
 networkResourceSummary_isMiddlebox = Lens.lens (\NetworkResourceSummary' {isMiddlebox} -> isMiddlebox) (\s@NetworkResourceSummary' {} a -> s {isMiddlebox = a} :: NetworkResourceSummary)
+
+-- | The value for the Name tag.
+networkResourceSummary_nameTag :: Lens.Lens' NetworkResourceSummary (Prelude.Maybe Prelude.Text)
+networkResourceSummary_nameTag = Lens.lens (\NetworkResourceSummary' {nameTag} -> nameTag) (\s@NetworkResourceSummary' {} a -> s {nameTag = a} :: NetworkResourceSummary)
 
 -- | The ARN of the gateway.
 networkResourceSummary_registeredGatewayArn :: Lens.Lens' NetworkResourceSummary (Prelude.Maybe Prelude.Text)
@@ -93,14 +98,9 @@ networkResourceSummary_registeredGatewayArn = Lens.lens (\NetworkResourceSummary
 networkResourceSummary_resourceArn :: Lens.Lens' NetworkResourceSummary (Prelude.Maybe Prelude.Text)
 networkResourceSummary_resourceArn = Lens.lens (\NetworkResourceSummary' {resourceArn} -> resourceArn) (\s@NetworkResourceSummary' {} a -> s {resourceArn = a} :: NetworkResourceSummary)
 
--- | Information about the resource, in JSON format. Network Manager gets
--- this information by describing the resource using its Describe API call.
-networkResourceSummary_definition :: Lens.Lens' NetworkResourceSummary (Prelude.Maybe Prelude.Text)
-networkResourceSummary_definition = Lens.lens (\NetworkResourceSummary' {definition} -> definition) (\s@NetworkResourceSummary' {} a -> s {definition = a} :: NetworkResourceSummary)
-
--- | The value for the Name tag.
-networkResourceSummary_nameTag :: Lens.Lens' NetworkResourceSummary (Prelude.Maybe Prelude.Text)
-networkResourceSummary_nameTag = Lens.lens (\NetworkResourceSummary' {nameTag} -> nameTag) (\s@NetworkResourceSummary' {} a -> s {nameTag = a} :: NetworkResourceSummary)
+-- | The resource type.
+networkResourceSummary_resourceType :: Lens.Lens' NetworkResourceSummary (Prelude.Maybe Prelude.Text)
+networkResourceSummary_resourceType = Lens.lens (\NetworkResourceSummary' {resourceType} -> resourceType) (\s@NetworkResourceSummary' {} a -> s {resourceType = a} :: NetworkResourceSummary)
 
 instance Data.FromJSON NetworkResourceSummary where
   parseJSON =
@@ -108,28 +108,28 @@ instance Data.FromJSON NetworkResourceSummary where
       "NetworkResourceSummary"
       ( \x ->
           NetworkResourceSummary'
-            Prelude.<$> (x Data..:? "ResourceType")
+            Prelude.<$> (x Data..:? "Definition")
             Prelude.<*> (x Data..:? "IsMiddlebox")
+            Prelude.<*> (x Data..:? "NameTag")
             Prelude.<*> (x Data..:? "RegisteredGatewayArn")
             Prelude.<*> (x Data..:? "ResourceArn")
-            Prelude.<*> (x Data..:? "Definition")
-            Prelude.<*> (x Data..:? "NameTag")
+            Prelude.<*> (x Data..:? "ResourceType")
       )
 
 instance Prelude.Hashable NetworkResourceSummary where
   hashWithSalt _salt NetworkResourceSummary' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
+    _salt `Prelude.hashWithSalt` definition
       `Prelude.hashWithSalt` isMiddlebox
+      `Prelude.hashWithSalt` nameTag
       `Prelude.hashWithSalt` registeredGatewayArn
       `Prelude.hashWithSalt` resourceArn
-      `Prelude.hashWithSalt` definition
-      `Prelude.hashWithSalt` nameTag
+      `Prelude.hashWithSalt` resourceType
 
 instance Prelude.NFData NetworkResourceSummary where
   rnf NetworkResourceSummary' {..} =
-    Prelude.rnf resourceType
+    Prelude.rnf definition
       `Prelude.seq` Prelude.rnf isMiddlebox
+      `Prelude.seq` Prelude.rnf nameTag
       `Prelude.seq` Prelude.rnf registeredGatewayArn
       `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf definition
-      `Prelude.seq` Prelude.rnf nameTag
+      `Prelude.seq` Prelude.rnf resourceType

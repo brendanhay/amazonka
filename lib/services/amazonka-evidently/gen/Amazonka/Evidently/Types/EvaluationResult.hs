@@ -30,9 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEvaluationResult' smart constructor.
 data EvaluationResult = EvaluationResult'
-  { -- | The name of the variation that was served to the user session.
-    variation :: Prelude.Maybe Prelude.Text,
-    -- | If this user was assigned to a launch or experiment, this field lists
+  { -- | If this user was assigned to a launch or experiment, this field lists
     -- the launch or experiment name.
     details :: Prelude.Maybe Prelude.Text,
     -- | The name or ARN of the project that contains the feature being
@@ -47,6 +45,8 @@ data EvaluationResult = EvaluationResult'
     -- | The value assigned to this variation to differentiate it from the other
     -- variations of this feature.
     value :: Prelude.Maybe VariableValue,
+    -- | The name of the variation that was served to the user session.
+    variation :: Prelude.Maybe Prelude.Text,
     -- | An internal ID that represents a unique user session of the application.
     entityId :: Prelude.Text,
     -- | The name of the feature being evaluated.
@@ -61,8 +61,6 @@ data EvaluationResult = EvaluationResult'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'variation', 'evaluationResult_variation' - The name of the variation that was served to the user session.
 --
 -- 'details', 'evaluationResult_details' - If this user was assigned to a launch or experiment, this field lists
 -- the launch or experiment name.
@@ -79,6 +77,8 @@ data EvaluationResult = EvaluationResult'
 -- 'value', 'evaluationResult_value' - The value assigned to this variation to differentiate it from the other
 -- variations of this feature.
 --
+-- 'variation', 'evaluationResult_variation' - The name of the variation that was served to the user session.
+--
 -- 'entityId', 'evaluationResult_entityId' - An internal ID that represents a unique user session of the application.
 --
 -- 'feature', 'evaluationResult_feature' - The name of the feature being evaluated.
@@ -90,18 +90,14 @@ newEvaluationResult ::
   EvaluationResult
 newEvaluationResult pEntityId_ pFeature_ =
   EvaluationResult'
-    { variation = Prelude.Nothing,
-      details = Prelude.Nothing,
+    { details = Prelude.Nothing,
       project = Prelude.Nothing,
       reason = Prelude.Nothing,
       value = Prelude.Nothing,
+      variation = Prelude.Nothing,
       entityId = pEntityId_,
       feature = pFeature_
     }
-
--- | The name of the variation that was served to the user session.
-evaluationResult_variation :: Lens.Lens' EvaluationResult (Prelude.Maybe Prelude.Text)
-evaluationResult_variation = Lens.lens (\EvaluationResult' {variation} -> variation) (\s@EvaluationResult' {} a -> s {variation = a} :: EvaluationResult)
 
 -- | If this user was assigned to a launch or experiment, this field lists
 -- the launch or experiment name.
@@ -126,6 +122,10 @@ evaluationResult_reason = Lens.lens (\EvaluationResult' {reason} -> reason) (\s@
 evaluationResult_value :: Lens.Lens' EvaluationResult (Prelude.Maybe VariableValue)
 evaluationResult_value = Lens.lens (\EvaluationResult' {value} -> value) (\s@EvaluationResult' {} a -> s {value = a} :: EvaluationResult)
 
+-- | The name of the variation that was served to the user session.
+evaluationResult_variation :: Lens.Lens' EvaluationResult (Prelude.Maybe Prelude.Text)
+evaluationResult_variation = Lens.lens (\EvaluationResult' {variation} -> variation) (\s@EvaluationResult' {} a -> s {variation = a} :: EvaluationResult)
+
 -- | An internal ID that represents a unique user session of the application.
 evaluationResult_entityId :: Lens.Lens' EvaluationResult Prelude.Text
 evaluationResult_entityId = Lens.lens (\EvaluationResult' {entityId} -> entityId) (\s@EvaluationResult' {} a -> s {entityId = a} :: EvaluationResult)
@@ -140,31 +140,31 @@ instance Data.FromJSON EvaluationResult where
       "EvaluationResult"
       ( \x ->
           EvaluationResult'
-            Prelude.<$> (x Data..:? "variation")
-            Prelude.<*> (x Data..:? "details")
+            Prelude.<$> (x Data..:? "details")
             Prelude.<*> (x Data..:? "project")
             Prelude.<*> (x Data..:? "reason")
             Prelude.<*> (x Data..:? "value")
+            Prelude.<*> (x Data..:? "variation")
             Prelude.<*> (x Data..: "entityId")
             Prelude.<*> (x Data..: "feature")
       )
 
 instance Prelude.Hashable EvaluationResult where
   hashWithSalt _salt EvaluationResult' {..} =
-    _salt `Prelude.hashWithSalt` variation
-      `Prelude.hashWithSalt` details
+    _salt `Prelude.hashWithSalt` details
       `Prelude.hashWithSalt` project
       `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` variation
       `Prelude.hashWithSalt` entityId
       `Prelude.hashWithSalt` feature
 
 instance Prelude.NFData EvaluationResult where
   rnf EvaluationResult' {..} =
-    Prelude.rnf variation
-      `Prelude.seq` Prelude.rnf details
+    Prelude.rnf details
       `Prelude.seq` Prelude.rnf project
       `Prelude.seq` Prelude.rnf reason
       `Prelude.seq` Prelude.rnf value
+      `Prelude.seq` Prelude.rnf variation
       `Prelude.seq` Prelude.rnf entityId
       `Prelude.seq` Prelude.rnf feature

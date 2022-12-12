@@ -30,23 +30,23 @@ module Amazonka.BillingConductor.Lens
     batchAssociateResourcesToCustomLineItem_billingPeriodRange,
     batchAssociateResourcesToCustomLineItem_targetArn,
     batchAssociateResourcesToCustomLineItem_resourceArns,
-    batchAssociateResourcesToCustomLineItemResponse_successfullyAssociatedResources,
     batchAssociateResourcesToCustomLineItemResponse_failedAssociatedResources,
+    batchAssociateResourcesToCustomLineItemResponse_successfullyAssociatedResources,
     batchAssociateResourcesToCustomLineItemResponse_httpStatus,
 
     -- ** BatchDisassociateResourcesFromCustomLineItem
     batchDisassociateResourcesFromCustomLineItem_billingPeriodRange,
     batchDisassociateResourcesFromCustomLineItem_targetArn,
     batchDisassociateResourcesFromCustomLineItem_resourceArns,
-    batchDisassociateResourcesFromCustomLineItemResponse_successfullyDisassociatedResources,
     batchDisassociateResourcesFromCustomLineItemResponse_failedDisassociatedResources,
+    batchDisassociateResourcesFromCustomLineItemResponse_successfullyDisassociatedResources,
     batchDisassociateResourcesFromCustomLineItemResponse_httpStatus,
 
     -- ** CreateBillingGroup
-    createBillingGroup_tags,
     createBillingGroup_clientToken,
     createBillingGroup_description,
     createBillingGroup_primaryAccountId,
+    createBillingGroup_tags,
     createBillingGroup_name,
     createBillingGroup_accountGrouping,
     createBillingGroup_computationPreference,
@@ -54,9 +54,9 @@ module Amazonka.BillingConductor.Lens
     createBillingGroupResponse_httpStatus,
 
     -- ** CreateCustomLineItem
-    createCustomLineItem_tags,
-    createCustomLineItem_clientToken,
     createCustomLineItem_billingPeriodRange,
+    createCustomLineItem_clientToken,
+    createCustomLineItem_tags,
     createCustomLineItem_name,
     createCustomLineItem_description,
     createCustomLineItem_billingGroupArn,
@@ -65,24 +65,25 @@ module Amazonka.BillingConductor.Lens
     createCustomLineItemResponse_httpStatus,
 
     -- ** CreatePricingPlan
-    createPricingPlan_tags,
     createPricingPlan_clientToken,
     createPricingPlan_description,
     createPricingPlan_pricingRuleArns,
+    createPricingPlan_tags,
     createPricingPlan_name,
     createPricingPlanResponse_arn,
     createPricingPlanResponse_httpStatus,
 
     -- ** CreatePricingRule
-    createPricingRule_tags,
-    createPricingRule_clientToken,
     createPricingRule_billingEntity,
+    createPricingRule_clientToken,
     createPricingRule_description,
+    createPricingRule_modifierPercentage,
     createPricingRule_service,
+    createPricingRule_tags,
+    createPricingRule_tiering,
     createPricingRule_name,
     createPricingRule_scope,
     createPricingRule_type,
-    createPricingRule_modifierPercentage,
     createPricingRuleResponse_arn,
     createPricingRuleResponse_httpStatus,
 
@@ -120,100 +121,100 @@ module Amazonka.BillingConductor.Lens
     disassociatePricingRulesResponse_httpStatus,
 
     -- ** ListAccountAssociations
-    listAccountAssociations_nextToken,
     listAccountAssociations_billingPeriod,
     listAccountAssociations_filters,
-    listAccountAssociationsResponse_nextToken,
+    listAccountAssociations_nextToken,
     listAccountAssociationsResponse_linkedAccounts,
+    listAccountAssociationsResponse_nextToken,
     listAccountAssociationsResponse_httpStatus,
 
     -- ** ListBillingGroupCostReports
-    listBillingGroupCostReports_nextToken,
     listBillingGroupCostReports_billingPeriod,
     listBillingGroupCostReports_filters,
     listBillingGroupCostReports_maxResults,
-    listBillingGroupCostReportsResponse_nextToken,
+    listBillingGroupCostReports_nextToken,
     listBillingGroupCostReportsResponse_billingGroupCostReports,
+    listBillingGroupCostReportsResponse_nextToken,
     listBillingGroupCostReportsResponse_httpStatus,
 
     -- ** ListBillingGroups
-    listBillingGroups_nextToken,
     listBillingGroups_billingPeriod,
     listBillingGroups_filters,
     listBillingGroups_maxResults,
-    listBillingGroupsResponse_nextToken,
+    listBillingGroups_nextToken,
     listBillingGroupsResponse_billingGroups,
+    listBillingGroupsResponse_nextToken,
     listBillingGroupsResponse_httpStatus,
 
     -- ** ListCustomLineItemVersions
-    listCustomLineItemVersions_nextToken,
     listCustomLineItemVersions_filters,
     listCustomLineItemVersions_maxResults,
+    listCustomLineItemVersions_nextToken,
     listCustomLineItemVersions_arn,
-    listCustomLineItemVersionsResponse_nextToken,
     listCustomLineItemVersionsResponse_customLineItemVersions,
+    listCustomLineItemVersionsResponse_nextToken,
     listCustomLineItemVersionsResponse_httpStatus,
 
     -- ** ListCustomLineItems
-    listCustomLineItems_nextToken,
     listCustomLineItems_billingPeriod,
     listCustomLineItems_filters,
     listCustomLineItems_maxResults,
-    listCustomLineItemsResponse_nextToken,
+    listCustomLineItems_nextToken,
     listCustomLineItemsResponse_customLineItems,
+    listCustomLineItemsResponse_nextToken,
     listCustomLineItemsResponse_httpStatus,
 
     -- ** ListPricingPlans
-    listPricingPlans_nextToken,
     listPricingPlans_billingPeriod,
     listPricingPlans_filters,
     listPricingPlans_maxResults,
-    listPricingPlansResponse_nextToken,
+    listPricingPlans_nextToken,
     listPricingPlansResponse_billingPeriod,
+    listPricingPlansResponse_nextToken,
     listPricingPlansResponse_pricingPlans,
     listPricingPlansResponse_httpStatus,
 
     -- ** ListPricingPlansAssociatedWithPricingRule
-    listPricingPlansAssociatedWithPricingRule_nextToken,
     listPricingPlansAssociatedWithPricingRule_billingPeriod,
     listPricingPlansAssociatedWithPricingRule_maxResults,
+    listPricingPlansAssociatedWithPricingRule_nextToken,
     listPricingPlansAssociatedWithPricingRule_pricingRuleArn,
+    listPricingPlansAssociatedWithPricingRuleResponse_billingPeriod,
     listPricingPlansAssociatedWithPricingRuleResponse_nextToken,
     listPricingPlansAssociatedWithPricingRuleResponse_pricingPlanArns,
-    listPricingPlansAssociatedWithPricingRuleResponse_billingPeriod,
     listPricingPlansAssociatedWithPricingRuleResponse_pricingRuleArn,
     listPricingPlansAssociatedWithPricingRuleResponse_httpStatus,
 
     -- ** ListPricingRules
-    listPricingRules_nextToken,
     listPricingRules_billingPeriod,
     listPricingRules_filters,
     listPricingRules_maxResults,
+    listPricingRules_nextToken,
+    listPricingRulesResponse_billingPeriod,
     listPricingRulesResponse_nextToken,
     listPricingRulesResponse_pricingRules,
-    listPricingRulesResponse_billingPeriod,
     listPricingRulesResponse_httpStatus,
 
     -- ** ListPricingRulesAssociatedToPricingPlan
-    listPricingRulesAssociatedToPricingPlan_nextToken,
     listPricingRulesAssociatedToPricingPlan_billingPeriod,
     listPricingRulesAssociatedToPricingPlan_maxResults,
+    listPricingRulesAssociatedToPricingPlan_nextToken,
     listPricingRulesAssociatedToPricingPlan_pricingPlanArn,
-    listPricingRulesAssociatedToPricingPlanResponse_nextToken,
     listPricingRulesAssociatedToPricingPlanResponse_billingPeriod,
+    listPricingRulesAssociatedToPricingPlanResponse_nextToken,
     listPricingRulesAssociatedToPricingPlanResponse_pricingPlanArn,
     listPricingRulesAssociatedToPricingPlanResponse_pricingRuleArns,
     listPricingRulesAssociatedToPricingPlanResponse_httpStatus,
 
     -- ** ListResourcesAssociatedToCustomLineItem
-    listResourcesAssociatedToCustomLineItem_nextToken,
     listResourcesAssociatedToCustomLineItem_billingPeriod,
     listResourcesAssociatedToCustomLineItem_filters,
     listResourcesAssociatedToCustomLineItem_maxResults,
+    listResourcesAssociatedToCustomLineItem_nextToken,
     listResourcesAssociatedToCustomLineItem_arn,
-    listResourcesAssociatedToCustomLineItemResponse_nextToken,
-    listResourcesAssociatedToCustomLineItemResponse_associatedResources,
     listResourcesAssociatedToCustomLineItemResponse_arn,
+    listResourcesAssociatedToCustomLineItemResponse_associatedResources,
+    listResourcesAssociatedToCustomLineItemResponse_nextToken,
     listResourcesAssociatedToCustomLineItemResponse_httpStatus,
 
     -- ** ListTagsForResource
@@ -232,73 +233,75 @@ module Amazonka.BillingConductor.Lens
     untagResourceResponse_httpStatus,
 
     -- ** UpdateBillingGroup
+    updateBillingGroup_computationPreference,
+    updateBillingGroup_description,
     updateBillingGroup_name,
     updateBillingGroup_status,
-    updateBillingGroup_description,
-    updateBillingGroup_computationPreference,
     updateBillingGroup_arn,
-    updateBillingGroupResponse_name,
     updateBillingGroupResponse_arn,
-    updateBillingGroupResponse_statusReason,
+    updateBillingGroupResponse_description,
+    updateBillingGroupResponse_lastModifiedTime,
+    updateBillingGroupResponse_name,
+    updateBillingGroupResponse_pricingPlanArn,
+    updateBillingGroupResponse_primaryAccountId,
     updateBillingGroupResponse_size,
     updateBillingGroupResponse_status,
-    updateBillingGroupResponse_description,
-    updateBillingGroupResponse_pricingPlanArn,
-    updateBillingGroupResponse_lastModifiedTime,
-    updateBillingGroupResponse_primaryAccountId,
+    updateBillingGroupResponse_statusReason,
     updateBillingGroupResponse_httpStatus,
 
     -- ** UpdateCustomLineItem
-    updateCustomLineItem_name,
-    updateCustomLineItem_chargeDetails,
     updateCustomLineItem_billingPeriodRange,
+    updateCustomLineItem_chargeDetails,
     updateCustomLineItem_description,
+    updateCustomLineItem_name,
     updateCustomLineItem_arn,
-    updateCustomLineItemResponse_name,
-    updateCustomLineItemResponse_chargeDetails,
-    updateCustomLineItemResponse_billingGroupArn,
     updateCustomLineItemResponse_arn,
     updateCustomLineItemResponse_associationSize,
+    updateCustomLineItemResponse_billingGroupArn,
+    updateCustomLineItemResponse_chargeDetails,
     updateCustomLineItemResponse_description,
     updateCustomLineItemResponse_lastModifiedTime,
+    updateCustomLineItemResponse_name,
     updateCustomLineItemResponse_httpStatus,
 
     -- ** UpdatePricingPlan
-    updatePricingPlan_name,
     updatePricingPlan_description,
+    updatePricingPlan_name,
     updatePricingPlan_arn,
-    updatePricingPlanResponse_name,
     updatePricingPlanResponse_arn,
-    updatePricingPlanResponse_size,
     updatePricingPlanResponse_description,
     updatePricingPlanResponse_lastModifiedTime,
+    updatePricingPlanResponse_name,
+    updatePricingPlanResponse_size,
     updatePricingPlanResponse_httpStatus,
 
     -- ** UpdatePricingRule
+    updatePricingRule_description,
     updatePricingRule_modifierPercentage,
     updatePricingRule_name,
+    updatePricingRule_tiering,
     updatePricingRule_type,
-    updatePricingRule_description,
     updatePricingRule_arn,
+    updatePricingRuleResponse_arn,
+    updatePricingRuleResponse_associatedPricingPlanCount,
+    updatePricingRuleResponse_billingEntity,
+    updatePricingRuleResponse_description,
+    updatePricingRuleResponse_lastModifiedTime,
     updatePricingRuleResponse_modifierPercentage,
     updatePricingRuleResponse_name,
-    updatePricingRuleResponse_billingEntity,
-    updatePricingRuleResponse_type,
-    updatePricingRuleResponse_arn,
-    updatePricingRuleResponse_description,
-    updatePricingRuleResponse_service,
-    updatePricingRuleResponse_lastModifiedTime,
     updatePricingRuleResponse_scope,
-    updatePricingRuleResponse_associatedPricingPlanCount,
+    updatePricingRuleResponse_service,
+    updatePricingRuleResponse_tiering,
+    updatePricingRuleResponse_type,
     updatePricingRuleResponse_httpStatus,
 
     -- * Types
 
     -- ** AccountAssociationsListElement
-    accountAssociationsListElement_billingGroupArn,
+    accountAssociationsListElement_accountEmail,
     accountAssociationsListElement_accountId,
     accountAssociationsListElement_accountName,
-    accountAssociationsListElement_accountEmail,
+    accountAssociationsListElement_billingGroupArn,
 
     -- ** AccountGrouping
     accountGrouping_linkedAccountIds,
@@ -312,27 +315,33 @@ module Amazonka.BillingConductor.Lens
     associateResourceResponseElement_error,
 
     -- ** BillingGroupCostReportElement
-    billingGroupCostReportElement_proformaCost,
-    billingGroupCostReportElement_marginPercentage,
     billingGroupCostReportElement_aWSCost,
     billingGroupCostReportElement_arn,
     billingGroupCostReportElement_currency,
     billingGroupCostReportElement_margin,
+    billingGroupCostReportElement_marginPercentage,
+    billingGroupCostReportElement_proformaCost,
 
     -- ** BillingGroupListElement
-    billingGroupListElement_name,
     billingGroupListElement_arn,
-    billingGroupListElement_statusReason,
-    billingGroupListElement_size,
-    billingGroupListElement_status,
+    billingGroupListElement_computationPreference,
+    billingGroupListElement_creationTime,
     billingGroupListElement_description,
     billingGroupListElement_lastModifiedTime,
-    billingGroupListElement_creationTime,
-    billingGroupListElement_computationPreference,
+    billingGroupListElement_name,
     billingGroupListElement_primaryAccountId,
+    billingGroupListElement_size,
+    billingGroupListElement_status,
+    billingGroupListElement_statusReason,
 
     -- ** ComputationPreference
     computationPreference_pricingPlanArn,
+
+    -- ** CreateFreeTierConfig
+    createFreeTierConfig_activated,
+
+    -- ** CreateTieringInput
+    createTieringInput_freeTier,
 
     -- ** CustomLineItemBillingPeriodRange
     customLineItemBillingPeriodRange_exclusiveEndBillingPeriod,
@@ -347,41 +356,44 @@ module Amazonka.BillingConductor.Lens
     customLineItemFlatChargeDetails_chargeValue,
 
     -- ** CustomLineItemListElement
-    customLineItemListElement_name,
-    customLineItemListElement_chargeDetails,
-    customLineItemListElement_billingGroupArn,
     customLineItemListElement_arn,
     customLineItemListElement_associationSize,
-    customLineItemListElement_productCode,
-    customLineItemListElement_description,
-    customLineItemListElement_currencyCode,
-    customLineItemListElement_lastModifiedTime,
+    customLineItemListElement_billingGroupArn,
+    customLineItemListElement_chargeDetails,
     customLineItemListElement_creationTime,
+    customLineItemListElement_currencyCode,
+    customLineItemListElement_description,
+    customLineItemListElement_lastModifiedTime,
+    customLineItemListElement_name,
+    customLineItemListElement_productCode,
 
     -- ** CustomLineItemPercentageChargeDetails
     customLineItemPercentageChargeDetails_associatedValues,
     customLineItemPercentageChargeDetails_percentageValue,
 
     -- ** CustomLineItemVersionListElement
-    customLineItemVersionListElement_name,
-    customLineItemVersionListElement_chargeDetails,
-    customLineItemVersionListElement_billingGroupArn,
     customLineItemVersionListElement_associationSize,
-    customLineItemVersionListElement_productCode,
-    customLineItemVersionListElement_description,
-    customLineItemVersionListElement_currencyCode,
-    customLineItemVersionListElement_lastModifiedTime,
-    customLineItemVersionListElement_startBillingPeriod,
-    customLineItemVersionListElement_endBillingPeriod,
+    customLineItemVersionListElement_billingGroupArn,
+    customLineItemVersionListElement_chargeDetails,
     customLineItemVersionListElement_creationTime,
+    customLineItemVersionListElement_currencyCode,
+    customLineItemVersionListElement_description,
+    customLineItemVersionListElement_endBillingPeriod,
+    customLineItemVersionListElement_lastModifiedTime,
+    customLineItemVersionListElement_name,
+    customLineItemVersionListElement_productCode,
+    customLineItemVersionListElement_startBillingPeriod,
 
     -- ** DisassociateResourceResponseElement
     disassociateResourceResponseElement_arn,
     disassociateResourceResponseElement_error,
 
+    -- ** FreeTierConfig
+    freeTierConfig_activated,
+
     -- ** ListAccountAssociationsFilter
-    listAccountAssociationsFilter_association,
     listAccountAssociationsFilter_accountId,
+    listAccountAssociationsFilter_association,
 
     -- ** ListBillingGroupCostReportsFilter
     listBillingGroupCostReportsFilter_billingGroupArns,
@@ -402,16 +414,16 @@ module Amazonka.BillingConductor.Lens
     listCustomLineItemPercentageChargeDetails_percentageValue,
 
     -- ** ListCustomLineItemVersionsBillingPeriodRangeFilter
-    listCustomLineItemVersionsBillingPeriodRangeFilter_startBillingPeriod,
     listCustomLineItemVersionsBillingPeriodRangeFilter_endBillingPeriod,
+    listCustomLineItemVersionsBillingPeriodRangeFilter_startBillingPeriod,
 
     -- ** ListCustomLineItemVersionsFilter
     listCustomLineItemVersionsFilter_billingPeriodRange,
 
     -- ** ListCustomLineItemsFilter
     listCustomLineItemsFilter_arns,
-    listCustomLineItemsFilter_names,
     listCustomLineItemsFilter_billingGroups,
+    listCustomLineItemsFilter_names,
 
     -- ** ListPricingPlansFilter
     listPricingPlansFilter_arns,
@@ -423,30 +435,34 @@ module Amazonka.BillingConductor.Lens
     listResourcesAssociatedToCustomLineItemFilter_relationship,
 
     -- ** ListResourcesAssociatedToCustomLineItemResponseElement
-    listResourcesAssociatedToCustomLineItemResponseElement_relationship,
     listResourcesAssociatedToCustomLineItemResponseElement_arn,
     listResourcesAssociatedToCustomLineItemResponseElement_endBillingPeriod,
+    listResourcesAssociatedToCustomLineItemResponseElement_relationship,
 
     -- ** PricingPlanListElement
-    pricingPlanListElement_name,
     pricingPlanListElement_arn,
-    pricingPlanListElement_size,
+    pricingPlanListElement_creationTime,
     pricingPlanListElement_description,
     pricingPlanListElement_lastModifiedTime,
-    pricingPlanListElement_creationTime,
+    pricingPlanListElement_name,
+    pricingPlanListElement_size,
 
     -- ** PricingRuleListElement
+    pricingRuleListElement_arn,
+    pricingRuleListElement_associatedPricingPlanCount,
+    pricingRuleListElement_billingEntity,
+    pricingRuleListElement_creationTime,
+    pricingRuleListElement_description,
+    pricingRuleListElement_lastModifiedTime,
     pricingRuleListElement_modifierPercentage,
     pricingRuleListElement_name,
-    pricingRuleListElement_billingEntity,
-    pricingRuleListElement_type,
-    pricingRuleListElement_arn,
-    pricingRuleListElement_description,
-    pricingRuleListElement_service,
-    pricingRuleListElement_lastModifiedTime,
     pricingRuleListElement_scope,
-    pricingRuleListElement_associatedPricingPlanCount,
-    pricingRuleListElement_creationTime,
+    pricingRuleListElement_service,
+    pricingRuleListElement_tiering,
+    pricingRuleListElement_type,
+
+    -- ** Tiering
+    tiering_freeTier,
 
     -- ** UpdateCustomLineItemChargeDetails
     updateCustomLineItemChargeDetails_flat,
@@ -457,6 +473,12 @@ module Amazonka.BillingConductor.Lens
 
     -- ** UpdateCustomLineItemPercentageChargeDetails
     updateCustomLineItemPercentageChargeDetails_percentageValue,
+
+    -- ** UpdateFreeTierConfig
+    updateFreeTierConfig_activated,
+
+    -- ** UpdateTieringInput
+    updateTieringInput_freeTier,
   )
 where
 
@@ -493,6 +515,8 @@ import Amazonka.BillingConductor.Types.AssociateResourceResponseElement
 import Amazonka.BillingConductor.Types.BillingGroupCostReportElement
 import Amazonka.BillingConductor.Types.BillingGroupListElement
 import Amazonka.BillingConductor.Types.ComputationPreference
+import Amazonka.BillingConductor.Types.CreateFreeTierConfig
+import Amazonka.BillingConductor.Types.CreateTieringInput
 import Amazonka.BillingConductor.Types.CustomLineItemBillingPeriodRange
 import Amazonka.BillingConductor.Types.CustomLineItemChargeDetails
 import Amazonka.BillingConductor.Types.CustomLineItemFlatChargeDetails
@@ -500,6 +524,7 @@ import Amazonka.BillingConductor.Types.CustomLineItemListElement
 import Amazonka.BillingConductor.Types.CustomLineItemPercentageChargeDetails
 import Amazonka.BillingConductor.Types.CustomLineItemVersionListElement
 import Amazonka.BillingConductor.Types.DisassociateResourceResponseElement
+import Amazonka.BillingConductor.Types.FreeTierConfig
 import Amazonka.BillingConductor.Types.ListAccountAssociationsFilter
 import Amazonka.BillingConductor.Types.ListBillingGroupCostReportsFilter
 import Amazonka.BillingConductor.Types.ListBillingGroupsFilter
@@ -515,9 +540,12 @@ import Amazonka.BillingConductor.Types.ListResourcesAssociatedToCustomLineItemFi
 import Amazonka.BillingConductor.Types.ListResourcesAssociatedToCustomLineItemResponseElement
 import Amazonka.BillingConductor.Types.PricingPlanListElement
 import Amazonka.BillingConductor.Types.PricingRuleListElement
+import Amazonka.BillingConductor.Types.Tiering
 import Amazonka.BillingConductor.Types.UpdateCustomLineItemChargeDetails
 import Amazonka.BillingConductor.Types.UpdateCustomLineItemFlatChargeDetails
 import Amazonka.BillingConductor.Types.UpdateCustomLineItemPercentageChargeDetails
+import Amazonka.BillingConductor.Types.UpdateFreeTierConfig
+import Amazonka.BillingConductor.Types.UpdateTieringInput
 import Amazonka.BillingConductor.UntagResource
 import Amazonka.BillingConductor.UpdateBillingGroup
 import Amazonka.BillingConductor.UpdateCustomLineItem

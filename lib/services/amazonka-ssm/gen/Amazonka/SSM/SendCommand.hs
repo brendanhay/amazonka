@@ -27,23 +27,23 @@ module Amazonka.SSM.SendCommand
     newSendCommand,
 
     -- * Request Lenses
-    sendCommand_serviceRoleArn,
-    sendCommand_timeoutSeconds,
-    sendCommand_cloudWatchOutputConfig,
-    sendCommand_outputS3Region,
-    sendCommand_targets,
-    sendCommand_comment,
     sendCommand_alarmConfiguration,
+    sendCommand_cloudWatchOutputConfig,
+    sendCommand_comment,
+    sendCommand_documentHash,
+    sendCommand_documentHashType,
+    sendCommand_documentVersion,
+    sendCommand_instanceIds,
     sendCommand_maxConcurrency,
     sendCommand_maxErrors,
     sendCommand_notificationConfig,
-    sendCommand_documentHashType,
-    sendCommand_instanceIds,
     sendCommand_outputS3BucketName,
-    sendCommand_documentHash,
     sendCommand_outputS3KeyPrefix,
-    sendCommand_documentVersion,
+    sendCommand_outputS3Region,
     sendCommand_parameters,
+    sendCommand_serviceRoleArn,
+    sendCommand_targets,
+    sendCommand_timeoutSeconds,
     sendCommand_documentName,
 
     -- * Destructuring the Response
@@ -66,46 +66,50 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newSendCommand' smart constructor.
 data SendCommand = SendCommand'
-  { -- | The ARN of the Identity and Access Management (IAM) service role to use
-    -- to publish Amazon Simple Notification Service (Amazon SNS) notifications
-    -- for Run Command commands.
-    --
-    -- This role must provide the @sns:Publish@ permission for your
-    -- notification topic. For information about creating and using this
-    -- service role, see
-    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html Monitoring Systems Manager status changes using Amazon SNS notifications>
-    -- in the /Amazon Web Services Systems Manager User Guide/.
-    serviceRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | If this time is reached and the command hasn\'t already started running,
-    -- it won\'t run.
-    timeoutSeconds :: Prelude.Maybe Prelude.Natural,
+  { -- | The CloudWatch alarm you want to apply to your command.
+    alarmConfiguration :: Prelude.Maybe AlarmConfiguration,
     -- | Enables Amazon Web Services Systems Manager to send Run Command output
     -- to Amazon CloudWatch Logs. Run Command is a capability of Amazon Web
     -- Services Systems Manager.
     cloudWatchOutputConfig :: Prelude.Maybe CloudWatchOutputConfig,
-    -- | (Deprecated) You can no longer specify this parameter. The system
-    -- ignores it. Instead, Systems Manager automatically determines the Amazon
-    -- Web Services Region of the S3 bucket.
-    outputS3Region :: Prelude.Maybe Prelude.Text,
-    -- | An array of search criteria that targets managed nodes using a
-    -- @Key,Value@ combination that you specify. Specifying targets is most
-    -- useful when you want to send a command to a large number of managed
-    -- nodes at once. Using @Targets@, which accepts tag key-value pairs to
-    -- identify managed nodes, you can send a command to tens, hundreds, or
-    -- thousands of nodes at once.
-    --
-    -- To send a command to a smaller number of managed nodes, you can use the
-    -- @InstanceIds@ option instead.
-    --
-    -- For more information about how to use targets, see
-    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Sending commands to a fleet>
-    -- in the /Amazon Web Services Systems Manager User Guide/.
-    targets :: Prelude.Maybe [Target],
     -- | User-specified information about the command, such as a brief
     -- description of what the command should do.
     comment :: Prelude.Maybe Prelude.Text,
-    -- | The CloudWatch alarm you want to apply to your command.
-    alarmConfiguration :: Prelude.Maybe AlarmConfiguration,
+    -- | The Sha256 or Sha1 hash created by the system when the document was
+    -- created.
+    --
+    -- Sha1 hashes have been deprecated.
+    documentHash :: Prelude.Maybe Prelude.Text,
+    -- | Sha256 or Sha1.
+    --
+    -- Sha1 hashes have been deprecated.
+    documentHashType :: Prelude.Maybe DocumentHashType,
+    -- | The SSM document version to use in the request. You can specify
+    -- \$DEFAULT, $LATEST, or a specific version number. If you run commands by
+    -- using the Command Line Interface (Amazon Web Services CLI), then you
+    -- must escape the first two options by using a backslash. If you specify a
+    -- version number, then you don\'t need to use the backslash. For example:
+    --
+    -- --document-version \"\\$DEFAULT\"
+    --
+    -- --document-version \"\\$LATEST\"
+    --
+    -- --document-version \"3\"
+    documentVersion :: Prelude.Maybe Prelude.Text,
+    -- | The IDs of the managed nodes where the command should run. Specifying
+    -- managed node IDs is most useful when you are targeting a limited number
+    -- of managed nodes, though you can specify up to 50 IDs.
+    --
+    -- To target a larger number of managed nodes, or if you prefer not to list
+    -- individual node IDs, we recommend using the @Targets@ option instead.
+    -- Using @Targets@, which accepts tag key-value pairs to identify the
+    -- managed nodes to send commands to, you can a send command to tens,
+    -- hundreds, or thousands of nodes at once.
+    --
+    -- For more information about how to use targets, see
+    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Using targets and rate controls to send commands to a fleet>
+    -- in the /Amazon Web Services Systems Manager User Guide/.
+    instanceIds :: Prelude.Maybe [Prelude.Text],
     -- | (Optional) The maximum number of managed nodes that are allowed to run
     -- the command at the same time. You can specify a number such as 10 or a
     -- percentage such as 10%. The default value is @50@. For more information
@@ -123,50 +127,46 @@ data SendCommand = SendCommand'
     maxErrors :: Prelude.Maybe Prelude.Text,
     -- | Configurations for sending notifications.
     notificationConfig :: Prelude.Maybe NotificationConfig,
-    -- | Sha256 or Sha1.
-    --
-    -- Sha1 hashes have been deprecated.
-    documentHashType :: Prelude.Maybe DocumentHashType,
-    -- | The IDs of the managed nodes where the command should run. Specifying
-    -- managed node IDs is most useful when you are targeting a limited number
-    -- of managed nodes, though you can specify up to 50 IDs.
-    --
-    -- To target a larger number of managed nodes, or if you prefer not to list
-    -- individual node IDs, we recommend using the @Targets@ option instead.
-    -- Using @Targets@, which accepts tag key-value pairs to identify the
-    -- managed nodes to send commands to, you can a send command to tens,
-    -- hundreds, or thousands of nodes at once.
-    --
-    -- For more information about how to use targets, see
-    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Using targets and rate controls to send commands to a fleet>
-    -- in the /Amazon Web Services Systems Manager User Guide/.
-    instanceIds :: Prelude.Maybe [Prelude.Text],
     -- | The name of the S3 bucket where command execution responses should be
     -- stored.
     outputS3BucketName :: Prelude.Maybe Prelude.Text,
-    -- | The Sha256 or Sha1 hash created by the system when the document was
-    -- created.
-    --
-    -- Sha1 hashes have been deprecated.
-    documentHash :: Prelude.Maybe Prelude.Text,
     -- | The directory structure within the S3 bucket where the responses should
     -- be stored.
     outputS3KeyPrefix :: Prelude.Maybe Prelude.Text,
-    -- | The SSM document version to use in the request. You can specify
-    -- \$DEFAULT, $LATEST, or a specific version number. If you run commands by
-    -- using the Command Line Interface (Amazon Web Services CLI), then you
-    -- must escape the first two options by using a backslash. If you specify a
-    -- version number, then you don\'t need to use the backslash. For example:
-    --
-    -- --document-version \"\\$DEFAULT\"
-    --
-    -- --document-version \"\\$LATEST\"
-    --
-    -- --document-version \"3\"
-    documentVersion :: Prelude.Maybe Prelude.Text,
+    -- | (Deprecated) You can no longer specify this parameter. The system
+    -- ignores it. Instead, Systems Manager automatically determines the Amazon
+    -- Web Services Region of the S3 bucket.
+    outputS3Region :: Prelude.Maybe Prelude.Text,
     -- | The required and optional parameters specified in the document being
     -- run.
     parameters :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text [Prelude.Text])),
+    -- | The ARN of the Identity and Access Management (IAM) service role to use
+    -- to publish Amazon Simple Notification Service (Amazon SNS) notifications
+    -- for Run Command commands.
+    --
+    -- This role must provide the @sns:Publish@ permission for your
+    -- notification topic. For information about creating and using this
+    -- service role, see
+    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html Monitoring Systems Manager status changes using Amazon SNS notifications>
+    -- in the /Amazon Web Services Systems Manager User Guide/.
+    serviceRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | An array of search criteria that targets managed nodes using a
+    -- @Key,Value@ combination that you specify. Specifying targets is most
+    -- useful when you want to send a command to a large number of managed
+    -- nodes at once. Using @Targets@, which accepts tag key-value pairs to
+    -- identify managed nodes, you can send a command to tens, hundreds, or
+    -- thousands of nodes at once.
+    --
+    -- To send a command to a smaller number of managed nodes, you can use the
+    -- @InstanceIds@ option instead.
+    --
+    -- For more information about how to use targets, see
+    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Sending commands to a fleet>
+    -- in the /Amazon Web Services Systems Manager User Guide/.
+    targets :: Prelude.Maybe [Target],
+    -- | If this time is reached and the command hasn\'t already started running,
+    -- it won\'t run.
+    timeoutSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The name of the Amazon Web Services Systems Manager document (SSM
     -- document) to run. This can be a public document or a custom document. To
     -- run a shared document belonging to another account, specify the document
@@ -189,45 +189,49 @@ data SendCommand = SendCommand'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serviceRoleArn', 'sendCommand_serviceRoleArn' - The ARN of the Identity and Access Management (IAM) service role to use
--- to publish Amazon Simple Notification Service (Amazon SNS) notifications
--- for Run Command commands.
---
--- This role must provide the @sns:Publish@ permission for your
--- notification topic. For information about creating and using this
--- service role, see
--- <https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html Monitoring Systems Manager status changes using Amazon SNS notifications>
--- in the /Amazon Web Services Systems Manager User Guide/.
---
--- 'timeoutSeconds', 'sendCommand_timeoutSeconds' - If this time is reached and the command hasn\'t already started running,
--- it won\'t run.
+-- 'alarmConfiguration', 'sendCommand_alarmConfiguration' - The CloudWatch alarm you want to apply to your command.
 --
 -- 'cloudWatchOutputConfig', 'sendCommand_cloudWatchOutputConfig' - Enables Amazon Web Services Systems Manager to send Run Command output
 -- to Amazon CloudWatch Logs. Run Command is a capability of Amazon Web
 -- Services Systems Manager.
 --
--- 'outputS3Region', 'sendCommand_outputS3Region' - (Deprecated) You can no longer specify this parameter. The system
--- ignores it. Instead, Systems Manager automatically determines the Amazon
--- Web Services Region of the S3 bucket.
---
--- 'targets', 'sendCommand_targets' - An array of search criteria that targets managed nodes using a
--- @Key,Value@ combination that you specify. Specifying targets is most
--- useful when you want to send a command to a large number of managed
--- nodes at once. Using @Targets@, which accepts tag key-value pairs to
--- identify managed nodes, you can send a command to tens, hundreds, or
--- thousands of nodes at once.
---
--- To send a command to a smaller number of managed nodes, you can use the
--- @InstanceIds@ option instead.
---
--- For more information about how to use targets, see
--- <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Sending commands to a fleet>
--- in the /Amazon Web Services Systems Manager User Guide/.
---
 -- 'comment', 'sendCommand_comment' - User-specified information about the command, such as a brief
 -- description of what the command should do.
 --
--- 'alarmConfiguration', 'sendCommand_alarmConfiguration' - The CloudWatch alarm you want to apply to your command.
+-- 'documentHash', 'sendCommand_documentHash' - The Sha256 or Sha1 hash created by the system when the document was
+-- created.
+--
+-- Sha1 hashes have been deprecated.
+--
+-- 'documentHashType', 'sendCommand_documentHashType' - Sha256 or Sha1.
+--
+-- Sha1 hashes have been deprecated.
+--
+-- 'documentVersion', 'sendCommand_documentVersion' - The SSM document version to use in the request. You can specify
+-- \$DEFAULT, $LATEST, or a specific version number. If you run commands by
+-- using the Command Line Interface (Amazon Web Services CLI), then you
+-- must escape the first two options by using a backslash. If you specify a
+-- version number, then you don\'t need to use the backslash. For example:
+--
+-- --document-version \"\\$DEFAULT\"
+--
+-- --document-version \"\\$LATEST\"
+--
+-- --document-version \"3\"
+--
+-- 'instanceIds', 'sendCommand_instanceIds' - The IDs of the managed nodes where the command should run. Specifying
+-- managed node IDs is most useful when you are targeting a limited number
+-- of managed nodes, though you can specify up to 50 IDs.
+--
+-- To target a larger number of managed nodes, or if you prefer not to list
+-- individual node IDs, we recommend using the @Targets@ option instead.
+-- Using @Targets@, which accepts tag key-value pairs to identify the
+-- managed nodes to send commands to, you can a send command to tens,
+-- hundreds, or thousands of nodes at once.
+--
+-- For more information about how to use targets, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Using targets and rate controls to send commands to a fleet>
+-- in the /Amazon Web Services Systems Manager User Guide/.
 --
 -- 'maxConcurrency', 'sendCommand_maxConcurrency' - (Optional) The maximum number of managed nodes that are allowed to run
 -- the command at the same time. You can specify a number such as 10 or a
@@ -246,49 +250,45 @@ data SendCommand = SendCommand'
 --
 -- 'notificationConfig', 'sendCommand_notificationConfig' - Configurations for sending notifications.
 --
--- 'documentHashType', 'sendCommand_documentHashType' - Sha256 or Sha1.
---
--- Sha1 hashes have been deprecated.
---
--- 'instanceIds', 'sendCommand_instanceIds' - The IDs of the managed nodes where the command should run. Specifying
--- managed node IDs is most useful when you are targeting a limited number
--- of managed nodes, though you can specify up to 50 IDs.
---
--- To target a larger number of managed nodes, or if you prefer not to list
--- individual node IDs, we recommend using the @Targets@ option instead.
--- Using @Targets@, which accepts tag key-value pairs to identify the
--- managed nodes to send commands to, you can a send command to tens,
--- hundreds, or thousands of nodes at once.
---
--- For more information about how to use targets, see
--- <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Using targets and rate controls to send commands to a fleet>
--- in the /Amazon Web Services Systems Manager User Guide/.
---
 -- 'outputS3BucketName', 'sendCommand_outputS3BucketName' - The name of the S3 bucket where command execution responses should be
 -- stored.
---
--- 'documentHash', 'sendCommand_documentHash' - The Sha256 or Sha1 hash created by the system when the document was
--- created.
---
--- Sha1 hashes have been deprecated.
 --
 -- 'outputS3KeyPrefix', 'sendCommand_outputS3KeyPrefix' - The directory structure within the S3 bucket where the responses should
 -- be stored.
 --
--- 'documentVersion', 'sendCommand_documentVersion' - The SSM document version to use in the request. You can specify
--- \$DEFAULT, $LATEST, or a specific version number. If you run commands by
--- using the Command Line Interface (Amazon Web Services CLI), then you
--- must escape the first two options by using a backslash. If you specify a
--- version number, then you don\'t need to use the backslash. For example:
---
--- --document-version \"\\$DEFAULT\"
---
--- --document-version \"\\$LATEST\"
---
--- --document-version \"3\"
+-- 'outputS3Region', 'sendCommand_outputS3Region' - (Deprecated) You can no longer specify this parameter. The system
+-- ignores it. Instead, Systems Manager automatically determines the Amazon
+-- Web Services Region of the S3 bucket.
 --
 -- 'parameters', 'sendCommand_parameters' - The required and optional parameters specified in the document being
 -- run.
+--
+-- 'serviceRoleArn', 'sendCommand_serviceRoleArn' - The ARN of the Identity and Access Management (IAM) service role to use
+-- to publish Amazon Simple Notification Service (Amazon SNS) notifications
+-- for Run Command commands.
+--
+-- This role must provide the @sns:Publish@ permission for your
+-- notification topic. For information about creating and using this
+-- service role, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html Monitoring Systems Manager status changes using Amazon SNS notifications>
+-- in the /Amazon Web Services Systems Manager User Guide/.
+--
+-- 'targets', 'sendCommand_targets' - An array of search criteria that targets managed nodes using a
+-- @Key,Value@ combination that you specify. Specifying targets is most
+-- useful when you want to send a command to a large number of managed
+-- nodes at once. Using @Targets@, which accepts tag key-value pairs to
+-- identify managed nodes, you can send a command to tens, hundreds, or
+-- thousands of nodes at once.
+--
+-- To send a command to a smaller number of managed nodes, you can use the
+-- @InstanceIds@ option instead.
+--
+-- For more information about how to use targets, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Sending commands to a fleet>
+-- in the /Amazon Web Services Systems Manager User Guide/.
+--
+-- 'timeoutSeconds', 'sendCommand_timeoutSeconds' - If this time is reached and the command hasn\'t already started running,
+-- it won\'t run.
 --
 -- 'documentName', 'sendCommand_documentName' - The name of the Amazon Web Services Systems Manager document (SSM
 -- document) to run. This can be a public document or a custom document. To
@@ -306,42 +306,29 @@ newSendCommand ::
   SendCommand
 newSendCommand pDocumentName_ =
   SendCommand'
-    { serviceRoleArn = Prelude.Nothing,
-      timeoutSeconds = Prelude.Nothing,
+    { alarmConfiguration = Prelude.Nothing,
       cloudWatchOutputConfig = Prelude.Nothing,
-      outputS3Region = Prelude.Nothing,
-      targets = Prelude.Nothing,
       comment = Prelude.Nothing,
-      alarmConfiguration = Prelude.Nothing,
+      documentHash = Prelude.Nothing,
+      documentHashType = Prelude.Nothing,
+      documentVersion = Prelude.Nothing,
+      instanceIds = Prelude.Nothing,
       maxConcurrency = Prelude.Nothing,
       maxErrors = Prelude.Nothing,
       notificationConfig = Prelude.Nothing,
-      documentHashType = Prelude.Nothing,
-      instanceIds = Prelude.Nothing,
       outputS3BucketName = Prelude.Nothing,
-      documentHash = Prelude.Nothing,
       outputS3KeyPrefix = Prelude.Nothing,
-      documentVersion = Prelude.Nothing,
+      outputS3Region = Prelude.Nothing,
       parameters = Prelude.Nothing,
+      serviceRoleArn = Prelude.Nothing,
+      targets = Prelude.Nothing,
+      timeoutSeconds = Prelude.Nothing,
       documentName = pDocumentName_
     }
 
--- | The ARN of the Identity and Access Management (IAM) service role to use
--- to publish Amazon Simple Notification Service (Amazon SNS) notifications
--- for Run Command commands.
---
--- This role must provide the @sns:Publish@ permission for your
--- notification topic. For information about creating and using this
--- service role, see
--- <https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html Monitoring Systems Manager status changes using Amazon SNS notifications>
--- in the /Amazon Web Services Systems Manager User Guide/.
-sendCommand_serviceRoleArn :: Lens.Lens' SendCommand (Prelude.Maybe Prelude.Text)
-sendCommand_serviceRoleArn = Lens.lens (\SendCommand' {serviceRoleArn} -> serviceRoleArn) (\s@SendCommand' {} a -> s {serviceRoleArn = a} :: SendCommand)
-
--- | If this time is reached and the command hasn\'t already started running,
--- it won\'t run.
-sendCommand_timeoutSeconds :: Lens.Lens' SendCommand (Prelude.Maybe Prelude.Natural)
-sendCommand_timeoutSeconds = Lens.lens (\SendCommand' {timeoutSeconds} -> timeoutSeconds) (\s@SendCommand' {} a -> s {timeoutSeconds = a} :: SendCommand)
+-- | The CloudWatch alarm you want to apply to your command.
+sendCommand_alarmConfiguration :: Lens.Lens' SendCommand (Prelude.Maybe AlarmConfiguration)
+sendCommand_alarmConfiguration = Lens.lens (\SendCommand' {alarmConfiguration} -> alarmConfiguration) (\s@SendCommand' {} a -> s {alarmConfiguration = a} :: SendCommand)
 
 -- | Enables Amazon Web Services Systems Manager to send Run Command output
 -- to Amazon CloudWatch Logs. Run Command is a capability of Amazon Web
@@ -349,36 +336,53 @@ sendCommand_timeoutSeconds = Lens.lens (\SendCommand' {timeoutSeconds} -> timeou
 sendCommand_cloudWatchOutputConfig :: Lens.Lens' SendCommand (Prelude.Maybe CloudWatchOutputConfig)
 sendCommand_cloudWatchOutputConfig = Lens.lens (\SendCommand' {cloudWatchOutputConfig} -> cloudWatchOutputConfig) (\s@SendCommand' {} a -> s {cloudWatchOutputConfig = a} :: SendCommand)
 
--- | (Deprecated) You can no longer specify this parameter. The system
--- ignores it. Instead, Systems Manager automatically determines the Amazon
--- Web Services Region of the S3 bucket.
-sendCommand_outputS3Region :: Lens.Lens' SendCommand (Prelude.Maybe Prelude.Text)
-sendCommand_outputS3Region = Lens.lens (\SendCommand' {outputS3Region} -> outputS3Region) (\s@SendCommand' {} a -> s {outputS3Region = a} :: SendCommand)
-
--- | An array of search criteria that targets managed nodes using a
--- @Key,Value@ combination that you specify. Specifying targets is most
--- useful when you want to send a command to a large number of managed
--- nodes at once. Using @Targets@, which accepts tag key-value pairs to
--- identify managed nodes, you can send a command to tens, hundreds, or
--- thousands of nodes at once.
---
--- To send a command to a smaller number of managed nodes, you can use the
--- @InstanceIds@ option instead.
---
--- For more information about how to use targets, see
--- <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Sending commands to a fleet>
--- in the /Amazon Web Services Systems Manager User Guide/.
-sendCommand_targets :: Lens.Lens' SendCommand (Prelude.Maybe [Target])
-sendCommand_targets = Lens.lens (\SendCommand' {targets} -> targets) (\s@SendCommand' {} a -> s {targets = a} :: SendCommand) Prelude.. Lens.mapping Lens.coerced
-
 -- | User-specified information about the command, such as a brief
 -- description of what the command should do.
 sendCommand_comment :: Lens.Lens' SendCommand (Prelude.Maybe Prelude.Text)
 sendCommand_comment = Lens.lens (\SendCommand' {comment} -> comment) (\s@SendCommand' {} a -> s {comment = a} :: SendCommand)
 
--- | The CloudWatch alarm you want to apply to your command.
-sendCommand_alarmConfiguration :: Lens.Lens' SendCommand (Prelude.Maybe AlarmConfiguration)
-sendCommand_alarmConfiguration = Lens.lens (\SendCommand' {alarmConfiguration} -> alarmConfiguration) (\s@SendCommand' {} a -> s {alarmConfiguration = a} :: SendCommand)
+-- | The Sha256 or Sha1 hash created by the system when the document was
+-- created.
+--
+-- Sha1 hashes have been deprecated.
+sendCommand_documentHash :: Lens.Lens' SendCommand (Prelude.Maybe Prelude.Text)
+sendCommand_documentHash = Lens.lens (\SendCommand' {documentHash} -> documentHash) (\s@SendCommand' {} a -> s {documentHash = a} :: SendCommand)
+
+-- | Sha256 or Sha1.
+--
+-- Sha1 hashes have been deprecated.
+sendCommand_documentHashType :: Lens.Lens' SendCommand (Prelude.Maybe DocumentHashType)
+sendCommand_documentHashType = Lens.lens (\SendCommand' {documentHashType} -> documentHashType) (\s@SendCommand' {} a -> s {documentHashType = a} :: SendCommand)
+
+-- | The SSM document version to use in the request. You can specify
+-- \$DEFAULT, $LATEST, or a specific version number. If you run commands by
+-- using the Command Line Interface (Amazon Web Services CLI), then you
+-- must escape the first two options by using a backslash. If you specify a
+-- version number, then you don\'t need to use the backslash. For example:
+--
+-- --document-version \"\\$DEFAULT\"
+--
+-- --document-version \"\\$LATEST\"
+--
+-- --document-version \"3\"
+sendCommand_documentVersion :: Lens.Lens' SendCommand (Prelude.Maybe Prelude.Text)
+sendCommand_documentVersion = Lens.lens (\SendCommand' {documentVersion} -> documentVersion) (\s@SendCommand' {} a -> s {documentVersion = a} :: SendCommand)
+
+-- | The IDs of the managed nodes where the command should run. Specifying
+-- managed node IDs is most useful when you are targeting a limited number
+-- of managed nodes, though you can specify up to 50 IDs.
+--
+-- To target a larger number of managed nodes, or if you prefer not to list
+-- individual node IDs, we recommend using the @Targets@ option instead.
+-- Using @Targets@, which accepts tag key-value pairs to identify the
+-- managed nodes to send commands to, you can a send command to tens,
+-- hundreds, or thousands of nodes at once.
+--
+-- For more information about how to use targets, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Using targets and rate controls to send commands to a fleet>
+-- in the /Amazon Web Services Systems Manager User Guide/.
+sendCommand_instanceIds :: Lens.Lens' SendCommand (Prelude.Maybe [Prelude.Text])
+sendCommand_instanceIds = Lens.lens (\SendCommand' {instanceIds} -> instanceIds) (\s@SendCommand' {} a -> s {instanceIds = a} :: SendCommand) Prelude.. Lens.mapping Lens.coerced
 
 -- | (Optional) The maximum number of managed nodes that are allowed to run
 -- the command at the same time. You can specify a number such as 10 or a
@@ -403,63 +407,59 @@ sendCommand_maxErrors = Lens.lens (\SendCommand' {maxErrors} -> maxErrors) (\s@S
 sendCommand_notificationConfig :: Lens.Lens' SendCommand (Prelude.Maybe NotificationConfig)
 sendCommand_notificationConfig = Lens.lens (\SendCommand' {notificationConfig} -> notificationConfig) (\s@SendCommand' {} a -> s {notificationConfig = a} :: SendCommand)
 
--- | Sha256 or Sha1.
---
--- Sha1 hashes have been deprecated.
-sendCommand_documentHashType :: Lens.Lens' SendCommand (Prelude.Maybe DocumentHashType)
-sendCommand_documentHashType = Lens.lens (\SendCommand' {documentHashType} -> documentHashType) (\s@SendCommand' {} a -> s {documentHashType = a} :: SendCommand)
-
--- | The IDs of the managed nodes where the command should run. Specifying
--- managed node IDs is most useful when you are targeting a limited number
--- of managed nodes, though you can specify up to 50 IDs.
---
--- To target a larger number of managed nodes, or if you prefer not to list
--- individual node IDs, we recommend using the @Targets@ option instead.
--- Using @Targets@, which accepts tag key-value pairs to identify the
--- managed nodes to send commands to, you can a send command to tens,
--- hundreds, or thousands of nodes at once.
---
--- For more information about how to use targets, see
--- <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Using targets and rate controls to send commands to a fleet>
--- in the /Amazon Web Services Systems Manager User Guide/.
-sendCommand_instanceIds :: Lens.Lens' SendCommand (Prelude.Maybe [Prelude.Text])
-sendCommand_instanceIds = Lens.lens (\SendCommand' {instanceIds} -> instanceIds) (\s@SendCommand' {} a -> s {instanceIds = a} :: SendCommand) Prelude.. Lens.mapping Lens.coerced
-
 -- | The name of the S3 bucket where command execution responses should be
 -- stored.
 sendCommand_outputS3BucketName :: Lens.Lens' SendCommand (Prelude.Maybe Prelude.Text)
 sendCommand_outputS3BucketName = Lens.lens (\SendCommand' {outputS3BucketName} -> outputS3BucketName) (\s@SendCommand' {} a -> s {outputS3BucketName = a} :: SendCommand)
-
--- | The Sha256 or Sha1 hash created by the system when the document was
--- created.
---
--- Sha1 hashes have been deprecated.
-sendCommand_documentHash :: Lens.Lens' SendCommand (Prelude.Maybe Prelude.Text)
-sendCommand_documentHash = Lens.lens (\SendCommand' {documentHash} -> documentHash) (\s@SendCommand' {} a -> s {documentHash = a} :: SendCommand)
 
 -- | The directory structure within the S3 bucket where the responses should
 -- be stored.
 sendCommand_outputS3KeyPrefix :: Lens.Lens' SendCommand (Prelude.Maybe Prelude.Text)
 sendCommand_outputS3KeyPrefix = Lens.lens (\SendCommand' {outputS3KeyPrefix} -> outputS3KeyPrefix) (\s@SendCommand' {} a -> s {outputS3KeyPrefix = a} :: SendCommand)
 
--- | The SSM document version to use in the request. You can specify
--- \$DEFAULT, $LATEST, or a specific version number. If you run commands by
--- using the Command Line Interface (Amazon Web Services CLI), then you
--- must escape the first two options by using a backslash. If you specify a
--- version number, then you don\'t need to use the backslash. For example:
---
--- --document-version \"\\$DEFAULT\"
---
--- --document-version \"\\$LATEST\"
---
--- --document-version \"3\"
-sendCommand_documentVersion :: Lens.Lens' SendCommand (Prelude.Maybe Prelude.Text)
-sendCommand_documentVersion = Lens.lens (\SendCommand' {documentVersion} -> documentVersion) (\s@SendCommand' {} a -> s {documentVersion = a} :: SendCommand)
+-- | (Deprecated) You can no longer specify this parameter. The system
+-- ignores it. Instead, Systems Manager automatically determines the Amazon
+-- Web Services Region of the S3 bucket.
+sendCommand_outputS3Region :: Lens.Lens' SendCommand (Prelude.Maybe Prelude.Text)
+sendCommand_outputS3Region = Lens.lens (\SendCommand' {outputS3Region} -> outputS3Region) (\s@SendCommand' {} a -> s {outputS3Region = a} :: SendCommand)
 
 -- | The required and optional parameters specified in the document being
 -- run.
 sendCommand_parameters :: Lens.Lens' SendCommand (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
 sendCommand_parameters = Lens.lens (\SendCommand' {parameters} -> parameters) (\s@SendCommand' {} a -> s {parameters = a} :: SendCommand) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
+
+-- | The ARN of the Identity and Access Management (IAM) service role to use
+-- to publish Amazon Simple Notification Service (Amazon SNS) notifications
+-- for Run Command commands.
+--
+-- This role must provide the @sns:Publish@ permission for your
+-- notification topic. For information about creating and using this
+-- service role, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html Monitoring Systems Manager status changes using Amazon SNS notifications>
+-- in the /Amazon Web Services Systems Manager User Guide/.
+sendCommand_serviceRoleArn :: Lens.Lens' SendCommand (Prelude.Maybe Prelude.Text)
+sendCommand_serviceRoleArn = Lens.lens (\SendCommand' {serviceRoleArn} -> serviceRoleArn) (\s@SendCommand' {} a -> s {serviceRoleArn = a} :: SendCommand)
+
+-- | An array of search criteria that targets managed nodes using a
+-- @Key,Value@ combination that you specify. Specifying targets is most
+-- useful when you want to send a command to a large number of managed
+-- nodes at once. Using @Targets@, which accepts tag key-value pairs to
+-- identify managed nodes, you can send a command to tens, hundreds, or
+-- thousands of nodes at once.
+--
+-- To send a command to a smaller number of managed nodes, you can use the
+-- @InstanceIds@ option instead.
+--
+-- For more information about how to use targets, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Sending commands to a fleet>
+-- in the /Amazon Web Services Systems Manager User Guide/.
+sendCommand_targets :: Lens.Lens' SendCommand (Prelude.Maybe [Target])
+sendCommand_targets = Lens.lens (\SendCommand' {targets} -> targets) (\s@SendCommand' {} a -> s {targets = a} :: SendCommand) Prelude.. Lens.mapping Lens.coerced
+
+-- | If this time is reached and the command hasn\'t already started running,
+-- it won\'t run.
+sendCommand_timeoutSeconds :: Lens.Lens' SendCommand (Prelude.Maybe Prelude.Natural)
+sendCommand_timeoutSeconds = Lens.lens (\SendCommand' {timeoutSeconds} -> timeoutSeconds) (\s@SendCommand' {} a -> s {timeoutSeconds = a} :: SendCommand)
 
 -- | The name of the Amazon Web Services Systems Manager document (SSM
 -- document) to run. This can be a public document or a custom document. To
@@ -488,44 +488,44 @@ instance Core.AWSRequest SendCommand where
 
 instance Prelude.Hashable SendCommand where
   hashWithSalt _salt SendCommand' {..} =
-    _salt `Prelude.hashWithSalt` serviceRoleArn
-      `Prelude.hashWithSalt` timeoutSeconds
+    _salt `Prelude.hashWithSalt` alarmConfiguration
       `Prelude.hashWithSalt` cloudWatchOutputConfig
-      `Prelude.hashWithSalt` outputS3Region
-      `Prelude.hashWithSalt` targets
       `Prelude.hashWithSalt` comment
-      `Prelude.hashWithSalt` alarmConfiguration
+      `Prelude.hashWithSalt` documentHash
+      `Prelude.hashWithSalt` documentHashType
+      `Prelude.hashWithSalt` documentVersion
+      `Prelude.hashWithSalt` instanceIds
       `Prelude.hashWithSalt` maxConcurrency
       `Prelude.hashWithSalt` maxErrors
       `Prelude.hashWithSalt` notificationConfig
-      `Prelude.hashWithSalt` documentHashType
-      `Prelude.hashWithSalt` instanceIds
       `Prelude.hashWithSalt` outputS3BucketName
-      `Prelude.hashWithSalt` documentHash
       `Prelude.hashWithSalt` outputS3KeyPrefix
-      `Prelude.hashWithSalt` documentVersion
+      `Prelude.hashWithSalt` outputS3Region
       `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` serviceRoleArn
+      `Prelude.hashWithSalt` targets
+      `Prelude.hashWithSalt` timeoutSeconds
       `Prelude.hashWithSalt` documentName
 
 instance Prelude.NFData SendCommand where
   rnf SendCommand' {..} =
-    Prelude.rnf serviceRoleArn
-      `Prelude.seq` Prelude.rnf timeoutSeconds
+    Prelude.rnf alarmConfiguration
       `Prelude.seq` Prelude.rnf cloudWatchOutputConfig
-      `Prelude.seq` Prelude.rnf outputS3Region
-      `Prelude.seq` Prelude.rnf targets
       `Prelude.seq` Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf alarmConfiguration
+      `Prelude.seq` Prelude.rnf documentHash
+      `Prelude.seq` Prelude.rnf documentHashType
+      `Prelude.seq` Prelude.rnf documentVersion
+      `Prelude.seq` Prelude.rnf instanceIds
       `Prelude.seq` Prelude.rnf maxConcurrency
       `Prelude.seq` Prelude.rnf maxErrors
       `Prelude.seq` Prelude.rnf notificationConfig
-      `Prelude.seq` Prelude.rnf documentHashType
-      `Prelude.seq` Prelude.rnf instanceIds
       `Prelude.seq` Prelude.rnf outputS3BucketName
-      `Prelude.seq` Prelude.rnf documentHash
       `Prelude.seq` Prelude.rnf outputS3KeyPrefix
-      `Prelude.seq` Prelude.rnf documentVersion
+      `Prelude.seq` Prelude.rnf outputS3Region
       `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf serviceRoleArn
+      `Prelude.seq` Prelude.rnf targets
+      `Prelude.seq` Prelude.rnf timeoutSeconds
       `Prelude.seq` Prelude.rnf documentName
 
 instance Data.ToHeaders SendCommand where
@@ -545,34 +545,34 @@ instance Data.ToJSON SendCommand where
   toJSON SendCommand' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ServiceRoleArn" Data..=)
-              Prelude.<$> serviceRoleArn,
-            ("TimeoutSeconds" Data..=)
-              Prelude.<$> timeoutSeconds,
+          [ ("AlarmConfiguration" Data..=)
+              Prelude.<$> alarmConfiguration,
             ("CloudWatchOutputConfig" Data..=)
               Prelude.<$> cloudWatchOutputConfig,
-            ("OutputS3Region" Data..=)
-              Prelude.<$> outputS3Region,
-            ("Targets" Data..=) Prelude.<$> targets,
             ("Comment" Data..=) Prelude.<$> comment,
-            ("AlarmConfiguration" Data..=)
-              Prelude.<$> alarmConfiguration,
+            ("DocumentHash" Data..=) Prelude.<$> documentHash,
+            ("DocumentHashType" Data..=)
+              Prelude.<$> documentHashType,
+            ("DocumentVersion" Data..=)
+              Prelude.<$> documentVersion,
+            ("InstanceIds" Data..=) Prelude.<$> instanceIds,
             ("MaxConcurrency" Data..=)
               Prelude.<$> maxConcurrency,
             ("MaxErrors" Data..=) Prelude.<$> maxErrors,
             ("NotificationConfig" Data..=)
               Prelude.<$> notificationConfig,
-            ("DocumentHashType" Data..=)
-              Prelude.<$> documentHashType,
-            ("InstanceIds" Data..=) Prelude.<$> instanceIds,
             ("OutputS3BucketName" Data..=)
               Prelude.<$> outputS3BucketName,
-            ("DocumentHash" Data..=) Prelude.<$> documentHash,
             ("OutputS3KeyPrefix" Data..=)
               Prelude.<$> outputS3KeyPrefix,
-            ("DocumentVersion" Data..=)
-              Prelude.<$> documentVersion,
+            ("OutputS3Region" Data..=)
+              Prelude.<$> outputS3Region,
             ("Parameters" Data..=) Prelude.<$> parameters,
+            ("ServiceRoleArn" Data..=)
+              Prelude.<$> serviceRoleArn,
+            ("Targets" Data..=) Prelude.<$> targets,
+            ("TimeoutSeconds" Data..=)
+              Prelude.<$> timeoutSeconds,
             Prelude.Just ("DocumentName" Data..= documentName)
           ]
       )

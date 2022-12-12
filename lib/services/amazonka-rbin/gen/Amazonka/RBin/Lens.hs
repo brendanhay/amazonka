@@ -15,21 +15,21 @@ module Amazonka.RBin.Lens
   ( -- * Operations
 
     -- ** CreateRule
-    createRule_tags,
+    createRule_description,
     createRule_lockConfiguration,
     createRule_resourceTags,
-    createRule_description,
+    createRule_tags,
     createRule_retentionPeriod,
     createRule_resourceType,
-    createRuleResponse_tags,
-    createRuleResponse_resourceType,
-    createRuleResponse_lockState,
-    createRuleResponse_lockConfiguration,
-    createRuleResponse_status,
-    createRuleResponse_resourceTags,
     createRuleResponse_description,
-    createRuleResponse_retentionPeriod,
     createRuleResponse_identifier,
+    createRuleResponse_lockConfiguration,
+    createRuleResponse_lockState,
+    createRuleResponse_resourceTags,
+    createRuleResponse_resourceType,
+    createRuleResponse_retentionPeriod,
+    createRuleResponse_status,
+    createRuleResponse_tags,
     createRuleResponse_httpStatus,
 
     -- ** DeleteRule
@@ -38,22 +38,22 @@ module Amazonka.RBin.Lens
 
     -- ** GetRule
     getRule_identifier,
-    getRuleResponse_resourceType,
-    getRuleResponse_lockState,
-    getRuleResponse_lockConfiguration,
-    getRuleResponse_status,
-    getRuleResponse_resourceTags,
     getRuleResponse_description,
-    getRuleResponse_lockEndTime,
-    getRuleResponse_retentionPeriod,
     getRuleResponse_identifier,
+    getRuleResponse_lockConfiguration,
+    getRuleResponse_lockEndTime,
+    getRuleResponse_lockState,
+    getRuleResponse_resourceTags,
+    getRuleResponse_resourceType,
+    getRuleResponse_retentionPeriod,
+    getRuleResponse_status,
     getRuleResponse_httpStatus,
 
     -- ** ListRules
-    listRules_nextToken,
     listRules_lockState,
-    listRules_resourceTags,
     listRules_maxResults,
+    listRules_nextToken,
+    listRules_resourceTags,
     listRules_resourceType,
     listRulesResponse_nextToken,
     listRulesResponse_rules,
@@ -67,14 +67,14 @@ module Amazonka.RBin.Lens
     -- ** LockRule
     lockRule_identifier,
     lockRule_lockConfiguration,
-    lockRuleResponse_resourceType,
-    lockRuleResponse_lockState,
-    lockRuleResponse_lockConfiguration,
-    lockRuleResponse_status,
-    lockRuleResponse_resourceTags,
     lockRuleResponse_description,
-    lockRuleResponse_retentionPeriod,
     lockRuleResponse_identifier,
+    lockRuleResponse_lockConfiguration,
+    lockRuleResponse_lockState,
+    lockRuleResponse_resourceTags,
+    lockRuleResponse_resourceType,
+    lockRuleResponse_retentionPeriod,
+    lockRuleResponse_status,
     lockRuleResponse_httpStatus,
 
     -- ** TagResource
@@ -84,15 +84,15 @@ module Amazonka.RBin.Lens
 
     -- ** UnlockRule
     unlockRule_identifier,
-    unlockRuleResponse_resourceType,
-    unlockRuleResponse_lockState,
-    unlockRuleResponse_lockConfiguration,
-    unlockRuleResponse_status,
-    unlockRuleResponse_resourceTags,
     unlockRuleResponse_description,
-    unlockRuleResponse_lockEndTime,
-    unlockRuleResponse_retentionPeriod,
     unlockRuleResponse_identifier,
+    unlockRuleResponse_lockConfiguration,
+    unlockRuleResponse_lockEndTime,
+    unlockRuleResponse_lockState,
+    unlockRuleResponse_resourceTags,
+    unlockRuleResponse_resourceType,
+    unlockRuleResponse_retentionPeriod,
+    unlockRuleResponse_status,
     unlockRuleResponse_httpStatus,
 
     -- ** UntagResource
@@ -101,19 +101,19 @@ module Amazonka.RBin.Lens
     untagResourceResponse_httpStatus,
 
     -- ** UpdateRule
-    updateRule_resourceType,
-    updateRule_resourceTags,
     updateRule_description,
+    updateRule_resourceTags,
+    updateRule_resourceType,
     updateRule_retentionPeriod,
     updateRule_identifier,
-    updateRuleResponse_resourceType,
-    updateRuleResponse_lockState,
-    updateRuleResponse_status,
-    updateRuleResponse_resourceTags,
     updateRuleResponse_description,
-    updateRuleResponse_lockEndTime,
-    updateRuleResponse_retentionPeriod,
     updateRuleResponse_identifier,
+    updateRuleResponse_lockEndTime,
+    updateRuleResponse_lockState,
+    updateRuleResponse_resourceTags,
+    updateRuleResponse_resourceType,
+    updateRuleResponse_retentionPeriod,
+    updateRuleResponse_status,
     updateRuleResponse_httpStatus,
 
     -- * Types
@@ -130,10 +130,10 @@ module Amazonka.RBin.Lens
     retentionPeriod_retentionPeriodUnit,
 
     -- ** RuleSummary
-    ruleSummary_lockState,
     ruleSummary_description,
-    ruleSummary_retentionPeriod,
     ruleSummary_identifier,
+    ruleSummary_lockState,
+    ruleSummary_retentionPeriod,
 
     -- ** Tag
     tag_key,

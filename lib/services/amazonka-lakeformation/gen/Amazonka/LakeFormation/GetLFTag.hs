@@ -35,9 +35,9 @@ module Amazonka.LakeFormation.GetLFTag
     newGetLFTagResponse,
 
     -- * Response Lenses
-    getLFTagResponse_tagValues,
-    getLFTagResponse_tagKey,
     getLFTagResponse_catalogId,
+    getLFTagResponse_tagKey,
+    getLFTagResponse_tagValues,
     getLFTagResponse_httpStatus,
   )
 where
@@ -105,9 +105,9 @@ instance Core.AWSRequest GetLFTag where
     Response.receiveJSON
       ( \s h x ->
           GetLFTagResponse'
-            Prelude.<$> (x Data..?> "TagValues")
+            Prelude.<$> (x Data..?> "CatalogId")
             Prelude.<*> (x Data..?> "TagKey")
-            Prelude.<*> (x Data..?> "CatalogId")
+            Prelude.<*> (x Data..?> "TagValues")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -149,15 +149,15 @@ instance Data.ToQuery GetLFTag where
 
 -- | /See:/ 'newGetLFTagResponse' smart constructor.
 data GetLFTagResponse = GetLFTagResponse'
-  { -- | A list of possible values an attribute can take.
-    tagValues :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The key-name for the LF-tag.
-    tagKey :: Prelude.Maybe Prelude.Text,
-    -- | The identifier for the Data Catalog. By default, the account ID. The
+  { -- | The identifier for the Data Catalog. By default, the account ID. The
     -- Data Catalog is the persistent metadata store. It contains database
     -- definitions, table definitions, and other control information to manage
     -- your Lake Formation environment.
     catalogId :: Prelude.Maybe Prelude.Text,
+    -- | The key-name for the LF-tag.
+    tagKey :: Prelude.Maybe Prelude.Text,
+    -- | A list of possible values an attribute can take.
+    tagValues :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -171,14 +171,14 @@ data GetLFTagResponse = GetLFTagResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tagValues', 'getLFTagResponse_tagValues' - A list of possible values an attribute can take.
---
--- 'tagKey', 'getLFTagResponse_tagKey' - The key-name for the LF-tag.
---
 -- 'catalogId', 'getLFTagResponse_catalogId' - The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
 -- definitions, table definitions, and other control information to manage
 -- your Lake Formation environment.
+--
+-- 'tagKey', 'getLFTagResponse_tagKey' - The key-name for the LF-tag.
+--
+-- 'tagValues', 'getLFTagResponse_tagValues' - A list of possible values an attribute can take.
 --
 -- 'httpStatus', 'getLFTagResponse_httpStatus' - The response's http status code.
 newGetLFTagResponse ::
@@ -187,19 +187,11 @@ newGetLFTagResponse ::
   GetLFTagResponse
 newGetLFTagResponse pHttpStatus_ =
   GetLFTagResponse'
-    { tagValues = Prelude.Nothing,
+    { catalogId = Prelude.Nothing,
       tagKey = Prelude.Nothing,
-      catalogId = Prelude.Nothing,
+      tagValues = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of possible values an attribute can take.
-getLFTagResponse_tagValues :: Lens.Lens' GetLFTagResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-getLFTagResponse_tagValues = Lens.lens (\GetLFTagResponse' {tagValues} -> tagValues) (\s@GetLFTagResponse' {} a -> s {tagValues = a} :: GetLFTagResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The key-name for the LF-tag.
-getLFTagResponse_tagKey :: Lens.Lens' GetLFTagResponse (Prelude.Maybe Prelude.Text)
-getLFTagResponse_tagKey = Lens.lens (\GetLFTagResponse' {tagKey} -> tagKey) (\s@GetLFTagResponse' {} a -> s {tagKey = a} :: GetLFTagResponse)
 
 -- | The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
@@ -208,13 +200,21 @@ getLFTagResponse_tagKey = Lens.lens (\GetLFTagResponse' {tagKey} -> tagKey) (\s@
 getLFTagResponse_catalogId :: Lens.Lens' GetLFTagResponse (Prelude.Maybe Prelude.Text)
 getLFTagResponse_catalogId = Lens.lens (\GetLFTagResponse' {catalogId} -> catalogId) (\s@GetLFTagResponse' {} a -> s {catalogId = a} :: GetLFTagResponse)
 
+-- | The key-name for the LF-tag.
+getLFTagResponse_tagKey :: Lens.Lens' GetLFTagResponse (Prelude.Maybe Prelude.Text)
+getLFTagResponse_tagKey = Lens.lens (\GetLFTagResponse' {tagKey} -> tagKey) (\s@GetLFTagResponse' {} a -> s {tagKey = a} :: GetLFTagResponse)
+
+-- | A list of possible values an attribute can take.
+getLFTagResponse_tagValues :: Lens.Lens' GetLFTagResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+getLFTagResponse_tagValues = Lens.lens (\GetLFTagResponse' {tagValues} -> tagValues) (\s@GetLFTagResponse' {} a -> s {tagValues = a} :: GetLFTagResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 getLFTagResponse_httpStatus :: Lens.Lens' GetLFTagResponse Prelude.Int
 getLFTagResponse_httpStatus = Lens.lens (\GetLFTagResponse' {httpStatus} -> httpStatus) (\s@GetLFTagResponse' {} a -> s {httpStatus = a} :: GetLFTagResponse)
 
 instance Prelude.NFData GetLFTagResponse where
   rnf GetLFTagResponse' {..} =
-    Prelude.rnf tagValues
+    Prelude.rnf catalogId
       `Prelude.seq` Prelude.rnf tagKey
-      `Prelude.seq` Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf tagValues
       `Prelude.seq` Prelude.rnf httpStatus

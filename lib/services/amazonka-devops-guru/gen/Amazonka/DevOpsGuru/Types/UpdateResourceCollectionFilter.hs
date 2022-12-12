@@ -31,7 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUpdateResourceCollectionFilter' smart constructor.
 data UpdateResourceCollectionFilter = UpdateResourceCollectionFilter'
-  { -- | The updated Amazon Web Services tags used to filter the resources in the
+  { -- | A collection of Amazon Web Services CloudFormation stacks. You can
+    -- specify up to 500 Amazon Web Services CloudFormation stacks.
+    cloudFormation :: Prelude.Maybe UpdateCloudFormationCollectionFilter,
+    -- | The updated Amazon Web Services tags used to filter the resources in the
     -- resource collection.
     --
     -- Tags help you identify and organize your Amazon Web Services resources.
@@ -65,10 +68,7 @@ data UpdateResourceCollectionFilter = UpdateResourceCollectionFilter'
     -- act as two different /keys/. Possible /key/\//value/ pairs in your
     -- application might be @Devops-Guru-production-application\/RDS@ or
     -- @Devops-Guru-production-application\/containers@.
-    tags :: Prelude.Maybe [UpdateTagCollectionFilter],
-    -- | A collection of Amazon Web Services CloudFormation stacks. You can
-    -- specify up to 500 Amazon Web Services CloudFormation stacks.
-    cloudFormation :: Prelude.Maybe UpdateCloudFormationCollectionFilter
+    tags :: Prelude.Maybe [UpdateTagCollectionFilter]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,6 +79,9 @@ data UpdateResourceCollectionFilter = UpdateResourceCollectionFilter'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'cloudFormation', 'updateResourceCollectionFilter_cloudFormation' - A collection of Amazon Web Services CloudFormation stacks. You can
+-- specify up to 500 Amazon Web Services CloudFormation stacks.
 --
 -- 'tags', 'updateResourceCollectionFilter_tags' - The updated Amazon Web Services tags used to filter the resources in the
 -- resource collection.
@@ -114,17 +117,19 @@ data UpdateResourceCollectionFilter = UpdateResourceCollectionFilter'
 -- act as two different /keys/. Possible /key/\//value/ pairs in your
 -- application might be @Devops-Guru-production-application\/RDS@ or
 -- @Devops-Guru-production-application\/containers@.
---
--- 'cloudFormation', 'updateResourceCollectionFilter_cloudFormation' - A collection of Amazon Web Services CloudFormation stacks. You can
--- specify up to 500 Amazon Web Services CloudFormation stacks.
 newUpdateResourceCollectionFilter ::
   UpdateResourceCollectionFilter
 newUpdateResourceCollectionFilter =
   UpdateResourceCollectionFilter'
-    { tags =
+    { cloudFormation =
         Prelude.Nothing,
-      cloudFormation = Prelude.Nothing
+      tags = Prelude.Nothing
     }
+
+-- | A collection of Amazon Web Services CloudFormation stacks. You can
+-- specify up to 500 Amazon Web Services CloudFormation stacks.
+updateResourceCollectionFilter_cloudFormation :: Lens.Lens' UpdateResourceCollectionFilter (Prelude.Maybe UpdateCloudFormationCollectionFilter)
+updateResourceCollectionFilter_cloudFormation = Lens.lens (\UpdateResourceCollectionFilter' {cloudFormation} -> cloudFormation) (\s@UpdateResourceCollectionFilter' {} a -> s {cloudFormation = a} :: UpdateResourceCollectionFilter)
 
 -- | The updated Amazon Web Services tags used to filter the resources in the
 -- resource collection.
@@ -163,11 +168,6 @@ newUpdateResourceCollectionFilter =
 updateResourceCollectionFilter_tags :: Lens.Lens' UpdateResourceCollectionFilter (Prelude.Maybe [UpdateTagCollectionFilter])
 updateResourceCollectionFilter_tags = Lens.lens (\UpdateResourceCollectionFilter' {tags} -> tags) (\s@UpdateResourceCollectionFilter' {} a -> s {tags = a} :: UpdateResourceCollectionFilter) Prelude.. Lens.mapping Lens.coerced
 
--- | A collection of Amazon Web Services CloudFormation stacks. You can
--- specify up to 500 Amazon Web Services CloudFormation stacks.
-updateResourceCollectionFilter_cloudFormation :: Lens.Lens' UpdateResourceCollectionFilter (Prelude.Maybe UpdateCloudFormationCollectionFilter)
-updateResourceCollectionFilter_cloudFormation = Lens.lens (\UpdateResourceCollectionFilter' {cloudFormation} -> cloudFormation) (\s@UpdateResourceCollectionFilter' {} a -> s {cloudFormation = a} :: UpdateResourceCollectionFilter)
-
 instance
   Prelude.Hashable
     UpdateResourceCollectionFilter
@@ -175,23 +175,23 @@ instance
   hashWithSalt
     _salt
     UpdateResourceCollectionFilter' {..} =
-      _salt `Prelude.hashWithSalt` tags
-        `Prelude.hashWithSalt` cloudFormation
+      _salt `Prelude.hashWithSalt` cloudFormation
+        `Prelude.hashWithSalt` tags
 
 instance
   Prelude.NFData
     UpdateResourceCollectionFilter
   where
   rnf UpdateResourceCollectionFilter' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf cloudFormation
+    Prelude.rnf cloudFormation
+      `Prelude.seq` Prelude.rnf tags
 
 instance Data.ToJSON UpdateResourceCollectionFilter where
   toJSON UpdateResourceCollectionFilter' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("CloudFormation" Data..=)
-              Prelude.<$> cloudFormation
+          [ ("CloudFormation" Data..=)
+              Prelude.<$> cloudFormation,
+            ("Tags" Data..=) Prelude.<$> tags
           ]
       )

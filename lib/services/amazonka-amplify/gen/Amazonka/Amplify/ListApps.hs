@@ -29,8 +29,8 @@ module Amazonka.Amplify.ListApps
     newListApps,
 
     -- * Request Lenses
-    listApps_nextToken,
     listApps_maxResults,
+    listApps_nextToken,
 
     -- * Destructuring the Response
     ListAppsResponse (..),
@@ -55,11 +55,11 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListApps' smart constructor.
 data ListApps = ListApps'
-  { -- | A pagination token. If non-null, the pagination token is returned in a
+  { -- | The maximum number of records to list in a single response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A pagination token. If non-null, the pagination token is returned in a
     -- result. Pass its value in another request to retrieve more entries.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of records to list in a single response.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,26 +71,26 @@ data ListApps = ListApps'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listApps_maxResults' - The maximum number of records to list in a single response.
+--
 -- 'nextToken', 'listApps_nextToken' - A pagination token. If non-null, the pagination token is returned in a
 -- result. Pass its value in another request to retrieve more entries.
---
--- 'maxResults', 'listApps_maxResults' - The maximum number of records to list in a single response.
 newListApps ::
   ListApps
 newListApps =
   ListApps'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of records to list in a single response.
+listApps_maxResults :: Lens.Lens' ListApps (Prelude.Maybe Prelude.Natural)
+listApps_maxResults = Lens.lens (\ListApps' {maxResults} -> maxResults) (\s@ListApps' {} a -> s {maxResults = a} :: ListApps)
 
 -- | A pagination token. If non-null, the pagination token is returned in a
 -- result. Pass its value in another request to retrieve more entries.
 listApps_nextToken :: Lens.Lens' ListApps (Prelude.Maybe Prelude.Text)
 listApps_nextToken = Lens.lens (\ListApps' {nextToken} -> nextToken) (\s@ListApps' {} a -> s {nextToken = a} :: ListApps)
-
--- | The maximum number of records to list in a single response.
-listApps_maxResults :: Lens.Lens' ListApps (Prelude.Maybe Prelude.Natural)
-listApps_maxResults = Lens.lens (\ListApps' {maxResults} -> maxResults) (\s@ListApps' {} a -> s {maxResults = a} :: ListApps)
 
 instance Core.AWSPager ListApps where
   page rq rs
@@ -123,13 +123,13 @@ instance Core.AWSRequest ListApps where
 
 instance Prelude.Hashable ListApps where
   hashWithSalt _salt ListApps' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListApps where
   rnf ListApps' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListApps where
   toHeaders =
@@ -148,8 +148,8 @@ instance Data.ToPath ListApps where
 instance Data.ToQuery ListApps where
   toQuery ListApps' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | The result structure for an Amplify app list request.

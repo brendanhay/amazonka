@@ -74,8 +74,10 @@ data PutBackupVaultNotifications = PutBackupVaultNotifications'
     --
     -- -   @S3_BACKUP_OBJECT_FAILED@ | @S3_RESTORE_OBJECT_FAILED@
     --
-    -- Ignore the list below because it includes deprecated events. Refer to
-    -- the list above.
+    -- The list below shows items that are deprecated events (for reference)
+    -- and are no longer in use. They are no longer supported and will not
+    -- return statuses or notifications. Refer to the list above for current
+    -- supported events.
     backupVaultEvents :: [BackupVaultEvent]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -114,8 +116,10 @@ data PutBackupVaultNotifications = PutBackupVaultNotifications'
 --
 -- -   @S3_BACKUP_OBJECT_FAILED@ | @S3_RESTORE_OBJECT_FAILED@
 --
--- Ignore the list below because it includes deprecated events. Refer to
--- the list above.
+-- The list below shows items that are deprecated events (for reference)
+-- and are no longer in use. They are no longer supported and will not
+-- return statuses or notifications. Refer to the list above for current
+-- supported events.
 newPutBackupVaultNotifications ::
   -- | 'backupVaultName'
   Prelude.Text ->
@@ -162,8 +166,10 @@ putBackupVaultNotifications_sNSTopicArn = Lens.lens (\PutBackupVaultNotification
 --
 -- -   @S3_BACKUP_OBJECT_FAILED@ | @S3_RESTORE_OBJECT_FAILED@
 --
--- Ignore the list below because it includes deprecated events. Refer to
--- the list above.
+-- The list below shows items that are deprecated events (for reference)
+-- and are no longer in use. They are no longer supported and will not
+-- return statuses or notifications. Refer to the list above for current
+-- supported events.
 putBackupVaultNotifications_backupVaultEvents :: Lens.Lens' PutBackupVaultNotifications [BackupVaultEvent]
 putBackupVaultNotifications_backupVaultEvents = Lens.lens (\PutBackupVaultNotifications' {backupVaultEvents} -> backupVaultEvents) (\s@PutBackupVaultNotifications' {} a -> s {backupVaultEvents = a} :: PutBackupVaultNotifications) Prelude.. Lens.coerced
 

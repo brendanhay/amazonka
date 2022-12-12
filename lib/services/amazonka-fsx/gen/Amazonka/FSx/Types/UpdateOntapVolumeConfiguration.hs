@@ -31,20 +31,50 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUpdateOntapVolumeConfiguration' smart constructor.
 data UpdateOntapVolumeConfiguration = UpdateOntapVolumeConfiguration'
-  { -- | Default is @false@. Set to true to enable the deduplication,
-    -- compression, and compaction storage efficiency features on the volume.
-    storageEfficiencyEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | Update the volume\'s data tiering policy.
-    tieringPolicy :: Prelude.Maybe TieringPolicy,
-    -- | The security style for the volume, which can be @UNIX@. @NTFS@, or
-    -- @MIXED@.
-    securityStyle :: Prelude.Maybe SecurityStyle,
+  { -- | A boolean flag indicating whether tags for the volume should be copied
+    -- to backups. This value defaults to false. If it\'s set to true, all tags
+    -- for the volume are copied to all automatic and user-initiated backups
+    -- where the user doesn\'t specify tags. If this value is true, and you
+    -- specify one or more tags, only the specified tags are copied to backups.
+    -- If you specify one or more tags when creating a user-initiated backup,
+    -- no tags are copied from the volume, regardless of this value.
+    copyTagsToBackups :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the location in the SVM\'s namespace where the volume is
     -- mounted. The @JunctionPath@ must have a leading forward slash, such as
     -- @\/vol3@.
     junctionPath :: Prelude.Maybe Prelude.Text,
+    -- | The security style for the volume, which can be @UNIX@. @NTFS@, or
+    -- @MIXED@.
+    securityStyle :: Prelude.Maybe SecurityStyle,
     -- | Specifies the size of the volume in megabytes.
-    sizeInMegabytes :: Prelude.Maybe Prelude.Natural
+    sizeInMegabytes :: Prelude.Maybe Prelude.Natural,
+    -- | Specifies the snapshot policy for the volume. There are three built-in
+    -- snapshot policies:
+    --
+    -- -   @default@: This is the default policy. A maximum of six hourly
+    --     snapshots taken five minutes past the hour. A maximum of two daily
+    --     snapshots taken Monday through Saturday at 10 minutes after
+    --     midnight. A maximum of two weekly snapshots taken every Sunday at 15
+    --     minutes after midnight.
+    --
+    -- -   @default-1weekly@: This policy is the same as the @default@ policy
+    --     except that it only retains one snapshot from the weekly schedule.
+    --
+    -- -   @none@: This policy does not take any snapshots. This policy can be
+    --     assigned to volumes to prevent automatic snapshots from being taken.
+    --
+    -- You can also provide the name of a custom policy that you created with
+    -- the ONTAP CLI or REST API.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies Snapshot policies>
+    -- in the /Amazon FSx for NetApp ONTAP User Guide/.
+    snapshotPolicy :: Prelude.Maybe Prelude.Text,
+    -- | Default is @false@. Set to true to enable the deduplication,
+    -- compression, and compaction storage efficiency features on the volume.
+    storageEfficiencyEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | Update the volume\'s data tiering policy.
+    tieringPolicy :: Prelude.Maybe TieringPolicy
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,30 +86,111 @@ data UpdateOntapVolumeConfiguration = UpdateOntapVolumeConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'storageEfficiencyEnabled', 'updateOntapVolumeConfiguration_storageEfficiencyEnabled' - Default is @false@. Set to true to enable the deduplication,
--- compression, and compaction storage efficiency features on the volume.
---
--- 'tieringPolicy', 'updateOntapVolumeConfiguration_tieringPolicy' - Update the volume\'s data tiering policy.
---
--- 'securityStyle', 'updateOntapVolumeConfiguration_securityStyle' - The security style for the volume, which can be @UNIX@. @NTFS@, or
--- @MIXED@.
+-- 'copyTagsToBackups', 'updateOntapVolumeConfiguration_copyTagsToBackups' - A boolean flag indicating whether tags for the volume should be copied
+-- to backups. This value defaults to false. If it\'s set to true, all tags
+-- for the volume are copied to all automatic and user-initiated backups
+-- where the user doesn\'t specify tags. If this value is true, and you
+-- specify one or more tags, only the specified tags are copied to backups.
+-- If you specify one or more tags when creating a user-initiated backup,
+-- no tags are copied from the volume, regardless of this value.
 --
 -- 'junctionPath', 'updateOntapVolumeConfiguration_junctionPath' - Specifies the location in the SVM\'s namespace where the volume is
 -- mounted. The @JunctionPath@ must have a leading forward slash, such as
 -- @\/vol3@.
 --
+-- 'securityStyle', 'updateOntapVolumeConfiguration_securityStyle' - The security style for the volume, which can be @UNIX@. @NTFS@, or
+-- @MIXED@.
+--
 -- 'sizeInMegabytes', 'updateOntapVolumeConfiguration_sizeInMegabytes' - Specifies the size of the volume in megabytes.
+--
+-- 'snapshotPolicy', 'updateOntapVolumeConfiguration_snapshotPolicy' - Specifies the snapshot policy for the volume. There are three built-in
+-- snapshot policies:
+--
+-- -   @default@: This is the default policy. A maximum of six hourly
+--     snapshots taken five minutes past the hour. A maximum of two daily
+--     snapshots taken Monday through Saturday at 10 minutes after
+--     midnight. A maximum of two weekly snapshots taken every Sunday at 15
+--     minutes after midnight.
+--
+-- -   @default-1weekly@: This policy is the same as the @default@ policy
+--     except that it only retains one snapshot from the weekly schedule.
+--
+-- -   @none@: This policy does not take any snapshots. This policy can be
+--     assigned to volumes to prevent automatic snapshots from being taken.
+--
+-- You can also provide the name of a custom policy that you created with
+-- the ONTAP CLI or REST API.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies Snapshot policies>
+-- in the /Amazon FSx for NetApp ONTAP User Guide/.
+--
+-- 'storageEfficiencyEnabled', 'updateOntapVolumeConfiguration_storageEfficiencyEnabled' - Default is @false@. Set to true to enable the deduplication,
+-- compression, and compaction storage efficiency features on the volume.
+--
+-- 'tieringPolicy', 'updateOntapVolumeConfiguration_tieringPolicy' - Update the volume\'s data tiering policy.
 newUpdateOntapVolumeConfiguration ::
   UpdateOntapVolumeConfiguration
 newUpdateOntapVolumeConfiguration =
   UpdateOntapVolumeConfiguration'
-    { storageEfficiencyEnabled =
+    { copyTagsToBackups =
         Prelude.Nothing,
-      tieringPolicy = Prelude.Nothing,
-      securityStyle = Prelude.Nothing,
       junctionPath = Prelude.Nothing,
-      sizeInMegabytes = Prelude.Nothing
+      securityStyle = Prelude.Nothing,
+      sizeInMegabytes = Prelude.Nothing,
+      snapshotPolicy = Prelude.Nothing,
+      storageEfficiencyEnabled = Prelude.Nothing,
+      tieringPolicy = Prelude.Nothing
     }
+
+-- | A boolean flag indicating whether tags for the volume should be copied
+-- to backups. This value defaults to false. If it\'s set to true, all tags
+-- for the volume are copied to all automatic and user-initiated backups
+-- where the user doesn\'t specify tags. If this value is true, and you
+-- specify one or more tags, only the specified tags are copied to backups.
+-- If you specify one or more tags when creating a user-initiated backup,
+-- no tags are copied from the volume, regardless of this value.
+updateOntapVolumeConfiguration_copyTagsToBackups :: Lens.Lens' UpdateOntapVolumeConfiguration (Prelude.Maybe Prelude.Bool)
+updateOntapVolumeConfiguration_copyTagsToBackups = Lens.lens (\UpdateOntapVolumeConfiguration' {copyTagsToBackups} -> copyTagsToBackups) (\s@UpdateOntapVolumeConfiguration' {} a -> s {copyTagsToBackups = a} :: UpdateOntapVolumeConfiguration)
+
+-- | Specifies the location in the SVM\'s namespace where the volume is
+-- mounted. The @JunctionPath@ must have a leading forward slash, such as
+-- @\/vol3@.
+updateOntapVolumeConfiguration_junctionPath :: Lens.Lens' UpdateOntapVolumeConfiguration (Prelude.Maybe Prelude.Text)
+updateOntapVolumeConfiguration_junctionPath = Lens.lens (\UpdateOntapVolumeConfiguration' {junctionPath} -> junctionPath) (\s@UpdateOntapVolumeConfiguration' {} a -> s {junctionPath = a} :: UpdateOntapVolumeConfiguration)
+
+-- | The security style for the volume, which can be @UNIX@. @NTFS@, or
+-- @MIXED@.
+updateOntapVolumeConfiguration_securityStyle :: Lens.Lens' UpdateOntapVolumeConfiguration (Prelude.Maybe SecurityStyle)
+updateOntapVolumeConfiguration_securityStyle = Lens.lens (\UpdateOntapVolumeConfiguration' {securityStyle} -> securityStyle) (\s@UpdateOntapVolumeConfiguration' {} a -> s {securityStyle = a} :: UpdateOntapVolumeConfiguration)
+
+-- | Specifies the size of the volume in megabytes.
+updateOntapVolumeConfiguration_sizeInMegabytes :: Lens.Lens' UpdateOntapVolumeConfiguration (Prelude.Maybe Prelude.Natural)
+updateOntapVolumeConfiguration_sizeInMegabytes = Lens.lens (\UpdateOntapVolumeConfiguration' {sizeInMegabytes} -> sizeInMegabytes) (\s@UpdateOntapVolumeConfiguration' {} a -> s {sizeInMegabytes = a} :: UpdateOntapVolumeConfiguration)
+
+-- | Specifies the snapshot policy for the volume. There are three built-in
+-- snapshot policies:
+--
+-- -   @default@: This is the default policy. A maximum of six hourly
+--     snapshots taken five minutes past the hour. A maximum of two daily
+--     snapshots taken Monday through Saturday at 10 minutes after
+--     midnight. A maximum of two weekly snapshots taken every Sunday at 15
+--     minutes after midnight.
+--
+-- -   @default-1weekly@: This policy is the same as the @default@ policy
+--     except that it only retains one snapshot from the weekly schedule.
+--
+-- -   @none@: This policy does not take any snapshots. This policy can be
+--     assigned to volumes to prevent automatic snapshots from being taken.
+--
+-- You can also provide the name of a custom policy that you created with
+-- the ONTAP CLI or REST API.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies Snapshot policies>
+-- in the /Amazon FSx for NetApp ONTAP User Guide/.
+updateOntapVolumeConfiguration_snapshotPolicy :: Lens.Lens' UpdateOntapVolumeConfiguration (Prelude.Maybe Prelude.Text)
+updateOntapVolumeConfiguration_snapshotPolicy = Lens.lens (\UpdateOntapVolumeConfiguration' {snapshotPolicy} -> snapshotPolicy) (\s@UpdateOntapVolumeConfiguration' {} a -> s {snapshotPolicy = a} :: UpdateOntapVolumeConfiguration)
 
 -- | Default is @false@. Set to true to enable the deduplication,
 -- compression, and compaction storage efficiency features on the volume.
@@ -90,21 +201,6 @@ updateOntapVolumeConfiguration_storageEfficiencyEnabled = Lens.lens (\UpdateOnta
 updateOntapVolumeConfiguration_tieringPolicy :: Lens.Lens' UpdateOntapVolumeConfiguration (Prelude.Maybe TieringPolicy)
 updateOntapVolumeConfiguration_tieringPolicy = Lens.lens (\UpdateOntapVolumeConfiguration' {tieringPolicy} -> tieringPolicy) (\s@UpdateOntapVolumeConfiguration' {} a -> s {tieringPolicy = a} :: UpdateOntapVolumeConfiguration)
 
--- | The security style for the volume, which can be @UNIX@. @NTFS@, or
--- @MIXED@.
-updateOntapVolumeConfiguration_securityStyle :: Lens.Lens' UpdateOntapVolumeConfiguration (Prelude.Maybe SecurityStyle)
-updateOntapVolumeConfiguration_securityStyle = Lens.lens (\UpdateOntapVolumeConfiguration' {securityStyle} -> securityStyle) (\s@UpdateOntapVolumeConfiguration' {} a -> s {securityStyle = a} :: UpdateOntapVolumeConfiguration)
-
--- | Specifies the location in the SVM\'s namespace where the volume is
--- mounted. The @JunctionPath@ must have a leading forward slash, such as
--- @\/vol3@.
-updateOntapVolumeConfiguration_junctionPath :: Lens.Lens' UpdateOntapVolumeConfiguration (Prelude.Maybe Prelude.Text)
-updateOntapVolumeConfiguration_junctionPath = Lens.lens (\UpdateOntapVolumeConfiguration' {junctionPath} -> junctionPath) (\s@UpdateOntapVolumeConfiguration' {} a -> s {junctionPath = a} :: UpdateOntapVolumeConfiguration)
-
--- | Specifies the size of the volume in megabytes.
-updateOntapVolumeConfiguration_sizeInMegabytes :: Lens.Lens' UpdateOntapVolumeConfiguration (Prelude.Maybe Prelude.Natural)
-updateOntapVolumeConfiguration_sizeInMegabytes = Lens.lens (\UpdateOntapVolumeConfiguration' {sizeInMegabytes} -> sizeInMegabytes) (\s@UpdateOntapVolumeConfiguration' {} a -> s {sizeInMegabytes = a} :: UpdateOntapVolumeConfiguration)
-
 instance
   Prelude.Hashable
     UpdateOntapVolumeConfiguration
@@ -112,34 +208,41 @@ instance
   hashWithSalt
     _salt
     UpdateOntapVolumeConfiguration' {..} =
-      _salt
+      _salt `Prelude.hashWithSalt` copyTagsToBackups
+        `Prelude.hashWithSalt` junctionPath
+        `Prelude.hashWithSalt` securityStyle
+        `Prelude.hashWithSalt` sizeInMegabytes
+        `Prelude.hashWithSalt` snapshotPolicy
         `Prelude.hashWithSalt` storageEfficiencyEnabled
         `Prelude.hashWithSalt` tieringPolicy
-        `Prelude.hashWithSalt` securityStyle
-        `Prelude.hashWithSalt` junctionPath
-        `Prelude.hashWithSalt` sizeInMegabytes
 
 instance
   Prelude.NFData
     UpdateOntapVolumeConfiguration
   where
   rnf UpdateOntapVolumeConfiguration' {..} =
-    Prelude.rnf storageEfficiencyEnabled
-      `Prelude.seq` Prelude.rnf tieringPolicy
-      `Prelude.seq` Prelude.rnf securityStyle
+    Prelude.rnf copyTagsToBackups
       `Prelude.seq` Prelude.rnf junctionPath
+      `Prelude.seq` Prelude.rnf securityStyle
       `Prelude.seq` Prelude.rnf sizeInMegabytes
+      `Prelude.seq` Prelude.rnf snapshotPolicy
+      `Prelude.seq` Prelude.rnf storageEfficiencyEnabled
+      `Prelude.seq` Prelude.rnf tieringPolicy
 
 instance Data.ToJSON UpdateOntapVolumeConfiguration where
   toJSON UpdateOntapVolumeConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("StorageEfficiencyEnabled" Data..=)
-              Prelude.<$> storageEfficiencyEnabled,
-            ("TieringPolicy" Data..=) Prelude.<$> tieringPolicy,
-            ("SecurityStyle" Data..=) Prelude.<$> securityStyle,
+          [ ("CopyTagsToBackups" Data..=)
+              Prelude.<$> copyTagsToBackups,
             ("JunctionPath" Data..=) Prelude.<$> junctionPath,
+            ("SecurityStyle" Data..=) Prelude.<$> securityStyle,
             ("SizeInMegabytes" Data..=)
-              Prelude.<$> sizeInMegabytes
+              Prelude.<$> sizeInMegabytes,
+            ("SnapshotPolicy" Data..=)
+              Prelude.<$> snapshotPolicy,
+            ("StorageEfficiencyEnabled" Data..=)
+              Prelude.<$> storageEfficiencyEnabled,
+            ("TieringPolicy" Data..=) Prelude.<$> tieringPolicy
           ]
       )

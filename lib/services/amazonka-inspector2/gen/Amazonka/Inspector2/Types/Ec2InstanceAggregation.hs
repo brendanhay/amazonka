@@ -32,21 +32,21 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEc2InstanceAggregation' smart constructor.
 data Ec2InstanceAggregation = Ec2InstanceAggregation'
-  { -- | The order to sort results by.
-    sortOrder :: Prelude.Maybe SortOrder,
+  { -- | The AMI IDs associated with the Amazon EC2 instances to aggregate
+    -- findings for.
+    amis :: Prelude.Maybe (Prelude.NonEmpty StringFilter),
+    -- | The Amazon EC2 instance IDs to aggregate findings for.
+    instanceIds :: Prelude.Maybe (Prelude.NonEmpty StringFilter),
     -- | The Amazon EC2 instance tags to aggregate findings for.
     instanceTags :: Prelude.Maybe (Prelude.NonEmpty MapFilter),
-    -- | The value to sort results by.
-    sortBy :: Prelude.Maybe Ec2InstanceSortBy,
     -- | The operating system types to aggregate findings for. Valid values must
     -- be uppercase and underscore separated, examples are @ORACLE_LINUX_7@ and
     -- @ALPINE_LINUX_3_8@.
     operatingSystems :: Prelude.Maybe (Prelude.NonEmpty StringFilter),
-    -- | The Amazon EC2 instance IDs to aggregate findings for.
-    instanceIds :: Prelude.Maybe (Prelude.NonEmpty StringFilter),
-    -- | The AMI IDs associated with the Amazon EC2 instances to aggregate
-    -- findings for.
-    amis :: Prelude.Maybe (Prelude.NonEmpty StringFilter)
+    -- | The value to sort results by.
+    sortBy :: Prelude.Maybe Ec2InstanceSortBy,
+    -- | The order to sort results by.
+    sortOrder :: Prelude.Maybe SortOrder
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,44 +58,44 @@ data Ec2InstanceAggregation = Ec2InstanceAggregation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'ec2InstanceAggregation_sortOrder' - The order to sort results by.
+-- 'amis', 'ec2InstanceAggregation_amis' - The AMI IDs associated with the Amazon EC2 instances to aggregate
+-- findings for.
+--
+-- 'instanceIds', 'ec2InstanceAggregation_instanceIds' - The Amazon EC2 instance IDs to aggregate findings for.
 --
 -- 'instanceTags', 'ec2InstanceAggregation_instanceTags' - The Amazon EC2 instance tags to aggregate findings for.
---
--- 'sortBy', 'ec2InstanceAggregation_sortBy' - The value to sort results by.
 --
 -- 'operatingSystems', 'ec2InstanceAggregation_operatingSystems' - The operating system types to aggregate findings for. Valid values must
 -- be uppercase and underscore separated, examples are @ORACLE_LINUX_7@ and
 -- @ALPINE_LINUX_3_8@.
 --
--- 'instanceIds', 'ec2InstanceAggregation_instanceIds' - The Amazon EC2 instance IDs to aggregate findings for.
+-- 'sortBy', 'ec2InstanceAggregation_sortBy' - The value to sort results by.
 --
--- 'amis', 'ec2InstanceAggregation_amis' - The AMI IDs associated with the Amazon EC2 instances to aggregate
--- findings for.
+-- 'sortOrder', 'ec2InstanceAggregation_sortOrder' - The order to sort results by.
 newEc2InstanceAggregation ::
   Ec2InstanceAggregation
 newEc2InstanceAggregation =
   Ec2InstanceAggregation'
-    { sortOrder =
-        Prelude.Nothing,
-      instanceTags = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
-      operatingSystems = Prelude.Nothing,
+    { amis = Prelude.Nothing,
       instanceIds = Prelude.Nothing,
-      amis = Prelude.Nothing
+      instanceTags = Prelude.Nothing,
+      operatingSystems = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      sortOrder = Prelude.Nothing
     }
 
--- | The order to sort results by.
-ec2InstanceAggregation_sortOrder :: Lens.Lens' Ec2InstanceAggregation (Prelude.Maybe SortOrder)
-ec2InstanceAggregation_sortOrder = Lens.lens (\Ec2InstanceAggregation' {sortOrder} -> sortOrder) (\s@Ec2InstanceAggregation' {} a -> s {sortOrder = a} :: Ec2InstanceAggregation)
+-- | The AMI IDs associated with the Amazon EC2 instances to aggregate
+-- findings for.
+ec2InstanceAggregation_amis :: Lens.Lens' Ec2InstanceAggregation (Prelude.Maybe (Prelude.NonEmpty StringFilter))
+ec2InstanceAggregation_amis = Lens.lens (\Ec2InstanceAggregation' {amis} -> amis) (\s@Ec2InstanceAggregation' {} a -> s {amis = a} :: Ec2InstanceAggregation) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon EC2 instance IDs to aggregate findings for.
+ec2InstanceAggregation_instanceIds :: Lens.Lens' Ec2InstanceAggregation (Prelude.Maybe (Prelude.NonEmpty StringFilter))
+ec2InstanceAggregation_instanceIds = Lens.lens (\Ec2InstanceAggregation' {instanceIds} -> instanceIds) (\s@Ec2InstanceAggregation' {} a -> s {instanceIds = a} :: Ec2InstanceAggregation) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon EC2 instance tags to aggregate findings for.
 ec2InstanceAggregation_instanceTags :: Lens.Lens' Ec2InstanceAggregation (Prelude.Maybe (Prelude.NonEmpty MapFilter))
 ec2InstanceAggregation_instanceTags = Lens.lens (\Ec2InstanceAggregation' {instanceTags} -> instanceTags) (\s@Ec2InstanceAggregation' {} a -> s {instanceTags = a} :: Ec2InstanceAggregation) Prelude.. Lens.mapping Lens.coerced
-
--- | The value to sort results by.
-ec2InstanceAggregation_sortBy :: Lens.Lens' Ec2InstanceAggregation (Prelude.Maybe Ec2InstanceSortBy)
-ec2InstanceAggregation_sortBy = Lens.lens (\Ec2InstanceAggregation' {sortBy} -> sortBy) (\s@Ec2InstanceAggregation' {} a -> s {sortBy = a} :: Ec2InstanceAggregation)
 
 -- | The operating system types to aggregate findings for. Valid values must
 -- be uppercase and underscore separated, examples are @ORACLE_LINUX_7@ and
@@ -103,43 +103,42 @@ ec2InstanceAggregation_sortBy = Lens.lens (\Ec2InstanceAggregation' {sortBy} -> 
 ec2InstanceAggregation_operatingSystems :: Lens.Lens' Ec2InstanceAggregation (Prelude.Maybe (Prelude.NonEmpty StringFilter))
 ec2InstanceAggregation_operatingSystems = Lens.lens (\Ec2InstanceAggregation' {operatingSystems} -> operatingSystems) (\s@Ec2InstanceAggregation' {} a -> s {operatingSystems = a} :: Ec2InstanceAggregation) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon EC2 instance IDs to aggregate findings for.
-ec2InstanceAggregation_instanceIds :: Lens.Lens' Ec2InstanceAggregation (Prelude.Maybe (Prelude.NonEmpty StringFilter))
-ec2InstanceAggregation_instanceIds = Lens.lens (\Ec2InstanceAggregation' {instanceIds} -> instanceIds) (\s@Ec2InstanceAggregation' {} a -> s {instanceIds = a} :: Ec2InstanceAggregation) Prelude.. Lens.mapping Lens.coerced
+-- | The value to sort results by.
+ec2InstanceAggregation_sortBy :: Lens.Lens' Ec2InstanceAggregation (Prelude.Maybe Ec2InstanceSortBy)
+ec2InstanceAggregation_sortBy = Lens.lens (\Ec2InstanceAggregation' {sortBy} -> sortBy) (\s@Ec2InstanceAggregation' {} a -> s {sortBy = a} :: Ec2InstanceAggregation)
 
--- | The AMI IDs associated with the Amazon EC2 instances to aggregate
--- findings for.
-ec2InstanceAggregation_amis :: Lens.Lens' Ec2InstanceAggregation (Prelude.Maybe (Prelude.NonEmpty StringFilter))
-ec2InstanceAggregation_amis = Lens.lens (\Ec2InstanceAggregation' {amis} -> amis) (\s@Ec2InstanceAggregation' {} a -> s {amis = a} :: Ec2InstanceAggregation) Prelude.. Lens.mapping Lens.coerced
+-- | The order to sort results by.
+ec2InstanceAggregation_sortOrder :: Lens.Lens' Ec2InstanceAggregation (Prelude.Maybe SortOrder)
+ec2InstanceAggregation_sortOrder = Lens.lens (\Ec2InstanceAggregation' {sortOrder} -> sortOrder) (\s@Ec2InstanceAggregation' {} a -> s {sortOrder = a} :: Ec2InstanceAggregation)
 
 instance Prelude.Hashable Ec2InstanceAggregation where
   hashWithSalt _salt Ec2InstanceAggregation' {..} =
-    _salt `Prelude.hashWithSalt` sortOrder
-      `Prelude.hashWithSalt` instanceTags
-      `Prelude.hashWithSalt` sortBy
-      `Prelude.hashWithSalt` operatingSystems
+    _salt `Prelude.hashWithSalt` amis
       `Prelude.hashWithSalt` instanceIds
-      `Prelude.hashWithSalt` amis
+      `Prelude.hashWithSalt` instanceTags
+      `Prelude.hashWithSalt` operatingSystems
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` sortOrder
 
 instance Prelude.NFData Ec2InstanceAggregation where
   rnf Ec2InstanceAggregation' {..} =
-    Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf instanceTags
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf operatingSystems
+    Prelude.rnf amis
       `Prelude.seq` Prelude.rnf instanceIds
-      `Prelude.seq` Prelude.rnf amis
+      `Prelude.seq` Prelude.rnf instanceTags
+      `Prelude.seq` Prelude.rnf operatingSystems
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf sortOrder
 
 instance Data.ToJSON Ec2InstanceAggregation where
   toJSON Ec2InstanceAggregation' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("sortOrder" Data..=) Prelude.<$> sortOrder,
+          [ ("amis" Data..=) Prelude.<$> amis,
+            ("instanceIds" Data..=) Prelude.<$> instanceIds,
             ("instanceTags" Data..=) Prelude.<$> instanceTags,
-            ("sortBy" Data..=) Prelude.<$> sortBy,
             ("operatingSystems" Data..=)
               Prelude.<$> operatingSystems,
-            ("instanceIds" Data..=) Prelude.<$> instanceIds,
-            ("amis" Data..=) Prelude.<$> amis
+            ("sortBy" Data..=) Prelude.<$> sortBy,
+            ("sortOrder" Data..=) Prelude.<$> sortOrder
           ]
       )

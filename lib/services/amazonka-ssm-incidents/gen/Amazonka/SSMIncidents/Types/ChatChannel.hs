@@ -29,13 +29,13 @@ import Amazonka.SSMIncidents.Types.EmptyChatChannel
 --
 -- /See:/ 'newChatChannel' smart constructor.
 data ChatChannel = ChatChannel'
-  { -- | Used to remove the chat channel from an incident record or response
-    -- plan.
-    empty :: Prelude.Maybe EmptyChatChannel,
-    -- | The Amazon SNS targets that Chatbot uses to notify the chat channel of
+  { -- | The Amazon SNS targets that Chatbot uses to notify the chat channel of
     -- updates to an incident. You can also make updates to the incident
     -- through the chat channel by using the Amazon SNS topics.
-    chatbotSns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
+    chatbotSns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | Used to remove the chat channel from an incident record or response
+    -- plan.
+    empty :: Prelude.Maybe EmptyChatChannel
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,24 +47,19 @@ data ChatChannel = ChatChannel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'empty', 'chatChannel_empty' - Used to remove the chat channel from an incident record or response
--- plan.
---
 -- 'chatbotSns', 'chatChannel_chatbotSns' - The Amazon SNS targets that Chatbot uses to notify the chat channel of
 -- updates to an incident. You can also make updates to the incident
 -- through the chat channel by using the Amazon SNS topics.
+--
+-- 'empty', 'chatChannel_empty' - Used to remove the chat channel from an incident record or response
+-- plan.
 newChatChannel ::
   ChatChannel
 newChatChannel =
   ChatChannel'
-    { empty = Prelude.Nothing,
-      chatbotSns = Prelude.Nothing
+    { chatbotSns = Prelude.Nothing,
+      empty = Prelude.Nothing
     }
-
--- | Used to remove the chat channel from an incident record or response
--- plan.
-chatChannel_empty :: Lens.Lens' ChatChannel (Prelude.Maybe EmptyChatChannel)
-chatChannel_empty = Lens.lens (\ChatChannel' {empty} -> empty) (\s@ChatChannel' {} a -> s {empty = a} :: ChatChannel)
 
 -- | The Amazon SNS targets that Chatbot uses to notify the chat channel of
 -- updates to an incident. You can also make updates to the incident
@@ -72,31 +67,36 @@ chatChannel_empty = Lens.lens (\ChatChannel' {empty} -> empty) (\s@ChatChannel' 
 chatChannel_chatbotSns :: Lens.Lens' ChatChannel (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 chatChannel_chatbotSns = Lens.lens (\ChatChannel' {chatbotSns} -> chatbotSns) (\s@ChatChannel' {} a -> s {chatbotSns = a} :: ChatChannel) Prelude.. Lens.mapping Lens.coerced
 
+-- | Used to remove the chat channel from an incident record or response
+-- plan.
+chatChannel_empty :: Lens.Lens' ChatChannel (Prelude.Maybe EmptyChatChannel)
+chatChannel_empty = Lens.lens (\ChatChannel' {empty} -> empty) (\s@ChatChannel' {} a -> s {empty = a} :: ChatChannel)
+
 instance Data.FromJSON ChatChannel where
   parseJSON =
     Data.withObject
       "ChatChannel"
       ( \x ->
           ChatChannel'
-            Prelude.<$> (x Data..:? "empty")
-            Prelude.<*> (x Data..:? "chatbotSns")
+            Prelude.<$> (x Data..:? "chatbotSns")
+            Prelude.<*> (x Data..:? "empty")
       )
 
 instance Prelude.Hashable ChatChannel where
   hashWithSalt _salt ChatChannel' {..} =
-    _salt `Prelude.hashWithSalt` empty
-      `Prelude.hashWithSalt` chatbotSns
+    _salt `Prelude.hashWithSalt` chatbotSns
+      `Prelude.hashWithSalt` empty
 
 instance Prelude.NFData ChatChannel where
   rnf ChatChannel' {..} =
-    Prelude.rnf empty
-      `Prelude.seq` Prelude.rnf chatbotSns
+    Prelude.rnf chatbotSns
+      `Prelude.seq` Prelude.rnf empty
 
 instance Data.ToJSON ChatChannel where
   toJSON ChatChannel' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("empty" Data..=) Prelude.<$> empty,
-            ("chatbotSns" Data..=) Prelude.<$> chatbotSns
+          [ ("chatbotSns" Data..=) Prelude.<$> chatbotSns,
+            ("empty" Data..=) Prelude.<$> empty
           ]
       )

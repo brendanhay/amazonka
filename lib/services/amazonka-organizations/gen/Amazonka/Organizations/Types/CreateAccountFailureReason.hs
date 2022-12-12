@@ -33,7 +33,8 @@ module Amazonka.Organizations.Types.CreateAccountFailureReason
         CreateAccountFailureReason_MISSING_BUSINESS_VALIDATION,
         CreateAccountFailureReason_MISSING_PAYMENT_INSTRUMENT,
         CreateAccountFailureReason_PENDING_BUSINESS_VALIDATION,
-        CreateAccountFailureReason_UNKNOWN_BUSINESS_VALIDATION
+        CreateAccountFailureReason_UNKNOWN_BUSINESS_VALIDATION,
+        CreateAccountFailureReason_UPDATE_EXISTING_RESOURCE_POLICY_WITH_TAGS_NOT_SUPPORTED
       ),
   )
 where
@@ -112,6 +113,9 @@ pattern CreateAccountFailureReason_PENDING_BUSINESS_VALIDATION = CreateAccountFa
 pattern CreateAccountFailureReason_UNKNOWN_BUSINESS_VALIDATION :: CreateAccountFailureReason
 pattern CreateAccountFailureReason_UNKNOWN_BUSINESS_VALIDATION = CreateAccountFailureReason' "UNKNOWN_BUSINESS_VALIDATION"
 
+pattern CreateAccountFailureReason_UPDATE_EXISTING_RESOURCE_POLICY_WITH_TAGS_NOT_SUPPORTED :: CreateAccountFailureReason
+pattern CreateAccountFailureReason_UPDATE_EXISTING_RESOURCE_POLICY_WITH_TAGS_NOT_SUPPORTED = CreateAccountFailureReason' "UPDATE_EXISTING_RESOURCE_POLICY_WITH_TAGS_NOT_SUPPORTED"
+
 {-# COMPLETE
   CreateAccountFailureReason_ACCOUNT_LIMIT_EXCEEDED,
   CreateAccountFailureReason_CONCURRENT_ACCOUNT_MODIFICATION,
@@ -127,5 +131,6 @@ pattern CreateAccountFailureReason_UNKNOWN_BUSINESS_VALIDATION = CreateAccountFa
   CreateAccountFailureReason_MISSING_PAYMENT_INSTRUMENT,
   CreateAccountFailureReason_PENDING_BUSINESS_VALIDATION,
   CreateAccountFailureReason_UNKNOWN_BUSINESS_VALIDATION,
+  CreateAccountFailureReason_UPDATE_EXISTING_RESOURCE_POLICY_WITH_TAGS_NOT_SUPPORTED,
   CreateAccountFailureReason'
   #-}

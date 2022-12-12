@@ -29,16 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJobLogEventData' smart constructor.
 data JobLogEventData = JobLogEventData'
-  { -- | The ID of a Recovery Instance.
-    targetInstanceID :: Prelude.Maybe Prelude.Text,
-    -- | A string representing a job error.
-    rawError :: Prelude.Maybe Prelude.Text,
+  { -- | Properties of a conversion job
+    conversionProperties :: Prelude.Maybe ConversionProperties,
     -- | The ID of a conversion server.
     conversionServerID :: Prelude.Maybe Prelude.Text,
-    -- | Properties of a conversion job
-    conversionProperties :: Prelude.Maybe ConversionProperties,
+    -- | A string representing a job error.
+    rawError :: Prelude.Maybe Prelude.Text,
     -- | The ID of a Source Server.
-    sourceServerID :: Prelude.Maybe Prelude.Text
+    sourceServerID :: Prelude.Maybe Prelude.Text,
+    -- | The ID of a Recovery Instance.
+    targetInstanceID :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,46 +50,46 @@ data JobLogEventData = JobLogEventData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetInstanceID', 'jobLogEventData_targetInstanceID' - The ID of a Recovery Instance.
---
--- 'rawError', 'jobLogEventData_rawError' - A string representing a job error.
+-- 'conversionProperties', 'jobLogEventData_conversionProperties' - Properties of a conversion job
 --
 -- 'conversionServerID', 'jobLogEventData_conversionServerID' - The ID of a conversion server.
 --
--- 'conversionProperties', 'jobLogEventData_conversionProperties' - Properties of a conversion job
+-- 'rawError', 'jobLogEventData_rawError' - A string representing a job error.
 --
 -- 'sourceServerID', 'jobLogEventData_sourceServerID' - The ID of a Source Server.
+--
+-- 'targetInstanceID', 'jobLogEventData_targetInstanceID' - The ID of a Recovery Instance.
 newJobLogEventData ::
   JobLogEventData
 newJobLogEventData =
   JobLogEventData'
-    { targetInstanceID =
+    { conversionProperties =
         Prelude.Nothing,
-      rawError = Prelude.Nothing,
       conversionServerID = Prelude.Nothing,
-      conversionProperties = Prelude.Nothing,
-      sourceServerID = Prelude.Nothing
+      rawError = Prelude.Nothing,
+      sourceServerID = Prelude.Nothing,
+      targetInstanceID = Prelude.Nothing
     }
-
--- | The ID of a Recovery Instance.
-jobLogEventData_targetInstanceID :: Lens.Lens' JobLogEventData (Prelude.Maybe Prelude.Text)
-jobLogEventData_targetInstanceID = Lens.lens (\JobLogEventData' {targetInstanceID} -> targetInstanceID) (\s@JobLogEventData' {} a -> s {targetInstanceID = a} :: JobLogEventData)
-
--- | A string representing a job error.
-jobLogEventData_rawError :: Lens.Lens' JobLogEventData (Prelude.Maybe Prelude.Text)
-jobLogEventData_rawError = Lens.lens (\JobLogEventData' {rawError} -> rawError) (\s@JobLogEventData' {} a -> s {rawError = a} :: JobLogEventData)
-
--- | The ID of a conversion server.
-jobLogEventData_conversionServerID :: Lens.Lens' JobLogEventData (Prelude.Maybe Prelude.Text)
-jobLogEventData_conversionServerID = Lens.lens (\JobLogEventData' {conversionServerID} -> conversionServerID) (\s@JobLogEventData' {} a -> s {conversionServerID = a} :: JobLogEventData)
 
 -- | Properties of a conversion job
 jobLogEventData_conversionProperties :: Lens.Lens' JobLogEventData (Prelude.Maybe ConversionProperties)
 jobLogEventData_conversionProperties = Lens.lens (\JobLogEventData' {conversionProperties} -> conversionProperties) (\s@JobLogEventData' {} a -> s {conversionProperties = a} :: JobLogEventData)
 
+-- | The ID of a conversion server.
+jobLogEventData_conversionServerID :: Lens.Lens' JobLogEventData (Prelude.Maybe Prelude.Text)
+jobLogEventData_conversionServerID = Lens.lens (\JobLogEventData' {conversionServerID} -> conversionServerID) (\s@JobLogEventData' {} a -> s {conversionServerID = a} :: JobLogEventData)
+
+-- | A string representing a job error.
+jobLogEventData_rawError :: Lens.Lens' JobLogEventData (Prelude.Maybe Prelude.Text)
+jobLogEventData_rawError = Lens.lens (\JobLogEventData' {rawError} -> rawError) (\s@JobLogEventData' {} a -> s {rawError = a} :: JobLogEventData)
+
 -- | The ID of a Source Server.
 jobLogEventData_sourceServerID :: Lens.Lens' JobLogEventData (Prelude.Maybe Prelude.Text)
 jobLogEventData_sourceServerID = Lens.lens (\JobLogEventData' {sourceServerID} -> sourceServerID) (\s@JobLogEventData' {} a -> s {sourceServerID = a} :: JobLogEventData)
+
+-- | The ID of a Recovery Instance.
+jobLogEventData_targetInstanceID :: Lens.Lens' JobLogEventData (Prelude.Maybe Prelude.Text)
+jobLogEventData_targetInstanceID = Lens.lens (\JobLogEventData' {targetInstanceID} -> targetInstanceID) (\s@JobLogEventData' {} a -> s {targetInstanceID = a} :: JobLogEventData)
 
 instance Data.FromJSON JobLogEventData where
   parseJSON =
@@ -97,25 +97,25 @@ instance Data.FromJSON JobLogEventData where
       "JobLogEventData"
       ( \x ->
           JobLogEventData'
-            Prelude.<$> (x Data..:? "targetInstanceID")
-            Prelude.<*> (x Data..:? "rawError")
+            Prelude.<$> (x Data..:? "conversionProperties")
             Prelude.<*> (x Data..:? "conversionServerID")
-            Prelude.<*> (x Data..:? "conversionProperties")
+            Prelude.<*> (x Data..:? "rawError")
             Prelude.<*> (x Data..:? "sourceServerID")
+            Prelude.<*> (x Data..:? "targetInstanceID")
       )
 
 instance Prelude.Hashable JobLogEventData where
   hashWithSalt _salt JobLogEventData' {..} =
-    _salt `Prelude.hashWithSalt` targetInstanceID
-      `Prelude.hashWithSalt` rawError
+    _salt `Prelude.hashWithSalt` conversionProperties
       `Prelude.hashWithSalt` conversionServerID
-      `Prelude.hashWithSalt` conversionProperties
+      `Prelude.hashWithSalt` rawError
       `Prelude.hashWithSalt` sourceServerID
+      `Prelude.hashWithSalt` targetInstanceID
 
 instance Prelude.NFData JobLogEventData where
   rnf JobLogEventData' {..} =
-    Prelude.rnf targetInstanceID
-      `Prelude.seq` Prelude.rnf rawError
+    Prelude.rnf conversionProperties
       `Prelude.seq` Prelude.rnf conversionServerID
-      `Prelude.seq` Prelude.rnf conversionProperties
+      `Prelude.seq` Prelude.rnf rawError
       `Prelude.seq` Prelude.rnf sourceServerID
+      `Prelude.seq` Prelude.rnf targetInstanceID

@@ -38,16 +38,16 @@ module Amazonka.PinpointSmsVoiceV2.DescribeAccountLimits
     newDescribeAccountLimits,
 
     -- * Request Lenses
-    describeAccountLimits_nextToken,
     describeAccountLimits_maxResults,
+    describeAccountLimits_nextToken,
 
     -- * Destructuring the Response
     DescribeAccountLimitsResponse (..),
     newDescribeAccountLimitsResponse,
 
     -- * Response Lenses
-    describeAccountLimitsResponse_nextToken,
     describeAccountLimitsResponse_accountLimits,
+    describeAccountLimitsResponse_nextToken,
     describeAccountLimitsResponse_httpStatus,
   )
 where
@@ -62,11 +62,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeAccountLimits' smart constructor.
 data DescribeAccountLimits = DescribeAccountLimits'
-  { -- | The token to be used for the next set of paginated results. You don\'t
+  { -- | The maximum number of results to return per each request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to be used for the next set of paginated results. You don\'t
     -- need to supply a value for this field in the initial request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per each request.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,26 +78,27 @@ data DescribeAccountLimits = DescribeAccountLimits'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'describeAccountLimits_maxResults' - The maximum number of results to return per each request.
+--
 -- 'nextToken', 'describeAccountLimits_nextToken' - The token to be used for the next set of paginated results. You don\'t
 -- need to supply a value for this field in the initial request.
---
--- 'maxResults', 'describeAccountLimits_maxResults' - The maximum number of results to return per each request.
 newDescribeAccountLimits ::
   DescribeAccountLimits
 newDescribeAccountLimits =
   DescribeAccountLimits'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of results to return per each request.
+describeAccountLimits_maxResults :: Lens.Lens' DescribeAccountLimits (Prelude.Maybe Prelude.Natural)
+describeAccountLimits_maxResults = Lens.lens (\DescribeAccountLimits' {maxResults} -> maxResults) (\s@DescribeAccountLimits' {} a -> s {maxResults = a} :: DescribeAccountLimits)
 
 -- | The token to be used for the next set of paginated results. You don\'t
 -- need to supply a value for this field in the initial request.
 describeAccountLimits_nextToken :: Lens.Lens' DescribeAccountLimits (Prelude.Maybe Prelude.Text)
 describeAccountLimits_nextToken = Lens.lens (\DescribeAccountLimits' {nextToken} -> nextToken) (\s@DescribeAccountLimits' {} a -> s {nextToken = a} :: DescribeAccountLimits)
-
--- | The maximum number of results to return per each request.
-describeAccountLimits_maxResults :: Lens.Lens' DescribeAccountLimits (Prelude.Maybe Prelude.Natural)
-describeAccountLimits_maxResults = Lens.lens (\DescribeAccountLimits' {maxResults} -> maxResults) (\s@DescribeAccountLimits' {} a -> s {maxResults = a} :: DescribeAccountLimits)
 
 instance Core.AWSPager DescribeAccountLimits where
   page rq rs
@@ -131,20 +132,20 @@ instance Core.AWSRequest DescribeAccountLimits where
     Response.receiveJSON
       ( \s h x ->
           DescribeAccountLimitsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "AccountLimits" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "AccountLimits" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeAccountLimits where
   hashWithSalt _salt DescribeAccountLimits' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeAccountLimits where
   rnf DescribeAccountLimits' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeAccountLimits where
   toHeaders =
@@ -165,8 +166,8 @@ instance Data.ToJSON DescribeAccountLimits where
   toJSON DescribeAccountLimits' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -178,11 +179,11 @@ instance Data.ToQuery DescribeAccountLimits where
 
 -- | /See:/ 'newDescribeAccountLimitsResponse' smart constructor.
 data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
-  { -- | The token to be used for the next set of paginated results. If this
+  { -- | An array of AccountLimit objects that show the current spend limits.
+    accountLimits :: Prelude.Maybe [AccountLimit],
+    -- | The token to be used for the next set of paginated results. If this
     -- field is empty then there are no more results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of AccountLimit objects that show the current spend limits.
-    accountLimits :: Prelude.Maybe [AccountLimit],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -196,10 +197,10 @@ data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'accountLimits', 'describeAccountLimitsResponse_accountLimits' - An array of AccountLimit objects that show the current spend limits.
+--
 -- 'nextToken', 'describeAccountLimitsResponse_nextToken' - The token to be used for the next set of paginated results. If this
 -- field is empty then there are no more results.
---
--- 'accountLimits', 'describeAccountLimitsResponse_accountLimits' - An array of AccountLimit objects that show the current spend limits.
 --
 -- 'httpStatus', 'describeAccountLimitsResponse_httpStatus' - The response's http status code.
 newDescribeAccountLimitsResponse ::
@@ -208,20 +209,20 @@ newDescribeAccountLimitsResponse ::
   DescribeAccountLimitsResponse
 newDescribeAccountLimitsResponse pHttpStatus_ =
   DescribeAccountLimitsResponse'
-    { nextToken =
+    { accountLimits =
         Prelude.Nothing,
-      accountLimits = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array of AccountLimit objects that show the current spend limits.
+describeAccountLimitsResponse_accountLimits :: Lens.Lens' DescribeAccountLimitsResponse (Prelude.Maybe [AccountLimit])
+describeAccountLimitsResponse_accountLimits = Lens.lens (\DescribeAccountLimitsResponse' {accountLimits} -> accountLimits) (\s@DescribeAccountLimitsResponse' {} a -> s {accountLimits = a} :: DescribeAccountLimitsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to be used for the next set of paginated results. If this
 -- field is empty then there are no more results.
 describeAccountLimitsResponse_nextToken :: Lens.Lens' DescribeAccountLimitsResponse (Prelude.Maybe Prelude.Text)
 describeAccountLimitsResponse_nextToken = Lens.lens (\DescribeAccountLimitsResponse' {nextToken} -> nextToken) (\s@DescribeAccountLimitsResponse' {} a -> s {nextToken = a} :: DescribeAccountLimitsResponse)
-
--- | An array of AccountLimit objects that show the current spend limits.
-describeAccountLimitsResponse_accountLimits :: Lens.Lens' DescribeAccountLimitsResponse (Prelude.Maybe [AccountLimit])
-describeAccountLimitsResponse_accountLimits = Lens.lens (\DescribeAccountLimitsResponse' {accountLimits} -> accountLimits) (\s@DescribeAccountLimitsResponse' {} a -> s {accountLimits = a} :: DescribeAccountLimitsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeAccountLimitsResponse_httpStatus :: Lens.Lens' DescribeAccountLimitsResponse Prelude.Int
@@ -229,6 +230,6 @@ describeAccountLimitsResponse_httpStatus = Lens.lens (\DescribeAccountLimitsResp
 
 instance Prelude.NFData DescribeAccountLimitsResponse where
   rnf DescribeAccountLimitsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf accountLimits
+    Prelude.rnf accountLimits
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

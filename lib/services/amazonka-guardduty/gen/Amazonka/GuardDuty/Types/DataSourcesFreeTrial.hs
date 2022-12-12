@@ -32,19 +32,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDataSourcesFreeTrial' smart constructor.
 data DataSourcesFreeTrial = DataSourcesFreeTrial'
-  { -- | Describes whether Malware Protection is enabled as a data source.
-    malwareProtection :: Prelude.Maybe MalwareProtectionDataSourceFreeTrial,
-    -- | Describes whether any Amazon Web Services CloudTrail management event
+  { -- | Describes whether any Amazon Web Services CloudTrail management event
     -- logs are enabled as data sources.
     cloudTrail :: Prelude.Maybe DataSourceFreeTrial,
     -- | Describes whether any DNS logs are enabled as data sources.
     dnsLogs :: Prelude.Maybe DataSourceFreeTrial,
-    -- | Describes whether any S3 data event logs are enabled as data sources.
-    s3Logs :: Prelude.Maybe DataSourceFreeTrial,
+    -- | Describes whether any VPC Flow logs are enabled as data sources.
+    flowLogs :: Prelude.Maybe DataSourceFreeTrial,
     -- | Describes whether any Kubernetes logs are enabled as data sources.
     kubernetes :: Prelude.Maybe KubernetesDataSourceFreeTrial,
-    -- | Describes whether any VPC Flow logs are enabled as data sources.
-    flowLogs :: Prelude.Maybe DataSourceFreeTrial
+    -- | Describes whether Malware Protection is enabled as a data source.
+    malwareProtection :: Prelude.Maybe MalwareProtectionDataSourceFreeTrial,
+    -- | Describes whether any S3 data event logs are enabled as data sources.
+    s3Logs :: Prelude.Maybe DataSourceFreeTrial
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,34 +56,29 @@ data DataSourcesFreeTrial = DataSourcesFreeTrial'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'malwareProtection', 'dataSourcesFreeTrial_malwareProtection' - Describes whether Malware Protection is enabled as a data source.
---
 -- 'cloudTrail', 'dataSourcesFreeTrial_cloudTrail' - Describes whether any Amazon Web Services CloudTrail management event
 -- logs are enabled as data sources.
 --
 -- 'dnsLogs', 'dataSourcesFreeTrial_dnsLogs' - Describes whether any DNS logs are enabled as data sources.
 --
--- 's3Logs', 'dataSourcesFreeTrial_s3Logs' - Describes whether any S3 data event logs are enabled as data sources.
+-- 'flowLogs', 'dataSourcesFreeTrial_flowLogs' - Describes whether any VPC Flow logs are enabled as data sources.
 --
 -- 'kubernetes', 'dataSourcesFreeTrial_kubernetes' - Describes whether any Kubernetes logs are enabled as data sources.
 --
--- 'flowLogs', 'dataSourcesFreeTrial_flowLogs' - Describes whether any VPC Flow logs are enabled as data sources.
+-- 'malwareProtection', 'dataSourcesFreeTrial_malwareProtection' - Describes whether Malware Protection is enabled as a data source.
+--
+-- 's3Logs', 'dataSourcesFreeTrial_s3Logs' - Describes whether any S3 data event logs are enabled as data sources.
 newDataSourcesFreeTrial ::
   DataSourcesFreeTrial
 newDataSourcesFreeTrial =
   DataSourcesFreeTrial'
-    { malwareProtection =
-        Prelude.Nothing,
-      cloudTrail = Prelude.Nothing,
+    { cloudTrail = Prelude.Nothing,
       dnsLogs = Prelude.Nothing,
-      s3Logs = Prelude.Nothing,
+      flowLogs = Prelude.Nothing,
       kubernetes = Prelude.Nothing,
-      flowLogs = Prelude.Nothing
+      malwareProtection = Prelude.Nothing,
+      s3Logs = Prelude.Nothing
     }
-
--- | Describes whether Malware Protection is enabled as a data source.
-dataSourcesFreeTrial_malwareProtection :: Lens.Lens' DataSourcesFreeTrial (Prelude.Maybe MalwareProtectionDataSourceFreeTrial)
-dataSourcesFreeTrial_malwareProtection = Lens.lens (\DataSourcesFreeTrial' {malwareProtection} -> malwareProtection) (\s@DataSourcesFreeTrial' {} a -> s {malwareProtection = a} :: DataSourcesFreeTrial)
 
 -- | Describes whether any Amazon Web Services CloudTrail management event
 -- logs are enabled as data sources.
@@ -94,17 +89,21 @@ dataSourcesFreeTrial_cloudTrail = Lens.lens (\DataSourcesFreeTrial' {cloudTrail}
 dataSourcesFreeTrial_dnsLogs :: Lens.Lens' DataSourcesFreeTrial (Prelude.Maybe DataSourceFreeTrial)
 dataSourcesFreeTrial_dnsLogs = Lens.lens (\DataSourcesFreeTrial' {dnsLogs} -> dnsLogs) (\s@DataSourcesFreeTrial' {} a -> s {dnsLogs = a} :: DataSourcesFreeTrial)
 
--- | Describes whether any S3 data event logs are enabled as data sources.
-dataSourcesFreeTrial_s3Logs :: Lens.Lens' DataSourcesFreeTrial (Prelude.Maybe DataSourceFreeTrial)
-dataSourcesFreeTrial_s3Logs = Lens.lens (\DataSourcesFreeTrial' {s3Logs} -> s3Logs) (\s@DataSourcesFreeTrial' {} a -> s {s3Logs = a} :: DataSourcesFreeTrial)
+-- | Describes whether any VPC Flow logs are enabled as data sources.
+dataSourcesFreeTrial_flowLogs :: Lens.Lens' DataSourcesFreeTrial (Prelude.Maybe DataSourceFreeTrial)
+dataSourcesFreeTrial_flowLogs = Lens.lens (\DataSourcesFreeTrial' {flowLogs} -> flowLogs) (\s@DataSourcesFreeTrial' {} a -> s {flowLogs = a} :: DataSourcesFreeTrial)
 
 -- | Describes whether any Kubernetes logs are enabled as data sources.
 dataSourcesFreeTrial_kubernetes :: Lens.Lens' DataSourcesFreeTrial (Prelude.Maybe KubernetesDataSourceFreeTrial)
 dataSourcesFreeTrial_kubernetes = Lens.lens (\DataSourcesFreeTrial' {kubernetes} -> kubernetes) (\s@DataSourcesFreeTrial' {} a -> s {kubernetes = a} :: DataSourcesFreeTrial)
 
--- | Describes whether any VPC Flow logs are enabled as data sources.
-dataSourcesFreeTrial_flowLogs :: Lens.Lens' DataSourcesFreeTrial (Prelude.Maybe DataSourceFreeTrial)
-dataSourcesFreeTrial_flowLogs = Lens.lens (\DataSourcesFreeTrial' {flowLogs} -> flowLogs) (\s@DataSourcesFreeTrial' {} a -> s {flowLogs = a} :: DataSourcesFreeTrial)
+-- | Describes whether Malware Protection is enabled as a data source.
+dataSourcesFreeTrial_malwareProtection :: Lens.Lens' DataSourcesFreeTrial (Prelude.Maybe MalwareProtectionDataSourceFreeTrial)
+dataSourcesFreeTrial_malwareProtection = Lens.lens (\DataSourcesFreeTrial' {malwareProtection} -> malwareProtection) (\s@DataSourcesFreeTrial' {} a -> s {malwareProtection = a} :: DataSourcesFreeTrial)
+
+-- | Describes whether any S3 data event logs are enabled as data sources.
+dataSourcesFreeTrial_s3Logs :: Lens.Lens' DataSourcesFreeTrial (Prelude.Maybe DataSourceFreeTrial)
+dataSourcesFreeTrial_s3Logs = Lens.lens (\DataSourcesFreeTrial' {s3Logs} -> s3Logs) (\s@DataSourcesFreeTrial' {} a -> s {s3Logs = a} :: DataSourcesFreeTrial)
 
 instance Data.FromJSON DataSourcesFreeTrial where
   parseJSON =
@@ -112,28 +111,28 @@ instance Data.FromJSON DataSourcesFreeTrial where
       "DataSourcesFreeTrial"
       ( \x ->
           DataSourcesFreeTrial'
-            Prelude.<$> (x Data..:? "malwareProtection")
-            Prelude.<*> (x Data..:? "cloudTrail")
+            Prelude.<$> (x Data..:? "cloudTrail")
             Prelude.<*> (x Data..:? "dnsLogs")
-            Prelude.<*> (x Data..:? "s3Logs")
-            Prelude.<*> (x Data..:? "kubernetes")
             Prelude.<*> (x Data..:? "flowLogs")
+            Prelude.<*> (x Data..:? "kubernetes")
+            Prelude.<*> (x Data..:? "malwareProtection")
+            Prelude.<*> (x Data..:? "s3Logs")
       )
 
 instance Prelude.Hashable DataSourcesFreeTrial where
   hashWithSalt _salt DataSourcesFreeTrial' {..} =
-    _salt `Prelude.hashWithSalt` malwareProtection
-      `Prelude.hashWithSalt` cloudTrail
+    _salt `Prelude.hashWithSalt` cloudTrail
       `Prelude.hashWithSalt` dnsLogs
-      `Prelude.hashWithSalt` s3Logs
-      `Prelude.hashWithSalt` kubernetes
       `Prelude.hashWithSalt` flowLogs
+      `Prelude.hashWithSalt` kubernetes
+      `Prelude.hashWithSalt` malwareProtection
+      `Prelude.hashWithSalt` s3Logs
 
 instance Prelude.NFData DataSourcesFreeTrial where
   rnf DataSourcesFreeTrial' {..} =
-    Prelude.rnf malwareProtection
-      `Prelude.seq` Prelude.rnf cloudTrail
+    Prelude.rnf cloudTrail
       `Prelude.seq` Prelude.rnf dnsLogs
-      `Prelude.seq` Prelude.rnf s3Logs
-      `Prelude.seq` Prelude.rnf kubernetes
       `Prelude.seq` Prelude.rnf flowLogs
+      `Prelude.seq` Prelude.rnf kubernetes
+      `Prelude.seq` Prelude.rnf malwareProtection
+      `Prelude.seq` Prelude.rnf s3Logs

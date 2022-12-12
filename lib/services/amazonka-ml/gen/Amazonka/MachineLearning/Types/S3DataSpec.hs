@@ -28,10 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newS3DataSpec' smart constructor.
 data S3DataSpec = S3DataSpec'
-  { -- | Describes the schema location in Amazon S3. You must provide either the
-    -- @DataSchema@ or the @DataSchemaLocationS3@.
-    dataSchemaLocationS3 :: Prelude.Maybe Prelude.Text,
-    -- | A JSON string that represents the splitting and rearrangement processing
+  { -- | A JSON string that represents the splitting and rearrangement processing
     -- to be applied to a @DataSource@. If the @DataRearrangement@ parameter is
     -- not provided, all of the input data is used to create the @Datasource@.
     --
@@ -152,6 +149,9 @@ data S3DataSpec = S3DataSpec'
     --
     -- \"excludedVariableNames\": [ \"F6\" ] }
     dataSchema :: Prelude.Maybe Prelude.Text,
+    -- | Describes the schema location in Amazon S3. You must provide either the
+    -- @DataSchema@ or the @DataSchemaLocationS3@.
+    dataSchemaLocationS3 :: Prelude.Maybe Prelude.Text,
     -- | The location of the data file(s) used by a @DataSource@. The URI
     -- specifies a data file or an Amazon Simple Storage Service (Amazon S3)
     -- directory or bucket containing data files.
@@ -166,9 +166,6 @@ data S3DataSpec = S3DataSpec'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'dataSchemaLocationS3', 's3DataSpec_dataSchemaLocationS3' - Describes the schema location in Amazon S3. You must provide either the
--- @DataSchema@ or the @DataSchemaLocationS3@.
 --
 -- 'dataRearrangement', 's3DataSpec_dataRearrangement' - A JSON string that represents the splitting and rearrangement processing
 -- to be applied to a @DataSource@. If the @DataRearrangement@ parameter is
@@ -291,6 +288,9 @@ data S3DataSpec = S3DataSpec'
 --
 -- \"excludedVariableNames\": [ \"F6\" ] }
 --
+-- 'dataSchemaLocationS3', 's3DataSpec_dataSchemaLocationS3' - Describes the schema location in Amazon S3. You must provide either the
+-- @DataSchema@ or the @DataSchemaLocationS3@.
+--
 -- 'dataLocationS3', 's3DataSpec_dataLocationS3' - The location of the data file(s) used by a @DataSource@. The URI
 -- specifies a data file or an Amazon Simple Storage Service (Amazon S3)
 -- directory or bucket containing data files.
@@ -300,16 +300,11 @@ newS3DataSpec ::
   S3DataSpec
 newS3DataSpec pDataLocationS3_ =
   S3DataSpec'
-    { dataSchemaLocationS3 = Prelude.Nothing,
-      dataRearrangement = Prelude.Nothing,
+    { dataRearrangement = Prelude.Nothing,
       dataSchema = Prelude.Nothing,
+      dataSchemaLocationS3 = Prelude.Nothing,
       dataLocationS3 = pDataLocationS3_
     }
-
--- | Describes the schema location in Amazon S3. You must provide either the
--- @DataSchema@ or the @DataSchemaLocationS3@.
-s3DataSpec_dataSchemaLocationS3 :: Lens.Lens' S3DataSpec (Prelude.Maybe Prelude.Text)
-s3DataSpec_dataSchemaLocationS3 = Lens.lens (\S3DataSpec' {dataSchemaLocationS3} -> dataSchemaLocationS3) (\s@S3DataSpec' {} a -> s {dataSchemaLocationS3 = a} :: S3DataSpec)
 
 -- | A JSON string that represents the splitting and rearrangement processing
 -- to be applied to a @DataSource@. If the @DataRearrangement@ parameter is
@@ -436,6 +431,11 @@ s3DataSpec_dataRearrangement = Lens.lens (\S3DataSpec' {dataRearrangement} -> da
 s3DataSpec_dataSchema :: Lens.Lens' S3DataSpec (Prelude.Maybe Prelude.Text)
 s3DataSpec_dataSchema = Lens.lens (\S3DataSpec' {dataSchema} -> dataSchema) (\s@S3DataSpec' {} a -> s {dataSchema = a} :: S3DataSpec)
 
+-- | Describes the schema location in Amazon S3. You must provide either the
+-- @DataSchema@ or the @DataSchemaLocationS3@.
+s3DataSpec_dataSchemaLocationS3 :: Lens.Lens' S3DataSpec (Prelude.Maybe Prelude.Text)
+s3DataSpec_dataSchemaLocationS3 = Lens.lens (\S3DataSpec' {dataSchemaLocationS3} -> dataSchemaLocationS3) (\s@S3DataSpec' {} a -> s {dataSchemaLocationS3 = a} :: S3DataSpec)
+
 -- | The location of the data file(s) used by a @DataSource@. The URI
 -- specifies a data file or an Amazon Simple Storage Service (Amazon S3)
 -- directory or bucket containing data files.
@@ -444,27 +444,27 @@ s3DataSpec_dataLocationS3 = Lens.lens (\S3DataSpec' {dataLocationS3} -> dataLoca
 
 instance Prelude.Hashable S3DataSpec where
   hashWithSalt _salt S3DataSpec' {..} =
-    _salt `Prelude.hashWithSalt` dataSchemaLocationS3
-      `Prelude.hashWithSalt` dataRearrangement
+    _salt `Prelude.hashWithSalt` dataRearrangement
       `Prelude.hashWithSalt` dataSchema
+      `Prelude.hashWithSalt` dataSchemaLocationS3
       `Prelude.hashWithSalt` dataLocationS3
 
 instance Prelude.NFData S3DataSpec where
   rnf S3DataSpec' {..} =
-    Prelude.rnf dataSchemaLocationS3
-      `Prelude.seq` Prelude.rnf dataRearrangement
+    Prelude.rnf dataRearrangement
       `Prelude.seq` Prelude.rnf dataSchema
+      `Prelude.seq` Prelude.rnf dataSchemaLocationS3
       `Prelude.seq` Prelude.rnf dataLocationS3
 
 instance Data.ToJSON S3DataSpec where
   toJSON S3DataSpec' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DataSchemaLocationS3" Data..=)
-              Prelude.<$> dataSchemaLocationS3,
-            ("DataRearrangement" Data..=)
+          [ ("DataRearrangement" Data..=)
               Prelude.<$> dataRearrangement,
             ("DataSchema" Data..=) Prelude.<$> dataSchema,
+            ("DataSchemaLocationS3" Data..=)
+              Prelude.<$> dataSchemaLocationS3,
             Prelude.Just
               ("DataLocationS3" Data..= dataLocationS3)
           ]

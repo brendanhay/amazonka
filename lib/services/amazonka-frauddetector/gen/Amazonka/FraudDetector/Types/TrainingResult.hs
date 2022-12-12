@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTrainingResult' smart constructor.
 data TrainingResult = TrainingResult'
-  { -- | The variable importance metrics.
-    variableImportanceMetrics :: Prelude.Maybe VariableImportanceMetrics,
-    -- | The validation metrics.
+  { -- | The validation metrics.
     dataValidationMetrics :: Prelude.Maybe DataValidationMetrics,
     -- | The training metric details.
-    trainingMetrics :: Prelude.Maybe TrainingMetrics
+    trainingMetrics :: Prelude.Maybe TrainingMetrics,
+    -- | The variable importance metrics.
+    variableImportanceMetrics :: Prelude.Maybe VariableImportanceMetrics
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,24 +48,20 @@ data TrainingResult = TrainingResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'variableImportanceMetrics', 'trainingResult_variableImportanceMetrics' - The variable importance metrics.
---
 -- 'dataValidationMetrics', 'trainingResult_dataValidationMetrics' - The validation metrics.
 --
 -- 'trainingMetrics', 'trainingResult_trainingMetrics' - The training metric details.
+--
+-- 'variableImportanceMetrics', 'trainingResult_variableImportanceMetrics' - The variable importance metrics.
 newTrainingResult ::
   TrainingResult
 newTrainingResult =
   TrainingResult'
-    { variableImportanceMetrics =
+    { dataValidationMetrics =
         Prelude.Nothing,
-      dataValidationMetrics = Prelude.Nothing,
-      trainingMetrics = Prelude.Nothing
+      trainingMetrics = Prelude.Nothing,
+      variableImportanceMetrics = Prelude.Nothing
     }
-
--- | The variable importance metrics.
-trainingResult_variableImportanceMetrics :: Lens.Lens' TrainingResult (Prelude.Maybe VariableImportanceMetrics)
-trainingResult_variableImportanceMetrics = Lens.lens (\TrainingResult' {variableImportanceMetrics} -> variableImportanceMetrics) (\s@TrainingResult' {} a -> s {variableImportanceMetrics = a} :: TrainingResult)
 
 -- | The validation metrics.
 trainingResult_dataValidationMetrics :: Lens.Lens' TrainingResult (Prelude.Maybe DataValidationMetrics)
@@ -75,26 +71,29 @@ trainingResult_dataValidationMetrics = Lens.lens (\TrainingResult' {dataValidati
 trainingResult_trainingMetrics :: Lens.Lens' TrainingResult (Prelude.Maybe TrainingMetrics)
 trainingResult_trainingMetrics = Lens.lens (\TrainingResult' {trainingMetrics} -> trainingMetrics) (\s@TrainingResult' {} a -> s {trainingMetrics = a} :: TrainingResult)
 
+-- | The variable importance metrics.
+trainingResult_variableImportanceMetrics :: Lens.Lens' TrainingResult (Prelude.Maybe VariableImportanceMetrics)
+trainingResult_variableImportanceMetrics = Lens.lens (\TrainingResult' {variableImportanceMetrics} -> variableImportanceMetrics) (\s@TrainingResult' {} a -> s {variableImportanceMetrics = a} :: TrainingResult)
+
 instance Data.FromJSON TrainingResult where
   parseJSON =
     Data.withObject
       "TrainingResult"
       ( \x ->
           TrainingResult'
-            Prelude.<$> (x Data..:? "variableImportanceMetrics")
-            Prelude.<*> (x Data..:? "dataValidationMetrics")
+            Prelude.<$> (x Data..:? "dataValidationMetrics")
             Prelude.<*> (x Data..:? "trainingMetrics")
+            Prelude.<*> (x Data..:? "variableImportanceMetrics")
       )
 
 instance Prelude.Hashable TrainingResult where
   hashWithSalt _salt TrainingResult' {..} =
-    _salt
-      `Prelude.hashWithSalt` variableImportanceMetrics
-      `Prelude.hashWithSalt` dataValidationMetrics
+    _salt `Prelude.hashWithSalt` dataValidationMetrics
       `Prelude.hashWithSalt` trainingMetrics
+      `Prelude.hashWithSalt` variableImportanceMetrics
 
 instance Prelude.NFData TrainingResult where
   rnf TrainingResult' {..} =
-    Prelude.rnf variableImportanceMetrics
-      `Prelude.seq` Prelude.rnf dataValidationMetrics
+    Prelude.rnf dataValidationMetrics
       `Prelude.seq` Prelude.rnf trainingMetrics
+      `Prelude.seq` Prelude.rnf variableImportanceMetrics

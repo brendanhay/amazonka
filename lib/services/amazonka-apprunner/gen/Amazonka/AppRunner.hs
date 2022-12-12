@@ -46,20 +46,20 @@ module Amazonka.AppRunner
     -- * Errors
     -- $errors
 
-    -- ** InvalidStateException
-    _InvalidStateException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
     -- ** InternalServiceErrorException
     _InternalServiceErrorException,
 
     -- ** InvalidRequestException
     _InvalidRequestException,
+
+    -- ** InvalidStateException
+    _InvalidStateException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
 
     -- * Waiters
     -- $waiters

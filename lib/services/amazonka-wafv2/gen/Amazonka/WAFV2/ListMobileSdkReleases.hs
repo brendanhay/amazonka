@@ -43,8 +43,8 @@ module Amazonka.WAFV2.ListMobileSdkReleases
     newListMobileSdkReleasesResponse,
 
     -- * Response Lenses
-    listMobileSdkReleasesResponse_releaseSummaries,
     listMobileSdkReleasesResponse_nextMarker,
+    listMobileSdkReleasesResponse_releaseSummaries,
     listMobileSdkReleasesResponse_httpStatus,
   )
 where
@@ -132,10 +132,10 @@ instance Core.AWSRequest ListMobileSdkReleases where
     Response.receiveJSON
       ( \s h x ->
           ListMobileSdkReleasesResponse'
-            Prelude.<$> ( x Data..?> "ReleaseSummaries"
+            Prelude.<$> (x Data..?> "NextMarker")
+            Prelude.<*> ( x Data..?> "ReleaseSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -184,13 +184,13 @@ instance Data.ToQuery ListMobileSdkReleases where
 
 -- | /See:/ 'newListMobileSdkReleasesResponse' smart constructor.
 data ListMobileSdkReleasesResponse = ListMobileSdkReleasesResponse'
-  { -- | High level information for the available SDK releases.
-    releaseSummaries :: Prelude.Maybe [ReleaseSummary],
-    -- | When you request a list of objects with a @Limit@ setting, if the number
+  { -- | When you request a list of objects with a @Limit@ setting, if the number
     -- of objects that are still available for retrieval exceeds the limit, WAF
     -- returns a @NextMarker@ value in the response. To retrieve the next batch
     -- of objects, provide the marker from the prior call in your next request.
     nextMarker :: Prelude.Maybe Prelude.Text,
+    -- | High level information for the available SDK releases.
+    releaseSummaries :: Prelude.Maybe [ReleaseSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -204,12 +204,12 @@ data ListMobileSdkReleasesResponse = ListMobileSdkReleasesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'releaseSummaries', 'listMobileSdkReleasesResponse_releaseSummaries' - High level information for the available SDK releases.
---
 -- 'nextMarker', 'listMobileSdkReleasesResponse_nextMarker' - When you request a list of objects with a @Limit@ setting, if the number
 -- of objects that are still available for retrieval exceeds the limit, WAF
 -- returns a @NextMarker@ value in the response. To retrieve the next batch
 -- of objects, provide the marker from the prior call in your next request.
+--
+-- 'releaseSummaries', 'listMobileSdkReleasesResponse_releaseSummaries' - High level information for the available SDK releases.
 --
 -- 'httpStatus', 'listMobileSdkReleasesResponse_httpStatus' - The response's http status code.
 newListMobileSdkReleasesResponse ::
@@ -218,15 +218,11 @@ newListMobileSdkReleasesResponse ::
   ListMobileSdkReleasesResponse
 newListMobileSdkReleasesResponse pHttpStatus_ =
   ListMobileSdkReleasesResponse'
-    { releaseSummaries =
+    { nextMarker =
         Prelude.Nothing,
-      nextMarker = Prelude.Nothing,
+      releaseSummaries = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | High level information for the available SDK releases.
-listMobileSdkReleasesResponse_releaseSummaries :: Lens.Lens' ListMobileSdkReleasesResponse (Prelude.Maybe [ReleaseSummary])
-listMobileSdkReleasesResponse_releaseSummaries = Lens.lens (\ListMobileSdkReleasesResponse' {releaseSummaries} -> releaseSummaries) (\s@ListMobileSdkReleasesResponse' {} a -> s {releaseSummaries = a} :: ListMobileSdkReleasesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | When you request a list of objects with a @Limit@ setting, if the number
 -- of objects that are still available for retrieval exceeds the limit, WAF
@@ -235,12 +231,16 @@ listMobileSdkReleasesResponse_releaseSummaries = Lens.lens (\ListMobileSdkReleas
 listMobileSdkReleasesResponse_nextMarker :: Lens.Lens' ListMobileSdkReleasesResponse (Prelude.Maybe Prelude.Text)
 listMobileSdkReleasesResponse_nextMarker = Lens.lens (\ListMobileSdkReleasesResponse' {nextMarker} -> nextMarker) (\s@ListMobileSdkReleasesResponse' {} a -> s {nextMarker = a} :: ListMobileSdkReleasesResponse)
 
+-- | High level information for the available SDK releases.
+listMobileSdkReleasesResponse_releaseSummaries :: Lens.Lens' ListMobileSdkReleasesResponse (Prelude.Maybe [ReleaseSummary])
+listMobileSdkReleasesResponse_releaseSummaries = Lens.lens (\ListMobileSdkReleasesResponse' {releaseSummaries} -> releaseSummaries) (\s@ListMobileSdkReleasesResponse' {} a -> s {releaseSummaries = a} :: ListMobileSdkReleasesResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listMobileSdkReleasesResponse_httpStatus :: Lens.Lens' ListMobileSdkReleasesResponse Prelude.Int
 listMobileSdkReleasesResponse_httpStatus = Lens.lens (\ListMobileSdkReleasesResponse' {httpStatus} -> httpStatus) (\s@ListMobileSdkReleasesResponse' {} a -> s {httpStatus = a} :: ListMobileSdkReleasesResponse)
 
 instance Prelude.NFData ListMobileSdkReleasesResponse where
   rnf ListMobileSdkReleasesResponse' {..} =
-    Prelude.rnf releaseSummaries
-      `Prelude.seq` Prelude.rnf nextMarker
+    Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf releaseSummaries
       `Prelude.seq` Prelude.rnf httpStatus

@@ -86,6 +86,8 @@ library
     Amazonka.ComputeOptimizer.Types.ExportableLambdaFunctionField
     Amazonka.ComputeOptimizer.Types.ExportableVolumeField
     Amazonka.ComputeOptimizer.Types.ExportDestination
+    Amazonka.ComputeOptimizer.Types.ExternalMetricsPreference
+    Amazonka.ComputeOptimizer.Types.ExternalMetricsSource
     Amazonka.ComputeOptimizer.Types.FileFormat
     Amazonka.ComputeOptimizer.Types.Filter
     Amazonka.ComputeOptimizer.Types.FilterName

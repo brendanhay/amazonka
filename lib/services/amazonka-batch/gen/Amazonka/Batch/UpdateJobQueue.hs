@@ -28,9 +28,9 @@ module Amazonka.Batch.UpdateJobQueue
 
     -- * Request Lenses
     updateJobQueue_computeEnvironmentOrder,
-    updateJobQueue_state,
     updateJobQueue_priority,
     updateJobQueue_schedulingPolicyArn,
+    updateJobQueue_state,
     updateJobQueue_jobQueue,
 
     -- * Destructuring the Response
@@ -68,11 +68,6 @@ data UpdateJobQueue = UpdateJobQueue'
     -- the same architecture. Batch doesn\'t support mixing compute environment
     -- architecture types in a single job queue.
     computeEnvironmentOrder :: Prelude.Maybe [ComputeEnvironmentOrder],
-    -- | Describes the queue\'s ability to accept new jobs. If the job queue
-    -- state is @ENABLED@, it can accept jobs. If the job queue state is
-    -- @DISABLED@, new jobs can\'t be added to the queue, but jobs already in
-    -- the queue can finish.
-    state :: Prelude.Maybe JQState,
     -- | The priority of the job queue. Job queues with a higher priority (or a
     -- higher integer value for the @priority@ parameter) are evaluated first
     -- when associated with the same compute environment. Priority is
@@ -89,6 +84,11 @@ data UpdateJobQueue = UpdateJobQueue'
     -- example,
     -- @aws:aws:batch:us-west-2:123456789012:scheduling-policy\/MySchedulingPolicy@.
     schedulingPolicyArn :: Prelude.Maybe Prelude.Text,
+    -- | Describes the queue\'s ability to accept new jobs. If the job queue
+    -- state is @ENABLED@, it can accept jobs. If the job queue state is
+    -- @DISABLED@, new jobs can\'t be added to the queue, but jobs already in
+    -- the queue can finish.
+    state :: Prelude.Maybe JQState,
     -- | The name or the Amazon Resource Name (ARN) of the job queue.
     jobQueue :: Prelude.Text
   }
@@ -114,11 +114,6 @@ data UpdateJobQueue = UpdateJobQueue'
 -- the same architecture. Batch doesn\'t support mixing compute environment
 -- architecture types in a single job queue.
 --
--- 'state', 'updateJobQueue_state' - Describes the queue\'s ability to accept new jobs. If the job queue
--- state is @ENABLED@, it can accept jobs. If the job queue state is
--- @DISABLED@, new jobs can\'t be added to the queue, but jobs already in
--- the queue can finish.
---
 -- 'priority', 'updateJobQueue_priority' - The priority of the job queue. Job queues with a higher priority (or a
 -- higher integer value for the @priority@ parameter) are evaluated first
 -- when associated with the same compute environment. Priority is
@@ -135,6 +130,11 @@ data UpdateJobQueue = UpdateJobQueue'
 -- example,
 -- @aws:aws:batch:us-west-2:123456789012:scheduling-policy\/MySchedulingPolicy@.
 --
+-- 'state', 'updateJobQueue_state' - Describes the queue\'s ability to accept new jobs. If the job queue
+-- state is @ENABLED@, it can accept jobs. If the job queue state is
+-- @DISABLED@, new jobs can\'t be added to the queue, but jobs already in
+-- the queue can finish.
+--
 -- 'jobQueue', 'updateJobQueue_jobQueue' - The name or the Amazon Resource Name (ARN) of the job queue.
 newUpdateJobQueue ::
   -- | 'jobQueue'
@@ -144,9 +144,9 @@ newUpdateJobQueue pJobQueue_ =
   UpdateJobQueue'
     { computeEnvironmentOrder =
         Prelude.Nothing,
-      state = Prelude.Nothing,
       priority = Prelude.Nothing,
       schedulingPolicyArn = Prelude.Nothing,
+      state = Prelude.Nothing,
       jobQueue = pJobQueue_
     }
 
@@ -163,13 +163,6 @@ newUpdateJobQueue pJobQueue_ =
 -- architecture types in a single job queue.
 updateJobQueue_computeEnvironmentOrder :: Lens.Lens' UpdateJobQueue (Prelude.Maybe [ComputeEnvironmentOrder])
 updateJobQueue_computeEnvironmentOrder = Lens.lens (\UpdateJobQueue' {computeEnvironmentOrder} -> computeEnvironmentOrder) (\s@UpdateJobQueue' {} a -> s {computeEnvironmentOrder = a} :: UpdateJobQueue) Prelude.. Lens.mapping Lens.coerced
-
--- | Describes the queue\'s ability to accept new jobs. If the job queue
--- state is @ENABLED@, it can accept jobs. If the job queue state is
--- @DISABLED@, new jobs can\'t be added to the queue, but jobs already in
--- the queue can finish.
-updateJobQueue_state :: Lens.Lens' UpdateJobQueue (Prelude.Maybe JQState)
-updateJobQueue_state = Lens.lens (\UpdateJobQueue' {state} -> state) (\s@UpdateJobQueue' {} a -> s {state = a} :: UpdateJobQueue)
 
 -- | The priority of the job queue. Job queues with a higher priority (or a
 -- higher integer value for the @priority@ parameter) are evaluated first
@@ -190,6 +183,13 @@ updateJobQueue_priority = Lens.lens (\UpdateJobQueue' {priority} -> priority) (\
 -- @aws:aws:batch:us-west-2:123456789012:scheduling-policy\/MySchedulingPolicy@.
 updateJobQueue_schedulingPolicyArn :: Lens.Lens' UpdateJobQueue (Prelude.Maybe Prelude.Text)
 updateJobQueue_schedulingPolicyArn = Lens.lens (\UpdateJobQueue' {schedulingPolicyArn} -> schedulingPolicyArn) (\s@UpdateJobQueue' {} a -> s {schedulingPolicyArn = a} :: UpdateJobQueue)
+
+-- | Describes the queue\'s ability to accept new jobs. If the job queue
+-- state is @ENABLED@, it can accept jobs. If the job queue state is
+-- @DISABLED@, new jobs can\'t be added to the queue, but jobs already in
+-- the queue can finish.
+updateJobQueue_state :: Lens.Lens' UpdateJobQueue (Prelude.Maybe JQState)
+updateJobQueue_state = Lens.lens (\UpdateJobQueue' {state} -> state) (\s@UpdateJobQueue' {} a -> s {state = a} :: UpdateJobQueue)
 
 -- | The name or the Amazon Resource Name (ARN) of the job queue.
 updateJobQueue_jobQueue :: Lens.Lens' UpdateJobQueue Prelude.Text
@@ -214,17 +214,17 @@ instance Prelude.Hashable UpdateJobQueue where
   hashWithSalt _salt UpdateJobQueue' {..} =
     _salt
       `Prelude.hashWithSalt` computeEnvironmentOrder
-      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` priority
       `Prelude.hashWithSalt` schedulingPolicyArn
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` jobQueue
 
 instance Prelude.NFData UpdateJobQueue where
   rnf UpdateJobQueue' {..} =
     Prelude.rnf computeEnvironmentOrder
-      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf priority
       `Prelude.seq` Prelude.rnf schedulingPolicyArn
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf jobQueue
 
 instance Data.ToHeaders UpdateJobQueue where
@@ -244,10 +244,10 @@ instance Data.ToJSON UpdateJobQueue where
       ( Prelude.catMaybes
           [ ("computeEnvironmentOrder" Data..=)
               Prelude.<$> computeEnvironmentOrder,
-            ("state" Data..=) Prelude.<$> state,
             ("priority" Data..=) Prelude.<$> priority,
             ("schedulingPolicyArn" Data..=)
               Prelude.<$> schedulingPolicyArn,
+            ("state" Data..=) Prelude.<$> state,
             Prelude.Just ("jobQueue" Data..= jobQueue)
           ]
       )

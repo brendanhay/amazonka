@@ -56,16 +56,16 @@ module Amazonka.MediaTailor.Types
     -- * AccessConfiguration
     AccessConfiguration (..),
     newAccessConfiguration,
-    accessConfiguration_secretsManagerAccessTokenConfiguration,
     accessConfiguration_accessType,
+    accessConfiguration_secretsManagerAccessTokenConfiguration,
 
     -- * AdBreak
     AdBreak (..),
     newAdBreak,
     adBreak_messageType,
     adBreak_offsetMillis,
-    adBreak_spliceInsertMessage,
     adBreak_slate,
+    adBreak_spliceInsertMessage,
     adBreak_timeSignalMessage,
 
     -- * AdMarkerPassthrough
@@ -97,8 +97,8 @@ module Amazonka.MediaTailor.Types
     -- * Bumper
     Bumper (..),
     newBumper,
-    bumper_startUrl,
     bumper_endUrl,
+    bumper_startUrl,
 
     -- * CdnConfiguration
     CdnConfiguration (..),
@@ -109,10 +109,10 @@ module Amazonka.MediaTailor.Types
     -- * Channel
     Channel (..),
     newChannel,
-    channel_tags,
+    channel_creationTime,
     channel_fillerSlate,
     channel_lastModifiedTime,
-    channel_creationTime,
+    channel_tags,
     channel_arn,
     channel_channelName,
     channel_channelState,
@@ -136,10 +136,10 @@ module Amazonka.MediaTailor.Types
     -- * DashPlaylistSettings
     DashPlaylistSettings (..),
     newDashPlaylistSettings,
-    dashPlaylistSettings_suggestedPresentationDelaySeconds,
     dashPlaylistSettings_manifestWindowSeconds,
-    dashPlaylistSettings_minUpdatePeriodSeconds,
     dashPlaylistSettings_minBufferTimeSeconds,
+    dashPlaylistSettings_minUpdatePeriodSeconds,
+    dashPlaylistSettings_suggestedPresentationDelaySeconds,
 
     -- * DefaultSegmentDeliveryConfiguration
     DefaultSegmentDeliveryConfiguration (..),
@@ -177,9 +177,9 @@ module Amazonka.MediaTailor.Types
     -- * LiveSource
     LiveSource (..),
     newLiveSource,
-    liveSource_tags,
-    liveSource_lastModifiedTime,
     liveSource_creationTime,
+    liveSource_lastModifiedTime,
+    liveSource_tags,
     liveSource_arn,
     liveSource_httpPackageConfigurations,
     liveSource_liveSourceName,
@@ -198,25 +198,25 @@ module Amazonka.MediaTailor.Types
     -- * PlaybackConfiguration
     PlaybackConfiguration (..),
     newPlaybackConfiguration,
-    playbackConfiguration_tags,
-    playbackConfiguration_name,
-    playbackConfiguration_configurationAliases,
-    playbackConfiguration_logConfiguration,
-    playbackConfiguration_sessionInitializationEndpointPrefix,
-    playbackConfiguration_cdnConfiguration,
-    playbackConfiguration_bumper,
-    playbackConfiguration_manifestProcessingRules,
-    playbackConfiguration_livePreRollConfiguration,
-    playbackConfiguration_dashConfiguration,
     playbackConfiguration_adDecisionServerUrl,
+    playbackConfiguration_availSuppression,
+    playbackConfiguration_bumper,
+    playbackConfiguration_cdnConfiguration,
+    playbackConfiguration_configurationAliases,
+    playbackConfiguration_dashConfiguration,
+    playbackConfiguration_hlsConfiguration,
+    playbackConfiguration_livePreRollConfiguration,
+    playbackConfiguration_logConfiguration,
+    playbackConfiguration_manifestProcessingRules,
+    playbackConfiguration_name,
+    playbackConfiguration_personalizationThresholdSeconds,
+    playbackConfiguration_playbackConfigurationArn,
+    playbackConfiguration_playbackEndpointPrefix,
+    playbackConfiguration_sessionInitializationEndpointPrefix,
+    playbackConfiguration_slateAdUrl,
+    playbackConfiguration_tags,
     playbackConfiguration_transcodeProfileName,
     playbackConfiguration_videoContentSourceUrl,
-    playbackConfiguration_playbackConfigurationArn,
-    playbackConfiguration_hlsConfiguration,
-    playbackConfiguration_slateAdUrl,
-    playbackConfiguration_availSuppression,
-    playbackConfiguration_playbackEndpointPrefix,
-    playbackConfiguration_personalizationThresholdSeconds,
 
     -- * PrefetchConsumption
     PrefetchConsumption (..),
@@ -245,16 +245,16 @@ module Amazonka.MediaTailor.Types
     -- * RequestOutputItem
     RequestOutputItem (..),
     newRequestOutputItem,
-    requestOutputItem_hlsPlaylistSettings,
     requestOutputItem_dashPlaylistSettings,
+    requestOutputItem_hlsPlaylistSettings,
     requestOutputItem_manifestName,
     requestOutputItem_sourceGroup,
 
     -- * ResponseOutputItem
     ResponseOutputItem (..),
     newResponseOutputItem,
-    responseOutputItem_hlsPlaylistSettings,
     responseOutputItem_dashPlaylistSettings,
+    responseOutputItem_hlsPlaylistSettings,
     responseOutputItem_manifestName,
     responseOutputItem_playbackUrl,
     responseOutputItem_sourceGroup,
@@ -262,10 +262,10 @@ module Amazonka.MediaTailor.Types
     -- * ScheduleAdBreak
     ScheduleAdBreak (..),
     newScheduleAdBreak,
-    scheduleAdBreak_approximateStartTime,
-    scheduleAdBreak_vodSourceName,
     scheduleAdBreak_approximateDurationSeconds,
+    scheduleAdBreak_approximateStartTime,
     scheduleAdBreak_sourceLocationName,
+    scheduleAdBreak_vodSourceName,
 
     -- * ScheduleConfiguration
     ScheduleConfiguration (..),
@@ -275,12 +275,12 @@ module Amazonka.MediaTailor.Types
     -- * ScheduleEntry
     ScheduleEntry (..),
     newScheduleEntry,
+    scheduleEntry_approximateDurationSeconds,
     scheduleEntry_approximateStartTime,
     scheduleEntry_liveSourceName,
-    scheduleEntry_vodSourceName,
-    scheduleEntry_approximateDurationSeconds,
-    scheduleEntry_scheduleEntryType,
     scheduleEntry_scheduleAdBreaks,
+    scheduleEntry_scheduleEntryType,
+    scheduleEntry_vodSourceName,
     scheduleEntry_arn,
     scheduleEntry_channelName,
     scheduleEntry_programName,
@@ -302,30 +302,30 @@ module Amazonka.MediaTailor.Types
     -- * SegmentationDescriptor
     SegmentationDescriptor (..),
     newSegmentationDescriptor,
-    segmentationDescriptor_subSegmentsExpected,
-    segmentationDescriptor_segmentationTypeId,
-    segmentationDescriptor_segmentationUpidType,
     segmentationDescriptor_segmentNum,
-    segmentationDescriptor_segmentationUpid,
-    segmentationDescriptor_subSegmentNum,
-    segmentationDescriptor_segmentsExpected,
     segmentationDescriptor_segmentationEventId,
+    segmentationDescriptor_segmentationTypeId,
+    segmentationDescriptor_segmentationUpid,
+    segmentationDescriptor_segmentationUpidType,
+    segmentationDescriptor_segmentsExpected,
+    segmentationDescriptor_subSegmentNum,
+    segmentationDescriptor_subSegmentsExpected,
 
     -- * SlateSource
     SlateSource (..),
     newSlateSource,
-    slateSource_vodSourceName,
     slateSource_sourceLocationName,
+    slateSource_vodSourceName,
 
     -- * SourceLocation
     SourceLocation (..),
     newSourceLocation,
-    sourceLocation_tags,
-    sourceLocation_segmentDeliveryConfigurations,
     sourceLocation_accessConfiguration,
+    sourceLocation_creationTime,
     sourceLocation_defaultSegmentDeliveryConfiguration,
     sourceLocation_lastModifiedTime,
-    sourceLocation_creationTime,
+    sourceLocation_segmentDeliveryConfigurations,
+    sourceLocation_tags,
     sourceLocation_arn,
     sourceLocation_httpConfiguration,
     sourceLocation_sourceLocationName,
@@ -333,9 +333,9 @@ module Amazonka.MediaTailor.Types
     -- * SpliceInsertMessage
     SpliceInsertMessage (..),
     newSpliceInsertMessage,
+    spliceInsertMessage_availNum,
     spliceInsertMessage_availsExpected,
     spliceInsertMessage_spliceEventId,
-    spliceInsertMessage_availNum,
     spliceInsertMessage_uniqueProgramId,
 
     -- * TimeSignalMessage
@@ -346,18 +346,18 @@ module Amazonka.MediaTailor.Types
     -- * Transition
     Transition (..),
     newTransition,
+    transition_durationMillis,
     transition_relativeProgram,
     transition_scheduledStartTimeMillis,
-    transition_durationMillis,
     transition_relativePosition,
     transition_type,
 
     -- * VodSource
     VodSource (..),
     newVodSource,
-    vodSource_tags,
-    vodSource_lastModifiedTime,
     vodSource_creationTime,
+    vodSource_lastModifiedTime,
+    vodSource_tags,
     vodSource_arn,
     vodSource_httpPackageConfigurations,
     vodSource_sourceLocationName,
@@ -445,28 +445,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -474,13 +468,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -488,6 +486,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | A request contains unexpected data.

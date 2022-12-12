@@ -43,16 +43,17 @@
 -- You can also verify the digital signature by using the public key of the
 -- KMS key outside of KMS. Use the GetPublicKey operation to download the
 -- public key in the asymmetric KMS key and then use the public key to
--- verify the signature outside of KMS. To verify a signature outside of
--- KMS with an SM2 public key, you must specify the distinguishing ID. By
--- default, KMS uses @1234567812345678@ as the distinguishing ID. For more
--- information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification Offline verification with SM2 key pairs>
--- in /Key Management Service Developer Guide/. The advantage of using the
--- @Verify@ operation is that it is performed within KMS. As a result,
--- it\'s easy to call, the operation is performed within the FIPS boundary,
--- it is logged in CloudTrail, and you can use key policy and IAM policy to
--- determine who is authorized to use the KMS key to verify signatures.
+-- verify the signature outside of KMS. The advantage of using the @Verify@
+-- operation is that it is performed within KMS. As a result, it\'s easy to
+-- call, the operation is performed within the FIPS boundary, it is logged
+-- in CloudTrail, and you can use key policy and IAM policy to determine
+-- who is authorized to use the KMS key to verify signatures.
+--
+-- To verify a signature outside of KMS with an SM2 public key (China
+-- Regions only), you must specify the distinguishing ID. By default, KMS
+-- uses @1234567812345678@ as the distinguishing ID. For more information,
+-- see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification Offline verification with SM2 key pairs>.
 --
 -- The KMS key that you use for this operation must be in a compatible key
 -- state. For details, see
@@ -74,8 +75,8 @@ module Amazonka.KMS.Verify
     newVerify,
 
     -- * Request Lenses
-    verify_messageType,
     verify_grantTokens,
+    verify_messageType,
     verify_keyId,
     verify_message,
     verify_signature,
@@ -86,9 +87,9 @@ module Amazonka.KMS.Verify
     newVerifyResponse,
 
     -- * Response Lenses
+    verifyResponse_keyId,
     verifyResponse_signatureValid,
     verifyResponse_signingAlgorithm,
-    verifyResponse_keyId,
     verifyResponse_httpStatus,
   )
 where
@@ -103,15 +104,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newVerify' smart constructor.
 data Verify = Verify'
-  { -- | Tells KMS whether the value of the @Message@ parameter is a message or
-    -- message digest. The default value, RAW, indicates a message. To indicate
-    -- a message digest, enter @DIGEST@.
-    --
-    -- Use the @DIGEST@ value only when the value of the @Message@ parameter is
-    -- a message digest. If you use the @DIGEST@ value with a raw message, the
-    -- security of the verification operation can be compromised.
-    messageType :: Prelude.Maybe MessageType,
-    -- | A list of grant tokens.
+  { -- | A list of grant tokens.
     --
     -- Use a grant token when your permission to call this operation comes from
     -- a new grant that has not yet achieved /eventual consistency/. For more
@@ -121,6 +114,14 @@ data Verify = Verify'
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
     -- in the /Key Management Service Developer Guide/.
     grantTokens :: Prelude.Maybe [Prelude.Text],
+    -- | Tells KMS whether the value of the @Message@ parameter is a message or
+    -- message digest. The default value, RAW, indicates a message. To indicate
+    -- a message digest, enter @DIGEST@.
+    --
+    -- Use the @DIGEST@ value only when the value of the @Message@ parameter is
+    -- a message digest. If you use the @DIGEST@ value with a raw message, the
+    -- security of the verification operation can be compromised.
+    messageType :: Prelude.Maybe MessageType,
     -- | Identifies the asymmetric KMS key that will be used to verify the
     -- signature. This must be the same KMS key that was used to generate the
     -- signature. If you specify a different KMS key, the signature
@@ -169,14 +170,6 @@ data Verify = Verify'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'messageType', 'verify_messageType' - Tells KMS whether the value of the @Message@ parameter is a message or
--- message digest. The default value, RAW, indicates a message. To indicate
--- a message digest, enter @DIGEST@.
---
--- Use the @DIGEST@ value only when the value of the @Message@ parameter is
--- a message digest. If you use the @DIGEST@ value with a raw message, the
--- security of the verification operation can be compromised.
---
 -- 'grantTokens', 'verify_grantTokens' - A list of grant tokens.
 --
 -- Use a grant token when your permission to call this operation comes from
@@ -186,6 +179,14 @@ data Verify = Verify'
 -- and
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
 -- in the /Key Management Service Developer Guide/.
+--
+-- 'messageType', 'verify_messageType' - Tells KMS whether the value of the @Message@ parameter is a message or
+-- message digest. The default value, RAW, indicates a message. To indicate
+-- a message digest, enter @DIGEST@.
+--
+-- Use the @DIGEST@ value only when the value of the @Message@ parameter is
+-- a message digest. If you use the @DIGEST@ value with a raw message, the
+-- security of the verification operation can be compromised.
 --
 -- 'keyId', 'verify_keyId' - Identifies the asymmetric KMS key that will be used to verify the
 -- signature. This must be the same KMS key that was used to generate the
@@ -247,8 +248,8 @@ newVerify
   pSignature_
   pSigningAlgorithm_ =
     Verify'
-      { messageType = Prelude.Nothing,
-        grantTokens = Prelude.Nothing,
+      { grantTokens = Prelude.Nothing,
+        messageType = Prelude.Nothing,
         keyId = pKeyId_,
         message =
           Data._Sensitive Prelude.. Data._Base64
@@ -256,16 +257,6 @@ newVerify
         signature = Data._Base64 Lens.# pSignature_,
         signingAlgorithm = pSigningAlgorithm_
       }
-
--- | Tells KMS whether the value of the @Message@ parameter is a message or
--- message digest. The default value, RAW, indicates a message. To indicate
--- a message digest, enter @DIGEST@.
---
--- Use the @DIGEST@ value only when the value of the @Message@ parameter is
--- a message digest. If you use the @DIGEST@ value with a raw message, the
--- security of the verification operation can be compromised.
-verify_messageType :: Lens.Lens' Verify (Prelude.Maybe MessageType)
-verify_messageType = Lens.lens (\Verify' {messageType} -> messageType) (\s@Verify' {} a -> s {messageType = a} :: Verify)
 
 -- | A list of grant tokens.
 --
@@ -278,6 +269,16 @@ verify_messageType = Lens.lens (\Verify' {messageType} -> messageType) (\s@Verif
 -- in the /Key Management Service Developer Guide/.
 verify_grantTokens :: Lens.Lens' Verify (Prelude.Maybe [Prelude.Text])
 verify_grantTokens = Lens.lens (\Verify' {grantTokens} -> grantTokens) (\s@Verify' {} a -> s {grantTokens = a} :: Verify) Prelude.. Lens.mapping Lens.coerced
+
+-- | Tells KMS whether the value of the @Message@ parameter is a message or
+-- message digest. The default value, RAW, indicates a message. To indicate
+-- a message digest, enter @DIGEST@.
+--
+-- Use the @DIGEST@ value only when the value of the @Message@ parameter is
+-- a message digest. If you use the @DIGEST@ value with a raw message, the
+-- security of the verification operation can be compromised.
+verify_messageType :: Lens.Lens' Verify (Prelude.Maybe MessageType)
+verify_messageType = Lens.lens (\Verify' {messageType} -> messageType) (\s@Verify' {} a -> s {messageType = a} :: Verify)
 
 -- | Identifies the asymmetric KMS key that will be used to verify the
 -- signature. This must be the same KMS key that was used to generate the
@@ -340,16 +341,16 @@ instance Core.AWSRequest Verify where
     Response.receiveJSON
       ( \s h x ->
           VerifyResponse'
-            Prelude.<$> (x Data..?> "SignatureValid")
+            Prelude.<$> (x Data..?> "KeyId")
+            Prelude.<*> (x Data..?> "SignatureValid")
             Prelude.<*> (x Data..?> "SigningAlgorithm")
-            Prelude.<*> (x Data..?> "KeyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable Verify where
   hashWithSalt _salt Verify' {..} =
-    _salt `Prelude.hashWithSalt` messageType
-      `Prelude.hashWithSalt` grantTokens
+    _salt `Prelude.hashWithSalt` grantTokens
+      `Prelude.hashWithSalt` messageType
       `Prelude.hashWithSalt` keyId
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` signature
@@ -357,8 +358,8 @@ instance Prelude.Hashable Verify where
 
 instance Prelude.NFData Verify where
   rnf Verify' {..} =
-    Prelude.rnf messageType
-      `Prelude.seq` Prelude.rnf grantTokens
+    Prelude.rnf grantTokens
+      `Prelude.seq` Prelude.rnf messageType
       `Prelude.seq` Prelude.rnf keyId
       `Prelude.seq` Prelude.rnf message
       `Prelude.seq` Prelude.rnf signature
@@ -381,8 +382,8 @@ instance Data.ToJSON Verify where
   toJSON Verify' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("MessageType" Data..=) Prelude.<$> messageType,
-            ("GrantTokens" Data..=) Prelude.<$> grantTokens,
+          [ ("GrantTokens" Data..=) Prelude.<$> grantTokens,
+            ("MessageType" Data..=) Prelude.<$> messageType,
             Prelude.Just ("KeyId" Data..= keyId),
             Prelude.Just ("Message" Data..= message),
             Prelude.Just ("Signature" Data..= signature),
@@ -399,7 +400,11 @@ instance Data.ToQuery Verify where
 
 -- | /See:/ 'newVerifyResponse' smart constructor.
 data VerifyResponse = VerifyResponse'
-  { -- | A Boolean value that indicates whether the signature was verified. A
+  { -- | The Amazon Resource Name
+    -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
+    -- of the asymmetric KMS key that was used to verify the signature.
+    keyId :: Prelude.Maybe Prelude.Text,
+    -- | A Boolean value that indicates whether the signature was verified. A
     -- value of @True@ indicates that the @Signature@ was produced by signing
     -- the @Message@ with the specified @KeyID@ and @SigningAlgorithm.@ If the
     -- signature is not verified, the @Verify@ operation fails with a
@@ -407,10 +412,6 @@ data VerifyResponse = VerifyResponse'
     signatureValid :: Prelude.Maybe Prelude.Bool,
     -- | The signing algorithm that was used to verify the signature.
     signingAlgorithm :: Prelude.Maybe SigningAlgorithmSpec,
-    -- | The Amazon Resource Name
-    -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
-    -- of the asymmetric KMS key that was used to verify the signature.
-    keyId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -424,6 +425,10 @@ data VerifyResponse = VerifyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'keyId', 'verifyResponse_keyId' - The Amazon Resource Name
+-- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
+-- of the asymmetric KMS key that was used to verify the signature.
+--
 -- 'signatureValid', 'verifyResponse_signatureValid' - A Boolean value that indicates whether the signature was verified. A
 -- value of @True@ indicates that the @Signature@ was produced by signing
 -- the @Message@ with the specified @KeyID@ and @SigningAlgorithm.@ If the
@@ -432,10 +437,6 @@ data VerifyResponse = VerifyResponse'
 --
 -- 'signingAlgorithm', 'verifyResponse_signingAlgorithm' - The signing algorithm that was used to verify the signature.
 --
--- 'keyId', 'verifyResponse_keyId' - The Amazon Resource Name
--- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
--- of the asymmetric KMS key that was used to verify the signature.
---
 -- 'httpStatus', 'verifyResponse_httpStatus' - The response's http status code.
 newVerifyResponse ::
   -- | 'httpStatus'
@@ -443,11 +444,17 @@ newVerifyResponse ::
   VerifyResponse
 newVerifyResponse pHttpStatus_ =
   VerifyResponse'
-    { signatureValid = Prelude.Nothing,
+    { keyId = Prelude.Nothing,
+      signatureValid = Prelude.Nothing,
       signingAlgorithm = Prelude.Nothing,
-      keyId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Amazon Resource Name
+-- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
+-- of the asymmetric KMS key that was used to verify the signature.
+verifyResponse_keyId :: Lens.Lens' VerifyResponse (Prelude.Maybe Prelude.Text)
+verifyResponse_keyId = Lens.lens (\VerifyResponse' {keyId} -> keyId) (\s@VerifyResponse' {} a -> s {keyId = a} :: VerifyResponse)
 
 -- | A Boolean value that indicates whether the signature was verified. A
 -- value of @True@ indicates that the @Signature@ was produced by signing
@@ -461,19 +468,13 @@ verifyResponse_signatureValid = Lens.lens (\VerifyResponse' {signatureValid} -> 
 verifyResponse_signingAlgorithm :: Lens.Lens' VerifyResponse (Prelude.Maybe SigningAlgorithmSpec)
 verifyResponse_signingAlgorithm = Lens.lens (\VerifyResponse' {signingAlgorithm} -> signingAlgorithm) (\s@VerifyResponse' {} a -> s {signingAlgorithm = a} :: VerifyResponse)
 
--- | The Amazon Resource Name
--- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
--- of the asymmetric KMS key that was used to verify the signature.
-verifyResponse_keyId :: Lens.Lens' VerifyResponse (Prelude.Maybe Prelude.Text)
-verifyResponse_keyId = Lens.lens (\VerifyResponse' {keyId} -> keyId) (\s@VerifyResponse' {} a -> s {keyId = a} :: VerifyResponse)
-
 -- | The response's http status code.
 verifyResponse_httpStatus :: Lens.Lens' VerifyResponse Prelude.Int
 verifyResponse_httpStatus = Lens.lens (\VerifyResponse' {httpStatus} -> httpStatus) (\s@VerifyResponse' {} a -> s {httpStatus = a} :: VerifyResponse)
 
 instance Prelude.NFData VerifyResponse where
   rnf VerifyResponse' {..} =
-    Prelude.rnf signatureValid
+    Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf signatureValid
       `Prelude.seq` Prelude.rnf signingAlgorithm
-      `Prelude.seq` Prelude.rnf keyId
       `Prelude.seq` Prelude.rnf httpStatus

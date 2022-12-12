@@ -35,15 +35,15 @@ module Amazonka.APIGateway.GetApiKey
     newApiKey,
 
     -- * Response Lenses
-    apiKey_tags,
-    apiKey_customerId,
-    apiKey_name,
-    apiKey_lastUpdatedDate,
-    apiKey_description,
-    apiKey_stageKeys,
-    apiKey_id,
-    apiKey_enabled,
     apiKey_createdDate,
+    apiKey_customerId,
+    apiKey_description,
+    apiKey_enabled,
+    apiKey_id,
+    apiKey_lastUpdatedDate,
+    apiKey_name,
+    apiKey_stageKeys,
+    apiKey_tags,
     apiKey_value,
   )
 where

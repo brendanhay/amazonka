@@ -32,19 +32,19 @@ module Amazonka.Transcribe.ListCallAnalyticsJobs
     newListCallAnalyticsJobs,
 
     -- * Request Lenses
+    listCallAnalyticsJobs_jobNameContains,
+    listCallAnalyticsJobs_maxResults,
     listCallAnalyticsJobs_nextToken,
     listCallAnalyticsJobs_status,
-    listCallAnalyticsJobs_maxResults,
-    listCallAnalyticsJobs_jobNameContains,
 
     -- * Destructuring the Response
     ListCallAnalyticsJobsResponse (..),
     newListCallAnalyticsJobsResponse,
 
     -- * Response Lenses
+    listCallAnalyticsJobsResponse_callAnalyticsJobSummaries,
     listCallAnalyticsJobsResponse_nextToken,
     listCallAnalyticsJobsResponse_status,
-    listCallAnalyticsJobsResponse_callAnalyticsJobSummaries,
     listCallAnalyticsJobsResponse_httpStatus,
   )
 where
@@ -59,7 +59,15 @@ import Amazonka.Transcribe.Types
 
 -- | /See:/ 'newListCallAnalyticsJobs' smart constructor.
 data ListCallAnalyticsJobs = ListCallAnalyticsJobs'
-  { -- | If your @ListCallAnalyticsJobs@ request returns more results than can be
+  { -- | Returns only the Call Analytics jobs that contain the specified string.
+    -- The search is not case sensitive.
+    jobNameContains :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of Call Analytics jobs to return in each page of
+    -- results. If there are fewer results than the value that you specify,
+    -- only the actual results are returned. If you don\'t specify a value, a
+    -- default of 5 is used.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If your @ListCallAnalyticsJobs@ request returns more results than can be
     -- displayed, @NextToken@ is displayed in the response with an associated
     -- string. To get the next page of results, copy this string and repeat
     -- your request, including @NextToken@ with the value of the copied string.
@@ -68,15 +76,7 @@ data ListCallAnalyticsJobs = ListCallAnalyticsJobs'
     -- | Returns only Call Analytics jobs with the specified status. Jobs are
     -- ordered by creation date, with the newest job first. If you don\'t
     -- include @Status@, all Call Analytics jobs are returned.
-    status :: Prelude.Maybe CallAnalyticsJobStatus,
-    -- | The maximum number of Call Analytics jobs to return in each page of
-    -- results. If there are fewer results than the value you specify, only the
-    -- actual results are returned. If you don\'t specify a value, a default of
-    -- 5 is used.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Returns only the Call Analytics jobs that contain the specified string.
-    -- The search is not case sensitive.
-    jobNameContains :: Prelude.Maybe Prelude.Text
+    status :: Prelude.Maybe CallAnalyticsJobStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -88,6 +88,14 @@ data ListCallAnalyticsJobs = ListCallAnalyticsJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'jobNameContains', 'listCallAnalyticsJobs_jobNameContains' - Returns only the Call Analytics jobs that contain the specified string.
+-- The search is not case sensitive.
+--
+-- 'maxResults', 'listCallAnalyticsJobs_maxResults' - The maximum number of Call Analytics jobs to return in each page of
+-- results. If there are fewer results than the value that you specify,
+-- only the actual results are returned. If you don\'t specify a value, a
+-- default of 5 is used.
+--
 -- 'nextToken', 'listCallAnalyticsJobs_nextToken' - If your @ListCallAnalyticsJobs@ request returns more results than can be
 -- displayed, @NextToken@ is displayed in the response with an associated
 -- string. To get the next page of results, copy this string and repeat
@@ -97,23 +105,28 @@ data ListCallAnalyticsJobs = ListCallAnalyticsJobs'
 -- 'status', 'listCallAnalyticsJobs_status' - Returns only Call Analytics jobs with the specified status. Jobs are
 -- ordered by creation date, with the newest job first. If you don\'t
 -- include @Status@, all Call Analytics jobs are returned.
---
--- 'maxResults', 'listCallAnalyticsJobs_maxResults' - The maximum number of Call Analytics jobs to return in each page of
--- results. If there are fewer results than the value you specify, only the
--- actual results are returned. If you don\'t specify a value, a default of
--- 5 is used.
---
--- 'jobNameContains', 'listCallAnalyticsJobs_jobNameContains' - Returns only the Call Analytics jobs that contain the specified string.
--- The search is not case sensitive.
 newListCallAnalyticsJobs ::
   ListCallAnalyticsJobs
 newListCallAnalyticsJobs =
   ListCallAnalyticsJobs'
-    { nextToken = Prelude.Nothing,
-      status = Prelude.Nothing,
+    { jobNameContains =
+        Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      jobNameContains = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      status = Prelude.Nothing
     }
+
+-- | Returns only the Call Analytics jobs that contain the specified string.
+-- The search is not case sensitive.
+listCallAnalyticsJobs_jobNameContains :: Lens.Lens' ListCallAnalyticsJobs (Prelude.Maybe Prelude.Text)
+listCallAnalyticsJobs_jobNameContains = Lens.lens (\ListCallAnalyticsJobs' {jobNameContains} -> jobNameContains) (\s@ListCallAnalyticsJobs' {} a -> s {jobNameContains = a} :: ListCallAnalyticsJobs)
+
+-- | The maximum number of Call Analytics jobs to return in each page of
+-- results. If there are fewer results than the value that you specify,
+-- only the actual results are returned. If you don\'t specify a value, a
+-- default of 5 is used.
+listCallAnalyticsJobs_maxResults :: Lens.Lens' ListCallAnalyticsJobs (Prelude.Maybe Prelude.Natural)
+listCallAnalyticsJobs_maxResults = Lens.lens (\ListCallAnalyticsJobs' {maxResults} -> maxResults) (\s@ListCallAnalyticsJobs' {} a -> s {maxResults = a} :: ListCallAnalyticsJobs)
 
 -- | If your @ListCallAnalyticsJobs@ request returns more results than can be
 -- displayed, @NextToken@ is displayed in the response with an associated
@@ -129,18 +142,6 @@ listCallAnalyticsJobs_nextToken = Lens.lens (\ListCallAnalyticsJobs' {nextToken}
 listCallAnalyticsJobs_status :: Lens.Lens' ListCallAnalyticsJobs (Prelude.Maybe CallAnalyticsJobStatus)
 listCallAnalyticsJobs_status = Lens.lens (\ListCallAnalyticsJobs' {status} -> status) (\s@ListCallAnalyticsJobs' {} a -> s {status = a} :: ListCallAnalyticsJobs)
 
--- | The maximum number of Call Analytics jobs to return in each page of
--- results. If there are fewer results than the value you specify, only the
--- actual results are returned. If you don\'t specify a value, a default of
--- 5 is used.
-listCallAnalyticsJobs_maxResults :: Lens.Lens' ListCallAnalyticsJobs (Prelude.Maybe Prelude.Natural)
-listCallAnalyticsJobs_maxResults = Lens.lens (\ListCallAnalyticsJobs' {maxResults} -> maxResults) (\s@ListCallAnalyticsJobs' {} a -> s {maxResults = a} :: ListCallAnalyticsJobs)
-
--- | Returns only the Call Analytics jobs that contain the specified string.
--- The search is not case sensitive.
-listCallAnalyticsJobs_jobNameContains :: Lens.Lens' ListCallAnalyticsJobs (Prelude.Maybe Prelude.Text)
-listCallAnalyticsJobs_jobNameContains = Lens.lens (\ListCallAnalyticsJobs' {jobNameContains} -> jobNameContains) (\s@ListCallAnalyticsJobs' {} a -> s {jobNameContains = a} :: ListCallAnalyticsJobs)
-
 instance Core.AWSRequest ListCallAnalyticsJobs where
   type
     AWSResponse ListCallAnalyticsJobs =
@@ -151,27 +152,27 @@ instance Core.AWSRequest ListCallAnalyticsJobs where
     Response.receiveJSON
       ( \s h x ->
           ListCallAnalyticsJobsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Status")
-            Prelude.<*> ( x Data..?> "CallAnalyticsJobSummaries"
+            Prelude.<$> ( x Data..?> "CallAnalyticsJobSummaries"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListCallAnalyticsJobs where
   hashWithSalt _salt ListCallAnalyticsJobs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` jobNameContains
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` jobNameContains
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ListCallAnalyticsJobs where
   rnf ListCallAnalyticsJobs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf jobNameContains
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf jobNameContains
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf status
 
 instance Data.ToHeaders ListCallAnalyticsJobs where
   toHeaders =
@@ -192,11 +193,11 @@ instance Data.ToJSON ListCallAnalyticsJobs where
   toJSON ListCallAnalyticsJobs' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Status" Data..=) Prelude.<$> status,
+          [ ("JobNameContains" Data..=)
+              Prelude.<$> jobNameContains,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("JobNameContains" Data..=)
-              Prelude.<$> jobNameContains
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Status" Data..=) Prelude.<$> status
           ]
       )
 
@@ -208,7 +209,9 @@ instance Data.ToQuery ListCallAnalyticsJobs where
 
 -- | /See:/ 'newListCallAnalyticsJobsResponse' smart constructor.
 data ListCallAnalyticsJobsResponse = ListCallAnalyticsJobsResponse'
-  { -- | If @NextToken@ is present in your response, it indicates that not all
+  { -- | Provides a summary of information about each result.
+    callAnalyticsJobSummaries :: Prelude.Maybe [CallAnalyticsJobSummary],
+    -- | If @NextToken@ is present in your response, it indicates that not all
     -- results are displayed. To view the next set of results, copy the string
     -- associated with the @NextToken@ parameter in your results output, then
     -- run your request again including @NextToken@ with the value of the
@@ -217,8 +220,6 @@ data ListCallAnalyticsJobsResponse = ListCallAnalyticsJobsResponse'
     -- | Lists all Call Analytics jobs that have the status specified in your
     -- request. Jobs are ordered by creation date, with the newest job first.
     status :: Prelude.Maybe CallAnalyticsJobStatus,
-    -- | Provides a summary of information about each result.
-    callAnalyticsJobSummaries :: Prelude.Maybe [CallAnalyticsJobSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -232,6 +233,8 @@ data ListCallAnalyticsJobsResponse = ListCallAnalyticsJobsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'callAnalyticsJobSummaries', 'listCallAnalyticsJobsResponse_callAnalyticsJobSummaries' - Provides a summary of information about each result.
+--
 -- 'nextToken', 'listCallAnalyticsJobsResponse_nextToken' - If @NextToken@ is present in your response, it indicates that not all
 -- results are displayed. To view the next set of results, copy the string
 -- associated with the @NextToken@ parameter in your results output, then
@@ -241,8 +244,6 @@ data ListCallAnalyticsJobsResponse = ListCallAnalyticsJobsResponse'
 -- 'status', 'listCallAnalyticsJobsResponse_status' - Lists all Call Analytics jobs that have the status specified in your
 -- request. Jobs are ordered by creation date, with the newest job first.
 --
--- 'callAnalyticsJobSummaries', 'listCallAnalyticsJobsResponse_callAnalyticsJobSummaries' - Provides a summary of information about each result.
---
 -- 'httpStatus', 'listCallAnalyticsJobsResponse_httpStatus' - The response's http status code.
 newListCallAnalyticsJobsResponse ::
   -- | 'httpStatus'
@@ -250,12 +251,16 @@ newListCallAnalyticsJobsResponse ::
   ListCallAnalyticsJobsResponse
 newListCallAnalyticsJobsResponse pHttpStatus_ =
   ListCallAnalyticsJobsResponse'
-    { nextToken =
+    { callAnalyticsJobSummaries =
         Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       status = Prelude.Nothing,
-      callAnalyticsJobSummaries = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Provides a summary of information about each result.
+listCallAnalyticsJobsResponse_callAnalyticsJobSummaries :: Lens.Lens' ListCallAnalyticsJobsResponse (Prelude.Maybe [CallAnalyticsJobSummary])
+listCallAnalyticsJobsResponse_callAnalyticsJobSummaries = Lens.lens (\ListCallAnalyticsJobsResponse' {callAnalyticsJobSummaries} -> callAnalyticsJobSummaries) (\s@ListCallAnalyticsJobsResponse' {} a -> s {callAnalyticsJobSummaries = a} :: ListCallAnalyticsJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If @NextToken@ is present in your response, it indicates that not all
 -- results are displayed. To view the next set of results, copy the string
@@ -270,17 +275,13 @@ listCallAnalyticsJobsResponse_nextToken = Lens.lens (\ListCallAnalyticsJobsRespo
 listCallAnalyticsJobsResponse_status :: Lens.Lens' ListCallAnalyticsJobsResponse (Prelude.Maybe CallAnalyticsJobStatus)
 listCallAnalyticsJobsResponse_status = Lens.lens (\ListCallAnalyticsJobsResponse' {status} -> status) (\s@ListCallAnalyticsJobsResponse' {} a -> s {status = a} :: ListCallAnalyticsJobsResponse)
 
--- | Provides a summary of information about each result.
-listCallAnalyticsJobsResponse_callAnalyticsJobSummaries :: Lens.Lens' ListCallAnalyticsJobsResponse (Prelude.Maybe [CallAnalyticsJobSummary])
-listCallAnalyticsJobsResponse_callAnalyticsJobSummaries = Lens.lens (\ListCallAnalyticsJobsResponse' {callAnalyticsJobSummaries} -> callAnalyticsJobSummaries) (\s@ListCallAnalyticsJobsResponse' {} a -> s {callAnalyticsJobSummaries = a} :: ListCallAnalyticsJobsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listCallAnalyticsJobsResponse_httpStatus :: Lens.Lens' ListCallAnalyticsJobsResponse Prelude.Int
 listCallAnalyticsJobsResponse_httpStatus = Lens.lens (\ListCallAnalyticsJobsResponse' {httpStatus} -> httpStatus) (\s@ListCallAnalyticsJobsResponse' {} a -> s {httpStatus = a} :: ListCallAnalyticsJobsResponse)
 
 instance Prelude.NFData ListCallAnalyticsJobsResponse where
   rnf ListCallAnalyticsJobsResponse' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf callAnalyticsJobSummaries
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf callAnalyticsJobSummaries
       `Prelude.seq` Prelude.rnf httpStatus

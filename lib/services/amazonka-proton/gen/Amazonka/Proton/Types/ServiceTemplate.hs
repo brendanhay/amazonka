@@ -29,19 +29,19 @@ import Amazonka.Proton.Types.Provisioning
 --
 -- /See:/ 'newServiceTemplate' smart constructor.
 data ServiceTemplate = ServiceTemplate'
-  { -- | The recommended version of the service template.
-    recommendedVersion :: Prelude.Maybe Prelude.Text,
+  { -- | A description of the service template.
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The service template name as displayed in the developer interface.
     displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | A description of the service template.
-    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The customer provided service template encryption key that\'s used to
+    -- encrypt data.
+    encryptionKey :: Prelude.Maybe Prelude.Text,
     -- | If @pipelineProvisioning@ is @true@, a service pipeline is included in
     -- the service template. Otherwise, a service pipeline /isn\'t/ included in
     -- the service template.
     pipelineProvisioning :: Prelude.Maybe Provisioning,
-    -- | The customer provided service template encryption key that\'s used to
-    -- encrypt data.
-    encryptionKey :: Prelude.Maybe Prelude.Text,
+    -- | The recommended version of the service template.
+    recommendedVersion :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the service template.
     arn :: Prelude.Text,
     -- | The time when the service template was created.
@@ -61,18 +61,18 @@ data ServiceTemplate = ServiceTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'recommendedVersion', 'serviceTemplate_recommendedVersion' - The recommended version of the service template.
+-- 'description', 'serviceTemplate_description' - A description of the service template.
 --
 -- 'displayName', 'serviceTemplate_displayName' - The service template name as displayed in the developer interface.
 --
--- 'description', 'serviceTemplate_description' - A description of the service template.
+-- 'encryptionKey', 'serviceTemplate_encryptionKey' - The customer provided service template encryption key that\'s used to
+-- encrypt data.
 --
 -- 'pipelineProvisioning', 'serviceTemplate_pipelineProvisioning' - If @pipelineProvisioning@ is @true@, a service pipeline is included in
 -- the service template. Otherwise, a service pipeline /isn\'t/ included in
 -- the service template.
 --
--- 'encryptionKey', 'serviceTemplate_encryptionKey' - The customer provided service template encryption key that\'s used to
--- encrypt data.
+-- 'recommendedVersion', 'serviceTemplate_recommendedVersion' - The recommended version of the service template.
 --
 -- 'arn', 'serviceTemplate_arn' - The Amazon Resource Name (ARN) of the service template.
 --
@@ -97,29 +97,29 @@ newServiceTemplate
   pLastModifiedAt_
   pName_ =
     ServiceTemplate'
-      { recommendedVersion =
-          Prelude.Nothing,
+      { description = Prelude.Nothing,
         displayName = Prelude.Nothing,
-        description = Prelude.Nothing,
-        pipelineProvisioning = Prelude.Nothing,
         encryptionKey = Prelude.Nothing,
+        pipelineProvisioning = Prelude.Nothing,
+        recommendedVersion = Prelude.Nothing,
         arn = pArn_,
         createdAt = Data._Time Lens.# pCreatedAt_,
         lastModifiedAt = Data._Time Lens.# pLastModifiedAt_,
         name = pName_
       }
 
--- | The recommended version of the service template.
-serviceTemplate_recommendedVersion :: Lens.Lens' ServiceTemplate (Prelude.Maybe Prelude.Text)
-serviceTemplate_recommendedVersion = Lens.lens (\ServiceTemplate' {recommendedVersion} -> recommendedVersion) (\s@ServiceTemplate' {} a -> s {recommendedVersion = a} :: ServiceTemplate)
+-- | A description of the service template.
+serviceTemplate_description :: Lens.Lens' ServiceTemplate (Prelude.Maybe Prelude.Text)
+serviceTemplate_description = Lens.lens (\ServiceTemplate' {description} -> description) (\s@ServiceTemplate' {} a -> s {description = a} :: ServiceTemplate) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The service template name as displayed in the developer interface.
 serviceTemplate_displayName :: Lens.Lens' ServiceTemplate (Prelude.Maybe Prelude.Text)
 serviceTemplate_displayName = Lens.lens (\ServiceTemplate' {displayName} -> displayName) (\s@ServiceTemplate' {} a -> s {displayName = a} :: ServiceTemplate) Prelude.. Lens.mapping Data._Sensitive
 
--- | A description of the service template.
-serviceTemplate_description :: Lens.Lens' ServiceTemplate (Prelude.Maybe Prelude.Text)
-serviceTemplate_description = Lens.lens (\ServiceTemplate' {description} -> description) (\s@ServiceTemplate' {} a -> s {description = a} :: ServiceTemplate) Prelude.. Lens.mapping Data._Sensitive
+-- | The customer provided service template encryption key that\'s used to
+-- encrypt data.
+serviceTemplate_encryptionKey :: Lens.Lens' ServiceTemplate (Prelude.Maybe Prelude.Text)
+serviceTemplate_encryptionKey = Lens.lens (\ServiceTemplate' {encryptionKey} -> encryptionKey) (\s@ServiceTemplate' {} a -> s {encryptionKey = a} :: ServiceTemplate)
 
 -- | If @pipelineProvisioning@ is @true@, a service pipeline is included in
 -- the service template. Otherwise, a service pipeline /isn\'t/ included in
@@ -127,10 +127,9 @@ serviceTemplate_description = Lens.lens (\ServiceTemplate' {description} -> desc
 serviceTemplate_pipelineProvisioning :: Lens.Lens' ServiceTemplate (Prelude.Maybe Provisioning)
 serviceTemplate_pipelineProvisioning = Lens.lens (\ServiceTemplate' {pipelineProvisioning} -> pipelineProvisioning) (\s@ServiceTemplate' {} a -> s {pipelineProvisioning = a} :: ServiceTemplate)
 
--- | The customer provided service template encryption key that\'s used to
--- encrypt data.
-serviceTemplate_encryptionKey :: Lens.Lens' ServiceTemplate (Prelude.Maybe Prelude.Text)
-serviceTemplate_encryptionKey = Lens.lens (\ServiceTemplate' {encryptionKey} -> encryptionKey) (\s@ServiceTemplate' {} a -> s {encryptionKey = a} :: ServiceTemplate)
+-- | The recommended version of the service template.
+serviceTemplate_recommendedVersion :: Lens.Lens' ServiceTemplate (Prelude.Maybe Prelude.Text)
+serviceTemplate_recommendedVersion = Lens.lens (\ServiceTemplate' {recommendedVersion} -> recommendedVersion) (\s@ServiceTemplate' {} a -> s {recommendedVersion = a} :: ServiceTemplate)
 
 -- | The Amazon Resource Name (ARN) of the service template.
 serviceTemplate_arn :: Lens.Lens' ServiceTemplate Prelude.Text
@@ -154,11 +153,11 @@ instance Data.FromJSON ServiceTemplate where
       "ServiceTemplate"
       ( \x ->
           ServiceTemplate'
-            Prelude.<$> (x Data..:? "recommendedVersion")
+            Prelude.<$> (x Data..:? "description")
             Prelude.<*> (x Data..:? "displayName")
-            Prelude.<*> (x Data..:? "description")
-            Prelude.<*> (x Data..:? "pipelineProvisioning")
             Prelude.<*> (x Data..:? "encryptionKey")
+            Prelude.<*> (x Data..:? "pipelineProvisioning")
+            Prelude.<*> (x Data..:? "recommendedVersion")
             Prelude.<*> (x Data..: "arn")
             Prelude.<*> (x Data..: "createdAt")
             Prelude.<*> (x Data..: "lastModifiedAt")
@@ -167,11 +166,11 @@ instance Data.FromJSON ServiceTemplate where
 
 instance Prelude.Hashable ServiceTemplate where
   hashWithSalt _salt ServiceTemplate' {..} =
-    _salt `Prelude.hashWithSalt` recommendedVersion
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` displayName
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` pipelineProvisioning
       `Prelude.hashWithSalt` encryptionKey
+      `Prelude.hashWithSalt` pipelineProvisioning
+      `Prelude.hashWithSalt` recommendedVersion
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` lastModifiedAt
@@ -179,11 +178,11 @@ instance Prelude.Hashable ServiceTemplate where
 
 instance Prelude.NFData ServiceTemplate where
   rnf ServiceTemplate' {..} =
-    Prelude.rnf recommendedVersion
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf pipelineProvisioning
       `Prelude.seq` Prelude.rnf encryptionKey
+      `Prelude.seq` Prelude.rnf pipelineProvisioning
+      `Prelude.seq` Prelude.rnf recommendedVersion
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf lastModifiedAt

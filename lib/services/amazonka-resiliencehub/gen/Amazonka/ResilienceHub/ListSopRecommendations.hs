@@ -28,8 +28,8 @@ module Amazonka.ResilienceHub.ListSopRecommendations
     newListSopRecommendations,
 
     -- * Request Lenses
-    listSopRecommendations_nextToken,
     listSopRecommendations_maxResults,
+    listSopRecommendations_nextToken,
     listSopRecommendations_assessmentArn,
 
     -- * Destructuring the Response
@@ -53,12 +53,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListSopRecommendations' smart constructor.
 data ListSopRecommendations = ListSopRecommendations'
-  { -- | Null, or the token from a previous call to get the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to include in the response. If more
+  { -- | The maximum number of results to include in the response. If more
     -- results exist than the specified @MaxResults@ value, a token is included
     -- in the response so that the remaining results can be retrieved.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Null, or the token from a previous call to get the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the assessment. The format for this
     -- ARN is:
     -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
@@ -77,11 +77,11 @@ data ListSopRecommendations = ListSopRecommendations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listSopRecommendations_nextToken' - Null, or the token from a previous call to get the next set of results.
---
 -- 'maxResults', 'listSopRecommendations_maxResults' - The maximum number of results to include in the response. If more
 -- results exist than the specified @MaxResults@ value, a token is included
 -- in the response so that the remaining results can be retrieved.
+--
+-- 'nextToken', 'listSopRecommendations_nextToken' - Null, or the token from a previous call to get the next set of results.
 --
 -- 'assessmentArn', 'listSopRecommendations_assessmentArn' - The Amazon Resource Name (ARN) of the assessment. The format for this
 -- ARN is:
@@ -95,21 +95,21 @@ newListSopRecommendations ::
   ListSopRecommendations
 newListSopRecommendations pAssessmentArn_ =
   ListSopRecommendations'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       assessmentArn = pAssessmentArn_
     }
-
--- | Null, or the token from a previous call to get the next set of results.
-listSopRecommendations_nextToken :: Lens.Lens' ListSopRecommendations (Prelude.Maybe Prelude.Text)
-listSopRecommendations_nextToken = Lens.lens (\ListSopRecommendations' {nextToken} -> nextToken) (\s@ListSopRecommendations' {} a -> s {nextToken = a} :: ListSopRecommendations)
 
 -- | The maximum number of results to include in the response. If more
 -- results exist than the specified @MaxResults@ value, a token is included
 -- in the response so that the remaining results can be retrieved.
 listSopRecommendations_maxResults :: Lens.Lens' ListSopRecommendations (Prelude.Maybe Prelude.Natural)
 listSopRecommendations_maxResults = Lens.lens (\ListSopRecommendations' {maxResults} -> maxResults) (\s@ListSopRecommendations' {} a -> s {maxResults = a} :: ListSopRecommendations)
+
+-- | Null, or the token from a previous call to get the next set of results.
+listSopRecommendations_nextToken :: Lens.Lens' ListSopRecommendations (Prelude.Maybe Prelude.Text)
+listSopRecommendations_nextToken = Lens.lens (\ListSopRecommendations' {nextToken} -> nextToken) (\s@ListSopRecommendations' {} a -> s {nextToken = a} :: ListSopRecommendations)
 
 -- | The Amazon Resource Name (ARN) of the assessment. The format for this
 -- ARN is:
@@ -139,14 +139,14 @@ instance Core.AWSRequest ListSopRecommendations where
 
 instance Prelude.Hashable ListSopRecommendations where
   hashWithSalt _salt ListSopRecommendations' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` assessmentArn
 
 instance Prelude.NFData ListSopRecommendations where
   rnf ListSopRecommendations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf assessmentArn
 
 instance Data.ToHeaders ListSopRecommendations where
@@ -164,8 +164,8 @@ instance Data.ToJSON ListSopRecommendations where
   toJSON ListSopRecommendations' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("assessmentArn" Data..= assessmentArn)
           ]

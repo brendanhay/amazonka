@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPathToObjectIdentifiers' smart constructor.
 data PathToObjectIdentifiers = PathToObjectIdentifiers'
-  { -- | The path that is used to identify the object starting from directory
-    -- root.
-    path :: Prelude.Maybe Prelude.Text,
-    -- | Lists @ObjectIdentifiers@ starting from directory root to the object in
+  { -- | Lists @ObjectIdentifiers@ starting from directory root to the object in
     -- the request.
-    objectIdentifiers :: Prelude.Maybe [Prelude.Text]
+    objectIdentifiers :: Prelude.Maybe [Prelude.Text],
+    -- | The path that is used to identify the object starting from directory
+    -- root.
+    path :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,28 +46,29 @@ data PathToObjectIdentifiers = PathToObjectIdentifiers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'path', 'pathToObjectIdentifiers_path' - The path that is used to identify the object starting from directory
--- root.
---
 -- 'objectIdentifiers', 'pathToObjectIdentifiers_objectIdentifiers' - Lists @ObjectIdentifiers@ starting from directory root to the object in
 -- the request.
+--
+-- 'path', 'pathToObjectIdentifiers_path' - The path that is used to identify the object starting from directory
+-- root.
 newPathToObjectIdentifiers ::
   PathToObjectIdentifiers
 newPathToObjectIdentifiers =
   PathToObjectIdentifiers'
-    { path = Prelude.Nothing,
-      objectIdentifiers = Prelude.Nothing
+    { objectIdentifiers =
+        Prelude.Nothing,
+      path = Prelude.Nothing
     }
-
--- | The path that is used to identify the object starting from directory
--- root.
-pathToObjectIdentifiers_path :: Lens.Lens' PathToObjectIdentifiers (Prelude.Maybe Prelude.Text)
-pathToObjectIdentifiers_path = Lens.lens (\PathToObjectIdentifiers' {path} -> path) (\s@PathToObjectIdentifiers' {} a -> s {path = a} :: PathToObjectIdentifiers)
 
 -- | Lists @ObjectIdentifiers@ starting from directory root to the object in
 -- the request.
 pathToObjectIdentifiers_objectIdentifiers :: Lens.Lens' PathToObjectIdentifiers (Prelude.Maybe [Prelude.Text])
 pathToObjectIdentifiers_objectIdentifiers = Lens.lens (\PathToObjectIdentifiers' {objectIdentifiers} -> objectIdentifiers) (\s@PathToObjectIdentifiers' {} a -> s {objectIdentifiers = a} :: PathToObjectIdentifiers) Prelude.. Lens.mapping Lens.coerced
+
+-- | The path that is used to identify the object starting from directory
+-- root.
+pathToObjectIdentifiers_path :: Lens.Lens' PathToObjectIdentifiers (Prelude.Maybe Prelude.Text)
+pathToObjectIdentifiers_path = Lens.lens (\PathToObjectIdentifiers' {path} -> path) (\s@PathToObjectIdentifiers' {} a -> s {path = a} :: PathToObjectIdentifiers)
 
 instance Data.FromJSON PathToObjectIdentifiers where
   parseJSON =
@@ -75,18 +76,18 @@ instance Data.FromJSON PathToObjectIdentifiers where
       "PathToObjectIdentifiers"
       ( \x ->
           PathToObjectIdentifiers'
-            Prelude.<$> (x Data..:? "Path")
-            Prelude.<*> ( x Data..:? "ObjectIdentifiers"
+            Prelude.<$> ( x Data..:? "ObjectIdentifiers"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "Path")
       )
 
 instance Prelude.Hashable PathToObjectIdentifiers where
   hashWithSalt _salt PathToObjectIdentifiers' {..} =
-    _salt `Prelude.hashWithSalt` path
-      `Prelude.hashWithSalt` objectIdentifiers
+    _salt `Prelude.hashWithSalt` objectIdentifiers
+      `Prelude.hashWithSalt` path
 
 instance Prelude.NFData PathToObjectIdentifiers where
   rnf PathToObjectIdentifiers' {..} =
-    Prelude.rnf path
-      `Prelude.seq` Prelude.rnf objectIdentifiers
+    Prelude.rnf objectIdentifiers
+      `Prelude.seq` Prelude.rnf path

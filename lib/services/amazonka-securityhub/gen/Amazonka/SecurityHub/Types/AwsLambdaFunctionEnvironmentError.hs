@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsLambdaFunctionEnvironmentError' smart constructor.
 data AwsLambdaFunctionEnvironmentError = AwsLambdaFunctionEnvironmentError'
-  { -- | The error message.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The error code.
-    errorCode :: Prelude.Maybe Prelude.Text
+  { -- | The error code.
+    errorCode :: Prelude.Maybe Prelude.Text,
+    -- | The error message.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data AwsLambdaFunctionEnvironmentError = AwsLambdaFunctionEnvironmentError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'awsLambdaFunctionEnvironmentError_message' - The error message.
---
 -- 'errorCode', 'awsLambdaFunctionEnvironmentError_errorCode' - The error code.
+--
+-- 'message', 'awsLambdaFunctionEnvironmentError_message' - The error message.
 newAwsLambdaFunctionEnvironmentError ::
   AwsLambdaFunctionEnvironmentError
 newAwsLambdaFunctionEnvironmentError =
   AwsLambdaFunctionEnvironmentError'
-    { message =
+    { errorCode =
         Prelude.Nothing,
-      errorCode = Prelude.Nothing
+      message = Prelude.Nothing
     }
-
--- | The error message.
-awsLambdaFunctionEnvironmentError_message :: Lens.Lens' AwsLambdaFunctionEnvironmentError (Prelude.Maybe Prelude.Text)
-awsLambdaFunctionEnvironmentError_message = Lens.lens (\AwsLambdaFunctionEnvironmentError' {message} -> message) (\s@AwsLambdaFunctionEnvironmentError' {} a -> s {message = a} :: AwsLambdaFunctionEnvironmentError)
 
 -- | The error code.
 awsLambdaFunctionEnvironmentError_errorCode :: Lens.Lens' AwsLambdaFunctionEnvironmentError (Prelude.Maybe Prelude.Text)
 awsLambdaFunctionEnvironmentError_errorCode = Lens.lens (\AwsLambdaFunctionEnvironmentError' {errorCode} -> errorCode) (\s@AwsLambdaFunctionEnvironmentError' {} a -> s {errorCode = a} :: AwsLambdaFunctionEnvironmentError)
+
+-- | The error message.
+awsLambdaFunctionEnvironmentError_message :: Lens.Lens' AwsLambdaFunctionEnvironmentError (Prelude.Maybe Prelude.Text)
+awsLambdaFunctionEnvironmentError_message = Lens.lens (\AwsLambdaFunctionEnvironmentError' {message} -> message) (\s@AwsLambdaFunctionEnvironmentError' {} a -> s {message = a} :: AwsLambdaFunctionEnvironmentError)
 
 instance
   Data.FromJSON
@@ -72,8 +72,8 @@ instance
       "AwsLambdaFunctionEnvironmentError"
       ( \x ->
           AwsLambdaFunctionEnvironmentError'
-            Prelude.<$> (x Data..:? "Message")
-            Prelude.<*> (x Data..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "Message")
       )
 
 instance
@@ -83,16 +83,16 @@ instance
   hashWithSalt
     _salt
     AwsLambdaFunctionEnvironmentError' {..} =
-      _salt `Prelude.hashWithSalt` message
-        `Prelude.hashWithSalt` errorCode
+      _salt `Prelude.hashWithSalt` errorCode
+        `Prelude.hashWithSalt` message
 
 instance
   Prelude.NFData
     AwsLambdaFunctionEnvironmentError
   where
   rnf AwsLambdaFunctionEnvironmentError' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf errorCode
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf message
 
 instance
   Data.ToJSON
@@ -101,7 +101,7 @@ instance
   toJSON AwsLambdaFunctionEnvironmentError' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Message" Data..=) Prelude.<$> message,
-            ("ErrorCode" Data..=) Prelude.<$> errorCode
+          [ ("ErrorCode" Data..=) Prelude.<$> errorCode,
+            ("Message" Data..=) Prelude.<$> message
           ]
       )

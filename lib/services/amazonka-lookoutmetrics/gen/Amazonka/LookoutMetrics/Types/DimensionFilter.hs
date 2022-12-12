@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDimensionFilter' smart constructor.
 data DimensionFilter = DimensionFilter'
-  { -- | The list of values for the dimension specified in DimensionName that you
+  { -- | The name of the dimension to filter on.
+    dimensionName :: Prelude.Maybe Prelude.Text,
+    -- | The list of values for the dimension specified in DimensionName that you
     -- want to filter on.
-    dimensionValueList :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The name of the dimension to filter on.
-    dimensionName :: Prelude.Maybe Prelude.Text
+    dimensionValueList :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,27 +44,26 @@ data DimensionFilter = DimensionFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dimensionName', 'dimensionFilter_dimensionName' - The name of the dimension to filter on.
+--
 -- 'dimensionValueList', 'dimensionFilter_dimensionValueList' - The list of values for the dimension specified in DimensionName that you
 -- want to filter on.
---
--- 'dimensionName', 'dimensionFilter_dimensionName' - The name of the dimension to filter on.
 newDimensionFilter ::
   DimensionFilter
 newDimensionFilter =
   DimensionFilter'
-    { dimensionValueList =
-        Prelude.Nothing,
-      dimensionName = Prelude.Nothing
+    { dimensionName = Prelude.Nothing,
+      dimensionValueList = Prelude.Nothing
     }
+
+-- | The name of the dimension to filter on.
+dimensionFilter_dimensionName :: Lens.Lens' DimensionFilter (Prelude.Maybe Prelude.Text)
+dimensionFilter_dimensionName = Lens.lens (\DimensionFilter' {dimensionName} -> dimensionName) (\s@DimensionFilter' {} a -> s {dimensionName = a} :: DimensionFilter)
 
 -- | The list of values for the dimension specified in DimensionName that you
 -- want to filter on.
 dimensionFilter_dimensionValueList :: Lens.Lens' DimensionFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 dimensionFilter_dimensionValueList = Lens.lens (\DimensionFilter' {dimensionValueList} -> dimensionValueList) (\s@DimensionFilter' {} a -> s {dimensionValueList = a} :: DimensionFilter) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the dimension to filter on.
-dimensionFilter_dimensionName :: Lens.Lens' DimensionFilter (Prelude.Maybe Prelude.Text)
-dimensionFilter_dimensionName = Lens.lens (\DimensionFilter' {dimensionName} -> dimensionName) (\s@DimensionFilter' {} a -> s {dimensionName = a} :: DimensionFilter)
 
 instance Data.FromJSON DimensionFilter where
   parseJSON =
@@ -72,26 +71,26 @@ instance Data.FromJSON DimensionFilter where
       "DimensionFilter"
       ( \x ->
           DimensionFilter'
-            Prelude.<$> (x Data..:? "DimensionValueList")
-            Prelude.<*> (x Data..:? "DimensionName")
+            Prelude.<$> (x Data..:? "DimensionName")
+            Prelude.<*> (x Data..:? "DimensionValueList")
       )
 
 instance Prelude.Hashable DimensionFilter where
   hashWithSalt _salt DimensionFilter' {..} =
-    _salt `Prelude.hashWithSalt` dimensionValueList
-      `Prelude.hashWithSalt` dimensionName
+    _salt `Prelude.hashWithSalt` dimensionName
+      `Prelude.hashWithSalt` dimensionValueList
 
 instance Prelude.NFData DimensionFilter where
   rnf DimensionFilter' {..} =
-    Prelude.rnf dimensionValueList
-      `Prelude.seq` Prelude.rnf dimensionName
+    Prelude.rnf dimensionName
+      `Prelude.seq` Prelude.rnf dimensionValueList
 
 instance Data.ToJSON DimensionFilter where
   toJSON DimensionFilter' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DimensionValueList" Data..=)
-              Prelude.<$> dimensionValueList,
-            ("DimensionName" Data..=) Prelude.<$> dimensionName
+          [ ("DimensionName" Data..=) Prelude.<$> dimensionName,
+            ("DimensionValueList" Data..=)
+              Prelude.<$> dimensionValueList
           ]
       )

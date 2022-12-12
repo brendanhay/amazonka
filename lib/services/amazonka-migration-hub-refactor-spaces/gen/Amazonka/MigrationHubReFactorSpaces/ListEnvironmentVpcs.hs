@@ -30,8 +30,8 @@ module Amazonka.MigrationHubReFactorSpaces.ListEnvironmentVpcs
     newListEnvironmentVpcs,
 
     -- * Request Lenses
-    listEnvironmentVpcs_nextToken,
     listEnvironmentVpcs_maxResults,
+    listEnvironmentVpcs_nextToken,
     listEnvironmentVpcs_environmentIdentifier,
 
     -- * Destructuring the Response
@@ -39,8 +39,8 @@ module Amazonka.MigrationHubReFactorSpaces.ListEnvironmentVpcs
     newListEnvironmentVpcsResponse,
 
     -- * Response Lenses
-    listEnvironmentVpcsResponse_nextToken,
     listEnvironmentVpcsResponse_environmentVpcList,
+    listEnvironmentVpcsResponse_nextToken,
     listEnvironmentVpcsResponse_httpStatus,
   )
 where
@@ -55,12 +55,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListEnvironmentVpcs' smart constructor.
 data ListEnvironmentVpcs = ListEnvironmentVpcs'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return with a single call. To retrieve
+  { -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the environment.
     environmentIdentifier :: Prelude.Text
   }
@@ -74,11 +74,11 @@ data ListEnvironmentVpcs = ListEnvironmentVpcs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listEnvironmentVpcs_nextToken' - The token for the next page of results.
---
 -- 'maxResults', 'listEnvironmentVpcs_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
+--
+-- 'nextToken', 'listEnvironmentVpcs_nextToken' - The token for the next page of results.
 --
 -- 'environmentIdentifier', 'listEnvironmentVpcs_environmentIdentifier' - The ID of the environment.
 newListEnvironmentVpcs ::
@@ -87,20 +87,20 @@ newListEnvironmentVpcs ::
   ListEnvironmentVpcs
 newListEnvironmentVpcs pEnvironmentIdentifier_ =
   ListEnvironmentVpcs'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       environmentIdentifier = pEnvironmentIdentifier_
     }
-
--- | The token for the next page of results.
-listEnvironmentVpcs_nextToken :: Lens.Lens' ListEnvironmentVpcs (Prelude.Maybe Prelude.Text)
-listEnvironmentVpcs_nextToken = Lens.lens (\ListEnvironmentVpcs' {nextToken} -> nextToken) (\s@ListEnvironmentVpcs' {} a -> s {nextToken = a} :: ListEnvironmentVpcs)
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
 listEnvironmentVpcs_maxResults :: Lens.Lens' ListEnvironmentVpcs (Prelude.Maybe Prelude.Natural)
 listEnvironmentVpcs_maxResults = Lens.lens (\ListEnvironmentVpcs' {maxResults} -> maxResults) (\s@ListEnvironmentVpcs' {} a -> s {maxResults = a} :: ListEnvironmentVpcs)
+
+-- | The token for the next page of results.
+listEnvironmentVpcs_nextToken :: Lens.Lens' ListEnvironmentVpcs (Prelude.Maybe Prelude.Text)
+listEnvironmentVpcs_nextToken = Lens.lens (\ListEnvironmentVpcs' {nextToken} -> nextToken) (\s@ListEnvironmentVpcs' {} a -> s {nextToken = a} :: ListEnvironmentVpcs)
 
 -- | The ID of the environment.
 listEnvironmentVpcs_environmentIdentifier :: Lens.Lens' ListEnvironmentVpcs Prelude.Text
@@ -138,23 +138,23 @@ instance Core.AWSRequest ListEnvironmentVpcs where
     Response.receiveJSON
       ( \s h x ->
           ListEnvironmentVpcsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "EnvironmentVpcList"
+            Prelude.<$> ( x Data..?> "EnvironmentVpcList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListEnvironmentVpcs where
   hashWithSalt _salt ListEnvironmentVpcs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` environmentIdentifier
 
 instance Prelude.NFData ListEnvironmentVpcs where
   rnf ListEnvironmentVpcs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf environmentIdentifier
 
 instance Data.ToHeaders ListEnvironmentVpcs where
@@ -179,16 +179,16 @@ instance Data.ToPath ListEnvironmentVpcs where
 instance Data.ToQuery ListEnvironmentVpcs where
   toQuery ListEnvironmentVpcs' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListEnvironmentVpcsResponse' smart constructor.
 data ListEnvironmentVpcsResponse = ListEnvironmentVpcsResponse'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of @EnvironmentVpc@ objects.
+  { -- | The list of @EnvironmentVpc@ objects.
     environmentVpcList :: Prelude.Maybe [EnvironmentVpc],
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -202,9 +202,9 @@ data ListEnvironmentVpcsResponse = ListEnvironmentVpcsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listEnvironmentVpcsResponse_nextToken' - The token for the next page of results.
---
 -- 'environmentVpcList', 'listEnvironmentVpcsResponse_environmentVpcList' - The list of @EnvironmentVpc@ objects.
+--
+-- 'nextToken', 'listEnvironmentVpcsResponse_nextToken' - The token for the next page of results.
 --
 -- 'httpStatus', 'listEnvironmentVpcsResponse_httpStatus' - The response's http status code.
 newListEnvironmentVpcsResponse ::
@@ -213,19 +213,19 @@ newListEnvironmentVpcsResponse ::
   ListEnvironmentVpcsResponse
 newListEnvironmentVpcsResponse pHttpStatus_ =
   ListEnvironmentVpcsResponse'
-    { nextToken =
+    { environmentVpcList =
         Prelude.Nothing,
-      environmentVpcList = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token for the next page of results.
-listEnvironmentVpcsResponse_nextToken :: Lens.Lens' ListEnvironmentVpcsResponse (Prelude.Maybe Prelude.Text)
-listEnvironmentVpcsResponse_nextToken = Lens.lens (\ListEnvironmentVpcsResponse' {nextToken} -> nextToken) (\s@ListEnvironmentVpcsResponse' {} a -> s {nextToken = a} :: ListEnvironmentVpcsResponse)
 
 -- | The list of @EnvironmentVpc@ objects.
 listEnvironmentVpcsResponse_environmentVpcList :: Lens.Lens' ListEnvironmentVpcsResponse (Prelude.Maybe [EnvironmentVpc])
 listEnvironmentVpcsResponse_environmentVpcList = Lens.lens (\ListEnvironmentVpcsResponse' {environmentVpcList} -> environmentVpcList) (\s@ListEnvironmentVpcsResponse' {} a -> s {environmentVpcList = a} :: ListEnvironmentVpcsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next page of results.
+listEnvironmentVpcsResponse_nextToken :: Lens.Lens' ListEnvironmentVpcsResponse (Prelude.Maybe Prelude.Text)
+listEnvironmentVpcsResponse_nextToken = Lens.lens (\ListEnvironmentVpcsResponse' {nextToken} -> nextToken) (\s@ListEnvironmentVpcsResponse' {} a -> s {nextToken = a} :: ListEnvironmentVpcsResponse)
 
 -- | The response's http status code.
 listEnvironmentVpcsResponse_httpStatus :: Lens.Lens' ListEnvironmentVpcsResponse Prelude.Int
@@ -233,6 +233,6 @@ listEnvironmentVpcsResponse_httpStatus = Lens.lens (\ListEnvironmentVpcsResponse
 
 instance Prelude.NFData ListEnvironmentVpcsResponse where
   rnf ListEnvironmentVpcsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf environmentVpcList
+    Prelude.rnf environmentVpcList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

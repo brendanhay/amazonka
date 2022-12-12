@@ -30,9 +30,9 @@ module Amazonka.Connect.ListQuickConnects
     newListQuickConnects,
 
     -- * Request Lenses
+    listQuickConnects_maxResults,
     listQuickConnects_nextToken,
     listQuickConnects_quickConnectTypes,
-    listQuickConnects_maxResults,
     listQuickConnects_instanceId,
 
     -- * Destructuring the Response
@@ -56,7 +56,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListQuickConnects' smart constructor.
 data ListQuickConnects = ListQuickConnects'
-  { -- | The token for the next set of results. Use the value returned in the
+  { -- | The maximum number of results to return per page. The default MaxResult
+    -- size is 100.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -64,9 +67,6 @@ data ListQuickConnects = ListQuickConnects'
     -- create a quick connect, you are prompted to assign one of the following
     -- types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
     quickConnectTypes :: Prelude.Maybe [QuickConnectType],
-    -- | The maximum number of results to return per page. The default MaxResult
-    -- size is 100.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
@@ -81,6 +81,9 @@ data ListQuickConnects = ListQuickConnects'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listQuickConnects_maxResults' - The maximum number of results to return per page. The default MaxResult
+-- size is 100.
+--
 -- 'nextToken', 'listQuickConnects_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
@@ -88,9 +91,6 @@ data ListQuickConnects = ListQuickConnects'
 -- 'quickConnectTypes', 'listQuickConnects_quickConnectTypes' - The type of quick connect. In the Amazon Connect console, when you
 -- create a quick connect, you are prompted to assign one of the following
 -- types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
---
--- 'maxResults', 'listQuickConnects_maxResults' - The maximum number of results to return per page. The default MaxResult
--- size is 100.
 --
 -- 'instanceId', 'listQuickConnects_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -100,11 +100,16 @@ newListQuickConnects ::
   ListQuickConnects
 newListQuickConnects pInstanceId_ =
   ListQuickConnects'
-    { nextToken = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       quickConnectTypes = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       instanceId = pInstanceId_
     }
+
+-- | The maximum number of results to return per page. The default MaxResult
+-- size is 100.
+listQuickConnects_maxResults :: Lens.Lens' ListQuickConnects (Prelude.Maybe Prelude.Natural)
+listQuickConnects_maxResults = Lens.lens (\ListQuickConnects' {maxResults} -> maxResults) (\s@ListQuickConnects' {} a -> s {maxResults = a} :: ListQuickConnects)
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
@@ -117,11 +122,6 @@ listQuickConnects_nextToken = Lens.lens (\ListQuickConnects' {nextToken} -> next
 -- types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
 listQuickConnects_quickConnectTypes :: Lens.Lens' ListQuickConnects (Prelude.Maybe [QuickConnectType])
 listQuickConnects_quickConnectTypes = Lens.lens (\ListQuickConnects' {quickConnectTypes} -> quickConnectTypes) (\s@ListQuickConnects' {} a -> s {quickConnectTypes = a} :: ListQuickConnects) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum number of results to return per page. The default MaxResult
--- size is 100.
-listQuickConnects_maxResults :: Lens.Lens' ListQuickConnects (Prelude.Maybe Prelude.Natural)
-listQuickConnects_maxResults = Lens.lens (\ListQuickConnects' {maxResults} -> maxResults) (\s@ListQuickConnects' {} a -> s {maxResults = a} :: ListQuickConnects)
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -169,16 +169,16 @@ instance Core.AWSRequest ListQuickConnects where
 
 instance Prelude.Hashable ListQuickConnects where
   hashWithSalt _salt ListQuickConnects' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` quickConnectTypes
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData ListQuickConnects where
   rnf ListQuickConnects' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf quickConnectTypes
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf instanceId
 
 instance Data.ToHeaders ListQuickConnects where
@@ -200,13 +200,13 @@ instance Data.ToPath ListQuickConnects where
 instance Data.ToQuery ListQuickConnects where
   toQuery ListQuickConnects' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
         "QuickConnectTypes"
           Data.=: Data.toQuery
             ( Data.toQueryList "member"
                 Prelude.<$> quickConnectTypes
-            ),
-        "maxResults" Data.=: maxResults
+            )
       ]
 
 -- | /See:/ 'newListQuickConnectsResponse' smart constructor.

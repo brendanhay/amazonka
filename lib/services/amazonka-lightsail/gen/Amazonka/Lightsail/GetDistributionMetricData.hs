@@ -45,8 +45,8 @@ module Amazonka.Lightsail.GetDistributionMetricData
     newGetDistributionMetricDataResponse,
 
     -- * Response Lenses
-    getDistributionMetricDataResponse_metricName,
     getDistributionMetricDataResponse_metricData,
+    getDistributionMetricDataResponse_metricName,
     getDistributionMetricDataResponse_httpStatus,
   )
 where
@@ -493,8 +493,8 @@ instance Core.AWSRequest GetDistributionMetricData where
     Response.receiveJSON
       ( \s h x ->
           GetDistributionMetricDataResponse'
-            Prelude.<$> (x Data..?> "metricName")
-            Prelude.<*> (x Data..?> "metricData" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "metricData" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "metricName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -556,10 +556,10 @@ instance Data.ToQuery GetDistributionMetricData where
 
 -- | /See:/ 'newGetDistributionMetricDataResponse' smart constructor.
 data GetDistributionMetricDataResponse = GetDistributionMetricDataResponse'
-  { -- | The name of the metric returned.
-    metricName :: Prelude.Maybe DistributionMetricName,
-    -- | An array of objects that describe the metric data returned.
+  { -- | An array of objects that describe the metric data returned.
     metricData :: Prelude.Maybe [MetricDatapoint],
+    -- | The name of the metric returned.
+    metricName :: Prelude.Maybe DistributionMetricName,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -573,9 +573,9 @@ data GetDistributionMetricDataResponse = GetDistributionMetricDataResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metricName', 'getDistributionMetricDataResponse_metricName' - The name of the metric returned.
---
 -- 'metricData', 'getDistributionMetricDataResponse_metricData' - An array of objects that describe the metric data returned.
+--
+-- 'metricName', 'getDistributionMetricDataResponse_metricName' - The name of the metric returned.
 --
 -- 'httpStatus', 'getDistributionMetricDataResponse_httpStatus' - The response's http status code.
 newGetDistributionMetricDataResponse ::
@@ -584,19 +584,19 @@ newGetDistributionMetricDataResponse ::
   GetDistributionMetricDataResponse
 newGetDistributionMetricDataResponse pHttpStatus_ =
   GetDistributionMetricDataResponse'
-    { metricName =
+    { metricData =
         Prelude.Nothing,
-      metricData = Prelude.Nothing,
+      metricName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The name of the metric returned.
-getDistributionMetricDataResponse_metricName :: Lens.Lens' GetDistributionMetricDataResponse (Prelude.Maybe DistributionMetricName)
-getDistributionMetricDataResponse_metricName = Lens.lens (\GetDistributionMetricDataResponse' {metricName} -> metricName) (\s@GetDistributionMetricDataResponse' {} a -> s {metricName = a} :: GetDistributionMetricDataResponse)
 
 -- | An array of objects that describe the metric data returned.
 getDistributionMetricDataResponse_metricData :: Lens.Lens' GetDistributionMetricDataResponse (Prelude.Maybe [MetricDatapoint])
 getDistributionMetricDataResponse_metricData = Lens.lens (\GetDistributionMetricDataResponse' {metricData} -> metricData) (\s@GetDistributionMetricDataResponse' {} a -> s {metricData = a} :: GetDistributionMetricDataResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of the metric returned.
+getDistributionMetricDataResponse_metricName :: Lens.Lens' GetDistributionMetricDataResponse (Prelude.Maybe DistributionMetricName)
+getDistributionMetricDataResponse_metricName = Lens.lens (\GetDistributionMetricDataResponse' {metricName} -> metricName) (\s@GetDistributionMetricDataResponse' {} a -> s {metricName = a} :: GetDistributionMetricDataResponse)
 
 -- | The response's http status code.
 getDistributionMetricDataResponse_httpStatus :: Lens.Lens' GetDistributionMetricDataResponse Prelude.Int
@@ -607,6 +607,6 @@ instance
     GetDistributionMetricDataResponse
   where
   rnf GetDistributionMetricDataResponse' {..} =
-    Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf metricData
+    Prelude.rnf metricData
+      `Prelude.seq` Prelude.rnf metricName
       `Prelude.seq` Prelude.rnf httpStatus

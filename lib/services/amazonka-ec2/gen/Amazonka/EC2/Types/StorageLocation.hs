@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStorageLocation' smart constructor.
 data StorageLocation = StorageLocation'
-  { -- | The key.
-    key :: Prelude.Maybe Prelude.Text,
-    -- | The name of the S3 bucket.
-    bucket :: Prelude.Maybe Prelude.Text
+  { -- | The name of the S3 bucket.
+    bucket :: Prelude.Maybe Prelude.Text,
+    -- | The key.
+    key :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,35 +44,35 @@ data StorageLocation = StorageLocation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 'storageLocation_key' - The key.
---
 -- 'bucket', 'storageLocation_bucket' - The name of the S3 bucket.
+--
+-- 'key', 'storageLocation_key' - The key.
 newStorageLocation ::
   StorageLocation
 newStorageLocation =
   StorageLocation'
-    { key = Prelude.Nothing,
-      bucket = Prelude.Nothing
+    { bucket = Prelude.Nothing,
+      key = Prelude.Nothing
     }
-
--- | The key.
-storageLocation_key :: Lens.Lens' StorageLocation (Prelude.Maybe Prelude.Text)
-storageLocation_key = Lens.lens (\StorageLocation' {key} -> key) (\s@StorageLocation' {} a -> s {key = a} :: StorageLocation)
 
 -- | The name of the S3 bucket.
 storageLocation_bucket :: Lens.Lens' StorageLocation (Prelude.Maybe Prelude.Text)
 storageLocation_bucket = Lens.lens (\StorageLocation' {bucket} -> bucket) (\s@StorageLocation' {} a -> s {bucket = a} :: StorageLocation)
 
+-- | The key.
+storageLocation_key :: Lens.Lens' StorageLocation (Prelude.Maybe Prelude.Text)
+storageLocation_key = Lens.lens (\StorageLocation' {key} -> key) (\s@StorageLocation' {} a -> s {key = a} :: StorageLocation)
+
 instance Prelude.Hashable StorageLocation where
   hashWithSalt _salt StorageLocation' {..} =
-    _salt `Prelude.hashWithSalt` key
-      `Prelude.hashWithSalt` bucket
+    _salt `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` key
 
 instance Prelude.NFData StorageLocation where
   rnf StorageLocation' {..} =
-    Prelude.rnf key `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf bucket `Prelude.seq` Prelude.rnf key
 
 instance Data.ToQuery StorageLocation where
   toQuery StorageLocation' {..} =
     Prelude.mconcat
-      ["Key" Data.=: key, "Bucket" Data.=: bucket]
+      ["Bucket" Data.=: bucket, "Key" Data.=: key]

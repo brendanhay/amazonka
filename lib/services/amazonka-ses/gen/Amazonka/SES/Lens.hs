@@ -112,11 +112,11 @@ module Amazonka.SES.Lens
     -- ** DescribeConfigurationSet
     describeConfigurationSet_configurationSetAttributeNames,
     describeConfigurationSet_configurationSetName,
-    describeConfigurationSetResponse_reputationOptions,
-    describeConfigurationSetResponse_deliveryOptions,
-    describeConfigurationSetResponse_trackingOptions,
     describeConfigurationSetResponse_configurationSet,
+    describeConfigurationSetResponse_deliveryOptions,
     describeConfigurationSetResponse_eventDestinations,
+    describeConfigurationSetResponse_reputationOptions,
+    describeConfigurationSetResponse_trackingOptions,
     describeConfigurationSetResponse_httpStatus,
 
     -- ** DescribeReceiptRule
@@ -137,12 +137,12 @@ module Amazonka.SES.Lens
 
     -- ** GetCustomVerificationEmailTemplate
     getCustomVerificationEmailTemplate_templateName,
-    getCustomVerificationEmailTemplateResponse_templateName,
-    getCustomVerificationEmailTemplateResponse_successRedirectionURL,
-    getCustomVerificationEmailTemplateResponse_fromEmailAddress,
-    getCustomVerificationEmailTemplateResponse_templateContent,
-    getCustomVerificationEmailTemplateResponse_templateSubject,
     getCustomVerificationEmailTemplateResponse_failureRedirectionURL,
+    getCustomVerificationEmailTemplateResponse_fromEmailAddress,
+    getCustomVerificationEmailTemplateResponse_successRedirectionURL,
+    getCustomVerificationEmailTemplateResponse_templateContent,
+    getCustomVerificationEmailTemplateResponse_templateName,
+    getCustomVerificationEmailTemplateResponse_templateSubject,
     getCustomVerificationEmailTemplateResponse_httpStatus,
 
     -- ** GetIdentityDkimAttributes
@@ -173,8 +173,8 @@ module Amazonka.SES.Lens
 
     -- ** GetSendQuota
     getSendQuotaResponse_max24HourSend,
-    getSendQuotaResponse_sentLast24Hours,
     getSendQuotaResponse_maxSendRate,
+    getSendQuotaResponse_sentLast24Hours,
     getSendQuotaResponse_httpStatus,
 
     -- ** GetSendStatistics
@@ -187,23 +187,23 @@ module Amazonka.SES.Lens
     getTemplateResponse_httpStatus,
 
     -- ** ListConfigurationSets
-    listConfigurationSets_nextToken,
     listConfigurationSets_maxItems,
-    listConfigurationSetsResponse_nextToken,
+    listConfigurationSets_nextToken,
     listConfigurationSetsResponse_configurationSets,
+    listConfigurationSetsResponse_nextToken,
     listConfigurationSetsResponse_httpStatus,
 
     -- ** ListCustomVerificationEmailTemplates
-    listCustomVerificationEmailTemplates_nextToken,
     listCustomVerificationEmailTemplates_maxResults,
+    listCustomVerificationEmailTemplates_nextToken,
     listCustomVerificationEmailTemplatesResponse_customVerificationEmailTemplates,
     listCustomVerificationEmailTemplatesResponse_nextToken,
     listCustomVerificationEmailTemplatesResponse_httpStatus,
 
     -- ** ListIdentities
-    listIdentities_nextToken,
-    listIdentities_maxItems,
     listIdentities_identityType,
+    listIdentities_maxItems,
+    listIdentities_nextToken,
     listIdentitiesResponse_nextToken,
     listIdentitiesResponse_httpStatus,
     listIdentitiesResponse_identities,
@@ -224,8 +224,8 @@ module Amazonka.SES.Lens
     listReceiptRuleSetsResponse_httpStatus,
 
     -- ** ListTemplates
-    listTemplates_nextToken,
     listTemplates_maxItems,
+    listTemplates_nextToken,
     listTemplatesResponse_nextToken,
     listTemplatesResponse_templatesMetadata,
     listTemplatesResponse_httpStatus,
@@ -261,13 +261,13 @@ module Amazonka.SES.Lens
     sendBounceResponse_httpStatus,
 
     -- ** SendBulkTemplatedEmail
-    sendBulkTemplatedEmail_returnPath,
-    sendBulkTemplatedEmail_replyToAddresses,
-    sendBulkTemplatedEmail_sourceArn,
-    sendBulkTemplatedEmail_defaultTags,
     sendBulkTemplatedEmail_configurationSetName,
-    sendBulkTemplatedEmail_returnPathArn,
+    sendBulkTemplatedEmail_defaultTags,
     sendBulkTemplatedEmail_defaultTemplateData,
+    sendBulkTemplatedEmail_replyToAddresses,
+    sendBulkTemplatedEmail_returnPath,
+    sendBulkTemplatedEmail_returnPathArn,
+    sendBulkTemplatedEmail_sourceArn,
     sendBulkTemplatedEmail_templateArn,
     sendBulkTemplatedEmail_source,
     sendBulkTemplatedEmail_template,
@@ -283,12 +283,12 @@ module Amazonka.SES.Lens
     sendCustomVerificationEmailResponse_httpStatus,
 
     -- ** SendEmail
-    sendEmail_tags,
-    sendEmail_returnPath,
-    sendEmail_replyToAddresses,
-    sendEmail_sourceArn,
     sendEmail_configurationSetName,
+    sendEmail_replyToAddresses,
+    sendEmail_returnPath,
     sendEmail_returnPathArn,
+    sendEmail_sourceArn,
+    sendEmail_tags,
     sendEmail_source,
     sendEmail_destination,
     sendEmail_message,
@@ -296,24 +296,24 @@ module Amazonka.SES.Lens
     sendEmailResponse_messageId,
 
     -- ** SendRawEmail
-    sendRawEmail_tags,
-    sendRawEmail_fromArn,
-    sendRawEmail_sourceArn,
     sendRawEmail_configurationSetName,
+    sendRawEmail_destinations,
+    sendRawEmail_fromArn,
     sendRawEmail_returnPathArn,
     sendRawEmail_source,
-    sendRawEmail_destinations,
+    sendRawEmail_sourceArn,
+    sendRawEmail_tags,
     sendRawEmail_rawMessage,
     sendRawEmailResponse_httpStatus,
     sendRawEmailResponse_messageId,
 
     -- ** SendTemplatedEmail
-    sendTemplatedEmail_tags,
-    sendTemplatedEmail_returnPath,
-    sendTemplatedEmail_replyToAddresses,
-    sendTemplatedEmail_sourceArn,
     sendTemplatedEmail_configurationSetName,
+    sendTemplatedEmail_replyToAddresses,
+    sendTemplatedEmail_returnPath,
     sendTemplatedEmail_returnPathArn,
+    sendTemplatedEmail_sourceArn,
+    sendTemplatedEmail_tags,
     sendTemplatedEmail_templateArn,
     sendTemplatedEmail_source,
     sendTemplatedEmail_destination,
@@ -343,8 +343,8 @@ module Amazonka.SES.Lens
     setIdentityHeadersInNotificationsEnabledResponse_httpStatus,
 
     -- ** SetIdentityMailFromDomain
-    setIdentityMailFromDomain_mailFromDomain,
     setIdentityMailFromDomain_behaviorOnMXFailure,
+    setIdentityMailFromDomain_mailFromDomain,
     setIdentityMailFromDomain_identity,
     setIdentityMailFromDomainResponse_httpStatus,
 
@@ -388,11 +388,11 @@ module Amazonka.SES.Lens
     updateConfigurationSetTrackingOptionsResponse_httpStatus,
 
     -- ** UpdateCustomVerificationEmailTemplate
-    updateCustomVerificationEmailTemplate_successRedirectionURL,
+    updateCustomVerificationEmailTemplate_failureRedirectionURL,
     updateCustomVerificationEmailTemplate_fromEmailAddress,
+    updateCustomVerificationEmailTemplate_successRedirectionURL,
     updateCustomVerificationEmailTemplate_templateContent,
     updateCustomVerificationEmailTemplate_templateSubject,
-    updateCustomVerificationEmailTemplate_failureRedirectionURL,
     updateCustomVerificationEmailTemplate_templateName,
 
     -- ** UpdateReceiptRule
@@ -432,15 +432,15 @@ module Amazonka.SES.Lens
     body_text,
 
     -- ** BounceAction
-    bounceAction_topicArn,
     bounceAction_statusCode,
+    bounceAction_topicArn,
     bounceAction_smtpReplyCode,
     bounceAction_message,
     bounceAction_sender,
 
     -- ** BouncedRecipientInfo
-    bouncedRecipientInfo_recipientArn,
     bouncedRecipientInfo_bounceType,
+    bouncedRecipientInfo_recipientArn,
     bouncedRecipientInfo_recipientDsnFields,
     bouncedRecipientInfo_recipient,
 
@@ -450,9 +450,9 @@ module Amazonka.SES.Lens
     bulkEmailDestination_destination,
 
     -- ** BulkEmailDestinationStatus
+    bulkEmailDestinationStatus_error,
     bulkEmailDestinationStatus_messageId,
     bulkEmailDestinationStatus_status,
-    bulkEmailDestinationStatus_error,
 
     -- ** CloudWatchDestination
     cloudWatchDestination_dimensionConfigurations,
@@ -470,25 +470,25 @@ module Amazonka.SES.Lens
     content_data,
 
     -- ** CustomVerificationEmailTemplate
-    customVerificationEmailTemplate_templateName,
-    customVerificationEmailTemplate_successRedirectionURL,
-    customVerificationEmailTemplate_fromEmailAddress,
-    customVerificationEmailTemplate_templateSubject,
     customVerificationEmailTemplate_failureRedirectionURL,
+    customVerificationEmailTemplate_fromEmailAddress,
+    customVerificationEmailTemplate_successRedirectionURL,
+    customVerificationEmailTemplate_templateName,
+    customVerificationEmailTemplate_templateSubject,
 
     -- ** DeliveryOptions
     deliveryOptions_tlsPolicy,
 
     -- ** Destination
-    destination_ccAddresses,
     destination_bccAddresses,
+    destination_ccAddresses,
     destination_toAddresses,
 
     -- ** EventDestination
-    eventDestination_sNSDestination,
-    eventDestination_enabled,
     eventDestination_cloudWatchDestination,
+    eventDestination_enabled,
     eventDestination_kinesisFirehoseDestination,
+    eventDestination_sNSDestination,
     eventDestination_name,
     eventDestination_matchingEventTypes,
 
@@ -507,9 +507,9 @@ module Amazonka.SES.Lens
     identityMailFromDomainAttributes_behaviorOnMXFailure,
 
     -- ** IdentityNotificationAttributes
-    identityNotificationAttributes_headersInDeliveryNotificationsEnabled,
-    identityNotificationAttributes_headersInComplaintNotificationsEnabled,
     identityNotificationAttributes_headersInBounceNotificationsEnabled,
+    identityNotificationAttributes_headersInComplaintNotificationsEnabled,
+    identityNotificationAttributes_headersInDeliveryNotificationsEnabled,
     identityNotificationAttributes_bounceTopic,
     identityNotificationAttributes_complaintTopic,
     identityNotificationAttributes_deliveryTopic,
@@ -524,8 +524,8 @@ module Amazonka.SES.Lens
     kinesisFirehoseDestination_deliveryStreamARN,
 
     -- ** LambdaAction
-    lambdaAction_topicArn,
     lambdaAction_invocationType,
+    lambdaAction_topicArn,
     lambdaAction_functionArn,
 
     -- ** Message
@@ -533,8 +533,8 @@ module Amazonka.SES.Lens
     message_body,
 
     -- ** MessageDsn
-    messageDsn_extensionFields,
     messageDsn_arrivalDate,
+    messageDsn_extensionFields,
     messageDsn_reportingMta,
 
     -- ** MessageTag
@@ -546,11 +546,11 @@ module Amazonka.SES.Lens
 
     -- ** ReceiptAction
     receiptAction_addHeaderAction,
+    receiptAction_bounceAction,
     receiptAction_lambdaAction,
     receiptAction_s3Action,
-    receiptAction_stopAction,
     receiptAction_sNSAction,
-    receiptAction_bounceAction,
+    receiptAction_stopAction,
     receiptAction_workmailAction,
 
     -- ** ReceiptFilter
@@ -562,35 +562,35 @@ module Amazonka.SES.Lens
     receiptIpFilter_cidr,
 
     -- ** ReceiptRule
-    receiptRule_scanEnabled,
-    receiptRule_recipients,
-    receiptRule_enabled,
-    receiptRule_tlsPolicy,
     receiptRule_actions,
+    receiptRule_enabled,
+    receiptRule_recipients,
+    receiptRule_scanEnabled,
+    receiptRule_tlsPolicy,
     receiptRule_name,
 
     -- ** ReceiptRuleSetMetadata
-    receiptRuleSetMetadata_name,
     receiptRuleSetMetadata_createdTimestamp,
+    receiptRuleSetMetadata_name,
 
     -- ** RecipientDsnFields
+    recipientDsnFields_diagnosticCode,
     recipientDsnFields_extensionFields,
     recipientDsnFields_finalRecipient,
-    recipientDsnFields_remoteMta,
-    recipientDsnFields_diagnosticCode,
     recipientDsnFields_lastAttemptDate,
+    recipientDsnFields_remoteMta,
     recipientDsnFields_action,
     recipientDsnFields_status,
 
     -- ** ReputationOptions
+    reputationOptions_lastFreshStart,
     reputationOptions_reputationMetricsEnabled,
     reputationOptions_sendingEnabled,
-    reputationOptions_lastFreshStart,
 
     -- ** S3Action
+    s3Action_kmsKeyArn,
     s3Action_objectKeyPrefix,
     s3Action_topicArn,
-    s3Action_kmsKeyArn,
     s3Action_bucketName,
 
     -- ** SNSAction
@@ -601,25 +601,25 @@ module Amazonka.SES.Lens
     sNSDestination_topicARN,
 
     -- ** SendDataPoint
+    sendDataPoint_bounces,
+    sendDataPoint_complaints,
     sendDataPoint_deliveryAttempts,
     sendDataPoint_rejects,
     sendDataPoint_timestamp,
-    sendDataPoint_bounces,
-    sendDataPoint_complaints,
 
     -- ** StopAction
     stopAction_topicArn,
     stopAction_scope,
 
     -- ** Template
+    template_htmlPart,
     template_subjectPart,
     template_textPart,
-    template_htmlPart,
     template_templateName,
 
     -- ** TemplateMetadata
-    templateMetadata_name,
     templateMetadata_createdTimestamp,
+    templateMetadata_name,
 
     -- ** TrackingOptions
     trackingOptions_customRedirectDomain,

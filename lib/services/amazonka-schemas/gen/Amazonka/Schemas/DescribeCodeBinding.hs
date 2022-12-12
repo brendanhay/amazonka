@@ -38,9 +38,9 @@ module Amazonka.Schemas.DescribeCodeBinding
 
     -- * Response Lenses
     describeCodeBindingResponse_creationDate,
-    describeCodeBindingResponse_status,
     describeCodeBindingResponse_lastModified,
     describeCodeBindingResponse_schemaVersion,
+    describeCodeBindingResponse_status,
     describeCodeBindingResponse_httpStatus,
   )
 where
@@ -128,9 +128,9 @@ instance Core.AWSRequest DescribeCodeBinding where
       ( \s h x ->
           DescribeCodeBindingResponse'
             Prelude.<$> (x Data..?> "CreationDate")
-            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (x Data..?> "LastModified")
             Prelude.<*> (x Data..?> "SchemaVersion")
+            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -179,12 +179,12 @@ instance Data.ToQuery DescribeCodeBinding where
 data DescribeCodeBindingResponse = DescribeCodeBindingResponse'
   { -- | The time and date that the code binding was created.
     creationDate :: Prelude.Maybe Data.POSIX,
-    -- | The current status of code binding generation.
-    status :: Prelude.Maybe CodeGenerationStatus,
     -- | The date and time that code bindings were modified.
     lastModified :: Prelude.Maybe Data.POSIX,
     -- | The version number of the schema.
     schemaVersion :: Prelude.Maybe Prelude.Text,
+    -- | The current status of code binding generation.
+    status :: Prelude.Maybe CodeGenerationStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -200,11 +200,11 @@ data DescribeCodeBindingResponse = DescribeCodeBindingResponse'
 --
 -- 'creationDate', 'describeCodeBindingResponse_creationDate' - The time and date that the code binding was created.
 --
--- 'status', 'describeCodeBindingResponse_status' - The current status of code binding generation.
---
 -- 'lastModified', 'describeCodeBindingResponse_lastModified' - The date and time that code bindings were modified.
 --
 -- 'schemaVersion', 'describeCodeBindingResponse_schemaVersion' - The version number of the schema.
+--
+-- 'status', 'describeCodeBindingResponse_status' - The current status of code binding generation.
 --
 -- 'httpStatus', 'describeCodeBindingResponse_httpStatus' - The response's http status code.
 newDescribeCodeBindingResponse ::
@@ -215,19 +215,15 @@ newDescribeCodeBindingResponse pHttpStatus_ =
   DescribeCodeBindingResponse'
     { creationDate =
         Prelude.Nothing,
-      status = Prelude.Nothing,
       lastModified = Prelude.Nothing,
       schemaVersion = Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The time and date that the code binding was created.
 describeCodeBindingResponse_creationDate :: Lens.Lens' DescribeCodeBindingResponse (Prelude.Maybe Prelude.UTCTime)
 describeCodeBindingResponse_creationDate = Lens.lens (\DescribeCodeBindingResponse' {creationDate} -> creationDate) (\s@DescribeCodeBindingResponse' {} a -> s {creationDate = a} :: DescribeCodeBindingResponse) Prelude.. Lens.mapping Data._Time
-
--- | The current status of code binding generation.
-describeCodeBindingResponse_status :: Lens.Lens' DescribeCodeBindingResponse (Prelude.Maybe CodeGenerationStatus)
-describeCodeBindingResponse_status = Lens.lens (\DescribeCodeBindingResponse' {status} -> status) (\s@DescribeCodeBindingResponse' {} a -> s {status = a} :: DescribeCodeBindingResponse)
 
 -- | The date and time that code bindings were modified.
 describeCodeBindingResponse_lastModified :: Lens.Lens' DescribeCodeBindingResponse (Prelude.Maybe Prelude.UTCTime)
@@ -237,6 +233,10 @@ describeCodeBindingResponse_lastModified = Lens.lens (\DescribeCodeBindingRespon
 describeCodeBindingResponse_schemaVersion :: Lens.Lens' DescribeCodeBindingResponse (Prelude.Maybe Prelude.Text)
 describeCodeBindingResponse_schemaVersion = Lens.lens (\DescribeCodeBindingResponse' {schemaVersion} -> schemaVersion) (\s@DescribeCodeBindingResponse' {} a -> s {schemaVersion = a} :: DescribeCodeBindingResponse)
 
+-- | The current status of code binding generation.
+describeCodeBindingResponse_status :: Lens.Lens' DescribeCodeBindingResponse (Prelude.Maybe CodeGenerationStatus)
+describeCodeBindingResponse_status = Lens.lens (\DescribeCodeBindingResponse' {status} -> status) (\s@DescribeCodeBindingResponse' {} a -> s {status = a} :: DescribeCodeBindingResponse)
+
 -- | The response's http status code.
 describeCodeBindingResponse_httpStatus :: Lens.Lens' DescribeCodeBindingResponse Prelude.Int
 describeCodeBindingResponse_httpStatus = Lens.lens (\DescribeCodeBindingResponse' {httpStatus} -> httpStatus) (\s@DescribeCodeBindingResponse' {} a -> s {httpStatus = a} :: DescribeCodeBindingResponse)
@@ -244,7 +244,7 @@ describeCodeBindingResponse_httpStatus = Lens.lens (\DescribeCodeBindingResponse
 instance Prelude.NFData DescribeCodeBindingResponse where
   rnf DescribeCodeBindingResponse' {..} =
     Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf lastModified
       `Prelude.seq` Prelude.rnf schemaVersion
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

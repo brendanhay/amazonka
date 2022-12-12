@@ -33,8 +33,8 @@ module Amazonka.AuditManager.ListControlDomainInsightsByAssessment
     newListControlDomainInsightsByAssessment,
 
     -- * Request Lenses
-    listControlDomainInsightsByAssessment_nextToken,
     listControlDomainInsightsByAssessment_maxResults,
+    listControlDomainInsightsByAssessment_nextToken,
     listControlDomainInsightsByAssessment_assessmentId,
 
     -- * Destructuring the Response
@@ -42,8 +42,8 @@ module Amazonka.AuditManager.ListControlDomainInsightsByAssessment
     newListControlDomainInsightsByAssessmentResponse,
 
     -- * Response Lenses
-    listControlDomainInsightsByAssessmentResponse_nextToken,
     listControlDomainInsightsByAssessmentResponse_controlDomainInsights,
+    listControlDomainInsightsByAssessmentResponse_nextToken,
     listControlDomainInsightsByAssessmentResponse_httpStatus,
   )
 where
@@ -58,11 +58,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListControlDomainInsightsByAssessment' smart constructor.
 data ListControlDomainInsightsByAssessment = ListControlDomainInsightsByAssessment'
-  { -- | The pagination token that\'s used to fetch the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Represents the maximum number of results on a page or for an API request
+  { -- | Represents the maximum number of results on a page or for an API request
     -- call.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token that\'s used to fetch the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the active assessment.
     assessmentId :: Prelude.Text
   }
@@ -76,10 +76,10 @@ data ListControlDomainInsightsByAssessment = ListControlDomainInsightsByAssessme
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listControlDomainInsightsByAssessment_nextToken' - The pagination token that\'s used to fetch the next set of results.
---
 -- 'maxResults', 'listControlDomainInsightsByAssessment_maxResults' - Represents the maximum number of results on a page or for an API request
 -- call.
+--
+-- 'nextToken', 'listControlDomainInsightsByAssessment_nextToken' - The pagination token that\'s used to fetch the next set of results.
 --
 -- 'assessmentId', 'listControlDomainInsightsByAssessment_assessmentId' - The unique identifier for the active assessment.
 newListControlDomainInsightsByAssessment ::
@@ -89,20 +89,20 @@ newListControlDomainInsightsByAssessment ::
 newListControlDomainInsightsByAssessment
   pAssessmentId_ =
     ListControlDomainInsightsByAssessment'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         assessmentId = pAssessmentId_
       }
-
--- | The pagination token that\'s used to fetch the next set of results.
-listControlDomainInsightsByAssessment_nextToken :: Lens.Lens' ListControlDomainInsightsByAssessment (Prelude.Maybe Prelude.Text)
-listControlDomainInsightsByAssessment_nextToken = Lens.lens (\ListControlDomainInsightsByAssessment' {nextToken} -> nextToken) (\s@ListControlDomainInsightsByAssessment' {} a -> s {nextToken = a} :: ListControlDomainInsightsByAssessment)
 
 -- | Represents the maximum number of results on a page or for an API request
 -- call.
 listControlDomainInsightsByAssessment_maxResults :: Lens.Lens' ListControlDomainInsightsByAssessment (Prelude.Maybe Prelude.Natural)
 listControlDomainInsightsByAssessment_maxResults = Lens.lens (\ListControlDomainInsightsByAssessment' {maxResults} -> maxResults) (\s@ListControlDomainInsightsByAssessment' {} a -> s {maxResults = a} :: ListControlDomainInsightsByAssessment)
+
+-- | The pagination token that\'s used to fetch the next set of results.
+listControlDomainInsightsByAssessment_nextToken :: Lens.Lens' ListControlDomainInsightsByAssessment (Prelude.Maybe Prelude.Text)
+listControlDomainInsightsByAssessment_nextToken = Lens.lens (\ListControlDomainInsightsByAssessment' {nextToken} -> nextToken) (\s@ListControlDomainInsightsByAssessment' {} a -> s {nextToken = a} :: ListControlDomainInsightsByAssessment)
 
 -- | The unique identifier for the active assessment.
 listControlDomainInsightsByAssessment_assessmentId :: Lens.Lens' ListControlDomainInsightsByAssessment Prelude.Text
@@ -122,10 +122,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListControlDomainInsightsByAssessmentResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-              Prelude.<*> ( x Data..?> "controlDomainInsights"
-                              Core..!@ Prelude.mempty
-                          )
+            Prelude.<$> ( x Data..?> "controlDomainInsights"
+                            Core..!@ Prelude.mempty
+                        )
+              Prelude.<*> (x Data..?> "nextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,8 +136,8 @@ instance
   hashWithSalt
     _salt
     ListControlDomainInsightsByAssessment' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` assessmentId
 
 instance
@@ -145,8 +145,8 @@ instance
     ListControlDomainInsightsByAssessment
   where
   rnf ListControlDomainInsightsByAssessment' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf assessmentId
 
 instance
@@ -177,18 +177,18 @@ instance
   where
   toQuery ListControlDomainInsightsByAssessment' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults,
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
         "assessmentId" Data.=: assessmentId
       ]
 
 -- | /See:/ 'newListControlDomainInsightsByAssessmentResponse' smart constructor.
 data ListControlDomainInsightsByAssessmentResponse = ListControlDomainInsightsByAssessmentResponse'
-  { -- | The pagination token that\'s used to fetch the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The control domain analytics data that the
+  { -- | The control domain analytics data that the
     -- @ListControlDomainInsightsByAssessment@ API returned.
     controlDomainInsights :: Prelude.Maybe [ControlDomainInsights],
+    -- | The pagination token that\'s used to fetch the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -202,10 +202,10 @@ data ListControlDomainInsightsByAssessmentResponse = ListControlDomainInsightsBy
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listControlDomainInsightsByAssessmentResponse_nextToken' - The pagination token that\'s used to fetch the next set of results.
---
 -- 'controlDomainInsights', 'listControlDomainInsightsByAssessmentResponse_controlDomainInsights' - The control domain analytics data that the
 -- @ListControlDomainInsightsByAssessment@ API returned.
+--
+-- 'nextToken', 'listControlDomainInsightsByAssessmentResponse_nextToken' - The pagination token that\'s used to fetch the next set of results.
 --
 -- 'httpStatus', 'listControlDomainInsightsByAssessmentResponse_httpStatus' - The response's http status code.
 newListControlDomainInsightsByAssessmentResponse ::
@@ -215,21 +215,20 @@ newListControlDomainInsightsByAssessmentResponse ::
 newListControlDomainInsightsByAssessmentResponse
   pHttpStatus_ =
     ListControlDomainInsightsByAssessmentResponse'
-      { nextToken =
+      { controlDomainInsights =
           Prelude.Nothing,
-        controlDomainInsights =
-          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The pagination token that\'s used to fetch the next set of results.
-listControlDomainInsightsByAssessmentResponse_nextToken :: Lens.Lens' ListControlDomainInsightsByAssessmentResponse (Prelude.Maybe Prelude.Text)
-listControlDomainInsightsByAssessmentResponse_nextToken = Lens.lens (\ListControlDomainInsightsByAssessmentResponse' {nextToken} -> nextToken) (\s@ListControlDomainInsightsByAssessmentResponse' {} a -> s {nextToken = a} :: ListControlDomainInsightsByAssessmentResponse)
 
 -- | The control domain analytics data that the
 -- @ListControlDomainInsightsByAssessment@ API returned.
 listControlDomainInsightsByAssessmentResponse_controlDomainInsights :: Lens.Lens' ListControlDomainInsightsByAssessmentResponse (Prelude.Maybe [ControlDomainInsights])
 listControlDomainInsightsByAssessmentResponse_controlDomainInsights = Lens.lens (\ListControlDomainInsightsByAssessmentResponse' {controlDomainInsights} -> controlDomainInsights) (\s@ListControlDomainInsightsByAssessmentResponse' {} a -> s {controlDomainInsights = a} :: ListControlDomainInsightsByAssessmentResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The pagination token that\'s used to fetch the next set of results.
+listControlDomainInsightsByAssessmentResponse_nextToken :: Lens.Lens' ListControlDomainInsightsByAssessmentResponse (Prelude.Maybe Prelude.Text)
+listControlDomainInsightsByAssessmentResponse_nextToken = Lens.lens (\ListControlDomainInsightsByAssessmentResponse' {nextToken} -> nextToken) (\s@ListControlDomainInsightsByAssessmentResponse' {} a -> s {nextToken = a} :: ListControlDomainInsightsByAssessmentResponse)
 
 -- | The response's http status code.
 listControlDomainInsightsByAssessmentResponse_httpStatus :: Lens.Lens' ListControlDomainInsightsByAssessmentResponse Prelude.Int
@@ -241,6 +240,6 @@ instance
   where
   rnf
     ListControlDomainInsightsByAssessmentResponse' {..} =
-      Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf controlDomainInsights
+      Prelude.rnf controlDomainInsights
+        `Prelude.seq` Prelude.rnf nextToken
         `Prelude.seq` Prelude.rnf httpStatus

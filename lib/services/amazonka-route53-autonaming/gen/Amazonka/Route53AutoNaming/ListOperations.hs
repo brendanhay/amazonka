@@ -29,9 +29,9 @@ module Amazonka.Route53AutoNaming.ListOperations
     newListOperations,
 
     -- * Request Lenses
-    listOperations_nextToken,
     listOperations_filters,
     listOperations_maxResults,
+    listOperations_nextToken,
 
     -- * Destructuring the Response
     ListOperationsResponse (..),
@@ -54,7 +54,18 @@ import Amazonka.Route53AutoNaming.Types
 
 -- | /See:/ 'newListOperations' smart constructor.
 data ListOperations = ListOperations'
-  { -- | For the first @ListOperations@ request, omit this value.
+  { -- | A complex type that contains specifications for the operations that you
+    -- want to list, for example, operations that you started between a
+    -- specified start date and end date.
+    --
+    -- If you specify more than one filter, an operation must match all filters
+    -- to be returned by @ListOperations@.
+    filters :: Prelude.Maybe [OperationFilter],
+    -- | The maximum number of items that you want Cloud Map to return in the
+    -- response to a @ListOperations@ request. If you don\'t specify a value
+    -- for @MaxResults@, Cloud Map returns up to 100 operations.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | For the first @ListOperations@ request, omit this value.
     --
     -- If the response contains @NextToken@, submit another @ListOperations@
     -- request to get the next group of results. Specify the value of
@@ -65,18 +76,7 @@ data ListOperations = ListOperations'
     -- @MaxResults@ operations matched the specified criteria but that
     -- subsequent groups of @MaxResults@ operations do contain operations that
     -- match the criteria.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A complex type that contains specifications for the operations that you
-    -- want to list, for example, operations that you started between a
-    -- specified start date and end date.
-    --
-    -- If you specify more than one filter, an operation must match all filters
-    -- to be returned by @ListOperations@.
-    filters :: Prelude.Maybe [OperationFilter],
-    -- | The maximum number of items that you want Cloud Map to return in the
-    -- response to a @ListOperations@ request. If you don\'t specify a value
-    -- for @MaxResults@, Cloud Map returns up to 100 operations.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,6 +87,17 @@ data ListOperations = ListOperations'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'filters', 'listOperations_filters' - A complex type that contains specifications for the operations that you
+-- want to list, for example, operations that you started between a
+-- specified start date and end date.
+--
+-- If you specify more than one filter, an operation must match all filters
+-- to be returned by @ListOperations@.
+--
+-- 'maxResults', 'listOperations_maxResults' - The maximum number of items that you want Cloud Map to return in the
+-- response to a @ListOperations@ request. If you don\'t specify a value
+-- for @MaxResults@, Cloud Map returns up to 100 operations.
 --
 -- 'nextToken', 'listOperations_nextToken' - For the first @ListOperations@ request, omit this value.
 --
@@ -99,39 +110,14 @@ data ListOperations = ListOperations'
 -- @MaxResults@ operations matched the specified criteria but that
 -- subsequent groups of @MaxResults@ operations do contain operations that
 -- match the criteria.
---
--- 'filters', 'listOperations_filters' - A complex type that contains specifications for the operations that you
--- want to list, for example, operations that you started between a
--- specified start date and end date.
---
--- If you specify more than one filter, an operation must match all filters
--- to be returned by @ListOperations@.
---
--- 'maxResults', 'listOperations_maxResults' - The maximum number of items that you want Cloud Map to return in the
--- response to a @ListOperations@ request. If you don\'t specify a value
--- for @MaxResults@, Cloud Map returns up to 100 operations.
 newListOperations ::
   ListOperations
 newListOperations =
   ListOperations'
-    { nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | For the first @ListOperations@ request, omit this value.
---
--- If the response contains @NextToken@, submit another @ListOperations@
--- request to get the next group of results. Specify the value of
--- @NextToken@ from the previous response in the next request.
---
--- Cloud Map gets @MaxResults@ operations and then filters them based on
--- the specified criteria. It\'s possible that no operations in the first
--- @MaxResults@ operations matched the specified criteria but that
--- subsequent groups of @MaxResults@ operations do contain operations that
--- match the criteria.
-listOperations_nextToken :: Lens.Lens' ListOperations (Prelude.Maybe Prelude.Text)
-listOperations_nextToken = Lens.lens (\ListOperations' {nextToken} -> nextToken) (\s@ListOperations' {} a -> s {nextToken = a} :: ListOperations)
 
 -- | A complex type that contains specifications for the operations that you
 -- want to list, for example, operations that you started between a
@@ -147,6 +133,20 @@ listOperations_filters = Lens.lens (\ListOperations' {filters} -> filters) (\s@L
 -- for @MaxResults@, Cloud Map returns up to 100 operations.
 listOperations_maxResults :: Lens.Lens' ListOperations (Prelude.Maybe Prelude.Natural)
 listOperations_maxResults = Lens.lens (\ListOperations' {maxResults} -> maxResults) (\s@ListOperations' {} a -> s {maxResults = a} :: ListOperations)
+
+-- | For the first @ListOperations@ request, omit this value.
+--
+-- If the response contains @NextToken@, submit another @ListOperations@
+-- request to get the next group of results. Specify the value of
+-- @NextToken@ from the previous response in the next request.
+--
+-- Cloud Map gets @MaxResults@ operations and then filters them based on
+-- the specified criteria. It\'s possible that no operations in the first
+-- @MaxResults@ operations matched the specified criteria but that
+-- subsequent groups of @MaxResults@ operations do contain operations that
+-- match the criteria.
+listOperations_nextToken :: Lens.Lens' ListOperations (Prelude.Maybe Prelude.Text)
+listOperations_nextToken = Lens.lens (\ListOperations' {nextToken} -> nextToken) (\s@ListOperations' {} a -> s {nextToken = a} :: ListOperations)
 
 instance Core.AWSPager ListOperations where
   page rq rs
@@ -186,15 +186,15 @@ instance Core.AWSRequest ListOperations where
 
 instance Prelude.Hashable ListOperations where
   hashWithSalt _salt ListOperations' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListOperations where
   rnf ListOperations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListOperations where
   toHeaders =
@@ -215,9 +215,9 @@ instance Data.ToJSON ListOperations where
   toJSON ListOperations' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

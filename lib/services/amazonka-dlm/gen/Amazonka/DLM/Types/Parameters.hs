@@ -39,7 +39,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newParameters' smart constructor.
 data Parameters = Parameters'
-  { -- | __[Snapshot policies that target instances only]__ The tags used to
+  { -- | __[Snapshot policies that target instances only]__ Indicates whether to
+    -- exclude the root volume from multi-volume snapshot sets. The default is
+    -- @false@. If you specify @true@, then the root volumes attached to
+    -- targeted instances will be excluded from the multi-volume snapshot sets
+    -- created by the policy.
+    excludeBootVolume :: Prelude.Maybe Prelude.Bool,
+    -- | __[Snapshot policies that target instances only]__ The tags used to
     -- identify data (non-root) volumes to exclude from multi-volume snapshot
     -- sets.
     --
@@ -48,12 +54,6 @@ data Parameters = Parameters'
     -- tags that are attached to targeted instances will be excluded from the
     -- multi-volume snapshot sets created by the policy.
     excludeDataVolumeTags :: Prelude.Maybe [Tag],
-    -- | __[Snapshot policies that target instances only]__ Indicates whether to
-    -- exclude the root volume from multi-volume snapshot sets. The default is
-    -- @false@. If you specify @true@, then the root volumes attached to
-    -- targeted instances will be excluded from the multi-volume snapshot sets
-    -- created by the policy.
-    excludeBootVolume :: Prelude.Maybe Prelude.Bool,
     -- | __[AMI policies only]__ Indicates whether targeted instances are
     -- rebooted when the lifecycle policy runs. @true@ indicates that targeted
     -- instances are not rebooted when the policy runs. @false@ indicates that
@@ -71,6 +71,12 @@ data Parameters = Parameters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'excludeBootVolume', 'parameters_excludeBootVolume' - __[Snapshot policies that target instances only]__ Indicates whether to
+-- exclude the root volume from multi-volume snapshot sets. The default is
+-- @false@. If you specify @true@, then the root volumes attached to
+-- targeted instances will be excluded from the multi-volume snapshot sets
+-- created by the policy.
+--
 -- 'excludeDataVolumeTags', 'parameters_excludeDataVolumeTags' - __[Snapshot policies that target instances only]__ The tags used to
 -- identify data (non-root) volumes to exclude from multi-volume snapshot
 -- sets.
@@ -79,12 +85,6 @@ data Parameters = Parameters'
 -- specify tags for this parameter, then data volumes with the specified
 -- tags that are attached to targeted instances will be excluded from the
 -- multi-volume snapshot sets created by the policy.
---
--- 'excludeBootVolume', 'parameters_excludeBootVolume' - __[Snapshot policies that target instances only]__ Indicates whether to
--- exclude the root volume from multi-volume snapshot sets. The default is
--- @false@. If you specify @true@, then the root volumes attached to
--- targeted instances will be excluded from the multi-volume snapshot sets
--- created by the policy.
 --
 -- 'noReboot', 'parameters_noReboot' - __[AMI policies only]__ Indicates whether targeted instances are
 -- rebooted when the lifecycle policy runs. @true@ indicates that targeted
@@ -95,11 +95,18 @@ newParameters ::
   Parameters
 newParameters =
   Parameters'
-    { excludeDataVolumeTags =
-        Prelude.Nothing,
-      excludeBootVolume = Prelude.Nothing,
+    { excludeBootVolume = Prelude.Nothing,
+      excludeDataVolumeTags = Prelude.Nothing,
       noReboot = Prelude.Nothing
     }
+
+-- | __[Snapshot policies that target instances only]__ Indicates whether to
+-- exclude the root volume from multi-volume snapshot sets. The default is
+-- @false@. If you specify @true@, then the root volumes attached to
+-- targeted instances will be excluded from the multi-volume snapshot sets
+-- created by the policy.
+parameters_excludeBootVolume :: Lens.Lens' Parameters (Prelude.Maybe Prelude.Bool)
+parameters_excludeBootVolume = Lens.lens (\Parameters' {excludeBootVolume} -> excludeBootVolume) (\s@Parameters' {} a -> s {excludeBootVolume = a} :: Parameters)
 
 -- | __[Snapshot policies that target instances only]__ The tags used to
 -- identify data (non-root) volumes to exclude from multi-volume snapshot
@@ -111,14 +118,6 @@ newParameters =
 -- multi-volume snapshot sets created by the policy.
 parameters_excludeDataVolumeTags :: Lens.Lens' Parameters (Prelude.Maybe [Tag])
 parameters_excludeDataVolumeTags = Lens.lens (\Parameters' {excludeDataVolumeTags} -> excludeDataVolumeTags) (\s@Parameters' {} a -> s {excludeDataVolumeTags = a} :: Parameters) Prelude.. Lens.mapping Lens.coerced
-
--- | __[Snapshot policies that target instances only]__ Indicates whether to
--- exclude the root volume from multi-volume snapshot sets. The default is
--- @false@. If you specify @true@, then the root volumes attached to
--- targeted instances will be excluded from the multi-volume snapshot sets
--- created by the policy.
-parameters_excludeBootVolume :: Lens.Lens' Parameters (Prelude.Maybe Prelude.Bool)
-parameters_excludeBootVolume = Lens.lens (\Parameters' {excludeBootVolume} -> excludeBootVolume) (\s@Parameters' {} a -> s {excludeBootVolume = a} :: Parameters)
 
 -- | __[AMI policies only]__ Indicates whether targeted instances are
 -- rebooted when the lifecycle policy runs. @true@ indicates that targeted
@@ -134,33 +133,33 @@ instance Data.FromJSON Parameters where
       "Parameters"
       ( \x ->
           Parameters'
-            Prelude.<$> ( x Data..:? "ExcludeDataVolumeTags"
+            Prelude.<$> (x Data..:? "ExcludeBootVolume")
+            Prelude.<*> ( x Data..:? "ExcludeDataVolumeTags"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "ExcludeBootVolume")
             Prelude.<*> (x Data..:? "NoReboot")
       )
 
 instance Prelude.Hashable Parameters where
   hashWithSalt _salt Parameters' {..} =
-    _salt `Prelude.hashWithSalt` excludeDataVolumeTags
-      `Prelude.hashWithSalt` excludeBootVolume
+    _salt `Prelude.hashWithSalt` excludeBootVolume
+      `Prelude.hashWithSalt` excludeDataVolumeTags
       `Prelude.hashWithSalt` noReboot
 
 instance Prelude.NFData Parameters where
   rnf Parameters' {..} =
-    Prelude.rnf excludeDataVolumeTags
-      `Prelude.seq` Prelude.rnf excludeBootVolume
+    Prelude.rnf excludeBootVolume
+      `Prelude.seq` Prelude.rnf excludeDataVolumeTags
       `Prelude.seq` Prelude.rnf noReboot
 
 instance Data.ToJSON Parameters where
   toJSON Parameters' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ExcludeDataVolumeTags" Data..=)
-              Prelude.<$> excludeDataVolumeTags,
-            ("ExcludeBootVolume" Data..=)
+          [ ("ExcludeBootVolume" Data..=)
               Prelude.<$> excludeBootVolume,
+            ("ExcludeDataVolumeTags" Data..=)
+              Prelude.<$> excludeDataVolumeTags,
             ("NoReboot" Data..=) Prelude.<$> noReboot
           ]
       )

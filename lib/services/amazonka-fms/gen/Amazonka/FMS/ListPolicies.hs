@@ -29,8 +29,8 @@ module Amazonka.FMS.ListPolicies
     newListPolicies,
 
     -- * Request Lenses
-    listPolicies_nextToken,
     listPolicies_maxResults,
+    listPolicies_nextToken,
 
     -- * Destructuring the Response
     ListPoliciesResponse (..),
@@ -53,20 +53,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPolicies' smart constructor.
 data ListPolicies = ListPolicies'
-  { -- | If you specify a value for @MaxResults@ and you have more
+  { -- | Specifies the number of @PolicySummary@ objects that you want Firewall
+    -- Manager to return for this request. If you have more @PolicySummary@
+    -- objects than the number that you specify for @MaxResults@, the response
+    -- includes a @NextToken@ value that you can use to get another batch of
+    -- @PolicySummary@ objects.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If you specify a value for @MaxResults@ and you have more
     -- @PolicySummary@ objects than the number that you specify for
     -- @MaxResults@, Firewall Manager returns a @NextToken@ value in the
     -- response that allows you to list another group of @PolicySummary@
     -- objects. For the second and subsequent @ListPolicies@ requests, specify
     -- the value of @NextToken@ from the previous response to get information
     -- about another batch of @PolicySummary@ objects.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the number of @PolicySummary@ objects that you want Firewall
-    -- Manager to return for this request. If you have more @PolicySummary@
-    -- objects than the number that you specify for @MaxResults@, the response
-    -- includes a @NextToken@ value that you can use to get another batch of
-    -- @PolicySummary@ objects.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,6 +78,12 @@ data ListPolicies = ListPolicies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listPolicies_maxResults' - Specifies the number of @PolicySummary@ objects that you want Firewall
+-- Manager to return for this request. If you have more @PolicySummary@
+-- objects than the number that you specify for @MaxResults@, the response
+-- includes a @NextToken@ value that you can use to get another batch of
+-- @PolicySummary@ objects.
+--
 -- 'nextToken', 'listPolicies_nextToken' - If you specify a value for @MaxResults@ and you have more
 -- @PolicySummary@ objects than the number that you specify for
 -- @MaxResults@, Firewall Manager returns a @NextToken@ value in the
@@ -85,19 +91,21 @@ data ListPolicies = ListPolicies'
 -- objects. For the second and subsequent @ListPolicies@ requests, specify
 -- the value of @NextToken@ from the previous response to get information
 -- about another batch of @PolicySummary@ objects.
---
--- 'maxResults', 'listPolicies_maxResults' - Specifies the number of @PolicySummary@ objects that you want Firewall
--- Manager to return for this request. If you have more @PolicySummary@
--- objects than the number that you specify for @MaxResults@, the response
--- includes a @NextToken@ value that you can use to get another batch of
--- @PolicySummary@ objects.
 newListPolicies ::
   ListPolicies
 newListPolicies =
   ListPolicies'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | Specifies the number of @PolicySummary@ objects that you want Firewall
+-- Manager to return for this request. If you have more @PolicySummary@
+-- objects than the number that you specify for @MaxResults@, the response
+-- includes a @NextToken@ value that you can use to get another batch of
+-- @PolicySummary@ objects.
+listPolicies_maxResults :: Lens.Lens' ListPolicies (Prelude.Maybe Prelude.Natural)
+listPolicies_maxResults = Lens.lens (\ListPolicies' {maxResults} -> maxResults) (\s@ListPolicies' {} a -> s {maxResults = a} :: ListPolicies)
 
 -- | If you specify a value for @MaxResults@ and you have more
 -- @PolicySummary@ objects than the number that you specify for
@@ -108,14 +116,6 @@ newListPolicies =
 -- about another batch of @PolicySummary@ objects.
 listPolicies_nextToken :: Lens.Lens' ListPolicies (Prelude.Maybe Prelude.Text)
 listPolicies_nextToken = Lens.lens (\ListPolicies' {nextToken} -> nextToken) (\s@ListPolicies' {} a -> s {nextToken = a} :: ListPolicies)
-
--- | Specifies the number of @PolicySummary@ objects that you want Firewall
--- Manager to return for this request. If you have more @PolicySummary@
--- objects than the number that you specify for @MaxResults@, the response
--- includes a @NextToken@ value that you can use to get another batch of
--- @PolicySummary@ objects.
-listPolicies_maxResults :: Lens.Lens' ListPolicies (Prelude.Maybe Prelude.Natural)
-listPolicies_maxResults = Lens.lens (\ListPolicies' {maxResults} -> maxResults) (\s@ListPolicies' {} a -> s {maxResults = a} :: ListPolicies)
 
 instance Core.AWSPager ListPolicies where
   page rq rs
@@ -151,13 +151,13 @@ instance Core.AWSRequest ListPolicies where
 
 instance Prelude.Hashable ListPolicies where
   hashWithSalt _salt ListPolicies' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListPolicies where
   rnf ListPolicies' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListPolicies where
   toHeaders =
@@ -178,8 +178,8 @@ instance Data.ToJSON ListPolicies where
   toJSON ListPolicies' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

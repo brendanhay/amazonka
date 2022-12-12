@@ -32,14 +32,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBlockDeviceMapping' smart constructor.
 data BlockDeviceMapping = BlockDeviceMapping'
-  { -- | An @EBSBlockDevice@ that defines how to configure an Amazon EBS volume
-    -- when the instance is launched.
-    ebs :: Prelude.Maybe EbsBlockDevice,
-    -- | The device name that is exposed to the instance, such as @\/dev\/sdh@.
+  { -- | The device name that is exposed to the instance, such as @\/dev\/sdh@.
     -- For the root device, you can use the explicit device name or you can set
     -- this parameter to @ROOT_DEVICE@ and AWS OpsWorks Stacks will provide the
     -- correct device name.
     deviceName :: Prelude.Maybe Prelude.Text,
+    -- | An @EBSBlockDevice@ that defines how to configure an Amazon EBS volume
+    -- when the instance is launched.
+    ebs :: Prelude.Maybe EbsBlockDevice,
     -- | Suppresses the specified device included in the AMI\'s block device
     -- mapping.
     noDevice :: Prelude.Maybe Prelude.Text,
@@ -57,13 +57,13 @@ data BlockDeviceMapping = BlockDeviceMapping'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ebs', 'blockDeviceMapping_ebs' - An @EBSBlockDevice@ that defines how to configure an Amazon EBS volume
--- when the instance is launched.
---
 -- 'deviceName', 'blockDeviceMapping_deviceName' - The device name that is exposed to the instance, such as @\/dev\/sdh@.
 -- For the root device, you can use the explicit device name or you can set
 -- this parameter to @ROOT_DEVICE@ and AWS OpsWorks Stacks will provide the
 -- correct device name.
+--
+-- 'ebs', 'blockDeviceMapping_ebs' - An @EBSBlockDevice@ that defines how to configure an Amazon EBS volume
+-- when the instance is launched.
 --
 -- 'noDevice', 'blockDeviceMapping_noDevice' - Suppresses the specified device included in the AMI\'s block device
 -- mapping.
@@ -74,16 +74,11 @@ newBlockDeviceMapping ::
   BlockDeviceMapping
 newBlockDeviceMapping =
   BlockDeviceMapping'
-    { ebs = Prelude.Nothing,
-      deviceName = Prelude.Nothing,
+    { deviceName = Prelude.Nothing,
+      ebs = Prelude.Nothing,
       noDevice = Prelude.Nothing,
       virtualName = Prelude.Nothing
     }
-
--- | An @EBSBlockDevice@ that defines how to configure an Amazon EBS volume
--- when the instance is launched.
-blockDeviceMapping_ebs :: Lens.Lens' BlockDeviceMapping (Prelude.Maybe EbsBlockDevice)
-blockDeviceMapping_ebs = Lens.lens (\BlockDeviceMapping' {ebs} -> ebs) (\s@BlockDeviceMapping' {} a -> s {ebs = a} :: BlockDeviceMapping)
 
 -- | The device name that is exposed to the instance, such as @\/dev\/sdh@.
 -- For the root device, you can use the explicit device name or you can set
@@ -91,6 +86,11 @@ blockDeviceMapping_ebs = Lens.lens (\BlockDeviceMapping' {ebs} -> ebs) (\s@Block
 -- correct device name.
 blockDeviceMapping_deviceName :: Lens.Lens' BlockDeviceMapping (Prelude.Maybe Prelude.Text)
 blockDeviceMapping_deviceName = Lens.lens (\BlockDeviceMapping' {deviceName} -> deviceName) (\s@BlockDeviceMapping' {} a -> s {deviceName = a} :: BlockDeviceMapping)
+
+-- | An @EBSBlockDevice@ that defines how to configure an Amazon EBS volume
+-- when the instance is launched.
+blockDeviceMapping_ebs :: Lens.Lens' BlockDeviceMapping (Prelude.Maybe EbsBlockDevice)
+blockDeviceMapping_ebs = Lens.lens (\BlockDeviceMapping' {ebs} -> ebs) (\s@BlockDeviceMapping' {} a -> s {ebs = a} :: BlockDeviceMapping)
 
 -- | Suppresses the specified device included in the AMI\'s block device
 -- mapping.
@@ -108,23 +108,23 @@ instance Data.FromJSON BlockDeviceMapping where
       "BlockDeviceMapping"
       ( \x ->
           BlockDeviceMapping'
-            Prelude.<$> (x Data..:? "Ebs")
-            Prelude.<*> (x Data..:? "DeviceName")
+            Prelude.<$> (x Data..:? "DeviceName")
+            Prelude.<*> (x Data..:? "Ebs")
             Prelude.<*> (x Data..:? "NoDevice")
             Prelude.<*> (x Data..:? "VirtualName")
       )
 
 instance Prelude.Hashable BlockDeviceMapping where
   hashWithSalt _salt BlockDeviceMapping' {..} =
-    _salt `Prelude.hashWithSalt` ebs
-      `Prelude.hashWithSalt` deviceName
+    _salt `Prelude.hashWithSalt` deviceName
+      `Prelude.hashWithSalt` ebs
       `Prelude.hashWithSalt` noDevice
       `Prelude.hashWithSalt` virtualName
 
 instance Prelude.NFData BlockDeviceMapping where
   rnf BlockDeviceMapping' {..} =
-    Prelude.rnf ebs
-      `Prelude.seq` Prelude.rnf deviceName
+    Prelude.rnf deviceName
+      `Prelude.seq` Prelude.rnf ebs
       `Prelude.seq` Prelude.rnf noDevice
       `Prelude.seq` Prelude.rnf virtualName
 
@@ -132,8 +132,8 @@ instance Data.ToJSON BlockDeviceMapping where
   toJSON BlockDeviceMapping' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Ebs" Data..=) Prelude.<$> ebs,
-            ("DeviceName" Data..=) Prelude.<$> deviceName,
+          [ ("DeviceName" Data..=) Prelude.<$> deviceName,
+            ("Ebs" Data..=) Prelude.<$> ebs,
             ("NoDevice" Data..=) Prelude.<$> noDevice,
             ("VirtualName" Data..=) Prelude.<$> virtualName
           ]

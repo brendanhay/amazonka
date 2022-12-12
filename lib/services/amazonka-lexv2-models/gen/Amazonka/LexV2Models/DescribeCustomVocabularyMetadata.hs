@@ -36,12 +36,12 @@ module Amazonka.LexV2Models.DescribeCustomVocabularyMetadata
     newDescribeCustomVocabularyMetadataResponse,
 
     -- * Response Lenses
-    describeCustomVocabularyMetadataResponse_customVocabularyStatus,
+    describeCustomVocabularyMetadataResponse_botId,
     describeCustomVocabularyMetadataResponse_botVersion,
     describeCustomVocabularyMetadataResponse_creationDateTime,
-    describeCustomVocabularyMetadataResponse_localeId,
-    describeCustomVocabularyMetadataResponse_botId,
+    describeCustomVocabularyMetadataResponse_customVocabularyStatus,
     describeCustomVocabularyMetadataResponse_lastUpdatedDateTime,
+    describeCustomVocabularyMetadataResponse_localeId,
     describeCustomVocabularyMetadataResponse_httpStatus,
   )
 where
@@ -124,12 +124,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeCustomVocabularyMetadataResponse'
-            Prelude.<$> (x Data..?> "customVocabularyStatus")
+            Prelude.<$> (x Data..?> "botId")
             Prelude.<*> (x Data..?> "botVersion")
             Prelude.<*> (x Data..?> "creationDateTime")
-            Prelude.<*> (x Data..?> "localeId")
-            Prelude.<*> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "customVocabularyStatus")
             Prelude.<*> (x Data..?> "lastUpdatedDateTime")
+            Prelude.<*> (x Data..?> "localeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -187,19 +187,19 @@ instance
 
 -- | /See:/ 'newDescribeCustomVocabularyMetadataResponse' smart constructor.
 data DescribeCustomVocabularyMetadataResponse = DescribeCustomVocabularyMetadataResponse'
-  { -- | The status of the custom vocabulary. If the status is @Ready@ the custom
-    -- vocabulary is ready to use.
-    customVocabularyStatus :: Prelude.Maybe CustomVocabularyStatus,
+  { -- | The identifier of the bot that contains the custom vocabulary.
+    botId :: Prelude.Maybe Prelude.Text,
     -- | The version of the bot that contains the custom vocabulary to describe.
     botVersion :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the custom vocabulary was created.
     creationDateTime :: Prelude.Maybe Data.POSIX,
-    -- | The locale that contains the custom vocabulary to describe.
-    localeId :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the bot that contains the custom vocabulary.
-    botId :: Prelude.Maybe Prelude.Text,
+    -- | The status of the custom vocabulary. If the status is @Ready@ the custom
+    -- vocabulary is ready to use.
+    customVocabularyStatus :: Prelude.Maybe CustomVocabularyStatus,
     -- | The date and time that the custom vocabulary was last updated.
     lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The locale that contains the custom vocabulary to describe.
+    localeId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -213,18 +213,18 @@ data DescribeCustomVocabularyMetadataResponse = DescribeCustomVocabularyMetadata
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'customVocabularyStatus', 'describeCustomVocabularyMetadataResponse_customVocabularyStatus' - The status of the custom vocabulary. If the status is @Ready@ the custom
--- vocabulary is ready to use.
+-- 'botId', 'describeCustomVocabularyMetadataResponse_botId' - The identifier of the bot that contains the custom vocabulary.
 --
 -- 'botVersion', 'describeCustomVocabularyMetadataResponse_botVersion' - The version of the bot that contains the custom vocabulary to describe.
 --
 -- 'creationDateTime', 'describeCustomVocabularyMetadataResponse_creationDateTime' - The date and time that the custom vocabulary was created.
 --
--- 'localeId', 'describeCustomVocabularyMetadataResponse_localeId' - The locale that contains the custom vocabulary to describe.
---
--- 'botId', 'describeCustomVocabularyMetadataResponse_botId' - The identifier of the bot that contains the custom vocabulary.
+-- 'customVocabularyStatus', 'describeCustomVocabularyMetadataResponse_customVocabularyStatus' - The status of the custom vocabulary. If the status is @Ready@ the custom
+-- vocabulary is ready to use.
 --
 -- 'lastUpdatedDateTime', 'describeCustomVocabularyMetadataResponse_lastUpdatedDateTime' - The date and time that the custom vocabulary was last updated.
+--
+-- 'localeId', 'describeCustomVocabularyMetadataResponse_localeId' - The locale that contains the custom vocabulary to describe.
 --
 -- 'httpStatus', 'describeCustomVocabularyMetadataResponse_httpStatus' - The response's http status code.
 newDescribeCustomVocabularyMetadataResponse ::
@@ -234,22 +234,22 @@ newDescribeCustomVocabularyMetadataResponse ::
 newDescribeCustomVocabularyMetadataResponse
   pHttpStatus_ =
     DescribeCustomVocabularyMetadataResponse'
-      { customVocabularyStatus =
+      { botId =
           Prelude.Nothing,
         botVersion = Prelude.Nothing,
         creationDateTime =
           Prelude.Nothing,
-        localeId = Prelude.Nothing,
-        botId = Prelude.Nothing,
+        customVocabularyStatus =
+          Prelude.Nothing,
         lastUpdatedDateTime =
           Prelude.Nothing,
+        localeId = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
--- | The status of the custom vocabulary. If the status is @Ready@ the custom
--- vocabulary is ready to use.
-describeCustomVocabularyMetadataResponse_customVocabularyStatus :: Lens.Lens' DescribeCustomVocabularyMetadataResponse (Prelude.Maybe CustomVocabularyStatus)
-describeCustomVocabularyMetadataResponse_customVocabularyStatus = Lens.lens (\DescribeCustomVocabularyMetadataResponse' {customVocabularyStatus} -> customVocabularyStatus) (\s@DescribeCustomVocabularyMetadataResponse' {} a -> s {customVocabularyStatus = a} :: DescribeCustomVocabularyMetadataResponse)
+-- | The identifier of the bot that contains the custom vocabulary.
+describeCustomVocabularyMetadataResponse_botId :: Lens.Lens' DescribeCustomVocabularyMetadataResponse (Prelude.Maybe Prelude.Text)
+describeCustomVocabularyMetadataResponse_botId = Lens.lens (\DescribeCustomVocabularyMetadataResponse' {botId} -> botId) (\s@DescribeCustomVocabularyMetadataResponse' {} a -> s {botId = a} :: DescribeCustomVocabularyMetadataResponse)
 
 -- | The version of the bot that contains the custom vocabulary to describe.
 describeCustomVocabularyMetadataResponse_botVersion :: Lens.Lens' DescribeCustomVocabularyMetadataResponse (Prelude.Maybe Prelude.Text)
@@ -259,17 +259,18 @@ describeCustomVocabularyMetadataResponse_botVersion = Lens.lens (\DescribeCustom
 describeCustomVocabularyMetadataResponse_creationDateTime :: Lens.Lens' DescribeCustomVocabularyMetadataResponse (Prelude.Maybe Prelude.UTCTime)
 describeCustomVocabularyMetadataResponse_creationDateTime = Lens.lens (\DescribeCustomVocabularyMetadataResponse' {creationDateTime} -> creationDateTime) (\s@DescribeCustomVocabularyMetadataResponse' {} a -> s {creationDateTime = a} :: DescribeCustomVocabularyMetadataResponse) Prelude.. Lens.mapping Data._Time
 
--- | The locale that contains the custom vocabulary to describe.
-describeCustomVocabularyMetadataResponse_localeId :: Lens.Lens' DescribeCustomVocabularyMetadataResponse (Prelude.Maybe Prelude.Text)
-describeCustomVocabularyMetadataResponse_localeId = Lens.lens (\DescribeCustomVocabularyMetadataResponse' {localeId} -> localeId) (\s@DescribeCustomVocabularyMetadataResponse' {} a -> s {localeId = a} :: DescribeCustomVocabularyMetadataResponse)
-
--- | The identifier of the bot that contains the custom vocabulary.
-describeCustomVocabularyMetadataResponse_botId :: Lens.Lens' DescribeCustomVocabularyMetadataResponse (Prelude.Maybe Prelude.Text)
-describeCustomVocabularyMetadataResponse_botId = Lens.lens (\DescribeCustomVocabularyMetadataResponse' {botId} -> botId) (\s@DescribeCustomVocabularyMetadataResponse' {} a -> s {botId = a} :: DescribeCustomVocabularyMetadataResponse)
+-- | The status of the custom vocabulary. If the status is @Ready@ the custom
+-- vocabulary is ready to use.
+describeCustomVocabularyMetadataResponse_customVocabularyStatus :: Lens.Lens' DescribeCustomVocabularyMetadataResponse (Prelude.Maybe CustomVocabularyStatus)
+describeCustomVocabularyMetadataResponse_customVocabularyStatus = Lens.lens (\DescribeCustomVocabularyMetadataResponse' {customVocabularyStatus} -> customVocabularyStatus) (\s@DescribeCustomVocabularyMetadataResponse' {} a -> s {customVocabularyStatus = a} :: DescribeCustomVocabularyMetadataResponse)
 
 -- | The date and time that the custom vocabulary was last updated.
 describeCustomVocabularyMetadataResponse_lastUpdatedDateTime :: Lens.Lens' DescribeCustomVocabularyMetadataResponse (Prelude.Maybe Prelude.UTCTime)
 describeCustomVocabularyMetadataResponse_lastUpdatedDateTime = Lens.lens (\DescribeCustomVocabularyMetadataResponse' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DescribeCustomVocabularyMetadataResponse' {} a -> s {lastUpdatedDateTime = a} :: DescribeCustomVocabularyMetadataResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The locale that contains the custom vocabulary to describe.
+describeCustomVocabularyMetadataResponse_localeId :: Lens.Lens' DescribeCustomVocabularyMetadataResponse (Prelude.Maybe Prelude.Text)
+describeCustomVocabularyMetadataResponse_localeId = Lens.lens (\DescribeCustomVocabularyMetadataResponse' {localeId} -> localeId) (\s@DescribeCustomVocabularyMetadataResponse' {} a -> s {localeId = a} :: DescribeCustomVocabularyMetadataResponse)
 
 -- | The response's http status code.
 describeCustomVocabularyMetadataResponse_httpStatus :: Lens.Lens' DescribeCustomVocabularyMetadataResponse Prelude.Int
@@ -280,10 +281,10 @@ instance
     DescribeCustomVocabularyMetadataResponse
   where
   rnf DescribeCustomVocabularyMetadataResponse' {..} =
-    Prelude.rnf customVocabularyStatus
+    Prelude.rnf botId
       `Prelude.seq` Prelude.rnf botVersion
       `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf botId
+      `Prelude.seq` Prelude.rnf customVocabularyStatus
       `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf localeId
       `Prelude.seq` Prelude.rnf httpStatus

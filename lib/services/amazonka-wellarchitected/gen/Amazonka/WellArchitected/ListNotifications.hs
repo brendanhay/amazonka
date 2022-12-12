@@ -27,8 +27,8 @@ module Amazonka.WellArchitected.ListNotifications
     newListNotifications,
 
     -- * Request Lenses
-    listNotifications_nextToken,
     listNotifications_maxResults,
+    listNotifications_nextToken,
     listNotifications_workloadId,
 
     -- * Destructuring the Response
@@ -52,9 +52,9 @@ import Amazonka.WellArchitected.Types
 
 -- | /See:/ 'newListNotifications' smart constructor.
 data ListNotifications = ListNotifications'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return for this request.
+  { -- | The maximum number of results to return for this request.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    nextToken :: Prelude.Maybe Prelude.Text,
     workloadId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,27 +67,27 @@ data ListNotifications = ListNotifications'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listNotifications_nextToken' - Undocumented member.
---
 -- 'maxResults', 'listNotifications_maxResults' - The maximum number of results to return for this request.
+--
+-- 'nextToken', 'listNotifications_nextToken' - Undocumented member.
 --
 -- 'workloadId', 'listNotifications_workloadId' - Undocumented member.
 newListNotifications ::
   ListNotifications
 newListNotifications =
   ListNotifications'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       workloadId = Prelude.Nothing
     }
-
--- | Undocumented member.
-listNotifications_nextToken :: Lens.Lens' ListNotifications (Prelude.Maybe Prelude.Text)
-listNotifications_nextToken = Lens.lens (\ListNotifications' {nextToken} -> nextToken) (\s@ListNotifications' {} a -> s {nextToken = a} :: ListNotifications)
 
 -- | The maximum number of results to return for this request.
 listNotifications_maxResults :: Lens.Lens' ListNotifications (Prelude.Maybe Prelude.Natural)
 listNotifications_maxResults = Lens.lens (\ListNotifications' {maxResults} -> maxResults) (\s@ListNotifications' {} a -> s {maxResults = a} :: ListNotifications)
+
+-- | Undocumented member.
+listNotifications_nextToken :: Lens.Lens' ListNotifications (Prelude.Maybe Prelude.Text)
+listNotifications_nextToken = Lens.lens (\ListNotifications' {nextToken} -> nextToken) (\s@ListNotifications' {} a -> s {nextToken = a} :: ListNotifications)
 
 -- | Undocumented member.
 listNotifications_workloadId :: Lens.Lens' ListNotifications (Prelude.Maybe Prelude.Text)
@@ -112,14 +112,14 @@ instance Core.AWSRequest ListNotifications where
 
 instance Prelude.Hashable ListNotifications where
   hashWithSalt _salt ListNotifications' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` workloadId
 
 instance Prelude.NFData ListNotifications where
   rnf ListNotifications' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf workloadId
 
 instance Data.ToHeaders ListNotifications where
@@ -137,8 +137,8 @@ instance Data.ToJSON ListNotifications where
   toJSON ListNotifications' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("WorkloadId" Data..=) Prelude.<$> workloadId
           ]
       )

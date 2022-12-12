@@ -17,14 +17,14 @@ module Amazonka.MarketplaceMetering.Lens
     -- ** BatchMeterUsage
     batchMeterUsage_usageRecords,
     batchMeterUsage_productCode,
-    batchMeterUsageResponse_unprocessedRecords,
     batchMeterUsageResponse_results,
+    batchMeterUsageResponse_unprocessedRecords,
     batchMeterUsageResponse_httpStatus,
 
     -- ** MeterUsage
-    meterUsage_usageQuantity,
-    meterUsage_usageAllocations,
     meterUsage_dryRun,
+    meterUsage_usageAllocations,
+    meterUsage_usageQuantity,
     meterUsage_productCode,
     meterUsage_timestamp,
     meterUsage_usageDimension,
@@ -41,9 +41,9 @@ module Amazonka.MarketplaceMetering.Lens
 
     -- ** ResolveCustomer
     resolveCustomer_registrationToken,
+    resolveCustomerResponse_customerAWSAccountId,
     resolveCustomerResponse_customerIdentifier,
     resolveCustomerResponse_productCode,
-    resolveCustomerResponse_customerAWSAccountId,
     resolveCustomerResponse_httpStatus,
 
     -- * Types
@@ -64,8 +64,8 @@ module Amazonka.MarketplaceMetering.Lens
     usageRecord_dimension,
 
     -- ** UsageRecordResult
-    usageRecordResult_status,
     usageRecordResult_meteringRecordId,
+    usageRecordResult_status,
     usageRecordResult_usageRecord,
   )
 where

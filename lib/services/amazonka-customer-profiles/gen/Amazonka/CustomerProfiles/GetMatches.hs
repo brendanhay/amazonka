@@ -72,8 +72,8 @@ module Amazonka.CustomerProfiles.GetMatches
     newGetMatches,
 
     -- * Request Lenses
-    getMatches_nextToken,
     getMatches_maxResults,
+    getMatches_nextToken,
     getMatches_domainName,
 
     -- * Destructuring the Response
@@ -81,10 +81,10 @@ module Amazonka.CustomerProfiles.GetMatches
     newGetMatchesResponse,
 
     -- * Response Lenses
-    getMatchesResponse_nextToken,
-    getMatchesResponse_matches,
-    getMatchesResponse_potentialMatches,
     getMatchesResponse_matchGenerationDate,
+    getMatchesResponse_matches,
+    getMatchesResponse_nextToken,
+    getMatchesResponse_potentialMatches,
     getMatchesResponse_httpStatus,
   )
 where
@@ -99,12 +99,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetMatches' smart constructor.
 data GetMatches = GetMatches'
-  { -- | The token for the next set of results. Use the value returned in the
+  { -- | The maximum number of results to return per page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The unique name of the domain.
     domainName :: Prelude.Text
   }
@@ -118,11 +118,11 @@ data GetMatches = GetMatches'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'getMatches_maxResults' - The maximum number of results to return per page.
+--
 -- 'nextToken', 'getMatches_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
---
--- 'maxResults', 'getMatches_maxResults' - The maximum number of results to return per page.
 --
 -- 'domainName', 'getMatches_domainName' - The unique name of the domain.
 newGetMatches ::
@@ -131,20 +131,20 @@ newGetMatches ::
   GetMatches
 newGetMatches pDomainName_ =
   GetMatches'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       domainName = pDomainName_
     }
+
+-- | The maximum number of results to return per page.
+getMatches_maxResults :: Lens.Lens' GetMatches (Prelude.Maybe Prelude.Natural)
+getMatches_maxResults = Lens.lens (\GetMatches' {maxResults} -> maxResults) (\s@GetMatches' {} a -> s {maxResults = a} :: GetMatches)
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
 getMatches_nextToken :: Lens.Lens' GetMatches (Prelude.Maybe Prelude.Text)
 getMatches_nextToken = Lens.lens (\GetMatches' {nextToken} -> nextToken) (\s@GetMatches' {} a -> s {nextToken = a} :: GetMatches)
-
--- | The maximum number of results to return per page.
-getMatches_maxResults :: Lens.Lens' GetMatches (Prelude.Maybe Prelude.Natural)
-getMatches_maxResults = Lens.lens (\GetMatches' {maxResults} -> maxResults) (\s@GetMatches' {} a -> s {maxResults = a} :: GetMatches)
 
 -- | The unique name of the domain.
 getMatches_domainName :: Lens.Lens' GetMatches Prelude.Text
@@ -158,23 +158,23 @@ instance Core.AWSRequest GetMatches where
     Response.receiveJSON
       ( \s h x ->
           GetMatchesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<$> (x Data..?> "MatchGenerationDate")
             Prelude.<*> (x Data..?> "Matches" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "PotentialMatches")
-            Prelude.<*> (x Data..?> "MatchGenerationDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetMatches where
   hashWithSalt _salt GetMatches' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData GetMatches where
   rnf GetMatches' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf domainName
 
 instance Data.ToHeaders GetMatches where
@@ -196,21 +196,21 @@ instance Data.ToPath GetMatches where
 instance Data.ToQuery GetMatches where
   toQuery GetMatches' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
-        "max-results" Data.=: maxResults
+      [ "max-results" Data.=: maxResults,
+        "next-token" Data.=: nextToken
       ]
 
 -- | /See:/ 'newGetMatchesResponse' smart constructor.
 data GetMatchesResponse = GetMatchesResponse'
-  { -- | If there are additional results, this is the token for the next set of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The timestamp this version of Match Result generated.
+    matchGenerationDate :: Prelude.Maybe Data.POSIX,
     -- | The list of matched profiles for this instance.
     matches :: Prelude.Maybe [MatchItem],
+    -- | If there are additional results, this is the token for the next set of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The number of potential matches found.
     potentialMatches :: Prelude.Maybe Prelude.Natural,
-    -- | The timestamp this version of Match Result generated.
-    matchGenerationDate :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -224,14 +224,14 @@ data GetMatchesResponse = GetMatchesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getMatchesResponse_nextToken' - If there are additional results, this is the token for the next set of
--- results.
+-- 'matchGenerationDate', 'getMatchesResponse_matchGenerationDate' - The timestamp this version of Match Result generated.
 --
 -- 'matches', 'getMatchesResponse_matches' - The list of matched profiles for this instance.
 --
--- 'potentialMatches', 'getMatchesResponse_potentialMatches' - The number of potential matches found.
+-- 'nextToken', 'getMatchesResponse_nextToken' - If there are additional results, this is the token for the next set of
+-- results.
 --
--- 'matchGenerationDate', 'getMatchesResponse_matchGenerationDate' - The timestamp this version of Match Result generated.
+-- 'potentialMatches', 'getMatchesResponse_potentialMatches' - The number of potential matches found.
 --
 -- 'httpStatus', 'getMatchesResponse_httpStatus' - The response's http status code.
 newGetMatchesResponse ::
@@ -240,29 +240,30 @@ newGetMatchesResponse ::
   GetMatchesResponse
 newGetMatchesResponse pHttpStatus_ =
   GetMatchesResponse'
-    { nextToken = Prelude.Nothing,
+    { matchGenerationDate =
+        Prelude.Nothing,
       matches = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       potentialMatches = Prelude.Nothing,
-      matchGenerationDate = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The timestamp this version of Match Result generated.
+getMatchesResponse_matchGenerationDate :: Lens.Lens' GetMatchesResponse (Prelude.Maybe Prelude.UTCTime)
+getMatchesResponse_matchGenerationDate = Lens.lens (\GetMatchesResponse' {matchGenerationDate} -> matchGenerationDate) (\s@GetMatchesResponse' {} a -> s {matchGenerationDate = a} :: GetMatchesResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The list of matched profiles for this instance.
+getMatchesResponse_matches :: Lens.Lens' GetMatchesResponse (Prelude.Maybe [MatchItem])
+getMatchesResponse_matches = Lens.lens (\GetMatchesResponse' {matches} -> matches) (\s@GetMatchesResponse' {} a -> s {matches = a} :: GetMatchesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
 getMatchesResponse_nextToken :: Lens.Lens' GetMatchesResponse (Prelude.Maybe Prelude.Text)
 getMatchesResponse_nextToken = Lens.lens (\GetMatchesResponse' {nextToken} -> nextToken) (\s@GetMatchesResponse' {} a -> s {nextToken = a} :: GetMatchesResponse)
 
--- | The list of matched profiles for this instance.
-getMatchesResponse_matches :: Lens.Lens' GetMatchesResponse (Prelude.Maybe [MatchItem])
-getMatchesResponse_matches = Lens.lens (\GetMatchesResponse' {matches} -> matches) (\s@GetMatchesResponse' {} a -> s {matches = a} :: GetMatchesResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The number of potential matches found.
 getMatchesResponse_potentialMatches :: Lens.Lens' GetMatchesResponse (Prelude.Maybe Prelude.Natural)
 getMatchesResponse_potentialMatches = Lens.lens (\GetMatchesResponse' {potentialMatches} -> potentialMatches) (\s@GetMatchesResponse' {} a -> s {potentialMatches = a} :: GetMatchesResponse)
-
--- | The timestamp this version of Match Result generated.
-getMatchesResponse_matchGenerationDate :: Lens.Lens' GetMatchesResponse (Prelude.Maybe Prelude.UTCTime)
-getMatchesResponse_matchGenerationDate = Lens.lens (\GetMatchesResponse' {matchGenerationDate} -> matchGenerationDate) (\s@GetMatchesResponse' {} a -> s {matchGenerationDate = a} :: GetMatchesResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 getMatchesResponse_httpStatus :: Lens.Lens' GetMatchesResponse Prelude.Int
@@ -270,8 +271,8 @@ getMatchesResponse_httpStatus = Lens.lens (\GetMatchesResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetMatchesResponse where
   rnf GetMatchesResponse' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf matchGenerationDate
       `Prelude.seq` Prelude.rnf matches
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf potentialMatches
-      `Prelude.seq` Prelude.rnf matchGenerationDate
       `Prelude.seq` Prelude.rnf httpStatus

@@ -35,10 +35,10 @@ module Amazonka.Glue.ListTriggers
     newListTriggers,
 
     -- * Request Lenses
-    listTriggers_tags,
-    listTriggers_nextToken,
-    listTriggers_maxResults,
     listTriggers_dependentJobName,
+    listTriggers_maxResults,
+    listTriggers_nextToken,
+    listTriggers_tags,
 
     -- * Destructuring the Response
     ListTriggersResponse (..),
@@ -61,16 +61,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTriggers' smart constructor.
 data ListTriggers = ListTriggers'
-  { -- | Specifies to return only these tagged resources.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A continuation token, if this is a continuation request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum size of a list to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The name of the job for which to retrieve triggers. The trigger that can
+  { -- | The name of the job for which to retrieve triggers. The trigger that can
     -- start this job is returned. If there is no such trigger, all triggers
     -- are returned.
-    dependentJobName :: Prelude.Maybe Prelude.Text
+    dependentJobName :: Prelude.Maybe Prelude.Text,
+    -- | The maximum size of a list to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A continuation token, if this is a continuation request.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Specifies to return only these tagged resources.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,42 +82,42 @@ data ListTriggers = ListTriggers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'listTriggers_tags' - Specifies to return only these tagged resources.
---
--- 'nextToken', 'listTriggers_nextToken' - A continuation token, if this is a continuation request.
---
--- 'maxResults', 'listTriggers_maxResults' - The maximum size of a list to return.
---
 -- 'dependentJobName', 'listTriggers_dependentJobName' - The name of the job for which to retrieve triggers. The trigger that can
 -- start this job is returned. If there is no such trigger, all triggers
 -- are returned.
+--
+-- 'maxResults', 'listTriggers_maxResults' - The maximum size of a list to return.
+--
+-- 'nextToken', 'listTriggers_nextToken' - A continuation token, if this is a continuation request.
+--
+-- 'tags', 'listTriggers_tags' - Specifies to return only these tagged resources.
 newListTriggers ::
   ListTriggers
 newListTriggers =
   ListTriggers'
-    { tags = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { dependentJobName = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      dependentJobName = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
-
--- | Specifies to return only these tagged resources.
-listTriggers_tags :: Lens.Lens' ListTriggers (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-listTriggers_tags = Lens.lens (\ListTriggers' {tags} -> tags) (\s@ListTriggers' {} a -> s {tags = a} :: ListTriggers) Prelude.. Lens.mapping Lens.coerced
-
--- | A continuation token, if this is a continuation request.
-listTriggers_nextToken :: Lens.Lens' ListTriggers (Prelude.Maybe Prelude.Text)
-listTriggers_nextToken = Lens.lens (\ListTriggers' {nextToken} -> nextToken) (\s@ListTriggers' {} a -> s {nextToken = a} :: ListTriggers)
-
--- | The maximum size of a list to return.
-listTriggers_maxResults :: Lens.Lens' ListTriggers (Prelude.Maybe Prelude.Natural)
-listTriggers_maxResults = Lens.lens (\ListTriggers' {maxResults} -> maxResults) (\s@ListTriggers' {} a -> s {maxResults = a} :: ListTriggers)
 
 -- | The name of the job for which to retrieve triggers. The trigger that can
 -- start this job is returned. If there is no such trigger, all triggers
 -- are returned.
 listTriggers_dependentJobName :: Lens.Lens' ListTriggers (Prelude.Maybe Prelude.Text)
 listTriggers_dependentJobName = Lens.lens (\ListTriggers' {dependentJobName} -> dependentJobName) (\s@ListTriggers' {} a -> s {dependentJobName = a} :: ListTriggers)
+
+-- | The maximum size of a list to return.
+listTriggers_maxResults :: Lens.Lens' ListTriggers (Prelude.Maybe Prelude.Natural)
+listTriggers_maxResults = Lens.lens (\ListTriggers' {maxResults} -> maxResults) (\s@ListTriggers' {} a -> s {maxResults = a} :: ListTriggers)
+
+-- | A continuation token, if this is a continuation request.
+listTriggers_nextToken :: Lens.Lens' ListTriggers (Prelude.Maybe Prelude.Text)
+listTriggers_nextToken = Lens.lens (\ListTriggers' {nextToken} -> nextToken) (\s@ListTriggers' {} a -> s {nextToken = a} :: ListTriggers)
+
+-- | Specifies to return only these tagged resources.
+listTriggers_tags :: Lens.Lens' ListTriggers (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+listTriggers_tags = Lens.lens (\ListTriggers' {tags} -> tags) (\s@ListTriggers' {} a -> s {tags = a} :: ListTriggers) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest ListTriggers where
   type AWSResponse ListTriggers = ListTriggersResponse
@@ -134,17 +134,17 @@ instance Core.AWSRequest ListTriggers where
 
 instance Prelude.Hashable ListTriggers where
   hashWithSalt _salt ListTriggers' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` dependentJobName
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` dependentJobName
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData ListTriggers where
   rnf ListTriggers' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf dependentJobName
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf dependentJobName
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf tags
 
 instance Data.ToHeaders ListTriggers where
   toHeaders =
@@ -163,11 +163,11 @@ instance Data.ToJSON ListTriggers where
   toJSON ListTriggers' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("DependentJobName" Data..=)
+              Prelude.<$> dependentJobName,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("DependentJobName" Data..=)
-              Prelude.<$> dependentJobName
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Tags" Data..=) Prelude.<$> tags
           ]
       )
 

@@ -30,8 +30,8 @@ module Amazonka.DeviceFarm.ListVPCEConfigurations
     newListVPCEConfigurations,
 
     -- * Request Lenses
-    listVPCEConfigurations_nextToken,
     listVPCEConfigurations_maxResults,
+    listVPCEConfigurations_nextToken,
 
     -- * Destructuring the Response
     ListVPCEConfigurationsResponse (..),
@@ -54,13 +54,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListVPCEConfigurations' smart constructor.
 data ListVPCEConfigurations = ListVPCEConfigurations'
-  { -- | An identifier that was returned from the previous call to this
+  { -- | An integer that specifies the maximum number of items you want to return
+    -- in the API response.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An integer that specifies the maximum number of items you want to return
-    -- in the API response.
-    maxResults :: Prelude.Maybe Prelude.Int
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,31 +72,31 @@ data ListVPCEConfigurations = ListVPCEConfigurations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listVPCEConfigurations_maxResults' - An integer that specifies the maximum number of items you want to return
+-- in the API response.
+--
 -- 'nextToken', 'listVPCEConfigurations_nextToken' - An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
---
--- 'maxResults', 'listVPCEConfigurations_maxResults' - An integer that specifies the maximum number of items you want to return
--- in the API response.
 newListVPCEConfigurations ::
   ListVPCEConfigurations
 newListVPCEConfigurations =
   ListVPCEConfigurations'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
+
+-- | An integer that specifies the maximum number of items you want to return
+-- in the API response.
+listVPCEConfigurations_maxResults :: Lens.Lens' ListVPCEConfigurations (Prelude.Maybe Prelude.Int)
+listVPCEConfigurations_maxResults = Lens.lens (\ListVPCEConfigurations' {maxResults} -> maxResults) (\s@ListVPCEConfigurations' {} a -> s {maxResults = a} :: ListVPCEConfigurations)
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
 listVPCEConfigurations_nextToken :: Lens.Lens' ListVPCEConfigurations (Prelude.Maybe Prelude.Text)
 listVPCEConfigurations_nextToken = Lens.lens (\ListVPCEConfigurations' {nextToken} -> nextToken) (\s@ListVPCEConfigurations' {} a -> s {nextToken = a} :: ListVPCEConfigurations)
-
--- | An integer that specifies the maximum number of items you want to return
--- in the API response.
-listVPCEConfigurations_maxResults :: Lens.Lens' ListVPCEConfigurations (Prelude.Maybe Prelude.Int)
-listVPCEConfigurations_maxResults = Lens.lens (\ListVPCEConfigurations' {maxResults} -> maxResults) (\s@ListVPCEConfigurations' {} a -> s {maxResults = a} :: ListVPCEConfigurations)
 
 instance Core.AWSPager ListVPCEConfigurations where
   page rq rs
@@ -139,13 +139,13 @@ instance Core.AWSRequest ListVPCEConfigurations where
 
 instance Prelude.Hashable ListVPCEConfigurations where
   hashWithSalt _salt ListVPCEConfigurations' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListVPCEConfigurations where
   rnf ListVPCEConfigurations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListVPCEConfigurations where
   toHeaders =
@@ -166,8 +166,8 @@ instance Data.ToJSON ListVPCEConfigurations where
   toJSON ListVPCEConfigurations' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

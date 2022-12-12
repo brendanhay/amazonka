@@ -88,143 +88,146 @@ module Amazonka.Organizations
     -- * Errors
     -- $errors
 
-    -- ** PolicyTypeNotAvailableForOrganizationException
-    _PolicyTypeNotAvailableForOrganizationException,
-
-    -- ** DuplicateAccountException
-    _DuplicateAccountException,
-
-    -- ** FinalizingOrganizationException
-    _FinalizingOrganizationException,
-
-    -- ** OrganizationalUnitNotEmptyException
-    _OrganizationalUnitNotEmptyException,
-
-    -- ** InvalidInputException
-    _InvalidInputException,
-
-    -- ** UnsupportedAPIEndpointException
-    _UnsupportedAPIEndpointException,
-
-    -- ** DuplicateOrganizationalUnitException
-    _DuplicateOrganizationalUnitException,
-
-    -- ** CreateAccountStatusNotFoundException
-    _CreateAccountStatusNotFoundException,
-
-    -- ** ConcurrentModificationException
-    _ConcurrentModificationException,
+    -- ** AWSOrganizationsNotInUseException
+    _AWSOrganizationsNotInUseException,
 
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** HandshakeConstraintViolationException
-    _HandshakeConstraintViolationException,
-
-    -- ** DuplicatePolicyException
-    _DuplicatePolicyException,
-
-    -- ** ChildNotFoundException
-    _ChildNotFoundException,
-
-    -- ** PolicyChangesInProgressException
-    _PolicyChangesInProgressException,
-
-    -- ** HandshakeAlreadyInStateException
-    _HandshakeAlreadyInStateException,
-
-    -- ** DuplicateHandshakeException
-    _DuplicateHandshakeException,
-
-    -- ** AWSOrganizationsNotInUseException
-    _AWSOrganizationsNotInUseException,
-
-    -- ** PolicyTypeNotEnabledException
-    _PolicyTypeNotEnabledException,
-
-    -- ** MasterCannotLeaveOrganizationException
-    _MasterCannotLeaveOrganizationException,
-
-    -- ** RootNotFoundException
-    _RootNotFoundException,
-
-    -- ** PolicyNotFoundException
-    _PolicyNotFoundException,
-
-    -- ** PolicyNotAttachedException
-    _PolicyNotAttachedException,
-
-    -- ** AccountAlreadyRegisteredException
-    _AccountAlreadyRegisteredException,
-
-    -- ** PolicyInUseException
-    _PolicyInUseException,
-
-    -- ** ParentNotFoundException
-    _ParentNotFoundException,
-
-    -- ** AccountNotFoundException
-    _AccountNotFoundException,
-
-    -- ** OrganizationalUnitNotFoundException
-    _OrganizationalUnitNotFoundException,
-
-    -- ** DestinationParentNotFoundException
-    _DestinationParentNotFoundException,
-
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** DuplicatePolicyAttachmentException
-    _DuplicatePolicyAttachmentException,
-
-    -- ** PolicyTypeAlreadyEnabledException
-    _PolicyTypeAlreadyEnabledException,
-
-    -- ** AccountOwnerNotVerifiedException
-    _AccountOwnerNotVerifiedException,
-
-    -- ** HandshakeNotFoundException
-    _HandshakeNotFoundException,
-
-    -- ** ServiceException
-    _ServiceException,
-
     -- ** AccessDeniedForDependencyException
     _AccessDeniedForDependencyException,
-
-    -- ** MalformedPolicyDocumentException
-    _MalformedPolicyDocumentException,
-
-    -- ** OrganizationNotEmptyException
-    _OrganizationNotEmptyException,
-
-    -- ** InvalidHandshakeTransitionException
-    _InvalidHandshakeTransitionException,
-
-    -- ** TargetNotFoundException
-    _TargetNotFoundException,
-
-    -- ** AccountNotRegisteredException
-    _AccountNotRegisteredException,
-
-    -- ** SourceParentNotFoundException
-    _SourceParentNotFoundException,
-
-    -- ** AlreadyInOrganizationException
-    _AlreadyInOrganizationException,
 
     -- ** AccountAlreadyClosedException
     _AccountAlreadyClosedException,
 
+    -- ** AccountAlreadyRegisteredException
+    _AccountAlreadyRegisteredException,
+
+    -- ** AccountNotFoundException
+    _AccountNotFoundException,
+
+    -- ** AccountNotRegisteredException
+    _AccountNotRegisteredException,
+
+    -- ** AccountOwnerNotVerifiedException
+    _AccountOwnerNotVerifiedException,
+
+    -- ** AlreadyInOrganizationException
+    _AlreadyInOrganizationException,
+
+    -- ** ChildNotFoundException
+    _ChildNotFoundException,
+
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ConstraintViolationException
+    _ConstraintViolationException,
+
+    -- ** CreateAccountStatusNotFoundException
+    _CreateAccountStatusNotFoundException,
+
+    -- ** DestinationParentNotFoundException
+    _DestinationParentNotFoundException,
+
+    -- ** DuplicateAccountException
+    _DuplicateAccountException,
+
+    -- ** DuplicateHandshakeException
+    _DuplicateHandshakeException,
+
+    -- ** DuplicateOrganizationalUnitException
+    _DuplicateOrganizationalUnitException,
+
+    -- ** DuplicatePolicyAttachmentException
+    _DuplicatePolicyAttachmentException,
+
+    -- ** DuplicatePolicyException
+    _DuplicatePolicyException,
+
     -- ** EffectivePolicyNotFoundException
     _EffectivePolicyNotFoundException,
+
+    -- ** FinalizingOrganizationException
+    _FinalizingOrganizationException,
+
+    -- ** HandshakeAlreadyInStateException
+    _HandshakeAlreadyInStateException,
+
+    -- ** HandshakeConstraintViolationException
+    _HandshakeConstraintViolationException,
+
+    -- ** HandshakeNotFoundException
+    _HandshakeNotFoundException,
+
+    -- ** InvalidHandshakeTransitionException
+    _InvalidHandshakeTransitionException,
+
+    -- ** InvalidInputException
+    _InvalidInputException,
+
+    -- ** MalformedPolicyDocumentException
+    _MalformedPolicyDocumentException,
+
+    -- ** MasterCannotLeaveOrganizationException
+    _MasterCannotLeaveOrganizationException,
+
+    -- ** OrganizationNotEmptyException
+    _OrganizationNotEmptyException,
+
+    -- ** OrganizationalUnitNotEmptyException
+    _OrganizationalUnitNotEmptyException,
+
+    -- ** OrganizationalUnitNotFoundException
+    _OrganizationalUnitNotFoundException,
+
+    -- ** ParentNotFoundException
+    _ParentNotFoundException,
+
+    -- ** PolicyChangesInProgressException
+    _PolicyChangesInProgressException,
+
+    -- ** PolicyInUseException
+    _PolicyInUseException,
+
+    -- ** PolicyNotAttachedException
+    _PolicyNotAttachedException,
+
+    -- ** PolicyNotFoundException
+    _PolicyNotFoundException,
+
+    -- ** PolicyTypeAlreadyEnabledException
+    _PolicyTypeAlreadyEnabledException,
+
+    -- ** PolicyTypeNotAvailableForOrganizationException
+    _PolicyTypeNotAvailableForOrganizationException,
+
+    -- ** PolicyTypeNotEnabledException
+    _PolicyTypeNotEnabledException,
+
+    -- ** ResourcePolicyNotFoundException
+    _ResourcePolicyNotFoundException,
+
+    -- ** RootNotFoundException
+    _RootNotFoundException,
+
+    -- ** ServiceException
+    _ServiceException,
+
+    -- ** SourceParentNotFoundException
+    _SourceParentNotFoundException,
+
+    -- ** TargetNotFoundException
+    _TargetNotFoundException,
 
     -- ** TooManyRequestsException
     _TooManyRequestsException,
 
-    -- ** ConstraintViolationException
-    _ConstraintViolationException,
+    -- ** UnsupportedAPIEndpointException
+    _UnsupportedAPIEndpointException,
 
     -- * Waiters
     -- $waiters
@@ -310,6 +313,12 @@ module Amazonka.Organizations
     DeletePolicyResponse (DeletePolicyResponse'),
     newDeletePolicyResponse,
 
+    -- ** DeleteResourcePolicy
+    DeleteResourcePolicy (DeleteResourcePolicy'),
+    newDeleteResourcePolicy,
+    DeleteResourcePolicyResponse (DeleteResourcePolicyResponse'),
+    newDeleteResourcePolicyResponse,
+
     -- ** DeregisterDelegatedAdministrator
     DeregisterDelegatedAdministrator (DeregisterDelegatedAdministrator'),
     newDeregisterDelegatedAdministrator,
@@ -357,6 +366,12 @@ module Amazonka.Organizations
     newDescribePolicy,
     DescribePolicyResponse (DescribePolicyResponse'),
     newDescribePolicyResponse,
+
+    -- ** DescribeResourcePolicy
+    DescribeResourcePolicy (DescribeResourcePolicy'),
+    newDescribeResourcePolicy,
+    DescribeResourcePolicyResponse (DescribeResourcePolicyResponse'),
+    newDescribeResourcePolicyResponse,
 
     -- ** DetachPolicy
     DetachPolicy (DetachPolicy'),
@@ -507,6 +522,12 @@ module Amazonka.Organizations
     newMoveAccount,
     MoveAccountResponse (MoveAccountResponse'),
     newMoveAccountResponse,
+
+    -- ** PutResourcePolicy
+    PutResourcePolicy (PutResourcePolicy'),
+    newPutResourcePolicy,
+    PutResourcePolicyResponse (PutResourcePolicyResponse'),
+    newPutResourcePolicyResponse,
 
     -- ** RegisterDelegatedAdministrator
     RegisterDelegatedAdministrator (RegisterDelegatedAdministrator'),
@@ -666,6 +687,14 @@ module Amazonka.Organizations
     PolicyTypeSummary (PolicyTypeSummary'),
     newPolicyTypeSummary,
 
+    -- ** ResourcePolicy
+    ResourcePolicy (ResourcePolicy'),
+    newResourcePolicy,
+
+    -- ** ResourcePolicySummary
+    ResourcePolicySummary (ResourcePolicySummary'),
+    newResourcePolicySummary,
+
     -- ** Root
     Root (Root'),
     newRoot,
@@ -689,6 +718,7 @@ import Amazonka.Organizations.DeclineHandshake
 import Amazonka.Organizations.DeleteOrganization
 import Amazonka.Organizations.DeleteOrganizationalUnit
 import Amazonka.Organizations.DeletePolicy
+import Amazonka.Organizations.DeleteResourcePolicy
 import Amazonka.Organizations.DeregisterDelegatedAdministrator
 import Amazonka.Organizations.DescribeAccount
 import Amazonka.Organizations.DescribeCreateAccountStatus
@@ -697,6 +727,7 @@ import Amazonka.Organizations.DescribeHandshake
 import Amazonka.Organizations.DescribeOrganization
 import Amazonka.Organizations.DescribeOrganizationalUnit
 import Amazonka.Organizations.DescribePolicy
+import Amazonka.Organizations.DescribeResourcePolicy
 import Amazonka.Organizations.DetachPolicy
 import Amazonka.Organizations.DisableAWSServiceAccess
 import Amazonka.Organizations.DisablePolicyType
@@ -723,6 +754,7 @@ import Amazonka.Organizations.ListRoots
 import Amazonka.Organizations.ListTagsForResource
 import Amazonka.Organizations.ListTargetsForPolicy
 import Amazonka.Organizations.MoveAccount
+import Amazonka.Organizations.PutResourcePolicy
 import Amazonka.Organizations.RegisterDelegatedAdministrator
 import Amazonka.Organizations.RemoveAccountFromOrganization
 import Amazonka.Organizations.TagResource

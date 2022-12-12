@@ -52,8 +52,8 @@ module Amazonka.Textract.GetExpenseAnalysis
     newGetExpenseAnalysis,
 
     -- * Request Lenses
-    getExpenseAnalysis_nextToken,
     getExpenseAnalysis_maxResults,
+    getExpenseAnalysis_nextToken,
     getExpenseAnalysis_jobId,
 
     -- * Destructuring the Response
@@ -62,12 +62,12 @@ module Amazonka.Textract.GetExpenseAnalysis
 
     -- * Response Lenses
     getExpenseAnalysisResponse_analyzeExpenseModelVersion,
-    getExpenseAnalysisResponse_nextToken,
-    getExpenseAnalysisResponse_jobStatus,
     getExpenseAnalysisResponse_documentMetadata,
     getExpenseAnalysisResponse_expenseDocuments,
-    getExpenseAnalysisResponse_warnings,
+    getExpenseAnalysisResponse_jobStatus,
+    getExpenseAnalysisResponse_nextToken,
     getExpenseAnalysisResponse_statusMessage,
+    getExpenseAnalysisResponse_warnings,
     getExpenseAnalysisResponse_httpStatus,
   )
 where
@@ -82,15 +82,15 @@ import Amazonka.Textract.Types
 
 -- | /See:/ 'newGetExpenseAnalysis' smart constructor.
 data GetExpenseAnalysis = GetExpenseAnalysis'
-  { -- | If the previous response was incomplete (because there are more blocks
+  { -- | The maximum number of results to return per paginated call. The largest
+    -- value you can specify is 20. If you specify a value greater than 20, a
+    -- maximum of 20 results is returned. The default value is 20.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the previous response was incomplete (because there are more blocks
     -- to retrieve), Amazon Textract returns a pagination token in the
     -- response. You can use this pagination token to retrieve the next set of
     -- blocks.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per paginated call. The largest
-    -- value you can specify is 20. If you specify a value greater than 20, a
-    -- maximum of 20 results is returned. The default value is 20.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A unique identifier for the text detection job. The @JobId@ is returned
     -- from @StartExpenseAnalysis@. A @JobId@ value is only valid for 7 days.
     jobId :: Prelude.Text
@@ -105,14 +105,14 @@ data GetExpenseAnalysis = GetExpenseAnalysis'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'getExpenseAnalysis_maxResults' - The maximum number of results to return per paginated call. The largest
+-- value you can specify is 20. If you specify a value greater than 20, a
+-- maximum of 20 results is returned. The default value is 20.
+--
 -- 'nextToken', 'getExpenseAnalysis_nextToken' - If the previous response was incomplete (because there are more blocks
 -- to retrieve), Amazon Textract returns a pagination token in the
 -- response. You can use this pagination token to retrieve the next set of
 -- blocks.
---
--- 'maxResults', 'getExpenseAnalysis_maxResults' - The maximum number of results to return per paginated call. The largest
--- value you can specify is 20. If you specify a value greater than 20, a
--- maximum of 20 results is returned. The default value is 20.
 --
 -- 'jobId', 'getExpenseAnalysis_jobId' - A unique identifier for the text detection job. The @JobId@ is returned
 -- from @StartExpenseAnalysis@. A @JobId@ value is only valid for 7 days.
@@ -122,10 +122,16 @@ newGetExpenseAnalysis ::
   GetExpenseAnalysis
 newGetExpenseAnalysis pJobId_ =
   GetExpenseAnalysis'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       jobId = pJobId_
     }
+
+-- | The maximum number of results to return per paginated call. The largest
+-- value you can specify is 20. If you specify a value greater than 20, a
+-- maximum of 20 results is returned. The default value is 20.
+getExpenseAnalysis_maxResults :: Lens.Lens' GetExpenseAnalysis (Prelude.Maybe Prelude.Natural)
+getExpenseAnalysis_maxResults = Lens.lens (\GetExpenseAnalysis' {maxResults} -> maxResults) (\s@GetExpenseAnalysis' {} a -> s {maxResults = a} :: GetExpenseAnalysis)
 
 -- | If the previous response was incomplete (because there are more blocks
 -- to retrieve), Amazon Textract returns a pagination token in the
@@ -133,12 +139,6 @@ newGetExpenseAnalysis pJobId_ =
 -- blocks.
 getExpenseAnalysis_nextToken :: Lens.Lens' GetExpenseAnalysis (Prelude.Maybe Prelude.Text)
 getExpenseAnalysis_nextToken = Lens.lens (\GetExpenseAnalysis' {nextToken} -> nextToken) (\s@GetExpenseAnalysis' {} a -> s {nextToken = a} :: GetExpenseAnalysis)
-
--- | The maximum number of results to return per paginated call. The largest
--- value you can specify is 20. If you specify a value greater than 20, a
--- maximum of 20 results is returned. The default value is 20.
-getExpenseAnalysis_maxResults :: Lens.Lens' GetExpenseAnalysis (Prelude.Maybe Prelude.Natural)
-getExpenseAnalysis_maxResults = Lens.lens (\GetExpenseAnalysis' {maxResults} -> maxResults) (\s@GetExpenseAnalysis' {} a -> s {maxResults = a} :: GetExpenseAnalysis)
 
 -- | A unique identifier for the text detection job. The @JobId@ is returned
 -- from @StartExpenseAnalysis@. A @JobId@ value is only valid for 7 days.
@@ -156,27 +156,27 @@ instance Core.AWSRequest GetExpenseAnalysis where
       ( \s h x ->
           GetExpenseAnalysisResponse'
             Prelude.<$> (x Data..?> "AnalyzeExpenseModelVersion")
-            Prelude.<*> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "JobStatus")
             Prelude.<*> (x Data..?> "DocumentMetadata")
             Prelude.<*> ( x Data..?> "ExpenseDocuments"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "Warnings" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "JobStatus")
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "StatusMessage")
+            Prelude.<*> (x Data..?> "Warnings" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetExpenseAnalysis where
   hashWithSalt _salt GetExpenseAnalysis' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` jobId
 
 instance Prelude.NFData GetExpenseAnalysis where
   rnf GetExpenseAnalysis' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf jobId
 
 instance Data.ToHeaders GetExpenseAnalysis where
@@ -198,8 +198,8 @@ instance Data.ToJSON GetExpenseAnalysis where
   toJSON GetExpenseAnalysis' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("JobId" Data..= jobId)
           ]
       )
@@ -214,24 +214,24 @@ instance Data.ToQuery GetExpenseAnalysis where
 data GetExpenseAnalysisResponse = GetExpenseAnalysisResponse'
   { -- | The current model version of AnalyzeExpense.
     analyzeExpenseModelVersion :: Prelude.Maybe Prelude.Text,
-    -- | If the response is truncated, Amazon Textract returns this token. You
-    -- can use this token in the subsequent request to retrieve the next set of
-    -- text-detection results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The current status of the text detection job.
-    jobStatus :: Prelude.Maybe JobStatus,
     -- | Information about a document that Amazon Textract processed.
     -- @DocumentMetadata@ is returned in every page of paginated responses from
     -- an Amazon Textract operation.
     documentMetadata :: Prelude.Maybe DocumentMetadata,
     -- | The expenses detected by Amazon Textract.
     expenseDocuments :: Prelude.Maybe [ExpenseDocument],
-    -- | A list of warnings that occurred during the text-detection operation for
-    -- the document.
-    warnings :: Prelude.Maybe [Warning],
+    -- | The current status of the text detection job.
+    jobStatus :: Prelude.Maybe JobStatus,
+    -- | If the response is truncated, Amazon Textract returns this token. You
+    -- can use this token in the subsequent request to retrieve the next set of
+    -- text-detection results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Returns if the detection job could not be completed. Contains
     -- explanation for what error occured.
     statusMessage :: Prelude.Maybe Prelude.Text,
+    -- | A list of warnings that occurred during the text-detection operation for
+    -- the document.
+    warnings :: Prelude.Maybe [Warning],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -247,23 +247,23 @@ data GetExpenseAnalysisResponse = GetExpenseAnalysisResponse'
 --
 -- 'analyzeExpenseModelVersion', 'getExpenseAnalysisResponse_analyzeExpenseModelVersion' - The current model version of AnalyzeExpense.
 --
--- 'nextToken', 'getExpenseAnalysisResponse_nextToken' - If the response is truncated, Amazon Textract returns this token. You
--- can use this token in the subsequent request to retrieve the next set of
--- text-detection results.
---
--- 'jobStatus', 'getExpenseAnalysisResponse_jobStatus' - The current status of the text detection job.
---
 -- 'documentMetadata', 'getExpenseAnalysisResponse_documentMetadata' - Information about a document that Amazon Textract processed.
 -- @DocumentMetadata@ is returned in every page of paginated responses from
 -- an Amazon Textract operation.
 --
 -- 'expenseDocuments', 'getExpenseAnalysisResponse_expenseDocuments' - The expenses detected by Amazon Textract.
 --
--- 'warnings', 'getExpenseAnalysisResponse_warnings' - A list of warnings that occurred during the text-detection operation for
--- the document.
+-- 'jobStatus', 'getExpenseAnalysisResponse_jobStatus' - The current status of the text detection job.
+--
+-- 'nextToken', 'getExpenseAnalysisResponse_nextToken' - If the response is truncated, Amazon Textract returns this token. You
+-- can use this token in the subsequent request to retrieve the next set of
+-- text-detection results.
 --
 -- 'statusMessage', 'getExpenseAnalysisResponse_statusMessage' - Returns if the detection job could not be completed. Contains
 -- explanation for what error occured.
+--
+-- 'warnings', 'getExpenseAnalysisResponse_warnings' - A list of warnings that occurred during the text-detection operation for
+-- the document.
 --
 -- 'httpStatus', 'getExpenseAnalysisResponse_httpStatus' - The response's http status code.
 newGetExpenseAnalysisResponse ::
@@ -274,28 +274,18 @@ newGetExpenseAnalysisResponse pHttpStatus_ =
   GetExpenseAnalysisResponse'
     { analyzeExpenseModelVersion =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      jobStatus = Prelude.Nothing,
       documentMetadata = Prelude.Nothing,
       expenseDocuments = Prelude.Nothing,
-      warnings = Prelude.Nothing,
+      jobStatus = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       statusMessage = Prelude.Nothing,
+      warnings = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current model version of AnalyzeExpense.
 getExpenseAnalysisResponse_analyzeExpenseModelVersion :: Lens.Lens' GetExpenseAnalysisResponse (Prelude.Maybe Prelude.Text)
 getExpenseAnalysisResponse_analyzeExpenseModelVersion = Lens.lens (\GetExpenseAnalysisResponse' {analyzeExpenseModelVersion} -> analyzeExpenseModelVersion) (\s@GetExpenseAnalysisResponse' {} a -> s {analyzeExpenseModelVersion = a} :: GetExpenseAnalysisResponse)
-
--- | If the response is truncated, Amazon Textract returns this token. You
--- can use this token in the subsequent request to retrieve the next set of
--- text-detection results.
-getExpenseAnalysisResponse_nextToken :: Lens.Lens' GetExpenseAnalysisResponse (Prelude.Maybe Prelude.Text)
-getExpenseAnalysisResponse_nextToken = Lens.lens (\GetExpenseAnalysisResponse' {nextToken} -> nextToken) (\s@GetExpenseAnalysisResponse' {} a -> s {nextToken = a} :: GetExpenseAnalysisResponse)
-
--- | The current status of the text detection job.
-getExpenseAnalysisResponse_jobStatus :: Lens.Lens' GetExpenseAnalysisResponse (Prelude.Maybe JobStatus)
-getExpenseAnalysisResponse_jobStatus = Lens.lens (\GetExpenseAnalysisResponse' {jobStatus} -> jobStatus) (\s@GetExpenseAnalysisResponse' {} a -> s {jobStatus = a} :: GetExpenseAnalysisResponse)
 
 -- | Information about a document that Amazon Textract processed.
 -- @DocumentMetadata@ is returned in every page of paginated responses from
@@ -307,15 +297,25 @@ getExpenseAnalysisResponse_documentMetadata = Lens.lens (\GetExpenseAnalysisResp
 getExpenseAnalysisResponse_expenseDocuments :: Lens.Lens' GetExpenseAnalysisResponse (Prelude.Maybe [ExpenseDocument])
 getExpenseAnalysisResponse_expenseDocuments = Lens.lens (\GetExpenseAnalysisResponse' {expenseDocuments} -> expenseDocuments) (\s@GetExpenseAnalysisResponse' {} a -> s {expenseDocuments = a} :: GetExpenseAnalysisResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of warnings that occurred during the text-detection operation for
--- the document.
-getExpenseAnalysisResponse_warnings :: Lens.Lens' GetExpenseAnalysisResponse (Prelude.Maybe [Warning])
-getExpenseAnalysisResponse_warnings = Lens.lens (\GetExpenseAnalysisResponse' {warnings} -> warnings) (\s@GetExpenseAnalysisResponse' {} a -> s {warnings = a} :: GetExpenseAnalysisResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The current status of the text detection job.
+getExpenseAnalysisResponse_jobStatus :: Lens.Lens' GetExpenseAnalysisResponse (Prelude.Maybe JobStatus)
+getExpenseAnalysisResponse_jobStatus = Lens.lens (\GetExpenseAnalysisResponse' {jobStatus} -> jobStatus) (\s@GetExpenseAnalysisResponse' {} a -> s {jobStatus = a} :: GetExpenseAnalysisResponse)
+
+-- | If the response is truncated, Amazon Textract returns this token. You
+-- can use this token in the subsequent request to retrieve the next set of
+-- text-detection results.
+getExpenseAnalysisResponse_nextToken :: Lens.Lens' GetExpenseAnalysisResponse (Prelude.Maybe Prelude.Text)
+getExpenseAnalysisResponse_nextToken = Lens.lens (\GetExpenseAnalysisResponse' {nextToken} -> nextToken) (\s@GetExpenseAnalysisResponse' {} a -> s {nextToken = a} :: GetExpenseAnalysisResponse)
 
 -- | Returns if the detection job could not be completed. Contains
 -- explanation for what error occured.
 getExpenseAnalysisResponse_statusMessage :: Lens.Lens' GetExpenseAnalysisResponse (Prelude.Maybe Prelude.Text)
 getExpenseAnalysisResponse_statusMessage = Lens.lens (\GetExpenseAnalysisResponse' {statusMessage} -> statusMessage) (\s@GetExpenseAnalysisResponse' {} a -> s {statusMessage = a} :: GetExpenseAnalysisResponse)
+
+-- | A list of warnings that occurred during the text-detection operation for
+-- the document.
+getExpenseAnalysisResponse_warnings :: Lens.Lens' GetExpenseAnalysisResponse (Prelude.Maybe [Warning])
+getExpenseAnalysisResponse_warnings = Lens.lens (\GetExpenseAnalysisResponse' {warnings} -> warnings) (\s@GetExpenseAnalysisResponse' {} a -> s {warnings = a} :: GetExpenseAnalysisResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getExpenseAnalysisResponse_httpStatus :: Lens.Lens' GetExpenseAnalysisResponse Prelude.Int
@@ -324,10 +324,10 @@ getExpenseAnalysisResponse_httpStatus = Lens.lens (\GetExpenseAnalysisResponse' 
 instance Prelude.NFData GetExpenseAnalysisResponse where
   rnf GetExpenseAnalysisResponse' {..} =
     Prelude.rnf analyzeExpenseModelVersion
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf jobStatus
       `Prelude.seq` Prelude.rnf documentMetadata
       `Prelude.seq` Prelude.rnf expenseDocuments
-      `Prelude.seq` Prelude.rnf warnings
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf warnings
       `Prelude.seq` Prelude.rnf httpStatus

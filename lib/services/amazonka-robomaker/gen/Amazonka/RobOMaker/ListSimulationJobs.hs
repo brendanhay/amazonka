@@ -30,9 +30,9 @@ module Amazonka.RobOMaker.ListSimulationJobs
     newListSimulationJobs,
 
     -- * Request Lenses
-    listSimulationJobs_nextToken,
     listSimulationJobs_filters,
     listSimulationJobs_maxResults,
+    listSimulationJobs_nextToken,
 
     -- * Destructuring the Response
     ListSimulationJobsResponse (..),
@@ -55,14 +55,7 @@ import Amazonka.RobOMaker.Types
 
 -- | /See:/ 'newListSimulationJobs' smart constructor.
 data ListSimulationJobs = ListSimulationJobs'
-  { -- | If the previous paginated request did not return all of the remaining
-    -- results, the response object\'s @nextToken@ parameter value is set to a
-    -- token. To retrieve the next set of results, call @ListSimulationJobs@
-    -- again and assign that token to the request object\'s @nextToken@
-    -- parameter. If there are no remaining results, the previous response
-    -- object\'s NextToken parameter is set to null.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Optional filters to limit results.
+  { -- | Optional filters to limit results.
     --
     -- The filter names @status@ and @simulationApplicationName@ and
     -- @robotApplicationName@ are supported. When filtering, you must use the
@@ -77,7 +70,14 @@ data ListSimulationJobs = ListSimulationJobs'
     -- @nextToken@ value. This value can be between 1 and 1000. If this
     -- parameter is not used, then @ListSimulationJobs@ returns up to 1000
     -- results and a @nextToken@ value if applicable.
-    maxResults :: Prelude.Maybe Prelude.Int
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | If the previous paginated request did not return all of the remaining
+    -- results, the response object\'s @nextToken@ parameter value is set to a
+    -- token. To retrieve the next set of results, call @ListSimulationJobs@
+    -- again and assign that token to the request object\'s @nextToken@
+    -- parameter. If there are no remaining results, the previous response
+    -- object\'s NextToken parameter is set to null.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -88,13 +88,6 @@ data ListSimulationJobs = ListSimulationJobs'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'listSimulationJobs_nextToken' - If the previous paginated request did not return all of the remaining
--- results, the response object\'s @nextToken@ parameter value is set to a
--- token. To retrieve the next set of results, call @ListSimulationJobs@
--- again and assign that token to the request object\'s @nextToken@
--- parameter. If there are no remaining results, the previous response
--- object\'s NextToken parameter is set to null.
 --
 -- 'filters', 'listSimulationJobs_filters' - Optional filters to limit results.
 --
@@ -111,23 +104,21 @@ data ListSimulationJobs = ListSimulationJobs'
 -- @nextToken@ value. This value can be between 1 and 1000. If this
 -- parameter is not used, then @ListSimulationJobs@ returns up to 1000
 -- results and a @nextToken@ value if applicable.
-newListSimulationJobs ::
-  ListSimulationJobs
-newListSimulationJobs =
-  ListSimulationJobs'
-    { nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
-    }
-
--- | If the previous paginated request did not return all of the remaining
+--
+-- 'nextToken', 'listSimulationJobs_nextToken' - If the previous paginated request did not return all of the remaining
 -- results, the response object\'s @nextToken@ parameter value is set to a
 -- token. To retrieve the next set of results, call @ListSimulationJobs@
 -- again and assign that token to the request object\'s @nextToken@
 -- parameter. If there are no remaining results, the previous response
 -- object\'s NextToken parameter is set to null.
-listSimulationJobs_nextToken :: Lens.Lens' ListSimulationJobs (Prelude.Maybe Prelude.Text)
-listSimulationJobs_nextToken = Lens.lens (\ListSimulationJobs' {nextToken} -> nextToken) (\s@ListSimulationJobs' {} a -> s {nextToken = a} :: ListSimulationJobs)
+newListSimulationJobs ::
+  ListSimulationJobs
+newListSimulationJobs =
+  ListSimulationJobs'
+    { filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
+    }
 
 -- | Optional filters to limit results.
 --
@@ -148,6 +139,15 @@ listSimulationJobs_filters = Lens.lens (\ListSimulationJobs' {filters} -> filter
 -- results and a @nextToken@ value if applicable.
 listSimulationJobs_maxResults :: Lens.Lens' ListSimulationJobs (Prelude.Maybe Prelude.Int)
 listSimulationJobs_maxResults = Lens.lens (\ListSimulationJobs' {maxResults} -> maxResults) (\s@ListSimulationJobs' {} a -> s {maxResults = a} :: ListSimulationJobs)
+
+-- | If the previous paginated request did not return all of the remaining
+-- results, the response object\'s @nextToken@ parameter value is set to a
+-- token. To retrieve the next set of results, call @ListSimulationJobs@
+-- again and assign that token to the request object\'s @nextToken@
+-- parameter. If there are no remaining results, the previous response
+-- object\'s NextToken parameter is set to null.
+listSimulationJobs_nextToken :: Lens.Lens' ListSimulationJobs (Prelude.Maybe Prelude.Text)
+listSimulationJobs_nextToken = Lens.lens (\ListSimulationJobs' {nextToken} -> nextToken) (\s@ListSimulationJobs' {} a -> s {nextToken = a} :: ListSimulationJobs)
 
 instance Core.AWSPager ListSimulationJobs where
   page rq rs
@@ -189,15 +189,15 @@ instance Core.AWSRequest ListSimulationJobs where
 
 instance Prelude.Hashable ListSimulationJobs where
   hashWithSalt _salt ListSimulationJobs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListSimulationJobs where
   rnf ListSimulationJobs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListSimulationJobs where
   toHeaders =
@@ -214,9 +214,9 @@ instance Data.ToJSON ListSimulationJobs where
   toJSON ListSimulationJobs' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("filters" Data..=) Prelude.<$> filters,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("filters" Data..=) Prelude.<$> filters,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

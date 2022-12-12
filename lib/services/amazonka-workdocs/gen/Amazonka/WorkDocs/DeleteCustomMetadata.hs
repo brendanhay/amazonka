@@ -27,8 +27,8 @@ module Amazonka.WorkDocs.DeleteCustomMetadata
     newDeleteCustomMetadata,
 
     -- * Request Lenses
-    deleteCustomMetadata_deleteAll,
     deleteCustomMetadata_authenticationToken,
+    deleteCustomMetadata_deleteAll,
     deleteCustomMetadata_keys,
     deleteCustomMetadata_versionId,
     deleteCustomMetadata_resourceId,
@@ -52,12 +52,12 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newDeleteCustomMetadata' smart constructor.
 data DeleteCustomMetadata = DeleteCustomMetadata'
-  { -- | Flag to indicate removal of all custom metadata properties from the
-    -- specified resource.
-    deleteAll :: Prelude.Maybe Prelude.Bool,
-    -- | Amazon WorkDocs authentication token. Not required when using AWS
+  { -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | Flag to indicate removal of all custom metadata properties from the
+    -- specified resource.
+    deleteAll :: Prelude.Maybe Prelude.Bool,
     -- | List of properties to remove.
     keys :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the version, if the custom metadata is being deleted from a
@@ -76,11 +76,11 @@ data DeleteCustomMetadata = DeleteCustomMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deleteAll', 'deleteCustomMetadata_deleteAll' - Flag to indicate removal of all custom metadata properties from the
--- specified resource.
---
 -- 'authenticationToken', 'deleteCustomMetadata_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
+--
+-- 'deleteAll', 'deleteCustomMetadata_deleteAll' - Flag to indicate removal of all custom metadata properties from the
+-- specified resource.
 --
 -- 'keys', 'deleteCustomMetadata_keys' - List of properties to remove.
 --
@@ -94,22 +94,23 @@ newDeleteCustomMetadata ::
   DeleteCustomMetadata
 newDeleteCustomMetadata pResourceId_ =
   DeleteCustomMetadata'
-    { deleteAll = Prelude.Nothing,
-      authenticationToken = Prelude.Nothing,
+    { authenticationToken =
+        Prelude.Nothing,
+      deleteAll = Prelude.Nothing,
       keys = Prelude.Nothing,
       versionId = Prelude.Nothing,
       resourceId = pResourceId_
     }
 
--- | Flag to indicate removal of all custom metadata properties from the
--- specified resource.
-deleteCustomMetadata_deleteAll :: Lens.Lens' DeleteCustomMetadata (Prelude.Maybe Prelude.Bool)
-deleteCustomMetadata_deleteAll = Lens.lens (\DeleteCustomMetadata' {deleteAll} -> deleteAll) (\s@DeleteCustomMetadata' {} a -> s {deleteAll = a} :: DeleteCustomMetadata)
-
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 deleteCustomMetadata_authenticationToken :: Lens.Lens' DeleteCustomMetadata (Prelude.Maybe Prelude.Text)
 deleteCustomMetadata_authenticationToken = Lens.lens (\DeleteCustomMetadata' {authenticationToken} -> authenticationToken) (\s@DeleteCustomMetadata' {} a -> s {authenticationToken = a} :: DeleteCustomMetadata) Prelude.. Lens.mapping Data._Sensitive
+
+-- | Flag to indicate removal of all custom metadata properties from the
+-- specified resource.
+deleteCustomMetadata_deleteAll :: Lens.Lens' DeleteCustomMetadata (Prelude.Maybe Prelude.Bool)
+deleteCustomMetadata_deleteAll = Lens.lens (\DeleteCustomMetadata' {deleteAll} -> deleteAll) (\s@DeleteCustomMetadata' {} a -> s {deleteAll = a} :: DeleteCustomMetadata)
 
 -- | List of properties to remove.
 deleteCustomMetadata_keys :: Lens.Lens' DeleteCustomMetadata (Prelude.Maybe [Prelude.Text])
@@ -139,16 +140,16 @@ instance Core.AWSRequest DeleteCustomMetadata where
 
 instance Prelude.Hashable DeleteCustomMetadata where
   hashWithSalt _salt DeleteCustomMetadata' {..} =
-    _salt `Prelude.hashWithSalt` deleteAll
-      `Prelude.hashWithSalt` authenticationToken
+    _salt `Prelude.hashWithSalt` authenticationToken
+      `Prelude.hashWithSalt` deleteAll
       `Prelude.hashWithSalt` keys
       `Prelude.hashWithSalt` versionId
       `Prelude.hashWithSalt` resourceId
 
 instance Prelude.NFData DeleteCustomMetadata where
   rnf DeleteCustomMetadata' {..} =
-    Prelude.rnf deleteAll
-      `Prelude.seq` Prelude.rnf authenticationToken
+    Prelude.rnf authenticationToken
+      `Prelude.seq` Prelude.rnf deleteAll
       `Prelude.seq` Prelude.rnf keys
       `Prelude.seq` Prelude.rnf versionId
       `Prelude.seq` Prelude.rnf resourceId

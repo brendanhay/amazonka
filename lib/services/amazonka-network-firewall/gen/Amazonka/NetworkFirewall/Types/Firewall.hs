@@ -38,35 +38,35 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFirewall' smart constructor.
 data Firewall = Firewall'
-  { tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | A flag indicating whether it is possible to delete the firewall. A
+  { -- | A flag indicating whether it is possible to delete the firewall. A
     -- setting of @TRUE@ indicates that the firewall is protected against
     -- deletion. Use this setting to protect against accidentally deleting a
     -- firewall that is in use. When you create a firewall, the operation
     -- initializes this flag to @TRUE@.
     deleteProtection :: Prelude.Maybe Prelude.Bool,
-    -- | A setting indicating whether the firewall is protected against changes
-    -- to the subnet associations. Use this setting to protect against
-    -- accidentally modifying the subnet associations for a firewall that is in
-    -- use. When you create a firewall, the operation initializes this setting
-    -- to @TRUE@.
-    subnetChangeProtection :: Prelude.Maybe Prelude.Bool,
     -- | A description of the firewall.
     description :: Prelude.Maybe Prelude.Text,
+    -- | A complex type that contains the Amazon Web Services KMS encryption
+    -- configuration settings for your firewall.
+    encryptionConfiguration :: Prelude.Maybe EncryptionConfiguration,
+    -- | The Amazon Resource Name (ARN) of the firewall.
+    firewallArn :: Prelude.Maybe Prelude.Text,
+    -- | The descriptive name of the firewall. You can\'t change the name of a
+    -- firewall after you create it.
+    firewallName :: Prelude.Maybe Prelude.Text,
     -- | A setting indicating whether the firewall is protected against a change
     -- to the firewall policy association. Use this setting to protect against
     -- accidentally modifying the firewall policy for a firewall that is in
     -- use. When you create a firewall, the operation initializes this setting
     -- to @TRUE@.
     firewallPolicyChangeProtection :: Prelude.Maybe Prelude.Bool,
-    -- | The Amazon Resource Name (ARN) of the firewall.
-    firewallArn :: Prelude.Maybe Prelude.Text,
-    -- | A complex type that contains the Amazon Web Services KMS encryption
-    -- configuration settings for your firewall.
-    encryptionConfiguration :: Prelude.Maybe EncryptionConfiguration,
-    -- | The descriptive name of the firewall. You can\'t change the name of a
-    -- firewall after you create it.
-    firewallName :: Prelude.Maybe Prelude.Text,
+    -- | A setting indicating whether the firewall is protected against changes
+    -- to the subnet associations. Use this setting to protect against
+    -- accidentally modifying the subnet associations for a firewall that is in
+    -- use. When you create a firewall, the operation initializes this setting
+    -- to @TRUE@.
+    subnetChangeProtection :: Prelude.Maybe Prelude.Bool,
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The Amazon Resource Name (ARN) of the firewall policy.
     --
     -- The relationship of firewall to firewall policy is many to one. Each
@@ -91,21 +91,21 @@ data Firewall = Firewall'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'firewall_tags' -
---
 -- 'deleteProtection', 'firewall_deleteProtection' - A flag indicating whether it is possible to delete the firewall. A
 -- setting of @TRUE@ indicates that the firewall is protected against
 -- deletion. Use this setting to protect against accidentally deleting a
 -- firewall that is in use. When you create a firewall, the operation
 -- initializes this flag to @TRUE@.
 --
--- 'subnetChangeProtection', 'firewall_subnetChangeProtection' - A setting indicating whether the firewall is protected against changes
--- to the subnet associations. Use this setting to protect against
--- accidentally modifying the subnet associations for a firewall that is in
--- use. When you create a firewall, the operation initializes this setting
--- to @TRUE@.
---
 -- 'description', 'firewall_description' - A description of the firewall.
+--
+-- 'encryptionConfiguration', 'firewall_encryptionConfiguration' - A complex type that contains the Amazon Web Services KMS encryption
+-- configuration settings for your firewall.
+--
+-- 'firewallArn', 'firewall_firewallArn' - The Amazon Resource Name (ARN) of the firewall.
+--
+-- 'firewallName', 'firewall_firewallName' - The descriptive name of the firewall. You can\'t change the name of a
+-- firewall after you create it.
 --
 -- 'firewallPolicyChangeProtection', 'firewall_firewallPolicyChangeProtection' - A setting indicating whether the firewall is protected against a change
 -- to the firewall policy association. Use this setting to protect against
@@ -113,13 +113,13 @@ data Firewall = Firewall'
 -- use. When you create a firewall, the operation initializes this setting
 -- to @TRUE@.
 --
--- 'firewallArn', 'firewall_firewallArn' - The Amazon Resource Name (ARN) of the firewall.
+-- 'subnetChangeProtection', 'firewall_subnetChangeProtection' - A setting indicating whether the firewall is protected against changes
+-- to the subnet associations. Use this setting to protect against
+-- accidentally modifying the subnet associations for a firewall that is in
+-- use. When you create a firewall, the operation initializes this setting
+-- to @TRUE@.
 --
--- 'encryptionConfiguration', 'firewall_encryptionConfiguration' - A complex type that contains the Amazon Web Services KMS encryption
--- configuration settings for your firewall.
---
--- 'firewallName', 'firewall_firewallName' - The descriptive name of the firewall. You can\'t change the name of a
--- firewall after you create it.
+-- 'tags', 'firewall_tags' -
 --
 -- 'firewallPolicyArn', 'firewall_firewallPolicyArn' - The Amazon Resource Name (ARN) of the firewall policy.
 --
@@ -143,23 +143,19 @@ newFirewall ::
   Firewall
 newFirewall pFirewallPolicyArn_ pVpcId_ pFirewallId_ =
   Firewall'
-    { tags = Prelude.Nothing,
-      deleteProtection = Prelude.Nothing,
-      subnetChangeProtection = Prelude.Nothing,
+    { deleteProtection = Prelude.Nothing,
       description = Prelude.Nothing,
-      firewallPolicyChangeProtection = Prelude.Nothing,
-      firewallArn = Prelude.Nothing,
       encryptionConfiguration = Prelude.Nothing,
+      firewallArn = Prelude.Nothing,
       firewallName = Prelude.Nothing,
+      firewallPolicyChangeProtection = Prelude.Nothing,
+      subnetChangeProtection = Prelude.Nothing,
+      tags = Prelude.Nothing,
       firewallPolicyArn = pFirewallPolicyArn_,
       vpcId = pVpcId_,
       subnetMappings = Prelude.mempty,
       firewallId = pFirewallId_
     }
-
--- |
-firewall_tags :: Lens.Lens' Firewall (Prelude.Maybe (Prelude.NonEmpty Tag))
-firewall_tags = Lens.lens (\Firewall' {tags} -> tags) (\s@Firewall' {} a -> s {tags = a} :: Firewall) Prelude.. Lens.mapping Lens.coerced
 
 -- | A flag indicating whether it is possible to delete the firewall. A
 -- setting of @TRUE@ indicates that the firewall is protected against
@@ -169,17 +165,23 @@ firewall_tags = Lens.lens (\Firewall' {tags} -> tags) (\s@Firewall' {} a -> s {t
 firewall_deleteProtection :: Lens.Lens' Firewall (Prelude.Maybe Prelude.Bool)
 firewall_deleteProtection = Lens.lens (\Firewall' {deleteProtection} -> deleteProtection) (\s@Firewall' {} a -> s {deleteProtection = a} :: Firewall)
 
--- | A setting indicating whether the firewall is protected against changes
--- to the subnet associations. Use this setting to protect against
--- accidentally modifying the subnet associations for a firewall that is in
--- use. When you create a firewall, the operation initializes this setting
--- to @TRUE@.
-firewall_subnetChangeProtection :: Lens.Lens' Firewall (Prelude.Maybe Prelude.Bool)
-firewall_subnetChangeProtection = Lens.lens (\Firewall' {subnetChangeProtection} -> subnetChangeProtection) (\s@Firewall' {} a -> s {subnetChangeProtection = a} :: Firewall)
-
 -- | A description of the firewall.
 firewall_description :: Lens.Lens' Firewall (Prelude.Maybe Prelude.Text)
 firewall_description = Lens.lens (\Firewall' {description} -> description) (\s@Firewall' {} a -> s {description = a} :: Firewall)
+
+-- | A complex type that contains the Amazon Web Services KMS encryption
+-- configuration settings for your firewall.
+firewall_encryptionConfiguration :: Lens.Lens' Firewall (Prelude.Maybe EncryptionConfiguration)
+firewall_encryptionConfiguration = Lens.lens (\Firewall' {encryptionConfiguration} -> encryptionConfiguration) (\s@Firewall' {} a -> s {encryptionConfiguration = a} :: Firewall)
+
+-- | The Amazon Resource Name (ARN) of the firewall.
+firewall_firewallArn :: Lens.Lens' Firewall (Prelude.Maybe Prelude.Text)
+firewall_firewallArn = Lens.lens (\Firewall' {firewallArn} -> firewallArn) (\s@Firewall' {} a -> s {firewallArn = a} :: Firewall)
+
+-- | The descriptive name of the firewall. You can\'t change the name of a
+-- firewall after you create it.
+firewall_firewallName :: Lens.Lens' Firewall (Prelude.Maybe Prelude.Text)
+firewall_firewallName = Lens.lens (\Firewall' {firewallName} -> firewallName) (\s@Firewall' {} a -> s {firewallName = a} :: Firewall)
 
 -- | A setting indicating whether the firewall is protected against a change
 -- to the firewall policy association. Use this setting to protect against
@@ -189,19 +191,17 @@ firewall_description = Lens.lens (\Firewall' {description} -> description) (\s@F
 firewall_firewallPolicyChangeProtection :: Lens.Lens' Firewall (Prelude.Maybe Prelude.Bool)
 firewall_firewallPolicyChangeProtection = Lens.lens (\Firewall' {firewallPolicyChangeProtection} -> firewallPolicyChangeProtection) (\s@Firewall' {} a -> s {firewallPolicyChangeProtection = a} :: Firewall)
 
--- | The Amazon Resource Name (ARN) of the firewall.
-firewall_firewallArn :: Lens.Lens' Firewall (Prelude.Maybe Prelude.Text)
-firewall_firewallArn = Lens.lens (\Firewall' {firewallArn} -> firewallArn) (\s@Firewall' {} a -> s {firewallArn = a} :: Firewall)
+-- | A setting indicating whether the firewall is protected against changes
+-- to the subnet associations. Use this setting to protect against
+-- accidentally modifying the subnet associations for a firewall that is in
+-- use. When you create a firewall, the operation initializes this setting
+-- to @TRUE@.
+firewall_subnetChangeProtection :: Lens.Lens' Firewall (Prelude.Maybe Prelude.Bool)
+firewall_subnetChangeProtection = Lens.lens (\Firewall' {subnetChangeProtection} -> subnetChangeProtection) (\s@Firewall' {} a -> s {subnetChangeProtection = a} :: Firewall)
 
--- | A complex type that contains the Amazon Web Services KMS encryption
--- configuration settings for your firewall.
-firewall_encryptionConfiguration :: Lens.Lens' Firewall (Prelude.Maybe EncryptionConfiguration)
-firewall_encryptionConfiguration = Lens.lens (\Firewall' {encryptionConfiguration} -> encryptionConfiguration) (\s@Firewall' {} a -> s {encryptionConfiguration = a} :: Firewall)
-
--- | The descriptive name of the firewall. You can\'t change the name of a
--- firewall after you create it.
-firewall_firewallName :: Lens.Lens' Firewall (Prelude.Maybe Prelude.Text)
-firewall_firewallName = Lens.lens (\Firewall' {firewallName} -> firewallName) (\s@Firewall' {} a -> s {firewallName = a} :: Firewall)
+-- |
+firewall_tags :: Lens.Lens' Firewall (Prelude.Maybe (Prelude.NonEmpty Tag))
+firewall_tags = Lens.lens (\Firewall' {tags} -> tags) (\s@Firewall' {} a -> s {tags = a} :: Firewall) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the firewall policy.
 --
@@ -230,14 +230,14 @@ instance Data.FromJSON Firewall where
       "Firewall"
       ( \x ->
           Firewall'
-            Prelude.<$> (x Data..:? "Tags")
-            Prelude.<*> (x Data..:? "DeleteProtection")
-            Prelude.<*> (x Data..:? "SubnetChangeProtection")
+            Prelude.<$> (x Data..:? "DeleteProtection")
             Prelude.<*> (x Data..:? "Description")
-            Prelude.<*> (x Data..:? "FirewallPolicyChangeProtection")
-            Prelude.<*> (x Data..:? "FirewallArn")
             Prelude.<*> (x Data..:? "EncryptionConfiguration")
+            Prelude.<*> (x Data..:? "FirewallArn")
             Prelude.<*> (x Data..:? "FirewallName")
+            Prelude.<*> (x Data..:? "FirewallPolicyChangeProtection")
+            Prelude.<*> (x Data..:? "SubnetChangeProtection")
+            Prelude.<*> (x Data..:? "Tags")
             Prelude.<*> (x Data..: "FirewallPolicyArn")
             Prelude.<*> (x Data..: "VpcId")
             Prelude.<*> (x Data..:? "SubnetMappings" Data..!= Prelude.mempty)
@@ -246,14 +246,14 @@ instance Data.FromJSON Firewall where
 
 instance Prelude.Hashable Firewall where
   hashWithSalt _salt Firewall' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` deleteProtection
-      `Prelude.hashWithSalt` subnetChangeProtection
+    _salt `Prelude.hashWithSalt` deleteProtection
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` firewallPolicyChangeProtection
-      `Prelude.hashWithSalt` firewallArn
       `Prelude.hashWithSalt` encryptionConfiguration
+      `Prelude.hashWithSalt` firewallArn
       `Prelude.hashWithSalt` firewallName
+      `Prelude.hashWithSalt` firewallPolicyChangeProtection
+      `Prelude.hashWithSalt` subnetChangeProtection
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` firewallPolicyArn
       `Prelude.hashWithSalt` vpcId
       `Prelude.hashWithSalt` subnetMappings
@@ -261,14 +261,14 @@ instance Prelude.Hashable Firewall where
 
 instance Prelude.NFData Firewall where
   rnf Firewall' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf deleteProtection
-      `Prelude.seq` Prelude.rnf subnetChangeProtection
+    Prelude.rnf deleteProtection
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf firewallPolicyChangeProtection
-      `Prelude.seq` Prelude.rnf firewallArn
       `Prelude.seq` Prelude.rnf encryptionConfiguration
+      `Prelude.seq` Prelude.rnf firewallArn
       `Prelude.seq` Prelude.rnf firewallName
+      `Prelude.seq` Prelude.rnf firewallPolicyChangeProtection
+      `Prelude.seq` Prelude.rnf subnetChangeProtection
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf firewallPolicyArn
       `Prelude.seq` Prelude.rnf vpcId
       `Prelude.seq` Prelude.rnf subnetMappings

@@ -18,14 +18,14 @@ module Amazonka.Personalize.Types
     defaultService,
 
     -- * Errors
-    _ResourceAlreadyExistsException,
     _InvalidInputException,
-    _TooManyTagsException,
-    _TooManyTagKeysException,
-    _ResourceNotFoundException,
-    _ResourceInUseException,
-    _LimitExceededException,
     _InvalidNextTokenException,
+    _LimitExceededException,
+    _ResourceAlreadyExistsException,
+    _ResourceInUseException,
+    _ResourceNotFoundException,
+    _TooManyTagKeysException,
+    _TooManyTagsException,
 
     -- * Domain
     Domain (..),
@@ -48,16 +48,16 @@ module Amazonka.Personalize.Types
     -- * Algorithm
     Algorithm (..),
     newAlgorithm,
+    algorithm_algorithmArn,
     algorithm_algorithmImage,
+    algorithm_creationDateTime,
+    algorithm_defaultHyperParameterRanges,
+    algorithm_defaultHyperParameters,
+    algorithm_defaultResourceConfig,
+    algorithm_lastUpdatedDateTime,
     algorithm_name,
     algorithm_roleArn,
-    algorithm_defaultHyperParameterRanges,
-    algorithm_creationDateTime,
-    algorithm_algorithmArn,
     algorithm_trainingInputMode,
-    algorithm_defaultResourceConfig,
-    algorithm_defaultHyperParameters,
-    algorithm_lastUpdatedDateTime,
 
     -- * AlgorithmImage
     AlgorithmImage (..),
@@ -68,8 +68,8 @@ module Amazonka.Personalize.Types
     -- * AutoMLConfig
     AutoMLConfig (..),
     newAutoMLConfig,
-    autoMLConfig_recipeList,
     autoMLConfig_metricName,
+    autoMLConfig_recipeList,
 
     -- * AutoMLResult
     AutoMLResult (..),
@@ -79,19 +79,19 @@ module Amazonka.Personalize.Types
     -- * BatchInferenceJob
     BatchInferenceJob (..),
     newBatchInferenceJob,
-    batchInferenceJob_roleArn,
-    batchInferenceJob_filterArn,
-    batchInferenceJob_jobOutput,
-    batchInferenceJob_creationDateTime,
-    batchInferenceJob_jobName,
-    batchInferenceJob_numResults,
-    batchInferenceJob_status,
-    batchInferenceJob_batchInferenceJobConfig,
     batchInferenceJob_batchInferenceJobArn,
-    batchInferenceJob_solutionVersionArn,
-    batchInferenceJob_jobInput,
-    batchInferenceJob_lastUpdatedDateTime,
+    batchInferenceJob_batchInferenceJobConfig,
+    batchInferenceJob_creationDateTime,
     batchInferenceJob_failureReason,
+    batchInferenceJob_filterArn,
+    batchInferenceJob_jobInput,
+    batchInferenceJob_jobName,
+    batchInferenceJob_jobOutput,
+    batchInferenceJob_lastUpdatedDateTime,
+    batchInferenceJob_numResults,
+    batchInferenceJob_roleArn,
+    batchInferenceJob_solutionVersionArn,
+    batchInferenceJob_status,
 
     -- * BatchInferenceJobConfig
     BatchInferenceJobConfig (..),
@@ -111,29 +111,29 @@ module Amazonka.Personalize.Types
     -- * BatchInferenceJobSummary
     BatchInferenceJobSummary (..),
     newBatchInferenceJobSummary,
-    batchInferenceJobSummary_creationDateTime,
-    batchInferenceJobSummary_jobName,
-    batchInferenceJobSummary_status,
     batchInferenceJobSummary_batchInferenceJobArn,
-    batchInferenceJobSummary_solutionVersionArn,
-    batchInferenceJobSummary_lastUpdatedDateTime,
+    batchInferenceJobSummary_creationDateTime,
     batchInferenceJobSummary_failureReason,
+    batchInferenceJobSummary_jobName,
+    batchInferenceJobSummary_lastUpdatedDateTime,
+    batchInferenceJobSummary_solutionVersionArn,
+    batchInferenceJobSummary_status,
 
     -- * BatchSegmentJob
     BatchSegmentJob (..),
     newBatchSegmentJob,
-    batchSegmentJob_roleArn,
-    batchSegmentJob_filterArn,
-    batchSegmentJob_jobOutput,
-    batchSegmentJob_creationDateTime,
-    batchSegmentJob_jobName,
-    batchSegmentJob_numResults,
-    batchSegmentJob_status,
-    batchSegmentJob_solutionVersionArn,
-    batchSegmentJob_jobInput,
-    batchSegmentJob_lastUpdatedDateTime,
-    batchSegmentJob_failureReason,
     batchSegmentJob_batchSegmentJobArn,
+    batchSegmentJob_creationDateTime,
+    batchSegmentJob_failureReason,
+    batchSegmentJob_filterArn,
+    batchSegmentJob_jobInput,
+    batchSegmentJob_jobName,
+    batchSegmentJob_jobOutput,
+    batchSegmentJob_lastUpdatedDateTime,
+    batchSegmentJob_numResults,
+    batchSegmentJob_roleArn,
+    batchSegmentJob_solutionVersionArn,
+    batchSegmentJob_status,
 
     -- * BatchSegmentJobInput
     BatchSegmentJobInput (..),
@@ -148,27 +148,27 @@ module Amazonka.Personalize.Types
     -- * BatchSegmentJobSummary
     BatchSegmentJobSummary (..),
     newBatchSegmentJobSummary,
-    batchSegmentJobSummary_creationDateTime,
-    batchSegmentJobSummary_jobName,
-    batchSegmentJobSummary_status,
-    batchSegmentJobSummary_solutionVersionArn,
-    batchSegmentJobSummary_lastUpdatedDateTime,
-    batchSegmentJobSummary_failureReason,
     batchSegmentJobSummary_batchSegmentJobArn,
+    batchSegmentJobSummary_creationDateTime,
+    batchSegmentJobSummary_failureReason,
+    batchSegmentJobSummary_jobName,
+    batchSegmentJobSummary_lastUpdatedDateTime,
+    batchSegmentJobSummary_solutionVersionArn,
+    batchSegmentJobSummary_status,
 
     -- * Campaign
     Campaign (..),
     newCampaign,
-    campaign_name,
-    campaign_creationDateTime,
-    campaign_latestCampaignUpdate,
-    campaign_campaignConfig,
-    campaign_status,
-    campaign_minProvisionedTPS,
-    campaign_solutionVersionArn,
     campaign_campaignArn,
-    campaign_lastUpdatedDateTime,
+    campaign_campaignConfig,
+    campaign_creationDateTime,
     campaign_failureReason,
+    campaign_lastUpdatedDateTime,
+    campaign_latestCampaignUpdate,
+    campaign_minProvisionedTPS,
+    campaign_name,
+    campaign_solutionVersionArn,
+    campaign_status,
 
     -- * CampaignConfig
     CampaignConfig (..),
@@ -178,23 +178,23 @@ module Amazonka.Personalize.Types
     -- * CampaignSummary
     CampaignSummary (..),
     newCampaignSummary,
-    campaignSummary_name,
-    campaignSummary_creationDateTime,
-    campaignSummary_status,
     campaignSummary_campaignArn,
-    campaignSummary_lastUpdatedDateTime,
+    campaignSummary_creationDateTime,
     campaignSummary_failureReason,
+    campaignSummary_lastUpdatedDateTime,
+    campaignSummary_name,
+    campaignSummary_status,
 
     -- * CampaignUpdateSummary
     CampaignUpdateSummary (..),
     newCampaignUpdateSummary,
-    campaignUpdateSummary_creationDateTime,
     campaignUpdateSummary_campaignConfig,
-    campaignUpdateSummary_status,
+    campaignUpdateSummary_creationDateTime,
+    campaignUpdateSummary_failureReason,
+    campaignUpdateSummary_lastUpdatedDateTime,
     campaignUpdateSummary_minProvisionedTPS,
     campaignUpdateSummary_solutionVersionArn,
-    campaignUpdateSummary_lastUpdatedDateTime,
-    campaignUpdateSummary_failureReason,
+    campaignUpdateSummary_status,
 
     -- * CategoricalHyperParameterRange
     CategoricalHyperParameterRange (..),
@@ -205,9 +205,9 @@ module Amazonka.Personalize.Types
     -- * ContinuousHyperParameterRange
     ContinuousHyperParameterRange (..),
     newContinuousHyperParameterRange,
-    continuousHyperParameterRange_name,
-    continuousHyperParameterRange_minValue,
     continuousHyperParameterRange_maxValue,
+    continuousHyperParameterRange_minValue,
+    continuousHyperParameterRange_name,
 
     -- * DataSource
     DataSource (..),
@@ -217,28 +217,28 @@ module Amazonka.Personalize.Types
     -- * Dataset
     Dataset (..),
     newDataset,
-    dataset_name,
     dataset_creationDateTime,
-    dataset_datasetType,
-    dataset_status,
     dataset_datasetArn,
-    dataset_schemaArn,
     dataset_datasetGroupArn,
+    dataset_datasetType,
     dataset_lastUpdatedDateTime,
+    dataset_name,
+    dataset_schemaArn,
+    dataset_status,
 
     -- * DatasetExportJob
     DatasetExportJob (..),
     newDatasetExportJob,
-    datasetExportJob_roleArn,
-    datasetExportJob_jobOutput,
     datasetExportJob_creationDateTime,
-    datasetExportJob_jobName,
-    datasetExportJob_status,
     datasetExportJob_datasetArn,
-    datasetExportJob_ingestionMode,
     datasetExportJob_datasetExportJobArn,
-    datasetExportJob_lastUpdatedDateTime,
     datasetExportJob_failureReason,
+    datasetExportJob_ingestionMode,
+    datasetExportJob_jobName,
+    datasetExportJob_jobOutput,
+    datasetExportJob_lastUpdatedDateTime,
+    datasetExportJob_roleArn,
+    datasetExportJob_status,
 
     -- * DatasetExportJobOutput
     DatasetExportJobOutput (..),
@@ -249,174 +249,174 @@ module Amazonka.Personalize.Types
     DatasetExportJobSummary (..),
     newDatasetExportJobSummary,
     datasetExportJobSummary_creationDateTime,
-    datasetExportJobSummary_jobName,
-    datasetExportJobSummary_status,
     datasetExportJobSummary_datasetExportJobArn,
-    datasetExportJobSummary_lastUpdatedDateTime,
     datasetExportJobSummary_failureReason,
+    datasetExportJobSummary_jobName,
+    datasetExportJobSummary_lastUpdatedDateTime,
+    datasetExportJobSummary_status,
 
     -- * DatasetGroup
     DatasetGroup (..),
     newDatasetGroup,
+    datasetGroup_creationDateTime,
+    datasetGroup_datasetGroupArn,
+    datasetGroup_domain,
+    datasetGroup_failureReason,
+    datasetGroup_kmsKeyArn,
+    datasetGroup_lastUpdatedDateTime,
     datasetGroup_name,
     datasetGroup_roleArn,
-    datasetGroup_creationDateTime,
-    datasetGroup_domain,
     datasetGroup_status,
-    datasetGroup_kmsKeyArn,
-    datasetGroup_datasetGroupArn,
-    datasetGroup_lastUpdatedDateTime,
-    datasetGroup_failureReason,
 
     -- * DatasetGroupSummary
     DatasetGroupSummary (..),
     newDatasetGroupSummary,
-    datasetGroupSummary_name,
     datasetGroupSummary_creationDateTime,
-    datasetGroupSummary_domain,
-    datasetGroupSummary_status,
     datasetGroupSummary_datasetGroupArn,
-    datasetGroupSummary_lastUpdatedDateTime,
+    datasetGroupSummary_domain,
     datasetGroupSummary_failureReason,
+    datasetGroupSummary_lastUpdatedDateTime,
+    datasetGroupSummary_name,
+    datasetGroupSummary_status,
 
     -- * DatasetImportJob
     DatasetImportJob (..),
     newDatasetImportJob,
-    datasetImportJob_roleArn,
     datasetImportJob_creationDateTime,
-    datasetImportJob_jobName,
-    datasetImportJob_status,
-    datasetImportJob_publishAttributionMetricsToS3,
+    datasetImportJob_dataSource,
     datasetImportJob_datasetArn,
     datasetImportJob_datasetImportJobArn,
-    datasetImportJob_dataSource,
-    datasetImportJob_importMode,
-    datasetImportJob_lastUpdatedDateTime,
     datasetImportJob_failureReason,
+    datasetImportJob_importMode,
+    datasetImportJob_jobName,
+    datasetImportJob_lastUpdatedDateTime,
+    datasetImportJob_publishAttributionMetricsToS3,
+    datasetImportJob_roleArn,
+    datasetImportJob_status,
 
     -- * DatasetImportJobSummary
     DatasetImportJobSummary (..),
     newDatasetImportJobSummary,
     datasetImportJobSummary_creationDateTime,
-    datasetImportJobSummary_jobName,
-    datasetImportJobSummary_status,
     datasetImportJobSummary_datasetImportJobArn,
-    datasetImportJobSummary_importMode,
-    datasetImportJobSummary_lastUpdatedDateTime,
     datasetImportJobSummary_failureReason,
+    datasetImportJobSummary_importMode,
+    datasetImportJobSummary_jobName,
+    datasetImportJobSummary_lastUpdatedDateTime,
+    datasetImportJobSummary_status,
 
     -- * DatasetSchema
     DatasetSchema (..),
     newDatasetSchema,
-    datasetSchema_name,
     datasetSchema_creationDateTime,
     datasetSchema_domain,
-    datasetSchema_schemaArn,
-    datasetSchema_schema,
     datasetSchema_lastUpdatedDateTime,
+    datasetSchema_name,
+    datasetSchema_schema,
+    datasetSchema_schemaArn,
 
     -- * DatasetSchemaSummary
     DatasetSchemaSummary (..),
     newDatasetSchemaSummary,
-    datasetSchemaSummary_name,
     datasetSchemaSummary_creationDateTime,
     datasetSchemaSummary_domain,
-    datasetSchemaSummary_schemaArn,
     datasetSchemaSummary_lastUpdatedDateTime,
+    datasetSchemaSummary_name,
+    datasetSchemaSummary_schemaArn,
 
     -- * DatasetSummary
     DatasetSummary (..),
     newDatasetSummary,
-    datasetSummary_name,
     datasetSummary_creationDateTime,
-    datasetSummary_datasetType,
-    datasetSummary_status,
     datasetSummary_datasetArn,
+    datasetSummary_datasetType,
     datasetSummary_lastUpdatedDateTime,
+    datasetSummary_name,
+    datasetSummary_status,
 
     -- * DefaultCategoricalHyperParameterRange
     DefaultCategoricalHyperParameterRange (..),
     newDefaultCategoricalHyperParameterRange,
-    defaultCategoricalHyperParameterRange_name,
     defaultCategoricalHyperParameterRange_isTunable,
+    defaultCategoricalHyperParameterRange_name,
     defaultCategoricalHyperParameterRange_values,
 
     -- * DefaultContinuousHyperParameterRange
     DefaultContinuousHyperParameterRange (..),
     newDefaultContinuousHyperParameterRange,
-    defaultContinuousHyperParameterRange_name,
-    defaultContinuousHyperParameterRange_minValue,
     defaultContinuousHyperParameterRange_isTunable,
     defaultContinuousHyperParameterRange_maxValue,
+    defaultContinuousHyperParameterRange_minValue,
+    defaultContinuousHyperParameterRange_name,
 
     -- * DefaultHyperParameterRanges
     DefaultHyperParameterRanges (..),
     newDefaultHyperParameterRanges,
-    defaultHyperParameterRanges_integerHyperParameterRanges,
     defaultHyperParameterRanges_categoricalHyperParameterRanges,
     defaultHyperParameterRanges_continuousHyperParameterRanges,
+    defaultHyperParameterRanges_integerHyperParameterRanges,
 
     -- * DefaultIntegerHyperParameterRange
     DefaultIntegerHyperParameterRange (..),
     newDefaultIntegerHyperParameterRange,
-    defaultIntegerHyperParameterRange_name,
-    defaultIntegerHyperParameterRange_minValue,
     defaultIntegerHyperParameterRange_isTunable,
     defaultIntegerHyperParameterRange_maxValue,
+    defaultIntegerHyperParameterRange_minValue,
+    defaultIntegerHyperParameterRange_name,
 
     -- * EventTracker
     EventTracker (..),
     newEventTracker,
-    eventTracker_name,
-    eventTracker_creationDateTime,
-    eventTracker_trackingId,
-    eventTracker_eventTrackerArn,
-    eventTracker_status,
     eventTracker_accountId,
+    eventTracker_creationDateTime,
     eventTracker_datasetGroupArn,
+    eventTracker_eventTrackerArn,
     eventTracker_lastUpdatedDateTime,
+    eventTracker_name,
+    eventTracker_status,
+    eventTracker_trackingId,
 
     -- * EventTrackerSummary
     EventTrackerSummary (..),
     newEventTrackerSummary,
-    eventTrackerSummary_name,
     eventTrackerSummary_creationDateTime,
     eventTrackerSummary_eventTrackerArn,
-    eventTrackerSummary_status,
     eventTrackerSummary_lastUpdatedDateTime,
+    eventTrackerSummary_name,
+    eventTrackerSummary_status,
 
     -- * FeatureTransformation
     FeatureTransformation (..),
     newFeatureTransformation,
-    featureTransformation_name,
     featureTransformation_creationDateTime,
-    featureTransformation_featureTransformationArn,
-    featureTransformation_status,
     featureTransformation_defaultParameters,
+    featureTransformation_featureTransformationArn,
     featureTransformation_lastUpdatedDateTime,
+    featureTransformation_name,
+    featureTransformation_status,
 
     -- * Filter
     Filter (..),
     newFilter,
-    filter_name,
-    filter_filterArn,
     filter_creationDateTime,
-    filter_filterExpression,
-    filter_status,
     filter_datasetGroupArn,
-    filter_lastUpdatedDateTime,
     filter_failureReason,
+    filter_filterArn,
+    filter_filterExpression,
+    filter_lastUpdatedDateTime,
+    filter_name,
+    filter_status,
 
     -- * FilterSummary
     FilterSummary (..),
     newFilterSummary,
-    filterSummary_name,
-    filterSummary_filterArn,
     filterSummary_creationDateTime,
-    filterSummary_status,
     filterSummary_datasetGroupArn,
-    filterSummary_lastUpdatedDateTime,
     filterSummary_failureReason,
+    filterSummary_filterArn,
+    filterSummary_lastUpdatedDateTime,
+    filterSummary_name,
+    filterSummary_status,
 
     -- * HPOConfig
     HPOConfig (..),
@@ -428,29 +428,29 @@ module Amazonka.Personalize.Types
     -- * HPOObjective
     HPOObjective (..),
     newHPOObjective,
-    hPOObjective_type,
     hPOObjective_metricName,
     hPOObjective_metricRegex,
+    hPOObjective_type,
 
     -- * HPOResourceConfig
     HPOResourceConfig (..),
     newHPOResourceConfig,
-    hPOResourceConfig_maxParallelTrainingJobs,
     hPOResourceConfig_maxNumberOfTrainingJobs,
+    hPOResourceConfig_maxParallelTrainingJobs,
 
     -- * HyperParameterRanges
     HyperParameterRanges (..),
     newHyperParameterRanges,
-    hyperParameterRanges_integerHyperParameterRanges,
     hyperParameterRanges_categoricalHyperParameterRanges,
     hyperParameterRanges_continuousHyperParameterRanges,
+    hyperParameterRanges_integerHyperParameterRanges,
 
     -- * IntegerHyperParameterRange
     IntegerHyperParameterRange (..),
     newIntegerHyperParameterRange,
-    integerHyperParameterRange_name,
-    integerHyperParameterRange_minValue,
     integerHyperParameterRange_maxValue,
+    integerHyperParameterRange_minValue,
+    integerHyperParameterRange_name,
 
     -- * MetricAttribute
     MetricAttribute (..),
@@ -462,14 +462,14 @@ module Amazonka.Personalize.Types
     -- * MetricAttribution
     MetricAttribution (..),
     newMetricAttribution,
-    metricAttribution_name,
     metricAttribution_creationDateTime,
-    metricAttribution_status,
-    metricAttribution_metricsOutputConfig,
-    metricAttribution_metricAttributionArn,
     metricAttribution_datasetGroupArn,
-    metricAttribution_lastUpdatedDateTime,
     metricAttribution_failureReason,
+    metricAttribution_lastUpdatedDateTime,
+    metricAttribution_metricAttributionArn,
+    metricAttribution_metricsOutputConfig,
+    metricAttribution_name,
+    metricAttribution_status,
 
     -- * MetricAttributionOutput
     MetricAttributionOutput (..),
@@ -480,83 +480,83 @@ module Amazonka.Personalize.Types
     -- * MetricAttributionSummary
     MetricAttributionSummary (..),
     newMetricAttributionSummary,
-    metricAttributionSummary_name,
     metricAttributionSummary_creationDateTime,
-    metricAttributionSummary_status,
-    metricAttributionSummary_metricAttributionArn,
-    metricAttributionSummary_lastUpdatedDateTime,
     metricAttributionSummary_failureReason,
+    metricAttributionSummary_lastUpdatedDateTime,
+    metricAttributionSummary_metricAttributionArn,
+    metricAttributionSummary_name,
+    metricAttributionSummary_status,
 
     -- * OptimizationObjective
     OptimizationObjective (..),
     newOptimizationObjective,
-    optimizationObjective_objectiveSensitivity,
     optimizationObjective_itemAttribute,
+    optimizationObjective_objectiveSensitivity,
 
     -- * Recipe
     Recipe (..),
     newRecipe,
-    recipe_name,
-    recipe_creationDateTime,
-    recipe_featureTransformationArn,
-    recipe_status,
-    recipe_description,
     recipe_algorithmArn,
-    recipe_recipeType,
-    recipe_recipeArn,
+    recipe_creationDateTime,
+    recipe_description,
+    recipe_featureTransformationArn,
     recipe_lastUpdatedDateTime,
+    recipe_name,
+    recipe_recipeArn,
+    recipe_recipeType,
+    recipe_status,
 
     -- * RecipeSummary
     RecipeSummary (..),
     newRecipeSummary,
-    recipeSummary_name,
     recipeSummary_creationDateTime,
     recipeSummary_domain,
-    recipeSummary_status,
-    recipeSummary_recipeArn,
     recipeSummary_lastUpdatedDateTime,
+    recipeSummary_name,
+    recipeSummary_recipeArn,
+    recipeSummary_status,
 
     -- * Recommender
     Recommender (..),
     newRecommender,
-    recommender_name,
     recommender_creationDateTime,
+    recommender_datasetGroupArn,
+    recommender_failureReason,
+    recommender_lastUpdatedDateTime,
+    recommender_latestRecommenderUpdate,
+    recommender_modelMetrics,
+    recommender_name,
+    recommender_recipeArn,
     recommender_recommenderArn,
     recommender_recommenderConfig,
-    recommender_latestRecommenderUpdate,
     recommender_status,
-    recommender_modelMetrics,
-    recommender_datasetGroupArn,
-    recommender_recipeArn,
-    recommender_lastUpdatedDateTime,
-    recommender_failureReason,
 
     -- * RecommenderConfig
     RecommenderConfig (..),
     newRecommenderConfig,
-    recommenderConfig_minRecommendationRequestsPerSecond,
     recommenderConfig_itemExplorationConfig,
+    recommenderConfig_minRecommendationRequestsPerSecond,
 
     -- * RecommenderSummary
     RecommenderSummary (..),
     newRecommenderSummary,
-    recommenderSummary_name,
     recommenderSummary_creationDateTime,
+    recommenderSummary_datasetGroupArn,
+    recommenderSummary_lastUpdatedDateTime,
+    recommenderSummary_name,
+    recommenderSummary_recipeArn,
     recommenderSummary_recommenderArn,
     recommenderSummary_recommenderConfig,
     recommenderSummary_status,
-    recommenderSummary_datasetGroupArn,
-    recommenderSummary_recipeArn,
-    recommenderSummary_lastUpdatedDateTime,
 
     -- * RecommenderUpdateSummary
     RecommenderUpdateSummary (..),
     newRecommenderUpdateSummary,
     recommenderUpdateSummary_creationDateTime,
+    recommenderUpdateSummary_failureReason,
+    recommenderUpdateSummary_lastUpdatedDateTime,
     recommenderUpdateSummary_recommenderConfig,
     recommenderUpdateSummary_status,
-    recommenderUpdateSummary_lastUpdatedDateTime,
-    recommenderUpdateSummary_failureReason,
 
     -- * S3DataConfig
     S3DataConfig (..),
@@ -567,68 +567,68 @@ module Amazonka.Personalize.Types
     -- * Solution
     Solution (..),
     newSolution,
-    solution_solutionArn,
+    solution_autoMLResult,
+    solution_creationDateTime,
+    solution_datasetGroupArn,
     solution_eventType,
+    solution_lastUpdatedDateTime,
     solution_latestSolutionVersion,
     solution_name,
     solution_performAutoML,
     solution_performHPO,
-    solution_creationDateTime,
-    solution_solutionConfig,
-    solution_autoMLResult,
-    solution_status,
-    solution_datasetGroupArn,
     solution_recipeArn,
-    solution_lastUpdatedDateTime,
+    solution_solutionArn,
+    solution_solutionConfig,
+    solution_status,
 
     -- * SolutionConfig
     SolutionConfig (..),
     newSolutionConfig,
-    solutionConfig_featureTransformationParameters,
-    solutionConfig_optimizationObjective,
     solutionConfig_algorithmHyperParameters,
     solutionConfig_autoMLConfig,
     solutionConfig_eventValueThreshold,
+    solutionConfig_featureTransformationParameters,
     solutionConfig_hpoConfig,
+    solutionConfig_optimizationObjective,
 
     -- * SolutionSummary
     SolutionSummary (..),
     newSolutionSummary,
-    solutionSummary_solutionArn,
-    solutionSummary_name,
     solutionSummary_creationDateTime,
-    solutionSummary_status,
-    solutionSummary_recipeArn,
     solutionSummary_lastUpdatedDateTime,
+    solutionSummary_name,
+    solutionSummary_recipeArn,
+    solutionSummary_solutionArn,
+    solutionSummary_status,
 
     -- * SolutionVersion
     SolutionVersion (..),
     newSolutionVersion,
-    solutionVersion_solutionArn,
+    solutionVersion_creationDateTime,
+    solutionVersion_datasetGroupArn,
     solutionVersion_eventType,
+    solutionVersion_failureReason,
+    solutionVersion_lastUpdatedDateTime,
     solutionVersion_name,
-    solutionVersion_tunedHPOParams,
     solutionVersion_performAutoML,
     solutionVersion_performHPO,
-    solutionVersion_creationDateTime,
+    solutionVersion_recipeArn,
+    solutionVersion_solutionArn,
     solutionVersion_solutionConfig,
+    solutionVersion_solutionVersionArn,
     solutionVersion_status,
     solutionVersion_trainingHours,
     solutionVersion_trainingMode,
-    solutionVersion_datasetGroupArn,
-    solutionVersion_solutionVersionArn,
-    solutionVersion_recipeArn,
-    solutionVersion_lastUpdatedDateTime,
-    solutionVersion_failureReason,
+    solutionVersion_tunedHPOParams,
 
     -- * SolutionVersionSummary
     SolutionVersionSummary (..),
     newSolutionVersionSummary,
     solutionVersionSummary_creationDateTime,
-    solutionVersionSummary_status,
-    solutionVersionSummary_solutionVersionArn,
-    solutionVersionSummary_lastUpdatedDateTime,
     solutionVersionSummary_failureReason,
+    solutionVersionSummary_lastUpdatedDateTime,
+    solutionVersionSummary_solutionVersionArn,
+    solutionVersionSummary_status,
 
     -- * Tag
     Tag (..),
@@ -743,28 +743,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -772,13 +766,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -786,14 +784,9 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The specified resource already exists.
-_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceAlreadyExistsException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceAlreadyExistsException"
 
 -- | Provide a valid value for the field or parameter.
 _InvalidInputException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -802,13 +795,40 @@ _InvalidInputException =
     defaultService
     "InvalidInputException"
 
--- | You have exceeded the maximum number of tags you can apply to this
--- resource.
-_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyTagsException =
+-- | The token is not valid.
+_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNextTokenException =
   Core._MatchServiceError
     defaultService
-    "TooManyTagsException"
+    "InvalidNextTokenException"
+
+-- | The limit on the number of requests per second has been exceeded.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
+
+-- | The specified resource already exists.
+_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceAlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceAlreadyExistsException"
+
+-- | The specified resource is in use.
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceInUseException"
+
+-- | Could not find the specified resource.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
 
 -- | The request contains more tag keys than can be associated with a
 -- resource (50 tag keys per resource).
@@ -818,30 +838,10 @@ _TooManyTagKeysException =
     defaultService
     "TooManyTagKeysException"
 
--- | Could not find the specified resource.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
+-- | You have exceeded the maximum number of tags you can apply to this
+-- resource.
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException =
   Core._MatchServiceError
     defaultService
-    "ResourceNotFoundException"
-
--- | The specified resource is in use.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceInUseException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceInUseException"
-
--- | The limit on the number of requests per second has been exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "LimitExceededException"
-
--- | The token is not valid.
-_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidNextTokenException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidNextTokenException"
+    "TooManyTagsException"

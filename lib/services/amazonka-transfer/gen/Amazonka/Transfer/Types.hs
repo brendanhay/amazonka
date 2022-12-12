@@ -19,14 +19,14 @@ module Amazonka.Transfer.Types
 
     -- * Errors
     _AccessDeniedException,
-    _ServiceUnavailableException,
-    _ResourceNotFoundException,
-    _InvalidNextTokenException,
-    _InternalServiceError,
     _ConflictException,
-    _ThrottlingException,
-    _ResourceExistsException,
+    _InternalServiceError,
+    _InvalidNextTokenException,
     _InvalidRequestException,
+    _ResourceExistsException,
+    _ResourceNotFoundException,
+    _ServiceUnavailableException,
+    _ThrottlingException,
 
     -- * AgreementStatusType
     AgreementStatusType (..),
@@ -103,30 +103,30 @@ module Amazonka.Transfer.Types
     -- * As2ConnectorConfig
     As2ConnectorConfig (..),
     newAs2ConnectorConfig,
-    as2ConnectorConfig_encryptionAlgorithm,
     as2ConnectorConfig_compression,
-    as2ConnectorConfig_mdnSigningAlgorithm,
+    as2ConnectorConfig_encryptionAlgorithm,
     as2ConnectorConfig_localProfileId,
     as2ConnectorConfig_mdnResponse,
+    as2ConnectorConfig_mdnSigningAlgorithm,
     as2ConnectorConfig_messageSubject,
-    as2ConnectorConfig_signingAlgorithm,
     as2ConnectorConfig_partnerProfileId,
+    as2ConnectorConfig_signingAlgorithm,
 
     -- * CopyStepDetails
     CopyStepDetails (..),
     newCopyStepDetails,
+    copyStepDetails_destinationFileLocation,
     copyStepDetails_name,
     copyStepDetails_overwriteExisting,
     copyStepDetails_sourceFileLocation,
-    copyStepDetails_destinationFileLocation,
 
     -- * CustomStepDetails
     CustomStepDetails (..),
     newCustomStepDetails,
     customStepDetails_name,
-    customStepDetails_timeoutSeconds,
-    customStepDetails_target,
     customStepDetails_sourceFileLocation,
+    customStepDetails_target,
+    customStepDetails_timeoutSeconds,
 
     -- * DeleteStepDetails
     DeleteStepDetails (..),
@@ -137,161 +137,161 @@ module Amazonka.Transfer.Types
     -- * DescribedAccess
     DescribedAccess (..),
     newDescribedAccess,
+    describedAccess_externalId,
     describedAccess_homeDirectory,
+    describedAccess_homeDirectoryMappings,
+    describedAccess_homeDirectoryType,
     describedAccess_policy,
     describedAccess_posixProfile,
-    describedAccess_externalId,
     describedAccess_role,
-    describedAccess_homeDirectoryType,
-    describedAccess_homeDirectoryMappings,
 
     -- * DescribedAgreement
     DescribedAgreement (..),
     newDescribedAgreement,
-    describedAgreement_tags,
     describedAgreement_accessRole,
-    describedAgreement_status,
+    describedAgreement_agreementId,
     describedAgreement_baseDirectory,
     describedAgreement_description,
     describedAgreement_localProfileId,
-    describedAgreement_agreementId,
-    describedAgreement_serverId,
     describedAgreement_partnerProfileId,
+    describedAgreement_serverId,
+    describedAgreement_status,
+    describedAgreement_tags,
     describedAgreement_arn,
 
     -- * DescribedCertificate
     DescribedCertificate (..),
     newDescribedCertificate,
-    describedCertificate_tags,
-    describedCertificate_usage,
-    describedCertificate_notBeforeDate,
-    describedCertificate_type,
-    describedCertificate_notAfterDate,
-    describedCertificate_serial,
-    describedCertificate_certificate,
-    describedCertificate_status,
-    describedCertificate_description,
-    describedCertificate_certificateId,
     describedCertificate_activeDate,
+    describedCertificate_certificate,
     describedCertificate_certificateChain,
+    describedCertificate_certificateId,
+    describedCertificate_description,
     describedCertificate_inactiveDate,
+    describedCertificate_notAfterDate,
+    describedCertificate_notBeforeDate,
+    describedCertificate_serial,
+    describedCertificate_status,
+    describedCertificate_tags,
+    describedCertificate_type,
+    describedCertificate_usage,
     describedCertificate_arn,
 
     -- * DescribedConnector
     DescribedConnector (..),
     newDescribedConnector,
-    describedConnector_tags,
-    describedConnector_connectorId,
     describedConnector_accessRole,
-    describedConnector_url,
     describedConnector_as2Config,
+    describedConnector_connectorId,
     describedConnector_loggingRole,
+    describedConnector_tags,
+    describedConnector_url,
     describedConnector_arn,
 
     -- * DescribedExecution
     DescribedExecution (..),
     newDescribedExecution,
-    describedExecution_executionRole,
-    describedExecution_serviceMetadata,
-    describedExecution_initialFileLocation,
-    describedExecution_posixProfile,
-    describedExecution_status,
     describedExecution_executionId,
-    describedExecution_results,
+    describedExecution_executionRole,
+    describedExecution_initialFileLocation,
     describedExecution_loggingConfiguration,
+    describedExecution_posixProfile,
+    describedExecution_results,
+    describedExecution_serviceMetadata,
+    describedExecution_status,
 
     -- * DescribedHostKey
     DescribedHostKey (..),
     newDescribedHostKey,
-    describedHostKey_tags,
-    describedHostKey_hostKeyId,
-    describedHostKey_type,
+    describedHostKey_dateImported,
     describedHostKey_description,
     describedHostKey_hostKeyFingerprint,
-    describedHostKey_dateImported,
+    describedHostKey_hostKeyId,
+    describedHostKey_tags,
+    describedHostKey_type,
     describedHostKey_arn,
 
     -- * DescribedProfile
     DescribedProfile (..),
     newDescribedProfile,
-    describedProfile_tags,
-    describedProfile_profileId,
-    describedProfile_certificateIds,
     describedProfile_as2Id,
+    describedProfile_certificateIds,
+    describedProfile_profileId,
     describedProfile_profileType,
+    describedProfile_tags,
     describedProfile_arn,
 
     -- * DescribedSecurityPolicy
     DescribedSecurityPolicy (..),
     newDescribedSecurityPolicy,
-    describedSecurityPolicy_tlsCiphers,
-    describedSecurityPolicy_sshKexs,
     describedSecurityPolicy_fips,
     describedSecurityPolicy_sshCiphers,
+    describedSecurityPolicy_sshKexs,
     describedSecurityPolicy_sshMacs,
+    describedSecurityPolicy_tlsCiphers,
     describedSecurityPolicy_securityPolicyName,
 
     -- * DescribedServer
     DescribedServer (..),
     newDescribedServer,
-    describedServer_tags,
-    describedServer_userCount,
-    describedServer_preAuthenticationLoginBanner,
-    describedServer_protocolDetails,
-    describedServer_identityProviderDetails,
-    describedServer_domain,
-    describedServer_identityProviderType,
-    describedServer_securityPolicyName,
-    describedServer_endpointDetails,
-    describedServer_state,
     describedServer_certificate,
-    describedServer_protocols,
+    describedServer_domain,
+    describedServer_endpointDetails,
     describedServer_endpointType,
     describedServer_hostKeyFingerprint,
+    describedServer_identityProviderDetails,
+    describedServer_identityProviderType,
     describedServer_loggingRole,
-    describedServer_serverId,
     describedServer_postAuthenticationLoginBanner,
+    describedServer_preAuthenticationLoginBanner,
+    describedServer_protocolDetails,
+    describedServer_protocols,
+    describedServer_securityPolicyName,
+    describedServer_serverId,
+    describedServer_state,
+    describedServer_tags,
+    describedServer_userCount,
     describedServer_workflowDetails,
     describedServer_arn,
 
     -- * DescribedUser
     DescribedUser (..),
     newDescribedUser,
-    describedUser_tags,
     describedUser_homeDirectory,
-    describedUser_policy,
-    describedUser_userName,
-    describedUser_posixProfile,
-    describedUser_sshPublicKeys,
-    describedUser_role,
-    describedUser_homeDirectoryType,
     describedUser_homeDirectoryMappings,
+    describedUser_homeDirectoryType,
+    describedUser_policy,
+    describedUser_posixProfile,
+    describedUser_role,
+    describedUser_sshPublicKeys,
+    describedUser_tags,
+    describedUser_userName,
     describedUser_arn,
 
     -- * DescribedWorkflow
     DescribedWorkflow (..),
     newDescribedWorkflow,
-    describedWorkflow_tags,
-    describedWorkflow_workflowId,
-    describedWorkflow_steps,
     describedWorkflow_description,
     describedWorkflow_onExceptionSteps,
+    describedWorkflow_steps,
+    describedWorkflow_tags,
+    describedWorkflow_workflowId,
     describedWorkflow_arn,
 
     -- * EfsFileLocation
     EfsFileLocation (..),
     newEfsFileLocation,
-    efsFileLocation_path,
     efsFileLocation_fileSystemId,
+    efsFileLocation_path,
 
     -- * EndpointDetails
     EndpointDetails (..),
     newEndpointDetails,
-    endpointDetails_securityGroupIds,
-    endpointDetails_vpcEndpointId,
     endpointDetails_addressAllocationIds,
-    endpointDetails_vpcId,
+    endpointDetails_securityGroupIds,
     endpointDetails_subnetIds,
+    endpointDetails_vpcEndpointId,
+    endpointDetails_vpcId,
 
     -- * ExecutionError
     ExecutionError (..),
@@ -302,21 +302,21 @@ module Amazonka.Transfer.Types
     -- * ExecutionResults
     ExecutionResults (..),
     newExecutionResults,
-    executionResults_steps,
     executionResults_onExceptionSteps,
+    executionResults_steps,
 
     -- * ExecutionStepResult
     ExecutionStepResult (..),
     newExecutionStepResult,
+    executionStepResult_error,
     executionStepResult_outputs,
     executionStepResult_stepType,
-    executionStepResult_error,
 
     -- * FileLocation
     FileLocation (..),
     newFileLocation,
-    fileLocation_s3FileLocation,
     fileLocation_efsFileLocation,
+    fileLocation_s3FileLocation,
 
     -- * HomeDirectoryMapEntry
     HomeDirectoryMapEntry (..),
@@ -328,114 +328,114 @@ module Amazonka.Transfer.Types
     IdentityProviderDetails (..),
     newIdentityProviderDetails,
     identityProviderDetails_directoryId,
-    identityProviderDetails_url,
-    identityProviderDetails_invocationRole,
     identityProviderDetails_function,
+    identityProviderDetails_invocationRole,
+    identityProviderDetails_url,
 
     -- * InputFileLocation
     InputFileLocation (..),
     newInputFileLocation,
-    inputFileLocation_s3FileLocation,
     inputFileLocation_efsFileLocation,
+    inputFileLocation_s3FileLocation,
 
     -- * ListedAccess
     ListedAccess (..),
     newListedAccess,
-    listedAccess_homeDirectory,
     listedAccess_externalId,
-    listedAccess_role,
+    listedAccess_homeDirectory,
     listedAccess_homeDirectoryType,
+    listedAccess_role,
 
     -- * ListedAgreement
     ListedAgreement (..),
     newListedAgreement,
+    listedAgreement_agreementId,
     listedAgreement_arn,
-    listedAgreement_status,
     listedAgreement_description,
     listedAgreement_localProfileId,
-    listedAgreement_agreementId,
-    listedAgreement_serverId,
     listedAgreement_partnerProfileId,
+    listedAgreement_serverId,
+    listedAgreement_status,
 
     -- * ListedCertificate
     ListedCertificate (..),
     newListedCertificate,
-    listedCertificate_usage,
-    listedCertificate_type,
-    listedCertificate_arn,
-    listedCertificate_status,
-    listedCertificate_description,
-    listedCertificate_certificateId,
     listedCertificate_activeDate,
+    listedCertificate_arn,
+    listedCertificate_certificateId,
+    listedCertificate_description,
     listedCertificate_inactiveDate,
+    listedCertificate_status,
+    listedCertificate_type,
+    listedCertificate_usage,
 
     -- * ListedConnector
     ListedConnector (..),
     newListedConnector,
-    listedConnector_connectorId,
     listedConnector_arn,
+    listedConnector_connectorId,
     listedConnector_url,
 
     -- * ListedExecution
     ListedExecution (..),
     newListedExecution,
-    listedExecution_serviceMetadata,
-    listedExecution_initialFileLocation,
-    listedExecution_status,
     listedExecution_executionId,
+    listedExecution_initialFileLocation,
+    listedExecution_serviceMetadata,
+    listedExecution_status,
 
     -- * ListedHostKey
     ListedHostKey (..),
     newListedHostKey,
-    listedHostKey_hostKeyId,
-    listedHostKey_type,
+    listedHostKey_dateImported,
     listedHostKey_description,
     listedHostKey_fingerprint,
-    listedHostKey_dateImported,
+    listedHostKey_hostKeyId,
+    listedHostKey_type,
     listedHostKey_arn,
 
     -- * ListedProfile
     ListedProfile (..),
     newListedProfile,
-    listedProfile_profileId,
-    listedProfile_as2Id,
     listedProfile_arn,
+    listedProfile_as2Id,
+    listedProfile_profileId,
     listedProfile_profileType,
 
     -- * ListedServer
     ListedServer (..),
     newListedServer,
-    listedServer_userCount,
     listedServer_domain,
-    listedServer_identityProviderType,
-    listedServer_state,
     listedServer_endpointType,
+    listedServer_identityProviderType,
     listedServer_loggingRole,
     listedServer_serverId,
+    listedServer_state,
+    listedServer_userCount,
     listedServer_arn,
 
     -- * ListedUser
     ListedUser (..),
     newListedUser,
     listedUser_homeDirectory,
-    listedUser_userName,
-    listedUser_role,
     listedUser_homeDirectoryType,
+    listedUser_role,
     listedUser_sshPublicKeyCount,
+    listedUser_userName,
     listedUser_arn,
 
     -- * ListedWorkflow
     ListedWorkflow (..),
     newListedWorkflow,
-    listedWorkflow_workflowId,
     listedWorkflow_arn,
     listedWorkflow_description,
+    listedWorkflow_workflowId,
 
     -- * LoggingConfiguration
     LoggingConfiguration (..),
     newLoggingConfiguration,
-    loggingConfiguration_loggingRole,
     loggingConfiguration_logGroupName,
+    loggingConfiguration_loggingRole,
 
     -- * PosixProfile
     PosixProfile (..),
@@ -449,22 +449,22 @@ module Amazonka.Transfer.Types
     newProtocolDetails,
     protocolDetails_as2Transports,
     protocolDetails_passiveIp,
-    protocolDetails_tlsSessionResumptionMode,
     protocolDetails_setStatOption,
+    protocolDetails_tlsSessionResumptionMode,
 
     -- * S3FileLocation
     S3FileLocation (..),
     newS3FileLocation,
-    s3FileLocation_key,
     s3FileLocation_bucket,
     s3FileLocation_etag,
+    s3FileLocation_key,
     s3FileLocation_versionId,
 
     -- * S3InputFileLocation
     S3InputFileLocation (..),
     newS3InputFileLocation,
-    s3InputFileLocation_key,
     s3InputFileLocation_bucket,
+    s3InputFileLocation_key,
 
     -- * S3Tag
     S3Tag (..),
@@ -493,9 +493,9 @@ module Amazonka.Transfer.Types
     -- * TagStepDetails
     TagStepDetails (..),
     newTagStepDetails,
-    tagStepDetails_tags,
     tagStepDetails_name,
     tagStepDetails_sourceFileLocation,
+    tagStepDetails_tags,
 
     -- * UserDetails
     UserDetails (..),
@@ -519,11 +519,11 @@ module Amazonka.Transfer.Types
     -- * WorkflowStep
     WorkflowStep (..),
     newWorkflowStep,
-    workflowStep_type,
-    workflowStep_tagStepDetails,
+    workflowStep_copyStepDetails,
     workflowStep_customStepDetails,
     workflowStep_deleteStepDetails,
-    workflowStep_copyStepDetails,
+    workflowStep_tagStepDetails,
+    workflowStep_type,
   )
 where
 
@@ -629,28 +629,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -658,13 +652,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -672,6 +670,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient access to perform this action.
@@ -680,37 +680,6 @@ _AccessDeniedException =
   Core._MatchServiceError
     defaultService
     "AccessDeniedException"
-
--- | The request has failed because the Amazon Web ServicesTransfer Family
--- service is not available.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceUnavailableException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceUnavailableException"
-
--- | This exception is thrown when a resource is not found by the Amazon Web
--- ServicesTransfer Family service.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-
--- | The @NextToken@ parameter that was passed is invalid.
-_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidNextTokenException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidNextTokenException"
-
--- | This exception is thrown when an error occurs in the Amazon Web
--- ServicesTransfer Family service.
-_InternalServiceError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServiceError =
-  Core._MatchServiceError
-    defaultService
-    "InternalServiceError"
 
 -- | This exception is thrown when the @UpdateServer@ is called for a file
 -- transfer protocol-enabled server that has VPC as the endpoint type and
@@ -721,12 +690,27 @@ _ConflictException =
     defaultService
     "ConflictException"
 
--- | The request was denied due to request throttling.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ThrottlingException =
+-- | This exception is thrown when an error occurs in the Amazon Web
+-- ServicesTransfer Family service.
+_InternalServiceError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServiceError =
   Core._MatchServiceError
     defaultService
-    "ThrottlingException"
+    "InternalServiceError"
+
+-- | The @NextToken@ parameter that was passed is invalid.
+_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNextTokenException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidNextTokenException"
+
+-- | This exception is thrown when the client submits a malformed request.
+_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRequestException"
 
 -- | The requested resource does not exist.
 _ResourceExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -735,9 +719,25 @@ _ResourceExistsException =
     defaultService
     "ResourceExistsException"
 
--- | This exception is thrown when the client submits a malformed request.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidRequestException =
+-- | This exception is thrown when a resource is not found by the Amazon Web
+-- ServicesTransfer Family service.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
-    "InvalidRequestException"
+    "ResourceNotFoundException"
+
+-- | The request has failed because the Amazon Web ServicesTransfer Family
+-- service is not available.
+_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceUnavailableException"
+
+-- | The request was denied due to request throttling.
+_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottlingException"

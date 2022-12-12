@@ -27,16 +27,16 @@ module Amazonka.Nimble.CreateStudioComponent
     newCreateStudioComponent,
 
     -- * Request Lenses
-    createStudioComponent_tags,
-    createStudioComponent_scriptParameters,
     createStudioComponent_clientToken,
-    createStudioComponent_initializationScripts,
     createStudioComponent_configuration,
     createStudioComponent_description,
+    createStudioComponent_ec2SecurityGroupIds,
+    createStudioComponent_initializationScripts,
+    createStudioComponent_runtimeRoleArn,
+    createStudioComponent_scriptParameters,
     createStudioComponent_secureInitializationRoleArn,
     createStudioComponent_subtype,
-    createStudioComponent_runtimeRoleArn,
-    createStudioComponent_ec2SecurityGroupIds,
+    createStudioComponent_tags,
     createStudioComponent_name,
     createStudioComponent_studioId,
     createStudioComponent_type,
@@ -61,34 +61,34 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateStudioComponent' smart constructor.
 data CreateStudioComponent = CreateStudioComponent'
-  { -- | A collection of labels, in the form of key:value pairs, that apply to
-    -- this resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Parameters for the studio component scripts.
-    scriptParameters :: Prelude.Maybe (Data.Sensitive [ScriptParameterKeyValue]),
-    -- | Unique, case-sensitive identifier that you provide to ensure the
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. If you don’t specify a client token, the AWS
     -- SDK automatically generates a client token and uses it for the request
     -- to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | Initialization scripts for studio components.
-    initializationScripts :: Prelude.Maybe [StudioComponentInitializationScript],
     -- | The configuration of the studio component, based on component type.
     configuration :: Prelude.Maybe StudioComponentConfiguration,
     -- | The description.
     description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The EC2 security groups that control access to the studio component.
+    ec2SecurityGroupIds :: Prelude.Maybe [Prelude.Text],
+    -- | Initialization scripts for studio components.
+    initializationScripts :: Prelude.Maybe [StudioComponentInitializationScript],
+    -- | An IAM role attached to a Studio Component that gives the studio
+    -- component access to AWS resources at anytime while the instance is
+    -- running.
+    runtimeRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | Parameters for the studio component scripts.
+    scriptParameters :: Prelude.Maybe (Data.Sensitive [ScriptParameterKeyValue]),
     -- | An IAM role attached to Studio Component when the system initialization
     -- script runs which give the studio component access to AWS resources when
     -- the system initialization script runs.
     secureInitializationRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The specific subtype of a studio component.
     subtype :: Prelude.Maybe StudioComponentSubtype,
-    -- | An IAM role attached to a Studio Component that gives the studio
-    -- component access to AWS resources at anytime while the instance is
-    -- running.
-    runtimeRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | The EC2 security groups that control access to the studio component.
-    ec2SecurityGroupIds :: Prelude.Maybe [Prelude.Text],
+    -- | A collection of labels, in the form of key:value pairs, that apply to
+    -- this resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name for the studio component.
     name :: Data.Sensitive Prelude.Text,
     -- | The studio ID.
@@ -106,21 +106,24 @@ data CreateStudioComponent = CreateStudioComponent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createStudioComponent_tags' - A collection of labels, in the form of key:value pairs, that apply to
--- this resource.
---
--- 'scriptParameters', 'createStudioComponent_scriptParameters' - Parameters for the studio component scripts.
---
 -- 'clientToken', 'createStudioComponent_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. If you don’t specify a client token, the AWS
 -- SDK automatically generates a client token and uses it for the request
 -- to ensure idempotency.
 --
--- 'initializationScripts', 'createStudioComponent_initializationScripts' - Initialization scripts for studio components.
---
 -- 'configuration', 'createStudioComponent_configuration' - The configuration of the studio component, based on component type.
 --
 -- 'description', 'createStudioComponent_description' - The description.
+--
+-- 'ec2SecurityGroupIds', 'createStudioComponent_ec2SecurityGroupIds' - The EC2 security groups that control access to the studio component.
+--
+-- 'initializationScripts', 'createStudioComponent_initializationScripts' - Initialization scripts for studio components.
+--
+-- 'runtimeRoleArn', 'createStudioComponent_runtimeRoleArn' - An IAM role attached to a Studio Component that gives the studio
+-- component access to AWS resources at anytime while the instance is
+-- running.
+--
+-- 'scriptParameters', 'createStudioComponent_scriptParameters' - Parameters for the studio component scripts.
 --
 -- 'secureInitializationRoleArn', 'createStudioComponent_secureInitializationRoleArn' - An IAM role attached to Studio Component when the system initialization
 -- script runs which give the studio component access to AWS resources when
@@ -128,11 +131,8 @@ data CreateStudioComponent = CreateStudioComponent'
 --
 -- 'subtype', 'createStudioComponent_subtype' - The specific subtype of a studio component.
 --
--- 'runtimeRoleArn', 'createStudioComponent_runtimeRoleArn' - An IAM role attached to a Studio Component that gives the studio
--- component access to AWS resources at anytime while the instance is
--- running.
---
--- 'ec2SecurityGroupIds', 'createStudioComponent_ec2SecurityGroupIds' - The EC2 security groups that control access to the studio component.
+-- 'tags', 'createStudioComponent_tags' - A collection of labels, in the form of key:value pairs, that apply to
+-- this resource.
 --
 -- 'name', 'createStudioComponent_name' - The name for the studio component.
 --
@@ -149,29 +149,21 @@ newCreateStudioComponent ::
   CreateStudioComponent
 newCreateStudioComponent pName_ pStudioId_ pType_ =
   CreateStudioComponent'
-    { tags = Prelude.Nothing,
-      scriptParameters = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
-      initializationScripts = Prelude.Nothing,
+    { clientToken =
+        Prelude.Nothing,
       configuration = Prelude.Nothing,
       description = Prelude.Nothing,
+      ec2SecurityGroupIds = Prelude.Nothing,
+      initializationScripts = Prelude.Nothing,
+      runtimeRoleArn = Prelude.Nothing,
+      scriptParameters = Prelude.Nothing,
       secureInitializationRoleArn = Prelude.Nothing,
       subtype = Prelude.Nothing,
-      runtimeRoleArn = Prelude.Nothing,
-      ec2SecurityGroupIds = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = Data._Sensitive Lens.# pName_,
       studioId = pStudioId_,
       type' = pType_
     }
-
--- | A collection of labels, in the form of key:value pairs, that apply to
--- this resource.
-createStudioComponent_tags :: Lens.Lens' CreateStudioComponent (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createStudioComponent_tags = Lens.lens (\CreateStudioComponent' {tags} -> tags) (\s@CreateStudioComponent' {} a -> s {tags = a} :: CreateStudioComponent) Prelude.. Lens.mapping Lens.coerced
-
--- | Parameters for the studio component scripts.
-createStudioComponent_scriptParameters :: Lens.Lens' CreateStudioComponent (Prelude.Maybe [ScriptParameterKeyValue])
-createStudioComponent_scriptParameters = Lens.lens (\CreateStudioComponent' {scriptParameters} -> scriptParameters) (\s@CreateStudioComponent' {} a -> s {scriptParameters = a} :: CreateStudioComponent) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. If you don’t specify a client token, the AWS
@@ -180,10 +172,6 @@ createStudioComponent_scriptParameters = Lens.lens (\CreateStudioComponent' {scr
 createStudioComponent_clientToken :: Lens.Lens' CreateStudioComponent (Prelude.Maybe Prelude.Text)
 createStudioComponent_clientToken = Lens.lens (\CreateStudioComponent' {clientToken} -> clientToken) (\s@CreateStudioComponent' {} a -> s {clientToken = a} :: CreateStudioComponent)
 
--- | Initialization scripts for studio components.
-createStudioComponent_initializationScripts :: Lens.Lens' CreateStudioComponent (Prelude.Maybe [StudioComponentInitializationScript])
-createStudioComponent_initializationScripts = Lens.lens (\CreateStudioComponent' {initializationScripts} -> initializationScripts) (\s@CreateStudioComponent' {} a -> s {initializationScripts = a} :: CreateStudioComponent) Prelude.. Lens.mapping Lens.coerced
-
 -- | The configuration of the studio component, based on component type.
 createStudioComponent_configuration :: Lens.Lens' CreateStudioComponent (Prelude.Maybe StudioComponentConfiguration)
 createStudioComponent_configuration = Lens.lens (\CreateStudioComponent' {configuration} -> configuration) (\s@CreateStudioComponent' {} a -> s {configuration = a} :: CreateStudioComponent)
@@ -191,6 +179,24 @@ createStudioComponent_configuration = Lens.lens (\CreateStudioComponent' {config
 -- | The description.
 createStudioComponent_description :: Lens.Lens' CreateStudioComponent (Prelude.Maybe Prelude.Text)
 createStudioComponent_description = Lens.lens (\CreateStudioComponent' {description} -> description) (\s@CreateStudioComponent' {} a -> s {description = a} :: CreateStudioComponent) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The EC2 security groups that control access to the studio component.
+createStudioComponent_ec2SecurityGroupIds :: Lens.Lens' CreateStudioComponent (Prelude.Maybe [Prelude.Text])
+createStudioComponent_ec2SecurityGroupIds = Lens.lens (\CreateStudioComponent' {ec2SecurityGroupIds} -> ec2SecurityGroupIds) (\s@CreateStudioComponent' {} a -> s {ec2SecurityGroupIds = a} :: CreateStudioComponent) Prelude.. Lens.mapping Lens.coerced
+
+-- | Initialization scripts for studio components.
+createStudioComponent_initializationScripts :: Lens.Lens' CreateStudioComponent (Prelude.Maybe [StudioComponentInitializationScript])
+createStudioComponent_initializationScripts = Lens.lens (\CreateStudioComponent' {initializationScripts} -> initializationScripts) (\s@CreateStudioComponent' {} a -> s {initializationScripts = a} :: CreateStudioComponent) Prelude.. Lens.mapping Lens.coerced
+
+-- | An IAM role attached to a Studio Component that gives the studio
+-- component access to AWS resources at anytime while the instance is
+-- running.
+createStudioComponent_runtimeRoleArn :: Lens.Lens' CreateStudioComponent (Prelude.Maybe Prelude.Text)
+createStudioComponent_runtimeRoleArn = Lens.lens (\CreateStudioComponent' {runtimeRoleArn} -> runtimeRoleArn) (\s@CreateStudioComponent' {} a -> s {runtimeRoleArn = a} :: CreateStudioComponent)
+
+-- | Parameters for the studio component scripts.
+createStudioComponent_scriptParameters :: Lens.Lens' CreateStudioComponent (Prelude.Maybe [ScriptParameterKeyValue])
+createStudioComponent_scriptParameters = Lens.lens (\CreateStudioComponent' {scriptParameters} -> scriptParameters) (\s@CreateStudioComponent' {} a -> s {scriptParameters = a} :: CreateStudioComponent) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | An IAM role attached to Studio Component when the system initialization
 -- script runs which give the studio component access to AWS resources when
@@ -202,15 +208,10 @@ createStudioComponent_secureInitializationRoleArn = Lens.lens (\CreateStudioComp
 createStudioComponent_subtype :: Lens.Lens' CreateStudioComponent (Prelude.Maybe StudioComponentSubtype)
 createStudioComponent_subtype = Lens.lens (\CreateStudioComponent' {subtype} -> subtype) (\s@CreateStudioComponent' {} a -> s {subtype = a} :: CreateStudioComponent)
 
--- | An IAM role attached to a Studio Component that gives the studio
--- component access to AWS resources at anytime while the instance is
--- running.
-createStudioComponent_runtimeRoleArn :: Lens.Lens' CreateStudioComponent (Prelude.Maybe Prelude.Text)
-createStudioComponent_runtimeRoleArn = Lens.lens (\CreateStudioComponent' {runtimeRoleArn} -> runtimeRoleArn) (\s@CreateStudioComponent' {} a -> s {runtimeRoleArn = a} :: CreateStudioComponent)
-
--- | The EC2 security groups that control access to the studio component.
-createStudioComponent_ec2SecurityGroupIds :: Lens.Lens' CreateStudioComponent (Prelude.Maybe [Prelude.Text])
-createStudioComponent_ec2SecurityGroupIds = Lens.lens (\CreateStudioComponent' {ec2SecurityGroupIds} -> ec2SecurityGroupIds) (\s@CreateStudioComponent' {} a -> s {ec2SecurityGroupIds = a} :: CreateStudioComponent) Prelude.. Lens.mapping Lens.coerced
+-- | A collection of labels, in the form of key:value pairs, that apply to
+-- this resource.
+createStudioComponent_tags :: Lens.Lens' CreateStudioComponent (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createStudioComponent_tags = Lens.lens (\CreateStudioComponent' {tags} -> tags) (\s@CreateStudioComponent' {} a -> s {tags = a} :: CreateStudioComponent) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name for the studio component.
 createStudioComponent_name :: Lens.Lens' CreateStudioComponent Prelude.Text
@@ -240,32 +241,32 @@ instance Core.AWSRequest CreateStudioComponent where
 
 instance Prelude.Hashable CreateStudioComponent where
   hashWithSalt _salt CreateStudioComponent' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` scriptParameters
-      `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` initializationScripts
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` ec2SecurityGroupIds
+      `Prelude.hashWithSalt` initializationScripts
+      `Prelude.hashWithSalt` runtimeRoleArn
+      `Prelude.hashWithSalt` scriptParameters
       `Prelude.hashWithSalt` secureInitializationRoleArn
       `Prelude.hashWithSalt` subtype
-      `Prelude.hashWithSalt` runtimeRoleArn
-      `Prelude.hashWithSalt` ec2SecurityGroupIds
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` studioId
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData CreateStudioComponent where
   rnf CreateStudioComponent' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf scriptParameters
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf initializationScripts
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf configuration
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf ec2SecurityGroupIds
+      `Prelude.seq` Prelude.rnf initializationScripts
+      `Prelude.seq` Prelude.rnf runtimeRoleArn
+      `Prelude.seq` Prelude.rnf scriptParameters
       `Prelude.seq` Prelude.rnf secureInitializationRoleArn
       `Prelude.seq` Prelude.rnf subtype
-      `Prelude.seq` Prelude.rnf runtimeRoleArn
-      `Prelude.seq` Prelude.rnf ec2SecurityGroupIds
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf studioId
       `Prelude.seq` Prelude.rnf type'
@@ -282,20 +283,20 @@ instance Data.ToJSON CreateStudioComponent where
   toJSON CreateStudioComponent' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("scriptParameters" Data..=)
-              Prelude.<$> scriptParameters,
+          [ ("configuration" Data..=) Prelude.<$> configuration,
+            ("description" Data..=) Prelude.<$> description,
+            ("ec2SecurityGroupIds" Data..=)
+              Prelude.<$> ec2SecurityGroupIds,
             ("initializationScripts" Data..=)
               Prelude.<$> initializationScripts,
-            ("configuration" Data..=) Prelude.<$> configuration,
-            ("description" Data..=) Prelude.<$> description,
+            ("runtimeRoleArn" Data..=)
+              Prelude.<$> runtimeRoleArn,
+            ("scriptParameters" Data..=)
+              Prelude.<$> scriptParameters,
             ("secureInitializationRoleArn" Data..=)
               Prelude.<$> secureInitializationRoleArn,
             ("subtype" Data..=) Prelude.<$> subtype,
-            ("runtimeRoleArn" Data..=)
-              Prelude.<$> runtimeRoleArn,
-            ("ec2SecurityGroupIds" Data..=)
-              Prelude.<$> ec2SecurityGroupIds,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("name" Data..= name),
             Prelude.Just ("type" Data..= type')
           ]

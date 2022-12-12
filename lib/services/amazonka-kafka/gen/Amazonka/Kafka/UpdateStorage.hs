@@ -28,8 +28,8 @@ module Amazonka.Kafka.UpdateStorage
     newUpdateStorage,
 
     -- * Request Lenses
-    updateStorage_storageMode,
     updateStorage_provisionedThroughput,
+    updateStorage_storageMode,
     updateStorage_volumeSizeGB,
     updateStorage_clusterArn,
     updateStorage_currentVersion,
@@ -58,10 +58,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateStorage' smart constructor.
 data UpdateStorage = UpdateStorage'
-  { -- | Controls storage mode for supported storage tiers.
-    storageMode :: Prelude.Maybe StorageMode,
-    -- | EBS volume provisioned throughput information.
+  { -- | EBS volume provisioned throughput information.
     provisionedThroughput :: Prelude.Maybe ProvisionedThroughput,
+    -- | Controls storage mode for supported storage tiers.
+    storageMode :: Prelude.Maybe StorageMode,
     -- | size of the EBS volume to update.
     volumeSizeGB :: Prelude.Maybe Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the cluster to be updated.
@@ -80,9 +80,9 @@ data UpdateStorage = UpdateStorage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'storageMode', 'updateStorage_storageMode' - Controls storage mode for supported storage tiers.
---
 -- 'provisionedThroughput', 'updateStorage_provisionedThroughput' - EBS volume provisioned throughput information.
+--
+-- 'storageMode', 'updateStorage_storageMode' - Controls storage mode for supported storage tiers.
 --
 -- 'volumeSizeGB', 'updateStorage_volumeSizeGB' - size of the EBS volume to update.
 --
@@ -98,20 +98,21 @@ newUpdateStorage ::
   UpdateStorage
 newUpdateStorage pClusterArn_ pCurrentVersion_ =
   UpdateStorage'
-    { storageMode = Prelude.Nothing,
-      provisionedThroughput = Prelude.Nothing,
+    { provisionedThroughput =
+        Prelude.Nothing,
+      storageMode = Prelude.Nothing,
       volumeSizeGB = Prelude.Nothing,
       clusterArn = pClusterArn_,
       currentVersion = pCurrentVersion_
     }
 
--- | Controls storage mode for supported storage tiers.
-updateStorage_storageMode :: Lens.Lens' UpdateStorage (Prelude.Maybe StorageMode)
-updateStorage_storageMode = Lens.lens (\UpdateStorage' {storageMode} -> storageMode) (\s@UpdateStorage' {} a -> s {storageMode = a} :: UpdateStorage)
-
 -- | EBS volume provisioned throughput information.
 updateStorage_provisionedThroughput :: Lens.Lens' UpdateStorage (Prelude.Maybe ProvisionedThroughput)
 updateStorage_provisionedThroughput = Lens.lens (\UpdateStorage' {provisionedThroughput} -> provisionedThroughput) (\s@UpdateStorage' {} a -> s {provisionedThroughput = a} :: UpdateStorage)
+
+-- | Controls storage mode for supported storage tiers.
+updateStorage_storageMode :: Lens.Lens' UpdateStorage (Prelude.Maybe StorageMode)
+updateStorage_storageMode = Lens.lens (\UpdateStorage' {storageMode} -> storageMode) (\s@UpdateStorage' {} a -> s {storageMode = a} :: UpdateStorage)
 
 -- | size of the EBS volume to update.
 updateStorage_volumeSizeGB :: Lens.Lens' UpdateStorage (Prelude.Maybe Prelude.Int)
@@ -143,16 +144,16 @@ instance Core.AWSRequest UpdateStorage where
 
 instance Prelude.Hashable UpdateStorage where
   hashWithSalt _salt UpdateStorage' {..} =
-    _salt `Prelude.hashWithSalt` storageMode
-      `Prelude.hashWithSalt` provisionedThroughput
+    _salt `Prelude.hashWithSalt` provisionedThroughput
+      `Prelude.hashWithSalt` storageMode
       `Prelude.hashWithSalt` volumeSizeGB
       `Prelude.hashWithSalt` clusterArn
       `Prelude.hashWithSalt` currentVersion
 
 instance Prelude.NFData UpdateStorage where
   rnf UpdateStorage' {..} =
-    Prelude.rnf storageMode
-      `Prelude.seq` Prelude.rnf provisionedThroughput
+    Prelude.rnf provisionedThroughput
+      `Prelude.seq` Prelude.rnf storageMode
       `Prelude.seq` Prelude.rnf volumeSizeGB
       `Prelude.seq` Prelude.rnf clusterArn
       `Prelude.seq` Prelude.rnf currentVersion
@@ -172,9 +173,9 @@ instance Data.ToJSON UpdateStorage where
   toJSON UpdateStorage' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("storageMode" Data..=) Prelude.<$> storageMode,
-            ("provisionedThroughput" Data..=)
+          [ ("provisionedThroughput" Data..=)
               Prelude.<$> provisionedThroughput,
+            ("storageMode" Data..=) Prelude.<$> storageMode,
             ("volumeSizeGB" Data..=) Prelude.<$> volumeSizeGB,
             Prelude.Just
               ("currentVersion" Data..= currentVersion)

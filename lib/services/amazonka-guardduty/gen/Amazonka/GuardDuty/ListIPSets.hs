@@ -31,8 +31,8 @@ module Amazonka.GuardDuty.ListIPSets
     newListIPSets,
 
     -- * Request Lenses
-    listIPSets_nextToken,
     listIPSets_maxResults,
+    listIPSets_nextToken,
     listIPSets_detectorId,
 
     -- * Destructuring the Response
@@ -56,14 +56,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListIPSets' smart constructor.
 data ListIPSets = ListIPSets'
-  { -- | You can use this parameter when paginating results. Set the value of
+  { -- | You can use this parameter to indicate the maximum number of items you
+    -- want in the response. The default value is 50. The maximum value is 50.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | You can use this parameter when paginating results. Set the value of
     -- this parameter to null on your first call to the list action. For
     -- subsequent calls to the action, fill nextToken in the request with the
     -- value of NextToken from the previous response to continue listing data.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | You can use this parameter to indicate the maximum number of items you
-    -- want in the response. The default value is 50. The maximum value is 50.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The unique ID of the detector that the IPSet is associated with.
     detectorId :: Prelude.Text
   }
@@ -77,13 +77,13 @@ data ListIPSets = ListIPSets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listIPSets_maxResults' - You can use this parameter to indicate the maximum number of items you
+-- want in the response. The default value is 50. The maximum value is 50.
+--
 -- 'nextToken', 'listIPSets_nextToken' - You can use this parameter when paginating results. Set the value of
 -- this parameter to null on your first call to the list action. For
 -- subsequent calls to the action, fill nextToken in the request with the
 -- value of NextToken from the previous response to continue listing data.
---
--- 'maxResults', 'listIPSets_maxResults' - You can use this parameter to indicate the maximum number of items you
--- want in the response. The default value is 50. The maximum value is 50.
 --
 -- 'detectorId', 'listIPSets_detectorId' - The unique ID of the detector that the IPSet is associated with.
 newListIPSets ::
@@ -92,10 +92,15 @@ newListIPSets ::
   ListIPSets
 newListIPSets pDetectorId_ =
   ListIPSets'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       detectorId = pDetectorId_
     }
+
+-- | You can use this parameter to indicate the maximum number of items you
+-- want in the response. The default value is 50. The maximum value is 50.
+listIPSets_maxResults :: Lens.Lens' ListIPSets (Prelude.Maybe Prelude.Natural)
+listIPSets_maxResults = Lens.lens (\ListIPSets' {maxResults} -> maxResults) (\s@ListIPSets' {} a -> s {maxResults = a} :: ListIPSets)
 
 -- | You can use this parameter when paginating results. Set the value of
 -- this parameter to null on your first call to the list action. For
@@ -103,11 +108,6 @@ newListIPSets pDetectorId_ =
 -- value of NextToken from the previous response to continue listing data.
 listIPSets_nextToken :: Lens.Lens' ListIPSets (Prelude.Maybe Prelude.Text)
 listIPSets_nextToken = Lens.lens (\ListIPSets' {nextToken} -> nextToken) (\s@ListIPSets' {} a -> s {nextToken = a} :: ListIPSets)
-
--- | You can use this parameter to indicate the maximum number of items you
--- want in the response. The default value is 50. The maximum value is 50.
-listIPSets_maxResults :: Lens.Lens' ListIPSets (Prelude.Maybe Prelude.Natural)
-listIPSets_maxResults = Lens.lens (\ListIPSets' {maxResults} -> maxResults) (\s@ListIPSets' {} a -> s {maxResults = a} :: ListIPSets)
 
 -- | The unique ID of the detector that the IPSet is associated with.
 listIPSets_detectorId :: Lens.Lens' ListIPSets Prelude.Text
@@ -144,14 +144,14 @@ instance Core.AWSRequest ListIPSets where
 
 instance Prelude.Hashable ListIPSets where
   hashWithSalt _salt ListIPSets' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` detectorId
 
 instance Prelude.NFData ListIPSets where
   rnf ListIPSets' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf detectorId
 
 instance Data.ToHeaders ListIPSets where
@@ -173,8 +173,8 @@ instance Data.ToPath ListIPSets where
 instance Data.ToQuery ListIPSets where
   toQuery ListIPSets' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListIPSetsResponse' smart constructor.

@@ -37,25 +37,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newManagedRuleSetVersion' smart constructor.
 data ManagedRuleSetVersion = ManagedRuleSetVersion'
-  { -- | The last time that you updated this version.
-    --
-    -- Times are in Coordinated Universal Time (UTC) format. UTC format
-    -- includes the special designator, Z. For example, \"2016-09-27T14:50Z\".
-    lastUpdateTimestamp :: Prelude.Maybe Data.POSIX,
-    -- | The time that you first published this version.
-    --
-    -- Times are in Coordinated Universal Time (UTC) format. UTC format
-    -- includes the special designator, Z. For example, \"2016-09-27T14:50Z\".
-    publishTimestamp :: Prelude.Maybe Data.POSIX,
-    -- | The time that this version is set to expire.
-    --
-    -- Times are in Coordinated Universal Time (UTC) format. UTC format
-    -- includes the special designator, Z. For example, \"2016-09-27T14:50Z\".
-    expiryTimestamp :: Prelude.Maybe Data.POSIX,
-    -- | The amount of time you expect this version of your managed rule group to
-    -- last, in days.
-    forecastedLifetime :: Prelude.Maybe Prelude.Natural,
-    -- | The Amazon Resource Name (ARN) of the vendor rule group that\'s used to
+  { -- | The Amazon Resource Name (ARN) of the vendor rule group that\'s used to
     -- define the published version of your managed rule group.
     associatedRuleGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The web ACL capacity units (WCUs) required for this rule group.
@@ -67,7 +49,25 @@ data ManagedRuleSetVersion = ManagedRuleSetVersion'
     -- complex rules that use more processing power. Rule group capacity is
     -- fixed at creation, which helps users plan their web ACL WCU usage when
     -- they use a rule group. The WCU limit for web ACLs is 1,500.
-    capacity :: Prelude.Maybe Prelude.Natural
+    capacity :: Prelude.Maybe Prelude.Natural,
+    -- | The time that this version is set to expire.
+    --
+    -- Times are in Coordinated Universal Time (UTC) format. UTC format
+    -- includes the special designator, Z. For example, \"2016-09-27T14:50Z\".
+    expiryTimestamp :: Prelude.Maybe Data.POSIX,
+    -- | The amount of time you expect this version of your managed rule group to
+    -- last, in days.
+    forecastedLifetime :: Prelude.Maybe Prelude.Natural,
+    -- | The last time that you updated this version.
+    --
+    -- Times are in Coordinated Universal Time (UTC) format. UTC format
+    -- includes the special designator, Z. For example, \"2016-09-27T14:50Z\".
+    lastUpdateTimestamp :: Prelude.Maybe Data.POSIX,
+    -- | The time that you first published this version.
+    --
+    -- Times are in Coordinated Universal Time (UTC) format. UTC format
+    -- includes the special designator, Z. For example, \"2016-09-27T14:50Z\".
+    publishTimestamp :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,24 +78,6 @@ data ManagedRuleSetVersion = ManagedRuleSetVersion'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'lastUpdateTimestamp', 'managedRuleSetVersion_lastUpdateTimestamp' - The last time that you updated this version.
---
--- Times are in Coordinated Universal Time (UTC) format. UTC format
--- includes the special designator, Z. For example, \"2016-09-27T14:50Z\".
---
--- 'publishTimestamp', 'managedRuleSetVersion_publishTimestamp' - The time that you first published this version.
---
--- Times are in Coordinated Universal Time (UTC) format. UTC format
--- includes the special designator, Z. For example, \"2016-09-27T14:50Z\".
---
--- 'expiryTimestamp', 'managedRuleSetVersion_expiryTimestamp' - The time that this version is set to expire.
---
--- Times are in Coordinated Universal Time (UTC) format. UTC format
--- includes the special designator, Z. For example, \"2016-09-27T14:50Z\".
---
--- 'forecastedLifetime', 'managedRuleSetVersion_forecastedLifetime' - The amount of time you expect this version of your managed rule group to
--- last, in days.
 --
 -- 'associatedRuleGroupArn', 'managedRuleSetVersion_associatedRuleGroupArn' - The Amazon Resource Name (ARN) of the vendor rule group that\'s used to
 -- define the published version of your managed rule group.
@@ -109,44 +91,36 @@ data ManagedRuleSetVersion = ManagedRuleSetVersion'
 -- complex rules that use more processing power. Rule group capacity is
 -- fixed at creation, which helps users plan their web ACL WCU usage when
 -- they use a rule group. The WCU limit for web ACLs is 1,500.
+--
+-- 'expiryTimestamp', 'managedRuleSetVersion_expiryTimestamp' - The time that this version is set to expire.
+--
+-- Times are in Coordinated Universal Time (UTC) format. UTC format
+-- includes the special designator, Z. For example, \"2016-09-27T14:50Z\".
+--
+-- 'forecastedLifetime', 'managedRuleSetVersion_forecastedLifetime' - The amount of time you expect this version of your managed rule group to
+-- last, in days.
+--
+-- 'lastUpdateTimestamp', 'managedRuleSetVersion_lastUpdateTimestamp' - The last time that you updated this version.
+--
+-- Times are in Coordinated Universal Time (UTC) format. UTC format
+-- includes the special designator, Z. For example, \"2016-09-27T14:50Z\".
+--
+-- 'publishTimestamp', 'managedRuleSetVersion_publishTimestamp' - The time that you first published this version.
+--
+-- Times are in Coordinated Universal Time (UTC) format. UTC format
+-- includes the special designator, Z. For example, \"2016-09-27T14:50Z\".
 newManagedRuleSetVersion ::
   ManagedRuleSetVersion
 newManagedRuleSetVersion =
   ManagedRuleSetVersion'
-    { lastUpdateTimestamp =
+    { associatedRuleGroupArn =
         Prelude.Nothing,
-      publishTimestamp = Prelude.Nothing,
+      capacity = Prelude.Nothing,
       expiryTimestamp = Prelude.Nothing,
       forecastedLifetime = Prelude.Nothing,
-      associatedRuleGroupArn = Prelude.Nothing,
-      capacity = Prelude.Nothing
+      lastUpdateTimestamp = Prelude.Nothing,
+      publishTimestamp = Prelude.Nothing
     }
-
--- | The last time that you updated this version.
---
--- Times are in Coordinated Universal Time (UTC) format. UTC format
--- includes the special designator, Z. For example, \"2016-09-27T14:50Z\".
-managedRuleSetVersion_lastUpdateTimestamp :: Lens.Lens' ManagedRuleSetVersion (Prelude.Maybe Prelude.UTCTime)
-managedRuleSetVersion_lastUpdateTimestamp = Lens.lens (\ManagedRuleSetVersion' {lastUpdateTimestamp} -> lastUpdateTimestamp) (\s@ManagedRuleSetVersion' {} a -> s {lastUpdateTimestamp = a} :: ManagedRuleSetVersion) Prelude.. Lens.mapping Data._Time
-
--- | The time that you first published this version.
---
--- Times are in Coordinated Universal Time (UTC) format. UTC format
--- includes the special designator, Z. For example, \"2016-09-27T14:50Z\".
-managedRuleSetVersion_publishTimestamp :: Lens.Lens' ManagedRuleSetVersion (Prelude.Maybe Prelude.UTCTime)
-managedRuleSetVersion_publishTimestamp = Lens.lens (\ManagedRuleSetVersion' {publishTimestamp} -> publishTimestamp) (\s@ManagedRuleSetVersion' {} a -> s {publishTimestamp = a} :: ManagedRuleSetVersion) Prelude.. Lens.mapping Data._Time
-
--- | The time that this version is set to expire.
---
--- Times are in Coordinated Universal Time (UTC) format. UTC format
--- includes the special designator, Z. For example, \"2016-09-27T14:50Z\".
-managedRuleSetVersion_expiryTimestamp :: Lens.Lens' ManagedRuleSetVersion (Prelude.Maybe Prelude.UTCTime)
-managedRuleSetVersion_expiryTimestamp = Lens.lens (\ManagedRuleSetVersion' {expiryTimestamp} -> expiryTimestamp) (\s@ManagedRuleSetVersion' {} a -> s {expiryTimestamp = a} :: ManagedRuleSetVersion) Prelude.. Lens.mapping Data._Time
-
--- | The amount of time you expect this version of your managed rule group to
--- last, in days.
-managedRuleSetVersion_forecastedLifetime :: Lens.Lens' ManagedRuleSetVersion (Prelude.Maybe Prelude.Natural)
-managedRuleSetVersion_forecastedLifetime = Lens.lens (\ManagedRuleSetVersion' {forecastedLifetime} -> forecastedLifetime) (\s@ManagedRuleSetVersion' {} a -> s {forecastedLifetime = a} :: ManagedRuleSetVersion)
 
 -- | The Amazon Resource Name (ARN) of the vendor rule group that\'s used to
 -- define the published version of your managed rule group.
@@ -165,34 +139,60 @@ managedRuleSetVersion_associatedRuleGroupArn = Lens.lens (\ManagedRuleSetVersion
 managedRuleSetVersion_capacity :: Lens.Lens' ManagedRuleSetVersion (Prelude.Maybe Prelude.Natural)
 managedRuleSetVersion_capacity = Lens.lens (\ManagedRuleSetVersion' {capacity} -> capacity) (\s@ManagedRuleSetVersion' {} a -> s {capacity = a} :: ManagedRuleSetVersion)
 
+-- | The time that this version is set to expire.
+--
+-- Times are in Coordinated Universal Time (UTC) format. UTC format
+-- includes the special designator, Z. For example, \"2016-09-27T14:50Z\".
+managedRuleSetVersion_expiryTimestamp :: Lens.Lens' ManagedRuleSetVersion (Prelude.Maybe Prelude.UTCTime)
+managedRuleSetVersion_expiryTimestamp = Lens.lens (\ManagedRuleSetVersion' {expiryTimestamp} -> expiryTimestamp) (\s@ManagedRuleSetVersion' {} a -> s {expiryTimestamp = a} :: ManagedRuleSetVersion) Prelude.. Lens.mapping Data._Time
+
+-- | The amount of time you expect this version of your managed rule group to
+-- last, in days.
+managedRuleSetVersion_forecastedLifetime :: Lens.Lens' ManagedRuleSetVersion (Prelude.Maybe Prelude.Natural)
+managedRuleSetVersion_forecastedLifetime = Lens.lens (\ManagedRuleSetVersion' {forecastedLifetime} -> forecastedLifetime) (\s@ManagedRuleSetVersion' {} a -> s {forecastedLifetime = a} :: ManagedRuleSetVersion)
+
+-- | The last time that you updated this version.
+--
+-- Times are in Coordinated Universal Time (UTC) format. UTC format
+-- includes the special designator, Z. For example, \"2016-09-27T14:50Z\".
+managedRuleSetVersion_lastUpdateTimestamp :: Lens.Lens' ManagedRuleSetVersion (Prelude.Maybe Prelude.UTCTime)
+managedRuleSetVersion_lastUpdateTimestamp = Lens.lens (\ManagedRuleSetVersion' {lastUpdateTimestamp} -> lastUpdateTimestamp) (\s@ManagedRuleSetVersion' {} a -> s {lastUpdateTimestamp = a} :: ManagedRuleSetVersion) Prelude.. Lens.mapping Data._Time
+
+-- | The time that you first published this version.
+--
+-- Times are in Coordinated Universal Time (UTC) format. UTC format
+-- includes the special designator, Z. For example, \"2016-09-27T14:50Z\".
+managedRuleSetVersion_publishTimestamp :: Lens.Lens' ManagedRuleSetVersion (Prelude.Maybe Prelude.UTCTime)
+managedRuleSetVersion_publishTimestamp = Lens.lens (\ManagedRuleSetVersion' {publishTimestamp} -> publishTimestamp) (\s@ManagedRuleSetVersion' {} a -> s {publishTimestamp = a} :: ManagedRuleSetVersion) Prelude.. Lens.mapping Data._Time
+
 instance Data.FromJSON ManagedRuleSetVersion where
   parseJSON =
     Data.withObject
       "ManagedRuleSetVersion"
       ( \x ->
           ManagedRuleSetVersion'
-            Prelude.<$> (x Data..:? "LastUpdateTimestamp")
-            Prelude.<*> (x Data..:? "PublishTimestamp")
+            Prelude.<$> (x Data..:? "AssociatedRuleGroupArn")
+            Prelude.<*> (x Data..:? "Capacity")
             Prelude.<*> (x Data..:? "ExpiryTimestamp")
             Prelude.<*> (x Data..:? "ForecastedLifetime")
-            Prelude.<*> (x Data..:? "AssociatedRuleGroupArn")
-            Prelude.<*> (x Data..:? "Capacity")
+            Prelude.<*> (x Data..:? "LastUpdateTimestamp")
+            Prelude.<*> (x Data..:? "PublishTimestamp")
       )
 
 instance Prelude.Hashable ManagedRuleSetVersion where
   hashWithSalt _salt ManagedRuleSetVersion' {..} =
-    _salt `Prelude.hashWithSalt` lastUpdateTimestamp
-      `Prelude.hashWithSalt` publishTimestamp
+    _salt `Prelude.hashWithSalt` associatedRuleGroupArn
+      `Prelude.hashWithSalt` capacity
       `Prelude.hashWithSalt` expiryTimestamp
       `Prelude.hashWithSalt` forecastedLifetime
-      `Prelude.hashWithSalt` associatedRuleGroupArn
-      `Prelude.hashWithSalt` capacity
+      `Prelude.hashWithSalt` lastUpdateTimestamp
+      `Prelude.hashWithSalt` publishTimestamp
 
 instance Prelude.NFData ManagedRuleSetVersion where
   rnf ManagedRuleSetVersion' {..} =
-    Prelude.rnf lastUpdateTimestamp
-      `Prelude.seq` Prelude.rnf publishTimestamp
+    Prelude.rnf associatedRuleGroupArn
+      `Prelude.seq` Prelude.rnf capacity
       `Prelude.seq` Prelude.rnf expiryTimestamp
       `Prelude.seq` Prelude.rnf forecastedLifetime
-      `Prelude.seq` Prelude.rnf associatedRuleGroupArn
-      `Prelude.seq` Prelude.rnf capacity
+      `Prelude.seq` Prelude.rnf lastUpdateTimestamp
+      `Prelude.seq` Prelude.rnf publishTimestamp

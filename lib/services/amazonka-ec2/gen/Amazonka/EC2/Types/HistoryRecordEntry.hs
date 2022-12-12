@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHistoryRecordEntry' smart constructor.
 data HistoryRecordEntry = HistoryRecordEntry'
-  { -- | The event type.
-    eventType :: Prelude.Maybe FleetEventType,
-    -- | Information about the event.
+  { -- | Information about the event.
     eventInformation :: Prelude.Maybe EventInformation,
+    -- | The event type.
+    eventType :: Prelude.Maybe FleetEventType,
     -- | The date and time of the event, in UTC format (for example,
     -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
     timestamp :: Prelude.Maybe Data.ISO8601
@@ -49,9 +49,9 @@ data HistoryRecordEntry = HistoryRecordEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eventType', 'historyRecordEntry_eventType' - The event type.
---
 -- 'eventInformation', 'historyRecordEntry_eventInformation' - Information about the event.
+--
+-- 'eventType', 'historyRecordEntry_eventType' - The event type.
 --
 -- 'timestamp', 'historyRecordEntry_timestamp' - The date and time of the event, in UTC format (for example,
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
@@ -59,18 +59,19 @@ newHistoryRecordEntry ::
   HistoryRecordEntry
 newHistoryRecordEntry =
   HistoryRecordEntry'
-    { eventType = Prelude.Nothing,
-      eventInformation = Prelude.Nothing,
+    { eventInformation =
+        Prelude.Nothing,
+      eventType = Prelude.Nothing,
       timestamp = Prelude.Nothing
     }
-
--- | The event type.
-historyRecordEntry_eventType :: Lens.Lens' HistoryRecordEntry (Prelude.Maybe FleetEventType)
-historyRecordEntry_eventType = Lens.lens (\HistoryRecordEntry' {eventType} -> eventType) (\s@HistoryRecordEntry' {} a -> s {eventType = a} :: HistoryRecordEntry)
 
 -- | Information about the event.
 historyRecordEntry_eventInformation :: Lens.Lens' HistoryRecordEntry (Prelude.Maybe EventInformation)
 historyRecordEntry_eventInformation = Lens.lens (\HistoryRecordEntry' {eventInformation} -> eventInformation) (\s@HistoryRecordEntry' {} a -> s {eventInformation = a} :: HistoryRecordEntry)
+
+-- | The event type.
+historyRecordEntry_eventType :: Lens.Lens' HistoryRecordEntry (Prelude.Maybe FleetEventType)
+historyRecordEntry_eventType = Lens.lens (\HistoryRecordEntry' {eventType} -> eventType) (\s@HistoryRecordEntry' {} a -> s {eventType = a} :: HistoryRecordEntry)
 
 -- | The date and time of the event, in UTC format (for example,
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
@@ -80,18 +81,18 @@ historyRecordEntry_timestamp = Lens.lens (\HistoryRecordEntry' {timestamp} -> ti
 instance Data.FromXML HistoryRecordEntry where
   parseXML x =
     HistoryRecordEntry'
-      Prelude.<$> (x Data..@? "eventType")
-      Prelude.<*> (x Data..@? "eventInformation")
+      Prelude.<$> (x Data..@? "eventInformation")
+      Prelude.<*> (x Data..@? "eventType")
       Prelude.<*> (x Data..@? "timestamp")
 
 instance Prelude.Hashable HistoryRecordEntry where
   hashWithSalt _salt HistoryRecordEntry' {..} =
-    _salt `Prelude.hashWithSalt` eventType
-      `Prelude.hashWithSalt` eventInformation
+    _salt `Prelude.hashWithSalt` eventInformation
+      `Prelude.hashWithSalt` eventType
       `Prelude.hashWithSalt` timestamp
 
 instance Prelude.NFData HistoryRecordEntry where
   rnf HistoryRecordEntry' {..} =
-    Prelude.rnf eventType
-      `Prelude.seq` Prelude.rnf eventInformation
+    Prelude.rnf eventInformation
+      `Prelude.seq` Prelude.rnf eventType
       `Prelude.seq` Prelude.rnf timestamp

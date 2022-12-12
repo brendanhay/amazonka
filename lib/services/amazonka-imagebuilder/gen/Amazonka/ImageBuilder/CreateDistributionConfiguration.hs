@@ -28,8 +28,8 @@ module Amazonka.ImageBuilder.CreateDistributionConfiguration
     newCreateDistributionConfiguration,
 
     -- * Request Lenses
-    createDistributionConfiguration_tags,
     createDistributionConfiguration_description,
+    createDistributionConfiguration_tags,
     createDistributionConfiguration_name,
     createDistributionConfiguration_distributions,
     createDistributionConfiguration_clientToken,
@@ -40,8 +40,8 @@ module Amazonka.ImageBuilder.CreateDistributionConfiguration
 
     -- * Response Lenses
     createDistributionConfigurationResponse_clientToken,
-    createDistributionConfigurationResponse_requestId,
     createDistributionConfigurationResponse_distributionConfigurationArn,
+    createDistributionConfigurationResponse_requestId,
     createDistributionConfigurationResponse_httpStatus,
   )
 where
@@ -56,10 +56,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDistributionConfiguration' smart constructor.
 data CreateDistributionConfiguration = CreateDistributionConfiguration'
-  { -- | The tags of the distribution configuration.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The description of the distribution configuration.
+  { -- | The description of the distribution configuration.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The tags of the distribution configuration.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the distribution configuration.
     name :: Prelude.Text,
     -- | The distributions of the distribution configuration.
@@ -77,9 +77,9 @@ data CreateDistributionConfiguration = CreateDistributionConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createDistributionConfiguration_tags' - The tags of the distribution configuration.
---
 -- 'description', 'createDistributionConfiguration_description' - The description of the distribution configuration.
+--
+-- 'tags', 'createDistributionConfiguration_tags' - The tags of the distribution configuration.
 --
 -- 'name', 'createDistributionConfiguration_name' - The name of the distribution configuration.
 --
@@ -96,21 +96,21 @@ newCreateDistributionConfiguration
   pName_
   pClientToken_ =
     CreateDistributionConfiguration'
-      { tags =
+      { description =
           Prelude.Nothing,
-        description = Prelude.Nothing,
+        tags = Prelude.Nothing,
         name = pName_,
         distributions = Prelude.mempty,
         clientToken = pClientToken_
       }
 
--- | The tags of the distribution configuration.
-createDistributionConfiguration_tags :: Lens.Lens' CreateDistributionConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createDistributionConfiguration_tags = Lens.lens (\CreateDistributionConfiguration' {tags} -> tags) (\s@CreateDistributionConfiguration' {} a -> s {tags = a} :: CreateDistributionConfiguration) Prelude.. Lens.mapping Lens.coerced
-
 -- | The description of the distribution configuration.
 createDistributionConfiguration_description :: Lens.Lens' CreateDistributionConfiguration (Prelude.Maybe Prelude.Text)
 createDistributionConfiguration_description = Lens.lens (\CreateDistributionConfiguration' {description} -> description) (\s@CreateDistributionConfiguration' {} a -> s {description = a} :: CreateDistributionConfiguration)
+
+-- | The tags of the distribution configuration.
+createDistributionConfiguration_tags :: Lens.Lens' CreateDistributionConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createDistributionConfiguration_tags = Lens.lens (\CreateDistributionConfiguration' {tags} -> tags) (\s@CreateDistributionConfiguration' {} a -> s {tags = a} :: CreateDistributionConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the distribution configuration.
 createDistributionConfiguration_name :: Lens.Lens' CreateDistributionConfiguration Prelude.Text
@@ -138,8 +138,8 @@ instance
       ( \s h x ->
           CreateDistributionConfigurationResponse'
             Prelude.<$> (x Data..?> "clientToken")
-            Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (x Data..?> "distributionConfigurationArn")
+            Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -150,8 +150,8 @@ instance
   hashWithSalt
     _salt
     CreateDistributionConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` tags
-        `Prelude.hashWithSalt` description
+      _salt `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` distributions
         `Prelude.hashWithSalt` clientToken
@@ -161,8 +161,8 @@ instance
     CreateDistributionConfiguration
   where
   rnf CreateDistributionConfiguration' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf distributions
       `Prelude.seq` Prelude.rnf clientToken
@@ -185,8 +185,8 @@ instance Data.ToJSON CreateDistributionConfiguration where
   toJSON CreateDistributionConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("description" Data..=) Prelude.<$> description,
+          [ ("description" Data..=) Prelude.<$> description,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("name" Data..= name),
             Prelude.Just ("distributions" Data..= distributions),
             Prelude.Just ("clientToken" Data..= clientToken)
@@ -204,11 +204,11 @@ instance Data.ToQuery CreateDistributionConfiguration where
 data CreateDistributionConfigurationResponse = CreateDistributionConfigurationResponse'
   { -- | The idempotency token used to make this request idempotent.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The request ID that uniquely identifies this request.
-    requestId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the distribution configuration that
     -- was created by this request.
     distributionConfigurationArn :: Prelude.Maybe Prelude.Text,
+    -- | The request ID that uniquely identifies this request.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -224,10 +224,10 @@ data CreateDistributionConfigurationResponse = CreateDistributionConfigurationRe
 --
 -- 'clientToken', 'createDistributionConfigurationResponse_clientToken' - The idempotency token used to make this request idempotent.
 --
--- 'requestId', 'createDistributionConfigurationResponse_requestId' - The request ID that uniquely identifies this request.
---
 -- 'distributionConfigurationArn', 'createDistributionConfigurationResponse_distributionConfigurationArn' - The Amazon Resource Name (ARN) of the distribution configuration that
 -- was created by this request.
+--
+-- 'requestId', 'createDistributionConfigurationResponse_requestId' - The request ID that uniquely identifies this request.
 --
 -- 'httpStatus', 'createDistributionConfigurationResponse_httpStatus' - The response's http status code.
 newCreateDistributionConfigurationResponse ::
@@ -239,9 +239,9 @@ newCreateDistributionConfigurationResponse
     CreateDistributionConfigurationResponse'
       { clientToken =
           Prelude.Nothing,
-        requestId = Prelude.Nothing,
         distributionConfigurationArn =
           Prelude.Nothing,
+        requestId = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
@@ -249,14 +249,14 @@ newCreateDistributionConfigurationResponse
 createDistributionConfigurationResponse_clientToken :: Lens.Lens' CreateDistributionConfigurationResponse (Prelude.Maybe Prelude.Text)
 createDistributionConfigurationResponse_clientToken = Lens.lens (\CreateDistributionConfigurationResponse' {clientToken} -> clientToken) (\s@CreateDistributionConfigurationResponse' {} a -> s {clientToken = a} :: CreateDistributionConfigurationResponse)
 
--- | The request ID that uniquely identifies this request.
-createDistributionConfigurationResponse_requestId :: Lens.Lens' CreateDistributionConfigurationResponse (Prelude.Maybe Prelude.Text)
-createDistributionConfigurationResponse_requestId = Lens.lens (\CreateDistributionConfigurationResponse' {requestId} -> requestId) (\s@CreateDistributionConfigurationResponse' {} a -> s {requestId = a} :: CreateDistributionConfigurationResponse)
-
 -- | The Amazon Resource Name (ARN) of the distribution configuration that
 -- was created by this request.
 createDistributionConfigurationResponse_distributionConfigurationArn :: Lens.Lens' CreateDistributionConfigurationResponse (Prelude.Maybe Prelude.Text)
 createDistributionConfigurationResponse_distributionConfigurationArn = Lens.lens (\CreateDistributionConfigurationResponse' {distributionConfigurationArn} -> distributionConfigurationArn) (\s@CreateDistributionConfigurationResponse' {} a -> s {distributionConfigurationArn = a} :: CreateDistributionConfigurationResponse)
+
+-- | The request ID that uniquely identifies this request.
+createDistributionConfigurationResponse_requestId :: Lens.Lens' CreateDistributionConfigurationResponse (Prelude.Maybe Prelude.Text)
+createDistributionConfigurationResponse_requestId = Lens.lens (\CreateDistributionConfigurationResponse' {requestId} -> requestId) (\s@CreateDistributionConfigurationResponse' {} a -> s {requestId = a} :: CreateDistributionConfigurationResponse)
 
 -- | The response's http status code.
 createDistributionConfigurationResponse_httpStatus :: Lens.Lens' CreateDistributionConfigurationResponse Prelude.Int
@@ -268,6 +268,6 @@ instance
   where
   rnf CreateDistributionConfigurationResponse' {..} =
     Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf distributionConfigurationArn
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf httpStatus

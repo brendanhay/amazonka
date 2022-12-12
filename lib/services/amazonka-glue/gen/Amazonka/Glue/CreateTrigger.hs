@@ -27,13 +27,13 @@ module Amazonka.Glue.CreateTrigger
     newCreateTrigger,
 
     -- * Request Lenses
-    createTrigger_tags,
-    createTrigger_eventBatchingCondition,
-    createTrigger_schedule,
-    createTrigger_workflowName,
-    createTrigger_predicate,
     createTrigger_description,
+    createTrigger_eventBatchingCondition,
+    createTrigger_predicate,
+    createTrigger_schedule,
     createTrigger_startOnCreation,
+    createTrigger_tags,
+    createTrigger_workflowName,
     createTrigger_name,
     createTrigger_type,
     createTrigger_actions,
@@ -58,14 +58,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateTrigger' smart constructor.
 data CreateTrigger = CreateTrigger'
-  { -- | The tags to use with this trigger. You may use tags to limit access to
-    -- the trigger. For more information about tags in Glue, see
-    -- <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html Amazon Web Services Tags in Glue>
-    -- in the developer guide.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | A description of the new trigger.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Batch condition that must be met (specified number of events received or
     -- batch time window expired) before EventBridge event trigger fires.
     eventBatchingCondition :: Prelude.Maybe EventBatchingCondition,
+    -- | A predicate to specify when the new trigger should fire.
+    --
+    -- This field is required when the trigger type is @CONDITIONAL@.
+    predicate :: Prelude.Maybe Predicate,
     -- | A @cron@ expression used to specify the schedule (see
     -- <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers>.
     -- For example, to run something every day at 12:15 UTC, you would specify:
@@ -73,17 +74,16 @@ data CreateTrigger = CreateTrigger'
     --
     -- This field is required when the trigger type is SCHEDULED.
     schedule :: Prelude.Maybe Prelude.Text,
-    -- | The name of the workflow associated with the trigger.
-    workflowName :: Prelude.Maybe Prelude.Text,
-    -- | A predicate to specify when the new trigger should fire.
-    --
-    -- This field is required when the trigger type is @CONDITIONAL@.
-    predicate :: Prelude.Maybe Predicate,
-    -- | A description of the new trigger.
-    description :: Prelude.Maybe Prelude.Text,
     -- | Set to @true@ to start @SCHEDULED@ and @CONDITIONAL@ triggers when
     -- created. True is not supported for @ON_DEMAND@ triggers.
     startOnCreation :: Prelude.Maybe Prelude.Bool,
+    -- | The tags to use with this trigger. You may use tags to limit access to
+    -- the trigger. For more information about tags in Glue, see
+    -- <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html Amazon Web Services Tags in Glue>
+    -- in the developer guide.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The name of the workflow associated with the trigger.
+    workflowName :: Prelude.Maybe Prelude.Text,
     -- | The name of the trigger.
     name :: Prelude.Text,
     -- | The type of the new trigger.
@@ -101,13 +101,14 @@ data CreateTrigger = CreateTrigger'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createTrigger_tags' - The tags to use with this trigger. You may use tags to limit access to
--- the trigger. For more information about tags in Glue, see
--- <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html Amazon Web Services Tags in Glue>
--- in the developer guide.
+-- 'description', 'createTrigger_description' - A description of the new trigger.
 --
 -- 'eventBatchingCondition', 'createTrigger_eventBatchingCondition' - Batch condition that must be met (specified number of events received or
 -- batch time window expired) before EventBridge event trigger fires.
+--
+-- 'predicate', 'createTrigger_predicate' - A predicate to specify when the new trigger should fire.
+--
+-- This field is required when the trigger type is @CONDITIONAL@.
 --
 -- 'schedule', 'createTrigger_schedule' - A @cron@ expression used to specify the schedule (see
 -- <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers>.
@@ -116,16 +117,15 @@ data CreateTrigger = CreateTrigger'
 --
 -- This field is required when the trigger type is SCHEDULED.
 --
--- 'workflowName', 'createTrigger_workflowName' - The name of the workflow associated with the trigger.
---
--- 'predicate', 'createTrigger_predicate' - A predicate to specify when the new trigger should fire.
---
--- This field is required when the trigger type is @CONDITIONAL@.
---
--- 'description', 'createTrigger_description' - A description of the new trigger.
---
 -- 'startOnCreation', 'createTrigger_startOnCreation' - Set to @true@ to start @SCHEDULED@ and @CONDITIONAL@ triggers when
 -- created. True is not supported for @ON_DEMAND@ triggers.
+--
+-- 'tags', 'createTrigger_tags' - The tags to use with this trigger. You may use tags to limit access to
+-- the trigger. For more information about tags in Glue, see
+-- <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html Amazon Web Services Tags in Glue>
+-- in the developer guide.
+--
+-- 'workflowName', 'createTrigger_workflowName' - The name of the workflow associated with the trigger.
 --
 -- 'name', 'createTrigger_name' - The name of the trigger.
 --
@@ -140,29 +140,32 @@ newCreateTrigger ::
   CreateTrigger
 newCreateTrigger pName_ pType_ =
   CreateTrigger'
-    { tags = Prelude.Nothing,
+    { description = Prelude.Nothing,
       eventBatchingCondition = Prelude.Nothing,
-      schedule = Prelude.Nothing,
-      workflowName = Prelude.Nothing,
       predicate = Prelude.Nothing,
-      description = Prelude.Nothing,
+      schedule = Prelude.Nothing,
       startOnCreation = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      workflowName = Prelude.Nothing,
       name = pName_,
       type' = pType_,
       actions = Prelude.mempty
     }
 
--- | The tags to use with this trigger. You may use tags to limit access to
--- the trigger. For more information about tags in Glue, see
--- <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html Amazon Web Services Tags in Glue>
--- in the developer guide.
-createTrigger_tags :: Lens.Lens' CreateTrigger (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createTrigger_tags = Lens.lens (\CreateTrigger' {tags} -> tags) (\s@CreateTrigger' {} a -> s {tags = a} :: CreateTrigger) Prelude.. Lens.mapping Lens.coerced
+-- | A description of the new trigger.
+createTrigger_description :: Lens.Lens' CreateTrigger (Prelude.Maybe Prelude.Text)
+createTrigger_description = Lens.lens (\CreateTrigger' {description} -> description) (\s@CreateTrigger' {} a -> s {description = a} :: CreateTrigger)
 
 -- | Batch condition that must be met (specified number of events received or
 -- batch time window expired) before EventBridge event trigger fires.
 createTrigger_eventBatchingCondition :: Lens.Lens' CreateTrigger (Prelude.Maybe EventBatchingCondition)
 createTrigger_eventBatchingCondition = Lens.lens (\CreateTrigger' {eventBatchingCondition} -> eventBatchingCondition) (\s@CreateTrigger' {} a -> s {eventBatchingCondition = a} :: CreateTrigger)
+
+-- | A predicate to specify when the new trigger should fire.
+--
+-- This field is required when the trigger type is @CONDITIONAL@.
+createTrigger_predicate :: Lens.Lens' CreateTrigger (Prelude.Maybe Predicate)
+createTrigger_predicate = Lens.lens (\CreateTrigger' {predicate} -> predicate) (\s@CreateTrigger' {} a -> s {predicate = a} :: CreateTrigger)
 
 -- | A @cron@ expression used to specify the schedule (see
 -- <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers>.
@@ -173,24 +176,21 @@ createTrigger_eventBatchingCondition = Lens.lens (\CreateTrigger' {eventBatching
 createTrigger_schedule :: Lens.Lens' CreateTrigger (Prelude.Maybe Prelude.Text)
 createTrigger_schedule = Lens.lens (\CreateTrigger' {schedule} -> schedule) (\s@CreateTrigger' {} a -> s {schedule = a} :: CreateTrigger)
 
--- | The name of the workflow associated with the trigger.
-createTrigger_workflowName :: Lens.Lens' CreateTrigger (Prelude.Maybe Prelude.Text)
-createTrigger_workflowName = Lens.lens (\CreateTrigger' {workflowName} -> workflowName) (\s@CreateTrigger' {} a -> s {workflowName = a} :: CreateTrigger)
-
--- | A predicate to specify when the new trigger should fire.
---
--- This field is required when the trigger type is @CONDITIONAL@.
-createTrigger_predicate :: Lens.Lens' CreateTrigger (Prelude.Maybe Predicate)
-createTrigger_predicate = Lens.lens (\CreateTrigger' {predicate} -> predicate) (\s@CreateTrigger' {} a -> s {predicate = a} :: CreateTrigger)
-
--- | A description of the new trigger.
-createTrigger_description :: Lens.Lens' CreateTrigger (Prelude.Maybe Prelude.Text)
-createTrigger_description = Lens.lens (\CreateTrigger' {description} -> description) (\s@CreateTrigger' {} a -> s {description = a} :: CreateTrigger)
-
 -- | Set to @true@ to start @SCHEDULED@ and @CONDITIONAL@ triggers when
 -- created. True is not supported for @ON_DEMAND@ triggers.
 createTrigger_startOnCreation :: Lens.Lens' CreateTrigger (Prelude.Maybe Prelude.Bool)
 createTrigger_startOnCreation = Lens.lens (\CreateTrigger' {startOnCreation} -> startOnCreation) (\s@CreateTrigger' {} a -> s {startOnCreation = a} :: CreateTrigger)
+
+-- | The tags to use with this trigger. You may use tags to limit access to
+-- the trigger. For more information about tags in Glue, see
+-- <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html Amazon Web Services Tags in Glue>
+-- in the developer guide.
+createTrigger_tags :: Lens.Lens' CreateTrigger (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createTrigger_tags = Lens.lens (\CreateTrigger' {tags} -> tags) (\s@CreateTrigger' {} a -> s {tags = a} :: CreateTrigger) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of the workflow associated with the trigger.
+createTrigger_workflowName :: Lens.Lens' CreateTrigger (Prelude.Maybe Prelude.Text)
+createTrigger_workflowName = Lens.lens (\CreateTrigger' {workflowName} -> workflowName) (\s@CreateTrigger' {} a -> s {workflowName = a} :: CreateTrigger)
 
 -- | The name of the trigger.
 createTrigger_name :: Lens.Lens' CreateTrigger Prelude.Text
@@ -220,26 +220,26 @@ instance Core.AWSRequest CreateTrigger where
 
 instance Prelude.Hashable CreateTrigger where
   hashWithSalt _salt CreateTrigger' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` eventBatchingCondition
-      `Prelude.hashWithSalt` schedule
-      `Prelude.hashWithSalt` workflowName
       `Prelude.hashWithSalt` predicate
-      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` schedule
       `Prelude.hashWithSalt` startOnCreation
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` workflowName
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` actions
 
 instance Prelude.NFData CreateTrigger where
   rnf CreateTrigger' {..} =
-    Prelude.rnf tags
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf eventBatchingCondition
-      `Prelude.seq` Prelude.rnf schedule
-      `Prelude.seq` Prelude.rnf workflowName
       `Prelude.seq` Prelude.rnf predicate
-      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf schedule
       `Prelude.seq` Prelude.rnf startOnCreation
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf workflowName
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf actions
@@ -261,15 +261,15 @@ instance Data.ToJSON CreateTrigger where
   toJSON CreateTrigger' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
+          [ ("Description" Data..=) Prelude.<$> description,
             ("EventBatchingCondition" Data..=)
               Prelude.<$> eventBatchingCondition,
-            ("Schedule" Data..=) Prelude.<$> schedule,
-            ("WorkflowName" Data..=) Prelude.<$> workflowName,
             ("Predicate" Data..=) Prelude.<$> predicate,
-            ("Description" Data..=) Prelude.<$> description,
+            ("Schedule" Data..=) Prelude.<$> schedule,
             ("StartOnCreation" Data..=)
               Prelude.<$> startOnCreation,
+            ("Tags" Data..=) Prelude.<$> tags,
+            ("WorkflowName" Data..=) Prelude.<$> workflowName,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("Type" Data..= type'),
             Prelude.Just ("Actions" Data..= actions)

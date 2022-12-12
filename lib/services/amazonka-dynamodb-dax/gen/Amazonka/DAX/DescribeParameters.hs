@@ -29,9 +29,9 @@ module Amazonka.DAX.DescribeParameters
     newDescribeParameters,
 
     -- * Request Lenses
+    describeParameters_maxResults,
     describeParameters_nextToken,
     describeParameters_source,
-    describeParameters_maxResults,
     describeParameters_parameterGroupName,
 
     -- * Destructuring the Response
@@ -55,7 +55,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeParameters' smart constructor.
 data DescribeParameters = DescribeParameters'
-  { -- | An optional token returned from a prior request. Use this token for
+  { -- | The maximum number of results to include in the response. If more
+    -- results exist than the specified @MaxResults@ value, a token is included
+    -- in the response so that the remaining results can be retrieved.
+    --
+    -- The value for @MaxResults@ must be between 20 and 100.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | An optional token returned from a prior request. Use this token for
     -- pagination of results from this action. If this parameter is specified,
     -- the response includes only results beyond the token, up to the value
     -- specified by @MaxResults@.
@@ -63,12 +69,6 @@ data DescribeParameters = DescribeParameters'
     -- | How the parameter is defined. For example, @system@ denotes a
     -- system-defined parameter.
     source :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to include in the response. If more
-    -- results exist than the specified @MaxResults@ value, a token is included
-    -- in the response so that the remaining results can be retrieved.
-    --
-    -- The value for @MaxResults@ must be between 20 and 100.
-    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The name of the parameter group.
     parameterGroupName :: Prelude.Text
   }
@@ -82,6 +82,12 @@ data DescribeParameters = DescribeParameters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'describeParameters_maxResults' - The maximum number of results to include in the response. If more
+-- results exist than the specified @MaxResults@ value, a token is included
+-- in the response so that the remaining results can be retrieved.
+--
+-- The value for @MaxResults@ must be between 20 and 100.
+--
 -- 'nextToken', 'describeParameters_nextToken' - An optional token returned from a prior request. Use this token for
 -- pagination of results from this action. If this parameter is specified,
 -- the response includes only results beyond the token, up to the value
@@ -90,12 +96,6 @@ data DescribeParameters = DescribeParameters'
 -- 'source', 'describeParameters_source' - How the parameter is defined. For example, @system@ denotes a
 -- system-defined parameter.
 --
--- 'maxResults', 'describeParameters_maxResults' - The maximum number of results to include in the response. If more
--- results exist than the specified @MaxResults@ value, a token is included
--- in the response so that the remaining results can be retrieved.
---
--- The value for @MaxResults@ must be between 20 and 100.
---
 -- 'parameterGroupName', 'describeParameters_parameterGroupName' - The name of the parameter group.
 newDescribeParameters ::
   -- | 'parameterGroupName'
@@ -103,11 +103,19 @@ newDescribeParameters ::
   DescribeParameters
 newDescribeParameters pParameterGroupName_ =
   DescribeParameters'
-    { nextToken = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       source = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       parameterGroupName = pParameterGroupName_
     }
+
+-- | The maximum number of results to include in the response. If more
+-- results exist than the specified @MaxResults@ value, a token is included
+-- in the response so that the remaining results can be retrieved.
+--
+-- The value for @MaxResults@ must be between 20 and 100.
+describeParameters_maxResults :: Lens.Lens' DescribeParameters (Prelude.Maybe Prelude.Int)
+describeParameters_maxResults = Lens.lens (\DescribeParameters' {maxResults} -> maxResults) (\s@DescribeParameters' {} a -> s {maxResults = a} :: DescribeParameters)
 
 -- | An optional token returned from a prior request. Use this token for
 -- pagination of results from this action. If this parameter is specified,
@@ -120,14 +128,6 @@ describeParameters_nextToken = Lens.lens (\DescribeParameters' {nextToken} -> ne
 -- system-defined parameter.
 describeParameters_source :: Lens.Lens' DescribeParameters (Prelude.Maybe Prelude.Text)
 describeParameters_source = Lens.lens (\DescribeParameters' {source} -> source) (\s@DescribeParameters' {} a -> s {source = a} :: DescribeParameters)
-
--- | The maximum number of results to include in the response. If more
--- results exist than the specified @MaxResults@ value, a token is included
--- in the response so that the remaining results can be retrieved.
---
--- The value for @MaxResults@ must be between 20 and 100.
-describeParameters_maxResults :: Lens.Lens' DescribeParameters (Prelude.Maybe Prelude.Int)
-describeParameters_maxResults = Lens.lens (\DescribeParameters' {maxResults} -> maxResults) (\s@DescribeParameters' {} a -> s {maxResults = a} :: DescribeParameters)
 
 -- | The name of the parameter group.
 describeParameters_parameterGroupName :: Lens.Lens' DescribeParameters Prelude.Text
@@ -172,16 +172,16 @@ instance Core.AWSRequest DescribeParameters where
 
 instance Prelude.Hashable DescribeParameters where
   hashWithSalt _salt DescribeParameters' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` source
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` parameterGroupName
 
 instance Prelude.NFData DescribeParameters where
   rnf DescribeParameters' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf parameterGroupName
 
 instance Data.ToHeaders DescribeParameters where
@@ -203,9 +203,9 @@ instance Data.ToJSON DescribeParameters where
   toJSON DescribeParameters' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("Source" Data..=) Prelude.<$> source,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
               ("ParameterGroupName" Data..= parameterGroupName)
           ]

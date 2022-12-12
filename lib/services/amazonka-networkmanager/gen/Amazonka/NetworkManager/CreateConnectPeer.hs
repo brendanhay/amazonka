@@ -30,10 +30,10 @@ module Amazonka.NetworkManager.CreateConnectPeer
     newCreateConnectPeer,
 
     -- * Request Lenses
-    createConnectPeer_tags,
+    createConnectPeer_bgpOptions,
     createConnectPeer_clientToken,
     createConnectPeer_coreNetworkAddress,
-    createConnectPeer_bgpOptions,
+    createConnectPeer_tags,
     createConnectPeer_connectAttachmentId,
     createConnectPeer_peerAddress,
     createConnectPeer_insideCidrBlocks,
@@ -58,14 +58,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateConnectPeer' smart constructor.
 data CreateConnectPeer = CreateConnectPeer'
-  { -- | The tags associated with the peer request.
-    tags :: Prelude.Maybe [Tag],
+  { -- | The Connect peer BGP options.
+    bgpOptions :: Prelude.Maybe BgpOptions,
     -- | The client token associated with the request.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | A Connect peer core network address.
     coreNetworkAddress :: Prelude.Maybe Prelude.Text,
-    -- | The Connect peer BGP options.
-    bgpOptions :: Prelude.Maybe BgpOptions,
+    -- | The tags associated with the peer request.
+    tags :: Prelude.Maybe [Tag],
     -- | The ID of the connection attachment.
     connectAttachmentId :: Prelude.Text,
     -- | The Connect peer address.
@@ -83,13 +83,13 @@ data CreateConnectPeer = CreateConnectPeer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createConnectPeer_tags' - The tags associated with the peer request.
+-- 'bgpOptions', 'createConnectPeer_bgpOptions' - The Connect peer BGP options.
 --
 -- 'clientToken', 'createConnectPeer_clientToken' - The client token associated with the request.
 --
 -- 'coreNetworkAddress', 'createConnectPeer_coreNetworkAddress' - A Connect peer core network address.
 --
--- 'bgpOptions', 'createConnectPeer_bgpOptions' - The Connect peer BGP options.
+-- 'tags', 'createConnectPeer_tags' - The tags associated with the peer request.
 --
 -- 'connectAttachmentId', 'createConnectPeer_connectAttachmentId' - The ID of the connection attachment.
 --
@@ -106,18 +106,18 @@ newCreateConnectPeer
   pConnectAttachmentId_
   pPeerAddress_ =
     CreateConnectPeer'
-      { tags = Prelude.Nothing,
+      { bgpOptions = Prelude.Nothing,
         clientToken = Prelude.Nothing,
         coreNetworkAddress = Prelude.Nothing,
-        bgpOptions = Prelude.Nothing,
+        tags = Prelude.Nothing,
         connectAttachmentId = pConnectAttachmentId_,
         peerAddress = pPeerAddress_,
         insideCidrBlocks = Prelude.mempty
       }
 
--- | The tags associated with the peer request.
-createConnectPeer_tags :: Lens.Lens' CreateConnectPeer (Prelude.Maybe [Tag])
-createConnectPeer_tags = Lens.lens (\CreateConnectPeer' {tags} -> tags) (\s@CreateConnectPeer' {} a -> s {tags = a} :: CreateConnectPeer) Prelude.. Lens.mapping Lens.coerced
+-- | The Connect peer BGP options.
+createConnectPeer_bgpOptions :: Lens.Lens' CreateConnectPeer (Prelude.Maybe BgpOptions)
+createConnectPeer_bgpOptions = Lens.lens (\CreateConnectPeer' {bgpOptions} -> bgpOptions) (\s@CreateConnectPeer' {} a -> s {bgpOptions = a} :: CreateConnectPeer)
 
 -- | The client token associated with the request.
 createConnectPeer_clientToken :: Lens.Lens' CreateConnectPeer (Prelude.Maybe Prelude.Text)
@@ -127,9 +127,9 @@ createConnectPeer_clientToken = Lens.lens (\CreateConnectPeer' {clientToken} -> 
 createConnectPeer_coreNetworkAddress :: Lens.Lens' CreateConnectPeer (Prelude.Maybe Prelude.Text)
 createConnectPeer_coreNetworkAddress = Lens.lens (\CreateConnectPeer' {coreNetworkAddress} -> coreNetworkAddress) (\s@CreateConnectPeer' {} a -> s {coreNetworkAddress = a} :: CreateConnectPeer)
 
--- | The Connect peer BGP options.
-createConnectPeer_bgpOptions :: Lens.Lens' CreateConnectPeer (Prelude.Maybe BgpOptions)
-createConnectPeer_bgpOptions = Lens.lens (\CreateConnectPeer' {bgpOptions} -> bgpOptions) (\s@CreateConnectPeer' {} a -> s {bgpOptions = a} :: CreateConnectPeer)
+-- | The tags associated with the peer request.
+createConnectPeer_tags :: Lens.Lens' CreateConnectPeer (Prelude.Maybe [Tag])
+createConnectPeer_tags = Lens.lens (\CreateConnectPeer' {tags} -> tags) (\s@CreateConnectPeer' {} a -> s {tags = a} :: CreateConnectPeer) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the connection attachment.
 createConnectPeer_connectAttachmentId :: Lens.Lens' CreateConnectPeer Prelude.Text
@@ -159,20 +159,20 @@ instance Core.AWSRequest CreateConnectPeer where
 
 instance Prelude.Hashable CreateConnectPeer where
   hashWithSalt _salt CreateConnectPeer' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` bgpOptions
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` coreNetworkAddress
-      `Prelude.hashWithSalt` bgpOptions
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` connectAttachmentId
       `Prelude.hashWithSalt` peerAddress
       `Prelude.hashWithSalt` insideCidrBlocks
 
 instance Prelude.NFData CreateConnectPeer where
   rnf CreateConnectPeer' {..} =
-    Prelude.rnf tags
+    Prelude.rnf bgpOptions
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf coreNetworkAddress
-      `Prelude.seq` Prelude.rnf bgpOptions
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf connectAttachmentId
       `Prelude.seq` Prelude.rnf peerAddress
       `Prelude.seq` Prelude.rnf insideCidrBlocks
@@ -192,11 +192,11 @@ instance Data.ToJSON CreateConnectPeer where
   toJSON CreateConnectPeer' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
+          [ ("BgpOptions" Data..=) Prelude.<$> bgpOptions,
             ("ClientToken" Data..=) Prelude.<$> clientToken,
             ("CoreNetworkAddress" Data..=)
               Prelude.<$> coreNetworkAddress,
-            ("BgpOptions" Data..=) Prelude.<$> bgpOptions,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("ConnectAttachmentId" Data..= connectAttachmentId),
             Prelude.Just ("PeerAddress" Data..= peerAddress),

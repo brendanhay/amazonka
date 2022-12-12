@@ -33,9 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newApplicationResourceLifecycleConfig' smart constructor.
 data ApplicationResourceLifecycleConfig = ApplicationResourceLifecycleConfig'
-  { -- | Defines lifecycle settings for application versions.
-    versionLifecycleConfig :: Prelude.Maybe ApplicationVersionLifecycleConfig,
-    -- | The ARN of an IAM service role that Elastic Beanstalk has permission to
+  { -- | The ARN of an IAM service role that Elastic Beanstalk has permission to
     -- assume.
     --
     -- The @ServiceRole@ property is required the first time that you provide a
@@ -46,7 +44,9 @@ data ApplicationResourceLifecycleConfig = ApplicationResourceLifecycleConfig'
     -- specify it again in subsequent @UpdateApplicationResourceLifecycle@
     -- calls. You can, however, specify it in subsequent calls to change the
     -- Service Role to another value.
-    serviceRole :: Prelude.Maybe Prelude.Text
+    serviceRole :: Prelude.Maybe Prelude.Text,
+    -- | Defines lifecycle settings for application versions.
+    versionLifecycleConfig :: Prelude.Maybe ApplicationVersionLifecycleConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,8 +57,6 @@ data ApplicationResourceLifecycleConfig = ApplicationResourceLifecycleConfig'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'versionLifecycleConfig', 'applicationResourceLifecycleConfig_versionLifecycleConfig' - Defines lifecycle settings for application versions.
 --
 -- 'serviceRole', 'applicationResourceLifecycleConfig_serviceRole' - The ARN of an IAM service role that Elastic Beanstalk has permission to
 -- assume.
@@ -71,18 +69,17 @@ data ApplicationResourceLifecycleConfig = ApplicationResourceLifecycleConfig'
 -- specify it again in subsequent @UpdateApplicationResourceLifecycle@
 -- calls. You can, however, specify it in subsequent calls to change the
 -- Service Role to another value.
+--
+-- 'versionLifecycleConfig', 'applicationResourceLifecycleConfig_versionLifecycleConfig' - Defines lifecycle settings for application versions.
 newApplicationResourceLifecycleConfig ::
   ApplicationResourceLifecycleConfig
 newApplicationResourceLifecycleConfig =
   ApplicationResourceLifecycleConfig'
-    { versionLifecycleConfig =
+    { serviceRole =
         Prelude.Nothing,
-      serviceRole = Prelude.Nothing
+      versionLifecycleConfig =
+        Prelude.Nothing
     }
-
--- | Defines lifecycle settings for application versions.
-applicationResourceLifecycleConfig_versionLifecycleConfig :: Lens.Lens' ApplicationResourceLifecycleConfig (Prelude.Maybe ApplicationVersionLifecycleConfig)
-applicationResourceLifecycleConfig_versionLifecycleConfig = Lens.lens (\ApplicationResourceLifecycleConfig' {versionLifecycleConfig} -> versionLifecycleConfig) (\s@ApplicationResourceLifecycleConfig' {} a -> s {versionLifecycleConfig = a} :: ApplicationResourceLifecycleConfig)
 
 -- | The ARN of an IAM service role that Elastic Beanstalk has permission to
 -- assume.
@@ -98,14 +95,18 @@ applicationResourceLifecycleConfig_versionLifecycleConfig = Lens.lens (\Applicat
 applicationResourceLifecycleConfig_serviceRole :: Lens.Lens' ApplicationResourceLifecycleConfig (Prelude.Maybe Prelude.Text)
 applicationResourceLifecycleConfig_serviceRole = Lens.lens (\ApplicationResourceLifecycleConfig' {serviceRole} -> serviceRole) (\s@ApplicationResourceLifecycleConfig' {} a -> s {serviceRole = a} :: ApplicationResourceLifecycleConfig)
 
+-- | Defines lifecycle settings for application versions.
+applicationResourceLifecycleConfig_versionLifecycleConfig :: Lens.Lens' ApplicationResourceLifecycleConfig (Prelude.Maybe ApplicationVersionLifecycleConfig)
+applicationResourceLifecycleConfig_versionLifecycleConfig = Lens.lens (\ApplicationResourceLifecycleConfig' {versionLifecycleConfig} -> versionLifecycleConfig) (\s@ApplicationResourceLifecycleConfig' {} a -> s {versionLifecycleConfig = a} :: ApplicationResourceLifecycleConfig)
+
 instance
   Data.FromXML
     ApplicationResourceLifecycleConfig
   where
   parseXML x =
     ApplicationResourceLifecycleConfig'
-      Prelude.<$> (x Data..@? "VersionLifecycleConfig")
-      Prelude.<*> (x Data..@? "ServiceRole")
+      Prelude.<$> (x Data..@? "ServiceRole")
+      Prelude.<*> (x Data..@? "VersionLifecycleConfig")
 
 instance
   Prelude.Hashable
@@ -114,16 +115,16 @@ instance
   hashWithSalt
     _salt
     ApplicationResourceLifecycleConfig' {..} =
-      _salt `Prelude.hashWithSalt` versionLifecycleConfig
-        `Prelude.hashWithSalt` serviceRole
+      _salt `Prelude.hashWithSalt` serviceRole
+        `Prelude.hashWithSalt` versionLifecycleConfig
 
 instance
   Prelude.NFData
     ApplicationResourceLifecycleConfig
   where
   rnf ApplicationResourceLifecycleConfig' {..} =
-    Prelude.rnf versionLifecycleConfig
-      `Prelude.seq` Prelude.rnf serviceRole
+    Prelude.rnf serviceRole
+      `Prelude.seq` Prelude.rnf versionLifecycleConfig
 
 instance
   Data.ToQuery
@@ -131,7 +132,7 @@ instance
   where
   toQuery ApplicationResourceLifecycleConfig' {..} =
     Prelude.mconcat
-      [ "VersionLifecycleConfig"
-          Data.=: versionLifecycleConfig,
-        "ServiceRole" Data.=: serviceRole
+      [ "ServiceRole" Data.=: serviceRole,
+        "VersionLifecycleConfig"
+          Data.=: versionLifecycleConfig
       ]

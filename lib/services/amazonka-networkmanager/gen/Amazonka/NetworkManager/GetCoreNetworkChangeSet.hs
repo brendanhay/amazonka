@@ -30,8 +30,8 @@ module Amazonka.NetworkManager.GetCoreNetworkChangeSet
     newGetCoreNetworkChangeSet,
 
     -- * Request Lenses
-    getCoreNetworkChangeSet_nextToken,
     getCoreNetworkChangeSet_maxResults,
+    getCoreNetworkChangeSet_nextToken,
     getCoreNetworkChangeSet_coreNetworkId,
     getCoreNetworkChangeSet_policyVersionId,
 
@@ -40,8 +40,8 @@ module Amazonka.NetworkManager.GetCoreNetworkChangeSet
     newGetCoreNetworkChangeSetResponse,
 
     -- * Response Lenses
-    getCoreNetworkChangeSetResponse_nextToken,
     getCoreNetworkChangeSetResponse_coreNetworkChanges,
+    getCoreNetworkChangeSetResponse_nextToken,
     getCoreNetworkChangeSetResponse_httpStatus,
   )
 where
@@ -56,10 +56,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetCoreNetworkChangeSet' smart constructor.
 data GetCoreNetworkChangeSet = GetCoreNetworkChangeSet'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return.
+  { -- | The maximum number of results to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of a core network.
     coreNetworkId :: Prelude.Text,
     -- | The ID of the policy version.
@@ -75,9 +75,9 @@ data GetCoreNetworkChangeSet = GetCoreNetworkChangeSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getCoreNetworkChangeSet_nextToken' - The token for the next page of results.
---
 -- 'maxResults', 'getCoreNetworkChangeSet_maxResults' - The maximum number of results to return.
+--
+-- 'nextToken', 'getCoreNetworkChangeSet_nextToken' - The token for the next page of results.
 --
 -- 'coreNetworkId', 'getCoreNetworkChangeSet_coreNetworkId' - The ID of a core network.
 --
@@ -92,20 +92,20 @@ newGetCoreNetworkChangeSet
   pCoreNetworkId_
   pPolicyVersionId_ =
     GetCoreNetworkChangeSet'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         coreNetworkId = pCoreNetworkId_,
         policyVersionId = pPolicyVersionId_
       }
 
--- | The token for the next page of results.
-getCoreNetworkChangeSet_nextToken :: Lens.Lens' GetCoreNetworkChangeSet (Prelude.Maybe Prelude.Text)
-getCoreNetworkChangeSet_nextToken = Lens.lens (\GetCoreNetworkChangeSet' {nextToken} -> nextToken) (\s@GetCoreNetworkChangeSet' {} a -> s {nextToken = a} :: GetCoreNetworkChangeSet)
-
 -- | The maximum number of results to return.
 getCoreNetworkChangeSet_maxResults :: Lens.Lens' GetCoreNetworkChangeSet (Prelude.Maybe Prelude.Natural)
 getCoreNetworkChangeSet_maxResults = Lens.lens (\GetCoreNetworkChangeSet' {maxResults} -> maxResults) (\s@GetCoreNetworkChangeSet' {} a -> s {maxResults = a} :: GetCoreNetworkChangeSet)
+
+-- | The token for the next page of results.
+getCoreNetworkChangeSet_nextToken :: Lens.Lens' GetCoreNetworkChangeSet (Prelude.Maybe Prelude.Text)
+getCoreNetworkChangeSet_nextToken = Lens.lens (\GetCoreNetworkChangeSet' {nextToken} -> nextToken) (\s@GetCoreNetworkChangeSet' {} a -> s {nextToken = a} :: GetCoreNetworkChangeSet)
 
 -- | The ID of a core network.
 getCoreNetworkChangeSet_coreNetworkId :: Lens.Lens' GetCoreNetworkChangeSet Prelude.Text
@@ -147,24 +147,24 @@ instance Core.AWSRequest GetCoreNetworkChangeSet where
     Response.receiveJSON
       ( \s h x ->
           GetCoreNetworkChangeSetResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "CoreNetworkChanges"
+            Prelude.<$> ( x Data..?> "CoreNetworkChanges"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetCoreNetworkChangeSet where
   hashWithSalt _salt GetCoreNetworkChangeSet' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` coreNetworkId
       `Prelude.hashWithSalt` policyVersionId
 
 instance Prelude.NFData GetCoreNetworkChangeSet where
   rnf GetCoreNetworkChangeSet' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf coreNetworkId
       `Prelude.seq` Prelude.rnf policyVersionId
 
@@ -191,16 +191,16 @@ instance Data.ToPath GetCoreNetworkChangeSet where
 instance Data.ToQuery GetCoreNetworkChangeSet where
   toQuery GetCoreNetworkChangeSet' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newGetCoreNetworkChangeSetResponse' smart constructor.
 data GetCoreNetworkChangeSetResponse = GetCoreNetworkChangeSetResponse'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Describes a core network changes.
+  { -- | Describes a core network changes.
     coreNetworkChanges :: Prelude.Maybe [CoreNetworkChange],
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -214,9 +214,9 @@ data GetCoreNetworkChangeSetResponse = GetCoreNetworkChangeSetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getCoreNetworkChangeSetResponse_nextToken' - The token for the next page of results.
---
 -- 'coreNetworkChanges', 'getCoreNetworkChangeSetResponse_coreNetworkChanges' - Describes a core network changes.
+--
+-- 'nextToken', 'getCoreNetworkChangeSetResponse_nextToken' - The token for the next page of results.
 --
 -- 'httpStatus', 'getCoreNetworkChangeSetResponse_httpStatus' - The response's http status code.
 newGetCoreNetworkChangeSetResponse ::
@@ -225,19 +225,19 @@ newGetCoreNetworkChangeSetResponse ::
   GetCoreNetworkChangeSetResponse
 newGetCoreNetworkChangeSetResponse pHttpStatus_ =
   GetCoreNetworkChangeSetResponse'
-    { nextToken =
+    { coreNetworkChanges =
         Prelude.Nothing,
-      coreNetworkChanges = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token for the next page of results.
-getCoreNetworkChangeSetResponse_nextToken :: Lens.Lens' GetCoreNetworkChangeSetResponse (Prelude.Maybe Prelude.Text)
-getCoreNetworkChangeSetResponse_nextToken = Lens.lens (\GetCoreNetworkChangeSetResponse' {nextToken} -> nextToken) (\s@GetCoreNetworkChangeSetResponse' {} a -> s {nextToken = a} :: GetCoreNetworkChangeSetResponse)
 
 -- | Describes a core network changes.
 getCoreNetworkChangeSetResponse_coreNetworkChanges :: Lens.Lens' GetCoreNetworkChangeSetResponse (Prelude.Maybe [CoreNetworkChange])
 getCoreNetworkChangeSetResponse_coreNetworkChanges = Lens.lens (\GetCoreNetworkChangeSetResponse' {coreNetworkChanges} -> coreNetworkChanges) (\s@GetCoreNetworkChangeSetResponse' {} a -> s {coreNetworkChanges = a} :: GetCoreNetworkChangeSetResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next page of results.
+getCoreNetworkChangeSetResponse_nextToken :: Lens.Lens' GetCoreNetworkChangeSetResponse (Prelude.Maybe Prelude.Text)
+getCoreNetworkChangeSetResponse_nextToken = Lens.lens (\GetCoreNetworkChangeSetResponse' {nextToken} -> nextToken) (\s@GetCoreNetworkChangeSetResponse' {} a -> s {nextToken = a} :: GetCoreNetworkChangeSetResponse)
 
 -- | The response's http status code.
 getCoreNetworkChangeSetResponse_httpStatus :: Lens.Lens' GetCoreNetworkChangeSetResponse Prelude.Int
@@ -248,6 +248,6 @@ instance
     GetCoreNetworkChangeSetResponse
   where
   rnf GetCoreNetworkChangeSetResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf coreNetworkChanges
+    Prelude.rnf coreNetworkChanges
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

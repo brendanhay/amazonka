@@ -29,10 +29,10 @@ module Amazonka.AppFlow.RegisterConnector
     newRegisterConnector,
 
     -- * Request Lenses
+    registerConnector_connectorLabel,
+    registerConnector_connectorProvisioningConfig,
     registerConnector_connectorProvisioningType,
     registerConnector_description,
-    registerConnector_connectorProvisioningConfig,
-    registerConnector_connectorLabel,
 
     -- * Destructuring the Response
     RegisterConnectorResponse (..),
@@ -54,17 +54,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRegisterConnector' smart constructor.
 data RegisterConnector = RegisterConnector'
-  { -- | The provisioning type of the connector. Currently the only supported
-    -- value is LAMBDA.
-    connectorProvisioningType :: Prelude.Maybe ConnectorProvisioningType,
-    -- | A description about the connector that\'s being registered.
-    description :: Prelude.Maybe Prelude.Text,
+  { -- | The name of the connector. The name is unique for each
+    -- @ConnectorRegistration@ in your Amazon Web Services account.
+    connectorLabel :: Prelude.Maybe Prelude.Text,
     -- | The provisioning type of the connector. Currently the only supported
     -- value is LAMBDA.
     connectorProvisioningConfig :: Prelude.Maybe ConnectorProvisioningConfig,
-    -- | The name of the connector. The name is unique for each
-    -- @ConnectorRegistration@ in your Amazon Web Services account.
-    connectorLabel :: Prelude.Maybe Prelude.Text
+    -- | The provisioning type of the connector. Currently the only supported
+    -- value is LAMBDA.
+    connectorProvisioningType :: Prelude.Maybe ConnectorProvisioningType,
+    -- | A description about the connector that\'s being registered.
+    description :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,26 +76,36 @@ data RegisterConnector = RegisterConnector'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'connectorProvisioningType', 'registerConnector_connectorProvisioningType' - The provisioning type of the connector. Currently the only supported
--- value is LAMBDA.
---
--- 'description', 'registerConnector_description' - A description about the connector that\'s being registered.
+-- 'connectorLabel', 'registerConnector_connectorLabel' - The name of the connector. The name is unique for each
+-- @ConnectorRegistration@ in your Amazon Web Services account.
 --
 -- 'connectorProvisioningConfig', 'registerConnector_connectorProvisioningConfig' - The provisioning type of the connector. Currently the only supported
 -- value is LAMBDA.
 --
--- 'connectorLabel', 'registerConnector_connectorLabel' - The name of the connector. The name is unique for each
--- @ConnectorRegistration@ in your Amazon Web Services account.
+-- 'connectorProvisioningType', 'registerConnector_connectorProvisioningType' - The provisioning type of the connector. Currently the only supported
+-- value is LAMBDA.
+--
+-- 'description', 'registerConnector_description' - A description about the connector that\'s being registered.
 newRegisterConnector ::
   RegisterConnector
 newRegisterConnector =
   RegisterConnector'
-    { connectorProvisioningType =
+    { connectorLabel =
         Prelude.Nothing,
-      description = Prelude.Nothing,
       connectorProvisioningConfig = Prelude.Nothing,
-      connectorLabel = Prelude.Nothing
+      connectorProvisioningType = Prelude.Nothing,
+      description = Prelude.Nothing
     }
+
+-- | The name of the connector. The name is unique for each
+-- @ConnectorRegistration@ in your Amazon Web Services account.
+registerConnector_connectorLabel :: Lens.Lens' RegisterConnector (Prelude.Maybe Prelude.Text)
+registerConnector_connectorLabel = Lens.lens (\RegisterConnector' {connectorLabel} -> connectorLabel) (\s@RegisterConnector' {} a -> s {connectorLabel = a} :: RegisterConnector)
+
+-- | The provisioning type of the connector. Currently the only supported
+-- value is LAMBDA.
+registerConnector_connectorProvisioningConfig :: Lens.Lens' RegisterConnector (Prelude.Maybe ConnectorProvisioningConfig)
+registerConnector_connectorProvisioningConfig = Lens.lens (\RegisterConnector' {connectorProvisioningConfig} -> connectorProvisioningConfig) (\s@RegisterConnector' {} a -> s {connectorProvisioningConfig = a} :: RegisterConnector)
 
 -- | The provisioning type of the connector. Currently the only supported
 -- value is LAMBDA.
@@ -105,16 +115,6 @@ registerConnector_connectorProvisioningType = Lens.lens (\RegisterConnector' {co
 -- | A description about the connector that\'s being registered.
 registerConnector_description :: Lens.Lens' RegisterConnector (Prelude.Maybe Prelude.Text)
 registerConnector_description = Lens.lens (\RegisterConnector' {description} -> description) (\s@RegisterConnector' {} a -> s {description = a} :: RegisterConnector)
-
--- | The provisioning type of the connector. Currently the only supported
--- value is LAMBDA.
-registerConnector_connectorProvisioningConfig :: Lens.Lens' RegisterConnector (Prelude.Maybe ConnectorProvisioningConfig)
-registerConnector_connectorProvisioningConfig = Lens.lens (\RegisterConnector' {connectorProvisioningConfig} -> connectorProvisioningConfig) (\s@RegisterConnector' {} a -> s {connectorProvisioningConfig = a} :: RegisterConnector)
-
--- | The name of the connector. The name is unique for each
--- @ConnectorRegistration@ in your Amazon Web Services account.
-registerConnector_connectorLabel :: Lens.Lens' RegisterConnector (Prelude.Maybe Prelude.Text)
-registerConnector_connectorLabel = Lens.lens (\RegisterConnector' {connectorLabel} -> connectorLabel) (\s@RegisterConnector' {} a -> s {connectorLabel = a} :: RegisterConnector)
 
 instance Core.AWSRequest RegisterConnector where
   type
@@ -132,18 +132,17 @@ instance Core.AWSRequest RegisterConnector where
 
 instance Prelude.Hashable RegisterConnector where
   hashWithSalt _salt RegisterConnector' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` connectorLabel
+      `Prelude.hashWithSalt` connectorProvisioningConfig
       `Prelude.hashWithSalt` connectorProvisioningType
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` connectorProvisioningConfig
-      `Prelude.hashWithSalt` connectorLabel
 
 instance Prelude.NFData RegisterConnector where
   rnf RegisterConnector' {..} =
-    Prelude.rnf connectorProvisioningType
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf connectorLabel
       `Prelude.seq` Prelude.rnf connectorProvisioningConfig
-      `Prelude.seq` Prelude.rnf connectorLabel
+      `Prelude.seq` Prelude.rnf connectorProvisioningType
+      `Prelude.seq` Prelude.rnf description
 
 instance Data.ToHeaders RegisterConnector where
   toHeaders =
@@ -160,13 +159,13 @@ instance Data.ToJSON RegisterConnector where
   toJSON RegisterConnector' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("connectorProvisioningType" Data..=)
-              Prelude.<$> connectorProvisioningType,
-            ("description" Data..=) Prelude.<$> description,
+          [ ("connectorLabel" Data..=)
+              Prelude.<$> connectorLabel,
             ("connectorProvisioningConfig" Data..=)
               Prelude.<$> connectorProvisioningConfig,
-            ("connectorLabel" Data..=)
-              Prelude.<$> connectorLabel
+            ("connectorProvisioningType" Data..=)
+              Prelude.<$> connectorProvisioningType,
+            ("description" Data..=) Prelude.<$> description
           ]
       )
 

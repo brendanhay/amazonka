@@ -38,8 +38,8 @@ module Amazonka.Evidently.CreateSegment
     newCreateSegment,
 
     -- * Request Lenses
-    createSegment_tags,
     createSegment_description,
+    createSegment_tags,
     createSegment_name,
     createSegment_pattern,
 
@@ -63,7 +63,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateSegment' smart constructor.
 data CreateSegment = CreateSegment'
-  { -- | Assigns one or more tags (key-value pairs) to the segment.
+  { -- | An optional description for this segment.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Assigns one or more tags (key-value pairs) to the segment.
     --
     -- Tags can help you organize and categorize your resources. You can also
     -- use them to scope user permissions by granting a user permission to
@@ -74,8 +76,6 @@ data CreateSegment = CreateSegment'
     --
     -- >  <p>You can associate as many as 50 tags with a segment.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | An optional description for this segment.
-    description :: Prelude.Maybe Prelude.Text,
     -- | A name for the segment.
     name :: Prelude.Text,
     -- | The pattern to use for the segment. For more information about pattern
@@ -93,6 +93,8 @@ data CreateSegment = CreateSegment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'createSegment_description' - An optional description for this segment.
+--
 -- 'tags', 'createSegment_tags' - Assigns one or more tags (key-value pairs) to the segment.
 --
 -- Tags can help you organize and categorize your resources. You can also
@@ -103,8 +105,6 @@ data CreateSegment = CreateSegment'
 -- interpreted strictly as strings of characters.
 --
 -- >  <p>You can associate as many as 50 tags with a segment.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
---
--- 'description', 'createSegment_description' - An optional description for this segment.
 --
 -- 'name', 'createSegment_name' - A name for the segment.
 --
@@ -119,11 +119,15 @@ newCreateSegment ::
   CreateSegment
 newCreateSegment pName_ pPattern_ =
   CreateSegment'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_,
       pattern' = pPattern_
     }
+
+-- | An optional description for this segment.
+createSegment_description :: Lens.Lens' CreateSegment (Prelude.Maybe Prelude.Text)
+createSegment_description = Lens.lens (\CreateSegment' {description} -> description) (\s@CreateSegment' {} a -> s {description = a} :: CreateSegment)
 
 -- | Assigns one or more tags (key-value pairs) to the segment.
 --
@@ -137,10 +141,6 @@ newCreateSegment pName_ pPattern_ =
 -- >  <p>You can associate as many as 50 tags with a segment.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
 createSegment_tags :: Lens.Lens' CreateSegment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createSegment_tags = Lens.lens (\CreateSegment' {tags} -> tags) (\s@CreateSegment' {} a -> s {tags = a} :: CreateSegment) Prelude.. Lens.mapping Lens.coerced
-
--- | An optional description for this segment.
-createSegment_description :: Lens.Lens' CreateSegment (Prelude.Maybe Prelude.Text)
-createSegment_description = Lens.lens (\CreateSegment' {description} -> description) (\s@CreateSegment' {} a -> s {description = a} :: CreateSegment)
 
 -- | A name for the segment.
 createSegment_name :: Lens.Lens' CreateSegment Prelude.Text
@@ -168,15 +168,15 @@ instance Core.AWSRequest CreateSegment where
 
 instance Prelude.Hashable CreateSegment where
   hashWithSalt _salt CreateSegment' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` pattern'
 
 instance Prelude.NFData CreateSegment where
   rnf CreateSegment' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf pattern'
 
@@ -195,8 +195,8 @@ instance Data.ToJSON CreateSegment where
   toJSON CreateSegment' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("description" Data..=) Prelude.<$> description,
+          [ ("description" Data..=) Prelude.<$> description,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("name" Data..= name),
             Prelude.Just ("pattern" Data..= pattern')
           ]

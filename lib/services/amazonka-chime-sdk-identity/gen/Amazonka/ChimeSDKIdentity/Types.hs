@@ -18,14 +18,14 @@ module Amazonka.ChimeSDKIdentity.Types
     defaultService,
 
     -- * Errors
-    _ThrottledClientException,
-    _ServiceUnavailableException,
-    _ResourceLimitExceededException,
-    _ForbiddenException,
-    _ConflictException,
     _BadRequestException,
-    _UnauthorizedClientException,
+    _ConflictException,
+    _ForbiddenException,
+    _ResourceLimitExceededException,
     _ServiceFailureException,
+    _ServiceUnavailableException,
+    _ThrottledClientException,
+    _UnauthorizedClientException,
 
     -- * AllowMessages
     AllowMessages (..),
@@ -42,18 +42,18 @@ module Amazonka.ChimeSDKIdentity.Types
     -- * AppInstance
     AppInstance (..),
     newAppInstance,
-    appInstance_lastUpdatedTimestamp,
-    appInstance_name,
-    appInstance_metadata,
-    appInstance_createdTimestamp,
     appInstance_appInstanceArn,
+    appInstance_createdTimestamp,
+    appInstance_lastUpdatedTimestamp,
+    appInstance_metadata,
+    appInstance_name,
 
     -- * AppInstanceAdmin
     AppInstanceAdmin (..),
     newAppInstanceAdmin,
-    appInstanceAdmin_createdTimestamp,
-    appInstanceAdmin_appInstanceArn,
     appInstanceAdmin_admin,
+    appInstanceAdmin_appInstanceArn,
+    appInstanceAdmin_createdTimestamp,
 
     -- * AppInstanceAdminSummary
     AppInstanceAdminSummary (..),
@@ -68,49 +68,49 @@ module Amazonka.ChimeSDKIdentity.Types
     -- * AppInstanceSummary
     AppInstanceSummary (..),
     newAppInstanceSummary,
-    appInstanceSummary_name,
-    appInstanceSummary_metadata,
     appInstanceSummary_appInstanceArn,
+    appInstanceSummary_metadata,
+    appInstanceSummary_name,
 
     -- * AppInstanceUser
     AppInstanceUser (..),
     newAppInstanceUser,
-    appInstanceUser_lastUpdatedTimestamp,
-    appInstanceUser_name,
-    appInstanceUser_metadata,
     appInstanceUser_appInstanceUserArn,
     appInstanceUser_createdTimestamp,
+    appInstanceUser_lastUpdatedTimestamp,
+    appInstanceUser_metadata,
+    appInstanceUser_name,
 
     -- * AppInstanceUserEndpoint
     AppInstanceUserEndpoint (..),
     newAppInstanceUserEndpoint,
-    appInstanceUserEndpoint_lastUpdatedTimestamp,
-    appInstanceUserEndpoint_name,
-    appInstanceUserEndpoint_type,
-    appInstanceUserEndpoint_endpointId,
+    appInstanceUserEndpoint_allowMessages,
     appInstanceUserEndpoint_appInstanceUserArn,
     appInstanceUserEndpoint_createdTimestamp,
     appInstanceUserEndpoint_endpointAttributes,
+    appInstanceUserEndpoint_endpointId,
     appInstanceUserEndpoint_endpointState,
+    appInstanceUserEndpoint_lastUpdatedTimestamp,
+    appInstanceUserEndpoint_name,
     appInstanceUserEndpoint_resourceArn,
-    appInstanceUserEndpoint_allowMessages,
+    appInstanceUserEndpoint_type,
 
     -- * AppInstanceUserEndpointSummary
     AppInstanceUserEndpointSummary (..),
     newAppInstanceUserEndpointSummary,
+    appInstanceUserEndpointSummary_allowMessages,
+    appInstanceUserEndpointSummary_appInstanceUserArn,
+    appInstanceUserEndpointSummary_endpointId,
+    appInstanceUserEndpointSummary_endpointState,
     appInstanceUserEndpointSummary_name,
     appInstanceUserEndpointSummary_type,
-    appInstanceUserEndpointSummary_endpointId,
-    appInstanceUserEndpointSummary_appInstanceUserArn,
-    appInstanceUserEndpointSummary_endpointState,
-    appInstanceUserEndpointSummary_allowMessages,
 
     -- * AppInstanceUserSummary
     AppInstanceUserSummary (..),
     newAppInstanceUserSummary,
-    appInstanceUserSummary_name,
-    appInstanceUserSummary_metadata,
     appInstanceUserSummary_appInstanceUserArn,
+    appInstanceUserSummary_metadata,
+    appInstanceUserSummary_name,
 
     -- * ChannelRetentionSettings
     ChannelRetentionSettings (..),
@@ -132,8 +132,8 @@ module Amazonka.ChimeSDKIdentity.Types
     -- * Identity
     Identity (..),
     newIdentity,
-    identity_name,
     identity_arn,
+    identity_name,
 
     -- * Tag
     Tag (..),
@@ -191,28 +191,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -220,13 +214,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -234,39 +232,17 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The client exceeded its request rate limit.
-_ThrottledClientException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ThrottledClientException =
+-- | The input parameters don\'t match the service\'s restrictions.
+_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException =
   Core._MatchServiceError
     defaultService
-    "ThrottledClientException"
-    Prelude.. Core.hasStatus 429
-
--- | The service is currently unavailable.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceUnavailableException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceUnavailableException"
-    Prelude.. Core.hasStatus 503
-
--- | The request exceeds the resource limit.
-_ResourceLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceLimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceLimitExceededException"
+    "BadRequestException"
     Prelude.. Core.hasStatus 400
-
--- | The client is permanently forbidden from making the request.
-_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ForbiddenException =
-  Core._MatchServiceError
-    defaultService
-    "ForbiddenException"
-    Prelude.. Core.hasStatus 403
 
 -- | The request could not be processed because of conflict in the current
 -- state of the resource.
@@ -277,21 +253,21 @@ _ConflictException =
     "ConflictException"
     Prelude.. Core.hasStatus 409
 
--- | The input parameters don\'t match the service\'s restrictions.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_BadRequestException =
+-- | The client is permanently forbidden from making the request.
+_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ForbiddenException =
   Core._MatchServiceError
     defaultService
-    "BadRequestException"
-    Prelude.. Core.hasStatus 400
+    "ForbiddenException"
+    Prelude.. Core.hasStatus 403
 
--- | The client is not currently authorized to make the request.
-_UnauthorizedClientException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnauthorizedClientException =
+-- | The request exceeds the resource limit.
+_ResourceLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceLimitExceededException =
   Core._MatchServiceError
     defaultService
-    "UnauthorizedClientException"
-    Prelude.. Core.hasStatus 401
+    "ResourceLimitExceededException"
+    Prelude.. Core.hasStatus 400
 
 -- | The service encountered an unexpected error.
 _ServiceFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -300,3 +276,27 @@ _ServiceFailureException =
     defaultService
     "ServiceFailureException"
     Prelude.. Core.hasStatus 500
+
+-- | The service is currently unavailable.
+_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceUnavailableException"
+    Prelude.. Core.hasStatus 503
+
+-- | The client exceeded its request rate limit.
+_ThrottledClientException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottledClientException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottledClientException"
+    Prelude.. Core.hasStatus 429
+
+-- | The client is not currently authorized to make the request.
+_UnauthorizedClientException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnauthorizedClientException =
+  Core._MatchServiceError
+    defaultService
+    "UnauthorizedClientException"
+    Prelude.. Core.hasStatus 401

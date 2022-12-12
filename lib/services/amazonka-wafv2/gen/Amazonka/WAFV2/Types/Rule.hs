@@ -38,10 +38,31 @@ import Amazonka.WAFV2.Types.VisibilityConfig
 --
 -- /See:/ 'newRule' smart constructor.
 data Rule = Rule'
-  { -- | Specifies how WAF should handle @CAPTCHA@ evaluations. If you don\'t
+  { -- | The action that WAF should take on a web request when it matches the
+    -- rule statement. Settings at the web ACL level can override the rule
+    -- action setting.
+    --
+    -- This is used only for rules whose statements do not reference a rule
+    -- group. Rule statements that reference a rule group include
+    -- @RuleGroupReferenceStatement@ and @ManagedRuleGroupStatement@.
+    --
+    -- You must specify either this @Action@ setting or the rule
+    -- @OverrideAction@ setting, but not both:
+    --
+    -- -   If the rule statement does not reference a rule group, use this rule
+    --     action setting and not the rule override action setting.
+    --
+    -- -   If the rule statement references a rule group, use the override
+    --     action setting and not this action setting.
+    action :: Prelude.Maybe RuleAction,
+    -- | Specifies how WAF should handle @CAPTCHA@ evaluations. If you don\'t
     -- specify this, WAF uses the @CAPTCHA@ configuration that\'s defined for
     -- the web ACL.
     captchaConfig :: Prelude.Maybe CaptchaConfig,
+    -- | Specifies how WAF should handle @Challenge@ evaluations. If you don\'t
+    -- specify this, WAF uses the challenge configuration that\'s defined for
+    -- the web ACL.
+    challengeConfig :: Prelude.Maybe ChallengeConfig,
     -- | The action to use in the place of the action that results from the rule
     -- group evaluation. Set the override action to none to leave the result of
     -- the rule group alone. Set it to count to override the result to count
@@ -79,27 +100,6 @@ data Rule = Rule'
     --
     -- For example, @myLabelName@ or @nameSpace1:nameSpace2:myLabelName@.
     ruleLabels :: Prelude.Maybe [Label],
-    -- | The action that WAF should take on a web request when it matches the
-    -- rule statement. Settings at the web ACL level can override the rule
-    -- action setting.
-    --
-    -- This is used only for rules whose statements do not reference a rule
-    -- group. Rule statements that reference a rule group include
-    -- @RuleGroupReferenceStatement@ and @ManagedRuleGroupStatement@.
-    --
-    -- You must specify either this @Action@ setting or the rule
-    -- @OverrideAction@ setting, but not both:
-    --
-    -- -   If the rule statement does not reference a rule group, use this rule
-    --     action setting and not the rule override action setting.
-    --
-    -- -   If the rule statement references a rule group, use the override
-    --     action setting and not this action setting.
-    action :: Prelude.Maybe RuleAction,
-    -- | Specifies how WAF should handle @Challenge@ evaluations. If you don\'t
-    -- specify this, WAF uses the challenge configuration that\'s defined for
-    -- the web ACL.
-    challengeConfig :: Prelude.Maybe ChallengeConfig,
     -- | The name of the rule. You can\'t change the name of a @Rule@ after you
     -- create it.
     name :: Prelude.Text,
@@ -125,8 +125,29 @@ data Rule = Rule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'action', 'rule_action' - The action that WAF should take on a web request when it matches the
+-- rule statement. Settings at the web ACL level can override the rule
+-- action setting.
+--
+-- This is used only for rules whose statements do not reference a rule
+-- group. Rule statements that reference a rule group include
+-- @RuleGroupReferenceStatement@ and @ManagedRuleGroupStatement@.
+--
+-- You must specify either this @Action@ setting or the rule
+-- @OverrideAction@ setting, but not both:
+--
+-- -   If the rule statement does not reference a rule group, use this rule
+--     action setting and not the rule override action setting.
+--
+-- -   If the rule statement references a rule group, use the override
+--     action setting and not this action setting.
+--
 -- 'captchaConfig', 'rule_captchaConfig' - Specifies how WAF should handle @CAPTCHA@ evaluations. If you don\'t
 -- specify this, WAF uses the @CAPTCHA@ configuration that\'s defined for
+-- the web ACL.
+--
+-- 'challengeConfig', 'rule_challengeConfig' - Specifies how WAF should handle @Challenge@ evaluations. If you don\'t
+-- specify this, WAF uses the challenge configuration that\'s defined for
 -- the web ACL.
 --
 -- 'overrideAction', 'rule_overrideAction' - The action to use in the place of the action that results from the rule
@@ -166,27 +187,6 @@ data Rule = Rule'
 --
 -- For example, @myLabelName@ or @nameSpace1:nameSpace2:myLabelName@.
 --
--- 'action', 'rule_action' - The action that WAF should take on a web request when it matches the
--- rule statement. Settings at the web ACL level can override the rule
--- action setting.
---
--- This is used only for rules whose statements do not reference a rule
--- group. Rule statements that reference a rule group include
--- @RuleGroupReferenceStatement@ and @ManagedRuleGroupStatement@.
---
--- You must specify either this @Action@ setting or the rule
--- @OverrideAction@ setting, but not both:
---
--- -   If the rule statement does not reference a rule group, use this rule
---     action setting and not the rule override action setting.
---
--- -   If the rule statement references a rule group, use the override
---     action setting and not this action setting.
---
--- 'challengeConfig', 'rule_challengeConfig' - Specifies how WAF should handle @Challenge@ evaluations. If you don\'t
--- specify this, WAF uses the challenge configuration that\'s defined for
--- the web ACL.
---
 -- 'name', 'rule_name' - The name of the rule. You can\'t change the name of a @Rule@ after you
 -- create it.
 --
@@ -216,22 +216,47 @@ newRule
   pStatement_
   pVisibilityConfig_ =
     Rule'
-      { captchaConfig = Prelude.Nothing,
+      { action = Prelude.Nothing,
+        captchaConfig = Prelude.Nothing,
+        challengeConfig = Prelude.Nothing,
         overrideAction = Prelude.Nothing,
         ruleLabels = Prelude.Nothing,
-        action = Prelude.Nothing,
-        challengeConfig = Prelude.Nothing,
         name = pName_,
         priority = pPriority_,
         statement = pStatement_,
         visibilityConfig = pVisibilityConfig_
       }
 
+-- | The action that WAF should take on a web request when it matches the
+-- rule statement. Settings at the web ACL level can override the rule
+-- action setting.
+--
+-- This is used only for rules whose statements do not reference a rule
+-- group. Rule statements that reference a rule group include
+-- @RuleGroupReferenceStatement@ and @ManagedRuleGroupStatement@.
+--
+-- You must specify either this @Action@ setting or the rule
+-- @OverrideAction@ setting, but not both:
+--
+-- -   If the rule statement does not reference a rule group, use this rule
+--     action setting and not the rule override action setting.
+--
+-- -   If the rule statement references a rule group, use the override
+--     action setting and not this action setting.
+rule_action :: Lens.Lens' Rule (Prelude.Maybe RuleAction)
+rule_action = Lens.lens (\Rule' {action} -> action) (\s@Rule' {} a -> s {action = a} :: Rule)
+
 -- | Specifies how WAF should handle @CAPTCHA@ evaluations. If you don\'t
 -- specify this, WAF uses the @CAPTCHA@ configuration that\'s defined for
 -- the web ACL.
 rule_captchaConfig :: Lens.Lens' Rule (Prelude.Maybe CaptchaConfig)
 rule_captchaConfig = Lens.lens (\Rule' {captchaConfig} -> captchaConfig) (\s@Rule' {} a -> s {captchaConfig = a} :: Rule)
+
+-- | Specifies how WAF should handle @Challenge@ evaluations. If you don\'t
+-- specify this, WAF uses the challenge configuration that\'s defined for
+-- the web ACL.
+rule_challengeConfig :: Lens.Lens' Rule (Prelude.Maybe ChallengeConfig)
+rule_challengeConfig = Lens.lens (\Rule' {challengeConfig} -> challengeConfig) (\s@Rule' {} a -> s {challengeConfig = a} :: Rule)
 
 -- | The action to use in the place of the action that results from the rule
 -- group evaluation. Set the override action to none to leave the result of
@@ -274,31 +299,6 @@ rule_overrideAction = Lens.lens (\Rule' {overrideAction} -> overrideAction) (\s@
 rule_ruleLabels :: Lens.Lens' Rule (Prelude.Maybe [Label])
 rule_ruleLabels = Lens.lens (\Rule' {ruleLabels} -> ruleLabels) (\s@Rule' {} a -> s {ruleLabels = a} :: Rule) Prelude.. Lens.mapping Lens.coerced
 
--- | The action that WAF should take on a web request when it matches the
--- rule statement. Settings at the web ACL level can override the rule
--- action setting.
---
--- This is used only for rules whose statements do not reference a rule
--- group. Rule statements that reference a rule group include
--- @RuleGroupReferenceStatement@ and @ManagedRuleGroupStatement@.
---
--- You must specify either this @Action@ setting or the rule
--- @OverrideAction@ setting, but not both:
---
--- -   If the rule statement does not reference a rule group, use this rule
---     action setting and not the rule override action setting.
---
--- -   If the rule statement references a rule group, use the override
---     action setting and not this action setting.
-rule_action :: Lens.Lens' Rule (Prelude.Maybe RuleAction)
-rule_action = Lens.lens (\Rule' {action} -> action) (\s@Rule' {} a -> s {action = a} :: Rule)
-
--- | Specifies how WAF should handle @Challenge@ evaluations. If you don\'t
--- specify this, WAF uses the challenge configuration that\'s defined for
--- the web ACL.
-rule_challengeConfig :: Lens.Lens' Rule (Prelude.Maybe ChallengeConfig)
-rule_challengeConfig = Lens.lens (\Rule' {challengeConfig} -> challengeConfig) (\s@Rule' {} a -> s {challengeConfig = a} :: Rule)
-
 -- | The name of the rule. You can\'t change the name of a @Rule@ after you
 -- create it.
 rule_name :: Lens.Lens' Rule Prelude.Text
@@ -327,11 +327,11 @@ instance Data.FromJSON Rule where
       "Rule"
       ( \x ->
           Rule'
-            Prelude.<$> (x Data..:? "CaptchaConfig")
+            Prelude.<$> (x Data..:? "Action")
+            Prelude.<*> (x Data..:? "CaptchaConfig")
+            Prelude.<*> (x Data..:? "ChallengeConfig")
             Prelude.<*> (x Data..:? "OverrideAction")
             Prelude.<*> (x Data..:? "RuleLabels" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "Action")
-            Prelude.<*> (x Data..:? "ChallengeConfig")
             Prelude.<*> (x Data..: "Name")
             Prelude.<*> (x Data..: "Priority")
             Prelude.<*> (x Data..: "Statement")
@@ -340,11 +340,11 @@ instance Data.FromJSON Rule where
 
 instance Prelude.Hashable Rule where
   hashWithSalt _salt Rule' {..} =
-    _salt `Prelude.hashWithSalt` captchaConfig
+    _salt `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` captchaConfig
+      `Prelude.hashWithSalt` challengeConfig
       `Prelude.hashWithSalt` overrideAction
       `Prelude.hashWithSalt` ruleLabels
-      `Prelude.hashWithSalt` action
-      `Prelude.hashWithSalt` challengeConfig
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` priority
       `Prelude.hashWithSalt` statement
@@ -352,11 +352,11 @@ instance Prelude.Hashable Rule where
 
 instance Prelude.NFData Rule where
   rnf Rule' {..} =
-    Prelude.rnf captchaConfig
+    Prelude.rnf action
+      `Prelude.seq` Prelude.rnf captchaConfig
+      `Prelude.seq` Prelude.rnf challengeConfig
       `Prelude.seq` Prelude.rnf overrideAction
       `Prelude.seq` Prelude.rnf ruleLabels
-      `Prelude.seq` Prelude.rnf action
-      `Prelude.seq` Prelude.rnf challengeConfig
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf priority
       `Prelude.seq` Prelude.rnf statement
@@ -366,13 +366,13 @@ instance Data.ToJSON Rule where
   toJSON Rule' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("CaptchaConfig" Data..=) Prelude.<$> captchaConfig,
+          [ ("Action" Data..=) Prelude.<$> action,
+            ("CaptchaConfig" Data..=) Prelude.<$> captchaConfig,
+            ("ChallengeConfig" Data..=)
+              Prelude.<$> challengeConfig,
             ("OverrideAction" Data..=)
               Prelude.<$> overrideAction,
             ("RuleLabels" Data..=) Prelude.<$> ruleLabels,
-            ("Action" Data..=) Prelude.<$> action,
-            ("ChallengeConfig" Data..=)
-              Prelude.<$> challengeConfig,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("Priority" Data..= priority),
             Prelude.Just ("Statement" Data..= statement),

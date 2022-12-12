@@ -34,11 +34,11 @@ module Amazonka.Evidently.CreateFeature
     newCreateFeature,
 
     -- * Request Lenses
-    createFeature_tags,
-    createFeature_evaluationStrategy,
+    createFeature_defaultVariation,
     createFeature_description,
     createFeature_entityOverrides,
-    createFeature_defaultVariation,
+    createFeature_evaluationStrategy,
+    createFeature_tags,
     createFeature_name,
     createFeature_project,
     createFeature_variations,
@@ -63,7 +63,28 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateFeature' smart constructor.
 data CreateFeature = CreateFeature'
-  { -- | Assigns one or more tags (key-value pairs) to the feature.
+  { -- | The name of the variation to use as the default variation. The default
+    -- variation is served to users who are not allocated to any ongoing
+    -- launches or experiments of this feature.
+    --
+    -- This variation must also be listed in the @variations@ structure.
+    --
+    -- If you omit @defaultVariation@, the first variation listed in the
+    -- @variations@ structure is used as the default variation.
+    defaultVariation :: Prelude.Maybe Prelude.Text,
+    -- | An optional description of the feature.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Specify users that should always be served a specific variation of a
+    -- feature. Each user is specified by a key-value pair . For each key,
+    -- specify a user by entering their user ID, account ID, or some other
+    -- identifier. For the value, specify the name of the variation that they
+    -- are to be served.
+    entityOverrides :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Specify @ALL_RULES@ to activate the traffic allocation specified by any
+    -- ongoing launches or experiments. Specify @DEFAULT_VARIATION@ to serve
+    -- the default variation to all users instead.
+    evaluationStrategy :: Prelude.Maybe FeatureEvaluationStrategy,
+    -- | Assigns one or more tags (key-value pairs) to the feature.
     --
     -- Tags can help you organize and categorize your resources. You can also
     -- use them to scope user permissions by granting a user permission to
@@ -74,27 +95,6 @@ data CreateFeature = CreateFeature'
     --
     -- >  <p>You can associate as many as 50 tags with a feature.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Specify @ALL_RULES@ to activate the traffic allocation specified by any
-    -- ongoing launches or experiments. Specify @DEFAULT_VARIATION@ to serve
-    -- the default variation to all users instead.
-    evaluationStrategy :: Prelude.Maybe FeatureEvaluationStrategy,
-    -- | An optional description of the feature.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Specify users that should always be served a specific variation of a
-    -- feature. Each user is specified by a key-value pair . For each key,
-    -- specify a user by entering their user ID, account ID, or some other
-    -- identifier. For the value, specify the name of the variation that they
-    -- are to be served.
-    entityOverrides :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The name of the variation to use as the default variation. The default
-    -- variation is served to users who are not allocated to any ongoing
-    -- launches or experiments of this feature.
-    --
-    -- This variation must also be listed in the @variations@ structure.
-    --
-    -- If you omit @defaultVariation@, the first variation listed in the
-    -- @variations@ structure is used as the default variation.
-    defaultVariation :: Prelude.Maybe Prelude.Text,
     -- | The name for the new feature.
     name :: Prelude.Text,
     -- | The name or ARN of the project that is to contain the new feature.
@@ -113,6 +113,27 @@ data CreateFeature = CreateFeature'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'defaultVariation', 'createFeature_defaultVariation' - The name of the variation to use as the default variation. The default
+-- variation is served to users who are not allocated to any ongoing
+-- launches or experiments of this feature.
+--
+-- This variation must also be listed in the @variations@ structure.
+--
+-- If you omit @defaultVariation@, the first variation listed in the
+-- @variations@ structure is used as the default variation.
+--
+-- 'description', 'createFeature_description' - An optional description of the feature.
+--
+-- 'entityOverrides', 'createFeature_entityOverrides' - Specify users that should always be served a specific variation of a
+-- feature. Each user is specified by a key-value pair . For each key,
+-- specify a user by entering their user ID, account ID, or some other
+-- identifier. For the value, specify the name of the variation that they
+-- are to be served.
+--
+-- 'evaluationStrategy', 'createFeature_evaluationStrategy' - Specify @ALL_RULES@ to activate the traffic allocation specified by any
+-- ongoing launches or experiments. Specify @DEFAULT_VARIATION@ to serve
+-- the default variation to all users instead.
+--
 -- 'tags', 'createFeature_tags' - Assigns one or more tags (key-value pairs) to the feature.
 --
 -- Tags can help you organize and categorize your resources. You can also
@@ -123,27 +144,6 @@ data CreateFeature = CreateFeature'
 -- interpreted strictly as strings of characters.
 --
 -- >  <p>You can associate as many as 50 tags with a feature.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
---
--- 'evaluationStrategy', 'createFeature_evaluationStrategy' - Specify @ALL_RULES@ to activate the traffic allocation specified by any
--- ongoing launches or experiments. Specify @DEFAULT_VARIATION@ to serve
--- the default variation to all users instead.
---
--- 'description', 'createFeature_description' - An optional description of the feature.
---
--- 'entityOverrides', 'createFeature_entityOverrides' - Specify users that should always be served a specific variation of a
--- feature. Each user is specified by a key-value pair . For each key,
--- specify a user by entering their user ID, account ID, or some other
--- identifier. For the value, specify the name of the variation that they
--- are to be served.
---
--- 'defaultVariation', 'createFeature_defaultVariation' - The name of the variation to use as the default variation. The default
--- variation is served to users who are not allocated to any ongoing
--- launches or experiments of this feature.
---
--- This variation must also be listed in the @variations@ structure.
---
--- If you omit @defaultVariation@, the first variation listed in the
--- @variations@ structure is used as the default variation.
 --
 -- 'name', 'createFeature_name' - The name for the new feature.
 --
@@ -161,34 +161,26 @@ newCreateFeature ::
   CreateFeature
 newCreateFeature pName_ pProject_ pVariations_ =
   CreateFeature'
-    { tags = Prelude.Nothing,
-      evaluationStrategy = Prelude.Nothing,
+    { defaultVariation = Prelude.Nothing,
       description = Prelude.Nothing,
       entityOverrides = Prelude.Nothing,
-      defaultVariation = Prelude.Nothing,
+      evaluationStrategy = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_,
       project = pProject_,
       variations = Lens.coerced Lens.# pVariations_
     }
 
--- | Assigns one or more tags (key-value pairs) to the feature.
+-- | The name of the variation to use as the default variation. The default
+-- variation is served to users who are not allocated to any ongoing
+-- launches or experiments of this feature.
 --
--- Tags can help you organize and categorize your resources. You can also
--- use them to scope user permissions by granting a user permission to
--- access or change only resources with certain tag values.
+-- This variation must also be listed in the @variations@ structure.
 --
--- Tags don\'t have any semantic meaning to Amazon Web Services and are
--- interpreted strictly as strings of characters.
---
--- >  <p>You can associate as many as 50 tags with a feature.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
-createFeature_tags :: Lens.Lens' CreateFeature (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createFeature_tags = Lens.lens (\CreateFeature' {tags} -> tags) (\s@CreateFeature' {} a -> s {tags = a} :: CreateFeature) Prelude.. Lens.mapping Lens.coerced
-
--- | Specify @ALL_RULES@ to activate the traffic allocation specified by any
--- ongoing launches or experiments. Specify @DEFAULT_VARIATION@ to serve
--- the default variation to all users instead.
-createFeature_evaluationStrategy :: Lens.Lens' CreateFeature (Prelude.Maybe FeatureEvaluationStrategy)
-createFeature_evaluationStrategy = Lens.lens (\CreateFeature' {evaluationStrategy} -> evaluationStrategy) (\s@CreateFeature' {} a -> s {evaluationStrategy = a} :: CreateFeature)
+-- If you omit @defaultVariation@, the first variation listed in the
+-- @variations@ structure is used as the default variation.
+createFeature_defaultVariation :: Lens.Lens' CreateFeature (Prelude.Maybe Prelude.Text)
+createFeature_defaultVariation = Lens.lens (\CreateFeature' {defaultVariation} -> defaultVariation) (\s@CreateFeature' {} a -> s {defaultVariation = a} :: CreateFeature)
 
 -- | An optional description of the feature.
 createFeature_description :: Lens.Lens' CreateFeature (Prelude.Maybe Prelude.Text)
@@ -202,16 +194,24 @@ createFeature_description = Lens.lens (\CreateFeature' {description} -> descript
 createFeature_entityOverrides :: Lens.Lens' CreateFeature (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createFeature_entityOverrides = Lens.lens (\CreateFeature' {entityOverrides} -> entityOverrides) (\s@CreateFeature' {} a -> s {entityOverrides = a} :: CreateFeature) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the variation to use as the default variation. The default
--- variation is served to users who are not allocated to any ongoing
--- launches or experiments of this feature.
+-- | Specify @ALL_RULES@ to activate the traffic allocation specified by any
+-- ongoing launches or experiments. Specify @DEFAULT_VARIATION@ to serve
+-- the default variation to all users instead.
+createFeature_evaluationStrategy :: Lens.Lens' CreateFeature (Prelude.Maybe FeatureEvaluationStrategy)
+createFeature_evaluationStrategy = Lens.lens (\CreateFeature' {evaluationStrategy} -> evaluationStrategy) (\s@CreateFeature' {} a -> s {evaluationStrategy = a} :: CreateFeature)
+
+-- | Assigns one or more tags (key-value pairs) to the feature.
 --
--- This variation must also be listed in the @variations@ structure.
+-- Tags can help you organize and categorize your resources. You can also
+-- use them to scope user permissions by granting a user permission to
+-- access or change only resources with certain tag values.
 --
--- If you omit @defaultVariation@, the first variation listed in the
--- @variations@ structure is used as the default variation.
-createFeature_defaultVariation :: Lens.Lens' CreateFeature (Prelude.Maybe Prelude.Text)
-createFeature_defaultVariation = Lens.lens (\CreateFeature' {defaultVariation} -> defaultVariation) (\s@CreateFeature' {} a -> s {defaultVariation = a} :: CreateFeature)
+-- Tags don\'t have any semantic meaning to Amazon Web Services and are
+-- interpreted strictly as strings of characters.
+--
+-- >  <p>You can associate as many as 50 tags with a feature.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
+createFeature_tags :: Lens.Lens' CreateFeature (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createFeature_tags = Lens.lens (\CreateFeature' {tags} -> tags) (\s@CreateFeature' {} a -> s {tags = a} :: CreateFeature) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name for the new feature.
 createFeature_name :: Lens.Lens' CreateFeature Prelude.Text
@@ -242,22 +242,22 @@ instance Core.AWSRequest CreateFeature where
 
 instance Prelude.Hashable CreateFeature where
   hashWithSalt _salt CreateFeature' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` evaluationStrategy
+    _salt `Prelude.hashWithSalt` defaultVariation
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` entityOverrides
-      `Prelude.hashWithSalt` defaultVariation
+      `Prelude.hashWithSalt` evaluationStrategy
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` project
       `Prelude.hashWithSalt` variations
 
 instance Prelude.NFData CreateFeature where
   rnf CreateFeature' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf evaluationStrategy
+    Prelude.rnf defaultVariation
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf entityOverrides
-      `Prelude.seq` Prelude.rnf defaultVariation
+      `Prelude.seq` Prelude.rnf evaluationStrategy
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf project
       `Prelude.seq` Prelude.rnf variations
@@ -277,14 +277,14 @@ instance Data.ToJSON CreateFeature where
   toJSON CreateFeature' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("evaluationStrategy" Data..=)
-              Prelude.<$> evaluationStrategy,
+          [ ("defaultVariation" Data..=)
+              Prelude.<$> defaultVariation,
             ("description" Data..=) Prelude.<$> description,
             ("entityOverrides" Data..=)
               Prelude.<$> entityOverrides,
-            ("defaultVariation" Data..=)
-              Prelude.<$> defaultVariation,
+            ("evaluationStrategy" Data..=)
+              Prelude.<$> evaluationStrategy,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("name" Data..= name),
             Prelude.Just ("variations" Data..= variations)
           ]

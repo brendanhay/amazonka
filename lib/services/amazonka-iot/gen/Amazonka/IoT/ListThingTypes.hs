@@ -33,9 +33,9 @@ module Amazonka.IoT.ListThingTypes
     newListThingTypes,
 
     -- * Request Lenses
+    listThingTypes_maxResults,
     listThingTypes_nextToken,
     listThingTypes_thingTypeName,
-    listThingTypes_maxResults,
 
     -- * Destructuring the Response
     ListThingTypesResponse (..),
@@ -60,14 +60,14 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListThingTypes' smart constructor.
 data ListThingTypes = ListThingTypes'
-  { -- | To retrieve the next set of results, the @nextToken@ value from a
+  { -- | The maximum number of results to return in this operation.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | To retrieve the next set of results, the @nextToken@ value from a
     -- previous response; otherwise __null__ to receive the first set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the thing type.
-    thingTypeName :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in this operation.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    thingTypeName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,21 +79,25 @@ data ListThingTypes = ListThingTypes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listThingTypes_maxResults' - The maximum number of results to return in this operation.
+--
 -- 'nextToken', 'listThingTypes_nextToken' - To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
 --
 -- 'thingTypeName', 'listThingTypes_thingTypeName' - The name of the thing type.
---
--- 'maxResults', 'listThingTypes_maxResults' - The maximum number of results to return in this operation.
 newListThingTypes ::
   ListThingTypes
 newListThingTypes =
   ListThingTypes'
-    { nextToken = Prelude.Nothing,
-      thingTypeName = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      thingTypeName = Prelude.Nothing
     }
+
+-- | The maximum number of results to return in this operation.
+listThingTypes_maxResults :: Lens.Lens' ListThingTypes (Prelude.Maybe Prelude.Natural)
+listThingTypes_maxResults = Lens.lens (\ListThingTypes' {maxResults} -> maxResults) (\s@ListThingTypes' {} a -> s {maxResults = a} :: ListThingTypes)
 
 -- | To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
@@ -104,10 +108,6 @@ listThingTypes_nextToken = Lens.lens (\ListThingTypes' {nextToken} -> nextToken)
 -- | The name of the thing type.
 listThingTypes_thingTypeName :: Lens.Lens' ListThingTypes (Prelude.Maybe Prelude.Text)
 listThingTypes_thingTypeName = Lens.lens (\ListThingTypes' {thingTypeName} -> thingTypeName) (\s@ListThingTypes' {} a -> s {thingTypeName = a} :: ListThingTypes)
-
--- | The maximum number of results to return in this operation.
-listThingTypes_maxResults :: Lens.Lens' ListThingTypes (Prelude.Maybe Prelude.Natural)
-listThingTypes_maxResults = Lens.lens (\ListThingTypes' {maxResults} -> maxResults) (\s@ListThingTypes' {} a -> s {maxResults = a} :: ListThingTypes)
 
 instance Core.AWSPager ListThingTypes where
   page rq rs
@@ -147,15 +147,15 @@ instance Core.AWSRequest ListThingTypes where
 
 instance Prelude.Hashable ListThingTypes where
   hashWithSalt _salt ListThingTypes' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` thingTypeName
-      `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListThingTypes where
   rnf ListThingTypes' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf thingTypeName
-      `Prelude.seq` Prelude.rnf maxResults
 
 instance Data.ToHeaders ListThingTypes where
   toHeaders = Prelude.const Prelude.mempty
@@ -166,9 +166,9 @@ instance Data.ToPath ListThingTypes where
 instance Data.ToQuery ListThingTypes where
   toQuery ListThingTypes' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "thingTypeName" Data.=: thingTypeName,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
+        "thingTypeName" Data.=: thingTypeName
       ]
 
 -- | The output for the ListThingTypes operation.

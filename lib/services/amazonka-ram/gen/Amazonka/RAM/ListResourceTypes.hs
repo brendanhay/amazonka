@@ -27,9 +27,9 @@ module Amazonka.RAM.ListResourceTypes
     newListResourceTypes,
 
     -- * Request Lenses
+    listResourceTypes_maxResults,
     listResourceTypes_nextToken,
     listResourceTypes_resourceRegionScope,
-    listResourceTypes_maxResults,
 
     -- * Destructuring the Response
     ListResourceTypesResponse (..),
@@ -52,7 +52,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListResourceTypes' smart constructor.
 data ListResourceTypes = ListResourceTypes'
-  { -- | Specifies that you want to receive the next page of results. Valid only
+  { -- | Specifies the total number of results that you want included on each
+    -- page of the response. If you do not include this parameter, it defaults
+    -- to a value that is specific to the operation. If additional items exist
+    -- beyond the number you specify, the @NextToken@ response element is
+    -- returned with a value (not null). Include the specified value as the
+    -- @NextToken@ request parameter in the next call to the operation to get
+    -- the next part of the results. Note that the service might return fewer
+    -- results than the maximum even when there are more results available. You
+    -- should check @NextToken@ after every operation to ensure that you
+    -- receive all of the results.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Specifies that you want to receive the next page of results. Valid only
     -- if you received a @NextToken@ response in the previous request. If you
     -- did, it indicates that more output is available. Set this parameter to
     -- the value provided by the previous call\'s @NextToken@ response to
@@ -71,18 +82,7 @@ data ListResourceTypes = ListResourceTypes'
     --     types.
     --
     -- The default value is @ALL@.
-    resourceRegionScope :: Prelude.Maybe ResourceRegionScopeFilter,
-    -- | Specifies the total number of results that you want included on each
-    -- page of the response. If you do not include this parameter, it defaults
-    -- to a value that is specific to the operation. If additional items exist
-    -- beyond the number you specify, the @NextToken@ response element is
-    -- returned with a value (not null). Include the specified value as the
-    -- @NextToken@ request parameter in the next call to the operation to get
-    -- the next part of the results. Note that the service might return fewer
-    -- results than the maximum even when there are more results available. You
-    -- should check @NextToken@ after every operation to ensure that you
-    -- receive all of the results.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    resourceRegionScope :: Prelude.Maybe ResourceRegionScopeFilter
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -93,6 +93,17 @@ data ListResourceTypes = ListResourceTypes'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'maxResults', 'listResourceTypes_maxResults' - Specifies the total number of results that you want included on each
+-- page of the response. If you do not include this parameter, it defaults
+-- to a value that is specific to the operation. If additional items exist
+-- beyond the number you specify, the @NextToken@ response element is
+-- returned with a value (not null). Include the specified value as the
+-- @NextToken@ request parameter in the next call to the operation to get
+-- the next part of the results. Note that the service might return fewer
+-- results than the maximum even when there are more results available. You
+-- should check @NextToken@ after every operation to ensure that you
+-- receive all of the results.
 --
 -- 'nextToken', 'listResourceTypes_nextToken' - Specifies that you want to receive the next page of results. Valid only
 -- if you received a @NextToken@ response in the previous request. If you
@@ -113,8 +124,16 @@ data ListResourceTypes = ListResourceTypes'
 --     types.
 --
 -- The default value is @ALL@.
---
--- 'maxResults', 'listResourceTypes_maxResults' - Specifies the total number of results that you want included on each
+newListResourceTypes ::
+  ListResourceTypes
+newListResourceTypes =
+  ListResourceTypes'
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      resourceRegionScope = Prelude.Nothing
+    }
+
+-- | Specifies the total number of results that you want included on each
 -- page of the response. If you do not include this parameter, it defaults
 -- to a value that is specific to the operation. If additional items exist
 -- beyond the number you specify, the @NextToken@ response element is
@@ -124,14 +143,8 @@ data ListResourceTypes = ListResourceTypes'
 -- results than the maximum even when there are more results available. You
 -- should check @NextToken@ after every operation to ensure that you
 -- receive all of the results.
-newListResourceTypes ::
-  ListResourceTypes
-newListResourceTypes =
-  ListResourceTypes'
-    { nextToken = Prelude.Nothing,
-      resourceRegionScope = Prelude.Nothing,
-      maxResults = Prelude.Nothing
-    }
+listResourceTypes_maxResults :: Lens.Lens' ListResourceTypes (Prelude.Maybe Prelude.Natural)
+listResourceTypes_maxResults = Lens.lens (\ListResourceTypes' {maxResults} -> maxResults) (\s@ListResourceTypes' {} a -> s {maxResults = a} :: ListResourceTypes)
 
 -- | Specifies that you want to receive the next page of results. Valid only
 -- if you received a @NextToken@ response in the previous request. If you
@@ -157,19 +170,6 @@ listResourceTypes_nextToken = Lens.lens (\ListResourceTypes' {nextToken} -> next
 listResourceTypes_resourceRegionScope :: Lens.Lens' ListResourceTypes (Prelude.Maybe ResourceRegionScopeFilter)
 listResourceTypes_resourceRegionScope = Lens.lens (\ListResourceTypes' {resourceRegionScope} -> resourceRegionScope) (\s@ListResourceTypes' {} a -> s {resourceRegionScope = a} :: ListResourceTypes)
 
--- | Specifies the total number of results that you want included on each
--- page of the response. If you do not include this parameter, it defaults
--- to a value that is specific to the operation. If additional items exist
--- beyond the number you specify, the @NextToken@ response element is
--- returned with a value (not null). Include the specified value as the
--- @NextToken@ request parameter in the next call to the operation to get
--- the next part of the results. Note that the service might return fewer
--- results than the maximum even when there are more results available. You
--- should check @NextToken@ after every operation to ensure that you
--- receive all of the results.
-listResourceTypes_maxResults :: Lens.Lens' ListResourceTypes (Prelude.Maybe Prelude.Natural)
-listResourceTypes_maxResults = Lens.lens (\ListResourceTypes' {maxResults} -> maxResults) (\s@ListResourceTypes' {} a -> s {maxResults = a} :: ListResourceTypes)
-
 instance Core.AWSRequest ListResourceTypes where
   type
     AWSResponse ListResourceTypes =
@@ -187,15 +187,15 @@ instance Core.AWSRequest ListResourceTypes where
 
 instance Prelude.Hashable ListResourceTypes where
   hashWithSalt _salt ListResourceTypes' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceRegionScope
-      `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListResourceTypes where
   rnf ListResourceTypes' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf resourceRegionScope
-      `Prelude.seq` Prelude.rnf maxResults
 
 instance Data.ToHeaders ListResourceTypes where
   toHeaders =
@@ -212,10 +212,10 @@ instance Data.ToJSON ListResourceTypes where
   toJSON ListResourceTypes' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             ("resourceRegionScope" Data..=)
-              Prelude.<$> resourceRegionScope,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+              Prelude.<$> resourceRegionScope
           ]
       )
 

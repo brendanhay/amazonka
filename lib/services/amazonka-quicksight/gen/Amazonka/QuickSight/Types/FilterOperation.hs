@@ -30,9 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 data FilterOperation = FilterOperation'
   { -- | An expression that must evaluate to a Boolean value. Rows for which the
     -- expression evaluates to true are kept in the dataset.
-    conditionExpression :: Prelude.Text
+    conditionExpression :: Data.Sensitive Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FilterOperation' with all optional fields omitted.
@@ -51,13 +51,13 @@ newFilterOperation ::
 newFilterOperation pConditionExpression_ =
   FilterOperation'
     { conditionExpression =
-        pConditionExpression_
+        Data._Sensitive Lens.# pConditionExpression_
     }
 
 -- | An expression that must evaluate to a Boolean value. Rows for which the
 -- expression evaluates to true are kept in the dataset.
 filterOperation_conditionExpression :: Lens.Lens' FilterOperation Prelude.Text
-filterOperation_conditionExpression = Lens.lens (\FilterOperation' {conditionExpression} -> conditionExpression) (\s@FilterOperation' {} a -> s {conditionExpression = a} :: FilterOperation)
+filterOperation_conditionExpression = Lens.lens (\FilterOperation' {conditionExpression} -> conditionExpression) (\s@FilterOperation' {} a -> s {conditionExpression = a} :: FilterOperation) Prelude.. Data._Sensitive
 
 instance Data.FromJSON FilterOperation where
   parseJSON =

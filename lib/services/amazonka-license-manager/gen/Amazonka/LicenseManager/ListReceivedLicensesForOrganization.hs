@@ -27,17 +27,17 @@ module Amazonka.LicenseManager.ListReceivedLicensesForOrganization
     newListReceivedLicensesForOrganization,
 
     -- * Request Lenses
-    listReceivedLicensesForOrganization_nextToken,
     listReceivedLicensesForOrganization_filters,
     listReceivedLicensesForOrganization_maxResults,
+    listReceivedLicensesForOrganization_nextToken,
 
     -- * Destructuring the Response
     ListReceivedLicensesForOrganizationResponse (..),
     newListReceivedLicensesForOrganizationResponse,
 
     -- * Response Lenses
-    listReceivedLicensesForOrganizationResponse_nextToken,
     listReceivedLicensesForOrganizationResponse_licenses,
+    listReceivedLicensesForOrganizationResponse_nextToken,
     listReceivedLicensesForOrganizationResponse_httpStatus,
   )
 where
@@ -52,16 +52,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListReceivedLicensesForOrganization' smart constructor.
 data ListReceivedLicensesForOrganization = ListReceivedLicensesForOrganization'
-  { -- | Token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters to scope the results. The following filters are supported:
+  { -- | Filters to scope the results. The following filters are supported:
     --
     -- -   @Beneficiary@
     --
     -- -   @ProductSKU@
     filters :: Prelude.Maybe [Filter],
     -- | Maximum number of results to return in a single call.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,8 +73,6 @@ data ListReceivedLicensesForOrganization = ListReceivedLicensesForOrganization'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listReceivedLicensesForOrganization_nextToken' - Token for the next set of results.
---
 -- 'filters', 'listReceivedLicensesForOrganization_filters' - Filters to scope the results. The following filters are supported:
 --
 -- -   @Beneficiary@
@@ -82,19 +80,17 @@ data ListReceivedLicensesForOrganization = ListReceivedLicensesForOrganization'
 -- -   @ProductSKU@
 --
 -- 'maxResults', 'listReceivedLicensesForOrganization_maxResults' - Maximum number of results to return in a single call.
+--
+-- 'nextToken', 'listReceivedLicensesForOrganization_nextToken' - Token for the next set of results.
 newListReceivedLicensesForOrganization ::
   ListReceivedLicensesForOrganization
 newListReceivedLicensesForOrganization =
   ListReceivedLicensesForOrganization'
-    { nextToken =
+    { filters =
         Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | Token for the next set of results.
-listReceivedLicensesForOrganization_nextToken :: Lens.Lens' ListReceivedLicensesForOrganization (Prelude.Maybe Prelude.Text)
-listReceivedLicensesForOrganization_nextToken = Lens.lens (\ListReceivedLicensesForOrganization' {nextToken} -> nextToken) (\s@ListReceivedLicensesForOrganization' {} a -> s {nextToken = a} :: ListReceivedLicensesForOrganization)
 
 -- | Filters to scope the results. The following filters are supported:
 --
@@ -107,6 +103,10 @@ listReceivedLicensesForOrganization_filters = Lens.lens (\ListReceivedLicensesFo
 -- | Maximum number of results to return in a single call.
 listReceivedLicensesForOrganization_maxResults :: Lens.Lens' ListReceivedLicensesForOrganization (Prelude.Maybe Prelude.Natural)
 listReceivedLicensesForOrganization_maxResults = Lens.lens (\ListReceivedLicensesForOrganization' {maxResults} -> maxResults) (\s@ListReceivedLicensesForOrganization' {} a -> s {maxResults = a} :: ListReceivedLicensesForOrganization)
+
+-- | Token for the next set of results.
+listReceivedLicensesForOrganization_nextToken :: Lens.Lens' ListReceivedLicensesForOrganization (Prelude.Maybe Prelude.Text)
+listReceivedLicensesForOrganization_nextToken = Lens.lens (\ListReceivedLicensesForOrganization' {nextToken} -> nextToken) (\s@ListReceivedLicensesForOrganization' {} a -> s {nextToken = a} :: ListReceivedLicensesForOrganization)
 
 instance
   Core.AWSRequest
@@ -121,8 +121,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListReceivedLicensesForOrganizationResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-              Prelude.<*> (x Data..?> "Licenses" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Licenses" Core..!@ Prelude.mempty)
+              Prelude.<*> (x Data..?> "NextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,18 +133,18 @@ instance
   hashWithSalt
     _salt
     ListReceivedLicensesForOrganization' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` filters
+      _salt `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     ListReceivedLicensesForOrganization
   where
   rnf ListReceivedLicensesForOrganization' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -171,9 +171,9 @@ instance
   toJSON ListReceivedLicensesForOrganization' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -191,10 +191,10 @@ instance
 
 -- | /See:/ 'newListReceivedLicensesForOrganizationResponse' smart constructor.
 data ListReceivedLicensesForOrganizationResponse = ListReceivedLicensesForOrganizationResponse'
-  { -- | Token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Lists the licenses the organization has received.
+  { -- | Lists the licenses the organization has received.
     licenses :: Prelude.Maybe [GrantedLicense],
+    -- | Token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -208,9 +208,9 @@ data ListReceivedLicensesForOrganizationResponse = ListReceivedLicensesForOrgani
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listReceivedLicensesForOrganizationResponse_nextToken' - Token for the next set of results.
---
 -- 'licenses', 'listReceivedLicensesForOrganizationResponse_licenses' - Lists the licenses the organization has received.
+--
+-- 'nextToken', 'listReceivedLicensesForOrganizationResponse_nextToken' - Token for the next set of results.
 --
 -- 'httpStatus', 'listReceivedLicensesForOrganizationResponse_httpStatus' - The response's http status code.
 newListReceivedLicensesForOrganizationResponse ::
@@ -220,19 +220,19 @@ newListReceivedLicensesForOrganizationResponse ::
 newListReceivedLicensesForOrganizationResponse
   pHttpStatus_ =
     ListReceivedLicensesForOrganizationResponse'
-      { nextToken =
+      { licenses =
           Prelude.Nothing,
-        licenses = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | Token for the next set of results.
-listReceivedLicensesForOrganizationResponse_nextToken :: Lens.Lens' ListReceivedLicensesForOrganizationResponse (Prelude.Maybe Prelude.Text)
-listReceivedLicensesForOrganizationResponse_nextToken = Lens.lens (\ListReceivedLicensesForOrganizationResponse' {nextToken} -> nextToken) (\s@ListReceivedLicensesForOrganizationResponse' {} a -> s {nextToken = a} :: ListReceivedLicensesForOrganizationResponse)
 
 -- | Lists the licenses the organization has received.
 listReceivedLicensesForOrganizationResponse_licenses :: Lens.Lens' ListReceivedLicensesForOrganizationResponse (Prelude.Maybe [GrantedLicense])
 listReceivedLicensesForOrganizationResponse_licenses = Lens.lens (\ListReceivedLicensesForOrganizationResponse' {licenses} -> licenses) (\s@ListReceivedLicensesForOrganizationResponse' {} a -> s {licenses = a} :: ListReceivedLicensesForOrganizationResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Token for the next set of results.
+listReceivedLicensesForOrganizationResponse_nextToken :: Lens.Lens' ListReceivedLicensesForOrganizationResponse (Prelude.Maybe Prelude.Text)
+listReceivedLicensesForOrganizationResponse_nextToken = Lens.lens (\ListReceivedLicensesForOrganizationResponse' {nextToken} -> nextToken) (\s@ListReceivedLicensesForOrganizationResponse' {} a -> s {nextToken = a} :: ListReceivedLicensesForOrganizationResponse)
 
 -- | The response's http status code.
 listReceivedLicensesForOrganizationResponse_httpStatus :: Lens.Lens' ListReceivedLicensesForOrganizationResponse Prelude.Int
@@ -243,6 +243,6 @@ instance
     ListReceivedLicensesForOrganizationResponse
   where
   rnf ListReceivedLicensesForOrganizationResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf licenses
+    Prelude.rnf licenses
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

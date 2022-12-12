@@ -36,22 +36,22 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newReservationResourceSpecification' smart constructor.
 data ReservationResourceSpecification = ReservationResourceSpecification'
-  { -- | Resource type, \'INPUT\', \'OUTPUT\', \'MULTIPLEX\', or \'CHANNEL\'
-    resourceType :: Prelude.Maybe ReservationResourceType,
-    -- | Channel class, e.g. \'STANDARD\'
+  { -- | Channel class, e.g. \'STANDARD\'
     channelClass :: Prelude.Maybe ChannelClass,
     -- | Codec, e.g. \'AVC\'
     codec :: Prelude.Maybe ReservationCodec,
-    -- | Maximum framerate, e.g. \'MAX_30_FPS\' (Outputs only)
-    maximumFramerate :: Prelude.Maybe ReservationMaximumFramerate,
-    -- | Video quality, e.g. \'STANDARD\' (Outputs only)
-    videoQuality :: Prelude.Maybe ReservationVideoQuality,
     -- | Maximum bitrate, e.g. \'MAX_20_MBPS\'
     maximumBitrate :: Prelude.Maybe ReservationMaximumBitrate,
+    -- | Maximum framerate, e.g. \'MAX_30_FPS\' (Outputs only)
+    maximumFramerate :: Prelude.Maybe ReservationMaximumFramerate,
+    -- | Resolution, e.g. \'HD\'
+    resolution :: Prelude.Maybe ReservationResolution,
+    -- | Resource type, \'INPUT\', \'OUTPUT\', \'MULTIPLEX\', or \'CHANNEL\'
+    resourceType :: Prelude.Maybe ReservationResourceType,
     -- | Special feature, e.g. \'AUDIO_NORMALIZATION\' (Channels only)
     specialFeature :: Prelude.Maybe ReservationSpecialFeature,
-    -- | Resolution, e.g. \'HD\'
-    resolution :: Prelude.Maybe ReservationResolution
+    -- | Video quality, e.g. \'STANDARD\' (Outputs only)
+    videoQuality :: Prelude.Maybe ReservationVideoQuality
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,39 +63,35 @@ data ReservationResourceSpecification = ReservationResourceSpecification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceType', 'reservationResourceSpecification_resourceType' - Resource type, \'INPUT\', \'OUTPUT\', \'MULTIPLEX\', or \'CHANNEL\'
---
 -- 'channelClass', 'reservationResourceSpecification_channelClass' - Channel class, e.g. \'STANDARD\'
 --
 -- 'codec', 'reservationResourceSpecification_codec' - Codec, e.g. \'AVC\'
 --
+-- 'maximumBitrate', 'reservationResourceSpecification_maximumBitrate' - Maximum bitrate, e.g. \'MAX_20_MBPS\'
+--
 -- 'maximumFramerate', 'reservationResourceSpecification_maximumFramerate' - Maximum framerate, e.g. \'MAX_30_FPS\' (Outputs only)
 --
--- 'videoQuality', 'reservationResourceSpecification_videoQuality' - Video quality, e.g. \'STANDARD\' (Outputs only)
+-- 'resolution', 'reservationResourceSpecification_resolution' - Resolution, e.g. \'HD\'
 --
--- 'maximumBitrate', 'reservationResourceSpecification_maximumBitrate' - Maximum bitrate, e.g. \'MAX_20_MBPS\'
+-- 'resourceType', 'reservationResourceSpecification_resourceType' - Resource type, \'INPUT\', \'OUTPUT\', \'MULTIPLEX\', or \'CHANNEL\'
 --
 -- 'specialFeature', 'reservationResourceSpecification_specialFeature' - Special feature, e.g. \'AUDIO_NORMALIZATION\' (Channels only)
 --
--- 'resolution', 'reservationResourceSpecification_resolution' - Resolution, e.g. \'HD\'
+-- 'videoQuality', 'reservationResourceSpecification_videoQuality' - Video quality, e.g. \'STANDARD\' (Outputs only)
 newReservationResourceSpecification ::
   ReservationResourceSpecification
 newReservationResourceSpecification =
   ReservationResourceSpecification'
-    { resourceType =
+    { channelClass =
         Prelude.Nothing,
-      channelClass = Prelude.Nothing,
       codec = Prelude.Nothing,
-      maximumFramerate = Prelude.Nothing,
-      videoQuality = Prelude.Nothing,
       maximumBitrate = Prelude.Nothing,
+      maximumFramerate = Prelude.Nothing,
+      resolution = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
       specialFeature = Prelude.Nothing,
-      resolution = Prelude.Nothing
+      videoQuality = Prelude.Nothing
     }
-
--- | Resource type, \'INPUT\', \'OUTPUT\', \'MULTIPLEX\', or \'CHANNEL\'
-reservationResourceSpecification_resourceType :: Lens.Lens' ReservationResourceSpecification (Prelude.Maybe ReservationResourceType)
-reservationResourceSpecification_resourceType = Lens.lens (\ReservationResourceSpecification' {resourceType} -> resourceType) (\s@ReservationResourceSpecification' {} a -> s {resourceType = a} :: ReservationResourceSpecification)
 
 -- | Channel class, e.g. \'STANDARD\'
 reservationResourceSpecification_channelClass :: Lens.Lens' ReservationResourceSpecification (Prelude.Maybe ChannelClass)
@@ -105,25 +101,29 @@ reservationResourceSpecification_channelClass = Lens.lens (\ReservationResourceS
 reservationResourceSpecification_codec :: Lens.Lens' ReservationResourceSpecification (Prelude.Maybe ReservationCodec)
 reservationResourceSpecification_codec = Lens.lens (\ReservationResourceSpecification' {codec} -> codec) (\s@ReservationResourceSpecification' {} a -> s {codec = a} :: ReservationResourceSpecification)
 
+-- | Maximum bitrate, e.g. \'MAX_20_MBPS\'
+reservationResourceSpecification_maximumBitrate :: Lens.Lens' ReservationResourceSpecification (Prelude.Maybe ReservationMaximumBitrate)
+reservationResourceSpecification_maximumBitrate = Lens.lens (\ReservationResourceSpecification' {maximumBitrate} -> maximumBitrate) (\s@ReservationResourceSpecification' {} a -> s {maximumBitrate = a} :: ReservationResourceSpecification)
+
 -- | Maximum framerate, e.g. \'MAX_30_FPS\' (Outputs only)
 reservationResourceSpecification_maximumFramerate :: Lens.Lens' ReservationResourceSpecification (Prelude.Maybe ReservationMaximumFramerate)
 reservationResourceSpecification_maximumFramerate = Lens.lens (\ReservationResourceSpecification' {maximumFramerate} -> maximumFramerate) (\s@ReservationResourceSpecification' {} a -> s {maximumFramerate = a} :: ReservationResourceSpecification)
 
--- | Video quality, e.g. \'STANDARD\' (Outputs only)
-reservationResourceSpecification_videoQuality :: Lens.Lens' ReservationResourceSpecification (Prelude.Maybe ReservationVideoQuality)
-reservationResourceSpecification_videoQuality = Lens.lens (\ReservationResourceSpecification' {videoQuality} -> videoQuality) (\s@ReservationResourceSpecification' {} a -> s {videoQuality = a} :: ReservationResourceSpecification)
+-- | Resolution, e.g. \'HD\'
+reservationResourceSpecification_resolution :: Lens.Lens' ReservationResourceSpecification (Prelude.Maybe ReservationResolution)
+reservationResourceSpecification_resolution = Lens.lens (\ReservationResourceSpecification' {resolution} -> resolution) (\s@ReservationResourceSpecification' {} a -> s {resolution = a} :: ReservationResourceSpecification)
 
--- | Maximum bitrate, e.g. \'MAX_20_MBPS\'
-reservationResourceSpecification_maximumBitrate :: Lens.Lens' ReservationResourceSpecification (Prelude.Maybe ReservationMaximumBitrate)
-reservationResourceSpecification_maximumBitrate = Lens.lens (\ReservationResourceSpecification' {maximumBitrate} -> maximumBitrate) (\s@ReservationResourceSpecification' {} a -> s {maximumBitrate = a} :: ReservationResourceSpecification)
+-- | Resource type, \'INPUT\', \'OUTPUT\', \'MULTIPLEX\', or \'CHANNEL\'
+reservationResourceSpecification_resourceType :: Lens.Lens' ReservationResourceSpecification (Prelude.Maybe ReservationResourceType)
+reservationResourceSpecification_resourceType = Lens.lens (\ReservationResourceSpecification' {resourceType} -> resourceType) (\s@ReservationResourceSpecification' {} a -> s {resourceType = a} :: ReservationResourceSpecification)
 
 -- | Special feature, e.g. \'AUDIO_NORMALIZATION\' (Channels only)
 reservationResourceSpecification_specialFeature :: Lens.Lens' ReservationResourceSpecification (Prelude.Maybe ReservationSpecialFeature)
 reservationResourceSpecification_specialFeature = Lens.lens (\ReservationResourceSpecification' {specialFeature} -> specialFeature) (\s@ReservationResourceSpecification' {} a -> s {specialFeature = a} :: ReservationResourceSpecification)
 
--- | Resolution, e.g. \'HD\'
-reservationResourceSpecification_resolution :: Lens.Lens' ReservationResourceSpecification (Prelude.Maybe ReservationResolution)
-reservationResourceSpecification_resolution = Lens.lens (\ReservationResourceSpecification' {resolution} -> resolution) (\s@ReservationResourceSpecification' {} a -> s {resolution = a} :: ReservationResourceSpecification)
+-- | Video quality, e.g. \'STANDARD\' (Outputs only)
+reservationResourceSpecification_videoQuality :: Lens.Lens' ReservationResourceSpecification (Prelude.Maybe ReservationVideoQuality)
+reservationResourceSpecification_videoQuality = Lens.lens (\ReservationResourceSpecification' {videoQuality} -> videoQuality) (\s@ReservationResourceSpecification' {} a -> s {videoQuality = a} :: ReservationResourceSpecification)
 
 instance
   Data.FromJSON
@@ -134,14 +134,14 @@ instance
       "ReservationResourceSpecification"
       ( \x ->
           ReservationResourceSpecification'
-            Prelude.<$> (x Data..:? "resourceType")
-            Prelude.<*> (x Data..:? "channelClass")
+            Prelude.<$> (x Data..:? "channelClass")
             Prelude.<*> (x Data..:? "codec")
-            Prelude.<*> (x Data..:? "maximumFramerate")
-            Prelude.<*> (x Data..:? "videoQuality")
             Prelude.<*> (x Data..:? "maximumBitrate")
-            Prelude.<*> (x Data..:? "specialFeature")
+            Prelude.<*> (x Data..:? "maximumFramerate")
             Prelude.<*> (x Data..:? "resolution")
+            Prelude.<*> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "specialFeature")
+            Prelude.<*> (x Data..:? "videoQuality")
       )
 
 instance
@@ -151,25 +151,25 @@ instance
   hashWithSalt
     _salt
     ReservationResourceSpecification' {..} =
-      _salt `Prelude.hashWithSalt` resourceType
-        `Prelude.hashWithSalt` channelClass
+      _salt `Prelude.hashWithSalt` channelClass
         `Prelude.hashWithSalt` codec
-        `Prelude.hashWithSalt` maximumFramerate
-        `Prelude.hashWithSalt` videoQuality
         `Prelude.hashWithSalt` maximumBitrate
-        `Prelude.hashWithSalt` specialFeature
+        `Prelude.hashWithSalt` maximumFramerate
         `Prelude.hashWithSalt` resolution
+        `Prelude.hashWithSalt` resourceType
+        `Prelude.hashWithSalt` specialFeature
+        `Prelude.hashWithSalt` videoQuality
 
 instance
   Prelude.NFData
     ReservationResourceSpecification
   where
   rnf ReservationResourceSpecification' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf channelClass
+    Prelude.rnf channelClass
       `Prelude.seq` Prelude.rnf codec
-      `Prelude.seq` Prelude.rnf maximumFramerate
-      `Prelude.seq` Prelude.rnf videoQuality
       `Prelude.seq` Prelude.rnf maximumBitrate
-      `Prelude.seq` Prelude.rnf specialFeature
+      `Prelude.seq` Prelude.rnf maximumFramerate
       `Prelude.seq` Prelude.rnf resolution
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf specialFeature
+      `Prelude.seq` Prelude.rnf videoQuality

@@ -27,8 +27,8 @@ module Amazonka.AppStream.ListEntitledApplications
     newListEntitledApplications,
 
     -- * Request Lenses
-    listEntitledApplications_nextToken,
     listEntitledApplications_maxResults,
+    listEntitledApplications_nextToken,
     listEntitledApplications_stackName,
     listEntitledApplications_entitlementName,
 
@@ -37,8 +37,8 @@ module Amazonka.AppStream.ListEntitledApplications
     newListEntitledApplicationsResponse,
 
     -- * Response Lenses
-    listEntitledApplicationsResponse_nextToken,
     listEntitledApplicationsResponse_entitledApplications,
+    listEntitledApplicationsResponse_nextToken,
     listEntitledApplicationsResponse_httpStatus,
   )
 where
@@ -53,11 +53,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListEntitledApplications' smart constructor.
 data ListEntitledApplications = ListEntitledApplications'
-  { -- | The pagination token used to retrieve the next page of results for this
+  { -- | The maximum size of each page of results.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The pagination token used to retrieve the next page of results for this
     -- operation.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum size of each page of results.
-    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The name of the stack with which the entitlement is associated.
     stackName :: Prelude.Text,
     -- | The name of the entitlement.
@@ -73,10 +73,10 @@ data ListEntitledApplications = ListEntitledApplications'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listEntitledApplications_maxResults' - The maximum size of each page of results.
+--
 -- 'nextToken', 'listEntitledApplications_nextToken' - The pagination token used to retrieve the next page of results for this
 -- operation.
---
--- 'maxResults', 'listEntitledApplications_maxResults' - The maximum size of each page of results.
 --
 -- 'stackName', 'listEntitledApplications_stackName' - The name of the stack with which the entitlement is associated.
 --
@@ -91,21 +91,21 @@ newListEntitledApplications
   pStackName_
   pEntitlementName_ =
     ListEntitledApplications'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         stackName = pStackName_,
         entitlementName = pEntitlementName_
       }
+
+-- | The maximum size of each page of results.
+listEntitledApplications_maxResults :: Lens.Lens' ListEntitledApplications (Prelude.Maybe Prelude.Int)
+listEntitledApplications_maxResults = Lens.lens (\ListEntitledApplications' {maxResults} -> maxResults) (\s@ListEntitledApplications' {} a -> s {maxResults = a} :: ListEntitledApplications)
 
 -- | The pagination token used to retrieve the next page of results for this
 -- operation.
 listEntitledApplications_nextToken :: Lens.Lens' ListEntitledApplications (Prelude.Maybe Prelude.Text)
 listEntitledApplications_nextToken = Lens.lens (\ListEntitledApplications' {nextToken} -> nextToken) (\s@ListEntitledApplications' {} a -> s {nextToken = a} :: ListEntitledApplications)
-
--- | The maximum size of each page of results.
-listEntitledApplications_maxResults :: Lens.Lens' ListEntitledApplications (Prelude.Maybe Prelude.Int)
-listEntitledApplications_maxResults = Lens.lens (\ListEntitledApplications' {maxResults} -> maxResults) (\s@ListEntitledApplications' {} a -> s {maxResults = a} :: ListEntitledApplications)
 
 -- | The name of the stack with which the entitlement is associated.
 listEntitledApplications_stackName :: Lens.Lens' ListEntitledApplications Prelude.Text
@@ -125,24 +125,24 @@ instance Core.AWSRequest ListEntitledApplications where
     Response.receiveJSON
       ( \s h x ->
           ListEntitledApplicationsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "EntitledApplications"
+            Prelude.<$> ( x Data..?> "EntitledApplications"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListEntitledApplications where
   hashWithSalt _salt ListEntitledApplications' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` stackName
       `Prelude.hashWithSalt` entitlementName
 
 instance Prelude.NFData ListEntitledApplications where
   rnf ListEntitledApplications' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf stackName
       `Prelude.seq` Prelude.rnf entitlementName
 
@@ -165,8 +165,8 @@ instance Data.ToJSON ListEntitledApplications where
   toJSON ListEntitledApplications' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("StackName" Data..= stackName),
             Prelude.Just
               ("EntitlementName" Data..= entitlementName)
@@ -181,11 +181,11 @@ instance Data.ToQuery ListEntitledApplications where
 
 -- | /See:/ 'newListEntitledApplicationsResponse' smart constructor.
 data ListEntitledApplicationsResponse = ListEntitledApplicationsResponse'
-  { -- | The pagination token used to retrieve the next page of results for this
+  { -- | The entitled applications.
+    entitledApplications :: Prelude.Maybe [EntitledApplication],
+    -- | The pagination token used to retrieve the next page of results for this
     -- operation.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The entitled applications.
-    entitledApplications :: Prelude.Maybe [EntitledApplication],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -199,10 +199,10 @@ data ListEntitledApplicationsResponse = ListEntitledApplicationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'entitledApplications', 'listEntitledApplicationsResponse_entitledApplications' - The entitled applications.
+--
 -- 'nextToken', 'listEntitledApplicationsResponse_nextToken' - The pagination token used to retrieve the next page of results for this
 -- operation.
---
--- 'entitledApplications', 'listEntitledApplicationsResponse_entitledApplications' - The entitled applications.
 --
 -- 'httpStatus', 'listEntitledApplicationsResponse_httpStatus' - The response's http status code.
 newListEntitledApplicationsResponse ::
@@ -211,20 +211,20 @@ newListEntitledApplicationsResponse ::
   ListEntitledApplicationsResponse
 newListEntitledApplicationsResponse pHttpStatus_ =
   ListEntitledApplicationsResponse'
-    { nextToken =
+    { entitledApplications =
         Prelude.Nothing,
-      entitledApplications = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The entitled applications.
+listEntitledApplicationsResponse_entitledApplications :: Lens.Lens' ListEntitledApplicationsResponse (Prelude.Maybe [EntitledApplication])
+listEntitledApplicationsResponse_entitledApplications = Lens.lens (\ListEntitledApplicationsResponse' {entitledApplications} -> entitledApplications) (\s@ListEntitledApplicationsResponse' {} a -> s {entitledApplications = a} :: ListEntitledApplicationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token used to retrieve the next page of results for this
 -- operation.
 listEntitledApplicationsResponse_nextToken :: Lens.Lens' ListEntitledApplicationsResponse (Prelude.Maybe Prelude.Text)
 listEntitledApplicationsResponse_nextToken = Lens.lens (\ListEntitledApplicationsResponse' {nextToken} -> nextToken) (\s@ListEntitledApplicationsResponse' {} a -> s {nextToken = a} :: ListEntitledApplicationsResponse)
-
--- | The entitled applications.
-listEntitledApplicationsResponse_entitledApplications :: Lens.Lens' ListEntitledApplicationsResponse (Prelude.Maybe [EntitledApplication])
-listEntitledApplicationsResponse_entitledApplications = Lens.lens (\ListEntitledApplicationsResponse' {entitledApplications} -> entitledApplications) (\s@ListEntitledApplicationsResponse' {} a -> s {entitledApplications = a} :: ListEntitledApplicationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listEntitledApplicationsResponse_httpStatus :: Lens.Lens' ListEntitledApplicationsResponse Prelude.Int
@@ -235,6 +235,6 @@ instance
     ListEntitledApplicationsResponse
   where
   rnf ListEntitledApplicationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf entitledApplications
+    Prelude.rnf entitledApplications
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

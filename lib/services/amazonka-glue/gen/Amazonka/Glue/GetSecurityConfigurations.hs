@@ -29,8 +29,8 @@ module Amazonka.Glue.GetSecurityConfigurations
     newGetSecurityConfigurations,
 
     -- * Request Lenses
-    getSecurityConfigurations_nextToken,
     getSecurityConfigurations_maxResults,
+    getSecurityConfigurations_nextToken,
 
     -- * Destructuring the Response
     GetSecurityConfigurationsResponse (..),
@@ -53,10 +53,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetSecurityConfigurations' smart constructor.
 data GetSecurityConfigurations = GetSecurityConfigurations'
-  { -- | A continuation token, if this is a continuation call.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return.
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { -- | The maximum number of results to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A continuation token, if this is a continuation call.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,25 +68,25 @@ data GetSecurityConfigurations = GetSecurityConfigurations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getSecurityConfigurations_nextToken' - A continuation token, if this is a continuation call.
---
 -- 'maxResults', 'getSecurityConfigurations_maxResults' - The maximum number of results to return.
+--
+-- 'nextToken', 'getSecurityConfigurations_nextToken' - A continuation token, if this is a continuation call.
 newGetSecurityConfigurations ::
   GetSecurityConfigurations
 newGetSecurityConfigurations =
   GetSecurityConfigurations'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | A continuation token, if this is a continuation call.
-getSecurityConfigurations_nextToken :: Lens.Lens' GetSecurityConfigurations (Prelude.Maybe Prelude.Text)
-getSecurityConfigurations_nextToken = Lens.lens (\GetSecurityConfigurations' {nextToken} -> nextToken) (\s@GetSecurityConfigurations' {} a -> s {nextToken = a} :: GetSecurityConfigurations)
 
 -- | The maximum number of results to return.
 getSecurityConfigurations_maxResults :: Lens.Lens' GetSecurityConfigurations (Prelude.Maybe Prelude.Natural)
 getSecurityConfigurations_maxResults = Lens.lens (\GetSecurityConfigurations' {maxResults} -> maxResults) (\s@GetSecurityConfigurations' {} a -> s {maxResults = a} :: GetSecurityConfigurations)
+
+-- | A continuation token, if this is a continuation call.
+getSecurityConfigurations_nextToken :: Lens.Lens' GetSecurityConfigurations (Prelude.Maybe Prelude.Text)
+getSecurityConfigurations_nextToken = Lens.lens (\GetSecurityConfigurations' {nextToken} -> nextToken) (\s@GetSecurityConfigurations' {} a -> s {nextToken = a} :: GetSecurityConfigurations)
 
 instance Core.AWSPager GetSecurityConfigurations where
   page rq rs
@@ -129,13 +129,13 @@ instance Core.AWSRequest GetSecurityConfigurations where
 
 instance Prelude.Hashable GetSecurityConfigurations where
   hashWithSalt _salt GetSecurityConfigurations' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData GetSecurityConfigurations where
   rnf GetSecurityConfigurations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders GetSecurityConfigurations where
   toHeaders =
@@ -156,8 +156,8 @@ instance Data.ToJSON GetSecurityConfigurations where
   toJSON GetSecurityConfigurations' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

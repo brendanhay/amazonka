@@ -28,11 +28,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails' smart constructor.
 data AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails = AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails'
-  { -- | A map of Docker driver-specific options that are passed through.
-    driverOpts :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Whether to create the Docker volume automatically if it does not already
+  { -- | Whether to create the Docker volume automatically if it does not already
     -- exist.
     autoprovision :: Prelude.Maybe Prelude.Bool,
+    -- | The Docker volume driver to use.
+    driver :: Prelude.Maybe Prelude.Text,
+    -- | A map of Docker driver-specific options that are passed through.
+    driverOpts :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Custom metadata to add to the Docker volume.
     labels :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The scope for the Docker volume that determines its lifecycle. Docker
@@ -40,9 +42,7 @@ data AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails = AwsEcsTaskDef
     -- task starts and destroyed when the task stops. Docker volumes that are
     -- shared persist after the task stops. Valid values are @shared@ or
     -- @task@.
-    scope :: Prelude.Maybe Prelude.Text,
-    -- | The Docker volume driver to use.
-    driver :: Prelude.Maybe Prelude.Text
+    scope :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,10 +54,12 @@ data AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails = AwsEcsTaskDef
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'driverOpts', 'awsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails_driverOpts' - A map of Docker driver-specific options that are passed through.
---
 -- 'autoprovision', 'awsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails_autoprovision' - Whether to create the Docker volume automatically if it does not already
 -- exist.
+--
+-- 'driver', 'awsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails_driver' - The Docker volume driver to use.
+--
+-- 'driverOpts', 'awsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails_driverOpts' - A map of Docker driver-specific options that are passed through.
 --
 -- 'labels', 'awsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails_labels' - Custom metadata to add to the Docker volume.
 --
@@ -66,32 +68,34 @@ data AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails = AwsEcsTaskDef
 -- task starts and destroyed when the task stops. Docker volumes that are
 -- shared persist after the task stops. Valid values are @shared@ or
 -- @task@.
---
--- 'driver', 'awsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails_driver' - The Docker volume driver to use.
 newAwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails ::
   AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails
 newAwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails =
   AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails'
-    { driverOpts =
+    { autoprovision =
         Prelude.Nothing,
-      autoprovision =
+      driver =
+        Prelude.Nothing,
+      driverOpts =
         Prelude.Nothing,
       labels =
         Prelude.Nothing,
       scope =
-        Prelude.Nothing,
-      driver =
         Prelude.Nothing
     }
-
--- | A map of Docker driver-specific options that are passed through.
-awsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails_driverOpts :: Lens.Lens' AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-awsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails_driverOpts = Lens.lens (\AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails' {driverOpts} -> driverOpts) (\s@AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails' {} a -> s {driverOpts = a} :: AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | Whether to create the Docker volume automatically if it does not already
 -- exist.
 awsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails_autoprovision :: Lens.Lens' AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails (Prelude.Maybe Prelude.Bool)
 awsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails_autoprovision = Lens.lens (\AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails' {autoprovision} -> autoprovision) (\s@AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails' {} a -> s {autoprovision = a} :: AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails)
+
+-- | The Docker volume driver to use.
+awsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails_driver :: Lens.Lens' AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails (Prelude.Maybe Prelude.Text)
+awsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails_driver = Lens.lens (\AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails' {driver} -> driver) (\s@AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails' {} a -> s {driver = a} :: AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails)
+
+-- | A map of Docker driver-specific options that are passed through.
+awsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails_driverOpts :: Lens.Lens' AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+awsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails_driverOpts = Lens.lens (\AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails' {driverOpts} -> driverOpts) (\s@AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails' {} a -> s {driverOpts = a} :: AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | Custom metadata to add to the Docker volume.
 awsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails_labels :: Lens.Lens' AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -105,10 +109,6 @@ awsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails_labels = Lens.lens (
 awsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails_scope :: Lens.Lens' AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails (Prelude.Maybe Prelude.Text)
 awsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails_scope = Lens.lens (\AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails' {scope} -> scope) (\s@AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails' {} a -> s {scope = a} :: AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails)
 
--- | The Docker volume driver to use.
-awsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails_driver :: Lens.Lens' AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails (Prelude.Maybe Prelude.Text)
-awsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails_driver = Lens.lens (\AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails' {driver} -> driver) (\s@AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails' {} a -> s {driver = a} :: AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails)
-
 instance
   Data.FromJSON
     AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails
@@ -118,11 +118,11 @@ instance
       "AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails"
       ( \x ->
           AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails'
-            Prelude.<$> (x Data..:? "DriverOpts" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "Autoprovision")
+            Prelude.<$> (x Data..:? "Autoprovision")
+              Prelude.<*> (x Data..:? "Driver")
+              Prelude.<*> (x Data..:? "DriverOpts" Data..!= Prelude.mempty)
               Prelude.<*> (x Data..:? "Labels" Data..!= Prelude.mempty)
               Prelude.<*> (x Data..:? "Scope")
-              Prelude.<*> (x Data..:? "Driver")
       )
 
 instance
@@ -132,11 +132,11 @@ instance
   hashWithSalt
     _salt
     AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails' {..} =
-      _salt `Prelude.hashWithSalt` driverOpts
-        `Prelude.hashWithSalt` autoprovision
+      _salt `Prelude.hashWithSalt` autoprovision
+        `Prelude.hashWithSalt` driver
+        `Prelude.hashWithSalt` driverOpts
         `Prelude.hashWithSalt` labels
         `Prelude.hashWithSalt` scope
-        `Prelude.hashWithSalt` driver
 
 instance
   Prelude.NFData
@@ -144,11 +144,11 @@ instance
   where
   rnf
     AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails' {..} =
-      Prelude.rnf driverOpts
-        `Prelude.seq` Prelude.rnf autoprovision
+      Prelude.rnf autoprovision
+        `Prelude.seq` Prelude.rnf driver
+        `Prelude.seq` Prelude.rnf driverOpts
         `Prelude.seq` Prelude.rnf labels
         `Prelude.seq` Prelude.rnf scope
-        `Prelude.seq` Prelude.rnf driver
 
 instance
   Data.ToJSON
@@ -158,10 +158,10 @@ instance
     AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("DriverOpts" Data..=) Prelude.<$> driverOpts,
-              ("Autoprovision" Data..=) Prelude.<$> autoprovision,
+            [ ("Autoprovision" Data..=) Prelude.<$> autoprovision,
+              ("Driver" Data..=) Prelude.<$> driver,
+              ("DriverOpts" Data..=) Prelude.<$> driverOpts,
               ("Labels" Data..=) Prelude.<$> labels,
-              ("Scope" Data..=) Prelude.<$> scope,
-              ("Driver" Data..=) Prelude.<$> driver
+              ("Scope" Data..=) Prelude.<$> scope
             ]
         )

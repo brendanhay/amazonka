@@ -30,17 +30,17 @@ module Amazonka.TimeStreamWrite.ListTables
     newListTables,
 
     -- * Request Lenses
-    listTables_nextToken,
     listTables_databaseName,
     listTables_maxResults,
+    listTables_nextToken,
 
     -- * Destructuring the Response
     ListTablesResponse (..),
     newListTablesResponse,
 
     -- * Response Lenses
-    listTablesResponse_tables,
     listTablesResponse_nextToken,
+    listTablesResponse_tables,
     listTablesResponse_httpStatus,
   )
 where
@@ -55,16 +55,16 @@ import Amazonka.TimeStreamWrite.Types
 
 -- | /See:/ 'newListTables' smart constructor.
 data ListTables = ListTables'
-  { -- | The pagination token. To resume pagination, provide the NextToken value
-    -- as argument of a subsequent API invocation.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The name of the Timestream database.
+  { -- | The name of the Timestream database.
     databaseName :: Prelude.Maybe Prelude.Text,
     -- | The total number of items to return in the output. If the total number
     -- of items available is more than the value specified, a NextToken is
     -- provided in the output. To resume pagination, provide the NextToken
     -- value as argument of a subsequent API invocation.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token. To resume pagination, provide the NextToken value
+    -- as argument of a subsequent API invocation.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,28 +76,23 @@ data ListTables = ListTables'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTables_nextToken' - The pagination token. To resume pagination, provide the NextToken value
--- as argument of a subsequent API invocation.
---
 -- 'databaseName', 'listTables_databaseName' - The name of the Timestream database.
 --
 -- 'maxResults', 'listTables_maxResults' - The total number of items to return in the output. If the total number
 -- of items available is more than the value specified, a NextToken is
 -- provided in the output. To resume pagination, provide the NextToken
 -- value as argument of a subsequent API invocation.
+--
+-- 'nextToken', 'listTables_nextToken' - The pagination token. To resume pagination, provide the NextToken value
+-- as argument of a subsequent API invocation.
 newListTables ::
   ListTables
 newListTables =
   ListTables'
-    { nextToken = Prelude.Nothing,
-      databaseName = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { databaseName = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The pagination token. To resume pagination, provide the NextToken value
--- as argument of a subsequent API invocation.
-listTables_nextToken :: Lens.Lens' ListTables (Prelude.Maybe Prelude.Text)
-listTables_nextToken = Lens.lens (\ListTables' {nextToken} -> nextToken) (\s@ListTables' {} a -> s {nextToken = a} :: ListTables)
 
 -- | The name of the Timestream database.
 listTables_databaseName :: Lens.Lens' ListTables (Prelude.Maybe Prelude.Text)
@@ -110,6 +105,11 @@ listTables_databaseName = Lens.lens (\ListTables' {databaseName} -> databaseName
 listTables_maxResults :: Lens.Lens' ListTables (Prelude.Maybe Prelude.Natural)
 listTables_maxResults = Lens.lens (\ListTables' {maxResults} -> maxResults) (\s@ListTables' {} a -> s {maxResults = a} :: ListTables)
 
+-- | The pagination token. To resume pagination, provide the NextToken value
+-- as argument of a subsequent API invocation.
+listTables_nextToken :: Lens.Lens' ListTables (Prelude.Maybe Prelude.Text)
+listTables_nextToken = Lens.lens (\ListTables' {nextToken} -> nextToken) (\s@ListTables' {} a -> s {nextToken = a} :: ListTables)
+
 instance Core.AWSRequest ListTables where
   type AWSResponse ListTables = ListTablesResponse
   request overrides =
@@ -118,22 +118,22 @@ instance Core.AWSRequest ListTables where
     Response.receiveJSON
       ( \s h x ->
           ListTablesResponse'
-            Prelude.<$> (x Data..?> "Tables" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Tables" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListTables where
   hashWithSalt _salt ListTables' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` databaseName
+    _salt `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListTables where
   rnf ListTables' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf databaseName
+    Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListTables where
   toHeaders =
@@ -154,9 +154,9 @@ instance Data.ToJSON ListTables where
   toJSON ListTables' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("DatabaseName" Data..=) Prelude.<$> databaseName,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("DatabaseName" Data..=) Prelude.<$> databaseName,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -168,11 +168,11 @@ instance Data.ToQuery ListTables where
 
 -- | /See:/ 'newListTablesResponse' smart constructor.
 data ListTablesResponse = ListTablesResponse'
-  { -- | A list of tables.
-    tables :: Prelude.Maybe [Table],
-    -- | A token to specify where to start paginating. This is the NextToken from
+  { -- | A token to specify where to start paginating. This is the NextToken from
     -- a previously truncated response.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of tables.
+    tables :: Prelude.Maybe [Table],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -186,10 +186,10 @@ data ListTablesResponse = ListTablesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tables', 'listTablesResponse_tables' - A list of tables.
---
 -- 'nextToken', 'listTablesResponse_nextToken' - A token to specify where to start paginating. This is the NextToken from
 -- a previously truncated response.
+--
+-- 'tables', 'listTablesResponse_tables' - A list of tables.
 --
 -- 'httpStatus', 'listTablesResponse_httpStatus' - The response's http status code.
 newListTablesResponse ::
@@ -198,19 +198,19 @@ newListTablesResponse ::
   ListTablesResponse
 newListTablesResponse pHttpStatus_ =
   ListTablesResponse'
-    { tables = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      tables = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of tables.
-listTablesResponse_tables :: Lens.Lens' ListTablesResponse (Prelude.Maybe [Table])
-listTablesResponse_tables = Lens.lens (\ListTablesResponse' {tables} -> tables) (\s@ListTablesResponse' {} a -> s {tables = a} :: ListTablesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token to specify where to start paginating. This is the NextToken from
 -- a previously truncated response.
 listTablesResponse_nextToken :: Lens.Lens' ListTablesResponse (Prelude.Maybe Prelude.Text)
 listTablesResponse_nextToken = Lens.lens (\ListTablesResponse' {nextToken} -> nextToken) (\s@ListTablesResponse' {} a -> s {nextToken = a} :: ListTablesResponse)
+
+-- | A list of tables.
+listTablesResponse_tables :: Lens.Lens' ListTablesResponse (Prelude.Maybe [Table])
+listTablesResponse_tables = Lens.lens (\ListTablesResponse' {tables} -> tables) (\s@ListTablesResponse' {} a -> s {tables = a} :: ListTablesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listTablesResponse_httpStatus :: Lens.Lens' ListTablesResponse Prelude.Int
@@ -218,6 +218,6 @@ listTablesResponse_httpStatus = Lens.lens (\ListTablesResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListTablesResponse where
   rnf ListTablesResponse' {..} =
-    Prelude.rnf tables
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf tables
       `Prelude.seq` Prelude.rnf httpStatus

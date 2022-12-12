@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDynamodbDataSourceConfig' smart constructor.
 data DynamodbDataSourceConfig = DynamodbDataSourceConfig'
-  { -- | Set to TRUE to use Amazon Cognito credentials with this data source.
+  { -- | The @DeltaSyncConfig@ for a versioned data source.
+    deltaSyncConfig :: Prelude.Maybe DeltaSyncConfig,
+    -- | Set to TRUE to use Amazon Cognito credentials with this data source.
     useCallerCredentials :: Prelude.Maybe Prelude.Bool,
     -- | Set to TRUE to use Conflict Detection and Resolution with this data
     -- source.
     versioned :: Prelude.Maybe Prelude.Bool,
-    -- | The @DeltaSyncConfig@ for a versioned data source.
-    deltaSyncConfig :: Prelude.Maybe DeltaSyncConfig,
     -- | The table name.
     tableName :: Prelude.Text,
     -- | The Amazon Web Services Region.
@@ -51,12 +51,12 @@ data DynamodbDataSourceConfig = DynamodbDataSourceConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'deltaSyncConfig', 'dynamodbDataSourceConfig_deltaSyncConfig' - The @DeltaSyncConfig@ for a versioned data source.
+--
 -- 'useCallerCredentials', 'dynamodbDataSourceConfig_useCallerCredentials' - Set to TRUE to use Amazon Cognito credentials with this data source.
 --
 -- 'versioned', 'dynamodbDataSourceConfig_versioned' - Set to TRUE to use Conflict Detection and Resolution with this data
 -- source.
---
--- 'deltaSyncConfig', 'dynamodbDataSourceConfig_deltaSyncConfig' - The @DeltaSyncConfig@ for a versioned data source.
 --
 -- 'tableName', 'dynamodbDataSourceConfig_tableName' - The table name.
 --
@@ -69,13 +69,17 @@ newDynamodbDataSourceConfig ::
   DynamodbDataSourceConfig
 newDynamodbDataSourceConfig pTableName_ pAwsRegion_ =
   DynamodbDataSourceConfig'
-    { useCallerCredentials =
+    { deltaSyncConfig =
         Prelude.Nothing,
+      useCallerCredentials = Prelude.Nothing,
       versioned = Prelude.Nothing,
-      deltaSyncConfig = Prelude.Nothing,
       tableName = pTableName_,
       awsRegion = pAwsRegion_
     }
+
+-- | The @DeltaSyncConfig@ for a versioned data source.
+dynamodbDataSourceConfig_deltaSyncConfig :: Lens.Lens' DynamodbDataSourceConfig (Prelude.Maybe DeltaSyncConfig)
+dynamodbDataSourceConfig_deltaSyncConfig = Lens.lens (\DynamodbDataSourceConfig' {deltaSyncConfig} -> deltaSyncConfig) (\s@DynamodbDataSourceConfig' {} a -> s {deltaSyncConfig = a} :: DynamodbDataSourceConfig)
 
 -- | Set to TRUE to use Amazon Cognito credentials with this data source.
 dynamodbDataSourceConfig_useCallerCredentials :: Lens.Lens' DynamodbDataSourceConfig (Prelude.Maybe Prelude.Bool)
@@ -85,10 +89,6 @@ dynamodbDataSourceConfig_useCallerCredentials = Lens.lens (\DynamodbDataSourceCo
 -- source.
 dynamodbDataSourceConfig_versioned :: Lens.Lens' DynamodbDataSourceConfig (Prelude.Maybe Prelude.Bool)
 dynamodbDataSourceConfig_versioned = Lens.lens (\DynamodbDataSourceConfig' {versioned} -> versioned) (\s@DynamodbDataSourceConfig' {} a -> s {versioned = a} :: DynamodbDataSourceConfig)
-
--- | The @DeltaSyncConfig@ for a versioned data source.
-dynamodbDataSourceConfig_deltaSyncConfig :: Lens.Lens' DynamodbDataSourceConfig (Prelude.Maybe DeltaSyncConfig)
-dynamodbDataSourceConfig_deltaSyncConfig = Lens.lens (\DynamodbDataSourceConfig' {deltaSyncConfig} -> deltaSyncConfig) (\s@DynamodbDataSourceConfig' {} a -> s {deltaSyncConfig = a} :: DynamodbDataSourceConfig)
 
 -- | The table name.
 dynamodbDataSourceConfig_tableName :: Lens.Lens' DynamodbDataSourceConfig Prelude.Text
@@ -104,26 +104,26 @@ instance Data.FromJSON DynamodbDataSourceConfig where
       "DynamodbDataSourceConfig"
       ( \x ->
           DynamodbDataSourceConfig'
-            Prelude.<$> (x Data..:? "useCallerCredentials")
+            Prelude.<$> (x Data..:? "deltaSyncConfig")
+            Prelude.<*> (x Data..:? "useCallerCredentials")
             Prelude.<*> (x Data..:? "versioned")
-            Prelude.<*> (x Data..:? "deltaSyncConfig")
             Prelude.<*> (x Data..: "tableName")
             Prelude.<*> (x Data..: "awsRegion")
       )
 
 instance Prelude.Hashable DynamodbDataSourceConfig where
   hashWithSalt _salt DynamodbDataSourceConfig' {..} =
-    _salt `Prelude.hashWithSalt` useCallerCredentials
+    _salt `Prelude.hashWithSalt` deltaSyncConfig
+      `Prelude.hashWithSalt` useCallerCredentials
       `Prelude.hashWithSalt` versioned
-      `Prelude.hashWithSalt` deltaSyncConfig
       `Prelude.hashWithSalt` tableName
       `Prelude.hashWithSalt` awsRegion
 
 instance Prelude.NFData DynamodbDataSourceConfig where
   rnf DynamodbDataSourceConfig' {..} =
-    Prelude.rnf useCallerCredentials
+    Prelude.rnf deltaSyncConfig
+      `Prelude.seq` Prelude.rnf useCallerCredentials
       `Prelude.seq` Prelude.rnf versioned
-      `Prelude.seq` Prelude.rnf deltaSyncConfig
       `Prelude.seq` Prelude.rnf tableName
       `Prelude.seq` Prelude.rnf awsRegion
 
@@ -131,11 +131,11 @@ instance Data.ToJSON DynamodbDataSourceConfig where
   toJSON DynamodbDataSourceConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("useCallerCredentials" Data..=)
+          [ ("deltaSyncConfig" Data..=)
+              Prelude.<$> deltaSyncConfig,
+            ("useCallerCredentials" Data..=)
               Prelude.<$> useCallerCredentials,
             ("versioned" Data..=) Prelude.<$> versioned,
-            ("deltaSyncConfig" Data..=)
-              Prelude.<$> deltaSyncConfig,
             Prelude.Just ("tableName" Data..= tableName),
             Prelude.Just ("awsRegion" Data..= awsRegion)
           ]

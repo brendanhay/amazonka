@@ -573,6 +573,7 @@ library
     Amazonka.SecurityHub.Types.SortOrder
     Amazonka.SecurityHub.Types.Standard
     Amazonka.SecurityHub.Types.StandardsControl
+    Amazonka.SecurityHub.Types.StandardsManagedBy
     Amazonka.SecurityHub.Types.StandardsStatus
     Amazonka.SecurityHub.Types.StandardsStatusReason
     Amazonka.SecurityHub.Types.StandardsSubscription

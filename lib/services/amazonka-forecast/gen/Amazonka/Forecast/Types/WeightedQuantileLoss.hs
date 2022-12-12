@@ -29,15 +29,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newWeightedQuantileLoss' smart constructor.
 data WeightedQuantileLoss = WeightedQuantileLoss'
-  { -- | The quantile. Quantiles divide a probability distribution into regions
+  { -- | The difference between the predicted value and the actual value over the
+    -- quantile, weighted (normalized) by dividing by the sum over all
+    -- quantiles.
+    lossValue :: Prelude.Maybe Prelude.Double,
+    -- | The quantile. Quantiles divide a probability distribution into regions
     -- of equal probability. For example, if the distribution was divided into
     -- 5 regions of equal probability, the quantiles would be 0.2, 0.4, 0.6,
     -- and 0.8.
-    quantile :: Prelude.Maybe Prelude.Double,
-    -- | The difference between the predicted value and the actual value over the
-    -- quantile, weighted (normalized) by dividing by the sum over all
-    -- quantiles.
-    lossValue :: Prelude.Maybe Prelude.Double
+    quantile :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,21 +49,27 @@ data WeightedQuantileLoss = WeightedQuantileLoss'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'lossValue', 'weightedQuantileLoss_lossValue' - The difference between the predicted value and the actual value over the
+-- quantile, weighted (normalized) by dividing by the sum over all
+-- quantiles.
+--
 -- 'quantile', 'weightedQuantileLoss_quantile' - The quantile. Quantiles divide a probability distribution into regions
 -- of equal probability. For example, if the distribution was divided into
 -- 5 regions of equal probability, the quantiles would be 0.2, 0.4, 0.6,
 -- and 0.8.
---
--- 'lossValue', 'weightedQuantileLoss_lossValue' - The difference between the predicted value and the actual value over the
--- quantile, weighted (normalized) by dividing by the sum over all
--- quantiles.
 newWeightedQuantileLoss ::
   WeightedQuantileLoss
 newWeightedQuantileLoss =
   WeightedQuantileLoss'
-    { quantile = Prelude.Nothing,
-      lossValue = Prelude.Nothing
+    { lossValue = Prelude.Nothing,
+      quantile = Prelude.Nothing
     }
+
+-- | The difference between the predicted value and the actual value over the
+-- quantile, weighted (normalized) by dividing by the sum over all
+-- quantiles.
+weightedQuantileLoss_lossValue :: Lens.Lens' WeightedQuantileLoss (Prelude.Maybe Prelude.Double)
+weightedQuantileLoss_lossValue = Lens.lens (\WeightedQuantileLoss' {lossValue} -> lossValue) (\s@WeightedQuantileLoss' {} a -> s {lossValue = a} :: WeightedQuantileLoss)
 
 -- | The quantile. Quantiles divide a probability distribution into regions
 -- of equal probability. For example, if the distribution was divided into
@@ -72,28 +78,22 @@ newWeightedQuantileLoss =
 weightedQuantileLoss_quantile :: Lens.Lens' WeightedQuantileLoss (Prelude.Maybe Prelude.Double)
 weightedQuantileLoss_quantile = Lens.lens (\WeightedQuantileLoss' {quantile} -> quantile) (\s@WeightedQuantileLoss' {} a -> s {quantile = a} :: WeightedQuantileLoss)
 
--- | The difference between the predicted value and the actual value over the
--- quantile, weighted (normalized) by dividing by the sum over all
--- quantiles.
-weightedQuantileLoss_lossValue :: Lens.Lens' WeightedQuantileLoss (Prelude.Maybe Prelude.Double)
-weightedQuantileLoss_lossValue = Lens.lens (\WeightedQuantileLoss' {lossValue} -> lossValue) (\s@WeightedQuantileLoss' {} a -> s {lossValue = a} :: WeightedQuantileLoss)
-
 instance Data.FromJSON WeightedQuantileLoss where
   parseJSON =
     Data.withObject
       "WeightedQuantileLoss"
       ( \x ->
           WeightedQuantileLoss'
-            Prelude.<$> (x Data..:? "Quantile")
-            Prelude.<*> (x Data..:? "LossValue")
+            Prelude.<$> (x Data..:? "LossValue")
+            Prelude.<*> (x Data..:? "Quantile")
       )
 
 instance Prelude.Hashable WeightedQuantileLoss where
   hashWithSalt _salt WeightedQuantileLoss' {..} =
-    _salt `Prelude.hashWithSalt` quantile
-      `Prelude.hashWithSalt` lossValue
+    _salt `Prelude.hashWithSalt` lossValue
+      `Prelude.hashWithSalt` quantile
 
 instance Prelude.NFData WeightedQuantileLoss where
   rnf WeightedQuantileLoss' {..} =
-    Prelude.rnf quantile
-      `Prelude.seq` Prelude.rnf lossValue
+    Prelude.rnf lossValue
+      `Prelude.seq` Prelude.rnf quantile

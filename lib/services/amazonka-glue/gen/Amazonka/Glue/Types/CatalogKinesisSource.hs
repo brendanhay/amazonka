@@ -30,14 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCatalogKinesisSource' smart constructor.
 data CatalogKinesisSource = CatalogKinesisSource'
-  { -- | The amount of time to spend processing each micro batch.
-    windowSize :: Prelude.Maybe Prelude.Natural,
-    -- | Additional options for the Kinesis streaming data source.
-    streamingOptions :: Prelude.Maybe KinesisStreamingSourceOptions,
+  { -- | Additional options for data preview.
+    dataPreviewOptions :: Prelude.Maybe StreamingDataPreviewOptions,
     -- | Whether to automatically determine the schema from the incoming data.
     detectSchema :: Prelude.Maybe Prelude.Bool,
-    -- | Additional options for data preview.
-    dataPreviewOptions :: Prelude.Maybe StreamingDataPreviewOptions,
+    -- | Additional options for the Kinesis streaming data source.
+    streamingOptions :: Prelude.Maybe KinesisStreamingSourceOptions,
+    -- | The amount of time to spend processing each micro batch.
+    windowSize :: Prelude.Maybe Prelude.Natural,
     -- | The name of the data source.
     name :: Prelude.Text,
     -- | The name of the table in the database to read from.
@@ -55,13 +55,13 @@ data CatalogKinesisSource = CatalogKinesisSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'windowSize', 'catalogKinesisSource_windowSize' - The amount of time to spend processing each micro batch.
---
--- 'streamingOptions', 'catalogKinesisSource_streamingOptions' - Additional options for the Kinesis streaming data source.
+-- 'dataPreviewOptions', 'catalogKinesisSource_dataPreviewOptions' - Additional options for data preview.
 --
 -- 'detectSchema', 'catalogKinesisSource_detectSchema' - Whether to automatically determine the schema from the incoming data.
 --
--- 'dataPreviewOptions', 'catalogKinesisSource_dataPreviewOptions' - Additional options for data preview.
+-- 'streamingOptions', 'catalogKinesisSource_streamingOptions' - Additional options for the Kinesis streaming data source.
+--
+-- 'windowSize', 'catalogKinesisSource_windowSize' - The amount of time to spend processing each micro batch.
 --
 -- 'name', 'catalogKinesisSource_name' - The name of the data source.
 --
@@ -78,30 +78,31 @@ newCatalogKinesisSource ::
   CatalogKinesisSource
 newCatalogKinesisSource pName_ pTable_ pDatabase_ =
   CatalogKinesisSource'
-    { windowSize = Prelude.Nothing,
-      streamingOptions = Prelude.Nothing,
+    { dataPreviewOptions =
+        Prelude.Nothing,
       detectSchema = Prelude.Nothing,
-      dataPreviewOptions = Prelude.Nothing,
+      streamingOptions = Prelude.Nothing,
+      windowSize = Prelude.Nothing,
       name = pName_,
       table = pTable_,
       database = pDatabase_
     }
 
--- | The amount of time to spend processing each micro batch.
-catalogKinesisSource_windowSize :: Lens.Lens' CatalogKinesisSource (Prelude.Maybe Prelude.Natural)
-catalogKinesisSource_windowSize = Lens.lens (\CatalogKinesisSource' {windowSize} -> windowSize) (\s@CatalogKinesisSource' {} a -> s {windowSize = a} :: CatalogKinesisSource)
-
--- | Additional options for the Kinesis streaming data source.
-catalogKinesisSource_streamingOptions :: Lens.Lens' CatalogKinesisSource (Prelude.Maybe KinesisStreamingSourceOptions)
-catalogKinesisSource_streamingOptions = Lens.lens (\CatalogKinesisSource' {streamingOptions} -> streamingOptions) (\s@CatalogKinesisSource' {} a -> s {streamingOptions = a} :: CatalogKinesisSource)
+-- | Additional options for data preview.
+catalogKinesisSource_dataPreviewOptions :: Lens.Lens' CatalogKinesisSource (Prelude.Maybe StreamingDataPreviewOptions)
+catalogKinesisSource_dataPreviewOptions = Lens.lens (\CatalogKinesisSource' {dataPreviewOptions} -> dataPreviewOptions) (\s@CatalogKinesisSource' {} a -> s {dataPreviewOptions = a} :: CatalogKinesisSource)
 
 -- | Whether to automatically determine the schema from the incoming data.
 catalogKinesisSource_detectSchema :: Lens.Lens' CatalogKinesisSource (Prelude.Maybe Prelude.Bool)
 catalogKinesisSource_detectSchema = Lens.lens (\CatalogKinesisSource' {detectSchema} -> detectSchema) (\s@CatalogKinesisSource' {} a -> s {detectSchema = a} :: CatalogKinesisSource)
 
--- | Additional options for data preview.
-catalogKinesisSource_dataPreviewOptions :: Lens.Lens' CatalogKinesisSource (Prelude.Maybe StreamingDataPreviewOptions)
-catalogKinesisSource_dataPreviewOptions = Lens.lens (\CatalogKinesisSource' {dataPreviewOptions} -> dataPreviewOptions) (\s@CatalogKinesisSource' {} a -> s {dataPreviewOptions = a} :: CatalogKinesisSource)
+-- | Additional options for the Kinesis streaming data source.
+catalogKinesisSource_streamingOptions :: Lens.Lens' CatalogKinesisSource (Prelude.Maybe KinesisStreamingSourceOptions)
+catalogKinesisSource_streamingOptions = Lens.lens (\CatalogKinesisSource' {streamingOptions} -> streamingOptions) (\s@CatalogKinesisSource' {} a -> s {streamingOptions = a} :: CatalogKinesisSource)
+
+-- | The amount of time to spend processing each micro batch.
+catalogKinesisSource_windowSize :: Lens.Lens' CatalogKinesisSource (Prelude.Maybe Prelude.Natural)
+catalogKinesisSource_windowSize = Lens.lens (\CatalogKinesisSource' {windowSize} -> windowSize) (\s@CatalogKinesisSource' {} a -> s {windowSize = a} :: CatalogKinesisSource)
 
 -- | The name of the data source.
 catalogKinesisSource_name :: Lens.Lens' CatalogKinesisSource Prelude.Text
@@ -121,10 +122,10 @@ instance Data.FromJSON CatalogKinesisSource where
       "CatalogKinesisSource"
       ( \x ->
           CatalogKinesisSource'
-            Prelude.<$> (x Data..:? "WindowSize")
-            Prelude.<*> (x Data..:? "StreamingOptions")
+            Prelude.<$> (x Data..:? "DataPreviewOptions")
             Prelude.<*> (x Data..:? "DetectSchema")
-            Prelude.<*> (x Data..:? "DataPreviewOptions")
+            Prelude.<*> (x Data..:? "StreamingOptions")
+            Prelude.<*> (x Data..:? "WindowSize")
             Prelude.<*> (x Data..: "Name")
             Prelude.<*> (x Data..: "Table")
             Prelude.<*> (x Data..: "Database")
@@ -132,20 +133,20 @@ instance Data.FromJSON CatalogKinesisSource where
 
 instance Prelude.Hashable CatalogKinesisSource where
   hashWithSalt _salt CatalogKinesisSource' {..} =
-    _salt `Prelude.hashWithSalt` windowSize
-      `Prelude.hashWithSalt` streamingOptions
+    _salt `Prelude.hashWithSalt` dataPreviewOptions
       `Prelude.hashWithSalt` detectSchema
-      `Prelude.hashWithSalt` dataPreviewOptions
+      `Prelude.hashWithSalt` streamingOptions
+      `Prelude.hashWithSalt` windowSize
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` table
       `Prelude.hashWithSalt` database
 
 instance Prelude.NFData CatalogKinesisSource where
   rnf CatalogKinesisSource' {..} =
-    Prelude.rnf windowSize
-      `Prelude.seq` Prelude.rnf streamingOptions
+    Prelude.rnf dataPreviewOptions
       `Prelude.seq` Prelude.rnf detectSchema
-      `Prelude.seq` Prelude.rnf dataPreviewOptions
+      `Prelude.seq` Prelude.rnf streamingOptions
+      `Prelude.seq` Prelude.rnf windowSize
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf table
       `Prelude.seq` Prelude.rnf database
@@ -154,12 +155,12 @@ instance Data.ToJSON CatalogKinesisSource where
   toJSON CatalogKinesisSource' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("WindowSize" Data..=) Prelude.<$> windowSize,
+          [ ("DataPreviewOptions" Data..=)
+              Prelude.<$> dataPreviewOptions,
+            ("DetectSchema" Data..=) Prelude.<$> detectSchema,
             ("StreamingOptions" Data..=)
               Prelude.<$> streamingOptions,
-            ("DetectSchema" Data..=) Prelude.<$> detectSchema,
-            ("DataPreviewOptions" Data..=)
-              Prelude.<$> dataPreviewOptions,
+            ("WindowSize" Data..=) Prelude.<$> windowSize,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("Table" Data..= table),
             Prelude.Just ("Database" Data..= database)

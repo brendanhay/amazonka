@@ -35,11 +35,11 @@ module Amazonka.Inspector2.GetFindingsReportStatus
 
     -- * Response Lenses
     getFindingsReportStatusResponse_destination,
+    getFindingsReportStatusResponse_errorCode,
     getFindingsReportStatusResponse_errorMessage,
-    getFindingsReportStatusResponse_status,
     getFindingsReportStatusResponse_filterCriteria,
     getFindingsReportStatusResponse_reportId,
-    getFindingsReportStatusResponse_errorCode,
+    getFindingsReportStatusResponse_status,
     getFindingsReportStatusResponse_httpStatus,
   )
 where
@@ -91,11 +91,11 @@ instance Core.AWSRequest GetFindingsReportStatus where
       ( \s h x ->
           GetFindingsReportStatusResponse'
             Prelude.<$> (x Data..?> "destination")
+            Prelude.<*> (x Data..?> "errorCode")
             Prelude.<*> (x Data..?> "errorMessage")
-            Prelude.<*> (x Data..?> "status")
             Prelude.<*> (x Data..?> "filterCriteria")
             Prelude.<*> (x Data..?> "reportId")
-            Prelude.<*> (x Data..?> "errorCode")
+            Prelude.<*> (x Data..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -135,16 +135,16 @@ instance Data.ToQuery GetFindingsReportStatus where
 data GetFindingsReportStatusResponse = GetFindingsReportStatusResponse'
   { -- | The destination of the report.
     destination :: Prelude.Maybe Destination,
+    -- | The error code of the report.
+    errorCode :: Prelude.Maybe ReportingErrorCode,
     -- | The error message of the report.
     errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | The status of the report.
-    status :: Prelude.Maybe ExternalReportStatus,
     -- | The filter criteria associated with the report.
     filterCriteria :: Prelude.Maybe FilterCriteria,
     -- | The ID of the report.
     reportId :: Prelude.Maybe Prelude.Text,
-    -- | The error code of the report.
-    errorCode :: Prelude.Maybe ReportingErrorCode,
+    -- | The status of the report.
+    status :: Prelude.Maybe ExternalReportStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -160,15 +160,15 @@ data GetFindingsReportStatusResponse = GetFindingsReportStatusResponse'
 --
 -- 'destination', 'getFindingsReportStatusResponse_destination' - The destination of the report.
 --
--- 'errorMessage', 'getFindingsReportStatusResponse_errorMessage' - The error message of the report.
+-- 'errorCode', 'getFindingsReportStatusResponse_errorCode' - The error code of the report.
 --
--- 'status', 'getFindingsReportStatusResponse_status' - The status of the report.
+-- 'errorMessage', 'getFindingsReportStatusResponse_errorMessage' - The error message of the report.
 --
 -- 'filterCriteria', 'getFindingsReportStatusResponse_filterCriteria' - The filter criteria associated with the report.
 --
 -- 'reportId', 'getFindingsReportStatusResponse_reportId' - The ID of the report.
 --
--- 'errorCode', 'getFindingsReportStatusResponse_errorCode' - The error code of the report.
+-- 'status', 'getFindingsReportStatusResponse_status' - The status of the report.
 --
 -- 'httpStatus', 'getFindingsReportStatusResponse_httpStatus' - The response's http status code.
 newGetFindingsReportStatusResponse ::
@@ -179,11 +179,11 @@ newGetFindingsReportStatusResponse pHttpStatus_ =
   GetFindingsReportStatusResponse'
     { destination =
         Prelude.Nothing,
+      errorCode = Prelude.Nothing,
       errorMessage = Prelude.Nothing,
-      status = Prelude.Nothing,
       filterCriteria = Prelude.Nothing,
       reportId = Prelude.Nothing,
-      errorCode = Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -191,13 +191,13 @@ newGetFindingsReportStatusResponse pHttpStatus_ =
 getFindingsReportStatusResponse_destination :: Lens.Lens' GetFindingsReportStatusResponse (Prelude.Maybe Destination)
 getFindingsReportStatusResponse_destination = Lens.lens (\GetFindingsReportStatusResponse' {destination} -> destination) (\s@GetFindingsReportStatusResponse' {} a -> s {destination = a} :: GetFindingsReportStatusResponse)
 
+-- | The error code of the report.
+getFindingsReportStatusResponse_errorCode :: Lens.Lens' GetFindingsReportStatusResponse (Prelude.Maybe ReportingErrorCode)
+getFindingsReportStatusResponse_errorCode = Lens.lens (\GetFindingsReportStatusResponse' {errorCode} -> errorCode) (\s@GetFindingsReportStatusResponse' {} a -> s {errorCode = a} :: GetFindingsReportStatusResponse)
+
 -- | The error message of the report.
 getFindingsReportStatusResponse_errorMessage :: Lens.Lens' GetFindingsReportStatusResponse (Prelude.Maybe Prelude.Text)
 getFindingsReportStatusResponse_errorMessage = Lens.lens (\GetFindingsReportStatusResponse' {errorMessage} -> errorMessage) (\s@GetFindingsReportStatusResponse' {} a -> s {errorMessage = a} :: GetFindingsReportStatusResponse)
-
--- | The status of the report.
-getFindingsReportStatusResponse_status :: Lens.Lens' GetFindingsReportStatusResponse (Prelude.Maybe ExternalReportStatus)
-getFindingsReportStatusResponse_status = Lens.lens (\GetFindingsReportStatusResponse' {status} -> status) (\s@GetFindingsReportStatusResponse' {} a -> s {status = a} :: GetFindingsReportStatusResponse)
 
 -- | The filter criteria associated with the report.
 getFindingsReportStatusResponse_filterCriteria :: Lens.Lens' GetFindingsReportStatusResponse (Prelude.Maybe FilterCriteria)
@@ -207,9 +207,9 @@ getFindingsReportStatusResponse_filterCriteria = Lens.lens (\GetFindingsReportSt
 getFindingsReportStatusResponse_reportId :: Lens.Lens' GetFindingsReportStatusResponse (Prelude.Maybe Prelude.Text)
 getFindingsReportStatusResponse_reportId = Lens.lens (\GetFindingsReportStatusResponse' {reportId} -> reportId) (\s@GetFindingsReportStatusResponse' {} a -> s {reportId = a} :: GetFindingsReportStatusResponse)
 
--- | The error code of the report.
-getFindingsReportStatusResponse_errorCode :: Lens.Lens' GetFindingsReportStatusResponse (Prelude.Maybe ReportingErrorCode)
-getFindingsReportStatusResponse_errorCode = Lens.lens (\GetFindingsReportStatusResponse' {errorCode} -> errorCode) (\s@GetFindingsReportStatusResponse' {} a -> s {errorCode = a} :: GetFindingsReportStatusResponse)
+-- | The status of the report.
+getFindingsReportStatusResponse_status :: Lens.Lens' GetFindingsReportStatusResponse (Prelude.Maybe ExternalReportStatus)
+getFindingsReportStatusResponse_status = Lens.lens (\GetFindingsReportStatusResponse' {status} -> status) (\s@GetFindingsReportStatusResponse' {} a -> s {status = a} :: GetFindingsReportStatusResponse)
 
 -- | The response's http status code.
 getFindingsReportStatusResponse_httpStatus :: Lens.Lens' GetFindingsReportStatusResponse Prelude.Int
@@ -221,9 +221,9 @@ instance
   where
   rnf GetFindingsReportStatusResponse' {..} =
     Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf errorCode
       `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf filterCriteria
       `Prelude.seq` Prelude.rnf reportId
-      `Prelude.seq` Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

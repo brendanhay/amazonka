@@ -48,12 +48,17 @@ import Amazonka.TimeStreamWrite.Types.TimeUnit
 --
 -- /See:/ 'newRecord' smart constructor.
 data Record = Record'
-  { -- | The granularity of the timestamp unit. It indicates if the time value is
-    -- in seconds, milliseconds, nanoseconds or other supported values. Default
-    -- is @MILLISECONDS@.
-    timeUnit :: Prelude.Maybe TimeUnit,
+  { -- | Contains the list of dimensions for time series data points.
+    dimensions :: Prelude.Maybe [Dimension],
+    -- | Measure represents the data attribute of the time series. For example,
+    -- the CPU utilization of an EC2 instance or the RPM of a wind turbine are
+    -- measures.
+    measureName :: Prelude.Maybe Prelude.Text,
     -- | Contains the measure value for the time series data point.
     measureValue :: Prelude.Maybe Prelude.Text,
+    -- | Contains the data type of the measure value for the time series data
+    -- point. Default type is @DOUBLE@.
+    measureValueType :: Prelude.Maybe MeasureValueType,
     -- | Contains the list of MeasureValue for time series data points.
     --
     -- This is only allowed for type @MULTI@. For scalar values, use
@@ -64,15 +69,10 @@ data Record = Record'
     -- the epoch. For example, if the time value is @12345@ and the unit is
     -- @ms@, then @12345 ms@ have elapsed since the epoch.
     time :: Prelude.Maybe Prelude.Text,
-    -- | Contains the list of dimensions for time series data points.
-    dimensions :: Prelude.Maybe [Dimension],
-    -- | Measure represents the data attribute of the time series. For example,
-    -- the CPU utilization of an EC2 instance or the RPM of a wind turbine are
-    -- measures.
-    measureName :: Prelude.Maybe Prelude.Text,
-    -- | Contains the data type of the measure value for the time series data
-    -- point. Default type is @DOUBLE@.
-    measureValueType :: Prelude.Maybe MeasureValueType,
+    -- | The granularity of the timestamp unit. It indicates if the time value is
+    -- in seconds, milliseconds, nanoseconds or other supported values. Default
+    -- is @MILLISECONDS@.
+    timeUnit :: Prelude.Maybe TimeUnit,
     -- | 64-bit attribute used for record updates. Write requests for duplicate
     -- data with a higher version number will update the existing measure value
     -- and version. In cases where the measure value is the same, @Version@
@@ -92,11 +92,16 @@ data Record = Record'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'timeUnit', 'record_timeUnit' - The granularity of the timestamp unit. It indicates if the time value is
--- in seconds, milliseconds, nanoseconds or other supported values. Default
--- is @MILLISECONDS@.
+-- 'dimensions', 'record_dimensions' - Contains the list of dimensions for time series data points.
+--
+-- 'measureName', 'record_measureName' - Measure represents the data attribute of the time series. For example,
+-- the CPU utilization of an EC2 instance or the RPM of a wind turbine are
+-- measures.
 --
 -- 'measureValue', 'record_measureValue' - Contains the measure value for the time series data point.
+--
+-- 'measureValueType', 'record_measureValueType' - Contains the data type of the measure value for the time series data
+-- point. Default type is @DOUBLE@.
 --
 -- 'measureValues', 'record_measureValues' - Contains the list of MeasureValue for time series data points.
 --
@@ -108,14 +113,9 @@ data Record = Record'
 -- the epoch. For example, if the time value is @12345@ and the unit is
 -- @ms@, then @12345 ms@ have elapsed since the epoch.
 --
--- 'dimensions', 'record_dimensions' - Contains the list of dimensions for time series data points.
---
--- 'measureName', 'record_measureName' - Measure represents the data attribute of the time series. For example,
--- the CPU utilization of an EC2 instance or the RPM of a wind turbine are
--- measures.
---
--- 'measureValueType', 'record_measureValueType' - Contains the data type of the measure value for the time series data
--- point. Default type is @DOUBLE@.
+-- 'timeUnit', 'record_timeUnit' - The granularity of the timestamp unit. It indicates if the time value is
+-- in seconds, milliseconds, nanoseconds or other supported values. Default
+-- is @MILLISECONDS@.
 --
 -- 'version', 'record_version' - 64-bit attribute used for record updates. Write requests for duplicate
 -- data with a higher version number will update the existing measure value
@@ -128,25 +128,34 @@ newRecord ::
   Record
 newRecord =
   Record'
-    { timeUnit = Prelude.Nothing,
+    { dimensions = Prelude.Nothing,
+      measureName = Prelude.Nothing,
       measureValue = Prelude.Nothing,
+      measureValueType = Prelude.Nothing,
       measureValues = Prelude.Nothing,
       time = Prelude.Nothing,
-      dimensions = Prelude.Nothing,
-      measureName = Prelude.Nothing,
-      measureValueType = Prelude.Nothing,
+      timeUnit = Prelude.Nothing,
       version = Prelude.Nothing
     }
 
--- | The granularity of the timestamp unit. It indicates if the time value is
--- in seconds, milliseconds, nanoseconds or other supported values. Default
--- is @MILLISECONDS@.
-record_timeUnit :: Lens.Lens' Record (Prelude.Maybe TimeUnit)
-record_timeUnit = Lens.lens (\Record' {timeUnit} -> timeUnit) (\s@Record' {} a -> s {timeUnit = a} :: Record)
+-- | Contains the list of dimensions for time series data points.
+record_dimensions :: Lens.Lens' Record (Prelude.Maybe [Dimension])
+record_dimensions = Lens.lens (\Record' {dimensions} -> dimensions) (\s@Record' {} a -> s {dimensions = a} :: Record) Prelude.. Lens.mapping Lens.coerced
+
+-- | Measure represents the data attribute of the time series. For example,
+-- the CPU utilization of an EC2 instance or the RPM of a wind turbine are
+-- measures.
+record_measureName :: Lens.Lens' Record (Prelude.Maybe Prelude.Text)
+record_measureName = Lens.lens (\Record' {measureName} -> measureName) (\s@Record' {} a -> s {measureName = a} :: Record)
 
 -- | Contains the measure value for the time series data point.
 record_measureValue :: Lens.Lens' Record (Prelude.Maybe Prelude.Text)
 record_measureValue = Lens.lens (\Record' {measureValue} -> measureValue) (\s@Record' {} a -> s {measureValue = a} :: Record)
+
+-- | Contains the data type of the measure value for the time series data
+-- point. Default type is @DOUBLE@.
+record_measureValueType :: Lens.Lens' Record (Prelude.Maybe MeasureValueType)
+record_measureValueType = Lens.lens (\Record' {measureValueType} -> measureValueType) (\s@Record' {} a -> s {measureValueType = a} :: Record)
 
 -- | Contains the list of MeasureValue for time series data points.
 --
@@ -162,20 +171,11 @@ record_measureValues = Lens.lens (\Record' {measureValues} -> measureValues) (\s
 record_time :: Lens.Lens' Record (Prelude.Maybe Prelude.Text)
 record_time = Lens.lens (\Record' {time} -> time) (\s@Record' {} a -> s {time = a} :: Record)
 
--- | Contains the list of dimensions for time series data points.
-record_dimensions :: Lens.Lens' Record (Prelude.Maybe [Dimension])
-record_dimensions = Lens.lens (\Record' {dimensions} -> dimensions) (\s@Record' {} a -> s {dimensions = a} :: Record) Prelude.. Lens.mapping Lens.coerced
-
--- | Measure represents the data attribute of the time series. For example,
--- the CPU utilization of an EC2 instance or the RPM of a wind turbine are
--- measures.
-record_measureName :: Lens.Lens' Record (Prelude.Maybe Prelude.Text)
-record_measureName = Lens.lens (\Record' {measureName} -> measureName) (\s@Record' {} a -> s {measureName = a} :: Record)
-
--- | Contains the data type of the measure value for the time series data
--- point. Default type is @DOUBLE@.
-record_measureValueType :: Lens.Lens' Record (Prelude.Maybe MeasureValueType)
-record_measureValueType = Lens.lens (\Record' {measureValueType} -> measureValueType) (\s@Record' {} a -> s {measureValueType = a} :: Record)
+-- | The granularity of the timestamp unit. It indicates if the time value is
+-- in seconds, milliseconds, nanoseconds or other supported values. Default
+-- is @MILLISECONDS@.
+record_timeUnit :: Lens.Lens' Record (Prelude.Maybe TimeUnit)
+record_timeUnit = Lens.lens (\Record' {timeUnit} -> timeUnit) (\s@Record' {} a -> s {timeUnit = a} :: Record)
 
 -- | 64-bit attribute used for record updates. Write requests for duplicate
 -- data with a higher version number will update the existing measure value
@@ -189,38 +189,38 @@ record_version = Lens.lens (\Record' {version} -> version) (\s@Record' {} a -> s
 
 instance Prelude.Hashable Record where
   hashWithSalt _salt Record' {..} =
-    _salt `Prelude.hashWithSalt` timeUnit
+    _salt `Prelude.hashWithSalt` dimensions
+      `Prelude.hashWithSalt` measureName
       `Prelude.hashWithSalt` measureValue
+      `Prelude.hashWithSalt` measureValueType
       `Prelude.hashWithSalt` measureValues
       `Prelude.hashWithSalt` time
-      `Prelude.hashWithSalt` dimensions
-      `Prelude.hashWithSalt` measureName
-      `Prelude.hashWithSalt` measureValueType
+      `Prelude.hashWithSalt` timeUnit
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData Record where
   rnf Record' {..} =
-    Prelude.rnf timeUnit
+    Prelude.rnf dimensions
+      `Prelude.seq` Prelude.rnf measureName
       `Prelude.seq` Prelude.rnf measureValue
+      `Prelude.seq` Prelude.rnf measureValueType
       `Prelude.seq` Prelude.rnf measureValues
       `Prelude.seq` Prelude.rnf time
-      `Prelude.seq` Prelude.rnf dimensions
-      `Prelude.seq` Prelude.rnf measureName
-      `Prelude.seq` Prelude.rnf measureValueType
+      `Prelude.seq` Prelude.rnf timeUnit
       `Prelude.seq` Prelude.rnf version
 
 instance Data.ToJSON Record where
   toJSON Record' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("TimeUnit" Data..=) Prelude.<$> timeUnit,
-            ("MeasureValue" Data..=) Prelude.<$> measureValue,
-            ("MeasureValues" Data..=) Prelude.<$> measureValues,
-            ("Time" Data..=) Prelude.<$> time,
-            ("Dimensions" Data..=) Prelude.<$> dimensions,
+          [ ("Dimensions" Data..=) Prelude.<$> dimensions,
             ("MeasureName" Data..=) Prelude.<$> measureName,
+            ("MeasureValue" Data..=) Prelude.<$> measureValue,
             ("MeasureValueType" Data..=)
               Prelude.<$> measureValueType,
+            ("MeasureValues" Data..=) Prelude.<$> measureValues,
+            ("Time" Data..=) Prelude.<$> time,
+            ("TimeUnit" Data..=) Prelude.<$> timeUnit,
             ("Version" Data..=) Prelude.<$> version
           ]
       )

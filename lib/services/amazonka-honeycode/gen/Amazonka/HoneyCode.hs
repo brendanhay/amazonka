@@ -25,8 +25,20 @@ module Amazonka.HoneyCode
     -- ** AccessDeniedException
     _AccessDeniedException,
 
+    -- ** AutomationExecutionException
+    _AutomationExecutionException,
+
+    -- ** AutomationExecutionTimeoutException
+    _AutomationExecutionTimeoutException,
+
     -- ** InternalServerException
     _InternalServerException,
+
+    -- ** RequestTimeoutException
+    _RequestTimeoutException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- ** ServiceQuotaExceededException
     _ServiceQuotaExceededException,
@@ -34,23 +46,11 @@ module Amazonka.HoneyCode
     -- ** ServiceUnavailableException
     _ServiceUnavailableException,
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** AutomationExecutionTimeoutException
-    _AutomationExecutionTimeoutException,
-
     -- ** ThrottlingException
     _ThrottlingException,
 
-    -- ** RequestTimeoutException
-    _RequestTimeoutException,
-
     -- ** ValidationException
     _ValidationException,
-
-    -- ** AutomationExecutionException
-    _AutomationExecutionException,
 
     -- * Waiters
     -- $waiters

@@ -64,45 +64,6 @@ newClusterAvailable =
     }
 
 -- | Polls 'Amazonka.Redshift.DescribeClusters' every 60 seconds until a successful state is reached. An error is returned after 30 failed checks.
-newClusterRestored :: Core.Wait DescribeClusters
-newClusterRestored =
-  Core.Wait
-    { Core.name = "ClusterRestored",
-      Core.attempts = 30,
-      Core.delay = 60,
-      Core.acceptors =
-        [ Core.matchAll
-            "completed"
-            Core.AcceptSuccess
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeClustersResponse_clusters
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. cluster_restoreStatus
-                Prelude.. Lens._Just
-                Prelude.. restoreStatus_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Data.toTextCI
-            ),
-          Core.matchAny
-            "deleting"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeClustersResponse_clusters
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. cluster_clusterStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Data.toTextCI
-            )
-        ]
-    }
-
--- | Polls 'Amazonka.Redshift.DescribeClusters' every 60 seconds until a successful state is reached. An error is returned after 30 failed checks.
 newClusterDeleted :: Core.Wait DescribeClusters
 newClusterDeleted =
   Core.Wait
@@ -128,6 +89,45 @@ newClusterDeleted =
             ),
           Core.matchAny
             "modifying"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeClustersResponse_clusters
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. cluster_clusterStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Data.toTextCI
+            )
+        ]
+    }
+
+-- | Polls 'Amazonka.Redshift.DescribeClusters' every 60 seconds until a successful state is reached. An error is returned after 30 failed checks.
+newClusterRestored :: Core.Wait DescribeClusters
+newClusterRestored =
+  Core.Wait
+    { Core.name = "ClusterRestored",
+      Core.attempts = 30,
+      Core.delay = 60,
+      Core.acceptors =
+        [ Core.matchAll
+            "completed"
+            Core.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeClustersResponse_clusters
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. cluster_restoreStatus
+                Prelude.. Lens._Just
+                Prelude.. restoreStatus_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Data.toTextCI
+            ),
+          Core.matchAny
+            "deleting"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf

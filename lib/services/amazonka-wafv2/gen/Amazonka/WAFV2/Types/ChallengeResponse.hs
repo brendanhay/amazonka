@@ -30,15 +30,15 @@ import Amazonka.WAFV2.Types.FailureReason
 --
 -- /See:/ 'newChallengeResponse' smart constructor.
 data ChallengeResponse = ChallengeResponse'
-  { -- | The time that the challenge was last solved for the supplied token.
-    solveTimestamp :: Prelude.Maybe Prelude.Integer,
+  { -- | The reason for failure, populated when the evaluation of the token
+    -- fails.
+    failureReason :: Prelude.Maybe FailureReason,
     -- | The HTTP response code indicating the status of the challenge token in
     -- the web request. If the token is missing, invalid, or expired, this code
     -- is @202 Request Accepted@.
     responseCode :: Prelude.Maybe Prelude.Int,
-    -- | The reason for failure, populated when the evaluation of the token
-    -- fails.
-    failureReason :: Prelude.Maybe FailureReason
+    -- | The time that the challenge was last solved for the supplied token.
+    solveTimestamp :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,27 +50,27 @@ data ChallengeResponse = ChallengeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'solveTimestamp', 'challengeResponse_solveTimestamp' - The time that the challenge was last solved for the supplied token.
+-- 'failureReason', 'challengeResponse_failureReason' - The reason for failure, populated when the evaluation of the token
+-- fails.
 --
 -- 'responseCode', 'challengeResponse_responseCode' - The HTTP response code indicating the status of the challenge token in
 -- the web request. If the token is missing, invalid, or expired, this code
 -- is @202 Request Accepted@.
 --
--- 'failureReason', 'challengeResponse_failureReason' - The reason for failure, populated when the evaluation of the token
--- fails.
+-- 'solveTimestamp', 'challengeResponse_solveTimestamp' - The time that the challenge was last solved for the supplied token.
 newChallengeResponse ::
   ChallengeResponse
 newChallengeResponse =
   ChallengeResponse'
-    { solveTimestamp =
-        Prelude.Nothing,
+    { failureReason = Prelude.Nothing,
       responseCode = Prelude.Nothing,
-      failureReason = Prelude.Nothing
+      solveTimestamp = Prelude.Nothing
     }
 
--- | The time that the challenge was last solved for the supplied token.
-challengeResponse_solveTimestamp :: Lens.Lens' ChallengeResponse (Prelude.Maybe Prelude.Integer)
-challengeResponse_solveTimestamp = Lens.lens (\ChallengeResponse' {solveTimestamp} -> solveTimestamp) (\s@ChallengeResponse' {} a -> s {solveTimestamp = a} :: ChallengeResponse)
+-- | The reason for failure, populated when the evaluation of the token
+-- fails.
+challengeResponse_failureReason :: Lens.Lens' ChallengeResponse (Prelude.Maybe FailureReason)
+challengeResponse_failureReason = Lens.lens (\ChallengeResponse' {failureReason} -> failureReason) (\s@ChallengeResponse' {} a -> s {failureReason = a} :: ChallengeResponse)
 
 -- | The HTTP response code indicating the status of the challenge token in
 -- the web request. If the token is missing, invalid, or expired, this code
@@ -78,10 +78,9 @@ challengeResponse_solveTimestamp = Lens.lens (\ChallengeResponse' {solveTimestam
 challengeResponse_responseCode :: Lens.Lens' ChallengeResponse (Prelude.Maybe Prelude.Int)
 challengeResponse_responseCode = Lens.lens (\ChallengeResponse' {responseCode} -> responseCode) (\s@ChallengeResponse' {} a -> s {responseCode = a} :: ChallengeResponse)
 
--- | The reason for failure, populated when the evaluation of the token
--- fails.
-challengeResponse_failureReason :: Lens.Lens' ChallengeResponse (Prelude.Maybe FailureReason)
-challengeResponse_failureReason = Lens.lens (\ChallengeResponse' {failureReason} -> failureReason) (\s@ChallengeResponse' {} a -> s {failureReason = a} :: ChallengeResponse)
+-- | The time that the challenge was last solved for the supplied token.
+challengeResponse_solveTimestamp :: Lens.Lens' ChallengeResponse (Prelude.Maybe Prelude.Integer)
+challengeResponse_solveTimestamp = Lens.lens (\ChallengeResponse' {solveTimestamp} -> solveTimestamp) (\s@ChallengeResponse' {} a -> s {solveTimestamp = a} :: ChallengeResponse)
 
 instance Data.FromJSON ChallengeResponse where
   parseJSON =
@@ -89,19 +88,19 @@ instance Data.FromJSON ChallengeResponse where
       "ChallengeResponse"
       ( \x ->
           ChallengeResponse'
-            Prelude.<$> (x Data..:? "SolveTimestamp")
+            Prelude.<$> (x Data..:? "FailureReason")
             Prelude.<*> (x Data..:? "ResponseCode")
-            Prelude.<*> (x Data..:? "FailureReason")
+            Prelude.<*> (x Data..:? "SolveTimestamp")
       )
 
 instance Prelude.Hashable ChallengeResponse where
   hashWithSalt _salt ChallengeResponse' {..} =
-    _salt `Prelude.hashWithSalt` solveTimestamp
+    _salt `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` responseCode
-      `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` solveTimestamp
 
 instance Prelude.NFData ChallengeResponse where
   rnf ChallengeResponse' {..} =
-    Prelude.rnf solveTimestamp
+    Prelude.rnf failureReason
       `Prelude.seq` Prelude.rnf responseCode
-      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf solveTimestamp

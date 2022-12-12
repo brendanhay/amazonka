@@ -210,7 +210,9 @@ instance
 
 -- | /See:/ 'newCreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse' smart constructor.
 data CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse = CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse'
-  { localGatewayRouteTableVirtualInterfaceGroupAssociation :: Prelude.Maybe LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
+  { -- | Information about the local gateway route table virtual interface group
+    -- association.
+    localGatewayRouteTableVirtualInterfaceGroupAssociation :: Prelude.Maybe LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -224,7 +226,8 @@ data CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse = Crea
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'localGatewayRouteTableVirtualInterfaceGroupAssociation', 'createLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse_localGatewayRouteTableVirtualInterfaceGroupAssociation' - Undocumented member.
+-- 'localGatewayRouteTableVirtualInterfaceGroupAssociation', 'createLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse_localGatewayRouteTableVirtualInterfaceGroupAssociation' - Information about the local gateway route table virtual interface group
+-- association.
 --
 -- 'httpStatus', 'createLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse_httpStatus' - The response's http status code.
 newCreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse ::
@@ -240,7 +243,8 @@ newCreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse
           pHttpStatus_
       }
 
--- | Undocumented member.
+-- | Information about the local gateway route table virtual interface group
+-- association.
 createLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse_localGatewayRouteTableVirtualInterfaceGroupAssociation :: Lens.Lens' CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse (Prelude.Maybe LocalGatewayRouteTableVirtualInterfaceGroupAssociation)
 createLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse_localGatewayRouteTableVirtualInterfaceGroupAssociation = Lens.lens (\CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse' {localGatewayRouteTableVirtualInterfaceGroupAssociation} -> localGatewayRouteTableVirtualInterfaceGroupAssociation) (\s@CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse' {} a -> s {localGatewayRouteTableVirtualInterfaceGroupAssociation = a} :: CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse)
 

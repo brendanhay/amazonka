@@ -30,9 +30,9 @@ module Amazonka.NetworkFirewall.UpdateFirewallDeleteProtection
     newUpdateFirewallDeleteProtection,
 
     -- * Request Lenses
-    updateFirewallDeleteProtection_updateToken,
     updateFirewallDeleteProtection_firewallArn,
     updateFirewallDeleteProtection_firewallName,
+    updateFirewallDeleteProtection_updateToken,
     updateFirewallDeleteProtection_deleteProtection,
 
     -- * Destructuring the Response
@@ -40,10 +40,10 @@ module Amazonka.NetworkFirewall.UpdateFirewallDeleteProtection
     newUpdateFirewallDeleteProtectionResponse,
 
     -- * Response Lenses
-    updateFirewallDeleteProtectionResponse_updateToken,
     updateFirewallDeleteProtectionResponse_deleteProtection,
     updateFirewallDeleteProtectionResponse_firewallArn,
     updateFirewallDeleteProtectionResponse_firewallName,
+    updateFirewallDeleteProtectionResponse_updateToken,
     updateFirewallDeleteProtectionResponse_httpStatus,
   )
 where
@@ -58,7 +58,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateFirewallDeleteProtection' smart constructor.
 data UpdateFirewallDeleteProtection = UpdateFirewallDeleteProtection'
-  { -- | An optional token that you can use for optimistic locking. Network
+  { -- | The Amazon Resource Name (ARN) of the firewall.
+    --
+    -- You must specify the ARN or the name, and you can specify both.
+    firewallArn :: Prelude.Maybe Prelude.Text,
+    -- | The descriptive name of the firewall. You can\'t change the name of a
+    -- firewall after you create it.
+    --
+    -- You must specify the ARN or the name, and you can specify both.
+    firewallName :: Prelude.Maybe Prelude.Text,
+    -- | An optional token that you can use for optimistic locking. Network
     -- Firewall returns a token to your requests that access the firewall. The
     -- token marks the state of the firewall resource at the time of the
     -- request.
@@ -76,15 +85,6 @@ data UpdateFirewallDeleteProtection = UpdateFirewallDeleteProtection'
     -- token. Reapply your changes as needed, then try the operation again
     -- using the new token.
     updateToken :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the firewall.
-    --
-    -- You must specify the ARN or the name, and you can specify both.
-    firewallArn :: Prelude.Maybe Prelude.Text,
-    -- | The descriptive name of the firewall. You can\'t change the name of a
-    -- firewall after you create it.
-    --
-    -- You must specify the ARN or the name, and you can specify both.
-    firewallName :: Prelude.Maybe Prelude.Text,
     -- | A flag indicating whether it is possible to delete the firewall. A
     -- setting of @TRUE@ indicates that the firewall is protected against
     -- deletion. Use this setting to protect against accidentally deleting a
@@ -101,6 +101,15 @@ data UpdateFirewallDeleteProtection = UpdateFirewallDeleteProtection'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'firewallArn', 'updateFirewallDeleteProtection_firewallArn' - The Amazon Resource Name (ARN) of the firewall.
+--
+-- You must specify the ARN or the name, and you can specify both.
+--
+-- 'firewallName', 'updateFirewallDeleteProtection_firewallName' - The descriptive name of the firewall. You can\'t change the name of a
+-- firewall after you create it.
+--
+-- You must specify the ARN or the name, and you can specify both.
 --
 -- 'updateToken', 'updateFirewallDeleteProtection_updateToken' - An optional token that you can use for optimistic locking. Network
 -- Firewall returns a token to your requests that access the firewall. The
@@ -120,15 +129,6 @@ data UpdateFirewallDeleteProtection = UpdateFirewallDeleteProtection'
 -- token. Reapply your changes as needed, then try the operation again
 -- using the new token.
 --
--- 'firewallArn', 'updateFirewallDeleteProtection_firewallArn' - The Amazon Resource Name (ARN) of the firewall.
---
--- You must specify the ARN or the name, and you can specify both.
---
--- 'firewallName', 'updateFirewallDeleteProtection_firewallName' - The descriptive name of the firewall. You can\'t change the name of a
--- firewall after you create it.
---
--- You must specify the ARN or the name, and you can specify both.
---
 -- 'deleteProtection', 'updateFirewallDeleteProtection_deleteProtection' - A flag indicating whether it is possible to delete the firewall. A
 -- setting of @TRUE@ indicates that the firewall is protected against
 -- deletion. Use this setting to protect against accidentally deleting a
@@ -140,12 +140,25 @@ newUpdateFirewallDeleteProtection ::
   UpdateFirewallDeleteProtection
 newUpdateFirewallDeleteProtection pDeleteProtection_ =
   UpdateFirewallDeleteProtection'
-    { updateToken =
+    { firewallArn =
         Prelude.Nothing,
-      firewallArn = Prelude.Nothing,
       firewallName = Prelude.Nothing,
+      updateToken = Prelude.Nothing,
       deleteProtection = pDeleteProtection_
     }
+
+-- | The Amazon Resource Name (ARN) of the firewall.
+--
+-- You must specify the ARN or the name, and you can specify both.
+updateFirewallDeleteProtection_firewallArn :: Lens.Lens' UpdateFirewallDeleteProtection (Prelude.Maybe Prelude.Text)
+updateFirewallDeleteProtection_firewallArn = Lens.lens (\UpdateFirewallDeleteProtection' {firewallArn} -> firewallArn) (\s@UpdateFirewallDeleteProtection' {} a -> s {firewallArn = a} :: UpdateFirewallDeleteProtection)
+
+-- | The descriptive name of the firewall. You can\'t change the name of a
+-- firewall after you create it.
+--
+-- You must specify the ARN or the name, and you can specify both.
+updateFirewallDeleteProtection_firewallName :: Lens.Lens' UpdateFirewallDeleteProtection (Prelude.Maybe Prelude.Text)
+updateFirewallDeleteProtection_firewallName = Lens.lens (\UpdateFirewallDeleteProtection' {firewallName} -> firewallName) (\s@UpdateFirewallDeleteProtection' {} a -> s {firewallName = a} :: UpdateFirewallDeleteProtection)
 
 -- | An optional token that you can use for optimistic locking. Network
 -- Firewall returns a token to your requests that access the firewall. The
@@ -166,19 +179,6 @@ newUpdateFirewallDeleteProtection pDeleteProtection_ =
 -- using the new token.
 updateFirewallDeleteProtection_updateToken :: Lens.Lens' UpdateFirewallDeleteProtection (Prelude.Maybe Prelude.Text)
 updateFirewallDeleteProtection_updateToken = Lens.lens (\UpdateFirewallDeleteProtection' {updateToken} -> updateToken) (\s@UpdateFirewallDeleteProtection' {} a -> s {updateToken = a} :: UpdateFirewallDeleteProtection)
-
--- | The Amazon Resource Name (ARN) of the firewall.
---
--- You must specify the ARN or the name, and you can specify both.
-updateFirewallDeleteProtection_firewallArn :: Lens.Lens' UpdateFirewallDeleteProtection (Prelude.Maybe Prelude.Text)
-updateFirewallDeleteProtection_firewallArn = Lens.lens (\UpdateFirewallDeleteProtection' {firewallArn} -> firewallArn) (\s@UpdateFirewallDeleteProtection' {} a -> s {firewallArn = a} :: UpdateFirewallDeleteProtection)
-
--- | The descriptive name of the firewall. You can\'t change the name of a
--- firewall after you create it.
---
--- You must specify the ARN or the name, and you can specify both.
-updateFirewallDeleteProtection_firewallName :: Lens.Lens' UpdateFirewallDeleteProtection (Prelude.Maybe Prelude.Text)
-updateFirewallDeleteProtection_firewallName = Lens.lens (\UpdateFirewallDeleteProtection' {firewallName} -> firewallName) (\s@UpdateFirewallDeleteProtection' {} a -> s {firewallName = a} :: UpdateFirewallDeleteProtection)
 
 -- | A flag indicating whether it is possible to delete the firewall. A
 -- setting of @TRUE@ indicates that the firewall is protected against
@@ -201,10 +201,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           UpdateFirewallDeleteProtectionResponse'
-            Prelude.<$> (x Data..?> "UpdateToken")
-            Prelude.<*> (x Data..?> "DeleteProtection")
+            Prelude.<$> (x Data..?> "DeleteProtection")
             Prelude.<*> (x Data..?> "FirewallArn")
             Prelude.<*> (x Data..?> "FirewallName")
+            Prelude.<*> (x Data..?> "UpdateToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -215,9 +215,9 @@ instance
   hashWithSalt
     _salt
     UpdateFirewallDeleteProtection' {..} =
-      _salt `Prelude.hashWithSalt` updateToken
-        `Prelude.hashWithSalt` firewallArn
+      _salt `Prelude.hashWithSalt` firewallArn
         `Prelude.hashWithSalt` firewallName
+        `Prelude.hashWithSalt` updateToken
         `Prelude.hashWithSalt` deleteProtection
 
 instance
@@ -225,9 +225,9 @@ instance
     UpdateFirewallDeleteProtection
   where
   rnf UpdateFirewallDeleteProtection' {..} =
-    Prelude.rnf updateToken
-      `Prelude.seq` Prelude.rnf firewallArn
+    Prelude.rnf firewallArn
       `Prelude.seq` Prelude.rnf firewallName
+      `Prelude.seq` Prelude.rnf updateToken
       `Prelude.seq` Prelude.rnf deleteProtection
 
 instance
@@ -252,9 +252,9 @@ instance Data.ToJSON UpdateFirewallDeleteProtection where
   toJSON UpdateFirewallDeleteProtection' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("UpdateToken" Data..=) Prelude.<$> updateToken,
-            ("FirewallArn" Data..=) Prelude.<$> firewallArn,
+          [ ("FirewallArn" Data..=) Prelude.<$> firewallArn,
             ("FirewallName" Data..=) Prelude.<$> firewallName,
+            ("UpdateToken" Data..=) Prelude.<$> updateToken,
             Prelude.Just
               ("DeleteProtection" Data..= deleteProtection)
           ]
@@ -268,7 +268,18 @@ instance Data.ToQuery UpdateFirewallDeleteProtection where
 
 -- | /See:/ 'newUpdateFirewallDeleteProtectionResponse' smart constructor.
 data UpdateFirewallDeleteProtectionResponse = UpdateFirewallDeleteProtectionResponse'
-  { -- | An optional token that you can use for optimistic locking. Network
+  { -- | A flag indicating whether it is possible to delete the firewall. A
+    -- setting of @TRUE@ indicates that the firewall is protected against
+    -- deletion. Use this setting to protect against accidentally deleting a
+    -- firewall that is in use. When you create a firewall, the operation
+    -- initializes this flag to @TRUE@.
+    deleteProtection :: Prelude.Maybe Prelude.Bool,
+    -- | The Amazon Resource Name (ARN) of the firewall.
+    firewallArn :: Prelude.Maybe Prelude.Text,
+    -- | The descriptive name of the firewall. You can\'t change the name of a
+    -- firewall after you create it.
+    firewallName :: Prelude.Maybe Prelude.Text,
+    -- | An optional token that you can use for optimistic locking. Network
     -- Firewall returns a token to your requests that access the firewall. The
     -- token marks the state of the firewall resource at the time of the
     -- request.
@@ -286,17 +297,6 @@ data UpdateFirewallDeleteProtectionResponse = UpdateFirewallDeleteProtectionResp
     -- token. Reapply your changes as needed, then try the operation again
     -- using the new token.
     updateToken :: Prelude.Maybe Prelude.Text,
-    -- | A flag indicating whether it is possible to delete the firewall. A
-    -- setting of @TRUE@ indicates that the firewall is protected against
-    -- deletion. Use this setting to protect against accidentally deleting a
-    -- firewall that is in use. When you create a firewall, the operation
-    -- initializes this flag to @TRUE@.
-    deleteProtection :: Prelude.Maybe Prelude.Bool,
-    -- | The Amazon Resource Name (ARN) of the firewall.
-    firewallArn :: Prelude.Maybe Prelude.Text,
-    -- | The descriptive name of the firewall. You can\'t change the name of a
-    -- firewall after you create it.
-    firewallName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -309,6 +309,17 @@ data UpdateFirewallDeleteProtectionResponse = UpdateFirewallDeleteProtectionResp
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'deleteProtection', 'updateFirewallDeleteProtectionResponse_deleteProtection' - A flag indicating whether it is possible to delete the firewall. A
+-- setting of @TRUE@ indicates that the firewall is protected against
+-- deletion. Use this setting to protect against accidentally deleting a
+-- firewall that is in use. When you create a firewall, the operation
+-- initializes this flag to @TRUE@.
+--
+-- 'firewallArn', 'updateFirewallDeleteProtectionResponse_firewallArn' - The Amazon Resource Name (ARN) of the firewall.
+--
+-- 'firewallName', 'updateFirewallDeleteProtectionResponse_firewallName' - The descriptive name of the firewall. You can\'t change the name of a
+-- firewall after you create it.
 --
 -- 'updateToken', 'updateFirewallDeleteProtectionResponse_updateToken' - An optional token that you can use for optimistic locking. Network
 -- Firewall returns a token to your requests that access the firewall. The
@@ -328,17 +339,6 @@ data UpdateFirewallDeleteProtectionResponse = UpdateFirewallDeleteProtectionResp
 -- token. Reapply your changes as needed, then try the operation again
 -- using the new token.
 --
--- 'deleteProtection', 'updateFirewallDeleteProtectionResponse_deleteProtection' - A flag indicating whether it is possible to delete the firewall. A
--- setting of @TRUE@ indicates that the firewall is protected against
--- deletion. Use this setting to protect against accidentally deleting a
--- firewall that is in use. When you create a firewall, the operation
--- initializes this flag to @TRUE@.
---
--- 'firewallArn', 'updateFirewallDeleteProtectionResponse_firewallArn' - The Amazon Resource Name (ARN) of the firewall.
---
--- 'firewallName', 'updateFirewallDeleteProtectionResponse_firewallName' - The descriptive name of the firewall. You can\'t change the name of a
--- firewall after you create it.
---
 -- 'httpStatus', 'updateFirewallDeleteProtectionResponse_httpStatus' - The response's http status code.
 newUpdateFirewallDeleteProtectionResponse ::
   -- | 'httpStatus'
@@ -347,13 +347,30 @@ newUpdateFirewallDeleteProtectionResponse ::
 newUpdateFirewallDeleteProtectionResponse
   pHttpStatus_ =
     UpdateFirewallDeleteProtectionResponse'
-      { updateToken =
+      { deleteProtection =
           Prelude.Nothing,
-        deleteProtection = Prelude.Nothing,
         firewallArn = Prelude.Nothing,
         firewallName = Prelude.Nothing,
+        updateToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | A flag indicating whether it is possible to delete the firewall. A
+-- setting of @TRUE@ indicates that the firewall is protected against
+-- deletion. Use this setting to protect against accidentally deleting a
+-- firewall that is in use. When you create a firewall, the operation
+-- initializes this flag to @TRUE@.
+updateFirewallDeleteProtectionResponse_deleteProtection :: Lens.Lens' UpdateFirewallDeleteProtectionResponse (Prelude.Maybe Prelude.Bool)
+updateFirewallDeleteProtectionResponse_deleteProtection = Lens.lens (\UpdateFirewallDeleteProtectionResponse' {deleteProtection} -> deleteProtection) (\s@UpdateFirewallDeleteProtectionResponse' {} a -> s {deleteProtection = a} :: UpdateFirewallDeleteProtectionResponse)
+
+-- | The Amazon Resource Name (ARN) of the firewall.
+updateFirewallDeleteProtectionResponse_firewallArn :: Lens.Lens' UpdateFirewallDeleteProtectionResponse (Prelude.Maybe Prelude.Text)
+updateFirewallDeleteProtectionResponse_firewallArn = Lens.lens (\UpdateFirewallDeleteProtectionResponse' {firewallArn} -> firewallArn) (\s@UpdateFirewallDeleteProtectionResponse' {} a -> s {firewallArn = a} :: UpdateFirewallDeleteProtectionResponse)
+
+-- | The descriptive name of the firewall. You can\'t change the name of a
+-- firewall after you create it.
+updateFirewallDeleteProtectionResponse_firewallName :: Lens.Lens' UpdateFirewallDeleteProtectionResponse (Prelude.Maybe Prelude.Text)
+updateFirewallDeleteProtectionResponse_firewallName = Lens.lens (\UpdateFirewallDeleteProtectionResponse' {firewallName} -> firewallName) (\s@UpdateFirewallDeleteProtectionResponse' {} a -> s {firewallName = a} :: UpdateFirewallDeleteProtectionResponse)
 
 -- | An optional token that you can use for optimistic locking. Network
 -- Firewall returns a token to your requests that access the firewall. The
@@ -375,23 +392,6 @@ newUpdateFirewallDeleteProtectionResponse
 updateFirewallDeleteProtectionResponse_updateToken :: Lens.Lens' UpdateFirewallDeleteProtectionResponse (Prelude.Maybe Prelude.Text)
 updateFirewallDeleteProtectionResponse_updateToken = Lens.lens (\UpdateFirewallDeleteProtectionResponse' {updateToken} -> updateToken) (\s@UpdateFirewallDeleteProtectionResponse' {} a -> s {updateToken = a} :: UpdateFirewallDeleteProtectionResponse)
 
--- | A flag indicating whether it is possible to delete the firewall. A
--- setting of @TRUE@ indicates that the firewall is protected against
--- deletion. Use this setting to protect against accidentally deleting a
--- firewall that is in use. When you create a firewall, the operation
--- initializes this flag to @TRUE@.
-updateFirewallDeleteProtectionResponse_deleteProtection :: Lens.Lens' UpdateFirewallDeleteProtectionResponse (Prelude.Maybe Prelude.Bool)
-updateFirewallDeleteProtectionResponse_deleteProtection = Lens.lens (\UpdateFirewallDeleteProtectionResponse' {deleteProtection} -> deleteProtection) (\s@UpdateFirewallDeleteProtectionResponse' {} a -> s {deleteProtection = a} :: UpdateFirewallDeleteProtectionResponse)
-
--- | The Amazon Resource Name (ARN) of the firewall.
-updateFirewallDeleteProtectionResponse_firewallArn :: Lens.Lens' UpdateFirewallDeleteProtectionResponse (Prelude.Maybe Prelude.Text)
-updateFirewallDeleteProtectionResponse_firewallArn = Lens.lens (\UpdateFirewallDeleteProtectionResponse' {firewallArn} -> firewallArn) (\s@UpdateFirewallDeleteProtectionResponse' {} a -> s {firewallArn = a} :: UpdateFirewallDeleteProtectionResponse)
-
--- | The descriptive name of the firewall. You can\'t change the name of a
--- firewall after you create it.
-updateFirewallDeleteProtectionResponse_firewallName :: Lens.Lens' UpdateFirewallDeleteProtectionResponse (Prelude.Maybe Prelude.Text)
-updateFirewallDeleteProtectionResponse_firewallName = Lens.lens (\UpdateFirewallDeleteProtectionResponse' {firewallName} -> firewallName) (\s@UpdateFirewallDeleteProtectionResponse' {} a -> s {firewallName = a} :: UpdateFirewallDeleteProtectionResponse)
-
 -- | The response's http status code.
 updateFirewallDeleteProtectionResponse_httpStatus :: Lens.Lens' UpdateFirewallDeleteProtectionResponse Prelude.Int
 updateFirewallDeleteProtectionResponse_httpStatus = Lens.lens (\UpdateFirewallDeleteProtectionResponse' {httpStatus} -> httpStatus) (\s@UpdateFirewallDeleteProtectionResponse' {} a -> s {httpStatus = a} :: UpdateFirewallDeleteProtectionResponse)
@@ -401,8 +401,8 @@ instance
     UpdateFirewallDeleteProtectionResponse
   where
   rnf UpdateFirewallDeleteProtectionResponse' {..} =
-    Prelude.rnf updateToken
-      `Prelude.seq` Prelude.rnf deleteProtection
+    Prelude.rnf deleteProtection
       `Prelude.seq` Prelude.rnf firewallArn
       `Prelude.seq` Prelude.rnf firewallName
+      `Prelude.seq` Prelude.rnf updateToken
       `Prelude.seq` Prelude.rnf httpStatus

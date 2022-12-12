@@ -29,10 +29,10 @@ module Amazonka.Inspector2.ListFilters
     newListFilters,
 
     -- * Request Lenses
-    listFilters_nextToken,
+    listFilters_action,
     listFilters_arns,
     listFilters_maxResults,
-    listFilters_action,
+    listFilters_nextToken,
 
     -- * Destructuring the Response
     ListFiltersResponse (..),
@@ -55,17 +55,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListFilters' smart constructor.
 data ListFilters = ListFilters'
-  { -- | A token to use for paginating results that are returned in the response.
-    -- Set the value of this parameter to null for the first request to a list
-    -- action. For subsequent calls, use the @NextToken@ value returned from
-    -- the previous request to continue listing results after the first page.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The action the filter applies to matched findings.
+    action :: Prelude.Maybe FilterAction,
     -- | The Amazon resource number (ARN) of the filter.
     arns :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of results to return in the response.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The action the filter applies to matched findings.
-    action :: Prelude.Maybe FilterAction
+    -- | A token to use for paginating results that are returned in the response.
+    -- Set the value of this parameter to null for the first request to a list
+    -- action. For subsequent calls, use the @NextToken@ value returned from
+    -- the previous request to continue listing results after the first page.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,32 +77,29 @@ data ListFilters = ListFilters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listFilters_nextToken' - A token to use for paginating results that are returned in the response.
--- Set the value of this parameter to null for the first request to a list
--- action. For subsequent calls, use the @NextToken@ value returned from
--- the previous request to continue listing results after the first page.
+-- 'action', 'listFilters_action' - The action the filter applies to matched findings.
 --
 -- 'arns', 'listFilters_arns' - The Amazon resource number (ARN) of the filter.
 --
 -- 'maxResults', 'listFilters_maxResults' - The maximum number of results to return in the response.
 --
--- 'action', 'listFilters_action' - The action the filter applies to matched findings.
+-- 'nextToken', 'listFilters_nextToken' - A token to use for paginating results that are returned in the response.
+-- Set the value of this parameter to null for the first request to a list
+-- action. For subsequent calls, use the @NextToken@ value returned from
+-- the previous request to continue listing results after the first page.
 newListFilters ::
   ListFilters
 newListFilters =
   ListFilters'
-    { nextToken = Prelude.Nothing,
+    { action = Prelude.Nothing,
       arns = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      action = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
 
--- | A token to use for paginating results that are returned in the response.
--- Set the value of this parameter to null for the first request to a list
--- action. For subsequent calls, use the @NextToken@ value returned from
--- the previous request to continue listing results after the first page.
-listFilters_nextToken :: Lens.Lens' ListFilters (Prelude.Maybe Prelude.Text)
-listFilters_nextToken = Lens.lens (\ListFilters' {nextToken} -> nextToken) (\s@ListFilters' {} a -> s {nextToken = a} :: ListFilters)
+-- | The action the filter applies to matched findings.
+listFilters_action :: Lens.Lens' ListFilters (Prelude.Maybe FilterAction)
+listFilters_action = Lens.lens (\ListFilters' {action} -> action) (\s@ListFilters' {} a -> s {action = a} :: ListFilters)
 
 -- | The Amazon resource number (ARN) of the filter.
 listFilters_arns :: Lens.Lens' ListFilters (Prelude.Maybe [Prelude.Text])
@@ -112,9 +109,12 @@ listFilters_arns = Lens.lens (\ListFilters' {arns} -> arns) (\s@ListFilters' {} 
 listFilters_maxResults :: Lens.Lens' ListFilters (Prelude.Maybe Prelude.Natural)
 listFilters_maxResults = Lens.lens (\ListFilters' {maxResults} -> maxResults) (\s@ListFilters' {} a -> s {maxResults = a} :: ListFilters)
 
--- | The action the filter applies to matched findings.
-listFilters_action :: Lens.Lens' ListFilters (Prelude.Maybe FilterAction)
-listFilters_action = Lens.lens (\ListFilters' {action} -> action) (\s@ListFilters' {} a -> s {action = a} :: ListFilters)
+-- | A token to use for paginating results that are returned in the response.
+-- Set the value of this parameter to null for the first request to a list
+-- action. For subsequent calls, use the @NextToken@ value returned from
+-- the previous request to continue listing results after the first page.
+listFilters_nextToken :: Lens.Lens' ListFilters (Prelude.Maybe Prelude.Text)
+listFilters_nextToken = Lens.lens (\ListFilters' {nextToken} -> nextToken) (\s@ListFilters' {} a -> s {nextToken = a} :: ListFilters)
 
 instance Core.AWSPager ListFilters where
   page rq rs
@@ -147,17 +147,17 @@ instance Core.AWSRequest ListFilters where
 
 instance Prelude.Hashable ListFilters where
   hashWithSalt _salt ListFilters' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` arns
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListFilters where
   rnf ListFilters' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf action
       `Prelude.seq` Prelude.rnf arns
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListFilters where
   toHeaders =
@@ -174,10 +174,10 @@ instance Data.ToJSON ListFilters where
   toJSON ListFilters' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+          [ ("action" Data..=) Prelude.<$> action,
             ("arns" Data..=) Prelude.<$> arns,
             ("maxResults" Data..=) Prelude.<$> maxResults,
-            ("action" Data..=) Prelude.<$> action
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

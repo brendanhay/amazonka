@@ -30,10 +30,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBranch' smart constructor.
 data Branch = Branch'
-  { -- | The tag for the branch of an Amplify app.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The thumbnail URL for the branch of an Amplify app.
-    thumbnailUrl :: Prelude.Maybe Prelude.Text,
+  { -- | A list of custom resources that are linked to this branch.
+    associatedResources :: Prelude.Maybe [Prelude.Text],
+    -- | The Amazon Resource Name (ARN) for a backend environment that is part of
+    -- an Amplify app.
+    backendEnvironmentArn :: Prelude.Maybe Prelude.Text,
+    -- | The basic authorization credentials for a branch of an Amplify app. You
+    -- must base64-encode the authorization credentials and provide them in the
+    -- format @user:password@.
+    basicAuthCredentials :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The build specification (build spec) content for the branch of an
+    -- Amplify app.
+    buildSpec :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The destination branch if the branch is a pull request branch.
+    destinationBranch :: Prelude.Maybe Prelude.Text,
     -- | Enables performance mode for the branch.
     --
     -- Performance mode optimizes for faster hosting performance by keeping
@@ -41,24 +51,14 @@ data Branch = Branch'
     -- is enabled, hosting configuration or code changes can take up to 10
     -- minutes to roll out.
     enablePerformanceMode :: Prelude.Maybe Prelude.Bool,
-    -- | The destination branch if the branch is a pull request branch.
-    destinationBranch :: Prelude.Maybe Prelude.Text,
-    -- | A list of custom resources that are linked to this branch.
-    associatedResources :: Prelude.Maybe [Prelude.Text],
-    -- | The basic authorization credentials for a branch of an Amplify app. You
-    -- must base64-encode the authorization credentials and provide them in the
-    -- format @user:password@.
-    basicAuthCredentials :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The source branch if the branch is a pull request branch.
-    sourceBranch :: Prelude.Maybe Prelude.Text,
     -- | The Amplify environment name for the pull request.
     pullRequestEnvironmentName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for a backend environment that is part of
-    -- an Amplify app.
-    backendEnvironmentArn :: Prelude.Maybe Prelude.Text,
-    -- | The build specification (build spec) content for the branch of an
-    -- Amplify app.
-    buildSpec :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The source branch if the branch is a pull request branch.
+    sourceBranch :: Prelude.Maybe Prelude.Text,
+    -- | The tag for the branch of an Amplify app.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The thumbnail URL for the branch of an Amplify app.
+    thumbnailUrl :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) for a branch that is part of an Amplify
     -- app.
     branchArn :: Prelude.Text,
@@ -107,9 +107,19 @@ data Branch = Branch'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'branch_tags' - The tag for the branch of an Amplify app.
+-- 'associatedResources', 'branch_associatedResources' - A list of custom resources that are linked to this branch.
 --
--- 'thumbnailUrl', 'branch_thumbnailUrl' - The thumbnail URL for the branch of an Amplify app.
+-- 'backendEnvironmentArn', 'branch_backendEnvironmentArn' - The Amazon Resource Name (ARN) for a backend environment that is part of
+-- an Amplify app.
+--
+-- 'basicAuthCredentials', 'branch_basicAuthCredentials' - The basic authorization credentials for a branch of an Amplify app. You
+-- must base64-encode the authorization credentials and provide them in the
+-- format @user:password@.
+--
+-- 'buildSpec', 'branch_buildSpec' - The build specification (build spec) content for the branch of an
+-- Amplify app.
+--
+-- 'destinationBranch', 'branch_destinationBranch' - The destination branch if the branch is a pull request branch.
 --
 -- 'enablePerformanceMode', 'branch_enablePerformanceMode' - Enables performance mode for the branch.
 --
@@ -118,23 +128,13 @@ data Branch = Branch'
 -- is enabled, hosting configuration or code changes can take up to 10
 -- minutes to roll out.
 --
--- 'destinationBranch', 'branch_destinationBranch' - The destination branch if the branch is a pull request branch.
---
--- 'associatedResources', 'branch_associatedResources' - A list of custom resources that are linked to this branch.
---
--- 'basicAuthCredentials', 'branch_basicAuthCredentials' - The basic authorization credentials for a branch of an Amplify app. You
--- must base64-encode the authorization credentials and provide them in the
--- format @user:password@.
+-- 'pullRequestEnvironmentName', 'branch_pullRequestEnvironmentName' - The Amplify environment name for the pull request.
 --
 -- 'sourceBranch', 'branch_sourceBranch' - The source branch if the branch is a pull request branch.
 --
--- 'pullRequestEnvironmentName', 'branch_pullRequestEnvironmentName' - The Amplify environment name for the pull request.
+-- 'tags', 'branch_tags' - The tag for the branch of an Amplify app.
 --
--- 'backendEnvironmentArn', 'branch_backendEnvironmentArn' - The Amazon Resource Name (ARN) for a backend environment that is part of
--- an Amplify app.
---
--- 'buildSpec', 'branch_buildSpec' - The build specification (build spec) content for the branch of an
--- Amplify app.
+-- 'thumbnailUrl', 'branch_thumbnailUrl' - The thumbnail URL for the branch of an Amplify app.
 --
 -- 'branchArn', 'branch_branchArn' - The Amazon Resource Name (ARN) for a branch that is part of an Amplify
 -- app.
@@ -221,16 +221,16 @@ newBranch
   pTtl_
   pEnablePullRequestPreview_ =
     Branch'
-      { tags = Prelude.Nothing,
-        thumbnailUrl = Prelude.Nothing,
-        enablePerformanceMode = Prelude.Nothing,
-        destinationBranch = Prelude.Nothing,
-        associatedResources = Prelude.Nothing,
-        basicAuthCredentials = Prelude.Nothing,
-        sourceBranch = Prelude.Nothing,
-        pullRequestEnvironmentName = Prelude.Nothing,
+      { associatedResources = Prelude.Nothing,
         backendEnvironmentArn = Prelude.Nothing,
+        basicAuthCredentials = Prelude.Nothing,
         buildSpec = Prelude.Nothing,
+        destinationBranch = Prelude.Nothing,
+        enablePerformanceMode = Prelude.Nothing,
+        pullRequestEnvironmentName = Prelude.Nothing,
+        sourceBranch = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        thumbnailUrl = Prelude.Nothing,
         branchArn = pBranchArn_,
         branchName = pBranchName_,
         description = pDescription_,
@@ -251,13 +251,29 @@ newBranch
           pEnablePullRequestPreview_
       }
 
--- | The tag for the branch of an Amplify app.
-branch_tags :: Lens.Lens' Branch (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-branch_tags = Lens.lens (\Branch' {tags} -> tags) (\s@Branch' {} a -> s {tags = a} :: Branch) Prelude.. Lens.mapping Lens.coerced
+-- | A list of custom resources that are linked to this branch.
+branch_associatedResources :: Lens.Lens' Branch (Prelude.Maybe [Prelude.Text])
+branch_associatedResources = Lens.lens (\Branch' {associatedResources} -> associatedResources) (\s@Branch' {} a -> s {associatedResources = a} :: Branch) Prelude.. Lens.mapping Lens.coerced
 
--- | The thumbnail URL for the branch of an Amplify app.
-branch_thumbnailUrl :: Lens.Lens' Branch (Prelude.Maybe Prelude.Text)
-branch_thumbnailUrl = Lens.lens (\Branch' {thumbnailUrl} -> thumbnailUrl) (\s@Branch' {} a -> s {thumbnailUrl = a} :: Branch)
+-- | The Amazon Resource Name (ARN) for a backend environment that is part of
+-- an Amplify app.
+branch_backendEnvironmentArn :: Lens.Lens' Branch (Prelude.Maybe Prelude.Text)
+branch_backendEnvironmentArn = Lens.lens (\Branch' {backendEnvironmentArn} -> backendEnvironmentArn) (\s@Branch' {} a -> s {backendEnvironmentArn = a} :: Branch)
+
+-- | The basic authorization credentials for a branch of an Amplify app. You
+-- must base64-encode the authorization credentials and provide them in the
+-- format @user:password@.
+branch_basicAuthCredentials :: Lens.Lens' Branch (Prelude.Maybe Prelude.Text)
+branch_basicAuthCredentials = Lens.lens (\Branch' {basicAuthCredentials} -> basicAuthCredentials) (\s@Branch' {} a -> s {basicAuthCredentials = a} :: Branch) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The build specification (build spec) content for the branch of an
+-- Amplify app.
+branch_buildSpec :: Lens.Lens' Branch (Prelude.Maybe Prelude.Text)
+branch_buildSpec = Lens.lens (\Branch' {buildSpec} -> buildSpec) (\s@Branch' {} a -> s {buildSpec = a} :: Branch) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The destination branch if the branch is a pull request branch.
+branch_destinationBranch :: Lens.Lens' Branch (Prelude.Maybe Prelude.Text)
+branch_destinationBranch = Lens.lens (\Branch' {destinationBranch} -> destinationBranch) (\s@Branch' {} a -> s {destinationBranch = a} :: Branch)
 
 -- | Enables performance mode for the branch.
 --
@@ -268,37 +284,21 @@ branch_thumbnailUrl = Lens.lens (\Branch' {thumbnailUrl} -> thumbnailUrl) (\s@Br
 branch_enablePerformanceMode :: Lens.Lens' Branch (Prelude.Maybe Prelude.Bool)
 branch_enablePerformanceMode = Lens.lens (\Branch' {enablePerformanceMode} -> enablePerformanceMode) (\s@Branch' {} a -> s {enablePerformanceMode = a} :: Branch)
 
--- | The destination branch if the branch is a pull request branch.
-branch_destinationBranch :: Lens.Lens' Branch (Prelude.Maybe Prelude.Text)
-branch_destinationBranch = Lens.lens (\Branch' {destinationBranch} -> destinationBranch) (\s@Branch' {} a -> s {destinationBranch = a} :: Branch)
-
--- | A list of custom resources that are linked to this branch.
-branch_associatedResources :: Lens.Lens' Branch (Prelude.Maybe [Prelude.Text])
-branch_associatedResources = Lens.lens (\Branch' {associatedResources} -> associatedResources) (\s@Branch' {} a -> s {associatedResources = a} :: Branch) Prelude.. Lens.mapping Lens.coerced
-
--- | The basic authorization credentials for a branch of an Amplify app. You
--- must base64-encode the authorization credentials and provide them in the
--- format @user:password@.
-branch_basicAuthCredentials :: Lens.Lens' Branch (Prelude.Maybe Prelude.Text)
-branch_basicAuthCredentials = Lens.lens (\Branch' {basicAuthCredentials} -> basicAuthCredentials) (\s@Branch' {} a -> s {basicAuthCredentials = a} :: Branch) Prelude.. Lens.mapping Data._Sensitive
+-- | The Amplify environment name for the pull request.
+branch_pullRequestEnvironmentName :: Lens.Lens' Branch (Prelude.Maybe Prelude.Text)
+branch_pullRequestEnvironmentName = Lens.lens (\Branch' {pullRequestEnvironmentName} -> pullRequestEnvironmentName) (\s@Branch' {} a -> s {pullRequestEnvironmentName = a} :: Branch)
 
 -- | The source branch if the branch is a pull request branch.
 branch_sourceBranch :: Lens.Lens' Branch (Prelude.Maybe Prelude.Text)
 branch_sourceBranch = Lens.lens (\Branch' {sourceBranch} -> sourceBranch) (\s@Branch' {} a -> s {sourceBranch = a} :: Branch)
 
--- | The Amplify environment name for the pull request.
-branch_pullRequestEnvironmentName :: Lens.Lens' Branch (Prelude.Maybe Prelude.Text)
-branch_pullRequestEnvironmentName = Lens.lens (\Branch' {pullRequestEnvironmentName} -> pullRequestEnvironmentName) (\s@Branch' {} a -> s {pullRequestEnvironmentName = a} :: Branch)
+-- | The tag for the branch of an Amplify app.
+branch_tags :: Lens.Lens' Branch (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+branch_tags = Lens.lens (\Branch' {tags} -> tags) (\s@Branch' {} a -> s {tags = a} :: Branch) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Resource Name (ARN) for a backend environment that is part of
--- an Amplify app.
-branch_backendEnvironmentArn :: Lens.Lens' Branch (Prelude.Maybe Prelude.Text)
-branch_backendEnvironmentArn = Lens.lens (\Branch' {backendEnvironmentArn} -> backendEnvironmentArn) (\s@Branch' {} a -> s {backendEnvironmentArn = a} :: Branch)
-
--- | The build specification (build spec) content for the branch of an
--- Amplify app.
-branch_buildSpec :: Lens.Lens' Branch (Prelude.Maybe Prelude.Text)
-branch_buildSpec = Lens.lens (\Branch' {buildSpec} -> buildSpec) (\s@Branch' {} a -> s {buildSpec = a} :: Branch) Prelude.. Lens.mapping Data._Sensitive
+-- | The thumbnail URL for the branch of an Amplify app.
+branch_thumbnailUrl :: Lens.Lens' Branch (Prelude.Maybe Prelude.Text)
+branch_thumbnailUrl = Lens.lens (\Branch' {thumbnailUrl} -> thumbnailUrl) (\s@Branch' {} a -> s {thumbnailUrl = a} :: Branch)
 
 -- | The Amazon Resource Name (ARN) for a branch that is part of an Amplify
 -- app.
@@ -377,18 +377,18 @@ instance Data.FromJSON Branch where
       "Branch"
       ( \x ->
           Branch'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "thumbnailUrl")
-            Prelude.<*> (x Data..:? "enablePerformanceMode")
-            Prelude.<*> (x Data..:? "destinationBranch")
-            Prelude.<*> ( x Data..:? "associatedResources"
+            Prelude.<$> ( x Data..:? "associatedResources"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "basicAuthCredentials")
-            Prelude.<*> (x Data..:? "sourceBranch")
-            Prelude.<*> (x Data..:? "pullRequestEnvironmentName")
             Prelude.<*> (x Data..:? "backendEnvironmentArn")
+            Prelude.<*> (x Data..:? "basicAuthCredentials")
             Prelude.<*> (x Data..:? "buildSpec")
+            Prelude.<*> (x Data..:? "destinationBranch")
+            Prelude.<*> (x Data..:? "enablePerformanceMode")
+            Prelude.<*> (x Data..:? "pullRequestEnvironmentName")
+            Prelude.<*> (x Data..:? "sourceBranch")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "thumbnailUrl")
             Prelude.<*> (x Data..: "branchArn")
             Prelude.<*> (x Data..: "branchName")
             Prelude.<*> (x Data..: "description")
@@ -412,16 +412,16 @@ instance Data.FromJSON Branch where
 
 instance Prelude.Hashable Branch where
   hashWithSalt _salt Branch' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` thumbnailUrl
-      `Prelude.hashWithSalt` enablePerformanceMode
-      `Prelude.hashWithSalt` destinationBranch
-      `Prelude.hashWithSalt` associatedResources
-      `Prelude.hashWithSalt` basicAuthCredentials
-      `Prelude.hashWithSalt` sourceBranch
-      `Prelude.hashWithSalt` pullRequestEnvironmentName
+    _salt `Prelude.hashWithSalt` associatedResources
       `Prelude.hashWithSalt` backendEnvironmentArn
+      `Prelude.hashWithSalt` basicAuthCredentials
       `Prelude.hashWithSalt` buildSpec
+      `Prelude.hashWithSalt` destinationBranch
+      `Prelude.hashWithSalt` enablePerformanceMode
+      `Prelude.hashWithSalt` pullRequestEnvironmentName
+      `Prelude.hashWithSalt` sourceBranch
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` thumbnailUrl
       `Prelude.hashWithSalt` branchArn
       `Prelude.hashWithSalt` branchName
       `Prelude.hashWithSalt` description
@@ -442,16 +442,16 @@ instance Prelude.Hashable Branch where
 
 instance Prelude.NFData Branch where
   rnf Branch' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf thumbnailUrl
-      `Prelude.seq` Prelude.rnf enablePerformanceMode
-      `Prelude.seq` Prelude.rnf destinationBranch
-      `Prelude.seq` Prelude.rnf associatedResources
-      `Prelude.seq` Prelude.rnf basicAuthCredentials
-      `Prelude.seq` Prelude.rnf sourceBranch
-      `Prelude.seq` Prelude.rnf pullRequestEnvironmentName
+    Prelude.rnf associatedResources
       `Prelude.seq` Prelude.rnf backendEnvironmentArn
+      `Prelude.seq` Prelude.rnf basicAuthCredentials
       `Prelude.seq` Prelude.rnf buildSpec
+      `Prelude.seq` Prelude.rnf destinationBranch
+      `Prelude.seq` Prelude.rnf enablePerformanceMode
+      `Prelude.seq` Prelude.rnf pullRequestEnvironmentName
+      `Prelude.seq` Prelude.rnf sourceBranch
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf thumbnailUrl
       `Prelude.seq` Prelude.rnf branchArn
       `Prelude.seq` Prelude.rnf branchName
       `Prelude.seq` Prelude.rnf description

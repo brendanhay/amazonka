@@ -34,11 +34,11 @@ data RecommendationDisruptionCompliance = RecommendationDisruptionCompliance'
     expectedRpoDescription :: Prelude.Maybe Prelude.Text,
     -- | The expected RPO after applying the recommended configuration change.
     expectedRpoInSecs :: Prelude.Maybe Prelude.Natural,
-    -- | The expected RTO after applying the recommended configuration change.
-    expectedRtoInSecs :: Prelude.Maybe Prelude.Natural,
     -- | The expected Recovery Time Objective (RTO) description after applying
     -- the recommended configuration change.
     expectedRtoDescription :: Prelude.Maybe Prelude.Text,
+    -- | The expected RTO after applying the recommended configuration change.
+    expectedRtoInSecs :: Prelude.Maybe Prelude.Natural,
     -- | The expected compliance status after applying the recommended
     -- configuration change.
     expectedComplianceStatus :: ComplianceStatus
@@ -58,10 +58,10 @@ data RecommendationDisruptionCompliance = RecommendationDisruptionCompliance'
 --
 -- 'expectedRpoInSecs', 'recommendationDisruptionCompliance_expectedRpoInSecs' - The expected RPO after applying the recommended configuration change.
 --
--- 'expectedRtoInSecs', 'recommendationDisruptionCompliance_expectedRtoInSecs' - The expected RTO after applying the recommended configuration change.
---
 -- 'expectedRtoDescription', 'recommendationDisruptionCompliance_expectedRtoDescription' - The expected Recovery Time Objective (RTO) description after applying
 -- the recommended configuration change.
+--
+-- 'expectedRtoInSecs', 'recommendationDisruptionCompliance_expectedRtoInSecs' - The expected RTO after applying the recommended configuration change.
 --
 -- 'expectedComplianceStatus', 'recommendationDisruptionCompliance_expectedComplianceStatus' - The expected compliance status after applying the recommended
 -- configuration change.
@@ -75,9 +75,9 @@ newRecommendationDisruptionCompliance
       { expectedRpoDescription =
           Prelude.Nothing,
         expectedRpoInSecs = Prelude.Nothing,
-        expectedRtoInSecs = Prelude.Nothing,
         expectedRtoDescription =
           Prelude.Nothing,
+        expectedRtoInSecs = Prelude.Nothing,
         expectedComplianceStatus =
           pExpectedComplianceStatus_
       }
@@ -91,14 +91,14 @@ recommendationDisruptionCompliance_expectedRpoDescription = Lens.lens (\Recommen
 recommendationDisruptionCompliance_expectedRpoInSecs :: Lens.Lens' RecommendationDisruptionCompliance (Prelude.Maybe Prelude.Natural)
 recommendationDisruptionCompliance_expectedRpoInSecs = Lens.lens (\RecommendationDisruptionCompliance' {expectedRpoInSecs} -> expectedRpoInSecs) (\s@RecommendationDisruptionCompliance' {} a -> s {expectedRpoInSecs = a} :: RecommendationDisruptionCompliance)
 
--- | The expected RTO after applying the recommended configuration change.
-recommendationDisruptionCompliance_expectedRtoInSecs :: Lens.Lens' RecommendationDisruptionCompliance (Prelude.Maybe Prelude.Natural)
-recommendationDisruptionCompliance_expectedRtoInSecs = Lens.lens (\RecommendationDisruptionCompliance' {expectedRtoInSecs} -> expectedRtoInSecs) (\s@RecommendationDisruptionCompliance' {} a -> s {expectedRtoInSecs = a} :: RecommendationDisruptionCompliance)
-
 -- | The expected Recovery Time Objective (RTO) description after applying
 -- the recommended configuration change.
 recommendationDisruptionCompliance_expectedRtoDescription :: Lens.Lens' RecommendationDisruptionCompliance (Prelude.Maybe Prelude.Text)
 recommendationDisruptionCompliance_expectedRtoDescription = Lens.lens (\RecommendationDisruptionCompliance' {expectedRtoDescription} -> expectedRtoDescription) (\s@RecommendationDisruptionCompliance' {} a -> s {expectedRtoDescription = a} :: RecommendationDisruptionCompliance)
+
+-- | The expected RTO after applying the recommended configuration change.
+recommendationDisruptionCompliance_expectedRtoInSecs :: Lens.Lens' RecommendationDisruptionCompliance (Prelude.Maybe Prelude.Natural)
+recommendationDisruptionCompliance_expectedRtoInSecs = Lens.lens (\RecommendationDisruptionCompliance' {expectedRtoInSecs} -> expectedRtoInSecs) (\s@RecommendationDisruptionCompliance' {} a -> s {expectedRtoInSecs = a} :: RecommendationDisruptionCompliance)
 
 -- | The expected compliance status after applying the recommended
 -- configuration change.
@@ -116,8 +116,8 @@ instance
           RecommendationDisruptionCompliance'
             Prelude.<$> (x Data..:? "expectedRpoDescription")
             Prelude.<*> (x Data..:? "expectedRpoInSecs")
-            Prelude.<*> (x Data..:? "expectedRtoInSecs")
             Prelude.<*> (x Data..:? "expectedRtoDescription")
+            Prelude.<*> (x Data..:? "expectedRtoInSecs")
             Prelude.<*> (x Data..: "expectedComplianceStatus")
       )
 
@@ -130,8 +130,8 @@ instance
     RecommendationDisruptionCompliance' {..} =
       _salt `Prelude.hashWithSalt` expectedRpoDescription
         `Prelude.hashWithSalt` expectedRpoInSecs
-        `Prelude.hashWithSalt` expectedRtoInSecs
         `Prelude.hashWithSalt` expectedRtoDescription
+        `Prelude.hashWithSalt` expectedRtoInSecs
         `Prelude.hashWithSalt` expectedComplianceStatus
 
 instance
@@ -141,6 +141,6 @@ instance
   rnf RecommendationDisruptionCompliance' {..} =
     Prelude.rnf expectedRpoDescription
       `Prelude.seq` Prelude.rnf expectedRpoInSecs
-      `Prelude.seq` Prelude.rnf expectedRtoInSecs
       `Prelude.seq` Prelude.rnf expectedRtoDescription
+      `Prelude.seq` Prelude.rnf expectedRtoInSecs
       `Prelude.seq` Prelude.rnf expectedComplianceStatus

@@ -34,17 +34,17 @@ module Amazonka.Personalize.ListCampaigns
     newListCampaigns,
 
     -- * Request Lenses
-    listCampaigns_solutionArn,
-    listCampaigns_nextToken,
     listCampaigns_maxResults,
+    listCampaigns_nextToken,
+    listCampaigns_solutionArn,
 
     -- * Destructuring the Response
     ListCampaignsResponse (..),
     newListCampaignsResponse,
 
     -- * Response Lenses
-    listCampaignsResponse_nextToken,
     listCampaignsResponse_campaigns,
+    listCampaignsResponse_nextToken,
     listCampaignsResponse_httpStatus,
   )
 where
@@ -59,16 +59,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListCampaigns' smart constructor.
 data ListCampaigns = ListCampaigns'
-  { -- | The Amazon Resource Name (ARN) of the solution to list the campaigns
-    -- for. When a solution is not specified, all the campaigns associated with
-    -- the account are listed.
-    solutionArn :: Prelude.Maybe Prelude.Text,
+  { -- | The maximum number of campaigns to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A token returned from the previous call to
     -- <https://docs.aws.amazon.com/personalize/latest/dg/API_ListCampaigns.html ListCampaigns>
     -- for getting the next set of campaigns (if they exist).
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of campaigns to return.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    -- | The Amazon Resource Name (ARN) of the solution to list the campaigns
+    -- for. When a solution is not specified, all the campaigns associated with
+    -- the account are listed.
+    solutionArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,29 +80,27 @@ data ListCampaigns = ListCampaigns'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'solutionArn', 'listCampaigns_solutionArn' - The Amazon Resource Name (ARN) of the solution to list the campaigns
--- for. When a solution is not specified, all the campaigns associated with
--- the account are listed.
+-- 'maxResults', 'listCampaigns_maxResults' - The maximum number of campaigns to return.
 --
 -- 'nextToken', 'listCampaigns_nextToken' - A token returned from the previous call to
 -- <https://docs.aws.amazon.com/personalize/latest/dg/API_ListCampaigns.html ListCampaigns>
 -- for getting the next set of campaigns (if they exist).
 --
--- 'maxResults', 'listCampaigns_maxResults' - The maximum number of campaigns to return.
+-- 'solutionArn', 'listCampaigns_solutionArn' - The Amazon Resource Name (ARN) of the solution to list the campaigns
+-- for. When a solution is not specified, all the campaigns associated with
+-- the account are listed.
 newListCampaigns ::
   ListCampaigns
 newListCampaigns =
   ListCampaigns'
-    { solutionArn = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      solutionArn = Prelude.Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the solution to list the campaigns
--- for. When a solution is not specified, all the campaigns associated with
--- the account are listed.
-listCampaigns_solutionArn :: Lens.Lens' ListCampaigns (Prelude.Maybe Prelude.Text)
-listCampaigns_solutionArn = Lens.lens (\ListCampaigns' {solutionArn} -> solutionArn) (\s@ListCampaigns' {} a -> s {solutionArn = a} :: ListCampaigns)
+-- | The maximum number of campaigns to return.
+listCampaigns_maxResults :: Lens.Lens' ListCampaigns (Prelude.Maybe Prelude.Natural)
+listCampaigns_maxResults = Lens.lens (\ListCampaigns' {maxResults} -> maxResults) (\s@ListCampaigns' {} a -> s {maxResults = a} :: ListCampaigns)
 
 -- | A token returned from the previous call to
 -- <https://docs.aws.amazon.com/personalize/latest/dg/API_ListCampaigns.html ListCampaigns>
@@ -110,9 +108,11 @@ listCampaigns_solutionArn = Lens.lens (\ListCampaigns' {solutionArn} -> solution
 listCampaigns_nextToken :: Lens.Lens' ListCampaigns (Prelude.Maybe Prelude.Text)
 listCampaigns_nextToken = Lens.lens (\ListCampaigns' {nextToken} -> nextToken) (\s@ListCampaigns' {} a -> s {nextToken = a} :: ListCampaigns)
 
--- | The maximum number of campaigns to return.
-listCampaigns_maxResults :: Lens.Lens' ListCampaigns (Prelude.Maybe Prelude.Natural)
-listCampaigns_maxResults = Lens.lens (\ListCampaigns' {maxResults} -> maxResults) (\s@ListCampaigns' {} a -> s {maxResults = a} :: ListCampaigns)
+-- | The Amazon Resource Name (ARN) of the solution to list the campaigns
+-- for. When a solution is not specified, all the campaigns associated with
+-- the account are listed.
+listCampaigns_solutionArn :: Lens.Lens' ListCampaigns (Prelude.Maybe Prelude.Text)
+listCampaigns_solutionArn = Lens.lens (\ListCampaigns' {solutionArn} -> solutionArn) (\s@ListCampaigns' {} a -> s {solutionArn = a} :: ListCampaigns)
 
 instance Core.AWSPager ListCampaigns where
   page rq rs
@@ -143,22 +143,22 @@ instance Core.AWSRequest ListCampaigns where
     Response.receiveJSON
       ( \s h x ->
           ListCampaignsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "campaigns" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "campaigns" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListCampaigns where
   hashWithSalt _salt ListCampaigns' {..} =
-    _salt `Prelude.hashWithSalt` solutionArn
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` solutionArn
 
 instance Prelude.NFData ListCampaigns where
   rnf ListCampaigns' {..} =
-    Prelude.rnf solutionArn
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf solutionArn
 
 instance Data.ToHeaders ListCampaigns where
   toHeaders =
@@ -179,9 +179,9 @@ instance Data.ToJSON ListCampaigns where
   toJSON ListCampaigns' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("solutionArn" Data..=) Prelude.<$> solutionArn,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
             ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+            ("solutionArn" Data..=) Prelude.<$> solutionArn
           ]
       )
 
@@ -193,10 +193,10 @@ instance Data.ToQuery ListCampaigns where
 
 -- | /See:/ 'newListCampaignsResponse' smart constructor.
 data ListCampaignsResponse = ListCampaignsResponse'
-  { -- | A token for getting the next set of campaigns (if they exist).
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of the campaigns.
+  { -- | A list of the campaigns.
     campaigns :: Prelude.Maybe [CampaignSummary],
+    -- | A token for getting the next set of campaigns (if they exist).
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -210,9 +210,9 @@ data ListCampaignsResponse = ListCampaignsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listCampaignsResponse_nextToken' - A token for getting the next set of campaigns (if they exist).
---
 -- 'campaigns', 'listCampaignsResponse_campaigns' - A list of the campaigns.
+--
+-- 'nextToken', 'listCampaignsResponse_nextToken' - A token for getting the next set of campaigns (if they exist).
 --
 -- 'httpStatus', 'listCampaignsResponse_httpStatus' - The response's http status code.
 newListCampaignsResponse ::
@@ -221,18 +221,18 @@ newListCampaignsResponse ::
   ListCampaignsResponse
 newListCampaignsResponse pHttpStatus_ =
   ListCampaignsResponse'
-    { nextToken = Prelude.Nothing,
-      campaigns = Prelude.Nothing,
+    { campaigns = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A token for getting the next set of campaigns (if they exist).
-listCampaignsResponse_nextToken :: Lens.Lens' ListCampaignsResponse (Prelude.Maybe Prelude.Text)
-listCampaignsResponse_nextToken = Lens.lens (\ListCampaignsResponse' {nextToken} -> nextToken) (\s@ListCampaignsResponse' {} a -> s {nextToken = a} :: ListCampaignsResponse)
 
 -- | A list of the campaigns.
 listCampaignsResponse_campaigns :: Lens.Lens' ListCampaignsResponse (Prelude.Maybe [CampaignSummary])
 listCampaignsResponse_campaigns = Lens.lens (\ListCampaignsResponse' {campaigns} -> campaigns) (\s@ListCampaignsResponse' {} a -> s {campaigns = a} :: ListCampaignsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A token for getting the next set of campaigns (if they exist).
+listCampaignsResponse_nextToken :: Lens.Lens' ListCampaignsResponse (Prelude.Maybe Prelude.Text)
+listCampaignsResponse_nextToken = Lens.lens (\ListCampaignsResponse' {nextToken} -> nextToken) (\s@ListCampaignsResponse' {} a -> s {nextToken = a} :: ListCampaignsResponse)
 
 -- | The response's http status code.
 listCampaignsResponse_httpStatus :: Lens.Lens' ListCampaignsResponse Prelude.Int
@@ -240,6 +240,6 @@ listCampaignsResponse_httpStatus = Lens.lens (\ListCampaignsResponse' {httpStatu
 
 instance Prelude.NFData ListCampaignsResponse where
   rnf ListCampaignsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf campaigns
+    Prelude.rnf campaigns
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

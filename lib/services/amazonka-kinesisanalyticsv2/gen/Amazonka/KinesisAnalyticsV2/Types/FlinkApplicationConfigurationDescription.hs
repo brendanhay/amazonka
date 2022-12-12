@@ -44,12 +44,12 @@ data FlinkApplicationConfigurationDescription = FlinkApplicationConfigurationDes
     -- DescribeApplicationRequest$IncludeAdditionalDetails parameter of the
     -- DescribeApplication operation.
     jobPlanDescription :: Prelude.Maybe Prelude.Text,
-    -- | Describes parameters for how an application executes multiple tasks
-    -- simultaneously.
-    parallelismConfigurationDescription :: Prelude.Maybe ParallelismConfigurationDescription,
     -- | Describes configuration parameters for Amazon CloudWatch logging for an
     -- application.
-    monitoringConfigurationDescription :: Prelude.Maybe MonitoringConfigurationDescription
+    monitoringConfigurationDescription :: Prelude.Maybe MonitoringConfigurationDescription,
+    -- | Describes parameters for how an application executes multiple tasks
+    -- simultaneously.
+    parallelismConfigurationDescription :: Prelude.Maybe ParallelismConfigurationDescription
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,11 +73,11 @@ data FlinkApplicationConfigurationDescription = FlinkApplicationConfigurationDes
 -- DescribeApplicationRequest$IncludeAdditionalDetails parameter of the
 -- DescribeApplication operation.
 --
--- 'parallelismConfigurationDescription', 'flinkApplicationConfigurationDescription_parallelismConfigurationDescription' - Describes parameters for how an application executes multiple tasks
--- simultaneously.
---
 -- 'monitoringConfigurationDescription', 'flinkApplicationConfigurationDescription_monitoringConfigurationDescription' - Describes configuration parameters for Amazon CloudWatch logging for an
 -- application.
+--
+-- 'parallelismConfigurationDescription', 'flinkApplicationConfigurationDescription_parallelismConfigurationDescription' - Describes parameters for how an application executes multiple tasks
+-- simultaneously.
 newFlinkApplicationConfigurationDescription ::
   FlinkApplicationConfigurationDescription
 newFlinkApplicationConfigurationDescription =
@@ -86,9 +86,9 @@ newFlinkApplicationConfigurationDescription =
         Prelude.Nothing,
       jobPlanDescription =
         Prelude.Nothing,
-      parallelismConfigurationDescription =
-        Prelude.Nothing,
       monitoringConfigurationDescription =
+        Prelude.Nothing,
+      parallelismConfigurationDescription =
         Prelude.Nothing
     }
 
@@ -108,15 +108,15 @@ flinkApplicationConfigurationDescription_checkpointConfigurationDescription = Le
 flinkApplicationConfigurationDescription_jobPlanDescription :: Lens.Lens' FlinkApplicationConfigurationDescription (Prelude.Maybe Prelude.Text)
 flinkApplicationConfigurationDescription_jobPlanDescription = Lens.lens (\FlinkApplicationConfigurationDescription' {jobPlanDescription} -> jobPlanDescription) (\s@FlinkApplicationConfigurationDescription' {} a -> s {jobPlanDescription = a} :: FlinkApplicationConfigurationDescription)
 
--- | Describes parameters for how an application executes multiple tasks
--- simultaneously.
-flinkApplicationConfigurationDescription_parallelismConfigurationDescription :: Lens.Lens' FlinkApplicationConfigurationDescription (Prelude.Maybe ParallelismConfigurationDescription)
-flinkApplicationConfigurationDescription_parallelismConfigurationDescription = Lens.lens (\FlinkApplicationConfigurationDescription' {parallelismConfigurationDescription} -> parallelismConfigurationDescription) (\s@FlinkApplicationConfigurationDescription' {} a -> s {parallelismConfigurationDescription = a} :: FlinkApplicationConfigurationDescription)
-
 -- | Describes configuration parameters for Amazon CloudWatch logging for an
 -- application.
 flinkApplicationConfigurationDescription_monitoringConfigurationDescription :: Lens.Lens' FlinkApplicationConfigurationDescription (Prelude.Maybe MonitoringConfigurationDescription)
 flinkApplicationConfigurationDescription_monitoringConfigurationDescription = Lens.lens (\FlinkApplicationConfigurationDescription' {monitoringConfigurationDescription} -> monitoringConfigurationDescription) (\s@FlinkApplicationConfigurationDescription' {} a -> s {monitoringConfigurationDescription = a} :: FlinkApplicationConfigurationDescription)
+
+-- | Describes parameters for how an application executes multiple tasks
+-- simultaneously.
+flinkApplicationConfigurationDescription_parallelismConfigurationDescription :: Lens.Lens' FlinkApplicationConfigurationDescription (Prelude.Maybe ParallelismConfigurationDescription)
+flinkApplicationConfigurationDescription_parallelismConfigurationDescription = Lens.lens (\FlinkApplicationConfigurationDescription' {parallelismConfigurationDescription} -> parallelismConfigurationDescription) (\s@FlinkApplicationConfigurationDescription' {} a -> s {parallelismConfigurationDescription = a} :: FlinkApplicationConfigurationDescription)
 
 instance
   Data.FromJSON
@@ -129,8 +129,8 @@ instance
           FlinkApplicationConfigurationDescription'
             Prelude.<$> (x Data..:? "CheckpointConfigurationDescription")
             Prelude.<*> (x Data..:? "JobPlanDescription")
-            Prelude.<*> (x Data..:? "ParallelismConfigurationDescription")
             Prelude.<*> (x Data..:? "MonitoringConfigurationDescription")
+            Prelude.<*> (x Data..:? "ParallelismConfigurationDescription")
       )
 
 instance
@@ -143,8 +143,8 @@ instance
       _salt
         `Prelude.hashWithSalt` checkpointConfigurationDescription
         `Prelude.hashWithSalt` jobPlanDescription
-        `Prelude.hashWithSalt` parallelismConfigurationDescription
         `Prelude.hashWithSalt` monitoringConfigurationDescription
+        `Prelude.hashWithSalt` parallelismConfigurationDescription
 
 instance
   Prelude.NFData
@@ -153,5 +153,5 @@ instance
   rnf FlinkApplicationConfigurationDescription' {..} =
     Prelude.rnf checkpointConfigurationDescription
       `Prelude.seq` Prelude.rnf jobPlanDescription
-      `Prelude.seq` Prelude.rnf parallelismConfigurationDescription
       `Prelude.seq` Prelude.rnf monitoringConfigurationDescription
+      `Prelude.seq` Prelude.rnf parallelismConfigurationDescription

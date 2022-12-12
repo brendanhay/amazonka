@@ -30,6 +30,12 @@
 -- and any subdirectories. To learn more, see
 -- <https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html Mounting a file system using EFS access points>.
 --
+-- If multiple requests to create access points on the same file system are
+-- sent in quick succession, and the file system is near the limit of 120
+-- access points, you may experience a throttling response for these
+-- requests. This is to ensure that the file system does not exceed the
+-- stated access point limit.
+--
 -- This operation requires permissions for the
 -- @elasticfilesystem:CreateAccessPoint@ action.
 module Amazonka.EFS.CreateAccessPoint
@@ -38,9 +44,9 @@ module Amazonka.EFS.CreateAccessPoint
     newCreateAccessPoint,
 
     -- * Request Lenses
-    createAccessPoint_tags,
     createAccessPoint_posixUser,
     createAccessPoint_rootDirectory,
+    createAccessPoint_tags,
     createAccessPoint_clientToken,
     createAccessPoint_fileSystemId,
 
@@ -49,16 +55,16 @@ module Amazonka.EFS.CreateAccessPoint
     newAccessPointDescription,
 
     -- * Response Lenses
-    accessPointDescription_tags,
+    accessPointDescription_accessPointArn,
+    accessPointDescription_accessPointId,
     accessPointDescription_clientToken,
+    accessPointDescription_fileSystemId,
+    accessPointDescription_lifeCycleState,
     accessPointDescription_name,
     accessPointDescription_ownerId,
-    accessPointDescription_accessPointArn,
     accessPointDescription_posixUser,
-    accessPointDescription_fileSystemId,
-    accessPointDescription_accessPointId,
     accessPointDescription_rootDirectory,
-    accessPointDescription_lifeCycleState,
+    accessPointDescription_tags,
   )
 where
 
@@ -72,12 +78,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateAccessPoint' smart constructor.
 data CreateAccessPoint = CreateAccessPoint'
-  { -- | Creates tags associated with the access point. Each tag is a key-value
-    -- pair, each key must be unique. For more information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
-    -- in the /Amazon Web Services General Reference Guide/.
-    tags :: Prelude.Maybe [Tag],
-    -- | The operating system user and group applied to all file system requests
+  { -- | The operating system user and group applied to all file system requests
     -- made using the access point.
     posixUser :: Prelude.Maybe PosixUser,
     -- | Specifies the directory on the Amazon EFS file system that the access
@@ -94,6 +95,11 @@ data CreateAccessPoint = CreateAccessPoint'
     -- directory. If the root directory does not exist, attempts to mount using
     -- the access point will fail.
     rootDirectory :: Prelude.Maybe RootDirectory,
+    -- | Creates tags associated with the access point. Each tag is a key-value
+    -- pair, each key must be unique. For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+    -- in the /Amazon Web Services General Reference Guide/.
+    tags :: Prelude.Maybe [Tag],
     -- | A string of up to 64 ASCII characters that Amazon EFS uses to ensure
     -- idempotent creation.
     clientToken :: Prelude.Text,
@@ -109,11 +115,6 @@ data CreateAccessPoint = CreateAccessPoint'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'tags', 'createAccessPoint_tags' - Creates tags associated with the access point. Each tag is a key-value
--- pair, each key must be unique. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
--- in the /Amazon Web Services General Reference Guide/.
 --
 -- 'posixUser', 'createAccessPoint_posixUser' - The operating system user and group applied to all file system requests
 -- made using the access point.
@@ -132,6 +133,11 @@ data CreateAccessPoint = CreateAccessPoint'
 -- directory. If the root directory does not exist, attempts to mount using
 -- the access point will fail.
 --
+-- 'tags', 'createAccessPoint_tags' - Creates tags associated with the access point. Each tag is a key-value
+-- pair, each key must be unique. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+-- in the /Amazon Web Services General Reference Guide/.
+--
 -- 'clientToken', 'createAccessPoint_clientToken' - A string of up to 64 ASCII characters that Amazon EFS uses to ensure
 -- idempotent creation.
 --
@@ -144,19 +150,12 @@ newCreateAccessPoint ::
   CreateAccessPoint
 newCreateAccessPoint pClientToken_ pFileSystemId_ =
   CreateAccessPoint'
-    { tags = Prelude.Nothing,
-      posixUser = Prelude.Nothing,
+    { posixUser = Prelude.Nothing,
       rootDirectory = Prelude.Nothing,
+      tags = Prelude.Nothing,
       clientToken = pClientToken_,
       fileSystemId = pFileSystemId_
     }
-
--- | Creates tags associated with the access point. Each tag is a key-value
--- pair, each key must be unique. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
--- in the /Amazon Web Services General Reference Guide/.
-createAccessPoint_tags :: Lens.Lens' CreateAccessPoint (Prelude.Maybe [Tag])
-createAccessPoint_tags = Lens.lens (\CreateAccessPoint' {tags} -> tags) (\s@CreateAccessPoint' {} a -> s {tags = a} :: CreateAccessPoint) Prelude.. Lens.mapping Lens.coerced
 
 -- | The operating system user and group applied to all file system requests
 -- made using the access point.
@@ -179,6 +178,13 @@ createAccessPoint_posixUser = Lens.lens (\CreateAccessPoint' {posixUser} -> posi
 createAccessPoint_rootDirectory :: Lens.Lens' CreateAccessPoint (Prelude.Maybe RootDirectory)
 createAccessPoint_rootDirectory = Lens.lens (\CreateAccessPoint' {rootDirectory} -> rootDirectory) (\s@CreateAccessPoint' {} a -> s {rootDirectory = a} :: CreateAccessPoint)
 
+-- | Creates tags associated with the access point. Each tag is a key-value
+-- pair, each key must be unique. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+-- in the /Amazon Web Services General Reference Guide/.
+createAccessPoint_tags :: Lens.Lens' CreateAccessPoint (Prelude.Maybe [Tag])
+createAccessPoint_tags = Lens.lens (\CreateAccessPoint' {tags} -> tags) (\s@CreateAccessPoint' {} a -> s {tags = a} :: CreateAccessPoint) Prelude.. Lens.mapping Lens.coerced
+
 -- | A string of up to 64 ASCII characters that Amazon EFS uses to ensure
 -- idempotent creation.
 createAccessPoint_clientToken :: Lens.Lens' CreateAccessPoint Prelude.Text
@@ -200,17 +206,17 @@ instance Core.AWSRequest CreateAccessPoint where
 
 instance Prelude.Hashable CreateAccessPoint where
   hashWithSalt _salt CreateAccessPoint' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` posixUser
+    _salt `Prelude.hashWithSalt` posixUser
       `Prelude.hashWithSalt` rootDirectory
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` fileSystemId
 
 instance Prelude.NFData CreateAccessPoint where
   rnf CreateAccessPoint' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf posixUser
+    Prelude.rnf posixUser
       `Prelude.seq` Prelude.rnf rootDirectory
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf fileSystemId
 
@@ -221,9 +227,9 @@ instance Data.ToJSON CreateAccessPoint where
   toJSON CreateAccessPoint' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("PosixUser" Data..=) Prelude.<$> posixUser,
+          [ ("PosixUser" Data..=) Prelude.<$> posixUser,
             ("RootDirectory" Data..=) Prelude.<$> rootDirectory,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("ClientToken" Data..= clientToken),
             Prelude.Just ("FileSystemId" Data..= fileSystemId)
           ]

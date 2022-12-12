@@ -31,13 +31,13 @@ import Amazonka.SageMaker.Types.TrafficRoutingConfigType
 --
 -- /See:/ 'newTrafficRoutingConfig' smart constructor.
 data TrafficRoutingConfig = TrafficRoutingConfig'
-  { -- | Batch size for each step to turn on traffic on the new endpoint fleet.
-    -- @Value@ must be 10-50% of the variant\'s total instance count.
-    linearStepSize :: Prelude.Maybe CapacitySize,
-    -- | Batch size for the first step to turn on traffic on the new endpoint
+  { -- | Batch size for the first step to turn on traffic on the new endpoint
     -- fleet. @Value@ must be less than or equal to 50% of the variant\'s total
     -- instance count.
     canarySize :: Prelude.Maybe CapacitySize,
+    -- | Batch size for each step to turn on traffic on the new endpoint fleet.
+    -- @Value@ must be 10-50% of the variant\'s total instance count.
+    linearStepSize :: Prelude.Maybe CapacitySize,
     -- | Traffic routing strategy type.
     --
     -- -   @ALL_AT_ONCE@: Endpoint traffic shifts to the new fleet in a single
@@ -64,12 +64,12 @@ data TrafficRoutingConfig = TrafficRoutingConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'linearStepSize', 'trafficRoutingConfig_linearStepSize' - Batch size for each step to turn on traffic on the new endpoint fleet.
--- @Value@ must be 10-50% of the variant\'s total instance count.
---
 -- 'canarySize', 'trafficRoutingConfig_canarySize' - Batch size for the first step to turn on traffic on the new endpoint
 -- fleet. @Value@ must be less than or equal to 50% of the variant\'s total
 -- instance count.
+--
+-- 'linearStepSize', 'trafficRoutingConfig_linearStepSize' - Batch size for each step to turn on traffic on the new endpoint fleet.
+-- @Value@ must be 10-50% of the variant\'s total instance count.
 --
 -- 'type'', 'trafficRoutingConfig_type' - Traffic routing strategy type.
 --
@@ -95,23 +95,22 @@ newTrafficRoutingConfig
   pType_
   pWaitIntervalInSeconds_ =
     TrafficRoutingConfig'
-      { linearStepSize =
-          Prelude.Nothing,
-        canarySize = Prelude.Nothing,
+      { canarySize = Prelude.Nothing,
+        linearStepSize = Prelude.Nothing,
         type' = pType_,
         waitIntervalInSeconds = pWaitIntervalInSeconds_
       }
-
--- | Batch size for each step to turn on traffic on the new endpoint fleet.
--- @Value@ must be 10-50% of the variant\'s total instance count.
-trafficRoutingConfig_linearStepSize :: Lens.Lens' TrafficRoutingConfig (Prelude.Maybe CapacitySize)
-trafficRoutingConfig_linearStepSize = Lens.lens (\TrafficRoutingConfig' {linearStepSize} -> linearStepSize) (\s@TrafficRoutingConfig' {} a -> s {linearStepSize = a} :: TrafficRoutingConfig)
 
 -- | Batch size for the first step to turn on traffic on the new endpoint
 -- fleet. @Value@ must be less than or equal to 50% of the variant\'s total
 -- instance count.
 trafficRoutingConfig_canarySize :: Lens.Lens' TrafficRoutingConfig (Prelude.Maybe CapacitySize)
 trafficRoutingConfig_canarySize = Lens.lens (\TrafficRoutingConfig' {canarySize} -> canarySize) (\s@TrafficRoutingConfig' {} a -> s {canarySize = a} :: TrafficRoutingConfig)
+
+-- | Batch size for each step to turn on traffic on the new endpoint fleet.
+-- @Value@ must be 10-50% of the variant\'s total instance count.
+trafficRoutingConfig_linearStepSize :: Lens.Lens' TrafficRoutingConfig (Prelude.Maybe CapacitySize)
+trafficRoutingConfig_linearStepSize = Lens.lens (\TrafficRoutingConfig' {linearStepSize} -> linearStepSize) (\s@TrafficRoutingConfig' {} a -> s {linearStepSize = a} :: TrafficRoutingConfig)
 
 -- | Traffic routing strategy type.
 --
@@ -138,23 +137,23 @@ instance Data.FromJSON TrafficRoutingConfig where
       "TrafficRoutingConfig"
       ( \x ->
           TrafficRoutingConfig'
-            Prelude.<$> (x Data..:? "LinearStepSize")
-            Prelude.<*> (x Data..:? "CanarySize")
+            Prelude.<$> (x Data..:? "CanarySize")
+            Prelude.<*> (x Data..:? "LinearStepSize")
             Prelude.<*> (x Data..: "Type")
             Prelude.<*> (x Data..: "WaitIntervalInSeconds")
       )
 
 instance Prelude.Hashable TrafficRoutingConfig where
   hashWithSalt _salt TrafficRoutingConfig' {..} =
-    _salt `Prelude.hashWithSalt` linearStepSize
-      `Prelude.hashWithSalt` canarySize
+    _salt `Prelude.hashWithSalt` canarySize
+      `Prelude.hashWithSalt` linearStepSize
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` waitIntervalInSeconds
 
 instance Prelude.NFData TrafficRoutingConfig where
   rnf TrafficRoutingConfig' {..} =
-    Prelude.rnf linearStepSize
-      `Prelude.seq` Prelude.rnf canarySize
+    Prelude.rnf canarySize
+      `Prelude.seq` Prelude.rnf linearStepSize
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf waitIntervalInSeconds
 
@@ -162,9 +161,9 @@ instance Data.ToJSON TrafficRoutingConfig where
   toJSON TrafficRoutingConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("LinearStepSize" Data..=)
+          [ ("CanarySize" Data..=) Prelude.<$> canarySize,
+            ("LinearStepSize" Data..=)
               Prelude.<$> linearStepSize,
-            ("CanarySize" Data..=) Prelude.<$> canarySize,
             Prelude.Just ("Type" Data..= type'),
             Prelude.Just
               ( "WaitIntervalInSeconds"

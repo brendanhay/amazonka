@@ -29,9 +29,9 @@ module Amazonka.Proton.ListEnvironments
     newListEnvironments,
 
     -- * Request Lenses
-    listEnvironments_nextToken,
-    listEnvironments_maxResults,
     listEnvironments_environmentTemplates,
+    listEnvironments_maxResults,
+    listEnvironments_nextToken,
 
     -- * Destructuring the Response
     ListEnvironmentsResponse (..),
@@ -54,14 +54,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListEnvironments' smart constructor.
 data ListEnvironments = ListEnvironments'
-  { -- | A token that indicates the location of the next environment in the array
-    -- of environments, after the list of environments that was previously
-    -- requested.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | An array of the versions of the environment template.
+    environmentTemplates :: Prelude.Maybe [EnvironmentTemplateFilter],
     -- | The maximum number of environments to list.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | An array of the versions of the environment template.
-    environmentTemplates :: Prelude.Maybe [EnvironmentTemplateFilter]
+    -- | A token that indicates the location of the next environment in the array
+    -- of environments, after the list of environments that was previously
+    -- requested.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,35 +73,36 @@ data ListEnvironments = ListEnvironments'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listEnvironments_nextToken' - A token that indicates the location of the next environment in the array
--- of environments, after the list of environments that was previously
--- requested.
+-- 'environmentTemplates', 'listEnvironments_environmentTemplates' - An array of the versions of the environment template.
 --
 -- 'maxResults', 'listEnvironments_maxResults' - The maximum number of environments to list.
 --
--- 'environmentTemplates', 'listEnvironments_environmentTemplates' - An array of the versions of the environment template.
+-- 'nextToken', 'listEnvironments_nextToken' - A token that indicates the location of the next environment in the array
+-- of environments, after the list of environments that was previously
+-- requested.
 newListEnvironments ::
   ListEnvironments
 newListEnvironments =
   ListEnvironments'
-    { nextToken = Prelude.Nothing,
+    { environmentTemplates =
+        Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      environmentTemplates = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
+
+-- | An array of the versions of the environment template.
+listEnvironments_environmentTemplates :: Lens.Lens' ListEnvironments (Prelude.Maybe [EnvironmentTemplateFilter])
+listEnvironments_environmentTemplates = Lens.lens (\ListEnvironments' {environmentTemplates} -> environmentTemplates) (\s@ListEnvironments' {} a -> s {environmentTemplates = a} :: ListEnvironments) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum number of environments to list.
+listEnvironments_maxResults :: Lens.Lens' ListEnvironments (Prelude.Maybe Prelude.Natural)
+listEnvironments_maxResults = Lens.lens (\ListEnvironments' {maxResults} -> maxResults) (\s@ListEnvironments' {} a -> s {maxResults = a} :: ListEnvironments)
 
 -- | A token that indicates the location of the next environment in the array
 -- of environments, after the list of environments that was previously
 -- requested.
 listEnvironments_nextToken :: Lens.Lens' ListEnvironments (Prelude.Maybe Prelude.Text)
 listEnvironments_nextToken = Lens.lens (\ListEnvironments' {nextToken} -> nextToken) (\s@ListEnvironments' {} a -> s {nextToken = a} :: ListEnvironments)
-
--- | The maximum number of environments to list.
-listEnvironments_maxResults :: Lens.Lens' ListEnvironments (Prelude.Maybe Prelude.Natural)
-listEnvironments_maxResults = Lens.lens (\ListEnvironments' {maxResults} -> maxResults) (\s@ListEnvironments' {} a -> s {maxResults = a} :: ListEnvironments)
-
--- | An array of the versions of the environment template.
-listEnvironments_environmentTemplates :: Lens.Lens' ListEnvironments (Prelude.Maybe [EnvironmentTemplateFilter])
-listEnvironments_environmentTemplates = Lens.lens (\ListEnvironments' {environmentTemplates} -> environmentTemplates) (\s@ListEnvironments' {} a -> s {environmentTemplates = a} :: ListEnvironments) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSPager ListEnvironments where
   page rq rs
@@ -139,15 +140,15 @@ instance Core.AWSRequest ListEnvironments where
 
 instance Prelude.Hashable ListEnvironments where
   hashWithSalt _salt ListEnvironments' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` environmentTemplates
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` environmentTemplates
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListEnvironments where
   rnf ListEnvironments' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf environmentTemplates
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf environmentTemplates
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListEnvironments where
   toHeaders =
@@ -168,10 +169,10 @@ instance Data.ToJSON ListEnvironments where
   toJSON ListEnvironments' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+          [ ("environmentTemplates" Data..=)
+              Prelude.<$> environmentTemplates,
             ("maxResults" Data..=) Prelude.<$> maxResults,
-            ("environmentTemplates" Data..=)
-              Prelude.<$> environmentTemplates
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

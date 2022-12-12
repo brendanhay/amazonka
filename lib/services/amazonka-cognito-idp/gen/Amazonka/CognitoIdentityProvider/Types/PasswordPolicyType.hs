@@ -28,7 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPasswordPolicyType' smart constructor.
 data PasswordPolicyType = PasswordPolicyType'
-  { -- | In the password policy that you have set, refers to whether you have
+  { -- | The minimum length of the password in the policy that you have set. This
+    -- value can\'t be less than 6.
+    minimumLength :: Prelude.Maybe Prelude.Natural,
+    -- | In the password policy that you have set, refers to whether you have
     -- required users to use at least one lowercase letter in their password.
     requireLowercase :: Prelude.Maybe Prelude.Bool,
     -- | In the password policy that you have set, refers to whether you have
@@ -40,9 +43,6 @@ data PasswordPolicyType = PasswordPolicyType'
     -- | In the password policy that you have set, refers to whether you have
     -- required users to use at least one uppercase letter in their password.
     requireUppercase :: Prelude.Maybe Prelude.Bool,
-    -- | The minimum length of the password in the policy that you have set. This
-    -- value can\'t be less than 6.
-    minimumLength :: Prelude.Maybe Prelude.Natural,
     -- | The number of days a temporary password is valid in the password policy.
     -- If the user doesn\'t sign in during this time, an administrator must
     -- reset their password.
@@ -62,6 +62,9 @@ data PasswordPolicyType = PasswordPolicyType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'minimumLength', 'passwordPolicyType_minimumLength' - The minimum length of the password in the policy that you have set. This
+-- value can\'t be less than 6.
+--
 -- 'requireLowercase', 'passwordPolicyType_requireLowercase' - In the password policy that you have set, refers to whether you have
 -- required users to use at least one lowercase letter in their password.
 --
@@ -74,9 +77,6 @@ data PasswordPolicyType = PasswordPolicyType'
 -- 'requireUppercase', 'passwordPolicyType_requireUppercase' - In the password policy that you have set, refers to whether you have
 -- required users to use at least one uppercase letter in their password.
 --
--- 'minimumLength', 'passwordPolicyType_minimumLength' - The minimum length of the password in the policy that you have set. This
--- value can\'t be less than 6.
---
 -- 'temporaryPasswordValidityDays', 'passwordPolicyType_temporaryPasswordValidityDays' - The number of days a temporary password is valid in the password policy.
 -- If the user doesn\'t sign in during this time, an administrator must
 -- reset their password.
@@ -88,14 +88,19 @@ newPasswordPolicyType ::
   PasswordPolicyType
 newPasswordPolicyType =
   PasswordPolicyType'
-    { requireLowercase =
+    { minimumLength =
         Prelude.Nothing,
+      requireLowercase = Prelude.Nothing,
       requireNumbers = Prelude.Nothing,
       requireSymbols = Prelude.Nothing,
       requireUppercase = Prelude.Nothing,
-      minimumLength = Prelude.Nothing,
       temporaryPasswordValidityDays = Prelude.Nothing
     }
+
+-- | The minimum length of the password in the policy that you have set. This
+-- value can\'t be less than 6.
+passwordPolicyType_minimumLength :: Lens.Lens' PasswordPolicyType (Prelude.Maybe Prelude.Natural)
+passwordPolicyType_minimumLength = Lens.lens (\PasswordPolicyType' {minimumLength} -> minimumLength) (\s@PasswordPolicyType' {} a -> s {minimumLength = a} :: PasswordPolicyType)
 
 -- | In the password policy that you have set, refers to whether you have
 -- required users to use at least one lowercase letter in their password.
@@ -117,11 +122,6 @@ passwordPolicyType_requireSymbols = Lens.lens (\PasswordPolicyType' {requireSymb
 passwordPolicyType_requireUppercase :: Lens.Lens' PasswordPolicyType (Prelude.Maybe Prelude.Bool)
 passwordPolicyType_requireUppercase = Lens.lens (\PasswordPolicyType' {requireUppercase} -> requireUppercase) (\s@PasswordPolicyType' {} a -> s {requireUppercase = a} :: PasswordPolicyType)
 
--- | The minimum length of the password in the policy that you have set. This
--- value can\'t be less than 6.
-passwordPolicyType_minimumLength :: Lens.Lens' PasswordPolicyType (Prelude.Maybe Prelude.Natural)
-passwordPolicyType_minimumLength = Lens.lens (\PasswordPolicyType' {minimumLength} -> minimumLength) (\s@PasswordPolicyType' {} a -> s {minimumLength = a} :: PasswordPolicyType)
-
 -- | The number of days a temporary password is valid in the password policy.
 -- If the user doesn\'t sign in during this time, an administrator must
 -- reset their password.
@@ -138,37 +138,38 @@ instance Data.FromJSON PasswordPolicyType where
       "PasswordPolicyType"
       ( \x ->
           PasswordPolicyType'
-            Prelude.<$> (x Data..:? "RequireLowercase")
+            Prelude.<$> (x Data..:? "MinimumLength")
+            Prelude.<*> (x Data..:? "RequireLowercase")
             Prelude.<*> (x Data..:? "RequireNumbers")
             Prelude.<*> (x Data..:? "RequireSymbols")
             Prelude.<*> (x Data..:? "RequireUppercase")
-            Prelude.<*> (x Data..:? "MinimumLength")
             Prelude.<*> (x Data..:? "TemporaryPasswordValidityDays")
       )
 
 instance Prelude.Hashable PasswordPolicyType where
   hashWithSalt _salt PasswordPolicyType' {..} =
-    _salt `Prelude.hashWithSalt` requireLowercase
+    _salt `Prelude.hashWithSalt` minimumLength
+      `Prelude.hashWithSalt` requireLowercase
       `Prelude.hashWithSalt` requireNumbers
       `Prelude.hashWithSalt` requireSymbols
       `Prelude.hashWithSalt` requireUppercase
-      `Prelude.hashWithSalt` minimumLength
       `Prelude.hashWithSalt` temporaryPasswordValidityDays
 
 instance Prelude.NFData PasswordPolicyType where
   rnf PasswordPolicyType' {..} =
-    Prelude.rnf requireLowercase
+    Prelude.rnf minimumLength
+      `Prelude.seq` Prelude.rnf requireLowercase
       `Prelude.seq` Prelude.rnf requireNumbers
       `Prelude.seq` Prelude.rnf requireSymbols
       `Prelude.seq` Prelude.rnf requireUppercase
-      `Prelude.seq` Prelude.rnf minimumLength
       `Prelude.seq` Prelude.rnf temporaryPasswordValidityDays
 
 instance Data.ToJSON PasswordPolicyType where
   toJSON PasswordPolicyType' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("RequireLowercase" Data..=)
+          [ ("MinimumLength" Data..=) Prelude.<$> minimumLength,
+            ("RequireLowercase" Data..=)
               Prelude.<$> requireLowercase,
             ("RequireNumbers" Data..=)
               Prelude.<$> requireNumbers,
@@ -176,7 +177,6 @@ instance Data.ToJSON PasswordPolicyType where
               Prelude.<$> requireSymbols,
             ("RequireUppercase" Data..=)
               Prelude.<$> requireUppercase,
-            ("MinimumLength" Data..=) Prelude.<$> minimumLength,
             ("TemporaryPasswordValidityDays" Data..=)
               Prelude.<$> temporaryPasswordValidityDays
           ]

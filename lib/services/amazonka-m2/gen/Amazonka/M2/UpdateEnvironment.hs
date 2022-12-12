@@ -27,11 +27,11 @@ module Amazonka.M2.UpdateEnvironment
     newUpdateEnvironment,
 
     -- * Request Lenses
+    updateEnvironment_applyDuringMaintenanceWindow,
+    updateEnvironment_desiredCapacity,
+    updateEnvironment_engineVersion,
     updateEnvironment_instanceType,
     updateEnvironment_preferredMaintenanceWindow,
-    updateEnvironment_desiredCapacity,
-    updateEnvironment_applyDuringMaintenanceWindow,
-    updateEnvironment_engineVersion,
     updateEnvironment_environmentId,
 
     -- * Destructuring the Response
@@ -54,22 +54,22 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateEnvironment' smart constructor.
 data UpdateEnvironment = UpdateEnvironment'
-  { -- | The instance type for the environment to update.
-    instanceType :: Prelude.Maybe Prelude.Text,
-    -- | Configures a desired maintenance window for the environment. If you do
-    -- not provide a value, a random system-generated value will be assigned.
-    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
-    -- | The desired capacity for the environment to update.
-    desiredCapacity :: Prelude.Maybe Prelude.Natural,
-    -- | Indicates whether to update the environment during the maintenance
+  { -- | Indicates whether to update the environment during the maintenance
     -- window. The default is false. Currently, Amazon Web Services Mainframe
     -- Modernization accepts the @engineVersion@ parameter only if
     -- @applyDuringMaintenanceWindow@ is true. If any parameter other than
     -- @engineVersion@ is provided in @UpdateEnvironmentRequest@, it will fail
     -- if @applyDuringMaintenanceWindow@ is set to true.
     applyDuringMaintenanceWindow :: Prelude.Maybe Prelude.Bool,
+    -- | The desired capacity for the environment to update.
+    desiredCapacity :: Prelude.Maybe Prelude.Natural,
     -- | The version of the runtime engine for the environment.
     engineVersion :: Prelude.Maybe Prelude.Text,
+    -- | The instance type for the environment to update.
+    instanceType :: Prelude.Maybe Prelude.Text,
+    -- | Configures a desired maintenance window for the environment. If you do
+    -- not provide a value, a random system-generated value will be assigned.
+    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the runtime environment that you want to
     -- update.
     environmentId :: Prelude.Text
@@ -84,13 +84,6 @@ data UpdateEnvironment = UpdateEnvironment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceType', 'updateEnvironment_instanceType' - The instance type for the environment to update.
---
--- 'preferredMaintenanceWindow', 'updateEnvironment_preferredMaintenanceWindow' - Configures a desired maintenance window for the environment. If you do
--- not provide a value, a random system-generated value will be assigned.
---
--- 'desiredCapacity', 'updateEnvironment_desiredCapacity' - The desired capacity for the environment to update.
---
 -- 'applyDuringMaintenanceWindow', 'updateEnvironment_applyDuringMaintenanceWindow' - Indicates whether to update the environment during the maintenance
 -- window. The default is false. Currently, Amazon Web Services Mainframe
 -- Modernization accepts the @engineVersion@ parameter only if
@@ -98,7 +91,14 @@ data UpdateEnvironment = UpdateEnvironment'
 -- @engineVersion@ is provided in @UpdateEnvironmentRequest@, it will fail
 -- if @applyDuringMaintenanceWindow@ is set to true.
 --
+-- 'desiredCapacity', 'updateEnvironment_desiredCapacity' - The desired capacity for the environment to update.
+--
 -- 'engineVersion', 'updateEnvironment_engineVersion' - The version of the runtime engine for the environment.
+--
+-- 'instanceType', 'updateEnvironment_instanceType' - The instance type for the environment to update.
+--
+-- 'preferredMaintenanceWindow', 'updateEnvironment_preferredMaintenanceWindow' - Configures a desired maintenance window for the environment. If you do
+-- not provide a value, a random system-generated value will be assigned.
 --
 -- 'environmentId', 'updateEnvironment_environmentId' - The unique identifier of the runtime environment that you want to
 -- update.
@@ -108,26 +108,14 @@ newUpdateEnvironment ::
   UpdateEnvironment
 newUpdateEnvironment pEnvironmentId_ =
   UpdateEnvironment'
-    { instanceType = Prelude.Nothing,
-      preferredMaintenanceWindow = Prelude.Nothing,
+    { applyDuringMaintenanceWindow =
+        Prelude.Nothing,
       desiredCapacity = Prelude.Nothing,
-      applyDuringMaintenanceWindow = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
+      instanceType = Prelude.Nothing,
+      preferredMaintenanceWindow = Prelude.Nothing,
       environmentId = pEnvironmentId_
     }
-
--- | The instance type for the environment to update.
-updateEnvironment_instanceType :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
-updateEnvironment_instanceType = Lens.lens (\UpdateEnvironment' {instanceType} -> instanceType) (\s@UpdateEnvironment' {} a -> s {instanceType = a} :: UpdateEnvironment)
-
--- | Configures a desired maintenance window for the environment. If you do
--- not provide a value, a random system-generated value will be assigned.
-updateEnvironment_preferredMaintenanceWindow :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
-updateEnvironment_preferredMaintenanceWindow = Lens.lens (\UpdateEnvironment' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@UpdateEnvironment' {} a -> s {preferredMaintenanceWindow = a} :: UpdateEnvironment)
-
--- | The desired capacity for the environment to update.
-updateEnvironment_desiredCapacity :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Natural)
-updateEnvironment_desiredCapacity = Lens.lens (\UpdateEnvironment' {desiredCapacity} -> desiredCapacity) (\s@UpdateEnvironment' {} a -> s {desiredCapacity = a} :: UpdateEnvironment)
 
 -- | Indicates whether to update the environment during the maintenance
 -- window. The default is false. Currently, Amazon Web Services Mainframe
@@ -138,9 +126,22 @@ updateEnvironment_desiredCapacity = Lens.lens (\UpdateEnvironment' {desiredCapac
 updateEnvironment_applyDuringMaintenanceWindow :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Bool)
 updateEnvironment_applyDuringMaintenanceWindow = Lens.lens (\UpdateEnvironment' {applyDuringMaintenanceWindow} -> applyDuringMaintenanceWindow) (\s@UpdateEnvironment' {} a -> s {applyDuringMaintenanceWindow = a} :: UpdateEnvironment)
 
+-- | The desired capacity for the environment to update.
+updateEnvironment_desiredCapacity :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Natural)
+updateEnvironment_desiredCapacity = Lens.lens (\UpdateEnvironment' {desiredCapacity} -> desiredCapacity) (\s@UpdateEnvironment' {} a -> s {desiredCapacity = a} :: UpdateEnvironment)
+
 -- | The version of the runtime engine for the environment.
 updateEnvironment_engineVersion :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
 updateEnvironment_engineVersion = Lens.lens (\UpdateEnvironment' {engineVersion} -> engineVersion) (\s@UpdateEnvironment' {} a -> s {engineVersion = a} :: UpdateEnvironment)
+
+-- | The instance type for the environment to update.
+updateEnvironment_instanceType :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
+updateEnvironment_instanceType = Lens.lens (\UpdateEnvironment' {instanceType} -> instanceType) (\s@UpdateEnvironment' {} a -> s {instanceType = a} :: UpdateEnvironment)
+
+-- | Configures a desired maintenance window for the environment. If you do
+-- not provide a value, a random system-generated value will be assigned.
+updateEnvironment_preferredMaintenanceWindow :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
+updateEnvironment_preferredMaintenanceWindow = Lens.lens (\UpdateEnvironment' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@UpdateEnvironment' {} a -> s {preferredMaintenanceWindow = a} :: UpdateEnvironment)
 
 -- | The unique identifier of the runtime environment that you want to
 -- update.
@@ -163,20 +164,21 @@ instance Core.AWSRequest UpdateEnvironment where
 
 instance Prelude.Hashable UpdateEnvironment where
   hashWithSalt _salt UpdateEnvironment' {..} =
-    _salt `Prelude.hashWithSalt` instanceType
-      `Prelude.hashWithSalt` preferredMaintenanceWindow
-      `Prelude.hashWithSalt` desiredCapacity
+    _salt
       `Prelude.hashWithSalt` applyDuringMaintenanceWindow
+      `Prelude.hashWithSalt` desiredCapacity
       `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
       `Prelude.hashWithSalt` environmentId
 
 instance Prelude.NFData UpdateEnvironment where
   rnf UpdateEnvironment' {..} =
-    Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+    Prelude.rnf applyDuringMaintenanceWindow
       `Prelude.seq` Prelude.rnf desiredCapacity
-      `Prelude.seq` Prelude.rnf applyDuringMaintenanceWindow
       `Prelude.seq` Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
       `Prelude.seq` Prelude.rnf environmentId
 
 instance Data.ToHeaders UpdateEnvironment where
@@ -194,14 +196,14 @@ instance Data.ToJSON UpdateEnvironment where
   toJSON UpdateEnvironment' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("instanceType" Data..=) Prelude.<$> instanceType,
-            ("preferredMaintenanceWindow" Data..=)
-              Prelude.<$> preferredMaintenanceWindow,
+          [ ("applyDuringMaintenanceWindow" Data..=)
+              Prelude.<$> applyDuringMaintenanceWindow,
             ("desiredCapacity" Data..=)
               Prelude.<$> desiredCapacity,
-            ("applyDuringMaintenanceWindow" Data..=)
-              Prelude.<$> applyDuringMaintenanceWindow,
-            ("engineVersion" Data..=) Prelude.<$> engineVersion
+            ("engineVersion" Data..=) Prelude.<$> engineVersion,
+            ("instanceType" Data..=) Prelude.<$> instanceType,
+            ("preferredMaintenanceWindow" Data..=)
+              Prelude.<$> preferredMaintenanceWindow
           ]
       )
 

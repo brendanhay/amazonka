@@ -29,7 +29,13 @@ import Amazonka.SWF.Types.TaskList
 --
 -- /See:/ 'newDecisionTaskScheduledEventAttributes' smart constructor.
 data DecisionTaskScheduledEventAttributes = DecisionTaskScheduledEventAttributes'
-  { -- | A task priority that, if set, specifies the priority for this decision
+  { -- | The maximum duration for this decision task. The task is considered
+    -- timed out if it doesn\'t completed within this duration.
+    --
+    -- The duration is specified in seconds, an integer greater than or equal
+    -- to @0@. You can use @NONE@ to specify unlimited duration.
+    startToCloseTimeout :: Prelude.Maybe Prelude.Text,
+    -- | A task priority that, if set, specifies the priority for this decision
     -- task. Valid values are integers that range from Java\'s
     -- @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647).
     -- Higher numbers indicate higher priority.
@@ -38,12 +44,6 @@ data DecisionTaskScheduledEventAttributes = DecisionTaskScheduledEventAttributes
     -- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
     -- in the /Amazon SWF Developer Guide/.
     taskPriority :: Prelude.Maybe Prelude.Text,
-    -- | The maximum duration for this decision task. The task is considered
-    -- timed out if it doesn\'t completed within this duration.
-    --
-    -- The duration is specified in seconds, an integer greater than or equal
-    -- to @0@. You can use @NONE@ to specify unlimited duration.
-    startToCloseTimeout :: Prelude.Maybe Prelude.Text,
     -- | The name of the task list in which the decision task was scheduled.
     taskList :: TaskList
   }
@@ -57,6 +57,12 @@ data DecisionTaskScheduledEventAttributes = DecisionTaskScheduledEventAttributes
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'startToCloseTimeout', 'decisionTaskScheduledEventAttributes_startToCloseTimeout' - The maximum duration for this decision task. The task is considered
+-- timed out if it doesn\'t completed within this duration.
+--
+-- The duration is specified in seconds, an integer greater than or equal
+-- to @0@. You can use @NONE@ to specify unlimited duration.
+--
 -- 'taskPriority', 'decisionTaskScheduledEventAttributes_taskPriority' - A task priority that, if set, specifies the priority for this decision
 -- task. Valid values are integers that range from Java\'s
 -- @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647).
@@ -66,12 +72,6 @@ data DecisionTaskScheduledEventAttributes = DecisionTaskScheduledEventAttributes
 -- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
 -- in the /Amazon SWF Developer Guide/.
 --
--- 'startToCloseTimeout', 'decisionTaskScheduledEventAttributes_startToCloseTimeout' - The maximum duration for this decision task. The task is considered
--- timed out if it doesn\'t completed within this duration.
---
--- The duration is specified in seconds, an integer greater than or equal
--- to @0@. You can use @NONE@ to specify unlimited duration.
---
 -- 'taskList', 'decisionTaskScheduledEventAttributes_taskList' - The name of the task list in which the decision task was scheduled.
 newDecisionTaskScheduledEventAttributes ::
   -- | 'taskList'
@@ -79,11 +79,19 @@ newDecisionTaskScheduledEventAttributes ::
   DecisionTaskScheduledEventAttributes
 newDecisionTaskScheduledEventAttributes pTaskList_ =
   DecisionTaskScheduledEventAttributes'
-    { taskPriority =
+    { startToCloseTimeout =
         Prelude.Nothing,
-      startToCloseTimeout = Prelude.Nothing,
+      taskPriority = Prelude.Nothing,
       taskList = pTaskList_
     }
+
+-- | The maximum duration for this decision task. The task is considered
+-- timed out if it doesn\'t completed within this duration.
+--
+-- The duration is specified in seconds, an integer greater than or equal
+-- to @0@. You can use @NONE@ to specify unlimited duration.
+decisionTaskScheduledEventAttributes_startToCloseTimeout :: Lens.Lens' DecisionTaskScheduledEventAttributes (Prelude.Maybe Prelude.Text)
+decisionTaskScheduledEventAttributes_startToCloseTimeout = Lens.lens (\DecisionTaskScheduledEventAttributes' {startToCloseTimeout} -> startToCloseTimeout) (\s@DecisionTaskScheduledEventAttributes' {} a -> s {startToCloseTimeout = a} :: DecisionTaskScheduledEventAttributes)
 
 -- | A task priority that, if set, specifies the priority for this decision
 -- task. Valid values are integers that range from Java\'s
@@ -95,14 +103,6 @@ newDecisionTaskScheduledEventAttributes pTaskList_ =
 -- in the /Amazon SWF Developer Guide/.
 decisionTaskScheduledEventAttributes_taskPriority :: Lens.Lens' DecisionTaskScheduledEventAttributes (Prelude.Maybe Prelude.Text)
 decisionTaskScheduledEventAttributes_taskPriority = Lens.lens (\DecisionTaskScheduledEventAttributes' {taskPriority} -> taskPriority) (\s@DecisionTaskScheduledEventAttributes' {} a -> s {taskPriority = a} :: DecisionTaskScheduledEventAttributes)
-
--- | The maximum duration for this decision task. The task is considered
--- timed out if it doesn\'t completed within this duration.
---
--- The duration is specified in seconds, an integer greater than or equal
--- to @0@. You can use @NONE@ to specify unlimited duration.
-decisionTaskScheduledEventAttributes_startToCloseTimeout :: Lens.Lens' DecisionTaskScheduledEventAttributes (Prelude.Maybe Prelude.Text)
-decisionTaskScheduledEventAttributes_startToCloseTimeout = Lens.lens (\DecisionTaskScheduledEventAttributes' {startToCloseTimeout} -> startToCloseTimeout) (\s@DecisionTaskScheduledEventAttributes' {} a -> s {startToCloseTimeout = a} :: DecisionTaskScheduledEventAttributes)
 
 -- | The name of the task list in which the decision task was scheduled.
 decisionTaskScheduledEventAttributes_taskList :: Lens.Lens' DecisionTaskScheduledEventAttributes TaskList
@@ -117,8 +117,8 @@ instance
       "DecisionTaskScheduledEventAttributes"
       ( \x ->
           DecisionTaskScheduledEventAttributes'
-            Prelude.<$> (x Data..:? "taskPriority")
-            Prelude.<*> (x Data..:? "startToCloseTimeout")
+            Prelude.<$> (x Data..:? "startToCloseTimeout")
+            Prelude.<*> (x Data..:? "taskPriority")
             Prelude.<*> (x Data..: "taskList")
       )
 
@@ -129,8 +129,8 @@ instance
   hashWithSalt
     _salt
     DecisionTaskScheduledEventAttributes' {..} =
-      _salt `Prelude.hashWithSalt` taskPriority
-        `Prelude.hashWithSalt` startToCloseTimeout
+      _salt `Prelude.hashWithSalt` startToCloseTimeout
+        `Prelude.hashWithSalt` taskPriority
         `Prelude.hashWithSalt` taskList
 
 instance
@@ -138,6 +138,6 @@ instance
     DecisionTaskScheduledEventAttributes
   where
   rnf DecisionTaskScheduledEventAttributes' {..} =
-    Prelude.rnf taskPriority
-      `Prelude.seq` Prelude.rnf startToCloseTimeout
+    Prelude.rnf startToCloseTimeout
+      `Prelude.seq` Prelude.rnf taskPriority
       `Prelude.seq` Prelude.rnf taskList

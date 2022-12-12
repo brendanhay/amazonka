@@ -29,7 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTemporaryCredential' smart constructor.
 data TemporaryCredential = TemporaryCredential'
-  { -- | The password.
+  { -- | The instance\'s AWS OpsWorks Stacks ID.
+    instanceId :: Prelude.Maybe Prelude.Text,
+    -- | The password.
     password :: Prelude.Maybe Prelude.Text,
     -- | The user name.
     username :: Prelude.Maybe Prelude.Text,
@@ -37,9 +39,7 @@ data TemporaryCredential = TemporaryCredential'
     -- expires, at the end of this period, the user will no longer be able to
     -- use the credentials to log in. If they are logged in at the time, they
     -- will be automatically logged out.
-    validForInMinutes :: Prelude.Maybe Prelude.Int,
-    -- | The instance\'s AWS OpsWorks Stacks ID.
-    instanceId :: Prelude.Maybe Prelude.Text
+    validForInMinutes :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,6 +51,8 @@ data TemporaryCredential = TemporaryCredential'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'instanceId', 'temporaryCredential_instanceId' - The instance\'s AWS OpsWorks Stacks ID.
+--
 -- 'password', 'temporaryCredential_password' - The password.
 --
 -- 'username', 'temporaryCredential_username' - The user name.
@@ -59,17 +61,19 @@ data TemporaryCredential = TemporaryCredential'
 -- expires, at the end of this period, the user will no longer be able to
 -- use the credentials to log in. If they are logged in at the time, they
 -- will be automatically logged out.
---
--- 'instanceId', 'temporaryCredential_instanceId' - The instance\'s AWS OpsWorks Stacks ID.
 newTemporaryCredential ::
   TemporaryCredential
 newTemporaryCredential =
   TemporaryCredential'
-    { password = Prelude.Nothing,
+    { instanceId = Prelude.Nothing,
+      password = Prelude.Nothing,
       username = Prelude.Nothing,
-      validForInMinutes = Prelude.Nothing,
-      instanceId = Prelude.Nothing
+      validForInMinutes = Prelude.Nothing
     }
+
+-- | The instance\'s AWS OpsWorks Stacks ID.
+temporaryCredential_instanceId :: Lens.Lens' TemporaryCredential (Prelude.Maybe Prelude.Text)
+temporaryCredential_instanceId = Lens.lens (\TemporaryCredential' {instanceId} -> instanceId) (\s@TemporaryCredential' {} a -> s {instanceId = a} :: TemporaryCredential)
 
 -- | The password.
 temporaryCredential_password :: Lens.Lens' TemporaryCredential (Prelude.Maybe Prelude.Text)
@@ -86,32 +90,28 @@ temporaryCredential_username = Lens.lens (\TemporaryCredential' {username} -> us
 temporaryCredential_validForInMinutes :: Lens.Lens' TemporaryCredential (Prelude.Maybe Prelude.Int)
 temporaryCredential_validForInMinutes = Lens.lens (\TemporaryCredential' {validForInMinutes} -> validForInMinutes) (\s@TemporaryCredential' {} a -> s {validForInMinutes = a} :: TemporaryCredential)
 
--- | The instance\'s AWS OpsWorks Stacks ID.
-temporaryCredential_instanceId :: Lens.Lens' TemporaryCredential (Prelude.Maybe Prelude.Text)
-temporaryCredential_instanceId = Lens.lens (\TemporaryCredential' {instanceId} -> instanceId) (\s@TemporaryCredential' {} a -> s {instanceId = a} :: TemporaryCredential)
-
 instance Data.FromJSON TemporaryCredential where
   parseJSON =
     Data.withObject
       "TemporaryCredential"
       ( \x ->
           TemporaryCredential'
-            Prelude.<$> (x Data..:? "Password")
+            Prelude.<$> (x Data..:? "InstanceId")
+            Prelude.<*> (x Data..:? "Password")
             Prelude.<*> (x Data..:? "Username")
             Prelude.<*> (x Data..:? "ValidForInMinutes")
-            Prelude.<*> (x Data..:? "InstanceId")
       )
 
 instance Prelude.Hashable TemporaryCredential where
   hashWithSalt _salt TemporaryCredential' {..} =
-    _salt `Prelude.hashWithSalt` password
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` password
       `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` validForInMinutes
-      `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData TemporaryCredential where
   rnf TemporaryCredential' {..} =
-    Prelude.rnf password
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf password
       `Prelude.seq` Prelude.rnf username
       `Prelude.seq` Prelude.rnf validForInMinutes
-      `Prelude.seq` Prelude.rnf instanceId

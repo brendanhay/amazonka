@@ -30,8 +30,8 @@ module Amazonka.DAX.DescribeDefaultParameters
     newDescribeDefaultParameters,
 
     -- * Request Lenses
-    describeDefaultParameters_nextToken,
     describeDefaultParameters_maxResults,
+    describeDefaultParameters_nextToken,
 
     -- * Destructuring the Response
     DescribeDefaultParametersResponse (..),
@@ -54,17 +54,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeDefaultParameters' smart constructor.
 data DescribeDefaultParameters = DescribeDefaultParameters'
-  { -- | An optional token returned from a prior request. Use this token for
-    -- pagination of results from this action. If this parameter is specified,
-    -- the response includes only results beyond the token, up to the value
-    -- specified by @MaxResults@.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to include in the response. If more
+  { -- | The maximum number of results to include in the response. If more
     -- results exist than the specified @MaxResults@ value, a token is included
     -- in the response so that the remaining results can be retrieved.
     --
     -- The value for @MaxResults@ must be between 20 and 100.
-    maxResults :: Prelude.Maybe Prelude.Int
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | An optional token returned from a prior request. Use this token for
+    -- pagination of results from this action. If this parameter is specified,
+    -- the response includes only results beyond the token, up to the value
+    -- specified by @MaxResults@.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,31 +76,24 @@ data DescribeDefaultParameters = DescribeDefaultParameters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeDefaultParameters_nextToken' - An optional token returned from a prior request. Use this token for
--- pagination of results from this action. If this parameter is specified,
--- the response includes only results beyond the token, up to the value
--- specified by @MaxResults@.
---
 -- 'maxResults', 'describeDefaultParameters_maxResults' - The maximum number of results to include in the response. If more
 -- results exist than the specified @MaxResults@ value, a token is included
 -- in the response so that the remaining results can be retrieved.
 --
 -- The value for @MaxResults@ must be between 20 and 100.
+--
+-- 'nextToken', 'describeDefaultParameters_nextToken' - An optional token returned from a prior request. Use this token for
+-- pagination of results from this action. If this parameter is specified,
+-- the response includes only results beyond the token, up to the value
+-- specified by @MaxResults@.
 newDescribeDefaultParameters ::
   DescribeDefaultParameters
 newDescribeDefaultParameters =
   DescribeDefaultParameters'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | An optional token returned from a prior request. Use this token for
--- pagination of results from this action. If this parameter is specified,
--- the response includes only results beyond the token, up to the value
--- specified by @MaxResults@.
-describeDefaultParameters_nextToken :: Lens.Lens' DescribeDefaultParameters (Prelude.Maybe Prelude.Text)
-describeDefaultParameters_nextToken = Lens.lens (\DescribeDefaultParameters' {nextToken} -> nextToken) (\s@DescribeDefaultParameters' {} a -> s {nextToken = a} :: DescribeDefaultParameters)
 
 -- | The maximum number of results to include in the response. If more
 -- results exist than the specified @MaxResults@ value, a token is included
@@ -109,6 +102,13 @@ describeDefaultParameters_nextToken = Lens.lens (\DescribeDefaultParameters' {ne
 -- The value for @MaxResults@ must be between 20 and 100.
 describeDefaultParameters_maxResults :: Lens.Lens' DescribeDefaultParameters (Prelude.Maybe Prelude.Int)
 describeDefaultParameters_maxResults = Lens.lens (\DescribeDefaultParameters' {maxResults} -> maxResults) (\s@DescribeDefaultParameters' {} a -> s {maxResults = a} :: DescribeDefaultParameters)
+
+-- | An optional token returned from a prior request. Use this token for
+-- pagination of results from this action. If this parameter is specified,
+-- the response includes only results beyond the token, up to the value
+-- specified by @MaxResults@.
+describeDefaultParameters_nextToken :: Lens.Lens' DescribeDefaultParameters (Prelude.Maybe Prelude.Text)
+describeDefaultParameters_nextToken = Lens.lens (\DescribeDefaultParameters' {nextToken} -> nextToken) (\s@DescribeDefaultParameters' {} a -> s {nextToken = a} :: DescribeDefaultParameters)
 
 instance Core.AWSPager DescribeDefaultParameters where
   page rq rs
@@ -149,13 +149,13 @@ instance Core.AWSRequest DescribeDefaultParameters where
 
 instance Prelude.Hashable DescribeDefaultParameters where
   hashWithSalt _salt DescribeDefaultParameters' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeDefaultParameters where
   rnf DescribeDefaultParameters' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeDefaultParameters where
   toHeaders =
@@ -176,8 +176,8 @@ instance Data.ToJSON DescribeDefaultParameters where
   toJSON DescribeDefaultParameters' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

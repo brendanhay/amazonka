@@ -46,13 +46,13 @@ data ProfileConfiguration = ProfileConfiguration'
     -- configuration is undefined, the profile job will run all supported
     -- inter-column evaluations.
     datasetStatisticsConfiguration :: Prelude.Maybe StatisticsConfiguration,
+    -- | Configuration of entity detection for a profile job. When undefined,
+    -- entity detection is disabled.
+    entityDetectorConfiguration :: Prelude.Maybe EntityDetectorConfiguration,
     -- | List of column selectors. ProfileColumns can be used to select columns
     -- from the dataset. When ProfileColumns is undefined, the profile job will
     -- profile all supported columns.
-    profileColumns :: Prelude.Maybe (Prelude.NonEmpty ColumnSelector),
-    -- | Configuration of entity detection for a profile job. When undefined,
-    -- entity detection is disabled.
-    entityDetectorConfiguration :: Prelude.Maybe EntityDetectorConfiguration
+    profileColumns :: Prelude.Maybe (Prelude.NonEmpty ColumnSelector)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,12 +75,12 @@ data ProfileConfiguration = ProfileConfiguration'
 -- configuration is undefined, the profile job will run all supported
 -- inter-column evaluations.
 --
+-- 'entityDetectorConfiguration', 'profileConfiguration_entityDetectorConfiguration' - Configuration of entity detection for a profile job. When undefined,
+-- entity detection is disabled.
+--
 -- 'profileColumns', 'profileConfiguration_profileColumns' - List of column selectors. ProfileColumns can be used to select columns
 -- from the dataset. When ProfileColumns is undefined, the profile job will
 -- profile all supported columns.
---
--- 'entityDetectorConfiguration', 'profileConfiguration_entityDetectorConfiguration' - Configuration of entity detection for a profile job. When undefined,
--- entity detection is disabled.
 newProfileConfiguration ::
   ProfileConfiguration
 newProfileConfiguration =
@@ -88,8 +88,8 @@ newProfileConfiguration =
     { columnStatisticsConfigurations =
         Prelude.Nothing,
       datasetStatisticsConfiguration = Prelude.Nothing,
-      profileColumns = Prelude.Nothing,
-      entityDetectorConfiguration = Prelude.Nothing
+      entityDetectorConfiguration = Prelude.Nothing,
+      profileColumns = Prelude.Nothing
     }
 
 -- | List of configurations for column evaluations.
@@ -107,16 +107,16 @@ profileConfiguration_columnStatisticsConfigurations = Lens.lens (\ProfileConfigu
 profileConfiguration_datasetStatisticsConfiguration :: Lens.Lens' ProfileConfiguration (Prelude.Maybe StatisticsConfiguration)
 profileConfiguration_datasetStatisticsConfiguration = Lens.lens (\ProfileConfiguration' {datasetStatisticsConfiguration} -> datasetStatisticsConfiguration) (\s@ProfileConfiguration' {} a -> s {datasetStatisticsConfiguration = a} :: ProfileConfiguration)
 
+-- | Configuration of entity detection for a profile job. When undefined,
+-- entity detection is disabled.
+profileConfiguration_entityDetectorConfiguration :: Lens.Lens' ProfileConfiguration (Prelude.Maybe EntityDetectorConfiguration)
+profileConfiguration_entityDetectorConfiguration = Lens.lens (\ProfileConfiguration' {entityDetectorConfiguration} -> entityDetectorConfiguration) (\s@ProfileConfiguration' {} a -> s {entityDetectorConfiguration = a} :: ProfileConfiguration)
+
 -- | List of column selectors. ProfileColumns can be used to select columns
 -- from the dataset. When ProfileColumns is undefined, the profile job will
 -- profile all supported columns.
 profileConfiguration_profileColumns :: Lens.Lens' ProfileConfiguration (Prelude.Maybe (Prelude.NonEmpty ColumnSelector))
 profileConfiguration_profileColumns = Lens.lens (\ProfileConfiguration' {profileColumns} -> profileColumns) (\s@ProfileConfiguration' {} a -> s {profileColumns = a} :: ProfileConfiguration) Prelude.. Lens.mapping Lens.coerced
-
--- | Configuration of entity detection for a profile job. When undefined,
--- entity detection is disabled.
-profileConfiguration_entityDetectorConfiguration :: Lens.Lens' ProfileConfiguration (Prelude.Maybe EntityDetectorConfiguration)
-profileConfiguration_entityDetectorConfiguration = Lens.lens (\ProfileConfiguration' {entityDetectorConfiguration} -> entityDetectorConfiguration) (\s@ProfileConfiguration' {} a -> s {entityDetectorConfiguration = a} :: ProfileConfiguration)
 
 instance Data.FromJSON ProfileConfiguration where
   parseJSON =
@@ -126,8 +126,8 @@ instance Data.FromJSON ProfileConfiguration where
           ProfileConfiguration'
             Prelude.<$> (x Data..:? "ColumnStatisticsConfigurations")
             Prelude.<*> (x Data..:? "DatasetStatisticsConfiguration")
-            Prelude.<*> (x Data..:? "ProfileColumns")
             Prelude.<*> (x Data..:? "EntityDetectorConfiguration")
+            Prelude.<*> (x Data..:? "ProfileColumns")
       )
 
 instance Prelude.Hashable ProfileConfiguration where
@@ -135,15 +135,15 @@ instance Prelude.Hashable ProfileConfiguration where
     _salt
       `Prelude.hashWithSalt` columnStatisticsConfigurations
       `Prelude.hashWithSalt` datasetStatisticsConfiguration
-      `Prelude.hashWithSalt` profileColumns
       `Prelude.hashWithSalt` entityDetectorConfiguration
+      `Prelude.hashWithSalt` profileColumns
 
 instance Prelude.NFData ProfileConfiguration where
   rnf ProfileConfiguration' {..} =
     Prelude.rnf columnStatisticsConfigurations
       `Prelude.seq` Prelude.rnf datasetStatisticsConfiguration
-      `Prelude.seq` Prelude.rnf profileColumns
       `Prelude.seq` Prelude.rnf entityDetectorConfiguration
+      `Prelude.seq` Prelude.rnf profileColumns
 
 instance Data.ToJSON ProfileConfiguration where
   toJSON ProfileConfiguration' {..} =
@@ -153,9 +153,9 @@ instance Data.ToJSON ProfileConfiguration where
               Prelude.<$> columnStatisticsConfigurations,
             ("DatasetStatisticsConfiguration" Data..=)
               Prelude.<$> datasetStatisticsConfiguration,
-            ("ProfileColumns" Data..=)
-              Prelude.<$> profileColumns,
             ("EntityDetectorConfiguration" Data..=)
-              Prelude.<$> entityDetectorConfiguration
+              Prelude.<$> entityDetectorConfiguration,
+            ("ProfileColumns" Data..=)
+              Prelude.<$> profileColumns
           ]
       )

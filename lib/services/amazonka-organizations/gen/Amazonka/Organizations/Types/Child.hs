@@ -29,9 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newChild' smart constructor.
 data Child = Child'
-  { -- | The type of this child entity.
-    type' :: Prelude.Maybe ChildType,
-    -- | The unique identifier (ID) of this child entity.
+  { -- | The unique identifier (ID) of this child entity.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> for a child ID
     -- string requires one of the following:
@@ -42,7 +40,9 @@ data Child = Child'
     --     followed by from 4 to 32 lowercase letters or digits (the ID of the
     --     root that contains the OU). This string is followed by a second
     --     \"-\" dash and from 8 to 32 additional lowercase letters or digits.
-    id :: Prelude.Maybe Prelude.Text
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The type of this child entity.
+    type' :: Prelude.Maybe ChildType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,8 +53,6 @@ data Child = Child'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'type'', 'child_type' - The type of this child entity.
 --
 -- 'id', 'child_id' - The unique identifier (ID) of this child entity.
 --
@@ -67,17 +65,15 @@ data Child = Child'
 --     followed by from 4 to 32 lowercase letters or digits (the ID of the
 --     root that contains the OU). This string is followed by a second
 --     \"-\" dash and from 8 to 32 additional lowercase letters or digits.
+--
+-- 'type'', 'child_type' - The type of this child entity.
 newChild ::
   Child
 newChild =
   Child'
-    { type' = Prelude.Nothing,
-      id = Prelude.Nothing
+    { id = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
-
--- | The type of this child entity.
-child_type :: Lens.Lens' Child (Prelude.Maybe ChildType)
-child_type = Lens.lens (\Child' {type'} -> type') (\s@Child' {} a -> s {type' = a} :: Child)
 
 -- | The unique identifier (ID) of this child entity.
 --
@@ -93,20 +89,24 @@ child_type = Lens.lens (\Child' {type'} -> type') (\s@Child' {} a -> s {type' = 
 child_id :: Lens.Lens' Child (Prelude.Maybe Prelude.Text)
 child_id = Lens.lens (\Child' {id} -> id) (\s@Child' {} a -> s {id = a} :: Child)
 
+-- | The type of this child entity.
+child_type :: Lens.Lens' Child (Prelude.Maybe ChildType)
+child_type = Lens.lens (\Child' {type'} -> type') (\s@Child' {} a -> s {type' = a} :: Child)
+
 instance Data.FromJSON Child where
   parseJSON =
     Data.withObject
       "Child"
       ( \x ->
           Child'
-            Prelude.<$> (x Data..:? "Type") Prelude.<*> (x Data..:? "Id")
+            Prelude.<$> (x Data..:? "Id") Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable Child where
   hashWithSalt _salt Child' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` id
+    _salt `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Child where
   rnf Child' {..} =
-    Prelude.rnf type' `Prelude.seq` Prelude.rnf id
+    Prelude.rnf id `Prelude.seq` Prelude.rnf type'

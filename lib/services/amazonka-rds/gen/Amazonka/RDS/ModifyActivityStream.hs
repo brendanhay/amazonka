@@ -36,20 +36,20 @@ module Amazonka.RDS.ModifyActivityStream
     newModifyActivityStream,
 
     -- * Request Lenses
-    modifyActivityStream_resourceArn,
     modifyActivityStream_auditPolicyState,
+    modifyActivityStream_resourceArn,
 
     -- * Destructuring the Response
     ModifyActivityStreamResponse (..),
     newModifyActivityStreamResponse,
 
     -- * Response Lenses
-    modifyActivityStreamResponse_status,
-    modifyActivityStreamResponse_policyStatus,
     modifyActivityStreamResponse_engineNativeAuditFieldsIncluded,
     modifyActivityStreamResponse_kinesisStreamName,
-    modifyActivityStreamResponse_mode,
     modifyActivityStreamResponse_kmsKeyId,
+    modifyActivityStreamResponse_mode,
+    modifyActivityStreamResponse_policyStatus,
+    modifyActivityStreamResponse_status,
     modifyActivityStreamResponse_httpStatus,
   )
 where
@@ -64,13 +64,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newModifyActivityStream' smart constructor.
 data ModifyActivityStream = ModifyActivityStream'
-  { -- | The Amazon Resource Name (ARN) of the RDS for Oracle DB instance, for
-    -- example, @arn:aws:rds:us-east-1:12345667890:instance:my-orcl-db@.
-    resourceArn :: Prelude.Maybe Prelude.Text,
-    -- | The audit policy state. When a policy is unlocked, it is read\/write.
+  { -- | The audit policy state. When a policy is unlocked, it is read\/write.
     -- When it is locked, it is read-only. You can edit your audit policy only
     -- when the activity stream is unlocked or stopped.
-    auditPolicyState :: Prelude.Maybe AuditPolicyState
+    auditPolicyState :: Prelude.Maybe AuditPolicyState,
+    -- | The Amazon Resource Name (ARN) of the RDS for Oracle DB instance, for
+    -- example, @arn:aws:rds:us-east-1:12345667890:instance:my-orcl-db@.
+    resourceArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,31 +82,31 @@ data ModifyActivityStream = ModifyActivityStream'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'modifyActivityStream_resourceArn' - The Amazon Resource Name (ARN) of the RDS for Oracle DB instance, for
--- example, @arn:aws:rds:us-east-1:12345667890:instance:my-orcl-db@.
---
 -- 'auditPolicyState', 'modifyActivityStream_auditPolicyState' - The audit policy state. When a policy is unlocked, it is read\/write.
 -- When it is locked, it is read-only. You can edit your audit policy only
 -- when the activity stream is unlocked or stopped.
+--
+-- 'resourceArn', 'modifyActivityStream_resourceArn' - The Amazon Resource Name (ARN) of the RDS for Oracle DB instance, for
+-- example, @arn:aws:rds:us-east-1:12345667890:instance:my-orcl-db@.
 newModifyActivityStream ::
   ModifyActivityStream
 newModifyActivityStream =
   ModifyActivityStream'
-    { resourceArn =
+    { auditPolicyState =
         Prelude.Nothing,
-      auditPolicyState = Prelude.Nothing
+      resourceArn = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the RDS for Oracle DB instance, for
--- example, @arn:aws:rds:us-east-1:12345667890:instance:my-orcl-db@.
-modifyActivityStream_resourceArn :: Lens.Lens' ModifyActivityStream (Prelude.Maybe Prelude.Text)
-modifyActivityStream_resourceArn = Lens.lens (\ModifyActivityStream' {resourceArn} -> resourceArn) (\s@ModifyActivityStream' {} a -> s {resourceArn = a} :: ModifyActivityStream)
 
 -- | The audit policy state. When a policy is unlocked, it is read\/write.
 -- When it is locked, it is read-only. You can edit your audit policy only
 -- when the activity stream is unlocked or stopped.
 modifyActivityStream_auditPolicyState :: Lens.Lens' ModifyActivityStream (Prelude.Maybe AuditPolicyState)
 modifyActivityStream_auditPolicyState = Lens.lens (\ModifyActivityStream' {auditPolicyState} -> auditPolicyState) (\s@ModifyActivityStream' {} a -> s {auditPolicyState = a} :: ModifyActivityStream)
+
+-- | The Amazon Resource Name (ARN) of the RDS for Oracle DB instance, for
+-- example, @arn:aws:rds:us-east-1:12345667890:instance:my-orcl-db@.
+modifyActivityStream_resourceArn :: Lens.Lens' ModifyActivityStream (Prelude.Maybe Prelude.Text)
+modifyActivityStream_resourceArn = Lens.lens (\ModifyActivityStream' {resourceArn} -> resourceArn) (\s@ModifyActivityStream' {} a -> s {resourceArn = a} :: ModifyActivityStream)
 
 instance Core.AWSRequest ModifyActivityStream where
   type
@@ -119,24 +119,24 @@ instance Core.AWSRequest ModifyActivityStream where
       "ModifyActivityStreamResult"
       ( \s h x ->
           ModifyActivityStreamResponse'
-            Prelude.<$> (x Data..@? "Status")
-            Prelude.<*> (x Data..@? "PolicyStatus")
-            Prelude.<*> (x Data..@? "EngineNativeAuditFieldsIncluded")
+            Prelude.<$> (x Data..@? "EngineNativeAuditFieldsIncluded")
             Prelude.<*> (x Data..@? "KinesisStreamName")
-            Prelude.<*> (x Data..@? "Mode")
             Prelude.<*> (x Data..@? "KmsKeyId")
+            Prelude.<*> (x Data..@? "Mode")
+            Prelude.<*> (x Data..@? "PolicyStatus")
+            Prelude.<*> (x Data..@? "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ModifyActivityStream where
   hashWithSalt _salt ModifyActivityStream' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
-      `Prelude.hashWithSalt` auditPolicyState
+    _salt `Prelude.hashWithSalt` auditPolicyState
+      `Prelude.hashWithSalt` resourceArn
 
 instance Prelude.NFData ModifyActivityStream where
   rnf ModifyActivityStream' {..} =
-    Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf auditPolicyState
+    Prelude.rnf auditPolicyState
+      `Prelude.seq` Prelude.rnf resourceArn
 
 instance Data.ToHeaders ModifyActivityStream where
   toHeaders = Prelude.const Prelude.mempty
@@ -151,28 +151,28 @@ instance Data.ToQuery ModifyActivityStream where
           Data.=: ("ModifyActivityStream" :: Prelude.ByteString),
         "Version"
           Data.=: ("2014-10-31" :: Prelude.ByteString),
-        "ResourceArn" Data.=: resourceArn,
-        "AuditPolicyState" Data.=: auditPolicyState
+        "AuditPolicyState" Data.=: auditPolicyState,
+        "ResourceArn" Data.=: resourceArn
       ]
 
 -- | /See:/ 'newModifyActivityStreamResponse' smart constructor.
 data ModifyActivityStreamResponse = ModifyActivityStreamResponse'
-  { -- | The status of the modification to the database activity stream.
-    status :: Prelude.Maybe ActivityStreamStatus,
-    -- | The status of the modification to the policy state of the database
-    -- activity stream.
-    policyStatus :: Prelude.Maybe ActivityStreamPolicyStatus,
-    -- | Indicates whether engine-native audit fields are included in the
+  { -- | Indicates whether engine-native audit fields are included in the
     -- database activity stream.
     engineNativeAuditFieldsIncluded :: Prelude.Maybe Prelude.Bool,
     -- | The name of the Amazon Kinesis data stream to be used for the database
     -- activity stream.
     kinesisStreamName :: Prelude.Maybe Prelude.Text,
-    -- | The mode of the database activity stream.
-    mode :: Prelude.Maybe ActivityStreamMode,
     -- | The Amazon Web Services KMS key identifier for encryption of messages in
     -- the database activity stream.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The mode of the database activity stream.
+    mode :: Prelude.Maybe ActivityStreamMode,
+    -- | The status of the modification to the policy state of the database
+    -- activity stream.
+    policyStatus :: Prelude.Maybe ActivityStreamPolicyStatus,
+    -- | The status of the modification to the database activity stream.
+    status :: Prelude.Maybe ActivityStreamStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -186,21 +186,21 @@ data ModifyActivityStreamResponse = ModifyActivityStreamResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'modifyActivityStreamResponse_status' - The status of the modification to the database activity stream.
---
--- 'policyStatus', 'modifyActivityStreamResponse_policyStatus' - The status of the modification to the policy state of the database
--- activity stream.
---
 -- 'engineNativeAuditFieldsIncluded', 'modifyActivityStreamResponse_engineNativeAuditFieldsIncluded' - Indicates whether engine-native audit fields are included in the
 -- database activity stream.
 --
 -- 'kinesisStreamName', 'modifyActivityStreamResponse_kinesisStreamName' - The name of the Amazon Kinesis data stream to be used for the database
 -- activity stream.
 --
--- 'mode', 'modifyActivityStreamResponse_mode' - The mode of the database activity stream.
---
 -- 'kmsKeyId', 'modifyActivityStreamResponse_kmsKeyId' - The Amazon Web Services KMS key identifier for encryption of messages in
 -- the database activity stream.
+--
+-- 'mode', 'modifyActivityStreamResponse_mode' - The mode of the database activity stream.
+--
+-- 'policyStatus', 'modifyActivityStreamResponse_policyStatus' - The status of the modification to the policy state of the database
+-- activity stream.
+--
+-- 'status', 'modifyActivityStreamResponse_status' - The status of the modification to the database activity stream.
 --
 -- 'httpStatus', 'modifyActivityStreamResponse_httpStatus' - The response's http status code.
 newModifyActivityStreamResponse ::
@@ -209,25 +209,15 @@ newModifyActivityStreamResponse ::
   ModifyActivityStreamResponse
 newModifyActivityStreamResponse pHttpStatus_ =
   ModifyActivityStreamResponse'
-    { status =
-        Prelude.Nothing,
-      policyStatus = Prelude.Nothing,
-      engineNativeAuditFieldsIncluded =
+    { engineNativeAuditFieldsIncluded =
         Prelude.Nothing,
       kinesisStreamName = Prelude.Nothing,
-      mode = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
+      mode = Prelude.Nothing,
+      policyStatus = Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The status of the modification to the database activity stream.
-modifyActivityStreamResponse_status :: Lens.Lens' ModifyActivityStreamResponse (Prelude.Maybe ActivityStreamStatus)
-modifyActivityStreamResponse_status = Lens.lens (\ModifyActivityStreamResponse' {status} -> status) (\s@ModifyActivityStreamResponse' {} a -> s {status = a} :: ModifyActivityStreamResponse)
-
--- | The status of the modification to the policy state of the database
--- activity stream.
-modifyActivityStreamResponse_policyStatus :: Lens.Lens' ModifyActivityStreamResponse (Prelude.Maybe ActivityStreamPolicyStatus)
-modifyActivityStreamResponse_policyStatus = Lens.lens (\ModifyActivityStreamResponse' {policyStatus} -> policyStatus) (\s@ModifyActivityStreamResponse' {} a -> s {policyStatus = a} :: ModifyActivityStreamResponse)
 
 -- | Indicates whether engine-native audit fields are included in the
 -- database activity stream.
@@ -239,14 +229,23 @@ modifyActivityStreamResponse_engineNativeAuditFieldsIncluded = Lens.lens (\Modif
 modifyActivityStreamResponse_kinesisStreamName :: Lens.Lens' ModifyActivityStreamResponse (Prelude.Maybe Prelude.Text)
 modifyActivityStreamResponse_kinesisStreamName = Lens.lens (\ModifyActivityStreamResponse' {kinesisStreamName} -> kinesisStreamName) (\s@ModifyActivityStreamResponse' {} a -> s {kinesisStreamName = a} :: ModifyActivityStreamResponse)
 
--- | The mode of the database activity stream.
-modifyActivityStreamResponse_mode :: Lens.Lens' ModifyActivityStreamResponse (Prelude.Maybe ActivityStreamMode)
-modifyActivityStreamResponse_mode = Lens.lens (\ModifyActivityStreamResponse' {mode} -> mode) (\s@ModifyActivityStreamResponse' {} a -> s {mode = a} :: ModifyActivityStreamResponse)
-
 -- | The Amazon Web Services KMS key identifier for encryption of messages in
 -- the database activity stream.
 modifyActivityStreamResponse_kmsKeyId :: Lens.Lens' ModifyActivityStreamResponse (Prelude.Maybe Prelude.Text)
 modifyActivityStreamResponse_kmsKeyId = Lens.lens (\ModifyActivityStreamResponse' {kmsKeyId} -> kmsKeyId) (\s@ModifyActivityStreamResponse' {} a -> s {kmsKeyId = a} :: ModifyActivityStreamResponse)
+
+-- | The mode of the database activity stream.
+modifyActivityStreamResponse_mode :: Lens.Lens' ModifyActivityStreamResponse (Prelude.Maybe ActivityStreamMode)
+modifyActivityStreamResponse_mode = Lens.lens (\ModifyActivityStreamResponse' {mode} -> mode) (\s@ModifyActivityStreamResponse' {} a -> s {mode = a} :: ModifyActivityStreamResponse)
+
+-- | The status of the modification to the policy state of the database
+-- activity stream.
+modifyActivityStreamResponse_policyStatus :: Lens.Lens' ModifyActivityStreamResponse (Prelude.Maybe ActivityStreamPolicyStatus)
+modifyActivityStreamResponse_policyStatus = Lens.lens (\ModifyActivityStreamResponse' {policyStatus} -> policyStatus) (\s@ModifyActivityStreamResponse' {} a -> s {policyStatus = a} :: ModifyActivityStreamResponse)
+
+-- | The status of the modification to the database activity stream.
+modifyActivityStreamResponse_status :: Lens.Lens' ModifyActivityStreamResponse (Prelude.Maybe ActivityStreamStatus)
+modifyActivityStreamResponse_status = Lens.lens (\ModifyActivityStreamResponse' {status} -> status) (\s@ModifyActivityStreamResponse' {} a -> s {status = a} :: ModifyActivityStreamResponse)
 
 -- | The response's http status code.
 modifyActivityStreamResponse_httpStatus :: Lens.Lens' ModifyActivityStreamResponse Prelude.Int
@@ -254,10 +253,10 @@ modifyActivityStreamResponse_httpStatus = Lens.lens (\ModifyActivityStreamRespon
 
 instance Prelude.NFData ModifyActivityStreamResponse where
   rnf ModifyActivityStreamResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf policyStatus
-      `Prelude.seq` Prelude.rnf engineNativeAuditFieldsIncluded
+    Prelude.rnf engineNativeAuditFieldsIncluded
       `Prelude.seq` Prelude.rnf kinesisStreamName
-      `Prelude.seq` Prelude.rnf mode
       `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf mode
+      `Prelude.seq` Prelude.rnf policyStatus
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

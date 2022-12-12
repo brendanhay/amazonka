@@ -20,13 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disassociates the associated Key Management Service customer master key
--- (CMK) from the specified log group.
+-- Disassociates the associated KMS key from the specified log group.
 --
--- After the KMS CMK is disassociated from the log group, CloudWatch Logs
+-- After the KMS key is disassociated from the log group, CloudWatch Logs
 -- stops encrypting newly ingested data for the log group. All previously
 -- ingested data remains encrypted, and CloudWatch Logs requires
--- permissions for the CMK whenever the encrypted data is requested.
+-- permissions for the KMS key whenever the encrypted data is requested.
 --
 -- Note that it can take up to 5 minutes for this operation to take effect.
 module Amazonka.CloudWatchLogs.DisassociateKmsKey

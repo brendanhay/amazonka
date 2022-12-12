@@ -34,11 +34,6 @@ data Volume = Volume'
     -- System file system for job storage. Jobs that are running on Fargate
     -- resources must specify a @platformVersion@ of at least @1.4.0@.
     efsVolumeConfiguration :: Prelude.Maybe EFSVolumeConfiguration,
-    -- | The name of the volume. It can be up to 255 characters long. It can
-    -- contain uppercase and lowercase letters, numbers, hyphens (-), and
-    -- underscores (_). This name is referenced in the @sourceVolume@ parameter
-    -- of container definition @mountPoints@.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The contents of the @host@ parameter determine whether your data volume
     -- persists on the host container instance and where it\'s stored. If the
     -- host parameter is empty, then the Docker daemon assigns a host path for
@@ -47,7 +42,12 @@ data Volume = Volume'
     --
     -- This parameter isn\'t applicable to jobs that are running on Fargate
     -- resources and shouldn\'t be provided.
-    host :: Prelude.Maybe Host
+    host :: Prelude.Maybe Host,
+    -- | The name of the volume. It can be up to 255 characters long. It can
+    -- contain uppercase and lowercase letters, numbers, hyphens (-), and
+    -- underscores (_). This name is referenced in the @sourceVolume@ parameter
+    -- of container definition @mountPoints@.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,11 +63,6 @@ data Volume = Volume'
 -- System file system for job storage. Jobs that are running on Fargate
 -- resources must specify a @platformVersion@ of at least @1.4.0@.
 --
--- 'name', 'volume_name' - The name of the volume. It can be up to 255 characters long. It can
--- contain uppercase and lowercase letters, numbers, hyphens (-), and
--- underscores (_). This name is referenced in the @sourceVolume@ parameter
--- of container definition @mountPoints@.
---
 -- 'host', 'volume_host' - The contents of the @host@ parameter determine whether your data volume
 -- persists on the host container instance and where it\'s stored. If the
 -- host parameter is empty, then the Docker daemon assigns a host path for
@@ -76,13 +71,18 @@ data Volume = Volume'
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
 -- resources and shouldn\'t be provided.
+--
+-- 'name', 'volume_name' - The name of the volume. It can be up to 255 characters long. It can
+-- contain uppercase and lowercase letters, numbers, hyphens (-), and
+-- underscores (_). This name is referenced in the @sourceVolume@ parameter
+-- of container definition @mountPoints@.
 newVolume ::
   Volume
 newVolume =
   Volume'
     { efsVolumeConfiguration = Prelude.Nothing,
-      name = Prelude.Nothing,
-      host = Prelude.Nothing
+      host = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | This parameter is specified when you\'re using an Amazon Elastic File
@@ -90,13 +90,6 @@ newVolume =
 -- resources must specify a @platformVersion@ of at least @1.4.0@.
 volume_efsVolumeConfiguration :: Lens.Lens' Volume (Prelude.Maybe EFSVolumeConfiguration)
 volume_efsVolumeConfiguration = Lens.lens (\Volume' {efsVolumeConfiguration} -> efsVolumeConfiguration) (\s@Volume' {} a -> s {efsVolumeConfiguration = a} :: Volume)
-
--- | The name of the volume. It can be up to 255 characters long. It can
--- contain uppercase and lowercase letters, numbers, hyphens (-), and
--- underscores (_). This name is referenced in the @sourceVolume@ parameter
--- of container definition @mountPoints@.
-volume_name :: Lens.Lens' Volume (Prelude.Maybe Prelude.Text)
-volume_name = Lens.lens (\Volume' {name} -> name) (\s@Volume' {} a -> s {name = a} :: Volume)
 
 -- | The contents of the @host@ parameter determine whether your data volume
 -- persists on the host container instance and where it\'s stored. If the
@@ -109,6 +102,13 @@ volume_name = Lens.lens (\Volume' {name} -> name) (\s@Volume' {} a -> s {name = 
 volume_host :: Lens.Lens' Volume (Prelude.Maybe Host)
 volume_host = Lens.lens (\Volume' {host} -> host) (\s@Volume' {} a -> s {host = a} :: Volume)
 
+-- | The name of the volume. It can be up to 255 characters long. It can
+-- contain uppercase and lowercase letters, numbers, hyphens (-), and
+-- underscores (_). This name is referenced in the @sourceVolume@ parameter
+-- of container definition @mountPoints@.
+volume_name :: Lens.Lens' Volume (Prelude.Maybe Prelude.Text)
+volume_name = Lens.lens (\Volume' {name} -> name) (\s@Volume' {} a -> s {name = a} :: Volume)
+
 instance Data.FromJSON Volume where
   parseJSON =
     Data.withObject
@@ -116,21 +116,21 @@ instance Data.FromJSON Volume where
       ( \x ->
           Volume'
             Prelude.<$> (x Data..:? "efsVolumeConfiguration")
-            Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "host")
+            Prelude.<*> (x Data..:? "name")
       )
 
 instance Prelude.Hashable Volume where
   hashWithSalt _salt Volume' {..} =
     _salt `Prelude.hashWithSalt` efsVolumeConfiguration
-      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` host
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData Volume where
   rnf Volume' {..} =
     Prelude.rnf efsVolumeConfiguration
-      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf host
+      `Prelude.seq` Prelude.rnf name
 
 instance Data.ToJSON Volume where
   toJSON Volume' {..} =
@@ -138,7 +138,7 @@ instance Data.ToJSON Volume where
       ( Prelude.catMaybes
           [ ("efsVolumeConfiguration" Data..=)
               Prelude.<$> efsVolumeConfiguration,
-            ("name" Data..=) Prelude.<$> name,
-            ("host" Data..=) Prelude.<$> host
+            ("host" Data..=) Prelude.<$> host,
+            ("name" Data..=) Prelude.<$> name
           ]
       )

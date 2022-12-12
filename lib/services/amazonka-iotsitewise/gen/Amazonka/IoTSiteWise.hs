@@ -27,56 +27,56 @@ module Amazonka.IoTSiteWise
     -- * Errors
     -- $errors
 
-    -- ** ResourceAlreadyExistsException
-    _ResourceAlreadyExistsException,
-
     -- ** ConflictingOperationException
     _ConflictingOperationException,
-
-    -- ** UnauthorizedException
-    _UnauthorizedException,
-
-    -- ** TooManyTagsException
-    _TooManyTagsException,
-
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
-
-    -- ** InvalidRequestException
-    _InvalidRequestException,
 
     -- ** InternalFailureException
     _InternalFailureException,
 
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** ResourceAlreadyExistsException
+    _ResourceAlreadyExistsException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
+
+    -- ** UnauthorizedException
+    _UnauthorizedException,
+
     -- * Waiters
     -- $waiters
-
-    -- ** AssetNotExists
-    newAssetNotExists,
-
-    -- ** PortalNotExists
-    newPortalNotExists,
 
     -- ** AssetActive
     newAssetActive,
 
-    -- ** AssetModelNotExists
-    newAssetModelNotExists,
-
     -- ** AssetModelActive
     newAssetModelActive,
 
+    -- ** AssetModelNotExists
+    newAssetModelNotExists,
+
+    -- ** AssetNotExists
+    newAssetNotExists,
+
     -- ** PortalActive
     newPortalActive,
+
+    -- ** PortalNotExists
+    newPortalNotExists,
 
     -- * Operations
     -- $operations

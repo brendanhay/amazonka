@@ -27,8 +27,8 @@ module Amazonka.DrS.CreateReplicationConfigurationTemplate
     newCreateReplicationConfigurationTemplate,
 
     -- * Request Lenses
-    createReplicationConfigurationTemplate_tags,
     createReplicationConfigurationTemplate_ebsEncryptionKeyArn,
+    createReplicationConfigurationTemplate_tags,
     createReplicationConfigurationTemplate_associateDefaultSecurityGroup,
     createReplicationConfigurationTemplate_bandwidthThrottling,
     createReplicationConfigurationTemplate_createPublicIP,
@@ -47,21 +47,21 @@ module Amazonka.DrS.CreateReplicationConfigurationTemplate
     newReplicationConfigurationTemplate,
 
     -- * Response Lenses
-    replicationConfigurationTemplate_tags,
-    replicationConfigurationTemplate_bandwidthThrottling,
-    replicationConfigurationTemplate_replicationServerInstanceType,
-    replicationConfigurationTemplate_stagingAreaTags,
-    replicationConfigurationTemplate_associateDefaultSecurityGroup,
-    replicationConfigurationTemplate_defaultLargeStagingDiskType,
     replicationConfigurationTemplate_arn,
-    replicationConfigurationTemplate_stagingAreaSubnetId,
+    replicationConfigurationTemplate_associateDefaultSecurityGroup,
+    replicationConfigurationTemplate_bandwidthThrottling,
     replicationConfigurationTemplate_createPublicIP,
     replicationConfigurationTemplate_dataPlaneRouting,
+    replicationConfigurationTemplate_defaultLargeStagingDiskType,
     replicationConfigurationTemplate_ebsEncryption,
-    replicationConfigurationTemplate_pitPolicy,
-    replicationConfigurationTemplate_useDedicatedReplicationServer,
-    replicationConfigurationTemplate_replicationServersSecurityGroupsIDs,
     replicationConfigurationTemplate_ebsEncryptionKeyArn,
+    replicationConfigurationTemplate_pitPolicy,
+    replicationConfigurationTemplate_replicationServerInstanceType,
+    replicationConfigurationTemplate_replicationServersSecurityGroupsIDs,
+    replicationConfigurationTemplate_stagingAreaSubnetId,
+    replicationConfigurationTemplate_stagingAreaTags,
+    replicationConfigurationTemplate_tags,
+    replicationConfigurationTemplate_useDedicatedReplicationServer,
     replicationConfigurationTemplate_replicationConfigurationTemplateID,
   )
 where
@@ -76,11 +76,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateReplicationConfigurationTemplate' smart constructor.
 data CreateReplicationConfigurationTemplate = CreateReplicationConfigurationTemplate'
-  { -- | A set of tags to be associated with the Replication Configuration
+  { -- | The ARN of the EBS encryption key to be used during replication.
+    ebsEncryptionKeyArn :: Prelude.Maybe Prelude.Text,
+    -- | A set of tags to be associated with the Replication Configuration
     -- Template resource.
     tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
-    -- | The ARN of the EBS encryption key to be used during replication.
-    ebsEncryptionKeyArn :: Prelude.Maybe Prelude.Text,
     -- | Whether to associate the default Elastic Disaster Recovery Security
     -- group with the Replication Configuration Template.
     associateDefaultSecurityGroup :: Prelude.Bool,
@@ -122,10 +122,10 @@ data CreateReplicationConfigurationTemplate = CreateReplicationConfigurationTemp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ebsEncryptionKeyArn', 'createReplicationConfigurationTemplate_ebsEncryptionKeyArn' - The ARN of the EBS encryption key to be used during replication.
+--
 -- 'tags', 'createReplicationConfigurationTemplate_tags' - A set of tags to be associated with the Replication Configuration
 -- Template resource.
---
--- 'ebsEncryptionKeyArn', 'createReplicationConfigurationTemplate_ebsEncryptionKeyArn' - The ARN of the EBS encryption key to be used during replication.
 --
 -- 'associateDefaultSecurityGroup', 'createReplicationConfigurationTemplate_associateDefaultSecurityGroup' - Whether to associate the default Elastic Disaster Recovery Security
 -- group with the Replication Configuration Template.
@@ -190,10 +190,9 @@ newCreateReplicationConfigurationTemplate
   pStagingAreaSubnetId_
   pUseDedicatedReplicationServer_ =
     CreateReplicationConfigurationTemplate'
-      { tags =
+      { ebsEncryptionKeyArn =
           Prelude.Nothing,
-        ebsEncryptionKeyArn =
-          Prelude.Nothing,
+        tags = Prelude.Nothing,
         associateDefaultSecurityGroup =
           pAssociateDefaultSecurityGroup_,
         bandwidthThrottling =
@@ -217,14 +216,14 @@ newCreateReplicationConfigurationTemplate
           pUseDedicatedReplicationServer_
       }
 
+-- | The ARN of the EBS encryption key to be used during replication.
+createReplicationConfigurationTemplate_ebsEncryptionKeyArn :: Lens.Lens' CreateReplicationConfigurationTemplate (Prelude.Maybe Prelude.Text)
+createReplicationConfigurationTemplate_ebsEncryptionKeyArn = Lens.lens (\CreateReplicationConfigurationTemplate' {ebsEncryptionKeyArn} -> ebsEncryptionKeyArn) (\s@CreateReplicationConfigurationTemplate' {} a -> s {ebsEncryptionKeyArn = a} :: CreateReplicationConfigurationTemplate)
+
 -- | A set of tags to be associated with the Replication Configuration
 -- Template resource.
 createReplicationConfigurationTemplate_tags :: Lens.Lens' CreateReplicationConfigurationTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createReplicationConfigurationTemplate_tags = Lens.lens (\CreateReplicationConfigurationTemplate' {tags} -> tags) (\s@CreateReplicationConfigurationTemplate' {} a -> s {tags = a} :: CreateReplicationConfigurationTemplate) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
-
--- | The ARN of the EBS encryption key to be used during replication.
-createReplicationConfigurationTemplate_ebsEncryptionKeyArn :: Lens.Lens' CreateReplicationConfigurationTemplate (Prelude.Maybe Prelude.Text)
-createReplicationConfigurationTemplate_ebsEncryptionKeyArn = Lens.lens (\CreateReplicationConfigurationTemplate' {ebsEncryptionKeyArn} -> ebsEncryptionKeyArn) (\s@CreateReplicationConfigurationTemplate' {} a -> s {ebsEncryptionKeyArn = a} :: CreateReplicationConfigurationTemplate)
 
 -- | Whether to associate the default Elastic Disaster Recovery Security
 -- group with the Replication Configuration Template.
@@ -301,8 +300,8 @@ instance
   hashWithSalt
     _salt
     CreateReplicationConfigurationTemplate' {..} =
-      _salt `Prelude.hashWithSalt` tags
-        `Prelude.hashWithSalt` ebsEncryptionKeyArn
+      _salt `Prelude.hashWithSalt` ebsEncryptionKeyArn
+        `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` associateDefaultSecurityGroup
         `Prelude.hashWithSalt` bandwidthThrottling
         `Prelude.hashWithSalt` createPublicIP
@@ -321,8 +320,8 @@ instance
     CreateReplicationConfigurationTemplate
   where
   rnf CreateReplicationConfigurationTemplate' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf ebsEncryptionKeyArn
+    Prelude.rnf ebsEncryptionKeyArn
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf associateDefaultSecurityGroup
       `Prelude.seq` Prelude.rnf bandwidthThrottling
       `Prelude.seq` Prelude.rnf createPublicIP
@@ -357,9 +356,9 @@ instance
   toJSON CreateReplicationConfigurationTemplate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("ebsEncryptionKeyArn" Data..=)
+          [ ("ebsEncryptionKeyArn" Data..=)
               Prelude.<$> ebsEncryptionKeyArn,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ( "associateDefaultSecurityGroup"
                   Data..= associateDefaultSecurityGroup

@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBatchError' smart constructor.
 data BatchError = BatchError'
-  { -- | Error message, determined by the application.
-    message :: Prelude.Maybe Prelude.Text,
+  { -- | Channel ARN.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | Error code.
     code :: Prelude.Maybe Prelude.Text,
-    -- | Channel ARN.
-    arn :: Prelude.Maybe Prelude.Text
+    -- | Error message, determined by the application.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,31 +45,31 @@ data BatchError = BatchError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'batchError_message' - Error message, determined by the application.
+-- 'arn', 'batchError_arn' - Channel ARN.
 --
 -- 'code', 'batchError_code' - Error code.
 --
--- 'arn', 'batchError_arn' - Channel ARN.
+-- 'message', 'batchError_message' - Error message, determined by the application.
 newBatchError ::
   BatchError
 newBatchError =
   BatchError'
-    { message = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       code = Prelude.Nothing,
-      arn = Prelude.Nothing
+      message = Prelude.Nothing
     }
 
--- | Error message, determined by the application.
-batchError_message :: Lens.Lens' BatchError (Prelude.Maybe Prelude.Text)
-batchError_message = Lens.lens (\BatchError' {message} -> message) (\s@BatchError' {} a -> s {message = a} :: BatchError)
+-- | Channel ARN.
+batchError_arn :: Lens.Lens' BatchError (Prelude.Maybe Prelude.Text)
+batchError_arn = Lens.lens (\BatchError' {arn} -> arn) (\s@BatchError' {} a -> s {arn = a} :: BatchError)
 
 -- | Error code.
 batchError_code :: Lens.Lens' BatchError (Prelude.Maybe Prelude.Text)
 batchError_code = Lens.lens (\BatchError' {code} -> code) (\s@BatchError' {} a -> s {code = a} :: BatchError)
 
--- | Channel ARN.
-batchError_arn :: Lens.Lens' BatchError (Prelude.Maybe Prelude.Text)
-batchError_arn = Lens.lens (\BatchError' {arn} -> arn) (\s@BatchError' {} a -> s {arn = a} :: BatchError)
+-- | Error message, determined by the application.
+batchError_message :: Lens.Lens' BatchError (Prelude.Maybe Prelude.Text)
+batchError_message = Lens.lens (\BatchError' {message} -> message) (\s@BatchError' {} a -> s {message = a} :: BatchError)
 
 instance Data.FromJSON BatchError where
   parseJSON =
@@ -77,19 +77,19 @@ instance Data.FromJSON BatchError where
       "BatchError"
       ( \x ->
           BatchError'
-            Prelude.<$> (x Data..:? "message")
+            Prelude.<$> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "code")
-            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "message")
       )
 
 instance Prelude.Hashable BatchError where
   hashWithSalt _salt BatchError' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` code
-      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` message
 
 instance Prelude.NFData BatchError where
   rnf BatchError' {..} =
-    Prelude.rnf message
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf code
-      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf message

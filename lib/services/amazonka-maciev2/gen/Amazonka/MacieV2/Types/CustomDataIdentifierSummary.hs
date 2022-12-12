@@ -28,17 +28,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCustomDataIdentifierSummary' smart constructor.
 data CustomDataIdentifierSummary = CustomDataIdentifierSummary'
-  { -- | The custom name of the custom data identifier.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the custom data identifier.
+  { -- | The Amazon Resource Name (ARN) of the custom data identifier.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The date and time, in UTC and extended ISO 8601 format, when the custom
+    -- data identifier was created.
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The custom description of the custom data identifier.
     description :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the custom data identifier.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The date and time, in UTC and extended ISO 8601 format, when the custom
-    -- data identifier was created.
-    createdAt :: Prelude.Maybe Data.POSIX
+    -- | The custom name of the custom data identifier.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,35 +50,35 @@ data CustomDataIdentifierSummary = CustomDataIdentifierSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'customDataIdentifierSummary_name' - The custom name of the custom data identifier.
---
 -- 'arn', 'customDataIdentifierSummary_arn' - The Amazon Resource Name (ARN) of the custom data identifier.
+--
+-- 'createdAt', 'customDataIdentifierSummary_createdAt' - The date and time, in UTC and extended ISO 8601 format, when the custom
+-- data identifier was created.
 --
 -- 'description', 'customDataIdentifierSummary_description' - The custom description of the custom data identifier.
 --
 -- 'id', 'customDataIdentifierSummary_id' - The unique identifier for the custom data identifier.
 --
--- 'createdAt', 'customDataIdentifierSummary_createdAt' - The date and time, in UTC and extended ISO 8601 format, when the custom
--- data identifier was created.
+-- 'name', 'customDataIdentifierSummary_name' - The custom name of the custom data identifier.
 newCustomDataIdentifierSummary ::
   CustomDataIdentifierSummary
 newCustomDataIdentifierSummary =
   CustomDataIdentifierSummary'
-    { name =
-        Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
       description = Prelude.Nothing,
       id = Prelude.Nothing,
-      createdAt = Prelude.Nothing
+      name = Prelude.Nothing
     }
-
--- | The custom name of the custom data identifier.
-customDataIdentifierSummary_name :: Lens.Lens' CustomDataIdentifierSummary (Prelude.Maybe Prelude.Text)
-customDataIdentifierSummary_name = Lens.lens (\CustomDataIdentifierSummary' {name} -> name) (\s@CustomDataIdentifierSummary' {} a -> s {name = a} :: CustomDataIdentifierSummary)
 
 -- | The Amazon Resource Name (ARN) of the custom data identifier.
 customDataIdentifierSummary_arn :: Lens.Lens' CustomDataIdentifierSummary (Prelude.Maybe Prelude.Text)
 customDataIdentifierSummary_arn = Lens.lens (\CustomDataIdentifierSummary' {arn} -> arn) (\s@CustomDataIdentifierSummary' {} a -> s {arn = a} :: CustomDataIdentifierSummary)
+
+-- | The date and time, in UTC and extended ISO 8601 format, when the custom
+-- data identifier was created.
+customDataIdentifierSummary_createdAt :: Lens.Lens' CustomDataIdentifierSummary (Prelude.Maybe Prelude.UTCTime)
+customDataIdentifierSummary_createdAt = Lens.lens (\CustomDataIdentifierSummary' {createdAt} -> createdAt) (\s@CustomDataIdentifierSummary' {} a -> s {createdAt = a} :: CustomDataIdentifierSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The custom description of the custom data identifier.
 customDataIdentifierSummary_description :: Lens.Lens' CustomDataIdentifierSummary (Prelude.Maybe Prelude.Text)
@@ -88,10 +88,9 @@ customDataIdentifierSummary_description = Lens.lens (\CustomDataIdentifierSummar
 customDataIdentifierSummary_id :: Lens.Lens' CustomDataIdentifierSummary (Prelude.Maybe Prelude.Text)
 customDataIdentifierSummary_id = Lens.lens (\CustomDataIdentifierSummary' {id} -> id) (\s@CustomDataIdentifierSummary' {} a -> s {id = a} :: CustomDataIdentifierSummary)
 
--- | The date and time, in UTC and extended ISO 8601 format, when the custom
--- data identifier was created.
-customDataIdentifierSummary_createdAt :: Lens.Lens' CustomDataIdentifierSummary (Prelude.Maybe Prelude.UTCTime)
-customDataIdentifierSummary_createdAt = Lens.lens (\CustomDataIdentifierSummary' {createdAt} -> createdAt) (\s@CustomDataIdentifierSummary' {} a -> s {createdAt = a} :: CustomDataIdentifierSummary) Prelude.. Lens.mapping Data._Time
+-- | The custom name of the custom data identifier.
+customDataIdentifierSummary_name :: Lens.Lens' CustomDataIdentifierSummary (Prelude.Maybe Prelude.Text)
+customDataIdentifierSummary_name = Lens.lens (\CustomDataIdentifierSummary' {name} -> name) (\s@CustomDataIdentifierSummary' {} a -> s {name = a} :: CustomDataIdentifierSummary)
 
 instance Data.FromJSON CustomDataIdentifierSummary where
   parseJSON =
@@ -99,25 +98,25 @@ instance Data.FromJSON CustomDataIdentifierSummary where
       "CustomDataIdentifierSummary"
       ( \x ->
           CustomDataIdentifierSummary'
-            Prelude.<$> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "arn")
+            Prelude.<$> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "createdAt")
             Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "id")
-            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "name")
       )
 
 instance Prelude.Hashable CustomDataIdentifierSummary where
   hashWithSalt _salt CustomDataIdentifierSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CustomDataIdentifierSummary where
   rnf CustomDataIdentifierSummary' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf name

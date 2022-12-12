@@ -30,8 +30,8 @@ module Amazonka.ServiceCatalogAppRegistry.ListAttributeGroupsForApplication
     newListAttributeGroupsForApplication,
 
     -- * Request Lenses
-    listAttributeGroupsForApplication_nextToken,
     listAttributeGroupsForApplication_maxResults,
+    listAttributeGroupsForApplication_nextToken,
     listAttributeGroupsForApplication_application,
 
     -- * Destructuring the Response
@@ -39,8 +39,8 @@ module Amazonka.ServiceCatalogAppRegistry.ListAttributeGroupsForApplication
     newListAttributeGroupsForApplicationResponse,
 
     -- * Response Lenses
-    listAttributeGroupsForApplicationResponse_nextToken,
     listAttributeGroupsForApplicationResponse_attributeGroupsDetails,
+    listAttributeGroupsForApplicationResponse_nextToken,
     listAttributeGroupsForApplicationResponse_httpStatus,
   )
 where
@@ -55,12 +55,12 @@ import Amazonka.ServiceCatalogAppRegistry.Types
 
 -- | /See:/ 'newListAttributeGroupsForApplication' smart constructor.
 data ListAttributeGroupsForApplication = ListAttributeGroupsForApplication'
-  { -- | This token retrieves the next page of results after a previous API call.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The upper bound of the number of results to return. The value cannot
+  { -- | The upper bound of the number of results to return. The value cannot
     -- exceed 25. If you omit this parameter, it defaults to 25. This value is
     -- optional.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | This token retrieves the next page of results after a previous API call.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name or ID of the application.
     application :: Prelude.Text
   }
@@ -74,11 +74,11 @@ data ListAttributeGroupsForApplication = ListAttributeGroupsForApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAttributeGroupsForApplication_nextToken' - This token retrieves the next page of results after a previous API call.
---
 -- 'maxResults', 'listAttributeGroupsForApplication_maxResults' - The upper bound of the number of results to return. The value cannot
 -- exceed 25. If you omit this parameter, it defaults to 25. This value is
 -- optional.
+--
+-- 'nextToken', 'listAttributeGroupsForApplication_nextToken' - This token retrieves the next page of results after a previous API call.
 --
 -- 'application', 'listAttributeGroupsForApplication_application' - The name or ID of the application.
 newListAttributeGroupsForApplication ::
@@ -87,21 +87,21 @@ newListAttributeGroupsForApplication ::
   ListAttributeGroupsForApplication
 newListAttributeGroupsForApplication pApplication_ =
   ListAttributeGroupsForApplication'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       application = pApplication_
     }
-
--- | This token retrieves the next page of results after a previous API call.
-listAttributeGroupsForApplication_nextToken :: Lens.Lens' ListAttributeGroupsForApplication (Prelude.Maybe Prelude.Text)
-listAttributeGroupsForApplication_nextToken = Lens.lens (\ListAttributeGroupsForApplication' {nextToken} -> nextToken) (\s@ListAttributeGroupsForApplication' {} a -> s {nextToken = a} :: ListAttributeGroupsForApplication)
 
 -- | The upper bound of the number of results to return. The value cannot
 -- exceed 25. If you omit this parameter, it defaults to 25. This value is
 -- optional.
 listAttributeGroupsForApplication_maxResults :: Lens.Lens' ListAttributeGroupsForApplication (Prelude.Maybe Prelude.Natural)
 listAttributeGroupsForApplication_maxResults = Lens.lens (\ListAttributeGroupsForApplication' {maxResults} -> maxResults) (\s@ListAttributeGroupsForApplication' {} a -> s {maxResults = a} :: ListAttributeGroupsForApplication)
+
+-- | This token retrieves the next page of results after a previous API call.
+listAttributeGroupsForApplication_nextToken :: Lens.Lens' ListAttributeGroupsForApplication (Prelude.Maybe Prelude.Text)
+listAttributeGroupsForApplication_nextToken = Lens.lens (\ListAttributeGroupsForApplication' {nextToken} -> nextToken) (\s@ListAttributeGroupsForApplication' {} a -> s {nextToken = a} :: ListAttributeGroupsForApplication)
 
 -- | The name or ID of the application.
 listAttributeGroupsForApplication_application :: Lens.Lens' ListAttributeGroupsForApplication Prelude.Text
@@ -145,10 +145,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListAttributeGroupsForApplicationResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-              Prelude.<*> ( x Data..?> "attributeGroupsDetails"
-                              Core..!@ Prelude.mempty
-                          )
+            Prelude.<$> ( x Data..?> "attributeGroupsDetails"
+                            Core..!@ Prelude.mempty
+                        )
+              Prelude.<*> (x Data..?> "nextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,8 +159,8 @@ instance
   hashWithSalt
     _salt
     ListAttributeGroupsForApplication' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` application
 
 instance
@@ -168,8 +168,8 @@ instance
     ListAttributeGroupsForApplication
   where
   rnf ListAttributeGroupsForApplication' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf application
 
 instance
@@ -203,17 +203,17 @@ instance
   where
   toQuery ListAttributeGroupsForApplication' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListAttributeGroupsForApplicationResponse' smart constructor.
 data ListAttributeGroupsForApplicationResponse = ListAttributeGroupsForApplicationResponse'
-  { -- | The token to use to get the next page of results after a previous API
+  { -- | The details related to a specific attribute group.
+    attributeGroupsDetails :: Prelude.Maybe [AttributeGroupDetails],
+    -- | The token to use to get the next page of results after a previous API
     -- call.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The details related to a specific attribute group.
-    attributeGroupsDetails :: Prelude.Maybe [AttributeGroupDetails],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -227,10 +227,10 @@ data ListAttributeGroupsForApplicationResponse = ListAttributeGroupsForApplicati
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'attributeGroupsDetails', 'listAttributeGroupsForApplicationResponse_attributeGroupsDetails' - The details related to a specific attribute group.
+--
 -- 'nextToken', 'listAttributeGroupsForApplicationResponse_nextToken' - The token to use to get the next page of results after a previous API
 -- call.
---
--- 'attributeGroupsDetails', 'listAttributeGroupsForApplicationResponse_attributeGroupsDetails' - The details related to a specific attribute group.
 --
 -- 'httpStatus', 'listAttributeGroupsForApplicationResponse_httpStatus' - The response's http status code.
 newListAttributeGroupsForApplicationResponse ::
@@ -240,21 +240,20 @@ newListAttributeGroupsForApplicationResponse ::
 newListAttributeGroupsForApplicationResponse
   pHttpStatus_ =
     ListAttributeGroupsForApplicationResponse'
-      { nextToken =
+      { attributeGroupsDetails =
           Prelude.Nothing,
-        attributeGroupsDetails =
-          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | The details related to a specific attribute group.
+listAttributeGroupsForApplicationResponse_attributeGroupsDetails :: Lens.Lens' ListAttributeGroupsForApplicationResponse (Prelude.Maybe [AttributeGroupDetails])
+listAttributeGroupsForApplicationResponse_attributeGroupsDetails = Lens.lens (\ListAttributeGroupsForApplicationResponse' {attributeGroupsDetails} -> attributeGroupsDetails) (\s@ListAttributeGroupsForApplicationResponse' {} a -> s {attributeGroupsDetails = a} :: ListAttributeGroupsForApplicationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to get the next page of results after a previous API
 -- call.
 listAttributeGroupsForApplicationResponse_nextToken :: Lens.Lens' ListAttributeGroupsForApplicationResponse (Prelude.Maybe Prelude.Text)
 listAttributeGroupsForApplicationResponse_nextToken = Lens.lens (\ListAttributeGroupsForApplicationResponse' {nextToken} -> nextToken) (\s@ListAttributeGroupsForApplicationResponse' {} a -> s {nextToken = a} :: ListAttributeGroupsForApplicationResponse)
-
--- | The details related to a specific attribute group.
-listAttributeGroupsForApplicationResponse_attributeGroupsDetails :: Lens.Lens' ListAttributeGroupsForApplicationResponse (Prelude.Maybe [AttributeGroupDetails])
-listAttributeGroupsForApplicationResponse_attributeGroupsDetails = Lens.lens (\ListAttributeGroupsForApplicationResponse' {attributeGroupsDetails} -> attributeGroupsDetails) (\s@ListAttributeGroupsForApplicationResponse' {} a -> s {attributeGroupsDetails = a} :: ListAttributeGroupsForApplicationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAttributeGroupsForApplicationResponse_httpStatus :: Lens.Lens' ListAttributeGroupsForApplicationResponse Prelude.Int
@@ -265,6 +264,6 @@ instance
     ListAttributeGroupsForApplicationResponse
   where
   rnf ListAttributeGroupsForApplicationResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf attributeGroupsDetails
+    Prelude.rnf attributeGroupsDetails
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

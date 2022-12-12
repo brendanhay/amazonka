@@ -53,10 +53,10 @@ module Amazonka.Backup.UpdateRecoveryPointLifecycle
     newUpdateRecoveryPointLifecycleResponse,
 
     -- * Response Lenses
-    updateRecoveryPointLifecycleResponse_lifecycle,
-    updateRecoveryPointLifecycleResponse_recoveryPointArn,
     updateRecoveryPointLifecycleResponse_backupVaultArn,
     updateRecoveryPointLifecycleResponse_calculatedLifecycle,
+    updateRecoveryPointLifecycleResponse_lifecycle,
+    updateRecoveryPointLifecycleResponse_recoveryPointArn,
     updateRecoveryPointLifecycleResponse_httpStatus,
   )
 where
@@ -170,10 +170,10 @@ instance Core.AWSRequest UpdateRecoveryPointLifecycle where
     Response.receiveJSON
       ( \s h x ->
           UpdateRecoveryPointLifecycleResponse'
-            Prelude.<$> (x Data..?> "Lifecycle")
-            Prelude.<*> (x Data..?> "RecoveryPointArn")
-            Prelude.<*> (x Data..?> "BackupVaultArn")
+            Prelude.<$> (x Data..?> "BackupVaultArn")
             Prelude.<*> (x Data..?> "CalculatedLifecycle")
+            Prelude.<*> (x Data..?> "Lifecycle")
+            Prelude.<*> (x Data..?> "RecoveryPointArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -224,7 +224,13 @@ instance Data.ToQuery UpdateRecoveryPointLifecycle where
 
 -- | /See:/ 'newUpdateRecoveryPointLifecycleResponse' smart constructor.
 data UpdateRecoveryPointLifecycleResponse = UpdateRecoveryPointLifecycleResponse'
-  { -- | The lifecycle defines when a protected resource is transitioned to cold
+  { -- | An ARN that uniquely identifies a backup vault; for example,
+    -- @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
+    backupVaultArn :: Prelude.Maybe Prelude.Text,
+    -- | A @CalculatedLifecycle@ object containing @DeleteAt@ and
+    -- @MoveToColdStorageAt@ timestamps.
+    calculatedLifecycle :: Prelude.Maybe CalculatedLifecycle,
+    -- | The lifecycle defines when a protected resource is transitioned to cold
     -- storage and when it expires. Backup transitions and expires backups
     -- automatically according to the lifecycle that you define.
     --
@@ -243,12 +249,6 @@ data UpdateRecoveryPointLifecycleResponse = UpdateRecoveryPointLifecycleResponse
     -- for example,
     -- @arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45@.
     recoveryPointArn :: Prelude.Maybe Prelude.Text,
-    -- | An ARN that uniquely identifies a backup vault; for example,
-    -- @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
-    backupVaultArn :: Prelude.Maybe Prelude.Text,
-    -- | A @CalculatedLifecycle@ object containing @DeleteAt@ and
-    -- @MoveToColdStorageAt@ timestamps.
-    calculatedLifecycle :: Prelude.Maybe CalculatedLifecycle,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -261,6 +261,12 @@ data UpdateRecoveryPointLifecycleResponse = UpdateRecoveryPointLifecycleResponse
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'backupVaultArn', 'updateRecoveryPointLifecycleResponse_backupVaultArn' - An ARN that uniquely identifies a backup vault; for example,
+-- @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
+--
+-- 'calculatedLifecycle', 'updateRecoveryPointLifecycleResponse_calculatedLifecycle' - A @CalculatedLifecycle@ object containing @DeleteAt@ and
+-- @MoveToColdStorageAt@ timestamps.
 --
 -- 'lifecycle', 'updateRecoveryPointLifecycleResponse_lifecycle' - The lifecycle defines when a protected resource is transitioned to cold
 -- storage and when it expires. Backup transitions and expires backups
@@ -281,12 +287,6 @@ data UpdateRecoveryPointLifecycleResponse = UpdateRecoveryPointLifecycleResponse
 -- for example,
 -- @arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45@.
 --
--- 'backupVaultArn', 'updateRecoveryPointLifecycleResponse_backupVaultArn' - An ARN that uniquely identifies a backup vault; for example,
--- @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
---
--- 'calculatedLifecycle', 'updateRecoveryPointLifecycleResponse_calculatedLifecycle' - A @CalculatedLifecycle@ object containing @DeleteAt@ and
--- @MoveToColdStorageAt@ timestamps.
---
 -- 'httpStatus', 'updateRecoveryPointLifecycleResponse_httpStatus' - The response's http status code.
 newUpdateRecoveryPointLifecycleResponse ::
   -- | 'httpStatus'
@@ -294,13 +294,23 @@ newUpdateRecoveryPointLifecycleResponse ::
   UpdateRecoveryPointLifecycleResponse
 newUpdateRecoveryPointLifecycleResponse pHttpStatus_ =
   UpdateRecoveryPointLifecycleResponse'
-    { lifecycle =
+    { backupVaultArn =
         Prelude.Nothing,
-      recoveryPointArn = Prelude.Nothing,
-      backupVaultArn = Prelude.Nothing,
       calculatedLifecycle = Prelude.Nothing,
+      lifecycle = Prelude.Nothing,
+      recoveryPointArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An ARN that uniquely identifies a backup vault; for example,
+-- @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
+updateRecoveryPointLifecycleResponse_backupVaultArn :: Lens.Lens' UpdateRecoveryPointLifecycleResponse (Prelude.Maybe Prelude.Text)
+updateRecoveryPointLifecycleResponse_backupVaultArn = Lens.lens (\UpdateRecoveryPointLifecycleResponse' {backupVaultArn} -> backupVaultArn) (\s@UpdateRecoveryPointLifecycleResponse' {} a -> s {backupVaultArn = a} :: UpdateRecoveryPointLifecycleResponse)
+
+-- | A @CalculatedLifecycle@ object containing @DeleteAt@ and
+-- @MoveToColdStorageAt@ timestamps.
+updateRecoveryPointLifecycleResponse_calculatedLifecycle :: Lens.Lens' UpdateRecoveryPointLifecycleResponse (Prelude.Maybe CalculatedLifecycle)
+updateRecoveryPointLifecycleResponse_calculatedLifecycle = Lens.lens (\UpdateRecoveryPointLifecycleResponse' {calculatedLifecycle} -> calculatedLifecycle) (\s@UpdateRecoveryPointLifecycleResponse' {} a -> s {calculatedLifecycle = a} :: UpdateRecoveryPointLifecycleResponse)
 
 -- | The lifecycle defines when a protected resource is transitioned to cold
 -- storage and when it expires. Backup transitions and expires backups
@@ -325,16 +335,6 @@ updateRecoveryPointLifecycleResponse_lifecycle = Lens.lens (\UpdateRecoveryPoint
 updateRecoveryPointLifecycleResponse_recoveryPointArn :: Lens.Lens' UpdateRecoveryPointLifecycleResponse (Prelude.Maybe Prelude.Text)
 updateRecoveryPointLifecycleResponse_recoveryPointArn = Lens.lens (\UpdateRecoveryPointLifecycleResponse' {recoveryPointArn} -> recoveryPointArn) (\s@UpdateRecoveryPointLifecycleResponse' {} a -> s {recoveryPointArn = a} :: UpdateRecoveryPointLifecycleResponse)
 
--- | An ARN that uniquely identifies a backup vault; for example,
--- @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
-updateRecoveryPointLifecycleResponse_backupVaultArn :: Lens.Lens' UpdateRecoveryPointLifecycleResponse (Prelude.Maybe Prelude.Text)
-updateRecoveryPointLifecycleResponse_backupVaultArn = Lens.lens (\UpdateRecoveryPointLifecycleResponse' {backupVaultArn} -> backupVaultArn) (\s@UpdateRecoveryPointLifecycleResponse' {} a -> s {backupVaultArn = a} :: UpdateRecoveryPointLifecycleResponse)
-
--- | A @CalculatedLifecycle@ object containing @DeleteAt@ and
--- @MoveToColdStorageAt@ timestamps.
-updateRecoveryPointLifecycleResponse_calculatedLifecycle :: Lens.Lens' UpdateRecoveryPointLifecycleResponse (Prelude.Maybe CalculatedLifecycle)
-updateRecoveryPointLifecycleResponse_calculatedLifecycle = Lens.lens (\UpdateRecoveryPointLifecycleResponse' {calculatedLifecycle} -> calculatedLifecycle) (\s@UpdateRecoveryPointLifecycleResponse' {} a -> s {calculatedLifecycle = a} :: UpdateRecoveryPointLifecycleResponse)
-
 -- | The response's http status code.
 updateRecoveryPointLifecycleResponse_httpStatus :: Lens.Lens' UpdateRecoveryPointLifecycleResponse Prelude.Int
 updateRecoveryPointLifecycleResponse_httpStatus = Lens.lens (\UpdateRecoveryPointLifecycleResponse' {httpStatus} -> httpStatus) (\s@UpdateRecoveryPointLifecycleResponse' {} a -> s {httpStatus = a} :: UpdateRecoveryPointLifecycleResponse)
@@ -344,8 +344,8 @@ instance
     UpdateRecoveryPointLifecycleResponse
   where
   rnf UpdateRecoveryPointLifecycleResponse' {..} =
-    Prelude.rnf lifecycle
-      `Prelude.seq` Prelude.rnf recoveryPointArn
-      `Prelude.seq` Prelude.rnf backupVaultArn
+    Prelude.rnf backupVaultArn
       `Prelude.seq` Prelude.rnf calculatedLifecycle
+      `Prelude.seq` Prelude.rnf lifecycle
+      `Prelude.seq` Prelude.rnf recoveryPointArn
       `Prelude.seq` Prelude.rnf httpStatus

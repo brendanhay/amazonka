@@ -30,10 +30,10 @@ module Amazonka.AlexaBusiness.SearchSkillGroups
     newSearchSkillGroups,
 
     -- * Request Lenses
-    searchSkillGroups_sortCriteria,
-    searchSkillGroups_nextToken,
     searchSkillGroups_filters,
     searchSkillGroups_maxResults,
+    searchSkillGroups_nextToken,
+    searchSkillGroups_sortCriteria,
 
     -- * Destructuring the Response
     SearchSkillGroupsResponse (..),
@@ -57,21 +57,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSearchSkillGroups' smart constructor.
 data SearchSkillGroups = SearchSkillGroups'
-  { -- | The sort order to use in listing the specified set of skill groups. The
-    -- supported sort key is SkillGroupName.
-    sortCriteria :: Prelude.Maybe [Sort],
-    -- | An optional token returned from a prior request. Use this token for
-    -- pagination of results from this action. If this parameter is specified,
-    -- the response includes only results beyond the token, up to the value
-    -- specified by @MaxResults@. Required.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The filters to use to list a specified set of skill groups. The
+  { -- | The filters to use to list a specified set of skill groups. The
     -- supported filter key is SkillGroupName.
     filters :: Prelude.Maybe [Filter],
     -- | The maximum number of results to include in the response. If more
     -- results exist than the specified @MaxResults@ value, a token is included
     -- in the response so that the remaining results can be retrieved.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | An optional token returned from a prior request. Use this token for
+    -- pagination of results from this action. If this parameter is specified,
+    -- the response includes only results beyond the token, up to the value
+    -- specified by @MaxResults@. Required.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The sort order to use in listing the specified set of skill groups. The
+    -- supported sort key is SkillGroupName.
+    sortCriteria :: Prelude.Maybe [Sort]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -83,41 +83,29 @@ data SearchSkillGroups = SearchSkillGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortCriteria', 'searchSkillGroups_sortCriteria' - The sort order to use in listing the specified set of skill groups. The
--- supported sort key is SkillGroupName.
---
--- 'nextToken', 'searchSkillGroups_nextToken' - An optional token returned from a prior request. Use this token for
--- pagination of results from this action. If this parameter is specified,
--- the response includes only results beyond the token, up to the value
--- specified by @MaxResults@. Required.
---
 -- 'filters', 'searchSkillGroups_filters' - The filters to use to list a specified set of skill groups. The
 -- supported filter key is SkillGroupName.
 --
 -- 'maxResults', 'searchSkillGroups_maxResults' - The maximum number of results to include in the response. If more
 -- results exist than the specified @MaxResults@ value, a token is included
 -- in the response so that the remaining results can be retrieved.
+--
+-- 'nextToken', 'searchSkillGroups_nextToken' - An optional token returned from a prior request. Use this token for
+-- pagination of results from this action. If this parameter is specified,
+-- the response includes only results beyond the token, up to the value
+-- specified by @MaxResults@. Required.
+--
+-- 'sortCriteria', 'searchSkillGroups_sortCriteria' - The sort order to use in listing the specified set of skill groups. The
+-- supported sort key is SkillGroupName.
 newSearchSkillGroups ::
   SearchSkillGroups
 newSearchSkillGroups =
   SearchSkillGroups'
-    { sortCriteria = Prelude.Nothing,
+    { filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      sortCriteria = Prelude.Nothing
     }
-
--- | The sort order to use in listing the specified set of skill groups. The
--- supported sort key is SkillGroupName.
-searchSkillGroups_sortCriteria :: Lens.Lens' SearchSkillGroups (Prelude.Maybe [Sort])
-searchSkillGroups_sortCriteria = Lens.lens (\SearchSkillGroups' {sortCriteria} -> sortCriteria) (\s@SearchSkillGroups' {} a -> s {sortCriteria = a} :: SearchSkillGroups) Prelude.. Lens.mapping Lens.coerced
-
--- | An optional token returned from a prior request. Use this token for
--- pagination of results from this action. If this parameter is specified,
--- the response includes only results beyond the token, up to the value
--- specified by @MaxResults@. Required.
-searchSkillGroups_nextToken :: Lens.Lens' SearchSkillGroups (Prelude.Maybe Prelude.Text)
-searchSkillGroups_nextToken = Lens.lens (\SearchSkillGroups' {nextToken} -> nextToken) (\s@SearchSkillGroups' {} a -> s {nextToken = a} :: SearchSkillGroups)
 
 -- | The filters to use to list a specified set of skill groups. The
 -- supported filter key is SkillGroupName.
@@ -129,6 +117,18 @@ searchSkillGroups_filters = Lens.lens (\SearchSkillGroups' {filters} -> filters)
 -- in the response so that the remaining results can be retrieved.
 searchSkillGroups_maxResults :: Lens.Lens' SearchSkillGroups (Prelude.Maybe Prelude.Natural)
 searchSkillGroups_maxResults = Lens.lens (\SearchSkillGroups' {maxResults} -> maxResults) (\s@SearchSkillGroups' {} a -> s {maxResults = a} :: SearchSkillGroups)
+
+-- | An optional token returned from a prior request. Use this token for
+-- pagination of results from this action. If this parameter is specified,
+-- the response includes only results beyond the token, up to the value
+-- specified by @MaxResults@. Required.
+searchSkillGroups_nextToken :: Lens.Lens' SearchSkillGroups (Prelude.Maybe Prelude.Text)
+searchSkillGroups_nextToken = Lens.lens (\SearchSkillGroups' {nextToken} -> nextToken) (\s@SearchSkillGroups' {} a -> s {nextToken = a} :: SearchSkillGroups)
+
+-- | The sort order to use in listing the specified set of skill groups. The
+-- supported sort key is SkillGroupName.
+searchSkillGroups_sortCriteria :: Lens.Lens' SearchSkillGroups (Prelude.Maybe [Sort])
+searchSkillGroups_sortCriteria = Lens.lens (\SearchSkillGroups' {sortCriteria} -> sortCriteria) (\s@SearchSkillGroups' {} a -> s {sortCriteria = a} :: SearchSkillGroups) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSPager SearchSkillGroups where
   page rq rs
@@ -170,17 +170,17 @@ instance Core.AWSRequest SearchSkillGroups where
 
 instance Prelude.Hashable SearchSkillGroups where
   hashWithSalt _salt SearchSkillGroups' {..} =
-    _salt `Prelude.hashWithSalt` sortCriteria
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortCriteria
 
 instance Prelude.NFData SearchSkillGroups where
   rnf SearchSkillGroups' {..} =
-    Prelude.rnf sortCriteria
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortCriteria
 
 instance Data.ToHeaders SearchSkillGroups where
   toHeaders =
@@ -201,10 +201,10 @@ instance Data.ToJSON SearchSkillGroups where
   toJSON SearchSkillGroups' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SortCriteria" Data..=) Prelude.<$> sortCriteria,
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+            ("SortCriteria" Data..=) Prelude.<$> sortCriteria
           ]
       )
 

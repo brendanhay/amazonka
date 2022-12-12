@@ -30,9 +30,9 @@ module Amazonka.AppConfig.ListExtensions
     newListExtensions,
 
     -- * Request Lenses
+    listExtensions_maxResults,
     listExtensions_name,
     listExtensions_nextToken,
-    listExtensions_maxResults,
 
     -- * Destructuring the Response
     ListExtensionsResponse (..),
@@ -55,15 +55,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListExtensions' smart constructor.
 data ListExtensions = ListExtensions'
-  { -- | The extension name.
+  { -- | The maximum number of items to return for this call. The call also
+    -- returns a token that you can specify in a subsequent call to get the
+    -- next set of results.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The extension name.
     name :: Prelude.Maybe Prelude.Text,
     -- | A token to start the list. Use this token to get the next set of
     -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return for this call. The call also
-    -- returns a token that you can specify in a subsequent call to get the
-    -- next set of results.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,22 +75,28 @@ data ListExtensions = ListExtensions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listExtensions_maxResults' - The maximum number of items to return for this call. The call also
+-- returns a token that you can specify in a subsequent call to get the
+-- next set of results.
+--
 -- 'name', 'listExtensions_name' - The extension name.
 --
 -- 'nextToken', 'listExtensions_nextToken' - A token to start the list. Use this token to get the next set of
 -- results.
---
--- 'maxResults', 'listExtensions_maxResults' - The maximum number of items to return for this call. The call also
--- returns a token that you can specify in a subsequent call to get the
--- next set of results.
 newListExtensions ::
   ListExtensions
 newListExtensions =
   ListExtensions'
-    { name = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      name = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of items to return for this call. The call also
+-- returns a token that you can specify in a subsequent call to get the
+-- next set of results.
+listExtensions_maxResults :: Lens.Lens' ListExtensions (Prelude.Maybe Prelude.Natural)
+listExtensions_maxResults = Lens.lens (\ListExtensions' {maxResults} -> maxResults) (\s@ListExtensions' {} a -> s {maxResults = a} :: ListExtensions)
 
 -- | The extension name.
 listExtensions_name :: Lens.Lens' ListExtensions (Prelude.Maybe Prelude.Text)
@@ -100,12 +106,6 @@ listExtensions_name = Lens.lens (\ListExtensions' {name} -> name) (\s@ListExtens
 -- results.
 listExtensions_nextToken :: Lens.Lens' ListExtensions (Prelude.Maybe Prelude.Text)
 listExtensions_nextToken = Lens.lens (\ListExtensions' {nextToken} -> nextToken) (\s@ListExtensions' {} a -> s {nextToken = a} :: ListExtensions)
-
--- | The maximum number of items to return for this call. The call also
--- returns a token that you can specify in a subsequent call to get the
--- next set of results.
-listExtensions_maxResults :: Lens.Lens' ListExtensions (Prelude.Maybe Prelude.Natural)
-listExtensions_maxResults = Lens.lens (\ListExtensions' {maxResults} -> maxResults) (\s@ListExtensions' {} a -> s {maxResults = a} :: ListExtensions)
 
 instance Core.AWSRequest ListExtensions where
   type
@@ -124,15 +124,15 @@ instance Core.AWSRequest ListExtensions where
 
 instance Prelude.Hashable ListExtensions where
   hashWithSalt _salt ListExtensions' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListExtensions where
   rnf ListExtensions' {..} =
-    Prelude.rnf name
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
 
 instance Data.ToHeaders ListExtensions where
   toHeaders =
@@ -151,9 +151,9 @@ instance Data.ToPath ListExtensions where
 instance Data.ToQuery ListExtensions where
   toQuery ListExtensions' {..} =
     Prelude.mconcat
-      [ "name" Data.=: name,
-        "next_token" Data.=: nextToken,
-        "max_results" Data.=: maxResults
+      [ "max_results" Data.=: maxResults,
+        "name" Data.=: name,
+        "next_token" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListExtensionsResponse' smart constructor.

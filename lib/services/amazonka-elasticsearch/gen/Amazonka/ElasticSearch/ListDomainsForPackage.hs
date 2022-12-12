@@ -27,8 +27,8 @@ module Amazonka.ElasticSearch.ListDomainsForPackage
     newListDomainsForPackage,
 
     -- * Request Lenses
-    listDomainsForPackage_nextToken,
     listDomainsForPackage_maxResults,
+    listDomainsForPackage_nextToken,
     listDomainsForPackage_packageID,
 
     -- * Destructuring the Response
@@ -36,8 +36,8 @@ module Amazonka.ElasticSearch.ListDomainsForPackage
     newListDomainsForPackageResponse,
 
     -- * Response Lenses
-    listDomainsForPackageResponse_nextToken,
     listDomainsForPackageResponse_domainPackageDetailsList,
+    listDomainsForPackageResponse_nextToken,
     listDomainsForPackageResponse_httpStatus,
   )
 where
@@ -54,12 +54,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListDomainsForPackage' smart constructor.
 data ListDomainsForPackage = ListDomainsForPackage'
-  { -- | Used for pagination. Only necessary if a previous API call includes a
+  { -- | Limits results to a maximum number of domains.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | Used for pagination. Only necessary if a previous API call includes a
     -- non-null NextToken value. If provided, returns results for the next
     -- page.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Limits results to a maximum number of domains.
-    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The package for which to list domains.
     packageID :: Prelude.Text
   }
@@ -73,11 +73,11 @@ data ListDomainsForPackage = ListDomainsForPackage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listDomainsForPackage_maxResults' - Limits results to a maximum number of domains.
+--
 -- 'nextToken', 'listDomainsForPackage_nextToken' - Used for pagination. Only necessary if a previous API call includes a
 -- non-null NextToken value. If provided, returns results for the next
 -- page.
---
--- 'maxResults', 'listDomainsForPackage_maxResults' - Limits results to a maximum number of domains.
 --
 -- 'packageID', 'listDomainsForPackage_packageID' - The package for which to list domains.
 newListDomainsForPackage ::
@@ -86,20 +86,21 @@ newListDomainsForPackage ::
   ListDomainsForPackage
 newListDomainsForPackage pPackageID_ =
   ListDomainsForPackage'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       packageID = pPackageID_
     }
+
+-- | Limits results to a maximum number of domains.
+listDomainsForPackage_maxResults :: Lens.Lens' ListDomainsForPackage (Prelude.Maybe Prelude.Int)
+listDomainsForPackage_maxResults = Lens.lens (\ListDomainsForPackage' {maxResults} -> maxResults) (\s@ListDomainsForPackage' {} a -> s {maxResults = a} :: ListDomainsForPackage)
 
 -- | Used for pagination. Only necessary if a previous API call includes a
 -- non-null NextToken value. If provided, returns results for the next
 -- page.
 listDomainsForPackage_nextToken :: Lens.Lens' ListDomainsForPackage (Prelude.Maybe Prelude.Text)
 listDomainsForPackage_nextToken = Lens.lens (\ListDomainsForPackage' {nextToken} -> nextToken) (\s@ListDomainsForPackage' {} a -> s {nextToken = a} :: ListDomainsForPackage)
-
--- | Limits results to a maximum number of domains.
-listDomainsForPackage_maxResults :: Lens.Lens' ListDomainsForPackage (Prelude.Maybe Prelude.Int)
-listDomainsForPackage_maxResults = Lens.lens (\ListDomainsForPackage' {maxResults} -> maxResults) (\s@ListDomainsForPackage' {} a -> s {maxResults = a} :: ListDomainsForPackage)
 
 -- | The package for which to list domains.
 listDomainsForPackage_packageID :: Lens.Lens' ListDomainsForPackage Prelude.Text
@@ -115,23 +116,23 @@ instance Core.AWSRequest ListDomainsForPackage where
     Response.receiveJSON
       ( \s h x ->
           ListDomainsForPackageResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "DomainPackageDetailsList"
+            Prelude.<$> ( x Data..?> "DomainPackageDetailsList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListDomainsForPackage where
   hashWithSalt _salt ListDomainsForPackage' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` packageID
 
 instance Prelude.NFData ListDomainsForPackage where
   rnf ListDomainsForPackage' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf packageID
 
 instance Data.ToHeaders ListDomainsForPackage where
@@ -148,8 +149,8 @@ instance Data.ToPath ListDomainsForPackage where
 instance Data.ToQuery ListDomainsForPackage where
   toQuery ListDomainsForPackage' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | Container for response parameters to @ ListDomainsForPackage @
@@ -157,9 +158,9 @@ instance Data.ToQuery ListDomainsForPackage where
 --
 -- /See:/ 'newListDomainsForPackageResponse' smart constructor.
 data ListDomainsForPackageResponse = ListDomainsForPackageResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    -- | List of @DomainPackageDetails@ objects.
+  { -- | List of @DomainPackageDetails@ objects.
     domainPackageDetailsList :: Prelude.Maybe [DomainPackageDetails],
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -173,9 +174,9 @@ data ListDomainsForPackageResponse = ListDomainsForPackageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listDomainsForPackageResponse_nextToken' - Undocumented member.
---
 -- 'domainPackageDetailsList', 'listDomainsForPackageResponse_domainPackageDetailsList' - List of @DomainPackageDetails@ objects.
+--
+-- 'nextToken', 'listDomainsForPackageResponse_nextToken' - Undocumented member.
 --
 -- 'httpStatus', 'listDomainsForPackageResponse_httpStatus' - The response's http status code.
 newListDomainsForPackageResponse ::
@@ -184,19 +185,19 @@ newListDomainsForPackageResponse ::
   ListDomainsForPackageResponse
 newListDomainsForPackageResponse pHttpStatus_ =
   ListDomainsForPackageResponse'
-    { nextToken =
+    { domainPackageDetailsList =
         Prelude.Nothing,
-      domainPackageDetailsList = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Undocumented member.
-listDomainsForPackageResponse_nextToken :: Lens.Lens' ListDomainsForPackageResponse (Prelude.Maybe Prelude.Text)
-listDomainsForPackageResponse_nextToken = Lens.lens (\ListDomainsForPackageResponse' {nextToken} -> nextToken) (\s@ListDomainsForPackageResponse' {} a -> s {nextToken = a} :: ListDomainsForPackageResponse)
 
 -- | List of @DomainPackageDetails@ objects.
 listDomainsForPackageResponse_domainPackageDetailsList :: Lens.Lens' ListDomainsForPackageResponse (Prelude.Maybe [DomainPackageDetails])
 listDomainsForPackageResponse_domainPackageDetailsList = Lens.lens (\ListDomainsForPackageResponse' {domainPackageDetailsList} -> domainPackageDetailsList) (\s@ListDomainsForPackageResponse' {} a -> s {domainPackageDetailsList = a} :: ListDomainsForPackageResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+listDomainsForPackageResponse_nextToken :: Lens.Lens' ListDomainsForPackageResponse (Prelude.Maybe Prelude.Text)
+listDomainsForPackageResponse_nextToken = Lens.lens (\ListDomainsForPackageResponse' {nextToken} -> nextToken) (\s@ListDomainsForPackageResponse' {} a -> s {nextToken = a} :: ListDomainsForPackageResponse)
 
 -- | The response's http status code.
 listDomainsForPackageResponse_httpStatus :: Lens.Lens' ListDomainsForPackageResponse Prelude.Int
@@ -204,6 +205,6 @@ listDomainsForPackageResponse_httpStatus = Lens.lens (\ListDomainsForPackageResp
 
 instance Prelude.NFData ListDomainsForPackageResponse where
   rnf ListDomainsForPackageResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf domainPackageDetailsList
+    Prelude.rnf domainPackageDetailsList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -33,14 +33,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInput' smart constructor.
 data Input = Input'
-  { -- | Contains additional resource information needed for specific datasets.
-    metadata :: Prelude.Maybe Metadata,
-    -- | The Amazon S3 location where the data is stored.
-    s3InputDefinition :: Prelude.Maybe S3Location,
-    -- | The Glue Data Catalog parameters for the data.
+  { -- | The Glue Data Catalog parameters for the data.
     dataCatalogInputDefinition :: Prelude.Maybe DataCatalogInputDefinition,
     -- | Connection information for dataset input files stored in a database.
-    databaseInputDefinition :: Prelude.Maybe DatabaseInputDefinition
+    databaseInputDefinition :: Prelude.Maybe DatabaseInputDefinition,
+    -- | Contains additional resource information needed for specific datasets.
+    metadata :: Prelude.Maybe Metadata,
+    -- | The Amazon S3 location where the data is stored.
+    s3InputDefinition :: Prelude.Maybe S3Location
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,30 +52,23 @@ data Input = Input'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metadata', 'input_metadata' - Contains additional resource information needed for specific datasets.
---
--- 's3InputDefinition', 'input_s3InputDefinition' - The Amazon S3 location where the data is stored.
---
 -- 'dataCatalogInputDefinition', 'input_dataCatalogInputDefinition' - The Glue Data Catalog parameters for the data.
 --
 -- 'databaseInputDefinition', 'input_databaseInputDefinition' - Connection information for dataset input files stored in a database.
+--
+-- 'metadata', 'input_metadata' - Contains additional resource information needed for specific datasets.
+--
+-- 's3InputDefinition', 'input_s3InputDefinition' - The Amazon S3 location where the data is stored.
 newInput ::
   Input
 newInput =
   Input'
-    { metadata = Prelude.Nothing,
-      s3InputDefinition = Prelude.Nothing,
-      dataCatalogInputDefinition = Prelude.Nothing,
-      databaseInputDefinition = Prelude.Nothing
+    { dataCatalogInputDefinition =
+        Prelude.Nothing,
+      databaseInputDefinition = Prelude.Nothing,
+      metadata = Prelude.Nothing,
+      s3InputDefinition = Prelude.Nothing
     }
-
--- | Contains additional resource information needed for specific datasets.
-input_metadata :: Lens.Lens' Input (Prelude.Maybe Metadata)
-input_metadata = Lens.lens (\Input' {metadata} -> metadata) (\s@Input' {} a -> s {metadata = a} :: Input)
-
--- | The Amazon S3 location where the data is stored.
-input_s3InputDefinition :: Lens.Lens' Input (Prelude.Maybe S3Location)
-input_s3InputDefinition = Lens.lens (\Input' {s3InputDefinition} -> s3InputDefinition) (\s@Input' {} a -> s {s3InputDefinition = a} :: Input)
 
 -- | The Glue Data Catalog parameters for the data.
 input_dataCatalogInputDefinition :: Lens.Lens' Input (Prelude.Maybe DataCatalogInputDefinition)
@@ -85,42 +78,51 @@ input_dataCatalogInputDefinition = Lens.lens (\Input' {dataCatalogInputDefinitio
 input_databaseInputDefinition :: Lens.Lens' Input (Prelude.Maybe DatabaseInputDefinition)
 input_databaseInputDefinition = Lens.lens (\Input' {databaseInputDefinition} -> databaseInputDefinition) (\s@Input' {} a -> s {databaseInputDefinition = a} :: Input)
 
+-- | Contains additional resource information needed for specific datasets.
+input_metadata :: Lens.Lens' Input (Prelude.Maybe Metadata)
+input_metadata = Lens.lens (\Input' {metadata} -> metadata) (\s@Input' {} a -> s {metadata = a} :: Input)
+
+-- | The Amazon S3 location where the data is stored.
+input_s3InputDefinition :: Lens.Lens' Input (Prelude.Maybe S3Location)
+input_s3InputDefinition = Lens.lens (\Input' {s3InputDefinition} -> s3InputDefinition) (\s@Input' {} a -> s {s3InputDefinition = a} :: Input)
+
 instance Data.FromJSON Input where
   parseJSON =
     Data.withObject
       "Input"
       ( \x ->
           Input'
-            Prelude.<$> (x Data..:? "Metadata")
-            Prelude.<*> (x Data..:? "S3InputDefinition")
-            Prelude.<*> (x Data..:? "DataCatalogInputDefinition")
+            Prelude.<$> (x Data..:? "DataCatalogInputDefinition")
             Prelude.<*> (x Data..:? "DatabaseInputDefinition")
+            Prelude.<*> (x Data..:? "Metadata")
+            Prelude.<*> (x Data..:? "S3InputDefinition")
       )
 
 instance Prelude.Hashable Input where
   hashWithSalt _salt Input' {..} =
-    _salt `Prelude.hashWithSalt` metadata
-      `Prelude.hashWithSalt` s3InputDefinition
+    _salt
       `Prelude.hashWithSalt` dataCatalogInputDefinition
       `Prelude.hashWithSalt` databaseInputDefinition
+      `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` s3InputDefinition
 
 instance Prelude.NFData Input where
   rnf Input' {..} =
-    Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf s3InputDefinition
-      `Prelude.seq` Prelude.rnf dataCatalogInputDefinition
+    Prelude.rnf dataCatalogInputDefinition
       `Prelude.seq` Prelude.rnf databaseInputDefinition
+      `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf s3InputDefinition
 
 instance Data.ToJSON Input where
   toJSON Input' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Metadata" Data..=) Prelude.<$> metadata,
-            ("S3InputDefinition" Data..=)
-              Prelude.<$> s3InputDefinition,
-            ("DataCatalogInputDefinition" Data..=)
+          [ ("DataCatalogInputDefinition" Data..=)
               Prelude.<$> dataCatalogInputDefinition,
             ("DatabaseInputDefinition" Data..=)
-              Prelude.<$> databaseInputDefinition
+              Prelude.<$> databaseInputDefinition,
+            ("Metadata" Data..=) Prelude.<$> metadata,
+            ("S3InputDefinition" Data..=)
+              Prelude.<$> s3InputDefinition
           ]
       )

@@ -31,19 +31,19 @@ import Amazonka.WorkSpaces.Types.ReconnectEnum
 --
 -- /See:/ 'newSelfservicePermissions' smart constructor.
 data SelfservicePermissions = SelfservicePermissions'
-  { -- | Specifies whether users can increase the volume size of the drives on
+  { -- | Specifies whether users can change the compute type (bundle) for their
+    -- WorkSpace.
+    changeComputeType :: Prelude.Maybe ReconnectEnum,
+    -- | Specifies whether users can increase the volume size of the drives on
     -- their WorkSpace.
     increaseVolumeSize :: Prelude.Maybe ReconnectEnum,
     -- | Specifies whether users can rebuild the operating system of a WorkSpace
     -- to its original state.
     rebuildWorkspace :: Prelude.Maybe ReconnectEnum,
-    -- | Specifies whether users can change the compute type (bundle) for their
-    -- WorkSpace.
-    changeComputeType :: Prelude.Maybe ReconnectEnum,
-    -- | Specifies whether users can switch the running mode of their WorkSpace.
-    switchRunningMode :: Prelude.Maybe ReconnectEnum,
     -- | Specifies whether users can restart their WorkSpace.
-    restartWorkspace :: Prelude.Maybe ReconnectEnum
+    restartWorkspace :: Prelude.Maybe ReconnectEnum,
+    -- | Specifies whether users can switch the running mode of their WorkSpace.
+    switchRunningMode :: Prelude.Maybe ReconnectEnum
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,29 +55,34 @@ data SelfservicePermissions = SelfservicePermissions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'changeComputeType', 'selfservicePermissions_changeComputeType' - Specifies whether users can change the compute type (bundle) for their
+-- WorkSpace.
+--
 -- 'increaseVolumeSize', 'selfservicePermissions_increaseVolumeSize' - Specifies whether users can increase the volume size of the drives on
 -- their WorkSpace.
 --
 -- 'rebuildWorkspace', 'selfservicePermissions_rebuildWorkspace' - Specifies whether users can rebuild the operating system of a WorkSpace
 -- to its original state.
 --
--- 'changeComputeType', 'selfservicePermissions_changeComputeType' - Specifies whether users can change the compute type (bundle) for their
--- WorkSpace.
+-- 'restartWorkspace', 'selfservicePermissions_restartWorkspace' - Specifies whether users can restart their WorkSpace.
 --
 -- 'switchRunningMode', 'selfservicePermissions_switchRunningMode' - Specifies whether users can switch the running mode of their WorkSpace.
---
--- 'restartWorkspace', 'selfservicePermissions_restartWorkspace' - Specifies whether users can restart their WorkSpace.
 newSelfservicePermissions ::
   SelfservicePermissions
 newSelfservicePermissions =
   SelfservicePermissions'
-    { increaseVolumeSize =
+    { changeComputeType =
         Prelude.Nothing,
+      increaseVolumeSize = Prelude.Nothing,
       rebuildWorkspace = Prelude.Nothing,
-      changeComputeType = Prelude.Nothing,
-      switchRunningMode = Prelude.Nothing,
-      restartWorkspace = Prelude.Nothing
+      restartWorkspace = Prelude.Nothing,
+      switchRunningMode = Prelude.Nothing
     }
+
+-- | Specifies whether users can change the compute type (bundle) for their
+-- WorkSpace.
+selfservicePermissions_changeComputeType :: Lens.Lens' SelfservicePermissions (Prelude.Maybe ReconnectEnum)
+selfservicePermissions_changeComputeType = Lens.lens (\SelfservicePermissions' {changeComputeType} -> changeComputeType) (\s@SelfservicePermissions' {} a -> s {changeComputeType = a} :: SelfservicePermissions)
 
 -- | Specifies whether users can increase the volume size of the drives on
 -- their WorkSpace.
@@ -89,18 +94,13 @@ selfservicePermissions_increaseVolumeSize = Lens.lens (\SelfservicePermissions' 
 selfservicePermissions_rebuildWorkspace :: Lens.Lens' SelfservicePermissions (Prelude.Maybe ReconnectEnum)
 selfservicePermissions_rebuildWorkspace = Lens.lens (\SelfservicePermissions' {rebuildWorkspace} -> rebuildWorkspace) (\s@SelfservicePermissions' {} a -> s {rebuildWorkspace = a} :: SelfservicePermissions)
 
--- | Specifies whether users can change the compute type (bundle) for their
--- WorkSpace.
-selfservicePermissions_changeComputeType :: Lens.Lens' SelfservicePermissions (Prelude.Maybe ReconnectEnum)
-selfservicePermissions_changeComputeType = Lens.lens (\SelfservicePermissions' {changeComputeType} -> changeComputeType) (\s@SelfservicePermissions' {} a -> s {changeComputeType = a} :: SelfservicePermissions)
+-- | Specifies whether users can restart their WorkSpace.
+selfservicePermissions_restartWorkspace :: Lens.Lens' SelfservicePermissions (Prelude.Maybe ReconnectEnum)
+selfservicePermissions_restartWorkspace = Lens.lens (\SelfservicePermissions' {restartWorkspace} -> restartWorkspace) (\s@SelfservicePermissions' {} a -> s {restartWorkspace = a} :: SelfservicePermissions)
 
 -- | Specifies whether users can switch the running mode of their WorkSpace.
 selfservicePermissions_switchRunningMode :: Lens.Lens' SelfservicePermissions (Prelude.Maybe ReconnectEnum)
 selfservicePermissions_switchRunningMode = Lens.lens (\SelfservicePermissions' {switchRunningMode} -> switchRunningMode) (\s@SelfservicePermissions' {} a -> s {switchRunningMode = a} :: SelfservicePermissions)
-
--- | Specifies whether users can restart their WorkSpace.
-selfservicePermissions_restartWorkspace :: Lens.Lens' SelfservicePermissions (Prelude.Maybe ReconnectEnum)
-selfservicePermissions_restartWorkspace = Lens.lens (\SelfservicePermissions' {restartWorkspace} -> restartWorkspace) (\s@SelfservicePermissions' {} a -> s {restartWorkspace = a} :: SelfservicePermissions)
 
 instance Data.FromJSON SelfservicePermissions where
   parseJSON =
@@ -108,42 +108,42 @@ instance Data.FromJSON SelfservicePermissions where
       "SelfservicePermissions"
       ( \x ->
           SelfservicePermissions'
-            Prelude.<$> (x Data..:? "IncreaseVolumeSize")
+            Prelude.<$> (x Data..:? "ChangeComputeType")
+            Prelude.<*> (x Data..:? "IncreaseVolumeSize")
             Prelude.<*> (x Data..:? "RebuildWorkspace")
-            Prelude.<*> (x Data..:? "ChangeComputeType")
-            Prelude.<*> (x Data..:? "SwitchRunningMode")
             Prelude.<*> (x Data..:? "RestartWorkspace")
+            Prelude.<*> (x Data..:? "SwitchRunningMode")
       )
 
 instance Prelude.Hashable SelfservicePermissions where
   hashWithSalt _salt SelfservicePermissions' {..} =
-    _salt `Prelude.hashWithSalt` increaseVolumeSize
+    _salt `Prelude.hashWithSalt` changeComputeType
+      `Prelude.hashWithSalt` increaseVolumeSize
       `Prelude.hashWithSalt` rebuildWorkspace
-      `Prelude.hashWithSalt` changeComputeType
-      `Prelude.hashWithSalt` switchRunningMode
       `Prelude.hashWithSalt` restartWorkspace
+      `Prelude.hashWithSalt` switchRunningMode
 
 instance Prelude.NFData SelfservicePermissions where
   rnf SelfservicePermissions' {..} =
-    Prelude.rnf increaseVolumeSize
+    Prelude.rnf changeComputeType
+      `Prelude.seq` Prelude.rnf increaseVolumeSize
       `Prelude.seq` Prelude.rnf rebuildWorkspace
-      `Prelude.seq` Prelude.rnf changeComputeType
-      `Prelude.seq` Prelude.rnf switchRunningMode
       `Prelude.seq` Prelude.rnf restartWorkspace
+      `Prelude.seq` Prelude.rnf switchRunningMode
 
 instance Data.ToJSON SelfservicePermissions where
   toJSON SelfservicePermissions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("IncreaseVolumeSize" Data..=)
+          [ ("ChangeComputeType" Data..=)
+              Prelude.<$> changeComputeType,
+            ("IncreaseVolumeSize" Data..=)
               Prelude.<$> increaseVolumeSize,
             ("RebuildWorkspace" Data..=)
               Prelude.<$> rebuildWorkspace,
-            ("ChangeComputeType" Data..=)
-              Prelude.<$> changeComputeType,
-            ("SwitchRunningMode" Data..=)
-              Prelude.<$> switchRunningMode,
             ("RestartWorkspace" Data..=)
-              Prelude.<$> restartWorkspace
+              Prelude.<$> restartWorkspace,
+            ("SwitchRunningMode" Data..=)
+              Prelude.<$> switchRunningMode
           ]
       )

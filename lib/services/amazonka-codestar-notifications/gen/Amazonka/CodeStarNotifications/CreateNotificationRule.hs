@@ -30,9 +30,9 @@ module Amazonka.CodeStarNotifications.CreateNotificationRule
     newCreateNotificationRule,
 
     -- * Request Lenses
-    createNotificationRule_tags,
     createNotificationRule_clientRequestToken,
     createNotificationRule_status,
+    createNotificationRule_tags,
     createNotificationRule_name,
     createNotificationRule_eventTypeIds,
     createNotificationRule_resource,
@@ -59,10 +59,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateNotificationRule' smart constructor.
 data CreateNotificationRule = CreateNotificationRule'
-  { -- | A list of tags to apply to this notification rule. Key names cannot
-    -- start with \"@aws@\".
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A unique, client-generated idempotency token that, when provided in a
+  { -- | A unique, client-generated idempotency token that, when provided in a
     -- request, ensures the request cannot be repeated with a changed
     -- parameter. If a request with the same parameters is received and a token
     -- is included, the request returns information about the initial request
@@ -76,6 +73,9 @@ data CreateNotificationRule = CreateNotificationRule'
     -- the status is set to @DISABLED@, notifications aren\'t sent for the
     -- notification rule.
     status :: Prelude.Maybe NotificationRuleStatus,
+    -- | A list of tags to apply to this notification rule. Key names cannot
+    -- start with \"@aws@\".
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name for the notification rule. Notification rule names must be
     -- unique in your Amazon Web Services account.
     name :: Data.Sensitive Prelude.Text,
@@ -108,9 +108,6 @@ data CreateNotificationRule = CreateNotificationRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createNotificationRule_tags' - A list of tags to apply to this notification rule. Key names cannot
--- start with \"@aws@\".
---
 -- 'clientRequestToken', 'createNotificationRule_clientRequestToken' - A unique, client-generated idempotency token that, when provided in a
 -- request, ensures the request cannot be repeated with a changed
 -- parameter. If a request with the same parameters is received and a token
@@ -124,6 +121,9 @@ data CreateNotificationRule = CreateNotificationRule'
 -- 'status', 'createNotificationRule_status' - The status of the notification rule. The default value is @ENABLED@. If
 -- the status is set to @DISABLED@, notifications aren\'t sent for the
 -- notification rule.
+--
+-- 'tags', 'createNotificationRule_tags' - A list of tags to apply to this notification rule. Key names cannot
+-- start with \"@aws@\".
 --
 -- 'name', 'createNotificationRule_name' - The name for the notification rule. Notification rule names must be
 -- unique in your Amazon Web Services account.
@@ -158,20 +158,16 @@ newCreateNotificationRule
   pResource_
   pDetailType_ =
     CreateNotificationRule'
-      { tags = Prelude.Nothing,
-        clientRequestToken = Prelude.Nothing,
+      { clientRequestToken =
+          Prelude.Nothing,
         status = Prelude.Nothing,
+        tags = Prelude.Nothing,
         name = Data._Sensitive Lens.# pName_,
         eventTypeIds = Prelude.mempty,
         resource = pResource_,
         targets = Prelude.mempty,
         detailType = pDetailType_
       }
-
--- | A list of tags to apply to this notification rule. Key names cannot
--- start with \"@aws@\".
-createNotificationRule_tags :: Lens.Lens' CreateNotificationRule (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createNotificationRule_tags = Lens.lens (\CreateNotificationRule' {tags} -> tags) (\s@CreateNotificationRule' {} a -> s {tags = a} :: CreateNotificationRule) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique, client-generated idempotency token that, when provided in a
 -- request, ensures the request cannot be repeated with a changed
@@ -190,6 +186,11 @@ createNotificationRule_clientRequestToken = Lens.lens (\CreateNotificationRule' 
 -- notification rule.
 createNotificationRule_status :: Lens.Lens' CreateNotificationRule (Prelude.Maybe NotificationRuleStatus)
 createNotificationRule_status = Lens.lens (\CreateNotificationRule' {status} -> status) (\s@CreateNotificationRule' {} a -> s {status = a} :: CreateNotificationRule)
+
+-- | A list of tags to apply to this notification rule. Key names cannot
+-- start with \"@aws@\".
+createNotificationRule_tags :: Lens.Lens' CreateNotificationRule (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createNotificationRule_tags = Lens.lens (\CreateNotificationRule' {tags} -> tags) (\s@CreateNotificationRule' {} a -> s {tags = a} :: CreateNotificationRule) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name for the notification rule. Notification rule names must be
 -- unique in your Amazon Web Services account.
@@ -238,9 +239,9 @@ instance Core.AWSRequest CreateNotificationRule where
 
 instance Prelude.Hashable CreateNotificationRule where
   hashWithSalt _salt CreateNotificationRule' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientRequestToken
+    _salt `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` eventTypeIds
       `Prelude.hashWithSalt` resource
@@ -249,9 +250,9 @@ instance Prelude.Hashable CreateNotificationRule where
 
 instance Prelude.NFData CreateNotificationRule where
   rnf CreateNotificationRule' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf eventTypeIds
       `Prelude.seq` Prelude.rnf resource
@@ -273,10 +274,10 @@ instance Data.ToJSON CreateNotificationRule where
   toJSON CreateNotificationRule' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ClientRequestToken" Data..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
             ("Status" Data..=) Prelude.<$> status,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("EventTypeIds" Data..= eventTypeIds),
             Prelude.Just ("Resource" Data..= resource),

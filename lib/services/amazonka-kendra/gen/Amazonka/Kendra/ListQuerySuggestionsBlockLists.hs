@@ -33,8 +33,8 @@ module Amazonka.Kendra.ListQuerySuggestionsBlockLists
     newListQuerySuggestionsBlockLists,
 
     -- * Request Lenses
-    listQuerySuggestionsBlockLists_nextToken,
     listQuerySuggestionsBlockLists_maxResults,
+    listQuerySuggestionsBlockLists_nextToken,
     listQuerySuggestionsBlockLists_indexId,
 
     -- * Destructuring the Response
@@ -42,8 +42,8 @@ module Amazonka.Kendra.ListQuerySuggestionsBlockLists
     newListQuerySuggestionsBlockListsResponse,
 
     -- * Response Lenses
-    listQuerySuggestionsBlockListsResponse_nextToken,
     listQuerySuggestionsBlockListsResponse_blockListSummaryItems,
+    listQuerySuggestionsBlockListsResponse_nextToken,
     listQuerySuggestionsBlockListsResponse_httpStatus,
   )
 where
@@ -58,13 +58,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListQuerySuggestionsBlockLists' smart constructor.
 data ListQuerySuggestionsBlockLists = ListQuerySuggestionsBlockLists'
-  { -- | If the previous response was incomplete (because there is more data to
+  { -- | The maximum number of block lists to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the previous response was incomplete (because there is more data to
     -- retrieve), Amazon Kendra returns a pagination token in the response. You
     -- can use this pagination token to retrieve the next set of block lists
     -- (@BlockListSummaryItems@).
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of block lists to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the index for a list of all block lists that exist for
     -- that index.
     --
@@ -82,12 +82,12 @@ data ListQuerySuggestionsBlockLists = ListQuerySuggestionsBlockLists'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listQuerySuggestionsBlockLists_maxResults' - The maximum number of block lists to return.
+--
 -- 'nextToken', 'listQuerySuggestionsBlockLists_nextToken' - If the previous response was incomplete (because there is more data to
 -- retrieve), Amazon Kendra returns a pagination token in the response. You
 -- can use this pagination token to retrieve the next set of block lists
 -- (@BlockListSummaryItems@).
---
--- 'maxResults', 'listQuerySuggestionsBlockLists_maxResults' - The maximum number of block lists to return.
 --
 -- 'indexId', 'listQuerySuggestionsBlockLists_indexId' - The identifier of the index for a list of all block lists that exist for
 -- that index.
@@ -100,11 +100,15 @@ newListQuerySuggestionsBlockLists ::
   ListQuerySuggestionsBlockLists
 newListQuerySuggestionsBlockLists pIndexId_ =
   ListQuerySuggestionsBlockLists'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       indexId = pIndexId_
     }
+
+-- | The maximum number of block lists to return.
+listQuerySuggestionsBlockLists_maxResults :: Lens.Lens' ListQuerySuggestionsBlockLists (Prelude.Maybe Prelude.Natural)
+listQuerySuggestionsBlockLists_maxResults = Lens.lens (\ListQuerySuggestionsBlockLists' {maxResults} -> maxResults) (\s@ListQuerySuggestionsBlockLists' {} a -> s {maxResults = a} :: ListQuerySuggestionsBlockLists)
 
 -- | If the previous response was incomplete (because there is more data to
 -- retrieve), Amazon Kendra returns a pagination token in the response. You
@@ -112,10 +116,6 @@ newListQuerySuggestionsBlockLists pIndexId_ =
 -- (@BlockListSummaryItems@).
 listQuerySuggestionsBlockLists_nextToken :: Lens.Lens' ListQuerySuggestionsBlockLists (Prelude.Maybe Prelude.Text)
 listQuerySuggestionsBlockLists_nextToken = Lens.lens (\ListQuerySuggestionsBlockLists' {nextToken} -> nextToken) (\s@ListQuerySuggestionsBlockLists' {} a -> s {nextToken = a} :: ListQuerySuggestionsBlockLists)
-
--- | The maximum number of block lists to return.
-listQuerySuggestionsBlockLists_maxResults :: Lens.Lens' ListQuerySuggestionsBlockLists (Prelude.Maybe Prelude.Natural)
-listQuerySuggestionsBlockLists_maxResults = Lens.lens (\ListQuerySuggestionsBlockLists' {maxResults} -> maxResults) (\s@ListQuerySuggestionsBlockLists' {} a -> s {maxResults = a} :: ListQuerySuggestionsBlockLists)
 
 -- | The identifier of the index for a list of all block lists that exist for
 -- that index.
@@ -138,10 +138,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListQuerySuggestionsBlockListsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "BlockListSummaryItems"
+            Prelude.<$> ( x Data..?> "BlockListSummaryItems"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,8 +152,8 @@ instance
   hashWithSalt
     _salt
     ListQuerySuggestionsBlockLists' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` indexId
 
 instance
@@ -161,8 +161,8 @@ instance
     ListQuerySuggestionsBlockLists
   where
   rnf ListQuerySuggestionsBlockLists' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf indexId
 
 instance
@@ -187,8 +187,8 @@ instance Data.ToJSON ListQuerySuggestionsBlockLists where
   toJSON ListQuerySuggestionsBlockLists' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("IndexId" Data..= indexId)
           ]
       )
@@ -201,11 +201,7 @@ instance Data.ToQuery ListQuerySuggestionsBlockLists where
 
 -- | /See:/ 'newListQuerySuggestionsBlockListsResponse' smart constructor.
 data ListQuerySuggestionsBlockListsResponse = ListQuerySuggestionsBlockListsResponse'
-  { -- | If the response is truncated, Amazon Kendra returns this token that you
-    -- can use in the subsequent request to retrieve the next set of block
-    -- lists.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Summary items for a block list.
+  { -- | Summary items for a block list.
     --
     -- This includes summary items on the block list ID, block list name, when
     -- the block list was created, when the block list was last updated, and
@@ -214,6 +210,10 @@ data ListQuerySuggestionsBlockListsResponse = ListQuerySuggestionsBlockListsResp
     -- For information on the current quota limits for block lists, see
     -- <https://docs.aws.amazon.com/kendra/latest/dg/quotas.html Quotas for Amazon Kendra>.
     blockListSummaryItems :: Prelude.Maybe [QuerySuggestionsBlockListSummary],
+    -- | If the response is truncated, Amazon Kendra returns this token that you
+    -- can use in the subsequent request to retrieve the next set of block
+    -- lists.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -227,10 +227,6 @@ data ListQuerySuggestionsBlockListsResponse = ListQuerySuggestionsBlockListsResp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listQuerySuggestionsBlockListsResponse_nextToken' - If the response is truncated, Amazon Kendra returns this token that you
--- can use in the subsequent request to retrieve the next set of block
--- lists.
---
 -- 'blockListSummaryItems', 'listQuerySuggestionsBlockListsResponse_blockListSummaryItems' - Summary items for a block list.
 --
 -- This includes summary items on the block list ID, block list name, when
@@ -240,6 +236,10 @@ data ListQuerySuggestionsBlockListsResponse = ListQuerySuggestionsBlockListsResp
 -- For information on the current quota limits for block lists, see
 -- <https://docs.aws.amazon.com/kendra/latest/dg/quotas.html Quotas for Amazon Kendra>.
 --
+-- 'nextToken', 'listQuerySuggestionsBlockListsResponse_nextToken' - If the response is truncated, Amazon Kendra returns this token that you
+-- can use in the subsequent request to retrieve the next set of block
+-- lists.
+--
 -- 'httpStatus', 'listQuerySuggestionsBlockListsResponse_httpStatus' - The response's http status code.
 newListQuerySuggestionsBlockListsResponse ::
   -- | 'httpStatus'
@@ -248,18 +248,11 @@ newListQuerySuggestionsBlockListsResponse ::
 newListQuerySuggestionsBlockListsResponse
   pHttpStatus_ =
     ListQuerySuggestionsBlockListsResponse'
-      { nextToken =
+      { blockListSummaryItems =
           Prelude.Nothing,
-        blockListSummaryItems =
-          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | If the response is truncated, Amazon Kendra returns this token that you
--- can use in the subsequent request to retrieve the next set of block
--- lists.
-listQuerySuggestionsBlockListsResponse_nextToken :: Lens.Lens' ListQuerySuggestionsBlockListsResponse (Prelude.Maybe Prelude.Text)
-listQuerySuggestionsBlockListsResponse_nextToken = Lens.lens (\ListQuerySuggestionsBlockListsResponse' {nextToken} -> nextToken) (\s@ListQuerySuggestionsBlockListsResponse' {} a -> s {nextToken = a} :: ListQuerySuggestionsBlockListsResponse)
 
 -- | Summary items for a block list.
 --
@@ -272,6 +265,12 @@ listQuerySuggestionsBlockListsResponse_nextToken = Lens.lens (\ListQuerySuggesti
 listQuerySuggestionsBlockListsResponse_blockListSummaryItems :: Lens.Lens' ListQuerySuggestionsBlockListsResponse (Prelude.Maybe [QuerySuggestionsBlockListSummary])
 listQuerySuggestionsBlockListsResponse_blockListSummaryItems = Lens.lens (\ListQuerySuggestionsBlockListsResponse' {blockListSummaryItems} -> blockListSummaryItems) (\s@ListQuerySuggestionsBlockListsResponse' {} a -> s {blockListSummaryItems = a} :: ListQuerySuggestionsBlockListsResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | If the response is truncated, Amazon Kendra returns this token that you
+-- can use in the subsequent request to retrieve the next set of block
+-- lists.
+listQuerySuggestionsBlockListsResponse_nextToken :: Lens.Lens' ListQuerySuggestionsBlockListsResponse (Prelude.Maybe Prelude.Text)
+listQuerySuggestionsBlockListsResponse_nextToken = Lens.lens (\ListQuerySuggestionsBlockListsResponse' {nextToken} -> nextToken) (\s@ListQuerySuggestionsBlockListsResponse' {} a -> s {nextToken = a} :: ListQuerySuggestionsBlockListsResponse)
+
 -- | The response's http status code.
 listQuerySuggestionsBlockListsResponse_httpStatus :: Lens.Lens' ListQuerySuggestionsBlockListsResponse Prelude.Int
 listQuerySuggestionsBlockListsResponse_httpStatus = Lens.lens (\ListQuerySuggestionsBlockListsResponse' {httpStatus} -> httpStatus) (\s@ListQuerySuggestionsBlockListsResponse' {} a -> s {httpStatus = a} :: ListQuerySuggestionsBlockListsResponse)
@@ -281,6 +280,6 @@ instance
     ListQuerySuggestionsBlockListsResponse
   where
   rnf ListQuerySuggestionsBlockListsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf blockListSummaryItems
+    Prelude.rnf blockListSummaryItems
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

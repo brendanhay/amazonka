@@ -32,12 +32,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPathOptions' smart constructor.
 data PathOptions = PathOptions'
-  { -- | If provided, this structure defines a date range for matching Amazon S3
-    -- objects based on their LastModifiedDate attribute in Amazon S3.
-    lastModifiedDateCondition :: Prelude.Maybe FilterExpression,
-    -- | If provided, this structure imposes a limit on a number of files that
+  { -- | If provided, this structure imposes a limit on a number of files that
     -- should be selected.
     filesLimit :: Prelude.Maybe FilesLimit,
+    -- | If provided, this structure defines a date range for matching Amazon S3
+    -- objects based on their LastModifiedDate attribute in Amazon S3.
+    lastModifiedDateCondition :: Prelude.Maybe FilterExpression,
     -- | A structure that maps names of parameters used in the Amazon S3 path of
     -- a dataset to their definitions.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text DatasetParameter)
@@ -52,11 +52,11 @@ data PathOptions = PathOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastModifiedDateCondition', 'pathOptions_lastModifiedDateCondition' - If provided, this structure defines a date range for matching Amazon S3
--- objects based on their LastModifiedDate attribute in Amazon S3.
---
 -- 'filesLimit', 'pathOptions_filesLimit' - If provided, this structure imposes a limit on a number of files that
 -- should be selected.
+--
+-- 'lastModifiedDateCondition', 'pathOptions_lastModifiedDateCondition' - If provided, this structure defines a date range for matching Amazon S3
+-- objects based on their LastModifiedDate attribute in Amazon S3.
 --
 -- 'parameters', 'pathOptions_parameters' - A structure that maps names of parameters used in the Amazon S3 path of
 -- a dataset to their definitions.
@@ -64,21 +64,20 @@ newPathOptions ::
   PathOptions
 newPathOptions =
   PathOptions'
-    { lastModifiedDateCondition =
-        Prelude.Nothing,
-      filesLimit = Prelude.Nothing,
+    { filesLimit = Prelude.Nothing,
+      lastModifiedDateCondition = Prelude.Nothing,
       parameters = Prelude.Nothing
     }
-
--- | If provided, this structure defines a date range for matching Amazon S3
--- objects based on their LastModifiedDate attribute in Amazon S3.
-pathOptions_lastModifiedDateCondition :: Lens.Lens' PathOptions (Prelude.Maybe FilterExpression)
-pathOptions_lastModifiedDateCondition = Lens.lens (\PathOptions' {lastModifiedDateCondition} -> lastModifiedDateCondition) (\s@PathOptions' {} a -> s {lastModifiedDateCondition = a} :: PathOptions)
 
 -- | If provided, this structure imposes a limit on a number of files that
 -- should be selected.
 pathOptions_filesLimit :: Lens.Lens' PathOptions (Prelude.Maybe FilesLimit)
 pathOptions_filesLimit = Lens.lens (\PathOptions' {filesLimit} -> filesLimit) (\s@PathOptions' {} a -> s {filesLimit = a} :: PathOptions)
+
+-- | If provided, this structure defines a date range for matching Amazon S3
+-- objects based on their LastModifiedDate attribute in Amazon S3.
+pathOptions_lastModifiedDateCondition :: Lens.Lens' PathOptions (Prelude.Maybe FilterExpression)
+pathOptions_lastModifiedDateCondition = Lens.lens (\PathOptions' {lastModifiedDateCondition} -> lastModifiedDateCondition) (\s@PathOptions' {} a -> s {lastModifiedDateCondition = a} :: PathOptions)
 
 -- | A structure that maps names of parameters used in the Amazon S3 path of
 -- a dataset to their definitions.
@@ -91,31 +90,30 @@ instance Data.FromJSON PathOptions where
       "PathOptions"
       ( \x ->
           PathOptions'
-            Prelude.<$> (x Data..:? "LastModifiedDateCondition")
-            Prelude.<*> (x Data..:? "FilesLimit")
+            Prelude.<$> (x Data..:? "FilesLimit")
+            Prelude.<*> (x Data..:? "LastModifiedDateCondition")
             Prelude.<*> (x Data..:? "Parameters" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable PathOptions where
   hashWithSalt _salt PathOptions' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` filesLimit
       `Prelude.hashWithSalt` lastModifiedDateCondition
-      `Prelude.hashWithSalt` filesLimit
       `Prelude.hashWithSalt` parameters
 
 instance Prelude.NFData PathOptions where
   rnf PathOptions' {..} =
-    Prelude.rnf lastModifiedDateCondition
-      `Prelude.seq` Prelude.rnf filesLimit
+    Prelude.rnf filesLimit
+      `Prelude.seq` Prelude.rnf lastModifiedDateCondition
       `Prelude.seq` Prelude.rnf parameters
 
 instance Data.ToJSON PathOptions where
   toJSON PathOptions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("LastModifiedDateCondition" Data..=)
+          [ ("FilesLimit" Data..=) Prelude.<$> filesLimit,
+            ("LastModifiedDateCondition" Data..=)
               Prelude.<$> lastModifiedDateCondition,
-            ("FilesLimit" Data..=) Prelude.<$> filesLimit,
             ("Parameters" Data..=) Prelude.<$> parameters
           ]
       )

@@ -27,7 +27,10 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestCreateBackupPlan $
+--         [ requestCancelLegalHold $
+--             newCancelLegalHold
+--
+--         , requestCreateBackupPlan $
 --             newCreateBackupPlan
 --
 --         , requestCreateBackupSelection $
@@ -38,6 +41,9 @@ import Test.Tasty
 --
 --         , requestCreateFramework $
 --             newCreateFramework
+--
+--         , requestCreateLegalHold $
+--             newCreateLegalHold
 --
 --         , requestCreateReportPlan $
 --             newCreateReportPlan
@@ -105,6 +111,9 @@ import Test.Tasty
 --         , requestDisassociateRecoveryPoint $
 --             newDisassociateRecoveryPoint
 --
+--         , requestDisassociateRecoveryPointFromParent $
+--             newDisassociateRecoveryPointFromParent
+--
 --         , requestExportBackupPlanTemplate $
 --             newExportBackupPlanTemplate
 --
@@ -125,6 +134,9 @@ import Test.Tasty
 --
 --         , requestGetBackupVaultNotifications $
 --             newGetBackupVaultNotifications
+--
+--         , requestGetLegalHold $
+--             newGetLegalHold
 --
 --         , requestGetRecoveryPointRestoreMetadata $
 --             newGetRecoveryPointRestoreMetadata
@@ -156,11 +168,17 @@ import Test.Tasty
 --         , requestListFrameworks $
 --             newListFrameworks
 --
+--         , requestListLegalHolds $
+--             newListLegalHolds
+--
 --         , requestListProtectedResources $
 --             newListProtectedResources
 --
 --         , requestListRecoveryPointsByBackupVault $
 --             newListRecoveryPointsByBackupVault
+--
+--         , requestListRecoveryPointsByLegalHold $
+--             newListRecoveryPointsByLegalHold
 --
 --         , requestListRecoveryPointsByResource $
 --             newListRecoveryPointsByResource
@@ -228,7 +246,10 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responseCreateBackupPlan $
+--         [ responseCancelLegalHold $
+--             newCancelLegalHoldResponse
+--
+--         , responseCreateBackupPlan $
 --             newCreateBackupPlanResponse
 --
 --         , responseCreateBackupSelection $
@@ -239,6 +260,9 @@ import Test.Tasty
 --
 --         , responseCreateFramework $
 --             newCreateFrameworkResponse
+--
+--         , responseCreateLegalHold $
+--             newCreateLegalHoldResponse
 --
 --         , responseCreateReportPlan $
 --             newCreateReportPlanResponse
@@ -306,6 +330,9 @@ import Test.Tasty
 --         , responseDisassociateRecoveryPoint $
 --             newDisassociateRecoveryPointResponse
 --
+--         , responseDisassociateRecoveryPointFromParent $
+--             newDisassociateRecoveryPointFromParentResponse
+--
 --         , responseExportBackupPlanTemplate $
 --             newExportBackupPlanTemplateResponse
 --
@@ -326,6 +353,9 @@ import Test.Tasty
 --
 --         , responseGetBackupVaultNotifications $
 --             newGetBackupVaultNotificationsResponse
+--
+--         , responseGetLegalHold $
+--             newGetLegalHoldResponse
 --
 --         , responseGetRecoveryPointRestoreMetadata $
 --             newGetRecoveryPointRestoreMetadataResponse
@@ -357,11 +387,17 @@ import Test.Tasty
 --         , responseListFrameworks $
 --             newListFrameworksResponse
 --
+--         , responseListLegalHolds $
+--             newListLegalHoldsResponse
+--
 --         , responseListProtectedResources $
 --             newListProtectedResourcesResponse
 --
 --         , responseListRecoveryPointsByBackupVault $
 --             newListRecoveryPointsByBackupVaultResponse
+--
+--         , responseListRecoveryPointsByLegalHold $
+--             newListRecoveryPointsByLegalHoldResponse
 --
 --         , responseListRecoveryPointsByResource $
 --             newListRecoveryPointsByResourceResponse
@@ -431,6 +467,12 @@ import Test.Tasty
 
 -- Requests
 
+requestCancelLegalHold :: CancelLegalHold -> TestTree
+requestCancelLegalHold =
+  req
+    "CancelLegalHold"
+    "fixture/CancelLegalHold.yaml"
+
 requestCreateBackupPlan :: CreateBackupPlan -> TestTree
 requestCreateBackupPlan =
   req
@@ -454,6 +496,12 @@ requestCreateFramework =
   req
     "CreateFramework"
     "fixture/CreateFramework.yaml"
+
+requestCreateLegalHold :: CreateLegalHold -> TestTree
+requestCreateLegalHold =
+  req
+    "CreateLegalHold"
+    "fixture/CreateLegalHold.yaml"
 
 requestCreateReportPlan :: CreateReportPlan -> TestTree
 requestCreateReportPlan =
@@ -587,6 +635,12 @@ requestDisassociateRecoveryPoint =
     "DisassociateRecoveryPoint"
     "fixture/DisassociateRecoveryPoint.yaml"
 
+requestDisassociateRecoveryPointFromParent :: DisassociateRecoveryPointFromParent -> TestTree
+requestDisassociateRecoveryPointFromParent =
+  req
+    "DisassociateRecoveryPointFromParent"
+    "fixture/DisassociateRecoveryPointFromParent.yaml"
+
 requestExportBackupPlanTemplate :: ExportBackupPlanTemplate -> TestTree
 requestExportBackupPlanTemplate =
   req
@@ -628,6 +682,12 @@ requestGetBackupVaultNotifications =
   req
     "GetBackupVaultNotifications"
     "fixture/GetBackupVaultNotifications.yaml"
+
+requestGetLegalHold :: GetLegalHold -> TestTree
+requestGetLegalHold =
+  req
+    "GetLegalHold"
+    "fixture/GetLegalHold.yaml"
 
 requestGetRecoveryPointRestoreMetadata :: GetRecoveryPointRestoreMetadata -> TestTree
 requestGetRecoveryPointRestoreMetadata =
@@ -689,6 +749,12 @@ requestListFrameworks =
     "ListFrameworks"
     "fixture/ListFrameworks.yaml"
 
+requestListLegalHolds :: ListLegalHolds -> TestTree
+requestListLegalHolds =
+  req
+    "ListLegalHolds"
+    "fixture/ListLegalHolds.yaml"
+
 requestListProtectedResources :: ListProtectedResources -> TestTree
 requestListProtectedResources =
   req
@@ -700,6 +766,12 @@ requestListRecoveryPointsByBackupVault =
   req
     "ListRecoveryPointsByBackupVault"
     "fixture/ListRecoveryPointsByBackupVault.yaml"
+
+requestListRecoveryPointsByLegalHold :: ListRecoveryPointsByLegalHold -> TestTree
+requestListRecoveryPointsByLegalHold =
+  req
+    "ListRecoveryPointsByLegalHold"
+    "fixture/ListRecoveryPointsByLegalHold.yaml"
 
 requestListRecoveryPointsByResource :: ListRecoveryPointsByResource -> TestTree
 requestListRecoveryPointsByResource =
@@ -829,6 +901,14 @@ requestUpdateReportPlan =
 
 -- Responses
 
+responseCancelLegalHold :: CancelLegalHoldResponse -> TestTree
+responseCancelLegalHold =
+  res
+    "CancelLegalHoldResponse"
+    "fixture/CancelLegalHoldResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CancelLegalHold)
+
 responseCreateBackupPlan :: CreateBackupPlanResponse -> TestTree
 responseCreateBackupPlan =
   res
@@ -860,6 +940,14 @@ responseCreateFramework =
     "fixture/CreateFrameworkResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateFramework)
+
+responseCreateLegalHold :: CreateLegalHoldResponse -> TestTree
+responseCreateLegalHold =
+  res
+    "CreateLegalHoldResponse"
+    "fixture/CreateLegalHoldResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateLegalHold)
 
 responseCreateReportPlan :: CreateReportPlanResponse -> TestTree
 responseCreateReportPlan =
@@ -1037,6 +1125,14 @@ responseDisassociateRecoveryPoint =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DisassociateRecoveryPoint)
 
+responseDisassociateRecoveryPointFromParent :: DisassociateRecoveryPointFromParentResponse -> TestTree
+responseDisassociateRecoveryPointFromParent =
+  res
+    "DisassociateRecoveryPointFromParentResponse"
+    "fixture/DisassociateRecoveryPointFromParentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateRecoveryPointFromParent)
+
 responseExportBackupPlanTemplate :: ExportBackupPlanTemplateResponse -> TestTree
 responseExportBackupPlanTemplate =
   res
@@ -1092,6 +1188,14 @@ responseGetBackupVaultNotifications =
     "fixture/GetBackupVaultNotificationsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetBackupVaultNotifications)
+
+responseGetLegalHold :: GetLegalHoldResponse -> TestTree
+responseGetLegalHold =
+  res
+    "GetLegalHoldResponse"
+    "fixture/GetLegalHoldResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetLegalHold)
 
 responseGetRecoveryPointRestoreMetadata :: GetRecoveryPointRestoreMetadataResponse -> TestTree
 responseGetRecoveryPointRestoreMetadata =
@@ -1173,6 +1277,14 @@ responseListFrameworks =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListFrameworks)
 
+responseListLegalHolds :: ListLegalHoldsResponse -> TestTree
+responseListLegalHolds =
+  res
+    "ListLegalHoldsResponse"
+    "fixture/ListLegalHoldsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListLegalHolds)
+
 responseListProtectedResources :: ListProtectedResourcesResponse -> TestTree
 responseListProtectedResources =
   res
@@ -1188,6 +1300,14 @@ responseListRecoveryPointsByBackupVault =
     "fixture/ListRecoveryPointsByBackupVaultResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListRecoveryPointsByBackupVault)
+
+responseListRecoveryPointsByLegalHold :: ListRecoveryPointsByLegalHoldResponse -> TestTree
+responseListRecoveryPointsByLegalHold =
+  res
+    "ListRecoveryPointsByLegalHoldResponse"
+    "fixture/ListRecoveryPointsByLegalHoldResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListRecoveryPointsByLegalHold)
 
 responseListRecoveryPointsByResource :: ListRecoveryPointsByResourceResponse -> TestTree
 responseListRecoveryPointsByResource =

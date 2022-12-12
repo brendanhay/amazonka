@@ -19,11 +19,11 @@ module Amazonka.AmplifyUiBuilder.Types
 
     -- * Errors
     _InternalServerException,
-    _UnauthorizedException,
-    _ServiceQuotaExceededException,
-    _ResourceNotFoundException,
-    _ResourceConflictException,
     _InvalidParameterException,
+    _ResourceConflictException,
+    _ResourceNotFoundException,
+    _ServiceQuotaExceededException,
+    _UnauthorizedException,
 
     -- * FixedPosition
     FixedPosition (..),
@@ -46,26 +46,26 @@ module Amazonka.AmplifyUiBuilder.Types
     -- * ActionParameters
     ActionParameters (..),
     newActionParameters,
-    actionParameters_type,
+    actionParameters_anchor,
+    actionParameters_fields,
+    actionParameters_global,
+    actionParameters_id,
     actionParameters_model,
     actionParameters_state,
-    actionParameters_url,
     actionParameters_target,
-    actionParameters_fields,
-    actionParameters_id,
-    actionParameters_global,
-    actionParameters_anchor,
+    actionParameters_type,
+    actionParameters_url,
 
     -- * Component
     Component (..),
     newComponent,
-    component_tags,
-    component_modifiedAt,
-    component_sourceId,
     component_children,
-    component_events,
-    component_schemaVersion,
     component_collectionProperties,
+    component_events,
+    component_modifiedAt,
+    component_schemaVersion,
+    component_sourceId,
+    component_tags,
     component_appId,
     component_bindingProperties,
     component_componentType,
@@ -80,28 +80,28 @@ module Amazonka.AmplifyUiBuilder.Types
     -- * ComponentBindingPropertiesValue
     ComponentBindingPropertiesValue (..),
     newComponentBindingPropertiesValue,
-    componentBindingPropertiesValue_type,
-    componentBindingPropertiesValue_defaultValue,
     componentBindingPropertiesValue_bindingProperties,
+    componentBindingPropertiesValue_defaultValue,
+    componentBindingPropertiesValue_type,
 
     -- * ComponentBindingPropertiesValueProperties
     ComponentBindingPropertiesValueProperties (..),
     newComponentBindingPropertiesValueProperties,
-    componentBindingPropertiesValueProperties_key,
-    componentBindingPropertiesValueProperties_slotName,
-    componentBindingPropertiesValueProperties_model,
     componentBindingPropertiesValueProperties_bucket,
-    componentBindingPropertiesValueProperties_predicates,
-    componentBindingPropertiesValueProperties_userAttribute,
     componentBindingPropertiesValueProperties_defaultValue,
     componentBindingPropertiesValueProperties_field,
+    componentBindingPropertiesValueProperties_key,
+    componentBindingPropertiesValueProperties_model,
+    componentBindingPropertiesValueProperties_predicates,
+    componentBindingPropertiesValueProperties_slotName,
+    componentBindingPropertiesValueProperties_userAttribute,
 
     -- * ComponentChild
     ComponentChild (..),
     newComponentChild,
-    componentChild_sourceId,
     componentChild_children,
     componentChild_events,
+    componentChild_sourceId,
     componentChild_componentType,
     componentChild_name,
     componentChild_properties,
@@ -109,46 +109,46 @@ module Amazonka.AmplifyUiBuilder.Types
     -- * ComponentConditionProperty
     ComponentConditionProperty (..),
     newComponentConditionProperty,
-    componentConditionProperty_operand,
     componentConditionProperty_else,
-    componentConditionProperty_then,
-    componentConditionProperty_operandType,
     componentConditionProperty_field,
-    componentConditionProperty_property,
+    componentConditionProperty_operand,
+    componentConditionProperty_operandType,
     componentConditionProperty_operator,
+    componentConditionProperty_property,
+    componentConditionProperty_then,
 
     -- * ComponentDataConfiguration
     ComponentDataConfiguration (..),
     newComponentDataConfiguration,
+    componentDataConfiguration_identifiers,
     componentDataConfiguration_predicate,
     componentDataConfiguration_sort,
-    componentDataConfiguration_identifiers,
     componentDataConfiguration_model,
 
     -- * ComponentEvent
     ComponentEvent (..),
     newComponentEvent,
-    componentEvent_bindingEvent,
     componentEvent_action,
+    componentEvent_bindingEvent,
     componentEvent_parameters,
 
     -- * ComponentProperty
     ComponentProperty (..),
     newComponentProperty,
-    componentProperty_configured,
-    componentProperty_type,
-    componentProperty_model,
-    componentProperty_importedValue,
-    componentProperty_concat,
-    componentProperty_collectionBindingProperties,
-    componentProperty_userAttribute,
-    componentProperty_componentName,
-    componentProperty_defaultValue,
-    componentProperty_bindings,
     componentProperty_bindingProperties,
-    componentProperty_property,
+    componentProperty_bindings,
+    componentProperty_collectionBindingProperties,
+    componentProperty_componentName,
+    componentProperty_concat,
     componentProperty_condition,
+    componentProperty_configured,
+    componentProperty_defaultValue,
     componentProperty_event,
+    componentProperty_importedValue,
+    componentProperty_model,
+    componentProperty_property,
+    componentProperty_type,
+    componentProperty_userAttribute,
     componentProperty_value,
 
     -- * ComponentPropertyBindingProperties
@@ -169,18 +169,18 @@ module Amazonka.AmplifyUiBuilder.Types
     -- * ComponentVariant
     ComponentVariant (..),
     newComponentVariant,
-    componentVariant_variantValues,
     componentVariant_overrides,
+    componentVariant_variantValues,
 
     -- * CreateComponentData
     CreateComponentData (..),
     newCreateComponentData,
-    createComponentData_tags,
-    createComponentData_sourceId,
     createComponentData_children,
+    createComponentData_collectionProperties,
     createComponentData_events,
     createComponentData_schemaVersion,
-    createComponentData_collectionProperties,
+    createComponentData_sourceId,
+    createComponentData_tags,
     createComponentData_bindingProperties,
     createComponentData_componentType,
     createComponentData_name,
@@ -191,8 +191,8 @@ module Amazonka.AmplifyUiBuilder.Types
     -- * CreateFormData
     CreateFormData (..),
     newCreateFormData,
-    createFormData_tags,
     createFormData_cta,
+    createFormData_tags,
     createFormData_dataType,
     createFormData_fields,
     createFormData_formActionType,
@@ -204,8 +204,8 @@ module Amazonka.AmplifyUiBuilder.Types
     -- * CreateThemeData
     CreateThemeData (..),
     newCreateThemeData,
-    createThemeData_tags,
     createThemeData_overrides,
+    createThemeData_tags,
     createThemeData_name,
     createThemeData_values,
 
@@ -218,37 +218,37 @@ module Amazonka.AmplifyUiBuilder.Types
     -- * FieldConfig
     FieldConfig (..),
     newFieldConfig,
-    fieldConfig_label,
-    fieldConfig_validations,
-    fieldConfig_inputType,
-    fieldConfig_position,
     fieldConfig_excluded,
+    fieldConfig_inputType,
+    fieldConfig_label,
+    fieldConfig_position,
+    fieldConfig_validations,
 
     -- * FieldInputConfig
     FieldInputConfig (..),
     newFieldInputConfig,
-    fieldInputConfig_name,
-    fieldInputConfig_descriptiveText,
-    fieldInputConfig_required,
-    fieldInputConfig_defaultValue,
-    fieldInputConfig_minValue,
-    fieldInputConfig_readOnly,
-    fieldInputConfig_isArray,
-    fieldInputConfig_step,
-    fieldInputConfig_defaultCountryCode,
     fieldInputConfig_defaultChecked,
-    fieldInputConfig_placeholder,
+    fieldInputConfig_defaultCountryCode,
+    fieldInputConfig_defaultValue,
+    fieldInputConfig_descriptiveText,
+    fieldInputConfig_isArray,
     fieldInputConfig_maxValue,
-    fieldInputConfig_valueMappings,
+    fieldInputConfig_minValue,
+    fieldInputConfig_name,
+    fieldInputConfig_placeholder,
+    fieldInputConfig_readOnly,
+    fieldInputConfig_required,
+    fieldInputConfig_step,
     fieldInputConfig_value,
+    fieldInputConfig_valueMappings,
     fieldInputConfig_type,
 
     -- * FieldPosition
     FieldPosition (..),
     newFieldPosition,
+    fieldPosition_below,
     fieldPosition_fixed,
     fieldPosition_rightOf,
-    fieldPosition_below,
 
     -- * FieldValidationConfiguration
     FieldValidationConfiguration (..),
@@ -261,8 +261,8 @@ module Amazonka.AmplifyUiBuilder.Types
     -- * Form
     Form (..),
     newForm,
-    form_tags,
     form_cta,
+    form_tags,
     form_appId,
     form_dataType,
     form_environmentName,
@@ -284,16 +284,16 @@ module Amazonka.AmplifyUiBuilder.Types
     FormButton (..),
     newFormButton,
     formButton_children,
-    formButton_position,
     formButton_excluded,
+    formButton_position,
 
     -- * FormCTA
     FormCTA (..),
     newFormCTA,
-    formCTA_clear,
-    formCTA_submit,
-    formCTA_position,
     formCTA_cancel,
+    formCTA_clear,
+    formCTA_position,
+    formCTA_submit,
 
     -- * FormDataTypeConfig
     FormDataTypeConfig (..),
@@ -309,9 +309,9 @@ module Amazonka.AmplifyUiBuilder.Types
     -- * FormStyle
     FormStyle (..),
     newFormStyle,
-    formStyle_verticalGap,
     formStyle_horizontalGap,
     formStyle_outerPadding,
+    formStyle_verticalGap,
 
     -- * FormStyleConfig
     FormStyleConfig (..),
@@ -339,11 +339,11 @@ module Amazonka.AmplifyUiBuilder.Types
     -- * Predicate
     Predicate (..),
     newPredicate,
-    predicate_operand,
-    predicate_field,
-    predicate_or,
-    predicate_operator,
     predicate_and,
+    predicate_field,
+    predicate_operand,
+    predicate_operator,
+    predicate_or,
 
     -- * PutMetadataFlagBody
     PutMetadataFlagBody (..),
@@ -358,8 +358,8 @@ module Amazonka.AmplifyUiBuilder.Types
     -- * SectionalElement
     SectionalElement (..),
     newSectionalElement,
-    sectionalElement_orientation,
     sectionalElement_level,
+    sectionalElement_orientation,
     sectionalElement_position,
     sectionalElement_text,
     sectionalElement_type,
@@ -373,9 +373,9 @@ module Amazonka.AmplifyUiBuilder.Types
     -- * Theme
     Theme (..),
     newTheme,
-    theme_tags,
     theme_modifiedAt,
     theme_overrides,
+    theme_tags,
     theme_appId,
     theme_createdAt,
     theme_environmentName,
@@ -406,36 +406,36 @@ module Amazonka.AmplifyUiBuilder.Types
     -- * UpdateComponentData
     UpdateComponentData (..),
     newUpdateComponentData,
-    updateComponentData_name,
-    updateComponentData_variants,
-    updateComponentData_sourceId,
-    updateComponentData_properties,
     updateComponentData_bindingProperties,
-    updateComponentData_id,
     updateComponentData_children,
-    updateComponentData_events,
-    updateComponentData_schemaVersion,
     updateComponentData_collectionProperties,
     updateComponentData_componentType,
+    updateComponentData_events,
+    updateComponentData_id,
+    updateComponentData_name,
     updateComponentData_overrides,
+    updateComponentData_properties,
+    updateComponentData_schemaVersion,
+    updateComponentData_sourceId,
+    updateComponentData_variants,
 
     -- * UpdateFormData
     UpdateFormData (..),
     newUpdateFormData,
-    updateFormData_name,
-    updateFormData_sectionalElements,
-    updateFormData_style,
+    updateFormData_cta,
+    updateFormData_dataType,
     updateFormData_fields,
     updateFormData_formActionType,
-    updateFormData_cta,
+    updateFormData_name,
     updateFormData_schemaVersion,
-    updateFormData_dataType,
+    updateFormData_sectionalElements,
+    updateFormData_style,
 
     -- * UpdateThemeData
     UpdateThemeData (..),
     newUpdateThemeData,
-    updateThemeData_name,
     updateThemeData_id,
+    updateThemeData_name,
     updateThemeData_overrides,
     updateThemeData_values,
 
@@ -532,28 +532,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -561,13 +555,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -575,6 +573,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | An internal error has occurred. Please retry your request.
@@ -585,13 +585,30 @@ _InternalServerException =
     "InternalServerException"
     Prelude.. Core.hasStatus 500
 
--- | You don\'t have permission to perform this operation.
-_UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnauthorizedException =
+-- | An invalid or out-of-range value was supplied for the input parameter.
+_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException =
   Core._MatchServiceError
     defaultService
-    "UnauthorizedException"
-    Prelude.. Core.hasStatus 401
+    "InvalidParameterException"
+    Prelude.. Core.hasStatus 400
+
+-- | The resource specified in the request conflicts with an existing
+-- resource.
+_ResourceConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceConflictException"
+    Prelude.. Core.hasStatus 409
+
+-- | The requested resource does not exist, or access was denied.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
 
 -- | You exceeded your service quota. Service quotas, also referred to as
 -- limits, are the maximum number of service resources or operations for
@@ -603,27 +620,10 @@ _ServiceQuotaExceededException =
     "ServiceQuotaExceededException"
     Prelude.. Core.hasStatus 402
 
--- | The requested resource does not exist, or access was denied.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
+-- | You don\'t have permission to perform this operation.
+_UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnauthorizedException =
   Core._MatchServiceError
     defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
-
--- | The resource specified in the request conflicts with an existing
--- resource.
-_ResourceConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceConflictException"
-    Prelude.. Core.hasStatus 409
-
--- | An invalid or out-of-range value was supplied for the input parameter.
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameterException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidParameterException"
-    Prelude.. Core.hasStatus 400
+    "UnauthorizedException"
+    Prelude.. Core.hasStatus 401

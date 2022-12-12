@@ -39,9 +39,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newS3AccessPointConfiguration' smart constructor.
 data S3AccessPointConfiguration = S3AccessPointConfiguration'
-  { -- | The proposed @S3PublicAccessBlock@ configuration to apply to this Amazon
-    -- S3 access point or multi-region access point.
-    publicAccessBlock :: Prelude.Maybe S3PublicAccessBlockConfiguration,
+  { -- | The access point or multi-region access point policy.
+    accessPointPolicy :: Prelude.Maybe Prelude.Text,
     -- | The proposed @Internet@ and @VpcConfiguration@ to apply to this Amazon
     -- S3 access point. @VpcConfiguration@ does not apply to multi-region
     -- access points. If the access preview is for a new resource and neither
@@ -49,8 +48,9 @@ data S3AccessPointConfiguration = S3AccessPointConfiguration'
     -- If the access preview is for an existing resource and neither is
     -- specified, the access preview uses the exiting network origin.
     networkOrigin :: Prelude.Maybe NetworkOriginConfiguration,
-    -- | The access point or multi-region access point policy.
-    accessPointPolicy :: Prelude.Maybe Prelude.Text
+    -- | The proposed @S3PublicAccessBlock@ configuration to apply to this Amazon
+    -- S3 access point or multi-region access point.
+    publicAccessBlock :: Prelude.Maybe S3PublicAccessBlockConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,8 +62,7 @@ data S3AccessPointConfiguration = S3AccessPointConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'publicAccessBlock', 's3AccessPointConfiguration_publicAccessBlock' - The proposed @S3PublicAccessBlock@ configuration to apply to this Amazon
--- S3 access point or multi-region access point.
+-- 'accessPointPolicy', 's3AccessPointConfiguration_accessPointPolicy' - The access point or multi-region access point policy.
 --
 -- 'networkOrigin', 's3AccessPointConfiguration_networkOrigin' - The proposed @Internet@ and @VpcConfiguration@ to apply to this Amazon
 -- S3 access point. @VpcConfiguration@ does not apply to multi-region
@@ -72,21 +71,21 @@ data S3AccessPointConfiguration = S3AccessPointConfiguration'
 -- If the access preview is for an existing resource and neither is
 -- specified, the access preview uses the exiting network origin.
 --
--- 'accessPointPolicy', 's3AccessPointConfiguration_accessPointPolicy' - The access point or multi-region access point policy.
+-- 'publicAccessBlock', 's3AccessPointConfiguration_publicAccessBlock' - The proposed @S3PublicAccessBlock@ configuration to apply to this Amazon
+-- S3 access point or multi-region access point.
 newS3AccessPointConfiguration ::
   S3AccessPointConfiguration
 newS3AccessPointConfiguration =
   S3AccessPointConfiguration'
-    { publicAccessBlock =
+    { accessPointPolicy =
         Prelude.Nothing,
       networkOrigin = Prelude.Nothing,
-      accessPointPolicy = Prelude.Nothing
+      publicAccessBlock = Prelude.Nothing
     }
 
--- | The proposed @S3PublicAccessBlock@ configuration to apply to this Amazon
--- S3 access point or multi-region access point.
-s3AccessPointConfiguration_publicAccessBlock :: Lens.Lens' S3AccessPointConfiguration (Prelude.Maybe S3PublicAccessBlockConfiguration)
-s3AccessPointConfiguration_publicAccessBlock = Lens.lens (\S3AccessPointConfiguration' {publicAccessBlock} -> publicAccessBlock) (\s@S3AccessPointConfiguration' {} a -> s {publicAccessBlock = a} :: S3AccessPointConfiguration)
+-- | The access point or multi-region access point policy.
+s3AccessPointConfiguration_accessPointPolicy :: Lens.Lens' S3AccessPointConfiguration (Prelude.Maybe Prelude.Text)
+s3AccessPointConfiguration_accessPointPolicy = Lens.lens (\S3AccessPointConfiguration' {accessPointPolicy} -> accessPointPolicy) (\s@S3AccessPointConfiguration' {} a -> s {accessPointPolicy = a} :: S3AccessPointConfiguration)
 
 -- | The proposed @Internet@ and @VpcConfiguration@ to apply to this Amazon
 -- S3 access point. @VpcConfiguration@ does not apply to multi-region
@@ -97,9 +96,10 @@ s3AccessPointConfiguration_publicAccessBlock = Lens.lens (\S3AccessPointConfigur
 s3AccessPointConfiguration_networkOrigin :: Lens.Lens' S3AccessPointConfiguration (Prelude.Maybe NetworkOriginConfiguration)
 s3AccessPointConfiguration_networkOrigin = Lens.lens (\S3AccessPointConfiguration' {networkOrigin} -> networkOrigin) (\s@S3AccessPointConfiguration' {} a -> s {networkOrigin = a} :: S3AccessPointConfiguration)
 
--- | The access point or multi-region access point policy.
-s3AccessPointConfiguration_accessPointPolicy :: Lens.Lens' S3AccessPointConfiguration (Prelude.Maybe Prelude.Text)
-s3AccessPointConfiguration_accessPointPolicy = Lens.lens (\S3AccessPointConfiguration' {accessPointPolicy} -> accessPointPolicy) (\s@S3AccessPointConfiguration' {} a -> s {accessPointPolicy = a} :: S3AccessPointConfiguration)
+-- | The proposed @S3PublicAccessBlock@ configuration to apply to this Amazon
+-- S3 access point or multi-region access point.
+s3AccessPointConfiguration_publicAccessBlock :: Lens.Lens' S3AccessPointConfiguration (Prelude.Maybe S3PublicAccessBlockConfiguration)
+s3AccessPointConfiguration_publicAccessBlock = Lens.lens (\S3AccessPointConfiguration' {publicAccessBlock} -> publicAccessBlock) (\s@S3AccessPointConfiguration' {} a -> s {publicAccessBlock = a} :: S3AccessPointConfiguration)
 
 instance Data.FromJSON S3AccessPointConfiguration where
   parseJSON =
@@ -107,31 +107,31 @@ instance Data.FromJSON S3AccessPointConfiguration where
       "S3AccessPointConfiguration"
       ( \x ->
           S3AccessPointConfiguration'
-            Prelude.<$> (x Data..:? "publicAccessBlock")
+            Prelude.<$> (x Data..:? "accessPointPolicy")
             Prelude.<*> (x Data..:? "networkOrigin")
-            Prelude.<*> (x Data..:? "accessPointPolicy")
+            Prelude.<*> (x Data..:? "publicAccessBlock")
       )
 
 instance Prelude.Hashable S3AccessPointConfiguration where
   hashWithSalt _salt S3AccessPointConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` publicAccessBlock
+    _salt `Prelude.hashWithSalt` accessPointPolicy
       `Prelude.hashWithSalt` networkOrigin
-      `Prelude.hashWithSalt` accessPointPolicy
+      `Prelude.hashWithSalt` publicAccessBlock
 
 instance Prelude.NFData S3AccessPointConfiguration where
   rnf S3AccessPointConfiguration' {..} =
-    Prelude.rnf publicAccessBlock
+    Prelude.rnf accessPointPolicy
       `Prelude.seq` Prelude.rnf networkOrigin
-      `Prelude.seq` Prelude.rnf accessPointPolicy
+      `Prelude.seq` Prelude.rnf publicAccessBlock
 
 instance Data.ToJSON S3AccessPointConfiguration where
   toJSON S3AccessPointConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("publicAccessBlock" Data..=)
-              Prelude.<$> publicAccessBlock,
+          [ ("accessPointPolicy" Data..=)
+              Prelude.<$> accessPointPolicy,
             ("networkOrigin" Data..=) Prelude.<$> networkOrigin,
-            ("accessPointPolicy" Data..=)
-              Prelude.<$> accessPointPolicy
+            ("publicAccessBlock" Data..=)
+              Prelude.<$> publicAccessBlock
           ]
       )

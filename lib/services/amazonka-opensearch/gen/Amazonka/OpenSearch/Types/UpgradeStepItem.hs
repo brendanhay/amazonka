@@ -31,7 +31,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUpgradeStepItem' smart constructor.
 data UpgradeStepItem = UpgradeStepItem'
-  { -- | One of three steps that an upgrade or upgrade eligibility check goes
+  { -- | A list of strings containing detailed information about the errors
+    -- encountered in a particular step.
+    issues :: Prelude.Maybe [Prelude.Text],
+    -- | The floating point value representing the progress percentage of a
+    -- particular step.
+    progressPercent :: Prelude.Maybe Prelude.Double,
+    -- | One of three steps that an upgrade or upgrade eligibility check goes
     -- through:
     --
     -- -   PreUpgradeCheck
@@ -40,12 +46,6 @@ data UpgradeStepItem = UpgradeStepItem'
     --
     -- -   Upgrade
     upgradeStep :: Prelude.Maybe UpgradeStep,
-    -- | A list of strings containing detailed information about the errors
-    -- encountered in a particular step.
-    issues :: Prelude.Maybe [Prelude.Text],
-    -- | The floating point value representing the progress percentage of a
-    -- particular step.
-    progressPercent :: Prelude.Maybe Prelude.Double,
     -- | The current status of the upgrade. The status can take one of the
     -- following values:
     --
@@ -68,6 +68,12 @@ data UpgradeStepItem = UpgradeStepItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'issues', 'upgradeStepItem_issues' - A list of strings containing detailed information about the errors
+-- encountered in a particular step.
+--
+-- 'progressPercent', 'upgradeStepItem_progressPercent' - The floating point value representing the progress percentage of a
+-- particular step.
+--
 -- 'upgradeStep', 'upgradeStepItem_upgradeStep' - One of three steps that an upgrade or upgrade eligibility check goes
 -- through:
 --
@@ -76,12 +82,6 @@ data UpgradeStepItem = UpgradeStepItem'
 -- -   Snapshot
 --
 -- -   Upgrade
---
--- 'issues', 'upgradeStepItem_issues' - A list of strings containing detailed information about the errors
--- encountered in a particular step.
---
--- 'progressPercent', 'upgradeStepItem_progressPercent' - The floating point value representing the progress percentage of a
--- particular step.
 --
 -- 'upgradeStepStatus', 'upgradeStepItem_upgradeStepStatus' - The current status of the upgrade. The status can take one of the
 -- following values:
@@ -97,11 +97,21 @@ newUpgradeStepItem ::
   UpgradeStepItem
 newUpgradeStepItem =
   UpgradeStepItem'
-    { upgradeStep = Prelude.Nothing,
-      issues = Prelude.Nothing,
+    { issues = Prelude.Nothing,
       progressPercent = Prelude.Nothing,
+      upgradeStep = Prelude.Nothing,
       upgradeStepStatus = Prelude.Nothing
     }
+
+-- | A list of strings containing detailed information about the errors
+-- encountered in a particular step.
+upgradeStepItem_issues :: Lens.Lens' UpgradeStepItem (Prelude.Maybe [Prelude.Text])
+upgradeStepItem_issues = Lens.lens (\UpgradeStepItem' {issues} -> issues) (\s@UpgradeStepItem' {} a -> s {issues = a} :: UpgradeStepItem) Prelude.. Lens.mapping Lens.coerced
+
+-- | The floating point value representing the progress percentage of a
+-- particular step.
+upgradeStepItem_progressPercent :: Lens.Lens' UpgradeStepItem (Prelude.Maybe Prelude.Double)
+upgradeStepItem_progressPercent = Lens.lens (\UpgradeStepItem' {progressPercent} -> progressPercent) (\s@UpgradeStepItem' {} a -> s {progressPercent = a} :: UpgradeStepItem)
 
 -- | One of three steps that an upgrade or upgrade eligibility check goes
 -- through:
@@ -113,16 +123,6 @@ newUpgradeStepItem =
 -- -   Upgrade
 upgradeStepItem_upgradeStep :: Lens.Lens' UpgradeStepItem (Prelude.Maybe UpgradeStep)
 upgradeStepItem_upgradeStep = Lens.lens (\UpgradeStepItem' {upgradeStep} -> upgradeStep) (\s@UpgradeStepItem' {} a -> s {upgradeStep = a} :: UpgradeStepItem)
-
--- | A list of strings containing detailed information about the errors
--- encountered in a particular step.
-upgradeStepItem_issues :: Lens.Lens' UpgradeStepItem (Prelude.Maybe [Prelude.Text])
-upgradeStepItem_issues = Lens.lens (\UpgradeStepItem' {issues} -> issues) (\s@UpgradeStepItem' {} a -> s {issues = a} :: UpgradeStepItem) Prelude.. Lens.mapping Lens.coerced
-
--- | The floating point value representing the progress percentage of a
--- particular step.
-upgradeStepItem_progressPercent :: Lens.Lens' UpgradeStepItem (Prelude.Maybe Prelude.Double)
-upgradeStepItem_progressPercent = Lens.lens (\UpgradeStepItem' {progressPercent} -> progressPercent) (\s@UpgradeStepItem' {} a -> s {progressPercent = a} :: UpgradeStepItem)
 
 -- | The current status of the upgrade. The status can take one of the
 -- following values:
@@ -143,22 +143,22 @@ instance Data.FromJSON UpgradeStepItem where
       "UpgradeStepItem"
       ( \x ->
           UpgradeStepItem'
-            Prelude.<$> (x Data..:? "UpgradeStep")
-            Prelude.<*> (x Data..:? "Issues" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Issues" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "ProgressPercent")
+            Prelude.<*> (x Data..:? "UpgradeStep")
             Prelude.<*> (x Data..:? "UpgradeStepStatus")
       )
 
 instance Prelude.Hashable UpgradeStepItem where
   hashWithSalt _salt UpgradeStepItem' {..} =
-    _salt `Prelude.hashWithSalt` upgradeStep
-      `Prelude.hashWithSalt` issues
+    _salt `Prelude.hashWithSalt` issues
       `Prelude.hashWithSalt` progressPercent
+      `Prelude.hashWithSalt` upgradeStep
       `Prelude.hashWithSalt` upgradeStepStatus
 
 instance Prelude.NFData UpgradeStepItem where
   rnf UpgradeStepItem' {..} =
-    Prelude.rnf upgradeStep
-      `Prelude.seq` Prelude.rnf issues
+    Prelude.rnf issues
       `Prelude.seq` Prelude.rnf progressPercent
+      `Prelude.seq` Prelude.rnf upgradeStep
       `Prelude.seq` Prelude.rnf upgradeStepStatus

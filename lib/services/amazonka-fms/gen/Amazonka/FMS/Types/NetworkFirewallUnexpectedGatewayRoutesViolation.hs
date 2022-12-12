@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNetworkFirewallUnexpectedGatewayRoutesViolation' smart constructor.
 data NetworkFirewallUnexpectedGatewayRoutesViolation = NetworkFirewallUnexpectedGatewayRoutesViolation'
-  { -- | The routes that are in violation.
-    violatingRoutes :: Prelude.Maybe [Route],
+  { -- | Information about the gateway ID.
+    gatewayId :: Prelude.Maybe Prelude.Text,
     -- | Information about the route table.
     routeTableId :: Prelude.Maybe Prelude.Text,
-    -- | Information about the gateway ID.
-    gatewayId :: Prelude.Maybe Prelude.Text,
+    -- | The routes that are in violation.
+    violatingRoutes :: Prelude.Maybe [Route],
     -- | Information about the VPC ID.
     vpcId :: Prelude.Maybe Prelude.Text
   }
@@ -49,37 +49,37 @@ data NetworkFirewallUnexpectedGatewayRoutesViolation = NetworkFirewallUnexpected
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'violatingRoutes', 'networkFirewallUnexpectedGatewayRoutesViolation_violatingRoutes' - The routes that are in violation.
+-- 'gatewayId', 'networkFirewallUnexpectedGatewayRoutesViolation_gatewayId' - Information about the gateway ID.
 --
 -- 'routeTableId', 'networkFirewallUnexpectedGatewayRoutesViolation_routeTableId' - Information about the route table.
 --
--- 'gatewayId', 'networkFirewallUnexpectedGatewayRoutesViolation_gatewayId' - Information about the gateway ID.
+-- 'violatingRoutes', 'networkFirewallUnexpectedGatewayRoutesViolation_violatingRoutes' - The routes that are in violation.
 --
 -- 'vpcId', 'networkFirewallUnexpectedGatewayRoutesViolation_vpcId' - Information about the VPC ID.
 newNetworkFirewallUnexpectedGatewayRoutesViolation ::
   NetworkFirewallUnexpectedGatewayRoutesViolation
 newNetworkFirewallUnexpectedGatewayRoutesViolation =
   NetworkFirewallUnexpectedGatewayRoutesViolation'
-    { violatingRoutes =
+    { gatewayId =
         Prelude.Nothing,
       routeTableId =
         Prelude.Nothing,
-      gatewayId =
+      violatingRoutes =
         Prelude.Nothing,
       vpcId = Prelude.Nothing
     }
 
--- | The routes that are in violation.
-networkFirewallUnexpectedGatewayRoutesViolation_violatingRoutes :: Lens.Lens' NetworkFirewallUnexpectedGatewayRoutesViolation (Prelude.Maybe [Route])
-networkFirewallUnexpectedGatewayRoutesViolation_violatingRoutes = Lens.lens (\NetworkFirewallUnexpectedGatewayRoutesViolation' {violatingRoutes} -> violatingRoutes) (\s@NetworkFirewallUnexpectedGatewayRoutesViolation' {} a -> s {violatingRoutes = a} :: NetworkFirewallUnexpectedGatewayRoutesViolation) Prelude.. Lens.mapping Lens.coerced
+-- | Information about the gateway ID.
+networkFirewallUnexpectedGatewayRoutesViolation_gatewayId :: Lens.Lens' NetworkFirewallUnexpectedGatewayRoutesViolation (Prelude.Maybe Prelude.Text)
+networkFirewallUnexpectedGatewayRoutesViolation_gatewayId = Lens.lens (\NetworkFirewallUnexpectedGatewayRoutesViolation' {gatewayId} -> gatewayId) (\s@NetworkFirewallUnexpectedGatewayRoutesViolation' {} a -> s {gatewayId = a} :: NetworkFirewallUnexpectedGatewayRoutesViolation)
 
 -- | Information about the route table.
 networkFirewallUnexpectedGatewayRoutesViolation_routeTableId :: Lens.Lens' NetworkFirewallUnexpectedGatewayRoutesViolation (Prelude.Maybe Prelude.Text)
 networkFirewallUnexpectedGatewayRoutesViolation_routeTableId = Lens.lens (\NetworkFirewallUnexpectedGatewayRoutesViolation' {routeTableId} -> routeTableId) (\s@NetworkFirewallUnexpectedGatewayRoutesViolation' {} a -> s {routeTableId = a} :: NetworkFirewallUnexpectedGatewayRoutesViolation)
 
--- | Information about the gateway ID.
-networkFirewallUnexpectedGatewayRoutesViolation_gatewayId :: Lens.Lens' NetworkFirewallUnexpectedGatewayRoutesViolation (Prelude.Maybe Prelude.Text)
-networkFirewallUnexpectedGatewayRoutesViolation_gatewayId = Lens.lens (\NetworkFirewallUnexpectedGatewayRoutesViolation' {gatewayId} -> gatewayId) (\s@NetworkFirewallUnexpectedGatewayRoutesViolation' {} a -> s {gatewayId = a} :: NetworkFirewallUnexpectedGatewayRoutesViolation)
+-- | The routes that are in violation.
+networkFirewallUnexpectedGatewayRoutesViolation_violatingRoutes :: Lens.Lens' NetworkFirewallUnexpectedGatewayRoutesViolation (Prelude.Maybe [Route])
+networkFirewallUnexpectedGatewayRoutesViolation_violatingRoutes = Lens.lens (\NetworkFirewallUnexpectedGatewayRoutesViolation' {violatingRoutes} -> violatingRoutes) (\s@NetworkFirewallUnexpectedGatewayRoutesViolation' {} a -> s {violatingRoutes = a} :: NetworkFirewallUnexpectedGatewayRoutesViolation) Prelude.. Lens.mapping Lens.coerced
 
 -- | Information about the VPC ID.
 networkFirewallUnexpectedGatewayRoutesViolation_vpcId :: Lens.Lens' NetworkFirewallUnexpectedGatewayRoutesViolation (Prelude.Maybe Prelude.Text)
@@ -94,11 +94,11 @@ instance
       "NetworkFirewallUnexpectedGatewayRoutesViolation"
       ( \x ->
           NetworkFirewallUnexpectedGatewayRoutesViolation'
-            Prelude.<$> ( x Data..:? "ViolatingRoutes"
-                            Data..!= Prelude.mempty
-                        )
+            Prelude.<$> (x Data..:? "GatewayId")
               Prelude.<*> (x Data..:? "RouteTableId")
-              Prelude.<*> (x Data..:? "GatewayId")
+              Prelude.<*> ( x Data..:? "ViolatingRoutes"
+                              Data..!= Prelude.mempty
+                          )
               Prelude.<*> (x Data..:? "VpcId")
       )
 
@@ -109,9 +109,9 @@ instance
   hashWithSalt
     _salt
     NetworkFirewallUnexpectedGatewayRoutesViolation' {..} =
-      _salt `Prelude.hashWithSalt` violatingRoutes
+      _salt `Prelude.hashWithSalt` gatewayId
         `Prelude.hashWithSalt` routeTableId
-        `Prelude.hashWithSalt` gatewayId
+        `Prelude.hashWithSalt` violatingRoutes
         `Prelude.hashWithSalt` vpcId
 
 instance
@@ -120,7 +120,7 @@ instance
   where
   rnf
     NetworkFirewallUnexpectedGatewayRoutesViolation' {..} =
-      Prelude.rnf violatingRoutes
+      Prelude.rnf gatewayId
         `Prelude.seq` Prelude.rnf routeTableId
-        `Prelude.seq` Prelude.rnf gatewayId
+        `Prelude.seq` Prelude.rnf violatingRoutes
         `Prelude.seq` Prelude.rnf vpcId

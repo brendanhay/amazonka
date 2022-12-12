@@ -36,8 +36,8 @@ module Amazonka.Kafka.UpdateConfiguration
     newUpdateConfigurationResponse,
 
     -- * Response Lenses
-    updateConfigurationResponse_latestRevision,
     updateConfigurationResponse_arn,
+    updateConfigurationResponse_latestRevision,
     updateConfigurationResponse_httpStatus,
   )
 where
@@ -127,8 +127,8 @@ instance Core.AWSRequest UpdateConfiguration where
     Response.receiveJSON
       ( \s h x ->
           UpdateConfigurationResponse'
-            Prelude.<$> (x Data..?> "latestRevision")
-            Prelude.<*> (x Data..?> "arn")
+            Prelude.<$> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "latestRevision")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -175,10 +175,10 @@ instance Data.ToQuery UpdateConfiguration where
 
 -- | /See:/ 'newUpdateConfigurationResponse' smart constructor.
 data UpdateConfigurationResponse = UpdateConfigurationResponse'
-  { -- | Latest revision of the configuration.
-    latestRevision :: Prelude.Maybe ConfigurationRevision,
-    -- | The Amazon Resource Name (ARN) of the configuration.
+  { -- | The Amazon Resource Name (ARN) of the configuration.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | Latest revision of the configuration.
+    latestRevision :: Prelude.Maybe ConfigurationRevision,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -192,9 +192,9 @@ data UpdateConfigurationResponse = UpdateConfigurationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'latestRevision', 'updateConfigurationResponse_latestRevision' - Latest revision of the configuration.
---
 -- 'arn', 'updateConfigurationResponse_arn' - The Amazon Resource Name (ARN) of the configuration.
+--
+-- 'latestRevision', 'updateConfigurationResponse_latestRevision' - Latest revision of the configuration.
 --
 -- 'httpStatus', 'updateConfigurationResponse_httpStatus' - The response's http status code.
 newUpdateConfigurationResponse ::
@@ -203,19 +203,18 @@ newUpdateConfigurationResponse ::
   UpdateConfigurationResponse
 newUpdateConfigurationResponse pHttpStatus_ =
   UpdateConfigurationResponse'
-    { latestRevision =
-        Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      latestRevision = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Latest revision of the configuration.
-updateConfigurationResponse_latestRevision :: Lens.Lens' UpdateConfigurationResponse (Prelude.Maybe ConfigurationRevision)
-updateConfigurationResponse_latestRevision = Lens.lens (\UpdateConfigurationResponse' {latestRevision} -> latestRevision) (\s@UpdateConfigurationResponse' {} a -> s {latestRevision = a} :: UpdateConfigurationResponse)
 
 -- | The Amazon Resource Name (ARN) of the configuration.
 updateConfigurationResponse_arn :: Lens.Lens' UpdateConfigurationResponse (Prelude.Maybe Prelude.Text)
 updateConfigurationResponse_arn = Lens.lens (\UpdateConfigurationResponse' {arn} -> arn) (\s@UpdateConfigurationResponse' {} a -> s {arn = a} :: UpdateConfigurationResponse)
+
+-- | Latest revision of the configuration.
+updateConfigurationResponse_latestRevision :: Lens.Lens' UpdateConfigurationResponse (Prelude.Maybe ConfigurationRevision)
+updateConfigurationResponse_latestRevision = Lens.lens (\UpdateConfigurationResponse' {latestRevision} -> latestRevision) (\s@UpdateConfigurationResponse' {} a -> s {latestRevision = a} :: UpdateConfigurationResponse)
 
 -- | The response's http status code.
 updateConfigurationResponse_httpStatus :: Lens.Lens' UpdateConfigurationResponse Prelude.Int
@@ -223,6 +222,6 @@ updateConfigurationResponse_httpStatus = Lens.lens (\UpdateConfigurationResponse
 
 instance Prelude.NFData UpdateConfigurationResponse where
   rnf UpdateConfigurationResponse' {..} =
-    Prelude.rnf latestRevision
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf latestRevision
       `Prelude.seq` Prelude.rnf httpStatus

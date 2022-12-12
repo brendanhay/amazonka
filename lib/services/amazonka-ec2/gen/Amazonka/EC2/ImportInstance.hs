@@ -40,8 +40,8 @@ module Amazonka.EC2.ImportInstance
     newImportInstance,
 
     -- * Request Lenses
-    importInstance_diskImages,
     importInstance_description,
+    importInstance_diskImages,
     importInstance_dryRun,
     importInstance_launchSpecification,
     importInstance_platform,
@@ -66,10 +66,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newImportInstance' smart constructor.
 data ImportInstance = ImportInstance'
-  { -- | The disk image.
-    diskImages :: Prelude.Maybe [DiskImage],
-    -- | A description for the instance being imported.
+  { -- | A description for the instance being imported.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The disk image.
+    diskImages :: Prelude.Maybe [DiskImage],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -90,9 +90,9 @@ data ImportInstance = ImportInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'diskImages', 'importInstance_diskImages' - The disk image.
---
 -- 'description', 'importInstance_description' - A description for the instance being imported.
+--
+-- 'diskImages', 'importInstance_diskImages' - The disk image.
 --
 -- 'dryRun', 'importInstance_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -108,20 +108,20 @@ newImportInstance ::
   ImportInstance
 newImportInstance pPlatform_ =
   ImportInstance'
-    { diskImages = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      diskImages = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       launchSpecification = Prelude.Nothing,
       platform = pPlatform_
     }
 
--- | The disk image.
-importInstance_diskImages :: Lens.Lens' ImportInstance (Prelude.Maybe [DiskImage])
-importInstance_diskImages = Lens.lens (\ImportInstance' {diskImages} -> diskImages) (\s@ImportInstance' {} a -> s {diskImages = a} :: ImportInstance) Prelude.. Lens.mapping Lens.coerced
-
 -- | A description for the instance being imported.
 importInstance_description :: Lens.Lens' ImportInstance (Prelude.Maybe Prelude.Text)
 importInstance_description = Lens.lens (\ImportInstance' {description} -> description) (\s@ImportInstance' {} a -> s {description = a} :: ImportInstance)
+
+-- | The disk image.
+importInstance_diskImages :: Lens.Lens' ImportInstance (Prelude.Maybe [DiskImage])
+importInstance_diskImages = Lens.lens (\ImportInstance' {diskImages} -> diskImages) (\s@ImportInstance' {} a -> s {diskImages = a} :: ImportInstance) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -154,16 +154,16 @@ instance Core.AWSRequest ImportInstance where
 
 instance Prelude.Hashable ImportInstance where
   hashWithSalt _salt ImportInstance' {..} =
-    _salt `Prelude.hashWithSalt` diskImages
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` diskImages
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` launchSpecification
       `Prelude.hashWithSalt` platform
 
 instance Prelude.NFData ImportInstance where
   rnf ImportInstance' {..} =
-    Prelude.rnf diskImages
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf diskImages
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf launchSpecification
       `Prelude.seq` Prelude.rnf platform
@@ -181,11 +181,11 @@ instance Data.ToQuery ImportInstance where
           Data.=: ("ImportInstance" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "Description" Data.=: description,
         Data.toQuery
           ( Data.toQueryList "DiskImage"
               Prelude.<$> diskImages
           ),
-        "Description" Data.=: description,
         "DryRun" Data.=: dryRun,
         "LaunchSpecification" Data.=: launchSpecification,
         "Platform" Data.=: platform

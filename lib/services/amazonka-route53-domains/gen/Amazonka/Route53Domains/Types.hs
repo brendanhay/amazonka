@@ -18,11 +18,11 @@ module Amazonka.Route53Domains.Types
     defaultService,
 
     -- * Errors
+    _DomainLimitExceeded,
+    _DuplicateRequest,
     _InvalidInput,
     _OperationLimitExceeded,
-    _DomainLimitExceeded,
     _TLDRulesViolation,
-    _DuplicateRequest,
     _UnsupportedTLD,
 
     -- * ContactType
@@ -61,45 +61,45 @@ module Amazonka.Route53Domains.Types
     -- * BillingRecord
     BillingRecord (..),
     newBillingRecord,
-    billingRecord_invoiceId,
     billingRecord_billDate,
     billingRecord_domainName,
-    billingRecord_price,
+    billingRecord_invoiceId,
     billingRecord_operation,
+    billingRecord_price,
 
     -- * ContactDetail
     ContactDetail (..),
     newContactDetail,
-    contactDetail_zipCode,
-    contactDetail_firstName,
+    contactDetail_addressLine1,
+    contactDetail_addressLine2,
+    contactDetail_city,
+    contactDetail_contactType,
+    contactDetail_countryCode,
     contactDetail_email,
     contactDetail_extraParams,
-    contactDetail_addressLine2,
-    contactDetail_organizationName,
-    contactDetail_countryCode,
-    contactDetail_state,
-    contactDetail_contactType,
-    contactDetail_lastName,
-    contactDetail_addressLine1,
-    contactDetail_city,
     contactDetail_fax,
+    contactDetail_firstName,
+    contactDetail_lastName,
+    contactDetail_organizationName,
     contactDetail_phoneNumber,
+    contactDetail_state,
+    contactDetail_zipCode,
 
     -- * DomainPrice
     DomainPrice (..),
     newDomainPrice,
-    domainPrice_name,
-    domainPrice_transferPrice,
-    domainPrice_registrationPrice,
     domainPrice_changeOwnershipPrice,
-    domainPrice_restorationPrice,
+    domainPrice_name,
+    domainPrice_registrationPrice,
     domainPrice_renewalPrice,
+    domainPrice_restorationPrice,
+    domainPrice_transferPrice,
 
     -- * DomainSuggestion
     DomainSuggestion (..),
     newDomainSuggestion,
-    domainSuggestion_domainName,
     domainSuggestion_availability,
+    domainSuggestion_domainName,
 
     -- * DomainSummary
     DomainSummary (..),
@@ -215,28 +215,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -244,13 +238,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -258,7 +256,24 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
+
+-- | The number of domains has exceeded the allowed threshold for the
+-- account.
+_DomainLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DomainLimitExceeded =
+  Core._MatchServiceError
+    defaultService
+    "DomainLimitExceeded"
+
+-- | The request is already in progress for the domain.
+_DuplicateRequest :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DuplicateRequest =
+  Core._MatchServiceError
+    defaultService
+    "DuplicateRequest"
 
 -- | The requested item is not acceptable. For example, for APIs that accept
 -- a domain name, the request might specify a domain name that doesn\'t
@@ -279,27 +294,12 @@ _OperationLimitExceeded =
     defaultService
     "OperationLimitExceeded"
 
--- | The number of domains has exceeded the allowed threshold for the
--- account.
-_DomainLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DomainLimitExceeded =
-  Core._MatchServiceError
-    defaultService
-    "DomainLimitExceeded"
-
 -- | The top-level domain does not support this operation.
 _TLDRulesViolation :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TLDRulesViolation =
   Core._MatchServiceError
     defaultService
     "TLDRulesViolation"
-
--- | The request is already in progress for the domain.
-_DuplicateRequest :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DuplicateRequest =
-  Core._MatchServiceError
-    defaultService
-    "DuplicateRequest"
 
 -- | Amazon Route 53 does not support this top-level domain (TLD).
 _UnsupportedTLD :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

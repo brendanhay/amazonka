@@ -39,21 +39,27 @@ module Amazonka.IoTData.Lens
     listNamedShadowsForThing_pageSize,
     listNamedShadowsForThing_thingName,
     listNamedShadowsForThingResponse_nextToken,
-    listNamedShadowsForThingResponse_timestamp,
     listNamedShadowsForThingResponse_results,
+    listNamedShadowsForThingResponse_timestamp,
     listNamedShadowsForThingResponse_httpStatus,
 
     -- ** ListRetainedMessages
-    listRetainedMessages_nextToken,
     listRetainedMessages_maxResults,
+    listRetainedMessages_nextToken,
     listRetainedMessagesResponse_nextToken,
     listRetainedMessagesResponse_retainedTopics,
     listRetainedMessagesResponse_httpStatus,
 
     -- ** Publish
-    publish_retain,
+    publish_contentType,
+    publish_correlationData,
+    publish_messageExpiry,
     publish_payload,
+    publish_payloadFormatIndicator,
     publish_qos,
+    publish_responseTopic,
+    publish_retain,
+    publish_userProperties,
     publish_topic,
 
     -- ** UpdateThingShadow
@@ -66,8 +72,8 @@ module Amazonka.IoTData.Lens
     -- * Types
 
     -- ** RetainedMessageSummary
-    retainedMessageSummary_payloadSize,
     retainedMessageSummary_lastModifiedTime,
+    retainedMessageSummary_payloadSize,
     retainedMessageSummary_qos,
     retainedMessageSummary_topic,
   )

@@ -37,13 +37,13 @@ data LambdaContainerParams = LambdaContainerParams'
     --
     -- Default: @16384@ (16 MB)
     memorySizeInKB :: Prelude.Maybe Prelude.Int,
-    -- | The list of volumes that the container can access.
-    volumes :: Prelude.Maybe [LambdaVolumeMount],
     -- | Whether or not the container can read information from the device\'s
     -- @\/sys@ folder.
     --
     -- Default: @false@
-    mountROSysfs :: Prelude.Maybe Prelude.Bool
+    mountROSysfs :: Prelude.Maybe Prelude.Bool,
+    -- | The list of volumes that the container can access.
+    volumes :: Prelude.Maybe [LambdaVolumeMount]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,20 +61,20 @@ data LambdaContainerParams = LambdaContainerParams'
 --
 -- Default: @16384@ (16 MB)
 --
--- 'volumes', 'lambdaContainerParams_volumes' - The list of volumes that the container can access.
---
 -- 'mountROSysfs', 'lambdaContainerParams_mountROSysfs' - Whether or not the container can read information from the device\'s
 -- @\/sys@ folder.
 --
 -- Default: @false@
+--
+-- 'volumes', 'lambdaContainerParams_volumes' - The list of volumes that the container can access.
 newLambdaContainerParams ::
   LambdaContainerParams
 newLambdaContainerParams =
   LambdaContainerParams'
     { devices = Prelude.Nothing,
       memorySizeInKB = Prelude.Nothing,
-      volumes = Prelude.Nothing,
-      mountROSysfs = Prelude.Nothing
+      mountROSysfs = Prelude.Nothing,
+      volumes = Prelude.Nothing
     }
 
 -- | The list of system devices that the container can access.
@@ -87,10 +87,6 @@ lambdaContainerParams_devices = Lens.lens (\LambdaContainerParams' {devices} -> 
 lambdaContainerParams_memorySizeInKB :: Lens.Lens' LambdaContainerParams (Prelude.Maybe Prelude.Int)
 lambdaContainerParams_memorySizeInKB = Lens.lens (\LambdaContainerParams' {memorySizeInKB} -> memorySizeInKB) (\s@LambdaContainerParams' {} a -> s {memorySizeInKB = a} :: LambdaContainerParams)
 
--- | The list of volumes that the container can access.
-lambdaContainerParams_volumes :: Lens.Lens' LambdaContainerParams (Prelude.Maybe [LambdaVolumeMount])
-lambdaContainerParams_volumes = Lens.lens (\LambdaContainerParams' {volumes} -> volumes) (\s@LambdaContainerParams' {} a -> s {volumes = a} :: LambdaContainerParams) Prelude.. Lens.mapping Lens.coerced
-
 -- | Whether or not the container can read information from the device\'s
 -- @\/sys@ folder.
 --
@@ -98,19 +94,23 @@ lambdaContainerParams_volumes = Lens.lens (\LambdaContainerParams' {volumes} -> 
 lambdaContainerParams_mountROSysfs :: Lens.Lens' LambdaContainerParams (Prelude.Maybe Prelude.Bool)
 lambdaContainerParams_mountROSysfs = Lens.lens (\LambdaContainerParams' {mountROSysfs} -> mountROSysfs) (\s@LambdaContainerParams' {} a -> s {mountROSysfs = a} :: LambdaContainerParams)
 
+-- | The list of volumes that the container can access.
+lambdaContainerParams_volumes :: Lens.Lens' LambdaContainerParams (Prelude.Maybe [LambdaVolumeMount])
+lambdaContainerParams_volumes = Lens.lens (\LambdaContainerParams' {volumes} -> volumes) (\s@LambdaContainerParams' {} a -> s {volumes = a} :: LambdaContainerParams) Prelude.. Lens.mapping Lens.coerced
+
 instance Prelude.Hashable LambdaContainerParams where
   hashWithSalt _salt LambdaContainerParams' {..} =
     _salt `Prelude.hashWithSalt` devices
       `Prelude.hashWithSalt` memorySizeInKB
-      `Prelude.hashWithSalt` volumes
       `Prelude.hashWithSalt` mountROSysfs
+      `Prelude.hashWithSalt` volumes
 
 instance Prelude.NFData LambdaContainerParams where
   rnf LambdaContainerParams' {..} =
     Prelude.rnf devices
       `Prelude.seq` Prelude.rnf memorySizeInKB
-      `Prelude.seq` Prelude.rnf volumes
       `Prelude.seq` Prelude.rnf mountROSysfs
+      `Prelude.seq` Prelude.rnf volumes
 
 instance Data.ToJSON LambdaContainerParams where
   toJSON LambdaContainerParams' {..} =
@@ -119,7 +119,7 @@ instance Data.ToJSON LambdaContainerParams where
           [ ("devices" Data..=) Prelude.<$> devices,
             ("memorySizeInKB" Data..=)
               Prelude.<$> memorySizeInKB,
-            ("volumes" Data..=) Prelude.<$> volumes,
-            ("mountROSysfs" Data..=) Prelude.<$> mountROSysfs
+            ("mountROSysfs" Data..=) Prelude.<$> mountROSysfs,
+            ("volumes" Data..=) Prelude.<$> volumes
           ]
       )

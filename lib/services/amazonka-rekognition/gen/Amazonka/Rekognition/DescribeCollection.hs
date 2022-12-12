@@ -39,10 +39,10 @@ module Amazonka.Rekognition.DescribeCollection
     newDescribeCollectionResponse,
 
     -- * Response Lenses
+    describeCollectionResponse_collectionARN,
     describeCollectionResponse_creationTimestamp,
     describeCollectionResponse_faceCount,
     describeCollectionResponse_faceModelVersion,
-    describeCollectionResponse_collectionARN,
     describeCollectionResponse_httpStatus,
   )
 where
@@ -92,10 +92,10 @@ instance Core.AWSRequest DescribeCollection where
     Response.receiveJSON
       ( \s h x ->
           DescribeCollectionResponse'
-            Prelude.<$> (x Data..?> "CreationTimestamp")
+            Prelude.<$> (x Data..?> "CollectionARN")
+            Prelude.<*> (x Data..?> "CreationTimestamp")
             Prelude.<*> (x Data..?> "FaceCount")
             Prelude.<*> (x Data..?> "FaceModelVersion")
-            Prelude.<*> (x Data..?> "CollectionARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,7 +137,9 @@ instance Data.ToQuery DescribeCollection where
 
 -- | /See:/ 'newDescribeCollectionResponse' smart constructor.
 data DescribeCollectionResponse = DescribeCollectionResponse'
-  { -- | The number of milliseconds since the Unix epoch time until the creation
+  { -- | The Amazon Resource Name (ARN) of the collection.
+    collectionARN :: Prelude.Maybe Prelude.Text,
+    -- | The number of milliseconds since the Unix epoch time until the creation
     -- of the collection. The Unix epoch time is 00:00:00 Coordinated Universal
     -- Time (UTC), Thursday, 1 January 1970.
     creationTimestamp :: Prelude.Maybe Data.POSIX,
@@ -150,8 +152,6 @@ data DescribeCollectionResponse = DescribeCollectionResponse'
     -- For more information, see Model versioning in the Amazon Rekognition
     -- Developer Guide.
     faceModelVersion :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the collection.
-    collectionARN :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -164,6 +164,8 @@ data DescribeCollectionResponse = DescribeCollectionResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'collectionARN', 'describeCollectionResponse_collectionARN' - The Amazon Resource Name (ARN) of the collection.
 --
 -- 'creationTimestamp', 'describeCollectionResponse_creationTimestamp' - The number of milliseconds since the Unix epoch time until the creation
 -- of the collection. The Unix epoch time is 00:00:00 Coordinated Universal
@@ -178,8 +180,6 @@ data DescribeCollectionResponse = DescribeCollectionResponse'
 -- For more information, see Model versioning in the Amazon Rekognition
 -- Developer Guide.
 --
--- 'collectionARN', 'describeCollectionResponse_collectionARN' - The Amazon Resource Name (ARN) of the collection.
---
 -- 'httpStatus', 'describeCollectionResponse_httpStatus' - The response's http status code.
 newDescribeCollectionResponse ::
   -- | 'httpStatus'
@@ -187,13 +187,17 @@ newDescribeCollectionResponse ::
   DescribeCollectionResponse
 newDescribeCollectionResponse pHttpStatus_ =
   DescribeCollectionResponse'
-    { creationTimestamp =
+    { collectionARN =
         Prelude.Nothing,
+      creationTimestamp = Prelude.Nothing,
       faceCount = Prelude.Nothing,
       faceModelVersion = Prelude.Nothing,
-      collectionARN = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Amazon Resource Name (ARN) of the collection.
+describeCollectionResponse_collectionARN :: Lens.Lens' DescribeCollectionResponse (Prelude.Maybe Prelude.Text)
+describeCollectionResponse_collectionARN = Lens.lens (\DescribeCollectionResponse' {collectionARN} -> collectionARN) (\s@DescribeCollectionResponse' {} a -> s {collectionARN = a} :: DescribeCollectionResponse)
 
 -- | The number of milliseconds since the Unix epoch time until the creation
 -- of the collection. The Unix epoch time is 00:00:00 Coordinated Universal
@@ -214,18 +218,14 @@ describeCollectionResponse_faceCount = Lens.lens (\DescribeCollectionResponse' {
 describeCollectionResponse_faceModelVersion :: Lens.Lens' DescribeCollectionResponse (Prelude.Maybe Prelude.Text)
 describeCollectionResponse_faceModelVersion = Lens.lens (\DescribeCollectionResponse' {faceModelVersion} -> faceModelVersion) (\s@DescribeCollectionResponse' {} a -> s {faceModelVersion = a} :: DescribeCollectionResponse)
 
--- | The Amazon Resource Name (ARN) of the collection.
-describeCollectionResponse_collectionARN :: Lens.Lens' DescribeCollectionResponse (Prelude.Maybe Prelude.Text)
-describeCollectionResponse_collectionARN = Lens.lens (\DescribeCollectionResponse' {collectionARN} -> collectionARN) (\s@DescribeCollectionResponse' {} a -> s {collectionARN = a} :: DescribeCollectionResponse)
-
 -- | The response's http status code.
 describeCollectionResponse_httpStatus :: Lens.Lens' DescribeCollectionResponse Prelude.Int
 describeCollectionResponse_httpStatus = Lens.lens (\DescribeCollectionResponse' {httpStatus} -> httpStatus) (\s@DescribeCollectionResponse' {} a -> s {httpStatus = a} :: DescribeCollectionResponse)
 
 instance Prelude.NFData DescribeCollectionResponse where
   rnf DescribeCollectionResponse' {..} =
-    Prelude.rnf creationTimestamp
+    Prelude.rnf collectionARN
+      `Prelude.seq` Prelude.rnf creationTimestamp
       `Prelude.seq` Prelude.rnf faceCount
       `Prelude.seq` Prelude.rnf faceModelVersion
-      `Prelude.seq` Prelude.rnf collectionARN
       `Prelude.seq` Prelude.rnf httpStatus

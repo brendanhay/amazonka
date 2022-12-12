@@ -28,8 +28,8 @@ module Amazonka.Route53Resolver.AssociateFirewallRuleGroup
     newAssociateFirewallRuleGroup,
 
     -- * Request Lenses
-    associateFirewallRuleGroup_tags,
     associateFirewallRuleGroup_mutationProtection,
+    associateFirewallRuleGroup_tags,
     associateFirewallRuleGroup_creatorRequestId,
     associateFirewallRuleGroup_firewallRuleGroupId,
     associateFirewallRuleGroup_vpcId,
@@ -56,14 +56,14 @@ import Amazonka.Route53Resolver.Types
 
 -- | /See:/ 'newAssociateFirewallRuleGroup' smart constructor.
 data AssociateFirewallRuleGroup = AssociateFirewallRuleGroup'
-  { -- | A list of the tag keys and values that you want to associate with the
-    -- rule group association.
-    tags :: Prelude.Maybe [Tag],
-    -- | If enabled, this setting disallows modification or removal of the
+  { -- | If enabled, this setting disallows modification or removal of the
     -- association, to help prevent against accidentally altering DNS firewall
     -- protections. When you create the association, the default setting is
     -- @DISABLED@.
     mutationProtection :: Prelude.Maybe MutationProtectionStatus,
+    -- | A list of the tag keys and values that you want to associate with the
+    -- rule group association.
+    tags :: Prelude.Maybe [Tag],
     -- | A unique string that identifies the request and that allows failed
     -- requests to be retried without the risk of running the operation twice.
     -- @CreatorRequestId@ can be any unique string, for example, a date\/time
@@ -100,13 +100,13 @@ data AssociateFirewallRuleGroup = AssociateFirewallRuleGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'associateFirewallRuleGroup_tags' - A list of the tag keys and values that you want to associate with the
--- rule group association.
---
 -- 'mutationProtection', 'associateFirewallRuleGroup_mutationProtection' - If enabled, this setting disallows modification or removal of the
 -- association, to help prevent against accidentally altering DNS firewall
 -- protections. When you create the association, the default setting is
 -- @DISABLED@.
+--
+-- 'tags', 'associateFirewallRuleGroup_tags' - A list of the tag keys and values that you want to associate with the
+-- rule group association.
 --
 -- 'creatorRequestId', 'associateFirewallRuleGroup_creatorRequestId' - A unique string that identifies the request and that allows failed
 -- requests to be retried without the risk of running the operation twice.
@@ -151,8 +151,9 @@ newAssociateFirewallRuleGroup
   pPriority_
   pName_ =
     AssociateFirewallRuleGroup'
-      { tags = Prelude.Nothing,
-        mutationProtection = Prelude.Nothing,
+      { mutationProtection =
+          Prelude.Nothing,
+        tags = Prelude.Nothing,
         creatorRequestId = pCreatorRequestId_,
         firewallRuleGroupId = pFirewallRuleGroupId_,
         vpcId = pVpcId_,
@@ -160,17 +161,17 @@ newAssociateFirewallRuleGroup
         name = pName_
       }
 
--- | A list of the tag keys and values that you want to associate with the
--- rule group association.
-associateFirewallRuleGroup_tags :: Lens.Lens' AssociateFirewallRuleGroup (Prelude.Maybe [Tag])
-associateFirewallRuleGroup_tags = Lens.lens (\AssociateFirewallRuleGroup' {tags} -> tags) (\s@AssociateFirewallRuleGroup' {} a -> s {tags = a} :: AssociateFirewallRuleGroup) Prelude.. Lens.mapping Lens.coerced
-
 -- | If enabled, this setting disallows modification or removal of the
 -- association, to help prevent against accidentally altering DNS firewall
 -- protections. When you create the association, the default setting is
 -- @DISABLED@.
 associateFirewallRuleGroup_mutationProtection :: Lens.Lens' AssociateFirewallRuleGroup (Prelude.Maybe MutationProtectionStatus)
 associateFirewallRuleGroup_mutationProtection = Lens.lens (\AssociateFirewallRuleGroup' {mutationProtection} -> mutationProtection) (\s@AssociateFirewallRuleGroup' {} a -> s {mutationProtection = a} :: AssociateFirewallRuleGroup)
+
+-- | A list of the tag keys and values that you want to associate with the
+-- rule group association.
+associateFirewallRuleGroup_tags :: Lens.Lens' AssociateFirewallRuleGroup (Prelude.Maybe [Tag])
+associateFirewallRuleGroup_tags = Lens.lens (\AssociateFirewallRuleGroup' {tags} -> tags) (\s@AssociateFirewallRuleGroup' {} a -> s {tags = a} :: AssociateFirewallRuleGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique string that identifies the request and that allows failed
 -- requests to be retried without the risk of running the operation twice.
@@ -223,8 +224,8 @@ instance Core.AWSRequest AssociateFirewallRuleGroup where
 
 instance Prelude.Hashable AssociateFirewallRuleGroup where
   hashWithSalt _salt AssociateFirewallRuleGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` mutationProtection
+    _salt `Prelude.hashWithSalt` mutationProtection
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` creatorRequestId
       `Prelude.hashWithSalt` firewallRuleGroupId
       `Prelude.hashWithSalt` vpcId
@@ -233,8 +234,8 @@ instance Prelude.Hashable AssociateFirewallRuleGroup where
 
 instance Prelude.NFData AssociateFirewallRuleGroup where
   rnf AssociateFirewallRuleGroup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf mutationProtection
+    Prelude.rnf mutationProtection
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf creatorRequestId
       `Prelude.seq` Prelude.rnf firewallRuleGroupId
       `Prelude.seq` Prelude.rnf vpcId
@@ -260,9 +261,9 @@ instance Data.ToJSON AssociateFirewallRuleGroup where
   toJSON AssociateFirewallRuleGroup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("MutationProtection" Data..=)
+          [ ("MutationProtection" Data..=)
               Prelude.<$> mutationProtection,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("CreatorRequestId" Data..= creatorRequestId),
             Prelude.Just

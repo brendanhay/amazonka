@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 data ReplicationInstanceTaskLog = ReplicationInstanceTaskLog'
   { -- | The size, in bytes, of the replication task log.
     replicationInstanceTaskLogSize :: Prelude.Maybe Prelude.Integer,
-    -- | The name of the replication task.
-    replicationTaskName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the replication task.
-    replicationTaskArn :: Prelude.Maybe Prelude.Text
+    replicationTaskArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the replication task.
+    replicationTaskName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,30 +47,30 @@ data ReplicationInstanceTaskLog = ReplicationInstanceTaskLog'
 --
 -- 'replicationInstanceTaskLogSize', 'replicationInstanceTaskLog_replicationInstanceTaskLogSize' - The size, in bytes, of the replication task log.
 --
--- 'replicationTaskName', 'replicationInstanceTaskLog_replicationTaskName' - The name of the replication task.
---
 -- 'replicationTaskArn', 'replicationInstanceTaskLog_replicationTaskArn' - The Amazon Resource Name (ARN) of the replication task.
+--
+-- 'replicationTaskName', 'replicationInstanceTaskLog_replicationTaskName' - The name of the replication task.
 newReplicationInstanceTaskLog ::
   ReplicationInstanceTaskLog
 newReplicationInstanceTaskLog =
   ReplicationInstanceTaskLog'
     { replicationInstanceTaskLogSize =
         Prelude.Nothing,
-      replicationTaskName = Prelude.Nothing,
-      replicationTaskArn = Prelude.Nothing
+      replicationTaskArn = Prelude.Nothing,
+      replicationTaskName = Prelude.Nothing
     }
 
 -- | The size, in bytes, of the replication task log.
 replicationInstanceTaskLog_replicationInstanceTaskLogSize :: Lens.Lens' ReplicationInstanceTaskLog (Prelude.Maybe Prelude.Integer)
 replicationInstanceTaskLog_replicationInstanceTaskLogSize = Lens.lens (\ReplicationInstanceTaskLog' {replicationInstanceTaskLogSize} -> replicationInstanceTaskLogSize) (\s@ReplicationInstanceTaskLog' {} a -> s {replicationInstanceTaskLogSize = a} :: ReplicationInstanceTaskLog)
 
--- | The name of the replication task.
-replicationInstanceTaskLog_replicationTaskName :: Lens.Lens' ReplicationInstanceTaskLog (Prelude.Maybe Prelude.Text)
-replicationInstanceTaskLog_replicationTaskName = Lens.lens (\ReplicationInstanceTaskLog' {replicationTaskName} -> replicationTaskName) (\s@ReplicationInstanceTaskLog' {} a -> s {replicationTaskName = a} :: ReplicationInstanceTaskLog)
-
 -- | The Amazon Resource Name (ARN) of the replication task.
 replicationInstanceTaskLog_replicationTaskArn :: Lens.Lens' ReplicationInstanceTaskLog (Prelude.Maybe Prelude.Text)
 replicationInstanceTaskLog_replicationTaskArn = Lens.lens (\ReplicationInstanceTaskLog' {replicationTaskArn} -> replicationTaskArn) (\s@ReplicationInstanceTaskLog' {} a -> s {replicationTaskArn = a} :: ReplicationInstanceTaskLog)
+
+-- | The name of the replication task.
+replicationInstanceTaskLog_replicationTaskName :: Lens.Lens' ReplicationInstanceTaskLog (Prelude.Maybe Prelude.Text)
+replicationInstanceTaskLog_replicationTaskName = Lens.lens (\ReplicationInstanceTaskLog' {replicationTaskName} -> replicationTaskName) (\s@ReplicationInstanceTaskLog' {} a -> s {replicationTaskName = a} :: ReplicationInstanceTaskLog)
 
 instance Data.FromJSON ReplicationInstanceTaskLog where
   parseJSON =
@@ -79,19 +79,19 @@ instance Data.FromJSON ReplicationInstanceTaskLog where
       ( \x ->
           ReplicationInstanceTaskLog'
             Prelude.<$> (x Data..:? "ReplicationInstanceTaskLogSize")
-            Prelude.<*> (x Data..:? "ReplicationTaskName")
             Prelude.<*> (x Data..:? "ReplicationTaskArn")
+            Prelude.<*> (x Data..:? "ReplicationTaskName")
       )
 
 instance Prelude.Hashable ReplicationInstanceTaskLog where
   hashWithSalt _salt ReplicationInstanceTaskLog' {..} =
     _salt
       `Prelude.hashWithSalt` replicationInstanceTaskLogSize
-      `Prelude.hashWithSalt` replicationTaskName
       `Prelude.hashWithSalt` replicationTaskArn
+      `Prelude.hashWithSalt` replicationTaskName
 
 instance Prelude.NFData ReplicationInstanceTaskLog where
   rnf ReplicationInstanceTaskLog' {..} =
     Prelude.rnf replicationInstanceTaskLogSize
-      `Prelude.seq` Prelude.rnf replicationTaskName
       `Prelude.seq` Prelude.rnf replicationTaskArn
+      `Prelude.seq` Prelude.rnf replicationTaskName

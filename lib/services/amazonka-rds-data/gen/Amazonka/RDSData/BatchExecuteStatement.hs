@@ -48,10 +48,10 @@ module Amazonka.RDSData.BatchExecuteStatement
     newBatchExecuteStatement,
 
     -- * Request Lenses
-    batchExecuteStatement_parameterSets,
     batchExecuteStatement_database,
-    batchExecuteStatement_transactionId,
+    batchExecuteStatement_parameterSets,
     batchExecuteStatement_schema,
+    batchExecuteStatement_transactionId,
     batchExecuteStatement_resourceArn,
     batchExecuteStatement_secretArn,
     batchExecuteStatement_sql,
@@ -79,7 +79,9 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newBatchExecuteStatement' smart constructor.
 data BatchExecuteStatement = BatchExecuteStatement'
-  { -- | The parameter set for the batch operation.
+  { -- | The name of the database.
+    database :: Prelude.Maybe Prelude.Text,
+    -- | The parameter set for the batch operation.
     --
     -- The SQL statement is executed as many times as the number of parameter
     -- sets provided. To execute a SQL statement with no parameters, use one of
@@ -92,8 +94,10 @@ data BatchExecuteStatement = BatchExecuteStatement'
     --
     -- Array parameters are not supported.
     parameterSets :: Prelude.Maybe [[SqlParameter]],
-    -- | The name of the database.
-    database :: Prelude.Maybe Prelude.Text,
+    -- | The name of the database schema.
+    --
+    -- Currently, the @schema@ parameter isn\'t supported.
+    schema :: Prelude.Maybe Prelude.Text,
     -- | The identifier of a transaction that was started by using the
     -- @BeginTransaction@ operation. Specify the transaction ID of the
     -- transaction that you want to include the SQL statement in.
@@ -101,10 +105,6 @@ data BatchExecuteStatement = BatchExecuteStatement'
     -- If the SQL statement is not part of a transaction, don\'t set this
     -- parameter.
     transactionId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the database schema.
-    --
-    -- Currently, the @schema@ parameter isn\'t supported.
-    schema :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.
     resourceArn :: Prelude.Text,
     -- | The ARN of the secret that enables access to the DB cluster. Enter the
@@ -127,6 +127,8 @@ data BatchExecuteStatement = BatchExecuteStatement'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'database', 'batchExecuteStatement_database' - The name of the database.
+--
 -- 'parameterSets', 'batchExecuteStatement_parameterSets' - The parameter set for the batch operation.
 --
 -- The SQL statement is executed as many times as the number of parameter
@@ -140,7 +142,9 @@ data BatchExecuteStatement = BatchExecuteStatement'
 --
 -- Array parameters are not supported.
 --
--- 'database', 'batchExecuteStatement_database' - The name of the database.
+-- 'schema', 'batchExecuteStatement_schema' - The name of the database schema.
+--
+-- Currently, the @schema@ parameter isn\'t supported.
 --
 -- 'transactionId', 'batchExecuteStatement_transactionId' - The identifier of a transaction that was started by using the
 -- @BeginTransaction@ operation. Specify the transaction ID of the
@@ -148,10 +152,6 @@ data BatchExecuteStatement = BatchExecuteStatement'
 --
 -- If the SQL statement is not part of a transaction, don\'t set this
 -- parameter.
---
--- 'schema', 'batchExecuteStatement_schema' - The name of the database schema.
---
--- Currently, the @schema@ parameter isn\'t supported.
 --
 -- 'resourceArn', 'batchExecuteStatement_resourceArn' - The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.
 --
@@ -176,15 +176,18 @@ newBatchExecuteStatement
   pSecretArn_
   pSql_ =
     BatchExecuteStatement'
-      { parameterSets =
-          Prelude.Nothing,
-        database = Prelude.Nothing,
-        transactionId = Prelude.Nothing,
+      { database = Prelude.Nothing,
+        parameterSets = Prelude.Nothing,
         schema = Prelude.Nothing,
+        transactionId = Prelude.Nothing,
         resourceArn = pResourceArn_,
         secretArn = pSecretArn_,
         sql = pSql_
       }
+
+-- | The name of the database.
+batchExecuteStatement_database :: Lens.Lens' BatchExecuteStatement (Prelude.Maybe Prelude.Text)
+batchExecuteStatement_database = Lens.lens (\BatchExecuteStatement' {database} -> database) (\s@BatchExecuteStatement' {} a -> s {database = a} :: BatchExecuteStatement)
 
 -- | The parameter set for the batch operation.
 --
@@ -201,9 +204,11 @@ newBatchExecuteStatement
 batchExecuteStatement_parameterSets :: Lens.Lens' BatchExecuteStatement (Prelude.Maybe [[SqlParameter]])
 batchExecuteStatement_parameterSets = Lens.lens (\BatchExecuteStatement' {parameterSets} -> parameterSets) (\s@BatchExecuteStatement' {} a -> s {parameterSets = a} :: BatchExecuteStatement) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the database.
-batchExecuteStatement_database :: Lens.Lens' BatchExecuteStatement (Prelude.Maybe Prelude.Text)
-batchExecuteStatement_database = Lens.lens (\BatchExecuteStatement' {database} -> database) (\s@BatchExecuteStatement' {} a -> s {database = a} :: BatchExecuteStatement)
+-- | The name of the database schema.
+--
+-- Currently, the @schema@ parameter isn\'t supported.
+batchExecuteStatement_schema :: Lens.Lens' BatchExecuteStatement (Prelude.Maybe Prelude.Text)
+batchExecuteStatement_schema = Lens.lens (\BatchExecuteStatement' {schema} -> schema) (\s@BatchExecuteStatement' {} a -> s {schema = a} :: BatchExecuteStatement)
 
 -- | The identifier of a transaction that was started by using the
 -- @BeginTransaction@ operation. Specify the transaction ID of the
@@ -213,12 +218,6 @@ batchExecuteStatement_database = Lens.lens (\BatchExecuteStatement' {database} -
 -- parameter.
 batchExecuteStatement_transactionId :: Lens.Lens' BatchExecuteStatement (Prelude.Maybe Prelude.Text)
 batchExecuteStatement_transactionId = Lens.lens (\BatchExecuteStatement' {transactionId} -> transactionId) (\s@BatchExecuteStatement' {} a -> s {transactionId = a} :: BatchExecuteStatement)
-
--- | The name of the database schema.
---
--- Currently, the @schema@ parameter isn\'t supported.
-batchExecuteStatement_schema :: Lens.Lens' BatchExecuteStatement (Prelude.Maybe Prelude.Text)
-batchExecuteStatement_schema = Lens.lens (\BatchExecuteStatement' {schema} -> schema) (\s@BatchExecuteStatement' {} a -> s {schema = a} :: BatchExecuteStatement)
 
 -- | The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.
 batchExecuteStatement_resourceArn :: Lens.Lens' BatchExecuteStatement Prelude.Text
@@ -253,20 +252,20 @@ instance Core.AWSRequest BatchExecuteStatement where
 
 instance Prelude.Hashable BatchExecuteStatement where
   hashWithSalt _salt BatchExecuteStatement' {..} =
-    _salt `Prelude.hashWithSalt` parameterSets
-      `Prelude.hashWithSalt` database
-      `Prelude.hashWithSalt` transactionId
+    _salt `Prelude.hashWithSalt` database
+      `Prelude.hashWithSalt` parameterSets
       `Prelude.hashWithSalt` schema
+      `Prelude.hashWithSalt` transactionId
       `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` secretArn
       `Prelude.hashWithSalt` sql
 
 instance Prelude.NFData BatchExecuteStatement where
   rnf BatchExecuteStatement' {..} =
-    Prelude.rnf parameterSets
-      `Prelude.seq` Prelude.rnf database
-      `Prelude.seq` Prelude.rnf transactionId
+    Prelude.rnf database
+      `Prelude.seq` Prelude.rnf parameterSets
       `Prelude.seq` Prelude.rnf schema
+      `Prelude.seq` Prelude.rnf transactionId
       `Prelude.seq` Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf secretArn
       `Prelude.seq` Prelude.rnf sql
@@ -286,10 +285,10 @@ instance Data.ToJSON BatchExecuteStatement where
   toJSON BatchExecuteStatement' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("parameterSets" Data..=) Prelude.<$> parameterSets,
-            ("database" Data..=) Prelude.<$> database,
-            ("transactionId" Data..=) Prelude.<$> transactionId,
+          [ ("database" Data..=) Prelude.<$> database,
+            ("parameterSets" Data..=) Prelude.<$> parameterSets,
             ("schema" Data..=) Prelude.<$> schema,
+            ("transactionId" Data..=) Prelude.<$> transactionId,
             Prelude.Just ("resourceArn" Data..= resourceArn),
             Prelude.Just ("secretArn" Data..= secretArn),
             Prelude.Just ("sql" Data..= sql)

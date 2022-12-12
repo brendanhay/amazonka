@@ -38,8 +38,8 @@ module Amazonka.IoTSiteWise.GetAssetPropertyValue
     newGetAssetPropertyValue,
 
     -- * Request Lenses
-    getAssetPropertyValue_propertyAlias,
     getAssetPropertyValue_assetId,
+    getAssetPropertyValue_propertyAlias,
     getAssetPropertyValue_propertyId,
 
     -- * Destructuring the Response
@@ -62,15 +62,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetAssetPropertyValue' smart constructor.
 data GetAssetPropertyValue = GetAssetPropertyValue'
-  { -- | The alias that identifies the property, such as an OPC-UA server data
+  { -- | The ID of the asset.
+    assetId :: Prelude.Maybe Prelude.Text,
+    -- | The alias that identifies the property, such as an OPC-UA server data
     -- stream path (for example,
     -- @\/company\/windfarm\/3\/turbine\/7\/temperature@). For more
     -- information, see
     -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html Mapping industrial data streams to asset properties>
     -- in the /IoT SiteWise User Guide/.
     propertyAlias :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the asset.
-    assetId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the asset property.
     propertyId :: Prelude.Maybe Prelude.Text
   }
@@ -84,6 +84,8 @@ data GetAssetPropertyValue = GetAssetPropertyValue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'assetId', 'getAssetPropertyValue_assetId' - The ID of the asset.
+--
 -- 'propertyAlias', 'getAssetPropertyValue_propertyAlias' - The alias that identifies the property, such as an OPC-UA server data
 -- stream path (for example,
 -- @\/company\/windfarm\/3\/turbine\/7\/temperature@). For more
@@ -91,18 +93,19 @@ data GetAssetPropertyValue = GetAssetPropertyValue'
 -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html Mapping industrial data streams to asset properties>
 -- in the /IoT SiteWise User Guide/.
 --
--- 'assetId', 'getAssetPropertyValue_assetId' - The ID of the asset.
---
 -- 'propertyId', 'getAssetPropertyValue_propertyId' - The ID of the asset property.
 newGetAssetPropertyValue ::
   GetAssetPropertyValue
 newGetAssetPropertyValue =
   GetAssetPropertyValue'
-    { propertyAlias =
-        Prelude.Nothing,
-      assetId = Prelude.Nothing,
+    { assetId = Prelude.Nothing,
+      propertyAlias = Prelude.Nothing,
       propertyId = Prelude.Nothing
     }
+
+-- | The ID of the asset.
+getAssetPropertyValue_assetId :: Lens.Lens' GetAssetPropertyValue (Prelude.Maybe Prelude.Text)
+getAssetPropertyValue_assetId = Lens.lens (\GetAssetPropertyValue' {assetId} -> assetId) (\s@GetAssetPropertyValue' {} a -> s {assetId = a} :: GetAssetPropertyValue)
 
 -- | The alias that identifies the property, such as an OPC-UA server data
 -- stream path (for example,
@@ -112,10 +115,6 @@ newGetAssetPropertyValue =
 -- in the /IoT SiteWise User Guide/.
 getAssetPropertyValue_propertyAlias :: Lens.Lens' GetAssetPropertyValue (Prelude.Maybe Prelude.Text)
 getAssetPropertyValue_propertyAlias = Lens.lens (\GetAssetPropertyValue' {propertyAlias} -> propertyAlias) (\s@GetAssetPropertyValue' {} a -> s {propertyAlias = a} :: GetAssetPropertyValue)
-
--- | The ID of the asset.
-getAssetPropertyValue_assetId :: Lens.Lens' GetAssetPropertyValue (Prelude.Maybe Prelude.Text)
-getAssetPropertyValue_assetId = Lens.lens (\GetAssetPropertyValue' {assetId} -> assetId) (\s@GetAssetPropertyValue' {} a -> s {assetId = a} :: GetAssetPropertyValue)
 
 -- | The ID of the asset property.
 getAssetPropertyValue_propertyId :: Lens.Lens' GetAssetPropertyValue (Prelude.Maybe Prelude.Text)
@@ -137,14 +136,14 @@ instance Core.AWSRequest GetAssetPropertyValue where
 
 instance Prelude.Hashable GetAssetPropertyValue where
   hashWithSalt _salt GetAssetPropertyValue' {..} =
-    _salt `Prelude.hashWithSalt` propertyAlias
-      `Prelude.hashWithSalt` assetId
+    _salt `Prelude.hashWithSalt` assetId
+      `Prelude.hashWithSalt` propertyAlias
       `Prelude.hashWithSalt` propertyId
 
 instance Prelude.NFData GetAssetPropertyValue where
   rnf GetAssetPropertyValue' {..} =
-    Prelude.rnf propertyAlias
-      `Prelude.seq` Prelude.rnf assetId
+    Prelude.rnf assetId
+      `Prelude.seq` Prelude.rnf propertyAlias
       `Prelude.seq` Prelude.rnf propertyId
 
 instance Data.ToHeaders GetAssetPropertyValue where
@@ -164,8 +163,8 @@ instance Data.ToPath GetAssetPropertyValue where
 instance Data.ToQuery GetAssetPropertyValue where
   toQuery GetAssetPropertyValue' {..} =
     Prelude.mconcat
-      [ "propertyAlias" Data.=: propertyAlias,
-        "assetId" Data.=: assetId,
+      [ "assetId" Data.=: assetId,
+        "propertyAlias" Data.=: propertyAlias,
         "propertyId" Data.=: propertyId
       ]
 

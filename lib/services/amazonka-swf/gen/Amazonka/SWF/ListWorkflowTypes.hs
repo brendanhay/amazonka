@@ -51,8 +51,8 @@ module Amazonka.SWF.ListWorkflowTypes
     newListWorkflowTypes,
 
     -- * Request Lenses
-    listWorkflowTypes_name,
     listWorkflowTypes_maximumPageSize,
+    listWorkflowTypes_name,
     listWorkflowTypes_nextPageToken,
     listWorkflowTypes_reverseOrder,
     listWorkflowTypes_domain,
@@ -79,11 +79,11 @@ import Amazonka.SWF.Types
 
 -- | /See:/ 'newListWorkflowTypes' smart constructor.
 data ListWorkflowTypes = ListWorkflowTypes'
-  { -- | If specified, lists the workflow type with this name.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results that are returned per call. Use
+  { -- | The maximum number of results that are returned per call. Use
     -- @nextPageToken@ to obtain further pages of results.
     maximumPageSize :: Prelude.Maybe Prelude.Natural,
+    -- | If specified, lists the workflow type with this name.
+    name :: Prelude.Maybe Prelude.Text,
     -- | If @NextPageToken@ is returned there are more results available. The
     -- value of @NextPageToken@ is a unique pagination token for each page.
     -- Make the call again using the returned token to retrieve the next page.
@@ -113,10 +113,10 @@ data ListWorkflowTypes = ListWorkflowTypes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'listWorkflowTypes_name' - If specified, lists the workflow type with this name.
---
 -- 'maximumPageSize', 'listWorkflowTypes_maximumPageSize' - The maximum number of results that are returned per call. Use
 -- @nextPageToken@ to obtain further pages of results.
+--
+-- 'name', 'listWorkflowTypes_name' - If specified, lists the workflow type with this name.
 --
 -- 'nextPageToken', 'listWorkflowTypes_nextPageToken' - If @NextPageToken@ is returned there are more results available. The
 -- value of @NextPageToken@ is a unique pagination token for each page.
@@ -143,22 +143,23 @@ newListWorkflowTypes ::
   ListWorkflowTypes
 newListWorkflowTypes pDomain_ pRegistrationStatus_ =
   ListWorkflowTypes'
-    { name = Prelude.Nothing,
-      maximumPageSize = Prelude.Nothing,
+    { maximumPageSize =
+        Prelude.Nothing,
+      name = Prelude.Nothing,
       nextPageToken = Prelude.Nothing,
       reverseOrder = Prelude.Nothing,
       domain = pDomain_,
       registrationStatus = pRegistrationStatus_
     }
 
--- | If specified, lists the workflow type with this name.
-listWorkflowTypes_name :: Lens.Lens' ListWorkflowTypes (Prelude.Maybe Prelude.Text)
-listWorkflowTypes_name = Lens.lens (\ListWorkflowTypes' {name} -> name) (\s@ListWorkflowTypes' {} a -> s {name = a} :: ListWorkflowTypes)
-
 -- | The maximum number of results that are returned per call. Use
 -- @nextPageToken@ to obtain further pages of results.
 listWorkflowTypes_maximumPageSize :: Lens.Lens' ListWorkflowTypes (Prelude.Maybe Prelude.Natural)
 listWorkflowTypes_maximumPageSize = Lens.lens (\ListWorkflowTypes' {maximumPageSize} -> maximumPageSize) (\s@ListWorkflowTypes' {} a -> s {maximumPageSize = a} :: ListWorkflowTypes)
+
+-- | If specified, lists the workflow type with this name.
+listWorkflowTypes_name :: Lens.Lens' ListWorkflowTypes (Prelude.Maybe Prelude.Text)
+listWorkflowTypes_name = Lens.lens (\ListWorkflowTypes' {name} -> name) (\s@ListWorkflowTypes' {} a -> s {name = a} :: ListWorkflowTypes)
 
 -- | If @NextPageToken@ is returned there are more results available. The
 -- value of @NextPageToken@ is a unique pagination token for each page.
@@ -222,8 +223,8 @@ instance Core.AWSRequest ListWorkflowTypes where
 
 instance Prelude.Hashable ListWorkflowTypes where
   hashWithSalt _salt ListWorkflowTypes' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` maximumPageSize
+    _salt `Prelude.hashWithSalt` maximumPageSize
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` nextPageToken
       `Prelude.hashWithSalt` reverseOrder
       `Prelude.hashWithSalt` domain
@@ -231,8 +232,8 @@ instance Prelude.Hashable ListWorkflowTypes where
 
 instance Prelude.NFData ListWorkflowTypes where
   rnf ListWorkflowTypes' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf maximumPageSize
+    Prelude.rnf maximumPageSize
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf nextPageToken
       `Prelude.seq` Prelude.rnf reverseOrder
       `Prelude.seq` Prelude.rnf domain
@@ -257,9 +258,9 @@ instance Data.ToJSON ListWorkflowTypes where
   toJSON ListWorkflowTypes' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("name" Data..=) Prelude.<$> name,
-            ("maximumPageSize" Data..=)
+          [ ("maximumPageSize" Data..=)
               Prelude.<$> maximumPageSize,
+            ("name" Data..=) Prelude.<$> name,
             ("nextPageToken" Data..=) Prelude.<$> nextPageToken,
             ("reverseOrder" Data..=) Prelude.<$> reverseOrder,
             Prelude.Just ("domain" Data..= domain),

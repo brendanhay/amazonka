@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGlobalTable' smart constructor.
 data GlobalTable = GlobalTable'
-  { -- | The Regions where the global table has replicas.
-    replicationGroup :: Prelude.Maybe [Replica],
-    -- | The global table name.
-    globalTableName :: Prelude.Maybe Prelude.Text
+  { -- | The global table name.
+    globalTableName :: Prelude.Maybe Prelude.Text,
+    -- | The Regions where the global table has replicas.
+    replicationGroup :: Prelude.Maybe [Replica]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,24 +46,24 @@ data GlobalTable = GlobalTable'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'replicationGroup', 'globalTable_replicationGroup' - The Regions where the global table has replicas.
---
 -- 'globalTableName', 'globalTable_globalTableName' - The global table name.
+--
+-- 'replicationGroup', 'globalTable_replicationGroup' - The Regions where the global table has replicas.
 newGlobalTable ::
   GlobalTable
 newGlobalTable =
   GlobalTable'
-    { replicationGroup = Prelude.Nothing,
-      globalTableName = Prelude.Nothing
+    { globalTableName = Prelude.Nothing,
+      replicationGroup = Prelude.Nothing
     }
-
--- | The Regions where the global table has replicas.
-globalTable_replicationGroup :: Lens.Lens' GlobalTable (Prelude.Maybe [Replica])
-globalTable_replicationGroup = Lens.lens (\GlobalTable' {replicationGroup} -> replicationGroup) (\s@GlobalTable' {} a -> s {replicationGroup = a} :: GlobalTable) Prelude.. Lens.mapping Lens.coerced
 
 -- | The global table name.
 globalTable_globalTableName :: Lens.Lens' GlobalTable (Prelude.Maybe Prelude.Text)
 globalTable_globalTableName = Lens.lens (\GlobalTable' {globalTableName} -> globalTableName) (\s@GlobalTable' {} a -> s {globalTableName = a} :: GlobalTable)
+
+-- | The Regions where the global table has replicas.
+globalTable_replicationGroup :: Lens.Lens' GlobalTable (Prelude.Maybe [Replica])
+globalTable_replicationGroup = Lens.lens (\GlobalTable' {replicationGroup} -> replicationGroup) (\s@GlobalTable' {} a -> s {replicationGroup = a} :: GlobalTable) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON GlobalTable where
   parseJSON =
@@ -71,18 +71,18 @@ instance Data.FromJSON GlobalTable where
       "GlobalTable"
       ( \x ->
           GlobalTable'
-            Prelude.<$> ( x Data..:? "ReplicationGroup"
+            Prelude.<$> (x Data..:? "GlobalTableName")
+            Prelude.<*> ( x Data..:? "ReplicationGroup"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "GlobalTableName")
       )
 
 instance Prelude.Hashable GlobalTable where
   hashWithSalt _salt GlobalTable' {..} =
-    _salt `Prelude.hashWithSalt` replicationGroup
-      `Prelude.hashWithSalt` globalTableName
+    _salt `Prelude.hashWithSalt` globalTableName
+      `Prelude.hashWithSalt` replicationGroup
 
 instance Prelude.NFData GlobalTable where
   rnf GlobalTable' {..} =
-    Prelude.rnf replicationGroup
-      `Prelude.seq` Prelude.rnf globalTableName
+    Prelude.rnf globalTableName
+      `Prelude.seq` Prelude.rnf replicationGroup

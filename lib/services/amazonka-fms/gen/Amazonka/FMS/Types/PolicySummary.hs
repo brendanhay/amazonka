@@ -29,10 +29,28 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPolicySummary' smart constructor.
 data PolicySummary = PolicySummary'
-  { -- | The name of the specified policy.
-    policyName :: Prelude.Maybe Prelude.Text,
+  { -- | Indicates whether Firewall Manager should automatically remove
+    -- protections from resources that leave the policy scope and clean up
+    -- resources that Firewall Manager is managing for accounts when those
+    -- accounts leave policy scope. For example, Firewall Manager will
+    -- disassociate a Firewall Manager managed web ACL from a protected
+    -- customer resource when the customer resource leaves policy scope.
+    --
+    -- By default, Firewall Manager doesn\'t remove protections or delete
+    -- Firewall Manager managed resources.
+    --
+    -- This option is not available for Shield Advanced or WAF Classic
+    -- policies.
+    deleteUnusedFMManagedResources :: Prelude.Maybe Prelude.Bool,
+    -- | The Amazon Resource Name (ARN) of the specified policy.
+    policyArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the specified policy.
     policyId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the specified policy.
+    policyName :: Prelude.Maybe Prelude.Text,
+    -- | Indicates if the policy should be automatically applied to new
+    -- resources.
+    remediationEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The type of resource protected by or in scope of the policy. This is in
     -- the format shown in the
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services Resource Types Reference>.
@@ -49,25 +67,7 @@ data PolicySummary = PolicySummary'
     -- | The service that the policy is using to protect the resources. This
     -- specifies the type of policy that is created, either an WAF policy, a
     -- Shield Advanced policy, or a security group policy.
-    securityServiceType :: Prelude.Maybe SecurityServiceType,
-    -- | Indicates if the policy should be automatically applied to new
-    -- resources.
-    remediationEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The Amazon Resource Name (ARN) of the specified policy.
-    policyArn :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether Firewall Manager should automatically remove
-    -- protections from resources that leave the policy scope and clean up
-    -- resources that Firewall Manager is managing for accounts when those
-    -- accounts leave policy scope. For example, Firewall Manager will
-    -- disassociate a Firewall Manager managed web ACL from a protected
-    -- customer resource when the customer resource leaves policy scope.
-    --
-    -- By default, Firewall Manager doesn\'t remove protections or delete
-    -- Firewall Manager managed resources.
-    --
-    -- This option is not available for Shield Advanced or WAF Classic
-    -- policies.
-    deleteUnusedFMManagedResources :: Prelude.Maybe Prelude.Bool
+    securityServiceType :: Prelude.Maybe SecurityServiceType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,9 +79,27 @@ data PolicySummary = PolicySummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyName', 'policySummary_policyName' - The name of the specified policy.
+-- 'deleteUnusedFMManagedResources', 'policySummary_deleteUnusedFMManagedResources' - Indicates whether Firewall Manager should automatically remove
+-- protections from resources that leave the policy scope and clean up
+-- resources that Firewall Manager is managing for accounts when those
+-- accounts leave policy scope. For example, Firewall Manager will
+-- disassociate a Firewall Manager managed web ACL from a protected
+-- customer resource when the customer resource leaves policy scope.
+--
+-- By default, Firewall Manager doesn\'t remove protections or delete
+-- Firewall Manager managed resources.
+--
+-- This option is not available for Shield Advanced or WAF Classic
+-- policies.
+--
+-- 'policyArn', 'policySummary_policyArn' - The Amazon Resource Name (ARN) of the specified policy.
 --
 -- 'policyId', 'policySummary_policyId' - The ID of the specified policy.
+--
+-- 'policyName', 'policySummary_policyName' - The name of the specified policy.
+--
+-- 'remediationEnabled', 'policySummary_remediationEnabled' - Indicates if the policy should be automatically applied to new
+-- resources.
 --
 -- 'resourceType', 'policySummary_resourceType' - The type of resource protected by or in scope of the policy. This is in
 -- the format shown in the
@@ -99,13 +117,21 @@ data PolicySummary = PolicySummary'
 -- 'securityServiceType', 'policySummary_securityServiceType' - The service that the policy is using to protect the resources. This
 -- specifies the type of policy that is created, either an WAF policy, a
 -- Shield Advanced policy, or a security group policy.
---
--- 'remediationEnabled', 'policySummary_remediationEnabled' - Indicates if the policy should be automatically applied to new
--- resources.
---
--- 'policyArn', 'policySummary_policyArn' - The Amazon Resource Name (ARN) of the specified policy.
---
--- 'deleteUnusedFMManagedResources', 'policySummary_deleteUnusedFMManagedResources' - Indicates whether Firewall Manager should automatically remove
+newPolicySummary ::
+  PolicySummary
+newPolicySummary =
+  PolicySummary'
+    { deleteUnusedFMManagedResources =
+        Prelude.Nothing,
+      policyArn = Prelude.Nothing,
+      policyId = Prelude.Nothing,
+      policyName = Prelude.Nothing,
+      remediationEnabled = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
+      securityServiceType = Prelude.Nothing
+    }
+
+-- | Indicates whether Firewall Manager should automatically remove
 -- protections from resources that leave the policy scope and clean up
 -- resources that Firewall Manager is managing for accounts when those
 -- accounts leave policy scope. For example, Firewall Manager will
@@ -117,26 +143,25 @@ data PolicySummary = PolicySummary'
 --
 -- This option is not available for Shield Advanced or WAF Classic
 -- policies.
-newPolicySummary ::
-  PolicySummary
-newPolicySummary =
-  PolicySummary'
-    { policyName = Prelude.Nothing,
-      policyId = Prelude.Nothing,
-      resourceType = Prelude.Nothing,
-      securityServiceType = Prelude.Nothing,
-      remediationEnabled = Prelude.Nothing,
-      policyArn = Prelude.Nothing,
-      deleteUnusedFMManagedResources = Prelude.Nothing
-    }
+policySummary_deleteUnusedFMManagedResources :: Lens.Lens' PolicySummary (Prelude.Maybe Prelude.Bool)
+policySummary_deleteUnusedFMManagedResources = Lens.lens (\PolicySummary' {deleteUnusedFMManagedResources} -> deleteUnusedFMManagedResources) (\s@PolicySummary' {} a -> s {deleteUnusedFMManagedResources = a} :: PolicySummary)
+
+-- | The Amazon Resource Name (ARN) of the specified policy.
+policySummary_policyArn :: Lens.Lens' PolicySummary (Prelude.Maybe Prelude.Text)
+policySummary_policyArn = Lens.lens (\PolicySummary' {policyArn} -> policyArn) (\s@PolicySummary' {} a -> s {policyArn = a} :: PolicySummary)
+
+-- | The ID of the specified policy.
+policySummary_policyId :: Lens.Lens' PolicySummary (Prelude.Maybe Prelude.Text)
+policySummary_policyId = Lens.lens (\PolicySummary' {policyId} -> policyId) (\s@PolicySummary' {} a -> s {policyId = a} :: PolicySummary)
 
 -- | The name of the specified policy.
 policySummary_policyName :: Lens.Lens' PolicySummary (Prelude.Maybe Prelude.Text)
 policySummary_policyName = Lens.lens (\PolicySummary' {policyName} -> policyName) (\s@PolicySummary' {} a -> s {policyName = a} :: PolicySummary)
 
--- | The ID of the specified policy.
-policySummary_policyId :: Lens.Lens' PolicySummary (Prelude.Maybe Prelude.Text)
-policySummary_policyId = Lens.lens (\PolicySummary' {policyId} -> policyId) (\s@PolicySummary' {} a -> s {policyId = a} :: PolicySummary)
+-- | Indicates if the policy should be automatically applied to new
+-- resources.
+policySummary_remediationEnabled :: Lens.Lens' PolicySummary (Prelude.Maybe Prelude.Bool)
+policySummary_remediationEnabled = Lens.lens (\PolicySummary' {remediationEnabled} -> remediationEnabled) (\s@PolicySummary' {} a -> s {remediationEnabled = a} :: PolicySummary)
 
 -- | The type of resource protected by or in scope of the policy. This is in
 -- the format shown in the
@@ -159,61 +184,38 @@ policySummary_resourceType = Lens.lens (\PolicySummary' {resourceType} -> resour
 policySummary_securityServiceType :: Lens.Lens' PolicySummary (Prelude.Maybe SecurityServiceType)
 policySummary_securityServiceType = Lens.lens (\PolicySummary' {securityServiceType} -> securityServiceType) (\s@PolicySummary' {} a -> s {securityServiceType = a} :: PolicySummary)
 
--- | Indicates if the policy should be automatically applied to new
--- resources.
-policySummary_remediationEnabled :: Lens.Lens' PolicySummary (Prelude.Maybe Prelude.Bool)
-policySummary_remediationEnabled = Lens.lens (\PolicySummary' {remediationEnabled} -> remediationEnabled) (\s@PolicySummary' {} a -> s {remediationEnabled = a} :: PolicySummary)
-
--- | The Amazon Resource Name (ARN) of the specified policy.
-policySummary_policyArn :: Lens.Lens' PolicySummary (Prelude.Maybe Prelude.Text)
-policySummary_policyArn = Lens.lens (\PolicySummary' {policyArn} -> policyArn) (\s@PolicySummary' {} a -> s {policyArn = a} :: PolicySummary)
-
--- | Indicates whether Firewall Manager should automatically remove
--- protections from resources that leave the policy scope and clean up
--- resources that Firewall Manager is managing for accounts when those
--- accounts leave policy scope. For example, Firewall Manager will
--- disassociate a Firewall Manager managed web ACL from a protected
--- customer resource when the customer resource leaves policy scope.
---
--- By default, Firewall Manager doesn\'t remove protections or delete
--- Firewall Manager managed resources.
---
--- This option is not available for Shield Advanced or WAF Classic
--- policies.
-policySummary_deleteUnusedFMManagedResources :: Lens.Lens' PolicySummary (Prelude.Maybe Prelude.Bool)
-policySummary_deleteUnusedFMManagedResources = Lens.lens (\PolicySummary' {deleteUnusedFMManagedResources} -> deleteUnusedFMManagedResources) (\s@PolicySummary' {} a -> s {deleteUnusedFMManagedResources = a} :: PolicySummary)
-
 instance Data.FromJSON PolicySummary where
   parseJSON =
     Data.withObject
       "PolicySummary"
       ( \x ->
           PolicySummary'
-            Prelude.<$> (x Data..:? "PolicyName")
+            Prelude.<$> (x Data..:? "DeleteUnusedFMManagedResources")
+            Prelude.<*> (x Data..:? "PolicyArn")
             Prelude.<*> (x Data..:? "PolicyId")
+            Prelude.<*> (x Data..:? "PolicyName")
+            Prelude.<*> (x Data..:? "RemediationEnabled")
             Prelude.<*> (x Data..:? "ResourceType")
             Prelude.<*> (x Data..:? "SecurityServiceType")
-            Prelude.<*> (x Data..:? "RemediationEnabled")
-            Prelude.<*> (x Data..:? "PolicyArn")
-            Prelude.<*> (x Data..:? "DeleteUnusedFMManagedResources")
       )
 
 instance Prelude.Hashable PolicySummary where
   hashWithSalt _salt PolicySummary' {..} =
-    _salt `Prelude.hashWithSalt` policyName
+    _salt
+      `Prelude.hashWithSalt` deleteUnusedFMManagedResources
+      `Prelude.hashWithSalt` policyArn
       `Prelude.hashWithSalt` policyId
+      `Prelude.hashWithSalt` policyName
+      `Prelude.hashWithSalt` remediationEnabled
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` securityServiceType
-      `Prelude.hashWithSalt` remediationEnabled
-      `Prelude.hashWithSalt` policyArn
-      `Prelude.hashWithSalt` deleteUnusedFMManagedResources
 
 instance Prelude.NFData PolicySummary where
   rnf PolicySummary' {..} =
-    Prelude.rnf policyName
+    Prelude.rnf deleteUnusedFMManagedResources
+      `Prelude.seq` Prelude.rnf policyArn
       `Prelude.seq` Prelude.rnf policyId
+      `Prelude.seq` Prelude.rnf policyName
+      `Prelude.seq` Prelude.rnf remediationEnabled
       `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf securityServiceType
-      `Prelude.seq` Prelude.rnf remediationEnabled
-      `Prelude.seq` Prelude.rnf policyArn
-      `Prelude.seq` Prelude.rnf deleteUnusedFMManagedResources

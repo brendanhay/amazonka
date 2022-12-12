@@ -30,8 +30,8 @@ module Amazonka.SSM.DescribeMaintenanceWindowsForTarget
     newDescribeMaintenanceWindowsForTarget,
 
     -- * Request Lenses
-    describeMaintenanceWindowsForTarget_nextToken,
     describeMaintenanceWindowsForTarget_maxResults,
+    describeMaintenanceWindowsForTarget_nextToken,
     describeMaintenanceWindowsForTarget_targets,
     describeMaintenanceWindowsForTarget_resourceType,
 
@@ -56,13 +56,13 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newDescribeMaintenanceWindowsForTarget' smart constructor.
 data DescribeMaintenanceWindowsForTarget = DescribeMaintenanceWindowsForTarget'
-  { -- | The token for the next set of items to return. (You received this token
-    -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return for this call. The call also
+  { -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The managed node ID or key-value pair to retrieve information about.
     targets :: [Target],
     -- | The type of resource you want to retrieve information about. For
@@ -79,12 +79,12 @@ data DescribeMaintenanceWindowsForTarget = DescribeMaintenanceWindowsForTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeMaintenanceWindowsForTarget_nextToken' - The token for the next set of items to return. (You received this token
--- from a previous call.)
---
 -- 'maxResults', 'describeMaintenanceWindowsForTarget_maxResults' - The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
+--
+-- 'nextToken', 'describeMaintenanceWindowsForTarget_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
 --
 -- 'targets', 'describeMaintenanceWindowsForTarget_targets' - The managed node ID or key-value pair to retrieve information about.
 --
@@ -96,23 +96,23 @@ newDescribeMaintenanceWindowsForTarget ::
   DescribeMaintenanceWindowsForTarget
 newDescribeMaintenanceWindowsForTarget pResourceType_ =
   DescribeMaintenanceWindowsForTarget'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       targets = Prelude.mempty,
       resourceType = pResourceType_
     }
-
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
-describeMaintenanceWindowsForTarget_nextToken :: Lens.Lens' DescribeMaintenanceWindowsForTarget (Prelude.Maybe Prelude.Text)
-describeMaintenanceWindowsForTarget_nextToken = Lens.lens (\DescribeMaintenanceWindowsForTarget' {nextToken} -> nextToken) (\s@DescribeMaintenanceWindowsForTarget' {} a -> s {nextToken = a} :: DescribeMaintenanceWindowsForTarget)
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
 describeMaintenanceWindowsForTarget_maxResults :: Lens.Lens' DescribeMaintenanceWindowsForTarget (Prelude.Maybe Prelude.Natural)
 describeMaintenanceWindowsForTarget_maxResults = Lens.lens (\DescribeMaintenanceWindowsForTarget' {maxResults} -> maxResults) (\s@DescribeMaintenanceWindowsForTarget' {} a -> s {maxResults = a} :: DescribeMaintenanceWindowsForTarget)
+
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+describeMaintenanceWindowsForTarget_nextToken :: Lens.Lens' DescribeMaintenanceWindowsForTarget (Prelude.Maybe Prelude.Text)
+describeMaintenanceWindowsForTarget_nextToken = Lens.lens (\DescribeMaintenanceWindowsForTarget' {nextToken} -> nextToken) (\s@DescribeMaintenanceWindowsForTarget' {} a -> s {nextToken = a} :: DescribeMaintenanceWindowsForTarget)
 
 -- | The managed node ID or key-value pair to retrieve information about.
 describeMaintenanceWindowsForTarget_targets :: Lens.Lens' DescribeMaintenanceWindowsForTarget [Target]
@@ -175,8 +175,8 @@ instance
   hashWithSalt
     _salt
     DescribeMaintenanceWindowsForTarget' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` targets
         `Prelude.hashWithSalt` resourceType
 
@@ -185,8 +185,8 @@ instance
     DescribeMaintenanceWindowsForTarget
   where
   rnf DescribeMaintenanceWindowsForTarget' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf targets
       `Prelude.seq` Prelude.rnf resourceType
 
@@ -215,8 +215,8 @@ instance
   toJSON DescribeMaintenanceWindowsForTarget' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("Targets" Data..= targets),
             Prelude.Just ("ResourceType" Data..= resourceType)
           ]

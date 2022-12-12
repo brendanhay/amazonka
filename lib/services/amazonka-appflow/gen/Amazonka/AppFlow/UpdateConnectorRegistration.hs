@@ -33,8 +33,8 @@ module Amazonka.AppFlow.UpdateConnectorRegistration
     newUpdateConnectorRegistration,
 
     -- * Request Lenses
-    updateConnectorRegistration_description,
     updateConnectorRegistration_connectorProvisioningConfig,
+    updateConnectorRegistration_description,
     updateConnectorRegistration_connectorLabel,
 
     -- * Destructuring the Response
@@ -57,9 +57,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateConnectorRegistration' smart constructor.
 data UpdateConnectorRegistration = UpdateConnectorRegistration'
-  { -- | A description about the update that you\'re applying to the connector.
+  { connectorProvisioningConfig :: Prelude.Maybe ConnectorProvisioningConfig,
+    -- | A description about the update that you\'re applying to the connector.
     description :: Prelude.Maybe Prelude.Text,
-    connectorProvisioningConfig :: Prelude.Maybe ConnectorProvisioningConfig,
     -- | The name of the connector. The name is unique for each connector
     -- registration in your AWS account.
     connectorLabel :: Prelude.Text
@@ -74,9 +74,9 @@ data UpdateConnectorRegistration = UpdateConnectorRegistration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'updateConnectorRegistration_description' - A description about the update that you\'re applying to the connector.
---
 -- 'connectorProvisioningConfig', 'updateConnectorRegistration_connectorProvisioningConfig' - Undocumented member.
+--
+-- 'description', 'updateConnectorRegistration_description' - A description about the update that you\'re applying to the connector.
 --
 -- 'connectorLabel', 'updateConnectorRegistration_connectorLabel' - The name of the connector. The name is unique for each connector
 -- registration in your AWS account.
@@ -86,19 +86,19 @@ newUpdateConnectorRegistration ::
   UpdateConnectorRegistration
 newUpdateConnectorRegistration pConnectorLabel_ =
   UpdateConnectorRegistration'
-    { description =
+    { connectorProvisioningConfig =
         Prelude.Nothing,
-      connectorProvisioningConfig = Prelude.Nothing,
+      description = Prelude.Nothing,
       connectorLabel = pConnectorLabel_
     }
-
--- | A description about the update that you\'re applying to the connector.
-updateConnectorRegistration_description :: Lens.Lens' UpdateConnectorRegistration (Prelude.Maybe Prelude.Text)
-updateConnectorRegistration_description = Lens.lens (\UpdateConnectorRegistration' {description} -> description) (\s@UpdateConnectorRegistration' {} a -> s {description = a} :: UpdateConnectorRegistration)
 
 -- | Undocumented member.
 updateConnectorRegistration_connectorProvisioningConfig :: Lens.Lens' UpdateConnectorRegistration (Prelude.Maybe ConnectorProvisioningConfig)
 updateConnectorRegistration_connectorProvisioningConfig = Lens.lens (\UpdateConnectorRegistration' {connectorProvisioningConfig} -> connectorProvisioningConfig) (\s@UpdateConnectorRegistration' {} a -> s {connectorProvisioningConfig = a} :: UpdateConnectorRegistration)
+
+-- | A description about the update that you\'re applying to the connector.
+updateConnectorRegistration_description :: Lens.Lens' UpdateConnectorRegistration (Prelude.Maybe Prelude.Text)
+updateConnectorRegistration_description = Lens.lens (\UpdateConnectorRegistration' {description} -> description) (\s@UpdateConnectorRegistration' {} a -> s {description = a} :: UpdateConnectorRegistration)
 
 -- | The name of the connector. The name is unique for each connector
 -- registration in your AWS account.
@@ -121,14 +121,15 @@ instance Core.AWSRequest UpdateConnectorRegistration where
 
 instance Prelude.Hashable UpdateConnectorRegistration where
   hashWithSalt _salt UpdateConnectorRegistration' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
       `Prelude.hashWithSalt` connectorProvisioningConfig
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` connectorLabel
 
 instance Prelude.NFData UpdateConnectorRegistration where
   rnf UpdateConnectorRegistration' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf connectorProvisioningConfig
+    Prelude.rnf connectorProvisioningConfig
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf connectorLabel
 
 instance Data.ToHeaders UpdateConnectorRegistration where
@@ -146,9 +147,9 @@ instance Data.ToJSON UpdateConnectorRegistration where
   toJSON UpdateConnectorRegistration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("description" Data..=) Prelude.<$> description,
-            ("connectorProvisioningConfig" Data..=)
+          [ ("connectorProvisioningConfig" Data..=)
               Prelude.<$> connectorProvisioningConfig,
+            ("description" Data..=) Prelude.<$> description,
             Prelude.Just
               ("connectorLabel" Data..= connectorLabel)
           ]

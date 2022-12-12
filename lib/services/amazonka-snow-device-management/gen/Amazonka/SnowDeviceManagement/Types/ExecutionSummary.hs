@@ -29,14 +29,14 @@ import Amazonka.SnowDeviceManagement.Types.ExecutionState
 --
 -- /See:/ 'newExecutionSummary' smart constructor.
 data ExecutionSummary = ExecutionSummary'
-  { -- | The ID of the task.
-    taskId :: Prelude.Maybe Prelude.Text,
-    -- | The state of the execution.
-    state :: Prelude.Maybe ExecutionState,
-    -- | The ID of the execution.
+  { -- | The ID of the execution.
     executionId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the managed device that the task is being executed on.
-    managedDeviceId :: Prelude.Maybe Prelude.Text
+    managedDeviceId :: Prelude.Maybe Prelude.Text,
+    -- | The state of the execution.
+    state :: Prelude.Maybe ExecutionState,
+    -- | The ID of the task.
+    taskId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,30 +48,22 @@ data ExecutionSummary = ExecutionSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'taskId', 'executionSummary_taskId' - The ID of the task.
---
--- 'state', 'executionSummary_state' - The state of the execution.
---
 -- 'executionId', 'executionSummary_executionId' - The ID of the execution.
 --
 -- 'managedDeviceId', 'executionSummary_managedDeviceId' - The ID of the managed device that the task is being executed on.
+--
+-- 'state', 'executionSummary_state' - The state of the execution.
+--
+-- 'taskId', 'executionSummary_taskId' - The ID of the task.
 newExecutionSummary ::
   ExecutionSummary
 newExecutionSummary =
   ExecutionSummary'
-    { taskId = Prelude.Nothing,
+    { executionId = Prelude.Nothing,
+      managedDeviceId = Prelude.Nothing,
       state = Prelude.Nothing,
-      executionId = Prelude.Nothing,
-      managedDeviceId = Prelude.Nothing
+      taskId = Prelude.Nothing
     }
-
--- | The ID of the task.
-executionSummary_taskId :: Lens.Lens' ExecutionSummary (Prelude.Maybe Prelude.Text)
-executionSummary_taskId = Lens.lens (\ExecutionSummary' {taskId} -> taskId) (\s@ExecutionSummary' {} a -> s {taskId = a} :: ExecutionSummary)
-
--- | The state of the execution.
-executionSummary_state :: Lens.Lens' ExecutionSummary (Prelude.Maybe ExecutionState)
-executionSummary_state = Lens.lens (\ExecutionSummary' {state} -> state) (\s@ExecutionSummary' {} a -> s {state = a} :: ExecutionSummary)
 
 -- | The ID of the execution.
 executionSummary_executionId :: Lens.Lens' ExecutionSummary (Prelude.Maybe Prelude.Text)
@@ -81,28 +73,36 @@ executionSummary_executionId = Lens.lens (\ExecutionSummary' {executionId} -> ex
 executionSummary_managedDeviceId :: Lens.Lens' ExecutionSummary (Prelude.Maybe Prelude.Text)
 executionSummary_managedDeviceId = Lens.lens (\ExecutionSummary' {managedDeviceId} -> managedDeviceId) (\s@ExecutionSummary' {} a -> s {managedDeviceId = a} :: ExecutionSummary)
 
+-- | The state of the execution.
+executionSummary_state :: Lens.Lens' ExecutionSummary (Prelude.Maybe ExecutionState)
+executionSummary_state = Lens.lens (\ExecutionSummary' {state} -> state) (\s@ExecutionSummary' {} a -> s {state = a} :: ExecutionSummary)
+
+-- | The ID of the task.
+executionSummary_taskId :: Lens.Lens' ExecutionSummary (Prelude.Maybe Prelude.Text)
+executionSummary_taskId = Lens.lens (\ExecutionSummary' {taskId} -> taskId) (\s@ExecutionSummary' {} a -> s {taskId = a} :: ExecutionSummary)
+
 instance Data.FromJSON ExecutionSummary where
   parseJSON =
     Data.withObject
       "ExecutionSummary"
       ( \x ->
           ExecutionSummary'
-            Prelude.<$> (x Data..:? "taskId")
-            Prelude.<*> (x Data..:? "state")
-            Prelude.<*> (x Data..:? "executionId")
+            Prelude.<$> (x Data..:? "executionId")
             Prelude.<*> (x Data..:? "managedDeviceId")
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "taskId")
       )
 
 instance Prelude.Hashable ExecutionSummary where
   hashWithSalt _salt ExecutionSummary' {..} =
-    _salt `Prelude.hashWithSalt` taskId
-      `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` executionId
+    _salt `Prelude.hashWithSalt` executionId
       `Prelude.hashWithSalt` managedDeviceId
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` taskId
 
 instance Prelude.NFData ExecutionSummary where
   rnf ExecutionSummary' {..} =
-    Prelude.rnf taskId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf executionId
+    Prelude.rnf executionId
       `Prelude.seq` Prelude.rnf managedDeviceId
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf taskId

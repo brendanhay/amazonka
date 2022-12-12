@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPITPolicyRule' smart constructor.
 data PITPolicyRule = PITPolicyRule'
-  { -- | The ID of the rule.
-    ruleID :: Prelude.Maybe Prelude.Natural,
-    -- | Whether this rule is enabled or not.
+  { -- | Whether this rule is enabled or not.
     enabled :: Prelude.Maybe Prelude.Bool,
+    -- | The ID of the rule.
+    ruleID :: Prelude.Maybe Prelude.Natural,
     -- | How often, in the chosen units, a snapshot should be taken.
     interval :: Prelude.Natural,
     -- | The duration to retain a snapshot for, in the chosen units.
@@ -51,9 +51,9 @@ data PITPolicyRule = PITPolicyRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ruleID', 'pITPolicyRule_ruleID' - The ID of the rule.
---
 -- 'enabled', 'pITPolicyRule_enabled' - Whether this rule is enabled or not.
+--
+-- 'ruleID', 'pITPolicyRule_ruleID' - The ID of the rule.
 --
 -- 'interval', 'pITPolicyRule_interval' - How often, in the chosen units, a snapshot should be taken.
 --
@@ -73,20 +73,20 @@ newPITPolicyRule
   pRetentionDuration_
   pUnits_ =
     PITPolicyRule'
-      { ruleID = Prelude.Nothing,
-        enabled = Prelude.Nothing,
+      { enabled = Prelude.Nothing,
+        ruleID = Prelude.Nothing,
         interval = pInterval_,
         retentionDuration = pRetentionDuration_,
         units = pUnits_
       }
 
--- | The ID of the rule.
-pITPolicyRule_ruleID :: Lens.Lens' PITPolicyRule (Prelude.Maybe Prelude.Natural)
-pITPolicyRule_ruleID = Lens.lens (\PITPolicyRule' {ruleID} -> ruleID) (\s@PITPolicyRule' {} a -> s {ruleID = a} :: PITPolicyRule)
-
 -- | Whether this rule is enabled or not.
 pITPolicyRule_enabled :: Lens.Lens' PITPolicyRule (Prelude.Maybe Prelude.Bool)
 pITPolicyRule_enabled = Lens.lens (\PITPolicyRule' {enabled} -> enabled) (\s@PITPolicyRule' {} a -> s {enabled = a} :: PITPolicyRule)
+
+-- | The ID of the rule.
+pITPolicyRule_ruleID :: Lens.Lens' PITPolicyRule (Prelude.Maybe Prelude.Natural)
+pITPolicyRule_ruleID = Lens.lens (\PITPolicyRule' {ruleID} -> ruleID) (\s@PITPolicyRule' {} a -> s {ruleID = a} :: PITPolicyRule)
 
 -- | How often, in the chosen units, a snapshot should be taken.
 pITPolicyRule_interval :: Lens.Lens' PITPolicyRule Prelude.Natural
@@ -106,8 +106,8 @@ instance Data.FromJSON PITPolicyRule where
       "PITPolicyRule"
       ( \x ->
           PITPolicyRule'
-            Prelude.<$> (x Data..:? "ruleID")
-            Prelude.<*> (x Data..:? "enabled")
+            Prelude.<$> (x Data..:? "enabled")
+            Prelude.<*> (x Data..:? "ruleID")
             Prelude.<*> (x Data..: "interval")
             Prelude.<*> (x Data..: "retentionDuration")
             Prelude.<*> (x Data..: "units")
@@ -115,16 +115,16 @@ instance Data.FromJSON PITPolicyRule where
 
 instance Prelude.Hashable PITPolicyRule where
   hashWithSalt _salt PITPolicyRule' {..} =
-    _salt `Prelude.hashWithSalt` ruleID
-      `Prelude.hashWithSalt` enabled
+    _salt `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` ruleID
       `Prelude.hashWithSalt` interval
       `Prelude.hashWithSalt` retentionDuration
       `Prelude.hashWithSalt` units
 
 instance Prelude.NFData PITPolicyRule where
   rnf PITPolicyRule' {..} =
-    Prelude.rnf ruleID
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf ruleID
       `Prelude.seq` Prelude.rnf interval
       `Prelude.seq` Prelude.rnf retentionDuration
       `Prelude.seq` Prelude.rnf units
@@ -133,8 +133,8 @@ instance Data.ToJSON PITPolicyRule where
   toJSON PITPolicyRule' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ruleID" Data..=) Prelude.<$> ruleID,
-            ("enabled" Data..=) Prelude.<$> enabled,
+          [ ("enabled" Data..=) Prelude.<$> enabled,
+            ("ruleID" Data..=) Prelude.<$> ruleID,
             Prelude.Just ("interval" Data..= interval),
             Prelude.Just
               ("retentionDuration" Data..= retentionDuration),

@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newProposedSegmentChange' smart constructor.
 data ProposedSegmentChange = ProposedSegmentChange'
-  { -- | The list of key-value tags that changed for the segment.
-    tags :: Prelude.Maybe [Tag],
+  { -- | The rule number in the policy document that applies to this change.
+    attachmentPolicyRuleNumber :: Prelude.Maybe Prelude.Int,
     -- | The name of the segment to change.
     segmentName :: Prelude.Maybe Prelude.Text,
-    -- | The rule number in the policy document that applies to this change.
-    attachmentPolicyRuleNumber :: Prelude.Maybe Prelude.Int
+    -- | The list of key-value tags that changed for the segment.
+    tags :: Prelude.Maybe [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,31 +47,32 @@ data ProposedSegmentChange = ProposedSegmentChange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'proposedSegmentChange_tags' - The list of key-value tags that changed for the segment.
+-- 'attachmentPolicyRuleNumber', 'proposedSegmentChange_attachmentPolicyRuleNumber' - The rule number in the policy document that applies to this change.
 --
 -- 'segmentName', 'proposedSegmentChange_segmentName' - The name of the segment to change.
 --
--- 'attachmentPolicyRuleNumber', 'proposedSegmentChange_attachmentPolicyRuleNumber' - The rule number in the policy document that applies to this change.
+-- 'tags', 'proposedSegmentChange_tags' - The list of key-value tags that changed for the segment.
 newProposedSegmentChange ::
   ProposedSegmentChange
 newProposedSegmentChange =
   ProposedSegmentChange'
-    { tags = Prelude.Nothing,
+    { attachmentPolicyRuleNumber =
+        Prelude.Nothing,
       segmentName = Prelude.Nothing,
-      attachmentPolicyRuleNumber = Prelude.Nothing
+      tags = Prelude.Nothing
     }
 
--- | The list of key-value tags that changed for the segment.
-proposedSegmentChange_tags :: Lens.Lens' ProposedSegmentChange (Prelude.Maybe [Tag])
-proposedSegmentChange_tags = Lens.lens (\ProposedSegmentChange' {tags} -> tags) (\s@ProposedSegmentChange' {} a -> s {tags = a} :: ProposedSegmentChange) Prelude.. Lens.mapping Lens.coerced
+-- | The rule number in the policy document that applies to this change.
+proposedSegmentChange_attachmentPolicyRuleNumber :: Lens.Lens' ProposedSegmentChange (Prelude.Maybe Prelude.Int)
+proposedSegmentChange_attachmentPolicyRuleNumber = Lens.lens (\ProposedSegmentChange' {attachmentPolicyRuleNumber} -> attachmentPolicyRuleNumber) (\s@ProposedSegmentChange' {} a -> s {attachmentPolicyRuleNumber = a} :: ProposedSegmentChange)
 
 -- | The name of the segment to change.
 proposedSegmentChange_segmentName :: Lens.Lens' ProposedSegmentChange (Prelude.Maybe Prelude.Text)
 proposedSegmentChange_segmentName = Lens.lens (\ProposedSegmentChange' {segmentName} -> segmentName) (\s@ProposedSegmentChange' {} a -> s {segmentName = a} :: ProposedSegmentChange)
 
--- | The rule number in the policy document that applies to this change.
-proposedSegmentChange_attachmentPolicyRuleNumber :: Lens.Lens' ProposedSegmentChange (Prelude.Maybe Prelude.Int)
-proposedSegmentChange_attachmentPolicyRuleNumber = Lens.lens (\ProposedSegmentChange' {attachmentPolicyRuleNumber} -> attachmentPolicyRuleNumber) (\s@ProposedSegmentChange' {} a -> s {attachmentPolicyRuleNumber = a} :: ProposedSegmentChange)
+-- | The list of key-value tags that changed for the segment.
+proposedSegmentChange_tags :: Lens.Lens' ProposedSegmentChange (Prelude.Maybe [Tag])
+proposedSegmentChange_tags = Lens.lens (\ProposedSegmentChange' {tags} -> tags) (\s@ProposedSegmentChange' {} a -> s {tags = a} :: ProposedSegmentChange) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON ProposedSegmentChange where
   parseJSON =
@@ -79,19 +80,20 @@ instance Data.FromJSON ProposedSegmentChange where
       "ProposedSegmentChange"
       ( \x ->
           ProposedSegmentChange'
-            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "AttachmentPolicyRuleNumber")
             Prelude.<*> (x Data..:? "SegmentName")
-            Prelude.<*> (x Data..:? "AttachmentPolicyRuleNumber")
+            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ProposedSegmentChange where
   hashWithSalt _salt ProposedSegmentChange' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` segmentName
+    _salt
       `Prelude.hashWithSalt` attachmentPolicyRuleNumber
+      `Prelude.hashWithSalt` segmentName
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData ProposedSegmentChange where
   rnf ProposedSegmentChange' {..} =
-    Prelude.rnf tags
+    Prelude.rnf attachmentPolicyRuleNumber
       `Prelude.seq` Prelude.rnf segmentName
-      `Prelude.seq` Prelude.rnf attachmentPolicyRuleNumber
+      `Prelude.seq` Prelude.rnf tags

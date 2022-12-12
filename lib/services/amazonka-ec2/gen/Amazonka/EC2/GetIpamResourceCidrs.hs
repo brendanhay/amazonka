@@ -29,15 +29,15 @@ module Amazonka.EC2.GetIpamResourceCidrs
     newGetIpamResourceCidrs,
 
     -- * Request Lenses
-    getIpamResourceCidrs_resourceId,
-    getIpamResourceCidrs_resourceType,
-    getIpamResourceCidrs_nextToken,
-    getIpamResourceCidrs_filters,
-    getIpamResourceCidrs_resourceOwner,
     getIpamResourceCidrs_dryRun,
-    getIpamResourceCidrs_maxResults,
+    getIpamResourceCidrs_filters,
     getIpamResourceCidrs_ipamPoolId,
+    getIpamResourceCidrs_maxResults,
+    getIpamResourceCidrs_nextToken,
+    getIpamResourceCidrs_resourceId,
+    getIpamResourceCidrs_resourceOwner,
     getIpamResourceCidrs_resourceTag,
+    getIpamResourceCidrs_resourceType,
     getIpamResourceCidrs_ipamScopeId,
 
     -- * Destructuring the Response
@@ -45,8 +45,8 @@ module Amazonka.EC2.GetIpamResourceCidrs
     newGetIpamResourceCidrsResponse,
 
     -- * Response Lenses
-    getIpamResourceCidrsResponse_nextToken,
     getIpamResourceCidrsResponse_ipamResourceCidrs,
+    getIpamResourceCidrsResponse_nextToken,
     getIpamResourceCidrsResponse_httpStatus,
   )
 where
@@ -61,29 +61,29 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetIpamResourceCidrs' smart constructor.
 data GetIpamResourceCidrs = GetIpamResourceCidrs'
-  { -- | The ID of the resource.
-    resourceId :: Prelude.Maybe Prelude.Text,
-    -- | The resource type.
-    resourceType :: Prelude.Maybe IpamResourceType,
-    -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | One or more filters for the request. For more information about
-    -- filtering, see
-    -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html Filtering CLI output>.
-    filters :: Prelude.Maybe [Filter],
-    -- | The ID of the Amazon Web Services account that owns the resource.
-    resourceOwner :: Prelude.Maybe Prelude.Text,
-    -- | A check for whether you have the required permissions for the action
+  { -- | A check for whether you have the required permissions for the action
     -- without actually making the request and provides an error response. If
     -- you have the required permissions, the error response is
     -- @DryRunOperation@. Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results to return in the request.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | One or more filters for the request. For more information about
+    -- filtering, see
+    -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html Filtering CLI output>.
+    filters :: Prelude.Maybe [Filter],
     -- | The ID of the IPAM pool that the resource is in.
     ipamPoolId :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return in the request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the resource.
+    resourceId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Amazon Web Services account that owns the resource.
+    resourceOwner :: Prelude.Maybe Prelude.Text,
     -- | The resource tag.
     resourceTag :: Prelude.Maybe RequestIpamResourceTag,
+    -- | The resource type.
+    resourceType :: Prelude.Maybe IpamResourceType,
     -- | The ID of the scope that the resource is in.
     ipamScopeId :: Prelude.Text
   }
@@ -97,28 +97,28 @@ data GetIpamResourceCidrs = GetIpamResourceCidrs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceId', 'getIpamResourceCidrs_resourceId' - The ID of the resource.
---
--- 'resourceType', 'getIpamResourceCidrs_resourceType' - The resource type.
---
--- 'nextToken', 'getIpamResourceCidrs_nextToken' - The token for the next page of results.
---
--- 'filters', 'getIpamResourceCidrs_filters' - One or more filters for the request. For more information about
--- filtering, see
--- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html Filtering CLI output>.
---
--- 'resourceOwner', 'getIpamResourceCidrs_resourceOwner' - The ID of the Amazon Web Services account that owns the resource.
---
 -- 'dryRun', 'getIpamResourceCidrs_dryRun' - A check for whether you have the required permissions for the action
 -- without actually making the request and provides an error response. If
 -- you have the required permissions, the error response is
 -- @DryRunOperation@. Otherwise, it is @UnauthorizedOperation@.
 --
--- 'maxResults', 'getIpamResourceCidrs_maxResults' - The maximum number of results to return in the request.
+-- 'filters', 'getIpamResourceCidrs_filters' - One or more filters for the request. For more information about
+-- filtering, see
+-- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html Filtering CLI output>.
 --
 -- 'ipamPoolId', 'getIpamResourceCidrs_ipamPoolId' - The ID of the IPAM pool that the resource is in.
 --
+-- 'maxResults', 'getIpamResourceCidrs_maxResults' - The maximum number of results to return in the request.
+--
+-- 'nextToken', 'getIpamResourceCidrs_nextToken' - The token for the next page of results.
+--
+-- 'resourceId', 'getIpamResourceCidrs_resourceId' - The ID of the resource.
+--
+-- 'resourceOwner', 'getIpamResourceCidrs_resourceOwner' - The ID of the Amazon Web Services account that owns the resource.
+--
 -- 'resourceTag', 'getIpamResourceCidrs_resourceTag' - The resource tag.
+--
+-- 'resourceType', 'getIpamResourceCidrs_resourceType' - The resource type.
 --
 -- 'ipamScopeId', 'getIpamResourceCidrs_ipamScopeId' - The ID of the scope that the resource is in.
 newGetIpamResourceCidrs ::
@@ -127,39 +127,17 @@ newGetIpamResourceCidrs ::
   GetIpamResourceCidrs
 newGetIpamResourceCidrs pIpamScopeId_ =
   GetIpamResourceCidrs'
-    { resourceId = Prelude.Nothing,
-      resourceType = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { dryRun = Prelude.Nothing,
       filters = Prelude.Nothing,
-      resourceOwner = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       ipamPoolId = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      resourceId = Prelude.Nothing,
+      resourceOwner = Prelude.Nothing,
       resourceTag = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
       ipamScopeId = pIpamScopeId_
     }
-
--- | The ID of the resource.
-getIpamResourceCidrs_resourceId :: Lens.Lens' GetIpamResourceCidrs (Prelude.Maybe Prelude.Text)
-getIpamResourceCidrs_resourceId = Lens.lens (\GetIpamResourceCidrs' {resourceId} -> resourceId) (\s@GetIpamResourceCidrs' {} a -> s {resourceId = a} :: GetIpamResourceCidrs)
-
--- | The resource type.
-getIpamResourceCidrs_resourceType :: Lens.Lens' GetIpamResourceCidrs (Prelude.Maybe IpamResourceType)
-getIpamResourceCidrs_resourceType = Lens.lens (\GetIpamResourceCidrs' {resourceType} -> resourceType) (\s@GetIpamResourceCidrs' {} a -> s {resourceType = a} :: GetIpamResourceCidrs)
-
--- | The token for the next page of results.
-getIpamResourceCidrs_nextToken :: Lens.Lens' GetIpamResourceCidrs (Prelude.Maybe Prelude.Text)
-getIpamResourceCidrs_nextToken = Lens.lens (\GetIpamResourceCidrs' {nextToken} -> nextToken) (\s@GetIpamResourceCidrs' {} a -> s {nextToken = a} :: GetIpamResourceCidrs)
-
--- | One or more filters for the request. For more information about
--- filtering, see
--- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html Filtering CLI output>.
-getIpamResourceCidrs_filters :: Lens.Lens' GetIpamResourceCidrs (Prelude.Maybe [Filter])
-getIpamResourceCidrs_filters = Lens.lens (\GetIpamResourceCidrs' {filters} -> filters) (\s@GetIpamResourceCidrs' {} a -> s {filters = a} :: GetIpamResourceCidrs) Prelude.. Lens.mapping Lens.coerced
-
--- | The ID of the Amazon Web Services account that owns the resource.
-getIpamResourceCidrs_resourceOwner :: Lens.Lens' GetIpamResourceCidrs (Prelude.Maybe Prelude.Text)
-getIpamResourceCidrs_resourceOwner = Lens.lens (\GetIpamResourceCidrs' {resourceOwner} -> resourceOwner) (\s@GetIpamResourceCidrs' {} a -> s {resourceOwner = a} :: GetIpamResourceCidrs)
 
 -- | A check for whether you have the required permissions for the action
 -- without actually making the request and provides an error response. If
@@ -168,17 +146,39 @@ getIpamResourceCidrs_resourceOwner = Lens.lens (\GetIpamResourceCidrs' {resource
 getIpamResourceCidrs_dryRun :: Lens.Lens' GetIpamResourceCidrs (Prelude.Maybe Prelude.Bool)
 getIpamResourceCidrs_dryRun = Lens.lens (\GetIpamResourceCidrs' {dryRun} -> dryRun) (\s@GetIpamResourceCidrs' {} a -> s {dryRun = a} :: GetIpamResourceCidrs)
 
--- | The maximum number of results to return in the request.
-getIpamResourceCidrs_maxResults :: Lens.Lens' GetIpamResourceCidrs (Prelude.Maybe Prelude.Natural)
-getIpamResourceCidrs_maxResults = Lens.lens (\GetIpamResourceCidrs' {maxResults} -> maxResults) (\s@GetIpamResourceCidrs' {} a -> s {maxResults = a} :: GetIpamResourceCidrs)
+-- | One or more filters for the request. For more information about
+-- filtering, see
+-- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html Filtering CLI output>.
+getIpamResourceCidrs_filters :: Lens.Lens' GetIpamResourceCidrs (Prelude.Maybe [Filter])
+getIpamResourceCidrs_filters = Lens.lens (\GetIpamResourceCidrs' {filters} -> filters) (\s@GetIpamResourceCidrs' {} a -> s {filters = a} :: GetIpamResourceCidrs) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the IPAM pool that the resource is in.
 getIpamResourceCidrs_ipamPoolId :: Lens.Lens' GetIpamResourceCidrs (Prelude.Maybe Prelude.Text)
 getIpamResourceCidrs_ipamPoolId = Lens.lens (\GetIpamResourceCidrs' {ipamPoolId} -> ipamPoolId) (\s@GetIpamResourceCidrs' {} a -> s {ipamPoolId = a} :: GetIpamResourceCidrs)
 
+-- | The maximum number of results to return in the request.
+getIpamResourceCidrs_maxResults :: Lens.Lens' GetIpamResourceCidrs (Prelude.Maybe Prelude.Natural)
+getIpamResourceCidrs_maxResults = Lens.lens (\GetIpamResourceCidrs' {maxResults} -> maxResults) (\s@GetIpamResourceCidrs' {} a -> s {maxResults = a} :: GetIpamResourceCidrs)
+
+-- | The token for the next page of results.
+getIpamResourceCidrs_nextToken :: Lens.Lens' GetIpamResourceCidrs (Prelude.Maybe Prelude.Text)
+getIpamResourceCidrs_nextToken = Lens.lens (\GetIpamResourceCidrs' {nextToken} -> nextToken) (\s@GetIpamResourceCidrs' {} a -> s {nextToken = a} :: GetIpamResourceCidrs)
+
+-- | The ID of the resource.
+getIpamResourceCidrs_resourceId :: Lens.Lens' GetIpamResourceCidrs (Prelude.Maybe Prelude.Text)
+getIpamResourceCidrs_resourceId = Lens.lens (\GetIpamResourceCidrs' {resourceId} -> resourceId) (\s@GetIpamResourceCidrs' {} a -> s {resourceId = a} :: GetIpamResourceCidrs)
+
+-- | The ID of the Amazon Web Services account that owns the resource.
+getIpamResourceCidrs_resourceOwner :: Lens.Lens' GetIpamResourceCidrs (Prelude.Maybe Prelude.Text)
+getIpamResourceCidrs_resourceOwner = Lens.lens (\GetIpamResourceCidrs' {resourceOwner} -> resourceOwner) (\s@GetIpamResourceCidrs' {} a -> s {resourceOwner = a} :: GetIpamResourceCidrs)
+
 -- | The resource tag.
 getIpamResourceCidrs_resourceTag :: Lens.Lens' GetIpamResourceCidrs (Prelude.Maybe RequestIpamResourceTag)
 getIpamResourceCidrs_resourceTag = Lens.lens (\GetIpamResourceCidrs' {resourceTag} -> resourceTag) (\s@GetIpamResourceCidrs' {} a -> s {resourceTag = a} :: GetIpamResourceCidrs)
+
+-- | The resource type.
+getIpamResourceCidrs_resourceType :: Lens.Lens' GetIpamResourceCidrs (Prelude.Maybe IpamResourceType)
+getIpamResourceCidrs_resourceType = Lens.lens (\GetIpamResourceCidrs' {resourceType} -> resourceType) (\s@GetIpamResourceCidrs' {} a -> s {resourceType = a} :: GetIpamResourceCidrs)
 
 -- | The ID of the scope that the resource is in.
 getIpamResourceCidrs_ipamScopeId :: Lens.Lens' GetIpamResourceCidrs Prelude.Text
@@ -216,38 +216,38 @@ instance Core.AWSRequest GetIpamResourceCidrs where
     Response.receiveXML
       ( \s h x ->
           GetIpamResourceCidrsResponse'
-            Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "ipamResourceCidrSet"
+            Prelude.<$> ( x Data..@? "ipamResourceCidrSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
+            Prelude.<*> (x Data..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetIpamResourceCidrs where
   hashWithSalt _salt GetIpamResourceCidrs' {..} =
-    _salt `Prelude.hashWithSalt` resourceId
-      `Prelude.hashWithSalt` resourceType
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` resourceOwner
-      `Prelude.hashWithSalt` dryRun
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` ipamPoolId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` resourceOwner
       `Prelude.hashWithSalt` resourceTag
+      `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` ipamScopeId
 
 instance Prelude.NFData GetIpamResourceCidrs where
   rnf GetIpamResourceCidrs' {..} =
-    Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf resourceOwner
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf ipamPoolId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf resourceOwner
       `Prelude.seq` Prelude.rnf resourceTag
+      `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf ipamScopeId
 
 instance Data.ToHeaders GetIpamResourceCidrs where
@@ -263,26 +263,26 @@ instance Data.ToQuery GetIpamResourceCidrs where
           Data.=: ("GetIpamResourceCidrs" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "ResourceId" Data.=: resourceId,
-        "ResourceType" Data.=: resourceType,
-        "NextToken" Data.=: nextToken,
+        "DryRun" Data.=: dryRun,
         Data.toQuery
           (Data.toQueryList "Filter" Prelude.<$> filters),
-        "ResourceOwner" Data.=: resourceOwner,
-        "DryRun" Data.=: dryRun,
-        "MaxResults" Data.=: maxResults,
         "IpamPoolId" Data.=: ipamPoolId,
+        "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken,
+        "ResourceId" Data.=: resourceId,
+        "ResourceOwner" Data.=: resourceOwner,
         "ResourceTag" Data.=: resourceTag,
+        "ResourceType" Data.=: resourceType,
         "IpamScopeId" Data.=: ipamScopeId
       ]
 
 -- | /See:/ 'newGetIpamResourceCidrsResponse' smart constructor.
 data GetIpamResourceCidrsResponse = GetIpamResourceCidrsResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
+  { -- | The resource CIDRs.
+    ipamResourceCidrs :: Prelude.Maybe [IpamResourceCidr],
+    -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The resource CIDRs.
-    ipamResourceCidrs :: Prelude.Maybe [IpamResourceCidr],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -296,10 +296,10 @@ data GetIpamResourceCidrsResponse = GetIpamResourceCidrsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ipamResourceCidrs', 'getIpamResourceCidrsResponse_ipamResourceCidrs' - The resource CIDRs.
+--
 -- 'nextToken', 'getIpamResourceCidrsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
---
--- 'ipamResourceCidrs', 'getIpamResourceCidrsResponse_ipamResourceCidrs' - The resource CIDRs.
 --
 -- 'httpStatus', 'getIpamResourceCidrsResponse_httpStatus' - The response's http status code.
 newGetIpamResourceCidrsResponse ::
@@ -308,20 +308,20 @@ newGetIpamResourceCidrsResponse ::
   GetIpamResourceCidrsResponse
 newGetIpamResourceCidrsResponse pHttpStatus_ =
   GetIpamResourceCidrsResponse'
-    { nextToken =
+    { ipamResourceCidrs =
         Prelude.Nothing,
-      ipamResourceCidrs = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The resource CIDRs.
+getIpamResourceCidrsResponse_ipamResourceCidrs :: Lens.Lens' GetIpamResourceCidrsResponse (Prelude.Maybe [IpamResourceCidr])
+getIpamResourceCidrsResponse_ipamResourceCidrs = Lens.lens (\GetIpamResourceCidrsResponse' {ipamResourceCidrs} -> ipamResourceCidrs) (\s@GetIpamResourceCidrsResponse' {} a -> s {ipamResourceCidrs = a} :: GetIpamResourceCidrsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 getIpamResourceCidrsResponse_nextToken :: Lens.Lens' GetIpamResourceCidrsResponse (Prelude.Maybe Prelude.Text)
 getIpamResourceCidrsResponse_nextToken = Lens.lens (\GetIpamResourceCidrsResponse' {nextToken} -> nextToken) (\s@GetIpamResourceCidrsResponse' {} a -> s {nextToken = a} :: GetIpamResourceCidrsResponse)
-
--- | The resource CIDRs.
-getIpamResourceCidrsResponse_ipamResourceCidrs :: Lens.Lens' GetIpamResourceCidrsResponse (Prelude.Maybe [IpamResourceCidr])
-getIpamResourceCidrsResponse_ipamResourceCidrs = Lens.lens (\GetIpamResourceCidrsResponse' {ipamResourceCidrs} -> ipamResourceCidrs) (\s@GetIpamResourceCidrsResponse' {} a -> s {ipamResourceCidrs = a} :: GetIpamResourceCidrsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getIpamResourceCidrsResponse_httpStatus :: Lens.Lens' GetIpamResourceCidrsResponse Prelude.Int
@@ -329,6 +329,6 @@ getIpamResourceCidrsResponse_httpStatus = Lens.lens (\GetIpamResourceCidrsRespon
 
 instance Prelude.NFData GetIpamResourceCidrsResponse where
   rnf GetIpamResourceCidrsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf ipamResourceCidrs
+    Prelude.rnf ipamResourceCidrs
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

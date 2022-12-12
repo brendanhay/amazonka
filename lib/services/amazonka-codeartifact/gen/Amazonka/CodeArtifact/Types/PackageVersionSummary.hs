@@ -33,13 +33,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPackageVersionSummary' smart constructor.
 data PackageVersionSummary = PackageVersionSummary'
-  { -- | The revision associated with a package version.
-    revision :: Prelude.Maybe Prelude.Text,
-    -- | A
+  { -- | A
     -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionOrigin.html PackageVersionOrigin>
     -- object that contains information about how the package version was added
     -- to the repository.
     origin :: Prelude.Maybe PackageVersionOrigin,
+    -- | The revision associated with a package version.
+    revision :: Prelude.Maybe Prelude.Text,
     -- | Information about a package version.
     version :: Prelude.Text,
     -- | A string that contains the status of the package version. It can be one
@@ -56,12 +56,12 @@ data PackageVersionSummary = PackageVersionSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'revision', 'packageVersionSummary_revision' - The revision associated with a package version.
---
 -- 'origin', 'packageVersionSummary_origin' - A
 -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionOrigin.html PackageVersionOrigin>
 -- object that contains information about how the package version was added
 -- to the repository.
+--
+-- 'revision', 'packageVersionSummary_revision' - The revision associated with a package version.
 --
 -- 'version', 'packageVersionSummary_version' - Information about a package version.
 --
@@ -75,15 +75,11 @@ newPackageVersionSummary ::
   PackageVersionSummary
 newPackageVersionSummary pVersion_ pStatus_ =
   PackageVersionSummary'
-    { revision = Prelude.Nothing,
-      origin = Prelude.Nothing,
+    { origin = Prelude.Nothing,
+      revision = Prelude.Nothing,
       version = pVersion_,
       status = pStatus_
     }
-
--- | The revision associated with a package version.
-packageVersionSummary_revision :: Lens.Lens' PackageVersionSummary (Prelude.Maybe Prelude.Text)
-packageVersionSummary_revision = Lens.lens (\PackageVersionSummary' {revision} -> revision) (\s@PackageVersionSummary' {} a -> s {revision = a} :: PackageVersionSummary)
 
 -- | A
 -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionOrigin.html PackageVersionOrigin>
@@ -91,6 +87,10 @@ packageVersionSummary_revision = Lens.lens (\PackageVersionSummary' {revision} -
 -- to the repository.
 packageVersionSummary_origin :: Lens.Lens' PackageVersionSummary (Prelude.Maybe PackageVersionOrigin)
 packageVersionSummary_origin = Lens.lens (\PackageVersionSummary' {origin} -> origin) (\s@PackageVersionSummary' {} a -> s {origin = a} :: PackageVersionSummary)
+
+-- | The revision associated with a package version.
+packageVersionSummary_revision :: Lens.Lens' PackageVersionSummary (Prelude.Maybe Prelude.Text)
+packageVersionSummary_revision = Lens.lens (\PackageVersionSummary' {revision} -> revision) (\s@PackageVersionSummary' {} a -> s {revision = a} :: PackageVersionSummary)
 
 -- | Information about a package version.
 packageVersionSummary_version :: Lens.Lens' PackageVersionSummary Prelude.Text
@@ -107,22 +107,22 @@ instance Data.FromJSON PackageVersionSummary where
       "PackageVersionSummary"
       ( \x ->
           PackageVersionSummary'
-            Prelude.<$> (x Data..:? "revision")
-            Prelude.<*> (x Data..:? "origin")
+            Prelude.<$> (x Data..:? "origin")
+            Prelude.<*> (x Data..:? "revision")
             Prelude.<*> (x Data..: "version")
             Prelude.<*> (x Data..: "status")
       )
 
 instance Prelude.Hashable PackageVersionSummary where
   hashWithSalt _salt PackageVersionSummary' {..} =
-    _salt `Prelude.hashWithSalt` revision
-      `Prelude.hashWithSalt` origin
+    _salt `Prelude.hashWithSalt` origin
+      `Prelude.hashWithSalt` revision
       `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData PackageVersionSummary where
   rnf PackageVersionSummary' {..} =
-    Prelude.rnf revision
-      `Prelude.seq` Prelude.rnf origin
+    Prelude.rnf origin
+      `Prelude.seq` Prelude.rnf revision
       `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf status

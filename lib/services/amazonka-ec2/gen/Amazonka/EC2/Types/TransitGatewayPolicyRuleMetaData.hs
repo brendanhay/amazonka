@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTransitGatewayPolicyRuleMetaData' smart constructor.
 data TransitGatewayPolicyRuleMetaData = TransitGatewayPolicyRuleMetaData'
-  { -- | The value of the key for the transit gateway policy rule meta data tag.
-    metaDataValue :: Prelude.Maybe Prelude.Text,
-    -- | The key name for the transit gateway policy rule meta data tag.
-    metaDataKey :: Prelude.Maybe Prelude.Text
+  { -- | The key name for the transit gateway policy rule meta data tag.
+    metaDataKey :: Prelude.Maybe Prelude.Text,
+    -- | The value of the key for the transit gateway policy rule meta data tag.
+    metaDataValue :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,25 +45,25 @@ data TransitGatewayPolicyRuleMetaData = TransitGatewayPolicyRuleMetaData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metaDataValue', 'transitGatewayPolicyRuleMetaData_metaDataValue' - The value of the key for the transit gateway policy rule meta data tag.
---
 -- 'metaDataKey', 'transitGatewayPolicyRuleMetaData_metaDataKey' - The key name for the transit gateway policy rule meta data tag.
+--
+-- 'metaDataValue', 'transitGatewayPolicyRuleMetaData_metaDataValue' - The value of the key for the transit gateway policy rule meta data tag.
 newTransitGatewayPolicyRuleMetaData ::
   TransitGatewayPolicyRuleMetaData
 newTransitGatewayPolicyRuleMetaData =
   TransitGatewayPolicyRuleMetaData'
-    { metaDataValue =
+    { metaDataKey =
         Prelude.Nothing,
-      metaDataKey = Prelude.Nothing
+      metaDataValue = Prelude.Nothing
     }
-
--- | The value of the key for the transit gateway policy rule meta data tag.
-transitGatewayPolicyRuleMetaData_metaDataValue :: Lens.Lens' TransitGatewayPolicyRuleMetaData (Prelude.Maybe Prelude.Text)
-transitGatewayPolicyRuleMetaData_metaDataValue = Lens.lens (\TransitGatewayPolicyRuleMetaData' {metaDataValue} -> metaDataValue) (\s@TransitGatewayPolicyRuleMetaData' {} a -> s {metaDataValue = a} :: TransitGatewayPolicyRuleMetaData)
 
 -- | The key name for the transit gateway policy rule meta data tag.
 transitGatewayPolicyRuleMetaData_metaDataKey :: Lens.Lens' TransitGatewayPolicyRuleMetaData (Prelude.Maybe Prelude.Text)
 transitGatewayPolicyRuleMetaData_metaDataKey = Lens.lens (\TransitGatewayPolicyRuleMetaData' {metaDataKey} -> metaDataKey) (\s@TransitGatewayPolicyRuleMetaData' {} a -> s {metaDataKey = a} :: TransitGatewayPolicyRuleMetaData)
+
+-- | The value of the key for the transit gateway policy rule meta data tag.
+transitGatewayPolicyRuleMetaData_metaDataValue :: Lens.Lens' TransitGatewayPolicyRuleMetaData (Prelude.Maybe Prelude.Text)
+transitGatewayPolicyRuleMetaData_metaDataValue = Lens.lens (\TransitGatewayPolicyRuleMetaData' {metaDataValue} -> metaDataValue) (\s@TransitGatewayPolicyRuleMetaData' {} a -> s {metaDataValue = a} :: TransitGatewayPolicyRuleMetaData)
 
 instance
   Data.FromXML
@@ -71,8 +71,8 @@ instance
   where
   parseXML x =
     TransitGatewayPolicyRuleMetaData'
-      Prelude.<$> (x Data..@? "metaDataValue")
-      Prelude.<*> (x Data..@? "metaDataKey")
+      Prelude.<$> (x Data..@? "metaDataKey")
+      Prelude.<*> (x Data..@? "metaDataValue")
 
 instance
   Prelude.Hashable
@@ -81,13 +81,13 @@ instance
   hashWithSalt
     _salt
     TransitGatewayPolicyRuleMetaData' {..} =
-      _salt `Prelude.hashWithSalt` metaDataValue
-        `Prelude.hashWithSalt` metaDataKey
+      _salt `Prelude.hashWithSalt` metaDataKey
+        `Prelude.hashWithSalt` metaDataValue
 
 instance
   Prelude.NFData
     TransitGatewayPolicyRuleMetaData
   where
   rnf TransitGatewayPolicyRuleMetaData' {..} =
-    Prelude.rnf metaDataValue
-      `Prelude.seq` Prelude.rnf metaDataKey
+    Prelude.rnf metaDataKey
+      `Prelude.seq` Prelude.rnf metaDataValue

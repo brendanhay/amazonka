@@ -30,12 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGrantListEntry' smart constructor.
 data GrantListEntry = GrantListEntry'
-  { -- | The Amazon Web Services account under which the grant was issued.
-    issuingAccount :: Prelude.Maybe Prelude.Text,
-    -- | The friendly name that identifies the grant. If a name was provided in
-    -- the CreateGrant request, that name is returned. Otherwise this value is
-    -- null.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | A list of key-value pairs that must be present in the encryption context
+    -- of certain subsequent operations that the grant allows.
+    constraints :: Prelude.Maybe GrantConstraints,
+    -- | The date and time when the grant was created.
+    creationDate :: Prelude.Maybe Data.POSIX,
+    -- | The unique identifier for the grant.
+    grantId :: Prelude.Maybe Prelude.Text,
     -- | The identity that gets the permissions in the grant.
     --
     -- The @GranteePrincipal@ field in the @ListGrants@ response usually
@@ -45,19 +46,18 @@ data GrantListEntry = GrantListEntry'
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services service principal>,
     -- which might represent several different grantee principals.
     granteePrincipal :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services account under which the grant was issued.
+    issuingAccount :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier for the KMS key to which the grant applies.
+    keyId :: Prelude.Maybe Prelude.Text,
+    -- | The friendly name that identifies the grant. If a name was provided in
+    -- the CreateGrant request, that name is returned. Otherwise this value is
+    -- null.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The list of operations permitted by the grant.
     operations :: Prelude.Maybe [GrantOperation],
-    -- | A list of key-value pairs that must be present in the encryption context
-    -- of certain subsequent operations that the grant allows.
-    constraints :: Prelude.Maybe GrantConstraints,
-    -- | The date and time when the grant was created.
-    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The principal that can retire the grant.
-    retiringPrincipal :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the grant.
-    grantId :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the KMS key to which the grant applies.
-    keyId :: Prelude.Maybe Prelude.Text
+    retiringPrincipal :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,11 +69,12 @@ data GrantListEntry = GrantListEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'issuingAccount', 'grantListEntry_issuingAccount' - The Amazon Web Services account under which the grant was issued.
+-- 'constraints', 'grantListEntry_constraints' - A list of key-value pairs that must be present in the encryption context
+-- of certain subsequent operations that the grant allows.
 --
--- 'name', 'grantListEntry_name' - The friendly name that identifies the grant. If a name was provided in
--- the CreateGrant request, that name is returned. Otherwise this value is
--- null.
+-- 'creationDate', 'grantListEntry_creationDate' - The date and time when the grant was created.
+--
+-- 'grantId', 'grantListEntry_grantId' - The unique identifier for the grant.
 --
 -- 'granteePrincipal', 'grantListEntry_granteePrincipal' - The identity that gets the permissions in the grant.
 --
@@ -84,42 +85,44 @@ data GrantListEntry = GrantListEntry'
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services service principal>,
 -- which might represent several different grantee principals.
 --
--- 'operations', 'grantListEntry_operations' - The list of operations permitted by the grant.
---
--- 'constraints', 'grantListEntry_constraints' - A list of key-value pairs that must be present in the encryption context
--- of certain subsequent operations that the grant allows.
---
--- 'creationDate', 'grantListEntry_creationDate' - The date and time when the grant was created.
---
--- 'retiringPrincipal', 'grantListEntry_retiringPrincipal' - The principal that can retire the grant.
---
--- 'grantId', 'grantListEntry_grantId' - The unique identifier for the grant.
+-- 'issuingAccount', 'grantListEntry_issuingAccount' - The Amazon Web Services account under which the grant was issued.
 --
 -- 'keyId', 'grantListEntry_keyId' - The unique identifier for the KMS key to which the grant applies.
+--
+-- 'name', 'grantListEntry_name' - The friendly name that identifies the grant. If a name was provided in
+-- the CreateGrant request, that name is returned. Otherwise this value is
+-- null.
+--
+-- 'operations', 'grantListEntry_operations' - The list of operations permitted by the grant.
+--
+-- 'retiringPrincipal', 'grantListEntry_retiringPrincipal' - The principal that can retire the grant.
 newGrantListEntry ::
   GrantListEntry
 newGrantListEntry =
   GrantListEntry'
-    { issuingAccount = Prelude.Nothing,
-      name = Prelude.Nothing,
-      granteePrincipal = Prelude.Nothing,
-      operations = Prelude.Nothing,
-      constraints = Prelude.Nothing,
+    { constraints = Prelude.Nothing,
       creationDate = Prelude.Nothing,
-      retiringPrincipal = Prelude.Nothing,
       grantId = Prelude.Nothing,
-      keyId = Prelude.Nothing
+      granteePrincipal = Prelude.Nothing,
+      issuingAccount = Prelude.Nothing,
+      keyId = Prelude.Nothing,
+      name = Prelude.Nothing,
+      operations = Prelude.Nothing,
+      retiringPrincipal = Prelude.Nothing
     }
 
--- | The Amazon Web Services account under which the grant was issued.
-grantListEntry_issuingAccount :: Lens.Lens' GrantListEntry (Prelude.Maybe Prelude.Text)
-grantListEntry_issuingAccount = Lens.lens (\GrantListEntry' {issuingAccount} -> issuingAccount) (\s@GrantListEntry' {} a -> s {issuingAccount = a} :: GrantListEntry)
+-- | A list of key-value pairs that must be present in the encryption context
+-- of certain subsequent operations that the grant allows.
+grantListEntry_constraints :: Lens.Lens' GrantListEntry (Prelude.Maybe GrantConstraints)
+grantListEntry_constraints = Lens.lens (\GrantListEntry' {constraints} -> constraints) (\s@GrantListEntry' {} a -> s {constraints = a} :: GrantListEntry)
 
--- | The friendly name that identifies the grant. If a name was provided in
--- the CreateGrant request, that name is returned. Otherwise this value is
--- null.
-grantListEntry_name :: Lens.Lens' GrantListEntry (Prelude.Maybe Prelude.Text)
-grantListEntry_name = Lens.lens (\GrantListEntry' {name} -> name) (\s@GrantListEntry' {} a -> s {name = a} :: GrantListEntry)
+-- | The date and time when the grant was created.
+grantListEntry_creationDate :: Lens.Lens' GrantListEntry (Prelude.Maybe Prelude.UTCTime)
+grantListEntry_creationDate = Lens.lens (\GrantListEntry' {creationDate} -> creationDate) (\s@GrantListEntry' {} a -> s {creationDate = a} :: GrantListEntry) Prelude.. Lens.mapping Data._Time
+
+-- | The unique identifier for the grant.
+grantListEntry_grantId :: Lens.Lens' GrantListEntry (Prelude.Maybe Prelude.Text)
+grantListEntry_grantId = Lens.lens (\GrantListEntry' {grantId} -> grantId) (\s@GrantListEntry' {} a -> s {grantId = a} :: GrantListEntry)
 
 -- | The identity that gets the permissions in the grant.
 --
@@ -132,30 +135,27 @@ grantListEntry_name = Lens.lens (\GrantListEntry' {name} -> name) (\s@GrantListE
 grantListEntry_granteePrincipal :: Lens.Lens' GrantListEntry (Prelude.Maybe Prelude.Text)
 grantListEntry_granteePrincipal = Lens.lens (\GrantListEntry' {granteePrincipal} -> granteePrincipal) (\s@GrantListEntry' {} a -> s {granteePrincipal = a} :: GrantListEntry)
 
--- | The list of operations permitted by the grant.
-grantListEntry_operations :: Lens.Lens' GrantListEntry (Prelude.Maybe [GrantOperation])
-grantListEntry_operations = Lens.lens (\GrantListEntry' {operations} -> operations) (\s@GrantListEntry' {} a -> s {operations = a} :: GrantListEntry) Prelude.. Lens.mapping Lens.coerced
-
--- | A list of key-value pairs that must be present in the encryption context
--- of certain subsequent operations that the grant allows.
-grantListEntry_constraints :: Lens.Lens' GrantListEntry (Prelude.Maybe GrantConstraints)
-grantListEntry_constraints = Lens.lens (\GrantListEntry' {constraints} -> constraints) (\s@GrantListEntry' {} a -> s {constraints = a} :: GrantListEntry)
-
--- | The date and time when the grant was created.
-grantListEntry_creationDate :: Lens.Lens' GrantListEntry (Prelude.Maybe Prelude.UTCTime)
-grantListEntry_creationDate = Lens.lens (\GrantListEntry' {creationDate} -> creationDate) (\s@GrantListEntry' {} a -> s {creationDate = a} :: GrantListEntry) Prelude.. Lens.mapping Data._Time
-
--- | The principal that can retire the grant.
-grantListEntry_retiringPrincipal :: Lens.Lens' GrantListEntry (Prelude.Maybe Prelude.Text)
-grantListEntry_retiringPrincipal = Lens.lens (\GrantListEntry' {retiringPrincipal} -> retiringPrincipal) (\s@GrantListEntry' {} a -> s {retiringPrincipal = a} :: GrantListEntry)
-
--- | The unique identifier for the grant.
-grantListEntry_grantId :: Lens.Lens' GrantListEntry (Prelude.Maybe Prelude.Text)
-grantListEntry_grantId = Lens.lens (\GrantListEntry' {grantId} -> grantId) (\s@GrantListEntry' {} a -> s {grantId = a} :: GrantListEntry)
+-- | The Amazon Web Services account under which the grant was issued.
+grantListEntry_issuingAccount :: Lens.Lens' GrantListEntry (Prelude.Maybe Prelude.Text)
+grantListEntry_issuingAccount = Lens.lens (\GrantListEntry' {issuingAccount} -> issuingAccount) (\s@GrantListEntry' {} a -> s {issuingAccount = a} :: GrantListEntry)
 
 -- | The unique identifier for the KMS key to which the grant applies.
 grantListEntry_keyId :: Lens.Lens' GrantListEntry (Prelude.Maybe Prelude.Text)
 grantListEntry_keyId = Lens.lens (\GrantListEntry' {keyId} -> keyId) (\s@GrantListEntry' {} a -> s {keyId = a} :: GrantListEntry)
+
+-- | The friendly name that identifies the grant. If a name was provided in
+-- the CreateGrant request, that name is returned. Otherwise this value is
+-- null.
+grantListEntry_name :: Lens.Lens' GrantListEntry (Prelude.Maybe Prelude.Text)
+grantListEntry_name = Lens.lens (\GrantListEntry' {name} -> name) (\s@GrantListEntry' {} a -> s {name = a} :: GrantListEntry)
+
+-- | The list of operations permitted by the grant.
+grantListEntry_operations :: Lens.Lens' GrantListEntry (Prelude.Maybe [GrantOperation])
+grantListEntry_operations = Lens.lens (\GrantListEntry' {operations} -> operations) (\s@GrantListEntry' {} a -> s {operations = a} :: GrantListEntry) Prelude.. Lens.mapping Lens.coerced
+
+-- | The principal that can retire the grant.
+grantListEntry_retiringPrincipal :: Lens.Lens' GrantListEntry (Prelude.Maybe Prelude.Text)
+grantListEntry_retiringPrincipal = Lens.lens (\GrantListEntry' {retiringPrincipal} -> retiringPrincipal) (\s@GrantListEntry' {} a -> s {retiringPrincipal = a} :: GrantListEntry)
 
 instance Data.FromJSON GrantListEntry where
   parseJSON =
@@ -163,37 +163,37 @@ instance Data.FromJSON GrantListEntry where
       "GrantListEntry"
       ( \x ->
           GrantListEntry'
-            Prelude.<$> (x Data..:? "IssuingAccount")
-            Prelude.<*> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "GranteePrincipal")
-            Prelude.<*> (x Data..:? "Operations" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "Constraints")
+            Prelude.<$> (x Data..:? "Constraints")
             Prelude.<*> (x Data..:? "CreationDate")
-            Prelude.<*> (x Data..:? "RetiringPrincipal")
             Prelude.<*> (x Data..:? "GrantId")
+            Prelude.<*> (x Data..:? "GranteePrincipal")
+            Prelude.<*> (x Data..:? "IssuingAccount")
             Prelude.<*> (x Data..:? "KeyId")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Operations" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "RetiringPrincipal")
       )
 
 instance Prelude.Hashable GrantListEntry where
   hashWithSalt _salt GrantListEntry' {..} =
-    _salt `Prelude.hashWithSalt` issuingAccount
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` granteePrincipal
-      `Prelude.hashWithSalt` operations
-      `Prelude.hashWithSalt` constraints
+    _salt `Prelude.hashWithSalt` constraints
       `Prelude.hashWithSalt` creationDate
-      `Prelude.hashWithSalt` retiringPrincipal
       `Prelude.hashWithSalt` grantId
+      `Prelude.hashWithSalt` granteePrincipal
+      `Prelude.hashWithSalt` issuingAccount
       `Prelude.hashWithSalt` keyId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` operations
+      `Prelude.hashWithSalt` retiringPrincipal
 
 instance Prelude.NFData GrantListEntry where
   rnf GrantListEntry' {..} =
-    Prelude.rnf issuingAccount
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf granteePrincipal
-      `Prelude.seq` Prelude.rnf operations
-      `Prelude.seq` Prelude.rnf constraints
+    Prelude.rnf constraints
       `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf retiringPrincipal
       `Prelude.seq` Prelude.rnf grantId
+      `Prelude.seq` Prelude.rnf granteePrincipal
+      `Prelude.seq` Prelude.rnf issuingAccount
       `Prelude.seq` Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf operations
+      `Prelude.seq` Prelude.rnf retiringPrincipal

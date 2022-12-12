@@ -31,11 +31,12 @@
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets>.
 --
 -- Before calling this operation to establish the peering connection, you
--- first need to call CreateVpcPeeringAuthorization and identify the VPC
--- you want to peer with. Once the authorization for the specified VPC is
--- issued, you have 24 hours to establish the connection. These two
--- operations handle all tasks necessary to peer the two VPCs, including
--- acceptance, updating routing tables, etc.
+-- first need to use
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateVpcPeeringAuthorization.html CreateVpcPeeringAuthorization>
+-- and identify the VPC you want to peer with. Once the authorization for
+-- the specified VPC is issued, you have 24 hours to establish the
+-- connection. These two operations handle all tasks necessary to peer the
+-- two VPCs, including acceptance, updating routing tables, etc.
 --
 -- To establish the connection, call this operation from the Amazon Web
 -- Services account that is used to manage the Amazon GameLift fleets.
@@ -43,16 +44,15 @@
 -- enable a VPC peering connection for; (2) The Amazon Web Services account
 -- with the VPC that you want to peer with; and (3) The ID of the VPC you
 -- want to peer with. This operation is asynchronous. If successful, a
--- VpcPeeringConnection request is created. You can use continuous polling
--- to track the request\'s status using DescribeVpcPeeringConnections, or
--- by monitoring fleet events for success or failure using
--- DescribeFleetEvents.
+-- connection request is created. You can use continuous polling to track
+-- the request\'s status using
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeVpcPeeringConnections.html DescribeVpcPeeringConnections>
+-- , or by monitoring fleet events for success or failure using
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetEvents.html DescribeFleetEvents>
+-- .
 --
 -- __Related actions__
 --
--- CreateVpcPeeringAuthorization | DescribeVpcPeeringAuthorizations |
--- DeleteVpcPeeringAuthorization | CreateVpcPeeringConnection |
--- DescribeVpcPeeringConnections | DeleteVpcPeeringConnection |
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Amazonka.GameLift.CreateVpcPeeringConnection
   ( -- * Creating a Request
@@ -81,9 +81,7 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Represents the input for a request operation.
---
--- /See:/ 'newCreateVpcPeeringConnection' smart constructor.
+-- | /See:/ 'newCreateVpcPeeringConnection' smart constructor.
 data CreateVpcPeeringConnection = CreateVpcPeeringConnection'
   { -- | A unique identifier for the fleet. You can use either the fleet ID or
     -- ARN value. This tells Amazon GameLift which GameLift VPC to peer with.

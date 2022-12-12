@@ -21,15 +21,17 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets a list of the PII entity detection jobs that you have submitted.
+--
+-- This operation returns paginated results.
 module Amazonka.Comprehend.ListPiiEntitiesDetectionJobs
   ( -- * Creating a Request
     ListPiiEntitiesDetectionJobs (..),
     newListPiiEntitiesDetectionJobs,
 
     -- * Request Lenses
-    listPiiEntitiesDetectionJobs_nextToken,
     listPiiEntitiesDetectionJobs_filter,
     listPiiEntitiesDetectionJobs_maxResults,
+    listPiiEntitiesDetectionJobs_nextToken,
 
     -- * Destructuring the Response
     ListPiiEntitiesDetectionJobsResponse (..),
@@ -52,14 +54,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPiiEntitiesDetectionJobs' smart constructor.
 data ListPiiEntitiesDetectionJobs = ListPiiEntitiesDetectionJobs'
-  { -- | Identifies the next page of results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters the jobs that are returned. You can filter jobs on their name,
+  { -- | Filters the jobs that are returned. You can filter jobs on their name,
     -- status, or the date and time that they were submitted. You can only set
     -- one filter at a time.
     filter' :: Prelude.Maybe PiiEntitiesDetectionJobFilter,
     -- | The maximum number of results to return in each page.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Identifies the next page of results to return.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,26 +73,22 @@ data ListPiiEntitiesDetectionJobs = ListPiiEntitiesDetectionJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPiiEntitiesDetectionJobs_nextToken' - Identifies the next page of results to return.
---
 -- 'filter'', 'listPiiEntitiesDetectionJobs_filter' - Filters the jobs that are returned. You can filter jobs on their name,
 -- status, or the date and time that they were submitted. You can only set
 -- one filter at a time.
 --
 -- 'maxResults', 'listPiiEntitiesDetectionJobs_maxResults' - The maximum number of results to return in each page.
+--
+-- 'nextToken', 'listPiiEntitiesDetectionJobs_nextToken' - Identifies the next page of results to return.
 newListPiiEntitiesDetectionJobs ::
   ListPiiEntitiesDetectionJobs
 newListPiiEntitiesDetectionJobs =
   ListPiiEntitiesDetectionJobs'
-    { nextToken =
+    { filter' =
         Prelude.Nothing,
-      filter' = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | Identifies the next page of results to return.
-listPiiEntitiesDetectionJobs_nextToken :: Lens.Lens' ListPiiEntitiesDetectionJobs (Prelude.Maybe Prelude.Text)
-listPiiEntitiesDetectionJobs_nextToken = Lens.lens (\ListPiiEntitiesDetectionJobs' {nextToken} -> nextToken) (\s@ListPiiEntitiesDetectionJobs' {} a -> s {nextToken = a} :: ListPiiEntitiesDetectionJobs)
 
 -- | Filters the jobs that are returned. You can filter jobs on their name,
 -- status, or the date and time that they were submitted. You can only set
@@ -101,6 +99,32 @@ listPiiEntitiesDetectionJobs_filter = Lens.lens (\ListPiiEntitiesDetectionJobs' 
 -- | The maximum number of results to return in each page.
 listPiiEntitiesDetectionJobs_maxResults :: Lens.Lens' ListPiiEntitiesDetectionJobs (Prelude.Maybe Prelude.Natural)
 listPiiEntitiesDetectionJobs_maxResults = Lens.lens (\ListPiiEntitiesDetectionJobs' {maxResults} -> maxResults) (\s@ListPiiEntitiesDetectionJobs' {} a -> s {maxResults = a} :: ListPiiEntitiesDetectionJobs)
+
+-- | Identifies the next page of results to return.
+listPiiEntitiesDetectionJobs_nextToken :: Lens.Lens' ListPiiEntitiesDetectionJobs (Prelude.Maybe Prelude.Text)
+listPiiEntitiesDetectionJobs_nextToken = Lens.lens (\ListPiiEntitiesDetectionJobs' {nextToken} -> nextToken) (\s@ListPiiEntitiesDetectionJobs' {} a -> s {nextToken = a} :: ListPiiEntitiesDetectionJobs)
+
+instance Core.AWSPager ListPiiEntitiesDetectionJobs where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listPiiEntitiesDetectionJobsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listPiiEntitiesDetectionJobsResponse_piiEntitiesDetectionJobPropertiesList
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listPiiEntitiesDetectionJobs_nextToken
+          Lens..~ rs
+          Lens.^? listPiiEntitiesDetectionJobsResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPiiEntitiesDetectionJobs where
   type
@@ -124,15 +148,15 @@ instance
     ListPiiEntitiesDetectionJobs
   where
   hashWithSalt _salt ListPiiEntitiesDetectionJobs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filter'
+    _salt `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListPiiEntitiesDetectionJobs where
   rnf ListPiiEntitiesDetectionJobs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filter'
+    Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListPiiEntitiesDetectionJobs where
   toHeaders =
@@ -153,9 +177,9 @@ instance Data.ToJSON ListPiiEntitiesDetectionJobs where
   toJSON ListPiiEntitiesDetectionJobs' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filter" Data..=) Prelude.<$> filter',
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("Filter" Data..=) Prelude.<$> filter',
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

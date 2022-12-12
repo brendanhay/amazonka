@@ -40,8 +40,8 @@ module Amazonka.CloudFront.CreateCloudFrontOriginAccessIdentity
 
     -- * Response Lenses
     createCloudFrontOriginAccessIdentityResponse_cloudFrontOriginAccessIdentity,
-    createCloudFrontOriginAccessIdentityResponse_location,
     createCloudFrontOriginAccessIdentityResponse_eTag,
+    createCloudFrontOriginAccessIdentityResponse_location,
     createCloudFrontOriginAccessIdentityResponse_httpStatus,
   )
 where
@@ -105,8 +105,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           CreateCloudFrontOriginAccessIdentityResponse'
-            Prelude.<$> (Data.parseXML x) Prelude.<*> (h Data..#? "Location")
-              Prelude.<*> (h Data..#? "ETag")
+            Prelude.<$> (Data.parseXML x) Prelude.<*> (h Data..#? "ETag")
+              Prelude.<*> (h Data..#? "Location")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -162,10 +162,10 @@ instance
 data CreateCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccessIdentityResponse'
   { -- | The origin access identity\'s information.
     cloudFrontOriginAccessIdentity :: Prelude.Maybe CloudFrontOriginAccessIdentity,
-    -- | The fully qualified URI of the new origin access identity just created.
-    location :: Prelude.Maybe Prelude.Text,
     -- | The current version of the origin access identity created.
     eTag :: Prelude.Maybe Prelude.Text,
+    -- | The fully qualified URI of the new origin access identity just created.
+    location :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -181,9 +181,9 @@ data CreateCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccess
 --
 -- 'cloudFrontOriginAccessIdentity', 'createCloudFrontOriginAccessIdentityResponse_cloudFrontOriginAccessIdentity' - The origin access identity\'s information.
 --
--- 'location', 'createCloudFrontOriginAccessIdentityResponse_location' - The fully qualified URI of the new origin access identity just created.
---
 -- 'eTag', 'createCloudFrontOriginAccessIdentityResponse_eTag' - The current version of the origin access identity created.
+--
+-- 'location', 'createCloudFrontOriginAccessIdentityResponse_location' - The fully qualified URI of the new origin access identity just created.
 --
 -- 'httpStatus', 'createCloudFrontOriginAccessIdentityResponse_httpStatus' - The response's http status code.
 newCreateCloudFrontOriginAccessIdentityResponse ::
@@ -195,8 +195,8 @@ newCreateCloudFrontOriginAccessIdentityResponse
     CreateCloudFrontOriginAccessIdentityResponse'
       { cloudFrontOriginAccessIdentity =
           Prelude.Nothing,
-        location = Prelude.Nothing,
         eTag = Prelude.Nothing,
+        location = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
@@ -204,13 +204,13 @@ newCreateCloudFrontOriginAccessIdentityResponse
 createCloudFrontOriginAccessIdentityResponse_cloudFrontOriginAccessIdentity :: Lens.Lens' CreateCloudFrontOriginAccessIdentityResponse (Prelude.Maybe CloudFrontOriginAccessIdentity)
 createCloudFrontOriginAccessIdentityResponse_cloudFrontOriginAccessIdentity = Lens.lens (\CreateCloudFrontOriginAccessIdentityResponse' {cloudFrontOriginAccessIdentity} -> cloudFrontOriginAccessIdentity) (\s@CreateCloudFrontOriginAccessIdentityResponse' {} a -> s {cloudFrontOriginAccessIdentity = a} :: CreateCloudFrontOriginAccessIdentityResponse)
 
--- | The fully qualified URI of the new origin access identity just created.
-createCloudFrontOriginAccessIdentityResponse_location :: Lens.Lens' CreateCloudFrontOriginAccessIdentityResponse (Prelude.Maybe Prelude.Text)
-createCloudFrontOriginAccessIdentityResponse_location = Lens.lens (\CreateCloudFrontOriginAccessIdentityResponse' {location} -> location) (\s@CreateCloudFrontOriginAccessIdentityResponse' {} a -> s {location = a} :: CreateCloudFrontOriginAccessIdentityResponse)
-
 -- | The current version of the origin access identity created.
 createCloudFrontOriginAccessIdentityResponse_eTag :: Lens.Lens' CreateCloudFrontOriginAccessIdentityResponse (Prelude.Maybe Prelude.Text)
 createCloudFrontOriginAccessIdentityResponse_eTag = Lens.lens (\CreateCloudFrontOriginAccessIdentityResponse' {eTag} -> eTag) (\s@CreateCloudFrontOriginAccessIdentityResponse' {} a -> s {eTag = a} :: CreateCloudFrontOriginAccessIdentityResponse)
+
+-- | The fully qualified URI of the new origin access identity just created.
+createCloudFrontOriginAccessIdentityResponse_location :: Lens.Lens' CreateCloudFrontOriginAccessIdentityResponse (Prelude.Maybe Prelude.Text)
+createCloudFrontOriginAccessIdentityResponse_location = Lens.lens (\CreateCloudFrontOriginAccessIdentityResponse' {location} -> location) (\s@CreateCloudFrontOriginAccessIdentityResponse' {} a -> s {location = a} :: CreateCloudFrontOriginAccessIdentityResponse)
 
 -- | The response's http status code.
 createCloudFrontOriginAccessIdentityResponse_httpStatus :: Lens.Lens' CreateCloudFrontOriginAccessIdentityResponse Prelude.Int
@@ -222,6 +222,6 @@ instance
   where
   rnf CreateCloudFrontOriginAccessIdentityResponse' {..} =
     Prelude.rnf cloudFrontOriginAccessIdentity
-      `Prelude.seq` Prelude.rnf location
       `Prelude.seq` Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf location
       `Prelude.seq` Prelude.rnf httpStatus

@@ -94,101 +94,41 @@ module Amazonka.Lambda
     -- * Errors
     -- $errors
 
-    -- ** InvalidZipFileException
-    _InvalidZipFileException,
-
-    -- ** SubnetIPAddressLimitReachedException
-    _SubnetIPAddressLimitReachedException,
-
-    -- ** PolicyLengthExceededException
-    _PolicyLengthExceededException,
-
-    -- ** ResourceNotReadyException
-    _ResourceNotReadyException,
-
-    -- ** EFSMountConnectivityException
-    _EFSMountConnectivityException,
-
-    -- ** PreconditionFailedException
-    _PreconditionFailedException,
-
-    -- ** EFSMountFailureException
-    _EFSMountFailureException,
-
     -- ** CodeSigningConfigNotFoundException
     _CodeSigningConfigNotFoundException,
-
-    -- ** InvalidRuntimeException
-    _InvalidRuntimeException,
-
-    -- ** InvalidSubnetIDException
-    _InvalidSubnetIDException,
-
-    -- ** EC2AccessDeniedException
-    _EC2AccessDeniedException,
-
-    -- ** UnsupportedMediaTypeException
-    _UnsupportedMediaTypeException,
-
-    -- ** InvalidCodeSignatureException
-    _InvalidCodeSignatureException,
 
     -- ** CodeStorageExceededException
     _CodeStorageExceededException,
 
+    -- ** CodeVerificationFailedException
+    _CodeVerificationFailedException,
+
+    -- ** EC2AccessDeniedException
+    _EC2AccessDeniedException,
+
     -- ** EC2ThrottledException
     _EC2ThrottledException,
-
-    -- ** EFSMountTimeoutException
-    _EFSMountTimeoutException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** KMSAccessDeniedException
-    _KMSAccessDeniedException,
-
-    -- ** ResourceInUseException
-    _ResourceInUseException,
 
     -- ** EC2UnexpectedException
     _EC2UnexpectedException,
 
-    -- ** ProvisionedConcurrencyConfigNotFoundException
-    _ProvisionedConcurrencyConfigNotFoundException,
-
-    -- ** CodeVerificationFailedException
-    _CodeVerificationFailedException,
-
-    -- ** KMSDisabledException
-    _KMSDisabledException,
-
-    -- ** ResourceConflictException
-    _ResourceConflictException,
-
-    -- ** KMSInvalidStateException
-    _KMSInvalidStateException,
-
-    -- ** ServiceException
-    _ServiceException,
-
-    -- ** InvalidSecurityGroupIDException
-    _InvalidSecurityGroupIDException,
-
     -- ** EFSIOException
     _EFSIOException,
 
-    -- ** RequestTooLargeException
-    _RequestTooLargeException,
+    -- ** EFSMountConnectivityException
+    _EFSMountConnectivityException,
 
-    -- ** KMSNotFoundException
-    _KMSNotFoundException,
+    -- ** EFSMountFailureException
+    _EFSMountFailureException,
+
+    -- ** EFSMountTimeoutException
+    _EFSMountTimeoutException,
 
     -- ** ENILimitReachedException
     _ENILimitReachedException,
 
-    -- ** TooManyRequestsException
-    _TooManyRequestsException,
+    -- ** InvalidCodeSignatureException
+    _InvalidCodeSignatureException,
 
     -- ** InvalidParameterValueException
     _InvalidParameterValueException,
@@ -196,23 +136,95 @@ module Amazonka.Lambda
     -- ** InvalidRequestContentException
     _InvalidRequestContentException,
 
+    -- ** InvalidRuntimeException
+    _InvalidRuntimeException,
+
+    -- ** InvalidSecurityGroupIDException
+    _InvalidSecurityGroupIDException,
+
+    -- ** InvalidSubnetIDException
+    _InvalidSubnetIDException,
+
+    -- ** InvalidZipFileException
+    _InvalidZipFileException,
+
+    -- ** KMSAccessDeniedException
+    _KMSAccessDeniedException,
+
+    -- ** KMSDisabledException
+    _KMSDisabledException,
+
+    -- ** KMSInvalidStateException
+    _KMSInvalidStateException,
+
+    -- ** KMSNotFoundException
+    _KMSNotFoundException,
+
+    -- ** PolicyLengthExceededException
+    _PolicyLengthExceededException,
+
+    -- ** PreconditionFailedException
+    _PreconditionFailedException,
+
+    -- ** ProvisionedConcurrencyConfigNotFoundException
+    _ProvisionedConcurrencyConfigNotFoundException,
+
+    -- ** RequestTooLargeException
+    _RequestTooLargeException,
+
+    -- ** ResourceConflictException
+    _ResourceConflictException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ResourceNotReadyException
+    _ResourceNotReadyException,
+
+    -- ** ServiceException
+    _ServiceException,
+
+    -- ** SnapStartException
+    _SnapStartException,
+
+    -- ** SnapStartNotReadyException
+    _SnapStartNotReadyException,
+
+    -- ** SnapStartTimeoutException
+    _SnapStartTimeoutException,
+
+    -- ** SubnetIPAddressLimitReachedException
+    _SubnetIPAddressLimitReachedException,
+
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
+
+    -- ** UnsupportedMediaTypeException
+    _UnsupportedMediaTypeException,
+
     -- * Waiters
     -- $waiters
 
     -- ** FunctionActive
     newFunctionActive,
 
-    -- ** FunctionUpdatedV2
-    newFunctionUpdatedV2,
+    -- ** FunctionActiveV2
+    newFunctionActiveV2,
 
     -- ** FunctionExists
     newFunctionExists,
 
-    -- ** FunctionActiveV2
-    newFunctionActiveV2,
-
     -- ** FunctionUpdated
     newFunctionUpdated,
+
+    -- ** FunctionUpdatedV2
+    newFunctionUpdatedV2,
+
+    -- ** PublishedVersionActive
+    newPublishedVersionActive,
 
     -- * Operations
     -- $operations
@@ -633,6 +645,12 @@ module Amazonka.Lambda
     -- ** Runtime
     Runtime (..),
 
+    -- ** SnapStartApplyOn
+    SnapStartApplyOn (..),
+
+    -- ** SnapStartOptimizationStatus
+    SnapStartOptimizationStatus (..),
+
     -- ** SourceAccessType
     SourceAccessType (..),
 
@@ -800,6 +818,14 @@ module Amazonka.Lambda
     -- ** SelfManagedKafkaEventSourceConfig
     SelfManagedKafkaEventSourceConfig (SelfManagedKafkaEventSourceConfig'),
     newSelfManagedKafkaEventSourceConfig,
+
+    -- ** SnapStart
+    SnapStart (SnapStart'),
+    newSnapStart,
+
+    -- ** SnapStartResponse
+    SnapStartResponse (SnapStartResponse'),
+    newSnapStartResponse,
 
     -- ** SourceAccessConfiguration
     SourceAccessConfiguration (SourceAccessConfiguration'),

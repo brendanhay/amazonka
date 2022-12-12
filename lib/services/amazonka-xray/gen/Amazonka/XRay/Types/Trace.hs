@@ -29,12 +29,12 @@ import Amazonka.XRay.Types.Segment
 --
 -- /See:/ 'newTrace' smart constructor.
 data Trace = Trace'
-  { -- | The unique identifier for the request that generated the trace\'s
-    -- segments and subsegments.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The length of time in seconds between the start time of the root segment
+  { -- | The length of time in seconds between the start time of the root segment
     -- and the end time of the last segment that completed.
     duration :: Prelude.Maybe Prelude.Double,
+    -- | The unique identifier for the request that generated the trace\'s
+    -- segments and subsegments.
+    id :: Prelude.Maybe Prelude.Text,
     -- | LimitExceeded is set to true when the trace has exceeded the
     -- @Trace document size@ limit. For more information about this limit and
     -- other X-Ray limits and quotas, see
@@ -54,11 +54,11 @@ data Trace = Trace'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'trace_id' - The unique identifier for the request that generated the trace\'s
--- segments and subsegments.
---
 -- 'duration', 'trace_duration' - The length of time in seconds between the start time of the root segment
 -- and the end time of the last segment that completed.
+--
+-- 'id', 'trace_id' - The unique identifier for the request that generated the trace\'s
+-- segments and subsegments.
 --
 -- 'limitExceeded', 'trace_limitExceeded' - LimitExceeded is set to true when the trace has exceeded the
 -- @Trace document size@ limit. For more information about this limit and
@@ -71,21 +71,21 @@ newTrace ::
   Trace
 newTrace =
   Trace'
-    { id = Prelude.Nothing,
-      duration = Prelude.Nothing,
+    { duration = Prelude.Nothing,
+      id = Prelude.Nothing,
       limitExceeded = Prelude.Nothing,
       segments = Prelude.Nothing
     }
-
--- | The unique identifier for the request that generated the trace\'s
--- segments and subsegments.
-trace_id :: Lens.Lens' Trace (Prelude.Maybe Prelude.Text)
-trace_id = Lens.lens (\Trace' {id} -> id) (\s@Trace' {} a -> s {id = a} :: Trace)
 
 -- | The length of time in seconds between the start time of the root segment
 -- and the end time of the last segment that completed.
 trace_duration :: Lens.Lens' Trace (Prelude.Maybe Prelude.Double)
 trace_duration = Lens.lens (\Trace' {duration} -> duration) (\s@Trace' {} a -> s {duration = a} :: Trace)
+
+-- | The unique identifier for the request that generated the trace\'s
+-- segments and subsegments.
+trace_id :: Lens.Lens' Trace (Prelude.Maybe Prelude.Text)
+trace_id = Lens.lens (\Trace' {id} -> id) (\s@Trace' {} a -> s {id = a} :: Trace)
 
 -- | LimitExceeded is set to true when the trace has exceeded the
 -- @Trace document size@ limit. For more information about this limit and
@@ -105,22 +105,22 @@ instance Data.FromJSON Trace where
       "Trace"
       ( \x ->
           Trace'
-            Prelude.<$> (x Data..:? "Id")
-            Prelude.<*> (x Data..:? "Duration")
+            Prelude.<$> (x Data..:? "Duration")
+            Prelude.<*> (x Data..:? "Id")
             Prelude.<*> (x Data..:? "LimitExceeded")
             Prelude.<*> (x Data..:? "Segments" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Trace where
   hashWithSalt _salt Trace' {..} =
-    _salt `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` duration
+    _salt `Prelude.hashWithSalt` duration
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` limitExceeded
       `Prelude.hashWithSalt` segments
 
 instance Prelude.NFData Trace where
   rnf Trace' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf duration
+    Prelude.rnf duration
+      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf limitExceeded
       `Prelude.seq` Prelude.rnf segments

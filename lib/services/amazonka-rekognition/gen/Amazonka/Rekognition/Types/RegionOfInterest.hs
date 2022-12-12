@@ -37,11 +37,11 @@ import Amazonka.Rekognition.Types.Point
 --
 -- /See:/ 'newRegionOfInterest' smart constructor.
 data RegionOfInterest = RegionOfInterest'
-  { -- | Specifies a shape made up of up to 10 @Point@ objects to define a region
+  { -- | The box representing a region of interest on screen.
+    boundingBox :: Prelude.Maybe BoundingBox,
+    -- | Specifies a shape made up of up to 10 @Point@ objects to define a region
     -- of interest.
-    polygon :: Prelude.Maybe [Point],
-    -- | The box representing a region of interest on screen.
-    boundingBox :: Prelude.Maybe BoundingBox
+    polygon :: Prelude.Maybe [Point]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,26 +53,26 @@ data RegionOfInterest = RegionOfInterest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'boundingBox', 'regionOfInterest_boundingBox' - The box representing a region of interest on screen.
+--
 -- 'polygon', 'regionOfInterest_polygon' - Specifies a shape made up of up to 10 @Point@ objects to define a region
 -- of interest.
---
--- 'boundingBox', 'regionOfInterest_boundingBox' - The box representing a region of interest on screen.
 newRegionOfInterest ::
   RegionOfInterest
 newRegionOfInterest =
   RegionOfInterest'
-    { polygon = Prelude.Nothing,
-      boundingBox = Prelude.Nothing
+    { boundingBox = Prelude.Nothing,
+      polygon = Prelude.Nothing
     }
+
+-- | The box representing a region of interest on screen.
+regionOfInterest_boundingBox :: Lens.Lens' RegionOfInterest (Prelude.Maybe BoundingBox)
+regionOfInterest_boundingBox = Lens.lens (\RegionOfInterest' {boundingBox} -> boundingBox) (\s@RegionOfInterest' {} a -> s {boundingBox = a} :: RegionOfInterest)
 
 -- | Specifies a shape made up of up to 10 @Point@ objects to define a region
 -- of interest.
 regionOfInterest_polygon :: Lens.Lens' RegionOfInterest (Prelude.Maybe [Point])
 regionOfInterest_polygon = Lens.lens (\RegionOfInterest' {polygon} -> polygon) (\s@RegionOfInterest' {} a -> s {polygon = a} :: RegionOfInterest) Prelude.. Lens.mapping Lens.coerced
-
--- | The box representing a region of interest on screen.
-regionOfInterest_boundingBox :: Lens.Lens' RegionOfInterest (Prelude.Maybe BoundingBox)
-regionOfInterest_boundingBox = Lens.lens (\RegionOfInterest' {boundingBox} -> boundingBox) (\s@RegionOfInterest' {} a -> s {boundingBox = a} :: RegionOfInterest)
 
 instance Data.FromJSON RegionOfInterest where
   parseJSON =
@@ -80,25 +80,25 @@ instance Data.FromJSON RegionOfInterest where
       "RegionOfInterest"
       ( \x ->
           RegionOfInterest'
-            Prelude.<$> (x Data..:? "Polygon" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "BoundingBox")
+            Prelude.<$> (x Data..:? "BoundingBox")
+            Prelude.<*> (x Data..:? "Polygon" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable RegionOfInterest where
   hashWithSalt _salt RegionOfInterest' {..} =
-    _salt `Prelude.hashWithSalt` polygon
-      `Prelude.hashWithSalt` boundingBox
+    _salt `Prelude.hashWithSalt` boundingBox
+      `Prelude.hashWithSalt` polygon
 
 instance Prelude.NFData RegionOfInterest where
   rnf RegionOfInterest' {..} =
-    Prelude.rnf polygon
-      `Prelude.seq` Prelude.rnf boundingBox
+    Prelude.rnf boundingBox
+      `Prelude.seq` Prelude.rnf polygon
 
 instance Data.ToJSON RegionOfInterest where
   toJSON RegionOfInterest' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Polygon" Data..=) Prelude.<$> polygon,
-            ("BoundingBox" Data..=) Prelude.<$> boundingBox
+          [ ("BoundingBox" Data..=) Prelude.<$> boundingBox,
+            ("Polygon" Data..=) Prelude.<$> polygon
           ]
       )

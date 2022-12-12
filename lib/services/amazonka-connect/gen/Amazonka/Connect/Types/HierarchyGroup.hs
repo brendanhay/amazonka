@@ -29,19 +29,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHierarchyGroup' smart constructor.
 data HierarchyGroup = HierarchyGroup'
-  { -- | The tags used to organize, track, or control access for this resource.
-    -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The name of the hierarchy group.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the hierarchy group.
+  { -- | The Amazon Resource Name (ARN) of the hierarchy group.
     arn :: Prelude.Maybe Prelude.Text,
     -- | Information about the levels in the hierarchy group.
     hierarchyPath :: Prelude.Maybe HierarchyPath,
     -- | The identifier of the hierarchy group.
     id :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the level in the hierarchy group.
-    levelId :: Prelude.Maybe Prelude.Text
+    levelId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the hierarchy group.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The tags used to organize, track, or control access for this resource.
+    -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,11 +53,6 @@ data HierarchyGroup = HierarchyGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'hierarchyGroup_tags' - The tags used to organize, track, or control access for this resource.
--- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
---
--- 'name', 'hierarchyGroup_name' - The name of the hierarchy group.
---
 -- 'arn', 'hierarchyGroup_arn' - The Amazon Resource Name (ARN) of the hierarchy group.
 --
 -- 'hierarchyPath', 'hierarchyGroup_hierarchyPath' - Information about the levels in the hierarchy group.
@@ -65,26 +60,22 @@ data HierarchyGroup = HierarchyGroup'
 -- 'id', 'hierarchyGroup_id' - The identifier of the hierarchy group.
 --
 -- 'levelId', 'hierarchyGroup_levelId' - The identifier of the level in the hierarchy group.
+--
+-- 'name', 'hierarchyGroup_name' - The name of the hierarchy group.
+--
+-- 'tags', 'hierarchyGroup_tags' - The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 newHierarchyGroup ::
   HierarchyGroup
 newHierarchyGroup =
   HierarchyGroup'
-    { tags = Prelude.Nothing,
-      name = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       hierarchyPath = Prelude.Nothing,
       id = Prelude.Nothing,
-      levelId = Prelude.Nothing
+      levelId = Prelude.Nothing,
+      name = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
-
--- | The tags used to organize, track, or control access for this resource.
--- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
-hierarchyGroup_tags :: Lens.Lens' HierarchyGroup (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-hierarchyGroup_tags = Lens.lens (\HierarchyGroup' {tags} -> tags) (\s@HierarchyGroup' {} a -> s {tags = a} :: HierarchyGroup) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the hierarchy group.
-hierarchyGroup_name :: Lens.Lens' HierarchyGroup (Prelude.Maybe Prelude.Text)
-hierarchyGroup_name = Lens.lens (\HierarchyGroup' {name} -> name) (\s@HierarchyGroup' {} a -> s {name = a} :: HierarchyGroup)
 
 -- | The Amazon Resource Name (ARN) of the hierarchy group.
 hierarchyGroup_arn :: Lens.Lens' HierarchyGroup (Prelude.Maybe Prelude.Text)
@@ -102,34 +93,43 @@ hierarchyGroup_id = Lens.lens (\HierarchyGroup' {id} -> id) (\s@HierarchyGroup' 
 hierarchyGroup_levelId :: Lens.Lens' HierarchyGroup (Prelude.Maybe Prelude.Text)
 hierarchyGroup_levelId = Lens.lens (\HierarchyGroup' {levelId} -> levelId) (\s@HierarchyGroup' {} a -> s {levelId = a} :: HierarchyGroup)
 
+-- | The name of the hierarchy group.
+hierarchyGroup_name :: Lens.Lens' HierarchyGroup (Prelude.Maybe Prelude.Text)
+hierarchyGroup_name = Lens.lens (\HierarchyGroup' {name} -> name) (\s@HierarchyGroup' {} a -> s {name = a} :: HierarchyGroup)
+
+-- | The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
+hierarchyGroup_tags :: Lens.Lens' HierarchyGroup (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+hierarchyGroup_tags = Lens.lens (\HierarchyGroup' {tags} -> tags) (\s@HierarchyGroup' {} a -> s {tags = a} :: HierarchyGroup) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON HierarchyGroup where
   parseJSON =
     Data.withObject
       "HierarchyGroup"
       ( \x ->
           HierarchyGroup'
-            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<$> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "HierarchyPath")
             Prelude.<*> (x Data..:? "Id")
             Prelude.<*> (x Data..:? "LevelId")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable HierarchyGroup where
   hashWithSalt _salt HierarchyGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` hierarchyPath
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` levelId
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData HierarchyGroup where
   rnf HierarchyGroup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf hierarchyPath
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf levelId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags

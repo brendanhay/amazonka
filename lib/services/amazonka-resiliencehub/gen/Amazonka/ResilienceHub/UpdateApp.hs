@@ -27,10 +27,10 @@ module Amazonka.ResilienceHub.UpdateApp
     newUpdateApp,
 
     -- * Request Lenses
+    updateApp_assessmentSchedule,
+    updateApp_clearResiliencyPolicyArn,
     updateApp_description,
     updateApp_policyArn,
-    updateApp_clearResiliencyPolicyArn,
-    updateApp_assessmentSchedule,
     updateApp_appArn,
 
     -- * Destructuring the Response
@@ -53,7 +53,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateApp' smart constructor.
 data UpdateApp = UpdateApp'
-  { -- | The optional description for an app.
+  { -- | Assessment execution schedule with \'Daily\' or \'Disabled\' values.
+    assessmentSchedule :: Prelude.Maybe AppAssessmentScheduleType,
+    -- | Specifies if the resiliency policy ARN should be cleared.
+    clearResiliencyPolicyArn :: Prelude.Maybe Prelude.Bool,
+    -- | The optional description for an app.
     description :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the resiliency policy. The format for
     -- this ARN is:
@@ -62,10 +66,6 @@ data UpdateApp = UpdateApp'
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /AWS General Reference/.
     policyArn :: Prelude.Maybe Prelude.Text,
-    -- | Specifies if the resiliency policy ARN should be cleared.
-    clearResiliencyPolicyArn :: Prelude.Maybe Prelude.Bool,
-    -- | Assessment execution schedule with \'Daily\' or \'Disabled\' values.
-    assessmentSchedule :: Prelude.Maybe AppAssessmentScheduleType,
     -- | The Amazon Resource Name (ARN) of the application. The format for this
     -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
     -- For more information about ARNs, see
@@ -83,6 +83,10 @@ data UpdateApp = UpdateApp'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'assessmentSchedule', 'updateApp_assessmentSchedule' - Assessment execution schedule with \'Daily\' or \'Disabled\' values.
+--
+-- 'clearResiliencyPolicyArn', 'updateApp_clearResiliencyPolicyArn' - Specifies if the resiliency policy ARN should be cleared.
+--
 -- 'description', 'updateApp_description' - The optional description for an app.
 --
 -- 'policyArn', 'updateApp_policyArn' - The Amazon Resource Name (ARN) of the resiliency policy. The format for
@@ -91,10 +95,6 @@ data UpdateApp = UpdateApp'
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /AWS General Reference/.
---
--- 'clearResiliencyPolicyArn', 'updateApp_clearResiliencyPolicyArn' - Specifies if the resiliency policy ARN should be cleared.
---
--- 'assessmentSchedule', 'updateApp_assessmentSchedule' - Assessment execution schedule with \'Daily\' or \'Disabled\' values.
 --
 -- 'appArn', 'updateApp_appArn' - The Amazon Resource Name (ARN) of the application. The format for this
 -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
@@ -107,12 +107,20 @@ newUpdateApp ::
   UpdateApp
 newUpdateApp pAppArn_ =
   UpdateApp'
-    { description = Prelude.Nothing,
-      policyArn = Prelude.Nothing,
+    { assessmentSchedule = Prelude.Nothing,
       clearResiliencyPolicyArn = Prelude.Nothing,
-      assessmentSchedule = Prelude.Nothing,
+      description = Prelude.Nothing,
+      policyArn = Prelude.Nothing,
       appArn = pAppArn_
     }
+
+-- | Assessment execution schedule with \'Daily\' or \'Disabled\' values.
+updateApp_assessmentSchedule :: Lens.Lens' UpdateApp (Prelude.Maybe AppAssessmentScheduleType)
+updateApp_assessmentSchedule = Lens.lens (\UpdateApp' {assessmentSchedule} -> assessmentSchedule) (\s@UpdateApp' {} a -> s {assessmentSchedule = a} :: UpdateApp)
+
+-- | Specifies if the resiliency policy ARN should be cleared.
+updateApp_clearResiliencyPolicyArn :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Bool)
+updateApp_clearResiliencyPolicyArn = Lens.lens (\UpdateApp' {clearResiliencyPolicyArn} -> clearResiliencyPolicyArn) (\s@UpdateApp' {} a -> s {clearResiliencyPolicyArn = a} :: UpdateApp)
 
 -- | The optional description for an app.
 updateApp_description :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Text)
@@ -126,14 +134,6 @@ updateApp_description = Lens.lens (\UpdateApp' {description} -> description) (\s
 -- in the /AWS General Reference/.
 updateApp_policyArn :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Text)
 updateApp_policyArn = Lens.lens (\UpdateApp' {policyArn} -> policyArn) (\s@UpdateApp' {} a -> s {policyArn = a} :: UpdateApp)
-
--- | Specifies if the resiliency policy ARN should be cleared.
-updateApp_clearResiliencyPolicyArn :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Bool)
-updateApp_clearResiliencyPolicyArn = Lens.lens (\UpdateApp' {clearResiliencyPolicyArn} -> clearResiliencyPolicyArn) (\s@UpdateApp' {} a -> s {clearResiliencyPolicyArn = a} :: UpdateApp)
-
--- | Assessment execution schedule with \'Daily\' or \'Disabled\' values.
-updateApp_assessmentSchedule :: Lens.Lens' UpdateApp (Prelude.Maybe AppAssessmentScheduleType)
-updateApp_assessmentSchedule = Lens.lens (\UpdateApp' {assessmentSchedule} -> assessmentSchedule) (\s@UpdateApp' {} a -> s {assessmentSchedule = a} :: UpdateApp)
 
 -- | The Amazon Resource Name (ARN) of the application. The format for this
 -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
@@ -157,18 +157,18 @@ instance Core.AWSRequest UpdateApp where
 
 instance Prelude.Hashable UpdateApp where
   hashWithSalt _salt UpdateApp' {..} =
-    _salt `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` policyArn
+    _salt `Prelude.hashWithSalt` assessmentSchedule
       `Prelude.hashWithSalt` clearResiliencyPolicyArn
-      `Prelude.hashWithSalt` assessmentSchedule
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` policyArn
       `Prelude.hashWithSalt` appArn
 
 instance Prelude.NFData UpdateApp where
   rnf UpdateApp' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf policyArn
+    Prelude.rnf assessmentSchedule
       `Prelude.seq` Prelude.rnf clearResiliencyPolicyArn
-      `Prelude.seq` Prelude.rnf assessmentSchedule
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf policyArn
       `Prelude.seq` Prelude.rnf appArn
 
 instance Data.ToHeaders UpdateApp where
@@ -186,12 +186,12 @@ instance Data.ToJSON UpdateApp where
   toJSON UpdateApp' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("description" Data..=) Prelude.<$> description,
-            ("policyArn" Data..=) Prelude.<$> policyArn,
+          [ ("assessmentSchedule" Data..=)
+              Prelude.<$> assessmentSchedule,
             ("clearResiliencyPolicyArn" Data..=)
               Prelude.<$> clearResiliencyPolicyArn,
-            ("assessmentSchedule" Data..=)
-              Prelude.<$> assessmentSchedule,
+            ("description" Data..=) Prelude.<$> description,
+            ("policyArn" Data..=) Prelude.<$> policyArn,
             Prelude.Just ("appArn" Data..= appArn)
           ]
       )

@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 data ListProfileObjectTypeTemplateItem = ListProfileObjectTypeTemplateItem'
   { -- | The name of the source of the object template.
     sourceName :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for the object template.
-    templateId :: Prelude.Maybe Prelude.Text,
     -- | The source of the object template.
-    sourceObject :: Prelude.Maybe Prelude.Text
+    sourceObject :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for the object template.
+    templateId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,30 +47,30 @@ data ListProfileObjectTypeTemplateItem = ListProfileObjectTypeTemplateItem'
 --
 -- 'sourceName', 'listProfileObjectTypeTemplateItem_sourceName' - The name of the source of the object template.
 --
--- 'templateId', 'listProfileObjectTypeTemplateItem_templateId' - A unique identifier for the object template.
---
 -- 'sourceObject', 'listProfileObjectTypeTemplateItem_sourceObject' - The source of the object template.
+--
+-- 'templateId', 'listProfileObjectTypeTemplateItem_templateId' - A unique identifier for the object template.
 newListProfileObjectTypeTemplateItem ::
   ListProfileObjectTypeTemplateItem
 newListProfileObjectTypeTemplateItem =
   ListProfileObjectTypeTemplateItem'
     { sourceName =
         Prelude.Nothing,
-      templateId = Prelude.Nothing,
-      sourceObject = Prelude.Nothing
+      sourceObject = Prelude.Nothing,
+      templateId = Prelude.Nothing
     }
 
 -- | The name of the source of the object template.
 listProfileObjectTypeTemplateItem_sourceName :: Lens.Lens' ListProfileObjectTypeTemplateItem (Prelude.Maybe Prelude.Text)
 listProfileObjectTypeTemplateItem_sourceName = Lens.lens (\ListProfileObjectTypeTemplateItem' {sourceName} -> sourceName) (\s@ListProfileObjectTypeTemplateItem' {} a -> s {sourceName = a} :: ListProfileObjectTypeTemplateItem)
 
--- | A unique identifier for the object template.
-listProfileObjectTypeTemplateItem_templateId :: Lens.Lens' ListProfileObjectTypeTemplateItem (Prelude.Maybe Prelude.Text)
-listProfileObjectTypeTemplateItem_templateId = Lens.lens (\ListProfileObjectTypeTemplateItem' {templateId} -> templateId) (\s@ListProfileObjectTypeTemplateItem' {} a -> s {templateId = a} :: ListProfileObjectTypeTemplateItem)
-
 -- | The source of the object template.
 listProfileObjectTypeTemplateItem_sourceObject :: Lens.Lens' ListProfileObjectTypeTemplateItem (Prelude.Maybe Prelude.Text)
 listProfileObjectTypeTemplateItem_sourceObject = Lens.lens (\ListProfileObjectTypeTemplateItem' {sourceObject} -> sourceObject) (\s@ListProfileObjectTypeTemplateItem' {} a -> s {sourceObject = a} :: ListProfileObjectTypeTemplateItem)
+
+-- | A unique identifier for the object template.
+listProfileObjectTypeTemplateItem_templateId :: Lens.Lens' ListProfileObjectTypeTemplateItem (Prelude.Maybe Prelude.Text)
+listProfileObjectTypeTemplateItem_templateId = Lens.lens (\ListProfileObjectTypeTemplateItem' {templateId} -> templateId) (\s@ListProfileObjectTypeTemplateItem' {} a -> s {templateId = a} :: ListProfileObjectTypeTemplateItem)
 
 instance
   Data.FromJSON
@@ -82,8 +82,8 @@ instance
       ( \x ->
           ListProfileObjectTypeTemplateItem'
             Prelude.<$> (x Data..:? "SourceName")
-            Prelude.<*> (x Data..:? "TemplateId")
             Prelude.<*> (x Data..:? "SourceObject")
+            Prelude.<*> (x Data..:? "TemplateId")
       )
 
 instance
@@ -94,8 +94,8 @@ instance
     _salt
     ListProfileObjectTypeTemplateItem' {..} =
       _salt `Prelude.hashWithSalt` sourceName
-        `Prelude.hashWithSalt` templateId
         `Prelude.hashWithSalt` sourceObject
+        `Prelude.hashWithSalt` templateId
 
 instance
   Prelude.NFData
@@ -103,5 +103,5 @@ instance
   where
   rnf ListProfileObjectTypeTemplateItem' {..} =
     Prelude.rnf sourceName
-      `Prelude.seq` Prelude.rnf templateId
       `Prelude.seq` Prelude.rnf sourceObject
+      `Prelude.seq` Prelude.rnf templateId

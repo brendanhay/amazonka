@@ -73,16 +73,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newApiKey' smart constructor.
 data ApiKey = ApiKey'
-  { -- | A description of the purpose of the API key.
+  { -- | The time after which the API key is deleted. The date is represented as
+    -- seconds since the epoch, rounded down to the nearest hour.
+    deletes :: Prelude.Maybe Prelude.Integer,
+    -- | A description of the purpose of the API key.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The API key ID.
-    id :: Prelude.Maybe Prelude.Text,
     -- | The time after which the API key expires. The date is represented as
     -- seconds since the epoch, rounded down to the nearest hour.
     expires :: Prelude.Maybe Prelude.Integer,
-    -- | The time after which the API key is deleted. The date is represented as
-    -- seconds since the epoch, rounded down to the nearest hour.
-    deletes :: Prelude.Maybe Prelude.Integer
+    -- | The API key ID.
+    id :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -94,42 +94,42 @@ data ApiKey = ApiKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'apiKey_description' - A description of the purpose of the API key.
+-- 'deletes', 'apiKey_deletes' - The time after which the API key is deleted. The date is represented as
+-- seconds since the epoch, rounded down to the nearest hour.
 --
--- 'id', 'apiKey_id' - The API key ID.
+-- 'description', 'apiKey_description' - A description of the purpose of the API key.
 --
 -- 'expires', 'apiKey_expires' - The time after which the API key expires. The date is represented as
 -- seconds since the epoch, rounded down to the nearest hour.
 --
--- 'deletes', 'apiKey_deletes' - The time after which the API key is deleted. The date is represented as
--- seconds since the epoch, rounded down to the nearest hour.
+-- 'id', 'apiKey_id' - The API key ID.
 newApiKey ::
   ApiKey
 newApiKey =
   ApiKey'
-    { description = Prelude.Nothing,
-      id = Prelude.Nothing,
+    { deletes = Prelude.Nothing,
+      description = Prelude.Nothing,
       expires = Prelude.Nothing,
-      deletes = Prelude.Nothing
+      id = Prelude.Nothing
     }
+
+-- | The time after which the API key is deleted. The date is represented as
+-- seconds since the epoch, rounded down to the nearest hour.
+apiKey_deletes :: Lens.Lens' ApiKey (Prelude.Maybe Prelude.Integer)
+apiKey_deletes = Lens.lens (\ApiKey' {deletes} -> deletes) (\s@ApiKey' {} a -> s {deletes = a} :: ApiKey)
 
 -- | A description of the purpose of the API key.
 apiKey_description :: Lens.Lens' ApiKey (Prelude.Maybe Prelude.Text)
 apiKey_description = Lens.lens (\ApiKey' {description} -> description) (\s@ApiKey' {} a -> s {description = a} :: ApiKey)
-
--- | The API key ID.
-apiKey_id :: Lens.Lens' ApiKey (Prelude.Maybe Prelude.Text)
-apiKey_id = Lens.lens (\ApiKey' {id} -> id) (\s@ApiKey' {} a -> s {id = a} :: ApiKey)
 
 -- | The time after which the API key expires. The date is represented as
 -- seconds since the epoch, rounded down to the nearest hour.
 apiKey_expires :: Lens.Lens' ApiKey (Prelude.Maybe Prelude.Integer)
 apiKey_expires = Lens.lens (\ApiKey' {expires} -> expires) (\s@ApiKey' {} a -> s {expires = a} :: ApiKey)
 
--- | The time after which the API key is deleted. The date is represented as
--- seconds since the epoch, rounded down to the nearest hour.
-apiKey_deletes :: Lens.Lens' ApiKey (Prelude.Maybe Prelude.Integer)
-apiKey_deletes = Lens.lens (\ApiKey' {deletes} -> deletes) (\s@ApiKey' {} a -> s {deletes = a} :: ApiKey)
+-- | The API key ID.
+apiKey_id :: Lens.Lens' ApiKey (Prelude.Maybe Prelude.Text)
+apiKey_id = Lens.lens (\ApiKey' {id} -> id) (\s@ApiKey' {} a -> s {id = a} :: ApiKey)
 
 instance Data.FromJSON ApiKey where
   parseJSON =
@@ -137,22 +137,22 @@ instance Data.FromJSON ApiKey where
       "ApiKey"
       ( \x ->
           ApiKey'
-            Prelude.<$> (x Data..:? "description")
-            Prelude.<*> (x Data..:? "id")
+            Prelude.<$> (x Data..:? "deletes")
+            Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "expires")
-            Prelude.<*> (x Data..:? "deletes")
+            Prelude.<*> (x Data..:? "id")
       )
 
 instance Prelude.Hashable ApiKey where
   hashWithSalt _salt ApiKey' {..} =
-    _salt `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` id
+    _salt `Prelude.hashWithSalt` deletes
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` expires
-      `Prelude.hashWithSalt` deletes
+      `Prelude.hashWithSalt` id
 
 instance Prelude.NFData ApiKey where
   rnf ApiKey' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf deletes
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf expires
-      `Prelude.seq` Prelude.rnf deletes
+      `Prelude.seq` Prelude.rnf id

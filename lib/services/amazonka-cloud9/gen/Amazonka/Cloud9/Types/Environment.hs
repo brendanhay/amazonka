@@ -32,13 +32,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEnvironment' smart constructor.
 data Environment = Environment'
-  { -- | The name of the environment.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The state of the environment in its creation or deletion lifecycle.
-    lifecycle :: Prelude.Maybe EnvironmentLifecycle,
-    -- | The connection type used for connecting to an Amazon EC2 environment.
+  { -- | The connection type used for connecting to an Amazon EC2 environment.
     -- @CONNECT_SSH@ is selected by default.
     connectionType :: Prelude.Maybe ConnectionType,
+    -- | The description for the environment.
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The ID of the environment.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The state of the environment in its creation or deletion lifecycle.
+    lifecycle :: Prelude.Maybe EnvironmentLifecycle,
     -- | Describes the status of Amazon Web Services managed temporary
     -- credentials for the Cloud9 environment. Available values are:
     --
@@ -62,10 +64,8 @@ data Environment = Environment'
     --
     -- -   @DISABLED_BY_DEFAULT@
     managedCredentialsStatus :: Prelude.Maybe ManagedCredentialsStatus,
-    -- | The description for the environment.
-    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The ID of the environment.
-    id :: Prelude.Maybe Prelude.Text,
+    -- | The name of the environment.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The type of environment. Valid values include the following:
     --
     -- -   @ec2@: An Amazon Elastic Compute Cloud (Amazon EC2) instance
@@ -88,12 +88,14 @@ data Environment = Environment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'environment_name' - The name of the environment.
---
--- 'lifecycle', 'environment_lifecycle' - The state of the environment in its creation or deletion lifecycle.
---
 -- 'connectionType', 'environment_connectionType' - The connection type used for connecting to an Amazon EC2 environment.
 -- @CONNECT_SSH@ is selected by default.
+--
+-- 'description', 'environment_description' - The description for the environment.
+--
+-- 'id', 'environment_id' - The ID of the environment.
+--
+-- 'lifecycle', 'environment_lifecycle' - The state of the environment in its creation or deletion lifecycle.
 --
 -- 'managedCredentialsStatus', 'environment_managedCredentialsStatus' - Describes the status of Amazon Web Services managed temporary
 -- credentials for the Cloud9 environment. Available values are:
@@ -118,9 +120,7 @@ data Environment = Environment'
 --
 -- -   @DISABLED_BY_DEFAULT@
 --
--- 'description', 'environment_description' - The description for the environment.
---
--- 'id', 'environment_id' - The ID of the environment.
+-- 'name', 'environment_name' - The name of the environment.
 --
 -- 'type'', 'environment_type' - The type of environment. Valid values include the following:
 --
@@ -142,29 +142,33 @@ newEnvironment ::
   Environment
 newEnvironment pType_ pArn_ pOwnerArn_ =
   Environment'
-    { name = Prelude.Nothing,
-      lifecycle = Prelude.Nothing,
-      connectionType = Prelude.Nothing,
-      managedCredentialsStatus = Prelude.Nothing,
+    { connectionType = Prelude.Nothing,
       description = Prelude.Nothing,
       id = Prelude.Nothing,
+      lifecycle = Prelude.Nothing,
+      managedCredentialsStatus = Prelude.Nothing,
+      name = Prelude.Nothing,
       type' = pType_,
       arn = pArn_,
       ownerArn = pOwnerArn_
     }
 
--- | The name of the environment.
-environment_name :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
-environment_name = Lens.lens (\Environment' {name} -> name) (\s@Environment' {} a -> s {name = a} :: Environment)
-
--- | The state of the environment in its creation or deletion lifecycle.
-environment_lifecycle :: Lens.Lens' Environment (Prelude.Maybe EnvironmentLifecycle)
-environment_lifecycle = Lens.lens (\Environment' {lifecycle} -> lifecycle) (\s@Environment' {} a -> s {lifecycle = a} :: Environment)
-
 -- | The connection type used for connecting to an Amazon EC2 environment.
 -- @CONNECT_SSH@ is selected by default.
 environment_connectionType :: Lens.Lens' Environment (Prelude.Maybe ConnectionType)
 environment_connectionType = Lens.lens (\Environment' {connectionType} -> connectionType) (\s@Environment' {} a -> s {connectionType = a} :: Environment)
+
+-- | The description for the environment.
+environment_description :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
+environment_description = Lens.lens (\Environment' {description} -> description) (\s@Environment' {} a -> s {description = a} :: Environment) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The ID of the environment.
+environment_id :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
+environment_id = Lens.lens (\Environment' {id} -> id) (\s@Environment' {} a -> s {id = a} :: Environment)
+
+-- | The state of the environment in its creation or deletion lifecycle.
+environment_lifecycle :: Lens.Lens' Environment (Prelude.Maybe EnvironmentLifecycle)
+environment_lifecycle = Lens.lens (\Environment' {lifecycle} -> lifecycle) (\s@Environment' {} a -> s {lifecycle = a} :: Environment)
 
 -- | Describes the status of Amazon Web Services managed temporary
 -- credentials for the Cloud9 environment. Available values are:
@@ -191,13 +195,9 @@ environment_connectionType = Lens.lens (\Environment' {connectionType} -> connec
 environment_managedCredentialsStatus :: Lens.Lens' Environment (Prelude.Maybe ManagedCredentialsStatus)
 environment_managedCredentialsStatus = Lens.lens (\Environment' {managedCredentialsStatus} -> managedCredentialsStatus) (\s@Environment' {} a -> s {managedCredentialsStatus = a} :: Environment)
 
--- | The description for the environment.
-environment_description :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
-environment_description = Lens.lens (\Environment' {description} -> description) (\s@Environment' {} a -> s {description = a} :: Environment) Prelude.. Lens.mapping Data._Sensitive
-
--- | The ID of the environment.
-environment_id :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
-environment_id = Lens.lens (\Environment' {id} -> id) (\s@Environment' {} a -> s {id = a} :: Environment)
+-- | The name of the environment.
+environment_name :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
+environment_name = Lens.lens (\Environment' {name} -> name) (\s@Environment' {} a -> s {name = a} :: Environment)
 
 -- | The type of environment. Valid values include the following:
 --
@@ -222,12 +222,12 @@ instance Data.FromJSON Environment where
       "Environment"
       ( \x ->
           Environment'
-            Prelude.<$> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "lifecycle")
-            Prelude.<*> (x Data..:? "connectionType")
-            Prelude.<*> (x Data..:? "managedCredentialsStatus")
+            Prelude.<$> (x Data..:? "connectionType")
             Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "lifecycle")
+            Prelude.<*> (x Data..:? "managedCredentialsStatus")
+            Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..: "type")
             Prelude.<*> (x Data..: "arn")
             Prelude.<*> (x Data..: "ownerArn")
@@ -235,24 +235,24 @@ instance Data.FromJSON Environment where
 
 instance Prelude.Hashable Environment where
   hashWithSalt _salt Environment' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` lifecycle
-      `Prelude.hashWithSalt` connectionType
-      `Prelude.hashWithSalt` managedCredentialsStatus
+    _salt `Prelude.hashWithSalt` connectionType
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` lifecycle
+      `Prelude.hashWithSalt` managedCredentialsStatus
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` ownerArn
 
 instance Prelude.NFData Environment where
   rnf Environment' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf lifecycle
-      `Prelude.seq` Prelude.rnf connectionType
-      `Prelude.seq` Prelude.rnf managedCredentialsStatus
+    Prelude.rnf connectionType
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf lifecycle
+      `Prelude.seq` Prelude.rnf managedCredentialsStatus
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf ownerArn

@@ -29,9 +29,9 @@ module Amazonka.BillingConductor.ListCustomLineItemVersions
     newListCustomLineItemVersions,
 
     -- * Request Lenses
-    listCustomLineItemVersions_nextToken,
     listCustomLineItemVersions_filters,
     listCustomLineItemVersions_maxResults,
+    listCustomLineItemVersions_nextToken,
     listCustomLineItemVersions_arn,
 
     -- * Destructuring the Response
@@ -39,8 +39,8 @@ module Amazonka.BillingConductor.ListCustomLineItemVersions
     newListCustomLineItemVersionsResponse,
 
     -- * Response Lenses
-    listCustomLineItemVersionsResponse_nextToken,
     listCustomLineItemVersionsResponse_customLineItemVersions,
+    listCustomLineItemVersionsResponse_nextToken,
     listCustomLineItemVersionsResponse_httpStatus,
   )
 where
@@ -55,14 +55,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListCustomLineItemVersions' smart constructor.
 data ListCustomLineItemVersions = ListCustomLineItemVersions'
-  { -- | The pagination token that\'s used on subsequent calls to retrieve custom
-    -- line item versions.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A @ListCustomLineItemVersionsFilter@ that specifies the billing period
+  { -- | A @ListCustomLineItemVersionsFilter@ that specifies the billing period
     -- range in which the custom line item versions are applied.
     filters :: Prelude.Maybe ListCustomLineItemVersionsFilter,
     -- | The maximum number of custom line item versions to retrieve.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token that\'s used on subsequent calls to retrieve custom
+    -- line item versions.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the custom line item.
     arn :: Prelude.Text
   }
@@ -76,13 +76,13 @@ data ListCustomLineItemVersions = ListCustomLineItemVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listCustomLineItemVersions_nextToken' - The pagination token that\'s used on subsequent calls to retrieve custom
--- line item versions.
---
 -- 'filters', 'listCustomLineItemVersions_filters' - A @ListCustomLineItemVersionsFilter@ that specifies the billing period
 -- range in which the custom line item versions are applied.
 --
 -- 'maxResults', 'listCustomLineItemVersions_maxResults' - The maximum number of custom line item versions to retrieve.
+--
+-- 'nextToken', 'listCustomLineItemVersions_nextToken' - The pagination token that\'s used on subsequent calls to retrieve custom
+-- line item versions.
 --
 -- 'arn', 'listCustomLineItemVersions_arn' - The Amazon Resource Name (ARN) for the custom line item.
 newListCustomLineItemVersions ::
@@ -91,17 +91,12 @@ newListCustomLineItemVersions ::
   ListCustomLineItemVersions
 newListCustomLineItemVersions pArn_ =
   ListCustomLineItemVersions'
-    { nextToken =
+    { filters =
         Prelude.Nothing,
-      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       arn = pArn_
     }
-
--- | The pagination token that\'s used on subsequent calls to retrieve custom
--- line item versions.
-listCustomLineItemVersions_nextToken :: Lens.Lens' ListCustomLineItemVersions (Prelude.Maybe Prelude.Text)
-listCustomLineItemVersions_nextToken = Lens.lens (\ListCustomLineItemVersions' {nextToken} -> nextToken) (\s@ListCustomLineItemVersions' {} a -> s {nextToken = a} :: ListCustomLineItemVersions)
 
 -- | A @ListCustomLineItemVersionsFilter@ that specifies the billing period
 -- range in which the custom line item versions are applied.
@@ -111,6 +106,11 @@ listCustomLineItemVersions_filters = Lens.lens (\ListCustomLineItemVersions' {fi
 -- | The maximum number of custom line item versions to retrieve.
 listCustomLineItemVersions_maxResults :: Lens.Lens' ListCustomLineItemVersions (Prelude.Maybe Prelude.Natural)
 listCustomLineItemVersions_maxResults = Lens.lens (\ListCustomLineItemVersions' {maxResults} -> maxResults) (\s@ListCustomLineItemVersions' {} a -> s {maxResults = a} :: ListCustomLineItemVersions)
+
+-- | The pagination token that\'s used on subsequent calls to retrieve custom
+-- line item versions.
+listCustomLineItemVersions_nextToken :: Lens.Lens' ListCustomLineItemVersions (Prelude.Maybe Prelude.Text)
+listCustomLineItemVersions_nextToken = Lens.lens (\ListCustomLineItemVersions' {nextToken} -> nextToken) (\s@ListCustomLineItemVersions' {} a -> s {nextToken = a} :: ListCustomLineItemVersions)
 
 -- | The Amazon Resource Name (ARN) for the custom line item.
 listCustomLineItemVersions_arn :: Lens.Lens' ListCustomLineItemVersions Prelude.Text
@@ -148,25 +148,25 @@ instance Core.AWSRequest ListCustomLineItemVersions where
     Response.receiveJSON
       ( \s h x ->
           ListCustomLineItemVersionsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "CustomLineItemVersions"
+            Prelude.<$> ( x Data..?> "CustomLineItemVersions"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListCustomLineItemVersions where
   hashWithSalt _salt ListCustomLineItemVersions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData ListCustomLineItemVersions where
   rnf ListCustomLineItemVersions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf arn
 
 instance Data.ToHeaders ListCustomLineItemVersions where
@@ -184,9 +184,9 @@ instance Data.ToJSON ListCustomLineItemVersions where
   toJSON ListCustomLineItemVersions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
+          [ ("Filters" Data..=) Prelude.<$> filters,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("Arn" Data..= arn)
           ]
       )
@@ -200,11 +200,11 @@ instance Data.ToQuery ListCustomLineItemVersions where
 
 -- | /See:/ 'newListCustomLineItemVersionsResponse' smart constructor.
 data ListCustomLineItemVersionsResponse = ListCustomLineItemVersionsResponse'
-  { -- | The pagination token that\'s used on subsequent calls to retrieve custom
+  { -- | A list of @CustomLineItemVersionListElements@ that are received.
+    customLineItemVersions :: Prelude.Maybe [CustomLineItemVersionListElement],
+    -- | The pagination token that\'s used on subsequent calls to retrieve custom
     -- line item versions.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of @CustomLineItemVersionListElements@ that are received.
-    customLineItemVersions :: Prelude.Maybe [CustomLineItemVersionListElement],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -218,10 +218,10 @@ data ListCustomLineItemVersionsResponse = ListCustomLineItemVersionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'customLineItemVersions', 'listCustomLineItemVersionsResponse_customLineItemVersions' - A list of @CustomLineItemVersionListElements@ that are received.
+--
 -- 'nextToken', 'listCustomLineItemVersionsResponse_nextToken' - The pagination token that\'s used on subsequent calls to retrieve custom
 -- line item versions.
---
--- 'customLineItemVersions', 'listCustomLineItemVersionsResponse_customLineItemVersions' - A list of @CustomLineItemVersionListElements@ that are received.
 --
 -- 'httpStatus', 'listCustomLineItemVersionsResponse_httpStatus' - The response's http status code.
 newListCustomLineItemVersionsResponse ::
@@ -230,21 +230,20 @@ newListCustomLineItemVersionsResponse ::
   ListCustomLineItemVersionsResponse
 newListCustomLineItemVersionsResponse pHttpStatus_ =
   ListCustomLineItemVersionsResponse'
-    { nextToken =
+    { customLineItemVersions =
         Prelude.Nothing,
-      customLineItemVersions =
-        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of @CustomLineItemVersionListElements@ that are received.
+listCustomLineItemVersionsResponse_customLineItemVersions :: Lens.Lens' ListCustomLineItemVersionsResponse (Prelude.Maybe [CustomLineItemVersionListElement])
+listCustomLineItemVersionsResponse_customLineItemVersions = Lens.lens (\ListCustomLineItemVersionsResponse' {customLineItemVersions} -> customLineItemVersions) (\s@ListCustomLineItemVersionsResponse' {} a -> s {customLineItemVersions = a} :: ListCustomLineItemVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token that\'s used on subsequent calls to retrieve custom
 -- line item versions.
 listCustomLineItemVersionsResponse_nextToken :: Lens.Lens' ListCustomLineItemVersionsResponse (Prelude.Maybe Prelude.Text)
 listCustomLineItemVersionsResponse_nextToken = Lens.lens (\ListCustomLineItemVersionsResponse' {nextToken} -> nextToken) (\s@ListCustomLineItemVersionsResponse' {} a -> s {nextToken = a} :: ListCustomLineItemVersionsResponse)
-
--- | A list of @CustomLineItemVersionListElements@ that are received.
-listCustomLineItemVersionsResponse_customLineItemVersions :: Lens.Lens' ListCustomLineItemVersionsResponse (Prelude.Maybe [CustomLineItemVersionListElement])
-listCustomLineItemVersionsResponse_customLineItemVersions = Lens.lens (\ListCustomLineItemVersionsResponse' {customLineItemVersions} -> customLineItemVersions) (\s@ListCustomLineItemVersionsResponse' {} a -> s {customLineItemVersions = a} :: ListCustomLineItemVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listCustomLineItemVersionsResponse_httpStatus :: Lens.Lens' ListCustomLineItemVersionsResponse Prelude.Int
@@ -255,6 +254,6 @@ instance
     ListCustomLineItemVersionsResponse
   where
   rnf ListCustomLineItemVersionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf customLineItemVersions
+    Prelude.rnf customLineItemVersions
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

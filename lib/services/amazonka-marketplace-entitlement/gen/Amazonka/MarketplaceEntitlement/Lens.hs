@@ -15,27 +15,27 @@ module Amazonka.MarketplaceEntitlement.Lens
   ( -- * Operations
 
     -- ** GetEntitlements
-    getEntitlements_nextToken,
     getEntitlements_filter,
     getEntitlements_maxResults,
+    getEntitlements_nextToken,
     getEntitlements_productCode,
-    getEntitlementsResponse_nextToken,
     getEntitlementsResponse_entitlements,
+    getEntitlementsResponse_nextToken,
     getEntitlementsResponse_httpStatus,
 
     -- * Types
 
     -- ** Entitlement
     entitlement_customerIdentifier,
-    entitlement_productCode,
     entitlement_dimension,
     entitlement_expirationDate,
+    entitlement_productCode,
     entitlement_value,
 
     -- ** EntitlementValue
-    entitlementValue_integerValue,
-    entitlementValue_doubleValue,
     entitlementValue_booleanValue,
+    entitlementValue_doubleValue,
+    entitlementValue_integerValue,
     entitlementValue_stringValue,
   )
 where

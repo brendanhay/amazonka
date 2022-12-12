@@ -30,15 +30,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newComponentChild' smart constructor.
 data ComponentChild = ComponentChild'
-  { -- | The unique ID of the child component in its original source system, such
-    -- as Figma.
-    sourceId :: Prelude.Maybe Prelude.Text,
-    -- | The list of @ComponentChild@ instances for this component.
+  { -- | The list of @ComponentChild@ instances for this component.
     children :: Prelude.Maybe [ComponentChild],
     -- | Describes the events that can be raised on the child component. Use for
     -- the workflow feature in Amplify Studio that allows you to bind events
     -- and actions to components.
     events :: Prelude.Maybe (Prelude.HashMap Prelude.Text ComponentEvent),
+    -- | The unique ID of the child component in its original source system, such
+    -- as Figma.
+    sourceId :: Prelude.Maybe Prelude.Text,
     -- | The type of the child component.
     componentType :: Prelude.Text,
     -- | The name of the child component.
@@ -57,14 +57,14 @@ data ComponentChild = ComponentChild'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceId', 'componentChild_sourceId' - The unique ID of the child component in its original source system, such
--- as Figma.
---
 -- 'children', 'componentChild_children' - The list of @ComponentChild@ instances for this component.
 --
 -- 'events', 'componentChild_events' - Describes the events that can be raised on the child component. Use for
 -- the workflow feature in Amplify Studio that allows you to bind events
 -- and actions to components.
+--
+-- 'sourceId', 'componentChild_sourceId' - The unique ID of the child component in its original source system, such
+-- as Figma.
 --
 -- 'componentType', 'componentChild_componentType' - The type of the child component.
 --
@@ -80,18 +80,13 @@ newComponentChild ::
   ComponentChild
 newComponentChild pComponentType_ pName_ =
   ComponentChild'
-    { sourceId = Prelude.Nothing,
-      children = Prelude.Nothing,
+    { children = Prelude.Nothing,
       events = Prelude.Nothing,
+      sourceId = Prelude.Nothing,
       componentType = pComponentType_,
       name = pName_,
       properties = Prelude.mempty
     }
-
--- | The unique ID of the child component in its original source system, such
--- as Figma.
-componentChild_sourceId :: Lens.Lens' ComponentChild (Prelude.Maybe Prelude.Text)
-componentChild_sourceId = Lens.lens (\ComponentChild' {sourceId} -> sourceId) (\s@ComponentChild' {} a -> s {sourceId = a} :: ComponentChild)
 
 -- | The list of @ComponentChild@ instances for this component.
 componentChild_children :: Lens.Lens' ComponentChild (Prelude.Maybe [ComponentChild])
@@ -102,6 +97,11 @@ componentChild_children = Lens.lens (\ComponentChild' {children} -> children) (\
 -- and actions to components.
 componentChild_events :: Lens.Lens' ComponentChild (Prelude.Maybe (Prelude.HashMap Prelude.Text ComponentEvent))
 componentChild_events = Lens.lens (\ComponentChild' {events} -> events) (\s@ComponentChild' {} a -> s {events = a} :: ComponentChild) Prelude.. Lens.mapping Lens.coerced
+
+-- | The unique ID of the child component in its original source system, such
+-- as Figma.
+componentChild_sourceId :: Lens.Lens' ComponentChild (Prelude.Maybe Prelude.Text)
+componentChild_sourceId = Lens.lens (\ComponentChild' {sourceId} -> sourceId) (\s@ComponentChild' {} a -> s {sourceId = a} :: ComponentChild)
 
 -- | The type of the child component.
 componentChild_componentType :: Lens.Lens' ComponentChild Prelude.Text
@@ -122,9 +122,9 @@ instance Data.FromJSON ComponentChild where
       "ComponentChild"
       ( \x ->
           ComponentChild'
-            Prelude.<$> (x Data..:? "sourceId")
-            Prelude.<*> (x Data..:? "children" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "children" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "events" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "sourceId")
             Prelude.<*> (x Data..: "componentType")
             Prelude.<*> (x Data..: "name")
             Prelude.<*> (x Data..:? "properties" Data..!= Prelude.mempty)
@@ -132,18 +132,18 @@ instance Data.FromJSON ComponentChild where
 
 instance Prelude.Hashable ComponentChild where
   hashWithSalt _salt ComponentChild' {..} =
-    _salt `Prelude.hashWithSalt` sourceId
-      `Prelude.hashWithSalt` children
+    _salt `Prelude.hashWithSalt` children
       `Prelude.hashWithSalt` events
+      `Prelude.hashWithSalt` sourceId
       `Prelude.hashWithSalt` componentType
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` properties
 
 instance Prelude.NFData ComponentChild where
   rnf ComponentChild' {..} =
-    Prelude.rnf sourceId
-      `Prelude.seq` Prelude.rnf children
+    Prelude.rnf children
       `Prelude.seq` Prelude.rnf events
+      `Prelude.seq` Prelude.rnf sourceId
       `Prelude.seq` Prelude.rnf componentType
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf properties
@@ -152,9 +152,9 @@ instance Data.ToJSON ComponentChild where
   toJSON ComponentChild' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("sourceId" Data..=) Prelude.<$> sourceId,
-            ("children" Data..=) Prelude.<$> children,
+          [ ("children" Data..=) Prelude.<$> children,
             ("events" Data..=) Prelude.<$> events,
+            ("sourceId" Data..=) Prelude.<$> sourceId,
             Prelude.Just ("componentType" Data..= componentType),
             Prelude.Just ("name" Data..= name),
             Prelude.Just ("properties" Data..= properties)

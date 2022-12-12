@@ -48,7 +48,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAttributeFilter' smart constructor.
 data AttributeFilter = AttributeFilter'
-  { -- | Returns true when a document contains all of the specified document
+  { -- | Performs a logical @AND@ operation on all supplied filters.
+    andAllFilters :: Prelude.Maybe [AttributeFilter],
+    -- | Returns true when a document contains all of the specified document
     -- attributes or metadata fields. This filter is only applicable to
     -- @StringListValue@ metadata.
     containsAll :: Prelude.Maybe DocumentAttribute,
@@ -56,28 +58,26 @@ data AttributeFilter = AttributeFilter'
     -- attributes or metadata fields. This filter is only applicable to
     -- @StringListValue@ metadata.
     containsAny :: Prelude.Maybe DocumentAttribute,
-    -- | Performs a less than operation on two document attributes or metadata
-    -- fields. Use with a document attribute of type @Date@ or @Long@.
-    lessThan :: Prelude.Maybe DocumentAttribute,
-    -- | Performs a logical @AND@ operation on all supplied filters.
-    andAllFilters :: Prelude.Maybe [AttributeFilter],
-    -- | Performs a logical @OR@ operation on all supplied filters.
-    orAllFilters :: Prelude.Maybe [AttributeFilter],
-    -- | Performs a logical @NOT@ operation on all supplied filters.
-    notFilter :: Prelude.Maybe AttributeFilter,
-    -- | Performs a greater or equals than operation on two document attributes
-    -- or metadata fields. Use with a document attribute of type @Date@ or
-    -- @Long@.
-    greaterThanOrEquals :: Prelude.Maybe DocumentAttribute,
     -- | Performs an equals operation on two document attributes or metadata
     -- fields.
     equalsTo :: Prelude.Maybe DocumentAttribute,
     -- | Performs a greater than operation on two document attributes or metadata
     -- fields. Use with a document attribute of type @Date@ or @Long@.
     greaterThan :: Prelude.Maybe DocumentAttribute,
+    -- | Performs a greater or equals than operation on two document attributes
+    -- or metadata fields. Use with a document attribute of type @Date@ or
+    -- @Long@.
+    greaterThanOrEquals :: Prelude.Maybe DocumentAttribute,
+    -- | Performs a less than operation on two document attributes or metadata
+    -- fields. Use with a document attribute of type @Date@ or @Long@.
+    lessThan :: Prelude.Maybe DocumentAttribute,
     -- | Performs a less than or equals operation on two document attributes or
     -- metadata fields. Use with a document attribute of type @Date@ or @Long@.
-    lessThanOrEquals :: Prelude.Maybe DocumentAttribute
+    lessThanOrEquals :: Prelude.Maybe DocumentAttribute,
+    -- | Performs a logical @NOT@ operation on all supplied filters.
+    notFilter :: Prelude.Maybe AttributeFilter,
+    -- | Performs a logical @OR@ operation on all supplied filters.
+    orAllFilters :: Prelude.Maybe [AttributeFilter]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -89,6 +89,8 @@ data AttributeFilter = AttributeFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'andAllFilters', 'attributeFilter_andAllFilters' - Performs a logical @AND@ operation on all supplied filters.
+--
 -- 'containsAll', 'attributeFilter_containsAll' - Returns true when a document contains all of the specified document
 -- attributes or metadata fields. This filter is only applicable to
 -- @StringListValue@ metadata.
@@ -97,42 +99,44 @@ data AttributeFilter = AttributeFilter'
 -- attributes or metadata fields. This filter is only applicable to
 -- @StringListValue@ metadata.
 --
--- 'lessThan', 'attributeFilter_lessThan' - Performs a less than operation on two document attributes or metadata
--- fields. Use with a document attribute of type @Date@ or @Long@.
---
--- 'andAllFilters', 'attributeFilter_andAllFilters' - Performs a logical @AND@ operation on all supplied filters.
---
--- 'orAllFilters', 'attributeFilter_orAllFilters' - Performs a logical @OR@ operation on all supplied filters.
---
--- 'notFilter', 'attributeFilter_notFilter' - Performs a logical @NOT@ operation on all supplied filters.
---
--- 'greaterThanOrEquals', 'attributeFilter_greaterThanOrEquals' - Performs a greater or equals than operation on two document attributes
--- or metadata fields. Use with a document attribute of type @Date@ or
--- @Long@.
---
 -- 'equalsTo', 'attributeFilter_equalsTo' - Performs an equals operation on two document attributes or metadata
 -- fields.
 --
 -- 'greaterThan', 'attributeFilter_greaterThan' - Performs a greater than operation on two document attributes or metadata
 -- fields. Use with a document attribute of type @Date@ or @Long@.
 --
+-- 'greaterThanOrEquals', 'attributeFilter_greaterThanOrEquals' - Performs a greater or equals than operation on two document attributes
+-- or metadata fields. Use with a document attribute of type @Date@ or
+-- @Long@.
+--
+-- 'lessThan', 'attributeFilter_lessThan' - Performs a less than operation on two document attributes or metadata
+-- fields. Use with a document attribute of type @Date@ or @Long@.
+--
 -- 'lessThanOrEquals', 'attributeFilter_lessThanOrEquals' - Performs a less than or equals operation on two document attributes or
 -- metadata fields. Use with a document attribute of type @Date@ or @Long@.
+--
+-- 'notFilter', 'attributeFilter_notFilter' - Performs a logical @NOT@ operation on all supplied filters.
+--
+-- 'orAllFilters', 'attributeFilter_orAllFilters' - Performs a logical @OR@ operation on all supplied filters.
 newAttributeFilter ::
   AttributeFilter
 newAttributeFilter =
   AttributeFilter'
-    { containsAll = Prelude.Nothing,
+    { andAllFilters = Prelude.Nothing,
+      containsAll = Prelude.Nothing,
       containsAny = Prelude.Nothing,
-      lessThan = Prelude.Nothing,
-      andAllFilters = Prelude.Nothing,
-      orAllFilters = Prelude.Nothing,
-      notFilter = Prelude.Nothing,
-      greaterThanOrEquals = Prelude.Nothing,
       equalsTo = Prelude.Nothing,
       greaterThan = Prelude.Nothing,
-      lessThanOrEquals = Prelude.Nothing
+      greaterThanOrEquals = Prelude.Nothing,
+      lessThan = Prelude.Nothing,
+      lessThanOrEquals = Prelude.Nothing,
+      notFilter = Prelude.Nothing,
+      orAllFilters = Prelude.Nothing
     }
+
+-- | Performs a logical @AND@ operation on all supplied filters.
+attributeFilter_andAllFilters :: Lens.Lens' AttributeFilter (Prelude.Maybe [AttributeFilter])
+attributeFilter_andAllFilters = Lens.lens (\AttributeFilter' {andAllFilters} -> andAllFilters) (\s@AttributeFilter' {} a -> s {andAllFilters = a} :: AttributeFilter) Prelude.. Lens.mapping Lens.coerced
 
 -- | Returns true when a document contains all of the specified document
 -- attributes or metadata fields. This filter is only applicable to
@@ -146,29 +150,6 @@ attributeFilter_containsAll = Lens.lens (\AttributeFilter' {containsAll} -> cont
 attributeFilter_containsAny :: Lens.Lens' AttributeFilter (Prelude.Maybe DocumentAttribute)
 attributeFilter_containsAny = Lens.lens (\AttributeFilter' {containsAny} -> containsAny) (\s@AttributeFilter' {} a -> s {containsAny = a} :: AttributeFilter)
 
--- | Performs a less than operation on two document attributes or metadata
--- fields. Use with a document attribute of type @Date@ or @Long@.
-attributeFilter_lessThan :: Lens.Lens' AttributeFilter (Prelude.Maybe DocumentAttribute)
-attributeFilter_lessThan = Lens.lens (\AttributeFilter' {lessThan} -> lessThan) (\s@AttributeFilter' {} a -> s {lessThan = a} :: AttributeFilter)
-
--- | Performs a logical @AND@ operation on all supplied filters.
-attributeFilter_andAllFilters :: Lens.Lens' AttributeFilter (Prelude.Maybe [AttributeFilter])
-attributeFilter_andAllFilters = Lens.lens (\AttributeFilter' {andAllFilters} -> andAllFilters) (\s@AttributeFilter' {} a -> s {andAllFilters = a} :: AttributeFilter) Prelude.. Lens.mapping Lens.coerced
-
--- | Performs a logical @OR@ operation on all supplied filters.
-attributeFilter_orAllFilters :: Lens.Lens' AttributeFilter (Prelude.Maybe [AttributeFilter])
-attributeFilter_orAllFilters = Lens.lens (\AttributeFilter' {orAllFilters} -> orAllFilters) (\s@AttributeFilter' {} a -> s {orAllFilters = a} :: AttributeFilter) Prelude.. Lens.mapping Lens.coerced
-
--- | Performs a logical @NOT@ operation on all supplied filters.
-attributeFilter_notFilter :: Lens.Lens' AttributeFilter (Prelude.Maybe AttributeFilter)
-attributeFilter_notFilter = Lens.lens (\AttributeFilter' {notFilter} -> notFilter) (\s@AttributeFilter' {} a -> s {notFilter = a} :: AttributeFilter)
-
--- | Performs a greater or equals than operation on two document attributes
--- or metadata fields. Use with a document attribute of type @Date@ or
--- @Long@.
-attributeFilter_greaterThanOrEquals :: Lens.Lens' AttributeFilter (Prelude.Maybe DocumentAttribute)
-attributeFilter_greaterThanOrEquals = Lens.lens (\AttributeFilter' {greaterThanOrEquals} -> greaterThanOrEquals) (\s@AttributeFilter' {} a -> s {greaterThanOrEquals = a} :: AttributeFilter)
-
 -- | Performs an equals operation on two document attributes or metadata
 -- fields.
 attributeFilter_equalsTo :: Lens.Lens' AttributeFilter (Prelude.Maybe DocumentAttribute)
@@ -179,52 +160,71 @@ attributeFilter_equalsTo = Lens.lens (\AttributeFilter' {equalsTo} -> equalsTo) 
 attributeFilter_greaterThan :: Lens.Lens' AttributeFilter (Prelude.Maybe DocumentAttribute)
 attributeFilter_greaterThan = Lens.lens (\AttributeFilter' {greaterThan} -> greaterThan) (\s@AttributeFilter' {} a -> s {greaterThan = a} :: AttributeFilter)
 
+-- | Performs a greater or equals than operation on two document attributes
+-- or metadata fields. Use with a document attribute of type @Date@ or
+-- @Long@.
+attributeFilter_greaterThanOrEquals :: Lens.Lens' AttributeFilter (Prelude.Maybe DocumentAttribute)
+attributeFilter_greaterThanOrEquals = Lens.lens (\AttributeFilter' {greaterThanOrEquals} -> greaterThanOrEquals) (\s@AttributeFilter' {} a -> s {greaterThanOrEquals = a} :: AttributeFilter)
+
+-- | Performs a less than operation on two document attributes or metadata
+-- fields. Use with a document attribute of type @Date@ or @Long@.
+attributeFilter_lessThan :: Lens.Lens' AttributeFilter (Prelude.Maybe DocumentAttribute)
+attributeFilter_lessThan = Lens.lens (\AttributeFilter' {lessThan} -> lessThan) (\s@AttributeFilter' {} a -> s {lessThan = a} :: AttributeFilter)
+
 -- | Performs a less than or equals operation on two document attributes or
 -- metadata fields. Use with a document attribute of type @Date@ or @Long@.
 attributeFilter_lessThanOrEquals :: Lens.Lens' AttributeFilter (Prelude.Maybe DocumentAttribute)
 attributeFilter_lessThanOrEquals = Lens.lens (\AttributeFilter' {lessThanOrEquals} -> lessThanOrEquals) (\s@AttributeFilter' {} a -> s {lessThanOrEquals = a} :: AttributeFilter)
 
+-- | Performs a logical @NOT@ operation on all supplied filters.
+attributeFilter_notFilter :: Lens.Lens' AttributeFilter (Prelude.Maybe AttributeFilter)
+attributeFilter_notFilter = Lens.lens (\AttributeFilter' {notFilter} -> notFilter) (\s@AttributeFilter' {} a -> s {notFilter = a} :: AttributeFilter)
+
+-- | Performs a logical @OR@ operation on all supplied filters.
+attributeFilter_orAllFilters :: Lens.Lens' AttributeFilter (Prelude.Maybe [AttributeFilter])
+attributeFilter_orAllFilters = Lens.lens (\AttributeFilter' {orAllFilters} -> orAllFilters) (\s@AttributeFilter' {} a -> s {orAllFilters = a} :: AttributeFilter) Prelude.. Lens.mapping Lens.coerced
+
 instance Prelude.Hashable AttributeFilter where
   hashWithSalt _salt AttributeFilter' {..} =
-    _salt `Prelude.hashWithSalt` containsAll
+    _salt `Prelude.hashWithSalt` andAllFilters
+      `Prelude.hashWithSalt` containsAll
       `Prelude.hashWithSalt` containsAny
-      `Prelude.hashWithSalt` lessThan
-      `Prelude.hashWithSalt` andAllFilters
-      `Prelude.hashWithSalt` orAllFilters
-      `Prelude.hashWithSalt` notFilter
-      `Prelude.hashWithSalt` greaterThanOrEquals
       `Prelude.hashWithSalt` equalsTo
       `Prelude.hashWithSalt` greaterThan
+      `Prelude.hashWithSalt` greaterThanOrEquals
+      `Prelude.hashWithSalt` lessThan
       `Prelude.hashWithSalt` lessThanOrEquals
+      `Prelude.hashWithSalt` notFilter
+      `Prelude.hashWithSalt` orAllFilters
 
 instance Prelude.NFData AttributeFilter where
   rnf AttributeFilter' {..} =
-    Prelude.rnf containsAll
+    Prelude.rnf andAllFilters
+      `Prelude.seq` Prelude.rnf containsAll
       `Prelude.seq` Prelude.rnf containsAny
-      `Prelude.seq` Prelude.rnf lessThan
-      `Prelude.seq` Prelude.rnf andAllFilters
-      `Prelude.seq` Prelude.rnf orAllFilters
-      `Prelude.seq` Prelude.rnf notFilter
-      `Prelude.seq` Prelude.rnf greaterThanOrEquals
       `Prelude.seq` Prelude.rnf equalsTo
       `Prelude.seq` Prelude.rnf greaterThan
+      `Prelude.seq` Prelude.rnf greaterThanOrEquals
+      `Prelude.seq` Prelude.rnf lessThan
       `Prelude.seq` Prelude.rnf lessThanOrEquals
+      `Prelude.seq` Prelude.rnf notFilter
+      `Prelude.seq` Prelude.rnf orAllFilters
 
 instance Data.ToJSON AttributeFilter where
   toJSON AttributeFilter' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ContainsAll" Data..=) Prelude.<$> containsAll,
+          [ ("AndAllFilters" Data..=) Prelude.<$> andAllFilters,
+            ("ContainsAll" Data..=) Prelude.<$> containsAll,
             ("ContainsAny" Data..=) Prelude.<$> containsAny,
-            ("LessThan" Data..=) Prelude.<$> lessThan,
-            ("AndAllFilters" Data..=) Prelude.<$> andAllFilters,
-            ("OrAllFilters" Data..=) Prelude.<$> orAllFilters,
-            ("NotFilter" Data..=) Prelude.<$> notFilter,
-            ("GreaterThanOrEquals" Data..=)
-              Prelude.<$> greaterThanOrEquals,
             ("EqualsTo" Data..=) Prelude.<$> equalsTo,
             ("GreaterThan" Data..=) Prelude.<$> greaterThan,
+            ("GreaterThanOrEquals" Data..=)
+              Prelude.<$> greaterThanOrEquals,
+            ("LessThan" Data..=) Prelude.<$> lessThan,
             ("LessThanOrEquals" Data..=)
-              Prelude.<$> lessThanOrEquals
+              Prelude.<$> lessThanOrEquals,
+            ("NotFilter" Data..=) Prelude.<$> notFilter,
+            ("OrAllFilters" Data..=) Prelude.<$> orAllFilters
           ]
       )

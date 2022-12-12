@@ -25,26 +25,38 @@ module Amazonka.ImportExport
     -- * Errors
     -- $errors
 
-    -- ** InvalidAddressException
-    _InvalidAddressException,
-
-    -- ** MissingManifestFieldException
-    _MissingManifestFieldException,
-
     -- ** BucketPermissionException
     _BucketPermissionException,
 
-    -- ** MissingParameterException
-    _MissingParameterException,
+    -- ** CanceledJobIdException
+    _CanceledJobIdException,
 
-    -- ** UnableToCancelJobIdException
-    _UnableToCancelJobIdException,
+    -- ** CreateJobQuotaExceededException
+    _CreateJobQuotaExceededException,
 
-    -- ** MissingCustomsException
-    _MissingCustomsException,
+    -- ** ExpiredJobIdException
+    _ExpiredJobIdException,
 
     -- ** InvalidAccessKeyIdException
     _InvalidAccessKeyIdException,
+
+    -- ** InvalidAddressException
+    _InvalidAddressException,
+
+    -- ** InvalidCustomsException
+    _InvalidCustomsException,
+
+    -- ** InvalidFileSystemException
+    _InvalidFileSystemException,
+
+    -- ** InvalidJobIdException
+    _InvalidJobIdException,
+
+    -- ** InvalidManifestFieldException
+    _InvalidManifestFieldException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
 
     -- ** InvalidVersionException
     _InvalidVersionException,
@@ -52,38 +64,26 @@ module Amazonka.ImportExport
     -- ** MalformedManifestException
     _MalformedManifestException,
 
-    -- ** UnableToUpdateJobIdException
-    _UnableToUpdateJobIdException,
+    -- ** MissingCustomsException
+    _MissingCustomsException,
 
-    -- ** InvalidManifestFieldException
-    _InvalidManifestFieldException,
+    -- ** MissingManifestFieldException
+    _MissingManifestFieldException,
 
-    -- ** NoSuchBucketException
-    _NoSuchBucketException,
-
-    -- ** CanceledJobIdException
-    _CanceledJobIdException,
-
-    -- ** InvalidJobIdException
-    _InvalidJobIdException,
-
-    -- ** InvalidCustomsException
-    _InvalidCustomsException,
-
-    -- ** CreateJobQuotaExceededException
-    _CreateJobQuotaExceededException,
+    -- ** MissingParameterException
+    _MissingParameterException,
 
     -- ** MultipleRegionsException
     _MultipleRegionsException,
 
-    -- ** ExpiredJobIdException
-    _ExpiredJobIdException,
+    -- ** NoSuchBucketException
+    _NoSuchBucketException,
 
-    -- ** InvalidFileSystemException
-    _InvalidFileSystemException,
+    -- ** UnableToCancelJobIdException
+    _UnableToCancelJobIdException,
 
-    -- ** InvalidParameterException
-    _InvalidParameterException,
+    -- ** UnableToUpdateJobIdException
+    _UnableToUpdateJobIdException,
 
     -- * Waiters
     -- $waiters

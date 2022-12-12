@@ -50,24 +50,24 @@ module Amazonka.CognitoIdentityProvider.UpdateUserPool
     newUpdateUserPool,
 
     -- * Request Lenses
-    updateUserPool_emailConfiguration,
-    updateUserPool_adminCreateUserConfig,
-    updateUserPool_verificationMessageTemplate,
-    updateUserPool_deviceConfiguration,
-    updateUserPool_mfaConfiguration,
-    updateUserPool_autoVerifiedAttributes,
-    updateUserPool_smsConfiguration,
-    updateUserPool_policies,
-    updateUserPool_smsVerificationMessage,
-    updateUserPool_emailVerificationSubject,
     updateUserPool_accountRecoverySetting,
-    updateUserPool_userAttributeUpdateSettings,
-    updateUserPool_userPoolTags,
+    updateUserPool_adminCreateUserConfig,
+    updateUserPool_autoVerifiedAttributes,
     updateUserPool_deletionProtection,
+    updateUserPool_deviceConfiguration,
+    updateUserPool_emailConfiguration,
     updateUserPool_emailVerificationMessage,
-    updateUserPool_smsAuthenticationMessage,
+    updateUserPool_emailVerificationSubject,
     updateUserPool_lambdaConfig,
+    updateUserPool_mfaConfiguration,
+    updateUserPool_policies,
+    updateUserPool_smsAuthenticationMessage,
+    updateUserPool_smsConfiguration,
+    updateUserPool_smsVerificationMessage,
+    updateUserPool_userAttributeUpdateSettings,
     updateUserPool_userPoolAddOns,
+    updateUserPool_userPoolTags,
+    updateUserPool_verificationMessageTemplate,
     updateUserPool_userPoolId,
 
     -- * Destructuring the Response
@@ -91,15 +91,29 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateUserPool' smart constructor.
 data UpdateUserPool = UpdateUserPool'
-  { -- | The email configuration of your user pool. The email configuration type
-    -- sets your preferred sending method, Amazon Web Services Region, and
-    -- sender for email invitation and verification messages from your user
-    -- pool.
-    emailConfiguration :: Prelude.Maybe EmailConfigurationType,
+  { -- | The available verified method a user can use to recover their password
+    -- when they call @ForgotPassword@. You can use this setting to define a
+    -- preferred method when a user has more than one method available. With
+    -- this setting, SMS doesn\'t qualify for a valid password recovery
+    -- mechanism if the user also has SMS multi-factor authentication (MFA)
+    -- activated. In the absence of this setting, Amazon Cognito uses the
+    -- legacy behavior to determine the recovery method where SMS is preferred
+    -- through email.
+    accountRecoverySetting :: Prelude.Maybe AccountRecoverySettingType,
     -- | The configuration for @AdminCreateUser@ requests.
     adminCreateUserConfig :: Prelude.Maybe AdminCreateUserConfigType,
-    -- | The template for verification messages.
-    verificationMessageTemplate :: Prelude.Maybe VerificationMessageTemplateType,
+    -- | The attributes that are automatically verified when Amazon Cognito
+    -- requests to update user pools.
+    autoVerifiedAttributes :: Prelude.Maybe [VerifiedAttributeType],
+    -- | When active, @DeletionProtection@ prevents accidental deletion of your
+    -- user pool. Before you can delete a user pool that you have protected
+    -- against deletion, you must deactivate this feature.
+    --
+    -- When you try to delete a protected user pool in a @DeleteUserPool@ API
+    -- request, Amazon Cognito returns an @InvalidParameterException@ error. To
+    -- delete a protected user pool, send a new @DeleteUserPool@ request after
+    -- you deactivate deletion protection in an @UpdateUserPool@ API request.
+    deletionProtection :: Prelude.Maybe DeletionProtectionType,
     -- | The device-remembering configuration for a user pool. A null value
     -- indicates that you have deactivated device remembering in your user
     -- pool.
@@ -107,6 +121,20 @@ data UpdateUserPool = UpdateUserPool'
     -- When you provide a value for any @DeviceConfiguration@ field, you
     -- activate the Amazon Cognito device-remembering feature.
     deviceConfiguration :: Prelude.Maybe DeviceConfigurationType,
+    -- | The email configuration of your user pool. The email configuration type
+    -- sets your preferred sending method, Amazon Web Services Region, and
+    -- sender for email invitation and verification messages from your user
+    -- pool.
+    emailConfiguration :: Prelude.Maybe EmailConfigurationType,
+    -- | This parameter is no longer used. See
+    -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html VerificationMessageTemplateType>.
+    emailVerificationMessage :: Prelude.Maybe Prelude.Text,
+    -- | This parameter is no longer used. See
+    -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html VerificationMessageTemplateType>.
+    emailVerificationSubject :: Prelude.Maybe Prelude.Text,
+    -- | The Lambda configuration information from the request to update the user
+    -- pool.
+    lambdaConfig :: Prelude.Maybe LambdaConfigType,
     -- | Possible values include:
     --
     -- -   @OFF@ - MFA tokens aren\'t required and can\'t be specified during
@@ -121,9 +149,10 @@ data UpdateUserPool = UpdateUserPool'
     -- -   @OPTIONAL@ - Users have the option when registering to create an MFA
     --     token.
     mfaConfiguration :: Prelude.Maybe UserPoolMfaType,
-    -- | The attributes that are automatically verified when Amazon Cognito
-    -- requests to update user pools.
-    autoVerifiedAttributes :: Prelude.Maybe [VerifiedAttributeType],
+    -- | A container with the policies you want to update in a user pool.
+    policies :: Prelude.Maybe UserPoolPolicyType,
+    -- | The contents of the SMS authentication message.
+    smsAuthenticationMessage :: Prelude.Maybe Prelude.Text,
     -- | The SMS configuration with the settings that your Amazon Cognito user
     -- pool must use to send an SMS message from your Amazon Web Services
     -- account through Amazon Simple Notification Service. To send SMS messages
@@ -131,23 +160,9 @@ data UpdateUserPool = UpdateUserPool'
     -- Amazon Cognito user pool uses an Identity and Access Management (IAM)
     -- role in your Amazon Web Services account.
     smsConfiguration :: Prelude.Maybe SmsConfigurationType,
-    -- | A container with the policies you want to update in a user pool.
-    policies :: Prelude.Maybe UserPoolPolicyType,
     -- | This parameter is no longer used. See
     -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html VerificationMessageTemplateType>.
     smsVerificationMessage :: Prelude.Maybe Prelude.Text,
-    -- | This parameter is no longer used. See
-    -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html VerificationMessageTemplateType>.
-    emailVerificationSubject :: Prelude.Maybe Prelude.Text,
-    -- | The available verified method a user can use to recover their password
-    -- when they call @ForgotPassword@. You can use this setting to define a
-    -- preferred method when a user has more than one method available. With
-    -- this setting, SMS doesn\'t qualify for a valid password recovery
-    -- mechanism if the user also has SMS multi-factor authentication (MFA)
-    -- activated. In the absence of this setting, Amazon Cognito uses the
-    -- legacy behavior to determine the recovery method where SMS is preferred
-    -- through email.
-    accountRecoverySetting :: Prelude.Maybe AccountRecoverySettingType,
     -- | The settings for updates to user attributes. These settings include the
     -- property @AttributesRequireVerificationBeforeUpdate@, a user-pool
     -- setting that tells Amazon Cognito how to handle changes to the value of
@@ -155,30 +170,15 @@ data UpdateUserPool = UpdateUserPool'
     -- information, see
     -- <https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates Verifying updates to email addresses and phone numbers>.
     userAttributeUpdateSettings :: Prelude.Maybe UserAttributeUpdateSettingsType,
+    -- | Enables advanced security risk detection. Set the key
+    -- @AdvancedSecurityMode@ to the value \"AUDIT\".
+    userPoolAddOns :: Prelude.Maybe UserPoolAddOnsType,
     -- | The tag keys and values to assign to the user pool. A tag is a label
     -- that you can use to categorize and manage user pools in different ways,
     -- such as by purpose, owner, environment, or other criteria.
     userPoolTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | When active, @DeletionProtection@ prevents accidental deletion of your
-    -- user pool. Before you can delete a user pool that you have protected
-    -- against deletion, you must deactivate this feature.
-    --
-    -- When you try to delete a protected user pool in a @DeleteUserPool@ API
-    -- request, Amazon Cognito returns an @InvalidParameterException@ error. To
-    -- delete a protected user pool, send a new @DeleteUserPool@ request after
-    -- you deactivate deletion protection in an @UpdateUserPool@ API request.
-    deletionProtection :: Prelude.Maybe DeletionProtectionType,
-    -- | This parameter is no longer used. See
-    -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html VerificationMessageTemplateType>.
-    emailVerificationMessage :: Prelude.Maybe Prelude.Text,
-    -- | The contents of the SMS authentication message.
-    smsAuthenticationMessage :: Prelude.Maybe Prelude.Text,
-    -- | The Lambda configuration information from the request to update the user
-    -- pool.
-    lambdaConfig :: Prelude.Maybe LambdaConfigType,
-    -- | Enables advanced security risk detection. Set the key
-    -- @AdvancedSecurityMode@ to the value \"AUDIT\".
-    userPoolAddOns :: Prelude.Maybe UserPoolAddOnsType,
+    -- | The template for verification messages.
+    verificationMessageTemplate :: Prelude.Maybe VerificationMessageTemplateType,
     -- | The user pool ID for the user pool you want to update.
     userPoolId :: Prelude.Text
   }
@@ -192,14 +192,28 @@ data UpdateUserPool = UpdateUserPool'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'emailConfiguration', 'updateUserPool_emailConfiguration' - The email configuration of your user pool. The email configuration type
--- sets your preferred sending method, Amazon Web Services Region, and
--- sender for email invitation and verification messages from your user
--- pool.
+-- 'accountRecoverySetting', 'updateUserPool_accountRecoverySetting' - The available verified method a user can use to recover their password
+-- when they call @ForgotPassword@. You can use this setting to define a
+-- preferred method when a user has more than one method available. With
+-- this setting, SMS doesn\'t qualify for a valid password recovery
+-- mechanism if the user also has SMS multi-factor authentication (MFA)
+-- activated. In the absence of this setting, Amazon Cognito uses the
+-- legacy behavior to determine the recovery method where SMS is preferred
+-- through email.
 --
 -- 'adminCreateUserConfig', 'updateUserPool_adminCreateUserConfig' - The configuration for @AdminCreateUser@ requests.
 --
--- 'verificationMessageTemplate', 'updateUserPool_verificationMessageTemplate' - The template for verification messages.
+-- 'autoVerifiedAttributes', 'updateUserPool_autoVerifiedAttributes' - The attributes that are automatically verified when Amazon Cognito
+-- requests to update user pools.
+--
+-- 'deletionProtection', 'updateUserPool_deletionProtection' - When active, @DeletionProtection@ prevents accidental deletion of your
+-- user pool. Before you can delete a user pool that you have protected
+-- against deletion, you must deactivate this feature.
+--
+-- When you try to delete a protected user pool in a @DeleteUserPool@ API
+-- request, Amazon Cognito returns an @InvalidParameterException@ error. To
+-- delete a protected user pool, send a new @DeleteUserPool@ request after
+-- you deactivate deletion protection in an @UpdateUserPool@ API request.
 --
 -- 'deviceConfiguration', 'updateUserPool_deviceConfiguration' - The device-remembering configuration for a user pool. A null value
 -- indicates that you have deactivated device remembering in your user
@@ -207,6 +221,20 @@ data UpdateUserPool = UpdateUserPool'
 --
 -- When you provide a value for any @DeviceConfiguration@ field, you
 -- activate the Amazon Cognito device-remembering feature.
+--
+-- 'emailConfiguration', 'updateUserPool_emailConfiguration' - The email configuration of your user pool. The email configuration type
+-- sets your preferred sending method, Amazon Web Services Region, and
+-- sender for email invitation and verification messages from your user
+-- pool.
+--
+-- 'emailVerificationMessage', 'updateUserPool_emailVerificationMessage' - This parameter is no longer used. See
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html VerificationMessageTemplateType>.
+--
+-- 'emailVerificationSubject', 'updateUserPool_emailVerificationSubject' - This parameter is no longer used. See
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html VerificationMessageTemplateType>.
+--
+-- 'lambdaConfig', 'updateUserPool_lambdaConfig' - The Lambda configuration information from the request to update the user
+-- pool.
 --
 -- 'mfaConfiguration', 'updateUserPool_mfaConfiguration' - Possible values include:
 --
@@ -222,8 +250,9 @@ data UpdateUserPool = UpdateUserPool'
 -- -   @OPTIONAL@ - Users have the option when registering to create an MFA
 --     token.
 --
--- 'autoVerifiedAttributes', 'updateUserPool_autoVerifiedAttributes' - The attributes that are automatically verified when Amazon Cognito
--- requests to update user pools.
+-- 'policies', 'updateUserPool_policies' - A container with the policies you want to update in a user pool.
+--
+-- 'smsAuthenticationMessage', 'updateUserPool_smsAuthenticationMessage' - The contents of the SMS authentication message.
 --
 -- 'smsConfiguration', 'updateUserPool_smsConfiguration' - The SMS configuration with the settings that your Amazon Cognito user
 -- pool must use to send an SMS message from your Amazon Web Services
@@ -232,22 +261,8 @@ data UpdateUserPool = UpdateUserPool'
 -- Amazon Cognito user pool uses an Identity and Access Management (IAM)
 -- role in your Amazon Web Services account.
 --
--- 'policies', 'updateUserPool_policies' - A container with the policies you want to update in a user pool.
---
 -- 'smsVerificationMessage', 'updateUserPool_smsVerificationMessage' - This parameter is no longer used. See
 -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html VerificationMessageTemplateType>.
---
--- 'emailVerificationSubject', 'updateUserPool_emailVerificationSubject' - This parameter is no longer used. See
--- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html VerificationMessageTemplateType>.
---
--- 'accountRecoverySetting', 'updateUserPool_accountRecoverySetting' - The available verified method a user can use to recover their password
--- when they call @ForgotPassword@. You can use this setting to define a
--- preferred method when a user has more than one method available. With
--- this setting, SMS doesn\'t qualify for a valid password recovery
--- mechanism if the user also has SMS multi-factor authentication (MFA)
--- activated. In the absence of this setting, Amazon Cognito uses the
--- legacy behavior to determine the recovery method where SMS is preferred
--- through email.
 --
 -- 'userAttributeUpdateSettings', 'updateUserPool_userAttributeUpdateSettings' - The settings for updates to user attributes. These settings include the
 -- property @AttributesRequireVerificationBeforeUpdate@, a user-pool
@@ -256,29 +271,14 @@ data UpdateUserPool = UpdateUserPool'
 -- information, see
 -- <https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates Verifying updates to email addresses and phone numbers>.
 --
+-- 'userPoolAddOns', 'updateUserPool_userPoolAddOns' - Enables advanced security risk detection. Set the key
+-- @AdvancedSecurityMode@ to the value \"AUDIT\".
+--
 -- 'userPoolTags', 'updateUserPool_userPoolTags' - The tag keys and values to assign to the user pool. A tag is a label
 -- that you can use to categorize and manage user pools in different ways,
 -- such as by purpose, owner, environment, or other criteria.
 --
--- 'deletionProtection', 'updateUserPool_deletionProtection' - When active, @DeletionProtection@ prevents accidental deletion of your
--- user pool. Before you can delete a user pool that you have protected
--- against deletion, you must deactivate this feature.
---
--- When you try to delete a protected user pool in a @DeleteUserPool@ API
--- request, Amazon Cognito returns an @InvalidParameterException@ error. To
--- delete a protected user pool, send a new @DeleteUserPool@ request after
--- you deactivate deletion protection in an @UpdateUserPool@ API request.
---
--- 'emailVerificationMessage', 'updateUserPool_emailVerificationMessage' - This parameter is no longer used. See
--- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html VerificationMessageTemplateType>.
---
--- 'smsAuthenticationMessage', 'updateUserPool_smsAuthenticationMessage' - The contents of the SMS authentication message.
---
--- 'lambdaConfig', 'updateUserPool_lambdaConfig' - The Lambda configuration information from the request to update the user
--- pool.
---
--- 'userPoolAddOns', 'updateUserPool_userPoolAddOns' - Enables advanced security risk detection. Set the key
--- @AdvancedSecurityMode@ to the value \"AUDIT\".
+-- 'verificationMessageTemplate', 'updateUserPool_verificationMessageTemplate' - The template for verification messages.
 --
 -- 'userPoolId', 'updateUserPool_userPoolId' - The user pool ID for the user pool you want to update.
 newUpdateUserPool ::
@@ -287,42 +287,58 @@ newUpdateUserPool ::
   UpdateUserPool
 newUpdateUserPool pUserPoolId_ =
   UpdateUserPool'
-    { emailConfiguration =
+    { accountRecoverySetting =
         Prelude.Nothing,
       adminCreateUserConfig = Prelude.Nothing,
-      verificationMessageTemplate = Prelude.Nothing,
-      deviceConfiguration = Prelude.Nothing,
-      mfaConfiguration = Prelude.Nothing,
       autoVerifiedAttributes = Prelude.Nothing,
-      smsConfiguration = Prelude.Nothing,
-      policies = Prelude.Nothing,
-      smsVerificationMessage = Prelude.Nothing,
-      emailVerificationSubject = Prelude.Nothing,
-      accountRecoverySetting = Prelude.Nothing,
-      userAttributeUpdateSettings = Prelude.Nothing,
-      userPoolTags = Prelude.Nothing,
       deletionProtection = Prelude.Nothing,
+      deviceConfiguration = Prelude.Nothing,
+      emailConfiguration = Prelude.Nothing,
       emailVerificationMessage = Prelude.Nothing,
-      smsAuthenticationMessage = Prelude.Nothing,
+      emailVerificationSubject = Prelude.Nothing,
       lambdaConfig = Prelude.Nothing,
+      mfaConfiguration = Prelude.Nothing,
+      policies = Prelude.Nothing,
+      smsAuthenticationMessage = Prelude.Nothing,
+      smsConfiguration = Prelude.Nothing,
+      smsVerificationMessage = Prelude.Nothing,
+      userAttributeUpdateSettings = Prelude.Nothing,
       userPoolAddOns = Prelude.Nothing,
+      userPoolTags = Prelude.Nothing,
+      verificationMessageTemplate = Prelude.Nothing,
       userPoolId = pUserPoolId_
     }
 
--- | The email configuration of your user pool. The email configuration type
--- sets your preferred sending method, Amazon Web Services Region, and
--- sender for email invitation and verification messages from your user
--- pool.
-updateUserPool_emailConfiguration :: Lens.Lens' UpdateUserPool (Prelude.Maybe EmailConfigurationType)
-updateUserPool_emailConfiguration = Lens.lens (\UpdateUserPool' {emailConfiguration} -> emailConfiguration) (\s@UpdateUserPool' {} a -> s {emailConfiguration = a} :: UpdateUserPool)
+-- | The available verified method a user can use to recover their password
+-- when they call @ForgotPassword@. You can use this setting to define a
+-- preferred method when a user has more than one method available. With
+-- this setting, SMS doesn\'t qualify for a valid password recovery
+-- mechanism if the user also has SMS multi-factor authentication (MFA)
+-- activated. In the absence of this setting, Amazon Cognito uses the
+-- legacy behavior to determine the recovery method where SMS is preferred
+-- through email.
+updateUserPool_accountRecoverySetting :: Lens.Lens' UpdateUserPool (Prelude.Maybe AccountRecoverySettingType)
+updateUserPool_accountRecoverySetting = Lens.lens (\UpdateUserPool' {accountRecoverySetting} -> accountRecoverySetting) (\s@UpdateUserPool' {} a -> s {accountRecoverySetting = a} :: UpdateUserPool)
 
 -- | The configuration for @AdminCreateUser@ requests.
 updateUserPool_adminCreateUserConfig :: Lens.Lens' UpdateUserPool (Prelude.Maybe AdminCreateUserConfigType)
 updateUserPool_adminCreateUserConfig = Lens.lens (\UpdateUserPool' {adminCreateUserConfig} -> adminCreateUserConfig) (\s@UpdateUserPool' {} a -> s {adminCreateUserConfig = a} :: UpdateUserPool)
 
--- | The template for verification messages.
-updateUserPool_verificationMessageTemplate :: Lens.Lens' UpdateUserPool (Prelude.Maybe VerificationMessageTemplateType)
-updateUserPool_verificationMessageTemplate = Lens.lens (\UpdateUserPool' {verificationMessageTemplate} -> verificationMessageTemplate) (\s@UpdateUserPool' {} a -> s {verificationMessageTemplate = a} :: UpdateUserPool)
+-- | The attributes that are automatically verified when Amazon Cognito
+-- requests to update user pools.
+updateUserPool_autoVerifiedAttributes :: Lens.Lens' UpdateUserPool (Prelude.Maybe [VerifiedAttributeType])
+updateUserPool_autoVerifiedAttributes = Lens.lens (\UpdateUserPool' {autoVerifiedAttributes} -> autoVerifiedAttributes) (\s@UpdateUserPool' {} a -> s {autoVerifiedAttributes = a} :: UpdateUserPool) Prelude.. Lens.mapping Lens.coerced
+
+-- | When active, @DeletionProtection@ prevents accidental deletion of your
+-- user pool. Before you can delete a user pool that you have protected
+-- against deletion, you must deactivate this feature.
+--
+-- When you try to delete a protected user pool in a @DeleteUserPool@ API
+-- request, Amazon Cognito returns an @InvalidParameterException@ error. To
+-- delete a protected user pool, send a new @DeleteUserPool@ request after
+-- you deactivate deletion protection in an @UpdateUserPool@ API request.
+updateUserPool_deletionProtection :: Lens.Lens' UpdateUserPool (Prelude.Maybe DeletionProtectionType)
+updateUserPool_deletionProtection = Lens.lens (\UpdateUserPool' {deletionProtection} -> deletionProtection) (\s@UpdateUserPool' {} a -> s {deletionProtection = a} :: UpdateUserPool)
 
 -- | The device-remembering configuration for a user pool. A null value
 -- indicates that you have deactivated device remembering in your user
@@ -332,6 +348,28 @@ updateUserPool_verificationMessageTemplate = Lens.lens (\UpdateUserPool' {verifi
 -- activate the Amazon Cognito device-remembering feature.
 updateUserPool_deviceConfiguration :: Lens.Lens' UpdateUserPool (Prelude.Maybe DeviceConfigurationType)
 updateUserPool_deviceConfiguration = Lens.lens (\UpdateUserPool' {deviceConfiguration} -> deviceConfiguration) (\s@UpdateUserPool' {} a -> s {deviceConfiguration = a} :: UpdateUserPool)
+
+-- | The email configuration of your user pool. The email configuration type
+-- sets your preferred sending method, Amazon Web Services Region, and
+-- sender for email invitation and verification messages from your user
+-- pool.
+updateUserPool_emailConfiguration :: Lens.Lens' UpdateUserPool (Prelude.Maybe EmailConfigurationType)
+updateUserPool_emailConfiguration = Lens.lens (\UpdateUserPool' {emailConfiguration} -> emailConfiguration) (\s@UpdateUserPool' {} a -> s {emailConfiguration = a} :: UpdateUserPool)
+
+-- | This parameter is no longer used. See
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html VerificationMessageTemplateType>.
+updateUserPool_emailVerificationMessage :: Lens.Lens' UpdateUserPool (Prelude.Maybe Prelude.Text)
+updateUserPool_emailVerificationMessage = Lens.lens (\UpdateUserPool' {emailVerificationMessage} -> emailVerificationMessage) (\s@UpdateUserPool' {} a -> s {emailVerificationMessage = a} :: UpdateUserPool)
+
+-- | This parameter is no longer used. See
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html VerificationMessageTemplateType>.
+updateUserPool_emailVerificationSubject :: Lens.Lens' UpdateUserPool (Prelude.Maybe Prelude.Text)
+updateUserPool_emailVerificationSubject = Lens.lens (\UpdateUserPool' {emailVerificationSubject} -> emailVerificationSubject) (\s@UpdateUserPool' {} a -> s {emailVerificationSubject = a} :: UpdateUserPool)
+
+-- | The Lambda configuration information from the request to update the user
+-- pool.
+updateUserPool_lambdaConfig :: Lens.Lens' UpdateUserPool (Prelude.Maybe LambdaConfigType)
+updateUserPool_lambdaConfig = Lens.lens (\UpdateUserPool' {lambdaConfig} -> lambdaConfig) (\s@UpdateUserPool' {} a -> s {lambdaConfig = a} :: UpdateUserPool)
 
 -- | Possible values include:
 --
@@ -349,10 +387,13 @@ updateUserPool_deviceConfiguration = Lens.lens (\UpdateUserPool' {deviceConfigur
 updateUserPool_mfaConfiguration :: Lens.Lens' UpdateUserPool (Prelude.Maybe UserPoolMfaType)
 updateUserPool_mfaConfiguration = Lens.lens (\UpdateUserPool' {mfaConfiguration} -> mfaConfiguration) (\s@UpdateUserPool' {} a -> s {mfaConfiguration = a} :: UpdateUserPool)
 
--- | The attributes that are automatically verified when Amazon Cognito
--- requests to update user pools.
-updateUserPool_autoVerifiedAttributes :: Lens.Lens' UpdateUserPool (Prelude.Maybe [VerifiedAttributeType])
-updateUserPool_autoVerifiedAttributes = Lens.lens (\UpdateUserPool' {autoVerifiedAttributes} -> autoVerifiedAttributes) (\s@UpdateUserPool' {} a -> s {autoVerifiedAttributes = a} :: UpdateUserPool) Prelude.. Lens.mapping Lens.coerced
+-- | A container with the policies you want to update in a user pool.
+updateUserPool_policies :: Lens.Lens' UpdateUserPool (Prelude.Maybe UserPoolPolicyType)
+updateUserPool_policies = Lens.lens (\UpdateUserPool' {policies} -> policies) (\s@UpdateUserPool' {} a -> s {policies = a} :: UpdateUserPool)
+
+-- | The contents of the SMS authentication message.
+updateUserPool_smsAuthenticationMessage :: Lens.Lens' UpdateUserPool (Prelude.Maybe Prelude.Text)
+updateUserPool_smsAuthenticationMessage = Lens.lens (\UpdateUserPool' {smsAuthenticationMessage} -> smsAuthenticationMessage) (\s@UpdateUserPool' {} a -> s {smsAuthenticationMessage = a} :: UpdateUserPool)
 
 -- | The SMS configuration with the settings that your Amazon Cognito user
 -- pool must use to send an SMS message from your Amazon Web Services
@@ -363,30 +404,10 @@ updateUserPool_autoVerifiedAttributes = Lens.lens (\UpdateUserPool' {autoVerifie
 updateUserPool_smsConfiguration :: Lens.Lens' UpdateUserPool (Prelude.Maybe SmsConfigurationType)
 updateUserPool_smsConfiguration = Lens.lens (\UpdateUserPool' {smsConfiguration} -> smsConfiguration) (\s@UpdateUserPool' {} a -> s {smsConfiguration = a} :: UpdateUserPool)
 
--- | A container with the policies you want to update in a user pool.
-updateUserPool_policies :: Lens.Lens' UpdateUserPool (Prelude.Maybe UserPoolPolicyType)
-updateUserPool_policies = Lens.lens (\UpdateUserPool' {policies} -> policies) (\s@UpdateUserPool' {} a -> s {policies = a} :: UpdateUserPool)
-
 -- | This parameter is no longer used. See
 -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html VerificationMessageTemplateType>.
 updateUserPool_smsVerificationMessage :: Lens.Lens' UpdateUserPool (Prelude.Maybe Prelude.Text)
 updateUserPool_smsVerificationMessage = Lens.lens (\UpdateUserPool' {smsVerificationMessage} -> smsVerificationMessage) (\s@UpdateUserPool' {} a -> s {smsVerificationMessage = a} :: UpdateUserPool)
-
--- | This parameter is no longer used. See
--- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html VerificationMessageTemplateType>.
-updateUserPool_emailVerificationSubject :: Lens.Lens' UpdateUserPool (Prelude.Maybe Prelude.Text)
-updateUserPool_emailVerificationSubject = Lens.lens (\UpdateUserPool' {emailVerificationSubject} -> emailVerificationSubject) (\s@UpdateUserPool' {} a -> s {emailVerificationSubject = a} :: UpdateUserPool)
-
--- | The available verified method a user can use to recover their password
--- when they call @ForgotPassword@. You can use this setting to define a
--- preferred method when a user has more than one method available. With
--- this setting, SMS doesn\'t qualify for a valid password recovery
--- mechanism if the user also has SMS multi-factor authentication (MFA)
--- activated. In the absence of this setting, Amazon Cognito uses the
--- legacy behavior to determine the recovery method where SMS is preferred
--- through email.
-updateUserPool_accountRecoverySetting :: Lens.Lens' UpdateUserPool (Prelude.Maybe AccountRecoverySettingType)
-updateUserPool_accountRecoverySetting = Lens.lens (\UpdateUserPool' {accountRecoverySetting} -> accountRecoverySetting) (\s@UpdateUserPool' {} a -> s {accountRecoverySetting = a} :: UpdateUserPool)
 
 -- | The settings for updates to user attributes. These settings include the
 -- property @AttributesRequireVerificationBeforeUpdate@, a user-pool
@@ -397,41 +418,20 @@ updateUserPool_accountRecoverySetting = Lens.lens (\UpdateUserPool' {accountReco
 updateUserPool_userAttributeUpdateSettings :: Lens.Lens' UpdateUserPool (Prelude.Maybe UserAttributeUpdateSettingsType)
 updateUserPool_userAttributeUpdateSettings = Lens.lens (\UpdateUserPool' {userAttributeUpdateSettings} -> userAttributeUpdateSettings) (\s@UpdateUserPool' {} a -> s {userAttributeUpdateSettings = a} :: UpdateUserPool)
 
+-- | Enables advanced security risk detection. Set the key
+-- @AdvancedSecurityMode@ to the value \"AUDIT\".
+updateUserPool_userPoolAddOns :: Lens.Lens' UpdateUserPool (Prelude.Maybe UserPoolAddOnsType)
+updateUserPool_userPoolAddOns = Lens.lens (\UpdateUserPool' {userPoolAddOns} -> userPoolAddOns) (\s@UpdateUserPool' {} a -> s {userPoolAddOns = a} :: UpdateUserPool)
+
 -- | The tag keys and values to assign to the user pool. A tag is a label
 -- that you can use to categorize and manage user pools in different ways,
 -- such as by purpose, owner, environment, or other criteria.
 updateUserPool_userPoolTags :: Lens.Lens' UpdateUserPool (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 updateUserPool_userPoolTags = Lens.lens (\UpdateUserPool' {userPoolTags} -> userPoolTags) (\s@UpdateUserPool' {} a -> s {userPoolTags = a} :: UpdateUserPool) Prelude.. Lens.mapping Lens.coerced
 
--- | When active, @DeletionProtection@ prevents accidental deletion of your
--- user pool. Before you can delete a user pool that you have protected
--- against deletion, you must deactivate this feature.
---
--- When you try to delete a protected user pool in a @DeleteUserPool@ API
--- request, Amazon Cognito returns an @InvalidParameterException@ error. To
--- delete a protected user pool, send a new @DeleteUserPool@ request after
--- you deactivate deletion protection in an @UpdateUserPool@ API request.
-updateUserPool_deletionProtection :: Lens.Lens' UpdateUserPool (Prelude.Maybe DeletionProtectionType)
-updateUserPool_deletionProtection = Lens.lens (\UpdateUserPool' {deletionProtection} -> deletionProtection) (\s@UpdateUserPool' {} a -> s {deletionProtection = a} :: UpdateUserPool)
-
--- | This parameter is no longer used. See
--- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html VerificationMessageTemplateType>.
-updateUserPool_emailVerificationMessage :: Lens.Lens' UpdateUserPool (Prelude.Maybe Prelude.Text)
-updateUserPool_emailVerificationMessage = Lens.lens (\UpdateUserPool' {emailVerificationMessage} -> emailVerificationMessage) (\s@UpdateUserPool' {} a -> s {emailVerificationMessage = a} :: UpdateUserPool)
-
--- | The contents of the SMS authentication message.
-updateUserPool_smsAuthenticationMessage :: Lens.Lens' UpdateUserPool (Prelude.Maybe Prelude.Text)
-updateUserPool_smsAuthenticationMessage = Lens.lens (\UpdateUserPool' {smsAuthenticationMessage} -> smsAuthenticationMessage) (\s@UpdateUserPool' {} a -> s {smsAuthenticationMessage = a} :: UpdateUserPool)
-
--- | The Lambda configuration information from the request to update the user
--- pool.
-updateUserPool_lambdaConfig :: Lens.Lens' UpdateUserPool (Prelude.Maybe LambdaConfigType)
-updateUserPool_lambdaConfig = Lens.lens (\UpdateUserPool' {lambdaConfig} -> lambdaConfig) (\s@UpdateUserPool' {} a -> s {lambdaConfig = a} :: UpdateUserPool)
-
--- | Enables advanced security risk detection. Set the key
--- @AdvancedSecurityMode@ to the value \"AUDIT\".
-updateUserPool_userPoolAddOns :: Lens.Lens' UpdateUserPool (Prelude.Maybe UserPoolAddOnsType)
-updateUserPool_userPoolAddOns = Lens.lens (\UpdateUserPool' {userPoolAddOns} -> userPoolAddOns) (\s@UpdateUserPool' {} a -> s {userPoolAddOns = a} :: UpdateUserPool)
+-- | The template for verification messages.
+updateUserPool_verificationMessageTemplate :: Lens.Lens' UpdateUserPool (Prelude.Maybe VerificationMessageTemplateType)
+updateUserPool_verificationMessageTemplate = Lens.lens (\UpdateUserPool' {verificationMessageTemplate} -> verificationMessageTemplate) (\s@UpdateUserPool' {} a -> s {verificationMessageTemplate = a} :: UpdateUserPool)
 
 -- | The user pool ID for the user pool you want to update.
 updateUserPool_userPoolId :: Lens.Lens' UpdateUserPool Prelude.Text
@@ -452,46 +452,47 @@ instance Core.AWSRequest UpdateUserPool where
 
 instance Prelude.Hashable UpdateUserPool where
   hashWithSalt _salt UpdateUserPool' {..} =
-    _salt `Prelude.hashWithSalt` emailConfiguration
+    _salt `Prelude.hashWithSalt` accountRecoverySetting
       `Prelude.hashWithSalt` adminCreateUserConfig
-      `Prelude.hashWithSalt` verificationMessageTemplate
-      `Prelude.hashWithSalt` deviceConfiguration
-      `Prelude.hashWithSalt` mfaConfiguration
       `Prelude.hashWithSalt` autoVerifiedAttributes
-      `Prelude.hashWithSalt` smsConfiguration
-      `Prelude.hashWithSalt` policies
-      `Prelude.hashWithSalt` smsVerificationMessage
-      `Prelude.hashWithSalt` emailVerificationSubject
-      `Prelude.hashWithSalt` accountRecoverySetting
-      `Prelude.hashWithSalt` userAttributeUpdateSettings
-      `Prelude.hashWithSalt` userPoolTags
       `Prelude.hashWithSalt` deletionProtection
+      `Prelude.hashWithSalt` deviceConfiguration
+      `Prelude.hashWithSalt` emailConfiguration
       `Prelude.hashWithSalt` emailVerificationMessage
-      `Prelude.hashWithSalt` smsAuthenticationMessage
+      `Prelude.hashWithSalt` emailVerificationSubject
       `Prelude.hashWithSalt` lambdaConfig
+      `Prelude.hashWithSalt` mfaConfiguration
+      `Prelude.hashWithSalt` policies
+      `Prelude.hashWithSalt` smsAuthenticationMessage
+      `Prelude.hashWithSalt` smsConfiguration
+      `Prelude.hashWithSalt` smsVerificationMessage
+      `Prelude.hashWithSalt` userAttributeUpdateSettings
       `Prelude.hashWithSalt` userPoolAddOns
+      `Prelude.hashWithSalt` userPoolTags
+      `Prelude.hashWithSalt` verificationMessageTemplate
       `Prelude.hashWithSalt` userPoolId
 
 instance Prelude.NFData UpdateUserPool where
   rnf UpdateUserPool' {..} =
-    Prelude.rnf emailConfiguration
+    Prelude.rnf accountRecoverySetting
       `Prelude.seq` Prelude.rnf adminCreateUserConfig
-      `Prelude.seq` Prelude.rnf verificationMessageTemplate
-      `Prelude.seq` Prelude.rnf deviceConfiguration
-      `Prelude.seq` Prelude.rnf mfaConfiguration
       `Prelude.seq` Prelude.rnf autoVerifiedAttributes
-      `Prelude.seq` Prelude.rnf smsConfiguration
-      `Prelude.seq` Prelude.rnf policies
-      `Prelude.seq` Prelude.rnf smsVerificationMessage
-      `Prelude.seq` Prelude.rnf emailVerificationSubject
-      `Prelude.seq` Prelude.rnf accountRecoverySetting
-      `Prelude.seq` Prelude.rnf userAttributeUpdateSettings
-      `Prelude.seq` Prelude.rnf userPoolTags
       `Prelude.seq` Prelude.rnf deletionProtection
+      `Prelude.seq` Prelude.rnf deviceConfiguration
+      `Prelude.seq` Prelude.rnf emailConfiguration
       `Prelude.seq` Prelude.rnf emailVerificationMessage
-      `Prelude.seq` Prelude.rnf smsAuthenticationMessage
+      `Prelude.seq` Prelude.rnf emailVerificationSubject
       `Prelude.seq` Prelude.rnf lambdaConfig
+      `Prelude.seq` Prelude.rnf mfaConfiguration
+      `Prelude.seq` Prelude.rnf policies
+      `Prelude.seq` Prelude.rnf smsAuthenticationMessage
+      `Prelude.seq` Prelude.rnf smsConfiguration
+      `Prelude.seq` Prelude.rnf smsVerificationMessage
+      `Prelude.seq` Prelude.rnf userAttributeUpdateSettings
       `Prelude.seq` Prelude.rnf userPoolAddOns
+      `Prelude.seq` Prelude.rnf userPoolTags
+      `Prelude.seq` Prelude.rnf
+        verificationMessageTemplate
       `Prelude.seq` Prelude.rnf userPoolId
 
 instance Data.ToHeaders UpdateUserPool where
@@ -513,39 +514,39 @@ instance Data.ToJSON UpdateUserPool where
   toJSON UpdateUserPool' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("EmailConfiguration" Data..=)
-              Prelude.<$> emailConfiguration,
+          [ ("AccountRecoverySetting" Data..=)
+              Prelude.<$> accountRecoverySetting,
             ("AdminCreateUserConfig" Data..=)
               Prelude.<$> adminCreateUserConfig,
-            ("VerificationMessageTemplate" Data..=)
-              Prelude.<$> verificationMessageTemplate,
-            ("DeviceConfiguration" Data..=)
-              Prelude.<$> deviceConfiguration,
-            ("MfaConfiguration" Data..=)
-              Prelude.<$> mfaConfiguration,
             ("AutoVerifiedAttributes" Data..=)
               Prelude.<$> autoVerifiedAttributes,
-            ("SmsConfiguration" Data..=)
-              Prelude.<$> smsConfiguration,
-            ("Policies" Data..=) Prelude.<$> policies,
-            ("SmsVerificationMessage" Data..=)
-              Prelude.<$> smsVerificationMessage,
-            ("EmailVerificationSubject" Data..=)
-              Prelude.<$> emailVerificationSubject,
-            ("AccountRecoverySetting" Data..=)
-              Prelude.<$> accountRecoverySetting,
-            ("UserAttributeUpdateSettings" Data..=)
-              Prelude.<$> userAttributeUpdateSettings,
-            ("UserPoolTags" Data..=) Prelude.<$> userPoolTags,
             ("DeletionProtection" Data..=)
               Prelude.<$> deletionProtection,
+            ("DeviceConfiguration" Data..=)
+              Prelude.<$> deviceConfiguration,
+            ("EmailConfiguration" Data..=)
+              Prelude.<$> emailConfiguration,
             ("EmailVerificationMessage" Data..=)
               Prelude.<$> emailVerificationMessage,
+            ("EmailVerificationSubject" Data..=)
+              Prelude.<$> emailVerificationSubject,
+            ("LambdaConfig" Data..=) Prelude.<$> lambdaConfig,
+            ("MfaConfiguration" Data..=)
+              Prelude.<$> mfaConfiguration,
+            ("Policies" Data..=) Prelude.<$> policies,
             ("SmsAuthenticationMessage" Data..=)
               Prelude.<$> smsAuthenticationMessage,
-            ("LambdaConfig" Data..=) Prelude.<$> lambdaConfig,
+            ("SmsConfiguration" Data..=)
+              Prelude.<$> smsConfiguration,
+            ("SmsVerificationMessage" Data..=)
+              Prelude.<$> smsVerificationMessage,
+            ("UserAttributeUpdateSettings" Data..=)
+              Prelude.<$> userAttributeUpdateSettings,
             ("UserPoolAddOns" Data..=)
               Prelude.<$> userPoolAddOns,
+            ("UserPoolTags" Data..=) Prelude.<$> userPoolTags,
+            ("VerificationMessageTemplate" Data..=)
+              Prelude.<$> verificationMessageTemplate,
             Prelude.Just ("UserPoolId" Data..= userPoolId)
           ]
       )

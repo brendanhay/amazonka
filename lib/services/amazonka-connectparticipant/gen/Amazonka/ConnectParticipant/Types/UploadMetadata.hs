@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUploadMetadata' smart constructor.
 data UploadMetadata = UploadMetadata'
-  { -- | This is the pre-signed URL that can be used for uploading the file to
+  { -- | The headers to be provided while uploading the file to the URL.
+    headersToInclude :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | This is the pre-signed URL that can be used for uploading the file to
     -- Amazon S3 when used in response to
     -- <https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_StartAttachmentUpload.html StartAttachmentUpload>.
     url :: Prelude.Maybe Prelude.Text,
-    -- | The headers to be provided while uploading the file to the URL.
-    headersToInclude :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The expiration time of the URL in ISO timestamp. It\'s specified in ISO
     -- 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
     -- 2019-11-08T02:41:28.172Z.
@@ -49,11 +49,11 @@ data UploadMetadata = UploadMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'headersToInclude', 'uploadMetadata_headersToInclude' - The headers to be provided while uploading the file to the URL.
+--
 -- 'url', 'uploadMetadata_url' - This is the pre-signed URL that can be used for uploading the file to
 -- Amazon S3 when used in response to
 -- <https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_StartAttachmentUpload.html StartAttachmentUpload>.
---
--- 'headersToInclude', 'uploadMetadata_headersToInclude' - The headers to be provided while uploading the file to the URL.
 --
 -- 'urlExpiry', 'uploadMetadata_urlExpiry' - The expiration time of the URL in ISO timestamp. It\'s specified in ISO
 -- 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
@@ -62,20 +62,20 @@ newUploadMetadata ::
   UploadMetadata
 newUploadMetadata =
   UploadMetadata'
-    { url = Prelude.Nothing,
-      headersToInclude = Prelude.Nothing,
+    { headersToInclude = Prelude.Nothing,
+      url = Prelude.Nothing,
       urlExpiry = Prelude.Nothing
     }
+
+-- | The headers to be provided while uploading the file to the URL.
+uploadMetadata_headersToInclude :: Lens.Lens' UploadMetadata (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+uploadMetadata_headersToInclude = Lens.lens (\UploadMetadata' {headersToInclude} -> headersToInclude) (\s@UploadMetadata' {} a -> s {headersToInclude = a} :: UploadMetadata) Prelude.. Lens.mapping Lens.coerced
 
 -- | This is the pre-signed URL that can be used for uploading the file to
 -- Amazon S3 when used in response to
 -- <https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_StartAttachmentUpload.html StartAttachmentUpload>.
 uploadMetadata_url :: Lens.Lens' UploadMetadata (Prelude.Maybe Prelude.Text)
 uploadMetadata_url = Lens.lens (\UploadMetadata' {url} -> url) (\s@UploadMetadata' {} a -> s {url = a} :: UploadMetadata)
-
--- | The headers to be provided while uploading the file to the URL.
-uploadMetadata_headersToInclude :: Lens.Lens' UploadMetadata (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-uploadMetadata_headersToInclude = Lens.lens (\UploadMetadata' {headersToInclude} -> headersToInclude) (\s@UploadMetadata' {} a -> s {headersToInclude = a} :: UploadMetadata) Prelude.. Lens.mapping Lens.coerced
 
 -- | The expiration time of the URL in ISO timestamp. It\'s specified in ISO
 -- 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
@@ -89,21 +89,21 @@ instance Data.FromJSON UploadMetadata where
       "UploadMetadata"
       ( \x ->
           UploadMetadata'
-            Prelude.<$> (x Data..:? "Url")
-            Prelude.<*> ( x Data..:? "HeadersToInclude"
+            Prelude.<$> ( x Data..:? "HeadersToInclude"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "Url")
             Prelude.<*> (x Data..:? "UrlExpiry")
       )
 
 instance Prelude.Hashable UploadMetadata where
   hashWithSalt _salt UploadMetadata' {..} =
-    _salt `Prelude.hashWithSalt` url
-      `Prelude.hashWithSalt` headersToInclude
+    _salt `Prelude.hashWithSalt` headersToInclude
+      `Prelude.hashWithSalt` url
       `Prelude.hashWithSalt` urlExpiry
 
 instance Prelude.NFData UploadMetadata where
   rnf UploadMetadata' {..} =
-    Prelude.rnf url
-      `Prelude.seq` Prelude.rnf headersToInclude
+    Prelude.rnf headersToInclude
+      `Prelude.seq` Prelude.rnf url
       `Prelude.seq` Prelude.rnf urlExpiry

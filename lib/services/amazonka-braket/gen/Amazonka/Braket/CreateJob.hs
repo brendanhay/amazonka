@@ -27,11 +27,11 @@ module Amazonka.Braket.CreateJob
     newCreateJob,
 
     -- * Request Lenses
-    createJob_tags,
     createJob_checkpointConfig,
-    createJob_stoppingCondition,
-    createJob_inputDataConfig,
     createJob_hyperParameters,
+    createJob_inputDataConfig,
+    createJob_stoppingCondition,
+    createJob_tags,
     createJob_algorithmSpecification,
     createJob_clientToken,
     createJob_deviceConfig,
@@ -60,21 +60,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateJob' smart constructor.
 data CreateJob = CreateJob'
-  { -- | A tag object that consists of a key and an optional value, used to
-    -- manage metadata for Amazon Braket resources.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Information about the output locations for job checkpoint data.
+  { -- | Information about the output locations for job checkpoint data.
     checkpointConfig :: Prelude.Maybe JobCheckpointConfig,
-    -- | The user-defined criteria that specifies when a job stops running.
-    stoppingCondition :: Prelude.Maybe JobStoppingCondition,
-    -- | A list of parameters that specify the name and type of input data and
-    -- where it is located.
-    inputDataConfig :: Prelude.Maybe [InputFileConfig],
     -- | Algorithm-specific parameters used by an Amazon Braket job that
     -- influence the quality of the training job. The values are set with a
     -- string of JSON key:value pairs, where the key is the name of the
     -- hyperparameter and the value is the value of th hyperparameter.
     hyperParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A list of parameters that specify the name and type of input data and
+    -- where it is located.
+    inputDataConfig :: Prelude.Maybe [InputFileConfig],
+    -- | The user-defined criteria that specifies when a job stops running.
+    stoppingCondition :: Prelude.Maybe JobStoppingCondition,
+    -- | A tag object that consists of a key and an optional value, used to
+    -- manage metadata for Amazon Braket resources.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Definition of the Amazon Braket job to be created. Specifies the
     -- container image the job uses and information about the Python scripts
     -- used for entry and training.
@@ -108,20 +108,20 @@ data CreateJob = CreateJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createJob_tags' - A tag object that consists of a key and an optional value, used to
--- manage metadata for Amazon Braket resources.
---
 -- 'checkpointConfig', 'createJob_checkpointConfig' - Information about the output locations for job checkpoint data.
---
--- 'stoppingCondition', 'createJob_stoppingCondition' - The user-defined criteria that specifies when a job stops running.
---
--- 'inputDataConfig', 'createJob_inputDataConfig' - A list of parameters that specify the name and type of input data and
--- where it is located.
 --
 -- 'hyperParameters', 'createJob_hyperParameters' - Algorithm-specific parameters used by an Amazon Braket job that
 -- influence the quality of the training job. The values are set with a
 -- string of JSON key:value pairs, where the key is the name of the
 -- hyperparameter and the value is the value of th hyperparameter.
+--
+-- 'inputDataConfig', 'createJob_inputDataConfig' - A list of parameters that specify the name and type of input data and
+-- where it is located.
+--
+-- 'stoppingCondition', 'createJob_stoppingCondition' - The user-defined criteria that specifies when a job stops running.
+--
+-- 'tags', 'createJob_tags' - A tag object that consists of a key and an optional value, used to
+-- manage metadata for Amazon Braket resources.
 --
 -- 'algorithmSpecification', 'createJob_algorithmSpecification' - Definition of the Amazon Braket job to be created. Specifies the
 -- container image the job uses and information about the Python scripts
@@ -169,11 +169,11 @@ newCreateJob
   pOutputDataConfig_
   pRoleArn_ =
     CreateJob'
-      { tags = Prelude.Nothing,
-        checkpointConfig = Prelude.Nothing,
-        stoppingCondition = Prelude.Nothing,
-        inputDataConfig = Prelude.Nothing,
+      { checkpointConfig = Prelude.Nothing,
         hyperParameters = Prelude.Nothing,
+        inputDataConfig = Prelude.Nothing,
+        stoppingCondition = Prelude.Nothing,
+        tags = Prelude.Nothing,
         algorithmSpecification = pAlgorithmSpecification_,
         clientToken = pClientToken_,
         deviceConfig = pDeviceConfig_,
@@ -183,23 +183,9 @@ newCreateJob
         roleArn = pRoleArn_
       }
 
--- | A tag object that consists of a key and an optional value, used to
--- manage metadata for Amazon Braket resources.
-createJob_tags :: Lens.Lens' CreateJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createJob_tags = Lens.lens (\CreateJob' {tags} -> tags) (\s@CreateJob' {} a -> s {tags = a} :: CreateJob) Prelude.. Lens.mapping Lens.coerced
-
 -- | Information about the output locations for job checkpoint data.
 createJob_checkpointConfig :: Lens.Lens' CreateJob (Prelude.Maybe JobCheckpointConfig)
 createJob_checkpointConfig = Lens.lens (\CreateJob' {checkpointConfig} -> checkpointConfig) (\s@CreateJob' {} a -> s {checkpointConfig = a} :: CreateJob)
-
--- | The user-defined criteria that specifies when a job stops running.
-createJob_stoppingCondition :: Lens.Lens' CreateJob (Prelude.Maybe JobStoppingCondition)
-createJob_stoppingCondition = Lens.lens (\CreateJob' {stoppingCondition} -> stoppingCondition) (\s@CreateJob' {} a -> s {stoppingCondition = a} :: CreateJob)
-
--- | A list of parameters that specify the name and type of input data and
--- where it is located.
-createJob_inputDataConfig :: Lens.Lens' CreateJob (Prelude.Maybe [InputFileConfig])
-createJob_inputDataConfig = Lens.lens (\CreateJob' {inputDataConfig} -> inputDataConfig) (\s@CreateJob' {} a -> s {inputDataConfig = a} :: CreateJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | Algorithm-specific parameters used by an Amazon Braket job that
 -- influence the quality of the training job. The values are set with a
@@ -207,6 +193,20 @@ createJob_inputDataConfig = Lens.lens (\CreateJob' {inputDataConfig} -> inputDat
 -- hyperparameter and the value is the value of th hyperparameter.
 createJob_hyperParameters :: Lens.Lens' CreateJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createJob_hyperParameters = Lens.lens (\CreateJob' {hyperParameters} -> hyperParameters) (\s@CreateJob' {} a -> s {hyperParameters = a} :: CreateJob) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of parameters that specify the name and type of input data and
+-- where it is located.
+createJob_inputDataConfig :: Lens.Lens' CreateJob (Prelude.Maybe [InputFileConfig])
+createJob_inputDataConfig = Lens.lens (\CreateJob' {inputDataConfig} -> inputDataConfig) (\s@CreateJob' {} a -> s {inputDataConfig = a} :: CreateJob) Prelude.. Lens.mapping Lens.coerced
+
+-- | The user-defined criteria that specifies when a job stops running.
+createJob_stoppingCondition :: Lens.Lens' CreateJob (Prelude.Maybe JobStoppingCondition)
+createJob_stoppingCondition = Lens.lens (\CreateJob' {stoppingCondition} -> stoppingCondition) (\s@CreateJob' {} a -> s {stoppingCondition = a} :: CreateJob)
+
+-- | A tag object that consists of a key and an optional value, used to
+-- manage metadata for Amazon Braket resources.
+createJob_tags :: Lens.Lens' CreateJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createJob_tags = Lens.lens (\CreateJob' {tags} -> tags) (\s@CreateJob' {} a -> s {tags = a} :: CreateJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | Definition of the Amazon Braket job to be created. Specifies the
 -- container image the job uses and information about the Python scripts
@@ -258,11 +258,11 @@ instance Core.AWSRequest CreateJob where
 
 instance Prelude.Hashable CreateJob where
   hashWithSalt _salt CreateJob' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` checkpointConfig
-      `Prelude.hashWithSalt` stoppingCondition
-      `Prelude.hashWithSalt` inputDataConfig
+    _salt `Prelude.hashWithSalt` checkpointConfig
       `Prelude.hashWithSalt` hyperParameters
+      `Prelude.hashWithSalt` inputDataConfig
+      `Prelude.hashWithSalt` stoppingCondition
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` algorithmSpecification
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` deviceConfig
@@ -273,11 +273,11 @@ instance Prelude.Hashable CreateJob where
 
 instance Prelude.NFData CreateJob where
   rnf CreateJob' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf checkpointConfig
-      `Prelude.seq` Prelude.rnf stoppingCondition
-      `Prelude.seq` Prelude.rnf inputDataConfig
+    Prelude.rnf checkpointConfig
       `Prelude.seq` Prelude.rnf hyperParameters
+      `Prelude.seq` Prelude.rnf inputDataConfig
+      `Prelude.seq` Prelude.rnf stoppingCondition
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf algorithmSpecification
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf deviceConfig
@@ -301,15 +301,15 @@ instance Data.ToJSON CreateJob where
   toJSON CreateJob' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("checkpointConfig" Data..=)
+          [ ("checkpointConfig" Data..=)
               Prelude.<$> checkpointConfig,
-            ("stoppingCondition" Data..=)
-              Prelude.<$> stoppingCondition,
-            ("inputDataConfig" Data..=)
-              Prelude.<$> inputDataConfig,
             ("hyperParameters" Data..=)
               Prelude.<$> hyperParameters,
+            ("inputDataConfig" Data..=)
+              Prelude.<$> inputDataConfig,
+            ("stoppingCondition" Data..=)
+              Prelude.<$> stoppingCondition,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ( "algorithmSpecification"
                   Data..= algorithmSpecification

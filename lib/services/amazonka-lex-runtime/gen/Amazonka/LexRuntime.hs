@@ -30,14 +30,20 @@ module Amazonka.LexRuntime
     -- * Errors
     -- $errors
 
-    -- ** UnsupportedMediaTypeException
-    _UnsupportedMediaTypeException,
+    -- ** BadGatewayException
+    _BadGatewayException,
 
-    -- ** NotFoundException
-    _NotFoundException,
+    -- ** BadRequestException
+    _BadRequestException,
+
+    -- ** ConflictException
+    _ConflictException,
 
     -- ** DependencyFailedException
     _DependencyFailedException,
+
+    -- ** InternalFailureException
+    _InternalFailureException,
 
     -- ** LimitExceededException
     _LimitExceededException,
@@ -45,23 +51,17 @@ module Amazonka.LexRuntime
     -- ** LoopDetectedException
     _LoopDetectedException,
 
-    -- ** ConflictException
-    _ConflictException,
+    -- ** NotAcceptableException
+    _NotAcceptableException,
 
-    -- ** BadGatewayException
-    _BadGatewayException,
-
-    -- ** BadRequestException
-    _BadRequestException,
+    -- ** NotFoundException
+    _NotFoundException,
 
     -- ** RequestTimeoutException
     _RequestTimeoutException,
 
-    -- ** NotAcceptableException
-    _NotAcceptableException,
-
-    -- ** InternalFailureException
-    _InternalFailureException,
+    -- ** UnsupportedMediaTypeException
+    _UnsupportedMediaTypeException,
 
     -- * Waiters
     -- $waiters

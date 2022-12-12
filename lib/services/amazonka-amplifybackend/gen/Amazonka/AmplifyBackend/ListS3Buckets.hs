@@ -34,8 +34,8 @@ module Amazonka.AmplifyBackend.ListS3Buckets
     newListS3BucketsResponse,
 
     -- * Response Lenses
-    listS3BucketsResponse_nextToken,
     listS3BucketsResponse_buckets,
+    listS3BucketsResponse_nextToken,
     listS3BucketsResponse_httpStatus,
   )
 where
@@ -85,8 +85,8 @@ instance Core.AWSRequest ListS3Buckets where
     Response.receiveJSON
       ( \s h x ->
           ListS3BucketsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "buckets" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "buckets" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,10 +123,10 @@ instance Data.ToQuery ListS3Buckets where
 
 -- | /See:/ 'newListS3BucketsResponse' smart constructor.
 data ListS3BucketsResponse = ListS3BucketsResponse'
-  { -- | Reserved for future use.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of S3 buckets.
+  { -- | The list of S3 buckets.
     buckets :: Prelude.Maybe [S3BucketInfo],
+    -- | Reserved for future use.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -140,9 +140,9 @@ data ListS3BucketsResponse = ListS3BucketsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listS3BucketsResponse_nextToken' - Reserved for future use.
---
 -- 'buckets', 'listS3BucketsResponse_buckets' - The list of S3 buckets.
+--
+-- 'nextToken', 'listS3BucketsResponse_nextToken' - Reserved for future use.
 --
 -- 'httpStatus', 'listS3BucketsResponse_httpStatus' - The response's http status code.
 newListS3BucketsResponse ::
@@ -151,18 +151,18 @@ newListS3BucketsResponse ::
   ListS3BucketsResponse
 newListS3BucketsResponse pHttpStatus_ =
   ListS3BucketsResponse'
-    { nextToken = Prelude.Nothing,
-      buckets = Prelude.Nothing,
+    { buckets = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Reserved for future use.
-listS3BucketsResponse_nextToken :: Lens.Lens' ListS3BucketsResponse (Prelude.Maybe Prelude.Text)
-listS3BucketsResponse_nextToken = Lens.lens (\ListS3BucketsResponse' {nextToken} -> nextToken) (\s@ListS3BucketsResponse' {} a -> s {nextToken = a} :: ListS3BucketsResponse)
 
 -- | The list of S3 buckets.
 listS3BucketsResponse_buckets :: Lens.Lens' ListS3BucketsResponse (Prelude.Maybe [S3BucketInfo])
 listS3BucketsResponse_buckets = Lens.lens (\ListS3BucketsResponse' {buckets} -> buckets) (\s@ListS3BucketsResponse' {} a -> s {buckets = a} :: ListS3BucketsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Reserved for future use.
+listS3BucketsResponse_nextToken :: Lens.Lens' ListS3BucketsResponse (Prelude.Maybe Prelude.Text)
+listS3BucketsResponse_nextToken = Lens.lens (\ListS3BucketsResponse' {nextToken} -> nextToken) (\s@ListS3BucketsResponse' {} a -> s {nextToken = a} :: ListS3BucketsResponse)
 
 -- | The response's http status code.
 listS3BucketsResponse_httpStatus :: Lens.Lens' ListS3BucketsResponse Prelude.Int
@@ -170,6 +170,6 @@ listS3BucketsResponse_httpStatus = Lens.lens (\ListS3BucketsResponse' {httpStatu
 
 instance Prelude.NFData ListS3BucketsResponse where
   rnf ListS3BucketsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf buckets
+    Prelude.rnf buckets
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

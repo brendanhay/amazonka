@@ -30,14 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newContainerServiceEndpoint' smart constructor.
 data ContainerServiceEndpoint = ContainerServiceEndpoint'
-  { -- | The port of the specified container to which traffic is forwarded to.
+  { -- | The name of the container entry of the deployment that the endpoint
+    -- configuration applies to.
+    containerName :: Prelude.Maybe Prelude.Text,
+    -- | The port of the specified container to which traffic is forwarded to.
     containerPort :: Prelude.Maybe Prelude.Int,
     -- | An object that describes the health check configuration of the
     -- container.
-    healthCheck :: Prelude.Maybe ContainerServiceHealthCheckConfig,
-    -- | The name of the container entry of the deployment that the endpoint
-    -- configuration applies to.
-    containerName :: Prelude.Maybe Prelude.Text
+    healthCheck :: Prelude.Maybe ContainerServiceHealthCheckConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,22 +49,27 @@ data ContainerServiceEndpoint = ContainerServiceEndpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'containerName', 'containerServiceEndpoint_containerName' - The name of the container entry of the deployment that the endpoint
+-- configuration applies to.
+--
 -- 'containerPort', 'containerServiceEndpoint_containerPort' - The port of the specified container to which traffic is forwarded to.
 --
 -- 'healthCheck', 'containerServiceEndpoint_healthCheck' - An object that describes the health check configuration of the
 -- container.
---
--- 'containerName', 'containerServiceEndpoint_containerName' - The name of the container entry of the deployment that the endpoint
--- configuration applies to.
 newContainerServiceEndpoint ::
   ContainerServiceEndpoint
 newContainerServiceEndpoint =
   ContainerServiceEndpoint'
-    { containerPort =
+    { containerName =
         Prelude.Nothing,
-      healthCheck = Prelude.Nothing,
-      containerName = Prelude.Nothing
+      containerPort = Prelude.Nothing,
+      healthCheck = Prelude.Nothing
     }
+
+-- | The name of the container entry of the deployment that the endpoint
+-- configuration applies to.
+containerServiceEndpoint_containerName :: Lens.Lens' ContainerServiceEndpoint (Prelude.Maybe Prelude.Text)
+containerServiceEndpoint_containerName = Lens.lens (\ContainerServiceEndpoint' {containerName} -> containerName) (\s@ContainerServiceEndpoint' {} a -> s {containerName = a} :: ContainerServiceEndpoint)
 
 -- | The port of the specified container to which traffic is forwarded to.
 containerServiceEndpoint_containerPort :: Lens.Lens' ContainerServiceEndpoint (Prelude.Maybe Prelude.Int)
@@ -75,30 +80,25 @@ containerServiceEndpoint_containerPort = Lens.lens (\ContainerServiceEndpoint' {
 containerServiceEndpoint_healthCheck :: Lens.Lens' ContainerServiceEndpoint (Prelude.Maybe ContainerServiceHealthCheckConfig)
 containerServiceEndpoint_healthCheck = Lens.lens (\ContainerServiceEndpoint' {healthCheck} -> healthCheck) (\s@ContainerServiceEndpoint' {} a -> s {healthCheck = a} :: ContainerServiceEndpoint)
 
--- | The name of the container entry of the deployment that the endpoint
--- configuration applies to.
-containerServiceEndpoint_containerName :: Lens.Lens' ContainerServiceEndpoint (Prelude.Maybe Prelude.Text)
-containerServiceEndpoint_containerName = Lens.lens (\ContainerServiceEndpoint' {containerName} -> containerName) (\s@ContainerServiceEndpoint' {} a -> s {containerName = a} :: ContainerServiceEndpoint)
-
 instance Data.FromJSON ContainerServiceEndpoint where
   parseJSON =
     Data.withObject
       "ContainerServiceEndpoint"
       ( \x ->
           ContainerServiceEndpoint'
-            Prelude.<$> (x Data..:? "containerPort")
+            Prelude.<$> (x Data..:? "containerName")
+            Prelude.<*> (x Data..:? "containerPort")
             Prelude.<*> (x Data..:? "healthCheck")
-            Prelude.<*> (x Data..:? "containerName")
       )
 
 instance Prelude.Hashable ContainerServiceEndpoint where
   hashWithSalt _salt ContainerServiceEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` containerPort
+    _salt `Prelude.hashWithSalt` containerName
+      `Prelude.hashWithSalt` containerPort
       `Prelude.hashWithSalt` healthCheck
-      `Prelude.hashWithSalt` containerName
 
 instance Prelude.NFData ContainerServiceEndpoint where
   rnf ContainerServiceEndpoint' {..} =
-    Prelude.rnf containerPort
+    Prelude.rnf containerName
+      `Prelude.seq` Prelude.rnf containerPort
       `Prelude.seq` Prelude.rnf healthCheck
-      `Prelude.seq` Prelude.rnf containerName

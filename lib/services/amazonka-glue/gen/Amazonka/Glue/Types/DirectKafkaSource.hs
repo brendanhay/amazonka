@@ -30,15 +30,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDirectKafkaSource' smart constructor.
 data DirectKafkaSource = DirectKafkaSource'
-  { -- | The amount of time to spend processing each micro batch.
-    windowSize :: Prelude.Maybe Prelude.Natural,
-    -- | Specifies the streaming options.
-    streamingOptions :: Prelude.Maybe KafkaStreamingSourceOptions,
-    -- | Whether to automatically determine the schema from the incoming data.
-    detectSchema :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies options related to data preview for viewing a sample of your
+  { -- | Specifies options related to data preview for viewing a sample of your
     -- data.
     dataPreviewOptions :: Prelude.Maybe StreamingDataPreviewOptions,
+    -- | Whether to automatically determine the schema from the incoming data.
+    detectSchema :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies the streaming options.
+    streamingOptions :: Prelude.Maybe KafkaStreamingSourceOptions,
+    -- | The amount of time to spend processing each micro batch.
+    windowSize :: Prelude.Maybe Prelude.Natural,
     -- | The name of the data store.
     name :: Prelude.Text
   }
@@ -52,14 +52,14 @@ data DirectKafkaSource = DirectKafkaSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'windowSize', 'directKafkaSource_windowSize' - The amount of time to spend processing each micro batch.
---
--- 'streamingOptions', 'directKafkaSource_streamingOptions' - Specifies the streaming options.
+-- 'dataPreviewOptions', 'directKafkaSource_dataPreviewOptions' - Specifies options related to data preview for viewing a sample of your
+-- data.
 --
 -- 'detectSchema', 'directKafkaSource_detectSchema' - Whether to automatically determine the schema from the incoming data.
 --
--- 'dataPreviewOptions', 'directKafkaSource_dataPreviewOptions' - Specifies options related to data preview for viewing a sample of your
--- data.
+-- 'streamingOptions', 'directKafkaSource_streamingOptions' - Specifies the streaming options.
+--
+-- 'windowSize', 'directKafkaSource_windowSize' - The amount of time to spend processing each micro batch.
 --
 -- 'name', 'directKafkaSource_name' - The name of the data store.
 newDirectKafkaSource ::
@@ -68,29 +68,30 @@ newDirectKafkaSource ::
   DirectKafkaSource
 newDirectKafkaSource pName_ =
   DirectKafkaSource'
-    { windowSize = Prelude.Nothing,
-      streamingOptions = Prelude.Nothing,
+    { dataPreviewOptions =
+        Prelude.Nothing,
       detectSchema = Prelude.Nothing,
-      dataPreviewOptions = Prelude.Nothing,
+      streamingOptions = Prelude.Nothing,
+      windowSize = Prelude.Nothing,
       name = pName_
     }
-
--- | The amount of time to spend processing each micro batch.
-directKafkaSource_windowSize :: Lens.Lens' DirectKafkaSource (Prelude.Maybe Prelude.Natural)
-directKafkaSource_windowSize = Lens.lens (\DirectKafkaSource' {windowSize} -> windowSize) (\s@DirectKafkaSource' {} a -> s {windowSize = a} :: DirectKafkaSource)
-
--- | Specifies the streaming options.
-directKafkaSource_streamingOptions :: Lens.Lens' DirectKafkaSource (Prelude.Maybe KafkaStreamingSourceOptions)
-directKafkaSource_streamingOptions = Lens.lens (\DirectKafkaSource' {streamingOptions} -> streamingOptions) (\s@DirectKafkaSource' {} a -> s {streamingOptions = a} :: DirectKafkaSource)
-
--- | Whether to automatically determine the schema from the incoming data.
-directKafkaSource_detectSchema :: Lens.Lens' DirectKafkaSource (Prelude.Maybe Prelude.Bool)
-directKafkaSource_detectSchema = Lens.lens (\DirectKafkaSource' {detectSchema} -> detectSchema) (\s@DirectKafkaSource' {} a -> s {detectSchema = a} :: DirectKafkaSource)
 
 -- | Specifies options related to data preview for viewing a sample of your
 -- data.
 directKafkaSource_dataPreviewOptions :: Lens.Lens' DirectKafkaSource (Prelude.Maybe StreamingDataPreviewOptions)
 directKafkaSource_dataPreviewOptions = Lens.lens (\DirectKafkaSource' {dataPreviewOptions} -> dataPreviewOptions) (\s@DirectKafkaSource' {} a -> s {dataPreviewOptions = a} :: DirectKafkaSource)
+
+-- | Whether to automatically determine the schema from the incoming data.
+directKafkaSource_detectSchema :: Lens.Lens' DirectKafkaSource (Prelude.Maybe Prelude.Bool)
+directKafkaSource_detectSchema = Lens.lens (\DirectKafkaSource' {detectSchema} -> detectSchema) (\s@DirectKafkaSource' {} a -> s {detectSchema = a} :: DirectKafkaSource)
+
+-- | Specifies the streaming options.
+directKafkaSource_streamingOptions :: Lens.Lens' DirectKafkaSource (Prelude.Maybe KafkaStreamingSourceOptions)
+directKafkaSource_streamingOptions = Lens.lens (\DirectKafkaSource' {streamingOptions} -> streamingOptions) (\s@DirectKafkaSource' {} a -> s {streamingOptions = a} :: DirectKafkaSource)
+
+-- | The amount of time to spend processing each micro batch.
+directKafkaSource_windowSize :: Lens.Lens' DirectKafkaSource (Prelude.Maybe Prelude.Natural)
+directKafkaSource_windowSize = Lens.lens (\DirectKafkaSource' {windowSize} -> windowSize) (\s@DirectKafkaSource' {} a -> s {windowSize = a} :: DirectKafkaSource)
 
 -- | The name of the data store.
 directKafkaSource_name :: Lens.Lens' DirectKafkaSource Prelude.Text
@@ -102,39 +103,39 @@ instance Data.FromJSON DirectKafkaSource where
       "DirectKafkaSource"
       ( \x ->
           DirectKafkaSource'
-            Prelude.<$> (x Data..:? "WindowSize")
-            Prelude.<*> (x Data..:? "StreamingOptions")
+            Prelude.<$> (x Data..:? "DataPreviewOptions")
             Prelude.<*> (x Data..:? "DetectSchema")
-            Prelude.<*> (x Data..:? "DataPreviewOptions")
+            Prelude.<*> (x Data..:? "StreamingOptions")
+            Prelude.<*> (x Data..:? "WindowSize")
             Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable DirectKafkaSource where
   hashWithSalt _salt DirectKafkaSource' {..} =
-    _salt `Prelude.hashWithSalt` windowSize
-      `Prelude.hashWithSalt` streamingOptions
+    _salt `Prelude.hashWithSalt` dataPreviewOptions
       `Prelude.hashWithSalt` detectSchema
-      `Prelude.hashWithSalt` dataPreviewOptions
+      `Prelude.hashWithSalt` streamingOptions
+      `Prelude.hashWithSalt` windowSize
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData DirectKafkaSource where
   rnf DirectKafkaSource' {..} =
-    Prelude.rnf windowSize
-      `Prelude.seq` Prelude.rnf streamingOptions
+    Prelude.rnf dataPreviewOptions
       `Prelude.seq` Prelude.rnf detectSchema
-      `Prelude.seq` Prelude.rnf dataPreviewOptions
+      `Prelude.seq` Prelude.rnf streamingOptions
+      `Prelude.seq` Prelude.rnf windowSize
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToJSON DirectKafkaSource where
   toJSON DirectKafkaSource' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("WindowSize" Data..=) Prelude.<$> windowSize,
+          [ ("DataPreviewOptions" Data..=)
+              Prelude.<$> dataPreviewOptions,
+            ("DetectSchema" Data..=) Prelude.<$> detectSchema,
             ("StreamingOptions" Data..=)
               Prelude.<$> streamingOptions,
-            ("DetectSchema" Data..=) Prelude.<$> detectSchema,
-            ("DataPreviewOptions" Data..=)
-              Prelude.<$> dataPreviewOptions,
+            ("WindowSize" Data..=) Prelude.<$> windowSize,
             Prelude.Just ("Name" Data..= name)
           ]
       )

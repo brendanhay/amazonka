@@ -29,16 +29,16 @@ module Amazonka.AppSync.ListGraphqlApis
     newListGraphqlApis,
 
     -- * Request Lenses
-    listGraphqlApis_nextToken,
     listGraphqlApis_maxResults,
+    listGraphqlApis_nextToken,
 
     -- * Destructuring the Response
     ListGraphqlApisResponse (..),
     newListGraphqlApisResponse,
 
     -- * Response Lenses
-    listGraphqlApisResponse_nextToken,
     listGraphqlApisResponse_graphqlApis,
+    listGraphqlApisResponse_nextToken,
     listGraphqlApisResponse_httpStatus,
   )
 where
@@ -53,12 +53,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListGraphqlApis' smart constructor.
 data ListGraphqlApis = ListGraphqlApis'
-  { -- | An identifier that was returned from the previous call to this
+  { -- | The maximum number of results that you want the request to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | An identifier that was returned from the previous call to this
     -- operation, which you can use to return the next set of items in the
     -- list.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results that you want the request to return.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,28 +70,28 @@ data ListGraphqlApis = ListGraphqlApis'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listGraphqlApis_maxResults' - The maximum number of results that you want the request to return.
+--
 -- 'nextToken', 'listGraphqlApis_nextToken' - An identifier that was returned from the previous call to this
 -- operation, which you can use to return the next set of items in the
 -- list.
---
--- 'maxResults', 'listGraphqlApis_maxResults' - The maximum number of results that you want the request to return.
 newListGraphqlApis ::
   ListGraphqlApis
 newListGraphqlApis =
   ListGraphqlApis'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of results that you want the request to return.
+listGraphqlApis_maxResults :: Lens.Lens' ListGraphqlApis (Prelude.Maybe Prelude.Natural)
+listGraphqlApis_maxResults = Lens.lens (\ListGraphqlApis' {maxResults} -> maxResults) (\s@ListGraphqlApis' {} a -> s {maxResults = a} :: ListGraphqlApis)
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which you can use to return the next set of items in the
 -- list.
 listGraphqlApis_nextToken :: Lens.Lens' ListGraphqlApis (Prelude.Maybe Prelude.Text)
 listGraphqlApis_nextToken = Lens.lens (\ListGraphqlApis' {nextToken} -> nextToken) (\s@ListGraphqlApis' {} a -> s {nextToken = a} :: ListGraphqlApis)
-
--- | The maximum number of results that you want the request to return.
-listGraphqlApis_maxResults :: Lens.Lens' ListGraphqlApis (Prelude.Maybe Prelude.Natural)
-listGraphqlApis_maxResults = Lens.lens (\ListGraphqlApis' {maxResults} -> maxResults) (\s@ListGraphqlApis' {} a -> s {maxResults = a} :: ListGraphqlApis)
 
 instance Core.AWSPager ListGraphqlApis where
   page rq rs
@@ -125,20 +125,20 @@ instance Core.AWSRequest ListGraphqlApis where
     Response.receiveJSON
       ( \s h x ->
           ListGraphqlApisResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "graphqlApis" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "graphqlApis" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListGraphqlApis where
   hashWithSalt _salt ListGraphqlApis' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListGraphqlApis where
   rnf ListGraphqlApis' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListGraphqlApis where
   toHeaders =
@@ -157,17 +157,17 @@ instance Data.ToPath ListGraphqlApis where
 instance Data.ToQuery ListGraphqlApis where
   toQuery ListGraphqlApis' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListGraphqlApisResponse' smart constructor.
 data ListGraphqlApisResponse = ListGraphqlApisResponse'
-  { -- | An identifier to pass in the next request to this operation to return
+  { -- | The @GraphqlApi@ objects.
+    graphqlApis :: Prelude.Maybe [GraphqlApi],
+    -- | An identifier to pass in the next request to this operation to return
     -- the next set of items in the list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The @GraphqlApi@ objects.
-    graphqlApis :: Prelude.Maybe [GraphqlApi],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -181,10 +181,10 @@ data ListGraphqlApisResponse = ListGraphqlApisResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'graphqlApis', 'listGraphqlApisResponse_graphqlApis' - The @GraphqlApi@ objects.
+--
 -- 'nextToken', 'listGraphqlApisResponse_nextToken' - An identifier to pass in the next request to this operation to return
 -- the next set of items in the list.
---
--- 'graphqlApis', 'listGraphqlApisResponse_graphqlApis' - The @GraphqlApi@ objects.
 --
 -- 'httpStatus', 'listGraphqlApisResponse_httpStatus' - The response's http status code.
 newListGraphqlApisResponse ::
@@ -193,20 +193,20 @@ newListGraphqlApisResponse ::
   ListGraphqlApisResponse
 newListGraphqlApisResponse pHttpStatus_ =
   ListGraphqlApisResponse'
-    { nextToken =
+    { graphqlApis =
         Prelude.Nothing,
-      graphqlApis = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The @GraphqlApi@ objects.
+listGraphqlApisResponse_graphqlApis :: Lens.Lens' ListGraphqlApisResponse (Prelude.Maybe [GraphqlApi])
+listGraphqlApisResponse_graphqlApis = Lens.lens (\ListGraphqlApisResponse' {graphqlApis} -> graphqlApis) (\s@ListGraphqlApisResponse' {} a -> s {graphqlApis = a} :: ListGraphqlApisResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An identifier to pass in the next request to this operation to return
 -- the next set of items in the list.
 listGraphqlApisResponse_nextToken :: Lens.Lens' ListGraphqlApisResponse (Prelude.Maybe Prelude.Text)
 listGraphqlApisResponse_nextToken = Lens.lens (\ListGraphqlApisResponse' {nextToken} -> nextToken) (\s@ListGraphqlApisResponse' {} a -> s {nextToken = a} :: ListGraphqlApisResponse)
-
--- | The @GraphqlApi@ objects.
-listGraphqlApisResponse_graphqlApis :: Lens.Lens' ListGraphqlApisResponse (Prelude.Maybe [GraphqlApi])
-listGraphqlApisResponse_graphqlApis = Lens.lens (\ListGraphqlApisResponse' {graphqlApis} -> graphqlApis) (\s@ListGraphqlApisResponse' {} a -> s {graphqlApis = a} :: ListGraphqlApisResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listGraphqlApisResponse_httpStatus :: Lens.Lens' ListGraphqlApisResponse Prelude.Int
@@ -214,6 +214,6 @@ listGraphqlApisResponse_httpStatus = Lens.lens (\ListGraphqlApisResponse' {httpS
 
 instance Prelude.NFData ListGraphqlApisResponse where
   rnf ListGraphqlApisResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf graphqlApis
+    Prelude.rnf graphqlApis
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

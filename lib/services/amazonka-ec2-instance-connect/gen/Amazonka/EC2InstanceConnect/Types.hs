@@ -18,17 +18,17 @@ module Amazonka.EC2InstanceConnect.Types
     defaultService,
 
     -- * Errors
-    _SerialConsoleSessionUnavailableException,
-    _EC2InstanceStateInvalidException,
     _AuthException,
-    _SerialConsoleSessionLimitExceededException,
     _EC2InstanceNotFoundException,
+    _EC2InstanceStateInvalidException,
     _EC2InstanceTypeInvalidException,
     _EC2InstanceUnavailableException,
-    _ThrottlingException,
-    _ServiceException,
-    _SerialConsoleAccessDisabledException,
     _InvalidArgsException,
+    _SerialConsoleAccessDisabledException,
+    _SerialConsoleSessionLimitExceededException,
+    _SerialConsoleSessionUnavailableException,
+    _ServiceException,
+    _ThrottlingException,
   )
 where
 
@@ -63,28 +63,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -92,13 +86,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -106,23 +104,9 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
-
--- | Unable to start a serial console session. Please try again.
-_SerialConsoleSessionUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SerialConsoleSessionUnavailableException =
-  Core._MatchServiceError
-    defaultService
-    "SerialConsoleSessionUnavailableException"
-
--- | Unable to connect because the instance is not in a valid state.
--- Connecting to a stopped or terminated instance is not supported. If the
--- instance is stopped, start your instance, and try to connect again.
-_EC2InstanceStateInvalidException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_EC2InstanceStateInvalidException =
-  Core._MatchServiceError
-    defaultService
-    "EC2InstanceStateInvalidException"
 
 -- | Either your AWS credentials are not valid or you do not have access to
 -- the EC2 instance.
@@ -132,20 +116,21 @@ _AuthException =
     defaultService
     "AuthException"
 
--- | The instance currently has 1 active serial console session. Only 1
--- session is supported at a time.
-_SerialConsoleSessionLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SerialConsoleSessionLimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "SerialConsoleSessionLimitExceededException"
-
 -- | The specified instance was not found.
 _EC2InstanceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _EC2InstanceNotFoundException =
   Core._MatchServiceError
     defaultService
     "EC2InstanceNotFoundException"
+
+-- | Unable to connect because the instance is not in a valid state.
+-- Connecting to a stopped or terminated instance is not supported. If the
+-- instance is stopped, start your instance, and try to connect again.
+_EC2InstanceStateInvalidException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EC2InstanceStateInvalidException =
+  Core._MatchServiceError
+    defaultService
+    "EC2InstanceStateInvalidException"
 
 -- | The instance type is not supported for connecting via the serial
 -- console. Only Nitro instance types are currently supported.
@@ -162,22 +147,12 @@ _EC2InstanceUnavailableException =
     defaultService
     "EC2InstanceUnavailableException"
 
--- | The requests were made too frequently and have been throttled. Wait a
--- while and try again. To increase the limit on your request frequency,
--- contact AWS Support.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ThrottlingException =
+-- | One of the parameters is not valid.
+_InvalidArgsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidArgsException =
   Core._MatchServiceError
     defaultService
-    "ThrottlingException"
-
--- | The service encountered an error. Follow the instructions in the error
--- message and try again.
-_ServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceException"
+    "InvalidArgsException"
 
 -- | Your account is not authorized to use the EC2 Serial Console. To
 -- authorize your account, run the EnableSerialConsoleAccess API. For more
@@ -190,9 +165,34 @@ _SerialConsoleAccessDisabledException =
     defaultService
     "SerialConsoleAccessDisabledException"
 
--- | One of the parameters is not valid.
-_InvalidArgsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidArgsException =
+-- | The instance currently has 1 active serial console session. Only 1
+-- session is supported at a time.
+_SerialConsoleSessionLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SerialConsoleSessionLimitExceededException =
   Core._MatchServiceError
     defaultService
-    "InvalidArgsException"
+    "SerialConsoleSessionLimitExceededException"
+
+-- | Unable to start a serial console session. Please try again.
+_SerialConsoleSessionUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SerialConsoleSessionUnavailableException =
+  Core._MatchServiceError
+    defaultService
+    "SerialConsoleSessionUnavailableException"
+
+-- | The service encountered an error. Follow the instructions in the error
+-- message and try again.
+_ServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceException"
+
+-- | The requests were made too frequently and have been throttled. Wait a
+-- while and try again. To increase the limit on your request frequency,
+-- contact AWS Support.
+_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottlingException"

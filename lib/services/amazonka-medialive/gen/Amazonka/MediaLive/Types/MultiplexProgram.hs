@@ -31,8 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMultiplexProgram' smart constructor.
 data MultiplexProgram = MultiplexProgram'
-  { -- | The name of the multiplex program.
-    programName :: Prelude.Maybe Prelude.Text,
+  { -- | The MediaLive channel associated with the program.
+    channelId :: Prelude.Maybe Prelude.Text,
+    -- | The settings for this multiplex program.
+    multiplexProgramSettings :: Prelude.Maybe MultiplexProgramSettings,
     -- | The packet identifier map for this multiplex program.
     packetIdentifiersMap :: Prelude.Maybe MultiplexProgramPacketIdentifiersMap,
     -- | Contains information about the current sources for the specified program
@@ -41,10 +43,8 @@ data MultiplexProgram = MultiplexProgram'
     -- identified by the program). But only one of those channel pipelines is
     -- ever active at one time.
     pipelineDetails :: Prelude.Maybe [MultiplexProgramPipelineDetail],
-    -- | The settings for this multiplex program.
-    multiplexProgramSettings :: Prelude.Maybe MultiplexProgramSettings,
-    -- | The MediaLive channel associated with the program.
-    channelId :: Prelude.Maybe Prelude.Text
+    -- | The name of the multiplex program.
+    programName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,7 +56,9 @@ data MultiplexProgram = MultiplexProgram'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'programName', 'multiplexProgram_programName' - The name of the multiplex program.
+-- 'channelId', 'multiplexProgram_channelId' - The MediaLive channel associated with the program.
+--
+-- 'multiplexProgramSettings', 'multiplexProgram_multiplexProgramSettings' - The settings for this multiplex program.
 --
 -- 'packetIdentifiersMap', 'multiplexProgram_packetIdentifiersMap' - The packet identifier map for this multiplex program.
 --
@@ -66,23 +68,25 @@ data MultiplexProgram = MultiplexProgram'
 -- identified by the program). But only one of those channel pipelines is
 -- ever active at one time.
 --
--- 'multiplexProgramSettings', 'multiplexProgram_multiplexProgramSettings' - The settings for this multiplex program.
---
--- 'channelId', 'multiplexProgram_channelId' - The MediaLive channel associated with the program.
+-- 'programName', 'multiplexProgram_programName' - The name of the multiplex program.
 newMultiplexProgram ::
   MultiplexProgram
 newMultiplexProgram =
   MultiplexProgram'
-    { programName = Prelude.Nothing,
+    { channelId = Prelude.Nothing,
+      multiplexProgramSettings = Prelude.Nothing,
       packetIdentifiersMap = Prelude.Nothing,
       pipelineDetails = Prelude.Nothing,
-      multiplexProgramSettings = Prelude.Nothing,
-      channelId = Prelude.Nothing
+      programName = Prelude.Nothing
     }
 
--- | The name of the multiplex program.
-multiplexProgram_programName :: Lens.Lens' MultiplexProgram (Prelude.Maybe Prelude.Text)
-multiplexProgram_programName = Lens.lens (\MultiplexProgram' {programName} -> programName) (\s@MultiplexProgram' {} a -> s {programName = a} :: MultiplexProgram)
+-- | The MediaLive channel associated with the program.
+multiplexProgram_channelId :: Lens.Lens' MultiplexProgram (Prelude.Maybe Prelude.Text)
+multiplexProgram_channelId = Lens.lens (\MultiplexProgram' {channelId} -> channelId) (\s@MultiplexProgram' {} a -> s {channelId = a} :: MultiplexProgram)
+
+-- | The settings for this multiplex program.
+multiplexProgram_multiplexProgramSettings :: Lens.Lens' MultiplexProgram (Prelude.Maybe MultiplexProgramSettings)
+multiplexProgram_multiplexProgramSettings = Lens.lens (\MultiplexProgram' {multiplexProgramSettings} -> multiplexProgramSettings) (\s@MultiplexProgram' {} a -> s {multiplexProgramSettings = a} :: MultiplexProgram)
 
 -- | The packet identifier map for this multiplex program.
 multiplexProgram_packetIdentifiersMap :: Lens.Lens' MultiplexProgram (Prelude.Maybe MultiplexProgramPacketIdentifiersMap)
@@ -96,13 +100,9 @@ multiplexProgram_packetIdentifiersMap = Lens.lens (\MultiplexProgram' {packetIde
 multiplexProgram_pipelineDetails :: Lens.Lens' MultiplexProgram (Prelude.Maybe [MultiplexProgramPipelineDetail])
 multiplexProgram_pipelineDetails = Lens.lens (\MultiplexProgram' {pipelineDetails} -> pipelineDetails) (\s@MultiplexProgram' {} a -> s {pipelineDetails = a} :: MultiplexProgram) Prelude.. Lens.mapping Lens.coerced
 
--- | The settings for this multiplex program.
-multiplexProgram_multiplexProgramSettings :: Lens.Lens' MultiplexProgram (Prelude.Maybe MultiplexProgramSettings)
-multiplexProgram_multiplexProgramSettings = Lens.lens (\MultiplexProgram' {multiplexProgramSettings} -> multiplexProgramSettings) (\s@MultiplexProgram' {} a -> s {multiplexProgramSettings = a} :: MultiplexProgram)
-
--- | The MediaLive channel associated with the program.
-multiplexProgram_channelId :: Lens.Lens' MultiplexProgram (Prelude.Maybe Prelude.Text)
-multiplexProgram_channelId = Lens.lens (\MultiplexProgram' {channelId} -> channelId) (\s@MultiplexProgram' {} a -> s {channelId = a} :: MultiplexProgram)
+-- | The name of the multiplex program.
+multiplexProgram_programName :: Lens.Lens' MultiplexProgram (Prelude.Maybe Prelude.Text)
+multiplexProgram_programName = Lens.lens (\MultiplexProgram' {programName} -> programName) (\s@MultiplexProgram' {} a -> s {programName = a} :: MultiplexProgram)
 
 instance Data.FromJSON MultiplexProgram where
   parseJSON =
@@ -110,27 +110,27 @@ instance Data.FromJSON MultiplexProgram where
       "MultiplexProgram"
       ( \x ->
           MultiplexProgram'
-            Prelude.<$> (x Data..:? "programName")
+            Prelude.<$> (x Data..:? "channelId")
+            Prelude.<*> (x Data..:? "multiplexProgramSettings")
             Prelude.<*> (x Data..:? "packetIdentifiersMap")
             Prelude.<*> ( x Data..:? "pipelineDetails"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "multiplexProgramSettings")
-            Prelude.<*> (x Data..:? "channelId")
+            Prelude.<*> (x Data..:? "programName")
       )
 
 instance Prelude.Hashable MultiplexProgram where
   hashWithSalt _salt MultiplexProgram' {..} =
-    _salt `Prelude.hashWithSalt` programName
+    _salt `Prelude.hashWithSalt` channelId
+      `Prelude.hashWithSalt` multiplexProgramSettings
       `Prelude.hashWithSalt` packetIdentifiersMap
       `Prelude.hashWithSalt` pipelineDetails
-      `Prelude.hashWithSalt` multiplexProgramSettings
-      `Prelude.hashWithSalt` channelId
+      `Prelude.hashWithSalt` programName
 
 instance Prelude.NFData MultiplexProgram where
   rnf MultiplexProgram' {..} =
-    Prelude.rnf programName
+    Prelude.rnf channelId
+      `Prelude.seq` Prelude.rnf multiplexProgramSettings
       `Prelude.seq` Prelude.rnf packetIdentifiersMap
       `Prelude.seq` Prelude.rnf pipelineDetails
-      `Prelude.seq` Prelude.rnf multiplexProgramSettings
-      `Prelude.seq` Prelude.rnf channelId
+      `Prelude.seq` Prelude.rnf programName

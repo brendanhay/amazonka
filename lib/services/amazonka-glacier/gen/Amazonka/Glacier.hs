@@ -51,29 +51,29 @@ module Amazonka.Glacier
     -- * Errors
     -- $errors
 
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
-
     -- ** InsufficientCapacityException
     _InsufficientCapacityException,
-
-    -- ** MissingParameterValueException
-    _MissingParameterValueException,
-
-    -- ** RequestTimeoutException
-    _RequestTimeoutException,
 
     -- ** InvalidParameterValueException
     _InvalidParameterValueException,
 
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** MissingParameterValueException
+    _MissingParameterValueException,
+
     -- ** PolicyEnforcedException
     _PolicyEnforcedException,
+
+    -- ** RequestTimeoutException
+    _RequestTimeoutException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
 
     -- * Waiters
     -- $waiters

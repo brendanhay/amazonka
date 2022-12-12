@@ -35,13 +35,13 @@ module Amazonka.WorkDocs.DescribeFolderContents
     newDescribeFolderContents,
 
     -- * Request Lenses
-    describeFolderContents_type,
-    describeFolderContents_marker,
     describeFolderContents_authenticationToken,
-    describeFolderContents_sort,
-    describeFolderContents_limit,
-    describeFolderContents_order,
     describeFolderContents_include,
+    describeFolderContents_limit,
+    describeFolderContents_marker,
+    describeFolderContents_order,
+    describeFolderContents_sort,
+    describeFolderContents_type,
     describeFolderContents_folderId,
 
     -- * Destructuring the Response
@@ -49,9 +49,9 @@ module Amazonka.WorkDocs.DescribeFolderContents
     newDescribeFolderContentsResponse,
 
     -- * Response Lenses
-    describeFolderContentsResponse_marker,
-    describeFolderContentsResponse_folders,
     describeFolderContentsResponse_documents,
+    describeFolderContentsResponse_folders,
+    describeFolderContentsResponse_marker,
     describeFolderContentsResponse_httpStatus,
   )
 where
@@ -66,23 +66,23 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newDescribeFolderContents' smart constructor.
 data DescribeFolderContents = DescribeFolderContents'
-  { -- | The type of items.
-    type' :: Prelude.Maybe FolderContentType,
-    -- | The marker for the next set of results. This marker was received from a
-    -- previous call.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | Amazon WorkDocs authentication token. Not required when using AWS
+  { -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The sorting criteria.
-    sort :: Prelude.Maybe ResourceSortType,
-    -- | The maximum number of items to return with this call.
-    limit :: Prelude.Maybe Prelude.Natural,
-    -- | The order for the contents of the folder.
-    order :: Prelude.Maybe OrderType,
     -- | The contents to include. Specify \"INITIALIZED\" to include initialized
     -- documents.
     include :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return with this call.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | The marker for the next set of results. This marker was received from a
+    -- previous call.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The order for the contents of the folder.
+    order :: Prelude.Maybe OrderType,
+    -- | The sorting criteria.
+    sort :: Prelude.Maybe ResourceSortType,
+    -- | The type of items.
+    type' :: Prelude.Maybe FolderContentType,
     -- | The ID of the folder.
     folderId :: Prelude.Text
   }
@@ -96,22 +96,22 @@ data DescribeFolderContents = DescribeFolderContents'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'describeFolderContents_type' - The type of items.
+-- 'authenticationToken', 'describeFolderContents_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
+-- administrator credentials to access the API.
+--
+-- 'include', 'describeFolderContents_include' - The contents to include. Specify \"INITIALIZED\" to include initialized
+-- documents.
+--
+-- 'limit', 'describeFolderContents_limit' - The maximum number of items to return with this call.
 --
 -- 'marker', 'describeFolderContents_marker' - The marker for the next set of results. This marker was received from a
 -- previous call.
 --
--- 'authenticationToken', 'describeFolderContents_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- 'order', 'describeFolderContents_order' - The order for the contents of the folder.
 --
 -- 'sort', 'describeFolderContents_sort' - The sorting criteria.
 --
--- 'limit', 'describeFolderContents_limit' - The maximum number of items to return with this call.
---
--- 'order', 'describeFolderContents_order' - The order for the contents of the folder.
---
--- 'include', 'describeFolderContents_include' - The contents to include. Specify \"INITIALIZED\" to include initialized
--- documents.
+-- 'type'', 'describeFolderContents_type' - The type of items.
 --
 -- 'folderId', 'describeFolderContents_folderId' - The ID of the folder.
 newDescribeFolderContents ::
@@ -120,46 +120,47 @@ newDescribeFolderContents ::
   DescribeFolderContents
 newDescribeFolderContents pFolderId_ =
   DescribeFolderContents'
-    { type' = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      authenticationToken = Prelude.Nothing,
-      sort = Prelude.Nothing,
-      limit = Prelude.Nothing,
-      order = Prelude.Nothing,
+    { authenticationToken =
+        Prelude.Nothing,
       include = Prelude.Nothing,
+      limit = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      order = Prelude.Nothing,
+      sort = Prelude.Nothing,
+      type' = Prelude.Nothing,
       folderId = pFolderId_
     }
-
--- | The type of items.
-describeFolderContents_type :: Lens.Lens' DescribeFolderContents (Prelude.Maybe FolderContentType)
-describeFolderContents_type = Lens.lens (\DescribeFolderContents' {type'} -> type') (\s@DescribeFolderContents' {} a -> s {type' = a} :: DescribeFolderContents)
-
--- | The marker for the next set of results. This marker was received from a
--- previous call.
-describeFolderContents_marker :: Lens.Lens' DescribeFolderContents (Prelude.Maybe Prelude.Text)
-describeFolderContents_marker = Lens.lens (\DescribeFolderContents' {marker} -> marker) (\s@DescribeFolderContents' {} a -> s {marker = a} :: DescribeFolderContents)
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 describeFolderContents_authenticationToken :: Lens.Lens' DescribeFolderContents (Prelude.Maybe Prelude.Text)
 describeFolderContents_authenticationToken = Lens.lens (\DescribeFolderContents' {authenticationToken} -> authenticationToken) (\s@DescribeFolderContents' {} a -> s {authenticationToken = a} :: DescribeFolderContents) Prelude.. Lens.mapping Data._Sensitive
 
--- | The sorting criteria.
-describeFolderContents_sort :: Lens.Lens' DescribeFolderContents (Prelude.Maybe ResourceSortType)
-describeFolderContents_sort = Lens.lens (\DescribeFolderContents' {sort} -> sort) (\s@DescribeFolderContents' {} a -> s {sort = a} :: DescribeFolderContents)
+-- | The contents to include. Specify \"INITIALIZED\" to include initialized
+-- documents.
+describeFolderContents_include :: Lens.Lens' DescribeFolderContents (Prelude.Maybe Prelude.Text)
+describeFolderContents_include = Lens.lens (\DescribeFolderContents' {include} -> include) (\s@DescribeFolderContents' {} a -> s {include = a} :: DescribeFolderContents)
 
 -- | The maximum number of items to return with this call.
 describeFolderContents_limit :: Lens.Lens' DescribeFolderContents (Prelude.Maybe Prelude.Natural)
 describeFolderContents_limit = Lens.lens (\DescribeFolderContents' {limit} -> limit) (\s@DescribeFolderContents' {} a -> s {limit = a} :: DescribeFolderContents)
 
+-- | The marker for the next set of results. This marker was received from a
+-- previous call.
+describeFolderContents_marker :: Lens.Lens' DescribeFolderContents (Prelude.Maybe Prelude.Text)
+describeFolderContents_marker = Lens.lens (\DescribeFolderContents' {marker} -> marker) (\s@DescribeFolderContents' {} a -> s {marker = a} :: DescribeFolderContents)
+
 -- | The order for the contents of the folder.
 describeFolderContents_order :: Lens.Lens' DescribeFolderContents (Prelude.Maybe OrderType)
 describeFolderContents_order = Lens.lens (\DescribeFolderContents' {order} -> order) (\s@DescribeFolderContents' {} a -> s {order = a} :: DescribeFolderContents)
 
--- | The contents to include. Specify \"INITIALIZED\" to include initialized
--- documents.
-describeFolderContents_include :: Lens.Lens' DescribeFolderContents (Prelude.Maybe Prelude.Text)
-describeFolderContents_include = Lens.lens (\DescribeFolderContents' {include} -> include) (\s@DescribeFolderContents' {} a -> s {include = a} :: DescribeFolderContents)
+-- | The sorting criteria.
+describeFolderContents_sort :: Lens.Lens' DescribeFolderContents (Prelude.Maybe ResourceSortType)
+describeFolderContents_sort = Lens.lens (\DescribeFolderContents' {sort} -> sort) (\s@DescribeFolderContents' {} a -> s {sort = a} :: DescribeFolderContents)
+
+-- | The type of items.
+describeFolderContents_type :: Lens.Lens' DescribeFolderContents (Prelude.Maybe FolderContentType)
+describeFolderContents_type = Lens.lens (\DescribeFolderContents' {type'} -> type') (\s@DescribeFolderContents' {} a -> s {type' = a} :: DescribeFolderContents)
 
 -- | The ID of the folder.
 describeFolderContents_folderId :: Lens.Lens' DescribeFolderContents Prelude.Text
@@ -203,32 +204,32 @@ instance Core.AWSRequest DescribeFolderContents where
     Response.receiveJSON
       ( \s h x ->
           DescribeFolderContentsResponse'
-            Prelude.<$> (x Data..?> "Marker")
+            Prelude.<$> (x Data..?> "Documents" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "Folders" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "Documents" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeFolderContents where
   hashWithSalt _salt DescribeFolderContents' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` authenticationToken
-      `Prelude.hashWithSalt` sort
-      `Prelude.hashWithSalt` limit
-      `Prelude.hashWithSalt` order
+    _salt `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` include
+      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` order
+      `Prelude.hashWithSalt` sort
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` folderId
 
 instance Prelude.NFData DescribeFolderContents where
   rnf DescribeFolderContents' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf authenticationToken
-      `Prelude.seq` Prelude.rnf sort
-      `Prelude.seq` Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf order
+    Prelude.rnf authenticationToken
       `Prelude.seq` Prelude.rnf include
+      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf order
+      `Prelude.seq` Prelude.rnf sort
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf folderId
 
 instance Data.ToHeaders DescribeFolderContents where
@@ -247,23 +248,23 @@ instance Data.ToPath DescribeFolderContents where
 instance Data.ToQuery DescribeFolderContents where
   toQuery DescribeFolderContents' {..} =
     Prelude.mconcat
-      [ "type" Data.=: type',
-        "marker" Data.=: marker,
-        "sort" Data.=: sort,
+      [ "include" Data.=: include,
         "limit" Data.=: limit,
+        "marker" Data.=: marker,
         "order" Data.=: order,
-        "include" Data.=: include
+        "sort" Data.=: sort,
+        "type" Data.=: type'
       ]
 
 -- | /See:/ 'newDescribeFolderContentsResponse' smart constructor.
 data DescribeFolderContentsResponse = DescribeFolderContentsResponse'
-  { -- | The marker to use when requesting the next set of results. If there are
-    -- no additional results, the string is empty.
-    marker :: Prelude.Maybe Prelude.Text,
+  { -- | The documents in the specified folder.
+    documents :: Prelude.Maybe [DocumentMetadata],
     -- | The subfolders in the specified folder.
     folders :: Prelude.Maybe [FolderMetadata],
-    -- | The documents in the specified folder.
-    documents :: Prelude.Maybe [DocumentMetadata],
+    -- | The marker to use when requesting the next set of results. If there are
+    -- no additional results, the string is empty.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -277,12 +278,12 @@ data DescribeFolderContentsResponse = DescribeFolderContentsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'marker', 'describeFolderContentsResponse_marker' - The marker to use when requesting the next set of results. If there are
--- no additional results, the string is empty.
+-- 'documents', 'describeFolderContentsResponse_documents' - The documents in the specified folder.
 --
 -- 'folders', 'describeFolderContentsResponse_folders' - The subfolders in the specified folder.
 --
--- 'documents', 'describeFolderContentsResponse_documents' - The documents in the specified folder.
+-- 'marker', 'describeFolderContentsResponse_marker' - The marker to use when requesting the next set of results. If there are
+-- no additional results, the string is empty.
 --
 -- 'httpStatus', 'describeFolderContentsResponse_httpStatus' - The response's http status code.
 newDescribeFolderContentsResponse ::
@@ -291,25 +292,25 @@ newDescribeFolderContentsResponse ::
   DescribeFolderContentsResponse
 newDescribeFolderContentsResponse pHttpStatus_ =
   DescribeFolderContentsResponse'
-    { marker =
+    { documents =
         Prelude.Nothing,
       folders = Prelude.Nothing,
-      documents = Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The marker to use when requesting the next set of results. If there are
--- no additional results, the string is empty.
-describeFolderContentsResponse_marker :: Lens.Lens' DescribeFolderContentsResponse (Prelude.Maybe Prelude.Text)
-describeFolderContentsResponse_marker = Lens.lens (\DescribeFolderContentsResponse' {marker} -> marker) (\s@DescribeFolderContentsResponse' {} a -> s {marker = a} :: DescribeFolderContentsResponse)
+-- | The documents in the specified folder.
+describeFolderContentsResponse_documents :: Lens.Lens' DescribeFolderContentsResponse (Prelude.Maybe [DocumentMetadata])
+describeFolderContentsResponse_documents = Lens.lens (\DescribeFolderContentsResponse' {documents} -> documents) (\s@DescribeFolderContentsResponse' {} a -> s {documents = a} :: DescribeFolderContentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The subfolders in the specified folder.
 describeFolderContentsResponse_folders :: Lens.Lens' DescribeFolderContentsResponse (Prelude.Maybe [FolderMetadata])
 describeFolderContentsResponse_folders = Lens.lens (\DescribeFolderContentsResponse' {folders} -> folders) (\s@DescribeFolderContentsResponse' {} a -> s {folders = a} :: DescribeFolderContentsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The documents in the specified folder.
-describeFolderContentsResponse_documents :: Lens.Lens' DescribeFolderContentsResponse (Prelude.Maybe [DocumentMetadata])
-describeFolderContentsResponse_documents = Lens.lens (\DescribeFolderContentsResponse' {documents} -> documents) (\s@DescribeFolderContentsResponse' {} a -> s {documents = a} :: DescribeFolderContentsResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The marker to use when requesting the next set of results. If there are
+-- no additional results, the string is empty.
+describeFolderContentsResponse_marker :: Lens.Lens' DescribeFolderContentsResponse (Prelude.Maybe Prelude.Text)
+describeFolderContentsResponse_marker = Lens.lens (\DescribeFolderContentsResponse' {marker} -> marker) (\s@DescribeFolderContentsResponse' {} a -> s {marker = a} :: DescribeFolderContentsResponse)
 
 -- | The response's http status code.
 describeFolderContentsResponse_httpStatus :: Lens.Lens' DescribeFolderContentsResponse Prelude.Int
@@ -320,7 +321,7 @@ instance
     DescribeFolderContentsResponse
   where
   rnf DescribeFolderContentsResponse' {..} =
-    Prelude.rnf marker
+    Prelude.rnf documents
       `Prelude.seq` Prelude.rnf folders
-      `Prelude.seq` Prelude.rnf documents
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf httpStatus

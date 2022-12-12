@@ -28,9 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStoredQuery' smart constructor.
 data StoredQuery = StoredQuery'
-  { -- | The ID of the query.
-    queryId :: Prelude.Maybe Prelude.Text,
-    -- | A unique description for the query.
+  { -- | A unique description for the query.
     description :: Prelude.Maybe Prelude.Text,
     -- | The expression of the query. For example,
     -- @SELECT resourceId, resourceType, supplementaryConfiguration.BucketVersioningConfiguration.status WHERE resourceType = \'AWS::S3::Bucket\' AND supplementaryConfiguration.BucketVersioningConfiguration.status = \'Off\'.@
@@ -38,6 +36,8 @@ data StoredQuery = StoredQuery'
     -- | Amazon Resource Name (ARN) of the query. For example,
     -- arn:partition:service:region:account-id:resource-type\/resource-name\/resource-id.
     queryArn :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the query.
+    queryId :: Prelude.Maybe Prelude.Text,
     -- | The name of the query.
     queryName :: Prelude.Text
   }
@@ -51,8 +51,6 @@ data StoredQuery = StoredQuery'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'queryId', 'storedQuery_queryId' - The ID of the query.
---
 -- 'description', 'storedQuery_description' - A unique description for the query.
 --
 -- 'expression', 'storedQuery_expression' - The expression of the query. For example,
@@ -61,6 +59,8 @@ data StoredQuery = StoredQuery'
 -- 'queryArn', 'storedQuery_queryArn' - Amazon Resource Name (ARN) of the query. For example,
 -- arn:partition:service:region:account-id:resource-type\/resource-name\/resource-id.
 --
+-- 'queryId', 'storedQuery_queryId' - The ID of the query.
+--
 -- 'queryName', 'storedQuery_queryName' - The name of the query.
 newStoredQuery ::
   -- | 'queryName'
@@ -68,16 +68,12 @@ newStoredQuery ::
   StoredQuery
 newStoredQuery pQueryName_ =
   StoredQuery'
-    { queryId = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
       expression = Prelude.Nothing,
       queryArn = Prelude.Nothing,
+      queryId = Prelude.Nothing,
       queryName = pQueryName_
     }
-
--- | The ID of the query.
-storedQuery_queryId :: Lens.Lens' StoredQuery (Prelude.Maybe Prelude.Text)
-storedQuery_queryId = Lens.lens (\StoredQuery' {queryId} -> queryId) (\s@StoredQuery' {} a -> s {queryId = a} :: StoredQuery)
 
 -- | A unique description for the query.
 storedQuery_description :: Lens.Lens' StoredQuery (Prelude.Maybe Prelude.Text)
@@ -93,6 +89,10 @@ storedQuery_expression = Lens.lens (\StoredQuery' {expression} -> expression) (\
 storedQuery_queryArn :: Lens.Lens' StoredQuery (Prelude.Maybe Prelude.Text)
 storedQuery_queryArn = Lens.lens (\StoredQuery' {queryArn} -> queryArn) (\s@StoredQuery' {} a -> s {queryArn = a} :: StoredQuery)
 
+-- | The ID of the query.
+storedQuery_queryId :: Lens.Lens' StoredQuery (Prelude.Maybe Prelude.Text)
+storedQuery_queryId = Lens.lens (\StoredQuery' {queryId} -> queryId) (\s@StoredQuery' {} a -> s {queryId = a} :: StoredQuery)
+
 -- | The name of the query.
 storedQuery_queryName :: Lens.Lens' StoredQuery Prelude.Text
 storedQuery_queryName = Lens.lens (\StoredQuery' {queryName} -> queryName) (\s@StoredQuery' {} a -> s {queryName = a} :: StoredQuery)
@@ -103,37 +103,37 @@ instance Data.FromJSON StoredQuery where
       "StoredQuery"
       ( \x ->
           StoredQuery'
-            Prelude.<$> (x Data..:? "QueryId")
-            Prelude.<*> (x Data..:? "Description")
+            Prelude.<$> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "Expression")
             Prelude.<*> (x Data..:? "QueryArn")
+            Prelude.<*> (x Data..:? "QueryId")
             Prelude.<*> (x Data..: "QueryName")
       )
 
 instance Prelude.Hashable StoredQuery where
   hashWithSalt _salt StoredQuery' {..} =
-    _salt `Prelude.hashWithSalt` queryId
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` expression
       `Prelude.hashWithSalt` queryArn
+      `Prelude.hashWithSalt` queryId
       `Prelude.hashWithSalt` queryName
 
 instance Prelude.NFData StoredQuery where
   rnf StoredQuery' {..} =
-    Prelude.rnf queryId
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf expression
       `Prelude.seq` Prelude.rnf queryArn
+      `Prelude.seq` Prelude.rnf queryId
       `Prelude.seq` Prelude.rnf queryName
 
 instance Data.ToJSON StoredQuery where
   toJSON StoredQuery' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("QueryId" Data..=) Prelude.<$> queryId,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
             ("Expression" Data..=) Prelude.<$> expression,
             ("QueryArn" Data..=) Prelude.<$> queryArn,
+            ("QueryId" Data..=) Prelude.<$> queryId,
             Prelude.Just ("QueryName" Data..= queryName)
           ]
       )

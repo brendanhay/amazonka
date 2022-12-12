@@ -33,9 +33,9 @@ module Amazonka.ChimeSDKMessaging.ListChannelMembershipsForAppInstanceUser
     newListChannelMembershipsForAppInstanceUser,
 
     -- * Request Lenses
-    listChannelMembershipsForAppInstanceUser_nextToken,
     listChannelMembershipsForAppInstanceUser_appInstanceUserArn,
     listChannelMembershipsForAppInstanceUser_maxResults,
+    listChannelMembershipsForAppInstanceUser_nextToken,
     listChannelMembershipsForAppInstanceUser_chimeBearer,
 
     -- * Destructuring the Response
@@ -43,8 +43,8 @@ module Amazonka.ChimeSDKMessaging.ListChannelMembershipsForAppInstanceUser
     newListChannelMembershipsForAppInstanceUserResponse,
 
     -- * Response Lenses
-    listChannelMembershipsForAppInstanceUserResponse_nextToken,
     listChannelMembershipsForAppInstanceUserResponse_channelMemberships,
+    listChannelMembershipsForAppInstanceUserResponse_nextToken,
     listChannelMembershipsForAppInstanceUserResponse_httpStatus,
   )
 where
@@ -59,13 +59,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListChannelMembershipsForAppInstanceUser' smart constructor.
 data ListChannelMembershipsForAppInstanceUser = ListChannelMembershipsForAppInstanceUser'
-  { -- | The token returned from previous API requests until the number of
-    -- channel memberships is reached.
-    nextToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The ARN of the @AppInstanceUser@s
+  { -- | The ARN of the @AppInstanceUser@s
     appInstanceUserArn :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of users that you want returned.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token returned from previous API requests until the number of
+    -- channel memberships is reached.
+    nextToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The @AppInstanceUserArn@ of the user that makes the API call.
     chimeBearer :: Prelude.Text
   }
@@ -79,12 +79,12 @@ data ListChannelMembershipsForAppInstanceUser = ListChannelMembershipsForAppInst
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listChannelMembershipsForAppInstanceUser_nextToken' - The token returned from previous API requests until the number of
--- channel memberships is reached.
---
 -- 'appInstanceUserArn', 'listChannelMembershipsForAppInstanceUser_appInstanceUserArn' - The ARN of the @AppInstanceUser@s
 --
 -- 'maxResults', 'listChannelMembershipsForAppInstanceUser_maxResults' - The maximum number of users that you want returned.
+--
+-- 'nextToken', 'listChannelMembershipsForAppInstanceUser_nextToken' - The token returned from previous API requests until the number of
+-- channel memberships is reached.
 --
 -- 'chimeBearer', 'listChannelMembershipsForAppInstanceUser_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.
 newListChannelMembershipsForAppInstanceUser ::
@@ -94,18 +94,12 @@ newListChannelMembershipsForAppInstanceUser ::
 newListChannelMembershipsForAppInstanceUser
   pChimeBearer_ =
     ListChannelMembershipsForAppInstanceUser'
-      { nextToken =
-          Prelude.Nothing,
-        appInstanceUserArn =
+      { appInstanceUserArn =
           Prelude.Nothing,
         maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         chimeBearer = pChimeBearer_
       }
-
--- | The token returned from previous API requests until the number of
--- channel memberships is reached.
-listChannelMembershipsForAppInstanceUser_nextToken :: Lens.Lens' ListChannelMembershipsForAppInstanceUser (Prelude.Maybe Prelude.Text)
-listChannelMembershipsForAppInstanceUser_nextToken = Lens.lens (\ListChannelMembershipsForAppInstanceUser' {nextToken} -> nextToken) (\s@ListChannelMembershipsForAppInstanceUser' {} a -> s {nextToken = a} :: ListChannelMembershipsForAppInstanceUser) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ARN of the @AppInstanceUser@s
 listChannelMembershipsForAppInstanceUser_appInstanceUserArn :: Lens.Lens' ListChannelMembershipsForAppInstanceUser (Prelude.Maybe Prelude.Text)
@@ -114,6 +108,11 @@ listChannelMembershipsForAppInstanceUser_appInstanceUserArn = Lens.lens (\ListCh
 -- | The maximum number of users that you want returned.
 listChannelMembershipsForAppInstanceUser_maxResults :: Lens.Lens' ListChannelMembershipsForAppInstanceUser (Prelude.Maybe Prelude.Natural)
 listChannelMembershipsForAppInstanceUser_maxResults = Lens.lens (\ListChannelMembershipsForAppInstanceUser' {maxResults} -> maxResults) (\s@ListChannelMembershipsForAppInstanceUser' {} a -> s {maxResults = a} :: ListChannelMembershipsForAppInstanceUser)
+
+-- | The token returned from previous API requests until the number of
+-- channel memberships is reached.
+listChannelMembershipsForAppInstanceUser_nextToken :: Lens.Lens' ListChannelMembershipsForAppInstanceUser (Prelude.Maybe Prelude.Text)
+listChannelMembershipsForAppInstanceUser_nextToken = Lens.lens (\ListChannelMembershipsForAppInstanceUser' {nextToken} -> nextToken) (\s@ListChannelMembershipsForAppInstanceUser' {} a -> s {nextToken = a} :: ListChannelMembershipsForAppInstanceUser) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The @AppInstanceUserArn@ of the user that makes the API call.
 listChannelMembershipsForAppInstanceUser_chimeBearer :: Lens.Lens' ListChannelMembershipsForAppInstanceUser Prelude.Text
@@ -133,10 +132,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListChannelMembershipsForAppInstanceUserResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-              Prelude.<*> ( x Data..?> "ChannelMemberships"
-                              Core..!@ Prelude.mempty
-                          )
+            Prelude.<$> ( x Data..?> "ChannelMemberships"
+                            Core..!@ Prelude.mempty
+                        )
+              Prelude.<*> (x Data..?> "NextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,9 +146,9 @@ instance
   hashWithSalt
     _salt
     ListChannelMembershipsForAppInstanceUser' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` appInstanceUserArn
+      _salt `Prelude.hashWithSalt` appInstanceUserArn
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` chimeBearer
 
 instance
@@ -157,9 +156,9 @@ instance
     ListChannelMembershipsForAppInstanceUser
   where
   rnf ListChannelMembershipsForAppInstanceUser' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf appInstanceUserArn
+    Prelude.rnf appInstanceUserArn
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf chimeBearer
 
 instance
@@ -183,19 +182,19 @@ instance
   where
   toQuery ListChannelMembershipsForAppInstanceUser' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
-        "app-instance-user-arn" Data.=: appInstanceUserArn,
+      [ "app-instance-user-arn" Data.=: appInstanceUserArn,
         "max-results" Data.=: maxResults,
+        "next-token" Data.=: nextToken,
         "scope=app-instance-user-memberships"
       ]
 
 -- | /See:/ 'newListChannelMembershipsForAppInstanceUserResponse' smart constructor.
 data ListChannelMembershipsForAppInstanceUserResponse = ListChannelMembershipsForAppInstanceUserResponse'
-  { -- | The token passed by previous API calls until all requested users are
+  { -- | The information for the requested channel memberships.
+    channelMemberships :: Prelude.Maybe [ChannelMembershipForAppInstanceUserSummary],
+    -- | The token passed by previous API calls until all requested users are
     -- returned.
     nextToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The information for the requested channel memberships.
-    channelMemberships :: Prelude.Maybe [ChannelMembershipForAppInstanceUserSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -209,10 +208,10 @@ data ListChannelMembershipsForAppInstanceUserResponse = ListChannelMembershipsFo
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'channelMemberships', 'listChannelMembershipsForAppInstanceUserResponse_channelMemberships' - The information for the requested channel memberships.
+--
 -- 'nextToken', 'listChannelMembershipsForAppInstanceUserResponse_nextToken' - The token passed by previous API calls until all requested users are
 -- returned.
---
--- 'channelMemberships', 'listChannelMembershipsForAppInstanceUserResponse_channelMemberships' - The information for the requested channel memberships.
 --
 -- 'httpStatus', 'listChannelMembershipsForAppInstanceUserResponse_httpStatus' - The response's http status code.
 newListChannelMembershipsForAppInstanceUserResponse ::
@@ -222,21 +221,21 @@ newListChannelMembershipsForAppInstanceUserResponse ::
 newListChannelMembershipsForAppInstanceUserResponse
   pHttpStatus_ =
     ListChannelMembershipsForAppInstanceUserResponse'
-      { nextToken =
+      { channelMemberships =
           Prelude.Nothing,
-        channelMemberships =
+        nextToken =
           Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | The information for the requested channel memberships.
+listChannelMembershipsForAppInstanceUserResponse_channelMemberships :: Lens.Lens' ListChannelMembershipsForAppInstanceUserResponse (Prelude.Maybe [ChannelMembershipForAppInstanceUserSummary])
+listChannelMembershipsForAppInstanceUserResponse_channelMemberships = Lens.lens (\ListChannelMembershipsForAppInstanceUserResponse' {channelMemberships} -> channelMemberships) (\s@ListChannelMembershipsForAppInstanceUserResponse' {} a -> s {channelMemberships = a} :: ListChannelMembershipsForAppInstanceUserResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token passed by previous API calls until all requested users are
 -- returned.
 listChannelMembershipsForAppInstanceUserResponse_nextToken :: Lens.Lens' ListChannelMembershipsForAppInstanceUserResponse (Prelude.Maybe Prelude.Text)
 listChannelMembershipsForAppInstanceUserResponse_nextToken = Lens.lens (\ListChannelMembershipsForAppInstanceUserResponse' {nextToken} -> nextToken) (\s@ListChannelMembershipsForAppInstanceUserResponse' {} a -> s {nextToken = a} :: ListChannelMembershipsForAppInstanceUserResponse) Prelude.. Lens.mapping Data._Sensitive
-
--- | The information for the requested channel memberships.
-listChannelMembershipsForAppInstanceUserResponse_channelMemberships :: Lens.Lens' ListChannelMembershipsForAppInstanceUserResponse (Prelude.Maybe [ChannelMembershipForAppInstanceUserSummary])
-listChannelMembershipsForAppInstanceUserResponse_channelMemberships = Lens.lens (\ListChannelMembershipsForAppInstanceUserResponse' {channelMemberships} -> channelMemberships) (\s@ListChannelMembershipsForAppInstanceUserResponse' {} a -> s {channelMemberships = a} :: ListChannelMembershipsForAppInstanceUserResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listChannelMembershipsForAppInstanceUserResponse_httpStatus :: Lens.Lens' ListChannelMembershipsForAppInstanceUserResponse Prelude.Int
@@ -248,6 +247,6 @@ instance
   where
   rnf
     ListChannelMembershipsForAppInstanceUserResponse' {..} =
-      Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf channelMemberships
+      Prelude.rnf channelMemberships
+        `Prelude.seq` Prelude.rnf nextToken
         `Prelude.seq` Prelude.rnf httpStatus

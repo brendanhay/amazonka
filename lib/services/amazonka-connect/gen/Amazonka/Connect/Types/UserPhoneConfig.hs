@@ -29,15 +29,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUserPhoneConfig' smart constructor.
 data UserPhoneConfig = UserPhoneConfig'
-  { -- | The Auto accept setting.
-    autoAccept :: Prelude.Maybe Prelude.Bool,
-    -- | The phone number for the user\'s desk phone.
-    deskPhoneNumber :: Prelude.Maybe Prelude.Text,
-    -- | The After Call Work (ACW) timeout setting, in seconds.
+  { -- | The After Call Work (ACW) timeout setting, in seconds.
     --
     -- When returned by a @SearchUsers@ call, @AfterContactWorkTimeLimit@ is
     -- returned in milliseconds.
     afterContactWorkTimeLimit :: Prelude.Maybe Prelude.Natural,
+    -- | The Auto accept setting.
+    autoAccept :: Prelude.Maybe Prelude.Bool,
+    -- | The phone number for the user\'s desk phone.
+    deskPhoneNumber :: Prelude.Maybe Prelude.Text,
     -- | The phone type.
     phoneType :: PhoneType
   }
@@ -51,14 +51,14 @@ data UserPhoneConfig = UserPhoneConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'autoAccept', 'userPhoneConfig_autoAccept' - The Auto accept setting.
---
--- 'deskPhoneNumber', 'userPhoneConfig_deskPhoneNumber' - The phone number for the user\'s desk phone.
---
 -- 'afterContactWorkTimeLimit', 'userPhoneConfig_afterContactWorkTimeLimit' - The After Call Work (ACW) timeout setting, in seconds.
 --
 -- When returned by a @SearchUsers@ call, @AfterContactWorkTimeLimit@ is
 -- returned in milliseconds.
+--
+-- 'autoAccept', 'userPhoneConfig_autoAccept' - The Auto accept setting.
+--
+-- 'deskPhoneNumber', 'userPhoneConfig_deskPhoneNumber' - The phone number for the user\'s desk phone.
 --
 -- 'phoneType', 'userPhoneConfig_phoneType' - The phone type.
 newUserPhoneConfig ::
@@ -67,11 +67,19 @@ newUserPhoneConfig ::
   UserPhoneConfig
 newUserPhoneConfig pPhoneType_ =
   UserPhoneConfig'
-    { autoAccept = Prelude.Nothing,
+    { afterContactWorkTimeLimit =
+        Prelude.Nothing,
+      autoAccept = Prelude.Nothing,
       deskPhoneNumber = Prelude.Nothing,
-      afterContactWorkTimeLimit = Prelude.Nothing,
       phoneType = pPhoneType_
     }
+
+-- | The After Call Work (ACW) timeout setting, in seconds.
+--
+-- When returned by a @SearchUsers@ call, @AfterContactWorkTimeLimit@ is
+-- returned in milliseconds.
+userPhoneConfig_afterContactWorkTimeLimit :: Lens.Lens' UserPhoneConfig (Prelude.Maybe Prelude.Natural)
+userPhoneConfig_afterContactWorkTimeLimit = Lens.lens (\UserPhoneConfig' {afterContactWorkTimeLimit} -> afterContactWorkTimeLimit) (\s@UserPhoneConfig' {} a -> s {afterContactWorkTimeLimit = a} :: UserPhoneConfig)
 
 -- | The Auto accept setting.
 userPhoneConfig_autoAccept :: Lens.Lens' UserPhoneConfig (Prelude.Maybe Prelude.Bool)
@@ -80,13 +88,6 @@ userPhoneConfig_autoAccept = Lens.lens (\UserPhoneConfig' {autoAccept} -> autoAc
 -- | The phone number for the user\'s desk phone.
 userPhoneConfig_deskPhoneNumber :: Lens.Lens' UserPhoneConfig (Prelude.Maybe Prelude.Text)
 userPhoneConfig_deskPhoneNumber = Lens.lens (\UserPhoneConfig' {deskPhoneNumber} -> deskPhoneNumber) (\s@UserPhoneConfig' {} a -> s {deskPhoneNumber = a} :: UserPhoneConfig)
-
--- | The After Call Work (ACW) timeout setting, in seconds.
---
--- When returned by a @SearchUsers@ call, @AfterContactWorkTimeLimit@ is
--- returned in milliseconds.
-userPhoneConfig_afterContactWorkTimeLimit :: Lens.Lens' UserPhoneConfig (Prelude.Maybe Prelude.Natural)
-userPhoneConfig_afterContactWorkTimeLimit = Lens.lens (\UserPhoneConfig' {afterContactWorkTimeLimit} -> afterContactWorkTimeLimit) (\s@UserPhoneConfig' {} a -> s {afterContactWorkTimeLimit = a} :: UserPhoneConfig)
 
 -- | The phone type.
 userPhoneConfig_phoneType :: Lens.Lens' UserPhoneConfig PhoneType
@@ -98,35 +99,36 @@ instance Data.FromJSON UserPhoneConfig where
       "UserPhoneConfig"
       ( \x ->
           UserPhoneConfig'
-            Prelude.<$> (x Data..:? "AutoAccept")
+            Prelude.<$> (x Data..:? "AfterContactWorkTimeLimit")
+            Prelude.<*> (x Data..:? "AutoAccept")
             Prelude.<*> (x Data..:? "DeskPhoneNumber")
-            Prelude.<*> (x Data..:? "AfterContactWorkTimeLimit")
             Prelude.<*> (x Data..: "PhoneType")
       )
 
 instance Prelude.Hashable UserPhoneConfig where
   hashWithSalt _salt UserPhoneConfig' {..} =
-    _salt `Prelude.hashWithSalt` autoAccept
-      `Prelude.hashWithSalt` deskPhoneNumber
+    _salt
       `Prelude.hashWithSalt` afterContactWorkTimeLimit
+      `Prelude.hashWithSalt` autoAccept
+      `Prelude.hashWithSalt` deskPhoneNumber
       `Prelude.hashWithSalt` phoneType
 
 instance Prelude.NFData UserPhoneConfig where
   rnf UserPhoneConfig' {..} =
-    Prelude.rnf autoAccept
+    Prelude.rnf afterContactWorkTimeLimit
+      `Prelude.seq` Prelude.rnf autoAccept
       `Prelude.seq` Prelude.rnf deskPhoneNumber
-      `Prelude.seq` Prelude.rnf afterContactWorkTimeLimit
       `Prelude.seq` Prelude.rnf phoneType
 
 instance Data.ToJSON UserPhoneConfig where
   toJSON UserPhoneConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("AutoAccept" Data..=) Prelude.<$> autoAccept,
+          [ ("AfterContactWorkTimeLimit" Data..=)
+              Prelude.<$> afterContactWorkTimeLimit,
+            ("AutoAccept" Data..=) Prelude.<$> autoAccept,
             ("DeskPhoneNumber" Data..=)
               Prelude.<$> deskPhoneNumber,
-            ("AfterContactWorkTimeLimit" Data..=)
-              Prelude.<$> afterContactWorkTimeLimit,
             Prelude.Just ("PhoneType" Data..= phoneType)
           ]
       )

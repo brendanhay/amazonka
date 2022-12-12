@@ -30,15 +30,15 @@ import Amazonka.SecurityHub.Types.AwsS3BucketBucketLifecycleConfigurationRulesFi
 --
 -- /See:/ 'newAwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails' smart constructor.
 data AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails = AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails'
-  { -- | Whether to use @AND@ or @OR@ to join the operands. Valid values are
-    -- @LifecycleAndOperator@ or @LifecycleOrOperator@.
-    type' :: Prelude.Maybe Prelude.Text,
-    -- | A tag filter.
-    tag :: Prelude.Maybe AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails,
+  { -- | The values to use for the filter.
+    operands :: Prelude.Maybe [AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails],
     -- | A prefix filter.
     prefix :: Prelude.Maybe Prelude.Text,
-    -- | The values to use for the filter.
-    operands :: Prelude.Maybe [AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails]
+    -- | A tag filter.
+    tag :: Prelude.Maybe AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails,
+    -- | Whether to use @AND@ or @OR@ to join the operands. Valid values are
+    -- @LifecycleAndOperator@ or @LifecycleOrOperator@.
+    type' :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,44 +50,44 @@ data AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails = AwsS3B
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails_type' - Whether to use @AND@ or @OR@ to join the operands. Valid values are
--- @LifecycleAndOperator@ or @LifecycleOrOperator@.
---
--- 'tag', 'awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails_tag' - A tag filter.
+-- 'operands', 'awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails_operands' - The values to use for the filter.
 --
 -- 'prefix', 'awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails_prefix' - A prefix filter.
 --
--- 'operands', 'awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails_operands' - The values to use for the filter.
+-- 'tag', 'awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails_tag' - A tag filter.
+--
+-- 'type'', 'awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails_type' - Whether to use @AND@ or @OR@ to join the operands. Valid values are
+-- @LifecycleAndOperator@ or @LifecycleOrOperator@.
 newAwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails ::
   AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails
 newAwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails =
   AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails'
-    { type' =
-        Prelude.Nothing,
-      tag =
+    { operands =
         Prelude.Nothing,
       prefix =
         Prelude.Nothing,
-      operands =
+      tag =
+        Prelude.Nothing,
+      type' =
         Prelude.Nothing
     }
 
--- | Whether to use @AND@ or @OR@ to join the operands. Valid values are
--- @LifecycleAndOperator@ or @LifecycleOrOperator@.
-awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails_type :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails (Prelude.Maybe Prelude.Text)
-awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails_type = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails' {type'} -> type') (\s@AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails' {} a -> s {type' = a} :: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails)
-
--- | A tag filter.
-awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails_tag :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails (Prelude.Maybe AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails)
-awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails_tag = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails' {tag} -> tag) (\s@AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails' {} a -> s {tag = a} :: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails)
+-- | The values to use for the filter.
+awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails_operands :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails (Prelude.Maybe [AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails])
+awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails_operands = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails' {operands} -> operands) (\s@AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails' {} a -> s {operands = a} :: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | A prefix filter.
 awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails_prefix :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails (Prelude.Maybe Prelude.Text)
 awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails_prefix = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails' {prefix} -> prefix) (\s@AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails' {} a -> s {prefix = a} :: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails)
 
--- | The values to use for the filter.
-awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails_operands :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails (Prelude.Maybe [AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails])
-awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails_operands = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails' {operands} -> operands) (\s@AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails' {} a -> s {operands = a} :: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails) Prelude.. Lens.mapping Lens.coerced
+-- | A tag filter.
+awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails_tag :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails (Prelude.Maybe AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails)
+awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails_tag = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails' {tag} -> tag) (\s@AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails' {} a -> s {tag = a} :: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails)
+
+-- | Whether to use @AND@ or @OR@ to join the operands. Valid values are
+-- @LifecycleAndOperator@ or @LifecycleOrOperator@.
+awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails_type :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails (Prelude.Maybe Prelude.Text)
+awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails_type = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails' {type'} -> type') (\s@AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails' {} a -> s {type' = a} :: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails)
 
 instance
   Data.FromJSON
@@ -98,9 +98,10 @@ instance
       "AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails"
       ( \x ->
           AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails'
-            Prelude.<$> (x Data..:? "Type") Prelude.<*> (x Data..:? "Tag")
+            Prelude.<$> (x Data..:? "Operands" Data..!= Prelude.mempty)
               Prelude.<*> (x Data..:? "Prefix")
-              Prelude.<*> (x Data..:? "Operands" Data..!= Prelude.mempty)
+              Prelude.<*> (x Data..:? "Tag")
+              Prelude.<*> (x Data..:? "Type")
       )
 
 instance
@@ -110,10 +111,10 @@ instance
   hashWithSalt
     _salt
     AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails' {..} =
-      _salt `Prelude.hashWithSalt` type'
-        `Prelude.hashWithSalt` tag
+      _salt `Prelude.hashWithSalt` operands
         `Prelude.hashWithSalt` prefix
-        `Prelude.hashWithSalt` operands
+        `Prelude.hashWithSalt` tag
+        `Prelude.hashWithSalt` type'
 
 instance
   Prelude.NFData
@@ -121,10 +122,10 @@ instance
   where
   rnf
     AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails' {..} =
-      Prelude.rnf type'
-        `Prelude.seq` Prelude.rnf tag
+      Prelude.rnf operands
         `Prelude.seq` Prelude.rnf prefix
-        `Prelude.seq` Prelude.rnf operands
+        `Prelude.seq` Prelude.rnf tag
+        `Prelude.seq` Prelude.rnf type'
 
 instance
   Data.ToJSON
@@ -134,9 +135,9 @@ instance
     AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("Type" Data..=) Prelude.<$> type',
-              ("Tag" Data..=) Prelude.<$> tag,
+            [ ("Operands" Data..=) Prelude.<$> operands,
               ("Prefix" Data..=) Prelude.<$> prefix,
-              ("Operands" Data..=) Prelude.<$> operands
+              ("Tag" Data..=) Prelude.<$> tag,
+              ("Type" Data..=) Prelude.<$> type'
             ]
         )

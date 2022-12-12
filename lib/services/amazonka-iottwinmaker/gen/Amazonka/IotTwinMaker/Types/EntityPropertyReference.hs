@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEntityPropertyReference' smart constructor.
 data EntityPropertyReference = EntityPropertyReference'
-  { -- | The ID of the entity.
-    entityId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the component.
+  { -- | The name of the component.
     componentName :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the entity.
+    entityId :: Prelude.Maybe Prelude.Text,
     -- | A mapping of external IDs to property names. External IDs uniquely
     -- identify properties from external data stores.
     externalIdProperty :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
@@ -48,9 +48,9 @@ data EntityPropertyReference = EntityPropertyReference'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'entityId', 'entityPropertyReference_entityId' - The ID of the entity.
---
 -- 'componentName', 'entityPropertyReference_componentName' - The name of the component.
+--
+-- 'entityId', 'entityPropertyReference_entityId' - The ID of the entity.
 --
 -- 'externalIdProperty', 'entityPropertyReference_externalIdProperty' - A mapping of external IDs to property names. External IDs uniquely
 -- identify properties from external data stores.
@@ -62,20 +62,20 @@ newEntityPropertyReference ::
   EntityPropertyReference
 newEntityPropertyReference pPropertyName_ =
   EntityPropertyReference'
-    { entityId =
+    { componentName =
         Prelude.Nothing,
-      componentName = Prelude.Nothing,
+      entityId = Prelude.Nothing,
       externalIdProperty = Prelude.Nothing,
       propertyName = pPropertyName_
     }
 
--- | The ID of the entity.
-entityPropertyReference_entityId :: Lens.Lens' EntityPropertyReference (Prelude.Maybe Prelude.Text)
-entityPropertyReference_entityId = Lens.lens (\EntityPropertyReference' {entityId} -> entityId) (\s@EntityPropertyReference' {} a -> s {entityId = a} :: EntityPropertyReference)
-
 -- | The name of the component.
 entityPropertyReference_componentName :: Lens.Lens' EntityPropertyReference (Prelude.Maybe Prelude.Text)
 entityPropertyReference_componentName = Lens.lens (\EntityPropertyReference' {componentName} -> componentName) (\s@EntityPropertyReference' {} a -> s {componentName = a} :: EntityPropertyReference)
+
+-- | The ID of the entity.
+entityPropertyReference_entityId :: Lens.Lens' EntityPropertyReference (Prelude.Maybe Prelude.Text)
+entityPropertyReference_entityId = Lens.lens (\EntityPropertyReference' {entityId} -> entityId) (\s@EntityPropertyReference' {} a -> s {entityId = a} :: EntityPropertyReference)
 
 -- | A mapping of external IDs to property names. External IDs uniquely
 -- identify properties from external data stores.
@@ -92,8 +92,8 @@ instance Data.FromJSON EntityPropertyReference where
       "EntityPropertyReference"
       ( \x ->
           EntityPropertyReference'
-            Prelude.<$> (x Data..:? "entityId")
-            Prelude.<*> (x Data..:? "componentName")
+            Prelude.<$> (x Data..:? "componentName")
+            Prelude.<*> (x Data..:? "entityId")
             Prelude.<*> ( x Data..:? "externalIdProperty"
                             Data..!= Prelude.mempty
                         )
@@ -102,15 +102,15 @@ instance Data.FromJSON EntityPropertyReference where
 
 instance Prelude.Hashable EntityPropertyReference where
   hashWithSalt _salt EntityPropertyReference' {..} =
-    _salt `Prelude.hashWithSalt` entityId
-      `Prelude.hashWithSalt` componentName
+    _salt `Prelude.hashWithSalt` componentName
+      `Prelude.hashWithSalt` entityId
       `Prelude.hashWithSalt` externalIdProperty
       `Prelude.hashWithSalt` propertyName
 
 instance Prelude.NFData EntityPropertyReference where
   rnf EntityPropertyReference' {..} =
-    Prelude.rnf entityId
-      `Prelude.seq` Prelude.rnf componentName
+    Prelude.rnf componentName
+      `Prelude.seq` Prelude.rnf entityId
       `Prelude.seq` Prelude.rnf externalIdProperty
       `Prelude.seq` Prelude.rnf propertyName
 
@@ -118,8 +118,8 @@ instance Data.ToJSON EntityPropertyReference where
   toJSON EntityPropertyReference' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("entityId" Data..=) Prelude.<$> entityId,
-            ("componentName" Data..=) Prelude.<$> componentName,
+          [ ("componentName" Data..=) Prelude.<$> componentName,
+            ("entityId" Data..=) Prelude.<$> entityId,
             ("externalIdProperty" Data..=)
               Prelude.<$> externalIdProperty,
             Prelude.Just ("propertyName" Data..= propertyName)

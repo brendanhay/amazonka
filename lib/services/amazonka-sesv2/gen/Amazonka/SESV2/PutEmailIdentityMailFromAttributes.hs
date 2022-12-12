@@ -28,8 +28,8 @@ module Amazonka.SESV2.PutEmailIdentityMailFromAttributes
     newPutEmailIdentityMailFromAttributes,
 
     -- * Request Lenses
-    putEmailIdentityMailFromAttributes_mailFromDomain,
     putEmailIdentityMailFromAttributes_behaviorOnMxFailure,
+    putEmailIdentityMailFromAttributes_mailFromDomain,
     putEmailIdentityMailFromAttributes_emailIdentity,
 
     -- * Destructuring the Response
@@ -54,17 +54,7 @@ import Amazonka.SESV2.Types
 --
 -- /See:/ 'newPutEmailIdentityMailFromAttributes' smart constructor.
 data PutEmailIdentityMailFromAttributes = PutEmailIdentityMailFromAttributes'
-  { -- | The custom MAIL FROM domain that you want the verified identity to use.
-    -- The MAIL FROM domain must meet the following criteria:
-    --
-    -- -   It has to be a subdomain of the verified identity.
-    --
-    -- -   It can\'t be used to receive email.
-    --
-    -- -   It can\'t be used in a \"From\" address if the MAIL FROM domain is a
-    --     destination for feedback forwarding emails.
-    mailFromDomain :: Prelude.Maybe Prelude.Text,
-    -- | The action to take if the required MX record isn\'t found when you send
+  { -- | The action to take if the required MX record isn\'t found when you send
     -- an email. When you set this value to @UseDefaultValue@, the mail is sent
     -- using /amazonses.com/ as the MAIL FROM domain. When you set this value
     -- to @RejectMessage@, the Amazon SES API v2 returns a
@@ -74,6 +64,16 @@ data PutEmailIdentityMailFromAttributes = PutEmailIdentityMailFromAttributes'
     -- These behaviors are taken when the custom MAIL FROM domain configuration
     -- is in the @Pending@, @Failed@, and @TemporaryFailure@ states.
     behaviorOnMxFailure :: Prelude.Maybe BehaviorOnMxFailure,
+    -- | The custom MAIL FROM domain that you want the verified identity to use.
+    -- The MAIL FROM domain must meet the following criteria:
+    --
+    -- -   It has to be a subdomain of the verified identity.
+    --
+    -- -   It can\'t be used to receive email.
+    --
+    -- -   It can\'t be used in a \"From\" address if the MAIL FROM domain is a
+    --     destination for feedback forwarding emails.
+    mailFromDomain :: Prelude.Maybe Prelude.Text,
     -- | The verified email identity.
     emailIdentity :: Prelude.Text
   }
@@ -87,16 +87,6 @@ data PutEmailIdentityMailFromAttributes = PutEmailIdentityMailFromAttributes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'mailFromDomain', 'putEmailIdentityMailFromAttributes_mailFromDomain' - The custom MAIL FROM domain that you want the verified identity to use.
--- The MAIL FROM domain must meet the following criteria:
---
--- -   It has to be a subdomain of the verified identity.
---
--- -   It can\'t be used to receive email.
---
--- -   It can\'t be used in a \"From\" address if the MAIL FROM domain is a
---     destination for feedback forwarding emails.
---
 -- 'behaviorOnMxFailure', 'putEmailIdentityMailFromAttributes_behaviorOnMxFailure' - The action to take if the required MX record isn\'t found when you send
 -- an email. When you set this value to @UseDefaultValue@, the mail is sent
 -- using /amazonses.com/ as the MAIL FROM domain. When you set this value
@@ -107,20 +97,7 @@ data PutEmailIdentityMailFromAttributes = PutEmailIdentityMailFromAttributes'
 -- These behaviors are taken when the custom MAIL FROM domain configuration
 -- is in the @Pending@, @Failed@, and @TemporaryFailure@ states.
 --
--- 'emailIdentity', 'putEmailIdentityMailFromAttributes_emailIdentity' - The verified email identity.
-newPutEmailIdentityMailFromAttributes ::
-  -- | 'emailIdentity'
-  Prelude.Text ->
-  PutEmailIdentityMailFromAttributes
-newPutEmailIdentityMailFromAttributes pEmailIdentity_ =
-  PutEmailIdentityMailFromAttributes'
-    { mailFromDomain =
-        Prelude.Nothing,
-      behaviorOnMxFailure = Prelude.Nothing,
-      emailIdentity = pEmailIdentity_
-    }
-
--- | The custom MAIL FROM domain that you want the verified identity to use.
+-- 'mailFromDomain', 'putEmailIdentityMailFromAttributes_mailFromDomain' - The custom MAIL FROM domain that you want the verified identity to use.
 -- The MAIL FROM domain must meet the following criteria:
 --
 -- -   It has to be a subdomain of the verified identity.
@@ -129,8 +106,19 @@ newPutEmailIdentityMailFromAttributes pEmailIdentity_ =
 --
 -- -   It can\'t be used in a \"From\" address if the MAIL FROM domain is a
 --     destination for feedback forwarding emails.
-putEmailIdentityMailFromAttributes_mailFromDomain :: Lens.Lens' PutEmailIdentityMailFromAttributes (Prelude.Maybe Prelude.Text)
-putEmailIdentityMailFromAttributes_mailFromDomain = Lens.lens (\PutEmailIdentityMailFromAttributes' {mailFromDomain} -> mailFromDomain) (\s@PutEmailIdentityMailFromAttributes' {} a -> s {mailFromDomain = a} :: PutEmailIdentityMailFromAttributes)
+--
+-- 'emailIdentity', 'putEmailIdentityMailFromAttributes_emailIdentity' - The verified email identity.
+newPutEmailIdentityMailFromAttributes ::
+  -- | 'emailIdentity'
+  Prelude.Text ->
+  PutEmailIdentityMailFromAttributes
+newPutEmailIdentityMailFromAttributes pEmailIdentity_ =
+  PutEmailIdentityMailFromAttributes'
+    { behaviorOnMxFailure =
+        Prelude.Nothing,
+      mailFromDomain = Prelude.Nothing,
+      emailIdentity = pEmailIdentity_
+    }
 
 -- | The action to take if the required MX record isn\'t found when you send
 -- an email. When you set this value to @UseDefaultValue@, the mail is sent
@@ -143,6 +131,18 @@ putEmailIdentityMailFromAttributes_mailFromDomain = Lens.lens (\PutEmailIdentity
 -- is in the @Pending@, @Failed@, and @TemporaryFailure@ states.
 putEmailIdentityMailFromAttributes_behaviorOnMxFailure :: Lens.Lens' PutEmailIdentityMailFromAttributes (Prelude.Maybe BehaviorOnMxFailure)
 putEmailIdentityMailFromAttributes_behaviorOnMxFailure = Lens.lens (\PutEmailIdentityMailFromAttributes' {behaviorOnMxFailure} -> behaviorOnMxFailure) (\s@PutEmailIdentityMailFromAttributes' {} a -> s {behaviorOnMxFailure = a} :: PutEmailIdentityMailFromAttributes)
+
+-- | The custom MAIL FROM domain that you want the verified identity to use.
+-- The MAIL FROM domain must meet the following criteria:
+--
+-- -   It has to be a subdomain of the verified identity.
+--
+-- -   It can\'t be used to receive email.
+--
+-- -   It can\'t be used in a \"From\" address if the MAIL FROM domain is a
+--     destination for feedback forwarding emails.
+putEmailIdentityMailFromAttributes_mailFromDomain :: Lens.Lens' PutEmailIdentityMailFromAttributes (Prelude.Maybe Prelude.Text)
+putEmailIdentityMailFromAttributes_mailFromDomain = Lens.lens (\PutEmailIdentityMailFromAttributes' {mailFromDomain} -> mailFromDomain) (\s@PutEmailIdentityMailFromAttributes' {} a -> s {mailFromDomain = a} :: PutEmailIdentityMailFromAttributes)
 
 -- | The verified email identity.
 putEmailIdentityMailFromAttributes_emailIdentity :: Lens.Lens' PutEmailIdentityMailFromAttributes Prelude.Text
@@ -171,8 +171,8 @@ instance
   hashWithSalt
     _salt
     PutEmailIdentityMailFromAttributes' {..} =
-      _salt `Prelude.hashWithSalt` mailFromDomain
-        `Prelude.hashWithSalt` behaviorOnMxFailure
+      _salt `Prelude.hashWithSalt` behaviorOnMxFailure
+        `Prelude.hashWithSalt` mailFromDomain
         `Prelude.hashWithSalt` emailIdentity
 
 instance
@@ -180,8 +180,8 @@ instance
     PutEmailIdentityMailFromAttributes
   where
   rnf PutEmailIdentityMailFromAttributes' {..} =
-    Prelude.rnf mailFromDomain
-      `Prelude.seq` Prelude.rnf behaviorOnMxFailure
+    Prelude.rnf behaviorOnMxFailure
+      `Prelude.seq` Prelude.rnf mailFromDomain
       `Prelude.seq` Prelude.rnf emailIdentity
 
 instance
@@ -205,10 +205,10 @@ instance
   toJSON PutEmailIdentityMailFromAttributes' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("MailFromDomain" Data..=)
-              Prelude.<$> mailFromDomain,
-            ("BehaviorOnMxFailure" Data..=)
-              Prelude.<$> behaviorOnMxFailure
+          [ ("BehaviorOnMxFailure" Data..=)
+              Prelude.<$> behaviorOnMxFailure,
+            ("MailFromDomain" Data..=)
+              Prelude.<$> mailFromDomain
           ]
       )
 

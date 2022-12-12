@@ -27,8 +27,8 @@ module Amazonka.NetworkManager.CreateTransitGatewayPeering
     newCreateTransitGatewayPeering,
 
     -- * Request Lenses
-    createTransitGatewayPeering_tags,
     createTransitGatewayPeering_clientToken,
+    createTransitGatewayPeering_tags,
     createTransitGatewayPeering_coreNetworkId,
     createTransitGatewayPeering_transitGatewayArn,
 
@@ -52,10 +52,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateTransitGatewayPeering' smart constructor.
 data CreateTransitGatewayPeering = CreateTransitGatewayPeering'
-  { -- | The list of key-value tags associated with the request.
-    tags :: Prelude.Maybe [Tag],
-    -- | The client token associated with the request.
+  { -- | The client token associated with the request.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The list of key-value tags associated with the request.
+    tags :: Prelude.Maybe [Tag],
     -- | The ID of a core network.
     coreNetworkId :: Prelude.Text,
     -- | The ARN of the transit gateway for the peering request.
@@ -71,9 +71,9 @@ data CreateTransitGatewayPeering = CreateTransitGatewayPeering'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createTransitGatewayPeering_tags' - The list of key-value tags associated with the request.
---
 -- 'clientToken', 'createTransitGatewayPeering_clientToken' - The client token associated with the request.
+--
+-- 'tags', 'createTransitGatewayPeering_tags' - The list of key-value tags associated with the request.
 --
 -- 'coreNetworkId', 'createTransitGatewayPeering_coreNetworkId' - The ID of a core network.
 --
@@ -88,20 +88,20 @@ newCreateTransitGatewayPeering
   pCoreNetworkId_
   pTransitGatewayArn_ =
     CreateTransitGatewayPeering'
-      { tags =
+      { clientToken =
           Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+        tags = Prelude.Nothing,
         coreNetworkId = pCoreNetworkId_,
         transitGatewayArn = pTransitGatewayArn_
       }
 
--- | The list of key-value tags associated with the request.
-createTransitGatewayPeering_tags :: Lens.Lens' CreateTransitGatewayPeering (Prelude.Maybe [Tag])
-createTransitGatewayPeering_tags = Lens.lens (\CreateTransitGatewayPeering' {tags} -> tags) (\s@CreateTransitGatewayPeering' {} a -> s {tags = a} :: CreateTransitGatewayPeering) Prelude.. Lens.mapping Lens.coerced
-
 -- | The client token associated with the request.
 createTransitGatewayPeering_clientToken :: Lens.Lens' CreateTransitGatewayPeering (Prelude.Maybe Prelude.Text)
 createTransitGatewayPeering_clientToken = Lens.lens (\CreateTransitGatewayPeering' {clientToken} -> clientToken) (\s@CreateTransitGatewayPeering' {} a -> s {clientToken = a} :: CreateTransitGatewayPeering)
+
+-- | The list of key-value tags associated with the request.
+createTransitGatewayPeering_tags :: Lens.Lens' CreateTransitGatewayPeering (Prelude.Maybe [Tag])
+createTransitGatewayPeering_tags = Lens.lens (\CreateTransitGatewayPeering' {tags} -> tags) (\s@CreateTransitGatewayPeering' {} a -> s {tags = a} :: CreateTransitGatewayPeering) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of a core network.
 createTransitGatewayPeering_coreNetworkId :: Lens.Lens' CreateTransitGatewayPeering Prelude.Text
@@ -127,15 +127,15 @@ instance Core.AWSRequest CreateTransitGatewayPeering where
 
 instance Prelude.Hashable CreateTransitGatewayPeering where
   hashWithSalt _salt CreateTransitGatewayPeering' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` coreNetworkId
       `Prelude.hashWithSalt` transitGatewayArn
 
 instance Prelude.NFData CreateTransitGatewayPeering where
   rnf CreateTransitGatewayPeering' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf coreNetworkId
       `Prelude.seq` Prelude.rnf transitGatewayArn
 
@@ -154,8 +154,8 @@ instance Data.ToJSON CreateTransitGatewayPeering where
   toJSON CreateTransitGatewayPeering' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ClientToken" Data..=) Prelude.<$> clientToken,
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("CoreNetworkId" Data..= coreNetworkId),
             Prelude.Just
               ("TransitGatewayArn" Data..= transitGatewayArn)

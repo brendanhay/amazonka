@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMemberAccountStatus' smart constructor.
 data MemberAccountStatus = MemberAccountStatus'
-  { -- | An error message indicating that Config rule account creation or
-    -- deletion has failed due to an error in the member account.
-    errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | An error code that is returned when Config rule creation or deletion
+  { -- | An error code that is returned when Config rule creation or deletion
     -- failed in the member account.
     errorCode :: Prelude.Maybe Prelude.Text,
+    -- | An error message indicating that Config rule account creation or
+    -- deletion has failed due to an error in the member account.
+    errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of the last status update.
     lastUpdateTime :: Prelude.Maybe Data.POSIX,
     -- | The 12-digit account ID of a member account.
@@ -92,11 +92,11 @@ data MemberAccountStatus = MemberAccountStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'errorMessage', 'memberAccountStatus_errorMessage' - An error message indicating that Config rule account creation or
--- deletion has failed due to an error in the member account.
---
 -- 'errorCode', 'memberAccountStatus_errorCode' - An error code that is returned when Config rule creation or deletion
 -- failed in the member account.
+--
+-- 'errorMessage', 'memberAccountStatus_errorMessage' - An error message indicating that Config rule account creation or
+-- deletion has failed due to an error in the member account.
 --
 -- 'lastUpdateTime', 'memberAccountStatus_lastUpdateTime' - The timestamp of the last status update.
 --
@@ -154,24 +154,23 @@ newMemberAccountStatus
   pConfigRuleName_
   pMemberAccountRuleStatus_ =
     MemberAccountStatus'
-      { errorMessage =
-          Prelude.Nothing,
-        errorCode = Prelude.Nothing,
+      { errorCode = Prelude.Nothing,
+        errorMessage = Prelude.Nothing,
         lastUpdateTime = Prelude.Nothing,
         accountId = pAccountId_,
         configRuleName = pConfigRuleName_,
         memberAccountRuleStatus = pMemberAccountRuleStatus_
       }
 
--- | An error message indicating that Config rule account creation or
--- deletion has failed due to an error in the member account.
-memberAccountStatus_errorMessage :: Lens.Lens' MemberAccountStatus (Prelude.Maybe Prelude.Text)
-memberAccountStatus_errorMessage = Lens.lens (\MemberAccountStatus' {errorMessage} -> errorMessage) (\s@MemberAccountStatus' {} a -> s {errorMessage = a} :: MemberAccountStatus)
-
 -- | An error code that is returned when Config rule creation or deletion
 -- failed in the member account.
 memberAccountStatus_errorCode :: Lens.Lens' MemberAccountStatus (Prelude.Maybe Prelude.Text)
 memberAccountStatus_errorCode = Lens.lens (\MemberAccountStatus' {errorCode} -> errorCode) (\s@MemberAccountStatus' {} a -> s {errorCode = a} :: MemberAccountStatus)
+
+-- | An error message indicating that Config rule account creation or
+-- deletion has failed due to an error in the member account.
+memberAccountStatus_errorMessage :: Lens.Lens' MemberAccountStatus (Prelude.Maybe Prelude.Text)
+memberAccountStatus_errorMessage = Lens.lens (\MemberAccountStatus' {errorMessage} -> errorMessage) (\s@MemberAccountStatus' {} a -> s {errorMessage = a} :: MemberAccountStatus)
 
 -- | The timestamp of the last status update.
 memberAccountStatus_lastUpdateTime :: Lens.Lens' MemberAccountStatus (Prelude.Maybe Prelude.UTCTime)
@@ -231,8 +230,8 @@ instance Data.FromJSON MemberAccountStatus where
       "MemberAccountStatus"
       ( \x ->
           MemberAccountStatus'
-            Prelude.<$> (x Data..:? "ErrorMessage")
-            Prelude.<*> (x Data..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "ErrorMessage")
             Prelude.<*> (x Data..:? "LastUpdateTime")
             Prelude.<*> (x Data..: "AccountId")
             Prelude.<*> (x Data..: "ConfigRuleName")
@@ -241,8 +240,8 @@ instance Data.FromJSON MemberAccountStatus where
 
 instance Prelude.Hashable MemberAccountStatus where
   hashWithSalt _salt MemberAccountStatus' {..} =
-    _salt `Prelude.hashWithSalt` errorMessage
-      `Prelude.hashWithSalt` errorCode
+    _salt `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` lastUpdateTime
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` configRuleName
@@ -250,8 +249,8 @@ instance Prelude.Hashable MemberAccountStatus where
 
 instance Prelude.NFData MemberAccountStatus where
   rnf MemberAccountStatus' {..} =
-    Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf errorCode
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage
       `Prelude.seq` Prelude.rnf lastUpdateTime
       `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf configRuleName

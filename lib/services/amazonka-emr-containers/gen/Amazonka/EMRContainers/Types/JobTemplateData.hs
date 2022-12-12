@@ -32,11 +32,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJobTemplateData' smart constructor.
 data JobTemplateData = JobTemplateData'
-  { -- | The tags assigned to jobs started using the job template.
-    jobTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The configuration settings that are used to override defaults
+  { -- | The configuration settings that are used to override defaults
     -- configuration.
     configurationOverrides :: Prelude.Maybe ParametricConfigurationOverrides,
+    -- | The tags assigned to jobs started using the job template.
+    jobTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The configuration of parameters existing in the job template.
     parameterConfiguration :: Prelude.Maybe (Prelude.HashMap Prelude.Text TemplateParameterConfiguration),
     -- | The execution role ARN of the job run.
@@ -55,10 +55,10 @@ data JobTemplateData = JobTemplateData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobTags', 'jobTemplateData_jobTags' - The tags assigned to jobs started using the job template.
---
 -- 'configurationOverrides', 'jobTemplateData_configurationOverrides' - The configuration settings that are used to override defaults
 -- configuration.
+--
+-- 'jobTags', 'jobTemplateData_jobTags' - The tags assigned to jobs started using the job template.
 --
 -- 'parameterConfiguration', 'jobTemplateData_parameterConfiguration' - The configuration of parameters existing in the job template.
 --
@@ -80,22 +80,23 @@ newJobTemplateData
   pReleaseLabel_
   pJobDriver_ =
     JobTemplateData'
-      { jobTags = Prelude.Nothing,
-        configurationOverrides = Prelude.Nothing,
+      { configurationOverrides =
+          Prelude.Nothing,
+        jobTags = Prelude.Nothing,
         parameterConfiguration = Prelude.Nothing,
         executionRoleArn = pExecutionRoleArn_,
         releaseLabel = pReleaseLabel_,
         jobDriver = pJobDriver_
       }
 
--- | The tags assigned to jobs started using the job template.
-jobTemplateData_jobTags :: Lens.Lens' JobTemplateData (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-jobTemplateData_jobTags = Lens.lens (\JobTemplateData' {jobTags} -> jobTags) (\s@JobTemplateData' {} a -> s {jobTags = a} :: JobTemplateData) Prelude.. Lens.mapping Lens.coerced
-
 -- | The configuration settings that are used to override defaults
 -- configuration.
 jobTemplateData_configurationOverrides :: Lens.Lens' JobTemplateData (Prelude.Maybe ParametricConfigurationOverrides)
 jobTemplateData_configurationOverrides = Lens.lens (\JobTemplateData' {configurationOverrides} -> configurationOverrides) (\s@JobTemplateData' {} a -> s {configurationOverrides = a} :: JobTemplateData)
+
+-- | The tags assigned to jobs started using the job template.
+jobTemplateData_jobTags :: Lens.Lens' JobTemplateData (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+jobTemplateData_jobTags = Lens.lens (\JobTemplateData' {jobTags} -> jobTags) (\s@JobTemplateData' {} a -> s {jobTags = a} :: JobTemplateData) Prelude.. Lens.mapping Lens.coerced
 
 -- | The configuration of parameters existing in the job template.
 jobTemplateData_parameterConfiguration :: Lens.Lens' JobTemplateData (Prelude.Maybe (Prelude.HashMap Prelude.Text TemplateParameterConfiguration))
@@ -119,8 +120,8 @@ instance Data.FromJSON JobTemplateData where
       "JobTemplateData"
       ( \x ->
           JobTemplateData'
-            Prelude.<$> (x Data..:? "jobTags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "configurationOverrides")
+            Prelude.<$> (x Data..:? "configurationOverrides")
+            Prelude.<*> (x Data..:? "jobTags" Data..!= Prelude.mempty)
             Prelude.<*> ( x Data..:? "parameterConfiguration"
                             Data..!= Prelude.mempty
                         )
@@ -131,8 +132,8 @@ instance Data.FromJSON JobTemplateData where
 
 instance Prelude.Hashable JobTemplateData where
   hashWithSalt _salt JobTemplateData' {..} =
-    _salt `Prelude.hashWithSalt` jobTags
-      `Prelude.hashWithSalt` configurationOverrides
+    _salt `Prelude.hashWithSalt` configurationOverrides
+      `Prelude.hashWithSalt` jobTags
       `Prelude.hashWithSalt` parameterConfiguration
       `Prelude.hashWithSalt` executionRoleArn
       `Prelude.hashWithSalt` releaseLabel
@@ -140,8 +141,8 @@ instance Prelude.Hashable JobTemplateData where
 
 instance Prelude.NFData JobTemplateData where
   rnf JobTemplateData' {..} =
-    Prelude.rnf jobTags
-      `Prelude.seq` Prelude.rnf configurationOverrides
+    Prelude.rnf configurationOverrides
+      `Prelude.seq` Prelude.rnf jobTags
       `Prelude.seq` Prelude.rnf parameterConfiguration
       `Prelude.seq` Prelude.rnf executionRoleArn
       `Prelude.seq` Prelude.rnf releaseLabel
@@ -151,9 +152,9 @@ instance Data.ToJSON JobTemplateData where
   toJSON JobTemplateData' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("jobTags" Data..=) Prelude.<$> jobTags,
-            ("configurationOverrides" Data..=)
+          [ ("configurationOverrides" Data..=)
               Prelude.<$> configurationOverrides,
+            ("jobTags" Data..=) Prelude.<$> jobTags,
             ("parameterConfiguration" Data..=)
               Prelude.<$> parameterConfiguration,
             Prelude.Just

@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDimensionValueContribution' smart constructor.
 data DimensionValueContribution = DimensionValueContribution'
-  { -- | The value of the dimension.
-    dimensionValue :: Prelude.Maybe Prelude.Text,
-    -- | The severity score of the value.
-    contributionScore :: Prelude.Maybe Prelude.Double
+  { -- | The severity score of the value.
+    contributionScore :: Prelude.Maybe Prelude.Double,
+    -- | The value of the dimension.
+    dimensionValue :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data DimensionValueContribution = DimensionValueContribution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dimensionValue', 'dimensionValueContribution_dimensionValue' - The value of the dimension.
---
 -- 'contributionScore', 'dimensionValueContribution_contributionScore' - The severity score of the value.
+--
+-- 'dimensionValue', 'dimensionValueContribution_dimensionValue' - The value of the dimension.
 newDimensionValueContribution ::
   DimensionValueContribution
 newDimensionValueContribution =
   DimensionValueContribution'
-    { dimensionValue =
+    { contributionScore =
         Prelude.Nothing,
-      contributionScore = Prelude.Nothing
+      dimensionValue = Prelude.Nothing
     }
-
--- | The value of the dimension.
-dimensionValueContribution_dimensionValue :: Lens.Lens' DimensionValueContribution (Prelude.Maybe Prelude.Text)
-dimensionValueContribution_dimensionValue = Lens.lens (\DimensionValueContribution' {dimensionValue} -> dimensionValue) (\s@DimensionValueContribution' {} a -> s {dimensionValue = a} :: DimensionValueContribution)
 
 -- | The severity score of the value.
 dimensionValueContribution_contributionScore :: Lens.Lens' DimensionValueContribution (Prelude.Maybe Prelude.Double)
 dimensionValueContribution_contributionScore = Lens.lens (\DimensionValueContribution' {contributionScore} -> contributionScore) (\s@DimensionValueContribution' {} a -> s {contributionScore = a} :: DimensionValueContribution)
+
+-- | The value of the dimension.
+dimensionValueContribution_dimensionValue :: Lens.Lens' DimensionValueContribution (Prelude.Maybe Prelude.Text)
+dimensionValueContribution_dimensionValue = Lens.lens (\DimensionValueContribution' {dimensionValue} -> dimensionValue) (\s@DimensionValueContribution' {} a -> s {dimensionValue = a} :: DimensionValueContribution)
 
 instance Data.FromJSON DimensionValueContribution where
   parseJSON =
@@ -69,16 +69,16 @@ instance Data.FromJSON DimensionValueContribution where
       "DimensionValueContribution"
       ( \x ->
           DimensionValueContribution'
-            Prelude.<$> (x Data..:? "DimensionValue")
-            Prelude.<*> (x Data..:? "ContributionScore")
+            Prelude.<$> (x Data..:? "ContributionScore")
+            Prelude.<*> (x Data..:? "DimensionValue")
       )
 
 instance Prelude.Hashable DimensionValueContribution where
   hashWithSalt _salt DimensionValueContribution' {..} =
-    _salt `Prelude.hashWithSalt` dimensionValue
-      `Prelude.hashWithSalt` contributionScore
+    _salt `Prelude.hashWithSalt` contributionScore
+      `Prelude.hashWithSalt` dimensionValue
 
 instance Prelude.NFData DimensionValueContribution where
   rnf DimensionValueContribution' {..} =
-    Prelude.rnf dimensionValue
-      `Prelude.seq` Prelude.rnf contributionScore
+    Prelude.rnf contributionScore
+      `Prelude.seq` Prelude.rnf dimensionValue

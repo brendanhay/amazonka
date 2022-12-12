@@ -30,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeviceStatusInfo' smart constructor.
 data DeviceStatusInfo = DeviceStatusInfo'
-  { -- | The time (in epoch) when the device connection status changed.
+  { -- | The latest available information about the connection status of a
+    -- device.
+    connectionStatus :: Prelude.Maybe ConnectionStatus,
+    -- | The time (in epoch) when the device connection status changed.
     connectionStatusUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | One or more device status detail descriptions.
-    deviceStatusDetails :: Prelude.Maybe [DeviceStatusDetail],
-    -- | The latest available information about the connection status of a
-    -- device.
-    connectionStatus :: Prelude.Maybe ConnectionStatus
+    deviceStatusDetails :: Prelude.Maybe [DeviceStatusDetail]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,21 +48,26 @@ data DeviceStatusInfo = DeviceStatusInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'connectionStatus', 'deviceStatusInfo_connectionStatus' - The latest available information about the connection status of a
+-- device.
+--
 -- 'connectionStatusUpdatedTime', 'deviceStatusInfo_connectionStatusUpdatedTime' - The time (in epoch) when the device connection status changed.
 --
 -- 'deviceStatusDetails', 'deviceStatusInfo_deviceStatusDetails' - One or more device status detail descriptions.
---
--- 'connectionStatus', 'deviceStatusInfo_connectionStatus' - The latest available information about the connection status of a
--- device.
 newDeviceStatusInfo ::
   DeviceStatusInfo
 newDeviceStatusInfo =
   DeviceStatusInfo'
-    { connectionStatusUpdatedTime =
+    { connectionStatus =
         Prelude.Nothing,
-      deviceStatusDetails = Prelude.Nothing,
-      connectionStatus = Prelude.Nothing
+      connectionStatusUpdatedTime = Prelude.Nothing,
+      deviceStatusDetails = Prelude.Nothing
     }
+
+-- | The latest available information about the connection status of a
+-- device.
+deviceStatusInfo_connectionStatus :: Lens.Lens' DeviceStatusInfo (Prelude.Maybe ConnectionStatus)
+deviceStatusInfo_connectionStatus = Lens.lens (\DeviceStatusInfo' {connectionStatus} -> connectionStatus) (\s@DeviceStatusInfo' {} a -> s {connectionStatus = a} :: DeviceStatusInfo)
 
 -- | The time (in epoch) when the device connection status changed.
 deviceStatusInfo_connectionStatusUpdatedTime :: Lens.Lens' DeviceStatusInfo (Prelude.Maybe Prelude.UTCTime)
@@ -72,33 +77,27 @@ deviceStatusInfo_connectionStatusUpdatedTime = Lens.lens (\DeviceStatusInfo' {co
 deviceStatusInfo_deviceStatusDetails :: Lens.Lens' DeviceStatusInfo (Prelude.Maybe [DeviceStatusDetail])
 deviceStatusInfo_deviceStatusDetails = Lens.lens (\DeviceStatusInfo' {deviceStatusDetails} -> deviceStatusDetails) (\s@DeviceStatusInfo' {} a -> s {deviceStatusDetails = a} :: DeviceStatusInfo) Prelude.. Lens.mapping Lens.coerced
 
--- | The latest available information about the connection status of a
--- device.
-deviceStatusInfo_connectionStatus :: Lens.Lens' DeviceStatusInfo (Prelude.Maybe ConnectionStatus)
-deviceStatusInfo_connectionStatus = Lens.lens (\DeviceStatusInfo' {connectionStatus} -> connectionStatus) (\s@DeviceStatusInfo' {} a -> s {connectionStatus = a} :: DeviceStatusInfo)
-
 instance Data.FromJSON DeviceStatusInfo where
   parseJSON =
     Data.withObject
       "DeviceStatusInfo"
       ( \x ->
           DeviceStatusInfo'
-            Prelude.<$> (x Data..:? "ConnectionStatusUpdatedTime")
+            Prelude.<$> (x Data..:? "ConnectionStatus")
+            Prelude.<*> (x Data..:? "ConnectionStatusUpdatedTime")
             Prelude.<*> ( x Data..:? "DeviceStatusDetails"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "ConnectionStatus")
       )
 
 instance Prelude.Hashable DeviceStatusInfo where
   hashWithSalt _salt DeviceStatusInfo' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` connectionStatus
       `Prelude.hashWithSalt` connectionStatusUpdatedTime
       `Prelude.hashWithSalt` deviceStatusDetails
-      `Prelude.hashWithSalt` connectionStatus
 
 instance Prelude.NFData DeviceStatusInfo where
   rnf DeviceStatusInfo' {..} =
-    Prelude.rnf connectionStatusUpdatedTime
+    Prelude.rnf connectionStatus
+      `Prelude.seq` Prelude.rnf connectionStatusUpdatedTime
       `Prelude.seq` Prelude.rnf deviceStatusDetails
-      `Prelude.seq` Prelude.rnf connectionStatus

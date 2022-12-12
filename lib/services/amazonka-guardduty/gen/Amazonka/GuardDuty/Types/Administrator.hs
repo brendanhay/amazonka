@@ -30,14 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 data Administrator = Administrator'
   { -- | The ID of the account used as the administrator account.
     accountId :: Prelude.Maybe Prelude.Text,
+    -- | The value that is used to validate the administrator account to the
+    -- member account.
+    invitationId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the invitation was sent.
     invitedAt :: Prelude.Maybe Prelude.Text,
     -- | The status of the relationship between the administrator and member
     -- accounts.
-    relationshipStatus :: Prelude.Maybe Prelude.Text,
-    -- | The value that is used to validate the administrator account to the
-    -- member account.
-    invitationId :: Prelude.Maybe Prelude.Text
+    relationshipStatus :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,26 +51,31 @@ data Administrator = Administrator'
 --
 -- 'accountId', 'administrator_accountId' - The ID of the account used as the administrator account.
 --
+-- 'invitationId', 'administrator_invitationId' - The value that is used to validate the administrator account to the
+-- member account.
+--
 -- 'invitedAt', 'administrator_invitedAt' - The timestamp when the invitation was sent.
 --
 -- 'relationshipStatus', 'administrator_relationshipStatus' - The status of the relationship between the administrator and member
 -- accounts.
---
--- 'invitationId', 'administrator_invitationId' - The value that is used to validate the administrator account to the
--- member account.
 newAdministrator ::
   Administrator
 newAdministrator =
   Administrator'
     { accountId = Prelude.Nothing,
+      invitationId = Prelude.Nothing,
       invitedAt = Prelude.Nothing,
-      relationshipStatus = Prelude.Nothing,
-      invitationId = Prelude.Nothing
+      relationshipStatus = Prelude.Nothing
     }
 
 -- | The ID of the account used as the administrator account.
 administrator_accountId :: Lens.Lens' Administrator (Prelude.Maybe Prelude.Text)
 administrator_accountId = Lens.lens (\Administrator' {accountId} -> accountId) (\s@Administrator' {} a -> s {accountId = a} :: Administrator)
+
+-- | The value that is used to validate the administrator account to the
+-- member account.
+administrator_invitationId :: Lens.Lens' Administrator (Prelude.Maybe Prelude.Text)
+administrator_invitationId = Lens.lens (\Administrator' {invitationId} -> invitationId) (\s@Administrator' {} a -> s {invitationId = a} :: Administrator)
 
 -- | The timestamp when the invitation was sent.
 administrator_invitedAt :: Lens.Lens' Administrator (Prelude.Maybe Prelude.Text)
@@ -81,11 +86,6 @@ administrator_invitedAt = Lens.lens (\Administrator' {invitedAt} -> invitedAt) (
 administrator_relationshipStatus :: Lens.Lens' Administrator (Prelude.Maybe Prelude.Text)
 administrator_relationshipStatus = Lens.lens (\Administrator' {relationshipStatus} -> relationshipStatus) (\s@Administrator' {} a -> s {relationshipStatus = a} :: Administrator)
 
--- | The value that is used to validate the administrator account to the
--- member account.
-administrator_invitationId :: Lens.Lens' Administrator (Prelude.Maybe Prelude.Text)
-administrator_invitationId = Lens.lens (\Administrator' {invitationId} -> invitationId) (\s@Administrator' {} a -> s {invitationId = a} :: Administrator)
-
 instance Data.FromJSON Administrator where
   parseJSON =
     Data.withObject
@@ -93,21 +93,21 @@ instance Data.FromJSON Administrator where
       ( \x ->
           Administrator'
             Prelude.<$> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "invitationId")
             Prelude.<*> (x Data..:? "invitedAt")
             Prelude.<*> (x Data..:? "relationshipStatus")
-            Prelude.<*> (x Data..:? "invitationId")
       )
 
 instance Prelude.Hashable Administrator where
   hashWithSalt _salt Administrator' {..} =
     _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` invitationId
       `Prelude.hashWithSalt` invitedAt
       `Prelude.hashWithSalt` relationshipStatus
-      `Prelude.hashWithSalt` invitationId
 
 instance Prelude.NFData Administrator where
   rnf Administrator' {..} =
     Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf invitationId
       `Prelude.seq` Prelude.rnf invitedAt
       `Prelude.seq` Prelude.rnf relationshipStatus
-      `Prelude.seq` Prelude.rnf invitationId

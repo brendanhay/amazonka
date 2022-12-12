@@ -28,16 +28,16 @@ module Amazonka.Chime.ListVoiceConnectors
     newListVoiceConnectors,
 
     -- * Request Lenses
-    listVoiceConnectors_nextToken,
     listVoiceConnectors_maxResults,
+    listVoiceConnectors_nextToken,
 
     -- * Destructuring the Response
     ListVoiceConnectorsResponse (..),
     newListVoiceConnectorsResponse,
 
     -- * Response Lenses
-    listVoiceConnectorsResponse_voiceConnectors,
     listVoiceConnectorsResponse_nextToken,
+    listVoiceConnectorsResponse_voiceConnectors,
     listVoiceConnectorsResponse_httpStatus,
   )
 where
@@ -52,10 +52,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListVoiceConnectors' smart constructor.
 data ListVoiceConnectors = ListVoiceConnectors'
-  { -- | The token to use to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in a single call.
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { -- | The maximum number of results to return in a single call.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to use to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,24 +67,24 @@ data ListVoiceConnectors = ListVoiceConnectors'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listVoiceConnectors_nextToken' - The token to use to retrieve the next page of results.
---
 -- 'maxResults', 'listVoiceConnectors_maxResults' - The maximum number of results to return in a single call.
+--
+-- 'nextToken', 'listVoiceConnectors_nextToken' - The token to use to retrieve the next page of results.
 newListVoiceConnectors ::
   ListVoiceConnectors
 newListVoiceConnectors =
   ListVoiceConnectors'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token to use to retrieve the next page of results.
-listVoiceConnectors_nextToken :: Lens.Lens' ListVoiceConnectors (Prelude.Maybe Prelude.Text)
-listVoiceConnectors_nextToken = Lens.lens (\ListVoiceConnectors' {nextToken} -> nextToken) (\s@ListVoiceConnectors' {} a -> s {nextToken = a} :: ListVoiceConnectors)
 
 -- | The maximum number of results to return in a single call.
 listVoiceConnectors_maxResults :: Lens.Lens' ListVoiceConnectors (Prelude.Maybe Prelude.Natural)
 listVoiceConnectors_maxResults = Lens.lens (\ListVoiceConnectors' {maxResults} -> maxResults) (\s@ListVoiceConnectors' {} a -> s {maxResults = a} :: ListVoiceConnectors)
+
+-- | The token to use to retrieve the next page of results.
+listVoiceConnectors_nextToken :: Lens.Lens' ListVoiceConnectors (Prelude.Maybe Prelude.Text)
+listVoiceConnectors_nextToken = Lens.lens (\ListVoiceConnectors' {nextToken} -> nextToken) (\s@ListVoiceConnectors' {} a -> s {nextToken = a} :: ListVoiceConnectors)
 
 instance Core.AWSRequest ListVoiceConnectors where
   type
@@ -96,22 +96,22 @@ instance Core.AWSRequest ListVoiceConnectors where
     Response.receiveJSON
       ( \s h x ->
           ListVoiceConnectorsResponse'
-            Prelude.<$> ( x Data..?> "VoiceConnectors"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "VoiceConnectors"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListVoiceConnectors where
   hashWithSalt _salt ListVoiceConnectors' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListVoiceConnectors where
   rnf ListVoiceConnectors' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListVoiceConnectors where
   toHeaders = Prelude.const Prelude.mempty
@@ -122,16 +122,16 @@ instance Data.ToPath ListVoiceConnectors where
 instance Data.ToQuery ListVoiceConnectors where
   toQuery ListVoiceConnectors' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
-        "max-results" Data.=: maxResults
+      [ "max-results" Data.=: maxResults,
+        "next-token" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListVoiceConnectorsResponse' smart constructor.
 data ListVoiceConnectorsResponse = ListVoiceConnectorsResponse'
-  { -- | The details of the Amazon Chime Voice Connectors.
-    voiceConnectors :: Prelude.Maybe [VoiceConnector],
-    -- | The token to use to retrieve the next page of results.
+  { -- | The token to use to retrieve the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The details of the Amazon Chime Voice Connectors.
+    voiceConnectors :: Prelude.Maybe [VoiceConnector],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -145,9 +145,9 @@ data ListVoiceConnectorsResponse = ListVoiceConnectorsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceConnectors', 'listVoiceConnectorsResponse_voiceConnectors' - The details of the Amazon Chime Voice Connectors.
---
 -- 'nextToken', 'listVoiceConnectorsResponse_nextToken' - The token to use to retrieve the next page of results.
+--
+-- 'voiceConnectors', 'listVoiceConnectorsResponse_voiceConnectors' - The details of the Amazon Chime Voice Connectors.
 --
 -- 'httpStatus', 'listVoiceConnectorsResponse_httpStatus' - The response's http status code.
 newListVoiceConnectorsResponse ::
@@ -156,19 +156,19 @@ newListVoiceConnectorsResponse ::
   ListVoiceConnectorsResponse
 newListVoiceConnectorsResponse pHttpStatus_ =
   ListVoiceConnectorsResponse'
-    { voiceConnectors =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      voiceConnectors = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The details of the Amazon Chime Voice Connectors.
-listVoiceConnectorsResponse_voiceConnectors :: Lens.Lens' ListVoiceConnectorsResponse (Prelude.Maybe [VoiceConnector])
-listVoiceConnectorsResponse_voiceConnectors = Lens.lens (\ListVoiceConnectorsResponse' {voiceConnectors} -> voiceConnectors) (\s@ListVoiceConnectorsResponse' {} a -> s {voiceConnectors = a} :: ListVoiceConnectorsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results.
 listVoiceConnectorsResponse_nextToken :: Lens.Lens' ListVoiceConnectorsResponse (Prelude.Maybe Prelude.Text)
 listVoiceConnectorsResponse_nextToken = Lens.lens (\ListVoiceConnectorsResponse' {nextToken} -> nextToken) (\s@ListVoiceConnectorsResponse' {} a -> s {nextToken = a} :: ListVoiceConnectorsResponse)
+
+-- | The details of the Amazon Chime Voice Connectors.
+listVoiceConnectorsResponse_voiceConnectors :: Lens.Lens' ListVoiceConnectorsResponse (Prelude.Maybe [VoiceConnector])
+listVoiceConnectorsResponse_voiceConnectors = Lens.lens (\ListVoiceConnectorsResponse' {voiceConnectors} -> voiceConnectors) (\s@ListVoiceConnectorsResponse' {} a -> s {voiceConnectors = a} :: ListVoiceConnectorsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listVoiceConnectorsResponse_httpStatus :: Lens.Lens' ListVoiceConnectorsResponse Prelude.Int
@@ -176,6 +176,6 @@ listVoiceConnectorsResponse_httpStatus = Lens.lens (\ListVoiceConnectorsResponse
 
 instance Prelude.NFData ListVoiceConnectorsResponse where
   rnf ListVoiceConnectorsResponse' {..} =
-    Prelude.rnf voiceConnectors
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf voiceConnectors
       `Prelude.seq` Prelude.rnf httpStatus

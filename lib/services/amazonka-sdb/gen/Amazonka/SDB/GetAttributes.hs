@@ -33,8 +33,8 @@ module Amazonka.SDB.GetAttributes
     newGetAttributes,
 
     -- * Request Lenses
-    getAttributes_consistentRead,
     getAttributes_attributeNames,
+    getAttributes_consistentRead,
     getAttributes_domainName,
     getAttributes_itemName,
 
@@ -58,14 +58,14 @@ import Amazonka.SDB.Types
 
 -- | /See:/ 'newGetAttributes' smart constructor.
 data GetAttributes = GetAttributes'
-  { -- | Determines whether or not strong consistency should be enforced when
+  { -- | The names of the attributes.
+    attributeNames :: Prelude.Maybe [Prelude.Text],
+    -- | Determines whether or not strong consistency should be enforced when
     -- data is read from SimpleDB. If @true@, any data previously written to
     -- SimpleDB will be returned. Otherwise, results will be consistent
     -- eventually, and the client may not see data that was written immediately
     -- before your read.
     consistentRead :: Prelude.Maybe Prelude.Bool,
-    -- | The names of the attributes.
-    attributeNames :: Prelude.Maybe [Prelude.Text],
     -- | The name of the domain in which to perform the operation.
     domainName :: Prelude.Text,
     -- | The name of the item.
@@ -81,13 +81,13 @@ data GetAttributes = GetAttributes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'attributeNames', 'getAttributes_attributeNames' - The names of the attributes.
+--
 -- 'consistentRead', 'getAttributes_consistentRead' - Determines whether or not strong consistency should be enforced when
 -- data is read from SimpleDB. If @true@, any data previously written to
 -- SimpleDB will be returned. Otherwise, results will be consistent
 -- eventually, and the client may not see data that was written immediately
 -- before your read.
---
--- 'attributeNames', 'getAttributes_attributeNames' - The names of the attributes.
 --
 -- 'domainName', 'getAttributes_domainName' - The name of the domain in which to perform the operation.
 --
@@ -100,11 +100,15 @@ newGetAttributes ::
   GetAttributes
 newGetAttributes pDomainName_ pItemName_ =
   GetAttributes'
-    { consistentRead = Prelude.Nothing,
-      attributeNames = Prelude.Nothing,
+    { attributeNames = Prelude.Nothing,
+      consistentRead = Prelude.Nothing,
       domainName = pDomainName_,
       itemName = pItemName_
     }
+
+-- | The names of the attributes.
+getAttributes_attributeNames :: Lens.Lens' GetAttributes (Prelude.Maybe [Prelude.Text])
+getAttributes_attributeNames = Lens.lens (\GetAttributes' {attributeNames} -> attributeNames) (\s@GetAttributes' {} a -> s {attributeNames = a} :: GetAttributes) Prelude.. Lens.mapping Lens.coerced
 
 -- | Determines whether or not strong consistency should be enforced when
 -- data is read from SimpleDB. If @true@, any data previously written to
@@ -113,10 +117,6 @@ newGetAttributes pDomainName_ pItemName_ =
 -- before your read.
 getAttributes_consistentRead :: Lens.Lens' GetAttributes (Prelude.Maybe Prelude.Bool)
 getAttributes_consistentRead = Lens.lens (\GetAttributes' {consistentRead} -> consistentRead) (\s@GetAttributes' {} a -> s {consistentRead = a} :: GetAttributes)
-
--- | The names of the attributes.
-getAttributes_attributeNames :: Lens.Lens' GetAttributes (Prelude.Maybe [Prelude.Text])
-getAttributes_attributeNames = Lens.lens (\GetAttributes' {attributeNames} -> attributeNames) (\s@GetAttributes' {} a -> s {attributeNames = a} :: GetAttributes) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the domain in which to perform the operation.
 getAttributes_domainName :: Lens.Lens' GetAttributes Prelude.Text
@@ -143,15 +143,15 @@ instance Core.AWSRequest GetAttributes where
 
 instance Prelude.Hashable GetAttributes where
   hashWithSalt _salt GetAttributes' {..} =
-    _salt `Prelude.hashWithSalt` consistentRead
-      `Prelude.hashWithSalt` attributeNames
+    _salt `Prelude.hashWithSalt` attributeNames
+      `Prelude.hashWithSalt` consistentRead
       `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` itemName
 
 instance Prelude.NFData GetAttributes where
   rnf GetAttributes' {..} =
-    Prelude.rnf consistentRead
-      `Prelude.seq` Prelude.rnf attributeNames
+    Prelude.rnf attributeNames
+      `Prelude.seq` Prelude.rnf consistentRead
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf itemName
 
@@ -168,11 +168,11 @@ instance Data.ToQuery GetAttributes where
           Data.=: ("GetAttributes" :: Prelude.ByteString),
         "Version"
           Data.=: ("2009-04-15" :: Prelude.ByteString),
-        "ConsistentRead" Data.=: consistentRead,
         Data.toQuery
           ( Data.toQueryList "AttributeName"
               Prelude.<$> attributeNames
           ),
+        "ConsistentRead" Data.=: consistentRead,
         "DomainName" Data.=: domainName,
         "ItemName" Data.=: itemName
       ]

@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCustomAmi' smart constructor.
 data CustomAmi = CustomAmi'
-  { -- | The type of virtualization used to create the custom AMI.
-    virtualizationType :: Prelude.Maybe Prelude.Text,
-    -- | THe ID of the image used to create the custom AMI.
-    imageId :: Prelude.Maybe Prelude.Text
+  { -- | THe ID of the image used to create the custom AMI.
+    imageId :: Prelude.Maybe Prelude.Text,
+    -- | The type of virtualization used to create the custom AMI.
+    virtualizationType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,37 +43,37 @@ data CustomAmi = CustomAmi'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'virtualizationType', 'customAmi_virtualizationType' - The type of virtualization used to create the custom AMI.
---
 -- 'imageId', 'customAmi_imageId' - THe ID of the image used to create the custom AMI.
+--
+-- 'virtualizationType', 'customAmi_virtualizationType' - The type of virtualization used to create the custom AMI.
 newCustomAmi ::
   CustomAmi
 newCustomAmi =
   CustomAmi'
-    { virtualizationType = Prelude.Nothing,
-      imageId = Prelude.Nothing
+    { imageId = Prelude.Nothing,
+      virtualizationType = Prelude.Nothing
     }
-
--- | The type of virtualization used to create the custom AMI.
-customAmi_virtualizationType :: Lens.Lens' CustomAmi (Prelude.Maybe Prelude.Text)
-customAmi_virtualizationType = Lens.lens (\CustomAmi' {virtualizationType} -> virtualizationType) (\s@CustomAmi' {} a -> s {virtualizationType = a} :: CustomAmi)
 
 -- | THe ID of the image used to create the custom AMI.
 customAmi_imageId :: Lens.Lens' CustomAmi (Prelude.Maybe Prelude.Text)
 customAmi_imageId = Lens.lens (\CustomAmi' {imageId} -> imageId) (\s@CustomAmi' {} a -> s {imageId = a} :: CustomAmi)
 
+-- | The type of virtualization used to create the custom AMI.
+customAmi_virtualizationType :: Lens.Lens' CustomAmi (Prelude.Maybe Prelude.Text)
+customAmi_virtualizationType = Lens.lens (\CustomAmi' {virtualizationType} -> virtualizationType) (\s@CustomAmi' {} a -> s {virtualizationType = a} :: CustomAmi)
+
 instance Data.FromXML CustomAmi where
   parseXML x =
     CustomAmi'
-      Prelude.<$> (x Data..@? "VirtualizationType")
-      Prelude.<*> (x Data..@? "ImageId")
+      Prelude.<$> (x Data..@? "ImageId")
+      Prelude.<*> (x Data..@? "VirtualizationType")
 
 instance Prelude.Hashable CustomAmi where
   hashWithSalt _salt CustomAmi' {..} =
-    _salt `Prelude.hashWithSalt` virtualizationType
-      `Prelude.hashWithSalt` imageId
+    _salt `Prelude.hashWithSalt` imageId
+      `Prelude.hashWithSalt` virtualizationType
 
 instance Prelude.NFData CustomAmi where
   rnf CustomAmi' {..} =
-    Prelude.rnf virtualizationType
-      `Prelude.seq` Prelude.rnf imageId
+    Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf virtualizationType

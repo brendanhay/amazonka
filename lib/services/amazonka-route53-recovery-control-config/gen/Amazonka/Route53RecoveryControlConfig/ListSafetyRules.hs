@@ -28,8 +28,8 @@ module Amazonka.Route53RecoveryControlConfig.ListSafetyRules
     newListSafetyRules,
 
     -- * Request Lenses
-    listSafetyRules_nextToken,
     listSafetyRules_maxResults,
+    listSafetyRules_nextToken,
     listSafetyRules_controlPanelArn,
 
     -- * Destructuring the Response
@@ -53,10 +53,10 @@ import Amazonka.Route53RecoveryControlConfig.Types
 
 -- | /See:/ 'newListSafetyRules' smart constructor.
 data ListSafetyRules = ListSafetyRules'
-  { -- | The token that identifies which batch of results you want to see.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The number of objects that you want to return with this call.
+  { -- | The number of objects that you want to return with this call.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token that identifies which batch of results you want to see.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the control panel.
     controlPanelArn :: Prelude.Text
   }
@@ -70,9 +70,9 @@ data ListSafetyRules = ListSafetyRules'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listSafetyRules_nextToken' - The token that identifies which batch of results you want to see.
---
 -- 'maxResults', 'listSafetyRules_maxResults' - The number of objects that you want to return with this call.
+--
+-- 'nextToken', 'listSafetyRules_nextToken' - The token that identifies which batch of results you want to see.
 --
 -- 'controlPanelArn', 'listSafetyRules_controlPanelArn' - The Amazon Resource Name (ARN) of the control panel.
 newListSafetyRules ::
@@ -81,18 +81,18 @@ newListSafetyRules ::
   ListSafetyRules
 newListSafetyRules pControlPanelArn_ =
   ListSafetyRules'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       controlPanelArn = pControlPanelArn_
     }
-
--- | The token that identifies which batch of results you want to see.
-listSafetyRules_nextToken :: Lens.Lens' ListSafetyRules (Prelude.Maybe Prelude.Text)
-listSafetyRules_nextToken = Lens.lens (\ListSafetyRules' {nextToken} -> nextToken) (\s@ListSafetyRules' {} a -> s {nextToken = a} :: ListSafetyRules)
 
 -- | The number of objects that you want to return with this call.
 listSafetyRules_maxResults :: Lens.Lens' ListSafetyRules (Prelude.Maybe Prelude.Natural)
 listSafetyRules_maxResults = Lens.lens (\ListSafetyRules' {maxResults} -> maxResults) (\s@ListSafetyRules' {} a -> s {maxResults = a} :: ListSafetyRules)
+
+-- | The token that identifies which batch of results you want to see.
+listSafetyRules_nextToken :: Lens.Lens' ListSafetyRules (Prelude.Maybe Prelude.Text)
+listSafetyRules_nextToken = Lens.lens (\ListSafetyRules' {nextToken} -> nextToken) (\s@ListSafetyRules' {} a -> s {nextToken = a} :: ListSafetyRules)
 
 -- | The Amazon Resource Name (ARN) of the control panel.
 listSafetyRules_controlPanelArn :: Lens.Lens' ListSafetyRules Prelude.Text
@@ -115,14 +115,14 @@ instance Core.AWSRequest ListSafetyRules where
 
 instance Prelude.Hashable ListSafetyRules where
   hashWithSalt _salt ListSafetyRules' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` controlPanelArn
 
 instance Prelude.NFData ListSafetyRules where
   rnf ListSafetyRules' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf controlPanelArn
 
 instance Data.ToHeaders ListSafetyRules where
@@ -147,8 +147,8 @@ instance Data.ToPath ListSafetyRules where
 instance Data.ToQuery ListSafetyRules where
   toQuery ListSafetyRules' {..} =
     Prelude.mconcat
-      [ "NextToken" Data.=: nextToken,
-        "MaxResults" Data.=: maxResults
+      [ "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListSafetyRulesResponse' smart constructor.

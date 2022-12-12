@@ -39,12 +39,12 @@ data EventDestination = EventDestination'
   { -- | An object that contains information about an event destination that
     -- sends logging events to Amazon CloudWatch logs.
     cloudWatchLogsDestination :: Prelude.Maybe CloudWatchLogsDestination,
-    -- | An object that contains information about an event destination that
-    -- sends logging events to Amazon SNS.
-    snsDestination :: Prelude.Maybe SnsDestination,
     -- | An object that contains information about an event destination for
     -- logging to Amazon Kinesis Data Firehose.
     kinesisFirehoseDestination :: Prelude.Maybe KinesisFirehoseDestination,
+    -- | An object that contains information about an event destination that
+    -- sends logging events to Amazon SNS.
+    snsDestination :: Prelude.Maybe SnsDestination,
     -- | The name of the EventDestination.
     eventDestinationName :: Prelude.Text,
     -- | When set to true events will be logged.
@@ -65,11 +65,11 @@ data EventDestination = EventDestination'
 -- 'cloudWatchLogsDestination', 'eventDestination_cloudWatchLogsDestination' - An object that contains information about an event destination that
 -- sends logging events to Amazon CloudWatch logs.
 --
--- 'snsDestination', 'eventDestination_snsDestination' - An object that contains information about an event destination that
--- sends logging events to Amazon SNS.
---
 -- 'kinesisFirehoseDestination', 'eventDestination_kinesisFirehoseDestination' - An object that contains information about an event destination for
 -- logging to Amazon Kinesis Data Firehose.
+--
+-- 'snsDestination', 'eventDestination_snsDestination' - An object that contains information about an event destination that
+-- sends logging events to Amazon SNS.
 --
 -- 'eventDestinationName', 'eventDestination_eventDestinationName' - The name of the EventDestination.
 --
@@ -91,8 +91,8 @@ newEventDestination
     EventDestination'
       { cloudWatchLogsDestination =
           Prelude.Nothing,
-        snsDestination = Prelude.Nothing,
         kinesisFirehoseDestination = Prelude.Nothing,
+        snsDestination = Prelude.Nothing,
         eventDestinationName = pEventDestinationName_,
         enabled = pEnabled_,
         matchingEventTypes =
@@ -104,15 +104,15 @@ newEventDestination
 eventDestination_cloudWatchLogsDestination :: Lens.Lens' EventDestination (Prelude.Maybe CloudWatchLogsDestination)
 eventDestination_cloudWatchLogsDestination = Lens.lens (\EventDestination' {cloudWatchLogsDestination} -> cloudWatchLogsDestination) (\s@EventDestination' {} a -> s {cloudWatchLogsDestination = a} :: EventDestination)
 
--- | An object that contains information about an event destination that
--- sends logging events to Amazon SNS.
-eventDestination_snsDestination :: Lens.Lens' EventDestination (Prelude.Maybe SnsDestination)
-eventDestination_snsDestination = Lens.lens (\EventDestination' {snsDestination} -> snsDestination) (\s@EventDestination' {} a -> s {snsDestination = a} :: EventDestination)
-
 -- | An object that contains information about an event destination for
 -- logging to Amazon Kinesis Data Firehose.
 eventDestination_kinesisFirehoseDestination :: Lens.Lens' EventDestination (Prelude.Maybe KinesisFirehoseDestination)
 eventDestination_kinesisFirehoseDestination = Lens.lens (\EventDestination' {kinesisFirehoseDestination} -> kinesisFirehoseDestination) (\s@EventDestination' {} a -> s {kinesisFirehoseDestination = a} :: EventDestination)
+
+-- | An object that contains information about an event destination that
+-- sends logging events to Amazon SNS.
+eventDestination_snsDestination :: Lens.Lens' EventDestination (Prelude.Maybe SnsDestination)
+eventDestination_snsDestination = Lens.lens (\EventDestination' {snsDestination} -> snsDestination) (\s@EventDestination' {} a -> s {snsDestination = a} :: EventDestination)
 
 -- | The name of the EventDestination.
 eventDestination_eventDestinationName :: Lens.Lens' EventDestination Prelude.Text
@@ -133,8 +133,8 @@ instance Data.FromJSON EventDestination where
       ( \x ->
           EventDestination'
             Prelude.<$> (x Data..:? "CloudWatchLogsDestination")
-            Prelude.<*> (x Data..:? "SnsDestination")
             Prelude.<*> (x Data..:? "KinesisFirehoseDestination")
+            Prelude.<*> (x Data..:? "SnsDestination")
             Prelude.<*> (x Data..: "EventDestinationName")
             Prelude.<*> (x Data..: "Enabled")
             Prelude.<*> (x Data..: "MatchingEventTypes")
@@ -144,8 +144,8 @@ instance Prelude.Hashable EventDestination where
   hashWithSalt _salt EventDestination' {..} =
     _salt
       `Prelude.hashWithSalt` cloudWatchLogsDestination
-      `Prelude.hashWithSalt` snsDestination
       `Prelude.hashWithSalt` kinesisFirehoseDestination
+      `Prelude.hashWithSalt` snsDestination
       `Prelude.hashWithSalt` eventDestinationName
       `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` matchingEventTypes
@@ -153,8 +153,8 @@ instance Prelude.Hashable EventDestination where
 instance Prelude.NFData EventDestination where
   rnf EventDestination' {..} =
     Prelude.rnf cloudWatchLogsDestination
-      `Prelude.seq` Prelude.rnf snsDestination
       `Prelude.seq` Prelude.rnf kinesisFirehoseDestination
+      `Prelude.seq` Prelude.rnf snsDestination
       `Prelude.seq` Prelude.rnf eventDestinationName
       `Prelude.seq` Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf matchingEventTypes

@@ -33,16 +33,21 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSolutionVersion' smart constructor.
 data SolutionVersion = SolutionVersion'
-  { -- | The ARN of the solution.
-    solutionArn :: Prelude.Maybe Prelude.Text,
+  { -- | The date and time (in Unix time) that this version of the solution was
+    -- created.
+    creationDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The Amazon Resource Name (ARN) of the dataset group providing the
+    -- training data.
+    datasetGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The event type (for example, \'click\' or \'like\') that is used for
     -- training the model.
     eventType :: Prelude.Maybe Prelude.Text,
+    -- | If training a solution version fails, the reason for the failure.
+    failureReason :: Prelude.Maybe Prelude.Text,
+    -- | The date and time (in Unix time) that the solution was last updated.
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the solution version.
     name :: Prelude.Maybe Prelude.Text,
-    -- | If hyperparameter optimization was performed, contains the
-    -- hyperparameter values of the best performing model.
-    tunedHPOParams :: Prelude.Maybe TunedHPOParams,
     -- | When true, Amazon Personalize searches for the most optimal recipe
     -- according to the solution configuration. When false (the default),
     -- Amazon Personalize uses @recipeArn@.
@@ -50,11 +55,14 @@ data SolutionVersion = SolutionVersion'
     -- | Whether to perform hyperparameter optimization (HPO) on the chosen
     -- recipe. The default is @false@.
     performHPO :: Prelude.Maybe Prelude.Bool,
-    -- | The date and time (in Unix time) that this version of the solution was
-    -- created.
-    creationDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The ARN of the recipe used in the solution.
+    recipeArn :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the solution.
+    solutionArn :: Prelude.Maybe Prelude.Text,
     -- | Describes the configuration properties for the solution.
     solutionConfig :: Prelude.Maybe SolutionConfig,
+    -- | The ARN of the solution version.
+    solutionVersionArn :: Prelude.Maybe Prelude.Text,
     -- | The status of the solution version.
     --
     -- A solution version can be in one of the following states:
@@ -90,17 +98,9 @@ data SolutionVersion = SolutionVersion'
     -- <https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-hrnn-coldstart.html HRNN-Coldstart>
     -- recipe.
     trainingMode :: Prelude.Maybe TrainingMode,
-    -- | The Amazon Resource Name (ARN) of the dataset group providing the
-    -- training data.
-    datasetGroupArn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the solution version.
-    solutionVersionArn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the recipe used in the solution.
-    recipeArn :: Prelude.Maybe Prelude.Text,
-    -- | The date and time (in Unix time) that the solution was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
-    -- | If training a solution version fails, the reason for the failure.
-    failureReason :: Prelude.Maybe Prelude.Text
+    -- | If hyperparameter optimization was performed, contains the
+    -- hyperparameter values of the best performing model.
+    tunedHPOParams :: Prelude.Maybe TunedHPOParams
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -112,15 +112,20 @@ data SolutionVersion = SolutionVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'solutionArn', 'solutionVersion_solutionArn' - The ARN of the solution.
+-- 'creationDateTime', 'solutionVersion_creationDateTime' - The date and time (in Unix time) that this version of the solution was
+-- created.
+--
+-- 'datasetGroupArn', 'solutionVersion_datasetGroupArn' - The Amazon Resource Name (ARN) of the dataset group providing the
+-- training data.
 --
 -- 'eventType', 'solutionVersion_eventType' - The event type (for example, \'click\' or \'like\') that is used for
 -- training the model.
 --
--- 'name', 'solutionVersion_name' - The name of the solution version.
+-- 'failureReason', 'solutionVersion_failureReason' - If training a solution version fails, the reason for the failure.
 --
--- 'tunedHPOParams', 'solutionVersion_tunedHPOParams' - If hyperparameter optimization was performed, contains the
--- hyperparameter values of the best performing model.
+-- 'lastUpdatedDateTime', 'solutionVersion_lastUpdatedDateTime' - The date and time (in Unix time) that the solution was last updated.
+--
+-- 'name', 'solutionVersion_name' - The name of the solution version.
 --
 -- 'performAutoML', 'solutionVersion_performAutoML' - When true, Amazon Personalize searches for the most optimal recipe
 -- according to the solution configuration. When false (the default),
@@ -129,10 +134,13 @@ data SolutionVersion = SolutionVersion'
 -- 'performHPO', 'solutionVersion_performHPO' - Whether to perform hyperparameter optimization (HPO) on the chosen
 -- recipe. The default is @false@.
 --
--- 'creationDateTime', 'solutionVersion_creationDateTime' - The date and time (in Unix time) that this version of the solution was
--- created.
+-- 'recipeArn', 'solutionVersion_recipeArn' - The ARN of the recipe used in the solution.
+--
+-- 'solutionArn', 'solutionVersion_solutionArn' - The ARN of the solution.
 --
 -- 'solutionConfig', 'solutionVersion_solutionConfig' - Describes the configuration properties for the solution.
+--
+-- 'solutionVersionArn', 'solutionVersion_solutionVersionArn' - The ARN of the solution version.
 --
 -- 'status', 'solutionVersion_status' - The status of the solution version.
 --
@@ -169,55 +177,57 @@ data SolutionVersion = SolutionVersion'
 -- <https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-hrnn-coldstart.html HRNN-Coldstart>
 -- recipe.
 --
--- 'datasetGroupArn', 'solutionVersion_datasetGroupArn' - The Amazon Resource Name (ARN) of the dataset group providing the
--- training data.
---
--- 'solutionVersionArn', 'solutionVersion_solutionVersionArn' - The ARN of the solution version.
---
--- 'recipeArn', 'solutionVersion_recipeArn' - The ARN of the recipe used in the solution.
---
--- 'lastUpdatedDateTime', 'solutionVersion_lastUpdatedDateTime' - The date and time (in Unix time) that the solution was last updated.
---
--- 'failureReason', 'solutionVersion_failureReason' - If training a solution version fails, the reason for the failure.
+-- 'tunedHPOParams', 'solutionVersion_tunedHPOParams' - If hyperparameter optimization was performed, contains the
+-- hyperparameter values of the best performing model.
 newSolutionVersion ::
   SolutionVersion
 newSolutionVersion =
   SolutionVersion'
-    { solutionArn = Prelude.Nothing,
+    { creationDateTime =
+        Prelude.Nothing,
+      datasetGroupArn = Prelude.Nothing,
       eventType = Prelude.Nothing,
+      failureReason = Prelude.Nothing,
+      lastUpdatedDateTime = Prelude.Nothing,
       name = Prelude.Nothing,
-      tunedHPOParams = Prelude.Nothing,
       performAutoML = Prelude.Nothing,
       performHPO = Prelude.Nothing,
-      creationDateTime = Prelude.Nothing,
+      recipeArn = Prelude.Nothing,
+      solutionArn = Prelude.Nothing,
       solutionConfig = Prelude.Nothing,
+      solutionVersionArn = Prelude.Nothing,
       status = Prelude.Nothing,
       trainingHours = Prelude.Nothing,
       trainingMode = Prelude.Nothing,
-      datasetGroupArn = Prelude.Nothing,
-      solutionVersionArn = Prelude.Nothing,
-      recipeArn = Prelude.Nothing,
-      lastUpdatedDateTime = Prelude.Nothing,
-      failureReason = Prelude.Nothing
+      tunedHPOParams = Prelude.Nothing
     }
 
--- | The ARN of the solution.
-solutionVersion_solutionArn :: Lens.Lens' SolutionVersion (Prelude.Maybe Prelude.Text)
-solutionVersion_solutionArn = Lens.lens (\SolutionVersion' {solutionArn} -> solutionArn) (\s@SolutionVersion' {} a -> s {solutionArn = a} :: SolutionVersion)
+-- | The date and time (in Unix time) that this version of the solution was
+-- created.
+solutionVersion_creationDateTime :: Lens.Lens' SolutionVersion (Prelude.Maybe Prelude.UTCTime)
+solutionVersion_creationDateTime = Lens.lens (\SolutionVersion' {creationDateTime} -> creationDateTime) (\s@SolutionVersion' {} a -> s {creationDateTime = a} :: SolutionVersion) Prelude.. Lens.mapping Data._Time
+
+-- | The Amazon Resource Name (ARN) of the dataset group providing the
+-- training data.
+solutionVersion_datasetGroupArn :: Lens.Lens' SolutionVersion (Prelude.Maybe Prelude.Text)
+solutionVersion_datasetGroupArn = Lens.lens (\SolutionVersion' {datasetGroupArn} -> datasetGroupArn) (\s@SolutionVersion' {} a -> s {datasetGroupArn = a} :: SolutionVersion)
 
 -- | The event type (for example, \'click\' or \'like\') that is used for
 -- training the model.
 solutionVersion_eventType :: Lens.Lens' SolutionVersion (Prelude.Maybe Prelude.Text)
 solutionVersion_eventType = Lens.lens (\SolutionVersion' {eventType} -> eventType) (\s@SolutionVersion' {} a -> s {eventType = a} :: SolutionVersion)
 
+-- | If training a solution version fails, the reason for the failure.
+solutionVersion_failureReason :: Lens.Lens' SolutionVersion (Prelude.Maybe Prelude.Text)
+solutionVersion_failureReason = Lens.lens (\SolutionVersion' {failureReason} -> failureReason) (\s@SolutionVersion' {} a -> s {failureReason = a} :: SolutionVersion)
+
+-- | The date and time (in Unix time) that the solution was last updated.
+solutionVersion_lastUpdatedDateTime :: Lens.Lens' SolutionVersion (Prelude.Maybe Prelude.UTCTime)
+solutionVersion_lastUpdatedDateTime = Lens.lens (\SolutionVersion' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@SolutionVersion' {} a -> s {lastUpdatedDateTime = a} :: SolutionVersion) Prelude.. Lens.mapping Data._Time
+
 -- | The name of the solution version.
 solutionVersion_name :: Lens.Lens' SolutionVersion (Prelude.Maybe Prelude.Text)
 solutionVersion_name = Lens.lens (\SolutionVersion' {name} -> name) (\s@SolutionVersion' {} a -> s {name = a} :: SolutionVersion)
-
--- | If hyperparameter optimization was performed, contains the
--- hyperparameter values of the best performing model.
-solutionVersion_tunedHPOParams :: Lens.Lens' SolutionVersion (Prelude.Maybe TunedHPOParams)
-solutionVersion_tunedHPOParams = Lens.lens (\SolutionVersion' {tunedHPOParams} -> tunedHPOParams) (\s@SolutionVersion' {} a -> s {tunedHPOParams = a} :: SolutionVersion)
 
 -- | When true, Amazon Personalize searches for the most optimal recipe
 -- according to the solution configuration. When false (the default),
@@ -230,14 +240,21 @@ solutionVersion_performAutoML = Lens.lens (\SolutionVersion' {performAutoML} -> 
 solutionVersion_performHPO :: Lens.Lens' SolutionVersion (Prelude.Maybe Prelude.Bool)
 solutionVersion_performHPO = Lens.lens (\SolutionVersion' {performHPO} -> performHPO) (\s@SolutionVersion' {} a -> s {performHPO = a} :: SolutionVersion)
 
--- | The date and time (in Unix time) that this version of the solution was
--- created.
-solutionVersion_creationDateTime :: Lens.Lens' SolutionVersion (Prelude.Maybe Prelude.UTCTime)
-solutionVersion_creationDateTime = Lens.lens (\SolutionVersion' {creationDateTime} -> creationDateTime) (\s@SolutionVersion' {} a -> s {creationDateTime = a} :: SolutionVersion) Prelude.. Lens.mapping Data._Time
+-- | The ARN of the recipe used in the solution.
+solutionVersion_recipeArn :: Lens.Lens' SolutionVersion (Prelude.Maybe Prelude.Text)
+solutionVersion_recipeArn = Lens.lens (\SolutionVersion' {recipeArn} -> recipeArn) (\s@SolutionVersion' {} a -> s {recipeArn = a} :: SolutionVersion)
+
+-- | The ARN of the solution.
+solutionVersion_solutionArn :: Lens.Lens' SolutionVersion (Prelude.Maybe Prelude.Text)
+solutionVersion_solutionArn = Lens.lens (\SolutionVersion' {solutionArn} -> solutionArn) (\s@SolutionVersion' {} a -> s {solutionArn = a} :: SolutionVersion)
 
 -- | Describes the configuration properties for the solution.
 solutionVersion_solutionConfig :: Lens.Lens' SolutionVersion (Prelude.Maybe SolutionConfig)
 solutionVersion_solutionConfig = Lens.lens (\SolutionVersion' {solutionConfig} -> solutionConfig) (\s@SolutionVersion' {} a -> s {solutionConfig = a} :: SolutionVersion)
+
+-- | The ARN of the solution version.
+solutionVersion_solutionVersionArn :: Lens.Lens' SolutionVersion (Prelude.Maybe Prelude.Text)
+solutionVersion_solutionVersionArn = Lens.lens (\SolutionVersion' {solutionVersionArn} -> solutionVersionArn) (\s@SolutionVersion' {} a -> s {solutionVersionArn = a} :: SolutionVersion)
 
 -- | The status of the solution version.
 --
@@ -280,26 +297,10 @@ solutionVersion_trainingHours = Lens.lens (\SolutionVersion' {trainingHours} -> 
 solutionVersion_trainingMode :: Lens.Lens' SolutionVersion (Prelude.Maybe TrainingMode)
 solutionVersion_trainingMode = Lens.lens (\SolutionVersion' {trainingMode} -> trainingMode) (\s@SolutionVersion' {} a -> s {trainingMode = a} :: SolutionVersion)
 
--- | The Amazon Resource Name (ARN) of the dataset group providing the
--- training data.
-solutionVersion_datasetGroupArn :: Lens.Lens' SolutionVersion (Prelude.Maybe Prelude.Text)
-solutionVersion_datasetGroupArn = Lens.lens (\SolutionVersion' {datasetGroupArn} -> datasetGroupArn) (\s@SolutionVersion' {} a -> s {datasetGroupArn = a} :: SolutionVersion)
-
--- | The ARN of the solution version.
-solutionVersion_solutionVersionArn :: Lens.Lens' SolutionVersion (Prelude.Maybe Prelude.Text)
-solutionVersion_solutionVersionArn = Lens.lens (\SolutionVersion' {solutionVersionArn} -> solutionVersionArn) (\s@SolutionVersion' {} a -> s {solutionVersionArn = a} :: SolutionVersion)
-
--- | The ARN of the recipe used in the solution.
-solutionVersion_recipeArn :: Lens.Lens' SolutionVersion (Prelude.Maybe Prelude.Text)
-solutionVersion_recipeArn = Lens.lens (\SolutionVersion' {recipeArn} -> recipeArn) (\s@SolutionVersion' {} a -> s {recipeArn = a} :: SolutionVersion)
-
--- | The date and time (in Unix time) that the solution was last updated.
-solutionVersion_lastUpdatedDateTime :: Lens.Lens' SolutionVersion (Prelude.Maybe Prelude.UTCTime)
-solutionVersion_lastUpdatedDateTime = Lens.lens (\SolutionVersion' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@SolutionVersion' {} a -> s {lastUpdatedDateTime = a} :: SolutionVersion) Prelude.. Lens.mapping Data._Time
-
--- | If training a solution version fails, the reason for the failure.
-solutionVersion_failureReason :: Lens.Lens' SolutionVersion (Prelude.Maybe Prelude.Text)
-solutionVersion_failureReason = Lens.lens (\SolutionVersion' {failureReason} -> failureReason) (\s@SolutionVersion' {} a -> s {failureReason = a} :: SolutionVersion)
+-- | If hyperparameter optimization was performed, contains the
+-- hyperparameter values of the best performing model.
+solutionVersion_tunedHPOParams :: Lens.Lens' SolutionVersion (Prelude.Maybe TunedHPOParams)
+solutionVersion_tunedHPOParams = Lens.lens (\SolutionVersion' {tunedHPOParams} -> tunedHPOParams) (\s@SolutionVersion' {} a -> s {tunedHPOParams = a} :: SolutionVersion)
 
 instance Data.FromJSON SolutionVersion where
   parseJSON =
@@ -307,58 +308,58 @@ instance Data.FromJSON SolutionVersion where
       "SolutionVersion"
       ( \x ->
           SolutionVersion'
-            Prelude.<$> (x Data..:? "solutionArn")
+            Prelude.<$> (x Data..:? "creationDateTime")
+            Prelude.<*> (x Data..:? "datasetGroupArn")
             Prelude.<*> (x Data..:? "eventType")
+            Prelude.<*> (x Data..:? "failureReason")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
             Prelude.<*> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "tunedHPOParams")
             Prelude.<*> (x Data..:? "performAutoML")
             Prelude.<*> (x Data..:? "performHPO")
-            Prelude.<*> (x Data..:? "creationDateTime")
+            Prelude.<*> (x Data..:? "recipeArn")
+            Prelude.<*> (x Data..:? "solutionArn")
             Prelude.<*> (x Data..:? "solutionConfig")
+            Prelude.<*> (x Data..:? "solutionVersionArn")
             Prelude.<*> (x Data..:? "status")
             Prelude.<*> (x Data..:? "trainingHours")
             Prelude.<*> (x Data..:? "trainingMode")
-            Prelude.<*> (x Data..:? "datasetGroupArn")
-            Prelude.<*> (x Data..:? "solutionVersionArn")
-            Prelude.<*> (x Data..:? "recipeArn")
-            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
-            Prelude.<*> (x Data..:? "failureReason")
+            Prelude.<*> (x Data..:? "tunedHPOParams")
       )
 
 instance Prelude.Hashable SolutionVersion where
   hashWithSalt _salt SolutionVersion' {..} =
-    _salt `Prelude.hashWithSalt` solutionArn
+    _salt `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` datasetGroupArn
       `Prelude.hashWithSalt` eventType
+      `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` lastUpdatedDateTime
       `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` tunedHPOParams
       `Prelude.hashWithSalt` performAutoML
       `Prelude.hashWithSalt` performHPO
-      `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` recipeArn
+      `Prelude.hashWithSalt` solutionArn
       `Prelude.hashWithSalt` solutionConfig
+      `Prelude.hashWithSalt` solutionVersionArn
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` trainingHours
       `Prelude.hashWithSalt` trainingMode
-      `Prelude.hashWithSalt` datasetGroupArn
-      `Prelude.hashWithSalt` solutionVersionArn
-      `Prelude.hashWithSalt` recipeArn
-      `Prelude.hashWithSalt` lastUpdatedDateTime
-      `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` tunedHPOParams
 
 instance Prelude.NFData SolutionVersion where
   rnf SolutionVersion' {..} =
-    Prelude.rnf solutionArn
+    Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf datasetGroupArn
       `Prelude.seq` Prelude.rnf eventType
+      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
       `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf tunedHPOParams
       `Prelude.seq` Prelude.rnf performAutoML
       `Prelude.seq` Prelude.rnf performHPO
-      `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf recipeArn
+      `Prelude.seq` Prelude.rnf solutionArn
       `Prelude.seq` Prelude.rnf solutionConfig
+      `Prelude.seq` Prelude.rnf solutionVersionArn
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf trainingHours
       `Prelude.seq` Prelude.rnf trainingMode
-      `Prelude.seq` Prelude.rnf datasetGroupArn
-      `Prelude.seq` Prelude.rnf solutionVersionArn
-      `Prelude.seq` Prelude.rnf recipeArn
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
-      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf tunedHPOParams

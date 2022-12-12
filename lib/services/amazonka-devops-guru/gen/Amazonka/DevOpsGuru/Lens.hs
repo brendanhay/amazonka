@@ -42,8 +42,8 @@ module Amazonka.DevOpsGuru.Lens
     -- ** DescribeAnomaly
     describeAnomaly_accountId,
     describeAnomaly_id,
-    describeAnomalyResponse_reactiveAnomaly,
     describeAnomalyResponse_proactiveAnomaly,
+    describeAnomalyResponse_reactiveAnomaly,
     describeAnomalyResponse_httpStatus,
 
     -- ** DescribeEventSourcesConfig
@@ -73,8 +73,8 @@ module Amazonka.DevOpsGuru.Lens
 
     -- ** DescribeOrganizationOverview
     describeOrganizationOverview_accountIds,
-    describeOrganizationOverview_toTime,
     describeOrganizationOverview_organizationalUnitIds,
+    describeOrganizationOverview_toTime,
     describeOrganizationOverview_fromTime,
     describeOrganizationOverviewResponse_httpStatus,
     describeOrganizationOverviewResponse_reactiveInsights,
@@ -82,24 +82,24 @@ module Amazonka.DevOpsGuru.Lens
 
     -- ** DescribeOrganizationResourceCollectionHealth
     describeOrganizationResourceCollectionHealth_accountIds,
+    describeOrganizationResourceCollectionHealth_maxResults,
     describeOrganizationResourceCollectionHealth_nextToken,
     describeOrganizationResourceCollectionHealth_organizationalUnitIds,
-    describeOrganizationResourceCollectionHealth_maxResults,
     describeOrganizationResourceCollectionHealth_organizationResourceCollectionType,
-    describeOrganizationResourceCollectionHealthResponse_tags,
-    describeOrganizationResourceCollectionHealthResponse_nextToken,
     describeOrganizationResourceCollectionHealthResponse_account,
-    describeOrganizationResourceCollectionHealthResponse_service,
     describeOrganizationResourceCollectionHealthResponse_cloudFormation,
+    describeOrganizationResourceCollectionHealthResponse_nextToken,
+    describeOrganizationResourceCollectionHealthResponse_service,
+    describeOrganizationResourceCollectionHealthResponse_tags,
     describeOrganizationResourceCollectionHealthResponse_httpStatus,
 
     -- ** DescribeResourceCollectionHealth
     describeResourceCollectionHealth_nextToken,
     describeResourceCollectionHealth_resourceCollectionType,
-    describeResourceCollectionHealthResponse_tags,
+    describeResourceCollectionHealthResponse_cloudFormation,
     describeResourceCollectionHealthResponse_nextToken,
     describeResourceCollectionHealthResponse_service,
-    describeResourceCollectionHealthResponse_cloudFormation,
+    describeResourceCollectionHealthResponse_tags,
     describeResourceCollectionHealthResponse_httpStatus,
 
     -- ** DescribeServiceIntegration
@@ -108,11 +108,11 @@ module Amazonka.DevOpsGuru.Lens
 
     -- ** GetCostEstimation
     getCostEstimation_nextToken,
-    getCostEstimationResponse_nextToken,
-    getCostEstimationResponse_timeRange,
-    getCostEstimationResponse_resourceCollection,
     getCostEstimationResponse_costs,
+    getCostEstimationResponse_nextToken,
+    getCostEstimationResponse_resourceCollection,
     getCostEstimationResponse_status,
+    getCostEstimationResponse_timeRange,
     getCostEstimationResponse_totalCost,
     getCostEstimationResponse_httpStatus,
 
@@ -124,10 +124,10 @@ module Amazonka.DevOpsGuru.Lens
     getResourceCollectionResponse_httpStatus,
 
     -- ** ListAnomaliesForInsight
-    listAnomaliesForInsight_nextToken,
-    listAnomaliesForInsight_startTimeRange,
     listAnomaliesForInsight_accountId,
     listAnomaliesForInsight_maxResults,
+    listAnomaliesForInsight_nextToken,
+    listAnomaliesForInsight_startTimeRange,
     listAnomaliesForInsight_insightId,
     listAnomaliesForInsightResponse_nextToken,
     listAnomaliesForInsightResponse_proactiveAnomalies,
@@ -135,8 +135,8 @@ module Amazonka.DevOpsGuru.Lens
     listAnomaliesForInsightResponse_httpStatus,
 
     -- ** ListAnomalousLogGroups
-    listAnomalousLogGroups_nextToken,
     listAnomalousLogGroups_maxResults,
+    listAnomalousLogGroups_nextToken,
     listAnomalousLogGroups_insightId,
     listAnomalousLogGroupsResponse_nextToken,
     listAnomalousLogGroupsResponse_httpStatus,
@@ -144,52 +144,52 @@ module Amazonka.DevOpsGuru.Lens
     listAnomalousLogGroupsResponse_anomalousLogGroups,
 
     -- ** ListEvents
-    listEvents_nextToken,
     listEvents_accountId,
     listEvents_maxResults,
+    listEvents_nextToken,
     listEvents_filters,
     listEventsResponse_nextToken,
     listEventsResponse_httpStatus,
     listEventsResponse_events,
 
     -- ** ListInsights
-    listInsights_nextToken,
     listInsights_maxResults,
+    listInsights_nextToken,
     listInsights_statusFilter,
     listInsightsResponse_nextToken,
-    listInsightsResponse_reactiveInsights,
     listInsightsResponse_proactiveInsights,
+    listInsightsResponse_reactiveInsights,
     listInsightsResponse_httpStatus,
 
     -- ** ListMonitoredResources
-    listMonitoredResources_nextToken,
     listMonitoredResources_filters,
     listMonitoredResources_maxResults,
+    listMonitoredResources_nextToken,
     listMonitoredResourcesResponse_nextToken,
     listMonitoredResourcesResponse_httpStatus,
     listMonitoredResourcesResponse_monitoredResourceIdentifiers,
 
     -- ** ListNotificationChannels
     listNotificationChannels_nextToken,
-    listNotificationChannelsResponse_nextToken,
     listNotificationChannelsResponse_channels,
+    listNotificationChannelsResponse_nextToken,
     listNotificationChannelsResponse_httpStatus,
 
     -- ** ListOrganizationInsights
     listOrganizationInsights_accountIds,
+    listOrganizationInsights_maxResults,
     listOrganizationInsights_nextToken,
     listOrganizationInsights_organizationalUnitIds,
-    listOrganizationInsights_maxResults,
     listOrganizationInsights_statusFilter,
     listOrganizationInsightsResponse_nextToken,
-    listOrganizationInsightsResponse_reactiveInsights,
     listOrganizationInsightsResponse_proactiveInsights,
+    listOrganizationInsightsResponse_reactiveInsights,
     listOrganizationInsightsResponse_httpStatus,
 
     -- ** ListRecommendations
-    listRecommendations_nextToken,
-    listRecommendations_locale,
     listRecommendations_accountId,
+    listRecommendations_locale,
+    listRecommendations_nextToken,
     listRecommendations_insightId,
     listRecommendationsResponse_nextToken,
     listRecommendationsResponse_recommendations,
@@ -204,26 +204,26 @@ module Amazonka.DevOpsGuru.Lens
     removeNotificationChannelResponse_httpStatus,
 
     -- ** SearchInsights
-    searchInsights_nextToken,
     searchInsights_filters,
     searchInsights_maxResults,
+    searchInsights_nextToken,
     searchInsights_startTimeRange,
     searchInsights_type,
     searchInsightsResponse_nextToken,
-    searchInsightsResponse_reactiveInsights,
     searchInsightsResponse_proactiveInsights,
+    searchInsightsResponse_reactiveInsights,
     searchInsightsResponse_httpStatus,
 
     -- ** SearchOrganizationInsights
-    searchOrganizationInsights_nextToken,
     searchOrganizationInsights_filters,
     searchOrganizationInsights_maxResults,
+    searchOrganizationInsights_nextToken,
     searchOrganizationInsights_accountIds,
     searchOrganizationInsights_startTimeRange,
     searchOrganizationInsights_type,
     searchOrganizationInsightsResponse_nextToken,
-    searchOrganizationInsightsResponse_reactiveInsights,
     searchOrganizationInsightsResponse_proactiveInsights,
+    searchOrganizationInsightsResponse_reactiveInsights,
     searchOrganizationInsightsResponse_httpStatus,
 
     -- ** StartCostEstimation
@@ -247,22 +247,22 @@ module Amazonka.DevOpsGuru.Lens
     -- * Types
 
     -- ** AccountHealth
-    accountHealth_insight,
     accountHealth_accountId,
+    accountHealth_insight,
 
     -- ** AccountInsightHealth
-    accountInsightHealth_openReactiveInsights,
     accountInsightHealth_openProactiveInsights,
+    accountInsightHealth_openReactiveInsights,
 
     -- ** AmazonCodeGuruProfilerIntegration
     amazonCodeGuruProfilerIntegration_status,
 
     -- ** AnomalousLogGroup
     anomalousLogGroup_impactEndTime,
-    anomalousLogGroup_numberOfLogLinesScanned,
     anomalousLogGroup_impactStartTime,
     anomalousLogGroup_logAnomalyShowcases,
     anomalousLogGroup_logGroupName,
+    anomalousLogGroup_numberOfLogLinesScanned,
 
     -- ** AnomalyReportedTimeRange
     anomalyReportedTimeRange_closeTime,
@@ -277,9 +277,9 @@ module Amazonka.DevOpsGuru.Lens
     anomalySourceDetails_performanceInsightsMetrics,
 
     -- ** AnomalySourceMetadata
+    anomalySourceMetadata_source,
     anomalySourceMetadata_sourceResourceName,
     anomalySourceMetadata_sourceResourceType,
-    anomalySourceMetadata_source,
 
     -- ** AnomalyTimeRange
     anomalyTimeRange_endTime,
@@ -295,21 +295,21 @@ module Amazonka.DevOpsGuru.Lens
     cloudFormationCostEstimationResourceCollectionFilter_stackNames,
 
     -- ** CloudFormationHealth
-    cloudFormationHealth_insight,
     cloudFormationHealth_analyzedResourceCount,
+    cloudFormationHealth_insight,
     cloudFormationHealth_stackName,
 
     -- ** CloudWatchMetricsDataSummary
-    cloudWatchMetricsDataSummary_timestampMetricValuePairList,
     cloudWatchMetricsDataSummary_statusCode,
+    cloudWatchMetricsDataSummary_timestampMetricValuePairList,
 
     -- ** CloudWatchMetricsDetail
-    cloudWatchMetricsDetail_metricDataSummary,
-    cloudWatchMetricsDetail_period,
     cloudWatchMetricsDetail_dimensions,
-    cloudWatchMetricsDetail_stat,
+    cloudWatchMetricsDetail_metricDataSummary,
     cloudWatchMetricsDetail_metricName,
     cloudWatchMetricsDetail_namespace,
+    cloudWatchMetricsDetail_period,
+    cloudWatchMetricsDetail_stat,
     cloudWatchMetricsDetail_unit,
 
     -- ** CloudWatchMetricsDimension
@@ -317,31 +317,31 @@ module Amazonka.DevOpsGuru.Lens
     cloudWatchMetricsDimension_value,
 
     -- ** CostEstimationResourceCollectionFilter
-    costEstimationResourceCollectionFilter_tags,
     costEstimationResourceCollectionFilter_cloudFormation,
+    costEstimationResourceCollectionFilter_tags,
 
     -- ** CostEstimationTimeRange
     costEstimationTimeRange_endTime,
     costEstimationTimeRange_startTime,
 
     -- ** EndTimeRange
-    endTimeRange_toTime,
     endTimeRange_fromTime,
+    endTimeRange_toTime,
 
     -- ** Event
-    event_name,
-    event_resourceCollection,
-    event_time,
-    event_id,
     event_dataSource,
     event_eventClass,
-    event_resources,
     event_eventSource,
+    event_id,
+    event_name,
+    event_resourceCollection,
+    event_resources,
+    event_time,
 
     -- ** EventResource
+    eventResource_arn,
     eventResource_name,
     eventResource_type,
-    eventResource_arn,
 
     -- ** EventSourcesConfig
     eventSourcesConfig_amazonCodeGuruProfiler,
@@ -355,21 +355,21 @@ module Amazonka.DevOpsGuru.Lens
     insightFeedback_id,
 
     -- ** InsightHealth
-    insightHealth_openReactiveInsights,
     insightHealth_meanTimeToRecoverInMilliseconds,
     insightHealth_openProactiveInsights,
+    insightHealth_openReactiveInsights,
 
     -- ** InsightTimeRange
     insightTimeRange_endTime,
     insightTimeRange_startTime,
 
     -- ** ListEventsFilters
-    listEventsFilters_resourceCollection,
-    listEventsFilters_insightId,
     listEventsFilters_dataSource,
     listEventsFilters_eventClass,
-    listEventsFilters_eventTimeRange,
     listEventsFilters_eventSource,
+    listEventsFilters_eventTimeRange,
+    listEventsFilters_insightId,
+    listEventsFilters_resourceCollection,
 
     -- ** ListInsightsAnyStatusFilter
     listInsightsAnyStatusFilter_type,
@@ -383,8 +383,8 @@ module Amazonka.DevOpsGuru.Lens
     listInsightsOngoingStatusFilter_type,
 
     -- ** ListInsightsStatusFilter
-    listInsightsStatusFilter_closed,
     listInsightsStatusFilter_any,
+    listInsightsStatusFilter_closed,
     listInsightsStatusFilter_ongoing,
 
     -- ** ListMonitoredResourcesFilters
@@ -392,13 +392,13 @@ module Amazonka.DevOpsGuru.Lens
     listMonitoredResourcesFilters_resourceTypeFilters,
 
     -- ** LogAnomalyClass
-    logAnomalyClass_numberOfLogLinesOccurrences,
-    logAnomalyClass_logEventTimestamp,
-    logAnomalyClass_logEventId,
+    logAnomalyClass_explanation,
     logAnomalyClass_logAnomalyToken,
     logAnomalyClass_logAnomalyType,
-    logAnomalyClass_explanation,
+    logAnomalyClass_logEventId,
+    logAnomalyClass_logEventTimestamp,
     logAnomalyClass_logStreamName,
+    logAnomalyClass_numberOfLogLinesOccurrences,
 
     -- ** LogAnomalyShowcase
     logAnomalyShowcase_logAnomalyClasses,
@@ -410,15 +410,15 @@ module Amazonka.DevOpsGuru.Lens
     logsAnomalyDetectionIntegrationConfig_optInStatus,
 
     -- ** MonitoredResourceIdentifier
-    monitoredResourceIdentifier_type,
-    monitoredResourceIdentifier_resourceCollection,
     monitoredResourceIdentifier_lastUpdated,
-    monitoredResourceIdentifier_resourcePermission,
     monitoredResourceIdentifier_monitoredResourceName,
+    monitoredResourceIdentifier_resourceCollection,
+    monitoredResourceIdentifier_resourcePermission,
+    monitoredResourceIdentifier_type,
 
     -- ** NotificationChannel
-    notificationChannel_id,
     notificationChannel_config,
+    notificationChannel_id,
 
     -- ** NotificationChannelConfig
     notificationChannelConfig_filters,
@@ -436,29 +436,29 @@ module Amazonka.DevOpsGuru.Lens
 
     -- ** PerformanceInsightsMetricDimensionGroup
     performanceInsightsMetricDimensionGroup_dimensions,
-    performanceInsightsMetricDimensionGroup_limit,
     performanceInsightsMetricDimensionGroup_group,
+    performanceInsightsMetricDimensionGroup_limit,
 
     -- ** PerformanceInsightsMetricQuery
-    performanceInsightsMetricQuery_groupBy,
     performanceInsightsMetricQuery_filter,
+    performanceInsightsMetricQuery_groupBy,
     performanceInsightsMetricQuery_metric,
 
     -- ** PerformanceInsightsMetricsDetail
     performanceInsightsMetricsDetail_metricDisplayName,
+    performanceInsightsMetricsDetail_metricQuery,
     performanceInsightsMetricsDetail_referenceData,
     performanceInsightsMetricsDetail_statsAtAnomaly,
-    performanceInsightsMetricsDetail_unit,
     performanceInsightsMetricsDetail_statsAtBaseline,
-    performanceInsightsMetricsDetail_metricQuery,
+    performanceInsightsMetricsDetail_unit,
 
     -- ** PerformanceInsightsReferenceComparisonValues
-    performanceInsightsReferenceComparisonValues_referenceScalar,
     performanceInsightsReferenceComparisonValues_referenceMetric,
+    performanceInsightsReferenceComparisonValues_referenceScalar,
 
     -- ** PerformanceInsightsReferenceData
-    performanceInsightsReferenceData_name,
     performanceInsightsReferenceData_comparisonValues,
+    performanceInsightsReferenceData_name,
 
     -- ** PerformanceInsightsReferenceMetric
     performanceInsightsReferenceMetric_metricQuery,
@@ -475,143 +475,143 @@ module Amazonka.DevOpsGuru.Lens
     predictionTimeRange_startTime,
 
     -- ** ProactiveAnomaly
-    proactiveAnomaly_anomalyTimeRange,
-    proactiveAnomaly_severity,
     proactiveAnomaly_anomalyReportedTimeRange,
-    proactiveAnomaly_associatedInsightId,
     proactiveAnomaly_anomalyResources,
-    proactiveAnomaly_resourceCollection,
-    proactiveAnomaly_sourceDetails,
-    proactiveAnomaly_status,
+    proactiveAnomaly_anomalyTimeRange,
+    proactiveAnomaly_associatedInsightId,
     proactiveAnomaly_id,
-    proactiveAnomaly_predictionTimeRange,
     proactiveAnomaly_limit,
+    proactiveAnomaly_predictionTimeRange,
+    proactiveAnomaly_resourceCollection,
+    proactiveAnomaly_severity,
+    proactiveAnomaly_sourceDetails,
     proactiveAnomaly_sourceMetadata,
+    proactiveAnomaly_status,
     proactiveAnomaly_updateTime,
 
     -- ** ProactiveAnomalySummary
-    proactiveAnomalySummary_anomalyTimeRange,
-    proactiveAnomalySummary_severity,
     proactiveAnomalySummary_anomalyReportedTimeRange,
-    proactiveAnomalySummary_associatedInsightId,
     proactiveAnomalySummary_anomalyResources,
-    proactiveAnomalySummary_resourceCollection,
-    proactiveAnomalySummary_sourceDetails,
-    proactiveAnomalySummary_status,
+    proactiveAnomalySummary_anomalyTimeRange,
+    proactiveAnomalySummary_associatedInsightId,
     proactiveAnomalySummary_id,
-    proactiveAnomalySummary_predictionTimeRange,
     proactiveAnomalySummary_limit,
+    proactiveAnomalySummary_predictionTimeRange,
+    proactiveAnomalySummary_resourceCollection,
+    proactiveAnomalySummary_severity,
+    proactiveAnomalySummary_sourceDetails,
     proactiveAnomalySummary_sourceMetadata,
+    proactiveAnomalySummary_status,
     proactiveAnomalySummary_updateTime,
 
     -- ** ProactiveInsight
-    proactiveInsight_severity,
-    proactiveInsight_name,
-    proactiveInsight_resourceCollection,
-    proactiveInsight_status,
-    proactiveInsight_id,
     proactiveInsight_description,
-    proactiveInsight_ssmOpsItemId,
-    proactiveInsight_predictionTimeRange,
+    proactiveInsight_id,
     proactiveInsight_insightTimeRange,
+    proactiveInsight_name,
+    proactiveInsight_predictionTimeRange,
+    proactiveInsight_resourceCollection,
+    proactiveInsight_severity,
+    proactiveInsight_ssmOpsItemId,
+    proactiveInsight_status,
 
     -- ** ProactiveInsightSummary
-    proactiveInsightSummary_severity,
+    proactiveInsightSummary_associatedResourceArns,
+    proactiveInsightSummary_id,
+    proactiveInsightSummary_insightTimeRange,
     proactiveInsightSummary_name,
+    proactiveInsightSummary_predictionTimeRange,
     proactiveInsightSummary_resourceCollection,
     proactiveInsightSummary_serviceCollection,
-    proactiveInsightSummary_associatedResourceArns,
+    proactiveInsightSummary_severity,
     proactiveInsightSummary_status,
-    proactiveInsightSummary_id,
-    proactiveInsightSummary_predictionTimeRange,
-    proactiveInsightSummary_insightTimeRange,
 
     -- ** ProactiveOrganizationInsightSummary
-    proactiveOrganizationInsightSummary_severity,
+    proactiveOrganizationInsightSummary_accountId,
+    proactiveOrganizationInsightSummary_id,
+    proactiveOrganizationInsightSummary_insightTimeRange,
     proactiveOrganizationInsightSummary_name,
+    proactiveOrganizationInsightSummary_organizationalUnitId,
+    proactiveOrganizationInsightSummary_predictionTimeRange,
     proactiveOrganizationInsightSummary_resourceCollection,
     proactiveOrganizationInsightSummary_serviceCollection,
+    proactiveOrganizationInsightSummary_severity,
     proactiveOrganizationInsightSummary_status,
-    proactiveOrganizationInsightSummary_id,
-    proactiveOrganizationInsightSummary_predictionTimeRange,
-    proactiveOrganizationInsightSummary_accountId,
-    proactiveOrganizationInsightSummary_insightTimeRange,
-    proactiveOrganizationInsightSummary_organizationalUnitId,
 
     -- ** ReactiveAnomaly
-    reactiveAnomaly_anomalyTimeRange,
-    reactiveAnomaly_severity,
-    reactiveAnomaly_name,
     reactiveAnomaly_anomalyReportedTimeRange,
-    reactiveAnomaly_type,
-    reactiveAnomaly_associatedInsightId,
     reactiveAnomaly_anomalyResources,
+    reactiveAnomaly_anomalyTimeRange,
+    reactiveAnomaly_associatedInsightId,
+    reactiveAnomaly_causalAnomalyId,
+    reactiveAnomaly_description,
+    reactiveAnomaly_id,
+    reactiveAnomaly_name,
     reactiveAnomaly_resourceCollection,
+    reactiveAnomaly_severity,
     reactiveAnomaly_sourceDetails,
     reactiveAnomaly_status,
-    reactiveAnomaly_id,
-    reactiveAnomaly_description,
-    reactiveAnomaly_causalAnomalyId,
+    reactiveAnomaly_type,
 
     -- ** ReactiveAnomalySummary
-    reactiveAnomalySummary_anomalyTimeRange,
-    reactiveAnomalySummary_severity,
-    reactiveAnomalySummary_name,
     reactiveAnomalySummary_anomalyReportedTimeRange,
-    reactiveAnomalySummary_type,
-    reactiveAnomalySummary_associatedInsightId,
     reactiveAnomalySummary_anomalyResources,
+    reactiveAnomalySummary_anomalyTimeRange,
+    reactiveAnomalySummary_associatedInsightId,
+    reactiveAnomalySummary_causalAnomalyId,
+    reactiveAnomalySummary_description,
+    reactiveAnomalySummary_id,
+    reactiveAnomalySummary_name,
     reactiveAnomalySummary_resourceCollection,
+    reactiveAnomalySummary_severity,
     reactiveAnomalySummary_sourceDetails,
     reactiveAnomalySummary_status,
-    reactiveAnomalySummary_id,
-    reactiveAnomalySummary_description,
-    reactiveAnomalySummary_causalAnomalyId,
+    reactiveAnomalySummary_type,
 
     -- ** ReactiveInsight
-    reactiveInsight_severity,
+    reactiveInsight_description,
+    reactiveInsight_id,
+    reactiveInsight_insightTimeRange,
     reactiveInsight_name,
     reactiveInsight_resourceCollection,
-    reactiveInsight_status,
-    reactiveInsight_id,
-    reactiveInsight_description,
+    reactiveInsight_severity,
     reactiveInsight_ssmOpsItemId,
-    reactiveInsight_insightTimeRange,
+    reactiveInsight_status,
 
     -- ** ReactiveInsightSummary
-    reactiveInsightSummary_severity,
+    reactiveInsightSummary_associatedResourceArns,
+    reactiveInsightSummary_id,
+    reactiveInsightSummary_insightTimeRange,
     reactiveInsightSummary_name,
     reactiveInsightSummary_resourceCollection,
     reactiveInsightSummary_serviceCollection,
-    reactiveInsightSummary_associatedResourceArns,
+    reactiveInsightSummary_severity,
     reactiveInsightSummary_status,
-    reactiveInsightSummary_id,
-    reactiveInsightSummary_insightTimeRange,
 
     -- ** ReactiveOrganizationInsightSummary
-    reactiveOrganizationInsightSummary_severity,
+    reactiveOrganizationInsightSummary_accountId,
+    reactiveOrganizationInsightSummary_id,
+    reactiveOrganizationInsightSummary_insightTimeRange,
     reactiveOrganizationInsightSummary_name,
+    reactiveOrganizationInsightSummary_organizationalUnitId,
     reactiveOrganizationInsightSummary_resourceCollection,
     reactiveOrganizationInsightSummary_serviceCollection,
+    reactiveOrganizationInsightSummary_severity,
     reactiveOrganizationInsightSummary_status,
-    reactiveOrganizationInsightSummary_id,
-    reactiveOrganizationInsightSummary_accountId,
-    reactiveOrganizationInsightSummary_insightTimeRange,
-    reactiveOrganizationInsightSummary_organizationalUnitId,
 
     -- ** Recommendation
-    recommendation_name,
-    recommendation_link,
-    recommendation_description,
-    recommendation_relatedAnomalies,
-    recommendation_reason,
     recommendation_category,
+    recommendation_description,
+    recommendation_link,
+    recommendation_name,
+    recommendation_reason,
+    recommendation_relatedAnomalies,
     recommendation_relatedEvents,
 
     -- ** RecommendationRelatedAnomaly
     recommendationRelatedAnomaly_anomalyId,
-    recommendationRelatedAnomaly_sourceDetails,
     recommendationRelatedAnomaly_resources,
+    recommendationRelatedAnomaly_sourceDetails,
 
     -- ** RecommendationRelatedAnomalyResource
     recommendationRelatedAnomalyResource_name,
@@ -633,54 +633,54 @@ module Amazonka.DevOpsGuru.Lens
     recommendationRelatedEventResource_type,
 
     -- ** ResourceCollection
-    resourceCollection_tags,
     resourceCollection_cloudFormation,
+    resourceCollection_tags,
 
     -- ** ResourceCollectionFilter
-    resourceCollectionFilter_tags,
     resourceCollectionFilter_cloudFormation,
+    resourceCollectionFilter_tags,
 
     -- ** SearchInsightsFilters
-    searchInsightsFilters_severities,
     searchInsightsFilters_resourceCollection,
     searchInsightsFilters_serviceCollection,
+    searchInsightsFilters_severities,
     searchInsightsFilters_statuses,
 
     -- ** SearchOrganizationInsightsFilters
-    searchOrganizationInsightsFilters_severities,
     searchOrganizationInsightsFilters_resourceCollection,
     searchOrganizationInsightsFilters_serviceCollection,
+    searchOrganizationInsightsFilters_severities,
     searchOrganizationInsightsFilters_statuses,
 
     -- ** ServiceCollection
     serviceCollection_serviceNames,
 
     -- ** ServiceHealth
-    serviceHealth_insight,
     serviceHealth_analyzedResourceCount,
+    serviceHealth_insight,
     serviceHealth_serviceName,
 
     -- ** ServiceInsightHealth
-    serviceInsightHealth_openReactiveInsights,
     serviceInsightHealth_openProactiveInsights,
+    serviceInsightHealth_openReactiveInsights,
 
     -- ** ServiceIntegrationConfig
-    serviceIntegrationConfig_opsCenter,
     serviceIntegrationConfig_logsAnomalyDetection,
+    serviceIntegrationConfig_opsCenter,
 
     -- ** ServiceResourceCost
-    serviceResourceCost_type,
-    serviceResourceCost_state,
-    serviceResourceCost_count,
-    serviceResourceCost_unitCost,
     serviceResourceCost_cost,
+    serviceResourceCost_count,
+    serviceResourceCost_state,
+    serviceResourceCost_type,
+    serviceResourceCost_unitCost,
 
     -- ** SnsChannelConfig
     snsChannelConfig_topicArn,
 
     -- ** StartTimeRange
-    startTimeRange_toTime,
     startTimeRange_fromTime,
+    startTimeRange_toTime,
 
     -- ** TagCollection
     tagCollection_appBoundaryKey,
@@ -695,10 +695,10 @@ module Amazonka.DevOpsGuru.Lens
     tagCostEstimationResourceCollectionFilter_tagValues,
 
     -- ** TagHealth
-    tagHealth_insight,
-    tagHealth_tagValue,
     tagHealth_analyzedResourceCount,
     tagHealth_appBoundaryKey,
+    tagHealth_insight,
+    tagHealth_tagValue,
 
     -- ** TimestampMetricValuePair
     timestampMetricValuePair_metricValue,
@@ -708,12 +708,12 @@ module Amazonka.DevOpsGuru.Lens
     updateCloudFormationCollectionFilter_stackNames,
 
     -- ** UpdateResourceCollectionFilter
-    updateResourceCollectionFilter_tags,
     updateResourceCollectionFilter_cloudFormation,
+    updateResourceCollectionFilter_tags,
 
     -- ** UpdateServiceIntegrationConfig
-    updateServiceIntegrationConfig_opsCenter,
     updateServiceIntegrationConfig_logsAnomalyDetection,
+    updateServiceIntegrationConfig_opsCenter,
 
     -- ** UpdateTagCollectionFilter
     updateTagCollectionFilter_appBoundaryKey,

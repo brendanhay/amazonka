@@ -27,8 +27,8 @@ module Amazonka.LookoutMetrics.GetFeedback
     newGetFeedback,
 
     -- * Request Lenses
-    getFeedback_nextToken,
     getFeedback_maxResults,
+    getFeedback_nextToken,
     getFeedback_anomalyDetectorArn,
     getFeedback_anomalyGroupTimeSeriesFeedback,
 
@@ -37,8 +37,8 @@ module Amazonka.LookoutMetrics.GetFeedback
     newGetFeedbackResponse,
 
     -- * Response Lenses
-    getFeedbackResponse_nextToken,
     getFeedbackResponse_anomalyGroupTimeSeriesFeedback,
+    getFeedbackResponse_nextToken,
     getFeedbackResponse_httpStatus,
   )
 where
@@ -53,11 +53,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetFeedback' smart constructor.
 data GetFeedback = GetFeedback'
-  { -- | Specify the pagination token that\'s returned by a previous request to
+  { -- | The maximum number of results to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Specify the pagination token that\'s returned by a previous request to
     -- retrieve the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) of the anomaly detector.
     anomalyDetectorArn :: Prelude.Text,
     -- | The anomalous metric and group ID.
@@ -73,10 +73,10 @@ data GetFeedback = GetFeedback'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'getFeedback_maxResults' - The maximum number of results to return.
+--
 -- 'nextToken', 'getFeedback_nextToken' - Specify the pagination token that\'s returned by a previous request to
 -- retrieve the next page of results.
---
--- 'maxResults', 'getFeedback_maxResults' - The maximum number of results to return.
 --
 -- 'anomalyDetectorArn', 'getFeedback_anomalyDetectorArn' - The Amazon Resource Name (ARN) of the anomaly detector.
 --
@@ -91,21 +91,21 @@ newGetFeedback
   pAnomalyDetectorArn_
   pAnomalyGroupTimeSeriesFeedback_ =
     GetFeedback'
-      { nextToken = Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+      { maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         anomalyDetectorArn = pAnomalyDetectorArn_,
         anomalyGroupTimeSeriesFeedback =
           pAnomalyGroupTimeSeriesFeedback_
       }
 
+-- | The maximum number of results to return.
+getFeedback_maxResults :: Lens.Lens' GetFeedback (Prelude.Maybe Prelude.Natural)
+getFeedback_maxResults = Lens.lens (\GetFeedback' {maxResults} -> maxResults) (\s@GetFeedback' {} a -> s {maxResults = a} :: GetFeedback)
+
 -- | Specify the pagination token that\'s returned by a previous request to
 -- retrieve the next page of results.
 getFeedback_nextToken :: Lens.Lens' GetFeedback (Prelude.Maybe Prelude.Text)
 getFeedback_nextToken = Lens.lens (\GetFeedback' {nextToken} -> nextToken) (\s@GetFeedback' {} a -> s {nextToken = a} :: GetFeedback)
-
--- | The maximum number of results to return.
-getFeedback_maxResults :: Lens.Lens' GetFeedback (Prelude.Maybe Prelude.Natural)
-getFeedback_maxResults = Lens.lens (\GetFeedback' {maxResults} -> maxResults) (\s@GetFeedback' {} a -> s {maxResults = a} :: GetFeedback)
 
 -- | The Amazon Resource Name (ARN) of the anomaly detector.
 getFeedback_anomalyDetectorArn :: Lens.Lens' GetFeedback Prelude.Text
@@ -123,24 +123,24 @@ instance Core.AWSRequest GetFeedback where
     Response.receiveJSON
       ( \s h x ->
           GetFeedbackResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "AnomalyGroupTimeSeriesFeedback"
+            Prelude.<$> ( x Data..?> "AnomalyGroupTimeSeriesFeedback"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetFeedback where
   hashWithSalt _salt GetFeedback' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` anomalyDetectorArn
       `Prelude.hashWithSalt` anomalyGroupTimeSeriesFeedback
 
 instance Prelude.NFData GetFeedback where
   rnf GetFeedback' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf anomalyDetectorArn
       `Prelude.seq` Prelude.rnf anomalyGroupTimeSeriesFeedback
 
@@ -159,8 +159,8 @@ instance Data.ToJSON GetFeedback where
   toJSON GetFeedback' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("AnomalyDetectorArn" Data..= anomalyDetectorArn),
             Prelude.Just
@@ -178,10 +178,10 @@ instance Data.ToQuery GetFeedback where
 
 -- | /See:/ 'newGetFeedbackResponse' smart constructor.
 data GetFeedbackResponse = GetFeedbackResponse'
-  { -- | The pagination token that\'s included if more results are available.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Feedback for an anomalous metric.
+  { -- | Feedback for an anomalous metric.
     anomalyGroupTimeSeriesFeedback :: Prelude.Maybe [TimeSeriesFeedback],
+    -- | The pagination token that\'s included if more results are available.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -195,9 +195,9 @@ data GetFeedbackResponse = GetFeedbackResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getFeedbackResponse_nextToken' - The pagination token that\'s included if more results are available.
---
 -- 'anomalyGroupTimeSeriesFeedback', 'getFeedbackResponse_anomalyGroupTimeSeriesFeedback' - Feedback for an anomalous metric.
+--
+-- 'nextToken', 'getFeedbackResponse_nextToken' - The pagination token that\'s included if more results are available.
 --
 -- 'httpStatus', 'getFeedbackResponse_httpStatus' - The response's http status code.
 newGetFeedbackResponse ::
@@ -206,18 +206,19 @@ newGetFeedbackResponse ::
   GetFeedbackResponse
 newGetFeedbackResponse pHttpStatus_ =
   GetFeedbackResponse'
-    { nextToken = Prelude.Nothing,
-      anomalyGroupTimeSeriesFeedback = Prelude.Nothing,
+    { anomalyGroupTimeSeriesFeedback =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The pagination token that\'s included if more results are available.
-getFeedbackResponse_nextToken :: Lens.Lens' GetFeedbackResponse (Prelude.Maybe Prelude.Text)
-getFeedbackResponse_nextToken = Lens.lens (\GetFeedbackResponse' {nextToken} -> nextToken) (\s@GetFeedbackResponse' {} a -> s {nextToken = a} :: GetFeedbackResponse)
 
 -- | Feedback for an anomalous metric.
 getFeedbackResponse_anomalyGroupTimeSeriesFeedback :: Lens.Lens' GetFeedbackResponse (Prelude.Maybe [TimeSeriesFeedback])
 getFeedbackResponse_anomalyGroupTimeSeriesFeedback = Lens.lens (\GetFeedbackResponse' {anomalyGroupTimeSeriesFeedback} -> anomalyGroupTimeSeriesFeedback) (\s@GetFeedbackResponse' {} a -> s {anomalyGroupTimeSeriesFeedback = a} :: GetFeedbackResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The pagination token that\'s included if more results are available.
+getFeedbackResponse_nextToken :: Lens.Lens' GetFeedbackResponse (Prelude.Maybe Prelude.Text)
+getFeedbackResponse_nextToken = Lens.lens (\GetFeedbackResponse' {nextToken} -> nextToken) (\s@GetFeedbackResponse' {} a -> s {nextToken = a} :: GetFeedbackResponse)
 
 -- | The response's http status code.
 getFeedbackResponse_httpStatus :: Lens.Lens' GetFeedbackResponse Prelude.Int
@@ -225,6 +226,6 @@ getFeedbackResponse_httpStatus = Lens.lens (\GetFeedbackResponse' {httpStatus} -
 
 instance Prelude.NFData GetFeedbackResponse where
   rnf GetFeedbackResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf anomalyGroupTimeSeriesFeedback
+    Prelude.rnf anomalyGroupTimeSeriesFeedback
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

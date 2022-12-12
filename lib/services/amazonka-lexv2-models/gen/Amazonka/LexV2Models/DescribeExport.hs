@@ -36,12 +36,12 @@ module Amazonka.LexV2Models.DescribeExport
     -- * Response Lenses
     describeExportResponse_creationDateTime,
     describeExportResponse_downloadUrl,
-    describeExportResponse_resourceSpecification,
-    describeExportResponse_exportStatus,
     describeExportResponse_exportId,
+    describeExportResponse_exportStatus,
     describeExportResponse_failureReasons,
-    describeExportResponse_lastUpdatedDateTime,
     describeExportResponse_fileFormat,
+    describeExportResponse_lastUpdatedDateTime,
+    describeExportResponse_resourceSpecification,
     describeExportResponse_httpStatus,
   )
 where
@@ -93,12 +93,12 @@ instance Core.AWSRequest DescribeExport where
           DescribeExportResponse'
             Prelude.<$> (x Data..?> "creationDateTime")
             Prelude.<*> (x Data..?> "downloadUrl")
-            Prelude.<*> (x Data..?> "resourceSpecification")
-            Prelude.<*> (x Data..?> "exportStatus")
             Prelude.<*> (x Data..?> "exportId")
+            Prelude.<*> (x Data..?> "exportStatus")
             Prelude.<*> (x Data..?> "failureReasons" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "lastUpdatedDateTime")
             Prelude.<*> (x Data..?> "fileFormat")
+            Prelude.<*> (x Data..?> "lastUpdatedDateTime")
+            Prelude.<*> (x Data..?> "resourceSpecification")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,21 +136,21 @@ data DescribeExportResponse = DescribeExportResponse'
     -- URL is only available for 5 minutes after calling the @DescribeExport@
     -- operation.
     downloadUrl :: Prelude.Maybe Prelude.Text,
-    -- | The bot, bot ID, and optional locale ID of the exported bot or bot
-    -- locale.
-    resourceSpecification :: Prelude.Maybe ExportResourceSpecification,
+    -- | The unique identifier of the described export.
+    exportId :: Prelude.Maybe Prelude.Text,
     -- | The status of the export. When the status is @Complete@ the export
     -- archive file is available for download.
     exportStatus :: Prelude.Maybe ExportStatus,
-    -- | The unique identifier of the described export.
-    exportId :: Prelude.Maybe Prelude.Text,
     -- | If the @exportStatus@ is failed, contains one or more reasons why the
     -- export could not be completed.
     failureReasons :: Prelude.Maybe [Prelude.Text],
-    -- | The last date and time that the export was updated.
-    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
     -- | The file format used in the files that describe the resource.
     fileFormat :: Prelude.Maybe ImportExportFileFormat,
+    -- | The last date and time that the export was updated.
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The bot, bot ID, and optional locale ID of the exported bot or bot
+    -- locale.
+    resourceSpecification :: Prelude.Maybe ExportResourceSpecification,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -170,20 +170,20 @@ data DescribeExportResponse = DescribeExportResponse'
 -- URL is only available for 5 minutes after calling the @DescribeExport@
 -- operation.
 --
--- 'resourceSpecification', 'describeExportResponse_resourceSpecification' - The bot, bot ID, and optional locale ID of the exported bot or bot
--- locale.
+-- 'exportId', 'describeExportResponse_exportId' - The unique identifier of the described export.
 --
 -- 'exportStatus', 'describeExportResponse_exportStatus' - The status of the export. When the status is @Complete@ the export
 -- archive file is available for download.
 --
--- 'exportId', 'describeExportResponse_exportId' - The unique identifier of the described export.
---
 -- 'failureReasons', 'describeExportResponse_failureReasons' - If the @exportStatus@ is failed, contains one or more reasons why the
 -- export could not be completed.
 --
+-- 'fileFormat', 'describeExportResponse_fileFormat' - The file format used in the files that describe the resource.
+--
 -- 'lastUpdatedDateTime', 'describeExportResponse_lastUpdatedDateTime' - The last date and time that the export was updated.
 --
--- 'fileFormat', 'describeExportResponse_fileFormat' - The file format used in the files that describe the resource.
+-- 'resourceSpecification', 'describeExportResponse_resourceSpecification' - The bot, bot ID, and optional locale ID of the exported bot or bot
+-- locale.
 --
 -- 'httpStatus', 'describeExportResponse_httpStatus' - The response's http status code.
 newDescribeExportResponse ::
@@ -195,12 +195,12 @@ newDescribeExportResponse pHttpStatus_ =
     { creationDateTime =
         Prelude.Nothing,
       downloadUrl = Prelude.Nothing,
-      resourceSpecification = Prelude.Nothing,
-      exportStatus = Prelude.Nothing,
       exportId = Prelude.Nothing,
+      exportStatus = Prelude.Nothing,
       failureReasons = Prelude.Nothing,
-      lastUpdatedDateTime = Prelude.Nothing,
       fileFormat = Prelude.Nothing,
+      lastUpdatedDateTime = Prelude.Nothing,
+      resourceSpecification = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -214,32 +214,32 @@ describeExportResponse_creationDateTime = Lens.lens (\DescribeExportResponse' {c
 describeExportResponse_downloadUrl :: Lens.Lens' DescribeExportResponse (Prelude.Maybe Prelude.Text)
 describeExportResponse_downloadUrl = Lens.lens (\DescribeExportResponse' {downloadUrl} -> downloadUrl) (\s@DescribeExportResponse' {} a -> s {downloadUrl = a} :: DescribeExportResponse)
 
--- | The bot, bot ID, and optional locale ID of the exported bot or bot
--- locale.
-describeExportResponse_resourceSpecification :: Lens.Lens' DescribeExportResponse (Prelude.Maybe ExportResourceSpecification)
-describeExportResponse_resourceSpecification = Lens.lens (\DescribeExportResponse' {resourceSpecification} -> resourceSpecification) (\s@DescribeExportResponse' {} a -> s {resourceSpecification = a} :: DescribeExportResponse)
+-- | The unique identifier of the described export.
+describeExportResponse_exportId :: Lens.Lens' DescribeExportResponse (Prelude.Maybe Prelude.Text)
+describeExportResponse_exportId = Lens.lens (\DescribeExportResponse' {exportId} -> exportId) (\s@DescribeExportResponse' {} a -> s {exportId = a} :: DescribeExportResponse)
 
 -- | The status of the export. When the status is @Complete@ the export
 -- archive file is available for download.
 describeExportResponse_exportStatus :: Lens.Lens' DescribeExportResponse (Prelude.Maybe ExportStatus)
 describeExportResponse_exportStatus = Lens.lens (\DescribeExportResponse' {exportStatus} -> exportStatus) (\s@DescribeExportResponse' {} a -> s {exportStatus = a} :: DescribeExportResponse)
 
--- | The unique identifier of the described export.
-describeExportResponse_exportId :: Lens.Lens' DescribeExportResponse (Prelude.Maybe Prelude.Text)
-describeExportResponse_exportId = Lens.lens (\DescribeExportResponse' {exportId} -> exportId) (\s@DescribeExportResponse' {} a -> s {exportId = a} :: DescribeExportResponse)
-
 -- | If the @exportStatus@ is failed, contains one or more reasons why the
 -- export could not be completed.
 describeExportResponse_failureReasons :: Lens.Lens' DescribeExportResponse (Prelude.Maybe [Prelude.Text])
 describeExportResponse_failureReasons = Lens.lens (\DescribeExportResponse' {failureReasons} -> failureReasons) (\s@DescribeExportResponse' {} a -> s {failureReasons = a} :: DescribeExportResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The file format used in the files that describe the resource.
+describeExportResponse_fileFormat :: Lens.Lens' DescribeExportResponse (Prelude.Maybe ImportExportFileFormat)
+describeExportResponse_fileFormat = Lens.lens (\DescribeExportResponse' {fileFormat} -> fileFormat) (\s@DescribeExportResponse' {} a -> s {fileFormat = a} :: DescribeExportResponse)
+
 -- | The last date and time that the export was updated.
 describeExportResponse_lastUpdatedDateTime :: Lens.Lens' DescribeExportResponse (Prelude.Maybe Prelude.UTCTime)
 describeExportResponse_lastUpdatedDateTime = Lens.lens (\DescribeExportResponse' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DescribeExportResponse' {} a -> s {lastUpdatedDateTime = a} :: DescribeExportResponse) Prelude.. Lens.mapping Data._Time
 
--- | The file format used in the files that describe the resource.
-describeExportResponse_fileFormat :: Lens.Lens' DescribeExportResponse (Prelude.Maybe ImportExportFileFormat)
-describeExportResponse_fileFormat = Lens.lens (\DescribeExportResponse' {fileFormat} -> fileFormat) (\s@DescribeExportResponse' {} a -> s {fileFormat = a} :: DescribeExportResponse)
+-- | The bot, bot ID, and optional locale ID of the exported bot or bot
+-- locale.
+describeExportResponse_resourceSpecification :: Lens.Lens' DescribeExportResponse (Prelude.Maybe ExportResourceSpecification)
+describeExportResponse_resourceSpecification = Lens.lens (\DescribeExportResponse' {resourceSpecification} -> resourceSpecification) (\s@DescribeExportResponse' {} a -> s {resourceSpecification = a} :: DescribeExportResponse)
 
 -- | The response's http status code.
 describeExportResponse_httpStatus :: Lens.Lens' DescribeExportResponse Prelude.Int
@@ -249,10 +249,10 @@ instance Prelude.NFData DescribeExportResponse where
   rnf DescribeExportResponse' {..} =
     Prelude.rnf creationDateTime
       `Prelude.seq` Prelude.rnf downloadUrl
-      `Prelude.seq` Prelude.rnf resourceSpecification
-      `Prelude.seq` Prelude.rnf exportStatus
       `Prelude.seq` Prelude.rnf exportId
+      `Prelude.seq` Prelude.rnf exportStatus
       `Prelude.seq` Prelude.rnf failureReasons
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
       `Prelude.seq` Prelude.rnf fileFormat
+      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf resourceSpecification
       `Prelude.seq` Prelude.rnf httpStatus

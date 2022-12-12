@@ -17,25 +17,25 @@ module Amazonka.Support.Lens
     -- ** AddAttachmentsToSet
     addAttachmentsToSet_attachmentSetId,
     addAttachmentsToSet_attachments,
-    addAttachmentsToSetResponse_expiryTime,
     addAttachmentsToSetResponse_attachmentSetId,
+    addAttachmentsToSetResponse_expiryTime,
     addAttachmentsToSetResponse_httpStatus,
 
     -- ** AddCommunicationToCase
-    addCommunicationToCase_ccEmailAddresses,
-    addCommunicationToCase_caseId,
     addCommunicationToCase_attachmentSetId,
+    addCommunicationToCase_caseId,
+    addCommunicationToCase_ccEmailAddresses,
     addCommunicationToCase_communicationBody,
     addCommunicationToCaseResponse_result,
     addCommunicationToCaseResponse_httpStatus,
 
     -- ** CreateCase
+    createCase_attachmentSetId,
+    createCase_categoryCode,
     createCase_ccEmailAddresses,
     createCase_issueType,
-    createCase_categoryCode,
-    createCase_serviceCode,
-    createCase_attachmentSetId,
     createCase_language,
+    createCase_serviceCode,
     createCase_severityCode,
     createCase_subject,
     createCase_communicationBody,
@@ -48,32 +48,32 @@ module Amazonka.Support.Lens
     describeAttachmentResponse_httpStatus,
 
     -- ** DescribeCases
-    describeCases_nextToken,
-    describeCases_caseIdList,
-    describeCases_includeResolvedCases,
-    describeCases_displayId,
     describeCases_afterTime,
-    describeCases_maxResults,
-    describeCases_includeCommunications,
     describeCases_beforeTime,
+    describeCases_caseIdList,
+    describeCases_displayId,
+    describeCases_includeCommunications,
+    describeCases_includeResolvedCases,
     describeCases_language,
-    describeCasesResponse_nextToken,
+    describeCases_maxResults,
+    describeCases_nextToken,
     describeCasesResponse_cases,
+    describeCasesResponse_nextToken,
     describeCasesResponse_httpStatus,
 
     -- ** DescribeCommunications
-    describeCommunications_nextToken,
     describeCommunications_afterTime,
-    describeCommunications_maxResults,
     describeCommunications_beforeTime,
+    describeCommunications_maxResults,
+    describeCommunications_nextToken,
     describeCommunications_caseId,
-    describeCommunicationsResponse_nextToken,
     describeCommunicationsResponse_communications,
+    describeCommunicationsResponse_nextToken,
     describeCommunicationsResponse_httpStatus,
 
     -- ** DescribeServices
-    describeServices_serviceCodeList,
     describeServices_language,
+    describeServices_serviceCodeList,
     describeServicesResponse_services,
     describeServicesResponse_httpStatus,
 
@@ -117,50 +117,50 @@ module Amazonka.Support.Lens
     -- * Types
 
     -- ** Attachment
-    attachment_fileName,
     attachment_data,
+    attachment_fileName,
 
     -- ** AttachmentDetails
-    attachmentDetails_fileName,
     attachmentDetails_attachmentId,
+    attachmentDetails_fileName,
 
     -- ** CaseDetails
-    caseDetails_ccEmailAddresses,
     caseDetails_caseId,
-    caseDetails_displayId,
-    caseDetails_timeCreated,
     caseDetails_categoryCode,
-    caseDetails_serviceCode,
-    caseDetails_status,
-    caseDetails_submittedBy,
-    caseDetails_recentCommunications,
-    caseDetails_subject,
+    caseDetails_ccEmailAddresses,
+    caseDetails_displayId,
     caseDetails_language,
+    caseDetails_recentCommunications,
+    caseDetails_serviceCode,
     caseDetails_severityCode,
+    caseDetails_status,
+    caseDetails_subject,
+    caseDetails_submittedBy,
+    caseDetails_timeCreated,
 
     -- ** Category
-    category_name,
     category_code,
+    category_name,
 
     -- ** Communication
-    communication_caseId,
-    communication_body,
-    communication_timeCreated,
-    communication_submittedBy,
     communication_attachmentSet,
+    communication_body,
+    communication_caseId,
+    communication_submittedBy,
+    communication_timeCreated,
 
     -- ** RecentCaseCommunications
-    recentCaseCommunications_nextToken,
     recentCaseCommunications_communications,
+    recentCaseCommunications_nextToken,
 
     -- ** SeverityLevel
-    severityLevel_name,
     severityLevel_code,
+    severityLevel_name,
 
     -- ** SupportService
-    supportService_name,
-    supportService_code,
     supportService_categories,
+    supportService_code,
+    supportService_name,
 
     -- ** TrustedAdvisorCategorySpecificSummary
     trustedAdvisorCategorySpecificSummary_costOptimizing,

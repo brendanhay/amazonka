@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAgentInfo' smart constructor.
 data AgentInfo = AgentInfo'
-  { -- | The identifier of the agent who accepted the contact.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp when the contact was connected to the agent.
-    connectedToAgentTimestamp :: Prelude.Maybe Data.POSIX
+  { -- | The timestamp when the contact was connected to the agent.
+    connectedToAgentTimestamp :: Prelude.Maybe Data.POSIX,
+    -- | The identifier of the agent who accepted the contact.
+    id :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,25 @@ data AgentInfo = AgentInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'agentInfo_id' - The identifier of the agent who accepted the contact.
---
 -- 'connectedToAgentTimestamp', 'agentInfo_connectedToAgentTimestamp' - The timestamp when the contact was connected to the agent.
+--
+-- 'id', 'agentInfo_id' - The identifier of the agent who accepted the contact.
 newAgentInfo ::
   AgentInfo
 newAgentInfo =
   AgentInfo'
-    { id = Prelude.Nothing,
-      connectedToAgentTimestamp = Prelude.Nothing
+    { connectedToAgentTimestamp =
+        Prelude.Nothing,
+      id = Prelude.Nothing
     }
-
--- | The identifier of the agent who accepted the contact.
-agentInfo_id :: Lens.Lens' AgentInfo (Prelude.Maybe Prelude.Text)
-agentInfo_id = Lens.lens (\AgentInfo' {id} -> id) (\s@AgentInfo' {} a -> s {id = a} :: AgentInfo)
 
 -- | The timestamp when the contact was connected to the agent.
 agentInfo_connectedToAgentTimestamp :: Lens.Lens' AgentInfo (Prelude.Maybe Prelude.UTCTime)
 agentInfo_connectedToAgentTimestamp = Lens.lens (\AgentInfo' {connectedToAgentTimestamp} -> connectedToAgentTimestamp) (\s@AgentInfo' {} a -> s {connectedToAgentTimestamp = a} :: AgentInfo) Prelude.. Lens.mapping Data._Time
+
+-- | The identifier of the agent who accepted the contact.
+agentInfo_id :: Lens.Lens' AgentInfo (Prelude.Maybe Prelude.Text)
+agentInfo_id = Lens.lens (\AgentInfo' {id} -> id) (\s@AgentInfo' {} a -> s {id = a} :: AgentInfo)
 
 instance Data.FromJSON AgentInfo where
   parseJSON =
@@ -68,16 +69,17 @@ instance Data.FromJSON AgentInfo where
       "AgentInfo"
       ( \x ->
           AgentInfo'
-            Prelude.<$> (x Data..:? "Id")
-            Prelude.<*> (x Data..:? "ConnectedToAgentTimestamp")
+            Prelude.<$> (x Data..:? "ConnectedToAgentTimestamp")
+            Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable AgentInfo where
   hashWithSalt _salt AgentInfo' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
       `Prelude.hashWithSalt` connectedToAgentTimestamp
+      `Prelude.hashWithSalt` id
 
 instance Prelude.NFData AgentInfo where
   rnf AgentInfo' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf connectedToAgentTimestamp
+    Prelude.rnf connectedToAgentTimestamp
+      `Prelude.seq` Prelude.rnf id

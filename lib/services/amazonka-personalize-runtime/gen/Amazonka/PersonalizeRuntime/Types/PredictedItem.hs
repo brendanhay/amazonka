@@ -30,14 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPredictedItem' smart constructor.
 data PredictedItem = PredictedItem'
-  { -- | A numeric representation of the model\'s certainty that the item will be
-    -- the next user selection. For more information on scoring logic, see
-    -- how-scores-work.
-    score :: Prelude.Maybe Prelude.Double,
+  { -- | The recommended item ID.
+    itemId :: Prelude.Maybe Prelude.Text,
     -- | The name of the promotion that included the predicted item.
     promotionName :: Prelude.Maybe Prelude.Text,
-    -- | The recommended item ID.
-    itemId :: Prelude.Maybe Prelude.Text
+    -- | A numeric representation of the model\'s certainty that the item will be
+    -- the next user selection. For more information on scoring logic, see
+    -- how-scores-work.
+    score :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,21 +49,29 @@ data PredictedItem = PredictedItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'score', 'predictedItem_score' - A numeric representation of the model\'s certainty that the item will be
--- the next user selection. For more information on scoring logic, see
--- how-scores-work.
+-- 'itemId', 'predictedItem_itemId' - The recommended item ID.
 --
 -- 'promotionName', 'predictedItem_promotionName' - The name of the promotion that included the predicted item.
 --
--- 'itemId', 'predictedItem_itemId' - The recommended item ID.
+-- 'score', 'predictedItem_score' - A numeric representation of the model\'s certainty that the item will be
+-- the next user selection. For more information on scoring logic, see
+-- how-scores-work.
 newPredictedItem ::
   PredictedItem
 newPredictedItem =
   PredictedItem'
-    { score = Prelude.Nothing,
+    { itemId = Prelude.Nothing,
       promotionName = Prelude.Nothing,
-      itemId = Prelude.Nothing
+      score = Prelude.Nothing
     }
+
+-- | The recommended item ID.
+predictedItem_itemId :: Lens.Lens' PredictedItem (Prelude.Maybe Prelude.Text)
+predictedItem_itemId = Lens.lens (\PredictedItem' {itemId} -> itemId) (\s@PredictedItem' {} a -> s {itemId = a} :: PredictedItem)
+
+-- | The name of the promotion that included the predicted item.
+predictedItem_promotionName :: Lens.Lens' PredictedItem (Prelude.Maybe Prelude.Text)
+predictedItem_promotionName = Lens.lens (\PredictedItem' {promotionName} -> promotionName) (\s@PredictedItem' {} a -> s {promotionName = a} :: PredictedItem)
 
 -- | A numeric representation of the model\'s certainty that the item will be
 -- the next user selection. For more information on scoring logic, see
@@ -71,33 +79,25 @@ newPredictedItem =
 predictedItem_score :: Lens.Lens' PredictedItem (Prelude.Maybe Prelude.Double)
 predictedItem_score = Lens.lens (\PredictedItem' {score} -> score) (\s@PredictedItem' {} a -> s {score = a} :: PredictedItem)
 
--- | The name of the promotion that included the predicted item.
-predictedItem_promotionName :: Lens.Lens' PredictedItem (Prelude.Maybe Prelude.Text)
-predictedItem_promotionName = Lens.lens (\PredictedItem' {promotionName} -> promotionName) (\s@PredictedItem' {} a -> s {promotionName = a} :: PredictedItem)
-
--- | The recommended item ID.
-predictedItem_itemId :: Lens.Lens' PredictedItem (Prelude.Maybe Prelude.Text)
-predictedItem_itemId = Lens.lens (\PredictedItem' {itemId} -> itemId) (\s@PredictedItem' {} a -> s {itemId = a} :: PredictedItem)
-
 instance Data.FromJSON PredictedItem where
   parseJSON =
     Data.withObject
       "PredictedItem"
       ( \x ->
           PredictedItem'
-            Prelude.<$> (x Data..:? "score")
+            Prelude.<$> (x Data..:? "itemId")
             Prelude.<*> (x Data..:? "promotionName")
-            Prelude.<*> (x Data..:? "itemId")
+            Prelude.<*> (x Data..:? "score")
       )
 
 instance Prelude.Hashable PredictedItem where
   hashWithSalt _salt PredictedItem' {..} =
-    _salt `Prelude.hashWithSalt` score
+    _salt `Prelude.hashWithSalt` itemId
       `Prelude.hashWithSalt` promotionName
-      `Prelude.hashWithSalt` itemId
+      `Prelude.hashWithSalt` score
 
 instance Prelude.NFData PredictedItem where
   rnf PredictedItem' {..} =
-    Prelude.rnf score
+    Prelude.rnf itemId
       `Prelude.seq` Prelude.rnf promotionName
-      `Prelude.seq` Prelude.rnf itemId
+      `Prelude.seq` Prelude.rnf score

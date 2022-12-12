@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 data WorkspaceDescription = WorkspaceDescription'
   { -- | Alias of this workspace.
     alias :: Prelude.Maybe Prelude.Text,
-    -- | The tags of this workspace.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Prometheus endpoint URI.
     prometheusEndpoint :: Prelude.Maybe Prelude.Text,
+    -- | The tags of this workspace.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The Amazon Resource Name (ARN) of this workspace.
     arn :: Prelude.Text,
     -- | The time when the workspace was created.
@@ -56,9 +56,9 @@ data WorkspaceDescription = WorkspaceDescription'
 --
 -- 'alias', 'workspaceDescription_alias' - Alias of this workspace.
 --
--- 'tags', 'workspaceDescription_tags' - The tags of this workspace.
---
 -- 'prometheusEndpoint', 'workspaceDescription_prometheusEndpoint' - Prometheus endpoint URI.
+--
+-- 'tags', 'workspaceDescription_tags' - The tags of this workspace.
 --
 -- 'arn', 'workspaceDescription_arn' - The Amazon Resource Name (ARN) of this workspace.
 --
@@ -84,8 +84,8 @@ newWorkspaceDescription
   pWorkspaceId_ =
     WorkspaceDescription'
       { alias = Prelude.Nothing,
-        tags = Prelude.Nothing,
         prometheusEndpoint = Prelude.Nothing,
+        tags = Prelude.Nothing,
         arn = pArn_,
         createdAt = Data._Time Lens.# pCreatedAt_,
         status = pStatus_,
@@ -96,13 +96,13 @@ newWorkspaceDescription
 workspaceDescription_alias :: Lens.Lens' WorkspaceDescription (Prelude.Maybe Prelude.Text)
 workspaceDescription_alias = Lens.lens (\WorkspaceDescription' {alias} -> alias) (\s@WorkspaceDescription' {} a -> s {alias = a} :: WorkspaceDescription)
 
--- | The tags of this workspace.
-workspaceDescription_tags :: Lens.Lens' WorkspaceDescription (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-workspaceDescription_tags = Lens.lens (\WorkspaceDescription' {tags} -> tags) (\s@WorkspaceDescription' {} a -> s {tags = a} :: WorkspaceDescription) Prelude.. Lens.mapping Lens.coerced
-
 -- | Prometheus endpoint URI.
 workspaceDescription_prometheusEndpoint :: Lens.Lens' WorkspaceDescription (Prelude.Maybe Prelude.Text)
 workspaceDescription_prometheusEndpoint = Lens.lens (\WorkspaceDescription' {prometheusEndpoint} -> prometheusEndpoint) (\s@WorkspaceDescription' {} a -> s {prometheusEndpoint = a} :: WorkspaceDescription)
+
+-- | The tags of this workspace.
+workspaceDescription_tags :: Lens.Lens' WorkspaceDescription (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+workspaceDescription_tags = Lens.lens (\WorkspaceDescription' {tags} -> tags) (\s@WorkspaceDescription' {} a -> s {tags = a} :: WorkspaceDescription) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of this workspace.
 workspaceDescription_arn :: Lens.Lens' WorkspaceDescription Prelude.Text
@@ -127,8 +127,8 @@ instance Data.FromJSON WorkspaceDescription where
       ( \x ->
           WorkspaceDescription'
             Prelude.<$> (x Data..:? "alias")
-            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "prometheusEndpoint")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "arn")
             Prelude.<*> (x Data..: "createdAt")
             Prelude.<*> (x Data..: "status")
@@ -138,8 +138,8 @@ instance Data.FromJSON WorkspaceDescription where
 instance Prelude.Hashable WorkspaceDescription where
   hashWithSalt _salt WorkspaceDescription' {..} =
     _salt `Prelude.hashWithSalt` alias
-      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` prometheusEndpoint
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` status
@@ -148,8 +148,8 @@ instance Prelude.Hashable WorkspaceDescription where
 instance Prelude.NFData WorkspaceDescription where
   rnf WorkspaceDescription' {..} =
     Prelude.rnf alias
-      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf prometheusEndpoint
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf status

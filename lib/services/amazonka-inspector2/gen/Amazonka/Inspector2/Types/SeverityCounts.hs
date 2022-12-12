@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSeverityCounts' smart constructor.
 data SeverityCounts = SeverityCounts'
-  { -- | The total count of critical severity findings.
+  { -- | The total count of findings from all severities.
+    all :: Prelude.Maybe Prelude.Integer,
+    -- | The total count of critical severity findings.
     critical :: Prelude.Maybe Prelude.Integer,
     -- | The total count of high severity findings.
     high :: Prelude.Maybe Prelude.Integer,
-    -- | The total count of findings from all severities.
-    all :: Prelude.Maybe Prelude.Integer,
     -- | The total count of medium severity findings.
     medium :: Prelude.Maybe Prelude.Integer
   }
@@ -47,22 +47,26 @@ data SeverityCounts = SeverityCounts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'all', 'severityCounts_all' - The total count of findings from all severities.
+--
 -- 'critical', 'severityCounts_critical' - The total count of critical severity findings.
 --
 -- 'high', 'severityCounts_high' - The total count of high severity findings.
---
--- 'all', 'severityCounts_all' - The total count of findings from all severities.
 --
 -- 'medium', 'severityCounts_medium' - The total count of medium severity findings.
 newSeverityCounts ::
   SeverityCounts
 newSeverityCounts =
   SeverityCounts'
-    { critical = Prelude.Nothing,
+    { all = Prelude.Nothing,
+      critical = Prelude.Nothing,
       high = Prelude.Nothing,
-      all = Prelude.Nothing,
       medium = Prelude.Nothing
     }
+
+-- | The total count of findings from all severities.
+severityCounts_all :: Lens.Lens' SeverityCounts (Prelude.Maybe Prelude.Integer)
+severityCounts_all = Lens.lens (\SeverityCounts' {all} -> all) (\s@SeverityCounts' {} a -> s {all = a} :: SeverityCounts)
 
 -- | The total count of critical severity findings.
 severityCounts_critical :: Lens.Lens' SeverityCounts (Prelude.Maybe Prelude.Integer)
@@ -71,10 +75,6 @@ severityCounts_critical = Lens.lens (\SeverityCounts' {critical} -> critical) (\
 -- | The total count of high severity findings.
 severityCounts_high :: Lens.Lens' SeverityCounts (Prelude.Maybe Prelude.Integer)
 severityCounts_high = Lens.lens (\SeverityCounts' {high} -> high) (\s@SeverityCounts' {} a -> s {high = a} :: SeverityCounts)
-
--- | The total count of findings from all severities.
-severityCounts_all :: Lens.Lens' SeverityCounts (Prelude.Maybe Prelude.Integer)
-severityCounts_all = Lens.lens (\SeverityCounts' {all} -> all) (\s@SeverityCounts' {} a -> s {all = a} :: SeverityCounts)
 
 -- | The total count of medium severity findings.
 severityCounts_medium :: Lens.Lens' SeverityCounts (Prelude.Maybe Prelude.Integer)
@@ -86,22 +86,22 @@ instance Data.FromJSON SeverityCounts where
       "SeverityCounts"
       ( \x ->
           SeverityCounts'
-            Prelude.<$> (x Data..:? "critical")
+            Prelude.<$> (x Data..:? "all")
+            Prelude.<*> (x Data..:? "critical")
             Prelude.<*> (x Data..:? "high")
-            Prelude.<*> (x Data..:? "all")
             Prelude.<*> (x Data..:? "medium")
       )
 
 instance Prelude.Hashable SeverityCounts where
   hashWithSalt _salt SeverityCounts' {..} =
-    _salt `Prelude.hashWithSalt` critical
+    _salt `Prelude.hashWithSalt` all
+      `Prelude.hashWithSalt` critical
       `Prelude.hashWithSalt` high
-      `Prelude.hashWithSalt` all
       `Prelude.hashWithSalt` medium
 
 instance Prelude.NFData SeverityCounts where
   rnf SeverityCounts' {..} =
-    Prelude.rnf critical
+    Prelude.rnf all
+      `Prelude.seq` Prelude.rnf critical
       `Prelude.seq` Prelude.rnf high
-      `Prelude.seq` Prelude.rnf all
       `Prelude.seq` Prelude.rnf medium

@@ -27,16 +27,16 @@ module Amazonka.AppFlow.ListFlows
     newListFlows,
 
     -- * Request Lenses
-    listFlows_nextToken,
     listFlows_maxResults,
+    listFlows_nextToken,
 
     -- * Destructuring the Response
     ListFlowsResponse (..),
     newListFlowsResponse,
 
     -- * Response Lenses
-    listFlowsResponse_nextToken,
     listFlowsResponse_flows,
+    listFlowsResponse_nextToken,
     listFlowsResponse_httpStatus,
   )
 where
@@ -51,11 +51,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListFlows' smart constructor.
 data ListFlows = ListFlows'
-  { -- | The pagination token for next page of data.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the maximum number of items that should be returned in the
+  { -- | Specifies the maximum number of items that should be returned in the
     -- result set.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token for next page of data.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,26 +67,26 @@ data ListFlows = ListFlows'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listFlows_nextToken' - The pagination token for next page of data.
---
 -- 'maxResults', 'listFlows_maxResults' - Specifies the maximum number of items that should be returned in the
 -- result set.
+--
+-- 'nextToken', 'listFlows_nextToken' - The pagination token for next page of data.
 newListFlows ::
   ListFlows
 newListFlows =
   ListFlows'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The pagination token for next page of data.
-listFlows_nextToken :: Lens.Lens' ListFlows (Prelude.Maybe Prelude.Text)
-listFlows_nextToken = Lens.lens (\ListFlows' {nextToken} -> nextToken) (\s@ListFlows' {} a -> s {nextToken = a} :: ListFlows)
 
 -- | Specifies the maximum number of items that should be returned in the
 -- result set.
 listFlows_maxResults :: Lens.Lens' ListFlows (Prelude.Maybe Prelude.Natural)
 listFlows_maxResults = Lens.lens (\ListFlows' {maxResults} -> maxResults) (\s@ListFlows' {} a -> s {maxResults = a} :: ListFlows)
+
+-- | The pagination token for next page of data.
+listFlows_nextToken :: Lens.Lens' ListFlows (Prelude.Maybe Prelude.Text)
+listFlows_nextToken = Lens.lens (\ListFlows' {nextToken} -> nextToken) (\s@ListFlows' {} a -> s {nextToken = a} :: ListFlows)
 
 instance Core.AWSRequest ListFlows where
   type AWSResponse ListFlows = ListFlowsResponse
@@ -96,20 +96,20 @@ instance Core.AWSRequest ListFlows where
     Response.receiveJSON
       ( \s h x ->
           ListFlowsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "flows" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "flows" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListFlows where
   hashWithSalt _salt ListFlows' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListFlows where
   rnf ListFlows' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListFlows where
   toHeaders =
@@ -126,8 +126,8 @@ instance Data.ToJSON ListFlows where
   toJSON ListFlows' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -139,10 +139,10 @@ instance Data.ToQuery ListFlows where
 
 -- | /See:/ 'newListFlowsResponse' smart constructor.
 data ListFlowsResponse = ListFlowsResponse'
-  { -- | The pagination token for next page of data.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of flows associated with your account.
+  { -- | The list of flows associated with your account.
     flows :: Prelude.Maybe [FlowDefinition],
+    -- | The pagination token for next page of data.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -156,9 +156,9 @@ data ListFlowsResponse = ListFlowsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listFlowsResponse_nextToken' - The pagination token for next page of data.
---
 -- 'flows', 'listFlowsResponse_flows' - The list of flows associated with your account.
+--
+-- 'nextToken', 'listFlowsResponse_nextToken' - The pagination token for next page of data.
 --
 -- 'httpStatus', 'listFlowsResponse_httpStatus' - The response's http status code.
 newListFlowsResponse ::
@@ -167,18 +167,18 @@ newListFlowsResponse ::
   ListFlowsResponse
 newListFlowsResponse pHttpStatus_ =
   ListFlowsResponse'
-    { nextToken = Prelude.Nothing,
-      flows = Prelude.Nothing,
+    { flows = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The pagination token for next page of data.
-listFlowsResponse_nextToken :: Lens.Lens' ListFlowsResponse (Prelude.Maybe Prelude.Text)
-listFlowsResponse_nextToken = Lens.lens (\ListFlowsResponse' {nextToken} -> nextToken) (\s@ListFlowsResponse' {} a -> s {nextToken = a} :: ListFlowsResponse)
 
 -- | The list of flows associated with your account.
 listFlowsResponse_flows :: Lens.Lens' ListFlowsResponse (Prelude.Maybe [FlowDefinition])
 listFlowsResponse_flows = Lens.lens (\ListFlowsResponse' {flows} -> flows) (\s@ListFlowsResponse' {} a -> s {flows = a} :: ListFlowsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The pagination token for next page of data.
+listFlowsResponse_nextToken :: Lens.Lens' ListFlowsResponse (Prelude.Maybe Prelude.Text)
+listFlowsResponse_nextToken = Lens.lens (\ListFlowsResponse' {nextToken} -> nextToken) (\s@ListFlowsResponse' {} a -> s {nextToken = a} :: ListFlowsResponse)
 
 -- | The response's http status code.
 listFlowsResponse_httpStatus :: Lens.Lens' ListFlowsResponse Prelude.Int
@@ -186,6 +186,6 @@ listFlowsResponse_httpStatus = Lens.lens (\ListFlowsResponse' {httpStatus} -> ht
 
 instance Prelude.NFData ListFlowsResponse where
   rnf ListFlowsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf flows
+    Prelude.rnf flows
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -31,7 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTargetTrackingConfiguration' smart constructor.
 data TargetTrackingConfiguration = TargetTrackingConfiguration'
-  { -- | Indicates whether scale in by the target tracking scaling policy is
+  { -- | A customized metric. You can specify either a predefined metric or a
+    -- customized metric.
+    customizedScalingMetricSpecification :: Prelude.Maybe CustomizedScalingMetricSpecification,
+    -- | Indicates whether scale in by the target tracking scaling policy is
     -- disabled. If the value is @true@, scale in is disabled and the target
     -- tracking scaling policy doesn\'t remove capacity from the scalable
     -- resource. Otherwise, scale in is enabled and the target tracking scaling
@@ -39,13 +42,13 @@ data TargetTrackingConfiguration = TargetTrackingConfiguration'
     --
     -- The default value is @false@.
     disableScaleIn :: Prelude.Maybe Prelude.Bool,
-    -- | A customized metric. You can specify either a predefined metric or a
-    -- customized metric.
-    customizedScalingMetricSpecification :: Prelude.Maybe CustomizedScalingMetricSpecification,
     -- | The estimated time, in seconds, until a newly launched instance can
     -- contribute to the CloudWatch metrics. This value is used only if the
     -- resource is an Auto Scaling group.
     estimatedInstanceWarmup :: Prelude.Maybe Prelude.Int,
+    -- | A predefined metric. You can specify either a predefined metric or a
+    -- customized metric.
+    predefinedScalingMetricSpecification :: Prelude.Maybe PredefinedScalingMetricSpecification,
     -- | The amount of time, in seconds, after a scale-in activity completes
     -- before another scale-in activity can start. This property is not used if
     -- the scalable resource is an Auto Scaling group.
@@ -68,9 +71,6 @@ data TargetTrackingConfiguration = TargetTrackingConfiguration'
     -- again unless either a larger scale out is triggered or the cooldown
     -- period ends.
     scaleOutCooldown :: Prelude.Maybe Prelude.Int,
-    -- | A predefined metric. You can specify either a predefined metric or a
-    -- customized metric.
-    predefinedScalingMetricSpecification :: Prelude.Maybe PredefinedScalingMetricSpecification,
     -- | The target value for the metric. Although this property accepts numbers
     -- of type Double, it won\'t accept values that are either too small or too
     -- large. Values must be in the range of -2^360 to 2^360.
@@ -86,6 +86,9 @@ data TargetTrackingConfiguration = TargetTrackingConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'customizedScalingMetricSpecification', 'targetTrackingConfiguration_customizedScalingMetricSpecification' - A customized metric. You can specify either a predefined metric or a
+-- customized metric.
+--
 -- 'disableScaleIn', 'targetTrackingConfiguration_disableScaleIn' - Indicates whether scale in by the target tracking scaling policy is
 -- disabled. If the value is @true@, scale in is disabled and the target
 -- tracking scaling policy doesn\'t remove capacity from the scalable
@@ -94,12 +97,12 @@ data TargetTrackingConfiguration = TargetTrackingConfiguration'
 --
 -- The default value is @false@.
 --
--- 'customizedScalingMetricSpecification', 'targetTrackingConfiguration_customizedScalingMetricSpecification' - A customized metric. You can specify either a predefined metric or a
--- customized metric.
---
 -- 'estimatedInstanceWarmup', 'targetTrackingConfiguration_estimatedInstanceWarmup' - The estimated time, in seconds, until a newly launched instance can
 -- contribute to the CloudWatch metrics. This value is used only if the
 -- resource is an Auto Scaling group.
+--
+-- 'predefinedScalingMetricSpecification', 'targetTrackingConfiguration_predefinedScalingMetricSpecification' - A predefined metric. You can specify either a predefined metric or a
+-- customized metric.
 --
 -- 'scaleInCooldown', 'targetTrackingConfiguration_scaleInCooldown' - The amount of time, in seconds, after a scale-in activity completes
 -- before another scale-in activity can start. This property is not used if
@@ -123,9 +126,6 @@ data TargetTrackingConfiguration = TargetTrackingConfiguration'
 -- again unless either a larger scale out is triggered or the cooldown
 -- period ends.
 --
--- 'predefinedScalingMetricSpecification', 'targetTrackingConfiguration_predefinedScalingMetricSpecification' - A predefined metric. You can specify either a predefined metric or a
--- customized metric.
---
 -- 'targetValue', 'targetTrackingConfiguration_targetValue' - The target value for the metric. Although this property accepts numbers
 -- of type Double, it won\'t accept values that are either too small or too
 -- large. Values must be in the range of -2^360 to 2^360.
@@ -135,17 +135,21 @@ newTargetTrackingConfiguration ::
   TargetTrackingConfiguration
 newTargetTrackingConfiguration pTargetValue_ =
   TargetTrackingConfiguration'
-    { disableScaleIn =
+    { customizedScalingMetricSpecification =
         Prelude.Nothing,
-      customizedScalingMetricSpecification =
-        Prelude.Nothing,
+      disableScaleIn = Prelude.Nothing,
       estimatedInstanceWarmup = Prelude.Nothing,
-      scaleInCooldown = Prelude.Nothing,
-      scaleOutCooldown = Prelude.Nothing,
       predefinedScalingMetricSpecification =
         Prelude.Nothing,
+      scaleInCooldown = Prelude.Nothing,
+      scaleOutCooldown = Prelude.Nothing,
       targetValue = pTargetValue_
     }
+
+-- | A customized metric. You can specify either a predefined metric or a
+-- customized metric.
+targetTrackingConfiguration_customizedScalingMetricSpecification :: Lens.Lens' TargetTrackingConfiguration (Prelude.Maybe CustomizedScalingMetricSpecification)
+targetTrackingConfiguration_customizedScalingMetricSpecification = Lens.lens (\TargetTrackingConfiguration' {customizedScalingMetricSpecification} -> customizedScalingMetricSpecification) (\s@TargetTrackingConfiguration' {} a -> s {customizedScalingMetricSpecification = a} :: TargetTrackingConfiguration)
 
 -- | Indicates whether scale in by the target tracking scaling policy is
 -- disabled. If the value is @true@, scale in is disabled and the target
@@ -157,16 +161,16 @@ newTargetTrackingConfiguration pTargetValue_ =
 targetTrackingConfiguration_disableScaleIn :: Lens.Lens' TargetTrackingConfiguration (Prelude.Maybe Prelude.Bool)
 targetTrackingConfiguration_disableScaleIn = Lens.lens (\TargetTrackingConfiguration' {disableScaleIn} -> disableScaleIn) (\s@TargetTrackingConfiguration' {} a -> s {disableScaleIn = a} :: TargetTrackingConfiguration)
 
--- | A customized metric. You can specify either a predefined metric or a
--- customized metric.
-targetTrackingConfiguration_customizedScalingMetricSpecification :: Lens.Lens' TargetTrackingConfiguration (Prelude.Maybe CustomizedScalingMetricSpecification)
-targetTrackingConfiguration_customizedScalingMetricSpecification = Lens.lens (\TargetTrackingConfiguration' {customizedScalingMetricSpecification} -> customizedScalingMetricSpecification) (\s@TargetTrackingConfiguration' {} a -> s {customizedScalingMetricSpecification = a} :: TargetTrackingConfiguration)
-
 -- | The estimated time, in seconds, until a newly launched instance can
 -- contribute to the CloudWatch metrics. This value is used only if the
 -- resource is an Auto Scaling group.
 targetTrackingConfiguration_estimatedInstanceWarmup :: Lens.Lens' TargetTrackingConfiguration (Prelude.Maybe Prelude.Int)
 targetTrackingConfiguration_estimatedInstanceWarmup = Lens.lens (\TargetTrackingConfiguration' {estimatedInstanceWarmup} -> estimatedInstanceWarmup) (\s@TargetTrackingConfiguration' {} a -> s {estimatedInstanceWarmup = a} :: TargetTrackingConfiguration)
+
+-- | A predefined metric. You can specify either a predefined metric or a
+-- customized metric.
+targetTrackingConfiguration_predefinedScalingMetricSpecification :: Lens.Lens' TargetTrackingConfiguration (Prelude.Maybe PredefinedScalingMetricSpecification)
+targetTrackingConfiguration_predefinedScalingMetricSpecification = Lens.lens (\TargetTrackingConfiguration' {predefinedScalingMetricSpecification} -> predefinedScalingMetricSpecification) (\s@TargetTrackingConfiguration' {} a -> s {predefinedScalingMetricSpecification = a} :: TargetTrackingConfiguration)
 
 -- | The amount of time, in seconds, after a scale-in activity completes
 -- before another scale-in activity can start. This property is not used if
@@ -194,11 +198,6 @@ targetTrackingConfiguration_scaleInCooldown = Lens.lens (\TargetTrackingConfigur
 targetTrackingConfiguration_scaleOutCooldown :: Lens.Lens' TargetTrackingConfiguration (Prelude.Maybe Prelude.Int)
 targetTrackingConfiguration_scaleOutCooldown = Lens.lens (\TargetTrackingConfiguration' {scaleOutCooldown} -> scaleOutCooldown) (\s@TargetTrackingConfiguration' {} a -> s {scaleOutCooldown = a} :: TargetTrackingConfiguration)
 
--- | A predefined metric. You can specify either a predefined metric or a
--- customized metric.
-targetTrackingConfiguration_predefinedScalingMetricSpecification :: Lens.Lens' TargetTrackingConfiguration (Prelude.Maybe PredefinedScalingMetricSpecification)
-targetTrackingConfiguration_predefinedScalingMetricSpecification = Lens.lens (\TargetTrackingConfiguration' {predefinedScalingMetricSpecification} -> predefinedScalingMetricSpecification) (\s@TargetTrackingConfiguration' {} a -> s {predefinedScalingMetricSpecification = a} :: TargetTrackingConfiguration)
-
 -- | The target value for the metric. Although this property accepts numbers
 -- of type Double, it won\'t accept values that are either too small or too
 -- large. Values must be in the range of -2^360 to 2^360.
@@ -211,51 +210,52 @@ instance Data.FromJSON TargetTrackingConfiguration where
       "TargetTrackingConfiguration"
       ( \x ->
           TargetTrackingConfiguration'
-            Prelude.<$> (x Data..:? "DisableScaleIn")
-            Prelude.<*> (x Data..:? "CustomizedScalingMetricSpecification")
+            Prelude.<$> (x Data..:? "CustomizedScalingMetricSpecification")
+            Prelude.<*> (x Data..:? "DisableScaleIn")
             Prelude.<*> (x Data..:? "EstimatedInstanceWarmup")
+            Prelude.<*> (x Data..:? "PredefinedScalingMetricSpecification")
             Prelude.<*> (x Data..:? "ScaleInCooldown")
             Prelude.<*> (x Data..:? "ScaleOutCooldown")
-            Prelude.<*> (x Data..:? "PredefinedScalingMetricSpecification")
             Prelude.<*> (x Data..: "TargetValue")
       )
 
 instance Prelude.Hashable TargetTrackingConfiguration where
   hashWithSalt _salt TargetTrackingConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` disableScaleIn
+    _salt
       `Prelude.hashWithSalt` customizedScalingMetricSpecification
+      `Prelude.hashWithSalt` disableScaleIn
       `Prelude.hashWithSalt` estimatedInstanceWarmup
+      `Prelude.hashWithSalt` predefinedScalingMetricSpecification
       `Prelude.hashWithSalt` scaleInCooldown
       `Prelude.hashWithSalt` scaleOutCooldown
-      `Prelude.hashWithSalt` predefinedScalingMetricSpecification
       `Prelude.hashWithSalt` targetValue
 
 instance Prelude.NFData TargetTrackingConfiguration where
   rnf TargetTrackingConfiguration' {..} =
-    Prelude.rnf disableScaleIn
-      `Prelude.seq` Prelude.rnf customizedScalingMetricSpecification
+    Prelude.rnf customizedScalingMetricSpecification
+      `Prelude.seq` Prelude.rnf disableScaleIn
       `Prelude.seq` Prelude.rnf estimatedInstanceWarmup
+      `Prelude.seq` Prelude.rnf predefinedScalingMetricSpecification
       `Prelude.seq` Prelude.rnf scaleInCooldown
       `Prelude.seq` Prelude.rnf scaleOutCooldown
-      `Prelude.seq` Prelude.rnf predefinedScalingMetricSpecification
       `Prelude.seq` Prelude.rnf targetValue
 
 instance Data.ToJSON TargetTrackingConfiguration where
   toJSON TargetTrackingConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DisableScaleIn" Data..=)
-              Prelude.<$> disableScaleIn,
-            ("CustomizedScalingMetricSpecification" Data..=)
+          [ ("CustomizedScalingMetricSpecification" Data..=)
               Prelude.<$> customizedScalingMetricSpecification,
+            ("DisableScaleIn" Data..=)
+              Prelude.<$> disableScaleIn,
             ("EstimatedInstanceWarmup" Data..=)
               Prelude.<$> estimatedInstanceWarmup,
+            ("PredefinedScalingMetricSpecification" Data..=)
+              Prelude.<$> predefinedScalingMetricSpecification,
             ("ScaleInCooldown" Data..=)
               Prelude.<$> scaleInCooldown,
             ("ScaleOutCooldown" Data..=)
               Prelude.<$> scaleOutCooldown,
-            ("PredefinedScalingMetricSpecification" Data..=)
-              Prelude.<$> predefinedScalingMetricSpecification,
             Prelude.Just ("TargetValue" Data..= targetValue)
           ]
       )

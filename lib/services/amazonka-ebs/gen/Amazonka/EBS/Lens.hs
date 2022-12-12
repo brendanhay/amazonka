@@ -15,9 +15,9 @@ module Amazonka.EBS.Lens
   ( -- * Operations
 
     -- ** CompleteSnapshot
-    completeSnapshot_checksumAlgorithm,
-    completeSnapshot_checksumAggregationMethod,
     completeSnapshot_checksum,
+    completeSnapshot_checksumAggregationMethod,
+    completeSnapshot_checksumAlgorithm,
     completeSnapshot_snapshotId,
     completeSnapshot_changedBlocksCount,
     completeSnapshotResponse_status,
@@ -27,35 +27,35 @@ module Amazonka.EBS.Lens
     getSnapshotBlock_snapshotId,
     getSnapshotBlock_blockIndex,
     getSnapshotBlock_blockToken,
-    getSnapshotBlockResponse_checksumAlgorithm,
     getSnapshotBlockResponse_checksum,
+    getSnapshotBlockResponse_checksumAlgorithm,
     getSnapshotBlockResponse_dataLength,
     getSnapshotBlockResponse_httpStatus,
     getSnapshotBlockResponse_blockData,
 
     -- ** ListChangedBlocks
+    listChangedBlocks_firstSnapshotId,
+    listChangedBlocks_maxResults,
     listChangedBlocks_nextToken,
     listChangedBlocks_startingBlockIndex,
-    listChangedBlocks_maxResults,
-    listChangedBlocks_firstSnapshotId,
     listChangedBlocks_secondSnapshotId,
-    listChangedBlocksResponse_nextToken,
-    listChangedBlocksResponse_expiryTime,
-    listChangedBlocksResponse_volumeSize,
-    listChangedBlocksResponse_changedBlocks,
     listChangedBlocksResponse_blockSize,
+    listChangedBlocksResponse_changedBlocks,
+    listChangedBlocksResponse_expiryTime,
+    listChangedBlocksResponse_nextToken,
+    listChangedBlocksResponse_volumeSize,
     listChangedBlocksResponse_httpStatus,
 
     -- ** ListSnapshotBlocks
+    listSnapshotBlocks_maxResults,
     listSnapshotBlocks_nextToken,
     listSnapshotBlocks_startingBlockIndex,
-    listSnapshotBlocks_maxResults,
     listSnapshotBlocks_snapshotId,
-    listSnapshotBlocksResponse_nextToken,
-    listSnapshotBlocksResponse_expiryTime,
-    listSnapshotBlocksResponse_volumeSize,
     listSnapshotBlocksResponse_blockSize,
     listSnapshotBlocksResponse_blocks,
+    listSnapshotBlocksResponse_expiryTime,
+    listSnapshotBlocksResponse_nextToken,
+    listSnapshotBlocksResponse_volumeSize,
     listSnapshotBlocksResponse_httpStatus,
 
     -- ** PutSnapshotBlock
@@ -66,41 +66,41 @@ module Amazonka.EBS.Lens
     putSnapshotBlock_checksum,
     putSnapshotBlock_checksumAlgorithm,
     putSnapshotBlock_blockData,
-    putSnapshotBlockResponse_checksumAlgorithm,
     putSnapshotBlockResponse_checksum,
+    putSnapshotBlockResponse_checksumAlgorithm,
     putSnapshotBlockResponse_httpStatus,
 
     -- ** StartSnapshot
-    startSnapshot_tags,
-    startSnapshot_timeout,
     startSnapshot_clientToken,
     startSnapshot_description,
+    startSnapshot_encrypted,
     startSnapshot_kmsKeyArn,
     startSnapshot_parentSnapshotId,
-    startSnapshot_encrypted,
+    startSnapshot_tags,
+    startSnapshot_timeout,
     startSnapshot_volumeSize,
-    startSnapshotResponse_tags,
-    startSnapshotResponse_ownerId,
-    startSnapshotResponse_snapshotId,
-    startSnapshotResponse_status,
-    startSnapshotResponse_volumeSize,
+    startSnapshotResponse_blockSize,
     startSnapshotResponse_description,
     startSnapshotResponse_kmsKeyArn,
+    startSnapshotResponse_ownerId,
     startSnapshotResponse_parentSnapshotId,
-    startSnapshotResponse_blockSize,
+    startSnapshotResponse_snapshotId,
     startSnapshotResponse_startTime,
+    startSnapshotResponse_status,
+    startSnapshotResponse_tags,
+    startSnapshotResponse_volumeSize,
     startSnapshotResponse_httpStatus,
 
     -- * Types
 
     -- ** Block
-    block_blockToken,
     block_blockIndex,
+    block_blockToken,
 
     -- ** ChangedBlock
-    changedBlock_secondBlockToken,
-    changedBlock_firstBlockToken,
     changedBlock_blockIndex,
+    changedBlock_firstBlockToken,
+    changedBlock_secondBlockToken,
 
     -- ** Tag
     tag_key,

@@ -34,11 +34,11 @@ data SamplingTargetDocument = SamplingTargetDocument'
   { -- | The percentage of matching requests to instrument, after the reservoir
     -- is exhausted.
     fixedRate :: Prelude.Maybe Prelude.Double,
-    -- | The number of requests per second that X-Ray allocated for this service.
-    reservoirQuota :: Prelude.Maybe Prelude.Int,
     -- | The number of seconds for the service to wait before getting sampling
     -- targets again.
     interval :: Prelude.Maybe Prelude.Int,
+    -- | The number of requests per second that X-Ray allocated for this service.
+    reservoirQuota :: Prelude.Maybe Prelude.Int,
     -- | When the reservoir quota expires.
     reservoirQuotaTTL :: Prelude.Maybe Data.POSIX,
     -- | The name of the sampling rule.
@@ -57,10 +57,10 @@ data SamplingTargetDocument = SamplingTargetDocument'
 -- 'fixedRate', 'samplingTargetDocument_fixedRate' - The percentage of matching requests to instrument, after the reservoir
 -- is exhausted.
 --
--- 'reservoirQuota', 'samplingTargetDocument_reservoirQuota' - The number of requests per second that X-Ray allocated for this service.
---
 -- 'interval', 'samplingTargetDocument_interval' - The number of seconds for the service to wait before getting sampling
 -- targets again.
+--
+-- 'reservoirQuota', 'samplingTargetDocument_reservoirQuota' - The number of requests per second that X-Ray allocated for this service.
 --
 -- 'reservoirQuotaTTL', 'samplingTargetDocument_reservoirQuotaTTL' - When the reservoir quota expires.
 --
@@ -71,8 +71,8 @@ newSamplingTargetDocument =
   SamplingTargetDocument'
     { fixedRate =
         Prelude.Nothing,
-      reservoirQuota = Prelude.Nothing,
       interval = Prelude.Nothing,
+      reservoirQuota = Prelude.Nothing,
       reservoirQuotaTTL = Prelude.Nothing,
       ruleName = Prelude.Nothing
     }
@@ -82,14 +82,14 @@ newSamplingTargetDocument =
 samplingTargetDocument_fixedRate :: Lens.Lens' SamplingTargetDocument (Prelude.Maybe Prelude.Double)
 samplingTargetDocument_fixedRate = Lens.lens (\SamplingTargetDocument' {fixedRate} -> fixedRate) (\s@SamplingTargetDocument' {} a -> s {fixedRate = a} :: SamplingTargetDocument)
 
--- | The number of requests per second that X-Ray allocated for this service.
-samplingTargetDocument_reservoirQuota :: Lens.Lens' SamplingTargetDocument (Prelude.Maybe Prelude.Int)
-samplingTargetDocument_reservoirQuota = Lens.lens (\SamplingTargetDocument' {reservoirQuota} -> reservoirQuota) (\s@SamplingTargetDocument' {} a -> s {reservoirQuota = a} :: SamplingTargetDocument)
-
 -- | The number of seconds for the service to wait before getting sampling
 -- targets again.
 samplingTargetDocument_interval :: Lens.Lens' SamplingTargetDocument (Prelude.Maybe Prelude.Int)
 samplingTargetDocument_interval = Lens.lens (\SamplingTargetDocument' {interval} -> interval) (\s@SamplingTargetDocument' {} a -> s {interval = a} :: SamplingTargetDocument)
+
+-- | The number of requests per second that X-Ray allocated for this service.
+samplingTargetDocument_reservoirQuota :: Lens.Lens' SamplingTargetDocument (Prelude.Maybe Prelude.Int)
+samplingTargetDocument_reservoirQuota = Lens.lens (\SamplingTargetDocument' {reservoirQuota} -> reservoirQuota) (\s@SamplingTargetDocument' {} a -> s {reservoirQuota = a} :: SamplingTargetDocument)
 
 -- | When the reservoir quota expires.
 samplingTargetDocument_reservoirQuotaTTL :: Lens.Lens' SamplingTargetDocument (Prelude.Maybe Prelude.UTCTime)
@@ -106,8 +106,8 @@ instance Data.FromJSON SamplingTargetDocument where
       ( \x ->
           SamplingTargetDocument'
             Prelude.<$> (x Data..:? "FixedRate")
-            Prelude.<*> (x Data..:? "ReservoirQuota")
             Prelude.<*> (x Data..:? "Interval")
+            Prelude.<*> (x Data..:? "ReservoirQuota")
             Prelude.<*> (x Data..:? "ReservoirQuotaTTL")
             Prelude.<*> (x Data..:? "RuleName")
       )
@@ -115,15 +115,15 @@ instance Data.FromJSON SamplingTargetDocument where
 instance Prelude.Hashable SamplingTargetDocument where
   hashWithSalt _salt SamplingTargetDocument' {..} =
     _salt `Prelude.hashWithSalt` fixedRate
-      `Prelude.hashWithSalt` reservoirQuota
       `Prelude.hashWithSalt` interval
+      `Prelude.hashWithSalt` reservoirQuota
       `Prelude.hashWithSalt` reservoirQuotaTTL
       `Prelude.hashWithSalt` ruleName
 
 instance Prelude.NFData SamplingTargetDocument where
   rnf SamplingTargetDocument' {..} =
     Prelude.rnf fixedRate
-      `Prelude.seq` Prelude.rnf reservoirQuota
       `Prelude.seq` Prelude.rnf interval
+      `Prelude.seq` Prelude.rnf reservoirQuota
       `Prelude.seq` Prelude.rnf reservoirQuotaTTL
       `Prelude.seq` Prelude.rnf ruleName

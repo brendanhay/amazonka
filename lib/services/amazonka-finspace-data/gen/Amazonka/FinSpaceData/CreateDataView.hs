@@ -27,11 +27,11 @@ module Amazonka.FinSpaceData.CreateDataView
     newCreateDataView,
 
     -- * Request Lenses
-    createDataView_sortColumns,
-    createDataView_clientToken,
-    createDataView_autoUpdate,
-    createDataView_partitionColumns,
     createDataView_asOfTimestamp,
+    createDataView_autoUpdate,
+    createDataView_clientToken,
+    createDataView_partitionColumns,
+    createDataView_sortColumns,
     createDataView_datasetId,
     createDataView_destinationTypeParams,
 
@@ -58,18 +58,18 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateDataView' smart constructor.
 data CreateDataView = CreateDataView'
-  { -- | Columns to be used for sorting the data.
-    sortColumns :: Prelude.Maybe [Prelude.Text],
-    -- | A token that ensures idempotency. This token expires in 10 minutes.
-    clientToken :: Prelude.Maybe Prelude.Text,
-    -- | Flag to indicate Dataview should be updated automatically.
-    autoUpdate :: Prelude.Maybe Prelude.Bool,
-    -- | Ordered set of column names used to partition data.
-    partitionColumns :: Prelude.Maybe [Prelude.Text],
-    -- | Beginning time to use for the Dataview. The value is determined as epoch
+  { -- | Beginning time to use for the Dataview. The value is determined as epoch
     -- time in milliseconds. For example, the value for Monday, November 1,
     -- 2021 12:00:00 PM UTC is specified as 1635768000000.
     asOfTimestamp :: Prelude.Maybe Prelude.Integer,
+    -- | Flag to indicate Dataview should be updated automatically.
+    autoUpdate :: Prelude.Maybe Prelude.Bool,
+    -- | A token that ensures idempotency. This token expires in 10 minutes.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | Ordered set of column names used to partition data.
+    partitionColumns :: Prelude.Maybe [Prelude.Text],
+    -- | Columns to be used for sorting the data.
+    sortColumns :: Prelude.Maybe [Prelude.Text],
     -- | The unique Dataset identifier that is used to create a Dataview.
     datasetId :: Prelude.Text,
     -- | Options that define the destination type for the Dataview.
@@ -85,17 +85,17 @@ data CreateDataView = CreateDataView'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortColumns', 'createDataView_sortColumns' - Columns to be used for sorting the data.
---
--- 'clientToken', 'createDataView_clientToken' - A token that ensures idempotency. This token expires in 10 minutes.
---
--- 'autoUpdate', 'createDataView_autoUpdate' - Flag to indicate Dataview should be updated automatically.
---
--- 'partitionColumns', 'createDataView_partitionColumns' - Ordered set of column names used to partition data.
---
 -- 'asOfTimestamp', 'createDataView_asOfTimestamp' - Beginning time to use for the Dataview. The value is determined as epoch
 -- time in milliseconds. For example, the value for Monday, November 1,
 -- 2021 12:00:00 PM UTC is specified as 1635768000000.
+--
+-- 'autoUpdate', 'createDataView_autoUpdate' - Flag to indicate Dataview should be updated automatically.
+--
+-- 'clientToken', 'createDataView_clientToken' - A token that ensures idempotency. This token expires in 10 minutes.
+--
+-- 'partitionColumns', 'createDataView_partitionColumns' - Ordered set of column names used to partition data.
+--
+-- 'sortColumns', 'createDataView_sortColumns' - Columns to be used for sorting the data.
 --
 -- 'datasetId', 'createDataView_datasetId' - The unique Dataset identifier that is used to create a Dataview.
 --
@@ -108,36 +108,36 @@ newCreateDataView ::
   CreateDataView
 newCreateDataView pDatasetId_ pDestinationTypeParams_ =
   CreateDataView'
-    { sortColumns = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+    { asOfTimestamp = Prelude.Nothing,
       autoUpdate = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
       partitionColumns = Prelude.Nothing,
-      asOfTimestamp = Prelude.Nothing,
+      sortColumns = Prelude.Nothing,
       datasetId = pDatasetId_,
       destinationTypeParams = pDestinationTypeParams_
     }
-
--- | Columns to be used for sorting the data.
-createDataView_sortColumns :: Lens.Lens' CreateDataView (Prelude.Maybe [Prelude.Text])
-createDataView_sortColumns = Lens.lens (\CreateDataView' {sortColumns} -> sortColumns) (\s@CreateDataView' {} a -> s {sortColumns = a} :: CreateDataView) Prelude.. Lens.mapping Lens.coerced
-
--- | A token that ensures idempotency. This token expires in 10 minutes.
-createDataView_clientToken :: Lens.Lens' CreateDataView (Prelude.Maybe Prelude.Text)
-createDataView_clientToken = Lens.lens (\CreateDataView' {clientToken} -> clientToken) (\s@CreateDataView' {} a -> s {clientToken = a} :: CreateDataView)
-
--- | Flag to indicate Dataview should be updated automatically.
-createDataView_autoUpdate :: Lens.Lens' CreateDataView (Prelude.Maybe Prelude.Bool)
-createDataView_autoUpdate = Lens.lens (\CreateDataView' {autoUpdate} -> autoUpdate) (\s@CreateDataView' {} a -> s {autoUpdate = a} :: CreateDataView)
-
--- | Ordered set of column names used to partition data.
-createDataView_partitionColumns :: Lens.Lens' CreateDataView (Prelude.Maybe [Prelude.Text])
-createDataView_partitionColumns = Lens.lens (\CreateDataView' {partitionColumns} -> partitionColumns) (\s@CreateDataView' {} a -> s {partitionColumns = a} :: CreateDataView) Prelude.. Lens.mapping Lens.coerced
 
 -- | Beginning time to use for the Dataview. The value is determined as epoch
 -- time in milliseconds. For example, the value for Monday, November 1,
 -- 2021 12:00:00 PM UTC is specified as 1635768000000.
 createDataView_asOfTimestamp :: Lens.Lens' CreateDataView (Prelude.Maybe Prelude.Integer)
 createDataView_asOfTimestamp = Lens.lens (\CreateDataView' {asOfTimestamp} -> asOfTimestamp) (\s@CreateDataView' {} a -> s {asOfTimestamp = a} :: CreateDataView)
+
+-- | Flag to indicate Dataview should be updated automatically.
+createDataView_autoUpdate :: Lens.Lens' CreateDataView (Prelude.Maybe Prelude.Bool)
+createDataView_autoUpdate = Lens.lens (\CreateDataView' {autoUpdate} -> autoUpdate) (\s@CreateDataView' {} a -> s {autoUpdate = a} :: CreateDataView)
+
+-- | A token that ensures idempotency. This token expires in 10 minutes.
+createDataView_clientToken :: Lens.Lens' CreateDataView (Prelude.Maybe Prelude.Text)
+createDataView_clientToken = Lens.lens (\CreateDataView' {clientToken} -> clientToken) (\s@CreateDataView' {} a -> s {clientToken = a} :: CreateDataView)
+
+-- | Ordered set of column names used to partition data.
+createDataView_partitionColumns :: Lens.Lens' CreateDataView (Prelude.Maybe [Prelude.Text])
+createDataView_partitionColumns = Lens.lens (\CreateDataView' {partitionColumns} -> partitionColumns) (\s@CreateDataView' {} a -> s {partitionColumns = a} :: CreateDataView) Prelude.. Lens.mapping Lens.coerced
+
+-- | Columns to be used for sorting the data.
+createDataView_sortColumns :: Lens.Lens' CreateDataView (Prelude.Maybe [Prelude.Text])
+createDataView_sortColumns = Lens.lens (\CreateDataView' {sortColumns} -> sortColumns) (\s@CreateDataView' {} a -> s {sortColumns = a} :: CreateDataView) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique Dataset identifier that is used to create a Dataview.
 createDataView_datasetId :: Lens.Lens' CreateDataView Prelude.Text
@@ -164,21 +164,21 @@ instance Core.AWSRequest CreateDataView where
 
 instance Prelude.Hashable CreateDataView where
   hashWithSalt _salt CreateDataView' {..} =
-    _salt `Prelude.hashWithSalt` sortColumns
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` asOfTimestamp
       `Prelude.hashWithSalt` autoUpdate
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` partitionColumns
-      `Prelude.hashWithSalt` asOfTimestamp
+      `Prelude.hashWithSalt` sortColumns
       `Prelude.hashWithSalt` datasetId
       `Prelude.hashWithSalt` destinationTypeParams
 
 instance Prelude.NFData CreateDataView where
   rnf CreateDataView' {..} =
-    Prelude.rnf sortColumns
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf asOfTimestamp
       `Prelude.seq` Prelude.rnf autoUpdate
+      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf partitionColumns
-      `Prelude.seq` Prelude.rnf asOfTimestamp
+      `Prelude.seq` Prelude.rnf sortColumns
       `Prelude.seq` Prelude.rnf datasetId
       `Prelude.seq` Prelude.rnf destinationTypeParams
 
@@ -197,12 +197,12 @@ instance Data.ToJSON CreateDataView where
   toJSON CreateDataView' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("sortColumns" Data..=) Prelude.<$> sortColumns,
-            ("clientToken" Data..=) Prelude.<$> clientToken,
+          [ ("asOfTimestamp" Data..=) Prelude.<$> asOfTimestamp,
             ("autoUpdate" Data..=) Prelude.<$> autoUpdate,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
             ("partitionColumns" Data..=)
               Prelude.<$> partitionColumns,
-            ("asOfTimestamp" Data..=) Prelude.<$> asOfTimestamp,
+            ("sortColumns" Data..=) Prelude.<$> sortColumns,
             Prelude.Just
               ( "destinationTypeParams"
                   Data..= destinationTypeParams

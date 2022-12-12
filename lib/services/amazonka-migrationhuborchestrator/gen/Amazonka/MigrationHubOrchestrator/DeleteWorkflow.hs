@@ -36,8 +36,8 @@ module Amazonka.MigrationHubOrchestrator.DeleteWorkflow
 
     -- * Response Lenses
     deleteWorkflowResponse_arn,
-    deleteWorkflowResponse_status,
     deleteWorkflowResponse_id,
+    deleteWorkflowResponse_status,
     deleteWorkflowResponse_httpStatus,
   )
 where
@@ -87,8 +87,8 @@ instance Core.AWSRequest DeleteWorkflow where
       ( \s h x ->
           DeleteWorkflowResponse'
             Prelude.<$> (x Data..?> "arn")
-            Prelude.<*> (x Data..?> "status")
             Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,10 +122,10 @@ instance Data.ToQuery DeleteWorkflow where
 data DeleteWorkflowResponse = DeleteWorkflowResponse'
   { -- | The Amazon Resource Name (ARN) of the migration workflow.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The status of the migration workflow.
-    status :: Prelude.Maybe MigrationWorkflowStatusEnum,
     -- | The ID of the migration workflow.
     id :: Prelude.Maybe Prelude.Text,
+    -- | The status of the migration workflow.
+    status :: Prelude.Maybe MigrationWorkflowStatusEnum,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -141,9 +141,9 @@ data DeleteWorkflowResponse = DeleteWorkflowResponse'
 --
 -- 'arn', 'deleteWorkflowResponse_arn' - The Amazon Resource Name (ARN) of the migration workflow.
 --
--- 'status', 'deleteWorkflowResponse_status' - The status of the migration workflow.
---
 -- 'id', 'deleteWorkflowResponse_id' - The ID of the migration workflow.
+--
+-- 'status', 'deleteWorkflowResponse_status' - The status of the migration workflow.
 --
 -- 'httpStatus', 'deleteWorkflowResponse_httpStatus' - The response's http status code.
 newDeleteWorkflowResponse ::
@@ -153,8 +153,8 @@ newDeleteWorkflowResponse ::
 newDeleteWorkflowResponse pHttpStatus_ =
   DeleteWorkflowResponse'
     { arn = Prelude.Nothing,
-      status = Prelude.Nothing,
       id = Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -162,13 +162,13 @@ newDeleteWorkflowResponse pHttpStatus_ =
 deleteWorkflowResponse_arn :: Lens.Lens' DeleteWorkflowResponse (Prelude.Maybe Prelude.Text)
 deleteWorkflowResponse_arn = Lens.lens (\DeleteWorkflowResponse' {arn} -> arn) (\s@DeleteWorkflowResponse' {} a -> s {arn = a} :: DeleteWorkflowResponse)
 
--- | The status of the migration workflow.
-deleteWorkflowResponse_status :: Lens.Lens' DeleteWorkflowResponse (Prelude.Maybe MigrationWorkflowStatusEnum)
-deleteWorkflowResponse_status = Lens.lens (\DeleteWorkflowResponse' {status} -> status) (\s@DeleteWorkflowResponse' {} a -> s {status = a} :: DeleteWorkflowResponse)
-
 -- | The ID of the migration workflow.
 deleteWorkflowResponse_id :: Lens.Lens' DeleteWorkflowResponse (Prelude.Maybe Prelude.Text)
 deleteWorkflowResponse_id = Lens.lens (\DeleteWorkflowResponse' {id} -> id) (\s@DeleteWorkflowResponse' {} a -> s {id = a} :: DeleteWorkflowResponse)
+
+-- | The status of the migration workflow.
+deleteWorkflowResponse_status :: Lens.Lens' DeleteWorkflowResponse (Prelude.Maybe MigrationWorkflowStatusEnum)
+deleteWorkflowResponse_status = Lens.lens (\DeleteWorkflowResponse' {status} -> status) (\s@DeleteWorkflowResponse' {} a -> s {status = a} :: DeleteWorkflowResponse)
 
 -- | The response's http status code.
 deleteWorkflowResponse_httpStatus :: Lens.Lens' DeleteWorkflowResponse Prelude.Int
@@ -177,6 +177,6 @@ deleteWorkflowResponse_httpStatus = Lens.lens (\DeleteWorkflowResponse' {httpSta
 instance Prelude.NFData DeleteWorkflowResponse where
   rnf DeleteWorkflowResponse' {..} =
     Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

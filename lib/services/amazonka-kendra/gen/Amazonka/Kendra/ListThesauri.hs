@@ -27,8 +27,8 @@ module Amazonka.Kendra.ListThesauri
     newListThesauri,
 
     -- * Request Lenses
-    listThesauri_nextToken,
     listThesauri_maxResults,
+    listThesauri_nextToken,
     listThesauri_indexId,
 
     -- * Destructuring the Response
@@ -52,13 +52,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListThesauri' smart constructor.
 data ListThesauri = ListThesauri'
-  { -- | If the previous response was incomplete (because there is more data to
+  { -- | The maximum number of thesauri to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the previous response was incomplete (because there is more data to
     -- retrieve), Amazon Kendra returns a pagination token in the response. You
     -- can use this pagination token to retrieve the next set of thesauri
     -- (@ThesaurusSummaryItems@).
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of thesauri to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the index with one or more thesauri.
     indexId :: Prelude.Text
   }
@@ -72,12 +72,12 @@ data ListThesauri = ListThesauri'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listThesauri_maxResults' - The maximum number of thesauri to return.
+--
 -- 'nextToken', 'listThesauri_nextToken' - If the previous response was incomplete (because there is more data to
 -- retrieve), Amazon Kendra returns a pagination token in the response. You
 -- can use this pagination token to retrieve the next set of thesauri
 -- (@ThesaurusSummaryItems@).
---
--- 'maxResults', 'listThesauri_maxResults' - The maximum number of thesauri to return.
 --
 -- 'indexId', 'listThesauri_indexId' - The identifier of the index with one or more thesauri.
 newListThesauri ::
@@ -86,10 +86,14 @@ newListThesauri ::
   ListThesauri
 newListThesauri pIndexId_ =
   ListThesauri'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       indexId = pIndexId_
     }
+
+-- | The maximum number of thesauri to return.
+listThesauri_maxResults :: Lens.Lens' ListThesauri (Prelude.Maybe Prelude.Natural)
+listThesauri_maxResults = Lens.lens (\ListThesauri' {maxResults} -> maxResults) (\s@ListThesauri' {} a -> s {maxResults = a} :: ListThesauri)
 
 -- | If the previous response was incomplete (because there is more data to
 -- retrieve), Amazon Kendra returns a pagination token in the response. You
@@ -97,10 +101,6 @@ newListThesauri pIndexId_ =
 -- (@ThesaurusSummaryItems@).
 listThesauri_nextToken :: Lens.Lens' ListThesauri (Prelude.Maybe Prelude.Text)
 listThesauri_nextToken = Lens.lens (\ListThesauri' {nextToken} -> nextToken) (\s@ListThesauri' {} a -> s {nextToken = a} :: ListThesauri)
-
--- | The maximum number of thesauri to return.
-listThesauri_maxResults :: Lens.Lens' ListThesauri (Prelude.Maybe Prelude.Natural)
-listThesauri_maxResults = Lens.lens (\ListThesauri' {maxResults} -> maxResults) (\s@ListThesauri' {} a -> s {maxResults = a} :: ListThesauri)
 
 -- | The identifier of the index with one or more thesauri.
 listThesauri_indexId :: Lens.Lens' ListThesauri Prelude.Text
@@ -123,14 +123,14 @@ instance Core.AWSRequest ListThesauri where
 
 instance Prelude.Hashable ListThesauri where
   hashWithSalt _salt ListThesauri' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` indexId
 
 instance Prelude.NFData ListThesauri where
   rnf ListThesauri' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf indexId
 
 instance Data.ToHeaders ListThesauri where
@@ -152,8 +152,8 @@ instance Data.ToJSON ListThesauri where
   toJSON ListThesauri' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("IndexId" Data..= indexId)
           ]
       )

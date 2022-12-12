@@ -39,8 +39,8 @@ module Amazonka.QuickSight.DescribeGroupMembership
     newDescribeGroupMembershipResponse,
 
     -- * Response Lenses
-    describeGroupMembershipResponse_requestId,
     describeGroupMembershipResponse_groupMember,
+    describeGroupMembershipResponse_requestId,
     describeGroupMembershipResponse_status,
   )
 where
@@ -135,8 +135,8 @@ instance Core.AWSRequest DescribeGroupMembership where
     Response.receiveJSON
       ( \s h x ->
           DescribeGroupMembershipResponse'
-            Prelude.<$> (x Data..?> "RequestId")
-            Prelude.<*> (x Data..?> "GroupMember")
+            Prelude.<$> (x Data..?> "GroupMember")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -183,9 +183,9 @@ instance Data.ToQuery DescribeGroupMembership where
 
 -- | /See:/ 'newDescribeGroupMembershipResponse' smart constructor.
 data DescribeGroupMembershipResponse = DescribeGroupMembershipResponse'
-  { -- | The Amazon Web Services request ID for this operation.
+  { groupMember :: Prelude.Maybe GroupMember,
+    -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Maybe Prelude.Text,
-    groupMember :: Prelude.Maybe GroupMember,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -199,9 +199,9 @@ data DescribeGroupMembershipResponse = DescribeGroupMembershipResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'describeGroupMembershipResponse_requestId' - The Amazon Web Services request ID for this operation.
---
 -- 'groupMember', 'describeGroupMembershipResponse_groupMember' - Undocumented member.
+--
+-- 'requestId', 'describeGroupMembershipResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'status', 'describeGroupMembershipResponse_status' - The HTTP status of the request.
 newDescribeGroupMembershipResponse ::
@@ -210,19 +210,19 @@ newDescribeGroupMembershipResponse ::
   DescribeGroupMembershipResponse
 newDescribeGroupMembershipResponse pStatus_ =
   DescribeGroupMembershipResponse'
-    { requestId =
+    { groupMember =
         Prelude.Nothing,
-      groupMember = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       status = pStatus_
     }
-
--- | The Amazon Web Services request ID for this operation.
-describeGroupMembershipResponse_requestId :: Lens.Lens' DescribeGroupMembershipResponse (Prelude.Maybe Prelude.Text)
-describeGroupMembershipResponse_requestId = Lens.lens (\DescribeGroupMembershipResponse' {requestId} -> requestId) (\s@DescribeGroupMembershipResponse' {} a -> s {requestId = a} :: DescribeGroupMembershipResponse)
 
 -- | Undocumented member.
 describeGroupMembershipResponse_groupMember :: Lens.Lens' DescribeGroupMembershipResponse (Prelude.Maybe GroupMember)
 describeGroupMembershipResponse_groupMember = Lens.lens (\DescribeGroupMembershipResponse' {groupMember} -> groupMember) (\s@DescribeGroupMembershipResponse' {} a -> s {groupMember = a} :: DescribeGroupMembershipResponse)
+
+-- | The Amazon Web Services request ID for this operation.
+describeGroupMembershipResponse_requestId :: Lens.Lens' DescribeGroupMembershipResponse (Prelude.Maybe Prelude.Text)
+describeGroupMembershipResponse_requestId = Lens.lens (\DescribeGroupMembershipResponse' {requestId} -> requestId) (\s@DescribeGroupMembershipResponse' {} a -> s {requestId = a} :: DescribeGroupMembershipResponse)
 
 -- | The HTTP status of the request.
 describeGroupMembershipResponse_status :: Lens.Lens' DescribeGroupMembershipResponse Prelude.Int
@@ -233,6 +233,6 @@ instance
     DescribeGroupMembershipResponse
   where
   rnf DescribeGroupMembershipResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf groupMember
+    Prelude.rnf groupMember
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf status

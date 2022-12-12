@@ -29,8 +29,8 @@ module Amazonka.WorkSpaces.CreateWorkspaceBundle
     newCreateWorkspaceBundle,
 
     -- * Request Lenses
-    createWorkspaceBundle_tags,
     createWorkspaceBundle_rootStorage,
+    createWorkspaceBundle_tags,
     createWorkspaceBundle_bundleName,
     createWorkspaceBundle_bundleDescription,
     createWorkspaceBundle_imageId,
@@ -57,13 +57,13 @@ import Amazonka.WorkSpaces.Types
 
 -- | /See:/ 'newCreateWorkspaceBundle' smart constructor.
 data CreateWorkspaceBundle = CreateWorkspaceBundle'
-  { -- | The tags associated with the bundle.
+  { rootStorage :: Prelude.Maybe RootStorage,
+    -- | The tags associated with the bundle.
     --
     -- To add tags at the same time when you\'re creating the bundle, you must
     -- create an IAM policy that grants your IAM user permissions to use
     -- @workspaces:CreateTags@.
     tags :: Prelude.Maybe [Tag],
-    rootStorage :: Prelude.Maybe RootStorage,
     -- | The name of the bundle.
     bundleName :: Prelude.Text,
     -- | The description of the bundle.
@@ -83,13 +83,13 @@ data CreateWorkspaceBundle = CreateWorkspaceBundle'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'rootStorage', 'createWorkspaceBundle_rootStorage' - Undocumented member.
+--
 -- 'tags', 'createWorkspaceBundle_tags' - The tags associated with the bundle.
 --
 -- To add tags at the same time when you\'re creating the bundle, you must
 -- create an IAM policy that grants your IAM user permissions to use
 -- @workspaces:CreateTags@.
---
--- 'rootStorage', 'createWorkspaceBundle_rootStorage' - Undocumented member.
 --
 -- 'bundleName', 'createWorkspaceBundle_bundleName' - The name of the bundle.
 --
@@ -119,14 +119,19 @@ newCreateWorkspaceBundle
   pComputeType_
   pUserStorage_ =
     CreateWorkspaceBundle'
-      { tags = Prelude.Nothing,
-        rootStorage = Prelude.Nothing,
+      { rootStorage =
+          Prelude.Nothing,
+        tags = Prelude.Nothing,
         bundleName = pBundleName_,
         bundleDescription = pBundleDescription_,
         imageId = pImageId_,
         computeType = pComputeType_,
         userStorage = pUserStorage_
       }
+
+-- | Undocumented member.
+createWorkspaceBundle_rootStorage :: Lens.Lens' CreateWorkspaceBundle (Prelude.Maybe RootStorage)
+createWorkspaceBundle_rootStorage = Lens.lens (\CreateWorkspaceBundle' {rootStorage} -> rootStorage) (\s@CreateWorkspaceBundle' {} a -> s {rootStorage = a} :: CreateWorkspaceBundle)
 
 -- | The tags associated with the bundle.
 --
@@ -135,10 +140,6 @@ newCreateWorkspaceBundle
 -- @workspaces:CreateTags@.
 createWorkspaceBundle_tags :: Lens.Lens' CreateWorkspaceBundle (Prelude.Maybe [Tag])
 createWorkspaceBundle_tags = Lens.lens (\CreateWorkspaceBundle' {tags} -> tags) (\s@CreateWorkspaceBundle' {} a -> s {tags = a} :: CreateWorkspaceBundle) Prelude.. Lens.mapping Lens.coerced
-
--- | Undocumented member.
-createWorkspaceBundle_rootStorage :: Lens.Lens' CreateWorkspaceBundle (Prelude.Maybe RootStorage)
-createWorkspaceBundle_rootStorage = Lens.lens (\CreateWorkspaceBundle' {rootStorage} -> rootStorage) (\s@CreateWorkspaceBundle' {} a -> s {rootStorage = a} :: CreateWorkspaceBundle)
 
 -- | The name of the bundle.
 createWorkspaceBundle_bundleName :: Lens.Lens' CreateWorkspaceBundle Prelude.Text
@@ -176,8 +177,8 @@ instance Core.AWSRequest CreateWorkspaceBundle where
 
 instance Prelude.Hashable CreateWorkspaceBundle where
   hashWithSalt _salt CreateWorkspaceBundle' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` rootStorage
+    _salt `Prelude.hashWithSalt` rootStorage
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` bundleName
       `Prelude.hashWithSalt` bundleDescription
       `Prelude.hashWithSalt` imageId
@@ -186,8 +187,8 @@ instance Prelude.Hashable CreateWorkspaceBundle where
 
 instance Prelude.NFData CreateWorkspaceBundle where
   rnf CreateWorkspaceBundle' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf rootStorage
+    Prelude.rnf rootStorage
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf bundleName
       `Prelude.seq` Prelude.rnf bundleDescription
       `Prelude.seq` Prelude.rnf imageId
@@ -213,8 +214,8 @@ instance Data.ToJSON CreateWorkspaceBundle where
   toJSON CreateWorkspaceBundle' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("RootStorage" Data..=) Prelude.<$> rootStorage,
+          [ ("RootStorage" Data..=) Prelude.<$> rootStorage,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("BundleName" Data..= bundleName),
             Prelude.Just
               ("BundleDescription" Data..= bundleDescription),

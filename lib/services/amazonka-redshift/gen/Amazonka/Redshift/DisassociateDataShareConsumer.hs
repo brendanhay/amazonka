@@ -28,9 +28,9 @@ module Amazonka.Redshift.DisassociateDataShareConsumer
     newDisassociateDataShareConsumer,
 
     -- * Request Lenses
-    disassociateDataShareConsumer_disassociateEntireAccount,
     disassociateDataShareConsumer_consumerArn,
     disassociateDataShareConsumer_consumerRegion,
+    disassociateDataShareConsumer_disassociateEntireAccount,
     disassociateDataShareConsumer_dataShareArn,
 
     -- * Destructuring the Response
@@ -38,11 +38,11 @@ module Amazonka.Redshift.DisassociateDataShareConsumer
     newDataShare,
 
     -- * Response Lenses
-    dataShare_dataShareAssociations,
-    dataShare_producerArn,
     dataShare_allowPubliclyAccessibleConsumers,
     dataShare_dataShareArn,
+    dataShare_dataShareAssociations,
     dataShare_managedBy,
+    dataShare_producerArn,
   )
 where
 
@@ -56,16 +56,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDisassociateDataShareConsumer' smart constructor.
 data DisassociateDataShareConsumer = DisassociateDataShareConsumer'
-  { -- | A value that specifies whether association for the datashare is removed
-    -- from the entire account.
-    disassociateEntireAccount :: Prelude.Maybe Prelude.Bool,
-    -- | The Amazon Resource Name (ARN) of the consumer that association for the
+  { -- | The Amazon Resource Name (ARN) of the consumer that association for the
     -- datashare is removed from.
     consumerArn :: Prelude.Maybe Prelude.Text,
     -- | From a datashare consumer account, removes association of a datashare
     -- from all the existing and future namespaces in the specified Amazon Web
     -- Services Region.
     consumerRegion :: Prelude.Maybe Prelude.Text,
+    -- | A value that specifies whether association for the datashare is removed
+    -- from the entire account.
+    disassociateEntireAccount :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of the datashare to remove association
     -- for.
     dataShareArn :: Prelude.Text
@@ -80,15 +80,15 @@ data DisassociateDataShareConsumer = DisassociateDataShareConsumer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'disassociateEntireAccount', 'disassociateDataShareConsumer_disassociateEntireAccount' - A value that specifies whether association for the datashare is removed
--- from the entire account.
---
 -- 'consumerArn', 'disassociateDataShareConsumer_consumerArn' - The Amazon Resource Name (ARN) of the consumer that association for the
 -- datashare is removed from.
 --
 -- 'consumerRegion', 'disassociateDataShareConsumer_consumerRegion' - From a datashare consumer account, removes association of a datashare
 -- from all the existing and future namespaces in the specified Amazon Web
 -- Services Region.
+--
+-- 'disassociateEntireAccount', 'disassociateDataShareConsumer_disassociateEntireAccount' - A value that specifies whether association for the datashare is removed
+-- from the entire account.
 --
 -- 'dataShareArn', 'disassociateDataShareConsumer_dataShareArn' - The Amazon Resource Name (ARN) of the datashare to remove association
 -- for.
@@ -98,17 +98,12 @@ newDisassociateDataShareConsumer ::
   DisassociateDataShareConsumer
 newDisassociateDataShareConsumer pDataShareArn_ =
   DisassociateDataShareConsumer'
-    { disassociateEntireAccount =
+    { consumerArn =
         Prelude.Nothing,
-      consumerArn = Prelude.Nothing,
       consumerRegion = Prelude.Nothing,
+      disassociateEntireAccount = Prelude.Nothing,
       dataShareArn = pDataShareArn_
     }
-
--- | A value that specifies whether association for the datashare is removed
--- from the entire account.
-disassociateDataShareConsumer_disassociateEntireAccount :: Lens.Lens' DisassociateDataShareConsumer (Prelude.Maybe Prelude.Bool)
-disassociateDataShareConsumer_disassociateEntireAccount = Lens.lens (\DisassociateDataShareConsumer' {disassociateEntireAccount} -> disassociateEntireAccount) (\s@DisassociateDataShareConsumer' {} a -> s {disassociateEntireAccount = a} :: DisassociateDataShareConsumer)
 
 -- | The Amazon Resource Name (ARN) of the consumer that association for the
 -- datashare is removed from.
@@ -120,6 +115,11 @@ disassociateDataShareConsumer_consumerArn = Lens.lens (\DisassociateDataShareCon
 -- Services Region.
 disassociateDataShareConsumer_consumerRegion :: Lens.Lens' DisassociateDataShareConsumer (Prelude.Maybe Prelude.Text)
 disassociateDataShareConsumer_consumerRegion = Lens.lens (\DisassociateDataShareConsumer' {consumerRegion} -> consumerRegion) (\s@DisassociateDataShareConsumer' {} a -> s {consumerRegion = a} :: DisassociateDataShareConsumer)
+
+-- | A value that specifies whether association for the datashare is removed
+-- from the entire account.
+disassociateDataShareConsumer_disassociateEntireAccount :: Lens.Lens' DisassociateDataShareConsumer (Prelude.Maybe Prelude.Bool)
+disassociateDataShareConsumer_disassociateEntireAccount = Lens.lens (\DisassociateDataShareConsumer' {disassociateEntireAccount} -> disassociateEntireAccount) (\s@DisassociateDataShareConsumer' {} a -> s {disassociateEntireAccount = a} :: DisassociateDataShareConsumer)
 
 -- | The Amazon Resource Name (ARN) of the datashare to remove association
 -- for.
@@ -145,17 +145,16 @@ instance
     DisassociateDataShareConsumer
   where
   hashWithSalt _salt DisassociateDataShareConsumer' {..} =
-    _salt
-      `Prelude.hashWithSalt` disassociateEntireAccount
-      `Prelude.hashWithSalt` consumerArn
+    _salt `Prelude.hashWithSalt` consumerArn
       `Prelude.hashWithSalt` consumerRegion
+      `Prelude.hashWithSalt` disassociateEntireAccount
       `Prelude.hashWithSalt` dataShareArn
 
 instance Prelude.NFData DisassociateDataShareConsumer where
   rnf DisassociateDataShareConsumer' {..} =
-    Prelude.rnf disassociateEntireAccount
-      `Prelude.seq` Prelude.rnf consumerArn
+    Prelude.rnf consumerArn
       `Prelude.seq` Prelude.rnf consumerRegion
+      `Prelude.seq` Prelude.rnf disassociateEntireAccount
       `Prelude.seq` Prelude.rnf dataShareArn
 
 instance Data.ToHeaders DisassociateDataShareConsumer where
@@ -173,9 +172,9 @@ instance Data.ToQuery DisassociateDataShareConsumer where
                   ),
         "Version"
           Data.=: ("2012-12-01" :: Prelude.ByteString),
-        "DisassociateEntireAccount"
-          Data.=: disassociateEntireAccount,
         "ConsumerArn" Data.=: consumerArn,
         "ConsumerRegion" Data.=: consumerRegion,
+        "DisassociateEntireAccount"
+          Data.=: disassociateEntireAccount,
         "DataShareArn" Data.=: dataShareArn
       ]

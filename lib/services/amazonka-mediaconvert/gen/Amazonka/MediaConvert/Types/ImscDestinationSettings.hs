@@ -36,12 +36,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newImscDestinationSettings' smart constructor.
 data ImscDestinationSettings = ImscDestinationSettings'
-  { -- | Keep this setting enabled to have MediaConvert use the font style and
-    -- position information from the captions source in the output. This option
-    -- is available only when your input captions are IMSC, SMPTE-TT, or TTML.
-    -- Disable this setting for simplified output captions.
-    stylePassthrough :: Prelude.Maybe ImscStylePassthrough,
-    -- | Set Accessibility subtitles to Enabled if the ISMC or WebVTT captions
+  { -- | Set Accessibility subtitles to Enabled if the ISMC or WebVTT captions
     -- track is intended to provide accessibility for people who are deaf or
     -- hard of hearing. When you enable this feature, MediaConvert adds the
     -- following attributes under EXT-X-MEDIA in the HLS or CMAF manifest for
@@ -50,7 +45,12 @@ data ImscDestinationSettings = ImscDestinationSettings'
     -- and AUTOSELECT=\"YES\". Keep the default value, Disabled, if the
     -- captions track is not intended to provide such accessibility.
     -- MediaConvert will not add the above attributes.
-    accessibility :: Prelude.Maybe ImscAccessibilitySubs
+    accessibility :: Prelude.Maybe ImscAccessibilitySubs,
+    -- | Keep this setting enabled to have MediaConvert use the font style and
+    -- position information from the captions source in the output. This option
+    -- is available only when your input captions are IMSC, SMPTE-TT, or TTML.
+    -- Disable this setting for simplified output captions.
+    stylePassthrough :: Prelude.Maybe ImscStylePassthrough
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,11 +62,6 @@ data ImscDestinationSettings = ImscDestinationSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stylePassthrough', 'imscDestinationSettings_stylePassthrough' - Keep this setting enabled to have MediaConvert use the font style and
--- position information from the captions source in the output. This option
--- is available only when your input captions are IMSC, SMPTE-TT, or TTML.
--- Disable this setting for simplified output captions.
---
 -- 'accessibility', 'imscDestinationSettings_accessibility' - Set Accessibility subtitles to Enabled if the ISMC or WebVTT captions
 -- track is intended to provide accessibility for people who are deaf or
 -- hard of hearing. When you enable this feature, MediaConvert adds the
@@ -76,21 +71,19 @@ data ImscDestinationSettings = ImscDestinationSettings'
 -- and AUTOSELECT=\"YES\". Keep the default value, Disabled, if the
 -- captions track is not intended to provide such accessibility.
 -- MediaConvert will not add the above attributes.
+--
+-- 'stylePassthrough', 'imscDestinationSettings_stylePassthrough' - Keep this setting enabled to have MediaConvert use the font style and
+-- position information from the captions source in the output. This option
+-- is available only when your input captions are IMSC, SMPTE-TT, or TTML.
+-- Disable this setting for simplified output captions.
 newImscDestinationSettings ::
   ImscDestinationSettings
 newImscDestinationSettings =
   ImscDestinationSettings'
-    { stylePassthrough =
+    { accessibility =
         Prelude.Nothing,
-      accessibility = Prelude.Nothing
+      stylePassthrough = Prelude.Nothing
     }
-
--- | Keep this setting enabled to have MediaConvert use the font style and
--- position information from the captions source in the output. This option
--- is available only when your input captions are IMSC, SMPTE-TT, or TTML.
--- Disable this setting for simplified output captions.
-imscDestinationSettings_stylePassthrough :: Lens.Lens' ImscDestinationSettings (Prelude.Maybe ImscStylePassthrough)
-imscDestinationSettings_stylePassthrough = Lens.lens (\ImscDestinationSettings' {stylePassthrough} -> stylePassthrough) (\s@ImscDestinationSettings' {} a -> s {stylePassthrough = a} :: ImscDestinationSettings)
 
 -- | Set Accessibility subtitles to Enabled if the ISMC or WebVTT captions
 -- track is intended to provide accessibility for people who are deaf or
@@ -104,32 +97,39 @@ imscDestinationSettings_stylePassthrough = Lens.lens (\ImscDestinationSettings' 
 imscDestinationSettings_accessibility :: Lens.Lens' ImscDestinationSettings (Prelude.Maybe ImscAccessibilitySubs)
 imscDestinationSettings_accessibility = Lens.lens (\ImscDestinationSettings' {accessibility} -> accessibility) (\s@ImscDestinationSettings' {} a -> s {accessibility = a} :: ImscDestinationSettings)
 
+-- | Keep this setting enabled to have MediaConvert use the font style and
+-- position information from the captions source in the output. This option
+-- is available only when your input captions are IMSC, SMPTE-TT, or TTML.
+-- Disable this setting for simplified output captions.
+imscDestinationSettings_stylePassthrough :: Lens.Lens' ImscDestinationSettings (Prelude.Maybe ImscStylePassthrough)
+imscDestinationSettings_stylePassthrough = Lens.lens (\ImscDestinationSettings' {stylePassthrough} -> stylePassthrough) (\s@ImscDestinationSettings' {} a -> s {stylePassthrough = a} :: ImscDestinationSettings)
+
 instance Data.FromJSON ImscDestinationSettings where
   parseJSON =
     Data.withObject
       "ImscDestinationSettings"
       ( \x ->
           ImscDestinationSettings'
-            Prelude.<$> (x Data..:? "stylePassthrough")
-            Prelude.<*> (x Data..:? "accessibility")
+            Prelude.<$> (x Data..:? "accessibility")
+            Prelude.<*> (x Data..:? "stylePassthrough")
       )
 
 instance Prelude.Hashable ImscDestinationSettings where
   hashWithSalt _salt ImscDestinationSettings' {..} =
-    _salt `Prelude.hashWithSalt` stylePassthrough
-      `Prelude.hashWithSalt` accessibility
+    _salt `Prelude.hashWithSalt` accessibility
+      `Prelude.hashWithSalt` stylePassthrough
 
 instance Prelude.NFData ImscDestinationSettings where
   rnf ImscDestinationSettings' {..} =
-    Prelude.rnf stylePassthrough
-      `Prelude.seq` Prelude.rnf accessibility
+    Prelude.rnf accessibility
+      `Prelude.seq` Prelude.rnf stylePassthrough
 
 instance Data.ToJSON ImscDestinationSettings where
   toJSON ImscDestinationSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("stylePassthrough" Data..=)
-              Prelude.<$> stylePassthrough,
-            ("accessibility" Data..=) Prelude.<$> accessibility
+          [ ("accessibility" Data..=) Prelude.<$> accessibility,
+            ("stylePassthrough" Data..=)
+              Prelude.<$> stylePassthrough
           ]
       )

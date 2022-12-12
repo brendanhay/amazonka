@@ -27,11 +27,11 @@ module Amazonka.LookoutEquipment.UpdateInferenceScheduler
     newUpdateInferenceScheduler,
 
     -- * Request Lenses
-    updateInferenceScheduler_roleArn,
     updateInferenceScheduler_dataDelayOffsetInMinutes,
+    updateInferenceScheduler_dataInputConfiguration,
     updateInferenceScheduler_dataOutputConfiguration,
     updateInferenceScheduler_dataUploadFrequency,
-    updateInferenceScheduler_dataInputConfiguration,
+    updateInferenceScheduler_roleArn,
     updateInferenceScheduler_inferenceSchedulerName,
 
     -- * Destructuring the Response
@@ -50,10 +50,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateInferenceScheduler' smart constructor.
 data UpdateInferenceScheduler = UpdateInferenceScheduler'
-  { -- | The Amazon Resource Name (ARN) of a role with permission to access the
-    -- data source for the inference scheduler.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | A period of time (in minutes) by which inference on the data is delayed
+  { -- | A period of time (in minutes) by which inference on the data is delayed
     -- after the data starts. For instance, if you select an offset delay time
     -- of five minutes, inference will not begin on the data until the first
     -- data measurement after the five minute mark. For example, if five
@@ -63,6 +60,9 @@ data UpdateInferenceScheduler = UpdateInferenceScheduler'
     -- frequency and they don\'t need to stop and restart the scheduler when
     -- uploading new data.
     dataDelayOffsetInMinutes :: Prelude.Maybe Prelude.Natural,
+    -- | Specifies information for the input data for the inference scheduler,
+    -- including delimiter, format, and dataset location.
+    dataInputConfiguration :: Prelude.Maybe InferenceInputConfiguration,
     -- | Specifies information for the output results from the inference
     -- scheduler, including the output S3 location.
     dataOutputConfiguration :: Prelude.Maybe InferenceOutputConfiguration,
@@ -74,9 +74,9 @@ data UpdateInferenceScheduler = UpdateInferenceScheduler'
     -- starts a scheduled inference on your data. In this example, it starts
     -- once every 5 minutes.
     dataUploadFrequency :: Prelude.Maybe DataUploadFrequency,
-    -- | Specifies information for the input data for the inference scheduler,
-    -- including delimiter, format, and dataset location.
-    dataInputConfiguration :: Prelude.Maybe InferenceInputConfiguration,
+    -- | The Amazon Resource Name (ARN) of a role with permission to access the
+    -- data source for the inference scheduler.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the inference scheduler to be updated.
     inferenceSchedulerName :: Prelude.Text
   }
@@ -90,9 +90,6 @@ data UpdateInferenceScheduler = UpdateInferenceScheduler'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'updateInferenceScheduler_roleArn' - The Amazon Resource Name (ARN) of a role with permission to access the
--- data source for the inference scheduler.
---
 -- 'dataDelayOffsetInMinutes', 'updateInferenceScheduler_dataDelayOffsetInMinutes' - A period of time (in minutes) by which inference on the data is delayed
 -- after the data starts. For instance, if you select an offset delay time
 -- of five minutes, inference will not begin on the data until the first
@@ -102,6 +99,9 @@ data UpdateInferenceScheduler = UpdateInferenceScheduler'
 -- the customer S3 bucket. The customer can upload data at the same
 -- frequency and they don\'t need to stop and restart the scheduler when
 -- uploading new data.
+--
+-- 'dataInputConfiguration', 'updateInferenceScheduler_dataInputConfiguration' - Specifies information for the input data for the inference scheduler,
+-- including delimiter, format, and dataset location.
 --
 -- 'dataOutputConfiguration', 'updateInferenceScheduler_dataOutputConfiguration' - Specifies information for the output results from the inference
 -- scheduler, including the output S3 location.
@@ -114,8 +114,8 @@ data UpdateInferenceScheduler = UpdateInferenceScheduler'
 -- starts a scheduled inference on your data. In this example, it starts
 -- once every 5 minutes.
 --
--- 'dataInputConfiguration', 'updateInferenceScheduler_dataInputConfiguration' - Specifies information for the input data for the inference scheduler,
--- including delimiter, format, and dataset location.
+-- 'roleArn', 'updateInferenceScheduler_roleArn' - The Amazon Resource Name (ARN) of a role with permission to access the
+-- data source for the inference scheduler.
 --
 -- 'inferenceSchedulerName', 'updateInferenceScheduler_inferenceSchedulerName' - The name of the inference scheduler to be updated.
 newUpdateInferenceScheduler ::
@@ -124,19 +124,14 @@ newUpdateInferenceScheduler ::
   UpdateInferenceScheduler
 newUpdateInferenceScheduler pInferenceSchedulerName_ =
   UpdateInferenceScheduler'
-    { roleArn =
+    { dataDelayOffsetInMinutes =
         Prelude.Nothing,
-      dataDelayOffsetInMinutes = Prelude.Nothing,
+      dataInputConfiguration = Prelude.Nothing,
       dataOutputConfiguration = Prelude.Nothing,
       dataUploadFrequency = Prelude.Nothing,
-      dataInputConfiguration = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
       inferenceSchedulerName = pInferenceSchedulerName_
     }
-
--- | The Amazon Resource Name (ARN) of a role with permission to access the
--- data source for the inference scheduler.
-updateInferenceScheduler_roleArn :: Lens.Lens' UpdateInferenceScheduler (Prelude.Maybe Prelude.Text)
-updateInferenceScheduler_roleArn = Lens.lens (\UpdateInferenceScheduler' {roleArn} -> roleArn) (\s@UpdateInferenceScheduler' {} a -> s {roleArn = a} :: UpdateInferenceScheduler)
 
 -- | A period of time (in minutes) by which inference on the data is delayed
 -- after the data starts. For instance, if you select an offset delay time
@@ -149,6 +144,11 @@ updateInferenceScheduler_roleArn = Lens.lens (\UpdateInferenceScheduler' {roleAr
 -- uploading new data.
 updateInferenceScheduler_dataDelayOffsetInMinutes :: Lens.Lens' UpdateInferenceScheduler (Prelude.Maybe Prelude.Natural)
 updateInferenceScheduler_dataDelayOffsetInMinutes = Lens.lens (\UpdateInferenceScheduler' {dataDelayOffsetInMinutes} -> dataDelayOffsetInMinutes) (\s@UpdateInferenceScheduler' {} a -> s {dataDelayOffsetInMinutes = a} :: UpdateInferenceScheduler)
+
+-- | Specifies information for the input data for the inference scheduler,
+-- including delimiter, format, and dataset location.
+updateInferenceScheduler_dataInputConfiguration :: Lens.Lens' UpdateInferenceScheduler (Prelude.Maybe InferenceInputConfiguration)
+updateInferenceScheduler_dataInputConfiguration = Lens.lens (\UpdateInferenceScheduler' {dataInputConfiguration} -> dataInputConfiguration) (\s@UpdateInferenceScheduler' {} a -> s {dataInputConfiguration = a} :: UpdateInferenceScheduler)
 
 -- | Specifies information for the output results from the inference
 -- scheduler, including the output S3 location.
@@ -165,10 +165,10 @@ updateInferenceScheduler_dataOutputConfiguration = Lens.lens (\UpdateInferenceSc
 updateInferenceScheduler_dataUploadFrequency :: Lens.Lens' UpdateInferenceScheduler (Prelude.Maybe DataUploadFrequency)
 updateInferenceScheduler_dataUploadFrequency = Lens.lens (\UpdateInferenceScheduler' {dataUploadFrequency} -> dataUploadFrequency) (\s@UpdateInferenceScheduler' {} a -> s {dataUploadFrequency = a} :: UpdateInferenceScheduler)
 
--- | Specifies information for the input data for the inference scheduler,
--- including delimiter, format, and dataset location.
-updateInferenceScheduler_dataInputConfiguration :: Lens.Lens' UpdateInferenceScheduler (Prelude.Maybe InferenceInputConfiguration)
-updateInferenceScheduler_dataInputConfiguration = Lens.lens (\UpdateInferenceScheduler' {dataInputConfiguration} -> dataInputConfiguration) (\s@UpdateInferenceScheduler' {} a -> s {dataInputConfiguration = a} :: UpdateInferenceScheduler)
+-- | The Amazon Resource Name (ARN) of a role with permission to access the
+-- data source for the inference scheduler.
+updateInferenceScheduler_roleArn :: Lens.Lens' UpdateInferenceScheduler (Prelude.Maybe Prelude.Text)
+updateInferenceScheduler_roleArn = Lens.lens (\UpdateInferenceScheduler' {roleArn} -> roleArn) (\s@UpdateInferenceScheduler' {} a -> s {roleArn = a} :: UpdateInferenceScheduler)
 
 -- | The name of the inference scheduler to be updated.
 updateInferenceScheduler_inferenceSchedulerName :: Lens.Lens' UpdateInferenceScheduler Prelude.Text
@@ -186,20 +186,21 @@ instance Core.AWSRequest UpdateInferenceScheduler where
 
 instance Prelude.Hashable UpdateInferenceScheduler where
   hashWithSalt _salt UpdateInferenceScheduler' {..} =
-    _salt `Prelude.hashWithSalt` roleArn
+    _salt
       `Prelude.hashWithSalt` dataDelayOffsetInMinutes
+      `Prelude.hashWithSalt` dataInputConfiguration
       `Prelude.hashWithSalt` dataOutputConfiguration
       `Prelude.hashWithSalt` dataUploadFrequency
-      `Prelude.hashWithSalt` dataInputConfiguration
+      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` inferenceSchedulerName
 
 instance Prelude.NFData UpdateInferenceScheduler where
   rnf UpdateInferenceScheduler' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf dataDelayOffsetInMinutes
+    Prelude.rnf dataDelayOffsetInMinutes
+      `Prelude.seq` Prelude.rnf dataInputConfiguration
       `Prelude.seq` Prelude.rnf dataOutputConfiguration
       `Prelude.seq` Prelude.rnf dataUploadFrequency
-      `Prelude.seq` Prelude.rnf dataInputConfiguration
+      `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf inferenceSchedulerName
 
 instance Data.ToHeaders UpdateInferenceScheduler where
@@ -221,15 +222,15 @@ instance Data.ToJSON UpdateInferenceScheduler where
   toJSON UpdateInferenceScheduler' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("RoleArn" Data..=) Prelude.<$> roleArn,
-            ("DataDelayOffsetInMinutes" Data..=)
+          [ ("DataDelayOffsetInMinutes" Data..=)
               Prelude.<$> dataDelayOffsetInMinutes,
+            ("DataInputConfiguration" Data..=)
+              Prelude.<$> dataInputConfiguration,
             ("DataOutputConfiguration" Data..=)
               Prelude.<$> dataOutputConfiguration,
             ("DataUploadFrequency" Data..=)
               Prelude.<$> dataUploadFrequency,
-            ("DataInputConfiguration" Data..=)
-              Prelude.<$> dataInputConfiguration,
+            ("RoleArn" Data..=) Prelude.<$> roleArn,
             Prelude.Just
               ( "InferenceSchedulerName"
                   Data..= inferenceSchedulerName

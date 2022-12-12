@@ -30,9 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLexBotConfig' smart constructor.
 data LexBotConfig = LexBotConfig'
-  { -- | Configuration information of an Amazon Lex V2 bot.
-    lexV2Bot :: Prelude.Maybe LexV2Bot,
-    lexBot :: Prelude.Maybe LexBot
+  { lexBot :: Prelude.Maybe LexBot,
+    -- | Configuration information of an Amazon Lex V2 bot.
+    lexV2Bot :: Prelude.Maybe LexV2Bot
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data LexBotConfig = LexBotConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lexV2Bot', 'lexBotConfig_lexV2Bot' - Configuration information of an Amazon Lex V2 bot.
---
 -- 'lexBot', 'lexBotConfig_lexBot' - Undocumented member.
+--
+-- 'lexV2Bot', 'lexBotConfig_lexV2Bot' - Configuration information of an Amazon Lex V2 bot.
 newLexBotConfig ::
   LexBotConfig
 newLexBotConfig =
   LexBotConfig'
-    { lexV2Bot = Prelude.Nothing,
-      lexBot = Prelude.Nothing
+    { lexBot = Prelude.Nothing,
+      lexV2Bot = Prelude.Nothing
     }
-
--- | Configuration information of an Amazon Lex V2 bot.
-lexBotConfig_lexV2Bot :: Lens.Lens' LexBotConfig (Prelude.Maybe LexV2Bot)
-lexBotConfig_lexV2Bot = Lens.lens (\LexBotConfig' {lexV2Bot} -> lexV2Bot) (\s@LexBotConfig' {} a -> s {lexV2Bot = a} :: LexBotConfig)
 
 -- | Undocumented member.
 lexBotConfig_lexBot :: Lens.Lens' LexBotConfig (Prelude.Maybe LexBot)
 lexBotConfig_lexBot = Lens.lens (\LexBotConfig' {lexBot} -> lexBot) (\s@LexBotConfig' {} a -> s {lexBot = a} :: LexBotConfig)
+
+-- | Configuration information of an Amazon Lex V2 bot.
+lexBotConfig_lexV2Bot :: Lens.Lens' LexBotConfig (Prelude.Maybe LexV2Bot)
+lexBotConfig_lexV2Bot = Lens.lens (\LexBotConfig' {lexV2Bot} -> lexV2Bot) (\s@LexBotConfig' {} a -> s {lexV2Bot = a} :: LexBotConfig)
 
 instance Data.FromJSON LexBotConfig where
   parseJSON =
@@ -69,16 +69,16 @@ instance Data.FromJSON LexBotConfig where
       "LexBotConfig"
       ( \x ->
           LexBotConfig'
-            Prelude.<$> (x Data..:? "LexV2Bot")
-            Prelude.<*> (x Data..:? "LexBot")
+            Prelude.<$> (x Data..:? "LexBot")
+            Prelude.<*> (x Data..:? "LexV2Bot")
       )
 
 instance Prelude.Hashable LexBotConfig where
   hashWithSalt _salt LexBotConfig' {..} =
-    _salt `Prelude.hashWithSalt` lexV2Bot
-      `Prelude.hashWithSalt` lexBot
+    _salt `Prelude.hashWithSalt` lexBot
+      `Prelude.hashWithSalt` lexV2Bot
 
 instance Prelude.NFData LexBotConfig where
   rnf LexBotConfig' {..} =
-    Prelude.rnf lexV2Bot
-      `Prelude.seq` Prelude.rnf lexBot
+    Prelude.rnf lexBot
+      `Prelude.seq` Prelude.rnf lexV2Bot

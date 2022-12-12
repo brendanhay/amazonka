@@ -33,12 +33,12 @@ module Amazonka.Redshift.DescribeEvents
     newDescribeEvents,
 
     -- * Request Lenses
-    describeEvents_marker,
-    describeEvents_sourceType,
-    describeEvents_endTime,
-    describeEvents_maxRecords,
     describeEvents_duration,
+    describeEvents_endTime,
+    describeEvents_marker,
+    describeEvents_maxRecords,
     describeEvents_sourceIdentifier,
+    describeEvents_sourceType,
     describeEvents_startTime,
 
     -- * Destructuring the Response
@@ -46,8 +46,8 @@ module Amazonka.Redshift.DescribeEvents
     newDescribeEventsResponse,
 
     -- * Response Lenses
-    describeEventsResponse_marker,
     describeEventsResponse_events,
+    describeEventsResponse_marker,
     describeEventsResponse_httpStatus,
   )
 where
@@ -64,37 +64,26 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeEvents' smart constructor.
 data DescribeEvents = DescribeEvents'
-  { -- | An optional parameter that specifies the starting point to return a set
-    -- of response records. When the results of a DescribeEvents request exceed
-    -- the value specified in @MaxRecords@, Amazon Web Services returns a value
-    -- in the @Marker@ field of the response. You can retrieve the next set of
-    -- response records by providing the returned marker value in the @Marker@
-    -- parameter and retrying the request.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | The event source to retrieve events for. If no value is specified, all
-    -- events are returned.
+  { -- | The number of minutes prior to the time of the request for which to
+    -- retrieve events. For example, if the request is sent at 18:00 and you
+    -- specify a duration of 60, then only events which have occurred after
+    -- 17:00 will be returned.
     --
-    -- Constraints:
-    --
-    -- If /SourceType/ is supplied, /SourceIdentifier/ must also be provided.
-    --
-    -- -   Specify @cluster@ when /SourceIdentifier/ is a cluster identifier.
-    --
-    -- -   Specify @cluster-security-group@ when /SourceIdentifier/ is a
-    --     cluster security group name.
-    --
-    -- -   Specify @cluster-parameter-group@ when /SourceIdentifier/ is a
-    --     cluster parameter group name.
-    --
-    -- -   Specify @cluster-snapshot@ when /SourceIdentifier/ is a cluster
-    --     snapshot identifier.
-    sourceType :: Prelude.Maybe SourceType,
+    -- Default: @60@
+    duration :: Prelude.Maybe Prelude.Int,
     -- | The end of the time interval for which to retrieve events, specified in
     -- ISO 8601 format. For more information about ISO 8601, go to the
     -- <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
     --
     -- Example: @2009-07-08T18:00Z@
     endTime :: Prelude.Maybe Data.ISO8601,
+    -- | An optional parameter that specifies the starting point to return a set
+    -- of response records. When the results of a DescribeEvents request exceed
+    -- the value specified in @MaxRecords@, Amazon Web Services returns a value
+    -- in the @Marker@ field of the response. You can retrieve the next set of
+    -- response records by providing the returned marker value in the @Marker@
+    -- parameter and retrying the request.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @marker@ field of the response. You can
@@ -105,13 +94,6 @@ data DescribeEvents = DescribeEvents'
     --
     -- Constraints: minimum 20, maximum 100.
     maxRecords :: Prelude.Maybe Prelude.Int,
-    -- | The number of minutes prior to the time of the request for which to
-    -- retrieve events. For example, if the request is sent at 18:00 and you
-    -- specify a duration of 60, then only events which have occurred after
-    -- 17:00 will be returned.
-    --
-    -- Default: @60@
-    duration :: Prelude.Maybe Prelude.Int,
     -- | The identifier of the event source for which events will be returned. If
     -- this parameter is not specified, then all sources are included in the
     -- response.
@@ -131,6 +113,24 @@ data DescribeEvents = DescribeEvents'
     -- -   Specify a cluster snapshot identifier when /SourceType/ is
     --     @cluster-snapshot@.
     sourceIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The event source to retrieve events for. If no value is specified, all
+    -- events are returned.
+    --
+    -- Constraints:
+    --
+    -- If /SourceType/ is supplied, /SourceIdentifier/ must also be provided.
+    --
+    -- -   Specify @cluster@ when /SourceIdentifier/ is a cluster identifier.
+    --
+    -- -   Specify @cluster-security-group@ when /SourceIdentifier/ is a
+    --     cluster security group name.
+    --
+    -- -   Specify @cluster-parameter-group@ when /SourceIdentifier/ is a
+    --     cluster parameter group name.
+    --
+    -- -   Specify @cluster-snapshot@ when /SourceIdentifier/ is a cluster
+    --     snapshot identifier.
+    sourceType :: Prelude.Maybe SourceType,
     -- | The beginning of the time interval to retrieve events for, specified in
     -- ISO 8601 format. For more information about ISO 8601, go to the
     -- <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
@@ -148,36 +148,25 @@ data DescribeEvents = DescribeEvents'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'marker', 'describeEvents_marker' - An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeEvents request exceed
--- the value specified in @MaxRecords@, Amazon Web Services returns a value
--- in the @Marker@ field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the @Marker@
--- parameter and retrying the request.
+-- 'duration', 'describeEvents_duration' - The number of minutes prior to the time of the request for which to
+-- retrieve events. For example, if the request is sent at 18:00 and you
+-- specify a duration of 60, then only events which have occurred after
+-- 17:00 will be returned.
 --
--- 'sourceType', 'describeEvents_sourceType' - The event source to retrieve events for. If no value is specified, all
--- events are returned.
---
--- Constraints:
---
--- If /SourceType/ is supplied, /SourceIdentifier/ must also be provided.
---
--- -   Specify @cluster@ when /SourceIdentifier/ is a cluster identifier.
---
--- -   Specify @cluster-security-group@ when /SourceIdentifier/ is a
---     cluster security group name.
---
--- -   Specify @cluster-parameter-group@ when /SourceIdentifier/ is a
---     cluster parameter group name.
---
--- -   Specify @cluster-snapshot@ when /SourceIdentifier/ is a cluster
---     snapshot identifier.
+-- Default: @60@
 --
 -- 'endTime', 'describeEvents_endTime' - The end of the time interval for which to retrieve events, specified in
 -- ISO 8601 format. For more information about ISO 8601, go to the
 -- <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
 --
 -- Example: @2009-07-08T18:00Z@
+--
+-- 'marker', 'describeEvents_marker' - An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeEvents request exceed
+-- the value specified in @MaxRecords@, Amazon Web Services returns a value
+-- in the @Marker@ field of the response. You can retrieve the next set of
+-- response records by providing the returned marker value in the @Marker@
+-- parameter and retrying the request.
 --
 -- 'maxRecords', 'describeEvents_maxRecords' - The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -188,13 +177,6 @@ data DescribeEvents = DescribeEvents'
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
---
--- 'duration', 'describeEvents_duration' - The number of minutes prior to the time of the request for which to
--- retrieve events. For example, if the request is sent at 18:00 and you
--- specify a duration of 60, then only events which have occurred after
--- 17:00 will be returned.
---
--- Default: @60@
 --
 -- 'sourceIdentifier', 'describeEvents_sourceIdentifier' - The identifier of the event source for which events will be returned. If
 -- this parameter is not specified, then all sources are included in the
@@ -215,34 +197,7 @@ data DescribeEvents = DescribeEvents'
 -- -   Specify a cluster snapshot identifier when /SourceType/ is
 --     @cluster-snapshot@.
 --
--- 'startTime', 'describeEvents_startTime' - The beginning of the time interval to retrieve events for, specified in
--- ISO 8601 format. For more information about ISO 8601, go to the
--- <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
---
--- Example: @2009-07-08T18:00Z@
-newDescribeEvents ::
-  DescribeEvents
-newDescribeEvents =
-  DescribeEvents'
-    { marker = Prelude.Nothing,
-      sourceType = Prelude.Nothing,
-      endTime = Prelude.Nothing,
-      maxRecords = Prelude.Nothing,
-      duration = Prelude.Nothing,
-      sourceIdentifier = Prelude.Nothing,
-      startTime = Prelude.Nothing
-    }
-
--- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeEvents request exceed
--- the value specified in @MaxRecords@, Amazon Web Services returns a value
--- in the @Marker@ field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the @Marker@
--- parameter and retrying the request.
-describeEvents_marker :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Text)
-describeEvents_marker = Lens.lens (\DescribeEvents' {marker} -> marker) (\s@DescribeEvents' {} a -> s {marker = a} :: DescribeEvents)
-
--- | The event source to retrieve events for. If no value is specified, all
+-- 'sourceType', 'describeEvents_sourceType' - The event source to retrieve events for. If no value is specified, all
 -- events are returned.
 --
 -- Constraints:
@@ -259,8 +214,33 @@ describeEvents_marker = Lens.lens (\DescribeEvents' {marker} -> marker) (\s@Desc
 --
 -- -   Specify @cluster-snapshot@ when /SourceIdentifier/ is a cluster
 --     snapshot identifier.
-describeEvents_sourceType :: Lens.Lens' DescribeEvents (Prelude.Maybe SourceType)
-describeEvents_sourceType = Lens.lens (\DescribeEvents' {sourceType} -> sourceType) (\s@DescribeEvents' {} a -> s {sourceType = a} :: DescribeEvents)
+--
+-- 'startTime', 'describeEvents_startTime' - The beginning of the time interval to retrieve events for, specified in
+-- ISO 8601 format. For more information about ISO 8601, go to the
+-- <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
+--
+-- Example: @2009-07-08T18:00Z@
+newDescribeEvents ::
+  DescribeEvents
+newDescribeEvents =
+  DescribeEvents'
+    { duration = Prelude.Nothing,
+      endTime = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing,
+      sourceIdentifier = Prelude.Nothing,
+      sourceType = Prelude.Nothing,
+      startTime = Prelude.Nothing
+    }
+
+-- | The number of minutes prior to the time of the request for which to
+-- retrieve events. For example, if the request is sent at 18:00 and you
+-- specify a duration of 60, then only events which have occurred after
+-- 17:00 will be returned.
+--
+-- Default: @60@
+describeEvents_duration :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Int)
+describeEvents_duration = Lens.lens (\DescribeEvents' {duration} -> duration) (\s@DescribeEvents' {} a -> s {duration = a} :: DescribeEvents)
 
 -- | The end of the time interval for which to retrieve events, specified in
 -- ISO 8601 format. For more information about ISO 8601, go to the
@@ -269,6 +249,15 @@ describeEvents_sourceType = Lens.lens (\DescribeEvents' {sourceType} -> sourceTy
 -- Example: @2009-07-08T18:00Z@
 describeEvents_endTime :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.UTCTime)
 describeEvents_endTime = Lens.lens (\DescribeEvents' {endTime} -> endTime) (\s@DescribeEvents' {} a -> s {endTime = a} :: DescribeEvents) Prelude.. Lens.mapping Data._Time
+
+-- | An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeEvents request exceed
+-- the value specified in @MaxRecords@, Amazon Web Services returns a value
+-- in the @Marker@ field of the response. You can retrieve the next set of
+-- response records by providing the returned marker value in the @Marker@
+-- parameter and retrying the request.
+describeEvents_marker :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Text)
+describeEvents_marker = Lens.lens (\DescribeEvents' {marker} -> marker) (\s@DescribeEvents' {} a -> s {marker = a} :: DescribeEvents)
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -281,15 +270,6 @@ describeEvents_endTime = Lens.lens (\DescribeEvents' {endTime} -> endTime) (\s@D
 -- Constraints: minimum 20, maximum 100.
 describeEvents_maxRecords :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Int)
 describeEvents_maxRecords = Lens.lens (\DescribeEvents' {maxRecords} -> maxRecords) (\s@DescribeEvents' {} a -> s {maxRecords = a} :: DescribeEvents)
-
--- | The number of minutes prior to the time of the request for which to
--- retrieve events. For example, if the request is sent at 18:00 and you
--- specify a duration of 60, then only events which have occurred after
--- 17:00 will be returned.
---
--- Default: @60@
-describeEvents_duration :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Int)
-describeEvents_duration = Lens.lens (\DescribeEvents' {duration} -> duration) (\s@DescribeEvents' {} a -> s {duration = a} :: DescribeEvents)
 
 -- | The identifier of the event source for which events will be returned. If
 -- this parameter is not specified, then all sources are included in the
@@ -311,6 +291,26 @@ describeEvents_duration = Lens.lens (\DescribeEvents' {duration} -> duration) (\
 --     @cluster-snapshot@.
 describeEvents_sourceIdentifier :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Text)
 describeEvents_sourceIdentifier = Lens.lens (\DescribeEvents' {sourceIdentifier} -> sourceIdentifier) (\s@DescribeEvents' {} a -> s {sourceIdentifier = a} :: DescribeEvents)
+
+-- | The event source to retrieve events for. If no value is specified, all
+-- events are returned.
+--
+-- Constraints:
+--
+-- If /SourceType/ is supplied, /SourceIdentifier/ must also be provided.
+--
+-- -   Specify @cluster@ when /SourceIdentifier/ is a cluster identifier.
+--
+-- -   Specify @cluster-security-group@ when /SourceIdentifier/ is a
+--     cluster security group name.
+--
+-- -   Specify @cluster-parameter-group@ when /SourceIdentifier/ is a
+--     cluster parameter group name.
+--
+-- -   Specify @cluster-snapshot@ when /SourceIdentifier/ is a cluster
+--     snapshot identifier.
+describeEvents_sourceType :: Lens.Lens' DescribeEvents (Prelude.Maybe SourceType)
+describeEvents_sourceType = Lens.lens (\DescribeEvents' {sourceType} -> sourceType) (\s@DescribeEvents' {} a -> s {sourceType = a} :: DescribeEvents)
 
 -- | The beginning of the time interval to retrieve events for, specified in
 -- ISO 8601 format. For more information about ISO 8601, go to the
@@ -350,31 +350,31 @@ instance Core.AWSRequest DescribeEvents where
       "DescribeEventsResult"
       ( \s h x ->
           DescribeEventsResponse'
-            Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> ( x Data..@? "Events" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Events" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "Event")
                         )
+            Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeEvents where
   hashWithSalt _salt DescribeEvents' {..} =
-    _salt `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` sourceType
+    _salt `Prelude.hashWithSalt` duration
       `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
-      `Prelude.hashWithSalt` duration
       `Prelude.hashWithSalt` sourceIdentifier
+      `Prelude.hashWithSalt` sourceType
       `Prelude.hashWithSalt` startTime
 
 instance Prelude.NFData DescribeEvents where
   rnf DescribeEvents' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf sourceType
+    Prelude.rnf duration
       `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf duration
       `Prelude.seq` Prelude.rnf sourceIdentifier
+      `Prelude.seq` Prelude.rnf sourceType
       `Prelude.seq` Prelude.rnf startTime
 
 instance Data.ToHeaders DescribeEvents where
@@ -390,12 +390,12 @@ instance Data.ToQuery DescribeEvents where
           Data.=: ("DescribeEvents" :: Prelude.ByteString),
         "Version"
           Data.=: ("2012-12-01" :: Prelude.ByteString),
-        "Marker" Data.=: marker,
-        "SourceType" Data.=: sourceType,
-        "EndTime" Data.=: endTime,
-        "MaxRecords" Data.=: maxRecords,
         "Duration" Data.=: duration,
+        "EndTime" Data.=: endTime,
+        "Marker" Data.=: marker,
+        "MaxRecords" Data.=: maxRecords,
         "SourceIdentifier" Data.=: sourceIdentifier,
+        "SourceType" Data.=: sourceType,
         "StartTime" Data.=: startTime
       ]
 
@@ -403,15 +403,15 @@ instance Data.ToQuery DescribeEvents where
 --
 -- /See:/ 'newDescribeEventsResponse' smart constructor.
 data DescribeEventsResponse = DescribeEventsResponse'
-  { -- | A value that indicates the starting point for the next set of response
+  { -- | A list of @Event@ instances.
+    events :: Prelude.Maybe [Event],
+    -- | A value that indicates the starting point for the next set of response
     -- records in a subsequent request. If a value is returned in a response,
     -- you can retrieve the next set of records by providing this returned
     -- marker value in the @Marker@ parameter and retrying the command. If the
     -- @Marker@ field is empty, all response records have been retrieved for
     -- the request.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | A list of @Event@ instances.
-    events :: Prelude.Maybe [Event],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -425,14 +425,14 @@ data DescribeEventsResponse = DescribeEventsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'events', 'describeEventsResponse_events' - A list of @Event@ instances.
+--
 -- 'marker', 'describeEventsResponse_marker' - A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
 -- you can retrieve the next set of records by providing this returned
 -- marker value in the @Marker@ parameter and retrying the command. If the
 -- @Marker@ field is empty, all response records have been retrieved for
 -- the request.
---
--- 'events', 'describeEventsResponse_events' - A list of @Event@ instances.
 --
 -- 'httpStatus', 'describeEventsResponse_httpStatus' - The response's http status code.
 newDescribeEventsResponse ::
@@ -441,10 +441,14 @@ newDescribeEventsResponse ::
   DescribeEventsResponse
 newDescribeEventsResponse pHttpStatus_ =
   DescribeEventsResponse'
-    { marker = Prelude.Nothing,
-      events = Prelude.Nothing,
+    { events = Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of @Event@ instances.
+describeEventsResponse_events :: Lens.Lens' DescribeEventsResponse (Prelude.Maybe [Event])
+describeEventsResponse_events = Lens.lens (\DescribeEventsResponse' {events} -> events) (\s@DescribeEventsResponse' {} a -> s {events = a} :: DescribeEventsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -455,16 +459,12 @@ newDescribeEventsResponse pHttpStatus_ =
 describeEventsResponse_marker :: Lens.Lens' DescribeEventsResponse (Prelude.Maybe Prelude.Text)
 describeEventsResponse_marker = Lens.lens (\DescribeEventsResponse' {marker} -> marker) (\s@DescribeEventsResponse' {} a -> s {marker = a} :: DescribeEventsResponse)
 
--- | A list of @Event@ instances.
-describeEventsResponse_events :: Lens.Lens' DescribeEventsResponse (Prelude.Maybe [Event])
-describeEventsResponse_events = Lens.lens (\DescribeEventsResponse' {events} -> events) (\s@DescribeEventsResponse' {} a -> s {events = a} :: DescribeEventsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 describeEventsResponse_httpStatus :: Lens.Lens' DescribeEventsResponse Prelude.Int
 describeEventsResponse_httpStatus = Lens.lens (\DescribeEventsResponse' {httpStatus} -> httpStatus) (\s@DescribeEventsResponse' {} a -> s {httpStatus = a} :: DescribeEventsResponse)
 
 instance Prelude.NFData DescribeEventsResponse where
   rnf DescribeEventsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf events
+    Prelude.rnf events
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf httpStatus

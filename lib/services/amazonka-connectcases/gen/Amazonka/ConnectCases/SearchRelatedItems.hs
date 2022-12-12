@@ -32,9 +32,9 @@ module Amazonka.ConnectCases.SearchRelatedItems
     newSearchRelatedItems,
 
     -- * Request Lenses
-    searchRelatedItems_nextToken,
     searchRelatedItems_filters,
     searchRelatedItems_maxResults,
+    searchRelatedItems_nextToken,
     searchRelatedItems_caseId,
     searchRelatedItems_domainId,
 
@@ -59,15 +59,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSearchRelatedItems' smart constructor.
 data SearchRelatedItems = SearchRelatedItems'
-  { -- | The token for the next set of results. Use the value returned in the
-    -- previous response in the next request to retrieve the next set of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of types of related items and their parameters to use for
+  { -- | The list of types of related items and their parameters to use for
     -- filtering.
     filters :: Prelude.Maybe [RelatedItemTypeFilter],
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. Use the value returned in the
+    -- previous response in the next request to retrieve the next set of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier of the case.
     caseId :: Prelude.Text,
     -- | The unique identifier of the Cases domain.
@@ -83,14 +83,14 @@ data SearchRelatedItems = SearchRelatedItems'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'searchRelatedItems_nextToken' - The token for the next set of results. Use the value returned in the
--- previous response in the next request to retrieve the next set of
--- results.
---
 -- 'filters', 'searchRelatedItems_filters' - The list of types of related items and their parameters to use for
 -- filtering.
 --
 -- 'maxResults', 'searchRelatedItems_maxResults' - The maximum number of results to return per page.
+--
+-- 'nextToken', 'searchRelatedItems_nextToken' - The token for the next set of results. Use the value returned in the
+-- previous response in the next request to retrieve the next set of
+-- results.
 --
 -- 'caseId', 'searchRelatedItems_caseId' - A unique identifier of the case.
 --
@@ -103,18 +103,12 @@ newSearchRelatedItems ::
   SearchRelatedItems
 newSearchRelatedItems pCaseId_ pDomainId_ =
   SearchRelatedItems'
-    { nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
+    { filters = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       caseId = pCaseId_,
       domainId = pDomainId_
     }
-
--- | The token for the next set of results. Use the value returned in the
--- previous response in the next request to retrieve the next set of
--- results.
-searchRelatedItems_nextToken :: Lens.Lens' SearchRelatedItems (Prelude.Maybe Prelude.Text)
-searchRelatedItems_nextToken = Lens.lens (\SearchRelatedItems' {nextToken} -> nextToken) (\s@SearchRelatedItems' {} a -> s {nextToken = a} :: SearchRelatedItems)
 
 -- | The list of types of related items and their parameters to use for
 -- filtering.
@@ -124,6 +118,12 @@ searchRelatedItems_filters = Lens.lens (\SearchRelatedItems' {filters} -> filter
 -- | The maximum number of results to return per page.
 searchRelatedItems_maxResults :: Lens.Lens' SearchRelatedItems (Prelude.Maybe Prelude.Natural)
 searchRelatedItems_maxResults = Lens.lens (\SearchRelatedItems' {maxResults} -> maxResults) (\s@SearchRelatedItems' {} a -> s {maxResults = a} :: SearchRelatedItems)
+
+-- | The token for the next set of results. Use the value returned in the
+-- previous response in the next request to retrieve the next set of
+-- results.
+searchRelatedItems_nextToken :: Lens.Lens' SearchRelatedItems (Prelude.Maybe Prelude.Text)
+searchRelatedItems_nextToken = Lens.lens (\SearchRelatedItems' {nextToken} -> nextToken) (\s@SearchRelatedItems' {} a -> s {nextToken = a} :: SearchRelatedItems)
 
 -- | A unique identifier of the case.
 searchRelatedItems_caseId :: Lens.Lens' SearchRelatedItems Prelude.Text
@@ -169,17 +169,17 @@ instance Core.AWSRequest SearchRelatedItems where
 
 instance Prelude.Hashable SearchRelatedItems where
   hashWithSalt _salt SearchRelatedItems' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` caseId
       `Prelude.hashWithSalt` domainId
 
 instance Prelude.NFData SearchRelatedItems where
   rnf SearchRelatedItems' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf caseId
       `Prelude.seq` Prelude.rnf domainId
 
@@ -198,9 +198,9 @@ instance Data.ToJSON SearchRelatedItems where
   toJSON SearchRelatedItems' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("filters" Data..=) Prelude.<$> filters,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("filters" Data..=) Prelude.<$> filters,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

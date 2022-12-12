@@ -29,16 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeviceType' smart constructor.
 data DeviceType = DeviceType'
-  { -- | The device key.
+  { -- | The device attributes.
+    deviceAttributes :: Prelude.Maybe [AttributeType],
+    -- | The creation date of the device.
+    deviceCreateDate :: Prelude.Maybe Data.POSIX,
+    -- | The device key.
     deviceKey :: Prelude.Maybe Prelude.Text,
     -- | The date when the device was last authenticated.
     deviceLastAuthenticatedDate :: Prelude.Maybe Data.POSIX,
-    -- | The device attributes.
-    deviceAttributes :: Prelude.Maybe [AttributeType],
     -- | The last modified date of the device.
-    deviceLastModifiedDate :: Prelude.Maybe Data.POSIX,
-    -- | The creation date of the device.
-    deviceCreateDate :: Prelude.Maybe Data.POSIX
+    deviceLastModifiedDate :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -50,25 +50,33 @@ data DeviceType = DeviceType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'deviceAttributes', 'deviceType_deviceAttributes' - The device attributes.
+--
+-- 'deviceCreateDate', 'deviceType_deviceCreateDate' - The creation date of the device.
+--
 -- 'deviceKey', 'deviceType_deviceKey' - The device key.
 --
 -- 'deviceLastAuthenticatedDate', 'deviceType_deviceLastAuthenticatedDate' - The date when the device was last authenticated.
 --
--- 'deviceAttributes', 'deviceType_deviceAttributes' - The device attributes.
---
 -- 'deviceLastModifiedDate', 'deviceType_deviceLastModifiedDate' - The last modified date of the device.
---
--- 'deviceCreateDate', 'deviceType_deviceCreateDate' - The creation date of the device.
 newDeviceType ::
   DeviceType
 newDeviceType =
   DeviceType'
-    { deviceKey = Prelude.Nothing,
+    { deviceAttributes = Prelude.Nothing,
+      deviceCreateDate = Prelude.Nothing,
+      deviceKey = Prelude.Nothing,
       deviceLastAuthenticatedDate = Prelude.Nothing,
-      deviceAttributes = Prelude.Nothing,
-      deviceLastModifiedDate = Prelude.Nothing,
-      deviceCreateDate = Prelude.Nothing
+      deviceLastModifiedDate = Prelude.Nothing
     }
+
+-- | The device attributes.
+deviceType_deviceAttributes :: Lens.Lens' DeviceType (Prelude.Maybe [AttributeType])
+deviceType_deviceAttributes = Lens.lens (\DeviceType' {deviceAttributes} -> deviceAttributes) (\s@DeviceType' {} a -> s {deviceAttributes = a} :: DeviceType) Prelude.. Lens.mapping Lens.coerced
+
+-- | The creation date of the device.
+deviceType_deviceCreateDate :: Lens.Lens' DeviceType (Prelude.Maybe Prelude.UTCTime)
+deviceType_deviceCreateDate = Lens.lens (\DeviceType' {deviceCreateDate} -> deviceCreateDate) (\s@DeviceType' {} a -> s {deviceCreateDate = a} :: DeviceType) Prelude.. Lens.mapping Data._Time
 
 -- | The device key.
 deviceType_deviceKey :: Lens.Lens' DeviceType (Prelude.Maybe Prelude.Text)
@@ -78,17 +86,9 @@ deviceType_deviceKey = Lens.lens (\DeviceType' {deviceKey} -> deviceKey) (\s@Dev
 deviceType_deviceLastAuthenticatedDate :: Lens.Lens' DeviceType (Prelude.Maybe Prelude.UTCTime)
 deviceType_deviceLastAuthenticatedDate = Lens.lens (\DeviceType' {deviceLastAuthenticatedDate} -> deviceLastAuthenticatedDate) (\s@DeviceType' {} a -> s {deviceLastAuthenticatedDate = a} :: DeviceType) Prelude.. Lens.mapping Data._Time
 
--- | The device attributes.
-deviceType_deviceAttributes :: Lens.Lens' DeviceType (Prelude.Maybe [AttributeType])
-deviceType_deviceAttributes = Lens.lens (\DeviceType' {deviceAttributes} -> deviceAttributes) (\s@DeviceType' {} a -> s {deviceAttributes = a} :: DeviceType) Prelude.. Lens.mapping Lens.coerced
-
 -- | The last modified date of the device.
 deviceType_deviceLastModifiedDate :: Lens.Lens' DeviceType (Prelude.Maybe Prelude.UTCTime)
 deviceType_deviceLastModifiedDate = Lens.lens (\DeviceType' {deviceLastModifiedDate} -> deviceLastModifiedDate) (\s@DeviceType' {} a -> s {deviceLastModifiedDate = a} :: DeviceType) Prelude.. Lens.mapping Data._Time
-
--- | The creation date of the device.
-deviceType_deviceCreateDate :: Lens.Lens' DeviceType (Prelude.Maybe Prelude.UTCTime)
-deviceType_deviceCreateDate = Lens.lens (\DeviceType' {deviceCreateDate} -> deviceCreateDate) (\s@DeviceType' {} a -> s {deviceCreateDate = a} :: DeviceType) Prelude.. Lens.mapping Data._Time
 
 instance Data.FromJSON DeviceType where
   parseJSON =
@@ -96,27 +96,27 @@ instance Data.FromJSON DeviceType where
       "DeviceType"
       ( \x ->
           DeviceType'
-            Prelude.<$> (x Data..:? "DeviceKey")
-            Prelude.<*> (x Data..:? "DeviceLastAuthenticatedDate")
-            Prelude.<*> ( x Data..:? "DeviceAttributes"
+            Prelude.<$> ( x Data..:? "DeviceAttributes"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "DeviceLastModifiedDate")
             Prelude.<*> (x Data..:? "DeviceCreateDate")
+            Prelude.<*> (x Data..:? "DeviceKey")
+            Prelude.<*> (x Data..:? "DeviceLastAuthenticatedDate")
+            Prelude.<*> (x Data..:? "DeviceLastModifiedDate")
       )
 
 instance Prelude.Hashable DeviceType where
   hashWithSalt _salt DeviceType' {..} =
-    _salt `Prelude.hashWithSalt` deviceKey
-      `Prelude.hashWithSalt` deviceLastAuthenticatedDate
-      `Prelude.hashWithSalt` deviceAttributes
-      `Prelude.hashWithSalt` deviceLastModifiedDate
+    _salt `Prelude.hashWithSalt` deviceAttributes
       `Prelude.hashWithSalt` deviceCreateDate
+      `Prelude.hashWithSalt` deviceKey
+      `Prelude.hashWithSalt` deviceLastAuthenticatedDate
+      `Prelude.hashWithSalt` deviceLastModifiedDate
 
 instance Prelude.NFData DeviceType where
   rnf DeviceType' {..} =
-    Prelude.rnf deviceKey
-      `Prelude.seq` Prelude.rnf deviceLastAuthenticatedDate
-      `Prelude.seq` Prelude.rnf deviceAttributes
-      `Prelude.seq` Prelude.rnf deviceLastModifiedDate
+    Prelude.rnf deviceAttributes
       `Prelude.seq` Prelude.rnf deviceCreateDate
+      `Prelude.seq` Prelude.rnf deviceKey
+      `Prelude.seq` Prelude.rnf deviceLastAuthenticatedDate
+      `Prelude.seq` Prelude.rnf deviceLastModifiedDate

@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEncryptionConfiguration' smart constructor.
 data EncryptionConfiguration = EncryptionConfiguration'
-  { -- | Specifically override existing encryption information to ensure that no
+  { -- | The encryption key.
+    kmsEncryptionConfig :: Prelude.Maybe KMSEncryptionConfig,
+    -- | Specifically override existing encryption information to ensure that no
     -- encryption is used.
-    noEncryptionConfig :: Prelude.Maybe NoEncryptionConfig,
-    -- | The encryption key.
-    kmsEncryptionConfig :: Prelude.Maybe KMSEncryptionConfig
+    noEncryptionConfig :: Prelude.Maybe NoEncryptionConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,27 +46,27 @@ data EncryptionConfiguration = EncryptionConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'kmsEncryptionConfig', 'encryptionConfiguration_kmsEncryptionConfig' - The encryption key.
+--
 -- 'noEncryptionConfig', 'encryptionConfiguration_noEncryptionConfig' - Specifically override existing encryption information to ensure that no
 -- encryption is used.
---
--- 'kmsEncryptionConfig', 'encryptionConfiguration_kmsEncryptionConfig' - The encryption key.
 newEncryptionConfiguration ::
   EncryptionConfiguration
 newEncryptionConfiguration =
   EncryptionConfiguration'
-    { noEncryptionConfig =
+    { kmsEncryptionConfig =
         Prelude.Nothing,
-      kmsEncryptionConfig = Prelude.Nothing
+      noEncryptionConfig = Prelude.Nothing
     }
+
+-- | The encryption key.
+encryptionConfiguration_kmsEncryptionConfig :: Lens.Lens' EncryptionConfiguration (Prelude.Maybe KMSEncryptionConfig)
+encryptionConfiguration_kmsEncryptionConfig = Lens.lens (\EncryptionConfiguration' {kmsEncryptionConfig} -> kmsEncryptionConfig) (\s@EncryptionConfiguration' {} a -> s {kmsEncryptionConfig = a} :: EncryptionConfiguration)
 
 -- | Specifically override existing encryption information to ensure that no
 -- encryption is used.
 encryptionConfiguration_noEncryptionConfig :: Lens.Lens' EncryptionConfiguration (Prelude.Maybe NoEncryptionConfig)
 encryptionConfiguration_noEncryptionConfig = Lens.lens (\EncryptionConfiguration' {noEncryptionConfig} -> noEncryptionConfig) (\s@EncryptionConfiguration' {} a -> s {noEncryptionConfig = a} :: EncryptionConfiguration)
-
--- | The encryption key.
-encryptionConfiguration_kmsEncryptionConfig :: Lens.Lens' EncryptionConfiguration (Prelude.Maybe KMSEncryptionConfig)
-encryptionConfiguration_kmsEncryptionConfig = Lens.lens (\EncryptionConfiguration' {kmsEncryptionConfig} -> kmsEncryptionConfig) (\s@EncryptionConfiguration' {} a -> s {kmsEncryptionConfig = a} :: EncryptionConfiguration)
 
 instance Data.FromJSON EncryptionConfiguration where
   parseJSON =
@@ -74,27 +74,27 @@ instance Data.FromJSON EncryptionConfiguration where
       "EncryptionConfiguration"
       ( \x ->
           EncryptionConfiguration'
-            Prelude.<$> (x Data..:? "NoEncryptionConfig")
-            Prelude.<*> (x Data..:? "KMSEncryptionConfig")
+            Prelude.<$> (x Data..:? "KMSEncryptionConfig")
+            Prelude.<*> (x Data..:? "NoEncryptionConfig")
       )
 
 instance Prelude.Hashable EncryptionConfiguration where
   hashWithSalt _salt EncryptionConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` noEncryptionConfig
-      `Prelude.hashWithSalt` kmsEncryptionConfig
+    _salt `Prelude.hashWithSalt` kmsEncryptionConfig
+      `Prelude.hashWithSalt` noEncryptionConfig
 
 instance Prelude.NFData EncryptionConfiguration where
   rnf EncryptionConfiguration' {..} =
-    Prelude.rnf noEncryptionConfig
-      `Prelude.seq` Prelude.rnf kmsEncryptionConfig
+    Prelude.rnf kmsEncryptionConfig
+      `Prelude.seq` Prelude.rnf noEncryptionConfig
 
 instance Data.ToJSON EncryptionConfiguration where
   toJSON EncryptionConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NoEncryptionConfig" Data..=)
-              Prelude.<$> noEncryptionConfig,
-            ("KMSEncryptionConfig" Data..=)
-              Prelude.<$> kmsEncryptionConfig
+          [ ("KMSEncryptionConfig" Data..=)
+              Prelude.<$> kmsEncryptionConfig,
+            ("NoEncryptionConfig" Data..=)
+              Prelude.<$> noEncryptionConfig
           ]
       )

@@ -55,8 +55,8 @@ module Amazonka.QuickSight.GenerateEmbedUrlForRegisteredUser
     newGenerateEmbedUrlForRegisteredUser,
 
     -- * Request Lenses
-    generateEmbedUrlForRegisteredUser_sessionLifetimeInMinutes,
     generateEmbedUrlForRegisteredUser_allowedDomains,
+    generateEmbedUrlForRegisteredUser_sessionLifetimeInMinutes,
     generateEmbedUrlForRegisteredUser_awsAccountId,
     generateEmbedUrlForRegisteredUser_userArn,
     generateEmbedUrlForRegisteredUser_experienceConfiguration,
@@ -82,10 +82,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGenerateEmbedUrlForRegisteredUser' smart constructor.
 data GenerateEmbedUrlForRegisteredUser = GenerateEmbedUrlForRegisteredUser'
-  { -- | How many minutes the session is valid. The session lifetime must be in
-    -- [15-600] minutes range.
-    sessionLifetimeInMinutes :: Prelude.Maybe Prelude.Natural,
-    -- | The domains that you want to add to the allow list for access to the
+  { -- | The domains that you want to add to the allow list for access to the
     -- generated URL that is then embedded. This optional parameter overrides
     -- the static domains that are configured in the Manage QuickSight menu in
     -- the Amazon QuickSight console. Instead, it allows only the domains that
@@ -96,6 +93,9 @@ data GenerateEmbedUrlForRegisteredUser = GenerateEmbedUrlForRegisteredUser'
     -- @*@. For example, @https:\/\/*.sapp.amazon.com@ includes all subdomains
     -- under @https:\/\/sapp.amazon.com@.
     allowedDomains :: Prelude.Maybe [Prelude.Text],
+    -- | How many minutes the session is valid. The session lifetime must be in
+    -- [15-600] minutes range.
+    sessionLifetimeInMinutes :: Prelude.Maybe Prelude.Natural,
     -- | The ID for the Amazon Web Services account that contains the dashboard
     -- that you\'re embedding.
     awsAccountId :: Prelude.Text,
@@ -116,9 +116,6 @@ data GenerateEmbedUrlForRegisteredUser = GenerateEmbedUrlForRegisteredUser'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sessionLifetimeInMinutes', 'generateEmbedUrlForRegisteredUser_sessionLifetimeInMinutes' - How many minutes the session is valid. The session lifetime must be in
--- [15-600] minutes range.
---
 -- 'allowedDomains', 'generateEmbedUrlForRegisteredUser_allowedDomains' - The domains that you want to add to the allow list for access to the
 -- generated URL that is then embedded. This optional parameter overrides
 -- the static domains that are configured in the Manage QuickSight menu in
@@ -129,6 +126,9 @@ data GenerateEmbedUrlForRegisteredUser = GenerateEmbedUrlForRegisteredUser'
 -- To include all subdomains under a specific domain to the allow list, use
 -- @*@. For example, @https:\/\/*.sapp.amazon.com@ includes all subdomains
 -- under @https:\/\/sapp.amazon.com@.
+--
+-- 'sessionLifetimeInMinutes', 'generateEmbedUrlForRegisteredUser_sessionLifetimeInMinutes' - How many minutes the session is valid. The session lifetime must be in
+-- [15-600] minutes range.
 --
 -- 'awsAccountId', 'generateEmbedUrlForRegisteredUser_awsAccountId' - The ID for the Amazon Web Services account that contains the dashboard
 -- that you\'re embedding.
@@ -151,19 +151,15 @@ newGenerateEmbedUrlForRegisteredUser
   pUserArn_
   pExperienceConfiguration_ =
     GenerateEmbedUrlForRegisteredUser'
-      { sessionLifetimeInMinutes =
+      { allowedDomains =
           Prelude.Nothing,
-        allowedDomains = Prelude.Nothing,
+        sessionLifetimeInMinutes =
+          Prelude.Nothing,
         awsAccountId = pAwsAccountId_,
         userArn = pUserArn_,
         experienceConfiguration =
           pExperienceConfiguration_
       }
-
--- | How many minutes the session is valid. The session lifetime must be in
--- [15-600] minutes range.
-generateEmbedUrlForRegisteredUser_sessionLifetimeInMinutes :: Lens.Lens' GenerateEmbedUrlForRegisteredUser (Prelude.Maybe Prelude.Natural)
-generateEmbedUrlForRegisteredUser_sessionLifetimeInMinutes = Lens.lens (\GenerateEmbedUrlForRegisteredUser' {sessionLifetimeInMinutes} -> sessionLifetimeInMinutes) (\s@GenerateEmbedUrlForRegisteredUser' {} a -> s {sessionLifetimeInMinutes = a} :: GenerateEmbedUrlForRegisteredUser)
 
 -- | The domains that you want to add to the allow list for access to the
 -- generated URL that is then embedded. This optional parameter overrides
@@ -177,6 +173,11 @@ generateEmbedUrlForRegisteredUser_sessionLifetimeInMinutes = Lens.lens (\Generat
 -- under @https:\/\/sapp.amazon.com@.
 generateEmbedUrlForRegisteredUser_allowedDomains :: Lens.Lens' GenerateEmbedUrlForRegisteredUser (Prelude.Maybe [Prelude.Text])
 generateEmbedUrlForRegisteredUser_allowedDomains = Lens.lens (\GenerateEmbedUrlForRegisteredUser' {allowedDomains} -> allowedDomains) (\s@GenerateEmbedUrlForRegisteredUser' {} a -> s {allowedDomains = a} :: GenerateEmbedUrlForRegisteredUser) Prelude.. Lens.mapping Lens.coerced
+
+-- | How many minutes the session is valid. The session lifetime must be in
+-- [15-600] minutes range.
+generateEmbedUrlForRegisteredUser_sessionLifetimeInMinutes :: Lens.Lens' GenerateEmbedUrlForRegisteredUser (Prelude.Maybe Prelude.Natural)
+generateEmbedUrlForRegisteredUser_sessionLifetimeInMinutes = Lens.lens (\GenerateEmbedUrlForRegisteredUser' {sessionLifetimeInMinutes} -> sessionLifetimeInMinutes) (\s@GenerateEmbedUrlForRegisteredUser' {} a -> s {sessionLifetimeInMinutes = a} :: GenerateEmbedUrlForRegisteredUser)
 
 -- | The ID for the Amazon Web Services account that contains the dashboard
 -- that you\'re embedding.
@@ -218,9 +219,8 @@ instance
   hashWithSalt
     _salt
     GenerateEmbedUrlForRegisteredUser' {..} =
-      _salt
+      _salt `Prelude.hashWithSalt` allowedDomains
         `Prelude.hashWithSalt` sessionLifetimeInMinutes
-        `Prelude.hashWithSalt` allowedDomains
         `Prelude.hashWithSalt` awsAccountId
         `Prelude.hashWithSalt` userArn
         `Prelude.hashWithSalt` experienceConfiguration
@@ -230,8 +230,8 @@ instance
     GenerateEmbedUrlForRegisteredUser
   where
   rnf GenerateEmbedUrlForRegisteredUser' {..} =
-    Prelude.rnf sessionLifetimeInMinutes
-      `Prelude.seq` Prelude.rnf allowedDomains
+    Prelude.rnf allowedDomains
+      `Prelude.seq` Prelude.rnf sessionLifetimeInMinutes
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf userArn
       `Prelude.seq` Prelude.rnf experienceConfiguration
@@ -257,10 +257,10 @@ instance
   toJSON GenerateEmbedUrlForRegisteredUser' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SessionLifetimeInMinutes" Data..=)
-              Prelude.<$> sessionLifetimeInMinutes,
-            ("AllowedDomains" Data..=)
+          [ ("AllowedDomains" Data..=)
               Prelude.<$> allowedDomains,
+            ("SessionLifetimeInMinutes" Data..=)
+              Prelude.<$> sessionLifetimeInMinutes,
             Prelude.Just ("UserArn" Data..= userArn),
             Prelude.Just
               ( "ExperienceConfiguration"

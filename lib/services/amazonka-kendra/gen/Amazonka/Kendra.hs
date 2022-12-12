@@ -19,38 +19,38 @@ module Amazonka.Kendra
     -- * Errors
     -- $errors
 
-    -- ** ResourceUnavailableException
-    _ResourceUnavailableException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
+
+    -- ** ConflictException
+    _ConflictException,
 
     -- ** InternalServerException
     _InternalServerException,
 
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
+    -- ** InvalidRequestException
+    _InvalidRequestException,
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
+    -- ** ResourceAlreadyExistException
+    _ResourceAlreadyExistException,
 
     -- ** ResourceInUseException
     _ResourceInUseException,
 
-    -- ** ConflictException
-    _ConflictException,
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ResourceUnavailableException
+    _ResourceUnavailableException,
+
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
 
     -- ** ThrottlingException
     _ThrottlingException,
 
     -- ** ValidationException
     _ValidationException,
-
-    -- ** ResourceAlreadyExistException
-    _ResourceAlreadyExistException,
-
-    -- ** InvalidRequestException
-    _InvalidRequestException,
 
     -- * Waiters
     -- $waiters
@@ -527,6 +527,9 @@ module Amazonka.Kendra
 
     -- ** QueryIdentifiersEnclosingOption
     QueryIdentifiersEnclosingOption (..),
+
+    -- ** QueryResultFormat
+    QueryResultFormat (..),
 
     -- ** QueryResultType
     QueryResultType (..),
@@ -1062,6 +1065,18 @@ module Amazonka.Kendra
     -- ** SuggestionValue
     SuggestionValue (SuggestionValue'),
     newSuggestionValue,
+
+    -- ** TableCell
+    TableCell (TableCell'),
+    newTableCell,
+
+    -- ** TableExcerpt
+    TableExcerpt (TableExcerpt'),
+    newTableExcerpt,
+
+    -- ** TableRow
+    TableRow (TableRow'),
+    newTableRow,
 
     -- ** Tag
     Tag (Tag'),

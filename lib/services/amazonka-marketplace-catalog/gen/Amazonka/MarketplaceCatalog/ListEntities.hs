@@ -27,10 +27,10 @@ module Amazonka.MarketplaceCatalog.ListEntities
     newListEntities,
 
     -- * Request Lenses
-    listEntities_nextToken,
     listEntities_filterList,
-    listEntities_sort,
     listEntities_maxResults,
+    listEntities_nextToken,
+    listEntities_sort,
     listEntities_catalog,
     listEntities_entityType,
 
@@ -39,8 +39,8 @@ module Amazonka.MarketplaceCatalog.ListEntities
     newListEntitiesResponse,
 
     -- * Response Lenses
-    listEntitiesResponse_nextToken,
     listEntitiesResponse_entitySummaryList,
+    listEntitiesResponse_nextToken,
     listEntitiesResponse_httpStatus,
   )
 where
@@ -55,17 +55,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListEntities' smart constructor.
 data ListEntities = ListEntities'
-  { -- | The value of the next token, if it exists. Null if there are no more
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of filter objects. Each filter object contains two attributes,
+  { -- | An array of filter objects. Each filter object contains two attributes,
     -- @filterName@ and @filterValues@.
     filterList :: Prelude.Maybe (Prelude.NonEmpty Filter),
-    -- | An object that contains two attributes, @SortBy@ and @SortOrder@.
-    sort :: Prelude.Maybe Sort,
     -- | Specifies the upper limit of the elements on a single page. If a value
     -- isn\'t provided, the default value is 20.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The value of the next token, if it exists. Null if there are no more
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An object that contains two attributes, @SortBy@ and @SortOrder@.
+    sort :: Prelude.Maybe Sort,
     -- | The catalog related to the request. Fixed value: @AWSMarketplace@
     catalog :: Prelude.Text,
     -- | The type of entities to retrieve.
@@ -81,16 +81,16 @@ data ListEntities = ListEntities'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listEntities_nextToken' - The value of the next token, if it exists. Null if there are no more
--- results.
---
 -- 'filterList', 'listEntities_filterList' - An array of filter objects. Each filter object contains two attributes,
 -- @filterName@ and @filterValues@.
 --
--- 'sort', 'listEntities_sort' - An object that contains two attributes, @SortBy@ and @SortOrder@.
---
 -- 'maxResults', 'listEntities_maxResults' - Specifies the upper limit of the elements on a single page. If a value
 -- isn\'t provided, the default value is 20.
+--
+-- 'nextToken', 'listEntities_nextToken' - The value of the next token, if it exists. Null if there are no more
+-- results.
+--
+-- 'sort', 'listEntities_sort' - An object that contains two attributes, @SortBy@ and @SortOrder@.
 --
 -- 'catalog', 'listEntities_catalog' - The catalog related to the request. Fixed value: @AWSMarketplace@
 --
@@ -103,32 +103,32 @@ newListEntities ::
   ListEntities
 newListEntities pCatalog_ pEntityType_ =
   ListEntities'
-    { nextToken = Prelude.Nothing,
-      filterList = Prelude.Nothing,
-      sort = Prelude.Nothing,
+    { filterList = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      sort = Prelude.Nothing,
       catalog = pCatalog_,
       entityType = pEntityType_
     }
-
--- | The value of the next token, if it exists. Null if there are no more
--- results.
-listEntities_nextToken :: Lens.Lens' ListEntities (Prelude.Maybe Prelude.Text)
-listEntities_nextToken = Lens.lens (\ListEntities' {nextToken} -> nextToken) (\s@ListEntities' {} a -> s {nextToken = a} :: ListEntities)
 
 -- | An array of filter objects. Each filter object contains two attributes,
 -- @filterName@ and @filterValues@.
 listEntities_filterList :: Lens.Lens' ListEntities (Prelude.Maybe (Prelude.NonEmpty Filter))
 listEntities_filterList = Lens.lens (\ListEntities' {filterList} -> filterList) (\s@ListEntities' {} a -> s {filterList = a} :: ListEntities) Prelude.. Lens.mapping Lens.coerced
 
--- | An object that contains two attributes, @SortBy@ and @SortOrder@.
-listEntities_sort :: Lens.Lens' ListEntities (Prelude.Maybe Sort)
-listEntities_sort = Lens.lens (\ListEntities' {sort} -> sort) (\s@ListEntities' {} a -> s {sort = a} :: ListEntities)
-
 -- | Specifies the upper limit of the elements on a single page. If a value
 -- isn\'t provided, the default value is 20.
 listEntities_maxResults :: Lens.Lens' ListEntities (Prelude.Maybe Prelude.Natural)
 listEntities_maxResults = Lens.lens (\ListEntities' {maxResults} -> maxResults) (\s@ListEntities' {} a -> s {maxResults = a} :: ListEntities)
+
+-- | The value of the next token, if it exists. Null if there are no more
+-- results.
+listEntities_nextToken :: Lens.Lens' ListEntities (Prelude.Maybe Prelude.Text)
+listEntities_nextToken = Lens.lens (\ListEntities' {nextToken} -> nextToken) (\s@ListEntities' {} a -> s {nextToken = a} :: ListEntities)
+
+-- | An object that contains two attributes, @SortBy@ and @SortOrder@.
+listEntities_sort :: Lens.Lens' ListEntities (Prelude.Maybe Sort)
+listEntities_sort = Lens.lens (\ListEntities' {sort} -> sort) (\s@ListEntities' {} a -> s {sort = a} :: ListEntities)
 
 -- | The catalog related to the request. Fixed value: @AWSMarketplace@
 listEntities_catalog :: Lens.Lens' ListEntities Prelude.Text
@@ -146,28 +146,28 @@ instance Core.AWSRequest ListEntities where
     Response.receiveJSON
       ( \s h x ->
           ListEntitiesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "EntitySummaryList"
+            Prelude.<$> ( x Data..?> "EntitySummaryList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListEntities where
   hashWithSalt _salt ListEntities' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filterList
-      `Prelude.hashWithSalt` sort
+    _salt `Prelude.hashWithSalt` filterList
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sort
       `Prelude.hashWithSalt` catalog
       `Prelude.hashWithSalt` entityType
 
 instance Prelude.NFData ListEntities where
   rnf ListEntities' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filterList
-      `Prelude.seq` Prelude.rnf sort
+    Prelude.rnf filterList
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sort
       `Prelude.seq` Prelude.rnf catalog
       `Prelude.seq` Prelude.rnf entityType
 
@@ -186,10 +186,10 @@ instance Data.ToJSON ListEntities where
   toJSON ListEntities' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("FilterList" Data..=) Prelude.<$> filterList,
-            ("Sort" Data..=) Prelude.<$> sort,
+          [ ("FilterList" Data..=) Prelude.<$> filterList,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Sort" Data..=) Prelude.<$> sort,
             Prelude.Just ("Catalog" Data..= catalog),
             Prelude.Just ("EntityType" Data..= entityType)
           ]
@@ -203,11 +203,11 @@ instance Data.ToQuery ListEntities where
 
 -- | /See:/ 'newListEntitiesResponse' smart constructor.
 data ListEntitiesResponse = ListEntitiesResponse'
-  { -- | The value of the next token if it exists. Null if there is no more
+  { -- | Array of @EntitySummary@ object.
+    entitySummaryList :: Prelude.Maybe [EntitySummary],
+    -- | The value of the next token if it exists. Null if there is no more
     -- result.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Array of @EntitySummary@ object.
-    entitySummaryList :: Prelude.Maybe [EntitySummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -221,10 +221,10 @@ data ListEntitiesResponse = ListEntitiesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'entitySummaryList', 'listEntitiesResponse_entitySummaryList' - Array of @EntitySummary@ object.
+--
 -- 'nextToken', 'listEntitiesResponse_nextToken' - The value of the next token if it exists. Null if there is no more
 -- result.
---
--- 'entitySummaryList', 'listEntitiesResponse_entitySummaryList' - Array of @EntitySummary@ object.
 --
 -- 'httpStatus', 'listEntitiesResponse_httpStatus' - The response's http status code.
 newListEntitiesResponse ::
@@ -233,19 +233,20 @@ newListEntitiesResponse ::
   ListEntitiesResponse
 newListEntitiesResponse pHttpStatus_ =
   ListEntitiesResponse'
-    { nextToken = Prelude.Nothing,
-      entitySummaryList = Prelude.Nothing,
+    { entitySummaryList =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Array of @EntitySummary@ object.
+listEntitiesResponse_entitySummaryList :: Lens.Lens' ListEntitiesResponse (Prelude.Maybe [EntitySummary])
+listEntitiesResponse_entitySummaryList = Lens.lens (\ListEntitiesResponse' {entitySummaryList} -> entitySummaryList) (\s@ListEntitiesResponse' {} a -> s {entitySummaryList = a} :: ListEntitiesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The value of the next token if it exists. Null if there is no more
 -- result.
 listEntitiesResponse_nextToken :: Lens.Lens' ListEntitiesResponse (Prelude.Maybe Prelude.Text)
 listEntitiesResponse_nextToken = Lens.lens (\ListEntitiesResponse' {nextToken} -> nextToken) (\s@ListEntitiesResponse' {} a -> s {nextToken = a} :: ListEntitiesResponse)
-
--- | Array of @EntitySummary@ object.
-listEntitiesResponse_entitySummaryList :: Lens.Lens' ListEntitiesResponse (Prelude.Maybe [EntitySummary])
-listEntitiesResponse_entitySummaryList = Lens.lens (\ListEntitiesResponse' {entitySummaryList} -> entitySummaryList) (\s@ListEntitiesResponse' {} a -> s {entitySummaryList = a} :: ListEntitiesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listEntitiesResponse_httpStatus :: Lens.Lens' ListEntitiesResponse Prelude.Int
@@ -253,6 +254,6 @@ listEntitiesResponse_httpStatus = Lens.lens (\ListEntitiesResponse' {httpStatus}
 
 instance Prelude.NFData ListEntitiesResponse where
   rnf ListEntitiesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf entitySummaryList
+    Prelude.rnf entitySummaryList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

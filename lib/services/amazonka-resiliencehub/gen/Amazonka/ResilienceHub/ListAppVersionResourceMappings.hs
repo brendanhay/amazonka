@@ -29,8 +29,8 @@ module Amazonka.ResilienceHub.ListAppVersionResourceMappings
     newListAppVersionResourceMappings,
 
     -- * Request Lenses
-    listAppVersionResourceMappings_nextToken,
     listAppVersionResourceMappings_maxResults,
+    listAppVersionResourceMappings_nextToken,
     listAppVersionResourceMappings_appArn,
     listAppVersionResourceMappings_appVersion,
 
@@ -55,12 +55,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAppVersionResourceMappings' smart constructor.
 data ListAppVersionResourceMappings = ListAppVersionResourceMappings'
-  { -- | Null, or the token from a previous call to get the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to include in the response. If more
+  { -- | The maximum number of results to include in the response. If more
     -- results exist than the specified @MaxResults@ value, a token is included
     -- in the response so that the remaining results can be retrieved.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Null, or the token from a previous call to get the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the application. The format for this
     -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
     -- For more information about ARNs, see
@@ -80,11 +80,11 @@ data ListAppVersionResourceMappings = ListAppVersionResourceMappings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAppVersionResourceMappings_nextToken' - Null, or the token from a previous call to get the next set of results.
---
 -- 'maxResults', 'listAppVersionResourceMappings_maxResults' - The maximum number of results to include in the response. If more
 -- results exist than the specified @MaxResults@ value, a token is included
 -- in the response so that the remaining results can be retrieved.
+--
+-- 'nextToken', 'listAppVersionResourceMappings_nextToken' - Null, or the token from a previous call to get the next set of results.
 --
 -- 'appArn', 'listAppVersionResourceMappings_appArn' - The Amazon Resource Name (ARN) of the application. The format for this
 -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
@@ -103,22 +103,22 @@ newListAppVersionResourceMappings
   pAppArn_
   pAppVersion_ =
     ListAppVersionResourceMappings'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         appArn = pAppArn_,
         appVersion = pAppVersion_
       }
-
--- | Null, or the token from a previous call to get the next set of results.
-listAppVersionResourceMappings_nextToken :: Lens.Lens' ListAppVersionResourceMappings (Prelude.Maybe Prelude.Text)
-listAppVersionResourceMappings_nextToken = Lens.lens (\ListAppVersionResourceMappings' {nextToken} -> nextToken) (\s@ListAppVersionResourceMappings' {} a -> s {nextToken = a} :: ListAppVersionResourceMappings)
 
 -- | The maximum number of results to include in the response. If more
 -- results exist than the specified @MaxResults@ value, a token is included
 -- in the response so that the remaining results can be retrieved.
 listAppVersionResourceMappings_maxResults :: Lens.Lens' ListAppVersionResourceMappings (Prelude.Maybe Prelude.Natural)
 listAppVersionResourceMappings_maxResults = Lens.lens (\ListAppVersionResourceMappings' {maxResults} -> maxResults) (\s@ListAppVersionResourceMappings' {} a -> s {maxResults = a} :: ListAppVersionResourceMappings)
+
+-- | Null, or the token from a previous call to get the next set of results.
+listAppVersionResourceMappings_nextToken :: Lens.Lens' ListAppVersionResourceMappings (Prelude.Maybe Prelude.Text)
+listAppVersionResourceMappings_nextToken = Lens.lens (\ListAppVersionResourceMappings' {nextToken} -> nextToken) (\s@ListAppVersionResourceMappings' {} a -> s {nextToken = a} :: ListAppVersionResourceMappings)
 
 -- | The Amazon Resource Name (ARN) of the application. The format for this
 -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
@@ -159,8 +159,8 @@ instance
   hashWithSalt
     _salt
     ListAppVersionResourceMappings' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` appArn
         `Prelude.hashWithSalt` appVersion
 
@@ -169,8 +169,8 @@ instance
     ListAppVersionResourceMappings
   where
   rnf ListAppVersionResourceMappings' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf appArn
       `Prelude.seq` Prelude.rnf appVersion
 
@@ -192,8 +192,8 @@ instance Data.ToJSON ListAppVersionResourceMappings where
   toJSON ListAppVersionResourceMappings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("appArn" Data..= appArn),
             Prelude.Just ("appVersion" Data..= appVersion)
           ]

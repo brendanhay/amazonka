@@ -29,13 +29,13 @@ module Amazonka.AlexaBusiness.Lens
     associateDeviceWithNetworkProfileResponse_httpStatus,
 
     -- ** AssociateDeviceWithRoom
-    associateDeviceWithRoom_roomArn,
     associateDeviceWithRoom_deviceArn,
+    associateDeviceWithRoom_roomArn,
     associateDeviceWithRoomResponse_httpStatus,
 
     -- ** AssociateSkillGroupWithRoom
-    associateSkillGroupWithRoom_skillGroupArn,
     associateSkillGroupWithRoom_roomArn,
+    associateSkillGroupWithRoom_skillGroupArn,
     associateSkillGroupWithRoomResponse_httpStatus,
 
     -- ** AssociateSkillWithSkillGroup
@@ -48,30 +48,30 @@ module Amazonka.AlexaBusiness.Lens
     associateSkillWithUsersResponse_httpStatus,
 
     -- ** CreateAddressBook
-    createAddressBook_tags,
     createAddressBook_clientRequestToken,
     createAddressBook_description,
+    createAddressBook_tags,
     createAddressBook_name,
     createAddressBookResponse_addressBookArn,
     createAddressBookResponse_httpStatus,
 
     -- ** CreateBusinessReportSchedule
-    createBusinessReportSchedule_tags,
-    createBusinessReportSchedule_s3KeyPrefix,
     createBusinessReportSchedule_clientRequestToken,
-    createBusinessReportSchedule_s3BucketName,
     createBusinessReportSchedule_recurrence,
+    createBusinessReportSchedule_s3BucketName,
+    createBusinessReportSchedule_s3KeyPrefix,
     createBusinessReportSchedule_scheduleName,
+    createBusinessReportSchedule_tags,
     createBusinessReportSchedule_format,
     createBusinessReportSchedule_contentRange,
     createBusinessReportScheduleResponse_scheduleArn,
     createBusinessReportScheduleResponse_httpStatus,
 
     -- ** CreateConferenceProvider
-    createConferenceProvider_tags,
-    createConferenceProvider_iPDialIn,
     createConferenceProvider_clientRequestToken,
+    createConferenceProvider_iPDialIn,
     createConferenceProvider_pSTNDialIn,
+    createConferenceProvider_tags,
     createConferenceProvider_conferenceProviderName,
     createConferenceProvider_conferenceProviderType,
     createConferenceProvider_meetingSetting,
@@ -79,33 +79,33 @@ module Amazonka.AlexaBusiness.Lens
     createConferenceProviderResponse_httpStatus,
 
     -- ** CreateContact
-    createContact_tags,
     createContact_clientRequestToken,
-    createContact_sipAddresses,
     createContact_displayName,
     createContact_lastName,
     createContact_phoneNumber,
     createContact_phoneNumbers,
+    createContact_sipAddresses,
+    createContact_tags,
     createContact_firstName,
     createContactResponse_contactArn,
     createContactResponse_httpStatus,
 
     -- ** CreateGatewayGroup
-    createGatewayGroup_tags,
     createGatewayGroup_description,
+    createGatewayGroup_tags,
     createGatewayGroup_name,
     createGatewayGroup_clientRequestToken,
     createGatewayGroupResponse_gatewayGroupArn,
     createGatewayGroupResponse_httpStatus,
 
     -- ** CreateNetworkProfile
-    createNetworkProfile_tags,
     createNetworkProfile_certificateAuthorityArn,
+    createNetworkProfile_currentPassword,
     createNetworkProfile_description,
     createNetworkProfile_eapMethod,
-    createNetworkProfile_trustAnchors,
-    createNetworkProfile_currentPassword,
     createNetworkProfile_nextPassword,
+    createNetworkProfile_tags,
+    createNetworkProfile_trustAnchors,
     createNetworkProfile_networkProfileName,
     createNetworkProfile_ssid,
     createNetworkProfile_securityType,
@@ -114,14 +114,14 @@ module Amazonka.AlexaBusiness.Lens
     createNetworkProfileResponse_httpStatus,
 
     -- ** CreateProfile
-    createProfile_tags,
-    createProfile_setupModeDisabled,
     createProfile_clientRequestToken,
     createProfile_dataRetentionOptIn,
     createProfile_locale,
+    createProfile_maxVolumeLimit,
     createProfile_meetingRoomConfiguration,
     createProfile_pSTNEnabled,
-    createProfile_maxVolumeLimit,
+    createProfile_setupModeDisabled,
+    createProfile_tags,
     createProfile_profileName,
     createProfile_timezone,
     createProfile_address,
@@ -132,29 +132,29 @@ module Amazonka.AlexaBusiness.Lens
     createProfileResponse_httpStatus,
 
     -- ** CreateRoom
-    createRoom_tags,
     createRoom_clientRequestToken,
-    createRoom_profileArn,
     createRoom_description,
+    createRoom_profileArn,
     createRoom_providerCalendarId,
+    createRoom_tags,
     createRoom_roomName,
     createRoomResponse_roomArn,
     createRoomResponse_httpStatus,
 
     -- ** CreateSkillGroup
-    createSkillGroup_tags,
     createSkillGroup_clientRequestToken,
     createSkillGroup_description,
+    createSkillGroup_tags,
     createSkillGroup_skillGroupName,
     createSkillGroupResponse_skillGroupArn,
     createSkillGroupResponse_httpStatus,
 
     -- ** CreateUser
-    createUser_tags,
     createUser_clientRequestToken,
-    createUser_firstName,
     createUser_email,
+    createUser_firstName,
     createUser_lastName,
+    createUser_tags,
     createUser_userId,
     createUserResponse_userArn,
     createUserResponse_httpStatus,
@@ -239,8 +239,8 @@ module Amazonka.AlexaBusiness.Lens
     disassociateSkillFromUsersResponse_httpStatus,
 
     -- ** DisassociateSkillGroupFromRoom
-    disassociateSkillGroupFromRoom_skillGroupArn,
     disassociateSkillGroupFromRoom_roomArn,
+    disassociateSkillGroupFromRoom_skillGroupArn,
     disassociateSkillGroupFromRoomResponse_httpStatus,
 
     -- ** ForgetSmartHomeAppliances
@@ -282,9 +282,9 @@ module Amazonka.AlexaBusiness.Lens
     getGatewayGroupResponse_httpStatus,
 
     -- ** GetInvitationConfiguration
-    getInvitationConfigurationResponse_privateSkillIds,
-    getInvitationConfigurationResponse_organizationName,
     getInvitationConfigurationResponse_contactEmail,
+    getInvitationConfigurationResponse_organizationName,
+    getInvitationConfigurationResponse_privateSkillIds,
     getInvitationConfigurationResponse_httpStatus,
 
     -- ** GetNetworkProfile
@@ -315,82 +315,82 @@ module Amazonka.AlexaBusiness.Lens
     getSkillGroupResponse_httpStatus,
 
     -- ** ListBusinessReportSchedules
-    listBusinessReportSchedules_nextToken,
     listBusinessReportSchedules_maxResults,
+    listBusinessReportSchedules_nextToken,
     listBusinessReportSchedulesResponse_businessReportSchedules,
     listBusinessReportSchedulesResponse_nextToken,
     listBusinessReportSchedulesResponse_httpStatus,
 
     -- ** ListConferenceProviders
-    listConferenceProviders_nextToken,
     listConferenceProviders_maxResults,
-    listConferenceProvidersResponse_nextToken,
+    listConferenceProviders_nextToken,
     listConferenceProvidersResponse_conferenceProviders,
+    listConferenceProvidersResponse_nextToken,
     listConferenceProvidersResponse_httpStatus,
 
     -- ** ListDeviceEvents
     listDeviceEvents_eventType,
-    listDeviceEvents_nextToken,
     listDeviceEvents_maxResults,
+    listDeviceEvents_nextToken,
     listDeviceEvents_deviceArn,
-    listDeviceEventsResponse_nextToken,
     listDeviceEventsResponse_deviceEvents,
+    listDeviceEventsResponse_nextToken,
     listDeviceEventsResponse_httpStatus,
 
     -- ** ListGatewayGroups
-    listGatewayGroups_nextToken,
     listGatewayGroups_maxResults,
-    listGatewayGroupsResponse_nextToken,
+    listGatewayGroups_nextToken,
     listGatewayGroupsResponse_gatewayGroups,
+    listGatewayGroupsResponse_nextToken,
     listGatewayGroupsResponse_httpStatus,
 
     -- ** ListGateways
-    listGateways_nextToken,
     listGateways_gatewayGroupArn,
     listGateways_maxResults,
-    listGatewaysResponse_nextToken,
+    listGateways_nextToken,
     listGatewaysResponse_gateways,
+    listGatewaysResponse_nextToken,
     listGatewaysResponse_httpStatus,
 
     -- ** ListSkills
+    listSkills_enablementType,
+    listSkills_maxResults,
     listSkills_nextToken,
     listSkills_skillGroupArn,
-    listSkills_maxResults,
-    listSkills_enablementType,
     listSkills_skillType,
     listSkillsResponse_nextToken,
     listSkillsResponse_skillSummaries,
     listSkillsResponse_httpStatus,
 
     -- ** ListSkillsStoreCategories
-    listSkillsStoreCategories_nextToken,
     listSkillsStoreCategories_maxResults,
+    listSkillsStoreCategories_nextToken,
     listSkillsStoreCategoriesResponse_categoryList,
     listSkillsStoreCategoriesResponse_nextToken,
     listSkillsStoreCategoriesResponse_httpStatus,
 
     -- ** ListSkillsStoreSkillsByCategory
-    listSkillsStoreSkillsByCategory_nextToken,
     listSkillsStoreSkillsByCategory_maxResults,
+    listSkillsStoreSkillsByCategory_nextToken,
     listSkillsStoreSkillsByCategory_categoryId,
     listSkillsStoreSkillsByCategoryResponse_nextToken,
     listSkillsStoreSkillsByCategoryResponse_skillsStoreSkills,
     listSkillsStoreSkillsByCategoryResponse_httpStatus,
 
     -- ** ListSmartHomeAppliances
-    listSmartHomeAppliances_nextToken,
     listSmartHomeAppliances_maxResults,
+    listSmartHomeAppliances_nextToken,
     listSmartHomeAppliances_roomArn,
     listSmartHomeAppliancesResponse_nextToken,
     listSmartHomeAppliancesResponse_smartHomeAppliances,
     listSmartHomeAppliancesResponse_httpStatus,
 
     -- ** ListTags
-    listTags_nextToken,
     listTags_maxResults,
+    listTags_nextToken,
     listTags_arn,
-    listTagsResponse_tags,
     listTagsResponse_nextToken,
+    listTagsResponse_tags,
     listTagsResponse_httpStatus,
 
     -- ** PutConferencePreference
@@ -398,8 +398,8 @@ module Amazonka.AlexaBusiness.Lens
     putConferencePreferenceResponse_httpStatus,
 
     -- ** PutInvitationConfiguration
-    putInvitationConfiguration_privateSkillIds,
     putInvitationConfiguration_contactEmail,
+    putInvitationConfiguration_privateSkillIds,
     putInvitationConfiguration_organizationName,
     putInvitationConfigurationResponse_httpStatus,
 
@@ -416,9 +416,9 @@ module Amazonka.AlexaBusiness.Lens
     putSkillAuthorizationResponse_httpStatus,
 
     -- ** RegisterAVSDevice
-    registerAVSDevice_tags,
     registerAVSDevice_deviceSerialNumber,
     registerAVSDevice_roomArn,
+    registerAVSDevice_tags,
     registerAVSDevice_clientId,
     registerAVSDevice_userCode,
     registerAVSDevice_productId,
@@ -434,8 +434,8 @@ module Amazonka.AlexaBusiness.Lens
     resolveRoom_userId,
     resolveRoom_skillId,
     resolveRoomResponse_roomArn,
-    resolveRoomResponse_roomSkillParameters,
     resolveRoomResponse_roomName,
+    resolveRoomResponse_roomSkillParameters,
     resolveRoomResponse_httpStatus,
 
     -- ** RevokeInvitation
@@ -444,83 +444,83 @@ module Amazonka.AlexaBusiness.Lens
     revokeInvitationResponse_httpStatus,
 
     -- ** SearchAddressBooks
-    searchAddressBooks_sortCriteria,
-    searchAddressBooks_nextToken,
     searchAddressBooks_filters,
     searchAddressBooks_maxResults,
-    searchAddressBooksResponse_nextToken,
+    searchAddressBooks_nextToken,
+    searchAddressBooks_sortCriteria,
     searchAddressBooksResponse_addressBooks,
+    searchAddressBooksResponse_nextToken,
     searchAddressBooksResponse_totalCount,
     searchAddressBooksResponse_httpStatus,
 
     -- ** SearchContacts
-    searchContacts_sortCriteria,
-    searchContacts_nextToken,
     searchContacts_filters,
     searchContacts_maxResults,
-    searchContactsResponse_nextToken,
+    searchContacts_nextToken,
+    searchContacts_sortCriteria,
     searchContactsResponse_contacts,
+    searchContactsResponse_nextToken,
     searchContactsResponse_totalCount,
     searchContactsResponse_httpStatus,
 
     -- ** SearchDevices
-    searchDevices_sortCriteria,
-    searchDevices_nextToken,
     searchDevices_filters,
     searchDevices_maxResults,
+    searchDevices_nextToken,
+    searchDevices_sortCriteria,
     searchDevicesResponse_devices,
     searchDevicesResponse_nextToken,
     searchDevicesResponse_totalCount,
     searchDevicesResponse_httpStatus,
 
     -- ** SearchNetworkProfiles
-    searchNetworkProfiles_sortCriteria,
-    searchNetworkProfiles_nextToken,
     searchNetworkProfiles_filters,
     searchNetworkProfiles_maxResults,
-    searchNetworkProfilesResponse_nextToken,
+    searchNetworkProfiles_nextToken,
+    searchNetworkProfiles_sortCriteria,
     searchNetworkProfilesResponse_networkProfiles,
+    searchNetworkProfilesResponse_nextToken,
     searchNetworkProfilesResponse_totalCount,
     searchNetworkProfilesResponse_httpStatus,
 
     -- ** SearchProfiles
-    searchProfiles_sortCriteria,
-    searchProfiles_nextToken,
     searchProfiles_filters,
     searchProfiles_maxResults,
+    searchProfiles_nextToken,
+    searchProfiles_sortCriteria,
     searchProfilesResponse_nextToken,
     searchProfilesResponse_profiles,
     searchProfilesResponse_totalCount,
     searchProfilesResponse_httpStatus,
 
     -- ** SearchRooms
-    searchRooms_sortCriteria,
-    searchRooms_nextToken,
     searchRooms_filters,
     searchRooms_maxResults,
+    searchRooms_nextToken,
+    searchRooms_sortCriteria,
     searchRoomsResponse_nextToken,
     searchRoomsResponse_rooms,
     searchRoomsResponse_totalCount,
     searchRoomsResponse_httpStatus,
 
     -- ** SearchSkillGroups
-    searchSkillGroups_sortCriteria,
-    searchSkillGroups_nextToken,
     searchSkillGroups_filters,
     searchSkillGroups_maxResults,
+    searchSkillGroups_nextToken,
+    searchSkillGroups_sortCriteria,
     searchSkillGroupsResponse_nextToken,
     searchSkillGroupsResponse_skillGroups,
     searchSkillGroupsResponse_totalCount,
     searchSkillGroupsResponse_httpStatus,
 
     -- ** SearchUsers
-    searchUsers_sortCriteria,
-    searchUsers_nextToken,
     searchUsers_filters,
     searchUsers_maxResults,
+    searchUsers_nextToken,
+    searchUsers_sortCriteria,
     searchUsersResponse_nextToken,
-    searchUsersResponse_users,
     searchUsersResponse_totalCount,
+    searchUsersResponse_users,
     searchUsersResponse_httpStatus,
 
     -- ** SendAnnouncement
@@ -536,8 +536,8 @@ module Amazonka.AlexaBusiness.Lens
     sendInvitationResponse_httpStatus,
 
     -- ** StartDeviceSync
-    startDeviceSync_roomArn,
     startDeviceSync_deviceArn,
+    startDeviceSync_roomArn,
     startDeviceSync_features,
     startDeviceSyncResponse_httpStatus,
 
@@ -556,16 +556,16 @@ module Amazonka.AlexaBusiness.Lens
     untagResourceResponse_httpStatus,
 
     -- ** UpdateAddressBook
-    updateAddressBook_name,
     updateAddressBook_description,
+    updateAddressBook_name,
     updateAddressBook_addressBookArn,
     updateAddressBookResponse_httpStatus,
 
     -- ** UpdateBusinessReportSchedule
-    updateBusinessReportSchedule_s3KeyPrefix,
-    updateBusinessReportSchedule_s3BucketName,
     updateBusinessReportSchedule_format,
     updateBusinessReportSchedule_recurrence,
+    updateBusinessReportSchedule_s3BucketName,
+    updateBusinessReportSchedule_s3KeyPrefix,
     updateBusinessReportSchedule_scheduleName,
     updateBusinessReportSchedule_scheduleArn,
     updateBusinessReportScheduleResponse_httpStatus,
@@ -579,85 +579,85 @@ module Amazonka.AlexaBusiness.Lens
     updateConferenceProviderResponse_httpStatus,
 
     -- ** UpdateContact
-    updateContact_firstName,
-    updateContact_sipAddresses,
     updateContact_displayName,
+    updateContact_firstName,
     updateContact_lastName,
     updateContact_phoneNumber,
     updateContact_phoneNumbers,
+    updateContact_sipAddresses,
     updateContact_contactArn,
     updateContactResponse_httpStatus,
 
     -- ** UpdateDevice
-    updateDevice_deviceName,
     updateDevice_deviceArn,
+    updateDevice_deviceName,
     updateDeviceResponse_httpStatus,
 
     -- ** UpdateGateway
-    updateGateway_name,
     updateGateway_description,
+    updateGateway_name,
     updateGateway_softwareVersion,
     updateGateway_gatewayArn,
     updateGatewayResponse_httpStatus,
 
     -- ** UpdateGatewayGroup
-    updateGatewayGroup_name,
     updateGatewayGroup_description,
+    updateGatewayGroup_name,
     updateGatewayGroup_gatewayGroupArn,
     updateGatewayGroupResponse_httpStatus,
 
     -- ** UpdateNetworkProfile
     updateNetworkProfile_certificateAuthorityArn,
-    updateNetworkProfile_description,
-    updateNetworkProfile_trustAnchors,
     updateNetworkProfile_currentPassword,
-    updateNetworkProfile_nextPassword,
+    updateNetworkProfile_description,
     updateNetworkProfile_networkProfileName,
+    updateNetworkProfile_nextPassword,
+    updateNetworkProfile_trustAnchors,
     updateNetworkProfile_networkProfileArn,
     updateNetworkProfileResponse_httpStatus,
 
     -- ** UpdateProfile
-    updateProfile_setupModeDisabled,
-    updateProfile_distanceUnit,
-    updateProfile_dataRetentionOptIn,
-    updateProfile_profileName,
-    updateProfile_wakeWord,
-    updateProfile_locale,
-    updateProfile_meetingRoomConfiguration,
-    updateProfile_timezone,
-    updateProfile_profileArn,
-    updateProfile_pSTNEnabled,
-    updateProfile_isDefault,
     updateProfile_address,
+    updateProfile_dataRetentionOptIn,
+    updateProfile_distanceUnit,
+    updateProfile_isDefault,
+    updateProfile_locale,
     updateProfile_maxVolumeLimit,
+    updateProfile_meetingRoomConfiguration,
+    updateProfile_pSTNEnabled,
+    updateProfile_profileArn,
+    updateProfile_profileName,
+    updateProfile_setupModeDisabled,
     updateProfile_temperatureUnit,
+    updateProfile_timezone,
+    updateProfile_wakeWord,
     updateProfileResponse_httpStatus,
 
     -- ** UpdateRoom
-    updateRoom_profileArn,
-    updateRoom_roomArn,
     updateRoom_description,
+    updateRoom_profileArn,
     updateRoom_providerCalendarId,
+    updateRoom_roomArn,
     updateRoom_roomName,
     updateRoomResponse_httpStatus,
 
     -- ** UpdateSkillGroup
-    updateSkillGroup_skillGroupArn,
     updateSkillGroup_description,
+    updateSkillGroup_skillGroupArn,
     updateSkillGroup_skillGroupName,
     updateSkillGroupResponse_httpStatus,
 
     -- * Types
 
     -- ** AddressBook
-    addressBook_name,
-    addressBook_description,
     addressBook_addressBookArn,
+    addressBook_description,
+    addressBook_name,
 
     -- ** AddressBookData
-    addressBookData_name,
-    addressBookData_description,
     addressBookData_addressBookArn,
+    addressBookData_description,
+    addressBookData_name,
 
     -- ** Audio
     audio_locale,
@@ -665,10 +665,10 @@ module Amazonka.AlexaBusiness.Lens
 
     -- ** BusinessReport
     businessReport_deliveryTime,
-    businessReport_failureCode,
     businessReport_downloadUrl,
-    businessReport_status,
+    businessReport_failureCode,
     businessReport_s3Location,
+    businessReport_status,
 
     -- ** BusinessReportContentRange
     businessReportContentRange_interval,
@@ -677,18 +677,18 @@ module Amazonka.AlexaBusiness.Lens
     businessReportRecurrence_startDate,
 
     -- ** BusinessReportS3Location
-    businessReportS3Location_path,
     businessReportS3Location_bucketName,
+    businessReportS3Location_path,
 
     -- ** BusinessReportSchedule
-    businessReportSchedule_s3KeyPrefix,
-    businessReportSchedule_s3BucketName,
-    businessReportSchedule_format,
-    businessReportSchedule_scheduleArn,
     businessReportSchedule_contentRange,
-    businessReportSchedule_recurrence,
-    businessReportSchedule_scheduleName,
+    businessReportSchedule_format,
     businessReportSchedule_lastBusinessReport,
+    businessReportSchedule_recurrence,
+    businessReportSchedule_s3BucketName,
+    businessReportSchedule_s3KeyPrefix,
+    businessReportSchedule_scheduleArn,
+    businessReportSchedule_scheduleName,
 
     -- ** Category
     category_categoryId,
@@ -698,35 +698,35 @@ module Amazonka.AlexaBusiness.Lens
     conferencePreference_defaultConferenceProviderArn,
 
     -- ** ConferenceProvider
-    conferenceProvider_iPDialIn,
-    conferenceProvider_name,
-    conferenceProvider_type,
-    conferenceProvider_meetingSetting,
-    conferenceProvider_pSTNDialIn,
     conferenceProvider_arn,
+    conferenceProvider_iPDialIn,
+    conferenceProvider_meetingSetting,
+    conferenceProvider_name,
+    conferenceProvider_pSTNDialIn,
+    conferenceProvider_type,
 
     -- ** Contact
-    contact_firstName,
-    contact_sipAddresses,
-    contact_displayName,
     contact_contactArn,
+    contact_displayName,
+    contact_firstName,
     contact_lastName,
     contact_phoneNumber,
     contact_phoneNumbers,
+    contact_sipAddresses,
 
     -- ** ContactData
-    contactData_firstName,
-    contactData_sipAddresses,
-    contactData_displayName,
     contactData_contactArn,
+    contactData_displayName,
+    contactData_firstName,
     contactData_lastName,
     contactData_phoneNumber,
     contactData_phoneNumbers,
+    contactData_sipAddresses,
 
     -- ** Content
     content_audioList,
-    content_textList,
     content_ssmlList,
+    content_textList,
 
     -- ** CreateEndOfMeetingReminder
     createEndOfMeetingReminder_reminderAtMinutes,
@@ -738,51 +738,51 @@ module Amazonka.AlexaBusiness.Lens
     createInstantBooking_enabled,
 
     -- ** CreateMeetingRoomConfiguration
-    createMeetingRoomConfiguration_instantBooking,
     createMeetingRoomConfiguration_endOfMeetingReminder,
-    createMeetingRoomConfiguration_roomUtilizationMetricsEnabled,
+    createMeetingRoomConfiguration_instantBooking,
     createMeetingRoomConfiguration_requireCheckIn,
+    createMeetingRoomConfiguration_roomUtilizationMetricsEnabled,
 
     -- ** CreateRequireCheckIn
     createRequireCheckIn_releaseAfterMinutes,
     createRequireCheckIn_enabled,
 
     -- ** DeveloperInfo
-    developerInfo_email,
     developerInfo_developerName,
-    developerInfo_url,
+    developerInfo_email,
     developerInfo_privacyPolicy,
+    developerInfo_url,
 
     -- ** Device
-    device_deviceSerialNumber,
+    device_deviceArn,
     device_deviceName,
+    device_deviceSerialNumber,
+    device_deviceStatus,
     device_deviceStatusInfo,
-    device_roomArn,
-    device_softwareVersion,
+    device_deviceType,
     device_macAddress,
     device_networkProfileInfo,
-    device_deviceStatus,
-    device_deviceArn,
-    device_deviceType,
+    device_roomArn,
+    device_softwareVersion,
 
     -- ** DeviceData
     deviceData_createdTime,
-    deviceData_deviceSerialNumber,
-    deviceData_deviceName,
-    deviceData_deviceStatusInfo,
-    deviceData_roomArn,
-    deviceData_softwareVersion,
-    deviceData_macAddress,
-    deviceData_deviceStatus,
     deviceData_deviceArn,
+    deviceData_deviceName,
+    deviceData_deviceSerialNumber,
+    deviceData_deviceStatus,
+    deviceData_deviceStatusInfo,
     deviceData_deviceType,
+    deviceData_macAddress,
     deviceData_networkProfileArn,
-    deviceData_roomName,
     deviceData_networkProfileName,
+    deviceData_roomArn,
+    deviceData_roomName,
+    deviceData_softwareVersion,
 
     -- ** DeviceEvent
-    deviceEvent_type,
     deviceEvent_timestamp,
+    deviceEvent_type,
     deviceEvent_value,
 
     -- ** DeviceNetworkProfileInfo
@@ -795,41 +795,41 @@ module Amazonka.AlexaBusiness.Lens
     deviceStatusDetail_feature,
 
     -- ** DeviceStatusInfo
+    deviceStatusInfo_connectionStatus,
     deviceStatusInfo_connectionStatusUpdatedTime,
     deviceStatusInfo_deviceStatusDetails,
-    deviceStatusInfo_connectionStatus,
 
     -- ** EndOfMeetingReminder
-    endOfMeetingReminder_reminderType,
     endOfMeetingReminder_enabled,
     endOfMeetingReminder_reminderAtMinutes,
+    endOfMeetingReminder_reminderType,
 
     -- ** Filter
     filter_key,
     filter_values,
 
     -- ** Gateway
-    gateway_name,
-    gateway_gatewayGroupArn,
     gateway_arn,
     gateway_description,
+    gateway_gatewayGroupArn,
+    gateway_name,
     gateway_softwareVersion,
 
     -- ** GatewayGroup
-    gatewayGroup_name,
     gatewayGroup_arn,
     gatewayGroup_description,
+    gatewayGroup_name,
 
     -- ** GatewayGroupSummary
-    gatewayGroupSummary_name,
     gatewayGroupSummary_arn,
     gatewayGroupSummary_description,
+    gatewayGroupSummary_name,
 
     -- ** GatewaySummary
-    gatewaySummary_name,
-    gatewaySummary_gatewayGroupArn,
     gatewaySummary_arn,
     gatewaySummary_description,
+    gatewaySummary_gatewayGroupArn,
+    gatewaySummary_name,
     gatewaySummary_softwareVersion,
 
     -- ** IPDialIn
@@ -837,38 +837,38 @@ module Amazonka.AlexaBusiness.Lens
     iPDialIn_commsProtocol,
 
     -- ** InstantBooking
-    instantBooking_enabled,
     instantBooking_durationInMinutes,
+    instantBooking_enabled,
 
     -- ** MeetingRoomConfiguration
-    meetingRoomConfiguration_instantBooking,
     meetingRoomConfiguration_endOfMeetingReminder,
-    meetingRoomConfiguration_roomUtilizationMetricsEnabled,
+    meetingRoomConfiguration_instantBooking,
     meetingRoomConfiguration_requireCheckIn,
+    meetingRoomConfiguration_roomUtilizationMetricsEnabled,
 
     -- ** MeetingSetting
     meetingSetting_requirePin,
 
     -- ** NetworkProfile
     networkProfile_certificateAuthorityArn,
+    networkProfile_currentPassword,
     networkProfile_description,
     networkProfile_eapMethod,
-    networkProfile_trustAnchors,
-    networkProfile_currentPassword,
-    networkProfile_nextPassword,
-    networkProfile_ssid,
-    networkProfile_securityType,
     networkProfile_networkProfileArn,
     networkProfile_networkProfileName,
+    networkProfile_nextPassword,
+    networkProfile_securityType,
+    networkProfile_ssid,
+    networkProfile_trustAnchors,
 
     -- ** NetworkProfileData
     networkProfileData_certificateAuthorityArn,
     networkProfileData_description,
     networkProfileData_eapMethod,
-    networkProfileData_ssid,
-    networkProfileData_securityType,
     networkProfileData_networkProfileArn,
     networkProfileData_networkProfileName,
+    networkProfileData_securityType,
+    networkProfileData_ssid,
 
     -- ** PSTNDialIn
     pSTNDialIn_countryCode,
@@ -881,50 +881,50 @@ module Amazonka.AlexaBusiness.Lens
     phoneNumber_type,
 
     -- ** Profile
-    profile_setupModeDisabled,
-    profile_distanceUnit,
-    profile_dataRetentionOptIn,
-    profile_profileName,
-    profile_wakeWord,
-    profile_locale,
-    profile_meetingRoomConfiguration,
-    profile_timezone,
-    profile_profileArn,
-    profile_pSTNEnabled,
-    profile_isDefault,
     profile_address,
     profile_addressBookArn,
+    profile_dataRetentionOptIn,
+    profile_distanceUnit,
+    profile_isDefault,
+    profile_locale,
     profile_maxVolumeLimit,
+    profile_meetingRoomConfiguration,
+    profile_pSTNEnabled,
+    profile_profileArn,
+    profile_profileName,
+    profile_setupModeDisabled,
     profile_temperatureUnit,
+    profile_timezone,
+    profile_wakeWord,
 
     -- ** ProfileData
-    profileData_distanceUnit,
-    profileData_profileName,
-    profileData_wakeWord,
-    profileData_locale,
-    profileData_timezone,
-    profileData_profileArn,
-    profileData_isDefault,
     profileData_address,
+    profileData_distanceUnit,
+    profileData_isDefault,
+    profileData_locale,
+    profileData_profileArn,
+    profileData_profileName,
     profileData_temperatureUnit,
+    profileData_timezone,
+    profileData_wakeWord,
 
     -- ** RequireCheckIn
     requireCheckIn_enabled,
     requireCheckIn_releaseAfterMinutes,
 
     -- ** Room
-    room_profileArn,
-    room_roomArn,
     room_description,
+    room_profileArn,
     room_providerCalendarId,
+    room_roomArn,
     room_roomName,
 
     -- ** RoomData
-    roomData_profileName,
-    roomData_profileArn,
-    roomData_roomArn,
     roomData_description,
+    roomData_profileArn,
+    roomData_profileName,
     roomData_providerCalendarId,
+    roomData_roomArn,
     roomData_roomName,
 
     -- ** RoomSkillParameter
@@ -936,47 +936,47 @@ module Amazonka.AlexaBusiness.Lens
     sipAddress_type,
 
     -- ** SkillDetails
-    skillDetails_invocationPhrase,
-    skillDetails_endUserLicenseAgreement,
-    skillDetails_reviews,
-    skillDetails_releaseDate,
-    skillDetails_genericKeywords,
+    skillDetails_bulletPoints,
     skillDetails_developerInfo,
+    skillDetails_endUserLicenseAgreement,
+    skillDetails_genericKeywords,
+    skillDetails_invocationPhrase,
     skillDetails_newInThisVersionBulletPoints,
     skillDetails_productDescription,
+    skillDetails_releaseDate,
+    skillDetails_reviews,
     skillDetails_skillTypes,
-    skillDetails_bulletPoints,
 
     -- ** SkillGroup
-    skillGroup_skillGroupArn,
     skillGroup_description,
+    skillGroup_skillGroupArn,
     skillGroup_skillGroupName,
 
     -- ** SkillGroupData
-    skillGroupData_skillGroupArn,
     skillGroupData_description,
+    skillGroupData_skillGroupArn,
     skillGroupData_skillGroupName,
 
     -- ** SkillSummary
-    skillSummary_skillName,
-    skillSummary_supportsLinking,
     skillSummary_enablementType,
-    skillSummary_skillType,
     skillSummary_skillId,
+    skillSummary_skillName,
+    skillSummary_skillType,
+    skillSummary_supportsLinking,
 
     -- ** SkillsStoreSkill
+    skillsStoreSkill_iconUrl,
     skillsStoreSkill_sampleUtterances,
     skillsStoreSkill_shortDescription,
-    skillsStoreSkill_skillName,
-    skillsStoreSkill_iconUrl,
-    skillsStoreSkill_supportsLinking,
     skillsStoreSkill_skillDetails,
     skillsStoreSkill_skillId,
+    skillsStoreSkill_skillName,
+    skillsStoreSkill_supportsLinking,
 
     -- ** SmartHomeAppliance
-    smartHomeAppliance_manufacturerName,
     smartHomeAppliance_description,
     smartHomeAppliance_friendlyName,
+    smartHomeAppliance_manufacturerName,
 
     -- ** Sort
     sort_key,
@@ -995,30 +995,30 @@ module Amazonka.AlexaBusiness.Lens
     textMessage_value,
 
     -- ** UpdateEndOfMeetingReminder
-    updateEndOfMeetingReminder_reminderType,
     updateEndOfMeetingReminder_enabled,
     updateEndOfMeetingReminder_reminderAtMinutes,
+    updateEndOfMeetingReminder_reminderType,
 
     -- ** UpdateInstantBooking
-    updateInstantBooking_enabled,
     updateInstantBooking_durationInMinutes,
+    updateInstantBooking_enabled,
 
     -- ** UpdateMeetingRoomConfiguration
-    updateMeetingRoomConfiguration_instantBooking,
     updateMeetingRoomConfiguration_endOfMeetingReminder,
-    updateMeetingRoomConfiguration_roomUtilizationMetricsEnabled,
+    updateMeetingRoomConfiguration_instantBooking,
     updateMeetingRoomConfiguration_requireCheckIn,
+    updateMeetingRoomConfiguration_roomUtilizationMetricsEnabled,
 
     -- ** UpdateRequireCheckIn
     updateRequireCheckIn_enabled,
     updateRequireCheckIn_releaseAfterMinutes,
 
     -- ** UserData
-    userData_firstName,
     userData_email,
-    userData_enrollmentStatus,
-    userData_lastName,
     userData_enrollmentId,
+    userData_enrollmentStatus,
+    userData_firstName,
+    userData_lastName,
     userData_userArn,
   )
 where

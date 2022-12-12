@@ -47,8 +47,8 @@ module Amazonka.EC2.AssociateClientVpnTargetNetwork
     newAssociateClientVpnTargetNetworkResponse,
 
     -- * Response Lenses
-    associateClientVpnTargetNetworkResponse_status,
     associateClientVpnTargetNetworkResponse_associationId,
+    associateClientVpnTargetNetworkResponse_status,
     associateClientVpnTargetNetworkResponse_httpStatus,
   )
 where
@@ -151,8 +151,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           AssociateClientVpnTargetNetworkResponse'
-            Prelude.<$> (x Data..@? "status")
-            Prelude.<*> (x Data..@? "associationId")
+            Prelude.<$> (x Data..@? "associationId")
+            Prelude.<*> (x Data..@? "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -204,10 +204,10 @@ instance Data.ToQuery AssociateClientVpnTargetNetwork where
 
 -- | /See:/ 'newAssociateClientVpnTargetNetworkResponse' smart constructor.
 data AssociateClientVpnTargetNetworkResponse = AssociateClientVpnTargetNetworkResponse'
-  { -- | The current state of the target network association.
-    status :: Prelude.Maybe AssociationStatus,
-    -- | The unique ID of the target network association.
+  { -- | The unique ID of the target network association.
     associationId :: Prelude.Maybe Prelude.Text,
+    -- | The current state of the target network association.
+    status :: Prelude.Maybe AssociationStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -221,9 +221,9 @@ data AssociateClientVpnTargetNetworkResponse = AssociateClientVpnTargetNetworkRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'associateClientVpnTargetNetworkResponse_status' - The current state of the target network association.
---
 -- 'associationId', 'associateClientVpnTargetNetworkResponse_associationId' - The unique ID of the target network association.
+--
+-- 'status', 'associateClientVpnTargetNetworkResponse_status' - The current state of the target network association.
 --
 -- 'httpStatus', 'associateClientVpnTargetNetworkResponse_httpStatus' - The response's http status code.
 newAssociateClientVpnTargetNetworkResponse ::
@@ -233,19 +233,19 @@ newAssociateClientVpnTargetNetworkResponse ::
 newAssociateClientVpnTargetNetworkResponse
   pHttpStatus_ =
     AssociateClientVpnTargetNetworkResponse'
-      { status =
+      { associationId =
           Prelude.Nothing,
-        associationId = Prelude.Nothing,
+        status = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The current state of the target network association.
-associateClientVpnTargetNetworkResponse_status :: Lens.Lens' AssociateClientVpnTargetNetworkResponse (Prelude.Maybe AssociationStatus)
-associateClientVpnTargetNetworkResponse_status = Lens.lens (\AssociateClientVpnTargetNetworkResponse' {status} -> status) (\s@AssociateClientVpnTargetNetworkResponse' {} a -> s {status = a} :: AssociateClientVpnTargetNetworkResponse)
 
 -- | The unique ID of the target network association.
 associateClientVpnTargetNetworkResponse_associationId :: Lens.Lens' AssociateClientVpnTargetNetworkResponse (Prelude.Maybe Prelude.Text)
 associateClientVpnTargetNetworkResponse_associationId = Lens.lens (\AssociateClientVpnTargetNetworkResponse' {associationId} -> associationId) (\s@AssociateClientVpnTargetNetworkResponse' {} a -> s {associationId = a} :: AssociateClientVpnTargetNetworkResponse)
+
+-- | The current state of the target network association.
+associateClientVpnTargetNetworkResponse_status :: Lens.Lens' AssociateClientVpnTargetNetworkResponse (Prelude.Maybe AssociationStatus)
+associateClientVpnTargetNetworkResponse_status = Lens.lens (\AssociateClientVpnTargetNetworkResponse' {status} -> status) (\s@AssociateClientVpnTargetNetworkResponse' {} a -> s {status = a} :: AssociateClientVpnTargetNetworkResponse)
 
 -- | The response's http status code.
 associateClientVpnTargetNetworkResponse_httpStatus :: Lens.Lens' AssociateClientVpnTargetNetworkResponse Prelude.Int
@@ -256,6 +256,6 @@ instance
     AssociateClientVpnTargetNetworkResponse
   where
   rnf AssociateClientVpnTargetNetworkResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf associationId
+    Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

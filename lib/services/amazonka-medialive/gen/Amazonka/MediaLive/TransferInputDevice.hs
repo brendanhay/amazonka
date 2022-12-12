@@ -29,8 +29,8 @@ module Amazonka.MediaLive.TransferInputDevice
 
     -- * Request Lenses
     transferInputDevice'_targetCustomerId,
-    transferInputDevice'_transferMessage,
     transferInputDevice'_targetRegion,
+    transferInputDevice'_transferMessage,
     transferInputDevice'_inputDeviceId,
 
     -- * Destructuring the Response
@@ -56,10 +56,10 @@ import qualified Amazonka.Response as Response
 data TransferInputDevice' = TransferInputDevice''
   { -- | The AWS account ID (12 digits) for the recipient of the device transfer.
     targetCustomerId :: Prelude.Maybe Prelude.Text,
-    -- | An optional message for the recipient. Maximum 280 characters.
-    transferMessage :: Prelude.Maybe Prelude.Text,
     -- | The target AWS region to transfer the device.
     targetRegion :: Prelude.Maybe Prelude.Text,
+    -- | An optional message for the recipient. Maximum 280 characters.
+    transferMessage :: Prelude.Maybe Prelude.Text,
     -- | The unique ID of this input device. For example, hd-123456789abcdef.
     inputDeviceId :: Prelude.Text
   }
@@ -75,9 +75,9 @@ data TransferInputDevice' = TransferInputDevice''
 --
 -- 'targetCustomerId', 'transferInputDevice'_targetCustomerId' - The AWS account ID (12 digits) for the recipient of the device transfer.
 --
--- 'transferMessage', 'transferInputDevice'_transferMessage' - An optional message for the recipient. Maximum 280 characters.
---
 -- 'targetRegion', 'transferInputDevice'_targetRegion' - The target AWS region to transfer the device.
+--
+-- 'transferMessage', 'transferInputDevice'_transferMessage' - An optional message for the recipient. Maximum 280 characters.
 --
 -- 'inputDeviceId', 'transferInputDevice'_inputDeviceId' - The unique ID of this input device. For example, hd-123456789abcdef.
 newTransferInputDevice' ::
@@ -88,8 +88,8 @@ newTransferInputDevice' pInputDeviceId_ =
   TransferInputDevice''
     { targetCustomerId =
         Prelude.Nothing,
-      transferMessage = Prelude.Nothing,
       targetRegion = Prelude.Nothing,
+      transferMessage = Prelude.Nothing,
       inputDeviceId = pInputDeviceId_
     }
 
@@ -97,13 +97,13 @@ newTransferInputDevice' pInputDeviceId_ =
 transferInputDevice'_targetCustomerId :: Lens.Lens' TransferInputDevice' (Prelude.Maybe Prelude.Text)
 transferInputDevice'_targetCustomerId = Lens.lens (\TransferInputDevice'' {targetCustomerId} -> targetCustomerId) (\s@TransferInputDevice'' {} a -> s {targetCustomerId = a} :: TransferInputDevice')
 
--- | An optional message for the recipient. Maximum 280 characters.
-transferInputDevice'_transferMessage :: Lens.Lens' TransferInputDevice' (Prelude.Maybe Prelude.Text)
-transferInputDevice'_transferMessage = Lens.lens (\TransferInputDevice'' {transferMessage} -> transferMessage) (\s@TransferInputDevice'' {} a -> s {transferMessage = a} :: TransferInputDevice')
-
 -- | The target AWS region to transfer the device.
 transferInputDevice'_targetRegion :: Lens.Lens' TransferInputDevice' (Prelude.Maybe Prelude.Text)
 transferInputDevice'_targetRegion = Lens.lens (\TransferInputDevice'' {targetRegion} -> targetRegion) (\s@TransferInputDevice'' {} a -> s {targetRegion = a} :: TransferInputDevice')
+
+-- | An optional message for the recipient. Maximum 280 characters.
+transferInputDevice'_transferMessage :: Lens.Lens' TransferInputDevice' (Prelude.Maybe Prelude.Text)
+transferInputDevice'_transferMessage = Lens.lens (\TransferInputDevice'' {transferMessage} -> transferMessage) (\s@TransferInputDevice'' {} a -> s {transferMessage = a} :: TransferInputDevice')
 
 -- | The unique ID of this input device. For example, hd-123456789abcdef.
 transferInputDevice'_inputDeviceId :: Lens.Lens' TransferInputDevice' Prelude.Text
@@ -125,15 +125,15 @@ instance Core.AWSRequest TransferInputDevice' where
 instance Prelude.Hashable TransferInputDevice' where
   hashWithSalt _salt TransferInputDevice'' {..} =
     _salt `Prelude.hashWithSalt` targetCustomerId
-      `Prelude.hashWithSalt` transferMessage
       `Prelude.hashWithSalt` targetRegion
+      `Prelude.hashWithSalt` transferMessage
       `Prelude.hashWithSalt` inputDeviceId
 
 instance Prelude.NFData TransferInputDevice' where
   rnf TransferInputDevice'' {..} =
     Prelude.rnf targetCustomerId
-      `Prelude.seq` Prelude.rnf transferMessage
       `Prelude.seq` Prelude.rnf targetRegion
+      `Prelude.seq` Prelude.rnf transferMessage
       `Prelude.seq` Prelude.rnf inputDeviceId
 
 instance Data.ToHeaders TransferInputDevice' where
@@ -153,9 +153,9 @@ instance Data.ToJSON TransferInputDevice' where
       ( Prelude.catMaybes
           [ ("targetCustomerId" Data..=)
               Prelude.<$> targetCustomerId,
+            ("targetRegion" Data..=) Prelude.<$> targetRegion,
             ("transferMessage" Data..=)
-              Prelude.<$> transferMessage,
-            ("targetRegion" Data..=) Prelude.<$> targetRegion
+              Prelude.<$> transferMessage
           ]
       )
 

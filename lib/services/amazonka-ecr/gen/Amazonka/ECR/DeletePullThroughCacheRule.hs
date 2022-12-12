@@ -35,10 +35,10 @@ module Amazonka.ECR.DeletePullThroughCacheRule
     newDeletePullThroughCacheRuleResponse,
 
     -- * Response Lenses
-    deletePullThroughCacheRuleResponse_upstreamRegistryUrl,
-    deletePullThroughCacheRuleResponse_registryId,
-    deletePullThroughCacheRuleResponse_ecrRepositoryPrefix,
     deletePullThroughCacheRuleResponse_createdAt,
+    deletePullThroughCacheRuleResponse_ecrRepositoryPrefix,
+    deletePullThroughCacheRuleResponse_registryId,
+    deletePullThroughCacheRuleResponse_upstreamRegistryUrl,
     deletePullThroughCacheRuleResponse_httpStatus,
   )
 where
@@ -109,10 +109,10 @@ instance Core.AWSRequest DeletePullThroughCacheRule where
     Response.receiveJSON
       ( \s h x ->
           DeletePullThroughCacheRuleResponse'
-            Prelude.<$> (x Data..?> "upstreamRegistryUrl")
-            Prelude.<*> (x Data..?> "registryId")
+            Prelude.<$> (x Data..?> "createdAt")
             Prelude.<*> (x Data..?> "ecrRepositoryPrefix")
-            Prelude.<*> (x Data..?> "createdAt")
+            Prelude.<*> (x Data..?> "registryId")
+            Prelude.<*> (x Data..?> "upstreamRegistryUrl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,14 +159,14 @@ instance Data.ToQuery DeletePullThroughCacheRule where
 
 -- | /See:/ 'newDeletePullThroughCacheRuleResponse' smart constructor.
 data DeletePullThroughCacheRuleResponse = DeletePullThroughCacheRuleResponse'
-  { -- | The upstream registry URL associated with the pull through cache rule.
-    upstreamRegistryUrl :: Prelude.Maybe Prelude.Text,
-    -- | The registry ID associated with the request.
-    registryId :: Prelude.Maybe Prelude.Text,
+  { -- | The timestamp associated with the pull through cache rule.
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The Amazon ECR repository prefix associated with the request.
     ecrRepositoryPrefix :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp associated with the pull through cache rule.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | The registry ID associated with the request.
+    registryId :: Prelude.Maybe Prelude.Text,
+    -- | The upstream registry URL associated with the pull through cache rule.
+    upstreamRegistryUrl :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -180,13 +180,13 @@ data DeletePullThroughCacheRuleResponse = DeletePullThroughCacheRuleResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'upstreamRegistryUrl', 'deletePullThroughCacheRuleResponse_upstreamRegistryUrl' - The upstream registry URL associated with the pull through cache rule.
---
--- 'registryId', 'deletePullThroughCacheRuleResponse_registryId' - The registry ID associated with the request.
+-- 'createdAt', 'deletePullThroughCacheRuleResponse_createdAt' - The timestamp associated with the pull through cache rule.
 --
 -- 'ecrRepositoryPrefix', 'deletePullThroughCacheRuleResponse_ecrRepositoryPrefix' - The Amazon ECR repository prefix associated with the request.
 --
--- 'createdAt', 'deletePullThroughCacheRuleResponse_createdAt' - The timestamp associated with the pull through cache rule.
+-- 'registryId', 'deletePullThroughCacheRuleResponse_registryId' - The registry ID associated with the request.
+--
+-- 'upstreamRegistryUrl', 'deletePullThroughCacheRuleResponse_upstreamRegistryUrl' - The upstream registry URL associated with the pull through cache rule.
 --
 -- 'httpStatus', 'deletePullThroughCacheRuleResponse_httpStatus' - The response's http status code.
 newDeletePullThroughCacheRuleResponse ::
@@ -195,29 +195,29 @@ newDeletePullThroughCacheRuleResponse ::
   DeletePullThroughCacheRuleResponse
 newDeletePullThroughCacheRuleResponse pHttpStatus_ =
   DeletePullThroughCacheRuleResponse'
-    { upstreamRegistryUrl =
+    { createdAt =
         Prelude.Nothing,
-      registryId = Prelude.Nothing,
       ecrRepositoryPrefix = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
+      registryId = Prelude.Nothing,
+      upstreamRegistryUrl = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The upstream registry URL associated with the pull through cache rule.
-deletePullThroughCacheRuleResponse_upstreamRegistryUrl :: Lens.Lens' DeletePullThroughCacheRuleResponse (Prelude.Maybe Prelude.Text)
-deletePullThroughCacheRuleResponse_upstreamRegistryUrl = Lens.lens (\DeletePullThroughCacheRuleResponse' {upstreamRegistryUrl} -> upstreamRegistryUrl) (\s@DeletePullThroughCacheRuleResponse' {} a -> s {upstreamRegistryUrl = a} :: DeletePullThroughCacheRuleResponse)
-
--- | The registry ID associated with the request.
-deletePullThroughCacheRuleResponse_registryId :: Lens.Lens' DeletePullThroughCacheRuleResponse (Prelude.Maybe Prelude.Text)
-deletePullThroughCacheRuleResponse_registryId = Lens.lens (\DeletePullThroughCacheRuleResponse' {registryId} -> registryId) (\s@DeletePullThroughCacheRuleResponse' {} a -> s {registryId = a} :: DeletePullThroughCacheRuleResponse)
+-- | The timestamp associated with the pull through cache rule.
+deletePullThroughCacheRuleResponse_createdAt :: Lens.Lens' DeletePullThroughCacheRuleResponse (Prelude.Maybe Prelude.UTCTime)
+deletePullThroughCacheRuleResponse_createdAt = Lens.lens (\DeletePullThroughCacheRuleResponse' {createdAt} -> createdAt) (\s@DeletePullThroughCacheRuleResponse' {} a -> s {createdAt = a} :: DeletePullThroughCacheRuleResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon ECR repository prefix associated with the request.
 deletePullThroughCacheRuleResponse_ecrRepositoryPrefix :: Lens.Lens' DeletePullThroughCacheRuleResponse (Prelude.Maybe Prelude.Text)
 deletePullThroughCacheRuleResponse_ecrRepositoryPrefix = Lens.lens (\DeletePullThroughCacheRuleResponse' {ecrRepositoryPrefix} -> ecrRepositoryPrefix) (\s@DeletePullThroughCacheRuleResponse' {} a -> s {ecrRepositoryPrefix = a} :: DeletePullThroughCacheRuleResponse)
 
--- | The timestamp associated with the pull through cache rule.
-deletePullThroughCacheRuleResponse_createdAt :: Lens.Lens' DeletePullThroughCacheRuleResponse (Prelude.Maybe Prelude.UTCTime)
-deletePullThroughCacheRuleResponse_createdAt = Lens.lens (\DeletePullThroughCacheRuleResponse' {createdAt} -> createdAt) (\s@DeletePullThroughCacheRuleResponse' {} a -> s {createdAt = a} :: DeletePullThroughCacheRuleResponse) Prelude.. Lens.mapping Data._Time
+-- | The registry ID associated with the request.
+deletePullThroughCacheRuleResponse_registryId :: Lens.Lens' DeletePullThroughCacheRuleResponse (Prelude.Maybe Prelude.Text)
+deletePullThroughCacheRuleResponse_registryId = Lens.lens (\DeletePullThroughCacheRuleResponse' {registryId} -> registryId) (\s@DeletePullThroughCacheRuleResponse' {} a -> s {registryId = a} :: DeletePullThroughCacheRuleResponse)
+
+-- | The upstream registry URL associated with the pull through cache rule.
+deletePullThroughCacheRuleResponse_upstreamRegistryUrl :: Lens.Lens' DeletePullThroughCacheRuleResponse (Prelude.Maybe Prelude.Text)
+deletePullThroughCacheRuleResponse_upstreamRegistryUrl = Lens.lens (\DeletePullThroughCacheRuleResponse' {upstreamRegistryUrl} -> upstreamRegistryUrl) (\s@DeletePullThroughCacheRuleResponse' {} a -> s {upstreamRegistryUrl = a} :: DeletePullThroughCacheRuleResponse)
 
 -- | The response's http status code.
 deletePullThroughCacheRuleResponse_httpStatus :: Lens.Lens' DeletePullThroughCacheRuleResponse Prelude.Int
@@ -228,8 +228,8 @@ instance
     DeletePullThroughCacheRuleResponse
   where
   rnf DeletePullThroughCacheRuleResponse' {..} =
-    Prelude.rnf upstreamRegistryUrl
-      `Prelude.seq` Prelude.rnf registryId
+    Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf ecrRepositoryPrefix
-      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf upstreamRegistryUrl
       `Prelude.seq` Prelude.rnf httpStatus

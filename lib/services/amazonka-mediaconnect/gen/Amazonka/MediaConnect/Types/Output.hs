@@ -32,13 +32,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOutput' smart constructor.
 data Output = Output'
-  { -- | The address where you want to send the output.
+  { -- | Percentage from 0-100 of the data transfer cost to be billed to the
+    -- subscriber.
+    dataTransferSubscriberFeePercent :: Prelude.Maybe Prelude.Int,
+    -- | A description of the output.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The address where you want to send the output.
     destination :: Prelude.Maybe Prelude.Text,
-    -- | The port to use when content is distributed to this output.
-    port :: Prelude.Maybe Prelude.Int,
-    -- | The configuration for each media stream that is associated with the
-    -- output.
-    mediaStreamOutputConfigurations :: Prelude.Maybe [MediaStreamOutputConfiguration],
+    -- | The type of key used for the encryption. If no keyType is provided, the
+    -- service will use the default setting (static-key).
+    encryption :: Prelude.Maybe Encryption,
     -- | The ARN of the entitlement on the originator\'\'s flow. This value is
     -- relevant only on entitled flows.
     entitlementArn :: Prelude.Maybe Prelude.Text,
@@ -49,21 +52,18 @@ data Output = Output'
     -- interface IP address of the VPC. This field applies only to outputs that
     -- use the Zixi pull or SRT listener protocol.
     listenerAddress :: Prelude.Maybe Prelude.Text,
-    -- | The name of the VPC interface attachment to use for this output.
-    vpcInterfaceAttachment :: Prelude.Maybe VpcInterfaceAttachment,
-    -- | A description of the output.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The input ARN of the AWS Elemental MediaLive channel. This parameter is
     -- relevant only for outputs that were added by creating a MediaLive input.
     mediaLiveInputArn :: Prelude.Maybe Prelude.Text,
+    -- | The configuration for each media stream that is associated with the
+    -- output.
+    mediaStreamOutputConfigurations :: Prelude.Maybe [MediaStreamOutputConfiguration],
+    -- | The port to use when content is distributed to this output.
+    port :: Prelude.Maybe Prelude.Int,
     -- | Attributes related to the transport stream that are used in the output.
     transport :: Prelude.Maybe Transport,
-    -- | The type of key used for the encryption. If no keyType is provided, the
-    -- service will use the default setting (static-key).
-    encryption :: Prelude.Maybe Encryption,
-    -- | Percentage from 0-100 of the data transfer cost to be billed to the
-    -- subscriber.
-    dataTransferSubscriberFeePercent :: Prelude.Maybe Prelude.Int,
+    -- | The name of the VPC interface attachment to use for this output.
+    vpcInterfaceAttachment :: Prelude.Maybe VpcInterfaceAttachment,
     -- | The ARN of the output.
     outputArn :: Prelude.Text,
     -- | The name of the output. This value must be unique within the current
@@ -80,12 +80,15 @@ data Output = Output'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dataTransferSubscriberFeePercent', 'output_dataTransferSubscriberFeePercent' - Percentage from 0-100 of the data transfer cost to be billed to the
+-- subscriber.
+--
+-- 'description', 'output_description' - A description of the output.
+--
 -- 'destination', 'output_destination' - The address where you want to send the output.
 --
--- 'port', 'output_port' - The port to use when content is distributed to this output.
---
--- 'mediaStreamOutputConfigurations', 'output_mediaStreamOutputConfigurations' - The configuration for each media stream that is associated with the
--- output.
+-- 'encryption', 'output_encryption' - The type of key used for the encryption. If no keyType is provided, the
+-- service will use the default setting (static-key).
 --
 -- 'entitlementArn', 'output_entitlementArn' - The ARN of the entitlement on the originator\'\'s flow. This value is
 -- relevant only on entitled flows.
@@ -97,20 +100,17 @@ data Output = Output'
 -- interface IP address of the VPC. This field applies only to outputs that
 -- use the Zixi pull or SRT listener protocol.
 --
--- 'vpcInterfaceAttachment', 'output_vpcInterfaceAttachment' - The name of the VPC interface attachment to use for this output.
---
--- 'description', 'output_description' - A description of the output.
---
 -- 'mediaLiveInputArn', 'output_mediaLiveInputArn' - The input ARN of the AWS Elemental MediaLive channel. This parameter is
 -- relevant only for outputs that were added by creating a MediaLive input.
 --
+-- 'mediaStreamOutputConfigurations', 'output_mediaStreamOutputConfigurations' - The configuration for each media stream that is associated with the
+-- output.
+--
+-- 'port', 'output_port' - The port to use when content is distributed to this output.
+--
 -- 'transport', 'output_transport' - Attributes related to the transport stream that are used in the output.
 --
--- 'encryption', 'output_encryption' - The type of key used for the encryption. If no keyType is provided, the
--- service will use the default setting (static-key).
---
--- 'dataTransferSubscriberFeePercent', 'output_dataTransferSubscriberFeePercent' - Percentage from 0-100 of the data transfer cost to be billed to the
--- subscriber.
+-- 'vpcInterfaceAttachment', 'output_vpcInterfaceAttachment' - The name of the VPC interface attachment to use for this output.
 --
 -- 'outputArn', 'output_outputArn' - The ARN of the output.
 --
@@ -124,33 +124,39 @@ newOutput ::
   Output
 newOutput pOutputArn_ pName_ =
   Output'
-    { destination = Prelude.Nothing,
-      port = Prelude.Nothing,
-      mediaStreamOutputConfigurations = Prelude.Nothing,
+    { dataTransferSubscriberFeePercent =
+        Prelude.Nothing,
+      description = Prelude.Nothing,
+      destination = Prelude.Nothing,
+      encryption = Prelude.Nothing,
       entitlementArn = Prelude.Nothing,
       listenerAddress = Prelude.Nothing,
-      vpcInterfaceAttachment = Prelude.Nothing,
-      description = Prelude.Nothing,
       mediaLiveInputArn = Prelude.Nothing,
+      mediaStreamOutputConfigurations = Prelude.Nothing,
+      port = Prelude.Nothing,
       transport = Prelude.Nothing,
-      encryption = Prelude.Nothing,
-      dataTransferSubscriberFeePercent = Prelude.Nothing,
+      vpcInterfaceAttachment = Prelude.Nothing,
       outputArn = pOutputArn_,
       name = pName_
     }
+
+-- | Percentage from 0-100 of the data transfer cost to be billed to the
+-- subscriber.
+output_dataTransferSubscriberFeePercent :: Lens.Lens' Output (Prelude.Maybe Prelude.Int)
+output_dataTransferSubscriberFeePercent = Lens.lens (\Output' {dataTransferSubscriberFeePercent} -> dataTransferSubscriberFeePercent) (\s@Output' {} a -> s {dataTransferSubscriberFeePercent = a} :: Output)
+
+-- | A description of the output.
+output_description :: Lens.Lens' Output (Prelude.Maybe Prelude.Text)
+output_description = Lens.lens (\Output' {description} -> description) (\s@Output' {} a -> s {description = a} :: Output)
 
 -- | The address where you want to send the output.
 output_destination :: Lens.Lens' Output (Prelude.Maybe Prelude.Text)
 output_destination = Lens.lens (\Output' {destination} -> destination) (\s@Output' {} a -> s {destination = a} :: Output)
 
--- | The port to use when content is distributed to this output.
-output_port :: Lens.Lens' Output (Prelude.Maybe Prelude.Int)
-output_port = Lens.lens (\Output' {port} -> port) (\s@Output' {} a -> s {port = a} :: Output)
-
--- | The configuration for each media stream that is associated with the
--- output.
-output_mediaStreamOutputConfigurations :: Lens.Lens' Output (Prelude.Maybe [MediaStreamOutputConfiguration])
-output_mediaStreamOutputConfigurations = Lens.lens (\Output' {mediaStreamOutputConfigurations} -> mediaStreamOutputConfigurations) (\s@Output' {} a -> s {mediaStreamOutputConfigurations = a} :: Output) Prelude.. Lens.mapping Lens.coerced
+-- | The type of key used for the encryption. If no keyType is provided, the
+-- service will use the default setting (static-key).
+output_encryption :: Lens.Lens' Output (Prelude.Maybe Encryption)
+output_encryption = Lens.lens (\Output' {encryption} -> encryption) (\s@Output' {} a -> s {encryption = a} :: Output)
 
 -- | The ARN of the entitlement on the originator\'\'s flow. This value is
 -- relevant only on entitled flows.
@@ -166,32 +172,27 @@ output_entitlementArn = Lens.lens (\Output' {entitlementArn} -> entitlementArn) 
 output_listenerAddress :: Lens.Lens' Output (Prelude.Maybe Prelude.Text)
 output_listenerAddress = Lens.lens (\Output' {listenerAddress} -> listenerAddress) (\s@Output' {} a -> s {listenerAddress = a} :: Output)
 
--- | The name of the VPC interface attachment to use for this output.
-output_vpcInterfaceAttachment :: Lens.Lens' Output (Prelude.Maybe VpcInterfaceAttachment)
-output_vpcInterfaceAttachment = Lens.lens (\Output' {vpcInterfaceAttachment} -> vpcInterfaceAttachment) (\s@Output' {} a -> s {vpcInterfaceAttachment = a} :: Output)
-
--- | A description of the output.
-output_description :: Lens.Lens' Output (Prelude.Maybe Prelude.Text)
-output_description = Lens.lens (\Output' {description} -> description) (\s@Output' {} a -> s {description = a} :: Output)
-
 -- | The input ARN of the AWS Elemental MediaLive channel. This parameter is
 -- relevant only for outputs that were added by creating a MediaLive input.
 output_mediaLiveInputArn :: Lens.Lens' Output (Prelude.Maybe Prelude.Text)
 output_mediaLiveInputArn = Lens.lens (\Output' {mediaLiveInputArn} -> mediaLiveInputArn) (\s@Output' {} a -> s {mediaLiveInputArn = a} :: Output)
 
+-- | The configuration for each media stream that is associated with the
+-- output.
+output_mediaStreamOutputConfigurations :: Lens.Lens' Output (Prelude.Maybe [MediaStreamOutputConfiguration])
+output_mediaStreamOutputConfigurations = Lens.lens (\Output' {mediaStreamOutputConfigurations} -> mediaStreamOutputConfigurations) (\s@Output' {} a -> s {mediaStreamOutputConfigurations = a} :: Output) Prelude.. Lens.mapping Lens.coerced
+
+-- | The port to use when content is distributed to this output.
+output_port :: Lens.Lens' Output (Prelude.Maybe Prelude.Int)
+output_port = Lens.lens (\Output' {port} -> port) (\s@Output' {} a -> s {port = a} :: Output)
+
 -- | Attributes related to the transport stream that are used in the output.
 output_transport :: Lens.Lens' Output (Prelude.Maybe Transport)
 output_transport = Lens.lens (\Output' {transport} -> transport) (\s@Output' {} a -> s {transport = a} :: Output)
 
--- | The type of key used for the encryption. If no keyType is provided, the
--- service will use the default setting (static-key).
-output_encryption :: Lens.Lens' Output (Prelude.Maybe Encryption)
-output_encryption = Lens.lens (\Output' {encryption} -> encryption) (\s@Output' {} a -> s {encryption = a} :: Output)
-
--- | Percentage from 0-100 of the data transfer cost to be billed to the
--- subscriber.
-output_dataTransferSubscriberFeePercent :: Lens.Lens' Output (Prelude.Maybe Prelude.Int)
-output_dataTransferSubscriberFeePercent = Lens.lens (\Output' {dataTransferSubscriberFeePercent} -> dataTransferSubscriberFeePercent) (\s@Output' {} a -> s {dataTransferSubscriberFeePercent = a} :: Output)
+-- | The name of the VPC interface attachment to use for this output.
+output_vpcInterfaceAttachment :: Lens.Lens' Output (Prelude.Maybe VpcInterfaceAttachment)
+output_vpcInterfaceAttachment = Lens.lens (\Output' {vpcInterfaceAttachment} -> vpcInterfaceAttachment) (\s@Output' {} a -> s {vpcInterfaceAttachment = a} :: Output)
 
 -- | The ARN of the output.
 output_outputArn :: Lens.Lens' Output Prelude.Text
@@ -208,51 +209,52 @@ instance Data.FromJSON Output where
       "Output"
       ( \x ->
           Output'
-            Prelude.<$> (x Data..:? "destination")
-            Prelude.<*> (x Data..:? "port")
+            Prelude.<$> (x Data..:? "dataTransferSubscriberFeePercent")
+            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "destination")
+            Prelude.<*> (x Data..:? "encryption")
+            Prelude.<*> (x Data..:? "entitlementArn")
+            Prelude.<*> (x Data..:? "listenerAddress")
+            Prelude.<*> (x Data..:? "mediaLiveInputArn")
             Prelude.<*> ( x Data..:? "mediaStreamOutputConfigurations"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "entitlementArn")
-            Prelude.<*> (x Data..:? "listenerAddress")
-            Prelude.<*> (x Data..:? "vpcInterfaceAttachment")
-            Prelude.<*> (x Data..:? "description")
-            Prelude.<*> (x Data..:? "mediaLiveInputArn")
+            Prelude.<*> (x Data..:? "port")
             Prelude.<*> (x Data..:? "transport")
-            Prelude.<*> (x Data..:? "encryption")
-            Prelude.<*> (x Data..:? "dataTransferSubscriberFeePercent")
+            Prelude.<*> (x Data..:? "vpcInterfaceAttachment")
             Prelude.<*> (x Data..: "outputArn")
             Prelude.<*> (x Data..: "name")
       )
 
 instance Prelude.Hashable Output where
   hashWithSalt _salt Output' {..} =
-    _salt `Prelude.hashWithSalt` destination
-      `Prelude.hashWithSalt` port
-      `Prelude.hashWithSalt` mediaStreamOutputConfigurations
+    _salt
+      `Prelude.hashWithSalt` dataTransferSubscriberFeePercent
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` destination
+      `Prelude.hashWithSalt` encryption
       `Prelude.hashWithSalt` entitlementArn
       `Prelude.hashWithSalt` listenerAddress
-      `Prelude.hashWithSalt` vpcInterfaceAttachment
-      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` mediaLiveInputArn
+      `Prelude.hashWithSalt` mediaStreamOutputConfigurations
+      `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` transport
-      `Prelude.hashWithSalt` encryption
-      `Prelude.hashWithSalt` dataTransferSubscriberFeePercent
+      `Prelude.hashWithSalt` vpcInterfaceAttachment
       `Prelude.hashWithSalt` outputArn
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData Output where
   rnf Output' {..} =
-    Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf mediaStreamOutputConfigurations
+    Prelude.rnf dataTransferSubscriberFeePercent
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf destination
+      `Prelude.seq` Prelude.rnf encryption
       `Prelude.seq` Prelude.rnf entitlementArn
       `Prelude.seq` Prelude.rnf listenerAddress
-      `Prelude.seq` Prelude.rnf vpcInterfaceAttachment
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf mediaLiveInputArn
+      `Prelude.seq` Prelude.rnf mediaStreamOutputConfigurations
+      `Prelude.seq` Prelude.rnf port
       `Prelude.seq` Prelude.rnf transport
-      `Prelude.seq` Prelude.rnf encryption
-      `Prelude.seq` Prelude.rnf dataTransferSubscriberFeePercent
+      `Prelude.seq` Prelude.rnf vpcInterfaceAttachment
       `Prelude.seq` Prelude.rnf outputArn
       `Prelude.seq` Prelude.rnf name

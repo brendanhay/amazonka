@@ -67,9 +67,12 @@ library
     Amazonka.DrS.ListStagingAccounts
     Amazonka.DrS.ListTagsForResource
     Amazonka.DrS.RetryDataReplication
+    Amazonka.DrS.ReverseReplication
     Amazonka.DrS.StartFailbackLaunch
     Amazonka.DrS.StartRecovery
+    Amazonka.DrS.StartReplication
     Amazonka.DrS.StopFailback
+    Amazonka.DrS.StopReplication
     Amazonka.DrS.TagResource
     Amazonka.DrS.TerminateRecoveryInstances
     Amazonka.DrS.Types
@@ -92,6 +95,7 @@ library
     Amazonka.DrS.Types.Disk
     Amazonka.DrS.Types.EC2InstanceState
     Amazonka.DrS.Types.ExtensionStatus
+    Amazonka.DrS.Types.FailbackLaunchType
     Amazonka.DrS.Types.FailbackReplicationError
     Amazonka.DrS.Types.FailbackState
     Amazonka.DrS.Types.IdentificationHints
@@ -112,6 +116,7 @@ library
     Amazonka.DrS.Types.LifeCycleLastLaunch
     Amazonka.DrS.Types.LifeCycleLastLaunchInitiated
     Amazonka.DrS.Types.NetworkInterface
+    Amazonka.DrS.Types.OriginEnvironment
     Amazonka.DrS.Types.OS
     Amazonka.DrS.Types.ParticipatingServer
     Amazonka.DrS.Types.PITPolicyRule
@@ -137,6 +142,8 @@ library
     Amazonka.DrS.Types.ReplicationConfigurationReplicatedDisk
     Amazonka.DrS.Types.ReplicationConfigurationReplicatedDiskStagingDiskType
     Amazonka.DrS.Types.ReplicationConfigurationTemplate
+    Amazonka.DrS.Types.ReplicationDirection
+    Amazonka.DrS.Types.SourceCloudProperties
     Amazonka.DrS.Types.SourceProperties
     Amazonka.DrS.Types.SourceServer
     Amazonka.DrS.Types.StagingArea

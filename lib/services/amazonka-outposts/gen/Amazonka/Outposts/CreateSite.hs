@@ -27,12 +27,12 @@ module Amazonka.Outposts.CreateSite
     newCreateSite,
 
     -- * Request Lenses
-    createSite_tags,
-    createSite_shippingAddress,
-    createSite_operatingAddress,
     createSite_description,
     createSite_notes,
+    createSite_operatingAddress,
     createSite_rackPhysicalProperties,
+    createSite_shippingAddress,
+    createSite_tags,
     createSite_name,
 
     -- * Destructuring the Response
@@ -55,25 +55,25 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateSite' smart constructor.
 data CreateSite = CreateSite'
-  { -- | The tags to apply to a site.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The location to ship the hardware. This address might be different from
-    -- the operating address.
-    shippingAddress :: Prelude.Maybe Address,
-    -- | The location to install and power on the hardware. This address might be
-    -- different from the shipping address.
-    operatingAddress :: Prelude.Maybe Address,
-    description :: Prelude.Maybe Prelude.Text,
+  { description :: Prelude.Maybe Prelude.Text,
     -- | Additional information that you provide about site access requirements,
     -- electrician scheduling, personal protective equipment, or regulation of
     -- equipment materials that could affect your installation process.
     notes :: Prelude.Maybe Prelude.Text,
+    -- | The location to install and power on the hardware. This address might be
+    -- different from the shipping address.
+    operatingAddress :: Prelude.Maybe Address,
     -- | Information about the physical and logistical details for the rack at
     -- this site. For more information about hardware requirements for racks,
     -- see
     -- <https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#checklist Network readiness checklist>
     -- in the Amazon Web Services Outposts User Guide.
     rackPhysicalProperties :: Prelude.Maybe RackPhysicalProperties,
+    -- | The location to ship the hardware. This address might be different from
+    -- the operating address.
+    shippingAddress :: Prelude.Maybe Address,
+    -- | The tags to apply to a site.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     name :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -86,25 +86,25 @@ data CreateSite = CreateSite'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createSite_tags' - The tags to apply to a site.
---
--- 'shippingAddress', 'createSite_shippingAddress' - The location to ship the hardware. This address might be different from
--- the operating address.
---
--- 'operatingAddress', 'createSite_operatingAddress' - The location to install and power on the hardware. This address might be
--- different from the shipping address.
---
 -- 'description', 'createSite_description' - Undocumented member.
 --
 -- 'notes', 'createSite_notes' - Additional information that you provide about site access requirements,
 -- electrician scheduling, personal protective equipment, or regulation of
 -- equipment materials that could affect your installation process.
 --
+-- 'operatingAddress', 'createSite_operatingAddress' - The location to install and power on the hardware. This address might be
+-- different from the shipping address.
+--
 -- 'rackPhysicalProperties', 'createSite_rackPhysicalProperties' - Information about the physical and logistical details for the rack at
 -- this site. For more information about hardware requirements for racks,
 -- see
 -- <https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#checklist Network readiness checklist>
 -- in the Amazon Web Services Outposts User Guide.
+--
+-- 'shippingAddress', 'createSite_shippingAddress' - The location to ship the hardware. This address might be different from
+-- the operating address.
+--
+-- 'tags', 'createSite_tags' - The tags to apply to a site.
 --
 -- 'name', 'createSite_name' - Undocumented member.
 newCreateSite ::
@@ -113,28 +113,14 @@ newCreateSite ::
   CreateSite
 newCreateSite pName_ =
   CreateSite'
-    { tags = Prelude.Nothing,
-      shippingAddress = Prelude.Nothing,
-      operatingAddress = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
       notes = Prelude.Nothing,
+      operatingAddress = Prelude.Nothing,
       rackPhysicalProperties = Prelude.Nothing,
+      shippingAddress = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_
     }
-
--- | The tags to apply to a site.
-createSite_tags :: Lens.Lens' CreateSite (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createSite_tags = Lens.lens (\CreateSite' {tags} -> tags) (\s@CreateSite' {} a -> s {tags = a} :: CreateSite) Prelude.. Lens.mapping Lens.coerced
-
--- | The location to ship the hardware. This address might be different from
--- the operating address.
-createSite_shippingAddress :: Lens.Lens' CreateSite (Prelude.Maybe Address)
-createSite_shippingAddress = Lens.lens (\CreateSite' {shippingAddress} -> shippingAddress) (\s@CreateSite' {} a -> s {shippingAddress = a} :: CreateSite)
-
--- | The location to install and power on the hardware. This address might be
--- different from the shipping address.
-createSite_operatingAddress :: Lens.Lens' CreateSite (Prelude.Maybe Address)
-createSite_operatingAddress = Lens.lens (\CreateSite' {operatingAddress} -> operatingAddress) (\s@CreateSite' {} a -> s {operatingAddress = a} :: CreateSite)
 
 -- | Undocumented member.
 createSite_description :: Lens.Lens' CreateSite (Prelude.Maybe Prelude.Text)
@@ -146,6 +132,11 @@ createSite_description = Lens.lens (\CreateSite' {description} -> description) (
 createSite_notes :: Lens.Lens' CreateSite (Prelude.Maybe Prelude.Text)
 createSite_notes = Lens.lens (\CreateSite' {notes} -> notes) (\s@CreateSite' {} a -> s {notes = a} :: CreateSite)
 
+-- | The location to install and power on the hardware. This address might be
+-- different from the shipping address.
+createSite_operatingAddress :: Lens.Lens' CreateSite (Prelude.Maybe Address)
+createSite_operatingAddress = Lens.lens (\CreateSite' {operatingAddress} -> operatingAddress) (\s@CreateSite' {} a -> s {operatingAddress = a} :: CreateSite)
+
 -- | Information about the physical and logistical details for the rack at
 -- this site. For more information about hardware requirements for racks,
 -- see
@@ -153,6 +144,15 @@ createSite_notes = Lens.lens (\CreateSite' {notes} -> notes) (\s@CreateSite' {} 
 -- in the Amazon Web Services Outposts User Guide.
 createSite_rackPhysicalProperties :: Lens.Lens' CreateSite (Prelude.Maybe RackPhysicalProperties)
 createSite_rackPhysicalProperties = Lens.lens (\CreateSite' {rackPhysicalProperties} -> rackPhysicalProperties) (\s@CreateSite' {} a -> s {rackPhysicalProperties = a} :: CreateSite)
+
+-- | The location to ship the hardware. This address might be different from
+-- the operating address.
+createSite_shippingAddress :: Lens.Lens' CreateSite (Prelude.Maybe Address)
+createSite_shippingAddress = Lens.lens (\CreateSite' {shippingAddress} -> shippingAddress) (\s@CreateSite' {} a -> s {shippingAddress = a} :: CreateSite)
+
+-- | The tags to apply to a site.
+createSite_tags :: Lens.Lens' CreateSite (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createSite_tags = Lens.lens (\CreateSite' {tags} -> tags) (\s@CreateSite' {} a -> s {tags = a} :: CreateSite) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 createSite_name :: Lens.Lens' CreateSite Prelude.Text
@@ -172,22 +172,22 @@ instance Core.AWSRequest CreateSite where
 
 instance Prelude.Hashable CreateSite where
   hashWithSalt _salt CreateSite' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` shippingAddress
-      `Prelude.hashWithSalt` operatingAddress
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` notes
+      `Prelude.hashWithSalt` operatingAddress
       `Prelude.hashWithSalt` rackPhysicalProperties
+      `Prelude.hashWithSalt` shippingAddress
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateSite where
   rnf CreateSite' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf shippingAddress
-      `Prelude.seq` Prelude.rnf operatingAddress
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf notes
+      `Prelude.seq` Prelude.rnf operatingAddress
       `Prelude.seq` Prelude.rnf rackPhysicalProperties
+      `Prelude.seq` Prelude.rnf shippingAddress
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders CreateSite where
@@ -205,15 +205,15 @@ instance Data.ToJSON CreateSite where
   toJSON CreateSite' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ShippingAddress" Data..=)
-              Prelude.<$> shippingAddress,
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("Notes" Data..=) Prelude.<$> notes,
             ("OperatingAddress" Data..=)
               Prelude.<$> operatingAddress,
-            ("Description" Data..=) Prelude.<$> description,
-            ("Notes" Data..=) Prelude.<$> notes,
             ("RackPhysicalProperties" Data..=)
               Prelude.<$> rackPhysicalProperties,
+            ("ShippingAddress" Data..=)
+              Prelude.<$> shippingAddress,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Name" Data..= name)
           ]
       )

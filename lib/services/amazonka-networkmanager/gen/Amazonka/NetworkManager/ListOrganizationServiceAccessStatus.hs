@@ -28,8 +28,8 @@ module Amazonka.NetworkManager.ListOrganizationServiceAccessStatus
     newListOrganizationServiceAccessStatus,
 
     -- * Request Lenses
-    listOrganizationServiceAccessStatus_nextToken,
     listOrganizationServiceAccessStatus_maxResults,
+    listOrganizationServiceAccessStatus_nextToken,
 
     -- * Destructuring the Response
     ListOrganizationServiceAccessStatusResponse (..),
@@ -52,10 +52,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListOrganizationServiceAccessStatus' smart constructor.
 data ListOrganizationServiceAccessStatus = ListOrganizationServiceAccessStatus'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return.
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { -- | The maximum number of results to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,25 +67,25 @@ data ListOrganizationServiceAccessStatus = ListOrganizationServiceAccessStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listOrganizationServiceAccessStatus_nextToken' - The token for the next page of results.
---
 -- 'maxResults', 'listOrganizationServiceAccessStatus_maxResults' - The maximum number of results to return.
+--
+-- 'nextToken', 'listOrganizationServiceAccessStatus_nextToken' - The token for the next page of results.
 newListOrganizationServiceAccessStatus ::
   ListOrganizationServiceAccessStatus
 newListOrganizationServiceAccessStatus =
   ListOrganizationServiceAccessStatus'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | The token for the next page of results.
-listOrganizationServiceAccessStatus_nextToken :: Lens.Lens' ListOrganizationServiceAccessStatus (Prelude.Maybe Prelude.Text)
-listOrganizationServiceAccessStatus_nextToken = Lens.lens (\ListOrganizationServiceAccessStatus' {nextToken} -> nextToken) (\s@ListOrganizationServiceAccessStatus' {} a -> s {nextToken = a} :: ListOrganizationServiceAccessStatus)
 
 -- | The maximum number of results to return.
 listOrganizationServiceAccessStatus_maxResults :: Lens.Lens' ListOrganizationServiceAccessStatus (Prelude.Maybe Prelude.Natural)
 listOrganizationServiceAccessStatus_maxResults = Lens.lens (\ListOrganizationServiceAccessStatus' {maxResults} -> maxResults) (\s@ListOrganizationServiceAccessStatus' {} a -> s {maxResults = a} :: ListOrganizationServiceAccessStatus)
+
+-- | The token for the next page of results.
+listOrganizationServiceAccessStatus_nextToken :: Lens.Lens' ListOrganizationServiceAccessStatus (Prelude.Maybe Prelude.Text)
+listOrganizationServiceAccessStatus_nextToken = Lens.lens (\ListOrganizationServiceAccessStatus' {nextToken} -> nextToken) (\s@ListOrganizationServiceAccessStatus' {} a -> s {nextToken = a} :: ListOrganizationServiceAccessStatus)
 
 instance
   Core.AWSRequest
@@ -112,16 +112,16 @@ instance
   hashWithSalt
     _salt
     ListOrganizationServiceAccessStatus' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     ListOrganizationServiceAccessStatus
   where
   rnf ListOrganizationServiceAccessStatus' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -150,8 +150,8 @@ instance
   where
   toQuery ListOrganizationServiceAccessStatus' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListOrganizationServiceAccessStatusResponse' smart constructor.

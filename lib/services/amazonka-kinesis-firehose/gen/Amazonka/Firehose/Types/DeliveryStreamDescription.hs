@@ -34,17 +34,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeliveryStreamDescription' smart constructor.
 data DeliveryStreamDescription = DeliveryStreamDescription'
-  { -- | Provides details in case one of the following operations fails due to an
+  { -- | The date and time that the delivery stream was created.
+    createTimestamp :: Prelude.Maybe Data.POSIX,
+    -- | Indicates the server-side encryption (SSE) status for the delivery
+    -- stream.
+    deliveryStreamEncryptionConfiguration :: Prelude.Maybe DeliveryStreamEncryptionConfiguration,
+    -- | Provides details in case one of the following operations fails due to an
     -- error related to KMS: CreateDeliveryStream, DeleteDeliveryStream,
     -- StartDeliveryStreamEncryption, StopDeliveryStreamEncryption.
     failureDescription :: Prelude.Maybe FailureDescription,
     -- | The date and time that the delivery stream was last updated.
     lastUpdateTimestamp :: Prelude.Maybe Data.POSIX,
-    -- | Indicates the server-side encryption (SSE) status for the delivery
-    -- stream.
-    deliveryStreamEncryptionConfiguration :: Prelude.Maybe DeliveryStreamEncryptionConfiguration,
-    -- | The date and time that the delivery stream was created.
-    createTimestamp :: Prelude.Maybe Data.POSIX,
     -- | If the @DeliveryStreamType@ parameter is @KinesisStreamAsSource@, a
     -- SourceDescription object describing the source Kinesis data stream.
     source :: Prelude.Maybe SourceDescription,
@@ -52,7 +52,7 @@ data DeliveryStreamDescription = DeliveryStreamDescription'
     deliveryStreamName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the delivery stream. For more
     -- information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>.
     deliveryStreamARN :: Prelude.Text,
     -- | The status of the delivery stream. If the status of a delivery stream is
     -- @CREATING_FAILED@, this status doesn\'t change, and you can\'t invoke
@@ -87,16 +87,16 @@ data DeliveryStreamDescription = DeliveryStreamDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'createTimestamp', 'deliveryStreamDescription_createTimestamp' - The date and time that the delivery stream was created.
+--
+-- 'deliveryStreamEncryptionConfiguration', 'deliveryStreamDescription_deliveryStreamEncryptionConfiguration' - Indicates the server-side encryption (SSE) status for the delivery
+-- stream.
+--
 -- 'failureDescription', 'deliveryStreamDescription_failureDescription' - Provides details in case one of the following operations fails due to an
 -- error related to KMS: CreateDeliveryStream, DeleteDeliveryStream,
 -- StartDeliveryStreamEncryption, StopDeliveryStreamEncryption.
 --
 -- 'lastUpdateTimestamp', 'deliveryStreamDescription_lastUpdateTimestamp' - The date and time that the delivery stream was last updated.
---
--- 'deliveryStreamEncryptionConfiguration', 'deliveryStreamDescription_deliveryStreamEncryptionConfiguration' - Indicates the server-side encryption (SSE) status for the delivery
--- stream.
---
--- 'createTimestamp', 'deliveryStreamDescription_createTimestamp' - The date and time that the delivery stream was created.
 --
 -- 'source', 'deliveryStreamDescription_source' - If the @DeliveryStreamType@ parameter is @KinesisStreamAsSource@, a
 -- SourceDescription object describing the source Kinesis data stream.
@@ -105,7 +105,7 @@ data DeliveryStreamDescription = DeliveryStreamDescription'
 --
 -- 'deliveryStreamARN', 'deliveryStreamDescription_deliveryStreamARN' - The Amazon Resource Name (ARN) of the delivery stream. For more
 -- information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>.
 --
 -- 'deliveryStreamStatus', 'deliveryStreamDescription_deliveryStreamStatus' - The status of the delivery stream. If the status of a delivery stream is
 -- @CREATING_FAILED@, this status doesn\'t change, and you can\'t invoke
@@ -150,12 +150,12 @@ newDeliveryStreamDescription
   pVersionId_
   pHasMoreDestinations_ =
     DeliveryStreamDescription'
-      { failureDescription =
+      { createTimestamp =
           Prelude.Nothing,
-        lastUpdateTimestamp = Prelude.Nothing,
         deliveryStreamEncryptionConfiguration =
           Prelude.Nothing,
-        createTimestamp = Prelude.Nothing,
+        failureDescription = Prelude.Nothing,
+        lastUpdateTimestamp = Prelude.Nothing,
         source = Prelude.Nothing,
         deliveryStreamName = pDeliveryStreamName_,
         deliveryStreamARN = pDeliveryStreamARN_,
@@ -166,6 +166,15 @@ newDeliveryStreamDescription
         hasMoreDestinations = pHasMoreDestinations_
       }
 
+-- | The date and time that the delivery stream was created.
+deliveryStreamDescription_createTimestamp :: Lens.Lens' DeliveryStreamDescription (Prelude.Maybe Prelude.UTCTime)
+deliveryStreamDescription_createTimestamp = Lens.lens (\DeliveryStreamDescription' {createTimestamp} -> createTimestamp) (\s@DeliveryStreamDescription' {} a -> s {createTimestamp = a} :: DeliveryStreamDescription) Prelude.. Lens.mapping Data._Time
+
+-- | Indicates the server-side encryption (SSE) status for the delivery
+-- stream.
+deliveryStreamDescription_deliveryStreamEncryptionConfiguration :: Lens.Lens' DeliveryStreamDescription (Prelude.Maybe DeliveryStreamEncryptionConfiguration)
+deliveryStreamDescription_deliveryStreamEncryptionConfiguration = Lens.lens (\DeliveryStreamDescription' {deliveryStreamEncryptionConfiguration} -> deliveryStreamEncryptionConfiguration) (\s@DeliveryStreamDescription' {} a -> s {deliveryStreamEncryptionConfiguration = a} :: DeliveryStreamDescription)
+
 -- | Provides details in case one of the following operations fails due to an
 -- error related to KMS: CreateDeliveryStream, DeleteDeliveryStream,
 -- StartDeliveryStreamEncryption, StopDeliveryStreamEncryption.
@@ -175,15 +184,6 @@ deliveryStreamDescription_failureDescription = Lens.lens (\DeliveryStreamDescrip
 -- | The date and time that the delivery stream was last updated.
 deliveryStreamDescription_lastUpdateTimestamp :: Lens.Lens' DeliveryStreamDescription (Prelude.Maybe Prelude.UTCTime)
 deliveryStreamDescription_lastUpdateTimestamp = Lens.lens (\DeliveryStreamDescription' {lastUpdateTimestamp} -> lastUpdateTimestamp) (\s@DeliveryStreamDescription' {} a -> s {lastUpdateTimestamp = a} :: DeliveryStreamDescription) Prelude.. Lens.mapping Data._Time
-
--- | Indicates the server-side encryption (SSE) status for the delivery
--- stream.
-deliveryStreamDescription_deliveryStreamEncryptionConfiguration :: Lens.Lens' DeliveryStreamDescription (Prelude.Maybe DeliveryStreamEncryptionConfiguration)
-deliveryStreamDescription_deliveryStreamEncryptionConfiguration = Lens.lens (\DeliveryStreamDescription' {deliveryStreamEncryptionConfiguration} -> deliveryStreamEncryptionConfiguration) (\s@DeliveryStreamDescription' {} a -> s {deliveryStreamEncryptionConfiguration = a} :: DeliveryStreamDescription)
-
--- | The date and time that the delivery stream was created.
-deliveryStreamDescription_createTimestamp :: Lens.Lens' DeliveryStreamDescription (Prelude.Maybe Prelude.UTCTime)
-deliveryStreamDescription_createTimestamp = Lens.lens (\DeliveryStreamDescription' {createTimestamp} -> createTimestamp) (\s@DeliveryStreamDescription' {} a -> s {createTimestamp = a} :: DeliveryStreamDescription) Prelude.. Lens.mapping Data._Time
 
 -- | If the @DeliveryStreamType@ parameter is @KinesisStreamAsSource@, a
 -- SourceDescription object describing the source Kinesis data stream.
@@ -196,7 +196,7 @@ deliveryStreamDescription_deliveryStreamName = Lens.lens (\DeliveryStreamDescrip
 
 -- | The Amazon Resource Name (ARN) of the delivery stream. For more
 -- information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>.
 deliveryStreamDescription_deliveryStreamARN :: Lens.Lens' DeliveryStreamDescription Prelude.Text
 deliveryStreamDescription_deliveryStreamARN = Lens.lens (\DeliveryStreamDescription' {deliveryStreamARN} -> deliveryStreamARN) (\s@DeliveryStreamDescription' {} a -> s {deliveryStreamARN = a} :: DeliveryStreamDescription)
 
@@ -238,10 +238,10 @@ instance Data.FromJSON DeliveryStreamDescription where
       "DeliveryStreamDescription"
       ( \x ->
           DeliveryStreamDescription'
-            Prelude.<$> (x Data..:? "FailureDescription")
-            Prelude.<*> (x Data..:? "LastUpdateTimestamp")
+            Prelude.<$> (x Data..:? "CreateTimestamp")
             Prelude.<*> (x Data..:? "DeliveryStreamEncryptionConfiguration")
-            Prelude.<*> (x Data..:? "CreateTimestamp")
+            Prelude.<*> (x Data..:? "FailureDescription")
+            Prelude.<*> (x Data..:? "LastUpdateTimestamp")
             Prelude.<*> (x Data..:? "Source")
             Prelude.<*> (x Data..: "DeliveryStreamName")
             Prelude.<*> (x Data..: "DeliveryStreamARN")
@@ -254,10 +254,10 @@ instance Data.FromJSON DeliveryStreamDescription where
 
 instance Prelude.Hashable DeliveryStreamDescription where
   hashWithSalt _salt DeliveryStreamDescription' {..} =
-    _salt `Prelude.hashWithSalt` failureDescription
-      `Prelude.hashWithSalt` lastUpdateTimestamp
+    _salt `Prelude.hashWithSalt` createTimestamp
       `Prelude.hashWithSalt` deliveryStreamEncryptionConfiguration
-      `Prelude.hashWithSalt` createTimestamp
+      `Prelude.hashWithSalt` failureDescription
+      `Prelude.hashWithSalt` lastUpdateTimestamp
       `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` deliveryStreamName
       `Prelude.hashWithSalt` deliveryStreamARN
@@ -269,10 +269,10 @@ instance Prelude.Hashable DeliveryStreamDescription where
 
 instance Prelude.NFData DeliveryStreamDescription where
   rnf DeliveryStreamDescription' {..} =
-    Prelude.rnf failureDescription
-      `Prelude.seq` Prelude.rnf lastUpdateTimestamp
+    Prelude.rnf createTimestamp
       `Prelude.seq` Prelude.rnf deliveryStreamEncryptionConfiguration
-      `Prelude.seq` Prelude.rnf createTimestamp
+      `Prelude.seq` Prelude.rnf failureDescription
+      `Prelude.seq` Prelude.rnf lastUpdateTimestamp
       `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf deliveryStreamName
       `Prelude.seq` Prelude.rnf deliveryStreamARN

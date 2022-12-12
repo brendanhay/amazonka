@@ -31,8 +31,6 @@ import qualified Amazonka.Prelude as Prelude
 -- player latency information. Player latency policies can be stacked to
 -- gradually relax latency requirements over time.
 --
--- Latency policies are part of a GameSessionQueue.
---
 -- /See:/ 'newPlayerLatencyPolicy' smart constructor.
 data PlayerLatencyPolicy = PlayerLatencyPolicy'
   { -- | The maximum latency value that is allowed for any player, in

@@ -35,15 +35,6 @@
 -- __Learn more__
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up GameLift fleets>
---
--- __Related actions__
---
--- CreateFleetLocations | DescribeFleetLocationAttributes |
--- DescribeFleetLocationCapacity | DescribeFleetLocationUtilization |
--- DescribeFleetAttributes | DescribeFleetCapacity |
--- DescribeFleetUtilization | UpdateFleetCapacity | StopFleetActions |
--- DeleteFleetLocations |
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Amazonka.GameLift.DeleteFleetLocations
   ( -- * Creating a Request
     DeleteFleetLocations (..),
@@ -58,9 +49,9 @@ module Amazonka.GameLift.DeleteFleetLocations
     newDeleteFleetLocationsResponse,
 
     -- * Response Lenses
+    deleteFleetLocationsResponse_fleetArn,
     deleteFleetLocationsResponse_fleetId,
     deleteFleetLocationsResponse_locationStates,
-    deleteFleetLocationsResponse_fleetArn,
     deleteFleetLocationsResponse_httpStatus,
   )
 where
@@ -73,9 +64,7 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Represents the input for a request operation.
---
--- /See:/ 'newDeleteFleetLocations' smart constructor.
+-- | /See:/ 'newDeleteFleetLocations' smart constructor.
 data DeleteFleetLocations = DeleteFleetLocations'
   { -- | A unique identifier for the fleet to delete locations for. You can use
     -- either the fleet ID or ARN value.
@@ -131,9 +120,9 @@ instance Core.AWSRequest DeleteFleetLocations where
     Response.receiveJSON
       ( \s h x ->
           DeleteFleetLocationsResponse'
-            Prelude.<$> (x Data..?> "FleetId")
+            Prelude.<$> (x Data..?> "FleetArn")
+            Prelude.<*> (x Data..?> "FleetId")
             Prelude.<*> (x Data..?> "LocationStates" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "FleetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -177,22 +166,20 @@ instance Data.ToPath DeleteFleetLocations where
 instance Data.ToQuery DeleteFleetLocations where
   toQuery = Prelude.const Prelude.mempty
 
--- | Represents the returned data in response to a request operation.
---
--- /See:/ 'newDeleteFleetLocationsResponse' smart constructor.
+-- | /See:/ 'newDeleteFleetLocationsResponse' smart constructor.
 data DeleteFleetLocationsResponse = DeleteFleetLocationsResponse'
-  { -- | A unique identifier for the fleet that location attributes are being
-    -- deleted for.
-    fleetId :: Prelude.Maybe Prelude.Text,
-    -- | The remote locations that are being deleted, with each location status
-    -- set to @DELETING@.
-    locationStates :: Prelude.Maybe [LocationState],
-    -- | The Amazon Resource Name
+  { -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
     -- that is assigned to a GameLift fleet resource and uniquely identifies
     -- it. ARNs are unique across all Regions. Format is
     -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
     fleetArn :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for the fleet that location attributes are being
+    -- deleted for.
+    fleetId :: Prelude.Maybe Prelude.Text,
+    -- | The remote locations that are being deleted, with each location status
+    -- set to @DELETING@.
+    locationStates :: Prelude.Maybe [LocationState],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -206,17 +193,17 @@ data DeleteFleetLocationsResponse = DeleteFleetLocationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fleetId', 'deleteFleetLocationsResponse_fleetId' - A unique identifier for the fleet that location attributes are being
--- deleted for.
---
--- 'locationStates', 'deleteFleetLocationsResponse_locationStates' - The remote locations that are being deleted, with each location status
--- set to @DELETING@.
---
 -- 'fleetArn', 'deleteFleetLocationsResponse_fleetArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
 -- that is assigned to a GameLift fleet resource and uniquely identifies
 -- it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
+--
+-- 'fleetId', 'deleteFleetLocationsResponse_fleetId' - A unique identifier for the fleet that location attributes are being
+-- deleted for.
+--
+-- 'locationStates', 'deleteFleetLocationsResponse_locationStates' - The remote locations that are being deleted, with each location status
+-- set to @DELETING@.
 --
 -- 'httpStatus', 'deleteFleetLocationsResponse_httpStatus' - The response's http status code.
 newDeleteFleetLocationsResponse ::
@@ -225,12 +212,20 @@ newDeleteFleetLocationsResponse ::
   DeleteFleetLocationsResponse
 newDeleteFleetLocationsResponse pHttpStatus_ =
   DeleteFleetLocationsResponse'
-    { fleetId =
+    { fleetArn =
         Prelude.Nothing,
+      fleetId = Prelude.Nothing,
       locationStates = Prelude.Nothing,
-      fleetArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Amazon Resource Name
+-- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
+-- that is assigned to a GameLift fleet resource and uniquely identifies
+-- it. ARNs are unique across all Regions. Format is
+-- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
+deleteFleetLocationsResponse_fleetArn :: Lens.Lens' DeleteFleetLocationsResponse (Prelude.Maybe Prelude.Text)
+deleteFleetLocationsResponse_fleetArn = Lens.lens (\DeleteFleetLocationsResponse' {fleetArn} -> fleetArn) (\s@DeleteFleetLocationsResponse' {} a -> s {fleetArn = a} :: DeleteFleetLocationsResponse)
 
 -- | A unique identifier for the fleet that location attributes are being
 -- deleted for.
@@ -242,21 +237,13 @@ deleteFleetLocationsResponse_fleetId = Lens.lens (\DeleteFleetLocationsResponse'
 deleteFleetLocationsResponse_locationStates :: Lens.Lens' DeleteFleetLocationsResponse (Prelude.Maybe [LocationState])
 deleteFleetLocationsResponse_locationStates = Lens.lens (\DeleteFleetLocationsResponse' {locationStates} -> locationStates) (\s@DeleteFleetLocationsResponse' {} a -> s {locationStates = a} :: DeleteFleetLocationsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Resource Name
--- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- that is assigned to a GameLift fleet resource and uniquely identifies
--- it. ARNs are unique across all Regions. Format is
--- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
-deleteFleetLocationsResponse_fleetArn :: Lens.Lens' DeleteFleetLocationsResponse (Prelude.Maybe Prelude.Text)
-deleteFleetLocationsResponse_fleetArn = Lens.lens (\DeleteFleetLocationsResponse' {fleetArn} -> fleetArn) (\s@DeleteFleetLocationsResponse' {} a -> s {fleetArn = a} :: DeleteFleetLocationsResponse)
-
 -- | The response's http status code.
 deleteFleetLocationsResponse_httpStatus :: Lens.Lens' DeleteFleetLocationsResponse Prelude.Int
 deleteFleetLocationsResponse_httpStatus = Lens.lens (\DeleteFleetLocationsResponse' {httpStatus} -> httpStatus) (\s@DeleteFleetLocationsResponse' {} a -> s {httpStatus = a} :: DeleteFleetLocationsResponse)
 
 instance Prelude.NFData DeleteFleetLocationsResponse where
   rnf DeleteFleetLocationsResponse' {..} =
-    Prelude.rnf fleetId
+    Prelude.rnf fleetArn
+      `Prelude.seq` Prelude.rnf fleetId
       `Prelude.seq` Prelude.rnf locationStates
-      `Prelude.seq` Prelude.rnf fleetArn
       `Prelude.seq` Prelude.rnf httpStatus

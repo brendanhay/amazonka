@@ -29,8 +29,8 @@ module Amazonka.StorageGateway.UpdateMaintenanceStartTime
     newUpdateMaintenanceStartTime,
 
     -- * Request Lenses
-    updateMaintenanceStartTime_dayOfWeek,
     updateMaintenanceStartTime_dayOfMonth,
+    updateMaintenanceStartTime_dayOfWeek,
     updateMaintenanceStartTime_gatewayARN,
     updateMaintenanceStartTime_hourOfDay,
     updateMaintenanceStartTime_minuteOfHour,
@@ -65,14 +65,14 @@ import Amazonka.StorageGateway.Types
 --
 -- /See:/ 'newUpdateMaintenanceStartTime' smart constructor.
 data UpdateMaintenanceStartTime = UpdateMaintenanceStartTime'
-  { -- | The day of the week component of the maintenance start time week
-    -- represented as an ordinal number from 0 to 6, where 0 represents Sunday
-    -- and 6 Saturday.
-    dayOfWeek :: Prelude.Maybe Prelude.Natural,
-    -- | The day of the month component of the maintenance start time represented
+  { -- | The day of the month component of the maintenance start time represented
     -- as an ordinal number from 1 to 28, where 1 represents the first day of
     -- the month and 28 represents the last day of the month.
     dayOfMonth :: Prelude.Maybe Prelude.Natural,
+    -- | The day of the week component of the maintenance start time week
+    -- represented as an ordinal number from 0 to 6, where 0 represents Sunday
+    -- and 6 Saturday.
+    dayOfWeek :: Prelude.Maybe Prelude.Natural,
     gatewayARN :: Prelude.Text,
     -- | The hour component of the maintenance start time represented as /hh/,
     -- where /hh/ is the hour (00 to 23). The hour of the day is in the time
@@ -93,13 +93,13 @@ data UpdateMaintenanceStartTime = UpdateMaintenanceStartTime'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dayOfWeek', 'updateMaintenanceStartTime_dayOfWeek' - The day of the week component of the maintenance start time week
--- represented as an ordinal number from 0 to 6, where 0 represents Sunday
--- and 6 Saturday.
---
 -- 'dayOfMonth', 'updateMaintenanceStartTime_dayOfMonth' - The day of the month component of the maintenance start time represented
 -- as an ordinal number from 1 to 28, where 1 represents the first day of
 -- the month and 28 represents the last day of the month.
+--
+-- 'dayOfWeek', 'updateMaintenanceStartTime_dayOfWeek' - The day of the week component of the maintenance start time week
+-- represented as an ordinal number from 0 to 6, where 0 represents Sunday
+-- and 6 Saturday.
 --
 -- 'gatewayARN', 'updateMaintenanceStartTime_gatewayARN' - Undocumented member.
 --
@@ -123,25 +123,25 @@ newUpdateMaintenanceStartTime
   pHourOfDay_
   pMinuteOfHour_ =
     UpdateMaintenanceStartTime'
-      { dayOfWeek =
+      { dayOfMonth =
           Prelude.Nothing,
-        dayOfMonth = Prelude.Nothing,
+        dayOfWeek = Prelude.Nothing,
         gatewayARN = pGatewayARN_,
         hourOfDay = pHourOfDay_,
         minuteOfHour = pMinuteOfHour_
       }
-
--- | The day of the week component of the maintenance start time week
--- represented as an ordinal number from 0 to 6, where 0 represents Sunday
--- and 6 Saturday.
-updateMaintenanceStartTime_dayOfWeek :: Lens.Lens' UpdateMaintenanceStartTime (Prelude.Maybe Prelude.Natural)
-updateMaintenanceStartTime_dayOfWeek = Lens.lens (\UpdateMaintenanceStartTime' {dayOfWeek} -> dayOfWeek) (\s@UpdateMaintenanceStartTime' {} a -> s {dayOfWeek = a} :: UpdateMaintenanceStartTime)
 
 -- | The day of the month component of the maintenance start time represented
 -- as an ordinal number from 1 to 28, where 1 represents the first day of
 -- the month and 28 represents the last day of the month.
 updateMaintenanceStartTime_dayOfMonth :: Lens.Lens' UpdateMaintenanceStartTime (Prelude.Maybe Prelude.Natural)
 updateMaintenanceStartTime_dayOfMonth = Lens.lens (\UpdateMaintenanceStartTime' {dayOfMonth} -> dayOfMonth) (\s@UpdateMaintenanceStartTime' {} a -> s {dayOfMonth = a} :: UpdateMaintenanceStartTime)
+
+-- | The day of the week component of the maintenance start time week
+-- represented as an ordinal number from 0 to 6, where 0 represents Sunday
+-- and 6 Saturday.
+updateMaintenanceStartTime_dayOfWeek :: Lens.Lens' UpdateMaintenanceStartTime (Prelude.Maybe Prelude.Natural)
+updateMaintenanceStartTime_dayOfWeek = Lens.lens (\UpdateMaintenanceStartTime' {dayOfWeek} -> dayOfWeek) (\s@UpdateMaintenanceStartTime' {} a -> s {dayOfWeek = a} :: UpdateMaintenanceStartTime)
 
 -- | Undocumented member.
 updateMaintenanceStartTime_gatewayARN :: Lens.Lens' UpdateMaintenanceStartTime Prelude.Text
@@ -175,16 +175,16 @@ instance Core.AWSRequest UpdateMaintenanceStartTime where
 
 instance Prelude.Hashable UpdateMaintenanceStartTime where
   hashWithSalt _salt UpdateMaintenanceStartTime' {..} =
-    _salt `Prelude.hashWithSalt` dayOfWeek
-      `Prelude.hashWithSalt` dayOfMonth
+    _salt `Prelude.hashWithSalt` dayOfMonth
+      `Prelude.hashWithSalt` dayOfWeek
       `Prelude.hashWithSalt` gatewayARN
       `Prelude.hashWithSalt` hourOfDay
       `Prelude.hashWithSalt` minuteOfHour
 
 instance Prelude.NFData UpdateMaintenanceStartTime where
   rnf UpdateMaintenanceStartTime' {..} =
-    Prelude.rnf dayOfWeek
-      `Prelude.seq` Prelude.rnf dayOfMonth
+    Prelude.rnf dayOfMonth
+      `Prelude.seq` Prelude.rnf dayOfWeek
       `Prelude.seq` Prelude.rnf gatewayARN
       `Prelude.seq` Prelude.rnf hourOfDay
       `Prelude.seq` Prelude.rnf minuteOfHour
@@ -208,8 +208,8 @@ instance Data.ToJSON UpdateMaintenanceStartTime where
   toJSON UpdateMaintenanceStartTime' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DayOfWeek" Data..=) Prelude.<$> dayOfWeek,
-            ("DayOfMonth" Data..=) Prelude.<$> dayOfMonth,
+          [ ("DayOfMonth" Data..=) Prelude.<$> dayOfMonth,
+            ("DayOfWeek" Data..=) Prelude.<$> dayOfWeek,
             Prelude.Just ("GatewayARN" Data..= gatewayARN),
             Prelude.Just ("HourOfDay" Data..= hourOfDay),
             Prelude.Just ("MinuteOfHour" Data..= minuteOfHour)

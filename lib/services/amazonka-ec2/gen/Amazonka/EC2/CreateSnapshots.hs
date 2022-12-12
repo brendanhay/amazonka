@@ -42,9 +42,9 @@ module Amazonka.EC2.CreateSnapshots
 
     -- * Request Lenses
     createSnapshots_copyTagsFromSource,
-    createSnapshots_outpostArn,
     createSnapshots_description,
     createSnapshots_dryRun,
+    createSnapshots_outpostArn,
     createSnapshots_tagSpecifications,
     createSnapshots_instanceSpecification,
 
@@ -70,6 +70,13 @@ import qualified Amazonka.Response as Response
 data CreateSnapshots = CreateSnapshots'
   { -- | Copies the tags from the specified volume to corresponding snapshot.
     copyTagsFromSource :: Prelude.Maybe CopyTagsFromSource,
+    -- | A description propagated to every snapshot specified by the instance.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of the Outpost on which to create the
     -- local snapshots.
     --
@@ -89,13 +96,6 @@ data CreateSnapshots = CreateSnapshots'
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-multivol-snapshot Create multi-volume local snapshots from instances on an Outpost>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
     outpostArn :: Prelude.Maybe Prelude.Text,
-    -- | A description propagated to every snapshot specified by the instance.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | Tags to apply to every snapshot specified by the instance.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | The instance to specify which volumes should be included in the
@@ -113,6 +113,13 @@ data CreateSnapshots = CreateSnapshots'
 -- for backwards compatibility:
 --
 -- 'copyTagsFromSource', 'createSnapshots_copyTagsFromSource' - Copies the tags from the specified volume to corresponding snapshot.
+--
+-- 'description', 'createSnapshots_description' - A description propagated to every snapshot specified by the instance.
+--
+-- 'dryRun', 'createSnapshots_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'outpostArn', 'createSnapshots_outpostArn' - The Amazon Resource Name (ARN) of the Outpost on which to create the
 -- local snapshots.
@@ -133,13 +140,6 @@ data CreateSnapshots = CreateSnapshots'
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-multivol-snapshot Create multi-volume local snapshots from instances on an Outpost>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- 'description', 'createSnapshots_description' - A description propagated to every snapshot specified by the instance.
---
--- 'dryRun', 'createSnapshots_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'tagSpecifications', 'createSnapshots_tagSpecifications' - Tags to apply to every snapshot specified by the instance.
 --
 -- 'instanceSpecification', 'createSnapshots_instanceSpecification' - The instance to specify which volumes should be included in the
@@ -152,9 +152,9 @@ newCreateSnapshots pInstanceSpecification_ =
   CreateSnapshots'
     { copyTagsFromSource =
         Prelude.Nothing,
-      outpostArn = Prelude.Nothing,
       description = Prelude.Nothing,
       dryRun = Prelude.Nothing,
+      outpostArn = Prelude.Nothing,
       tagSpecifications = Prelude.Nothing,
       instanceSpecification = pInstanceSpecification_
     }
@@ -162,6 +162,17 @@ newCreateSnapshots pInstanceSpecification_ =
 -- | Copies the tags from the specified volume to corresponding snapshot.
 createSnapshots_copyTagsFromSource :: Lens.Lens' CreateSnapshots (Prelude.Maybe CopyTagsFromSource)
 createSnapshots_copyTagsFromSource = Lens.lens (\CreateSnapshots' {copyTagsFromSource} -> copyTagsFromSource) (\s@CreateSnapshots' {} a -> s {copyTagsFromSource = a} :: CreateSnapshots)
+
+-- | A description propagated to every snapshot specified by the instance.
+createSnapshots_description :: Lens.Lens' CreateSnapshots (Prelude.Maybe Prelude.Text)
+createSnapshots_description = Lens.lens (\CreateSnapshots' {description} -> description) (\s@CreateSnapshots' {} a -> s {description = a} :: CreateSnapshots)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+createSnapshots_dryRun :: Lens.Lens' CreateSnapshots (Prelude.Maybe Prelude.Bool)
+createSnapshots_dryRun = Lens.lens (\CreateSnapshots' {dryRun} -> dryRun) (\s@CreateSnapshots' {} a -> s {dryRun = a} :: CreateSnapshots)
 
 -- | The Amazon Resource Name (ARN) of the Outpost on which to create the
 -- local snapshots.
@@ -183,17 +194,6 @@ createSnapshots_copyTagsFromSource = Lens.lens (\CreateSnapshots' {copyTagsFromS
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 createSnapshots_outpostArn :: Lens.Lens' CreateSnapshots (Prelude.Maybe Prelude.Text)
 createSnapshots_outpostArn = Lens.lens (\CreateSnapshots' {outpostArn} -> outpostArn) (\s@CreateSnapshots' {} a -> s {outpostArn = a} :: CreateSnapshots)
-
--- | A description propagated to every snapshot specified by the instance.
-createSnapshots_description :: Lens.Lens' CreateSnapshots (Prelude.Maybe Prelude.Text)
-createSnapshots_description = Lens.lens (\CreateSnapshots' {description} -> description) (\s@CreateSnapshots' {} a -> s {description = a} :: CreateSnapshots)
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-createSnapshots_dryRun :: Lens.Lens' CreateSnapshots (Prelude.Maybe Prelude.Bool)
-createSnapshots_dryRun = Lens.lens (\CreateSnapshots' {dryRun} -> dryRun) (\s@CreateSnapshots' {} a -> s {dryRun = a} :: CreateSnapshots)
 
 -- | Tags to apply to every snapshot specified by the instance.
 createSnapshots_tagSpecifications :: Lens.Lens' CreateSnapshots (Prelude.Maybe [TagSpecification])
@@ -223,18 +223,18 @@ instance Core.AWSRequest CreateSnapshots where
 instance Prelude.Hashable CreateSnapshots where
   hashWithSalt _salt CreateSnapshots' {..} =
     _salt `Prelude.hashWithSalt` copyTagsFromSource
-      `Prelude.hashWithSalt` outpostArn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` outpostArn
       `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` instanceSpecification
 
 instance Prelude.NFData CreateSnapshots where
   rnf CreateSnapshots' {..} =
     Prelude.rnf copyTagsFromSource
-      `Prelude.seq` Prelude.rnf outpostArn
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf outpostArn
       `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf instanceSpecification
 
@@ -252,9 +252,9 @@ instance Data.ToQuery CreateSnapshots where
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
         "CopyTagsFromSource" Data.=: copyTagsFromSource,
-        "OutpostArn" Data.=: outpostArn,
         "Description" Data.=: description,
         "DryRun" Data.=: dryRun,
+        "OutpostArn" Data.=: outpostArn,
         Data.toQuery
           ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications

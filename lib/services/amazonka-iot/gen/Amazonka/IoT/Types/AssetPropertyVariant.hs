@@ -28,15 +28,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAssetPropertyVariant' smart constructor.
 data AssetPropertyVariant = AssetPropertyVariant'
-  { -- | Optional. A string that contains the integer value of the value entry.
-    -- Accepts substitution templates.
-    integerValue :: Prelude.Maybe Prelude.Text,
+  { -- | Optional. A string that contains the boolean value (@true@ or @false@)
+    -- of the value entry. Accepts substitution templates.
+    booleanValue :: Prelude.Maybe Prelude.Text,
     -- | Optional. A string that contains the double value of the value entry.
     -- Accepts substitution templates.
     doubleValue :: Prelude.Maybe Prelude.Text,
-    -- | Optional. A string that contains the boolean value (@true@ or @false@)
-    -- of the value entry. Accepts substitution templates.
-    booleanValue :: Prelude.Maybe Prelude.Text,
+    -- | Optional. A string that contains the integer value of the value entry.
+    -- Accepts substitution templates.
+    integerValue :: Prelude.Maybe Prelude.Text,
     -- | Optional. The string value of the value entry. Accepts substitution
     -- templates.
     stringValue :: Prelude.Maybe Prelude.Text
@@ -51,14 +51,14 @@ data AssetPropertyVariant = AssetPropertyVariant'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'integerValue', 'assetPropertyVariant_integerValue' - Optional. A string that contains the integer value of the value entry.
--- Accepts substitution templates.
+-- 'booleanValue', 'assetPropertyVariant_booleanValue' - Optional. A string that contains the boolean value (@true@ or @false@)
+-- of the value entry. Accepts substitution templates.
 --
 -- 'doubleValue', 'assetPropertyVariant_doubleValue' - Optional. A string that contains the double value of the value entry.
 -- Accepts substitution templates.
 --
--- 'booleanValue', 'assetPropertyVariant_booleanValue' - Optional. A string that contains the boolean value (@true@ or @false@)
--- of the value entry. Accepts substitution templates.
+-- 'integerValue', 'assetPropertyVariant_integerValue' - Optional. A string that contains the integer value of the value entry.
+-- Accepts substitution templates.
 --
 -- 'stringValue', 'assetPropertyVariant_stringValue' - Optional. The string value of the value entry. Accepts substitution
 -- templates.
@@ -66,27 +66,27 @@ newAssetPropertyVariant ::
   AssetPropertyVariant
 newAssetPropertyVariant =
   AssetPropertyVariant'
-    { integerValue =
+    { booleanValue =
         Prelude.Nothing,
       doubleValue = Prelude.Nothing,
-      booleanValue = Prelude.Nothing,
+      integerValue = Prelude.Nothing,
       stringValue = Prelude.Nothing
     }
 
--- | Optional. A string that contains the integer value of the value entry.
--- Accepts substitution templates.
-assetPropertyVariant_integerValue :: Lens.Lens' AssetPropertyVariant (Prelude.Maybe Prelude.Text)
-assetPropertyVariant_integerValue = Lens.lens (\AssetPropertyVariant' {integerValue} -> integerValue) (\s@AssetPropertyVariant' {} a -> s {integerValue = a} :: AssetPropertyVariant)
+-- | Optional. A string that contains the boolean value (@true@ or @false@)
+-- of the value entry. Accepts substitution templates.
+assetPropertyVariant_booleanValue :: Lens.Lens' AssetPropertyVariant (Prelude.Maybe Prelude.Text)
+assetPropertyVariant_booleanValue = Lens.lens (\AssetPropertyVariant' {booleanValue} -> booleanValue) (\s@AssetPropertyVariant' {} a -> s {booleanValue = a} :: AssetPropertyVariant)
 
 -- | Optional. A string that contains the double value of the value entry.
 -- Accepts substitution templates.
 assetPropertyVariant_doubleValue :: Lens.Lens' AssetPropertyVariant (Prelude.Maybe Prelude.Text)
 assetPropertyVariant_doubleValue = Lens.lens (\AssetPropertyVariant' {doubleValue} -> doubleValue) (\s@AssetPropertyVariant' {} a -> s {doubleValue = a} :: AssetPropertyVariant)
 
--- | Optional. A string that contains the boolean value (@true@ or @false@)
--- of the value entry. Accepts substitution templates.
-assetPropertyVariant_booleanValue :: Lens.Lens' AssetPropertyVariant (Prelude.Maybe Prelude.Text)
-assetPropertyVariant_booleanValue = Lens.lens (\AssetPropertyVariant' {booleanValue} -> booleanValue) (\s@AssetPropertyVariant' {} a -> s {booleanValue = a} :: AssetPropertyVariant)
+-- | Optional. A string that contains the integer value of the value entry.
+-- Accepts substitution templates.
+assetPropertyVariant_integerValue :: Lens.Lens' AssetPropertyVariant (Prelude.Maybe Prelude.Text)
+assetPropertyVariant_integerValue = Lens.lens (\AssetPropertyVariant' {integerValue} -> integerValue) (\s@AssetPropertyVariant' {} a -> s {integerValue = a} :: AssetPropertyVariant)
 
 -- | Optional. The string value of the value entry. Accepts substitution
 -- templates.
@@ -99,33 +99,33 @@ instance Data.FromJSON AssetPropertyVariant where
       "AssetPropertyVariant"
       ( \x ->
           AssetPropertyVariant'
-            Prelude.<$> (x Data..:? "integerValue")
+            Prelude.<$> (x Data..:? "booleanValue")
             Prelude.<*> (x Data..:? "doubleValue")
-            Prelude.<*> (x Data..:? "booleanValue")
+            Prelude.<*> (x Data..:? "integerValue")
             Prelude.<*> (x Data..:? "stringValue")
       )
 
 instance Prelude.Hashable AssetPropertyVariant where
   hashWithSalt _salt AssetPropertyVariant' {..} =
-    _salt `Prelude.hashWithSalt` integerValue
+    _salt `Prelude.hashWithSalt` booleanValue
       `Prelude.hashWithSalt` doubleValue
-      `Prelude.hashWithSalt` booleanValue
+      `Prelude.hashWithSalt` integerValue
       `Prelude.hashWithSalt` stringValue
 
 instance Prelude.NFData AssetPropertyVariant where
   rnf AssetPropertyVariant' {..} =
-    Prelude.rnf integerValue
+    Prelude.rnf booleanValue
       `Prelude.seq` Prelude.rnf doubleValue
-      `Prelude.seq` Prelude.rnf booleanValue
+      `Prelude.seq` Prelude.rnf integerValue
       `Prelude.seq` Prelude.rnf stringValue
 
 instance Data.ToJSON AssetPropertyVariant where
   toJSON AssetPropertyVariant' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("integerValue" Data..=) Prelude.<$> integerValue,
+          [ ("booleanValue" Data..=) Prelude.<$> booleanValue,
             ("doubleValue" Data..=) Prelude.<$> doubleValue,
-            ("booleanValue" Data..=) Prelude.<$> booleanValue,
+            ("integerValue" Data..=) Prelude.<$> integerValue,
             ("stringValue" Data..=) Prelude.<$> stringValue
           ]
       )

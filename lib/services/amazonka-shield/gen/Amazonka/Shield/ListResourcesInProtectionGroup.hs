@@ -27,8 +27,8 @@ module Amazonka.Shield.ListResourcesInProtectionGroup
     newListResourcesInProtectionGroup,
 
     -- * Request Lenses
-    listResourcesInProtectionGroup_nextToken,
     listResourcesInProtectionGroup_maxResults,
+    listResourcesInProtectionGroup_nextToken,
     listResourcesInProtectionGroup_protectionGroupId,
 
     -- * Destructuring the Response
@@ -52,7 +52,15 @@ import Amazonka.Shield.Types
 
 -- | /See:/ 'newListResourcesInProtectionGroup' smart constructor.
 data ListResourcesInProtectionGroup = ListResourcesInProtectionGroup'
-  { -- | When you request a list of objects from Shield Advanced, if the response
+  { -- | The greatest number of objects that you want Shield Advanced to return
+    -- to the list request. Shield Advanced might return fewer objects than you
+    -- indicate in this setting, even if more objects are available. If there
+    -- are more objects remaining, Shield Advanced will always also return a
+    -- @NextToken@ value in the response.
+    --
+    -- The default setting is 20.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | When you request a list of objects from Shield Advanced, if the response
     -- does not include all of the remaining available objects, Shield Advanced
     -- includes a @NextToken@ value in the response. You can retrieve the next
     -- batch of objects by requesting the list again and providing the token
@@ -68,14 +76,6 @@ data ListResourcesInProtectionGroup = ListResourcesInProtectionGroup'
     --
     -- On your first call to a list operation, leave this setting empty.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The greatest number of objects that you want Shield Advanced to return
-    -- to the list request. Shield Advanced might return fewer objects than you
-    -- indicate in this setting, even if more objects are available. If there
-    -- are more objects remaining, Shield Advanced will always also return a
-    -- @NextToken@ value in the response.
-    --
-    -- The default setting is 20.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the protection group. You use this to identify the
     -- protection group in lists and to manage the protection group, for
     -- example to update, delete, or describe it.
@@ -90,6 +90,14 @@ data ListResourcesInProtectionGroup = ListResourcesInProtectionGroup'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'maxResults', 'listResourcesInProtectionGroup_maxResults' - The greatest number of objects that you want Shield Advanced to return
+-- to the list request. Shield Advanced might return fewer objects than you
+-- indicate in this setting, even if more objects are available. If there
+-- are more objects remaining, Shield Advanced will always also return a
+-- @NextToken@ value in the response.
+--
+-- The default setting is 20.
 --
 -- 'nextToken', 'listResourcesInProtectionGroup_nextToken' - When you request a list of objects from Shield Advanced, if the response
 -- does not include all of the remaining available objects, Shield Advanced
@@ -107,14 +115,6 @@ data ListResourcesInProtectionGroup = ListResourcesInProtectionGroup'
 --
 -- On your first call to a list operation, leave this setting empty.
 --
--- 'maxResults', 'listResourcesInProtectionGroup_maxResults' - The greatest number of objects that you want Shield Advanced to return
--- to the list request. Shield Advanced might return fewer objects than you
--- indicate in this setting, even if more objects are available. If there
--- are more objects remaining, Shield Advanced will always also return a
--- @NextToken@ value in the response.
---
--- The default setting is 20.
---
 -- 'protectionGroupId', 'listResourcesInProtectionGroup_protectionGroupId' - The name of the protection group. You use this to identify the
 -- protection group in lists and to manage the protection group, for
 -- example to update, delete, or describe it.
@@ -124,11 +124,21 @@ newListResourcesInProtectionGroup ::
   ListResourcesInProtectionGroup
 newListResourcesInProtectionGroup pProtectionGroupId_ =
   ListResourcesInProtectionGroup'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       protectionGroupId = pProtectionGroupId_
     }
+
+-- | The greatest number of objects that you want Shield Advanced to return
+-- to the list request. Shield Advanced might return fewer objects than you
+-- indicate in this setting, even if more objects are available. If there
+-- are more objects remaining, Shield Advanced will always also return a
+-- @NextToken@ value in the response.
+--
+-- The default setting is 20.
+listResourcesInProtectionGroup_maxResults :: Lens.Lens' ListResourcesInProtectionGroup (Prelude.Maybe Prelude.Natural)
+listResourcesInProtectionGroup_maxResults = Lens.lens (\ListResourcesInProtectionGroup' {maxResults} -> maxResults) (\s@ListResourcesInProtectionGroup' {} a -> s {maxResults = a} :: ListResourcesInProtectionGroup)
 
 -- | When you request a list of objects from Shield Advanced, if the response
 -- does not include all of the remaining available objects, Shield Advanced
@@ -147,16 +157,6 @@ newListResourcesInProtectionGroup pProtectionGroupId_ =
 -- On your first call to a list operation, leave this setting empty.
 listResourcesInProtectionGroup_nextToken :: Lens.Lens' ListResourcesInProtectionGroup (Prelude.Maybe Prelude.Text)
 listResourcesInProtectionGroup_nextToken = Lens.lens (\ListResourcesInProtectionGroup' {nextToken} -> nextToken) (\s@ListResourcesInProtectionGroup' {} a -> s {nextToken = a} :: ListResourcesInProtectionGroup)
-
--- | The greatest number of objects that you want Shield Advanced to return
--- to the list request. Shield Advanced might return fewer objects than you
--- indicate in this setting, even if more objects are available. If there
--- are more objects remaining, Shield Advanced will always also return a
--- @NextToken@ value in the response.
---
--- The default setting is 20.
-listResourcesInProtectionGroup_maxResults :: Lens.Lens' ListResourcesInProtectionGroup (Prelude.Maybe Prelude.Natural)
-listResourcesInProtectionGroup_maxResults = Lens.lens (\ListResourcesInProtectionGroup' {maxResults} -> maxResults) (\s@ListResourcesInProtectionGroup' {} a -> s {maxResults = a} :: ListResourcesInProtectionGroup)
 
 -- | The name of the protection group. You use this to identify the
 -- protection group in lists and to manage the protection group, for
@@ -189,8 +189,8 @@ instance
   hashWithSalt
     _salt
     ListResourcesInProtectionGroup' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` protectionGroupId
 
 instance
@@ -198,8 +198,8 @@ instance
     ListResourcesInProtectionGroup
   where
   rnf ListResourcesInProtectionGroup' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf protectionGroupId
 
 instance
@@ -224,8 +224,8 @@ instance Data.ToJSON ListResourcesInProtectionGroup where
   toJSON ListResourcesInProtectionGroup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("ProtectionGroupId" Data..= protectionGroupId)
           ]

@@ -36,11 +36,11 @@ module Amazonka.MQ.UpdateConfiguration
     newUpdateConfigurationResponse,
 
     -- * Response Lenses
+    updateConfigurationResponse_arn,
+    updateConfigurationResponse_created,
+    updateConfigurationResponse_id,
     updateConfigurationResponse_latestRevision,
     updateConfigurationResponse_name,
-    updateConfigurationResponse_created,
-    updateConfigurationResponse_arn,
-    updateConfigurationResponse_id,
     updateConfigurationResponse_warnings,
     updateConfigurationResponse_httpStatus,
   )
@@ -115,11 +115,11 @@ instance Core.AWSRequest UpdateConfiguration where
     Response.receiveJSON
       ( \s h x ->
           UpdateConfigurationResponse'
-            Prelude.<$> (x Data..?> "latestRevision")
-            Prelude.<*> (x Data..?> "name")
+            Prelude.<$> (x Data..?> "arn")
             Prelude.<*> (x Data..?> "created")
-            Prelude.<*> (x Data..?> "arn")
             Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "latestRevision")
+            Prelude.<*> (x Data..?> "name")
             Prelude.<*> (x Data..?> "warnings" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -166,18 +166,18 @@ instance Data.ToQuery UpdateConfiguration where
 
 -- | /See:/ 'newUpdateConfigurationResponse' smart constructor.
 data UpdateConfigurationResponse = UpdateConfigurationResponse'
-  { -- | The latest revision of the configuration.
+  { -- | Required. The Amazon Resource Name (ARN) of the configuration.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | Required. The date and time of the configuration.
+    created :: Prelude.Maybe Data.POSIX,
+    -- | Required. The unique ID that Amazon MQ generates for the configuration.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The latest revision of the configuration.
     latestRevision :: Prelude.Maybe ConfigurationRevision,
     -- | Required. The name of the configuration. This value can contain only
     -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
     -- ~). This value must be 1-150 characters long.
     name :: Prelude.Maybe Prelude.Text,
-    -- | Required. The date and time of the configuration.
-    created :: Prelude.Maybe Data.POSIX,
-    -- | Required. The Amazon Resource Name (ARN) of the configuration.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | Required. The unique ID that Amazon MQ generates for the configuration.
-    id :: Prelude.Maybe Prelude.Text,
     -- | The list of the first 20 warnings about the configuration XML elements
     -- or attributes that were sanitized.
     warnings :: Prelude.Maybe [SanitizationWarning],
@@ -194,17 +194,17 @@ data UpdateConfigurationResponse = UpdateConfigurationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'arn', 'updateConfigurationResponse_arn' - Required. The Amazon Resource Name (ARN) of the configuration.
+--
+-- 'created', 'updateConfigurationResponse_created' - Required. The date and time of the configuration.
+--
+-- 'id', 'updateConfigurationResponse_id' - Required. The unique ID that Amazon MQ generates for the configuration.
+--
 -- 'latestRevision', 'updateConfigurationResponse_latestRevision' - The latest revision of the configuration.
 --
 -- 'name', 'updateConfigurationResponse_name' - Required. The name of the configuration. This value can contain only
 -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
 -- ~). This value must be 1-150 characters long.
---
--- 'created', 'updateConfigurationResponse_created' - Required. The date and time of the configuration.
---
--- 'arn', 'updateConfigurationResponse_arn' - Required. The Amazon Resource Name (ARN) of the configuration.
---
--- 'id', 'updateConfigurationResponse_id' - Required. The unique ID that Amazon MQ generates for the configuration.
 --
 -- 'warnings', 'updateConfigurationResponse_warnings' - The list of the first 20 warnings about the configuration XML elements
 -- or attributes that were sanitized.
@@ -216,15 +216,26 @@ newUpdateConfigurationResponse ::
   UpdateConfigurationResponse
 newUpdateConfigurationResponse pHttpStatus_ =
   UpdateConfigurationResponse'
-    { latestRevision =
-        Prelude.Nothing,
-      name = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       created = Prelude.Nothing,
-      arn = Prelude.Nothing,
       id = Prelude.Nothing,
+      latestRevision = Prelude.Nothing,
+      name = Prelude.Nothing,
       warnings = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Required. The Amazon Resource Name (ARN) of the configuration.
+updateConfigurationResponse_arn :: Lens.Lens' UpdateConfigurationResponse (Prelude.Maybe Prelude.Text)
+updateConfigurationResponse_arn = Lens.lens (\UpdateConfigurationResponse' {arn} -> arn) (\s@UpdateConfigurationResponse' {} a -> s {arn = a} :: UpdateConfigurationResponse)
+
+-- | Required. The date and time of the configuration.
+updateConfigurationResponse_created :: Lens.Lens' UpdateConfigurationResponse (Prelude.Maybe Prelude.UTCTime)
+updateConfigurationResponse_created = Lens.lens (\UpdateConfigurationResponse' {created} -> created) (\s@UpdateConfigurationResponse' {} a -> s {created = a} :: UpdateConfigurationResponse) Prelude.. Lens.mapping Data._Time
+
+-- | Required. The unique ID that Amazon MQ generates for the configuration.
+updateConfigurationResponse_id :: Lens.Lens' UpdateConfigurationResponse (Prelude.Maybe Prelude.Text)
+updateConfigurationResponse_id = Lens.lens (\UpdateConfigurationResponse' {id} -> id) (\s@UpdateConfigurationResponse' {} a -> s {id = a} :: UpdateConfigurationResponse)
 
 -- | The latest revision of the configuration.
 updateConfigurationResponse_latestRevision :: Lens.Lens' UpdateConfigurationResponse (Prelude.Maybe ConfigurationRevision)
@@ -235,18 +246,6 @@ updateConfigurationResponse_latestRevision = Lens.lens (\UpdateConfigurationResp
 -- ~). This value must be 1-150 characters long.
 updateConfigurationResponse_name :: Lens.Lens' UpdateConfigurationResponse (Prelude.Maybe Prelude.Text)
 updateConfigurationResponse_name = Lens.lens (\UpdateConfigurationResponse' {name} -> name) (\s@UpdateConfigurationResponse' {} a -> s {name = a} :: UpdateConfigurationResponse)
-
--- | Required. The date and time of the configuration.
-updateConfigurationResponse_created :: Lens.Lens' UpdateConfigurationResponse (Prelude.Maybe Prelude.UTCTime)
-updateConfigurationResponse_created = Lens.lens (\UpdateConfigurationResponse' {created} -> created) (\s@UpdateConfigurationResponse' {} a -> s {created = a} :: UpdateConfigurationResponse) Prelude.. Lens.mapping Data._Time
-
--- | Required. The Amazon Resource Name (ARN) of the configuration.
-updateConfigurationResponse_arn :: Lens.Lens' UpdateConfigurationResponse (Prelude.Maybe Prelude.Text)
-updateConfigurationResponse_arn = Lens.lens (\UpdateConfigurationResponse' {arn} -> arn) (\s@UpdateConfigurationResponse' {} a -> s {arn = a} :: UpdateConfigurationResponse)
-
--- | Required. The unique ID that Amazon MQ generates for the configuration.
-updateConfigurationResponse_id :: Lens.Lens' UpdateConfigurationResponse (Prelude.Maybe Prelude.Text)
-updateConfigurationResponse_id = Lens.lens (\UpdateConfigurationResponse' {id} -> id) (\s@UpdateConfigurationResponse' {} a -> s {id = a} :: UpdateConfigurationResponse)
 
 -- | The list of the first 20 warnings about the configuration XML elements
 -- or attributes that were sanitized.
@@ -259,10 +258,10 @@ updateConfigurationResponse_httpStatus = Lens.lens (\UpdateConfigurationResponse
 
 instance Prelude.NFData UpdateConfigurationResponse where
   rnf UpdateConfigurationResponse' {..} =
-    Prelude.rnf latestRevision
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf created
-      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf latestRevision
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf warnings
       `Prelude.seq` Prelude.rnf httpStatus

@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPublicKey' smart constructor.
 data PublicKey = PublicKey'
-  { -- | The starting time of validity of the public key.
-    validityStartTime :: Prelude.Maybe Data.POSIX,
+  { -- | The fingerprint of the public key.
+    fingerprint :: Prelude.Maybe Prelude.Text,
     -- | The ending time of validity of the public key.
     validityEndTime :: Prelude.Maybe Data.POSIX,
-    -- | The fingerprint of the public key.
-    fingerprint :: Prelude.Maybe Prelude.Text,
+    -- | The starting time of validity of the public key.
+    validityStartTime :: Prelude.Maybe Data.POSIX,
     -- | The DER encoded public key value in PKCS#1 format.
     value :: Prelude.Maybe Data.Base64
   }
@@ -47,11 +47,11 @@ data PublicKey = PublicKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'validityStartTime', 'publicKey_validityStartTime' - The starting time of validity of the public key.
+-- 'fingerprint', 'publicKey_fingerprint' - The fingerprint of the public key.
 --
 -- 'validityEndTime', 'publicKey_validityEndTime' - The ending time of validity of the public key.
 --
--- 'fingerprint', 'publicKey_fingerprint' - The fingerprint of the public key.
+-- 'validityStartTime', 'publicKey_validityStartTime' - The starting time of validity of the public key.
 --
 -- 'value', 'publicKey_value' - The DER encoded public key value in PKCS#1 format.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -62,23 +62,23 @@ newPublicKey ::
   PublicKey
 newPublicKey =
   PublicKey'
-    { validityStartTime = Prelude.Nothing,
+    { fingerprint = Prelude.Nothing,
       validityEndTime = Prelude.Nothing,
-      fingerprint = Prelude.Nothing,
+      validityStartTime = Prelude.Nothing,
       value = Prelude.Nothing
     }
 
--- | The starting time of validity of the public key.
-publicKey_validityStartTime :: Lens.Lens' PublicKey (Prelude.Maybe Prelude.UTCTime)
-publicKey_validityStartTime = Lens.lens (\PublicKey' {validityStartTime} -> validityStartTime) (\s@PublicKey' {} a -> s {validityStartTime = a} :: PublicKey) Prelude.. Lens.mapping Data._Time
+-- | The fingerprint of the public key.
+publicKey_fingerprint :: Lens.Lens' PublicKey (Prelude.Maybe Prelude.Text)
+publicKey_fingerprint = Lens.lens (\PublicKey' {fingerprint} -> fingerprint) (\s@PublicKey' {} a -> s {fingerprint = a} :: PublicKey)
 
 -- | The ending time of validity of the public key.
 publicKey_validityEndTime :: Lens.Lens' PublicKey (Prelude.Maybe Prelude.UTCTime)
 publicKey_validityEndTime = Lens.lens (\PublicKey' {validityEndTime} -> validityEndTime) (\s@PublicKey' {} a -> s {validityEndTime = a} :: PublicKey) Prelude.. Lens.mapping Data._Time
 
--- | The fingerprint of the public key.
-publicKey_fingerprint :: Lens.Lens' PublicKey (Prelude.Maybe Prelude.Text)
-publicKey_fingerprint = Lens.lens (\PublicKey' {fingerprint} -> fingerprint) (\s@PublicKey' {} a -> s {fingerprint = a} :: PublicKey)
+-- | The starting time of validity of the public key.
+publicKey_validityStartTime :: Lens.Lens' PublicKey (Prelude.Maybe Prelude.UTCTime)
+publicKey_validityStartTime = Lens.lens (\PublicKey' {validityStartTime} -> validityStartTime) (\s@PublicKey' {} a -> s {validityStartTime = a} :: PublicKey) Prelude.. Lens.mapping Data._Time
 
 -- | The DER encoded public key value in PKCS#1 format.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -94,22 +94,22 @@ instance Data.FromJSON PublicKey where
       "PublicKey"
       ( \x ->
           PublicKey'
-            Prelude.<$> (x Data..:? "ValidityStartTime")
+            Prelude.<$> (x Data..:? "Fingerprint")
             Prelude.<*> (x Data..:? "ValidityEndTime")
-            Prelude.<*> (x Data..:? "Fingerprint")
+            Prelude.<*> (x Data..:? "ValidityStartTime")
             Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable PublicKey where
   hashWithSalt _salt PublicKey' {..} =
-    _salt `Prelude.hashWithSalt` validityStartTime
+    _salt `Prelude.hashWithSalt` fingerprint
       `Prelude.hashWithSalt` validityEndTime
-      `Prelude.hashWithSalt` fingerprint
+      `Prelude.hashWithSalt` validityStartTime
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData PublicKey where
   rnf PublicKey' {..} =
-    Prelude.rnf validityStartTime
+    Prelude.rnf fingerprint
       `Prelude.seq` Prelude.rnf validityEndTime
-      `Prelude.seq` Prelude.rnf fingerprint
+      `Prelude.seq` Prelude.rnf validityStartTime
       `Prelude.seq` Prelude.rnf value

@@ -29,7 +29,14 @@ import Amazonka.SecurityHub.Types.AwsElasticsearchDomainElasticsearchClusterConf
 --
 -- /See:/ 'newAwsElasticsearchDomainElasticsearchClusterConfigDetails' smart constructor.
 data AwsElasticsearchDomainElasticsearchClusterConfigDetails = AwsElasticsearchDomainElasticsearchClusterConfigDetails'
-  { -- | The hardware configuration of the computer that hosts the dedicated
+  { -- | The number of instances to use for the master node. If this attribute is
+    -- specified, then @DedicatedMasterEnabled@ must be @true@.
+    dedicatedMasterCount :: Prelude.Maybe Prelude.Int,
+    -- | Whether to use a dedicated master node for the Elasticsearch domain. A
+    -- dedicated master node performs cluster management tasks, but doesn\'t
+    -- hold data or respond to data upload requests.
+    dedicatedMasterEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The hardware configuration of the computer that hosts the dedicated
     -- master node. A sample value is @m3.medium.elasticsearch@. If this
     -- attribute is specified, then @DedicatedMasterEnabled@ must be @true@.
     --
@@ -37,16 +44,8 @@ data AwsElasticsearchDomainElasticsearchClusterConfigDetails = AwsElasticsearchD
     -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html Supported instance types in Amazon OpenSearch Service>
     -- in the /Amazon OpenSearch Service Developer Guide/.
     dedicatedMasterType :: Prelude.Maybe Prelude.Text,
-    -- | Whether to enable zone awareness for the Elasticsearch domain. When zone
-    -- awareness is enabled, OpenSearch allocates the cluster\'s nodes and
-    -- replica index shards across Availability Zones in the same Region. This
-    -- prevents data loss and minimizes downtime if a node or data center
-    -- fails.
-    zoneAwarenessEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | Whether to use a dedicated master node for the Elasticsearch domain. A
-    -- dedicated master node performs cluster management tasks, but doesn\'t
-    -- hold data or respond to data upload requests.
-    dedicatedMasterEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The number of data nodes to use in the Elasticsearch domain.
+    instanceCount :: Prelude.Maybe Prelude.Int,
     -- | The instance type for your data nodes. For example,
     -- @m3.medium.elasticsearch@.
     --
@@ -57,11 +56,12 @@ data AwsElasticsearchDomainElasticsearchClusterConfigDetails = AwsElasticsearchD
     -- | Configuration options for zone awareness. Provided if
     -- @ZoneAwarenessEnabled@ is @true@.
     zoneAwarenessConfig :: Prelude.Maybe AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails,
-    -- | The number of data nodes to use in the Elasticsearch domain.
-    instanceCount :: Prelude.Maybe Prelude.Int,
-    -- | The number of instances to use for the master node. If this attribute is
-    -- specified, then @DedicatedMasterEnabled@ must be @true@.
-    dedicatedMasterCount :: Prelude.Maybe Prelude.Int
+    -- | Whether to enable zone awareness for the Elasticsearch domain. When zone
+    -- awareness is enabled, OpenSearch allocates the cluster\'s nodes and
+    -- replica index shards across Availability Zones in the same Region. This
+    -- prevents data loss and minimizes downtime if a node or data center
+    -- fails.
+    zoneAwarenessEnabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,6 +73,13 @@ data AwsElasticsearchDomainElasticsearchClusterConfigDetails = AwsElasticsearchD
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dedicatedMasterCount', 'awsElasticsearchDomainElasticsearchClusterConfigDetails_dedicatedMasterCount' - The number of instances to use for the master node. If this attribute is
+-- specified, then @DedicatedMasterEnabled@ must be @true@.
+--
+-- 'dedicatedMasterEnabled', 'awsElasticsearchDomainElasticsearchClusterConfigDetails_dedicatedMasterEnabled' - Whether to use a dedicated master node for the Elasticsearch domain. A
+-- dedicated master node performs cluster management tasks, but doesn\'t
+-- hold data or respond to data upload requests.
+--
 -- 'dedicatedMasterType', 'awsElasticsearchDomainElasticsearchClusterConfigDetails_dedicatedMasterType' - The hardware configuration of the computer that hosts the dedicated
 -- master node. A sample value is @m3.medium.elasticsearch@. If this
 -- attribute is specified, then @DedicatedMasterEnabled@ must be @true@.
@@ -81,15 +88,7 @@ data AwsElasticsearchDomainElasticsearchClusterConfigDetails = AwsElasticsearchD
 -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html Supported instance types in Amazon OpenSearch Service>
 -- in the /Amazon OpenSearch Service Developer Guide/.
 --
--- 'zoneAwarenessEnabled', 'awsElasticsearchDomainElasticsearchClusterConfigDetails_zoneAwarenessEnabled' - Whether to enable zone awareness for the Elasticsearch domain. When zone
--- awareness is enabled, OpenSearch allocates the cluster\'s nodes and
--- replica index shards across Availability Zones in the same Region. This
--- prevents data loss and minimizes downtime if a node or data center
--- fails.
---
--- 'dedicatedMasterEnabled', 'awsElasticsearchDomainElasticsearchClusterConfigDetails_dedicatedMasterEnabled' - Whether to use a dedicated master node for the Elasticsearch domain. A
--- dedicated master node performs cluster management tasks, but doesn\'t
--- hold data or respond to data upload requests.
+-- 'instanceCount', 'awsElasticsearchDomainElasticsearchClusterConfigDetails_instanceCount' - The number of data nodes to use in the Elasticsearch domain.
 --
 -- 'instanceType', 'awsElasticsearchDomainElasticsearchClusterConfigDetails_instanceType' - The instance type for your data nodes. For example,
 -- @m3.medium.elasticsearch@.
@@ -101,29 +100,41 @@ data AwsElasticsearchDomainElasticsearchClusterConfigDetails = AwsElasticsearchD
 -- 'zoneAwarenessConfig', 'awsElasticsearchDomainElasticsearchClusterConfigDetails_zoneAwarenessConfig' - Configuration options for zone awareness. Provided if
 -- @ZoneAwarenessEnabled@ is @true@.
 --
--- 'instanceCount', 'awsElasticsearchDomainElasticsearchClusterConfigDetails_instanceCount' - The number of data nodes to use in the Elasticsearch domain.
---
--- 'dedicatedMasterCount', 'awsElasticsearchDomainElasticsearchClusterConfigDetails_dedicatedMasterCount' - The number of instances to use for the master node. If this attribute is
--- specified, then @DedicatedMasterEnabled@ must be @true@.
+-- 'zoneAwarenessEnabled', 'awsElasticsearchDomainElasticsearchClusterConfigDetails_zoneAwarenessEnabled' - Whether to enable zone awareness for the Elasticsearch domain. When zone
+-- awareness is enabled, OpenSearch allocates the cluster\'s nodes and
+-- replica index shards across Availability Zones in the same Region. This
+-- prevents data loss and minimizes downtime if a node or data center
+-- fails.
 newAwsElasticsearchDomainElasticsearchClusterConfigDetails ::
   AwsElasticsearchDomainElasticsearchClusterConfigDetails
 newAwsElasticsearchDomainElasticsearchClusterConfigDetails =
   AwsElasticsearchDomainElasticsearchClusterConfigDetails'
-    { dedicatedMasterType =
-        Prelude.Nothing,
-      zoneAwarenessEnabled =
+    { dedicatedMasterCount =
         Prelude.Nothing,
       dedicatedMasterEnabled =
+        Prelude.Nothing,
+      dedicatedMasterType =
+        Prelude.Nothing,
+      instanceCount =
         Prelude.Nothing,
       instanceType =
         Prelude.Nothing,
       zoneAwarenessConfig =
         Prelude.Nothing,
-      instanceCount =
-        Prelude.Nothing,
-      dedicatedMasterCount =
+      zoneAwarenessEnabled =
         Prelude.Nothing
     }
+
+-- | The number of instances to use for the master node. If this attribute is
+-- specified, then @DedicatedMasterEnabled@ must be @true@.
+awsElasticsearchDomainElasticsearchClusterConfigDetails_dedicatedMasterCount :: Lens.Lens' AwsElasticsearchDomainElasticsearchClusterConfigDetails (Prelude.Maybe Prelude.Int)
+awsElasticsearchDomainElasticsearchClusterConfigDetails_dedicatedMasterCount = Lens.lens (\AwsElasticsearchDomainElasticsearchClusterConfigDetails' {dedicatedMasterCount} -> dedicatedMasterCount) (\s@AwsElasticsearchDomainElasticsearchClusterConfigDetails' {} a -> s {dedicatedMasterCount = a} :: AwsElasticsearchDomainElasticsearchClusterConfigDetails)
+
+-- | Whether to use a dedicated master node for the Elasticsearch domain. A
+-- dedicated master node performs cluster management tasks, but doesn\'t
+-- hold data or respond to data upload requests.
+awsElasticsearchDomainElasticsearchClusterConfigDetails_dedicatedMasterEnabled :: Lens.Lens' AwsElasticsearchDomainElasticsearchClusterConfigDetails (Prelude.Maybe Prelude.Bool)
+awsElasticsearchDomainElasticsearchClusterConfigDetails_dedicatedMasterEnabled = Lens.lens (\AwsElasticsearchDomainElasticsearchClusterConfigDetails' {dedicatedMasterEnabled} -> dedicatedMasterEnabled) (\s@AwsElasticsearchDomainElasticsearchClusterConfigDetails' {} a -> s {dedicatedMasterEnabled = a} :: AwsElasticsearchDomainElasticsearchClusterConfigDetails)
 
 -- | The hardware configuration of the computer that hosts the dedicated
 -- master node. A sample value is @m3.medium.elasticsearch@. If this
@@ -135,19 +146,9 @@ newAwsElasticsearchDomainElasticsearchClusterConfigDetails =
 awsElasticsearchDomainElasticsearchClusterConfigDetails_dedicatedMasterType :: Lens.Lens' AwsElasticsearchDomainElasticsearchClusterConfigDetails (Prelude.Maybe Prelude.Text)
 awsElasticsearchDomainElasticsearchClusterConfigDetails_dedicatedMasterType = Lens.lens (\AwsElasticsearchDomainElasticsearchClusterConfigDetails' {dedicatedMasterType} -> dedicatedMasterType) (\s@AwsElasticsearchDomainElasticsearchClusterConfigDetails' {} a -> s {dedicatedMasterType = a} :: AwsElasticsearchDomainElasticsearchClusterConfigDetails)
 
--- | Whether to enable zone awareness for the Elasticsearch domain. When zone
--- awareness is enabled, OpenSearch allocates the cluster\'s nodes and
--- replica index shards across Availability Zones in the same Region. This
--- prevents data loss and minimizes downtime if a node or data center
--- fails.
-awsElasticsearchDomainElasticsearchClusterConfigDetails_zoneAwarenessEnabled :: Lens.Lens' AwsElasticsearchDomainElasticsearchClusterConfigDetails (Prelude.Maybe Prelude.Bool)
-awsElasticsearchDomainElasticsearchClusterConfigDetails_zoneAwarenessEnabled = Lens.lens (\AwsElasticsearchDomainElasticsearchClusterConfigDetails' {zoneAwarenessEnabled} -> zoneAwarenessEnabled) (\s@AwsElasticsearchDomainElasticsearchClusterConfigDetails' {} a -> s {zoneAwarenessEnabled = a} :: AwsElasticsearchDomainElasticsearchClusterConfigDetails)
-
--- | Whether to use a dedicated master node for the Elasticsearch domain. A
--- dedicated master node performs cluster management tasks, but doesn\'t
--- hold data or respond to data upload requests.
-awsElasticsearchDomainElasticsearchClusterConfigDetails_dedicatedMasterEnabled :: Lens.Lens' AwsElasticsearchDomainElasticsearchClusterConfigDetails (Prelude.Maybe Prelude.Bool)
-awsElasticsearchDomainElasticsearchClusterConfigDetails_dedicatedMasterEnabled = Lens.lens (\AwsElasticsearchDomainElasticsearchClusterConfigDetails' {dedicatedMasterEnabled} -> dedicatedMasterEnabled) (\s@AwsElasticsearchDomainElasticsearchClusterConfigDetails' {} a -> s {dedicatedMasterEnabled = a} :: AwsElasticsearchDomainElasticsearchClusterConfigDetails)
+-- | The number of data nodes to use in the Elasticsearch domain.
+awsElasticsearchDomainElasticsearchClusterConfigDetails_instanceCount :: Lens.Lens' AwsElasticsearchDomainElasticsearchClusterConfigDetails (Prelude.Maybe Prelude.Int)
+awsElasticsearchDomainElasticsearchClusterConfigDetails_instanceCount = Lens.lens (\AwsElasticsearchDomainElasticsearchClusterConfigDetails' {instanceCount} -> instanceCount) (\s@AwsElasticsearchDomainElasticsearchClusterConfigDetails' {} a -> s {instanceCount = a} :: AwsElasticsearchDomainElasticsearchClusterConfigDetails)
 
 -- | The instance type for your data nodes. For example,
 -- @m3.medium.elasticsearch@.
@@ -163,14 +164,13 @@ awsElasticsearchDomainElasticsearchClusterConfigDetails_instanceType = Lens.lens
 awsElasticsearchDomainElasticsearchClusterConfigDetails_zoneAwarenessConfig :: Lens.Lens' AwsElasticsearchDomainElasticsearchClusterConfigDetails (Prelude.Maybe AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails)
 awsElasticsearchDomainElasticsearchClusterConfigDetails_zoneAwarenessConfig = Lens.lens (\AwsElasticsearchDomainElasticsearchClusterConfigDetails' {zoneAwarenessConfig} -> zoneAwarenessConfig) (\s@AwsElasticsearchDomainElasticsearchClusterConfigDetails' {} a -> s {zoneAwarenessConfig = a} :: AwsElasticsearchDomainElasticsearchClusterConfigDetails)
 
--- | The number of data nodes to use in the Elasticsearch domain.
-awsElasticsearchDomainElasticsearchClusterConfigDetails_instanceCount :: Lens.Lens' AwsElasticsearchDomainElasticsearchClusterConfigDetails (Prelude.Maybe Prelude.Int)
-awsElasticsearchDomainElasticsearchClusterConfigDetails_instanceCount = Lens.lens (\AwsElasticsearchDomainElasticsearchClusterConfigDetails' {instanceCount} -> instanceCount) (\s@AwsElasticsearchDomainElasticsearchClusterConfigDetails' {} a -> s {instanceCount = a} :: AwsElasticsearchDomainElasticsearchClusterConfigDetails)
-
--- | The number of instances to use for the master node. If this attribute is
--- specified, then @DedicatedMasterEnabled@ must be @true@.
-awsElasticsearchDomainElasticsearchClusterConfigDetails_dedicatedMasterCount :: Lens.Lens' AwsElasticsearchDomainElasticsearchClusterConfigDetails (Prelude.Maybe Prelude.Int)
-awsElasticsearchDomainElasticsearchClusterConfigDetails_dedicatedMasterCount = Lens.lens (\AwsElasticsearchDomainElasticsearchClusterConfigDetails' {dedicatedMasterCount} -> dedicatedMasterCount) (\s@AwsElasticsearchDomainElasticsearchClusterConfigDetails' {} a -> s {dedicatedMasterCount = a} :: AwsElasticsearchDomainElasticsearchClusterConfigDetails)
+-- | Whether to enable zone awareness for the Elasticsearch domain. When zone
+-- awareness is enabled, OpenSearch allocates the cluster\'s nodes and
+-- replica index shards across Availability Zones in the same Region. This
+-- prevents data loss and minimizes downtime if a node or data center
+-- fails.
+awsElasticsearchDomainElasticsearchClusterConfigDetails_zoneAwarenessEnabled :: Lens.Lens' AwsElasticsearchDomainElasticsearchClusterConfigDetails (Prelude.Maybe Prelude.Bool)
+awsElasticsearchDomainElasticsearchClusterConfigDetails_zoneAwarenessEnabled = Lens.lens (\AwsElasticsearchDomainElasticsearchClusterConfigDetails' {zoneAwarenessEnabled} -> zoneAwarenessEnabled) (\s@AwsElasticsearchDomainElasticsearchClusterConfigDetails' {} a -> s {zoneAwarenessEnabled = a} :: AwsElasticsearchDomainElasticsearchClusterConfigDetails)
 
 instance
   Data.FromJSON
@@ -181,13 +181,13 @@ instance
       "AwsElasticsearchDomainElasticsearchClusterConfigDetails"
       ( \x ->
           AwsElasticsearchDomainElasticsearchClusterConfigDetails'
-            Prelude.<$> (x Data..:? "DedicatedMasterType")
-              Prelude.<*> (x Data..:? "ZoneAwarenessEnabled")
+            Prelude.<$> (x Data..:? "DedicatedMasterCount")
               Prelude.<*> (x Data..:? "DedicatedMasterEnabled")
+              Prelude.<*> (x Data..:? "DedicatedMasterType")
+              Prelude.<*> (x Data..:? "InstanceCount")
               Prelude.<*> (x Data..:? "InstanceType")
               Prelude.<*> (x Data..:? "ZoneAwarenessConfig")
-              Prelude.<*> (x Data..:? "InstanceCount")
-              Prelude.<*> (x Data..:? "DedicatedMasterCount")
+              Prelude.<*> (x Data..:? "ZoneAwarenessEnabled")
       )
 
 instance
@@ -197,13 +197,13 @@ instance
   hashWithSalt
     _salt
     AwsElasticsearchDomainElasticsearchClusterConfigDetails' {..} =
-      _salt `Prelude.hashWithSalt` dedicatedMasterType
-        `Prelude.hashWithSalt` zoneAwarenessEnabled
+      _salt `Prelude.hashWithSalt` dedicatedMasterCount
         `Prelude.hashWithSalt` dedicatedMasterEnabled
+        `Prelude.hashWithSalt` dedicatedMasterType
+        `Prelude.hashWithSalt` instanceCount
         `Prelude.hashWithSalt` instanceType
         `Prelude.hashWithSalt` zoneAwarenessConfig
-        `Prelude.hashWithSalt` instanceCount
-        `Prelude.hashWithSalt` dedicatedMasterCount
+        `Prelude.hashWithSalt` zoneAwarenessEnabled
 
 instance
   Prelude.NFData
@@ -211,13 +211,13 @@ instance
   where
   rnf
     AwsElasticsearchDomainElasticsearchClusterConfigDetails' {..} =
-      Prelude.rnf dedicatedMasterType
-        `Prelude.seq` Prelude.rnf zoneAwarenessEnabled
+      Prelude.rnf dedicatedMasterCount
         `Prelude.seq` Prelude.rnf dedicatedMasterEnabled
+        `Prelude.seq` Prelude.rnf dedicatedMasterType
+        `Prelude.seq` Prelude.rnf instanceCount
         `Prelude.seq` Prelude.rnf instanceType
         `Prelude.seq` Prelude.rnf zoneAwarenessConfig
-        `Prelude.seq` Prelude.rnf instanceCount
-        `Prelude.seq` Prelude.rnf dedicatedMasterCount
+        `Prelude.seq` Prelude.rnf zoneAwarenessEnabled
 
 instance
   Data.ToJSON
@@ -227,17 +227,17 @@ instance
     AwsElasticsearchDomainElasticsearchClusterConfigDetails' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("DedicatedMasterType" Data..=)
-                Prelude.<$> dedicatedMasterType,
-              ("ZoneAwarenessEnabled" Data..=)
-                Prelude.<$> zoneAwarenessEnabled,
+            [ ("DedicatedMasterCount" Data..=)
+                Prelude.<$> dedicatedMasterCount,
               ("DedicatedMasterEnabled" Data..=)
                 Prelude.<$> dedicatedMasterEnabled,
+              ("DedicatedMasterType" Data..=)
+                Prelude.<$> dedicatedMasterType,
+              ("InstanceCount" Data..=) Prelude.<$> instanceCount,
               ("InstanceType" Data..=) Prelude.<$> instanceType,
               ("ZoneAwarenessConfig" Data..=)
                 Prelude.<$> zoneAwarenessConfig,
-              ("InstanceCount" Data..=) Prelude.<$> instanceCount,
-              ("DedicatedMasterCount" Data..=)
-                Prelude.<$> dedicatedMasterCount
+              ("ZoneAwarenessEnabled" Data..=)
+                Prelude.<$> zoneAwarenessEnabled
             ]
         )

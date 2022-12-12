@@ -34,8 +34,9 @@ module Amazonka.MigrationHubStrategy.GetAssessment
     newGetAssessmentResponse,
 
     -- * Response Lenses
-    getAssessmentResponse_id,
+    getAssessmentResponse_assessmentTargets,
     getAssessmentResponse_dataCollectionDetails,
+    getAssessmentResponse_id,
     getAssessmentResponse_httpStatus,
   )
 where
@@ -84,8 +85,11 @@ instance Core.AWSRequest GetAssessment where
     Response.receiveJSON
       ( \s h x ->
           GetAssessmentResponse'
-            Prelude.<$> (x Data..?> "id")
+            Prelude.<$> ( x Data..?> "assessmentTargets"
+                            Core..!@ Prelude.mempty
+                        )
             Prelude.<*> (x Data..?> "dataCollectionDetails")
+            Prelude.<*> (x Data..?> "id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -116,10 +120,12 @@ instance Data.ToQuery GetAssessment where
 
 -- | /See:/ 'newGetAssessmentResponse' smart constructor.
 data GetAssessmentResponse = GetAssessmentResponse'
-  { -- | The ID for the specific assessment task.
-    id :: Prelude.Maybe Prelude.Text,
+  { -- | List of criteria for assessment.
+    assessmentTargets :: Prelude.Maybe [AssessmentTarget],
     -- | Detailed information about the assessment.
     dataCollectionDetails :: Prelude.Maybe DataCollectionDetails,
+    -- | The ID for the specific assessment task.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -133,9 +139,11 @@ data GetAssessmentResponse = GetAssessmentResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'getAssessmentResponse_id' - The ID for the specific assessment task.
+-- 'assessmentTargets', 'getAssessmentResponse_assessmentTargets' - List of criteria for assessment.
 --
 -- 'dataCollectionDetails', 'getAssessmentResponse_dataCollectionDetails' - Detailed information about the assessment.
+--
+-- 'id', 'getAssessmentResponse_id' - The ID for the specific assessment task.
 --
 -- 'httpStatus', 'getAssessmentResponse_httpStatus' - The response's http status code.
 newGetAssessmentResponse ::
@@ -144,18 +152,24 @@ newGetAssessmentResponse ::
   GetAssessmentResponse
 newGetAssessmentResponse pHttpStatus_ =
   GetAssessmentResponse'
-    { id = Prelude.Nothing,
+    { assessmentTargets =
+        Prelude.Nothing,
       dataCollectionDetails = Prelude.Nothing,
+      id = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The ID for the specific assessment task.
-getAssessmentResponse_id :: Lens.Lens' GetAssessmentResponse (Prelude.Maybe Prelude.Text)
-getAssessmentResponse_id = Lens.lens (\GetAssessmentResponse' {id} -> id) (\s@GetAssessmentResponse' {} a -> s {id = a} :: GetAssessmentResponse)
+-- | List of criteria for assessment.
+getAssessmentResponse_assessmentTargets :: Lens.Lens' GetAssessmentResponse (Prelude.Maybe [AssessmentTarget])
+getAssessmentResponse_assessmentTargets = Lens.lens (\GetAssessmentResponse' {assessmentTargets} -> assessmentTargets) (\s@GetAssessmentResponse' {} a -> s {assessmentTargets = a} :: GetAssessmentResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Detailed information about the assessment.
 getAssessmentResponse_dataCollectionDetails :: Lens.Lens' GetAssessmentResponse (Prelude.Maybe DataCollectionDetails)
 getAssessmentResponse_dataCollectionDetails = Lens.lens (\GetAssessmentResponse' {dataCollectionDetails} -> dataCollectionDetails) (\s@GetAssessmentResponse' {} a -> s {dataCollectionDetails = a} :: GetAssessmentResponse)
+
+-- | The ID for the specific assessment task.
+getAssessmentResponse_id :: Lens.Lens' GetAssessmentResponse (Prelude.Maybe Prelude.Text)
+getAssessmentResponse_id = Lens.lens (\GetAssessmentResponse' {id} -> id) (\s@GetAssessmentResponse' {} a -> s {id = a} :: GetAssessmentResponse)
 
 -- | The response's http status code.
 getAssessmentResponse_httpStatus :: Lens.Lens' GetAssessmentResponse Prelude.Int
@@ -163,6 +177,7 @@ getAssessmentResponse_httpStatus = Lens.lens (\GetAssessmentResponse' {httpStatu
 
 instance Prelude.NFData GetAssessmentResponse where
   rnf GetAssessmentResponse' {..} =
-    Prelude.rnf id
+    Prelude.rnf assessmentTargets
       `Prelude.seq` Prelude.rnf dataCollectionDetails
+      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf httpStatus

@@ -29,8 +29,8 @@ module Amazonka.Amplify.ListDomainAssociations
     newListDomainAssociations,
 
     -- * Request Lenses
-    listDomainAssociations_nextToken,
     listDomainAssociations_maxResults,
+    listDomainAssociations_nextToken,
     listDomainAssociations_appId,
 
     -- * Destructuring the Response
@@ -56,12 +56,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListDomainAssociations' smart constructor.
 data ListDomainAssociations = ListDomainAssociations'
-  { -- | A pagination token. Set to null to start listing apps from the start. If
+  { -- | The maximum number of records to list in a single response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A pagination token. Set to null to start listing apps from the start. If
     -- non-null, a pagination token is returned in a result. Pass its value in
     -- here to list more projects.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of records to list in a single response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The unique ID for an Amplify app.
     appId :: Prelude.Text
   }
@@ -75,11 +75,11 @@ data ListDomainAssociations = ListDomainAssociations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listDomainAssociations_maxResults' - The maximum number of records to list in a single response.
+--
 -- 'nextToken', 'listDomainAssociations_nextToken' - A pagination token. Set to null to start listing apps from the start. If
 -- non-null, a pagination token is returned in a result. Pass its value in
 -- here to list more projects.
---
--- 'maxResults', 'listDomainAssociations_maxResults' - The maximum number of records to list in a single response.
 --
 -- 'appId', 'listDomainAssociations_appId' - The unique ID for an Amplify app.
 newListDomainAssociations ::
@@ -88,21 +88,21 @@ newListDomainAssociations ::
   ListDomainAssociations
 newListDomainAssociations pAppId_ =
   ListDomainAssociations'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       appId = pAppId_
     }
+
+-- | The maximum number of records to list in a single response.
+listDomainAssociations_maxResults :: Lens.Lens' ListDomainAssociations (Prelude.Maybe Prelude.Natural)
+listDomainAssociations_maxResults = Lens.lens (\ListDomainAssociations' {maxResults} -> maxResults) (\s@ListDomainAssociations' {} a -> s {maxResults = a} :: ListDomainAssociations)
 
 -- | A pagination token. Set to null to start listing apps from the start. If
 -- non-null, a pagination token is returned in a result. Pass its value in
 -- here to list more projects.
 listDomainAssociations_nextToken :: Lens.Lens' ListDomainAssociations (Prelude.Maybe Prelude.Text)
 listDomainAssociations_nextToken = Lens.lens (\ListDomainAssociations' {nextToken} -> nextToken) (\s@ListDomainAssociations' {} a -> s {nextToken = a} :: ListDomainAssociations)
-
--- | The maximum number of records to list in a single response.
-listDomainAssociations_maxResults :: Lens.Lens' ListDomainAssociations (Prelude.Maybe Prelude.Natural)
-listDomainAssociations_maxResults = Lens.lens (\ListDomainAssociations' {maxResults} -> maxResults) (\s@ListDomainAssociations' {} a -> s {maxResults = a} :: ListDomainAssociations)
 
 -- | The unique ID for an Amplify app.
 listDomainAssociations_appId :: Lens.Lens' ListDomainAssociations Prelude.Text
@@ -148,14 +148,14 @@ instance Core.AWSRequest ListDomainAssociations where
 
 instance Prelude.Hashable ListDomainAssociations where
   hashWithSalt _salt ListDomainAssociations' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` appId
 
 instance Prelude.NFData ListDomainAssociations where
   rnf ListDomainAssociations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf appId
 
 instance Data.ToHeaders ListDomainAssociations where
@@ -177,8 +177,8 @@ instance Data.ToPath ListDomainAssociations where
 instance Data.ToQuery ListDomainAssociations where
   toQuery ListDomainAssociations' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | The result structure for the list domain association request.

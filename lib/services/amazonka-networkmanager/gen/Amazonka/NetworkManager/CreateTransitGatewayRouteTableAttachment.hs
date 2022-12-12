@@ -27,8 +27,8 @@ module Amazonka.NetworkManager.CreateTransitGatewayRouteTableAttachment
     newCreateTransitGatewayRouteTableAttachment,
 
     -- * Request Lenses
-    createTransitGatewayRouteTableAttachment_tags,
     createTransitGatewayRouteTableAttachment_clientToken,
+    createTransitGatewayRouteTableAttachment_tags,
     createTransitGatewayRouteTableAttachment_peeringId,
     createTransitGatewayRouteTableAttachment_transitGatewayRouteTableArn,
 
@@ -52,10 +52,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateTransitGatewayRouteTableAttachment' smart constructor.
 data CreateTransitGatewayRouteTableAttachment = CreateTransitGatewayRouteTableAttachment'
-  { -- | The list of key-value tags associated with the request.
-    tags :: Prelude.Maybe [Tag],
-    -- | The client token associated with the request.
+  { -- | The client token associated with the request.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The list of key-value tags associated with the request.
+    tags :: Prelude.Maybe [Tag],
     -- | The ID of the peer for the
     peeringId :: Prelude.Text,
     -- | The ARN of the transit gateway route table for the attachment request.
@@ -71,9 +71,9 @@ data CreateTransitGatewayRouteTableAttachment = CreateTransitGatewayRouteTableAt
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createTransitGatewayRouteTableAttachment_tags' - The list of key-value tags associated with the request.
---
 -- 'clientToken', 'createTransitGatewayRouteTableAttachment_clientToken' - The client token associated with the request.
+--
+-- 'tags', 'createTransitGatewayRouteTableAttachment_tags' - The list of key-value tags associated with the request.
 --
 -- 'peeringId', 'createTransitGatewayRouteTableAttachment_peeringId' - The ID of the peer for the
 --
@@ -88,21 +88,21 @@ newCreateTransitGatewayRouteTableAttachment
   pPeeringId_
   pTransitGatewayRouteTableArn_ =
     CreateTransitGatewayRouteTableAttachment'
-      { tags =
+      { clientToken =
           Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+        tags = Prelude.Nothing,
         peeringId = pPeeringId_,
         transitGatewayRouteTableArn =
           pTransitGatewayRouteTableArn_
       }
 
--- | The list of key-value tags associated with the request.
-createTransitGatewayRouteTableAttachment_tags :: Lens.Lens' CreateTransitGatewayRouteTableAttachment (Prelude.Maybe [Tag])
-createTransitGatewayRouteTableAttachment_tags = Lens.lens (\CreateTransitGatewayRouteTableAttachment' {tags} -> tags) (\s@CreateTransitGatewayRouteTableAttachment' {} a -> s {tags = a} :: CreateTransitGatewayRouteTableAttachment) Prelude.. Lens.mapping Lens.coerced
-
 -- | The client token associated with the request.
 createTransitGatewayRouteTableAttachment_clientToken :: Lens.Lens' CreateTransitGatewayRouteTableAttachment (Prelude.Maybe Prelude.Text)
 createTransitGatewayRouteTableAttachment_clientToken = Lens.lens (\CreateTransitGatewayRouteTableAttachment' {clientToken} -> clientToken) (\s@CreateTransitGatewayRouteTableAttachment' {} a -> s {clientToken = a} :: CreateTransitGatewayRouteTableAttachment)
+
+-- | The list of key-value tags associated with the request.
+createTransitGatewayRouteTableAttachment_tags :: Lens.Lens' CreateTransitGatewayRouteTableAttachment (Prelude.Maybe [Tag])
+createTransitGatewayRouteTableAttachment_tags = Lens.lens (\CreateTransitGatewayRouteTableAttachment' {tags} -> tags) (\s@CreateTransitGatewayRouteTableAttachment' {} a -> s {tags = a} :: CreateTransitGatewayRouteTableAttachment) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the peer for the
 createTransitGatewayRouteTableAttachment_peeringId :: Lens.Lens' CreateTransitGatewayRouteTableAttachment Prelude.Text
@@ -137,8 +137,8 @@ instance
   hashWithSalt
     _salt
     CreateTransitGatewayRouteTableAttachment' {..} =
-      _salt `Prelude.hashWithSalt` tags
-        `Prelude.hashWithSalt` clientToken
+      _salt `Prelude.hashWithSalt` clientToken
+        `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` peeringId
         `Prelude.hashWithSalt` transitGatewayRouteTableArn
 
@@ -147,8 +147,8 @@ instance
     CreateTransitGatewayRouteTableAttachment
   where
   rnf CreateTransitGatewayRouteTableAttachment' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf peeringId
       `Prelude.seq` Prelude.rnf transitGatewayRouteTableArn
 
@@ -173,8 +173,8 @@ instance
   toJSON CreateTransitGatewayRouteTableAttachment' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ClientToken" Data..=) Prelude.<$> clientToken,
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("PeeringId" Data..= peeringId),
             Prelude.Just
               ( "TransitGatewayRouteTableArn"

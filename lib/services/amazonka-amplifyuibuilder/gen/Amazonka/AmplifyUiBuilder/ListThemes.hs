@@ -30,8 +30,8 @@ module Amazonka.AmplifyUiBuilder.ListThemes
     newListThemes,
 
     -- * Request Lenses
-    listThemes_nextToken,
     listThemes_maxResults,
+    listThemes_nextToken,
     listThemes_appId,
     listThemes_environmentName,
 
@@ -56,10 +56,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListThemes' smart constructor.
 data ListThemes = ListThemes'
-  { -- | The token to request the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of theme results to return in the response.
+  { -- | The maximum number of theme results to return in the response.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to request the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The unique ID for the Amplify app.
     appId :: Prelude.Text,
     -- | The name of the backend environment that is a part of the Amplify app.
@@ -75,9 +75,9 @@ data ListThemes = ListThemes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listThemes_nextToken' - The token to request the next page of results.
---
 -- 'maxResults', 'listThemes_maxResults' - The maximum number of theme results to return in the response.
+--
+-- 'nextToken', 'listThemes_nextToken' - The token to request the next page of results.
 --
 -- 'appId', 'listThemes_appId' - The unique ID for the Amplify app.
 --
@@ -90,19 +90,19 @@ newListThemes ::
   ListThemes
 newListThemes pAppId_ pEnvironmentName_ =
   ListThemes'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       appId = pAppId_,
       environmentName = pEnvironmentName_
     }
 
--- | The token to request the next page of results.
-listThemes_nextToken :: Lens.Lens' ListThemes (Prelude.Maybe Prelude.Text)
-listThemes_nextToken = Lens.lens (\ListThemes' {nextToken} -> nextToken) (\s@ListThemes' {} a -> s {nextToken = a} :: ListThemes)
-
 -- | The maximum number of theme results to return in the response.
 listThemes_maxResults :: Lens.Lens' ListThemes (Prelude.Maybe Prelude.Natural)
 listThemes_maxResults = Lens.lens (\ListThemes' {maxResults} -> maxResults) (\s@ListThemes' {} a -> s {maxResults = a} :: ListThemes)
+
+-- | The token to request the next page of results.
+listThemes_nextToken :: Lens.Lens' ListThemes (Prelude.Maybe Prelude.Text)
+listThemes_nextToken = Lens.lens (\ListThemes' {nextToken} -> nextToken) (\s@ListThemes' {} a -> s {nextToken = a} :: ListThemes)
 
 -- | The unique ID for the Amplify app.
 listThemes_appId :: Lens.Lens' ListThemes Prelude.Text
@@ -143,15 +143,15 @@ instance Core.AWSRequest ListThemes where
 
 instance Prelude.Hashable ListThemes where
   hashWithSalt _salt ListThemes' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` environmentName
 
 instance Prelude.NFData ListThemes where
   rnf ListThemes' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf appId
       `Prelude.seq` Prelude.rnf environmentName
 
@@ -179,8 +179,8 @@ instance Data.ToPath ListThemes where
 instance Data.ToQuery ListThemes where
   toQuery ListThemes' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListThemesResponse' smart constructor.

@@ -19,8 +19,17 @@ module Amazonka.Kafka
     -- * Errors
     -- $errors
 
-    -- ** UnauthorizedException
-    _UnauthorizedException,
+    -- ** BadRequestException
+    _BadRequestException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ForbiddenException
+    _ForbiddenException,
+
+    -- ** InternalServerErrorException
+    _InternalServerErrorException,
 
     -- ** NotFoundException
     _NotFoundException,
@@ -28,20 +37,11 @@ module Amazonka.Kafka
     -- ** ServiceUnavailableException
     _ServiceUnavailableException,
 
-    -- ** InternalServerErrorException
-    _InternalServerErrorException,
-
-    -- ** ForbiddenException
-    _ForbiddenException,
-
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** BadRequestException
-    _BadRequestException,
-
     -- ** TooManyRequestsException
     _TooManyRequestsException,
+
+    -- ** UnauthorizedException
+    _UnauthorizedException,
 
     -- * Waiters
     -- $waiters

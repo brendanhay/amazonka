@@ -29,8 +29,8 @@ module Amazonka.CostExplorer.GetUsageForecast
     newGetUsageForecast,
 
     -- * Request Lenses
-    getUsageForecast_predictionIntervalLevel,
     getUsageForecast_filter,
+    getUsageForecast_predictionIntervalLevel,
     getUsageForecast_timePeriod,
     getUsageForecast_metric,
     getUsageForecast_granularity,
@@ -56,14 +56,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetUsageForecast' smart constructor.
 data GetUsageForecast = GetUsageForecast'
-  { -- | Amazon Web Services Cost Explorer always returns the mean forecast as a
-    -- single point. You can request a prediction interval around the mean by
-    -- specifying a confidence level. The higher the confidence level, the more
-    -- confident Cost Explorer is about the actual value falling in the
-    -- prediction interval. Higher confidence levels result in wider prediction
-    -- intervals.
-    predictionIntervalLevel :: Prelude.Maybe Prelude.Natural,
-    -- | The filters that you want to use to filter your forecast. The
+  { -- | The filters that you want to use to filter your forecast. The
     -- @GetUsageForecast@ API supports filtering by the following dimensions:
     --
     -- -   @AZ@
@@ -112,6 +105,13 @@ data GetUsageForecast = GetUsageForecast'
     --
     -- -   @SAVINGS_PLAN_ARN@
     filter' :: Prelude.Maybe Expression,
+    -- | Amazon Web Services Cost Explorer always returns the mean forecast as a
+    -- single point. You can request a prediction interval around the mean by
+    -- specifying a confidence level. The higher the confidence level, the more
+    -- confident Cost Explorer is about the actual value falling in the
+    -- prediction interval. Higher confidence levels result in wider prediction
+    -- intervals.
+    predictionIntervalLevel :: Prelude.Maybe Prelude.Natural,
     -- | The start and end dates of the period that you want to retrieve usage
     -- forecast for. The start date is included in the period, but the end date
     -- isn\'t included in the period. For example, if @start@ is @2017-01-01@
@@ -144,13 +144,6 @@ data GetUsageForecast = GetUsageForecast'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'predictionIntervalLevel', 'getUsageForecast_predictionIntervalLevel' - Amazon Web Services Cost Explorer always returns the mean forecast as a
--- single point. You can request a prediction interval around the mean by
--- specifying a confidence level. The higher the confidence level, the more
--- confident Cost Explorer is about the actual value falling in the
--- prediction interval. Higher confidence levels result in wider prediction
--- intervals.
 --
 -- 'filter'', 'getUsageForecast_filter' - The filters that you want to use to filter your forecast. The
 -- @GetUsageForecast@ API supports filtering by the following dimensions:
@@ -201,6 +194,13 @@ data GetUsageForecast = GetUsageForecast'
 --
 -- -   @SAVINGS_PLAN_ARN@
 --
+-- 'predictionIntervalLevel', 'getUsageForecast_predictionIntervalLevel' - Amazon Web Services Cost Explorer always returns the mean forecast as a
+-- single point. You can request a prediction interval around the mean by
+-- specifying a confidence level. The higher the confidence level, the more
+-- confident Cost Explorer is about the actual value falling in the
+-- prediction interval. Higher confidence levels result in wider prediction
+-- intervals.
+--
 -- 'timePeriod', 'getUsageForecast_timePeriod' - The start and end dates of the period that you want to retrieve usage
 -- forecast for. The start date is included in the period, but the end date
 -- isn\'t included in the period. For example, if @start@ is @2017-01-01@
@@ -235,22 +235,12 @@ newGetUsageForecast
   pMetric_
   pGranularity_ =
     GetUsageForecast'
-      { predictionIntervalLevel =
-          Prelude.Nothing,
-        filter' = Prelude.Nothing,
+      { filter' = Prelude.Nothing,
+        predictionIntervalLevel = Prelude.Nothing,
         timePeriod = pTimePeriod_,
         metric = pMetric_,
         granularity = pGranularity_
       }
-
--- | Amazon Web Services Cost Explorer always returns the mean forecast as a
--- single point. You can request a prediction interval around the mean by
--- specifying a confidence level. The higher the confidence level, the more
--- confident Cost Explorer is about the actual value falling in the
--- prediction interval. Higher confidence levels result in wider prediction
--- intervals.
-getUsageForecast_predictionIntervalLevel :: Lens.Lens' GetUsageForecast (Prelude.Maybe Prelude.Natural)
-getUsageForecast_predictionIntervalLevel = Lens.lens (\GetUsageForecast' {predictionIntervalLevel} -> predictionIntervalLevel) (\s@GetUsageForecast' {} a -> s {predictionIntervalLevel = a} :: GetUsageForecast)
 
 -- | The filters that you want to use to filter your forecast. The
 -- @GetUsageForecast@ API supports filtering by the following dimensions:
@@ -303,6 +293,15 @@ getUsageForecast_predictionIntervalLevel = Lens.lens (\GetUsageForecast' {predic
 getUsageForecast_filter :: Lens.Lens' GetUsageForecast (Prelude.Maybe Expression)
 getUsageForecast_filter = Lens.lens (\GetUsageForecast' {filter'} -> filter') (\s@GetUsageForecast' {} a -> s {filter' = a} :: GetUsageForecast)
 
+-- | Amazon Web Services Cost Explorer always returns the mean forecast as a
+-- single point. You can request a prediction interval around the mean by
+-- specifying a confidence level. The higher the confidence level, the more
+-- confident Cost Explorer is about the actual value falling in the
+-- prediction interval. Higher confidence levels result in wider prediction
+-- intervals.
+getUsageForecast_predictionIntervalLevel :: Lens.Lens' GetUsageForecast (Prelude.Maybe Prelude.Natural)
+getUsageForecast_predictionIntervalLevel = Lens.lens (\GetUsageForecast' {predictionIntervalLevel} -> predictionIntervalLevel) (\s@GetUsageForecast' {} a -> s {predictionIntervalLevel = a} :: GetUsageForecast)
+
 -- | The start and end dates of the period that you want to retrieve usage
 -- forecast for. The start date is included in the period, but the end date
 -- isn\'t included in the period. For example, if @start@ is @2017-01-01@
@@ -350,17 +349,16 @@ instance Core.AWSRequest GetUsageForecast where
 
 instance Prelude.Hashable GetUsageForecast where
   hashWithSalt _salt GetUsageForecast' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` predictionIntervalLevel
-      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` timePeriod
       `Prelude.hashWithSalt` metric
       `Prelude.hashWithSalt` granularity
 
 instance Prelude.NFData GetUsageForecast where
   rnf GetUsageForecast' {..} =
-    Prelude.rnf predictionIntervalLevel
-      `Prelude.seq` Prelude.rnf filter'
+    Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf predictionIntervalLevel
       `Prelude.seq` Prelude.rnf timePeriod
       `Prelude.seq` Prelude.rnf metric
       `Prelude.seq` Prelude.rnf granularity
@@ -384,9 +382,9 @@ instance Data.ToJSON GetUsageForecast where
   toJSON GetUsageForecast' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("PredictionIntervalLevel" Data..=)
+          [ ("Filter" Data..=) Prelude.<$> filter',
+            ("PredictionIntervalLevel" Data..=)
               Prelude.<$> predictionIntervalLevel,
-            ("Filter" Data..=) Prelude.<$> filter',
             Prelude.Just ("TimePeriod" Data..= timePeriod),
             Prelude.Just ("Metric" Data..= metric),
             Prelude.Just ("Granularity" Data..= granularity)

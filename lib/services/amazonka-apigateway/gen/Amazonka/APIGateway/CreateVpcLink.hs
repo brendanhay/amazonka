@@ -30,8 +30,8 @@ module Amazonka.APIGateway.CreateVpcLink
     newCreateVpcLink,
 
     -- * Request Lenses
-    createVpcLink_tags,
     createVpcLink_description,
+    createVpcLink_tags,
     createVpcLink_name,
     createVpcLink_targetArns,
 
@@ -40,13 +40,13 @@ module Amazonka.APIGateway.CreateVpcLink
     newVpcLink,
 
     -- * Response Lenses
-    vpcLink_tags,
-    vpcLink_name,
-    vpcLink_status,
     vpcLink_description,
     vpcLink_id,
-    vpcLink_targetArns,
+    vpcLink_name,
+    vpcLink_status,
     vpcLink_statusMessage,
+    vpcLink_tags,
+    vpcLink_targetArns,
   )
 where
 
@@ -65,12 +65,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateVpcLink' smart constructor.
 data CreateVpcLink = CreateVpcLink'
-  { -- | The key-value map of strings. The valid character set is
+  { -- | The description of the VPC link.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The key-value map of strings. The valid character set is
     -- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
     -- start with @aws:@. The tag value can be up to 256 characters.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The description of the VPC link.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The name used to label and identify the VPC link.
     name :: Prelude.Text,
     -- | The ARN of the network load balancer of the VPC targeted by the VPC
@@ -88,11 +88,11 @@ data CreateVpcLink = CreateVpcLink'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'createVpcLink_description' - The description of the VPC link.
+--
 -- 'tags', 'createVpcLink_tags' - The key-value map of strings. The valid character set is
 -- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
 -- start with @aws:@. The tag value can be up to 256 characters.
---
--- 'description', 'createVpcLink_description' - The description of the VPC link.
 --
 -- 'name', 'createVpcLink_name' - The name used to label and identify the VPC link.
 --
@@ -105,21 +105,21 @@ newCreateVpcLink ::
   CreateVpcLink
 newCreateVpcLink pName_ =
   CreateVpcLink'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_,
       targetArns = Prelude.mempty
     }
+
+-- | The description of the VPC link.
+createVpcLink_description :: Lens.Lens' CreateVpcLink (Prelude.Maybe Prelude.Text)
+createVpcLink_description = Lens.lens (\CreateVpcLink' {description} -> description) (\s@CreateVpcLink' {} a -> s {description = a} :: CreateVpcLink)
 
 -- | The key-value map of strings. The valid character set is
 -- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
 -- start with @aws:@. The tag value can be up to 256 characters.
 createVpcLink_tags :: Lens.Lens' CreateVpcLink (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createVpcLink_tags = Lens.lens (\CreateVpcLink' {tags} -> tags) (\s@CreateVpcLink' {} a -> s {tags = a} :: CreateVpcLink) Prelude.. Lens.mapping Lens.coerced
-
--- | The description of the VPC link.
-createVpcLink_description :: Lens.Lens' CreateVpcLink (Prelude.Maybe Prelude.Text)
-createVpcLink_description = Lens.lens (\CreateVpcLink' {description} -> description) (\s@CreateVpcLink' {} a -> s {description = a} :: CreateVpcLink)
 
 -- | The name used to label and identify the VPC link.
 createVpcLink_name :: Lens.Lens' CreateVpcLink Prelude.Text
@@ -141,15 +141,15 @@ instance Core.AWSRequest CreateVpcLink where
 
 instance Prelude.Hashable CreateVpcLink where
   hashWithSalt _salt CreateVpcLink' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` targetArns
 
 instance Prelude.NFData CreateVpcLink where
   rnf CreateVpcLink' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf targetArns
 
@@ -166,8 +166,8 @@ instance Data.ToJSON CreateVpcLink where
   toJSON CreateVpcLink' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("description" Data..=) Prelude.<$> description,
+          [ ("description" Data..=) Prelude.<$> description,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("name" Data..= name),
             Prelude.Just ("targetArns" Data..= targetArns)
           ]

@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsDynamoDbTableStreamSpecification' smart constructor.
 data AwsDynamoDbTableStreamSpecification = AwsDynamoDbTableStreamSpecification'
-  { -- | Determines the information that is written to the table.
-    streamViewType :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether DynamoDB Streams is enabled on the table.
-    streamEnabled :: Prelude.Maybe Prelude.Bool
+  { -- | Indicates whether DynamoDB Streams is enabled on the table.
+    streamEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | Determines the information that is written to the table.
+    streamViewType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data AwsDynamoDbTableStreamSpecification = AwsDynamoDbTableStreamSpecification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'streamViewType', 'awsDynamoDbTableStreamSpecification_streamViewType' - Determines the information that is written to the table.
---
 -- 'streamEnabled', 'awsDynamoDbTableStreamSpecification_streamEnabled' - Indicates whether DynamoDB Streams is enabled on the table.
+--
+-- 'streamViewType', 'awsDynamoDbTableStreamSpecification_streamViewType' - Determines the information that is written to the table.
 newAwsDynamoDbTableStreamSpecification ::
   AwsDynamoDbTableStreamSpecification
 newAwsDynamoDbTableStreamSpecification =
   AwsDynamoDbTableStreamSpecification'
-    { streamViewType =
+    { streamEnabled =
         Prelude.Nothing,
-      streamEnabled = Prelude.Nothing
+      streamViewType = Prelude.Nothing
     }
-
--- | Determines the information that is written to the table.
-awsDynamoDbTableStreamSpecification_streamViewType :: Lens.Lens' AwsDynamoDbTableStreamSpecification (Prelude.Maybe Prelude.Text)
-awsDynamoDbTableStreamSpecification_streamViewType = Lens.lens (\AwsDynamoDbTableStreamSpecification' {streamViewType} -> streamViewType) (\s@AwsDynamoDbTableStreamSpecification' {} a -> s {streamViewType = a} :: AwsDynamoDbTableStreamSpecification)
 
 -- | Indicates whether DynamoDB Streams is enabled on the table.
 awsDynamoDbTableStreamSpecification_streamEnabled :: Lens.Lens' AwsDynamoDbTableStreamSpecification (Prelude.Maybe Prelude.Bool)
 awsDynamoDbTableStreamSpecification_streamEnabled = Lens.lens (\AwsDynamoDbTableStreamSpecification' {streamEnabled} -> streamEnabled) (\s@AwsDynamoDbTableStreamSpecification' {} a -> s {streamEnabled = a} :: AwsDynamoDbTableStreamSpecification)
+
+-- | Determines the information that is written to the table.
+awsDynamoDbTableStreamSpecification_streamViewType :: Lens.Lens' AwsDynamoDbTableStreamSpecification (Prelude.Maybe Prelude.Text)
+awsDynamoDbTableStreamSpecification_streamViewType = Lens.lens (\AwsDynamoDbTableStreamSpecification' {streamViewType} -> streamViewType) (\s@AwsDynamoDbTableStreamSpecification' {} a -> s {streamViewType = a} :: AwsDynamoDbTableStreamSpecification)
 
 instance
   Data.FromJSON
@@ -72,8 +72,8 @@ instance
       "AwsDynamoDbTableStreamSpecification"
       ( \x ->
           AwsDynamoDbTableStreamSpecification'
-            Prelude.<$> (x Data..:? "StreamViewType")
-            Prelude.<*> (x Data..:? "StreamEnabled")
+            Prelude.<$> (x Data..:? "StreamEnabled")
+            Prelude.<*> (x Data..:? "StreamViewType")
       )
 
 instance
@@ -83,16 +83,16 @@ instance
   hashWithSalt
     _salt
     AwsDynamoDbTableStreamSpecification' {..} =
-      _salt `Prelude.hashWithSalt` streamViewType
-        `Prelude.hashWithSalt` streamEnabled
+      _salt `Prelude.hashWithSalt` streamEnabled
+        `Prelude.hashWithSalt` streamViewType
 
 instance
   Prelude.NFData
     AwsDynamoDbTableStreamSpecification
   where
   rnf AwsDynamoDbTableStreamSpecification' {..} =
-    Prelude.rnf streamViewType
-      `Prelude.seq` Prelude.rnf streamEnabled
+    Prelude.rnf streamEnabled
+      `Prelude.seq` Prelude.rnf streamViewType
 
 instance
   Data.ToJSON
@@ -101,8 +101,8 @@ instance
   toJSON AwsDynamoDbTableStreamSpecification' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("StreamViewType" Data..=)
-              Prelude.<$> streamViewType,
-            ("StreamEnabled" Data..=) Prelude.<$> streamEnabled
+          [ ("StreamEnabled" Data..=) Prelude.<$> streamEnabled,
+            ("StreamViewType" Data..=)
+              Prelude.<$> streamViewType
           ]
       )

@@ -29,9 +29,9 @@ module Amazonka.GamesParks.CreateGame
     newCreateGame,
 
     -- * Request Lenses
-    createGame_tags,
     createGame_clientToken,
     createGame_description,
+    createGame_tags,
     createGame_gameName,
 
     -- * Destructuring the Response
@@ -54,13 +54,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateGame' smart constructor.
 data CreateGame = CreateGame'
-  { -- | The list of tags to apply to the game.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A client-defined token. With an active client token in the request, this
+  { -- | A client-defined token. With an active client token in the request, this
     -- action is idempotent.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The description of the game.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The list of tags to apply to the game.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the game.
     gameName :: Prelude.Text
   }
@@ -74,12 +74,12 @@ data CreateGame = CreateGame'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createGame_tags' - The list of tags to apply to the game.
---
 -- 'clientToken', 'createGame_clientToken' - A client-defined token. With an active client token in the request, this
 -- action is idempotent.
 --
 -- 'description', 'createGame_description' - The description of the game.
+--
+-- 'tags', 'createGame_tags' - The list of tags to apply to the game.
 --
 -- 'gameName', 'createGame_gameName' - The name of the game.
 newCreateGame ::
@@ -88,15 +88,11 @@ newCreateGame ::
   CreateGame
 newCreateGame pGameName_ =
   CreateGame'
-    { tags = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+    { clientToken = Prelude.Nothing,
       description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       gameName = pGameName_
     }
-
--- | The list of tags to apply to the game.
-createGame_tags :: Lens.Lens' CreateGame (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createGame_tags = Lens.lens (\CreateGame' {tags} -> tags) (\s@CreateGame' {} a -> s {tags = a} :: CreateGame) Prelude.. Lens.mapping Lens.coerced
 
 -- | A client-defined token. With an active client token in the request, this
 -- action is idempotent.
@@ -106,6 +102,10 @@ createGame_clientToken = Lens.lens (\CreateGame' {clientToken} -> clientToken) (
 -- | The description of the game.
 createGame_description :: Lens.Lens' CreateGame (Prelude.Maybe Prelude.Text)
 createGame_description = Lens.lens (\CreateGame' {description} -> description) (\s@CreateGame' {} a -> s {description = a} :: CreateGame)
+
+-- | The list of tags to apply to the game.
+createGame_tags :: Lens.Lens' CreateGame (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createGame_tags = Lens.lens (\CreateGame' {tags} -> tags) (\s@CreateGame' {} a -> s {tags = a} :: CreateGame) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the game.
 createGame_gameName :: Lens.Lens' CreateGame Prelude.Text
@@ -125,16 +125,16 @@ instance Core.AWSRequest CreateGame where
 
 instance Prelude.Hashable CreateGame where
   hashWithSalt _salt CreateGame' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` gameName
 
 instance Prelude.NFData CreateGame where
   rnf CreateGame' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf gameName
 
 instance Data.ToHeaders CreateGame where
@@ -152,9 +152,9 @@ instance Data.ToJSON CreateGame where
   toJSON CreateGame' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ClientToken" Data..=) Prelude.<$> clientToken,
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
             ("Description" Data..=) Prelude.<$> description,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("GameName" Data..= gameName)
           ]
       )

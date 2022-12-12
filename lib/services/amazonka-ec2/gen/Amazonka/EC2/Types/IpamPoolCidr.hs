@@ -36,10 +36,10 @@ data IpamPoolCidr = IpamPoolCidr'
     -- range of IP addresses. An IPv4 CIDR example is @10.24.34.0\/23@. An IPv6
     -- CIDR example is @2001:DB8::\/32@.
     cidr :: Prelude.Maybe Prelude.Text,
-    -- | The state of the CIDR.
-    state :: Prelude.Maybe IpamPoolCidrState,
     -- | Details related to why an IPAM pool CIDR failed to be provisioned.
-    failureReason :: Prelude.Maybe IpamPoolCidrFailureReason
+    failureReason :: Prelude.Maybe IpamPoolCidrFailureReason,
+    -- | The state of the CIDR.
+    state :: Prelude.Maybe IpamPoolCidrState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,16 +56,16 @@ data IpamPoolCidr = IpamPoolCidr'
 -- range of IP addresses. An IPv4 CIDR example is @10.24.34.0\/23@. An IPv6
 -- CIDR example is @2001:DB8::\/32@.
 --
--- 'state', 'ipamPoolCidr_state' - The state of the CIDR.
---
 -- 'failureReason', 'ipamPoolCidr_failureReason' - Details related to why an IPAM pool CIDR failed to be provisioned.
+--
+-- 'state', 'ipamPoolCidr_state' - The state of the CIDR.
 newIpamPoolCidr ::
   IpamPoolCidr
 newIpamPoolCidr =
   IpamPoolCidr'
     { cidr = Prelude.Nothing,
-      state = Prelude.Nothing,
-      failureReason = Prelude.Nothing
+      failureReason = Prelude.Nothing,
+      state = Prelude.Nothing
     }
 
 -- | The CIDR provisioned to the IPAM pool. A CIDR is a representation of an
@@ -75,29 +75,29 @@ newIpamPoolCidr =
 ipamPoolCidr_cidr :: Lens.Lens' IpamPoolCidr (Prelude.Maybe Prelude.Text)
 ipamPoolCidr_cidr = Lens.lens (\IpamPoolCidr' {cidr} -> cidr) (\s@IpamPoolCidr' {} a -> s {cidr = a} :: IpamPoolCidr)
 
--- | The state of the CIDR.
-ipamPoolCidr_state :: Lens.Lens' IpamPoolCidr (Prelude.Maybe IpamPoolCidrState)
-ipamPoolCidr_state = Lens.lens (\IpamPoolCidr' {state} -> state) (\s@IpamPoolCidr' {} a -> s {state = a} :: IpamPoolCidr)
-
 -- | Details related to why an IPAM pool CIDR failed to be provisioned.
 ipamPoolCidr_failureReason :: Lens.Lens' IpamPoolCidr (Prelude.Maybe IpamPoolCidrFailureReason)
 ipamPoolCidr_failureReason = Lens.lens (\IpamPoolCidr' {failureReason} -> failureReason) (\s@IpamPoolCidr' {} a -> s {failureReason = a} :: IpamPoolCidr)
+
+-- | The state of the CIDR.
+ipamPoolCidr_state :: Lens.Lens' IpamPoolCidr (Prelude.Maybe IpamPoolCidrState)
+ipamPoolCidr_state = Lens.lens (\IpamPoolCidr' {state} -> state) (\s@IpamPoolCidr' {} a -> s {state = a} :: IpamPoolCidr)
 
 instance Data.FromXML IpamPoolCidr where
   parseXML x =
     IpamPoolCidr'
       Prelude.<$> (x Data..@? "cidr")
-      Prelude.<*> (x Data..@? "state")
       Prelude.<*> (x Data..@? "failureReason")
+      Prelude.<*> (x Data..@? "state")
 
 instance Prelude.Hashable IpamPoolCidr where
   hashWithSalt _salt IpamPoolCidr' {..} =
     _salt `Prelude.hashWithSalt` cidr
-      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` state
 
 instance Prelude.NFData IpamPoolCidr where
   rnf IpamPoolCidr' {..} =
     Prelude.rnf cidr
-      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf state

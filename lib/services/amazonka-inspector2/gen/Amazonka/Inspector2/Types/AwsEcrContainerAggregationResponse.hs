@@ -29,19 +29,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEcrContainerAggregationResponse' smart constructor.
 data AwsEcrContainerAggregationResponse = AwsEcrContainerAggregationResponse'
-  { -- | The number of finding by severity.
-    severityCounts :: Prelude.Maybe SeverityCounts,
-    -- | The container repository.
-    repository :: Prelude.Maybe Prelude.Text,
-    -- | The SHA value of the container image.
-    imageSha :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services account ID of the account that owns the
+  { -- | The Amazon Web Services account ID of the account that owns the
     -- container.
     accountId :: Prelude.Maybe Prelude.Text,
-    -- | The container image stags.
-    imageTags :: Prelude.Maybe [Prelude.Text],
     -- | The architecture of the container.
     architecture :: Prelude.Maybe Prelude.Text,
+    -- | The SHA value of the container image.
+    imageSha :: Prelude.Maybe Prelude.Text,
+    -- | The container image stags.
+    imageTags :: Prelude.Maybe [Prelude.Text],
+    -- | The container repository.
+    repository :: Prelude.Maybe Prelude.Text,
+    -- | The number of finding by severity.
+    severityCounts :: Prelude.Maybe SeverityCounts,
     -- | The resource ID of the container.
     resourceId :: Prelude.Text
   }
@@ -55,18 +55,18 @@ data AwsEcrContainerAggregationResponse = AwsEcrContainerAggregationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'severityCounts', 'awsEcrContainerAggregationResponse_severityCounts' - The number of finding by severity.
---
--- 'repository', 'awsEcrContainerAggregationResponse_repository' - The container repository.
---
--- 'imageSha', 'awsEcrContainerAggregationResponse_imageSha' - The SHA value of the container image.
---
 -- 'accountId', 'awsEcrContainerAggregationResponse_accountId' - The Amazon Web Services account ID of the account that owns the
 -- container.
 --
+-- 'architecture', 'awsEcrContainerAggregationResponse_architecture' - The architecture of the container.
+--
+-- 'imageSha', 'awsEcrContainerAggregationResponse_imageSha' - The SHA value of the container image.
+--
 -- 'imageTags', 'awsEcrContainerAggregationResponse_imageTags' - The container image stags.
 --
--- 'architecture', 'awsEcrContainerAggregationResponse_architecture' - The architecture of the container.
+-- 'repository', 'awsEcrContainerAggregationResponse_repository' - The container repository.
+--
+-- 'severityCounts', 'awsEcrContainerAggregationResponse_severityCounts' - The number of finding by severity.
 --
 -- 'resourceId', 'awsEcrContainerAggregationResponse_resourceId' - The resource ID of the container.
 newAwsEcrContainerAggregationResponse ::
@@ -75,40 +75,40 @@ newAwsEcrContainerAggregationResponse ::
   AwsEcrContainerAggregationResponse
 newAwsEcrContainerAggregationResponse pResourceId_ =
   AwsEcrContainerAggregationResponse'
-    { severityCounts =
+    { accountId =
         Prelude.Nothing,
-      repository = Prelude.Nothing,
-      imageSha = Prelude.Nothing,
-      accountId = Prelude.Nothing,
-      imageTags = Prelude.Nothing,
       architecture = Prelude.Nothing,
+      imageSha = Prelude.Nothing,
+      imageTags = Prelude.Nothing,
+      repository = Prelude.Nothing,
+      severityCounts = Prelude.Nothing,
       resourceId = pResourceId_
     }
-
--- | The number of finding by severity.
-awsEcrContainerAggregationResponse_severityCounts :: Lens.Lens' AwsEcrContainerAggregationResponse (Prelude.Maybe SeverityCounts)
-awsEcrContainerAggregationResponse_severityCounts = Lens.lens (\AwsEcrContainerAggregationResponse' {severityCounts} -> severityCounts) (\s@AwsEcrContainerAggregationResponse' {} a -> s {severityCounts = a} :: AwsEcrContainerAggregationResponse)
-
--- | The container repository.
-awsEcrContainerAggregationResponse_repository :: Lens.Lens' AwsEcrContainerAggregationResponse (Prelude.Maybe Prelude.Text)
-awsEcrContainerAggregationResponse_repository = Lens.lens (\AwsEcrContainerAggregationResponse' {repository} -> repository) (\s@AwsEcrContainerAggregationResponse' {} a -> s {repository = a} :: AwsEcrContainerAggregationResponse)
-
--- | The SHA value of the container image.
-awsEcrContainerAggregationResponse_imageSha :: Lens.Lens' AwsEcrContainerAggregationResponse (Prelude.Maybe Prelude.Text)
-awsEcrContainerAggregationResponse_imageSha = Lens.lens (\AwsEcrContainerAggregationResponse' {imageSha} -> imageSha) (\s@AwsEcrContainerAggregationResponse' {} a -> s {imageSha = a} :: AwsEcrContainerAggregationResponse)
 
 -- | The Amazon Web Services account ID of the account that owns the
 -- container.
 awsEcrContainerAggregationResponse_accountId :: Lens.Lens' AwsEcrContainerAggregationResponse (Prelude.Maybe Prelude.Text)
 awsEcrContainerAggregationResponse_accountId = Lens.lens (\AwsEcrContainerAggregationResponse' {accountId} -> accountId) (\s@AwsEcrContainerAggregationResponse' {} a -> s {accountId = a} :: AwsEcrContainerAggregationResponse)
 
+-- | The architecture of the container.
+awsEcrContainerAggregationResponse_architecture :: Lens.Lens' AwsEcrContainerAggregationResponse (Prelude.Maybe Prelude.Text)
+awsEcrContainerAggregationResponse_architecture = Lens.lens (\AwsEcrContainerAggregationResponse' {architecture} -> architecture) (\s@AwsEcrContainerAggregationResponse' {} a -> s {architecture = a} :: AwsEcrContainerAggregationResponse)
+
+-- | The SHA value of the container image.
+awsEcrContainerAggregationResponse_imageSha :: Lens.Lens' AwsEcrContainerAggregationResponse (Prelude.Maybe Prelude.Text)
+awsEcrContainerAggregationResponse_imageSha = Lens.lens (\AwsEcrContainerAggregationResponse' {imageSha} -> imageSha) (\s@AwsEcrContainerAggregationResponse' {} a -> s {imageSha = a} :: AwsEcrContainerAggregationResponse)
+
 -- | The container image stags.
 awsEcrContainerAggregationResponse_imageTags :: Lens.Lens' AwsEcrContainerAggregationResponse (Prelude.Maybe [Prelude.Text])
 awsEcrContainerAggregationResponse_imageTags = Lens.lens (\AwsEcrContainerAggregationResponse' {imageTags} -> imageTags) (\s@AwsEcrContainerAggregationResponse' {} a -> s {imageTags = a} :: AwsEcrContainerAggregationResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The architecture of the container.
-awsEcrContainerAggregationResponse_architecture :: Lens.Lens' AwsEcrContainerAggregationResponse (Prelude.Maybe Prelude.Text)
-awsEcrContainerAggregationResponse_architecture = Lens.lens (\AwsEcrContainerAggregationResponse' {architecture} -> architecture) (\s@AwsEcrContainerAggregationResponse' {} a -> s {architecture = a} :: AwsEcrContainerAggregationResponse)
+-- | The container repository.
+awsEcrContainerAggregationResponse_repository :: Lens.Lens' AwsEcrContainerAggregationResponse (Prelude.Maybe Prelude.Text)
+awsEcrContainerAggregationResponse_repository = Lens.lens (\AwsEcrContainerAggregationResponse' {repository} -> repository) (\s@AwsEcrContainerAggregationResponse' {} a -> s {repository = a} :: AwsEcrContainerAggregationResponse)
+
+-- | The number of finding by severity.
+awsEcrContainerAggregationResponse_severityCounts :: Lens.Lens' AwsEcrContainerAggregationResponse (Prelude.Maybe SeverityCounts)
+awsEcrContainerAggregationResponse_severityCounts = Lens.lens (\AwsEcrContainerAggregationResponse' {severityCounts} -> severityCounts) (\s@AwsEcrContainerAggregationResponse' {} a -> s {severityCounts = a} :: AwsEcrContainerAggregationResponse)
 
 -- | The resource ID of the container.
 awsEcrContainerAggregationResponse_resourceId :: Lens.Lens' AwsEcrContainerAggregationResponse Prelude.Text
@@ -123,12 +123,12 @@ instance
       "AwsEcrContainerAggregationResponse"
       ( \x ->
           AwsEcrContainerAggregationResponse'
-            Prelude.<$> (x Data..:? "severityCounts")
-            Prelude.<*> (x Data..:? "repository")
-            Prelude.<*> (x Data..:? "imageSha")
-            Prelude.<*> (x Data..:? "accountId")
-            Prelude.<*> (x Data..:? "imageTags" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "accountId")
             Prelude.<*> (x Data..:? "architecture")
+            Prelude.<*> (x Data..:? "imageSha")
+            Prelude.<*> (x Data..:? "imageTags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "repository")
+            Prelude.<*> (x Data..:? "severityCounts")
             Prelude.<*> (x Data..: "resourceId")
       )
 
@@ -139,12 +139,12 @@ instance
   hashWithSalt
     _salt
     AwsEcrContainerAggregationResponse' {..} =
-      _salt `Prelude.hashWithSalt` severityCounts
-        `Prelude.hashWithSalt` repository
-        `Prelude.hashWithSalt` imageSha
-        `Prelude.hashWithSalt` accountId
-        `Prelude.hashWithSalt` imageTags
+      _salt `Prelude.hashWithSalt` accountId
         `Prelude.hashWithSalt` architecture
+        `Prelude.hashWithSalt` imageSha
+        `Prelude.hashWithSalt` imageTags
+        `Prelude.hashWithSalt` repository
+        `Prelude.hashWithSalt` severityCounts
         `Prelude.hashWithSalt` resourceId
 
 instance
@@ -152,10 +152,10 @@ instance
     AwsEcrContainerAggregationResponse
   where
   rnf AwsEcrContainerAggregationResponse' {..} =
-    Prelude.rnf severityCounts
-      `Prelude.seq` Prelude.rnf repository
-      `Prelude.seq` Prelude.rnf imageSha
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf imageTags
+    Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf architecture
+      `Prelude.seq` Prelude.rnf imageSha
+      `Prelude.seq` Prelude.rnf imageTags
+      `Prelude.seq` Prelude.rnf repository
+      `Prelude.seq` Prelude.rnf severityCounts
       `Prelude.seq` Prelude.rnf resourceId

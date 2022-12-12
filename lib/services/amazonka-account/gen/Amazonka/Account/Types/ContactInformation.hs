@@ -29,18 +29,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newContactInformation' smart constructor.
 data ContactInformation = ContactInformation'
-  { -- | The name of the company associated with the primary contact information,
+  { -- | The second line of the primary contact address, if any.
+    addressLine2 :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The third line of the primary contact address, if any.
+    addressLine3 :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The name of the company associated with the primary contact information,
     -- if any.
     companyName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The second line of the primary contact address, if any.
-    addressLine2 :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The district or county of the primary contact address, if any.
     districtOrCounty :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The state or region of the primary contact address. This field is
     -- required in selected countries.
     stateOrRegion :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The third line of the primary contact address, if any.
-    addressLine3 :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The URL of the website associated with the primary contact information,
     -- if any.
     websiteUrl :: Prelude.Maybe (Data.Sensitive Prelude.Text),
@@ -68,17 +68,17 @@ data ContactInformation = ContactInformation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'addressLine2', 'contactInformation_addressLine2' - The second line of the primary contact address, if any.
+--
+-- 'addressLine3', 'contactInformation_addressLine3' - The third line of the primary contact address, if any.
+--
 -- 'companyName', 'contactInformation_companyName' - The name of the company associated with the primary contact information,
 -- if any.
---
--- 'addressLine2', 'contactInformation_addressLine2' - The second line of the primary contact address, if any.
 --
 -- 'districtOrCounty', 'contactInformation_districtOrCounty' - The district or county of the primary contact address, if any.
 --
 -- 'stateOrRegion', 'contactInformation_stateOrRegion' - The state or region of the primary contact address. This field is
 -- required in selected countries.
---
--- 'addressLine3', 'contactInformation_addressLine3' - The third line of the primary contact address, if any.
 --
 -- 'websiteUrl', 'contactInformation_websiteUrl' - The URL of the website associated with the primary contact information,
 -- if any.
@@ -117,11 +117,11 @@ newContactInformation
   pPhoneNumber_
   pPostalCode_ =
     ContactInformation'
-      { companyName = Prelude.Nothing,
-        addressLine2 = Prelude.Nothing,
+      { addressLine2 = Prelude.Nothing,
+        addressLine3 = Prelude.Nothing,
+        companyName = Prelude.Nothing,
         districtOrCounty = Prelude.Nothing,
         stateOrRegion = Prelude.Nothing,
-        addressLine3 = Prelude.Nothing,
         websiteUrl = Prelude.Nothing,
         addressLine1 = Data._Sensitive Lens.# pAddressLine1_,
         city = Data._Sensitive Lens.# pCity_,
@@ -131,14 +131,18 @@ newContactInformation
         postalCode = Data._Sensitive Lens.# pPostalCode_
       }
 
+-- | The second line of the primary contact address, if any.
+contactInformation_addressLine2 :: Lens.Lens' ContactInformation (Prelude.Maybe Prelude.Text)
+contactInformation_addressLine2 = Lens.lens (\ContactInformation' {addressLine2} -> addressLine2) (\s@ContactInformation' {} a -> s {addressLine2 = a} :: ContactInformation) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The third line of the primary contact address, if any.
+contactInformation_addressLine3 :: Lens.Lens' ContactInformation (Prelude.Maybe Prelude.Text)
+contactInformation_addressLine3 = Lens.lens (\ContactInformation' {addressLine3} -> addressLine3) (\s@ContactInformation' {} a -> s {addressLine3 = a} :: ContactInformation) Prelude.. Lens.mapping Data._Sensitive
+
 -- | The name of the company associated with the primary contact information,
 -- if any.
 contactInformation_companyName :: Lens.Lens' ContactInformation (Prelude.Maybe Prelude.Text)
 contactInformation_companyName = Lens.lens (\ContactInformation' {companyName} -> companyName) (\s@ContactInformation' {} a -> s {companyName = a} :: ContactInformation) Prelude.. Lens.mapping Data._Sensitive
-
--- | The second line of the primary contact address, if any.
-contactInformation_addressLine2 :: Lens.Lens' ContactInformation (Prelude.Maybe Prelude.Text)
-contactInformation_addressLine2 = Lens.lens (\ContactInformation' {addressLine2} -> addressLine2) (\s@ContactInformation' {} a -> s {addressLine2 = a} :: ContactInformation) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The district or county of the primary contact address, if any.
 contactInformation_districtOrCounty :: Lens.Lens' ContactInformation (Prelude.Maybe Prelude.Text)
@@ -148,10 +152,6 @@ contactInformation_districtOrCounty = Lens.lens (\ContactInformation' {districtO
 -- required in selected countries.
 contactInformation_stateOrRegion :: Lens.Lens' ContactInformation (Prelude.Maybe Prelude.Text)
 contactInformation_stateOrRegion = Lens.lens (\ContactInformation' {stateOrRegion} -> stateOrRegion) (\s@ContactInformation' {} a -> s {stateOrRegion = a} :: ContactInformation) Prelude.. Lens.mapping Data._Sensitive
-
--- | The third line of the primary contact address, if any.
-contactInformation_addressLine3 :: Lens.Lens' ContactInformation (Prelude.Maybe Prelude.Text)
-contactInformation_addressLine3 = Lens.lens (\ContactInformation' {addressLine3} -> addressLine3) (\s@ContactInformation' {} a -> s {addressLine3 = a} :: ContactInformation) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The URL of the website associated with the primary contact information,
 -- if any.
@@ -189,11 +189,11 @@ instance Data.FromJSON ContactInformation where
       "ContactInformation"
       ( \x ->
           ContactInformation'
-            Prelude.<$> (x Data..:? "CompanyName")
-            Prelude.<*> (x Data..:? "AddressLine2")
+            Prelude.<$> (x Data..:? "AddressLine2")
+            Prelude.<*> (x Data..:? "AddressLine3")
+            Prelude.<*> (x Data..:? "CompanyName")
             Prelude.<*> (x Data..:? "DistrictOrCounty")
             Prelude.<*> (x Data..:? "StateOrRegion")
-            Prelude.<*> (x Data..:? "AddressLine3")
             Prelude.<*> (x Data..:? "WebsiteUrl")
             Prelude.<*> (x Data..: "AddressLine1")
             Prelude.<*> (x Data..: "City")
@@ -205,11 +205,11 @@ instance Data.FromJSON ContactInformation where
 
 instance Prelude.Hashable ContactInformation where
   hashWithSalt _salt ContactInformation' {..} =
-    _salt `Prelude.hashWithSalt` companyName
-      `Prelude.hashWithSalt` addressLine2
+    _salt `Prelude.hashWithSalt` addressLine2
+      `Prelude.hashWithSalt` addressLine3
+      `Prelude.hashWithSalt` companyName
       `Prelude.hashWithSalt` districtOrCounty
       `Prelude.hashWithSalt` stateOrRegion
-      `Prelude.hashWithSalt` addressLine3
       `Prelude.hashWithSalt` websiteUrl
       `Prelude.hashWithSalt` addressLine1
       `Prelude.hashWithSalt` city
@@ -220,11 +220,11 @@ instance Prelude.Hashable ContactInformation where
 
 instance Prelude.NFData ContactInformation where
   rnf ContactInformation' {..} =
-    Prelude.rnf companyName
-      `Prelude.seq` Prelude.rnf addressLine2
+    Prelude.rnf addressLine2
+      `Prelude.seq` Prelude.rnf addressLine3
+      `Prelude.seq` Prelude.rnf companyName
       `Prelude.seq` Prelude.rnf districtOrCounty
       `Prelude.seq` Prelude.rnf stateOrRegion
-      `Prelude.seq` Prelude.rnf addressLine3
       `Prelude.seq` Prelude.rnf websiteUrl
       `Prelude.seq` Prelude.rnf addressLine1
       `Prelude.seq` Prelude.rnf city
@@ -237,12 +237,12 @@ instance Data.ToJSON ContactInformation where
   toJSON ContactInformation' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("CompanyName" Data..=) Prelude.<$> companyName,
-            ("AddressLine2" Data..=) Prelude.<$> addressLine2,
+          [ ("AddressLine2" Data..=) Prelude.<$> addressLine2,
+            ("AddressLine3" Data..=) Prelude.<$> addressLine3,
+            ("CompanyName" Data..=) Prelude.<$> companyName,
             ("DistrictOrCounty" Data..=)
               Prelude.<$> districtOrCounty,
             ("StateOrRegion" Data..=) Prelude.<$> stateOrRegion,
-            ("AddressLine3" Data..=) Prelude.<$> addressLine3,
             ("WebsiteUrl" Data..=) Prelude.<$> websiteUrl,
             Prelude.Just ("AddressLine1" Data..= addressLine1),
             Prelude.Just ("City" Data..= city),

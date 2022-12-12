@@ -33,9 +33,9 @@ import Amazonka.Redshift.Types.ReservedNodeOffering
 --
 -- /See:/ 'newReservedNodeConfigurationOption' smart constructor.
 data ReservedNodeConfigurationOption = ReservedNodeConfigurationOption'
-  { -- | The target reserved-node count.
+  { sourceReservedNode :: Prelude.Maybe ReservedNode,
+    -- | The target reserved-node count.
     targetReservedNodeCount :: Prelude.Maybe Prelude.Int,
-    sourceReservedNode :: Prelude.Maybe ReservedNode,
     targetReservedNodeOffering :: Prelude.Maybe ReservedNodeOffering
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -48,29 +48,29 @@ data ReservedNodeConfigurationOption = ReservedNodeConfigurationOption'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetReservedNodeCount', 'reservedNodeConfigurationOption_targetReservedNodeCount' - The target reserved-node count.
---
 -- 'sourceReservedNode', 'reservedNodeConfigurationOption_sourceReservedNode' - Undocumented member.
+--
+-- 'targetReservedNodeCount', 'reservedNodeConfigurationOption_targetReservedNodeCount' - The target reserved-node count.
 --
 -- 'targetReservedNodeOffering', 'reservedNodeConfigurationOption_targetReservedNodeOffering' - Undocumented member.
 newReservedNodeConfigurationOption ::
   ReservedNodeConfigurationOption
 newReservedNodeConfigurationOption =
   ReservedNodeConfigurationOption'
-    { targetReservedNodeCount =
+    { sourceReservedNode =
         Prelude.Nothing,
-      sourceReservedNode = Prelude.Nothing,
+      targetReservedNodeCount = Prelude.Nothing,
       targetReservedNodeOffering =
         Prelude.Nothing
     }
 
--- | The target reserved-node count.
-reservedNodeConfigurationOption_targetReservedNodeCount :: Lens.Lens' ReservedNodeConfigurationOption (Prelude.Maybe Prelude.Int)
-reservedNodeConfigurationOption_targetReservedNodeCount = Lens.lens (\ReservedNodeConfigurationOption' {targetReservedNodeCount} -> targetReservedNodeCount) (\s@ReservedNodeConfigurationOption' {} a -> s {targetReservedNodeCount = a} :: ReservedNodeConfigurationOption)
-
 -- | Undocumented member.
 reservedNodeConfigurationOption_sourceReservedNode :: Lens.Lens' ReservedNodeConfigurationOption (Prelude.Maybe ReservedNode)
 reservedNodeConfigurationOption_sourceReservedNode = Lens.lens (\ReservedNodeConfigurationOption' {sourceReservedNode} -> sourceReservedNode) (\s@ReservedNodeConfigurationOption' {} a -> s {sourceReservedNode = a} :: ReservedNodeConfigurationOption)
+
+-- | The target reserved-node count.
+reservedNodeConfigurationOption_targetReservedNodeCount :: Lens.Lens' ReservedNodeConfigurationOption (Prelude.Maybe Prelude.Int)
+reservedNodeConfigurationOption_targetReservedNodeCount = Lens.lens (\ReservedNodeConfigurationOption' {targetReservedNodeCount} -> targetReservedNodeCount) (\s@ReservedNodeConfigurationOption' {} a -> s {targetReservedNodeCount = a} :: ReservedNodeConfigurationOption)
 
 -- | Undocumented member.
 reservedNodeConfigurationOption_targetReservedNodeOffering :: Lens.Lens' ReservedNodeConfigurationOption (Prelude.Maybe ReservedNodeOffering)
@@ -79,8 +79,8 @@ reservedNodeConfigurationOption_targetReservedNodeOffering = Lens.lens (\Reserve
 instance Data.FromXML ReservedNodeConfigurationOption where
   parseXML x =
     ReservedNodeConfigurationOption'
-      Prelude.<$> (x Data..@? "TargetReservedNodeCount")
-      Prelude.<*> (x Data..@? "SourceReservedNode")
+      Prelude.<$> (x Data..@? "SourceReservedNode")
+      Prelude.<*> (x Data..@? "TargetReservedNodeCount")
       Prelude.<*> (x Data..@? "TargetReservedNodeOffering")
 
 instance
@@ -90,9 +90,8 @@ instance
   hashWithSalt
     _salt
     ReservedNodeConfigurationOption' {..} =
-      _salt
+      _salt `Prelude.hashWithSalt` sourceReservedNode
         `Prelude.hashWithSalt` targetReservedNodeCount
-        `Prelude.hashWithSalt` sourceReservedNode
         `Prelude.hashWithSalt` targetReservedNodeOffering
 
 instance
@@ -100,6 +99,6 @@ instance
     ReservedNodeConfigurationOption
   where
   rnf ReservedNodeConfigurationOption' {..} =
-    Prelude.rnf targetReservedNodeCount
-      `Prelude.seq` Prelude.rnf sourceReservedNode
+    Prelude.rnf sourceReservedNode
+      `Prelude.seq` Prelude.rnf targetReservedNodeCount
       `Prelude.seq` Prelude.rnf targetReservedNodeOffering

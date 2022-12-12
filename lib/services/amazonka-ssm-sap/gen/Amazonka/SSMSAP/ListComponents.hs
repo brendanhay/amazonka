@@ -29,17 +29,17 @@ module Amazonka.SSMSAP.ListComponents
     newListComponents,
 
     -- * Request Lenses
-    listComponents_nextToken,
-    listComponents_maxResults,
     listComponents_applicationId,
+    listComponents_maxResults,
+    listComponents_nextToken,
 
     -- * Destructuring the Response
     ListComponentsResponse (..),
     newListComponentsResponse,
 
     -- * Response Lenses
-    listComponentsResponse_nextToken,
     listComponentsResponse_components,
+    listComponentsResponse_nextToken,
     listComponentsResponse_httpStatus,
   )
 where
@@ -54,9 +54,9 @@ import Amazonka.SSMSAP.Types
 
 -- | /See:/ 'newListComponents' smart constructor.
 data ListComponents = ListComponents'
-  { nextToken :: Prelude.Maybe Prelude.Text,
+  { applicationId :: Prelude.Maybe Prelude.Text,
     maxResults :: Prelude.Maybe Prelude.Natural,
-    applicationId :: Prelude.Maybe Prelude.Text
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,31 +68,31 @@ data ListComponents = ListComponents'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listComponents_nextToken' -
+-- 'applicationId', 'listComponents_applicationId' -
 --
 -- 'maxResults', 'listComponents_maxResults' -
 --
--- 'applicationId', 'listComponents_applicationId' -
+-- 'nextToken', 'listComponents_nextToken' -
 newListComponents ::
   ListComponents
 newListComponents =
   ListComponents'
-    { nextToken = Prelude.Nothing,
+    { applicationId = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      applicationId = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
 
 -- |
-listComponents_nextToken :: Lens.Lens' ListComponents (Prelude.Maybe Prelude.Text)
-listComponents_nextToken = Lens.lens (\ListComponents' {nextToken} -> nextToken) (\s@ListComponents' {} a -> s {nextToken = a} :: ListComponents)
+listComponents_applicationId :: Lens.Lens' ListComponents (Prelude.Maybe Prelude.Text)
+listComponents_applicationId = Lens.lens (\ListComponents' {applicationId} -> applicationId) (\s@ListComponents' {} a -> s {applicationId = a} :: ListComponents)
 
 -- |
 listComponents_maxResults :: Lens.Lens' ListComponents (Prelude.Maybe Prelude.Natural)
 listComponents_maxResults = Lens.lens (\ListComponents' {maxResults} -> maxResults) (\s@ListComponents' {} a -> s {maxResults = a} :: ListComponents)
 
 -- |
-listComponents_applicationId :: Lens.Lens' ListComponents (Prelude.Maybe Prelude.Text)
-listComponents_applicationId = Lens.lens (\ListComponents' {applicationId} -> applicationId) (\s@ListComponents' {} a -> s {applicationId = a} :: ListComponents)
+listComponents_nextToken :: Lens.Lens' ListComponents (Prelude.Maybe Prelude.Text)
+listComponents_nextToken = Lens.lens (\ListComponents' {nextToken} -> nextToken) (\s@ListComponents' {} a -> s {nextToken = a} :: ListComponents)
 
 instance Core.AWSPager ListComponents where
   page rq rs
@@ -125,22 +125,22 @@ instance Core.AWSRequest ListComponents where
     Response.receiveJSON
       ( \s h x ->
           ListComponentsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Components" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Components" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListComponents where
   hashWithSalt _salt ListComponents' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListComponents where
   rnf ListComponents' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListComponents where
   toHeaders =
@@ -157,9 +157,9 @@ instance Data.ToJSON ListComponents where
   toJSON ListComponents' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("ApplicationId" Data..=) Prelude.<$> applicationId,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("ApplicationId" Data..=) Prelude.<$> applicationId
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -171,8 +171,8 @@ instance Data.ToQuery ListComponents where
 
 -- | /See:/ 'newListComponentsResponse' smart constructor.
 data ListComponentsResponse = ListComponentsResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    components :: Prelude.Maybe [ComponentSummary],
+  { components :: Prelude.Maybe [ComponentSummary],
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -186,9 +186,9 @@ data ListComponentsResponse = ListComponentsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listComponentsResponse_nextToken' -
---
 -- 'components', 'listComponentsResponse_components' -
+--
+-- 'nextToken', 'listComponentsResponse_nextToken' -
 --
 -- 'httpStatus', 'listComponentsResponse_httpStatus' - The response's http status code.
 newListComponentsResponse ::
@@ -197,19 +197,19 @@ newListComponentsResponse ::
   ListComponentsResponse
 newListComponentsResponse pHttpStatus_ =
   ListComponentsResponse'
-    { nextToken =
+    { components =
         Prelude.Nothing,
-      components = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- |
-listComponentsResponse_nextToken :: Lens.Lens' ListComponentsResponse (Prelude.Maybe Prelude.Text)
-listComponentsResponse_nextToken = Lens.lens (\ListComponentsResponse' {nextToken} -> nextToken) (\s@ListComponentsResponse' {} a -> s {nextToken = a} :: ListComponentsResponse)
-
--- |
 listComponentsResponse_components :: Lens.Lens' ListComponentsResponse (Prelude.Maybe [ComponentSummary])
 listComponentsResponse_components = Lens.lens (\ListComponentsResponse' {components} -> components) (\s@ListComponentsResponse' {} a -> s {components = a} :: ListComponentsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- |
+listComponentsResponse_nextToken :: Lens.Lens' ListComponentsResponse (Prelude.Maybe Prelude.Text)
+listComponentsResponse_nextToken = Lens.lens (\ListComponentsResponse' {nextToken} -> nextToken) (\s@ListComponentsResponse' {} a -> s {nextToken = a} :: ListComponentsResponse)
 
 -- | The response's http status code.
 listComponentsResponse_httpStatus :: Lens.Lens' ListComponentsResponse Prelude.Int
@@ -217,6 +217,6 @@ listComponentsResponse_httpStatus = Lens.lens (\ListComponentsResponse' {httpSta
 
 instance Prelude.NFData ListComponentsResponse where
   rnf ListComponentsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf components
+    Prelude.rnf components
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

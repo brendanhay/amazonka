@@ -29,7 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newProcessorParameter' smart constructor.
 data ProcessorParameter = ProcessorParameter'
-  { -- | The name of the parameter.
+  { -- | The name of the parameter. Currently the following default values are
+    -- supported: 3 for @NumberOfRetries@ and 60 for the
+    -- @BufferIntervalInSeconds@. The @BufferSizeInMBs@ ranges between 0.2 MB
+    -- and up to 3MB. The default buffering hint is 1MB for all destinations,
+    -- except Splunk. For Splunk, the default buffering hint is 256 KB.
     parameterName :: ProcessorParameterName,
     -- | The parameter value.
     parameterValue :: Prelude.Text
@@ -44,7 +48,11 @@ data ProcessorParameter = ProcessorParameter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'parameterName', 'processorParameter_parameterName' - The name of the parameter.
+-- 'parameterName', 'processorParameter_parameterName' - The name of the parameter. Currently the following default values are
+-- supported: 3 for @NumberOfRetries@ and 60 for the
+-- @BufferIntervalInSeconds@. The @BufferSizeInMBs@ ranges between 0.2 MB
+-- and up to 3MB. The default buffering hint is 1MB for all destinations,
+-- except Splunk. For Splunk, the default buffering hint is 256 KB.
 --
 -- 'parameterValue', 'processorParameter_parameterValue' - The parameter value.
 newProcessorParameter ::
@@ -62,7 +70,11 @@ newProcessorParameter
         parameterValue = pParameterValue_
       }
 
--- | The name of the parameter.
+-- | The name of the parameter. Currently the following default values are
+-- supported: 3 for @NumberOfRetries@ and 60 for the
+-- @BufferIntervalInSeconds@. The @BufferSizeInMBs@ ranges between 0.2 MB
+-- and up to 3MB. The default buffering hint is 1MB for all destinations,
+-- except Splunk. For Splunk, the default buffering hint is 256 KB.
 processorParameter_parameterName :: Lens.Lens' ProcessorParameter ProcessorParameterName
 processorParameter_parameterName = Lens.lens (\ProcessorParameter' {parameterName} -> parameterName) (\s@ProcessorParameter' {} a -> s {parameterName = a} :: ProcessorParameter)
 

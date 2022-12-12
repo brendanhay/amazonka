@@ -32,12 +32,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSavingsPlansCoverage' smart constructor.
 data SavingsPlansCoverage = SavingsPlansCoverage'
-  { -- | The amount of Savings Plans eligible usage that the Savings Plans
+  { -- | The attribute that applies to a specific @Dimension@.
+    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The amount of Savings Plans eligible usage that the Savings Plans
     -- covered.
     coverage :: Prelude.Maybe SavingsPlansCoverageData,
-    timePeriod :: Prelude.Maybe DateInterval,
-    -- | The attribute that applies to a specific @Dimension@.
-    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    timePeriod :: Prelude.Maybe DateInterval
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,20 +49,24 @@ data SavingsPlansCoverage = SavingsPlansCoverage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'attributes', 'savingsPlansCoverage_attributes' - The attribute that applies to a specific @Dimension@.
+--
 -- 'coverage', 'savingsPlansCoverage_coverage' - The amount of Savings Plans eligible usage that the Savings Plans
 -- covered.
 --
 -- 'timePeriod', 'savingsPlansCoverage_timePeriod' - Undocumented member.
---
--- 'attributes', 'savingsPlansCoverage_attributes' - The attribute that applies to a specific @Dimension@.
 newSavingsPlansCoverage ::
   SavingsPlansCoverage
 newSavingsPlansCoverage =
   SavingsPlansCoverage'
-    { coverage = Prelude.Nothing,
-      timePeriod = Prelude.Nothing,
-      attributes = Prelude.Nothing
+    { attributes = Prelude.Nothing,
+      coverage = Prelude.Nothing,
+      timePeriod = Prelude.Nothing
     }
+
+-- | The attribute that applies to a specific @Dimension@.
+savingsPlansCoverage_attributes :: Lens.Lens' SavingsPlansCoverage (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+savingsPlansCoverage_attributes = Lens.lens (\SavingsPlansCoverage' {attributes} -> attributes) (\s@SavingsPlansCoverage' {} a -> s {attributes = a} :: SavingsPlansCoverage) Prelude.. Lens.mapping Lens.coerced
 
 -- | The amount of Savings Plans eligible usage that the Savings Plans
 -- covered.
@@ -73,29 +77,25 @@ savingsPlansCoverage_coverage = Lens.lens (\SavingsPlansCoverage' {coverage} -> 
 savingsPlansCoverage_timePeriod :: Lens.Lens' SavingsPlansCoverage (Prelude.Maybe DateInterval)
 savingsPlansCoverage_timePeriod = Lens.lens (\SavingsPlansCoverage' {timePeriod} -> timePeriod) (\s@SavingsPlansCoverage' {} a -> s {timePeriod = a} :: SavingsPlansCoverage)
 
--- | The attribute that applies to a specific @Dimension@.
-savingsPlansCoverage_attributes :: Lens.Lens' SavingsPlansCoverage (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-savingsPlansCoverage_attributes = Lens.lens (\SavingsPlansCoverage' {attributes} -> attributes) (\s@SavingsPlansCoverage' {} a -> s {attributes = a} :: SavingsPlansCoverage) Prelude.. Lens.mapping Lens.coerced
-
 instance Data.FromJSON SavingsPlansCoverage where
   parseJSON =
     Data.withObject
       "SavingsPlansCoverage"
       ( \x ->
           SavingsPlansCoverage'
-            Prelude.<$> (x Data..:? "Coverage")
+            Prelude.<$> (x Data..:? "Attributes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Coverage")
             Prelude.<*> (x Data..:? "TimePeriod")
-            Prelude.<*> (x Data..:? "Attributes" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable SavingsPlansCoverage where
   hashWithSalt _salt SavingsPlansCoverage' {..} =
-    _salt `Prelude.hashWithSalt` coverage
+    _salt `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` coverage
       `Prelude.hashWithSalt` timePeriod
-      `Prelude.hashWithSalt` attributes
 
 instance Prelude.NFData SavingsPlansCoverage where
   rnf SavingsPlansCoverage' {..} =
-    Prelude.rnf coverage
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf coverage
       `Prelude.seq` Prelude.rnf timePeriod
-      `Prelude.seq` Prelude.rnf attributes

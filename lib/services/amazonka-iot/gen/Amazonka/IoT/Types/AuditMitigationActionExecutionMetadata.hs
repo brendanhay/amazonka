@@ -30,28 +30,28 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAuditMitigationActionExecutionMetadata' smart constructor.
 data AuditMitigationActionExecutionMetadata = AuditMitigationActionExecutionMetadata'
-  { -- | If an error occurred, a message that describes the error.
-    message :: Prelude.Maybe Prelude.Text,
+  { -- | The unique identifier for the mitigation action being applied by the
+    -- task.
+    actionId :: Prelude.Maybe Prelude.Text,
     -- | The friendly name of the mitigation action being applied by the task.
     actionName :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the task that applies the mitigation action.
-    taskId :: Prelude.Maybe Prelude.Text,
-    -- | The current status of the task being executed.
-    status :: Prelude.Maybe AuditMitigationActionsExecutionStatus,
     -- | The date and time when the task was completed or canceled. Blank if the
     -- task is still running.
     endTime :: Prelude.Maybe Data.POSIX,
-    -- | The unique identifier for the mitigation action being applied by the
-    -- task.
-    actionId :: Prelude.Maybe Prelude.Text,
     -- | If an error occurred, the code that indicates which type of error
     -- occurred.
     errorCode :: Prelude.Maybe Prelude.Text,
-    -- | The date and time when the task was started.
-    startTime :: Prelude.Maybe Data.POSIX,
     -- | The unique identifier for the findings to which the task and associated
     -- mitigation action are applied.
-    findingId :: Prelude.Maybe Prelude.Text
+    findingId :: Prelude.Maybe Prelude.Text,
+    -- | If an error occurred, a message that describes the error.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | The date and time when the task was started.
+    startTime :: Prelude.Maybe Data.POSIX,
+    -- | The current status of the task being executed.
+    status :: Prelude.Maybe AuditMitigationActionsExecutionStatus,
+    -- | The unique identifier for the task that applies the mitigation action.
+    taskId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,82 +63,82 @@ data AuditMitigationActionExecutionMetadata = AuditMitigationActionExecutionMeta
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'auditMitigationActionExecutionMetadata_message' - If an error occurred, a message that describes the error.
+-- 'actionId', 'auditMitigationActionExecutionMetadata_actionId' - The unique identifier for the mitigation action being applied by the
+-- task.
 --
 -- 'actionName', 'auditMitigationActionExecutionMetadata_actionName' - The friendly name of the mitigation action being applied by the task.
---
--- 'taskId', 'auditMitigationActionExecutionMetadata_taskId' - The unique identifier for the task that applies the mitigation action.
---
--- 'status', 'auditMitigationActionExecutionMetadata_status' - The current status of the task being executed.
 --
 -- 'endTime', 'auditMitigationActionExecutionMetadata_endTime' - The date and time when the task was completed or canceled. Blank if the
 -- task is still running.
 --
--- 'actionId', 'auditMitigationActionExecutionMetadata_actionId' - The unique identifier for the mitigation action being applied by the
--- task.
---
 -- 'errorCode', 'auditMitigationActionExecutionMetadata_errorCode' - If an error occurred, the code that indicates which type of error
 -- occurred.
 --
--- 'startTime', 'auditMitigationActionExecutionMetadata_startTime' - The date and time when the task was started.
---
 -- 'findingId', 'auditMitigationActionExecutionMetadata_findingId' - The unique identifier for the findings to which the task and associated
 -- mitigation action are applied.
+--
+-- 'message', 'auditMitigationActionExecutionMetadata_message' - If an error occurred, a message that describes the error.
+--
+-- 'startTime', 'auditMitigationActionExecutionMetadata_startTime' - The date and time when the task was started.
+--
+-- 'status', 'auditMitigationActionExecutionMetadata_status' - The current status of the task being executed.
+--
+-- 'taskId', 'auditMitigationActionExecutionMetadata_taskId' - The unique identifier for the task that applies the mitigation action.
 newAuditMitigationActionExecutionMetadata ::
   AuditMitigationActionExecutionMetadata
 newAuditMitigationActionExecutionMetadata =
   AuditMitigationActionExecutionMetadata'
-    { message =
+    { actionId =
         Prelude.Nothing,
       actionName = Prelude.Nothing,
-      taskId = Prelude.Nothing,
-      status = Prelude.Nothing,
       endTime = Prelude.Nothing,
-      actionId = Prelude.Nothing,
       errorCode = Prelude.Nothing,
+      findingId = Prelude.Nothing,
+      message = Prelude.Nothing,
       startTime = Prelude.Nothing,
-      findingId = Prelude.Nothing
+      status = Prelude.Nothing,
+      taskId = Prelude.Nothing
     }
-
--- | If an error occurred, a message that describes the error.
-auditMitigationActionExecutionMetadata_message :: Lens.Lens' AuditMitigationActionExecutionMetadata (Prelude.Maybe Prelude.Text)
-auditMitigationActionExecutionMetadata_message = Lens.lens (\AuditMitigationActionExecutionMetadata' {message} -> message) (\s@AuditMitigationActionExecutionMetadata' {} a -> s {message = a} :: AuditMitigationActionExecutionMetadata)
-
--- | The friendly name of the mitigation action being applied by the task.
-auditMitigationActionExecutionMetadata_actionName :: Lens.Lens' AuditMitigationActionExecutionMetadata (Prelude.Maybe Prelude.Text)
-auditMitigationActionExecutionMetadata_actionName = Lens.lens (\AuditMitigationActionExecutionMetadata' {actionName} -> actionName) (\s@AuditMitigationActionExecutionMetadata' {} a -> s {actionName = a} :: AuditMitigationActionExecutionMetadata)
-
--- | The unique identifier for the task that applies the mitigation action.
-auditMitigationActionExecutionMetadata_taskId :: Lens.Lens' AuditMitigationActionExecutionMetadata (Prelude.Maybe Prelude.Text)
-auditMitigationActionExecutionMetadata_taskId = Lens.lens (\AuditMitigationActionExecutionMetadata' {taskId} -> taskId) (\s@AuditMitigationActionExecutionMetadata' {} a -> s {taskId = a} :: AuditMitigationActionExecutionMetadata)
-
--- | The current status of the task being executed.
-auditMitigationActionExecutionMetadata_status :: Lens.Lens' AuditMitigationActionExecutionMetadata (Prelude.Maybe AuditMitigationActionsExecutionStatus)
-auditMitigationActionExecutionMetadata_status = Lens.lens (\AuditMitigationActionExecutionMetadata' {status} -> status) (\s@AuditMitigationActionExecutionMetadata' {} a -> s {status = a} :: AuditMitigationActionExecutionMetadata)
-
--- | The date and time when the task was completed or canceled. Blank if the
--- task is still running.
-auditMitigationActionExecutionMetadata_endTime :: Lens.Lens' AuditMitigationActionExecutionMetadata (Prelude.Maybe Prelude.UTCTime)
-auditMitigationActionExecutionMetadata_endTime = Lens.lens (\AuditMitigationActionExecutionMetadata' {endTime} -> endTime) (\s@AuditMitigationActionExecutionMetadata' {} a -> s {endTime = a} :: AuditMitigationActionExecutionMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The unique identifier for the mitigation action being applied by the
 -- task.
 auditMitigationActionExecutionMetadata_actionId :: Lens.Lens' AuditMitigationActionExecutionMetadata (Prelude.Maybe Prelude.Text)
 auditMitigationActionExecutionMetadata_actionId = Lens.lens (\AuditMitigationActionExecutionMetadata' {actionId} -> actionId) (\s@AuditMitigationActionExecutionMetadata' {} a -> s {actionId = a} :: AuditMitigationActionExecutionMetadata)
 
+-- | The friendly name of the mitigation action being applied by the task.
+auditMitigationActionExecutionMetadata_actionName :: Lens.Lens' AuditMitigationActionExecutionMetadata (Prelude.Maybe Prelude.Text)
+auditMitigationActionExecutionMetadata_actionName = Lens.lens (\AuditMitigationActionExecutionMetadata' {actionName} -> actionName) (\s@AuditMitigationActionExecutionMetadata' {} a -> s {actionName = a} :: AuditMitigationActionExecutionMetadata)
+
+-- | The date and time when the task was completed or canceled. Blank if the
+-- task is still running.
+auditMitigationActionExecutionMetadata_endTime :: Lens.Lens' AuditMitigationActionExecutionMetadata (Prelude.Maybe Prelude.UTCTime)
+auditMitigationActionExecutionMetadata_endTime = Lens.lens (\AuditMitigationActionExecutionMetadata' {endTime} -> endTime) (\s@AuditMitigationActionExecutionMetadata' {} a -> s {endTime = a} :: AuditMitigationActionExecutionMetadata) Prelude.. Lens.mapping Data._Time
+
 -- | If an error occurred, the code that indicates which type of error
 -- occurred.
 auditMitigationActionExecutionMetadata_errorCode :: Lens.Lens' AuditMitigationActionExecutionMetadata (Prelude.Maybe Prelude.Text)
 auditMitigationActionExecutionMetadata_errorCode = Lens.lens (\AuditMitigationActionExecutionMetadata' {errorCode} -> errorCode) (\s@AuditMitigationActionExecutionMetadata' {} a -> s {errorCode = a} :: AuditMitigationActionExecutionMetadata)
 
--- | The date and time when the task was started.
-auditMitigationActionExecutionMetadata_startTime :: Lens.Lens' AuditMitigationActionExecutionMetadata (Prelude.Maybe Prelude.UTCTime)
-auditMitigationActionExecutionMetadata_startTime = Lens.lens (\AuditMitigationActionExecutionMetadata' {startTime} -> startTime) (\s@AuditMitigationActionExecutionMetadata' {} a -> s {startTime = a} :: AuditMitigationActionExecutionMetadata) Prelude.. Lens.mapping Data._Time
-
 -- | The unique identifier for the findings to which the task and associated
 -- mitigation action are applied.
 auditMitigationActionExecutionMetadata_findingId :: Lens.Lens' AuditMitigationActionExecutionMetadata (Prelude.Maybe Prelude.Text)
 auditMitigationActionExecutionMetadata_findingId = Lens.lens (\AuditMitigationActionExecutionMetadata' {findingId} -> findingId) (\s@AuditMitigationActionExecutionMetadata' {} a -> s {findingId = a} :: AuditMitigationActionExecutionMetadata)
+
+-- | If an error occurred, a message that describes the error.
+auditMitigationActionExecutionMetadata_message :: Lens.Lens' AuditMitigationActionExecutionMetadata (Prelude.Maybe Prelude.Text)
+auditMitigationActionExecutionMetadata_message = Lens.lens (\AuditMitigationActionExecutionMetadata' {message} -> message) (\s@AuditMitigationActionExecutionMetadata' {} a -> s {message = a} :: AuditMitigationActionExecutionMetadata)
+
+-- | The date and time when the task was started.
+auditMitigationActionExecutionMetadata_startTime :: Lens.Lens' AuditMitigationActionExecutionMetadata (Prelude.Maybe Prelude.UTCTime)
+auditMitigationActionExecutionMetadata_startTime = Lens.lens (\AuditMitigationActionExecutionMetadata' {startTime} -> startTime) (\s@AuditMitigationActionExecutionMetadata' {} a -> s {startTime = a} :: AuditMitigationActionExecutionMetadata) Prelude.. Lens.mapping Data._Time
+
+-- | The current status of the task being executed.
+auditMitigationActionExecutionMetadata_status :: Lens.Lens' AuditMitigationActionExecutionMetadata (Prelude.Maybe AuditMitigationActionsExecutionStatus)
+auditMitigationActionExecutionMetadata_status = Lens.lens (\AuditMitigationActionExecutionMetadata' {status} -> status) (\s@AuditMitigationActionExecutionMetadata' {} a -> s {status = a} :: AuditMitigationActionExecutionMetadata)
+
+-- | The unique identifier for the task that applies the mitigation action.
+auditMitigationActionExecutionMetadata_taskId :: Lens.Lens' AuditMitigationActionExecutionMetadata (Prelude.Maybe Prelude.Text)
+auditMitigationActionExecutionMetadata_taskId = Lens.lens (\AuditMitigationActionExecutionMetadata' {taskId} -> taskId) (\s@AuditMitigationActionExecutionMetadata' {} a -> s {taskId = a} :: AuditMitigationActionExecutionMetadata)
 
 instance
   Data.FromJSON
@@ -149,15 +149,15 @@ instance
       "AuditMitigationActionExecutionMetadata"
       ( \x ->
           AuditMitigationActionExecutionMetadata'
-            Prelude.<$> (x Data..:? "message")
+            Prelude.<$> (x Data..:? "actionId")
             Prelude.<*> (x Data..:? "actionName")
-            Prelude.<*> (x Data..:? "taskId")
-            Prelude.<*> (x Data..:? "status")
             Prelude.<*> (x Data..:? "endTime")
-            Prelude.<*> (x Data..:? "actionId")
             Prelude.<*> (x Data..:? "errorCode")
-            Prelude.<*> (x Data..:? "startTime")
             Prelude.<*> (x Data..:? "findingId")
+            Prelude.<*> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "startTime")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "taskId")
       )
 
 instance
@@ -167,27 +167,27 @@ instance
   hashWithSalt
     _salt
     AuditMitigationActionExecutionMetadata' {..} =
-      _salt `Prelude.hashWithSalt` message
+      _salt `Prelude.hashWithSalt` actionId
         `Prelude.hashWithSalt` actionName
-        `Prelude.hashWithSalt` taskId
-        `Prelude.hashWithSalt` status
         `Prelude.hashWithSalt` endTime
-        `Prelude.hashWithSalt` actionId
         `Prelude.hashWithSalt` errorCode
-        `Prelude.hashWithSalt` startTime
         `Prelude.hashWithSalt` findingId
+        `Prelude.hashWithSalt` message
+        `Prelude.hashWithSalt` startTime
+        `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` taskId
 
 instance
   Prelude.NFData
     AuditMitigationActionExecutionMetadata
   where
   rnf AuditMitigationActionExecutionMetadata' {..} =
-    Prelude.rnf message
+    Prelude.rnf actionId
       `Prelude.seq` Prelude.rnf actionName
-      `Prelude.seq` Prelude.rnf taskId
-      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf actionId
       `Prelude.seq` Prelude.rnf errorCode
-      `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf findingId
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf taskId

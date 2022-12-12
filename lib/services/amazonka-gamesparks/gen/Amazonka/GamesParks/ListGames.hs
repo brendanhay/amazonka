@@ -29,16 +29,16 @@ module Amazonka.GamesParks.ListGames
     newListGames,
 
     -- * Request Lenses
-    listGames_nextToken,
     listGames_maxResults,
+    listGames_nextToken,
 
     -- * Destructuring the Response
     ListGamesResponse (..),
     newListGamesResponse,
 
     -- * Response Lenses
-    listGamesResponse_nextToken,
     listGamesResponse_games,
+    listGamesResponse_nextToken,
     listGamesResponse_httpStatus,
   )
 where
@@ -53,17 +53,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListGames' smart constructor.
 data ListGames = ListGames'
-  { -- | The token that indicates the start of the next sequential page of
+  { -- | The maximum number of results to return.
+    --
+    -- Use this parameter with NextToken to get results as a set of sequential
+    -- pages.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token that indicates the start of the next sequential page of
     -- results.
     --
     -- Use the token that is returned with a previous call to this operation.
     -- To start at the beginning of the result set, do not specify a value.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return.
-    --
-    -- Use this parameter with NextToken to get results as a set of sequential
-    -- pages.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,23 +75,30 @@ data ListGames = ListGames'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listGames_maxResults' - The maximum number of results to return.
+--
+-- Use this parameter with NextToken to get results as a set of sequential
+-- pages.
+--
 -- 'nextToken', 'listGames_nextToken' - The token that indicates the start of the next sequential page of
 -- results.
 --
 -- Use the token that is returned with a previous call to this operation.
 -- To start at the beginning of the result set, do not specify a value.
---
--- 'maxResults', 'listGames_maxResults' - The maximum number of results to return.
---
--- Use this parameter with NextToken to get results as a set of sequential
--- pages.
 newListGames ::
   ListGames
 newListGames =
   ListGames'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of results to return.
+--
+-- Use this parameter with NextToken to get results as a set of sequential
+-- pages.
+listGames_maxResults :: Lens.Lens' ListGames (Prelude.Maybe Prelude.Natural)
+listGames_maxResults = Lens.lens (\ListGames' {maxResults} -> maxResults) (\s@ListGames' {} a -> s {maxResults = a} :: ListGames)
 
 -- | The token that indicates the start of the next sequential page of
 -- results.
@@ -100,13 +107,6 @@ newListGames =
 -- To start at the beginning of the result set, do not specify a value.
 listGames_nextToken :: Lens.Lens' ListGames (Prelude.Maybe Prelude.Text)
 listGames_nextToken = Lens.lens (\ListGames' {nextToken} -> nextToken) (\s@ListGames' {} a -> s {nextToken = a} :: ListGames)
-
--- | The maximum number of results to return.
---
--- Use this parameter with NextToken to get results as a set of sequential
--- pages.
-listGames_maxResults :: Lens.Lens' ListGames (Prelude.Maybe Prelude.Natural)
-listGames_maxResults = Lens.lens (\ListGames' {maxResults} -> maxResults) (\s@ListGames' {} a -> s {maxResults = a} :: ListGames)
 
 instance Core.AWSPager ListGames where
   page rq rs
@@ -135,20 +135,20 @@ instance Core.AWSRequest ListGames where
     Response.receiveJSON
       ( \s h x ->
           ListGamesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Games" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Games" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListGames where
   hashWithSalt _salt ListGames' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListGames where
   rnf ListGames' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListGames where
   toHeaders =
@@ -167,20 +167,20 @@ instance Data.ToPath ListGames where
 instance Data.ToQuery ListGames where
   toQuery ListGames' {..} =
     Prelude.mconcat
-      [ "NextToken" Data.=: nextToken,
-        "MaxResults" Data.=: maxResults
+      [ "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListGamesResponse' smart constructor.
 data ListGamesResponse = ListGamesResponse'
-  { -- | The token that indicates the start of the next sequential page of
+  { -- | The list of games.
+    games :: Prelude.Maybe [GameSummary],
+    -- | The token that indicates the start of the next sequential page of
     -- results.
     --
     -- Use this value when making the next call to this operation to continue
     -- where the last one finished.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of games.
-    games :: Prelude.Maybe [GameSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -194,13 +194,13 @@ data ListGamesResponse = ListGamesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'games', 'listGamesResponse_games' - The list of games.
+--
 -- 'nextToken', 'listGamesResponse_nextToken' - The token that indicates the start of the next sequential page of
 -- results.
 --
 -- Use this value when making the next call to this operation to continue
 -- where the last one finished.
---
--- 'games', 'listGamesResponse_games' - The list of games.
 --
 -- 'httpStatus', 'listGamesResponse_httpStatus' - The response's http status code.
 newListGamesResponse ::
@@ -209,10 +209,14 @@ newListGamesResponse ::
   ListGamesResponse
 newListGamesResponse pHttpStatus_ =
   ListGamesResponse'
-    { nextToken = Prelude.Nothing,
-      games = Prelude.Nothing,
+    { games = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of games.
+listGamesResponse_games :: Lens.Lens' ListGamesResponse (Prelude.Maybe [GameSummary])
+listGamesResponse_games = Lens.lens (\ListGamesResponse' {games} -> games) (\s@ListGamesResponse' {} a -> s {games = a} :: ListGamesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token that indicates the start of the next sequential page of
 -- results.
@@ -222,16 +226,12 @@ newListGamesResponse pHttpStatus_ =
 listGamesResponse_nextToken :: Lens.Lens' ListGamesResponse (Prelude.Maybe Prelude.Text)
 listGamesResponse_nextToken = Lens.lens (\ListGamesResponse' {nextToken} -> nextToken) (\s@ListGamesResponse' {} a -> s {nextToken = a} :: ListGamesResponse)
 
--- | The list of games.
-listGamesResponse_games :: Lens.Lens' ListGamesResponse (Prelude.Maybe [GameSummary])
-listGamesResponse_games = Lens.lens (\ListGamesResponse' {games} -> games) (\s@ListGamesResponse' {} a -> s {games = a} :: ListGamesResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listGamesResponse_httpStatus :: Lens.Lens' ListGamesResponse Prelude.Int
 listGamesResponse_httpStatus = Lens.lens (\ListGamesResponse' {httpStatus} -> httpStatus) (\s@ListGamesResponse' {} a -> s {httpStatus = a} :: ListGamesResponse)
 
 instance Prelude.NFData ListGamesResponse where
   rnf ListGamesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf games
+    Prelude.rnf games
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -33,29 +33,29 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPostFulfillmentStatusSpecification' smart constructor.
 data PostFulfillmentStatusSpecification = PostFulfillmentStatusSpecification'
-  { -- | Specifies the next step that the bot runs when the fulfillment code hook
-    -- times out.
-    timeoutNextStep :: Prelude.Maybe DialogState,
-    -- | A list of conditional branches to evaluate if the fulfillment code hook
-    -- times out.
-    timeoutConditional :: Prelude.Maybe ConditionalSpecification,
+  { -- | A list of conditional branches to evaluate after the fulfillment code
+    -- hook throws an exception or returns with the @State@ field of the
+    -- @Intent@ object set to @Failed@.
+    failureConditional :: Prelude.Maybe ConditionalSpecification,
     -- | Specifies the next step the bot runs after the fulfillment code hook
     -- throws an exception or returns with the @State@ field of the @Intent@
     -- object set to @Failed@.
     failureNextStep :: Prelude.Maybe DialogState,
-    timeoutResponse :: Prelude.Maybe ResponseSpecification,
-    -- | Specifies the next step in the conversation that Amazon Lex invokes when
-    -- the fulfillment code hook completes successfully.
-    successNextStep :: Prelude.Maybe DialogState,
+    failureResponse :: Prelude.Maybe ResponseSpecification,
     -- | A list of conditional branches to evaluate after the fulfillment code
     -- hook finishes successfully.
     successConditional :: Prelude.Maybe ConditionalSpecification,
+    -- | Specifies the next step in the conversation that Amazon Lex invokes when
+    -- the fulfillment code hook completes successfully.
+    successNextStep :: Prelude.Maybe DialogState,
     successResponse :: Prelude.Maybe ResponseSpecification,
-    -- | A list of conditional branches to evaluate after the fulfillment code
-    -- hook throws an exception or returns with the @State@ field of the
-    -- @Intent@ object set to @Failed@.
-    failureConditional :: Prelude.Maybe ConditionalSpecification,
-    failureResponse :: Prelude.Maybe ResponseSpecification
+    -- | A list of conditional branches to evaluate if the fulfillment code hook
+    -- times out.
+    timeoutConditional :: Prelude.Maybe ConditionalSpecification,
+    -- | Specifies the next step that the bot runs when the fulfillment code hook
+    -- times out.
+    timeoutNextStep :: Prelude.Maybe DialogState,
+    timeoutResponse :: Prelude.Maybe ResponseSpecification
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,56 +67,52 @@ data PostFulfillmentStatusSpecification = PostFulfillmentStatusSpecification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'timeoutNextStep', 'postFulfillmentStatusSpecification_timeoutNextStep' - Specifies the next step that the bot runs when the fulfillment code hook
--- times out.
---
--- 'timeoutConditional', 'postFulfillmentStatusSpecification_timeoutConditional' - A list of conditional branches to evaluate if the fulfillment code hook
--- times out.
+-- 'failureConditional', 'postFulfillmentStatusSpecification_failureConditional' - A list of conditional branches to evaluate after the fulfillment code
+-- hook throws an exception or returns with the @State@ field of the
+-- @Intent@ object set to @Failed@.
 --
 -- 'failureNextStep', 'postFulfillmentStatusSpecification_failureNextStep' - Specifies the next step the bot runs after the fulfillment code hook
 -- throws an exception or returns with the @State@ field of the @Intent@
 -- object set to @Failed@.
 --
--- 'timeoutResponse', 'postFulfillmentStatusSpecification_timeoutResponse' - Undocumented member.
---
--- 'successNextStep', 'postFulfillmentStatusSpecification_successNextStep' - Specifies the next step in the conversation that Amazon Lex invokes when
--- the fulfillment code hook completes successfully.
+-- 'failureResponse', 'postFulfillmentStatusSpecification_failureResponse' - Undocumented member.
 --
 -- 'successConditional', 'postFulfillmentStatusSpecification_successConditional' - A list of conditional branches to evaluate after the fulfillment code
 -- hook finishes successfully.
 --
+-- 'successNextStep', 'postFulfillmentStatusSpecification_successNextStep' - Specifies the next step in the conversation that Amazon Lex invokes when
+-- the fulfillment code hook completes successfully.
+--
 -- 'successResponse', 'postFulfillmentStatusSpecification_successResponse' - Undocumented member.
 --
--- 'failureConditional', 'postFulfillmentStatusSpecification_failureConditional' - A list of conditional branches to evaluate after the fulfillment code
--- hook throws an exception or returns with the @State@ field of the
--- @Intent@ object set to @Failed@.
+-- 'timeoutConditional', 'postFulfillmentStatusSpecification_timeoutConditional' - A list of conditional branches to evaluate if the fulfillment code hook
+-- times out.
 --
--- 'failureResponse', 'postFulfillmentStatusSpecification_failureResponse' - Undocumented member.
+-- 'timeoutNextStep', 'postFulfillmentStatusSpecification_timeoutNextStep' - Specifies the next step that the bot runs when the fulfillment code hook
+-- times out.
+--
+-- 'timeoutResponse', 'postFulfillmentStatusSpecification_timeoutResponse' - Undocumented member.
 newPostFulfillmentStatusSpecification ::
   PostFulfillmentStatusSpecification
 newPostFulfillmentStatusSpecification =
   PostFulfillmentStatusSpecification'
-    { timeoutNextStep =
+    { failureConditional =
         Prelude.Nothing,
-      timeoutConditional = Prelude.Nothing,
       failureNextStep = Prelude.Nothing,
-      timeoutResponse = Prelude.Nothing,
-      successNextStep = Prelude.Nothing,
+      failureResponse = Prelude.Nothing,
       successConditional = Prelude.Nothing,
+      successNextStep = Prelude.Nothing,
       successResponse = Prelude.Nothing,
-      failureConditional = Prelude.Nothing,
-      failureResponse = Prelude.Nothing
+      timeoutConditional = Prelude.Nothing,
+      timeoutNextStep = Prelude.Nothing,
+      timeoutResponse = Prelude.Nothing
     }
 
--- | Specifies the next step that the bot runs when the fulfillment code hook
--- times out.
-postFulfillmentStatusSpecification_timeoutNextStep :: Lens.Lens' PostFulfillmentStatusSpecification (Prelude.Maybe DialogState)
-postFulfillmentStatusSpecification_timeoutNextStep = Lens.lens (\PostFulfillmentStatusSpecification' {timeoutNextStep} -> timeoutNextStep) (\s@PostFulfillmentStatusSpecification' {} a -> s {timeoutNextStep = a} :: PostFulfillmentStatusSpecification)
-
--- | A list of conditional branches to evaluate if the fulfillment code hook
--- times out.
-postFulfillmentStatusSpecification_timeoutConditional :: Lens.Lens' PostFulfillmentStatusSpecification (Prelude.Maybe ConditionalSpecification)
-postFulfillmentStatusSpecification_timeoutConditional = Lens.lens (\PostFulfillmentStatusSpecification' {timeoutConditional} -> timeoutConditional) (\s@PostFulfillmentStatusSpecification' {} a -> s {timeoutConditional = a} :: PostFulfillmentStatusSpecification)
+-- | A list of conditional branches to evaluate after the fulfillment code
+-- hook throws an exception or returns with the @State@ field of the
+-- @Intent@ object set to @Failed@.
+postFulfillmentStatusSpecification_failureConditional :: Lens.Lens' PostFulfillmentStatusSpecification (Prelude.Maybe ConditionalSpecification)
+postFulfillmentStatusSpecification_failureConditional = Lens.lens (\PostFulfillmentStatusSpecification' {failureConditional} -> failureConditional) (\s@PostFulfillmentStatusSpecification' {} a -> s {failureConditional = a} :: PostFulfillmentStatusSpecification)
 
 -- | Specifies the next step the bot runs after the fulfillment code hook
 -- throws an exception or returns with the @State@ field of the @Intent@
@@ -125,32 +121,36 @@ postFulfillmentStatusSpecification_failureNextStep :: Lens.Lens' PostFulfillment
 postFulfillmentStatusSpecification_failureNextStep = Lens.lens (\PostFulfillmentStatusSpecification' {failureNextStep} -> failureNextStep) (\s@PostFulfillmentStatusSpecification' {} a -> s {failureNextStep = a} :: PostFulfillmentStatusSpecification)
 
 -- | Undocumented member.
-postFulfillmentStatusSpecification_timeoutResponse :: Lens.Lens' PostFulfillmentStatusSpecification (Prelude.Maybe ResponseSpecification)
-postFulfillmentStatusSpecification_timeoutResponse = Lens.lens (\PostFulfillmentStatusSpecification' {timeoutResponse} -> timeoutResponse) (\s@PostFulfillmentStatusSpecification' {} a -> s {timeoutResponse = a} :: PostFulfillmentStatusSpecification)
-
--- | Specifies the next step in the conversation that Amazon Lex invokes when
--- the fulfillment code hook completes successfully.
-postFulfillmentStatusSpecification_successNextStep :: Lens.Lens' PostFulfillmentStatusSpecification (Prelude.Maybe DialogState)
-postFulfillmentStatusSpecification_successNextStep = Lens.lens (\PostFulfillmentStatusSpecification' {successNextStep} -> successNextStep) (\s@PostFulfillmentStatusSpecification' {} a -> s {successNextStep = a} :: PostFulfillmentStatusSpecification)
+postFulfillmentStatusSpecification_failureResponse :: Lens.Lens' PostFulfillmentStatusSpecification (Prelude.Maybe ResponseSpecification)
+postFulfillmentStatusSpecification_failureResponse = Lens.lens (\PostFulfillmentStatusSpecification' {failureResponse} -> failureResponse) (\s@PostFulfillmentStatusSpecification' {} a -> s {failureResponse = a} :: PostFulfillmentStatusSpecification)
 
 -- | A list of conditional branches to evaluate after the fulfillment code
 -- hook finishes successfully.
 postFulfillmentStatusSpecification_successConditional :: Lens.Lens' PostFulfillmentStatusSpecification (Prelude.Maybe ConditionalSpecification)
 postFulfillmentStatusSpecification_successConditional = Lens.lens (\PostFulfillmentStatusSpecification' {successConditional} -> successConditional) (\s@PostFulfillmentStatusSpecification' {} a -> s {successConditional = a} :: PostFulfillmentStatusSpecification)
 
+-- | Specifies the next step in the conversation that Amazon Lex invokes when
+-- the fulfillment code hook completes successfully.
+postFulfillmentStatusSpecification_successNextStep :: Lens.Lens' PostFulfillmentStatusSpecification (Prelude.Maybe DialogState)
+postFulfillmentStatusSpecification_successNextStep = Lens.lens (\PostFulfillmentStatusSpecification' {successNextStep} -> successNextStep) (\s@PostFulfillmentStatusSpecification' {} a -> s {successNextStep = a} :: PostFulfillmentStatusSpecification)
+
 -- | Undocumented member.
 postFulfillmentStatusSpecification_successResponse :: Lens.Lens' PostFulfillmentStatusSpecification (Prelude.Maybe ResponseSpecification)
 postFulfillmentStatusSpecification_successResponse = Lens.lens (\PostFulfillmentStatusSpecification' {successResponse} -> successResponse) (\s@PostFulfillmentStatusSpecification' {} a -> s {successResponse = a} :: PostFulfillmentStatusSpecification)
 
--- | A list of conditional branches to evaluate after the fulfillment code
--- hook throws an exception or returns with the @State@ field of the
--- @Intent@ object set to @Failed@.
-postFulfillmentStatusSpecification_failureConditional :: Lens.Lens' PostFulfillmentStatusSpecification (Prelude.Maybe ConditionalSpecification)
-postFulfillmentStatusSpecification_failureConditional = Lens.lens (\PostFulfillmentStatusSpecification' {failureConditional} -> failureConditional) (\s@PostFulfillmentStatusSpecification' {} a -> s {failureConditional = a} :: PostFulfillmentStatusSpecification)
+-- | A list of conditional branches to evaluate if the fulfillment code hook
+-- times out.
+postFulfillmentStatusSpecification_timeoutConditional :: Lens.Lens' PostFulfillmentStatusSpecification (Prelude.Maybe ConditionalSpecification)
+postFulfillmentStatusSpecification_timeoutConditional = Lens.lens (\PostFulfillmentStatusSpecification' {timeoutConditional} -> timeoutConditional) (\s@PostFulfillmentStatusSpecification' {} a -> s {timeoutConditional = a} :: PostFulfillmentStatusSpecification)
+
+-- | Specifies the next step that the bot runs when the fulfillment code hook
+-- times out.
+postFulfillmentStatusSpecification_timeoutNextStep :: Lens.Lens' PostFulfillmentStatusSpecification (Prelude.Maybe DialogState)
+postFulfillmentStatusSpecification_timeoutNextStep = Lens.lens (\PostFulfillmentStatusSpecification' {timeoutNextStep} -> timeoutNextStep) (\s@PostFulfillmentStatusSpecification' {} a -> s {timeoutNextStep = a} :: PostFulfillmentStatusSpecification)
 
 -- | Undocumented member.
-postFulfillmentStatusSpecification_failureResponse :: Lens.Lens' PostFulfillmentStatusSpecification (Prelude.Maybe ResponseSpecification)
-postFulfillmentStatusSpecification_failureResponse = Lens.lens (\PostFulfillmentStatusSpecification' {failureResponse} -> failureResponse) (\s@PostFulfillmentStatusSpecification' {} a -> s {failureResponse = a} :: PostFulfillmentStatusSpecification)
+postFulfillmentStatusSpecification_timeoutResponse :: Lens.Lens' PostFulfillmentStatusSpecification (Prelude.Maybe ResponseSpecification)
+postFulfillmentStatusSpecification_timeoutResponse = Lens.lens (\PostFulfillmentStatusSpecification' {timeoutResponse} -> timeoutResponse) (\s@PostFulfillmentStatusSpecification' {} a -> s {timeoutResponse = a} :: PostFulfillmentStatusSpecification)
 
 instance
   Data.FromJSON
@@ -161,15 +161,15 @@ instance
       "PostFulfillmentStatusSpecification"
       ( \x ->
           PostFulfillmentStatusSpecification'
-            Prelude.<$> (x Data..:? "timeoutNextStep")
-            Prelude.<*> (x Data..:? "timeoutConditional")
+            Prelude.<$> (x Data..:? "failureConditional")
             Prelude.<*> (x Data..:? "failureNextStep")
-            Prelude.<*> (x Data..:? "timeoutResponse")
-            Prelude.<*> (x Data..:? "successNextStep")
-            Prelude.<*> (x Data..:? "successConditional")
-            Prelude.<*> (x Data..:? "successResponse")
-            Prelude.<*> (x Data..:? "failureConditional")
             Prelude.<*> (x Data..:? "failureResponse")
+            Prelude.<*> (x Data..:? "successConditional")
+            Prelude.<*> (x Data..:? "successNextStep")
+            Prelude.<*> (x Data..:? "successResponse")
+            Prelude.<*> (x Data..:? "timeoutConditional")
+            Prelude.<*> (x Data..:? "timeoutNextStep")
+            Prelude.<*> (x Data..:? "timeoutResponse")
       )
 
 instance
@@ -179,30 +179,30 @@ instance
   hashWithSalt
     _salt
     PostFulfillmentStatusSpecification' {..} =
-      _salt `Prelude.hashWithSalt` timeoutNextStep
-        `Prelude.hashWithSalt` timeoutConditional
+      _salt `Prelude.hashWithSalt` failureConditional
         `Prelude.hashWithSalt` failureNextStep
-        `Prelude.hashWithSalt` timeoutResponse
-        `Prelude.hashWithSalt` successNextStep
-        `Prelude.hashWithSalt` successConditional
-        `Prelude.hashWithSalt` successResponse
-        `Prelude.hashWithSalt` failureConditional
         `Prelude.hashWithSalt` failureResponse
+        `Prelude.hashWithSalt` successConditional
+        `Prelude.hashWithSalt` successNextStep
+        `Prelude.hashWithSalt` successResponse
+        `Prelude.hashWithSalt` timeoutConditional
+        `Prelude.hashWithSalt` timeoutNextStep
+        `Prelude.hashWithSalt` timeoutResponse
 
 instance
   Prelude.NFData
     PostFulfillmentStatusSpecification
   where
   rnf PostFulfillmentStatusSpecification' {..} =
-    Prelude.rnf timeoutNextStep
-      `Prelude.seq` Prelude.rnf timeoutConditional
+    Prelude.rnf failureConditional
       `Prelude.seq` Prelude.rnf failureNextStep
-      `Prelude.seq` Prelude.rnf timeoutResponse
-      `Prelude.seq` Prelude.rnf successNextStep
-      `Prelude.seq` Prelude.rnf successConditional
-      `Prelude.seq` Prelude.rnf successResponse
-      `Prelude.seq` Prelude.rnf failureConditional
       `Prelude.seq` Prelude.rnf failureResponse
+      `Prelude.seq` Prelude.rnf successConditional
+      `Prelude.seq` Prelude.rnf successNextStep
+      `Prelude.seq` Prelude.rnf successResponse
+      `Prelude.seq` Prelude.rnf timeoutConditional
+      `Prelude.seq` Prelude.rnf timeoutNextStep
+      `Prelude.seq` Prelude.rnf timeoutResponse
 
 instance
   Data.ToJSON
@@ -211,23 +211,23 @@ instance
   toJSON PostFulfillmentStatusSpecification' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("timeoutNextStep" Data..=)
-              Prelude.<$> timeoutNextStep,
-            ("timeoutConditional" Data..=)
-              Prelude.<$> timeoutConditional,
+          [ ("failureConditional" Data..=)
+              Prelude.<$> failureConditional,
             ("failureNextStep" Data..=)
               Prelude.<$> failureNextStep,
-            ("timeoutResponse" Data..=)
-              Prelude.<$> timeoutResponse,
-            ("successNextStep" Data..=)
-              Prelude.<$> successNextStep,
+            ("failureResponse" Data..=)
+              Prelude.<$> failureResponse,
             ("successConditional" Data..=)
               Prelude.<$> successConditional,
+            ("successNextStep" Data..=)
+              Prelude.<$> successNextStep,
             ("successResponse" Data..=)
               Prelude.<$> successResponse,
-            ("failureConditional" Data..=)
-              Prelude.<$> failureConditional,
-            ("failureResponse" Data..=)
-              Prelude.<$> failureResponse
+            ("timeoutConditional" Data..=)
+              Prelude.<$> timeoutConditional,
+            ("timeoutNextStep" Data..=)
+              Prelude.<$> timeoutNextStep,
+            ("timeoutResponse" Data..=)
+              Prelude.<$> timeoutResponse
           ]
       )

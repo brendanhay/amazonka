@@ -30,8 +30,8 @@ module Amazonka.TimeStreamQuery.ListScheduledQueries
     newListScheduledQueries,
 
     -- * Request Lenses
-    listScheduledQueries_nextToken,
     listScheduledQueries_maxResults,
+    listScheduledQueries_nextToken,
 
     -- * Destructuring the Response
     ListScheduledQueriesResponse (..),
@@ -54,14 +54,14 @@ import Amazonka.TimeStreamQuery.Types
 
 -- | /See:/ 'newListScheduledQueries' smart constructor.
 data ListScheduledQueries = ListScheduledQueries'
-  { -- | A pagination token to resume pagination.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return in the output. If the total number
+  { -- | The maximum number of items to return in the output. If the total number
     -- of items available is more than the value specified, a @NextToken@ is
     -- provided in the output. To resume pagination, provide the @NextToken@
     -- value as the argument to the subsequent call to
     -- @ListScheduledQueriesRequest@.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A pagination token to resume pagination.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,24 +73,20 @@ data ListScheduledQueries = ListScheduledQueries'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listScheduledQueries_nextToken' - A pagination token to resume pagination.
---
 -- 'maxResults', 'listScheduledQueries_maxResults' - The maximum number of items to return in the output. If the total number
 -- of items available is more than the value specified, a @NextToken@ is
 -- provided in the output. To resume pagination, provide the @NextToken@
 -- value as the argument to the subsequent call to
 -- @ListScheduledQueriesRequest@.
+--
+-- 'nextToken', 'listScheduledQueries_nextToken' - A pagination token to resume pagination.
 newListScheduledQueries ::
   ListScheduledQueries
 newListScheduledQueries =
   ListScheduledQueries'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | A pagination token to resume pagination.
-listScheduledQueries_nextToken :: Lens.Lens' ListScheduledQueries (Prelude.Maybe Prelude.Text)
-listScheduledQueries_nextToken = Lens.lens (\ListScheduledQueries' {nextToken} -> nextToken) (\s@ListScheduledQueries' {} a -> s {nextToken = a} :: ListScheduledQueries)
 
 -- | The maximum number of items to return in the output. If the total number
 -- of items available is more than the value specified, a @NextToken@ is
@@ -99,6 +95,10 @@ listScheduledQueries_nextToken = Lens.lens (\ListScheduledQueries' {nextToken} -
 -- @ListScheduledQueriesRequest@.
 listScheduledQueries_maxResults :: Lens.Lens' ListScheduledQueries (Prelude.Maybe Prelude.Natural)
 listScheduledQueries_maxResults = Lens.lens (\ListScheduledQueries' {maxResults} -> maxResults) (\s@ListScheduledQueries' {} a -> s {maxResults = a} :: ListScheduledQueries)
+
+-- | A pagination token to resume pagination.
+listScheduledQueries_nextToken :: Lens.Lens' ListScheduledQueries (Prelude.Maybe Prelude.Text)
+listScheduledQueries_nextToken = Lens.lens (\ListScheduledQueries' {nextToken} -> nextToken) (\s@ListScheduledQueries' {} a -> s {nextToken = a} :: ListScheduledQueries)
 
 instance Core.AWSPager ListScheduledQueries where
   page rq rs
@@ -140,13 +140,13 @@ instance Core.AWSRequest ListScheduledQueries where
 
 instance Prelude.Hashable ListScheduledQueries where
   hashWithSalt _salt ListScheduledQueries' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListScheduledQueries where
   rnf ListScheduledQueries' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListScheduledQueries where
   toHeaders =
@@ -167,8 +167,8 @@ instance Data.ToJSON ListScheduledQueries where
   toJSON ListScheduledQueries' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

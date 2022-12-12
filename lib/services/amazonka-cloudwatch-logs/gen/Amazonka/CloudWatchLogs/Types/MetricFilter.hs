@@ -31,16 +31,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMetricFilter' smart constructor.
 data MetricFilter = MetricFilter'
-  { -- | The name of the metric filter.
-    filterName :: Prelude.Maybe Prelude.Text,
-    -- | The creation time of the metric filter, expressed as the number of
-    -- milliseconds after Jan 1, 1970 00:00:00 UTC.
+  { -- | The creation time of the metric filter, expressed as the number of
+    -- milliseconds after @Jan 1, 1970 00:00:00 UTC@.
     creationTime :: Prelude.Maybe Prelude.Natural,
-    -- | The metric transformations.
-    metricTransformations :: Prelude.Maybe (Prelude.NonEmpty MetricTransformation),
+    -- | The name of the metric filter.
+    filterName :: Prelude.Maybe Prelude.Text,
     filterPattern :: Prelude.Maybe Prelude.Text,
     -- | The name of the log group.
-    logGroupName :: Prelude.Maybe Prelude.Text
+    logGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The metric transformations.
+    metricTransformations :: Prelude.Maybe (Prelude.NonEmpty MetricTransformation)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,39 +52,35 @@ data MetricFilter = MetricFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filterName', 'metricFilter_filterName' - The name of the metric filter.
---
 -- 'creationTime', 'metricFilter_creationTime' - The creation time of the metric filter, expressed as the number of
--- milliseconds after Jan 1, 1970 00:00:00 UTC.
+-- milliseconds after @Jan 1, 1970 00:00:00 UTC@.
 --
--- 'metricTransformations', 'metricFilter_metricTransformations' - The metric transformations.
+-- 'filterName', 'metricFilter_filterName' - The name of the metric filter.
 --
 -- 'filterPattern', 'metricFilter_filterPattern' - Undocumented member.
 --
 -- 'logGroupName', 'metricFilter_logGroupName' - The name of the log group.
+--
+-- 'metricTransformations', 'metricFilter_metricTransformations' - The metric transformations.
 newMetricFilter ::
   MetricFilter
 newMetricFilter =
   MetricFilter'
-    { filterName = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      metricTransformations = Prelude.Nothing,
+    { creationTime = Prelude.Nothing,
+      filterName = Prelude.Nothing,
       filterPattern = Prelude.Nothing,
-      logGroupName = Prelude.Nothing
+      logGroupName = Prelude.Nothing,
+      metricTransformations = Prelude.Nothing
     }
+
+-- | The creation time of the metric filter, expressed as the number of
+-- milliseconds after @Jan 1, 1970 00:00:00 UTC@.
+metricFilter_creationTime :: Lens.Lens' MetricFilter (Prelude.Maybe Prelude.Natural)
+metricFilter_creationTime = Lens.lens (\MetricFilter' {creationTime} -> creationTime) (\s@MetricFilter' {} a -> s {creationTime = a} :: MetricFilter)
 
 -- | The name of the metric filter.
 metricFilter_filterName :: Lens.Lens' MetricFilter (Prelude.Maybe Prelude.Text)
 metricFilter_filterName = Lens.lens (\MetricFilter' {filterName} -> filterName) (\s@MetricFilter' {} a -> s {filterName = a} :: MetricFilter)
-
--- | The creation time of the metric filter, expressed as the number of
--- milliseconds after Jan 1, 1970 00:00:00 UTC.
-metricFilter_creationTime :: Lens.Lens' MetricFilter (Prelude.Maybe Prelude.Natural)
-metricFilter_creationTime = Lens.lens (\MetricFilter' {creationTime} -> creationTime) (\s@MetricFilter' {} a -> s {creationTime = a} :: MetricFilter)
-
--- | The metric transformations.
-metricFilter_metricTransformations :: Lens.Lens' MetricFilter (Prelude.Maybe (Prelude.NonEmpty MetricTransformation))
-metricFilter_metricTransformations = Lens.lens (\MetricFilter' {metricTransformations} -> metricTransformations) (\s@MetricFilter' {} a -> s {metricTransformations = a} :: MetricFilter) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 metricFilter_filterPattern :: Lens.Lens' MetricFilter (Prelude.Maybe Prelude.Text)
@@ -94,31 +90,35 @@ metricFilter_filterPattern = Lens.lens (\MetricFilter' {filterPattern} -> filter
 metricFilter_logGroupName :: Lens.Lens' MetricFilter (Prelude.Maybe Prelude.Text)
 metricFilter_logGroupName = Lens.lens (\MetricFilter' {logGroupName} -> logGroupName) (\s@MetricFilter' {} a -> s {logGroupName = a} :: MetricFilter)
 
+-- | The metric transformations.
+metricFilter_metricTransformations :: Lens.Lens' MetricFilter (Prelude.Maybe (Prelude.NonEmpty MetricTransformation))
+metricFilter_metricTransformations = Lens.lens (\MetricFilter' {metricTransformations} -> metricTransformations) (\s@MetricFilter' {} a -> s {metricTransformations = a} :: MetricFilter) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON MetricFilter where
   parseJSON =
     Data.withObject
       "MetricFilter"
       ( \x ->
           MetricFilter'
-            Prelude.<$> (x Data..:? "filterName")
-            Prelude.<*> (x Data..:? "creationTime")
-            Prelude.<*> (x Data..:? "metricTransformations")
+            Prelude.<$> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "filterName")
             Prelude.<*> (x Data..:? "filterPattern")
             Prelude.<*> (x Data..:? "logGroupName")
+            Prelude.<*> (x Data..:? "metricTransformations")
       )
 
 instance Prelude.Hashable MetricFilter where
   hashWithSalt _salt MetricFilter' {..} =
-    _salt `Prelude.hashWithSalt` filterName
-      `Prelude.hashWithSalt` creationTime
-      `Prelude.hashWithSalt` metricTransformations
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` filterName
       `Prelude.hashWithSalt` filterPattern
       `Prelude.hashWithSalt` logGroupName
+      `Prelude.hashWithSalt` metricTransformations
 
 instance Prelude.NFData MetricFilter where
   rnf MetricFilter' {..} =
-    Prelude.rnf filterName
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf metricTransformations
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf filterName
       `Prelude.seq` Prelude.rnf filterPattern
       `Prelude.seq` Prelude.rnf logGroupName
+      `Prelude.seq` Prelude.rnf metricTransformations

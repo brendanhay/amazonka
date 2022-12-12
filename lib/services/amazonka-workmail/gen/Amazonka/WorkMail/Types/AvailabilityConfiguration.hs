@@ -32,21 +32,21 @@ import Amazonka.WorkMail.Types.RedactedEwsAvailabilityProvider
 --
 -- /See:/ 'newAvailabilityConfiguration' smart constructor.
 data AvailabilityConfiguration = AvailabilityConfiguration'
-  { -- | If @ProviderType@ is @EWS@, then this field contains
-    -- @RedactedEwsAvailabilityProvider@. Otherwise, it is not required.
-    ewsProvider :: Prelude.Maybe RedactedEwsAvailabilityProvider,
-    -- | Displays the domain to which the provider applies.
-    domainName :: Prelude.Maybe Prelude.Text,
-    -- | Displays the provider type that applies to this domain.
-    providerType :: Prelude.Maybe AvailabilityProviderType,
-    -- | If ProviderType is @LAMBDA@ then this field contains
-    -- @LambdaAvailabilityProvider@. Otherwise, it is not required.
-    lambdaProvider :: Prelude.Maybe LambdaAvailabilityProvider,
-    -- | The date and time at which the availability configuration was created.
+  { -- | The date and time at which the availability configuration was created.
     dateCreated :: Prelude.Maybe Data.POSIX,
     -- | The date and time at which the availability configuration was last
     -- modified.
-    dateModified :: Prelude.Maybe Data.POSIX
+    dateModified :: Prelude.Maybe Data.POSIX,
+    -- | Displays the domain to which the provider applies.
+    domainName :: Prelude.Maybe Prelude.Text,
+    -- | If @ProviderType@ is @EWS@, then this field contains
+    -- @RedactedEwsAvailabilityProvider@. Otherwise, it is not required.
+    ewsProvider :: Prelude.Maybe RedactedEwsAvailabilityProvider,
+    -- | If ProviderType is @LAMBDA@ then this field contains
+    -- @LambdaAvailabilityProvider@. Otherwise, it is not required.
+    lambdaProvider :: Prelude.Maybe LambdaAvailabilityProvider,
+    -- | Displays the provider type that applies to this domain.
+    providerType :: Prelude.Maybe AvailabilityProviderType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,50 +58,32 @@ data AvailabilityConfiguration = AvailabilityConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ewsProvider', 'availabilityConfiguration_ewsProvider' - If @ProviderType@ is @EWS@, then this field contains
--- @RedactedEwsAvailabilityProvider@. Otherwise, it is not required.
---
--- 'domainName', 'availabilityConfiguration_domainName' - Displays the domain to which the provider applies.
---
--- 'providerType', 'availabilityConfiguration_providerType' - Displays the provider type that applies to this domain.
---
--- 'lambdaProvider', 'availabilityConfiguration_lambdaProvider' - If ProviderType is @LAMBDA@ then this field contains
--- @LambdaAvailabilityProvider@. Otherwise, it is not required.
---
 -- 'dateCreated', 'availabilityConfiguration_dateCreated' - The date and time at which the availability configuration was created.
 --
 -- 'dateModified', 'availabilityConfiguration_dateModified' - The date and time at which the availability configuration was last
 -- modified.
+--
+-- 'domainName', 'availabilityConfiguration_domainName' - Displays the domain to which the provider applies.
+--
+-- 'ewsProvider', 'availabilityConfiguration_ewsProvider' - If @ProviderType@ is @EWS@, then this field contains
+-- @RedactedEwsAvailabilityProvider@. Otherwise, it is not required.
+--
+-- 'lambdaProvider', 'availabilityConfiguration_lambdaProvider' - If ProviderType is @LAMBDA@ then this field contains
+-- @LambdaAvailabilityProvider@. Otherwise, it is not required.
+--
+-- 'providerType', 'availabilityConfiguration_providerType' - Displays the provider type that applies to this domain.
 newAvailabilityConfiguration ::
   AvailabilityConfiguration
 newAvailabilityConfiguration =
   AvailabilityConfiguration'
-    { ewsProvider =
+    { dateCreated =
         Prelude.Nothing,
+      dateModified = Prelude.Nothing,
       domainName = Prelude.Nothing,
-      providerType = Prelude.Nothing,
+      ewsProvider = Prelude.Nothing,
       lambdaProvider = Prelude.Nothing,
-      dateCreated = Prelude.Nothing,
-      dateModified = Prelude.Nothing
+      providerType = Prelude.Nothing
     }
-
--- | If @ProviderType@ is @EWS@, then this field contains
--- @RedactedEwsAvailabilityProvider@. Otherwise, it is not required.
-availabilityConfiguration_ewsProvider :: Lens.Lens' AvailabilityConfiguration (Prelude.Maybe RedactedEwsAvailabilityProvider)
-availabilityConfiguration_ewsProvider = Lens.lens (\AvailabilityConfiguration' {ewsProvider} -> ewsProvider) (\s@AvailabilityConfiguration' {} a -> s {ewsProvider = a} :: AvailabilityConfiguration)
-
--- | Displays the domain to which the provider applies.
-availabilityConfiguration_domainName :: Lens.Lens' AvailabilityConfiguration (Prelude.Maybe Prelude.Text)
-availabilityConfiguration_domainName = Lens.lens (\AvailabilityConfiguration' {domainName} -> domainName) (\s@AvailabilityConfiguration' {} a -> s {domainName = a} :: AvailabilityConfiguration)
-
--- | Displays the provider type that applies to this domain.
-availabilityConfiguration_providerType :: Lens.Lens' AvailabilityConfiguration (Prelude.Maybe AvailabilityProviderType)
-availabilityConfiguration_providerType = Lens.lens (\AvailabilityConfiguration' {providerType} -> providerType) (\s@AvailabilityConfiguration' {} a -> s {providerType = a} :: AvailabilityConfiguration)
-
--- | If ProviderType is @LAMBDA@ then this field contains
--- @LambdaAvailabilityProvider@. Otherwise, it is not required.
-availabilityConfiguration_lambdaProvider :: Lens.Lens' AvailabilityConfiguration (Prelude.Maybe LambdaAvailabilityProvider)
-availabilityConfiguration_lambdaProvider = Lens.lens (\AvailabilityConfiguration' {lambdaProvider} -> lambdaProvider) (\s@AvailabilityConfiguration' {} a -> s {lambdaProvider = a} :: AvailabilityConfiguration)
 
 -- | The date and time at which the availability configuration was created.
 availabilityConfiguration_dateCreated :: Lens.Lens' AvailabilityConfiguration (Prelude.Maybe Prelude.UTCTime)
@@ -112,34 +94,52 @@ availabilityConfiguration_dateCreated = Lens.lens (\AvailabilityConfiguration' {
 availabilityConfiguration_dateModified :: Lens.Lens' AvailabilityConfiguration (Prelude.Maybe Prelude.UTCTime)
 availabilityConfiguration_dateModified = Lens.lens (\AvailabilityConfiguration' {dateModified} -> dateModified) (\s@AvailabilityConfiguration' {} a -> s {dateModified = a} :: AvailabilityConfiguration) Prelude.. Lens.mapping Data._Time
 
+-- | Displays the domain to which the provider applies.
+availabilityConfiguration_domainName :: Lens.Lens' AvailabilityConfiguration (Prelude.Maybe Prelude.Text)
+availabilityConfiguration_domainName = Lens.lens (\AvailabilityConfiguration' {domainName} -> domainName) (\s@AvailabilityConfiguration' {} a -> s {domainName = a} :: AvailabilityConfiguration)
+
+-- | If @ProviderType@ is @EWS@, then this field contains
+-- @RedactedEwsAvailabilityProvider@. Otherwise, it is not required.
+availabilityConfiguration_ewsProvider :: Lens.Lens' AvailabilityConfiguration (Prelude.Maybe RedactedEwsAvailabilityProvider)
+availabilityConfiguration_ewsProvider = Lens.lens (\AvailabilityConfiguration' {ewsProvider} -> ewsProvider) (\s@AvailabilityConfiguration' {} a -> s {ewsProvider = a} :: AvailabilityConfiguration)
+
+-- | If ProviderType is @LAMBDA@ then this field contains
+-- @LambdaAvailabilityProvider@. Otherwise, it is not required.
+availabilityConfiguration_lambdaProvider :: Lens.Lens' AvailabilityConfiguration (Prelude.Maybe LambdaAvailabilityProvider)
+availabilityConfiguration_lambdaProvider = Lens.lens (\AvailabilityConfiguration' {lambdaProvider} -> lambdaProvider) (\s@AvailabilityConfiguration' {} a -> s {lambdaProvider = a} :: AvailabilityConfiguration)
+
+-- | Displays the provider type that applies to this domain.
+availabilityConfiguration_providerType :: Lens.Lens' AvailabilityConfiguration (Prelude.Maybe AvailabilityProviderType)
+availabilityConfiguration_providerType = Lens.lens (\AvailabilityConfiguration' {providerType} -> providerType) (\s@AvailabilityConfiguration' {} a -> s {providerType = a} :: AvailabilityConfiguration)
+
 instance Data.FromJSON AvailabilityConfiguration where
   parseJSON =
     Data.withObject
       "AvailabilityConfiguration"
       ( \x ->
           AvailabilityConfiguration'
-            Prelude.<$> (x Data..:? "EwsProvider")
-            Prelude.<*> (x Data..:? "DomainName")
-            Prelude.<*> (x Data..:? "ProviderType")
-            Prelude.<*> (x Data..:? "LambdaProvider")
-            Prelude.<*> (x Data..:? "DateCreated")
+            Prelude.<$> (x Data..:? "DateCreated")
             Prelude.<*> (x Data..:? "DateModified")
+            Prelude.<*> (x Data..:? "DomainName")
+            Prelude.<*> (x Data..:? "EwsProvider")
+            Prelude.<*> (x Data..:? "LambdaProvider")
+            Prelude.<*> (x Data..:? "ProviderType")
       )
 
 instance Prelude.Hashable AvailabilityConfiguration where
   hashWithSalt _salt AvailabilityConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` ewsProvider
-      `Prelude.hashWithSalt` domainName
-      `Prelude.hashWithSalt` providerType
-      `Prelude.hashWithSalt` lambdaProvider
-      `Prelude.hashWithSalt` dateCreated
+    _salt `Prelude.hashWithSalt` dateCreated
       `Prelude.hashWithSalt` dateModified
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` ewsProvider
+      `Prelude.hashWithSalt` lambdaProvider
+      `Prelude.hashWithSalt` providerType
 
 instance Prelude.NFData AvailabilityConfiguration where
   rnf AvailabilityConfiguration' {..} =
-    Prelude.rnf ewsProvider
-      `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf providerType
-      `Prelude.seq` Prelude.rnf lambdaProvider
-      `Prelude.seq` Prelude.rnf dateCreated
+    Prelude.rnf dateCreated
       `Prelude.seq` Prelude.rnf dateModified
+      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf ewsProvider
+      `Prelude.seq` Prelude.rnf lambdaProvider
+      `Prelude.seq` Prelude.rnf providerType

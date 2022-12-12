@@ -51,11 +51,12 @@ newAuditReportCreated =
         ]
     }
 
--- | Polls 'Amazonka.CertificateManagerPCA.GetCertificate' every 3 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newCertificateIssued :: Core.Wait GetCertificate
-newCertificateIssued =
+-- | Polls 'Amazonka.CertificateManagerPCA.GetCertificateAuthorityCsr' every 3 seconds until a successful state is reached. An error is returned after 60 failed checks.
+newCertificateAuthorityCSRCreated :: Core.Wait GetCertificateAuthorityCsr
+newCertificateAuthorityCSRCreated =
   Core.Wait
-    { Core.name = "CertificateIssued",
+    { Core.name =
+        "CertificateAuthorityCSRCreated",
       Core.attempts = 60,
       Core.delay = 3,
       Core.acceptors =
@@ -66,12 +67,11 @@ newCertificateIssued =
         ]
     }
 
--- | Polls 'Amazonka.CertificateManagerPCA.GetCertificateAuthorityCsr' every 3 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newCertificateAuthorityCSRCreated :: Core.Wait GetCertificateAuthorityCsr
-newCertificateAuthorityCSRCreated =
+-- | Polls 'Amazonka.CertificateManagerPCA.GetCertificate' every 3 seconds until a successful state is reached. An error is returned after 60 failed checks.
+newCertificateIssued :: Core.Wait GetCertificate
+newCertificateIssued =
   Core.Wait
-    { Core.name =
-        "CertificateAuthorityCSRCreated",
+    { Core.name = "CertificateIssued",
       Core.attempts = 60,
       Core.delay = 3,
       Core.acceptors =

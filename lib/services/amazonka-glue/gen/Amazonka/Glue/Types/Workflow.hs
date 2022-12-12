@@ -33,32 +33,32 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newWorkflow' smart constructor.
 data Workflow = Workflow'
-  { -- | The information about the last execution of the workflow.
-    lastRun :: Prelude.Maybe WorkflowRun,
+  { -- | This structure indicates the details of the blueprint that this
+    -- particular workflow is created from.
+    blueprintDetails :: Prelude.Maybe BlueprintDetails,
     -- | The date and time when the workflow was created.
     createdOn :: Prelude.Maybe Data.POSIX,
-    -- | The name of the workflow.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The date and time when the workflow was last modified.
-    lastModifiedOn :: Prelude.Maybe Data.POSIX,
-    -- | You can use this parameter to prevent unwanted multiple updates to data,
-    -- to control costs, or in some cases, to prevent exceeding the maximum
-    -- number of concurrent runs of any of the component jobs. If you leave
-    -- this parameter blank, there is no limit to the number of concurrent
-    -- workflow runs.
-    maxConcurrentRuns :: Prelude.Maybe Prelude.Int,
-    -- | The graph representing all the Glue components that belong to the
-    -- workflow as nodes and directed connections between them as edges.
-    graph :: Prelude.Maybe WorkflowGraph,
     -- | A collection of properties to be used as part of each execution of the
     -- workflow. The run properties are made available to each job in the
     -- workflow. A job can modify the properties for the next jobs in the flow.
     defaultRunProperties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A description of the workflow.
     description :: Prelude.Maybe Prelude.Text,
-    -- | This structure indicates the details of the blueprint that this
-    -- particular workflow is created from.
-    blueprintDetails :: Prelude.Maybe BlueprintDetails
+    -- | The graph representing all the Glue components that belong to the
+    -- workflow as nodes and directed connections between them as edges.
+    graph :: Prelude.Maybe WorkflowGraph,
+    -- | The date and time when the workflow was last modified.
+    lastModifiedOn :: Prelude.Maybe Data.POSIX,
+    -- | The information about the last execution of the workflow.
+    lastRun :: Prelude.Maybe WorkflowRun,
+    -- | You can use this parameter to prevent unwanted multiple updates to data,
+    -- to control costs, or in some cases, to prevent exceeding the maximum
+    -- number of concurrent runs of any of the component jobs. If you leave
+    -- this parameter blank, there is no limit to the number of concurrent
+    -- workflow runs.
+    maxConcurrentRuns :: Prelude.Maybe Prelude.Int,
+    -- | The name of the workflow.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,22 +70,10 @@ data Workflow = Workflow'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastRun', 'workflow_lastRun' - The information about the last execution of the workflow.
+-- 'blueprintDetails', 'workflow_blueprintDetails' - This structure indicates the details of the blueprint that this
+-- particular workflow is created from.
 --
 -- 'createdOn', 'workflow_createdOn' - The date and time when the workflow was created.
---
--- 'name', 'workflow_name' - The name of the workflow.
---
--- 'lastModifiedOn', 'workflow_lastModifiedOn' - The date and time when the workflow was last modified.
---
--- 'maxConcurrentRuns', 'workflow_maxConcurrentRuns' - You can use this parameter to prevent unwanted multiple updates to data,
--- to control costs, or in some cases, to prevent exceeding the maximum
--- number of concurrent runs of any of the component jobs. If you leave
--- this parameter blank, there is no limit to the number of concurrent
--- workflow runs.
---
--- 'graph', 'workflow_graph' - The graph representing all the Glue components that belong to the
--- workflow as nodes and directed connections between them as edges.
 --
 -- 'defaultRunProperties', 'workflow_defaultRunProperties' - A collection of properties to be used as part of each execution of the
 -- workflow. The run properties are made available to each job in the
@@ -93,51 +81,43 @@ data Workflow = Workflow'
 --
 -- 'description', 'workflow_description' - A description of the workflow.
 --
--- 'blueprintDetails', 'workflow_blueprintDetails' - This structure indicates the details of the blueprint that this
--- particular workflow is created from.
-newWorkflow ::
-  Workflow
-newWorkflow =
-  Workflow'
-    { lastRun = Prelude.Nothing,
-      createdOn = Prelude.Nothing,
-      name = Prelude.Nothing,
-      lastModifiedOn = Prelude.Nothing,
-      maxConcurrentRuns = Prelude.Nothing,
-      graph = Prelude.Nothing,
-      defaultRunProperties = Prelude.Nothing,
-      description = Prelude.Nothing,
-      blueprintDetails = Prelude.Nothing
-    }
-
--- | The information about the last execution of the workflow.
-workflow_lastRun :: Lens.Lens' Workflow (Prelude.Maybe WorkflowRun)
-workflow_lastRun = Lens.lens (\Workflow' {lastRun} -> lastRun) (\s@Workflow' {} a -> s {lastRun = a} :: Workflow)
-
--- | The date and time when the workflow was created.
-workflow_createdOn :: Lens.Lens' Workflow (Prelude.Maybe Prelude.UTCTime)
-workflow_createdOn = Lens.lens (\Workflow' {createdOn} -> createdOn) (\s@Workflow' {} a -> s {createdOn = a} :: Workflow) Prelude.. Lens.mapping Data._Time
-
--- | The name of the workflow.
-workflow_name :: Lens.Lens' Workflow (Prelude.Maybe Prelude.Text)
-workflow_name = Lens.lens (\Workflow' {name} -> name) (\s@Workflow' {} a -> s {name = a} :: Workflow)
-
--- | The date and time when the workflow was last modified.
-workflow_lastModifiedOn :: Lens.Lens' Workflow (Prelude.Maybe Prelude.UTCTime)
-workflow_lastModifiedOn = Lens.lens (\Workflow' {lastModifiedOn} -> lastModifiedOn) (\s@Workflow' {} a -> s {lastModifiedOn = a} :: Workflow) Prelude.. Lens.mapping Data._Time
-
--- | You can use this parameter to prevent unwanted multiple updates to data,
+-- 'graph', 'workflow_graph' - The graph representing all the Glue components that belong to the
+-- workflow as nodes and directed connections between them as edges.
+--
+-- 'lastModifiedOn', 'workflow_lastModifiedOn' - The date and time when the workflow was last modified.
+--
+-- 'lastRun', 'workflow_lastRun' - The information about the last execution of the workflow.
+--
+-- 'maxConcurrentRuns', 'workflow_maxConcurrentRuns' - You can use this parameter to prevent unwanted multiple updates to data,
 -- to control costs, or in some cases, to prevent exceeding the maximum
 -- number of concurrent runs of any of the component jobs. If you leave
 -- this parameter blank, there is no limit to the number of concurrent
 -- workflow runs.
-workflow_maxConcurrentRuns :: Lens.Lens' Workflow (Prelude.Maybe Prelude.Int)
-workflow_maxConcurrentRuns = Lens.lens (\Workflow' {maxConcurrentRuns} -> maxConcurrentRuns) (\s@Workflow' {} a -> s {maxConcurrentRuns = a} :: Workflow)
+--
+-- 'name', 'workflow_name' - The name of the workflow.
+newWorkflow ::
+  Workflow
+newWorkflow =
+  Workflow'
+    { blueprintDetails = Prelude.Nothing,
+      createdOn = Prelude.Nothing,
+      defaultRunProperties = Prelude.Nothing,
+      description = Prelude.Nothing,
+      graph = Prelude.Nothing,
+      lastModifiedOn = Prelude.Nothing,
+      lastRun = Prelude.Nothing,
+      maxConcurrentRuns = Prelude.Nothing,
+      name = Prelude.Nothing
+    }
 
--- | The graph representing all the Glue components that belong to the
--- workflow as nodes and directed connections between them as edges.
-workflow_graph :: Lens.Lens' Workflow (Prelude.Maybe WorkflowGraph)
-workflow_graph = Lens.lens (\Workflow' {graph} -> graph) (\s@Workflow' {} a -> s {graph = a} :: Workflow)
+-- | This structure indicates the details of the blueprint that this
+-- particular workflow is created from.
+workflow_blueprintDetails :: Lens.Lens' Workflow (Prelude.Maybe BlueprintDetails)
+workflow_blueprintDetails = Lens.lens (\Workflow' {blueprintDetails} -> blueprintDetails) (\s@Workflow' {} a -> s {blueprintDetails = a} :: Workflow)
+
+-- | The date and time when the workflow was created.
+workflow_createdOn :: Lens.Lens' Workflow (Prelude.Maybe Prelude.UTCTime)
+workflow_createdOn = Lens.lens (\Workflow' {createdOn} -> createdOn) (\s@Workflow' {} a -> s {createdOn = a} :: Workflow) Prelude.. Lens.mapping Data._Time
 
 -- | A collection of properties to be used as part of each execution of the
 -- workflow. The run properties are made available to each job in the
@@ -149,10 +129,30 @@ workflow_defaultRunProperties = Lens.lens (\Workflow' {defaultRunProperties} -> 
 workflow_description :: Lens.Lens' Workflow (Prelude.Maybe Prelude.Text)
 workflow_description = Lens.lens (\Workflow' {description} -> description) (\s@Workflow' {} a -> s {description = a} :: Workflow)
 
--- | This structure indicates the details of the blueprint that this
--- particular workflow is created from.
-workflow_blueprintDetails :: Lens.Lens' Workflow (Prelude.Maybe BlueprintDetails)
-workflow_blueprintDetails = Lens.lens (\Workflow' {blueprintDetails} -> blueprintDetails) (\s@Workflow' {} a -> s {blueprintDetails = a} :: Workflow)
+-- | The graph representing all the Glue components that belong to the
+-- workflow as nodes and directed connections between them as edges.
+workflow_graph :: Lens.Lens' Workflow (Prelude.Maybe WorkflowGraph)
+workflow_graph = Lens.lens (\Workflow' {graph} -> graph) (\s@Workflow' {} a -> s {graph = a} :: Workflow)
+
+-- | The date and time when the workflow was last modified.
+workflow_lastModifiedOn :: Lens.Lens' Workflow (Prelude.Maybe Prelude.UTCTime)
+workflow_lastModifiedOn = Lens.lens (\Workflow' {lastModifiedOn} -> lastModifiedOn) (\s@Workflow' {} a -> s {lastModifiedOn = a} :: Workflow) Prelude.. Lens.mapping Data._Time
+
+-- | The information about the last execution of the workflow.
+workflow_lastRun :: Lens.Lens' Workflow (Prelude.Maybe WorkflowRun)
+workflow_lastRun = Lens.lens (\Workflow' {lastRun} -> lastRun) (\s@Workflow' {} a -> s {lastRun = a} :: Workflow)
+
+-- | You can use this parameter to prevent unwanted multiple updates to data,
+-- to control costs, or in some cases, to prevent exceeding the maximum
+-- number of concurrent runs of any of the component jobs. If you leave
+-- this parameter blank, there is no limit to the number of concurrent
+-- workflow runs.
+workflow_maxConcurrentRuns :: Lens.Lens' Workflow (Prelude.Maybe Prelude.Int)
+workflow_maxConcurrentRuns = Lens.lens (\Workflow' {maxConcurrentRuns} -> maxConcurrentRuns) (\s@Workflow' {} a -> s {maxConcurrentRuns = a} :: Workflow)
+
+-- | The name of the workflow.
+workflow_name :: Lens.Lens' Workflow (Prelude.Maybe Prelude.Text)
+workflow_name = Lens.lens (\Workflow' {name} -> name) (\s@Workflow' {} a -> s {name = a} :: Workflow)
 
 instance Data.FromJSON Workflow where
   parseJSON =
@@ -160,39 +160,39 @@ instance Data.FromJSON Workflow where
       "Workflow"
       ( \x ->
           Workflow'
-            Prelude.<$> (x Data..:? "LastRun")
+            Prelude.<$> (x Data..:? "BlueprintDetails")
             Prelude.<*> (x Data..:? "CreatedOn")
-            Prelude.<*> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "LastModifiedOn")
-            Prelude.<*> (x Data..:? "MaxConcurrentRuns")
-            Prelude.<*> (x Data..:? "Graph")
             Prelude.<*> ( x Data..:? "DefaultRunProperties"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Description")
-            Prelude.<*> (x Data..:? "BlueprintDetails")
+            Prelude.<*> (x Data..:? "Graph")
+            Prelude.<*> (x Data..:? "LastModifiedOn")
+            Prelude.<*> (x Data..:? "LastRun")
+            Prelude.<*> (x Data..:? "MaxConcurrentRuns")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable Workflow where
   hashWithSalt _salt Workflow' {..} =
-    _salt `Prelude.hashWithSalt` lastRun
+    _salt `Prelude.hashWithSalt` blueprintDetails
       `Prelude.hashWithSalt` createdOn
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` lastModifiedOn
-      `Prelude.hashWithSalt` maxConcurrentRuns
-      `Prelude.hashWithSalt` graph
       `Prelude.hashWithSalt` defaultRunProperties
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` blueprintDetails
+      `Prelude.hashWithSalt` graph
+      `Prelude.hashWithSalt` lastModifiedOn
+      `Prelude.hashWithSalt` lastRun
+      `Prelude.hashWithSalt` maxConcurrentRuns
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData Workflow where
   rnf Workflow' {..} =
-    Prelude.rnf lastRun
+    Prelude.rnf blueprintDetails
       `Prelude.seq` Prelude.rnf createdOn
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf lastModifiedOn
-      `Prelude.seq` Prelude.rnf maxConcurrentRuns
-      `Prelude.seq` Prelude.rnf graph
       `Prelude.seq` Prelude.rnf defaultRunProperties
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf blueprintDetails
+      `Prelude.seq` Prelude.rnf graph
+      `Prelude.seq` Prelude.rnf lastModifiedOn
+      `Prelude.seq` Prelude.rnf lastRun
+      `Prelude.seq` Prelude.rnf maxConcurrentRuns
+      `Prelude.seq` Prelude.rnf name

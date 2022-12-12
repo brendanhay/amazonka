@@ -61,15 +61,15 @@ import Amazonka.WAFV2.Types.LoggingFilter
 --
 -- /See:/ 'newLoggingConfiguration' smart constructor.
 data LoggingConfiguration = LoggingConfiguration'
-  { -- | Indicates whether the logging configuration was created by Firewall
-    -- Manager, as part of an WAF policy configuration. If true, only Firewall
-    -- Manager can modify or delete the configuration.
-    managedByFirewallManager :: Prelude.Maybe Prelude.Bool,
-    -- | Filtering that specifies which web requests are kept in the logs and
+  { -- | Filtering that specifies which web requests are kept in the logs and
     -- which are dropped. You can filter on the rule action and on the web
     -- request labels that were applied by matching rules during web ACL
     -- evaluation.
     loggingFilter :: Prelude.Maybe LoggingFilter,
+    -- | Indicates whether the logging configuration was created by Firewall
+    -- Manager, as part of an WAF policy configuration. If true, only Firewall
+    -- Manager can modify or delete the configuration.
+    managedByFirewallManager :: Prelude.Maybe Prelude.Bool,
     -- | The parts of the request that you want to keep out of the logs. For
     -- example, if you redact the @SingleHeader@ field, the @HEADER@ field in
     -- the logs will be @xxx@.
@@ -96,14 +96,14 @@ data LoggingConfiguration = LoggingConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'managedByFirewallManager', 'loggingConfiguration_managedByFirewallManager' - Indicates whether the logging configuration was created by Firewall
--- Manager, as part of an WAF policy configuration. If true, only Firewall
--- Manager can modify or delete the configuration.
---
 -- 'loggingFilter', 'loggingConfiguration_loggingFilter' - Filtering that specifies which web requests are kept in the logs and
 -- which are dropped. You can filter on the rule action and on the web
 -- request labels that were applied by matching rules during web ACL
 -- evaluation.
+--
+-- 'managedByFirewallManager', 'loggingConfiguration_managedByFirewallManager' - Indicates whether the logging configuration was created by Firewall
+-- Manager, as part of an WAF policy configuration. If true, only Firewall
+-- Manager can modify or delete the configuration.
 --
 -- 'redactedFields', 'loggingConfiguration_redactedFields' - The parts of the request that you want to keep out of the logs. For
 -- example, if you redact the @SingleHeader@ field, the @HEADER@ field in
@@ -129,20 +129,14 @@ newLoggingConfiguration
   pResourceArn_
   pLogDestinationConfigs_ =
     LoggingConfiguration'
-      { managedByFirewallManager =
+      { loggingFilter =
           Prelude.Nothing,
-        loggingFilter = Prelude.Nothing,
+        managedByFirewallManager = Prelude.Nothing,
         redactedFields = Prelude.Nothing,
         resourceArn = pResourceArn_,
         logDestinationConfigs =
           Lens.coerced Lens.# pLogDestinationConfigs_
       }
-
--- | Indicates whether the logging configuration was created by Firewall
--- Manager, as part of an WAF policy configuration. If true, only Firewall
--- Manager can modify or delete the configuration.
-loggingConfiguration_managedByFirewallManager :: Lens.Lens' LoggingConfiguration (Prelude.Maybe Prelude.Bool)
-loggingConfiguration_managedByFirewallManager = Lens.lens (\LoggingConfiguration' {managedByFirewallManager} -> managedByFirewallManager) (\s@LoggingConfiguration' {} a -> s {managedByFirewallManager = a} :: LoggingConfiguration)
 
 -- | Filtering that specifies which web requests are kept in the logs and
 -- which are dropped. You can filter on the rule action and on the web
@@ -150,6 +144,12 @@ loggingConfiguration_managedByFirewallManager = Lens.lens (\LoggingConfiguration
 -- evaluation.
 loggingConfiguration_loggingFilter :: Lens.Lens' LoggingConfiguration (Prelude.Maybe LoggingFilter)
 loggingConfiguration_loggingFilter = Lens.lens (\LoggingConfiguration' {loggingFilter} -> loggingFilter) (\s@LoggingConfiguration' {} a -> s {loggingFilter = a} :: LoggingConfiguration)
+
+-- | Indicates whether the logging configuration was created by Firewall
+-- Manager, as part of an WAF policy configuration. If true, only Firewall
+-- Manager can modify or delete the configuration.
+loggingConfiguration_managedByFirewallManager :: Lens.Lens' LoggingConfiguration (Prelude.Maybe Prelude.Bool)
+loggingConfiguration_managedByFirewallManager = Lens.lens (\LoggingConfiguration' {managedByFirewallManager} -> managedByFirewallManager) (\s@LoggingConfiguration' {} a -> s {managedByFirewallManager = a} :: LoggingConfiguration)
 
 -- | The parts of the request that you want to keep out of the logs. For
 -- example, if you redact the @SingleHeader@ field, the @HEADER@ field in
@@ -178,8 +178,8 @@ instance Data.FromJSON LoggingConfiguration where
       "LoggingConfiguration"
       ( \x ->
           LoggingConfiguration'
-            Prelude.<$> (x Data..:? "ManagedByFirewallManager")
-            Prelude.<*> (x Data..:? "LoggingFilter")
+            Prelude.<$> (x Data..:? "LoggingFilter")
+            Prelude.<*> (x Data..:? "ManagedByFirewallManager")
             Prelude.<*> (x Data..:? "RedactedFields" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "ResourceArn")
             Prelude.<*> (x Data..: "LogDestinationConfigs")
@@ -187,17 +187,16 @@ instance Data.FromJSON LoggingConfiguration where
 
 instance Prelude.Hashable LoggingConfiguration where
   hashWithSalt _salt LoggingConfiguration' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` loggingFilter
       `Prelude.hashWithSalt` managedByFirewallManager
-      `Prelude.hashWithSalt` loggingFilter
       `Prelude.hashWithSalt` redactedFields
       `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` logDestinationConfigs
 
 instance Prelude.NFData LoggingConfiguration where
   rnf LoggingConfiguration' {..} =
-    Prelude.rnf managedByFirewallManager
-      `Prelude.seq` Prelude.rnf loggingFilter
+    Prelude.rnf loggingFilter
+      `Prelude.seq` Prelude.rnf managedByFirewallManager
       `Prelude.seq` Prelude.rnf redactedFields
       `Prelude.seq` Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf logDestinationConfigs
@@ -206,9 +205,9 @@ instance Data.ToJSON LoggingConfiguration where
   toJSON LoggingConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ManagedByFirewallManager" Data..=)
+          [ ("LoggingFilter" Data..=) Prelude.<$> loggingFilter,
+            ("ManagedByFirewallManager" Data..=)
               Prelude.<$> managedByFirewallManager,
-            ("LoggingFilter" Data..=) Prelude.<$> loggingFilter,
             ("RedactedFields" Data..=)
               Prelude.<$> redactedFields,
             Prelude.Just ("ResourceArn" Data..= resourceArn),

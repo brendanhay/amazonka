@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGroupMember' smart constructor.
 data GroupMember = GroupMember'
-  { -- | The name of the group member (user).
-    memberName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for the group member (user).
-    arn :: Prelude.Maybe Prelude.Text
+  { -- | The Amazon Resource Name (ARN) for the group member (user).
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the group member (user).
+    memberName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data GroupMember = GroupMember'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'memberName', 'groupMember_memberName' - The name of the group member (user).
---
 -- 'arn', 'groupMember_arn' - The Amazon Resource Name (ARN) for the group member (user).
+--
+-- 'memberName', 'groupMember_memberName' - The name of the group member (user).
 newGroupMember ::
   GroupMember
 newGroupMember =
   GroupMember'
-    { memberName = Prelude.Nothing,
-      arn = Prelude.Nothing
+    { arn = Prelude.Nothing,
+      memberName = Prelude.Nothing
     }
-
--- | The name of the group member (user).
-groupMember_memberName :: Lens.Lens' GroupMember (Prelude.Maybe Prelude.Text)
-groupMember_memberName = Lens.lens (\GroupMember' {memberName} -> memberName) (\s@GroupMember' {} a -> s {memberName = a} :: GroupMember)
 
 -- | The Amazon Resource Name (ARN) for the group member (user).
 groupMember_arn :: Lens.Lens' GroupMember (Prelude.Maybe Prelude.Text)
 groupMember_arn = Lens.lens (\GroupMember' {arn} -> arn) (\s@GroupMember' {} a -> s {arn = a} :: GroupMember)
+
+-- | The name of the group member (user).
+groupMember_memberName :: Lens.Lens' GroupMember (Prelude.Maybe Prelude.Text)
+groupMember_memberName = Lens.lens (\GroupMember' {memberName} -> memberName) (\s@GroupMember' {} a -> s {memberName = a} :: GroupMember)
 
 instance Data.FromJSON GroupMember where
   parseJSON =
@@ -69,16 +69,16 @@ instance Data.FromJSON GroupMember where
       "GroupMember"
       ( \x ->
           GroupMember'
-            Prelude.<$> (x Data..:? "MemberName")
-            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<$> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "MemberName")
       )
 
 instance Prelude.Hashable GroupMember where
   hashWithSalt _salt GroupMember' {..} =
-    _salt `Prelude.hashWithSalt` memberName
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` memberName
 
 instance Prelude.NFData GroupMember where
   rnf GroupMember' {..} =
-    Prelude.rnf memberName
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf memberName

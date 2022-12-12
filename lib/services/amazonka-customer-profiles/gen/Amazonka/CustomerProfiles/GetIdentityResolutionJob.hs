@@ -40,17 +40,17 @@ module Amazonka.CustomerProfiles.GetIdentityResolutionJob
     newGetIdentityResolutionJobResponse,
 
     -- * Response Lenses
-    getIdentityResolutionJobResponse_exportingLocation,
-    getIdentityResolutionJobResponse_jobStats,
-    getIdentityResolutionJobResponse_message,
-    getIdentityResolutionJobResponse_lastUpdatedAt,
-    getIdentityResolutionJobResponse_domainName,
     getIdentityResolutionJobResponse_autoMerging,
-    getIdentityResolutionJobResponse_jobId,
-    getIdentityResolutionJobResponse_status,
-    getIdentityResolutionJobResponse_jobStartTime,
+    getIdentityResolutionJobResponse_domainName,
+    getIdentityResolutionJobResponse_exportingLocation,
     getIdentityResolutionJobResponse_jobEndTime,
     getIdentityResolutionJobResponse_jobExpirationTime,
+    getIdentityResolutionJobResponse_jobId,
+    getIdentityResolutionJobResponse_jobStartTime,
+    getIdentityResolutionJobResponse_jobStats,
+    getIdentityResolutionJobResponse_lastUpdatedAt,
+    getIdentityResolutionJobResponse_message,
+    getIdentityResolutionJobResponse_status,
     getIdentityResolutionJobResponse_httpStatus,
   )
 where
@@ -114,17 +114,17 @@ instance Core.AWSRequest GetIdentityResolutionJob where
     Response.receiveJSON
       ( \s h x ->
           GetIdentityResolutionJobResponse'
-            Prelude.<$> (x Data..?> "ExportingLocation")
-            Prelude.<*> (x Data..?> "JobStats")
-            Prelude.<*> (x Data..?> "Message")
-            Prelude.<*> (x Data..?> "LastUpdatedAt")
+            Prelude.<$> (x Data..?> "AutoMerging")
             Prelude.<*> (x Data..?> "DomainName")
-            Prelude.<*> (x Data..?> "AutoMerging")
-            Prelude.<*> (x Data..?> "JobId")
-            Prelude.<*> (x Data..?> "Status")
-            Prelude.<*> (x Data..?> "JobStartTime")
+            Prelude.<*> (x Data..?> "ExportingLocation")
             Prelude.<*> (x Data..?> "JobEndTime")
             Prelude.<*> (x Data..?> "JobExpirationTime")
+            Prelude.<*> (x Data..?> "JobId")
+            Prelude.<*> (x Data..?> "JobStartTime")
+            Prelude.<*> (x Data..?> "JobStats")
+            Prelude.<*> (x Data..?> "LastUpdatedAt")
+            Prelude.<*> (x Data..?> "Message")
+            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,22 +163,29 @@ instance Data.ToQuery GetIdentityResolutionJob where
 
 -- | /See:/ 'newGetIdentityResolutionJobResponse' smart constructor.
 data GetIdentityResolutionJobResponse = GetIdentityResolutionJobResponse'
-  { -- | The S3 location where the Identity Resolution Job writes result files.
+  { -- | Configuration settings for how to perform the auto-merging of profiles.
+    autoMerging :: Prelude.Maybe AutoMerging,
+    -- | The unique name of the domain.
+    domainName :: Prelude.Maybe Prelude.Text,
+    -- | The S3 location where the Identity Resolution Job writes result files.
     exportingLocation :: Prelude.Maybe ExportingLocation,
+    -- | The timestamp of when the Identity Resolution Job was completed.
+    jobEndTime :: Prelude.Maybe Data.POSIX,
+    -- | The timestamp of when the Identity Resolution Job will expire.
+    jobExpirationTime :: Prelude.Maybe Data.POSIX,
+    -- | The unique identifier of the Identity Resolution Job.
+    jobId :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp of when the Identity Resolution Job was started or will be
+    -- started.
+    jobStartTime :: Prelude.Maybe Data.POSIX,
     -- | Statistics about the Identity Resolution Job.
     jobStats :: Prelude.Maybe JobStats,
-    -- | The error messages that are generated when the Identity Resolution Job
-    -- runs.
-    message :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of when the Identity Resolution Job was most recently
     -- edited.
     lastUpdatedAt :: Prelude.Maybe Data.POSIX,
-    -- | The unique name of the domain.
-    domainName :: Prelude.Maybe Prelude.Text,
-    -- | Configuration settings for how to perform the auto-merging of profiles.
-    autoMerging :: Prelude.Maybe AutoMerging,
-    -- | The unique identifier of the Identity Resolution Job.
-    jobId :: Prelude.Maybe Prelude.Text,
+    -- | The error messages that are generated when the Identity Resolution Job
+    -- runs.
+    message :: Prelude.Maybe Prelude.Text,
     -- | The status of the Identity Resolution Job.
     --
     -- -   @PENDING@: The Identity Resolution Job is scheduled but has not
@@ -203,13 +210,6 @@ data GetIdentityResolutionJobResponse = GetIdentityResolutionJobResponse'
     -- -   @FAILED@: The Identity Resolution Job did not merge any data. It
     --     writes a message indicating the source of the problem.
     status :: Prelude.Maybe IdentityResolutionJobStatus,
-    -- | The timestamp of when the Identity Resolution Job was started or will be
-    -- started.
-    jobStartTime :: Prelude.Maybe Data.POSIX,
-    -- | The timestamp of when the Identity Resolution Job was completed.
-    jobEndTime :: Prelude.Maybe Data.POSIX,
-    -- | The timestamp of when the Identity Resolution Job will expire.
-    jobExpirationTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -223,21 +223,28 @@ data GetIdentityResolutionJobResponse = GetIdentityResolutionJobResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'autoMerging', 'getIdentityResolutionJobResponse_autoMerging' - Configuration settings for how to perform the auto-merging of profiles.
+--
+-- 'domainName', 'getIdentityResolutionJobResponse_domainName' - The unique name of the domain.
+--
 -- 'exportingLocation', 'getIdentityResolutionJobResponse_exportingLocation' - The S3 location where the Identity Resolution Job writes result files.
 --
--- 'jobStats', 'getIdentityResolutionJobResponse_jobStats' - Statistics about the Identity Resolution Job.
+-- 'jobEndTime', 'getIdentityResolutionJobResponse_jobEndTime' - The timestamp of when the Identity Resolution Job was completed.
 --
--- 'message', 'getIdentityResolutionJobResponse_message' - The error messages that are generated when the Identity Resolution Job
--- runs.
+-- 'jobExpirationTime', 'getIdentityResolutionJobResponse_jobExpirationTime' - The timestamp of when the Identity Resolution Job will expire.
+--
+-- 'jobId', 'getIdentityResolutionJobResponse_jobId' - The unique identifier of the Identity Resolution Job.
+--
+-- 'jobStartTime', 'getIdentityResolutionJobResponse_jobStartTime' - The timestamp of when the Identity Resolution Job was started or will be
+-- started.
+--
+-- 'jobStats', 'getIdentityResolutionJobResponse_jobStats' - Statistics about the Identity Resolution Job.
 --
 -- 'lastUpdatedAt', 'getIdentityResolutionJobResponse_lastUpdatedAt' - The timestamp of when the Identity Resolution Job was most recently
 -- edited.
 --
--- 'domainName', 'getIdentityResolutionJobResponse_domainName' - The unique name of the domain.
---
--- 'autoMerging', 'getIdentityResolutionJobResponse_autoMerging' - Configuration settings for how to perform the auto-merging of profiles.
---
--- 'jobId', 'getIdentityResolutionJobResponse_jobId' - The unique identifier of the Identity Resolution Job.
+-- 'message', 'getIdentityResolutionJobResponse_message' - The error messages that are generated when the Identity Resolution Job
+-- runs.
 --
 -- 'status', 'getIdentityResolutionJobResponse_status' - The status of the Identity Resolution Job.
 --
@@ -263,13 +270,6 @@ data GetIdentityResolutionJobResponse = GetIdentityResolutionJobResponse'
 -- -   @FAILED@: The Identity Resolution Job did not merge any data. It
 --     writes a message indicating the source of the problem.
 --
--- 'jobStartTime', 'getIdentityResolutionJobResponse_jobStartTime' - The timestamp of when the Identity Resolution Job was started or will be
--- started.
---
--- 'jobEndTime', 'getIdentityResolutionJobResponse_jobEndTime' - The timestamp of when the Identity Resolution Job was completed.
---
--- 'jobExpirationTime', 'getIdentityResolutionJobResponse_jobExpirationTime' - The timestamp of when the Identity Resolution Job will expire.
---
 -- 'httpStatus', 'getIdentityResolutionJobResponse_httpStatus' - The response's http status code.
 newGetIdentityResolutionJobResponse ::
   -- | 'httpStatus'
@@ -277,50 +277,63 @@ newGetIdentityResolutionJobResponse ::
   GetIdentityResolutionJobResponse
 newGetIdentityResolutionJobResponse pHttpStatus_ =
   GetIdentityResolutionJobResponse'
-    { exportingLocation =
+    { autoMerging =
         Prelude.Nothing,
-      jobStats = Prelude.Nothing,
-      message = Prelude.Nothing,
-      lastUpdatedAt = Prelude.Nothing,
       domainName = Prelude.Nothing,
-      autoMerging = Prelude.Nothing,
-      jobId = Prelude.Nothing,
-      status = Prelude.Nothing,
-      jobStartTime = Prelude.Nothing,
+      exportingLocation = Prelude.Nothing,
       jobEndTime = Prelude.Nothing,
       jobExpirationTime = Prelude.Nothing,
+      jobId = Prelude.Nothing,
+      jobStartTime = Prelude.Nothing,
+      jobStats = Prelude.Nothing,
+      lastUpdatedAt = Prelude.Nothing,
+      message = Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Configuration settings for how to perform the auto-merging of profiles.
+getIdentityResolutionJobResponse_autoMerging :: Lens.Lens' GetIdentityResolutionJobResponse (Prelude.Maybe AutoMerging)
+getIdentityResolutionJobResponse_autoMerging = Lens.lens (\GetIdentityResolutionJobResponse' {autoMerging} -> autoMerging) (\s@GetIdentityResolutionJobResponse' {} a -> s {autoMerging = a} :: GetIdentityResolutionJobResponse)
+
+-- | The unique name of the domain.
+getIdentityResolutionJobResponse_domainName :: Lens.Lens' GetIdentityResolutionJobResponse (Prelude.Maybe Prelude.Text)
+getIdentityResolutionJobResponse_domainName = Lens.lens (\GetIdentityResolutionJobResponse' {domainName} -> domainName) (\s@GetIdentityResolutionJobResponse' {} a -> s {domainName = a} :: GetIdentityResolutionJobResponse)
 
 -- | The S3 location where the Identity Resolution Job writes result files.
 getIdentityResolutionJobResponse_exportingLocation :: Lens.Lens' GetIdentityResolutionJobResponse (Prelude.Maybe ExportingLocation)
 getIdentityResolutionJobResponse_exportingLocation = Lens.lens (\GetIdentityResolutionJobResponse' {exportingLocation} -> exportingLocation) (\s@GetIdentityResolutionJobResponse' {} a -> s {exportingLocation = a} :: GetIdentityResolutionJobResponse)
 
+-- | The timestamp of when the Identity Resolution Job was completed.
+getIdentityResolutionJobResponse_jobEndTime :: Lens.Lens' GetIdentityResolutionJobResponse (Prelude.Maybe Prelude.UTCTime)
+getIdentityResolutionJobResponse_jobEndTime = Lens.lens (\GetIdentityResolutionJobResponse' {jobEndTime} -> jobEndTime) (\s@GetIdentityResolutionJobResponse' {} a -> s {jobEndTime = a} :: GetIdentityResolutionJobResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The timestamp of when the Identity Resolution Job will expire.
+getIdentityResolutionJobResponse_jobExpirationTime :: Lens.Lens' GetIdentityResolutionJobResponse (Prelude.Maybe Prelude.UTCTime)
+getIdentityResolutionJobResponse_jobExpirationTime = Lens.lens (\GetIdentityResolutionJobResponse' {jobExpirationTime} -> jobExpirationTime) (\s@GetIdentityResolutionJobResponse' {} a -> s {jobExpirationTime = a} :: GetIdentityResolutionJobResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The unique identifier of the Identity Resolution Job.
+getIdentityResolutionJobResponse_jobId :: Lens.Lens' GetIdentityResolutionJobResponse (Prelude.Maybe Prelude.Text)
+getIdentityResolutionJobResponse_jobId = Lens.lens (\GetIdentityResolutionJobResponse' {jobId} -> jobId) (\s@GetIdentityResolutionJobResponse' {} a -> s {jobId = a} :: GetIdentityResolutionJobResponse)
+
+-- | The timestamp of when the Identity Resolution Job was started or will be
+-- started.
+getIdentityResolutionJobResponse_jobStartTime :: Lens.Lens' GetIdentityResolutionJobResponse (Prelude.Maybe Prelude.UTCTime)
+getIdentityResolutionJobResponse_jobStartTime = Lens.lens (\GetIdentityResolutionJobResponse' {jobStartTime} -> jobStartTime) (\s@GetIdentityResolutionJobResponse' {} a -> s {jobStartTime = a} :: GetIdentityResolutionJobResponse) Prelude.. Lens.mapping Data._Time
+
 -- | Statistics about the Identity Resolution Job.
 getIdentityResolutionJobResponse_jobStats :: Lens.Lens' GetIdentityResolutionJobResponse (Prelude.Maybe JobStats)
 getIdentityResolutionJobResponse_jobStats = Lens.lens (\GetIdentityResolutionJobResponse' {jobStats} -> jobStats) (\s@GetIdentityResolutionJobResponse' {} a -> s {jobStats = a} :: GetIdentityResolutionJobResponse)
-
--- | The error messages that are generated when the Identity Resolution Job
--- runs.
-getIdentityResolutionJobResponse_message :: Lens.Lens' GetIdentityResolutionJobResponse (Prelude.Maybe Prelude.Text)
-getIdentityResolutionJobResponse_message = Lens.lens (\GetIdentityResolutionJobResponse' {message} -> message) (\s@GetIdentityResolutionJobResponse' {} a -> s {message = a} :: GetIdentityResolutionJobResponse)
 
 -- | The timestamp of when the Identity Resolution Job was most recently
 -- edited.
 getIdentityResolutionJobResponse_lastUpdatedAt :: Lens.Lens' GetIdentityResolutionJobResponse (Prelude.Maybe Prelude.UTCTime)
 getIdentityResolutionJobResponse_lastUpdatedAt = Lens.lens (\GetIdentityResolutionJobResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@GetIdentityResolutionJobResponse' {} a -> s {lastUpdatedAt = a} :: GetIdentityResolutionJobResponse) Prelude.. Lens.mapping Data._Time
 
--- | The unique name of the domain.
-getIdentityResolutionJobResponse_domainName :: Lens.Lens' GetIdentityResolutionJobResponse (Prelude.Maybe Prelude.Text)
-getIdentityResolutionJobResponse_domainName = Lens.lens (\GetIdentityResolutionJobResponse' {domainName} -> domainName) (\s@GetIdentityResolutionJobResponse' {} a -> s {domainName = a} :: GetIdentityResolutionJobResponse)
-
--- | Configuration settings for how to perform the auto-merging of profiles.
-getIdentityResolutionJobResponse_autoMerging :: Lens.Lens' GetIdentityResolutionJobResponse (Prelude.Maybe AutoMerging)
-getIdentityResolutionJobResponse_autoMerging = Lens.lens (\GetIdentityResolutionJobResponse' {autoMerging} -> autoMerging) (\s@GetIdentityResolutionJobResponse' {} a -> s {autoMerging = a} :: GetIdentityResolutionJobResponse)
-
--- | The unique identifier of the Identity Resolution Job.
-getIdentityResolutionJobResponse_jobId :: Lens.Lens' GetIdentityResolutionJobResponse (Prelude.Maybe Prelude.Text)
-getIdentityResolutionJobResponse_jobId = Lens.lens (\GetIdentityResolutionJobResponse' {jobId} -> jobId) (\s@GetIdentityResolutionJobResponse' {} a -> s {jobId = a} :: GetIdentityResolutionJobResponse)
+-- | The error messages that are generated when the Identity Resolution Job
+-- runs.
+getIdentityResolutionJobResponse_message :: Lens.Lens' GetIdentityResolutionJobResponse (Prelude.Maybe Prelude.Text)
+getIdentityResolutionJobResponse_message = Lens.lens (\GetIdentityResolutionJobResponse' {message} -> message) (\s@GetIdentityResolutionJobResponse' {} a -> s {message = a} :: GetIdentityResolutionJobResponse)
 
 -- | The status of the Identity Resolution Job.
 --
@@ -348,19 +361,6 @@ getIdentityResolutionJobResponse_jobId = Lens.lens (\GetIdentityResolutionJobRes
 getIdentityResolutionJobResponse_status :: Lens.Lens' GetIdentityResolutionJobResponse (Prelude.Maybe IdentityResolutionJobStatus)
 getIdentityResolutionJobResponse_status = Lens.lens (\GetIdentityResolutionJobResponse' {status} -> status) (\s@GetIdentityResolutionJobResponse' {} a -> s {status = a} :: GetIdentityResolutionJobResponse)
 
--- | The timestamp of when the Identity Resolution Job was started or will be
--- started.
-getIdentityResolutionJobResponse_jobStartTime :: Lens.Lens' GetIdentityResolutionJobResponse (Prelude.Maybe Prelude.UTCTime)
-getIdentityResolutionJobResponse_jobStartTime = Lens.lens (\GetIdentityResolutionJobResponse' {jobStartTime} -> jobStartTime) (\s@GetIdentityResolutionJobResponse' {} a -> s {jobStartTime = a} :: GetIdentityResolutionJobResponse) Prelude.. Lens.mapping Data._Time
-
--- | The timestamp of when the Identity Resolution Job was completed.
-getIdentityResolutionJobResponse_jobEndTime :: Lens.Lens' GetIdentityResolutionJobResponse (Prelude.Maybe Prelude.UTCTime)
-getIdentityResolutionJobResponse_jobEndTime = Lens.lens (\GetIdentityResolutionJobResponse' {jobEndTime} -> jobEndTime) (\s@GetIdentityResolutionJobResponse' {} a -> s {jobEndTime = a} :: GetIdentityResolutionJobResponse) Prelude.. Lens.mapping Data._Time
-
--- | The timestamp of when the Identity Resolution Job will expire.
-getIdentityResolutionJobResponse_jobExpirationTime :: Lens.Lens' GetIdentityResolutionJobResponse (Prelude.Maybe Prelude.UTCTime)
-getIdentityResolutionJobResponse_jobExpirationTime = Lens.lens (\GetIdentityResolutionJobResponse' {jobExpirationTime} -> jobExpirationTime) (\s@GetIdentityResolutionJobResponse' {} a -> s {jobExpirationTime = a} :: GetIdentityResolutionJobResponse) Prelude.. Lens.mapping Data._Time
-
 -- | The response's http status code.
 getIdentityResolutionJobResponse_httpStatus :: Lens.Lens' GetIdentityResolutionJobResponse Prelude.Int
 getIdentityResolutionJobResponse_httpStatus = Lens.lens (\GetIdentityResolutionJobResponse' {httpStatus} -> httpStatus) (\s@GetIdentityResolutionJobResponse' {} a -> s {httpStatus = a} :: GetIdentityResolutionJobResponse)
@@ -370,15 +370,15 @@ instance
     GetIdentityResolutionJobResponse
   where
   rnf GetIdentityResolutionJobResponse' {..} =
-    Prelude.rnf exportingLocation
-      `Prelude.seq` Prelude.rnf jobStats
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
+    Prelude.rnf autoMerging
       `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf autoMerging
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf jobStartTime
+      `Prelude.seq` Prelude.rnf exportingLocation
       `Prelude.seq` Prelude.rnf jobEndTime
       `Prelude.seq` Prelude.rnf jobExpirationTime
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf jobStartTime
+      `Prelude.seq` Prelude.rnf jobStats
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

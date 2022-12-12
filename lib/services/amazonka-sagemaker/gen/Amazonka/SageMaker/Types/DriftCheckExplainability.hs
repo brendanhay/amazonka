@@ -31,10 +31,10 @@ import Amazonka.SageMaker.Types.MetricsSource
 --
 -- /See:/ 'newDriftCheckExplainability' smart constructor.
 data DriftCheckExplainability = DriftCheckExplainability'
-  { -- | The drift check explainability constraints.
-    constraints :: Prelude.Maybe MetricsSource,
-    -- | The explainability config file for the model.
-    configFile :: Prelude.Maybe FileSource
+  { -- | The explainability config file for the model.
+    configFile :: Prelude.Maybe FileSource,
+    -- | The drift check explainability constraints.
+    constraints :: Prelude.Maybe MetricsSource
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,25 +46,25 @@ data DriftCheckExplainability = DriftCheckExplainability'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'constraints', 'driftCheckExplainability_constraints' - The drift check explainability constraints.
---
 -- 'configFile', 'driftCheckExplainability_configFile' - The explainability config file for the model.
+--
+-- 'constraints', 'driftCheckExplainability_constraints' - The drift check explainability constraints.
 newDriftCheckExplainability ::
   DriftCheckExplainability
 newDriftCheckExplainability =
   DriftCheckExplainability'
-    { constraints =
+    { configFile =
         Prelude.Nothing,
-      configFile = Prelude.Nothing
+      constraints = Prelude.Nothing
     }
-
--- | The drift check explainability constraints.
-driftCheckExplainability_constraints :: Lens.Lens' DriftCheckExplainability (Prelude.Maybe MetricsSource)
-driftCheckExplainability_constraints = Lens.lens (\DriftCheckExplainability' {constraints} -> constraints) (\s@DriftCheckExplainability' {} a -> s {constraints = a} :: DriftCheckExplainability)
 
 -- | The explainability config file for the model.
 driftCheckExplainability_configFile :: Lens.Lens' DriftCheckExplainability (Prelude.Maybe FileSource)
 driftCheckExplainability_configFile = Lens.lens (\DriftCheckExplainability' {configFile} -> configFile) (\s@DriftCheckExplainability' {} a -> s {configFile = a} :: DriftCheckExplainability)
+
+-- | The drift check explainability constraints.
+driftCheckExplainability_constraints :: Lens.Lens' DriftCheckExplainability (Prelude.Maybe MetricsSource)
+driftCheckExplainability_constraints = Lens.lens (\DriftCheckExplainability' {constraints} -> constraints) (\s@DriftCheckExplainability' {} a -> s {constraints = a} :: DriftCheckExplainability)
 
 instance Data.FromJSON DriftCheckExplainability where
   parseJSON =
@@ -72,25 +72,25 @@ instance Data.FromJSON DriftCheckExplainability where
       "DriftCheckExplainability"
       ( \x ->
           DriftCheckExplainability'
-            Prelude.<$> (x Data..:? "Constraints")
-            Prelude.<*> (x Data..:? "ConfigFile")
+            Prelude.<$> (x Data..:? "ConfigFile")
+            Prelude.<*> (x Data..:? "Constraints")
       )
 
 instance Prelude.Hashable DriftCheckExplainability where
   hashWithSalt _salt DriftCheckExplainability' {..} =
-    _salt `Prelude.hashWithSalt` constraints
-      `Prelude.hashWithSalt` configFile
+    _salt `Prelude.hashWithSalt` configFile
+      `Prelude.hashWithSalt` constraints
 
 instance Prelude.NFData DriftCheckExplainability where
   rnf DriftCheckExplainability' {..} =
-    Prelude.rnf constraints
-      `Prelude.seq` Prelude.rnf configFile
+    Prelude.rnf configFile
+      `Prelude.seq` Prelude.rnf constraints
 
 instance Data.ToJSON DriftCheckExplainability where
   toJSON DriftCheckExplainability' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Constraints" Data..=) Prelude.<$> constraints,
-            ("ConfigFile" Data..=) Prelude.<$> configFile
+          [ ("ConfigFile" Data..=) Prelude.<$> configFile,
+            ("Constraints" Data..=) Prelude.<$> constraints
           ]
       )

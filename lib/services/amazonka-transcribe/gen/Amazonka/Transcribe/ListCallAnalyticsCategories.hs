@@ -31,16 +31,16 @@ module Amazonka.Transcribe.ListCallAnalyticsCategories
     newListCallAnalyticsCategories,
 
     -- * Request Lenses
-    listCallAnalyticsCategories_nextToken,
     listCallAnalyticsCategories_maxResults,
+    listCallAnalyticsCategories_nextToken,
 
     -- * Destructuring the Response
     ListCallAnalyticsCategoriesResponse (..),
     newListCallAnalyticsCategoriesResponse,
 
     -- * Response Lenses
-    listCallAnalyticsCategoriesResponse_nextToken,
     listCallAnalyticsCategoriesResponse_categories,
+    listCallAnalyticsCategoriesResponse_nextToken,
     listCallAnalyticsCategoriesResponse_httpStatus,
   )
 where
@@ -55,17 +55,17 @@ import Amazonka.Transcribe.Types
 
 -- | /See:/ 'newListCallAnalyticsCategories' smart constructor.
 data ListCallAnalyticsCategories = ListCallAnalyticsCategories'
-  { -- | If your @ListCallAnalyticsCategories@ request returns more results than
+  { -- | The maximum number of Call Analytics categories to return in each page
+    -- of results. If there are fewer results than the value that you specify,
+    -- only the actual results are returned. If you don\'t specify a value, a
+    -- default of 5 is used.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If your @ListCallAnalyticsCategories@ request returns more results than
     -- can be displayed, @NextToken@ is displayed in the response with an
     -- associated string. To get the next page of results, copy this string and
     -- repeat your request, including @NextToken@ with the value of the copied
     -- string. Repeat as needed to view all your results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of Call Analytics categories to return in each page
-    -- of results. If there are fewer results than the value you specify, only
-    -- the actual results are returned. If you don\'t specify a value, a
-    -- default of 5 is used.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,24 +77,31 @@ data ListCallAnalyticsCategories = ListCallAnalyticsCategories'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listCallAnalyticsCategories_maxResults' - The maximum number of Call Analytics categories to return in each page
+-- of results. If there are fewer results than the value that you specify,
+-- only the actual results are returned. If you don\'t specify a value, a
+-- default of 5 is used.
+--
 -- 'nextToken', 'listCallAnalyticsCategories_nextToken' - If your @ListCallAnalyticsCategories@ request returns more results than
 -- can be displayed, @NextToken@ is displayed in the response with an
 -- associated string. To get the next page of results, copy this string and
 -- repeat your request, including @NextToken@ with the value of the copied
 -- string. Repeat as needed to view all your results.
---
--- 'maxResults', 'listCallAnalyticsCategories_maxResults' - The maximum number of Call Analytics categories to return in each page
--- of results. If there are fewer results than the value you specify, only
--- the actual results are returned. If you don\'t specify a value, a
--- default of 5 is used.
 newListCallAnalyticsCategories ::
   ListCallAnalyticsCategories
 newListCallAnalyticsCategories =
   ListCallAnalyticsCategories'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of Call Analytics categories to return in each page
+-- of results. If there are fewer results than the value that you specify,
+-- only the actual results are returned. If you don\'t specify a value, a
+-- default of 5 is used.
+listCallAnalyticsCategories_maxResults :: Lens.Lens' ListCallAnalyticsCategories (Prelude.Maybe Prelude.Natural)
+listCallAnalyticsCategories_maxResults = Lens.lens (\ListCallAnalyticsCategories' {maxResults} -> maxResults) (\s@ListCallAnalyticsCategories' {} a -> s {maxResults = a} :: ListCallAnalyticsCategories)
 
 -- | If your @ListCallAnalyticsCategories@ request returns more results than
 -- can be displayed, @NextToken@ is displayed in the response with an
@@ -103,13 +110,6 @@ newListCallAnalyticsCategories =
 -- string. Repeat as needed to view all your results.
 listCallAnalyticsCategories_nextToken :: Lens.Lens' ListCallAnalyticsCategories (Prelude.Maybe Prelude.Text)
 listCallAnalyticsCategories_nextToken = Lens.lens (\ListCallAnalyticsCategories' {nextToken} -> nextToken) (\s@ListCallAnalyticsCategories' {} a -> s {nextToken = a} :: ListCallAnalyticsCategories)
-
--- | The maximum number of Call Analytics categories to return in each page
--- of results. If there are fewer results than the value you specify, only
--- the actual results are returned. If you don\'t specify a value, a
--- default of 5 is used.
-listCallAnalyticsCategories_maxResults :: Lens.Lens' ListCallAnalyticsCategories (Prelude.Maybe Prelude.Natural)
-listCallAnalyticsCategories_maxResults = Lens.lens (\ListCallAnalyticsCategories' {maxResults} -> maxResults) (\s@ListCallAnalyticsCategories' {} a -> s {maxResults = a} :: ListCallAnalyticsCategories)
 
 instance Core.AWSRequest ListCallAnalyticsCategories where
   type
@@ -121,20 +121,20 @@ instance Core.AWSRequest ListCallAnalyticsCategories where
     Response.receiveJSON
       ( \s h x ->
           ListCallAnalyticsCategoriesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Categories" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Categories" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListCallAnalyticsCategories where
   hashWithSalt _salt ListCallAnalyticsCategories' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListCallAnalyticsCategories where
   rnf ListCallAnalyticsCategories' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListCallAnalyticsCategories where
   toHeaders =
@@ -155,8 +155,8 @@ instance Data.ToJSON ListCallAnalyticsCategories where
   toJSON ListCallAnalyticsCategories' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -168,15 +168,15 @@ instance Data.ToQuery ListCallAnalyticsCategories where
 
 -- | /See:/ 'newListCallAnalyticsCategoriesResponse' smart constructor.
 data ListCallAnalyticsCategoriesResponse = ListCallAnalyticsCategoriesResponse'
-  { -- | If @NextToken@ is present in your response, it indicates that not all
+  { -- | Provides detailed information about your Call Analytics categories,
+    -- including all the rules associated with each category.
+    categories :: Prelude.Maybe [CategoryProperties],
+    -- | If @NextToken@ is present in your response, it indicates that not all
     -- results are displayed. To view the next set of results, copy the string
     -- associated with the @NextToken@ parameter in your results output, then
     -- run your request again including @NextToken@ with the value of the
     -- copied string. Repeat as needed to view all your results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Provides detailed information about your Call Analytics categories,
-    -- including all the rules associated with each category.
-    categories :: Prelude.Maybe [CategoryProperties],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -190,14 +190,14 @@ data ListCallAnalyticsCategoriesResponse = ListCallAnalyticsCategoriesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'categories', 'listCallAnalyticsCategoriesResponse_categories' - Provides detailed information about your Call Analytics categories,
+-- including all the rules associated with each category.
+--
 -- 'nextToken', 'listCallAnalyticsCategoriesResponse_nextToken' - If @NextToken@ is present in your response, it indicates that not all
 -- results are displayed. To view the next set of results, copy the string
 -- associated with the @NextToken@ parameter in your results output, then
 -- run your request again including @NextToken@ with the value of the
 -- copied string. Repeat as needed to view all your results.
---
--- 'categories', 'listCallAnalyticsCategoriesResponse_categories' - Provides detailed information about your Call Analytics categories,
--- including all the rules associated with each category.
 --
 -- 'httpStatus', 'listCallAnalyticsCategoriesResponse_httpStatus' - The response's http status code.
 newListCallAnalyticsCategoriesResponse ::
@@ -206,11 +206,16 @@ newListCallAnalyticsCategoriesResponse ::
   ListCallAnalyticsCategoriesResponse
 newListCallAnalyticsCategoriesResponse pHttpStatus_ =
   ListCallAnalyticsCategoriesResponse'
-    { nextToken =
+    { categories =
         Prelude.Nothing,
-      categories = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Provides detailed information about your Call Analytics categories,
+-- including all the rules associated with each category.
+listCallAnalyticsCategoriesResponse_categories :: Lens.Lens' ListCallAnalyticsCategoriesResponse (Prelude.Maybe [CategoryProperties])
+listCallAnalyticsCategoriesResponse_categories = Lens.lens (\ListCallAnalyticsCategoriesResponse' {categories} -> categories) (\s@ListCallAnalyticsCategoriesResponse' {} a -> s {categories = a} :: ListCallAnalyticsCategoriesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If @NextToken@ is present in your response, it indicates that not all
 -- results are displayed. To view the next set of results, copy the string
@@ -219,11 +224,6 @@ newListCallAnalyticsCategoriesResponse pHttpStatus_ =
 -- copied string. Repeat as needed to view all your results.
 listCallAnalyticsCategoriesResponse_nextToken :: Lens.Lens' ListCallAnalyticsCategoriesResponse (Prelude.Maybe Prelude.Text)
 listCallAnalyticsCategoriesResponse_nextToken = Lens.lens (\ListCallAnalyticsCategoriesResponse' {nextToken} -> nextToken) (\s@ListCallAnalyticsCategoriesResponse' {} a -> s {nextToken = a} :: ListCallAnalyticsCategoriesResponse)
-
--- | Provides detailed information about your Call Analytics categories,
--- including all the rules associated with each category.
-listCallAnalyticsCategoriesResponse_categories :: Lens.Lens' ListCallAnalyticsCategoriesResponse (Prelude.Maybe [CategoryProperties])
-listCallAnalyticsCategoriesResponse_categories = Lens.lens (\ListCallAnalyticsCategoriesResponse' {categories} -> categories) (\s@ListCallAnalyticsCategoriesResponse' {} a -> s {categories = a} :: ListCallAnalyticsCategoriesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listCallAnalyticsCategoriesResponse_httpStatus :: Lens.Lens' ListCallAnalyticsCategoriesResponse Prelude.Int
@@ -234,6 +234,6 @@ instance
     ListCallAnalyticsCategoriesResponse
   where
   rnf ListCallAnalyticsCategoriesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf categories
+    Prelude.rnf categories
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

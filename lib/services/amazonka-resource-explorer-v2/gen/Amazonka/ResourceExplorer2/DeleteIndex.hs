@@ -40,8 +40,8 @@ module Amazonka.ResourceExplorer2.DeleteIndex
     newDeleteIndexResponse,
 
     -- * Response Lenses
-    deleteIndexResponse_lastUpdatedAt,
     deleteIndexResponse_arn,
+    deleteIndexResponse_lastUpdatedAt,
     deleteIndexResponse_state,
     deleteIndexResponse_httpStatus,
   )
@@ -95,8 +95,8 @@ instance Core.AWSRequest DeleteIndex where
     Response.receiveJSON
       ( \s h x ->
           DeleteIndexResponse'
-            Prelude.<$> (x Data..?> "LastUpdatedAt")
-            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<$> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "LastUpdatedAt")
             Prelude.<*> (x Data..?> "State")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -134,15 +134,15 @@ instance Data.ToQuery DeleteIndex where
 
 -- | /See:/ 'newDeleteIndexResponse' smart constructor.
 data DeleteIndexResponse = DeleteIndexResponse'
-  { -- | The date and time when you last updated this index.
-    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
-    -- | The
+  { -- | The
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon resource name (ARN)>
     -- of the index that you successfully started the deletion process.
     --
     -- This operation is asynchronous. To check its status, call the GetIndex
     -- operation.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The date and time when you last updated this index.
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | Indicates the current state of the index.
     state :: Prelude.Maybe IndexState,
     -- | The response's http status code.
@@ -158,14 +158,14 @@ data DeleteIndexResponse = DeleteIndexResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastUpdatedAt', 'deleteIndexResponse_lastUpdatedAt' - The date and time when you last updated this index.
---
 -- 'arn', 'deleteIndexResponse_arn' - The
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon resource name (ARN)>
 -- of the index that you successfully started the deletion process.
 --
 -- This operation is asynchronous. To check its status, call the GetIndex
 -- operation.
+--
+-- 'lastUpdatedAt', 'deleteIndexResponse_lastUpdatedAt' - The date and time when you last updated this index.
 --
 -- 'state', 'deleteIndexResponse_state' - Indicates the current state of the index.
 --
@@ -176,16 +176,11 @@ newDeleteIndexResponse ::
   DeleteIndexResponse
 newDeleteIndexResponse pHttpStatus_ =
   DeleteIndexResponse'
-    { lastUpdatedAt =
-        Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      lastUpdatedAt = Prelude.Nothing,
       state = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The date and time when you last updated this index.
-deleteIndexResponse_lastUpdatedAt :: Lens.Lens' DeleteIndexResponse (Prelude.Maybe Prelude.UTCTime)
-deleteIndexResponse_lastUpdatedAt = Lens.lens (\DeleteIndexResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@DeleteIndexResponse' {} a -> s {lastUpdatedAt = a} :: DeleteIndexResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon resource name (ARN)>
@@ -195,6 +190,10 @@ deleteIndexResponse_lastUpdatedAt = Lens.lens (\DeleteIndexResponse' {lastUpdate
 -- operation.
 deleteIndexResponse_arn :: Lens.Lens' DeleteIndexResponse (Prelude.Maybe Prelude.Text)
 deleteIndexResponse_arn = Lens.lens (\DeleteIndexResponse' {arn} -> arn) (\s@DeleteIndexResponse' {} a -> s {arn = a} :: DeleteIndexResponse)
+
+-- | The date and time when you last updated this index.
+deleteIndexResponse_lastUpdatedAt :: Lens.Lens' DeleteIndexResponse (Prelude.Maybe Prelude.UTCTime)
+deleteIndexResponse_lastUpdatedAt = Lens.lens (\DeleteIndexResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@DeleteIndexResponse' {} a -> s {lastUpdatedAt = a} :: DeleteIndexResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates the current state of the index.
 deleteIndexResponse_state :: Lens.Lens' DeleteIndexResponse (Prelude.Maybe IndexState)
@@ -206,7 +205,7 @@ deleteIndexResponse_httpStatus = Lens.lens (\DeleteIndexResponse' {httpStatus} -
 
 instance Prelude.NFData DeleteIndexResponse where
   rnf DeleteIndexResponse' {..} =
-    Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
       `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf httpStatus

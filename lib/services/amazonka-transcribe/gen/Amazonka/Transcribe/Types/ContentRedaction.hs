@@ -27,7 +27,7 @@ import Amazonka.Transcribe.Types.PiiEntityType
 import Amazonka.Transcribe.Types.RedactionOutput
 import Amazonka.Transcribe.Types.RedactionType
 
--- | Allows you to redact or flag specified personally identifiable
+-- | Makes it possible to redact or flag specified personally identifiable
 -- information (PII) in your transcript. If you use @ContentRedaction@, you
 -- must also include the sub-parameters: @PiiEntityTypes@,
 -- @RedactionOutput@, and @RedactionType@.

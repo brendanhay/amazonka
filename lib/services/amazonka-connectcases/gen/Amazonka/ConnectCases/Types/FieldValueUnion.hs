@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFieldValueUnion' smart constructor.
 data FieldValueUnion = FieldValueUnion'
-  { -- | Can be either null, or have a Double number value type. Only one value
-    -- can be provided.
-    doubleValue :: Prelude.Maybe Prelude.Double,
-    -- | Can be either null, or have a Boolean value type. Only one value can be
+  { -- | Can be either null, or have a Boolean value type. Only one value can be
     -- provided.
     booleanValue :: Prelude.Maybe Prelude.Bool,
+    -- | Can be either null, or have a Double number value type. Only one value
+    -- can be provided.
+    doubleValue :: Prelude.Maybe Prelude.Double,
     -- | String value type.
     stringValue :: Prelude.Maybe Prelude.Text
   }
@@ -47,31 +47,31 @@ data FieldValueUnion = FieldValueUnion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'doubleValue', 'fieldValueUnion_doubleValue' - Can be either null, or have a Double number value type. Only one value
--- can be provided.
---
 -- 'booleanValue', 'fieldValueUnion_booleanValue' - Can be either null, or have a Boolean value type. Only one value can be
 -- provided.
+--
+-- 'doubleValue', 'fieldValueUnion_doubleValue' - Can be either null, or have a Double number value type. Only one value
+-- can be provided.
 --
 -- 'stringValue', 'fieldValueUnion_stringValue' - String value type.
 newFieldValueUnion ::
   FieldValueUnion
 newFieldValueUnion =
   FieldValueUnion'
-    { doubleValue = Prelude.Nothing,
-      booleanValue = Prelude.Nothing,
+    { booleanValue = Prelude.Nothing,
+      doubleValue = Prelude.Nothing,
       stringValue = Prelude.Nothing
     }
-
--- | Can be either null, or have a Double number value type. Only one value
--- can be provided.
-fieldValueUnion_doubleValue :: Lens.Lens' FieldValueUnion (Prelude.Maybe Prelude.Double)
-fieldValueUnion_doubleValue = Lens.lens (\FieldValueUnion' {doubleValue} -> doubleValue) (\s@FieldValueUnion' {} a -> s {doubleValue = a} :: FieldValueUnion)
 
 -- | Can be either null, or have a Boolean value type. Only one value can be
 -- provided.
 fieldValueUnion_booleanValue :: Lens.Lens' FieldValueUnion (Prelude.Maybe Prelude.Bool)
 fieldValueUnion_booleanValue = Lens.lens (\FieldValueUnion' {booleanValue} -> booleanValue) (\s@FieldValueUnion' {} a -> s {booleanValue = a} :: FieldValueUnion)
+
+-- | Can be either null, or have a Double number value type. Only one value
+-- can be provided.
+fieldValueUnion_doubleValue :: Lens.Lens' FieldValueUnion (Prelude.Maybe Prelude.Double)
+fieldValueUnion_doubleValue = Lens.lens (\FieldValueUnion' {doubleValue} -> doubleValue) (\s@FieldValueUnion' {} a -> s {doubleValue = a} :: FieldValueUnion)
 
 -- | String value type.
 fieldValueUnion_stringValue :: Lens.Lens' FieldValueUnion (Prelude.Maybe Prelude.Text)
@@ -83,29 +83,29 @@ instance Data.FromJSON FieldValueUnion where
       "FieldValueUnion"
       ( \x ->
           FieldValueUnion'
-            Prelude.<$> (x Data..:? "doubleValue")
-            Prelude.<*> (x Data..:? "booleanValue")
+            Prelude.<$> (x Data..:? "booleanValue")
+            Prelude.<*> (x Data..:? "doubleValue")
             Prelude.<*> (x Data..:? "stringValue")
       )
 
 instance Prelude.Hashable FieldValueUnion where
   hashWithSalt _salt FieldValueUnion' {..} =
-    _salt `Prelude.hashWithSalt` doubleValue
-      `Prelude.hashWithSalt` booleanValue
+    _salt `Prelude.hashWithSalt` booleanValue
+      `Prelude.hashWithSalt` doubleValue
       `Prelude.hashWithSalt` stringValue
 
 instance Prelude.NFData FieldValueUnion where
   rnf FieldValueUnion' {..} =
-    Prelude.rnf doubleValue
-      `Prelude.seq` Prelude.rnf booleanValue
+    Prelude.rnf booleanValue
+      `Prelude.seq` Prelude.rnf doubleValue
       `Prelude.seq` Prelude.rnf stringValue
 
 instance Data.ToJSON FieldValueUnion where
   toJSON FieldValueUnion' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("doubleValue" Data..=) Prelude.<$> doubleValue,
-            ("booleanValue" Data..=) Prelude.<$> booleanValue,
+          [ ("booleanValue" Data..=) Prelude.<$> booleanValue,
+            ("doubleValue" Data..=) Prelude.<$> doubleValue,
             ("stringValue" Data..=) Prelude.<$> stringValue
           ]
       )

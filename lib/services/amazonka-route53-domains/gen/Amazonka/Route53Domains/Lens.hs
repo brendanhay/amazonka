@@ -73,22 +73,22 @@ module Amazonka.Route53Domains.Lens
 
     -- ** GetDomainDetail
     getDomainDetail_domainName,
-    getDomainDetailResponse_reseller,
-    getDomainDetailResponse_registrantPrivacy,
-    getDomainDetailResponse_autoRenew,
-    getDomainDetailResponse_registrarName,
-    getDomainDetailResponse_creationDate,
-    getDomainDetailResponse_dnsSec,
-    getDomainDetailResponse_registryDomainId,
-    getDomainDetailResponse_techPrivacy,
-    getDomainDetailResponse_adminPrivacy,
-    getDomainDetailResponse_whoIsServer,
-    getDomainDetailResponse_statusList,
-    getDomainDetailResponse_updatedDate,
     getDomainDetailResponse_abuseContactEmail,
     getDomainDetailResponse_abuseContactPhone,
+    getDomainDetailResponse_adminPrivacy,
+    getDomainDetailResponse_autoRenew,
+    getDomainDetailResponse_creationDate,
+    getDomainDetailResponse_dnsSec,
     getDomainDetailResponse_expirationDate,
+    getDomainDetailResponse_registrantPrivacy,
+    getDomainDetailResponse_registrarName,
     getDomainDetailResponse_registrarUrl,
+    getDomainDetailResponse_registryDomainId,
+    getDomainDetailResponse_reseller,
+    getDomainDetailResponse_statusList,
+    getDomainDetailResponse_techPrivacy,
+    getDomainDetailResponse_updatedDate,
+    getDomainDetailResponse_whoIsServer,
     getDomainDetailResponse_httpStatus,
     getDomainDetailResponse_domainName,
     getDomainDetailResponse_nameservers,
@@ -105,19 +105,19 @@ module Amazonka.Route53Domains.Lens
 
     -- ** GetOperationDetail
     getOperationDetail_operationId,
-    getOperationDetailResponse_submittedDate,
-    getOperationDetailResponse_message,
-    getOperationDetailResponse_type,
     getOperationDetailResponse_domainName,
+    getOperationDetailResponse_message,
     getOperationDetailResponse_operationId,
     getOperationDetailResponse_status,
+    getOperationDetailResponse_submittedDate,
+    getOperationDetailResponse_type,
     getOperationDetailResponse_httpStatus,
 
     -- ** ListDomains
+    listDomains_filterConditions,
     listDomains_marker,
     listDomains_maxItems,
     listDomains_sortCondition,
-    listDomains_filterConditions,
     listDomainsResponse_nextPageMarker,
     listDomainsResponse_httpStatus,
     listDomainsResponse_domains,
@@ -146,8 +146,8 @@ module Amazonka.Route53Domains.Lens
     -- ** RegisterDomain
     registerDomain_autoRenew,
     registerDomain_idnLangCode,
-    registerDomain_privacyProtectRegistrantContact,
     registerDomain_privacyProtectAdminContact,
+    registerDomain_privacyProtectRegistrantContact,
     registerDomain_privacyProtectTechContact,
     registerDomain_domainName,
     registerDomain_durationInYears,
@@ -172,8 +172,8 @@ module Amazonka.Route53Domains.Lens
     -- ** ResendContactReachabilityEmail
     resendContactReachabilityEmail_domainName,
     resendContactReachabilityEmailResponse_domainName,
-    resendContactReachabilityEmailResponse_isAlreadyVerified,
     resendContactReachabilityEmailResponse_emailAddress,
+    resendContactReachabilityEmailResponse_isAlreadyVerified,
     resendContactReachabilityEmailResponse_httpStatus,
 
     -- ** RetrieveDomainAuthCode
@@ -182,13 +182,13 @@ module Amazonka.Route53Domains.Lens
     retrieveDomainAuthCodeResponse_authCode,
 
     -- ** TransferDomain
-    transferDomain_autoRenew,
     transferDomain_authCode,
+    transferDomain_autoRenew,
     transferDomain_idnLangCode,
-    transferDomain_privacyProtectRegistrantContact,
-    transferDomain_privacyProtectAdminContact,
-    transferDomain_privacyProtectTechContact,
     transferDomain_nameservers,
+    transferDomain_privacyProtectAdminContact,
+    transferDomain_privacyProtectRegistrantContact,
+    transferDomain_privacyProtectTechContact,
     transferDomain_domainName,
     transferDomain_durationInYears,
     transferDomain_adminContact,
@@ -200,22 +200,22 @@ module Amazonka.Route53Domains.Lens
     -- ** TransferDomainToAnotherAwsAccount
     transferDomainToAnotherAwsAccount_domainName,
     transferDomainToAnotherAwsAccount_accountId,
-    transferDomainToAnotherAwsAccountResponse_password,
     transferDomainToAnotherAwsAccountResponse_operationId,
+    transferDomainToAnotherAwsAccountResponse_password,
     transferDomainToAnotherAwsAccountResponse_httpStatus,
 
     -- ** UpdateDomainContact
     updateDomainContact_adminContact,
-    updateDomainContact_techContact,
     updateDomainContact_registrantContact,
+    updateDomainContact_techContact,
     updateDomainContact_domainName,
     updateDomainContactResponse_httpStatus,
     updateDomainContactResponse_operationId,
 
     -- ** UpdateDomainContactPrivacy
+    updateDomainContactPrivacy_adminPrivacy,
     updateDomainContactPrivacy_registrantPrivacy,
     updateDomainContactPrivacy_techPrivacy,
-    updateDomainContactPrivacy_adminPrivacy,
     updateDomainContactPrivacy_domainName,
     updateDomainContactPrivacyResponse_httpStatus,
     updateDomainContactPrivacyResponse_operationId,
@@ -233,10 +233,10 @@ module Amazonka.Route53Domains.Lens
     updateTagsForDomainResponse_httpStatus,
 
     -- ** ViewBilling
-    viewBilling_marker,
-    viewBilling_start,
-    viewBilling_maxItems,
     viewBilling_end,
+    viewBilling_marker,
+    viewBilling_maxItems,
+    viewBilling_start,
     viewBillingResponse_billingRecords,
     viewBillingResponse_nextPageMarker,
     viewBillingResponse_httpStatus,
@@ -244,39 +244,39 @@ module Amazonka.Route53Domains.Lens
     -- * Types
 
     -- ** BillingRecord
-    billingRecord_invoiceId,
     billingRecord_billDate,
     billingRecord_domainName,
-    billingRecord_price,
+    billingRecord_invoiceId,
     billingRecord_operation,
+    billingRecord_price,
 
     -- ** ContactDetail
-    contactDetail_zipCode,
-    contactDetail_firstName,
+    contactDetail_addressLine1,
+    contactDetail_addressLine2,
+    contactDetail_city,
+    contactDetail_contactType,
+    contactDetail_countryCode,
     contactDetail_email,
     contactDetail_extraParams,
-    contactDetail_addressLine2,
-    contactDetail_organizationName,
-    contactDetail_countryCode,
-    contactDetail_state,
-    contactDetail_contactType,
-    contactDetail_lastName,
-    contactDetail_addressLine1,
-    contactDetail_city,
     contactDetail_fax,
+    contactDetail_firstName,
+    contactDetail_lastName,
+    contactDetail_organizationName,
     contactDetail_phoneNumber,
+    contactDetail_state,
+    contactDetail_zipCode,
 
     -- ** DomainPrice
-    domainPrice_name,
-    domainPrice_transferPrice,
-    domainPrice_registrationPrice,
     domainPrice_changeOwnershipPrice,
-    domainPrice_restorationPrice,
+    domainPrice_name,
+    domainPrice_registrationPrice,
     domainPrice_renewalPrice,
+    domainPrice_restorationPrice,
+    domainPrice_transferPrice,
 
     -- ** DomainSuggestion
-    domainSuggestion_domainName,
     domainSuggestion_availability,
+    domainSuggestion_domainName,
 
     -- ** DomainSummary
     domainSummary_autoRenew,

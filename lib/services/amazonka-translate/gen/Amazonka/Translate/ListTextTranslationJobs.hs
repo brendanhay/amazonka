@@ -27,9 +27,9 @@ module Amazonka.Translate.ListTextTranslationJobs
     newListTextTranslationJobs,
 
     -- * Request Lenses
-    listTextTranslationJobs_nextToken,
     listTextTranslationJobs_filter,
     listTextTranslationJobs_maxResults,
+    listTextTranslationJobs_nextToken,
 
     -- * Destructuring the Response
     ListTextTranslationJobsResponse (..),
@@ -52,15 +52,15 @@ import Amazonka.Translate.Types
 
 -- | /See:/ 'newListTextTranslationJobs' smart constructor.
 data ListTextTranslationJobs = ListTextTranslationJobs'
-  { -- | The token to request the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The parameters that specify which batch translation jobs to retrieve.
+  { -- | The parameters that specify which batch translation jobs to retrieve.
     -- Filters include job name, job status, and submission time. You can only
     -- set one filter at a time.
     filter' :: Prelude.Maybe TextTranslationJobFilter,
     -- | The maximum number of results to return in each page. The default value
     -- is 100.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to request the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,27 +72,22 @@ data ListTextTranslationJobs = ListTextTranslationJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTextTranslationJobs_nextToken' - The token to request the next page of results.
---
 -- 'filter'', 'listTextTranslationJobs_filter' - The parameters that specify which batch translation jobs to retrieve.
 -- Filters include job name, job status, and submission time. You can only
 -- set one filter at a time.
 --
 -- 'maxResults', 'listTextTranslationJobs_maxResults' - The maximum number of results to return in each page. The default value
 -- is 100.
+--
+-- 'nextToken', 'listTextTranslationJobs_nextToken' - The token to request the next page of results.
 newListTextTranslationJobs ::
   ListTextTranslationJobs
 newListTextTranslationJobs =
   ListTextTranslationJobs'
-    { nextToken =
-        Prelude.Nothing,
-      filter' = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { filter' = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token to request the next page of results.
-listTextTranslationJobs_nextToken :: Lens.Lens' ListTextTranslationJobs (Prelude.Maybe Prelude.Text)
-listTextTranslationJobs_nextToken = Lens.lens (\ListTextTranslationJobs' {nextToken} -> nextToken) (\s@ListTextTranslationJobs' {} a -> s {nextToken = a} :: ListTextTranslationJobs)
 
 -- | The parameters that specify which batch translation jobs to retrieve.
 -- Filters include job name, job status, and submission time. You can only
@@ -104,6 +99,10 @@ listTextTranslationJobs_filter = Lens.lens (\ListTextTranslationJobs' {filter'} 
 -- is 100.
 listTextTranslationJobs_maxResults :: Lens.Lens' ListTextTranslationJobs (Prelude.Maybe Prelude.Natural)
 listTextTranslationJobs_maxResults = Lens.lens (\ListTextTranslationJobs' {maxResults} -> maxResults) (\s@ListTextTranslationJobs' {} a -> s {maxResults = a} :: ListTextTranslationJobs)
+
+-- | The token to request the next page of results.
+listTextTranslationJobs_nextToken :: Lens.Lens' ListTextTranslationJobs (Prelude.Maybe Prelude.Text)
+listTextTranslationJobs_nextToken = Lens.lens (\ListTextTranslationJobs' {nextToken} -> nextToken) (\s@ListTextTranslationJobs' {} a -> s {nextToken = a} :: ListTextTranslationJobs)
 
 instance Core.AWSRequest ListTextTranslationJobs where
   type
@@ -124,15 +123,15 @@ instance Core.AWSRequest ListTextTranslationJobs where
 
 instance Prelude.Hashable ListTextTranslationJobs where
   hashWithSalt _salt ListTextTranslationJobs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filter'
+    _salt `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListTextTranslationJobs where
   rnf ListTextTranslationJobs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filter'
+    Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListTextTranslationJobs where
   toHeaders =
@@ -153,9 +152,9 @@ instance Data.ToJSON ListTextTranslationJobs where
   toJSON ListTextTranslationJobs' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filter" Data..=) Prelude.<$> filter',
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("Filter" Data..=) Prelude.<$> filter',
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

@@ -34,10 +34,10 @@ module Amazonka.AccessAnalyzer.ListFindings
     newListFindings,
 
     -- * Request Lenses
-    listFindings_nextToken,
-    listFindings_sort,
     listFindings_filter,
     listFindings_maxResults,
+    listFindings_nextToken,
+    listFindings_sort,
     listFindings_analyzerArn,
 
     -- * Destructuring the Response
@@ -63,14 +63,14 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListFindings' smart constructor.
 data ListFindings = ListFindings'
-  { -- | A token used for pagination of results returned.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The sort order for the findings returned.
-    sort :: Prelude.Maybe SortCriteria,
-    -- | A filter to match for the findings to return.
+  { -- | A filter to match for the findings to return.
     filter' :: Prelude.Maybe (Prelude.HashMap Prelude.Text Criterion),
     -- | The maximum number of results to return in the response.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | A token used for pagination of results returned.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The sort order for the findings returned.
+    sort :: Prelude.Maybe SortCriteria,
     -- | The
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources ARN of the analyzer>
     -- to retrieve findings from.
@@ -86,13 +86,13 @@ data ListFindings = ListFindings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listFindings_nextToken' - A token used for pagination of results returned.
---
--- 'sort', 'listFindings_sort' - The sort order for the findings returned.
---
 -- 'filter'', 'listFindings_filter' - A filter to match for the findings to return.
 --
 -- 'maxResults', 'listFindings_maxResults' - The maximum number of results to return in the response.
+--
+-- 'nextToken', 'listFindings_nextToken' - A token used for pagination of results returned.
+--
+-- 'sort', 'listFindings_sort' - The sort order for the findings returned.
 --
 -- 'analyzerArn', 'listFindings_analyzerArn' - The
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources ARN of the analyzer>
@@ -103,20 +103,12 @@ newListFindings ::
   ListFindings
 newListFindings pAnalyzerArn_ =
   ListFindings'
-    { nextToken = Prelude.Nothing,
-      sort = Prelude.Nothing,
-      filter' = Prelude.Nothing,
+    { filter' = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      sort = Prelude.Nothing,
       analyzerArn = pAnalyzerArn_
     }
-
--- | A token used for pagination of results returned.
-listFindings_nextToken :: Lens.Lens' ListFindings (Prelude.Maybe Prelude.Text)
-listFindings_nextToken = Lens.lens (\ListFindings' {nextToken} -> nextToken) (\s@ListFindings' {} a -> s {nextToken = a} :: ListFindings)
-
--- | The sort order for the findings returned.
-listFindings_sort :: Lens.Lens' ListFindings (Prelude.Maybe SortCriteria)
-listFindings_sort = Lens.lens (\ListFindings' {sort} -> sort) (\s@ListFindings' {} a -> s {sort = a} :: ListFindings)
 
 -- | A filter to match for the findings to return.
 listFindings_filter :: Lens.Lens' ListFindings (Prelude.Maybe (Prelude.HashMap Prelude.Text Criterion))
@@ -125,6 +117,14 @@ listFindings_filter = Lens.lens (\ListFindings' {filter'} -> filter') (\s@ListFi
 -- | The maximum number of results to return in the response.
 listFindings_maxResults :: Lens.Lens' ListFindings (Prelude.Maybe Prelude.Int)
 listFindings_maxResults = Lens.lens (\ListFindings' {maxResults} -> maxResults) (\s@ListFindings' {} a -> s {maxResults = a} :: ListFindings)
+
+-- | A token used for pagination of results returned.
+listFindings_nextToken :: Lens.Lens' ListFindings (Prelude.Maybe Prelude.Text)
+listFindings_nextToken = Lens.lens (\ListFindings' {nextToken} -> nextToken) (\s@ListFindings' {} a -> s {nextToken = a} :: ListFindings)
+
+-- | The sort order for the findings returned.
+listFindings_sort :: Lens.Lens' ListFindings (Prelude.Maybe SortCriteria)
+listFindings_sort = Lens.lens (\ListFindings' {sort} -> sort) (\s@ListFindings' {} a -> s {sort = a} :: ListFindings)
 
 -- | The
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources ARN of the analyzer>
@@ -164,18 +164,18 @@ instance Core.AWSRequest ListFindings where
 
 instance Prelude.Hashable ListFindings where
   hashWithSalt _salt ListFindings' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` sort
-      `Prelude.hashWithSalt` filter'
+    _salt `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sort
       `Prelude.hashWithSalt` analyzerArn
 
 instance Prelude.NFData ListFindings where
   rnf ListFindings' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sort
-      `Prelude.seq` Prelude.rnf filter'
+    Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sort
       `Prelude.seq` Prelude.rnf analyzerArn
 
 instance Data.ToHeaders ListFindings where
@@ -193,10 +193,10 @@ instance Data.ToJSON ListFindings where
   toJSON ListFindings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("sort" Data..=) Prelude.<$> sort,
-            ("filter" Data..=) Prelude.<$> filter',
+          [ ("filter" Data..=) Prelude.<$> filter',
             ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("sort" Data..=) Prelude.<$> sort,
             Prelude.Just ("analyzerArn" Data..= analyzerArn)
           ]
       )

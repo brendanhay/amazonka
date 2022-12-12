@@ -21,6 +21,7 @@ module Amazonka.EFS.Types.TransitionToIARules
   ( TransitionToIARules
       ( ..,
         TransitionToIARules_AFTER_14_DAYS,
+        TransitionToIARules_AFTER_1_DAY,
         TransitionToIARules_AFTER_30_DAYS,
         TransitionToIARules_AFTER_60_DAYS,
         TransitionToIARules_AFTER_7_DAYS,
@@ -64,6 +65,9 @@ newtype TransitionToIARules = TransitionToIARules'
 pattern TransitionToIARules_AFTER_14_DAYS :: TransitionToIARules
 pattern TransitionToIARules_AFTER_14_DAYS = TransitionToIARules' "AFTER_14_DAYS"
 
+pattern TransitionToIARules_AFTER_1_DAY :: TransitionToIARules
+pattern TransitionToIARules_AFTER_1_DAY = TransitionToIARules' "AFTER_1_DAY"
+
 pattern TransitionToIARules_AFTER_30_DAYS :: TransitionToIARules
 pattern TransitionToIARules_AFTER_30_DAYS = TransitionToIARules' "AFTER_30_DAYS"
 
@@ -78,6 +82,7 @@ pattern TransitionToIARules_AFTER_90_DAYS = TransitionToIARules' "AFTER_90_DAYS"
 
 {-# COMPLETE
   TransitionToIARules_AFTER_14_DAYS,
+  TransitionToIARules_AFTER_1_DAY,
   TransitionToIARules_AFTER_30_DAYS,
   TransitionToIARules_AFTER_60_DAYS,
   TransitionToIARules_AFTER_7_DAYS,

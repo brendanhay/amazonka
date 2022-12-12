@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGatewaySummary' smart constructor.
 data GatewaySummary = GatewaySummary'
-  { gatewayPlatform :: Prelude.Maybe GatewayPlatform,
-    -- | A list of gateway capability summaries that each contain a namespace and
+  { -- | A list of gateway capability summaries that each contain a namespace and
     -- status. Each gateway capability defines data sources for the gateway. To
     -- retrieve a capability configuration\'s definition, use
     -- <https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGatewayCapabilityConfiguration.html DescribeGatewayCapabilityConfiguration>.
     gatewayCapabilitySummaries :: Prelude.Maybe [GatewayCapabilitySummary],
+    gatewayPlatform :: Prelude.Maybe GatewayPlatform,
     -- | The ID of the gateway device.
     gatewayId :: Prelude.Text,
     -- | The name of the asset.
@@ -55,12 +55,12 @@ data GatewaySummary = GatewaySummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'gatewayPlatform', 'gatewaySummary_gatewayPlatform' - Undocumented member.
---
 -- 'gatewayCapabilitySummaries', 'gatewaySummary_gatewayCapabilitySummaries' - A list of gateway capability summaries that each contain a namespace and
 -- status. Each gateway capability defines data sources for the gateway. To
 -- retrieve a capability configuration\'s definition, use
 -- <https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGatewayCapabilityConfiguration.html DescribeGatewayCapabilityConfiguration>.
+--
+-- 'gatewayPlatform', 'gatewaySummary_gatewayPlatform' - Undocumented member.
 --
 -- 'gatewayId', 'gatewaySummary_gatewayId' - The ID of the gateway device.
 --
@@ -85,17 +85,14 @@ newGatewaySummary
   pCreationDate_
   pLastUpdateDate_ =
     GatewaySummary'
-      { gatewayPlatform = Prelude.Nothing,
-        gatewayCapabilitySummaries = Prelude.Nothing,
+      { gatewayCapabilitySummaries =
+          Prelude.Nothing,
+        gatewayPlatform = Prelude.Nothing,
         gatewayId = pGatewayId_,
         gatewayName = pGatewayName_,
         creationDate = Data._Time Lens.# pCreationDate_,
         lastUpdateDate = Data._Time Lens.# pLastUpdateDate_
       }
-
--- | Undocumented member.
-gatewaySummary_gatewayPlatform :: Lens.Lens' GatewaySummary (Prelude.Maybe GatewayPlatform)
-gatewaySummary_gatewayPlatform = Lens.lens (\GatewaySummary' {gatewayPlatform} -> gatewayPlatform) (\s@GatewaySummary' {} a -> s {gatewayPlatform = a} :: GatewaySummary)
 
 -- | A list of gateway capability summaries that each contain a namespace and
 -- status. Each gateway capability defines data sources for the gateway. To
@@ -103,6 +100,10 @@ gatewaySummary_gatewayPlatform = Lens.lens (\GatewaySummary' {gatewayPlatform} -
 -- <https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGatewayCapabilityConfiguration.html DescribeGatewayCapabilityConfiguration>.
 gatewaySummary_gatewayCapabilitySummaries :: Lens.Lens' GatewaySummary (Prelude.Maybe [GatewayCapabilitySummary])
 gatewaySummary_gatewayCapabilitySummaries = Lens.lens (\GatewaySummary' {gatewayCapabilitySummaries} -> gatewayCapabilitySummaries) (\s@GatewaySummary' {} a -> s {gatewayCapabilitySummaries = a} :: GatewaySummary) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+gatewaySummary_gatewayPlatform :: Lens.Lens' GatewaySummary (Prelude.Maybe GatewayPlatform)
+gatewaySummary_gatewayPlatform = Lens.lens (\GatewaySummary' {gatewayPlatform} -> gatewayPlatform) (\s@GatewaySummary' {} a -> s {gatewayPlatform = a} :: GatewaySummary)
 
 -- | The ID of the gateway device.
 gatewaySummary_gatewayId :: Lens.Lens' GatewaySummary Prelude.Text
@@ -126,10 +127,10 @@ instance Data.FromJSON GatewaySummary where
       "GatewaySummary"
       ( \x ->
           GatewaySummary'
-            Prelude.<$> (x Data..:? "gatewayPlatform")
-            Prelude.<*> ( x Data..:? "gatewayCapabilitySummaries"
+            Prelude.<$> ( x Data..:? "gatewayCapabilitySummaries"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "gatewayPlatform")
             Prelude.<*> (x Data..: "gatewayId")
             Prelude.<*> (x Data..: "gatewayName")
             Prelude.<*> (x Data..: "creationDate")
@@ -138,8 +139,9 @@ instance Data.FromJSON GatewaySummary where
 
 instance Prelude.Hashable GatewaySummary where
   hashWithSalt _salt GatewaySummary' {..} =
-    _salt `Prelude.hashWithSalt` gatewayPlatform
+    _salt
       `Prelude.hashWithSalt` gatewayCapabilitySummaries
+      `Prelude.hashWithSalt` gatewayPlatform
       `Prelude.hashWithSalt` gatewayId
       `Prelude.hashWithSalt` gatewayName
       `Prelude.hashWithSalt` creationDate
@@ -147,8 +149,8 @@ instance Prelude.Hashable GatewaySummary where
 
 instance Prelude.NFData GatewaySummary where
   rnf GatewaySummary' {..} =
-    Prelude.rnf gatewayPlatform
-      `Prelude.seq` Prelude.rnf gatewayCapabilitySummaries
+    Prelude.rnf gatewayCapabilitySummaries
+      `Prelude.seq` Prelude.rnf gatewayPlatform
       `Prelude.seq` Prelude.rnf gatewayId
       `Prelude.seq` Prelude.rnf gatewayName
       `Prelude.seq` Prelude.rnf creationDate

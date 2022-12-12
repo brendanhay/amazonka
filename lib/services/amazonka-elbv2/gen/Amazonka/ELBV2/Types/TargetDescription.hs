@@ -28,13 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTargetDescription' smart constructor.
 data TargetDescription = TargetDescription'
-  { -- | The port on which the target is listening. If the target group protocol
-    -- is GENEVE, the supported port is 6081. If the target type is @alb@, the
-    -- targeted Application Load Balancer must have at least one listener whose
-    -- port matches the target group port. Not used if the target is a Lambda
-    -- function.
-    port :: Prelude.Maybe Prelude.Natural,
-    -- | An Availability Zone or @all@. This determines whether the target
+  { -- | An Availability Zone or @all@. This determines whether the target
     -- receives traffic from the load balancer nodes in the specified
     -- Availability Zone or from all enabled Availability Zones for the load
     -- balancer.
@@ -59,6 +53,12 @@ data TargetDescription = TargetDescription'
     -- If the target type is @lambda@, this parameter is optional and the only
     -- supported value is @all@.
     availabilityZone :: Prelude.Maybe Prelude.Text,
+    -- | The port on which the target is listening. If the target group protocol
+    -- is GENEVE, the supported port is 6081. If the target type is @alb@, the
+    -- targeted Application Load Balancer must have at least one listener whose
+    -- port matches the target group port. Not used if the target is a Lambda
+    -- function.
+    port :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the target. If the target type of the target group is
     -- @instance@, specify an instance ID. If the target type is @ip@, specify
     -- an IP address. If the target type is @lambda@, specify the ARN of the
@@ -75,12 +75,6 @@ data TargetDescription = TargetDescription'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'port', 'targetDescription_port' - The port on which the target is listening. If the target group protocol
--- is GENEVE, the supported port is 6081. If the target type is @alb@, the
--- targeted Application Load Balancer must have at least one listener whose
--- port matches the target group port. Not used if the target is a Lambda
--- function.
 --
 -- 'availabilityZone', 'targetDescription_availabilityZone' - An Availability Zone or @all@. This determines whether the target
 -- receives traffic from the load balancer nodes in the specified
@@ -107,6 +101,12 @@ data TargetDescription = TargetDescription'
 -- If the target type is @lambda@, this parameter is optional and the only
 -- supported value is @all@.
 --
+-- 'port', 'targetDescription_port' - The port on which the target is listening. If the target group protocol
+-- is GENEVE, the supported port is 6081. If the target type is @alb@, the
+-- targeted Application Load Balancer must have at least one listener whose
+-- port matches the target group port. Not used if the target is a Lambda
+-- function.
+--
 -- 'id', 'targetDescription_id' - The ID of the target. If the target type of the target group is
 -- @instance@, specify an instance ID. If the target type is @ip@, specify
 -- an IP address. If the target type is @lambda@, specify the ARN of the
@@ -118,18 +118,11 @@ newTargetDescription ::
   TargetDescription
 newTargetDescription pId_ =
   TargetDescription'
-    { port = Prelude.Nothing,
-      availabilityZone = Prelude.Nothing,
+    { availabilityZone =
+        Prelude.Nothing,
+      port = Prelude.Nothing,
       id = pId_
     }
-
--- | The port on which the target is listening. If the target group protocol
--- is GENEVE, the supported port is 6081. If the target type is @alb@, the
--- targeted Application Load Balancer must have at least one listener whose
--- port matches the target group port. Not used if the target is a Lambda
--- function.
-targetDescription_port :: Lens.Lens' TargetDescription (Prelude.Maybe Prelude.Natural)
-targetDescription_port = Lens.lens (\TargetDescription' {port} -> port) (\s@TargetDescription' {} a -> s {port = a} :: TargetDescription)
 
 -- | An Availability Zone or @all@. This determines whether the target
 -- receives traffic from the load balancer nodes in the specified
@@ -158,6 +151,14 @@ targetDescription_port = Lens.lens (\TargetDescription' {port} -> port) (\s@Targ
 targetDescription_availabilityZone :: Lens.Lens' TargetDescription (Prelude.Maybe Prelude.Text)
 targetDescription_availabilityZone = Lens.lens (\TargetDescription' {availabilityZone} -> availabilityZone) (\s@TargetDescription' {} a -> s {availabilityZone = a} :: TargetDescription)
 
+-- | The port on which the target is listening. If the target group protocol
+-- is GENEVE, the supported port is 6081. If the target type is @alb@, the
+-- targeted Application Load Balancer must have at least one listener whose
+-- port matches the target group port. Not used if the target is a Lambda
+-- function.
+targetDescription_port :: Lens.Lens' TargetDescription (Prelude.Maybe Prelude.Natural)
+targetDescription_port = Lens.lens (\TargetDescription' {port} -> port) (\s@TargetDescription' {} a -> s {port = a} :: TargetDescription)
+
 -- | The ID of the target. If the target type of the target group is
 -- @instance@, specify an instance ID. If the target type is @ip@, specify
 -- an IP address. If the target type is @lambda@, specify the ARN of the
@@ -169,26 +170,26 @@ targetDescription_id = Lens.lens (\TargetDescription' {id} -> id) (\s@TargetDesc
 instance Data.FromXML TargetDescription where
   parseXML x =
     TargetDescription'
-      Prelude.<$> (x Data..@? "Port")
-      Prelude.<*> (x Data..@? "AvailabilityZone")
+      Prelude.<$> (x Data..@? "AvailabilityZone")
+      Prelude.<*> (x Data..@? "Port")
       Prelude.<*> (x Data..@ "Id")
 
 instance Prelude.Hashable TargetDescription where
   hashWithSalt _salt TargetDescription' {..} =
-    _salt `Prelude.hashWithSalt` port
-      `Prelude.hashWithSalt` availabilityZone
+    _salt `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData TargetDescription where
   rnf TargetDescription' {..} =
-    Prelude.rnf port
-      `Prelude.seq` Prelude.rnf availabilityZone
+    Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf port
       `Prelude.seq` Prelude.rnf id
 
 instance Data.ToQuery TargetDescription where
   toQuery TargetDescription' {..} =
     Prelude.mconcat
-      [ "Port" Data.=: port,
-        "AvailabilityZone" Data.=: availabilityZone,
+      [ "AvailabilityZone" Data.=: availabilityZone,
+        "Port" Data.=: port,
         "Id" Data.=: id
       ]

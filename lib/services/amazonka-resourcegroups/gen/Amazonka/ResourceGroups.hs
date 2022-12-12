@@ -55,26 +55,26 @@ module Amazonka.ResourceGroups
     -- * Errors
     -- $errors
 
-    -- ** UnauthorizedException
-    _UnauthorizedException,
-
-    -- ** NotFoundException
-    _NotFoundException,
-
-    -- ** InternalServerErrorException
-    _InternalServerErrorException,
+    -- ** BadRequestException
+    _BadRequestException,
 
     -- ** ForbiddenException
     _ForbiddenException,
 
+    -- ** InternalServerErrorException
+    _InternalServerErrorException,
+
     -- ** MethodNotAllowedException
     _MethodNotAllowedException,
 
-    -- ** BadRequestException
-    _BadRequestException,
+    -- ** NotFoundException
+    _NotFoundException,
 
     -- ** TooManyRequestsException
     _TooManyRequestsException,
+
+    -- ** UnauthorizedException
+    _UnauthorizedException,
 
     -- * Waiters
     -- $waiters

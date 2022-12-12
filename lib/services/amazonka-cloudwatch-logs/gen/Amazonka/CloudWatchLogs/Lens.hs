@@ -23,8 +23,8 @@ module Amazonka.CloudWatchLogs.Lens
 
     -- ** CreateExportTask
     createExportTask_destinationPrefix,
-    createExportTask_taskName,
     createExportTask_logStreamNamePrefix,
+    createExportTask_taskName,
     createExportTask_logGroupName,
     createExportTask_from,
     createExportTask_to,
@@ -33,13 +33,16 @@ module Amazonka.CloudWatchLogs.Lens
     createExportTaskResponse_httpStatus,
 
     -- ** CreateLogGroup
-    createLogGroup_tags,
     createLogGroup_kmsKeyId,
+    createLogGroup_tags,
     createLogGroup_logGroupName,
 
     -- ** CreateLogStream
     createLogStream_logGroupName,
     createLogStream_logStreamName,
+
+    -- ** DeleteDataProtectionPolicy
+    deleteDataProtectionPolicy_logGroupIdentifier,
 
     -- ** DeleteDestination
     deleteDestination_destinationName,
@@ -71,80 +74,84 @@ module Amazonka.CloudWatchLogs.Lens
     deleteSubscriptionFilter_filterName,
 
     -- ** DescribeDestinations
-    describeDestinations_nextToken,
-    describeDestinations_limit,
     describeDestinations_destinationNamePrefix,
-    describeDestinationsResponse_nextToken,
+    describeDestinations_limit,
+    describeDestinations_nextToken,
     describeDestinationsResponse_destinations,
+    describeDestinationsResponse_nextToken,
     describeDestinationsResponse_httpStatus,
 
     -- ** DescribeExportTasks
-    describeExportTasks_nextToken,
-    describeExportTasks_taskId,
     describeExportTasks_limit,
+    describeExportTasks_nextToken,
     describeExportTasks_statusCode,
-    describeExportTasksResponse_nextToken,
+    describeExportTasks_taskId,
     describeExportTasksResponse_exportTasks,
+    describeExportTasksResponse_nextToken,
     describeExportTasksResponse_httpStatus,
 
     -- ** DescribeLogGroups
-    describeLogGroups_nextToken,
+    describeLogGroups_accountIdentifiers,
+    describeLogGroups_includeLinkedAccounts,
     describeLogGroups_limit,
+    describeLogGroups_logGroupNamePattern,
     describeLogGroups_logGroupNamePrefix,
-    describeLogGroupsResponse_nextToken,
+    describeLogGroups_nextToken,
     describeLogGroupsResponse_logGroups,
+    describeLogGroupsResponse_nextToken,
     describeLogGroupsResponse_httpStatus,
 
     -- ** DescribeLogStreams
-    describeLogStreams_nextToken,
-    describeLogStreams_limit,
-    describeLogStreams_logStreamNamePrefix,
     describeLogStreams_descending,
+    describeLogStreams_limit,
+    describeLogStreams_logGroupIdentifier,
+    describeLogStreams_logStreamNamePrefix,
+    describeLogStreams_nextToken,
     describeLogStreams_orderBy,
     describeLogStreams_logGroupName,
-    describeLogStreamsResponse_nextToken,
     describeLogStreamsResponse_logStreams,
+    describeLogStreamsResponse_nextToken,
     describeLogStreamsResponse_httpStatus,
 
     -- ** DescribeMetricFilters
-    describeMetricFilters_nextToken,
-    describeMetricFilters_limit,
-    describeMetricFilters_metricName,
     describeMetricFilters_filterNamePrefix,
-    describeMetricFilters_metricNamespace,
+    describeMetricFilters_limit,
     describeMetricFilters_logGroupName,
-    describeMetricFiltersResponse_nextToken,
+    describeMetricFilters_metricName,
+    describeMetricFilters_metricNamespace,
+    describeMetricFilters_nextToken,
     describeMetricFiltersResponse_metricFilters,
+    describeMetricFiltersResponse_nextToken,
     describeMetricFiltersResponse_httpStatus,
 
     -- ** DescribeQueries
+    describeQueries_logGroupName,
+    describeQueries_maxResults,
     describeQueries_nextToken,
     describeQueries_status,
-    describeQueries_maxResults,
-    describeQueries_logGroupName,
     describeQueriesResponse_nextToken,
     describeQueriesResponse_queries,
     describeQueriesResponse_httpStatus,
 
     -- ** DescribeQueryDefinitions
+    describeQueryDefinitions_maxResults,
     describeQueryDefinitions_nextToken,
     describeQueryDefinitions_queryDefinitionNamePrefix,
-    describeQueryDefinitions_maxResults,
     describeQueryDefinitionsResponse_nextToken,
     describeQueryDefinitionsResponse_queryDefinitions,
     describeQueryDefinitionsResponse_httpStatus,
 
     -- ** DescribeResourcePolicies
-    describeResourcePolicies_nextToken,
     describeResourcePolicies_limit,
+    describeResourcePolicies_nextToken,
     describeResourcePoliciesResponse_nextToken,
     describeResourcePoliciesResponse_resourcePolicies,
     describeResourcePoliciesResponse_httpStatus,
 
     -- ** DescribeSubscriptionFilters
-    describeSubscriptionFilters_nextToken,
-    describeSubscriptionFilters_limit,
     describeSubscriptionFilters_filterNamePrefix,
+    describeSubscriptionFilters_limit,
+    describeSubscriptionFilters_nextToken,
     describeSubscriptionFilters_logGroupName,
     describeSubscriptionFiltersResponse_nextToken,
     describeSubscriptionFiltersResponse_subscriptionFilters,
@@ -154,55 +161,76 @@ module Amazonka.CloudWatchLogs.Lens
     disassociateKmsKey_logGroupName,
 
     -- ** FilterLogEvents
-    filterLogEvents_nextToken,
-    filterLogEvents_interleaved,
     filterLogEvents_endTime,
-    filterLogEvents_limit,
-    filterLogEvents_logStreamNamePrefix,
     filterLogEvents_filterPattern,
-    filterLogEvents_startTime,
+    filterLogEvents_interleaved,
+    filterLogEvents_limit,
+    filterLogEvents_logGroupIdentifier,
+    filterLogEvents_logStreamNamePrefix,
     filterLogEvents_logStreamNames,
+    filterLogEvents_nextToken,
+    filterLogEvents_startTime,
+    filterLogEvents_unmask,
     filterLogEvents_logGroupName,
+    filterLogEventsResponse_events,
     filterLogEventsResponse_nextToken,
     filterLogEventsResponse_searchedLogStreams,
-    filterLogEventsResponse_events,
     filterLogEventsResponse_httpStatus,
 
+    -- ** GetDataProtectionPolicy
+    getDataProtectionPolicy_logGroupIdentifier,
+    getDataProtectionPolicyResponse_lastUpdatedTime,
+    getDataProtectionPolicyResponse_logGroupIdentifier,
+    getDataProtectionPolicyResponse_policyDocument,
+    getDataProtectionPolicyResponse_httpStatus,
+
     -- ** GetLogEvents
-    getLogEvents_nextToken,
-    getLogEvents_startFromHead,
     getLogEvents_endTime,
     getLogEvents_limit,
+    getLogEvents_logGroupIdentifier,
+    getLogEvents_nextToken,
+    getLogEvents_startFromHead,
     getLogEvents_startTime,
+    getLogEvents_unmask,
     getLogEvents_logGroupName,
     getLogEvents_logStreamName,
-    getLogEventsResponse_nextForwardToken,
     getLogEventsResponse_events,
     getLogEventsResponse_nextBackwardToken,
+    getLogEventsResponse_nextForwardToken,
     getLogEventsResponse_httpStatus,
 
     -- ** GetLogGroupFields
+    getLogGroupFields_logGroupIdentifier,
     getLogGroupFields_time,
     getLogGroupFields_logGroupName,
     getLogGroupFieldsResponse_logGroupFields,
     getLogGroupFieldsResponse_httpStatus,
 
     -- ** GetLogRecord
+    getLogRecord_unmask,
     getLogRecord_logRecordPointer,
     getLogRecordResponse_logRecord,
     getLogRecordResponse_httpStatus,
 
     -- ** GetQueryResults
     getQueryResults_queryId,
+    getQueryResultsResponse_results,
     getQueryResultsResponse_statistics,
     getQueryResultsResponse_status,
-    getQueryResultsResponse_results,
     getQueryResultsResponse_httpStatus,
 
     -- ** ListTagsForResource
     listTagsForResource_resourceArn,
     listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
+
+    -- ** PutDataProtectionPolicy
+    putDataProtectionPolicy_logGroupIdentifier,
+    putDataProtectionPolicy_policyDocument,
+    putDataProtectionPolicyResponse_lastUpdatedTime,
+    putDataProtectionPolicyResponse_logGroupIdentifier,
+    putDataProtectionPolicyResponse_policyDocument,
+    putDataProtectionPolicyResponse_httpStatus,
 
     -- ** PutDestination
     putDestination_tags,
@@ -233,16 +261,16 @@ module Amazonka.CloudWatchLogs.Lens
     putMetricFilter_metricTransformations,
 
     -- ** PutQueryDefinition
-    putQueryDefinition_queryDefinitionId,
     putQueryDefinition_logGroupNames,
+    putQueryDefinition_queryDefinitionId,
     putQueryDefinition_name,
     putQueryDefinition_queryString,
     putQueryDefinitionResponse_queryDefinitionId,
     putQueryDefinitionResponse_httpStatus,
 
     -- ** PutResourcePolicy
-    putResourcePolicy_policyName,
     putResourcePolicy_policyDocument,
+    putResourcePolicy_policyName,
     putResourcePolicyResponse_resourcePolicy,
     putResourcePolicyResponse_httpStatus,
 
@@ -251,8 +279,8 @@ module Amazonka.CloudWatchLogs.Lens
     putRetentionPolicy_retentionInDays,
 
     -- ** PutSubscriptionFilter
-    putSubscriptionFilter_roleArn,
     putSubscriptionFilter_distribution,
+    putSubscriptionFilter_roleArn,
     putSubscriptionFilter_logGroupName,
     putSubscriptionFilter_filterName,
     putSubscriptionFilter_filterPattern,
@@ -260,8 +288,9 @@ module Amazonka.CloudWatchLogs.Lens
 
     -- ** StartQuery
     startQuery_limit,
-    startQuery_logGroupNames,
+    startQuery_logGroupIdentifiers,
     startQuery_logGroupName,
+    startQuery_logGroupNames,
     startQuery_startTime,
     startQuery_endTime,
     startQuery_queryString,
@@ -290,77 +319,78 @@ module Amazonka.CloudWatchLogs.Lens
     -- * Types
 
     -- ** Destination
-    destination_roleArn,
-    destination_destinationName,
-    destination_targetArn,
-    destination_arn,
     destination_accessPolicy,
+    destination_arn,
     destination_creationTime,
+    destination_destinationName,
+    destination_roleArn,
+    destination_targetArn,
 
     -- ** ExportTask
     exportTask_destination,
     exportTask_destinationPrefix,
-    exportTask_from,
-    exportTask_taskName,
-    exportTask_taskId,
-    exportTask_to,
-    exportTask_status,
     exportTask_executionInfo,
+    exportTask_from,
     exportTask_logGroupName,
+    exportTask_status,
+    exportTask_taskId,
+    exportTask_taskName,
+    exportTask_to,
 
     -- ** ExportTaskExecutionInfo
     exportTaskExecutionInfo_completionTime,
     exportTaskExecutionInfo_creationTime,
 
     -- ** ExportTaskStatus
-    exportTaskStatus_message,
     exportTaskStatus_code,
+    exportTaskStatus_message,
 
     -- ** FilteredLogEvent
-    filteredLogEvent_message,
-    filteredLogEvent_timestamp,
     filteredLogEvent_eventId,
     filteredLogEvent_ingestionTime,
     filteredLogEvent_logStreamName,
+    filteredLogEvent_message,
+    filteredLogEvent_timestamp,
 
     -- ** InputLogEvent
     inputLogEvent_timestamp,
     inputLogEvent_message,
 
     -- ** LogGroup
-    logGroup_storedBytes,
     logGroup_arn,
-    logGroup_retentionInDays,
-    logGroup_kmsKeyId,
-    logGroup_metricFilterCount,
     logGroup_creationTime,
+    logGroup_dataProtectionStatus,
+    logGroup_kmsKeyId,
     logGroup_logGroupName,
+    logGroup_metricFilterCount,
+    logGroup_retentionInDays,
+    logGroup_storedBytes,
 
     -- ** LogGroupField
     logGroupField_name,
     logGroupField_percent,
 
     -- ** LogStream
-    logStream_uploadSequenceToken,
-    logStream_storedBytes,
     logStream_arn,
+    logStream_creationTime,
     logStream_firstEventTimestamp,
     logStream_lastEventTimestamp,
-    logStream_creationTime,
-    logStream_logStreamName,
     logStream_lastIngestionTime,
+    logStream_logStreamName,
+    logStream_storedBytes,
+    logStream_uploadSequenceToken,
 
     -- ** MetricFilter
-    metricFilter_filterName,
     metricFilter_creationTime,
-    metricFilter_metricTransformations,
+    metricFilter_filterName,
     metricFilter_filterPattern,
     metricFilter_logGroupName,
+    metricFilter_metricTransformations,
 
     -- ** MetricFilterMatchRecord
+    metricFilterMatchRecord_eventMessage,
     metricFilterMatchRecord_eventNumber,
     metricFilterMatchRecord_extractedValues,
-    metricFilterMatchRecord_eventMessage,
 
     -- ** MetricTransformation
     metricTransformation_defaultValue,
@@ -371,55 +401,55 @@ module Amazonka.CloudWatchLogs.Lens
     metricTransformation_metricValue,
 
     -- ** OutputLogEvent
+    outputLogEvent_ingestionTime,
     outputLogEvent_message,
     outputLogEvent_timestamp,
-    outputLogEvent_ingestionTime,
 
     -- ** QueryDefinition
+    queryDefinition_lastModified,
+    queryDefinition_logGroupNames,
     queryDefinition_name,
     queryDefinition_queryDefinitionId,
-    queryDefinition_logGroupNames,
-    queryDefinition_lastModified,
     queryDefinition_queryString,
 
     -- ** QueryInfo
-    queryInfo_queryId,
-    queryInfo_status,
-    queryInfo_queryString,
     queryInfo_createTime,
     queryInfo_logGroupName,
+    queryInfo_queryId,
+    queryInfo_queryString,
+    queryInfo_status,
 
     -- ** QueryStatistics
-    queryStatistics_recordsMatched,
     queryStatistics_bytesScanned,
+    queryStatistics_recordsMatched,
     queryStatistics_recordsScanned,
 
     -- ** RejectedLogEventsInfo
-    rejectedLogEventsInfo_tooNewLogEventStartIndex,
     rejectedLogEventsInfo_expiredLogEventEndIndex,
+    rejectedLogEventsInfo_tooNewLogEventStartIndex,
     rejectedLogEventsInfo_tooOldLogEventEndIndex,
 
     -- ** ResourcePolicy
-    resourcePolicy_policyName,
     resourcePolicy_lastUpdatedTime,
     resourcePolicy_policyDocument,
+    resourcePolicy_policyName,
 
     -- ** ResultField
     resultField_field,
     resultField_value,
 
     -- ** SearchedLogStream
-    searchedLogStream_searchedCompletely,
     searchedLogStream_logStreamName,
+    searchedLogStream_searchedCompletely,
 
     -- ** SubscriptionFilter
-    subscriptionFilter_roleArn,
-    subscriptionFilter_filterName,
-    subscriptionFilter_distribution,
     subscriptionFilter_creationTime,
-    subscriptionFilter_filterPattern,
     subscriptionFilter_destinationArn,
+    subscriptionFilter_distribution,
+    subscriptionFilter_filterName,
+    subscriptionFilter_filterPattern,
     subscriptionFilter_logGroupName,
+    subscriptionFilter_roleArn,
   )
 where
 
@@ -428,6 +458,7 @@ import Amazonka.CloudWatchLogs.CancelExportTask
 import Amazonka.CloudWatchLogs.CreateExportTask
 import Amazonka.CloudWatchLogs.CreateLogGroup
 import Amazonka.CloudWatchLogs.CreateLogStream
+import Amazonka.CloudWatchLogs.DeleteDataProtectionPolicy
 import Amazonka.CloudWatchLogs.DeleteDestination
 import Amazonka.CloudWatchLogs.DeleteLogGroup
 import Amazonka.CloudWatchLogs.DeleteLogStream
@@ -447,11 +478,13 @@ import Amazonka.CloudWatchLogs.DescribeResourcePolicies
 import Amazonka.CloudWatchLogs.DescribeSubscriptionFilters
 import Amazonka.CloudWatchLogs.DisassociateKmsKey
 import Amazonka.CloudWatchLogs.FilterLogEvents
+import Amazonka.CloudWatchLogs.GetDataProtectionPolicy
 import Amazonka.CloudWatchLogs.GetLogEvents
 import Amazonka.CloudWatchLogs.GetLogGroupFields
 import Amazonka.CloudWatchLogs.GetLogRecord
 import Amazonka.CloudWatchLogs.GetQueryResults
 import Amazonka.CloudWatchLogs.ListTagsForResource
+import Amazonka.CloudWatchLogs.PutDataProtectionPolicy
 import Amazonka.CloudWatchLogs.PutDestination
 import Amazonka.CloudWatchLogs.PutDestinationPolicy
 import Amazonka.CloudWatchLogs.PutLogEvents

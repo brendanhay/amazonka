@@ -30,15 +30,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPutFileEntry' smart constructor.
 data PutFileEntry = PutFileEntry'
-  { -- | The extrapolated file mode permissions for the file. Valid values
+  { -- | The content of the file, if a source file is not specified.
+    fileContent :: Prelude.Maybe Data.Base64,
+    -- | The extrapolated file mode permissions for the file. Valid values
     -- include EXECUTABLE and NORMAL.
     fileMode :: Prelude.Maybe FileModeTypeEnum,
     -- | The name and full path of the file that contains the changes you want to
     -- make as part of the commit, if you are not providing the file content
     -- directly.
     sourceFile :: Prelude.Maybe SourceFileSpecifier,
-    -- | The content of the file, if a source file is not specified.
-    fileContent :: Prelude.Maybe Data.Base64,
     -- | The full path to the file in the repository, including the name of the
     -- file.
     filePath :: Prelude.Text
@@ -53,18 +53,18 @@ data PutFileEntry = PutFileEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'fileContent', 'putFileEntry_fileContent' - The content of the file, if a source file is not specified.--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
+--
 -- 'fileMode', 'putFileEntry_fileMode' - The extrapolated file mode permissions for the file. Valid values
 -- include EXECUTABLE and NORMAL.
 --
 -- 'sourceFile', 'putFileEntry_sourceFile' - The name and full path of the file that contains the changes you want to
 -- make as part of the commit, if you are not providing the file content
 -- directly.
---
--- 'fileContent', 'putFileEntry_fileContent' - The content of the file, if a source file is not specified.--
--- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- -- The underlying isomorphism will encode to Base64 representation during
--- -- serialisation, and decode from Base64 representation during deserialisation.
--- -- This 'Lens' accepts and returns only raw unencoded data.
 --
 -- 'filePath', 'putFileEntry_filePath' - The full path to the file in the repository, including the name of the
 -- file.
@@ -74,11 +74,19 @@ newPutFileEntry ::
   PutFileEntry
 newPutFileEntry pFilePath_ =
   PutFileEntry'
-    { fileMode = Prelude.Nothing,
+    { fileContent = Prelude.Nothing,
+      fileMode = Prelude.Nothing,
       sourceFile = Prelude.Nothing,
-      fileContent = Prelude.Nothing,
       filePath = pFilePath_
     }
+
+-- | The content of the file, if a source file is not specified.--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
+putFileEntry_fileContent :: Lens.Lens' PutFileEntry (Prelude.Maybe Prelude.ByteString)
+putFileEntry_fileContent = Lens.lens (\PutFileEntry' {fileContent} -> fileContent) (\s@PutFileEntry' {} a -> s {fileContent = a} :: PutFileEntry) Prelude.. Lens.mapping Data._Base64
 
 -- | The extrapolated file mode permissions for the file. Valid values
 -- include EXECUTABLE and NORMAL.
@@ -91,14 +99,6 @@ putFileEntry_fileMode = Lens.lens (\PutFileEntry' {fileMode} -> fileMode) (\s@Pu
 putFileEntry_sourceFile :: Lens.Lens' PutFileEntry (Prelude.Maybe SourceFileSpecifier)
 putFileEntry_sourceFile = Lens.lens (\PutFileEntry' {sourceFile} -> sourceFile) (\s@PutFileEntry' {} a -> s {sourceFile = a} :: PutFileEntry)
 
--- | The content of the file, if a source file is not specified.--
--- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- -- The underlying isomorphism will encode to Base64 representation during
--- -- serialisation, and decode from Base64 representation during deserialisation.
--- -- This 'Lens' accepts and returns only raw unencoded data.
-putFileEntry_fileContent :: Lens.Lens' PutFileEntry (Prelude.Maybe Prelude.ByteString)
-putFileEntry_fileContent = Lens.lens (\PutFileEntry' {fileContent} -> fileContent) (\s@PutFileEntry' {} a -> s {fileContent = a} :: PutFileEntry) Prelude.. Lens.mapping Data._Base64
-
 -- | The full path to the file in the repository, including the name of the
 -- file.
 putFileEntry_filePath :: Lens.Lens' PutFileEntry Prelude.Text
@@ -106,25 +106,25 @@ putFileEntry_filePath = Lens.lens (\PutFileEntry' {filePath} -> filePath) (\s@Pu
 
 instance Prelude.Hashable PutFileEntry where
   hashWithSalt _salt PutFileEntry' {..} =
-    _salt `Prelude.hashWithSalt` fileMode
+    _salt `Prelude.hashWithSalt` fileContent
+      `Prelude.hashWithSalt` fileMode
       `Prelude.hashWithSalt` sourceFile
-      `Prelude.hashWithSalt` fileContent
       `Prelude.hashWithSalt` filePath
 
 instance Prelude.NFData PutFileEntry where
   rnf PutFileEntry' {..} =
-    Prelude.rnf fileMode
+    Prelude.rnf fileContent
+      `Prelude.seq` Prelude.rnf fileMode
       `Prelude.seq` Prelude.rnf sourceFile
-      `Prelude.seq` Prelude.rnf fileContent
       `Prelude.seq` Prelude.rnf filePath
 
 instance Data.ToJSON PutFileEntry where
   toJSON PutFileEntry' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("fileMode" Data..=) Prelude.<$> fileMode,
+          [ ("fileContent" Data..=) Prelude.<$> fileContent,
+            ("fileMode" Data..=) Prelude.<$> fileMode,
             ("sourceFile" Data..=) Prelude.<$> sourceFile,
-            ("fileContent" Data..=) Prelude.<$> fileContent,
             Prelude.Just ("filePath" Data..= filePath)
           ]
       )

@@ -18,14 +18,14 @@ module Amazonka.ChimeSdkMediaPipelines.Types
     defaultService,
 
     -- * Errors
-    _ThrottledClientException,
-    _NotFoundException,
-    _ServiceUnavailableException,
-    _ResourceLimitExceededException,
-    _ForbiddenException,
     _BadRequestException,
-    _UnauthorizedClientException,
+    _ForbiddenException,
+    _NotFoundException,
+    _ResourceLimitExceededException,
     _ServiceFailureException,
+    _ServiceUnavailableException,
+    _ThrottledClientException,
+    _UnauthorizedClientException,
 
     -- * ArtifactsConcatenationState
     ArtifactsConcatenationState (..),
@@ -121,22 +121,22 @@ module Amazonka.ChimeSdkMediaPipelines.Types
     -- * ChimeSdkMeetingConfiguration
     ChimeSdkMeetingConfiguration (..),
     newChimeSdkMeetingConfiguration,
-    chimeSdkMeetingConfiguration_sourceConfiguration,
     chimeSdkMeetingConfiguration_artifactsConfiguration,
+    chimeSdkMeetingConfiguration_sourceConfiguration,
 
     -- * ChimeSdkMeetingLiveConnectorConfiguration
     ChimeSdkMeetingLiveConnectorConfiguration (..),
     newChimeSdkMeetingLiveConnectorConfiguration,
-    chimeSdkMeetingLiveConnectorConfiguration_sourceConfiguration,
     chimeSdkMeetingLiveConnectorConfiguration_compositedVideo,
+    chimeSdkMeetingLiveConnectorConfiguration_sourceConfiguration,
     chimeSdkMeetingLiveConnectorConfiguration_arn,
     chimeSdkMeetingLiveConnectorConfiguration_muxType,
 
     -- * CompositedVideoArtifactsConfiguration
     CompositedVideoArtifactsConfiguration (..),
     newCompositedVideoArtifactsConfiguration,
-    compositedVideoArtifactsConfiguration_resolution,
     compositedVideoArtifactsConfiguration_layout,
+    compositedVideoArtifactsConfiguration_resolution,
     compositedVideoArtifactsConfiguration_gridViewConfiguration,
 
     -- * CompositedVideoConcatenationConfiguration
@@ -200,16 +200,16 @@ module Amazonka.ChimeSdkMediaPipelines.Types
     -- * MediaCapturePipeline
     MediaCapturePipeline (..),
     newMediaCapturePipeline,
-    mediaCapturePipeline_sourceArn,
-    mediaCapturePipeline_sinkType,
+    mediaCapturePipeline_chimeSdkMeetingConfiguration,
     mediaCapturePipeline_createdTimestamp,
     mediaCapturePipeline_mediaPipelineArn,
-    mediaCapturePipeline_updatedTimestamp,
-    mediaCapturePipeline_chimeSdkMeetingConfiguration,
-    mediaCapturePipeline_status,
-    mediaCapturePipeline_sourceType,
     mediaCapturePipeline_mediaPipelineId,
     mediaCapturePipeline_sinkArn,
+    mediaCapturePipeline_sinkType,
+    mediaCapturePipeline_sourceArn,
+    mediaCapturePipeline_sourceType,
+    mediaCapturePipeline_status,
+    mediaCapturePipeline_updatedTimestamp,
 
     -- * MediaCapturePipelineSourceConfiguration
     MediaCapturePipelineSourceConfiguration (..),
@@ -226,30 +226,30 @@ module Amazonka.ChimeSdkMediaPipelines.Types
     -- * MediaConcatenationPipeline
     MediaConcatenationPipeline (..),
     newMediaConcatenationPipeline,
-    mediaConcatenationPipeline_sources,
     mediaConcatenationPipeline_createdTimestamp,
     mediaConcatenationPipeline_mediaPipelineArn,
-    mediaConcatenationPipeline_updatedTimestamp,
-    mediaConcatenationPipeline_status,
-    mediaConcatenationPipeline_sinks,
     mediaConcatenationPipeline_mediaPipelineId,
+    mediaConcatenationPipeline_sinks,
+    mediaConcatenationPipeline_sources,
+    mediaConcatenationPipeline_status,
+    mediaConcatenationPipeline_updatedTimestamp,
 
     -- * MediaLiveConnectorPipeline
     MediaLiveConnectorPipeline (..),
     newMediaLiveConnectorPipeline,
-    mediaLiveConnectorPipeline_sources,
     mediaLiveConnectorPipeline_createdTimestamp,
     mediaLiveConnectorPipeline_mediaPipelineArn,
-    mediaLiveConnectorPipeline_updatedTimestamp,
-    mediaLiveConnectorPipeline_status,
-    mediaLiveConnectorPipeline_sinks,
     mediaLiveConnectorPipeline_mediaPipelineId,
+    mediaLiveConnectorPipeline_sinks,
+    mediaLiveConnectorPipeline_sources,
+    mediaLiveConnectorPipeline_status,
+    mediaLiveConnectorPipeline_updatedTimestamp,
 
     -- * MediaPipeline
     MediaPipeline (..),
     newMediaPipeline,
-    mediaPipeline_mediaConcatenationPipeline,
     mediaPipeline_mediaCapturePipeline,
+    mediaPipeline_mediaConcatenationPipeline,
     mediaPipeline_mediaLiveConnectorPipeline,
 
     -- * MediaPipelineSummary
@@ -393,28 +393,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -422,13 +416,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -436,39 +434,16 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The client exceeded its request rate limit.
-_ThrottledClientException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ThrottledClientException =
+-- | The input parameters don\'t match the service\'s restrictions.
+_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException =
   Core._MatchServiceError
     defaultService
-    "ThrottledClientException"
-    Prelude.. Core.hasStatus 429
-
--- | One or more of the resources in the request does not exist in the
--- system.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "NotFoundException"
-    Prelude.. Core.hasStatus 404
-
--- | The service is currently unavailable.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceUnavailableException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceUnavailableException"
-    Prelude.. Core.hasStatus 503
-
--- | The request exceeds the resource limit.
-_ResourceLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceLimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceLimitExceededException"
+    "BadRequestException"
     Prelude.. Core.hasStatus 400
 
 -- | The client is permanently forbidden from making the request.
@@ -479,21 +454,22 @@ _ForbiddenException =
     "ForbiddenException"
     Prelude.. Core.hasStatus 403
 
--- | The input parameters don\'t match the service\'s restrictions.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_BadRequestException =
+-- | One or more of the resources in the request does not exist in the
+-- system.
+_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException =
   Core._MatchServiceError
     defaultService
-    "BadRequestException"
-    Prelude.. Core.hasStatus 400
+    "NotFoundException"
+    Prelude.. Core.hasStatus 404
 
--- | The client is not currently authorized to make the request.
-_UnauthorizedClientException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnauthorizedClientException =
+-- | The request exceeds the resource limit.
+_ResourceLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceLimitExceededException =
   Core._MatchServiceError
     defaultService
-    "UnauthorizedClientException"
-    Prelude.. Core.hasStatus 401
+    "ResourceLimitExceededException"
+    Prelude.. Core.hasStatus 400
 
 -- | The service encountered an unexpected error.
 _ServiceFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -502,3 +478,27 @@ _ServiceFailureException =
     defaultService
     "ServiceFailureException"
     Prelude.. Core.hasStatus 500
+
+-- | The service is currently unavailable.
+_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceUnavailableException"
+    Prelude.. Core.hasStatus 503
+
+-- | The client exceeded its request rate limit.
+_ThrottledClientException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottledClientException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottledClientException"
+    Prelude.. Core.hasStatus 429
+
+-- | The client is not currently authorized to make the request.
+_UnauthorizedClientException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnauthorizedClientException =
+  Core._MatchServiceError
+    defaultService
+    "UnauthorizedClientException"
+    Prelude.. Core.hasStatus 401

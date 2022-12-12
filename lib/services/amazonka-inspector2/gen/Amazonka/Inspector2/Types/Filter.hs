@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFilter' smart constructor.
 data Filter = Filter'
-  { -- | The tags attached to the filter.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A description of the filter.
+  { -- | A description of the filter.
     description :: Prelude.Maybe Prelude.Text,
     -- | The reason for the filter.
     reason :: Prelude.Maybe Prelude.Text,
+    -- | The tags attached to the filter.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The action that is to be applied to the findings that match the filter.
     action :: FilterAction,
     -- | The Amazon Resource Number (ARN) associated with this filter.
@@ -62,11 +62,11 @@ data Filter = Filter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'filter_tags' - The tags attached to the filter.
---
 -- 'description', 'filter_description' - A description of the filter.
 --
 -- 'reason', 'filter_reason' - The reason for the filter.
+--
+-- 'tags', 'filter_tags' - The tags attached to the filter.
 --
 -- 'action', 'filter_action' - The action that is to be applied to the findings that match the filter.
 --
@@ -107,9 +107,9 @@ newFilter
   pOwnerId_
   pUpdatedAt_ =
     Filter'
-      { tags = Prelude.Nothing,
-        description = Prelude.Nothing,
+      { description = Prelude.Nothing,
         reason = Prelude.Nothing,
+        tags = Prelude.Nothing,
         action = pAction_,
         arn = pArn_,
         createdAt = Data._Time Lens.# pCreatedAt_,
@@ -119,10 +119,6 @@ newFilter
         updatedAt = Data._Time Lens.# pUpdatedAt_
       }
 
--- | The tags attached to the filter.
-filter_tags :: Lens.Lens' Filter (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-filter_tags = Lens.lens (\Filter' {tags} -> tags) (\s@Filter' {} a -> s {tags = a} :: Filter) Prelude.. Lens.mapping Lens.coerced
-
 -- | A description of the filter.
 filter_description :: Lens.Lens' Filter (Prelude.Maybe Prelude.Text)
 filter_description = Lens.lens (\Filter' {description} -> description) (\s@Filter' {} a -> s {description = a} :: Filter)
@@ -130,6 +126,10 @@ filter_description = Lens.lens (\Filter' {description} -> description) (\s@Filte
 -- | The reason for the filter.
 filter_reason :: Lens.Lens' Filter (Prelude.Maybe Prelude.Text)
 filter_reason = Lens.lens (\Filter' {reason} -> reason) (\s@Filter' {} a -> s {reason = a} :: Filter)
+
+-- | The tags attached to the filter.
+filter_tags :: Lens.Lens' Filter (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+filter_tags = Lens.lens (\Filter' {tags} -> tags) (\s@Filter' {} a -> s {tags = a} :: Filter) Prelude.. Lens.mapping Lens.coerced
 
 -- | The action that is to be applied to the findings that match the filter.
 filter_action :: Lens.Lens' Filter FilterAction
@@ -166,9 +166,9 @@ instance Data.FromJSON Filter where
       "Filter"
       ( \x ->
           Filter'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "description")
+            Prelude.<$> (x Data..:? "description")
             Prelude.<*> (x Data..:? "reason")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "action")
             Prelude.<*> (x Data..: "arn")
             Prelude.<*> (x Data..: "createdAt")
@@ -180,9 +180,9 @@ instance Data.FromJSON Filter where
 
 instance Prelude.Hashable Filter where
   hashWithSalt _salt Filter' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
@@ -193,9 +193,9 @@ instance Prelude.Hashable Filter where
 
 instance Prelude.NFData Filter where
   rnf Filter' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf action
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf createdAt

@@ -29,17 +29,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeployment' smart constructor.
 data Deployment = Deployment'
-  { -- | The ID of the deployment.
+  { -- | The time, in milliseconds since the epoch, when the deployment was
+    -- created.
+    createdAt :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the deployment.
+    deploymentArn :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the deployment.
     deploymentId :: Prelude.Maybe Prelude.Text,
     -- | The type of the deployment.
     deploymentType :: Prelude.Maybe DeploymentType,
-    -- | The ARN of the deployment.
-    deploymentArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the group for this deployment.
-    groupArn :: Prelude.Maybe Prelude.Text,
-    -- | The time, in milliseconds since the epoch, when the deployment was
-    -- created.
-    createdAt :: Prelude.Maybe Prelude.Text
+    groupArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,26 +51,35 @@ data Deployment = Deployment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'createdAt', 'deployment_createdAt' - The time, in milliseconds since the epoch, when the deployment was
+-- created.
+--
+-- 'deploymentArn', 'deployment_deploymentArn' - The ARN of the deployment.
+--
 -- 'deploymentId', 'deployment_deploymentId' - The ID of the deployment.
 --
 -- 'deploymentType', 'deployment_deploymentType' - The type of the deployment.
 --
--- 'deploymentArn', 'deployment_deploymentArn' - The ARN of the deployment.
---
 -- 'groupArn', 'deployment_groupArn' - The ARN of the group for this deployment.
---
--- 'createdAt', 'deployment_createdAt' - The time, in milliseconds since the epoch, when the deployment was
--- created.
 newDeployment ::
   Deployment
 newDeployment =
   Deployment'
-    { deploymentId = Prelude.Nothing,
-      deploymentType = Prelude.Nothing,
+    { createdAt = Prelude.Nothing,
       deploymentArn = Prelude.Nothing,
-      groupArn = Prelude.Nothing,
-      createdAt = Prelude.Nothing
+      deploymentId = Prelude.Nothing,
+      deploymentType = Prelude.Nothing,
+      groupArn = Prelude.Nothing
     }
+
+-- | The time, in milliseconds since the epoch, when the deployment was
+-- created.
+deployment_createdAt :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
+deployment_createdAt = Lens.lens (\Deployment' {createdAt} -> createdAt) (\s@Deployment' {} a -> s {createdAt = a} :: Deployment)
+
+-- | The ARN of the deployment.
+deployment_deploymentArn :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
+deployment_deploymentArn = Lens.lens (\Deployment' {deploymentArn} -> deploymentArn) (\s@Deployment' {} a -> s {deploymentArn = a} :: Deployment)
 
 -- | The ID of the deployment.
 deployment_deploymentId :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
@@ -80,18 +89,9 @@ deployment_deploymentId = Lens.lens (\Deployment' {deploymentId} -> deploymentId
 deployment_deploymentType :: Lens.Lens' Deployment (Prelude.Maybe DeploymentType)
 deployment_deploymentType = Lens.lens (\Deployment' {deploymentType} -> deploymentType) (\s@Deployment' {} a -> s {deploymentType = a} :: Deployment)
 
--- | The ARN of the deployment.
-deployment_deploymentArn :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
-deployment_deploymentArn = Lens.lens (\Deployment' {deploymentArn} -> deploymentArn) (\s@Deployment' {} a -> s {deploymentArn = a} :: Deployment)
-
 -- | The ARN of the group for this deployment.
 deployment_groupArn :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
 deployment_groupArn = Lens.lens (\Deployment' {groupArn} -> groupArn) (\s@Deployment' {} a -> s {groupArn = a} :: Deployment)
-
--- | The time, in milliseconds since the epoch, when the deployment was
--- created.
-deployment_createdAt :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
-deployment_createdAt = Lens.lens (\Deployment' {createdAt} -> createdAt) (\s@Deployment' {} a -> s {createdAt = a} :: Deployment)
 
 instance Data.FromJSON Deployment where
   parseJSON =
@@ -99,25 +99,25 @@ instance Data.FromJSON Deployment where
       "Deployment"
       ( \x ->
           Deployment'
-            Prelude.<$> (x Data..:? "DeploymentId")
-            Prelude.<*> (x Data..:? "DeploymentType")
+            Prelude.<$> (x Data..:? "CreatedAt")
             Prelude.<*> (x Data..:? "DeploymentArn")
+            Prelude.<*> (x Data..:? "DeploymentId")
+            Prelude.<*> (x Data..:? "DeploymentType")
             Prelude.<*> (x Data..:? "GroupArn")
-            Prelude.<*> (x Data..:? "CreatedAt")
       )
 
 instance Prelude.Hashable Deployment where
   hashWithSalt _salt Deployment' {..} =
-    _salt `Prelude.hashWithSalt` deploymentId
-      `Prelude.hashWithSalt` deploymentType
+    _salt `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` deploymentArn
+      `Prelude.hashWithSalt` deploymentId
+      `Prelude.hashWithSalt` deploymentType
       `Prelude.hashWithSalt` groupArn
-      `Prelude.hashWithSalt` createdAt
 
 instance Prelude.NFData Deployment where
   rnf Deployment' {..} =
-    Prelude.rnf deploymentId
-      `Prelude.seq` Prelude.rnf deploymentType
+    Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf deploymentArn
+      `Prelude.seq` Prelude.rnf deploymentId
+      `Prelude.seq` Prelude.rnf deploymentType
       `Prelude.seq` Prelude.rnf groupArn
-      `Prelude.seq` Prelude.rnf createdAt

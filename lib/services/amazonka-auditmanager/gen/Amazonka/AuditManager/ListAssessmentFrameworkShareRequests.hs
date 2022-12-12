@@ -28,8 +28,8 @@ module Amazonka.AuditManager.ListAssessmentFrameworkShareRequests
     newListAssessmentFrameworkShareRequests,
 
     -- * Request Lenses
-    listAssessmentFrameworkShareRequests_nextToken,
     listAssessmentFrameworkShareRequests_maxResults,
+    listAssessmentFrameworkShareRequests_nextToken,
     listAssessmentFrameworkShareRequests_requestType,
 
     -- * Destructuring the Response
@@ -37,8 +37,8 @@ module Amazonka.AuditManager.ListAssessmentFrameworkShareRequests
     newListAssessmentFrameworkShareRequestsResponse,
 
     -- * Response Lenses
-    listAssessmentFrameworkShareRequestsResponse_nextToken,
     listAssessmentFrameworkShareRequestsResponse_assessmentFrameworkShareRequests,
+    listAssessmentFrameworkShareRequestsResponse_nextToken,
     listAssessmentFrameworkShareRequestsResponse_httpStatus,
   )
 where
@@ -53,11 +53,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAssessmentFrameworkShareRequests' smart constructor.
 data ListAssessmentFrameworkShareRequests = ListAssessmentFrameworkShareRequests'
-  { -- | The pagination token that\'s used to fetch the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Represents the maximum number of results on a page or for an API request
+  { -- | Represents the maximum number of results on a page or for an API request
     -- call.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token that\'s used to fetch the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the share request is a sent request or a received
     -- request.
     requestType :: ShareRequestType
@@ -72,10 +72,10 @@ data ListAssessmentFrameworkShareRequests = ListAssessmentFrameworkShareRequests
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAssessmentFrameworkShareRequests_nextToken' - The pagination token that\'s used to fetch the next set of results.
---
 -- 'maxResults', 'listAssessmentFrameworkShareRequests_maxResults' - Represents the maximum number of results on a page or for an API request
 -- call.
+--
+-- 'nextToken', 'listAssessmentFrameworkShareRequests_nextToken' - The pagination token that\'s used to fetch the next set of results.
 --
 -- 'requestType', 'listAssessmentFrameworkShareRequests_requestType' - Specifies whether the share request is a sent request or a received
 -- request.
@@ -85,20 +85,20 @@ newListAssessmentFrameworkShareRequests ::
   ListAssessmentFrameworkShareRequests
 newListAssessmentFrameworkShareRequests pRequestType_ =
   ListAssessmentFrameworkShareRequests'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       requestType = pRequestType_
     }
-
--- | The pagination token that\'s used to fetch the next set of results.
-listAssessmentFrameworkShareRequests_nextToken :: Lens.Lens' ListAssessmentFrameworkShareRequests (Prelude.Maybe Prelude.Text)
-listAssessmentFrameworkShareRequests_nextToken = Lens.lens (\ListAssessmentFrameworkShareRequests' {nextToken} -> nextToken) (\s@ListAssessmentFrameworkShareRequests' {} a -> s {nextToken = a} :: ListAssessmentFrameworkShareRequests)
 
 -- | Represents the maximum number of results on a page or for an API request
 -- call.
 listAssessmentFrameworkShareRequests_maxResults :: Lens.Lens' ListAssessmentFrameworkShareRequests (Prelude.Maybe Prelude.Natural)
 listAssessmentFrameworkShareRequests_maxResults = Lens.lens (\ListAssessmentFrameworkShareRequests' {maxResults} -> maxResults) (\s@ListAssessmentFrameworkShareRequests' {} a -> s {maxResults = a} :: ListAssessmentFrameworkShareRequests)
+
+-- | The pagination token that\'s used to fetch the next set of results.
+listAssessmentFrameworkShareRequests_nextToken :: Lens.Lens' ListAssessmentFrameworkShareRequests (Prelude.Maybe Prelude.Text)
+listAssessmentFrameworkShareRequests_nextToken = Lens.lens (\ListAssessmentFrameworkShareRequests' {nextToken} -> nextToken) (\s@ListAssessmentFrameworkShareRequests' {} a -> s {nextToken = a} :: ListAssessmentFrameworkShareRequests)
 
 -- | Specifies whether the share request is a sent request or a received
 -- request.
@@ -118,10 +118,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListAssessmentFrameworkShareRequestsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-              Prelude.<*> ( x Data..?> "assessmentFrameworkShareRequests"
-                              Core..!@ Prelude.mempty
-                          )
+            Prelude.<$> ( x Data..?> "assessmentFrameworkShareRequests"
+                            Core..!@ Prelude.mempty
+                        )
+              Prelude.<*> (x Data..?> "nextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,8 +132,8 @@ instance
   hashWithSalt
     _salt
     ListAssessmentFrameworkShareRequests' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` requestType
 
 instance
@@ -141,8 +141,8 @@ instance
     ListAssessmentFrameworkShareRequests
   where
   rnf ListAssessmentFrameworkShareRequests' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf requestType
 
 instance
@@ -172,18 +172,18 @@ instance
   where
   toQuery ListAssessmentFrameworkShareRequests' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults,
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
         "requestType" Data.=: requestType
       ]
 
 -- | /See:/ 'newListAssessmentFrameworkShareRequestsResponse' smart constructor.
 data ListAssessmentFrameworkShareRequestsResponse = ListAssessmentFrameworkShareRequestsResponse'
-  { -- | The pagination token that\'s used to fetch the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of share requests that the
+  { -- | The list of share requests that the
     -- @ListAssessmentFrameworkShareRequests@ API returned.
     assessmentFrameworkShareRequests :: Prelude.Maybe [AssessmentFrameworkShareRequest],
+    -- | The pagination token that\'s used to fetch the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -197,10 +197,10 @@ data ListAssessmentFrameworkShareRequestsResponse = ListAssessmentFrameworkShare
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAssessmentFrameworkShareRequestsResponse_nextToken' - The pagination token that\'s used to fetch the next set of results.
---
 -- 'assessmentFrameworkShareRequests', 'listAssessmentFrameworkShareRequestsResponse_assessmentFrameworkShareRequests' - The list of share requests that the
 -- @ListAssessmentFrameworkShareRequests@ API returned.
+--
+-- 'nextToken', 'listAssessmentFrameworkShareRequestsResponse_nextToken' - The pagination token that\'s used to fetch the next set of results.
 --
 -- 'httpStatus', 'listAssessmentFrameworkShareRequestsResponse_httpStatus' - The response's http status code.
 newListAssessmentFrameworkShareRequestsResponse ::
@@ -210,21 +210,20 @@ newListAssessmentFrameworkShareRequestsResponse ::
 newListAssessmentFrameworkShareRequestsResponse
   pHttpStatus_ =
     ListAssessmentFrameworkShareRequestsResponse'
-      { nextToken =
+      { assessmentFrameworkShareRequests =
           Prelude.Nothing,
-        assessmentFrameworkShareRequests =
-          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The pagination token that\'s used to fetch the next set of results.
-listAssessmentFrameworkShareRequestsResponse_nextToken :: Lens.Lens' ListAssessmentFrameworkShareRequestsResponse (Prelude.Maybe Prelude.Text)
-listAssessmentFrameworkShareRequestsResponse_nextToken = Lens.lens (\ListAssessmentFrameworkShareRequestsResponse' {nextToken} -> nextToken) (\s@ListAssessmentFrameworkShareRequestsResponse' {} a -> s {nextToken = a} :: ListAssessmentFrameworkShareRequestsResponse)
 
 -- | The list of share requests that the
 -- @ListAssessmentFrameworkShareRequests@ API returned.
 listAssessmentFrameworkShareRequestsResponse_assessmentFrameworkShareRequests :: Lens.Lens' ListAssessmentFrameworkShareRequestsResponse (Prelude.Maybe [AssessmentFrameworkShareRequest])
 listAssessmentFrameworkShareRequestsResponse_assessmentFrameworkShareRequests = Lens.lens (\ListAssessmentFrameworkShareRequestsResponse' {assessmentFrameworkShareRequests} -> assessmentFrameworkShareRequests) (\s@ListAssessmentFrameworkShareRequestsResponse' {} a -> s {assessmentFrameworkShareRequests = a} :: ListAssessmentFrameworkShareRequestsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The pagination token that\'s used to fetch the next set of results.
+listAssessmentFrameworkShareRequestsResponse_nextToken :: Lens.Lens' ListAssessmentFrameworkShareRequestsResponse (Prelude.Maybe Prelude.Text)
+listAssessmentFrameworkShareRequestsResponse_nextToken = Lens.lens (\ListAssessmentFrameworkShareRequestsResponse' {nextToken} -> nextToken) (\s@ListAssessmentFrameworkShareRequestsResponse' {} a -> s {nextToken = a} :: ListAssessmentFrameworkShareRequestsResponse)
 
 -- | The response's http status code.
 listAssessmentFrameworkShareRequestsResponse_httpStatus :: Lens.Lens' ListAssessmentFrameworkShareRequestsResponse Prelude.Int
@@ -235,6 +234,6 @@ instance
     ListAssessmentFrameworkShareRequestsResponse
   where
   rnf ListAssessmentFrameworkShareRequestsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf assessmentFrameworkShareRequests
+    Prelude.rnf assessmentFrameworkShareRequests
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -41,16 +41,16 @@ module Amazonka.ConnectParticipant.Lens
     getAttachmentResponse_httpStatus,
 
     -- ** GetTranscript
-    getTranscript_sortOrder,
-    getTranscript_nextToken,
     getTranscript_contactId,
-    getTranscript_startPosition,
     getTranscript_maxResults,
+    getTranscript_nextToken,
     getTranscript_scanDirection,
+    getTranscript_sortOrder,
+    getTranscript_startPosition,
     getTranscript_connectionToken,
+    getTranscriptResponse_initialContactId,
     getTranscriptResponse_nextToken,
     getTranscriptResponse_transcript,
-    getTranscriptResponse_initialContactId,
     getTranscriptResponse_httpStatus,
 
     -- ** SendEvent
@@ -58,8 +58,8 @@ module Amazonka.ConnectParticipant.Lens
     sendEvent_content,
     sendEvent_contentType,
     sendEvent_connectionToken,
-    sendEventResponse_id,
     sendEventResponse_absoluteTime,
+    sendEventResponse_id,
     sendEventResponse_httpStatus,
 
     -- ** SendMessage
@@ -67,8 +67,8 @@ module Amazonka.ConnectParticipant.Lens
     sendMessage_contentType,
     sendMessage_content,
     sendMessage_connectionToken,
-    sendMessageResponse_id,
     sendMessageResponse_absoluteTime,
+    sendMessageResponse_id,
     sendMessageResponse_httpStatus,
 
     -- ** StartAttachmentUpload
@@ -84,34 +84,34 @@ module Amazonka.ConnectParticipant.Lens
     -- * Types
 
     -- ** AttachmentItem
-    attachmentItem_status,
     attachmentItem_attachmentId,
     attachmentItem_attachmentName,
     attachmentItem_contentType,
+    attachmentItem_status,
 
     -- ** ConnectionCredentials
-    connectionCredentials_expiry,
     connectionCredentials_connectionToken,
+    connectionCredentials_expiry,
 
     -- ** Item
-    item_type,
-    item_participantId,
-    item_displayName,
-    item_id,
     item_absoluteTime,
-    item_participantRole,
     item_attachments,
     item_content,
     item_contentType,
+    item_displayName,
+    item_id,
+    item_participantId,
+    item_participantRole,
+    item_type,
 
     -- ** StartPosition
-    startPosition_id,
     startPosition_absoluteTime,
+    startPosition_id,
     startPosition_mostRecent,
 
     -- ** UploadMetadata
-    uploadMetadata_url,
     uploadMetadata_headersToInclude,
+    uploadMetadata_url,
     uploadMetadata_urlExpiry,
 
     -- ** Websocket

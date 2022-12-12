@@ -34,8 +34,8 @@ module Amazonka.Mobile.DeleteProject
     newDeleteProjectResponse,
 
     -- * Response Lenses
-    deleteProjectResponse_orphanedResources,
     deleteProjectResponse_deletedResources,
+    deleteProjectResponse_orphanedResources,
     deleteProjectResponse_httpStatus,
   )
 where
@@ -87,10 +87,10 @@ instance Core.AWSRequest DeleteProject where
     Response.receiveJSON
       ( \s h x ->
           DeleteProjectResponse'
-            Prelude.<$> ( x Data..?> "orphanedResources"
+            Prelude.<$> ( x Data..?> "deletedResources"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "deletedResources"
+            Prelude.<*> ( x Data..?> "orphanedResources"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -125,11 +125,11 @@ instance Data.ToQuery DeleteProject where
 --
 -- /See:/ 'newDeleteProjectResponse' smart constructor.
 data DeleteProjectResponse = DeleteProjectResponse'
-  { -- | Resources which were not deleted, due to a risk of losing potentially
+  { -- | Resources which were deleted.
+    deletedResources :: Prelude.Maybe [Resource],
+    -- | Resources which were not deleted, due to a risk of losing potentially
     -- important data or files.
     orphanedResources :: Prelude.Maybe [Resource],
-    -- | Resources which were deleted.
-    deletedResources :: Prelude.Maybe [Resource],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -143,10 +143,10 @@ data DeleteProjectResponse = DeleteProjectResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'deletedResources', 'deleteProjectResponse_deletedResources' - Resources which were deleted.
+--
 -- 'orphanedResources', 'deleteProjectResponse_orphanedResources' - Resources which were not deleted, due to a risk of losing potentially
 -- important data or files.
---
--- 'deletedResources', 'deleteProjectResponse_deletedResources' - Resources which were deleted.
 --
 -- 'httpStatus', 'deleteProjectResponse_httpStatus' - The response's http status code.
 newDeleteProjectResponse ::
@@ -155,20 +155,20 @@ newDeleteProjectResponse ::
   DeleteProjectResponse
 newDeleteProjectResponse pHttpStatus_ =
   DeleteProjectResponse'
-    { orphanedResources =
+    { deletedResources =
         Prelude.Nothing,
-      deletedResources = Prelude.Nothing,
+      orphanedResources = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Resources which were deleted.
+deleteProjectResponse_deletedResources :: Lens.Lens' DeleteProjectResponse (Prelude.Maybe [Resource])
+deleteProjectResponse_deletedResources = Lens.lens (\DeleteProjectResponse' {deletedResources} -> deletedResources) (\s@DeleteProjectResponse' {} a -> s {deletedResources = a} :: DeleteProjectResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Resources which were not deleted, due to a risk of losing potentially
 -- important data or files.
 deleteProjectResponse_orphanedResources :: Lens.Lens' DeleteProjectResponse (Prelude.Maybe [Resource])
 deleteProjectResponse_orphanedResources = Lens.lens (\DeleteProjectResponse' {orphanedResources} -> orphanedResources) (\s@DeleteProjectResponse' {} a -> s {orphanedResources = a} :: DeleteProjectResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Resources which were deleted.
-deleteProjectResponse_deletedResources :: Lens.Lens' DeleteProjectResponse (Prelude.Maybe [Resource])
-deleteProjectResponse_deletedResources = Lens.lens (\DeleteProjectResponse' {deletedResources} -> deletedResources) (\s@DeleteProjectResponse' {} a -> s {deletedResources = a} :: DeleteProjectResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 deleteProjectResponse_httpStatus :: Lens.Lens' DeleteProjectResponse Prelude.Int
@@ -176,6 +176,6 @@ deleteProjectResponse_httpStatus = Lens.lens (\DeleteProjectResponse' {httpStatu
 
 instance Prelude.NFData DeleteProjectResponse where
   rnf DeleteProjectResponse' {..} =
-    Prelude.rnf orphanedResources
-      `Prelude.seq` Prelude.rnf deletedResources
+    Prelude.rnf deletedResources
+      `Prelude.seq` Prelude.rnf orphanedResources
       `Prelude.seq` Prelude.rnf httpStatus

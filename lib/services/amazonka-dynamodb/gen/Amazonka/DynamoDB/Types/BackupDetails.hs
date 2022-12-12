@@ -32,13 +32,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBackupDetails' smart constructor.
 data BackupDetails = BackupDetails'
-  { -- | Size of the backup in bytes. DynamoDB updates this value approximately
-    -- every six hours. Recent changes might not be reflected in this value.
-    backupSizeBytes :: Prelude.Maybe Prelude.Natural,
-    -- | Time at which the automatic on-demand backup created by DynamoDB will
+  { -- | Time at which the automatic on-demand backup created by DynamoDB will
     -- expire. This @SYSTEM@ on-demand backup expires automatically 35 days
     -- after its creation.
     backupExpiryDateTime :: Prelude.Maybe Data.POSIX,
+    -- | Size of the backup in bytes. DynamoDB updates this value approximately
+    -- every six hours. Recent changes might not be reflected in this value.
+    backupSizeBytes :: Prelude.Maybe Prelude.Natural,
     -- | ARN associated with the backup.
     backupArn :: Prelude.Text,
     -- | Name of the requested backup.
@@ -72,12 +72,12 @@ data BackupDetails = BackupDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'backupSizeBytes', 'backupDetails_backupSizeBytes' - Size of the backup in bytes. DynamoDB updates this value approximately
--- every six hours. Recent changes might not be reflected in this value.
---
 -- 'backupExpiryDateTime', 'backupDetails_backupExpiryDateTime' - Time at which the automatic on-demand backup created by DynamoDB will
 -- expire. This @SYSTEM@ on-demand backup expires automatically 35 days
 -- after its creation.
+--
+-- 'backupSizeBytes', 'backupDetails_backupSizeBytes' - Size of the backup in bytes. DynamoDB updates this value approximately
+-- every six hours. Recent changes might not be reflected in this value.
 --
 -- 'backupArn', 'backupDetails_backupArn' - ARN associated with the backup.
 --
@@ -119,8 +119,9 @@ newBackupDetails
   pBackupType_
   pBackupCreationDateTime_ =
     BackupDetails'
-      { backupSizeBytes = Prelude.Nothing,
-        backupExpiryDateTime = Prelude.Nothing,
+      { backupExpiryDateTime =
+          Prelude.Nothing,
+        backupSizeBytes = Prelude.Nothing,
         backupArn = pBackupArn_,
         backupName = pBackupName_,
         backupStatus = pBackupStatus_,
@@ -129,16 +130,16 @@ newBackupDetails
           Data._Time Lens.# pBackupCreationDateTime_
       }
 
--- | Size of the backup in bytes. DynamoDB updates this value approximately
--- every six hours. Recent changes might not be reflected in this value.
-backupDetails_backupSizeBytes :: Lens.Lens' BackupDetails (Prelude.Maybe Prelude.Natural)
-backupDetails_backupSizeBytes = Lens.lens (\BackupDetails' {backupSizeBytes} -> backupSizeBytes) (\s@BackupDetails' {} a -> s {backupSizeBytes = a} :: BackupDetails)
-
 -- | Time at which the automatic on-demand backup created by DynamoDB will
 -- expire. This @SYSTEM@ on-demand backup expires automatically 35 days
 -- after its creation.
 backupDetails_backupExpiryDateTime :: Lens.Lens' BackupDetails (Prelude.Maybe Prelude.UTCTime)
 backupDetails_backupExpiryDateTime = Lens.lens (\BackupDetails' {backupExpiryDateTime} -> backupExpiryDateTime) (\s@BackupDetails' {} a -> s {backupExpiryDateTime = a} :: BackupDetails) Prelude.. Lens.mapping Data._Time
+
+-- | Size of the backup in bytes. DynamoDB updates this value approximately
+-- every six hours. Recent changes might not be reflected in this value.
+backupDetails_backupSizeBytes :: Lens.Lens' BackupDetails (Prelude.Maybe Prelude.Natural)
+backupDetails_backupSizeBytes = Lens.lens (\BackupDetails' {backupSizeBytes} -> backupSizeBytes) (\s@BackupDetails' {} a -> s {backupSizeBytes = a} :: BackupDetails)
 
 -- | ARN associated with the backup.
 backupDetails_backupArn :: Lens.Lens' BackupDetails Prelude.Text
@@ -178,8 +179,8 @@ instance Data.FromJSON BackupDetails where
       "BackupDetails"
       ( \x ->
           BackupDetails'
-            Prelude.<$> (x Data..:? "BackupSizeBytes")
-            Prelude.<*> (x Data..:? "BackupExpiryDateTime")
+            Prelude.<$> (x Data..:? "BackupExpiryDateTime")
+            Prelude.<*> (x Data..:? "BackupSizeBytes")
             Prelude.<*> (x Data..: "BackupArn")
             Prelude.<*> (x Data..: "BackupName")
             Prelude.<*> (x Data..: "BackupStatus")
@@ -189,8 +190,8 @@ instance Data.FromJSON BackupDetails where
 
 instance Prelude.Hashable BackupDetails where
   hashWithSalt _salt BackupDetails' {..} =
-    _salt `Prelude.hashWithSalt` backupSizeBytes
-      `Prelude.hashWithSalt` backupExpiryDateTime
+    _salt `Prelude.hashWithSalt` backupExpiryDateTime
+      `Prelude.hashWithSalt` backupSizeBytes
       `Prelude.hashWithSalt` backupArn
       `Prelude.hashWithSalt` backupName
       `Prelude.hashWithSalt` backupStatus
@@ -199,8 +200,8 @@ instance Prelude.Hashable BackupDetails where
 
 instance Prelude.NFData BackupDetails where
   rnf BackupDetails' {..} =
-    Prelude.rnf backupSizeBytes
-      `Prelude.seq` Prelude.rnf backupExpiryDateTime
+    Prelude.rnf backupExpiryDateTime
+      `Prelude.seq` Prelude.rnf backupSizeBytes
       `Prelude.seq` Prelude.rnf backupArn
       `Prelude.seq` Prelude.rnf backupName
       `Prelude.seq` Prelude.rnf backupStatus

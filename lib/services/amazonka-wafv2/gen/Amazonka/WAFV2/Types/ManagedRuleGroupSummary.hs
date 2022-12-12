@@ -35,20 +35,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newManagedRuleGroupSummary' smart constructor.
 data ManagedRuleGroupSummary = ManagedRuleGroupSummary'
-  { -- | The name of the managed rule group. You use this, along with the vendor
-    -- name, to identify the rule group.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The description of the managed rule group, provided by Amazon Web
+  { -- | The description of the managed rule group, provided by Amazon Web
     -- Services Managed Rules or the Amazon Web Services Marketplace seller who
     -- manages it.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The name of the managed rule group. You use this, along with the vendor
+    -- name, to identify the rule group.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The name of the managed rule group vendor. You use this, along with the
+    -- rule group name, to identify the rule group.
+    vendorName :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the managed rule group is versioned. If it is, you can
     -- retrieve the versions list by calling
     -- ListAvailableManagedRuleGroupVersions.
-    versioningSupported :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the managed rule group vendor. You use this, along with the
-    -- rule group name, to identify the rule group.
-    vendorName :: Prelude.Maybe Prelude.Text
+    versioningSupported :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,33 +60,29 @@ data ManagedRuleGroupSummary = ManagedRuleGroupSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'managedRuleGroupSummary_name' - The name of the managed rule group. You use this, along with the vendor
--- name, to identify the rule group.
---
 -- 'description', 'managedRuleGroupSummary_description' - The description of the managed rule group, provided by Amazon Web
 -- Services Managed Rules or the Amazon Web Services Marketplace seller who
 -- manages it.
 --
--- 'versioningSupported', 'managedRuleGroupSummary_versioningSupported' - Indicates whether the managed rule group is versioned. If it is, you can
--- retrieve the versions list by calling
--- ListAvailableManagedRuleGroupVersions.
+-- 'name', 'managedRuleGroupSummary_name' - The name of the managed rule group. You use this, along with the vendor
+-- name, to identify the rule group.
 --
 -- 'vendorName', 'managedRuleGroupSummary_vendorName' - The name of the managed rule group vendor. You use this, along with the
 -- rule group name, to identify the rule group.
+--
+-- 'versioningSupported', 'managedRuleGroupSummary_versioningSupported' - Indicates whether the managed rule group is versioned. If it is, you can
+-- retrieve the versions list by calling
+-- ListAvailableManagedRuleGroupVersions.
 newManagedRuleGroupSummary ::
   ManagedRuleGroupSummary
 newManagedRuleGroupSummary =
   ManagedRuleGroupSummary'
-    { name = Prelude.Nothing,
-      description = Prelude.Nothing,
-      versioningSupported = Prelude.Nothing,
-      vendorName = Prelude.Nothing
+    { description =
+        Prelude.Nothing,
+      name = Prelude.Nothing,
+      vendorName = Prelude.Nothing,
+      versioningSupported = Prelude.Nothing
     }
-
--- | The name of the managed rule group. You use this, along with the vendor
--- name, to identify the rule group.
-managedRuleGroupSummary_name :: Lens.Lens' ManagedRuleGroupSummary (Prelude.Maybe Prelude.Text)
-managedRuleGroupSummary_name = Lens.lens (\ManagedRuleGroupSummary' {name} -> name) (\s@ManagedRuleGroupSummary' {} a -> s {name = a} :: ManagedRuleGroupSummary)
 
 -- | The description of the managed rule group, provided by Amazon Web
 -- Services Managed Rules or the Amazon Web Services Marketplace seller who
@@ -94,16 +90,21 @@ managedRuleGroupSummary_name = Lens.lens (\ManagedRuleGroupSummary' {name} -> na
 managedRuleGroupSummary_description :: Lens.Lens' ManagedRuleGroupSummary (Prelude.Maybe Prelude.Text)
 managedRuleGroupSummary_description = Lens.lens (\ManagedRuleGroupSummary' {description} -> description) (\s@ManagedRuleGroupSummary' {} a -> s {description = a} :: ManagedRuleGroupSummary)
 
--- | Indicates whether the managed rule group is versioned. If it is, you can
--- retrieve the versions list by calling
--- ListAvailableManagedRuleGroupVersions.
-managedRuleGroupSummary_versioningSupported :: Lens.Lens' ManagedRuleGroupSummary (Prelude.Maybe Prelude.Bool)
-managedRuleGroupSummary_versioningSupported = Lens.lens (\ManagedRuleGroupSummary' {versioningSupported} -> versioningSupported) (\s@ManagedRuleGroupSummary' {} a -> s {versioningSupported = a} :: ManagedRuleGroupSummary)
+-- | The name of the managed rule group. You use this, along with the vendor
+-- name, to identify the rule group.
+managedRuleGroupSummary_name :: Lens.Lens' ManagedRuleGroupSummary (Prelude.Maybe Prelude.Text)
+managedRuleGroupSummary_name = Lens.lens (\ManagedRuleGroupSummary' {name} -> name) (\s@ManagedRuleGroupSummary' {} a -> s {name = a} :: ManagedRuleGroupSummary)
 
 -- | The name of the managed rule group vendor. You use this, along with the
 -- rule group name, to identify the rule group.
 managedRuleGroupSummary_vendorName :: Lens.Lens' ManagedRuleGroupSummary (Prelude.Maybe Prelude.Text)
 managedRuleGroupSummary_vendorName = Lens.lens (\ManagedRuleGroupSummary' {vendorName} -> vendorName) (\s@ManagedRuleGroupSummary' {} a -> s {vendorName = a} :: ManagedRuleGroupSummary)
+
+-- | Indicates whether the managed rule group is versioned. If it is, you can
+-- retrieve the versions list by calling
+-- ListAvailableManagedRuleGroupVersions.
+managedRuleGroupSummary_versioningSupported :: Lens.Lens' ManagedRuleGroupSummary (Prelude.Maybe Prelude.Bool)
+managedRuleGroupSummary_versioningSupported = Lens.lens (\ManagedRuleGroupSummary' {versioningSupported} -> versioningSupported) (\s@ManagedRuleGroupSummary' {} a -> s {versioningSupported = a} :: ManagedRuleGroupSummary)
 
 instance Data.FromJSON ManagedRuleGroupSummary where
   parseJSON =
@@ -111,22 +112,22 @@ instance Data.FromJSON ManagedRuleGroupSummary where
       "ManagedRuleGroupSummary"
       ( \x ->
           ManagedRuleGroupSummary'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Description")
-            Prelude.<*> (x Data..:? "VersioningSupported")
+            Prelude.<$> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "VendorName")
+            Prelude.<*> (x Data..:? "VersioningSupported")
       )
 
 instance Prelude.Hashable ManagedRuleGroupSummary where
   hashWithSalt _salt ManagedRuleGroupSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` versioningSupported
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` vendorName
+      `Prelude.hashWithSalt` versioningSupported
 
 instance Prelude.NFData ManagedRuleGroupSummary where
   rnf ManagedRuleGroupSummary' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf versioningSupported
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf vendorName
+      `Prelude.seq` Prelude.rnf versioningSupported

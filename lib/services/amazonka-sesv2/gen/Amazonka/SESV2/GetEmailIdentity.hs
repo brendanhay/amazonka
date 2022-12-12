@@ -36,15 +36,15 @@ module Amazonka.SESV2.GetEmailIdentity
     newGetEmailIdentityResponse,
 
     -- * Response Lenses
-    getEmailIdentityResponse_tags,
-    getEmailIdentityResponse_verifiedForSendingStatus,
-    getEmailIdentityResponse_feedbackForwardingStatus,
-    getEmailIdentityResponse_mailFromAttributes,
     getEmailIdentityResponse_configurationSetName,
-    getEmailIdentityResponse_policies,
     getEmailIdentityResponse_dkimAttributes,
+    getEmailIdentityResponse_feedbackForwardingStatus,
     getEmailIdentityResponse_identityType,
+    getEmailIdentityResponse_mailFromAttributes,
+    getEmailIdentityResponse_policies,
+    getEmailIdentityResponse_tags,
     getEmailIdentityResponse_verificationStatus,
+    getEmailIdentityResponse_verifiedForSendingStatus,
     getEmailIdentityResponse_httpStatus,
   )
 where
@@ -96,15 +96,15 @@ instance Core.AWSRequest GetEmailIdentity where
     Response.receiveJSON
       ( \s h x ->
           GetEmailIdentityResponse'
-            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "VerifiedForSendingStatus")
-            Prelude.<*> (x Data..?> "FeedbackForwardingStatus")
-            Prelude.<*> (x Data..?> "MailFromAttributes")
-            Prelude.<*> (x Data..?> "ConfigurationSetName")
-            Prelude.<*> (x Data..?> "Policies" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "ConfigurationSetName")
             Prelude.<*> (x Data..?> "DkimAttributes")
+            Prelude.<*> (x Data..?> "FeedbackForwardingStatus")
             Prelude.<*> (x Data..?> "IdentityType")
+            Prelude.<*> (x Data..?> "MailFromAttributes")
+            Prelude.<*> (x Data..?> "Policies" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "VerificationStatus")
+            Prelude.<*> (x Data..?> "VerifiedForSendingStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -138,14 +138,11 @@ instance Data.ToQuery GetEmailIdentity where
 --
 -- /See:/ 'newGetEmailIdentityResponse' smart constructor.
 data GetEmailIdentityResponse = GetEmailIdentityResponse'
-  { -- | An array of objects that define the tags (keys and values) that are
-    -- associated with the email identity.
-    tags :: Prelude.Maybe [Tag],
-    -- | Specifies whether or not the identity is verified. You can only send
-    -- email from verified email addresses or domains. For more information
-    -- about verifying identities, see the
-    -- <https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html Amazon Pinpoint User Guide>.
-    verifiedForSendingStatus :: Prelude.Maybe Prelude.Bool,
+  { -- | The configuration set used by default when sending from this identity.
+    configurationSetName :: Prelude.Maybe Prelude.Text,
+    -- | An object that contains information about the DKIM attributes for the
+    -- identity.
+    dkimAttributes :: Prelude.Maybe DkimAttributes,
     -- | The feedback forwarding configuration for the identity.
     --
     -- If the value is @true@, you receive email notifications when bounce or
@@ -158,19 +155,17 @@ data GetEmailIdentityResponse = GetEmailIdentityResponse'
     -- receive an email notification when these events occur (even if this
     -- setting is disabled).
     feedbackForwardingStatus :: Prelude.Maybe Prelude.Bool,
-    -- | An object that contains information about the Mail-From attributes for
-    -- the email identity.
-    mailFromAttributes :: Prelude.Maybe MailFromAttributes,
-    -- | The configuration set used by default when sending from this identity.
-    configurationSetName :: Prelude.Maybe Prelude.Text,
-    -- | A map of policy names to policies.
-    policies :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | An object that contains information about the DKIM attributes for the
-    -- identity.
-    dkimAttributes :: Prelude.Maybe DkimAttributes,
     -- | The email identity type. Note: the @MANAGED_DOMAIN@ identity type is not
     -- supported.
     identityType :: Prelude.Maybe IdentityType,
+    -- | An object that contains information about the Mail-From attributes for
+    -- the email identity.
+    mailFromAttributes :: Prelude.Maybe MailFromAttributes,
+    -- | A map of policy names to policies.
+    policies :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | An array of objects that define the tags (keys and values) that are
+    -- associated with the email identity.
+    tags :: Prelude.Maybe [Tag],
     -- | The verification status of the identity. The status can be one of the
     -- following:
     --
@@ -187,6 +182,11 @@ data GetEmailIdentityResponse = GetEmailIdentityResponse'
     -- -   @NOT_STARTED@ – The verification process hasn\'t been initiated for
     --     the identity.
     verificationStatus :: Prelude.Maybe VerificationStatus,
+    -- | Specifies whether or not the identity is verified. You can only send
+    -- email from verified email addresses or domains. For more information
+    -- about verifying identities, see the
+    -- <https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html Amazon Pinpoint User Guide>.
+    verifiedForSendingStatus :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -200,13 +200,10 @@ data GetEmailIdentityResponse = GetEmailIdentityResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'getEmailIdentityResponse_tags' - An array of objects that define the tags (keys and values) that are
--- associated with the email identity.
+-- 'configurationSetName', 'getEmailIdentityResponse_configurationSetName' - The configuration set used by default when sending from this identity.
 --
--- 'verifiedForSendingStatus', 'getEmailIdentityResponse_verifiedForSendingStatus' - Specifies whether or not the identity is verified. You can only send
--- email from verified email addresses or domains. For more information
--- about verifying identities, see the
--- <https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html Amazon Pinpoint User Guide>.
+-- 'dkimAttributes', 'getEmailIdentityResponse_dkimAttributes' - An object that contains information about the DKIM attributes for the
+-- identity.
 --
 -- 'feedbackForwardingStatus', 'getEmailIdentityResponse_feedbackForwardingStatus' - The feedback forwarding configuration for the identity.
 --
@@ -220,18 +217,16 @@ data GetEmailIdentityResponse = GetEmailIdentityResponse'
 -- receive an email notification when these events occur (even if this
 -- setting is disabled).
 --
+-- 'identityType', 'getEmailIdentityResponse_identityType' - The email identity type. Note: the @MANAGED_DOMAIN@ identity type is not
+-- supported.
+--
 -- 'mailFromAttributes', 'getEmailIdentityResponse_mailFromAttributes' - An object that contains information about the Mail-From attributes for
 -- the email identity.
 --
--- 'configurationSetName', 'getEmailIdentityResponse_configurationSetName' - The configuration set used by default when sending from this identity.
---
 -- 'policies', 'getEmailIdentityResponse_policies' - A map of policy names to policies.
 --
--- 'dkimAttributes', 'getEmailIdentityResponse_dkimAttributes' - An object that contains information about the DKIM attributes for the
--- identity.
---
--- 'identityType', 'getEmailIdentityResponse_identityType' - The email identity type. Note: the @MANAGED_DOMAIN@ identity type is not
--- supported.
+-- 'tags', 'getEmailIdentityResponse_tags' - An array of objects that define the tags (keys and values) that are
+-- associated with the email identity.
 --
 -- 'verificationStatus', 'getEmailIdentityResponse_verificationStatus' - The verification status of the identity. The status can be one of the
 -- following:
@@ -249,6 +244,11 @@ data GetEmailIdentityResponse = GetEmailIdentityResponse'
 -- -   @NOT_STARTED@ – The verification process hasn\'t been initiated for
 --     the identity.
 --
+-- 'verifiedForSendingStatus', 'getEmailIdentityResponse_verifiedForSendingStatus' - Specifies whether or not the identity is verified. You can only send
+-- email from verified email addresses or domains. For more information
+-- about verifying identities, see the
+-- <https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html Amazon Pinpoint User Guide>.
+--
 -- 'httpStatus', 'getEmailIdentityResponse_httpStatus' - The response's http status code.
 newGetEmailIdentityResponse ::
   -- | 'httpStatus'
@@ -256,29 +256,27 @@ newGetEmailIdentityResponse ::
   GetEmailIdentityResponse
 newGetEmailIdentityResponse pHttpStatus_ =
   GetEmailIdentityResponse'
-    { tags = Prelude.Nothing,
-      verifiedForSendingStatus = Prelude.Nothing,
-      feedbackForwardingStatus = Prelude.Nothing,
-      mailFromAttributes = Prelude.Nothing,
-      configurationSetName = Prelude.Nothing,
-      policies = Prelude.Nothing,
+    { configurationSetName =
+        Prelude.Nothing,
       dkimAttributes = Prelude.Nothing,
+      feedbackForwardingStatus = Prelude.Nothing,
       identityType = Prelude.Nothing,
+      mailFromAttributes = Prelude.Nothing,
+      policies = Prelude.Nothing,
+      tags = Prelude.Nothing,
       verificationStatus = Prelude.Nothing,
+      verifiedForSendingStatus = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | An array of objects that define the tags (keys and values) that are
--- associated with the email identity.
-getEmailIdentityResponse_tags :: Lens.Lens' GetEmailIdentityResponse (Prelude.Maybe [Tag])
-getEmailIdentityResponse_tags = Lens.lens (\GetEmailIdentityResponse' {tags} -> tags) (\s@GetEmailIdentityResponse' {} a -> s {tags = a} :: GetEmailIdentityResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The configuration set used by default when sending from this identity.
+getEmailIdentityResponse_configurationSetName :: Lens.Lens' GetEmailIdentityResponse (Prelude.Maybe Prelude.Text)
+getEmailIdentityResponse_configurationSetName = Lens.lens (\GetEmailIdentityResponse' {configurationSetName} -> configurationSetName) (\s@GetEmailIdentityResponse' {} a -> s {configurationSetName = a} :: GetEmailIdentityResponse)
 
--- | Specifies whether or not the identity is verified. You can only send
--- email from verified email addresses or domains. For more information
--- about verifying identities, see the
--- <https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html Amazon Pinpoint User Guide>.
-getEmailIdentityResponse_verifiedForSendingStatus :: Lens.Lens' GetEmailIdentityResponse (Prelude.Maybe Prelude.Bool)
-getEmailIdentityResponse_verifiedForSendingStatus = Lens.lens (\GetEmailIdentityResponse' {verifiedForSendingStatus} -> verifiedForSendingStatus) (\s@GetEmailIdentityResponse' {} a -> s {verifiedForSendingStatus = a} :: GetEmailIdentityResponse)
+-- | An object that contains information about the DKIM attributes for the
+-- identity.
+getEmailIdentityResponse_dkimAttributes :: Lens.Lens' GetEmailIdentityResponse (Prelude.Maybe DkimAttributes)
+getEmailIdentityResponse_dkimAttributes = Lens.lens (\GetEmailIdentityResponse' {dkimAttributes} -> dkimAttributes) (\s@GetEmailIdentityResponse' {} a -> s {dkimAttributes = a} :: GetEmailIdentityResponse)
 
 -- | The feedback forwarding configuration for the identity.
 --
@@ -294,28 +292,24 @@ getEmailIdentityResponse_verifiedForSendingStatus = Lens.lens (\GetEmailIdentity
 getEmailIdentityResponse_feedbackForwardingStatus :: Lens.Lens' GetEmailIdentityResponse (Prelude.Maybe Prelude.Bool)
 getEmailIdentityResponse_feedbackForwardingStatus = Lens.lens (\GetEmailIdentityResponse' {feedbackForwardingStatus} -> feedbackForwardingStatus) (\s@GetEmailIdentityResponse' {} a -> s {feedbackForwardingStatus = a} :: GetEmailIdentityResponse)
 
+-- | The email identity type. Note: the @MANAGED_DOMAIN@ identity type is not
+-- supported.
+getEmailIdentityResponse_identityType :: Lens.Lens' GetEmailIdentityResponse (Prelude.Maybe IdentityType)
+getEmailIdentityResponse_identityType = Lens.lens (\GetEmailIdentityResponse' {identityType} -> identityType) (\s@GetEmailIdentityResponse' {} a -> s {identityType = a} :: GetEmailIdentityResponse)
+
 -- | An object that contains information about the Mail-From attributes for
 -- the email identity.
 getEmailIdentityResponse_mailFromAttributes :: Lens.Lens' GetEmailIdentityResponse (Prelude.Maybe MailFromAttributes)
 getEmailIdentityResponse_mailFromAttributes = Lens.lens (\GetEmailIdentityResponse' {mailFromAttributes} -> mailFromAttributes) (\s@GetEmailIdentityResponse' {} a -> s {mailFromAttributes = a} :: GetEmailIdentityResponse)
 
--- | The configuration set used by default when sending from this identity.
-getEmailIdentityResponse_configurationSetName :: Lens.Lens' GetEmailIdentityResponse (Prelude.Maybe Prelude.Text)
-getEmailIdentityResponse_configurationSetName = Lens.lens (\GetEmailIdentityResponse' {configurationSetName} -> configurationSetName) (\s@GetEmailIdentityResponse' {} a -> s {configurationSetName = a} :: GetEmailIdentityResponse)
-
 -- | A map of policy names to policies.
 getEmailIdentityResponse_policies :: Lens.Lens' GetEmailIdentityResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 getEmailIdentityResponse_policies = Lens.lens (\GetEmailIdentityResponse' {policies} -> policies) (\s@GetEmailIdentityResponse' {} a -> s {policies = a} :: GetEmailIdentityResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | An object that contains information about the DKIM attributes for the
--- identity.
-getEmailIdentityResponse_dkimAttributes :: Lens.Lens' GetEmailIdentityResponse (Prelude.Maybe DkimAttributes)
-getEmailIdentityResponse_dkimAttributes = Lens.lens (\GetEmailIdentityResponse' {dkimAttributes} -> dkimAttributes) (\s@GetEmailIdentityResponse' {} a -> s {dkimAttributes = a} :: GetEmailIdentityResponse)
-
--- | The email identity type. Note: the @MANAGED_DOMAIN@ identity type is not
--- supported.
-getEmailIdentityResponse_identityType :: Lens.Lens' GetEmailIdentityResponse (Prelude.Maybe IdentityType)
-getEmailIdentityResponse_identityType = Lens.lens (\GetEmailIdentityResponse' {identityType} -> identityType) (\s@GetEmailIdentityResponse' {} a -> s {identityType = a} :: GetEmailIdentityResponse)
+-- | An array of objects that define the tags (keys and values) that are
+-- associated with the email identity.
+getEmailIdentityResponse_tags :: Lens.Lens' GetEmailIdentityResponse (Prelude.Maybe [Tag])
+getEmailIdentityResponse_tags = Lens.lens (\GetEmailIdentityResponse' {tags} -> tags) (\s@GetEmailIdentityResponse' {} a -> s {tags = a} :: GetEmailIdentityResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The verification status of the identity. The status can be one of the
 -- following:
@@ -335,19 +329,26 @@ getEmailIdentityResponse_identityType = Lens.lens (\GetEmailIdentityResponse' {i
 getEmailIdentityResponse_verificationStatus :: Lens.Lens' GetEmailIdentityResponse (Prelude.Maybe VerificationStatus)
 getEmailIdentityResponse_verificationStatus = Lens.lens (\GetEmailIdentityResponse' {verificationStatus} -> verificationStatus) (\s@GetEmailIdentityResponse' {} a -> s {verificationStatus = a} :: GetEmailIdentityResponse)
 
+-- | Specifies whether or not the identity is verified. You can only send
+-- email from verified email addresses or domains. For more information
+-- about verifying identities, see the
+-- <https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html Amazon Pinpoint User Guide>.
+getEmailIdentityResponse_verifiedForSendingStatus :: Lens.Lens' GetEmailIdentityResponse (Prelude.Maybe Prelude.Bool)
+getEmailIdentityResponse_verifiedForSendingStatus = Lens.lens (\GetEmailIdentityResponse' {verifiedForSendingStatus} -> verifiedForSendingStatus) (\s@GetEmailIdentityResponse' {} a -> s {verifiedForSendingStatus = a} :: GetEmailIdentityResponse)
+
 -- | The response's http status code.
 getEmailIdentityResponse_httpStatus :: Lens.Lens' GetEmailIdentityResponse Prelude.Int
 getEmailIdentityResponse_httpStatus = Lens.lens (\GetEmailIdentityResponse' {httpStatus} -> httpStatus) (\s@GetEmailIdentityResponse' {} a -> s {httpStatus = a} :: GetEmailIdentityResponse)
 
 instance Prelude.NFData GetEmailIdentityResponse where
   rnf GetEmailIdentityResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf verifiedForSendingStatus
-      `Prelude.seq` Prelude.rnf feedbackForwardingStatus
-      `Prelude.seq` Prelude.rnf mailFromAttributes
-      `Prelude.seq` Prelude.rnf configurationSetName
-      `Prelude.seq` Prelude.rnf policies
+    Prelude.rnf configurationSetName
       `Prelude.seq` Prelude.rnf dkimAttributes
+      `Prelude.seq` Prelude.rnf feedbackForwardingStatus
       `Prelude.seq` Prelude.rnf identityType
+      `Prelude.seq` Prelude.rnf mailFromAttributes
+      `Prelude.seq` Prelude.rnf policies
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf verificationStatus
+      `Prelude.seq` Prelude.rnf verifiedForSendingStatus
       `Prelude.seq` Prelude.rnf httpStatus

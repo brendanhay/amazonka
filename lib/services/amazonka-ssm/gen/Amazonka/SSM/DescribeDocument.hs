@@ -28,8 +28,8 @@ module Amazonka.SSM.DescribeDocument
     newDescribeDocument,
 
     -- * Request Lenses
-    describeDocument_versionName,
     describeDocument_documentVersion,
+    describeDocument_versionName,
     describeDocument_name,
 
     -- * Destructuring the Response
@@ -52,13 +52,13 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newDescribeDocument' smart constructor.
 data DescribeDocument = DescribeDocument'
-  { -- | An optional field specifying the version of the artifact associated with
+  { -- | The document version for which you want information. Can be a specific
+    -- version or the default version.
+    documentVersion :: Prelude.Maybe Prelude.Text,
+    -- | An optional field specifying the version of the artifact associated with
     -- the document. For example, \"Release 12, Update 6\". This value is
     -- unique across all versions of a document, and can\'t be changed.
     versionName :: Prelude.Maybe Prelude.Text,
-    -- | The document version for which you want information. Can be a specific
-    -- version or the default version.
-    documentVersion :: Prelude.Maybe Prelude.Text,
     -- | The name of the SSM document.
     name :: Prelude.Text
   }
@@ -72,12 +72,12 @@ data DescribeDocument = DescribeDocument'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'documentVersion', 'describeDocument_documentVersion' - The document version for which you want information. Can be a specific
+-- version or the default version.
+--
 -- 'versionName', 'describeDocument_versionName' - An optional field specifying the version of the artifact associated with
 -- the document. For example, \"Release 12, Update 6\". This value is
 -- unique across all versions of a document, and can\'t be changed.
---
--- 'documentVersion', 'describeDocument_documentVersion' - The document version for which you want information. Can be a specific
--- version or the default version.
 --
 -- 'name', 'describeDocument_name' - The name of the SSM document.
 newDescribeDocument ::
@@ -86,21 +86,22 @@ newDescribeDocument ::
   DescribeDocument
 newDescribeDocument pName_ =
   DescribeDocument'
-    { versionName = Prelude.Nothing,
-      documentVersion = Prelude.Nothing,
+    { documentVersion =
+        Prelude.Nothing,
+      versionName = Prelude.Nothing,
       name = pName_
     }
+
+-- | The document version for which you want information. Can be a specific
+-- version or the default version.
+describeDocument_documentVersion :: Lens.Lens' DescribeDocument (Prelude.Maybe Prelude.Text)
+describeDocument_documentVersion = Lens.lens (\DescribeDocument' {documentVersion} -> documentVersion) (\s@DescribeDocument' {} a -> s {documentVersion = a} :: DescribeDocument)
 
 -- | An optional field specifying the version of the artifact associated with
 -- the document. For example, \"Release 12, Update 6\". This value is
 -- unique across all versions of a document, and can\'t be changed.
 describeDocument_versionName :: Lens.Lens' DescribeDocument (Prelude.Maybe Prelude.Text)
 describeDocument_versionName = Lens.lens (\DescribeDocument' {versionName} -> versionName) (\s@DescribeDocument' {} a -> s {versionName = a} :: DescribeDocument)
-
--- | The document version for which you want information. Can be a specific
--- version or the default version.
-describeDocument_documentVersion :: Lens.Lens' DescribeDocument (Prelude.Maybe Prelude.Text)
-describeDocument_documentVersion = Lens.lens (\DescribeDocument' {documentVersion} -> documentVersion) (\s@DescribeDocument' {} a -> s {documentVersion = a} :: DescribeDocument)
 
 -- | The name of the SSM document.
 describeDocument_name :: Lens.Lens' DescribeDocument Prelude.Text
@@ -122,14 +123,14 @@ instance Core.AWSRequest DescribeDocument where
 
 instance Prelude.Hashable DescribeDocument where
   hashWithSalt _salt DescribeDocument' {..} =
-    _salt `Prelude.hashWithSalt` versionName
-      `Prelude.hashWithSalt` documentVersion
+    _salt `Prelude.hashWithSalt` documentVersion
+      `Prelude.hashWithSalt` versionName
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData DescribeDocument where
   rnf DescribeDocument' {..} =
-    Prelude.rnf versionName
-      `Prelude.seq` Prelude.rnf documentVersion
+    Prelude.rnf documentVersion
+      `Prelude.seq` Prelude.rnf versionName
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders DescribeDocument where
@@ -149,9 +150,9 @@ instance Data.ToJSON DescribeDocument where
   toJSON DescribeDocument' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("VersionName" Data..=) Prelude.<$> versionName,
-            ("DocumentVersion" Data..=)
+          [ ("DocumentVersion" Data..=)
               Prelude.<$> documentVersion,
+            ("VersionName" Data..=) Prelude.<$> versionName,
             Prelude.Just ("Name" Data..= name)
           ]
       )

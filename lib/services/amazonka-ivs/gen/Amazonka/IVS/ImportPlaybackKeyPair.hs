@@ -32,8 +32,8 @@ module Amazonka.IVS.ImportPlaybackKeyPair
     newImportPlaybackKeyPair,
 
     -- * Request Lenses
-    importPlaybackKeyPair_tags,
     importPlaybackKeyPair_name,
+    importPlaybackKeyPair_tags,
     importPlaybackKeyPair_publicKeyMaterial,
 
     -- * Destructuring the Response
@@ -56,15 +56,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newImportPlaybackKeyPair' smart constructor.
 data ImportPlaybackKeyPair = ImportPlaybackKeyPair'
-  { -- | Any tags provided with the request are added to the playback key pair
+  { -- | Playback-key-pair name. The value does not need to be unique.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Any tags provided with the request are added to the playback key pair
     -- tags. See
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
     -- for more information, including restrictions that apply to tags and
     -- \"Tag naming limits and requirements\"; Amazon IVS has no
     -- service-specific constraints beyond what is documented there.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Playback-key-pair name. The value does not need to be unique.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The public portion of a customer-generated key pair.
     publicKeyMaterial :: Prelude.Text
   }
@@ -78,14 +78,14 @@ data ImportPlaybackKeyPair = ImportPlaybackKeyPair'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'importPlaybackKeyPair_name' - Playback-key-pair name. The value does not need to be unique.
+--
 -- 'tags', 'importPlaybackKeyPair_tags' - Any tags provided with the request are added to the playback key pair
 -- tags. See
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
 -- for more information, including restrictions that apply to tags and
 -- \"Tag naming limits and requirements\"; Amazon IVS has no
 -- service-specific constraints beyond what is documented there.
---
--- 'name', 'importPlaybackKeyPair_name' - Playback-key-pair name. The value does not need to be unique.
 --
 -- 'publicKeyMaterial', 'importPlaybackKeyPair_publicKeyMaterial' - The public portion of a customer-generated key pair.
 newImportPlaybackKeyPair ::
@@ -94,10 +94,14 @@ newImportPlaybackKeyPair ::
   ImportPlaybackKeyPair
 newImportPlaybackKeyPair pPublicKeyMaterial_ =
   ImportPlaybackKeyPair'
-    { tags = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      tags = Prelude.Nothing,
       publicKeyMaterial = pPublicKeyMaterial_
     }
+
+-- | Playback-key-pair name. The value does not need to be unique.
+importPlaybackKeyPair_name :: Lens.Lens' ImportPlaybackKeyPair (Prelude.Maybe Prelude.Text)
+importPlaybackKeyPair_name = Lens.lens (\ImportPlaybackKeyPair' {name} -> name) (\s@ImportPlaybackKeyPair' {} a -> s {name = a} :: ImportPlaybackKeyPair)
 
 -- | Any tags provided with the request are added to the playback key pair
 -- tags. See
@@ -107,10 +111,6 @@ newImportPlaybackKeyPair pPublicKeyMaterial_ =
 -- service-specific constraints beyond what is documented there.
 importPlaybackKeyPair_tags :: Lens.Lens' ImportPlaybackKeyPair (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 importPlaybackKeyPair_tags = Lens.lens (\ImportPlaybackKeyPair' {tags} -> tags) (\s@ImportPlaybackKeyPair' {} a -> s {tags = a} :: ImportPlaybackKeyPair) Prelude.. Lens.mapping Lens.coerced
-
--- | Playback-key-pair name. The value does not need to be unique.
-importPlaybackKeyPair_name :: Lens.Lens' ImportPlaybackKeyPair (Prelude.Maybe Prelude.Text)
-importPlaybackKeyPair_name = Lens.lens (\ImportPlaybackKeyPair' {name} -> name) (\s@ImportPlaybackKeyPair' {} a -> s {name = a} :: ImportPlaybackKeyPair)
 
 -- | The public portion of a customer-generated key pair.
 importPlaybackKeyPair_publicKeyMaterial :: Lens.Lens' ImportPlaybackKeyPair Prelude.Text
@@ -132,14 +132,14 @@ instance Core.AWSRequest ImportPlaybackKeyPair where
 
 instance Prelude.Hashable ImportPlaybackKeyPair where
   hashWithSalt _salt ImportPlaybackKeyPair' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` publicKeyMaterial
 
 instance Prelude.NFData ImportPlaybackKeyPair where
   rnf ImportPlaybackKeyPair' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf publicKeyMaterial
 
 instance Data.ToHeaders ImportPlaybackKeyPair where
@@ -157,8 +157,8 @@ instance Data.ToJSON ImportPlaybackKeyPair where
   toJSON ImportPlaybackKeyPair' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("name" Data..=) Prelude.<$> name,
+          [ ("name" Data..=) Prelude.<$> name,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("publicKeyMaterial" Data..= publicKeyMaterial)
           ]

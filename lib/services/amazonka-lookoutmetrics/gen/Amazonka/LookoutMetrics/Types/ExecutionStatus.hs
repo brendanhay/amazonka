@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newExecutionStatus' smart constructor.
 data ExecutionStatus = ExecutionStatus'
-  { -- | The run\'s timestamp.
-    timestamp :: Prelude.Maybe Prelude.Text,
+  { -- | The reason that the run failed, if applicable.
+    failureReason :: Prelude.Maybe Prelude.Text,
     -- | The run\'s status.
     status :: Prelude.Maybe AnomalyDetectionTaskStatus,
-    -- | The reason that the run failed, if applicable.
-    failureReason :: Prelude.Maybe Prelude.Text
+    -- | The run\'s timestamp.
+    timestamp :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,31 +46,31 @@ data ExecutionStatus = ExecutionStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'timestamp', 'executionStatus_timestamp' - The run\'s timestamp.
+-- 'failureReason', 'executionStatus_failureReason' - The reason that the run failed, if applicable.
 --
 -- 'status', 'executionStatus_status' - The run\'s status.
 --
--- 'failureReason', 'executionStatus_failureReason' - The reason that the run failed, if applicable.
+-- 'timestamp', 'executionStatus_timestamp' - The run\'s timestamp.
 newExecutionStatus ::
   ExecutionStatus
 newExecutionStatus =
   ExecutionStatus'
-    { timestamp = Prelude.Nothing,
+    { failureReason = Prelude.Nothing,
       status = Prelude.Nothing,
-      failureReason = Prelude.Nothing
+      timestamp = Prelude.Nothing
     }
 
--- | The run\'s timestamp.
-executionStatus_timestamp :: Lens.Lens' ExecutionStatus (Prelude.Maybe Prelude.Text)
-executionStatus_timestamp = Lens.lens (\ExecutionStatus' {timestamp} -> timestamp) (\s@ExecutionStatus' {} a -> s {timestamp = a} :: ExecutionStatus)
+-- | The reason that the run failed, if applicable.
+executionStatus_failureReason :: Lens.Lens' ExecutionStatus (Prelude.Maybe Prelude.Text)
+executionStatus_failureReason = Lens.lens (\ExecutionStatus' {failureReason} -> failureReason) (\s@ExecutionStatus' {} a -> s {failureReason = a} :: ExecutionStatus)
 
 -- | The run\'s status.
 executionStatus_status :: Lens.Lens' ExecutionStatus (Prelude.Maybe AnomalyDetectionTaskStatus)
 executionStatus_status = Lens.lens (\ExecutionStatus' {status} -> status) (\s@ExecutionStatus' {} a -> s {status = a} :: ExecutionStatus)
 
--- | The reason that the run failed, if applicable.
-executionStatus_failureReason :: Lens.Lens' ExecutionStatus (Prelude.Maybe Prelude.Text)
-executionStatus_failureReason = Lens.lens (\ExecutionStatus' {failureReason} -> failureReason) (\s@ExecutionStatus' {} a -> s {failureReason = a} :: ExecutionStatus)
+-- | The run\'s timestamp.
+executionStatus_timestamp :: Lens.Lens' ExecutionStatus (Prelude.Maybe Prelude.Text)
+executionStatus_timestamp = Lens.lens (\ExecutionStatus' {timestamp} -> timestamp) (\s@ExecutionStatus' {} a -> s {timestamp = a} :: ExecutionStatus)
 
 instance Data.FromJSON ExecutionStatus where
   parseJSON =
@@ -78,19 +78,19 @@ instance Data.FromJSON ExecutionStatus where
       "ExecutionStatus"
       ( \x ->
           ExecutionStatus'
-            Prelude.<$> (x Data..:? "Timestamp")
+            Prelude.<$> (x Data..:? "FailureReason")
             Prelude.<*> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "FailureReason")
+            Prelude.<*> (x Data..:? "Timestamp")
       )
 
 instance Prelude.Hashable ExecutionStatus where
   hashWithSalt _salt ExecutionStatus' {..} =
-    _salt `Prelude.hashWithSalt` timestamp
+    _salt `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` timestamp
 
 instance Prelude.NFData ExecutionStatus where
   rnf ExecutionStatus' {..} =
-    Prelude.rnf timestamp
+    Prelude.rnf failureReason
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf timestamp

@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHighlight' smart constructor.
 data Highlight = Highlight'
-  { -- | The highlight type.
-    type' :: Prelude.Maybe HighlightType,
-    -- | Indicates whether the response is the best response. True if this is the
+  { -- | Indicates whether the response is the best response. True if this is the
     -- best response; otherwise, false.
     topAnswer :: Prelude.Maybe Prelude.Bool,
+    -- | The highlight type.
+    type' :: Prelude.Maybe HighlightType,
     -- | The zero-based location in the response string where the highlight
     -- starts.
     beginOffset :: Prelude.Int,
@@ -51,10 +51,10 @@ data Highlight = Highlight'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'highlight_type' - The highlight type.
---
 -- 'topAnswer', 'highlight_topAnswer' - Indicates whether the response is the best response. True if this is the
 -- best response; otherwise, false.
+--
+-- 'type'', 'highlight_type' - The highlight type.
 --
 -- 'beginOffset', 'highlight_beginOffset' - The zero-based location in the response string where the highlight
 -- starts.
@@ -68,20 +68,20 @@ newHighlight ::
   Highlight
 newHighlight pBeginOffset_ pEndOffset_ =
   Highlight'
-    { type' = Prelude.Nothing,
-      topAnswer = Prelude.Nothing,
+    { topAnswer = Prelude.Nothing,
+      type' = Prelude.Nothing,
       beginOffset = pBeginOffset_,
       endOffset = pEndOffset_
     }
-
--- | The highlight type.
-highlight_type :: Lens.Lens' Highlight (Prelude.Maybe HighlightType)
-highlight_type = Lens.lens (\Highlight' {type'} -> type') (\s@Highlight' {} a -> s {type' = a} :: Highlight)
 
 -- | Indicates whether the response is the best response. True if this is the
 -- best response; otherwise, false.
 highlight_topAnswer :: Lens.Lens' Highlight (Prelude.Maybe Prelude.Bool)
 highlight_topAnswer = Lens.lens (\Highlight' {topAnswer} -> topAnswer) (\s@Highlight' {} a -> s {topAnswer = a} :: Highlight)
+
+-- | The highlight type.
+highlight_type :: Lens.Lens' Highlight (Prelude.Maybe HighlightType)
+highlight_type = Lens.lens (\Highlight' {type'} -> type') (\s@Highlight' {} a -> s {type' = a} :: Highlight)
 
 -- | The zero-based location in the response string where the highlight
 -- starts.
@@ -98,22 +98,22 @@ instance Data.FromJSON Highlight where
       "Highlight"
       ( \x ->
           Highlight'
-            Prelude.<$> (x Data..:? "Type")
-            Prelude.<*> (x Data..:? "TopAnswer")
+            Prelude.<$> (x Data..:? "TopAnswer")
+            Prelude.<*> (x Data..:? "Type")
             Prelude.<*> (x Data..: "BeginOffset")
             Prelude.<*> (x Data..: "EndOffset")
       )
 
 instance Prelude.Hashable Highlight where
   hashWithSalt _salt Highlight' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` topAnswer
+    _salt `Prelude.hashWithSalt` topAnswer
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` beginOffset
       `Prelude.hashWithSalt` endOffset
 
 instance Prelude.NFData Highlight where
   rnf Highlight' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf topAnswer
+    Prelude.rnf topAnswer
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf beginOffset
       `Prelude.seq` Prelude.rnf endOffset

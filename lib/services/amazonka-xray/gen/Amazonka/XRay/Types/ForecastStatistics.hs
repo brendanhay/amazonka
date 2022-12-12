@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newForecastStatistics' smart constructor.
 data ForecastStatistics = ForecastStatistics'
-  { -- | The lower limit of fault counts for a service.
-    faultCountLow :: Prelude.Maybe Prelude.Integer,
-    -- | The upper limit of fault counts for a service.
-    faultCountHigh :: Prelude.Maybe Prelude.Integer
+  { -- | The upper limit of fault counts for a service.
+    faultCountHigh :: Prelude.Maybe Prelude.Integer,
+    -- | The lower limit of fault counts for a service.
+    faultCountLow :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data ForecastStatistics = ForecastStatistics'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'faultCountLow', 'forecastStatistics_faultCountLow' - The lower limit of fault counts for a service.
---
 -- 'faultCountHigh', 'forecastStatistics_faultCountHigh' - The upper limit of fault counts for a service.
+--
+-- 'faultCountLow', 'forecastStatistics_faultCountLow' - The lower limit of fault counts for a service.
 newForecastStatistics ::
   ForecastStatistics
 newForecastStatistics =
   ForecastStatistics'
-    { faultCountLow =
+    { faultCountHigh =
         Prelude.Nothing,
-      faultCountHigh = Prelude.Nothing
+      faultCountLow = Prelude.Nothing
     }
-
--- | The lower limit of fault counts for a service.
-forecastStatistics_faultCountLow :: Lens.Lens' ForecastStatistics (Prelude.Maybe Prelude.Integer)
-forecastStatistics_faultCountLow = Lens.lens (\ForecastStatistics' {faultCountLow} -> faultCountLow) (\s@ForecastStatistics' {} a -> s {faultCountLow = a} :: ForecastStatistics)
 
 -- | The upper limit of fault counts for a service.
 forecastStatistics_faultCountHigh :: Lens.Lens' ForecastStatistics (Prelude.Maybe Prelude.Integer)
 forecastStatistics_faultCountHigh = Lens.lens (\ForecastStatistics' {faultCountHigh} -> faultCountHigh) (\s@ForecastStatistics' {} a -> s {faultCountHigh = a} :: ForecastStatistics)
+
+-- | The lower limit of fault counts for a service.
+forecastStatistics_faultCountLow :: Lens.Lens' ForecastStatistics (Prelude.Maybe Prelude.Integer)
+forecastStatistics_faultCountLow = Lens.lens (\ForecastStatistics' {faultCountLow} -> faultCountLow) (\s@ForecastStatistics' {} a -> s {faultCountLow = a} :: ForecastStatistics)
 
 instance Data.FromJSON ForecastStatistics where
   parseJSON =
@@ -70,16 +70,16 @@ instance Data.FromJSON ForecastStatistics where
       "ForecastStatistics"
       ( \x ->
           ForecastStatistics'
-            Prelude.<$> (x Data..:? "FaultCountLow")
-            Prelude.<*> (x Data..:? "FaultCountHigh")
+            Prelude.<$> (x Data..:? "FaultCountHigh")
+            Prelude.<*> (x Data..:? "FaultCountLow")
       )
 
 instance Prelude.Hashable ForecastStatistics where
   hashWithSalt _salt ForecastStatistics' {..} =
-    _salt `Prelude.hashWithSalt` faultCountLow
-      `Prelude.hashWithSalt` faultCountHigh
+    _salt `Prelude.hashWithSalt` faultCountHigh
+      `Prelude.hashWithSalt` faultCountLow
 
 instance Prelude.NFData ForecastStatistics where
   rnf ForecastStatistics' {..} =
-    Prelude.rnf faultCountLow
-      `Prelude.seq` Prelude.rnf faultCountHigh
+    Prelude.rnf faultCountHigh
+      `Prelude.seq` Prelude.rnf faultCountLow

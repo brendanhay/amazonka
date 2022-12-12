@@ -37,11 +37,11 @@ module Amazonka.VoiceId.EvaluateSession
 
     -- * Response Lenses
     evaluateSessionResponse_authenticationResult,
-    evaluateSessionResponse_fraudDetectionResult,
-    evaluateSessionResponse_streamingStatus,
-    evaluateSessionResponse_sessionId,
     evaluateSessionResponse_domainId,
+    evaluateSessionResponse_fraudDetectionResult,
+    evaluateSessionResponse_sessionId,
     evaluateSessionResponse_sessionName,
+    evaluateSessionResponse_streamingStatus,
     evaluateSessionResponse_httpStatus,
   )
 where
@@ -108,11 +108,11 @@ instance Core.AWSRequest EvaluateSession where
       ( \s h x ->
           EvaluateSessionResponse'
             Prelude.<$> (x Data..?> "AuthenticationResult")
-            Prelude.<*> (x Data..?> "FraudDetectionResult")
-            Prelude.<*> (x Data..?> "StreamingStatus")
-            Prelude.<*> (x Data..?> "SessionId")
             Prelude.<*> (x Data..?> "DomainId")
+            Prelude.<*> (x Data..?> "FraudDetectionResult")
+            Prelude.<*> (x Data..?> "SessionId")
             Prelude.<*> (x Data..?> "SessionName")
+            Prelude.<*> (x Data..?> "StreamingStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,9 +160,15 @@ data EvaluateSessionResponse = EvaluateSessionResponse'
   { -- | Details resulting from the authentication process, such as
     -- authentication decision and authentication score.
     authenticationResult :: Prelude.Maybe AuthenticationResult,
+    -- | The identifier of the domain containing the session.
+    domainId :: Prelude.Maybe Prelude.Text,
     -- | Details resulting from the fraud detection process, such as fraud
     -- detection decision and risk score.
     fraudDetectionResult :: Prelude.Maybe FraudDetectionResult,
+    -- | The service-generated identifier of the session.
+    sessionId :: Prelude.Maybe Prelude.Text,
+    -- | The client-provided name of the session.
+    sessionName :: Prelude.Maybe Prelude.Text,
     -- | The current status of audio streaming for this session. This field is
     -- useful to infer next steps when the Authentication or Fraud Detection
     -- results are empty or the decision is @NOT_ENOUGH_SPEECH@. In this
@@ -173,12 +179,6 @@ data EvaluateSessionResponse = EvaluateSessionResponse'
     -- that the previously streamed session did not have enough speech to
     -- perform evaluation, and a new streaming session is needed to try again.
     streamingStatus :: Prelude.Maybe StreamingStatus,
-    -- | The service-generated identifier of the session.
-    sessionId :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the domain containing the session.
-    domainId :: Prelude.Maybe Prelude.Text,
-    -- | The client-provided name of the session.
-    sessionName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -195,8 +195,14 @@ data EvaluateSessionResponse = EvaluateSessionResponse'
 -- 'authenticationResult', 'evaluateSessionResponse_authenticationResult' - Details resulting from the authentication process, such as
 -- authentication decision and authentication score.
 --
+-- 'domainId', 'evaluateSessionResponse_domainId' - The identifier of the domain containing the session.
+--
 -- 'fraudDetectionResult', 'evaluateSessionResponse_fraudDetectionResult' - Details resulting from the fraud detection process, such as fraud
 -- detection decision and risk score.
+--
+-- 'sessionId', 'evaluateSessionResponse_sessionId' - The service-generated identifier of the session.
+--
+-- 'sessionName', 'evaluateSessionResponse_sessionName' - The client-provided name of the session.
 --
 -- 'streamingStatus', 'evaluateSessionResponse_streamingStatus' - The current status of audio streaming for this session. This field is
 -- useful to infer next steps when the Authentication or Fraud Detection
@@ -208,12 +214,6 @@ data EvaluateSessionResponse = EvaluateSessionResponse'
 -- that the previously streamed session did not have enough speech to
 -- perform evaluation, and a new streaming session is needed to try again.
 --
--- 'sessionId', 'evaluateSessionResponse_sessionId' - The service-generated identifier of the session.
---
--- 'domainId', 'evaluateSessionResponse_domainId' - The identifier of the domain containing the session.
---
--- 'sessionName', 'evaluateSessionResponse_sessionName' - The client-provided name of the session.
---
 -- 'httpStatus', 'evaluateSessionResponse_httpStatus' - The response's http status code.
 newEvaluateSessionResponse ::
   -- | 'httpStatus'
@@ -223,11 +223,11 @@ newEvaluateSessionResponse pHttpStatus_ =
   EvaluateSessionResponse'
     { authenticationResult =
         Prelude.Nothing,
-      fraudDetectionResult = Prelude.Nothing,
-      streamingStatus = Prelude.Nothing,
-      sessionId = Prelude.Nothing,
       domainId = Prelude.Nothing,
+      fraudDetectionResult = Prelude.Nothing,
+      sessionId = Prelude.Nothing,
       sessionName = Prelude.Nothing,
+      streamingStatus = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -236,10 +236,22 @@ newEvaluateSessionResponse pHttpStatus_ =
 evaluateSessionResponse_authenticationResult :: Lens.Lens' EvaluateSessionResponse (Prelude.Maybe AuthenticationResult)
 evaluateSessionResponse_authenticationResult = Lens.lens (\EvaluateSessionResponse' {authenticationResult} -> authenticationResult) (\s@EvaluateSessionResponse' {} a -> s {authenticationResult = a} :: EvaluateSessionResponse)
 
+-- | The identifier of the domain containing the session.
+evaluateSessionResponse_domainId :: Lens.Lens' EvaluateSessionResponse (Prelude.Maybe Prelude.Text)
+evaluateSessionResponse_domainId = Lens.lens (\EvaluateSessionResponse' {domainId} -> domainId) (\s@EvaluateSessionResponse' {} a -> s {domainId = a} :: EvaluateSessionResponse)
+
 -- | Details resulting from the fraud detection process, such as fraud
 -- detection decision and risk score.
 evaluateSessionResponse_fraudDetectionResult :: Lens.Lens' EvaluateSessionResponse (Prelude.Maybe FraudDetectionResult)
 evaluateSessionResponse_fraudDetectionResult = Lens.lens (\EvaluateSessionResponse' {fraudDetectionResult} -> fraudDetectionResult) (\s@EvaluateSessionResponse' {} a -> s {fraudDetectionResult = a} :: EvaluateSessionResponse)
+
+-- | The service-generated identifier of the session.
+evaluateSessionResponse_sessionId :: Lens.Lens' EvaluateSessionResponse (Prelude.Maybe Prelude.Text)
+evaluateSessionResponse_sessionId = Lens.lens (\EvaluateSessionResponse' {sessionId} -> sessionId) (\s@EvaluateSessionResponse' {} a -> s {sessionId = a} :: EvaluateSessionResponse)
+
+-- | The client-provided name of the session.
+evaluateSessionResponse_sessionName :: Lens.Lens' EvaluateSessionResponse (Prelude.Maybe Prelude.Text)
+evaluateSessionResponse_sessionName = Lens.lens (\EvaluateSessionResponse' {sessionName} -> sessionName) (\s@EvaluateSessionResponse' {} a -> s {sessionName = a} :: EvaluateSessionResponse)
 
 -- | The current status of audio streaming for this session. This field is
 -- useful to infer next steps when the Authentication or Fraud Detection
@@ -253,18 +265,6 @@ evaluateSessionResponse_fraudDetectionResult = Lens.lens (\EvaluateSessionRespon
 evaluateSessionResponse_streamingStatus :: Lens.Lens' EvaluateSessionResponse (Prelude.Maybe StreamingStatus)
 evaluateSessionResponse_streamingStatus = Lens.lens (\EvaluateSessionResponse' {streamingStatus} -> streamingStatus) (\s@EvaluateSessionResponse' {} a -> s {streamingStatus = a} :: EvaluateSessionResponse)
 
--- | The service-generated identifier of the session.
-evaluateSessionResponse_sessionId :: Lens.Lens' EvaluateSessionResponse (Prelude.Maybe Prelude.Text)
-evaluateSessionResponse_sessionId = Lens.lens (\EvaluateSessionResponse' {sessionId} -> sessionId) (\s@EvaluateSessionResponse' {} a -> s {sessionId = a} :: EvaluateSessionResponse)
-
--- | The identifier of the domain containing the session.
-evaluateSessionResponse_domainId :: Lens.Lens' EvaluateSessionResponse (Prelude.Maybe Prelude.Text)
-evaluateSessionResponse_domainId = Lens.lens (\EvaluateSessionResponse' {domainId} -> domainId) (\s@EvaluateSessionResponse' {} a -> s {domainId = a} :: EvaluateSessionResponse)
-
--- | The client-provided name of the session.
-evaluateSessionResponse_sessionName :: Lens.Lens' EvaluateSessionResponse (Prelude.Maybe Prelude.Text)
-evaluateSessionResponse_sessionName = Lens.lens (\EvaluateSessionResponse' {sessionName} -> sessionName) (\s@EvaluateSessionResponse' {} a -> s {sessionName = a} :: EvaluateSessionResponse)
-
 -- | The response's http status code.
 evaluateSessionResponse_httpStatus :: Lens.Lens' EvaluateSessionResponse Prelude.Int
 evaluateSessionResponse_httpStatus = Lens.lens (\EvaluateSessionResponse' {httpStatus} -> httpStatus) (\s@EvaluateSessionResponse' {} a -> s {httpStatus = a} :: EvaluateSessionResponse)
@@ -272,9 +272,9 @@ evaluateSessionResponse_httpStatus = Lens.lens (\EvaluateSessionResponse' {httpS
 instance Prelude.NFData EvaluateSessionResponse where
   rnf EvaluateSessionResponse' {..} =
     Prelude.rnf authenticationResult
-      `Prelude.seq` Prelude.rnf fraudDetectionResult
-      `Prelude.seq` Prelude.rnf streamingStatus
-      `Prelude.seq` Prelude.rnf sessionId
       `Prelude.seq` Prelude.rnf domainId
+      `Prelude.seq` Prelude.rnf fraudDetectionResult
+      `Prelude.seq` Prelude.rnf sessionId
       `Prelude.seq` Prelude.rnf sessionName
+      `Prelude.seq` Prelude.rnf streamingStatus
       `Prelude.seq` Prelude.rnf httpStatus

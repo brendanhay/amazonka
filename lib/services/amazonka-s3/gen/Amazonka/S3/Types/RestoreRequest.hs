@@ -34,25 +34,25 @@ import Amazonka.S3.Types.Tier
 --
 -- /See:/ 'newRestoreRequest' smart constructor.
 data RestoreRequest = RestoreRequest'
-  { -- | S3 Glacier related parameters pertaining to this job. Do not use with
-    -- restores that specify @OutputLocation@.
-    glacierJobParameters :: Prelude.Maybe GlacierJobParameters,
-    -- | Type of restore request.
-    type' :: Prelude.Maybe RestoreRequestType,
-    -- | Lifetime of the active copy in days. Do not use with restores that
+  { -- | Lifetime of the active copy in days. Do not use with restores that
     -- specify @OutputLocation@.
     --
     -- The Days element is required for regular restores, and must not be
     -- provided for select requests.
     days :: Prelude.Maybe Prelude.Int,
+    -- | The optional description for the job.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | S3 Glacier related parameters pertaining to this job. Do not use with
+    -- restores that specify @OutputLocation@.
+    glacierJobParameters :: Prelude.Maybe GlacierJobParameters,
     -- | Describes the location where the restore job\'s output is stored.
     outputLocation :: Prelude.Maybe OutputLocation,
     -- | Describes the parameters for Select job types.
     selectParameters :: Prelude.Maybe SelectParameters,
-    -- | The optional description for the job.
-    description :: Prelude.Maybe Prelude.Text,
     -- | Retrieval tier at which the restore will be processed.
-    tier :: Prelude.Maybe Tier
+    tier :: Prelude.Maybe Tier,
+    -- | Type of restore request.
+    type' :: Prelude.Maybe RestoreRequestType
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -64,46 +64,36 @@ data RestoreRequest = RestoreRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'glacierJobParameters', 'restoreRequest_glacierJobParameters' - S3 Glacier related parameters pertaining to this job. Do not use with
--- restores that specify @OutputLocation@.
---
--- 'type'', 'restoreRequest_type' - Type of restore request.
---
 -- 'days', 'restoreRequest_days' - Lifetime of the active copy in days. Do not use with restores that
 -- specify @OutputLocation@.
 --
 -- The Days element is required for regular restores, and must not be
 -- provided for select requests.
 --
+-- 'description', 'restoreRequest_description' - The optional description for the job.
+--
+-- 'glacierJobParameters', 'restoreRequest_glacierJobParameters' - S3 Glacier related parameters pertaining to this job. Do not use with
+-- restores that specify @OutputLocation@.
+--
 -- 'outputLocation', 'restoreRequest_outputLocation' - Describes the location where the restore job\'s output is stored.
 --
 -- 'selectParameters', 'restoreRequest_selectParameters' - Describes the parameters for Select job types.
 --
--- 'description', 'restoreRequest_description' - The optional description for the job.
---
 -- 'tier', 'restoreRequest_tier' - Retrieval tier at which the restore will be processed.
+--
+-- 'type'', 'restoreRequest_type' - Type of restore request.
 newRestoreRequest ::
   RestoreRequest
 newRestoreRequest =
   RestoreRequest'
-    { glacierJobParameters =
-        Prelude.Nothing,
-      type' = Prelude.Nothing,
-      days = Prelude.Nothing,
+    { days = Prelude.Nothing,
+      description = Prelude.Nothing,
+      glacierJobParameters = Prelude.Nothing,
       outputLocation = Prelude.Nothing,
       selectParameters = Prelude.Nothing,
-      description = Prelude.Nothing,
-      tier = Prelude.Nothing
+      tier = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
-
--- | S3 Glacier related parameters pertaining to this job. Do not use with
--- restores that specify @OutputLocation@.
-restoreRequest_glacierJobParameters :: Lens.Lens' RestoreRequest (Prelude.Maybe GlacierJobParameters)
-restoreRequest_glacierJobParameters = Lens.lens (\RestoreRequest' {glacierJobParameters} -> glacierJobParameters) (\s@RestoreRequest' {} a -> s {glacierJobParameters = a} :: RestoreRequest)
-
--- | Type of restore request.
-restoreRequest_type :: Lens.Lens' RestoreRequest (Prelude.Maybe RestoreRequestType)
-restoreRequest_type = Lens.lens (\RestoreRequest' {type'} -> type') (\s@RestoreRequest' {} a -> s {type' = a} :: RestoreRequest)
 
 -- | Lifetime of the active copy in days. Do not use with restores that
 -- specify @OutputLocation@.
@@ -113,6 +103,15 @@ restoreRequest_type = Lens.lens (\RestoreRequest' {type'} -> type') (\s@RestoreR
 restoreRequest_days :: Lens.Lens' RestoreRequest (Prelude.Maybe Prelude.Int)
 restoreRequest_days = Lens.lens (\RestoreRequest' {days} -> days) (\s@RestoreRequest' {} a -> s {days = a} :: RestoreRequest)
 
+-- | The optional description for the job.
+restoreRequest_description :: Lens.Lens' RestoreRequest (Prelude.Maybe Prelude.Text)
+restoreRequest_description = Lens.lens (\RestoreRequest' {description} -> description) (\s@RestoreRequest' {} a -> s {description = a} :: RestoreRequest)
+
+-- | S3 Glacier related parameters pertaining to this job. Do not use with
+-- restores that specify @OutputLocation@.
+restoreRequest_glacierJobParameters :: Lens.Lens' RestoreRequest (Prelude.Maybe GlacierJobParameters)
+restoreRequest_glacierJobParameters = Lens.lens (\RestoreRequest' {glacierJobParameters} -> glacierJobParameters) (\s@RestoreRequest' {} a -> s {glacierJobParameters = a} :: RestoreRequest)
+
 -- | Describes the location where the restore job\'s output is stored.
 restoreRequest_outputLocation :: Lens.Lens' RestoreRequest (Prelude.Maybe OutputLocation)
 restoreRequest_outputLocation = Lens.lens (\RestoreRequest' {outputLocation} -> outputLocation) (\s@RestoreRequest' {} a -> s {outputLocation = a} :: RestoreRequest)
@@ -121,42 +120,42 @@ restoreRequest_outputLocation = Lens.lens (\RestoreRequest' {outputLocation} -> 
 restoreRequest_selectParameters :: Lens.Lens' RestoreRequest (Prelude.Maybe SelectParameters)
 restoreRequest_selectParameters = Lens.lens (\RestoreRequest' {selectParameters} -> selectParameters) (\s@RestoreRequest' {} a -> s {selectParameters = a} :: RestoreRequest)
 
--- | The optional description for the job.
-restoreRequest_description :: Lens.Lens' RestoreRequest (Prelude.Maybe Prelude.Text)
-restoreRequest_description = Lens.lens (\RestoreRequest' {description} -> description) (\s@RestoreRequest' {} a -> s {description = a} :: RestoreRequest)
-
 -- | Retrieval tier at which the restore will be processed.
 restoreRequest_tier :: Lens.Lens' RestoreRequest (Prelude.Maybe Tier)
 restoreRequest_tier = Lens.lens (\RestoreRequest' {tier} -> tier) (\s@RestoreRequest' {} a -> s {tier = a} :: RestoreRequest)
 
+-- | Type of restore request.
+restoreRequest_type :: Lens.Lens' RestoreRequest (Prelude.Maybe RestoreRequestType)
+restoreRequest_type = Lens.lens (\RestoreRequest' {type'} -> type') (\s@RestoreRequest' {} a -> s {type' = a} :: RestoreRequest)
+
 instance Prelude.Hashable RestoreRequest where
   hashWithSalt _salt RestoreRequest' {..} =
-    _salt `Prelude.hashWithSalt` glacierJobParameters
-      `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` days
+    _salt `Prelude.hashWithSalt` days
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` glacierJobParameters
       `Prelude.hashWithSalt` outputLocation
       `Prelude.hashWithSalt` selectParameters
-      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tier
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData RestoreRequest where
   rnf RestoreRequest' {..} =
-    Prelude.rnf glacierJobParameters
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf days
+    Prelude.rnf days
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf glacierJobParameters
       `Prelude.seq` Prelude.rnf outputLocation
       `Prelude.seq` Prelude.rnf selectParameters
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf tier
+      `Prelude.seq` Prelude.rnf type'
 
 instance Data.ToXML RestoreRequest where
   toXML RestoreRequest' {..} =
     Prelude.mconcat
-      [ "GlacierJobParameters" Data.@= glacierJobParameters,
-        "Type" Data.@= type',
-        "Days" Data.@= days,
+      [ "Days" Data.@= days,
+        "Description" Data.@= description,
+        "GlacierJobParameters" Data.@= glacierJobParameters,
         "OutputLocation" Data.@= outputLocation,
         "SelectParameters" Data.@= selectParameters,
-        "Description" Data.@= description,
-        "Tier" Data.@= tier
+        "Tier" Data.@= tier,
+        "Type" Data.@= type'
       ]

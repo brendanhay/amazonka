@@ -33,17 +33,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newControlInsightsMetadataByAssessmentItem' smart constructor.
 data ControlInsightsMetadataByAssessmentItem = ControlInsightsMetadataByAssessmentItem'
-  { -- | A breakdown of the compliance check status for the evidence that’s
+  { -- | The name of the control set that the assessment control belongs to.
+    controlSetName :: Prelude.Maybe Prelude.Text,
+    -- | A breakdown of the compliance check status for the evidence that’s
     -- associated with the assessment control.
     evidenceInsights :: Prelude.Maybe EvidenceInsights,
-    -- | The name of the assessment control.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the assessment control.
     id :: Prelude.Maybe Prelude.Text,
     -- | The time when the assessment control insights were last updated.
     lastUpdated :: Prelude.Maybe Data.POSIX,
-    -- | The name of the control set that the assessment control belongs to.
-    controlSetName :: Prelude.Maybe Prelude.Text
+    -- | The name of the assessment control.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,36 +55,36 @@ data ControlInsightsMetadataByAssessmentItem = ControlInsightsMetadataByAssessme
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'controlSetName', 'controlInsightsMetadataByAssessmentItem_controlSetName' - The name of the control set that the assessment control belongs to.
+--
 -- 'evidenceInsights', 'controlInsightsMetadataByAssessmentItem_evidenceInsights' - A breakdown of the compliance check status for the evidence that’s
 -- associated with the assessment control.
---
--- 'name', 'controlInsightsMetadataByAssessmentItem_name' - The name of the assessment control.
 --
 -- 'id', 'controlInsightsMetadataByAssessmentItem_id' - The unique identifier for the assessment control.
 --
 -- 'lastUpdated', 'controlInsightsMetadataByAssessmentItem_lastUpdated' - The time when the assessment control insights were last updated.
 --
--- 'controlSetName', 'controlInsightsMetadataByAssessmentItem_controlSetName' - The name of the control set that the assessment control belongs to.
+-- 'name', 'controlInsightsMetadataByAssessmentItem_name' - The name of the assessment control.
 newControlInsightsMetadataByAssessmentItem ::
   ControlInsightsMetadataByAssessmentItem
 newControlInsightsMetadataByAssessmentItem =
   ControlInsightsMetadataByAssessmentItem'
-    { evidenceInsights =
+    { controlSetName =
         Prelude.Nothing,
-      name = Prelude.Nothing,
+      evidenceInsights = Prelude.Nothing,
       id = Prelude.Nothing,
       lastUpdated = Prelude.Nothing,
-      controlSetName = Prelude.Nothing
+      name = Prelude.Nothing
     }
+
+-- | The name of the control set that the assessment control belongs to.
+controlInsightsMetadataByAssessmentItem_controlSetName :: Lens.Lens' ControlInsightsMetadataByAssessmentItem (Prelude.Maybe Prelude.Text)
+controlInsightsMetadataByAssessmentItem_controlSetName = Lens.lens (\ControlInsightsMetadataByAssessmentItem' {controlSetName} -> controlSetName) (\s@ControlInsightsMetadataByAssessmentItem' {} a -> s {controlSetName = a} :: ControlInsightsMetadataByAssessmentItem)
 
 -- | A breakdown of the compliance check status for the evidence that’s
 -- associated with the assessment control.
 controlInsightsMetadataByAssessmentItem_evidenceInsights :: Lens.Lens' ControlInsightsMetadataByAssessmentItem (Prelude.Maybe EvidenceInsights)
 controlInsightsMetadataByAssessmentItem_evidenceInsights = Lens.lens (\ControlInsightsMetadataByAssessmentItem' {evidenceInsights} -> evidenceInsights) (\s@ControlInsightsMetadataByAssessmentItem' {} a -> s {evidenceInsights = a} :: ControlInsightsMetadataByAssessmentItem)
-
--- | The name of the assessment control.
-controlInsightsMetadataByAssessmentItem_name :: Lens.Lens' ControlInsightsMetadataByAssessmentItem (Prelude.Maybe Prelude.Text)
-controlInsightsMetadataByAssessmentItem_name = Lens.lens (\ControlInsightsMetadataByAssessmentItem' {name} -> name) (\s@ControlInsightsMetadataByAssessmentItem' {} a -> s {name = a} :: ControlInsightsMetadataByAssessmentItem)
 
 -- | The unique identifier for the assessment control.
 controlInsightsMetadataByAssessmentItem_id :: Lens.Lens' ControlInsightsMetadataByAssessmentItem (Prelude.Maybe Prelude.Text)
@@ -94,9 +94,9 @@ controlInsightsMetadataByAssessmentItem_id = Lens.lens (\ControlInsightsMetadata
 controlInsightsMetadataByAssessmentItem_lastUpdated :: Lens.Lens' ControlInsightsMetadataByAssessmentItem (Prelude.Maybe Prelude.UTCTime)
 controlInsightsMetadataByAssessmentItem_lastUpdated = Lens.lens (\ControlInsightsMetadataByAssessmentItem' {lastUpdated} -> lastUpdated) (\s@ControlInsightsMetadataByAssessmentItem' {} a -> s {lastUpdated = a} :: ControlInsightsMetadataByAssessmentItem) Prelude.. Lens.mapping Data._Time
 
--- | The name of the control set that the assessment control belongs to.
-controlInsightsMetadataByAssessmentItem_controlSetName :: Lens.Lens' ControlInsightsMetadataByAssessmentItem (Prelude.Maybe Prelude.Text)
-controlInsightsMetadataByAssessmentItem_controlSetName = Lens.lens (\ControlInsightsMetadataByAssessmentItem' {controlSetName} -> controlSetName) (\s@ControlInsightsMetadataByAssessmentItem' {} a -> s {controlSetName = a} :: ControlInsightsMetadataByAssessmentItem)
+-- | The name of the assessment control.
+controlInsightsMetadataByAssessmentItem_name :: Lens.Lens' ControlInsightsMetadataByAssessmentItem (Prelude.Maybe Prelude.Text)
+controlInsightsMetadataByAssessmentItem_name = Lens.lens (\ControlInsightsMetadataByAssessmentItem' {name} -> name) (\s@ControlInsightsMetadataByAssessmentItem' {} a -> s {name = a} :: ControlInsightsMetadataByAssessmentItem)
 
 instance
   Data.FromJSON
@@ -107,11 +107,11 @@ instance
       "ControlInsightsMetadataByAssessmentItem"
       ( \x ->
           ControlInsightsMetadataByAssessmentItem'
-            Prelude.<$> (x Data..:? "evidenceInsights")
-            Prelude.<*> (x Data..:? "name")
+            Prelude.<$> (x Data..:? "controlSetName")
+            Prelude.<*> (x Data..:? "evidenceInsights")
             Prelude.<*> (x Data..:? "id")
             Prelude.<*> (x Data..:? "lastUpdated")
-            Prelude.<*> (x Data..:? "controlSetName")
+            Prelude.<*> (x Data..:? "name")
       )
 
 instance
@@ -121,19 +121,19 @@ instance
   hashWithSalt
     _salt
     ControlInsightsMetadataByAssessmentItem' {..} =
-      _salt `Prelude.hashWithSalt` evidenceInsights
-        `Prelude.hashWithSalt` name
+      _salt `Prelude.hashWithSalt` controlSetName
+        `Prelude.hashWithSalt` evidenceInsights
         `Prelude.hashWithSalt` id
         `Prelude.hashWithSalt` lastUpdated
-        `Prelude.hashWithSalt` controlSetName
+        `Prelude.hashWithSalt` name
 
 instance
   Prelude.NFData
     ControlInsightsMetadataByAssessmentItem
   where
   rnf ControlInsightsMetadataByAssessmentItem' {..} =
-    Prelude.rnf evidenceInsights
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf controlSetName
+      `Prelude.seq` Prelude.rnf evidenceInsights
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf lastUpdated
-      `Prelude.seq` Prelude.rnf controlSetName
+      `Prelude.seq` Prelude.rnf name

@@ -38,16 +38,16 @@ module Amazonka.Kendra.DescribeExperience
     newDescribeExperienceResponse,
 
     -- * Response Lenses
+    describeExperienceResponse_configuration,
+    describeExperienceResponse_createdAt,
+    describeExperienceResponse_description,
+    describeExperienceResponse_endpoints,
+    describeExperienceResponse_errorMessage,
+    describeExperienceResponse_id,
     describeExperienceResponse_indexId,
     describeExperienceResponse_name,
     describeExperienceResponse_roleArn,
-    describeExperienceResponse_errorMessage,
-    describeExperienceResponse_configuration,
     describeExperienceResponse_status,
-    describeExperienceResponse_endpoints,
-    describeExperienceResponse_id,
-    describeExperienceResponse_description,
-    describeExperienceResponse_createdAt,
     describeExperienceResponse_updatedAt,
     describeExperienceResponse_httpStatus,
   )
@@ -111,16 +111,16 @@ instance Core.AWSRequest DescribeExperience where
     Response.receiveJSON
       ( \s h x ->
           DescribeExperienceResponse'
-            Prelude.<$> (x Data..?> "IndexId")
+            Prelude.<$> (x Data..?> "Configuration")
+            Prelude.<*> (x Data..?> "CreatedAt")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "Endpoints")
+            Prelude.<*> (x Data..?> "ErrorMessage")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "IndexId")
             Prelude.<*> (x Data..?> "Name")
             Prelude.<*> (x Data..?> "RoleArn")
-            Prelude.<*> (x Data..?> "ErrorMessage")
-            Prelude.<*> (x Data..?> "Configuration")
             Prelude.<*> (x Data..?> "Status")
-            Prelude.<*> (x Data..?> "Endpoints")
-            Prelude.<*> (x Data..?> "Id")
-            Prelude.<*> (x Data..?> "Description")
-            Prelude.<*> (x Data..?> "CreatedAt")
             Prelude.<*> (x Data..?> "UpdatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -166,7 +166,24 @@ instance Data.ToQuery DescribeExperience where
 
 -- | /See:/ 'newDescribeExperienceResponse' smart constructor.
 data DescribeExperienceResponse = DescribeExperienceResponse'
-  { -- | Shows the identifier of the index for your Amazon Kendra experience.
+  { -- | Shows the configuration information for your Amazon Kendra experience.
+    -- This includes @ContentSourceConfiguration@, which specifies the data
+    -- source IDs and\/or FAQ IDs, and @UserIdentityConfiguration@, which
+    -- specifies the user or group information to grant access to your Amazon
+    -- Kendra experience.
+    configuration :: Prelude.Maybe ExperienceConfiguration,
+    -- | Shows the date-time your Amazon Kendra experience was created.
+    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | Shows the description for your Amazon Kendra experience.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are
+    -- unique and fully hosted by Amazon Web Services.
+    endpoints :: Prelude.Maybe (Prelude.NonEmpty ExperienceEndpoint),
+    -- | The reason your Amazon Kendra experience could not properly process.
+    errorMessage :: Prelude.Maybe Prelude.Text,
+    -- | Shows the identifier of your Amazon Kendra experience.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | Shows the identifier of the index for your Amazon Kendra experience.
     indexId :: Prelude.Maybe Prelude.Text,
     -- | Shows the name of your Amazon Kendra experience.
     name :: Prelude.Maybe Prelude.Text,
@@ -174,28 +191,11 @@ data DescribeExperienceResponse = DescribeExperienceResponse'
     -- @Query@ API, @QuerySuggestions@ API, @SubmitFeedback@ API, and IAM
     -- Identity Center that stores your user and group information.
     roleArn :: Prelude.Maybe Prelude.Text,
-    -- | The reason your Amazon Kendra experience could not properly process.
-    errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | Shows the configuration information for your Amazon Kendra experience.
-    -- This includes @ContentSourceConfiguration@, which specifies the data
-    -- source IDs and\/or FAQ IDs, and @UserIdentityConfiguration@, which
-    -- specifies the user or group information to grant access to your Amazon
-    -- Kendra experience.
-    configuration :: Prelude.Maybe ExperienceConfiguration,
     -- | The current processing status of your Amazon Kendra experience. When the
     -- status is @ACTIVE@, your Amazon Kendra experience is ready to use. When
     -- the status is @FAILED@, the @ErrorMessage@ field contains the reason
     -- that this failed.
     status :: Prelude.Maybe ExperienceStatus,
-    -- | Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are
-    -- unique and fully hosted by Amazon Web Services.
-    endpoints :: Prelude.Maybe (Prelude.NonEmpty ExperienceEndpoint),
-    -- | Shows the identifier of your Amazon Kendra experience.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | Shows the description for your Amazon Kendra experience.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Shows the date-time your Amazon Kendra experience was created.
-    createdAt :: Prelude.Maybe Data.POSIX,
     -- | Shows the date-time your Amazon Kendra experience was last updated.
     updatedAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
@@ -211,6 +211,23 @@ data DescribeExperienceResponse = DescribeExperienceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'configuration', 'describeExperienceResponse_configuration' - Shows the configuration information for your Amazon Kendra experience.
+-- This includes @ContentSourceConfiguration@, which specifies the data
+-- source IDs and\/or FAQ IDs, and @UserIdentityConfiguration@, which
+-- specifies the user or group information to grant access to your Amazon
+-- Kendra experience.
+--
+-- 'createdAt', 'describeExperienceResponse_createdAt' - Shows the date-time your Amazon Kendra experience was created.
+--
+-- 'description', 'describeExperienceResponse_description' - Shows the description for your Amazon Kendra experience.
+--
+-- 'endpoints', 'describeExperienceResponse_endpoints' - Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are
+-- unique and fully hosted by Amazon Web Services.
+--
+-- 'errorMessage', 'describeExperienceResponse_errorMessage' - The reason your Amazon Kendra experience could not properly process.
+--
+-- 'id', 'describeExperienceResponse_id' - Shows the identifier of your Amazon Kendra experience.
+--
 -- 'indexId', 'describeExperienceResponse_indexId' - Shows the identifier of the index for your Amazon Kendra experience.
 --
 -- 'name', 'describeExperienceResponse_name' - Shows the name of your Amazon Kendra experience.
@@ -219,27 +236,10 @@ data DescribeExperienceResponse = DescribeExperienceResponse'
 -- @Query@ API, @QuerySuggestions@ API, @SubmitFeedback@ API, and IAM
 -- Identity Center that stores your user and group information.
 --
--- 'errorMessage', 'describeExperienceResponse_errorMessage' - The reason your Amazon Kendra experience could not properly process.
---
--- 'configuration', 'describeExperienceResponse_configuration' - Shows the configuration information for your Amazon Kendra experience.
--- This includes @ContentSourceConfiguration@, which specifies the data
--- source IDs and\/or FAQ IDs, and @UserIdentityConfiguration@, which
--- specifies the user or group information to grant access to your Amazon
--- Kendra experience.
---
 -- 'status', 'describeExperienceResponse_status' - The current processing status of your Amazon Kendra experience. When the
 -- status is @ACTIVE@, your Amazon Kendra experience is ready to use. When
 -- the status is @FAILED@, the @ErrorMessage@ field contains the reason
 -- that this failed.
---
--- 'endpoints', 'describeExperienceResponse_endpoints' - Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are
--- unique and fully hosted by Amazon Web Services.
---
--- 'id', 'describeExperienceResponse_id' - Shows the identifier of your Amazon Kendra experience.
---
--- 'description', 'describeExperienceResponse_description' - Shows the description for your Amazon Kendra experience.
---
--- 'createdAt', 'describeExperienceResponse_createdAt' - Shows the date-time your Amazon Kendra experience was created.
 --
 -- 'updatedAt', 'describeExperienceResponse_updatedAt' - Shows the date-time your Amazon Kendra experience was last updated.
 --
@@ -250,20 +250,49 @@ newDescribeExperienceResponse ::
   DescribeExperienceResponse
 newDescribeExperienceResponse pHttpStatus_ =
   DescribeExperienceResponse'
-    { indexId =
+    { configuration =
         Prelude.Nothing,
+      createdAt = Prelude.Nothing,
+      description = Prelude.Nothing,
+      endpoints = Prelude.Nothing,
+      errorMessage = Prelude.Nothing,
+      id = Prelude.Nothing,
+      indexId = Prelude.Nothing,
       name = Prelude.Nothing,
       roleArn = Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
-      configuration = Prelude.Nothing,
       status = Prelude.Nothing,
-      endpoints = Prelude.Nothing,
-      id = Prelude.Nothing,
-      description = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
       updatedAt = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Shows the configuration information for your Amazon Kendra experience.
+-- This includes @ContentSourceConfiguration@, which specifies the data
+-- source IDs and\/or FAQ IDs, and @UserIdentityConfiguration@, which
+-- specifies the user or group information to grant access to your Amazon
+-- Kendra experience.
+describeExperienceResponse_configuration :: Lens.Lens' DescribeExperienceResponse (Prelude.Maybe ExperienceConfiguration)
+describeExperienceResponse_configuration = Lens.lens (\DescribeExperienceResponse' {configuration} -> configuration) (\s@DescribeExperienceResponse' {} a -> s {configuration = a} :: DescribeExperienceResponse)
+
+-- | Shows the date-time your Amazon Kendra experience was created.
+describeExperienceResponse_createdAt :: Lens.Lens' DescribeExperienceResponse (Prelude.Maybe Prelude.UTCTime)
+describeExperienceResponse_createdAt = Lens.lens (\DescribeExperienceResponse' {createdAt} -> createdAt) (\s@DescribeExperienceResponse' {} a -> s {createdAt = a} :: DescribeExperienceResponse) Prelude.. Lens.mapping Data._Time
+
+-- | Shows the description for your Amazon Kendra experience.
+describeExperienceResponse_description :: Lens.Lens' DescribeExperienceResponse (Prelude.Maybe Prelude.Text)
+describeExperienceResponse_description = Lens.lens (\DescribeExperienceResponse' {description} -> description) (\s@DescribeExperienceResponse' {} a -> s {description = a} :: DescribeExperienceResponse)
+
+-- | Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are
+-- unique and fully hosted by Amazon Web Services.
+describeExperienceResponse_endpoints :: Lens.Lens' DescribeExperienceResponse (Prelude.Maybe (Prelude.NonEmpty ExperienceEndpoint))
+describeExperienceResponse_endpoints = Lens.lens (\DescribeExperienceResponse' {endpoints} -> endpoints) (\s@DescribeExperienceResponse' {} a -> s {endpoints = a} :: DescribeExperienceResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The reason your Amazon Kendra experience could not properly process.
+describeExperienceResponse_errorMessage :: Lens.Lens' DescribeExperienceResponse (Prelude.Maybe Prelude.Text)
+describeExperienceResponse_errorMessage = Lens.lens (\DescribeExperienceResponse' {errorMessage} -> errorMessage) (\s@DescribeExperienceResponse' {} a -> s {errorMessage = a} :: DescribeExperienceResponse)
+
+-- | Shows the identifier of your Amazon Kendra experience.
+describeExperienceResponse_id :: Lens.Lens' DescribeExperienceResponse (Prelude.Maybe Prelude.Text)
+describeExperienceResponse_id = Lens.lens (\DescribeExperienceResponse' {id} -> id) (\s@DescribeExperienceResponse' {} a -> s {id = a} :: DescribeExperienceResponse)
 
 -- | Shows the identifier of the index for your Amazon Kendra experience.
 describeExperienceResponse_indexId :: Lens.Lens' DescribeExperienceResponse (Prelude.Maybe Prelude.Text)
@@ -279,41 +308,12 @@ describeExperienceResponse_name = Lens.lens (\DescribeExperienceResponse' {name}
 describeExperienceResponse_roleArn :: Lens.Lens' DescribeExperienceResponse (Prelude.Maybe Prelude.Text)
 describeExperienceResponse_roleArn = Lens.lens (\DescribeExperienceResponse' {roleArn} -> roleArn) (\s@DescribeExperienceResponse' {} a -> s {roleArn = a} :: DescribeExperienceResponse)
 
--- | The reason your Amazon Kendra experience could not properly process.
-describeExperienceResponse_errorMessage :: Lens.Lens' DescribeExperienceResponse (Prelude.Maybe Prelude.Text)
-describeExperienceResponse_errorMessage = Lens.lens (\DescribeExperienceResponse' {errorMessage} -> errorMessage) (\s@DescribeExperienceResponse' {} a -> s {errorMessage = a} :: DescribeExperienceResponse)
-
--- | Shows the configuration information for your Amazon Kendra experience.
--- This includes @ContentSourceConfiguration@, which specifies the data
--- source IDs and\/or FAQ IDs, and @UserIdentityConfiguration@, which
--- specifies the user or group information to grant access to your Amazon
--- Kendra experience.
-describeExperienceResponse_configuration :: Lens.Lens' DescribeExperienceResponse (Prelude.Maybe ExperienceConfiguration)
-describeExperienceResponse_configuration = Lens.lens (\DescribeExperienceResponse' {configuration} -> configuration) (\s@DescribeExperienceResponse' {} a -> s {configuration = a} :: DescribeExperienceResponse)
-
 -- | The current processing status of your Amazon Kendra experience. When the
 -- status is @ACTIVE@, your Amazon Kendra experience is ready to use. When
 -- the status is @FAILED@, the @ErrorMessage@ field contains the reason
 -- that this failed.
 describeExperienceResponse_status :: Lens.Lens' DescribeExperienceResponse (Prelude.Maybe ExperienceStatus)
 describeExperienceResponse_status = Lens.lens (\DescribeExperienceResponse' {status} -> status) (\s@DescribeExperienceResponse' {} a -> s {status = a} :: DescribeExperienceResponse)
-
--- | Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are
--- unique and fully hosted by Amazon Web Services.
-describeExperienceResponse_endpoints :: Lens.Lens' DescribeExperienceResponse (Prelude.Maybe (Prelude.NonEmpty ExperienceEndpoint))
-describeExperienceResponse_endpoints = Lens.lens (\DescribeExperienceResponse' {endpoints} -> endpoints) (\s@DescribeExperienceResponse' {} a -> s {endpoints = a} :: DescribeExperienceResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Shows the identifier of your Amazon Kendra experience.
-describeExperienceResponse_id :: Lens.Lens' DescribeExperienceResponse (Prelude.Maybe Prelude.Text)
-describeExperienceResponse_id = Lens.lens (\DescribeExperienceResponse' {id} -> id) (\s@DescribeExperienceResponse' {} a -> s {id = a} :: DescribeExperienceResponse)
-
--- | Shows the description for your Amazon Kendra experience.
-describeExperienceResponse_description :: Lens.Lens' DescribeExperienceResponse (Prelude.Maybe Prelude.Text)
-describeExperienceResponse_description = Lens.lens (\DescribeExperienceResponse' {description} -> description) (\s@DescribeExperienceResponse' {} a -> s {description = a} :: DescribeExperienceResponse)
-
--- | Shows the date-time your Amazon Kendra experience was created.
-describeExperienceResponse_createdAt :: Lens.Lens' DescribeExperienceResponse (Prelude.Maybe Prelude.UTCTime)
-describeExperienceResponse_createdAt = Lens.lens (\DescribeExperienceResponse' {createdAt} -> createdAt) (\s@DescribeExperienceResponse' {} a -> s {createdAt = a} :: DescribeExperienceResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Shows the date-time your Amazon Kendra experience was last updated.
 describeExperienceResponse_updatedAt :: Lens.Lens' DescribeExperienceResponse (Prelude.Maybe Prelude.UTCTime)
@@ -325,15 +325,15 @@ describeExperienceResponse_httpStatus = Lens.lens (\DescribeExperienceResponse' 
 
 instance Prelude.NFData DescribeExperienceResponse where
   rnf DescribeExperienceResponse' {..} =
-    Prelude.rnf indexId
+    Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf endpoints
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf indexId
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf configuration
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf endpoints
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf updatedAt
       `Prelude.seq` Prelude.rnf httpStatus

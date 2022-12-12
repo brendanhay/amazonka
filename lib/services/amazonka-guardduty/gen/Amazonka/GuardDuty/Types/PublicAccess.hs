@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPublicAccess' smart constructor.
 data PublicAccess = PublicAccess'
-  { -- | Contains information about how permissions are configured for the S3
-    -- bucket.
-    permissionConfiguration :: Prelude.Maybe PermissionConfiguration,
-    -- | Describes the effective permission on this bucket after factoring all
+  { -- | Describes the effective permission on this bucket after factoring all
     -- attached policies.
-    effectivePermission :: Prelude.Maybe Prelude.Text
+    effectivePermission :: Prelude.Maybe Prelude.Text,
+    -- | Contains information about how permissions are configured for the S3
+    -- bucket.
+    permissionConfiguration :: Prelude.Maybe PermissionConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,29 +46,29 @@ data PublicAccess = PublicAccess'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'permissionConfiguration', 'publicAccess_permissionConfiguration' - Contains information about how permissions are configured for the S3
--- bucket.
---
 -- 'effectivePermission', 'publicAccess_effectivePermission' - Describes the effective permission on this bucket after factoring all
 -- attached policies.
+--
+-- 'permissionConfiguration', 'publicAccess_permissionConfiguration' - Contains information about how permissions are configured for the S3
+-- bucket.
 newPublicAccess ::
   PublicAccess
 newPublicAccess =
   PublicAccess'
-    { permissionConfiguration =
+    { effectivePermission =
         Prelude.Nothing,
-      effectivePermission = Prelude.Nothing
+      permissionConfiguration = Prelude.Nothing
     }
-
--- | Contains information about how permissions are configured for the S3
--- bucket.
-publicAccess_permissionConfiguration :: Lens.Lens' PublicAccess (Prelude.Maybe PermissionConfiguration)
-publicAccess_permissionConfiguration = Lens.lens (\PublicAccess' {permissionConfiguration} -> permissionConfiguration) (\s@PublicAccess' {} a -> s {permissionConfiguration = a} :: PublicAccess)
 
 -- | Describes the effective permission on this bucket after factoring all
 -- attached policies.
 publicAccess_effectivePermission :: Lens.Lens' PublicAccess (Prelude.Maybe Prelude.Text)
 publicAccess_effectivePermission = Lens.lens (\PublicAccess' {effectivePermission} -> effectivePermission) (\s@PublicAccess' {} a -> s {effectivePermission = a} :: PublicAccess)
+
+-- | Contains information about how permissions are configured for the S3
+-- bucket.
+publicAccess_permissionConfiguration :: Lens.Lens' PublicAccess (Prelude.Maybe PermissionConfiguration)
+publicAccess_permissionConfiguration = Lens.lens (\PublicAccess' {permissionConfiguration} -> permissionConfiguration) (\s@PublicAccess' {} a -> s {permissionConfiguration = a} :: PublicAccess)
 
 instance Data.FromJSON PublicAccess where
   parseJSON =
@@ -76,17 +76,16 @@ instance Data.FromJSON PublicAccess where
       "PublicAccess"
       ( \x ->
           PublicAccess'
-            Prelude.<$> (x Data..:? "permissionConfiguration")
-            Prelude.<*> (x Data..:? "effectivePermission")
+            Prelude.<$> (x Data..:? "effectivePermission")
+            Prelude.<*> (x Data..:? "permissionConfiguration")
       )
 
 instance Prelude.Hashable PublicAccess where
   hashWithSalt _salt PublicAccess' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` effectivePermission
       `Prelude.hashWithSalt` permissionConfiguration
-      `Prelude.hashWithSalt` effectivePermission
 
 instance Prelude.NFData PublicAccess where
   rnf PublicAccess' {..} =
-    Prelude.rnf permissionConfiguration
-      `Prelude.seq` Prelude.rnf effectivePermission
+    Prelude.rnf effectivePermission
+      `Prelude.seq` Prelude.rnf permissionConfiguration

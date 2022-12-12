@@ -28,11 +28,11 @@ module Amazonka.DLM.Lens
     deleteLifecyclePolicyResponse_httpStatus,
 
     -- ** GetLifecyclePolicies
-    getLifecyclePolicies_tagsToAdd,
-    getLifecyclePolicies_targetTags,
-    getLifecyclePolicies_state,
     getLifecyclePolicies_policyIds,
     getLifecyclePolicies_resourceTypes,
+    getLifecyclePolicies_state,
+    getLifecyclePolicies_tagsToAdd,
+    getLifecyclePolicies_targetTags,
     getLifecyclePoliciesResponse_policies,
     getLifecyclePoliciesResponse_httpStatus,
 
@@ -57,10 +57,10 @@ module Amazonka.DLM.Lens
     untagResourceResponse_httpStatus,
 
     -- ** UpdateLifecyclePolicy
-    updateLifecyclePolicy_policyDetails,
-    updateLifecyclePolicy_state,
     updateLifecyclePolicy_description,
     updateLifecyclePolicy_executionRoleArn,
+    updateLifecyclePolicy_policyDetails,
+    updateLifecyclePolicy_state,
     updateLifecyclePolicy_policyId,
     updateLifecyclePolicyResponse_httpStatus,
 
@@ -77,11 +77,11 @@ module Amazonka.DLM.Lens
     archiveRule_retainRule,
 
     -- ** CreateRule
-    createRule_interval,
-    createRule_location,
-    createRule_intervalUnit,
-    createRule_times,
     createRule_cronExpression,
+    createRule_interval,
+    createRule_intervalUnit,
+    createRule_location,
+    createRule_times,
 
     -- ** CrossRegionCopyAction
     crossRegionCopyAction_retainRule,
@@ -99,15 +99,15 @@ module Amazonka.DLM.Lens
     -- ** CrossRegionCopyRule
     crossRegionCopyRule_cmkArn,
     crossRegionCopyRule_copyTags,
+    crossRegionCopyRule_deprecateRule,
     crossRegionCopyRule_retainRule,
     crossRegionCopyRule_target,
     crossRegionCopyRule_targetRegion,
-    crossRegionCopyRule_deprecateRule,
     crossRegionCopyRule_encrypted,
 
     -- ** DeprecateRule
-    deprecateRule_interval,
     deprecateRule_count,
+    deprecateRule_interval,
     deprecateRule_intervalUnit,
 
     -- ** EncryptionConfiguration
@@ -124,67 +124,67 @@ module Amazonka.DLM.Lens
     eventSource_type,
 
     -- ** FastRestoreRule
-    fastRestoreRule_interval,
     fastRestoreRule_count,
+    fastRestoreRule_interval,
     fastRestoreRule_intervalUnit,
     fastRestoreRule_availabilityZones,
 
     -- ** LifecyclePolicy
-    lifecyclePolicy_tags,
-    lifecyclePolicy_policyId,
-    lifecyclePolicy_policyDetails,
-    lifecyclePolicy_state,
-    lifecyclePolicy_description,
-    lifecyclePolicy_policyArn,
     lifecyclePolicy_dateCreated,
-    lifecyclePolicy_executionRoleArn,
-    lifecyclePolicy_statusMessage,
     lifecyclePolicy_dateModified,
+    lifecyclePolicy_description,
+    lifecyclePolicy_executionRoleArn,
+    lifecyclePolicy_policyArn,
+    lifecyclePolicy_policyDetails,
+    lifecyclePolicy_policyId,
+    lifecyclePolicy_state,
+    lifecyclePolicy_statusMessage,
+    lifecyclePolicy_tags,
 
     -- ** LifecyclePolicySummary
-    lifecyclePolicySummary_tags,
+    lifecyclePolicySummary_description,
     lifecyclePolicySummary_policyId,
     lifecyclePolicySummary_policyType,
     lifecyclePolicySummary_state,
-    lifecyclePolicySummary_description,
+    lifecyclePolicySummary_tags,
 
     -- ** Parameters
-    parameters_excludeDataVolumeTags,
     parameters_excludeBootVolume,
+    parameters_excludeDataVolumeTags,
     parameters_noReboot,
 
     -- ** PolicyDetails
-    policyDetails_policyType,
-    policyDetails_targetTags,
-    policyDetails_resourceLocations,
-    policyDetails_schedules,
-    policyDetails_resourceTypes,
     policyDetails_actions,
     policyDetails_eventSource,
     policyDetails_parameters,
+    policyDetails_policyType,
+    policyDetails_resourceLocations,
+    policyDetails_resourceTypes,
+    policyDetails_schedules,
+    policyDetails_targetTags,
 
     -- ** RetainRule
-    retainRule_interval,
     retainRule_count,
+    retainRule_interval,
     retainRule_intervalUnit,
 
     -- ** RetentionArchiveTier
-    retentionArchiveTier_interval,
     retentionArchiveTier_count,
+    retentionArchiveTier_interval,
     retentionArchiveTier_intervalUnit,
 
     -- ** Schedule
     schedule_archiveRule,
-    schedule_name,
-    schedule_fastRestoreRule,
-    schedule_variableTags,
-    schedule_tagsToAdd,
-    schedule_createRule,
     schedule_copyTags,
-    schedule_retainRule,
-    schedule_deprecateRule,
+    schedule_createRule,
     schedule_crossRegionCopyRules,
+    schedule_deprecateRule,
+    schedule_fastRestoreRule,
+    schedule_name,
+    schedule_retainRule,
     schedule_shareRules,
+    schedule_tagsToAdd,
+    schedule_variableTags,
 
     -- ** ShareRule
     shareRule_unshareInterval,

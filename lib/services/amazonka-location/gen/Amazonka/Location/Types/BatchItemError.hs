@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBatchItemError' smart constructor.
 data BatchItemError = BatchItemError'
-  { -- | A message with the reason for the batch request error.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The error code associated with the batch request error.
-    code :: Prelude.Maybe BatchItemErrorCode
+  { -- | The error code associated with the batch request error.
+    code :: Prelude.Maybe BatchItemErrorCode,
+    -- | A message with the reason for the batch request error.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data BatchItemError = BatchItemError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'batchItemError_message' - A message with the reason for the batch request error.
---
 -- 'code', 'batchItemError_code' - The error code associated with the batch request error.
+--
+-- 'message', 'batchItemError_message' - A message with the reason for the batch request error.
 newBatchItemError ::
   BatchItemError
 newBatchItemError =
   BatchItemError'
-    { message = Prelude.Nothing,
-      code = Prelude.Nothing
+    { code = Prelude.Nothing,
+      message = Prelude.Nothing
     }
-
--- | A message with the reason for the batch request error.
-batchItemError_message :: Lens.Lens' BatchItemError (Prelude.Maybe Prelude.Text)
-batchItemError_message = Lens.lens (\BatchItemError' {message} -> message) (\s@BatchItemError' {} a -> s {message = a} :: BatchItemError)
 
 -- | The error code associated with the batch request error.
 batchItemError_code :: Lens.Lens' BatchItemError (Prelude.Maybe BatchItemErrorCode)
 batchItemError_code = Lens.lens (\BatchItemError' {code} -> code) (\s@BatchItemError' {} a -> s {code = a} :: BatchItemError)
+
+-- | A message with the reason for the batch request error.
+batchItemError_message :: Lens.Lens' BatchItemError (Prelude.Maybe Prelude.Text)
+batchItemError_message = Lens.lens (\BatchItemError' {message} -> message) (\s@BatchItemError' {} a -> s {message = a} :: BatchItemError)
 
 instance Data.FromJSON BatchItemError where
   parseJSON =
@@ -69,15 +69,15 @@ instance Data.FromJSON BatchItemError where
       "BatchItemError"
       ( \x ->
           BatchItemError'
-            Prelude.<$> (x Data..:? "Message")
-            Prelude.<*> (x Data..:? "Code")
+            Prelude.<$> (x Data..:? "Code")
+            Prelude.<*> (x Data..:? "Message")
       )
 
 instance Prelude.Hashable BatchItemError where
   hashWithSalt _salt BatchItemError' {..} =
-    _salt `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` code
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` message
 
 instance Prelude.NFData BatchItemError where
   rnf BatchItemError' {..} =
-    Prelude.rnf message `Prelude.seq` Prelude.rnf code
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

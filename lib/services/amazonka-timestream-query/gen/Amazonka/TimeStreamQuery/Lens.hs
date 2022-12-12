@@ -20,9 +20,9 @@ module Amazonka.TimeStreamQuery.Lens
     cancelQueryResponse_httpStatus,
 
     -- ** CreateScheduledQuery
-    createScheduledQuery_tags,
     createScheduledQuery_clientToken,
     createScheduledQuery_kmsKeyId,
+    createScheduledQuery_tags,
     createScheduledQuery_targetConfiguration,
     createScheduledQuery_name,
     createScheduledQuery_queryString,
@@ -51,15 +51,15 @@ module Amazonka.TimeStreamQuery.Lens
     executeScheduledQuery_invocationTime,
 
     -- ** ListScheduledQueries
-    listScheduledQueries_nextToken,
     listScheduledQueries_maxResults,
+    listScheduledQueries_nextToken,
     listScheduledQueriesResponse_nextToken,
     listScheduledQueriesResponse_httpStatus,
     listScheduledQueriesResponse_scheduledQueries,
 
     -- ** ListTagsForResource
-    listTagsForResource_nextToken,
     listTagsForResource_maxResults,
+    listTagsForResource_nextToken,
     listTagsForResource_resourceARN,
     listTagsForResourceResponse_nextToken,
     listTagsForResourceResponse_httpStatus,
@@ -75,8 +75,8 @@ module Amazonka.TimeStreamQuery.Lens
 
     -- ** Query
     query_clientToken,
-    query_nextToken,
     query_maxRows,
+    query_nextToken,
     query_queryString,
     queryResponse_nextToken,
     queryResponse_queryStatus,
@@ -106,11 +106,11 @@ module Amazonka.TimeStreamQuery.Lens
     columnInfo_type,
 
     -- ** Datum
+    datum_arrayValue,
+    datum_nullValue,
+    datum_rowValue,
     datum_scalarValue,
     datum_timeSeriesValue,
-    datum_rowValue,
-    datum_nullValue,
-    datum_arrayValue,
 
     -- ** DimensionMapping
     dimensionMapping_name,
@@ -127,17 +127,17 @@ module Amazonka.TimeStreamQuery.Lens
     errorReportLocation_s3ReportLocation,
 
     -- ** ExecutionStats
+    executionStats_bytesMetered,
     executionStats_dataWrites,
+    executionStats_executionTimeInMillis,
     executionStats_queryResultRows,
     executionStats_recordsIngested,
-    executionStats_executionTimeInMillis,
-    executionStats_bytesMetered,
 
     -- ** MixedMeasureMapping
     mixedMeasureMapping_measureName,
-    mixedMeasureMapping_targetMeasureName,
-    mixedMeasureMapping_sourceColumn,
     mixedMeasureMapping_multiMeasureAttributeMappings,
+    mixedMeasureMapping_sourceColumn,
+    mixedMeasureMapping_targetMeasureName,
     mixedMeasureMapping_measureValueType,
 
     -- ** MultiMeasureAttributeMapping
@@ -157,46 +157,46 @@ module Amazonka.TimeStreamQuery.Lens
     parameterMapping_type,
 
     -- ** QueryStatus
-    queryStatus_cumulativeBytesScanned,
     queryStatus_cumulativeBytesMetered,
+    queryStatus_cumulativeBytesScanned,
     queryStatus_progressPercentage,
 
     -- ** Row
     row_data,
 
     -- ** S3Configuration
-    s3Configuration_objectKeyPrefix,
     s3Configuration_encryptionOption,
+    s3Configuration_objectKeyPrefix,
     s3Configuration_bucketName,
 
     -- ** S3ReportLocation
-    s3ReportLocation_objectKey,
     s3ReportLocation_bucketName,
+    s3ReportLocation_objectKey,
 
     -- ** ScheduleConfiguration
     scheduleConfiguration_scheduleExpression,
 
     -- ** ScheduledQuery
-    scheduledQuery_targetDestination,
-    scheduledQuery_previousInvocationTime,
-    scheduledQuery_errorReportConfiguration,
-    scheduledQuery_nextInvocationTime,
     scheduledQuery_creationTime,
+    scheduledQuery_errorReportConfiguration,
     scheduledQuery_lastRunStatus,
+    scheduledQuery_nextInvocationTime,
+    scheduledQuery_previousInvocationTime,
+    scheduledQuery_targetDestination,
     scheduledQuery_arn,
     scheduledQuery_name,
     scheduledQuery_state,
 
     -- ** ScheduledQueryDescription
-    scheduledQueryDescription_recentlyFailedRuns,
-    scheduledQueryDescription_lastRunSummary,
-    scheduledQueryDescription_previousInvocationTime,
-    scheduledQueryDescription_errorReportConfiguration,
-    scheduledQueryDescription_scheduledQueryExecutionRoleArn,
-    scheduledQueryDescription_kmsKeyId,
-    scheduledQueryDescription_targetConfiguration,
-    scheduledQueryDescription_nextInvocationTime,
     scheduledQueryDescription_creationTime,
+    scheduledQueryDescription_errorReportConfiguration,
+    scheduledQueryDescription_kmsKeyId,
+    scheduledQueryDescription_lastRunSummary,
+    scheduledQueryDescription_nextInvocationTime,
+    scheduledQueryDescription_previousInvocationTime,
+    scheduledQueryDescription_recentlyFailedRuns,
+    scheduledQueryDescription_scheduledQueryExecutionRoleArn,
+    scheduledQueryDescription_targetConfiguration,
     scheduledQueryDescription_arn,
     scheduledQueryDescription_name,
     scheduledQueryDescription_queryString,
@@ -206,18 +206,18 @@ module Amazonka.TimeStreamQuery.Lens
 
     -- ** ScheduledQueryRunSummary
     scheduledQueryRunSummary_errorReportLocation,
+    scheduledQueryRunSummary_executionStats,
+    scheduledQueryRunSummary_failureReason,
     scheduledQueryRunSummary_invocationTime,
     scheduledQueryRunSummary_runStatus,
-    scheduledQueryRunSummary_executionStats,
     scheduledQueryRunSummary_triggerTime,
-    scheduledQueryRunSummary_failureReason,
 
     -- ** SelectColumn
-    selectColumn_tableName,
-    selectColumn_name,
-    selectColumn_type,
-    selectColumn_databaseName,
     selectColumn_aliased,
+    selectColumn_databaseName,
+    selectColumn_name,
+    selectColumn_tableName,
+    selectColumn_type,
 
     -- ** SnsConfiguration
     snsConfiguration_topicArn,
@@ -246,14 +246,14 @@ module Amazonka.TimeStreamQuery.Lens
     timestreamConfiguration_dimensionMappings,
 
     -- ** TimestreamDestination
-    timestreamDestination_tableName,
     timestreamDestination_databaseName,
+    timestreamDestination_tableName,
 
     -- ** Type
     type_arrayColumnInfo,
+    type_rowColumnInfo,
     type_scalarType,
     type_timeSeriesMeasureValueColumnInfo,
-    type_rowColumnInfo,
   )
 where
 

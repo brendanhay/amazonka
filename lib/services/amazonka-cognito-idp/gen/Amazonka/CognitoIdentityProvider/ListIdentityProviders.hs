@@ -29,8 +29,8 @@ module Amazonka.CognitoIdentityProvider.ListIdentityProviders
     newListIdentityProviders,
 
     -- * Request Lenses
-    listIdentityProviders_nextToken,
     listIdentityProviders_maxResults,
+    listIdentityProviders_nextToken,
     listIdentityProviders_userPoolId,
 
     -- * Destructuring the Response
@@ -54,10 +54,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListIdentityProviders' smart constructor.
 data ListIdentityProviders = ListIdentityProviders'
-  { -- | A pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of IdPs to return.
+  { -- | The maximum number of IdPs to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The user pool ID.
     userPoolId :: Prelude.Text
   }
@@ -71,9 +71,9 @@ data ListIdentityProviders = ListIdentityProviders'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listIdentityProviders_nextToken' - A pagination token.
---
 -- 'maxResults', 'listIdentityProviders_maxResults' - The maximum number of IdPs to return.
+--
+-- 'nextToken', 'listIdentityProviders_nextToken' - A pagination token.
 --
 -- 'userPoolId', 'listIdentityProviders_userPoolId' - The user pool ID.
 newListIdentityProviders ::
@@ -82,18 +82,19 @@ newListIdentityProviders ::
   ListIdentityProviders
 newListIdentityProviders pUserPoolId_ =
   ListIdentityProviders'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       userPoolId = pUserPoolId_
     }
-
--- | A pagination token.
-listIdentityProviders_nextToken :: Lens.Lens' ListIdentityProviders (Prelude.Maybe Prelude.Text)
-listIdentityProviders_nextToken = Lens.lens (\ListIdentityProviders' {nextToken} -> nextToken) (\s@ListIdentityProviders' {} a -> s {nextToken = a} :: ListIdentityProviders)
 
 -- | The maximum number of IdPs to return.
 listIdentityProviders_maxResults :: Lens.Lens' ListIdentityProviders (Prelude.Maybe Prelude.Natural)
 listIdentityProviders_maxResults = Lens.lens (\ListIdentityProviders' {maxResults} -> maxResults) (\s@ListIdentityProviders' {} a -> s {maxResults = a} :: ListIdentityProviders)
+
+-- | A pagination token.
+listIdentityProviders_nextToken :: Lens.Lens' ListIdentityProviders (Prelude.Maybe Prelude.Text)
+listIdentityProviders_nextToken = Lens.lens (\ListIdentityProviders' {nextToken} -> nextToken) (\s@ListIdentityProviders' {} a -> s {nextToken = a} :: ListIdentityProviders)
 
 -- | The user pool ID.
 listIdentityProviders_userPoolId :: Lens.Lens' ListIdentityProviders Prelude.Text
@@ -135,14 +136,14 @@ instance Core.AWSRequest ListIdentityProviders where
 
 instance Prelude.Hashable ListIdentityProviders where
   hashWithSalt _salt ListIdentityProviders' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` userPoolId
 
 instance Prelude.NFData ListIdentityProviders where
   rnf ListIdentityProviders' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf userPoolId
 
 instance Data.ToHeaders ListIdentityProviders where
@@ -164,8 +165,8 @@ instance Data.ToJSON ListIdentityProviders where
   toJSON ListIdentityProviders' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("UserPoolId" Data..= userPoolId)
           ]
       )

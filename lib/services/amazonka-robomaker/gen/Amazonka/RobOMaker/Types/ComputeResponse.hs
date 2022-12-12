@@ -29,16 +29,16 @@ import Amazonka.RobOMaker.Types.ComputeType
 --
 -- /See:/ 'newComputeResponse' smart constructor.
 data ComputeResponse = ComputeResponse'
-  { -- | Compute GPU unit limit for the simulation job. It is the same as the
+  { -- | Compute type response information for the simulation job.
+    computeType :: Prelude.Maybe ComputeType,
+    -- | Compute GPU unit limit for the simulation job. It is the same as the
     -- number of GPUs allocated to the SimulationJob.
     gpuUnitLimit :: Prelude.Maybe Prelude.Natural,
     -- | The simulation unit limit. Your simulation is allocated CPU and memory
     -- proportional to the supplied simulation unit limit. A simulation unit is
     -- 1 vcpu and 2GB of memory. You are only billed for the SU utilization you
     -- consume up to the maximum value provided. The default is 15.
-    simulationUnitLimit :: Prelude.Maybe Prelude.Natural,
-    -- | Compute type response information for the simulation job.
-    computeType :: Prelude.Maybe ComputeType
+    simulationUnitLimit :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,6 +50,8 @@ data ComputeResponse = ComputeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'computeType', 'computeResponse_computeType' - Compute type response information for the simulation job.
+--
 -- 'gpuUnitLimit', 'computeResponse_gpuUnitLimit' - Compute GPU unit limit for the simulation job. It is the same as the
 -- number of GPUs allocated to the SimulationJob.
 --
@@ -57,16 +59,18 @@ data ComputeResponse = ComputeResponse'
 -- proportional to the supplied simulation unit limit. A simulation unit is
 -- 1 vcpu and 2GB of memory. You are only billed for the SU utilization you
 -- consume up to the maximum value provided. The default is 15.
---
--- 'computeType', 'computeResponse_computeType' - Compute type response information for the simulation job.
 newComputeResponse ::
   ComputeResponse
 newComputeResponse =
   ComputeResponse'
-    { gpuUnitLimit = Prelude.Nothing,
-      simulationUnitLimit = Prelude.Nothing,
-      computeType = Prelude.Nothing
+    { computeType = Prelude.Nothing,
+      gpuUnitLimit = Prelude.Nothing,
+      simulationUnitLimit = Prelude.Nothing
     }
+
+-- | Compute type response information for the simulation job.
+computeResponse_computeType :: Lens.Lens' ComputeResponse (Prelude.Maybe ComputeType)
+computeResponse_computeType = Lens.lens (\ComputeResponse' {computeType} -> computeType) (\s@ComputeResponse' {} a -> s {computeType = a} :: ComputeResponse)
 
 -- | Compute GPU unit limit for the simulation job. It is the same as the
 -- number of GPUs allocated to the SimulationJob.
@@ -80,29 +84,25 @@ computeResponse_gpuUnitLimit = Lens.lens (\ComputeResponse' {gpuUnitLimit} -> gp
 computeResponse_simulationUnitLimit :: Lens.Lens' ComputeResponse (Prelude.Maybe Prelude.Natural)
 computeResponse_simulationUnitLimit = Lens.lens (\ComputeResponse' {simulationUnitLimit} -> simulationUnitLimit) (\s@ComputeResponse' {} a -> s {simulationUnitLimit = a} :: ComputeResponse)
 
--- | Compute type response information for the simulation job.
-computeResponse_computeType :: Lens.Lens' ComputeResponse (Prelude.Maybe ComputeType)
-computeResponse_computeType = Lens.lens (\ComputeResponse' {computeType} -> computeType) (\s@ComputeResponse' {} a -> s {computeType = a} :: ComputeResponse)
-
 instance Data.FromJSON ComputeResponse where
   parseJSON =
     Data.withObject
       "ComputeResponse"
       ( \x ->
           ComputeResponse'
-            Prelude.<$> (x Data..:? "gpuUnitLimit")
+            Prelude.<$> (x Data..:? "computeType")
+            Prelude.<*> (x Data..:? "gpuUnitLimit")
             Prelude.<*> (x Data..:? "simulationUnitLimit")
-            Prelude.<*> (x Data..:? "computeType")
       )
 
 instance Prelude.Hashable ComputeResponse where
   hashWithSalt _salt ComputeResponse' {..} =
-    _salt `Prelude.hashWithSalt` gpuUnitLimit
+    _salt `Prelude.hashWithSalt` computeType
+      `Prelude.hashWithSalt` gpuUnitLimit
       `Prelude.hashWithSalt` simulationUnitLimit
-      `Prelude.hashWithSalt` computeType
 
 instance Prelude.NFData ComputeResponse where
   rnf ComputeResponse' {..} =
-    Prelude.rnf gpuUnitLimit
+    Prelude.rnf computeType
+      `Prelude.seq` Prelude.rnf gpuUnitLimit
       `Prelude.seq` Prelude.rnf simulationUnitLimit
-      `Prelude.seq` Prelude.rnf computeType

@@ -34,13 +34,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newS3Object' smart constructor.
 data S3Object = S3Object'
-  { -- | The file name of the input document. Synchronous operations can use
+  { -- | The name of the S3 bucket. Note that the # character is not valid in the
+    -- file name.
+    bucket :: Prelude.Maybe Prelude.Text,
+    -- | The file name of the input document. Synchronous operations can use
     -- image files that are in JPEG or PNG format. Asynchronous operations also
     -- support PDF and TIFF format files.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The name of the S3 bucket. Note that the # character is not valid in the
-    -- file name.
-    bucket :: Prelude.Maybe Prelude.Text,
     -- | If the bucket has versioning enabled, you can specify the object
     -- version.
     version :: Prelude.Maybe Prelude.Text
@@ -55,12 +55,12 @@ data S3Object = S3Object'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'bucket', 's3Object_bucket' - The name of the S3 bucket. Note that the # character is not valid in the
+-- file name.
+--
 -- 'name', 's3Object_name' - The file name of the input document. Synchronous operations can use
 -- image files that are in JPEG or PNG format. Asynchronous operations also
 -- support PDF and TIFF format files.
---
--- 'bucket', 's3Object_bucket' - The name of the S3 bucket. Note that the # character is not valid in the
--- file name.
 --
 -- 'version', 's3Object_version' - If the bucket has versioning enabled, you can specify the object
 -- version.
@@ -68,21 +68,21 @@ newS3Object ::
   S3Object
 newS3Object =
   S3Object'
-    { name = Prelude.Nothing,
-      bucket = Prelude.Nothing,
+    { bucket = Prelude.Nothing,
+      name = Prelude.Nothing,
       version = Prelude.Nothing
     }
+
+-- | The name of the S3 bucket. Note that the # character is not valid in the
+-- file name.
+s3Object_bucket :: Lens.Lens' S3Object (Prelude.Maybe Prelude.Text)
+s3Object_bucket = Lens.lens (\S3Object' {bucket} -> bucket) (\s@S3Object' {} a -> s {bucket = a} :: S3Object)
 
 -- | The file name of the input document. Synchronous operations can use
 -- image files that are in JPEG or PNG format. Asynchronous operations also
 -- support PDF and TIFF format files.
 s3Object_name :: Lens.Lens' S3Object (Prelude.Maybe Prelude.Text)
 s3Object_name = Lens.lens (\S3Object' {name} -> name) (\s@S3Object' {} a -> s {name = a} :: S3Object)
-
--- | The name of the S3 bucket. Note that the # character is not valid in the
--- file name.
-s3Object_bucket :: Lens.Lens' S3Object (Prelude.Maybe Prelude.Text)
-s3Object_bucket = Lens.lens (\S3Object' {bucket} -> bucket) (\s@S3Object' {} a -> s {bucket = a} :: S3Object)
 
 -- | If the bucket has versioning enabled, you can specify the object
 -- version.
@@ -91,22 +91,22 @@ s3Object_version = Lens.lens (\S3Object' {version} -> version) (\s@S3Object' {} 
 
 instance Prelude.Hashable S3Object where
   hashWithSalt _salt S3Object' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` bucket
+    _salt `Prelude.hashWithSalt` bucket
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData S3Object where
   rnf S3Object' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf bucket
+    Prelude.rnf bucket
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf version
 
 instance Data.ToJSON S3Object where
   toJSON S3Object' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
-            ("Bucket" Data..=) Prelude.<$> bucket,
+          [ ("Bucket" Data..=) Prelude.<$> bucket,
+            ("Name" Data..=) Prelude.<$> name,
             ("Version" Data..=) Prelude.<$> version
           ]
       )

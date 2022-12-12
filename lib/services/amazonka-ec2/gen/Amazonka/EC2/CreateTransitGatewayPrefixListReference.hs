@@ -28,9 +28,9 @@ module Amazonka.EC2.CreateTransitGatewayPrefixListReference
     newCreateTransitGatewayPrefixListReference,
 
     -- * Request Lenses
-    createTransitGatewayPrefixListReference_transitGatewayAttachmentId,
-    createTransitGatewayPrefixListReference_dryRun,
     createTransitGatewayPrefixListReference_blackhole,
+    createTransitGatewayPrefixListReference_dryRun,
+    createTransitGatewayPrefixListReference_transitGatewayAttachmentId,
     createTransitGatewayPrefixListReference_transitGatewayRouteTableId,
     createTransitGatewayPrefixListReference_prefixListId,
 
@@ -54,15 +54,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateTransitGatewayPrefixListReference' smart constructor.
 data CreateTransitGatewayPrefixListReference = CreateTransitGatewayPrefixListReference'
-  { -- | The ID of the attachment to which traffic is routed.
-    transitGatewayAttachmentId :: Prelude.Maybe Prelude.Text,
+  { -- | Indicates whether to drop traffic that matches this route.
+    blackhole :: Prelude.Maybe Prelude.Bool,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | Indicates whether to drop traffic that matches this route.
-    blackhole :: Prelude.Maybe Prelude.Bool,
+    -- | The ID of the attachment to which traffic is routed.
+    transitGatewayAttachmentId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the transit gateway route table.
     transitGatewayRouteTableId :: Prelude.Text,
     -- | The ID of the prefix list that is used for destination matches.
@@ -78,14 +78,14 @@ data CreateTransitGatewayPrefixListReference = CreateTransitGatewayPrefixListRef
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'transitGatewayAttachmentId', 'createTransitGatewayPrefixListReference_transitGatewayAttachmentId' - The ID of the attachment to which traffic is routed.
+-- 'blackhole', 'createTransitGatewayPrefixListReference_blackhole' - Indicates whether to drop traffic that matches this route.
 --
 -- 'dryRun', 'createTransitGatewayPrefixListReference_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'blackhole', 'createTransitGatewayPrefixListReference_blackhole' - Indicates whether to drop traffic that matches this route.
+-- 'transitGatewayAttachmentId', 'createTransitGatewayPrefixListReference_transitGatewayAttachmentId' - The ID of the attachment to which traffic is routed.
 --
 -- 'transitGatewayRouteTableId', 'createTransitGatewayPrefixListReference_transitGatewayRouteTableId' - The ID of the transit gateway route table.
 --
@@ -100,18 +100,19 @@ newCreateTransitGatewayPrefixListReference
   pTransitGatewayRouteTableId_
   pPrefixListId_ =
     CreateTransitGatewayPrefixListReference'
-      { transitGatewayAttachmentId =
+      { blackhole =
           Prelude.Nothing,
         dryRun = Prelude.Nothing,
-        blackhole = Prelude.Nothing,
+        transitGatewayAttachmentId =
+          Prelude.Nothing,
         transitGatewayRouteTableId =
           pTransitGatewayRouteTableId_,
         prefixListId = pPrefixListId_
       }
 
--- | The ID of the attachment to which traffic is routed.
-createTransitGatewayPrefixListReference_transitGatewayAttachmentId :: Lens.Lens' CreateTransitGatewayPrefixListReference (Prelude.Maybe Prelude.Text)
-createTransitGatewayPrefixListReference_transitGatewayAttachmentId = Lens.lens (\CreateTransitGatewayPrefixListReference' {transitGatewayAttachmentId} -> transitGatewayAttachmentId) (\s@CreateTransitGatewayPrefixListReference' {} a -> s {transitGatewayAttachmentId = a} :: CreateTransitGatewayPrefixListReference)
+-- | Indicates whether to drop traffic that matches this route.
+createTransitGatewayPrefixListReference_blackhole :: Lens.Lens' CreateTransitGatewayPrefixListReference (Prelude.Maybe Prelude.Bool)
+createTransitGatewayPrefixListReference_blackhole = Lens.lens (\CreateTransitGatewayPrefixListReference' {blackhole} -> blackhole) (\s@CreateTransitGatewayPrefixListReference' {} a -> s {blackhole = a} :: CreateTransitGatewayPrefixListReference)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -120,9 +121,9 @@ createTransitGatewayPrefixListReference_transitGatewayAttachmentId = Lens.lens (
 createTransitGatewayPrefixListReference_dryRun :: Lens.Lens' CreateTransitGatewayPrefixListReference (Prelude.Maybe Prelude.Bool)
 createTransitGatewayPrefixListReference_dryRun = Lens.lens (\CreateTransitGatewayPrefixListReference' {dryRun} -> dryRun) (\s@CreateTransitGatewayPrefixListReference' {} a -> s {dryRun = a} :: CreateTransitGatewayPrefixListReference)
 
--- | Indicates whether to drop traffic that matches this route.
-createTransitGatewayPrefixListReference_blackhole :: Lens.Lens' CreateTransitGatewayPrefixListReference (Prelude.Maybe Prelude.Bool)
-createTransitGatewayPrefixListReference_blackhole = Lens.lens (\CreateTransitGatewayPrefixListReference' {blackhole} -> blackhole) (\s@CreateTransitGatewayPrefixListReference' {} a -> s {blackhole = a} :: CreateTransitGatewayPrefixListReference)
+-- | The ID of the attachment to which traffic is routed.
+createTransitGatewayPrefixListReference_transitGatewayAttachmentId :: Lens.Lens' CreateTransitGatewayPrefixListReference (Prelude.Maybe Prelude.Text)
+createTransitGatewayPrefixListReference_transitGatewayAttachmentId = Lens.lens (\CreateTransitGatewayPrefixListReference' {transitGatewayAttachmentId} -> transitGatewayAttachmentId) (\s@CreateTransitGatewayPrefixListReference' {} a -> s {transitGatewayAttachmentId = a} :: CreateTransitGatewayPrefixListReference)
 
 -- | The ID of the transit gateway route table.
 createTransitGatewayPrefixListReference_transitGatewayRouteTableId :: Lens.Lens' CreateTransitGatewayPrefixListReference Prelude.Text
@@ -157,10 +158,9 @@ instance
   hashWithSalt
     _salt
     CreateTransitGatewayPrefixListReference' {..} =
-      _salt
-        `Prelude.hashWithSalt` transitGatewayAttachmentId
+      _salt `Prelude.hashWithSalt` blackhole
         `Prelude.hashWithSalt` dryRun
-        `Prelude.hashWithSalt` blackhole
+        `Prelude.hashWithSalt` transitGatewayAttachmentId
         `Prelude.hashWithSalt` transitGatewayRouteTableId
         `Prelude.hashWithSalt` prefixListId
 
@@ -169,9 +169,9 @@ instance
     CreateTransitGatewayPrefixListReference
   where
   rnf CreateTransitGatewayPrefixListReference' {..} =
-    Prelude.rnf transitGatewayAttachmentId
+    Prelude.rnf blackhole
       `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf blackhole
+      `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
       `Prelude.seq` Prelude.rnf transitGatewayRouteTableId
       `Prelude.seq` Prelude.rnf prefixListId
 
@@ -199,10 +199,10 @@ instance
                   ),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "Blackhole" Data.=: blackhole,
+        "DryRun" Data.=: dryRun,
         "TransitGatewayAttachmentId"
           Data.=: transitGatewayAttachmentId,
-        "DryRun" Data.=: dryRun,
-        "Blackhole" Data.=: blackhole,
         "TransitGatewayRouteTableId"
           Data.=: transitGatewayRouteTableId,
         "PrefixListId" Data.=: prefixListId

@@ -30,14 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPacketHeaderStatementRequest' smart constructor.
 data PacketHeaderStatementRequest = PacketHeaderStatementRequest'
-  { -- | The destination ports.
+  { -- | The destination addresses.
+    destinationAddresses :: Prelude.Maybe [Prelude.Text],
+    -- | The destination ports.
     destinationPorts :: Prelude.Maybe [Prelude.Text],
     -- | The destination prefix lists.
     destinationPrefixLists :: Prelude.Maybe [Prelude.Text],
     -- | The protocols.
     protocols :: Prelude.Maybe [Protocol],
-    -- | The destination addresses.
-    destinationAddresses :: Prelude.Maybe [Prelude.Text],
     -- | The source addresses.
     sourceAddresses :: Prelude.Maybe [Prelude.Text],
     -- | The source ports.
@@ -55,13 +55,13 @@ data PacketHeaderStatementRequest = PacketHeaderStatementRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'destinationAddresses', 'packetHeaderStatementRequest_destinationAddresses' - The destination addresses.
+--
 -- 'destinationPorts', 'packetHeaderStatementRequest_destinationPorts' - The destination ports.
 --
 -- 'destinationPrefixLists', 'packetHeaderStatementRequest_destinationPrefixLists' - The destination prefix lists.
 --
 -- 'protocols', 'packetHeaderStatementRequest_protocols' - The protocols.
---
--- 'destinationAddresses', 'packetHeaderStatementRequest_destinationAddresses' - The destination addresses.
 --
 -- 'sourceAddresses', 'packetHeaderStatementRequest_sourceAddresses' - The source addresses.
 --
@@ -72,15 +72,19 @@ newPacketHeaderStatementRequest ::
   PacketHeaderStatementRequest
 newPacketHeaderStatementRequest =
   PacketHeaderStatementRequest'
-    { destinationPorts =
+    { destinationAddresses =
         Prelude.Nothing,
+      destinationPorts = Prelude.Nothing,
       destinationPrefixLists = Prelude.Nothing,
       protocols = Prelude.Nothing,
-      destinationAddresses = Prelude.Nothing,
       sourceAddresses = Prelude.Nothing,
       sourcePorts = Prelude.Nothing,
       sourcePrefixLists = Prelude.Nothing
     }
+
+-- | The destination addresses.
+packetHeaderStatementRequest_destinationAddresses :: Lens.Lens' PacketHeaderStatementRequest (Prelude.Maybe [Prelude.Text])
+packetHeaderStatementRequest_destinationAddresses = Lens.lens (\PacketHeaderStatementRequest' {destinationAddresses} -> destinationAddresses) (\s@PacketHeaderStatementRequest' {} a -> s {destinationAddresses = a} :: PacketHeaderStatementRequest) Prelude.. Lens.mapping Lens.coerced
 
 -- | The destination ports.
 packetHeaderStatementRequest_destinationPorts :: Lens.Lens' PacketHeaderStatementRequest (Prelude.Maybe [Prelude.Text])
@@ -93,10 +97,6 @@ packetHeaderStatementRequest_destinationPrefixLists = Lens.lens (\PacketHeaderSt
 -- | The protocols.
 packetHeaderStatementRequest_protocols :: Lens.Lens' PacketHeaderStatementRequest (Prelude.Maybe [Protocol])
 packetHeaderStatementRequest_protocols = Lens.lens (\PacketHeaderStatementRequest' {protocols} -> protocols) (\s@PacketHeaderStatementRequest' {} a -> s {protocols = a} :: PacketHeaderStatementRequest) Prelude.. Lens.mapping Lens.coerced
-
--- | The destination addresses.
-packetHeaderStatementRequest_destinationAddresses :: Lens.Lens' PacketHeaderStatementRequest (Prelude.Maybe [Prelude.Text])
-packetHeaderStatementRequest_destinationAddresses = Lens.lens (\PacketHeaderStatementRequest' {destinationAddresses} -> destinationAddresses) (\s@PacketHeaderStatementRequest' {} a -> s {destinationAddresses = a} :: PacketHeaderStatementRequest) Prelude.. Lens.mapping Lens.coerced
 
 -- | The source addresses.
 packetHeaderStatementRequest_sourceAddresses :: Lens.Lens' PacketHeaderStatementRequest (Prelude.Maybe [Prelude.Text])
@@ -115,20 +115,20 @@ instance
     PacketHeaderStatementRequest
   where
   hashWithSalt _salt PacketHeaderStatementRequest' {..} =
-    _salt `Prelude.hashWithSalt` destinationPorts
+    _salt `Prelude.hashWithSalt` destinationAddresses
+      `Prelude.hashWithSalt` destinationPorts
       `Prelude.hashWithSalt` destinationPrefixLists
       `Prelude.hashWithSalt` protocols
-      `Prelude.hashWithSalt` destinationAddresses
       `Prelude.hashWithSalt` sourceAddresses
       `Prelude.hashWithSalt` sourcePorts
       `Prelude.hashWithSalt` sourcePrefixLists
 
 instance Prelude.NFData PacketHeaderStatementRequest where
   rnf PacketHeaderStatementRequest' {..} =
-    Prelude.rnf destinationPorts
+    Prelude.rnf destinationAddresses
+      `Prelude.seq` Prelude.rnf destinationPorts
       `Prelude.seq` Prelude.rnf destinationPrefixLists
       `Prelude.seq` Prelude.rnf protocols
-      `Prelude.seq` Prelude.rnf destinationAddresses
       `Prelude.seq` Prelude.rnf sourceAddresses
       `Prelude.seq` Prelude.rnf sourcePorts
       `Prelude.seq` Prelude.rnf sourcePrefixLists
@@ -137,6 +137,10 @@ instance Data.ToQuery PacketHeaderStatementRequest where
   toQuery PacketHeaderStatementRequest' {..} =
     Prelude.mconcat
       [ Data.toQuery
+          ( Data.toQueryList "DestinationAddress"
+              Prelude.<$> destinationAddresses
+          ),
+        Data.toQuery
           ( Data.toQueryList "DestinationPort"
               Prelude.<$> destinationPorts
           ),
@@ -146,10 +150,6 @@ instance Data.ToQuery PacketHeaderStatementRequest where
           ),
         Data.toQuery
           (Data.toQueryList "Protocol" Prelude.<$> protocols),
-        Data.toQuery
-          ( Data.toQueryList "DestinationAddress"
-              Prelude.<$> destinationAddresses
-          ),
         Data.toQuery
           ( Data.toQueryList "SourceAddress"
               Prelude.<$> sourceAddresses

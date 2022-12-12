@@ -25,27 +25,6 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Polls 'Amazonka.CloudWatch.DescribeAlarms' every 5 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newCompositeAlarmExists :: Core.Wait DescribeAlarms
-newCompositeAlarmExists =
-  Core.Wait
-    { Core.name = "CompositeAlarmExists",
-      Core.attempts = 40,
-      Core.delay = 5,
-      Core.acceptors =
-        [ Core.matchNonEmpty
-            Prelude.True
-            Core.AcceptSuccess
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeAlarmsResponse_compositeAlarms
-                        Prelude.. Lens._Just
-                    )
-                )
-            )
-        ]
-    }
-
--- | Polls 'Amazonka.CloudWatch.DescribeAlarms' every 5 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newAlarmExists :: Core.Wait DescribeAlarms
 newAlarmExists =
   Core.Wait
@@ -59,6 +38,27 @@ newAlarmExists =
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeAlarmsResponse_metricAlarms
+                        Prelude.. Lens._Just
+                    )
+                )
+            )
+        ]
+    }
+
+-- | Polls 'Amazonka.CloudWatch.DescribeAlarms' every 5 seconds until a successful state is reached. An error is returned after 40 failed checks.
+newCompositeAlarmExists :: Core.Wait DescribeAlarms
+newCompositeAlarmExists =
+  Core.Wait
+    { Core.name = "CompositeAlarmExists",
+      Core.attempts = 40,
+      Core.delay = 5,
+      Core.acceptors =
+        [ Core.matchNonEmpty
+            Prelude.True
+            Core.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeAlarmsResponse_compositeAlarms
                         Prelude.. Lens._Just
                     )
                 )

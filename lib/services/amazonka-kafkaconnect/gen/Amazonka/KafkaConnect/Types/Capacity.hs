@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCapacity' smart constructor.
 data Capacity = Capacity'
-  { -- | Details about a fixed capacity allocated to a connector.
-    provisionedCapacity :: Prelude.Maybe ProvisionedCapacity,
-    -- | Information about the auto scaling parameters for the connector.
-    autoScaling :: Prelude.Maybe AutoScaling
+  { -- | Information about the auto scaling parameters for the connector.
+    autoScaling :: Prelude.Maybe AutoScaling,
+    -- | Details about a fixed capacity allocated to a connector.
+    provisionedCapacity :: Prelude.Maybe ProvisionedCapacity
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,41 +46,41 @@ data Capacity = Capacity'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'provisionedCapacity', 'capacity_provisionedCapacity' - Details about a fixed capacity allocated to a connector.
---
 -- 'autoScaling', 'capacity_autoScaling' - Information about the auto scaling parameters for the connector.
+--
+-- 'provisionedCapacity', 'capacity_provisionedCapacity' - Details about a fixed capacity allocated to a connector.
 newCapacity ::
   Capacity
 newCapacity =
   Capacity'
-    { provisionedCapacity = Prelude.Nothing,
-      autoScaling = Prelude.Nothing
+    { autoScaling = Prelude.Nothing,
+      provisionedCapacity = Prelude.Nothing
     }
-
--- | Details about a fixed capacity allocated to a connector.
-capacity_provisionedCapacity :: Lens.Lens' Capacity (Prelude.Maybe ProvisionedCapacity)
-capacity_provisionedCapacity = Lens.lens (\Capacity' {provisionedCapacity} -> provisionedCapacity) (\s@Capacity' {} a -> s {provisionedCapacity = a} :: Capacity)
 
 -- | Information about the auto scaling parameters for the connector.
 capacity_autoScaling :: Lens.Lens' Capacity (Prelude.Maybe AutoScaling)
 capacity_autoScaling = Lens.lens (\Capacity' {autoScaling} -> autoScaling) (\s@Capacity' {} a -> s {autoScaling = a} :: Capacity)
 
+-- | Details about a fixed capacity allocated to a connector.
+capacity_provisionedCapacity :: Lens.Lens' Capacity (Prelude.Maybe ProvisionedCapacity)
+capacity_provisionedCapacity = Lens.lens (\Capacity' {provisionedCapacity} -> provisionedCapacity) (\s@Capacity' {} a -> s {provisionedCapacity = a} :: Capacity)
+
 instance Prelude.Hashable Capacity where
   hashWithSalt _salt Capacity' {..} =
-    _salt `Prelude.hashWithSalt` provisionedCapacity
-      `Prelude.hashWithSalt` autoScaling
+    _salt `Prelude.hashWithSalt` autoScaling
+      `Prelude.hashWithSalt` provisionedCapacity
 
 instance Prelude.NFData Capacity where
   rnf Capacity' {..} =
-    Prelude.rnf provisionedCapacity
-      `Prelude.seq` Prelude.rnf autoScaling
+    Prelude.rnf autoScaling
+      `Prelude.seq` Prelude.rnf provisionedCapacity
 
 instance Data.ToJSON Capacity where
   toJSON Capacity' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("provisionedCapacity" Data..=)
-              Prelude.<$> provisionedCapacity,
-            ("autoScaling" Data..=) Prelude.<$> autoScaling
+          [ ("autoScaling" Data..=) Prelude.<$> autoScaling,
+            ("provisionedCapacity" Data..=)
+              Prelude.<$> provisionedCapacity
           ]
       )

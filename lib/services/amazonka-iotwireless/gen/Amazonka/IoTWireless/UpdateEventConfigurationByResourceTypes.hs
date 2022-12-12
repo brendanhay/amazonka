@@ -27,10 +27,10 @@ module Amazonka.IoTWireless.UpdateEventConfigurationByResourceTypes
     newUpdateEventConfigurationByResourceTypes,
 
     -- * Request Lenses
-    updateEventConfigurationByResourceTypes_deviceRegistrationState,
     updateEventConfigurationByResourceTypes_connectionStatus,
-    updateEventConfigurationByResourceTypes_messageDeliveryStatus,
+    updateEventConfigurationByResourceTypes_deviceRegistrationState,
     updateEventConfigurationByResourceTypes_join,
+    updateEventConfigurationByResourceTypes_messageDeliveryStatus,
     updateEventConfigurationByResourceTypes_proximity,
 
     -- * Destructuring the Response
@@ -52,18 +52,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateEventConfigurationByResourceTypes' smart constructor.
 data UpdateEventConfigurationByResourceTypes = UpdateEventConfigurationByResourceTypes'
-  { -- | Device registration state resource type event configuration object for
-    -- enabling and disabling wireless gateway topic.
-    deviceRegistrationState :: Prelude.Maybe DeviceRegistrationStateResourceTypeEventConfiguration,
-    -- | Connection status resource type event configuration object for enabling
+  { -- | Connection status resource type event configuration object for enabling
     -- and disabling wireless gateway topic.
     connectionStatus :: Prelude.Maybe ConnectionStatusResourceTypeEventConfiguration,
-    -- | Message delivery status resource type event configuration object for
-    -- enabling and disabling wireless device topic.
-    messageDeliveryStatus :: Prelude.Maybe MessageDeliveryStatusResourceTypeEventConfiguration,
+    -- | Device registration state resource type event configuration object for
+    -- enabling and disabling wireless gateway topic.
+    deviceRegistrationState :: Prelude.Maybe DeviceRegistrationStateResourceTypeEventConfiguration,
     -- | Join resource type event configuration object for enabling and disabling
     -- wireless device topic.
     join :: Prelude.Maybe JoinResourceTypeEventConfiguration,
+    -- | Message delivery status resource type event configuration object for
+    -- enabling and disabling wireless device topic.
+    messageDeliveryStatus :: Prelude.Maybe MessageDeliveryStatusResourceTypeEventConfiguration,
     -- | Proximity resource type event configuration object for enabling and
     -- disabling wireless gateway topic.
     proximity :: Prelude.Maybe ProximityResourceTypeEventConfiguration
@@ -78,17 +78,17 @@ data UpdateEventConfigurationByResourceTypes = UpdateEventConfigurationByResourc
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deviceRegistrationState', 'updateEventConfigurationByResourceTypes_deviceRegistrationState' - Device registration state resource type event configuration object for
--- enabling and disabling wireless gateway topic.
---
 -- 'connectionStatus', 'updateEventConfigurationByResourceTypes_connectionStatus' - Connection status resource type event configuration object for enabling
 -- and disabling wireless gateway topic.
 --
--- 'messageDeliveryStatus', 'updateEventConfigurationByResourceTypes_messageDeliveryStatus' - Message delivery status resource type event configuration object for
--- enabling and disabling wireless device topic.
+-- 'deviceRegistrationState', 'updateEventConfigurationByResourceTypes_deviceRegistrationState' - Device registration state resource type event configuration object for
+-- enabling and disabling wireless gateway topic.
 --
 -- 'join', 'updateEventConfigurationByResourceTypes_join' - Join resource type event configuration object for enabling and disabling
 -- wireless device topic.
+--
+-- 'messageDeliveryStatus', 'updateEventConfigurationByResourceTypes_messageDeliveryStatus' - Message delivery status resource type event configuration object for
+-- enabling and disabling wireless device topic.
 --
 -- 'proximity', 'updateEventConfigurationByResourceTypes_proximity' - Proximity resource type event configuration object for enabling and
 -- disabling wireless gateway topic.
@@ -96,34 +96,35 @@ newUpdateEventConfigurationByResourceTypes ::
   UpdateEventConfigurationByResourceTypes
 newUpdateEventConfigurationByResourceTypes =
   UpdateEventConfigurationByResourceTypes'
-    { deviceRegistrationState =
+    { connectionStatus =
         Prelude.Nothing,
-      connectionStatus = Prelude.Nothing,
-      messageDeliveryStatus =
+      deviceRegistrationState =
         Prelude.Nothing,
       join = Prelude.Nothing,
+      messageDeliveryStatus =
+        Prelude.Nothing,
       proximity = Prelude.Nothing
     }
-
--- | Device registration state resource type event configuration object for
--- enabling and disabling wireless gateway topic.
-updateEventConfigurationByResourceTypes_deviceRegistrationState :: Lens.Lens' UpdateEventConfigurationByResourceTypes (Prelude.Maybe DeviceRegistrationStateResourceTypeEventConfiguration)
-updateEventConfigurationByResourceTypes_deviceRegistrationState = Lens.lens (\UpdateEventConfigurationByResourceTypes' {deviceRegistrationState} -> deviceRegistrationState) (\s@UpdateEventConfigurationByResourceTypes' {} a -> s {deviceRegistrationState = a} :: UpdateEventConfigurationByResourceTypes)
 
 -- | Connection status resource type event configuration object for enabling
 -- and disabling wireless gateway topic.
 updateEventConfigurationByResourceTypes_connectionStatus :: Lens.Lens' UpdateEventConfigurationByResourceTypes (Prelude.Maybe ConnectionStatusResourceTypeEventConfiguration)
 updateEventConfigurationByResourceTypes_connectionStatus = Lens.lens (\UpdateEventConfigurationByResourceTypes' {connectionStatus} -> connectionStatus) (\s@UpdateEventConfigurationByResourceTypes' {} a -> s {connectionStatus = a} :: UpdateEventConfigurationByResourceTypes)
 
--- | Message delivery status resource type event configuration object for
--- enabling and disabling wireless device topic.
-updateEventConfigurationByResourceTypes_messageDeliveryStatus :: Lens.Lens' UpdateEventConfigurationByResourceTypes (Prelude.Maybe MessageDeliveryStatusResourceTypeEventConfiguration)
-updateEventConfigurationByResourceTypes_messageDeliveryStatus = Lens.lens (\UpdateEventConfigurationByResourceTypes' {messageDeliveryStatus} -> messageDeliveryStatus) (\s@UpdateEventConfigurationByResourceTypes' {} a -> s {messageDeliveryStatus = a} :: UpdateEventConfigurationByResourceTypes)
+-- | Device registration state resource type event configuration object for
+-- enabling and disabling wireless gateway topic.
+updateEventConfigurationByResourceTypes_deviceRegistrationState :: Lens.Lens' UpdateEventConfigurationByResourceTypes (Prelude.Maybe DeviceRegistrationStateResourceTypeEventConfiguration)
+updateEventConfigurationByResourceTypes_deviceRegistrationState = Lens.lens (\UpdateEventConfigurationByResourceTypes' {deviceRegistrationState} -> deviceRegistrationState) (\s@UpdateEventConfigurationByResourceTypes' {} a -> s {deviceRegistrationState = a} :: UpdateEventConfigurationByResourceTypes)
 
 -- | Join resource type event configuration object for enabling and disabling
 -- wireless device topic.
 updateEventConfigurationByResourceTypes_join :: Lens.Lens' UpdateEventConfigurationByResourceTypes (Prelude.Maybe JoinResourceTypeEventConfiguration)
 updateEventConfigurationByResourceTypes_join = Lens.lens (\UpdateEventConfigurationByResourceTypes' {join} -> join) (\s@UpdateEventConfigurationByResourceTypes' {} a -> s {join = a} :: UpdateEventConfigurationByResourceTypes)
+
+-- | Message delivery status resource type event configuration object for
+-- enabling and disabling wireless device topic.
+updateEventConfigurationByResourceTypes_messageDeliveryStatus :: Lens.Lens' UpdateEventConfigurationByResourceTypes (Prelude.Maybe MessageDeliveryStatusResourceTypeEventConfiguration)
+updateEventConfigurationByResourceTypes_messageDeliveryStatus = Lens.lens (\UpdateEventConfigurationByResourceTypes' {messageDeliveryStatus} -> messageDeliveryStatus) (\s@UpdateEventConfigurationByResourceTypes' {} a -> s {messageDeliveryStatus = a} :: UpdateEventConfigurationByResourceTypes)
 
 -- | Proximity resource type event configuration object for enabling and
 -- disabling wireless gateway topic.
@@ -154,11 +155,10 @@ instance
   hashWithSalt
     _salt
     UpdateEventConfigurationByResourceTypes' {..} =
-      _salt
+      _salt `Prelude.hashWithSalt` connectionStatus
         `Prelude.hashWithSalt` deviceRegistrationState
-        `Prelude.hashWithSalt` connectionStatus
-        `Prelude.hashWithSalt` messageDeliveryStatus
         `Prelude.hashWithSalt` join
+        `Prelude.hashWithSalt` messageDeliveryStatus
         `Prelude.hashWithSalt` proximity
 
 instance
@@ -166,10 +166,10 @@ instance
     UpdateEventConfigurationByResourceTypes
   where
   rnf UpdateEventConfigurationByResourceTypes' {..} =
-    Prelude.rnf deviceRegistrationState
-      `Prelude.seq` Prelude.rnf connectionStatus
-      `Prelude.seq` Prelude.rnf messageDeliveryStatus
+    Prelude.rnf connectionStatus
+      `Prelude.seq` Prelude.rnf deviceRegistrationState
       `Prelude.seq` Prelude.rnf join
+      `Prelude.seq` Prelude.rnf messageDeliveryStatus
       `Prelude.seq` Prelude.rnf proximity
 
 instance
@@ -185,13 +185,13 @@ instance
   toJSON UpdateEventConfigurationByResourceTypes' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DeviceRegistrationState" Data..=)
-              Prelude.<$> deviceRegistrationState,
-            ("ConnectionStatus" Data..=)
+          [ ("ConnectionStatus" Data..=)
               Prelude.<$> connectionStatus,
+            ("DeviceRegistrationState" Data..=)
+              Prelude.<$> deviceRegistrationState,
+            ("Join" Data..=) Prelude.<$> join,
             ("MessageDeliveryStatus" Data..=)
               Prelude.<$> messageDeliveryStatus,
-            ("Join" Data..=) Prelude.<$> join,
             ("Proximity" Data..=) Prelude.<$> proximity
           ]
       )

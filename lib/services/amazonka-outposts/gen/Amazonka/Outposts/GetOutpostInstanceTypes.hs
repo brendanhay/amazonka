@@ -27,8 +27,8 @@ module Amazonka.Outposts.GetOutpostInstanceTypes
     newGetOutpostInstanceTypes,
 
     -- * Request Lenses
-    getOutpostInstanceTypes_nextToken,
     getOutpostInstanceTypes_maxResults,
+    getOutpostInstanceTypes_nextToken,
     getOutpostInstanceTypes_outpostId,
 
     -- * Destructuring the Response
@@ -36,10 +36,10 @@ module Amazonka.Outposts.GetOutpostInstanceTypes
     newGetOutpostInstanceTypesResponse,
 
     -- * Response Lenses
-    getOutpostInstanceTypesResponse_nextToken,
-    getOutpostInstanceTypesResponse_outpostId,
-    getOutpostInstanceTypesResponse_outpostArn,
     getOutpostInstanceTypesResponse_instanceTypes,
+    getOutpostInstanceTypesResponse_nextToken,
+    getOutpostInstanceTypesResponse_outpostArn,
+    getOutpostInstanceTypesResponse_outpostId,
     getOutpostInstanceTypesResponse_httpStatus,
   )
 where
@@ -54,8 +54,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetOutpostInstanceTypes' smart constructor.
 data GetOutpostInstanceTypes = GetOutpostInstanceTypes'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    maxResults :: Prelude.Maybe Prelude.Natural,
+  { maxResults :: Prelude.Maybe Prelude.Natural,
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID or the Amazon Resource Name (ARN) of the Outpost.
     outpostId :: Prelude.Text
   }
@@ -69,9 +69,9 @@ data GetOutpostInstanceTypes = GetOutpostInstanceTypes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getOutpostInstanceTypes_nextToken' - Undocumented member.
---
 -- 'maxResults', 'getOutpostInstanceTypes_maxResults' - Undocumented member.
+--
+-- 'nextToken', 'getOutpostInstanceTypes_nextToken' - Undocumented member.
 --
 -- 'outpostId', 'getOutpostInstanceTypes_outpostId' - The ID or the Amazon Resource Name (ARN) of the Outpost.
 newGetOutpostInstanceTypes ::
@@ -80,19 +80,19 @@ newGetOutpostInstanceTypes ::
   GetOutpostInstanceTypes
 newGetOutpostInstanceTypes pOutpostId_ =
   GetOutpostInstanceTypes'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       outpostId = pOutpostId_
     }
 
 -- | Undocumented member.
-getOutpostInstanceTypes_nextToken :: Lens.Lens' GetOutpostInstanceTypes (Prelude.Maybe Prelude.Text)
-getOutpostInstanceTypes_nextToken = Lens.lens (\GetOutpostInstanceTypes' {nextToken} -> nextToken) (\s@GetOutpostInstanceTypes' {} a -> s {nextToken = a} :: GetOutpostInstanceTypes)
-
--- | Undocumented member.
 getOutpostInstanceTypes_maxResults :: Lens.Lens' GetOutpostInstanceTypes (Prelude.Maybe Prelude.Natural)
 getOutpostInstanceTypes_maxResults = Lens.lens (\GetOutpostInstanceTypes' {maxResults} -> maxResults) (\s@GetOutpostInstanceTypes' {} a -> s {maxResults = a} :: GetOutpostInstanceTypes)
+
+-- | Undocumented member.
+getOutpostInstanceTypes_nextToken :: Lens.Lens' GetOutpostInstanceTypes (Prelude.Maybe Prelude.Text)
+getOutpostInstanceTypes_nextToken = Lens.lens (\GetOutpostInstanceTypes' {nextToken} -> nextToken) (\s@GetOutpostInstanceTypes' {} a -> s {nextToken = a} :: GetOutpostInstanceTypes)
 
 -- | The ID or the Amazon Resource Name (ARN) of the Outpost.
 getOutpostInstanceTypes_outpostId :: Lens.Lens' GetOutpostInstanceTypes Prelude.Text
@@ -108,23 +108,23 @@ instance Core.AWSRequest GetOutpostInstanceTypes where
     Response.receiveJSON
       ( \s h x ->
           GetOutpostInstanceTypesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "OutpostId")
+            Prelude.<$> (x Data..?> "InstanceTypes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "OutpostArn")
-            Prelude.<*> (x Data..?> "InstanceTypes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "OutpostId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetOutpostInstanceTypes where
   hashWithSalt _salt GetOutpostInstanceTypes' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` outpostId
 
 instance Prelude.NFData GetOutpostInstanceTypes where
   rnf GetOutpostInstanceTypes' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf outpostId
 
 instance Data.ToHeaders GetOutpostInstanceTypes where
@@ -146,17 +146,17 @@ instance Data.ToPath GetOutpostInstanceTypes where
 instance Data.ToQuery GetOutpostInstanceTypes where
   toQuery GetOutpostInstanceTypes' {..} =
     Prelude.mconcat
-      [ "NextToken" Data.=: nextToken,
-        "MaxResults" Data.=: maxResults
+      [ "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newGetOutpostInstanceTypesResponse' smart constructor.
 data GetOutpostInstanceTypesResponse = GetOutpostInstanceTypesResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
+  { instanceTypes :: Prelude.Maybe [InstanceTypeItem],
+    nextToken :: Prelude.Maybe Prelude.Text,
+    outpostArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Outpost.
     outpostId :: Prelude.Maybe Prelude.Text,
-    outpostArn :: Prelude.Maybe Prelude.Text,
-    instanceTypes :: Prelude.Maybe [InstanceTypeItem],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -170,13 +170,13 @@ data GetOutpostInstanceTypesResponse = GetOutpostInstanceTypesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getOutpostInstanceTypesResponse_nextToken' - Undocumented member.
+-- 'instanceTypes', 'getOutpostInstanceTypesResponse_instanceTypes' - Undocumented member.
 --
--- 'outpostId', 'getOutpostInstanceTypesResponse_outpostId' - The ID of the Outpost.
+-- 'nextToken', 'getOutpostInstanceTypesResponse_nextToken' - Undocumented member.
 --
 -- 'outpostArn', 'getOutpostInstanceTypesResponse_outpostArn' - Undocumented member.
 --
--- 'instanceTypes', 'getOutpostInstanceTypesResponse_instanceTypes' - Undocumented member.
+-- 'outpostId', 'getOutpostInstanceTypesResponse_outpostId' - The ID of the Outpost.
 --
 -- 'httpStatus', 'getOutpostInstanceTypesResponse_httpStatus' - The response's http status code.
 newGetOutpostInstanceTypesResponse ::
@@ -185,29 +185,29 @@ newGetOutpostInstanceTypesResponse ::
   GetOutpostInstanceTypesResponse
 newGetOutpostInstanceTypesResponse pHttpStatus_ =
   GetOutpostInstanceTypesResponse'
-    { nextToken =
+    { instanceTypes =
         Prelude.Nothing,
-      outpostId = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       outpostArn = Prelude.Nothing,
-      instanceTypes = Prelude.Nothing,
+      outpostId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Undocumented member.
+getOutpostInstanceTypesResponse_instanceTypes :: Lens.Lens' GetOutpostInstanceTypesResponse (Prelude.Maybe [InstanceTypeItem])
+getOutpostInstanceTypesResponse_instanceTypes = Lens.lens (\GetOutpostInstanceTypesResponse' {instanceTypes} -> instanceTypes) (\s@GetOutpostInstanceTypesResponse' {} a -> s {instanceTypes = a} :: GetOutpostInstanceTypesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 getOutpostInstanceTypesResponse_nextToken :: Lens.Lens' GetOutpostInstanceTypesResponse (Prelude.Maybe Prelude.Text)
 getOutpostInstanceTypesResponse_nextToken = Lens.lens (\GetOutpostInstanceTypesResponse' {nextToken} -> nextToken) (\s@GetOutpostInstanceTypesResponse' {} a -> s {nextToken = a} :: GetOutpostInstanceTypesResponse)
 
--- | The ID of the Outpost.
-getOutpostInstanceTypesResponse_outpostId :: Lens.Lens' GetOutpostInstanceTypesResponse (Prelude.Maybe Prelude.Text)
-getOutpostInstanceTypesResponse_outpostId = Lens.lens (\GetOutpostInstanceTypesResponse' {outpostId} -> outpostId) (\s@GetOutpostInstanceTypesResponse' {} a -> s {outpostId = a} :: GetOutpostInstanceTypesResponse)
-
 -- | Undocumented member.
 getOutpostInstanceTypesResponse_outpostArn :: Lens.Lens' GetOutpostInstanceTypesResponse (Prelude.Maybe Prelude.Text)
 getOutpostInstanceTypesResponse_outpostArn = Lens.lens (\GetOutpostInstanceTypesResponse' {outpostArn} -> outpostArn) (\s@GetOutpostInstanceTypesResponse' {} a -> s {outpostArn = a} :: GetOutpostInstanceTypesResponse)
 
--- | Undocumented member.
-getOutpostInstanceTypesResponse_instanceTypes :: Lens.Lens' GetOutpostInstanceTypesResponse (Prelude.Maybe [InstanceTypeItem])
-getOutpostInstanceTypesResponse_instanceTypes = Lens.lens (\GetOutpostInstanceTypesResponse' {instanceTypes} -> instanceTypes) (\s@GetOutpostInstanceTypesResponse' {} a -> s {instanceTypes = a} :: GetOutpostInstanceTypesResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The ID of the Outpost.
+getOutpostInstanceTypesResponse_outpostId :: Lens.Lens' GetOutpostInstanceTypesResponse (Prelude.Maybe Prelude.Text)
+getOutpostInstanceTypesResponse_outpostId = Lens.lens (\GetOutpostInstanceTypesResponse' {outpostId} -> outpostId) (\s@GetOutpostInstanceTypesResponse' {} a -> s {outpostId = a} :: GetOutpostInstanceTypesResponse)
 
 -- | The response's http status code.
 getOutpostInstanceTypesResponse_httpStatus :: Lens.Lens' GetOutpostInstanceTypesResponse Prelude.Int
@@ -218,8 +218,8 @@ instance
     GetOutpostInstanceTypesResponse
   where
   rnf GetOutpostInstanceTypesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf outpostId
+    Prelude.rnf instanceTypes
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf outpostArn
-      `Prelude.seq` Prelude.rnf instanceTypes
+      `Prelude.seq` Prelude.rnf outpostId
       `Prelude.seq` Prelude.rnf httpStatus

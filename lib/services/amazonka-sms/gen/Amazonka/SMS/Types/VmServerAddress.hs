@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVmServerAddress' smart constructor.
 data VmServerAddress = VmServerAddress'
-  { -- | The ID of the VM manager.
-    vmManagerId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the VM.
-    vmId :: Prelude.Maybe Prelude.Text
+  { -- | The ID of the VM.
+    vmId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the VM manager.
+    vmManagerId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data VmServerAddress = VmServerAddress'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vmManagerId', 'vmServerAddress_vmManagerId' - The ID of the VM manager.
---
 -- 'vmId', 'vmServerAddress_vmId' - The ID of the VM.
+--
+-- 'vmManagerId', 'vmServerAddress_vmManagerId' - The ID of the VM manager.
 newVmServerAddress ::
   VmServerAddress
 newVmServerAddress =
   VmServerAddress'
-    { vmManagerId = Prelude.Nothing,
-      vmId = Prelude.Nothing
+    { vmId = Prelude.Nothing,
+      vmManagerId = Prelude.Nothing
     }
-
--- | The ID of the VM manager.
-vmServerAddress_vmManagerId :: Lens.Lens' VmServerAddress (Prelude.Maybe Prelude.Text)
-vmServerAddress_vmManagerId = Lens.lens (\VmServerAddress' {vmManagerId} -> vmManagerId) (\s@VmServerAddress' {} a -> s {vmManagerId = a} :: VmServerAddress)
 
 -- | The ID of the VM.
 vmServerAddress_vmId :: Lens.Lens' VmServerAddress (Prelude.Maybe Prelude.Text)
 vmServerAddress_vmId = Lens.lens (\VmServerAddress' {vmId} -> vmId) (\s@VmServerAddress' {} a -> s {vmId = a} :: VmServerAddress)
+
+-- | The ID of the VM manager.
+vmServerAddress_vmManagerId :: Lens.Lens' VmServerAddress (Prelude.Maybe Prelude.Text)
+vmServerAddress_vmManagerId = Lens.lens (\VmServerAddress' {vmManagerId} -> vmManagerId) (\s@VmServerAddress' {} a -> s {vmManagerId = a} :: VmServerAddress)
 
 instance Data.FromJSON VmServerAddress where
   parseJSON =
@@ -68,25 +68,25 @@ instance Data.FromJSON VmServerAddress where
       "VmServerAddress"
       ( \x ->
           VmServerAddress'
-            Prelude.<$> (x Data..:? "vmManagerId")
-            Prelude.<*> (x Data..:? "vmId")
+            Prelude.<$> (x Data..:? "vmId")
+            Prelude.<*> (x Data..:? "vmManagerId")
       )
 
 instance Prelude.Hashable VmServerAddress where
   hashWithSalt _salt VmServerAddress' {..} =
-    _salt `Prelude.hashWithSalt` vmManagerId
-      `Prelude.hashWithSalt` vmId
+    _salt `Prelude.hashWithSalt` vmId
+      `Prelude.hashWithSalt` vmManagerId
 
 instance Prelude.NFData VmServerAddress where
   rnf VmServerAddress' {..} =
-    Prelude.rnf vmManagerId
-      `Prelude.seq` Prelude.rnf vmId
+    Prelude.rnf vmId
+      `Prelude.seq` Prelude.rnf vmManagerId
 
 instance Data.ToJSON VmServerAddress where
   toJSON VmServerAddress' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("vmManagerId" Data..=) Prelude.<$> vmManagerId,
-            ("vmId" Data..=) Prelude.<$> vmId
+          [ ("vmId" Data..=) Prelude.<$> vmId,
+            ("vmManagerId" Data..=) Prelude.<$> vmManagerId
           ]
       )

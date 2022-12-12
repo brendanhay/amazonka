@@ -52,6 +52,7 @@ library
     Amazonka.IoTData.ListRetainedMessages
     Amazonka.IoTData.Publish
     Amazonka.IoTData.Types
+    Amazonka.IoTData.Types.PayloadFormatIndicator
     Amazonka.IoTData.Types.RetainedMessageSummary
     Amazonka.IoTData.UpdateThingShadow
     Amazonka.IoTData.Waiters

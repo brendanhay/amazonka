@@ -43,8 +43,8 @@ module Amazonka.ECRPublic.BatchCheckLayerAvailability
     newBatchCheckLayerAvailabilityResponse,
 
     -- * Response Lenses
-    batchCheckLayerAvailabilityResponse_layers,
     batchCheckLayerAvailabilityResponse_failures,
+    batchCheckLayerAvailabilityResponse_layers,
     batchCheckLayerAvailabilityResponse_httpStatus,
   )
 where
@@ -129,8 +129,8 @@ instance Core.AWSRequest BatchCheckLayerAvailability where
     Response.receiveJSON
       ( \s h x ->
           BatchCheckLayerAvailabilityResponse'
-            Prelude.<$> (x Data..?> "layers" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "failures" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "failures" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "layers" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -180,11 +180,11 @@ instance Data.ToQuery BatchCheckLayerAvailability where
 
 -- | /See:/ 'newBatchCheckLayerAvailabilityResponse' smart constructor.
 data BatchCheckLayerAvailabilityResponse = BatchCheckLayerAvailabilityResponse'
-  { -- | A list of image layer objects corresponding to the image layer
+  { -- | Any failures associated with the call.
+    failures :: Prelude.Maybe [LayerFailure],
+    -- | A list of image layer objects corresponding to the image layer
     -- references in the request.
     layers :: Prelude.Maybe [Layer],
-    -- | Any failures associated with the call.
-    failures :: Prelude.Maybe [LayerFailure],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -198,10 +198,10 @@ data BatchCheckLayerAvailabilityResponse = BatchCheckLayerAvailabilityResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'failures', 'batchCheckLayerAvailabilityResponse_failures' - Any failures associated with the call.
+--
 -- 'layers', 'batchCheckLayerAvailabilityResponse_layers' - A list of image layer objects corresponding to the image layer
 -- references in the request.
---
--- 'failures', 'batchCheckLayerAvailabilityResponse_failures' - Any failures associated with the call.
 --
 -- 'httpStatus', 'batchCheckLayerAvailabilityResponse_httpStatus' - The response's http status code.
 newBatchCheckLayerAvailabilityResponse ::
@@ -210,20 +210,20 @@ newBatchCheckLayerAvailabilityResponse ::
   BatchCheckLayerAvailabilityResponse
 newBatchCheckLayerAvailabilityResponse pHttpStatus_ =
   BatchCheckLayerAvailabilityResponse'
-    { layers =
+    { failures =
         Prelude.Nothing,
-      failures = Prelude.Nothing,
+      layers = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Any failures associated with the call.
+batchCheckLayerAvailabilityResponse_failures :: Lens.Lens' BatchCheckLayerAvailabilityResponse (Prelude.Maybe [LayerFailure])
+batchCheckLayerAvailabilityResponse_failures = Lens.lens (\BatchCheckLayerAvailabilityResponse' {failures} -> failures) (\s@BatchCheckLayerAvailabilityResponse' {} a -> s {failures = a} :: BatchCheckLayerAvailabilityResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of image layer objects corresponding to the image layer
 -- references in the request.
 batchCheckLayerAvailabilityResponse_layers :: Lens.Lens' BatchCheckLayerAvailabilityResponse (Prelude.Maybe [Layer])
 batchCheckLayerAvailabilityResponse_layers = Lens.lens (\BatchCheckLayerAvailabilityResponse' {layers} -> layers) (\s@BatchCheckLayerAvailabilityResponse' {} a -> s {layers = a} :: BatchCheckLayerAvailabilityResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Any failures associated with the call.
-batchCheckLayerAvailabilityResponse_failures :: Lens.Lens' BatchCheckLayerAvailabilityResponse (Prelude.Maybe [LayerFailure])
-batchCheckLayerAvailabilityResponse_failures = Lens.lens (\BatchCheckLayerAvailabilityResponse' {failures} -> failures) (\s@BatchCheckLayerAvailabilityResponse' {} a -> s {failures = a} :: BatchCheckLayerAvailabilityResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchCheckLayerAvailabilityResponse_httpStatus :: Lens.Lens' BatchCheckLayerAvailabilityResponse Prelude.Int
@@ -234,6 +234,6 @@ instance
     BatchCheckLayerAvailabilityResponse
   where
   rnf BatchCheckLayerAvailabilityResponse' {..} =
-    Prelude.rnf layers
-      `Prelude.seq` Prelude.rnf failures
+    Prelude.rnf failures
+      `Prelude.seq` Prelude.rnf layers
       `Prelude.seq` Prelude.rnf httpStatus

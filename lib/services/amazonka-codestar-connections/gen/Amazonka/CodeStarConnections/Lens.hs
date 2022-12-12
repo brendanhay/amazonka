@@ -15,9 +15,9 @@ module Amazonka.CodeStarConnections.Lens
   ( -- * Operations
 
     -- ** CreateConnection
-    createConnection_tags,
     createConnection_hostArn,
     createConnection_providerType,
+    createConnection_tags,
     createConnection_connectionName,
     createConnectionResponse_tags,
     createConnectionResponse_httpStatus,
@@ -29,8 +29,8 @@ module Amazonka.CodeStarConnections.Lens
     createHost_name,
     createHost_providerType,
     createHost_providerEndpoint,
-    createHostResponse_tags,
     createHostResponse_hostArn,
+    createHostResponse_tags,
     createHostResponse_httpStatus,
 
     -- ** DeleteConnection
@@ -48,27 +48,27 @@ module Amazonka.CodeStarConnections.Lens
 
     -- ** GetHost
     getHost_hostArn,
-    getHostResponse_vpcConfiguration,
     getHostResponse_name,
     getHostResponse_providerEndpoint,
-    getHostResponse_status,
     getHostResponse_providerType,
+    getHostResponse_status,
+    getHostResponse_vpcConfiguration,
     getHostResponse_httpStatus,
 
     -- ** ListConnections
     listConnections_hostArnFilter,
-    listConnections_providerTypeFilter,
-    listConnections_nextToken,
     listConnections_maxResults,
-    listConnectionsResponse_nextToken,
+    listConnections_nextToken,
+    listConnections_providerTypeFilter,
     listConnectionsResponse_connections,
+    listConnectionsResponse_nextToken,
     listConnectionsResponse_httpStatus,
 
     -- ** ListHosts
-    listHosts_nextToken,
     listHosts_maxResults,
-    listHostsResponse_nextToken,
+    listHosts_nextToken,
     listHostsResponse_hosts,
+    listHostsResponse_nextToken,
     listHostsResponse_httpStatus,
 
     -- ** ListTagsForResource
@@ -87,29 +87,29 @@ module Amazonka.CodeStarConnections.Lens
     untagResourceResponse_httpStatus,
 
     -- ** UpdateHost
-    updateHost_vpcConfiguration,
     updateHost_providerEndpoint,
+    updateHost_vpcConfiguration,
     updateHost_hostArn,
     updateHostResponse_httpStatus,
 
     -- * Types
 
     -- ** Connection
-    connection_hostArn,
     connection_connectionArn,
-    connection_providerType,
-    connection_ownerAccountId,
-    connection_connectionStatus,
     connection_connectionName,
+    connection_connectionStatus,
+    connection_hostArn,
+    connection_ownerAccountId,
+    connection_providerType,
 
     -- ** Host
-    host_vpcConfiguration,
-    host_name,
     host_hostArn,
+    host_name,
     host_providerEndpoint,
-    host_status,
     host_providerType,
+    host_status,
     host_statusMessage,
+    host_vpcConfiguration,
 
     -- ** Tag
     tag_key,

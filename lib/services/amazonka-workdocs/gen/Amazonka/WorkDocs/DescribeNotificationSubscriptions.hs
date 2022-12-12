@@ -29,8 +29,8 @@ module Amazonka.WorkDocs.DescribeNotificationSubscriptions
     newDescribeNotificationSubscriptions,
 
     -- * Request Lenses
-    describeNotificationSubscriptions_marker,
     describeNotificationSubscriptions_limit,
+    describeNotificationSubscriptions_marker,
     describeNotificationSubscriptions_organizationId,
 
     -- * Destructuring the Response
@@ -54,11 +54,11 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newDescribeNotificationSubscriptions' smart constructor.
 data DescribeNotificationSubscriptions = DescribeNotificationSubscriptions'
-  { -- | The marker for the next set of results. (You received this marker from a
+  { -- | The maximum number of items to return with this call.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | The marker for the next set of results. (You received this marker from a
     -- previous call.)
     marker :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return with this call.
-    limit :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the organization.
     organizationId :: Prelude.Text
   }
@@ -72,10 +72,10 @@ data DescribeNotificationSubscriptions = DescribeNotificationSubscriptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'limit', 'describeNotificationSubscriptions_limit' - The maximum number of items to return with this call.
+--
 -- 'marker', 'describeNotificationSubscriptions_marker' - The marker for the next set of results. (You received this marker from a
 -- previous call.)
---
--- 'limit', 'describeNotificationSubscriptions_limit' - The maximum number of items to return with this call.
 --
 -- 'organizationId', 'describeNotificationSubscriptions_organizationId' - The ID of the organization.
 newDescribeNotificationSubscriptions ::
@@ -84,20 +84,20 @@ newDescribeNotificationSubscriptions ::
   DescribeNotificationSubscriptions
 newDescribeNotificationSubscriptions pOrganizationId_ =
   DescribeNotificationSubscriptions'
-    { marker =
+    { limit =
         Prelude.Nothing,
-      limit = Prelude.Nothing,
+      marker = Prelude.Nothing,
       organizationId = pOrganizationId_
     }
+
+-- | The maximum number of items to return with this call.
+describeNotificationSubscriptions_limit :: Lens.Lens' DescribeNotificationSubscriptions (Prelude.Maybe Prelude.Natural)
+describeNotificationSubscriptions_limit = Lens.lens (\DescribeNotificationSubscriptions' {limit} -> limit) (\s@DescribeNotificationSubscriptions' {} a -> s {limit = a} :: DescribeNotificationSubscriptions)
 
 -- | The marker for the next set of results. (You received this marker from a
 -- previous call.)
 describeNotificationSubscriptions_marker :: Lens.Lens' DescribeNotificationSubscriptions (Prelude.Maybe Prelude.Text)
 describeNotificationSubscriptions_marker = Lens.lens (\DescribeNotificationSubscriptions' {marker} -> marker) (\s@DescribeNotificationSubscriptions' {} a -> s {marker = a} :: DescribeNotificationSubscriptions)
-
--- | The maximum number of items to return with this call.
-describeNotificationSubscriptions_limit :: Lens.Lens' DescribeNotificationSubscriptions (Prelude.Maybe Prelude.Natural)
-describeNotificationSubscriptions_limit = Lens.lens (\DescribeNotificationSubscriptions' {limit} -> limit) (\s@DescribeNotificationSubscriptions' {} a -> s {limit = a} :: DescribeNotificationSubscriptions)
 
 -- | The ID of the organization.
 describeNotificationSubscriptions_organizationId :: Lens.Lens' DescribeNotificationSubscriptions Prelude.Text
@@ -153,8 +153,8 @@ instance
   hashWithSalt
     _salt
     DescribeNotificationSubscriptions' {..} =
-      _salt `Prelude.hashWithSalt` marker
-        `Prelude.hashWithSalt` limit
+      _salt `Prelude.hashWithSalt` limit
+        `Prelude.hashWithSalt` marker
         `Prelude.hashWithSalt` organizationId
 
 instance
@@ -162,8 +162,8 @@ instance
     DescribeNotificationSubscriptions
   where
   rnf DescribeNotificationSubscriptions' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf organizationId
 
 instance
@@ -197,7 +197,7 @@ instance
   where
   toQuery DescribeNotificationSubscriptions' {..} =
     Prelude.mconcat
-      ["marker" Data.=: marker, "limit" Data.=: limit]
+      ["limit" Data.=: limit, "marker" Data.=: marker]
 
 -- | /See:/ 'newDescribeNotificationSubscriptionsResponse' smart constructor.
 data DescribeNotificationSubscriptionsResponse = DescribeNotificationSubscriptionsResponse'

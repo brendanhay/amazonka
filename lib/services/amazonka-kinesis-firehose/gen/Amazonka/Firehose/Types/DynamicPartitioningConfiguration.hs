@@ -28,8 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 -- | The configuration of the dynamic partitioning mechanism that creates
 -- smaller data sets from the streaming data by partitioning it based on
 -- partition keys. Currently, dynamic partitioning is only supported for
--- Amazon S3 destinations. For more information, see
--- <https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html>
+-- Amazon S3 destinations.
 --
 -- /See:/ 'newDynamicPartitioningConfiguration' smart constructor.
 data DynamicPartitioningConfiguration = DynamicPartitioningConfiguration'

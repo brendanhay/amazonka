@@ -36,8 +36,8 @@ module Amazonka.RolesAnywhere.CreateTrustAnchor
     newCreateTrustAnchor,
 
     -- * Request Lenses
-    createTrustAnchor_tags,
     createTrustAnchor_enabled,
+    createTrustAnchor_tags,
     createTrustAnchor_name,
     createTrustAnchor_source,
 
@@ -60,10 +60,10 @@ import Amazonka.RolesAnywhere.Types
 
 -- | /See:/ 'newCreateTrustAnchor' smart constructor.
 data CreateTrustAnchor = CreateTrustAnchor'
-  { -- | The tags to attach to the trust anchor.
-    tags :: Prelude.Maybe [Tag],
-    -- | Specifies whether the trust anchor is enabled.
+  { -- | Specifies whether the trust anchor is enabled.
     enabled :: Prelude.Maybe Prelude.Bool,
+    -- | The tags to attach to the trust anchor.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the trust anchor.
     name :: Prelude.Text,
     -- | The trust anchor type and its related certificate data.
@@ -79,9 +79,9 @@ data CreateTrustAnchor = CreateTrustAnchor'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createTrustAnchor_tags' - The tags to attach to the trust anchor.
---
 -- 'enabled', 'createTrustAnchor_enabled' - Specifies whether the trust anchor is enabled.
+--
+-- 'tags', 'createTrustAnchor_tags' - The tags to attach to the trust anchor.
 --
 -- 'name', 'createTrustAnchor_name' - The name of the trust anchor.
 --
@@ -94,19 +94,19 @@ newCreateTrustAnchor ::
   CreateTrustAnchor
 newCreateTrustAnchor pName_ pSource_ =
   CreateTrustAnchor'
-    { tags = Prelude.Nothing,
-      enabled = Prelude.Nothing,
+    { enabled = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_,
       source = pSource_
     }
 
--- | The tags to attach to the trust anchor.
-createTrustAnchor_tags :: Lens.Lens' CreateTrustAnchor (Prelude.Maybe [Tag])
-createTrustAnchor_tags = Lens.lens (\CreateTrustAnchor' {tags} -> tags) (\s@CreateTrustAnchor' {} a -> s {tags = a} :: CreateTrustAnchor) Prelude.. Lens.mapping Lens.coerced
-
 -- | Specifies whether the trust anchor is enabled.
 createTrustAnchor_enabled :: Lens.Lens' CreateTrustAnchor (Prelude.Maybe Prelude.Bool)
 createTrustAnchor_enabled = Lens.lens (\CreateTrustAnchor' {enabled} -> enabled) (\s@CreateTrustAnchor' {} a -> s {enabled = a} :: CreateTrustAnchor)
+
+-- | The tags to attach to the trust anchor.
+createTrustAnchor_tags :: Lens.Lens' CreateTrustAnchor (Prelude.Maybe [Tag])
+createTrustAnchor_tags = Lens.lens (\CreateTrustAnchor' {tags} -> tags) (\s@CreateTrustAnchor' {} a -> s {tags = a} :: CreateTrustAnchor) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the trust anchor.
 createTrustAnchor_name :: Lens.Lens' CreateTrustAnchor Prelude.Text
@@ -128,15 +128,15 @@ instance Core.AWSRequest CreateTrustAnchor where
 
 instance Prelude.Hashable CreateTrustAnchor where
   hashWithSalt _salt CreateTrustAnchor' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` enabled
+    _salt `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` source
 
 instance Prelude.NFData CreateTrustAnchor where
   rnf CreateTrustAnchor' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf source
 
@@ -155,8 +155,8 @@ instance Data.ToJSON CreateTrustAnchor where
   toJSON CreateTrustAnchor' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("enabled" Data..=) Prelude.<$> enabled,
+          [ ("enabled" Data..=) Prelude.<$> enabled,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("name" Data..= name),
             Prelude.Just ("source" Data..= source)
           ]

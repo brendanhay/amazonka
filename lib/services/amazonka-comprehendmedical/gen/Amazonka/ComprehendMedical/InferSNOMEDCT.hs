@@ -36,10 +36,10 @@ module Amazonka.ComprehendMedical.InferSNOMEDCT
     newInferSNOMEDCTResponse,
 
     -- * Response Lenses
+    inferSNOMEDCTResponse_characters,
+    inferSNOMEDCTResponse_modelVersion,
     inferSNOMEDCTResponse_paginationToken,
     inferSNOMEDCTResponse_sNOMEDCTDetails,
-    inferSNOMEDCTResponse_modelVersion,
-    inferSNOMEDCTResponse_characters,
     inferSNOMEDCTResponse_httpStatus,
     inferSNOMEDCTResponse_entities,
   )
@@ -93,10 +93,10 @@ instance Core.AWSRequest InferSNOMEDCT where
     Response.receiveJSON
       ( \s h x ->
           InferSNOMEDCTResponse'
-            Prelude.<$> (x Data..?> "PaginationToken")
-            Prelude.<*> (x Data..?> "SNOMEDCTDetails")
+            Prelude.<$> (x Data..?> "Characters")
             Prelude.<*> (x Data..?> "ModelVersion")
-            Prelude.<*> (x Data..?> "Characters")
+            Prelude.<*> (x Data..?> "PaginationToken")
+            Prelude.<*> (x Data..?> "SNOMEDCTDetails")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "Entities" Core..!@ Prelude.mempty)
       )
@@ -138,18 +138,18 @@ instance Data.ToQuery InferSNOMEDCT where
 
 -- | /See:/ 'newInferSNOMEDCTResponse' smart constructor.
 data InferSNOMEDCTResponse = InferSNOMEDCTResponse'
-  { -- | If the result of the request is truncated, the pagination token can be
+  { -- | The number of characters in the input request documentation.
+    characters :: Prelude.Maybe Characters,
+    -- | The version of the model used to analyze the documents, in the format
+    -- n.n.n You can use this information to track the model used for a
+    -- particular batch of documents.
+    modelVersion :: Prelude.Maybe Prelude.Text,
+    -- | If the result of the request is truncated, the pagination token can be
     -- used to fetch the next page of entities.
     paginationToken :: Prelude.Maybe Prelude.Text,
     -- | The details of the SNOMED-CT revision, including the edition, language,
     -- and version date.
     sNOMEDCTDetails :: Prelude.Maybe SNOMEDCTDetails,
-    -- | The version of the model used to analyze the documents, in the format
-    -- n.n.n You can use this information to track the model used for a
-    -- particular batch of documents.
-    modelVersion :: Prelude.Maybe Prelude.Text,
-    -- | The number of characters in the input request documentation.
-    characters :: Prelude.Maybe Characters,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The collection of medical concept entities extracted from the input text
@@ -170,17 +170,17 @@ data InferSNOMEDCTResponse = InferSNOMEDCTResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'paginationToken', 'inferSNOMEDCTResponse_paginationToken' - If the result of the request is truncated, the pagination token can be
--- used to fetch the next page of entities.
---
--- 'sNOMEDCTDetails', 'inferSNOMEDCTResponse_sNOMEDCTDetails' - The details of the SNOMED-CT revision, including the edition, language,
--- and version date.
+-- 'characters', 'inferSNOMEDCTResponse_characters' - The number of characters in the input request documentation.
 --
 -- 'modelVersion', 'inferSNOMEDCTResponse_modelVersion' - The version of the model used to analyze the documents, in the format
 -- n.n.n You can use this information to track the model used for a
 -- particular batch of documents.
 --
--- 'characters', 'inferSNOMEDCTResponse_characters' - The number of characters in the input request documentation.
+-- 'paginationToken', 'inferSNOMEDCTResponse_paginationToken' - If the result of the request is truncated, the pagination token can be
+-- used to fetch the next page of entities.
+--
+-- 'sNOMEDCTDetails', 'inferSNOMEDCTResponse_sNOMEDCTDetails' - The details of the SNOMED-CT revision, including the edition, language,
+-- and version date.
 --
 -- 'httpStatus', 'inferSNOMEDCTResponse_httpStatus' - The response's http status code.
 --
@@ -196,14 +196,24 @@ newInferSNOMEDCTResponse ::
   InferSNOMEDCTResponse
 newInferSNOMEDCTResponse pHttpStatus_ =
   InferSNOMEDCTResponse'
-    { paginationToken =
+    { characters =
         Prelude.Nothing,
-      sNOMEDCTDetails = Prelude.Nothing,
       modelVersion = Prelude.Nothing,
-      characters = Prelude.Nothing,
+      paginationToken = Prelude.Nothing,
+      sNOMEDCTDetails = Prelude.Nothing,
       httpStatus = pHttpStatus_,
       entities = Prelude.mempty
     }
+
+-- | The number of characters in the input request documentation.
+inferSNOMEDCTResponse_characters :: Lens.Lens' InferSNOMEDCTResponse (Prelude.Maybe Characters)
+inferSNOMEDCTResponse_characters = Lens.lens (\InferSNOMEDCTResponse' {characters} -> characters) (\s@InferSNOMEDCTResponse' {} a -> s {characters = a} :: InferSNOMEDCTResponse)
+
+-- | The version of the model used to analyze the documents, in the format
+-- n.n.n You can use this information to track the model used for a
+-- particular batch of documents.
+inferSNOMEDCTResponse_modelVersion :: Lens.Lens' InferSNOMEDCTResponse (Prelude.Maybe Prelude.Text)
+inferSNOMEDCTResponse_modelVersion = Lens.lens (\InferSNOMEDCTResponse' {modelVersion} -> modelVersion) (\s@InferSNOMEDCTResponse' {} a -> s {modelVersion = a} :: InferSNOMEDCTResponse)
 
 -- | If the result of the request is truncated, the pagination token can be
 -- used to fetch the next page of entities.
@@ -214,16 +224,6 @@ inferSNOMEDCTResponse_paginationToken = Lens.lens (\InferSNOMEDCTResponse' {pagi
 -- and version date.
 inferSNOMEDCTResponse_sNOMEDCTDetails :: Lens.Lens' InferSNOMEDCTResponse (Prelude.Maybe SNOMEDCTDetails)
 inferSNOMEDCTResponse_sNOMEDCTDetails = Lens.lens (\InferSNOMEDCTResponse' {sNOMEDCTDetails} -> sNOMEDCTDetails) (\s@InferSNOMEDCTResponse' {} a -> s {sNOMEDCTDetails = a} :: InferSNOMEDCTResponse)
-
--- | The version of the model used to analyze the documents, in the format
--- n.n.n You can use this information to track the model used for a
--- particular batch of documents.
-inferSNOMEDCTResponse_modelVersion :: Lens.Lens' InferSNOMEDCTResponse (Prelude.Maybe Prelude.Text)
-inferSNOMEDCTResponse_modelVersion = Lens.lens (\InferSNOMEDCTResponse' {modelVersion} -> modelVersion) (\s@InferSNOMEDCTResponse' {} a -> s {modelVersion = a} :: InferSNOMEDCTResponse)
-
--- | The number of characters in the input request documentation.
-inferSNOMEDCTResponse_characters :: Lens.Lens' InferSNOMEDCTResponse (Prelude.Maybe Characters)
-inferSNOMEDCTResponse_characters = Lens.lens (\InferSNOMEDCTResponse' {characters} -> characters) (\s@InferSNOMEDCTResponse' {} a -> s {characters = a} :: InferSNOMEDCTResponse)
 
 -- | The response's http status code.
 inferSNOMEDCTResponse_httpStatus :: Lens.Lens' InferSNOMEDCTResponse Prelude.Int
@@ -240,9 +240,9 @@ inferSNOMEDCTResponse_entities = Lens.lens (\InferSNOMEDCTResponse' {entities} -
 
 instance Prelude.NFData InferSNOMEDCTResponse where
   rnf InferSNOMEDCTResponse' {..} =
-    Prelude.rnf paginationToken
-      `Prelude.seq` Prelude.rnf sNOMEDCTDetails
+    Prelude.rnf characters
       `Prelude.seq` Prelude.rnf modelVersion
-      `Prelude.seq` Prelude.rnf characters
+      `Prelude.seq` Prelude.rnf paginationToken
+      `Prelude.seq` Prelude.rnf sNOMEDCTDetails
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf entities

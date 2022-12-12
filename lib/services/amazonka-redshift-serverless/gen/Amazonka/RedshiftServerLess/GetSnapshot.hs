@@ -27,9 +27,9 @@ module Amazonka.RedshiftServerLess.GetSnapshot
     newGetSnapshot,
 
     -- * Request Lenses
-    getSnapshot_snapshotName,
-    getSnapshot_snapshotArn,
     getSnapshot_ownerAccount,
+    getSnapshot_snapshotArn,
+    getSnapshot_snapshotName,
 
     -- * Destructuring the Response
     GetSnapshotResponse (..),
@@ -51,13 +51,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetSnapshot' smart constructor.
 data GetSnapshot = GetSnapshot'
-  { -- | The name of the snapshot to return.
-    snapshotName :: Prelude.Maybe Prelude.Text,
+  { -- | The owner Amazon Web Services account of a snapshot shared with another
+    -- user.
+    ownerAccount :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the snapshot to return.
     snapshotArn :: Prelude.Maybe Prelude.Text,
-    -- | The owner Amazon Web Services account of a snapshot shared with another
-    -- user.
-    ownerAccount :: Prelude.Maybe Prelude.Text
+    -- | The name of the snapshot to return.
+    snapshotName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,33 +69,33 @@ data GetSnapshot = GetSnapshot'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'snapshotName', 'getSnapshot_snapshotName' - The name of the snapshot to return.
+-- 'ownerAccount', 'getSnapshot_ownerAccount' - The owner Amazon Web Services account of a snapshot shared with another
+-- user.
 --
 -- 'snapshotArn', 'getSnapshot_snapshotArn' - The Amazon Resource Name (ARN) of the snapshot to return.
 --
--- 'ownerAccount', 'getSnapshot_ownerAccount' - The owner Amazon Web Services account of a snapshot shared with another
--- user.
+-- 'snapshotName', 'getSnapshot_snapshotName' - The name of the snapshot to return.
 newGetSnapshot ::
   GetSnapshot
 newGetSnapshot =
   GetSnapshot'
-    { snapshotName = Prelude.Nothing,
+    { ownerAccount = Prelude.Nothing,
       snapshotArn = Prelude.Nothing,
-      ownerAccount = Prelude.Nothing
+      snapshotName = Prelude.Nothing
     }
-
--- | The name of the snapshot to return.
-getSnapshot_snapshotName :: Lens.Lens' GetSnapshot (Prelude.Maybe Prelude.Text)
-getSnapshot_snapshotName = Lens.lens (\GetSnapshot' {snapshotName} -> snapshotName) (\s@GetSnapshot' {} a -> s {snapshotName = a} :: GetSnapshot)
-
--- | The Amazon Resource Name (ARN) of the snapshot to return.
-getSnapshot_snapshotArn :: Lens.Lens' GetSnapshot (Prelude.Maybe Prelude.Text)
-getSnapshot_snapshotArn = Lens.lens (\GetSnapshot' {snapshotArn} -> snapshotArn) (\s@GetSnapshot' {} a -> s {snapshotArn = a} :: GetSnapshot)
 
 -- | The owner Amazon Web Services account of a snapshot shared with another
 -- user.
 getSnapshot_ownerAccount :: Lens.Lens' GetSnapshot (Prelude.Maybe Prelude.Text)
 getSnapshot_ownerAccount = Lens.lens (\GetSnapshot' {ownerAccount} -> ownerAccount) (\s@GetSnapshot' {} a -> s {ownerAccount = a} :: GetSnapshot)
+
+-- | The Amazon Resource Name (ARN) of the snapshot to return.
+getSnapshot_snapshotArn :: Lens.Lens' GetSnapshot (Prelude.Maybe Prelude.Text)
+getSnapshot_snapshotArn = Lens.lens (\GetSnapshot' {snapshotArn} -> snapshotArn) (\s@GetSnapshot' {} a -> s {snapshotArn = a} :: GetSnapshot)
+
+-- | The name of the snapshot to return.
+getSnapshot_snapshotName :: Lens.Lens' GetSnapshot (Prelude.Maybe Prelude.Text)
+getSnapshot_snapshotName = Lens.lens (\GetSnapshot' {snapshotName} -> snapshotName) (\s@GetSnapshot' {} a -> s {snapshotName = a} :: GetSnapshot)
 
 instance Core.AWSRequest GetSnapshot where
   type AWSResponse GetSnapshot = GetSnapshotResponse
@@ -111,15 +111,15 @@ instance Core.AWSRequest GetSnapshot where
 
 instance Prelude.Hashable GetSnapshot where
   hashWithSalt _salt GetSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` snapshotName
+    _salt `Prelude.hashWithSalt` ownerAccount
       `Prelude.hashWithSalt` snapshotArn
-      `Prelude.hashWithSalt` ownerAccount
+      `Prelude.hashWithSalt` snapshotName
 
 instance Prelude.NFData GetSnapshot where
   rnf GetSnapshot' {..} =
-    Prelude.rnf snapshotName
+    Prelude.rnf ownerAccount
       `Prelude.seq` Prelude.rnf snapshotArn
-      `Prelude.seq` Prelude.rnf ownerAccount
+      `Prelude.seq` Prelude.rnf snapshotName
 
 instance Data.ToHeaders GetSnapshot where
   toHeaders =
@@ -140,9 +140,9 @@ instance Data.ToJSON GetSnapshot where
   toJSON GetSnapshot' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("snapshotName" Data..=) Prelude.<$> snapshotName,
+          [ ("ownerAccount" Data..=) Prelude.<$> ownerAccount,
             ("snapshotArn" Data..=) Prelude.<$> snapshotArn,
-            ("ownerAccount" Data..=) Prelude.<$> ownerAccount
+            ("snapshotName" Data..=) Prelude.<$> snapshotName
           ]
       )
 

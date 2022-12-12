@@ -28,9 +28,9 @@ module Amazonka.FSx.CreateVolumeFromBackup
     newCreateVolumeFromBackup,
 
     -- * Request Lenses
-    createVolumeFromBackup_tags,
     createVolumeFromBackup_clientRequestToken,
     createVolumeFromBackup_ontapConfiguration,
+    createVolumeFromBackup_tags,
     createVolumeFromBackup_backupId,
     createVolumeFromBackup_name,
 
@@ -54,10 +54,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateVolumeFromBackup' smart constructor.
 data CreateVolumeFromBackup = CreateVolumeFromBackup'
-  { tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
+  { clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies the configuration of the ONTAP volume that you are creating.
     ontapConfiguration :: Prelude.Maybe CreateOntapVolumeConfiguration,
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     backupId :: Prelude.Text,
     -- | The name of the new volume you\'re creating.
     name :: Prelude.Text
@@ -72,11 +72,11 @@ data CreateVolumeFromBackup = CreateVolumeFromBackup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createVolumeFromBackup_tags' - Undocumented member.
---
 -- 'clientRequestToken', 'createVolumeFromBackup_clientRequestToken' - Undocumented member.
 --
 -- 'ontapConfiguration', 'createVolumeFromBackup_ontapConfiguration' - Specifies the configuration of the ONTAP volume that you are creating.
+--
+-- 'tags', 'createVolumeFromBackup_tags' - Undocumented member.
 --
 -- 'backupId', 'createVolumeFromBackup_backupId' - Undocumented member.
 --
@@ -89,16 +89,13 @@ newCreateVolumeFromBackup ::
   CreateVolumeFromBackup
 newCreateVolumeFromBackup pBackupId_ pName_ =
   CreateVolumeFromBackup'
-    { tags = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
+    { clientRequestToken =
+        Prelude.Nothing,
       ontapConfiguration = Prelude.Nothing,
+      tags = Prelude.Nothing,
       backupId = pBackupId_,
       name = pName_
     }
-
--- | Undocumented member.
-createVolumeFromBackup_tags :: Lens.Lens' CreateVolumeFromBackup (Prelude.Maybe (Prelude.NonEmpty Tag))
-createVolumeFromBackup_tags = Lens.lens (\CreateVolumeFromBackup' {tags} -> tags) (\s@CreateVolumeFromBackup' {} a -> s {tags = a} :: CreateVolumeFromBackup) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 createVolumeFromBackup_clientRequestToken :: Lens.Lens' CreateVolumeFromBackup (Prelude.Maybe Prelude.Text)
@@ -107,6 +104,10 @@ createVolumeFromBackup_clientRequestToken = Lens.lens (\CreateVolumeFromBackup' 
 -- | Specifies the configuration of the ONTAP volume that you are creating.
 createVolumeFromBackup_ontapConfiguration :: Lens.Lens' CreateVolumeFromBackup (Prelude.Maybe CreateOntapVolumeConfiguration)
 createVolumeFromBackup_ontapConfiguration = Lens.lens (\CreateVolumeFromBackup' {ontapConfiguration} -> ontapConfiguration) (\s@CreateVolumeFromBackup' {} a -> s {ontapConfiguration = a} :: CreateVolumeFromBackup)
+
+-- | Undocumented member.
+createVolumeFromBackup_tags :: Lens.Lens' CreateVolumeFromBackup (Prelude.Maybe (Prelude.NonEmpty Tag))
+createVolumeFromBackup_tags = Lens.lens (\CreateVolumeFromBackup' {tags} -> tags) (\s@CreateVolumeFromBackup' {} a -> s {tags = a} :: CreateVolumeFromBackup) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 createVolumeFromBackup_backupId :: Lens.Lens' CreateVolumeFromBackup Prelude.Text
@@ -132,17 +133,17 @@ instance Core.AWSRequest CreateVolumeFromBackup where
 
 instance Prelude.Hashable CreateVolumeFromBackup where
   hashWithSalt _salt CreateVolumeFromBackup' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientRequestToken
+    _salt `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` ontapConfiguration
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` backupId
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateVolumeFromBackup where
   rnf CreateVolumeFromBackup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf ontapConfiguration
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf backupId
       `Prelude.seq` Prelude.rnf name
 
@@ -165,11 +166,11 @@ instance Data.ToJSON CreateVolumeFromBackup where
   toJSON CreateVolumeFromBackup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ClientRequestToken" Data..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
             ("OntapConfiguration" Data..=)
               Prelude.<$> ontapConfiguration,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("BackupId" Data..= backupId),
             Prelude.Just ("Name" Data..= name)
           ]

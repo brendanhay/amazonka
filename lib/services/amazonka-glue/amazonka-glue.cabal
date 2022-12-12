@@ -52,6 +52,7 @@ library
     Amazonka.Glue.BatchGetBlueprints
     Amazonka.Glue.BatchGetCrawlers
     Amazonka.Glue.BatchGetCustomEntityTypes
+    Amazonka.Glue.BatchGetDataQualityResult
     Amazonka.Glue.BatchGetDevEndpoints
     Amazonka.Glue.BatchGetJobs
     Amazonka.Glue.BatchGetPartition
@@ -59,6 +60,8 @@ library
     Amazonka.Glue.BatchGetWorkflows
     Amazonka.Glue.BatchStopJobRun
     Amazonka.Glue.BatchUpdatePartition
+    Amazonka.Glue.CancelDataQualityRuleRecommendationRun
+    Amazonka.Glue.CancelDataQualityRulesetEvaluationRun
     Amazonka.Glue.CancelMLTaskRun
     Amazonka.Glue.CancelStatement
     Amazonka.Glue.CheckSchemaVersionValidity
@@ -68,6 +71,7 @@ library
     Amazonka.Glue.CreateCrawler
     Amazonka.Glue.CreateCustomEntityType
     Amazonka.Glue.CreateDatabase
+    Amazonka.Glue.CreateDataQualityRuleset
     Amazonka.Glue.CreateDevEndpoint
     Amazonka.Glue.CreateJob
     Amazonka.Glue.CreateMLTransform
@@ -90,6 +94,7 @@ library
     Amazonka.Glue.DeleteCrawler
     Amazonka.Glue.DeleteCustomEntityType
     Amazonka.Glue.DeleteDatabase
+    Amazonka.Glue.DeleteDataQualityRuleset
     Amazonka.Glue.DeleteDevEndpoint
     Amazonka.Glue.DeleteJob
     Amazonka.Glue.DeleteMLTransform
@@ -124,6 +129,10 @@ library
     Amazonka.Glue.GetDatabases
     Amazonka.Glue.GetDataCatalogEncryptionSettings
     Amazonka.Glue.GetDataflowGraph
+    Amazonka.Glue.GetDataQualityResult
+    Amazonka.Glue.GetDataQualityRuleRecommendationRun
+    Amazonka.Glue.GetDataQualityRuleset
+    Amazonka.Glue.GetDataQualityRulesetEvaluationRun
     Amazonka.Glue.GetDevEndpoint
     Amazonka.Glue.GetDevEndpoints
     Amazonka.Glue.GetJob
@@ -173,6 +182,10 @@ library
     Amazonka.Glue.ListCrawlers
     Amazonka.Glue.ListCrawls
     Amazonka.Glue.ListCustomEntityTypes
+    Amazonka.Glue.ListDataQualityResults
+    Amazonka.Glue.ListDataQualityRuleRecommendationRuns
+    Amazonka.Glue.ListDataQualityRulesetEvaluationRuns
+    Amazonka.Glue.ListDataQualityRulesets
     Amazonka.Glue.ListDevEndpoints
     Amazonka.Glue.ListJobs
     Amazonka.Glue.ListMLTransforms
@@ -197,6 +210,8 @@ library
     Amazonka.Glue.StartBlueprintRun
     Amazonka.Glue.StartCrawler
     Amazonka.Glue.StartCrawlerSchedule
+    Amazonka.Glue.StartDataQualityRuleRecommendationRun
+    Amazonka.Glue.StartDataQualityRulesetEvaluationRun
     Amazonka.Glue.StartExportLabelsTaskRun
     Amazonka.Glue.StartImportLabelsTaskRun
     Amazonka.Glue.StartJobRun
@@ -291,6 +306,20 @@ library
     Amazonka.Glue.Types.DataCatalogEncryptionSettings
     Amazonka.Glue.Types.DataFormat
     Amazonka.Glue.Types.DataLakePrincipal
+    Amazonka.Glue.Types.DataQualityEvaluationRunAdditionalRunOptions
+    Amazonka.Glue.Types.DataQualityResult
+    Amazonka.Glue.Types.DataQualityResultDescription
+    Amazonka.Glue.Types.DataQualityResultFilterCriteria
+    Amazonka.Glue.Types.DataQualityRuleRecommendationRunDescription
+    Amazonka.Glue.Types.DataQualityRuleRecommendationRunFilter
+    Amazonka.Glue.Types.DataQualityRuleResult
+    Amazonka.Glue.Types.DataQualityRuleResultStatus
+    Amazonka.Glue.Types.DataQualityRulesetEvaluationRunDescription
+    Amazonka.Glue.Types.DataQualityRulesetEvaluationRunFilter
+    Amazonka.Glue.Types.DataQualityRulesetFilterCriteria
+    Amazonka.Glue.Types.DataQualityRulesetListDetails
+    Amazonka.Glue.Types.DataQualityTargetTable
+    Amazonka.Glue.Types.DataSource
     Amazonka.Glue.Types.Datatype
     Amazonka.Glue.Types.DateColumnStatisticsData
     Amazonka.Glue.Types.DecimalColumnStatisticsData
@@ -303,9 +332,14 @@ library
     Amazonka.Glue.Types.DirectKinesisSource
     Amazonka.Glue.Types.DirectSchemaChangePolicy
     Amazonka.Glue.Types.DoubleColumnStatisticsData
+    Amazonka.Glue.Types.DQResultsPublishingOptions
+    Amazonka.Glue.Types.DQStopJobOnFailureOptions
+    Amazonka.Glue.Types.DQStopJobOnFailureTiming
+    Amazonka.Glue.Types.DQTransformOutput
     Amazonka.Glue.Types.DropDuplicates
     Amazonka.Glue.Types.DropFields
     Amazonka.Glue.Types.DropNullFields
+    Amazonka.Glue.Types.DynamicTransform
     Amazonka.Glue.Types.DynamoDBCatalogSource
     Amazonka.Glue.Types.DynamoDBTarget
     Amazonka.Glue.Types.Edge
@@ -314,6 +348,7 @@ library
     Amazonka.Glue.Types.EncryptionConfiguration
     Amazonka.Glue.Types.ErrorDetail
     Amazonka.Glue.Types.ErrorDetails
+    Amazonka.Glue.Types.EvaluateDataQuality
     Amazonka.Glue.Types.EvaluationMetrics
     Amazonka.Glue.Types.EventBatchingCondition
     Amazonka.Glue.Types.ExecutionClass
@@ -397,6 +432,7 @@ library
     Amazonka.Glue.Types.OracleSQLCatalogTarget
     Amazonka.Glue.Types.Order
     Amazonka.Glue.Types.OtherMetadataValueListItem
+    Amazonka.Glue.Types.ParamType
     Amazonka.Glue.Types.ParquetCompressionType
     Amazonka.Glue.Types.Partition
     Amazonka.Glue.Types.PartitionError
@@ -500,6 +536,7 @@ library
     Amazonka.Glue.Types.TaskRunSortCriteria
     Amazonka.Glue.Types.TaskStatusType
     Amazonka.Glue.Types.TaskType
+    Amazonka.Glue.Types.TransformConfigParameter
     Amazonka.Glue.Types.TransformEncryption
     Amazonka.Glue.Types.TransformFilterCriteria
     Amazonka.Glue.Types.TransformParameters
@@ -540,6 +577,7 @@ library
     Amazonka.Glue.UpdateCrawler
     Amazonka.Glue.UpdateCrawlerSchedule
     Amazonka.Glue.UpdateDatabase
+    Amazonka.Glue.UpdateDataQualityRuleset
     Amazonka.Glue.UpdateDevEndpoint
     Amazonka.Glue.UpdateJob
     Amazonka.Glue.UpdateJobFromSourceControl

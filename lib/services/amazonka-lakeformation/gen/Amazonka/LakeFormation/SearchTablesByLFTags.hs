@@ -33,9 +33,9 @@ module Amazonka.LakeFormation.SearchTablesByLFTags
     newSearchTablesByLFTags,
 
     -- * Request Lenses
-    searchTablesByLFTags_nextToken,
-    searchTablesByLFTags_maxResults,
     searchTablesByLFTags_catalogId,
+    searchTablesByLFTags_maxResults,
+    searchTablesByLFTags_nextToken,
     searchTablesByLFTags_expression,
 
     -- * Destructuring the Response
@@ -59,16 +59,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSearchTablesByLFTags' smart constructor.
 data SearchTablesByLFTags = SearchTablesByLFTags'
-  { -- | A continuation token, if this is not the first call to retrieve this
-    -- list.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The identifier for the Data Catalog. By default, the account ID. The
+  { -- | The identifier for the Data Catalog. By default, the account ID. The
     -- Data Catalog is the persistent metadata store. It contains database
     -- definitions, table definitions, and other control information to manage
     -- your Lake Formation environment.
     catalogId :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A continuation token, if this is not the first call to retrieve this
+    -- list.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of conditions (@LFTag@ structures) to search for in table
     -- resources.
     expression :: Prelude.NonEmpty LFTag
@@ -83,15 +83,15 @@ data SearchTablesByLFTags = SearchTablesByLFTags'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'searchTablesByLFTags_nextToken' - A continuation token, if this is not the first call to retrieve this
--- list.
---
--- 'maxResults', 'searchTablesByLFTags_maxResults' - The maximum number of results to return.
---
 -- 'catalogId', 'searchTablesByLFTags_catalogId' - The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
 -- definitions, table definitions, and other control information to manage
 -- your Lake Formation environment.
+--
+-- 'maxResults', 'searchTablesByLFTags_maxResults' - The maximum number of results to return.
+--
+-- 'nextToken', 'searchTablesByLFTags_nextToken' - A continuation token, if this is not the first call to retrieve this
+-- list.
 --
 -- 'expression', 'searchTablesByLFTags_expression' - A list of conditions (@LFTag@ structures) to search for in table
 -- resources.
@@ -101,20 +101,11 @@ newSearchTablesByLFTags ::
   SearchTablesByLFTags
 newSearchTablesByLFTags pExpression_ =
   SearchTablesByLFTags'
-    { nextToken = Prelude.Nothing,
+    { catalogId = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      catalogId = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       expression = Lens.coerced Lens.# pExpression_
     }
-
--- | A continuation token, if this is not the first call to retrieve this
--- list.
-searchTablesByLFTags_nextToken :: Lens.Lens' SearchTablesByLFTags (Prelude.Maybe Prelude.Text)
-searchTablesByLFTags_nextToken = Lens.lens (\SearchTablesByLFTags' {nextToken} -> nextToken) (\s@SearchTablesByLFTags' {} a -> s {nextToken = a} :: SearchTablesByLFTags)
-
--- | The maximum number of results to return.
-searchTablesByLFTags_maxResults :: Lens.Lens' SearchTablesByLFTags (Prelude.Maybe Prelude.Natural)
-searchTablesByLFTags_maxResults = Lens.lens (\SearchTablesByLFTags' {maxResults} -> maxResults) (\s@SearchTablesByLFTags' {} a -> s {maxResults = a} :: SearchTablesByLFTags)
 
 -- | The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
@@ -122,6 +113,15 @@ searchTablesByLFTags_maxResults = Lens.lens (\SearchTablesByLFTags' {maxResults}
 -- your Lake Formation environment.
 searchTablesByLFTags_catalogId :: Lens.Lens' SearchTablesByLFTags (Prelude.Maybe Prelude.Text)
 searchTablesByLFTags_catalogId = Lens.lens (\SearchTablesByLFTags' {catalogId} -> catalogId) (\s@SearchTablesByLFTags' {} a -> s {catalogId = a} :: SearchTablesByLFTags)
+
+-- | The maximum number of results to return.
+searchTablesByLFTags_maxResults :: Lens.Lens' SearchTablesByLFTags (Prelude.Maybe Prelude.Natural)
+searchTablesByLFTags_maxResults = Lens.lens (\SearchTablesByLFTags' {maxResults} -> maxResults) (\s@SearchTablesByLFTags' {} a -> s {maxResults = a} :: SearchTablesByLFTags)
+
+-- | A continuation token, if this is not the first call to retrieve this
+-- list.
+searchTablesByLFTags_nextToken :: Lens.Lens' SearchTablesByLFTags (Prelude.Maybe Prelude.Text)
+searchTablesByLFTags_nextToken = Lens.lens (\SearchTablesByLFTags' {nextToken} -> nextToken) (\s@SearchTablesByLFTags' {} a -> s {nextToken = a} :: SearchTablesByLFTags)
 
 -- | A list of conditions (@LFTag@ structures) to search for in table
 -- resources.
@@ -167,16 +167,16 @@ instance Core.AWSRequest SearchTablesByLFTags where
 
 instance Prelude.Hashable SearchTablesByLFTags where
   hashWithSalt _salt SearchTablesByLFTags' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` expression
 
 instance Prelude.NFData SearchTablesByLFTags where
   rnf SearchTablesByLFTags' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf catalogId
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf expression
 
 instance Data.ToHeaders SearchTablesByLFTags where
@@ -194,9 +194,9 @@ instance Data.ToJSON SearchTablesByLFTags where
   toJSON SearchTablesByLFTags' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("CatalogId" Data..=) Prelude.<$> catalogId,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("Expression" Data..= expression)
           ]
       )

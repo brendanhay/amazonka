@@ -46,8 +46,8 @@ module Amazonka.Kinesis.ListStreams
     newListStreams,
 
     -- * Request Lenses
-    listStreams_limit,
     listStreams_exclusiveStartStreamName,
+    listStreams_limit,
 
     -- * Destructuring the Response
     ListStreamsResponse (..),
@@ -72,11 +72,11 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListStreams' smart constructor.
 data ListStreams = ListStreams'
-  { -- | The maximum number of streams to list. The default value is 100. If you
+  { -- | The name of the stream to start the list with.
+    exclusiveStartStreamName :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of streams to list. The default value is 100. If you
     -- specify a value greater than 100, at most 100 results are returned.
-    limit :: Prelude.Maybe Prelude.Natural,
-    -- | The name of the stream to start the list with.
-    exclusiveStartStreamName :: Prelude.Maybe Prelude.Text
+    limit :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -88,26 +88,27 @@ data ListStreams = ListStreams'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'exclusiveStartStreamName', 'listStreams_exclusiveStartStreamName' - The name of the stream to start the list with.
+--
 -- 'limit', 'listStreams_limit' - The maximum number of streams to list. The default value is 100. If you
 -- specify a value greater than 100, at most 100 results are returned.
---
--- 'exclusiveStartStreamName', 'listStreams_exclusiveStartStreamName' - The name of the stream to start the list with.
 newListStreams ::
   ListStreams
 newListStreams =
   ListStreams'
-    { limit = Prelude.Nothing,
-      exclusiveStartStreamName = Prelude.Nothing
+    { exclusiveStartStreamName =
+        Prelude.Nothing,
+      limit = Prelude.Nothing
     }
+
+-- | The name of the stream to start the list with.
+listStreams_exclusiveStartStreamName :: Lens.Lens' ListStreams (Prelude.Maybe Prelude.Text)
+listStreams_exclusiveStartStreamName = Lens.lens (\ListStreams' {exclusiveStartStreamName} -> exclusiveStartStreamName) (\s@ListStreams' {} a -> s {exclusiveStartStreamName = a} :: ListStreams)
 
 -- | The maximum number of streams to list. The default value is 100. If you
 -- specify a value greater than 100, at most 100 results are returned.
 listStreams_limit :: Lens.Lens' ListStreams (Prelude.Maybe Prelude.Natural)
 listStreams_limit = Lens.lens (\ListStreams' {limit} -> limit) (\s@ListStreams' {} a -> s {limit = a} :: ListStreams)
-
--- | The name of the stream to start the list with.
-listStreams_exclusiveStartStreamName :: Lens.Lens' ListStreams (Prelude.Maybe Prelude.Text)
-listStreams_exclusiveStartStreamName = Lens.lens (\ListStreams' {exclusiveStartStreamName} -> exclusiveStartStreamName) (\s@ListStreams' {} a -> s {exclusiveStartStreamName = a} :: ListStreams)
 
 instance Core.AWSPager ListStreams where
   page rq rs
@@ -141,13 +142,14 @@ instance Core.AWSRequest ListStreams where
 
 instance Prelude.Hashable ListStreams where
   hashWithSalt _salt ListStreams' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
       `Prelude.hashWithSalt` exclusiveStartStreamName
+      `Prelude.hashWithSalt` limit
 
 instance Prelude.NFData ListStreams where
   rnf ListStreams' {..} =
-    Prelude.rnf limit
-      `Prelude.seq` Prelude.rnf exclusiveStartStreamName
+    Prelude.rnf exclusiveStartStreamName
+      `Prelude.seq` Prelude.rnf limit
 
 instance Data.ToHeaders ListStreams where
   toHeaders =
@@ -168,9 +170,9 @@ instance Data.ToJSON ListStreams where
   toJSON ListStreams' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Limit" Data..=) Prelude.<$> limit,
-            ("ExclusiveStartStreamName" Data..=)
-              Prelude.<$> exclusiveStartStreamName
+          [ ("ExclusiveStartStreamName" Data..=)
+              Prelude.<$> exclusiveStartStreamName,
+            ("Limit" Data..=) Prelude.<$> limit
           ]
       )
 

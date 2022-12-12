@@ -27,9 +27,9 @@ module Amazonka.ElasticBeanstalk.DescribeEnvironmentManagedActions
     newDescribeEnvironmentManagedActions,
 
     -- * Request Lenses
+    describeEnvironmentManagedActions_environmentId,
     describeEnvironmentManagedActions_environmentName,
     describeEnvironmentManagedActions_status,
-    describeEnvironmentManagedActions_environmentId,
 
     -- * Destructuring the Response
     DescribeEnvironmentManagedActionsResponse (..),
@@ -54,12 +54,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeEnvironmentManagedActions' smart constructor.
 data DescribeEnvironmentManagedActions = DescribeEnvironmentManagedActions'
-  { -- | The name of the target environment.
+  { -- | The environment ID of the target environment.
+    environmentId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the target environment.
     environmentName :: Prelude.Maybe Prelude.Text,
     -- | To show only actions with a particular status, specify a status.
-    status :: Prelude.Maybe ActionStatus,
-    -- | The environment ID of the target environment.
-    environmentId :: Prelude.Maybe Prelude.Text
+    status :: Prelude.Maybe ActionStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,20 +71,24 @@ data DescribeEnvironmentManagedActions = DescribeEnvironmentManagedActions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'environmentId', 'describeEnvironmentManagedActions_environmentId' - The environment ID of the target environment.
+--
 -- 'environmentName', 'describeEnvironmentManagedActions_environmentName' - The name of the target environment.
 --
 -- 'status', 'describeEnvironmentManagedActions_status' - To show only actions with a particular status, specify a status.
---
--- 'environmentId', 'describeEnvironmentManagedActions_environmentId' - The environment ID of the target environment.
 newDescribeEnvironmentManagedActions ::
   DescribeEnvironmentManagedActions
 newDescribeEnvironmentManagedActions =
   DescribeEnvironmentManagedActions'
-    { environmentName =
+    { environmentId =
         Prelude.Nothing,
-      status = Prelude.Nothing,
-      environmentId = Prelude.Nothing
+      environmentName = Prelude.Nothing,
+      status = Prelude.Nothing
     }
+
+-- | The environment ID of the target environment.
+describeEnvironmentManagedActions_environmentId :: Lens.Lens' DescribeEnvironmentManagedActions (Prelude.Maybe Prelude.Text)
+describeEnvironmentManagedActions_environmentId = Lens.lens (\DescribeEnvironmentManagedActions' {environmentId} -> environmentId) (\s@DescribeEnvironmentManagedActions' {} a -> s {environmentId = a} :: DescribeEnvironmentManagedActions)
 
 -- | The name of the target environment.
 describeEnvironmentManagedActions_environmentName :: Lens.Lens' DescribeEnvironmentManagedActions (Prelude.Maybe Prelude.Text)
@@ -93,10 +97,6 @@ describeEnvironmentManagedActions_environmentName = Lens.lens (\DescribeEnvironm
 -- | To show only actions with a particular status, specify a status.
 describeEnvironmentManagedActions_status :: Lens.Lens' DescribeEnvironmentManagedActions (Prelude.Maybe ActionStatus)
 describeEnvironmentManagedActions_status = Lens.lens (\DescribeEnvironmentManagedActions' {status} -> status) (\s@DescribeEnvironmentManagedActions' {} a -> s {status = a} :: DescribeEnvironmentManagedActions)
-
--- | The environment ID of the target environment.
-describeEnvironmentManagedActions_environmentId :: Lens.Lens' DescribeEnvironmentManagedActions (Prelude.Maybe Prelude.Text)
-describeEnvironmentManagedActions_environmentId = Lens.lens (\DescribeEnvironmentManagedActions' {environmentId} -> environmentId) (\s@DescribeEnvironmentManagedActions' {} a -> s {environmentId = a} :: DescribeEnvironmentManagedActions)
 
 instance
   Core.AWSRequest
@@ -125,18 +125,18 @@ instance
   hashWithSalt
     _salt
     DescribeEnvironmentManagedActions' {..} =
-      _salt `Prelude.hashWithSalt` environmentName
+      _salt `Prelude.hashWithSalt` environmentId
+        `Prelude.hashWithSalt` environmentName
         `Prelude.hashWithSalt` status
-        `Prelude.hashWithSalt` environmentId
 
 instance
   Prelude.NFData
     DescribeEnvironmentManagedActions
   where
   rnf DescribeEnvironmentManagedActions' {..} =
-    Prelude.rnf environmentName
+    Prelude.rnf environmentId
+      `Prelude.seq` Prelude.rnf environmentName
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf environmentId
 
 instance
   Data.ToHeaders
@@ -162,9 +162,9 @@ instance
                   ),
         "Version"
           Data.=: ("2010-12-01" :: Prelude.ByteString),
+        "EnvironmentId" Data.=: environmentId,
         "EnvironmentName" Data.=: environmentName,
-        "Status" Data.=: status,
-        "EnvironmentId" Data.=: environmentId
+        "Status" Data.=: status
       ]
 
 -- | The result message containing a list of managed actions.

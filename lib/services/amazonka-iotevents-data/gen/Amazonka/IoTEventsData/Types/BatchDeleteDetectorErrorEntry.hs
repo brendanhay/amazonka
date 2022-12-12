@@ -29,15 +29,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBatchDeleteDetectorErrorEntry' smart constructor.
 data BatchDeleteDetectorErrorEntry = BatchDeleteDetectorErrorEntry'
-  { -- | A message that describes the error.
+  { -- | The error code.
+    errorCode :: Prelude.Maybe ErrorCode,
+    -- | A message that describes the error.
     errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The ID of the message that caused the error. (See the value of the
     -- @\"messageId\"@ in the
     -- <https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchDeleteDetector.html#iotevents-iotevents-data_BatchDeleteDetector-request-detectors detectors>
     -- object of the @DeleteDetectorRequest@.)
-    messageId :: Prelude.Maybe Prelude.Text,
-    -- | The error code.
-    errorCode :: Prelude.Maybe ErrorCode
+    messageId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,23 +49,27 @@ data BatchDeleteDetectorErrorEntry = BatchDeleteDetectorErrorEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'errorCode', 'batchDeleteDetectorErrorEntry_errorCode' - The error code.
+--
 -- 'errorMessage', 'batchDeleteDetectorErrorEntry_errorMessage' - A message that describes the error.
 --
 -- 'messageId', 'batchDeleteDetectorErrorEntry_messageId' - The ID of the message that caused the error. (See the value of the
 -- @\"messageId\"@ in the
 -- <https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchDeleteDetector.html#iotevents-iotevents-data_BatchDeleteDetector-request-detectors detectors>
 -- object of the @DeleteDetectorRequest@.)
---
--- 'errorCode', 'batchDeleteDetectorErrorEntry_errorCode' - The error code.
 newBatchDeleteDetectorErrorEntry ::
   BatchDeleteDetectorErrorEntry
 newBatchDeleteDetectorErrorEntry =
   BatchDeleteDetectorErrorEntry'
-    { errorMessage =
+    { errorCode =
         Prelude.Nothing,
-      messageId = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+      errorMessage = Prelude.Nothing,
+      messageId = Prelude.Nothing
     }
+
+-- | The error code.
+batchDeleteDetectorErrorEntry_errorCode :: Lens.Lens' BatchDeleteDetectorErrorEntry (Prelude.Maybe ErrorCode)
+batchDeleteDetectorErrorEntry_errorCode = Lens.lens (\BatchDeleteDetectorErrorEntry' {errorCode} -> errorCode) (\s@BatchDeleteDetectorErrorEntry' {} a -> s {errorCode = a} :: BatchDeleteDetectorErrorEntry)
 
 -- | A message that describes the error.
 batchDeleteDetectorErrorEntry_errorMessage :: Lens.Lens' BatchDeleteDetectorErrorEntry (Prelude.Maybe Prelude.Text)
@@ -78,19 +82,15 @@ batchDeleteDetectorErrorEntry_errorMessage = Lens.lens (\BatchDeleteDetectorErro
 batchDeleteDetectorErrorEntry_messageId :: Lens.Lens' BatchDeleteDetectorErrorEntry (Prelude.Maybe Prelude.Text)
 batchDeleteDetectorErrorEntry_messageId = Lens.lens (\BatchDeleteDetectorErrorEntry' {messageId} -> messageId) (\s@BatchDeleteDetectorErrorEntry' {} a -> s {messageId = a} :: BatchDeleteDetectorErrorEntry)
 
--- | The error code.
-batchDeleteDetectorErrorEntry_errorCode :: Lens.Lens' BatchDeleteDetectorErrorEntry (Prelude.Maybe ErrorCode)
-batchDeleteDetectorErrorEntry_errorCode = Lens.lens (\BatchDeleteDetectorErrorEntry' {errorCode} -> errorCode) (\s@BatchDeleteDetectorErrorEntry' {} a -> s {errorCode = a} :: BatchDeleteDetectorErrorEntry)
-
 instance Data.FromJSON BatchDeleteDetectorErrorEntry where
   parseJSON =
     Data.withObject
       "BatchDeleteDetectorErrorEntry"
       ( \x ->
           BatchDeleteDetectorErrorEntry'
-            Prelude.<$> (x Data..:? "errorMessage")
+            Prelude.<$> (x Data..:? "errorCode")
+            Prelude.<*> (x Data..:? "errorMessage")
             Prelude.<*> (x Data..:? "messageId")
-            Prelude.<*> (x Data..:? "errorCode")
       )
 
 instance
@@ -98,12 +98,12 @@ instance
     BatchDeleteDetectorErrorEntry
   where
   hashWithSalt _salt BatchDeleteDetectorErrorEntry' {..} =
-    _salt `Prelude.hashWithSalt` errorMessage
+    _salt `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` messageId
-      `Prelude.hashWithSalt` errorCode
 
 instance Prelude.NFData BatchDeleteDetectorErrorEntry where
   rnf BatchDeleteDetectorErrorEntry' {..} =
-    Prelude.rnf errorMessage
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage
       `Prelude.seq` Prelude.rnf messageId
-      `Prelude.seq` Prelude.rnf errorCode

@@ -28,8 +28,8 @@ module Amazonka.IoT1ClickDevices.InvokeDeviceMethod
     newInvokeDeviceMethod,
 
     -- * Request Lenses
-    invokeDeviceMethod_deviceMethodParameters,
     invokeDeviceMethod_deviceMethod,
+    invokeDeviceMethod_deviceMethodParameters,
     invokeDeviceMethod_deviceId,
 
     -- * Destructuring the Response
@@ -52,10 +52,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newInvokeDeviceMethod' smart constructor.
 data InvokeDeviceMethod = InvokeDeviceMethod'
-  { -- | A JSON encoded string containing the device method request parameters.
-    deviceMethodParameters :: Prelude.Maybe Prelude.Text,
-    -- | The device method to invoke.
+  { -- | The device method to invoke.
     deviceMethod :: Prelude.Maybe DeviceMethod,
+    -- | A JSON encoded string containing the device method request parameters.
+    deviceMethodParameters :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the device.
     deviceId :: Prelude.Text
   }
@@ -69,9 +69,9 @@ data InvokeDeviceMethod = InvokeDeviceMethod'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deviceMethodParameters', 'invokeDeviceMethod_deviceMethodParameters' - A JSON encoded string containing the device method request parameters.
---
 -- 'deviceMethod', 'invokeDeviceMethod_deviceMethod' - The device method to invoke.
+--
+-- 'deviceMethodParameters', 'invokeDeviceMethod_deviceMethodParameters' - A JSON encoded string containing the device method request parameters.
 --
 -- 'deviceId', 'invokeDeviceMethod_deviceId' - The unique identifier of the device.
 newInvokeDeviceMethod ::
@@ -80,19 +80,18 @@ newInvokeDeviceMethod ::
   InvokeDeviceMethod
 newInvokeDeviceMethod pDeviceId_ =
   InvokeDeviceMethod'
-    { deviceMethodParameters =
-        Prelude.Nothing,
-      deviceMethod = Prelude.Nothing,
+    { deviceMethod = Prelude.Nothing,
+      deviceMethodParameters = Prelude.Nothing,
       deviceId = pDeviceId_
     }
-
--- | A JSON encoded string containing the device method request parameters.
-invokeDeviceMethod_deviceMethodParameters :: Lens.Lens' InvokeDeviceMethod (Prelude.Maybe Prelude.Text)
-invokeDeviceMethod_deviceMethodParameters = Lens.lens (\InvokeDeviceMethod' {deviceMethodParameters} -> deviceMethodParameters) (\s@InvokeDeviceMethod' {} a -> s {deviceMethodParameters = a} :: InvokeDeviceMethod)
 
 -- | The device method to invoke.
 invokeDeviceMethod_deviceMethod :: Lens.Lens' InvokeDeviceMethod (Prelude.Maybe DeviceMethod)
 invokeDeviceMethod_deviceMethod = Lens.lens (\InvokeDeviceMethod' {deviceMethod} -> deviceMethod) (\s@InvokeDeviceMethod' {} a -> s {deviceMethod = a} :: InvokeDeviceMethod)
+
+-- | A JSON encoded string containing the device method request parameters.
+invokeDeviceMethod_deviceMethodParameters :: Lens.Lens' InvokeDeviceMethod (Prelude.Maybe Prelude.Text)
+invokeDeviceMethod_deviceMethodParameters = Lens.lens (\InvokeDeviceMethod' {deviceMethodParameters} -> deviceMethodParameters) (\s@InvokeDeviceMethod' {} a -> s {deviceMethodParameters = a} :: InvokeDeviceMethod)
 
 -- | The unique identifier of the device.
 invokeDeviceMethod_deviceId :: Lens.Lens' InvokeDeviceMethod Prelude.Text
@@ -114,14 +113,14 @@ instance Core.AWSRequest InvokeDeviceMethod where
 
 instance Prelude.Hashable InvokeDeviceMethod where
   hashWithSalt _salt InvokeDeviceMethod' {..} =
-    _salt `Prelude.hashWithSalt` deviceMethodParameters
-      `Prelude.hashWithSalt` deviceMethod
+    _salt `Prelude.hashWithSalt` deviceMethod
+      `Prelude.hashWithSalt` deviceMethodParameters
       `Prelude.hashWithSalt` deviceId
 
 instance Prelude.NFData InvokeDeviceMethod where
   rnf InvokeDeviceMethod' {..} =
-    Prelude.rnf deviceMethodParameters
-      `Prelude.seq` Prelude.rnf deviceMethod
+    Prelude.rnf deviceMethod
+      `Prelude.seq` Prelude.rnf deviceMethodParameters
       `Prelude.seq` Prelude.rnf deviceId
 
 instance Data.ToHeaders InvokeDeviceMethod where
@@ -139,9 +138,9 @@ instance Data.ToJSON InvokeDeviceMethod where
   toJSON InvokeDeviceMethod' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("deviceMethodParameters" Data..=)
-              Prelude.<$> deviceMethodParameters,
-            ("deviceMethod" Data..=) Prelude.<$> deviceMethod
+          [ ("deviceMethod" Data..=) Prelude.<$> deviceMethod,
+            ("deviceMethodParameters" Data..=)
+              Prelude.<$> deviceMethodParameters
           ]
       )
 

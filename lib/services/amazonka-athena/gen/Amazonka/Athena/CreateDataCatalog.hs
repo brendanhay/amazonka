@@ -29,9 +29,9 @@ module Amazonka.Athena.CreateDataCatalog
     newCreateDataCatalog,
 
     -- * Request Lenses
-    createDataCatalog_tags,
     createDataCatalog_description,
     createDataCatalog_parameters,
+    createDataCatalog_tags,
     createDataCatalog_name,
     createDataCatalog_type,
 
@@ -54,10 +54,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDataCatalog' smart constructor.
 data CreateDataCatalog = CreateDataCatalog'
-  { -- | A list of comma separated tags to add to the data catalog that is
-    -- created.
-    tags :: Prelude.Maybe [Tag],
-    -- | A description of the data catalog to be created.
+  { -- | A description of the data catalog to be created.
     description :: Prelude.Maybe Prelude.Text,
     -- | Specifies the Lambda function or functions to use for creating the data
     -- catalog. This is a mapping whose values depend on the catalog type.
@@ -101,6 +98,9 @@ data CreateDataCatalog = CreateDataCatalog'
     --         creating new Glue data catalogs results in an @INVALID_INPUT@
     --         error.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A list of comma separated tags to add to the data catalog that is
+    -- created.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the data catalog to create. The catalog name must be unique
     -- for the Amazon Web Services account and can use a maximum of 127
     -- alphanumeric, underscore, at sign, or hyphen characters. The remainder
@@ -120,9 +120,6 @@ data CreateDataCatalog = CreateDataCatalog'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'tags', 'createDataCatalog_tags' - A list of comma separated tags to add to the data catalog that is
--- created.
 --
 -- 'description', 'createDataCatalog_description' - A description of the data catalog to be created.
 --
@@ -168,6 +165,9 @@ data CreateDataCatalog = CreateDataCatalog'
 --         creating new Glue data catalogs results in an @INVALID_INPUT@
 --         error.
 --
+-- 'tags', 'createDataCatalog_tags' - A list of comma separated tags to add to the data catalog that is
+-- created.
+--
 -- 'name', 'createDataCatalog_name' - The name of the data catalog to create. The catalog name must be unique
 -- for the Amazon Web Services account and can use a maximum of 127
 -- alphanumeric, underscore, at sign, or hyphen characters. The remainder
@@ -184,17 +184,12 @@ newCreateDataCatalog ::
   CreateDataCatalog
 newCreateDataCatalog pName_ pType_ =
   CreateDataCatalog'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
       parameters = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_,
       type' = pType_
     }
-
--- | A list of comma separated tags to add to the data catalog that is
--- created.
-createDataCatalog_tags :: Lens.Lens' CreateDataCatalog (Prelude.Maybe [Tag])
-createDataCatalog_tags = Lens.lens (\CreateDataCatalog' {tags} -> tags) (\s@CreateDataCatalog' {} a -> s {tags = a} :: CreateDataCatalog) Prelude.. Lens.mapping Lens.coerced
 
 -- | A description of the data catalog to be created.
 createDataCatalog_description :: Lens.Lens' CreateDataCatalog (Prelude.Maybe Prelude.Text)
@@ -244,6 +239,11 @@ createDataCatalog_description = Lens.lens (\CreateDataCatalog' {description} -> 
 createDataCatalog_parameters :: Lens.Lens' CreateDataCatalog (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createDataCatalog_parameters = Lens.lens (\CreateDataCatalog' {parameters} -> parameters) (\s@CreateDataCatalog' {} a -> s {parameters = a} :: CreateDataCatalog) Prelude.. Lens.mapping Lens.coerced
 
+-- | A list of comma separated tags to add to the data catalog that is
+-- created.
+createDataCatalog_tags :: Lens.Lens' CreateDataCatalog (Prelude.Maybe [Tag])
+createDataCatalog_tags = Lens.lens (\CreateDataCatalog' {tags} -> tags) (\s@CreateDataCatalog' {} a -> s {tags = a} :: CreateDataCatalog) Prelude.. Lens.mapping Lens.coerced
+
 -- | The name of the data catalog to create. The catalog name must be unique
 -- for the Amazon Web Services account and can use a maximum of 127
 -- alphanumeric, underscore, at sign, or hyphen characters. The remainder
@@ -272,17 +272,17 @@ instance Core.AWSRequest CreateDataCatalog where
 
 instance Prelude.Hashable CreateDataCatalog where
   hashWithSalt _salt CreateDataCatalog' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData CreateDataCatalog where
   rnf CreateDataCatalog' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf type'
 
@@ -305,9 +305,9 @@ instance Data.ToJSON CreateDataCatalog where
   toJSON CreateDataCatalog' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
             ("Parameters" Data..=) Prelude.<$> parameters,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("Type" Data..= type')
           ]

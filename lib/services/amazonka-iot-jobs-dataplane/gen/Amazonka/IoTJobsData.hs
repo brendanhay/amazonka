@@ -36,26 +36,26 @@ module Amazonka.IoTJobsData
     -- * Errors
     -- $errors
 
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
+    -- ** CertificateValidationException
+    _CertificateValidationException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
+    -- ** InvalidStateTransitionException
+    _InvalidStateTransitionException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
 
     -- ** TerminalStateException
     _TerminalStateException,
 
     -- ** ThrottlingException
     _ThrottlingException,
-
-    -- ** InvalidStateTransitionException
-    _InvalidStateTransitionException,
-
-    -- ** InvalidRequestException
-    _InvalidRequestException,
-
-    -- ** CertificateValidationException
-    _CertificateValidationException,
 
     -- * Waiters
     -- $waiters

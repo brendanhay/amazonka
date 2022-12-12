@@ -35,10 +35,10 @@ module Amazonka.CertificateManagerPCA.IssueCertificate
     newIssueCertificate,
 
     -- * Request Lenses
-    issueCertificate_idempotencyToken,
     issueCertificate_apiPassthrough,
-    issueCertificate_validityNotBefore,
+    issueCertificate_idempotencyToken,
     issueCertificate_templateArn,
+    issueCertificate_validityNotBefore,
     issueCertificate_certificateAuthorityArn,
     issueCertificate_csr,
     issueCertificate_signingAlgorithm,
@@ -64,15 +64,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newIssueCertificate' smart constructor.
 data IssueCertificate = IssueCertificate'
-  { -- | Alphanumeric string that can be used to distinguish between calls to the
-    -- __IssueCertificate__ action. Idempotency tokens for __IssueCertificate__
-    -- time out after one minute. Therefore, if you call __IssueCertificate__
-    -- multiple times with the same idempotency token within one minute, ACM
-    -- Private CA recognizes that you are requesting only one certificate and
-    -- will issue only one. If you change the idempotency token for each call,
-    -- PCA recognizes that you are requesting multiple certificates.
-    idempotencyToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies X.509 certificate information to be included in the issued
+  { -- | Specifies X.509 certificate information to be included in the issued
     -- certificate. An @APIPassthrough@ or @APICSRPassthrough@ template variant
     -- must be selected, or else this parameter is ignored. For more
     -- information about using these templates, see
@@ -83,6 +75,28 @@ data IssueCertificate = IssueCertificate'
     -- <https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html#template-order-of-operations order of operation rules>
     -- to determine what information is used.
     apiPassthrough :: Prelude.Maybe ApiPassthrough,
+    -- | Alphanumeric string that can be used to distinguish between calls to the
+    -- __IssueCertificate__ action. Idempotency tokens for __IssueCertificate__
+    -- time out after one minute. Therefore, if you call __IssueCertificate__
+    -- multiple times with the same idempotency token within one minute, ACM
+    -- Private CA recognizes that you are requesting only one certificate and
+    -- will issue only one. If you change the idempotency token for each call,
+    -- PCA recognizes that you are requesting multiple certificates.
+    idempotencyToken :: Prelude.Maybe Prelude.Text,
+    -- | Specifies a custom configuration template to use when issuing a
+    -- certificate. If this parameter is not provided, ACM Private CA defaults
+    -- to the @EndEntityCertificate\/V1@ template. For CA certificates, you
+    -- should choose the shortest path length that meets your needs. The path
+    -- length is indicated by the PathLen/N/ portion of the ARN, where /N/ is
+    -- the
+    -- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaTerms.html#terms-cadepth CA depth>.
+    --
+    -- Note: The CA depth configured on a subordinate CA certificate must not
+    -- exceed the limit set by its parents in the CA hierarchy.
+    --
+    -- For a list of @TemplateArn@ values supported by ACM Private CA, see
+    -- <https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html Understanding Certificate Templates>.
+    templateArn :: Prelude.Maybe Prelude.Text,
     -- | Information describing the start of the validity period of the
     -- certificate. This parameter sets the “Not Before\" date for the
     -- certificate.
@@ -103,20 +117,6 @@ data IssueCertificate = IssueCertificate'
     -- <https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.5 Validity>
     -- in RFC 5280.
     validityNotBefore :: Prelude.Maybe Validity,
-    -- | Specifies a custom configuration template to use when issuing a
-    -- certificate. If this parameter is not provided, ACM Private CA defaults
-    -- to the @EndEntityCertificate\/V1@ template. For CA certificates, you
-    -- should choose the shortest path length that meets your needs. The path
-    -- length is indicated by the PathLen/N/ portion of the ARN, where /N/ is
-    -- the
-    -- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaTerms.html#terms-cadepth CA depth>.
-    --
-    -- Note: The CA depth configured on a subordinate CA certificate must not
-    -- exceed the limit set by its parents in the CA hierarchy.
-    --
-    -- For a list of @TemplateArn@ values supported by ACM Private CA, see
-    -- <https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html Understanding Certificate Templates>.
-    templateArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) that was returned when you called
     -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
     -- This must be of the form:
@@ -177,14 +177,6 @@ data IssueCertificate = IssueCertificate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'idempotencyToken', 'issueCertificate_idempotencyToken' - Alphanumeric string that can be used to distinguish between calls to the
--- __IssueCertificate__ action. Idempotency tokens for __IssueCertificate__
--- time out after one minute. Therefore, if you call __IssueCertificate__
--- multiple times with the same idempotency token within one minute, ACM
--- Private CA recognizes that you are requesting only one certificate and
--- will issue only one. If you change the idempotency token for each call,
--- PCA recognizes that you are requesting multiple certificates.
---
 -- 'apiPassthrough', 'issueCertificate_apiPassthrough' - Specifies X.509 certificate information to be included in the issued
 -- certificate. An @APIPassthrough@ or @APICSRPassthrough@ template variant
 -- must be selected, or else this parameter is ignored. For more
@@ -195,6 +187,28 @@ data IssueCertificate = IssueCertificate'
 -- certificate issuance, ACM Private CA applies
 -- <https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html#template-order-of-operations order of operation rules>
 -- to determine what information is used.
+--
+-- 'idempotencyToken', 'issueCertificate_idempotencyToken' - Alphanumeric string that can be used to distinguish between calls to the
+-- __IssueCertificate__ action. Idempotency tokens for __IssueCertificate__
+-- time out after one minute. Therefore, if you call __IssueCertificate__
+-- multiple times with the same idempotency token within one minute, ACM
+-- Private CA recognizes that you are requesting only one certificate and
+-- will issue only one. If you change the idempotency token for each call,
+-- PCA recognizes that you are requesting multiple certificates.
+--
+-- 'templateArn', 'issueCertificate_templateArn' - Specifies a custom configuration template to use when issuing a
+-- certificate. If this parameter is not provided, ACM Private CA defaults
+-- to the @EndEntityCertificate\/V1@ template. For CA certificates, you
+-- should choose the shortest path length that meets your needs. The path
+-- length is indicated by the PathLen/N/ portion of the ARN, where /N/ is
+-- the
+-- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaTerms.html#terms-cadepth CA depth>.
+--
+-- Note: The CA depth configured on a subordinate CA certificate must not
+-- exceed the limit set by its parents in the CA hierarchy.
+--
+-- For a list of @TemplateArn@ values supported by ACM Private CA, see
+-- <https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html Understanding Certificate Templates>.
 --
 -- 'validityNotBefore', 'issueCertificate_validityNotBefore' - Information describing the start of the validity period of the
 -- certificate. This parameter sets the “Not Before\" date for the
@@ -215,20 +229,6 @@ data IssueCertificate = IssueCertificate'
 -- in this API reference and
 -- <https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.5 Validity>
 -- in RFC 5280.
---
--- 'templateArn', 'issueCertificate_templateArn' - Specifies a custom configuration template to use when issuing a
--- certificate. If this parameter is not provided, ACM Private CA defaults
--- to the @EndEntityCertificate\/V1@ template. For CA certificates, you
--- should choose the shortest path length that meets your needs. The path
--- length is indicated by the PathLen/N/ portion of the ARN, where /N/ is
--- the
--- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaTerms.html#terms-cadepth CA depth>.
---
--- Note: The CA depth configured on a subordinate CA certificate must not
--- exceed the limit set by its parents in the CA hierarchy.
---
--- For a list of @TemplateArn@ values supported by ACM Private CA, see
--- <https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html Understanding Certificate Templates>.
 --
 -- 'certificateAuthorityArn', 'issueCertificate_certificateAuthorityArn' - The Amazon Resource Name (ARN) that was returned when you called
 -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
@@ -298,26 +298,15 @@ newIssueCertificate
   pSigningAlgorithm_
   pValidity_ =
     IssueCertificate'
-      { idempotencyToken =
-          Prelude.Nothing,
-        apiPassthrough = Prelude.Nothing,
-        validityNotBefore = Prelude.Nothing,
+      { apiPassthrough = Prelude.Nothing,
+        idempotencyToken = Prelude.Nothing,
         templateArn = Prelude.Nothing,
+        validityNotBefore = Prelude.Nothing,
         certificateAuthorityArn = pCertificateAuthorityArn_,
         csr = Data._Base64 Lens.# pCsr_,
         signingAlgorithm = pSigningAlgorithm_,
         validity = pValidity_
       }
-
--- | Alphanumeric string that can be used to distinguish between calls to the
--- __IssueCertificate__ action. Idempotency tokens for __IssueCertificate__
--- time out after one minute. Therefore, if you call __IssueCertificate__
--- multiple times with the same idempotency token within one minute, ACM
--- Private CA recognizes that you are requesting only one certificate and
--- will issue only one. If you change the idempotency token for each call,
--- PCA recognizes that you are requesting multiple certificates.
-issueCertificate_idempotencyToken :: Lens.Lens' IssueCertificate (Prelude.Maybe Prelude.Text)
-issueCertificate_idempotencyToken = Lens.lens (\IssueCertificate' {idempotencyToken} -> idempotencyToken) (\s@IssueCertificate' {} a -> s {idempotencyToken = a} :: IssueCertificate)
 
 -- | Specifies X.509 certificate information to be included in the issued
 -- certificate. An @APIPassthrough@ or @APICSRPassthrough@ template variant
@@ -331,6 +320,32 @@ issueCertificate_idempotencyToken = Lens.lens (\IssueCertificate' {idempotencyTo
 -- to determine what information is used.
 issueCertificate_apiPassthrough :: Lens.Lens' IssueCertificate (Prelude.Maybe ApiPassthrough)
 issueCertificate_apiPassthrough = Lens.lens (\IssueCertificate' {apiPassthrough} -> apiPassthrough) (\s@IssueCertificate' {} a -> s {apiPassthrough = a} :: IssueCertificate)
+
+-- | Alphanumeric string that can be used to distinguish between calls to the
+-- __IssueCertificate__ action. Idempotency tokens for __IssueCertificate__
+-- time out after one minute. Therefore, if you call __IssueCertificate__
+-- multiple times with the same idempotency token within one minute, ACM
+-- Private CA recognizes that you are requesting only one certificate and
+-- will issue only one. If you change the idempotency token for each call,
+-- PCA recognizes that you are requesting multiple certificates.
+issueCertificate_idempotencyToken :: Lens.Lens' IssueCertificate (Prelude.Maybe Prelude.Text)
+issueCertificate_idempotencyToken = Lens.lens (\IssueCertificate' {idempotencyToken} -> idempotencyToken) (\s@IssueCertificate' {} a -> s {idempotencyToken = a} :: IssueCertificate)
+
+-- | Specifies a custom configuration template to use when issuing a
+-- certificate. If this parameter is not provided, ACM Private CA defaults
+-- to the @EndEntityCertificate\/V1@ template. For CA certificates, you
+-- should choose the shortest path length that meets your needs. The path
+-- length is indicated by the PathLen/N/ portion of the ARN, where /N/ is
+-- the
+-- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaTerms.html#terms-cadepth CA depth>.
+--
+-- Note: The CA depth configured on a subordinate CA certificate must not
+-- exceed the limit set by its parents in the CA hierarchy.
+--
+-- For a list of @TemplateArn@ values supported by ACM Private CA, see
+-- <https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html Understanding Certificate Templates>.
+issueCertificate_templateArn :: Lens.Lens' IssueCertificate (Prelude.Maybe Prelude.Text)
+issueCertificate_templateArn = Lens.lens (\IssueCertificate' {templateArn} -> templateArn) (\s@IssueCertificate' {} a -> s {templateArn = a} :: IssueCertificate)
 
 -- | Information describing the start of the validity period of the
 -- certificate. This parameter sets the “Not Before\" date for the
@@ -353,22 +368,6 @@ issueCertificate_apiPassthrough = Lens.lens (\IssueCertificate' {apiPassthrough}
 -- in RFC 5280.
 issueCertificate_validityNotBefore :: Lens.Lens' IssueCertificate (Prelude.Maybe Validity)
 issueCertificate_validityNotBefore = Lens.lens (\IssueCertificate' {validityNotBefore} -> validityNotBefore) (\s@IssueCertificate' {} a -> s {validityNotBefore = a} :: IssueCertificate)
-
--- | Specifies a custom configuration template to use when issuing a
--- certificate. If this parameter is not provided, ACM Private CA defaults
--- to the @EndEntityCertificate\/V1@ template. For CA certificates, you
--- should choose the shortest path length that meets your needs. The path
--- length is indicated by the PathLen/N/ portion of the ARN, where /N/ is
--- the
--- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaTerms.html#terms-cadepth CA depth>.
---
--- Note: The CA depth configured on a subordinate CA certificate must not
--- exceed the limit set by its parents in the CA hierarchy.
---
--- For a list of @TemplateArn@ values supported by ACM Private CA, see
--- <https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html Understanding Certificate Templates>.
-issueCertificate_templateArn :: Lens.Lens' IssueCertificate (Prelude.Maybe Prelude.Text)
-issueCertificate_templateArn = Lens.lens (\IssueCertificate' {templateArn} -> templateArn) (\s@IssueCertificate' {} a -> s {templateArn = a} :: IssueCertificate)
 
 -- | The Amazon Resource Name (ARN) that was returned when you called
 -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
@@ -447,10 +446,10 @@ instance Core.AWSRequest IssueCertificate where
 
 instance Prelude.Hashable IssueCertificate where
   hashWithSalt _salt IssueCertificate' {..} =
-    _salt `Prelude.hashWithSalt` idempotencyToken
-      `Prelude.hashWithSalt` apiPassthrough
-      `Prelude.hashWithSalt` validityNotBefore
+    _salt `Prelude.hashWithSalt` apiPassthrough
+      `Prelude.hashWithSalt` idempotencyToken
       `Prelude.hashWithSalt` templateArn
+      `Prelude.hashWithSalt` validityNotBefore
       `Prelude.hashWithSalt` certificateAuthorityArn
       `Prelude.hashWithSalt` csr
       `Prelude.hashWithSalt` signingAlgorithm
@@ -458,10 +457,10 @@ instance Prelude.Hashable IssueCertificate where
 
 instance Prelude.NFData IssueCertificate where
   rnf IssueCertificate' {..} =
-    Prelude.rnf idempotencyToken
-      `Prelude.seq` Prelude.rnf apiPassthrough
-      `Prelude.seq` Prelude.rnf validityNotBefore
+    Prelude.rnf apiPassthrough
+      `Prelude.seq` Prelude.rnf idempotencyToken
       `Prelude.seq` Prelude.rnf templateArn
+      `Prelude.seq` Prelude.rnf validityNotBefore
       `Prelude.seq` Prelude.rnf certificateAuthorityArn
       `Prelude.seq` Prelude.rnf csr
       `Prelude.seq` Prelude.rnf signingAlgorithm
@@ -486,13 +485,13 @@ instance Data.ToJSON IssueCertificate where
   toJSON IssueCertificate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("IdempotencyToken" Data..=)
-              Prelude.<$> idempotencyToken,
-            ("ApiPassthrough" Data..=)
+          [ ("ApiPassthrough" Data..=)
               Prelude.<$> apiPassthrough,
+            ("IdempotencyToken" Data..=)
+              Prelude.<$> idempotencyToken,
+            ("TemplateArn" Data..=) Prelude.<$> templateArn,
             ("ValidityNotBefore" Data..=)
               Prelude.<$> validityNotBefore,
-            ("TemplateArn" Data..=) Prelude.<$> templateArn,
             Prelude.Just
               ( "CertificateAuthorityArn"
                   Data..= certificateAuthorityArn

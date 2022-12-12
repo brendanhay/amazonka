@@ -29,8 +29,8 @@ module Amazonka.EC2.GetVpnConnectionDeviceSampleConfiguration
     newGetVpnConnectionDeviceSampleConfiguration,
 
     -- * Request Lenses
-    getVpnConnectionDeviceSampleConfiguration_internetKeyExchangeVersion,
     getVpnConnectionDeviceSampleConfiguration_dryRun,
+    getVpnConnectionDeviceSampleConfiguration_internetKeyExchangeVersion,
     getVpnConnectionDeviceSampleConfiguration_vpnConnectionId,
     getVpnConnectionDeviceSampleConfiguration_vpnConnectionDeviceTypeId,
 
@@ -54,15 +54,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetVpnConnectionDeviceSampleConfiguration' smart constructor.
 data GetVpnConnectionDeviceSampleConfiguration = GetVpnConnectionDeviceSampleConfiguration'
-  { -- | The IKE version to be used in the sample configuration file for your
-    -- customer gateway device. You can specify one of the following versions:
-    -- @ikev1@ or @ikev2@.
-    internetKeyExchangeVersion :: Prelude.Maybe Prelude.Text,
-    -- | Checks whether you have the required permissions for the action, without
+  { -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The IKE version to be used in the sample configuration file for your
+    -- customer gateway device. You can specify one of the following versions:
+    -- @ikev1@ or @ikev2@.
+    internetKeyExchangeVersion :: Prelude.Maybe Prelude.Text,
     -- | The @VpnConnectionId@ specifies the Site-to-Site VPN connection used for
     -- the sample configuration.
     vpnConnectionId :: Prelude.Text,
@@ -79,14 +79,14 @@ data GetVpnConnectionDeviceSampleConfiguration = GetVpnConnectionDeviceSampleCon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'internetKeyExchangeVersion', 'getVpnConnectionDeviceSampleConfiguration_internetKeyExchangeVersion' - The IKE version to be used in the sample configuration file for your
--- customer gateway device. You can specify one of the following versions:
--- @ikev1@ or @ikev2@.
---
 -- 'dryRun', 'getVpnConnectionDeviceSampleConfiguration_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'internetKeyExchangeVersion', 'getVpnConnectionDeviceSampleConfiguration_internetKeyExchangeVersion' - The IKE version to be used in the sample configuration file for your
+-- customer gateway device. You can specify one of the following versions:
+-- @ikev1@ or @ikev2@.
 --
 -- 'vpnConnectionId', 'getVpnConnectionDeviceSampleConfiguration_vpnConnectionId' - The @VpnConnectionId@ specifies the Site-to-Site VPN connection used for
 -- the sample configuration.
@@ -102,20 +102,15 @@ newGetVpnConnectionDeviceSampleConfiguration
   pVpnConnectionId_
   pVpnConnectionDeviceTypeId_ =
     GetVpnConnectionDeviceSampleConfiguration'
-      { internetKeyExchangeVersion =
+      { dryRun =
           Prelude.Nothing,
-        dryRun = Prelude.Nothing,
+        internetKeyExchangeVersion =
+          Prelude.Nothing,
         vpnConnectionId =
           pVpnConnectionId_,
         vpnConnectionDeviceTypeId =
           pVpnConnectionDeviceTypeId_
       }
-
--- | The IKE version to be used in the sample configuration file for your
--- customer gateway device. You can specify one of the following versions:
--- @ikev1@ or @ikev2@.
-getVpnConnectionDeviceSampleConfiguration_internetKeyExchangeVersion :: Lens.Lens' GetVpnConnectionDeviceSampleConfiguration (Prelude.Maybe Prelude.Text)
-getVpnConnectionDeviceSampleConfiguration_internetKeyExchangeVersion = Lens.lens (\GetVpnConnectionDeviceSampleConfiguration' {internetKeyExchangeVersion} -> internetKeyExchangeVersion) (\s@GetVpnConnectionDeviceSampleConfiguration' {} a -> s {internetKeyExchangeVersion = a} :: GetVpnConnectionDeviceSampleConfiguration)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -123,6 +118,12 @@ getVpnConnectionDeviceSampleConfiguration_internetKeyExchangeVersion = Lens.lens
 -- Otherwise, it is @UnauthorizedOperation@.
 getVpnConnectionDeviceSampleConfiguration_dryRun :: Lens.Lens' GetVpnConnectionDeviceSampleConfiguration (Prelude.Maybe Prelude.Bool)
 getVpnConnectionDeviceSampleConfiguration_dryRun = Lens.lens (\GetVpnConnectionDeviceSampleConfiguration' {dryRun} -> dryRun) (\s@GetVpnConnectionDeviceSampleConfiguration' {} a -> s {dryRun = a} :: GetVpnConnectionDeviceSampleConfiguration)
+
+-- | The IKE version to be used in the sample configuration file for your
+-- customer gateway device. You can specify one of the following versions:
+-- @ikev1@ or @ikev2@.
+getVpnConnectionDeviceSampleConfiguration_internetKeyExchangeVersion :: Lens.Lens' GetVpnConnectionDeviceSampleConfiguration (Prelude.Maybe Prelude.Text)
+getVpnConnectionDeviceSampleConfiguration_internetKeyExchangeVersion = Lens.lens (\GetVpnConnectionDeviceSampleConfiguration' {internetKeyExchangeVersion} -> internetKeyExchangeVersion) (\s@GetVpnConnectionDeviceSampleConfiguration' {} a -> s {internetKeyExchangeVersion = a} :: GetVpnConnectionDeviceSampleConfiguration)
 
 -- | The @VpnConnectionId@ specifies the Site-to-Site VPN connection used for
 -- the sample configuration.
@@ -158,9 +159,8 @@ instance
   hashWithSalt
     _salt
     GetVpnConnectionDeviceSampleConfiguration' {..} =
-      _salt
+      _salt `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` internetKeyExchangeVersion
-        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` vpnConnectionId
         `Prelude.hashWithSalt` vpnConnectionDeviceTypeId
 
@@ -169,8 +169,8 @@ instance
     GetVpnConnectionDeviceSampleConfiguration
   where
   rnf GetVpnConnectionDeviceSampleConfiguration' {..} =
-    Prelude.rnf internetKeyExchangeVersion
-      `Prelude.seq` Prelude.rnf dryRun
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf internetKeyExchangeVersion
       `Prelude.seq` Prelude.rnf vpnConnectionId
       `Prelude.seq` Prelude.rnf vpnConnectionDeviceTypeId
 
@@ -199,9 +199,9 @@ instance
                     ),
           "Version"
             Data.=: ("2016-11-15" :: Prelude.ByteString),
+          "DryRun" Data.=: dryRun,
           "InternetKeyExchangeVersion"
             Data.=: internetKeyExchangeVersion,
-          "DryRun" Data.=: dryRun,
           "VpnConnectionId" Data.=: vpnConnectionId,
           "VpnConnectionDeviceTypeId"
             Data.=: vpnConnectionDeviceTypeId

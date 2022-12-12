@@ -32,20 +32,20 @@ module Amazonka.SageMakerFeatureStoreRuntime
     -- * Errors
     -- $errors
 
-    -- ** ResourceNotFound
-    _ResourceNotFound,
-
     -- ** AccessForbidden
     _AccessForbidden,
+
+    -- ** InternalFailure
+    _InternalFailure,
+
+    -- ** ResourceNotFound
+    _ResourceNotFound,
 
     -- ** ServiceUnavailable
     _ServiceUnavailable,
 
     -- ** ValidationError
     _ValidationError,
-
-    -- ** InternalFailure
-    _InternalFailure,
 
     -- * Waiters
     -- $waiters
@@ -78,6 +78,9 @@ module Amazonka.SageMakerFeatureStoreRuntime
     newPutRecordResponse,
 
     -- * Types
+
+    -- ** TargetStore
+    TargetStore (..),
 
     -- ** BatchGetRecordError
     BatchGetRecordError (BatchGetRecordError'),

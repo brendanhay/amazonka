@@ -32,11 +32,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeploymentStyle' smart constructor.
 data DeploymentStyle = DeploymentStyle'
-  { -- | Indicates whether to run an in-place deployment or a blue\/green
+  { -- | Indicates whether to route deployment traffic behind a load balancer.
+    deploymentOption :: Prelude.Maybe DeploymentOption,
+    -- | Indicates whether to run an in-place deployment or a blue\/green
     -- deployment.
-    deploymentType :: Prelude.Maybe DeploymentType,
-    -- | Indicates whether to route deployment traffic behind a load balancer.
-    deploymentOption :: Prelude.Maybe DeploymentOption
+    deploymentType :: Prelude.Maybe DeploymentType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,26 +48,27 @@ data DeploymentStyle = DeploymentStyle'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'deploymentOption', 'deploymentStyle_deploymentOption' - Indicates whether to route deployment traffic behind a load balancer.
+--
 -- 'deploymentType', 'deploymentStyle_deploymentType' - Indicates whether to run an in-place deployment or a blue\/green
 -- deployment.
---
--- 'deploymentOption', 'deploymentStyle_deploymentOption' - Indicates whether to route deployment traffic behind a load balancer.
 newDeploymentStyle ::
   DeploymentStyle
 newDeploymentStyle =
   DeploymentStyle'
-    { deploymentType = Prelude.Nothing,
-      deploymentOption = Prelude.Nothing
+    { deploymentOption =
+        Prelude.Nothing,
+      deploymentType = Prelude.Nothing
     }
+
+-- | Indicates whether to route deployment traffic behind a load balancer.
+deploymentStyle_deploymentOption :: Lens.Lens' DeploymentStyle (Prelude.Maybe DeploymentOption)
+deploymentStyle_deploymentOption = Lens.lens (\DeploymentStyle' {deploymentOption} -> deploymentOption) (\s@DeploymentStyle' {} a -> s {deploymentOption = a} :: DeploymentStyle)
 
 -- | Indicates whether to run an in-place deployment or a blue\/green
 -- deployment.
 deploymentStyle_deploymentType :: Lens.Lens' DeploymentStyle (Prelude.Maybe DeploymentType)
 deploymentStyle_deploymentType = Lens.lens (\DeploymentStyle' {deploymentType} -> deploymentType) (\s@DeploymentStyle' {} a -> s {deploymentType = a} :: DeploymentStyle)
-
--- | Indicates whether to route deployment traffic behind a load balancer.
-deploymentStyle_deploymentOption :: Lens.Lens' DeploymentStyle (Prelude.Maybe DeploymentOption)
-deploymentStyle_deploymentOption = Lens.lens (\DeploymentStyle' {deploymentOption} -> deploymentOption) (\s@DeploymentStyle' {} a -> s {deploymentOption = a} :: DeploymentStyle)
 
 instance Data.FromJSON DeploymentStyle where
   parseJSON =
@@ -75,27 +76,27 @@ instance Data.FromJSON DeploymentStyle where
       "DeploymentStyle"
       ( \x ->
           DeploymentStyle'
-            Prelude.<$> (x Data..:? "deploymentType")
-            Prelude.<*> (x Data..:? "deploymentOption")
+            Prelude.<$> (x Data..:? "deploymentOption")
+            Prelude.<*> (x Data..:? "deploymentType")
       )
 
 instance Prelude.Hashable DeploymentStyle where
   hashWithSalt _salt DeploymentStyle' {..} =
-    _salt `Prelude.hashWithSalt` deploymentType
-      `Prelude.hashWithSalt` deploymentOption
+    _salt `Prelude.hashWithSalt` deploymentOption
+      `Prelude.hashWithSalt` deploymentType
 
 instance Prelude.NFData DeploymentStyle where
   rnf DeploymentStyle' {..} =
-    Prelude.rnf deploymentType
-      `Prelude.seq` Prelude.rnf deploymentOption
+    Prelude.rnf deploymentOption
+      `Prelude.seq` Prelude.rnf deploymentType
 
 instance Data.ToJSON DeploymentStyle where
   toJSON DeploymentStyle' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("deploymentType" Data..=)
-              Prelude.<$> deploymentType,
-            ("deploymentOption" Data..=)
-              Prelude.<$> deploymentOption
+          [ ("deploymentOption" Data..=)
+              Prelude.<$> deploymentOption,
+            ("deploymentType" Data..=)
+              Prelude.<$> deploymentType
           ]
       )

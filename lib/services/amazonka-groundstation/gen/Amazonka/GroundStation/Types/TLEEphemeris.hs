@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTLEEphemeris' smart constructor.
 data TLEEphemeris = TLEEphemeris'
-  { -- | The data for a TLE ephemeris, supplied directly in the request rather
+  { -- | Identifies the S3 object to be used as the ephemeris.
+    s3Object :: Prelude.Maybe S3Object,
+    -- | The data for a TLE ephemeris, supplied directly in the request rather
     -- than through an S3 object.
-    tleData :: Prelude.Maybe (Prelude.NonEmpty TLEData),
-    -- | Identifies the S3 object to be used as the ephemeris.
-    s3Object :: Prelude.Maybe S3Object
+    tleData :: Prelude.Maybe (Prelude.NonEmpty TLEData)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,42 +46,42 @@ data TLEEphemeris = TLEEphemeris'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 's3Object', 'tLEEphemeris_s3Object' - Identifies the S3 object to be used as the ephemeris.
+--
 -- 'tleData', 'tLEEphemeris_tleData' - The data for a TLE ephemeris, supplied directly in the request rather
 -- than through an S3 object.
---
--- 's3Object', 'tLEEphemeris_s3Object' - Identifies the S3 object to be used as the ephemeris.
 newTLEEphemeris ::
   TLEEphemeris
 newTLEEphemeris =
   TLEEphemeris'
-    { tleData = Prelude.Nothing,
-      s3Object = Prelude.Nothing
+    { s3Object = Prelude.Nothing,
+      tleData = Prelude.Nothing
     }
+
+-- | Identifies the S3 object to be used as the ephemeris.
+tLEEphemeris_s3Object :: Lens.Lens' TLEEphemeris (Prelude.Maybe S3Object)
+tLEEphemeris_s3Object = Lens.lens (\TLEEphemeris' {s3Object} -> s3Object) (\s@TLEEphemeris' {} a -> s {s3Object = a} :: TLEEphemeris)
 
 -- | The data for a TLE ephemeris, supplied directly in the request rather
 -- than through an S3 object.
 tLEEphemeris_tleData :: Lens.Lens' TLEEphemeris (Prelude.Maybe (Prelude.NonEmpty TLEData))
 tLEEphemeris_tleData = Lens.lens (\TLEEphemeris' {tleData} -> tleData) (\s@TLEEphemeris' {} a -> s {tleData = a} :: TLEEphemeris) Prelude.. Lens.mapping Lens.coerced
 
--- | Identifies the S3 object to be used as the ephemeris.
-tLEEphemeris_s3Object :: Lens.Lens' TLEEphemeris (Prelude.Maybe S3Object)
-tLEEphemeris_s3Object = Lens.lens (\TLEEphemeris' {s3Object} -> s3Object) (\s@TLEEphemeris' {} a -> s {s3Object = a} :: TLEEphemeris)
-
 instance Prelude.Hashable TLEEphemeris where
   hashWithSalt _salt TLEEphemeris' {..} =
-    _salt `Prelude.hashWithSalt` tleData
-      `Prelude.hashWithSalt` s3Object
+    _salt `Prelude.hashWithSalt` s3Object
+      `Prelude.hashWithSalt` tleData
 
 instance Prelude.NFData TLEEphemeris where
   rnf TLEEphemeris' {..} =
-    Prelude.rnf tleData
-      `Prelude.seq` Prelude.rnf s3Object
+    Prelude.rnf s3Object
+      `Prelude.seq` Prelude.rnf tleData
 
 instance Data.ToJSON TLEEphemeris where
   toJSON TLEEphemeris' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tleData" Data..=) Prelude.<$> tleData,
-            ("s3Object" Data..=) Prelude.<$> s3Object
+          [ ("s3Object" Data..=) Prelude.<$> s3Object,
+            ("tleData" Data..=) Prelude.<$> tleData
           ]
       )

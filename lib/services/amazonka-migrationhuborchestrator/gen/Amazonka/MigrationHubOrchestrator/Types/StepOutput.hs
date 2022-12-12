@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStepOutput' smart constructor.
 data StepOutput = StepOutput'
-  { -- | The name of the step.
+  { -- | The data type of the step output.
+    dataType :: Prelude.Maybe DataType,
+    -- | The name of the step.
     name :: Prelude.Maybe Prelude.Text,
     -- | Determine if an output is required from a step.
-    required :: Prelude.Maybe Prelude.Bool,
-    -- | The data type of the step output.
-    dataType :: Prelude.Maybe DataType
+    required :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,19 +46,23 @@ data StepOutput = StepOutput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dataType', 'stepOutput_dataType' - The data type of the step output.
+--
 -- 'name', 'stepOutput_name' - The name of the step.
 --
 -- 'required', 'stepOutput_required' - Determine if an output is required from a step.
---
--- 'dataType', 'stepOutput_dataType' - The data type of the step output.
 newStepOutput ::
   StepOutput
 newStepOutput =
   StepOutput'
-    { name = Prelude.Nothing,
-      required = Prelude.Nothing,
-      dataType = Prelude.Nothing
+    { dataType = Prelude.Nothing,
+      name = Prelude.Nothing,
+      required = Prelude.Nothing
     }
+
+-- | The data type of the step output.
+stepOutput_dataType :: Lens.Lens' StepOutput (Prelude.Maybe DataType)
+stepOutput_dataType = Lens.lens (\StepOutput' {dataType} -> dataType) (\s@StepOutput' {} a -> s {dataType = a} :: StepOutput)
 
 -- | The name of the step.
 stepOutput_name :: Lens.Lens' StepOutput (Prelude.Maybe Prelude.Text)
@@ -68,29 +72,25 @@ stepOutput_name = Lens.lens (\StepOutput' {name} -> name) (\s@StepOutput' {} a -
 stepOutput_required :: Lens.Lens' StepOutput (Prelude.Maybe Prelude.Bool)
 stepOutput_required = Lens.lens (\StepOutput' {required} -> required) (\s@StepOutput' {} a -> s {required = a} :: StepOutput)
 
--- | The data type of the step output.
-stepOutput_dataType :: Lens.Lens' StepOutput (Prelude.Maybe DataType)
-stepOutput_dataType = Lens.lens (\StepOutput' {dataType} -> dataType) (\s@StepOutput' {} a -> s {dataType = a} :: StepOutput)
-
 instance Data.FromJSON StepOutput where
   parseJSON =
     Data.withObject
       "StepOutput"
       ( \x ->
           StepOutput'
-            Prelude.<$> (x Data..:? "name")
+            Prelude.<$> (x Data..:? "dataType")
+            Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "required")
-            Prelude.<*> (x Data..:? "dataType")
       )
 
 instance Prelude.Hashable StepOutput where
   hashWithSalt _salt StepOutput' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` dataType
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` required
-      `Prelude.hashWithSalt` dataType
 
 instance Prelude.NFData StepOutput where
   rnf StepOutput' {..} =
-    Prelude.rnf name
+    Prelude.rnf dataType
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf required
-      `Prelude.seq` Prelude.rnf dataType

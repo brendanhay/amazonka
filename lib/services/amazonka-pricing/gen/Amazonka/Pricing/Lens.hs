@@ -15,32 +15,32 @@ module Amazonka.Pricing.Lens
   ( -- * Operations
 
     -- ** DescribeServices
-    describeServices_nextToken,
     describeServices_formatVersion,
-    describeServices_serviceCode,
     describeServices_maxResults,
-    describeServicesResponse_nextToken,
+    describeServices_nextToken,
+    describeServices_serviceCode,
     describeServicesResponse_formatVersion,
+    describeServicesResponse_nextToken,
     describeServicesResponse_services,
     describeServicesResponse_httpStatus,
 
     -- ** GetAttributeValues
-    getAttributeValues_nextToken,
     getAttributeValues_maxResults,
+    getAttributeValues_nextToken,
     getAttributeValues_serviceCode,
     getAttributeValues_attributeName,
-    getAttributeValuesResponse_nextToken,
     getAttributeValuesResponse_attributeValues,
+    getAttributeValuesResponse_nextToken,
     getAttributeValuesResponse_httpStatus,
 
     -- ** GetProducts
-    getProducts_nextToken,
-    getProducts_formatVersion,
     getProducts_filters,
+    getProducts_formatVersion,
     getProducts_maxResults,
+    getProducts_nextToken,
     getProducts_serviceCode,
-    getProductsResponse_nextToken,
     getProductsResponse_formatVersion,
+    getProductsResponse_nextToken,
     getProductsResponse_priceList,
     getProductsResponse_httpStatus,
 

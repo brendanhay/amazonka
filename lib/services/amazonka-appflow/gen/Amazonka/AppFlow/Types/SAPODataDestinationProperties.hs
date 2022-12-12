@@ -33,13 +33,13 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newSAPODataDestinationProperties' smart constructor.
 data SAPODataDestinationProperties = SAPODataDestinationProperties'
   { errorHandlingConfig :: Prelude.Maybe ErrorHandlingConfig,
+    idFieldNames :: Prelude.Maybe [Prelude.Text],
     -- | Determines how Amazon AppFlow handles the success response that it gets
     -- from the connector after placing data.
     --
     -- For example, this setting would determine where to write the response
     -- from a destination connector upon a successful insert operation.
     successResponseHandlingConfig :: Prelude.Maybe SuccessResponseHandlingConfig,
-    idFieldNames :: Prelude.Maybe [Prelude.Text],
     writeOperationType :: Prelude.Maybe WriteOperationType,
     -- | The object path specified in the SAPOData flow destination.
     objectPath :: Prelude.Text
@@ -56,13 +56,13 @@ data SAPODataDestinationProperties = SAPODataDestinationProperties'
 --
 -- 'errorHandlingConfig', 'sAPODataDestinationProperties_errorHandlingConfig' - Undocumented member.
 --
+-- 'idFieldNames', 'sAPODataDestinationProperties_idFieldNames' - Undocumented member.
+--
 -- 'successResponseHandlingConfig', 'sAPODataDestinationProperties_successResponseHandlingConfig' - Determines how Amazon AppFlow handles the success response that it gets
 -- from the connector after placing data.
 --
 -- For example, this setting would determine where to write the response
 -- from a destination connector upon a successful insert operation.
---
--- 'idFieldNames', 'sAPODataDestinationProperties_idFieldNames' - Undocumented member.
 --
 -- 'writeOperationType', 'sAPODataDestinationProperties_writeOperationType' - Undocumented member.
 --
@@ -75,9 +75,9 @@ newSAPODataDestinationProperties pObjectPath_ =
   SAPODataDestinationProperties'
     { errorHandlingConfig =
         Prelude.Nothing,
+      idFieldNames = Prelude.Nothing,
       successResponseHandlingConfig =
         Prelude.Nothing,
-      idFieldNames = Prelude.Nothing,
       writeOperationType = Prelude.Nothing,
       objectPath = pObjectPath_
     }
@@ -86,6 +86,10 @@ newSAPODataDestinationProperties pObjectPath_ =
 sAPODataDestinationProperties_errorHandlingConfig :: Lens.Lens' SAPODataDestinationProperties (Prelude.Maybe ErrorHandlingConfig)
 sAPODataDestinationProperties_errorHandlingConfig = Lens.lens (\SAPODataDestinationProperties' {errorHandlingConfig} -> errorHandlingConfig) (\s@SAPODataDestinationProperties' {} a -> s {errorHandlingConfig = a} :: SAPODataDestinationProperties)
 
+-- | Undocumented member.
+sAPODataDestinationProperties_idFieldNames :: Lens.Lens' SAPODataDestinationProperties (Prelude.Maybe [Prelude.Text])
+sAPODataDestinationProperties_idFieldNames = Lens.lens (\SAPODataDestinationProperties' {idFieldNames} -> idFieldNames) (\s@SAPODataDestinationProperties' {} a -> s {idFieldNames = a} :: SAPODataDestinationProperties) Prelude.. Lens.mapping Lens.coerced
+
 -- | Determines how Amazon AppFlow handles the success response that it gets
 -- from the connector after placing data.
 --
@@ -93,10 +97,6 @@ sAPODataDestinationProperties_errorHandlingConfig = Lens.lens (\SAPODataDestinat
 -- from a destination connector upon a successful insert operation.
 sAPODataDestinationProperties_successResponseHandlingConfig :: Lens.Lens' SAPODataDestinationProperties (Prelude.Maybe SuccessResponseHandlingConfig)
 sAPODataDestinationProperties_successResponseHandlingConfig = Lens.lens (\SAPODataDestinationProperties' {successResponseHandlingConfig} -> successResponseHandlingConfig) (\s@SAPODataDestinationProperties' {} a -> s {successResponseHandlingConfig = a} :: SAPODataDestinationProperties)
-
--- | Undocumented member.
-sAPODataDestinationProperties_idFieldNames :: Lens.Lens' SAPODataDestinationProperties (Prelude.Maybe [Prelude.Text])
-sAPODataDestinationProperties_idFieldNames = Lens.lens (\SAPODataDestinationProperties' {idFieldNames} -> idFieldNames) (\s@SAPODataDestinationProperties' {} a -> s {idFieldNames = a} :: SAPODataDestinationProperties) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 sAPODataDestinationProperties_writeOperationType :: Lens.Lens' SAPODataDestinationProperties (Prelude.Maybe WriteOperationType)
@@ -113,8 +113,8 @@ instance Data.FromJSON SAPODataDestinationProperties where
       ( \x ->
           SAPODataDestinationProperties'
             Prelude.<$> (x Data..:? "errorHandlingConfig")
-            Prelude.<*> (x Data..:? "successResponseHandlingConfig")
             Prelude.<*> (x Data..:? "idFieldNames" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "successResponseHandlingConfig")
             Prelude.<*> (x Data..:? "writeOperationType")
             Prelude.<*> (x Data..: "objectPath")
       )
@@ -125,16 +125,16 @@ instance
   where
   hashWithSalt _salt SAPODataDestinationProperties' {..} =
     _salt `Prelude.hashWithSalt` errorHandlingConfig
-      `Prelude.hashWithSalt` successResponseHandlingConfig
       `Prelude.hashWithSalt` idFieldNames
+      `Prelude.hashWithSalt` successResponseHandlingConfig
       `Prelude.hashWithSalt` writeOperationType
       `Prelude.hashWithSalt` objectPath
 
 instance Prelude.NFData SAPODataDestinationProperties where
   rnf SAPODataDestinationProperties' {..} =
     Prelude.rnf errorHandlingConfig
-      `Prelude.seq` Prelude.rnf successResponseHandlingConfig
       `Prelude.seq` Prelude.rnf idFieldNames
+      `Prelude.seq` Prelude.rnf successResponseHandlingConfig
       `Prelude.seq` Prelude.rnf writeOperationType
       `Prelude.seq` Prelude.rnf objectPath
 
@@ -144,9 +144,9 @@ instance Data.ToJSON SAPODataDestinationProperties where
       ( Prelude.catMaybes
           [ ("errorHandlingConfig" Data..=)
               Prelude.<$> errorHandlingConfig,
+            ("idFieldNames" Data..=) Prelude.<$> idFieldNames,
             ("successResponseHandlingConfig" Data..=)
               Prelude.<$> successResponseHandlingConfig,
-            ("idFieldNames" Data..=) Prelude.<$> idFieldNames,
             ("writeOperationType" Data..=)
               Prelude.<$> writeOperationType,
             Prelude.Just ("objectPath" Data..= objectPath)

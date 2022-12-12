@@ -29,8 +29,8 @@ module Amazonka.HoneyCode.GetScreenData
     newGetScreenData,
 
     -- * Request Lenses
-    getScreenData_nextToken,
     getScreenData_maxResults,
+    getScreenData_nextToken,
     getScreenData_variables,
     getScreenData_workbookId,
     getScreenData_appId,
@@ -58,18 +58,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetScreenData' smart constructor.
 data GetScreenData = GetScreenData'
-  { -- | This parameter is optional. If a nextToken is not specified, the API
-    -- returns the first page of data.
-    --
-    -- Pagination tokens expire after 1 hour. If you use a token that was
-    -- returned more than an hour back, the API will throw ValidationException.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The number of results to be returned on a single page. Specify a number
+  { -- | The number of results to be returned on a single page. Specify a number
     -- between 1 and 100. The maximum value is 100.
     --
     -- This parameter is optional. If you don\'t specify this parameter, the
     -- default page size is 100.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | This parameter is optional. If a nextToken is not specified, the API
+    -- returns the first page of data.
+    --
+    -- Pagination tokens expire after 1 hour. If you use a token that was
+    -- returned more than an hour back, the API will throw ValidationException.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Variables are optional and are needed only if the screen requires them
     -- to render correctly. Variables are specified as a map where the key is
     -- the name of the variable as defined on the screen. The value is an
@@ -93,17 +93,17 @@ data GetScreenData = GetScreenData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getScreenData_nextToken' - This parameter is optional. If a nextToken is not specified, the API
--- returns the first page of data.
---
--- Pagination tokens expire after 1 hour. If you use a token that was
--- returned more than an hour back, the API will throw ValidationException.
---
 -- 'maxResults', 'getScreenData_maxResults' - The number of results to be returned on a single page. Specify a number
 -- between 1 and 100. The maximum value is 100.
 --
 -- This parameter is optional. If you don\'t specify this parameter, the
 -- default page size is 100.
+--
+-- 'nextToken', 'getScreenData_nextToken' - This parameter is optional. If a nextToken is not specified, the API
+-- returns the first page of data.
+--
+-- Pagination tokens expire after 1 hour. If you use a token that was
+-- returned more than an hour back, the API will throw ValidationException.
 --
 -- 'variables', 'getScreenData_variables' - Variables are optional and are needed only if the screen requires them
 -- to render correctly. Variables are specified as a map where the key is
@@ -126,21 +126,13 @@ newGetScreenData ::
   GetScreenData
 newGetScreenData pWorkbookId_ pAppId_ pScreenId_ =
   GetScreenData'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       variables = Prelude.Nothing,
       workbookId = pWorkbookId_,
       appId = pAppId_,
       screenId = pScreenId_
     }
-
--- | This parameter is optional. If a nextToken is not specified, the API
--- returns the first page of data.
---
--- Pagination tokens expire after 1 hour. If you use a token that was
--- returned more than an hour back, the API will throw ValidationException.
-getScreenData_nextToken :: Lens.Lens' GetScreenData (Prelude.Maybe Prelude.Text)
-getScreenData_nextToken = Lens.lens (\GetScreenData' {nextToken} -> nextToken) (\s@GetScreenData' {} a -> s {nextToken = a} :: GetScreenData)
 
 -- | The number of results to be returned on a single page. Specify a number
 -- between 1 and 100. The maximum value is 100.
@@ -149,6 +141,14 @@ getScreenData_nextToken = Lens.lens (\GetScreenData' {nextToken} -> nextToken) (
 -- default page size is 100.
 getScreenData_maxResults :: Lens.Lens' GetScreenData (Prelude.Maybe Prelude.Natural)
 getScreenData_maxResults = Lens.lens (\GetScreenData' {maxResults} -> maxResults) (\s@GetScreenData' {} a -> s {maxResults = a} :: GetScreenData)
+
+-- | This parameter is optional. If a nextToken is not specified, the API
+-- returns the first page of data.
+--
+-- Pagination tokens expire after 1 hour. If you use a token that was
+-- returned more than an hour back, the API will throw ValidationException.
+getScreenData_nextToken :: Lens.Lens' GetScreenData (Prelude.Maybe Prelude.Text)
+getScreenData_nextToken = Lens.lens (\GetScreenData' {nextToken} -> nextToken) (\s@GetScreenData' {} a -> s {nextToken = a} :: GetScreenData)
 
 -- | Variables are optional and are needed only if the screen requires them
 -- to render correctly. Variables are specified as a map where the key is
@@ -188,8 +188,8 @@ instance Core.AWSRequest GetScreenData where
 
 instance Prelude.Hashable GetScreenData where
   hashWithSalt _salt GetScreenData' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` variables
       `Prelude.hashWithSalt` workbookId
       `Prelude.hashWithSalt` appId
@@ -197,8 +197,8 @@ instance Prelude.Hashable GetScreenData where
 
 instance Prelude.NFData GetScreenData where
   rnf GetScreenData' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf variables
       `Prelude.seq` Prelude.rnf workbookId
       `Prelude.seq` Prelude.rnf appId
@@ -219,8 +219,8 @@ instance Data.ToJSON GetScreenData where
   toJSON GetScreenData' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             ("variables" Data..=) Prelude.<$> variables,
             Prelude.Just ("workbookId" Data..= workbookId),
             Prelude.Just ("appId" Data..= appId),

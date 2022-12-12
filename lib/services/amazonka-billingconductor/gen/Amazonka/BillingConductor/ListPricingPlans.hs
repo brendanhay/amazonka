@@ -30,18 +30,18 @@ module Amazonka.BillingConductor.ListPricingPlans
     newListPricingPlans,
 
     -- * Request Lenses
-    listPricingPlans_nextToken,
     listPricingPlans_billingPeriod,
     listPricingPlans_filters,
     listPricingPlans_maxResults,
+    listPricingPlans_nextToken,
 
     -- * Destructuring the Response
     ListPricingPlansResponse (..),
     newListPricingPlansResponse,
 
     -- * Response Lenses
-    listPricingPlansResponse_nextToken,
     listPricingPlansResponse_billingPeriod,
+    listPricingPlansResponse_nextToken,
     listPricingPlansResponse_pricingPlans,
     listPricingPlansResponse_httpStatus,
   )
@@ -57,16 +57,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPricingPlans' smart constructor.
 data ListPricingPlans = ListPricingPlans'
-  { -- | The pagination token that\'s used on subsequent call to get pricing
-    -- plans.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The preferred billing period to get pricing plan.
+  { -- | The preferred billing period to get pricing plan.
     billingPeriod :: Prelude.Maybe Prelude.Text,
     -- | A @ListPricingPlansFilter@ that specifies the Amazon Resource Name
     -- (ARNs) of pricing plans to retrieve pricing plans information.
     filters :: Prelude.Maybe ListPricingPlansFilter,
     -- | The maximum number of pricing plans to retrieve.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token that\'s used on subsequent call to get pricing
+    -- plans.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,29 +78,24 @@ data ListPricingPlans = ListPricingPlans'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPricingPlans_nextToken' - The pagination token that\'s used on subsequent call to get pricing
--- plans.
---
 -- 'billingPeriod', 'listPricingPlans_billingPeriod' - The preferred billing period to get pricing plan.
 --
 -- 'filters', 'listPricingPlans_filters' - A @ListPricingPlansFilter@ that specifies the Amazon Resource Name
 -- (ARNs) of pricing plans to retrieve pricing plans information.
 --
 -- 'maxResults', 'listPricingPlans_maxResults' - The maximum number of pricing plans to retrieve.
+--
+-- 'nextToken', 'listPricingPlans_nextToken' - The pagination token that\'s used on subsequent call to get pricing
+-- plans.
 newListPricingPlans ::
   ListPricingPlans
 newListPricingPlans =
   ListPricingPlans'
-    { nextToken = Prelude.Nothing,
-      billingPeriod = Prelude.Nothing,
+    { billingPeriod = Prelude.Nothing,
       filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The pagination token that\'s used on subsequent call to get pricing
--- plans.
-listPricingPlans_nextToken :: Lens.Lens' ListPricingPlans (Prelude.Maybe Prelude.Text)
-listPricingPlans_nextToken = Lens.lens (\ListPricingPlans' {nextToken} -> nextToken) (\s@ListPricingPlans' {} a -> s {nextToken = a} :: ListPricingPlans)
 
 -- | The preferred billing period to get pricing plan.
 listPricingPlans_billingPeriod :: Lens.Lens' ListPricingPlans (Prelude.Maybe Prelude.Text)
@@ -114,6 +109,11 @@ listPricingPlans_filters = Lens.lens (\ListPricingPlans' {filters} -> filters) (
 -- | The maximum number of pricing plans to retrieve.
 listPricingPlans_maxResults :: Lens.Lens' ListPricingPlans (Prelude.Maybe Prelude.Natural)
 listPricingPlans_maxResults = Lens.lens (\ListPricingPlans' {maxResults} -> maxResults) (\s@ListPricingPlans' {} a -> s {maxResults = a} :: ListPricingPlans)
+
+-- | The pagination token that\'s used on subsequent call to get pricing
+-- plans.
+listPricingPlans_nextToken :: Lens.Lens' ListPricingPlans (Prelude.Maybe Prelude.Text)
+listPricingPlans_nextToken = Lens.lens (\ListPricingPlans' {nextToken} -> nextToken) (\s@ListPricingPlans' {} a -> s {nextToken = a} :: ListPricingPlans)
 
 instance Core.AWSPager ListPricingPlans where
   page rq rs
@@ -147,25 +147,25 @@ instance Core.AWSRequest ListPricingPlans where
     Response.receiveJSON
       ( \s h x ->
           ListPricingPlansResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "BillingPeriod")
+            Prelude.<$> (x Data..?> "BillingPeriod")
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "PricingPlans" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListPricingPlans where
   hashWithSalt _salt ListPricingPlans' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` billingPeriod
+    _salt `Prelude.hashWithSalt` billingPeriod
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListPricingPlans where
   rnf ListPricingPlans' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf billingPeriod
+    Prelude.rnf billingPeriod
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListPricingPlans where
   toHeaders =
@@ -182,10 +182,10 @@ instance Data.ToJSON ListPricingPlans where
   toJSON ListPricingPlans' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("BillingPeriod" Data..=) Prelude.<$> billingPeriod,
+          [ ("BillingPeriod" Data..=) Prelude.<$> billingPeriod,
             ("Filters" Data..=) Prelude.<$> filters,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -197,11 +197,11 @@ instance Data.ToQuery ListPricingPlans where
 
 -- | /See:/ 'newListPricingPlansResponse' smart constructor.
 data ListPricingPlansResponse = ListPricingPlansResponse'
-  { -- | The pagination token that\'s used on subsequent calls to get pricing
+  { -- | The billing period for which the described pricing plans are applicable.
+    billingPeriod :: Prelude.Maybe Prelude.Text,
+    -- | The pagination token that\'s used on subsequent calls to get pricing
     -- plans.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The billing period for which the described pricing plans are applicable.
-    billingPeriod :: Prelude.Maybe Prelude.Text,
     -- | A list of @PricingPlanListElement@ retrieved.
     pricingPlans :: Prelude.Maybe [PricingPlanListElement],
     -- | The response's http status code.
@@ -217,10 +217,10 @@ data ListPricingPlansResponse = ListPricingPlansResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'billingPeriod', 'listPricingPlansResponse_billingPeriod' - The billing period for which the described pricing plans are applicable.
+--
 -- 'nextToken', 'listPricingPlansResponse_nextToken' - The pagination token that\'s used on subsequent calls to get pricing
 -- plans.
---
--- 'billingPeriod', 'listPricingPlansResponse_billingPeriod' - The billing period for which the described pricing plans are applicable.
 --
 -- 'pricingPlans', 'listPricingPlansResponse_pricingPlans' - A list of @PricingPlanListElement@ retrieved.
 --
@@ -231,21 +231,21 @@ newListPricingPlansResponse ::
   ListPricingPlansResponse
 newListPricingPlansResponse pHttpStatus_ =
   ListPricingPlansResponse'
-    { nextToken =
+    { billingPeriod =
         Prelude.Nothing,
-      billingPeriod = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       pricingPlans = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The billing period for which the described pricing plans are applicable.
+listPricingPlansResponse_billingPeriod :: Lens.Lens' ListPricingPlansResponse (Prelude.Maybe Prelude.Text)
+listPricingPlansResponse_billingPeriod = Lens.lens (\ListPricingPlansResponse' {billingPeriod} -> billingPeriod) (\s@ListPricingPlansResponse' {} a -> s {billingPeriod = a} :: ListPricingPlansResponse)
 
 -- | The pagination token that\'s used on subsequent calls to get pricing
 -- plans.
 listPricingPlansResponse_nextToken :: Lens.Lens' ListPricingPlansResponse (Prelude.Maybe Prelude.Text)
 listPricingPlansResponse_nextToken = Lens.lens (\ListPricingPlansResponse' {nextToken} -> nextToken) (\s@ListPricingPlansResponse' {} a -> s {nextToken = a} :: ListPricingPlansResponse)
-
--- | The billing period for which the described pricing plans are applicable.
-listPricingPlansResponse_billingPeriod :: Lens.Lens' ListPricingPlansResponse (Prelude.Maybe Prelude.Text)
-listPricingPlansResponse_billingPeriod = Lens.lens (\ListPricingPlansResponse' {billingPeriod} -> billingPeriod) (\s@ListPricingPlansResponse' {} a -> s {billingPeriod = a} :: ListPricingPlansResponse)
 
 -- | A list of @PricingPlanListElement@ retrieved.
 listPricingPlansResponse_pricingPlans :: Lens.Lens' ListPricingPlansResponse (Prelude.Maybe [PricingPlanListElement])
@@ -257,7 +257,7 @@ listPricingPlansResponse_httpStatus = Lens.lens (\ListPricingPlansResponse' {htt
 
 instance Prelude.NFData ListPricingPlansResponse where
   rnf ListPricingPlansResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf billingPeriod
+    Prelude.rnf billingPeriod
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf pricingPlans
       `Prelude.seq` Prelude.rnf httpStatus

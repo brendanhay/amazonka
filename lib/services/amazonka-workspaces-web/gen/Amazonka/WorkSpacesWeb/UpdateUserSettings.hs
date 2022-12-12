@@ -27,13 +27,13 @@ module Amazonka.WorkSpacesWeb.UpdateUserSettings
     newUpdateUserSettings,
 
     -- * Request Lenses
-    updateUserSettings_printAllowed,
-    updateUserSettings_idleDisconnectTimeoutInMinutes,
-    updateUserSettings_disconnectTimeoutInMinutes,
     updateUserSettings_clientToken,
     updateUserSettings_copyAllowed,
+    updateUserSettings_disconnectTimeoutInMinutes,
     updateUserSettings_downloadAllowed,
+    updateUserSettings_idleDisconnectTimeoutInMinutes,
     updateUserSettings_pasteAllowed,
+    updateUserSettings_printAllowed,
     updateUserSettings_uploadAllowed,
     updateUserSettings_userSettingsArn,
 
@@ -57,16 +57,7 @@ import Amazonka.WorkSpacesWeb.Types
 
 -- | /See:/ 'newUpdateUserSettings' smart constructor.
 data UpdateUserSettings = UpdateUserSettings'
-  { -- | Specifies whether the user can print to the local device.
-    printAllowed :: Prelude.Maybe EnabledType,
-    -- | The amount of time that users can be idle (inactive) before they are
-    -- disconnected from their streaming session and the disconnect timeout
-    -- interval begins.
-    idleDisconnectTimeoutInMinutes :: Prelude.Maybe Prelude.Natural,
-    -- | The amount of time that a streaming session remains active after users
-    -- disconnect.
-    disconnectTimeoutInMinutes :: Prelude.Maybe Prelude.Natural,
-    -- | A unique, case-sensitive identifier that you provide to ensure the
+  { -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. Idempotency ensures that an API request
     -- completes only once. With an idempotent request, if the original request
     -- completes successfully, subsequent retries with the same client token
@@ -78,12 +69,21 @@ data UpdateUserSettings = UpdateUserSettings'
     -- | Specifies whether the user can copy text from the streaming session to
     -- the local device.
     copyAllowed :: Prelude.Maybe EnabledType,
+    -- | The amount of time that a streaming session remains active after users
+    -- disconnect.
+    disconnectTimeoutInMinutes :: Prelude.Maybe Prelude.Natural,
     -- | Specifies whether the user can download files from the streaming session
     -- to the local device.
     downloadAllowed :: Prelude.Maybe EnabledType,
+    -- | The amount of time that users can be idle (inactive) before they are
+    -- disconnected from their streaming session and the disconnect timeout
+    -- interval begins.
+    idleDisconnectTimeoutInMinutes :: Prelude.Maybe Prelude.Natural,
     -- | Specifies whether the user can paste text from the local device to the
     -- streaming session.
     pasteAllowed :: Prelude.Maybe EnabledType,
+    -- | Specifies whether the user can print to the local device.
+    printAllowed :: Prelude.Maybe EnabledType,
     -- | Specifies whether the user can upload files from the local device to the
     -- streaming session.
     uploadAllowed :: Prelude.Maybe EnabledType,
@@ -100,15 +100,6 @@ data UpdateUserSettings = UpdateUserSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'printAllowed', 'updateUserSettings_printAllowed' - Specifies whether the user can print to the local device.
---
--- 'idleDisconnectTimeoutInMinutes', 'updateUserSettings_idleDisconnectTimeoutInMinutes' - The amount of time that users can be idle (inactive) before they are
--- disconnected from their streaming session and the disconnect timeout
--- interval begins.
---
--- 'disconnectTimeoutInMinutes', 'updateUserSettings_disconnectTimeoutInMinutes' - The amount of time that a streaming session remains active after users
--- disconnect.
---
 -- 'clientToken', 'updateUserSettings_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. Idempotency ensures that an API request
 -- completes only once. With an idempotent request, if the original request
@@ -121,11 +112,20 @@ data UpdateUserSettings = UpdateUserSettings'
 -- 'copyAllowed', 'updateUserSettings_copyAllowed' - Specifies whether the user can copy text from the streaming session to
 -- the local device.
 --
+-- 'disconnectTimeoutInMinutes', 'updateUserSettings_disconnectTimeoutInMinutes' - The amount of time that a streaming session remains active after users
+-- disconnect.
+--
 -- 'downloadAllowed', 'updateUserSettings_downloadAllowed' - Specifies whether the user can download files from the streaming session
 -- to the local device.
 --
+-- 'idleDisconnectTimeoutInMinutes', 'updateUserSettings_idleDisconnectTimeoutInMinutes' - The amount of time that users can be idle (inactive) before they are
+-- disconnected from their streaming session and the disconnect timeout
+-- interval begins.
+--
 -- 'pasteAllowed', 'updateUserSettings_pasteAllowed' - Specifies whether the user can paste text from the local device to the
 -- streaming session.
+--
+-- 'printAllowed', 'updateUserSettings_printAllowed' - Specifies whether the user can print to the local device.
 --
 -- 'uploadAllowed', 'updateUserSettings_uploadAllowed' - Specifies whether the user can upload files from the local device to the
 -- streaming session.
@@ -137,31 +137,16 @@ newUpdateUserSettings ::
   UpdateUserSettings
 newUpdateUserSettings pUserSettingsArn_ =
   UpdateUserSettings'
-    { printAllowed = Prelude.Nothing,
-      idleDisconnectTimeoutInMinutes = Prelude.Nothing,
-      disconnectTimeoutInMinutes = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+    { clientToken = Prelude.Nothing,
       copyAllowed = Prelude.Nothing,
+      disconnectTimeoutInMinutes = Prelude.Nothing,
       downloadAllowed = Prelude.Nothing,
+      idleDisconnectTimeoutInMinutes = Prelude.Nothing,
       pasteAllowed = Prelude.Nothing,
+      printAllowed = Prelude.Nothing,
       uploadAllowed = Prelude.Nothing,
       userSettingsArn = pUserSettingsArn_
     }
-
--- | Specifies whether the user can print to the local device.
-updateUserSettings_printAllowed :: Lens.Lens' UpdateUserSettings (Prelude.Maybe EnabledType)
-updateUserSettings_printAllowed = Lens.lens (\UpdateUserSettings' {printAllowed} -> printAllowed) (\s@UpdateUserSettings' {} a -> s {printAllowed = a} :: UpdateUserSettings)
-
--- | The amount of time that users can be idle (inactive) before they are
--- disconnected from their streaming session and the disconnect timeout
--- interval begins.
-updateUserSettings_idleDisconnectTimeoutInMinutes :: Lens.Lens' UpdateUserSettings (Prelude.Maybe Prelude.Natural)
-updateUserSettings_idleDisconnectTimeoutInMinutes = Lens.lens (\UpdateUserSettings' {idleDisconnectTimeoutInMinutes} -> idleDisconnectTimeoutInMinutes) (\s@UpdateUserSettings' {} a -> s {idleDisconnectTimeoutInMinutes = a} :: UpdateUserSettings)
-
--- | The amount of time that a streaming session remains active after users
--- disconnect.
-updateUserSettings_disconnectTimeoutInMinutes :: Lens.Lens' UpdateUserSettings (Prelude.Maybe Prelude.Natural)
-updateUserSettings_disconnectTimeoutInMinutes = Lens.lens (\UpdateUserSettings' {disconnectTimeoutInMinutes} -> disconnectTimeoutInMinutes) (\s@UpdateUserSettings' {} a -> s {disconnectTimeoutInMinutes = a} :: UpdateUserSettings)
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. Idempotency ensures that an API request
@@ -179,15 +164,30 @@ updateUserSettings_clientToken = Lens.lens (\UpdateUserSettings' {clientToken} -
 updateUserSettings_copyAllowed :: Lens.Lens' UpdateUserSettings (Prelude.Maybe EnabledType)
 updateUserSettings_copyAllowed = Lens.lens (\UpdateUserSettings' {copyAllowed} -> copyAllowed) (\s@UpdateUserSettings' {} a -> s {copyAllowed = a} :: UpdateUserSettings)
 
+-- | The amount of time that a streaming session remains active after users
+-- disconnect.
+updateUserSettings_disconnectTimeoutInMinutes :: Lens.Lens' UpdateUserSettings (Prelude.Maybe Prelude.Natural)
+updateUserSettings_disconnectTimeoutInMinutes = Lens.lens (\UpdateUserSettings' {disconnectTimeoutInMinutes} -> disconnectTimeoutInMinutes) (\s@UpdateUserSettings' {} a -> s {disconnectTimeoutInMinutes = a} :: UpdateUserSettings)
+
 -- | Specifies whether the user can download files from the streaming session
 -- to the local device.
 updateUserSettings_downloadAllowed :: Lens.Lens' UpdateUserSettings (Prelude.Maybe EnabledType)
 updateUserSettings_downloadAllowed = Lens.lens (\UpdateUserSettings' {downloadAllowed} -> downloadAllowed) (\s@UpdateUserSettings' {} a -> s {downloadAllowed = a} :: UpdateUserSettings)
 
+-- | The amount of time that users can be idle (inactive) before they are
+-- disconnected from their streaming session and the disconnect timeout
+-- interval begins.
+updateUserSettings_idleDisconnectTimeoutInMinutes :: Lens.Lens' UpdateUserSettings (Prelude.Maybe Prelude.Natural)
+updateUserSettings_idleDisconnectTimeoutInMinutes = Lens.lens (\UpdateUserSettings' {idleDisconnectTimeoutInMinutes} -> idleDisconnectTimeoutInMinutes) (\s@UpdateUserSettings' {} a -> s {idleDisconnectTimeoutInMinutes = a} :: UpdateUserSettings)
+
 -- | Specifies whether the user can paste text from the local device to the
 -- streaming session.
 updateUserSettings_pasteAllowed :: Lens.Lens' UpdateUserSettings (Prelude.Maybe EnabledType)
 updateUserSettings_pasteAllowed = Lens.lens (\UpdateUserSettings' {pasteAllowed} -> pasteAllowed) (\s@UpdateUserSettings' {} a -> s {pasteAllowed = a} :: UpdateUserSettings)
+
+-- | Specifies whether the user can print to the local device.
+updateUserSettings_printAllowed :: Lens.Lens' UpdateUserSettings (Prelude.Maybe EnabledType)
+updateUserSettings_printAllowed = Lens.lens (\UpdateUserSettings' {printAllowed} -> printAllowed) (\s@UpdateUserSettings' {} a -> s {printAllowed = a} :: UpdateUserSettings)
 
 -- | Specifies whether the user can upload files from the local device to the
 -- streaming session.
@@ -214,25 +214,25 @@ instance Core.AWSRequest UpdateUserSettings where
 
 instance Prelude.Hashable UpdateUserSettings where
   hashWithSalt _salt UpdateUserSettings' {..} =
-    _salt `Prelude.hashWithSalt` printAllowed
-      `Prelude.hashWithSalt` idleDisconnectTimeoutInMinutes
-      `Prelude.hashWithSalt` disconnectTimeoutInMinutes
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` copyAllowed
+      `Prelude.hashWithSalt` disconnectTimeoutInMinutes
       `Prelude.hashWithSalt` downloadAllowed
+      `Prelude.hashWithSalt` idleDisconnectTimeoutInMinutes
       `Prelude.hashWithSalt` pasteAllowed
+      `Prelude.hashWithSalt` printAllowed
       `Prelude.hashWithSalt` uploadAllowed
       `Prelude.hashWithSalt` userSettingsArn
 
 instance Prelude.NFData UpdateUserSettings where
   rnf UpdateUserSettings' {..} =
-    Prelude.rnf printAllowed
-      `Prelude.seq` Prelude.rnf idleDisconnectTimeoutInMinutes
-      `Prelude.seq` Prelude.rnf disconnectTimeoutInMinutes
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf copyAllowed
+      `Prelude.seq` Prelude.rnf disconnectTimeoutInMinutes
       `Prelude.seq` Prelude.rnf downloadAllowed
+      `Prelude.seq` Prelude.rnf idleDisconnectTimeoutInMinutes
       `Prelude.seq` Prelude.rnf pasteAllowed
+      `Prelude.seq` Prelude.rnf printAllowed
       `Prelude.seq` Prelude.rnf uploadAllowed
       `Prelude.seq` Prelude.rnf userSettingsArn
 
@@ -251,16 +251,16 @@ instance Data.ToJSON UpdateUserSettings where
   toJSON UpdateUserSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("printAllowed" Data..=) Prelude.<$> printAllowed,
-            ("idleDisconnectTimeoutInMinutes" Data..=)
-              Prelude.<$> idleDisconnectTimeoutInMinutes,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("copyAllowed" Data..=) Prelude.<$> copyAllowed,
             ("disconnectTimeoutInMinutes" Data..=)
               Prelude.<$> disconnectTimeoutInMinutes,
-            ("clientToken" Data..=) Prelude.<$> clientToken,
-            ("copyAllowed" Data..=) Prelude.<$> copyAllowed,
             ("downloadAllowed" Data..=)
               Prelude.<$> downloadAllowed,
+            ("idleDisconnectTimeoutInMinutes" Data..=)
+              Prelude.<$> idleDisconnectTimeoutInMinutes,
             ("pasteAllowed" Data..=) Prelude.<$> pasteAllowed,
+            ("printAllowed" Data..=) Prelude.<$> printAllowed,
             ("uploadAllowed" Data..=) Prelude.<$> uploadAllowed
           ]
       )

@@ -32,9 +32,9 @@ module Amazonka.Transcribe.ListMedicalVocabularies
     newListMedicalVocabularies,
 
     -- * Request Lenses
-    listMedicalVocabularies_nextToken,
-    listMedicalVocabularies_nameContains,
     listMedicalVocabularies_maxResults,
+    listMedicalVocabularies_nameContains,
+    listMedicalVocabularies_nextToken,
     listMedicalVocabularies_stateEquals,
 
     -- * Destructuring the Response
@@ -59,24 +59,24 @@ import Amazonka.Transcribe.Types
 
 -- | /See:/ 'newListMedicalVocabularies' smart constructor.
 data ListMedicalVocabularies = ListMedicalVocabularies'
-  { -- | If your @ListMedicalVocabularies@ request returns more results than can
+  { -- | The maximum number of custom medical vocabularies to return in each page
+    -- of results. If there are fewer results than the value that you specify,
+    -- only the actual results are returned. If you don\'t specify a value, a
+    -- default of 5 is used.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Returns only the custom medical vocabularies that contain the specified
+    -- string. The search is not case sensitive.
+    nameContains :: Prelude.Maybe Prelude.Text,
+    -- | If your @ListMedicalVocabularies@ request returns more results than can
     -- be displayed, @NextToken@ is displayed in the response with an
     -- associated string. To get the next page of results, copy this string and
     -- repeat your request, including @NextToken@ with the value of the copied
     -- string. Repeat as needed to view all your results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Returns only the custom medical vocabularies that contain the specified
-    -- string. The search is not case sensitive.
-    nameContains :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of custom medical vocabularies to return in each page
-    -- of results. If there are fewer results than the value you specify, only
-    -- the actual results are returned. If you don\'t specify a value, a
-    -- default of 5 is used.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Returns only custom medical vocabularies with the specified state.
-    -- Vocabularies are ordered by creation date, with the newest vocabulary
-    -- first. If you don\'t include @StateEquals@, all custom medical
-    -- vocabularies are returned.
+    -- Custom vocabularies are ordered by creation date, with the newest
+    -- vocabulary first. If you don\'t include @StateEquals@, all custom
+    -- medical vocabularies are returned.
     stateEquals :: Prelude.Maybe VocabularyState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -89,34 +89,46 @@ data ListMedicalVocabularies = ListMedicalVocabularies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listMedicalVocabularies_maxResults' - The maximum number of custom medical vocabularies to return in each page
+-- of results. If there are fewer results than the value that you specify,
+-- only the actual results are returned. If you don\'t specify a value, a
+-- default of 5 is used.
+--
+-- 'nameContains', 'listMedicalVocabularies_nameContains' - Returns only the custom medical vocabularies that contain the specified
+-- string. The search is not case sensitive.
+--
 -- 'nextToken', 'listMedicalVocabularies_nextToken' - If your @ListMedicalVocabularies@ request returns more results than can
 -- be displayed, @NextToken@ is displayed in the response with an
 -- associated string. To get the next page of results, copy this string and
 -- repeat your request, including @NextToken@ with the value of the copied
 -- string. Repeat as needed to view all your results.
 --
--- 'nameContains', 'listMedicalVocabularies_nameContains' - Returns only the custom medical vocabularies that contain the specified
--- string. The search is not case sensitive.
---
--- 'maxResults', 'listMedicalVocabularies_maxResults' - The maximum number of custom medical vocabularies to return in each page
--- of results. If there are fewer results than the value you specify, only
--- the actual results are returned. If you don\'t specify a value, a
--- default of 5 is used.
---
 -- 'stateEquals', 'listMedicalVocabularies_stateEquals' - Returns only custom medical vocabularies with the specified state.
--- Vocabularies are ordered by creation date, with the newest vocabulary
--- first. If you don\'t include @StateEquals@, all custom medical
--- vocabularies are returned.
+-- Custom vocabularies are ordered by creation date, with the newest
+-- vocabulary first. If you don\'t include @StateEquals@, all custom
+-- medical vocabularies are returned.
 newListMedicalVocabularies ::
   ListMedicalVocabularies
 newListMedicalVocabularies =
   ListMedicalVocabularies'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
       nameContains = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       stateEquals = Prelude.Nothing
     }
+
+-- | The maximum number of custom medical vocabularies to return in each page
+-- of results. If there are fewer results than the value that you specify,
+-- only the actual results are returned. If you don\'t specify a value, a
+-- default of 5 is used.
+listMedicalVocabularies_maxResults :: Lens.Lens' ListMedicalVocabularies (Prelude.Maybe Prelude.Natural)
+listMedicalVocabularies_maxResults = Lens.lens (\ListMedicalVocabularies' {maxResults} -> maxResults) (\s@ListMedicalVocabularies' {} a -> s {maxResults = a} :: ListMedicalVocabularies)
+
+-- | Returns only the custom medical vocabularies that contain the specified
+-- string. The search is not case sensitive.
+listMedicalVocabularies_nameContains :: Lens.Lens' ListMedicalVocabularies (Prelude.Maybe Prelude.Text)
+listMedicalVocabularies_nameContains = Lens.lens (\ListMedicalVocabularies' {nameContains} -> nameContains) (\s@ListMedicalVocabularies' {} a -> s {nameContains = a} :: ListMedicalVocabularies)
 
 -- | If your @ListMedicalVocabularies@ request returns more results than can
 -- be displayed, @NextToken@ is displayed in the response with an
@@ -126,22 +138,10 @@ newListMedicalVocabularies =
 listMedicalVocabularies_nextToken :: Lens.Lens' ListMedicalVocabularies (Prelude.Maybe Prelude.Text)
 listMedicalVocabularies_nextToken = Lens.lens (\ListMedicalVocabularies' {nextToken} -> nextToken) (\s@ListMedicalVocabularies' {} a -> s {nextToken = a} :: ListMedicalVocabularies)
 
--- | Returns only the custom medical vocabularies that contain the specified
--- string. The search is not case sensitive.
-listMedicalVocabularies_nameContains :: Lens.Lens' ListMedicalVocabularies (Prelude.Maybe Prelude.Text)
-listMedicalVocabularies_nameContains = Lens.lens (\ListMedicalVocabularies' {nameContains} -> nameContains) (\s@ListMedicalVocabularies' {} a -> s {nameContains = a} :: ListMedicalVocabularies)
-
--- | The maximum number of custom medical vocabularies to return in each page
--- of results. If there are fewer results than the value you specify, only
--- the actual results are returned. If you don\'t specify a value, a
--- default of 5 is used.
-listMedicalVocabularies_maxResults :: Lens.Lens' ListMedicalVocabularies (Prelude.Maybe Prelude.Natural)
-listMedicalVocabularies_maxResults = Lens.lens (\ListMedicalVocabularies' {maxResults} -> maxResults) (\s@ListMedicalVocabularies' {} a -> s {maxResults = a} :: ListMedicalVocabularies)
-
 -- | Returns only custom medical vocabularies with the specified state.
--- Vocabularies are ordered by creation date, with the newest vocabulary
--- first. If you don\'t include @StateEquals@, all custom medical
--- vocabularies are returned.
+-- Custom vocabularies are ordered by creation date, with the newest
+-- vocabulary first. If you don\'t include @StateEquals@, all custom
+-- medical vocabularies are returned.
 listMedicalVocabularies_stateEquals :: Lens.Lens' ListMedicalVocabularies (Prelude.Maybe VocabularyState)
 listMedicalVocabularies_stateEquals = Lens.lens (\ListMedicalVocabularies' {stateEquals} -> stateEquals) (\s@ListMedicalVocabularies' {} a -> s {stateEquals = a} :: ListMedicalVocabularies)
 
@@ -163,16 +163,16 @@ instance Core.AWSRequest ListMedicalVocabularies where
 
 instance Prelude.Hashable ListMedicalVocabularies where
   hashWithSalt _salt ListMedicalVocabularies' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nameContains
-      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` stateEquals
 
 instance Prelude.NFData ListMedicalVocabularies where
   rnf ListMedicalVocabularies' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf stateEquals
 
 instance Data.ToHeaders ListMedicalVocabularies where
@@ -194,9 +194,9 @@ instance Data.ToJSON ListMedicalVocabularies where
   toJSON ListMedicalVocabularies' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("NameContains" Data..=) Prelude.<$> nameContains,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("StateEquals" Data..=) Prelude.<$> stateEquals
           ]
       )
@@ -216,8 +216,8 @@ data ListMedicalVocabulariesResponse = ListMedicalVocabulariesResponse'
     -- copied string. Repeat as needed to view all your results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Lists all custom medical vocabularies that have the status specified in
-    -- your request. Vocabularies are ordered by creation date, with the newest
-    -- vocabulary first.
+    -- your request. Custom vocabularies are ordered by creation date, with the
+    -- newest vocabulary first.
     status :: Prelude.Maybe VocabularyState,
     -- | Provides information about the custom medical vocabularies that match
     -- the criteria specified in your request.
@@ -242,8 +242,8 @@ data ListMedicalVocabulariesResponse = ListMedicalVocabulariesResponse'
 -- copied string. Repeat as needed to view all your results.
 --
 -- 'status', 'listMedicalVocabulariesResponse_status' - Lists all custom medical vocabularies that have the status specified in
--- your request. Vocabularies are ordered by creation date, with the newest
--- vocabulary first.
+-- your request. Custom vocabularies are ordered by creation date, with the
+-- newest vocabulary first.
 --
 -- 'vocabularies', 'listMedicalVocabulariesResponse_vocabularies' - Provides information about the custom medical vocabularies that match
 -- the criteria specified in your request.
@@ -271,8 +271,8 @@ listMedicalVocabulariesResponse_nextToken :: Lens.Lens' ListMedicalVocabulariesR
 listMedicalVocabulariesResponse_nextToken = Lens.lens (\ListMedicalVocabulariesResponse' {nextToken} -> nextToken) (\s@ListMedicalVocabulariesResponse' {} a -> s {nextToken = a} :: ListMedicalVocabulariesResponse)
 
 -- | Lists all custom medical vocabularies that have the status specified in
--- your request. Vocabularies are ordered by creation date, with the newest
--- vocabulary first.
+-- your request. Custom vocabularies are ordered by creation date, with the
+-- newest vocabulary first.
 listMedicalVocabulariesResponse_status :: Lens.Lens' ListMedicalVocabulariesResponse (Prelude.Maybe VocabularyState)
 listMedicalVocabulariesResponse_status = Lens.lens (\ListMedicalVocabulariesResponse' {status} -> status) (\s@ListMedicalVocabulariesResponse' {} a -> s {status = a} :: ListMedicalVocabulariesResponse)
 

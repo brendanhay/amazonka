@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAuthentication' smart constructor.
 data Authentication = Authentication'
-  { -- | Indicates whether the user requires a password to authenticate.
-    type' :: Prelude.Maybe AuthenticationType,
-    -- | The number of passwords belonging to the user. The maximum is two.
-    passwordCount :: Prelude.Maybe Prelude.Int
+  { -- | The number of passwords belonging to the user. The maximum is two.
+    passwordCount :: Prelude.Maybe Prelude.Int,
+    -- | Indicates whether the user requires a password to authenticate.
+    type' :: Prelude.Maybe AuthenticationType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,24 @@ data Authentication = Authentication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'authentication_type' - Indicates whether the user requires a password to authenticate.
---
 -- 'passwordCount', 'authentication_passwordCount' - The number of passwords belonging to the user. The maximum is two.
+--
+-- 'type'', 'authentication_type' - Indicates whether the user requires a password to authenticate.
 newAuthentication ::
   Authentication
 newAuthentication =
   Authentication'
-    { type' = Prelude.Nothing,
-      passwordCount = Prelude.Nothing
+    { passwordCount = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
-
--- | Indicates whether the user requires a password to authenticate.
-authentication_type :: Lens.Lens' Authentication (Prelude.Maybe AuthenticationType)
-authentication_type = Lens.lens (\Authentication' {type'} -> type') (\s@Authentication' {} a -> s {type' = a} :: Authentication)
 
 -- | The number of passwords belonging to the user. The maximum is two.
 authentication_passwordCount :: Lens.Lens' Authentication (Prelude.Maybe Prelude.Int)
 authentication_passwordCount = Lens.lens (\Authentication' {passwordCount} -> passwordCount) (\s@Authentication' {} a -> s {passwordCount = a} :: Authentication)
+
+-- | Indicates whether the user requires a password to authenticate.
+authentication_type :: Lens.Lens' Authentication (Prelude.Maybe AuthenticationType)
+authentication_type = Lens.lens (\Authentication' {type'} -> type') (\s@Authentication' {} a -> s {type' = a} :: Authentication)
 
 instance Data.FromJSON Authentication where
   parseJSON =
@@ -70,16 +70,16 @@ instance Data.FromJSON Authentication where
       "Authentication"
       ( \x ->
           Authentication'
-            Prelude.<$> (x Data..:? "Type")
-            Prelude.<*> (x Data..:? "PasswordCount")
+            Prelude.<$> (x Data..:? "PasswordCount")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable Authentication where
   hashWithSalt _salt Authentication' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` passwordCount
+    _salt `Prelude.hashWithSalt` passwordCount
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Authentication where
   rnf Authentication' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf passwordCount
+    Prelude.rnf passwordCount
+      `Prelude.seq` Prelude.rnf type'

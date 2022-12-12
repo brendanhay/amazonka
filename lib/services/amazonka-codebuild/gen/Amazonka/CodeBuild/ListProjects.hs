@@ -30,17 +30,17 @@ module Amazonka.CodeBuild.ListProjects
     newListProjects,
 
     -- * Request Lenses
-    listProjects_sortOrder,
     listProjects_nextToken,
     listProjects_sortBy,
+    listProjects_sortOrder,
 
     -- * Destructuring the Response
     ListProjectsResponse (..),
     newListProjectsResponse,
 
     -- * Response Lenses
-    listProjectsResponse_projects,
     listProjectsResponse_nextToken,
+    listProjectsResponse_projects,
     listProjectsResponse_httpStatus,
   )
 where
@@ -55,16 +55,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListProjects' smart constructor.
 data ListProjects = ListProjects'
-  { -- | The order in which to list build projects. Valid values include:
-    --
-    -- -   @ASCENDING@: List in ascending order.
-    --
-    -- -   @DESCENDING@: List in descending order.
-    --
-    -- Use @sortBy@ to specify the criterion to be used to list build project
-    -- names.
-    sortOrder :: Prelude.Maybe SortOrderType,
-    -- | During a previous call, if there are more than 100 items in the list,
+  { -- | During a previous call, if there are more than 100 items in the list,
     -- only the first 100 items are returned, along with a unique string called
     -- a /nextToken/. To get the next batch of items in the list, call this
     -- operation again, adding the next token to the call. To get all of the
@@ -83,7 +74,16 @@ data ListProjects = ListProjects'
     --
     -- Use @sortOrder@ to specify in what order to list the build project names
     -- based on the preceding criteria.
-    sortBy :: Prelude.Maybe ProjectSortByType
+    sortBy :: Prelude.Maybe ProjectSortByType,
+    -- | The order in which to list build projects. Valid values include:
+    --
+    -- -   @ASCENDING@: List in ascending order.
+    --
+    -- -   @DESCENDING@: List in descending order.
+    --
+    -- Use @sortBy@ to specify the criterion to be used to list build project
+    -- names.
+    sortOrder :: Prelude.Maybe SortOrderType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -94,15 +94,6 @@ data ListProjects = ListProjects'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'sortOrder', 'listProjects_sortOrder' - The order in which to list build projects. Valid values include:
---
--- -   @ASCENDING@: List in ascending order.
---
--- -   @DESCENDING@: List in descending order.
---
--- Use @sortBy@ to specify the criterion to be used to list build project
--- names.
 --
 -- 'nextToken', 'listProjects_nextToken' - During a previous call, if there are more than 100 items in the list,
 -- only the first 100 items are returned, along with a unique string called
@@ -123,16 +114,8 @@ data ListProjects = ListProjects'
 --
 -- Use @sortOrder@ to specify in what order to list the build project names
 -- based on the preceding criteria.
-newListProjects ::
-  ListProjects
-newListProjects =
-  ListProjects'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      sortBy = Prelude.Nothing
-    }
-
--- | The order in which to list build projects. Valid values include:
+--
+-- 'sortOrder', 'listProjects_sortOrder' - The order in which to list build projects. Valid values include:
 --
 -- -   @ASCENDING@: List in ascending order.
 --
@@ -140,8 +123,14 @@ newListProjects =
 --
 -- Use @sortBy@ to specify the criterion to be used to list build project
 -- names.
-listProjects_sortOrder :: Lens.Lens' ListProjects (Prelude.Maybe SortOrderType)
-listProjects_sortOrder = Lens.lens (\ListProjects' {sortOrder} -> sortOrder) (\s@ListProjects' {} a -> s {sortOrder = a} :: ListProjects)
+newListProjects ::
+  ListProjects
+newListProjects =
+  ListProjects'
+    { nextToken = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      sortOrder = Prelude.Nothing
+    }
 
 -- | During a previous call, if there are more than 100 items in the list,
 -- only the first 100 items are returned, along with a unique string called
@@ -166,6 +155,17 @@ listProjects_nextToken = Lens.lens (\ListProjects' {nextToken} -> nextToken) (\s
 -- based on the preceding criteria.
 listProjects_sortBy :: Lens.Lens' ListProjects (Prelude.Maybe ProjectSortByType)
 listProjects_sortBy = Lens.lens (\ListProjects' {sortBy} -> sortBy) (\s@ListProjects' {} a -> s {sortBy = a} :: ListProjects)
+
+-- | The order in which to list build projects. Valid values include:
+--
+-- -   @ASCENDING@: List in ascending order.
+--
+-- -   @DESCENDING@: List in descending order.
+--
+-- Use @sortBy@ to specify the criterion to be used to list build project
+-- names.
+listProjects_sortOrder :: Lens.Lens' ListProjects (Prelude.Maybe SortOrderType)
+listProjects_sortOrder = Lens.lens (\ListProjects' {sortOrder} -> sortOrder) (\s@ListProjects' {} a -> s {sortOrder = a} :: ListProjects)
 
 instance Core.AWSPager ListProjects where
   page rq rs
@@ -195,22 +195,22 @@ instance Core.AWSRequest ListProjects where
     Response.receiveJSON
       ( \s h x ->
           ListProjectsResponse'
-            Prelude.<$> (x Data..?> "projects")
-            Prelude.<*> (x Data..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "projects")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListProjects where
   hashWithSalt _salt ListProjects' {..} =
-    _salt `Prelude.hashWithSalt` sortOrder
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` sortOrder
 
 instance Prelude.NFData ListProjects where
   rnf ListProjects' {..} =
-    Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListProjects where
   toHeaders =
@@ -231,9 +231,9 @@ instance Data.ToJSON ListProjects where
   toJSON ListProjects' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("sortOrder" Data..=) Prelude.<$> sortOrder,
-            ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("sortBy" Data..=) Prelude.<$> sortBy
+          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("sortBy" Data..=) Prelude.<$> sortBy,
+            ("sortOrder" Data..=) Prelude.<$> sortOrder
           ]
       )
 
@@ -245,14 +245,14 @@ instance Data.ToQuery ListProjects where
 
 -- | /See:/ 'newListProjectsResponse' smart constructor.
 data ListProjectsResponse = ListProjectsResponse'
-  { -- | The list of build project names, with each build project name
-    -- representing a single build project.
-    projects :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | If there are more than 100 items in the list, only the first 100 items
+  { -- | If there are more than 100 items in the list, only the first 100 items
     -- are returned, along with a unique string called a /nextToken/. To get
     -- the next batch of items in the list, call this operation again, adding
     -- the next token to the call.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The list of build project names, with each build project name
+    -- representing a single build project.
+    projects :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -266,13 +266,13 @@ data ListProjectsResponse = ListProjectsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'projects', 'listProjectsResponse_projects' - The list of build project names, with each build project name
--- representing a single build project.
---
 -- 'nextToken', 'listProjectsResponse_nextToken' - If there are more than 100 items in the list, only the first 100 items
 -- are returned, along with a unique string called a /nextToken/. To get
 -- the next batch of items in the list, call this operation again, adding
 -- the next token to the call.
+--
+-- 'projects', 'listProjectsResponse_projects' - The list of build project names, with each build project name
+-- representing a single build project.
 --
 -- 'httpStatus', 'listProjectsResponse_httpStatus' - The response's http status code.
 newListProjectsResponse ::
@@ -281,15 +281,10 @@ newListProjectsResponse ::
   ListProjectsResponse
 newListProjectsResponse pHttpStatus_ =
   ListProjectsResponse'
-    { projects = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      projects = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The list of build project names, with each build project name
--- representing a single build project.
-listProjectsResponse_projects :: Lens.Lens' ListProjectsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-listProjectsResponse_projects = Lens.lens (\ListProjectsResponse' {projects} -> projects) (\s@ListProjectsResponse' {} a -> s {projects = a} :: ListProjectsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are more than 100 items in the list, only the first 100 items
 -- are returned, along with a unique string called a /nextToken/. To get
@@ -298,12 +293,17 @@ listProjectsResponse_projects = Lens.lens (\ListProjectsResponse' {projects} -> 
 listProjectsResponse_nextToken :: Lens.Lens' ListProjectsResponse (Prelude.Maybe Prelude.Text)
 listProjectsResponse_nextToken = Lens.lens (\ListProjectsResponse' {nextToken} -> nextToken) (\s@ListProjectsResponse' {} a -> s {nextToken = a} :: ListProjectsResponse)
 
+-- | The list of build project names, with each build project name
+-- representing a single build project.
+listProjectsResponse_projects :: Lens.Lens' ListProjectsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+listProjectsResponse_projects = Lens.lens (\ListProjectsResponse' {projects} -> projects) (\s@ListProjectsResponse' {} a -> s {projects = a} :: ListProjectsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listProjectsResponse_httpStatus :: Lens.Lens' ListProjectsResponse Prelude.Int
 listProjectsResponse_httpStatus = Lens.lens (\ListProjectsResponse' {httpStatus} -> httpStatus) (\s@ListProjectsResponse' {} a -> s {httpStatus = a} :: ListProjectsResponse)
 
 instance Prelude.NFData ListProjectsResponse where
   rnf ListProjectsResponse' {..} =
-    Prelude.rnf projects
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf projects
       `Prelude.seq` Prelude.rnf httpStatus

@@ -29,8 +29,8 @@ module Amazonka.WorkSpacesWeb.UpdateNetworkSettings
     -- * Request Lenses
     updateNetworkSettings_clientToken,
     updateNetworkSettings_securityGroupIds,
-    updateNetworkSettings_vpcId,
     updateNetworkSettings_subnetIds,
+    updateNetworkSettings_vpcId,
     updateNetworkSettings_networkSettingsArn,
 
     -- * Destructuring the Response
@@ -65,12 +65,12 @@ data UpdateNetworkSettings = UpdateNetworkSettings'
     -- | One or more security groups used to control access from streaming
     -- instances to your VPC.
     securityGroupIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The VPC that streaming instances will connect to.
-    vpcId :: Prelude.Maybe Prelude.Text,
     -- | The subnets in which network interfaces are created to connect streaming
     -- instances to your VPC. At least two of these subnets must be in
     -- different availability zones.
     subnetIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The VPC that streaming instances will connect to.
+    vpcId :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the network settings.
     networkSettingsArn :: Prelude.Text
   }
@@ -96,11 +96,11 @@ data UpdateNetworkSettings = UpdateNetworkSettings'
 -- 'securityGroupIds', 'updateNetworkSettings_securityGroupIds' - One or more security groups used to control access from streaming
 -- instances to your VPC.
 --
--- 'vpcId', 'updateNetworkSettings_vpcId' - The VPC that streaming instances will connect to.
---
 -- 'subnetIds', 'updateNetworkSettings_subnetIds' - The subnets in which network interfaces are created to connect streaming
 -- instances to your VPC. At least two of these subnets must be in
 -- different availability zones.
+--
+-- 'vpcId', 'updateNetworkSettings_vpcId' - The VPC that streaming instances will connect to.
 --
 -- 'networkSettingsArn', 'updateNetworkSettings_networkSettingsArn' - The ARN of the network settings.
 newUpdateNetworkSettings ::
@@ -112,8 +112,8 @@ newUpdateNetworkSettings pNetworkSettingsArn_ =
     { clientToken =
         Prelude.Nothing,
       securityGroupIds = Prelude.Nothing,
-      vpcId = Prelude.Nothing,
       subnetIds = Prelude.Nothing,
+      vpcId = Prelude.Nothing,
       networkSettingsArn = pNetworkSettingsArn_
     }
 
@@ -133,15 +133,15 @@ updateNetworkSettings_clientToken = Lens.lens (\UpdateNetworkSettings' {clientTo
 updateNetworkSettings_securityGroupIds :: Lens.Lens' UpdateNetworkSettings (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 updateNetworkSettings_securityGroupIds = Lens.lens (\UpdateNetworkSettings' {securityGroupIds} -> securityGroupIds) (\s@UpdateNetworkSettings' {} a -> s {securityGroupIds = a} :: UpdateNetworkSettings) Prelude.. Lens.mapping Lens.coerced
 
--- | The VPC that streaming instances will connect to.
-updateNetworkSettings_vpcId :: Lens.Lens' UpdateNetworkSettings (Prelude.Maybe Prelude.Text)
-updateNetworkSettings_vpcId = Lens.lens (\UpdateNetworkSettings' {vpcId} -> vpcId) (\s@UpdateNetworkSettings' {} a -> s {vpcId = a} :: UpdateNetworkSettings)
-
 -- | The subnets in which network interfaces are created to connect streaming
 -- instances to your VPC. At least two of these subnets must be in
 -- different availability zones.
 updateNetworkSettings_subnetIds :: Lens.Lens' UpdateNetworkSettings (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 updateNetworkSettings_subnetIds = Lens.lens (\UpdateNetworkSettings' {subnetIds} -> subnetIds) (\s@UpdateNetworkSettings' {} a -> s {subnetIds = a} :: UpdateNetworkSettings) Prelude.. Lens.mapping Lens.coerced
+
+-- | The VPC that streaming instances will connect to.
+updateNetworkSettings_vpcId :: Lens.Lens' UpdateNetworkSettings (Prelude.Maybe Prelude.Text)
+updateNetworkSettings_vpcId = Lens.lens (\UpdateNetworkSettings' {vpcId} -> vpcId) (\s@UpdateNetworkSettings' {} a -> s {vpcId = a} :: UpdateNetworkSettings)
 
 -- | The ARN of the network settings.
 updateNetworkSettings_networkSettingsArn :: Lens.Lens' UpdateNetworkSettings Prelude.Text
@@ -165,16 +165,16 @@ instance Prelude.Hashable UpdateNetworkSettings where
   hashWithSalt _salt UpdateNetworkSettings' {..} =
     _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` securityGroupIds
-      `Prelude.hashWithSalt` vpcId
       `Prelude.hashWithSalt` subnetIds
+      `Prelude.hashWithSalt` vpcId
       `Prelude.hashWithSalt` networkSettingsArn
 
 instance Prelude.NFData UpdateNetworkSettings where
   rnf UpdateNetworkSettings' {..} =
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf vpcId
       `Prelude.seq` Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf vpcId
       `Prelude.seq` Prelude.rnf networkSettingsArn
 
 instance Data.ToHeaders UpdateNetworkSettings where
@@ -195,8 +195,8 @@ instance Data.ToJSON UpdateNetworkSettings where
           [ ("clientToken" Data..=) Prelude.<$> clientToken,
             ("securityGroupIds" Data..=)
               Prelude.<$> securityGroupIds,
-            ("vpcId" Data..=) Prelude.<$> vpcId,
-            ("subnetIds" Data..=) Prelude.<$> subnetIds
+            ("subnetIds" Data..=) Prelude.<$> subnetIds,
+            ("vpcId" Data..=) Prelude.<$> vpcId
           ]
       )
 

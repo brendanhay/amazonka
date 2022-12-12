@@ -30,17 +30,17 @@ module Amazonka.MachineLearning.DescribeDataSources
     newDescribeDataSources,
 
     -- * Request Lenses
-    describeDataSources_sortOrder,
-    describeDataSources_nextToken,
+    describeDataSources_eq,
     describeDataSources_filterVariable,
-    describeDataSources_limit,
+    describeDataSources_ge,
+    describeDataSources_gt,
     describeDataSources_le,
     describeDataSources_lt,
-    describeDataSources_eq,
-    describeDataSources_prefix,
-    describeDataSources_gt,
+    describeDataSources_limit,
     describeDataSources_ne,
-    describeDataSources_ge,
+    describeDataSources_nextToken,
+    describeDataSources_prefix,
+    describeDataSources_sortOrder,
 
     -- * Destructuring the Response
     DescribeDataSourcesResponse (..),
@@ -63,17 +63,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeDataSources' smart constructor.
 data DescribeDataSources = DescribeDataSources'
-  { -- | A two-value parameter that determines the sequence of the resulting list
-    -- of @DataSource@.
-    --
-    -- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
-    --
-    -- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
-    --
-    -- Results are sorted by @FilterVariable@.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | The ID of the page in the paginated results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The equal to operator. The @DataSource@ results will have
+    -- @FilterVariable@ values that exactly match the value specified with
+    -- @EQ@.
+    eq :: Prelude.Maybe Prelude.Text,
     -- | Use one of the following variables to filter a list of @DataSource@:
     --
     -- -   @CreatedAt@ - Sets the search criteria to @DataSource@ creation
@@ -91,8 +84,14 @@ data DescribeDataSources = DescribeDataSources'
     -- -   @IAMUser@ - Sets the search criteria to the user account that
     --     invoked the @DataSource@ creation.
     filterVariable :: Prelude.Maybe DataSourceFilterVariable,
-    -- | The maximum number of @DataSource@ to include in the result.
-    limit :: Prelude.Maybe Prelude.Natural,
+    -- | The greater than or equal to operator. The @DataSource@ results will
+    -- have @FilterVariable@ values that are greater than or equal to the value
+    -- specified with @GE@.
+    ge :: Prelude.Maybe Prelude.Text,
+    -- | The greater than operator. The @DataSource@ results will have
+    -- @FilterVariable@ values that are greater than the value specified with
+    -- @GT@.
+    gt :: Prelude.Maybe Prelude.Text,
     -- | The less than or equal to operator. The @DataSource@ results will have
     -- @FilterVariable@ values that are less than or equal to the value
     -- specified with @LE@.
@@ -101,10 +100,13 @@ data DescribeDataSources = DescribeDataSources'
     -- @FilterVariable@ values that are less than the value specified with
     -- @LT@.
     lt :: Prelude.Maybe Prelude.Text,
-    -- | The equal to operator. The @DataSource@ results will have
-    -- @FilterVariable@ values that exactly match the value specified with
-    -- @EQ@.
-    eq :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of @DataSource@ to include in the result.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | The not equal to operator. The @DataSource@ results will have
+    -- @FilterVariable@ values not equal to the value specified with @NE@.
+    ne :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the page in the paginated results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A string that is found at the beginning of a variable, such as @Name@ or
     -- @Id@.
     --
@@ -119,17 +121,15 @@ data DescribeDataSources = DescribeDataSources'
     --
     -- -   2014-09-09-Holiday
     prefix :: Prelude.Maybe Prelude.Text,
-    -- | The greater than operator. The @DataSource@ results will have
-    -- @FilterVariable@ values that are greater than the value specified with
-    -- @GT@.
-    gt :: Prelude.Maybe Prelude.Text,
-    -- | The not equal to operator. The @DataSource@ results will have
-    -- @FilterVariable@ values not equal to the value specified with @NE@.
-    ne :: Prelude.Maybe Prelude.Text,
-    -- | The greater than or equal to operator. The @DataSource@ results will
-    -- have @FilterVariable@ values that are greater than or equal to the value
-    -- specified with @GE@.
-    ge :: Prelude.Maybe Prelude.Text
+    -- | A two-value parameter that determines the sequence of the resulting list
+    -- of @DataSource@.
+    --
+    -- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
+    --
+    -- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
+    --
+    -- Results are sorted by @FilterVariable@.
+    sortOrder :: Prelude.Maybe SortOrder
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -141,16 +141,9 @@ data DescribeDataSources = DescribeDataSources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'describeDataSources_sortOrder' - A two-value parameter that determines the sequence of the resulting list
--- of @DataSource@.
---
--- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
---
--- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
---
--- Results are sorted by @FilterVariable@.
---
--- 'nextToken', 'describeDataSources_nextToken' - The ID of the page in the paginated results.
+-- 'eq', 'describeDataSources_eq' - The equal to operator. The @DataSource@ results will have
+-- @FilterVariable@ values that exactly match the value specified with
+-- @EQ@.
 --
 -- 'filterVariable', 'describeDataSources_filterVariable' - Use one of the following variables to filter a list of @DataSource@:
 --
@@ -169,7 +162,13 @@ data DescribeDataSources = DescribeDataSources'
 -- -   @IAMUser@ - Sets the search criteria to the user account that
 --     invoked the @DataSource@ creation.
 --
--- 'limit', 'describeDataSources_limit' - The maximum number of @DataSource@ to include in the result.
+-- 'ge', 'describeDataSources_ge' - The greater than or equal to operator. The @DataSource@ results will
+-- have @FilterVariable@ values that are greater than or equal to the value
+-- specified with @GE@.
+--
+-- 'gt', 'describeDataSources_gt' - The greater than operator. The @DataSource@ results will have
+-- @FilterVariable@ values that are greater than the value specified with
+-- @GT@.
 --
 -- 'le', 'describeDataSources_le' - The less than or equal to operator. The @DataSource@ results will have
 -- @FilterVariable@ values that are less than or equal to the value
@@ -179,9 +178,12 @@ data DescribeDataSources = DescribeDataSources'
 -- @FilterVariable@ values that are less than the value specified with
 -- @LT@.
 --
--- 'eq', 'describeDataSources_eq' - The equal to operator. The @DataSource@ results will have
--- @FilterVariable@ values that exactly match the value specified with
--- @EQ@.
+-- 'limit', 'describeDataSources_limit' - The maximum number of @DataSource@ to include in the result.
+--
+-- 'ne', 'describeDataSources_ne' - The not equal to operator. The @DataSource@ results will have
+-- @FilterVariable@ values not equal to the value specified with @NE@.
+--
+-- 'nextToken', 'describeDataSources_nextToken' - The ID of the page in the paginated results.
 --
 -- 'prefix', 'describeDataSources_prefix' - A string that is found at the beginning of a variable, such as @Name@ or
 -- @Id@.
@@ -197,34 +199,7 @@ data DescribeDataSources = DescribeDataSources'
 --
 -- -   2014-09-09-Holiday
 --
--- 'gt', 'describeDataSources_gt' - The greater than operator. The @DataSource@ results will have
--- @FilterVariable@ values that are greater than the value specified with
--- @GT@.
---
--- 'ne', 'describeDataSources_ne' - The not equal to operator. The @DataSource@ results will have
--- @FilterVariable@ values not equal to the value specified with @NE@.
---
--- 'ge', 'describeDataSources_ge' - The greater than or equal to operator. The @DataSource@ results will
--- have @FilterVariable@ values that are greater than or equal to the value
--- specified with @GE@.
-newDescribeDataSources ::
-  DescribeDataSources
-newDescribeDataSources =
-  DescribeDataSources'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      filterVariable = Prelude.Nothing,
-      limit = Prelude.Nothing,
-      le = Prelude.Nothing,
-      lt = Prelude.Nothing,
-      eq = Prelude.Nothing,
-      prefix = Prelude.Nothing,
-      gt = Prelude.Nothing,
-      ne = Prelude.Nothing,
-      ge = Prelude.Nothing
-    }
-
--- | A two-value parameter that determines the sequence of the resulting list
+-- 'sortOrder', 'describeDataSources_sortOrder' - A two-value parameter that determines the sequence of the resulting list
 -- of @DataSource@.
 --
 -- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
@@ -232,12 +207,28 @@ newDescribeDataSources =
 -- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
 --
 -- Results are sorted by @FilterVariable@.
-describeDataSources_sortOrder :: Lens.Lens' DescribeDataSources (Prelude.Maybe SortOrder)
-describeDataSources_sortOrder = Lens.lens (\DescribeDataSources' {sortOrder} -> sortOrder) (\s@DescribeDataSources' {} a -> s {sortOrder = a} :: DescribeDataSources)
+newDescribeDataSources ::
+  DescribeDataSources
+newDescribeDataSources =
+  DescribeDataSources'
+    { eq = Prelude.Nothing,
+      filterVariable = Prelude.Nothing,
+      ge = Prelude.Nothing,
+      gt = Prelude.Nothing,
+      le = Prelude.Nothing,
+      lt = Prelude.Nothing,
+      limit = Prelude.Nothing,
+      ne = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      prefix = Prelude.Nothing,
+      sortOrder = Prelude.Nothing
+    }
 
--- | The ID of the page in the paginated results.
-describeDataSources_nextToken :: Lens.Lens' DescribeDataSources (Prelude.Maybe Prelude.Text)
-describeDataSources_nextToken = Lens.lens (\DescribeDataSources' {nextToken} -> nextToken) (\s@DescribeDataSources' {} a -> s {nextToken = a} :: DescribeDataSources)
+-- | The equal to operator. The @DataSource@ results will have
+-- @FilterVariable@ values that exactly match the value specified with
+-- @EQ@.
+describeDataSources_eq :: Lens.Lens' DescribeDataSources (Prelude.Maybe Prelude.Text)
+describeDataSources_eq = Lens.lens (\DescribeDataSources' {eq} -> eq) (\s@DescribeDataSources' {} a -> s {eq = a} :: DescribeDataSources)
 
 -- | Use one of the following variables to filter a list of @DataSource@:
 --
@@ -258,9 +249,17 @@ describeDataSources_nextToken = Lens.lens (\DescribeDataSources' {nextToken} -> 
 describeDataSources_filterVariable :: Lens.Lens' DescribeDataSources (Prelude.Maybe DataSourceFilterVariable)
 describeDataSources_filterVariable = Lens.lens (\DescribeDataSources' {filterVariable} -> filterVariable) (\s@DescribeDataSources' {} a -> s {filterVariable = a} :: DescribeDataSources)
 
--- | The maximum number of @DataSource@ to include in the result.
-describeDataSources_limit :: Lens.Lens' DescribeDataSources (Prelude.Maybe Prelude.Natural)
-describeDataSources_limit = Lens.lens (\DescribeDataSources' {limit} -> limit) (\s@DescribeDataSources' {} a -> s {limit = a} :: DescribeDataSources)
+-- | The greater than or equal to operator. The @DataSource@ results will
+-- have @FilterVariable@ values that are greater than or equal to the value
+-- specified with @GE@.
+describeDataSources_ge :: Lens.Lens' DescribeDataSources (Prelude.Maybe Prelude.Text)
+describeDataSources_ge = Lens.lens (\DescribeDataSources' {ge} -> ge) (\s@DescribeDataSources' {} a -> s {ge = a} :: DescribeDataSources)
+
+-- | The greater than operator. The @DataSource@ results will have
+-- @FilterVariable@ values that are greater than the value specified with
+-- @GT@.
+describeDataSources_gt :: Lens.Lens' DescribeDataSources (Prelude.Maybe Prelude.Text)
+describeDataSources_gt = Lens.lens (\DescribeDataSources' {gt} -> gt) (\s@DescribeDataSources' {} a -> s {gt = a} :: DescribeDataSources)
 
 -- | The less than or equal to operator. The @DataSource@ results will have
 -- @FilterVariable@ values that are less than or equal to the value
@@ -274,11 +273,18 @@ describeDataSources_le = Lens.lens (\DescribeDataSources' {le} -> le) (\s@Descri
 describeDataSources_lt :: Lens.Lens' DescribeDataSources (Prelude.Maybe Prelude.Text)
 describeDataSources_lt = Lens.lens (\DescribeDataSources' {lt} -> lt) (\s@DescribeDataSources' {} a -> s {lt = a} :: DescribeDataSources)
 
--- | The equal to operator. The @DataSource@ results will have
--- @FilterVariable@ values that exactly match the value specified with
--- @EQ@.
-describeDataSources_eq :: Lens.Lens' DescribeDataSources (Prelude.Maybe Prelude.Text)
-describeDataSources_eq = Lens.lens (\DescribeDataSources' {eq} -> eq) (\s@DescribeDataSources' {} a -> s {eq = a} :: DescribeDataSources)
+-- | The maximum number of @DataSource@ to include in the result.
+describeDataSources_limit :: Lens.Lens' DescribeDataSources (Prelude.Maybe Prelude.Natural)
+describeDataSources_limit = Lens.lens (\DescribeDataSources' {limit} -> limit) (\s@DescribeDataSources' {} a -> s {limit = a} :: DescribeDataSources)
+
+-- | The not equal to operator. The @DataSource@ results will have
+-- @FilterVariable@ values not equal to the value specified with @NE@.
+describeDataSources_ne :: Lens.Lens' DescribeDataSources (Prelude.Maybe Prelude.Text)
+describeDataSources_ne = Lens.lens (\DescribeDataSources' {ne} -> ne) (\s@DescribeDataSources' {} a -> s {ne = a} :: DescribeDataSources)
+
+-- | The ID of the page in the paginated results.
+describeDataSources_nextToken :: Lens.Lens' DescribeDataSources (Prelude.Maybe Prelude.Text)
+describeDataSources_nextToken = Lens.lens (\DescribeDataSources' {nextToken} -> nextToken) (\s@DescribeDataSources' {} a -> s {nextToken = a} :: DescribeDataSources)
 
 -- | A string that is found at the beginning of a variable, such as @Name@ or
 -- @Id@.
@@ -296,22 +302,16 @@ describeDataSources_eq = Lens.lens (\DescribeDataSources' {eq} -> eq) (\s@Descri
 describeDataSources_prefix :: Lens.Lens' DescribeDataSources (Prelude.Maybe Prelude.Text)
 describeDataSources_prefix = Lens.lens (\DescribeDataSources' {prefix} -> prefix) (\s@DescribeDataSources' {} a -> s {prefix = a} :: DescribeDataSources)
 
--- | The greater than operator. The @DataSource@ results will have
--- @FilterVariable@ values that are greater than the value specified with
--- @GT@.
-describeDataSources_gt :: Lens.Lens' DescribeDataSources (Prelude.Maybe Prelude.Text)
-describeDataSources_gt = Lens.lens (\DescribeDataSources' {gt} -> gt) (\s@DescribeDataSources' {} a -> s {gt = a} :: DescribeDataSources)
-
--- | The not equal to operator. The @DataSource@ results will have
--- @FilterVariable@ values not equal to the value specified with @NE@.
-describeDataSources_ne :: Lens.Lens' DescribeDataSources (Prelude.Maybe Prelude.Text)
-describeDataSources_ne = Lens.lens (\DescribeDataSources' {ne} -> ne) (\s@DescribeDataSources' {} a -> s {ne = a} :: DescribeDataSources)
-
--- | The greater than or equal to operator. The @DataSource@ results will
--- have @FilterVariable@ values that are greater than or equal to the value
--- specified with @GE@.
-describeDataSources_ge :: Lens.Lens' DescribeDataSources (Prelude.Maybe Prelude.Text)
-describeDataSources_ge = Lens.lens (\DescribeDataSources' {ge} -> ge) (\s@DescribeDataSources' {} a -> s {ge = a} :: DescribeDataSources)
+-- | A two-value parameter that determines the sequence of the resulting list
+-- of @DataSource@.
+--
+-- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
+--
+-- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
+--
+-- Results are sorted by @FilterVariable@.
+describeDataSources_sortOrder :: Lens.Lens' DescribeDataSources (Prelude.Maybe SortOrder)
+describeDataSources_sortOrder = Lens.lens (\DescribeDataSources' {sortOrder} -> sortOrder) (\s@DescribeDataSources' {} a -> s {sortOrder = a} :: DescribeDataSources)
 
 instance Core.AWSPager DescribeDataSources where
   page rq rs
@@ -352,31 +352,31 @@ instance Core.AWSRequest DescribeDataSources where
 
 instance Prelude.Hashable DescribeDataSources where
   hashWithSalt _salt DescribeDataSources' {..} =
-    _salt `Prelude.hashWithSalt` sortOrder
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` eq
       `Prelude.hashWithSalt` filterVariable
-      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` ge
+      `Prelude.hashWithSalt` gt
       `Prelude.hashWithSalt` le
       `Prelude.hashWithSalt` lt
-      `Prelude.hashWithSalt` eq
-      `Prelude.hashWithSalt` prefix
-      `Prelude.hashWithSalt` gt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` ne
-      `Prelude.hashWithSalt` ge
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` sortOrder
 
 instance Prelude.NFData DescribeDataSources where
   rnf DescribeDataSources' {..} =
-    Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf eq
       `Prelude.seq` Prelude.rnf filterVariable
-      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf ge
+      `Prelude.seq` Prelude.rnf gt
       `Prelude.seq` Prelude.rnf le
       `Prelude.seq` Prelude.rnf lt
-      `Prelude.seq` Prelude.rnf eq
-      `Prelude.seq` Prelude.rnf prefix
-      `Prelude.seq` Prelude.rnf gt
+      `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf ne
-      `Prelude.seq` Prelude.rnf ge
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf sortOrder
 
 instance Data.ToHeaders DescribeDataSources where
   toHeaders =
@@ -397,18 +397,18 @@ instance Data.ToJSON DescribeDataSources where
   toJSON DescribeDataSources' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
-            ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("EQ" Data..=) Prelude.<$> eq,
             ("FilterVariable" Data..=)
               Prelude.<$> filterVariable,
-            ("Limit" Data..=) Prelude.<$> limit,
+            ("GE" Data..=) Prelude.<$> ge,
+            ("GT" Data..=) Prelude.<$> gt,
             ("LE" Data..=) Prelude.<$> le,
             ("LT" Data..=) Prelude.<$> lt,
-            ("EQ" Data..=) Prelude.<$> eq,
-            ("Prefix" Data..=) Prelude.<$> prefix,
-            ("GT" Data..=) Prelude.<$> gt,
+            ("Limit" Data..=) Prelude.<$> limit,
             ("NE" Data..=) Prelude.<$> ne,
-            ("GE" Data..=) Prelude.<$> ge
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Prefix" Data..=) Prelude.<$> prefix,
+            ("SortOrder" Data..=) Prelude.<$> sortOrder
           ]
       )
 

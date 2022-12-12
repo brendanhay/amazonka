@@ -28,13 +28,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCoreNetworkChangeEventValues' smart constructor.
 data CoreNetworkChangeEventValues = CoreNetworkChangeEventValues'
-  { -- | For a @STATIC_ROUTE@ event, this is the IP address.
+  { -- | The ID of the attachment if the change event is associated with an
+    -- attachment.
+    attachmentId :: Prelude.Maybe Prelude.Text,
+    -- | For a @STATIC_ROUTE@ event, this is the IP address.
     cidr :: Prelude.Maybe Prelude.Text,
     -- | The edge location for the core network change event.
     edgeLocation :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the attachment if the change event is associated with an
-    -- attachment.
-    attachmentId :: Prelude.Maybe Prelude.Text,
     -- | The segment name if the change event is associated with a segment.
     segmentName :: Prelude.Maybe Prelude.Text
   }
@@ -48,24 +48,29 @@ data CoreNetworkChangeEventValues = CoreNetworkChangeEventValues'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'attachmentId', 'coreNetworkChangeEventValues_attachmentId' - The ID of the attachment if the change event is associated with an
+-- attachment.
+--
 -- 'cidr', 'coreNetworkChangeEventValues_cidr' - For a @STATIC_ROUTE@ event, this is the IP address.
 --
 -- 'edgeLocation', 'coreNetworkChangeEventValues_edgeLocation' - The edge location for the core network change event.
---
--- 'attachmentId', 'coreNetworkChangeEventValues_attachmentId' - The ID of the attachment if the change event is associated with an
--- attachment.
 --
 -- 'segmentName', 'coreNetworkChangeEventValues_segmentName' - The segment name if the change event is associated with a segment.
 newCoreNetworkChangeEventValues ::
   CoreNetworkChangeEventValues
 newCoreNetworkChangeEventValues =
   CoreNetworkChangeEventValues'
-    { cidr =
+    { attachmentId =
         Prelude.Nothing,
+      cidr = Prelude.Nothing,
       edgeLocation = Prelude.Nothing,
-      attachmentId = Prelude.Nothing,
       segmentName = Prelude.Nothing
     }
+
+-- | The ID of the attachment if the change event is associated with an
+-- attachment.
+coreNetworkChangeEventValues_attachmentId :: Lens.Lens' CoreNetworkChangeEventValues (Prelude.Maybe Prelude.Text)
+coreNetworkChangeEventValues_attachmentId = Lens.lens (\CoreNetworkChangeEventValues' {attachmentId} -> attachmentId) (\s@CoreNetworkChangeEventValues' {} a -> s {attachmentId = a} :: CoreNetworkChangeEventValues)
 
 -- | For a @STATIC_ROUTE@ event, this is the IP address.
 coreNetworkChangeEventValues_cidr :: Lens.Lens' CoreNetworkChangeEventValues (Prelude.Maybe Prelude.Text)
@@ -74,11 +79,6 @@ coreNetworkChangeEventValues_cidr = Lens.lens (\CoreNetworkChangeEventValues' {c
 -- | The edge location for the core network change event.
 coreNetworkChangeEventValues_edgeLocation :: Lens.Lens' CoreNetworkChangeEventValues (Prelude.Maybe Prelude.Text)
 coreNetworkChangeEventValues_edgeLocation = Lens.lens (\CoreNetworkChangeEventValues' {edgeLocation} -> edgeLocation) (\s@CoreNetworkChangeEventValues' {} a -> s {edgeLocation = a} :: CoreNetworkChangeEventValues)
-
--- | The ID of the attachment if the change event is associated with an
--- attachment.
-coreNetworkChangeEventValues_attachmentId :: Lens.Lens' CoreNetworkChangeEventValues (Prelude.Maybe Prelude.Text)
-coreNetworkChangeEventValues_attachmentId = Lens.lens (\CoreNetworkChangeEventValues' {attachmentId} -> attachmentId) (\s@CoreNetworkChangeEventValues' {} a -> s {attachmentId = a} :: CoreNetworkChangeEventValues)
 
 -- | The segment name if the change event is associated with a segment.
 coreNetworkChangeEventValues_segmentName :: Lens.Lens' CoreNetworkChangeEventValues (Prelude.Maybe Prelude.Text)
@@ -90,9 +90,9 @@ instance Data.FromJSON CoreNetworkChangeEventValues where
       "CoreNetworkChangeEventValues"
       ( \x ->
           CoreNetworkChangeEventValues'
-            Prelude.<$> (x Data..:? "Cidr")
+            Prelude.<$> (x Data..:? "AttachmentId")
+            Prelude.<*> (x Data..:? "Cidr")
             Prelude.<*> (x Data..:? "EdgeLocation")
-            Prelude.<*> (x Data..:? "AttachmentId")
             Prelude.<*> (x Data..:? "SegmentName")
       )
 
@@ -101,14 +101,14 @@ instance
     CoreNetworkChangeEventValues
   where
   hashWithSalt _salt CoreNetworkChangeEventValues' {..} =
-    _salt `Prelude.hashWithSalt` cidr
+    _salt `Prelude.hashWithSalt` attachmentId
+      `Prelude.hashWithSalt` cidr
       `Prelude.hashWithSalt` edgeLocation
-      `Prelude.hashWithSalt` attachmentId
       `Prelude.hashWithSalt` segmentName
 
 instance Prelude.NFData CoreNetworkChangeEventValues where
   rnf CoreNetworkChangeEventValues' {..} =
-    Prelude.rnf cidr
+    Prelude.rnf attachmentId
+      `Prelude.seq` Prelude.rnf cidr
       `Prelude.seq` Prelude.rnf edgeLocation
-      `Prelude.seq` Prelude.rnf attachmentId
       `Prelude.seq` Prelude.rnf segmentName

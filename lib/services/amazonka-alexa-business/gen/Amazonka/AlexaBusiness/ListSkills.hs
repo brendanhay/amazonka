@@ -29,10 +29,10 @@ module Amazonka.AlexaBusiness.ListSkills
     newListSkills,
 
     -- * Request Lenses
+    listSkills_enablementType,
+    listSkills_maxResults,
     listSkills_nextToken,
     listSkills_skillGroupArn,
-    listSkills_maxResults,
-    listSkills_enablementType,
     listSkills_skillType,
 
     -- * Destructuring the Response
@@ -56,19 +56,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListSkills' smart constructor.
 data ListSkills = ListSkills'
-  { -- | An optional token returned from a prior request. Use this token for
+  { -- | Whether the skill is enabled under the user\'s account.
+    enablementType :: Prelude.Maybe EnablementTypeFilter,
+    -- | The maximum number of results to include in the response. If more
+    -- results exist than the specified @MaxResults@ value, a token is included
+    -- in the response so that the remaining results can be retrieved.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | An optional token returned from a prior request. Use this token for
     -- pagination of results from this action. If this parameter is specified,
     -- the response includes only results beyond the token, up to the value
     -- specified by @MaxResults@.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the skill group for which to list enabled skills.
     skillGroupArn :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to include in the response. If more
-    -- results exist than the specified @MaxResults@ value, a token is included
-    -- in the response so that the remaining results can be retrieved.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Whether the skill is enabled under the user\'s account.
-    enablementType :: Prelude.Maybe EnablementTypeFilter,
     -- | Whether the skill is publicly available or is a private skill.
     skillType :: Prelude.Maybe SkillTypeFilter
   }
@@ -82,6 +82,12 @@ data ListSkills = ListSkills'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'enablementType', 'listSkills_enablementType' - Whether the skill is enabled under the user\'s account.
+--
+-- 'maxResults', 'listSkills_maxResults' - The maximum number of results to include in the response. If more
+-- results exist than the specified @MaxResults@ value, a token is included
+-- in the response so that the remaining results can be retrieved.
+--
 -- 'nextToken', 'listSkills_nextToken' - An optional token returned from a prior request. Use this token for
 -- pagination of results from this action. If this parameter is specified,
 -- the response includes only results beyond the token, up to the value
@@ -89,23 +95,27 @@ data ListSkills = ListSkills'
 --
 -- 'skillGroupArn', 'listSkills_skillGroupArn' - The ARN of the skill group for which to list enabled skills.
 --
--- 'maxResults', 'listSkills_maxResults' - The maximum number of results to include in the response. If more
--- results exist than the specified @MaxResults@ value, a token is included
--- in the response so that the remaining results can be retrieved.
---
--- 'enablementType', 'listSkills_enablementType' - Whether the skill is enabled under the user\'s account.
---
 -- 'skillType', 'listSkills_skillType' - Whether the skill is publicly available or is a private skill.
 newListSkills ::
   ListSkills
 newListSkills =
   ListSkills'
-    { nextToken = Prelude.Nothing,
-      skillGroupArn = Prelude.Nothing,
+    { enablementType = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      enablementType = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      skillGroupArn = Prelude.Nothing,
       skillType = Prelude.Nothing
     }
+
+-- | Whether the skill is enabled under the user\'s account.
+listSkills_enablementType :: Lens.Lens' ListSkills (Prelude.Maybe EnablementTypeFilter)
+listSkills_enablementType = Lens.lens (\ListSkills' {enablementType} -> enablementType) (\s@ListSkills' {} a -> s {enablementType = a} :: ListSkills)
+
+-- | The maximum number of results to include in the response. If more
+-- results exist than the specified @MaxResults@ value, a token is included
+-- in the response so that the remaining results can be retrieved.
+listSkills_maxResults :: Lens.Lens' ListSkills (Prelude.Maybe Prelude.Natural)
+listSkills_maxResults = Lens.lens (\ListSkills' {maxResults} -> maxResults) (\s@ListSkills' {} a -> s {maxResults = a} :: ListSkills)
 
 -- | An optional token returned from a prior request. Use this token for
 -- pagination of results from this action. If this parameter is specified,
@@ -117,16 +127,6 @@ listSkills_nextToken = Lens.lens (\ListSkills' {nextToken} -> nextToken) (\s@Lis
 -- | The ARN of the skill group for which to list enabled skills.
 listSkills_skillGroupArn :: Lens.Lens' ListSkills (Prelude.Maybe Prelude.Text)
 listSkills_skillGroupArn = Lens.lens (\ListSkills' {skillGroupArn} -> skillGroupArn) (\s@ListSkills' {} a -> s {skillGroupArn = a} :: ListSkills)
-
--- | The maximum number of results to include in the response. If more
--- results exist than the specified @MaxResults@ value, a token is included
--- in the response so that the remaining results can be retrieved.
-listSkills_maxResults :: Lens.Lens' ListSkills (Prelude.Maybe Prelude.Natural)
-listSkills_maxResults = Lens.lens (\ListSkills' {maxResults} -> maxResults) (\s@ListSkills' {} a -> s {maxResults = a} :: ListSkills)
-
--- | Whether the skill is enabled under the user\'s account.
-listSkills_enablementType :: Lens.Lens' ListSkills (Prelude.Maybe EnablementTypeFilter)
-listSkills_enablementType = Lens.lens (\ListSkills' {enablementType} -> enablementType) (\s@ListSkills' {} a -> s {enablementType = a} :: ListSkills)
 
 -- | Whether the skill is publicly available or is a private skill.
 listSkills_skillType :: Lens.Lens' ListSkills (Prelude.Maybe SkillTypeFilter)
@@ -167,18 +167,18 @@ instance Core.AWSRequest ListSkills where
 
 instance Prelude.Hashable ListSkills where
   hashWithSalt _salt ListSkills' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` skillGroupArn
+    _salt `Prelude.hashWithSalt` enablementType
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` enablementType
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` skillGroupArn
       `Prelude.hashWithSalt` skillType
 
 instance Prelude.NFData ListSkills where
   rnf ListSkills' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf skillGroupArn
+    Prelude.rnf enablementType
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf enablementType
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf skillGroupArn
       `Prelude.seq` Prelude.rnf skillType
 
 instance Data.ToHeaders ListSkills where
@@ -200,11 +200,11 @@ instance Data.ToJSON ListSkills where
   toJSON ListSkills' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("SkillGroupArn" Data..=) Prelude.<$> skillGroupArn,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("EnablementType" Data..=)
+          [ ("EnablementType" Data..=)
               Prelude.<$> enablementType,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SkillGroupArn" Data..=) Prelude.<$> skillGroupArn,
             ("SkillType" Data..=) Prelude.<$> skillType
           ]
       )

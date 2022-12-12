@@ -28,22 +28,22 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newServiceQuotaIncreaseRequestInTemplate' smart constructor.
 data ServiceQuotaIncreaseRequestInTemplate = ServiceQuotaIncreaseRequestInTemplate'
-  { -- | Indicates whether the quota is global.
+  { -- | The AWS Region.
+    awsRegion :: Prelude.Maybe Prelude.Text,
+    -- | The new, increased value of the quota.
+    desiredValue :: Prelude.Maybe Prelude.Double,
+    -- | Indicates whether the quota is global.
     globalQuota :: Prelude.Maybe Prelude.Bool,
     -- | The quota identifier.
     quotaCode :: Prelude.Maybe Prelude.Text,
-    -- | The service identifier.
-    serviceCode :: Prelude.Maybe Prelude.Text,
     -- | The quota name.
     quotaName :: Prelude.Maybe Prelude.Text,
-    -- | The AWS Region.
-    awsRegion :: Prelude.Maybe Prelude.Text,
+    -- | The service identifier.
+    serviceCode :: Prelude.Maybe Prelude.Text,
     -- | The service name.
     serviceName :: Prelude.Maybe Prelude.Text,
     -- | The unit of measurement.
-    unit :: Prelude.Maybe Prelude.Text,
-    -- | The new, increased value of the quota.
-    desiredValue :: Prelude.Maybe Prelude.Double
+    unit :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,35 +55,43 @@ data ServiceQuotaIncreaseRequestInTemplate = ServiceQuotaIncreaseRequestInTempla
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'awsRegion', 'serviceQuotaIncreaseRequestInTemplate_awsRegion' - The AWS Region.
+--
+-- 'desiredValue', 'serviceQuotaIncreaseRequestInTemplate_desiredValue' - The new, increased value of the quota.
+--
 -- 'globalQuota', 'serviceQuotaIncreaseRequestInTemplate_globalQuota' - Indicates whether the quota is global.
 --
 -- 'quotaCode', 'serviceQuotaIncreaseRequestInTemplate_quotaCode' - The quota identifier.
 --
--- 'serviceCode', 'serviceQuotaIncreaseRequestInTemplate_serviceCode' - The service identifier.
---
 -- 'quotaName', 'serviceQuotaIncreaseRequestInTemplate_quotaName' - The quota name.
 --
--- 'awsRegion', 'serviceQuotaIncreaseRequestInTemplate_awsRegion' - The AWS Region.
+-- 'serviceCode', 'serviceQuotaIncreaseRequestInTemplate_serviceCode' - The service identifier.
 --
 -- 'serviceName', 'serviceQuotaIncreaseRequestInTemplate_serviceName' - The service name.
 --
 -- 'unit', 'serviceQuotaIncreaseRequestInTemplate_unit' - The unit of measurement.
---
--- 'desiredValue', 'serviceQuotaIncreaseRequestInTemplate_desiredValue' - The new, increased value of the quota.
 newServiceQuotaIncreaseRequestInTemplate ::
   ServiceQuotaIncreaseRequestInTemplate
 newServiceQuotaIncreaseRequestInTemplate =
   ServiceQuotaIncreaseRequestInTemplate'
-    { globalQuota =
+    { awsRegion =
         Prelude.Nothing,
+      desiredValue = Prelude.Nothing,
+      globalQuota = Prelude.Nothing,
       quotaCode = Prelude.Nothing,
-      serviceCode = Prelude.Nothing,
       quotaName = Prelude.Nothing,
-      awsRegion = Prelude.Nothing,
+      serviceCode = Prelude.Nothing,
       serviceName = Prelude.Nothing,
-      unit = Prelude.Nothing,
-      desiredValue = Prelude.Nothing
+      unit = Prelude.Nothing
     }
+
+-- | The AWS Region.
+serviceQuotaIncreaseRequestInTemplate_awsRegion :: Lens.Lens' ServiceQuotaIncreaseRequestInTemplate (Prelude.Maybe Prelude.Text)
+serviceQuotaIncreaseRequestInTemplate_awsRegion = Lens.lens (\ServiceQuotaIncreaseRequestInTemplate' {awsRegion} -> awsRegion) (\s@ServiceQuotaIncreaseRequestInTemplate' {} a -> s {awsRegion = a} :: ServiceQuotaIncreaseRequestInTemplate)
+
+-- | The new, increased value of the quota.
+serviceQuotaIncreaseRequestInTemplate_desiredValue :: Lens.Lens' ServiceQuotaIncreaseRequestInTemplate (Prelude.Maybe Prelude.Double)
+serviceQuotaIncreaseRequestInTemplate_desiredValue = Lens.lens (\ServiceQuotaIncreaseRequestInTemplate' {desiredValue} -> desiredValue) (\s@ServiceQuotaIncreaseRequestInTemplate' {} a -> s {desiredValue = a} :: ServiceQuotaIncreaseRequestInTemplate)
 
 -- | Indicates whether the quota is global.
 serviceQuotaIncreaseRequestInTemplate_globalQuota :: Lens.Lens' ServiceQuotaIncreaseRequestInTemplate (Prelude.Maybe Prelude.Bool)
@@ -93,17 +101,13 @@ serviceQuotaIncreaseRequestInTemplate_globalQuota = Lens.lens (\ServiceQuotaIncr
 serviceQuotaIncreaseRequestInTemplate_quotaCode :: Lens.Lens' ServiceQuotaIncreaseRequestInTemplate (Prelude.Maybe Prelude.Text)
 serviceQuotaIncreaseRequestInTemplate_quotaCode = Lens.lens (\ServiceQuotaIncreaseRequestInTemplate' {quotaCode} -> quotaCode) (\s@ServiceQuotaIncreaseRequestInTemplate' {} a -> s {quotaCode = a} :: ServiceQuotaIncreaseRequestInTemplate)
 
--- | The service identifier.
-serviceQuotaIncreaseRequestInTemplate_serviceCode :: Lens.Lens' ServiceQuotaIncreaseRequestInTemplate (Prelude.Maybe Prelude.Text)
-serviceQuotaIncreaseRequestInTemplate_serviceCode = Lens.lens (\ServiceQuotaIncreaseRequestInTemplate' {serviceCode} -> serviceCode) (\s@ServiceQuotaIncreaseRequestInTemplate' {} a -> s {serviceCode = a} :: ServiceQuotaIncreaseRequestInTemplate)
-
 -- | The quota name.
 serviceQuotaIncreaseRequestInTemplate_quotaName :: Lens.Lens' ServiceQuotaIncreaseRequestInTemplate (Prelude.Maybe Prelude.Text)
 serviceQuotaIncreaseRequestInTemplate_quotaName = Lens.lens (\ServiceQuotaIncreaseRequestInTemplate' {quotaName} -> quotaName) (\s@ServiceQuotaIncreaseRequestInTemplate' {} a -> s {quotaName = a} :: ServiceQuotaIncreaseRequestInTemplate)
 
--- | The AWS Region.
-serviceQuotaIncreaseRequestInTemplate_awsRegion :: Lens.Lens' ServiceQuotaIncreaseRequestInTemplate (Prelude.Maybe Prelude.Text)
-serviceQuotaIncreaseRequestInTemplate_awsRegion = Lens.lens (\ServiceQuotaIncreaseRequestInTemplate' {awsRegion} -> awsRegion) (\s@ServiceQuotaIncreaseRequestInTemplate' {} a -> s {awsRegion = a} :: ServiceQuotaIncreaseRequestInTemplate)
+-- | The service identifier.
+serviceQuotaIncreaseRequestInTemplate_serviceCode :: Lens.Lens' ServiceQuotaIncreaseRequestInTemplate (Prelude.Maybe Prelude.Text)
+serviceQuotaIncreaseRequestInTemplate_serviceCode = Lens.lens (\ServiceQuotaIncreaseRequestInTemplate' {serviceCode} -> serviceCode) (\s@ServiceQuotaIncreaseRequestInTemplate' {} a -> s {serviceCode = a} :: ServiceQuotaIncreaseRequestInTemplate)
 
 -- | The service name.
 serviceQuotaIncreaseRequestInTemplate_serviceName :: Lens.Lens' ServiceQuotaIncreaseRequestInTemplate (Prelude.Maybe Prelude.Text)
@@ -112,10 +116,6 @@ serviceQuotaIncreaseRequestInTemplate_serviceName = Lens.lens (\ServiceQuotaIncr
 -- | The unit of measurement.
 serviceQuotaIncreaseRequestInTemplate_unit :: Lens.Lens' ServiceQuotaIncreaseRequestInTemplate (Prelude.Maybe Prelude.Text)
 serviceQuotaIncreaseRequestInTemplate_unit = Lens.lens (\ServiceQuotaIncreaseRequestInTemplate' {unit} -> unit) (\s@ServiceQuotaIncreaseRequestInTemplate' {} a -> s {unit = a} :: ServiceQuotaIncreaseRequestInTemplate)
-
--- | The new, increased value of the quota.
-serviceQuotaIncreaseRequestInTemplate_desiredValue :: Lens.Lens' ServiceQuotaIncreaseRequestInTemplate (Prelude.Maybe Prelude.Double)
-serviceQuotaIncreaseRequestInTemplate_desiredValue = Lens.lens (\ServiceQuotaIncreaseRequestInTemplate' {desiredValue} -> desiredValue) (\s@ServiceQuotaIncreaseRequestInTemplate' {} a -> s {desiredValue = a} :: ServiceQuotaIncreaseRequestInTemplate)
 
 instance
   Data.FromJSON
@@ -126,14 +126,14 @@ instance
       "ServiceQuotaIncreaseRequestInTemplate"
       ( \x ->
           ServiceQuotaIncreaseRequestInTemplate'
-            Prelude.<$> (x Data..:? "GlobalQuota")
+            Prelude.<$> (x Data..:? "AwsRegion")
+            Prelude.<*> (x Data..:? "DesiredValue")
+            Prelude.<*> (x Data..:? "GlobalQuota")
             Prelude.<*> (x Data..:? "QuotaCode")
-            Prelude.<*> (x Data..:? "ServiceCode")
             Prelude.<*> (x Data..:? "QuotaName")
-            Prelude.<*> (x Data..:? "AwsRegion")
+            Prelude.<*> (x Data..:? "ServiceCode")
             Prelude.<*> (x Data..:? "ServiceName")
             Prelude.<*> (x Data..:? "Unit")
-            Prelude.<*> (x Data..:? "DesiredValue")
       )
 
 instance
@@ -143,25 +143,25 @@ instance
   hashWithSalt
     _salt
     ServiceQuotaIncreaseRequestInTemplate' {..} =
-      _salt `Prelude.hashWithSalt` globalQuota
+      _salt `Prelude.hashWithSalt` awsRegion
+        `Prelude.hashWithSalt` desiredValue
+        `Prelude.hashWithSalt` globalQuota
         `Prelude.hashWithSalt` quotaCode
-        `Prelude.hashWithSalt` serviceCode
         `Prelude.hashWithSalt` quotaName
-        `Prelude.hashWithSalt` awsRegion
+        `Prelude.hashWithSalt` serviceCode
         `Prelude.hashWithSalt` serviceName
         `Prelude.hashWithSalt` unit
-        `Prelude.hashWithSalt` desiredValue
 
 instance
   Prelude.NFData
     ServiceQuotaIncreaseRequestInTemplate
   where
   rnf ServiceQuotaIncreaseRequestInTemplate' {..} =
-    Prelude.rnf globalQuota
+    Prelude.rnf awsRegion
+      `Prelude.seq` Prelude.rnf desiredValue
+      `Prelude.seq` Prelude.rnf globalQuota
       `Prelude.seq` Prelude.rnf quotaCode
-      `Prelude.seq` Prelude.rnf serviceCode
       `Prelude.seq` Prelude.rnf quotaName
-      `Prelude.seq` Prelude.rnf awsRegion
+      `Prelude.seq` Prelude.rnf serviceCode
       `Prelude.seq` Prelude.rnf serviceName
       `Prelude.seq` Prelude.rnf unit
-      `Prelude.seq` Prelude.rnf desiredValue

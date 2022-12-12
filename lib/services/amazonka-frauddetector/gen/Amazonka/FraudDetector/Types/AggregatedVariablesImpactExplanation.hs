@@ -36,7 +36,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAggregatedVariablesImpactExplanation' smart constructor.
 data AggregatedVariablesImpactExplanation = AggregatedVariablesImpactExplanation'
-  { -- | The raw, uninterpreted value represented as log-odds of the fraud. These
+  { -- | The names of all the event variables that were used to derive the
+    -- aggregated variables.
+    eventVariableNames :: Prelude.Maybe [Prelude.Text],
+    -- | The raw, uninterpreted value represented as log-odds of the fraud. These
     -- values are usually between -10 to +10, but range from -infinity to
     -- +infinity.
     --
@@ -48,10 +51,7 @@ data AggregatedVariablesImpactExplanation = AggregatedVariablesImpactExplanation
     logOddsImpact :: Prelude.Maybe Prelude.Double,
     -- | The relative impact of the aggregated variables in terms of magnitude on
     -- the prediction scores.
-    relativeImpact :: Prelude.Maybe Prelude.Text,
-    -- | The names of all the event variables that were used to derive the
-    -- aggregated variables.
-    eventVariableNames :: Prelude.Maybe [Prelude.Text]
+    relativeImpact :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,6 +62,9 @@ data AggregatedVariablesImpactExplanation = AggregatedVariablesImpactExplanation
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'eventVariableNames', 'aggregatedVariablesImpactExplanation_eventVariableNames' - The names of all the event variables that were used to derive the
+-- aggregated variables.
 --
 -- 'logOddsImpact', 'aggregatedVariablesImpactExplanation_logOddsImpact' - The raw, uninterpreted value represented as log-odds of the fraud. These
 -- values are usually between -10 to +10, but range from -infinity to
@@ -75,18 +78,20 @@ data AggregatedVariablesImpactExplanation = AggregatedVariablesImpactExplanation
 --
 -- 'relativeImpact', 'aggregatedVariablesImpactExplanation_relativeImpact' - The relative impact of the aggregated variables in terms of magnitude on
 -- the prediction scores.
---
--- 'eventVariableNames', 'aggregatedVariablesImpactExplanation_eventVariableNames' - The names of all the event variables that were used to derive the
--- aggregated variables.
 newAggregatedVariablesImpactExplanation ::
   AggregatedVariablesImpactExplanation
 newAggregatedVariablesImpactExplanation =
   AggregatedVariablesImpactExplanation'
-    { logOddsImpact =
+    { eventVariableNames =
         Prelude.Nothing,
-      relativeImpact = Prelude.Nothing,
-      eventVariableNames = Prelude.Nothing
+      logOddsImpact = Prelude.Nothing,
+      relativeImpact = Prelude.Nothing
     }
+
+-- | The names of all the event variables that were used to derive the
+-- aggregated variables.
+aggregatedVariablesImpactExplanation_eventVariableNames :: Lens.Lens' AggregatedVariablesImpactExplanation (Prelude.Maybe [Prelude.Text])
+aggregatedVariablesImpactExplanation_eventVariableNames = Lens.lens (\AggregatedVariablesImpactExplanation' {eventVariableNames} -> eventVariableNames) (\s@AggregatedVariablesImpactExplanation' {} a -> s {eventVariableNames = a} :: AggregatedVariablesImpactExplanation) Prelude.. Lens.mapping Lens.coerced
 
 -- | The raw, uninterpreted value represented as log-odds of the fraud. These
 -- values are usually between -10 to +10, but range from -infinity to
@@ -105,11 +110,6 @@ aggregatedVariablesImpactExplanation_logOddsImpact = Lens.lens (\AggregatedVaria
 aggregatedVariablesImpactExplanation_relativeImpact :: Lens.Lens' AggregatedVariablesImpactExplanation (Prelude.Maybe Prelude.Text)
 aggregatedVariablesImpactExplanation_relativeImpact = Lens.lens (\AggregatedVariablesImpactExplanation' {relativeImpact} -> relativeImpact) (\s@AggregatedVariablesImpactExplanation' {} a -> s {relativeImpact = a} :: AggregatedVariablesImpactExplanation)
 
--- | The names of all the event variables that were used to derive the
--- aggregated variables.
-aggregatedVariablesImpactExplanation_eventVariableNames :: Lens.Lens' AggregatedVariablesImpactExplanation (Prelude.Maybe [Prelude.Text])
-aggregatedVariablesImpactExplanation_eventVariableNames = Lens.lens (\AggregatedVariablesImpactExplanation' {eventVariableNames} -> eventVariableNames) (\s@AggregatedVariablesImpactExplanation' {} a -> s {eventVariableNames = a} :: AggregatedVariablesImpactExplanation) Prelude.. Lens.mapping Lens.coerced
-
 instance
   Data.FromJSON
     AggregatedVariablesImpactExplanation
@@ -119,11 +119,11 @@ instance
       "AggregatedVariablesImpactExplanation"
       ( \x ->
           AggregatedVariablesImpactExplanation'
-            Prelude.<$> (x Data..:? "logOddsImpact")
-            Prelude.<*> (x Data..:? "relativeImpact")
-            Prelude.<*> ( x Data..:? "eventVariableNames"
+            Prelude.<$> ( x Data..:? "eventVariableNames"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "logOddsImpact")
+            Prelude.<*> (x Data..:? "relativeImpact")
       )
 
 instance
@@ -133,15 +133,15 @@ instance
   hashWithSalt
     _salt
     AggregatedVariablesImpactExplanation' {..} =
-      _salt `Prelude.hashWithSalt` logOddsImpact
+      _salt `Prelude.hashWithSalt` eventVariableNames
+        `Prelude.hashWithSalt` logOddsImpact
         `Prelude.hashWithSalt` relativeImpact
-        `Prelude.hashWithSalt` eventVariableNames
 
 instance
   Prelude.NFData
     AggregatedVariablesImpactExplanation
   where
   rnf AggregatedVariablesImpactExplanation' {..} =
-    Prelude.rnf logOddsImpact
+    Prelude.rnf eventVariableNames
+      `Prelude.seq` Prelude.rnf logOddsImpact
       `Prelude.seq` Prelude.rnf relativeImpact
-      `Prelude.seq` Prelude.rnf eventVariableNames

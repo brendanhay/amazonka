@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newComplianceByConfigRule' smart constructor.
 data ComplianceByConfigRule = ComplianceByConfigRule'
-  { -- | The name of the Config rule.
-    configRuleName :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether the Config rule is compliant.
-    compliance :: Prelude.Maybe Compliance
+  { -- | Indicates whether the Config rule is compliant.
+    compliance :: Prelude.Maybe Compliance,
+    -- | The name of the Config rule.
+    configRuleName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,25 +46,25 @@ data ComplianceByConfigRule = ComplianceByConfigRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'configRuleName', 'complianceByConfigRule_configRuleName' - The name of the Config rule.
---
 -- 'compliance', 'complianceByConfigRule_compliance' - Indicates whether the Config rule is compliant.
+--
+-- 'configRuleName', 'complianceByConfigRule_configRuleName' - The name of the Config rule.
 newComplianceByConfigRule ::
   ComplianceByConfigRule
 newComplianceByConfigRule =
   ComplianceByConfigRule'
-    { configRuleName =
+    { compliance =
         Prelude.Nothing,
-      compliance = Prelude.Nothing
+      configRuleName = Prelude.Nothing
     }
-
--- | The name of the Config rule.
-complianceByConfigRule_configRuleName :: Lens.Lens' ComplianceByConfigRule (Prelude.Maybe Prelude.Text)
-complianceByConfigRule_configRuleName = Lens.lens (\ComplianceByConfigRule' {configRuleName} -> configRuleName) (\s@ComplianceByConfigRule' {} a -> s {configRuleName = a} :: ComplianceByConfigRule)
 
 -- | Indicates whether the Config rule is compliant.
 complianceByConfigRule_compliance :: Lens.Lens' ComplianceByConfigRule (Prelude.Maybe Compliance)
 complianceByConfigRule_compliance = Lens.lens (\ComplianceByConfigRule' {compliance} -> compliance) (\s@ComplianceByConfigRule' {} a -> s {compliance = a} :: ComplianceByConfigRule)
+
+-- | The name of the Config rule.
+complianceByConfigRule_configRuleName :: Lens.Lens' ComplianceByConfigRule (Prelude.Maybe Prelude.Text)
+complianceByConfigRule_configRuleName = Lens.lens (\ComplianceByConfigRule' {configRuleName} -> configRuleName) (\s@ComplianceByConfigRule' {} a -> s {configRuleName = a} :: ComplianceByConfigRule)
 
 instance Data.FromJSON ComplianceByConfigRule where
   parseJSON =
@@ -72,16 +72,16 @@ instance Data.FromJSON ComplianceByConfigRule where
       "ComplianceByConfigRule"
       ( \x ->
           ComplianceByConfigRule'
-            Prelude.<$> (x Data..:? "ConfigRuleName")
-            Prelude.<*> (x Data..:? "Compliance")
+            Prelude.<$> (x Data..:? "Compliance")
+            Prelude.<*> (x Data..:? "ConfigRuleName")
       )
 
 instance Prelude.Hashable ComplianceByConfigRule where
   hashWithSalt _salt ComplianceByConfigRule' {..} =
-    _salt `Prelude.hashWithSalt` configRuleName
-      `Prelude.hashWithSalt` compliance
+    _salt `Prelude.hashWithSalt` compliance
+      `Prelude.hashWithSalt` configRuleName
 
 instance Prelude.NFData ComplianceByConfigRule where
   rnf ComplianceByConfigRule' {..} =
-    Prelude.rnf configRuleName
-      `Prelude.seq` Prelude.rnf compliance
+    Prelude.rnf compliance
+      `Prelude.seq` Prelude.rnf configRuleName

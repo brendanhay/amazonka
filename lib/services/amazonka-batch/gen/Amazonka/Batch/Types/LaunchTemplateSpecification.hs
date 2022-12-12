@@ -40,6 +40,8 @@ import qualified Amazonka.Prelude as Prelude
 data LaunchTemplateSpecification = LaunchTemplateSpecification'
   { -- | The ID of the launch template.
     launchTemplateId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the launch template.
+    launchTemplateName :: Prelude.Maybe Prelude.Text,
     -- | The version number of the launch template, @$Latest@, or @$Default@.
     --
     -- If the value is @$Latest@, the latest version of the launch template is
@@ -60,9 +62,7 @@ data LaunchTemplateSpecification = LaunchTemplateSpecification'
     -- in the /Batch User Guide/.
     --
     -- Default: @$Default@.
-    version :: Prelude.Maybe Prelude.Text,
-    -- | The name of the launch template.
-    launchTemplateName :: Prelude.Maybe Prelude.Text
+    version :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,6 +75,8 @@ data LaunchTemplateSpecification = LaunchTemplateSpecification'
 -- for backwards compatibility:
 --
 -- 'launchTemplateId', 'launchTemplateSpecification_launchTemplateId' - The ID of the launch template.
+--
+-- 'launchTemplateName', 'launchTemplateSpecification_launchTemplateName' - The name of the launch template.
 --
 -- 'version', 'launchTemplateSpecification_version' - The version number of the launch template, @$Latest@, or @$Default@.
 --
@@ -96,21 +98,23 @@ data LaunchTemplateSpecification = LaunchTemplateSpecification'
 -- in the /Batch User Guide/.
 --
 -- Default: @$Default@.
---
--- 'launchTemplateName', 'launchTemplateSpecification_launchTemplateName' - The name of the launch template.
 newLaunchTemplateSpecification ::
   LaunchTemplateSpecification
 newLaunchTemplateSpecification =
   LaunchTemplateSpecification'
     { launchTemplateId =
         Prelude.Nothing,
-      version = Prelude.Nothing,
-      launchTemplateName = Prelude.Nothing
+      launchTemplateName = Prelude.Nothing,
+      version = Prelude.Nothing
     }
 
 -- | The ID of the launch template.
 launchTemplateSpecification_launchTemplateId :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
 launchTemplateSpecification_launchTemplateId = Lens.lens (\LaunchTemplateSpecification' {launchTemplateId} -> launchTemplateId) (\s@LaunchTemplateSpecification' {} a -> s {launchTemplateId = a} :: LaunchTemplateSpecification)
+
+-- | The name of the launch template.
+launchTemplateSpecification_launchTemplateName :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
+launchTemplateSpecification_launchTemplateName = Lens.lens (\LaunchTemplateSpecification' {launchTemplateName} -> launchTemplateName) (\s@LaunchTemplateSpecification' {} a -> s {launchTemplateName = a} :: LaunchTemplateSpecification)
 
 -- | The version number of the launch template, @$Latest@, or @$Default@.
 --
@@ -135,10 +139,6 @@ launchTemplateSpecification_launchTemplateId = Lens.lens (\LaunchTemplateSpecifi
 launchTemplateSpecification_version :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
 launchTemplateSpecification_version = Lens.lens (\LaunchTemplateSpecification' {version} -> version) (\s@LaunchTemplateSpecification' {} a -> s {version = a} :: LaunchTemplateSpecification)
 
--- | The name of the launch template.
-launchTemplateSpecification_launchTemplateName :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
-launchTemplateSpecification_launchTemplateName = Lens.lens (\LaunchTemplateSpecification' {launchTemplateName} -> launchTemplateName) (\s@LaunchTemplateSpecification' {} a -> s {launchTemplateName = a} :: LaunchTemplateSpecification)
-
 instance Data.FromJSON LaunchTemplateSpecification where
   parseJSON =
     Data.withObject
@@ -146,21 +146,21 @@ instance Data.FromJSON LaunchTemplateSpecification where
       ( \x ->
           LaunchTemplateSpecification'
             Prelude.<$> (x Data..:? "launchTemplateId")
-            Prelude.<*> (x Data..:? "version")
             Prelude.<*> (x Data..:? "launchTemplateName")
+            Prelude.<*> (x Data..:? "version")
       )
 
 instance Prelude.Hashable LaunchTemplateSpecification where
   hashWithSalt _salt LaunchTemplateSpecification' {..} =
     _salt `Prelude.hashWithSalt` launchTemplateId
-      `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` launchTemplateName
+      `Prelude.hashWithSalt` version
 
 instance Prelude.NFData LaunchTemplateSpecification where
   rnf LaunchTemplateSpecification' {..} =
     Prelude.rnf launchTemplateId
-      `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf launchTemplateName
+      `Prelude.seq` Prelude.rnf version
 
 instance Data.ToJSON LaunchTemplateSpecification where
   toJSON LaunchTemplateSpecification' {..} =
@@ -168,8 +168,8 @@ instance Data.ToJSON LaunchTemplateSpecification where
       ( Prelude.catMaybes
           [ ("launchTemplateId" Data..=)
               Prelude.<$> launchTemplateId,
-            ("version" Data..=) Prelude.<$> version,
             ("launchTemplateName" Data..=)
-              Prelude.<$> launchTemplateName
+              Prelude.<$> launchTemplateName,
+            ("version" Data..=) Prelude.<$> version
           ]
       )

@@ -33,20 +33,20 @@ module Amazonka.Rum.Lens
     batchDeleteRumMetricDefinitionsResponse_errors,
 
     -- ** BatchGetRumMetricDefinitions
-    batchGetRumMetricDefinitions_nextToken,
-    batchGetRumMetricDefinitions_maxResults,
     batchGetRumMetricDefinitions_destinationArn,
+    batchGetRumMetricDefinitions_maxResults,
+    batchGetRumMetricDefinitions_nextToken,
     batchGetRumMetricDefinitions_appMonitorName,
     batchGetRumMetricDefinitions_destination,
-    batchGetRumMetricDefinitionsResponse_nextToken,
     batchGetRumMetricDefinitionsResponse_metricDefinitions,
+    batchGetRumMetricDefinitionsResponse_nextToken,
     batchGetRumMetricDefinitionsResponse_httpStatus,
 
     -- ** CreateAppMonitor
-    createAppMonitor_tags,
     createAppMonitor_appMonitorConfiguration,
-    createAppMonitor_cwLogEnabled,
     createAppMonitor_customEvents,
+    createAppMonitor_cwLogEnabled,
+    createAppMonitor_tags,
     createAppMonitor_domain,
     createAppMonitor_name,
     createAppMonitorResponse_id,
@@ -68,28 +68,28 @@ module Amazonka.Rum.Lens
     getAppMonitorResponse_httpStatus,
 
     -- ** GetAppMonitorData
-    getAppMonitorData_nextToken,
     getAppMonitorData_filters,
     getAppMonitorData_maxResults,
+    getAppMonitorData_nextToken,
     getAppMonitorData_name,
     getAppMonitorData_timeRange,
-    getAppMonitorDataResponse_nextToken,
     getAppMonitorDataResponse_events,
+    getAppMonitorDataResponse_nextToken,
     getAppMonitorDataResponse_httpStatus,
 
     -- ** ListAppMonitors
-    listAppMonitors_nextToken,
     listAppMonitors_maxResults,
-    listAppMonitorsResponse_nextToken,
+    listAppMonitors_nextToken,
     listAppMonitorsResponse_appMonitorSummaries,
+    listAppMonitorsResponse_nextToken,
     listAppMonitorsResponse_httpStatus,
 
     -- ** ListRumMetricsDestinations
-    listRumMetricsDestinations_nextToken,
     listRumMetricsDestinations_maxResults,
+    listRumMetricsDestinations_nextToken,
     listRumMetricsDestinations_appMonitorName,
-    listRumMetricsDestinationsResponse_nextToken,
     listRumMetricsDestinationsResponse_destinations,
+    listRumMetricsDestinationsResponse_nextToken,
     listRumMetricsDestinationsResponse_httpStatus,
 
     -- ** ListTagsForResource
@@ -107,8 +107,8 @@ module Amazonka.Rum.Lens
     putRumEventsResponse_httpStatus,
 
     -- ** PutRumMetricsDestination
-    putRumMetricsDestination_iamRoleArn,
     putRumMetricsDestination_destinationArn,
+    putRumMetricsDestination_iamRoleArn,
     putRumMetricsDestination_appMonitorName,
     putRumMetricsDestination_destination,
     putRumMetricsDestinationResponse_httpStatus,
@@ -124,10 +124,10 @@ module Amazonka.Rum.Lens
     untagResourceResponse_httpStatus,
 
     -- ** UpdateAppMonitor
-    updateAppMonitor_domain,
     updateAppMonitor_appMonitorConfiguration,
-    updateAppMonitor_cwLogEnabled,
     updateAppMonitor_customEvents,
+    updateAppMonitor_cwLogEnabled,
+    updateAppMonitor_domain,
     updateAppMonitor_name,
     updateAppMonitorResponse_httpStatus,
 
@@ -142,39 +142,39 @@ module Amazonka.Rum.Lens
     -- * Types
 
     -- ** AppMonitor
-    appMonitor_tags,
-    appMonitor_name,
-    appMonitor_dataStorage,
-    appMonitor_created,
-    appMonitor_domain,
-    appMonitor_state,
-    appMonitor_id,
     appMonitor_appMonitorConfiguration,
-    appMonitor_lastModified,
+    appMonitor_created,
     appMonitor_customEvents,
+    appMonitor_dataStorage,
+    appMonitor_domain,
+    appMonitor_id,
+    appMonitor_lastModified,
+    appMonitor_name,
+    appMonitor_state,
+    appMonitor_tags,
 
     -- ** AppMonitorConfiguration
+    appMonitorConfiguration_allowCookies,
+    appMonitorConfiguration_enableXRay,
+    appMonitorConfiguration_excludedPages,
     appMonitorConfiguration_favoritePages,
     appMonitorConfiguration_guestRoleArn,
-    appMonitorConfiguration_sessionSampleRate,
-    appMonitorConfiguration_enableXRay,
     appMonitorConfiguration_identityPoolId,
-    appMonitorConfiguration_allowCookies,
     appMonitorConfiguration_includedPages,
-    appMonitorConfiguration_excludedPages,
+    appMonitorConfiguration_sessionSampleRate,
     appMonitorConfiguration_telemetries,
 
     -- ** AppMonitorDetails
-    appMonitorDetails_name,
     appMonitorDetails_id,
+    appMonitorDetails_name,
     appMonitorDetails_version,
 
     -- ** AppMonitorSummary
-    appMonitorSummary_name,
     appMonitorSummary_created,
-    appMonitorSummary_state,
     appMonitorSummary_id,
     appMonitorSummary_lastModified,
+    appMonitorSummary_name,
+    appMonitorSummary_state,
 
     -- ** BatchCreateRumMetricDefinitionsError
     batchCreateRumMetricDefinitionsError_errorCode,
@@ -190,31 +190,31 @@ module Amazonka.Rum.Lens
     customEvents_status,
 
     -- ** CwLog
-    cwLog_cwLogGroup,
     cwLog_cwLogEnabled,
+    cwLog_cwLogGroup,
 
     -- ** DataStorage
     dataStorage_cwLog,
 
     -- ** MetricDefinition
-    metricDefinition_valueKey,
-    metricDefinition_unitLabel,
-    metricDefinition_eventPattern,
     metricDefinition_dimensionKeys,
+    metricDefinition_eventPattern,
+    metricDefinition_unitLabel,
+    metricDefinition_valueKey,
     metricDefinition_metricDefinitionId,
     metricDefinition_name,
 
     -- ** MetricDefinitionRequest
-    metricDefinitionRequest_valueKey,
-    metricDefinitionRequest_unitLabel,
-    metricDefinitionRequest_eventPattern,
     metricDefinitionRequest_dimensionKeys,
+    metricDefinitionRequest_eventPattern,
+    metricDefinitionRequest_unitLabel,
+    metricDefinitionRequest_valueKey,
     metricDefinitionRequest_name,
 
     -- ** MetricDestinationSummary
     metricDestinationSummary_destination,
-    metricDestinationSummary_iamRoleArn,
     metricDestinationSummary_destinationArn,
+    metricDestinationSummary_iamRoleArn,
 
     -- ** QueryFilter
     queryFilter_name,

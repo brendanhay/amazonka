@@ -29,9 +29,9 @@ module Amazonka.ServerlessApplicationRepository.ListApplicationDependencies
     newListApplicationDependencies,
 
     -- * Request Lenses
-    listApplicationDependencies_semanticVersion,
-    listApplicationDependencies_nextToken,
     listApplicationDependencies_maxItems,
+    listApplicationDependencies_nextToken,
+    listApplicationDependencies_semanticVersion,
     listApplicationDependencies_applicationId,
 
     -- * Destructuring the Response
@@ -55,12 +55,12 @@ import Amazonka.ServerlessApplicationRepository.Types
 
 -- | /See:/ 'newListApplicationDependencies' smart constructor.
 data ListApplicationDependencies = ListApplicationDependencies'
-  { -- | The semantic version of the application to get.
-    semanticVersion :: Prelude.Maybe Prelude.Text,
+  { -- | The total number of items to return.
+    maxItems :: Prelude.Maybe Prelude.Natural,
     -- | A token to specify where to start paginating.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The total number of items to return.
-    maxItems :: Prelude.Maybe Prelude.Natural,
+    -- | The semantic version of the application to get.
+    semanticVersion :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the application.
     applicationId :: Prelude.Text
   }
@@ -74,11 +74,11 @@ data ListApplicationDependencies = ListApplicationDependencies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'semanticVersion', 'listApplicationDependencies_semanticVersion' - The semantic version of the application to get.
+-- 'maxItems', 'listApplicationDependencies_maxItems' - The total number of items to return.
 --
 -- 'nextToken', 'listApplicationDependencies_nextToken' - A token to specify where to start paginating.
 --
--- 'maxItems', 'listApplicationDependencies_maxItems' - The total number of items to return.
+-- 'semanticVersion', 'listApplicationDependencies_semanticVersion' - The semantic version of the application to get.
 --
 -- 'applicationId', 'listApplicationDependencies_applicationId' - The Amazon Resource Name (ARN) of the application.
 newListApplicationDependencies ::
@@ -87,24 +87,24 @@ newListApplicationDependencies ::
   ListApplicationDependencies
 newListApplicationDependencies pApplicationId_ =
   ListApplicationDependencies'
-    { semanticVersion =
+    { maxItems =
         Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      maxItems = Prelude.Nothing,
+      semanticVersion = Prelude.Nothing,
       applicationId = pApplicationId_
     }
 
--- | The semantic version of the application to get.
-listApplicationDependencies_semanticVersion :: Lens.Lens' ListApplicationDependencies (Prelude.Maybe Prelude.Text)
-listApplicationDependencies_semanticVersion = Lens.lens (\ListApplicationDependencies' {semanticVersion} -> semanticVersion) (\s@ListApplicationDependencies' {} a -> s {semanticVersion = a} :: ListApplicationDependencies)
+-- | The total number of items to return.
+listApplicationDependencies_maxItems :: Lens.Lens' ListApplicationDependencies (Prelude.Maybe Prelude.Natural)
+listApplicationDependencies_maxItems = Lens.lens (\ListApplicationDependencies' {maxItems} -> maxItems) (\s@ListApplicationDependencies' {} a -> s {maxItems = a} :: ListApplicationDependencies)
 
 -- | A token to specify where to start paginating.
 listApplicationDependencies_nextToken :: Lens.Lens' ListApplicationDependencies (Prelude.Maybe Prelude.Text)
 listApplicationDependencies_nextToken = Lens.lens (\ListApplicationDependencies' {nextToken} -> nextToken) (\s@ListApplicationDependencies' {} a -> s {nextToken = a} :: ListApplicationDependencies)
 
--- | The total number of items to return.
-listApplicationDependencies_maxItems :: Lens.Lens' ListApplicationDependencies (Prelude.Maybe Prelude.Natural)
-listApplicationDependencies_maxItems = Lens.lens (\ListApplicationDependencies' {maxItems} -> maxItems) (\s@ListApplicationDependencies' {} a -> s {maxItems = a} :: ListApplicationDependencies)
+-- | The semantic version of the application to get.
+listApplicationDependencies_semanticVersion :: Lens.Lens' ListApplicationDependencies (Prelude.Maybe Prelude.Text)
+listApplicationDependencies_semanticVersion = Lens.lens (\ListApplicationDependencies' {semanticVersion} -> semanticVersion) (\s@ListApplicationDependencies' {} a -> s {semanticVersion = a} :: ListApplicationDependencies)
 
 -- | The Amazon Resource Name (ARN) of the application.
 listApplicationDependencies_applicationId :: Lens.Lens' ListApplicationDependencies Prelude.Text
@@ -149,16 +149,16 @@ instance Core.AWSRequest ListApplicationDependencies where
 
 instance Prelude.Hashable ListApplicationDependencies where
   hashWithSalt _salt ListApplicationDependencies' {..} =
-    _salt `Prelude.hashWithSalt` semanticVersion
+    _salt `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` semanticVersion
       `Prelude.hashWithSalt` applicationId
 
 instance Prelude.NFData ListApplicationDependencies where
   rnf ListApplicationDependencies' {..} =
-    Prelude.rnf semanticVersion
+    Prelude.rnf maxItems
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf semanticVersion
       `Prelude.seq` Prelude.rnf applicationId
 
 instance Data.ToHeaders ListApplicationDependencies where
@@ -183,9 +183,9 @@ instance Data.ToPath ListApplicationDependencies where
 instance Data.ToQuery ListApplicationDependencies where
   toQuery ListApplicationDependencies' {..} =
     Prelude.mconcat
-      [ "semanticVersion" Data.=: semanticVersion,
+      [ "maxItems" Data.=: maxItems,
         "nextToken" Data.=: nextToken,
-        "maxItems" Data.=: maxItems
+        "semanticVersion" Data.=: semanticVersion
       ]
 
 -- | /See:/ 'newListApplicationDependenciesResponse' smart constructor.

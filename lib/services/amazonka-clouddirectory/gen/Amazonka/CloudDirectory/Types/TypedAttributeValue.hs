@@ -30,14 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTypedAttributeValue' smart constructor.
 data TypedAttributeValue = TypedAttributeValue'
-  { -- | A date and time value.
+  { -- | A binary data value.
+    binaryValue :: Prelude.Maybe Data.Base64,
+    -- | A Boolean data value.
+    booleanValue :: Prelude.Maybe Prelude.Bool,
+    -- | A date and time value.
     datetimeValue :: Prelude.Maybe Data.POSIX,
     -- | A number data value.
     numberValue :: Prelude.Maybe Prelude.Text,
-    -- | A Boolean data value.
-    booleanValue :: Prelude.Maybe Prelude.Bool,
-    -- | A binary data value.
-    binaryValue :: Prelude.Maybe Data.Base64,
     -- | A string data value.
     stringValue :: Prelude.Maybe Prelude.Text
   }
@@ -51,42 +51,29 @@ data TypedAttributeValue = TypedAttributeValue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'datetimeValue', 'typedAttributeValue_datetimeValue' - A date and time value.
---
--- 'numberValue', 'typedAttributeValue_numberValue' - A number data value.
---
--- 'booleanValue', 'typedAttributeValue_booleanValue' - A Boolean data value.
---
 -- 'binaryValue', 'typedAttributeValue_binaryValue' - A binary data value.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 --
+-- 'booleanValue', 'typedAttributeValue_booleanValue' - A Boolean data value.
+--
+-- 'datetimeValue', 'typedAttributeValue_datetimeValue' - A date and time value.
+--
+-- 'numberValue', 'typedAttributeValue_numberValue' - A number data value.
+--
 -- 'stringValue', 'typedAttributeValue_stringValue' - A string data value.
 newTypedAttributeValue ::
   TypedAttributeValue
 newTypedAttributeValue =
   TypedAttributeValue'
-    { datetimeValue =
-        Prelude.Nothing,
-      numberValue = Prelude.Nothing,
+    { binaryValue = Prelude.Nothing,
       booleanValue = Prelude.Nothing,
-      binaryValue = Prelude.Nothing,
+      datetimeValue = Prelude.Nothing,
+      numberValue = Prelude.Nothing,
       stringValue = Prelude.Nothing
     }
-
--- | A date and time value.
-typedAttributeValue_datetimeValue :: Lens.Lens' TypedAttributeValue (Prelude.Maybe Prelude.UTCTime)
-typedAttributeValue_datetimeValue = Lens.lens (\TypedAttributeValue' {datetimeValue} -> datetimeValue) (\s@TypedAttributeValue' {} a -> s {datetimeValue = a} :: TypedAttributeValue) Prelude.. Lens.mapping Data._Time
-
--- | A number data value.
-typedAttributeValue_numberValue :: Lens.Lens' TypedAttributeValue (Prelude.Maybe Prelude.Text)
-typedAttributeValue_numberValue = Lens.lens (\TypedAttributeValue' {numberValue} -> numberValue) (\s@TypedAttributeValue' {} a -> s {numberValue = a} :: TypedAttributeValue)
-
--- | A Boolean data value.
-typedAttributeValue_booleanValue :: Lens.Lens' TypedAttributeValue (Prelude.Maybe Prelude.Bool)
-typedAttributeValue_booleanValue = Lens.lens (\TypedAttributeValue' {booleanValue} -> booleanValue) (\s@TypedAttributeValue' {} a -> s {booleanValue = a} :: TypedAttributeValue)
 
 -- | A binary data value.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -95,6 +82,18 @@ typedAttributeValue_booleanValue = Lens.lens (\TypedAttributeValue' {booleanValu
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 typedAttributeValue_binaryValue :: Lens.Lens' TypedAttributeValue (Prelude.Maybe Prelude.ByteString)
 typedAttributeValue_binaryValue = Lens.lens (\TypedAttributeValue' {binaryValue} -> binaryValue) (\s@TypedAttributeValue' {} a -> s {binaryValue = a} :: TypedAttributeValue) Prelude.. Lens.mapping Data._Base64
+
+-- | A Boolean data value.
+typedAttributeValue_booleanValue :: Lens.Lens' TypedAttributeValue (Prelude.Maybe Prelude.Bool)
+typedAttributeValue_booleanValue = Lens.lens (\TypedAttributeValue' {booleanValue} -> booleanValue) (\s@TypedAttributeValue' {} a -> s {booleanValue = a} :: TypedAttributeValue)
+
+-- | A date and time value.
+typedAttributeValue_datetimeValue :: Lens.Lens' TypedAttributeValue (Prelude.Maybe Prelude.UTCTime)
+typedAttributeValue_datetimeValue = Lens.lens (\TypedAttributeValue' {datetimeValue} -> datetimeValue) (\s@TypedAttributeValue' {} a -> s {datetimeValue = a} :: TypedAttributeValue) Prelude.. Lens.mapping Data._Time
+
+-- | A number data value.
+typedAttributeValue_numberValue :: Lens.Lens' TypedAttributeValue (Prelude.Maybe Prelude.Text)
+typedAttributeValue_numberValue = Lens.lens (\TypedAttributeValue' {numberValue} -> numberValue) (\s@TypedAttributeValue' {} a -> s {numberValue = a} :: TypedAttributeValue)
 
 -- | A string data value.
 typedAttributeValue_stringValue :: Lens.Lens' TypedAttributeValue (Prelude.Maybe Prelude.Text)
@@ -106,37 +105,37 @@ instance Data.FromJSON TypedAttributeValue where
       "TypedAttributeValue"
       ( \x ->
           TypedAttributeValue'
-            Prelude.<$> (x Data..:? "DatetimeValue")
-            Prelude.<*> (x Data..:? "NumberValue")
+            Prelude.<$> (x Data..:? "BinaryValue")
             Prelude.<*> (x Data..:? "BooleanValue")
-            Prelude.<*> (x Data..:? "BinaryValue")
+            Prelude.<*> (x Data..:? "DatetimeValue")
+            Prelude.<*> (x Data..:? "NumberValue")
             Prelude.<*> (x Data..:? "StringValue")
       )
 
 instance Prelude.Hashable TypedAttributeValue where
   hashWithSalt _salt TypedAttributeValue' {..} =
-    _salt `Prelude.hashWithSalt` datetimeValue
-      `Prelude.hashWithSalt` numberValue
+    _salt `Prelude.hashWithSalt` binaryValue
       `Prelude.hashWithSalt` booleanValue
-      `Prelude.hashWithSalt` binaryValue
+      `Prelude.hashWithSalt` datetimeValue
+      `Prelude.hashWithSalt` numberValue
       `Prelude.hashWithSalt` stringValue
 
 instance Prelude.NFData TypedAttributeValue where
   rnf TypedAttributeValue' {..} =
-    Prelude.rnf datetimeValue
-      `Prelude.seq` Prelude.rnf numberValue
+    Prelude.rnf binaryValue
       `Prelude.seq` Prelude.rnf booleanValue
-      `Prelude.seq` Prelude.rnf binaryValue
+      `Prelude.seq` Prelude.rnf datetimeValue
+      `Prelude.seq` Prelude.rnf numberValue
       `Prelude.seq` Prelude.rnf stringValue
 
 instance Data.ToJSON TypedAttributeValue where
   toJSON TypedAttributeValue' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DatetimeValue" Data..=) Prelude.<$> datetimeValue,
-            ("NumberValue" Data..=) Prelude.<$> numberValue,
+          [ ("BinaryValue" Data..=) Prelude.<$> binaryValue,
             ("BooleanValue" Data..=) Prelude.<$> booleanValue,
-            ("BinaryValue" Data..=) Prelude.<$> binaryValue,
+            ("DatetimeValue" Data..=) Prelude.<$> datetimeValue,
+            ("NumberValue" Data..=) Prelude.<$> numberValue,
             ("StringValue" Data..=) Prelude.<$> stringValue
           ]
       )

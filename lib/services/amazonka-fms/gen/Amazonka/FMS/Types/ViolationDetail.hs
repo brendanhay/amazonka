@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newViolationDetail' smart constructor.
 data ViolationDetail = ViolationDetail'
-  { -- | The @ResourceTag@ objects associated with the resource.
-    resourceTags :: Prelude.Maybe [Tag],
-    -- | Brief description for the requested resource.
+  { -- | Brief description for the requested resource.
     resourceDescription :: Prelude.Maybe Prelude.Text,
+    -- | The @ResourceTag@ objects associated with the resource.
+    resourceTags :: Prelude.Maybe [Tag],
     -- | The ID of the Firewall Manager policy that the violation details were
     -- requested for.
     policyId :: Prelude.Text,
@@ -58,9 +58,9 @@ data ViolationDetail = ViolationDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceTags', 'violationDetail_resourceTags' - The @ResourceTag@ objects associated with the resource.
---
 -- 'resourceDescription', 'violationDetail_resourceDescription' - Brief description for the requested resource.
+--
+-- 'resourceTags', 'violationDetail_resourceTags' - The @ResourceTag@ objects associated with the resource.
 --
 -- 'policyId', 'violationDetail_policyId' - The ID of the Firewall Manager policy that the violation details were
 -- requested for.
@@ -89,8 +89,9 @@ newViolationDetail
   pResourceId_
   pResourceType_ =
     ViolationDetail'
-      { resourceTags = Prelude.Nothing,
-        resourceDescription = Prelude.Nothing,
+      { resourceDescription =
+          Prelude.Nothing,
+        resourceTags = Prelude.Nothing,
         policyId = pPolicyId_,
         memberAccount = pMemberAccount_,
         resourceId = pResourceId_,
@@ -98,13 +99,13 @@ newViolationDetail
         resourceViolations = Prelude.mempty
       }
 
--- | The @ResourceTag@ objects associated with the resource.
-violationDetail_resourceTags :: Lens.Lens' ViolationDetail (Prelude.Maybe [Tag])
-violationDetail_resourceTags = Lens.lens (\ViolationDetail' {resourceTags} -> resourceTags) (\s@ViolationDetail' {} a -> s {resourceTags = a} :: ViolationDetail) Prelude.. Lens.mapping Lens.coerced
-
 -- | Brief description for the requested resource.
 violationDetail_resourceDescription :: Lens.Lens' ViolationDetail (Prelude.Maybe Prelude.Text)
 violationDetail_resourceDescription = Lens.lens (\ViolationDetail' {resourceDescription} -> resourceDescription) (\s@ViolationDetail' {} a -> s {resourceDescription = a} :: ViolationDetail)
+
+-- | The @ResourceTag@ objects associated with the resource.
+violationDetail_resourceTags :: Lens.Lens' ViolationDetail (Prelude.Maybe [Tag])
+violationDetail_resourceTags = Lens.lens (\ViolationDetail' {resourceTags} -> resourceTags) (\s@ViolationDetail' {} a -> s {resourceTags = a} :: ViolationDetail) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the Firewall Manager policy that the violation details were
 -- requested for.
@@ -134,8 +135,8 @@ instance Data.FromJSON ViolationDetail where
       "ViolationDetail"
       ( \x ->
           ViolationDetail'
-            Prelude.<$> (x Data..:? "ResourceTags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "ResourceDescription")
+            Prelude.<$> (x Data..:? "ResourceDescription")
+            Prelude.<*> (x Data..:? "ResourceTags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "PolicyId")
             Prelude.<*> (x Data..: "MemberAccount")
             Prelude.<*> (x Data..: "ResourceId")
@@ -147,8 +148,8 @@ instance Data.FromJSON ViolationDetail where
 
 instance Prelude.Hashable ViolationDetail where
   hashWithSalt _salt ViolationDetail' {..} =
-    _salt `Prelude.hashWithSalt` resourceTags
-      `Prelude.hashWithSalt` resourceDescription
+    _salt `Prelude.hashWithSalt` resourceDescription
+      `Prelude.hashWithSalt` resourceTags
       `Prelude.hashWithSalt` policyId
       `Prelude.hashWithSalt` memberAccount
       `Prelude.hashWithSalt` resourceId
@@ -157,8 +158,8 @@ instance Prelude.Hashable ViolationDetail where
 
 instance Prelude.NFData ViolationDetail where
   rnf ViolationDetail' {..} =
-    Prelude.rnf resourceTags
-      `Prelude.seq` Prelude.rnf resourceDescription
+    Prelude.rnf resourceDescription
+      `Prelude.seq` Prelude.rnf resourceTags
       `Prelude.seq` Prelude.rnf policyId
       `Prelude.seq` Prelude.rnf memberAccount
       `Prelude.seq` Prelude.rnf resourceId

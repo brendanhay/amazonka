@@ -53,12 +53,6 @@
 -- __Learn more__
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html GameLift FleetIQ Guide>
---
--- __Related actions__
---
--- RegisterGameServer | ListGameServers | ClaimGameServer |
--- DescribeGameServer | UpdateGameServer | DeregisterGameServer |
--- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html All APIs by task>
 module Amazonka.GameLift.UpdateGameServer
   ( -- * Creating a Request
     UpdateGameServer (..),
@@ -93,7 +87,7 @@ import qualified Amazonka.Response as Response
 data UpdateGameServer = UpdateGameServer'
   { -- | A set of custom game server properties, formatted as a single string
     -- value. This data is passed to a game client or service when it requests
-    -- information on game servers using ListGameServers or ClaimGameServer.
+    -- information on game servers.
     gameServerData :: Prelude.Maybe Prelude.Text,
     -- | Indicates health status of the game server. A request that includes this
     -- parameter updates the game server\'s /LastHealthCheckTime/ timestamp.
@@ -102,7 +96,7 @@ data UpdateGameServer = UpdateGameServer'
     -- gameplay.
     utilizationStatus :: Prelude.Maybe GameServerUtilizationStatus,
     -- | A unique identifier for the game server group where the game server is
-    -- running. Use either the GameServerGroup name or ARN value.
+    -- running.
     gameServerGroupName :: Prelude.Text,
     -- | A custom string that uniquely identifies the game server to update.
     gameServerId :: Prelude.Text
@@ -119,7 +113,7 @@ data UpdateGameServer = UpdateGameServer'
 --
 -- 'gameServerData', 'updateGameServer_gameServerData' - A set of custom game server properties, formatted as a single string
 -- value. This data is passed to a game client or service when it requests
--- information on game servers using ListGameServers or ClaimGameServer.
+-- information on game servers.
 --
 -- 'healthCheck', 'updateGameServer_healthCheck' - Indicates health status of the game server. A request that includes this
 -- parameter updates the game server\'s /LastHealthCheckTime/ timestamp.
@@ -128,7 +122,7 @@ data UpdateGameServer = UpdateGameServer'
 -- gameplay.
 --
 -- 'gameServerGroupName', 'updateGameServer_gameServerGroupName' - A unique identifier for the game server group where the game server is
--- running. Use either the GameServerGroup name or ARN value.
+-- running.
 --
 -- 'gameServerId', 'updateGameServer_gameServerId' - A custom string that uniquely identifies the game server to update.
 newUpdateGameServer ::
@@ -150,7 +144,7 @@ newUpdateGameServer
 
 -- | A set of custom game server properties, formatted as a single string
 -- value. This data is passed to a game client or service when it requests
--- information on game servers using ListGameServers or ClaimGameServer.
+-- information on game servers.
 updateGameServer_gameServerData :: Lens.Lens' UpdateGameServer (Prelude.Maybe Prelude.Text)
 updateGameServer_gameServerData = Lens.lens (\UpdateGameServer' {gameServerData} -> gameServerData) (\s@UpdateGameServer' {} a -> s {gameServerData = a} :: UpdateGameServer)
 
@@ -165,7 +159,7 @@ updateGameServer_utilizationStatus :: Lens.Lens' UpdateGameServer (Prelude.Maybe
 updateGameServer_utilizationStatus = Lens.lens (\UpdateGameServer' {utilizationStatus} -> utilizationStatus) (\s@UpdateGameServer' {} a -> s {utilizationStatus = a} :: UpdateGameServer)
 
 -- | A unique identifier for the game server group where the game server is
--- running. Use either the GameServerGroup name or ARN value.
+-- running.
 updateGameServer_gameServerGroupName :: Lens.Lens' UpdateGameServer Prelude.Text
 updateGameServer_gameServerGroupName = Lens.lens (\UpdateGameServer' {gameServerGroupName} -> gameServerGroupName) (\s@UpdateGameServer' {} a -> s {gameServerGroupName = a} :: UpdateGameServer)
 

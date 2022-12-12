@@ -28,8 +28,8 @@ module Amazonka.SSMSAP.Lens
     -- ** GetApplication
     getApplication_applicationArn,
     getApplication_applicationId,
-    getApplicationResponse_tags,
     getApplicationResponse_application,
+    getApplicationResponse_tags,
     getApplicationResponse_httpStatus,
 
     -- ** GetComponent
@@ -39,12 +39,12 @@ module Amazonka.SSMSAP.Lens
     getComponentResponse_httpStatus,
 
     -- ** GetDatabase
-    getDatabase_databaseId,
-    getDatabase_componentId,
     getDatabase_applicationId,
+    getDatabase_componentId,
     getDatabase_databaseArn,
-    getDatabaseResponse_tags,
+    getDatabase_databaseId,
     getDatabaseResponse_database,
+    getDatabaseResponse_tags,
     getDatabaseResponse_httpStatus,
 
     -- ** GetOperation
@@ -59,27 +59,27 @@ module Amazonka.SSMSAP.Lens
     getResourcePermissionResponse_httpStatus,
 
     -- ** ListApplications
-    listApplications_nextToken,
     listApplications_maxResults,
-    listApplicationsResponse_nextToken,
+    listApplications_nextToken,
     listApplicationsResponse_applications,
+    listApplicationsResponse_nextToken,
     listApplicationsResponse_httpStatus,
 
     -- ** ListComponents
-    listComponents_nextToken,
-    listComponents_maxResults,
     listComponents_applicationId,
-    listComponentsResponse_nextToken,
+    listComponents_maxResults,
+    listComponents_nextToken,
     listComponentsResponse_components,
+    listComponentsResponse_nextToken,
     listComponentsResponse_httpStatus,
 
     -- ** ListDatabases
-    listDatabases_nextToken,
-    listDatabases_maxResults,
-    listDatabases_componentId,
     listDatabases_applicationId,
-    listDatabasesResponse_nextToken,
+    listDatabases_componentId,
+    listDatabases_maxResults,
+    listDatabases_nextToken,
     listDatabasesResponse_databases,
+    listDatabasesResponse_nextToken,
     listDatabasesResponse_httpStatus,
 
     -- ** ListTagsForResource
@@ -95,9 +95,9 @@ module Amazonka.SSMSAP.Lens
     putResourcePermissionResponse_httpStatus,
 
     -- ** RegisterApplication
-    registerApplication_tags,
-    registerApplication_sid,
     registerApplication_sapInstanceNumber,
+    registerApplication_sid,
+    registerApplication_tags,
     registerApplication_applicationId,
     registerApplication_applicationType,
     registerApplication_instances,
@@ -117,8 +117,8 @@ module Amazonka.SSMSAP.Lens
     untagResourceResponse_httpStatus,
 
     -- ** UpdateApplicationSettings
-    updateApplicationSettings_credentialsToRemove,
     updateApplicationSettings_credentialsToAddOrUpdate,
+    updateApplicationSettings_credentialsToRemove,
     updateApplicationSettings_applicationId,
     updateApplicationSettingsResponse_message,
     updateApplicationSettingsResponse_operationIds,
@@ -127,14 +127,14 @@ module Amazonka.SSMSAP.Lens
     -- * Types
 
     -- ** Application
-    application_type,
     application_appRegistryArn,
     application_arn,
-    application_status,
-    application_id,
     application_components,
+    application_id,
     application_lastUpdated,
+    application_status,
     application_statusMessage,
+    application_type,
 
     -- ** ApplicationCredential
     applicationCredential_databaseName,
@@ -142,66 +142,66 @@ module Amazonka.SSMSAP.Lens
     applicationCredential_secretId,
 
     -- ** ApplicationSummary
-    applicationSummary_tags,
-    applicationSummary_type,
     applicationSummary_arn,
     applicationSummary_id,
+    applicationSummary_tags,
+    applicationSummary_type,
 
     -- ** Component
-    component_primaryHost,
-    component_status,
-    component_hosts,
-    component_lastUpdated,
-    component_componentId,
     component_applicationId,
+    component_componentId,
     component_componentType,
     component_databases,
+    component_hosts,
+    component_lastUpdated,
+    component_primaryHost,
+    component_status,
 
     -- ** ComponentSummary
-    componentSummary_tags,
-    componentSummary_componentId,
     componentSummary_applicationId,
+    componentSummary_componentId,
     componentSummary_componentType,
+    componentSummary_tags,
 
     -- ** Database
+    database_applicationId,
+    database_arn,
+    database_componentId,
+    database_credentials,
+    database_databaseId,
+    database_databaseName,
+    database_databaseType,
+    database_lastUpdated,
     database_primaryHost,
     database_sQLPort,
-    database_databaseName,
-    database_arn,
-    database_databaseType,
-    database_databaseId,
     database_status,
-    database_lastUpdated,
-    database_credentials,
-    database_componentId,
-    database_applicationId,
 
     -- ** DatabaseSummary
-    databaseSummary_tags,
-    databaseSummary_arn,
-    databaseSummary_databaseType,
-    databaseSummary_databaseId,
-    databaseSummary_componentId,
     databaseSummary_applicationId,
+    databaseSummary_arn,
+    databaseSummary_componentId,
+    databaseSummary_databaseId,
+    databaseSummary_databaseType,
+    databaseSummary_tags,
 
     -- ** Host
-    host_hostRole,
     host_hostIp,
     host_hostName,
+    host_hostRole,
     host_instanceId,
 
     -- ** Operation
-    operation_resourceId,
-    operation_resourceType,
-    operation_type,
-    operation_properties,
-    operation_status,
-    operation_lastUpdatedTime,
     operation_endTime,
     operation_id,
+    operation_lastUpdatedTime,
+    operation_properties,
     operation_resourceArn,
-    operation_statusMessage,
+    operation_resourceId,
+    operation_resourceType,
     operation_startTime,
+    operation_status,
+    operation_statusMessage,
+    operation_type,
   )
 where
 

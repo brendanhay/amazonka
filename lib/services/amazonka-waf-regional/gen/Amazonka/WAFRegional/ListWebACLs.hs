@@ -44,8 +44,8 @@ module Amazonka.WAFRegional.ListWebACLs
     newListWebACLsResponse,
 
     -- * Response Lenses
-    listWebACLsResponse_webACLs,
     listWebACLsResponse_nextMarker,
+    listWebACLsResponse_webACLs,
     listWebACLsResponse_httpStatus,
   )
 where
@@ -126,8 +126,8 @@ instance Core.AWSRequest ListWebACLs where
     Response.receiveJSON
       ( \s h x ->
           ListWebACLsResponse'
-            Prelude.<$> (x Data..?> "WebACLs" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "NextMarker")
+            Prelude.<$> (x Data..?> "NextMarker")
+            Prelude.<*> (x Data..?> "WebACLs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -173,14 +173,14 @@ instance Data.ToQuery ListWebACLs where
 
 -- | /See:/ 'newListWebACLsResponse' smart constructor.
 data ListWebACLsResponse = ListWebACLsResponse'
-  { -- | An array of WebACLSummary objects.
-    webACLs :: Prelude.Maybe [WebACLSummary],
-    -- | If you have more @WebACL@ objects than the number that you specified for
+  { -- | If you have more @WebACL@ objects than the number that you specified for
     -- @Limit@ in the request, the response includes a @NextMarker@ value. To
     -- list more @WebACL@ objects, submit another @ListWebACLs@ request, and
     -- specify the @NextMarker@ value from the response in the @NextMarker@
     -- value in the next request.
     nextMarker :: Prelude.Maybe Prelude.Text,
+    -- | An array of WebACLSummary objects.
+    webACLs :: Prelude.Maybe [WebACLSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -194,13 +194,13 @@ data ListWebACLsResponse = ListWebACLsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'webACLs', 'listWebACLsResponse_webACLs' - An array of WebACLSummary objects.
---
 -- 'nextMarker', 'listWebACLsResponse_nextMarker' - If you have more @WebACL@ objects than the number that you specified for
 -- @Limit@ in the request, the response includes a @NextMarker@ value. To
 -- list more @WebACL@ objects, submit another @ListWebACLs@ request, and
 -- specify the @NextMarker@ value from the response in the @NextMarker@
 -- value in the next request.
+--
+-- 'webACLs', 'listWebACLsResponse_webACLs' - An array of WebACLSummary objects.
 --
 -- 'httpStatus', 'listWebACLsResponse_httpStatus' - The response's http status code.
 newListWebACLsResponse ::
@@ -209,14 +209,10 @@ newListWebACLsResponse ::
   ListWebACLsResponse
 newListWebACLsResponse pHttpStatus_ =
   ListWebACLsResponse'
-    { webACLs = Prelude.Nothing,
-      nextMarker = Prelude.Nothing,
+    { nextMarker = Prelude.Nothing,
+      webACLs = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of WebACLSummary objects.
-listWebACLsResponse_webACLs :: Lens.Lens' ListWebACLsResponse (Prelude.Maybe [WebACLSummary])
-listWebACLsResponse_webACLs = Lens.lens (\ListWebACLsResponse' {webACLs} -> webACLs) (\s@ListWebACLsResponse' {} a -> s {webACLs = a} :: ListWebACLsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If you have more @WebACL@ objects than the number that you specified for
 -- @Limit@ in the request, the response includes a @NextMarker@ value. To
@@ -226,12 +222,16 @@ listWebACLsResponse_webACLs = Lens.lens (\ListWebACLsResponse' {webACLs} -> webA
 listWebACLsResponse_nextMarker :: Lens.Lens' ListWebACLsResponse (Prelude.Maybe Prelude.Text)
 listWebACLsResponse_nextMarker = Lens.lens (\ListWebACLsResponse' {nextMarker} -> nextMarker) (\s@ListWebACLsResponse' {} a -> s {nextMarker = a} :: ListWebACLsResponse)
 
+-- | An array of WebACLSummary objects.
+listWebACLsResponse_webACLs :: Lens.Lens' ListWebACLsResponse (Prelude.Maybe [WebACLSummary])
+listWebACLsResponse_webACLs = Lens.lens (\ListWebACLsResponse' {webACLs} -> webACLs) (\s@ListWebACLsResponse' {} a -> s {webACLs = a} :: ListWebACLsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listWebACLsResponse_httpStatus :: Lens.Lens' ListWebACLsResponse Prelude.Int
 listWebACLsResponse_httpStatus = Lens.lens (\ListWebACLsResponse' {httpStatus} -> httpStatus) (\s@ListWebACLsResponse' {} a -> s {httpStatus = a} :: ListWebACLsResponse)
 
 instance Prelude.NFData ListWebACLsResponse where
   rnf ListWebACLsResponse' {..} =
-    Prelude.rnf webACLs
-      `Prelude.seq` Prelude.rnf nextMarker
+    Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf webACLs
       `Prelude.seq` Prelude.rnf httpStatus

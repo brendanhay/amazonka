@@ -125,10 +125,10 @@ module Amazonka.KMS.GenerateDataKey
     newGenerateDataKey,
 
     -- * Request Lenses
+    generateDataKey_encryptionContext,
     generateDataKey_grantTokens,
     generateDataKey_keySpec,
     generateDataKey_numberOfBytes,
-    generateDataKey_encryptionContext,
     generateDataKey_keyId,
 
     -- * Destructuring the Response
@@ -153,7 +153,22 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGenerateDataKey' smart constructor.
 data GenerateDataKey = GenerateDataKey'
-  { -- | A list of grant tokens.
+  { -- | Specifies the encryption context that will be used when encrypting the
+    -- data key.
+    --
+    -- An /encryption context/ is a collection of non-secret key-value pairs
+    -- that represent additional authenticated data. When you use an encryption
+    -- context to encrypt data, you must specify the same (an exact
+    -- case-sensitive match) encryption context to decrypt the data. An
+    -- encryption context is supported only on operations with symmetric
+    -- encryption KMS keys. On operations with symmetric encryption KMS keys,
+    -- an encryption context is optional, but it is strongly recommended.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption context>
+    -- in the /Key Management Service Developer Guide/.
+    encryptionContext :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A list of grant tokens.
     --
     -- Use a grant token when your permission to call this operation comes from
     -- a new grant that has not yet achieved /eventual consistency/. For more
@@ -177,21 +192,6 @@ data GenerateDataKey = GenerateDataKey'
     -- You must specify either the @KeySpec@ or the @NumberOfBytes@ parameter
     -- (but not both) in every @GenerateDataKey@ request.
     numberOfBytes :: Prelude.Maybe Prelude.Natural,
-    -- | Specifies the encryption context that will be used when encrypting the
-    -- data key.
-    --
-    -- An /encryption context/ is a collection of non-secret key-value pairs
-    -- that represent additional authenticated data. When you use an encryption
-    -- context to encrypt data, you must specify the same (an exact
-    -- case-sensitive match) encryption context to decrypt the data. An
-    -- encryption context is supported only on operations with symmetric
-    -- encryption KMS keys. On operations with symmetric encryption KMS keys,
-    -- an encryption context is optional, but it is strongly recommended.
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption context>
-    -- in the /Key Management Service Developer Guide/.
-    encryptionContext :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Specifies the symmetric encryption KMS key that encrypts the data key.
     -- You cannot specify an asymmetric KMS key or a KMS key in a custom key
     -- store. To get the type and origin of your KMS key, use the DescribeKey
@@ -227,6 +227,21 @@ data GenerateDataKey = GenerateDataKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'encryptionContext', 'generateDataKey_encryptionContext' - Specifies the encryption context that will be used when encrypting the
+-- data key.
+--
+-- An /encryption context/ is a collection of non-secret key-value pairs
+-- that represent additional authenticated data. When you use an encryption
+-- context to encrypt data, you must specify the same (an exact
+-- case-sensitive match) encryption context to decrypt the data. An
+-- encryption context is supported only on operations with symmetric
+-- encryption KMS keys. On operations with symmetric encryption KMS keys,
+-- an encryption context is optional, but it is strongly recommended.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption context>
+-- in the /Key Management Service Developer Guide/.
+--
 -- 'grantTokens', 'generateDataKey_grantTokens' - A list of grant tokens.
 --
 -- Use a grant token when your permission to call this operation comes from
@@ -250,21 +265,6 @@ data GenerateDataKey = GenerateDataKey'
 --
 -- You must specify either the @KeySpec@ or the @NumberOfBytes@ parameter
 -- (but not both) in every @GenerateDataKey@ request.
---
--- 'encryptionContext', 'generateDataKey_encryptionContext' - Specifies the encryption context that will be used when encrypting the
--- data key.
---
--- An /encryption context/ is a collection of non-secret key-value pairs
--- that represent additional authenticated data. When you use an encryption
--- context to encrypt data, you must specify the same (an exact
--- case-sensitive match) encryption context to decrypt the data. An
--- encryption context is supported only on operations with symmetric
--- encryption KMS keys. On operations with symmetric encryption KMS keys,
--- an encryption context is optional, but it is strongly recommended.
---
--- For more information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption context>
--- in the /Key Management Service Developer Guide/.
 --
 -- 'keyId', 'generateDataKey_keyId' - Specifies the symmetric encryption KMS key that encrypts the data key.
 -- You cannot specify an asymmetric KMS key or a KMS key in a custom key
@@ -295,12 +295,30 @@ newGenerateDataKey ::
   GenerateDataKey
 newGenerateDataKey pKeyId_ =
   GenerateDataKey'
-    { grantTokens = Prelude.Nothing,
+    { encryptionContext =
+        Prelude.Nothing,
+      grantTokens = Prelude.Nothing,
       keySpec = Prelude.Nothing,
       numberOfBytes = Prelude.Nothing,
-      encryptionContext = Prelude.Nothing,
       keyId = pKeyId_
     }
+
+-- | Specifies the encryption context that will be used when encrypting the
+-- data key.
+--
+-- An /encryption context/ is a collection of non-secret key-value pairs
+-- that represent additional authenticated data. When you use an encryption
+-- context to encrypt data, you must specify the same (an exact
+-- case-sensitive match) encryption context to decrypt the data. An
+-- encryption context is supported only on operations with symmetric
+-- encryption KMS keys. On operations with symmetric encryption KMS keys,
+-- an encryption context is optional, but it is strongly recommended.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption context>
+-- in the /Key Management Service Developer Guide/.
+generateDataKey_encryptionContext :: Lens.Lens' GenerateDataKey (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+generateDataKey_encryptionContext = Lens.lens (\GenerateDataKey' {encryptionContext} -> encryptionContext) (\s@GenerateDataKey' {} a -> s {encryptionContext = a} :: GenerateDataKey) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of grant tokens.
 --
@@ -331,23 +349,6 @@ generateDataKey_keySpec = Lens.lens (\GenerateDataKey' {keySpec} -> keySpec) (\s
 -- (but not both) in every @GenerateDataKey@ request.
 generateDataKey_numberOfBytes :: Lens.Lens' GenerateDataKey (Prelude.Maybe Prelude.Natural)
 generateDataKey_numberOfBytes = Lens.lens (\GenerateDataKey' {numberOfBytes} -> numberOfBytes) (\s@GenerateDataKey' {} a -> s {numberOfBytes = a} :: GenerateDataKey)
-
--- | Specifies the encryption context that will be used when encrypting the
--- data key.
---
--- An /encryption context/ is a collection of non-secret key-value pairs
--- that represent additional authenticated data. When you use an encryption
--- context to encrypt data, you must specify the same (an exact
--- case-sensitive match) encryption context to decrypt the data. An
--- encryption context is supported only on operations with symmetric
--- encryption KMS keys. On operations with symmetric encryption KMS keys,
--- an encryption context is optional, but it is strongly recommended.
---
--- For more information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption context>
--- in the /Key Management Service Developer Guide/.
-generateDataKey_encryptionContext :: Lens.Lens' GenerateDataKey (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-generateDataKey_encryptionContext = Lens.lens (\GenerateDataKey' {encryptionContext} -> encryptionContext) (\s@GenerateDataKey' {} a -> s {encryptionContext = a} :: GenerateDataKey) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the symmetric encryption KMS key that encrypts the data key.
 -- You cannot specify an asymmetric KMS key or a KMS key in a custom key
@@ -393,18 +394,18 @@ instance Core.AWSRequest GenerateDataKey where
 
 instance Prelude.Hashable GenerateDataKey where
   hashWithSalt _salt GenerateDataKey' {..} =
-    _salt `Prelude.hashWithSalt` grantTokens
+    _salt `Prelude.hashWithSalt` encryptionContext
+      `Prelude.hashWithSalt` grantTokens
       `Prelude.hashWithSalt` keySpec
       `Prelude.hashWithSalt` numberOfBytes
-      `Prelude.hashWithSalt` encryptionContext
       `Prelude.hashWithSalt` keyId
 
 instance Prelude.NFData GenerateDataKey where
   rnf GenerateDataKey' {..} =
-    Prelude.rnf grantTokens
+    Prelude.rnf encryptionContext
+      `Prelude.seq` Prelude.rnf grantTokens
       `Prelude.seq` Prelude.rnf keySpec
       `Prelude.seq` Prelude.rnf numberOfBytes
-      `Prelude.seq` Prelude.rnf encryptionContext
       `Prelude.seq` Prelude.rnf keyId
 
 instance Data.ToHeaders GenerateDataKey where
@@ -426,11 +427,11 @@ instance Data.ToJSON GenerateDataKey where
   toJSON GenerateDataKey' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("GrantTokens" Data..=) Prelude.<$> grantTokens,
+          [ ("EncryptionContext" Data..=)
+              Prelude.<$> encryptionContext,
+            ("GrantTokens" Data..=) Prelude.<$> grantTokens,
             ("KeySpec" Data..=) Prelude.<$> keySpec,
             ("NumberOfBytes" Data..=) Prelude.<$> numberOfBytes,
-            ("EncryptionContext" Data..=)
-              Prelude.<$> encryptionContext,
             Prelude.Just ("KeyId" Data..= keyId)
           ]
       )

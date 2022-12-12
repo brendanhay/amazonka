@@ -39,11 +39,32 @@ module Amazonka.ElasticBeanstalk
     -- * Errors
     -- $errors
 
-    -- ** TooManyApplicationsException
-    _TooManyApplicationsException,
+    -- ** CodeBuildNotInServiceRegionException
+    _CodeBuildNotInServiceRegionException,
 
     -- ** ElasticBeanstalkServiceException
     _ElasticBeanstalkServiceException,
+
+    -- ** InsufficientPrivilegesException
+    _InsufficientPrivilegesException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
+    -- ** ManagedActionInvalidStateException
+    _ManagedActionInvalidStateException,
+
+    -- ** OperationInProgressException
+    _OperationInProgressException,
+
+    -- ** PlatformVersionStillReferencedException
+    _PlatformVersionStillReferencedException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ResourceTypeNotSupportedException
+    _ResourceTypeNotSupportedException,
 
     -- ** S3LocationNotInServiceRegionException
     _S3LocationNotInServiceRegionException,
@@ -51,62 +72,41 @@ module Amazonka.ElasticBeanstalk
     -- ** S3SubscriptionRequiredException
     _S3SubscriptionRequiredException,
 
-    -- ** TooManyTagsException
-    _TooManyTagsException,
-
-    -- ** PlatformVersionStillReferencedException
-    _PlatformVersionStillReferencedException,
-
-    -- ** InsufficientPrivilegesException
-    _InsufficientPrivilegesException,
-
-    -- ** ResourceTypeNotSupportedException
-    _ResourceTypeNotSupportedException,
-
     -- ** SourceBundleDeletionException
     _SourceBundleDeletionException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** CodeBuildNotInServiceRegionException
-    _CodeBuildNotInServiceRegionException,
-
-    -- ** TooManyPlatformsException
-    _TooManyPlatformsException,
-
-    -- ** OperationInProgressException
-    _OperationInProgressException,
-
-    -- ** TooManyEnvironmentsException
-    _TooManyEnvironmentsException,
-
-    -- ** ManagedActionInvalidStateException
-    _ManagedActionInvalidStateException,
-
-    -- ** TooManyConfigurationTemplatesException
-    _TooManyConfigurationTemplatesException,
 
     -- ** TooManyApplicationVersionsException
     _TooManyApplicationVersionsException,
 
-    -- ** InvalidRequestException
-    _InvalidRequestException,
+    -- ** TooManyApplicationsException
+    _TooManyApplicationsException,
 
     -- ** TooManyBucketsException
     _TooManyBucketsException,
 
+    -- ** TooManyConfigurationTemplatesException
+    _TooManyConfigurationTemplatesException,
+
+    -- ** TooManyEnvironmentsException
+    _TooManyEnvironmentsException,
+
+    -- ** TooManyPlatformsException
+    _TooManyPlatformsException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
+
     -- * Waiters
     -- $waiters
 
-    -- ** EnvironmentUpdated
-    newEnvironmentUpdated,
+    -- ** EnvironmentExists
+    newEnvironmentExists,
 
     -- ** EnvironmentTerminated
     newEnvironmentTerminated,
 
-    -- ** EnvironmentExists
-    newEnvironmentExists,
+    -- ** EnvironmentUpdated
+    newEnvironmentUpdated,
 
     -- * Operations
     -- $operations

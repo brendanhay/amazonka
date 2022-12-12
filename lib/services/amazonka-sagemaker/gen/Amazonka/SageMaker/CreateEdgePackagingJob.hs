@@ -30,8 +30,8 @@ module Amazonka.SageMaker.CreateEdgePackagingJob
     newCreateEdgePackagingJob,
 
     -- * Request Lenses
-    createEdgePackagingJob_tags,
     createEdgePackagingJob_resourceKey,
+    createEdgePackagingJob_tags,
     createEdgePackagingJob_edgePackagingJobName,
     createEdgePackagingJob_compilationJobName,
     createEdgePackagingJob_modelName,
@@ -55,11 +55,11 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newCreateEdgePackagingJob' smart constructor.
 data CreateEdgePackagingJob = CreateEdgePackagingJob'
-  { -- | Creates tags for the packaging job.
-    tags :: Prelude.Maybe [Tag],
-    -- | The Amazon Web Services KMS key to use when encrypting the EBS volume
+  { -- | The Amazon Web Services KMS key to use when encrypting the EBS volume
     -- the edge packaging job runs on.
     resourceKey :: Prelude.Maybe Prelude.Text,
+    -- | Creates tags for the packaging job.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the edge packaging job.
     edgePackagingJobName :: Prelude.Text,
     -- | The name of the SageMaker Neo compilation job that will be used to
@@ -86,10 +86,10 @@ data CreateEdgePackagingJob = CreateEdgePackagingJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createEdgePackagingJob_tags' - Creates tags for the packaging job.
---
 -- 'resourceKey', 'createEdgePackagingJob_resourceKey' - The Amazon Web Services KMS key to use when encrypting the EBS volume
 -- the edge packaging job runs on.
+--
+-- 'tags', 'createEdgePackagingJob_tags' - Creates tags for the packaging job.
 --
 -- 'edgePackagingJobName', 'createEdgePackagingJob_edgePackagingJobName' - The name of the edge packaging job.
 --
@@ -127,8 +127,9 @@ newCreateEdgePackagingJob
   pRoleArn_
   pOutputConfig_ =
     CreateEdgePackagingJob'
-      { tags = Prelude.Nothing,
-        resourceKey = Prelude.Nothing,
+      { resourceKey =
+          Prelude.Nothing,
+        tags = Prelude.Nothing,
         edgePackagingJobName = pEdgePackagingJobName_,
         compilationJobName = pCompilationJobName_,
         modelName = pModelName_,
@@ -137,14 +138,14 @@ newCreateEdgePackagingJob
         outputConfig = pOutputConfig_
       }
 
--- | Creates tags for the packaging job.
-createEdgePackagingJob_tags :: Lens.Lens' CreateEdgePackagingJob (Prelude.Maybe [Tag])
-createEdgePackagingJob_tags = Lens.lens (\CreateEdgePackagingJob' {tags} -> tags) (\s@CreateEdgePackagingJob' {} a -> s {tags = a} :: CreateEdgePackagingJob) Prelude.. Lens.mapping Lens.coerced
-
 -- | The Amazon Web Services KMS key to use when encrypting the EBS volume
 -- the edge packaging job runs on.
 createEdgePackagingJob_resourceKey :: Lens.Lens' CreateEdgePackagingJob (Prelude.Maybe Prelude.Text)
 createEdgePackagingJob_resourceKey = Lens.lens (\CreateEdgePackagingJob' {resourceKey} -> resourceKey) (\s@CreateEdgePackagingJob' {} a -> s {resourceKey = a} :: CreateEdgePackagingJob)
+
+-- | Creates tags for the packaging job.
+createEdgePackagingJob_tags :: Lens.Lens' CreateEdgePackagingJob (Prelude.Maybe [Tag])
+createEdgePackagingJob_tags = Lens.lens (\CreateEdgePackagingJob' {tags} -> tags) (\s@CreateEdgePackagingJob' {} a -> s {tags = a} :: CreateEdgePackagingJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the edge packaging job.
 createEdgePackagingJob_edgePackagingJobName :: Lens.Lens' CreateEdgePackagingJob Prelude.Text
@@ -185,8 +186,8 @@ instance Core.AWSRequest CreateEdgePackagingJob where
 
 instance Prelude.Hashable CreateEdgePackagingJob where
   hashWithSalt _salt CreateEdgePackagingJob' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` resourceKey
+    _salt `Prelude.hashWithSalt` resourceKey
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` edgePackagingJobName
       `Prelude.hashWithSalt` compilationJobName
       `Prelude.hashWithSalt` modelName
@@ -196,8 +197,8 @@ instance Prelude.Hashable CreateEdgePackagingJob where
 
 instance Prelude.NFData CreateEdgePackagingJob where
   rnf CreateEdgePackagingJob' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf resourceKey
+    Prelude.rnf resourceKey
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf edgePackagingJobName
       `Prelude.seq` Prelude.rnf compilationJobName
       `Prelude.seq` Prelude.rnf modelName
@@ -224,8 +225,8 @@ instance Data.ToJSON CreateEdgePackagingJob where
   toJSON CreateEdgePackagingJob' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ResourceKey" Data..=) Prelude.<$> resourceKey,
+          [ ("ResourceKey" Data..=) Prelude.<$> resourceKey,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ( "EdgePackagingJobName"
                   Data..= edgePackagingJobName

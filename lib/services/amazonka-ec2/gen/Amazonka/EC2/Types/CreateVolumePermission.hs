@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCreateVolumePermission' smart constructor.
 data CreateVolumePermission = CreateVolumePermission'
-  { -- | The ID of the Amazon Web Services account to be added or removed.
-    userId :: Prelude.Maybe Prelude.Text,
-    -- | The group to be added or removed. The possible value is @all@.
-    group' :: Prelude.Maybe PermissionGroup
+  { -- | The group to be added or removed. The possible value is @all@.
+    group' :: Prelude.Maybe PermissionGroup,
+    -- | The ID of the Amazon Web Services account to be added or removed.
+    userId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,41 +46,41 @@ data CreateVolumePermission = CreateVolumePermission'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'userId', 'createVolumePermission_userId' - The ID of the Amazon Web Services account to be added or removed.
---
 -- 'group'', 'createVolumePermission_group' - The group to be added or removed. The possible value is @all@.
+--
+-- 'userId', 'createVolumePermission_userId' - The ID of the Amazon Web Services account to be added or removed.
 newCreateVolumePermission ::
   CreateVolumePermission
 newCreateVolumePermission =
   CreateVolumePermission'
-    { userId = Prelude.Nothing,
-      group' = Prelude.Nothing
+    { group' = Prelude.Nothing,
+      userId = Prelude.Nothing
     }
-
--- | The ID of the Amazon Web Services account to be added or removed.
-createVolumePermission_userId :: Lens.Lens' CreateVolumePermission (Prelude.Maybe Prelude.Text)
-createVolumePermission_userId = Lens.lens (\CreateVolumePermission' {userId} -> userId) (\s@CreateVolumePermission' {} a -> s {userId = a} :: CreateVolumePermission)
 
 -- | The group to be added or removed. The possible value is @all@.
 createVolumePermission_group :: Lens.Lens' CreateVolumePermission (Prelude.Maybe PermissionGroup)
 createVolumePermission_group = Lens.lens (\CreateVolumePermission' {group'} -> group') (\s@CreateVolumePermission' {} a -> s {group' = a} :: CreateVolumePermission)
 
+-- | The ID of the Amazon Web Services account to be added or removed.
+createVolumePermission_userId :: Lens.Lens' CreateVolumePermission (Prelude.Maybe Prelude.Text)
+createVolumePermission_userId = Lens.lens (\CreateVolumePermission' {userId} -> userId) (\s@CreateVolumePermission' {} a -> s {userId = a} :: CreateVolumePermission)
+
 instance Data.FromXML CreateVolumePermission where
   parseXML x =
     CreateVolumePermission'
-      Prelude.<$> (x Data..@? "userId")
-      Prelude.<*> (x Data..@? "group")
+      Prelude.<$> (x Data..@? "group")
+      Prelude.<*> (x Data..@? "userId")
 
 instance Prelude.Hashable CreateVolumePermission where
   hashWithSalt _salt CreateVolumePermission' {..} =
-    _salt `Prelude.hashWithSalt` userId
-      `Prelude.hashWithSalt` group'
+    _salt `Prelude.hashWithSalt` group'
+      `Prelude.hashWithSalt` userId
 
 instance Prelude.NFData CreateVolumePermission where
   rnf CreateVolumePermission' {..} =
-    Prelude.rnf userId `Prelude.seq` Prelude.rnf group'
+    Prelude.rnf group' `Prelude.seq` Prelude.rnf userId
 
 instance Data.ToQuery CreateVolumePermission where
   toQuery CreateVolumePermission' {..} =
     Prelude.mconcat
-      ["UserId" Data.=: userId, "Group" Data.=: group']
+      ["Group" Data.=: group', "UserId" Data.=: userId]

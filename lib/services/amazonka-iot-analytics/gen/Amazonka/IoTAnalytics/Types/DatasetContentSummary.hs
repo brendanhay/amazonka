@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDatasetContentSummary' smart constructor.
 data DatasetContentSummary = DatasetContentSummary'
-  { -- | The status of the dataset contents.
-    status :: Prelude.Maybe DatasetContentStatus,
-    -- | The time the dataset content status was updated to SUCCEEDED or FAILED.
+  { -- | The time the dataset content status was updated to SUCCEEDED or FAILED.
     completionTime :: Prelude.Maybe Data.POSIX,
-    -- | The time the creation of the dataset contents was scheduled to start.
-    scheduleTime :: Prelude.Maybe Data.POSIX,
     -- | The actual time the creation of the dataset contents was started.
     creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The time the creation of the dataset contents was scheduled to start.
+    scheduleTime :: Prelude.Maybe Data.POSIX,
+    -- | The status of the dataset contents.
+    status :: Prelude.Maybe DatasetContentStatus,
     -- | The version of the dataset contents.
     version :: Prelude.Maybe Prelude.Text
   }
@@ -50,41 +50,42 @@ data DatasetContentSummary = DatasetContentSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'datasetContentSummary_status' - The status of the dataset contents.
---
 -- 'completionTime', 'datasetContentSummary_completionTime' - The time the dataset content status was updated to SUCCEEDED or FAILED.
+--
+-- 'creationTime', 'datasetContentSummary_creationTime' - The actual time the creation of the dataset contents was started.
 --
 -- 'scheduleTime', 'datasetContentSummary_scheduleTime' - The time the creation of the dataset contents was scheduled to start.
 --
--- 'creationTime', 'datasetContentSummary_creationTime' - The actual time the creation of the dataset contents was started.
+-- 'status', 'datasetContentSummary_status' - The status of the dataset contents.
 --
 -- 'version', 'datasetContentSummary_version' - The version of the dataset contents.
 newDatasetContentSummary ::
   DatasetContentSummary
 newDatasetContentSummary =
   DatasetContentSummary'
-    { status = Prelude.Nothing,
-      completionTime = Prelude.Nothing,
-      scheduleTime = Prelude.Nothing,
+    { completionTime =
+        Prelude.Nothing,
       creationTime = Prelude.Nothing,
+      scheduleTime = Prelude.Nothing,
+      status = Prelude.Nothing,
       version = Prelude.Nothing
     }
-
--- | The status of the dataset contents.
-datasetContentSummary_status :: Lens.Lens' DatasetContentSummary (Prelude.Maybe DatasetContentStatus)
-datasetContentSummary_status = Lens.lens (\DatasetContentSummary' {status} -> status) (\s@DatasetContentSummary' {} a -> s {status = a} :: DatasetContentSummary)
 
 -- | The time the dataset content status was updated to SUCCEEDED or FAILED.
 datasetContentSummary_completionTime :: Lens.Lens' DatasetContentSummary (Prelude.Maybe Prelude.UTCTime)
 datasetContentSummary_completionTime = Lens.lens (\DatasetContentSummary' {completionTime} -> completionTime) (\s@DatasetContentSummary' {} a -> s {completionTime = a} :: DatasetContentSummary) Prelude.. Lens.mapping Data._Time
 
+-- | The actual time the creation of the dataset contents was started.
+datasetContentSummary_creationTime :: Lens.Lens' DatasetContentSummary (Prelude.Maybe Prelude.UTCTime)
+datasetContentSummary_creationTime = Lens.lens (\DatasetContentSummary' {creationTime} -> creationTime) (\s@DatasetContentSummary' {} a -> s {creationTime = a} :: DatasetContentSummary) Prelude.. Lens.mapping Data._Time
+
 -- | The time the creation of the dataset contents was scheduled to start.
 datasetContentSummary_scheduleTime :: Lens.Lens' DatasetContentSummary (Prelude.Maybe Prelude.UTCTime)
 datasetContentSummary_scheduleTime = Lens.lens (\DatasetContentSummary' {scheduleTime} -> scheduleTime) (\s@DatasetContentSummary' {} a -> s {scheduleTime = a} :: DatasetContentSummary) Prelude.. Lens.mapping Data._Time
 
--- | The actual time the creation of the dataset contents was started.
-datasetContentSummary_creationTime :: Lens.Lens' DatasetContentSummary (Prelude.Maybe Prelude.UTCTime)
-datasetContentSummary_creationTime = Lens.lens (\DatasetContentSummary' {creationTime} -> creationTime) (\s@DatasetContentSummary' {} a -> s {creationTime = a} :: DatasetContentSummary) Prelude.. Lens.mapping Data._Time
+-- | The status of the dataset contents.
+datasetContentSummary_status :: Lens.Lens' DatasetContentSummary (Prelude.Maybe DatasetContentStatus)
+datasetContentSummary_status = Lens.lens (\DatasetContentSummary' {status} -> status) (\s@DatasetContentSummary' {} a -> s {status = a} :: DatasetContentSummary)
 
 -- | The version of the dataset contents.
 datasetContentSummary_version :: Lens.Lens' DatasetContentSummary (Prelude.Maybe Prelude.Text)
@@ -96,25 +97,25 @@ instance Data.FromJSON DatasetContentSummary where
       "DatasetContentSummary"
       ( \x ->
           DatasetContentSummary'
-            Prelude.<$> (x Data..:? "status")
-            Prelude.<*> (x Data..:? "completionTime")
-            Prelude.<*> (x Data..:? "scheduleTime")
+            Prelude.<$> (x Data..:? "completionTime")
             Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "scheduleTime")
+            Prelude.<*> (x Data..:? "status")
             Prelude.<*> (x Data..:? "version")
       )
 
 instance Prelude.Hashable DatasetContentSummary where
   hashWithSalt _salt DatasetContentSummary' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` completionTime
-      `Prelude.hashWithSalt` scheduleTime
+    _salt `Prelude.hashWithSalt` completionTime
       `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` scheduleTime
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData DatasetContentSummary where
   rnf DatasetContentSummary' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf completionTime
-      `Prelude.seq` Prelude.rnf scheduleTime
+    Prelude.rnf completionTime
       `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf scheduleTime
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf version

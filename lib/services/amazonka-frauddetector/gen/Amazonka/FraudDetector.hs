@@ -37,11 +37,11 @@ module Amazonka.FraudDetector
     -- * Errors
     -- $errors
 
-    -- ** ResourceUnavailableException
-    _ResourceUnavailableException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
+
+    -- ** ConflictException
+    _ConflictException,
 
     -- ** InternalServerException
     _InternalServerException,
@@ -49,8 +49,8 @@ module Amazonka.FraudDetector
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** ConflictException
-    _ConflictException,
+    -- ** ResourceUnavailableException
+    _ResourceUnavailableException,
 
     -- ** ThrottlingException
     _ThrottlingException,

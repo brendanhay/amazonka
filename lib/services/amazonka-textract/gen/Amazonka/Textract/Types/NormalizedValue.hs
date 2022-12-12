@@ -30,10 +30,10 @@ import Amazonka.Textract.Types.ValueType
 --
 -- /See:/ 'newNormalizedValue' smart constructor.
 data NormalizedValue = NormalizedValue'
-  { -- | The normalized type of the value detected. In this case, DATE.
-    valueType :: Prelude.Maybe ValueType,
-    -- | The value of the date, written as Year-Month-DayTHour:Minute:Second.
-    value :: Prelude.Maybe Prelude.Text
+  { -- | The value of the date, written as Year-Month-DayTHour:Minute:Second.
+    value :: Prelude.Maybe Prelude.Text,
+    -- | The normalized type of the value detected. In this case, DATE.
+    valueType :: Prelude.Maybe ValueType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,24 @@ data NormalizedValue = NormalizedValue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'valueType', 'normalizedValue_valueType' - The normalized type of the value detected. In this case, DATE.
---
 -- 'value', 'normalizedValue_value' - The value of the date, written as Year-Month-DayTHour:Minute:Second.
+--
+-- 'valueType', 'normalizedValue_valueType' - The normalized type of the value detected. In this case, DATE.
 newNormalizedValue ::
   NormalizedValue
 newNormalizedValue =
   NormalizedValue'
-    { valueType = Prelude.Nothing,
-      value = Prelude.Nothing
+    { value = Prelude.Nothing,
+      valueType = Prelude.Nothing
     }
-
--- | The normalized type of the value detected. In this case, DATE.
-normalizedValue_valueType :: Lens.Lens' NormalizedValue (Prelude.Maybe ValueType)
-normalizedValue_valueType = Lens.lens (\NormalizedValue' {valueType} -> valueType) (\s@NormalizedValue' {} a -> s {valueType = a} :: NormalizedValue)
 
 -- | The value of the date, written as Year-Month-DayTHour:Minute:Second.
 normalizedValue_value :: Lens.Lens' NormalizedValue (Prelude.Maybe Prelude.Text)
 normalizedValue_value = Lens.lens (\NormalizedValue' {value} -> value) (\s@NormalizedValue' {} a -> s {value = a} :: NormalizedValue)
+
+-- | The normalized type of the value detected. In this case, DATE.
+normalizedValue_valueType :: Lens.Lens' NormalizedValue (Prelude.Maybe ValueType)
+normalizedValue_valueType = Lens.lens (\NormalizedValue' {valueType} -> valueType) (\s@NormalizedValue' {} a -> s {valueType = a} :: NormalizedValue)
 
 instance Data.FromJSON NormalizedValue where
   parseJSON =
@@ -70,16 +70,16 @@ instance Data.FromJSON NormalizedValue where
       "NormalizedValue"
       ( \x ->
           NormalizedValue'
-            Prelude.<$> (x Data..:? "ValueType")
-            Prelude.<*> (x Data..:? "Value")
+            Prelude.<$> (x Data..:? "Value")
+            Prelude.<*> (x Data..:? "ValueType")
       )
 
 instance Prelude.Hashable NormalizedValue where
   hashWithSalt _salt NormalizedValue' {..} =
-    _salt `Prelude.hashWithSalt` valueType
-      `Prelude.hashWithSalt` value
+    _salt `Prelude.hashWithSalt` value
+      `Prelude.hashWithSalt` valueType
 
 instance Prelude.NFData NormalizedValue where
   rnf NormalizedValue' {..} =
-    Prelude.rnf valueType
-      `Prelude.seq` Prelude.rnf value
+    Prelude.rnf value
+      `Prelude.seq` Prelude.rnf valueType

@@ -74,14 +74,6 @@
 -- __Learn more__
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up GameLift fleets>
---
--- __Related actions__
---
--- CreateFleet | UpdateFleetCapacity | PutScalingPolicy |
--- DescribeEC2InstanceLimits | DescribeFleetAttributes |
--- DescribeFleetLocationAttributes | UpdateFleetAttributes |
--- StopFleetActions | DeleteFleet |
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Amazonka.GameLift.DescribeEC2InstanceLimits
   ( -- * Creating a Request
     DescribeEC2InstanceLimits (..),
@@ -109,9 +101,7 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Represents the input for a request operation.
---
--- /See:/ 'newDescribeEC2InstanceLimits' smart constructor.
+-- | /See:/ 'newDescribeEC2InstanceLimits' smart constructor.
 data DescribeEC2InstanceLimits = DescribeEC2InstanceLimits'
   { -- | Name of an Amazon EC2 instance type that is supported in GameLift. A
     -- fleet instance type determines the computing resources of each instance
@@ -220,9 +210,7 @@ instance Data.ToPath DescribeEC2InstanceLimits where
 instance Data.ToQuery DescribeEC2InstanceLimits where
   toQuery = Prelude.const Prelude.mempty
 
--- | Represents the returned data in response to a request operation.
---
--- /See:/ 'newDescribeEC2InstanceLimitsResponse' smart constructor.
+-- | /See:/ 'newDescribeEC2InstanceLimitsResponse' smart constructor.
 data DescribeEC2InstanceLimitsResponse = DescribeEC2InstanceLimitsResponse'
   { -- | The maximum number of instances for the specified instance type.
     eC2InstanceLimits :: Prelude.Maybe [EC2InstanceLimit],

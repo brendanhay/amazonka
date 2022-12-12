@@ -21,23 +21,11 @@ module Amazonka.XRay
     -- * Errors
     -- $errors
 
-    -- ** PolicyCountLimitExceededException
-    _PolicyCountLimitExceededException,
-
-    -- ** RuleLimitExceededException
-    _RuleLimitExceededException,
-
-    -- ** TooManyTagsException
-    _TooManyTagsException,
-
-    -- ** PolicySizeLimitExceededException
-    _PolicySizeLimitExceededException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
     -- ** InvalidPolicyRevisionIdException
     _InvalidPolicyRevisionIdException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
 
     -- ** LockoutPreventionException
     _LockoutPreventionException,
@@ -45,11 +33,23 @@ module Amazonka.XRay
     -- ** MalformedPolicyDocumentException
     _MalformedPolicyDocumentException,
 
+    -- ** PolicyCountLimitExceededException
+    _PolicyCountLimitExceededException,
+
+    -- ** PolicySizeLimitExceededException
+    _PolicySizeLimitExceededException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** RuleLimitExceededException
+    _RuleLimitExceededException,
+
     -- ** ThrottledException
     _ThrottledException,
 
-    -- ** InvalidRequestException
-    _InvalidRequestException,
+    -- ** TooManyTagsException
+    _TooManyTagsException,
 
     -- * Waiters
     -- $waiters

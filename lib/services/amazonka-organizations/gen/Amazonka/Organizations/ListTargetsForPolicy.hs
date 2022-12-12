@@ -40,8 +40,8 @@ module Amazonka.Organizations.ListTargetsForPolicy
     newListTargetsForPolicy,
 
     -- * Request Lenses
-    listTargetsForPolicy_nextToken,
     listTargetsForPolicy_maxResults,
+    listTargetsForPolicy_nextToken,
     listTargetsForPolicy_policyId,
 
     -- * Destructuring the Response
@@ -65,13 +65,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTargetsForPolicy' smart constructor.
 data ListTargetsForPolicy = ListTargetsForPolicy'
-  { -- | The parameter for receiving additional results if you receive a
-    -- @NextToken@ response in a previous request. A @NextToken@ response
-    -- indicates that more output is available. Set this parameter to the value
-    -- of the previous call\'s @NextToken@ response to indicate where the
-    -- output should continue from.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The total number of results that you want included on each page of the
+  { -- | The total number of results that you want included on each page of the
     -- response. If you do not include this parameter, it defaults to a value
     -- that is specific to the operation. If additional items exist beyond the
     -- maximum you specify, the @NextToken@ response element is present and has
@@ -82,6 +76,12 @@ data ListTargetsForPolicy = ListTargetsForPolicy'
     -- @NextToken@ after every operation to ensure that you receive all of the
     -- results.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The parameter for receiving additional results if you receive a
+    -- @NextToken@ response in a previous request. A @NextToken@ response
+    -- indicates that more output is available. Set this parameter to the value
+    -- of the previous call\'s @NextToken@ response to indicate where the
+    -- output should continue from.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier (ID) of the policy whose attachments you want to
     -- know.
     --
@@ -100,12 +100,6 @@ data ListTargetsForPolicy = ListTargetsForPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTargetsForPolicy_nextToken' - The parameter for receiving additional results if you receive a
--- @NextToken@ response in a previous request. A @NextToken@ response
--- indicates that more output is available. Set this parameter to the value
--- of the previous call\'s @NextToken@ response to indicate where the
--- output should continue from.
---
 -- 'maxResults', 'listTargetsForPolicy_maxResults' - The total number of results that you want included on each page of the
 -- response. If you do not include this parameter, it defaults to a value
 -- that is specific to the operation. If additional items exist beyond the
@@ -116,6 +110,12 @@ data ListTargetsForPolicy = ListTargetsForPolicy'
 -- maximum even when there are more results available. You should check
 -- @NextToken@ after every operation to ensure that you receive all of the
 -- results.
+--
+-- 'nextToken', 'listTargetsForPolicy_nextToken' - The parameter for receiving additional results if you receive a
+-- @NextToken@ response in a previous request. A @NextToken@ response
+-- indicates that more output is available. Set this parameter to the value
+-- of the previous call\'s @NextToken@ response to indicate where the
+-- output should continue from.
 --
 -- 'policyId', 'listTargetsForPolicy_policyId' - The unique identifier (ID) of the policy whose attachments you want to
 -- know.
@@ -129,18 +129,10 @@ newListTargetsForPolicy ::
   ListTargetsForPolicy
 newListTargetsForPolicy pPolicyId_ =
   ListTargetsForPolicy'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       policyId = pPolicyId_
     }
-
--- | The parameter for receiving additional results if you receive a
--- @NextToken@ response in a previous request. A @NextToken@ response
--- indicates that more output is available. Set this parameter to the value
--- of the previous call\'s @NextToken@ response to indicate where the
--- output should continue from.
-listTargetsForPolicy_nextToken :: Lens.Lens' ListTargetsForPolicy (Prelude.Maybe Prelude.Text)
-listTargetsForPolicy_nextToken = Lens.lens (\ListTargetsForPolicy' {nextToken} -> nextToken) (\s@ListTargetsForPolicy' {} a -> s {nextToken = a} :: ListTargetsForPolicy)
 
 -- | The total number of results that you want included on each page of the
 -- response. If you do not include this parameter, it defaults to a value
@@ -154,6 +146,14 @@ listTargetsForPolicy_nextToken = Lens.lens (\ListTargetsForPolicy' {nextToken} -
 -- results.
 listTargetsForPolicy_maxResults :: Lens.Lens' ListTargetsForPolicy (Prelude.Maybe Prelude.Natural)
 listTargetsForPolicy_maxResults = Lens.lens (\ListTargetsForPolicy' {maxResults} -> maxResults) (\s@ListTargetsForPolicy' {} a -> s {maxResults = a} :: ListTargetsForPolicy)
+
+-- | The parameter for receiving additional results if you receive a
+-- @NextToken@ response in a previous request. A @NextToken@ response
+-- indicates that more output is available. Set this parameter to the value
+-- of the previous call\'s @NextToken@ response to indicate where the
+-- output should continue from.
+listTargetsForPolicy_nextToken :: Lens.Lens' ListTargetsForPolicy (Prelude.Maybe Prelude.Text)
+listTargetsForPolicy_nextToken = Lens.lens (\ListTargetsForPolicy' {nextToken} -> nextToken) (\s@ListTargetsForPolicy' {} a -> s {nextToken = a} :: ListTargetsForPolicy)
 
 -- | The unique identifier (ID) of the policy whose attachments you want to
 -- know.
@@ -203,14 +203,14 @@ instance Core.AWSRequest ListTargetsForPolicy where
 
 instance Prelude.Hashable ListTargetsForPolicy where
   hashWithSalt _salt ListTargetsForPolicy' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` policyId
 
 instance Prelude.NFData ListTargetsForPolicy where
   rnf ListTargetsForPolicy' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf policyId
 
 instance Data.ToHeaders ListTargetsForPolicy where
@@ -232,8 +232,8 @@ instance Data.ToJSON ListTargetsForPolicy where
   toJSON ListTargetsForPolicy' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("PolicyId" Data..= policyId)
           ]
       )

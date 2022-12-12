@@ -34,36 +34,36 @@ import qualified Amazonka.Prelude as Prelude
 data JobSummary = JobSummary'
   { -- | The array properties of the job, if it\'s an array job.
     arrayProperties :: Prelude.Maybe ArrayPropertiesSummary,
-    -- | A short, human-readable string to provide more details for the current
-    -- status of the job.
-    statusReason :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the job definition.
-    jobDefinition :: Prelude.Maybe Prelude.Text,
-    -- | The current status for the job.
-    status :: Prelude.Maybe JobStatus,
-    -- | The Unix timestamp for when the job was started. More specifically,
-    -- it\'s when the job transitioned from the @STARTING@ state to the
-    -- @RUNNING@ state.
-    startedAt :: Prelude.Maybe Prelude.Integer,
-    -- | The node properties for a single node in a job summary list.
-    --
-    -- This isn\'t applicable to jobs that are running on Fargate resources.
-    nodeProperties :: Prelude.Maybe NodePropertiesSummary,
     -- | An object that represents the details of the container that\'s
     -- associated with the job.
     container :: Prelude.Maybe ContainerSummary,
-    -- | The Unix timestamp for when the job was stopped. More specifically,
-    -- it\'s when the job transitioned from the @RUNNING@ state to a terminal
-    -- state, such as @SUCCEEDED@ or @FAILED@.
-    stoppedAt :: Prelude.Maybe Prelude.Integer,
-    -- | The Amazon Resource Name (ARN) of the job.
-    jobArn :: Prelude.Maybe Prelude.Text,
     -- | The Unix timestamp (in milliseconds) for when the job was created. For
     -- non-array jobs and parent array jobs, this is when the job entered the
     -- @SUBMITTED@ state (at the time SubmitJob was called). For array child
     -- jobs, this is when the child job was spawned by its parent and entered
     -- the @PENDING@ state.
     createdAt :: Prelude.Maybe Prelude.Integer,
+    -- | The Amazon Resource Name (ARN) of the job.
+    jobArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the job definition.
+    jobDefinition :: Prelude.Maybe Prelude.Text,
+    -- | The node properties for a single node in a job summary list.
+    --
+    -- This isn\'t applicable to jobs that are running on Fargate resources.
+    nodeProperties :: Prelude.Maybe NodePropertiesSummary,
+    -- | The Unix timestamp for when the job was started. More specifically,
+    -- it\'s when the job transitioned from the @STARTING@ state to the
+    -- @RUNNING@ state.
+    startedAt :: Prelude.Maybe Prelude.Integer,
+    -- | The current status for the job.
+    status :: Prelude.Maybe JobStatus,
+    -- | A short, human-readable string to provide more details for the current
+    -- status of the job.
+    statusReason :: Prelude.Maybe Prelude.Text,
+    -- | The Unix timestamp for when the job was stopped. More specifically,
+    -- it\'s when the job transitioned from the @RUNNING@ state to a terminal
+    -- state, such as @SUCCEEDED@ or @FAILED@.
+    stoppedAt :: Prelude.Maybe Prelude.Integer,
     -- | The job ID.
     jobId :: Prelude.Text,
     -- | The job name.
@@ -81,35 +81,35 @@ data JobSummary = JobSummary'
 --
 -- 'arrayProperties', 'jobSummary_arrayProperties' - The array properties of the job, if it\'s an array job.
 --
--- 'statusReason', 'jobSummary_statusReason' - A short, human-readable string to provide more details for the current
--- status of the job.
---
--- 'jobDefinition', 'jobSummary_jobDefinition' - The Amazon Resource Name (ARN) of the job definition.
---
--- 'status', 'jobSummary_status' - The current status for the job.
---
--- 'startedAt', 'jobSummary_startedAt' - The Unix timestamp for when the job was started. More specifically,
--- it\'s when the job transitioned from the @STARTING@ state to the
--- @RUNNING@ state.
---
--- 'nodeProperties', 'jobSummary_nodeProperties' - The node properties for a single node in a job summary list.
---
--- This isn\'t applicable to jobs that are running on Fargate resources.
---
 -- 'container', 'jobSummary_container' - An object that represents the details of the container that\'s
 -- associated with the job.
---
--- 'stoppedAt', 'jobSummary_stoppedAt' - The Unix timestamp for when the job was stopped. More specifically,
--- it\'s when the job transitioned from the @RUNNING@ state to a terminal
--- state, such as @SUCCEEDED@ or @FAILED@.
---
--- 'jobArn', 'jobSummary_jobArn' - The Amazon Resource Name (ARN) of the job.
 --
 -- 'createdAt', 'jobSummary_createdAt' - The Unix timestamp (in milliseconds) for when the job was created. For
 -- non-array jobs and parent array jobs, this is when the job entered the
 -- @SUBMITTED@ state (at the time SubmitJob was called). For array child
 -- jobs, this is when the child job was spawned by its parent and entered
 -- the @PENDING@ state.
+--
+-- 'jobArn', 'jobSummary_jobArn' - The Amazon Resource Name (ARN) of the job.
+--
+-- 'jobDefinition', 'jobSummary_jobDefinition' - The Amazon Resource Name (ARN) of the job definition.
+--
+-- 'nodeProperties', 'jobSummary_nodeProperties' - The node properties for a single node in a job summary list.
+--
+-- This isn\'t applicable to jobs that are running on Fargate resources.
+--
+-- 'startedAt', 'jobSummary_startedAt' - The Unix timestamp for when the job was started. More specifically,
+-- it\'s when the job transitioned from the @STARTING@ state to the
+-- @RUNNING@ state.
+--
+-- 'status', 'jobSummary_status' - The current status for the job.
+--
+-- 'statusReason', 'jobSummary_statusReason' - A short, human-readable string to provide more details for the current
+-- status of the job.
+--
+-- 'stoppedAt', 'jobSummary_stoppedAt' - The Unix timestamp for when the job was stopped. More specifically,
+-- it\'s when the job transitioned from the @RUNNING@ state to a terminal
+-- state, such as @SUCCEEDED@ or @FAILED@.
 --
 -- 'jobId', 'jobSummary_jobId' - The job ID.
 --
@@ -123,15 +123,15 @@ newJobSummary ::
 newJobSummary pJobId_ pJobName_ =
   JobSummary'
     { arrayProperties = Prelude.Nothing,
-      statusReason = Prelude.Nothing,
-      jobDefinition = Prelude.Nothing,
-      status = Prelude.Nothing,
-      startedAt = Prelude.Nothing,
-      nodeProperties = Prelude.Nothing,
       container = Prelude.Nothing,
-      stoppedAt = Prelude.Nothing,
-      jobArn = Prelude.Nothing,
       createdAt = Prelude.Nothing,
+      jobArn = Prelude.Nothing,
+      jobDefinition = Prelude.Nothing,
+      nodeProperties = Prelude.Nothing,
+      startedAt = Prelude.Nothing,
+      status = Prelude.Nothing,
+      statusReason = Prelude.Nothing,
+      stoppedAt = Prelude.Nothing,
       jobId = pJobId_,
       jobName = pJobName_
     }
@@ -140,45 +140,10 @@ newJobSummary pJobId_ pJobName_ =
 jobSummary_arrayProperties :: Lens.Lens' JobSummary (Prelude.Maybe ArrayPropertiesSummary)
 jobSummary_arrayProperties = Lens.lens (\JobSummary' {arrayProperties} -> arrayProperties) (\s@JobSummary' {} a -> s {arrayProperties = a} :: JobSummary)
 
--- | A short, human-readable string to provide more details for the current
--- status of the job.
-jobSummary_statusReason :: Lens.Lens' JobSummary (Prelude.Maybe Prelude.Text)
-jobSummary_statusReason = Lens.lens (\JobSummary' {statusReason} -> statusReason) (\s@JobSummary' {} a -> s {statusReason = a} :: JobSummary)
-
--- | The Amazon Resource Name (ARN) of the job definition.
-jobSummary_jobDefinition :: Lens.Lens' JobSummary (Prelude.Maybe Prelude.Text)
-jobSummary_jobDefinition = Lens.lens (\JobSummary' {jobDefinition} -> jobDefinition) (\s@JobSummary' {} a -> s {jobDefinition = a} :: JobSummary)
-
--- | The current status for the job.
-jobSummary_status :: Lens.Lens' JobSummary (Prelude.Maybe JobStatus)
-jobSummary_status = Lens.lens (\JobSummary' {status} -> status) (\s@JobSummary' {} a -> s {status = a} :: JobSummary)
-
--- | The Unix timestamp for when the job was started. More specifically,
--- it\'s when the job transitioned from the @STARTING@ state to the
--- @RUNNING@ state.
-jobSummary_startedAt :: Lens.Lens' JobSummary (Prelude.Maybe Prelude.Integer)
-jobSummary_startedAt = Lens.lens (\JobSummary' {startedAt} -> startedAt) (\s@JobSummary' {} a -> s {startedAt = a} :: JobSummary)
-
--- | The node properties for a single node in a job summary list.
---
--- This isn\'t applicable to jobs that are running on Fargate resources.
-jobSummary_nodeProperties :: Lens.Lens' JobSummary (Prelude.Maybe NodePropertiesSummary)
-jobSummary_nodeProperties = Lens.lens (\JobSummary' {nodeProperties} -> nodeProperties) (\s@JobSummary' {} a -> s {nodeProperties = a} :: JobSummary)
-
 -- | An object that represents the details of the container that\'s
 -- associated with the job.
 jobSummary_container :: Lens.Lens' JobSummary (Prelude.Maybe ContainerSummary)
 jobSummary_container = Lens.lens (\JobSummary' {container} -> container) (\s@JobSummary' {} a -> s {container = a} :: JobSummary)
-
--- | The Unix timestamp for when the job was stopped. More specifically,
--- it\'s when the job transitioned from the @RUNNING@ state to a terminal
--- state, such as @SUCCEEDED@ or @FAILED@.
-jobSummary_stoppedAt :: Lens.Lens' JobSummary (Prelude.Maybe Prelude.Integer)
-jobSummary_stoppedAt = Lens.lens (\JobSummary' {stoppedAt} -> stoppedAt) (\s@JobSummary' {} a -> s {stoppedAt = a} :: JobSummary)
-
--- | The Amazon Resource Name (ARN) of the job.
-jobSummary_jobArn :: Lens.Lens' JobSummary (Prelude.Maybe Prelude.Text)
-jobSummary_jobArn = Lens.lens (\JobSummary' {jobArn} -> jobArn) (\s@JobSummary' {} a -> s {jobArn = a} :: JobSummary)
 
 -- | The Unix timestamp (in milliseconds) for when the job was created. For
 -- non-array jobs and parent array jobs, this is when the job entered the
@@ -187,6 +152,41 @@ jobSummary_jobArn = Lens.lens (\JobSummary' {jobArn} -> jobArn) (\s@JobSummary' 
 -- the @PENDING@ state.
 jobSummary_createdAt :: Lens.Lens' JobSummary (Prelude.Maybe Prelude.Integer)
 jobSummary_createdAt = Lens.lens (\JobSummary' {createdAt} -> createdAt) (\s@JobSummary' {} a -> s {createdAt = a} :: JobSummary)
+
+-- | The Amazon Resource Name (ARN) of the job.
+jobSummary_jobArn :: Lens.Lens' JobSummary (Prelude.Maybe Prelude.Text)
+jobSummary_jobArn = Lens.lens (\JobSummary' {jobArn} -> jobArn) (\s@JobSummary' {} a -> s {jobArn = a} :: JobSummary)
+
+-- | The Amazon Resource Name (ARN) of the job definition.
+jobSummary_jobDefinition :: Lens.Lens' JobSummary (Prelude.Maybe Prelude.Text)
+jobSummary_jobDefinition = Lens.lens (\JobSummary' {jobDefinition} -> jobDefinition) (\s@JobSummary' {} a -> s {jobDefinition = a} :: JobSummary)
+
+-- | The node properties for a single node in a job summary list.
+--
+-- This isn\'t applicable to jobs that are running on Fargate resources.
+jobSummary_nodeProperties :: Lens.Lens' JobSummary (Prelude.Maybe NodePropertiesSummary)
+jobSummary_nodeProperties = Lens.lens (\JobSummary' {nodeProperties} -> nodeProperties) (\s@JobSummary' {} a -> s {nodeProperties = a} :: JobSummary)
+
+-- | The Unix timestamp for when the job was started. More specifically,
+-- it\'s when the job transitioned from the @STARTING@ state to the
+-- @RUNNING@ state.
+jobSummary_startedAt :: Lens.Lens' JobSummary (Prelude.Maybe Prelude.Integer)
+jobSummary_startedAt = Lens.lens (\JobSummary' {startedAt} -> startedAt) (\s@JobSummary' {} a -> s {startedAt = a} :: JobSummary)
+
+-- | The current status for the job.
+jobSummary_status :: Lens.Lens' JobSummary (Prelude.Maybe JobStatus)
+jobSummary_status = Lens.lens (\JobSummary' {status} -> status) (\s@JobSummary' {} a -> s {status = a} :: JobSummary)
+
+-- | A short, human-readable string to provide more details for the current
+-- status of the job.
+jobSummary_statusReason :: Lens.Lens' JobSummary (Prelude.Maybe Prelude.Text)
+jobSummary_statusReason = Lens.lens (\JobSummary' {statusReason} -> statusReason) (\s@JobSummary' {} a -> s {statusReason = a} :: JobSummary)
+
+-- | The Unix timestamp for when the job was stopped. More specifically,
+-- it\'s when the job transitioned from the @RUNNING@ state to a terminal
+-- state, such as @SUCCEEDED@ or @FAILED@.
+jobSummary_stoppedAt :: Lens.Lens' JobSummary (Prelude.Maybe Prelude.Integer)
+jobSummary_stoppedAt = Lens.lens (\JobSummary' {stoppedAt} -> stoppedAt) (\s@JobSummary' {} a -> s {stoppedAt = a} :: JobSummary)
 
 -- | The job ID.
 jobSummary_jobId :: Lens.Lens' JobSummary Prelude.Text
@@ -203,15 +203,15 @@ instance Data.FromJSON JobSummary where
       ( \x ->
           JobSummary'
             Prelude.<$> (x Data..:? "arrayProperties")
-            Prelude.<*> (x Data..:? "statusReason")
-            Prelude.<*> (x Data..:? "jobDefinition")
-            Prelude.<*> (x Data..:? "status")
-            Prelude.<*> (x Data..:? "startedAt")
-            Prelude.<*> (x Data..:? "nodeProperties")
             Prelude.<*> (x Data..:? "container")
-            Prelude.<*> (x Data..:? "stoppedAt")
-            Prelude.<*> (x Data..:? "jobArn")
             Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "jobArn")
+            Prelude.<*> (x Data..:? "jobDefinition")
+            Prelude.<*> (x Data..:? "nodeProperties")
+            Prelude.<*> (x Data..:? "startedAt")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "statusReason")
+            Prelude.<*> (x Data..:? "stoppedAt")
             Prelude.<*> (x Data..: "jobId")
             Prelude.<*> (x Data..: "jobName")
       )
@@ -219,29 +219,29 @@ instance Data.FromJSON JobSummary where
 instance Prelude.Hashable JobSummary where
   hashWithSalt _salt JobSummary' {..} =
     _salt `Prelude.hashWithSalt` arrayProperties
-      `Prelude.hashWithSalt` statusReason
-      `Prelude.hashWithSalt` jobDefinition
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` startedAt
-      `Prelude.hashWithSalt` nodeProperties
       `Prelude.hashWithSalt` container
-      `Prelude.hashWithSalt` stoppedAt
-      `Prelude.hashWithSalt` jobArn
       `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` jobArn
+      `Prelude.hashWithSalt` jobDefinition
+      `Prelude.hashWithSalt` nodeProperties
+      `Prelude.hashWithSalt` startedAt
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` statusReason
+      `Prelude.hashWithSalt` stoppedAt
       `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` jobName
 
 instance Prelude.NFData JobSummary where
   rnf JobSummary' {..} =
     Prelude.rnf arrayProperties
-      `Prelude.seq` Prelude.rnf statusReason
-      `Prelude.seq` Prelude.rnf jobDefinition
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf startedAt
-      `Prelude.seq` Prelude.rnf nodeProperties
       `Prelude.seq` Prelude.rnf container
-      `Prelude.seq` Prelude.rnf stoppedAt
-      `Prelude.seq` Prelude.rnf jobArn
       `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf jobArn
+      `Prelude.seq` Prelude.rnf jobDefinition
+      `Prelude.seq` Prelude.rnf nodeProperties
+      `Prelude.seq` Prelude.rnf startedAt
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf stoppedAt
       `Prelude.seq` Prelude.rnf jobId
       `Prelude.seq` Prelude.rnf jobName

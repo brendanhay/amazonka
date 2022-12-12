@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newImportAssetsFromS3RequestDetails' smart constructor.
 data ImportAssetsFromS3RequestDetails = ImportAssetsFromS3RequestDetails'
-  { -- | Is a list of S3 bucket and object key pairs.
+  { -- | Is a list of Amazon S3 bucket and object key pairs.
     assetSources :: [AssetSourceEntry],
     -- | The unique identifier for the data set associated with this import job.
     dataSetId :: Prelude.Text,
@@ -47,7 +47,7 @@ data ImportAssetsFromS3RequestDetails = ImportAssetsFromS3RequestDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'assetSources', 'importAssetsFromS3RequestDetails_assetSources' - Is a list of S3 bucket and object key pairs.
+-- 'assetSources', 'importAssetsFromS3RequestDetails_assetSources' - Is a list of Amazon S3 bucket and object key pairs.
 --
 -- 'dataSetId', 'importAssetsFromS3RequestDetails_dataSetId' - The unique identifier for the data set associated with this import job.
 --
@@ -69,7 +69,7 @@ newImportAssetsFromS3RequestDetails
         revisionId = pRevisionId_
       }
 
--- | Is a list of S3 bucket and object key pairs.
+-- | Is a list of Amazon S3 bucket and object key pairs.
 importAssetsFromS3RequestDetails_assetSources :: Lens.Lens' ImportAssetsFromS3RequestDetails [AssetSourceEntry]
 importAssetsFromS3RequestDetails_assetSources = Lens.lens (\ImportAssetsFromS3RequestDetails' {assetSources} -> assetSources) (\s@ImportAssetsFromS3RequestDetails' {} a -> s {assetSources = a} :: ImportAssetsFromS3RequestDetails) Prelude.. Lens.coerced
 

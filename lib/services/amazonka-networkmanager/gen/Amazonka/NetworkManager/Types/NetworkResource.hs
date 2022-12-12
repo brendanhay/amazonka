@@ -29,10 +29,25 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNetworkResource' smart constructor.
 data NetworkResource = NetworkResource'
-  { -- | The ID of the resource.
+  { -- | The Amazon Web Services account ID.
+    accountId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services Region.
+    awsRegion :: Prelude.Maybe Prelude.Text,
+    -- | The ID of a core network.
+    coreNetworkId :: Prelude.Maybe Prelude.Text,
+    -- | Information about the resource, in JSON format. Network Manager gets
+    -- this information by describing the resource using its Describe API call.
+    definition :: Prelude.Maybe Prelude.Text,
+    -- | The time that the resource definition was retrieved.
+    definitionTimestamp :: Prelude.Maybe Data.POSIX,
+    -- | The resource metadata.
+    metadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The ARN of the gateway.
+    registeredGatewayArn :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the resource.
+    resourceArn :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the resource.
     resourceId :: Prelude.Maybe Prelude.Text,
-    -- | The tags.
-    tags :: Prelude.Maybe [Tag],
     -- | The resource type.
     --
     -- The following are the supported resource types for Direct Connect:
@@ -67,23 +82,8 @@ data NetworkResource = NetworkResource'
     --
     -- -   @vpn-connection@
     resourceType :: Prelude.Maybe Prelude.Text,
-    -- | The ID of a core network.
-    coreNetworkId :: Prelude.Maybe Prelude.Text,
-    -- | The resource metadata.
-    metadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The Amazon Web Services account ID.
-    accountId :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the gateway.
-    registeredGatewayArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services Region.
-    awsRegion :: Prelude.Maybe Prelude.Text,
-    -- | The time that the resource definition was retrieved.
-    definitionTimestamp :: Prelude.Maybe Data.POSIX,
-    -- | The ARN of the resource.
-    resourceArn :: Prelude.Maybe Prelude.Text,
-    -- | Information about the resource, in JSON format. Network Manager gets
-    -- this information by describing the resource using its Describe API call.
-    definition :: Prelude.Maybe Prelude.Text
+    -- | The tags.
+    tags :: Prelude.Maybe [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -95,9 +95,24 @@ data NetworkResource = NetworkResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceId', 'networkResource_resourceId' - The ID of the resource.
+-- 'accountId', 'networkResource_accountId' - The Amazon Web Services account ID.
 --
--- 'tags', 'networkResource_tags' - The tags.
+-- 'awsRegion', 'networkResource_awsRegion' - The Amazon Web Services Region.
+--
+-- 'coreNetworkId', 'networkResource_coreNetworkId' - The ID of a core network.
+--
+-- 'definition', 'networkResource_definition' - Information about the resource, in JSON format. Network Manager gets
+-- this information by describing the resource using its Describe API call.
+--
+-- 'definitionTimestamp', 'networkResource_definitionTimestamp' - The time that the resource definition was retrieved.
+--
+-- 'metadata', 'networkResource_metadata' - The resource metadata.
+--
+-- 'registeredGatewayArn', 'networkResource_registeredGatewayArn' - The ARN of the gateway.
+--
+-- 'resourceArn', 'networkResource_resourceArn' - The ARN of the resource.
+--
+-- 'resourceId', 'networkResource_resourceId' - The ID of the resource.
 --
 -- 'resourceType', 'networkResource_resourceType' - The resource type.
 --
@@ -133,46 +148,60 @@ data NetworkResource = NetworkResource'
 --
 -- -   @vpn-connection@
 --
--- 'coreNetworkId', 'networkResource_coreNetworkId' - The ID of a core network.
---
--- 'metadata', 'networkResource_metadata' - The resource metadata.
---
--- 'accountId', 'networkResource_accountId' - The Amazon Web Services account ID.
---
--- 'registeredGatewayArn', 'networkResource_registeredGatewayArn' - The ARN of the gateway.
---
--- 'awsRegion', 'networkResource_awsRegion' - The Amazon Web Services Region.
---
--- 'definitionTimestamp', 'networkResource_definitionTimestamp' - The time that the resource definition was retrieved.
---
--- 'resourceArn', 'networkResource_resourceArn' - The ARN of the resource.
---
--- 'definition', 'networkResource_definition' - Information about the resource, in JSON format. Network Manager gets
--- this information by describing the resource using its Describe API call.
+-- 'tags', 'networkResource_tags' - The tags.
 newNetworkResource ::
   NetworkResource
 newNetworkResource =
   NetworkResource'
-    { resourceId = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      resourceType = Prelude.Nothing,
-      coreNetworkId = Prelude.Nothing,
-      metadata = Prelude.Nothing,
-      accountId = Prelude.Nothing,
-      registeredGatewayArn = Prelude.Nothing,
+    { accountId = Prelude.Nothing,
       awsRegion = Prelude.Nothing,
+      coreNetworkId = Prelude.Nothing,
+      definition = Prelude.Nothing,
       definitionTimestamp = Prelude.Nothing,
+      metadata = Prelude.Nothing,
+      registeredGatewayArn = Prelude.Nothing,
       resourceArn = Prelude.Nothing,
-      definition = Prelude.Nothing
+      resourceId = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
+
+-- | The Amazon Web Services account ID.
+networkResource_accountId :: Lens.Lens' NetworkResource (Prelude.Maybe Prelude.Text)
+networkResource_accountId = Lens.lens (\NetworkResource' {accountId} -> accountId) (\s@NetworkResource' {} a -> s {accountId = a} :: NetworkResource)
+
+-- | The Amazon Web Services Region.
+networkResource_awsRegion :: Lens.Lens' NetworkResource (Prelude.Maybe Prelude.Text)
+networkResource_awsRegion = Lens.lens (\NetworkResource' {awsRegion} -> awsRegion) (\s@NetworkResource' {} a -> s {awsRegion = a} :: NetworkResource)
+
+-- | The ID of a core network.
+networkResource_coreNetworkId :: Lens.Lens' NetworkResource (Prelude.Maybe Prelude.Text)
+networkResource_coreNetworkId = Lens.lens (\NetworkResource' {coreNetworkId} -> coreNetworkId) (\s@NetworkResource' {} a -> s {coreNetworkId = a} :: NetworkResource)
+
+-- | Information about the resource, in JSON format. Network Manager gets
+-- this information by describing the resource using its Describe API call.
+networkResource_definition :: Lens.Lens' NetworkResource (Prelude.Maybe Prelude.Text)
+networkResource_definition = Lens.lens (\NetworkResource' {definition} -> definition) (\s@NetworkResource' {} a -> s {definition = a} :: NetworkResource)
+
+-- | The time that the resource definition was retrieved.
+networkResource_definitionTimestamp :: Lens.Lens' NetworkResource (Prelude.Maybe Prelude.UTCTime)
+networkResource_definitionTimestamp = Lens.lens (\NetworkResource' {definitionTimestamp} -> definitionTimestamp) (\s@NetworkResource' {} a -> s {definitionTimestamp = a} :: NetworkResource) Prelude.. Lens.mapping Data._Time
+
+-- | The resource metadata.
+networkResource_metadata :: Lens.Lens' NetworkResource (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+networkResource_metadata = Lens.lens (\NetworkResource' {metadata} -> metadata) (\s@NetworkResource' {} a -> s {metadata = a} :: NetworkResource) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ARN of the gateway.
+networkResource_registeredGatewayArn :: Lens.Lens' NetworkResource (Prelude.Maybe Prelude.Text)
+networkResource_registeredGatewayArn = Lens.lens (\NetworkResource' {registeredGatewayArn} -> registeredGatewayArn) (\s@NetworkResource' {} a -> s {registeredGatewayArn = a} :: NetworkResource)
+
+-- | The ARN of the resource.
+networkResource_resourceArn :: Lens.Lens' NetworkResource (Prelude.Maybe Prelude.Text)
+networkResource_resourceArn = Lens.lens (\NetworkResource' {resourceArn} -> resourceArn) (\s@NetworkResource' {} a -> s {resourceArn = a} :: NetworkResource)
 
 -- | The ID of the resource.
 networkResource_resourceId :: Lens.Lens' NetworkResource (Prelude.Maybe Prelude.Text)
 networkResource_resourceId = Lens.lens (\NetworkResource' {resourceId} -> resourceId) (\s@NetworkResource' {} a -> s {resourceId = a} :: NetworkResource)
-
--- | The tags.
-networkResource_tags :: Lens.Lens' NetworkResource (Prelude.Maybe [Tag])
-networkResource_tags = Lens.lens (\NetworkResource' {tags} -> tags) (\s@NetworkResource' {} a -> s {tags = a} :: NetworkResource) Prelude.. Lens.mapping Lens.coerced
 
 -- | The resource type.
 --
@@ -210,38 +239,9 @@ networkResource_tags = Lens.lens (\NetworkResource' {tags} -> tags) (\s@NetworkR
 networkResource_resourceType :: Lens.Lens' NetworkResource (Prelude.Maybe Prelude.Text)
 networkResource_resourceType = Lens.lens (\NetworkResource' {resourceType} -> resourceType) (\s@NetworkResource' {} a -> s {resourceType = a} :: NetworkResource)
 
--- | The ID of a core network.
-networkResource_coreNetworkId :: Lens.Lens' NetworkResource (Prelude.Maybe Prelude.Text)
-networkResource_coreNetworkId = Lens.lens (\NetworkResource' {coreNetworkId} -> coreNetworkId) (\s@NetworkResource' {} a -> s {coreNetworkId = a} :: NetworkResource)
-
--- | The resource metadata.
-networkResource_metadata :: Lens.Lens' NetworkResource (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-networkResource_metadata = Lens.lens (\NetworkResource' {metadata} -> metadata) (\s@NetworkResource' {} a -> s {metadata = a} :: NetworkResource) Prelude.. Lens.mapping Lens.coerced
-
--- | The Amazon Web Services account ID.
-networkResource_accountId :: Lens.Lens' NetworkResource (Prelude.Maybe Prelude.Text)
-networkResource_accountId = Lens.lens (\NetworkResource' {accountId} -> accountId) (\s@NetworkResource' {} a -> s {accountId = a} :: NetworkResource)
-
--- | The ARN of the gateway.
-networkResource_registeredGatewayArn :: Lens.Lens' NetworkResource (Prelude.Maybe Prelude.Text)
-networkResource_registeredGatewayArn = Lens.lens (\NetworkResource' {registeredGatewayArn} -> registeredGatewayArn) (\s@NetworkResource' {} a -> s {registeredGatewayArn = a} :: NetworkResource)
-
--- | The Amazon Web Services Region.
-networkResource_awsRegion :: Lens.Lens' NetworkResource (Prelude.Maybe Prelude.Text)
-networkResource_awsRegion = Lens.lens (\NetworkResource' {awsRegion} -> awsRegion) (\s@NetworkResource' {} a -> s {awsRegion = a} :: NetworkResource)
-
--- | The time that the resource definition was retrieved.
-networkResource_definitionTimestamp :: Lens.Lens' NetworkResource (Prelude.Maybe Prelude.UTCTime)
-networkResource_definitionTimestamp = Lens.lens (\NetworkResource' {definitionTimestamp} -> definitionTimestamp) (\s@NetworkResource' {} a -> s {definitionTimestamp = a} :: NetworkResource) Prelude.. Lens.mapping Data._Time
-
--- | The ARN of the resource.
-networkResource_resourceArn :: Lens.Lens' NetworkResource (Prelude.Maybe Prelude.Text)
-networkResource_resourceArn = Lens.lens (\NetworkResource' {resourceArn} -> resourceArn) (\s@NetworkResource' {} a -> s {resourceArn = a} :: NetworkResource)
-
--- | Information about the resource, in JSON format. Network Manager gets
--- this information by describing the resource using its Describe API call.
-networkResource_definition :: Lens.Lens' NetworkResource (Prelude.Maybe Prelude.Text)
-networkResource_definition = Lens.lens (\NetworkResource' {definition} -> definition) (\s@NetworkResource' {} a -> s {definition = a} :: NetworkResource)
+-- | The tags.
+networkResource_tags :: Lens.Lens' NetworkResource (Prelude.Maybe [Tag])
+networkResource_tags = Lens.lens (\NetworkResource' {tags} -> tags) (\s@NetworkResource' {} a -> s {tags = a} :: NetworkResource) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON NetworkResource where
   parseJSON =
@@ -249,43 +249,43 @@ instance Data.FromJSON NetworkResource where
       "NetworkResource"
       ( \x ->
           NetworkResource'
-            Prelude.<$> (x Data..:? "ResourceId")
-            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "ResourceType")
-            Prelude.<*> (x Data..:? "CoreNetworkId")
-            Prelude.<*> (x Data..:? "Metadata" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "AccountId")
-            Prelude.<*> (x Data..:? "RegisteredGatewayArn")
+            Prelude.<$> (x Data..:? "AccountId")
             Prelude.<*> (x Data..:? "AwsRegion")
-            Prelude.<*> (x Data..:? "DefinitionTimestamp")
-            Prelude.<*> (x Data..:? "ResourceArn")
+            Prelude.<*> (x Data..:? "CoreNetworkId")
             Prelude.<*> (x Data..:? "Definition")
+            Prelude.<*> (x Data..:? "DefinitionTimestamp")
+            Prelude.<*> (x Data..:? "Metadata" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "RegisteredGatewayArn")
+            Prelude.<*> (x Data..:? "ResourceArn")
+            Prelude.<*> (x Data..:? "ResourceId")
+            Prelude.<*> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable NetworkResource where
   hashWithSalt _salt NetworkResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceId
-      `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` resourceType
-      `Prelude.hashWithSalt` coreNetworkId
-      `Prelude.hashWithSalt` metadata
-      `Prelude.hashWithSalt` accountId
-      `Prelude.hashWithSalt` registeredGatewayArn
+    _salt `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` awsRegion
-      `Prelude.hashWithSalt` definitionTimestamp
-      `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` coreNetworkId
       `Prelude.hashWithSalt` definition
+      `Prelude.hashWithSalt` definitionTimestamp
+      `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` registeredGatewayArn
+      `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData NetworkResource where
   rnf NetworkResource' {..} =
-    Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf coreNetworkId
-      `Prelude.seq` Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf registeredGatewayArn
+    Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf awsRegion
-      `Prelude.seq` Prelude.rnf definitionTimestamp
-      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf coreNetworkId
       `Prelude.seq` Prelude.rnf definition
+      `Prelude.seq` Prelude.rnf definitionTimestamp
+      `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf registeredGatewayArn
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf tags

@@ -30,18 +30,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMetricAttributionSummary' smart constructor.
 data MetricAttributionSummary = MetricAttributionSummary'
-  { -- | The name of the metric attribution.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The metric attribution\'s creation date time.
+  { -- | The metric attribution\'s creation date time.
     creationDateTime :: Prelude.Maybe Data.POSIX,
-    -- | The metric attribution\'s status.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The metric attribution\'s Amazon Resource Name (ARN).
-    metricAttributionArn :: Prelude.Maybe Prelude.Text,
+    -- | The metric attribution\'s failure reason.
+    failureReason :: Prelude.Maybe Prelude.Text,
     -- | The metric attribution\'s last updated date time.
     lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
-    -- | The metric attribution\'s failure reason.
-    failureReason :: Prelude.Maybe Prelude.Text
+    -- | The metric attribution\'s Amazon Resource Name (ARN).
+    metricAttributionArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the metric attribution.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The metric attribution\'s status.
+    status :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,52 +53,53 @@ data MetricAttributionSummary = MetricAttributionSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'metricAttributionSummary_name' - The name of the metric attribution.
---
 -- 'creationDateTime', 'metricAttributionSummary_creationDateTime' - The metric attribution\'s creation date time.
 --
--- 'status', 'metricAttributionSummary_status' - The metric attribution\'s status.
---
--- 'metricAttributionArn', 'metricAttributionSummary_metricAttributionArn' - The metric attribution\'s Amazon Resource Name (ARN).
+-- 'failureReason', 'metricAttributionSummary_failureReason' - The metric attribution\'s failure reason.
 --
 -- 'lastUpdatedDateTime', 'metricAttributionSummary_lastUpdatedDateTime' - The metric attribution\'s last updated date time.
 --
--- 'failureReason', 'metricAttributionSummary_failureReason' - The metric attribution\'s failure reason.
+-- 'metricAttributionArn', 'metricAttributionSummary_metricAttributionArn' - The metric attribution\'s Amazon Resource Name (ARN).
+--
+-- 'name', 'metricAttributionSummary_name' - The name of the metric attribution.
+--
+-- 'status', 'metricAttributionSummary_status' - The metric attribution\'s status.
 newMetricAttributionSummary ::
   MetricAttributionSummary
 newMetricAttributionSummary =
   MetricAttributionSummary'
-    { name = Prelude.Nothing,
-      creationDateTime = Prelude.Nothing,
-      status = Prelude.Nothing,
-      metricAttributionArn = Prelude.Nothing,
+    { creationDateTime =
+        Prelude.Nothing,
+      failureReason = Prelude.Nothing,
       lastUpdatedDateTime = Prelude.Nothing,
-      failureReason = Prelude.Nothing
+      metricAttributionArn = Prelude.Nothing,
+      name = Prelude.Nothing,
+      status = Prelude.Nothing
     }
-
--- | The name of the metric attribution.
-metricAttributionSummary_name :: Lens.Lens' MetricAttributionSummary (Prelude.Maybe Prelude.Text)
-metricAttributionSummary_name = Lens.lens (\MetricAttributionSummary' {name} -> name) (\s@MetricAttributionSummary' {} a -> s {name = a} :: MetricAttributionSummary)
 
 -- | The metric attribution\'s creation date time.
 metricAttributionSummary_creationDateTime :: Lens.Lens' MetricAttributionSummary (Prelude.Maybe Prelude.UTCTime)
 metricAttributionSummary_creationDateTime = Lens.lens (\MetricAttributionSummary' {creationDateTime} -> creationDateTime) (\s@MetricAttributionSummary' {} a -> s {creationDateTime = a} :: MetricAttributionSummary) Prelude.. Lens.mapping Data._Time
 
--- | The metric attribution\'s status.
-metricAttributionSummary_status :: Lens.Lens' MetricAttributionSummary (Prelude.Maybe Prelude.Text)
-metricAttributionSummary_status = Lens.lens (\MetricAttributionSummary' {status} -> status) (\s@MetricAttributionSummary' {} a -> s {status = a} :: MetricAttributionSummary)
-
--- | The metric attribution\'s Amazon Resource Name (ARN).
-metricAttributionSummary_metricAttributionArn :: Lens.Lens' MetricAttributionSummary (Prelude.Maybe Prelude.Text)
-metricAttributionSummary_metricAttributionArn = Lens.lens (\MetricAttributionSummary' {metricAttributionArn} -> metricAttributionArn) (\s@MetricAttributionSummary' {} a -> s {metricAttributionArn = a} :: MetricAttributionSummary)
+-- | The metric attribution\'s failure reason.
+metricAttributionSummary_failureReason :: Lens.Lens' MetricAttributionSummary (Prelude.Maybe Prelude.Text)
+metricAttributionSummary_failureReason = Lens.lens (\MetricAttributionSummary' {failureReason} -> failureReason) (\s@MetricAttributionSummary' {} a -> s {failureReason = a} :: MetricAttributionSummary)
 
 -- | The metric attribution\'s last updated date time.
 metricAttributionSummary_lastUpdatedDateTime :: Lens.Lens' MetricAttributionSummary (Prelude.Maybe Prelude.UTCTime)
 metricAttributionSummary_lastUpdatedDateTime = Lens.lens (\MetricAttributionSummary' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@MetricAttributionSummary' {} a -> s {lastUpdatedDateTime = a} :: MetricAttributionSummary) Prelude.. Lens.mapping Data._Time
 
--- | The metric attribution\'s failure reason.
-metricAttributionSummary_failureReason :: Lens.Lens' MetricAttributionSummary (Prelude.Maybe Prelude.Text)
-metricAttributionSummary_failureReason = Lens.lens (\MetricAttributionSummary' {failureReason} -> failureReason) (\s@MetricAttributionSummary' {} a -> s {failureReason = a} :: MetricAttributionSummary)
+-- | The metric attribution\'s Amazon Resource Name (ARN).
+metricAttributionSummary_metricAttributionArn :: Lens.Lens' MetricAttributionSummary (Prelude.Maybe Prelude.Text)
+metricAttributionSummary_metricAttributionArn = Lens.lens (\MetricAttributionSummary' {metricAttributionArn} -> metricAttributionArn) (\s@MetricAttributionSummary' {} a -> s {metricAttributionArn = a} :: MetricAttributionSummary)
+
+-- | The name of the metric attribution.
+metricAttributionSummary_name :: Lens.Lens' MetricAttributionSummary (Prelude.Maybe Prelude.Text)
+metricAttributionSummary_name = Lens.lens (\MetricAttributionSummary' {name} -> name) (\s@MetricAttributionSummary' {} a -> s {name = a} :: MetricAttributionSummary)
+
+-- | The metric attribution\'s status.
+metricAttributionSummary_status :: Lens.Lens' MetricAttributionSummary (Prelude.Maybe Prelude.Text)
+metricAttributionSummary_status = Lens.lens (\MetricAttributionSummary' {status} -> status) (\s@MetricAttributionSummary' {} a -> s {status = a} :: MetricAttributionSummary)
 
 instance Data.FromJSON MetricAttributionSummary where
   parseJSON =
@@ -106,28 +107,28 @@ instance Data.FromJSON MetricAttributionSummary where
       "MetricAttributionSummary"
       ( \x ->
           MetricAttributionSummary'
-            Prelude.<$> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "creationDateTime")
-            Prelude.<*> (x Data..:? "status")
-            Prelude.<*> (x Data..:? "metricAttributionArn")
-            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
+            Prelude.<$> (x Data..:? "creationDateTime")
             Prelude.<*> (x Data..:? "failureReason")
+            Prelude.<*> (x Data..:? "lastUpdatedDateTime")
+            Prelude.<*> (x Data..:? "metricAttributionArn")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "status")
       )
 
 instance Prelude.Hashable MetricAttributionSummary where
   hashWithSalt _salt MetricAttributionSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` creationDateTime
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` metricAttributionArn
-      `Prelude.hashWithSalt` lastUpdatedDateTime
+    _salt `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` lastUpdatedDateTime
+      `Prelude.hashWithSalt` metricAttributionArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData MetricAttributionSummary where
   rnf MetricAttributionSummary' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf metricAttributionArn
-      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+    Prelude.rnf creationDateTime
       `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf metricAttributionArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf status

@@ -28,13 +28,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRiskExceptionConfigurationType' smart constructor.
 data RiskExceptionConfigurationType = RiskExceptionConfigurationType'
-  { -- | Risk detection isn\'t performed on the IP addresses in this range list.
-    -- The IP range is in CIDR notation.
-    skippedIPRangeList :: Prelude.Maybe [Prelude.Text],
-    -- | Overrides the risk decision to always block the pre-authentication
+  { -- | Overrides the risk decision to always block the pre-authentication
     -- requests. The IP range is in CIDR notation, a compact representation of
     -- an IP address and its routing prefix.
-    blockedIPRangeList :: Prelude.Maybe [Prelude.Text]
+    blockedIPRangeList :: Prelude.Maybe [Prelude.Text],
+    -- | Risk detection isn\'t performed on the IP addresses in this range list.
+    -- The IP range is in CIDR notation.
+    skippedIPRangeList :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,25 +46,20 @@ data RiskExceptionConfigurationType = RiskExceptionConfigurationType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'skippedIPRangeList', 'riskExceptionConfigurationType_skippedIPRangeList' - Risk detection isn\'t performed on the IP addresses in this range list.
--- The IP range is in CIDR notation.
---
 -- 'blockedIPRangeList', 'riskExceptionConfigurationType_blockedIPRangeList' - Overrides the risk decision to always block the pre-authentication
 -- requests. The IP range is in CIDR notation, a compact representation of
 -- an IP address and its routing prefix.
+--
+-- 'skippedIPRangeList', 'riskExceptionConfigurationType_skippedIPRangeList' - Risk detection isn\'t performed on the IP addresses in this range list.
+-- The IP range is in CIDR notation.
 newRiskExceptionConfigurationType ::
   RiskExceptionConfigurationType
 newRiskExceptionConfigurationType =
   RiskExceptionConfigurationType'
-    { skippedIPRangeList =
+    { blockedIPRangeList =
         Prelude.Nothing,
-      blockedIPRangeList = Prelude.Nothing
+      skippedIPRangeList = Prelude.Nothing
     }
-
--- | Risk detection isn\'t performed on the IP addresses in this range list.
--- The IP range is in CIDR notation.
-riskExceptionConfigurationType_skippedIPRangeList :: Lens.Lens' RiskExceptionConfigurationType (Prelude.Maybe [Prelude.Text])
-riskExceptionConfigurationType_skippedIPRangeList = Lens.lens (\RiskExceptionConfigurationType' {skippedIPRangeList} -> skippedIPRangeList) (\s@RiskExceptionConfigurationType' {} a -> s {skippedIPRangeList = a} :: RiskExceptionConfigurationType) Prelude.. Lens.mapping Lens.coerced
 
 -- | Overrides the risk decision to always block the pre-authentication
 -- requests. The IP range is in CIDR notation, a compact representation of
@@ -72,16 +67,21 @@ riskExceptionConfigurationType_skippedIPRangeList = Lens.lens (\RiskExceptionCon
 riskExceptionConfigurationType_blockedIPRangeList :: Lens.Lens' RiskExceptionConfigurationType (Prelude.Maybe [Prelude.Text])
 riskExceptionConfigurationType_blockedIPRangeList = Lens.lens (\RiskExceptionConfigurationType' {blockedIPRangeList} -> blockedIPRangeList) (\s@RiskExceptionConfigurationType' {} a -> s {blockedIPRangeList = a} :: RiskExceptionConfigurationType) Prelude.. Lens.mapping Lens.coerced
 
+-- | Risk detection isn\'t performed on the IP addresses in this range list.
+-- The IP range is in CIDR notation.
+riskExceptionConfigurationType_skippedIPRangeList :: Lens.Lens' RiskExceptionConfigurationType (Prelude.Maybe [Prelude.Text])
+riskExceptionConfigurationType_skippedIPRangeList = Lens.lens (\RiskExceptionConfigurationType' {skippedIPRangeList} -> skippedIPRangeList) (\s@RiskExceptionConfigurationType' {} a -> s {skippedIPRangeList = a} :: RiskExceptionConfigurationType) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON RiskExceptionConfigurationType where
   parseJSON =
     Data.withObject
       "RiskExceptionConfigurationType"
       ( \x ->
           RiskExceptionConfigurationType'
-            Prelude.<$> ( x Data..:? "SkippedIPRangeList"
+            Prelude.<$> ( x Data..:? "BlockedIPRangeList"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "BlockedIPRangeList"
+            Prelude.<*> ( x Data..:? "SkippedIPRangeList"
                             Data..!= Prelude.mempty
                         )
       )
@@ -93,24 +93,24 @@ instance
   hashWithSalt
     _salt
     RiskExceptionConfigurationType' {..} =
-      _salt `Prelude.hashWithSalt` skippedIPRangeList
-        `Prelude.hashWithSalt` blockedIPRangeList
+      _salt `Prelude.hashWithSalt` blockedIPRangeList
+        `Prelude.hashWithSalt` skippedIPRangeList
 
 instance
   Prelude.NFData
     RiskExceptionConfigurationType
   where
   rnf RiskExceptionConfigurationType' {..} =
-    Prelude.rnf skippedIPRangeList
-      `Prelude.seq` Prelude.rnf blockedIPRangeList
+    Prelude.rnf blockedIPRangeList
+      `Prelude.seq` Prelude.rnf skippedIPRangeList
 
 instance Data.ToJSON RiskExceptionConfigurationType where
   toJSON RiskExceptionConfigurationType' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SkippedIPRangeList" Data..=)
-              Prelude.<$> skippedIPRangeList,
-            ("BlockedIPRangeList" Data..=)
-              Prelude.<$> blockedIPRangeList
+          [ ("BlockedIPRangeList" Data..=)
+              Prelude.<$> blockedIPRangeList,
+            ("SkippedIPRangeList" Data..=)
+              Prelude.<$> skippedIPRangeList
           ]
       )

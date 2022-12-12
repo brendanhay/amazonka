@@ -27,8 +27,8 @@ module Amazonka.IoTAnalytics.StartPipelineReprocessing
     newStartPipelineReprocessing,
 
     -- * Request Lenses
-    startPipelineReprocessing_endTime,
     startPipelineReprocessing_channelMessages,
+    startPipelineReprocessing_endTime,
     startPipelineReprocessing_startTime,
     startPipelineReprocessing_pipelineName,
 
@@ -52,17 +52,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartPipelineReprocessing' smart constructor.
 data StartPipelineReprocessing = StartPipelineReprocessing'
-  { -- | The end time (exclusive) of raw message data that is reprocessed.
-    --
-    -- If you specify a value for the @endTime@ parameter, you must not use the
-    -- @channelMessages@ object.
-    endTime :: Prelude.Maybe Data.POSIX,
-    -- | Specifies one or more sets of channel messages that you want to
+  { -- | Specifies one or more sets of channel messages that you want to
     -- reprocess.
     --
     -- If you use the @channelMessages@ object, you must not specify a value
     -- for @startTime@ and @endTime@.
     channelMessages :: Prelude.Maybe ChannelMessages,
+    -- | The end time (exclusive) of raw message data that is reprocessed.
+    --
+    -- If you specify a value for the @endTime@ parameter, you must not use the
+    -- @channelMessages@ object.
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The start time (inclusive) of raw message data that is reprocessed.
     --
     -- If you specify a value for the @startTime@ parameter, you must not use
@@ -81,16 +81,16 @@ data StartPipelineReprocessing = StartPipelineReprocessing'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'endTime', 'startPipelineReprocessing_endTime' - The end time (exclusive) of raw message data that is reprocessed.
---
--- If you specify a value for the @endTime@ parameter, you must not use the
--- @channelMessages@ object.
---
 -- 'channelMessages', 'startPipelineReprocessing_channelMessages' - Specifies one or more sets of channel messages that you want to
 -- reprocess.
 --
 -- If you use the @channelMessages@ object, you must not specify a value
 -- for @startTime@ and @endTime@.
+--
+-- 'endTime', 'startPipelineReprocessing_endTime' - The end time (exclusive) of raw message data that is reprocessed.
+--
+-- If you specify a value for the @endTime@ parameter, you must not use the
+-- @channelMessages@ object.
 --
 -- 'startTime', 'startPipelineReprocessing_startTime' - The start time (inclusive) of raw message data that is reprocessed.
 --
@@ -104,19 +104,12 @@ newStartPipelineReprocessing ::
   StartPipelineReprocessing
 newStartPipelineReprocessing pPipelineName_ =
   StartPipelineReprocessing'
-    { endTime =
+    { channelMessages =
         Prelude.Nothing,
-      channelMessages = Prelude.Nothing,
+      endTime = Prelude.Nothing,
       startTime = Prelude.Nothing,
       pipelineName = pPipelineName_
     }
-
--- | The end time (exclusive) of raw message data that is reprocessed.
---
--- If you specify a value for the @endTime@ parameter, you must not use the
--- @channelMessages@ object.
-startPipelineReprocessing_endTime :: Lens.Lens' StartPipelineReprocessing (Prelude.Maybe Prelude.UTCTime)
-startPipelineReprocessing_endTime = Lens.lens (\StartPipelineReprocessing' {endTime} -> endTime) (\s@StartPipelineReprocessing' {} a -> s {endTime = a} :: StartPipelineReprocessing) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies one or more sets of channel messages that you want to
 -- reprocess.
@@ -125,6 +118,13 @@ startPipelineReprocessing_endTime = Lens.lens (\StartPipelineReprocessing' {endT
 -- for @startTime@ and @endTime@.
 startPipelineReprocessing_channelMessages :: Lens.Lens' StartPipelineReprocessing (Prelude.Maybe ChannelMessages)
 startPipelineReprocessing_channelMessages = Lens.lens (\StartPipelineReprocessing' {channelMessages} -> channelMessages) (\s@StartPipelineReprocessing' {} a -> s {channelMessages = a} :: StartPipelineReprocessing)
+
+-- | The end time (exclusive) of raw message data that is reprocessed.
+--
+-- If you specify a value for the @endTime@ parameter, you must not use the
+-- @channelMessages@ object.
+startPipelineReprocessing_endTime :: Lens.Lens' StartPipelineReprocessing (Prelude.Maybe Prelude.UTCTime)
+startPipelineReprocessing_endTime = Lens.lens (\StartPipelineReprocessing' {endTime} -> endTime) (\s@StartPipelineReprocessing' {} a -> s {endTime = a} :: StartPipelineReprocessing) Prelude.. Lens.mapping Data._Time
 
 -- | The start time (inclusive) of raw message data that is reprocessed.
 --
@@ -153,15 +153,15 @@ instance Core.AWSRequest StartPipelineReprocessing where
 
 instance Prelude.Hashable StartPipelineReprocessing where
   hashWithSalt _salt StartPipelineReprocessing' {..} =
-    _salt `Prelude.hashWithSalt` endTime
-      `Prelude.hashWithSalt` channelMessages
+    _salt `Prelude.hashWithSalt` channelMessages
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` pipelineName
 
 instance Prelude.NFData StartPipelineReprocessing where
   rnf StartPipelineReprocessing' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf channelMessages
+    Prelude.rnf channelMessages
+      `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf pipelineName
 
@@ -172,9 +172,9 @@ instance Data.ToJSON StartPipelineReprocessing where
   toJSON StartPipelineReprocessing' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("endTime" Data..=) Prelude.<$> endTime,
-            ("channelMessages" Data..=)
+          [ ("channelMessages" Data..=)
               Prelude.<$> channelMessages,
+            ("endTime" Data..=) Prelude.<$> endTime,
             ("startTime" Data..=) Prelude.<$> startTime
           ]
       )

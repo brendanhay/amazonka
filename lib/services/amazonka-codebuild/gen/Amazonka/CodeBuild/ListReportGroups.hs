@@ -30,10 +30,10 @@ module Amazonka.CodeBuild.ListReportGroups
     newListReportGroups,
 
     -- * Request Lenses
-    listReportGroups_sortOrder,
+    listReportGroups_maxResults,
     listReportGroups_nextToken,
     listReportGroups_sortBy,
-    listReportGroups_maxResults,
+    listReportGroups_sortOrder,
 
     -- * Destructuring the Response
     ListReportGroupsResponse (..),
@@ -56,9 +56,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListReportGroups' smart constructor.
 data ListReportGroups = ListReportGroups'
-  { -- | Used to specify the order to sort the list of returned report groups.
-    -- Valid values are @ASCENDING@ and @DESCENDING@.
-    sortOrder :: Prelude.Maybe SortOrderType,
+  { -- | The maximum number of paginated report groups returned per response. Use
+    -- @nextToken@ to iterate pages in the list of returned @ReportGroup@
+    -- objects. The default value is 100.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | During a previous call, the maximum number of items that can be returned
     -- is the value specified in @maxResults@. If there more items in the list,
     -- then a unique string called a /nextToken/ is returned. To get the next
@@ -77,10 +78,9 @@ data ListReportGroups = ListReportGroups'
     --
     -- -   @NAME@: List based on each report group\'s name.
     sortBy :: Prelude.Maybe ReportGroupSortByType,
-    -- | The maximum number of paginated report groups returned per response. Use
-    -- @nextToken@ to iterate pages in the list of returned @ReportGroup@
-    -- objects. The default value is 100.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    -- | Used to specify the order to sort the list of returned report groups.
+    -- Valid values are @ASCENDING@ and @DESCENDING@.
+    sortOrder :: Prelude.Maybe SortOrderType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -92,8 +92,9 @@ data ListReportGroups = ListReportGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listReportGroups_sortOrder' - Used to specify the order to sort the list of returned report groups.
--- Valid values are @ASCENDING@ and @DESCENDING@.
+-- 'maxResults', 'listReportGroups_maxResults' - The maximum number of paginated report groups returned per response. Use
+-- @nextToken@ to iterate pages in the list of returned @ReportGroup@
+-- objects. The default value is 100.
 --
 -- 'nextToken', 'listReportGroups_nextToken' - During a previous call, the maximum number of items that can be returned
 -- is the value specified in @maxResults@. If there more items in the list,
@@ -113,23 +114,23 @@ data ListReportGroups = ListReportGroups'
 --
 -- -   @NAME@: List based on each report group\'s name.
 --
--- 'maxResults', 'listReportGroups_maxResults' - The maximum number of paginated report groups returned per response. Use
--- @nextToken@ to iterate pages in the list of returned @ReportGroup@
--- objects. The default value is 100.
+-- 'sortOrder', 'listReportGroups_sortOrder' - Used to specify the order to sort the list of returned report groups.
+-- Valid values are @ASCENDING@ and @DESCENDING@.
 newListReportGroups ::
   ListReportGroups
 newListReportGroups =
   ListReportGroups'
-    { sortOrder = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
       nextToken = Prelude.Nothing,
       sortBy = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      sortOrder = Prelude.Nothing
     }
 
--- | Used to specify the order to sort the list of returned report groups.
--- Valid values are @ASCENDING@ and @DESCENDING@.
-listReportGroups_sortOrder :: Lens.Lens' ListReportGroups (Prelude.Maybe SortOrderType)
-listReportGroups_sortOrder = Lens.lens (\ListReportGroups' {sortOrder} -> sortOrder) (\s@ListReportGroups' {} a -> s {sortOrder = a} :: ListReportGroups)
+-- | The maximum number of paginated report groups returned per response. Use
+-- @nextToken@ to iterate pages in the list of returned @ReportGroup@
+-- objects. The default value is 100.
+listReportGroups_maxResults :: Lens.Lens' ListReportGroups (Prelude.Maybe Prelude.Natural)
+listReportGroups_maxResults = Lens.lens (\ListReportGroups' {maxResults} -> maxResults) (\s@ListReportGroups' {} a -> s {maxResults = a} :: ListReportGroups)
 
 -- | During a previous call, the maximum number of items that can be returned
 -- is the value specified in @maxResults@. If there more items in the list,
@@ -153,11 +154,10 @@ listReportGroups_nextToken = Lens.lens (\ListReportGroups' {nextToken} -> nextTo
 listReportGroups_sortBy :: Lens.Lens' ListReportGroups (Prelude.Maybe ReportGroupSortByType)
 listReportGroups_sortBy = Lens.lens (\ListReportGroups' {sortBy} -> sortBy) (\s@ListReportGroups' {} a -> s {sortBy = a} :: ListReportGroups)
 
--- | The maximum number of paginated report groups returned per response. Use
--- @nextToken@ to iterate pages in the list of returned @ReportGroup@
--- objects. The default value is 100.
-listReportGroups_maxResults :: Lens.Lens' ListReportGroups (Prelude.Maybe Prelude.Natural)
-listReportGroups_maxResults = Lens.lens (\ListReportGroups' {maxResults} -> maxResults) (\s@ListReportGroups' {} a -> s {maxResults = a} :: ListReportGroups)
+-- | Used to specify the order to sort the list of returned report groups.
+-- Valid values are @ASCENDING@ and @DESCENDING@.
+listReportGroups_sortOrder :: Lens.Lens' ListReportGroups (Prelude.Maybe SortOrderType)
+listReportGroups_sortOrder = Lens.lens (\ListReportGroups' {sortOrder} -> sortOrder) (\s@ListReportGroups' {} a -> s {sortOrder = a} :: ListReportGroups)
 
 instance Core.AWSPager ListReportGroups where
   page rq rs
@@ -199,17 +199,17 @@ instance Core.AWSRequest ListReportGroups where
 
 instance Prelude.Hashable ListReportGroups where
   hashWithSalt _salt ListReportGroups' {..} =
-    _salt `Prelude.hashWithSalt` sortOrder
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortBy
-      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` sortOrder
 
 instance Prelude.NFData ListReportGroups where
   rnf ListReportGroups' {..} =
-    Prelude.rnf sortOrder
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListReportGroups where
   toHeaders =
@@ -230,10 +230,10 @@ instance Data.ToJSON ListReportGroups where
   toJSON ListReportGroups' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("sortOrder" Data..=) Prelude.<$> sortOrder,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
             ("nextToken" Data..=) Prelude.<$> nextToken,
             ("sortBy" Data..=) Prelude.<$> sortBy,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+            ("sortOrder" Data..=) Prelude.<$> sortOrder
           ]
       )
 

@@ -18,10 +18,10 @@ module Amazonka.GroundStation.Types
     defaultService,
 
     -- * Errors
-    _ResourceNotFoundException,
-    _ResourceLimitExceededException,
     _DependencyException,
     _InvalidParameterException,
+    _ResourceLimitExceededException,
+    _ResourceNotFoundException,
 
     -- * AngleUnits
     AngleUnits (..),
@@ -86,52 +86,52 @@ module Amazonka.GroundStation.Types
     -- * ConfigDetails
     ConfigDetails (..),
     newConfigDetails,
+    configDetails_antennaDemodDecodeDetails,
     configDetails_endpointDetails,
     configDetails_s3RecordingDetails,
-    configDetails_antennaDemodDecodeDetails,
 
     -- * ConfigIdResponse
     ConfigIdResponse (..),
     newConfigIdResponse,
+    configIdResponse_configArn,
     configIdResponse_configId,
     configIdResponse_configType,
-    configIdResponse_configArn,
 
     -- * ConfigListItem
     ConfigListItem (..),
     newConfigListItem,
-    configListItem_name,
+    configListItem_configArn,
     configListItem_configId,
     configListItem_configType,
-    configListItem_configArn,
+    configListItem_name,
 
     -- * ConfigTypeData
     ConfigTypeData (..),
     newConfigTypeData,
-    configTypeData_trackingConfig,
-    configTypeData_dataflowEndpointConfig,
-    configTypeData_uplinkEchoConfig,
     configTypeData_antennaDownlinkConfig,
     configTypeData_antennaDownlinkDemodDecodeConfig,
     configTypeData_antennaUplinkConfig,
+    configTypeData_dataflowEndpointConfig,
     configTypeData_s3RecordingConfig,
+    configTypeData_trackingConfig,
+    configTypeData_uplinkEchoConfig,
 
     -- * ContactData
     ContactData (..),
     newContactData,
-    contactData_tags,
-    contactData_missionProfileArn,
     contactData_contactId,
-    contactData_errorMessage,
-    contactData_postPassEndTime,
-    contactData_satelliteArn,
     contactData_contactStatus,
     contactData_endTime,
-    contactData_region,
-    contactData_prePassStartTime,
+    contactData_errorMessage,
     contactData_groundStation,
-    contactData_startTime,
     contactData_maximumElevation,
+    contactData_missionProfileArn,
+    contactData_postPassEndTime,
+    contactData_prePassStartTime,
+    contactData_region,
+    contactData_satelliteArn,
+    contactData_startTime,
+    contactData_tags,
 
     -- * ContactIdResponse
     ContactIdResponse (..),
@@ -148,10 +148,10 @@ module Amazonka.GroundStation.Types
     -- * DataflowEndpoint
     DataflowEndpoint (..),
     newDataflowEndpoint,
-    dataflowEndpoint_name,
-    dataflowEndpoint_status,
     dataflowEndpoint_address,
     dataflowEndpoint_mtu,
+    dataflowEndpoint_name,
+    dataflowEndpoint_status,
 
     -- * DataflowEndpointConfig
     DataflowEndpointConfig (..),
@@ -183,10 +183,10 @@ module Amazonka.GroundStation.Types
     -- * Destination
     Destination (..),
     newDestination,
-    destination_dataflowDestinationRegion,
-    destination_configId,
     destination_configDetails,
+    destination_configId,
     destination_configType,
+    destination_dataflowDestinationRegion,
 
     -- * Eirp
     Eirp (..),
@@ -209,14 +209,14 @@ module Amazonka.GroundStation.Types
     -- * EphemerisData
     EphemerisData (..),
     newEphemerisData,
-    ephemerisData_tle,
     ephemerisData_oem,
+    ephemerisData_tle,
 
     -- * EphemerisDescription
     EphemerisDescription (..),
     newEphemerisDescription,
-    ephemerisDescription_sourceS3Object,
     ephemerisDescription_ephemerisData,
+    ephemerisDescription_sourceS3Object,
 
     -- * EphemerisIdResponse
     EphemerisIdResponse (..),
@@ -226,27 +226,27 @@ module Amazonka.GroundStation.Types
     -- * EphemerisItem
     EphemerisItem (..),
     newEphemerisItem,
+    ephemerisItem_creationTime,
+    ephemerisItem_enabled,
+    ephemerisItem_ephemerisId,
     ephemerisItem_name,
+    ephemerisItem_priority,
     ephemerisItem_sourceS3Object,
     ephemerisItem_status,
-    ephemerisItem_enabled,
-    ephemerisItem_priority,
-    ephemerisItem_creationTime,
-    ephemerisItem_ephemerisId,
 
     -- * EphemerisMetaData
     EphemerisMetaData (..),
     newEphemerisMetaData,
-    ephemerisMetaData_name,
-    ephemerisMetaData_epoch,
     ephemerisMetaData_ephemerisId,
+    ephemerisMetaData_epoch,
+    ephemerisMetaData_name,
     ephemerisMetaData_source,
 
     -- * EphemerisTypeDescription
     EphemerisTypeDescription (..),
     newEphemerisTypeDescription,
-    ephemerisTypeDescription_tle,
     ephemerisTypeDescription_oem,
+    ephemerisTypeDescription_tle,
 
     -- * Frequency
     Frequency (..),
@@ -263,9 +263,9 @@ module Amazonka.GroundStation.Types
     -- * GroundStationData
     GroundStationData (..),
     newGroundStationData,
+    groundStationData_groundStationId,
     groundStationData_groundStationName,
     groundStationData_region,
-    groundStationData_groundStationId,
 
     -- * MissionProfileIdResponse
     MissionProfileIdResponse (..),
@@ -276,8 +276,8 @@ module Amazonka.GroundStation.Types
     MissionProfileListItem (..),
     newMissionProfileListItem,
     missionProfileListItem_missionProfileArn,
-    missionProfileListItem_name,
     missionProfileListItem_missionProfileId,
+    missionProfileListItem_name,
     missionProfileListItem_region,
 
     -- * OEMEphemeris
@@ -289,8 +289,8 @@ module Amazonka.GroundStation.Types
     -- * S3Object
     S3Object (..),
     newS3Object,
-    s3Object_key,
     s3Object_bucket,
+    s3Object_key,
     s3Object_version,
 
     -- * S3RecordingConfig
@@ -303,17 +303,17 @@ module Amazonka.GroundStation.Types
     -- * S3RecordingDetails
     S3RecordingDetails (..),
     newS3RecordingDetails,
-    s3RecordingDetails_keyTemplate,
     s3RecordingDetails_bucketArn,
+    s3RecordingDetails_keyTemplate,
 
     -- * SatelliteListItem
     SatelliteListItem (..),
     newSatelliteListItem,
-    satelliteListItem_satelliteArn,
     satelliteListItem_currentEphemeris,
-    satelliteListItem_satelliteId,
-    satelliteListItem_noradSatelliteID,
     satelliteListItem_groundStations,
+    satelliteListItem_noradSatelliteID,
+    satelliteListItem_satelliteArn,
+    satelliteListItem_satelliteId,
 
     -- * SecurityDetails
     SecurityDetails (..),
@@ -331,10 +331,10 @@ module Amazonka.GroundStation.Types
     -- * Source
     Source (..),
     newSource,
-    source_dataflowSourceRegion,
-    source_configId,
     source_configDetails,
+    source_configId,
     source_configType,
+    source_dataflowSourceRegion,
 
     -- * SpectrumConfig
     SpectrumConfig (..),
@@ -353,8 +353,8 @@ module Amazonka.GroundStation.Types
     -- * TLEEphemeris
     TLEEphemeris (..),
     newTLEEphemeris,
-    tLEEphemeris_tleData,
     tLEEphemeris_s3Object,
+    tLEEphemeris_tleData,
 
     -- * TimeRange
     TimeRange (..),
@@ -470,28 +470,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -499,13 +493,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -513,23 +511,9 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
-
--- | Resource was not found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 434
-
--- | Account limits for this resource have been exceeded.
-_ResourceLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceLimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceLimitExceededException"
-    Prelude.. Core.hasStatus 429
 
 -- | Dependency encountered an error.
 _DependencyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -546,3 +530,19 @@ _InvalidParameterException =
     defaultService
     "InvalidParameterException"
     Prelude.. Core.hasStatus 431
+
+-- | Account limits for this resource have been exceeded.
+_ResourceLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceLimitExceededException"
+    Prelude.. Core.hasStatus 429
+
+-- | Resource was not found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 434

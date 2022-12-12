@@ -39,17 +39,17 @@ module Amazonka.Synthetics.DescribeCanariesLastRun
     newDescribeCanariesLastRun,
 
     -- * Request Lenses
-    describeCanariesLastRun_nextToken,
-    describeCanariesLastRun_names,
     describeCanariesLastRun_maxResults,
+    describeCanariesLastRun_names,
+    describeCanariesLastRun_nextToken,
 
     -- * Destructuring the Response
     DescribeCanariesLastRunResponse (..),
     newDescribeCanariesLastRunResponse,
 
     -- * Response Lenses
-    describeCanariesLastRunResponse_nextToken,
     describeCanariesLastRunResponse_canariesLastRun,
+    describeCanariesLastRunResponse_nextToken,
     describeCanariesLastRunResponse_httpStatus,
   )
 where
@@ -64,10 +64,10 @@ import Amazonka.Synthetics.Types
 
 -- | /See:/ 'newDescribeCanariesLastRun' smart constructor.
 data DescribeCanariesLastRun = DescribeCanariesLastRun'
-  { -- | A token that indicates that there is more data available. You can use
-    -- this token in a subsequent @DescribeCanariesLastRun@ operation to
-    -- retrieve the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | Specify this parameter to limit how many runs are returned each time you
+    -- use the @DescribeLastRun@ operation. If you omit this parameter, the
+    -- default of 100 is used.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Use this parameter to return only canaries that match the names that you
     -- specify here. You can specify as many as five canary names.
     --
@@ -81,10 +81,10 @@ data DescribeCanariesLastRun = DescribeCanariesLastRun'
     -- you are allowed to view. For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Restricted.html Limiting a user to viewing specific canaries>.
     names :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | Specify this parameter to limit how many runs are returned each time you
-    -- use the @DescribeLastRun@ operation. If you omit this parameter, the
-    -- default of 100 is used.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    -- | A token that indicates that there is more data available. You can use
+    -- this token in a subsequent @DescribeCanariesLastRun@ operation to
+    -- retrieve the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -96,9 +96,9 @@ data DescribeCanariesLastRun = DescribeCanariesLastRun'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeCanariesLastRun_nextToken' - A token that indicates that there is more data available. You can use
--- this token in a subsequent @DescribeCanariesLastRun@ operation to
--- retrieve the next set of results.
+-- 'maxResults', 'describeCanariesLastRun_maxResults' - Specify this parameter to limit how many runs are returned each time you
+-- use the @DescribeLastRun@ operation. If you omit this parameter, the
+-- default of 100 is used.
 --
 -- 'names', 'describeCanariesLastRun_names' - Use this parameter to return only canaries that match the names that you
 -- specify here. You can specify as many as five canary names.
@@ -113,24 +113,24 @@ data DescribeCanariesLastRun = DescribeCanariesLastRun'
 -- you are allowed to view. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Restricted.html Limiting a user to viewing specific canaries>.
 --
--- 'maxResults', 'describeCanariesLastRun_maxResults' - Specify this parameter to limit how many runs are returned each time you
--- use the @DescribeLastRun@ operation. If you omit this parameter, the
--- default of 100 is used.
+-- 'nextToken', 'describeCanariesLastRun_nextToken' - A token that indicates that there is more data available. You can use
+-- this token in a subsequent @DescribeCanariesLastRun@ operation to
+-- retrieve the next set of results.
 newDescribeCanariesLastRun ::
   DescribeCanariesLastRun
 newDescribeCanariesLastRun =
   DescribeCanariesLastRun'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
       names = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
 
--- | A token that indicates that there is more data available. You can use
--- this token in a subsequent @DescribeCanariesLastRun@ operation to
--- retrieve the next set of results.
-describeCanariesLastRun_nextToken :: Lens.Lens' DescribeCanariesLastRun (Prelude.Maybe Prelude.Text)
-describeCanariesLastRun_nextToken = Lens.lens (\DescribeCanariesLastRun' {nextToken} -> nextToken) (\s@DescribeCanariesLastRun' {} a -> s {nextToken = a} :: DescribeCanariesLastRun)
+-- | Specify this parameter to limit how many runs are returned each time you
+-- use the @DescribeLastRun@ operation. If you omit this parameter, the
+-- default of 100 is used.
+describeCanariesLastRun_maxResults :: Lens.Lens' DescribeCanariesLastRun (Prelude.Maybe Prelude.Natural)
+describeCanariesLastRun_maxResults = Lens.lens (\DescribeCanariesLastRun' {maxResults} -> maxResults) (\s@DescribeCanariesLastRun' {} a -> s {maxResults = a} :: DescribeCanariesLastRun)
 
 -- | Use this parameter to return only canaries that match the names that you
 -- specify here. You can specify as many as five canary names.
@@ -147,11 +147,11 @@ describeCanariesLastRun_nextToken = Lens.lens (\DescribeCanariesLastRun' {nextTo
 describeCanariesLastRun_names :: Lens.Lens' DescribeCanariesLastRun (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 describeCanariesLastRun_names = Lens.lens (\DescribeCanariesLastRun' {names} -> names) (\s@DescribeCanariesLastRun' {} a -> s {names = a} :: DescribeCanariesLastRun) Prelude.. Lens.mapping Lens.coerced
 
--- | Specify this parameter to limit how many runs are returned each time you
--- use the @DescribeLastRun@ operation. If you omit this parameter, the
--- default of 100 is used.
-describeCanariesLastRun_maxResults :: Lens.Lens' DescribeCanariesLastRun (Prelude.Maybe Prelude.Natural)
-describeCanariesLastRun_maxResults = Lens.lens (\DescribeCanariesLastRun' {maxResults} -> maxResults) (\s@DescribeCanariesLastRun' {} a -> s {maxResults = a} :: DescribeCanariesLastRun)
+-- | A token that indicates that there is more data available. You can use
+-- this token in a subsequent @DescribeCanariesLastRun@ operation to
+-- retrieve the next set of results.
+describeCanariesLastRun_nextToken :: Lens.Lens' DescribeCanariesLastRun (Prelude.Maybe Prelude.Text)
+describeCanariesLastRun_nextToken = Lens.lens (\DescribeCanariesLastRun' {nextToken} -> nextToken) (\s@DescribeCanariesLastRun' {} a -> s {nextToken = a} :: DescribeCanariesLastRun)
 
 instance Core.AWSRequest DescribeCanariesLastRun where
   type
@@ -163,24 +163,24 @@ instance Core.AWSRequest DescribeCanariesLastRun where
     Response.receiveJSON
       ( \s h x ->
           DescribeCanariesLastRunResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "CanariesLastRun"
+            Prelude.<$> ( x Data..?> "CanariesLastRun"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeCanariesLastRun where
   hashWithSalt _salt DescribeCanariesLastRun' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` names
-      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeCanariesLastRun where
   rnf DescribeCanariesLastRun' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf names
-      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeCanariesLastRun where
   toHeaders =
@@ -197,9 +197,9 @@ instance Data.ToJSON DescribeCanariesLastRun where
   toJSON DescribeCanariesLastRun' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("Names" Data..=) Prelude.<$> names,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -211,13 +211,13 @@ instance Data.ToQuery DescribeCanariesLastRun where
 
 -- | /See:/ 'newDescribeCanariesLastRunResponse' smart constructor.
 data DescribeCanariesLastRunResponse = DescribeCanariesLastRunResponse'
-  { -- | A token that indicates that there is more data available. You can use
+  { -- | An array that contains the information from the most recent run of each
+    -- canary.
+    canariesLastRun :: Prelude.Maybe [CanaryLastRun],
+    -- | A token that indicates that there is more data available. You can use
     -- this token in a subsequent @DescribeCanariesLastRun@ operation to
     -- retrieve the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array that contains the information from the most recent run of each
-    -- canary.
-    canariesLastRun :: Prelude.Maybe [CanaryLastRun],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -231,12 +231,12 @@ data DescribeCanariesLastRunResponse = DescribeCanariesLastRunResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'canariesLastRun', 'describeCanariesLastRunResponse_canariesLastRun' - An array that contains the information from the most recent run of each
+-- canary.
+--
 -- 'nextToken', 'describeCanariesLastRunResponse_nextToken' - A token that indicates that there is more data available. You can use
 -- this token in a subsequent @DescribeCanariesLastRun@ operation to
 -- retrieve the next set of results.
---
--- 'canariesLastRun', 'describeCanariesLastRunResponse_canariesLastRun' - An array that contains the information from the most recent run of each
--- canary.
 --
 -- 'httpStatus', 'describeCanariesLastRunResponse_httpStatus' - The response's http status code.
 newDescribeCanariesLastRunResponse ::
@@ -245,22 +245,22 @@ newDescribeCanariesLastRunResponse ::
   DescribeCanariesLastRunResponse
 newDescribeCanariesLastRunResponse pHttpStatus_ =
   DescribeCanariesLastRunResponse'
-    { nextToken =
+    { canariesLastRun =
         Prelude.Nothing,
-      canariesLastRun = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array that contains the information from the most recent run of each
+-- canary.
+describeCanariesLastRunResponse_canariesLastRun :: Lens.Lens' DescribeCanariesLastRunResponse (Prelude.Maybe [CanaryLastRun])
+describeCanariesLastRunResponse_canariesLastRun = Lens.lens (\DescribeCanariesLastRunResponse' {canariesLastRun} -> canariesLastRun) (\s@DescribeCanariesLastRunResponse' {} a -> s {canariesLastRun = a} :: DescribeCanariesLastRunResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that indicates that there is more data available. You can use
 -- this token in a subsequent @DescribeCanariesLastRun@ operation to
 -- retrieve the next set of results.
 describeCanariesLastRunResponse_nextToken :: Lens.Lens' DescribeCanariesLastRunResponse (Prelude.Maybe Prelude.Text)
 describeCanariesLastRunResponse_nextToken = Lens.lens (\DescribeCanariesLastRunResponse' {nextToken} -> nextToken) (\s@DescribeCanariesLastRunResponse' {} a -> s {nextToken = a} :: DescribeCanariesLastRunResponse)
-
--- | An array that contains the information from the most recent run of each
--- canary.
-describeCanariesLastRunResponse_canariesLastRun :: Lens.Lens' DescribeCanariesLastRunResponse (Prelude.Maybe [CanaryLastRun])
-describeCanariesLastRunResponse_canariesLastRun = Lens.lens (\DescribeCanariesLastRunResponse' {canariesLastRun} -> canariesLastRun) (\s@DescribeCanariesLastRunResponse' {} a -> s {canariesLastRun = a} :: DescribeCanariesLastRunResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeCanariesLastRunResponse_httpStatus :: Lens.Lens' DescribeCanariesLastRunResponse Prelude.Int
@@ -271,6 +271,6 @@ instance
     DescribeCanariesLastRunResponse
   where
   rnf DescribeCanariesLastRunResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf canariesLastRun
+    Prelude.rnf canariesLastRun
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -41,11 +41,6 @@ data StreamDescription = StreamDescription'
     -- -   @KMS@: Use server-side encryption on the records in the stream using
     --     a customer-managed Amazon Web Services KMS key.
     encryptionType :: Prelude.Maybe EncryptionType,
-    -- | Specifies the capacity mode to which you want to set your data stream.
-    -- Currently, in Kinesis Data Streams, you can choose between an
-    -- __on-demand__ capacity mode and a __provisioned__ capacity mode for your
-    -- data streams.
-    streamModeDetails :: Prelude.Maybe StreamModeDetails,
     -- | The GUID for the customer-managed Amazon Web Services KMS key to use for
     -- encryption. This value can be a globally unique identifier, a fully
     -- specified ARN to either an alias or a key, or an alias name prefixed by
@@ -65,6 +60,11 @@ data StreamDescription = StreamDescription'
     --
     -- -   Master key owned by Kinesis Data Streams: @alias\/aws\/kinesis@
     keyId :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the capacity mode to which you want to set your data stream.
+    -- Currently, in Kinesis Data Streams, you can choose between an
+    -- __on-demand__ capacity mode and a __provisioned__ capacity mode for your
+    -- data streams.
+    streamModeDetails :: Prelude.Maybe StreamModeDetails,
     -- | The name of the stream being described.
     streamName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the stream being described.
@@ -117,11 +117,6 @@ data StreamDescription = StreamDescription'
 -- -   @KMS@: Use server-side encryption on the records in the stream using
 --     a customer-managed Amazon Web Services KMS key.
 --
--- 'streamModeDetails', 'streamDescription_streamModeDetails' - Specifies the capacity mode to which you want to set your data stream.
--- Currently, in Kinesis Data Streams, you can choose between an
--- __on-demand__ capacity mode and a __provisioned__ capacity mode for your
--- data streams.
---
 -- 'keyId', 'streamDescription_keyId' - The GUID for the customer-managed Amazon Web Services KMS key to use for
 -- encryption. This value can be a globally unique identifier, a fully
 -- specified ARN to either an alias or a key, or an alias name prefixed by
@@ -140,6 +135,11 @@ data StreamDescription = StreamDescription'
 -- -   Alias name example: @alias\/MyAliasName@
 --
 -- -   Master key owned by Kinesis Data Streams: @alias\/aws\/kinesis@
+--
+-- 'streamModeDetails', 'streamDescription_streamModeDetails' - Specifies the capacity mode to which you want to set your data stream.
+-- Currently, in Kinesis Data Streams, you can choose between an
+-- __on-demand__ capacity mode and a __provisioned__ capacity mode for your
+-- data streams.
 --
 -- 'streamName', 'streamDescription_streamName' - The name of the stream being described.
 --
@@ -197,8 +197,8 @@ newStreamDescription
     StreamDescription'
       { encryptionType =
           Prelude.Nothing,
-        streamModeDetails = Prelude.Nothing,
         keyId = Prelude.Nothing,
+        streamModeDetails = Prelude.Nothing,
         streamName = pStreamName_,
         streamARN = pStreamARN_,
         streamStatus = pStreamStatus_,
@@ -220,13 +220,6 @@ newStreamDescription
 streamDescription_encryptionType :: Lens.Lens' StreamDescription (Prelude.Maybe EncryptionType)
 streamDescription_encryptionType = Lens.lens (\StreamDescription' {encryptionType} -> encryptionType) (\s@StreamDescription' {} a -> s {encryptionType = a} :: StreamDescription)
 
--- | Specifies the capacity mode to which you want to set your data stream.
--- Currently, in Kinesis Data Streams, you can choose between an
--- __on-demand__ capacity mode and a __provisioned__ capacity mode for your
--- data streams.
-streamDescription_streamModeDetails :: Lens.Lens' StreamDescription (Prelude.Maybe StreamModeDetails)
-streamDescription_streamModeDetails = Lens.lens (\StreamDescription' {streamModeDetails} -> streamModeDetails) (\s@StreamDescription' {} a -> s {streamModeDetails = a} :: StreamDescription)
-
 -- | The GUID for the customer-managed Amazon Web Services KMS key to use for
 -- encryption. This value can be a globally unique identifier, a fully
 -- specified ARN to either an alias or a key, or an alias name prefixed by
@@ -247,6 +240,13 @@ streamDescription_streamModeDetails = Lens.lens (\StreamDescription' {streamMode
 -- -   Master key owned by Kinesis Data Streams: @alias\/aws\/kinesis@
 streamDescription_keyId :: Lens.Lens' StreamDescription (Prelude.Maybe Prelude.Text)
 streamDescription_keyId = Lens.lens (\StreamDescription' {keyId} -> keyId) (\s@StreamDescription' {} a -> s {keyId = a} :: StreamDescription)
+
+-- | Specifies the capacity mode to which you want to set your data stream.
+-- Currently, in Kinesis Data Streams, you can choose between an
+-- __on-demand__ capacity mode and a __provisioned__ capacity mode for your
+-- data streams.
+streamDescription_streamModeDetails :: Lens.Lens' StreamDescription (Prelude.Maybe StreamModeDetails)
+streamDescription_streamModeDetails = Lens.lens (\StreamDescription' {streamModeDetails} -> streamModeDetails) (\s@StreamDescription' {} a -> s {streamModeDetails = a} :: StreamDescription)
 
 -- | The name of the stream being described.
 streamDescription_streamName :: Lens.Lens' StreamDescription Prelude.Text
@@ -304,8 +304,8 @@ instance Data.FromJSON StreamDescription where
       ( \x ->
           StreamDescription'
             Prelude.<$> (x Data..:? "EncryptionType")
-            Prelude.<*> (x Data..:? "StreamModeDetails")
             Prelude.<*> (x Data..:? "KeyId")
+            Prelude.<*> (x Data..:? "StreamModeDetails")
             Prelude.<*> (x Data..: "StreamName")
             Prelude.<*> (x Data..: "StreamARN")
             Prelude.<*> (x Data..: "StreamStatus")
@@ -321,8 +321,8 @@ instance Data.FromJSON StreamDescription where
 instance Prelude.Hashable StreamDescription where
   hashWithSalt _salt StreamDescription' {..} =
     _salt `Prelude.hashWithSalt` encryptionType
-      `Prelude.hashWithSalt` streamModeDetails
       `Prelude.hashWithSalt` keyId
+      `Prelude.hashWithSalt` streamModeDetails
       `Prelude.hashWithSalt` streamName
       `Prelude.hashWithSalt` streamARN
       `Prelude.hashWithSalt` streamStatus
@@ -335,8 +335,8 @@ instance Prelude.Hashable StreamDescription where
 instance Prelude.NFData StreamDescription where
   rnf StreamDescription' {..} =
     Prelude.rnf encryptionType
-      `Prelude.seq` Prelude.rnf streamModeDetails
       `Prelude.seq` Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf streamModeDetails
       `Prelude.seq` Prelude.rnf streamName
       `Prelude.seq` Prelude.rnf streamARN
       `Prelude.seq` Prelude.rnf streamStatus

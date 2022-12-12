@@ -28,18 +28,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMappingEntry' smart constructor.
 data MappingEntry = MappingEntry'
-  { -- | The target table.
-    targetTable :: Prelude.Maybe Prelude.Text,
+  { -- | The source path.
+    sourcePath :: Prelude.Maybe Prelude.Text,
     -- | The name of the source table.
     sourceTable :: Prelude.Maybe Prelude.Text,
-    -- | The target path.
-    targetPath :: Prelude.Maybe Prelude.Text,
     -- | The source type.
     sourceType :: Prelude.Maybe Prelude.Text,
+    -- | The target path.
+    targetPath :: Prelude.Maybe Prelude.Text,
+    -- | The target table.
+    targetTable :: Prelude.Maybe Prelude.Text,
     -- | The target type.
-    targetType :: Prelude.Maybe Prelude.Text,
-    -- | The source path.
-    sourcePath :: Prelude.Maybe Prelude.Text
+    targetType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,52 +51,52 @@ data MappingEntry = MappingEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetTable', 'mappingEntry_targetTable' - The target table.
+-- 'sourcePath', 'mappingEntry_sourcePath' - The source path.
 --
 -- 'sourceTable', 'mappingEntry_sourceTable' - The name of the source table.
 --
--- 'targetPath', 'mappingEntry_targetPath' - The target path.
---
 -- 'sourceType', 'mappingEntry_sourceType' - The source type.
 --
--- 'targetType', 'mappingEntry_targetType' - The target type.
+-- 'targetPath', 'mappingEntry_targetPath' - The target path.
 --
--- 'sourcePath', 'mappingEntry_sourcePath' - The source path.
+-- 'targetTable', 'mappingEntry_targetTable' - The target table.
+--
+-- 'targetType', 'mappingEntry_targetType' - The target type.
 newMappingEntry ::
   MappingEntry
 newMappingEntry =
   MappingEntry'
-    { targetTable = Prelude.Nothing,
+    { sourcePath = Prelude.Nothing,
       sourceTable = Prelude.Nothing,
-      targetPath = Prelude.Nothing,
       sourceType = Prelude.Nothing,
-      targetType = Prelude.Nothing,
-      sourcePath = Prelude.Nothing
+      targetPath = Prelude.Nothing,
+      targetTable = Prelude.Nothing,
+      targetType = Prelude.Nothing
     }
 
--- | The target table.
-mappingEntry_targetTable :: Lens.Lens' MappingEntry (Prelude.Maybe Prelude.Text)
-mappingEntry_targetTable = Lens.lens (\MappingEntry' {targetTable} -> targetTable) (\s@MappingEntry' {} a -> s {targetTable = a} :: MappingEntry)
+-- | The source path.
+mappingEntry_sourcePath :: Lens.Lens' MappingEntry (Prelude.Maybe Prelude.Text)
+mappingEntry_sourcePath = Lens.lens (\MappingEntry' {sourcePath} -> sourcePath) (\s@MappingEntry' {} a -> s {sourcePath = a} :: MappingEntry)
 
 -- | The name of the source table.
 mappingEntry_sourceTable :: Lens.Lens' MappingEntry (Prelude.Maybe Prelude.Text)
 mappingEntry_sourceTable = Lens.lens (\MappingEntry' {sourceTable} -> sourceTable) (\s@MappingEntry' {} a -> s {sourceTable = a} :: MappingEntry)
 
--- | The target path.
-mappingEntry_targetPath :: Lens.Lens' MappingEntry (Prelude.Maybe Prelude.Text)
-mappingEntry_targetPath = Lens.lens (\MappingEntry' {targetPath} -> targetPath) (\s@MappingEntry' {} a -> s {targetPath = a} :: MappingEntry)
-
 -- | The source type.
 mappingEntry_sourceType :: Lens.Lens' MappingEntry (Prelude.Maybe Prelude.Text)
 mappingEntry_sourceType = Lens.lens (\MappingEntry' {sourceType} -> sourceType) (\s@MappingEntry' {} a -> s {sourceType = a} :: MappingEntry)
 
+-- | The target path.
+mappingEntry_targetPath :: Lens.Lens' MappingEntry (Prelude.Maybe Prelude.Text)
+mappingEntry_targetPath = Lens.lens (\MappingEntry' {targetPath} -> targetPath) (\s@MappingEntry' {} a -> s {targetPath = a} :: MappingEntry)
+
+-- | The target table.
+mappingEntry_targetTable :: Lens.Lens' MappingEntry (Prelude.Maybe Prelude.Text)
+mappingEntry_targetTable = Lens.lens (\MappingEntry' {targetTable} -> targetTable) (\s@MappingEntry' {} a -> s {targetTable = a} :: MappingEntry)
+
 -- | The target type.
 mappingEntry_targetType :: Lens.Lens' MappingEntry (Prelude.Maybe Prelude.Text)
 mappingEntry_targetType = Lens.lens (\MappingEntry' {targetType} -> targetType) (\s@MappingEntry' {} a -> s {targetType = a} :: MappingEntry)
-
--- | The source path.
-mappingEntry_sourcePath :: Lens.Lens' MappingEntry (Prelude.Maybe Prelude.Text)
-mappingEntry_sourcePath = Lens.lens (\MappingEntry' {sourcePath} -> sourcePath) (\s@MappingEntry' {} a -> s {sourcePath = a} :: MappingEntry)
 
 instance Data.FromJSON MappingEntry where
   parseJSON =
@@ -104,41 +104,41 @@ instance Data.FromJSON MappingEntry where
       "MappingEntry"
       ( \x ->
           MappingEntry'
-            Prelude.<$> (x Data..:? "TargetTable")
+            Prelude.<$> (x Data..:? "SourcePath")
             Prelude.<*> (x Data..:? "SourceTable")
-            Prelude.<*> (x Data..:? "TargetPath")
             Prelude.<*> (x Data..:? "SourceType")
+            Prelude.<*> (x Data..:? "TargetPath")
+            Prelude.<*> (x Data..:? "TargetTable")
             Prelude.<*> (x Data..:? "TargetType")
-            Prelude.<*> (x Data..:? "SourcePath")
       )
 
 instance Prelude.Hashable MappingEntry where
   hashWithSalt _salt MappingEntry' {..} =
-    _salt `Prelude.hashWithSalt` targetTable
+    _salt `Prelude.hashWithSalt` sourcePath
       `Prelude.hashWithSalt` sourceTable
-      `Prelude.hashWithSalt` targetPath
       `Prelude.hashWithSalt` sourceType
+      `Prelude.hashWithSalt` targetPath
+      `Prelude.hashWithSalt` targetTable
       `Prelude.hashWithSalt` targetType
-      `Prelude.hashWithSalt` sourcePath
 
 instance Prelude.NFData MappingEntry where
   rnf MappingEntry' {..} =
-    Prelude.rnf targetTable
+    Prelude.rnf sourcePath
       `Prelude.seq` Prelude.rnf sourceTable
-      `Prelude.seq` Prelude.rnf targetPath
       `Prelude.seq` Prelude.rnf sourceType
+      `Prelude.seq` Prelude.rnf targetPath
+      `Prelude.seq` Prelude.rnf targetTable
       `Prelude.seq` Prelude.rnf targetType
-      `Prelude.seq` Prelude.rnf sourcePath
 
 instance Data.ToJSON MappingEntry where
   toJSON MappingEntry' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("TargetTable" Data..=) Prelude.<$> targetTable,
+          [ ("SourcePath" Data..=) Prelude.<$> sourcePath,
             ("SourceTable" Data..=) Prelude.<$> sourceTable,
-            ("TargetPath" Data..=) Prelude.<$> targetPath,
             ("SourceType" Data..=) Prelude.<$> sourceType,
-            ("TargetType" Data..=) Prelude.<$> targetType,
-            ("SourcePath" Data..=) Prelude.<$> sourcePath
+            ("TargetPath" Data..=) Prelude.<$> targetPath,
+            ("TargetTable" Data..=) Prelude.<$> targetTable,
+            ("TargetType" Data..=) Prelude.<$> targetType
           ]
       )

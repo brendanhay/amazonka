@@ -27,17 +27,17 @@ module Amazonka.Panorama.ListDevicesJobs
     newListDevicesJobs,
 
     -- * Request Lenses
-    listDevicesJobs_nextToken,
     listDevicesJobs_deviceId,
     listDevicesJobs_maxResults,
+    listDevicesJobs_nextToken,
 
     -- * Destructuring the Response
     ListDevicesJobsResponse (..),
     newListDevicesJobsResponse,
 
     -- * Response Lenses
-    listDevicesJobsResponse_nextToken,
     listDevicesJobsResponse_deviceJobs,
+    listDevicesJobsResponse_nextToken,
     listDevicesJobsResponse_httpStatus,
   )
 where
@@ -52,13 +52,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDevicesJobs' smart constructor.
 data ListDevicesJobs = ListDevicesJobs'
-  { -- | Specify the pagination token from a previous request to retrieve the
-    -- next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filter results by the job\'s target device ID.
+  { -- | Filter results by the job\'s target device ID.
     deviceId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of device jobs to return in one page of results.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Specify the pagination token from a previous request to retrieve the
+    -- next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,25 +70,20 @@ data ListDevicesJobs = ListDevicesJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listDevicesJobs_nextToken' - Specify the pagination token from a previous request to retrieve the
--- next page of results.
---
 -- 'deviceId', 'listDevicesJobs_deviceId' - Filter results by the job\'s target device ID.
 --
 -- 'maxResults', 'listDevicesJobs_maxResults' - The maximum number of device jobs to return in one page of results.
+--
+-- 'nextToken', 'listDevicesJobs_nextToken' - Specify the pagination token from a previous request to retrieve the
+-- next page of results.
 newListDevicesJobs ::
   ListDevicesJobs
 newListDevicesJobs =
   ListDevicesJobs'
-    { nextToken = Prelude.Nothing,
-      deviceId = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { deviceId = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | Specify the pagination token from a previous request to retrieve the
--- next page of results.
-listDevicesJobs_nextToken :: Lens.Lens' ListDevicesJobs (Prelude.Maybe Prelude.Text)
-listDevicesJobs_nextToken = Lens.lens (\ListDevicesJobs' {nextToken} -> nextToken) (\s@ListDevicesJobs' {} a -> s {nextToken = a} :: ListDevicesJobs)
 
 -- | Filter results by the job\'s target device ID.
 listDevicesJobs_deviceId :: Lens.Lens' ListDevicesJobs (Prelude.Maybe Prelude.Text)
@@ -97,6 +92,11 @@ listDevicesJobs_deviceId = Lens.lens (\ListDevicesJobs' {deviceId} -> deviceId) 
 -- | The maximum number of device jobs to return in one page of results.
 listDevicesJobs_maxResults :: Lens.Lens' ListDevicesJobs (Prelude.Maybe Prelude.Natural)
 listDevicesJobs_maxResults = Lens.lens (\ListDevicesJobs' {maxResults} -> maxResults) (\s@ListDevicesJobs' {} a -> s {maxResults = a} :: ListDevicesJobs)
+
+-- | Specify the pagination token from a previous request to retrieve the
+-- next page of results.
+listDevicesJobs_nextToken :: Lens.Lens' ListDevicesJobs (Prelude.Maybe Prelude.Text)
+listDevicesJobs_nextToken = Lens.lens (\ListDevicesJobs' {nextToken} -> nextToken) (\s@ListDevicesJobs' {} a -> s {nextToken = a} :: ListDevicesJobs)
 
 instance Core.AWSRequest ListDevicesJobs where
   type
@@ -108,22 +108,22 @@ instance Core.AWSRequest ListDevicesJobs where
     Response.receiveJSON
       ( \s h x ->
           ListDevicesJobsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "DeviceJobs" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "DeviceJobs" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListDevicesJobs where
   hashWithSalt _salt ListDevicesJobs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` deviceId
+    _salt `Prelude.hashWithSalt` deviceId
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListDevicesJobs where
   rnf ListDevicesJobs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf deviceId
+    Prelude.rnf deviceId
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListDevicesJobs where
   toHeaders =
@@ -142,17 +142,17 @@ instance Data.ToPath ListDevicesJobs where
 instance Data.ToQuery ListDevicesJobs where
   toQuery ListDevicesJobs' {..} =
     Prelude.mconcat
-      [ "NextToken" Data.=: nextToken,
-        "DeviceId" Data.=: deviceId,
-        "MaxResults" Data.=: maxResults
+      [ "DeviceId" Data.=: deviceId,
+        "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListDevicesJobsResponse' smart constructor.
 data ListDevicesJobsResponse = ListDevicesJobsResponse'
-  { -- | A pagination token that\'s included if more results are available.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of jobs.
+  { -- | A list of jobs.
     deviceJobs :: Prelude.Maybe [DeviceJob],
+    -- | A pagination token that\'s included if more results are available.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -166,9 +166,9 @@ data ListDevicesJobsResponse = ListDevicesJobsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listDevicesJobsResponse_nextToken' - A pagination token that\'s included if more results are available.
---
 -- 'deviceJobs', 'listDevicesJobsResponse_deviceJobs' - A list of jobs.
+--
+-- 'nextToken', 'listDevicesJobsResponse_nextToken' - A pagination token that\'s included if more results are available.
 --
 -- 'httpStatus', 'listDevicesJobsResponse_httpStatus' - The response's http status code.
 newListDevicesJobsResponse ::
@@ -177,19 +177,19 @@ newListDevicesJobsResponse ::
   ListDevicesJobsResponse
 newListDevicesJobsResponse pHttpStatus_ =
   ListDevicesJobsResponse'
-    { nextToken =
+    { deviceJobs =
         Prelude.Nothing,
-      deviceJobs = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A pagination token that\'s included if more results are available.
-listDevicesJobsResponse_nextToken :: Lens.Lens' ListDevicesJobsResponse (Prelude.Maybe Prelude.Text)
-listDevicesJobsResponse_nextToken = Lens.lens (\ListDevicesJobsResponse' {nextToken} -> nextToken) (\s@ListDevicesJobsResponse' {} a -> s {nextToken = a} :: ListDevicesJobsResponse)
 
 -- | A list of jobs.
 listDevicesJobsResponse_deviceJobs :: Lens.Lens' ListDevicesJobsResponse (Prelude.Maybe [DeviceJob])
 listDevicesJobsResponse_deviceJobs = Lens.lens (\ListDevicesJobsResponse' {deviceJobs} -> deviceJobs) (\s@ListDevicesJobsResponse' {} a -> s {deviceJobs = a} :: ListDevicesJobsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A pagination token that\'s included if more results are available.
+listDevicesJobsResponse_nextToken :: Lens.Lens' ListDevicesJobsResponse (Prelude.Maybe Prelude.Text)
+listDevicesJobsResponse_nextToken = Lens.lens (\ListDevicesJobsResponse' {nextToken} -> nextToken) (\s@ListDevicesJobsResponse' {} a -> s {nextToken = a} :: ListDevicesJobsResponse)
 
 -- | The response's http status code.
 listDevicesJobsResponse_httpStatus :: Lens.Lens' ListDevicesJobsResponse Prelude.Int
@@ -197,6 +197,6 @@ listDevicesJobsResponse_httpStatus = Lens.lens (\ListDevicesJobsResponse' {httpS
 
 instance Prelude.NFData ListDevicesJobsResponse where
   rnf ListDevicesJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf deviceJobs
+    Prelude.rnf deviceJobs
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

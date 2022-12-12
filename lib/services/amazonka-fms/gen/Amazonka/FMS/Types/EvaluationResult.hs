@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEvaluationResult' smart constructor.
 data EvaluationResult = EvaluationResult'
-  { -- | Indicates that over 100 resources are noncompliant with the Firewall
-    -- Manager policy.
-    evaluationLimitExceeded :: Prelude.Maybe Prelude.Bool,
-    -- | Describes an Amazon Web Services account\'s compliance with the Firewall
+  { -- | Describes an Amazon Web Services account\'s compliance with the Firewall
     -- Manager policy.
     complianceStatus :: Prelude.Maybe PolicyComplianceStatusType,
+    -- | Indicates that over 100 resources are noncompliant with the Firewall
+    -- Manager policy.
+    evaluationLimitExceeded :: Prelude.Maybe Prelude.Bool,
     -- | The number of resources that are noncompliant with the specified policy.
     -- For WAF and Shield Advanced policies, a resource is considered
     -- noncompliant if it is not associated with the policy. For security group
@@ -55,10 +55,10 @@ data EvaluationResult = EvaluationResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'evaluationLimitExceeded', 'evaluationResult_evaluationLimitExceeded' - Indicates that over 100 resources are noncompliant with the Firewall
+-- 'complianceStatus', 'evaluationResult_complianceStatus' - Describes an Amazon Web Services account\'s compliance with the Firewall
 -- Manager policy.
 --
--- 'complianceStatus', 'evaluationResult_complianceStatus' - Describes an Amazon Web Services account\'s compliance with the Firewall
+-- 'evaluationLimitExceeded', 'evaluationResult_evaluationLimitExceeded' - Indicates that over 100 resources are noncompliant with the Firewall
 -- Manager policy.
 --
 -- 'violatorCount', 'evaluationResult_violatorCount' - The number of resources that are noncompliant with the specified policy.
@@ -71,21 +71,21 @@ newEvaluationResult ::
   EvaluationResult
 newEvaluationResult =
   EvaluationResult'
-    { evaluationLimitExceeded =
+    { complianceStatus =
         Prelude.Nothing,
-      complianceStatus = Prelude.Nothing,
+      evaluationLimitExceeded = Prelude.Nothing,
       violatorCount = Prelude.Nothing
     }
-
--- | Indicates that over 100 resources are noncompliant with the Firewall
--- Manager policy.
-evaluationResult_evaluationLimitExceeded :: Lens.Lens' EvaluationResult (Prelude.Maybe Prelude.Bool)
-evaluationResult_evaluationLimitExceeded = Lens.lens (\EvaluationResult' {evaluationLimitExceeded} -> evaluationLimitExceeded) (\s@EvaluationResult' {} a -> s {evaluationLimitExceeded = a} :: EvaluationResult)
 
 -- | Describes an Amazon Web Services account\'s compliance with the Firewall
 -- Manager policy.
 evaluationResult_complianceStatus :: Lens.Lens' EvaluationResult (Prelude.Maybe PolicyComplianceStatusType)
 evaluationResult_complianceStatus = Lens.lens (\EvaluationResult' {complianceStatus} -> complianceStatus) (\s@EvaluationResult' {} a -> s {complianceStatus = a} :: EvaluationResult)
+
+-- | Indicates that over 100 resources are noncompliant with the Firewall
+-- Manager policy.
+evaluationResult_evaluationLimitExceeded :: Lens.Lens' EvaluationResult (Prelude.Maybe Prelude.Bool)
+evaluationResult_evaluationLimitExceeded = Lens.lens (\EvaluationResult' {evaluationLimitExceeded} -> evaluationLimitExceeded) (\s@EvaluationResult' {} a -> s {evaluationLimitExceeded = a} :: EvaluationResult)
 
 -- | The number of resources that are noncompliant with the specified policy.
 -- For WAF and Shield Advanced policies, a resource is considered
@@ -102,20 +102,19 @@ instance Data.FromJSON EvaluationResult where
       "EvaluationResult"
       ( \x ->
           EvaluationResult'
-            Prelude.<$> (x Data..:? "EvaluationLimitExceeded")
-            Prelude.<*> (x Data..:? "ComplianceStatus")
+            Prelude.<$> (x Data..:? "ComplianceStatus")
+            Prelude.<*> (x Data..:? "EvaluationLimitExceeded")
             Prelude.<*> (x Data..:? "ViolatorCount")
       )
 
 instance Prelude.Hashable EvaluationResult where
   hashWithSalt _salt EvaluationResult' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` complianceStatus
       `Prelude.hashWithSalt` evaluationLimitExceeded
-      `Prelude.hashWithSalt` complianceStatus
       `Prelude.hashWithSalt` violatorCount
 
 instance Prelude.NFData EvaluationResult where
   rnf EvaluationResult' {..} =
-    Prelude.rnf evaluationLimitExceeded
-      `Prelude.seq` Prelude.rnf complianceStatus
+    Prelude.rnf complianceStatus
+      `Prelude.seq` Prelude.rnf evaluationLimitExceeded
       `Prelude.seq` Prelude.rnf violatorCount

@@ -34,13 +34,13 @@ module Amazonka.KafkaConnect.DescribeCustomPlugin
     newDescribeCustomPluginResponse,
 
     -- * Response Lenses
+    describeCustomPluginResponse_creationTime,
+    describeCustomPluginResponse_customPluginArn,
+    describeCustomPluginResponse_customPluginState,
+    describeCustomPluginResponse_description,
     describeCustomPluginResponse_latestRevision,
     describeCustomPluginResponse_name,
     describeCustomPluginResponse_stateDescription,
-    describeCustomPluginResponse_customPluginState,
-    describeCustomPluginResponse_description,
-    describeCustomPluginResponse_creationTime,
-    describeCustomPluginResponse_customPluginArn,
     describeCustomPluginResponse_httpStatus,
   )
 where
@@ -93,13 +93,13 @@ instance Core.AWSRequest DescribeCustomPlugin where
     Response.receiveJSON
       ( \s h x ->
           DescribeCustomPluginResponse'
-            Prelude.<$> (x Data..?> "latestRevision")
-            Prelude.<*> (x Data..?> "name")
-            Prelude.<*> (x Data..?> "stateDescription")
+            Prelude.<$> (x Data..?> "creationTime")
+            Prelude.<*> (x Data..?> "customPluginArn")
             Prelude.<*> (x Data..?> "customPluginState")
             Prelude.<*> (x Data..?> "description")
-            Prelude.<*> (x Data..?> "creationTime")
-            Prelude.<*> (x Data..?> "customPluginArn")
+            Prelude.<*> (x Data..?> "latestRevision")
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "stateDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,21 +132,21 @@ instance Data.ToQuery DescribeCustomPlugin where
 
 -- | /See:/ 'newDescribeCustomPluginResponse' smart constructor.
 data DescribeCustomPluginResponse = DescribeCustomPluginResponse'
-  { -- | The latest successfully created revision of the custom plugin. If there
+  { -- | The time that the custom plugin was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The Amazon Resource Name (ARN) of the custom plugin.
+    customPluginArn :: Prelude.Maybe Prelude.Text,
+    -- | The state of the custom plugin.
+    customPluginState :: Prelude.Maybe CustomPluginState,
+    -- | The description of the custom plugin.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The latest successfully created revision of the custom plugin. If there
     -- are no successfully created revisions, this field will be absent.
     latestRevision :: Prelude.Maybe CustomPluginRevisionSummary,
     -- | The name of the custom plugin.
     name :: Prelude.Maybe Prelude.Text,
     -- | Details about the state of a custom plugin.
     stateDescription :: Prelude.Maybe StateDescription,
-    -- | The state of the custom plugin.
-    customPluginState :: Prelude.Maybe CustomPluginState,
-    -- | The description of the custom plugin.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The time that the custom plugin was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
-    -- | The Amazon Resource Name (ARN) of the custom plugin.
-    customPluginArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -160,20 +160,20 @@ data DescribeCustomPluginResponse = DescribeCustomPluginResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'creationTime', 'describeCustomPluginResponse_creationTime' - The time that the custom plugin was created.
+--
+-- 'customPluginArn', 'describeCustomPluginResponse_customPluginArn' - The Amazon Resource Name (ARN) of the custom plugin.
+--
+-- 'customPluginState', 'describeCustomPluginResponse_customPluginState' - The state of the custom plugin.
+--
+-- 'description', 'describeCustomPluginResponse_description' - The description of the custom plugin.
+--
 -- 'latestRevision', 'describeCustomPluginResponse_latestRevision' - The latest successfully created revision of the custom plugin. If there
 -- are no successfully created revisions, this field will be absent.
 --
 -- 'name', 'describeCustomPluginResponse_name' - The name of the custom plugin.
 --
 -- 'stateDescription', 'describeCustomPluginResponse_stateDescription' - Details about the state of a custom plugin.
---
--- 'customPluginState', 'describeCustomPluginResponse_customPluginState' - The state of the custom plugin.
---
--- 'description', 'describeCustomPluginResponse_description' - The description of the custom plugin.
---
--- 'creationTime', 'describeCustomPluginResponse_creationTime' - The time that the custom plugin was created.
---
--- 'customPluginArn', 'describeCustomPluginResponse_customPluginArn' - The Amazon Resource Name (ARN) of the custom plugin.
 --
 -- 'httpStatus', 'describeCustomPluginResponse_httpStatus' - The response's http status code.
 newDescribeCustomPluginResponse ::
@@ -182,16 +182,32 @@ newDescribeCustomPluginResponse ::
   DescribeCustomPluginResponse
 newDescribeCustomPluginResponse pHttpStatus_ =
   DescribeCustomPluginResponse'
-    { latestRevision =
+    { creationTime =
         Prelude.Nothing,
-      name = Prelude.Nothing,
-      stateDescription = Prelude.Nothing,
+      customPluginArn = Prelude.Nothing,
       customPluginState = Prelude.Nothing,
       description = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      customPluginArn = Prelude.Nothing,
+      latestRevision = Prelude.Nothing,
+      name = Prelude.Nothing,
+      stateDescription = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The time that the custom plugin was created.
+describeCustomPluginResponse_creationTime :: Lens.Lens' DescribeCustomPluginResponse (Prelude.Maybe Prelude.UTCTime)
+describeCustomPluginResponse_creationTime = Lens.lens (\DescribeCustomPluginResponse' {creationTime} -> creationTime) (\s@DescribeCustomPluginResponse' {} a -> s {creationTime = a} :: DescribeCustomPluginResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The Amazon Resource Name (ARN) of the custom plugin.
+describeCustomPluginResponse_customPluginArn :: Lens.Lens' DescribeCustomPluginResponse (Prelude.Maybe Prelude.Text)
+describeCustomPluginResponse_customPluginArn = Lens.lens (\DescribeCustomPluginResponse' {customPluginArn} -> customPluginArn) (\s@DescribeCustomPluginResponse' {} a -> s {customPluginArn = a} :: DescribeCustomPluginResponse)
+
+-- | The state of the custom plugin.
+describeCustomPluginResponse_customPluginState :: Lens.Lens' DescribeCustomPluginResponse (Prelude.Maybe CustomPluginState)
+describeCustomPluginResponse_customPluginState = Lens.lens (\DescribeCustomPluginResponse' {customPluginState} -> customPluginState) (\s@DescribeCustomPluginResponse' {} a -> s {customPluginState = a} :: DescribeCustomPluginResponse)
+
+-- | The description of the custom plugin.
+describeCustomPluginResponse_description :: Lens.Lens' DescribeCustomPluginResponse (Prelude.Maybe Prelude.Text)
+describeCustomPluginResponse_description = Lens.lens (\DescribeCustomPluginResponse' {description} -> description) (\s@DescribeCustomPluginResponse' {} a -> s {description = a} :: DescribeCustomPluginResponse)
 
 -- | The latest successfully created revision of the custom plugin. If there
 -- are no successfully created revisions, this field will be absent.
@@ -206,33 +222,17 @@ describeCustomPluginResponse_name = Lens.lens (\DescribeCustomPluginResponse' {n
 describeCustomPluginResponse_stateDescription :: Lens.Lens' DescribeCustomPluginResponse (Prelude.Maybe StateDescription)
 describeCustomPluginResponse_stateDescription = Lens.lens (\DescribeCustomPluginResponse' {stateDescription} -> stateDescription) (\s@DescribeCustomPluginResponse' {} a -> s {stateDescription = a} :: DescribeCustomPluginResponse)
 
--- | The state of the custom plugin.
-describeCustomPluginResponse_customPluginState :: Lens.Lens' DescribeCustomPluginResponse (Prelude.Maybe CustomPluginState)
-describeCustomPluginResponse_customPluginState = Lens.lens (\DescribeCustomPluginResponse' {customPluginState} -> customPluginState) (\s@DescribeCustomPluginResponse' {} a -> s {customPluginState = a} :: DescribeCustomPluginResponse)
-
--- | The description of the custom plugin.
-describeCustomPluginResponse_description :: Lens.Lens' DescribeCustomPluginResponse (Prelude.Maybe Prelude.Text)
-describeCustomPluginResponse_description = Lens.lens (\DescribeCustomPluginResponse' {description} -> description) (\s@DescribeCustomPluginResponse' {} a -> s {description = a} :: DescribeCustomPluginResponse)
-
--- | The time that the custom plugin was created.
-describeCustomPluginResponse_creationTime :: Lens.Lens' DescribeCustomPluginResponse (Prelude.Maybe Prelude.UTCTime)
-describeCustomPluginResponse_creationTime = Lens.lens (\DescribeCustomPluginResponse' {creationTime} -> creationTime) (\s@DescribeCustomPluginResponse' {} a -> s {creationTime = a} :: DescribeCustomPluginResponse) Prelude.. Lens.mapping Data._Time
-
--- | The Amazon Resource Name (ARN) of the custom plugin.
-describeCustomPluginResponse_customPluginArn :: Lens.Lens' DescribeCustomPluginResponse (Prelude.Maybe Prelude.Text)
-describeCustomPluginResponse_customPluginArn = Lens.lens (\DescribeCustomPluginResponse' {customPluginArn} -> customPluginArn) (\s@DescribeCustomPluginResponse' {} a -> s {customPluginArn = a} :: DescribeCustomPluginResponse)
-
 -- | The response's http status code.
 describeCustomPluginResponse_httpStatus :: Lens.Lens' DescribeCustomPluginResponse Prelude.Int
 describeCustomPluginResponse_httpStatus = Lens.lens (\DescribeCustomPluginResponse' {httpStatus} -> httpStatus) (\s@DescribeCustomPluginResponse' {} a -> s {httpStatus = a} :: DescribeCustomPluginResponse)
 
 instance Prelude.NFData DescribeCustomPluginResponse where
   rnf DescribeCustomPluginResponse' {..} =
-    Prelude.rnf latestRevision
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf stateDescription
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf customPluginArn
       `Prelude.seq` Prelude.rnf customPluginState
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf customPluginArn
+      `Prelude.seq` Prelude.rnf latestRevision
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf stateDescription
       `Prelude.seq` Prelude.rnf httpStatus

@@ -27,8 +27,8 @@ module Amazonka.MacieV2.CreateAllowList
     newCreateAllowList,
 
     -- * Request Lenses
-    createAllowList_tags,
     createAllowList_description,
+    createAllowList_tags,
     createAllowList_criteria,
     createAllowList_clientToken,
     createAllowList_name,
@@ -54,16 +54,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateAllowList' smart constructor.
 data CreateAllowList = CreateAllowList'
-  { -- | A map of key-value pairs that specifies the tags to associate with the
+  { -- | A custom description of the allow list. The description can contain as
+    -- many as 512 characters.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | A map of key-value pairs that specifies the tags to associate with the
     -- allow list.
     --
     -- An allow list can have a maximum of 50 tags. Each tag consists of a tag
     -- key and an associated tag value. The maximum length of a tag key is 128
     -- characters. The maximum length of a tag value is 256 characters.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A custom description of the allow list. The description can contain as
-    -- many as 512 characters.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The criteria that specify the text or text pattern to ignore. The
     -- criteria can be the location and name of an S3 object that lists
     -- specific text to ignore (s3WordsList), or a regular expression (regex)
@@ -86,15 +86,15 @@ data CreateAllowList = CreateAllowList'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'createAllowList_description' - A custom description of the allow list. The description can contain as
+-- many as 512 characters.
+--
 -- 'tags', 'createAllowList_tags' - A map of key-value pairs that specifies the tags to associate with the
 -- allow list.
 --
 -- An allow list can have a maximum of 50 tags. Each tag consists of a tag
 -- key and an associated tag value. The maximum length of a tag key is 128
 -- characters. The maximum length of a tag value is 256 characters.
---
--- 'description', 'createAllowList_description' - A custom description of the allow list. The description can contain as
--- many as 512 characters.
 --
 -- 'criteria', 'createAllowList_criteria' - The criteria that specify the text or text pattern to ignore. The
 -- criteria can be the location and name of an S3 object that lists
@@ -116,12 +116,17 @@ newCreateAllowList ::
   CreateAllowList
 newCreateAllowList pCriteria_ pClientToken_ pName_ =
   CreateAllowList'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       criteria = pCriteria_,
       clientToken = pClientToken_,
       name = pName_
     }
+
+-- | A custom description of the allow list. The description can contain as
+-- many as 512 characters.
+createAllowList_description :: Lens.Lens' CreateAllowList (Prelude.Maybe Prelude.Text)
+createAllowList_description = Lens.lens (\CreateAllowList' {description} -> description) (\s@CreateAllowList' {} a -> s {description = a} :: CreateAllowList)
 
 -- | A map of key-value pairs that specifies the tags to associate with the
 -- allow list.
@@ -131,11 +136,6 @@ newCreateAllowList pCriteria_ pClientToken_ pName_ =
 -- characters. The maximum length of a tag value is 256 characters.
 createAllowList_tags :: Lens.Lens' CreateAllowList (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createAllowList_tags = Lens.lens (\CreateAllowList' {tags} -> tags) (\s@CreateAllowList' {} a -> s {tags = a} :: CreateAllowList) Prelude.. Lens.mapping Lens.coerced
-
--- | A custom description of the allow list. The description can contain as
--- many as 512 characters.
-createAllowList_description :: Lens.Lens' CreateAllowList (Prelude.Maybe Prelude.Text)
-createAllowList_description = Lens.lens (\CreateAllowList' {description} -> description) (\s@CreateAllowList' {} a -> s {description = a} :: CreateAllowList)
 
 -- | The criteria that specify the text or text pattern to ignore. The
 -- criteria can be the location and name of an S3 object that lists
@@ -171,16 +171,16 @@ instance Core.AWSRequest CreateAllowList where
 
 instance Prelude.Hashable CreateAllowList where
   hashWithSalt _salt CreateAllowList' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` criteria
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateAllowList where
   rnf CreateAllowList' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf criteria
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf name
@@ -200,8 +200,8 @@ instance Data.ToJSON CreateAllowList where
   toJSON CreateAllowList' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("description" Data..=) Prelude.<$> description,
+          [ ("description" Data..=) Prelude.<$> description,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("criteria" Data..= criteria),
             Prelude.Just ("clientToken" Data..= clientToken),
             Prelude.Just ("name" Data..= name)

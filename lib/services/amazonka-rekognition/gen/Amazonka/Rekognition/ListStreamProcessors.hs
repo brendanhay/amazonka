@@ -30,8 +30,8 @@ module Amazonka.Rekognition.ListStreamProcessors
     newListStreamProcessors,
 
     -- * Request Lenses
-    listStreamProcessors_nextToken,
     listStreamProcessors_maxResults,
+    listStreamProcessors_nextToken,
 
     -- * Destructuring the Response
     ListStreamProcessorsResponse (..),
@@ -54,14 +54,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListStreamProcessors' smart constructor.
 data ListStreamProcessors = ListStreamProcessors'
-  { -- | If the previous response was incomplete (because there are more stream
+  { -- | Maximum number of stream processors you want Amazon Rekognition Video to
+    -- return in the response. The default is 1000.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the previous response was incomplete (because there are more stream
     -- processors to retrieve), Amazon Rekognition Video returns a pagination
     -- token in the response. You can use this pagination token to retrieve the
     -- next set of stream processors.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Maximum number of stream processors you want Amazon Rekognition Video to
-    -- return in the response. The default is 1000.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,20 +73,25 @@ data ListStreamProcessors = ListStreamProcessors'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listStreamProcessors_maxResults' - Maximum number of stream processors you want Amazon Rekognition Video to
+-- return in the response. The default is 1000.
+--
 -- 'nextToken', 'listStreamProcessors_nextToken' - If the previous response was incomplete (because there are more stream
 -- processors to retrieve), Amazon Rekognition Video returns a pagination
 -- token in the response. You can use this pagination token to retrieve the
 -- next set of stream processors.
---
--- 'maxResults', 'listStreamProcessors_maxResults' - Maximum number of stream processors you want Amazon Rekognition Video to
--- return in the response. The default is 1000.
 newListStreamProcessors ::
   ListStreamProcessors
 newListStreamProcessors =
   ListStreamProcessors'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | Maximum number of stream processors you want Amazon Rekognition Video to
+-- return in the response. The default is 1000.
+listStreamProcessors_maxResults :: Lens.Lens' ListStreamProcessors (Prelude.Maybe Prelude.Natural)
+listStreamProcessors_maxResults = Lens.lens (\ListStreamProcessors' {maxResults} -> maxResults) (\s@ListStreamProcessors' {} a -> s {maxResults = a} :: ListStreamProcessors)
 
 -- | If the previous response was incomplete (because there are more stream
 -- processors to retrieve), Amazon Rekognition Video returns a pagination
@@ -94,11 +99,6 @@ newListStreamProcessors =
 -- next set of stream processors.
 listStreamProcessors_nextToken :: Lens.Lens' ListStreamProcessors (Prelude.Maybe Prelude.Text)
 listStreamProcessors_nextToken = Lens.lens (\ListStreamProcessors' {nextToken} -> nextToken) (\s@ListStreamProcessors' {} a -> s {nextToken = a} :: ListStreamProcessors)
-
--- | Maximum number of stream processors you want Amazon Rekognition Video to
--- return in the response. The default is 1000.
-listStreamProcessors_maxResults :: Lens.Lens' ListStreamProcessors (Prelude.Maybe Prelude.Natural)
-listStreamProcessors_maxResults = Lens.lens (\ListStreamProcessors' {maxResults} -> maxResults) (\s@ListStreamProcessors' {} a -> s {maxResults = a} :: ListStreamProcessors)
 
 instance Core.AWSPager ListStreamProcessors where
   page rq rs
@@ -141,13 +141,13 @@ instance Core.AWSRequest ListStreamProcessors where
 
 instance Prelude.Hashable ListStreamProcessors where
   hashWithSalt _salt ListStreamProcessors' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListStreamProcessors where
   rnf ListStreamProcessors' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListStreamProcessors where
   toHeaders =
@@ -168,8 +168,8 @@ instance Data.ToJSON ListStreamProcessors where
   toJSON ListStreamProcessors' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

@@ -34,8 +34,8 @@ module Amazonka.M2.ListDataSets
     newListDataSets,
 
     -- * Request Lenses
-    listDataSets_nextToken,
     listDataSets_maxResults,
+    listDataSets_nextToken,
     listDataSets_prefix,
     listDataSets_applicationId,
 
@@ -60,12 +60,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDataSets' smart constructor.
 data ListDataSets = ListDataSets'
-  { -- | A pagination token returned from a previous call to this operation. This
+  { -- | The maximum number of objects to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A pagination token returned from a previous call to this operation. This
     -- specifies the next item to return. To return to the beginning of the
     -- list, exclude this parameter.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of objects to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The prefix of the data set name, which you can use to filter the list of
     -- data sets.
     prefix :: Prelude.Maybe Prelude.Text,
@@ -83,11 +83,11 @@ data ListDataSets = ListDataSets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listDataSets_maxResults' - The maximum number of objects to return.
+--
 -- 'nextToken', 'listDataSets_nextToken' - A pagination token returned from a previous call to this operation. This
 -- specifies the next item to return. To return to the beginning of the
 -- list, exclude this parameter.
---
--- 'maxResults', 'listDataSets_maxResults' - The maximum number of objects to return.
 --
 -- 'prefix', 'listDataSets_prefix' - The prefix of the data set name, which you can use to filter the list of
 -- data sets.
@@ -100,21 +100,21 @@ newListDataSets ::
   ListDataSets
 newListDataSets pApplicationId_ =
   ListDataSets'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       prefix = Prelude.Nothing,
       applicationId = pApplicationId_
     }
+
+-- | The maximum number of objects to return.
+listDataSets_maxResults :: Lens.Lens' ListDataSets (Prelude.Maybe Prelude.Natural)
+listDataSets_maxResults = Lens.lens (\ListDataSets' {maxResults} -> maxResults) (\s@ListDataSets' {} a -> s {maxResults = a} :: ListDataSets)
 
 -- | A pagination token returned from a previous call to this operation. This
 -- specifies the next item to return. To return to the beginning of the
 -- list, exclude this parameter.
 listDataSets_nextToken :: Lens.Lens' ListDataSets (Prelude.Maybe Prelude.Text)
 listDataSets_nextToken = Lens.lens (\ListDataSets' {nextToken} -> nextToken) (\s@ListDataSets' {} a -> s {nextToken = a} :: ListDataSets)
-
--- | The maximum number of objects to return.
-listDataSets_maxResults :: Lens.Lens' ListDataSets (Prelude.Maybe Prelude.Natural)
-listDataSets_maxResults = Lens.lens (\ListDataSets' {maxResults} -> maxResults) (\s@ListDataSets' {} a -> s {maxResults = a} :: ListDataSets)
 
 -- | The prefix of the data set name, which you can use to filter the list of
 -- data sets.
@@ -158,15 +158,15 @@ instance Core.AWSRequest ListDataSets where
 
 instance Prelude.Hashable ListDataSets where
   hashWithSalt _salt ListDataSets' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` prefix
       `Prelude.hashWithSalt` applicationId
 
 instance Prelude.NFData ListDataSets where
   rnf ListDataSets' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf prefix
       `Prelude.seq` Prelude.rnf applicationId
 
@@ -192,8 +192,8 @@ instance Data.ToPath ListDataSets where
 instance Data.ToQuery ListDataSets where
   toQuery ListDataSets' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults,
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
         "prefix" Data.=: prefix
       ]
 

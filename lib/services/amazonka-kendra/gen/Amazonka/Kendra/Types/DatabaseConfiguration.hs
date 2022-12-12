@@ -34,13 +34,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDatabaseConfiguration' smart constructor.
 data DatabaseConfiguration = DatabaseConfiguration'
-  { vpcConfiguration :: Prelude.Maybe DataSourceVpcConfiguration,
-    -- | Information about the database column that provides information for user
+  { -- | Information about the database column that provides information for user
     -- context filtering.
     aclConfiguration :: Prelude.Maybe AclConfiguration,
     -- | Provides information about how Amazon Kendra uses quote marks around SQL
     -- identifiers when querying a database data source.
     sqlConfiguration :: Prelude.Maybe SqlConfiguration,
+    vpcConfiguration :: Prelude.Maybe DataSourceVpcConfiguration,
     -- | The type of database engine that runs the database.
     databaseEngineType :: DatabaseEngineType,
     -- | Configuration information that\'s required to connect to a database.
@@ -59,13 +59,13 @@ data DatabaseConfiguration = DatabaseConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vpcConfiguration', 'databaseConfiguration_vpcConfiguration' - Undocumented member.
---
 -- 'aclConfiguration', 'databaseConfiguration_aclConfiguration' - Information about the database column that provides information for user
 -- context filtering.
 --
 -- 'sqlConfiguration', 'databaseConfiguration_sqlConfiguration' - Provides information about how Amazon Kendra uses quote marks around SQL
 -- identifiers when querying a database data source.
+--
+-- 'vpcConfiguration', 'databaseConfiguration_vpcConfiguration' - Undocumented member.
 --
 -- 'databaseEngineType', 'databaseConfiguration_databaseEngineType' - The type of database engine that runs the database.
 --
@@ -86,18 +86,14 @@ newDatabaseConfiguration
   pConnectionConfiguration_
   pColumnConfiguration_ =
     DatabaseConfiguration'
-      { vpcConfiguration =
+      { aclConfiguration =
           Prelude.Nothing,
-        aclConfiguration = Prelude.Nothing,
         sqlConfiguration = Prelude.Nothing,
+        vpcConfiguration = Prelude.Nothing,
         databaseEngineType = pDatabaseEngineType_,
         connectionConfiguration = pConnectionConfiguration_,
         columnConfiguration = pColumnConfiguration_
       }
-
--- | Undocumented member.
-databaseConfiguration_vpcConfiguration :: Lens.Lens' DatabaseConfiguration (Prelude.Maybe DataSourceVpcConfiguration)
-databaseConfiguration_vpcConfiguration = Lens.lens (\DatabaseConfiguration' {vpcConfiguration} -> vpcConfiguration) (\s@DatabaseConfiguration' {} a -> s {vpcConfiguration = a} :: DatabaseConfiguration)
 
 -- | Information about the database column that provides information for user
 -- context filtering.
@@ -108,6 +104,10 @@ databaseConfiguration_aclConfiguration = Lens.lens (\DatabaseConfiguration' {acl
 -- identifiers when querying a database data source.
 databaseConfiguration_sqlConfiguration :: Lens.Lens' DatabaseConfiguration (Prelude.Maybe SqlConfiguration)
 databaseConfiguration_sqlConfiguration = Lens.lens (\DatabaseConfiguration' {sqlConfiguration} -> sqlConfiguration) (\s@DatabaseConfiguration' {} a -> s {sqlConfiguration = a} :: DatabaseConfiguration)
+
+-- | Undocumented member.
+databaseConfiguration_vpcConfiguration :: Lens.Lens' DatabaseConfiguration (Prelude.Maybe DataSourceVpcConfiguration)
+databaseConfiguration_vpcConfiguration = Lens.lens (\DatabaseConfiguration' {vpcConfiguration} -> vpcConfiguration) (\s@DatabaseConfiguration' {} a -> s {vpcConfiguration = a} :: DatabaseConfiguration)
 
 -- | The type of database engine that runs the database.
 databaseConfiguration_databaseEngineType :: Lens.Lens' DatabaseConfiguration DatabaseEngineType
@@ -128,9 +128,9 @@ instance Data.FromJSON DatabaseConfiguration where
       "DatabaseConfiguration"
       ( \x ->
           DatabaseConfiguration'
-            Prelude.<$> (x Data..:? "VpcConfiguration")
-            Prelude.<*> (x Data..:? "AclConfiguration")
+            Prelude.<$> (x Data..:? "AclConfiguration")
             Prelude.<*> (x Data..:? "SqlConfiguration")
+            Prelude.<*> (x Data..:? "VpcConfiguration")
             Prelude.<*> (x Data..: "DatabaseEngineType")
             Prelude.<*> (x Data..: "ConnectionConfiguration")
             Prelude.<*> (x Data..: "ColumnConfiguration")
@@ -138,18 +138,18 @@ instance Data.FromJSON DatabaseConfiguration where
 
 instance Prelude.Hashable DatabaseConfiguration where
   hashWithSalt _salt DatabaseConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` vpcConfiguration
-      `Prelude.hashWithSalt` aclConfiguration
+    _salt `Prelude.hashWithSalt` aclConfiguration
       `Prelude.hashWithSalt` sqlConfiguration
+      `Prelude.hashWithSalt` vpcConfiguration
       `Prelude.hashWithSalt` databaseEngineType
       `Prelude.hashWithSalt` connectionConfiguration
       `Prelude.hashWithSalt` columnConfiguration
 
 instance Prelude.NFData DatabaseConfiguration where
   rnf DatabaseConfiguration' {..} =
-    Prelude.rnf vpcConfiguration
-      `Prelude.seq` Prelude.rnf aclConfiguration
+    Prelude.rnf aclConfiguration
       `Prelude.seq` Prelude.rnf sqlConfiguration
+      `Prelude.seq` Prelude.rnf vpcConfiguration
       `Prelude.seq` Prelude.rnf databaseEngineType
       `Prelude.seq` Prelude.rnf connectionConfiguration
       `Prelude.seq` Prelude.rnf columnConfiguration
@@ -158,12 +158,12 @@ instance Data.ToJSON DatabaseConfiguration where
   toJSON DatabaseConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("VpcConfiguration" Data..=)
-              Prelude.<$> vpcConfiguration,
-            ("AclConfiguration" Data..=)
+          [ ("AclConfiguration" Data..=)
               Prelude.<$> aclConfiguration,
             ("SqlConfiguration" Data..=)
               Prelude.<$> sqlConfiguration,
+            ("VpcConfiguration" Data..=)
+              Prelude.<$> vpcConfiguration,
             Prelude.Just
               ("DatabaseEngineType" Data..= databaseEngineType),
             Prelude.Just

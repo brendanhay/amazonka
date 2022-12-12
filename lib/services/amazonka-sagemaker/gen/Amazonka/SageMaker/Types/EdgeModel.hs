@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEdgeModel' smart constructor.
 data EdgeModel = EdgeModel'
-  { -- | The timestamp of the last data sample taken.
-    latestSampleTime :: Prelude.Maybe Data.POSIX,
-    -- | The timestamp of the last inference that was made.
+  { -- | The timestamp of the last inference that was made.
     latestInference :: Prelude.Maybe Data.POSIX,
+    -- | The timestamp of the last data sample taken.
+    latestSampleTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the model.
     modelName :: Prelude.Text,
     -- | The model version.
@@ -47,9 +47,9 @@ data EdgeModel = EdgeModel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'latestSampleTime', 'edgeModel_latestSampleTime' - The timestamp of the last data sample taken.
---
 -- 'latestInference', 'edgeModel_latestInference' - The timestamp of the last inference that was made.
+--
+-- 'latestSampleTime', 'edgeModel_latestSampleTime' - The timestamp of the last data sample taken.
 --
 -- 'modelName', 'edgeModel_modelName' - The name of the model.
 --
@@ -62,19 +62,19 @@ newEdgeModel ::
   EdgeModel
 newEdgeModel pModelName_ pModelVersion_ =
   EdgeModel'
-    { latestSampleTime = Prelude.Nothing,
-      latestInference = Prelude.Nothing,
+    { latestInference = Prelude.Nothing,
+      latestSampleTime = Prelude.Nothing,
       modelName = pModelName_,
       modelVersion = pModelVersion_
     }
 
--- | The timestamp of the last data sample taken.
-edgeModel_latestSampleTime :: Lens.Lens' EdgeModel (Prelude.Maybe Prelude.UTCTime)
-edgeModel_latestSampleTime = Lens.lens (\EdgeModel' {latestSampleTime} -> latestSampleTime) (\s@EdgeModel' {} a -> s {latestSampleTime = a} :: EdgeModel) Prelude.. Lens.mapping Data._Time
-
 -- | The timestamp of the last inference that was made.
 edgeModel_latestInference :: Lens.Lens' EdgeModel (Prelude.Maybe Prelude.UTCTime)
 edgeModel_latestInference = Lens.lens (\EdgeModel' {latestInference} -> latestInference) (\s@EdgeModel' {} a -> s {latestInference = a} :: EdgeModel) Prelude.. Lens.mapping Data._Time
+
+-- | The timestamp of the last data sample taken.
+edgeModel_latestSampleTime :: Lens.Lens' EdgeModel (Prelude.Maybe Prelude.UTCTime)
+edgeModel_latestSampleTime = Lens.lens (\EdgeModel' {latestSampleTime} -> latestSampleTime) (\s@EdgeModel' {} a -> s {latestSampleTime = a} :: EdgeModel) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the model.
 edgeModel_modelName :: Lens.Lens' EdgeModel Prelude.Text
@@ -90,22 +90,22 @@ instance Data.FromJSON EdgeModel where
       "EdgeModel"
       ( \x ->
           EdgeModel'
-            Prelude.<$> (x Data..:? "LatestSampleTime")
-            Prelude.<*> (x Data..:? "LatestInference")
+            Prelude.<$> (x Data..:? "LatestInference")
+            Prelude.<*> (x Data..:? "LatestSampleTime")
             Prelude.<*> (x Data..: "ModelName")
             Prelude.<*> (x Data..: "ModelVersion")
       )
 
 instance Prelude.Hashable EdgeModel where
   hashWithSalt _salt EdgeModel' {..} =
-    _salt `Prelude.hashWithSalt` latestSampleTime
-      `Prelude.hashWithSalt` latestInference
+    _salt `Prelude.hashWithSalt` latestInference
+      `Prelude.hashWithSalt` latestSampleTime
       `Prelude.hashWithSalt` modelName
       `Prelude.hashWithSalt` modelVersion
 
 instance Prelude.NFData EdgeModel where
   rnf EdgeModel' {..} =
-    Prelude.rnf latestSampleTime
-      `Prelude.seq` Prelude.rnf latestInference
+    Prelude.rnf latestInference
+      `Prelude.seq` Prelude.rnf latestSampleTime
       `Prelude.seq` Prelude.rnf modelName
       `Prelude.seq` Prelude.rnf modelVersion

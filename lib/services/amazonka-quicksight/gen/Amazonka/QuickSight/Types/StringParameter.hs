@@ -31,9 +31,9 @@ data StringParameter = StringParameter'
   { -- | A display name for a string parameter.
     name :: Prelude.Text,
     -- | The values of a string parameter.
-    values :: [Prelude.Text]
+    values :: [Data.Sensitive Prelude.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StringParameter' with all optional fields omitted.

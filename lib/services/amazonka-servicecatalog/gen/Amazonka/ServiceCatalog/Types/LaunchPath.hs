@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLaunchPath' smart constructor.
 data LaunchPath = LaunchPath'
-  { -- | The name of the launch path.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the launch path.
-    id :: Prelude.Maybe Prelude.Text
+  { -- | The identifier of the launch path.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The name of the launch path.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data LaunchPath = LaunchPath'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'launchPath_name' - The name of the launch path.
---
 -- 'id', 'launchPath_id' - The identifier of the launch path.
+--
+-- 'name', 'launchPath_name' - The name of the launch path.
 newLaunchPath ::
   LaunchPath
 newLaunchPath =
   LaunchPath'
-    { name = Prelude.Nothing,
-      id = Prelude.Nothing
+    { id = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | The name of the launch path.
-launchPath_name :: Lens.Lens' LaunchPath (Prelude.Maybe Prelude.Text)
-launchPath_name = Lens.lens (\LaunchPath' {name} -> name) (\s@LaunchPath' {} a -> s {name = a} :: LaunchPath)
 
 -- | The identifier of the launch path.
 launchPath_id :: Lens.Lens' LaunchPath (Prelude.Maybe Prelude.Text)
 launchPath_id = Lens.lens (\LaunchPath' {id} -> id) (\s@LaunchPath' {} a -> s {id = a} :: LaunchPath)
+
+-- | The name of the launch path.
+launchPath_name :: Lens.Lens' LaunchPath (Prelude.Maybe Prelude.Text)
+launchPath_name = Lens.lens (\LaunchPath' {name} -> name) (\s@LaunchPath' {} a -> s {name = a} :: LaunchPath)
 
 instance Data.FromJSON LaunchPath where
   parseJSON =
@@ -68,14 +68,14 @@ instance Data.FromJSON LaunchPath where
       "LaunchPath"
       ( \x ->
           LaunchPath'
-            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Id")
+            Prelude.<$> (x Data..:? "Id") Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable LaunchPath where
   hashWithSalt _salt LaunchPath' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` id
+    _salt `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData LaunchPath where
   rnf LaunchPath' {..} =
-    Prelude.rnf name `Prelude.seq` Prelude.rnf id
+    Prelude.rnf id `Prelude.seq` Prelude.rnf name

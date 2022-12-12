@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRoutedResource' smart constructor.
 data RoutedResource = RoutedResource'
-  { -- | The name of the routed resource.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the routed resource. For more information, see
+  { -- | The ARN of the routed resource. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /AWS General Reference/.
-    arn :: Prelude.Maybe Prelude.Text
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the routed resource.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,22 +45,18 @@ data RoutedResource = RoutedResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'routedResource_name' - The name of the routed resource.
---
 -- 'arn', 'routedResource_arn' - The ARN of the routed resource. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /AWS General Reference/.
+--
+-- 'name', 'routedResource_name' - The name of the routed resource.
 newRoutedResource ::
   RoutedResource
 newRoutedResource =
   RoutedResource'
-    { name = Prelude.Nothing,
-      arn = Prelude.Nothing
+    { arn = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | The name of the routed resource.
-routedResource_name :: Lens.Lens' RoutedResource (Prelude.Maybe Prelude.Text)
-routedResource_name = Lens.lens (\RoutedResource' {name} -> name) (\s@RoutedResource' {} a -> s {name = a} :: RoutedResource)
 
 -- | The ARN of the routed resource. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
@@ -68,20 +64,24 @@ routedResource_name = Lens.lens (\RoutedResource' {name} -> name) (\s@RoutedReso
 routedResource_arn :: Lens.Lens' RoutedResource (Prelude.Maybe Prelude.Text)
 routedResource_arn = Lens.lens (\RoutedResource' {arn} -> arn) (\s@RoutedResource' {} a -> s {arn = a} :: RoutedResource)
 
+-- | The name of the routed resource.
+routedResource_name :: Lens.Lens' RoutedResource (Prelude.Maybe Prelude.Text)
+routedResource_name = Lens.lens (\RoutedResource' {name} -> name) (\s@RoutedResource' {} a -> s {name = a} :: RoutedResource)
+
 instance Data.FromJSON RoutedResource where
   parseJSON =
     Data.withObject
       "RoutedResource"
       ( \x ->
           RoutedResource'
-            Prelude.<$> (x Data..:? "name") Prelude.<*> (x Data..:? "arn")
+            Prelude.<$> (x Data..:? "arn") Prelude.<*> (x Data..:? "name")
       )
 
 instance Prelude.Hashable RoutedResource where
   hashWithSalt _salt RoutedResource' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData RoutedResource where
   rnf RoutedResource' {..} =
-    Prelude.rnf name `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf name

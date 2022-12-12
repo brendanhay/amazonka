@@ -29,9 +29,9 @@ module Amazonka.ServiceCatalog.ListPortfoliosForProduct
     newListPortfoliosForProduct,
 
     -- * Request Lenses
-    listPortfoliosForProduct_pageToken,
-    listPortfoliosForProduct_pageSize,
     listPortfoliosForProduct_acceptLanguage,
+    listPortfoliosForProduct_pageSize,
+    listPortfoliosForProduct_pageToken,
     listPortfoliosForProduct_productId,
 
     -- * Destructuring the Response
@@ -55,12 +55,7 @@ import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newListPortfoliosForProduct' smart constructor.
 data ListPortfoliosForProduct = ListPortfoliosForProduct'
-  { -- | The page token for the next set of results. To retrieve the first set of
-    -- results, use null.
-    pageToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return with this call.
-    pageSize :: Prelude.Maybe Prelude.Natural,
-    -- | The language code.
+  { -- | The language code.
     --
     -- -   @en@ - English (default)
     --
@@ -68,6 +63,11 @@ data ListPortfoliosForProduct = ListPortfoliosForProduct'
     --
     -- -   @zh@ - Chinese
     acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return with this call.
+    pageSize :: Prelude.Maybe Prelude.Natural,
+    -- | The page token for the next set of results. To retrieve the first set of
+    -- results, use null.
+    pageToken :: Prelude.Maybe Prelude.Text,
     -- | The product identifier.
     productId :: Prelude.Text
   }
@@ -81,11 +81,6 @@ data ListPortfoliosForProduct = ListPortfoliosForProduct'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pageToken', 'listPortfoliosForProduct_pageToken' - The page token for the next set of results. To retrieve the first set of
--- results, use null.
---
--- 'pageSize', 'listPortfoliosForProduct_pageSize' - The maximum number of items to return with this call.
---
 -- 'acceptLanguage', 'listPortfoliosForProduct_acceptLanguage' - The language code.
 --
 -- -   @en@ - English (default)
@@ -94,6 +89,11 @@ data ListPortfoliosForProduct = ListPortfoliosForProduct'
 --
 -- -   @zh@ - Chinese
 --
+-- 'pageSize', 'listPortfoliosForProduct_pageSize' - The maximum number of items to return with this call.
+--
+-- 'pageToken', 'listPortfoliosForProduct_pageToken' - The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+--
 -- 'productId', 'listPortfoliosForProduct_productId' - The product identifier.
 newListPortfoliosForProduct ::
   -- | 'productId'
@@ -101,21 +101,12 @@ newListPortfoliosForProduct ::
   ListPortfoliosForProduct
 newListPortfoliosForProduct pProductId_ =
   ListPortfoliosForProduct'
-    { pageToken =
+    { acceptLanguage =
         Prelude.Nothing,
       pageSize = Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing,
+      pageToken = Prelude.Nothing,
       productId = pProductId_
     }
-
--- | The page token for the next set of results. To retrieve the first set of
--- results, use null.
-listPortfoliosForProduct_pageToken :: Lens.Lens' ListPortfoliosForProduct (Prelude.Maybe Prelude.Text)
-listPortfoliosForProduct_pageToken = Lens.lens (\ListPortfoliosForProduct' {pageToken} -> pageToken) (\s@ListPortfoliosForProduct' {} a -> s {pageToken = a} :: ListPortfoliosForProduct)
-
--- | The maximum number of items to return with this call.
-listPortfoliosForProduct_pageSize :: Lens.Lens' ListPortfoliosForProduct (Prelude.Maybe Prelude.Natural)
-listPortfoliosForProduct_pageSize = Lens.lens (\ListPortfoliosForProduct' {pageSize} -> pageSize) (\s@ListPortfoliosForProduct' {} a -> s {pageSize = a} :: ListPortfoliosForProduct)
 
 -- | The language code.
 --
@@ -126,6 +117,15 @@ listPortfoliosForProduct_pageSize = Lens.lens (\ListPortfoliosForProduct' {pageS
 -- -   @zh@ - Chinese
 listPortfoliosForProduct_acceptLanguage :: Lens.Lens' ListPortfoliosForProduct (Prelude.Maybe Prelude.Text)
 listPortfoliosForProduct_acceptLanguage = Lens.lens (\ListPortfoliosForProduct' {acceptLanguage} -> acceptLanguage) (\s@ListPortfoliosForProduct' {} a -> s {acceptLanguage = a} :: ListPortfoliosForProduct)
+
+-- | The maximum number of items to return with this call.
+listPortfoliosForProduct_pageSize :: Lens.Lens' ListPortfoliosForProduct (Prelude.Maybe Prelude.Natural)
+listPortfoliosForProduct_pageSize = Lens.lens (\ListPortfoliosForProduct' {pageSize} -> pageSize) (\s@ListPortfoliosForProduct' {} a -> s {pageSize = a} :: ListPortfoliosForProduct)
+
+-- | The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+listPortfoliosForProduct_pageToken :: Lens.Lens' ListPortfoliosForProduct (Prelude.Maybe Prelude.Text)
+listPortfoliosForProduct_pageToken = Lens.lens (\ListPortfoliosForProduct' {pageToken} -> pageToken) (\s@ListPortfoliosForProduct' {} a -> s {pageToken = a} :: ListPortfoliosForProduct)
 
 -- | The product identifier.
 listPortfoliosForProduct_productId :: Lens.Lens' ListPortfoliosForProduct Prelude.Text
@@ -172,16 +172,16 @@ instance Core.AWSRequest ListPortfoliosForProduct where
 
 instance Prelude.Hashable ListPortfoliosForProduct where
   hashWithSalt _salt ListPortfoliosForProduct' {..} =
-    _salt `Prelude.hashWithSalt` pageToken
+    _salt `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` pageSize
-      `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` pageToken
       `Prelude.hashWithSalt` productId
 
 instance Prelude.NFData ListPortfoliosForProduct where
   rnf ListPortfoliosForProduct' {..} =
-    Prelude.rnf pageToken
+    Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf pageToken
       `Prelude.seq` Prelude.rnf productId
 
 instance Data.ToHeaders ListPortfoliosForProduct where
@@ -203,10 +203,10 @@ instance Data.ToJSON ListPortfoliosForProduct where
   toJSON ListPortfoliosForProduct' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("PageToken" Data..=) Prelude.<$> pageToken,
-            ("PageSize" Data..=) Prelude.<$> pageSize,
-            ("AcceptLanguage" Data..=)
+          [ ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
+            ("PageSize" Data..=) Prelude.<$> pageSize,
+            ("PageToken" Data..=) Prelude.<$> pageToken,
             Prelude.Just ("ProductId" Data..= productId)
           ]
       )

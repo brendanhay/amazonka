@@ -40,8 +40,8 @@ module Amazonka.CodePipeline.CreatePipeline
     newCreatePipelineResponse,
 
     -- * Response Lenses
-    createPipelineResponse_tags,
     createPipelineResponse_pipeline,
+    createPipelineResponse_tags,
     createPipelineResponse_httpStatus,
   )
 where
@@ -107,8 +107,8 @@ instance Core.AWSRequest CreatePipeline where
     Response.receiveJSON
       ( \s h x ->
           CreatePipelineResponse'
-            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "pipeline")
+            Prelude.<$> (x Data..?> "pipeline")
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,11 +155,11 @@ instance Data.ToQuery CreatePipeline where
 --
 -- /See:/ 'newCreatePipelineResponse' smart constructor.
 data CreatePipelineResponse = CreatePipelineResponse'
-  { -- | Specifies the tags applied to the pipeline.
-    tags :: Prelude.Maybe [Tag],
-    -- | Represents the structure of actions and stages to be performed in the
+  { -- | Represents the structure of actions and stages to be performed in the
     -- pipeline.
     pipeline :: Prelude.Maybe PipelineDeclaration,
+    -- | Specifies the tags applied to the pipeline.
+    tags :: Prelude.Maybe [Tag],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -173,10 +173,10 @@ data CreatePipelineResponse = CreatePipelineResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createPipelineResponse_tags' - Specifies the tags applied to the pipeline.
---
 -- 'pipeline', 'createPipelineResponse_pipeline' - Represents the structure of actions and stages to be performed in the
 -- pipeline.
+--
+-- 'tags', 'createPipelineResponse_tags' - Specifies the tags applied to the pipeline.
 --
 -- 'httpStatus', 'createPipelineResponse_httpStatus' - The response's http status code.
 newCreatePipelineResponse ::
@@ -185,19 +185,19 @@ newCreatePipelineResponse ::
   CreatePipelineResponse
 newCreatePipelineResponse pHttpStatus_ =
   CreatePipelineResponse'
-    { tags = Prelude.Nothing,
-      pipeline = Prelude.Nothing,
+    { pipeline = Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Specifies the tags applied to the pipeline.
-createPipelineResponse_tags :: Lens.Lens' CreatePipelineResponse (Prelude.Maybe [Tag])
-createPipelineResponse_tags = Lens.lens (\CreatePipelineResponse' {tags} -> tags) (\s@CreatePipelineResponse' {} a -> s {tags = a} :: CreatePipelineResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Represents the structure of actions and stages to be performed in the
 -- pipeline.
 createPipelineResponse_pipeline :: Lens.Lens' CreatePipelineResponse (Prelude.Maybe PipelineDeclaration)
 createPipelineResponse_pipeline = Lens.lens (\CreatePipelineResponse' {pipeline} -> pipeline) (\s@CreatePipelineResponse' {} a -> s {pipeline = a} :: CreatePipelineResponse)
+
+-- | Specifies the tags applied to the pipeline.
+createPipelineResponse_tags :: Lens.Lens' CreatePipelineResponse (Prelude.Maybe [Tag])
+createPipelineResponse_tags = Lens.lens (\CreatePipelineResponse' {tags} -> tags) (\s@CreatePipelineResponse' {} a -> s {tags = a} :: CreatePipelineResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 createPipelineResponse_httpStatus :: Lens.Lens' CreatePipelineResponse Prelude.Int
@@ -205,6 +205,6 @@ createPipelineResponse_httpStatus = Lens.lens (\CreatePipelineResponse' {httpSta
 
 instance Prelude.NFData CreatePipelineResponse where
   rnf CreatePipelineResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf pipeline
+    Prelude.rnf pipeline
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

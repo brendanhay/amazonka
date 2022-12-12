@@ -33,12 +33,14 @@ import Amazonka.SecurityHub.Types.AwsElbLoadBalancerCrossZoneLoadBalancing
 --
 -- /See:/ 'newAwsElbLoadBalancerAttributes' smart constructor.
 data AwsElbLoadBalancerAttributes = AwsElbLoadBalancerAttributes'
-  { -- | Connection settings for the load balancer.
+  { -- | Information about the access log configuration for the load balancer.
     --
-    -- If an idle timeout is configured, the load balancer allows connections
-    -- to remain idle for the specified duration. When a connection is idle, no
-    -- data is sent over the connection.
-    connectionSettings :: Prelude.Maybe AwsElbLoadBalancerConnectionSettings,
+    -- If the access log is enabled, the load balancer captures detailed
+    -- information about all requests. It delivers the information to a
+    -- specified S3 bucket.
+    accessLog :: Prelude.Maybe AwsElbLoadBalancerAccessLog,
+    -- | Any additional attributes for a load balancer.
+    additionalAttributes :: Prelude.Maybe [AwsElbLoadBalancerAdditionalAttribute],
     -- | Information about the connection draining configuration for the load
     -- balancer.
     --
@@ -46,14 +48,12 @@ data AwsElbLoadBalancerAttributes = AwsElbLoadBalancerAttributes'
     -- requests to complete before it shifts traffic away from a deregistered
     -- or unhealthy instance.
     connectionDraining :: Prelude.Maybe AwsElbLoadBalancerConnectionDraining,
-    -- | Any additional attributes for a load balancer.
-    additionalAttributes :: Prelude.Maybe [AwsElbLoadBalancerAdditionalAttribute],
-    -- | Information about the access log configuration for the load balancer.
+    -- | Connection settings for the load balancer.
     --
-    -- If the access log is enabled, the load balancer captures detailed
-    -- information about all requests. It delivers the information to a
-    -- specified S3 bucket.
-    accessLog :: Prelude.Maybe AwsElbLoadBalancerAccessLog,
+    -- If an idle timeout is configured, the load balancer allows connections
+    -- to remain idle for the specified duration. When a connection is idle, no
+    -- data is sent over the connection.
+    connectionSettings :: Prelude.Maybe AwsElbLoadBalancerConnectionSettings,
     -- | Cross-zone load balancing settings for the load balancer.
     --
     -- If cross-zone load balancing is enabled, the load balancer routes the
@@ -71,11 +71,13 @@ data AwsElbLoadBalancerAttributes = AwsElbLoadBalancerAttributes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'connectionSettings', 'awsElbLoadBalancerAttributes_connectionSettings' - Connection settings for the load balancer.
+-- 'accessLog', 'awsElbLoadBalancerAttributes_accessLog' - Information about the access log configuration for the load balancer.
 --
--- If an idle timeout is configured, the load balancer allows connections
--- to remain idle for the specified duration. When a connection is idle, no
--- data is sent over the connection.
+-- If the access log is enabled, the load balancer captures detailed
+-- information about all requests. It delivers the information to a
+-- specified S3 bucket.
+--
+-- 'additionalAttributes', 'awsElbLoadBalancerAttributes_additionalAttributes' - Any additional attributes for a load balancer.
 --
 -- 'connectionDraining', 'awsElbLoadBalancerAttributes_connectionDraining' - Information about the connection draining configuration for the load
 -- balancer.
@@ -84,13 +86,11 @@ data AwsElbLoadBalancerAttributes = AwsElbLoadBalancerAttributes'
 -- requests to complete before it shifts traffic away from a deregistered
 -- or unhealthy instance.
 --
--- 'additionalAttributes', 'awsElbLoadBalancerAttributes_additionalAttributes' - Any additional attributes for a load balancer.
+-- 'connectionSettings', 'awsElbLoadBalancerAttributes_connectionSettings' - Connection settings for the load balancer.
 --
--- 'accessLog', 'awsElbLoadBalancerAttributes_accessLog' - Information about the access log configuration for the load balancer.
---
--- If the access log is enabled, the load balancer captures detailed
--- information about all requests. It delivers the information to a
--- specified S3 bucket.
+-- If an idle timeout is configured, the load balancer allows connections
+-- to remain idle for the specified duration. When a connection is idle, no
+-- data is sent over the connection.
 --
 -- 'crossZoneLoadBalancing', 'awsElbLoadBalancerAttributes_crossZoneLoadBalancing' - Cross-zone load balancing settings for the load balancer.
 --
@@ -101,21 +101,25 @@ newAwsElbLoadBalancerAttributes ::
   AwsElbLoadBalancerAttributes
 newAwsElbLoadBalancerAttributes =
   AwsElbLoadBalancerAttributes'
-    { connectionSettings =
+    { accessLog =
         Prelude.Nothing,
-      connectionDraining = Prelude.Nothing,
       additionalAttributes = Prelude.Nothing,
-      accessLog = Prelude.Nothing,
+      connectionDraining = Prelude.Nothing,
+      connectionSettings = Prelude.Nothing,
       crossZoneLoadBalancing = Prelude.Nothing
     }
 
--- | Connection settings for the load balancer.
+-- | Information about the access log configuration for the load balancer.
 --
--- If an idle timeout is configured, the load balancer allows connections
--- to remain idle for the specified duration. When a connection is idle, no
--- data is sent over the connection.
-awsElbLoadBalancerAttributes_connectionSettings :: Lens.Lens' AwsElbLoadBalancerAttributes (Prelude.Maybe AwsElbLoadBalancerConnectionSettings)
-awsElbLoadBalancerAttributes_connectionSettings = Lens.lens (\AwsElbLoadBalancerAttributes' {connectionSettings} -> connectionSettings) (\s@AwsElbLoadBalancerAttributes' {} a -> s {connectionSettings = a} :: AwsElbLoadBalancerAttributes)
+-- If the access log is enabled, the load balancer captures detailed
+-- information about all requests. It delivers the information to a
+-- specified S3 bucket.
+awsElbLoadBalancerAttributes_accessLog :: Lens.Lens' AwsElbLoadBalancerAttributes (Prelude.Maybe AwsElbLoadBalancerAccessLog)
+awsElbLoadBalancerAttributes_accessLog = Lens.lens (\AwsElbLoadBalancerAttributes' {accessLog} -> accessLog) (\s@AwsElbLoadBalancerAttributes' {} a -> s {accessLog = a} :: AwsElbLoadBalancerAttributes)
+
+-- | Any additional attributes for a load balancer.
+awsElbLoadBalancerAttributes_additionalAttributes :: Lens.Lens' AwsElbLoadBalancerAttributes (Prelude.Maybe [AwsElbLoadBalancerAdditionalAttribute])
+awsElbLoadBalancerAttributes_additionalAttributes = Lens.lens (\AwsElbLoadBalancerAttributes' {additionalAttributes} -> additionalAttributes) (\s@AwsElbLoadBalancerAttributes' {} a -> s {additionalAttributes = a} :: AwsElbLoadBalancerAttributes) Prelude.. Lens.mapping Lens.coerced
 
 -- | Information about the connection draining configuration for the load
 -- balancer.
@@ -126,17 +130,13 @@ awsElbLoadBalancerAttributes_connectionSettings = Lens.lens (\AwsElbLoadBalancer
 awsElbLoadBalancerAttributes_connectionDraining :: Lens.Lens' AwsElbLoadBalancerAttributes (Prelude.Maybe AwsElbLoadBalancerConnectionDraining)
 awsElbLoadBalancerAttributes_connectionDraining = Lens.lens (\AwsElbLoadBalancerAttributes' {connectionDraining} -> connectionDraining) (\s@AwsElbLoadBalancerAttributes' {} a -> s {connectionDraining = a} :: AwsElbLoadBalancerAttributes)
 
--- | Any additional attributes for a load balancer.
-awsElbLoadBalancerAttributes_additionalAttributes :: Lens.Lens' AwsElbLoadBalancerAttributes (Prelude.Maybe [AwsElbLoadBalancerAdditionalAttribute])
-awsElbLoadBalancerAttributes_additionalAttributes = Lens.lens (\AwsElbLoadBalancerAttributes' {additionalAttributes} -> additionalAttributes) (\s@AwsElbLoadBalancerAttributes' {} a -> s {additionalAttributes = a} :: AwsElbLoadBalancerAttributes) Prelude.. Lens.mapping Lens.coerced
-
--- | Information about the access log configuration for the load balancer.
+-- | Connection settings for the load balancer.
 --
--- If the access log is enabled, the load balancer captures detailed
--- information about all requests. It delivers the information to a
--- specified S3 bucket.
-awsElbLoadBalancerAttributes_accessLog :: Lens.Lens' AwsElbLoadBalancerAttributes (Prelude.Maybe AwsElbLoadBalancerAccessLog)
-awsElbLoadBalancerAttributes_accessLog = Lens.lens (\AwsElbLoadBalancerAttributes' {accessLog} -> accessLog) (\s@AwsElbLoadBalancerAttributes' {} a -> s {accessLog = a} :: AwsElbLoadBalancerAttributes)
+-- If an idle timeout is configured, the load balancer allows connections
+-- to remain idle for the specified duration. When a connection is idle, no
+-- data is sent over the connection.
+awsElbLoadBalancerAttributes_connectionSettings :: Lens.Lens' AwsElbLoadBalancerAttributes (Prelude.Maybe AwsElbLoadBalancerConnectionSettings)
+awsElbLoadBalancerAttributes_connectionSettings = Lens.lens (\AwsElbLoadBalancerAttributes' {connectionSettings} -> connectionSettings) (\s@AwsElbLoadBalancerAttributes' {} a -> s {connectionSettings = a} :: AwsElbLoadBalancerAttributes)
 
 -- | Cross-zone load balancing settings for the load balancer.
 --
@@ -152,12 +152,12 @@ instance Data.FromJSON AwsElbLoadBalancerAttributes where
       "AwsElbLoadBalancerAttributes"
       ( \x ->
           AwsElbLoadBalancerAttributes'
-            Prelude.<$> (x Data..:? "ConnectionSettings")
-            Prelude.<*> (x Data..:? "ConnectionDraining")
+            Prelude.<$> (x Data..:? "AccessLog")
             Prelude.<*> ( x Data..:? "AdditionalAttributes"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "AccessLog")
+            Prelude.<*> (x Data..:? "ConnectionDraining")
+            Prelude.<*> (x Data..:? "ConnectionSettings")
             Prelude.<*> (x Data..:? "CrossZoneLoadBalancing")
       )
 
@@ -166,31 +166,31 @@ instance
     AwsElbLoadBalancerAttributes
   where
   hashWithSalt _salt AwsElbLoadBalancerAttributes' {..} =
-    _salt `Prelude.hashWithSalt` connectionSettings
-      `Prelude.hashWithSalt` connectionDraining
+    _salt `Prelude.hashWithSalt` accessLog
       `Prelude.hashWithSalt` additionalAttributes
-      `Prelude.hashWithSalt` accessLog
+      `Prelude.hashWithSalt` connectionDraining
+      `Prelude.hashWithSalt` connectionSettings
       `Prelude.hashWithSalt` crossZoneLoadBalancing
 
 instance Prelude.NFData AwsElbLoadBalancerAttributes where
   rnf AwsElbLoadBalancerAttributes' {..} =
-    Prelude.rnf connectionSettings
-      `Prelude.seq` Prelude.rnf connectionDraining
+    Prelude.rnf accessLog
       `Prelude.seq` Prelude.rnf additionalAttributes
-      `Prelude.seq` Prelude.rnf accessLog
+      `Prelude.seq` Prelude.rnf connectionDraining
+      `Prelude.seq` Prelude.rnf connectionSettings
       `Prelude.seq` Prelude.rnf crossZoneLoadBalancing
 
 instance Data.ToJSON AwsElbLoadBalancerAttributes where
   toJSON AwsElbLoadBalancerAttributes' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ConnectionSettings" Data..=)
-              Prelude.<$> connectionSettings,
-            ("ConnectionDraining" Data..=)
-              Prelude.<$> connectionDraining,
+          [ ("AccessLog" Data..=) Prelude.<$> accessLog,
             ("AdditionalAttributes" Data..=)
               Prelude.<$> additionalAttributes,
-            ("AccessLog" Data..=) Prelude.<$> accessLog,
+            ("ConnectionDraining" Data..=)
+              Prelude.<$> connectionDraining,
+            ("ConnectionSettings" Data..=)
+              Prelude.<$> connectionSettings,
             ("CrossZoneLoadBalancing" Data..=)
               Prelude.<$> crossZoneLoadBalancing
           ]

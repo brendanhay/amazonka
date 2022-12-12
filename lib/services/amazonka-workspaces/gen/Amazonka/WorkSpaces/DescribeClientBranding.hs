@@ -41,11 +41,11 @@ module Amazonka.WorkSpaces.DescribeClientBranding
 
     -- * Response Lenses
     describeClientBrandingResponse_deviceTypeAndroid,
-    describeClientBrandingResponse_deviceTypeLinux,
-    describeClientBrandingResponse_deviceTypeWeb,
-    describeClientBrandingResponse_deviceTypeOsx,
-    describeClientBrandingResponse_deviceTypeWindows,
     describeClientBrandingResponse_deviceTypeIos,
+    describeClientBrandingResponse_deviceTypeLinux,
+    describeClientBrandingResponse_deviceTypeOsx,
+    describeClientBrandingResponse_deviceTypeWeb,
+    describeClientBrandingResponse_deviceTypeWindows,
     describeClientBrandingResponse_httpStatus,
   )
 where
@@ -99,11 +99,11 @@ instance Core.AWSRequest DescribeClientBranding where
       ( \s h x ->
           DescribeClientBrandingResponse'
             Prelude.<$> (x Data..?> "DeviceTypeAndroid")
-            Prelude.<*> (x Data..?> "DeviceTypeLinux")
-            Prelude.<*> (x Data..?> "DeviceTypeWeb")
-            Prelude.<*> (x Data..?> "DeviceTypeOsx")
-            Prelude.<*> (x Data..?> "DeviceTypeWindows")
             Prelude.<*> (x Data..?> "DeviceTypeIos")
+            Prelude.<*> (x Data..?> "DeviceTypeLinux")
+            Prelude.<*> (x Data..?> "DeviceTypeOsx")
+            Prelude.<*> (x Data..?> "DeviceTypeWeb")
+            Prelude.<*> (x Data..?> "DeviceTypeWindows")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,16 +147,16 @@ instance Data.ToQuery DescribeClientBranding where
 data DescribeClientBrandingResponse = DescribeClientBrandingResponse'
   { -- | The branding information for Android devices.
     deviceTypeAndroid :: Prelude.Maybe DefaultClientBrandingAttributes,
-    -- | The branding information for Linux devices.
-    deviceTypeLinux :: Prelude.Maybe DefaultClientBrandingAttributes,
-    -- | The branding information for Web access.
-    deviceTypeWeb :: Prelude.Maybe DefaultClientBrandingAttributes,
-    -- | The branding information for macOS devices.
-    deviceTypeOsx :: Prelude.Maybe DefaultClientBrandingAttributes,
-    -- | The branding information for Windows devices.
-    deviceTypeWindows :: Prelude.Maybe DefaultClientBrandingAttributes,
     -- | The branding information for iOS devices.
     deviceTypeIos :: Prelude.Maybe IosClientBrandingAttributes,
+    -- | The branding information for Linux devices.
+    deviceTypeLinux :: Prelude.Maybe DefaultClientBrandingAttributes,
+    -- | The branding information for macOS devices.
+    deviceTypeOsx :: Prelude.Maybe DefaultClientBrandingAttributes,
+    -- | The branding information for Web access.
+    deviceTypeWeb :: Prelude.Maybe DefaultClientBrandingAttributes,
+    -- | The branding information for Windows devices.
+    deviceTypeWindows :: Prelude.Maybe DefaultClientBrandingAttributes,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -172,15 +172,15 @@ data DescribeClientBrandingResponse = DescribeClientBrandingResponse'
 --
 -- 'deviceTypeAndroid', 'describeClientBrandingResponse_deviceTypeAndroid' - The branding information for Android devices.
 --
--- 'deviceTypeLinux', 'describeClientBrandingResponse_deviceTypeLinux' - The branding information for Linux devices.
+-- 'deviceTypeIos', 'describeClientBrandingResponse_deviceTypeIos' - The branding information for iOS devices.
 --
--- 'deviceTypeWeb', 'describeClientBrandingResponse_deviceTypeWeb' - The branding information for Web access.
+-- 'deviceTypeLinux', 'describeClientBrandingResponse_deviceTypeLinux' - The branding information for Linux devices.
 --
 -- 'deviceTypeOsx', 'describeClientBrandingResponse_deviceTypeOsx' - The branding information for macOS devices.
 --
--- 'deviceTypeWindows', 'describeClientBrandingResponse_deviceTypeWindows' - The branding information for Windows devices.
+-- 'deviceTypeWeb', 'describeClientBrandingResponse_deviceTypeWeb' - The branding information for Web access.
 --
--- 'deviceTypeIos', 'describeClientBrandingResponse_deviceTypeIos' - The branding information for iOS devices.
+-- 'deviceTypeWindows', 'describeClientBrandingResponse_deviceTypeWindows' - The branding information for Windows devices.
 --
 -- 'httpStatus', 'describeClientBrandingResponse_httpStatus' - The response's http status code.
 newDescribeClientBrandingResponse ::
@@ -191,11 +191,11 @@ newDescribeClientBrandingResponse pHttpStatus_ =
   DescribeClientBrandingResponse'
     { deviceTypeAndroid =
         Prelude.Nothing,
-      deviceTypeLinux = Prelude.Nothing,
-      deviceTypeWeb = Prelude.Nothing,
-      deviceTypeOsx = Prelude.Nothing,
-      deviceTypeWindows = Prelude.Nothing,
       deviceTypeIos = Prelude.Nothing,
+      deviceTypeLinux = Prelude.Nothing,
+      deviceTypeOsx = Prelude.Nothing,
+      deviceTypeWeb = Prelude.Nothing,
+      deviceTypeWindows = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -203,25 +203,25 @@ newDescribeClientBrandingResponse pHttpStatus_ =
 describeClientBrandingResponse_deviceTypeAndroid :: Lens.Lens' DescribeClientBrandingResponse (Prelude.Maybe DefaultClientBrandingAttributes)
 describeClientBrandingResponse_deviceTypeAndroid = Lens.lens (\DescribeClientBrandingResponse' {deviceTypeAndroid} -> deviceTypeAndroid) (\s@DescribeClientBrandingResponse' {} a -> s {deviceTypeAndroid = a} :: DescribeClientBrandingResponse)
 
+-- | The branding information for iOS devices.
+describeClientBrandingResponse_deviceTypeIos :: Lens.Lens' DescribeClientBrandingResponse (Prelude.Maybe IosClientBrandingAttributes)
+describeClientBrandingResponse_deviceTypeIos = Lens.lens (\DescribeClientBrandingResponse' {deviceTypeIos} -> deviceTypeIos) (\s@DescribeClientBrandingResponse' {} a -> s {deviceTypeIos = a} :: DescribeClientBrandingResponse)
+
 -- | The branding information for Linux devices.
 describeClientBrandingResponse_deviceTypeLinux :: Lens.Lens' DescribeClientBrandingResponse (Prelude.Maybe DefaultClientBrandingAttributes)
 describeClientBrandingResponse_deviceTypeLinux = Lens.lens (\DescribeClientBrandingResponse' {deviceTypeLinux} -> deviceTypeLinux) (\s@DescribeClientBrandingResponse' {} a -> s {deviceTypeLinux = a} :: DescribeClientBrandingResponse)
-
--- | The branding information for Web access.
-describeClientBrandingResponse_deviceTypeWeb :: Lens.Lens' DescribeClientBrandingResponse (Prelude.Maybe DefaultClientBrandingAttributes)
-describeClientBrandingResponse_deviceTypeWeb = Lens.lens (\DescribeClientBrandingResponse' {deviceTypeWeb} -> deviceTypeWeb) (\s@DescribeClientBrandingResponse' {} a -> s {deviceTypeWeb = a} :: DescribeClientBrandingResponse)
 
 -- | The branding information for macOS devices.
 describeClientBrandingResponse_deviceTypeOsx :: Lens.Lens' DescribeClientBrandingResponse (Prelude.Maybe DefaultClientBrandingAttributes)
 describeClientBrandingResponse_deviceTypeOsx = Lens.lens (\DescribeClientBrandingResponse' {deviceTypeOsx} -> deviceTypeOsx) (\s@DescribeClientBrandingResponse' {} a -> s {deviceTypeOsx = a} :: DescribeClientBrandingResponse)
 
+-- | The branding information for Web access.
+describeClientBrandingResponse_deviceTypeWeb :: Lens.Lens' DescribeClientBrandingResponse (Prelude.Maybe DefaultClientBrandingAttributes)
+describeClientBrandingResponse_deviceTypeWeb = Lens.lens (\DescribeClientBrandingResponse' {deviceTypeWeb} -> deviceTypeWeb) (\s@DescribeClientBrandingResponse' {} a -> s {deviceTypeWeb = a} :: DescribeClientBrandingResponse)
+
 -- | The branding information for Windows devices.
 describeClientBrandingResponse_deviceTypeWindows :: Lens.Lens' DescribeClientBrandingResponse (Prelude.Maybe DefaultClientBrandingAttributes)
 describeClientBrandingResponse_deviceTypeWindows = Lens.lens (\DescribeClientBrandingResponse' {deviceTypeWindows} -> deviceTypeWindows) (\s@DescribeClientBrandingResponse' {} a -> s {deviceTypeWindows = a} :: DescribeClientBrandingResponse)
-
--- | The branding information for iOS devices.
-describeClientBrandingResponse_deviceTypeIos :: Lens.Lens' DescribeClientBrandingResponse (Prelude.Maybe IosClientBrandingAttributes)
-describeClientBrandingResponse_deviceTypeIos = Lens.lens (\DescribeClientBrandingResponse' {deviceTypeIos} -> deviceTypeIos) (\s@DescribeClientBrandingResponse' {} a -> s {deviceTypeIos = a} :: DescribeClientBrandingResponse)
 
 -- | The response's http status code.
 describeClientBrandingResponse_httpStatus :: Lens.Lens' DescribeClientBrandingResponse Prelude.Int
@@ -233,9 +233,9 @@ instance
   where
   rnf DescribeClientBrandingResponse' {..} =
     Prelude.rnf deviceTypeAndroid
-      `Prelude.seq` Prelude.rnf deviceTypeLinux
-      `Prelude.seq` Prelude.rnf deviceTypeWeb
-      `Prelude.seq` Prelude.rnf deviceTypeOsx
-      `Prelude.seq` Prelude.rnf deviceTypeWindows
       `Prelude.seq` Prelude.rnf deviceTypeIos
+      `Prelude.seq` Prelude.rnf deviceTypeLinux
+      `Prelude.seq` Prelude.rnf deviceTypeOsx
+      `Prelude.seq` Prelude.rnf deviceTypeWeb
+      `Prelude.seq` Prelude.rnf deviceTypeWindows
       `Prelude.seq` Prelude.rnf httpStatus

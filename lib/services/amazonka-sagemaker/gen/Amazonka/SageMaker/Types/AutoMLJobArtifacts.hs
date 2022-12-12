@@ -29,9 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newAutoMLJobArtifacts' smart constructor.
 data AutoMLJobArtifacts = AutoMLJobArtifacts'
   { -- | The URL of the notebook location.
-    dataExplorationNotebookLocation :: Prelude.Maybe Prelude.Text,
+    candidateDefinitionNotebookLocation :: Prelude.Maybe Prelude.Text,
     -- | The URL of the notebook location.
-    candidateDefinitionNotebookLocation :: Prelude.Maybe Prelude.Text
+    dataExplorationNotebookLocation :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,26 +43,25 @@ data AutoMLJobArtifacts = AutoMLJobArtifacts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dataExplorationNotebookLocation', 'autoMLJobArtifacts_dataExplorationNotebookLocation' - The URL of the notebook location.
---
 -- 'candidateDefinitionNotebookLocation', 'autoMLJobArtifacts_candidateDefinitionNotebookLocation' - The URL of the notebook location.
+--
+-- 'dataExplorationNotebookLocation', 'autoMLJobArtifacts_dataExplorationNotebookLocation' - The URL of the notebook location.
 newAutoMLJobArtifacts ::
   AutoMLJobArtifacts
 newAutoMLJobArtifacts =
   AutoMLJobArtifacts'
-    { dataExplorationNotebookLocation =
+    { candidateDefinitionNotebookLocation =
         Prelude.Nothing,
-      candidateDefinitionNotebookLocation =
-        Prelude.Nothing
+      dataExplorationNotebookLocation = Prelude.Nothing
     }
-
--- | The URL of the notebook location.
-autoMLJobArtifacts_dataExplorationNotebookLocation :: Lens.Lens' AutoMLJobArtifacts (Prelude.Maybe Prelude.Text)
-autoMLJobArtifacts_dataExplorationNotebookLocation = Lens.lens (\AutoMLJobArtifacts' {dataExplorationNotebookLocation} -> dataExplorationNotebookLocation) (\s@AutoMLJobArtifacts' {} a -> s {dataExplorationNotebookLocation = a} :: AutoMLJobArtifacts)
 
 -- | The URL of the notebook location.
 autoMLJobArtifacts_candidateDefinitionNotebookLocation :: Lens.Lens' AutoMLJobArtifacts (Prelude.Maybe Prelude.Text)
 autoMLJobArtifacts_candidateDefinitionNotebookLocation = Lens.lens (\AutoMLJobArtifacts' {candidateDefinitionNotebookLocation} -> candidateDefinitionNotebookLocation) (\s@AutoMLJobArtifacts' {} a -> s {candidateDefinitionNotebookLocation = a} :: AutoMLJobArtifacts)
+
+-- | The URL of the notebook location.
+autoMLJobArtifacts_dataExplorationNotebookLocation :: Lens.Lens' AutoMLJobArtifacts (Prelude.Maybe Prelude.Text)
+autoMLJobArtifacts_dataExplorationNotebookLocation = Lens.lens (\AutoMLJobArtifacts' {dataExplorationNotebookLocation} -> dataExplorationNotebookLocation) (\s@AutoMLJobArtifacts' {} a -> s {dataExplorationNotebookLocation = a} :: AutoMLJobArtifacts)
 
 instance Data.FromJSON AutoMLJobArtifacts where
   parseJSON =
@@ -70,17 +69,17 @@ instance Data.FromJSON AutoMLJobArtifacts where
       "AutoMLJobArtifacts"
       ( \x ->
           AutoMLJobArtifacts'
-            Prelude.<$> (x Data..:? "DataExplorationNotebookLocation")
-            Prelude.<*> (x Data..:? "CandidateDefinitionNotebookLocation")
+            Prelude.<$> (x Data..:? "CandidateDefinitionNotebookLocation")
+            Prelude.<*> (x Data..:? "DataExplorationNotebookLocation")
       )
 
 instance Prelude.Hashable AutoMLJobArtifacts where
   hashWithSalt _salt AutoMLJobArtifacts' {..} =
     _salt
-      `Prelude.hashWithSalt` dataExplorationNotebookLocation
       `Prelude.hashWithSalt` candidateDefinitionNotebookLocation
+      `Prelude.hashWithSalt` dataExplorationNotebookLocation
 
 instance Prelude.NFData AutoMLJobArtifacts where
   rnf AutoMLJobArtifacts' {..} =
-    Prelude.rnf dataExplorationNotebookLocation
-      `Prelude.seq` Prelude.rnf candidateDefinitionNotebookLocation
+    Prelude.rnf candidateDefinitionNotebookLocation
+      `Prelude.seq` Prelude.rnf dataExplorationNotebookLocation

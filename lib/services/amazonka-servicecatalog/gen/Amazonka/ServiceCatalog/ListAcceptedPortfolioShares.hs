@@ -32,10 +32,10 @@ module Amazonka.ServiceCatalog.ListAcceptedPortfolioShares
     newListAcceptedPortfolioShares,
 
     -- * Request Lenses
-    listAcceptedPortfolioShares_pageToken,
-    listAcceptedPortfolioShares_pageSize,
-    listAcceptedPortfolioShares_portfolioShareType,
     listAcceptedPortfolioShares_acceptLanguage,
+    listAcceptedPortfolioShares_pageSize,
+    listAcceptedPortfolioShares_pageToken,
+    listAcceptedPortfolioShares_portfolioShareType,
 
     -- * Destructuring the Response
     ListAcceptedPortfolioSharesResponse (..),
@@ -58,11 +58,19 @@ import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newListAcceptedPortfolioShares' smart constructor.
 data ListAcceptedPortfolioShares = ListAcceptedPortfolioShares'
-  { -- | The page token for the next set of results. To retrieve the first set of
-    -- results, use null.
-    pageToken :: Prelude.Maybe Prelude.Text,
+  { -- | The language code.
+    --
+    -- -   @en@ - English (default)
+    --
+    -- -   @jp@ - Japanese
+    --
+    -- -   @zh@ - Chinese
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to return with this call.
     pageSize :: Prelude.Maybe Prelude.Natural,
+    -- | The page token for the next set of results. To retrieve the first set of
+    -- results, use null.
+    pageToken :: Prelude.Maybe Prelude.Text,
     -- | The type of shared portfolios to list. The default is to list imported
     -- portfolios.
     --
@@ -74,15 +82,7 @@ data ListAcceptedPortfolioShares = ListAcceptedPortfolioShares'
     --
     -- -   @IMPORTED@ - List imported portfolios that have been accepted and
     --     shared through account-to-account sharing.
-    portfolioShareType :: Prelude.Maybe PortfolioShareType,
-    -- | The language code.
-    --
-    -- -   @en@ - English (default)
-    --
-    -- -   @jp@ - Japanese
-    --
-    -- -   @zh@ - Chinese
-    acceptLanguage :: Prelude.Maybe Prelude.Text
+    portfolioShareType :: Prelude.Maybe PortfolioShareType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -94,10 +94,18 @@ data ListAcceptedPortfolioShares = ListAcceptedPortfolioShares'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pageToken', 'listAcceptedPortfolioShares_pageToken' - The page token for the next set of results. To retrieve the first set of
--- results, use null.
+-- 'acceptLanguage', 'listAcceptedPortfolioShares_acceptLanguage' - The language code.
+--
+-- -   @en@ - English (default)
+--
+-- -   @jp@ - Japanese
+--
+-- -   @zh@ - Chinese
 --
 -- 'pageSize', 'listAcceptedPortfolioShares_pageSize' - The maximum number of items to return with this call.
+--
+-- 'pageToken', 'listAcceptedPortfolioShares_pageToken' - The page token for the next set of results. To retrieve the first set of
+-- results, use null.
 --
 -- 'portfolioShareType', 'listAcceptedPortfolioShares_portfolioShareType' - The type of shared portfolios to list. The default is to list imported
 -- portfolios.
@@ -110,33 +118,35 @@ data ListAcceptedPortfolioShares = ListAcceptedPortfolioShares'
 --
 -- -   @IMPORTED@ - List imported portfolios that have been accepted and
 --     shared through account-to-account sharing.
---
--- 'acceptLanguage', 'listAcceptedPortfolioShares_acceptLanguage' - The language code.
+newListAcceptedPortfolioShares ::
+  ListAcceptedPortfolioShares
+newListAcceptedPortfolioShares =
+  ListAcceptedPortfolioShares'
+    { acceptLanguage =
+        Prelude.Nothing,
+      pageSize = Prelude.Nothing,
+      pageToken = Prelude.Nothing,
+      portfolioShareType = Prelude.Nothing
+    }
+
+-- | The language code.
 --
 -- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-newListAcceptedPortfolioShares ::
-  ListAcceptedPortfolioShares
-newListAcceptedPortfolioShares =
-  ListAcceptedPortfolioShares'
-    { pageToken =
-        Prelude.Nothing,
-      pageSize = Prelude.Nothing,
-      portfolioShareType = Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing
-    }
+listAcceptedPortfolioShares_acceptLanguage :: Lens.Lens' ListAcceptedPortfolioShares (Prelude.Maybe Prelude.Text)
+listAcceptedPortfolioShares_acceptLanguage = Lens.lens (\ListAcceptedPortfolioShares' {acceptLanguage} -> acceptLanguage) (\s@ListAcceptedPortfolioShares' {} a -> s {acceptLanguage = a} :: ListAcceptedPortfolioShares)
+
+-- | The maximum number of items to return with this call.
+listAcceptedPortfolioShares_pageSize :: Lens.Lens' ListAcceptedPortfolioShares (Prelude.Maybe Prelude.Natural)
+listAcceptedPortfolioShares_pageSize = Lens.lens (\ListAcceptedPortfolioShares' {pageSize} -> pageSize) (\s@ListAcceptedPortfolioShares' {} a -> s {pageSize = a} :: ListAcceptedPortfolioShares)
 
 -- | The page token for the next set of results. To retrieve the first set of
 -- results, use null.
 listAcceptedPortfolioShares_pageToken :: Lens.Lens' ListAcceptedPortfolioShares (Prelude.Maybe Prelude.Text)
 listAcceptedPortfolioShares_pageToken = Lens.lens (\ListAcceptedPortfolioShares' {pageToken} -> pageToken) (\s@ListAcceptedPortfolioShares' {} a -> s {pageToken = a} :: ListAcceptedPortfolioShares)
-
--- | The maximum number of items to return with this call.
-listAcceptedPortfolioShares_pageSize :: Lens.Lens' ListAcceptedPortfolioShares (Prelude.Maybe Prelude.Natural)
-listAcceptedPortfolioShares_pageSize = Lens.lens (\ListAcceptedPortfolioShares' {pageSize} -> pageSize) (\s@ListAcceptedPortfolioShares' {} a -> s {pageSize = a} :: ListAcceptedPortfolioShares)
 
 -- | The type of shared portfolios to list. The default is to list imported
 -- portfolios.
@@ -151,16 +161,6 @@ listAcceptedPortfolioShares_pageSize = Lens.lens (\ListAcceptedPortfolioShares' 
 --     shared through account-to-account sharing.
 listAcceptedPortfolioShares_portfolioShareType :: Lens.Lens' ListAcceptedPortfolioShares (Prelude.Maybe PortfolioShareType)
 listAcceptedPortfolioShares_portfolioShareType = Lens.lens (\ListAcceptedPortfolioShares' {portfolioShareType} -> portfolioShareType) (\s@ListAcceptedPortfolioShares' {} a -> s {portfolioShareType = a} :: ListAcceptedPortfolioShares)
-
--- | The language code.
---
--- -   @en@ - English (default)
---
--- -   @jp@ - Japanese
---
--- -   @zh@ - Chinese
-listAcceptedPortfolioShares_acceptLanguage :: Lens.Lens' ListAcceptedPortfolioShares (Prelude.Maybe Prelude.Text)
-listAcceptedPortfolioShares_acceptLanguage = Lens.lens (\ListAcceptedPortfolioShares' {acceptLanguage} -> acceptLanguage) (\s@ListAcceptedPortfolioShares' {} a -> s {acceptLanguage = a} :: ListAcceptedPortfolioShares)
 
 instance Core.AWSPager ListAcceptedPortfolioShares where
   page rq rs
@@ -203,17 +203,17 @@ instance Core.AWSRequest ListAcceptedPortfolioShares where
 
 instance Prelude.Hashable ListAcceptedPortfolioShares where
   hashWithSalt _salt ListAcceptedPortfolioShares' {..} =
-    _salt `Prelude.hashWithSalt` pageToken
+    _salt `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` pageToken
       `Prelude.hashWithSalt` portfolioShareType
-      `Prelude.hashWithSalt` acceptLanguage
 
 instance Prelude.NFData ListAcceptedPortfolioShares where
   rnf ListAcceptedPortfolioShares' {..} =
-    Prelude.rnf pageToken
+    Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf pageToken
       `Prelude.seq` Prelude.rnf portfolioShareType
-      `Prelude.seq` Prelude.rnf acceptLanguage
 
 instance Data.ToHeaders ListAcceptedPortfolioShares where
   toHeaders =
@@ -234,12 +234,12 @@ instance Data.ToJSON ListAcceptedPortfolioShares where
   toJSON ListAcceptedPortfolioShares' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("PageToken" Data..=) Prelude.<$> pageToken,
+          [ ("AcceptLanguage" Data..=)
+              Prelude.<$> acceptLanguage,
             ("PageSize" Data..=) Prelude.<$> pageSize,
+            ("PageToken" Data..=) Prelude.<$> pageToken,
             ("PortfolioShareType" Data..=)
-              Prelude.<$> portfolioShareType,
-            ("AcceptLanguage" Data..=)
-              Prelude.<$> acceptLanguage
+              Prelude.<$> portfolioShareType
           ]
       )
 

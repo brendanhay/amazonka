@@ -31,6 +31,8 @@ import qualified Amazonka.Prelude as Prelude
 data TimeSeriesSummary = TimeSeriesSummary'
   { -- | The alias that identifies the time series.
     alias :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the asset in which the asset property was created.
+    assetId :: Prelude.Maybe Prelude.Text,
     -- | The data type of the structure for this time series. This parameter is
     -- required for time series that have the @STRUCT@ data type.
     --
@@ -39,8 +41,6 @@ data TimeSeriesSummary = TimeSeriesSummary'
     -- time series. Use @AWS\/ALARM_STATE@ for alarm state in alarm composite
     -- models.
     dataTypeSpec :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the asset in which the asset property was created.
-    assetId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the asset property.
     propertyId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the time series.
@@ -67,6 +67,8 @@ data TimeSeriesSummary = TimeSeriesSummary'
 --
 -- 'alias', 'timeSeriesSummary_alias' - The alias that identifies the time series.
 --
+-- 'assetId', 'timeSeriesSummary_assetId' - The ID of the asset in which the asset property was created.
+--
 -- 'dataTypeSpec', 'timeSeriesSummary_dataTypeSpec' - The data type of the structure for this time series. This parameter is
 -- required for time series that have the @STRUCT@ data type.
 --
@@ -74,8 +76,6 @@ data TimeSeriesSummary = TimeSeriesSummary'
 -- in which you created the asset property that is associated with your
 -- time series. Use @AWS\/ALARM_STATE@ for alarm state in alarm composite
 -- models.
---
--- 'assetId', 'timeSeriesSummary_assetId' - The ID of the asset in which the asset property was created.
 --
 -- 'propertyId', 'timeSeriesSummary_propertyId' - The ID of the asset property.
 --
@@ -106,8 +106,8 @@ newTimeSeriesSummary
   pTimeSeriesLastUpdateDate_ =
     TimeSeriesSummary'
       { alias = Prelude.Nothing,
-        dataTypeSpec = Prelude.Nothing,
         assetId = Prelude.Nothing,
+        dataTypeSpec = Prelude.Nothing,
         propertyId = Prelude.Nothing,
         timeSeriesId = pTimeSeriesId_,
         dataType = pDataType_,
@@ -121,6 +121,10 @@ newTimeSeriesSummary
 timeSeriesSummary_alias :: Lens.Lens' TimeSeriesSummary (Prelude.Maybe Prelude.Text)
 timeSeriesSummary_alias = Lens.lens (\TimeSeriesSummary' {alias} -> alias) (\s@TimeSeriesSummary' {} a -> s {alias = a} :: TimeSeriesSummary)
 
+-- | The ID of the asset in which the asset property was created.
+timeSeriesSummary_assetId :: Lens.Lens' TimeSeriesSummary (Prelude.Maybe Prelude.Text)
+timeSeriesSummary_assetId = Lens.lens (\TimeSeriesSummary' {assetId} -> assetId) (\s@TimeSeriesSummary' {} a -> s {assetId = a} :: TimeSeriesSummary)
+
 -- | The data type of the structure for this time series. This parameter is
 -- required for time series that have the @STRUCT@ data type.
 --
@@ -130,10 +134,6 @@ timeSeriesSummary_alias = Lens.lens (\TimeSeriesSummary' {alias} -> alias) (\s@T
 -- models.
 timeSeriesSummary_dataTypeSpec :: Lens.Lens' TimeSeriesSummary (Prelude.Maybe Prelude.Text)
 timeSeriesSummary_dataTypeSpec = Lens.lens (\TimeSeriesSummary' {dataTypeSpec} -> dataTypeSpec) (\s@TimeSeriesSummary' {} a -> s {dataTypeSpec = a} :: TimeSeriesSummary)
-
--- | The ID of the asset in which the asset property was created.
-timeSeriesSummary_assetId :: Lens.Lens' TimeSeriesSummary (Prelude.Maybe Prelude.Text)
-timeSeriesSummary_assetId = Lens.lens (\TimeSeriesSummary' {assetId} -> assetId) (\s@TimeSeriesSummary' {} a -> s {assetId = a} :: TimeSeriesSummary)
 
 -- | The ID of the asset property.
 timeSeriesSummary_propertyId :: Lens.Lens' TimeSeriesSummary (Prelude.Maybe Prelude.Text)
@@ -165,8 +165,8 @@ instance Data.FromJSON TimeSeriesSummary where
       ( \x ->
           TimeSeriesSummary'
             Prelude.<$> (x Data..:? "alias")
-            Prelude.<*> (x Data..:? "dataTypeSpec")
             Prelude.<*> (x Data..:? "assetId")
+            Prelude.<*> (x Data..:? "dataTypeSpec")
             Prelude.<*> (x Data..:? "propertyId")
             Prelude.<*> (x Data..: "timeSeriesId")
             Prelude.<*> (x Data..: "dataType")
@@ -177,8 +177,8 @@ instance Data.FromJSON TimeSeriesSummary where
 instance Prelude.Hashable TimeSeriesSummary where
   hashWithSalt _salt TimeSeriesSummary' {..} =
     _salt `Prelude.hashWithSalt` alias
-      `Prelude.hashWithSalt` dataTypeSpec
       `Prelude.hashWithSalt` assetId
+      `Prelude.hashWithSalt` dataTypeSpec
       `Prelude.hashWithSalt` propertyId
       `Prelude.hashWithSalt` timeSeriesId
       `Prelude.hashWithSalt` dataType
@@ -188,8 +188,8 @@ instance Prelude.Hashable TimeSeriesSummary where
 instance Prelude.NFData TimeSeriesSummary where
   rnf TimeSeriesSummary' {..} =
     Prelude.rnf alias
-      `Prelude.seq` Prelude.rnf dataTypeSpec
       `Prelude.seq` Prelude.rnf assetId
+      `Prelude.seq` Prelude.rnf dataTypeSpec
       `Prelude.seq` Prelude.rnf propertyId
       `Prelude.seq` Prelude.rnf timeSeriesId
       `Prelude.seq` Prelude.rnf dataType

@@ -51,17 +51,22 @@ library
     Amazonka.Textract.GetDocumentAnalysis
     Amazonka.Textract.GetDocumentTextDetection
     Amazonka.Textract.GetExpenseAnalysis
+    Amazonka.Textract.GetLendingAnalysis
+    Amazonka.Textract.GetLendingAnalysisSummary
     Amazonka.Textract.Lens
     Amazonka.Textract.StartDocumentAnalysis
     Amazonka.Textract.StartDocumentTextDetection
     Amazonka.Textract.StartExpenseAnalysis
+    Amazonka.Textract.StartLendingAnalysis
     Amazonka.Textract.Types
     Amazonka.Textract.Types.AnalyzeIDDetections
     Amazonka.Textract.Types.Block
     Amazonka.Textract.Types.BlockType
     Amazonka.Textract.Types.BoundingBox
     Amazonka.Textract.Types.ContentClassifier
+    Amazonka.Textract.Types.DetectedSignature
     Amazonka.Textract.Types.Document
+    Amazonka.Textract.Types.DocumentGroup
     Amazonka.Textract.Types.DocumentLocation
     Amazonka.Textract.Types.DocumentMetadata
     Amazonka.Textract.Types.EntityType
@@ -71,6 +76,7 @@ library
     Amazonka.Textract.Types.ExpenseField
     Amazonka.Textract.Types.ExpenseGroupProperty
     Amazonka.Textract.Types.ExpenseType
+    Amazonka.Textract.Types.Extraction
     Amazonka.Textract.Types.FeatureType
     Amazonka.Textract.Types.Geometry
     Amazonka.Textract.Types.HumanLoopActivationOutput
@@ -79,19 +85,29 @@ library
     Amazonka.Textract.Types.IdentityDocument
     Amazonka.Textract.Types.IdentityDocumentField
     Amazonka.Textract.Types.JobStatus
+    Amazonka.Textract.Types.LendingDetection
+    Amazonka.Textract.Types.LendingDocument
+    Amazonka.Textract.Types.LendingField
+    Amazonka.Textract.Types.LendingResult
+    Amazonka.Textract.Types.LendingSummary
     Amazonka.Textract.Types.LineItemFields
     Amazonka.Textract.Types.LineItemGroup
     Amazonka.Textract.Types.NormalizedValue
     Amazonka.Textract.Types.NotificationChannel
     Amazonka.Textract.Types.OutputConfig
+    Amazonka.Textract.Types.PageClassification
     Amazonka.Textract.Types.Point
+    Amazonka.Textract.Types.Prediction
     Amazonka.Textract.Types.QueriesConfig
     Amazonka.Textract.Types.Query
     Amazonka.Textract.Types.Relationship
     Amazonka.Textract.Types.RelationshipType
     Amazonka.Textract.Types.S3Object
     Amazonka.Textract.Types.SelectionStatus
+    Amazonka.Textract.Types.SignatureDetection
+    Amazonka.Textract.Types.SplitDocument
     Amazonka.Textract.Types.TextType
+    Amazonka.Textract.Types.UndetectedSignature
     Amazonka.Textract.Types.ValueType
     Amazonka.Textract.Types.Warning
     Amazonka.Textract.Waiters

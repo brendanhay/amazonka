@@ -30,7 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCaptionFormat' smart constructor.
 data CaptionFormat = CaptionFormat'
-  { -- | The format you specify determines whether Elastic Transcoder generates
+  { -- | The encryption settings, if any, that you want Elastic Transcoder to
+    -- apply to your caption formats.
+    encryption :: Prelude.Maybe Encryption,
+    -- | The format you specify determines whether Elastic Transcoder generates
     -- an embedded or sidecar caption for this output.
     --
     -- -   __Valid Embedded Caption Formats:__
@@ -75,10 +78,7 @@ data CaptionFormat = CaptionFormat'
     -- \"Sydney-{language}-sunrise\", and the language of the captions is
     -- English (en), the name of the first caption file is be
     -- Sydney-en-sunrise00000.srt.
-    pattern' :: Prelude.Maybe Prelude.Text,
-    -- | The encryption settings, if any, that you want Elastic Transcoder to
-    -- apply to your caption formats.
-    encryption :: Prelude.Maybe Encryption
+    pattern' :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -89,6 +89,9 @@ data CaptionFormat = CaptionFormat'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'encryption', 'captionFormat_encryption' - The encryption settings, if any, that you want Elastic Transcoder to
+-- apply to your caption formats.
 --
 -- 'format', 'captionFormat_format' - The format you specify determines whether Elastic Transcoder generates
 -- an embedded or sidecar caption for this output.
@@ -135,17 +138,19 @@ data CaptionFormat = CaptionFormat'
 -- \"Sydney-{language}-sunrise\", and the language of the captions is
 -- English (en), the name of the first caption file is be
 -- Sydney-en-sunrise00000.srt.
---
--- 'encryption', 'captionFormat_encryption' - The encryption settings, if any, that you want Elastic Transcoder to
--- apply to your caption formats.
 newCaptionFormat ::
   CaptionFormat
 newCaptionFormat =
   CaptionFormat'
-    { format = Prelude.Nothing,
-      pattern' = Prelude.Nothing,
-      encryption = Prelude.Nothing
+    { encryption = Prelude.Nothing,
+      format = Prelude.Nothing,
+      pattern' = Prelude.Nothing
     }
+
+-- | The encryption settings, if any, that you want Elastic Transcoder to
+-- apply to your caption formats.
+captionFormat_encryption :: Lens.Lens' CaptionFormat (Prelude.Maybe Encryption)
+captionFormat_encryption = Lens.lens (\CaptionFormat' {encryption} -> encryption) (\s@CaptionFormat' {} a -> s {encryption = a} :: CaptionFormat)
 
 -- | The format you specify determines whether Elastic Transcoder generates
 -- an embedded or sidecar caption for this output.
@@ -197,40 +202,35 @@ captionFormat_format = Lens.lens (\CaptionFormat' {format} -> format) (\s@Captio
 captionFormat_pattern :: Lens.Lens' CaptionFormat (Prelude.Maybe Prelude.Text)
 captionFormat_pattern = Lens.lens (\CaptionFormat' {pattern'} -> pattern') (\s@CaptionFormat' {} a -> s {pattern' = a} :: CaptionFormat)
 
--- | The encryption settings, if any, that you want Elastic Transcoder to
--- apply to your caption formats.
-captionFormat_encryption :: Lens.Lens' CaptionFormat (Prelude.Maybe Encryption)
-captionFormat_encryption = Lens.lens (\CaptionFormat' {encryption} -> encryption) (\s@CaptionFormat' {} a -> s {encryption = a} :: CaptionFormat)
-
 instance Data.FromJSON CaptionFormat where
   parseJSON =
     Data.withObject
       "CaptionFormat"
       ( \x ->
           CaptionFormat'
-            Prelude.<$> (x Data..:? "Format")
+            Prelude.<$> (x Data..:? "Encryption")
+            Prelude.<*> (x Data..:? "Format")
             Prelude.<*> (x Data..:? "Pattern")
-            Prelude.<*> (x Data..:? "Encryption")
       )
 
 instance Prelude.Hashable CaptionFormat where
   hashWithSalt _salt CaptionFormat' {..} =
-    _salt `Prelude.hashWithSalt` format
+    _salt `Prelude.hashWithSalt` encryption
+      `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` pattern'
-      `Prelude.hashWithSalt` encryption
 
 instance Prelude.NFData CaptionFormat where
   rnf CaptionFormat' {..} =
-    Prelude.rnf format
+    Prelude.rnf encryption
+      `Prelude.seq` Prelude.rnf format
       `Prelude.seq` Prelude.rnf pattern'
-      `Prelude.seq` Prelude.rnf encryption
 
 instance Data.ToJSON CaptionFormat where
   toJSON CaptionFormat' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Format" Data..=) Prelude.<$> format,
-            ("Pattern" Data..=) Prelude.<$> pattern',
-            ("Encryption" Data..=) Prelude.<$> encryption
+          [ ("Encryption" Data..=) Prelude.<$> encryption,
+            ("Format" Data..=) Prelude.<$> format,
+            ("Pattern" Data..=) Prelude.<$> pattern'
           ]
       )

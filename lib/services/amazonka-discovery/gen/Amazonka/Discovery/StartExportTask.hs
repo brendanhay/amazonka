@@ -39,9 +39,9 @@ module Amazonka.Discovery.StartExportTask
     newStartExportTask,
 
     -- * Request Lenses
-    startExportTask_filters,
     startExportTask_endTime,
     startExportTask_exportDataFormat,
+    startExportTask_filters,
     startExportTask_startTime,
 
     -- * Destructuring the Response
@@ -64,20 +64,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartExportTask' smart constructor.
 data StartExportTask = StartExportTask'
-  { -- | If a filter is present, it selects the single @agentId@ of the
-    -- Application Discovery Agent for which data is exported. The @agentId@
-    -- can be found in the results of the @DescribeAgents@ API or CLI. If no
-    -- filter is present, @startTime@ and @endTime@ are ignored and exported
-    -- data includes both Agentless Discovery Connector data and summary data
-    -- from Application Discovery agents.
-    filters :: Prelude.Maybe [ExportFilter],
-    -- | The end timestamp for exported data from the single Application
+  { -- | The end timestamp for exported data from the single Application
     -- Discovery Agent selected in the filters. If no value is specified,
     -- exported data includes the most recent data collected by the agent.
     endTime :: Prelude.Maybe Data.POSIX,
     -- | The file format for the returned export data. Default value is @CSV@.
     -- __Note:__ /The/ @GRAPHML@ /option has been deprecated./
     exportDataFormat :: Prelude.Maybe [ExportDataFormat],
+    -- | If a filter is present, it selects the single @agentId@ of the
+    -- Application Discovery Agent for which data is exported. The @agentId@
+    -- can be found in the results of the @DescribeAgents@ API or CLI. If no
+    -- filter is present, @startTime@ and @endTime@ are ignored and exported
+    -- data includes both Agentless Discovery Connector data and summary data
+    -- from Application Discovery agents.
+    filters :: Prelude.Maybe [ExportFilter],
     -- | The start timestamp for exported data from the single Application
     -- Discovery Agent selected in the filters. If no value is specified, data
     -- is exported starting from the first data collected by the agent.
@@ -93,19 +93,19 @@ data StartExportTask = StartExportTask'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filters', 'startExportTask_filters' - If a filter is present, it selects the single @agentId@ of the
--- Application Discovery Agent for which data is exported. The @agentId@
--- can be found in the results of the @DescribeAgents@ API or CLI. If no
--- filter is present, @startTime@ and @endTime@ are ignored and exported
--- data includes both Agentless Discovery Connector data and summary data
--- from Application Discovery agents.
---
 -- 'endTime', 'startExportTask_endTime' - The end timestamp for exported data from the single Application
 -- Discovery Agent selected in the filters. If no value is specified,
 -- exported data includes the most recent data collected by the agent.
 --
 -- 'exportDataFormat', 'startExportTask_exportDataFormat' - The file format for the returned export data. Default value is @CSV@.
 -- __Note:__ /The/ @GRAPHML@ /option has been deprecated./
+--
+-- 'filters', 'startExportTask_filters' - If a filter is present, it selects the single @agentId@ of the
+-- Application Discovery Agent for which data is exported. The @agentId@
+-- can be found in the results of the @DescribeAgents@ API or CLI. If no
+-- filter is present, @startTime@ and @endTime@ are ignored and exported
+-- data includes both Agentless Discovery Connector data and summary data
+-- from Application Discovery agents.
 --
 -- 'startTime', 'startExportTask_startTime' - The start timestamp for exported data from the single Application
 -- Discovery Agent selected in the filters. If no value is specified, data
@@ -114,20 +114,11 @@ newStartExportTask ::
   StartExportTask
 newStartExportTask =
   StartExportTask'
-    { filters = Prelude.Nothing,
-      endTime = Prelude.Nothing,
+    { endTime = Prelude.Nothing,
       exportDataFormat = Prelude.Nothing,
+      filters = Prelude.Nothing,
       startTime = Prelude.Nothing
     }
-
--- | If a filter is present, it selects the single @agentId@ of the
--- Application Discovery Agent for which data is exported. The @agentId@
--- can be found in the results of the @DescribeAgents@ API or CLI. If no
--- filter is present, @startTime@ and @endTime@ are ignored and exported
--- data includes both Agentless Discovery Connector data and summary data
--- from Application Discovery agents.
-startExportTask_filters :: Lens.Lens' StartExportTask (Prelude.Maybe [ExportFilter])
-startExportTask_filters = Lens.lens (\StartExportTask' {filters} -> filters) (\s@StartExportTask' {} a -> s {filters = a} :: StartExportTask) Prelude.. Lens.mapping Lens.coerced
 
 -- | The end timestamp for exported data from the single Application
 -- Discovery Agent selected in the filters. If no value is specified,
@@ -139,6 +130,15 @@ startExportTask_endTime = Lens.lens (\StartExportTask' {endTime} -> endTime) (\s
 -- __Note:__ /The/ @GRAPHML@ /option has been deprecated./
 startExportTask_exportDataFormat :: Lens.Lens' StartExportTask (Prelude.Maybe [ExportDataFormat])
 startExportTask_exportDataFormat = Lens.lens (\StartExportTask' {exportDataFormat} -> exportDataFormat) (\s@StartExportTask' {} a -> s {exportDataFormat = a} :: StartExportTask) Prelude.. Lens.mapping Lens.coerced
+
+-- | If a filter is present, it selects the single @agentId@ of the
+-- Application Discovery Agent for which data is exported. The @agentId@
+-- can be found in the results of the @DescribeAgents@ API or CLI. If no
+-- filter is present, @startTime@ and @endTime@ are ignored and exported
+-- data includes both Agentless Discovery Connector data and summary data
+-- from Application Discovery agents.
+startExportTask_filters :: Lens.Lens' StartExportTask (Prelude.Maybe [ExportFilter])
+startExportTask_filters = Lens.lens (\StartExportTask' {filters} -> filters) (\s@StartExportTask' {} a -> s {filters = a} :: StartExportTask) Prelude.. Lens.mapping Lens.coerced
 
 -- | The start timestamp for exported data from the single Application
 -- Discovery Agent selected in the filters. If no value is specified, data
@@ -162,16 +162,16 @@ instance Core.AWSRequest StartExportTask where
 
 instance Prelude.Hashable StartExportTask where
   hashWithSalt _salt StartExportTask' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` endTime
+    _salt `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` exportDataFormat
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` startTime
 
 instance Prelude.NFData StartExportTask where
   rnf StartExportTask' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf exportDataFormat
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf startTime
 
 instance Data.ToHeaders StartExportTask where
@@ -193,10 +193,10 @@ instance Data.ToJSON StartExportTask where
   toJSON StartExportTask' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("filters" Data..=) Prelude.<$> filters,
-            ("endTime" Data..=) Prelude.<$> endTime,
+          [ ("endTime" Data..=) Prelude.<$> endTime,
             ("exportDataFormat" Data..=)
               Prelude.<$> exportDataFormat,
+            ("filters" Data..=) Prelude.<$> filters,
             ("startTime" Data..=) Prelude.<$> startTime
           ]
       )

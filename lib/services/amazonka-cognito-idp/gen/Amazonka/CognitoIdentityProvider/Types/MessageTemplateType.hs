@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMessageTemplateType' smart constructor.
 data MessageTemplateType = MessageTemplateType'
-  { -- | The subject line for email messages. EmailSubject is allowed only if
+  { -- | The message template for email messages. EmailMessage is allowed only if
+    -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
+    -- is DEVELOPER.
+    emailMessage :: Prelude.Maybe Prelude.Text,
+    -- | The subject line for email messages. EmailSubject is allowed only if
     -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
     -- is DEVELOPER.
     emailSubject :: Prelude.Maybe Prelude.Text,
     -- | The message template for SMS messages.
-    sMSMessage :: Prelude.Maybe Prelude.Text,
-    -- | The message template for email messages. EmailMessage is allowed only if
-    -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
-    -- is DEVELOPER.
-    emailMessage :: Prelude.Maybe Prelude.Text
+    sMSMessage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,24 +49,30 @@ data MessageTemplateType = MessageTemplateType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'emailMessage', 'messageTemplateType_emailMessage' - The message template for email messages. EmailMessage is allowed only if
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
+-- is DEVELOPER.
+--
 -- 'emailSubject', 'messageTemplateType_emailSubject' - The subject line for email messages. EmailSubject is allowed only if
 -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
 -- is DEVELOPER.
 --
 -- 'sMSMessage', 'messageTemplateType_sMSMessage' - The message template for SMS messages.
---
--- 'emailMessage', 'messageTemplateType_emailMessage' - The message template for email messages. EmailMessage is allowed only if
--- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
--- is DEVELOPER.
 newMessageTemplateType ::
   MessageTemplateType
 newMessageTemplateType =
   MessageTemplateType'
-    { emailSubject =
+    { emailMessage =
         Prelude.Nothing,
-      sMSMessage = Prelude.Nothing,
-      emailMessage = Prelude.Nothing
+      emailSubject = Prelude.Nothing,
+      sMSMessage = Prelude.Nothing
     }
+
+-- | The message template for email messages. EmailMessage is allowed only if
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
+-- is DEVELOPER.
+messageTemplateType_emailMessage :: Lens.Lens' MessageTemplateType (Prelude.Maybe Prelude.Text)
+messageTemplateType_emailMessage = Lens.lens (\MessageTemplateType' {emailMessage} -> emailMessage) (\s@MessageTemplateType' {} a -> s {emailMessage = a} :: MessageTemplateType)
 
 -- | The subject line for email messages. EmailSubject is allowed only if
 -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
@@ -78,41 +84,35 @@ messageTemplateType_emailSubject = Lens.lens (\MessageTemplateType' {emailSubjec
 messageTemplateType_sMSMessage :: Lens.Lens' MessageTemplateType (Prelude.Maybe Prelude.Text)
 messageTemplateType_sMSMessage = Lens.lens (\MessageTemplateType' {sMSMessage} -> sMSMessage) (\s@MessageTemplateType' {} a -> s {sMSMessage = a} :: MessageTemplateType)
 
--- | The message template for email messages. EmailMessage is allowed only if
--- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
--- is DEVELOPER.
-messageTemplateType_emailMessage :: Lens.Lens' MessageTemplateType (Prelude.Maybe Prelude.Text)
-messageTemplateType_emailMessage = Lens.lens (\MessageTemplateType' {emailMessage} -> emailMessage) (\s@MessageTemplateType' {} a -> s {emailMessage = a} :: MessageTemplateType)
-
 instance Data.FromJSON MessageTemplateType where
   parseJSON =
     Data.withObject
       "MessageTemplateType"
       ( \x ->
           MessageTemplateType'
-            Prelude.<$> (x Data..:? "EmailSubject")
+            Prelude.<$> (x Data..:? "EmailMessage")
+            Prelude.<*> (x Data..:? "EmailSubject")
             Prelude.<*> (x Data..:? "SMSMessage")
-            Prelude.<*> (x Data..:? "EmailMessage")
       )
 
 instance Prelude.Hashable MessageTemplateType where
   hashWithSalt _salt MessageTemplateType' {..} =
-    _salt `Prelude.hashWithSalt` emailSubject
+    _salt `Prelude.hashWithSalt` emailMessage
+      `Prelude.hashWithSalt` emailSubject
       `Prelude.hashWithSalt` sMSMessage
-      `Prelude.hashWithSalt` emailMessage
 
 instance Prelude.NFData MessageTemplateType where
   rnf MessageTemplateType' {..} =
-    Prelude.rnf emailSubject
+    Prelude.rnf emailMessage
+      `Prelude.seq` Prelude.rnf emailSubject
       `Prelude.seq` Prelude.rnf sMSMessage
-      `Prelude.seq` Prelude.rnf emailMessage
 
 instance Data.ToJSON MessageTemplateType where
   toJSON MessageTemplateType' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("EmailSubject" Data..=) Prelude.<$> emailSubject,
-            ("SMSMessage" Data..=) Prelude.<$> sMSMessage,
-            ("EmailMessage" Data..=) Prelude.<$> emailMessage
+          [ ("EmailMessage" Data..=) Prelude.<$> emailMessage,
+            ("EmailSubject" Data..=) Prelude.<$> emailSubject,
+            ("SMSMessage" Data..=) Prelude.<$> sMSMessage
           ]
       )

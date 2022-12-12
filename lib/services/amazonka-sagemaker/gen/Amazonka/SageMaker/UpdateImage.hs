@@ -28,10 +28,10 @@ module Amazonka.SageMaker.UpdateImage
     newUpdateImage,
 
     -- * Request Lenses
-    updateImage_roleArn,
-    updateImage_displayName,
-    updateImage_description,
     updateImage_deleteProperties,
+    updateImage_description,
+    updateImage_displayName,
+    updateImage_roleArn,
     updateImage_imageName,
 
     -- * Destructuring the Response
@@ -54,16 +54,16 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newUpdateImage' smart constructor.
 data UpdateImage = UpdateImage'
-  { -- | The new Amazon Resource Name (ARN) for the IAM role that enables Amazon
-    -- SageMaker to perform tasks on your behalf.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | The new display name for the image.
-    displayName :: Prelude.Maybe Prelude.Text,
-    -- | The new description for the image.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | A list of properties to delete. Only the @Description@ and @DisplayName@
+  { -- | A list of properties to delete. Only the @Description@ and @DisplayName@
     -- properties can be deleted.
     deleteProperties :: Prelude.Maybe [Prelude.Text],
+    -- | The new description for the image.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The new display name for the image.
+    displayName :: Prelude.Maybe Prelude.Text,
+    -- | The new Amazon Resource Name (ARN) for the IAM role that enables Amazon
+    -- SageMaker to perform tasks on your behalf.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the image to update.
     imageName :: Prelude.Text
   }
@@ -77,15 +77,15 @@ data UpdateImage = UpdateImage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'updateImage_roleArn' - The new Amazon Resource Name (ARN) for the IAM role that enables Amazon
--- SageMaker to perform tasks on your behalf.
---
--- 'displayName', 'updateImage_displayName' - The new display name for the image.
+-- 'deleteProperties', 'updateImage_deleteProperties' - A list of properties to delete. Only the @Description@ and @DisplayName@
+-- properties can be deleted.
 --
 -- 'description', 'updateImage_description' - The new description for the image.
 --
--- 'deleteProperties', 'updateImage_deleteProperties' - A list of properties to delete. Only the @Description@ and @DisplayName@
--- properties can be deleted.
+-- 'displayName', 'updateImage_displayName' - The new display name for the image.
+--
+-- 'roleArn', 'updateImage_roleArn' - The new Amazon Resource Name (ARN) for the IAM role that enables Amazon
+-- SageMaker to perform tasks on your behalf.
 --
 -- 'imageName', 'updateImage_imageName' - The name of the image to update.
 newUpdateImage ::
@@ -94,30 +94,30 @@ newUpdateImage ::
   UpdateImage
 newUpdateImage pImageName_ =
   UpdateImage'
-    { roleArn = Prelude.Nothing,
-      displayName = Prelude.Nothing,
+    { deleteProperties = Prelude.Nothing,
       description = Prelude.Nothing,
-      deleteProperties = Prelude.Nothing,
+      displayName = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
       imageName = pImageName_
     }
-
--- | The new Amazon Resource Name (ARN) for the IAM role that enables Amazon
--- SageMaker to perform tasks on your behalf.
-updateImage_roleArn :: Lens.Lens' UpdateImage (Prelude.Maybe Prelude.Text)
-updateImage_roleArn = Lens.lens (\UpdateImage' {roleArn} -> roleArn) (\s@UpdateImage' {} a -> s {roleArn = a} :: UpdateImage)
-
--- | The new display name for the image.
-updateImage_displayName :: Lens.Lens' UpdateImage (Prelude.Maybe Prelude.Text)
-updateImage_displayName = Lens.lens (\UpdateImage' {displayName} -> displayName) (\s@UpdateImage' {} a -> s {displayName = a} :: UpdateImage)
-
--- | The new description for the image.
-updateImage_description :: Lens.Lens' UpdateImage (Prelude.Maybe Prelude.Text)
-updateImage_description = Lens.lens (\UpdateImage' {description} -> description) (\s@UpdateImage' {} a -> s {description = a} :: UpdateImage)
 
 -- | A list of properties to delete. Only the @Description@ and @DisplayName@
 -- properties can be deleted.
 updateImage_deleteProperties :: Lens.Lens' UpdateImage (Prelude.Maybe [Prelude.Text])
 updateImage_deleteProperties = Lens.lens (\UpdateImage' {deleteProperties} -> deleteProperties) (\s@UpdateImage' {} a -> s {deleteProperties = a} :: UpdateImage) Prelude.. Lens.mapping Lens.coerced
+
+-- | The new description for the image.
+updateImage_description :: Lens.Lens' UpdateImage (Prelude.Maybe Prelude.Text)
+updateImage_description = Lens.lens (\UpdateImage' {description} -> description) (\s@UpdateImage' {} a -> s {description = a} :: UpdateImage)
+
+-- | The new display name for the image.
+updateImage_displayName :: Lens.Lens' UpdateImage (Prelude.Maybe Prelude.Text)
+updateImage_displayName = Lens.lens (\UpdateImage' {displayName} -> displayName) (\s@UpdateImage' {} a -> s {displayName = a} :: UpdateImage)
+
+-- | The new Amazon Resource Name (ARN) for the IAM role that enables Amazon
+-- SageMaker to perform tasks on your behalf.
+updateImage_roleArn :: Lens.Lens' UpdateImage (Prelude.Maybe Prelude.Text)
+updateImage_roleArn = Lens.lens (\UpdateImage' {roleArn} -> roleArn) (\s@UpdateImage' {} a -> s {roleArn = a} :: UpdateImage)
 
 -- | The name of the image to update.
 updateImage_imageName :: Lens.Lens' UpdateImage Prelude.Text
@@ -137,18 +137,18 @@ instance Core.AWSRequest UpdateImage where
 
 instance Prelude.Hashable UpdateImage where
   hashWithSalt _salt UpdateImage' {..} =
-    _salt `Prelude.hashWithSalt` roleArn
-      `Prelude.hashWithSalt` displayName
+    _salt `Prelude.hashWithSalt` deleteProperties
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` deleteProperties
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` imageName
 
 instance Prelude.NFData UpdateImage where
   rnf UpdateImage' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf displayName
+    Prelude.rnf deleteProperties
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf deleteProperties
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf imageName
 
 instance Data.ToHeaders UpdateImage where
@@ -168,11 +168,11 @@ instance Data.ToJSON UpdateImage where
   toJSON UpdateImage' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("RoleArn" Data..=) Prelude.<$> roleArn,
-            ("DisplayName" Data..=) Prelude.<$> displayName,
-            ("Description" Data..=) Prelude.<$> description,
-            ("DeleteProperties" Data..=)
+          [ ("DeleteProperties" Data..=)
               Prelude.<$> deleteProperties,
+            ("Description" Data..=) Prelude.<$> description,
+            ("DisplayName" Data..=) Prelude.<$> displayName,
+            ("RoleArn" Data..=) Prelude.<$> roleArn,
             Prelude.Just ("ImageName" Data..= imageName)
           ]
       )

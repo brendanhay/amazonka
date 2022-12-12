@@ -29,9 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIssue' smart constructor.
 data Issue = Issue'
-  { -- | The error message associated with the issue.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | A brief description of the error.
+  { -- | A brief description of the error.
     --
     -- -   __AccessDenied__: Amazon EKS or one or more of your managed nodes is
     --     failing to authenticate or authorize with your Kubernetes cluster
@@ -99,6 +97,8 @@ data Issue = Issue'
     --     <https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html node IAM role>
     --     permissions or lack of outbound internet access for the nodes.
     code :: Prelude.Maybe NodegroupIssueCode,
+    -- | The error message associated with the issue.
+    message :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services resources that are afflicted by this issue.
     resourceIds :: Prelude.Maybe [Prelude.Text]
   }
@@ -111,8 +111,6 @@ data Issue = Issue'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'message', 'issue_message' - The error message associated with the issue.
 --
 -- 'code', 'issue_code' - A brief description of the error.
 --
@@ -182,19 +180,17 @@ data Issue = Issue'
 --     <https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html node IAM role>
 --     permissions or lack of outbound internet access for the nodes.
 --
+-- 'message', 'issue_message' - The error message associated with the issue.
+--
 -- 'resourceIds', 'issue_resourceIds' - The Amazon Web Services resources that are afflicted by this issue.
 newIssue ::
   Issue
 newIssue =
   Issue'
-    { message = Prelude.Nothing,
-      code = Prelude.Nothing,
+    { code = Prelude.Nothing,
+      message = Prelude.Nothing,
       resourceIds = Prelude.Nothing
     }
-
--- | The error message associated with the issue.
-issue_message :: Lens.Lens' Issue (Prelude.Maybe Prelude.Text)
-issue_message = Lens.lens (\Issue' {message} -> message) (\s@Issue' {} a -> s {message = a} :: Issue)
 
 -- | A brief description of the error.
 --
@@ -266,6 +262,10 @@ issue_message = Lens.lens (\Issue' {message} -> message) (\s@Issue' {} a -> s {m
 issue_code :: Lens.Lens' Issue (Prelude.Maybe NodegroupIssueCode)
 issue_code = Lens.lens (\Issue' {code} -> code) (\s@Issue' {} a -> s {code = a} :: Issue)
 
+-- | The error message associated with the issue.
+issue_message :: Lens.Lens' Issue (Prelude.Maybe Prelude.Text)
+issue_message = Lens.lens (\Issue' {message} -> message) (\s@Issue' {} a -> s {message = a} :: Issue)
+
 -- | The Amazon Web Services resources that are afflicted by this issue.
 issue_resourceIds :: Lens.Lens' Issue (Prelude.Maybe [Prelude.Text])
 issue_resourceIds = Lens.lens (\Issue' {resourceIds} -> resourceIds) (\s@Issue' {} a -> s {resourceIds = a} :: Issue) Prelude.. Lens.mapping Lens.coerced
@@ -276,19 +276,19 @@ instance Data.FromJSON Issue where
       "Issue"
       ( \x ->
           Issue'
-            Prelude.<$> (x Data..:? "message")
-            Prelude.<*> (x Data..:? "code")
+            Prelude.<$> (x Data..:? "code")
+            Prelude.<*> (x Data..:? "message")
             Prelude.<*> (x Data..:? "resourceIds" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Issue where
   hashWithSalt _salt Issue' {..} =
-    _salt `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` code
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` resourceIds
 
 instance Prelude.NFData Issue where
   rnf Issue' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf code
+    Prelude.rnf code
+      `Prelude.seq` Prelude.rnf message
       `Prelude.seq` Prelude.rnf resourceIds

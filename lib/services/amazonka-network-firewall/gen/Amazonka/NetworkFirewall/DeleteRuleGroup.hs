@@ -27,9 +27,9 @@ module Amazonka.NetworkFirewall.DeleteRuleGroup
     newDeleteRuleGroup,
 
     -- * Request Lenses
+    deleteRuleGroup_ruleGroupArn,
     deleteRuleGroup_ruleGroupName,
     deleteRuleGroup_type,
-    deleteRuleGroup_ruleGroupArn,
 
     -- * Destructuring the Response
     DeleteRuleGroupResponse (..),
@@ -51,7 +51,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteRuleGroup' smart constructor.
 data DeleteRuleGroup = DeleteRuleGroup'
-  { -- | The descriptive name of the rule group. You can\'t change the name of a
+  { -- | The Amazon Resource Name (ARN) of the rule group.
+    --
+    -- You must specify the ARN or the name, and you can specify both.
+    ruleGroupArn :: Prelude.Maybe Prelude.Text,
+    -- | The descriptive name of the rule group. You can\'t change the name of a
     -- rule group after you create it.
     --
     -- You must specify the ARN or the name, and you can specify both.
@@ -62,11 +66,7 @@ data DeleteRuleGroup = DeleteRuleGroup'
     --
     -- This setting is required for requests that do not include the
     -- @RuleGroupARN@.
-    type' :: Prelude.Maybe RuleGroupType,
-    -- | The Amazon Resource Name (ARN) of the rule group.
-    --
-    -- You must specify the ARN or the name, and you can specify both.
-    ruleGroupArn :: Prelude.Maybe Prelude.Text
+    type' :: Prelude.Maybe RuleGroupType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,6 +77,10 @@ data DeleteRuleGroup = DeleteRuleGroup'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'ruleGroupArn', 'deleteRuleGroup_ruleGroupArn' - The Amazon Resource Name (ARN) of the rule group.
+--
+-- You must specify the ARN or the name, and you can specify both.
 --
 -- 'ruleGroupName', 'deleteRuleGroup_ruleGroupName' - The descriptive name of the rule group. You can\'t change the name of a
 -- rule group after you create it.
@@ -89,18 +93,20 @@ data DeleteRuleGroup = DeleteRuleGroup'
 --
 -- This setting is required for requests that do not include the
 -- @RuleGroupARN@.
---
--- 'ruleGroupArn', 'deleteRuleGroup_ruleGroupArn' - The Amazon Resource Name (ARN) of the rule group.
---
--- You must specify the ARN or the name, and you can specify both.
 newDeleteRuleGroup ::
   DeleteRuleGroup
 newDeleteRuleGroup =
   DeleteRuleGroup'
-    { ruleGroupName = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      ruleGroupArn = Prelude.Nothing
+    { ruleGroupArn = Prelude.Nothing,
+      ruleGroupName = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the rule group.
+--
+-- You must specify the ARN or the name, and you can specify both.
+deleteRuleGroup_ruleGroupArn :: Lens.Lens' DeleteRuleGroup (Prelude.Maybe Prelude.Text)
+deleteRuleGroup_ruleGroupArn = Lens.lens (\DeleteRuleGroup' {ruleGroupArn} -> ruleGroupArn) (\s@DeleteRuleGroup' {} a -> s {ruleGroupArn = a} :: DeleteRuleGroup)
 
 -- | The descriptive name of the rule group. You can\'t change the name of a
 -- rule group after you create it.
@@ -118,12 +124,6 @@ deleteRuleGroup_ruleGroupName = Lens.lens (\DeleteRuleGroup' {ruleGroupName} -> 
 deleteRuleGroup_type :: Lens.Lens' DeleteRuleGroup (Prelude.Maybe RuleGroupType)
 deleteRuleGroup_type = Lens.lens (\DeleteRuleGroup' {type'} -> type') (\s@DeleteRuleGroup' {} a -> s {type' = a} :: DeleteRuleGroup)
 
--- | The Amazon Resource Name (ARN) of the rule group.
---
--- You must specify the ARN or the name, and you can specify both.
-deleteRuleGroup_ruleGroupArn :: Lens.Lens' DeleteRuleGroup (Prelude.Maybe Prelude.Text)
-deleteRuleGroup_ruleGroupArn = Lens.lens (\DeleteRuleGroup' {ruleGroupArn} -> ruleGroupArn) (\s@DeleteRuleGroup' {} a -> s {ruleGroupArn = a} :: DeleteRuleGroup)
-
 instance Core.AWSRequest DeleteRuleGroup where
   type
     AWSResponse DeleteRuleGroup =
@@ -140,15 +140,15 @@ instance Core.AWSRequest DeleteRuleGroup where
 
 instance Prelude.Hashable DeleteRuleGroup where
   hashWithSalt _salt DeleteRuleGroup' {..} =
-    _salt `Prelude.hashWithSalt` ruleGroupName
+    _salt `Prelude.hashWithSalt` ruleGroupArn
+      `Prelude.hashWithSalt` ruleGroupName
       `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` ruleGroupArn
 
 instance Prelude.NFData DeleteRuleGroup where
   rnf DeleteRuleGroup' {..} =
-    Prelude.rnf ruleGroupName
+    Prelude.rnf ruleGroupArn
+      `Prelude.seq` Prelude.rnf ruleGroupName
       `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf ruleGroupArn
 
 instance Data.ToHeaders DeleteRuleGroup where
   toHeaders =
@@ -169,9 +169,9 @@ instance Data.ToJSON DeleteRuleGroup where
   toJSON DeleteRuleGroup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("RuleGroupName" Data..=) Prelude.<$> ruleGroupName,
-            ("Type" Data..=) Prelude.<$> type',
-            ("RuleGroupArn" Data..=) Prelude.<$> ruleGroupArn
+          [ ("RuleGroupArn" Data..=) Prelude.<$> ruleGroupArn,
+            ("RuleGroupName" Data..=) Prelude.<$> ruleGroupName,
+            ("Type" Data..=) Prelude.<$> type'
           ]
       )
 

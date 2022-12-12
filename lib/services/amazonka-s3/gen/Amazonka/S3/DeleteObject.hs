@@ -57,10 +57,10 @@ module Amazonka.S3.DeleteObject
     newDeleteObject,
 
     -- * Request Lenses
-    deleteObject_expectedBucketOwner,
-    deleteObject_requestPayer,
     deleteObject_bypassGovernanceRetention,
+    deleteObject_expectedBucketOwner,
     deleteObject_mfa,
+    deleteObject_requestPayer,
     deleteObject_versionId,
     deleteObject_bucket,
     deleteObject_key,
@@ -70,8 +70,8 @@ module Amazonka.S3.DeleteObject
     newDeleteObjectResponse,
 
     -- * Response Lenses
-    deleteObjectResponse_requestCharged,
     deleteObjectResponse_deleteMarker,
+    deleteObjectResponse_requestCharged,
     deleteObjectResponse_versionId,
     deleteObjectResponse_httpStatus,
   )
@@ -87,20 +87,20 @@ import Amazonka.S3.Types
 
 -- | /See:/ 'newDeleteObject' smart constructor.
 data DeleteObject = DeleteObject'
-  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request fails with the HTTP status code
-    -- @403 Forbidden@ (access denied).
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
-    requestPayer :: Prelude.Maybe RequestPayer,
-    -- | Indicates whether S3 Object Lock should bypass Governance-mode
+  { -- | Indicates whether S3 Object Lock should bypass Governance-mode
     -- restrictions to process this operation. To use this header, you must
     -- have the @s3:BypassGovernanceRetention@ permission.
     bypassGovernanceRetention :: Prelude.Maybe Prelude.Bool,
+    -- | The account ID of the expected bucket owner. If the bucket is owned by a
+    -- different account, the request fails with the HTTP status code
+    -- @403 Forbidden@ (access denied).
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The concatenation of the authentication device\'s serial number, a
     -- space, and the value that is displayed on your authentication device.
     -- Required to permanently delete a versioned object if versioning is
     -- configured with MFA delete enabled.
     mfa :: Prelude.Maybe Prelude.Text,
+    requestPayer :: Prelude.Maybe RequestPayer,
     -- | VersionId used to reference a specific version of the object.
     versionId :: Prelude.Maybe ObjectVersionId,
     -- | The bucket name of the bucket containing the object.
@@ -137,20 +137,20 @@ data DeleteObject = DeleteObject'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'deleteObject_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request fails with the HTTP status code
--- @403 Forbidden@ (access denied).
---
--- 'requestPayer', 'deleteObject_requestPayer' - Undocumented member.
---
 -- 'bypassGovernanceRetention', 'deleteObject_bypassGovernanceRetention' - Indicates whether S3 Object Lock should bypass Governance-mode
 -- restrictions to process this operation. To use this header, you must
 -- have the @s3:BypassGovernanceRetention@ permission.
+--
+-- 'expectedBucketOwner', 'deleteObject_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 --
 -- 'mfa', 'deleteObject_mfa' - The concatenation of the authentication device\'s serial number, a
 -- space, and the value that is displayed on your authentication device.
 -- Required to permanently delete a versioned object if versioning is
 -- configured with MFA delete enabled.
+--
+-- 'requestPayer', 'deleteObject_requestPayer' - Undocumented member.
 --
 -- 'versionId', 'deleteObject_versionId' - VersionId used to reference a specific version of the object.
 --
@@ -184,25 +184,15 @@ newDeleteObject ::
   DeleteObject
 newDeleteObject pBucket_ pKey_ =
   DeleteObject'
-    { expectedBucketOwner =
+    { bypassGovernanceRetention =
         Prelude.Nothing,
-      requestPayer = Prelude.Nothing,
-      bypassGovernanceRetention = Prelude.Nothing,
+      expectedBucketOwner = Prelude.Nothing,
       mfa = Prelude.Nothing,
+      requestPayer = Prelude.Nothing,
       versionId = Prelude.Nothing,
       bucket = pBucket_,
       key = pKey_
     }
-
--- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request fails with the HTTP status code
--- @403 Forbidden@ (access denied).
-deleteObject_expectedBucketOwner :: Lens.Lens' DeleteObject (Prelude.Maybe Prelude.Text)
-deleteObject_expectedBucketOwner = Lens.lens (\DeleteObject' {expectedBucketOwner} -> expectedBucketOwner) (\s@DeleteObject' {} a -> s {expectedBucketOwner = a} :: DeleteObject)
-
--- | Undocumented member.
-deleteObject_requestPayer :: Lens.Lens' DeleteObject (Prelude.Maybe RequestPayer)
-deleteObject_requestPayer = Lens.lens (\DeleteObject' {requestPayer} -> requestPayer) (\s@DeleteObject' {} a -> s {requestPayer = a} :: DeleteObject)
 
 -- | Indicates whether S3 Object Lock should bypass Governance-mode
 -- restrictions to process this operation. To use this header, you must
@@ -210,12 +200,22 @@ deleteObject_requestPayer = Lens.lens (\DeleteObject' {requestPayer} -> requestP
 deleteObject_bypassGovernanceRetention :: Lens.Lens' DeleteObject (Prelude.Maybe Prelude.Bool)
 deleteObject_bypassGovernanceRetention = Lens.lens (\DeleteObject' {bypassGovernanceRetention} -> bypassGovernanceRetention) (\s@DeleteObject' {} a -> s {bypassGovernanceRetention = a} :: DeleteObject)
 
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
+deleteObject_expectedBucketOwner :: Lens.Lens' DeleteObject (Prelude.Maybe Prelude.Text)
+deleteObject_expectedBucketOwner = Lens.lens (\DeleteObject' {expectedBucketOwner} -> expectedBucketOwner) (\s@DeleteObject' {} a -> s {expectedBucketOwner = a} :: DeleteObject)
+
 -- | The concatenation of the authentication device\'s serial number, a
 -- space, and the value that is displayed on your authentication device.
 -- Required to permanently delete a versioned object if versioning is
 -- configured with MFA delete enabled.
 deleteObject_mfa :: Lens.Lens' DeleteObject (Prelude.Maybe Prelude.Text)
 deleteObject_mfa = Lens.lens (\DeleteObject' {mfa} -> mfa) (\s@DeleteObject' {} a -> s {mfa = a} :: DeleteObject)
+
+-- | Undocumented member.
+deleteObject_requestPayer :: Lens.Lens' DeleteObject (Prelude.Maybe RequestPayer)
+deleteObject_requestPayer = Lens.lens (\DeleteObject' {requestPayer} -> requestPayer) (\s@DeleteObject' {} a -> s {requestPayer = a} :: DeleteObject)
 
 -- | VersionId used to reference a specific version of the object.
 deleteObject_versionId :: Lens.Lens' DeleteObject (Prelude.Maybe ObjectVersionId)
@@ -257,28 +257,29 @@ instance Core.AWSRequest DeleteObject where
     Response.receiveEmpty
       ( \s h x ->
           DeleteObjectResponse'
-            Prelude.<$> (h Data..#? "x-amz-request-charged")
-            Prelude.<*> (h Data..#? "x-amz-delete-marker")
+            Prelude.<$> (h Data..#? "x-amz-delete-marker")
+            Prelude.<*> (h Data..#? "x-amz-request-charged")
             Prelude.<*> (h Data..#? "x-amz-version-id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DeleteObject where
   hashWithSalt _salt DeleteObject' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
-      `Prelude.hashWithSalt` requestPayer
+    _salt
       `Prelude.hashWithSalt` bypassGovernanceRetention
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` mfa
+      `Prelude.hashWithSalt` requestPayer
       `Prelude.hashWithSalt` versionId
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` key
 
 instance Prelude.NFData DeleteObject where
   rnf DeleteObject' {..} =
-    Prelude.rnf expectedBucketOwner
-      `Prelude.seq` Prelude.rnf requestPayer
-      `Prelude.seq` Prelude.rnf bypassGovernanceRetention
+    Prelude.rnf bypassGovernanceRetention
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
       `Prelude.seq` Prelude.rnf mfa
+      `Prelude.seq` Prelude.rnf requestPayer
       `Prelude.seq` Prelude.rnf versionId
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf key
@@ -286,12 +287,12 @@ instance Prelude.NFData DeleteObject where
 instance Data.ToHeaders DeleteObject where
   toHeaders DeleteObject' {..} =
     Prelude.mconcat
-      [ "x-amz-expected-bucket-owner"
-          Data.=# expectedBucketOwner,
-        "x-amz-request-payer" Data.=# requestPayer,
-        "x-amz-bypass-governance-retention"
+      [ "x-amz-bypass-governance-retention"
           Data.=# bypassGovernanceRetention,
-        "x-amz-mfa" Data.=# mfa
+        "x-amz-expected-bucket-owner"
+          Data.=# expectedBucketOwner,
+        "x-amz-mfa" Data.=# mfa,
+        "x-amz-request-payer" Data.=# requestPayer
       ]
 
 instance Data.ToPath DeleteObject where
@@ -305,10 +306,10 @@ instance Data.ToQuery DeleteObject where
 
 -- | /See:/ 'newDeleteObjectResponse' smart constructor.
 data DeleteObjectResponse = DeleteObjectResponse'
-  { requestCharged :: Prelude.Maybe RequestCharged,
-    -- | Specifies whether the versioned object that was permanently deleted was
+  { -- | Specifies whether the versioned object that was permanently deleted was
     -- (true) or was not (false) a delete marker.
     deleteMarker :: Prelude.Maybe Prelude.Bool,
+    requestCharged :: Prelude.Maybe RequestCharged,
     -- | Returns the version ID of the delete marker created as a result of the
     -- DELETE operation.
     versionId :: Prelude.Maybe ObjectVersionId,
@@ -325,10 +326,10 @@ data DeleteObjectResponse = DeleteObjectResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestCharged', 'deleteObjectResponse_requestCharged' - Undocumented member.
---
 -- 'deleteMarker', 'deleteObjectResponse_deleteMarker' - Specifies whether the versioned object that was permanently deleted was
 -- (true) or was not (false) a delete marker.
+--
+-- 'requestCharged', 'deleteObjectResponse_requestCharged' - Undocumented member.
 --
 -- 'versionId', 'deleteObjectResponse_versionId' - Returns the version ID of the delete marker created as a result of the
 -- DELETE operation.
@@ -340,21 +341,21 @@ newDeleteObjectResponse ::
   DeleteObjectResponse
 newDeleteObjectResponse pHttpStatus_ =
   DeleteObjectResponse'
-    { requestCharged =
+    { deleteMarker =
         Prelude.Nothing,
-      deleteMarker = Prelude.Nothing,
+      requestCharged = Prelude.Nothing,
       versionId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Undocumented member.
-deleteObjectResponse_requestCharged :: Lens.Lens' DeleteObjectResponse (Prelude.Maybe RequestCharged)
-deleteObjectResponse_requestCharged = Lens.lens (\DeleteObjectResponse' {requestCharged} -> requestCharged) (\s@DeleteObjectResponse' {} a -> s {requestCharged = a} :: DeleteObjectResponse)
 
 -- | Specifies whether the versioned object that was permanently deleted was
 -- (true) or was not (false) a delete marker.
 deleteObjectResponse_deleteMarker :: Lens.Lens' DeleteObjectResponse (Prelude.Maybe Prelude.Bool)
 deleteObjectResponse_deleteMarker = Lens.lens (\DeleteObjectResponse' {deleteMarker} -> deleteMarker) (\s@DeleteObjectResponse' {} a -> s {deleteMarker = a} :: DeleteObjectResponse)
+
+-- | Undocumented member.
+deleteObjectResponse_requestCharged :: Lens.Lens' DeleteObjectResponse (Prelude.Maybe RequestCharged)
+deleteObjectResponse_requestCharged = Lens.lens (\DeleteObjectResponse' {requestCharged} -> requestCharged) (\s@DeleteObjectResponse' {} a -> s {requestCharged = a} :: DeleteObjectResponse)
 
 -- | Returns the version ID of the delete marker created as a result of the
 -- DELETE operation.
@@ -367,7 +368,7 @@ deleteObjectResponse_httpStatus = Lens.lens (\DeleteObjectResponse' {httpStatus}
 
 instance Prelude.NFData DeleteObjectResponse where
   rnf DeleteObjectResponse' {..} =
-    Prelude.rnf requestCharged
-      `Prelude.seq` Prelude.rnf deleteMarker
+    Prelude.rnf deleteMarker
+      `Prelude.seq` Prelude.rnf requestCharged
       `Prelude.seq` Prelude.rnf versionId
       `Prelude.seq` Prelude.rnf httpStatus

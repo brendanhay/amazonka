@@ -27,10 +27,10 @@ module Amazonka.RobOMaker.UpdateSimulationApplication
     newUpdateSimulationApplication,
 
     -- * Request Lenses
-    updateSimulationApplication_sources,
+    updateSimulationApplication_currentRevisionId,
     updateSimulationApplication_environment,
     updateSimulationApplication_renderingEngine,
-    updateSimulationApplication_currentRevisionId,
+    updateSimulationApplication_sources,
     updateSimulationApplication_application,
     updateSimulationApplication_simulationSoftwareSuite,
     updateSimulationApplication_robotSoftwareSuite,
@@ -40,15 +40,15 @@ module Amazonka.RobOMaker.UpdateSimulationApplication
     newUpdateSimulationApplicationResponse,
 
     -- * Response Lenses
-    updateSimulationApplicationResponse_name,
-    updateSimulationApplicationResponse_sources,
-    updateSimulationApplicationResponse_environment,
-    updateSimulationApplicationResponse_renderingEngine,
-    updateSimulationApplicationResponse_lastUpdatedAt,
     updateSimulationApplicationResponse_arn,
+    updateSimulationApplicationResponse_environment,
+    updateSimulationApplicationResponse_lastUpdatedAt,
+    updateSimulationApplicationResponse_name,
+    updateSimulationApplicationResponse_renderingEngine,
+    updateSimulationApplicationResponse_revisionId,
     updateSimulationApplicationResponse_robotSoftwareSuite,
     updateSimulationApplicationResponse_simulationSoftwareSuite,
-    updateSimulationApplicationResponse_revisionId,
+    updateSimulationApplicationResponse_sources,
     updateSimulationApplicationResponse_version,
     updateSimulationApplicationResponse_httpStatus,
   )
@@ -64,15 +64,15 @@ import Amazonka.RobOMaker.Types
 
 -- | /See:/ 'newUpdateSimulationApplication' smart constructor.
 data UpdateSimulationApplication = UpdateSimulationApplication'
-  { -- | The sources of the simulation application.
-    sources :: Prelude.Maybe [SourceConfig],
+  { -- | The revision id for the robot application.
+    currentRevisionId :: Prelude.Maybe Prelude.Text,
     -- | The object that contains the Docker image URI for your simulation
     -- application.
     environment :: Prelude.Maybe Environment,
     -- | The rendering engine for the simulation application.
     renderingEngine :: Prelude.Maybe RenderingEngine,
-    -- | The revision id for the robot application.
-    currentRevisionId :: Prelude.Maybe Prelude.Text,
+    -- | The sources of the simulation application.
+    sources :: Prelude.Maybe [SourceConfig],
     -- | The application information for the simulation application.
     application :: Prelude.Text,
     -- | The simulation software suite used by the simulation application.
@@ -90,14 +90,14 @@ data UpdateSimulationApplication = UpdateSimulationApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sources', 'updateSimulationApplication_sources' - The sources of the simulation application.
+-- 'currentRevisionId', 'updateSimulationApplication_currentRevisionId' - The revision id for the robot application.
 --
 -- 'environment', 'updateSimulationApplication_environment' - The object that contains the Docker image URI for your simulation
 -- application.
 --
 -- 'renderingEngine', 'updateSimulationApplication_renderingEngine' - The rendering engine for the simulation application.
 --
--- 'currentRevisionId', 'updateSimulationApplication_currentRevisionId' - The revision id for the robot application.
+-- 'sources', 'updateSimulationApplication_sources' - The sources of the simulation application.
 --
 -- 'application', 'updateSimulationApplication_application' - The application information for the simulation application.
 --
@@ -117,20 +117,20 @@ newUpdateSimulationApplication
   pSimulationSoftwareSuite_
   pRobotSoftwareSuite_ =
     UpdateSimulationApplication'
-      { sources =
+      { currentRevisionId =
           Prelude.Nothing,
         environment = Prelude.Nothing,
         renderingEngine = Prelude.Nothing,
-        currentRevisionId = Prelude.Nothing,
+        sources = Prelude.Nothing,
         application = pApplication_,
         simulationSoftwareSuite =
           pSimulationSoftwareSuite_,
         robotSoftwareSuite = pRobotSoftwareSuite_
       }
 
--- | The sources of the simulation application.
-updateSimulationApplication_sources :: Lens.Lens' UpdateSimulationApplication (Prelude.Maybe [SourceConfig])
-updateSimulationApplication_sources = Lens.lens (\UpdateSimulationApplication' {sources} -> sources) (\s@UpdateSimulationApplication' {} a -> s {sources = a} :: UpdateSimulationApplication) Prelude.. Lens.mapping Lens.coerced
+-- | The revision id for the robot application.
+updateSimulationApplication_currentRevisionId :: Lens.Lens' UpdateSimulationApplication (Prelude.Maybe Prelude.Text)
+updateSimulationApplication_currentRevisionId = Lens.lens (\UpdateSimulationApplication' {currentRevisionId} -> currentRevisionId) (\s@UpdateSimulationApplication' {} a -> s {currentRevisionId = a} :: UpdateSimulationApplication)
 
 -- | The object that contains the Docker image URI for your simulation
 -- application.
@@ -141,9 +141,9 @@ updateSimulationApplication_environment = Lens.lens (\UpdateSimulationApplicatio
 updateSimulationApplication_renderingEngine :: Lens.Lens' UpdateSimulationApplication (Prelude.Maybe RenderingEngine)
 updateSimulationApplication_renderingEngine = Lens.lens (\UpdateSimulationApplication' {renderingEngine} -> renderingEngine) (\s@UpdateSimulationApplication' {} a -> s {renderingEngine = a} :: UpdateSimulationApplication)
 
--- | The revision id for the robot application.
-updateSimulationApplication_currentRevisionId :: Lens.Lens' UpdateSimulationApplication (Prelude.Maybe Prelude.Text)
-updateSimulationApplication_currentRevisionId = Lens.lens (\UpdateSimulationApplication' {currentRevisionId} -> currentRevisionId) (\s@UpdateSimulationApplication' {} a -> s {currentRevisionId = a} :: UpdateSimulationApplication)
+-- | The sources of the simulation application.
+updateSimulationApplication_sources :: Lens.Lens' UpdateSimulationApplication (Prelude.Maybe [SourceConfig])
+updateSimulationApplication_sources = Lens.lens (\UpdateSimulationApplication' {sources} -> sources) (\s@UpdateSimulationApplication' {} a -> s {sources = a} :: UpdateSimulationApplication) Prelude.. Lens.mapping Lens.coerced
 
 -- | The application information for the simulation application.
 updateSimulationApplication_application :: Lens.Lens' UpdateSimulationApplication Prelude.Text
@@ -167,35 +167,35 @@ instance Core.AWSRequest UpdateSimulationApplication where
     Response.receiveJSON
       ( \s h x ->
           UpdateSimulationApplicationResponse'
-            Prelude.<$> (x Data..?> "name")
-            Prelude.<*> (x Data..?> "sources" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "arn")
             Prelude.<*> (x Data..?> "environment")
-            Prelude.<*> (x Data..?> "renderingEngine")
             Prelude.<*> (x Data..?> "lastUpdatedAt")
-            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "renderingEngine")
+            Prelude.<*> (x Data..?> "revisionId")
             Prelude.<*> (x Data..?> "robotSoftwareSuite")
             Prelude.<*> (x Data..?> "simulationSoftwareSuite")
-            Prelude.<*> (x Data..?> "revisionId")
+            Prelude.<*> (x Data..?> "sources" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateSimulationApplication where
   hashWithSalt _salt UpdateSimulationApplication' {..} =
-    _salt `Prelude.hashWithSalt` sources
+    _salt `Prelude.hashWithSalt` currentRevisionId
       `Prelude.hashWithSalt` environment
       `Prelude.hashWithSalt` renderingEngine
-      `Prelude.hashWithSalt` currentRevisionId
+      `Prelude.hashWithSalt` sources
       `Prelude.hashWithSalt` application
       `Prelude.hashWithSalt` simulationSoftwareSuite
       `Prelude.hashWithSalt` robotSoftwareSuite
 
 instance Prelude.NFData UpdateSimulationApplication where
   rnf UpdateSimulationApplication' {..} =
-    Prelude.rnf sources
+    Prelude.rnf currentRevisionId
       `Prelude.seq` Prelude.rnf environment
       `Prelude.seq` Prelude.rnf renderingEngine
-      `Prelude.seq` Prelude.rnf currentRevisionId
+      `Prelude.seq` Prelude.rnf sources
       `Prelude.seq` Prelude.rnf application
       `Prelude.seq` Prelude.rnf simulationSoftwareSuite
       `Prelude.seq` Prelude.rnf robotSoftwareSuite
@@ -215,12 +215,12 @@ instance Data.ToJSON UpdateSimulationApplication where
   toJSON UpdateSimulationApplication' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("sources" Data..=) Prelude.<$> sources,
+          [ ("currentRevisionId" Data..=)
+              Prelude.<$> currentRevisionId,
             ("environment" Data..=) Prelude.<$> environment,
             ("renderingEngine" Data..=)
               Prelude.<$> renderingEngine,
-            ("currentRevisionId" Data..=)
-              Prelude.<$> currentRevisionId,
+            ("sources" Data..=) Prelude.<$> sources,
             Prelude.Just ("application" Data..= application),
             Prelude.Just
               ( "simulationSoftwareSuite"
@@ -239,26 +239,26 @@ instance Data.ToQuery UpdateSimulationApplication where
 
 -- | /See:/ 'newUpdateSimulationApplicationResponse' smart constructor.
 data UpdateSimulationApplicationResponse = UpdateSimulationApplicationResponse'
-  { -- | The name of the simulation application.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The sources of the simulation application.
-    sources :: Prelude.Maybe [Source],
+  { -- | The Amazon Resource Name (ARN) of the updated simulation application.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The object that contains the Docker image URI used for your simulation
     -- application.
     environment :: Prelude.Maybe Environment,
-    -- | The rendering engine for the simulation application.
-    renderingEngine :: Prelude.Maybe RenderingEngine,
     -- | The time, in milliseconds since the epoch, when the simulation
     -- application was last updated.
     lastUpdatedAt :: Prelude.Maybe Data.POSIX,
-    -- | The Amazon Resource Name (ARN) of the updated simulation application.
-    arn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the simulation application.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The rendering engine for the simulation application.
+    renderingEngine :: Prelude.Maybe RenderingEngine,
+    -- | The revision id of the simulation application.
+    revisionId :: Prelude.Maybe Prelude.Text,
     -- | Information about the robot software suite (ROS distribution).
     robotSoftwareSuite :: Prelude.Maybe RobotSoftwareSuite,
     -- | The simulation software suite used by the simulation application.
     simulationSoftwareSuite :: Prelude.Maybe SimulationSoftwareSuite,
-    -- | The revision id of the simulation application.
-    revisionId :: Prelude.Maybe Prelude.Text,
+    -- | The sources of the simulation application.
+    sources :: Prelude.Maybe [Source],
     -- | The version of the robot application.
     version :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -274,25 +274,25 @@ data UpdateSimulationApplicationResponse = UpdateSimulationApplicationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateSimulationApplicationResponse_name' - The name of the simulation application.
---
--- 'sources', 'updateSimulationApplicationResponse_sources' - The sources of the simulation application.
+-- 'arn', 'updateSimulationApplicationResponse_arn' - The Amazon Resource Name (ARN) of the updated simulation application.
 --
 -- 'environment', 'updateSimulationApplicationResponse_environment' - The object that contains the Docker image URI used for your simulation
 -- application.
 --
--- 'renderingEngine', 'updateSimulationApplicationResponse_renderingEngine' - The rendering engine for the simulation application.
---
 -- 'lastUpdatedAt', 'updateSimulationApplicationResponse_lastUpdatedAt' - The time, in milliseconds since the epoch, when the simulation
 -- application was last updated.
 --
--- 'arn', 'updateSimulationApplicationResponse_arn' - The Amazon Resource Name (ARN) of the updated simulation application.
+-- 'name', 'updateSimulationApplicationResponse_name' - The name of the simulation application.
+--
+-- 'renderingEngine', 'updateSimulationApplicationResponse_renderingEngine' - The rendering engine for the simulation application.
+--
+-- 'revisionId', 'updateSimulationApplicationResponse_revisionId' - The revision id of the simulation application.
 --
 -- 'robotSoftwareSuite', 'updateSimulationApplicationResponse_robotSoftwareSuite' - Information about the robot software suite (ROS distribution).
 --
 -- 'simulationSoftwareSuite', 'updateSimulationApplicationResponse_simulationSoftwareSuite' - The simulation software suite used by the simulation application.
 --
--- 'revisionId', 'updateSimulationApplicationResponse_revisionId' - The revision id of the simulation application.
+-- 'sources', 'updateSimulationApplicationResponse_sources' - The sources of the simulation application.
 --
 -- 'version', 'updateSimulationApplicationResponse_version' - The version of the robot application.
 --
@@ -303,46 +303,46 @@ newUpdateSimulationApplicationResponse ::
   UpdateSimulationApplicationResponse
 newUpdateSimulationApplicationResponse pHttpStatus_ =
   UpdateSimulationApplicationResponse'
-    { name =
+    { arn =
         Prelude.Nothing,
-      sources = Prelude.Nothing,
       environment = Prelude.Nothing,
-      renderingEngine = Prelude.Nothing,
       lastUpdatedAt = Prelude.Nothing,
-      arn = Prelude.Nothing,
+      name = Prelude.Nothing,
+      renderingEngine = Prelude.Nothing,
+      revisionId = Prelude.Nothing,
       robotSoftwareSuite = Prelude.Nothing,
       simulationSoftwareSuite =
         Prelude.Nothing,
-      revisionId = Prelude.Nothing,
+      sources = Prelude.Nothing,
       version = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The name of the simulation application.
-updateSimulationApplicationResponse_name :: Lens.Lens' UpdateSimulationApplicationResponse (Prelude.Maybe Prelude.Text)
-updateSimulationApplicationResponse_name = Lens.lens (\UpdateSimulationApplicationResponse' {name} -> name) (\s@UpdateSimulationApplicationResponse' {} a -> s {name = a} :: UpdateSimulationApplicationResponse)
-
--- | The sources of the simulation application.
-updateSimulationApplicationResponse_sources :: Lens.Lens' UpdateSimulationApplicationResponse (Prelude.Maybe [Source])
-updateSimulationApplicationResponse_sources = Lens.lens (\UpdateSimulationApplicationResponse' {sources} -> sources) (\s@UpdateSimulationApplicationResponse' {} a -> s {sources = a} :: UpdateSimulationApplicationResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The Amazon Resource Name (ARN) of the updated simulation application.
+updateSimulationApplicationResponse_arn :: Lens.Lens' UpdateSimulationApplicationResponse (Prelude.Maybe Prelude.Text)
+updateSimulationApplicationResponse_arn = Lens.lens (\UpdateSimulationApplicationResponse' {arn} -> arn) (\s@UpdateSimulationApplicationResponse' {} a -> s {arn = a} :: UpdateSimulationApplicationResponse)
 
 -- | The object that contains the Docker image URI used for your simulation
 -- application.
 updateSimulationApplicationResponse_environment :: Lens.Lens' UpdateSimulationApplicationResponse (Prelude.Maybe Environment)
 updateSimulationApplicationResponse_environment = Lens.lens (\UpdateSimulationApplicationResponse' {environment} -> environment) (\s@UpdateSimulationApplicationResponse' {} a -> s {environment = a} :: UpdateSimulationApplicationResponse)
 
--- | The rendering engine for the simulation application.
-updateSimulationApplicationResponse_renderingEngine :: Lens.Lens' UpdateSimulationApplicationResponse (Prelude.Maybe RenderingEngine)
-updateSimulationApplicationResponse_renderingEngine = Lens.lens (\UpdateSimulationApplicationResponse' {renderingEngine} -> renderingEngine) (\s@UpdateSimulationApplicationResponse' {} a -> s {renderingEngine = a} :: UpdateSimulationApplicationResponse)
-
 -- | The time, in milliseconds since the epoch, when the simulation
 -- application was last updated.
 updateSimulationApplicationResponse_lastUpdatedAt :: Lens.Lens' UpdateSimulationApplicationResponse (Prelude.Maybe Prelude.UTCTime)
 updateSimulationApplicationResponse_lastUpdatedAt = Lens.lens (\UpdateSimulationApplicationResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@UpdateSimulationApplicationResponse' {} a -> s {lastUpdatedAt = a} :: UpdateSimulationApplicationResponse) Prelude.. Lens.mapping Data._Time
 
--- | The Amazon Resource Name (ARN) of the updated simulation application.
-updateSimulationApplicationResponse_arn :: Lens.Lens' UpdateSimulationApplicationResponse (Prelude.Maybe Prelude.Text)
-updateSimulationApplicationResponse_arn = Lens.lens (\UpdateSimulationApplicationResponse' {arn} -> arn) (\s@UpdateSimulationApplicationResponse' {} a -> s {arn = a} :: UpdateSimulationApplicationResponse)
+-- | The name of the simulation application.
+updateSimulationApplicationResponse_name :: Lens.Lens' UpdateSimulationApplicationResponse (Prelude.Maybe Prelude.Text)
+updateSimulationApplicationResponse_name = Lens.lens (\UpdateSimulationApplicationResponse' {name} -> name) (\s@UpdateSimulationApplicationResponse' {} a -> s {name = a} :: UpdateSimulationApplicationResponse)
+
+-- | The rendering engine for the simulation application.
+updateSimulationApplicationResponse_renderingEngine :: Lens.Lens' UpdateSimulationApplicationResponse (Prelude.Maybe RenderingEngine)
+updateSimulationApplicationResponse_renderingEngine = Lens.lens (\UpdateSimulationApplicationResponse' {renderingEngine} -> renderingEngine) (\s@UpdateSimulationApplicationResponse' {} a -> s {renderingEngine = a} :: UpdateSimulationApplicationResponse)
+
+-- | The revision id of the simulation application.
+updateSimulationApplicationResponse_revisionId :: Lens.Lens' UpdateSimulationApplicationResponse (Prelude.Maybe Prelude.Text)
+updateSimulationApplicationResponse_revisionId = Lens.lens (\UpdateSimulationApplicationResponse' {revisionId} -> revisionId) (\s@UpdateSimulationApplicationResponse' {} a -> s {revisionId = a} :: UpdateSimulationApplicationResponse)
 
 -- | Information about the robot software suite (ROS distribution).
 updateSimulationApplicationResponse_robotSoftwareSuite :: Lens.Lens' UpdateSimulationApplicationResponse (Prelude.Maybe RobotSoftwareSuite)
@@ -352,9 +352,9 @@ updateSimulationApplicationResponse_robotSoftwareSuite = Lens.lens (\UpdateSimul
 updateSimulationApplicationResponse_simulationSoftwareSuite :: Lens.Lens' UpdateSimulationApplicationResponse (Prelude.Maybe SimulationSoftwareSuite)
 updateSimulationApplicationResponse_simulationSoftwareSuite = Lens.lens (\UpdateSimulationApplicationResponse' {simulationSoftwareSuite} -> simulationSoftwareSuite) (\s@UpdateSimulationApplicationResponse' {} a -> s {simulationSoftwareSuite = a} :: UpdateSimulationApplicationResponse)
 
--- | The revision id of the simulation application.
-updateSimulationApplicationResponse_revisionId :: Lens.Lens' UpdateSimulationApplicationResponse (Prelude.Maybe Prelude.Text)
-updateSimulationApplicationResponse_revisionId = Lens.lens (\UpdateSimulationApplicationResponse' {revisionId} -> revisionId) (\s@UpdateSimulationApplicationResponse' {} a -> s {revisionId = a} :: UpdateSimulationApplicationResponse)
+-- | The sources of the simulation application.
+updateSimulationApplicationResponse_sources :: Lens.Lens' UpdateSimulationApplicationResponse (Prelude.Maybe [Source])
+updateSimulationApplicationResponse_sources = Lens.lens (\UpdateSimulationApplicationResponse' {sources} -> sources) (\s@UpdateSimulationApplicationResponse' {} a -> s {sources = a} :: UpdateSimulationApplicationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The version of the robot application.
 updateSimulationApplicationResponse_version :: Lens.Lens' UpdateSimulationApplicationResponse (Prelude.Maybe Prelude.Text)
@@ -369,14 +369,14 @@ instance
     UpdateSimulationApplicationResponse
   where
   rnf UpdateSimulationApplicationResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf sources
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf renderingEngine
       `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf renderingEngine
+      `Prelude.seq` Prelude.rnf revisionId
       `Prelude.seq` Prelude.rnf robotSoftwareSuite
       `Prelude.seq` Prelude.rnf simulationSoftwareSuite
-      `Prelude.seq` Prelude.rnf revisionId
+      `Prelude.seq` Prelude.rnf sources
       `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf httpStatus

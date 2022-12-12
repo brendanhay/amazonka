@@ -29,9 +29,9 @@ module Amazonka.Connect.ListTrafficDistributionGroups
     newListTrafficDistributionGroups,
 
     -- * Request Lenses
-    listTrafficDistributionGroups_nextToken,
     listTrafficDistributionGroups_instanceId,
     listTrafficDistributionGroups_maxResults,
+    listTrafficDistributionGroups_nextToken,
 
     -- * Destructuring the Response
     ListTrafficDistributionGroupsResponse (..),
@@ -54,15 +54,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTrafficDistributionGroups' smart constructor.
 data ListTrafficDistributionGroups = ListTrafficDistributionGroups'
-  { -- | The token for the next set of results. Use the value returned in the
-    -- previous response in the next request to retrieve the next set of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Connect instance. You can find the
+  { -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return per page.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. Use the value returned in the
+    -- previous response in the next request to retrieve the next set of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,29 +74,23 @@ data ListTrafficDistributionGroups = ListTrafficDistributionGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTrafficDistributionGroups_nextToken' - The token for the next set of results. Use the value returned in the
--- previous response in the next request to retrieve the next set of
--- results.
---
 -- 'instanceId', 'listTrafficDistributionGroups_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
 --
 -- 'maxResults', 'listTrafficDistributionGroups_maxResults' - The maximum number of results to return per page.
+--
+-- 'nextToken', 'listTrafficDistributionGroups_nextToken' - The token for the next set of results. Use the value returned in the
+-- previous response in the next request to retrieve the next set of
+-- results.
 newListTrafficDistributionGroups ::
   ListTrafficDistributionGroups
 newListTrafficDistributionGroups =
   ListTrafficDistributionGroups'
-    { nextToken =
+    { instanceId =
         Prelude.Nothing,
-      instanceId = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token for the next set of results. Use the value returned in the
--- previous response in the next request to retrieve the next set of
--- results.
-listTrafficDistributionGroups_nextToken :: Lens.Lens' ListTrafficDistributionGroups (Prelude.Maybe Prelude.Text)
-listTrafficDistributionGroups_nextToken = Lens.lens (\ListTrafficDistributionGroups' {nextToken} -> nextToken) (\s@ListTrafficDistributionGroups' {} a -> s {nextToken = a} :: ListTrafficDistributionGroups)
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -106,6 +100,12 @@ listTrafficDistributionGroups_instanceId = Lens.lens (\ListTrafficDistributionGr
 -- | The maximum number of results to return per page.
 listTrafficDistributionGroups_maxResults :: Lens.Lens' ListTrafficDistributionGroups (Prelude.Maybe Prelude.Natural)
 listTrafficDistributionGroups_maxResults = Lens.lens (\ListTrafficDistributionGroups' {maxResults} -> maxResults) (\s@ListTrafficDistributionGroups' {} a -> s {maxResults = a} :: ListTrafficDistributionGroups)
+
+-- | The token for the next set of results. Use the value returned in the
+-- previous response in the next request to retrieve the next set of
+-- results.
+listTrafficDistributionGroups_nextToken :: Lens.Lens' ListTrafficDistributionGroups (Prelude.Maybe Prelude.Text)
+listTrafficDistributionGroups_nextToken = Lens.lens (\ListTrafficDistributionGroups' {nextToken} -> nextToken) (\s@ListTrafficDistributionGroups' {} a -> s {nextToken = a} :: ListTrafficDistributionGroups)
 
 instance Core.AWSPager ListTrafficDistributionGroups where
   page rq rs
@@ -154,15 +154,15 @@ instance
     ListTrafficDistributionGroups
   where
   hashWithSalt _salt ListTrafficDistributionGroups' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` instanceId
+    _salt `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListTrafficDistributionGroups where
   rnf ListTrafficDistributionGroups' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListTrafficDistributionGroups where
   toHeaders =
@@ -181,9 +181,9 @@ instance Data.ToPath ListTrafficDistributionGroups where
 instance Data.ToQuery ListTrafficDistributionGroups where
   toQuery ListTrafficDistributionGroups' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "instanceId" Data.=: instanceId,
-        "maxResults" Data.=: maxResults
+      [ "instanceId" Data.=: instanceId,
+        "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListTrafficDistributionGroupsResponse' smart constructor.

@@ -39,9 +39,9 @@ module Amazonka.MediaConnect.RemoveFlowVpcInterface
     newRemoveFlowVpcInterfaceResponse,
 
     -- * Response Lenses
-    removeFlowVpcInterfaceResponse_vpcInterfaceName,
-    removeFlowVpcInterfaceResponse_nonDeletedNetworkInterfaceIds,
     removeFlowVpcInterfaceResponse_flowArn,
+    removeFlowVpcInterfaceResponse_nonDeletedNetworkInterfaceIds,
+    removeFlowVpcInterfaceResponse_vpcInterfaceName,
     removeFlowVpcInterfaceResponse_httpStatus,
   )
 where
@@ -106,11 +106,11 @@ instance Core.AWSRequest RemoveFlowVpcInterface where
     Response.receiveJSON
       ( \s h x ->
           RemoveFlowVpcInterfaceResponse'
-            Prelude.<$> (x Data..?> "vpcInterfaceName")
+            Prelude.<$> (x Data..?> "flowArn")
             Prelude.<*> ( x Data..?> "nonDeletedNetworkInterfaceIds"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "flowArn")
+            Prelude.<*> (x Data..?> "vpcInterfaceName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -149,14 +149,14 @@ instance Data.ToQuery RemoveFlowVpcInterface where
 
 -- | /See:/ 'newRemoveFlowVpcInterfaceResponse' smart constructor.
 data RemoveFlowVpcInterfaceResponse = RemoveFlowVpcInterfaceResponse'
-  { -- | The name of the VPC interface that was removed.
-    vpcInterfaceName :: Prelude.Maybe Prelude.Text,
+  { -- | The ARN of the flow that is associated with the VPC interface you
+    -- removed.
+    flowArn :: Prelude.Maybe Prelude.Text,
     -- | IDs of network interfaces associated with the removed VPC interface that
     -- Media Connect was unable to remove.
     nonDeletedNetworkInterfaceIds :: Prelude.Maybe [Prelude.Text],
-    -- | The ARN of the flow that is associated with the VPC interface you
-    -- removed.
-    flowArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the VPC interface that was removed.
+    vpcInterfaceName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -170,13 +170,13 @@ data RemoveFlowVpcInterfaceResponse = RemoveFlowVpcInterfaceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vpcInterfaceName', 'removeFlowVpcInterfaceResponse_vpcInterfaceName' - The name of the VPC interface that was removed.
+-- 'flowArn', 'removeFlowVpcInterfaceResponse_flowArn' - The ARN of the flow that is associated with the VPC interface you
+-- removed.
 --
 -- 'nonDeletedNetworkInterfaceIds', 'removeFlowVpcInterfaceResponse_nonDeletedNetworkInterfaceIds' - IDs of network interfaces associated with the removed VPC interface that
 -- Media Connect was unable to remove.
 --
--- 'flowArn', 'removeFlowVpcInterfaceResponse_flowArn' - The ARN of the flow that is associated with the VPC interface you
--- removed.
+-- 'vpcInterfaceName', 'removeFlowVpcInterfaceResponse_vpcInterfaceName' - The name of the VPC interface that was removed.
 --
 -- 'httpStatus', 'removeFlowVpcInterfaceResponse_httpStatus' - The response's http status code.
 newRemoveFlowVpcInterfaceResponse ::
@@ -185,27 +185,27 @@ newRemoveFlowVpcInterfaceResponse ::
   RemoveFlowVpcInterfaceResponse
 newRemoveFlowVpcInterfaceResponse pHttpStatus_ =
   RemoveFlowVpcInterfaceResponse'
-    { vpcInterfaceName =
+    { flowArn =
         Prelude.Nothing,
       nonDeletedNetworkInterfaceIds =
         Prelude.Nothing,
-      flowArn = Prelude.Nothing,
+      vpcInterfaceName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The name of the VPC interface that was removed.
-removeFlowVpcInterfaceResponse_vpcInterfaceName :: Lens.Lens' RemoveFlowVpcInterfaceResponse (Prelude.Maybe Prelude.Text)
-removeFlowVpcInterfaceResponse_vpcInterfaceName = Lens.lens (\RemoveFlowVpcInterfaceResponse' {vpcInterfaceName} -> vpcInterfaceName) (\s@RemoveFlowVpcInterfaceResponse' {} a -> s {vpcInterfaceName = a} :: RemoveFlowVpcInterfaceResponse)
+-- | The ARN of the flow that is associated with the VPC interface you
+-- removed.
+removeFlowVpcInterfaceResponse_flowArn :: Lens.Lens' RemoveFlowVpcInterfaceResponse (Prelude.Maybe Prelude.Text)
+removeFlowVpcInterfaceResponse_flowArn = Lens.lens (\RemoveFlowVpcInterfaceResponse' {flowArn} -> flowArn) (\s@RemoveFlowVpcInterfaceResponse' {} a -> s {flowArn = a} :: RemoveFlowVpcInterfaceResponse)
 
 -- | IDs of network interfaces associated with the removed VPC interface that
 -- Media Connect was unable to remove.
 removeFlowVpcInterfaceResponse_nonDeletedNetworkInterfaceIds :: Lens.Lens' RemoveFlowVpcInterfaceResponse (Prelude.Maybe [Prelude.Text])
 removeFlowVpcInterfaceResponse_nonDeletedNetworkInterfaceIds = Lens.lens (\RemoveFlowVpcInterfaceResponse' {nonDeletedNetworkInterfaceIds} -> nonDeletedNetworkInterfaceIds) (\s@RemoveFlowVpcInterfaceResponse' {} a -> s {nonDeletedNetworkInterfaceIds = a} :: RemoveFlowVpcInterfaceResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The ARN of the flow that is associated with the VPC interface you
--- removed.
-removeFlowVpcInterfaceResponse_flowArn :: Lens.Lens' RemoveFlowVpcInterfaceResponse (Prelude.Maybe Prelude.Text)
-removeFlowVpcInterfaceResponse_flowArn = Lens.lens (\RemoveFlowVpcInterfaceResponse' {flowArn} -> flowArn) (\s@RemoveFlowVpcInterfaceResponse' {} a -> s {flowArn = a} :: RemoveFlowVpcInterfaceResponse)
+-- | The name of the VPC interface that was removed.
+removeFlowVpcInterfaceResponse_vpcInterfaceName :: Lens.Lens' RemoveFlowVpcInterfaceResponse (Prelude.Maybe Prelude.Text)
+removeFlowVpcInterfaceResponse_vpcInterfaceName = Lens.lens (\RemoveFlowVpcInterfaceResponse' {vpcInterfaceName} -> vpcInterfaceName) (\s@RemoveFlowVpcInterfaceResponse' {} a -> s {vpcInterfaceName = a} :: RemoveFlowVpcInterfaceResponse)
 
 -- | The response's http status code.
 removeFlowVpcInterfaceResponse_httpStatus :: Lens.Lens' RemoveFlowVpcInterfaceResponse Prelude.Int
@@ -216,7 +216,7 @@ instance
     RemoveFlowVpcInterfaceResponse
   where
   rnf RemoveFlowVpcInterfaceResponse' {..} =
-    Prelude.rnf vpcInterfaceName
+    Prelude.rnf flowArn
       `Prelude.seq` Prelude.rnf nonDeletedNetworkInterfaceIds
-      `Prelude.seq` Prelude.rnf flowArn
+      `Prelude.seq` Prelude.rnf vpcInterfaceName
       `Prelude.seq` Prelude.rnf httpStatus

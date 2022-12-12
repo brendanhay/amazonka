@@ -39,9 +39,9 @@ module Amazonka.ConnectCampaigns.CreateCampaign
     newCreateCampaignResponse,
 
     -- * Response Lenses
-    createCampaignResponse_tags,
     createCampaignResponse_arn,
     createCampaignResponse_id,
+    createCampaignResponse_tags,
     createCampaignResponse_httpStatus,
   )
 where
@@ -136,9 +136,9 @@ instance Core.AWSRequest CreateCampaign where
     Response.receiveJSON
       ( \s h x ->
           CreateCampaignResponse'
-            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "arn")
+            Prelude.<$> (x Data..?> "arn")
             Prelude.<*> (x Data..?> "id")
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -193,9 +193,9 @@ instance Data.ToQuery CreateCampaign where
 --
 -- /See:/ 'newCreateCampaignResponse' smart constructor.
 data CreateCampaignResponse = CreateCampaignResponse'
-  { tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    arn :: Prelude.Maybe Prelude.Text,
+  { arn :: Prelude.Maybe Prelude.Text,
     id :: Prelude.Maybe Prelude.Text,
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -209,11 +209,11 @@ data CreateCampaignResponse = CreateCampaignResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createCampaignResponse_tags' - Undocumented member.
---
 -- 'arn', 'createCampaignResponse_arn' - Undocumented member.
 --
 -- 'id', 'createCampaignResponse_id' - Undocumented member.
+--
+-- 'tags', 'createCampaignResponse_tags' - Undocumented member.
 --
 -- 'httpStatus', 'createCampaignResponse_httpStatus' - The response's http status code.
 newCreateCampaignResponse ::
@@ -222,15 +222,11 @@ newCreateCampaignResponse ::
   CreateCampaignResponse
 newCreateCampaignResponse pHttpStatus_ =
   CreateCampaignResponse'
-    { tags = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       id = Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Undocumented member.
-createCampaignResponse_tags :: Lens.Lens' CreateCampaignResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createCampaignResponse_tags = Lens.lens (\CreateCampaignResponse' {tags} -> tags) (\s@CreateCampaignResponse' {} a -> s {tags = a} :: CreateCampaignResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 createCampaignResponse_arn :: Lens.Lens' CreateCampaignResponse (Prelude.Maybe Prelude.Text)
@@ -240,13 +236,17 @@ createCampaignResponse_arn = Lens.lens (\CreateCampaignResponse' {arn} -> arn) (
 createCampaignResponse_id :: Lens.Lens' CreateCampaignResponse (Prelude.Maybe Prelude.Text)
 createCampaignResponse_id = Lens.lens (\CreateCampaignResponse' {id} -> id) (\s@CreateCampaignResponse' {} a -> s {id = a} :: CreateCampaignResponse)
 
+-- | Undocumented member.
+createCampaignResponse_tags :: Lens.Lens' CreateCampaignResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createCampaignResponse_tags = Lens.lens (\CreateCampaignResponse' {tags} -> tags) (\s@CreateCampaignResponse' {} a -> s {tags = a} :: CreateCampaignResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 createCampaignResponse_httpStatus :: Lens.Lens' CreateCampaignResponse Prelude.Int
 createCampaignResponse_httpStatus = Lens.lens (\CreateCampaignResponse' {httpStatus} -> httpStatus) (\s@CreateCampaignResponse' {} a -> s {httpStatus = a} :: CreateCampaignResponse)
 
 instance Prelude.NFData CreateCampaignResponse where
   rnf CreateCampaignResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

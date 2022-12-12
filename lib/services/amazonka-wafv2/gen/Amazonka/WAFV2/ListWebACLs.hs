@@ -37,8 +37,8 @@ module Amazonka.WAFV2.ListWebACLs
     newListWebACLsResponse,
 
     -- * Response Lenses
-    listWebACLsResponse_webACLs,
     listWebACLsResponse_nextMarker,
+    listWebACLsResponse_webACLs,
     listWebACLsResponse_httpStatus,
   )
 where
@@ -157,8 +157,8 @@ instance Core.AWSRequest ListWebACLs where
     Response.receiveJSON
       ( \s h x ->
           ListWebACLsResponse'
-            Prelude.<$> (x Data..?> "WebACLs" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "NextMarker")
+            Prelude.<$> (x Data..?> "NextMarker")
+            Prelude.<*> (x Data..?> "WebACLs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -207,12 +207,12 @@ instance Data.ToQuery ListWebACLs where
 
 -- | /See:/ 'newListWebACLsResponse' smart constructor.
 data ListWebACLsResponse = ListWebACLsResponse'
-  { webACLs :: Prelude.Maybe [WebACLSummary],
-    -- | When you request a list of objects with a @Limit@ setting, if the number
+  { -- | When you request a list of objects with a @Limit@ setting, if the number
     -- of objects that are still available for retrieval exceeds the limit, WAF
     -- returns a @NextMarker@ value in the response. To retrieve the next batch
     -- of objects, provide the marker from the prior call in your next request.
     nextMarker :: Prelude.Maybe Prelude.Text,
+    webACLs :: Prelude.Maybe [WebACLSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -226,12 +226,12 @@ data ListWebACLsResponse = ListWebACLsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'webACLs', 'listWebACLsResponse_webACLs' -
---
 -- 'nextMarker', 'listWebACLsResponse_nextMarker' - When you request a list of objects with a @Limit@ setting, if the number
 -- of objects that are still available for retrieval exceeds the limit, WAF
 -- returns a @NextMarker@ value in the response. To retrieve the next batch
 -- of objects, provide the marker from the prior call in your next request.
+--
+-- 'webACLs', 'listWebACLsResponse_webACLs' -
 --
 -- 'httpStatus', 'listWebACLsResponse_httpStatus' - The response's http status code.
 newListWebACLsResponse ::
@@ -240,14 +240,10 @@ newListWebACLsResponse ::
   ListWebACLsResponse
 newListWebACLsResponse pHttpStatus_ =
   ListWebACLsResponse'
-    { webACLs = Prelude.Nothing,
-      nextMarker = Prelude.Nothing,
+    { nextMarker = Prelude.Nothing,
+      webACLs = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- |
-listWebACLsResponse_webACLs :: Lens.Lens' ListWebACLsResponse (Prelude.Maybe [WebACLSummary])
-listWebACLsResponse_webACLs = Lens.lens (\ListWebACLsResponse' {webACLs} -> webACLs) (\s@ListWebACLsResponse' {} a -> s {webACLs = a} :: ListWebACLsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | When you request a list of objects with a @Limit@ setting, if the number
 -- of objects that are still available for retrieval exceeds the limit, WAF
@@ -256,12 +252,16 @@ listWebACLsResponse_webACLs = Lens.lens (\ListWebACLsResponse' {webACLs} -> webA
 listWebACLsResponse_nextMarker :: Lens.Lens' ListWebACLsResponse (Prelude.Maybe Prelude.Text)
 listWebACLsResponse_nextMarker = Lens.lens (\ListWebACLsResponse' {nextMarker} -> nextMarker) (\s@ListWebACLsResponse' {} a -> s {nextMarker = a} :: ListWebACLsResponse)
 
+-- |
+listWebACLsResponse_webACLs :: Lens.Lens' ListWebACLsResponse (Prelude.Maybe [WebACLSummary])
+listWebACLsResponse_webACLs = Lens.lens (\ListWebACLsResponse' {webACLs} -> webACLs) (\s@ListWebACLsResponse' {} a -> s {webACLs = a} :: ListWebACLsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listWebACLsResponse_httpStatus :: Lens.Lens' ListWebACLsResponse Prelude.Int
 listWebACLsResponse_httpStatus = Lens.lens (\ListWebACLsResponse' {httpStatus} -> httpStatus) (\s@ListWebACLsResponse' {} a -> s {httpStatus = a} :: ListWebACLsResponse)
 
 instance Prelude.NFData ListWebACLsResponse where
   rnf ListWebACLsResponse' {..} =
-    Prelude.rnf webACLs
-      `Prelude.seq` Prelude.rnf nextMarker
+    Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf webACLs
       `Prelude.seq` Prelude.rnf httpStatus

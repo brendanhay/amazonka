@@ -42,26 +42,26 @@ module Amazonka.Pinpoint
     -- * Errors
     -- $errors
 
-    -- ** NotFoundException
-    _NotFoundException,
-
-    -- ** InternalServerErrorException
-    _InternalServerErrorException,
-
-    -- ** ForbiddenException
-    _ForbiddenException,
+    -- ** BadRequestException
+    _BadRequestException,
 
     -- ** ConflictException
     _ConflictException,
 
+    -- ** ForbiddenException
+    _ForbiddenException,
+
+    -- ** InternalServerErrorException
+    _InternalServerErrorException,
+
     -- ** MethodNotAllowedException
     _MethodNotAllowedException,
 
+    -- ** NotFoundException
+    _NotFoundException,
+
     -- ** PayloadTooLargeException
     _PayloadTooLargeException,
-
-    -- ** BadRequestException
-    _BadRequestException,
 
     -- ** TooManyRequestsException
     _TooManyRequestsException,

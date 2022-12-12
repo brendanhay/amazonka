@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAppInstanceUserSummary' smart constructor.
 data AppInstanceUserSummary = AppInstanceUserSummary'
-  { -- | The name of an @AppInstanceUser@.
-    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+  { -- | The ARN of the @AppInstanceUser@.
+    appInstanceUserArn :: Prelude.Maybe Prelude.Text,
     -- | The metadata of the @AppInstanceUser@.
     metadata :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The ARN of the @AppInstanceUser@.
-    appInstanceUserArn :: Prelude.Maybe Prelude.Text
+    -- | The name of an @AppInstanceUser@.
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -45,31 +45,32 @@ data AppInstanceUserSummary = AppInstanceUserSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'appInstanceUserSummary_name' - The name of an @AppInstanceUser@.
+-- 'appInstanceUserArn', 'appInstanceUserSummary_appInstanceUserArn' - The ARN of the @AppInstanceUser@.
 --
 -- 'metadata', 'appInstanceUserSummary_metadata' - The metadata of the @AppInstanceUser@.
 --
--- 'appInstanceUserArn', 'appInstanceUserSummary_appInstanceUserArn' - The ARN of the @AppInstanceUser@.
+-- 'name', 'appInstanceUserSummary_name' - The name of an @AppInstanceUser@.
 newAppInstanceUserSummary ::
   AppInstanceUserSummary
 newAppInstanceUserSummary =
   AppInstanceUserSummary'
-    { name = Prelude.Nothing,
+    { appInstanceUserArn =
+        Prelude.Nothing,
       metadata = Prelude.Nothing,
-      appInstanceUserArn = Prelude.Nothing
+      name = Prelude.Nothing
     }
 
--- | The name of an @AppInstanceUser@.
-appInstanceUserSummary_name :: Lens.Lens' AppInstanceUserSummary (Prelude.Maybe Prelude.Text)
-appInstanceUserSummary_name = Lens.lens (\AppInstanceUserSummary' {name} -> name) (\s@AppInstanceUserSummary' {} a -> s {name = a} :: AppInstanceUserSummary) Prelude.. Lens.mapping Data._Sensitive
+-- | The ARN of the @AppInstanceUser@.
+appInstanceUserSummary_appInstanceUserArn :: Lens.Lens' AppInstanceUserSummary (Prelude.Maybe Prelude.Text)
+appInstanceUserSummary_appInstanceUserArn = Lens.lens (\AppInstanceUserSummary' {appInstanceUserArn} -> appInstanceUserArn) (\s@AppInstanceUserSummary' {} a -> s {appInstanceUserArn = a} :: AppInstanceUserSummary)
 
 -- | The metadata of the @AppInstanceUser@.
 appInstanceUserSummary_metadata :: Lens.Lens' AppInstanceUserSummary (Prelude.Maybe Prelude.Text)
 appInstanceUserSummary_metadata = Lens.lens (\AppInstanceUserSummary' {metadata} -> metadata) (\s@AppInstanceUserSummary' {} a -> s {metadata = a} :: AppInstanceUserSummary) Prelude.. Lens.mapping Data._Sensitive
 
--- | The ARN of the @AppInstanceUser@.
-appInstanceUserSummary_appInstanceUserArn :: Lens.Lens' AppInstanceUserSummary (Prelude.Maybe Prelude.Text)
-appInstanceUserSummary_appInstanceUserArn = Lens.lens (\AppInstanceUserSummary' {appInstanceUserArn} -> appInstanceUserArn) (\s@AppInstanceUserSummary' {} a -> s {appInstanceUserArn = a} :: AppInstanceUserSummary)
+-- | The name of an @AppInstanceUser@.
+appInstanceUserSummary_name :: Lens.Lens' AppInstanceUserSummary (Prelude.Maybe Prelude.Text)
+appInstanceUserSummary_name = Lens.lens (\AppInstanceUserSummary' {name} -> name) (\s@AppInstanceUserSummary' {} a -> s {name = a} :: AppInstanceUserSummary) Prelude.. Lens.mapping Data._Sensitive
 
 instance Data.FromJSON AppInstanceUserSummary where
   parseJSON =
@@ -77,19 +78,19 @@ instance Data.FromJSON AppInstanceUserSummary where
       "AppInstanceUserSummary"
       ( \x ->
           AppInstanceUserSummary'
-            Prelude.<$> (x Data..:? "Name")
+            Prelude.<$> (x Data..:? "AppInstanceUserArn")
             Prelude.<*> (x Data..:? "Metadata")
-            Prelude.<*> (x Data..:? "AppInstanceUserArn")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable AppInstanceUserSummary where
   hashWithSalt _salt AppInstanceUserSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` appInstanceUserArn
       `Prelude.hashWithSalt` metadata
-      `Prelude.hashWithSalt` appInstanceUserArn
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData AppInstanceUserSummary where
   rnf AppInstanceUserSummary' {..} =
-    Prelude.rnf name
+    Prelude.rnf appInstanceUserArn
       `Prelude.seq` Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf appInstanceUserArn
+      `Prelude.seq` Prelude.rnf name

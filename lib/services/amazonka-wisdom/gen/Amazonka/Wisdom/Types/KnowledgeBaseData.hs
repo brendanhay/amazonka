@@ -33,20 +33,20 @@ import Amazonka.Wisdom.Types.SourceConfiguration
 --
 -- /See:/ 'newKnowledgeBaseData' smart constructor.
 data KnowledgeBaseData = KnowledgeBaseData'
-  { -- | The tags used to organize, track, or control access for this resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Source configuration information about the knowledge base.
-    sourceConfiguration :: Prelude.Maybe SourceConfiguration,
-    -- | The KMS key used for encryption.
-    serverSideEncryptionConfiguration :: Prelude.Maybe ServerSideEncryptionConfiguration,
+  { -- | The description.
+    description :: Prelude.Maybe Prelude.Text,
     -- | An epoch timestamp indicating the most recent content modification
     -- inside the knowledge base. If no content exists in a knowledge base,
     -- this value is unset.
     lastContentModificationTime :: Prelude.Maybe Data.POSIX,
-    -- | The description.
-    description :: Prelude.Maybe Prelude.Text,
     -- | Information about how to render the content.
     renderingConfiguration :: Prelude.Maybe RenderingConfiguration,
+    -- | The KMS key used for encryption.
+    serverSideEncryptionConfiguration :: Prelude.Maybe ServerSideEncryptionConfiguration,
+    -- | Source configuration information about the knowledge base.
+    sourceConfiguration :: Prelude.Maybe SourceConfiguration,
+    -- | The tags used to organize, track, or control access for this resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the knowledge base.
     knowledgeBaseArn :: Prelude.Text,
     -- | The identifier of the knowledge base.
@@ -68,19 +68,19 @@ data KnowledgeBaseData = KnowledgeBaseData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'knowledgeBaseData_tags' - The tags used to organize, track, or control access for this resource.
---
--- 'sourceConfiguration', 'knowledgeBaseData_sourceConfiguration' - Source configuration information about the knowledge base.
---
--- 'serverSideEncryptionConfiguration', 'knowledgeBaseData_serverSideEncryptionConfiguration' - The KMS key used for encryption.
+-- 'description', 'knowledgeBaseData_description' - The description.
 --
 -- 'lastContentModificationTime', 'knowledgeBaseData_lastContentModificationTime' - An epoch timestamp indicating the most recent content modification
 -- inside the knowledge base. If no content exists in a knowledge base,
 -- this value is unset.
 --
--- 'description', 'knowledgeBaseData_description' - The description.
---
 -- 'renderingConfiguration', 'knowledgeBaseData_renderingConfiguration' - Information about how to render the content.
+--
+-- 'serverSideEncryptionConfiguration', 'knowledgeBaseData_serverSideEncryptionConfiguration' - The KMS key used for encryption.
+--
+-- 'sourceConfiguration', 'knowledgeBaseData_sourceConfiguration' - Source configuration information about the knowledge base.
+--
+-- 'tags', 'knowledgeBaseData_tags' - The tags used to organize, track, or control access for this resource.
 --
 -- 'knowledgeBaseArn', 'knowledgeBaseData_knowledgeBaseArn' - The Amazon Resource Name (ARN) of the knowledge base.
 --
@@ -110,12 +110,12 @@ newKnowledgeBaseData
   pName_
   pStatus_ =
     KnowledgeBaseData'
-      { tags = Prelude.Nothing,
-        sourceConfiguration = Prelude.Nothing,
-        serverSideEncryptionConfiguration = Prelude.Nothing,
+      { description = Prelude.Nothing,
         lastContentModificationTime = Prelude.Nothing,
-        description = Prelude.Nothing,
         renderingConfiguration = Prelude.Nothing,
+        serverSideEncryptionConfiguration = Prelude.Nothing,
+        sourceConfiguration = Prelude.Nothing,
+        tags = Prelude.Nothing,
         knowledgeBaseArn = pKnowledgeBaseArn_,
         knowledgeBaseId = pKnowledgeBaseId_,
         knowledgeBaseType = pKnowledgeBaseType_,
@@ -123,17 +123,9 @@ newKnowledgeBaseData
         status = pStatus_
       }
 
--- | The tags used to organize, track, or control access for this resource.
-knowledgeBaseData_tags :: Lens.Lens' KnowledgeBaseData (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-knowledgeBaseData_tags = Lens.lens (\KnowledgeBaseData' {tags} -> tags) (\s@KnowledgeBaseData' {} a -> s {tags = a} :: KnowledgeBaseData) Prelude.. Lens.mapping Lens.coerced
-
--- | Source configuration information about the knowledge base.
-knowledgeBaseData_sourceConfiguration :: Lens.Lens' KnowledgeBaseData (Prelude.Maybe SourceConfiguration)
-knowledgeBaseData_sourceConfiguration = Lens.lens (\KnowledgeBaseData' {sourceConfiguration} -> sourceConfiguration) (\s@KnowledgeBaseData' {} a -> s {sourceConfiguration = a} :: KnowledgeBaseData)
-
--- | The KMS key used for encryption.
-knowledgeBaseData_serverSideEncryptionConfiguration :: Lens.Lens' KnowledgeBaseData (Prelude.Maybe ServerSideEncryptionConfiguration)
-knowledgeBaseData_serverSideEncryptionConfiguration = Lens.lens (\KnowledgeBaseData' {serverSideEncryptionConfiguration} -> serverSideEncryptionConfiguration) (\s@KnowledgeBaseData' {} a -> s {serverSideEncryptionConfiguration = a} :: KnowledgeBaseData)
+-- | The description.
+knowledgeBaseData_description :: Lens.Lens' KnowledgeBaseData (Prelude.Maybe Prelude.Text)
+knowledgeBaseData_description = Lens.lens (\KnowledgeBaseData' {description} -> description) (\s@KnowledgeBaseData' {} a -> s {description = a} :: KnowledgeBaseData)
 
 -- | An epoch timestamp indicating the most recent content modification
 -- inside the knowledge base. If no content exists in a knowledge base,
@@ -141,13 +133,21 @@ knowledgeBaseData_serverSideEncryptionConfiguration = Lens.lens (\KnowledgeBaseD
 knowledgeBaseData_lastContentModificationTime :: Lens.Lens' KnowledgeBaseData (Prelude.Maybe Prelude.UTCTime)
 knowledgeBaseData_lastContentModificationTime = Lens.lens (\KnowledgeBaseData' {lastContentModificationTime} -> lastContentModificationTime) (\s@KnowledgeBaseData' {} a -> s {lastContentModificationTime = a} :: KnowledgeBaseData) Prelude.. Lens.mapping Data._Time
 
--- | The description.
-knowledgeBaseData_description :: Lens.Lens' KnowledgeBaseData (Prelude.Maybe Prelude.Text)
-knowledgeBaseData_description = Lens.lens (\KnowledgeBaseData' {description} -> description) (\s@KnowledgeBaseData' {} a -> s {description = a} :: KnowledgeBaseData)
-
 -- | Information about how to render the content.
 knowledgeBaseData_renderingConfiguration :: Lens.Lens' KnowledgeBaseData (Prelude.Maybe RenderingConfiguration)
 knowledgeBaseData_renderingConfiguration = Lens.lens (\KnowledgeBaseData' {renderingConfiguration} -> renderingConfiguration) (\s@KnowledgeBaseData' {} a -> s {renderingConfiguration = a} :: KnowledgeBaseData)
+
+-- | The KMS key used for encryption.
+knowledgeBaseData_serverSideEncryptionConfiguration :: Lens.Lens' KnowledgeBaseData (Prelude.Maybe ServerSideEncryptionConfiguration)
+knowledgeBaseData_serverSideEncryptionConfiguration = Lens.lens (\KnowledgeBaseData' {serverSideEncryptionConfiguration} -> serverSideEncryptionConfiguration) (\s@KnowledgeBaseData' {} a -> s {serverSideEncryptionConfiguration = a} :: KnowledgeBaseData)
+
+-- | Source configuration information about the knowledge base.
+knowledgeBaseData_sourceConfiguration :: Lens.Lens' KnowledgeBaseData (Prelude.Maybe SourceConfiguration)
+knowledgeBaseData_sourceConfiguration = Lens.lens (\KnowledgeBaseData' {sourceConfiguration} -> sourceConfiguration) (\s@KnowledgeBaseData' {} a -> s {sourceConfiguration = a} :: KnowledgeBaseData)
+
+-- | The tags used to organize, track, or control access for this resource.
+knowledgeBaseData_tags :: Lens.Lens' KnowledgeBaseData (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+knowledgeBaseData_tags = Lens.lens (\KnowledgeBaseData' {tags} -> tags) (\s@KnowledgeBaseData' {} a -> s {tags = a} :: KnowledgeBaseData) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the knowledge base.
 knowledgeBaseData_knowledgeBaseArn :: Lens.Lens' KnowledgeBaseData Prelude.Text
@@ -175,12 +175,12 @@ instance Data.FromJSON KnowledgeBaseData where
       "KnowledgeBaseData"
       ( \x ->
           KnowledgeBaseData'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "sourceConfiguration")
-            Prelude.<*> (x Data..:? "serverSideEncryptionConfiguration")
+            Prelude.<$> (x Data..:? "description")
             Prelude.<*> (x Data..:? "lastContentModificationTime")
-            Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "renderingConfiguration")
+            Prelude.<*> (x Data..:? "serverSideEncryptionConfiguration")
+            Prelude.<*> (x Data..:? "sourceConfiguration")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "knowledgeBaseArn")
             Prelude.<*> (x Data..: "knowledgeBaseId")
             Prelude.<*> (x Data..: "knowledgeBaseType")
@@ -190,12 +190,12 @@ instance Data.FromJSON KnowledgeBaseData where
 
 instance Prelude.Hashable KnowledgeBaseData where
   hashWithSalt _salt KnowledgeBaseData' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` sourceConfiguration
-      `Prelude.hashWithSalt` serverSideEncryptionConfiguration
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` lastContentModificationTime
-      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` renderingConfiguration
+      `Prelude.hashWithSalt` serverSideEncryptionConfiguration
+      `Prelude.hashWithSalt` sourceConfiguration
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` knowledgeBaseArn
       `Prelude.hashWithSalt` knowledgeBaseId
       `Prelude.hashWithSalt` knowledgeBaseType
@@ -204,12 +204,12 @@ instance Prelude.Hashable KnowledgeBaseData where
 
 instance Prelude.NFData KnowledgeBaseData where
   rnf KnowledgeBaseData' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf sourceConfiguration
-      `Prelude.seq` Prelude.rnf serverSideEncryptionConfiguration
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf lastContentModificationTime
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf renderingConfiguration
+      `Prelude.seq` Prelude.rnf serverSideEncryptionConfiguration
+      `Prelude.seq` Prelude.rnf sourceConfiguration
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf knowledgeBaseArn
       `Prelude.seq` Prelude.rnf knowledgeBaseId
       `Prelude.seq` Prelude.rnf knowledgeBaseType

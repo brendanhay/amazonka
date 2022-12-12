@@ -33,10 +33,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLabelingJobStoppingConditions' smart constructor.
 data LabelingJobStoppingConditions = LabelingJobStoppingConditions'
-  { -- | The maximum number of input data objects that should be labeled.
-    maxPercentageOfInputDatasetLabeled :: Prelude.Maybe Prelude.Natural,
-    -- | The maximum number of objects that can be labeled by human workers.
-    maxHumanLabeledObjectCount :: Prelude.Maybe Prelude.Natural
+  { -- | The maximum number of objects that can be labeled by human workers.
+    maxHumanLabeledObjectCount :: Prelude.Maybe Prelude.Natural,
+    -- | The maximum number of input data objects that should be labeled.
+    maxPercentageOfInputDatasetLabeled :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,25 +48,26 @@ data LabelingJobStoppingConditions = LabelingJobStoppingConditions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxPercentageOfInputDatasetLabeled', 'labelingJobStoppingConditions_maxPercentageOfInputDatasetLabeled' - The maximum number of input data objects that should be labeled.
---
 -- 'maxHumanLabeledObjectCount', 'labelingJobStoppingConditions_maxHumanLabeledObjectCount' - The maximum number of objects that can be labeled by human workers.
+--
+-- 'maxPercentageOfInputDatasetLabeled', 'labelingJobStoppingConditions_maxPercentageOfInputDatasetLabeled' - The maximum number of input data objects that should be labeled.
 newLabelingJobStoppingConditions ::
   LabelingJobStoppingConditions
 newLabelingJobStoppingConditions =
   LabelingJobStoppingConditions'
-    { maxPercentageOfInputDatasetLabeled =
+    { maxHumanLabeledObjectCount =
         Prelude.Nothing,
-      maxHumanLabeledObjectCount = Prelude.Nothing
+      maxPercentageOfInputDatasetLabeled =
+        Prelude.Nothing
     }
-
--- | The maximum number of input data objects that should be labeled.
-labelingJobStoppingConditions_maxPercentageOfInputDatasetLabeled :: Lens.Lens' LabelingJobStoppingConditions (Prelude.Maybe Prelude.Natural)
-labelingJobStoppingConditions_maxPercentageOfInputDatasetLabeled = Lens.lens (\LabelingJobStoppingConditions' {maxPercentageOfInputDatasetLabeled} -> maxPercentageOfInputDatasetLabeled) (\s@LabelingJobStoppingConditions' {} a -> s {maxPercentageOfInputDatasetLabeled = a} :: LabelingJobStoppingConditions)
 
 -- | The maximum number of objects that can be labeled by human workers.
 labelingJobStoppingConditions_maxHumanLabeledObjectCount :: Lens.Lens' LabelingJobStoppingConditions (Prelude.Maybe Prelude.Natural)
 labelingJobStoppingConditions_maxHumanLabeledObjectCount = Lens.lens (\LabelingJobStoppingConditions' {maxHumanLabeledObjectCount} -> maxHumanLabeledObjectCount) (\s@LabelingJobStoppingConditions' {} a -> s {maxHumanLabeledObjectCount = a} :: LabelingJobStoppingConditions)
+
+-- | The maximum number of input data objects that should be labeled.
+labelingJobStoppingConditions_maxPercentageOfInputDatasetLabeled :: Lens.Lens' LabelingJobStoppingConditions (Prelude.Maybe Prelude.Natural)
+labelingJobStoppingConditions_maxPercentageOfInputDatasetLabeled = Lens.lens (\LabelingJobStoppingConditions' {maxPercentageOfInputDatasetLabeled} -> maxPercentageOfInputDatasetLabeled) (\s@LabelingJobStoppingConditions' {} a -> s {maxPercentageOfInputDatasetLabeled = a} :: LabelingJobStoppingConditions)
 
 instance Data.FromJSON LabelingJobStoppingConditions where
   parseJSON =
@@ -74,8 +75,8 @@ instance Data.FromJSON LabelingJobStoppingConditions where
       "LabelingJobStoppingConditions"
       ( \x ->
           LabelingJobStoppingConditions'
-            Prelude.<$> (x Data..:? "MaxPercentageOfInputDatasetLabeled")
-            Prelude.<*> (x Data..:? "MaxHumanLabeledObjectCount")
+            Prelude.<$> (x Data..:? "MaxHumanLabeledObjectCount")
+            Prelude.<*> (x Data..:? "MaxPercentageOfInputDatasetLabeled")
       )
 
 instance
@@ -84,21 +85,21 @@ instance
   where
   hashWithSalt _salt LabelingJobStoppingConditions' {..} =
     _salt
-      `Prelude.hashWithSalt` maxPercentageOfInputDatasetLabeled
       `Prelude.hashWithSalt` maxHumanLabeledObjectCount
+      `Prelude.hashWithSalt` maxPercentageOfInputDatasetLabeled
 
 instance Prelude.NFData LabelingJobStoppingConditions where
   rnf LabelingJobStoppingConditions' {..} =
-    Prelude.rnf maxPercentageOfInputDatasetLabeled
-      `Prelude.seq` Prelude.rnf maxHumanLabeledObjectCount
+    Prelude.rnf maxHumanLabeledObjectCount
+      `Prelude.seq` Prelude.rnf maxPercentageOfInputDatasetLabeled
 
 instance Data.ToJSON LabelingJobStoppingConditions where
   toJSON LabelingJobStoppingConditions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("MaxPercentageOfInputDatasetLabeled" Data..=)
-              Prelude.<$> maxPercentageOfInputDatasetLabeled,
-            ("MaxHumanLabeledObjectCount" Data..=)
-              Prelude.<$> maxHumanLabeledObjectCount
+          [ ("MaxHumanLabeledObjectCount" Data..=)
+              Prelude.<$> maxHumanLabeledObjectCount,
+            ("MaxPercentageOfInputDatasetLabeled" Data..=)
+              Prelude.<$> maxPercentageOfInputDatasetLabeled
           ]
       )

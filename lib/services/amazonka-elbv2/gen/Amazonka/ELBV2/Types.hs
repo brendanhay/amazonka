@@ -18,42 +18,42 @@ module Amazonka.ELBV2.Types
     defaultService,
 
     -- * Errors
-    _InvalidSchemeException,
-    _IncompatibleProtocolsException,
-    _ListenerNotFoundException,
-    _DuplicateTargetGroupNameException,
-    _TooManyTargetGroupsException,
-    _TargetGroupAssociationLimitException,
-    _DuplicateTagKeysException,
-    _TooManyListenersException,
-    _TooManyTargetsException,
-    _InvalidLoadBalancerActionException,
+    _ALPNPolicyNotSupportedException,
+    _AllocationIdNotFoundException,
+    _AvailabilityZoneNotSupportedException,
     _CertificateNotFoundException,
-    _TooManyTagsException,
+    _DuplicateListenerException,
+    _DuplicateLoadBalancerNameException,
+    _DuplicateTagKeysException,
+    _DuplicateTargetGroupNameException,
+    _HealthUnavailableException,
+    _IncompatibleProtocolsException,
+    _InvalidConfigurationRequestException,
+    _InvalidLoadBalancerActionException,
+    _InvalidSchemeException,
+    _InvalidSecurityGroupException,
+    _InvalidSubnetException,
+    _InvalidTargetException,
+    _ListenerNotFoundException,
+    _LoadBalancerNotFoundException,
+    _OperationNotPermittedException,
+    _PriorityInUseException,
+    _ResourceInUseException,
+    _RuleNotFoundException,
+    _SSLPolicyNotFoundException,
+    _SubnetNotFoundException,
+    _TargetGroupAssociationLimitException,
+    _TargetGroupNotFoundException,
+    _TooManyActionsException,
+    _TooManyCertificatesException,
+    _TooManyListenersException,
+    _TooManyLoadBalancersException,
     _TooManyRegistrationsForTargetIdException,
     _TooManyRulesException,
+    _TooManyTagsException,
+    _TooManyTargetGroupsException,
+    _TooManyTargetsException,
     _TooManyUniqueTargetGroupsPerLoadBalancerException,
-    _InvalidSecurityGroupException,
-    _SSLPolicyNotFoundException,
-    _ResourceInUseException,
-    _TooManyActionsException,
-    _LoadBalancerNotFoundException,
-    _HealthUnavailableException,
-    _InvalidTargetException,
-    _TooManyLoadBalancersException,
-    _AllocationIdNotFoundException,
-    _DuplicateLoadBalancerNameException,
-    _PriorityInUseException,
-    _AvailabilityZoneNotSupportedException,
-    _TargetGroupNotFoundException,
-    _InvalidSubnetException,
-    _OperationNotPermittedException,
-    _InvalidConfigurationRequestException,
-    _DuplicateListenerException,
-    _RuleNotFoundException,
-    _TooManyCertificatesException,
-    _ALPNPolicyNotSupportedException,
-    _SubnetNotFoundException,
     _UnsupportedProtocolException,
 
     -- * ActionTypeEnum
@@ -98,23 +98,23 @@ module Amazonka.ELBV2.Types
     -- * Action
     Action (..),
     newAction,
-    action_forwardConfig,
-    action_redirectConfig,
-    action_targetGroupArn,
-    action_order,
-    action_fixedResponseConfig,
     action_authenticateCognitoConfig,
     action_authenticateOidcConfig,
+    action_fixedResponseConfig,
+    action_forwardConfig,
+    action_order,
+    action_redirectConfig,
+    action_targetGroupArn,
     action_type,
 
     -- * AuthenticateCognitoActionConfig
     AuthenticateCognitoActionConfig (..),
     newAuthenticateCognitoActionConfig,
-    authenticateCognitoActionConfig_sessionTimeout,
-    authenticateCognitoActionConfig_onUnauthenticatedRequest,
     authenticateCognitoActionConfig_authenticationRequestExtraParams,
+    authenticateCognitoActionConfig_onUnauthenticatedRequest,
     authenticateCognitoActionConfig_scope,
     authenticateCognitoActionConfig_sessionCookieName,
+    authenticateCognitoActionConfig_sessionTimeout,
     authenticateCognitoActionConfig_userPoolArn,
     authenticateCognitoActionConfig_userPoolClientId,
     authenticateCognitoActionConfig_userPoolDomain,
@@ -122,13 +122,13 @@ module Amazonka.ELBV2.Types
     -- * AuthenticateOidcActionConfig
     AuthenticateOidcActionConfig (..),
     newAuthenticateOidcActionConfig,
-    authenticateOidcActionConfig_clientSecret,
-    authenticateOidcActionConfig_useExistingClientSecret,
-    authenticateOidcActionConfig_sessionTimeout,
-    authenticateOidcActionConfig_onUnauthenticatedRequest,
     authenticateOidcActionConfig_authenticationRequestExtraParams,
+    authenticateOidcActionConfig_clientSecret,
+    authenticateOidcActionConfig_onUnauthenticatedRequest,
     authenticateOidcActionConfig_scope,
     authenticateOidcActionConfig_sessionCookieName,
+    authenticateOidcActionConfig_sessionTimeout,
+    authenticateOidcActionConfig_useExistingClientSecret,
     authenticateOidcActionConfig_issuer,
     authenticateOidcActionConfig_authorizationEndpoint,
     authenticateOidcActionConfig_tokenEndpoint,
@@ -138,10 +138,10 @@ module Amazonka.ELBV2.Types
     -- * AvailabilityZone
     AvailabilityZone (..),
     newAvailabilityZone,
-    availabilityZone_outpostId,
-    availabilityZone_zoneName,
-    availabilityZone_subnetId,
     availabilityZone_loadBalancerAddresses,
+    availabilityZone_outpostId,
+    availabilityZone_subnetId,
+    availabilityZone_zoneName,
 
     -- * Certificate
     Certificate (..),
@@ -158,8 +158,8 @@ module Amazonka.ELBV2.Types
     -- * FixedResponseActionConfig
     FixedResponseActionConfig (..),
     newFixedResponseActionConfig,
-    fixedResponseActionConfig_messageBody,
     fixedResponseActionConfig_contentType,
+    fixedResponseActionConfig_messageBody,
     fixedResponseActionConfig_statusCode,
 
     -- * ForwardActionConfig
@@ -187,45 +187,45 @@ module Amazonka.ELBV2.Types
     -- * Limit
     Limit (..),
     newLimit,
-    limit_name,
     limit_max,
+    limit_name,
 
     -- * Listener
     Listener (..),
     newListener,
-    listener_port,
-    listener_listenerArn,
+    listener_alpnPolicy,
     listener_certificates,
-    listener_loadBalancerArn,
     listener_defaultActions,
+    listener_listenerArn,
+    listener_loadBalancerArn,
+    listener_port,
     listener_protocol,
     listener_sslPolicy,
-    listener_alpnPolicy,
 
     -- * LoadBalancer
     LoadBalancer (..),
     newLoadBalancer,
-    loadBalancer_scheme,
-    loadBalancer_type,
-    loadBalancer_createdTime,
-    loadBalancer_loadBalancerName,
     loadBalancer_availabilityZones,
-    loadBalancer_state,
-    loadBalancer_loadBalancerArn,
-    loadBalancer_customerOwnedIpv4Pool,
-    loadBalancer_securityGroups,
-    loadBalancer_dNSName,
-    loadBalancer_vpcId,
     loadBalancer_canonicalHostedZoneId,
+    loadBalancer_createdTime,
+    loadBalancer_customerOwnedIpv4Pool,
+    loadBalancer_dNSName,
     loadBalancer_ipAddressType,
+    loadBalancer_loadBalancerArn,
+    loadBalancer_loadBalancerName,
+    loadBalancer_scheme,
+    loadBalancer_securityGroups,
+    loadBalancer_state,
+    loadBalancer_type,
+    loadBalancer_vpcId,
 
     -- * LoadBalancerAddress
     LoadBalancerAddress (..),
     newLoadBalancerAddress,
     loadBalancerAddress_allocationId,
     loadBalancerAddress_iPv6Address,
-    loadBalancerAddress_privateIPv4Address,
     loadBalancerAddress_ipAddress,
+    loadBalancerAddress_privateIPv4Address,
 
     -- * LoadBalancerAttribute
     LoadBalancerAttribute (..),
@@ -242,8 +242,8 @@ module Amazonka.ELBV2.Types
     -- * Matcher
     Matcher (..),
     newMatcher,
-    matcher_httpCode,
     matcher_grpcCode,
+    matcher_httpCode,
 
     -- * PathPatternConditionConfig
     PathPatternConditionConfig (..),
@@ -264,39 +264,39 @@ module Amazonka.ELBV2.Types
     -- * RedirectActionConfig
     RedirectActionConfig (..),
     newRedirectActionConfig,
-    redirectActionConfig_port,
     redirectActionConfig_host,
     redirectActionConfig_path,
-    redirectActionConfig_query,
+    redirectActionConfig_port,
     redirectActionConfig_protocol,
+    redirectActionConfig_query,
     redirectActionConfig_statusCode,
 
     -- * Rule
     Rule (..),
     newRule,
-    rule_ruleArn,
+    rule_actions,
     rule_conditions,
     rule_isDefault,
     rule_priority,
-    rule_actions,
+    rule_ruleArn,
 
     -- * RuleCondition
     RuleCondition (..),
     newRuleCondition,
-    ruleCondition_httpHeaderConfig,
     ruleCondition_field,
-    ruleCondition_sourceIpConfig,
-    ruleCondition_pathPatternConfig,
-    ruleCondition_httpRequestMethodConfig,
     ruleCondition_hostHeaderConfig,
-    ruleCondition_values,
+    ruleCondition_httpHeaderConfig,
+    ruleCondition_httpRequestMethodConfig,
+    ruleCondition_pathPatternConfig,
     ruleCondition_queryStringConfig,
+    ruleCondition_sourceIpConfig,
+    ruleCondition_values,
 
     -- * RulePriorityPair
     RulePriorityPair (..),
     newRulePriorityPair,
-    rulePriorityPair_ruleArn,
     rulePriorityPair_priority,
+    rulePriorityPair_ruleArn,
 
     -- * SourceIpConditionConfig
     SourceIpConditionConfig (..),
@@ -306,18 +306,18 @@ module Amazonka.ELBV2.Types
     -- * SslPolicy
     SslPolicy (..),
     newSslPolicy,
-    sslPolicy_name,
-    sslPolicy_supportedLoadBalancerTypes,
     sslPolicy_ciphers,
+    sslPolicy_name,
     sslPolicy_sslProtocols,
+    sslPolicy_supportedLoadBalancerTypes,
 
     -- * SubnetMapping
     SubnetMapping (..),
     newSubnetMapping,
     subnetMapping_allocationId,
-    subnetMapping_subnetId,
     subnetMapping_iPv6Address,
     subnetMapping_privateIPv4Address,
+    subnetMapping_subnetId,
 
     -- * Tag
     Tag (..),
@@ -328,37 +328,37 @@ module Amazonka.ELBV2.Types
     -- * TagDescription
     TagDescription (..),
     newTagDescription,
-    tagDescription_tags,
     tagDescription_resourceArn,
+    tagDescription_tags,
 
     -- * TargetDescription
     TargetDescription (..),
     newTargetDescription,
-    targetDescription_port,
     targetDescription_availabilityZone,
+    targetDescription_port,
     targetDescription_id,
 
     -- * TargetGroup
     TargetGroup (..),
     newTargetGroup,
-    targetGroup_healthCheckProtocol,
-    targetGroup_port,
-    targetGroup_healthCheckTimeoutSeconds,
-    targetGroup_loadBalancerArns,
-    targetGroup_healthCheckPath,
-    targetGroup_unhealthyThresholdCount,
     targetGroup_healthCheckEnabled,
-    targetGroup_targetGroupName,
     targetGroup_healthCheckIntervalSeconds,
-    targetGroup_healthyThresholdCount,
-    targetGroup_targetGroupArn,
-    targetGroup_targetType,
-    targetGroup_protocolVersion,
+    targetGroup_healthCheckPath,
     targetGroup_healthCheckPort,
-    targetGroup_protocol,
-    targetGroup_vpcId,
+    targetGroup_healthCheckProtocol,
+    targetGroup_healthCheckTimeoutSeconds,
+    targetGroup_healthyThresholdCount,
     targetGroup_ipAddressType,
+    targetGroup_loadBalancerArns,
     targetGroup_matcher,
+    targetGroup_port,
+    targetGroup_protocol,
+    targetGroup_protocolVersion,
+    targetGroup_targetGroupArn,
+    targetGroup_targetGroupName,
+    targetGroup_targetType,
+    targetGroup_unhealthyThresholdCount,
+    targetGroup_vpcId,
 
     -- * TargetGroupAttribute
     TargetGroupAttribute (..),
@@ -381,16 +381,16 @@ module Amazonka.ELBV2.Types
     -- * TargetHealth
     TargetHealth (..),
     newTargetHealth,
-    targetHealth_state,
     targetHealth_description,
     targetHealth_reason,
+    targetHealth_state,
 
     -- * TargetHealthDescription
     TargetHealthDescription (..),
     newTargetHealthDescription,
-    targetHealthDescription_targetHealth,
-    targetHealthDescription_target,
     targetHealthDescription_healthCheckPort,
+    targetHealthDescription_target,
+    targetHealthDescription_targetHealth,
   )
 where
 
@@ -474,28 +474,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -503,13 +497,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -517,30 +515,64 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The requested scheme is not valid.
-_InvalidSchemeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidSchemeException =
+-- | The specified ALPN policy is not supported.
+_ALPNPolicyNotSupportedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ALPNPolicyNotSupportedException =
   Core._MatchServiceError
     defaultService
-    "InvalidScheme"
+    "ALPNPolicyNotFound"
     Prelude.. Core.hasStatus 400
 
--- | The specified configuration is not valid with this protocol.
-_IncompatibleProtocolsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_IncompatibleProtocolsException =
+-- | The specified allocation ID does not exist.
+_AllocationIdNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AllocationIdNotFoundException =
   Core._MatchServiceError
     defaultService
-    "IncompatibleProtocols"
+    "AllocationIdNotFound"
     Prelude.. Core.hasStatus 400
 
--- | The specified listener does not exist.
-_ListenerNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ListenerNotFoundException =
+-- | The specified Availability Zone is not supported.
+_AvailabilityZoneNotSupportedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AvailabilityZoneNotSupportedException =
   Core._MatchServiceError
     defaultService
-    "ListenerNotFound"
+    "AvailabilityZoneNotSupported"
+    Prelude.. Core.hasStatus 400
+
+-- | The specified certificate does not exist.
+_CertificateNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CertificateNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "CertificateNotFound"
+    Prelude.. Core.hasStatus 400
+
+-- | A listener with the specified port already exists.
+_DuplicateListenerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DuplicateListenerException =
+  Core._MatchServiceError
+    defaultService
+    "DuplicateListener"
+    Prelude.. Core.hasStatus 400
+
+-- | A load balancer with the specified name already exists.
+_DuplicateLoadBalancerNameException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DuplicateLoadBalancerNameException =
+  Core._MatchServiceError
+    defaultService
+    "DuplicateLoadBalancerName"
+    Prelude.. Core.hasStatus 400
+
+-- | A tag key was specified more than once.
+_DuplicateTagKeysException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DuplicateTagKeysException =
+  Core._MatchServiceError
+    defaultService
+    "DuplicateTagKeys"
     Prelude.. Core.hasStatus 400
 
 -- | A target group with the specified name already exists.
@@ -551,13 +583,134 @@ _DuplicateTargetGroupNameException =
     "DuplicateTargetGroupName"
     Prelude.. Core.hasStatus 400
 
--- | You\'ve reached the limit on the number of target groups for your Amazon
--- Web Services account.
-_TooManyTargetGroupsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyTargetGroupsException =
+-- | The health of the specified targets could not be retrieved due to an
+-- internal error.
+_HealthUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_HealthUnavailableException =
   Core._MatchServiceError
     defaultService
-    "TooManyTargetGroups"
+    "HealthUnavailable"
+    Prelude.. Core.hasStatus 500
+
+-- | The specified configuration is not valid with this protocol.
+_IncompatibleProtocolsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IncompatibleProtocolsException =
+  Core._MatchServiceError
+    defaultService
+    "IncompatibleProtocols"
+    Prelude.. Core.hasStatus 400
+
+-- | The requested configuration is not valid.
+_InvalidConfigurationRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidConfigurationRequestException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidConfigurationRequest"
+    Prelude.. Core.hasStatus 400
+
+-- | The requested action is not valid.
+_InvalidLoadBalancerActionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidLoadBalancerActionException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidLoadBalancerAction"
+    Prelude.. Core.hasStatus 400
+
+-- | The requested scheme is not valid.
+_InvalidSchemeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidSchemeException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidScheme"
+    Prelude.. Core.hasStatus 400
+
+-- | The specified security group does not exist.
+_InvalidSecurityGroupException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidSecurityGroupException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidSecurityGroup"
+    Prelude.. Core.hasStatus 400
+
+-- | The specified subnet is out of available addresses.
+_InvalidSubnetException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidSubnetException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidSubnet"
+    Prelude.. Core.hasStatus 400
+
+-- | The specified target does not exist, is not in the same VPC as the
+-- target group, or has an unsupported instance type.
+_InvalidTargetException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidTargetException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidTarget"
+    Prelude.. Core.hasStatus 400
+
+-- | The specified listener does not exist.
+_ListenerNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ListenerNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ListenerNotFound"
+    Prelude.. Core.hasStatus 400
+
+-- | The specified load balancer does not exist.
+_LoadBalancerNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LoadBalancerNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "LoadBalancerNotFound"
+    Prelude.. Core.hasStatus 400
+
+-- | This operation is not allowed.
+_OperationNotPermittedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OperationNotPermittedException =
+  Core._MatchServiceError
+    defaultService
+    "OperationNotPermitted"
+    Prelude.. Core.hasStatus 400
+
+-- | The specified priority is in use.
+_PriorityInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PriorityInUseException =
+  Core._MatchServiceError
+    defaultService
+    "PriorityInUse"
+    Prelude.. Core.hasStatus 400
+
+-- | A specified resource is in use.
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceInUse"
+    Prelude.. Core.hasStatus 400
+
+-- | The specified rule does not exist.
+_RuleNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RuleNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "RuleNotFound"
+    Prelude.. Core.hasStatus 400
+
+-- | The specified SSL policy does not exist.
+_SSLPolicyNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SSLPolicyNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "SSLPolicyNotFound"
+    Prelude.. Core.hasStatus 400
+
+-- | The specified subnet does not exist.
+_SubnetNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SubnetNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "SubnetNotFound"
     Prelude.. Core.hasStatus 400
 
 -- | You\'ve reached the limit on the number of load balancers per target
@@ -569,12 +722,29 @@ _TargetGroupAssociationLimitException =
     "TargetGroupAssociationLimit"
     Prelude.. Core.hasStatus 400
 
--- | A tag key was specified more than once.
-_DuplicateTagKeysException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DuplicateTagKeysException =
+-- | The specified target group does not exist.
+_TargetGroupNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TargetGroupNotFoundException =
   Core._MatchServiceError
     defaultService
-    "DuplicateTagKeys"
+    "TargetGroupNotFound"
+    Prelude.. Core.hasStatus 400
+
+-- | You\'ve reached the limit on the number of actions per rule.
+_TooManyActionsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyActionsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyActions"
+    Prelude.. Core.hasStatus 400
+
+-- | You\'ve reached the limit on the number of certificates per load
+-- balancer.
+_TooManyCertificatesException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyCertificatesException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyCertificates"
     Prelude.. Core.hasStatus 400
 
 -- | You\'ve reached the limit on the number of listeners per load balancer.
@@ -585,36 +755,13 @@ _TooManyListenersException =
     "TooManyListeners"
     Prelude.. Core.hasStatus 400
 
--- | You\'ve reached the limit on the number of targets.
-_TooManyTargetsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyTargetsException =
+-- | You\'ve reached the limit on the number of load balancers for your
+-- Amazon Web Services account.
+_TooManyLoadBalancersException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyLoadBalancersException =
   Core._MatchServiceError
     defaultService
-    "TooManyTargets"
-    Prelude.. Core.hasStatus 400
-
--- | The requested action is not valid.
-_InvalidLoadBalancerActionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidLoadBalancerActionException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidLoadBalancerAction"
-    Prelude.. Core.hasStatus 400
-
--- | The specified certificate does not exist.
-_CertificateNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CertificateNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "CertificateNotFound"
-    Prelude.. Core.hasStatus 400
-
--- | You\'ve reached the limit on the number of tags per load balancer.
-_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyTagsException =
-  Core._MatchServiceError
-    defaultService
-    "TooManyTags"
+    "TooManyLoadBalancers"
     Prelude.. Core.hasStatus 400
 
 -- | You\'ve reached the limit on the number of times a target can be
@@ -634,6 +781,31 @@ _TooManyRulesException =
     "TooManyRules"
     Prelude.. Core.hasStatus 400
 
+-- | You\'ve reached the limit on the number of tags per load balancer.
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyTags"
+    Prelude.. Core.hasStatus 400
+
+-- | You\'ve reached the limit on the number of target groups for your Amazon
+-- Web Services account.
+_TooManyTargetGroupsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTargetGroupsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyTargetGroups"
+    Prelude.. Core.hasStatus 400
+
+-- | You\'ve reached the limit on the number of targets.
+_TooManyTargetsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTargetsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyTargets"
+    Prelude.. Core.hasStatus 400
+
 -- | You\'ve reached the limit on the number of unique target groups per load
 -- balancer across all listeners. If a target group is used by multiple
 -- actions for a load balancer, it is counted as only one use.
@@ -642,178 +814,6 @@ _TooManyUniqueTargetGroupsPerLoadBalancerException =
   Core._MatchServiceError
     defaultService
     "TooManyUniqueTargetGroupsPerLoadBalancer"
-    Prelude.. Core.hasStatus 400
-
--- | The specified security group does not exist.
-_InvalidSecurityGroupException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidSecurityGroupException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidSecurityGroup"
-    Prelude.. Core.hasStatus 400
-
--- | The specified SSL policy does not exist.
-_SSLPolicyNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SSLPolicyNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "SSLPolicyNotFound"
-    Prelude.. Core.hasStatus 400
-
--- | A specified resource is in use.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceInUseException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceInUse"
-    Prelude.. Core.hasStatus 400
-
--- | You\'ve reached the limit on the number of actions per rule.
-_TooManyActionsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyActionsException =
-  Core._MatchServiceError
-    defaultService
-    "TooManyActions"
-    Prelude.. Core.hasStatus 400
-
--- | The specified load balancer does not exist.
-_LoadBalancerNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LoadBalancerNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "LoadBalancerNotFound"
-    Prelude.. Core.hasStatus 400
-
--- | The health of the specified targets could not be retrieved due to an
--- internal error.
-_HealthUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_HealthUnavailableException =
-  Core._MatchServiceError
-    defaultService
-    "HealthUnavailable"
-    Prelude.. Core.hasStatus 500
-
--- | The specified target does not exist, is not in the same VPC as the
--- target group, or has an unsupported instance type.
-_InvalidTargetException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidTargetException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidTarget"
-    Prelude.. Core.hasStatus 400
-
--- | You\'ve reached the limit on the number of load balancers for your
--- Amazon Web Services account.
-_TooManyLoadBalancersException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyLoadBalancersException =
-  Core._MatchServiceError
-    defaultService
-    "TooManyLoadBalancers"
-    Prelude.. Core.hasStatus 400
-
--- | The specified allocation ID does not exist.
-_AllocationIdNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AllocationIdNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "AllocationIdNotFound"
-    Prelude.. Core.hasStatus 400
-
--- | A load balancer with the specified name already exists.
-_DuplicateLoadBalancerNameException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DuplicateLoadBalancerNameException =
-  Core._MatchServiceError
-    defaultService
-    "DuplicateLoadBalancerName"
-    Prelude.. Core.hasStatus 400
-
--- | The specified priority is in use.
-_PriorityInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_PriorityInUseException =
-  Core._MatchServiceError
-    defaultService
-    "PriorityInUse"
-    Prelude.. Core.hasStatus 400
-
--- | The specified Availability Zone is not supported.
-_AvailabilityZoneNotSupportedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AvailabilityZoneNotSupportedException =
-  Core._MatchServiceError
-    defaultService
-    "AvailabilityZoneNotSupported"
-    Prelude.. Core.hasStatus 400
-
--- | The specified target group does not exist.
-_TargetGroupNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TargetGroupNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "TargetGroupNotFound"
-    Prelude.. Core.hasStatus 400
-
--- | The specified subnet is out of available addresses.
-_InvalidSubnetException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidSubnetException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidSubnet"
-    Prelude.. Core.hasStatus 400
-
--- | This operation is not allowed.
-_OperationNotPermittedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OperationNotPermittedException =
-  Core._MatchServiceError
-    defaultService
-    "OperationNotPermitted"
-    Prelude.. Core.hasStatus 400
-
--- | The requested configuration is not valid.
-_InvalidConfigurationRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidConfigurationRequestException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidConfigurationRequest"
-    Prelude.. Core.hasStatus 400
-
--- | A listener with the specified port already exists.
-_DuplicateListenerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DuplicateListenerException =
-  Core._MatchServiceError
-    defaultService
-    "DuplicateListener"
-    Prelude.. Core.hasStatus 400
-
--- | The specified rule does not exist.
-_RuleNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_RuleNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "RuleNotFound"
-    Prelude.. Core.hasStatus 400
-
--- | You\'ve reached the limit on the number of certificates per load
--- balancer.
-_TooManyCertificatesException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyCertificatesException =
-  Core._MatchServiceError
-    defaultService
-    "TooManyCertificates"
-    Prelude.. Core.hasStatus 400
-
--- | The specified ALPN policy is not supported.
-_ALPNPolicyNotSupportedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ALPNPolicyNotSupportedException =
-  Core._MatchServiceError
-    defaultService
-    "ALPNPolicyNotFound"
-    Prelude.. Core.hasStatus 400
-
--- | The specified subnet does not exist.
-_SubnetNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SubnetNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "SubnetNotFound"
     Prelude.. Core.hasStatus 400
 
 -- | The specified protocol is not supported.

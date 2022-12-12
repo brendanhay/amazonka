@@ -35,9 +35,9 @@ module Amazonka.MigrationHubOrchestrator.StopWorkflow
 
     -- * Response Lenses
     stopWorkflowResponse_arn,
-    stopWorkflowResponse_status,
     stopWorkflowResponse_id,
     stopWorkflowResponse_lastStopTime,
+    stopWorkflowResponse_status,
     stopWorkflowResponse_statusMessage,
     stopWorkflowResponse_httpStatus,
   )
@@ -86,9 +86,9 @@ instance Core.AWSRequest StopWorkflow where
       ( \s h x ->
           StopWorkflowResponse'
             Prelude.<$> (x Data..?> "arn")
-            Prelude.<*> (x Data..?> "status")
             Prelude.<*> (x Data..?> "id")
             Prelude.<*> (x Data..?> "lastStopTime")
+            Prelude.<*> (x Data..?> "status")
             Prelude.<*> (x Data..?> "statusMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -126,12 +126,12 @@ instance Data.ToQuery StopWorkflow where
 data StopWorkflowResponse = StopWorkflowResponse'
   { -- | The Amazon Resource Name (ARN) of the migration workflow.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The status of the migration workflow.
-    status :: Prelude.Maybe MigrationWorkflowStatusEnum,
     -- | The ID of the migration workflow.
     id :: Prelude.Maybe Prelude.Text,
     -- | The time at which the migration workflow was stopped.
     lastStopTime :: Prelude.Maybe Data.POSIX,
+    -- | The status of the migration workflow.
+    status :: Prelude.Maybe MigrationWorkflowStatusEnum,
     -- | The status message of the migration workflow.
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -149,11 +149,11 @@ data StopWorkflowResponse = StopWorkflowResponse'
 --
 -- 'arn', 'stopWorkflowResponse_arn' - The Amazon Resource Name (ARN) of the migration workflow.
 --
--- 'status', 'stopWorkflowResponse_status' - The status of the migration workflow.
---
 -- 'id', 'stopWorkflowResponse_id' - The ID of the migration workflow.
 --
 -- 'lastStopTime', 'stopWorkflowResponse_lastStopTime' - The time at which the migration workflow was stopped.
+--
+-- 'status', 'stopWorkflowResponse_status' - The status of the migration workflow.
 --
 -- 'statusMessage', 'stopWorkflowResponse_statusMessage' - The status message of the migration workflow.
 --
@@ -165,9 +165,9 @@ newStopWorkflowResponse ::
 newStopWorkflowResponse pHttpStatus_ =
   StopWorkflowResponse'
     { arn = Prelude.Nothing,
-      status = Prelude.Nothing,
       id = Prelude.Nothing,
       lastStopTime = Prelude.Nothing,
+      status = Prelude.Nothing,
       statusMessage = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -176,10 +176,6 @@ newStopWorkflowResponse pHttpStatus_ =
 stopWorkflowResponse_arn :: Lens.Lens' StopWorkflowResponse (Prelude.Maybe Prelude.Text)
 stopWorkflowResponse_arn = Lens.lens (\StopWorkflowResponse' {arn} -> arn) (\s@StopWorkflowResponse' {} a -> s {arn = a} :: StopWorkflowResponse)
 
--- | The status of the migration workflow.
-stopWorkflowResponse_status :: Lens.Lens' StopWorkflowResponse (Prelude.Maybe MigrationWorkflowStatusEnum)
-stopWorkflowResponse_status = Lens.lens (\StopWorkflowResponse' {status} -> status) (\s@StopWorkflowResponse' {} a -> s {status = a} :: StopWorkflowResponse)
-
 -- | The ID of the migration workflow.
 stopWorkflowResponse_id :: Lens.Lens' StopWorkflowResponse (Prelude.Maybe Prelude.Text)
 stopWorkflowResponse_id = Lens.lens (\StopWorkflowResponse' {id} -> id) (\s@StopWorkflowResponse' {} a -> s {id = a} :: StopWorkflowResponse)
@@ -187,6 +183,10 @@ stopWorkflowResponse_id = Lens.lens (\StopWorkflowResponse' {id} -> id) (\s@Stop
 -- | The time at which the migration workflow was stopped.
 stopWorkflowResponse_lastStopTime :: Lens.Lens' StopWorkflowResponse (Prelude.Maybe Prelude.UTCTime)
 stopWorkflowResponse_lastStopTime = Lens.lens (\StopWorkflowResponse' {lastStopTime} -> lastStopTime) (\s@StopWorkflowResponse' {} a -> s {lastStopTime = a} :: StopWorkflowResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The status of the migration workflow.
+stopWorkflowResponse_status :: Lens.Lens' StopWorkflowResponse (Prelude.Maybe MigrationWorkflowStatusEnum)
+stopWorkflowResponse_status = Lens.lens (\StopWorkflowResponse' {status} -> status) (\s@StopWorkflowResponse' {} a -> s {status = a} :: StopWorkflowResponse)
 
 -- | The status message of the migration workflow.
 stopWorkflowResponse_statusMessage :: Lens.Lens' StopWorkflowResponse (Prelude.Maybe Prelude.Text)
@@ -199,8 +199,8 @@ stopWorkflowResponse_httpStatus = Lens.lens (\StopWorkflowResponse' {httpStatus}
 instance Prelude.NFData StopWorkflowResponse where
   rnf StopWorkflowResponse' {..} =
     Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf lastStopTime
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf statusMessage
       `Prelude.seq` Prelude.rnf httpStatus

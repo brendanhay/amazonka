@@ -29,10 +29,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTrafficDistributionGroupSummary' smart constructor.
 data TrafficDistributionGroupSummary = TrafficDistributionGroupSummary'
-  { -- | The name of the traffic distribution group.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the traffic distribution group.
+  { -- | The Amazon Resource Name (ARN) of the traffic distribution group.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the traffic distribution group. This can be the ID or
+    -- the ARN if the API is being called in the Region where the traffic
+    -- distribution group was created. The ARN must be provided if the call is
+    -- from the replicated Region.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the traffic distribution group.
+    instanceArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the traffic distribution group.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The status of the traffic distribution group.
     --
     -- -   @CREATION_IN_PROGRESS@ means the previous
@@ -58,14 +65,7 @@ data TrafficDistributionGroupSummary = TrafficDistributionGroupSummary'
     -- -   @UPDATE_IN_PROGRESS@ means the previous
     --     <https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateTrafficDistributionGroup.html UpdateTrafficDistributionGroup>
     --     operation is still in progress and has not yet completed.
-    status :: Prelude.Maybe TrafficDistributionGroupStatus,
-    -- | The identifier of the traffic distribution group. This can be the ID or
-    -- the ARN if the API is being called in the Region where the traffic
-    -- distribution group was created. The ARN must be provided if the call is
-    -- from the replicated Region.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the traffic distribution group.
-    instanceArn :: Prelude.Maybe Prelude.Text
+    status :: Prelude.Maybe TrafficDistributionGroupStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,9 +77,16 @@ data TrafficDistributionGroupSummary = TrafficDistributionGroupSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'trafficDistributionGroupSummary_name' - The name of the traffic distribution group.
---
 -- 'arn', 'trafficDistributionGroupSummary_arn' - The Amazon Resource Name (ARN) of the traffic distribution group.
+--
+-- 'id', 'trafficDistributionGroupSummary_id' - The identifier of the traffic distribution group. This can be the ID or
+-- the ARN if the API is being called in the Region where the traffic
+-- distribution group was created. The ARN must be provided if the call is
+-- from the replicated Region.
+--
+-- 'instanceArn', 'trafficDistributionGroupSummary_instanceArn' - The Amazon Resource Name (ARN) of the traffic distribution group.
+--
+-- 'name', 'trafficDistributionGroupSummary_name' - The name of the traffic distribution group.
 --
 -- 'status', 'trafficDistributionGroupSummary_status' - The status of the traffic distribution group.
 --
@@ -106,32 +113,36 @@ data TrafficDistributionGroupSummary = TrafficDistributionGroupSummary'
 -- -   @UPDATE_IN_PROGRESS@ means the previous
 --     <https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateTrafficDistributionGroup.html UpdateTrafficDistributionGroup>
 --     operation is still in progress and has not yet completed.
---
--- 'id', 'trafficDistributionGroupSummary_id' - The identifier of the traffic distribution group. This can be the ID or
--- the ARN if the API is being called in the Region where the traffic
--- distribution group was created. The ARN must be provided if the call is
--- from the replicated Region.
---
--- 'instanceArn', 'trafficDistributionGroupSummary_instanceArn' - The Amazon Resource Name (ARN) of the traffic distribution group.
 newTrafficDistributionGroupSummary ::
   TrafficDistributionGroupSummary
 newTrafficDistributionGroupSummary =
   TrafficDistributionGroupSummary'
-    { name =
+    { arn =
         Prelude.Nothing,
-      arn = Prelude.Nothing,
-      status = Prelude.Nothing,
       id = Prelude.Nothing,
-      instanceArn = Prelude.Nothing
+      instanceArn = Prelude.Nothing,
+      name = Prelude.Nothing,
+      status = Prelude.Nothing
     }
-
--- | The name of the traffic distribution group.
-trafficDistributionGroupSummary_name :: Lens.Lens' TrafficDistributionGroupSummary (Prelude.Maybe Prelude.Text)
-trafficDistributionGroupSummary_name = Lens.lens (\TrafficDistributionGroupSummary' {name} -> name) (\s@TrafficDistributionGroupSummary' {} a -> s {name = a} :: TrafficDistributionGroupSummary)
 
 -- | The Amazon Resource Name (ARN) of the traffic distribution group.
 trafficDistributionGroupSummary_arn :: Lens.Lens' TrafficDistributionGroupSummary (Prelude.Maybe Prelude.Text)
 trafficDistributionGroupSummary_arn = Lens.lens (\TrafficDistributionGroupSummary' {arn} -> arn) (\s@TrafficDistributionGroupSummary' {} a -> s {arn = a} :: TrafficDistributionGroupSummary)
+
+-- | The identifier of the traffic distribution group. This can be the ID or
+-- the ARN if the API is being called in the Region where the traffic
+-- distribution group was created. The ARN must be provided if the call is
+-- from the replicated Region.
+trafficDistributionGroupSummary_id :: Lens.Lens' TrafficDistributionGroupSummary (Prelude.Maybe Prelude.Text)
+trafficDistributionGroupSummary_id = Lens.lens (\TrafficDistributionGroupSummary' {id} -> id) (\s@TrafficDistributionGroupSummary' {} a -> s {id = a} :: TrafficDistributionGroupSummary)
+
+-- | The Amazon Resource Name (ARN) of the traffic distribution group.
+trafficDistributionGroupSummary_instanceArn :: Lens.Lens' TrafficDistributionGroupSummary (Prelude.Maybe Prelude.Text)
+trafficDistributionGroupSummary_instanceArn = Lens.lens (\TrafficDistributionGroupSummary' {instanceArn} -> instanceArn) (\s@TrafficDistributionGroupSummary' {} a -> s {instanceArn = a} :: TrafficDistributionGroupSummary)
+
+-- | The name of the traffic distribution group.
+trafficDistributionGroupSummary_name :: Lens.Lens' TrafficDistributionGroupSummary (Prelude.Maybe Prelude.Text)
+trafficDistributionGroupSummary_name = Lens.lens (\TrafficDistributionGroupSummary' {name} -> name) (\s@TrafficDistributionGroupSummary' {} a -> s {name = a} :: TrafficDistributionGroupSummary)
 
 -- | The status of the traffic distribution group.
 --
@@ -161,17 +172,6 @@ trafficDistributionGroupSummary_arn = Lens.lens (\TrafficDistributionGroupSummar
 trafficDistributionGroupSummary_status :: Lens.Lens' TrafficDistributionGroupSummary (Prelude.Maybe TrafficDistributionGroupStatus)
 trafficDistributionGroupSummary_status = Lens.lens (\TrafficDistributionGroupSummary' {status} -> status) (\s@TrafficDistributionGroupSummary' {} a -> s {status = a} :: TrafficDistributionGroupSummary)
 
--- | The identifier of the traffic distribution group. This can be the ID or
--- the ARN if the API is being called in the Region where the traffic
--- distribution group was created. The ARN must be provided if the call is
--- from the replicated Region.
-trafficDistributionGroupSummary_id :: Lens.Lens' TrafficDistributionGroupSummary (Prelude.Maybe Prelude.Text)
-trafficDistributionGroupSummary_id = Lens.lens (\TrafficDistributionGroupSummary' {id} -> id) (\s@TrafficDistributionGroupSummary' {} a -> s {id = a} :: TrafficDistributionGroupSummary)
-
--- | The Amazon Resource Name (ARN) of the traffic distribution group.
-trafficDistributionGroupSummary_instanceArn :: Lens.Lens' TrafficDistributionGroupSummary (Prelude.Maybe Prelude.Text)
-trafficDistributionGroupSummary_instanceArn = Lens.lens (\TrafficDistributionGroupSummary' {instanceArn} -> instanceArn) (\s@TrafficDistributionGroupSummary' {} a -> s {instanceArn = a} :: TrafficDistributionGroupSummary)
-
 instance
   Data.FromJSON
     TrafficDistributionGroupSummary
@@ -181,11 +181,11 @@ instance
       "TrafficDistributionGroupSummary"
       ( \x ->
           TrafficDistributionGroupSummary'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Arn")
-            Prelude.<*> (x Data..:? "Status")
+            Prelude.<$> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "Id")
             Prelude.<*> (x Data..:? "InstanceArn")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance
@@ -195,19 +195,19 @@ instance
   hashWithSalt
     _salt
     TrafficDistributionGroupSummary' {..} =
-      _salt `Prelude.hashWithSalt` name
-        `Prelude.hashWithSalt` arn
-        `Prelude.hashWithSalt` status
+      _salt `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` id
         `Prelude.hashWithSalt` instanceArn
+        `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` status
 
 instance
   Prelude.NFData
     TrafficDistributionGroupSummary
   where
   rnf TrafficDistributionGroupSummary' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf instanceArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf status

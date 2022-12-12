@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 data InstanceTimeline = InstanceTimeline'
   { -- | The creation date and time of the instance.
     creationDateTime :: Prelude.Maybe Data.POSIX,
-    -- | The date and time when the instance was ready to perform tasks.
-    readyDateTime :: Prelude.Maybe Data.POSIX,
     -- | The date and time when the instance was terminated.
-    endDateTime :: Prelude.Maybe Data.POSIX
+    endDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The date and time when the instance was ready to perform tasks.
+    readyDateTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,30 +47,30 @@ data InstanceTimeline = InstanceTimeline'
 --
 -- 'creationDateTime', 'instanceTimeline_creationDateTime' - The creation date and time of the instance.
 --
--- 'readyDateTime', 'instanceTimeline_readyDateTime' - The date and time when the instance was ready to perform tasks.
---
 -- 'endDateTime', 'instanceTimeline_endDateTime' - The date and time when the instance was terminated.
+--
+-- 'readyDateTime', 'instanceTimeline_readyDateTime' - The date and time when the instance was ready to perform tasks.
 newInstanceTimeline ::
   InstanceTimeline
 newInstanceTimeline =
   InstanceTimeline'
     { creationDateTime =
         Prelude.Nothing,
-      readyDateTime = Prelude.Nothing,
-      endDateTime = Prelude.Nothing
+      endDateTime = Prelude.Nothing,
+      readyDateTime = Prelude.Nothing
     }
 
 -- | The creation date and time of the instance.
 instanceTimeline_creationDateTime :: Lens.Lens' InstanceTimeline (Prelude.Maybe Prelude.UTCTime)
 instanceTimeline_creationDateTime = Lens.lens (\InstanceTimeline' {creationDateTime} -> creationDateTime) (\s@InstanceTimeline' {} a -> s {creationDateTime = a} :: InstanceTimeline) Prelude.. Lens.mapping Data._Time
 
--- | The date and time when the instance was ready to perform tasks.
-instanceTimeline_readyDateTime :: Lens.Lens' InstanceTimeline (Prelude.Maybe Prelude.UTCTime)
-instanceTimeline_readyDateTime = Lens.lens (\InstanceTimeline' {readyDateTime} -> readyDateTime) (\s@InstanceTimeline' {} a -> s {readyDateTime = a} :: InstanceTimeline) Prelude.. Lens.mapping Data._Time
-
 -- | The date and time when the instance was terminated.
 instanceTimeline_endDateTime :: Lens.Lens' InstanceTimeline (Prelude.Maybe Prelude.UTCTime)
 instanceTimeline_endDateTime = Lens.lens (\InstanceTimeline' {endDateTime} -> endDateTime) (\s@InstanceTimeline' {} a -> s {endDateTime = a} :: InstanceTimeline) Prelude.. Lens.mapping Data._Time
+
+-- | The date and time when the instance was ready to perform tasks.
+instanceTimeline_readyDateTime :: Lens.Lens' InstanceTimeline (Prelude.Maybe Prelude.UTCTime)
+instanceTimeline_readyDateTime = Lens.lens (\InstanceTimeline' {readyDateTime} -> readyDateTime) (\s@InstanceTimeline' {} a -> s {readyDateTime = a} :: InstanceTimeline) Prelude.. Lens.mapping Data._Time
 
 instance Data.FromJSON InstanceTimeline where
   parseJSON =
@@ -79,18 +79,18 @@ instance Data.FromJSON InstanceTimeline where
       ( \x ->
           InstanceTimeline'
             Prelude.<$> (x Data..:? "CreationDateTime")
-            Prelude.<*> (x Data..:? "ReadyDateTime")
             Prelude.<*> (x Data..:? "EndDateTime")
+            Prelude.<*> (x Data..:? "ReadyDateTime")
       )
 
 instance Prelude.Hashable InstanceTimeline where
   hashWithSalt _salt InstanceTimeline' {..} =
     _salt `Prelude.hashWithSalt` creationDateTime
-      `Prelude.hashWithSalt` readyDateTime
       `Prelude.hashWithSalt` endDateTime
+      `Prelude.hashWithSalt` readyDateTime
 
 instance Prelude.NFData InstanceTimeline where
   rnf InstanceTimeline' {..} =
     Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf readyDateTime
       `Prelude.seq` Prelude.rnf endDateTime
+      `Prelude.seq` Prelude.rnf readyDateTime

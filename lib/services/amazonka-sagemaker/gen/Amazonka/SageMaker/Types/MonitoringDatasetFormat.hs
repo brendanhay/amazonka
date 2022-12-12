@@ -31,12 +31,12 @@ import Amazonka.SageMaker.Types.MonitoringParquetDatasetFormat
 --
 -- /See:/ 'newMonitoringDatasetFormat' smart constructor.
 data MonitoringDatasetFormat = MonitoringDatasetFormat'
-  { -- | The Parquet dataset used in the monitoring job
-    parquet :: Prelude.Maybe MonitoringParquetDatasetFormat,
+  { -- | The CSV dataset used in the monitoring job.
+    csv :: Prelude.Maybe MonitoringCsvDatasetFormat,
     -- | The JSON dataset used in the monitoring job
     json :: Prelude.Maybe MonitoringJsonDatasetFormat,
-    -- | The CSV dataset used in the monitoring job.
-    csv :: Prelude.Maybe MonitoringCsvDatasetFormat
+    -- | The Parquet dataset used in the monitoring job
+    parquet :: Prelude.Maybe MonitoringParquetDatasetFormat
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,31 +48,31 @@ data MonitoringDatasetFormat = MonitoringDatasetFormat'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'parquet', 'monitoringDatasetFormat_parquet' - The Parquet dataset used in the monitoring job
+-- 'csv', 'monitoringDatasetFormat_csv' - The CSV dataset used in the monitoring job.
 --
 -- 'json', 'monitoringDatasetFormat_json' - The JSON dataset used in the monitoring job
 --
--- 'csv', 'monitoringDatasetFormat_csv' - The CSV dataset used in the monitoring job.
+-- 'parquet', 'monitoringDatasetFormat_parquet' - The Parquet dataset used in the monitoring job
 newMonitoringDatasetFormat ::
   MonitoringDatasetFormat
 newMonitoringDatasetFormat =
   MonitoringDatasetFormat'
-    { parquet = Prelude.Nothing,
+    { csv = Prelude.Nothing,
       json = Prelude.Nothing,
-      csv = Prelude.Nothing
+      parquet = Prelude.Nothing
     }
 
--- | The Parquet dataset used in the monitoring job
-monitoringDatasetFormat_parquet :: Lens.Lens' MonitoringDatasetFormat (Prelude.Maybe MonitoringParquetDatasetFormat)
-monitoringDatasetFormat_parquet = Lens.lens (\MonitoringDatasetFormat' {parquet} -> parquet) (\s@MonitoringDatasetFormat' {} a -> s {parquet = a} :: MonitoringDatasetFormat)
+-- | The CSV dataset used in the monitoring job.
+monitoringDatasetFormat_csv :: Lens.Lens' MonitoringDatasetFormat (Prelude.Maybe MonitoringCsvDatasetFormat)
+monitoringDatasetFormat_csv = Lens.lens (\MonitoringDatasetFormat' {csv} -> csv) (\s@MonitoringDatasetFormat' {} a -> s {csv = a} :: MonitoringDatasetFormat)
 
 -- | The JSON dataset used in the monitoring job
 monitoringDatasetFormat_json :: Lens.Lens' MonitoringDatasetFormat (Prelude.Maybe MonitoringJsonDatasetFormat)
 monitoringDatasetFormat_json = Lens.lens (\MonitoringDatasetFormat' {json} -> json) (\s@MonitoringDatasetFormat' {} a -> s {json = a} :: MonitoringDatasetFormat)
 
--- | The CSV dataset used in the monitoring job.
-monitoringDatasetFormat_csv :: Lens.Lens' MonitoringDatasetFormat (Prelude.Maybe MonitoringCsvDatasetFormat)
-monitoringDatasetFormat_csv = Lens.lens (\MonitoringDatasetFormat' {csv} -> csv) (\s@MonitoringDatasetFormat' {} a -> s {csv = a} :: MonitoringDatasetFormat)
+-- | The Parquet dataset used in the monitoring job
+monitoringDatasetFormat_parquet :: Lens.Lens' MonitoringDatasetFormat (Prelude.Maybe MonitoringParquetDatasetFormat)
+monitoringDatasetFormat_parquet = Lens.lens (\MonitoringDatasetFormat' {parquet} -> parquet) (\s@MonitoringDatasetFormat' {} a -> s {parquet = a} :: MonitoringDatasetFormat)
 
 instance Data.FromJSON MonitoringDatasetFormat where
   parseJSON =
@@ -80,29 +80,29 @@ instance Data.FromJSON MonitoringDatasetFormat where
       "MonitoringDatasetFormat"
       ( \x ->
           MonitoringDatasetFormat'
-            Prelude.<$> (x Data..:? "Parquet")
+            Prelude.<$> (x Data..:? "Csv")
             Prelude.<*> (x Data..:? "Json")
-            Prelude.<*> (x Data..:? "Csv")
+            Prelude.<*> (x Data..:? "Parquet")
       )
 
 instance Prelude.Hashable MonitoringDatasetFormat where
   hashWithSalt _salt MonitoringDatasetFormat' {..} =
-    _salt `Prelude.hashWithSalt` parquet
+    _salt `Prelude.hashWithSalt` csv
       `Prelude.hashWithSalt` json
-      `Prelude.hashWithSalt` csv
+      `Prelude.hashWithSalt` parquet
 
 instance Prelude.NFData MonitoringDatasetFormat where
   rnf MonitoringDatasetFormat' {..} =
-    Prelude.rnf parquet
+    Prelude.rnf csv
       `Prelude.seq` Prelude.rnf json
-      `Prelude.seq` Prelude.rnf csv
+      `Prelude.seq` Prelude.rnf parquet
 
 instance Data.ToJSON MonitoringDatasetFormat where
   toJSON MonitoringDatasetFormat' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Parquet" Data..=) Prelude.<$> parquet,
+          [ ("Csv" Data..=) Prelude.<$> csv,
             ("Json" Data..=) Prelude.<$> json,
-            ("Csv" Data..=) Prelude.<$> csv
+            ("Parquet" Data..=) Prelude.<$> parquet
           ]
       )

@@ -36,23 +36,23 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newProvisionedRequest' smart constructor.
 data ProvisionedRequest = ProvisionedRequest'
-  { -- | The settings for open monitoring.
-    openMonitoring :: Prelude.Maybe OpenMonitoringInfo,
-    -- | This controls storage mode for supported storage tiers.
-    storageMode :: Prelude.Maybe StorageMode,
-    -- | Includes all encryption-related information.
-    encryptionInfo :: Prelude.Maybe EncryptionInfo,
-    -- | Includes all client authentication information.
+  { -- | Includes all client authentication information.
     clientAuthentication :: Prelude.Maybe ClientAuthentication,
-    -- | Log delivery information for the cluster.
-    loggingInfo :: Prelude.Maybe LoggingInfo,
     -- | Represents the configuration that you want Amazon MSK to use for the
     -- brokers in a cluster.
     configurationInfo :: Prelude.Maybe ConfigurationInfo,
+    -- | Includes all encryption-related information.
+    encryptionInfo :: Prelude.Maybe EncryptionInfo,
     -- | Specifies the level of monitoring for the MSK cluster. The possible
     -- values are DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and
     -- PER_TOPIC_PER_PARTITION.
     enhancedMonitoring :: Prelude.Maybe EnhancedMonitoring,
+    -- | Log delivery information for the cluster.
+    loggingInfo :: Prelude.Maybe LoggingInfo,
+    -- | The settings for open monitoring.
+    openMonitoring :: Prelude.Maybe OpenMonitoringInfo,
+    -- | This controls storage mode for supported storage tiers.
+    storageMode :: Prelude.Maybe StorageMode,
     -- | Information about the brokers.
     brokerNodeGroupInfo :: BrokerNodeGroupInfo,
     -- | The Apache Kafka version that you want for the cluster.
@@ -70,22 +70,22 @@ data ProvisionedRequest = ProvisionedRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'openMonitoring', 'provisionedRequest_openMonitoring' - The settings for open monitoring.
---
--- 'storageMode', 'provisionedRequest_storageMode' - This controls storage mode for supported storage tiers.
---
--- 'encryptionInfo', 'provisionedRequest_encryptionInfo' - Includes all encryption-related information.
---
 -- 'clientAuthentication', 'provisionedRequest_clientAuthentication' - Includes all client authentication information.
---
--- 'loggingInfo', 'provisionedRequest_loggingInfo' - Log delivery information for the cluster.
 --
 -- 'configurationInfo', 'provisionedRequest_configurationInfo' - Represents the configuration that you want Amazon MSK to use for the
 -- brokers in a cluster.
 --
+-- 'encryptionInfo', 'provisionedRequest_encryptionInfo' - Includes all encryption-related information.
+--
 -- 'enhancedMonitoring', 'provisionedRequest_enhancedMonitoring' - Specifies the level of monitoring for the MSK cluster. The possible
 -- values are DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and
 -- PER_TOPIC_PER_PARTITION.
+--
+-- 'loggingInfo', 'provisionedRequest_loggingInfo' - Log delivery information for the cluster.
+--
+-- 'openMonitoring', 'provisionedRequest_openMonitoring' - The settings for open monitoring.
+--
+-- 'storageMode', 'provisionedRequest_storageMode' - This controls storage mode for supported storage tiers.
 --
 -- 'brokerNodeGroupInfo', 'provisionedRequest_brokerNodeGroupInfo' - Information about the brokers.
 --
@@ -105,18 +105,41 @@ newProvisionedRequest
   pKafkaVersion_
   pNumberOfBrokerNodes_ =
     ProvisionedRequest'
-      { openMonitoring =
+      { clientAuthentication =
           Prelude.Nothing,
-        storageMode = Prelude.Nothing,
-        encryptionInfo = Prelude.Nothing,
-        clientAuthentication = Prelude.Nothing,
-        loggingInfo = Prelude.Nothing,
         configurationInfo = Prelude.Nothing,
+        encryptionInfo = Prelude.Nothing,
         enhancedMonitoring = Prelude.Nothing,
+        loggingInfo = Prelude.Nothing,
+        openMonitoring = Prelude.Nothing,
+        storageMode = Prelude.Nothing,
         brokerNodeGroupInfo = pBrokerNodeGroupInfo_,
         kafkaVersion = pKafkaVersion_,
         numberOfBrokerNodes = pNumberOfBrokerNodes_
       }
+
+-- | Includes all client authentication information.
+provisionedRequest_clientAuthentication :: Lens.Lens' ProvisionedRequest (Prelude.Maybe ClientAuthentication)
+provisionedRequest_clientAuthentication = Lens.lens (\ProvisionedRequest' {clientAuthentication} -> clientAuthentication) (\s@ProvisionedRequest' {} a -> s {clientAuthentication = a} :: ProvisionedRequest)
+
+-- | Represents the configuration that you want Amazon MSK to use for the
+-- brokers in a cluster.
+provisionedRequest_configurationInfo :: Lens.Lens' ProvisionedRequest (Prelude.Maybe ConfigurationInfo)
+provisionedRequest_configurationInfo = Lens.lens (\ProvisionedRequest' {configurationInfo} -> configurationInfo) (\s@ProvisionedRequest' {} a -> s {configurationInfo = a} :: ProvisionedRequest)
+
+-- | Includes all encryption-related information.
+provisionedRequest_encryptionInfo :: Lens.Lens' ProvisionedRequest (Prelude.Maybe EncryptionInfo)
+provisionedRequest_encryptionInfo = Lens.lens (\ProvisionedRequest' {encryptionInfo} -> encryptionInfo) (\s@ProvisionedRequest' {} a -> s {encryptionInfo = a} :: ProvisionedRequest)
+
+-- | Specifies the level of monitoring for the MSK cluster. The possible
+-- values are DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and
+-- PER_TOPIC_PER_PARTITION.
+provisionedRequest_enhancedMonitoring :: Lens.Lens' ProvisionedRequest (Prelude.Maybe EnhancedMonitoring)
+provisionedRequest_enhancedMonitoring = Lens.lens (\ProvisionedRequest' {enhancedMonitoring} -> enhancedMonitoring) (\s@ProvisionedRequest' {} a -> s {enhancedMonitoring = a} :: ProvisionedRequest)
+
+-- | Log delivery information for the cluster.
+provisionedRequest_loggingInfo :: Lens.Lens' ProvisionedRequest (Prelude.Maybe LoggingInfo)
+provisionedRequest_loggingInfo = Lens.lens (\ProvisionedRequest' {loggingInfo} -> loggingInfo) (\s@ProvisionedRequest' {} a -> s {loggingInfo = a} :: ProvisionedRequest)
 
 -- | The settings for open monitoring.
 provisionedRequest_openMonitoring :: Lens.Lens' ProvisionedRequest (Prelude.Maybe OpenMonitoringInfo)
@@ -125,29 +148,6 @@ provisionedRequest_openMonitoring = Lens.lens (\ProvisionedRequest' {openMonitor
 -- | This controls storage mode for supported storage tiers.
 provisionedRequest_storageMode :: Lens.Lens' ProvisionedRequest (Prelude.Maybe StorageMode)
 provisionedRequest_storageMode = Lens.lens (\ProvisionedRequest' {storageMode} -> storageMode) (\s@ProvisionedRequest' {} a -> s {storageMode = a} :: ProvisionedRequest)
-
--- | Includes all encryption-related information.
-provisionedRequest_encryptionInfo :: Lens.Lens' ProvisionedRequest (Prelude.Maybe EncryptionInfo)
-provisionedRequest_encryptionInfo = Lens.lens (\ProvisionedRequest' {encryptionInfo} -> encryptionInfo) (\s@ProvisionedRequest' {} a -> s {encryptionInfo = a} :: ProvisionedRequest)
-
--- | Includes all client authentication information.
-provisionedRequest_clientAuthentication :: Lens.Lens' ProvisionedRequest (Prelude.Maybe ClientAuthentication)
-provisionedRequest_clientAuthentication = Lens.lens (\ProvisionedRequest' {clientAuthentication} -> clientAuthentication) (\s@ProvisionedRequest' {} a -> s {clientAuthentication = a} :: ProvisionedRequest)
-
--- | Log delivery information for the cluster.
-provisionedRequest_loggingInfo :: Lens.Lens' ProvisionedRequest (Prelude.Maybe LoggingInfo)
-provisionedRequest_loggingInfo = Lens.lens (\ProvisionedRequest' {loggingInfo} -> loggingInfo) (\s@ProvisionedRequest' {} a -> s {loggingInfo = a} :: ProvisionedRequest)
-
--- | Represents the configuration that you want Amazon MSK to use for the
--- brokers in a cluster.
-provisionedRequest_configurationInfo :: Lens.Lens' ProvisionedRequest (Prelude.Maybe ConfigurationInfo)
-provisionedRequest_configurationInfo = Lens.lens (\ProvisionedRequest' {configurationInfo} -> configurationInfo) (\s@ProvisionedRequest' {} a -> s {configurationInfo = a} :: ProvisionedRequest)
-
--- | Specifies the level of monitoring for the MSK cluster. The possible
--- values are DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and
--- PER_TOPIC_PER_PARTITION.
-provisionedRequest_enhancedMonitoring :: Lens.Lens' ProvisionedRequest (Prelude.Maybe EnhancedMonitoring)
-provisionedRequest_enhancedMonitoring = Lens.lens (\ProvisionedRequest' {enhancedMonitoring} -> enhancedMonitoring) (\s@ProvisionedRequest' {} a -> s {enhancedMonitoring = a} :: ProvisionedRequest)
 
 -- | Information about the brokers.
 provisionedRequest_brokerNodeGroupInfo :: Lens.Lens' ProvisionedRequest BrokerNodeGroupInfo
@@ -163,26 +163,26 @@ provisionedRequest_numberOfBrokerNodes = Lens.lens (\ProvisionedRequest' {number
 
 instance Prelude.Hashable ProvisionedRequest where
   hashWithSalt _salt ProvisionedRequest' {..} =
-    _salt `Prelude.hashWithSalt` openMonitoring
-      `Prelude.hashWithSalt` storageMode
-      `Prelude.hashWithSalt` encryptionInfo
-      `Prelude.hashWithSalt` clientAuthentication
-      `Prelude.hashWithSalt` loggingInfo
+    _salt `Prelude.hashWithSalt` clientAuthentication
       `Prelude.hashWithSalt` configurationInfo
+      `Prelude.hashWithSalt` encryptionInfo
       `Prelude.hashWithSalt` enhancedMonitoring
+      `Prelude.hashWithSalt` loggingInfo
+      `Prelude.hashWithSalt` openMonitoring
+      `Prelude.hashWithSalt` storageMode
       `Prelude.hashWithSalt` brokerNodeGroupInfo
       `Prelude.hashWithSalt` kafkaVersion
       `Prelude.hashWithSalt` numberOfBrokerNodes
 
 instance Prelude.NFData ProvisionedRequest where
   rnf ProvisionedRequest' {..} =
-    Prelude.rnf openMonitoring
-      `Prelude.seq` Prelude.rnf storageMode
-      `Prelude.seq` Prelude.rnf encryptionInfo
-      `Prelude.seq` Prelude.rnf clientAuthentication
-      `Prelude.seq` Prelude.rnf loggingInfo
+    Prelude.rnf clientAuthentication
       `Prelude.seq` Prelude.rnf configurationInfo
+      `Prelude.seq` Prelude.rnf encryptionInfo
       `Prelude.seq` Prelude.rnf enhancedMonitoring
+      `Prelude.seq` Prelude.rnf loggingInfo
+      `Prelude.seq` Prelude.rnf openMonitoring
+      `Prelude.seq` Prelude.rnf storageMode
       `Prelude.seq` Prelude.rnf brokerNodeGroupInfo
       `Prelude.seq` Prelude.rnf kafkaVersion
       `Prelude.seq` Prelude.rnf numberOfBrokerNodes
@@ -191,18 +191,18 @@ instance Data.ToJSON ProvisionedRequest where
   toJSON ProvisionedRequest' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("openMonitoring" Data..=)
-              Prelude.<$> openMonitoring,
-            ("storageMode" Data..=) Prelude.<$> storageMode,
-            ("encryptionInfo" Data..=)
-              Prelude.<$> encryptionInfo,
-            ("clientAuthentication" Data..=)
+          [ ("clientAuthentication" Data..=)
               Prelude.<$> clientAuthentication,
-            ("loggingInfo" Data..=) Prelude.<$> loggingInfo,
             ("configurationInfo" Data..=)
               Prelude.<$> configurationInfo,
+            ("encryptionInfo" Data..=)
+              Prelude.<$> encryptionInfo,
             ("enhancedMonitoring" Data..=)
               Prelude.<$> enhancedMonitoring,
+            ("loggingInfo" Data..=) Prelude.<$> loggingInfo,
+            ("openMonitoring" Data..=)
+              Prelude.<$> openMonitoring,
+            ("storageMode" Data..=) Prelude.<$> storageMode,
             Prelude.Just
               ("brokerNodeGroupInfo" Data..= brokerNodeGroupInfo),
             Prelude.Just ("kafkaVersion" Data..= kafkaVersion),

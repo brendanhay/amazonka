@@ -29,10 +29,10 @@ import Amazonka.WorkSpaces.Types.ClientProperties
 --
 -- /See:/ 'newClientPropertiesResult' smart constructor.
 data ClientPropertiesResult = ClientPropertiesResult'
-  { -- | The resource identifier, in the form of a directory ID.
-    resourceId :: Prelude.Maybe Prelude.Text,
-    -- | Information about the Amazon WorkSpaces client.
-    clientProperties :: Prelude.Maybe ClientProperties
+  { -- | Information about the Amazon WorkSpaces client.
+    clientProperties :: Prelude.Maybe ClientProperties,
+    -- | The resource identifier, in the form of a directory ID.
+    resourceId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data ClientPropertiesResult = ClientPropertiesResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceId', 'clientPropertiesResult_resourceId' - The resource identifier, in the form of a directory ID.
---
 -- 'clientProperties', 'clientPropertiesResult_clientProperties' - Information about the Amazon WorkSpaces client.
+--
+-- 'resourceId', 'clientPropertiesResult_resourceId' - The resource identifier, in the form of a directory ID.
 newClientPropertiesResult ::
   ClientPropertiesResult
 newClientPropertiesResult =
   ClientPropertiesResult'
-    { resourceId =
+    { clientProperties =
         Prelude.Nothing,
-      clientProperties = Prelude.Nothing
+      resourceId = Prelude.Nothing
     }
-
--- | The resource identifier, in the form of a directory ID.
-clientPropertiesResult_resourceId :: Lens.Lens' ClientPropertiesResult (Prelude.Maybe Prelude.Text)
-clientPropertiesResult_resourceId = Lens.lens (\ClientPropertiesResult' {resourceId} -> resourceId) (\s@ClientPropertiesResult' {} a -> s {resourceId = a} :: ClientPropertiesResult)
 
 -- | Information about the Amazon WorkSpaces client.
 clientPropertiesResult_clientProperties :: Lens.Lens' ClientPropertiesResult (Prelude.Maybe ClientProperties)
 clientPropertiesResult_clientProperties = Lens.lens (\ClientPropertiesResult' {clientProperties} -> clientProperties) (\s@ClientPropertiesResult' {} a -> s {clientProperties = a} :: ClientPropertiesResult)
+
+-- | The resource identifier, in the form of a directory ID.
+clientPropertiesResult_resourceId :: Lens.Lens' ClientPropertiesResult (Prelude.Maybe Prelude.Text)
+clientPropertiesResult_resourceId = Lens.lens (\ClientPropertiesResult' {resourceId} -> resourceId) (\s@ClientPropertiesResult' {} a -> s {resourceId = a} :: ClientPropertiesResult)
 
 instance Data.FromJSON ClientPropertiesResult where
   parseJSON =
@@ -70,16 +70,16 @@ instance Data.FromJSON ClientPropertiesResult where
       "ClientPropertiesResult"
       ( \x ->
           ClientPropertiesResult'
-            Prelude.<$> (x Data..:? "ResourceId")
-            Prelude.<*> (x Data..:? "ClientProperties")
+            Prelude.<$> (x Data..:? "ClientProperties")
+            Prelude.<*> (x Data..:? "ResourceId")
       )
 
 instance Prelude.Hashable ClientPropertiesResult where
   hashWithSalt _salt ClientPropertiesResult' {..} =
-    _salt `Prelude.hashWithSalt` resourceId
-      `Prelude.hashWithSalt` clientProperties
+    _salt `Prelude.hashWithSalt` clientProperties
+      `Prelude.hashWithSalt` resourceId
 
 instance Prelude.NFData ClientPropertiesResult where
   rnf ClientPropertiesResult' {..} =
-    Prelude.rnf resourceId
-      `Prelude.seq` Prelude.rnf clientProperties
+    Prelude.rnf clientProperties
+      `Prelude.seq` Prelude.rnf resourceId

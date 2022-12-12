@@ -31,16 +31,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newProjectFileSystemLocation' smart constructor.
 data ProjectFileSystemLocation = ProjectFileSystemLocation'
-  { -- | The type of the file system. The one supported type is @EFS@.
-    type' :: Prelude.Maybe FileSystemType,
-    -- | The location in the container where you mount the file system.
-    mountPoint :: Prelude.Maybe Prelude.Text,
-    -- | The mount options for a file system created by Amazon EFS. The default
-    -- mount options used by CodeBuild are
-    -- @nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2@. For
-    -- more information, see
-    -- <https://docs.aws.amazon.com/efs/latest/ug/mounting-fs-nfs-mount-settings.html Recommended NFS Mount Options>.
-    mountOptions :: Prelude.Maybe Prelude.Text,
+  { -- | The name used to access a file system created by Amazon EFS. CodeBuild
+    -- creates an environment variable by appending the @identifier@ in all
+    -- capital letters to @CODEBUILD_@. For example, if you specify @my_efs@
+    -- for @identifier@, a new environment variable is create named
+    -- @CODEBUILD_MY_EFS@.
+    --
+    -- The @identifier@ is used to mount your file system.
+    identifier :: Prelude.Maybe Prelude.Text,
     -- | A string that specifies the location of the file system created by
     -- Amazon EFS. Its format is @efs-dns-name:\/directory-path@. You can find
     -- the DNS name of file system when you view it in the Amazon EFS console.
@@ -54,14 +52,16 @@ data ProjectFileSystemLocation = ProjectFileSystemLocation'
     -- optional. If you do not specify a directory path, the location is only
     -- the DNS name and CodeBuild mounts the entire file system.
     location :: Prelude.Maybe Prelude.Text,
-    -- | The name used to access a file system created by Amazon EFS. CodeBuild
-    -- creates an environment variable by appending the @identifier@ in all
-    -- capital letters to @CODEBUILD_@. For example, if you specify @my_efs@
-    -- for @identifier@, a new environment variable is create named
-    -- @CODEBUILD_MY_EFS@.
-    --
-    -- The @identifier@ is used to mount your file system.
-    identifier :: Prelude.Maybe Prelude.Text
+    -- | The mount options for a file system created by Amazon EFS. The default
+    -- mount options used by CodeBuild are
+    -- @nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2@. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/efs/latest/ug/mounting-fs-nfs-mount-settings.html Recommended NFS Mount Options>.
+    mountOptions :: Prelude.Maybe Prelude.Text,
+    -- | The location in the container where you mount the file system.
+    mountPoint :: Prelude.Maybe Prelude.Text,
+    -- | The type of the file system. The one supported type is @EFS@.
+    type' :: Prelude.Maybe FileSystemType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,15 +73,13 @@ data ProjectFileSystemLocation = ProjectFileSystemLocation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'projectFileSystemLocation_type' - The type of the file system. The one supported type is @EFS@.
+-- 'identifier', 'projectFileSystemLocation_identifier' - The name used to access a file system created by Amazon EFS. CodeBuild
+-- creates an environment variable by appending the @identifier@ in all
+-- capital letters to @CODEBUILD_@. For example, if you specify @my_efs@
+-- for @identifier@, a new environment variable is create named
+-- @CODEBUILD_MY_EFS@.
 --
--- 'mountPoint', 'projectFileSystemLocation_mountPoint' - The location in the container where you mount the file system.
---
--- 'mountOptions', 'projectFileSystemLocation_mountOptions' - The mount options for a file system created by Amazon EFS. The default
--- mount options used by CodeBuild are
--- @nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2@. For
--- more information, see
--- <https://docs.aws.amazon.com/efs/latest/ug/mounting-fs-nfs-mount-settings.html Recommended NFS Mount Options>.
+-- The @identifier@ is used to mount your file system.
 --
 -- 'location', 'projectFileSystemLocation_location' - A string that specifies the location of the file system created by
 -- Amazon EFS. Its format is @efs-dns-name:\/directory-path@. You can find
@@ -96,39 +94,36 @@ data ProjectFileSystemLocation = ProjectFileSystemLocation'
 -- optional. If you do not specify a directory path, the location is only
 -- the DNS name and CodeBuild mounts the entire file system.
 --
--- 'identifier', 'projectFileSystemLocation_identifier' - The name used to access a file system created by Amazon EFS. CodeBuild
+-- 'mountOptions', 'projectFileSystemLocation_mountOptions' - The mount options for a file system created by Amazon EFS. The default
+-- mount options used by CodeBuild are
+-- @nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2@. For
+-- more information, see
+-- <https://docs.aws.amazon.com/efs/latest/ug/mounting-fs-nfs-mount-settings.html Recommended NFS Mount Options>.
+--
+-- 'mountPoint', 'projectFileSystemLocation_mountPoint' - The location in the container where you mount the file system.
+--
+-- 'type'', 'projectFileSystemLocation_type' - The type of the file system. The one supported type is @EFS@.
+newProjectFileSystemLocation ::
+  ProjectFileSystemLocation
+newProjectFileSystemLocation =
+  ProjectFileSystemLocation'
+    { identifier =
+        Prelude.Nothing,
+      location = Prelude.Nothing,
+      mountOptions = Prelude.Nothing,
+      mountPoint = Prelude.Nothing,
+      type' = Prelude.Nothing
+    }
+
+-- | The name used to access a file system created by Amazon EFS. CodeBuild
 -- creates an environment variable by appending the @identifier@ in all
 -- capital letters to @CODEBUILD_@. For example, if you specify @my_efs@
 -- for @identifier@, a new environment variable is create named
 -- @CODEBUILD_MY_EFS@.
 --
 -- The @identifier@ is used to mount your file system.
-newProjectFileSystemLocation ::
-  ProjectFileSystemLocation
-newProjectFileSystemLocation =
-  ProjectFileSystemLocation'
-    { type' = Prelude.Nothing,
-      mountPoint = Prelude.Nothing,
-      mountOptions = Prelude.Nothing,
-      location = Prelude.Nothing,
-      identifier = Prelude.Nothing
-    }
-
--- | The type of the file system. The one supported type is @EFS@.
-projectFileSystemLocation_type :: Lens.Lens' ProjectFileSystemLocation (Prelude.Maybe FileSystemType)
-projectFileSystemLocation_type = Lens.lens (\ProjectFileSystemLocation' {type'} -> type') (\s@ProjectFileSystemLocation' {} a -> s {type' = a} :: ProjectFileSystemLocation)
-
--- | The location in the container where you mount the file system.
-projectFileSystemLocation_mountPoint :: Lens.Lens' ProjectFileSystemLocation (Prelude.Maybe Prelude.Text)
-projectFileSystemLocation_mountPoint = Lens.lens (\ProjectFileSystemLocation' {mountPoint} -> mountPoint) (\s@ProjectFileSystemLocation' {} a -> s {mountPoint = a} :: ProjectFileSystemLocation)
-
--- | The mount options for a file system created by Amazon EFS. The default
--- mount options used by CodeBuild are
--- @nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2@. For
--- more information, see
--- <https://docs.aws.amazon.com/efs/latest/ug/mounting-fs-nfs-mount-settings.html Recommended NFS Mount Options>.
-projectFileSystemLocation_mountOptions :: Lens.Lens' ProjectFileSystemLocation (Prelude.Maybe Prelude.Text)
-projectFileSystemLocation_mountOptions = Lens.lens (\ProjectFileSystemLocation' {mountOptions} -> mountOptions) (\s@ProjectFileSystemLocation' {} a -> s {mountOptions = a} :: ProjectFileSystemLocation)
+projectFileSystemLocation_identifier :: Lens.Lens' ProjectFileSystemLocation (Prelude.Maybe Prelude.Text)
+projectFileSystemLocation_identifier = Lens.lens (\ProjectFileSystemLocation' {identifier} -> identifier) (\s@ProjectFileSystemLocation' {} a -> s {identifier = a} :: ProjectFileSystemLocation)
 
 -- | A string that specifies the location of the file system created by
 -- Amazon EFS. Its format is @efs-dns-name:\/directory-path@. You can find
@@ -145,15 +140,21 @@ projectFileSystemLocation_mountOptions = Lens.lens (\ProjectFileSystemLocation' 
 projectFileSystemLocation_location :: Lens.Lens' ProjectFileSystemLocation (Prelude.Maybe Prelude.Text)
 projectFileSystemLocation_location = Lens.lens (\ProjectFileSystemLocation' {location} -> location) (\s@ProjectFileSystemLocation' {} a -> s {location = a} :: ProjectFileSystemLocation)
 
--- | The name used to access a file system created by Amazon EFS. CodeBuild
--- creates an environment variable by appending the @identifier@ in all
--- capital letters to @CODEBUILD_@. For example, if you specify @my_efs@
--- for @identifier@, a new environment variable is create named
--- @CODEBUILD_MY_EFS@.
---
--- The @identifier@ is used to mount your file system.
-projectFileSystemLocation_identifier :: Lens.Lens' ProjectFileSystemLocation (Prelude.Maybe Prelude.Text)
-projectFileSystemLocation_identifier = Lens.lens (\ProjectFileSystemLocation' {identifier} -> identifier) (\s@ProjectFileSystemLocation' {} a -> s {identifier = a} :: ProjectFileSystemLocation)
+-- | The mount options for a file system created by Amazon EFS. The default
+-- mount options used by CodeBuild are
+-- @nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2@. For
+-- more information, see
+-- <https://docs.aws.amazon.com/efs/latest/ug/mounting-fs-nfs-mount-settings.html Recommended NFS Mount Options>.
+projectFileSystemLocation_mountOptions :: Lens.Lens' ProjectFileSystemLocation (Prelude.Maybe Prelude.Text)
+projectFileSystemLocation_mountOptions = Lens.lens (\ProjectFileSystemLocation' {mountOptions} -> mountOptions) (\s@ProjectFileSystemLocation' {} a -> s {mountOptions = a} :: ProjectFileSystemLocation)
+
+-- | The location in the container where you mount the file system.
+projectFileSystemLocation_mountPoint :: Lens.Lens' ProjectFileSystemLocation (Prelude.Maybe Prelude.Text)
+projectFileSystemLocation_mountPoint = Lens.lens (\ProjectFileSystemLocation' {mountPoint} -> mountPoint) (\s@ProjectFileSystemLocation' {} a -> s {mountPoint = a} :: ProjectFileSystemLocation)
+
+-- | The type of the file system. The one supported type is @EFS@.
+projectFileSystemLocation_type :: Lens.Lens' ProjectFileSystemLocation (Prelude.Maybe FileSystemType)
+projectFileSystemLocation_type = Lens.lens (\ProjectFileSystemLocation' {type'} -> type') (\s@ProjectFileSystemLocation' {} a -> s {type' = a} :: ProjectFileSystemLocation)
 
 instance Data.FromJSON ProjectFileSystemLocation where
   parseJSON =
@@ -161,37 +162,37 @@ instance Data.FromJSON ProjectFileSystemLocation where
       "ProjectFileSystemLocation"
       ( \x ->
           ProjectFileSystemLocation'
-            Prelude.<$> (x Data..:? "type")
-            Prelude.<*> (x Data..:? "mountPoint")
-            Prelude.<*> (x Data..:? "mountOptions")
+            Prelude.<$> (x Data..:? "identifier")
             Prelude.<*> (x Data..:? "location")
-            Prelude.<*> (x Data..:? "identifier")
+            Prelude.<*> (x Data..:? "mountOptions")
+            Prelude.<*> (x Data..:? "mountPoint")
+            Prelude.<*> (x Data..:? "type")
       )
 
 instance Prelude.Hashable ProjectFileSystemLocation where
   hashWithSalt _salt ProjectFileSystemLocation' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` mountPoint
-      `Prelude.hashWithSalt` mountOptions
+    _salt `Prelude.hashWithSalt` identifier
       `Prelude.hashWithSalt` location
-      `Prelude.hashWithSalt` identifier
+      `Prelude.hashWithSalt` mountOptions
+      `Prelude.hashWithSalt` mountPoint
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData ProjectFileSystemLocation where
   rnf ProjectFileSystemLocation' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf mountPoint
-      `Prelude.seq` Prelude.rnf mountOptions
+    Prelude.rnf identifier
       `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf identifier
+      `Prelude.seq` Prelude.rnf mountOptions
+      `Prelude.seq` Prelude.rnf mountPoint
+      `Prelude.seq` Prelude.rnf type'
 
 instance Data.ToJSON ProjectFileSystemLocation where
   toJSON ProjectFileSystemLocation' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("type" Data..=) Prelude.<$> type',
-            ("mountPoint" Data..=) Prelude.<$> mountPoint,
-            ("mountOptions" Data..=) Prelude.<$> mountOptions,
+          [ ("identifier" Data..=) Prelude.<$> identifier,
             ("location" Data..=) Prelude.<$> location,
-            ("identifier" Data..=) Prelude.<$> identifier
+            ("mountOptions" Data..=) Prelude.<$> mountOptions,
+            ("mountPoint" Data..=) Prelude.<$> mountPoint,
+            ("type" Data..=) Prelude.<$> type'
           ]
       )

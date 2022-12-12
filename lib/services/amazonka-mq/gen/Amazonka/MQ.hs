@@ -23,23 +23,23 @@ module Amazonka.MQ
     -- * Errors
     -- $errors
 
-    -- ** UnauthorizedException
-    _UnauthorizedException,
-
-    -- ** NotFoundException
-    _NotFoundException,
-
-    -- ** InternalServerErrorException
-    _InternalServerErrorException,
-
-    -- ** ForbiddenException
-    _ForbiddenException,
+    -- ** BadRequestException
+    _BadRequestException,
 
     -- ** ConflictException
     _ConflictException,
 
-    -- ** BadRequestException
-    _BadRequestException,
+    -- ** ForbiddenException
+    _ForbiddenException,
+
+    -- ** InternalServerErrorException
+    _InternalServerErrorException,
+
+    -- ** NotFoundException
+    _NotFoundException,
+
+    -- ** UnauthorizedException
+    _UnauthorizedException,
 
     -- * Waiters
     -- $waiters

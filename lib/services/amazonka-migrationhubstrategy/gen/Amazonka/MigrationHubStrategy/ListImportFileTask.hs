@@ -29,8 +29,8 @@ module Amazonka.MigrationHubStrategy.ListImportFileTask
     newListImportFileTask,
 
     -- * Request Lenses
-    listImportFileTask_nextToken,
     listImportFileTask_maxResults,
+    listImportFileTask_nextToken,
 
     -- * Destructuring the Response
     ListImportFileTaskResponse (..),
@@ -53,14 +53,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListImportFileTask' smart constructor.
 data ListImportFileTask = ListImportFileTask'
-  { -- | The token from a previous call that you use to retrieve the next set of
+  { -- | The total number of items to return. The maximum value is 100.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The token from a previous call that you use to retrieve the next set of
     -- results. For example, if a previous call to this action returned 100
     -- items, but you set @maxResults@ to 10. You\'ll receive a set of 10
     -- results along with a token. You then use the returned token to retrieve
     -- the next set of 10.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The total number of items to return. The maximum value is 100.
-    maxResults :: Prelude.Maybe Prelude.Int
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,20 +72,24 @@ data ListImportFileTask = ListImportFileTask'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listImportFileTask_maxResults' - The total number of items to return. The maximum value is 100.
+--
 -- 'nextToken', 'listImportFileTask_nextToken' - The token from a previous call that you use to retrieve the next set of
 -- results. For example, if a previous call to this action returned 100
 -- items, but you set @maxResults@ to 10. You\'ll receive a set of 10
 -- results along with a token. You then use the returned token to retrieve
 -- the next set of 10.
---
--- 'maxResults', 'listImportFileTask_maxResults' - The total number of items to return. The maximum value is 100.
 newListImportFileTask ::
   ListImportFileTask
 newListImportFileTask =
   ListImportFileTask'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The total number of items to return. The maximum value is 100.
+listImportFileTask_maxResults :: Lens.Lens' ListImportFileTask (Prelude.Maybe Prelude.Int)
+listImportFileTask_maxResults = Lens.lens (\ListImportFileTask' {maxResults} -> maxResults) (\s@ListImportFileTask' {} a -> s {maxResults = a} :: ListImportFileTask)
 
 -- | The token from a previous call that you use to retrieve the next set of
 -- results. For example, if a previous call to this action returned 100
@@ -94,10 +98,6 @@ newListImportFileTask =
 -- the next set of 10.
 listImportFileTask_nextToken :: Lens.Lens' ListImportFileTask (Prelude.Maybe Prelude.Text)
 listImportFileTask_nextToken = Lens.lens (\ListImportFileTask' {nextToken} -> nextToken) (\s@ListImportFileTask' {} a -> s {nextToken = a} :: ListImportFileTask)
-
--- | The total number of items to return. The maximum value is 100.
-listImportFileTask_maxResults :: Lens.Lens' ListImportFileTask (Prelude.Maybe Prelude.Int)
-listImportFileTask_maxResults = Lens.lens (\ListImportFileTask' {maxResults} -> maxResults) (\s@ListImportFileTask' {} a -> s {maxResults = a} :: ListImportFileTask)
 
 instance Core.AWSPager ListImportFileTask where
   page rq rs
@@ -138,13 +138,13 @@ instance Core.AWSRequest ListImportFileTask where
 
 instance Prelude.Hashable ListImportFileTask where
   hashWithSalt _salt ListImportFileTask' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListImportFileTask where
   rnf ListImportFileTask' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListImportFileTask where
   toHeaders =
@@ -163,8 +163,8 @@ instance Data.ToPath ListImportFileTask where
 instance Data.ToQuery ListImportFileTask where
   toQuery ListImportFileTask' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListImportFileTaskResponse' smart constructor.

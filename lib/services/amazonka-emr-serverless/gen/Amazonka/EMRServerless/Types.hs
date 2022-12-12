@@ -18,10 +18,10 @@ module Amazonka.EMRServerless.Types
     defaultService,
 
     -- * Errors
-    _InternalServerException,
-    _ServiceQuotaExceededException,
-    _ResourceNotFoundException,
     _ConflictException,
+    _InternalServerException,
+    _ResourceNotFoundException,
+    _ServiceQuotaExceededException,
     _ValidationException,
 
     -- * ApplicationState
@@ -36,15 +36,15 @@ module Amazonka.EMRServerless.Types
     -- * Application
     Application (..),
     newApplication,
-    application_tags,
-    application_name,
-    application_autoStopConfiguration,
-    application_stateDetails,
-    application_initialCapacity,
-    application_networkConfiguration,
-    application_autoStartConfiguration,
-    application_maximumCapacity,
     application_architecture,
+    application_autoStartConfiguration,
+    application_autoStopConfiguration,
+    application_initialCapacity,
+    application_maximumCapacity,
+    application_name,
+    application_networkConfiguration,
+    application_stateDetails,
+    application_tags,
     application_applicationId,
     application_arn,
     application_releaseLabel,
@@ -56,9 +56,9 @@ module Amazonka.EMRServerless.Types
     -- * ApplicationSummary
     ApplicationSummary (..),
     newApplicationSummary,
+    applicationSummary_architecture,
     applicationSummary_name,
     applicationSummary_stateDetails,
-    applicationSummary_architecture,
     applicationSummary_id,
     applicationSummary_arn,
     applicationSummary_releaseLabel,
@@ -75,14 +75,14 @@ module Amazonka.EMRServerless.Types
     -- * AutoStopConfig
     AutoStopConfig (..),
     newAutoStopConfig,
-    autoStopConfig_idleTimeoutMinutes,
     autoStopConfig_enabled,
+    autoStopConfig_idleTimeoutMinutes,
 
     -- * Configuration
     Configuration (..),
     newConfiguration,
-    configuration_properties,
     configuration_configurations,
+    configuration_properties,
     configuration_classification,
 
     -- * ConfigurationOverrides
@@ -113,10 +113,10 @@ module Amazonka.EMRServerless.Types
     -- * JobRun
     JobRun (..),
     newJobRun,
-    jobRun_tags,
+    jobRun_configurationOverrides,
     jobRun_name,
     jobRun_networkConfiguration,
-    jobRun_configurationOverrides,
+    jobRun_tags,
     jobRun_totalExecutionDurationSeconds,
     jobRun_totalResourceUtilization,
     jobRun_applicationId,
@@ -150,8 +150,8 @@ module Amazonka.EMRServerless.Types
     -- * ManagedPersistenceMonitoringConfiguration
     ManagedPersistenceMonitoringConfiguration (..),
     newManagedPersistenceMonitoringConfiguration,
-    managedPersistenceMonitoringConfiguration_encryptionKeyArn,
     managedPersistenceMonitoringConfiguration_enabled,
+    managedPersistenceMonitoringConfiguration_encryptionKeyArn,
 
     -- * MaximumAllowedResources
     MaximumAllowedResources (..),
@@ -188,8 +188,8 @@ module Amazonka.EMRServerless.Types
     -- * TotalResourceUtilization
     TotalResourceUtilization (..),
     newTotalResourceUtilization,
-    totalResourceUtilization_storageGBHour,
     totalResourceUtilization_memoryGBHour,
+    totalResourceUtilization_storageGBHour,
     totalResourceUtilization_vCPUHour,
 
     -- * WorkerResourceConfig
@@ -253,28 +253,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -282,13 +276,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -296,7 +294,18 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
+
+-- | The request could not be processed because of conflict in the current
+-- state of the resource.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
 
 -- | Request processing failed because of an error or failure with the
 -- service.
@@ -307,14 +316,6 @@ _InternalServerException =
     "InternalServerException"
     Prelude.. Core.hasStatus 500
 
--- | The maximum number of resources per account has been reached.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceQuotaExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceQuotaExceededException"
-    Prelude.. Core.hasStatus 402
-
 -- | The specified resource was not found.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
@@ -323,14 +324,13 @@ _ResourceNotFoundException =
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
 
--- | The request could not be processed because of conflict in the current
--- state of the resource.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
+-- | The maximum number of resources per account has been reached.
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
+    "ServiceQuotaExceededException"
+    Prelude.. Core.hasStatus 402
 
 -- | The input fails to satisfy the constraints specified by an AWS service.
 _ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

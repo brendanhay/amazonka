@@ -45,6 +45,10 @@ module Amazonka.StepFunctions.Types.HistoryEventType
         HistoryEventType_MapIterationFailed,
         HistoryEventType_MapIterationStarted,
         HistoryEventType_MapIterationSucceeded,
+        HistoryEventType_MapRunAborted,
+        HistoryEventType_MapRunFailed,
+        HistoryEventType_MapRunStarted,
+        HistoryEventType_MapRunSucceeded,
         HistoryEventType_MapStateAborted,
         HistoryEventType_MapStateEntered,
         HistoryEventType_MapStateExited,
@@ -186,6 +190,18 @@ pattern HistoryEventType_MapIterationStarted = HistoryEventType' "MapIterationSt
 pattern HistoryEventType_MapIterationSucceeded :: HistoryEventType
 pattern HistoryEventType_MapIterationSucceeded = HistoryEventType' "MapIterationSucceeded"
 
+pattern HistoryEventType_MapRunAborted :: HistoryEventType
+pattern HistoryEventType_MapRunAborted = HistoryEventType' "MapRunAborted"
+
+pattern HistoryEventType_MapRunFailed :: HistoryEventType
+pattern HistoryEventType_MapRunFailed = HistoryEventType' "MapRunFailed"
+
+pattern HistoryEventType_MapRunStarted :: HistoryEventType
+pattern HistoryEventType_MapRunStarted = HistoryEventType' "MapRunStarted"
+
+pattern HistoryEventType_MapRunSucceeded :: HistoryEventType
+pattern HistoryEventType_MapRunSucceeded = HistoryEventType' "MapRunSucceeded"
+
 pattern HistoryEventType_MapStateAborted :: HistoryEventType
 pattern HistoryEventType_MapStateAborted = HistoryEventType' "MapStateAborted"
 
@@ -302,6 +318,10 @@ pattern HistoryEventType_WaitStateExited = HistoryEventType' "WaitStateExited"
   HistoryEventType_MapIterationFailed,
   HistoryEventType_MapIterationStarted,
   HistoryEventType_MapIterationSucceeded,
+  HistoryEventType_MapRunAborted,
+  HistoryEventType_MapRunFailed,
+  HistoryEventType_MapRunStarted,
+  HistoryEventType_MapRunSucceeded,
   HistoryEventType_MapStateAborted,
   HistoryEventType_MapStateEntered,
   HistoryEventType_MapStateExited,

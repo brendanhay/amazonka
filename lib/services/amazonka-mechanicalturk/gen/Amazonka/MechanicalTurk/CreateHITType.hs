@@ -31,8 +31,8 @@ module Amazonka.MechanicalTurk.CreateHITType
     newCreateHITType,
 
     -- * Request Lenses
-    createHITType_keywords,
     createHITType_autoApprovalDelayInSeconds,
+    createHITType_keywords,
     createHITType_qualificationRequirements,
     createHITType_assignmentDurationInSeconds,
     createHITType_reward,
@@ -59,13 +59,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateHITType' smart constructor.
 data CreateHITType = CreateHITType'
-  { -- | One or more words or phrases that describe the HIT, separated by commas.
-    -- These words are used in searches to find HITs.
-    keywords :: Prelude.Maybe Prelude.Text,
-    -- | The number of seconds after an assignment for the HIT has been
+  { -- | The number of seconds after an assignment for the HIT has been
     -- submitted, after which the assignment is considered Approved
     -- automatically unless the Requester explicitly rejects it.
     autoApprovalDelayInSeconds :: Prelude.Maybe Prelude.Integer,
+    -- | One or more words or phrases that describe the HIT, separated by commas.
+    -- These words are used in searches to find HITs.
+    keywords :: Prelude.Maybe Prelude.Text,
     -- | Conditions that a Worker\'s Qualifications must meet in order to accept
     -- the HIT. A HIT can have between zero and ten Qualification requirements.
     -- All requirements must be met in order for a Worker to accept the HIT.
@@ -104,12 +104,12 @@ data CreateHITType = CreateHITType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'keywords', 'createHITType_keywords' - One or more words or phrases that describe the HIT, separated by commas.
--- These words are used in searches to find HITs.
---
 -- 'autoApprovalDelayInSeconds', 'createHITType_autoApprovalDelayInSeconds' - The number of seconds after an assignment for the HIT has been
 -- submitted, after which the assignment is considered Approved
 -- automatically unless the Requester explicitly rejects it.
+--
+-- 'keywords', 'createHITType_keywords' - One or more words or phrases that describe the HIT, separated by commas.
+-- These words are used in searches to find HITs.
 --
 -- 'qualificationRequirements', 'createHITType_qualificationRequirements' - Conditions that a Worker\'s Qualifications must meet in order to accept
 -- the HIT. A HIT can have between zero and ten Qualification requirements.
@@ -153,8 +153,9 @@ newCreateHITType
   pTitle_
   pDescription_ =
     CreateHITType'
-      { keywords = Prelude.Nothing,
-        autoApprovalDelayInSeconds = Prelude.Nothing,
+      { autoApprovalDelayInSeconds =
+          Prelude.Nothing,
+        keywords = Prelude.Nothing,
         qualificationRequirements = Prelude.Nothing,
         assignmentDurationInSeconds =
           pAssignmentDurationInSeconds_,
@@ -163,16 +164,16 @@ newCreateHITType
         description = pDescription_
       }
 
--- | One or more words or phrases that describe the HIT, separated by commas.
--- These words are used in searches to find HITs.
-createHITType_keywords :: Lens.Lens' CreateHITType (Prelude.Maybe Prelude.Text)
-createHITType_keywords = Lens.lens (\CreateHITType' {keywords} -> keywords) (\s@CreateHITType' {} a -> s {keywords = a} :: CreateHITType)
-
 -- | The number of seconds after an assignment for the HIT has been
 -- submitted, after which the assignment is considered Approved
 -- automatically unless the Requester explicitly rejects it.
 createHITType_autoApprovalDelayInSeconds :: Lens.Lens' CreateHITType (Prelude.Maybe Prelude.Integer)
 createHITType_autoApprovalDelayInSeconds = Lens.lens (\CreateHITType' {autoApprovalDelayInSeconds} -> autoApprovalDelayInSeconds) (\s@CreateHITType' {} a -> s {autoApprovalDelayInSeconds = a} :: CreateHITType)
+
+-- | One or more words or phrases that describe the HIT, separated by commas.
+-- These words are used in searches to find HITs.
+createHITType_keywords :: Lens.Lens' CreateHITType (Prelude.Maybe Prelude.Text)
+createHITType_keywords = Lens.lens (\CreateHITType' {keywords} -> keywords) (\s@CreateHITType' {} a -> s {keywords = a} :: CreateHITType)
 
 -- | Conditions that a Worker\'s Qualifications must meet in order to accept
 -- the HIT. A HIT can have between zero and ten Qualification requirements.
@@ -227,8 +228,9 @@ instance Core.AWSRequest CreateHITType where
 
 instance Prelude.Hashable CreateHITType where
   hashWithSalt _salt CreateHITType' {..} =
-    _salt `Prelude.hashWithSalt` keywords
+    _salt
       `Prelude.hashWithSalt` autoApprovalDelayInSeconds
+      `Prelude.hashWithSalt` keywords
       `Prelude.hashWithSalt` qualificationRequirements
       `Prelude.hashWithSalt` assignmentDurationInSeconds
       `Prelude.hashWithSalt` reward
@@ -237,8 +239,8 @@ instance Prelude.Hashable CreateHITType where
 
 instance Prelude.NFData CreateHITType where
   rnf CreateHITType' {..} =
-    Prelude.rnf keywords
-      `Prelude.seq` Prelude.rnf autoApprovalDelayInSeconds
+    Prelude.rnf autoApprovalDelayInSeconds
+      `Prelude.seq` Prelude.rnf keywords
       `Prelude.seq` Prelude.rnf qualificationRequirements
       `Prelude.seq` Prelude.rnf assignmentDurationInSeconds
       `Prelude.seq` Prelude.rnf reward
@@ -264,9 +266,9 @@ instance Data.ToJSON CreateHITType where
   toJSON CreateHITType' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Keywords" Data..=) Prelude.<$> keywords,
-            ("AutoApprovalDelayInSeconds" Data..=)
+          [ ("AutoApprovalDelayInSeconds" Data..=)
               Prelude.<$> autoApprovalDelayInSeconds,
+            ("Keywords" Data..=) Prelude.<$> keywords,
             ("QualificationRequirements" Data..=)
               Prelude.<$> qualificationRequirements,
             Prelude.Just

@@ -51,12 +51,6 @@
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html FlexMatch events>
 -- (reference)
---
--- __Related actions__
---
--- StartMatchmaking | DescribeMatchmaking | StopMatchmaking | AcceptMatch |
--- StartMatchBackfill |
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Amazonka.GameLift.AcceptMatch
   ( -- * Creating a Request
     AcceptMatch (..),
@@ -84,9 +78,7 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Represents the input for a request operation.
---
--- /See:/ 'newAcceptMatch' smart constructor.
+-- | /See:/ 'newAcceptMatch' smart constructor.
 data AcceptMatch = AcceptMatch'
   { -- | A unique identifier for a matchmaking ticket. The ticket must be in
     -- status @REQUIRES_ACCEPTANCE@; otherwise this request will fail.

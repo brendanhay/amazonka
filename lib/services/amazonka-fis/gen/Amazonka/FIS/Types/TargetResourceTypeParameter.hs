@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTargetResourceTypeParameter' smart constructor.
 data TargetResourceTypeParameter = TargetResourceTypeParameter'
-  { -- | Indicates whether the parameter is required.
-    required :: Prelude.Maybe Prelude.Bool,
-    -- | A description of the parameter.
-    description :: Prelude.Maybe Prelude.Text
+  { -- | A description of the parameter.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether the parameter is required.
+    required :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data TargetResourceTypeParameter = TargetResourceTypeParameter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'required', 'targetResourceTypeParameter_required' - Indicates whether the parameter is required.
---
 -- 'description', 'targetResourceTypeParameter_description' - A description of the parameter.
+--
+-- 'required', 'targetResourceTypeParameter_required' - Indicates whether the parameter is required.
 newTargetResourceTypeParameter ::
   TargetResourceTypeParameter
 newTargetResourceTypeParameter =
   TargetResourceTypeParameter'
-    { required =
+    { description =
         Prelude.Nothing,
-      description = Prelude.Nothing
+      required = Prelude.Nothing
     }
-
--- | Indicates whether the parameter is required.
-targetResourceTypeParameter_required :: Lens.Lens' TargetResourceTypeParameter (Prelude.Maybe Prelude.Bool)
-targetResourceTypeParameter_required = Lens.lens (\TargetResourceTypeParameter' {required} -> required) (\s@TargetResourceTypeParameter' {} a -> s {required = a} :: TargetResourceTypeParameter)
 
 -- | A description of the parameter.
 targetResourceTypeParameter_description :: Lens.Lens' TargetResourceTypeParameter (Prelude.Maybe Prelude.Text)
 targetResourceTypeParameter_description = Lens.lens (\TargetResourceTypeParameter' {description} -> description) (\s@TargetResourceTypeParameter' {} a -> s {description = a} :: TargetResourceTypeParameter)
+
+-- | Indicates whether the parameter is required.
+targetResourceTypeParameter_required :: Lens.Lens' TargetResourceTypeParameter (Prelude.Maybe Prelude.Bool)
+targetResourceTypeParameter_required = Lens.lens (\TargetResourceTypeParameter' {required} -> required) (\s@TargetResourceTypeParameter' {} a -> s {required = a} :: TargetResourceTypeParameter)
 
 instance Data.FromJSON TargetResourceTypeParameter where
   parseJSON =
@@ -70,16 +70,16 @@ instance Data.FromJSON TargetResourceTypeParameter where
       "TargetResourceTypeParameter"
       ( \x ->
           TargetResourceTypeParameter'
-            Prelude.<$> (x Data..:? "required")
-            Prelude.<*> (x Data..:? "description")
+            Prelude.<$> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "required")
       )
 
 instance Prelude.Hashable TargetResourceTypeParameter where
   hashWithSalt _salt TargetResourceTypeParameter' {..} =
-    _salt `Prelude.hashWithSalt` required
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` required
 
 instance Prelude.NFData TargetResourceTypeParameter where
   rnf TargetResourceTypeParameter' {..} =
-    Prelude.rnf required
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf required

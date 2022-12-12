@@ -36,11 +36,11 @@ module Amazonka.CostExplorer.GetSavingsPlansUtilizationDetails
     newGetSavingsPlansUtilizationDetails,
 
     -- * Request Lenses
-    getSavingsPlansUtilizationDetails_nextToken,
-    getSavingsPlansUtilizationDetails_sortBy,
+    getSavingsPlansUtilizationDetails_dataType,
     getSavingsPlansUtilizationDetails_filter,
     getSavingsPlansUtilizationDetails_maxResults,
-    getSavingsPlansUtilizationDetails_dataType,
+    getSavingsPlansUtilizationDetails_nextToken,
+    getSavingsPlansUtilizationDetails_sortBy,
     getSavingsPlansUtilizationDetails_timePeriod,
 
     -- * Destructuring the Response
@@ -66,7 +66,30 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetSavingsPlansUtilizationDetails' smart constructor.
 data GetSavingsPlansUtilizationDetails = GetSavingsPlansUtilizationDetails'
-  { -- | The token to retrieve the next set of results. Amazon Web Services
+  { -- | The data type.
+    dataType :: Prelude.Maybe [SavingsPlansDataType],
+    -- | Filters Savings Plans utilization coverage data for active Savings Plans
+    -- dimensions. You can filter data with the following dimensions:
+    --
+    -- -   @LINKED_ACCOUNT@
+    --
+    -- -   @SAVINGS_PLAN_ARN@
+    --
+    -- -   @REGION@
+    --
+    -- -   @PAYMENT_OPTION@
+    --
+    -- -   @INSTANCE_TYPE_FAMILY@
+    --
+    -- @GetSavingsPlansUtilizationDetails@ uses the same
+    -- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression>
+    -- object as the other operations, but only @AND@ is supported among each
+    -- dimension.
+    filter' :: Prelude.Maybe Expression,
+    -- | The number of items to be returned in a response. The default is @20@,
+    -- with a minimum value of @1@.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to retrieve the next set of results. Amazon Web Services
     -- provides the token when the response from a previous call has more
     -- results than the maximum page size.
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -90,29 +113,6 @@ data GetSavingsPlansUtilizationDetails = GetSavingsPlansUtilizationDetails'
     --
     -- The supported values for @SortOrder@ are @ASCENDING@ and @DESCENDING@.
     sortBy :: Prelude.Maybe SortDefinition,
-    -- | Filters Savings Plans utilization coverage data for active Savings Plans
-    -- dimensions. You can filter data with the following dimensions:
-    --
-    -- -   @LINKED_ACCOUNT@
-    --
-    -- -   @SAVINGS_PLAN_ARN@
-    --
-    -- -   @REGION@
-    --
-    -- -   @PAYMENT_OPTION@
-    --
-    -- -   @INSTANCE_TYPE_FAMILY@
-    --
-    -- @GetSavingsPlansUtilizationDetails@ uses the same
-    -- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression>
-    -- object as the other operations, but only @AND@ is supported among each
-    -- dimension.
-    filter' :: Prelude.Maybe Expression,
-    -- | The number of items to be returned in a response. The default is @20@,
-    -- with a minimum value of @1@.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The data type.
-    dataType :: Prelude.Maybe [SavingsPlansDataType],
     -- | The time period that you want the usage and costs for. The @Start@ date
     -- must be within 13 months. The @End@ date must be after the @Start@ date,
     -- and before the current date. Future dates can\'t be used as an @End@
@@ -128,6 +128,29 @@ data GetSavingsPlansUtilizationDetails = GetSavingsPlansUtilizationDetails'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'dataType', 'getSavingsPlansUtilizationDetails_dataType' - The data type.
+--
+-- 'filter'', 'getSavingsPlansUtilizationDetails_filter' - Filters Savings Plans utilization coverage data for active Savings Plans
+-- dimensions. You can filter data with the following dimensions:
+--
+-- -   @LINKED_ACCOUNT@
+--
+-- -   @SAVINGS_PLAN_ARN@
+--
+-- -   @REGION@
+--
+-- -   @PAYMENT_OPTION@
+--
+-- -   @INSTANCE_TYPE_FAMILY@
+--
+-- @GetSavingsPlansUtilizationDetails@ uses the same
+-- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression>
+-- object as the other operations, but only @AND@ is supported among each
+-- dimension.
+--
+-- 'maxResults', 'getSavingsPlansUtilizationDetails_maxResults' - The number of items to be returned in a response. The default is @20@,
+-- with a minimum value of @1@.
 --
 -- 'nextToken', 'getSavingsPlansUtilizationDetails_nextToken' - The token to retrieve the next set of results. Amazon Web Services
 -- provides the token when the response from a previous call has more
@@ -153,7 +176,30 @@ data GetSavingsPlansUtilizationDetails = GetSavingsPlansUtilizationDetails'
 --
 -- The supported values for @SortOrder@ are @ASCENDING@ and @DESCENDING@.
 --
--- 'filter'', 'getSavingsPlansUtilizationDetails_filter' - Filters Savings Plans utilization coverage data for active Savings Plans
+-- 'timePeriod', 'getSavingsPlansUtilizationDetails_timePeriod' - The time period that you want the usage and costs for. The @Start@ date
+-- must be within 13 months. The @End@ date must be after the @Start@ date,
+-- and before the current date. Future dates can\'t be used as an @End@
+-- date.
+newGetSavingsPlansUtilizationDetails ::
+  -- | 'timePeriod'
+  DateInterval ->
+  GetSavingsPlansUtilizationDetails
+newGetSavingsPlansUtilizationDetails pTimePeriod_ =
+  GetSavingsPlansUtilizationDetails'
+    { dataType =
+        Prelude.Nothing,
+      filter' = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      timePeriod = pTimePeriod_
+    }
+
+-- | The data type.
+getSavingsPlansUtilizationDetails_dataType :: Lens.Lens' GetSavingsPlansUtilizationDetails (Prelude.Maybe [SavingsPlansDataType])
+getSavingsPlansUtilizationDetails_dataType = Lens.lens (\GetSavingsPlansUtilizationDetails' {dataType} -> dataType) (\s@GetSavingsPlansUtilizationDetails' {} a -> s {dataType = a} :: GetSavingsPlansUtilizationDetails) Prelude.. Lens.mapping Lens.coerced
+
+-- | Filters Savings Plans utilization coverage data for active Savings Plans
 -- dimensions. You can filter data with the following dimensions:
 --
 -- -   @LINKED_ACCOUNT@
@@ -170,30 +216,13 @@ data GetSavingsPlansUtilizationDetails = GetSavingsPlansUtilizationDetails'
 -- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression>
 -- object as the other operations, but only @AND@ is supported among each
 -- dimension.
---
--- 'maxResults', 'getSavingsPlansUtilizationDetails_maxResults' - The number of items to be returned in a response. The default is @20@,
+getSavingsPlansUtilizationDetails_filter :: Lens.Lens' GetSavingsPlansUtilizationDetails (Prelude.Maybe Expression)
+getSavingsPlansUtilizationDetails_filter = Lens.lens (\GetSavingsPlansUtilizationDetails' {filter'} -> filter') (\s@GetSavingsPlansUtilizationDetails' {} a -> s {filter' = a} :: GetSavingsPlansUtilizationDetails)
+
+-- | The number of items to be returned in a response. The default is @20@,
 -- with a minimum value of @1@.
---
--- 'dataType', 'getSavingsPlansUtilizationDetails_dataType' - The data type.
---
--- 'timePeriod', 'getSavingsPlansUtilizationDetails_timePeriod' - The time period that you want the usage and costs for. The @Start@ date
--- must be within 13 months. The @End@ date must be after the @Start@ date,
--- and before the current date. Future dates can\'t be used as an @End@
--- date.
-newGetSavingsPlansUtilizationDetails ::
-  -- | 'timePeriod'
-  DateInterval ->
-  GetSavingsPlansUtilizationDetails
-newGetSavingsPlansUtilizationDetails pTimePeriod_ =
-  GetSavingsPlansUtilizationDetails'
-    { nextToken =
-        Prelude.Nothing,
-      sortBy = Prelude.Nothing,
-      filter' = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      dataType = Prelude.Nothing,
-      timePeriod = pTimePeriod_
-    }
+getSavingsPlansUtilizationDetails_maxResults :: Lens.Lens' GetSavingsPlansUtilizationDetails (Prelude.Maybe Prelude.Natural)
+getSavingsPlansUtilizationDetails_maxResults = Lens.lens (\GetSavingsPlansUtilizationDetails' {maxResults} -> maxResults) (\s@GetSavingsPlansUtilizationDetails' {} a -> s {maxResults = a} :: GetSavingsPlansUtilizationDetails)
 
 -- | The token to retrieve the next set of results. Amazon Web Services
 -- provides the token when the response from a previous call has more
@@ -222,35 +251,6 @@ getSavingsPlansUtilizationDetails_nextToken = Lens.lens (\GetSavingsPlansUtiliza
 -- The supported values for @SortOrder@ are @ASCENDING@ and @DESCENDING@.
 getSavingsPlansUtilizationDetails_sortBy :: Lens.Lens' GetSavingsPlansUtilizationDetails (Prelude.Maybe SortDefinition)
 getSavingsPlansUtilizationDetails_sortBy = Lens.lens (\GetSavingsPlansUtilizationDetails' {sortBy} -> sortBy) (\s@GetSavingsPlansUtilizationDetails' {} a -> s {sortBy = a} :: GetSavingsPlansUtilizationDetails)
-
--- | Filters Savings Plans utilization coverage data for active Savings Plans
--- dimensions. You can filter data with the following dimensions:
---
--- -   @LINKED_ACCOUNT@
---
--- -   @SAVINGS_PLAN_ARN@
---
--- -   @REGION@
---
--- -   @PAYMENT_OPTION@
---
--- -   @INSTANCE_TYPE_FAMILY@
---
--- @GetSavingsPlansUtilizationDetails@ uses the same
--- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression>
--- object as the other operations, but only @AND@ is supported among each
--- dimension.
-getSavingsPlansUtilizationDetails_filter :: Lens.Lens' GetSavingsPlansUtilizationDetails (Prelude.Maybe Expression)
-getSavingsPlansUtilizationDetails_filter = Lens.lens (\GetSavingsPlansUtilizationDetails' {filter'} -> filter') (\s@GetSavingsPlansUtilizationDetails' {} a -> s {filter' = a} :: GetSavingsPlansUtilizationDetails)
-
--- | The number of items to be returned in a response. The default is @20@,
--- with a minimum value of @1@.
-getSavingsPlansUtilizationDetails_maxResults :: Lens.Lens' GetSavingsPlansUtilizationDetails (Prelude.Maybe Prelude.Natural)
-getSavingsPlansUtilizationDetails_maxResults = Lens.lens (\GetSavingsPlansUtilizationDetails' {maxResults} -> maxResults) (\s@GetSavingsPlansUtilizationDetails' {} a -> s {maxResults = a} :: GetSavingsPlansUtilizationDetails)
-
--- | The data type.
-getSavingsPlansUtilizationDetails_dataType :: Lens.Lens' GetSavingsPlansUtilizationDetails (Prelude.Maybe [SavingsPlansDataType])
-getSavingsPlansUtilizationDetails_dataType = Lens.lens (\GetSavingsPlansUtilizationDetails' {dataType} -> dataType) (\s@GetSavingsPlansUtilizationDetails' {} a -> s {dataType = a} :: GetSavingsPlansUtilizationDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | The time period that you want the usage and costs for. The @Start@ date
 -- must be within 13 months. The @End@ date must be after the @Start@ date,
@@ -288,11 +288,11 @@ instance
   hashWithSalt
     _salt
     GetSavingsPlansUtilizationDetails' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` sortBy
+      _salt `Prelude.hashWithSalt` dataType
         `Prelude.hashWithSalt` filter'
         `Prelude.hashWithSalt` maxResults
-        `Prelude.hashWithSalt` dataType
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` sortBy
         `Prelude.hashWithSalt` timePeriod
 
 instance
@@ -300,11 +300,11 @@ instance
     GetSavingsPlansUtilizationDetails
   where
   rnf GetSavingsPlansUtilizationDetails' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sortBy
+    Prelude.rnf dataType
       `Prelude.seq` Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf dataType
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortBy
       `Prelude.seq` Prelude.rnf timePeriod
 
 instance
@@ -332,11 +332,11 @@ instance
   toJSON GetSavingsPlansUtilizationDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("SortBy" Data..=) Prelude.<$> sortBy,
+          [ ("DataType" Data..=) Prelude.<$> dataType,
             ("Filter" Data..=) Prelude.<$> filter',
             ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("DataType" Data..=) Prelude.<$> dataType,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
             Prelude.Just ("TimePeriod" Data..= timePeriod)
           ]
       )

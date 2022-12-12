@@ -28,8 +28,8 @@
 -- request. The values of @name@, @queryString@, and @logGroupNames@ are
 -- changed to the values that you specify in your update operation. No
 -- current values are retained from the current query definition. For
--- example, if you update a current query definition that includes log
--- groups, and you don\'t specify the @logGroupNames@ parameter in your
+-- example, imagine updating a current query definition that includes log
+-- groups. If you don\'t specify the @logGroupNames@ parameter in your
 -- update operation, the query definition changes to contain no log groups.
 --
 -- You must have the @logs:PutQueryDefinition@ permission to be able to
@@ -40,8 +40,8 @@ module Amazonka.CloudWatchLogs.PutQueryDefinition
     newPutQueryDefinition,
 
     -- * Request Lenses
-    putQueryDefinition_queryDefinitionId,
     putQueryDefinition_logGroupNames,
+    putQueryDefinition_queryDefinitionId,
     putQueryDefinition_name,
     putQueryDefinition_queryString,
 
@@ -65,7 +65,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutQueryDefinition' smart constructor.
 data PutQueryDefinition = PutQueryDefinition'
-  { -- | If you are updating a query definition, use this parameter to specify
+  { -- | Use this parameter to include specific log groups as part of your query
+    -- definition.
+    --
+    -- If you are updating a query definition and you omit this parameter, then
+    -- the updated definition will contain no log groups.
+    logGroupNames :: Prelude.Maybe [Prelude.Text],
+    -- | If you are updating a query definition, use this parameter to specify
     -- the ID of the query definition that you want to update. You can use
     -- <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html DescribeQueryDefinitions>
     -- to retrieve the IDs of your saved query definitions.
@@ -74,15 +80,9 @@ data PutQueryDefinition = PutQueryDefinition'
     -- CloudWatch generates a unique ID for the new query definition and
     -- include it in the response to this operation.
     queryDefinitionId :: Prelude.Maybe Prelude.Text,
-    -- | Use this parameter to include specific log groups as part of your query
-    -- definition.
-    --
-    -- If you are updating a query definition and you omit this parameter, then
-    -- the updated definition will contain no log groups.
-    logGroupNames :: Prelude.Maybe [Prelude.Text],
-    -- | A name for the query definition. If you are saving a lot of query
-    -- definitions, we recommend that you name them so that you can easily find
-    -- the ones you want by using the first part of the name as a filter in the
+    -- | A name for the query definition. If you are saving numerous query
+    -- definitions, we recommend that you name them. This way, you can find the
+    -- ones you want by using the first part of the name as a filter in the
     -- @queryDefinitionNamePrefix@ parameter of
     -- <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html DescribeQueryDefinitions>.
     name :: Prelude.Text,
@@ -100,6 +100,12 @@ data PutQueryDefinition = PutQueryDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'logGroupNames', 'putQueryDefinition_logGroupNames' - Use this parameter to include specific log groups as part of your query
+-- definition.
+--
+-- If you are updating a query definition and you omit this parameter, then
+-- the updated definition will contain no log groups.
+--
 -- 'queryDefinitionId', 'putQueryDefinition_queryDefinitionId' - If you are updating a query definition, use this parameter to specify
 -- the ID of the query definition that you want to update. You can use
 -- <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html DescribeQueryDefinitions>
@@ -109,15 +115,9 @@ data PutQueryDefinition = PutQueryDefinition'
 -- CloudWatch generates a unique ID for the new query definition and
 -- include it in the response to this operation.
 --
--- 'logGroupNames', 'putQueryDefinition_logGroupNames' - Use this parameter to include specific log groups as part of your query
--- definition.
---
--- If you are updating a query definition and you omit this parameter, then
--- the updated definition will contain no log groups.
---
--- 'name', 'putQueryDefinition_name' - A name for the query definition. If you are saving a lot of query
--- definitions, we recommend that you name them so that you can easily find
--- the ones you want by using the first part of the name as a filter in the
+-- 'name', 'putQueryDefinition_name' - A name for the query definition. If you are saving numerous query
+-- definitions, we recommend that you name them. This way, you can find the
+-- ones you want by using the first part of the name as a filter in the
 -- @queryDefinitionNamePrefix@ parameter of
 -- <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html DescribeQueryDefinitions>.
 --
@@ -131,12 +131,20 @@ newPutQueryDefinition ::
   PutQueryDefinition
 newPutQueryDefinition pName_ pQueryString_ =
   PutQueryDefinition'
-    { queryDefinitionId =
+    { logGroupNames =
         Prelude.Nothing,
-      logGroupNames = Prelude.Nothing,
+      queryDefinitionId = Prelude.Nothing,
       name = pName_,
       queryString = pQueryString_
     }
+
+-- | Use this parameter to include specific log groups as part of your query
+-- definition.
+--
+-- If you are updating a query definition and you omit this parameter, then
+-- the updated definition will contain no log groups.
+putQueryDefinition_logGroupNames :: Lens.Lens' PutQueryDefinition (Prelude.Maybe [Prelude.Text])
+putQueryDefinition_logGroupNames = Lens.lens (\PutQueryDefinition' {logGroupNames} -> logGroupNames) (\s@PutQueryDefinition' {} a -> s {logGroupNames = a} :: PutQueryDefinition) Prelude.. Lens.mapping Lens.coerced
 
 -- | If you are updating a query definition, use this parameter to specify
 -- the ID of the query definition that you want to update. You can use
@@ -149,17 +157,9 @@ newPutQueryDefinition pName_ pQueryString_ =
 putQueryDefinition_queryDefinitionId :: Lens.Lens' PutQueryDefinition (Prelude.Maybe Prelude.Text)
 putQueryDefinition_queryDefinitionId = Lens.lens (\PutQueryDefinition' {queryDefinitionId} -> queryDefinitionId) (\s@PutQueryDefinition' {} a -> s {queryDefinitionId = a} :: PutQueryDefinition)
 
--- | Use this parameter to include specific log groups as part of your query
--- definition.
---
--- If you are updating a query definition and you omit this parameter, then
--- the updated definition will contain no log groups.
-putQueryDefinition_logGroupNames :: Lens.Lens' PutQueryDefinition (Prelude.Maybe [Prelude.Text])
-putQueryDefinition_logGroupNames = Lens.lens (\PutQueryDefinition' {logGroupNames} -> logGroupNames) (\s@PutQueryDefinition' {} a -> s {logGroupNames = a} :: PutQueryDefinition) Prelude.. Lens.mapping Lens.coerced
-
--- | A name for the query definition. If you are saving a lot of query
--- definitions, we recommend that you name them so that you can easily find
--- the ones you want by using the first part of the name as a filter in the
+-- | A name for the query definition. If you are saving numerous query
+-- definitions, we recommend that you name them. This way, you can find the
+-- ones you want by using the first part of the name as a filter in the
 -- @queryDefinitionNamePrefix@ parameter of
 -- <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html DescribeQueryDefinitions>.
 putQueryDefinition_name :: Lens.Lens' PutQueryDefinition Prelude.Text
@@ -186,15 +186,15 @@ instance Core.AWSRequest PutQueryDefinition where
 
 instance Prelude.Hashable PutQueryDefinition where
   hashWithSalt _salt PutQueryDefinition' {..} =
-    _salt `Prelude.hashWithSalt` queryDefinitionId
-      `Prelude.hashWithSalt` logGroupNames
+    _salt `Prelude.hashWithSalt` logGroupNames
+      `Prelude.hashWithSalt` queryDefinitionId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` queryString
 
 instance Prelude.NFData PutQueryDefinition where
   rnf PutQueryDefinition' {..} =
-    Prelude.rnf queryDefinitionId
-      `Prelude.seq` Prelude.rnf logGroupNames
+    Prelude.rnf logGroupNames
+      `Prelude.seq` Prelude.rnf queryDefinitionId
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf queryString
 
@@ -217,9 +217,9 @@ instance Data.ToJSON PutQueryDefinition where
   toJSON PutQueryDefinition' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("queryDefinitionId" Data..=)
+          [ ("logGroupNames" Data..=) Prelude.<$> logGroupNames,
+            ("queryDefinitionId" Data..=)
               Prelude.<$> queryDefinitionId,
-            ("logGroupNames" Data..=) Prelude.<$> logGroupNames,
             Prelude.Just ("name" Data..= name),
             Prelude.Just ("queryString" Data..= queryString)
           ]

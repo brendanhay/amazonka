@@ -55,23 +55,23 @@ module Amazonka.Transcribe.StartTranscriptionJob
     newStartTranscriptionJob,
 
     -- * Request Lenses
-    startTranscriptionJob_tags,
-    startTranscriptionJob_kmsEncryptionContext,
-    startTranscriptionJob_identifyMultipleLanguages,
-    startTranscriptionJob_mediaFormat,
-    startTranscriptionJob_identifyLanguage,
     startTranscriptionJob_contentRedaction,
-    startTranscriptionJob_outputKey,
-    startTranscriptionJob_subtitles,
-    startTranscriptionJob_languageIdSettings,
-    startTranscriptionJob_settings,
-    startTranscriptionJob_mediaSampleRateHertz,
-    startTranscriptionJob_outputBucketName,
-    startTranscriptionJob_languageCode,
+    startTranscriptionJob_identifyLanguage,
+    startTranscriptionJob_identifyMultipleLanguages,
     startTranscriptionJob_jobExecutionSettings,
-    startTranscriptionJob_outputEncryptionKMSKeyId,
-    startTranscriptionJob_modelSettings,
+    startTranscriptionJob_kmsEncryptionContext,
+    startTranscriptionJob_languageCode,
+    startTranscriptionJob_languageIdSettings,
     startTranscriptionJob_languageOptions,
+    startTranscriptionJob_mediaFormat,
+    startTranscriptionJob_mediaSampleRateHertz,
+    startTranscriptionJob_modelSettings,
+    startTranscriptionJob_outputBucketName,
+    startTranscriptionJob_outputEncryptionKMSKeyId,
+    startTranscriptionJob_outputKey,
+    startTranscriptionJob_settings,
+    startTranscriptionJob_subtitles,
+    startTranscriptionJob_tags,
     startTranscriptionJob_transcriptionJobName,
     startTranscriptionJob_media,
 
@@ -95,12 +95,62 @@ import Amazonka.Transcribe.Types
 
 -- | /See:/ 'newStartTranscriptionJob' smart constructor.
 data StartTranscriptionJob = StartTranscriptionJob'
-  { -- | Adds one or more custom tags, each in the form of a key:value pair, to a
-    -- new transcription job at the time you start this new job.
+  { -- | Makes it possible to redact or flag specified personally identifiable
+    -- information (PII) in your transcript. If you use @ContentRedaction@, you
+    -- must also include the sub-parameters: @PiiEntityTypes@,
+    -- @RedactionOutput@, and @RedactionType@.
+    contentRedaction :: Prelude.Maybe ContentRedaction,
+    -- | Enables automatic language identification in your transcription job
+    -- request. Use this parameter if your media file contains only one
+    -- language. If your media contains multiple languages, use
+    -- @IdentifyMultipleLanguages@ instead.
     --
-    -- To learn more about using tags with Amazon Transcribe, refer to
-    -- <https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html Tagging resources>.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- If you include @IdentifyLanguage@, you can optionally include a list of
+    -- language codes, using @LanguageOptions@, that you think may be present
+    -- in your media file. Including @LanguageOptions@ restricts
+    -- @IdentifyLanguage@ to only the language options that you specify, which
+    -- can improve transcription accuracy.
+    --
+    -- If you want to apply a custom language model, a custom vocabulary, or a
+    -- custom vocabulary filter to your automatic language identification
+    -- request, include @LanguageIdSettings@ with the relevant sub-parameters
+    -- (@VocabularyName@, @LanguageModelName@, and @VocabularyFilterName@). If
+    -- you include @LanguageIdSettings@, also include @LanguageOptions@.
+    --
+    -- Note that you must include one of @LanguageCode@, @IdentifyLanguage@, or
+    -- @IdentifyMultipleLanguages@ in your request. If you include more than
+    -- one of these parameters, your transcription job fails.
+    identifyLanguage :: Prelude.Maybe Prelude.Bool,
+    -- | Enables automatic multi-language identification in your transcription
+    -- job request. Use this parameter if your media file contains more than
+    -- one language. If your media contains only one language, use
+    -- @IdentifyLanguage@ instead.
+    --
+    -- If you include @IdentifyMultipleLanguages@, you can optionally include a
+    -- list of language codes, using @LanguageOptions@, that you think may be
+    -- present in your media file. Including @LanguageOptions@ restricts
+    -- @IdentifyLanguage@ to only the language options that you specify, which
+    -- can improve transcription accuracy.
+    --
+    -- If you want to apply a custom vocabulary or a custom vocabulary filter
+    -- to your automatic language identification request, include
+    -- @LanguageIdSettings@ with the relevant sub-parameters (@VocabularyName@
+    -- and @VocabularyFilterName@). If you include @LanguageIdSettings@, also
+    -- include @LanguageOptions@.
+    --
+    -- Note that you must include one of @LanguageCode@, @IdentifyLanguage@, or
+    -- @IdentifyMultipleLanguages@ in your request. If you include more than
+    -- one of these parameters, your transcription job fails.
+    identifyMultipleLanguages :: Prelude.Maybe Prelude.Bool,
+    -- | Makes it possible to control how your transcription job is processed.
+    -- Currently, the only @JobExecutionSettings@ modification you can choose
+    -- is enabling job queueing using the @AllowDeferredExecution@
+    -- sub-parameter.
+    --
+    -- If you include @JobExecutionSettings@ in your request, you must also
+    -- include the sub-parameters: @AllowDeferredExecution@ and
+    -- @DataAccessRoleArn@.
+    jobExecutionSettings :: Prelude.Maybe JobExecutionSettings,
     -- | A map of plain text, non-secret key:value pairs, known as encryption
     -- context pairs, that provide an added layer of security for your data.
     -- For more information, see
@@ -108,136 +158,87 @@ data StartTranscriptionJob = StartTranscriptionJob'
     -- and
     -- <https://docs.aws.amazon.com/transcribe/latest/dg/symmetric-asymmetric.html Asymmetric keys in KMS>.
     kmsEncryptionContext :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Enables automatic multi-language identification in your transcription
-    -- job request. Use this parameter if your media file contains more than
-    -- one language.
+    -- | The language code that represents the language spoken in the input media
+    -- file.
     --
-    -- If you include @IdentifyMultipleLanguages@, you can optionally include a
-    -- list of language codes, using @LanguageOptions@, that you think may be
-    -- present in your media file. Including language options can improve
-    -- transcription accuracy.
-    --
-    -- If you want to apply a custom vocabulary or a custom vocabulary filter
-    -- to your automatic language identification request, include
-    -- @LanguageIdSettings@ with the relevant sub-parameters (@VocabularyName@
-    -- and @VocabularyFilterName@).
+    -- If you\'re unsure of the language spoken in your media file, consider
+    -- using @IdentifyLanguage@ or @IdentifyMultipleLanguages@ to enable
+    -- automatic language identification.
     --
     -- Note that you must include one of @LanguageCode@, @IdentifyLanguage@, or
     -- @IdentifyMultipleLanguages@ in your request. If you include more than
     -- one of these parameters, your transcription job fails.
-    identifyMultipleLanguages :: Prelude.Maybe Prelude.Bool,
-    -- | Specify the format of your input media file.
-    mediaFormat :: Prelude.Maybe MediaFormat,
-    -- | Enables automatic language identification in your transcription job
-    -- request.
     --
-    -- If you include @IdentifyLanguage@, you can optionally include a list of
-    -- language codes, using @LanguageOptions@, that you think may be present
-    -- in your media file. Including language options can improve transcription
-    -- accuracy.
+    -- For a list of supported languages and their associated language codes,
+    -- refer to the
+    -- <https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html Supported languages>
+    -- table.
     --
-    -- If you want to apply a custom language model, a custom vocabulary, or a
-    -- custom vocabulary filter to your automatic language identification
-    -- request, include @LanguageIdSettings@ with the relevant sub-parameters
-    -- (@VocabularyName@, @LanguageModelName@, and @VocabularyFilterName@).
+    -- To transcribe speech in Modern Standard Arabic (@ar-SA@), your media
+    -- file must be encoded at a sample rate of 16,000 Hz or higher.
+    languageCode :: Prelude.Maybe LanguageCode,
+    -- | If using automatic language identification in your request and you want
+    -- to apply a custom language model, a custom vocabulary, or a custom
+    -- vocabulary filter, include @LanguageIdSettings@ with the relevant
+    -- sub-parameters (@VocabularyName@, @LanguageModelName@, and
+    -- @VocabularyFilterName@). Note that multi-language identification
+    -- (@IdentifyMultipleLanguages@) doesn\'t support custom language models.
     --
-    -- Note that you must include one of @LanguageCode@, @IdentifyLanguage@, or
-    -- @IdentifyMultipleLanguages@ in your request. If you include more than
-    -- one of these parameters, your transcription job fails.
-    identifyLanguage :: Prelude.Maybe Prelude.Bool,
-    -- | Allows you to redact or flag specified personally identifiable
-    -- information (PII) in your transcript. If you use @ContentRedaction@, you
-    -- must also include the sub-parameters: @PiiEntityTypes@,
-    -- @RedactionOutput@, and @RedactionType@.
-    contentRedaction :: Prelude.Maybe ContentRedaction,
-    -- | Use in combination with @OutputBucketName@ to specify the output
-    -- location of your transcript and, optionally, a unique name for your
-    -- output file. The default name for your transcription output is the same
-    -- as the name you specified for your transcription job
-    -- (@TranscriptionJobName@).
+    -- @LanguageIdSettings@ supports two to five language codes. Each language
+    -- code you include can have an associated custom language model, custom
+    -- vocabulary, and custom vocabulary filter. The language codes that you
+    -- specify must match the languages of the associated custom language
+    -- models, custom vocabularies, and custom vocabulary filters.
     --
-    -- Here are some examples of how you can use @OutputKey@:
-    --
-    -- -   If you specify \'DOC-EXAMPLE-BUCKET\' as the @OutputBucketName@ and
-    --     \'my-transcript.json\' as the @OutputKey@, your transcription output
-    --     path is @s3:\/\/DOC-EXAMPLE-BUCKET\/my-transcript.json@.
-    --
-    -- -   If you specify \'my-first-transcription\' as the
-    --     @TranscriptionJobName@, \'DOC-EXAMPLE-BUCKET\' as the
-    --     @OutputBucketName@, and \'my-transcript\' as the @OutputKey@, your
-    --     transcription output path is
-    --     @s3:\/\/DOC-EXAMPLE-BUCKET\/my-transcript\/my-first-transcription.json@.
-    --
-    -- -   If you specify \'DOC-EXAMPLE-BUCKET\' as the @OutputBucketName@ and
-    --     \'test-files\/my-transcript.json\' as the @OutputKey@, your
-    --     transcription output path is
-    --     @s3:\/\/DOC-EXAMPLE-BUCKET\/test-files\/my-transcript.json@.
-    --
-    -- -   If you specify \'my-first-transcription\' as the
-    --     @TranscriptionJobName@, \'DOC-EXAMPLE-BUCKET\' as the
-    --     @OutputBucketName@, and \'test-files\/my-transcript\' as the
-    --     @OutputKey@, your transcription output path is
-    --     @s3:\/\/DOC-EXAMPLE-BUCKET\/test-files\/my-transcript\/my-first-transcription.json@.
-    --
-    -- If you specify the name of an Amazon S3 bucket sub-folder that doesn\'t
-    -- exist, one is created for you.
-    outputKey :: Prelude.Maybe Prelude.Text,
-    -- | Produces subtitle files for your input media. You can specify WebVTT
-    -- (*.vtt) and SubRip (*.srt) formats.
-    subtitles :: Prelude.Maybe Subtitles,
-    -- | If using automatic language identification (@IdentifyLanguage@) in your
-    -- request and you want to apply a custom language model, a custom
-    -- vocabulary, or a custom vocabulary filter, include @LanguageIdSettings@
-    -- with the relevant sub-parameters (@VocabularyName@, @LanguageModelName@,
-    -- and @VocabularyFilterName@).
-    --
-    -- You can specify two or more language codes that represent the languages
-    -- you think may be present in your media; including more than five is not
-    -- recommended. Each language code you include can have an associated
-    -- custom language model, custom vocabulary, and custom vocabulary filter.
-    -- The languages you specify must match the languages of the specified
-    -- custom language models, custom vocabularies, and custom vocabulary
-    -- filters.
-    --
-    -- To include language options using @IdentifyLanguage@ __without__
-    -- including a custom language model, a custom vocabulary, or a custom
-    -- vocabulary filter, use @LanguageOptions@ instead of
-    -- @LanguageIdSettings@. Including language options can improve the
-    -- accuracy of automatic language identification.
+    -- It\'s recommended that you include @LanguageOptions@ when using
+    -- @LanguageIdSettings@ to ensure that the correct language dialect is
+    -- identified. For example, if you specify a custom vocabulary that is in
+    -- @en-US@ but Amazon Transcribe determines that the language spoken in
+    -- your media is @en-AU@, your custom vocabulary /is not/ applied to your
+    -- transcription. If you include @LanguageOptions@ and include @en-US@ as
+    -- the only English language dialect, your custom vocabulary /is/ applied
+    -- to your transcription.
     --
     -- If you want to include a custom language model with your request but
     -- __do not__ want to use automatic language identification, use instead
-    -- the @@ parameter with the @LanguageModelName@ sub-parameter.
-    --
-    -- If you want to include a custom vocabulary or a custom vocabulary filter
-    -- (or both) with your request but __do not__ want to use automatic
-    -- language identification, use instead the @@ parameter with the
-    -- @VocabularyName@ or @VocabularyFilterName@ (or both) sub-parameter.
+    -- the @@ parameter with the @LanguageModelName@ sub-parameter. If you want
+    -- to include a custom vocabulary or a custom vocabulary filter (or both)
+    -- with your request but __do not__ want to use automatic language
+    -- identification, use instead the @@ parameter with the @VocabularyName@
+    -- or @VocabularyFilterName@ (or both) sub-parameter.
     languageIdSettings :: Prelude.Maybe (Prelude.HashMap LanguageCode LanguageIdSettings),
-    -- | Specify additional optional settings in your request, including channel
-    -- identification, alternative transcriptions, speaker labeling; allows you
-    -- to apply custom vocabularies and vocabulary filters.
+    -- | You can specify two or more language codes that represent the languages
+    -- you think may be present in your media. Including more than five is not
+    -- recommended. If you\'re unsure what languages are present, do not
+    -- include this parameter.
     --
-    -- If you want to include a custom vocabulary or a custom vocabulary filter
-    -- (or both) with your request but __do not__ want to use automatic
-    -- language identification, use @Settings@ with the @VocabularyName@ or
-    -- @VocabularyFilterName@ (or both) sub-parameter.
+    -- If you include @LanguageOptions@ in your request, you must also include
+    -- @IdentifyLanguage@.
     --
-    -- If you\'re using automatic language identification with your request and
-    -- want to include a custom language model, a custom vocabulary, or a
-    -- custom vocabulary filter, use instead the @@ parameter with the
-    -- @LanguageModelName@, @VocabularyName@ or @VocabularyFilterName@
-    -- sub-parameters.
-    settings :: Prelude.Maybe Settings,
-    -- | The sample rate, in Hertz, of the audio track in your input media file.
+    -- For more information, refer to
+    -- <https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html Supported languages>.
+    --
+    -- To transcribe speech in Modern Standard Arabic (@ar-SA@), your media
+    -- file must be encoded at a sample rate of 16,000 Hz or higher.
+    languageOptions :: Prelude.Maybe (Prelude.NonEmpty LanguageCode),
+    -- | Specify the format of your input media file.
+    mediaFormat :: Prelude.Maybe MediaFormat,
+    -- | The sample rate, in hertz, of the audio track in your input media file.
     --
     -- If you don\'t specify the media sample rate, Amazon Transcribe
     -- determines it for you. If you specify the sample rate, it must match the
-    -- rate detected by Amazon Transcribe; if there\'s a mismatch between the
-    -- value you specify and the value detected, your job fails. Therefore, in
-    -- most cases, it\'s advised to omit @MediaSampleRateHertz@ and let Amazon
-    -- Transcribe determine the sample rate.
+    -- rate detected by Amazon Transcribe. If there\'s a mismatch between the
+    -- value that you specify and the value detected, your job fails. In most
+    -- cases, you can omit @MediaSampleRateHertz@ and let Amazon Transcribe
+    -- determine the sample rate.
     mediaSampleRateHertz :: Prelude.Maybe Prelude.Natural,
+    -- | Specify the custom language model you want to include with your
+    -- transcription job. If you include @ModelSettings@ in your request, you
+    -- must include the @LanguageModelName@ sub-parameter.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/transcribe/latest/dg/custom-language-models.html Custom language models>.
+    modelSettings :: Prelude.Maybe ModelSettings,
     -- | The name of the Amazon S3 bucket where you want your transcription
     -- output stored. Do not include the @S3:\/\/@ prefix of the specified
     -- bucket.
@@ -262,34 +263,6 @@ data StartTranscriptionJob = StartTranscriptionJob'
     -- service-managed Amazon S3 bucket and you are provided with a URI to
     -- access your transcript.
     outputBucketName :: Prelude.Maybe Prelude.Text,
-    -- | The language code that represents the language spoken in the input media
-    -- file.
-    --
-    -- If you\'re unsure of the language spoken in your media file, consider
-    -- using @IdentifyLanguage@ or @IdentifyMultipleLanguages@ to enable
-    -- automatic language identification.
-    --
-    -- Note that you must include one of @LanguageCode@, @IdentifyLanguage@, or
-    -- @IdentifyMultipleLanguages@ in your request. If you include more than
-    -- one of these parameters, your transcription job fails.
-    --
-    -- For a list of supported languages and their associated language codes,
-    -- refer to the
-    -- <https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html Supported languages>
-    -- table.
-    --
-    -- To transcribe speech in Modern Standard Arabic (@ar-SA@), your media
-    -- file must be encoded at a sample rate of 16,000 Hz or higher.
-    languageCode :: Prelude.Maybe LanguageCode,
-    -- | Allows you to control how your transcription job is processed.
-    -- Currently, the only @JobExecutionSettings@ modification you can choose
-    -- is enabling job queueing using the @AllowDeferredExecution@
-    -- sub-parameter.
-    --
-    -- If you include @JobExecutionSettings@ in your request, you must also
-    -- include the sub-parameters: @AllowDeferredExecution@ and
-    -- @DataAccessRoleArn@.
-    jobExecutionSettings :: Prelude.Maybe JobExecutionSettings,
     -- | The KMS key you want to use to encrypt your transcription output.
     --
     -- If using a key located in the __current__ Amazon Web Services account,
@@ -325,31 +298,66 @@ data StartTranscriptionJob = StartTranscriptionJob'
     -- Note that the user making the request must have permission to use the
     -- specified KMS key.
     outputEncryptionKMSKeyId :: Prelude.Maybe Prelude.Text,
-    -- | Specify the custom language model you want to include with your
-    -- transcription job. If you include @ModelSettings@ in your request, you
-    -- must include the @LanguageModelName@ sub-parameter.
+    -- | Use in combination with @OutputBucketName@ to specify the output
+    -- location of your transcript and, optionally, a unique name for your
+    -- output file. The default name for your transcription output is the same
+    -- as the name you specified for your transcription job
+    -- (@TranscriptionJobName@).
     --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/transcribe/latest/dg/custom-language-models.html Custom language models>.
-    modelSettings :: Prelude.Maybe ModelSettings,
-    -- | You can specify two or more language codes that represent the languages
-    -- you think may be present in your media; including more than five is not
-    -- recommended. If you\'re unsure what languages are present, do not
-    -- include this parameter.
+    -- Here are some examples of how you can use @OutputKey@:
     --
-    -- If you include @LanguageOptions@ in your request, you must also include
-    -- @IdentifyLanguage@.
+    -- -   If you specify \'DOC-EXAMPLE-BUCKET\' as the @OutputBucketName@ and
+    --     \'my-transcript.json\' as the @OutputKey@, your transcription output
+    --     path is @s3:\/\/DOC-EXAMPLE-BUCKET\/my-transcript.json@.
     --
-    -- For more information, refer to
-    -- <https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html Supported languages>.
+    -- -   If you specify \'my-first-transcription\' as the
+    --     @TranscriptionJobName@, \'DOC-EXAMPLE-BUCKET\' as the
+    --     @OutputBucketName@, and \'my-transcript\' as the @OutputKey@, your
+    --     transcription output path is
+    --     @s3:\/\/DOC-EXAMPLE-BUCKET\/my-transcript\/my-first-transcription.json@.
     --
-    -- To transcribe speech in Modern Standard Arabic (@ar-SA@), your media
-    -- file must be encoded at a sample rate of 16,000 Hz or higher.
-    languageOptions :: Prelude.Maybe (Prelude.NonEmpty LanguageCode),
-    -- | A unique name, chosen by you, for your transcription job. The name you
-    -- specify is also used as the default name of your transcription output
-    -- file. If you want to specify a different name for your transcription
-    -- output, use the @OutputKey@ parameter.
+    -- -   If you specify \'DOC-EXAMPLE-BUCKET\' as the @OutputBucketName@ and
+    --     \'test-files\/my-transcript.json\' as the @OutputKey@, your
+    --     transcription output path is
+    --     @s3:\/\/DOC-EXAMPLE-BUCKET\/test-files\/my-transcript.json@.
+    --
+    -- -   If you specify \'my-first-transcription\' as the
+    --     @TranscriptionJobName@, \'DOC-EXAMPLE-BUCKET\' as the
+    --     @OutputBucketName@, and \'test-files\/my-transcript\' as the
+    --     @OutputKey@, your transcription output path is
+    --     @s3:\/\/DOC-EXAMPLE-BUCKET\/test-files\/my-transcript\/my-first-transcription.json@.
+    --
+    -- If you specify the name of an Amazon S3 bucket sub-folder that doesn\'t
+    -- exist, one is created for you.
+    outputKey :: Prelude.Maybe Prelude.Text,
+    -- | Specify additional optional settings in your request, including channel
+    -- identification, alternative transcriptions, speaker partitioning. You
+    -- can use that to apply custom vocabularies and vocabulary filters.
+    --
+    -- If you want to include a custom vocabulary or a custom vocabulary filter
+    -- (or both) with your request but __do not__ want to use automatic
+    -- language identification, use @Settings@ with the @VocabularyName@ or
+    -- @VocabularyFilterName@ (or both) sub-parameter.
+    --
+    -- If you\'re using automatic language identification with your request and
+    -- want to include a custom language model, a custom vocabulary, or a
+    -- custom vocabulary filter, use instead the @@ parameter with the
+    -- @LanguageModelName@, @VocabularyName@ or @VocabularyFilterName@
+    -- sub-parameters.
+    settings :: Prelude.Maybe Settings,
+    -- | Produces subtitle files for your input media. You can specify WebVTT
+    -- (*.vtt) and SubRip (*.srt) formats.
+    subtitles :: Prelude.Maybe Subtitles,
+    -- | Adds one or more custom tags, each in the form of a key:value pair, to a
+    -- new transcription job at the time you start this new job.
+    --
+    -- To learn more about using tags with Amazon Transcribe, refer to
+    -- <https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html Tagging resources>.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | A unique name, chosen by you, for your transcription job. The name that
+    -- you specify is also used as the default name of your transcription
+    -- output file. If you want to specify a different name for your
+    -- transcription output, use the @OutputKey@ parameter.
     --
     -- This name is case sensitive, cannot contain spaces, and must be unique
     -- within an Amazon Web Services account. If you try to create a new job
@@ -370,11 +378,61 @@ data StartTranscriptionJob = StartTranscriptionJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'startTranscriptionJob_tags' - Adds one or more custom tags, each in the form of a key:value pair, to a
--- new transcription job at the time you start this new job.
+-- 'contentRedaction', 'startTranscriptionJob_contentRedaction' - Makes it possible to redact or flag specified personally identifiable
+-- information (PII) in your transcript. If you use @ContentRedaction@, you
+-- must also include the sub-parameters: @PiiEntityTypes@,
+-- @RedactionOutput@, and @RedactionType@.
 --
--- To learn more about using tags with Amazon Transcribe, refer to
--- <https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html Tagging resources>.
+-- 'identifyLanguage', 'startTranscriptionJob_identifyLanguage' - Enables automatic language identification in your transcription job
+-- request. Use this parameter if your media file contains only one
+-- language. If your media contains multiple languages, use
+-- @IdentifyMultipleLanguages@ instead.
+--
+-- If you include @IdentifyLanguage@, you can optionally include a list of
+-- language codes, using @LanguageOptions@, that you think may be present
+-- in your media file. Including @LanguageOptions@ restricts
+-- @IdentifyLanguage@ to only the language options that you specify, which
+-- can improve transcription accuracy.
+--
+-- If you want to apply a custom language model, a custom vocabulary, or a
+-- custom vocabulary filter to your automatic language identification
+-- request, include @LanguageIdSettings@ with the relevant sub-parameters
+-- (@VocabularyName@, @LanguageModelName@, and @VocabularyFilterName@). If
+-- you include @LanguageIdSettings@, also include @LanguageOptions@.
+--
+-- Note that you must include one of @LanguageCode@, @IdentifyLanguage@, or
+-- @IdentifyMultipleLanguages@ in your request. If you include more than
+-- one of these parameters, your transcription job fails.
+--
+-- 'identifyMultipleLanguages', 'startTranscriptionJob_identifyMultipleLanguages' - Enables automatic multi-language identification in your transcription
+-- job request. Use this parameter if your media file contains more than
+-- one language. If your media contains only one language, use
+-- @IdentifyLanguage@ instead.
+--
+-- If you include @IdentifyMultipleLanguages@, you can optionally include a
+-- list of language codes, using @LanguageOptions@, that you think may be
+-- present in your media file. Including @LanguageOptions@ restricts
+-- @IdentifyLanguage@ to only the language options that you specify, which
+-- can improve transcription accuracy.
+--
+-- If you want to apply a custom vocabulary or a custom vocabulary filter
+-- to your automatic language identification request, include
+-- @LanguageIdSettings@ with the relevant sub-parameters (@VocabularyName@
+-- and @VocabularyFilterName@). If you include @LanguageIdSettings@, also
+-- include @LanguageOptions@.
+--
+-- Note that you must include one of @LanguageCode@, @IdentifyLanguage@, or
+-- @IdentifyMultipleLanguages@ in your request. If you include more than
+-- one of these parameters, your transcription job fails.
+--
+-- 'jobExecutionSettings', 'startTranscriptionJob_jobExecutionSettings' - Makes it possible to control how your transcription job is processed.
+-- Currently, the only @JobExecutionSettings@ modification you can choose
+-- is enabling job queueing using the @AllowDeferredExecution@
+-- sub-parameter.
+--
+-- If you include @JobExecutionSettings@ in your request, you must also
+-- include the sub-parameters: @AllowDeferredExecution@ and
+-- @DataAccessRoleArn@.
 --
 -- 'kmsEncryptionContext', 'startTranscriptionJob_kmsEncryptionContext' - A map of plain text, non-secret key:value pairs, known as encryption
 -- context pairs, that provide an added layer of security for your data.
@@ -383,135 +441,86 @@ data StartTranscriptionJob = StartTranscriptionJob'
 -- and
 -- <https://docs.aws.amazon.com/transcribe/latest/dg/symmetric-asymmetric.html Asymmetric keys in KMS>.
 --
--- 'identifyMultipleLanguages', 'startTranscriptionJob_identifyMultipleLanguages' - Enables automatic multi-language identification in your transcription
--- job request. Use this parameter if your media file contains more than
--- one language.
+-- 'languageCode', 'startTranscriptionJob_languageCode' - The language code that represents the language spoken in the input media
+-- file.
 --
--- If you include @IdentifyMultipleLanguages@, you can optionally include a
--- list of language codes, using @LanguageOptions@, that you think may be
--- present in your media file. Including language options can improve
--- transcription accuracy.
---
--- If you want to apply a custom vocabulary or a custom vocabulary filter
--- to your automatic language identification request, include
--- @LanguageIdSettings@ with the relevant sub-parameters (@VocabularyName@
--- and @VocabularyFilterName@).
+-- If you\'re unsure of the language spoken in your media file, consider
+-- using @IdentifyLanguage@ or @IdentifyMultipleLanguages@ to enable
+-- automatic language identification.
 --
 -- Note that you must include one of @LanguageCode@, @IdentifyLanguage@, or
 -- @IdentifyMultipleLanguages@ in your request. If you include more than
 -- one of these parameters, your transcription job fails.
 --
--- 'mediaFormat', 'startTranscriptionJob_mediaFormat' - Specify the format of your input media file.
+-- For a list of supported languages and their associated language codes,
+-- refer to the
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html Supported languages>
+-- table.
 --
--- 'identifyLanguage', 'startTranscriptionJob_identifyLanguage' - Enables automatic language identification in your transcription job
--- request.
+-- To transcribe speech in Modern Standard Arabic (@ar-SA@), your media
+-- file must be encoded at a sample rate of 16,000 Hz or higher.
 --
--- If you include @IdentifyLanguage@, you can optionally include a list of
--- language codes, using @LanguageOptions@, that you think may be present
--- in your media file. Including language options can improve transcription
--- accuracy.
+-- 'languageIdSettings', 'startTranscriptionJob_languageIdSettings' - If using automatic language identification in your request and you want
+-- to apply a custom language model, a custom vocabulary, or a custom
+-- vocabulary filter, include @LanguageIdSettings@ with the relevant
+-- sub-parameters (@VocabularyName@, @LanguageModelName@, and
+-- @VocabularyFilterName@). Note that multi-language identification
+-- (@IdentifyMultipleLanguages@) doesn\'t support custom language models.
 --
--- If you want to apply a custom language model, a custom vocabulary, or a
--- custom vocabulary filter to your automatic language identification
--- request, include @LanguageIdSettings@ with the relevant sub-parameters
--- (@VocabularyName@, @LanguageModelName@, and @VocabularyFilterName@).
+-- @LanguageIdSettings@ supports two to five language codes. Each language
+-- code you include can have an associated custom language model, custom
+-- vocabulary, and custom vocabulary filter. The language codes that you
+-- specify must match the languages of the associated custom language
+-- models, custom vocabularies, and custom vocabulary filters.
 --
--- Note that you must include one of @LanguageCode@, @IdentifyLanguage@, or
--- @IdentifyMultipleLanguages@ in your request. If you include more than
--- one of these parameters, your transcription job fails.
---
--- 'contentRedaction', 'startTranscriptionJob_contentRedaction' - Allows you to redact or flag specified personally identifiable
--- information (PII) in your transcript. If you use @ContentRedaction@, you
--- must also include the sub-parameters: @PiiEntityTypes@,
--- @RedactionOutput@, and @RedactionType@.
---
--- 'outputKey', 'startTranscriptionJob_outputKey' - Use in combination with @OutputBucketName@ to specify the output
--- location of your transcript and, optionally, a unique name for your
--- output file. The default name for your transcription output is the same
--- as the name you specified for your transcription job
--- (@TranscriptionJobName@).
---
--- Here are some examples of how you can use @OutputKey@:
---
--- -   If you specify \'DOC-EXAMPLE-BUCKET\' as the @OutputBucketName@ and
---     \'my-transcript.json\' as the @OutputKey@, your transcription output
---     path is @s3:\/\/DOC-EXAMPLE-BUCKET\/my-transcript.json@.
---
--- -   If you specify \'my-first-transcription\' as the
---     @TranscriptionJobName@, \'DOC-EXAMPLE-BUCKET\' as the
---     @OutputBucketName@, and \'my-transcript\' as the @OutputKey@, your
---     transcription output path is
---     @s3:\/\/DOC-EXAMPLE-BUCKET\/my-transcript\/my-first-transcription.json@.
---
--- -   If you specify \'DOC-EXAMPLE-BUCKET\' as the @OutputBucketName@ and
---     \'test-files\/my-transcript.json\' as the @OutputKey@, your
---     transcription output path is
---     @s3:\/\/DOC-EXAMPLE-BUCKET\/test-files\/my-transcript.json@.
---
--- -   If you specify \'my-first-transcription\' as the
---     @TranscriptionJobName@, \'DOC-EXAMPLE-BUCKET\' as the
---     @OutputBucketName@, and \'test-files\/my-transcript\' as the
---     @OutputKey@, your transcription output path is
---     @s3:\/\/DOC-EXAMPLE-BUCKET\/test-files\/my-transcript\/my-first-transcription.json@.
---
--- If you specify the name of an Amazon S3 bucket sub-folder that doesn\'t
--- exist, one is created for you.
---
--- 'subtitles', 'startTranscriptionJob_subtitles' - Produces subtitle files for your input media. You can specify WebVTT
--- (*.vtt) and SubRip (*.srt) formats.
---
--- 'languageIdSettings', 'startTranscriptionJob_languageIdSettings' - If using automatic language identification (@IdentifyLanguage@) in your
--- request and you want to apply a custom language model, a custom
--- vocabulary, or a custom vocabulary filter, include @LanguageIdSettings@
--- with the relevant sub-parameters (@VocabularyName@, @LanguageModelName@,
--- and @VocabularyFilterName@).
---
--- You can specify two or more language codes that represent the languages
--- you think may be present in your media; including more than five is not
--- recommended. Each language code you include can have an associated
--- custom language model, custom vocabulary, and custom vocabulary filter.
--- The languages you specify must match the languages of the specified
--- custom language models, custom vocabularies, and custom vocabulary
--- filters.
---
--- To include language options using @IdentifyLanguage@ __without__
--- including a custom language model, a custom vocabulary, or a custom
--- vocabulary filter, use @LanguageOptions@ instead of
--- @LanguageIdSettings@. Including language options can improve the
--- accuracy of automatic language identification.
+-- It\'s recommended that you include @LanguageOptions@ when using
+-- @LanguageIdSettings@ to ensure that the correct language dialect is
+-- identified. For example, if you specify a custom vocabulary that is in
+-- @en-US@ but Amazon Transcribe determines that the language spoken in
+-- your media is @en-AU@, your custom vocabulary /is not/ applied to your
+-- transcription. If you include @LanguageOptions@ and include @en-US@ as
+-- the only English language dialect, your custom vocabulary /is/ applied
+-- to your transcription.
 --
 -- If you want to include a custom language model with your request but
 -- __do not__ want to use automatic language identification, use instead
--- the @@ parameter with the @LanguageModelName@ sub-parameter.
+-- the @@ parameter with the @LanguageModelName@ sub-parameter. If you want
+-- to include a custom vocabulary or a custom vocabulary filter (or both)
+-- with your request but __do not__ want to use automatic language
+-- identification, use instead the @@ parameter with the @VocabularyName@
+-- or @VocabularyFilterName@ (or both) sub-parameter.
 --
--- If you want to include a custom vocabulary or a custom vocabulary filter
--- (or both) with your request but __do not__ want to use automatic
--- language identification, use instead the @@ parameter with the
--- @VocabularyName@ or @VocabularyFilterName@ (or both) sub-parameter.
+-- 'languageOptions', 'startTranscriptionJob_languageOptions' - You can specify two or more language codes that represent the languages
+-- you think may be present in your media. Including more than five is not
+-- recommended. If you\'re unsure what languages are present, do not
+-- include this parameter.
 --
--- 'settings', 'startTranscriptionJob_settings' - Specify additional optional settings in your request, including channel
--- identification, alternative transcriptions, speaker labeling; allows you
--- to apply custom vocabularies and vocabulary filters.
+-- If you include @LanguageOptions@ in your request, you must also include
+-- @IdentifyLanguage@.
 --
--- If you want to include a custom vocabulary or a custom vocabulary filter
--- (or both) with your request but __do not__ want to use automatic
--- language identification, use @Settings@ with the @VocabularyName@ or
--- @VocabularyFilterName@ (or both) sub-parameter.
+-- For more information, refer to
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html Supported languages>.
 --
--- If you\'re using automatic language identification with your request and
--- want to include a custom language model, a custom vocabulary, or a
--- custom vocabulary filter, use instead the @@ parameter with the
--- @LanguageModelName@, @VocabularyName@ or @VocabularyFilterName@
--- sub-parameters.
+-- To transcribe speech in Modern Standard Arabic (@ar-SA@), your media
+-- file must be encoded at a sample rate of 16,000 Hz or higher.
 --
--- 'mediaSampleRateHertz', 'startTranscriptionJob_mediaSampleRateHertz' - The sample rate, in Hertz, of the audio track in your input media file.
+-- 'mediaFormat', 'startTranscriptionJob_mediaFormat' - Specify the format of your input media file.
+--
+-- 'mediaSampleRateHertz', 'startTranscriptionJob_mediaSampleRateHertz' - The sample rate, in hertz, of the audio track in your input media file.
 --
 -- If you don\'t specify the media sample rate, Amazon Transcribe
 -- determines it for you. If you specify the sample rate, it must match the
--- rate detected by Amazon Transcribe; if there\'s a mismatch between the
--- value you specify and the value detected, your job fails. Therefore, in
--- most cases, it\'s advised to omit @MediaSampleRateHertz@ and let Amazon
--- Transcribe determine the sample rate.
+-- rate detected by Amazon Transcribe. If there\'s a mismatch between the
+-- value that you specify and the value detected, your job fails. In most
+-- cases, you can omit @MediaSampleRateHertz@ and let Amazon Transcribe
+-- determine the sample rate.
+--
+-- 'modelSettings', 'startTranscriptionJob_modelSettings' - Specify the custom language model you want to include with your
+-- transcription job. If you include @ModelSettings@ in your request, you
+-- must include the @LanguageModelName@ sub-parameter.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/custom-language-models.html Custom language models>.
 --
 -- 'outputBucketName', 'startTranscriptionJob_outputBucketName' - The name of the Amazon S3 bucket where you want your transcription
 -- output stored. Do not include the @S3:\/\/@ prefix of the specified
@@ -536,34 +545,6 @@ data StartTranscriptionJob = StartTranscriptionJob'
 -- If you don\'t specify @OutputBucketName@, your transcript is placed in a
 -- service-managed Amazon S3 bucket and you are provided with a URI to
 -- access your transcript.
---
--- 'languageCode', 'startTranscriptionJob_languageCode' - The language code that represents the language spoken in the input media
--- file.
---
--- If you\'re unsure of the language spoken in your media file, consider
--- using @IdentifyLanguage@ or @IdentifyMultipleLanguages@ to enable
--- automatic language identification.
---
--- Note that you must include one of @LanguageCode@, @IdentifyLanguage@, or
--- @IdentifyMultipleLanguages@ in your request. If you include more than
--- one of these parameters, your transcription job fails.
---
--- For a list of supported languages and their associated language codes,
--- refer to the
--- <https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html Supported languages>
--- table.
---
--- To transcribe speech in Modern Standard Arabic (@ar-SA@), your media
--- file must be encoded at a sample rate of 16,000 Hz or higher.
---
--- 'jobExecutionSettings', 'startTranscriptionJob_jobExecutionSettings' - Allows you to control how your transcription job is processed.
--- Currently, the only @JobExecutionSettings@ modification you can choose
--- is enabling job queueing using the @AllowDeferredExecution@
--- sub-parameter.
---
--- If you include @JobExecutionSettings@ in your request, you must also
--- include the sub-parameters: @AllowDeferredExecution@ and
--- @DataAccessRoleArn@.
 --
 -- 'outputEncryptionKMSKeyId', 'startTranscriptionJob_outputEncryptionKMSKeyId' - The KMS key you want to use to encrypt your transcription output.
 --
@@ -600,138 +581,7 @@ data StartTranscriptionJob = StartTranscriptionJob'
 -- Note that the user making the request must have permission to use the
 -- specified KMS key.
 --
--- 'modelSettings', 'startTranscriptionJob_modelSettings' - Specify the custom language model you want to include with your
--- transcription job. If you include @ModelSettings@ in your request, you
--- must include the @LanguageModelName@ sub-parameter.
---
--- For more information, see
--- <https://docs.aws.amazon.com/transcribe/latest/dg/custom-language-models.html Custom language models>.
---
--- 'languageOptions', 'startTranscriptionJob_languageOptions' - You can specify two or more language codes that represent the languages
--- you think may be present in your media; including more than five is not
--- recommended. If you\'re unsure what languages are present, do not
--- include this parameter.
---
--- If you include @LanguageOptions@ in your request, you must also include
--- @IdentifyLanguage@.
---
--- For more information, refer to
--- <https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html Supported languages>.
---
--- To transcribe speech in Modern Standard Arabic (@ar-SA@), your media
--- file must be encoded at a sample rate of 16,000 Hz or higher.
---
--- 'transcriptionJobName', 'startTranscriptionJob_transcriptionJobName' - A unique name, chosen by you, for your transcription job. The name you
--- specify is also used as the default name of your transcription output
--- file. If you want to specify a different name for your transcription
--- output, use the @OutputKey@ parameter.
---
--- This name is case sensitive, cannot contain spaces, and must be unique
--- within an Amazon Web Services account. If you try to create a new job
--- with the same name as an existing job, you get a @ConflictException@
--- error.
---
--- 'media', 'startTranscriptionJob_media' - Describes the Amazon S3 location of the media file you want to use in
--- your request.
-newStartTranscriptionJob ::
-  -- | 'transcriptionJobName'
-  Prelude.Text ->
-  -- | 'media'
-  Media ->
-  StartTranscriptionJob
-newStartTranscriptionJob
-  pTranscriptionJobName_
-  pMedia_ =
-    StartTranscriptionJob'
-      { tags = Prelude.Nothing,
-        kmsEncryptionContext = Prelude.Nothing,
-        identifyMultipleLanguages = Prelude.Nothing,
-        mediaFormat = Prelude.Nothing,
-        identifyLanguage = Prelude.Nothing,
-        contentRedaction = Prelude.Nothing,
-        outputKey = Prelude.Nothing,
-        subtitles = Prelude.Nothing,
-        languageIdSettings = Prelude.Nothing,
-        settings = Prelude.Nothing,
-        mediaSampleRateHertz = Prelude.Nothing,
-        outputBucketName = Prelude.Nothing,
-        languageCode = Prelude.Nothing,
-        jobExecutionSettings = Prelude.Nothing,
-        outputEncryptionKMSKeyId = Prelude.Nothing,
-        modelSettings = Prelude.Nothing,
-        languageOptions = Prelude.Nothing,
-        transcriptionJobName = pTranscriptionJobName_,
-        media = pMedia_
-      }
-
--- | Adds one or more custom tags, each in the form of a key:value pair, to a
--- new transcription job at the time you start this new job.
---
--- To learn more about using tags with Amazon Transcribe, refer to
--- <https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html Tagging resources>.
-startTranscriptionJob_tags :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe (Prelude.NonEmpty Tag))
-startTranscriptionJob_tags = Lens.lens (\StartTranscriptionJob' {tags} -> tags) (\s@StartTranscriptionJob' {} a -> s {tags = a} :: StartTranscriptionJob) Prelude.. Lens.mapping Lens.coerced
-
--- | A map of plain text, non-secret key:value pairs, known as encryption
--- context pairs, that provide an added layer of security for your data.
--- For more information, see
--- <https://docs.aws.amazon.com/transcribe/latest/dg/key-management.html#kms-context KMS encryption context>
--- and
--- <https://docs.aws.amazon.com/transcribe/latest/dg/symmetric-asymmetric.html Asymmetric keys in KMS>.
-startTranscriptionJob_kmsEncryptionContext :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-startTranscriptionJob_kmsEncryptionContext = Lens.lens (\StartTranscriptionJob' {kmsEncryptionContext} -> kmsEncryptionContext) (\s@StartTranscriptionJob' {} a -> s {kmsEncryptionContext = a} :: StartTranscriptionJob) Prelude.. Lens.mapping Lens.coerced
-
--- | Enables automatic multi-language identification in your transcription
--- job request. Use this parameter if your media file contains more than
--- one language.
---
--- If you include @IdentifyMultipleLanguages@, you can optionally include a
--- list of language codes, using @LanguageOptions@, that you think may be
--- present in your media file. Including language options can improve
--- transcription accuracy.
---
--- If you want to apply a custom vocabulary or a custom vocabulary filter
--- to your automatic language identification request, include
--- @LanguageIdSettings@ with the relevant sub-parameters (@VocabularyName@
--- and @VocabularyFilterName@).
---
--- Note that you must include one of @LanguageCode@, @IdentifyLanguage@, or
--- @IdentifyMultipleLanguages@ in your request. If you include more than
--- one of these parameters, your transcription job fails.
-startTranscriptionJob_identifyMultipleLanguages :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe Prelude.Bool)
-startTranscriptionJob_identifyMultipleLanguages = Lens.lens (\StartTranscriptionJob' {identifyMultipleLanguages} -> identifyMultipleLanguages) (\s@StartTranscriptionJob' {} a -> s {identifyMultipleLanguages = a} :: StartTranscriptionJob)
-
--- | Specify the format of your input media file.
-startTranscriptionJob_mediaFormat :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe MediaFormat)
-startTranscriptionJob_mediaFormat = Lens.lens (\StartTranscriptionJob' {mediaFormat} -> mediaFormat) (\s@StartTranscriptionJob' {} a -> s {mediaFormat = a} :: StartTranscriptionJob)
-
--- | Enables automatic language identification in your transcription job
--- request.
---
--- If you include @IdentifyLanguage@, you can optionally include a list of
--- language codes, using @LanguageOptions@, that you think may be present
--- in your media file. Including language options can improve transcription
--- accuracy.
---
--- If you want to apply a custom language model, a custom vocabulary, or a
--- custom vocabulary filter to your automatic language identification
--- request, include @LanguageIdSettings@ with the relevant sub-parameters
--- (@VocabularyName@, @LanguageModelName@, and @VocabularyFilterName@).
---
--- Note that you must include one of @LanguageCode@, @IdentifyLanguage@, or
--- @IdentifyMultipleLanguages@ in your request. If you include more than
--- one of these parameters, your transcription job fails.
-startTranscriptionJob_identifyLanguage :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe Prelude.Bool)
-startTranscriptionJob_identifyLanguage = Lens.lens (\StartTranscriptionJob' {identifyLanguage} -> identifyLanguage) (\s@StartTranscriptionJob' {} a -> s {identifyLanguage = a} :: StartTranscriptionJob)
-
--- | Allows you to redact or flag specified personally identifiable
--- information (PII) in your transcript. If you use @ContentRedaction@, you
--- must also include the sub-parameters: @PiiEntityTypes@,
--- @RedactionOutput@, and @RedactionType@.
-startTranscriptionJob_contentRedaction :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe ContentRedaction)
-startTranscriptionJob_contentRedaction = Lens.lens (\StartTranscriptionJob' {contentRedaction} -> contentRedaction) (\s@StartTranscriptionJob' {} a -> s {contentRedaction = a} :: StartTranscriptionJob)
-
--- | Use in combination with @OutputBucketName@ to specify the output
+-- 'outputKey', 'startTranscriptionJob_outputKey' - Use in combination with @OutputBucketName@ to specify the output
 -- location of your transcript and, optionally, a unique name for your
 -- output file. The default name for your transcription output is the same
 -- as the name you specified for your transcription job
@@ -762,48 +612,10 @@ startTranscriptionJob_contentRedaction = Lens.lens (\StartTranscriptionJob' {con
 --
 -- If you specify the name of an Amazon S3 bucket sub-folder that doesn\'t
 -- exist, one is created for you.
-startTranscriptionJob_outputKey :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe Prelude.Text)
-startTranscriptionJob_outputKey = Lens.lens (\StartTranscriptionJob' {outputKey} -> outputKey) (\s@StartTranscriptionJob' {} a -> s {outputKey = a} :: StartTranscriptionJob)
-
--- | Produces subtitle files for your input media. You can specify WebVTT
--- (*.vtt) and SubRip (*.srt) formats.
-startTranscriptionJob_subtitles :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe Subtitles)
-startTranscriptionJob_subtitles = Lens.lens (\StartTranscriptionJob' {subtitles} -> subtitles) (\s@StartTranscriptionJob' {} a -> s {subtitles = a} :: StartTranscriptionJob)
-
--- | If using automatic language identification (@IdentifyLanguage@) in your
--- request and you want to apply a custom language model, a custom
--- vocabulary, or a custom vocabulary filter, include @LanguageIdSettings@
--- with the relevant sub-parameters (@VocabularyName@, @LanguageModelName@,
--- and @VocabularyFilterName@).
 --
--- You can specify two or more language codes that represent the languages
--- you think may be present in your media; including more than five is not
--- recommended. Each language code you include can have an associated
--- custom language model, custom vocabulary, and custom vocabulary filter.
--- The languages you specify must match the languages of the specified
--- custom language models, custom vocabularies, and custom vocabulary
--- filters.
---
--- To include language options using @IdentifyLanguage@ __without__
--- including a custom language model, a custom vocabulary, or a custom
--- vocabulary filter, use @LanguageOptions@ instead of
--- @LanguageIdSettings@. Including language options can improve the
--- accuracy of automatic language identification.
---
--- If you want to include a custom language model with your request but
--- __do not__ want to use automatic language identification, use instead
--- the @@ parameter with the @LanguageModelName@ sub-parameter.
---
--- If you want to include a custom vocabulary or a custom vocabulary filter
--- (or both) with your request but __do not__ want to use automatic
--- language identification, use instead the @@ parameter with the
--- @VocabularyName@ or @VocabularyFilterName@ (or both) sub-parameter.
-startTranscriptionJob_languageIdSettings :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe (Prelude.HashMap LanguageCode LanguageIdSettings))
-startTranscriptionJob_languageIdSettings = Lens.lens (\StartTranscriptionJob' {languageIdSettings} -> languageIdSettings) (\s@StartTranscriptionJob' {} a -> s {languageIdSettings = a} :: StartTranscriptionJob) Prelude.. Lens.mapping Lens.coerced
-
--- | Specify additional optional settings in your request, including channel
--- identification, alternative transcriptions, speaker labeling; allows you
--- to apply custom vocabularies and vocabulary filters.
+-- 'settings', 'startTranscriptionJob_settings' - Specify additional optional settings in your request, including channel
+-- identification, alternative transcriptions, speaker partitioning. You
+-- can use that to apply custom vocabularies and vocabulary filters.
 --
 -- If you want to include a custom vocabulary or a custom vocabulary filter
 -- (or both) with your request but __do not__ want to use automatic
@@ -815,19 +627,225 @@ startTranscriptionJob_languageIdSettings = Lens.lens (\StartTranscriptionJob' {l
 -- custom vocabulary filter, use instead the @@ parameter with the
 -- @LanguageModelName@, @VocabularyName@ or @VocabularyFilterName@
 -- sub-parameters.
-startTranscriptionJob_settings :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe Settings)
-startTranscriptionJob_settings = Lens.lens (\StartTranscriptionJob' {settings} -> settings) (\s@StartTranscriptionJob' {} a -> s {settings = a} :: StartTranscriptionJob)
+--
+-- 'subtitles', 'startTranscriptionJob_subtitles' - Produces subtitle files for your input media. You can specify WebVTT
+-- (*.vtt) and SubRip (*.srt) formats.
+--
+-- 'tags', 'startTranscriptionJob_tags' - Adds one or more custom tags, each in the form of a key:value pair, to a
+-- new transcription job at the time you start this new job.
+--
+-- To learn more about using tags with Amazon Transcribe, refer to
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html Tagging resources>.
+--
+-- 'transcriptionJobName', 'startTranscriptionJob_transcriptionJobName' - A unique name, chosen by you, for your transcription job. The name that
+-- you specify is also used as the default name of your transcription
+-- output file. If you want to specify a different name for your
+-- transcription output, use the @OutputKey@ parameter.
+--
+-- This name is case sensitive, cannot contain spaces, and must be unique
+-- within an Amazon Web Services account. If you try to create a new job
+-- with the same name as an existing job, you get a @ConflictException@
+-- error.
+--
+-- 'media', 'startTranscriptionJob_media' - Describes the Amazon S3 location of the media file you want to use in
+-- your request.
+newStartTranscriptionJob ::
+  -- | 'transcriptionJobName'
+  Prelude.Text ->
+  -- | 'media'
+  Media ->
+  StartTranscriptionJob
+newStartTranscriptionJob
+  pTranscriptionJobName_
+  pMedia_ =
+    StartTranscriptionJob'
+      { contentRedaction =
+          Prelude.Nothing,
+        identifyLanguage = Prelude.Nothing,
+        identifyMultipleLanguages = Prelude.Nothing,
+        jobExecutionSettings = Prelude.Nothing,
+        kmsEncryptionContext = Prelude.Nothing,
+        languageCode = Prelude.Nothing,
+        languageIdSettings = Prelude.Nothing,
+        languageOptions = Prelude.Nothing,
+        mediaFormat = Prelude.Nothing,
+        mediaSampleRateHertz = Prelude.Nothing,
+        modelSettings = Prelude.Nothing,
+        outputBucketName = Prelude.Nothing,
+        outputEncryptionKMSKeyId = Prelude.Nothing,
+        outputKey = Prelude.Nothing,
+        settings = Prelude.Nothing,
+        subtitles = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        transcriptionJobName = pTranscriptionJobName_,
+        media = pMedia_
+      }
 
--- | The sample rate, in Hertz, of the audio track in your input media file.
+-- | Makes it possible to redact or flag specified personally identifiable
+-- information (PII) in your transcript. If you use @ContentRedaction@, you
+-- must also include the sub-parameters: @PiiEntityTypes@,
+-- @RedactionOutput@, and @RedactionType@.
+startTranscriptionJob_contentRedaction :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe ContentRedaction)
+startTranscriptionJob_contentRedaction = Lens.lens (\StartTranscriptionJob' {contentRedaction} -> contentRedaction) (\s@StartTranscriptionJob' {} a -> s {contentRedaction = a} :: StartTranscriptionJob)
+
+-- | Enables automatic language identification in your transcription job
+-- request. Use this parameter if your media file contains only one
+-- language. If your media contains multiple languages, use
+-- @IdentifyMultipleLanguages@ instead.
+--
+-- If you include @IdentifyLanguage@, you can optionally include a list of
+-- language codes, using @LanguageOptions@, that you think may be present
+-- in your media file. Including @LanguageOptions@ restricts
+-- @IdentifyLanguage@ to only the language options that you specify, which
+-- can improve transcription accuracy.
+--
+-- If you want to apply a custom language model, a custom vocabulary, or a
+-- custom vocabulary filter to your automatic language identification
+-- request, include @LanguageIdSettings@ with the relevant sub-parameters
+-- (@VocabularyName@, @LanguageModelName@, and @VocabularyFilterName@). If
+-- you include @LanguageIdSettings@, also include @LanguageOptions@.
+--
+-- Note that you must include one of @LanguageCode@, @IdentifyLanguage@, or
+-- @IdentifyMultipleLanguages@ in your request. If you include more than
+-- one of these parameters, your transcription job fails.
+startTranscriptionJob_identifyLanguage :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe Prelude.Bool)
+startTranscriptionJob_identifyLanguage = Lens.lens (\StartTranscriptionJob' {identifyLanguage} -> identifyLanguage) (\s@StartTranscriptionJob' {} a -> s {identifyLanguage = a} :: StartTranscriptionJob)
+
+-- | Enables automatic multi-language identification in your transcription
+-- job request. Use this parameter if your media file contains more than
+-- one language. If your media contains only one language, use
+-- @IdentifyLanguage@ instead.
+--
+-- If you include @IdentifyMultipleLanguages@, you can optionally include a
+-- list of language codes, using @LanguageOptions@, that you think may be
+-- present in your media file. Including @LanguageOptions@ restricts
+-- @IdentifyLanguage@ to only the language options that you specify, which
+-- can improve transcription accuracy.
+--
+-- If you want to apply a custom vocabulary or a custom vocabulary filter
+-- to your automatic language identification request, include
+-- @LanguageIdSettings@ with the relevant sub-parameters (@VocabularyName@
+-- and @VocabularyFilterName@). If you include @LanguageIdSettings@, also
+-- include @LanguageOptions@.
+--
+-- Note that you must include one of @LanguageCode@, @IdentifyLanguage@, or
+-- @IdentifyMultipleLanguages@ in your request. If you include more than
+-- one of these parameters, your transcription job fails.
+startTranscriptionJob_identifyMultipleLanguages :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe Prelude.Bool)
+startTranscriptionJob_identifyMultipleLanguages = Lens.lens (\StartTranscriptionJob' {identifyMultipleLanguages} -> identifyMultipleLanguages) (\s@StartTranscriptionJob' {} a -> s {identifyMultipleLanguages = a} :: StartTranscriptionJob)
+
+-- | Makes it possible to control how your transcription job is processed.
+-- Currently, the only @JobExecutionSettings@ modification you can choose
+-- is enabling job queueing using the @AllowDeferredExecution@
+-- sub-parameter.
+--
+-- If you include @JobExecutionSettings@ in your request, you must also
+-- include the sub-parameters: @AllowDeferredExecution@ and
+-- @DataAccessRoleArn@.
+startTranscriptionJob_jobExecutionSettings :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe JobExecutionSettings)
+startTranscriptionJob_jobExecutionSettings = Lens.lens (\StartTranscriptionJob' {jobExecutionSettings} -> jobExecutionSettings) (\s@StartTranscriptionJob' {} a -> s {jobExecutionSettings = a} :: StartTranscriptionJob)
+
+-- | A map of plain text, non-secret key:value pairs, known as encryption
+-- context pairs, that provide an added layer of security for your data.
+-- For more information, see
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/key-management.html#kms-context KMS encryption context>
+-- and
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/symmetric-asymmetric.html Asymmetric keys in KMS>.
+startTranscriptionJob_kmsEncryptionContext :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+startTranscriptionJob_kmsEncryptionContext = Lens.lens (\StartTranscriptionJob' {kmsEncryptionContext} -> kmsEncryptionContext) (\s@StartTranscriptionJob' {} a -> s {kmsEncryptionContext = a} :: StartTranscriptionJob) Prelude.. Lens.mapping Lens.coerced
+
+-- | The language code that represents the language spoken in the input media
+-- file.
+--
+-- If you\'re unsure of the language spoken in your media file, consider
+-- using @IdentifyLanguage@ or @IdentifyMultipleLanguages@ to enable
+-- automatic language identification.
+--
+-- Note that you must include one of @LanguageCode@, @IdentifyLanguage@, or
+-- @IdentifyMultipleLanguages@ in your request. If you include more than
+-- one of these parameters, your transcription job fails.
+--
+-- For a list of supported languages and their associated language codes,
+-- refer to the
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html Supported languages>
+-- table.
+--
+-- To transcribe speech in Modern Standard Arabic (@ar-SA@), your media
+-- file must be encoded at a sample rate of 16,000 Hz or higher.
+startTranscriptionJob_languageCode :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe LanguageCode)
+startTranscriptionJob_languageCode = Lens.lens (\StartTranscriptionJob' {languageCode} -> languageCode) (\s@StartTranscriptionJob' {} a -> s {languageCode = a} :: StartTranscriptionJob)
+
+-- | If using automatic language identification in your request and you want
+-- to apply a custom language model, a custom vocabulary, or a custom
+-- vocabulary filter, include @LanguageIdSettings@ with the relevant
+-- sub-parameters (@VocabularyName@, @LanguageModelName@, and
+-- @VocabularyFilterName@). Note that multi-language identification
+-- (@IdentifyMultipleLanguages@) doesn\'t support custom language models.
+--
+-- @LanguageIdSettings@ supports two to five language codes. Each language
+-- code you include can have an associated custom language model, custom
+-- vocabulary, and custom vocabulary filter. The language codes that you
+-- specify must match the languages of the associated custom language
+-- models, custom vocabularies, and custom vocabulary filters.
+--
+-- It\'s recommended that you include @LanguageOptions@ when using
+-- @LanguageIdSettings@ to ensure that the correct language dialect is
+-- identified. For example, if you specify a custom vocabulary that is in
+-- @en-US@ but Amazon Transcribe determines that the language spoken in
+-- your media is @en-AU@, your custom vocabulary /is not/ applied to your
+-- transcription. If you include @LanguageOptions@ and include @en-US@ as
+-- the only English language dialect, your custom vocabulary /is/ applied
+-- to your transcription.
+--
+-- If you want to include a custom language model with your request but
+-- __do not__ want to use automatic language identification, use instead
+-- the @@ parameter with the @LanguageModelName@ sub-parameter. If you want
+-- to include a custom vocabulary or a custom vocabulary filter (or both)
+-- with your request but __do not__ want to use automatic language
+-- identification, use instead the @@ parameter with the @VocabularyName@
+-- or @VocabularyFilterName@ (or both) sub-parameter.
+startTranscriptionJob_languageIdSettings :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe (Prelude.HashMap LanguageCode LanguageIdSettings))
+startTranscriptionJob_languageIdSettings = Lens.lens (\StartTranscriptionJob' {languageIdSettings} -> languageIdSettings) (\s@StartTranscriptionJob' {} a -> s {languageIdSettings = a} :: StartTranscriptionJob) Prelude.. Lens.mapping Lens.coerced
+
+-- | You can specify two or more language codes that represent the languages
+-- you think may be present in your media. Including more than five is not
+-- recommended. If you\'re unsure what languages are present, do not
+-- include this parameter.
+--
+-- If you include @LanguageOptions@ in your request, you must also include
+-- @IdentifyLanguage@.
+--
+-- For more information, refer to
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html Supported languages>.
+--
+-- To transcribe speech in Modern Standard Arabic (@ar-SA@), your media
+-- file must be encoded at a sample rate of 16,000 Hz or higher.
+startTranscriptionJob_languageOptions :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe (Prelude.NonEmpty LanguageCode))
+startTranscriptionJob_languageOptions = Lens.lens (\StartTranscriptionJob' {languageOptions} -> languageOptions) (\s@StartTranscriptionJob' {} a -> s {languageOptions = a} :: StartTranscriptionJob) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specify the format of your input media file.
+startTranscriptionJob_mediaFormat :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe MediaFormat)
+startTranscriptionJob_mediaFormat = Lens.lens (\StartTranscriptionJob' {mediaFormat} -> mediaFormat) (\s@StartTranscriptionJob' {} a -> s {mediaFormat = a} :: StartTranscriptionJob)
+
+-- | The sample rate, in hertz, of the audio track in your input media file.
 --
 -- If you don\'t specify the media sample rate, Amazon Transcribe
 -- determines it for you. If you specify the sample rate, it must match the
--- rate detected by Amazon Transcribe; if there\'s a mismatch between the
--- value you specify and the value detected, your job fails. Therefore, in
--- most cases, it\'s advised to omit @MediaSampleRateHertz@ and let Amazon
--- Transcribe determine the sample rate.
+-- rate detected by Amazon Transcribe. If there\'s a mismatch between the
+-- value that you specify and the value detected, your job fails. In most
+-- cases, you can omit @MediaSampleRateHertz@ and let Amazon Transcribe
+-- determine the sample rate.
 startTranscriptionJob_mediaSampleRateHertz :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe Prelude.Natural)
 startTranscriptionJob_mediaSampleRateHertz = Lens.lens (\StartTranscriptionJob' {mediaSampleRateHertz} -> mediaSampleRateHertz) (\s@StartTranscriptionJob' {} a -> s {mediaSampleRateHertz = a} :: StartTranscriptionJob)
+
+-- | Specify the custom language model you want to include with your
+-- transcription job. If you include @ModelSettings@ in your request, you
+-- must include the @LanguageModelName@ sub-parameter.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/custom-language-models.html Custom language models>.
+startTranscriptionJob_modelSettings :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe ModelSettings)
+startTranscriptionJob_modelSettings = Lens.lens (\StartTranscriptionJob' {modelSettings} -> modelSettings) (\s@StartTranscriptionJob' {} a -> s {modelSettings = a} :: StartTranscriptionJob)
 
 -- | The name of the Amazon S3 bucket where you want your transcription
 -- output stored. Do not include the @S3:\/\/@ prefix of the specified
@@ -854,38 +872,6 @@ startTranscriptionJob_mediaSampleRateHertz = Lens.lens (\StartTranscriptionJob' 
 -- access your transcript.
 startTranscriptionJob_outputBucketName :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe Prelude.Text)
 startTranscriptionJob_outputBucketName = Lens.lens (\StartTranscriptionJob' {outputBucketName} -> outputBucketName) (\s@StartTranscriptionJob' {} a -> s {outputBucketName = a} :: StartTranscriptionJob)
-
--- | The language code that represents the language spoken in the input media
--- file.
---
--- If you\'re unsure of the language spoken in your media file, consider
--- using @IdentifyLanguage@ or @IdentifyMultipleLanguages@ to enable
--- automatic language identification.
---
--- Note that you must include one of @LanguageCode@, @IdentifyLanguage@, or
--- @IdentifyMultipleLanguages@ in your request. If you include more than
--- one of these parameters, your transcription job fails.
---
--- For a list of supported languages and their associated language codes,
--- refer to the
--- <https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html Supported languages>
--- table.
---
--- To transcribe speech in Modern Standard Arabic (@ar-SA@), your media
--- file must be encoded at a sample rate of 16,000 Hz or higher.
-startTranscriptionJob_languageCode :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe LanguageCode)
-startTranscriptionJob_languageCode = Lens.lens (\StartTranscriptionJob' {languageCode} -> languageCode) (\s@StartTranscriptionJob' {} a -> s {languageCode = a} :: StartTranscriptionJob)
-
--- | Allows you to control how your transcription job is processed.
--- Currently, the only @JobExecutionSettings@ modification you can choose
--- is enabling job queueing using the @AllowDeferredExecution@
--- sub-parameter.
---
--- If you include @JobExecutionSettings@ in your request, you must also
--- include the sub-parameters: @AllowDeferredExecution@ and
--- @DataAccessRoleArn@.
-startTranscriptionJob_jobExecutionSettings :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe JobExecutionSettings)
-startTranscriptionJob_jobExecutionSettings = Lens.lens (\StartTranscriptionJob' {jobExecutionSettings} -> jobExecutionSettings) (\s@StartTranscriptionJob' {} a -> s {jobExecutionSettings = a} :: StartTranscriptionJob)
 
 -- | The KMS key you want to use to encrypt your transcription output.
 --
@@ -924,35 +910,74 @@ startTranscriptionJob_jobExecutionSettings = Lens.lens (\StartTranscriptionJob' 
 startTranscriptionJob_outputEncryptionKMSKeyId :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe Prelude.Text)
 startTranscriptionJob_outputEncryptionKMSKeyId = Lens.lens (\StartTranscriptionJob' {outputEncryptionKMSKeyId} -> outputEncryptionKMSKeyId) (\s@StartTranscriptionJob' {} a -> s {outputEncryptionKMSKeyId = a} :: StartTranscriptionJob)
 
--- | Specify the custom language model you want to include with your
--- transcription job. If you include @ModelSettings@ in your request, you
--- must include the @LanguageModelName@ sub-parameter.
+-- | Use in combination with @OutputBucketName@ to specify the output
+-- location of your transcript and, optionally, a unique name for your
+-- output file. The default name for your transcription output is the same
+-- as the name you specified for your transcription job
+-- (@TranscriptionJobName@).
 --
--- For more information, see
--- <https://docs.aws.amazon.com/transcribe/latest/dg/custom-language-models.html Custom language models>.
-startTranscriptionJob_modelSettings :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe ModelSettings)
-startTranscriptionJob_modelSettings = Lens.lens (\StartTranscriptionJob' {modelSettings} -> modelSettings) (\s@StartTranscriptionJob' {} a -> s {modelSettings = a} :: StartTranscriptionJob)
+-- Here are some examples of how you can use @OutputKey@:
+--
+-- -   If you specify \'DOC-EXAMPLE-BUCKET\' as the @OutputBucketName@ and
+--     \'my-transcript.json\' as the @OutputKey@, your transcription output
+--     path is @s3:\/\/DOC-EXAMPLE-BUCKET\/my-transcript.json@.
+--
+-- -   If you specify \'my-first-transcription\' as the
+--     @TranscriptionJobName@, \'DOC-EXAMPLE-BUCKET\' as the
+--     @OutputBucketName@, and \'my-transcript\' as the @OutputKey@, your
+--     transcription output path is
+--     @s3:\/\/DOC-EXAMPLE-BUCKET\/my-transcript\/my-first-transcription.json@.
+--
+-- -   If you specify \'DOC-EXAMPLE-BUCKET\' as the @OutputBucketName@ and
+--     \'test-files\/my-transcript.json\' as the @OutputKey@, your
+--     transcription output path is
+--     @s3:\/\/DOC-EXAMPLE-BUCKET\/test-files\/my-transcript.json@.
+--
+-- -   If you specify \'my-first-transcription\' as the
+--     @TranscriptionJobName@, \'DOC-EXAMPLE-BUCKET\' as the
+--     @OutputBucketName@, and \'test-files\/my-transcript\' as the
+--     @OutputKey@, your transcription output path is
+--     @s3:\/\/DOC-EXAMPLE-BUCKET\/test-files\/my-transcript\/my-first-transcription.json@.
+--
+-- If you specify the name of an Amazon S3 bucket sub-folder that doesn\'t
+-- exist, one is created for you.
+startTranscriptionJob_outputKey :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe Prelude.Text)
+startTranscriptionJob_outputKey = Lens.lens (\StartTranscriptionJob' {outputKey} -> outputKey) (\s@StartTranscriptionJob' {} a -> s {outputKey = a} :: StartTranscriptionJob)
 
--- | You can specify two or more language codes that represent the languages
--- you think may be present in your media; including more than five is not
--- recommended. If you\'re unsure what languages are present, do not
--- include this parameter.
+-- | Specify additional optional settings in your request, including channel
+-- identification, alternative transcriptions, speaker partitioning. You
+-- can use that to apply custom vocabularies and vocabulary filters.
 --
--- If you include @LanguageOptions@ in your request, you must also include
--- @IdentifyLanguage@.
+-- If you want to include a custom vocabulary or a custom vocabulary filter
+-- (or both) with your request but __do not__ want to use automatic
+-- language identification, use @Settings@ with the @VocabularyName@ or
+-- @VocabularyFilterName@ (or both) sub-parameter.
 --
--- For more information, refer to
--- <https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html Supported languages>.
---
--- To transcribe speech in Modern Standard Arabic (@ar-SA@), your media
--- file must be encoded at a sample rate of 16,000 Hz or higher.
-startTranscriptionJob_languageOptions :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe (Prelude.NonEmpty LanguageCode))
-startTranscriptionJob_languageOptions = Lens.lens (\StartTranscriptionJob' {languageOptions} -> languageOptions) (\s@StartTranscriptionJob' {} a -> s {languageOptions = a} :: StartTranscriptionJob) Prelude.. Lens.mapping Lens.coerced
+-- If you\'re using automatic language identification with your request and
+-- want to include a custom language model, a custom vocabulary, or a
+-- custom vocabulary filter, use instead the @@ parameter with the
+-- @LanguageModelName@, @VocabularyName@ or @VocabularyFilterName@
+-- sub-parameters.
+startTranscriptionJob_settings :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe Settings)
+startTranscriptionJob_settings = Lens.lens (\StartTranscriptionJob' {settings} -> settings) (\s@StartTranscriptionJob' {} a -> s {settings = a} :: StartTranscriptionJob)
 
--- | A unique name, chosen by you, for your transcription job. The name you
--- specify is also used as the default name of your transcription output
--- file. If you want to specify a different name for your transcription
--- output, use the @OutputKey@ parameter.
+-- | Produces subtitle files for your input media. You can specify WebVTT
+-- (*.vtt) and SubRip (*.srt) formats.
+startTranscriptionJob_subtitles :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe Subtitles)
+startTranscriptionJob_subtitles = Lens.lens (\StartTranscriptionJob' {subtitles} -> subtitles) (\s@StartTranscriptionJob' {} a -> s {subtitles = a} :: StartTranscriptionJob)
+
+-- | Adds one or more custom tags, each in the form of a key:value pair, to a
+-- new transcription job at the time you start this new job.
+--
+-- To learn more about using tags with Amazon Transcribe, refer to
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html Tagging resources>.
+startTranscriptionJob_tags :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe (Prelude.NonEmpty Tag))
+startTranscriptionJob_tags = Lens.lens (\StartTranscriptionJob' {tags} -> tags) (\s@StartTranscriptionJob' {} a -> s {tags = a} :: StartTranscriptionJob) Prelude.. Lens.mapping Lens.coerced
+
+-- | A unique name, chosen by you, for your transcription job. The name that
+-- you specify is also used as the default name of your transcription
+-- output file. If you want to specify a different name for your
+-- transcription output, use the @OutputKey@ parameter.
 --
 -- This name is case sensitive, cannot contain spaces, and must be unique
 -- within an Amazon Web Services account. If you try to create a new job
@@ -982,45 +1007,45 @@ instance Core.AWSRequest StartTranscriptionJob where
 
 instance Prelude.Hashable StartTranscriptionJob where
   hashWithSalt _salt StartTranscriptionJob' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` kmsEncryptionContext
-      `Prelude.hashWithSalt` identifyMultipleLanguages
-      `Prelude.hashWithSalt` mediaFormat
+    _salt `Prelude.hashWithSalt` contentRedaction
       `Prelude.hashWithSalt` identifyLanguage
-      `Prelude.hashWithSalt` contentRedaction
-      `Prelude.hashWithSalt` outputKey
-      `Prelude.hashWithSalt` subtitles
-      `Prelude.hashWithSalt` languageIdSettings
-      `Prelude.hashWithSalt` settings
-      `Prelude.hashWithSalt` mediaSampleRateHertz
-      `Prelude.hashWithSalt` outputBucketName
-      `Prelude.hashWithSalt` languageCode
+      `Prelude.hashWithSalt` identifyMultipleLanguages
       `Prelude.hashWithSalt` jobExecutionSettings
-      `Prelude.hashWithSalt` outputEncryptionKMSKeyId
-      `Prelude.hashWithSalt` modelSettings
+      `Prelude.hashWithSalt` kmsEncryptionContext
+      `Prelude.hashWithSalt` languageCode
+      `Prelude.hashWithSalt` languageIdSettings
       `Prelude.hashWithSalt` languageOptions
+      `Prelude.hashWithSalt` mediaFormat
+      `Prelude.hashWithSalt` mediaSampleRateHertz
+      `Prelude.hashWithSalt` modelSettings
+      `Prelude.hashWithSalt` outputBucketName
+      `Prelude.hashWithSalt` outputEncryptionKMSKeyId
+      `Prelude.hashWithSalt` outputKey
+      `Prelude.hashWithSalt` settings
+      `Prelude.hashWithSalt` subtitles
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` transcriptionJobName
       `Prelude.hashWithSalt` media
 
 instance Prelude.NFData StartTranscriptionJob where
   rnf StartTranscriptionJob' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf kmsEncryptionContext
-      `Prelude.seq` Prelude.rnf identifyMultipleLanguages
-      `Prelude.seq` Prelude.rnf mediaFormat
+    Prelude.rnf contentRedaction
       `Prelude.seq` Prelude.rnf identifyLanguage
-      `Prelude.seq` Prelude.rnf contentRedaction
-      `Prelude.seq` Prelude.rnf outputKey
-      `Prelude.seq` Prelude.rnf subtitles
-      `Prelude.seq` Prelude.rnf languageIdSettings
-      `Prelude.seq` Prelude.rnf settings
-      `Prelude.seq` Prelude.rnf mediaSampleRateHertz
-      `Prelude.seq` Prelude.rnf outputBucketName
-      `Prelude.seq` Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf identifyMultipleLanguages
       `Prelude.seq` Prelude.rnf jobExecutionSettings
-      `Prelude.seq` Prelude.rnf outputEncryptionKMSKeyId
-      `Prelude.seq` Prelude.rnf modelSettings
+      `Prelude.seq` Prelude.rnf kmsEncryptionContext
+      `Prelude.seq` Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf languageIdSettings
       `Prelude.seq` Prelude.rnf languageOptions
+      `Prelude.seq` Prelude.rnf mediaFormat
+      `Prelude.seq` Prelude.rnf mediaSampleRateHertz
+      `Prelude.seq` Prelude.rnf modelSettings
+      `Prelude.seq` Prelude.rnf outputBucketName
+      `Prelude.seq` Prelude.rnf outputEncryptionKMSKeyId
+      `Prelude.seq` Prelude.rnf outputKey
+      `Prelude.seq` Prelude.rnf settings
+      `Prelude.seq` Prelude.rnf subtitles
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf transcriptionJobName
       `Prelude.seq` Prelude.rnf media
 
@@ -1043,33 +1068,33 @@ instance Data.ToJSON StartTranscriptionJob where
   toJSON StartTranscriptionJob' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("KMSEncryptionContext" Data..=)
-              Prelude.<$> kmsEncryptionContext,
-            ("IdentifyMultipleLanguages" Data..=)
-              Prelude.<$> identifyMultipleLanguages,
-            ("MediaFormat" Data..=) Prelude.<$> mediaFormat,
+          [ ("ContentRedaction" Data..=)
+              Prelude.<$> contentRedaction,
             ("IdentifyLanguage" Data..=)
               Prelude.<$> identifyLanguage,
-            ("ContentRedaction" Data..=)
-              Prelude.<$> contentRedaction,
-            ("OutputKey" Data..=) Prelude.<$> outputKey,
-            ("Subtitles" Data..=) Prelude.<$> subtitles,
-            ("LanguageIdSettings" Data..=)
-              Prelude.<$> languageIdSettings,
-            ("Settings" Data..=) Prelude.<$> settings,
-            ("MediaSampleRateHertz" Data..=)
-              Prelude.<$> mediaSampleRateHertz,
-            ("OutputBucketName" Data..=)
-              Prelude.<$> outputBucketName,
-            ("LanguageCode" Data..=) Prelude.<$> languageCode,
+            ("IdentifyMultipleLanguages" Data..=)
+              Prelude.<$> identifyMultipleLanguages,
             ("JobExecutionSettings" Data..=)
               Prelude.<$> jobExecutionSettings,
-            ("OutputEncryptionKMSKeyId" Data..=)
-              Prelude.<$> outputEncryptionKMSKeyId,
-            ("ModelSettings" Data..=) Prelude.<$> modelSettings,
+            ("KMSEncryptionContext" Data..=)
+              Prelude.<$> kmsEncryptionContext,
+            ("LanguageCode" Data..=) Prelude.<$> languageCode,
+            ("LanguageIdSettings" Data..=)
+              Prelude.<$> languageIdSettings,
             ("LanguageOptions" Data..=)
               Prelude.<$> languageOptions,
+            ("MediaFormat" Data..=) Prelude.<$> mediaFormat,
+            ("MediaSampleRateHertz" Data..=)
+              Prelude.<$> mediaSampleRateHertz,
+            ("ModelSettings" Data..=) Prelude.<$> modelSettings,
+            ("OutputBucketName" Data..=)
+              Prelude.<$> outputBucketName,
+            ("OutputEncryptionKMSKeyId" Data..=)
+              Prelude.<$> outputEncryptionKMSKeyId,
+            ("OutputKey" Data..=) Prelude.<$> outputKey,
+            ("Settings" Data..=) Prelude.<$> settings,
+            ("Subtitles" Data..=) Prelude.<$> subtitles,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ( "TranscriptionJobName"
                   Data..= transcriptionJobName

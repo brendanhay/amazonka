@@ -20,8 +20,8 @@ module Amazonka.PrivateNetworks.Types
     -- * Errors
     _AccessDeniedException,
     _InternalServerException,
-    _ResourceNotFoundException,
     _LimitExceededException,
+    _ResourceNotFoundException,
     _ThrottlingException,
     _ValidationException,
 
@@ -74,9 +74,9 @@ module Amazonka.PrivateNetworks.Types
     Address (..),
     newAddress,
     address_company,
-    address_street3,
     address_phoneNumber,
     address_street2,
+    address_street3,
     address_city,
     address_country,
     address_name,
@@ -87,15 +87,15 @@ module Amazonka.PrivateNetworks.Types
     -- * DeviceIdentifier
     DeviceIdentifier (..),
     newDeviceIdentifier,
-    deviceIdentifier_imsi,
-    deviceIdentifier_trafficGroupArn,
-    deviceIdentifier_networkArn,
-    deviceIdentifier_status,
-    deviceIdentifier_orderArn,
-    deviceIdentifier_vendor,
     deviceIdentifier_createdAt,
-    deviceIdentifier_iccid,
     deviceIdentifier_deviceIdentifierArn,
+    deviceIdentifier_iccid,
+    deviceIdentifier_imsi,
+    deviceIdentifier_networkArn,
+    deviceIdentifier_orderArn,
+    deviceIdentifier_status,
+    deviceIdentifier_trafficGroupArn,
+    deviceIdentifier_vendor,
 
     -- * NameValuePair
     NameValuePair (..),
@@ -106,9 +106,9 @@ module Amazonka.PrivateNetworks.Types
     -- * Network
     Network (..),
     newNetwork,
-    network_statusReason,
-    network_description,
     network_createdAt,
+    network_description,
+    network_statusReason,
     network_networkArn,
     network_networkName,
     network_status,
@@ -116,21 +116,21 @@ module Amazonka.PrivateNetworks.Types
     -- * NetworkResource
     NetworkResource (..),
     newNetworkResource,
-    networkResource_type,
-    networkResource_model,
-    networkResource_networkSiteArn,
-    networkResource_statusReason,
-    networkResource_networkArn,
-    networkResource_status,
-    networkResource_description,
-    networkResource_orderArn,
-    networkResource_health,
-    networkResource_serialNumber,
     networkResource_attributes,
-    networkResource_networkResourceArn,
-    networkResource_position,
-    networkResource_vendor,
     networkResource_createdAt,
+    networkResource_description,
+    networkResource_health,
+    networkResource_model,
+    networkResource_networkArn,
+    networkResource_networkResourceArn,
+    networkResource_networkSiteArn,
+    networkResource_orderArn,
+    networkResource_position,
+    networkResource_serialNumber,
+    networkResource_status,
+    networkResource_statusReason,
+    networkResource_type,
+    networkResource_vendor,
 
     -- * NetworkResourceDefinition
     NetworkResourceDefinition (..),
@@ -142,13 +142,13 @@ module Amazonka.PrivateNetworks.Types
     -- * NetworkSite
     NetworkSite (..),
     newNetworkSite,
-    networkSite_statusReason,
-    networkSite_description,
     networkSite_availabilityZone,
-    networkSite_pendingPlan,
-    networkSite_currentPlan,
-    networkSite_createdAt,
     networkSite_availabilityZoneId,
+    networkSite_createdAt,
+    networkSite_currentPlan,
+    networkSite_description,
+    networkSite_pendingPlan,
+    networkSite_statusReason,
     networkSite_networkArn,
     networkSite_networkSiteArn,
     networkSite_networkSiteName,
@@ -157,28 +157,28 @@ module Amazonka.PrivateNetworks.Types
     -- * Order
     Order (..),
     newOrder,
-    order_shippingAddress,
     order_acknowledgmentStatus,
-    order_networkSiteArn,
-    order_networkArn,
-    order_orderArn,
-    order_trackingInformation,
     order_createdAt,
+    order_networkArn,
+    order_networkSiteArn,
+    order_orderArn,
+    order_shippingAddress,
+    order_trackingInformation,
 
     -- * Position
     Position (..),
     newPosition,
-    position_longitude,
-    position_latitude,
     position_elevation,
     position_elevationReference,
     position_elevationUnit,
+    position_latitude,
+    position_longitude,
 
     -- * SitePlan
     SitePlan (..),
     newSitePlan,
-    sitePlan_resourceDefinitions,
     sitePlan_options,
+    sitePlan_resourceDefinitions,
 
     -- * TrackingInformation
     TrackingInformation (..),
@@ -188,8 +188,8 @@ module Amazonka.PrivateNetworks.Types
     -- * UpdateNetworkSiteResponse
     UpdateNetworkSiteResponse (..),
     newUpdateNetworkSiteResponse,
-    updateNetworkSiteResponse_tags,
     updateNetworkSiteResponse_networkSite,
+    updateNetworkSiteResponse_tags,
   )
 where
 
@@ -250,28 +250,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -279,13 +273,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -293,6 +291,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have permission to perform this operation.
@@ -311,14 +311,6 @@ _InternalServerException =
     "InternalServerException"
     Prelude.. Core.hasStatus 500
 
--- | The resource was not found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
-
 -- | The limit was exceeded.
 _LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _LimitExceededException =
@@ -326,6 +318,14 @@ _LimitExceededException =
     defaultService
     "LimitExceededException"
     Prelude.. Core.hasStatus 400
+
+-- | The resource was not found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
 
 -- | The request was denied due to request throttling.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

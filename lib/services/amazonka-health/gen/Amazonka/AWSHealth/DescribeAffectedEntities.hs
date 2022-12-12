@@ -46,9 +46,9 @@ module Amazonka.AWSHealth.DescribeAffectedEntities
     newDescribeAffectedEntities,
 
     -- * Request Lenses
-    describeAffectedEntities_nextToken,
     describeAffectedEntities_locale,
     describeAffectedEntities_maxResults,
+    describeAffectedEntities_nextToken,
     describeAffectedEntities_filter,
 
     -- * Destructuring the Response
@@ -72,18 +72,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeAffectedEntities' smart constructor.
 data DescribeAffectedEntities = DescribeAffectedEntities'
-  { -- | If the results of a search are large, only a portion of the results are
-    -- returned, and a @nextToken@ pagination token is returned in the
-    -- response. To retrieve the next batch of results, reissue the search
-    -- request and include the returned token. When all results have been
-    -- returned, the response does not contain a pagination token value.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The locale (language) to return information in. English (en) is the
+  { -- | The locale (language) to return information in. English (en) is the
     -- default and the only supported value at this time.
     locale :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to return in one batch, between 10 and 100,
     -- inclusive.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the results of a search are large, only a portion of the results are
+    -- returned, and a @nextToken@ pagination token is returned in the
+    -- response. To retrieve the next batch of results, reissue the search
+    -- request and include the returned token. When all results have been
+    -- returned, the response does not contain a pagination token value.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Values to narrow the results returned. At least one event ARN is
     -- required.
     filter' :: EntityFilter
@@ -98,17 +98,17 @@ data DescribeAffectedEntities = DescribeAffectedEntities'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeAffectedEntities_nextToken' - If the results of a search are large, only a portion of the results are
--- returned, and a @nextToken@ pagination token is returned in the
--- response. To retrieve the next batch of results, reissue the search
--- request and include the returned token. When all results have been
--- returned, the response does not contain a pagination token value.
---
 -- 'locale', 'describeAffectedEntities_locale' - The locale (language) to return information in. English (en) is the
 -- default and the only supported value at this time.
 --
 -- 'maxResults', 'describeAffectedEntities_maxResults' - The maximum number of items to return in one batch, between 10 and 100,
 -- inclusive.
+--
+-- 'nextToken', 'describeAffectedEntities_nextToken' - If the results of a search are large, only a portion of the results are
+-- returned, and a @nextToken@ pagination token is returned in the
+-- response. To retrieve the next batch of results, reissue the search
+-- request and include the returned token. When all results have been
+-- returned, the response does not contain a pagination token value.
 --
 -- 'filter'', 'describeAffectedEntities_filter' - Values to narrow the results returned. At least one event ARN is
 -- required.
@@ -118,20 +118,11 @@ newDescribeAffectedEntities ::
   DescribeAffectedEntities
 newDescribeAffectedEntities pFilter_ =
   DescribeAffectedEntities'
-    { nextToken =
-        Prelude.Nothing,
-      locale = Prelude.Nothing,
+    { locale = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       filter' = pFilter_
     }
-
--- | If the results of a search are large, only a portion of the results are
--- returned, and a @nextToken@ pagination token is returned in the
--- response. To retrieve the next batch of results, reissue the search
--- request and include the returned token. When all results have been
--- returned, the response does not contain a pagination token value.
-describeAffectedEntities_nextToken :: Lens.Lens' DescribeAffectedEntities (Prelude.Maybe Prelude.Text)
-describeAffectedEntities_nextToken = Lens.lens (\DescribeAffectedEntities' {nextToken} -> nextToken) (\s@DescribeAffectedEntities' {} a -> s {nextToken = a} :: DescribeAffectedEntities)
 
 -- | The locale (language) to return information in. English (en) is the
 -- default and the only supported value at this time.
@@ -142,6 +133,14 @@ describeAffectedEntities_locale = Lens.lens (\DescribeAffectedEntities' {locale}
 -- inclusive.
 describeAffectedEntities_maxResults :: Lens.Lens' DescribeAffectedEntities (Prelude.Maybe Prelude.Natural)
 describeAffectedEntities_maxResults = Lens.lens (\DescribeAffectedEntities' {maxResults} -> maxResults) (\s@DescribeAffectedEntities' {} a -> s {maxResults = a} :: DescribeAffectedEntities)
+
+-- | If the results of a search are large, only a portion of the results are
+-- returned, and a @nextToken@ pagination token is returned in the
+-- response. To retrieve the next batch of results, reissue the search
+-- request and include the returned token. When all results have been
+-- returned, the response does not contain a pagination token value.
+describeAffectedEntities_nextToken :: Lens.Lens' DescribeAffectedEntities (Prelude.Maybe Prelude.Text)
+describeAffectedEntities_nextToken = Lens.lens (\DescribeAffectedEntities' {nextToken} -> nextToken) (\s@DescribeAffectedEntities' {} a -> s {nextToken = a} :: DescribeAffectedEntities)
 
 -- | Values to narrow the results returned. At least one event ARN is
 -- required.
@@ -187,16 +186,16 @@ instance Core.AWSRequest DescribeAffectedEntities where
 
 instance Prelude.Hashable DescribeAffectedEntities where
   hashWithSalt _salt DescribeAffectedEntities' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` locale
+    _salt `Prelude.hashWithSalt` locale
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` filter'
 
 instance Prelude.NFData DescribeAffectedEntities where
   rnf DescribeAffectedEntities' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf locale
+    Prelude.rnf locale
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf filter'
 
 instance Data.ToHeaders DescribeAffectedEntities where
@@ -218,9 +217,9 @@ instance Data.ToJSON DescribeAffectedEntities where
   toJSON DescribeAffectedEntities' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("locale" Data..=) Prelude.<$> locale,
+          [ ("locale" Data..=) Prelude.<$> locale,
             ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("filter" Data..= filter')
           ]
       )

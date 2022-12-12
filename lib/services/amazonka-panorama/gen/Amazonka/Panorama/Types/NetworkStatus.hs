@@ -30,14 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNetworkStatus' smart constructor.
 data NetworkStatus = NetworkStatus'
-  { -- | Details about a network time protocol (NTP) server connection.
-    ntpStatus :: Prelude.Maybe NtpStatus,
-    -- | When the network status changed.
-    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
-    -- | The status of Ethernet port 0.
+  { -- | The status of Ethernet port 0.
     ethernet0Status :: Prelude.Maybe EthernetStatus,
     -- | The status of Ethernet port 1.
-    ethernet1Status :: Prelude.Maybe EthernetStatus
+    ethernet1Status :: Prelude.Maybe EthernetStatus,
+    -- | When the network status changed.
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
+    -- | Details about a network time protocol (NTP) server connection.
+    ntpStatus :: Prelude.Maybe NtpStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,30 +49,22 @@ data NetworkStatus = NetworkStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ntpStatus', 'networkStatus_ntpStatus' - Details about a network time protocol (NTP) server connection.
---
--- 'lastUpdatedTime', 'networkStatus_lastUpdatedTime' - When the network status changed.
---
 -- 'ethernet0Status', 'networkStatus_ethernet0Status' - The status of Ethernet port 0.
 --
 -- 'ethernet1Status', 'networkStatus_ethernet1Status' - The status of Ethernet port 1.
+--
+-- 'lastUpdatedTime', 'networkStatus_lastUpdatedTime' - When the network status changed.
+--
+-- 'ntpStatus', 'networkStatus_ntpStatus' - Details about a network time protocol (NTP) server connection.
 newNetworkStatus ::
   NetworkStatus
 newNetworkStatus =
   NetworkStatus'
-    { ntpStatus = Prelude.Nothing,
+    { ethernet0Status = Prelude.Nothing,
+      ethernet1Status = Prelude.Nothing,
       lastUpdatedTime = Prelude.Nothing,
-      ethernet0Status = Prelude.Nothing,
-      ethernet1Status = Prelude.Nothing
+      ntpStatus = Prelude.Nothing
     }
-
--- | Details about a network time protocol (NTP) server connection.
-networkStatus_ntpStatus :: Lens.Lens' NetworkStatus (Prelude.Maybe NtpStatus)
-networkStatus_ntpStatus = Lens.lens (\NetworkStatus' {ntpStatus} -> ntpStatus) (\s@NetworkStatus' {} a -> s {ntpStatus = a} :: NetworkStatus)
-
--- | When the network status changed.
-networkStatus_lastUpdatedTime :: Lens.Lens' NetworkStatus (Prelude.Maybe Prelude.UTCTime)
-networkStatus_lastUpdatedTime = Lens.lens (\NetworkStatus' {lastUpdatedTime} -> lastUpdatedTime) (\s@NetworkStatus' {} a -> s {lastUpdatedTime = a} :: NetworkStatus) Prelude.. Lens.mapping Data._Time
 
 -- | The status of Ethernet port 0.
 networkStatus_ethernet0Status :: Lens.Lens' NetworkStatus (Prelude.Maybe EthernetStatus)
@@ -82,28 +74,36 @@ networkStatus_ethernet0Status = Lens.lens (\NetworkStatus' {ethernet0Status} -> 
 networkStatus_ethernet1Status :: Lens.Lens' NetworkStatus (Prelude.Maybe EthernetStatus)
 networkStatus_ethernet1Status = Lens.lens (\NetworkStatus' {ethernet1Status} -> ethernet1Status) (\s@NetworkStatus' {} a -> s {ethernet1Status = a} :: NetworkStatus)
 
+-- | When the network status changed.
+networkStatus_lastUpdatedTime :: Lens.Lens' NetworkStatus (Prelude.Maybe Prelude.UTCTime)
+networkStatus_lastUpdatedTime = Lens.lens (\NetworkStatus' {lastUpdatedTime} -> lastUpdatedTime) (\s@NetworkStatus' {} a -> s {lastUpdatedTime = a} :: NetworkStatus) Prelude.. Lens.mapping Data._Time
+
+-- | Details about a network time protocol (NTP) server connection.
+networkStatus_ntpStatus :: Lens.Lens' NetworkStatus (Prelude.Maybe NtpStatus)
+networkStatus_ntpStatus = Lens.lens (\NetworkStatus' {ntpStatus} -> ntpStatus) (\s@NetworkStatus' {} a -> s {ntpStatus = a} :: NetworkStatus)
+
 instance Data.FromJSON NetworkStatus where
   parseJSON =
     Data.withObject
       "NetworkStatus"
       ( \x ->
           NetworkStatus'
-            Prelude.<$> (x Data..:? "NtpStatus")
-            Prelude.<*> (x Data..:? "LastUpdatedTime")
-            Prelude.<*> (x Data..:? "Ethernet0Status")
+            Prelude.<$> (x Data..:? "Ethernet0Status")
             Prelude.<*> (x Data..:? "Ethernet1Status")
+            Prelude.<*> (x Data..:? "LastUpdatedTime")
+            Prelude.<*> (x Data..:? "NtpStatus")
       )
 
 instance Prelude.Hashable NetworkStatus where
   hashWithSalt _salt NetworkStatus' {..} =
-    _salt `Prelude.hashWithSalt` ntpStatus
-      `Prelude.hashWithSalt` lastUpdatedTime
-      `Prelude.hashWithSalt` ethernet0Status
+    _salt `Prelude.hashWithSalt` ethernet0Status
       `Prelude.hashWithSalt` ethernet1Status
+      `Prelude.hashWithSalt` lastUpdatedTime
+      `Prelude.hashWithSalt` ntpStatus
 
 instance Prelude.NFData NetworkStatus where
   rnf NetworkStatus' {..} =
-    Prelude.rnf ntpStatus
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf ethernet0Status
+    Prelude.rnf ethernet0Status
       `Prelude.seq` Prelude.rnf ethernet1Status
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf ntpStatus

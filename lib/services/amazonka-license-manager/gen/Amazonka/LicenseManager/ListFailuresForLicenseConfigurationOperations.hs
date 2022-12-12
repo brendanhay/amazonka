@@ -27,8 +27,8 @@ module Amazonka.LicenseManager.ListFailuresForLicenseConfigurationOperations
     newListFailuresForLicenseConfigurationOperations,
 
     -- * Request Lenses
-    listFailuresForLicenseConfigurationOperations_nextToken,
     listFailuresForLicenseConfigurationOperations_maxResults,
+    listFailuresForLicenseConfigurationOperations_nextToken,
     listFailuresForLicenseConfigurationOperations_licenseConfigurationArn,
 
     -- * Destructuring the Response
@@ -36,8 +36,8 @@ module Amazonka.LicenseManager.ListFailuresForLicenseConfigurationOperations
     newListFailuresForLicenseConfigurationOperationsResponse,
 
     -- * Response Lenses
-    listFailuresForLicenseConfigurationOperationsResponse_nextToken,
     listFailuresForLicenseConfigurationOperationsResponse_licenseOperationFailureList,
+    listFailuresForLicenseConfigurationOperationsResponse_nextToken,
     listFailuresForLicenseConfigurationOperationsResponse_httpStatus,
   )
 where
@@ -52,10 +52,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListFailuresForLicenseConfigurationOperations' smart constructor.
 data ListFailuresForLicenseConfigurationOperations = ListFailuresForLicenseConfigurationOperations'
-  { -- | Token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Maximum number of results to return in a single call.
+  { -- | Maximum number of results to return in a single call.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | Token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Amazon Resource Name of the license configuration.
     licenseConfigurationArn :: Prelude.Text
   }
@@ -69,9 +69,9 @@ data ListFailuresForLicenseConfigurationOperations = ListFailuresForLicenseConfi
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listFailuresForLicenseConfigurationOperations_nextToken' - Token for the next set of results.
---
 -- 'maxResults', 'listFailuresForLicenseConfigurationOperations_maxResults' - Maximum number of results to return in a single call.
+--
+-- 'nextToken', 'listFailuresForLicenseConfigurationOperations_nextToken' - Token for the next set of results.
 --
 -- 'licenseConfigurationArn', 'listFailuresForLicenseConfigurationOperations_licenseConfigurationArn' - Amazon Resource Name of the license configuration.
 newListFailuresForLicenseConfigurationOperations ::
@@ -81,20 +81,20 @@ newListFailuresForLicenseConfigurationOperations ::
 newListFailuresForLicenseConfigurationOperations
   pLicenseConfigurationArn_ =
     ListFailuresForLicenseConfigurationOperations'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         licenseConfigurationArn =
           pLicenseConfigurationArn_
       }
 
--- | Token for the next set of results.
-listFailuresForLicenseConfigurationOperations_nextToken :: Lens.Lens' ListFailuresForLicenseConfigurationOperations (Prelude.Maybe Prelude.Text)
-listFailuresForLicenseConfigurationOperations_nextToken = Lens.lens (\ListFailuresForLicenseConfigurationOperations' {nextToken} -> nextToken) (\s@ListFailuresForLicenseConfigurationOperations' {} a -> s {nextToken = a} :: ListFailuresForLicenseConfigurationOperations)
-
 -- | Maximum number of results to return in a single call.
 listFailuresForLicenseConfigurationOperations_maxResults :: Lens.Lens' ListFailuresForLicenseConfigurationOperations (Prelude.Maybe Prelude.Int)
 listFailuresForLicenseConfigurationOperations_maxResults = Lens.lens (\ListFailuresForLicenseConfigurationOperations' {maxResults} -> maxResults) (\s@ListFailuresForLicenseConfigurationOperations' {} a -> s {maxResults = a} :: ListFailuresForLicenseConfigurationOperations)
+
+-- | Token for the next set of results.
+listFailuresForLicenseConfigurationOperations_nextToken :: Lens.Lens' ListFailuresForLicenseConfigurationOperations (Prelude.Maybe Prelude.Text)
+listFailuresForLicenseConfigurationOperations_nextToken = Lens.lens (\ListFailuresForLicenseConfigurationOperations' {nextToken} -> nextToken) (\s@ListFailuresForLicenseConfigurationOperations' {} a -> s {nextToken = a} :: ListFailuresForLicenseConfigurationOperations)
 
 -- | Amazon Resource Name of the license configuration.
 listFailuresForLicenseConfigurationOperations_licenseConfigurationArn :: Lens.Lens' ListFailuresForLicenseConfigurationOperations Prelude.Text
@@ -114,10 +114,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListFailuresForLicenseConfigurationOperationsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-              Prelude.<*> ( x Data..?> "LicenseOperationFailureList"
-                              Core..!@ Prelude.mempty
-                          )
+            Prelude.<$> ( x Data..?> "LicenseOperationFailureList"
+                            Core..!@ Prelude.mempty
+                        )
+              Prelude.<*> (x Data..?> "NextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,8 +128,8 @@ instance
   hashWithSalt
     _salt
     ListFailuresForLicenseConfigurationOperations' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` licenseConfigurationArn
 
 instance
@@ -138,8 +138,8 @@ instance
   where
   rnf
     ListFailuresForLicenseConfigurationOperations' {..} =
-      Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf maxResults
+      Prelude.rnf maxResults
+        `Prelude.seq` Prelude.rnf nextToken
         `Prelude.seq` Prelude.rnf licenseConfigurationArn
 
 instance
@@ -168,8 +168,8 @@ instance
     ListFailuresForLicenseConfigurationOperations' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("NextToken" Data..=) Prelude.<$> nextToken,
-              ("MaxResults" Data..=) Prelude.<$> maxResults,
+            [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+              ("NextToken" Data..=) Prelude.<$> nextToken,
               Prelude.Just
                 ( "LicenseConfigurationArn"
                     Data..= licenseConfigurationArn
@@ -191,10 +191,10 @@ instance
 
 -- | /See:/ 'newListFailuresForLicenseConfigurationOperationsResponse' smart constructor.
 data ListFailuresForLicenseConfigurationOperationsResponse = ListFailuresForLicenseConfigurationOperationsResponse'
-  { -- | Token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | License configuration operations that failed.
+  { -- | License configuration operations that failed.
     licenseOperationFailureList :: Prelude.Maybe [LicenseOperationFailure],
+    -- | Token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -208,9 +208,9 @@ data ListFailuresForLicenseConfigurationOperationsResponse = ListFailuresForLice
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listFailuresForLicenseConfigurationOperationsResponse_nextToken' - Token for the next set of results.
---
 -- 'licenseOperationFailureList', 'listFailuresForLicenseConfigurationOperationsResponse_licenseOperationFailureList' - License configuration operations that failed.
+--
+-- 'nextToken', 'listFailuresForLicenseConfigurationOperationsResponse_nextToken' - Token for the next set of results.
 --
 -- 'httpStatus', 'listFailuresForLicenseConfigurationOperationsResponse_httpStatus' - The response's http status code.
 newListFailuresForLicenseConfigurationOperationsResponse ::
@@ -220,21 +220,21 @@ newListFailuresForLicenseConfigurationOperationsResponse ::
 newListFailuresForLicenseConfigurationOperationsResponse
   pHttpStatus_ =
     ListFailuresForLicenseConfigurationOperationsResponse'
-      { nextToken =
+      { licenseOperationFailureList =
           Prelude.Nothing,
-        licenseOperationFailureList =
+        nextToken =
           Prelude.Nothing,
         httpStatus =
           pHttpStatus_
       }
 
--- | Token for the next set of results.
-listFailuresForLicenseConfigurationOperationsResponse_nextToken :: Lens.Lens' ListFailuresForLicenseConfigurationOperationsResponse (Prelude.Maybe Prelude.Text)
-listFailuresForLicenseConfigurationOperationsResponse_nextToken = Lens.lens (\ListFailuresForLicenseConfigurationOperationsResponse' {nextToken} -> nextToken) (\s@ListFailuresForLicenseConfigurationOperationsResponse' {} a -> s {nextToken = a} :: ListFailuresForLicenseConfigurationOperationsResponse)
-
 -- | License configuration operations that failed.
 listFailuresForLicenseConfigurationOperationsResponse_licenseOperationFailureList :: Lens.Lens' ListFailuresForLicenseConfigurationOperationsResponse (Prelude.Maybe [LicenseOperationFailure])
 listFailuresForLicenseConfigurationOperationsResponse_licenseOperationFailureList = Lens.lens (\ListFailuresForLicenseConfigurationOperationsResponse' {licenseOperationFailureList} -> licenseOperationFailureList) (\s@ListFailuresForLicenseConfigurationOperationsResponse' {} a -> s {licenseOperationFailureList = a} :: ListFailuresForLicenseConfigurationOperationsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Token for the next set of results.
+listFailuresForLicenseConfigurationOperationsResponse_nextToken :: Lens.Lens' ListFailuresForLicenseConfigurationOperationsResponse (Prelude.Maybe Prelude.Text)
+listFailuresForLicenseConfigurationOperationsResponse_nextToken = Lens.lens (\ListFailuresForLicenseConfigurationOperationsResponse' {nextToken} -> nextToken) (\s@ListFailuresForLicenseConfigurationOperationsResponse' {} a -> s {nextToken = a} :: ListFailuresForLicenseConfigurationOperationsResponse)
 
 -- | The response's http status code.
 listFailuresForLicenseConfigurationOperationsResponse_httpStatus :: Lens.Lens' ListFailuresForLicenseConfigurationOperationsResponse Prelude.Int
@@ -246,6 +246,6 @@ instance
   where
   rnf
     ListFailuresForLicenseConfigurationOperationsResponse' {..} =
-      Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf licenseOperationFailureList
+      Prelude.rnf licenseOperationFailureList
+        `Prelude.seq` Prelude.rnf nextToken
         `Prelude.seq` Prelude.rnf httpStatus

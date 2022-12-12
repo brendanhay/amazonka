@@ -30,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCognitoOptions' smart constructor.
 data CognitoOptions = CognitoOptions'
-  { -- | Specifies the role ARN that provides Elasticsearch permissions for
-    -- accessing Cognito resources.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the option to enable Cognito for Kibana authentication.
+  { -- | Specifies the option to enable Cognito for Kibana authentication.
     enabled :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the Cognito identity pool ID for Kibana authentication.
     identityPoolId :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the role ARN that provides Elasticsearch permissions for
+    -- accessing Cognito resources.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | Specifies the Cognito user pool ID for Kibana authentication.
     userPoolId :: Prelude.Maybe Prelude.Text
   }
@@ -50,28 +50,23 @@ data CognitoOptions = CognitoOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'cognitoOptions_roleArn' - Specifies the role ARN that provides Elasticsearch permissions for
--- accessing Cognito resources.
---
 -- 'enabled', 'cognitoOptions_enabled' - Specifies the option to enable Cognito for Kibana authentication.
 --
 -- 'identityPoolId', 'cognitoOptions_identityPoolId' - Specifies the Cognito identity pool ID for Kibana authentication.
+--
+-- 'roleArn', 'cognitoOptions_roleArn' - Specifies the role ARN that provides Elasticsearch permissions for
+-- accessing Cognito resources.
 --
 -- 'userPoolId', 'cognitoOptions_userPoolId' - Specifies the Cognito user pool ID for Kibana authentication.
 newCognitoOptions ::
   CognitoOptions
 newCognitoOptions =
   CognitoOptions'
-    { roleArn = Prelude.Nothing,
-      enabled = Prelude.Nothing,
+    { enabled = Prelude.Nothing,
       identityPoolId = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
       userPoolId = Prelude.Nothing
     }
-
--- | Specifies the role ARN that provides Elasticsearch permissions for
--- accessing Cognito resources.
-cognitoOptions_roleArn :: Lens.Lens' CognitoOptions (Prelude.Maybe Prelude.Text)
-cognitoOptions_roleArn = Lens.lens (\CognitoOptions' {roleArn} -> roleArn) (\s@CognitoOptions' {} a -> s {roleArn = a} :: CognitoOptions)
 
 -- | Specifies the option to enable Cognito for Kibana authentication.
 cognitoOptions_enabled :: Lens.Lens' CognitoOptions (Prelude.Maybe Prelude.Bool)
@@ -80,6 +75,11 @@ cognitoOptions_enabled = Lens.lens (\CognitoOptions' {enabled} -> enabled) (\s@C
 -- | Specifies the Cognito identity pool ID for Kibana authentication.
 cognitoOptions_identityPoolId :: Lens.Lens' CognitoOptions (Prelude.Maybe Prelude.Text)
 cognitoOptions_identityPoolId = Lens.lens (\CognitoOptions' {identityPoolId} -> identityPoolId) (\s@CognitoOptions' {} a -> s {identityPoolId = a} :: CognitoOptions)
+
+-- | Specifies the role ARN that provides Elasticsearch permissions for
+-- accessing Cognito resources.
+cognitoOptions_roleArn :: Lens.Lens' CognitoOptions (Prelude.Maybe Prelude.Text)
+cognitoOptions_roleArn = Lens.lens (\CognitoOptions' {roleArn} -> roleArn) (\s@CognitoOptions' {} a -> s {roleArn = a} :: CognitoOptions)
 
 -- | Specifies the Cognito user pool ID for Kibana authentication.
 cognitoOptions_userPoolId :: Lens.Lens' CognitoOptions (Prelude.Maybe Prelude.Text)
@@ -91,34 +91,34 @@ instance Data.FromJSON CognitoOptions where
       "CognitoOptions"
       ( \x ->
           CognitoOptions'
-            Prelude.<$> (x Data..:? "RoleArn")
-            Prelude.<*> (x Data..:? "Enabled")
+            Prelude.<$> (x Data..:? "Enabled")
             Prelude.<*> (x Data..:? "IdentityPoolId")
+            Prelude.<*> (x Data..:? "RoleArn")
             Prelude.<*> (x Data..:? "UserPoolId")
       )
 
 instance Prelude.Hashable CognitoOptions where
   hashWithSalt _salt CognitoOptions' {..} =
-    _salt `Prelude.hashWithSalt` roleArn
-      `Prelude.hashWithSalt` enabled
+    _salt `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` identityPoolId
+      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` userPoolId
 
 instance Prelude.NFData CognitoOptions where
   rnf CognitoOptions' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf identityPoolId
+      `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf userPoolId
 
 instance Data.ToJSON CognitoOptions where
   toJSON CognitoOptions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("RoleArn" Data..=) Prelude.<$> roleArn,
-            ("Enabled" Data..=) Prelude.<$> enabled,
+          [ ("Enabled" Data..=) Prelude.<$> enabled,
             ("IdentityPoolId" Data..=)
               Prelude.<$> identityPoolId,
+            ("RoleArn" Data..=) Prelude.<$> roleArn,
             ("UserPoolId" Data..=) Prelude.<$> userPoolId
           ]
       )

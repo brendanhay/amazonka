@@ -47,8 +47,6 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- Changing the priority order will affect how game sessions are placed.
 --
--- Priority configurations are part of a GameSessionQueue.
---
 -- /See:/ 'newPriorityConfiguration' smart constructor.
 data PriorityConfiguration = PriorityConfiguration'
   { -- | The prioritization order to use for fleet locations, when the

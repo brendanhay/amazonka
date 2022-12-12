@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSimpleRuleEvaluation' smart constructor.
 data SimpleRuleEvaluation = SimpleRuleEvaluation'
-  { -- | The threshold value, on the right side of the comparison operator.
-    thresholdValue :: Prelude.Maybe Prelude.Text,
-    -- | The value of the input property, on the left side of the comparison
+  { -- | The value of the input property, on the left side of the comparison
     -- operator.
     inputPropertyValue :: Prelude.Maybe Prelude.Text,
     -- | The comparison operator.
-    operator :: Prelude.Maybe ComparisonOperator
+    operator :: Prelude.Maybe ComparisonOperator,
+    -- | The threshold value, on the right side of the comparison operator.
+    thresholdValue :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,25 +47,21 @@ data SimpleRuleEvaluation = SimpleRuleEvaluation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'thresholdValue', 'simpleRuleEvaluation_thresholdValue' - The threshold value, on the right side of the comparison operator.
---
 -- 'inputPropertyValue', 'simpleRuleEvaluation_inputPropertyValue' - The value of the input property, on the left side of the comparison
 -- operator.
 --
 -- 'operator', 'simpleRuleEvaluation_operator' - The comparison operator.
+--
+-- 'thresholdValue', 'simpleRuleEvaluation_thresholdValue' - The threshold value, on the right side of the comparison operator.
 newSimpleRuleEvaluation ::
   SimpleRuleEvaluation
 newSimpleRuleEvaluation =
   SimpleRuleEvaluation'
-    { thresholdValue =
+    { inputPropertyValue =
         Prelude.Nothing,
-      inputPropertyValue = Prelude.Nothing,
-      operator = Prelude.Nothing
+      operator = Prelude.Nothing,
+      thresholdValue = Prelude.Nothing
     }
-
--- | The threshold value, on the right side of the comparison operator.
-simpleRuleEvaluation_thresholdValue :: Lens.Lens' SimpleRuleEvaluation (Prelude.Maybe Prelude.Text)
-simpleRuleEvaluation_thresholdValue = Lens.lens (\SimpleRuleEvaluation' {thresholdValue} -> thresholdValue) (\s@SimpleRuleEvaluation' {} a -> s {thresholdValue = a} :: SimpleRuleEvaluation)
 
 -- | The value of the input property, on the left side of the comparison
 -- operator.
@@ -76,25 +72,29 @@ simpleRuleEvaluation_inputPropertyValue = Lens.lens (\SimpleRuleEvaluation' {inp
 simpleRuleEvaluation_operator :: Lens.Lens' SimpleRuleEvaluation (Prelude.Maybe ComparisonOperator)
 simpleRuleEvaluation_operator = Lens.lens (\SimpleRuleEvaluation' {operator} -> operator) (\s@SimpleRuleEvaluation' {} a -> s {operator = a} :: SimpleRuleEvaluation)
 
+-- | The threshold value, on the right side of the comparison operator.
+simpleRuleEvaluation_thresholdValue :: Lens.Lens' SimpleRuleEvaluation (Prelude.Maybe Prelude.Text)
+simpleRuleEvaluation_thresholdValue = Lens.lens (\SimpleRuleEvaluation' {thresholdValue} -> thresholdValue) (\s@SimpleRuleEvaluation' {} a -> s {thresholdValue = a} :: SimpleRuleEvaluation)
+
 instance Data.FromJSON SimpleRuleEvaluation where
   parseJSON =
     Data.withObject
       "SimpleRuleEvaluation"
       ( \x ->
           SimpleRuleEvaluation'
-            Prelude.<$> (x Data..:? "thresholdValue")
-            Prelude.<*> (x Data..:? "inputPropertyValue")
+            Prelude.<$> (x Data..:? "inputPropertyValue")
             Prelude.<*> (x Data..:? "operator")
+            Prelude.<*> (x Data..:? "thresholdValue")
       )
 
 instance Prelude.Hashable SimpleRuleEvaluation where
   hashWithSalt _salt SimpleRuleEvaluation' {..} =
-    _salt `Prelude.hashWithSalt` thresholdValue
-      `Prelude.hashWithSalt` inputPropertyValue
+    _salt `Prelude.hashWithSalt` inputPropertyValue
       `Prelude.hashWithSalt` operator
+      `Prelude.hashWithSalt` thresholdValue
 
 instance Prelude.NFData SimpleRuleEvaluation where
   rnf SimpleRuleEvaluation' {..} =
-    Prelude.rnf thresholdValue
-      `Prelude.seq` Prelude.rnf inputPropertyValue
+    Prelude.rnf inputPropertyValue
       `Prelude.seq` Prelude.rnf operator
+      `Prelude.seq` Prelude.rnf thresholdValue

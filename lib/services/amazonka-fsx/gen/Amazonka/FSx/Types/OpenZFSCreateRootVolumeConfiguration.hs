@@ -31,22 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOpenZFSCreateRootVolumeConfiguration' smart constructor.
 data OpenZFSCreateRootVolumeConfiguration = OpenZFSCreateRootVolumeConfiguration'
-  { -- | Specifies the record size of an OpenZFS root volume, in kibibytes (KiB).
-    -- Valid values are 4, 8, 16, 32, 64, 128, 256, 512, or 1024 KiB. The
-    -- default is 128 KiB. Most workloads should use the default record size.
-    -- Database workflows can benefit from a smaller record size, while
-    -- streaming workflows can benefit from a larger record size. For
-    -- additional guidance on setting a custom record size, see
-    -- <https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance.html#performance-tips-zfs Tips for maximizing performance>
-    -- in the /Amazon FSx for OpenZFS User Guide/.
-    recordSizeKiB :: Prelude.Maybe Prelude.Natural,
-    -- | A Boolean value indicating whether the volume is read-only. Setting this
-    -- value to @true@ can be useful after you have completed changes to a
-    -- volume and no longer want changes to occur.
-    readOnly :: Prelude.Maybe Prelude.Bool,
-    -- | The configuration object for mounting a file system.
-    nfsExports :: Prelude.Maybe [OpenZFSNfsExport],
-    -- | A Boolean value indicating whether tags for the volume should be copied
+  { -- | A Boolean value indicating whether tags for the volume should be copied
     -- to snapshots of the volume. This value defaults to @false@. If it\'s set
     -- to @true@, all tags for the volume are copied to snapshots where the
     -- user doesn\'t specify tags. If this value is @true@ and you specify one
@@ -68,6 +53,21 @@ data OpenZFSCreateRootVolumeConfiguration = OpenZFSCreateRootVolumeConfiguration
     --     algorithm. Compared to Z-Standard, LZ4 is less compute-intensive and
     --     delivers higher write throughput speeds.
     dataCompressionType :: Prelude.Maybe OpenZFSDataCompressionType,
+    -- | The configuration object for mounting a file system.
+    nfsExports :: Prelude.Maybe [OpenZFSNfsExport],
+    -- | A Boolean value indicating whether the volume is read-only. Setting this
+    -- value to @true@ can be useful after you have completed changes to a
+    -- volume and no longer want changes to occur.
+    readOnly :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies the record size of an OpenZFS root volume, in kibibytes (KiB).
+    -- Valid values are 4, 8, 16, 32, 64, 128, 256, 512, or 1024 KiB. The
+    -- default is 128 KiB. Most workloads should use the default record size.
+    -- Database workflows can benefit from a smaller record size, while
+    -- streaming workflows can benefit from a larger record size. For
+    -- additional guidance on setting a custom record size, see
+    -- <https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance.html#performance-tips-zfs Tips for maximizing performance>
+    -- in the /Amazon FSx for OpenZFS User Guide/.
+    recordSizeKiB :: Prelude.Maybe Prelude.Natural,
     -- | An object specifying how much storage users or groups can use on the
     -- volume.
     userAndGroupQuotas :: Prelude.Maybe [OpenZFSUserOrGroupQuota]
@@ -81,21 +81,6 @@ data OpenZFSCreateRootVolumeConfiguration = OpenZFSCreateRootVolumeConfiguration
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'recordSizeKiB', 'openZFSCreateRootVolumeConfiguration_recordSizeKiB' - Specifies the record size of an OpenZFS root volume, in kibibytes (KiB).
--- Valid values are 4, 8, 16, 32, 64, 128, 256, 512, or 1024 KiB. The
--- default is 128 KiB. Most workloads should use the default record size.
--- Database workflows can benefit from a smaller record size, while
--- streaming workflows can benefit from a larger record size. For
--- additional guidance on setting a custom record size, see
--- <https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance.html#performance-tips-zfs Tips for maximizing performance>
--- in the /Amazon FSx for OpenZFS User Guide/.
---
--- 'readOnly', 'openZFSCreateRootVolumeConfiguration_readOnly' - A Boolean value indicating whether the volume is read-only. Setting this
--- value to @true@ can be useful after you have completed changes to a
--- volume and no longer want changes to occur.
---
--- 'nfsExports', 'openZFSCreateRootVolumeConfiguration_nfsExports' - The configuration object for mounting a file system.
 --
 -- 'copyTagsToSnapshots', 'openZFSCreateRootVolumeConfiguration_copyTagsToSnapshots' - A Boolean value indicating whether tags for the volume should be copied
 -- to snapshots of the volume. This value defaults to @false@. If it\'s set
@@ -119,22 +104,13 @@ data OpenZFSCreateRootVolumeConfiguration = OpenZFSCreateRootVolumeConfiguration
 --     algorithm. Compared to Z-Standard, LZ4 is less compute-intensive and
 --     delivers higher write throughput speeds.
 --
--- 'userAndGroupQuotas', 'openZFSCreateRootVolumeConfiguration_userAndGroupQuotas' - An object specifying how much storage users or groups can use on the
--- volume.
-newOpenZFSCreateRootVolumeConfiguration ::
-  OpenZFSCreateRootVolumeConfiguration
-newOpenZFSCreateRootVolumeConfiguration =
-  OpenZFSCreateRootVolumeConfiguration'
-    { recordSizeKiB =
-        Prelude.Nothing,
-      readOnly = Prelude.Nothing,
-      nfsExports = Prelude.Nothing,
-      copyTagsToSnapshots = Prelude.Nothing,
-      dataCompressionType = Prelude.Nothing,
-      userAndGroupQuotas = Prelude.Nothing
-    }
-
--- | Specifies the record size of an OpenZFS root volume, in kibibytes (KiB).
+-- 'nfsExports', 'openZFSCreateRootVolumeConfiguration_nfsExports' - The configuration object for mounting a file system.
+--
+-- 'readOnly', 'openZFSCreateRootVolumeConfiguration_readOnly' - A Boolean value indicating whether the volume is read-only. Setting this
+-- value to @true@ can be useful after you have completed changes to a
+-- volume and no longer want changes to occur.
+--
+-- 'recordSizeKiB', 'openZFSCreateRootVolumeConfiguration_recordSizeKiB' - Specifies the record size of an OpenZFS root volume, in kibibytes (KiB).
 -- Valid values are 4, 8, 16, 32, 64, 128, 256, 512, or 1024 KiB. The
 -- default is 128 KiB. Most workloads should use the default record size.
 -- Database workflows can benefit from a smaller record size, while
@@ -142,18 +118,21 @@ newOpenZFSCreateRootVolumeConfiguration =
 -- additional guidance on setting a custom record size, see
 -- <https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance.html#performance-tips-zfs Tips for maximizing performance>
 -- in the /Amazon FSx for OpenZFS User Guide/.
-openZFSCreateRootVolumeConfiguration_recordSizeKiB :: Lens.Lens' OpenZFSCreateRootVolumeConfiguration (Prelude.Maybe Prelude.Natural)
-openZFSCreateRootVolumeConfiguration_recordSizeKiB = Lens.lens (\OpenZFSCreateRootVolumeConfiguration' {recordSizeKiB} -> recordSizeKiB) (\s@OpenZFSCreateRootVolumeConfiguration' {} a -> s {recordSizeKiB = a} :: OpenZFSCreateRootVolumeConfiguration)
-
--- | A Boolean value indicating whether the volume is read-only. Setting this
--- value to @true@ can be useful after you have completed changes to a
--- volume and no longer want changes to occur.
-openZFSCreateRootVolumeConfiguration_readOnly :: Lens.Lens' OpenZFSCreateRootVolumeConfiguration (Prelude.Maybe Prelude.Bool)
-openZFSCreateRootVolumeConfiguration_readOnly = Lens.lens (\OpenZFSCreateRootVolumeConfiguration' {readOnly} -> readOnly) (\s@OpenZFSCreateRootVolumeConfiguration' {} a -> s {readOnly = a} :: OpenZFSCreateRootVolumeConfiguration)
-
--- | The configuration object for mounting a file system.
-openZFSCreateRootVolumeConfiguration_nfsExports :: Lens.Lens' OpenZFSCreateRootVolumeConfiguration (Prelude.Maybe [OpenZFSNfsExport])
-openZFSCreateRootVolumeConfiguration_nfsExports = Lens.lens (\OpenZFSCreateRootVolumeConfiguration' {nfsExports} -> nfsExports) (\s@OpenZFSCreateRootVolumeConfiguration' {} a -> s {nfsExports = a} :: OpenZFSCreateRootVolumeConfiguration) Prelude.. Lens.mapping Lens.coerced
+--
+-- 'userAndGroupQuotas', 'openZFSCreateRootVolumeConfiguration_userAndGroupQuotas' - An object specifying how much storage users or groups can use on the
+-- volume.
+newOpenZFSCreateRootVolumeConfiguration ::
+  OpenZFSCreateRootVolumeConfiguration
+newOpenZFSCreateRootVolumeConfiguration =
+  OpenZFSCreateRootVolumeConfiguration'
+    { copyTagsToSnapshots =
+        Prelude.Nothing,
+      dataCompressionType = Prelude.Nothing,
+      nfsExports = Prelude.Nothing,
+      readOnly = Prelude.Nothing,
+      recordSizeKiB = Prelude.Nothing,
+      userAndGroupQuotas = Prelude.Nothing
+    }
 
 -- | A Boolean value indicating whether tags for the volume should be copied
 -- to snapshots of the volume. This value defaults to @false@. If it\'s set
@@ -181,6 +160,27 @@ openZFSCreateRootVolumeConfiguration_copyTagsToSnapshots = Lens.lens (\OpenZFSCr
 openZFSCreateRootVolumeConfiguration_dataCompressionType :: Lens.Lens' OpenZFSCreateRootVolumeConfiguration (Prelude.Maybe OpenZFSDataCompressionType)
 openZFSCreateRootVolumeConfiguration_dataCompressionType = Lens.lens (\OpenZFSCreateRootVolumeConfiguration' {dataCompressionType} -> dataCompressionType) (\s@OpenZFSCreateRootVolumeConfiguration' {} a -> s {dataCompressionType = a} :: OpenZFSCreateRootVolumeConfiguration)
 
+-- | The configuration object for mounting a file system.
+openZFSCreateRootVolumeConfiguration_nfsExports :: Lens.Lens' OpenZFSCreateRootVolumeConfiguration (Prelude.Maybe [OpenZFSNfsExport])
+openZFSCreateRootVolumeConfiguration_nfsExports = Lens.lens (\OpenZFSCreateRootVolumeConfiguration' {nfsExports} -> nfsExports) (\s@OpenZFSCreateRootVolumeConfiguration' {} a -> s {nfsExports = a} :: OpenZFSCreateRootVolumeConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | A Boolean value indicating whether the volume is read-only. Setting this
+-- value to @true@ can be useful after you have completed changes to a
+-- volume and no longer want changes to occur.
+openZFSCreateRootVolumeConfiguration_readOnly :: Lens.Lens' OpenZFSCreateRootVolumeConfiguration (Prelude.Maybe Prelude.Bool)
+openZFSCreateRootVolumeConfiguration_readOnly = Lens.lens (\OpenZFSCreateRootVolumeConfiguration' {readOnly} -> readOnly) (\s@OpenZFSCreateRootVolumeConfiguration' {} a -> s {readOnly = a} :: OpenZFSCreateRootVolumeConfiguration)
+
+-- | Specifies the record size of an OpenZFS root volume, in kibibytes (KiB).
+-- Valid values are 4, 8, 16, 32, 64, 128, 256, 512, or 1024 KiB. The
+-- default is 128 KiB. Most workloads should use the default record size.
+-- Database workflows can benefit from a smaller record size, while
+-- streaming workflows can benefit from a larger record size. For
+-- additional guidance on setting a custom record size, see
+-- <https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance.html#performance-tips-zfs Tips for maximizing performance>
+-- in the /Amazon FSx for OpenZFS User Guide/.
+openZFSCreateRootVolumeConfiguration_recordSizeKiB :: Lens.Lens' OpenZFSCreateRootVolumeConfiguration (Prelude.Maybe Prelude.Natural)
+openZFSCreateRootVolumeConfiguration_recordSizeKiB = Lens.lens (\OpenZFSCreateRootVolumeConfiguration' {recordSizeKiB} -> recordSizeKiB) (\s@OpenZFSCreateRootVolumeConfiguration' {} a -> s {recordSizeKiB = a} :: OpenZFSCreateRootVolumeConfiguration)
+
 -- | An object specifying how much storage users or groups can use on the
 -- volume.
 openZFSCreateRootVolumeConfiguration_userAndGroupQuotas :: Lens.Lens' OpenZFSCreateRootVolumeConfiguration (Prelude.Maybe [OpenZFSUserOrGroupQuota])
@@ -193,11 +193,11 @@ instance
   hashWithSalt
     _salt
     OpenZFSCreateRootVolumeConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` recordSizeKiB
-        `Prelude.hashWithSalt` readOnly
-        `Prelude.hashWithSalt` nfsExports
-        `Prelude.hashWithSalt` copyTagsToSnapshots
+      _salt `Prelude.hashWithSalt` copyTagsToSnapshots
         `Prelude.hashWithSalt` dataCompressionType
+        `Prelude.hashWithSalt` nfsExports
+        `Prelude.hashWithSalt` readOnly
+        `Prelude.hashWithSalt` recordSizeKiB
         `Prelude.hashWithSalt` userAndGroupQuotas
 
 instance
@@ -205,11 +205,11 @@ instance
     OpenZFSCreateRootVolumeConfiguration
   where
   rnf OpenZFSCreateRootVolumeConfiguration' {..} =
-    Prelude.rnf recordSizeKiB
-      `Prelude.seq` Prelude.rnf readOnly
-      `Prelude.seq` Prelude.rnf nfsExports
-      `Prelude.seq` Prelude.rnf copyTagsToSnapshots
+    Prelude.rnf copyTagsToSnapshots
       `Prelude.seq` Prelude.rnf dataCompressionType
+      `Prelude.seq` Prelude.rnf nfsExports
+      `Prelude.seq` Prelude.rnf readOnly
+      `Prelude.seq` Prelude.rnf recordSizeKiB
       `Prelude.seq` Prelude.rnf userAndGroupQuotas
 
 instance
@@ -219,13 +219,13 @@ instance
   toJSON OpenZFSCreateRootVolumeConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("RecordSizeKiB" Data..=) Prelude.<$> recordSizeKiB,
-            ("ReadOnly" Data..=) Prelude.<$> readOnly,
-            ("NfsExports" Data..=) Prelude.<$> nfsExports,
-            ("CopyTagsToSnapshots" Data..=)
+          [ ("CopyTagsToSnapshots" Data..=)
               Prelude.<$> copyTagsToSnapshots,
             ("DataCompressionType" Data..=)
               Prelude.<$> dataCompressionType,
+            ("NfsExports" Data..=) Prelude.<$> nfsExports,
+            ("ReadOnly" Data..=) Prelude.<$> readOnly,
+            ("RecordSizeKiB" Data..=) Prelude.<$> recordSizeKiB,
             ("UserAndGroupQuotas" Data..=)
               Prelude.<$> userAndGroupQuotas
           ]

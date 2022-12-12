@@ -33,14 +33,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEngineTranscribeMedicalSettings' smart constructor.
 data EngineTranscribeMedicalSettings = EngineTranscribeMedicalSettings'
-  { -- | The name of the vocabulary passed to Amazon Transcribe Medical.
-    vocabularyName :: Prelude.Maybe Prelude.Text,
-    -- | Set this field to @PHI@ to identify personal health information in the
+  { -- | Set this field to @PHI@ to identify personal health information in the
     -- transcription output.
     contentIdentificationType :: Prelude.Maybe TranscribeMedicalContentIdentificationType,
     -- | The AWS Region passed to Amazon Transcribe Medical. If you don\'t
     -- specify a Region, Amazon Chime uses the meeting\'s Region.
     region :: Prelude.Maybe TranscribeMedicalRegion,
+    -- | The name of the vocabulary passed to Amazon Transcribe Medical.
+    vocabularyName :: Prelude.Maybe Prelude.Text,
     -- | The language code specified for the Amazon Transcribe Medical engine.
     languageCode :: TranscribeMedicalLanguageCode,
     -- | The specialty specified for the Amazon Transcribe Medical engine.
@@ -58,13 +58,13 @@ data EngineTranscribeMedicalSettings = EngineTranscribeMedicalSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vocabularyName', 'engineTranscribeMedicalSettings_vocabularyName' - The name of the vocabulary passed to Amazon Transcribe Medical.
---
 -- 'contentIdentificationType', 'engineTranscribeMedicalSettings_contentIdentificationType' - Set this field to @PHI@ to identify personal health information in the
 -- transcription output.
 --
 -- 'region', 'engineTranscribeMedicalSettings_region' - The AWS Region passed to Amazon Transcribe Medical. If you don\'t
 -- specify a Region, Amazon Chime uses the meeting\'s Region.
+--
+-- 'vocabularyName', 'engineTranscribeMedicalSettings_vocabularyName' - The name of the vocabulary passed to Amazon Transcribe Medical.
 --
 -- 'languageCode', 'engineTranscribeMedicalSettings_languageCode' - The language code specified for the Amazon Transcribe Medical engine.
 --
@@ -84,19 +84,14 @@ newEngineTranscribeMedicalSettings
   pSpecialty_
   pType_ =
     EngineTranscribeMedicalSettings'
-      { vocabularyName =
-          Prelude.Nothing,
-        contentIdentificationType =
+      { contentIdentificationType =
           Prelude.Nothing,
         region = Prelude.Nothing,
+        vocabularyName = Prelude.Nothing,
         languageCode = pLanguageCode_,
         specialty = pSpecialty_,
         type' = pType_
       }
-
--- | The name of the vocabulary passed to Amazon Transcribe Medical.
-engineTranscribeMedicalSettings_vocabularyName :: Lens.Lens' EngineTranscribeMedicalSettings (Prelude.Maybe Prelude.Text)
-engineTranscribeMedicalSettings_vocabularyName = Lens.lens (\EngineTranscribeMedicalSettings' {vocabularyName} -> vocabularyName) (\s@EngineTranscribeMedicalSettings' {} a -> s {vocabularyName = a} :: EngineTranscribeMedicalSettings)
 
 -- | Set this field to @PHI@ to identify personal health information in the
 -- transcription output.
@@ -107,6 +102,10 @@ engineTranscribeMedicalSettings_contentIdentificationType = Lens.lens (\EngineTr
 -- specify a Region, Amazon Chime uses the meeting\'s Region.
 engineTranscribeMedicalSettings_region :: Lens.Lens' EngineTranscribeMedicalSettings (Prelude.Maybe TranscribeMedicalRegion)
 engineTranscribeMedicalSettings_region = Lens.lens (\EngineTranscribeMedicalSettings' {region} -> region) (\s@EngineTranscribeMedicalSettings' {} a -> s {region = a} :: EngineTranscribeMedicalSettings)
+
+-- | The name of the vocabulary passed to Amazon Transcribe Medical.
+engineTranscribeMedicalSettings_vocabularyName :: Lens.Lens' EngineTranscribeMedicalSettings (Prelude.Maybe Prelude.Text)
+engineTranscribeMedicalSettings_vocabularyName = Lens.lens (\EngineTranscribeMedicalSettings' {vocabularyName} -> vocabularyName) (\s@EngineTranscribeMedicalSettings' {} a -> s {vocabularyName = a} :: EngineTranscribeMedicalSettings)
 
 -- | The language code specified for the Amazon Transcribe Medical engine.
 engineTranscribeMedicalSettings_languageCode :: Lens.Lens' EngineTranscribeMedicalSettings TranscribeMedicalLanguageCode
@@ -127,9 +126,10 @@ instance
   hashWithSalt
     _salt
     EngineTranscribeMedicalSettings' {..} =
-      _salt `Prelude.hashWithSalt` vocabularyName
+      _salt
         `Prelude.hashWithSalt` contentIdentificationType
         `Prelude.hashWithSalt` region
+        `Prelude.hashWithSalt` vocabularyName
         `Prelude.hashWithSalt` languageCode
         `Prelude.hashWithSalt` specialty
         `Prelude.hashWithSalt` type'
@@ -139,9 +139,9 @@ instance
     EngineTranscribeMedicalSettings
   where
   rnf EngineTranscribeMedicalSettings' {..} =
-    Prelude.rnf vocabularyName
-      `Prelude.seq` Prelude.rnf contentIdentificationType
+    Prelude.rnf contentIdentificationType
       `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf vocabularyName
       `Prelude.seq` Prelude.rnf languageCode
       `Prelude.seq` Prelude.rnf specialty
       `Prelude.seq` Prelude.rnf type'
@@ -150,11 +150,11 @@ instance Data.ToJSON EngineTranscribeMedicalSettings where
   toJSON EngineTranscribeMedicalSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("VocabularyName" Data..=)
-              Prelude.<$> vocabularyName,
-            ("ContentIdentificationType" Data..=)
+          [ ("ContentIdentificationType" Data..=)
               Prelude.<$> contentIdentificationType,
             ("Region" Data..=) Prelude.<$> region,
+            ("VocabularyName" Data..=)
+              Prelude.<$> vocabularyName,
             Prelude.Just ("LanguageCode" Data..= languageCode),
             Prelude.Just ("Specialty" Data..= specialty),
             Prelude.Just ("Type" Data..= type')

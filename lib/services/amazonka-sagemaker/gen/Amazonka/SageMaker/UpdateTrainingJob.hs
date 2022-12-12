@@ -53,11 +53,11 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newUpdateTrainingJob' smart constructor.
 data UpdateTrainingJob = UpdateTrainingJob'
-  { -- | Configuration information for Debugger system monitoring, framework
-    -- profiling, and storage paths.
+  { -- | Configuration information for Amazon SageMaker Debugger system
+    -- monitoring, framework profiling, and storage paths.
     profilerConfig :: Prelude.Maybe ProfilerConfigForUpdate,
-    -- | Configuration information for Debugger rules for profiling system and
-    -- framework metrics.
+    -- | Configuration information for Amazon SageMaker Debugger rules for
+    -- profiling system and framework metrics.
     profilerRuleConfigurations :: Prelude.Maybe [ProfilerRuleConfiguration],
     -- | The training job @ResourceConfig@ to update warm pool retention length.
     resourceConfig :: Prelude.Maybe ResourceConfigForUpdate,
@@ -75,11 +75,11 @@ data UpdateTrainingJob = UpdateTrainingJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'profilerConfig', 'updateTrainingJob_profilerConfig' - Configuration information for Debugger system monitoring, framework
--- profiling, and storage paths.
+-- 'profilerConfig', 'updateTrainingJob_profilerConfig' - Configuration information for Amazon SageMaker Debugger system
+-- monitoring, framework profiling, and storage paths.
 --
--- 'profilerRuleConfigurations', 'updateTrainingJob_profilerRuleConfigurations' - Configuration information for Debugger rules for profiling system and
--- framework metrics.
+-- 'profilerRuleConfigurations', 'updateTrainingJob_profilerRuleConfigurations' - Configuration information for Amazon SageMaker Debugger rules for
+-- profiling system and framework metrics.
 --
 -- 'resourceConfig', 'updateTrainingJob_resourceConfig' - The training job @ResourceConfig@ to update warm pool retention length.
 --
@@ -98,13 +98,13 @@ newUpdateTrainingJob pTrainingJobName_ =
       trainingJobName = pTrainingJobName_
     }
 
--- | Configuration information for Debugger system monitoring, framework
--- profiling, and storage paths.
+-- | Configuration information for Amazon SageMaker Debugger system
+-- monitoring, framework profiling, and storage paths.
 updateTrainingJob_profilerConfig :: Lens.Lens' UpdateTrainingJob (Prelude.Maybe ProfilerConfigForUpdate)
 updateTrainingJob_profilerConfig = Lens.lens (\UpdateTrainingJob' {profilerConfig} -> profilerConfig) (\s@UpdateTrainingJob' {} a -> s {profilerConfig = a} :: UpdateTrainingJob)
 
--- | Configuration information for Debugger rules for profiling system and
--- framework metrics.
+-- | Configuration information for Amazon SageMaker Debugger rules for
+-- profiling system and framework metrics.
 updateTrainingJob_profilerRuleConfigurations :: Lens.Lens' UpdateTrainingJob (Prelude.Maybe [ProfilerRuleConfiguration])
 updateTrainingJob_profilerRuleConfigurations = Lens.lens (\UpdateTrainingJob' {profilerRuleConfigurations} -> profilerRuleConfigurations) (\s@UpdateTrainingJob' {} a -> s {profilerRuleConfigurations = a} :: UpdateTrainingJob) Prelude.. Lens.mapping Lens.coerced
 

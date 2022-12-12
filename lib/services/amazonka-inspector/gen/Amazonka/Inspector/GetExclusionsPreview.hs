@@ -29,9 +29,9 @@ module Amazonka.Inspector.GetExclusionsPreview
     newGetExclusionsPreview,
 
     -- * Request Lenses
-    getExclusionsPreview_nextToken,
     getExclusionsPreview_locale,
     getExclusionsPreview_maxResults,
+    getExclusionsPreview_nextToken,
     getExclusionsPreview_assessmentTemplateArn,
     getExclusionsPreview_previewToken,
 
@@ -40,8 +40,8 @@ module Amazonka.Inspector.GetExclusionsPreview
     newGetExclusionsPreviewResponse,
 
     -- * Response Lenses
-    getExclusionsPreviewResponse_nextToken,
     getExclusionsPreviewResponse_exclusionPreviews,
+    getExclusionsPreviewResponse_nextToken,
     getExclusionsPreviewResponse_httpStatus,
     getExclusionsPreviewResponse_previewStatus,
   )
@@ -57,19 +57,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetExclusionsPreview' smart constructor.
 data GetExclusionsPreview = GetExclusionsPreview'
-  { -- | You can use this parameter when paginating results. Set the value of
-    -- this parameter to null on your first call to the
-    -- GetExclusionsPreviewRequest action. Subsequent calls to the action fill
-    -- nextToken in the request with the value of nextToken from the previous
-    -- response to continue listing data.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The locale into which you want to translate the exclusion\'s title,
+  { -- | The locale into which you want to translate the exclusion\'s title,
     -- description, and recommendation.
     locale :: Prelude.Maybe Locale,
     -- | You can use this parameter to indicate the maximum number of items you
     -- want in the response. The default value is 100. The maximum value is
     -- 500.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | You can use this parameter when paginating results. Set the value of
+    -- this parameter to null on your first call to the
+    -- GetExclusionsPreviewRequest action. Subsequent calls to the action fill
+    -- nextToken in the request with the value of nextToken from the previous
+    -- response to continue listing data.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ARN that specifies the assessment template for which the exclusions
     -- preview was requested.
     assessmentTemplateArn :: Prelude.Text,
@@ -86,18 +86,18 @@ data GetExclusionsPreview = GetExclusionsPreview'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getExclusionsPreview_nextToken' - You can use this parameter when paginating results. Set the value of
--- this parameter to null on your first call to the
--- GetExclusionsPreviewRequest action. Subsequent calls to the action fill
--- nextToken in the request with the value of nextToken from the previous
--- response to continue listing data.
---
 -- 'locale', 'getExclusionsPreview_locale' - The locale into which you want to translate the exclusion\'s title,
 -- description, and recommendation.
 --
 -- 'maxResults', 'getExclusionsPreview_maxResults' - You can use this parameter to indicate the maximum number of items you
 -- want in the response. The default value is 100. The maximum value is
 -- 500.
+--
+-- 'nextToken', 'getExclusionsPreview_nextToken' - You can use this parameter when paginating results. Set the value of
+-- this parameter to null on your first call to the
+-- GetExclusionsPreviewRequest action. Subsequent calls to the action fill
+-- nextToken in the request with the value of nextToken from the previous
+-- response to continue listing data.
 --
 -- 'assessmentTemplateArn', 'getExclusionsPreview_assessmentTemplateArn' - The ARN that specifies the assessment template for which the exclusions
 -- preview was requested.
@@ -113,20 +113,12 @@ newGetExclusionsPreview
   pAssessmentTemplateArn_
   pPreviewToken_ =
     GetExclusionsPreview'
-      { nextToken = Prelude.Nothing,
-        locale = Prelude.Nothing,
+      { locale = Prelude.Nothing,
         maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         assessmentTemplateArn = pAssessmentTemplateArn_,
         previewToken = pPreviewToken_
       }
-
--- | You can use this parameter when paginating results. Set the value of
--- this parameter to null on your first call to the
--- GetExclusionsPreviewRequest action. Subsequent calls to the action fill
--- nextToken in the request with the value of nextToken from the previous
--- response to continue listing data.
-getExclusionsPreview_nextToken :: Lens.Lens' GetExclusionsPreview (Prelude.Maybe Prelude.Text)
-getExclusionsPreview_nextToken = Lens.lens (\GetExclusionsPreview' {nextToken} -> nextToken) (\s@GetExclusionsPreview' {} a -> s {nextToken = a} :: GetExclusionsPreview)
 
 -- | The locale into which you want to translate the exclusion\'s title,
 -- description, and recommendation.
@@ -138,6 +130,14 @@ getExclusionsPreview_locale = Lens.lens (\GetExclusionsPreview' {locale} -> loca
 -- 500.
 getExclusionsPreview_maxResults :: Lens.Lens' GetExclusionsPreview (Prelude.Maybe Prelude.Int)
 getExclusionsPreview_maxResults = Lens.lens (\GetExclusionsPreview' {maxResults} -> maxResults) (\s@GetExclusionsPreview' {} a -> s {maxResults = a} :: GetExclusionsPreview)
+
+-- | You can use this parameter when paginating results. Set the value of
+-- this parameter to null on your first call to the
+-- GetExclusionsPreviewRequest action. Subsequent calls to the action fill
+-- nextToken in the request with the value of nextToken from the previous
+-- response to continue listing data.
+getExclusionsPreview_nextToken :: Lens.Lens' GetExclusionsPreview (Prelude.Maybe Prelude.Text)
+getExclusionsPreview_nextToken = Lens.lens (\GetExclusionsPreview' {nextToken} -> nextToken) (\s@GetExclusionsPreview' {} a -> s {nextToken = a} :: GetExclusionsPreview)
 
 -- | The ARN that specifies the assessment template for which the exclusions
 -- preview was requested.
@@ -158,27 +158,27 @@ instance Core.AWSRequest GetExclusionsPreview where
     Response.receiveJSON
       ( \s h x ->
           GetExclusionsPreviewResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "exclusionPreviews"
+            Prelude.<$> ( x Data..?> "exclusionPreviews"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "previewStatus")
       )
 
 instance Prelude.Hashable GetExclusionsPreview where
   hashWithSalt _salt GetExclusionsPreview' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` locale
+    _salt `Prelude.hashWithSalt` locale
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` assessmentTemplateArn
       `Prelude.hashWithSalt` previewToken
 
 instance Prelude.NFData GetExclusionsPreview where
   rnf GetExclusionsPreview' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf locale
+    Prelude.rnf locale
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf assessmentTemplateArn
       `Prelude.seq` Prelude.rnf previewToken
 
@@ -201,9 +201,9 @@ instance Data.ToJSON GetExclusionsPreview where
   toJSON GetExclusionsPreview' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("locale" Data..=) Prelude.<$> locale,
+          [ ("locale" Data..=) Prelude.<$> locale,
             ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ( "assessmentTemplateArn"
                   Data..= assessmentTemplateArn
@@ -220,13 +220,13 @@ instance Data.ToQuery GetExclusionsPreview where
 
 -- | /See:/ 'newGetExclusionsPreviewResponse' smart constructor.
 data GetExclusionsPreviewResponse = GetExclusionsPreviewResponse'
-  { -- | When a response is generated, if there is more data to be listed, this
+  { -- | Information about the exclusions included in the preview.
+    exclusionPreviews :: Prelude.Maybe [ExclusionPreview],
+    -- | When a response is generated, if there is more data to be listed, this
     -- parameters is present in the response and contains the value to use for
     -- the nextToken parameter in a subsequent pagination request. If there is
     -- no more data to be listed, this parameter is set to null.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the exclusions included in the preview.
-    exclusionPreviews :: Prelude.Maybe [ExclusionPreview],
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | Specifies the status of the request to generate an exclusions preview.
@@ -242,12 +242,12 @@ data GetExclusionsPreviewResponse = GetExclusionsPreviewResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'exclusionPreviews', 'getExclusionsPreviewResponse_exclusionPreviews' - Information about the exclusions included in the preview.
+--
 -- 'nextToken', 'getExclusionsPreviewResponse_nextToken' - When a response is generated, if there is more data to be listed, this
 -- parameters is present in the response and contains the value to use for
 -- the nextToken parameter in a subsequent pagination request. If there is
 -- no more data to be listed, this parameter is set to null.
---
--- 'exclusionPreviews', 'getExclusionsPreviewResponse_exclusionPreviews' - Information about the exclusions included in the preview.
 --
 -- 'httpStatus', 'getExclusionsPreviewResponse_httpStatus' - The response's http status code.
 --
@@ -262,12 +262,16 @@ newGetExclusionsPreviewResponse
   pHttpStatus_
   pPreviewStatus_ =
     GetExclusionsPreviewResponse'
-      { nextToken =
+      { exclusionPreviews =
           Prelude.Nothing,
-        exclusionPreviews = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         previewStatus = pPreviewStatus_
       }
+
+-- | Information about the exclusions included in the preview.
+getExclusionsPreviewResponse_exclusionPreviews :: Lens.Lens' GetExclusionsPreviewResponse (Prelude.Maybe [ExclusionPreview])
+getExclusionsPreviewResponse_exclusionPreviews = Lens.lens (\GetExclusionsPreviewResponse' {exclusionPreviews} -> exclusionPreviews) (\s@GetExclusionsPreviewResponse' {} a -> s {exclusionPreviews = a} :: GetExclusionsPreviewResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | When a response is generated, if there is more data to be listed, this
 -- parameters is present in the response and contains the value to use for
@@ -275,10 +279,6 @@ newGetExclusionsPreviewResponse
 -- no more data to be listed, this parameter is set to null.
 getExclusionsPreviewResponse_nextToken :: Lens.Lens' GetExclusionsPreviewResponse (Prelude.Maybe Prelude.Text)
 getExclusionsPreviewResponse_nextToken = Lens.lens (\GetExclusionsPreviewResponse' {nextToken} -> nextToken) (\s@GetExclusionsPreviewResponse' {} a -> s {nextToken = a} :: GetExclusionsPreviewResponse)
-
--- | Information about the exclusions included in the preview.
-getExclusionsPreviewResponse_exclusionPreviews :: Lens.Lens' GetExclusionsPreviewResponse (Prelude.Maybe [ExclusionPreview])
-getExclusionsPreviewResponse_exclusionPreviews = Lens.lens (\GetExclusionsPreviewResponse' {exclusionPreviews} -> exclusionPreviews) (\s@GetExclusionsPreviewResponse' {} a -> s {exclusionPreviews = a} :: GetExclusionsPreviewResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getExclusionsPreviewResponse_httpStatus :: Lens.Lens' GetExclusionsPreviewResponse Prelude.Int
@@ -290,7 +290,7 @@ getExclusionsPreviewResponse_previewStatus = Lens.lens (\GetExclusionsPreviewRes
 
 instance Prelude.NFData GetExclusionsPreviewResponse where
   rnf GetExclusionsPreviewResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf exclusionPreviews
+    Prelude.rnf exclusionPreviews
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf previewStatus

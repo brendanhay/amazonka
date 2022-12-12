@@ -27,8 +27,8 @@ module Amazonka.Detective.ListDatasourcePackages
     newListDatasourcePackages,
 
     -- * Request Lenses
-    listDatasourcePackages_nextToken,
     listDatasourcePackages_maxResults,
+    listDatasourcePackages_nextToken,
     listDatasourcePackages_graphArn,
 
     -- * Destructuring the Response
@@ -52,12 +52,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDatasourcePackages' smart constructor.
 data ListDatasourcePackages = ListDatasourcePackages'
-  { -- | For requests to get the next page of results, the pagination token that
+  { -- | The maximum number of results to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | For requests to get the next page of results, the pagination token that
     -- was returned with the previous set of results. The initial request does
     -- not include a pagination token.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ARN of the behavior graph.
     graphArn :: Prelude.Text
   }
@@ -71,11 +71,11 @@ data ListDatasourcePackages = ListDatasourcePackages'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listDatasourcePackages_maxResults' - The maximum number of results to return.
+--
 -- 'nextToken', 'listDatasourcePackages_nextToken' - For requests to get the next page of results, the pagination token that
 -- was returned with the previous set of results. The initial request does
 -- not include a pagination token.
---
--- 'maxResults', 'listDatasourcePackages_maxResults' - The maximum number of results to return.
 --
 -- 'graphArn', 'listDatasourcePackages_graphArn' - The ARN of the behavior graph.
 newListDatasourcePackages ::
@@ -84,21 +84,21 @@ newListDatasourcePackages ::
   ListDatasourcePackages
 newListDatasourcePackages pGraphArn_ =
   ListDatasourcePackages'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       graphArn = pGraphArn_
     }
+
+-- | The maximum number of results to return.
+listDatasourcePackages_maxResults :: Lens.Lens' ListDatasourcePackages (Prelude.Maybe Prelude.Natural)
+listDatasourcePackages_maxResults = Lens.lens (\ListDatasourcePackages' {maxResults} -> maxResults) (\s@ListDatasourcePackages' {} a -> s {maxResults = a} :: ListDatasourcePackages)
 
 -- | For requests to get the next page of results, the pagination token that
 -- was returned with the previous set of results. The initial request does
 -- not include a pagination token.
 listDatasourcePackages_nextToken :: Lens.Lens' ListDatasourcePackages (Prelude.Maybe Prelude.Text)
 listDatasourcePackages_nextToken = Lens.lens (\ListDatasourcePackages' {nextToken} -> nextToken) (\s@ListDatasourcePackages' {} a -> s {nextToken = a} :: ListDatasourcePackages)
-
--- | The maximum number of results to return.
-listDatasourcePackages_maxResults :: Lens.Lens' ListDatasourcePackages (Prelude.Maybe Prelude.Natural)
-listDatasourcePackages_maxResults = Lens.lens (\ListDatasourcePackages' {maxResults} -> maxResults) (\s@ListDatasourcePackages' {} a -> s {maxResults = a} :: ListDatasourcePackages)
 
 -- | The ARN of the behavior graph.
 listDatasourcePackages_graphArn :: Lens.Lens' ListDatasourcePackages Prelude.Text
@@ -123,14 +123,14 @@ instance Core.AWSRequest ListDatasourcePackages where
 
 instance Prelude.Hashable ListDatasourcePackages where
   hashWithSalt _salt ListDatasourcePackages' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` graphArn
 
 instance Prelude.NFData ListDatasourcePackages where
   rnf ListDatasourcePackages' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf graphArn
 
 instance Data.ToHeaders ListDatasourcePackages where
@@ -148,8 +148,8 @@ instance Data.ToJSON ListDatasourcePackages where
   toJSON ListDatasourcePackages' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("GraphArn" Data..= graphArn)
           ]
       )

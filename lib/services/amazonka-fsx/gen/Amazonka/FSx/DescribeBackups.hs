@@ -53,18 +53,18 @@ module Amazonka.FSx.DescribeBackups
     newDescribeBackups,
 
     -- * Request Lenses
-    describeBackups_nextToken,
+    describeBackups_backupIds,
     describeBackups_filters,
     describeBackups_maxResults,
-    describeBackups_backupIds,
+    describeBackups_nextToken,
 
     -- * Destructuring the Response
     DescribeBackupsResponse (..),
     newDescribeBackupsResponse,
 
     -- * Response Lenses
-    describeBackupsResponse_nextToken,
     describeBackupsResponse_backups,
+    describeBackupsResponse_nextToken,
     describeBackupsResponse_httpStatus,
   )
 where
@@ -81,10 +81,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeBackups' smart constructor.
 data DescribeBackups = DescribeBackups'
-  { -- | An opaque pagination token returned from a previous @DescribeBackups@
-    -- operation. If a token is present, the operation continues the list from
-    -- where the returning call left off.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The IDs of the backups that you want to retrieve. This parameter value
+    -- overrides any filters. If any IDs aren\'t found, a @BackupNotFound@
+    -- error occurs.
+    backupIds :: Prelude.Maybe [Prelude.Text],
     -- | The filters structure. The supported names are @file-system-id@,
     -- @backup-type@, @file-system-type@, and @volume-id@.
     filters :: Prelude.Maybe [Filter],
@@ -93,10 +93,10 @@ data DescribeBackups = DescribeBackups'
     -- returns is the minimum of the @MaxResults@ parameter specified in the
     -- request and the service\'s internal maximum number of items per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The IDs of the backups that you want to retrieve. This parameter value
-    -- overrides any filters. If any IDs aren\'t found, a @BackupNotFound@
-    -- error occurs.
-    backupIds :: Prelude.Maybe [Prelude.Text]
+    -- | An opaque pagination token returned from a previous @DescribeBackups@
+    -- operation. If a token is present, the operation continues the list from
+    -- where the returning call left off.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -108,9 +108,9 @@ data DescribeBackups = DescribeBackups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeBackups_nextToken' - An opaque pagination token returned from a previous @DescribeBackups@
--- operation. If a token is present, the operation continues the list from
--- where the returning call left off.
+-- 'backupIds', 'describeBackups_backupIds' - The IDs of the backups that you want to retrieve. This parameter value
+-- overrides any filters. If any IDs aren\'t found, a @BackupNotFound@
+-- error occurs.
 --
 -- 'filters', 'describeBackups_filters' - The filters structure. The supported names are @file-system-id@,
 -- @backup-type@, @file-system-type@, and @volume-id@.
@@ -120,24 +120,24 @@ data DescribeBackups = DescribeBackups'
 -- returns is the minimum of the @MaxResults@ parameter specified in the
 -- request and the service\'s internal maximum number of items per page.
 --
--- 'backupIds', 'describeBackups_backupIds' - The IDs of the backups that you want to retrieve. This parameter value
--- overrides any filters. If any IDs aren\'t found, a @BackupNotFound@
--- error occurs.
+-- 'nextToken', 'describeBackups_nextToken' - An opaque pagination token returned from a previous @DescribeBackups@
+-- operation. If a token is present, the operation continues the list from
+-- where the returning call left off.
 newDescribeBackups ::
   DescribeBackups
 newDescribeBackups =
   DescribeBackups'
-    { nextToken = Prelude.Nothing,
+    { backupIds = Prelude.Nothing,
       filters = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      backupIds = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
 
--- | An opaque pagination token returned from a previous @DescribeBackups@
--- operation. If a token is present, the operation continues the list from
--- where the returning call left off.
-describeBackups_nextToken :: Lens.Lens' DescribeBackups (Prelude.Maybe Prelude.Text)
-describeBackups_nextToken = Lens.lens (\DescribeBackups' {nextToken} -> nextToken) (\s@DescribeBackups' {} a -> s {nextToken = a} :: DescribeBackups)
+-- | The IDs of the backups that you want to retrieve. This parameter value
+-- overrides any filters. If any IDs aren\'t found, a @BackupNotFound@
+-- error occurs.
+describeBackups_backupIds :: Lens.Lens' DescribeBackups (Prelude.Maybe [Prelude.Text])
+describeBackups_backupIds = Lens.lens (\DescribeBackups' {backupIds} -> backupIds) (\s@DescribeBackups' {} a -> s {backupIds = a} :: DescribeBackups) Prelude.. Lens.mapping Lens.coerced
 
 -- | The filters structure. The supported names are @file-system-id@,
 -- @backup-type@, @file-system-type@, and @volume-id@.
@@ -151,11 +151,11 @@ describeBackups_filters = Lens.lens (\DescribeBackups' {filters} -> filters) (\s
 describeBackups_maxResults :: Lens.Lens' DescribeBackups (Prelude.Maybe Prelude.Natural)
 describeBackups_maxResults = Lens.lens (\DescribeBackups' {maxResults} -> maxResults) (\s@DescribeBackups' {} a -> s {maxResults = a} :: DescribeBackups)
 
--- | The IDs of the backups that you want to retrieve. This parameter value
--- overrides any filters. If any IDs aren\'t found, a @BackupNotFound@
--- error occurs.
-describeBackups_backupIds :: Lens.Lens' DescribeBackups (Prelude.Maybe [Prelude.Text])
-describeBackups_backupIds = Lens.lens (\DescribeBackups' {backupIds} -> backupIds) (\s@DescribeBackups' {} a -> s {backupIds = a} :: DescribeBackups) Prelude.. Lens.mapping Lens.coerced
+-- | An opaque pagination token returned from a previous @DescribeBackups@
+-- operation. If a token is present, the operation continues the list from
+-- where the returning call left off.
+describeBackups_nextToken :: Lens.Lens' DescribeBackups (Prelude.Maybe Prelude.Text)
+describeBackups_nextToken = Lens.lens (\DescribeBackups' {nextToken} -> nextToken) (\s@DescribeBackups' {} a -> s {nextToken = a} :: DescribeBackups)
 
 instance Core.AWSPager DescribeBackups where
   page rq rs
@@ -188,24 +188,24 @@ instance Core.AWSRequest DescribeBackups where
     Response.receiveJSON
       ( \s h x ->
           DescribeBackupsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Backups" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Backups" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeBackups where
   hashWithSalt _salt DescribeBackups' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` backupIds
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` backupIds
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeBackups where
   rnf DescribeBackups' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf backupIds
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf backupIds
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeBackups where
   toHeaders =
@@ -226,10 +226,10 @@ instance Data.ToJSON DescribeBackups where
   toJSON DescribeBackups' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("BackupIds" Data..=) Prelude.<$> backupIds,
             ("Filters" Data..=) Prelude.<$> filters,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("BackupIds" Data..=) Prelude.<$> backupIds
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -243,12 +243,12 @@ instance Data.ToQuery DescribeBackups where
 --
 -- /See:/ 'newDescribeBackupsResponse' smart constructor.
 data DescribeBackupsResponse = DescribeBackupsResponse'
-  { -- | A @NextToken@ value is present if there are more backups than returned
+  { -- | An array of backups.
+    backups :: Prelude.Maybe [Backup],
+    -- | A @NextToken@ value is present if there are more backups than returned
     -- in the response. You can use the @NextToken@ value in the subsequent
     -- request to fetch the backups.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of backups.
-    backups :: Prelude.Maybe [Backup],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -262,11 +262,11 @@ data DescribeBackupsResponse = DescribeBackupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'backups', 'describeBackupsResponse_backups' - An array of backups.
+--
 -- 'nextToken', 'describeBackupsResponse_nextToken' - A @NextToken@ value is present if there are more backups than returned
 -- in the response. You can use the @NextToken@ value in the subsequent
 -- request to fetch the backups.
---
--- 'backups', 'describeBackupsResponse_backups' - An array of backups.
 --
 -- 'httpStatus', 'describeBackupsResponse_httpStatus' - The response's http status code.
 newDescribeBackupsResponse ::
@@ -275,11 +275,14 @@ newDescribeBackupsResponse ::
   DescribeBackupsResponse
 newDescribeBackupsResponse pHttpStatus_ =
   DescribeBackupsResponse'
-    { nextToken =
-        Prelude.Nothing,
-      backups = Prelude.Nothing,
+    { backups = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array of backups.
+describeBackupsResponse_backups :: Lens.Lens' DescribeBackupsResponse (Prelude.Maybe [Backup])
+describeBackupsResponse_backups = Lens.lens (\DescribeBackupsResponse' {backups} -> backups) (\s@DescribeBackupsResponse' {} a -> s {backups = a} :: DescribeBackupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A @NextToken@ value is present if there are more backups than returned
 -- in the response. You can use the @NextToken@ value in the subsequent
@@ -287,16 +290,12 @@ newDescribeBackupsResponse pHttpStatus_ =
 describeBackupsResponse_nextToken :: Lens.Lens' DescribeBackupsResponse (Prelude.Maybe Prelude.Text)
 describeBackupsResponse_nextToken = Lens.lens (\DescribeBackupsResponse' {nextToken} -> nextToken) (\s@DescribeBackupsResponse' {} a -> s {nextToken = a} :: DescribeBackupsResponse)
 
--- | An array of backups.
-describeBackupsResponse_backups :: Lens.Lens' DescribeBackupsResponse (Prelude.Maybe [Backup])
-describeBackupsResponse_backups = Lens.lens (\DescribeBackupsResponse' {backups} -> backups) (\s@DescribeBackupsResponse' {} a -> s {backups = a} :: DescribeBackupsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 describeBackupsResponse_httpStatus :: Lens.Lens' DescribeBackupsResponse Prelude.Int
 describeBackupsResponse_httpStatus = Lens.lens (\DescribeBackupsResponse' {httpStatus} -> httpStatus) (\s@DescribeBackupsResponse' {} a -> s {httpStatus = a} :: DescribeBackupsResponse)
 
 instance Prelude.NFData DescribeBackupsResponse where
   rnf DescribeBackupsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf backups
+    Prelude.rnf backups
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -38,18 +38,18 @@ module Amazonka.IoT.DescribeThingRegistrationTask
     newDescribeThingRegistrationTaskResponse,
 
     -- * Response Lenses
-    describeThingRegistrationTaskResponse_message,
-    describeThingRegistrationTaskResponse_roleArn,
-    describeThingRegistrationTaskResponse_lastModifiedDate,
+    describeThingRegistrationTaskResponse_creationDate,
     describeThingRegistrationTaskResponse_failureCount,
+    describeThingRegistrationTaskResponse_inputFileBucket,
+    describeThingRegistrationTaskResponse_inputFileKey,
+    describeThingRegistrationTaskResponse_lastModifiedDate,
+    describeThingRegistrationTaskResponse_message,
+    describeThingRegistrationTaskResponse_percentageProgress,
+    describeThingRegistrationTaskResponse_roleArn,
+    describeThingRegistrationTaskResponse_status,
+    describeThingRegistrationTaskResponse_successCount,
     describeThingRegistrationTaskResponse_taskId,
     describeThingRegistrationTaskResponse_templateBody,
-    describeThingRegistrationTaskResponse_creationDate,
-    describeThingRegistrationTaskResponse_status,
-    describeThingRegistrationTaskResponse_percentageProgress,
-    describeThingRegistrationTaskResponse_inputFileKey,
-    describeThingRegistrationTaskResponse_inputFileBucket,
-    describeThingRegistrationTaskResponse_successCount,
     describeThingRegistrationTaskResponse_httpStatus,
   )
 where
@@ -102,18 +102,18 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeThingRegistrationTaskResponse'
-            Prelude.<$> (x Data..?> "message")
-            Prelude.<*> (x Data..?> "roleArn")
-            Prelude.<*> (x Data..?> "lastModifiedDate")
+            Prelude.<$> (x Data..?> "creationDate")
             Prelude.<*> (x Data..?> "failureCount")
+            Prelude.<*> (x Data..?> "inputFileBucket")
+            Prelude.<*> (x Data..?> "inputFileKey")
+            Prelude.<*> (x Data..?> "lastModifiedDate")
+            Prelude.<*> (x Data..?> "message")
+            Prelude.<*> (x Data..?> "percentageProgress")
+            Prelude.<*> (x Data..?> "roleArn")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "successCount")
             Prelude.<*> (x Data..?> "taskId")
             Prelude.<*> (x Data..?> "templateBody")
-            Prelude.<*> (x Data..?> "creationDate")
-            Prelude.<*> (x Data..?> "status")
-            Prelude.<*> (x Data..?> "percentageProgress")
-            Prelude.<*> (x Data..?> "inputFileKey")
-            Prelude.<*> (x Data..?> "inputFileBucket")
-            Prelude.<*> (x Data..?> "successCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -141,30 +141,30 @@ instance Data.ToQuery DescribeThingRegistrationTask where
 
 -- | /See:/ 'newDescribeThingRegistrationTaskResponse' smart constructor.
 data DescribeThingRegistrationTaskResponse = DescribeThingRegistrationTaskResponse'
-  { -- | The message.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The role ARN that grants access to the input file bucket.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | The date when the task was last modified.
-    lastModifiedDate :: Prelude.Maybe Data.POSIX,
+  { -- | The task creation date.
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The number of things that failed to be provisioned.
     failureCount :: Prelude.Maybe Prelude.Int,
+    -- | The S3 bucket that contains the input file.
+    inputFileBucket :: Prelude.Maybe Prelude.Text,
+    -- | The input file key.
+    inputFileKey :: Prelude.Maybe Prelude.Text,
+    -- | The date when the task was last modified.
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
+    -- | The message.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | The progress of the bulk provisioning task expressed as a percentage.
+    percentageProgress :: Prelude.Maybe Prelude.Natural,
+    -- | The role ARN that grants access to the input file bucket.
+    roleArn :: Prelude.Maybe Prelude.Text,
+    -- | The status of the bulk thing provisioning task.
+    status :: Prelude.Maybe TaskStatus,
+    -- | The number of things successfully provisioned.
+    successCount :: Prelude.Maybe Prelude.Int,
     -- | The task ID.
     taskId :: Prelude.Maybe Prelude.Text,
     -- | The task\'s template.
     templateBody :: Prelude.Maybe Prelude.Text,
-    -- | The task creation date.
-    creationDate :: Prelude.Maybe Data.POSIX,
-    -- | The status of the bulk thing provisioning task.
-    status :: Prelude.Maybe TaskStatus,
-    -- | The progress of the bulk provisioning task expressed as a percentage.
-    percentageProgress :: Prelude.Maybe Prelude.Natural,
-    -- | The input file key.
-    inputFileKey :: Prelude.Maybe Prelude.Text,
-    -- | The S3 bucket that contains the input file.
-    inputFileBucket :: Prelude.Maybe Prelude.Text,
-    -- | The number of things successfully provisioned.
-    successCount :: Prelude.Maybe Prelude.Int,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -178,29 +178,29 @@ data DescribeThingRegistrationTaskResponse = DescribeThingRegistrationTaskRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'describeThingRegistrationTaskResponse_message' - The message.
+-- 'creationDate', 'describeThingRegistrationTaskResponse_creationDate' - The task creation date.
 --
--- 'roleArn', 'describeThingRegistrationTaskResponse_roleArn' - The role ARN that grants access to the input file bucket.
+-- 'failureCount', 'describeThingRegistrationTaskResponse_failureCount' - The number of things that failed to be provisioned.
+--
+-- 'inputFileBucket', 'describeThingRegistrationTaskResponse_inputFileBucket' - The S3 bucket that contains the input file.
+--
+-- 'inputFileKey', 'describeThingRegistrationTaskResponse_inputFileKey' - The input file key.
 --
 -- 'lastModifiedDate', 'describeThingRegistrationTaskResponse_lastModifiedDate' - The date when the task was last modified.
 --
--- 'failureCount', 'describeThingRegistrationTaskResponse_failureCount' - The number of things that failed to be provisioned.
+-- 'message', 'describeThingRegistrationTaskResponse_message' - The message.
+--
+-- 'percentageProgress', 'describeThingRegistrationTaskResponse_percentageProgress' - The progress of the bulk provisioning task expressed as a percentage.
+--
+-- 'roleArn', 'describeThingRegistrationTaskResponse_roleArn' - The role ARN that grants access to the input file bucket.
+--
+-- 'status', 'describeThingRegistrationTaskResponse_status' - The status of the bulk thing provisioning task.
+--
+-- 'successCount', 'describeThingRegistrationTaskResponse_successCount' - The number of things successfully provisioned.
 --
 -- 'taskId', 'describeThingRegistrationTaskResponse_taskId' - The task ID.
 --
 -- 'templateBody', 'describeThingRegistrationTaskResponse_templateBody' - The task\'s template.
---
--- 'creationDate', 'describeThingRegistrationTaskResponse_creationDate' - The task creation date.
---
--- 'status', 'describeThingRegistrationTaskResponse_status' - The status of the bulk thing provisioning task.
---
--- 'percentageProgress', 'describeThingRegistrationTaskResponse_percentageProgress' - The progress of the bulk provisioning task expressed as a percentage.
---
--- 'inputFileKey', 'describeThingRegistrationTaskResponse_inputFileKey' - The input file key.
---
--- 'inputFileBucket', 'describeThingRegistrationTaskResponse_inputFileBucket' - The S3 bucket that contains the input file.
---
--- 'successCount', 'describeThingRegistrationTaskResponse_successCount' - The number of things successfully provisioned.
 --
 -- 'httpStatus', 'describeThingRegistrationTaskResponse_httpStatus' - The response's http status code.
 newDescribeThingRegistrationTaskResponse ::
@@ -209,37 +209,61 @@ newDescribeThingRegistrationTaskResponse ::
   DescribeThingRegistrationTaskResponse
 newDescribeThingRegistrationTaskResponse pHttpStatus_ =
   DescribeThingRegistrationTaskResponse'
-    { message =
+    { creationDate =
         Prelude.Nothing,
-      roleArn = Prelude.Nothing,
-      lastModifiedDate = Prelude.Nothing,
       failureCount = Prelude.Nothing,
+      inputFileBucket = Prelude.Nothing,
+      inputFileKey = Prelude.Nothing,
+      lastModifiedDate = Prelude.Nothing,
+      message = Prelude.Nothing,
+      percentageProgress = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
+      status = Prelude.Nothing,
+      successCount = Prelude.Nothing,
       taskId = Prelude.Nothing,
       templateBody = Prelude.Nothing,
-      creationDate = Prelude.Nothing,
-      status = Prelude.Nothing,
-      percentageProgress = Prelude.Nothing,
-      inputFileKey = Prelude.Nothing,
-      inputFileBucket = Prelude.Nothing,
-      successCount = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The message.
-describeThingRegistrationTaskResponse_message :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe Prelude.Text)
-describeThingRegistrationTaskResponse_message = Lens.lens (\DescribeThingRegistrationTaskResponse' {message} -> message) (\s@DescribeThingRegistrationTaskResponse' {} a -> s {message = a} :: DescribeThingRegistrationTaskResponse)
+-- | The task creation date.
+describeThingRegistrationTaskResponse_creationDate :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe Prelude.UTCTime)
+describeThingRegistrationTaskResponse_creationDate = Lens.lens (\DescribeThingRegistrationTaskResponse' {creationDate} -> creationDate) (\s@DescribeThingRegistrationTaskResponse' {} a -> s {creationDate = a} :: DescribeThingRegistrationTaskResponse) Prelude.. Lens.mapping Data._Time
 
--- | The role ARN that grants access to the input file bucket.
-describeThingRegistrationTaskResponse_roleArn :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe Prelude.Text)
-describeThingRegistrationTaskResponse_roleArn = Lens.lens (\DescribeThingRegistrationTaskResponse' {roleArn} -> roleArn) (\s@DescribeThingRegistrationTaskResponse' {} a -> s {roleArn = a} :: DescribeThingRegistrationTaskResponse)
+-- | The number of things that failed to be provisioned.
+describeThingRegistrationTaskResponse_failureCount :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe Prelude.Int)
+describeThingRegistrationTaskResponse_failureCount = Lens.lens (\DescribeThingRegistrationTaskResponse' {failureCount} -> failureCount) (\s@DescribeThingRegistrationTaskResponse' {} a -> s {failureCount = a} :: DescribeThingRegistrationTaskResponse)
+
+-- | The S3 bucket that contains the input file.
+describeThingRegistrationTaskResponse_inputFileBucket :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe Prelude.Text)
+describeThingRegistrationTaskResponse_inputFileBucket = Lens.lens (\DescribeThingRegistrationTaskResponse' {inputFileBucket} -> inputFileBucket) (\s@DescribeThingRegistrationTaskResponse' {} a -> s {inputFileBucket = a} :: DescribeThingRegistrationTaskResponse)
+
+-- | The input file key.
+describeThingRegistrationTaskResponse_inputFileKey :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe Prelude.Text)
+describeThingRegistrationTaskResponse_inputFileKey = Lens.lens (\DescribeThingRegistrationTaskResponse' {inputFileKey} -> inputFileKey) (\s@DescribeThingRegistrationTaskResponse' {} a -> s {inputFileKey = a} :: DescribeThingRegistrationTaskResponse)
 
 -- | The date when the task was last modified.
 describeThingRegistrationTaskResponse_lastModifiedDate :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe Prelude.UTCTime)
 describeThingRegistrationTaskResponse_lastModifiedDate = Lens.lens (\DescribeThingRegistrationTaskResponse' {lastModifiedDate} -> lastModifiedDate) (\s@DescribeThingRegistrationTaskResponse' {} a -> s {lastModifiedDate = a} :: DescribeThingRegistrationTaskResponse) Prelude.. Lens.mapping Data._Time
 
--- | The number of things that failed to be provisioned.
-describeThingRegistrationTaskResponse_failureCount :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe Prelude.Int)
-describeThingRegistrationTaskResponse_failureCount = Lens.lens (\DescribeThingRegistrationTaskResponse' {failureCount} -> failureCount) (\s@DescribeThingRegistrationTaskResponse' {} a -> s {failureCount = a} :: DescribeThingRegistrationTaskResponse)
+-- | The message.
+describeThingRegistrationTaskResponse_message :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe Prelude.Text)
+describeThingRegistrationTaskResponse_message = Lens.lens (\DescribeThingRegistrationTaskResponse' {message} -> message) (\s@DescribeThingRegistrationTaskResponse' {} a -> s {message = a} :: DescribeThingRegistrationTaskResponse)
+
+-- | The progress of the bulk provisioning task expressed as a percentage.
+describeThingRegistrationTaskResponse_percentageProgress :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe Prelude.Natural)
+describeThingRegistrationTaskResponse_percentageProgress = Lens.lens (\DescribeThingRegistrationTaskResponse' {percentageProgress} -> percentageProgress) (\s@DescribeThingRegistrationTaskResponse' {} a -> s {percentageProgress = a} :: DescribeThingRegistrationTaskResponse)
+
+-- | The role ARN that grants access to the input file bucket.
+describeThingRegistrationTaskResponse_roleArn :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe Prelude.Text)
+describeThingRegistrationTaskResponse_roleArn = Lens.lens (\DescribeThingRegistrationTaskResponse' {roleArn} -> roleArn) (\s@DescribeThingRegistrationTaskResponse' {} a -> s {roleArn = a} :: DescribeThingRegistrationTaskResponse)
+
+-- | The status of the bulk thing provisioning task.
+describeThingRegistrationTaskResponse_status :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe TaskStatus)
+describeThingRegistrationTaskResponse_status = Lens.lens (\DescribeThingRegistrationTaskResponse' {status} -> status) (\s@DescribeThingRegistrationTaskResponse' {} a -> s {status = a} :: DescribeThingRegistrationTaskResponse)
+
+-- | The number of things successfully provisioned.
+describeThingRegistrationTaskResponse_successCount :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe Prelude.Int)
+describeThingRegistrationTaskResponse_successCount = Lens.lens (\DescribeThingRegistrationTaskResponse' {successCount} -> successCount) (\s@DescribeThingRegistrationTaskResponse' {} a -> s {successCount = a} :: DescribeThingRegistrationTaskResponse)
 
 -- | The task ID.
 describeThingRegistrationTaskResponse_taskId :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe Prelude.Text)
@@ -248,30 +272,6 @@ describeThingRegistrationTaskResponse_taskId = Lens.lens (\DescribeThingRegistra
 -- | The task\'s template.
 describeThingRegistrationTaskResponse_templateBody :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe Prelude.Text)
 describeThingRegistrationTaskResponse_templateBody = Lens.lens (\DescribeThingRegistrationTaskResponse' {templateBody} -> templateBody) (\s@DescribeThingRegistrationTaskResponse' {} a -> s {templateBody = a} :: DescribeThingRegistrationTaskResponse)
-
--- | The task creation date.
-describeThingRegistrationTaskResponse_creationDate :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe Prelude.UTCTime)
-describeThingRegistrationTaskResponse_creationDate = Lens.lens (\DescribeThingRegistrationTaskResponse' {creationDate} -> creationDate) (\s@DescribeThingRegistrationTaskResponse' {} a -> s {creationDate = a} :: DescribeThingRegistrationTaskResponse) Prelude.. Lens.mapping Data._Time
-
--- | The status of the bulk thing provisioning task.
-describeThingRegistrationTaskResponse_status :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe TaskStatus)
-describeThingRegistrationTaskResponse_status = Lens.lens (\DescribeThingRegistrationTaskResponse' {status} -> status) (\s@DescribeThingRegistrationTaskResponse' {} a -> s {status = a} :: DescribeThingRegistrationTaskResponse)
-
--- | The progress of the bulk provisioning task expressed as a percentage.
-describeThingRegistrationTaskResponse_percentageProgress :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe Prelude.Natural)
-describeThingRegistrationTaskResponse_percentageProgress = Lens.lens (\DescribeThingRegistrationTaskResponse' {percentageProgress} -> percentageProgress) (\s@DescribeThingRegistrationTaskResponse' {} a -> s {percentageProgress = a} :: DescribeThingRegistrationTaskResponse)
-
--- | The input file key.
-describeThingRegistrationTaskResponse_inputFileKey :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe Prelude.Text)
-describeThingRegistrationTaskResponse_inputFileKey = Lens.lens (\DescribeThingRegistrationTaskResponse' {inputFileKey} -> inputFileKey) (\s@DescribeThingRegistrationTaskResponse' {} a -> s {inputFileKey = a} :: DescribeThingRegistrationTaskResponse)
-
--- | The S3 bucket that contains the input file.
-describeThingRegistrationTaskResponse_inputFileBucket :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe Prelude.Text)
-describeThingRegistrationTaskResponse_inputFileBucket = Lens.lens (\DescribeThingRegistrationTaskResponse' {inputFileBucket} -> inputFileBucket) (\s@DescribeThingRegistrationTaskResponse' {} a -> s {inputFileBucket = a} :: DescribeThingRegistrationTaskResponse)
-
--- | The number of things successfully provisioned.
-describeThingRegistrationTaskResponse_successCount :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe Prelude.Int)
-describeThingRegistrationTaskResponse_successCount = Lens.lens (\DescribeThingRegistrationTaskResponse' {successCount} -> successCount) (\s@DescribeThingRegistrationTaskResponse' {} a -> s {successCount = a} :: DescribeThingRegistrationTaskResponse)
 
 -- | The response's http status code.
 describeThingRegistrationTaskResponse_httpStatus :: Lens.Lens' DescribeThingRegistrationTaskResponse Prelude.Int
@@ -282,16 +282,16 @@ instance
     DescribeThingRegistrationTaskResponse
   where
   rnf DescribeThingRegistrationTaskResponse' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf lastModifiedDate
+    Prelude.rnf creationDate
       `Prelude.seq` Prelude.rnf failureCount
+      `Prelude.seq` Prelude.rnf inputFileBucket
+      `Prelude.seq` Prelude.rnf inputFileKey
+      `Prelude.seq` Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf percentageProgress
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf successCount
       `Prelude.seq` Prelude.rnf taskId
       `Prelude.seq` Prelude.rnf templateBody
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf percentageProgress
-      `Prelude.seq` Prelude.rnf inputFileKey
-      `Prelude.seq` Prelude.rnf inputFileBucket
-      `Prelude.seq` Prelude.rnf successCount
       `Prelude.seq` Prelude.rnf httpStatus

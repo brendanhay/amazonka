@@ -31,12 +31,12 @@ import Amazonka.Wisdom.Types.RelevanceLevel
 --
 -- /See:/ 'newRecommendationData' smart constructor.
 data RecommendationData = RecommendationData'
-  { -- | The type of recommendation.
-    type' :: Prelude.Maybe RecommendationType,
-    -- | The relevance level of the recommendation.
+  { -- | The relevance level of the recommendation.
     relevanceLevel :: Prelude.Maybe RelevanceLevel,
     -- | The relevance score of the recommendation.
     relevanceScore :: Prelude.Maybe Prelude.Double,
+    -- | The type of recommendation.
+    type' :: Prelude.Maybe RecommendationType,
     -- | The recommended document.
     document :: Document,
     -- | The identifier of the recommendation.
@@ -52,11 +52,11 @@ data RecommendationData = RecommendationData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'recommendationData_type' - The type of recommendation.
---
 -- 'relevanceLevel', 'recommendationData_relevanceLevel' - The relevance level of the recommendation.
 --
 -- 'relevanceScore', 'recommendationData_relevanceScore' - The relevance score of the recommendation.
+--
+-- 'type'', 'recommendationData_type' - The type of recommendation.
 --
 -- 'document', 'recommendationData_document' - The recommended document.
 --
@@ -69,16 +69,13 @@ newRecommendationData ::
   RecommendationData
 newRecommendationData pDocument_ pRecommendationId_ =
   RecommendationData'
-    { type' = Prelude.Nothing,
-      relevanceLevel = Prelude.Nothing,
+    { relevanceLevel =
+        Prelude.Nothing,
       relevanceScore = Prelude.Nothing,
+      type' = Prelude.Nothing,
       document = pDocument_,
       recommendationId = pRecommendationId_
     }
-
--- | The type of recommendation.
-recommendationData_type :: Lens.Lens' RecommendationData (Prelude.Maybe RecommendationType)
-recommendationData_type = Lens.lens (\RecommendationData' {type'} -> type') (\s@RecommendationData' {} a -> s {type' = a} :: RecommendationData)
 
 -- | The relevance level of the recommendation.
 recommendationData_relevanceLevel :: Lens.Lens' RecommendationData (Prelude.Maybe RelevanceLevel)
@@ -87,6 +84,10 @@ recommendationData_relevanceLevel = Lens.lens (\RecommendationData' {relevanceLe
 -- | The relevance score of the recommendation.
 recommendationData_relevanceScore :: Lens.Lens' RecommendationData (Prelude.Maybe Prelude.Double)
 recommendationData_relevanceScore = Lens.lens (\RecommendationData' {relevanceScore} -> relevanceScore) (\s@RecommendationData' {} a -> s {relevanceScore = a} :: RecommendationData)
+
+-- | The type of recommendation.
+recommendationData_type :: Lens.Lens' RecommendationData (Prelude.Maybe RecommendationType)
+recommendationData_type = Lens.lens (\RecommendationData' {type'} -> type') (\s@RecommendationData' {} a -> s {type' = a} :: RecommendationData)
 
 -- | The recommended document.
 recommendationData_document :: Lens.Lens' RecommendationData Document
@@ -102,25 +103,25 @@ instance Data.FromJSON RecommendationData where
       "RecommendationData"
       ( \x ->
           RecommendationData'
-            Prelude.<$> (x Data..:? "type")
-            Prelude.<*> (x Data..:? "relevanceLevel")
+            Prelude.<$> (x Data..:? "relevanceLevel")
             Prelude.<*> (x Data..:? "relevanceScore")
+            Prelude.<*> (x Data..:? "type")
             Prelude.<*> (x Data..: "document")
             Prelude.<*> (x Data..: "recommendationId")
       )
 
 instance Prelude.Hashable RecommendationData where
   hashWithSalt _salt RecommendationData' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` relevanceLevel
+    _salt `Prelude.hashWithSalt` relevanceLevel
       `Prelude.hashWithSalt` relevanceScore
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` document
       `Prelude.hashWithSalt` recommendationId
 
 instance Prelude.NFData RecommendationData where
   rnf RecommendationData' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf relevanceLevel
+    Prelude.rnf relevanceLevel
       `Prelude.seq` Prelude.rnf relevanceScore
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf document
       `Prelude.seq` Prelude.rnf recommendationId

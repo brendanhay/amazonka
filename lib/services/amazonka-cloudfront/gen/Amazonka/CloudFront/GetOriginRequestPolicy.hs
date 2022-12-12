@@ -45,8 +45,8 @@ module Amazonka.CloudFront.GetOriginRequestPolicy
     newGetOriginRequestPolicyResponse,
 
     -- * Response Lenses
-    getOriginRequestPolicyResponse_originRequestPolicy,
     getOriginRequestPolicyResponse_eTag,
+    getOriginRequestPolicyResponse_originRequestPolicy,
     getOriginRequestPolicyResponse_httpStatus,
   )
 where
@@ -111,8 +111,8 @@ instance Core.AWSRequest GetOriginRequestPolicy where
     Response.receiveXML
       ( \s h x ->
           GetOriginRequestPolicyResponse'
-            Prelude.<$> (Data.parseXML x)
-            Prelude.<*> (h Data..#? "ETag")
+            Prelude.<$> (h Data..#? "ETag")
+            Prelude.<*> (Data.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,10 +136,10 @@ instance Data.ToQuery GetOriginRequestPolicy where
 
 -- | /See:/ 'newGetOriginRequestPolicyResponse' smart constructor.
 data GetOriginRequestPolicyResponse = GetOriginRequestPolicyResponse'
-  { -- | The origin request policy.
-    originRequestPolicy :: Prelude.Maybe OriginRequestPolicy,
-    -- | The current version of the origin request policy.
+  { -- | The current version of the origin request policy.
     eTag :: Prelude.Maybe Prelude.Text,
+    -- | The origin request policy.
+    originRequestPolicy :: Prelude.Maybe OriginRequestPolicy,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -153,9 +153,9 @@ data GetOriginRequestPolicyResponse = GetOriginRequestPolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'originRequestPolicy', 'getOriginRequestPolicyResponse_originRequestPolicy' - The origin request policy.
---
 -- 'eTag', 'getOriginRequestPolicyResponse_eTag' - The current version of the origin request policy.
+--
+-- 'originRequestPolicy', 'getOriginRequestPolicyResponse_originRequestPolicy' - The origin request policy.
 --
 -- 'httpStatus', 'getOriginRequestPolicyResponse_httpStatus' - The response's http status code.
 newGetOriginRequestPolicyResponse ::
@@ -164,19 +164,19 @@ newGetOriginRequestPolicyResponse ::
   GetOriginRequestPolicyResponse
 newGetOriginRequestPolicyResponse pHttpStatus_ =
   GetOriginRequestPolicyResponse'
-    { originRequestPolicy =
+    { eTag =
         Prelude.Nothing,
-      eTag = Prelude.Nothing,
+      originRequestPolicy = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The origin request policy.
-getOriginRequestPolicyResponse_originRequestPolicy :: Lens.Lens' GetOriginRequestPolicyResponse (Prelude.Maybe OriginRequestPolicy)
-getOriginRequestPolicyResponse_originRequestPolicy = Lens.lens (\GetOriginRequestPolicyResponse' {originRequestPolicy} -> originRequestPolicy) (\s@GetOriginRequestPolicyResponse' {} a -> s {originRequestPolicy = a} :: GetOriginRequestPolicyResponse)
 
 -- | The current version of the origin request policy.
 getOriginRequestPolicyResponse_eTag :: Lens.Lens' GetOriginRequestPolicyResponse (Prelude.Maybe Prelude.Text)
 getOriginRequestPolicyResponse_eTag = Lens.lens (\GetOriginRequestPolicyResponse' {eTag} -> eTag) (\s@GetOriginRequestPolicyResponse' {} a -> s {eTag = a} :: GetOriginRequestPolicyResponse)
+
+-- | The origin request policy.
+getOriginRequestPolicyResponse_originRequestPolicy :: Lens.Lens' GetOriginRequestPolicyResponse (Prelude.Maybe OriginRequestPolicy)
+getOriginRequestPolicyResponse_originRequestPolicy = Lens.lens (\GetOriginRequestPolicyResponse' {originRequestPolicy} -> originRequestPolicy) (\s@GetOriginRequestPolicyResponse' {} a -> s {originRequestPolicy = a} :: GetOriginRequestPolicyResponse)
 
 -- | The response's http status code.
 getOriginRequestPolicyResponse_httpStatus :: Lens.Lens' GetOriginRequestPolicyResponse Prelude.Int
@@ -187,6 +187,6 @@ instance
     GetOriginRequestPolicyResponse
   where
   rnf GetOriginRequestPolicyResponse' {..} =
-    Prelude.rnf originRequestPolicy
-      `Prelude.seq` Prelude.rnf eTag
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf originRequestPolicy
       `Prelude.seq` Prelude.rnf httpStatus

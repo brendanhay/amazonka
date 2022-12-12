@@ -28,8 +28,8 @@ module Amazonka.AuditManager.GetEvidenceFoldersByAssessment
     newGetEvidenceFoldersByAssessment,
 
     -- * Request Lenses
-    getEvidenceFoldersByAssessment_nextToken,
     getEvidenceFoldersByAssessment_maxResults,
+    getEvidenceFoldersByAssessment_nextToken,
     getEvidenceFoldersByAssessment_assessmentId,
 
     -- * Destructuring the Response
@@ -53,11 +53,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetEvidenceFoldersByAssessment' smart constructor.
 data GetEvidenceFoldersByAssessment = GetEvidenceFoldersByAssessment'
-  { -- | The pagination token that\'s used to fetch the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Represents the maximum number of results on a page or for an API request
+  { -- | Represents the maximum number of results on a page or for an API request
     -- call.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token that\'s used to fetch the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the assessment.
     assessmentId :: Prelude.Text
   }
@@ -71,10 +71,10 @@ data GetEvidenceFoldersByAssessment = GetEvidenceFoldersByAssessment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getEvidenceFoldersByAssessment_nextToken' - The pagination token that\'s used to fetch the next set of results.
---
 -- 'maxResults', 'getEvidenceFoldersByAssessment_maxResults' - Represents the maximum number of results on a page or for an API request
 -- call.
+--
+-- 'nextToken', 'getEvidenceFoldersByAssessment_nextToken' - The pagination token that\'s used to fetch the next set of results.
 --
 -- 'assessmentId', 'getEvidenceFoldersByAssessment_assessmentId' - The unique identifier for the assessment.
 newGetEvidenceFoldersByAssessment ::
@@ -83,20 +83,20 @@ newGetEvidenceFoldersByAssessment ::
   GetEvidenceFoldersByAssessment
 newGetEvidenceFoldersByAssessment pAssessmentId_ =
   GetEvidenceFoldersByAssessment'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       assessmentId = pAssessmentId_
     }
-
--- | The pagination token that\'s used to fetch the next set of results.
-getEvidenceFoldersByAssessment_nextToken :: Lens.Lens' GetEvidenceFoldersByAssessment (Prelude.Maybe Prelude.Text)
-getEvidenceFoldersByAssessment_nextToken = Lens.lens (\GetEvidenceFoldersByAssessment' {nextToken} -> nextToken) (\s@GetEvidenceFoldersByAssessment' {} a -> s {nextToken = a} :: GetEvidenceFoldersByAssessment)
 
 -- | Represents the maximum number of results on a page or for an API request
 -- call.
 getEvidenceFoldersByAssessment_maxResults :: Lens.Lens' GetEvidenceFoldersByAssessment (Prelude.Maybe Prelude.Natural)
 getEvidenceFoldersByAssessment_maxResults = Lens.lens (\GetEvidenceFoldersByAssessment' {maxResults} -> maxResults) (\s@GetEvidenceFoldersByAssessment' {} a -> s {maxResults = a} :: GetEvidenceFoldersByAssessment)
+
+-- | The pagination token that\'s used to fetch the next set of results.
+getEvidenceFoldersByAssessment_nextToken :: Lens.Lens' GetEvidenceFoldersByAssessment (Prelude.Maybe Prelude.Text)
+getEvidenceFoldersByAssessment_nextToken = Lens.lens (\GetEvidenceFoldersByAssessment' {nextToken} -> nextToken) (\s@GetEvidenceFoldersByAssessment' {} a -> s {nextToken = a} :: GetEvidenceFoldersByAssessment)
 
 -- | The unique identifier for the assessment.
 getEvidenceFoldersByAssessment_assessmentId :: Lens.Lens' GetEvidenceFoldersByAssessment Prelude.Text
@@ -129,8 +129,8 @@ instance
   hashWithSalt
     _salt
     GetEvidenceFoldersByAssessment' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` assessmentId
 
 instance
@@ -138,8 +138,8 @@ instance
     GetEvidenceFoldersByAssessment
   where
   rnf GetEvidenceFoldersByAssessment' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf assessmentId
 
 instance
@@ -167,8 +167,8 @@ instance Data.ToPath GetEvidenceFoldersByAssessment where
 instance Data.ToQuery GetEvidenceFoldersByAssessment where
   toQuery GetEvidenceFoldersByAssessment' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newGetEvidenceFoldersByAssessmentResponse' smart constructor.

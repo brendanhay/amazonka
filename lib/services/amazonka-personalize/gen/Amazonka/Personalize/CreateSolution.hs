@@ -78,12 +78,12 @@ module Amazonka.Personalize.CreateSolution
     newCreateSolution,
 
     -- * Request Lenses
-    createSolution_tags,
     createSolution_eventType,
     createSolution_performAutoML,
     createSolution_performHPO,
-    createSolution_solutionConfig,
     createSolution_recipeArn,
+    createSolution_solutionConfig,
+    createSolution_tags,
     createSolution_name,
     createSolution_datasetGroupArn,
 
@@ -107,11 +107,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateSolution' smart constructor.
 data CreateSolution = CreateSolution'
-  { -- | A list of
-    -- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
-    -- to apply to the solution.
-    tags :: Prelude.Maybe [Tag],
-    -- | When your have multiple event types (using an @EVENT_TYPE@ schema
+  { -- | When your have multiple event types (using an @EVENT_TYPE@ schema
     -- field), this parameter specifies which event type (for example,
     -- \'click\' or \'like\') is used for training the model.
     --
@@ -134,6 +130,9 @@ data CreateSolution = CreateSolution'
     -- When performing AutoML, this parameter is always @true@ and you should
     -- not set it to @false@.
     performHPO :: Prelude.Maybe Prelude.Bool,
+    -- | The ARN of the recipe to use for model training. Only specified when
+    -- @performAutoML@ is false.
+    recipeArn :: Prelude.Maybe Prelude.Text,
     -- | The configuration to use with the solution. When @performAutoML@ is set
     -- to true, Amazon Personalize only evaluates the @autoMLConfig@ section of
     -- the solution configuration.
@@ -141,9 +140,10 @@ data CreateSolution = CreateSolution'
     -- Amazon Personalize doesn\'t support configuring the @hpoObjective@ at
     -- this time.
     solutionConfig :: Prelude.Maybe SolutionConfig,
-    -- | The ARN of the recipe to use for model training. Only specified when
-    -- @performAutoML@ is false.
-    recipeArn :: Prelude.Maybe Prelude.Text,
+    -- | A list of
+    -- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+    -- to apply to the solution.
+    tags :: Prelude.Maybe [Tag],
     -- | The name for the solution.
     name :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the dataset group that provides the
@@ -159,10 +159,6 @@ data CreateSolution = CreateSolution'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'tags', 'createSolution_tags' - A list of
--- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
--- to apply to the solution.
 --
 -- 'eventType', 'createSolution_eventType' - When your have multiple event types (using an @EVENT_TYPE@ schema
 -- field), this parameter specifies which event type (for example,
@@ -187,6 +183,9 @@ data CreateSolution = CreateSolution'
 -- When performing AutoML, this parameter is always @true@ and you should
 -- not set it to @false@.
 --
+-- 'recipeArn', 'createSolution_recipeArn' - The ARN of the recipe to use for model training. Only specified when
+-- @performAutoML@ is false.
+--
 -- 'solutionConfig', 'createSolution_solutionConfig' - The configuration to use with the solution. When @performAutoML@ is set
 -- to true, Amazon Personalize only evaluates the @autoMLConfig@ section of
 -- the solution configuration.
@@ -194,8 +193,9 @@ data CreateSolution = CreateSolution'
 -- Amazon Personalize doesn\'t support configuring the @hpoObjective@ at
 -- this time.
 --
--- 'recipeArn', 'createSolution_recipeArn' - The ARN of the recipe to use for model training. Only specified when
--- @performAutoML@ is false.
+-- 'tags', 'createSolution_tags' - A list of
+-- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- to apply to the solution.
 --
 -- 'name', 'createSolution_name' - The name for the solution.
 --
@@ -209,21 +209,15 @@ newCreateSolution ::
   CreateSolution
 newCreateSolution pName_ pDatasetGroupArn_ =
   CreateSolution'
-    { tags = Prelude.Nothing,
-      eventType = Prelude.Nothing,
+    { eventType = Prelude.Nothing,
       performAutoML = Prelude.Nothing,
       performHPO = Prelude.Nothing,
-      solutionConfig = Prelude.Nothing,
       recipeArn = Prelude.Nothing,
+      solutionConfig = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_,
       datasetGroupArn = pDatasetGroupArn_
     }
-
--- | A list of
--- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
--- to apply to the solution.
-createSolution_tags :: Lens.Lens' CreateSolution (Prelude.Maybe [Tag])
-createSolution_tags = Lens.lens (\CreateSolution' {tags} -> tags) (\s@CreateSolution' {} a -> s {tags = a} :: CreateSolution) Prelude.. Lens.mapping Lens.coerced
 
 -- | When your have multiple event types (using an @EVENT_TYPE@ schema
 -- field), this parameter specifies which event type (for example,
@@ -254,6 +248,11 @@ createSolution_performAutoML = Lens.lens (\CreateSolution' {performAutoML} -> pe
 createSolution_performHPO :: Lens.Lens' CreateSolution (Prelude.Maybe Prelude.Bool)
 createSolution_performHPO = Lens.lens (\CreateSolution' {performHPO} -> performHPO) (\s@CreateSolution' {} a -> s {performHPO = a} :: CreateSolution)
 
+-- | The ARN of the recipe to use for model training. Only specified when
+-- @performAutoML@ is false.
+createSolution_recipeArn :: Lens.Lens' CreateSolution (Prelude.Maybe Prelude.Text)
+createSolution_recipeArn = Lens.lens (\CreateSolution' {recipeArn} -> recipeArn) (\s@CreateSolution' {} a -> s {recipeArn = a} :: CreateSolution)
+
 -- | The configuration to use with the solution. When @performAutoML@ is set
 -- to true, Amazon Personalize only evaluates the @autoMLConfig@ section of
 -- the solution configuration.
@@ -263,10 +262,11 @@ createSolution_performHPO = Lens.lens (\CreateSolution' {performHPO} -> performH
 createSolution_solutionConfig :: Lens.Lens' CreateSolution (Prelude.Maybe SolutionConfig)
 createSolution_solutionConfig = Lens.lens (\CreateSolution' {solutionConfig} -> solutionConfig) (\s@CreateSolution' {} a -> s {solutionConfig = a} :: CreateSolution)
 
--- | The ARN of the recipe to use for model training. Only specified when
--- @performAutoML@ is false.
-createSolution_recipeArn :: Lens.Lens' CreateSolution (Prelude.Maybe Prelude.Text)
-createSolution_recipeArn = Lens.lens (\CreateSolution' {recipeArn} -> recipeArn) (\s@CreateSolution' {} a -> s {recipeArn = a} :: CreateSolution)
+-- | A list of
+-- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- to apply to the solution.
+createSolution_tags :: Lens.Lens' CreateSolution (Prelude.Maybe [Tag])
+createSolution_tags = Lens.lens (\CreateSolution' {tags} -> tags) (\s@CreateSolution' {} a -> s {tags = a} :: CreateSolution) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name for the solution.
 createSolution_name :: Lens.Lens' CreateSolution Prelude.Text
@@ -293,23 +293,23 @@ instance Core.AWSRequest CreateSolution where
 
 instance Prelude.Hashable CreateSolution where
   hashWithSalt _salt CreateSolution' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` eventType
+    _salt `Prelude.hashWithSalt` eventType
       `Prelude.hashWithSalt` performAutoML
       `Prelude.hashWithSalt` performHPO
-      `Prelude.hashWithSalt` solutionConfig
       `Prelude.hashWithSalt` recipeArn
+      `Prelude.hashWithSalt` solutionConfig
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` datasetGroupArn
 
 instance Prelude.NFData CreateSolution where
   rnf CreateSolution' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf eventType
+    Prelude.rnf eventType
       `Prelude.seq` Prelude.rnf performAutoML
       `Prelude.seq` Prelude.rnf performHPO
-      `Prelude.seq` Prelude.rnf solutionConfig
       `Prelude.seq` Prelude.rnf recipeArn
+      `Prelude.seq` Prelude.rnf solutionConfig
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf datasetGroupArn
 
@@ -332,13 +332,13 @@ instance Data.ToJSON CreateSolution where
   toJSON CreateSolution' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("eventType" Data..=) Prelude.<$> eventType,
+          [ ("eventType" Data..=) Prelude.<$> eventType,
             ("performAutoML" Data..=) Prelude.<$> performAutoML,
             ("performHPO" Data..=) Prelude.<$> performHPO,
+            ("recipeArn" Data..=) Prelude.<$> recipeArn,
             ("solutionConfig" Data..=)
               Prelude.<$> solutionConfig,
-            ("recipeArn" Data..=) Prelude.<$> recipeArn,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("name" Data..= name),
             Prelude.Just
               ("datasetGroupArn" Data..= datasetGroupArn)

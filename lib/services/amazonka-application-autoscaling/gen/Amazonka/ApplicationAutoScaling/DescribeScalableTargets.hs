@@ -31,10 +31,10 @@ module Amazonka.ApplicationAutoScaling.DescribeScalableTargets
     newDescribeScalableTargets,
 
     -- * Request Lenses
-    describeScalableTargets_nextToken,
-    describeScalableTargets_scalableDimension,
-    describeScalableTargets_resourceIds,
     describeScalableTargets_maxResults,
+    describeScalableTargets_nextToken,
+    describeScalableTargets_resourceIds,
+    describeScalableTargets_scalableDimension,
     describeScalableTargets_serviceNamespace,
 
     -- * Destructuring the Response
@@ -58,76 +58,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeScalableTargets' smart constructor.
 data DescribeScalableTargets = DescribeScalableTargets'
-  { -- | The token for the next set of results.
+  { -- | The maximum number of scalable targets. This value can be between 1 and
+    -- 50. The default value is 50.
+    --
+    -- If this parameter is used, the operation returns up to @MaxResults@
+    -- results at a time, along with a @NextToken@ value. To get the next set
+    -- of results, include the @NextToken@ value in a subsequent call. If this
+    -- parameter is not used, the operation returns up to 50 results and a
+    -- @NextToken@ value, if applicable.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The token for the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The scalable dimension associated with the scalable target. This string
-    -- consists of the service namespace, resource type, and scaling property.
-    -- If you specify a scalable dimension, you must also specify a resource
-    -- ID.
-    --
-    -- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
-    --     service.
-    --
-    -- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count
-    --     of an EMR Instance Group.
-    --
-    -- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
-    --     Spot Fleet.
-    --
-    -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
-    --     AppStream 2.0 fleet.
-    --
-    -- -   @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity
-    --     for a DynamoDB table.
-    --
-    -- -   @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity
-    --     for a DynamoDB table.
-    --
-    -- -   @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity
-    --     for a DynamoDB global secondary index.
-    --
-    -- -   @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity
-    --     for a DynamoDB global secondary index.
-    --
-    -- -   @rds:cluster:ReadReplicaCount@ - The count of Aurora Replicas in an
-    --     Aurora DB cluster. Available for Aurora MySQL-compatible edition and
-    --     Aurora PostgreSQL-compatible edition.
-    --
-    -- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2
-    --     instances for an SageMaker model endpoint variant.
-    --
-    -- -   @custom-resource:ResourceType:Property@ - The scalable dimension for
-    --     a custom resource provided by your own application or service.
-    --
-    -- -   @comprehend:document-classifier-endpoint:DesiredInferenceUnits@ -
-    --     The number of inference units for an Amazon Comprehend document
-    --     classification endpoint.
-    --
-    -- -   @comprehend:entity-recognizer-endpoint:DesiredInferenceUnits@ - The
-    --     number of inference units for an Amazon Comprehend entity recognizer
-    --     endpoint.
-    --
-    -- -   @lambda:function:ProvisionedConcurrency@ - The provisioned
-    --     concurrency for a Lambda function.
-    --
-    -- -   @cassandra:table:ReadCapacityUnits@ - The provisioned read capacity
-    --     for an Amazon Keyspaces table.
-    --
-    -- -   @cassandra:table:WriteCapacityUnits@ - The provisioned write
-    --     capacity for an Amazon Keyspaces table.
-    --
-    -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
-    --     GiB) for brokers in an Amazon MSK cluster.
-    --
-    -- -   @elasticache:replication-group:NodeGroups@ - The number of node
-    --     groups for an Amazon ElastiCache replication group.
-    --
-    -- -   @elasticache:replication-group:Replicas@ - The number of replicas
-    --     per node group for an Amazon ElastiCache replication group.
-    --
-    -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
-    --     an Amazon Neptune DB cluster.
-    scalableDimension :: Prelude.Maybe ScalableDimension,
     -- | The identifier of the resource associated with the scalable target. This
     -- string consists of the resource type and unique identifier.
     --
@@ -196,15 +137,74 @@ data DescribeScalableTargets = DescribeScalableTargets'
     -- -   Neptune cluster - The resource type is @cluster@ and the unique
     --     identifier is the cluster name. Example: @cluster:mycluster@.
     resourceIds :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of scalable targets. This value can be between 1 and
-    -- 50. The default value is 50.
+    -- | The scalable dimension associated with the scalable target. This string
+    -- consists of the service namespace, resource type, and scaling property.
+    -- If you specify a scalable dimension, you must also specify a resource
+    -- ID.
     --
-    -- If this parameter is used, the operation returns up to @MaxResults@
-    -- results at a time, along with a @NextToken@ value. To get the next set
-    -- of results, include the @NextToken@ value in a subsequent call. If this
-    -- parameter is not used, the operation returns up to 50 results and a
-    -- @NextToken@ value, if applicable.
-    maxResults :: Prelude.Maybe Prelude.Int,
+    -- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
+    --     service.
+    --
+    -- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count
+    --     of an EMR Instance Group.
+    --
+    -- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
+    --     Spot Fleet.
+    --
+    -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
+    --     AppStream 2.0 fleet.
+    --
+    -- -   @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity
+    --     for a DynamoDB table.
+    --
+    -- -   @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity
+    --     for a DynamoDB table.
+    --
+    -- -   @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity
+    --     for a DynamoDB global secondary index.
+    --
+    -- -   @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity
+    --     for a DynamoDB global secondary index.
+    --
+    -- -   @rds:cluster:ReadReplicaCount@ - The count of Aurora Replicas in an
+    --     Aurora DB cluster. Available for Aurora MySQL-compatible edition and
+    --     Aurora PostgreSQL-compatible edition.
+    --
+    -- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2
+    --     instances for an SageMaker model endpoint variant.
+    --
+    -- -   @custom-resource:ResourceType:Property@ - The scalable dimension for
+    --     a custom resource provided by your own application or service.
+    --
+    -- -   @comprehend:document-classifier-endpoint:DesiredInferenceUnits@ -
+    --     The number of inference units for an Amazon Comprehend document
+    --     classification endpoint.
+    --
+    -- -   @comprehend:entity-recognizer-endpoint:DesiredInferenceUnits@ - The
+    --     number of inference units for an Amazon Comprehend entity recognizer
+    --     endpoint.
+    --
+    -- -   @lambda:function:ProvisionedConcurrency@ - The provisioned
+    --     concurrency for a Lambda function.
+    --
+    -- -   @cassandra:table:ReadCapacityUnits@ - The provisioned read capacity
+    --     for an Amazon Keyspaces table.
+    --
+    -- -   @cassandra:table:WriteCapacityUnits@ - The provisioned write
+    --     capacity for an Amazon Keyspaces table.
+    --
+    -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
+    --     GiB) for brokers in an Amazon MSK cluster.
+    --
+    -- -   @elasticache:replication-group:NodeGroups@ - The number of node
+    --     groups for an Amazon ElastiCache replication group.
+    --
+    -- -   @elasticache:replication-group:Replicas@ - The number of replicas
+    --     per node group for an Amazon ElastiCache replication group.
+    --
+    -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
+    --     an Amazon Neptune DB cluster.
+    scalableDimension :: Prelude.Maybe ScalableDimension,
     -- | The namespace of the Amazon Web Services service that provides the
     -- resource. For a resource provided by your own application or service,
     -- use @custom-resource@ instead.
@@ -220,75 +220,16 @@ data DescribeScalableTargets = DescribeScalableTargets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'describeScalableTargets_maxResults' - The maximum number of scalable targets. This value can be between 1 and
+-- 50. The default value is 50.
+--
+-- If this parameter is used, the operation returns up to @MaxResults@
+-- results at a time, along with a @NextToken@ value. To get the next set
+-- of results, include the @NextToken@ value in a subsequent call. If this
+-- parameter is not used, the operation returns up to 50 results and a
+-- @NextToken@ value, if applicable.
+--
 -- 'nextToken', 'describeScalableTargets_nextToken' - The token for the next set of results.
---
--- 'scalableDimension', 'describeScalableTargets_scalableDimension' - The scalable dimension associated with the scalable target. This string
--- consists of the service namespace, resource type, and scaling property.
--- If you specify a scalable dimension, you must also specify a resource
--- ID.
---
--- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
---     service.
---
--- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count
---     of an EMR Instance Group.
---
--- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
---     Spot Fleet.
---
--- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
---     AppStream 2.0 fleet.
---
--- -   @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity
---     for a DynamoDB table.
---
--- -   @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity
---     for a DynamoDB table.
---
--- -   @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity
---     for a DynamoDB global secondary index.
---
--- -   @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity
---     for a DynamoDB global secondary index.
---
--- -   @rds:cluster:ReadReplicaCount@ - The count of Aurora Replicas in an
---     Aurora DB cluster. Available for Aurora MySQL-compatible edition and
---     Aurora PostgreSQL-compatible edition.
---
--- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2
---     instances for an SageMaker model endpoint variant.
---
--- -   @custom-resource:ResourceType:Property@ - The scalable dimension for
---     a custom resource provided by your own application or service.
---
--- -   @comprehend:document-classifier-endpoint:DesiredInferenceUnits@ -
---     The number of inference units for an Amazon Comprehend document
---     classification endpoint.
---
--- -   @comprehend:entity-recognizer-endpoint:DesiredInferenceUnits@ - The
---     number of inference units for an Amazon Comprehend entity recognizer
---     endpoint.
---
--- -   @lambda:function:ProvisionedConcurrency@ - The provisioned
---     concurrency for a Lambda function.
---
--- -   @cassandra:table:ReadCapacityUnits@ - The provisioned read capacity
---     for an Amazon Keyspaces table.
---
--- -   @cassandra:table:WriteCapacityUnits@ - The provisioned write
---     capacity for an Amazon Keyspaces table.
---
--- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
---     GiB) for brokers in an Amazon MSK cluster.
---
--- -   @elasticache:replication-group:NodeGroups@ - The number of node
---     groups for an Amazon ElastiCache replication group.
---
--- -   @elasticache:replication-group:Replicas@ - The number of replicas
---     per node group for an Amazon ElastiCache replication group.
---
--- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
---     an Amazon Neptune DB cluster.
 --
 -- 'resourceIds', 'describeScalableTargets_resourceIds' - The identifier of the resource associated with the scalable target. This
 -- string consists of the resource type and unique identifier.
@@ -358,37 +299,7 @@ data DescribeScalableTargets = DescribeScalableTargets'
 -- -   Neptune cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:mycluster@.
 --
--- 'maxResults', 'describeScalableTargets_maxResults' - The maximum number of scalable targets. This value can be between 1 and
--- 50. The default value is 50.
---
--- If this parameter is used, the operation returns up to @MaxResults@
--- results at a time, along with a @NextToken@ value. To get the next set
--- of results, include the @NextToken@ value in a subsequent call. If this
--- parameter is not used, the operation returns up to 50 results and a
--- @NextToken@ value, if applicable.
---
--- 'serviceNamespace', 'describeScalableTargets_serviceNamespace' - The namespace of the Amazon Web Services service that provides the
--- resource. For a resource provided by your own application or service,
--- use @custom-resource@ instead.
-newDescribeScalableTargets ::
-  -- | 'serviceNamespace'
-  ServiceNamespace ->
-  DescribeScalableTargets
-newDescribeScalableTargets pServiceNamespace_ =
-  DescribeScalableTargets'
-    { nextToken =
-        Prelude.Nothing,
-      scalableDimension = Prelude.Nothing,
-      resourceIds = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      serviceNamespace = pServiceNamespace_
-    }
-
--- | The token for the next set of results.
-describeScalableTargets_nextToken :: Lens.Lens' DescribeScalableTargets (Prelude.Maybe Prelude.Text)
-describeScalableTargets_nextToken = Lens.lens (\DescribeScalableTargets' {nextToken} -> nextToken) (\s@DescribeScalableTargets' {} a -> s {nextToken = a} :: DescribeScalableTargets)
-
--- | The scalable dimension associated with the scalable target. This string
+-- 'scalableDimension', 'describeScalableTargets_scalableDimension' - The scalable dimension associated with the scalable target. This string
 -- consists of the service namespace, resource type, and scaling property.
 -- If you specify a scalable dimension, you must also specify a resource
 -- ID.
@@ -455,8 +366,38 @@ describeScalableTargets_nextToken = Lens.lens (\DescribeScalableTargets' {nextTo
 --
 -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
 --     an Amazon Neptune DB cluster.
-describeScalableTargets_scalableDimension :: Lens.Lens' DescribeScalableTargets (Prelude.Maybe ScalableDimension)
-describeScalableTargets_scalableDimension = Lens.lens (\DescribeScalableTargets' {scalableDimension} -> scalableDimension) (\s@DescribeScalableTargets' {} a -> s {scalableDimension = a} :: DescribeScalableTargets)
+--
+-- 'serviceNamespace', 'describeScalableTargets_serviceNamespace' - The namespace of the Amazon Web Services service that provides the
+-- resource. For a resource provided by your own application or service,
+-- use @custom-resource@ instead.
+newDescribeScalableTargets ::
+  -- | 'serviceNamespace'
+  ServiceNamespace ->
+  DescribeScalableTargets
+newDescribeScalableTargets pServiceNamespace_ =
+  DescribeScalableTargets'
+    { maxResults =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      resourceIds = Prelude.Nothing,
+      scalableDimension = Prelude.Nothing,
+      serviceNamespace = pServiceNamespace_
+    }
+
+-- | The maximum number of scalable targets. This value can be between 1 and
+-- 50. The default value is 50.
+--
+-- If this parameter is used, the operation returns up to @MaxResults@
+-- results at a time, along with a @NextToken@ value. To get the next set
+-- of results, include the @NextToken@ value in a subsequent call. If this
+-- parameter is not used, the operation returns up to 50 results and a
+-- @NextToken@ value, if applicable.
+describeScalableTargets_maxResults :: Lens.Lens' DescribeScalableTargets (Prelude.Maybe Prelude.Int)
+describeScalableTargets_maxResults = Lens.lens (\DescribeScalableTargets' {maxResults} -> maxResults) (\s@DescribeScalableTargets' {} a -> s {maxResults = a} :: DescribeScalableTargets)
+
+-- | The token for the next set of results.
+describeScalableTargets_nextToken :: Lens.Lens' DescribeScalableTargets (Prelude.Maybe Prelude.Text)
+describeScalableTargets_nextToken = Lens.lens (\DescribeScalableTargets' {nextToken} -> nextToken) (\s@DescribeScalableTargets' {} a -> s {nextToken = a} :: DescribeScalableTargets)
 
 -- | The identifier of the resource associated with the scalable target. This
 -- string consists of the resource type and unique identifier.
@@ -528,16 +469,75 @@ describeScalableTargets_scalableDimension = Lens.lens (\DescribeScalableTargets'
 describeScalableTargets_resourceIds :: Lens.Lens' DescribeScalableTargets (Prelude.Maybe [Prelude.Text])
 describeScalableTargets_resourceIds = Lens.lens (\DescribeScalableTargets' {resourceIds} -> resourceIds) (\s@DescribeScalableTargets' {} a -> s {resourceIds = a} :: DescribeScalableTargets) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum number of scalable targets. This value can be between 1 and
--- 50. The default value is 50.
+-- | The scalable dimension associated with the scalable target. This string
+-- consists of the service namespace, resource type, and scaling property.
+-- If you specify a scalable dimension, you must also specify a resource
+-- ID.
 --
--- If this parameter is used, the operation returns up to @MaxResults@
--- results at a time, along with a @NextToken@ value. To get the next set
--- of results, include the @NextToken@ value in a subsequent call. If this
--- parameter is not used, the operation returns up to 50 results and a
--- @NextToken@ value, if applicable.
-describeScalableTargets_maxResults :: Lens.Lens' DescribeScalableTargets (Prelude.Maybe Prelude.Int)
-describeScalableTargets_maxResults = Lens.lens (\DescribeScalableTargets' {maxResults} -> maxResults) (\s@DescribeScalableTargets' {} a -> s {maxResults = a} :: DescribeScalableTargets)
+-- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
+--     service.
+--
+-- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count
+--     of an EMR Instance Group.
+--
+-- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
+--     Spot Fleet.
+--
+-- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
+--     AppStream 2.0 fleet.
+--
+-- -   @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity
+--     for a DynamoDB table.
+--
+-- -   @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity
+--     for a DynamoDB table.
+--
+-- -   @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity
+--     for a DynamoDB global secondary index.
+--
+-- -   @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity
+--     for a DynamoDB global secondary index.
+--
+-- -   @rds:cluster:ReadReplicaCount@ - The count of Aurora Replicas in an
+--     Aurora DB cluster. Available for Aurora MySQL-compatible edition and
+--     Aurora PostgreSQL-compatible edition.
+--
+-- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2
+--     instances for an SageMaker model endpoint variant.
+--
+-- -   @custom-resource:ResourceType:Property@ - The scalable dimension for
+--     a custom resource provided by your own application or service.
+--
+-- -   @comprehend:document-classifier-endpoint:DesiredInferenceUnits@ -
+--     The number of inference units for an Amazon Comprehend document
+--     classification endpoint.
+--
+-- -   @comprehend:entity-recognizer-endpoint:DesiredInferenceUnits@ - The
+--     number of inference units for an Amazon Comprehend entity recognizer
+--     endpoint.
+--
+-- -   @lambda:function:ProvisionedConcurrency@ - The provisioned
+--     concurrency for a Lambda function.
+--
+-- -   @cassandra:table:ReadCapacityUnits@ - The provisioned read capacity
+--     for an Amazon Keyspaces table.
+--
+-- -   @cassandra:table:WriteCapacityUnits@ - The provisioned write
+--     capacity for an Amazon Keyspaces table.
+--
+-- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
+--     GiB) for brokers in an Amazon MSK cluster.
+--
+-- -   @elasticache:replication-group:NodeGroups@ - The number of node
+--     groups for an Amazon ElastiCache replication group.
+--
+-- -   @elasticache:replication-group:Replicas@ - The number of replicas
+--     per node group for an Amazon ElastiCache replication group.
+--
+-- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
+--     an Amazon Neptune DB cluster.
+describeScalableTargets_scalableDimension :: Lens.Lens' DescribeScalableTargets (Prelude.Maybe ScalableDimension)
+describeScalableTargets_scalableDimension = Lens.lens (\DescribeScalableTargets' {scalableDimension} -> scalableDimension) (\s@DescribeScalableTargets' {} a -> s {scalableDimension = a} :: DescribeScalableTargets)
 
 -- | The namespace of the Amazon Web Services service that provides the
 -- resource. For a resource provided by your own application or service,
@@ -586,18 +586,18 @@ instance Core.AWSRequest DescribeScalableTargets where
 
 instance Prelude.Hashable DescribeScalableTargets where
   hashWithSalt _salt DescribeScalableTargets' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` scalableDimension
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceIds
-      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` scalableDimension
       `Prelude.hashWithSalt` serviceNamespace
 
 instance Prelude.NFData DescribeScalableTargets where
   rnf DescribeScalableTargets' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf scalableDimension
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf resourceIds
-      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf scalableDimension
       `Prelude.seq` Prelude.rnf serviceNamespace
 
 instance Data.ToHeaders DescribeScalableTargets where
@@ -619,11 +619,11 @@ instance Data.ToJSON DescribeScalableTargets where
   toJSON DescribeScalableTargets' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ResourceIds" Data..=) Prelude.<$> resourceIds,
             ("ScalableDimension" Data..=)
               Prelude.<$> scalableDimension,
-            ("ResourceIds" Data..=) Prelude.<$> resourceIds,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
               ("ServiceNamespace" Data..= serviceNamespace)
           ]

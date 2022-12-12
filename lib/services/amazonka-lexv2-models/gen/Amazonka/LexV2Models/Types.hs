@@ -18,11 +18,11 @@ module Amazonka.LexV2Models.Types
     defaultService,
 
     -- * Errors
-    _PreconditionFailedException,
-    _InternalServerException,
-    _ServiceQuotaExceededException,
-    _ResourceNotFoundException,
     _ConflictException,
+    _InternalServerException,
+    _PreconditionFailedException,
+    _ResourceNotFoundException,
+    _ServiceQuotaExceededException,
     _ThrottlingException,
     _ValidationException,
 
@@ -209,12 +209,12 @@ module Amazonka.LexV2Models.Types
     -- * AggregatedUtterancesSummary
     AggregatedUtterancesSummary (..),
     newAggregatedUtterancesSummary,
-    aggregatedUtterancesSummary_utteranceLastRecordedInAggregationDuration,
     aggregatedUtterancesSummary_containsDataFromDeletedResources,
+    aggregatedUtterancesSummary_hitCount,
+    aggregatedUtterancesSummary_missedCount,
     aggregatedUtterancesSummary_utterance,
     aggregatedUtterancesSummary_utteranceFirstRecordedInAggregationDuration,
-    aggregatedUtterancesSummary_missedCount,
-    aggregatedUtterancesSummary_hitCount,
+    aggregatedUtterancesSummary_utteranceLastRecordedInAggregationDuration,
 
     -- * AllowedInputTypes
     AllowedInputTypes (..),
@@ -273,12 +273,12 @@ module Amazonka.LexV2Models.Types
     -- * BotAliasSummary
     BotAliasSummary (..),
     newBotAliasSummary,
+    botAliasSummary_botAliasId,
+    botAliasSummary_botAliasName,
     botAliasSummary_botAliasStatus,
     botAliasSummary_botVersion,
     botAliasSummary_creationDateTime,
     botAliasSummary_description,
-    botAliasSummary_botAliasId,
-    botAliasSummary_botAliasName,
     botAliasSummary_lastUpdatedDateTime,
 
     -- * BotExportSpecification
@@ -297,8 +297,8 @@ module Amazonka.LexV2Models.Types
     -- * BotImportSpecification
     BotImportSpecification (..),
     newBotImportSpecification,
-    botImportSpecification_idleSessionTTLInSeconds,
     botImportSpecification_botTags,
+    botImportSpecification_idleSessionTTLInSeconds,
     botImportSpecification_testBotAliasTags,
     botImportSpecification_botName,
     botImportSpecification_roleArn,
@@ -342,25 +342,25 @@ module Amazonka.LexV2Models.Types
     -- * BotLocaleSummary
     BotLocaleSummary (..),
     newBotLocaleSummary,
-    botLocaleSummary_localeName,
-    botLocaleSummary_localeId,
+    botLocaleSummary_botLocaleStatus,
     botLocaleSummary_description,
     botLocaleSummary_lastBuildSubmittedDateTime,
-    botLocaleSummary_botLocaleStatus,
     botLocaleSummary_lastUpdatedDateTime,
+    botLocaleSummary_localeId,
+    botLocaleSummary_localeName,
 
     -- * BotRecommendationResultStatistics
     BotRecommendationResultStatistics (..),
     newBotRecommendationResultStatistics,
-    botRecommendationResultStatistics_slotTypes,
     botRecommendationResultStatistics_intents,
+    botRecommendationResultStatistics_slotTypes,
 
     -- * BotRecommendationResults
     BotRecommendationResults (..),
     newBotRecommendationResults,
+    botRecommendationResults_associatedTranscriptsUrl,
     botRecommendationResults_botLocaleExportUrl,
     botRecommendationResults_statistics,
-    botRecommendationResults_associatedTranscriptsUrl,
 
     -- * BotRecommendationSummary
     BotRecommendationSummary (..),
@@ -379,12 +379,12 @@ module Amazonka.LexV2Models.Types
     -- * BotSummary
     BotSummary (..),
     newBotSummary,
-    botSummary_description,
     botSummary_botId,
     botSummary_botName,
-    botSummary_latestBotVersion,
     botSummary_botStatus,
+    botSummary_description,
     botSummary_lastUpdatedDateTime,
+    botSummary_latestBotVersion,
 
     -- * BotVersionLocaleDetails
     BotVersionLocaleDetails (..),
@@ -400,11 +400,11 @@ module Amazonka.LexV2Models.Types
     -- * BotVersionSummary
     BotVersionSummary (..),
     newBotVersionSummary,
+    botVersionSummary_botName,
+    botVersionSummary_botStatus,
     botVersionSummary_botVersion,
     botVersionSummary_creationDateTime,
     botVersionSummary_description,
-    botVersionSummary_botName,
-    botVersionSummary_botStatus,
 
     -- * BuiltInIntentSortBy
     BuiltInIntentSortBy (..),
@@ -415,8 +415,8 @@ module Amazonka.LexV2Models.Types
     -- * BuiltInIntentSummary
     BuiltInIntentSummary (..),
     newBuiltInIntentSummary,
-    builtInIntentSummary_intentSignature,
     builtInIntentSummary_description,
+    builtInIntentSummary_intentSignature,
 
     -- * BuiltInSlotTypeSortBy
     BuiltInSlotTypeSortBy (..),
@@ -427,8 +427,8 @@ module Amazonka.LexV2Models.Types
     -- * BuiltInSlotTypeSummary
     BuiltInSlotTypeSummary (..),
     newBuiltInSlotTypeSummary,
-    builtInSlotTypeSummary_slotTypeSignature,
     builtInSlotTypeSummary_description,
+    builtInSlotTypeSummary_slotTypeSignature,
 
     -- * Button
     Button (..),
@@ -532,14 +532,14 @@ module Amazonka.LexV2Models.Types
     -- * DefaultConditionalBranch
     DefaultConditionalBranch (..),
     newDefaultConditionalBranch,
-    defaultConditionalBranch_response,
     defaultConditionalBranch_nextStep,
+    defaultConditionalBranch_response,
 
     -- * DialogAction
     DialogAction (..),
     newDialogAction,
-    dialogAction_suppressNextMessage,
     dialogAction_slotToElicit,
+    dialogAction_suppressNextMessage,
     dialogAction_type,
 
     -- * DialogCodeHookInvocationSetting
@@ -559,8 +559,8 @@ module Amazonka.LexV2Models.Types
     DialogState (..),
     newDialogState,
     dialogState_dialogAction,
-    dialogState_sessionAttributes,
     dialogState_intent,
+    dialogState_sessionAttributes,
 
     -- * ElicitationCodeHookInvocationSetting
     ElicitationCodeHookInvocationSetting (..),
@@ -571,9 +571,9 @@ module Amazonka.LexV2Models.Types
     -- * EncryptionSetting
     EncryptionSetting (..),
     newEncryptionSetting,
-    encryptionSetting_kmsKeyArn,
     encryptionSetting_associatedTranscriptsPassword,
     encryptionSetting_botLocaleExportPassword,
+    encryptionSetting_kmsKeyArn,
 
     -- * ExportFilter
     ExportFilter (..),
@@ -585,8 +585,8 @@ module Amazonka.LexV2Models.Types
     -- * ExportResourceSpecification
     ExportResourceSpecification (..),
     newExportResourceSpecification,
-    exportResourceSpecification_botLocaleExportSpecification,
     exportResourceSpecification_botExportSpecification,
+    exportResourceSpecification_botLocaleExportSpecification,
     exportResourceSpecification_customVocabularyExportSpecification,
 
     -- * ExportSortBy
@@ -599,11 +599,11 @@ module Amazonka.LexV2Models.Types
     ExportSummary (..),
     newExportSummary,
     exportSummary_creationDateTime,
-    exportSummary_resourceSpecification,
-    exportSummary_exportStatus,
     exportSummary_exportId,
-    exportSummary_lastUpdatedDateTime,
+    exportSummary_exportStatus,
     exportSummary_fileFormat,
+    exportSummary_lastUpdatedDateTime,
+    exportSummary_resourceSpecification,
 
     -- * ExternalSourceSetting
     ExternalSourceSetting (..),
@@ -613,16 +613,16 @@ module Amazonka.LexV2Models.Types
     -- * FailedCustomVocabularyItem
     FailedCustomVocabularyItem (..),
     newFailedCustomVocabularyItem,
-    failedCustomVocabularyItem_errorMessage,
     failedCustomVocabularyItem_errorCode,
+    failedCustomVocabularyItem_errorMessage,
     failedCustomVocabularyItem_itemId,
 
     -- * FulfillmentCodeHookSettings
     FulfillmentCodeHookSettings (..),
     newFulfillmentCodeHookSettings,
     fulfillmentCodeHookSettings_active,
-    fulfillmentCodeHookSettings_postFulfillmentStatusSpecification,
     fulfillmentCodeHookSettings_fulfillmentUpdatesSpecification,
+    fulfillmentCodeHookSettings_postFulfillmentStatusSpecification,
     fulfillmentCodeHookSettings_enabled,
 
     -- * FulfillmentStartResponseSpecification
@@ -662,9 +662,9 @@ module Amazonka.LexV2Models.Types
     -- * ImageResponseCard
     ImageResponseCard (..),
     newImageResponseCard,
-    imageResponseCard_subtitle,
-    imageResponseCard_imageUrl,
     imageResponseCard_buttons,
+    imageResponseCard_imageUrl,
+    imageResponseCard_subtitle,
     imageResponseCard_title,
 
     -- * ImportFilter
@@ -677,8 +677,8 @@ module Amazonka.LexV2Models.Types
     -- * ImportResourceSpecification
     ImportResourceSpecification (..),
     newImportResourceSpecification,
-    importResourceSpecification_botLocaleImportSpecification,
     importResourceSpecification_botImportSpecification,
+    importResourceSpecification_botLocaleImportSpecification,
     importResourceSpecification_customVocabularyImportSpecification,
 
     -- * ImportSortBy
@@ -691,10 +691,10 @@ module Amazonka.LexV2Models.Types
     ImportSummary (..),
     newImportSummary,
     importSummary_creationDateTime,
-    importSummary_importedResourceName,
     importSummary_importId,
     importSummary_importStatus,
     importSummary_importedResourceId,
+    importSummary_importedResourceName,
     importSummary_importedResourceType,
     importSummary_lastUpdatedDateTime,
     importSummary_mergeStrategy,
@@ -702,10 +702,10 @@ module Amazonka.LexV2Models.Types
     -- * InitialResponseSetting
     InitialResponseSetting (..),
     newInitialResponseSetting,
-    initialResponseSetting_initialResponse,
     initialResponseSetting_codeHook,
-    initialResponseSetting_nextStep,
     initialResponseSetting_conditional,
+    initialResponseSetting_initialResponse,
+    initialResponseSetting_nextStep,
 
     -- * InputContext
     InputContext (..),
@@ -717,24 +717,24 @@ module Amazonka.LexV2Models.Types
     newIntentClosingSetting,
     intentClosingSetting_active,
     intentClosingSetting_closingResponse,
-    intentClosingSetting_nextStep,
     intentClosingSetting_conditional,
+    intentClosingSetting_nextStep,
 
     -- * IntentConfirmationSetting
     IntentConfirmationSetting (..),
     newIntentConfirmationSetting,
     intentConfirmationSetting_active,
-    intentConfirmationSetting_failureNextStep,
     intentConfirmationSetting_codeHook,
-    intentConfirmationSetting_elicitationCodeHook,
-    intentConfirmationSetting_declinationResponse,
-    intentConfirmationSetting_declinationConditional,
-    intentConfirmationSetting_failureConditional,
-    intentConfirmationSetting_confirmationResponse,
-    intentConfirmationSetting_confirmationNextStep,
-    intentConfirmationSetting_failureResponse,
     intentConfirmationSetting_confirmationConditional,
+    intentConfirmationSetting_confirmationNextStep,
+    intentConfirmationSetting_confirmationResponse,
+    intentConfirmationSetting_declinationConditional,
     intentConfirmationSetting_declinationNextStep,
+    intentConfirmationSetting_declinationResponse,
+    intentConfirmationSetting_elicitationCodeHook,
+    intentConfirmationSetting_failureConditional,
+    intentConfirmationSetting_failureNextStep,
+    intentConfirmationSetting_failureResponse,
     intentConfirmationSetting_promptSpecification,
 
     -- * IntentFilter
@@ -764,19 +764,19 @@ module Amazonka.LexV2Models.Types
     -- * IntentSummary
     IntentSummary (..),
     newIntentSummary,
-    intentSummary_outputContexts,
-    intentSummary_parentIntentSignature,
     intentSummary_description,
+    intentSummary_inputContexts,
     intentSummary_intentId,
     intentSummary_intentName,
-    intentSummary_inputContexts,
     intentSummary_lastUpdatedDateTime,
+    intentSummary_outputContexts,
+    intentSummary_parentIntentSignature,
 
     -- * KendraConfiguration
     KendraConfiguration (..),
     newKendraConfiguration,
-    kendraConfiguration_queryFilterStringEnabled,
     kendraConfiguration_queryFilterString,
+    kendraConfiguration_queryFilterStringEnabled,
     kendraConfiguration_kendraIndex,
 
     -- * LambdaCodeHook
@@ -793,10 +793,10 @@ module Amazonka.LexV2Models.Types
     -- * Message
     Message (..),
     newMessage,
-    message_ssmlMessage,
-    message_imageResponseCard,
     message_customPayload,
+    message_imageResponseCard,
     message_plainTextMessage,
+    message_ssmlMessage,
 
     -- * MessageGroup
     MessageGroup (..),
@@ -841,28 +841,28 @@ module Amazonka.LexV2Models.Types
     -- * PostDialogCodeHookInvocationSpecification
     PostDialogCodeHookInvocationSpecification (..),
     newPostDialogCodeHookInvocationSpecification,
-    postDialogCodeHookInvocationSpecification_timeoutNextStep,
-    postDialogCodeHookInvocationSpecification_timeoutConditional,
-    postDialogCodeHookInvocationSpecification_failureNextStep,
-    postDialogCodeHookInvocationSpecification_timeoutResponse,
-    postDialogCodeHookInvocationSpecification_successNextStep,
-    postDialogCodeHookInvocationSpecification_successConditional,
-    postDialogCodeHookInvocationSpecification_successResponse,
     postDialogCodeHookInvocationSpecification_failureConditional,
+    postDialogCodeHookInvocationSpecification_failureNextStep,
     postDialogCodeHookInvocationSpecification_failureResponse,
+    postDialogCodeHookInvocationSpecification_successConditional,
+    postDialogCodeHookInvocationSpecification_successNextStep,
+    postDialogCodeHookInvocationSpecification_successResponse,
+    postDialogCodeHookInvocationSpecification_timeoutConditional,
+    postDialogCodeHookInvocationSpecification_timeoutNextStep,
+    postDialogCodeHookInvocationSpecification_timeoutResponse,
 
     -- * PostFulfillmentStatusSpecification
     PostFulfillmentStatusSpecification (..),
     newPostFulfillmentStatusSpecification,
-    postFulfillmentStatusSpecification_timeoutNextStep,
-    postFulfillmentStatusSpecification_timeoutConditional,
-    postFulfillmentStatusSpecification_failureNextStep,
-    postFulfillmentStatusSpecification_timeoutResponse,
-    postFulfillmentStatusSpecification_successNextStep,
-    postFulfillmentStatusSpecification_successConditional,
-    postFulfillmentStatusSpecification_successResponse,
     postFulfillmentStatusSpecification_failureConditional,
+    postFulfillmentStatusSpecification_failureNextStep,
     postFulfillmentStatusSpecification_failureResponse,
+    postFulfillmentStatusSpecification_successConditional,
+    postFulfillmentStatusSpecification_successNextStep,
+    postFulfillmentStatusSpecification_successResponse,
+    postFulfillmentStatusSpecification_timeoutConditional,
+    postFulfillmentStatusSpecification_timeoutNextStep,
+    postFulfillmentStatusSpecification_timeoutResponse,
 
     -- * Principal
     Principal (..),
@@ -874,25 +874,25 @@ module Amazonka.LexV2Models.Types
     PromptAttemptSpecification (..),
     newPromptAttemptSpecification,
     promptAttemptSpecification_allowInterrupt,
-    promptAttemptSpecification_textInputSpecification,
     promptAttemptSpecification_audioAndDTMFInputSpecification,
+    promptAttemptSpecification_textInputSpecification,
     promptAttemptSpecification_allowedInputTypes,
 
     -- * PromptSpecification
     PromptSpecification (..),
     newPromptSpecification,
     promptSpecification_allowInterrupt,
-    promptSpecification_promptAttemptsSpecification,
     promptSpecification_messageSelectionStrategy,
+    promptSpecification_promptAttemptsSpecification,
     promptSpecification_messageGroups,
     promptSpecification_maxRetries,
 
     -- * RecommendedIntentSummary
     RecommendedIntentSummary (..),
     newRecommendedIntentSummary,
-    recommendedIntentSummary_sampleUtterancesCount,
     recommendedIntentSummary_intentId,
     recommendedIntentSummary_intentName,
+    recommendedIntentSummary_sampleUtterancesCount,
 
     -- * RelativeAggregationDuration
     RelativeAggregationDuration (..),
@@ -916,9 +916,9 @@ module Amazonka.LexV2Models.Types
     -- * S3BucketTranscriptSource
     S3BucketTranscriptSource (..),
     newS3BucketTranscriptSource,
-    s3BucketTranscriptSource_transcriptFilter,
     s3BucketTranscriptSource_kmsKeyArn,
     s3BucketTranscriptSource_pathFormat,
+    s3BucketTranscriptSource_transcriptFilter,
     s3BucketTranscriptSource_s3BucketName,
     s3BucketTranscriptSource_transcriptFormat,
 
@@ -945,14 +945,14 @@ module Amazonka.LexV2Models.Types
     -- * SlotCaptureSetting
     SlotCaptureSetting (..),
     newSlotCaptureSetting,
+    slotCaptureSetting_captureConditional,
+    slotCaptureSetting_captureNextStep,
     slotCaptureSetting_captureResponse,
-    slotCaptureSetting_failureNextStep,
     slotCaptureSetting_codeHook,
     slotCaptureSetting_elicitationCodeHook,
-    slotCaptureSetting_captureConditional,
     slotCaptureSetting_failureConditional,
+    slotCaptureSetting_failureNextStep,
     slotCaptureSetting_failureResponse,
-    slotCaptureSetting_captureNextStep,
 
     -- * SlotDefaultValue
     SlotDefaultValue (..),
@@ -986,13 +986,13 @@ module Amazonka.LexV2Models.Types
     -- * SlotSummary
     SlotSummary (..),
     newSlotSummary,
-    slotSummary_slotName,
     slotSummary_description,
+    slotSummary_lastUpdatedDateTime,
     slotSummary_slotConstraint,
     slotSummary_slotId,
-    slotSummary_valueElicitationPromptSpecification,
+    slotSummary_slotName,
     slotSummary_slotTypeId,
-    slotSummary_lastUpdatedDateTime,
+    slotSummary_valueElicitationPromptSpecification,
 
     -- * SlotTypeFilter
     SlotTypeFilter (..),
@@ -1015,12 +1015,12 @@ module Amazonka.LexV2Models.Types
     -- * SlotTypeSummary
     SlotTypeSummary (..),
     newSlotTypeSummary,
-    slotTypeSummary_slotTypeCategory,
     slotTypeSummary_description,
-    slotTypeSummary_slotTypeName,
-    slotTypeSummary_slotTypeId,
-    slotTypeSummary_parentSlotTypeSignature,
     slotTypeSummary_lastUpdatedDateTime,
+    slotTypeSummary_parentSlotTypeSignature,
+    slotTypeSummary_slotTypeCategory,
+    slotTypeSummary_slotTypeId,
+    slotTypeSummary_slotTypeName,
 
     -- * SlotTypeValue
     SlotTypeValue (..),
@@ -1036,19 +1036,19 @@ module Amazonka.LexV2Models.Types
     -- * SlotValueElicitationSetting
     SlotValueElicitationSetting (..),
     newSlotValueElicitationSetting,
-    slotValueElicitationSetting_sampleUtterances,
-    slotValueElicitationSetting_waitAndContinueSpecification,
-    slotValueElicitationSetting_promptSpecification,
     slotValueElicitationSetting_defaultValueSpecification,
+    slotValueElicitationSetting_promptSpecification,
+    slotValueElicitationSetting_sampleUtterances,
     slotValueElicitationSetting_slotCaptureSetting,
+    slotValueElicitationSetting_waitAndContinueSpecification,
     slotValueElicitationSetting_slotConstraint,
 
     -- * SlotValueOverride
     SlotValueOverride (..),
     newSlotValueOverride,
     slotValueOverride_shape,
-    slotValueOverride_values,
     slotValueOverride_value,
+    slotValueOverride_values,
 
     -- * SlotValueRegexFilter
     SlotValueRegexFilter (..),
@@ -1091,9 +1091,9 @@ module Amazonka.LexV2Models.Types
     -- * SubSlotValueElicitationSetting
     SubSlotValueElicitationSetting (..),
     newSubSlotValueElicitationSetting,
+    subSlotValueElicitationSetting_defaultValueSpecification,
     subSlotValueElicitationSetting_sampleUtterances,
     subSlotValueElicitationSetting_waitAndContinueSpecification,
-    subSlotValueElicitationSetting_defaultValueSpecification,
     subSlotValueElicitationSetting_promptSpecification,
 
     -- * TextInputSpecification
@@ -1366,28 +1366,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -1395,13 +1389,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -1409,41 +1407,9 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
-
--- | Your request couldn\'t be completed because one or more request fields
--- aren\'t valid. Check the fields in your request and try again.
-_PreconditionFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_PreconditionFailedException =
-  Core._MatchServiceError
-    defaultService
-    "PreconditionFailedException"
-    Prelude.. Core.hasStatus 412
-
--- | The service encountered an unexpected condition. Try your request again.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServerException"
-    Prelude.. Core.hasStatus 500
-
--- | You have reached a quota for your bot.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceQuotaExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceQuotaExceededException"
-    Prelude.. Core.hasStatus 402
-
--- | You asked to describe a resource that doesn\'t exist. Check the resource
--- that you are requesting and try again.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
 
 -- | The action that you tried to perform couldn\'t be completed because the
 -- resource is in a conflicting state. For example, deleting a bot that is
@@ -1454,6 +1420,40 @@ _ConflictException =
     defaultService
     "ConflictException"
     Prelude.. Core.hasStatus 409
+
+-- | The service encountered an unexpected condition. Try your request again.
+_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServerException"
+    Prelude.. Core.hasStatus 500
+
+-- | Your request couldn\'t be completed because one or more request fields
+-- aren\'t valid. Check the fields in your request and try again.
+_PreconditionFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PreconditionFailedException =
+  Core._MatchServiceError
+    defaultService
+    "PreconditionFailedException"
+    Prelude.. Core.hasStatus 412
+
+-- | You asked to describe a resource that doesn\'t exist. Check the resource
+-- that you are requesting and try again.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
+
+-- | You have reached a quota for your bot.
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceQuotaExceededException"
+    Prelude.. Core.hasStatus 402
 
 -- | Your request rate is too high. Reduce the frequency of requests.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

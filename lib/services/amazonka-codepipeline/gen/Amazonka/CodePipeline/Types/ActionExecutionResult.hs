@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 data ActionExecutionResult = ActionExecutionResult'
   { -- | The action provider\'s external ID for the action execution.
     externalExecutionId :: Prelude.Maybe Prelude.Text,
+    -- | The action provider\'s summary for the action execution.
+    externalExecutionSummary :: Prelude.Maybe Prelude.Text,
     -- | The deepest external link to the external resource (for example, a
     -- repository URL or deployment endpoint) that is used when running the
     -- action.
-    externalExecutionUrl :: Prelude.Maybe Prelude.Text,
-    -- | The action provider\'s summary for the action execution.
-    externalExecutionSummary :: Prelude.Maybe Prelude.Text
+    externalExecutionUrl :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,34 +49,34 @@ data ActionExecutionResult = ActionExecutionResult'
 --
 -- 'externalExecutionId', 'actionExecutionResult_externalExecutionId' - The action provider\'s external ID for the action execution.
 --
+-- 'externalExecutionSummary', 'actionExecutionResult_externalExecutionSummary' - The action provider\'s summary for the action execution.
+--
 -- 'externalExecutionUrl', 'actionExecutionResult_externalExecutionUrl' - The deepest external link to the external resource (for example, a
 -- repository URL or deployment endpoint) that is used when running the
 -- action.
---
--- 'externalExecutionSummary', 'actionExecutionResult_externalExecutionSummary' - The action provider\'s summary for the action execution.
 newActionExecutionResult ::
   ActionExecutionResult
 newActionExecutionResult =
   ActionExecutionResult'
     { externalExecutionId =
         Prelude.Nothing,
-      externalExecutionUrl = Prelude.Nothing,
-      externalExecutionSummary = Prelude.Nothing
+      externalExecutionSummary = Prelude.Nothing,
+      externalExecutionUrl = Prelude.Nothing
     }
 
 -- | The action provider\'s external ID for the action execution.
 actionExecutionResult_externalExecutionId :: Lens.Lens' ActionExecutionResult (Prelude.Maybe Prelude.Text)
 actionExecutionResult_externalExecutionId = Lens.lens (\ActionExecutionResult' {externalExecutionId} -> externalExecutionId) (\s@ActionExecutionResult' {} a -> s {externalExecutionId = a} :: ActionExecutionResult)
 
+-- | The action provider\'s summary for the action execution.
+actionExecutionResult_externalExecutionSummary :: Lens.Lens' ActionExecutionResult (Prelude.Maybe Prelude.Text)
+actionExecutionResult_externalExecutionSummary = Lens.lens (\ActionExecutionResult' {externalExecutionSummary} -> externalExecutionSummary) (\s@ActionExecutionResult' {} a -> s {externalExecutionSummary = a} :: ActionExecutionResult)
+
 -- | The deepest external link to the external resource (for example, a
 -- repository URL or deployment endpoint) that is used when running the
 -- action.
 actionExecutionResult_externalExecutionUrl :: Lens.Lens' ActionExecutionResult (Prelude.Maybe Prelude.Text)
 actionExecutionResult_externalExecutionUrl = Lens.lens (\ActionExecutionResult' {externalExecutionUrl} -> externalExecutionUrl) (\s@ActionExecutionResult' {} a -> s {externalExecutionUrl = a} :: ActionExecutionResult)
-
--- | The action provider\'s summary for the action execution.
-actionExecutionResult_externalExecutionSummary :: Lens.Lens' ActionExecutionResult (Prelude.Maybe Prelude.Text)
-actionExecutionResult_externalExecutionSummary = Lens.lens (\ActionExecutionResult' {externalExecutionSummary} -> externalExecutionSummary) (\s@ActionExecutionResult' {} a -> s {externalExecutionSummary = a} :: ActionExecutionResult)
 
 instance Data.FromJSON ActionExecutionResult where
   parseJSON =
@@ -85,18 +85,18 @@ instance Data.FromJSON ActionExecutionResult where
       ( \x ->
           ActionExecutionResult'
             Prelude.<$> (x Data..:? "externalExecutionId")
-            Prelude.<*> (x Data..:? "externalExecutionUrl")
             Prelude.<*> (x Data..:? "externalExecutionSummary")
+            Prelude.<*> (x Data..:? "externalExecutionUrl")
       )
 
 instance Prelude.Hashable ActionExecutionResult where
   hashWithSalt _salt ActionExecutionResult' {..} =
     _salt `Prelude.hashWithSalt` externalExecutionId
-      `Prelude.hashWithSalt` externalExecutionUrl
       `Prelude.hashWithSalt` externalExecutionSummary
+      `Prelude.hashWithSalt` externalExecutionUrl
 
 instance Prelude.NFData ActionExecutionResult where
   rnf ActionExecutionResult' {..} =
     Prelude.rnf externalExecutionId
-      `Prelude.seq` Prelude.rnf externalExecutionUrl
       `Prelude.seq` Prelude.rnf externalExecutionSummary
+      `Prelude.seq` Prelude.rnf externalExecutionUrl

@@ -31,12 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFaqSummary' smart constructor.
 data FaqSummary = FaqSummary'
-  { -- | The name that you assigned the FAQ when you created or updated the FAQ.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The current status of the FAQ. When the status is @ACTIVE@ the FAQ is
-    -- ready for use.
-    status :: Prelude.Maybe FaqStatus,
-    -- | The unique identifier of the FAQ.
+  { -- | The UNIX datetime that the FAQ was added to the index.
+    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | The file type used to create the FAQ.
+    fileFormat :: Prelude.Maybe FaqFileFormat,
+    -- | The identifier of the FAQ.
     id :: Prelude.Maybe Prelude.Text,
     -- | The code for a language. This shows a supported language for the FAQ
     -- document as part of the summary information for FAQs. English is
@@ -44,12 +43,13 @@ data FaqSummary = FaqSummary'
     -- including their codes, see
     -- <https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html Adding documents in languages other than English>.
     languageCode :: Prelude.Maybe Prelude.Text,
-    -- | The UNIX datetime that the FAQ was added to the index.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | The name that you assigned the FAQ when you created or updated the FAQ.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the FAQ. When the status is @ACTIVE@ the FAQ is
+    -- ready for use.
+    status :: Prelude.Maybe FaqStatus,
     -- | The UNIX datetime that the FAQ was last updated.
-    updatedAt :: Prelude.Maybe Data.POSIX,
-    -- | The file type used to create the FAQ.
-    fileFormat :: Prelude.Maybe FaqFileFormat
+    updatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,12 +61,11 @@ data FaqSummary = FaqSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'faqSummary_name' - The name that you assigned the FAQ when you created or updated the FAQ.
+-- 'createdAt', 'faqSummary_createdAt' - The UNIX datetime that the FAQ was added to the index.
 --
--- 'status', 'faqSummary_status' - The current status of the FAQ. When the status is @ACTIVE@ the FAQ is
--- ready for use.
+-- 'fileFormat', 'faqSummary_fileFormat' - The file type used to create the FAQ.
 --
--- 'id', 'faqSummary_id' - The unique identifier of the FAQ.
+-- 'id', 'faqSummary_id' - The identifier of the FAQ.
 --
 -- 'languageCode', 'faqSummary_languageCode' - The code for a language. This shows a supported language for the FAQ
 -- document as part of the summary information for FAQs. English is
@@ -74,34 +73,34 @@ data FaqSummary = FaqSummary'
 -- including their codes, see
 -- <https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html Adding documents in languages other than English>.
 --
--- 'createdAt', 'faqSummary_createdAt' - The UNIX datetime that the FAQ was added to the index.
+-- 'name', 'faqSummary_name' - The name that you assigned the FAQ when you created or updated the FAQ.
+--
+-- 'status', 'faqSummary_status' - The current status of the FAQ. When the status is @ACTIVE@ the FAQ is
+-- ready for use.
 --
 -- 'updatedAt', 'faqSummary_updatedAt' - The UNIX datetime that the FAQ was last updated.
---
--- 'fileFormat', 'faqSummary_fileFormat' - The file type used to create the FAQ.
 newFaqSummary ::
   FaqSummary
 newFaqSummary =
   FaqSummary'
-    { name = Prelude.Nothing,
-      status = Prelude.Nothing,
+    { createdAt = Prelude.Nothing,
+      fileFormat = Prelude.Nothing,
       id = Prelude.Nothing,
       languageCode = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      updatedAt = Prelude.Nothing,
-      fileFormat = Prelude.Nothing
+      name = Prelude.Nothing,
+      status = Prelude.Nothing,
+      updatedAt = Prelude.Nothing
     }
 
--- | The name that you assigned the FAQ when you created or updated the FAQ.
-faqSummary_name :: Lens.Lens' FaqSummary (Prelude.Maybe Prelude.Text)
-faqSummary_name = Lens.lens (\FaqSummary' {name} -> name) (\s@FaqSummary' {} a -> s {name = a} :: FaqSummary)
+-- | The UNIX datetime that the FAQ was added to the index.
+faqSummary_createdAt :: Lens.Lens' FaqSummary (Prelude.Maybe Prelude.UTCTime)
+faqSummary_createdAt = Lens.lens (\FaqSummary' {createdAt} -> createdAt) (\s@FaqSummary' {} a -> s {createdAt = a} :: FaqSummary) Prelude.. Lens.mapping Data._Time
 
--- | The current status of the FAQ. When the status is @ACTIVE@ the FAQ is
--- ready for use.
-faqSummary_status :: Lens.Lens' FaqSummary (Prelude.Maybe FaqStatus)
-faqSummary_status = Lens.lens (\FaqSummary' {status} -> status) (\s@FaqSummary' {} a -> s {status = a} :: FaqSummary)
+-- | The file type used to create the FAQ.
+faqSummary_fileFormat :: Lens.Lens' FaqSummary (Prelude.Maybe FaqFileFormat)
+faqSummary_fileFormat = Lens.lens (\FaqSummary' {fileFormat} -> fileFormat) (\s@FaqSummary' {} a -> s {fileFormat = a} :: FaqSummary)
 
--- | The unique identifier of the FAQ.
+-- | The identifier of the FAQ.
 faqSummary_id :: Lens.Lens' FaqSummary (Prelude.Maybe Prelude.Text)
 faqSummary_id = Lens.lens (\FaqSummary' {id} -> id) (\s@FaqSummary' {} a -> s {id = a} :: FaqSummary)
 
@@ -113,17 +112,18 @@ faqSummary_id = Lens.lens (\FaqSummary' {id} -> id) (\s@FaqSummary' {} a -> s {i
 faqSummary_languageCode :: Lens.Lens' FaqSummary (Prelude.Maybe Prelude.Text)
 faqSummary_languageCode = Lens.lens (\FaqSummary' {languageCode} -> languageCode) (\s@FaqSummary' {} a -> s {languageCode = a} :: FaqSummary)
 
--- | The UNIX datetime that the FAQ was added to the index.
-faqSummary_createdAt :: Lens.Lens' FaqSummary (Prelude.Maybe Prelude.UTCTime)
-faqSummary_createdAt = Lens.lens (\FaqSummary' {createdAt} -> createdAt) (\s@FaqSummary' {} a -> s {createdAt = a} :: FaqSummary) Prelude.. Lens.mapping Data._Time
+-- | The name that you assigned the FAQ when you created or updated the FAQ.
+faqSummary_name :: Lens.Lens' FaqSummary (Prelude.Maybe Prelude.Text)
+faqSummary_name = Lens.lens (\FaqSummary' {name} -> name) (\s@FaqSummary' {} a -> s {name = a} :: FaqSummary)
+
+-- | The current status of the FAQ. When the status is @ACTIVE@ the FAQ is
+-- ready for use.
+faqSummary_status :: Lens.Lens' FaqSummary (Prelude.Maybe FaqStatus)
+faqSummary_status = Lens.lens (\FaqSummary' {status} -> status) (\s@FaqSummary' {} a -> s {status = a} :: FaqSummary)
 
 -- | The UNIX datetime that the FAQ was last updated.
 faqSummary_updatedAt :: Lens.Lens' FaqSummary (Prelude.Maybe Prelude.UTCTime)
 faqSummary_updatedAt = Lens.lens (\FaqSummary' {updatedAt} -> updatedAt) (\s@FaqSummary' {} a -> s {updatedAt = a} :: FaqSummary) Prelude.. Lens.mapping Data._Time
-
--- | The file type used to create the FAQ.
-faqSummary_fileFormat :: Lens.Lens' FaqSummary (Prelude.Maybe FaqFileFormat)
-faqSummary_fileFormat = Lens.lens (\FaqSummary' {fileFormat} -> fileFormat) (\s@FaqSummary' {} a -> s {fileFormat = a} :: FaqSummary)
 
 instance Data.FromJSON FaqSummary where
   parseJSON =
@@ -131,31 +131,31 @@ instance Data.FromJSON FaqSummary where
       "FaqSummary"
       ( \x ->
           FaqSummary'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Status")
+            Prelude.<$> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "FileFormat")
             Prelude.<*> (x Data..:? "Id")
             Prelude.<*> (x Data..:? "LanguageCode")
-            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Status")
             Prelude.<*> (x Data..:? "UpdatedAt")
-            Prelude.<*> (x Data..:? "FileFormat")
       )
 
 instance Prelude.Hashable FaqSummary where
   hashWithSalt _salt FaqSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` fileFormat
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` languageCode
-      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` updatedAt
-      `Prelude.hashWithSalt` fileFormat
 
 instance Prelude.NFData FaqSummary where
   rnf FaqSummary' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf fileFormat
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf fileFormat

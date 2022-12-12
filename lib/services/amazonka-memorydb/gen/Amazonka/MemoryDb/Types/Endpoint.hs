@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEndpoint' smart constructor.
 data Endpoint = Endpoint'
-  { -- | The port number that the engine is listening on.
-    port :: Prelude.Maybe Prelude.Int,
-    -- | The DNS hostname of the node.
-    address :: Prelude.Maybe Prelude.Text
+  { -- | The DNS hostname of the node.
+    address :: Prelude.Maybe Prelude.Text,
+    -- | The port number that the engine is listening on.
+    port :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data Endpoint = Endpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'port', 'endpoint_port' - The port number that the engine is listening on.
---
 -- 'address', 'endpoint_address' - The DNS hostname of the node.
+--
+-- 'port', 'endpoint_port' - The port number that the engine is listening on.
 newEndpoint ::
   Endpoint
 newEndpoint =
   Endpoint'
-    { port = Prelude.Nothing,
-      address = Prelude.Nothing
+    { address = Prelude.Nothing,
+      port = Prelude.Nothing
     }
-
--- | The port number that the engine is listening on.
-endpoint_port :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Int)
-endpoint_port = Lens.lens (\Endpoint' {port} -> port) (\s@Endpoint' {} a -> s {port = a} :: Endpoint)
 
 -- | The DNS hostname of the node.
 endpoint_address :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
 endpoint_address = Lens.lens (\Endpoint' {address} -> address) (\s@Endpoint' {} a -> s {address = a} :: Endpoint)
+
+-- | The port number that the engine is listening on.
+endpoint_port :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Int)
+endpoint_port = Lens.lens (\Endpoint' {port} -> port) (\s@Endpoint' {} a -> s {port = a} :: Endpoint)
 
 instance Data.FromJSON Endpoint where
   parseJSON =
@@ -69,15 +69,15 @@ instance Data.FromJSON Endpoint where
       "Endpoint"
       ( \x ->
           Endpoint'
-            Prelude.<$> (x Data..:? "Port")
-            Prelude.<*> (x Data..:? "Address")
+            Prelude.<$> (x Data..:? "Address")
+            Prelude.<*> (x Data..:? "Port")
       )
 
 instance Prelude.Hashable Endpoint where
   hashWithSalt _salt Endpoint' {..} =
-    _salt `Prelude.hashWithSalt` port
-      `Prelude.hashWithSalt` address
+    _salt `Prelude.hashWithSalt` address
+      `Prelude.hashWithSalt` port
 
 instance Prelude.NFData Endpoint where
   rnf Endpoint' {..} =
-    Prelude.rnf port `Prelude.seq` Prelude.rnf address
+    Prelude.rnf address `Prelude.seq` Prelude.rnf port

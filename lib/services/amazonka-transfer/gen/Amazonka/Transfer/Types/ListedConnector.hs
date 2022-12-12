@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newListedConnector' smart constructor.
 data ListedConnector = ListedConnector'
-  { -- | The unique identifier for the connector.
-    connectorId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the specified connector.
+  { -- | The Amazon Resource Name (ARN) of the specified connector.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier for the connector.
+    connectorId :: Prelude.Maybe Prelude.Text,
     -- | The URL of the partner\'s AS2 endpoint.
     url :: Prelude.Maybe Prelude.Text
   }
@@ -45,27 +45,27 @@ data ListedConnector = ListedConnector'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'connectorId', 'listedConnector_connectorId' - The unique identifier for the connector.
---
 -- 'arn', 'listedConnector_arn' - The Amazon Resource Name (ARN) of the specified connector.
+--
+-- 'connectorId', 'listedConnector_connectorId' - The unique identifier for the connector.
 --
 -- 'url', 'listedConnector_url' - The URL of the partner\'s AS2 endpoint.
 newListedConnector ::
   ListedConnector
 newListedConnector =
   ListedConnector'
-    { connectorId = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      connectorId = Prelude.Nothing,
       url = Prelude.Nothing
     }
-
--- | The unique identifier for the connector.
-listedConnector_connectorId :: Lens.Lens' ListedConnector (Prelude.Maybe Prelude.Text)
-listedConnector_connectorId = Lens.lens (\ListedConnector' {connectorId} -> connectorId) (\s@ListedConnector' {} a -> s {connectorId = a} :: ListedConnector)
 
 -- | The Amazon Resource Name (ARN) of the specified connector.
 listedConnector_arn :: Lens.Lens' ListedConnector (Prelude.Maybe Prelude.Text)
 listedConnector_arn = Lens.lens (\ListedConnector' {arn} -> arn) (\s@ListedConnector' {} a -> s {arn = a} :: ListedConnector)
+
+-- | The unique identifier for the connector.
+listedConnector_connectorId :: Lens.Lens' ListedConnector (Prelude.Maybe Prelude.Text)
+listedConnector_connectorId = Lens.lens (\ListedConnector' {connectorId} -> connectorId) (\s@ListedConnector' {} a -> s {connectorId = a} :: ListedConnector)
 
 -- | The URL of the partner\'s AS2 endpoint.
 listedConnector_url :: Lens.Lens' ListedConnector (Prelude.Maybe Prelude.Text)
@@ -77,19 +77,19 @@ instance Data.FromJSON ListedConnector where
       "ListedConnector"
       ( \x ->
           ListedConnector'
-            Prelude.<$> (x Data..:? "ConnectorId")
-            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<$> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "ConnectorId")
             Prelude.<*> (x Data..:? "Url")
       )
 
 instance Prelude.Hashable ListedConnector where
   hashWithSalt _salt ListedConnector' {..} =
-    _salt `Prelude.hashWithSalt` connectorId
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` connectorId
       `Prelude.hashWithSalt` url
 
 instance Prelude.NFData ListedConnector where
   rnf ListedConnector' {..} =
-    Prelude.rnf connectorId
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf connectorId
       `Prelude.seq` Prelude.rnf url

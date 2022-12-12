@@ -32,9 +32,9 @@ module Amazonka.Lightsail.GetCertificates
     newGetCertificates,
 
     -- * Request Lenses
-    getCertificates_includeCertificateDetails,
     getCertificates_certificateName,
     getCertificates_certificateStatuses,
+    getCertificates_includeCertificateDetails,
 
     -- * Destructuring the Response
     GetCertificatesResponse (..),
@@ -56,13 +56,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetCertificates' smart constructor.
 data GetCertificates = GetCertificates'
-  { -- | Indicates whether to include detailed information about the certificates
-    -- in the response.
-    --
-    -- When omitted, the response includes only the certificate names, Amazon
-    -- Resource Names (ARNs), domain names, and tags.
-    includeCertificateDetails :: Prelude.Maybe Prelude.Bool,
-    -- | The name for the certificate for which to return information.
+  { -- | The name for the certificate for which to return information.
     --
     -- When omitted, the response includes all of your certificates in the
     -- Amazon Web Services Region where the request is made.
@@ -75,7 +69,13 @@ data GetCertificates = GetCertificates'
     -- When omitted, the response includes all of your certificates in the
     -- Amazon Web Services Region where the request is made, regardless of
     -- their current status.
-    certificateStatuses :: Prelude.Maybe [CertificateStatus]
+    certificateStatuses :: Prelude.Maybe [CertificateStatus],
+    -- | Indicates whether to include detailed information about the certificates
+    -- in the response.
+    --
+    -- When omitted, the response includes only the certificate names, Amazon
+    -- Resource Names (ARNs), domain names, and tags.
+    includeCertificateDetails :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -86,12 +86,6 @@ data GetCertificates = GetCertificates'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'includeCertificateDetails', 'getCertificates_includeCertificateDetails' - Indicates whether to include detailed information about the certificates
--- in the response.
---
--- When omitted, the response includes only the certificate names, Amazon
--- Resource Names (ARNs), domain names, and tags.
 --
 -- 'certificateName', 'getCertificates_certificateName' - The name for the certificate for which to return information.
 --
@@ -106,23 +100,20 @@ data GetCertificates = GetCertificates'
 -- When omitted, the response includes all of your certificates in the
 -- Amazon Web Services Region where the request is made, regardless of
 -- their current status.
-newGetCertificates ::
-  GetCertificates
-newGetCertificates =
-  GetCertificates'
-    { includeCertificateDetails =
-        Prelude.Nothing,
-      certificateName = Prelude.Nothing,
-      certificateStatuses = Prelude.Nothing
-    }
-
--- | Indicates whether to include detailed information about the certificates
+--
+-- 'includeCertificateDetails', 'getCertificates_includeCertificateDetails' - Indicates whether to include detailed information about the certificates
 -- in the response.
 --
 -- When omitted, the response includes only the certificate names, Amazon
 -- Resource Names (ARNs), domain names, and tags.
-getCertificates_includeCertificateDetails :: Lens.Lens' GetCertificates (Prelude.Maybe Prelude.Bool)
-getCertificates_includeCertificateDetails = Lens.lens (\GetCertificates' {includeCertificateDetails} -> includeCertificateDetails) (\s@GetCertificates' {} a -> s {includeCertificateDetails = a} :: GetCertificates)
+newGetCertificates ::
+  GetCertificates
+newGetCertificates =
+  GetCertificates'
+    { certificateName = Prelude.Nothing,
+      certificateStatuses = Prelude.Nothing,
+      includeCertificateDetails = Prelude.Nothing
+    }
 
 -- | The name for the certificate for which to return information.
 --
@@ -142,6 +133,14 @@ getCertificates_certificateName = Lens.lens (\GetCertificates' {certificateName}
 getCertificates_certificateStatuses :: Lens.Lens' GetCertificates (Prelude.Maybe [CertificateStatus])
 getCertificates_certificateStatuses = Lens.lens (\GetCertificates' {certificateStatuses} -> certificateStatuses) (\s@GetCertificates' {} a -> s {certificateStatuses = a} :: GetCertificates) Prelude.. Lens.mapping Lens.coerced
 
+-- | Indicates whether to include detailed information about the certificates
+-- in the response.
+--
+-- When omitted, the response includes only the certificate names, Amazon
+-- Resource Names (ARNs), domain names, and tags.
+getCertificates_includeCertificateDetails :: Lens.Lens' GetCertificates (Prelude.Maybe Prelude.Bool)
+getCertificates_includeCertificateDetails = Lens.lens (\GetCertificates' {includeCertificateDetails} -> includeCertificateDetails) (\s@GetCertificates' {} a -> s {includeCertificateDetails = a} :: GetCertificates)
+
 instance Core.AWSRequest GetCertificates where
   type
     AWSResponse GetCertificates =
@@ -158,16 +157,15 @@ instance Core.AWSRequest GetCertificates where
 
 instance Prelude.Hashable GetCertificates where
   hashWithSalt _salt GetCertificates' {..} =
-    _salt
-      `Prelude.hashWithSalt` includeCertificateDetails
-      `Prelude.hashWithSalt` certificateName
+    _salt `Prelude.hashWithSalt` certificateName
       `Prelude.hashWithSalt` certificateStatuses
+      `Prelude.hashWithSalt` includeCertificateDetails
 
 instance Prelude.NFData GetCertificates where
   rnf GetCertificates' {..} =
-    Prelude.rnf includeCertificateDetails
-      `Prelude.seq` Prelude.rnf certificateName
+    Prelude.rnf certificateName
       `Prelude.seq` Prelude.rnf certificateStatuses
+      `Prelude.seq` Prelude.rnf includeCertificateDetails
 
 instance Data.ToHeaders GetCertificates where
   toHeaders =
@@ -188,12 +186,12 @@ instance Data.ToJSON GetCertificates where
   toJSON GetCertificates' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("includeCertificateDetails" Data..=)
-              Prelude.<$> includeCertificateDetails,
-            ("certificateName" Data..=)
+          [ ("certificateName" Data..=)
               Prelude.<$> certificateName,
             ("certificateStatuses" Data..=)
-              Prelude.<$> certificateStatuses
+              Prelude.<$> certificateStatuses,
+            ("includeCertificateDetails" Data..=)
+              Prelude.<$> includeCertificateDetails
           ]
       )
 

@@ -37,6 +37,12 @@ data SearchForTextResult = SearchForTextResult'
     -- A great-circle arc is the shortest path on a sphere, in this case the
     -- Earth. This returns the shortest distance between two locations.
     distance :: Prelude.Maybe Prelude.Double,
+    -- | The unique identifier of the place. You can use this with the @GetPlace@
+    -- operation to find the place again later.
+    --
+    -- For @SearchPlaceIndexForText@ operations, the @PlaceId@ is returned only
+    -- by place indexes that use HERE as a data provider.
+    placeId :: Prelude.Maybe Prelude.Text,
     -- | The relative confidence in the match for a result among the results
     -- returned. For example, if more fields for an address match (including
     -- house number, street, city, country\/region, and postal code), the
@@ -44,12 +50,6 @@ data SearchForTextResult = SearchForTextResult'
     --
     -- Returned only when the partner selected is Esri.
     relevance :: Prelude.Maybe Prelude.Double,
-    -- | The unique identifier of the place. You can use this with the @GetPlace@
-    -- operation to find the place again later.
-    --
-    -- For @SearchPlaceIndexForText@ operations, the @PlaceId@ is returned only
-    -- by place indexes that use HERE as a data provider.
-    placeId :: Prelude.Maybe Prelude.Text,
     -- | Details about the search result, such as its address and position.
     place :: Place
   }
@@ -70,18 +70,18 @@ data SearchForTextResult = SearchForTextResult'
 -- A great-circle arc is the shortest path on a sphere, in this case the
 -- Earth. This returns the shortest distance between two locations.
 --
+-- 'placeId', 'searchForTextResult_placeId' - The unique identifier of the place. You can use this with the @GetPlace@
+-- operation to find the place again later.
+--
+-- For @SearchPlaceIndexForText@ operations, the @PlaceId@ is returned only
+-- by place indexes that use HERE as a data provider.
+--
 -- 'relevance', 'searchForTextResult_relevance' - The relative confidence in the match for a result among the results
 -- returned. For example, if more fields for an address match (including
 -- house number, street, city, country\/region, and postal code), the
 -- relevance score is closer to 1.
 --
 -- Returned only when the partner selected is Esri.
---
--- 'placeId', 'searchForTextResult_placeId' - The unique identifier of the place. You can use this with the @GetPlace@
--- operation to find the place again later.
---
--- For @SearchPlaceIndexForText@ operations, the @PlaceId@ is returned only
--- by place indexes that use HERE as a data provider.
 --
 -- 'place', 'searchForTextResult_place' - Details about the search result, such as its address and position.
 newSearchForTextResult ::
@@ -91,8 +91,8 @@ newSearchForTextResult ::
 newSearchForTextResult pPlace_ =
   SearchForTextResult'
     { distance = Prelude.Nothing,
-      relevance = Prelude.Nothing,
       placeId = Prelude.Nothing,
+      relevance = Prelude.Nothing,
       place = pPlace_
     }
 
@@ -105,6 +105,14 @@ newSearchForTextResult pPlace_ =
 searchForTextResult_distance :: Lens.Lens' SearchForTextResult (Prelude.Maybe Prelude.Double)
 searchForTextResult_distance = Lens.lens (\SearchForTextResult' {distance} -> distance) (\s@SearchForTextResult' {} a -> s {distance = a} :: SearchForTextResult)
 
+-- | The unique identifier of the place. You can use this with the @GetPlace@
+-- operation to find the place again later.
+--
+-- For @SearchPlaceIndexForText@ operations, the @PlaceId@ is returned only
+-- by place indexes that use HERE as a data provider.
+searchForTextResult_placeId :: Lens.Lens' SearchForTextResult (Prelude.Maybe Prelude.Text)
+searchForTextResult_placeId = Lens.lens (\SearchForTextResult' {placeId} -> placeId) (\s@SearchForTextResult' {} a -> s {placeId = a} :: SearchForTextResult)
+
 -- | The relative confidence in the match for a result among the results
 -- returned. For example, if more fields for an address match (including
 -- house number, street, city, country\/region, and postal code), the
@@ -113,14 +121,6 @@ searchForTextResult_distance = Lens.lens (\SearchForTextResult' {distance} -> di
 -- Returned only when the partner selected is Esri.
 searchForTextResult_relevance :: Lens.Lens' SearchForTextResult (Prelude.Maybe Prelude.Double)
 searchForTextResult_relevance = Lens.lens (\SearchForTextResult' {relevance} -> relevance) (\s@SearchForTextResult' {} a -> s {relevance = a} :: SearchForTextResult)
-
--- | The unique identifier of the place. You can use this with the @GetPlace@
--- operation to find the place again later.
---
--- For @SearchPlaceIndexForText@ operations, the @PlaceId@ is returned only
--- by place indexes that use HERE as a data provider.
-searchForTextResult_placeId :: Lens.Lens' SearchForTextResult (Prelude.Maybe Prelude.Text)
-searchForTextResult_placeId = Lens.lens (\SearchForTextResult' {placeId} -> placeId) (\s@SearchForTextResult' {} a -> s {placeId = a} :: SearchForTextResult)
 
 -- | Details about the search result, such as its address and position.
 searchForTextResult_place :: Lens.Lens' SearchForTextResult Place
@@ -133,21 +133,21 @@ instance Data.FromJSON SearchForTextResult where
       ( \x ->
           SearchForTextResult'
             Prelude.<$> (x Data..:? "Distance")
-            Prelude.<*> (x Data..:? "Relevance")
             Prelude.<*> (x Data..:? "PlaceId")
+            Prelude.<*> (x Data..:? "Relevance")
             Prelude.<*> (x Data..: "Place")
       )
 
 instance Prelude.Hashable SearchForTextResult where
   hashWithSalt _salt SearchForTextResult' {..} =
     _salt `Prelude.hashWithSalt` distance
-      `Prelude.hashWithSalt` relevance
       `Prelude.hashWithSalt` placeId
+      `Prelude.hashWithSalt` relevance
       `Prelude.hashWithSalt` place
 
 instance Prelude.NFData SearchForTextResult where
   rnf SearchForTextResult' {..} =
     Prelude.rnf distance
-      `Prelude.seq` Prelude.rnf relevance
       `Prelude.seq` Prelude.rnf placeId
+      `Prelude.seq` Prelude.rnf relevance
       `Prelude.seq` Prelude.rnf place

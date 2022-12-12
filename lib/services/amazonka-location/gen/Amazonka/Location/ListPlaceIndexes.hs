@@ -29,8 +29,8 @@ module Amazonka.Location.ListPlaceIndexes
     newListPlaceIndexes,
 
     -- * Request Lenses
-    listPlaceIndexes_nextToken,
     listPlaceIndexes_maxResults,
+    listPlaceIndexes_nextToken,
 
     -- * Destructuring the Response
     ListPlaceIndexesResponse (..),
@@ -53,16 +53,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPlaceIndexes' smart constructor.
 data ListPlaceIndexes = ListPlaceIndexes'
-  { -- | The pagination token specifying which page of results to return in the
-    -- response. If no token is provided, the default page is the first page.
-    --
-    -- Default value: @null@
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An optional limit for the maximum number of results returned in a single
+  { -- | An optional limit for the maximum number of results returned in a single
     -- call.
     --
     -- Default value: @100@
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token specifying which page of results to return in the
+    -- response. If no token is provided, the default page is the first page.
+    --
+    -- Default value: @null@
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,29 +74,22 @@ data ListPlaceIndexes = ListPlaceIndexes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPlaceIndexes_nextToken' - The pagination token specifying which page of results to return in the
--- response. If no token is provided, the default page is the first page.
---
--- Default value: @null@
---
 -- 'maxResults', 'listPlaceIndexes_maxResults' - An optional limit for the maximum number of results returned in a single
 -- call.
 --
 -- Default value: @100@
+--
+-- 'nextToken', 'listPlaceIndexes_nextToken' - The pagination token specifying which page of results to return in the
+-- response. If no token is provided, the default page is the first page.
+--
+-- Default value: @null@
 newListPlaceIndexes ::
   ListPlaceIndexes
 newListPlaceIndexes =
   ListPlaceIndexes'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The pagination token specifying which page of results to return in the
--- response. If no token is provided, the default page is the first page.
---
--- Default value: @null@
-listPlaceIndexes_nextToken :: Lens.Lens' ListPlaceIndexes (Prelude.Maybe Prelude.Text)
-listPlaceIndexes_nextToken = Lens.lens (\ListPlaceIndexes' {nextToken} -> nextToken) (\s@ListPlaceIndexes' {} a -> s {nextToken = a} :: ListPlaceIndexes)
 
 -- | An optional limit for the maximum number of results returned in a single
 -- call.
@@ -104,6 +97,13 @@ listPlaceIndexes_nextToken = Lens.lens (\ListPlaceIndexes' {nextToken} -> nextTo
 -- Default value: @100@
 listPlaceIndexes_maxResults :: Lens.Lens' ListPlaceIndexes (Prelude.Maybe Prelude.Natural)
 listPlaceIndexes_maxResults = Lens.lens (\ListPlaceIndexes' {maxResults} -> maxResults) (\s@ListPlaceIndexes' {} a -> s {maxResults = a} :: ListPlaceIndexes)
+
+-- | The pagination token specifying which page of results to return in the
+-- response. If no token is provided, the default page is the first page.
+--
+-- Default value: @null@
+listPlaceIndexes_nextToken :: Lens.Lens' ListPlaceIndexes (Prelude.Maybe Prelude.Text)
+listPlaceIndexes_nextToken = Lens.lens (\ListPlaceIndexes' {nextToken} -> nextToken) (\s@ListPlaceIndexes' {} a -> s {nextToken = a} :: ListPlaceIndexes)
 
 instance Core.AWSPager ListPlaceIndexes where
   page rq rs
@@ -141,13 +141,13 @@ instance Core.AWSRequest ListPlaceIndexes where
 
 instance Prelude.Hashable ListPlaceIndexes where
   hashWithSalt _salt ListPlaceIndexes' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListPlaceIndexes where
   rnf ListPlaceIndexes' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListPlaceIndexes where
   toHeaders =
@@ -164,8 +164,8 @@ instance Data.ToJSON ListPlaceIndexes where
   toJSON ListPlaceIndexes' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

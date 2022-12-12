@@ -34,22 +34,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPlayReadyDrm' smart constructor.
 data PlayReadyDrm = PlayReadyDrm'
-  { -- | The DRM key for your file, provided by your DRM license provider. The
-    -- key must be base64-encoded, and it must be one of the following bit
-    -- lengths before being base64-encoded:
-    --
-    -- @128@, @192@, or @256@.
-    --
-    -- The key must also be encrypted by using AWS KMS.
-    key :: Prelude.Maybe Prelude.Text,
-    -- | The location of the license key required to play DRM content. The URL
-    -- must be an absolute path, and is referenced by the PlayReady header. The
-    -- PlayReady header is referenced in the protection header of the client
-    -- manifest for Smooth Streaming outputs, and in the EXT-X-DXDRM and
-    -- EXT-XDXDRMINFO metadata tags for HLS playlist outputs. An example URL
-    -- looks like this: @https:\/\/www.example.com\/exampleKey\/@
-    licenseAcquisitionUrl :: Prelude.Maybe Prelude.Text,
-    -- | The type of DRM, if any, that you want Elastic Transcoder to apply to
+  { -- | The type of DRM, if any, that you want Elastic Transcoder to apply to
     -- the output files associated with this playlist.
     format :: Prelude.Maybe Prelude.Text,
     -- | The series of random bits created by a random bit generator, unique for
@@ -59,11 +44,14 @@ data PlayReadyDrm = PlayReadyDrm'
     -- initialization vector is provided, Elastic Transcoder generates one for
     -- you.
     initializationVector :: Prelude.Maybe Prelude.Text,
-    -- | The MD5 digest of the key used for DRM on your file, and that you want
-    -- Elastic Transcoder to use as a checksum to make sure your key was not
-    -- corrupted in transit. The key MD5 must be base64-encoded, and it must be
-    -- exactly 16 bytes before being base64-encoded.
-    keyMd5 :: Prelude.Maybe Prelude.Text,
+    -- | The DRM key for your file, provided by your DRM license provider. The
+    -- key must be base64-encoded, and it must be one of the following bit
+    -- lengths before being base64-encoded:
+    --
+    -- @128@, @192@, or @256@.
+    --
+    -- The key must also be encrypted by using AWS KMS.
+    key :: Prelude.Maybe Prelude.Text,
     -- | The ID for your DRM key, so that your DRM license provider knows which
     -- key to provide.
     --
@@ -71,7 +59,19 @@ data PlayReadyDrm = PlayReadyDrm'
     -- converts it to little endian before inserting it into the PlayReady DRM
     -- headers. If you are unsure whether your license server provides your key
     -- ID in big or little endian, check with your DRM provider.
-    keyId :: Prelude.Maybe Prelude.Text
+    keyId :: Prelude.Maybe Prelude.Text,
+    -- | The MD5 digest of the key used for DRM on your file, and that you want
+    -- Elastic Transcoder to use as a checksum to make sure your key was not
+    -- corrupted in transit. The key MD5 must be base64-encoded, and it must be
+    -- exactly 16 bytes before being base64-encoded.
+    keyMd5 :: Prelude.Maybe Prelude.Text,
+    -- | The location of the license key required to play DRM content. The URL
+    -- must be an absolute path, and is referenced by the PlayReady header. The
+    -- PlayReady header is referenced in the protection header of the client
+    -- manifest for Smooth Streaming outputs, and in the EXT-X-DXDRM and
+    -- EXT-XDXDRMINFO metadata tags for HLS playlist outputs. An example URL
+    -- looks like this: @https:\/\/www.example.com\/exampleKey\/@
+    licenseAcquisitionUrl :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -83,21 +83,6 @@ data PlayReadyDrm = PlayReadyDrm'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 'playReadyDrm_key' - The DRM key for your file, provided by your DRM license provider. The
--- key must be base64-encoded, and it must be one of the following bit
--- lengths before being base64-encoded:
---
--- @128@, @192@, or @256@.
---
--- The key must also be encrypted by using AWS KMS.
---
--- 'licenseAcquisitionUrl', 'playReadyDrm_licenseAcquisitionUrl' - The location of the license key required to play DRM content. The URL
--- must be an absolute path, and is referenced by the PlayReady header. The
--- PlayReady header is referenced in the protection header of the client
--- manifest for Smooth Streaming outputs, and in the EXT-X-DXDRM and
--- EXT-XDXDRMINFO metadata tags for HLS playlist outputs. An example URL
--- looks like this: @https:\/\/www.example.com\/exampleKey\/@
---
 -- 'format', 'playReadyDrm_format' - The type of DRM, if any, that you want Elastic Transcoder to apply to
 -- the output files associated with this playlist.
 --
@@ -108,10 +93,13 @@ data PlayReadyDrm = PlayReadyDrm'
 -- initialization vector is provided, Elastic Transcoder generates one for
 -- you.
 --
--- 'keyMd5', 'playReadyDrm_keyMd5' - The MD5 digest of the key used for DRM on your file, and that you want
--- Elastic Transcoder to use as a checksum to make sure your key was not
--- corrupted in transit. The key MD5 must be base64-encoded, and it must be
--- exactly 16 bytes before being base64-encoded.
+-- 'key', 'playReadyDrm_key' - The DRM key for your file, provided by your DRM license provider. The
+-- key must be base64-encoded, and it must be one of the following bit
+-- lengths before being base64-encoded:
+--
+-- @128@, @192@, or @256@.
+--
+-- The key must also be encrypted by using AWS KMS.
 --
 -- 'keyId', 'playReadyDrm_keyId' - The ID for your DRM key, so that your DRM license provider knows which
 -- key to provide.
@@ -120,36 +108,29 @@ data PlayReadyDrm = PlayReadyDrm'
 -- converts it to little endian before inserting it into the PlayReady DRM
 -- headers. If you are unsure whether your license server provides your key
 -- ID in big or little endian, check with your DRM provider.
-newPlayReadyDrm ::
-  PlayReadyDrm
-newPlayReadyDrm =
-  PlayReadyDrm'
-    { key = Prelude.Nothing,
-      licenseAcquisitionUrl = Prelude.Nothing,
-      format = Prelude.Nothing,
-      initializationVector = Prelude.Nothing,
-      keyMd5 = Prelude.Nothing,
-      keyId = Prelude.Nothing
-    }
-
--- | The DRM key for your file, provided by your DRM license provider. The
--- key must be base64-encoded, and it must be one of the following bit
--- lengths before being base64-encoded:
 --
--- @128@, @192@, or @256@.
+-- 'keyMd5', 'playReadyDrm_keyMd5' - The MD5 digest of the key used for DRM on your file, and that you want
+-- Elastic Transcoder to use as a checksum to make sure your key was not
+-- corrupted in transit. The key MD5 must be base64-encoded, and it must be
+-- exactly 16 bytes before being base64-encoded.
 --
--- The key must also be encrypted by using AWS KMS.
-playReadyDrm_key :: Lens.Lens' PlayReadyDrm (Prelude.Maybe Prelude.Text)
-playReadyDrm_key = Lens.lens (\PlayReadyDrm' {key} -> key) (\s@PlayReadyDrm' {} a -> s {key = a} :: PlayReadyDrm)
-
--- | The location of the license key required to play DRM content. The URL
+-- 'licenseAcquisitionUrl', 'playReadyDrm_licenseAcquisitionUrl' - The location of the license key required to play DRM content. The URL
 -- must be an absolute path, and is referenced by the PlayReady header. The
 -- PlayReady header is referenced in the protection header of the client
 -- manifest for Smooth Streaming outputs, and in the EXT-X-DXDRM and
 -- EXT-XDXDRMINFO metadata tags for HLS playlist outputs. An example URL
 -- looks like this: @https:\/\/www.example.com\/exampleKey\/@
-playReadyDrm_licenseAcquisitionUrl :: Lens.Lens' PlayReadyDrm (Prelude.Maybe Prelude.Text)
-playReadyDrm_licenseAcquisitionUrl = Lens.lens (\PlayReadyDrm' {licenseAcquisitionUrl} -> licenseAcquisitionUrl) (\s@PlayReadyDrm' {} a -> s {licenseAcquisitionUrl = a} :: PlayReadyDrm)
+newPlayReadyDrm ::
+  PlayReadyDrm
+newPlayReadyDrm =
+  PlayReadyDrm'
+    { format = Prelude.Nothing,
+      initializationVector = Prelude.Nothing,
+      key = Prelude.Nothing,
+      keyId = Prelude.Nothing,
+      keyMd5 = Prelude.Nothing,
+      licenseAcquisitionUrl = Prelude.Nothing
+    }
 
 -- | The type of DRM, if any, that you want Elastic Transcoder to apply to
 -- the output files associated with this playlist.
@@ -165,12 +146,15 @@ playReadyDrm_format = Lens.lens (\PlayReadyDrm' {format} -> format) (\s@PlayRead
 playReadyDrm_initializationVector :: Lens.Lens' PlayReadyDrm (Prelude.Maybe Prelude.Text)
 playReadyDrm_initializationVector = Lens.lens (\PlayReadyDrm' {initializationVector} -> initializationVector) (\s@PlayReadyDrm' {} a -> s {initializationVector = a} :: PlayReadyDrm)
 
--- | The MD5 digest of the key used for DRM on your file, and that you want
--- Elastic Transcoder to use as a checksum to make sure your key was not
--- corrupted in transit. The key MD5 must be base64-encoded, and it must be
--- exactly 16 bytes before being base64-encoded.
-playReadyDrm_keyMd5 :: Lens.Lens' PlayReadyDrm (Prelude.Maybe Prelude.Text)
-playReadyDrm_keyMd5 = Lens.lens (\PlayReadyDrm' {keyMd5} -> keyMd5) (\s@PlayReadyDrm' {} a -> s {keyMd5 = a} :: PlayReadyDrm)
+-- | The DRM key for your file, provided by your DRM license provider. The
+-- key must be base64-encoded, and it must be one of the following bit
+-- lengths before being base64-encoded:
+--
+-- @128@, @192@, or @256@.
+--
+-- The key must also be encrypted by using AWS KMS.
+playReadyDrm_key :: Lens.Lens' PlayReadyDrm (Prelude.Maybe Prelude.Text)
+playReadyDrm_key = Lens.lens (\PlayReadyDrm' {key} -> key) (\s@PlayReadyDrm' {} a -> s {key = a} :: PlayReadyDrm)
 
 -- | The ID for your DRM key, so that your DRM license provider knows which
 -- key to provide.
@@ -182,49 +166,65 @@ playReadyDrm_keyMd5 = Lens.lens (\PlayReadyDrm' {keyMd5} -> keyMd5) (\s@PlayRead
 playReadyDrm_keyId :: Lens.Lens' PlayReadyDrm (Prelude.Maybe Prelude.Text)
 playReadyDrm_keyId = Lens.lens (\PlayReadyDrm' {keyId} -> keyId) (\s@PlayReadyDrm' {} a -> s {keyId = a} :: PlayReadyDrm)
 
+-- | The MD5 digest of the key used for DRM on your file, and that you want
+-- Elastic Transcoder to use as a checksum to make sure your key was not
+-- corrupted in transit. The key MD5 must be base64-encoded, and it must be
+-- exactly 16 bytes before being base64-encoded.
+playReadyDrm_keyMd5 :: Lens.Lens' PlayReadyDrm (Prelude.Maybe Prelude.Text)
+playReadyDrm_keyMd5 = Lens.lens (\PlayReadyDrm' {keyMd5} -> keyMd5) (\s@PlayReadyDrm' {} a -> s {keyMd5 = a} :: PlayReadyDrm)
+
+-- | The location of the license key required to play DRM content. The URL
+-- must be an absolute path, and is referenced by the PlayReady header. The
+-- PlayReady header is referenced in the protection header of the client
+-- manifest for Smooth Streaming outputs, and in the EXT-X-DXDRM and
+-- EXT-XDXDRMINFO metadata tags for HLS playlist outputs. An example URL
+-- looks like this: @https:\/\/www.example.com\/exampleKey\/@
+playReadyDrm_licenseAcquisitionUrl :: Lens.Lens' PlayReadyDrm (Prelude.Maybe Prelude.Text)
+playReadyDrm_licenseAcquisitionUrl = Lens.lens (\PlayReadyDrm' {licenseAcquisitionUrl} -> licenseAcquisitionUrl) (\s@PlayReadyDrm' {} a -> s {licenseAcquisitionUrl = a} :: PlayReadyDrm)
+
 instance Data.FromJSON PlayReadyDrm where
   parseJSON =
     Data.withObject
       "PlayReadyDrm"
       ( \x ->
           PlayReadyDrm'
-            Prelude.<$> (x Data..:? "Key")
-            Prelude.<*> (x Data..:? "LicenseAcquisitionUrl")
-            Prelude.<*> (x Data..:? "Format")
+            Prelude.<$> (x Data..:? "Format")
             Prelude.<*> (x Data..:? "InitializationVector")
-            Prelude.<*> (x Data..:? "KeyMd5")
+            Prelude.<*> (x Data..:? "Key")
             Prelude.<*> (x Data..:? "KeyId")
+            Prelude.<*> (x Data..:? "KeyMd5")
+            Prelude.<*> (x Data..:? "LicenseAcquisitionUrl")
       )
 
 instance Prelude.Hashable PlayReadyDrm where
   hashWithSalt _salt PlayReadyDrm' {..} =
-    _salt `Prelude.hashWithSalt` key
-      `Prelude.hashWithSalt` licenseAcquisitionUrl
-      `Prelude.hashWithSalt` format
+    _salt `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` initializationVector
-      `Prelude.hashWithSalt` keyMd5
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` keyId
+      `Prelude.hashWithSalt` keyMd5
+      `Prelude.hashWithSalt` licenseAcquisitionUrl
 
 instance Prelude.NFData PlayReadyDrm where
   rnf PlayReadyDrm' {..} =
-    Prelude.rnf key
-      `Prelude.seq` Prelude.rnf licenseAcquisitionUrl
-      `Prelude.seq` Prelude.rnf format
+    Prelude.rnf format
       `Prelude.seq` Prelude.rnf initializationVector
-      `Prelude.seq` Prelude.rnf keyMd5
+      `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf keyMd5
+      `Prelude.seq` Prelude.rnf licenseAcquisitionUrl
 
 instance Data.ToJSON PlayReadyDrm where
   toJSON PlayReadyDrm' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Key" Data..=) Prelude.<$> key,
-            ("LicenseAcquisitionUrl" Data..=)
-              Prelude.<$> licenseAcquisitionUrl,
-            ("Format" Data..=) Prelude.<$> format,
+          [ ("Format" Data..=) Prelude.<$> format,
             ("InitializationVector" Data..=)
               Prelude.<$> initializationVector,
+            ("Key" Data..=) Prelude.<$> key,
+            ("KeyId" Data..=) Prelude.<$> keyId,
             ("KeyMd5" Data..=) Prelude.<$> keyMd5,
-            ("KeyId" Data..=) Prelude.<$> keyId
+            ("LicenseAcquisitionUrl" Data..=)
+              Prelude.<$> licenseAcquisitionUrl
           ]
       )

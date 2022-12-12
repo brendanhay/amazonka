@@ -29,14 +29,14 @@ import Amazonka.WorkSpaces.Types.IpRuleItem
 --
 -- /See:/ 'newWorkspacesIpGroup' smart constructor.
 data WorkspacesIpGroup = WorkspacesIpGroup'
-  { -- | The rules.
-    userRules :: Prelude.Maybe [IpRuleItem],
-    -- | The name of the group.
-    groupName :: Prelude.Maybe Prelude.Text,
-    -- | The description of the group.
+  { -- | The description of the group.
     groupDesc :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the group.
-    groupId :: Prelude.Maybe Prelude.Text
+    groupId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the group.
+    groupName :: Prelude.Maybe Prelude.Text,
+    -- | The rules.
+    userRules :: Prelude.Maybe [IpRuleItem]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,30 +48,22 @@ data WorkspacesIpGroup = WorkspacesIpGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'userRules', 'workspacesIpGroup_userRules' - The rules.
---
--- 'groupName', 'workspacesIpGroup_groupName' - The name of the group.
---
 -- 'groupDesc', 'workspacesIpGroup_groupDesc' - The description of the group.
 --
 -- 'groupId', 'workspacesIpGroup_groupId' - The identifier of the group.
+--
+-- 'groupName', 'workspacesIpGroup_groupName' - The name of the group.
+--
+-- 'userRules', 'workspacesIpGroup_userRules' - The rules.
 newWorkspacesIpGroup ::
   WorkspacesIpGroup
 newWorkspacesIpGroup =
   WorkspacesIpGroup'
-    { userRules = Prelude.Nothing,
+    { groupDesc = Prelude.Nothing,
+      groupId = Prelude.Nothing,
       groupName = Prelude.Nothing,
-      groupDesc = Prelude.Nothing,
-      groupId = Prelude.Nothing
+      userRules = Prelude.Nothing
     }
-
--- | The rules.
-workspacesIpGroup_userRules :: Lens.Lens' WorkspacesIpGroup (Prelude.Maybe [IpRuleItem])
-workspacesIpGroup_userRules = Lens.lens (\WorkspacesIpGroup' {userRules} -> userRules) (\s@WorkspacesIpGroup' {} a -> s {userRules = a} :: WorkspacesIpGroup) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the group.
-workspacesIpGroup_groupName :: Lens.Lens' WorkspacesIpGroup (Prelude.Maybe Prelude.Text)
-workspacesIpGroup_groupName = Lens.lens (\WorkspacesIpGroup' {groupName} -> groupName) (\s@WorkspacesIpGroup' {} a -> s {groupName = a} :: WorkspacesIpGroup)
 
 -- | The description of the group.
 workspacesIpGroup_groupDesc :: Lens.Lens' WorkspacesIpGroup (Prelude.Maybe Prelude.Text)
@@ -81,28 +73,36 @@ workspacesIpGroup_groupDesc = Lens.lens (\WorkspacesIpGroup' {groupDesc} -> grou
 workspacesIpGroup_groupId :: Lens.Lens' WorkspacesIpGroup (Prelude.Maybe Prelude.Text)
 workspacesIpGroup_groupId = Lens.lens (\WorkspacesIpGroup' {groupId} -> groupId) (\s@WorkspacesIpGroup' {} a -> s {groupId = a} :: WorkspacesIpGroup)
 
+-- | The name of the group.
+workspacesIpGroup_groupName :: Lens.Lens' WorkspacesIpGroup (Prelude.Maybe Prelude.Text)
+workspacesIpGroup_groupName = Lens.lens (\WorkspacesIpGroup' {groupName} -> groupName) (\s@WorkspacesIpGroup' {} a -> s {groupName = a} :: WorkspacesIpGroup)
+
+-- | The rules.
+workspacesIpGroup_userRules :: Lens.Lens' WorkspacesIpGroup (Prelude.Maybe [IpRuleItem])
+workspacesIpGroup_userRules = Lens.lens (\WorkspacesIpGroup' {userRules} -> userRules) (\s@WorkspacesIpGroup' {} a -> s {userRules = a} :: WorkspacesIpGroup) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON WorkspacesIpGroup where
   parseJSON =
     Data.withObject
       "WorkspacesIpGroup"
       ( \x ->
           WorkspacesIpGroup'
-            Prelude.<$> (x Data..:? "userRules" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "groupName")
-            Prelude.<*> (x Data..:? "groupDesc")
+            Prelude.<$> (x Data..:? "groupDesc")
             Prelude.<*> (x Data..:? "groupId")
+            Prelude.<*> (x Data..:? "groupName")
+            Prelude.<*> (x Data..:? "userRules" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable WorkspacesIpGroup where
   hashWithSalt _salt WorkspacesIpGroup' {..} =
-    _salt `Prelude.hashWithSalt` userRules
-      `Prelude.hashWithSalt` groupName
-      `Prelude.hashWithSalt` groupDesc
+    _salt `Prelude.hashWithSalt` groupDesc
       `Prelude.hashWithSalt` groupId
+      `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` userRules
 
 instance Prelude.NFData WorkspacesIpGroup where
   rnf WorkspacesIpGroup' {..} =
-    Prelude.rnf userRules
-      `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf groupDesc
+    Prelude.rnf groupDesc
       `Prelude.seq` Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf userRules

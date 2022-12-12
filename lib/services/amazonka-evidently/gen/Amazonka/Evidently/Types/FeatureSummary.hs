@@ -32,16 +32,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFeatureSummary' smart constructor.
 data FeatureSummary = FeatureSummary'
-  { -- | The list of tag keys and values associated with this feature.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The name or ARN of the project that contains the feature.
-    project :: Prelude.Maybe Prelude.Text,
-    -- | An array of structures that define
-    evaluationRules :: Prelude.Maybe [EvaluationRule],
-    -- | The name of the variation that is used as the default variation. The
+  { -- | The name of the variation that is used as the default variation. The
     -- default variation is served to users who are not allocated to any
     -- ongoing launches or experiments of this feature.
     defaultVariation :: Prelude.Maybe Prelude.Text,
+    -- | An array of structures that define
+    evaluationRules :: Prelude.Maybe [EvaluationRule],
+    -- | The name or ARN of the project that contains the feature.
+    project :: Prelude.Maybe Prelude.Text,
+    -- | The list of tag keys and values associated with this feature.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The ARN of the feature.
     arn :: Prelude.Text,
     -- | The date and time that the feature is created.
@@ -67,15 +67,15 @@ data FeatureSummary = FeatureSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'featureSummary_tags' - The list of tag keys and values associated with this feature.
---
--- 'project', 'featureSummary_project' - The name or ARN of the project that contains the feature.
---
--- 'evaluationRules', 'featureSummary_evaluationRules' - An array of structures that define
---
 -- 'defaultVariation', 'featureSummary_defaultVariation' - The name of the variation that is used as the default variation. The
 -- default variation is served to users who are not allocated to any
 -- ongoing launches or experiments of this feature.
+--
+-- 'evaluationRules', 'featureSummary_evaluationRules' - An array of structures that define
+--
+-- 'project', 'featureSummary_project' - The name or ARN of the project that contains the feature.
+--
+-- 'tags', 'featureSummary_tags' - The list of tag keys and values associated with this feature.
 --
 -- 'arn', 'featureSummary_arn' - The ARN of the feature.
 --
@@ -112,10 +112,10 @@ newFeatureSummary
   pName_
   pStatus_ =
     FeatureSummary'
-      { tags = Prelude.Nothing,
-        project = Prelude.Nothing,
+      { defaultVariation = Prelude.Nothing,
         evaluationRules = Prelude.Nothing,
-        defaultVariation = Prelude.Nothing,
+        project = Prelude.Nothing,
+        tags = Prelude.Nothing,
         arn = pArn_,
         createdTime = Data._Time Lens.# pCreatedTime_,
         evaluationStrategy = pEvaluationStrategy_,
@@ -125,23 +125,23 @@ newFeatureSummary
         status = pStatus_
       }
 
--- | The list of tag keys and values associated with this feature.
-featureSummary_tags :: Lens.Lens' FeatureSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-featureSummary_tags = Lens.lens (\FeatureSummary' {tags} -> tags) (\s@FeatureSummary' {} a -> s {tags = a} :: FeatureSummary) Prelude.. Lens.mapping Lens.coerced
-
--- | The name or ARN of the project that contains the feature.
-featureSummary_project :: Lens.Lens' FeatureSummary (Prelude.Maybe Prelude.Text)
-featureSummary_project = Lens.lens (\FeatureSummary' {project} -> project) (\s@FeatureSummary' {} a -> s {project = a} :: FeatureSummary)
-
--- | An array of structures that define
-featureSummary_evaluationRules :: Lens.Lens' FeatureSummary (Prelude.Maybe [EvaluationRule])
-featureSummary_evaluationRules = Lens.lens (\FeatureSummary' {evaluationRules} -> evaluationRules) (\s@FeatureSummary' {} a -> s {evaluationRules = a} :: FeatureSummary) Prelude.. Lens.mapping Lens.coerced
-
 -- | The name of the variation that is used as the default variation. The
 -- default variation is served to users who are not allocated to any
 -- ongoing launches or experiments of this feature.
 featureSummary_defaultVariation :: Lens.Lens' FeatureSummary (Prelude.Maybe Prelude.Text)
 featureSummary_defaultVariation = Lens.lens (\FeatureSummary' {defaultVariation} -> defaultVariation) (\s@FeatureSummary' {} a -> s {defaultVariation = a} :: FeatureSummary)
+
+-- | An array of structures that define
+featureSummary_evaluationRules :: Lens.Lens' FeatureSummary (Prelude.Maybe [EvaluationRule])
+featureSummary_evaluationRules = Lens.lens (\FeatureSummary' {evaluationRules} -> evaluationRules) (\s@FeatureSummary' {} a -> s {evaluationRules = a} :: FeatureSummary) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name or ARN of the project that contains the feature.
+featureSummary_project :: Lens.Lens' FeatureSummary (Prelude.Maybe Prelude.Text)
+featureSummary_project = Lens.lens (\FeatureSummary' {project} -> project) (\s@FeatureSummary' {} a -> s {project = a} :: FeatureSummary)
+
+-- | The list of tag keys and values associated with this feature.
+featureSummary_tags :: Lens.Lens' FeatureSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+featureSummary_tags = Lens.lens (\FeatureSummary' {tags} -> tags) (\s@FeatureSummary' {} a -> s {tags = a} :: FeatureSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the feature.
 featureSummary_arn :: Lens.Lens' FeatureSummary Prelude.Text
@@ -175,12 +175,12 @@ instance Data.FromJSON FeatureSummary where
       "FeatureSummary"
       ( \x ->
           FeatureSummary'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "project")
+            Prelude.<$> (x Data..:? "defaultVariation")
             Prelude.<*> ( x Data..:? "evaluationRules"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "defaultVariation")
+            Prelude.<*> (x Data..:? "project")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "arn")
             Prelude.<*> (x Data..: "createdTime")
             Prelude.<*> (x Data..: "evaluationStrategy")
@@ -191,10 +191,10 @@ instance Data.FromJSON FeatureSummary where
 
 instance Prelude.Hashable FeatureSummary where
   hashWithSalt _salt FeatureSummary' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` project
+    _salt `Prelude.hashWithSalt` defaultVariation
       `Prelude.hashWithSalt` evaluationRules
-      `Prelude.hashWithSalt` defaultVariation
+      `Prelude.hashWithSalt` project
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` evaluationStrategy
@@ -204,10 +204,10 @@ instance Prelude.Hashable FeatureSummary where
 
 instance Prelude.NFData FeatureSummary where
   rnf FeatureSummary' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf project
+    Prelude.rnf defaultVariation
       `Prelude.seq` Prelude.rnf evaluationRules
-      `Prelude.seq` Prelude.rnf defaultVariation
+      `Prelude.seq` Prelude.rnf project
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf createdTime
       `Prelude.seq` Prelude.rnf evaluationStrategy

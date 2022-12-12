@@ -33,12 +33,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGlobalConfiguration' smart constructor.
 data GlobalConfiguration = GlobalConfiguration'
-  { -- | Settings for system actions when input is lost.
-    inputLossBehavior :: Prelude.Maybe InputLossBehavior,
-    -- | Adjusts video input buffer for streams with very low video framerates.
-    -- This is commonly set to enabled for music channels with less than one
-    -- video frame per second.
-    supportLowFramerateInputs :: Prelude.Maybe GlobalConfigurationLowFramerateInputs,
+  { -- | Value to set the initial audio gain for the Live Event.
+    initialAudioGain :: Prelude.Maybe Prelude.Int,
     -- | Indicates the action to take when the current input completes (e.g.
     -- end-of-file). When switchAndLoopInputs is configured the encoder will
     -- restart at the beginning of the first input. When \"none\" is configured
@@ -47,6 +43,8 @@ data GlobalConfiguration = GlobalConfiguration'
     -- until the next input switch occurs (which is controlled through the
     -- Channel Schedule API).
     inputEndAction :: Prelude.Maybe GlobalConfigurationInputEndAction,
+    -- | Settings for system actions when input is lost.
+    inputLossBehavior :: Prelude.Maybe InputLossBehavior,
     -- | Indicates how MediaLive pipelines are synchronized. PIPELINE_LOCKING -
     -- MediaLive will attempt to synchronize the output of each pipeline to the
     -- other. EPOCH_LOCKING - MediaLive will attempt to synchronize the output
@@ -57,8 +55,10 @@ data GlobalConfiguration = GlobalConfiguration'
     -- source via NTP) or should be locked to the clock of the source that is
     -- providing the input stream.
     outputTimingSource :: Prelude.Maybe GlobalConfigurationOutputTimingSource,
-    -- | Value to set the initial audio gain for the Live Event.
-    initialAudioGain :: Prelude.Maybe Prelude.Int
+    -- | Adjusts video input buffer for streams with very low video framerates.
+    -- This is commonly set to enabled for music channels with less than one
+    -- video frame per second.
+    supportLowFramerateInputs :: Prelude.Maybe GlobalConfigurationLowFramerateInputs
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,11 +70,7 @@ data GlobalConfiguration = GlobalConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'inputLossBehavior', 'globalConfiguration_inputLossBehavior' - Settings for system actions when input is lost.
---
--- 'supportLowFramerateInputs', 'globalConfiguration_supportLowFramerateInputs' - Adjusts video input buffer for streams with very low video framerates.
--- This is commonly set to enabled for music channels with less than one
--- video frame per second.
+-- 'initialAudioGain', 'globalConfiguration_initialAudioGain' - Value to set the initial audio gain for the Live Event.
 --
 -- 'inputEndAction', 'globalConfiguration_inputEndAction' - Indicates the action to take when the current input completes (e.g.
 -- end-of-file). When switchAndLoopInputs is configured the encoder will
@@ -83,6 +79,8 @@ data GlobalConfiguration = GlobalConfiguration'
 -- specified slate images per the \"Input Loss Behavior\" configuration
 -- until the next input switch occurs (which is controlled through the
 -- Channel Schedule API).
+--
+-- 'inputLossBehavior', 'globalConfiguration_inputLossBehavior' - Settings for system actions when input is lost.
 --
 -- 'outputLockingMode', 'globalConfiguration_outputLockingMode' - Indicates how MediaLive pipelines are synchronized. PIPELINE_LOCKING -
 -- MediaLive will attempt to synchronize the output of each pipeline to the
@@ -94,29 +92,25 @@ data GlobalConfiguration = GlobalConfiguration'
 -- source via NTP) or should be locked to the clock of the source that is
 -- providing the input stream.
 --
--- 'initialAudioGain', 'globalConfiguration_initialAudioGain' - Value to set the initial audio gain for the Live Event.
+-- 'supportLowFramerateInputs', 'globalConfiguration_supportLowFramerateInputs' - Adjusts video input buffer for streams with very low video framerates.
+-- This is commonly set to enabled for music channels with less than one
+-- video frame per second.
 newGlobalConfiguration ::
   GlobalConfiguration
 newGlobalConfiguration =
   GlobalConfiguration'
-    { inputLossBehavior =
+    { initialAudioGain =
         Prelude.Nothing,
-      supportLowFramerateInputs = Prelude.Nothing,
       inputEndAction = Prelude.Nothing,
+      inputLossBehavior = Prelude.Nothing,
       outputLockingMode = Prelude.Nothing,
       outputTimingSource = Prelude.Nothing,
-      initialAudioGain = Prelude.Nothing
+      supportLowFramerateInputs = Prelude.Nothing
     }
 
--- | Settings for system actions when input is lost.
-globalConfiguration_inputLossBehavior :: Lens.Lens' GlobalConfiguration (Prelude.Maybe InputLossBehavior)
-globalConfiguration_inputLossBehavior = Lens.lens (\GlobalConfiguration' {inputLossBehavior} -> inputLossBehavior) (\s@GlobalConfiguration' {} a -> s {inputLossBehavior = a} :: GlobalConfiguration)
-
--- | Adjusts video input buffer for streams with very low video framerates.
--- This is commonly set to enabled for music channels with less than one
--- video frame per second.
-globalConfiguration_supportLowFramerateInputs :: Lens.Lens' GlobalConfiguration (Prelude.Maybe GlobalConfigurationLowFramerateInputs)
-globalConfiguration_supportLowFramerateInputs = Lens.lens (\GlobalConfiguration' {supportLowFramerateInputs} -> supportLowFramerateInputs) (\s@GlobalConfiguration' {} a -> s {supportLowFramerateInputs = a} :: GlobalConfiguration)
+-- | Value to set the initial audio gain for the Live Event.
+globalConfiguration_initialAudioGain :: Lens.Lens' GlobalConfiguration (Prelude.Maybe Prelude.Int)
+globalConfiguration_initialAudioGain = Lens.lens (\GlobalConfiguration' {initialAudioGain} -> initialAudioGain) (\s@GlobalConfiguration' {} a -> s {initialAudioGain = a} :: GlobalConfiguration)
 
 -- | Indicates the action to take when the current input completes (e.g.
 -- end-of-file). When switchAndLoopInputs is configured the encoder will
@@ -127,6 +121,10 @@ globalConfiguration_supportLowFramerateInputs = Lens.lens (\GlobalConfiguration'
 -- Channel Schedule API).
 globalConfiguration_inputEndAction :: Lens.Lens' GlobalConfiguration (Prelude.Maybe GlobalConfigurationInputEndAction)
 globalConfiguration_inputEndAction = Lens.lens (\GlobalConfiguration' {inputEndAction} -> inputEndAction) (\s@GlobalConfiguration' {} a -> s {inputEndAction = a} :: GlobalConfiguration)
+
+-- | Settings for system actions when input is lost.
+globalConfiguration_inputLossBehavior :: Lens.Lens' GlobalConfiguration (Prelude.Maybe InputLossBehavior)
+globalConfiguration_inputLossBehavior = Lens.lens (\GlobalConfiguration' {inputLossBehavior} -> inputLossBehavior) (\s@GlobalConfiguration' {} a -> s {inputLossBehavior = a} :: GlobalConfiguration)
 
 -- | Indicates how MediaLive pipelines are synchronized. PIPELINE_LOCKING -
 -- MediaLive will attempt to synchronize the output of each pipeline to the
@@ -142,9 +140,11 @@ globalConfiguration_outputLockingMode = Lens.lens (\GlobalConfiguration' {output
 globalConfiguration_outputTimingSource :: Lens.Lens' GlobalConfiguration (Prelude.Maybe GlobalConfigurationOutputTimingSource)
 globalConfiguration_outputTimingSource = Lens.lens (\GlobalConfiguration' {outputTimingSource} -> outputTimingSource) (\s@GlobalConfiguration' {} a -> s {outputTimingSource = a} :: GlobalConfiguration)
 
--- | Value to set the initial audio gain for the Live Event.
-globalConfiguration_initialAudioGain :: Lens.Lens' GlobalConfiguration (Prelude.Maybe Prelude.Int)
-globalConfiguration_initialAudioGain = Lens.lens (\GlobalConfiguration' {initialAudioGain} -> initialAudioGain) (\s@GlobalConfiguration' {} a -> s {initialAudioGain = a} :: GlobalConfiguration)
+-- | Adjusts video input buffer for streams with very low video framerates.
+-- This is commonly set to enabled for music channels with less than one
+-- video frame per second.
+globalConfiguration_supportLowFramerateInputs :: Lens.Lens' GlobalConfiguration (Prelude.Maybe GlobalConfigurationLowFramerateInputs)
+globalConfiguration_supportLowFramerateInputs = Lens.lens (\GlobalConfiguration' {supportLowFramerateInputs} -> supportLowFramerateInputs) (\s@GlobalConfiguration' {} a -> s {supportLowFramerateInputs = a} :: GlobalConfiguration)
 
 instance Data.FromJSON GlobalConfiguration where
   parseJSON =
@@ -152,47 +152,47 @@ instance Data.FromJSON GlobalConfiguration where
       "GlobalConfiguration"
       ( \x ->
           GlobalConfiguration'
-            Prelude.<$> (x Data..:? "inputLossBehavior")
-            Prelude.<*> (x Data..:? "supportLowFramerateInputs")
+            Prelude.<$> (x Data..:? "initialAudioGain")
             Prelude.<*> (x Data..:? "inputEndAction")
+            Prelude.<*> (x Data..:? "inputLossBehavior")
             Prelude.<*> (x Data..:? "outputLockingMode")
             Prelude.<*> (x Data..:? "outputTimingSource")
-            Prelude.<*> (x Data..:? "initialAudioGain")
+            Prelude.<*> (x Data..:? "supportLowFramerateInputs")
       )
 
 instance Prelude.Hashable GlobalConfiguration where
   hashWithSalt _salt GlobalConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` inputLossBehavior
-      `Prelude.hashWithSalt` supportLowFramerateInputs
+    _salt `Prelude.hashWithSalt` initialAudioGain
       `Prelude.hashWithSalt` inputEndAction
+      `Prelude.hashWithSalt` inputLossBehavior
       `Prelude.hashWithSalt` outputLockingMode
       `Prelude.hashWithSalt` outputTimingSource
-      `Prelude.hashWithSalt` initialAudioGain
+      `Prelude.hashWithSalt` supportLowFramerateInputs
 
 instance Prelude.NFData GlobalConfiguration where
   rnf GlobalConfiguration' {..} =
-    Prelude.rnf inputLossBehavior
-      `Prelude.seq` Prelude.rnf supportLowFramerateInputs
+    Prelude.rnf initialAudioGain
       `Prelude.seq` Prelude.rnf inputEndAction
+      `Prelude.seq` Prelude.rnf inputLossBehavior
       `Prelude.seq` Prelude.rnf outputLockingMode
       `Prelude.seq` Prelude.rnf outputTimingSource
-      `Prelude.seq` Prelude.rnf initialAudioGain
+      `Prelude.seq` Prelude.rnf supportLowFramerateInputs
 
 instance Data.ToJSON GlobalConfiguration where
   toJSON GlobalConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("inputLossBehavior" Data..=)
-              Prelude.<$> inputLossBehavior,
-            ("supportLowFramerateInputs" Data..=)
-              Prelude.<$> supportLowFramerateInputs,
+          [ ("initialAudioGain" Data..=)
+              Prelude.<$> initialAudioGain,
             ("inputEndAction" Data..=)
               Prelude.<$> inputEndAction,
+            ("inputLossBehavior" Data..=)
+              Prelude.<$> inputLossBehavior,
             ("outputLockingMode" Data..=)
               Prelude.<$> outputLockingMode,
             ("outputTimingSource" Data..=)
               Prelude.<$> outputTimingSource,
-            ("initialAudioGain" Data..=)
-              Prelude.<$> initialAudioGain
+            ("supportLowFramerateInputs" Data..=)
+              Prelude.<$> supportLowFramerateInputs
           ]
       )

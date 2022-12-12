@@ -28,8 +28,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAttribute' smart constructor.
 data Attribute = Attribute'
-  { alternateValueEncoding :: Prelude.Maybe Prelude.Text,
-    alternateNameEncoding :: Prelude.Maybe Prelude.Text,
+  { alternateNameEncoding :: Prelude.Maybe Prelude.Text,
+    alternateValueEncoding :: Prelude.Maybe Prelude.Text,
     -- | The name of the attribute.
     name :: Prelude.Text,
     -- | The value of the attribute.
@@ -45,9 +45,9 @@ data Attribute = Attribute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'alternateValueEncoding', 'attribute_alternateValueEncoding' -
---
 -- 'alternateNameEncoding', 'attribute_alternateNameEncoding' -
+--
+-- 'alternateValueEncoding', 'attribute_alternateValueEncoding' -
 --
 -- 'name', 'attribute_name' - The name of the attribute.
 --
@@ -60,20 +60,19 @@ newAttribute ::
   Attribute
 newAttribute pName_ pValue_ =
   Attribute'
-    { alternateValueEncoding =
-        Prelude.Nothing,
-      alternateNameEncoding = Prelude.Nothing,
+    { alternateNameEncoding = Prelude.Nothing,
+      alternateValueEncoding = Prelude.Nothing,
       name = pName_,
       value = pValue_
     }
 
 -- |
-attribute_alternateValueEncoding :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Text)
-attribute_alternateValueEncoding = Lens.lens (\Attribute' {alternateValueEncoding} -> alternateValueEncoding) (\s@Attribute' {} a -> s {alternateValueEncoding = a} :: Attribute)
-
--- |
 attribute_alternateNameEncoding :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Text)
 attribute_alternateNameEncoding = Lens.lens (\Attribute' {alternateNameEncoding} -> alternateNameEncoding) (\s@Attribute' {} a -> s {alternateNameEncoding = a} :: Attribute)
+
+-- |
+attribute_alternateValueEncoding :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Text)
+attribute_alternateValueEncoding = Lens.lens (\Attribute' {alternateValueEncoding} -> alternateValueEncoding) (\s@Attribute' {} a -> s {alternateValueEncoding = a} :: Attribute)
 
 -- | The name of the attribute.
 attribute_name :: Lens.Lens' Attribute Prelude.Text
@@ -86,32 +85,32 @@ attribute_value = Lens.lens (\Attribute' {value} -> value) (\s@Attribute' {} a -
 instance Data.FromXML Attribute where
   parseXML x =
     Attribute'
-      Prelude.<$> (x Data..@? "AlternateValueEncoding")
-      Prelude.<*> (x Data..@? "AlternateNameEncoding")
+      Prelude.<$> (x Data..@? "AlternateNameEncoding")
+      Prelude.<*> (x Data..@? "AlternateValueEncoding")
       Prelude.<*> (x Data..@ "Name")
       Prelude.<*> (x Data..@ "Value")
 
 instance Prelude.Hashable Attribute where
   hashWithSalt _salt Attribute' {..} =
-    _salt `Prelude.hashWithSalt` alternateValueEncoding
-      `Prelude.hashWithSalt` alternateNameEncoding
+    _salt `Prelude.hashWithSalt` alternateNameEncoding
+      `Prelude.hashWithSalt` alternateValueEncoding
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Attribute where
   rnf Attribute' {..} =
-    Prelude.rnf alternateValueEncoding
-      `Prelude.seq` Prelude.rnf alternateNameEncoding
+    Prelude.rnf alternateNameEncoding
+      `Prelude.seq` Prelude.rnf alternateValueEncoding
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf value
 
 instance Data.ToQuery Attribute where
   toQuery Attribute' {..} =
     Prelude.mconcat
-      [ "AlternateValueEncoding"
-          Data.=: alternateValueEncoding,
-        "AlternateNameEncoding"
+      [ "AlternateNameEncoding"
           Data.=: alternateNameEncoding,
+        "AlternateValueEncoding"
+          Data.=: alternateValueEncoding,
         "Name" Data.=: name,
         "Value" Data.=: value
       ]

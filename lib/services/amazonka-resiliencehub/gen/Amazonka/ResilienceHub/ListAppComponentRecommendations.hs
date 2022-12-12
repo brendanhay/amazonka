@@ -27,8 +27,8 @@ module Amazonka.ResilienceHub.ListAppComponentRecommendations
     newListAppComponentRecommendations,
 
     -- * Request Lenses
-    listAppComponentRecommendations_nextToken,
     listAppComponentRecommendations_maxResults,
+    listAppComponentRecommendations_nextToken,
     listAppComponentRecommendations_assessmentArn,
 
     -- * Destructuring the Response
@@ -52,12 +52,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAppComponentRecommendations' smart constructor.
 data ListAppComponentRecommendations = ListAppComponentRecommendations'
-  { -- | Null, or the token from a previous call to get the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to include in the response. If more
+  { -- | The maximum number of results to include in the response. If more
     -- results exist than the specified @MaxResults@ value, a token is included
     -- in the response so that the remaining results can be retrieved.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Null, or the token from a previous call to get the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the assessment. The format for this
     -- ARN is:
     -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
@@ -76,11 +76,11 @@ data ListAppComponentRecommendations = ListAppComponentRecommendations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAppComponentRecommendations_nextToken' - Null, or the token from a previous call to get the next set of results.
---
 -- 'maxResults', 'listAppComponentRecommendations_maxResults' - The maximum number of results to include in the response. If more
 -- results exist than the specified @MaxResults@ value, a token is included
 -- in the response so that the remaining results can be retrieved.
+--
+-- 'nextToken', 'listAppComponentRecommendations_nextToken' - Null, or the token from a previous call to get the next set of results.
 --
 -- 'assessmentArn', 'listAppComponentRecommendations_assessmentArn' - The Amazon Resource Name (ARN) of the assessment. The format for this
 -- ARN is:
@@ -94,21 +94,21 @@ newListAppComponentRecommendations ::
   ListAppComponentRecommendations
 newListAppComponentRecommendations pAssessmentArn_ =
   ListAppComponentRecommendations'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       assessmentArn = pAssessmentArn_
     }
-
--- | Null, or the token from a previous call to get the next set of results.
-listAppComponentRecommendations_nextToken :: Lens.Lens' ListAppComponentRecommendations (Prelude.Maybe Prelude.Text)
-listAppComponentRecommendations_nextToken = Lens.lens (\ListAppComponentRecommendations' {nextToken} -> nextToken) (\s@ListAppComponentRecommendations' {} a -> s {nextToken = a} :: ListAppComponentRecommendations)
 
 -- | The maximum number of results to include in the response. If more
 -- results exist than the specified @MaxResults@ value, a token is included
 -- in the response so that the remaining results can be retrieved.
 listAppComponentRecommendations_maxResults :: Lens.Lens' ListAppComponentRecommendations (Prelude.Maybe Prelude.Natural)
 listAppComponentRecommendations_maxResults = Lens.lens (\ListAppComponentRecommendations' {maxResults} -> maxResults) (\s@ListAppComponentRecommendations' {} a -> s {maxResults = a} :: ListAppComponentRecommendations)
+
+-- | Null, or the token from a previous call to get the next set of results.
+listAppComponentRecommendations_nextToken :: Lens.Lens' ListAppComponentRecommendations (Prelude.Maybe Prelude.Text)
+listAppComponentRecommendations_nextToken = Lens.lens (\ListAppComponentRecommendations' {nextToken} -> nextToken) (\s@ListAppComponentRecommendations' {} a -> s {nextToken = a} :: ListAppComponentRecommendations)
 
 -- | The Amazon Resource Name (ARN) of the assessment. The format for this
 -- ARN is:
@@ -146,8 +146,8 @@ instance
   hashWithSalt
     _salt
     ListAppComponentRecommendations' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` assessmentArn
 
 instance
@@ -155,8 +155,8 @@ instance
     ListAppComponentRecommendations
   where
   rnf ListAppComponentRecommendations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf assessmentArn
 
 instance
@@ -177,8 +177,8 @@ instance Data.ToJSON ListAppComponentRecommendations where
   toJSON ListAppComponentRecommendations' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("assessmentArn" Data..= assessmentArn)
           ]

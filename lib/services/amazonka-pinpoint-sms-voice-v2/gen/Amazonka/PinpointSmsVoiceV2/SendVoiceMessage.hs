@@ -30,14 +30,14 @@ module Amazonka.PinpointSmsVoiceV2.SendVoiceMessage
     newSendVoiceMessage,
 
     -- * Request Lenses
-    sendVoiceMessage_voiceId,
-    sendVoiceMessage_timeToLive,
-    sendVoiceMessage_maxPricePerMinute,
     sendVoiceMessage_configurationSetName,
     sendVoiceMessage_context,
-    sendVoiceMessage_messageBody,
     sendVoiceMessage_dryRun,
+    sendVoiceMessage_maxPricePerMinute,
+    sendVoiceMessage_messageBody,
     sendVoiceMessage_messageBodyTextType,
+    sendVoiceMessage_timeToLive,
+    sendVoiceMessage_voiceId,
     sendVoiceMessage_destinationPhoneNumber,
     sendVoiceMessage_originationIdentity,
 
@@ -61,25 +61,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSendVoiceMessage' smart constructor.
 data SendVoiceMessage = SendVoiceMessage'
-  { -- | The voice for the
-    -- <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly>
-    -- service to use. By default this is set to \"MATTHEW\".
-    voiceId :: Prelude.Maybe VoiceId,
-    -- | How long the voice message is valid for. By default this is 72 hours.
-    timeToLive :: Prelude.Maybe Prelude.Natural,
-    -- | The maximum amount to spend per voice message, in US dollars.
-    maxPricePerMinute :: Prelude.Maybe Prelude.Text,
-    -- | The name of the configuration set to use. This can be either the
+  { -- | The name of the configuration set to use. This can be either the
     -- ConfigurationSetName or ConfigurationSetArn.
     configurationSetName :: Prelude.Maybe Prelude.Text,
     -- | You can specify custom data in this field. If you do, that data is
     -- logged to the event destination.
     context :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The text to convert to a voice message.
-    messageBody :: Prelude.Maybe Prelude.Text,
     -- | When set to true, the message is checked and validated, but isn\'t sent
     -- to the end recipient.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum amount to spend per voice message, in US dollars.
+    maxPricePerMinute :: Prelude.Maybe Prelude.Text,
+    -- | The text to convert to a voice message.
+    messageBody :: Prelude.Maybe Prelude.Text,
     -- | Specifies if the MessageBody field contains text or
     -- <https://docs.aws.amazon.com/polly/latest/dg/what-is.html speech synthesis markup language (SSML)>.
     --
@@ -89,6 +83,12 @@ data SendVoiceMessage = SendVoiceMessage'
     -- -   SSML: When used the maximum character limit is 6000 including SSML
     --     tagging.
     messageBodyTextType :: Prelude.Maybe VoiceMessageBodyTextType,
+    -- | How long the voice message is valid for. By default this is 72 hours.
+    timeToLive :: Prelude.Maybe Prelude.Natural,
+    -- | The voice for the
+    -- <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly>
+    -- service to use. By default this is set to \"MATTHEW\".
+    voiceId :: Prelude.Maybe VoiceId,
     -- | The destination phone number in E.164 format.
     destinationPhoneNumber :: Prelude.Text,
     -- | The origination identity to use for the voice call. This can be the
@@ -105,24 +105,18 @@ data SendVoiceMessage = SendVoiceMessage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceId', 'sendVoiceMessage_voiceId' - The voice for the
--- <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly>
--- service to use. By default this is set to \"MATTHEW\".
---
--- 'timeToLive', 'sendVoiceMessage_timeToLive' - How long the voice message is valid for. By default this is 72 hours.
---
--- 'maxPricePerMinute', 'sendVoiceMessage_maxPricePerMinute' - The maximum amount to spend per voice message, in US dollars.
---
 -- 'configurationSetName', 'sendVoiceMessage_configurationSetName' - The name of the configuration set to use. This can be either the
 -- ConfigurationSetName or ConfigurationSetArn.
 --
 -- 'context', 'sendVoiceMessage_context' - You can specify custom data in this field. If you do, that data is
 -- logged to the event destination.
 --
--- 'messageBody', 'sendVoiceMessage_messageBody' - The text to convert to a voice message.
---
 -- 'dryRun', 'sendVoiceMessage_dryRun' - When set to true, the message is checked and validated, but isn\'t sent
 -- to the end recipient.
+--
+-- 'maxPricePerMinute', 'sendVoiceMessage_maxPricePerMinute' - The maximum amount to spend per voice message, in US dollars.
+--
+-- 'messageBody', 'sendVoiceMessage_messageBody' - The text to convert to a voice message.
 --
 -- 'messageBodyTextType', 'sendVoiceMessage_messageBodyTextType' - Specifies if the MessageBody field contains text or
 -- <https://docs.aws.amazon.com/polly/latest/dg/what-is.html speech synthesis markup language (SSML)>.
@@ -132,6 +126,12 @@ data SendVoiceMessage = SendVoiceMessage'
 --
 -- -   SSML: When used the maximum character limit is 6000 including SSML
 --     tagging.
+--
+-- 'timeToLive', 'sendVoiceMessage_timeToLive' - How long the voice message is valid for. By default this is 72 hours.
+--
+-- 'voiceId', 'sendVoiceMessage_voiceId' - The voice for the
+-- <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly>
+-- service to use. By default this is set to \"MATTHEW\".
 --
 -- 'destinationPhoneNumber', 'sendVoiceMessage_destinationPhoneNumber' - The destination phone number in E.164 format.
 --
@@ -147,31 +147,18 @@ newSendVoiceMessage
   pDestinationPhoneNumber_
   pOriginationIdentity_ =
     SendVoiceMessage'
-      { voiceId = Prelude.Nothing,
-        timeToLive = Prelude.Nothing,
-        maxPricePerMinute = Prelude.Nothing,
-        configurationSetName = Prelude.Nothing,
+      { configurationSetName =
+          Prelude.Nothing,
         context = Prelude.Nothing,
-        messageBody = Prelude.Nothing,
         dryRun = Prelude.Nothing,
+        maxPricePerMinute = Prelude.Nothing,
+        messageBody = Prelude.Nothing,
         messageBodyTextType = Prelude.Nothing,
+        timeToLive = Prelude.Nothing,
+        voiceId = Prelude.Nothing,
         destinationPhoneNumber = pDestinationPhoneNumber_,
         originationIdentity = pOriginationIdentity_
       }
-
--- | The voice for the
--- <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly>
--- service to use. By default this is set to \"MATTHEW\".
-sendVoiceMessage_voiceId :: Lens.Lens' SendVoiceMessage (Prelude.Maybe VoiceId)
-sendVoiceMessage_voiceId = Lens.lens (\SendVoiceMessage' {voiceId} -> voiceId) (\s@SendVoiceMessage' {} a -> s {voiceId = a} :: SendVoiceMessage)
-
--- | How long the voice message is valid for. By default this is 72 hours.
-sendVoiceMessage_timeToLive :: Lens.Lens' SendVoiceMessage (Prelude.Maybe Prelude.Natural)
-sendVoiceMessage_timeToLive = Lens.lens (\SendVoiceMessage' {timeToLive} -> timeToLive) (\s@SendVoiceMessage' {} a -> s {timeToLive = a} :: SendVoiceMessage)
-
--- | The maximum amount to spend per voice message, in US dollars.
-sendVoiceMessage_maxPricePerMinute :: Lens.Lens' SendVoiceMessage (Prelude.Maybe Prelude.Text)
-sendVoiceMessage_maxPricePerMinute = Lens.lens (\SendVoiceMessage' {maxPricePerMinute} -> maxPricePerMinute) (\s@SendVoiceMessage' {} a -> s {maxPricePerMinute = a} :: SendVoiceMessage)
 
 -- | The name of the configuration set to use. This can be either the
 -- ConfigurationSetName or ConfigurationSetArn.
@@ -183,14 +170,18 @@ sendVoiceMessage_configurationSetName = Lens.lens (\SendVoiceMessage' {configura
 sendVoiceMessage_context :: Lens.Lens' SendVoiceMessage (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 sendVoiceMessage_context = Lens.lens (\SendVoiceMessage' {context} -> context) (\s@SendVoiceMessage' {} a -> s {context = a} :: SendVoiceMessage) Prelude.. Lens.mapping Lens.coerced
 
--- | The text to convert to a voice message.
-sendVoiceMessage_messageBody :: Lens.Lens' SendVoiceMessage (Prelude.Maybe Prelude.Text)
-sendVoiceMessage_messageBody = Lens.lens (\SendVoiceMessage' {messageBody} -> messageBody) (\s@SendVoiceMessage' {} a -> s {messageBody = a} :: SendVoiceMessage)
-
 -- | When set to true, the message is checked and validated, but isn\'t sent
 -- to the end recipient.
 sendVoiceMessage_dryRun :: Lens.Lens' SendVoiceMessage (Prelude.Maybe Prelude.Bool)
 sendVoiceMessage_dryRun = Lens.lens (\SendVoiceMessage' {dryRun} -> dryRun) (\s@SendVoiceMessage' {} a -> s {dryRun = a} :: SendVoiceMessage)
+
+-- | The maximum amount to spend per voice message, in US dollars.
+sendVoiceMessage_maxPricePerMinute :: Lens.Lens' SendVoiceMessage (Prelude.Maybe Prelude.Text)
+sendVoiceMessage_maxPricePerMinute = Lens.lens (\SendVoiceMessage' {maxPricePerMinute} -> maxPricePerMinute) (\s@SendVoiceMessage' {} a -> s {maxPricePerMinute = a} :: SendVoiceMessage)
+
+-- | The text to convert to a voice message.
+sendVoiceMessage_messageBody :: Lens.Lens' SendVoiceMessage (Prelude.Maybe Prelude.Text)
+sendVoiceMessage_messageBody = Lens.lens (\SendVoiceMessage' {messageBody} -> messageBody) (\s@SendVoiceMessage' {} a -> s {messageBody = a} :: SendVoiceMessage)
 
 -- | Specifies if the MessageBody field contains text or
 -- <https://docs.aws.amazon.com/polly/latest/dg/what-is.html speech synthesis markup language (SSML)>.
@@ -202,6 +193,16 @@ sendVoiceMessage_dryRun = Lens.lens (\SendVoiceMessage' {dryRun} -> dryRun) (\s@
 --     tagging.
 sendVoiceMessage_messageBodyTextType :: Lens.Lens' SendVoiceMessage (Prelude.Maybe VoiceMessageBodyTextType)
 sendVoiceMessage_messageBodyTextType = Lens.lens (\SendVoiceMessage' {messageBodyTextType} -> messageBodyTextType) (\s@SendVoiceMessage' {} a -> s {messageBodyTextType = a} :: SendVoiceMessage)
+
+-- | How long the voice message is valid for. By default this is 72 hours.
+sendVoiceMessage_timeToLive :: Lens.Lens' SendVoiceMessage (Prelude.Maybe Prelude.Natural)
+sendVoiceMessage_timeToLive = Lens.lens (\SendVoiceMessage' {timeToLive} -> timeToLive) (\s@SendVoiceMessage' {} a -> s {timeToLive = a} :: SendVoiceMessage)
+
+-- | The voice for the
+-- <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly>
+-- service to use. By default this is set to \"MATTHEW\".
+sendVoiceMessage_voiceId :: Lens.Lens' SendVoiceMessage (Prelude.Maybe VoiceId)
+sendVoiceMessage_voiceId = Lens.lens (\SendVoiceMessage' {voiceId} -> voiceId) (\s@SendVoiceMessage' {} a -> s {voiceId = a} :: SendVoiceMessage)
 
 -- | The destination phone number in E.164 format.
 sendVoiceMessage_destinationPhoneNumber :: Lens.Lens' SendVoiceMessage Prelude.Text
@@ -228,27 +229,27 @@ instance Core.AWSRequest SendVoiceMessage where
 
 instance Prelude.Hashable SendVoiceMessage where
   hashWithSalt _salt SendVoiceMessage' {..} =
-    _salt `Prelude.hashWithSalt` voiceId
-      `Prelude.hashWithSalt` timeToLive
-      `Prelude.hashWithSalt` maxPricePerMinute
-      `Prelude.hashWithSalt` configurationSetName
+    _salt `Prelude.hashWithSalt` configurationSetName
       `Prelude.hashWithSalt` context
-      `Prelude.hashWithSalt` messageBody
       `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` maxPricePerMinute
+      `Prelude.hashWithSalt` messageBody
       `Prelude.hashWithSalt` messageBodyTextType
+      `Prelude.hashWithSalt` timeToLive
+      `Prelude.hashWithSalt` voiceId
       `Prelude.hashWithSalt` destinationPhoneNumber
       `Prelude.hashWithSalt` originationIdentity
 
 instance Prelude.NFData SendVoiceMessage where
   rnf SendVoiceMessage' {..} =
-    Prelude.rnf voiceId
-      `Prelude.seq` Prelude.rnf timeToLive
-      `Prelude.seq` Prelude.rnf maxPricePerMinute
-      `Prelude.seq` Prelude.rnf configurationSetName
+    Prelude.rnf configurationSetName
       `Prelude.seq` Prelude.rnf context
-      `Prelude.seq` Prelude.rnf messageBody
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf maxPricePerMinute
+      `Prelude.seq` Prelude.rnf messageBody
       `Prelude.seq` Prelude.rnf messageBodyTextType
+      `Prelude.seq` Prelude.rnf timeToLive
+      `Prelude.seq` Prelude.rnf voiceId
       `Prelude.seq` Prelude.rnf destinationPhoneNumber
       `Prelude.seq` Prelude.rnf originationIdentity
 
@@ -271,17 +272,17 @@ instance Data.ToJSON SendVoiceMessage where
   toJSON SendVoiceMessage' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("VoiceId" Data..=) Prelude.<$> voiceId,
-            ("TimeToLive" Data..=) Prelude.<$> timeToLive,
-            ("MaxPricePerMinute" Data..=)
-              Prelude.<$> maxPricePerMinute,
-            ("ConfigurationSetName" Data..=)
+          [ ("ConfigurationSetName" Data..=)
               Prelude.<$> configurationSetName,
             ("Context" Data..=) Prelude.<$> context,
-            ("MessageBody" Data..=) Prelude.<$> messageBody,
             ("DryRun" Data..=) Prelude.<$> dryRun,
+            ("MaxPricePerMinute" Data..=)
+              Prelude.<$> maxPricePerMinute,
+            ("MessageBody" Data..=) Prelude.<$> messageBody,
             ("MessageBodyTextType" Data..=)
               Prelude.<$> messageBodyTextType,
+            ("TimeToLive" Data..=) Prelude.<$> timeToLive,
+            ("VoiceId" Data..=) Prelude.<$> voiceId,
             Prelude.Just
               ( "DestinationPhoneNumber"
                   Data..= destinationPhoneNumber

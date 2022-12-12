@@ -29,18 +29,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAttachment' smart constructor.
 data Attachment = Attachment'
-  { -- | The type of the attachment, such as @ElasticNetworkInterface@.
-    type' :: Prelude.Maybe Prelude.Text,
-    -- | The status of the attachment. Valid values are @PRECREATED@, @CREATED@,
-    -- @ATTACHING@, @ATTACHED@, @DETACHING@, @DETACHED@, @DELETED@, and
-    -- @FAILED@.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | Details of the attachment. For elastic network interfaces, this includes
+  { -- | Details of the attachment. For elastic network interfaces, this includes
     -- the network interface ID, the MAC address, the subnet ID, and the
     -- private IPv4 address.
     details :: Prelude.Maybe [KeyValuePair],
     -- | The unique identifier for the attachment.
-    id :: Prelude.Maybe Prelude.Text
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The status of the attachment. Valid values are @PRECREATED@, @CREATED@,
+    -- @ATTACHING@, @ATTACHED@, @DETACHING@, @DETACHED@, @DELETED@, and
+    -- @FAILED@.
+    status :: Prelude.Maybe Prelude.Text,
+    -- | The type of the attachment, such as @ElasticNetworkInterface@.
+    type' :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,36 +52,26 @@ data Attachment = Attachment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'attachment_type' - The type of the attachment, such as @ElasticNetworkInterface@.
---
--- 'status', 'attachment_status' - The status of the attachment. Valid values are @PRECREATED@, @CREATED@,
--- @ATTACHING@, @ATTACHED@, @DETACHING@, @DETACHED@, @DELETED@, and
--- @FAILED@.
---
 -- 'details', 'attachment_details' - Details of the attachment. For elastic network interfaces, this includes
 -- the network interface ID, the MAC address, the subnet ID, and the
 -- private IPv4 address.
 --
 -- 'id', 'attachment_id' - The unique identifier for the attachment.
+--
+-- 'status', 'attachment_status' - The status of the attachment. Valid values are @PRECREATED@, @CREATED@,
+-- @ATTACHING@, @ATTACHED@, @DETACHING@, @DETACHED@, @DELETED@, and
+-- @FAILED@.
+--
+-- 'type'', 'attachment_type' - The type of the attachment, such as @ElasticNetworkInterface@.
 newAttachment ::
   Attachment
 newAttachment =
   Attachment'
-    { type' = Prelude.Nothing,
+    { details = Prelude.Nothing,
+      id = Prelude.Nothing,
       status = Prelude.Nothing,
-      details = Prelude.Nothing,
-      id = Prelude.Nothing
+      type' = Prelude.Nothing
     }
-
--- | The type of the attachment, such as @ElasticNetworkInterface@.
-attachment_type :: Lens.Lens' Attachment (Prelude.Maybe Prelude.Text)
-attachment_type = Lens.lens (\Attachment' {type'} -> type') (\s@Attachment' {} a -> s {type' = a} :: Attachment)
-
--- | The status of the attachment. Valid values are @PRECREATED@, @CREATED@,
--- @ATTACHING@, @ATTACHED@, @DETACHING@, @DETACHED@, @DELETED@, and
--- @FAILED@.
-attachment_status :: Lens.Lens' Attachment (Prelude.Maybe Prelude.Text)
-attachment_status = Lens.lens (\Attachment' {status} -> status) (\s@Attachment' {} a -> s {status = a} :: Attachment)
 
 -- | Details of the attachment. For elastic network interfaces, this includes
 -- the network interface ID, the MAC address, the subnet ID, and the
@@ -93,28 +83,38 @@ attachment_details = Lens.lens (\Attachment' {details} -> details) (\s@Attachmen
 attachment_id :: Lens.Lens' Attachment (Prelude.Maybe Prelude.Text)
 attachment_id = Lens.lens (\Attachment' {id} -> id) (\s@Attachment' {} a -> s {id = a} :: Attachment)
 
+-- | The status of the attachment. Valid values are @PRECREATED@, @CREATED@,
+-- @ATTACHING@, @ATTACHED@, @DETACHING@, @DETACHED@, @DELETED@, and
+-- @FAILED@.
+attachment_status :: Lens.Lens' Attachment (Prelude.Maybe Prelude.Text)
+attachment_status = Lens.lens (\Attachment' {status} -> status) (\s@Attachment' {} a -> s {status = a} :: Attachment)
+
+-- | The type of the attachment, such as @ElasticNetworkInterface@.
+attachment_type :: Lens.Lens' Attachment (Prelude.Maybe Prelude.Text)
+attachment_type = Lens.lens (\Attachment' {type'} -> type') (\s@Attachment' {} a -> s {type' = a} :: Attachment)
+
 instance Data.FromJSON Attachment where
   parseJSON =
     Data.withObject
       "Attachment"
       ( \x ->
           Attachment'
-            Prelude.<$> (x Data..:? "type")
-            Prelude.<*> (x Data..:? "status")
-            Prelude.<*> (x Data..:? "details" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "details" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "type")
       )
 
 instance Prelude.Hashable Attachment where
   hashWithSalt _salt Attachment' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` details
+    _salt `Prelude.hashWithSalt` details
       `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Attachment where
   rnf Attachment' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf details
+    Prelude.rnf details
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf type'

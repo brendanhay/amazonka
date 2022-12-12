@@ -31,18 +31,18 @@ module Amazonka.IoTDeviceAdvisor.CreateSuiteDefinition
     newCreateSuiteDefinition,
 
     -- * Request Lenses
-    createSuiteDefinition_tags,
     createSuiteDefinition_suiteDefinitionConfiguration,
+    createSuiteDefinition_tags,
 
     -- * Destructuring the Response
     CreateSuiteDefinitionResponse (..),
     newCreateSuiteDefinitionResponse,
 
     -- * Response Lenses
-    createSuiteDefinitionResponse_suiteDefinitionName,
+    createSuiteDefinitionResponse_createdAt,
     createSuiteDefinitionResponse_suiteDefinitionArn,
     createSuiteDefinitionResponse_suiteDefinitionId,
-    createSuiteDefinitionResponse_createdAt,
+    createSuiteDefinitionResponse_suiteDefinitionName,
     createSuiteDefinitionResponse_httpStatus,
   )
 where
@@ -57,10 +57,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateSuiteDefinition' smart constructor.
 data CreateSuiteDefinition = CreateSuiteDefinition'
-  { -- | The tags to be attached to the suite definition.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Creates a Device Advisor test suite with suite definition configuration.
-    suiteDefinitionConfiguration :: Prelude.Maybe SuiteDefinitionConfiguration
+  { -- | Creates a Device Advisor test suite with suite definition configuration.
+    suiteDefinitionConfiguration :: Prelude.Maybe SuiteDefinitionConfiguration,
+    -- | The tags to be attached to the suite definition.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,24 +72,25 @@ data CreateSuiteDefinition = CreateSuiteDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createSuiteDefinition_tags' - The tags to be attached to the suite definition.
---
 -- 'suiteDefinitionConfiguration', 'createSuiteDefinition_suiteDefinitionConfiguration' - Creates a Device Advisor test suite with suite definition configuration.
+--
+-- 'tags', 'createSuiteDefinition_tags' - The tags to be attached to the suite definition.
 newCreateSuiteDefinition ::
   CreateSuiteDefinition
 newCreateSuiteDefinition =
   CreateSuiteDefinition'
-    { tags = Prelude.Nothing,
-      suiteDefinitionConfiguration = Prelude.Nothing
+    { suiteDefinitionConfiguration =
+        Prelude.Nothing,
+      tags = Prelude.Nothing
     }
-
--- | The tags to be attached to the suite definition.
-createSuiteDefinition_tags :: Lens.Lens' CreateSuiteDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createSuiteDefinition_tags = Lens.lens (\CreateSuiteDefinition' {tags} -> tags) (\s@CreateSuiteDefinition' {} a -> s {tags = a} :: CreateSuiteDefinition) Prelude.. Lens.mapping Lens.coerced
 
 -- | Creates a Device Advisor test suite with suite definition configuration.
 createSuiteDefinition_suiteDefinitionConfiguration :: Lens.Lens' CreateSuiteDefinition (Prelude.Maybe SuiteDefinitionConfiguration)
 createSuiteDefinition_suiteDefinitionConfiguration = Lens.lens (\CreateSuiteDefinition' {suiteDefinitionConfiguration} -> suiteDefinitionConfiguration) (\s@CreateSuiteDefinition' {} a -> s {suiteDefinitionConfiguration = a} :: CreateSuiteDefinition)
+
+-- | The tags to be attached to the suite definition.
+createSuiteDefinition_tags :: Lens.Lens' CreateSuiteDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createSuiteDefinition_tags = Lens.lens (\CreateSuiteDefinition' {tags} -> tags) (\s@CreateSuiteDefinition' {} a -> s {tags = a} :: CreateSuiteDefinition) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest CreateSuiteDefinition where
   type
@@ -101,22 +102,23 @@ instance Core.AWSRequest CreateSuiteDefinition where
     Response.receiveJSON
       ( \s h x ->
           CreateSuiteDefinitionResponse'
-            Prelude.<$> (x Data..?> "suiteDefinitionName")
+            Prelude.<$> (x Data..?> "createdAt")
             Prelude.<*> (x Data..?> "suiteDefinitionArn")
             Prelude.<*> (x Data..?> "suiteDefinitionId")
-            Prelude.<*> (x Data..?> "createdAt")
+            Prelude.<*> (x Data..?> "suiteDefinitionName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateSuiteDefinition where
   hashWithSalt _salt CreateSuiteDefinition' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
       `Prelude.hashWithSalt` suiteDefinitionConfiguration
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData CreateSuiteDefinition where
   rnf CreateSuiteDefinition' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf suiteDefinitionConfiguration
+    Prelude.rnf suiteDefinitionConfiguration
+      `Prelude.seq` Prelude.rnf tags
 
 instance Data.ToHeaders CreateSuiteDefinition where
   toHeaders =
@@ -133,9 +135,9 @@ instance Data.ToJSON CreateSuiteDefinition where
   toJSON CreateSuiteDefinition' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("suiteDefinitionConfiguration" Data..=)
-              Prelude.<$> suiteDefinitionConfiguration
+          [ ("suiteDefinitionConfiguration" Data..=)
+              Prelude.<$> suiteDefinitionConfiguration,
+            ("tags" Data..=) Prelude.<$> tags
           ]
       )
 
@@ -147,15 +149,15 @@ instance Data.ToQuery CreateSuiteDefinition where
 
 -- | /See:/ 'newCreateSuiteDefinitionResponse' smart constructor.
 data CreateSuiteDefinitionResponse = CreateSuiteDefinitionResponse'
-  { -- | Creates a Device Advisor test suite with suite definition name.
-    suiteDefinitionName :: Prelude.Maybe Prelude.Text,
+  { -- | Creates a Device Advisor test suite with TimeStamp of when it was
+    -- created.
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | Creates a Device Advisor test suite with Amazon Resource Name (ARN).
     suiteDefinitionArn :: Prelude.Maybe Prelude.Text,
     -- | Creates a Device Advisor test suite with suite UUID.
     suiteDefinitionId :: Prelude.Maybe Prelude.Text,
-    -- | Creates a Device Advisor test suite with TimeStamp of when it was
-    -- created.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | Creates a Device Advisor test suite with suite definition name.
+    suiteDefinitionName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -169,14 +171,14 @@ data CreateSuiteDefinitionResponse = CreateSuiteDefinitionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'suiteDefinitionName', 'createSuiteDefinitionResponse_suiteDefinitionName' - Creates a Device Advisor test suite with suite definition name.
+-- 'createdAt', 'createSuiteDefinitionResponse_createdAt' - Creates a Device Advisor test suite with TimeStamp of when it was
+-- created.
 --
 -- 'suiteDefinitionArn', 'createSuiteDefinitionResponse_suiteDefinitionArn' - Creates a Device Advisor test suite with Amazon Resource Name (ARN).
 --
 -- 'suiteDefinitionId', 'createSuiteDefinitionResponse_suiteDefinitionId' - Creates a Device Advisor test suite with suite UUID.
 --
--- 'createdAt', 'createSuiteDefinitionResponse_createdAt' - Creates a Device Advisor test suite with TimeStamp of when it was
--- created.
+-- 'suiteDefinitionName', 'createSuiteDefinitionResponse_suiteDefinitionName' - Creates a Device Advisor test suite with suite definition name.
 --
 -- 'httpStatus', 'createSuiteDefinitionResponse_httpStatus' - The response's http status code.
 newCreateSuiteDefinitionResponse ::
@@ -185,17 +187,18 @@ newCreateSuiteDefinitionResponse ::
   CreateSuiteDefinitionResponse
 newCreateSuiteDefinitionResponse pHttpStatus_ =
   CreateSuiteDefinitionResponse'
-    { suiteDefinitionName =
+    { createdAt =
         Prelude.Nothing,
       suiteDefinitionArn = Prelude.Nothing,
       suiteDefinitionId = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
+      suiteDefinitionName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | Creates a Device Advisor test suite with suite definition name.
-createSuiteDefinitionResponse_suiteDefinitionName :: Lens.Lens' CreateSuiteDefinitionResponse (Prelude.Maybe Prelude.Text)
-createSuiteDefinitionResponse_suiteDefinitionName = Lens.lens (\CreateSuiteDefinitionResponse' {suiteDefinitionName} -> suiteDefinitionName) (\s@CreateSuiteDefinitionResponse' {} a -> s {suiteDefinitionName = a} :: CreateSuiteDefinitionResponse)
+-- | Creates a Device Advisor test suite with TimeStamp of when it was
+-- created.
+createSuiteDefinitionResponse_createdAt :: Lens.Lens' CreateSuiteDefinitionResponse (Prelude.Maybe Prelude.UTCTime)
+createSuiteDefinitionResponse_createdAt = Lens.lens (\CreateSuiteDefinitionResponse' {createdAt} -> createdAt) (\s@CreateSuiteDefinitionResponse' {} a -> s {createdAt = a} :: CreateSuiteDefinitionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Creates a Device Advisor test suite with Amazon Resource Name (ARN).
 createSuiteDefinitionResponse_suiteDefinitionArn :: Lens.Lens' CreateSuiteDefinitionResponse (Prelude.Maybe Prelude.Text)
@@ -205,10 +208,9 @@ createSuiteDefinitionResponse_suiteDefinitionArn = Lens.lens (\CreateSuiteDefini
 createSuiteDefinitionResponse_suiteDefinitionId :: Lens.Lens' CreateSuiteDefinitionResponse (Prelude.Maybe Prelude.Text)
 createSuiteDefinitionResponse_suiteDefinitionId = Lens.lens (\CreateSuiteDefinitionResponse' {suiteDefinitionId} -> suiteDefinitionId) (\s@CreateSuiteDefinitionResponse' {} a -> s {suiteDefinitionId = a} :: CreateSuiteDefinitionResponse)
 
--- | Creates a Device Advisor test suite with TimeStamp of when it was
--- created.
-createSuiteDefinitionResponse_createdAt :: Lens.Lens' CreateSuiteDefinitionResponse (Prelude.Maybe Prelude.UTCTime)
-createSuiteDefinitionResponse_createdAt = Lens.lens (\CreateSuiteDefinitionResponse' {createdAt} -> createdAt) (\s@CreateSuiteDefinitionResponse' {} a -> s {createdAt = a} :: CreateSuiteDefinitionResponse) Prelude.. Lens.mapping Data._Time
+-- | Creates a Device Advisor test suite with suite definition name.
+createSuiteDefinitionResponse_suiteDefinitionName :: Lens.Lens' CreateSuiteDefinitionResponse (Prelude.Maybe Prelude.Text)
+createSuiteDefinitionResponse_suiteDefinitionName = Lens.lens (\CreateSuiteDefinitionResponse' {suiteDefinitionName} -> suiteDefinitionName) (\s@CreateSuiteDefinitionResponse' {} a -> s {suiteDefinitionName = a} :: CreateSuiteDefinitionResponse)
 
 -- | The response's http status code.
 createSuiteDefinitionResponse_httpStatus :: Lens.Lens' CreateSuiteDefinitionResponse Prelude.Int
@@ -216,8 +218,8 @@ createSuiteDefinitionResponse_httpStatus = Lens.lens (\CreateSuiteDefinitionResp
 
 instance Prelude.NFData CreateSuiteDefinitionResponse where
   rnf CreateSuiteDefinitionResponse' {..} =
-    Prelude.rnf suiteDefinitionName
+    Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf suiteDefinitionArn
       `Prelude.seq` Prelude.rnf suiteDefinitionId
-      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf suiteDefinitionName
       `Prelude.seq` Prelude.rnf httpStatus

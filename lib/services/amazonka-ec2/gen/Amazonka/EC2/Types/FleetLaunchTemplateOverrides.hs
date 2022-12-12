@@ -32,8 +32,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFleetLaunchTemplateOverrides' smart constructor.
 data FleetLaunchTemplateOverrides = FleetLaunchTemplateOverrides'
-  { -- | The location where the instance launched, if applicable.
-    placement :: Prelude.Maybe PlacementResponse,
+  { -- | The Availability Zone in which to launch the instances.
+    availabilityZone :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the AMI. An AMI is required to launch an instance. The AMI ID
+    -- must be specified here or in the launch template.
+    imageId :: Prelude.Maybe Prelude.Text,
     -- | The attributes for the instance types. When you specify instance
     -- attributes, Amazon EC2 will identify instance types with those
     -- attributes.
@@ -41,8 +44,11 @@ data FleetLaunchTemplateOverrides = FleetLaunchTemplateOverrides'
     -- If you specify @InstanceRequirements@, you can\'t specify
     -- @InstanceType@.
     instanceRequirements :: Prelude.Maybe InstanceRequirements,
-    -- | The ID of the subnet in which to launch the instances.
-    subnetId :: Prelude.Maybe Prelude.Text,
+    -- | The instance type.
+    --
+    -- If you specify @InstanceType@, you can\'t specify
+    -- @InstanceRequirements@.
+    instanceType :: Prelude.Maybe InstanceType,
     -- | The maximum price per unit hour that you are willing to pay for a Spot
     -- Instance. We do not recommend using this parameter because it can lead
     -- to increased interruptions. If you do not specify this parameter, you
@@ -51,13 +57,8 @@ data FleetLaunchTemplateOverrides = FleetLaunchTemplateOverrides'
     -- If you specify a maximum price, your instances will be interrupted more
     -- frequently than if you do not specify this parameter.
     maxPrice :: Prelude.Maybe Prelude.Text,
-    -- | The Availability Zone in which to launch the instances.
-    availabilityZone :: Prelude.Maybe Prelude.Text,
-    -- | The instance type.
-    --
-    -- If you specify @InstanceType@, you can\'t specify
-    -- @InstanceRequirements@.
-    instanceType :: Prelude.Maybe InstanceType,
+    -- | The location where the instance launched, if applicable.
+    placement :: Prelude.Maybe PlacementResponse,
     -- | The priority for the launch template override. The highest priority is
     -- launched first.
     --
@@ -75,11 +76,10 @@ data FleetLaunchTemplateOverrides = FleetLaunchTemplateOverrides'
     -- lowest priority. You can set the same priority for different launch
     -- template overrides.
     priority :: Prelude.Maybe Prelude.Double,
+    -- | The ID of the subnet in which to launch the instances.
+    subnetId :: Prelude.Maybe Prelude.Text,
     -- | The number of units provided by the specified instance type.
-    weightedCapacity :: Prelude.Maybe Prelude.Double,
-    -- | The ID of the AMI. An AMI is required to launch an instance. The AMI ID
-    -- must be specified here or in the launch template.
-    imageId :: Prelude.Maybe Prelude.Text
+    weightedCapacity :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -91,7 +91,10 @@ data FleetLaunchTemplateOverrides = FleetLaunchTemplateOverrides'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'placement', 'fleetLaunchTemplateOverrides_placement' - The location where the instance launched, if applicable.
+-- 'availabilityZone', 'fleetLaunchTemplateOverrides_availabilityZone' - The Availability Zone in which to launch the instances.
+--
+-- 'imageId', 'fleetLaunchTemplateOverrides_imageId' - The ID of the AMI. An AMI is required to launch an instance. The AMI ID
+-- must be specified here or in the launch template.
 --
 -- 'instanceRequirements', 'fleetLaunchTemplateOverrides_instanceRequirements' - The attributes for the instance types. When you specify instance
 -- attributes, Amazon EC2 will identify instance types with those
@@ -100,7 +103,10 @@ data FleetLaunchTemplateOverrides = FleetLaunchTemplateOverrides'
 -- If you specify @InstanceRequirements@, you can\'t specify
 -- @InstanceType@.
 --
--- 'subnetId', 'fleetLaunchTemplateOverrides_subnetId' - The ID of the subnet in which to launch the instances.
+-- 'instanceType', 'fleetLaunchTemplateOverrides_instanceType' - The instance type.
+--
+-- If you specify @InstanceType@, you can\'t specify
+-- @InstanceRequirements@.
 --
 -- 'maxPrice', 'fleetLaunchTemplateOverrides_maxPrice' - The maximum price per unit hour that you are willing to pay for a Spot
 -- Instance. We do not recommend using this parameter because it can lead
@@ -110,12 +116,7 @@ data FleetLaunchTemplateOverrides = FleetLaunchTemplateOverrides'
 -- If you specify a maximum price, your instances will be interrupted more
 -- frequently than if you do not specify this parameter.
 --
--- 'availabilityZone', 'fleetLaunchTemplateOverrides_availabilityZone' - The Availability Zone in which to launch the instances.
---
--- 'instanceType', 'fleetLaunchTemplateOverrides_instanceType' - The instance type.
---
--- If you specify @InstanceType@, you can\'t specify
--- @InstanceRequirements@.
+-- 'placement', 'fleetLaunchTemplateOverrides_placement' - The location where the instance launched, if applicable.
 --
 -- 'priority', 'fleetLaunchTemplateOverrides_priority' - The priority for the launch template override. The highest priority is
 -- launched first.
@@ -134,29 +135,33 @@ data FleetLaunchTemplateOverrides = FleetLaunchTemplateOverrides'
 -- lowest priority. You can set the same priority for different launch
 -- template overrides.
 --
--- 'weightedCapacity', 'fleetLaunchTemplateOverrides_weightedCapacity' - The number of units provided by the specified instance type.
+-- 'subnetId', 'fleetLaunchTemplateOverrides_subnetId' - The ID of the subnet in which to launch the instances.
 --
--- 'imageId', 'fleetLaunchTemplateOverrides_imageId' - The ID of the AMI. An AMI is required to launch an instance. The AMI ID
--- must be specified here or in the launch template.
+-- 'weightedCapacity', 'fleetLaunchTemplateOverrides_weightedCapacity' - The number of units provided by the specified instance type.
 newFleetLaunchTemplateOverrides ::
   FleetLaunchTemplateOverrides
 newFleetLaunchTemplateOverrides =
   FleetLaunchTemplateOverrides'
-    { placement =
+    { availabilityZone =
         Prelude.Nothing,
+      imageId = Prelude.Nothing,
       instanceRequirements = Prelude.Nothing,
-      subnetId = Prelude.Nothing,
-      maxPrice = Prelude.Nothing,
-      availabilityZone = Prelude.Nothing,
       instanceType = Prelude.Nothing,
+      maxPrice = Prelude.Nothing,
+      placement = Prelude.Nothing,
       priority = Prelude.Nothing,
-      weightedCapacity = Prelude.Nothing,
-      imageId = Prelude.Nothing
+      subnetId = Prelude.Nothing,
+      weightedCapacity = Prelude.Nothing
     }
 
--- | The location where the instance launched, if applicable.
-fleetLaunchTemplateOverrides_placement :: Lens.Lens' FleetLaunchTemplateOverrides (Prelude.Maybe PlacementResponse)
-fleetLaunchTemplateOverrides_placement = Lens.lens (\FleetLaunchTemplateOverrides' {placement} -> placement) (\s@FleetLaunchTemplateOverrides' {} a -> s {placement = a} :: FleetLaunchTemplateOverrides)
+-- | The Availability Zone in which to launch the instances.
+fleetLaunchTemplateOverrides_availabilityZone :: Lens.Lens' FleetLaunchTemplateOverrides (Prelude.Maybe Prelude.Text)
+fleetLaunchTemplateOverrides_availabilityZone = Lens.lens (\FleetLaunchTemplateOverrides' {availabilityZone} -> availabilityZone) (\s@FleetLaunchTemplateOverrides' {} a -> s {availabilityZone = a} :: FleetLaunchTemplateOverrides)
+
+-- | The ID of the AMI. An AMI is required to launch an instance. The AMI ID
+-- must be specified here or in the launch template.
+fleetLaunchTemplateOverrides_imageId :: Lens.Lens' FleetLaunchTemplateOverrides (Prelude.Maybe Prelude.Text)
+fleetLaunchTemplateOverrides_imageId = Lens.lens (\FleetLaunchTemplateOverrides' {imageId} -> imageId) (\s@FleetLaunchTemplateOverrides' {} a -> s {imageId = a} :: FleetLaunchTemplateOverrides)
 
 -- | The attributes for the instance types. When you specify instance
 -- attributes, Amazon EC2 will identify instance types with those
@@ -167,9 +172,12 @@ fleetLaunchTemplateOverrides_placement = Lens.lens (\FleetLaunchTemplateOverride
 fleetLaunchTemplateOverrides_instanceRequirements :: Lens.Lens' FleetLaunchTemplateOverrides (Prelude.Maybe InstanceRequirements)
 fleetLaunchTemplateOverrides_instanceRequirements = Lens.lens (\FleetLaunchTemplateOverrides' {instanceRequirements} -> instanceRequirements) (\s@FleetLaunchTemplateOverrides' {} a -> s {instanceRequirements = a} :: FleetLaunchTemplateOverrides)
 
--- | The ID of the subnet in which to launch the instances.
-fleetLaunchTemplateOverrides_subnetId :: Lens.Lens' FleetLaunchTemplateOverrides (Prelude.Maybe Prelude.Text)
-fleetLaunchTemplateOverrides_subnetId = Lens.lens (\FleetLaunchTemplateOverrides' {subnetId} -> subnetId) (\s@FleetLaunchTemplateOverrides' {} a -> s {subnetId = a} :: FleetLaunchTemplateOverrides)
+-- | The instance type.
+--
+-- If you specify @InstanceType@, you can\'t specify
+-- @InstanceRequirements@.
+fleetLaunchTemplateOverrides_instanceType :: Lens.Lens' FleetLaunchTemplateOverrides (Prelude.Maybe InstanceType)
+fleetLaunchTemplateOverrides_instanceType = Lens.lens (\FleetLaunchTemplateOverrides' {instanceType} -> instanceType) (\s@FleetLaunchTemplateOverrides' {} a -> s {instanceType = a} :: FleetLaunchTemplateOverrides)
 
 -- | The maximum price per unit hour that you are willing to pay for a Spot
 -- Instance. We do not recommend using this parameter because it can lead
@@ -181,16 +189,9 @@ fleetLaunchTemplateOverrides_subnetId = Lens.lens (\FleetLaunchTemplateOverrides
 fleetLaunchTemplateOverrides_maxPrice :: Lens.Lens' FleetLaunchTemplateOverrides (Prelude.Maybe Prelude.Text)
 fleetLaunchTemplateOverrides_maxPrice = Lens.lens (\FleetLaunchTemplateOverrides' {maxPrice} -> maxPrice) (\s@FleetLaunchTemplateOverrides' {} a -> s {maxPrice = a} :: FleetLaunchTemplateOverrides)
 
--- | The Availability Zone in which to launch the instances.
-fleetLaunchTemplateOverrides_availabilityZone :: Lens.Lens' FleetLaunchTemplateOverrides (Prelude.Maybe Prelude.Text)
-fleetLaunchTemplateOverrides_availabilityZone = Lens.lens (\FleetLaunchTemplateOverrides' {availabilityZone} -> availabilityZone) (\s@FleetLaunchTemplateOverrides' {} a -> s {availabilityZone = a} :: FleetLaunchTemplateOverrides)
-
--- | The instance type.
---
--- If you specify @InstanceType@, you can\'t specify
--- @InstanceRequirements@.
-fleetLaunchTemplateOverrides_instanceType :: Lens.Lens' FleetLaunchTemplateOverrides (Prelude.Maybe InstanceType)
-fleetLaunchTemplateOverrides_instanceType = Lens.lens (\FleetLaunchTemplateOverrides' {instanceType} -> instanceType) (\s@FleetLaunchTemplateOverrides' {} a -> s {instanceType = a} :: FleetLaunchTemplateOverrides)
+-- | The location where the instance launched, if applicable.
+fleetLaunchTemplateOverrides_placement :: Lens.Lens' FleetLaunchTemplateOverrides (Prelude.Maybe PlacementResponse)
+fleetLaunchTemplateOverrides_placement = Lens.lens (\FleetLaunchTemplateOverrides' {placement} -> placement) (\s@FleetLaunchTemplateOverrides' {} a -> s {placement = a} :: FleetLaunchTemplateOverrides)
 
 -- | The priority for the launch template override. The highest priority is
 -- launched first.
@@ -211,51 +212,50 @@ fleetLaunchTemplateOverrides_instanceType = Lens.lens (\FleetLaunchTemplateOverr
 fleetLaunchTemplateOverrides_priority :: Lens.Lens' FleetLaunchTemplateOverrides (Prelude.Maybe Prelude.Double)
 fleetLaunchTemplateOverrides_priority = Lens.lens (\FleetLaunchTemplateOverrides' {priority} -> priority) (\s@FleetLaunchTemplateOverrides' {} a -> s {priority = a} :: FleetLaunchTemplateOverrides)
 
+-- | The ID of the subnet in which to launch the instances.
+fleetLaunchTemplateOverrides_subnetId :: Lens.Lens' FleetLaunchTemplateOverrides (Prelude.Maybe Prelude.Text)
+fleetLaunchTemplateOverrides_subnetId = Lens.lens (\FleetLaunchTemplateOverrides' {subnetId} -> subnetId) (\s@FleetLaunchTemplateOverrides' {} a -> s {subnetId = a} :: FleetLaunchTemplateOverrides)
+
 -- | The number of units provided by the specified instance type.
 fleetLaunchTemplateOverrides_weightedCapacity :: Lens.Lens' FleetLaunchTemplateOverrides (Prelude.Maybe Prelude.Double)
 fleetLaunchTemplateOverrides_weightedCapacity = Lens.lens (\FleetLaunchTemplateOverrides' {weightedCapacity} -> weightedCapacity) (\s@FleetLaunchTemplateOverrides' {} a -> s {weightedCapacity = a} :: FleetLaunchTemplateOverrides)
 
--- | The ID of the AMI. An AMI is required to launch an instance. The AMI ID
--- must be specified here or in the launch template.
-fleetLaunchTemplateOverrides_imageId :: Lens.Lens' FleetLaunchTemplateOverrides (Prelude.Maybe Prelude.Text)
-fleetLaunchTemplateOverrides_imageId = Lens.lens (\FleetLaunchTemplateOverrides' {imageId} -> imageId) (\s@FleetLaunchTemplateOverrides' {} a -> s {imageId = a} :: FleetLaunchTemplateOverrides)
-
 instance Data.FromXML FleetLaunchTemplateOverrides where
   parseXML x =
     FleetLaunchTemplateOverrides'
-      Prelude.<$> (x Data..@? "placement")
-      Prelude.<*> (x Data..@? "instanceRequirements")
-      Prelude.<*> (x Data..@? "subnetId")
-      Prelude.<*> (x Data..@? "maxPrice")
-      Prelude.<*> (x Data..@? "availabilityZone")
-      Prelude.<*> (x Data..@? "instanceType")
-      Prelude.<*> (x Data..@? "priority")
-      Prelude.<*> (x Data..@? "weightedCapacity")
+      Prelude.<$> (x Data..@? "availabilityZone")
       Prelude.<*> (x Data..@? "imageId")
+      Prelude.<*> (x Data..@? "instanceRequirements")
+      Prelude.<*> (x Data..@? "instanceType")
+      Prelude.<*> (x Data..@? "maxPrice")
+      Prelude.<*> (x Data..@? "placement")
+      Prelude.<*> (x Data..@? "priority")
+      Prelude.<*> (x Data..@? "subnetId")
+      Prelude.<*> (x Data..@? "weightedCapacity")
 
 instance
   Prelude.Hashable
     FleetLaunchTemplateOverrides
   where
   hashWithSalt _salt FleetLaunchTemplateOverrides' {..} =
-    _salt `Prelude.hashWithSalt` placement
-      `Prelude.hashWithSalt` instanceRequirements
-      `Prelude.hashWithSalt` subnetId
-      `Prelude.hashWithSalt` maxPrice
-      `Prelude.hashWithSalt` availabilityZone
-      `Prelude.hashWithSalt` instanceType
-      `Prelude.hashWithSalt` priority
-      `Prelude.hashWithSalt` weightedCapacity
+    _salt `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` imageId
+      `Prelude.hashWithSalt` instanceRequirements
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` maxPrice
+      `Prelude.hashWithSalt` placement
+      `Prelude.hashWithSalt` priority
+      `Prelude.hashWithSalt` subnetId
+      `Prelude.hashWithSalt` weightedCapacity
 
 instance Prelude.NFData FleetLaunchTemplateOverrides where
   rnf FleetLaunchTemplateOverrides' {..} =
-    Prelude.rnf placement
-      `Prelude.seq` Prelude.rnf instanceRequirements
-      `Prelude.seq` Prelude.rnf subnetId
-      `Prelude.seq` Prelude.rnf maxPrice
-      `Prelude.seq` Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf weightedCapacity
+    Prelude.rnf availabilityZone
       `Prelude.seq` Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf instanceRequirements
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf maxPrice
+      `Prelude.seq` Prelude.rnf placement
+      `Prelude.seq` Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf subnetId
+      `Prelude.seq` Prelude.rnf weightedCapacity

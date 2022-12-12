@@ -33,11 +33,11 @@ module Amazonka.CloudHSM
     -- * Errors
     -- $errors
 
-    -- ** CloudHsmServiceException
-    _CloudHsmServiceException,
-
     -- ** CloudHsmInternalException
     _CloudHsmInternalException,
+
+    -- ** CloudHsmServiceException
+    _CloudHsmServiceException,
 
     -- ** InvalidRequestException
     _InvalidRequestException,

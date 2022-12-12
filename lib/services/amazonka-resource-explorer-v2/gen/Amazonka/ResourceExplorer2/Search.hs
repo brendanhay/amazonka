@@ -44,8 +44,8 @@ module Amazonka.ResourceExplorer2.Search
     newSearch,
 
     -- * Request Lenses
-    search_nextToken,
     search_maxResults,
+    search_nextToken,
     search_viewArn,
     search_queryString,
 
@@ -54,10 +54,10 @@ module Amazonka.ResourceExplorer2.Search
     newSearchResponse,
 
     -- * Response Lenses
-    searchResponse_nextToken,
     searchResponse_count,
-    searchResponse_viewArn,
+    searchResponse_nextToken,
     searchResponse_resources,
+    searchResponse_viewArn,
     searchResponse_httpStatus,
   )
 where
@@ -72,13 +72,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSearch' smart constructor.
 data Search = Search'
-  { -- | The parameter for receiving additional results if you receive a
-    -- @NextToken@ response in a previous request. A @NextToken@ response
-    -- indicates that more output is available. Set this parameter to the value
-    -- of the previous call\'s @NextToken@ response to indicate where the
-    -- output should continue from.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results that you want included on each page of the
+  { -- | The maximum number of results that you want included on each page of the
     -- response. If you do not include this parameter, it defaults to a value
     -- appropriate to the operation. If additional items exist beyond those
     -- included in the current response, the @NextToken@ response element is
@@ -90,6 +84,12 @@ data Search = Search'
     -- there are more results available. You should check @NextToken@ after
     -- every operation to ensure that you receive all of the results.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The parameter for receiving additional results if you receive a
+    -- @NextToken@ response in a previous request. A @NextToken@ response
+    -- indicates that more output is available. Set this parameter to the value
+    -- of the previous call\'s @NextToken@ response to indicate where the
+    -- output should continue from.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies the
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon resource name (ARN)>
     -- of the view to use for the query. If you don\'t specify a value for this
@@ -123,12 +123,6 @@ data Search = Search'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'search_nextToken' - The parameter for receiving additional results if you receive a
--- @NextToken@ response in a previous request. A @NextToken@ response
--- indicates that more output is available. Set this parameter to the value
--- of the previous call\'s @NextToken@ response to indicate where the
--- output should continue from.
---
 -- 'maxResults', 'search_maxResults' - The maximum number of results that you want included on each page of the
 -- response. If you do not include this parameter, it defaults to a value
 -- appropriate to the operation. If additional items exist beyond those
@@ -140,6 +134,12 @@ data Search = Search'
 -- An API operation can return fewer results than the maximum even when
 -- there are more results available. You should check @NextToken@ after
 -- every operation to ensure that you receive all of the results.
+--
+-- 'nextToken', 'search_nextToken' - The parameter for receiving additional results if you receive a
+-- @NextToken@ response in a previous request. A @NextToken@ response
+-- indicates that more output is available. Set this parameter to the value
+-- of the previous call\'s @NextToken@ response to indicate where the
+-- output should continue from.
 --
 -- 'viewArn', 'search_viewArn' - Specifies the
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon resource name (ARN)>
@@ -168,19 +168,11 @@ newSearch ::
   Search
 newSearch pQueryString_ =
   Search'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       viewArn = Prelude.Nothing,
       queryString = Data._Sensitive Lens.# pQueryString_
     }
-
--- | The parameter for receiving additional results if you receive a
--- @NextToken@ response in a previous request. A @NextToken@ response
--- indicates that more output is available. Set this parameter to the value
--- of the previous call\'s @NextToken@ response to indicate where the
--- output should continue from.
-search_nextToken :: Lens.Lens' Search (Prelude.Maybe Prelude.Text)
-search_nextToken = Lens.lens (\Search' {nextToken} -> nextToken) (\s@Search' {} a -> s {nextToken = a} :: Search)
 
 -- | The maximum number of results that you want included on each page of the
 -- response. If you do not include this parameter, it defaults to a value
@@ -195,6 +187,14 @@ search_nextToken = Lens.lens (\Search' {nextToken} -> nextToken) (\s@Search' {} 
 -- every operation to ensure that you receive all of the results.
 search_maxResults :: Lens.Lens' Search (Prelude.Maybe Prelude.Natural)
 search_maxResults = Lens.lens (\Search' {maxResults} -> maxResults) (\s@Search' {} a -> s {maxResults = a} :: Search)
+
+-- | The parameter for receiving additional results if you receive a
+-- @NextToken@ response in a previous request. A @NextToken@ response
+-- indicates that more output is available. Set this parameter to the value
+-- of the previous call\'s @NextToken@ response to indicate where the
+-- output should continue from.
+search_nextToken :: Lens.Lens' Search (Prelude.Maybe Prelude.Text)
+search_nextToken = Lens.lens (\Search' {nextToken} -> nextToken) (\s@Search' {} a -> s {nextToken = a} :: Search)
 
 -- | Specifies the
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon resource name (ARN)>
@@ -249,24 +249,24 @@ instance Core.AWSRequest Search where
     Response.receiveJSON
       ( \s h x ->
           SearchResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Count")
-            Prelude.<*> (x Data..?> "ViewArn")
+            Prelude.<$> (x Data..?> "Count")
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "Resources" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ViewArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable Search where
   hashWithSalt _salt Search' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` viewArn
       `Prelude.hashWithSalt` queryString
 
 instance Prelude.NFData Search where
   rnf Search' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf viewArn
       `Prelude.seq` Prelude.rnf queryString
 
@@ -285,8 +285,8 @@ instance Data.ToJSON Search where
   toJSON Search' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("ViewArn" Data..=) Prelude.<$> viewArn,
             Prelude.Just ("QueryString" Data..= queryString)
           ]
@@ -300,20 +300,20 @@ instance Data.ToQuery Search where
 
 -- | /See:/ 'newSearchResponse' smart constructor.
 data SearchResponse = SearchResponse'
-  { -- | If present, indicates that more output is available than is included in
+  { -- | The number of resources that match the query.
+    count :: Prelude.Maybe ResourceCount,
+    -- | If present, indicates that more output is available than is included in
     -- the current response. Use this value in the @NextToken@ request
     -- parameter in a subsequent call to the operation to get the next part of
     -- the output. You should repeat this until the @NextToken@ response
     -- element comes back as @null@.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The number of resources that match the query.
-    count :: Prelude.Maybe ResourceCount,
+    -- | The list of structures that describe the resources that match the query.
+    resources :: Prelude.Maybe [Resource],
     -- | The
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon resource name (ARN)>
     -- of the view that this operation used to perform the search.
     viewArn :: Prelude.Maybe Prelude.Text,
-    -- | The list of structures that describe the resources that match the query.
-    resources :: Prelude.Maybe [Resource],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -327,19 +327,19 @@ data SearchResponse = SearchResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'count', 'searchResponse_count' - The number of resources that match the query.
+--
 -- 'nextToken', 'searchResponse_nextToken' - If present, indicates that more output is available than is included in
 -- the current response. Use this value in the @NextToken@ request
 -- parameter in a subsequent call to the operation to get the next part of
 -- the output. You should repeat this until the @NextToken@ response
 -- element comes back as @null@.
 --
--- 'count', 'searchResponse_count' - The number of resources that match the query.
+-- 'resources', 'searchResponse_resources' - The list of structures that describe the resources that match the query.
 --
 -- 'viewArn', 'searchResponse_viewArn' - The
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon resource name (ARN)>
 -- of the view that this operation used to perform the search.
---
--- 'resources', 'searchResponse_resources' - The list of structures that describe the resources that match the query.
 --
 -- 'httpStatus', 'searchResponse_httpStatus' - The response's http status code.
 newSearchResponse ::
@@ -348,12 +348,16 @@ newSearchResponse ::
   SearchResponse
 newSearchResponse pHttpStatus_ =
   SearchResponse'
-    { nextToken = Prelude.Nothing,
-      count = Prelude.Nothing,
-      viewArn = Prelude.Nothing,
+    { count = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       resources = Prelude.Nothing,
+      viewArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The number of resources that match the query.
+searchResponse_count :: Lens.Lens' SearchResponse (Prelude.Maybe ResourceCount)
+searchResponse_count = Lens.lens (\SearchResponse' {count} -> count) (\s@SearchResponse' {} a -> s {count = a} :: SearchResponse)
 
 -- | If present, indicates that more output is available than is included in
 -- the current response. Use this value in the @NextToken@ request
@@ -363,9 +367,9 @@ newSearchResponse pHttpStatus_ =
 searchResponse_nextToken :: Lens.Lens' SearchResponse (Prelude.Maybe Prelude.Text)
 searchResponse_nextToken = Lens.lens (\SearchResponse' {nextToken} -> nextToken) (\s@SearchResponse' {} a -> s {nextToken = a} :: SearchResponse)
 
--- | The number of resources that match the query.
-searchResponse_count :: Lens.Lens' SearchResponse (Prelude.Maybe ResourceCount)
-searchResponse_count = Lens.lens (\SearchResponse' {count} -> count) (\s@SearchResponse' {} a -> s {count = a} :: SearchResponse)
+-- | The list of structures that describe the resources that match the query.
+searchResponse_resources :: Lens.Lens' SearchResponse (Prelude.Maybe [Resource])
+searchResponse_resources = Lens.lens (\SearchResponse' {resources} -> resources) (\s@SearchResponse' {} a -> s {resources = a} :: SearchResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon resource name (ARN)>
@@ -373,18 +377,14 @@ searchResponse_count = Lens.lens (\SearchResponse' {count} -> count) (\s@SearchR
 searchResponse_viewArn :: Lens.Lens' SearchResponse (Prelude.Maybe Prelude.Text)
 searchResponse_viewArn = Lens.lens (\SearchResponse' {viewArn} -> viewArn) (\s@SearchResponse' {} a -> s {viewArn = a} :: SearchResponse)
 
--- | The list of structures that describe the resources that match the query.
-searchResponse_resources :: Lens.Lens' SearchResponse (Prelude.Maybe [Resource])
-searchResponse_resources = Lens.lens (\SearchResponse' {resources} -> resources) (\s@SearchResponse' {} a -> s {resources = a} :: SearchResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 searchResponse_httpStatus :: Lens.Lens' SearchResponse Prelude.Int
 searchResponse_httpStatus = Lens.lens (\SearchResponse' {httpStatus} -> httpStatus) (\s@SearchResponse' {} a -> s {httpStatus = a} :: SearchResponse)
 
 instance Prelude.NFData SearchResponse where
   rnf SearchResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf count
-      `Prelude.seq` Prelude.rnf viewArn
+    Prelude.rnf count
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf resources
+      `Prelude.seq` Prelude.rnf viewArn
       `Prelude.seq` Prelude.rnf httpStatus

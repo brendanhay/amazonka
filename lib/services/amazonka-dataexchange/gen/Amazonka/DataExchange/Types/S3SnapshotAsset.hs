@@ -24,11 +24,11 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | The S3 object that is the asset.
+-- | The Amazon S3 object that is the asset.
 --
 -- /See:/ 'newS3SnapshotAsset' smart constructor.
 data S3SnapshotAsset = S3SnapshotAsset'
-  { -- | The size of the S3 object that is the object.
+  { -- | The size of the Amazon S3 object that is the object.
     size :: Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -41,7 +41,7 @@ data S3SnapshotAsset = S3SnapshotAsset'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'size', 's3SnapshotAsset_size' - The size of the S3 object that is the object.
+-- 'size', 's3SnapshotAsset_size' - The size of the Amazon S3 object that is the object.
 newS3SnapshotAsset ::
   -- | 'size'
   Prelude.Double ->
@@ -49,7 +49,7 @@ newS3SnapshotAsset ::
 newS3SnapshotAsset pSize_ =
   S3SnapshotAsset' {size = pSize_}
 
--- | The size of the S3 object that is the object.
+-- | The size of the Amazon S3 object that is the object.
 s3SnapshotAsset_size :: Lens.Lens' S3SnapshotAsset Prelude.Double
 s3SnapshotAsset_size = Lens.lens (\S3SnapshotAsset' {size} -> size) (\s@S3SnapshotAsset' {} a -> s {size = a} :: S3SnapshotAsset)
 

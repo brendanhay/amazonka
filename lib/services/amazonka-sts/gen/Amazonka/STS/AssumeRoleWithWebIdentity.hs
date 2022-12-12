@@ -186,9 +186,9 @@ module Amazonka.STS.AssumeRoleWithWebIdentity
     newAssumeRoleWithWebIdentity,
 
     -- * Request Lenses
+    assumeRoleWithWebIdentity_durationSeconds,
     assumeRoleWithWebIdentity_policy,
     assumeRoleWithWebIdentity_policyArns,
-    assumeRoleWithWebIdentity_durationSeconds,
     assumeRoleWithWebIdentity_providerId,
     assumeRoleWithWebIdentity_roleArn,
     assumeRoleWithWebIdentity_roleSessionName,
@@ -199,12 +199,12 @@ module Amazonka.STS.AssumeRoleWithWebIdentity
     newAssumeRoleWithWebIdentityResponse,
 
     -- * Response Lenses
-    assumeRoleWithWebIdentityResponse_subjectFromWebIdentityToken,
-    assumeRoleWithWebIdentityResponse_provider,
     assumeRoleWithWebIdentityResponse_assumedRoleUser,
     assumeRoleWithWebIdentityResponse_audience,
-    assumeRoleWithWebIdentityResponse_sourceIdentity,
     assumeRoleWithWebIdentityResponse_packedPolicySize,
+    assumeRoleWithWebIdentityResponse_provider,
+    assumeRoleWithWebIdentityResponse_sourceIdentity,
+    assumeRoleWithWebIdentityResponse_subjectFromWebIdentityToken,
     assumeRoleWithWebIdentityResponse_httpStatus,
     assumeRoleWithWebIdentityResponse_credentials,
   )
@@ -220,7 +220,28 @@ import Amazonka.STS.Types
 
 -- | /See:/ 'newAssumeRoleWithWebIdentity' smart constructor.
 data AssumeRoleWithWebIdentity = AssumeRoleWithWebIdentity'
-  { -- | An IAM policy in JSON format that you want to use as an inline session
+  { -- | The duration, in seconds, of the role session. The value can range from
+    -- 900 seconds (15 minutes) up to the maximum session duration setting for
+    -- the role. This setting can have a value from 1 hour to 12 hours. If you
+    -- specify a value higher than this setting, the operation fails. For
+    -- example, if you specify a session duration of 12 hours, but your
+    -- administrator set the maximum session duration to 6 hours, your
+    -- operation fails. To learn how to view the maximum value for your role,
+    -- see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session View the Maximum Session Duration Setting for a Role>
+    -- in the /IAM User Guide/.
+    --
+    -- By default, the value is set to @3600@ seconds.
+    --
+    -- The @DurationSeconds@ parameter is separate from the duration of a
+    -- console session that you might request using the returned credentials.
+    -- The request to the federation endpoint for a console sign-in token takes
+    -- a @SessionDuration@ parameter that specifies the maximum length of the
+    -- console session. For more information, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the Amazon Web Services Management Console>
+    -- in the /IAM User Guide/.
+    durationSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | An IAM policy in JSON format that you want to use as an inline session
     -- policy.
     --
     -- This parameter is optional. Passing policies to this operation returns
@@ -276,27 +297,6 @@ data AssumeRoleWithWebIdentity = AssumeRoleWithWebIdentity'
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies>
     -- in the /IAM User Guide/.
     policyArns :: Prelude.Maybe [PolicyDescriptorType],
-    -- | The duration, in seconds, of the role session. The value can range from
-    -- 900 seconds (15 minutes) up to the maximum session duration setting for
-    -- the role. This setting can have a value from 1 hour to 12 hours. If you
-    -- specify a value higher than this setting, the operation fails. For
-    -- example, if you specify a session duration of 12 hours, but your
-    -- administrator set the maximum session duration to 6 hours, your
-    -- operation fails. To learn how to view the maximum value for your role,
-    -- see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session View the Maximum Session Duration Setting for a Role>
-    -- in the /IAM User Guide/.
-    --
-    -- By default, the value is set to @3600@ seconds.
-    --
-    -- The @DurationSeconds@ parameter is separate from the duration of a
-    -- console session that you might request using the returned credentials.
-    -- The request to the federation endpoint for a console sign-in token takes
-    -- a @SessionDuration@ parameter that specifies the maximum length of the
-    -- console session. For more information, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the Amazon Web Services Management Console>
-    -- in the /IAM User Guide/.
-    durationSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The fully qualified host component of the domain name of the OAuth 2.0
     -- identity provider. Do not specify this value for an OpenID Connect
     -- identity provider.
@@ -337,6 +337,27 @@ data AssumeRoleWithWebIdentity = AssumeRoleWithWebIdentity'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'durationSeconds', 'assumeRoleWithWebIdentity_durationSeconds' - The duration, in seconds, of the role session. The value can range from
+-- 900 seconds (15 minutes) up to the maximum session duration setting for
+-- the role. This setting can have a value from 1 hour to 12 hours. If you
+-- specify a value higher than this setting, the operation fails. For
+-- example, if you specify a session duration of 12 hours, but your
+-- administrator set the maximum session duration to 6 hours, your
+-- operation fails. To learn how to view the maximum value for your role,
+-- see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session View the Maximum Session Duration Setting for a Role>
+-- in the /IAM User Guide/.
+--
+-- By default, the value is set to @3600@ seconds.
+--
+-- The @DurationSeconds@ parameter is separate from the duration of a
+-- console session that you might request using the returned credentials.
+-- The request to the federation endpoint for a console sign-in token takes
+-- a @SessionDuration@ parameter that specifies the maximum length of the
+-- console session. For more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the Amazon Web Services Management Console>
+-- in the /IAM User Guide/.
 --
 -- 'policy', 'assumeRoleWithWebIdentity_policy' - An IAM policy in JSON format that you want to use as an inline session
 -- policy.
@@ -394,27 +415,6 @@ data AssumeRoleWithWebIdentity = AssumeRoleWithWebIdentity'
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies>
 -- in the /IAM User Guide/.
 --
--- 'durationSeconds', 'assumeRoleWithWebIdentity_durationSeconds' - The duration, in seconds, of the role session. The value can range from
--- 900 seconds (15 minutes) up to the maximum session duration setting for
--- the role. This setting can have a value from 1 hour to 12 hours. If you
--- specify a value higher than this setting, the operation fails. For
--- example, if you specify a session duration of 12 hours, but your
--- administrator set the maximum session duration to 6 hours, your
--- operation fails. To learn how to view the maximum value for your role,
--- see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session View the Maximum Session Duration Setting for a Role>
--- in the /IAM User Guide/.
---
--- By default, the value is set to @3600@ seconds.
---
--- The @DurationSeconds@ parameter is separate from the duration of a
--- console session that you might request using the returned credentials.
--- The request to the federation endpoint for a console sign-in token takes
--- a @SessionDuration@ parameter that specifies the maximum length of the
--- console session. For more information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the Amazon Web Services Management Console>
--- in the /IAM User Guide/.
---
 -- 'providerId', 'assumeRoleWithWebIdentity_providerId' - The fully qualified host component of the domain name of the OAuth 2.0
 -- identity provider. Do not specify this value for an OpenID Connect
 -- identity provider.
@@ -457,15 +457,38 @@ newAssumeRoleWithWebIdentity
   pRoleSessionName_
   pWebIdentityToken_ =
     AssumeRoleWithWebIdentity'
-      { policy =
+      { durationSeconds =
           Prelude.Nothing,
+        policy = Prelude.Nothing,
         policyArns = Prelude.Nothing,
-        durationSeconds = Prelude.Nothing,
         providerId = Prelude.Nothing,
         roleArn = pRoleArn_,
         roleSessionName = pRoleSessionName_,
         webIdentityToken = pWebIdentityToken_
       }
+
+-- | The duration, in seconds, of the role session. The value can range from
+-- 900 seconds (15 minutes) up to the maximum session duration setting for
+-- the role. This setting can have a value from 1 hour to 12 hours. If you
+-- specify a value higher than this setting, the operation fails. For
+-- example, if you specify a session duration of 12 hours, but your
+-- administrator set the maximum session duration to 6 hours, your
+-- operation fails. To learn how to view the maximum value for your role,
+-- see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session View the Maximum Session Duration Setting for a Role>
+-- in the /IAM User Guide/.
+--
+-- By default, the value is set to @3600@ seconds.
+--
+-- The @DurationSeconds@ parameter is separate from the duration of a
+-- console session that you might request using the returned credentials.
+-- The request to the federation endpoint for a console sign-in token takes
+-- a @SessionDuration@ parameter that specifies the maximum length of the
+-- console session. For more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the Amazon Web Services Management Console>
+-- in the /IAM User Guide/.
+assumeRoleWithWebIdentity_durationSeconds :: Lens.Lens' AssumeRoleWithWebIdentity (Prelude.Maybe Prelude.Natural)
+assumeRoleWithWebIdentity_durationSeconds = Lens.lens (\AssumeRoleWithWebIdentity' {durationSeconds} -> durationSeconds) (\s@AssumeRoleWithWebIdentity' {} a -> s {durationSeconds = a} :: AssumeRoleWithWebIdentity)
 
 -- | An IAM policy in JSON format that you want to use as an inline session
 -- policy.
@@ -527,29 +550,6 @@ assumeRoleWithWebIdentity_policy = Lens.lens (\AssumeRoleWithWebIdentity' {polic
 assumeRoleWithWebIdentity_policyArns :: Lens.Lens' AssumeRoleWithWebIdentity (Prelude.Maybe [PolicyDescriptorType])
 assumeRoleWithWebIdentity_policyArns = Lens.lens (\AssumeRoleWithWebIdentity' {policyArns} -> policyArns) (\s@AssumeRoleWithWebIdentity' {} a -> s {policyArns = a} :: AssumeRoleWithWebIdentity) Prelude.. Lens.mapping Lens.coerced
 
--- | The duration, in seconds, of the role session. The value can range from
--- 900 seconds (15 minutes) up to the maximum session duration setting for
--- the role. This setting can have a value from 1 hour to 12 hours. If you
--- specify a value higher than this setting, the operation fails. For
--- example, if you specify a session duration of 12 hours, but your
--- administrator set the maximum session duration to 6 hours, your
--- operation fails. To learn how to view the maximum value for your role,
--- see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session View the Maximum Session Duration Setting for a Role>
--- in the /IAM User Guide/.
---
--- By default, the value is set to @3600@ seconds.
---
--- The @DurationSeconds@ parameter is separate from the duration of a
--- console session that you might request using the returned credentials.
--- The request to the federation endpoint for a console sign-in token takes
--- a @SessionDuration@ parameter that specifies the maximum length of the
--- console session. For more information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the Amazon Web Services Management Console>
--- in the /IAM User Guide/.
-assumeRoleWithWebIdentity_durationSeconds :: Lens.Lens' AssumeRoleWithWebIdentity (Prelude.Maybe Prelude.Natural)
-assumeRoleWithWebIdentity_durationSeconds = Lens.lens (\AssumeRoleWithWebIdentity' {durationSeconds} -> durationSeconds) (\s@AssumeRoleWithWebIdentity' {} a -> s {durationSeconds = a} :: AssumeRoleWithWebIdentity)
-
 -- | The fully qualified host component of the domain name of the OAuth 2.0
 -- identity provider. Do not specify this value for an OpenID Connect
 -- identity provider.
@@ -599,21 +599,21 @@ instance Core.AWSRequest AssumeRoleWithWebIdentity where
       "AssumeRoleWithWebIdentityResult"
       ( \s h x ->
           AssumeRoleWithWebIdentityResponse'
-            Prelude.<$> (x Data..@? "SubjectFromWebIdentityToken")
-            Prelude.<*> (x Data..@? "Provider")
-            Prelude.<*> (x Data..@? "AssumedRoleUser")
+            Prelude.<$> (x Data..@? "AssumedRoleUser")
             Prelude.<*> (x Data..@? "Audience")
-            Prelude.<*> (x Data..@? "SourceIdentity")
             Prelude.<*> (x Data..@? "PackedPolicySize")
+            Prelude.<*> (x Data..@? "Provider")
+            Prelude.<*> (x Data..@? "SourceIdentity")
+            Prelude.<*> (x Data..@? "SubjectFromWebIdentityToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "Credentials")
       )
 
 instance Prelude.Hashable AssumeRoleWithWebIdentity where
   hashWithSalt _salt AssumeRoleWithWebIdentity' {..} =
-    _salt `Prelude.hashWithSalt` policy
+    _salt `Prelude.hashWithSalt` durationSeconds
+      `Prelude.hashWithSalt` policy
       `Prelude.hashWithSalt` policyArns
-      `Prelude.hashWithSalt` durationSeconds
       `Prelude.hashWithSalt` providerId
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` roleSessionName
@@ -621,9 +621,9 @@ instance Prelude.Hashable AssumeRoleWithWebIdentity where
 
 instance Prelude.NFData AssumeRoleWithWebIdentity where
   rnf AssumeRoleWithWebIdentity' {..} =
-    Prelude.rnf policy
+    Prelude.rnf durationSeconds
+      `Prelude.seq` Prelude.rnf policy
       `Prelude.seq` Prelude.rnf policyArns
-      `Prelude.seq` Prelude.rnf durationSeconds
       `Prelude.seq` Prelude.rnf providerId
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf roleSessionName
@@ -642,11 +642,11 @@ instance Data.ToQuery AssumeRoleWithWebIdentity where
           Data.=: ("AssumeRoleWithWebIdentity" :: Prelude.ByteString),
         "Version"
           Data.=: ("2011-06-15" :: Prelude.ByteString),
+        "DurationSeconds" Data.=: durationSeconds,
         "Policy" Data.=: policy,
         "PolicyArns"
           Data.=: Data.toQuery
             (Data.toQueryList "member" Prelude.<$> policyArns),
-        "DurationSeconds" Data.=: durationSeconds,
         "ProviderId" Data.=: providerId,
         "RoleArn" Data.=: roleArn,
         "RoleSessionName" Data.=: roleSessionName,
@@ -659,20 +659,7 @@ instance Data.ToQuery AssumeRoleWithWebIdentity where
 --
 -- /See:/ 'newAssumeRoleWithWebIdentityResponse' smart constructor.
 data AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse'
-  { -- | The unique user identifier that is returned by the identity provider.
-    -- This identifier is associated with the @WebIdentityToken@ that was
-    -- submitted with the @AssumeRoleWithWebIdentity@ call. The identifier is
-    -- typically unique to the user and the application that acquired the
-    -- @WebIdentityToken@ (pairwise identifier). For OpenID Connect ID tokens,
-    -- this field contains the value returned by the identity provider as the
-    -- token\'s @sub@ (Subject) claim.
-    subjectFromWebIdentityToken :: Prelude.Maybe Prelude.Text,
-    -- | The issuing authority of the web identity token presented. For OpenID
-    -- Connect ID tokens, this contains the value of the @iss@ field. For OAuth
-    -- 2.0 access tokens, this contains the value of the @ProviderId@ parameter
-    -- that was passed in the @AssumeRoleWithWebIdentity@ request.
-    provider :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) and the assumed role ID, which are
+  { -- | The Amazon Resource Name (ARN) and the assumed role ID, which are
     -- identifiers that you can use to refer to the resulting temporary
     -- security credentials. For example, you can reference these credentials
     -- as a principal in a resource-based policy by using the ARN or assumed
@@ -683,6 +670,16 @@ data AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse'
     -- token. This is traditionally the client identifier issued to the
     -- application that requested the web identity token.
     audience :: Prelude.Maybe Prelude.Text,
+    -- | A percentage value that indicates the packed size of the session
+    -- policies and session tags combined passed in the request. The request
+    -- fails if the packed size is greater than 100 percent, which means the
+    -- policies and tags exceeded the allowed space.
+    packedPolicySize :: Prelude.Maybe Prelude.Natural,
+    -- | The issuing authority of the web identity token presented. For OpenID
+    -- Connect ID tokens, this contains the value of the @iss@ field. For OAuth
+    -- 2.0 access tokens, this contains the value of the @ProviderId@ parameter
+    -- that was passed in the @AssumeRoleWithWebIdentity@ request.
+    provider :: Prelude.Maybe Prelude.Text,
     -- | The value of the source identity that is returned in the JSON web token
     -- (JWT) from the identity provider.
     --
@@ -709,11 +706,14 @@ data AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse'
     -- spaces. You can also include underscores or any of the following
     -- characters: =,.\@-
     sourceIdentity :: Prelude.Maybe Prelude.Text,
-    -- | A percentage value that indicates the packed size of the session
-    -- policies and session tags combined passed in the request. The request
-    -- fails if the packed size is greater than 100 percent, which means the
-    -- policies and tags exceeded the allowed space.
-    packedPolicySize :: Prelude.Maybe Prelude.Natural,
+    -- | The unique user identifier that is returned by the identity provider.
+    -- This identifier is associated with the @WebIdentityToken@ that was
+    -- submitted with the @AssumeRoleWithWebIdentity@ call. The identifier is
+    -- typically unique to the user and the application that acquired the
+    -- @WebIdentityToken@ (pairwise identifier). For OpenID Connect ID tokens,
+    -- this field contains the value returned by the identity provider as the
+    -- token\'s @sub@ (Subject) claim.
+    subjectFromWebIdentityToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The temporary security credentials, which include an access key ID, a
@@ -734,19 +734,6 @@ data AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'subjectFromWebIdentityToken', 'assumeRoleWithWebIdentityResponse_subjectFromWebIdentityToken' - The unique user identifier that is returned by the identity provider.
--- This identifier is associated with the @WebIdentityToken@ that was
--- submitted with the @AssumeRoleWithWebIdentity@ call. The identifier is
--- typically unique to the user and the application that acquired the
--- @WebIdentityToken@ (pairwise identifier). For OpenID Connect ID tokens,
--- this field contains the value returned by the identity provider as the
--- token\'s @sub@ (Subject) claim.
---
--- 'provider', 'assumeRoleWithWebIdentityResponse_provider' - The issuing authority of the web identity token presented. For OpenID
--- Connect ID tokens, this contains the value of the @iss@ field. For OAuth
--- 2.0 access tokens, this contains the value of the @ProviderId@ parameter
--- that was passed in the @AssumeRoleWithWebIdentity@ request.
---
 -- 'assumedRoleUser', 'assumeRoleWithWebIdentityResponse_assumedRoleUser' - The Amazon Resource Name (ARN) and the assumed role ID, which are
 -- identifiers that you can use to refer to the resulting temporary
 -- security credentials. For example, you can reference these credentials
@@ -757,6 +744,16 @@ data AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse'
 -- 'audience', 'assumeRoleWithWebIdentityResponse_audience' - The intended audience (also known as client ID) of the web identity
 -- token. This is traditionally the client identifier issued to the
 -- application that requested the web identity token.
+--
+-- 'packedPolicySize', 'assumeRoleWithWebIdentityResponse_packedPolicySize' - A percentage value that indicates the packed size of the session
+-- policies and session tags combined passed in the request. The request
+-- fails if the packed size is greater than 100 percent, which means the
+-- policies and tags exceeded the allowed space.
+--
+-- 'provider', 'assumeRoleWithWebIdentityResponse_provider' - The issuing authority of the web identity token presented. For OpenID
+-- Connect ID tokens, this contains the value of the @iss@ field. For OAuth
+-- 2.0 access tokens, this contains the value of the @ProviderId@ parameter
+-- that was passed in the @AssumeRoleWithWebIdentity@ request.
 --
 -- 'sourceIdentity', 'assumeRoleWithWebIdentityResponse_sourceIdentity' - The value of the source identity that is returned in the JSON web token
 -- (JWT) from the identity provider.
@@ -784,10 +781,13 @@ data AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse'
 -- spaces. You can also include underscores or any of the following
 -- characters: =,.\@-
 --
--- 'packedPolicySize', 'assumeRoleWithWebIdentityResponse_packedPolicySize' - A percentage value that indicates the packed size of the session
--- policies and session tags combined passed in the request. The request
--- fails if the packed size is greater than 100 percent, which means the
--- policies and tags exceeded the allowed space.
+-- 'subjectFromWebIdentityToken', 'assumeRoleWithWebIdentityResponse_subjectFromWebIdentityToken' - The unique user identifier that is returned by the identity provider.
+-- This identifier is associated with the @WebIdentityToken@ that was
+-- submitted with the @AssumeRoleWithWebIdentity@ call. The identifier is
+-- typically unique to the user and the application that acquired the
+-- @WebIdentityToken@ (pairwise identifier). For OpenID Connect ID tokens,
+-- this field contains the value returned by the identity provider as the
+-- token\'s @sub@ (Subject) claim.
 --
 -- 'httpStatus', 'assumeRoleWithWebIdentityResponse_httpStatus' - The response's http status code.
 --
@@ -807,33 +807,17 @@ newAssumeRoleWithWebIdentityResponse
   pHttpStatus_
   pCredentials_ =
     AssumeRoleWithWebIdentityResponse'
-      { subjectFromWebIdentityToken =
+      { assumedRoleUser =
           Prelude.Nothing,
-        provider = Prelude.Nothing,
-        assumedRoleUser = Prelude.Nothing,
         audience = Prelude.Nothing,
-        sourceIdentity = Prelude.Nothing,
         packedPolicySize = Prelude.Nothing,
+        provider = Prelude.Nothing,
+        sourceIdentity = Prelude.Nothing,
+        subjectFromWebIdentityToken =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_,
         credentials = pCredentials_
       }
-
--- | The unique user identifier that is returned by the identity provider.
--- This identifier is associated with the @WebIdentityToken@ that was
--- submitted with the @AssumeRoleWithWebIdentity@ call. The identifier is
--- typically unique to the user and the application that acquired the
--- @WebIdentityToken@ (pairwise identifier). For OpenID Connect ID tokens,
--- this field contains the value returned by the identity provider as the
--- token\'s @sub@ (Subject) claim.
-assumeRoleWithWebIdentityResponse_subjectFromWebIdentityToken :: Lens.Lens' AssumeRoleWithWebIdentityResponse (Prelude.Maybe Prelude.Text)
-assumeRoleWithWebIdentityResponse_subjectFromWebIdentityToken = Lens.lens (\AssumeRoleWithWebIdentityResponse' {subjectFromWebIdentityToken} -> subjectFromWebIdentityToken) (\s@AssumeRoleWithWebIdentityResponse' {} a -> s {subjectFromWebIdentityToken = a} :: AssumeRoleWithWebIdentityResponse)
-
--- | The issuing authority of the web identity token presented. For OpenID
--- Connect ID tokens, this contains the value of the @iss@ field. For OAuth
--- 2.0 access tokens, this contains the value of the @ProviderId@ parameter
--- that was passed in the @AssumeRoleWithWebIdentity@ request.
-assumeRoleWithWebIdentityResponse_provider :: Lens.Lens' AssumeRoleWithWebIdentityResponse (Prelude.Maybe Prelude.Text)
-assumeRoleWithWebIdentityResponse_provider = Lens.lens (\AssumeRoleWithWebIdentityResponse' {provider} -> provider) (\s@AssumeRoleWithWebIdentityResponse' {} a -> s {provider = a} :: AssumeRoleWithWebIdentityResponse)
 
 -- | The Amazon Resource Name (ARN) and the assumed role ID, which are
 -- identifiers that you can use to refer to the resulting temporary
@@ -849,6 +833,20 @@ assumeRoleWithWebIdentityResponse_assumedRoleUser = Lens.lens (\AssumeRoleWithWe
 -- application that requested the web identity token.
 assumeRoleWithWebIdentityResponse_audience :: Lens.Lens' AssumeRoleWithWebIdentityResponse (Prelude.Maybe Prelude.Text)
 assumeRoleWithWebIdentityResponse_audience = Lens.lens (\AssumeRoleWithWebIdentityResponse' {audience} -> audience) (\s@AssumeRoleWithWebIdentityResponse' {} a -> s {audience = a} :: AssumeRoleWithWebIdentityResponse)
+
+-- | A percentage value that indicates the packed size of the session
+-- policies and session tags combined passed in the request. The request
+-- fails if the packed size is greater than 100 percent, which means the
+-- policies and tags exceeded the allowed space.
+assumeRoleWithWebIdentityResponse_packedPolicySize :: Lens.Lens' AssumeRoleWithWebIdentityResponse (Prelude.Maybe Prelude.Natural)
+assumeRoleWithWebIdentityResponse_packedPolicySize = Lens.lens (\AssumeRoleWithWebIdentityResponse' {packedPolicySize} -> packedPolicySize) (\s@AssumeRoleWithWebIdentityResponse' {} a -> s {packedPolicySize = a} :: AssumeRoleWithWebIdentityResponse)
+
+-- | The issuing authority of the web identity token presented. For OpenID
+-- Connect ID tokens, this contains the value of the @iss@ field. For OAuth
+-- 2.0 access tokens, this contains the value of the @ProviderId@ parameter
+-- that was passed in the @AssumeRoleWithWebIdentity@ request.
+assumeRoleWithWebIdentityResponse_provider :: Lens.Lens' AssumeRoleWithWebIdentityResponse (Prelude.Maybe Prelude.Text)
+assumeRoleWithWebIdentityResponse_provider = Lens.lens (\AssumeRoleWithWebIdentityResponse' {provider} -> provider) (\s@AssumeRoleWithWebIdentityResponse' {} a -> s {provider = a} :: AssumeRoleWithWebIdentityResponse)
 
 -- | The value of the source identity that is returned in the JSON web token
 -- (JWT) from the identity provider.
@@ -878,12 +876,15 @@ assumeRoleWithWebIdentityResponse_audience = Lens.lens (\AssumeRoleWithWebIdenti
 assumeRoleWithWebIdentityResponse_sourceIdentity :: Lens.Lens' AssumeRoleWithWebIdentityResponse (Prelude.Maybe Prelude.Text)
 assumeRoleWithWebIdentityResponse_sourceIdentity = Lens.lens (\AssumeRoleWithWebIdentityResponse' {sourceIdentity} -> sourceIdentity) (\s@AssumeRoleWithWebIdentityResponse' {} a -> s {sourceIdentity = a} :: AssumeRoleWithWebIdentityResponse)
 
--- | A percentage value that indicates the packed size of the session
--- policies and session tags combined passed in the request. The request
--- fails if the packed size is greater than 100 percent, which means the
--- policies and tags exceeded the allowed space.
-assumeRoleWithWebIdentityResponse_packedPolicySize :: Lens.Lens' AssumeRoleWithWebIdentityResponse (Prelude.Maybe Prelude.Natural)
-assumeRoleWithWebIdentityResponse_packedPolicySize = Lens.lens (\AssumeRoleWithWebIdentityResponse' {packedPolicySize} -> packedPolicySize) (\s@AssumeRoleWithWebIdentityResponse' {} a -> s {packedPolicySize = a} :: AssumeRoleWithWebIdentityResponse)
+-- | The unique user identifier that is returned by the identity provider.
+-- This identifier is associated with the @WebIdentityToken@ that was
+-- submitted with the @AssumeRoleWithWebIdentity@ call. The identifier is
+-- typically unique to the user and the application that acquired the
+-- @WebIdentityToken@ (pairwise identifier). For OpenID Connect ID tokens,
+-- this field contains the value returned by the identity provider as the
+-- token\'s @sub@ (Subject) claim.
+assumeRoleWithWebIdentityResponse_subjectFromWebIdentityToken :: Lens.Lens' AssumeRoleWithWebIdentityResponse (Prelude.Maybe Prelude.Text)
+assumeRoleWithWebIdentityResponse_subjectFromWebIdentityToken = Lens.lens (\AssumeRoleWithWebIdentityResponse' {subjectFromWebIdentityToken} -> subjectFromWebIdentityToken) (\s@AssumeRoleWithWebIdentityResponse' {} a -> s {subjectFromWebIdentityToken = a} :: AssumeRoleWithWebIdentityResponse)
 
 -- | The response's http status code.
 assumeRoleWithWebIdentityResponse_httpStatus :: Lens.Lens' AssumeRoleWithWebIdentityResponse Prelude.Int
@@ -903,11 +904,11 @@ instance
     AssumeRoleWithWebIdentityResponse
   where
   rnf AssumeRoleWithWebIdentityResponse' {..} =
-    Prelude.rnf subjectFromWebIdentityToken
-      `Prelude.seq` Prelude.rnf provider
-      `Prelude.seq` Prelude.rnf assumedRoleUser
+    Prelude.rnf assumedRoleUser
       `Prelude.seq` Prelude.rnf audience
-      `Prelude.seq` Prelude.rnf sourceIdentity
       `Prelude.seq` Prelude.rnf packedPolicySize
+      `Prelude.seq` Prelude.rnf provider
+      `Prelude.seq` Prelude.rnf sourceIdentity
+      `Prelude.seq` Prelude.rnf subjectFromWebIdentityToken
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf credentials

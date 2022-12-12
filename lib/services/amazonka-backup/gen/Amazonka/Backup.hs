@@ -24,41 +24,47 @@ module Amazonka.Backup
     -- * Errors
     -- $errors
 
-    -- ** DependencyFailureException
-    _DependencyFailureException,
-
-    -- ** InvalidResourceStateException
-    _InvalidResourceStateException,
-
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
     -- ** AlreadyExistsException
     _AlreadyExistsException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
 
     -- ** ConflictException
     _ConflictException,
 
-    -- ** MissingParameterValueException
-    _MissingParameterValueException,
+    -- ** DependencyFailureException
+    _DependencyFailureException,
+
+    -- ** InvalidParameterValueException
+    _InvalidParameterValueException,
 
     -- ** InvalidRequestException
     _InvalidRequestException,
 
-    -- ** InvalidParameterValueException
-    _InvalidParameterValueException,
+    -- ** InvalidResourceStateException
+    _InvalidResourceStateException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** MissingParameterValueException
+    _MissingParameterValueException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
 
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
+
+    -- ** CancelLegalHold
+    CancelLegalHold (CancelLegalHold'),
+    newCancelLegalHold,
+    CancelLegalHoldResponse (CancelLegalHoldResponse'),
+    newCancelLegalHoldResponse,
 
     -- ** CreateBackupPlan
     CreateBackupPlan (CreateBackupPlan'),
@@ -83,6 +89,12 @@ module Amazonka.Backup
     newCreateFramework,
     CreateFrameworkResponse (CreateFrameworkResponse'),
     newCreateFrameworkResponse,
+
+    -- ** CreateLegalHold
+    CreateLegalHold (CreateLegalHold'),
+    newCreateLegalHold,
+    CreateLegalHoldResponse (CreateLegalHoldResponse'),
+    newCreateLegalHoldResponse,
 
     -- ** CreateReportPlan
     CreateReportPlan (CreateReportPlan'),
@@ -216,6 +228,12 @@ module Amazonka.Backup
     DisassociateRecoveryPointResponse (DisassociateRecoveryPointResponse'),
     newDisassociateRecoveryPointResponse,
 
+    -- ** DisassociateRecoveryPointFromParent
+    DisassociateRecoveryPointFromParent (DisassociateRecoveryPointFromParent'),
+    newDisassociateRecoveryPointFromParent,
+    DisassociateRecoveryPointFromParentResponse (DisassociateRecoveryPointFromParentResponse'),
+    newDisassociateRecoveryPointFromParentResponse,
+
     -- ** ExportBackupPlanTemplate
     ExportBackupPlanTemplate (ExportBackupPlanTemplate'),
     newExportBackupPlanTemplate,
@@ -257,6 +275,12 @@ module Amazonka.Backup
     newGetBackupVaultNotifications,
     GetBackupVaultNotificationsResponse (GetBackupVaultNotificationsResponse'),
     newGetBackupVaultNotificationsResponse,
+
+    -- ** GetLegalHold
+    GetLegalHold (GetLegalHold'),
+    newGetLegalHold,
+    GetLegalHoldResponse (GetLegalHoldResponse'),
+    newGetLegalHoldResponse,
 
     -- ** GetRecoveryPointRestoreMetadata
     GetRecoveryPointRestoreMetadata (GetRecoveryPointRestoreMetadata'),
@@ -318,6 +342,12 @@ module Amazonka.Backup
     ListFrameworksResponse (ListFrameworksResponse'),
     newListFrameworksResponse,
 
+    -- ** ListLegalHolds (Paginated)
+    ListLegalHolds (ListLegalHolds'),
+    newListLegalHolds,
+    ListLegalHoldsResponse (ListLegalHoldsResponse'),
+    newListLegalHoldsResponse,
+
     -- ** ListProtectedResources (Paginated)
     ListProtectedResources (ListProtectedResources'),
     newListProtectedResources,
@@ -329,6 +359,12 @@ module Amazonka.Backup
     newListRecoveryPointsByBackupVault,
     ListRecoveryPointsByBackupVaultResponse (ListRecoveryPointsByBackupVaultResponse'),
     newListRecoveryPointsByBackupVaultResponse,
+
+    -- ** ListRecoveryPointsByLegalHold (Paginated)
+    ListRecoveryPointsByLegalHold (ListRecoveryPointsByLegalHold'),
+    newListRecoveryPointsByLegalHold,
+    ListRecoveryPointsByLegalHoldResponse (ListRecoveryPointsByLegalHoldResponse'),
+    newListRecoveryPointsByLegalHoldResponse,
 
     -- ** ListRecoveryPointsByResource (Paginated)
     ListRecoveryPointsByResource (ListRecoveryPointsByResource'),
@@ -470,6 +506,9 @@ module Amazonka.Backup
     -- ** CopyJobState
     CopyJobState (..),
 
+    -- ** LegalHoldStatus
+    LegalHoldStatus (..),
+
     -- ** RecoveryPointStatus
     RecoveryPointStatus (..),
 
@@ -555,6 +594,10 @@ module Amazonka.Backup
     CopyJob (CopyJob'),
     newCopyJob,
 
+    -- ** DateRange
+    DateRange (DateRange'),
+    newDateRange,
+
     -- ** Framework
     Framework (Framework'),
     newFramework,
@@ -562,6 +605,10 @@ module Amazonka.Backup
     -- ** FrameworkControl
     FrameworkControl (FrameworkControl'),
     newFrameworkControl,
+
+    -- ** LegalHold
+    LegalHold (LegalHold'),
+    newLegalHold,
 
     -- ** Lifecycle
     Lifecycle (Lifecycle'),
@@ -582,6 +629,14 @@ module Amazonka.Backup
     -- ** RecoveryPointCreator
     RecoveryPointCreator (RecoveryPointCreator'),
     newRecoveryPointCreator,
+
+    -- ** RecoveryPointMember
+    RecoveryPointMember (RecoveryPointMember'),
+    newRecoveryPointMember,
+
+    -- ** RecoveryPointSelection
+    RecoveryPointSelection (RecoveryPointSelection'),
+    newRecoveryPointSelection,
 
     -- ** ReportDeliveryChannel
     ReportDeliveryChannel (ReportDeliveryChannel'),
@@ -609,10 +664,12 @@ module Amazonka.Backup
   )
 where
 
+import Amazonka.Backup.CancelLegalHold
 import Amazonka.Backup.CreateBackupPlan
 import Amazonka.Backup.CreateBackupSelection
 import Amazonka.Backup.CreateBackupVault
 import Amazonka.Backup.CreateFramework
+import Amazonka.Backup.CreateLegalHold
 import Amazonka.Backup.CreateReportPlan
 import Amazonka.Backup.DeleteBackupPlan
 import Amazonka.Backup.DeleteBackupSelection
@@ -635,6 +692,7 @@ import Amazonka.Backup.DescribeReportJob
 import Amazonka.Backup.DescribeReportPlan
 import Amazonka.Backup.DescribeRestoreJob
 import Amazonka.Backup.DisassociateRecoveryPoint
+import Amazonka.Backup.DisassociateRecoveryPointFromParent
 import Amazonka.Backup.ExportBackupPlanTemplate
 import Amazonka.Backup.GetBackupPlan
 import Amazonka.Backup.GetBackupPlanFromJSON
@@ -642,6 +700,7 @@ import Amazonka.Backup.GetBackupPlanFromTemplate
 import Amazonka.Backup.GetBackupSelection
 import Amazonka.Backup.GetBackupVaultAccessPolicy
 import Amazonka.Backup.GetBackupVaultNotifications
+import Amazonka.Backup.GetLegalHold
 import Amazonka.Backup.GetRecoveryPointRestoreMetadata
 import Amazonka.Backup.GetSupportedResourceTypes
 import Amazonka.Backup.Lens
@@ -653,8 +712,10 @@ import Amazonka.Backup.ListBackupSelections
 import Amazonka.Backup.ListBackupVaults
 import Amazonka.Backup.ListCopyJobs
 import Amazonka.Backup.ListFrameworks
+import Amazonka.Backup.ListLegalHolds
 import Amazonka.Backup.ListProtectedResources
 import Amazonka.Backup.ListRecoveryPointsByBackupVault
+import Amazonka.Backup.ListRecoveryPointsByLegalHold
 import Amazonka.Backup.ListRecoveryPointsByResource
 import Amazonka.Backup.ListReportJobs
 import Amazonka.Backup.ListReportPlans

@@ -48,8 +48,8 @@ module Amazonka.SecretsManager.GetResourcePolicy
     newGetResourcePolicyResponse,
 
     -- * Response Lenses
-    getResourcePolicyResponse_name,
     getResourcePolicyResponse_arn,
+    getResourcePolicyResponse_name,
     getResourcePolicyResponse_resourcePolicy,
     getResourcePolicyResponse_httpStatus,
   )
@@ -115,8 +115,8 @@ instance Core.AWSRequest GetResourcePolicy where
     Response.receiveJSON
       ( \s h x ->
           GetResourcePolicyResponse'
-            Prelude.<$> (x Data..?> "Name")
-            Prelude.<*> (x Data..?> "ARN")
+            Prelude.<$> (x Data..?> "ARN")
+            Prelude.<*> (x Data..?> "Name")
             Prelude.<*> (x Data..?> "ResourcePolicy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -158,10 +158,10 @@ instance Data.ToQuery GetResourcePolicy where
 
 -- | /See:/ 'newGetResourcePolicyResponse' smart constructor.
 data GetResourcePolicyResponse = GetResourcePolicyResponse'
-  { -- | The name of the secret that the resource-based policy was retrieved for.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the secret that the resource-based policy was retrieved for.
+  { -- | The ARN of the secret that the resource-based policy was retrieved for.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the secret that the resource-based policy was retrieved for.
+    name :: Prelude.Maybe Prelude.Text,
     -- | A JSON-formatted string that contains the permissions policy attached to
     -- the secret. For more information about permissions policies, see
     -- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html Authentication and access control for Secrets Manager>.
@@ -179,9 +179,9 @@ data GetResourcePolicyResponse = GetResourcePolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'getResourcePolicyResponse_name' - The name of the secret that the resource-based policy was retrieved for.
---
 -- 'arn', 'getResourcePolicyResponse_arn' - The ARN of the secret that the resource-based policy was retrieved for.
+--
+-- 'name', 'getResourcePolicyResponse_name' - The name of the secret that the resource-based policy was retrieved for.
 --
 -- 'resourcePolicy', 'getResourcePolicyResponse_resourcePolicy' - A JSON-formatted string that contains the permissions policy attached to
 -- the secret. For more information about permissions policies, see
@@ -194,19 +194,19 @@ newGetResourcePolicyResponse ::
   GetResourcePolicyResponse
 newGetResourcePolicyResponse pHttpStatus_ =
   GetResourcePolicyResponse'
-    { name = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      name = Prelude.Nothing,
       resourcePolicy = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The name of the secret that the resource-based policy was retrieved for.
-getResourcePolicyResponse_name :: Lens.Lens' GetResourcePolicyResponse (Prelude.Maybe Prelude.Text)
-getResourcePolicyResponse_name = Lens.lens (\GetResourcePolicyResponse' {name} -> name) (\s@GetResourcePolicyResponse' {} a -> s {name = a} :: GetResourcePolicyResponse)
-
 -- | The ARN of the secret that the resource-based policy was retrieved for.
 getResourcePolicyResponse_arn :: Lens.Lens' GetResourcePolicyResponse (Prelude.Maybe Prelude.Text)
 getResourcePolicyResponse_arn = Lens.lens (\GetResourcePolicyResponse' {arn} -> arn) (\s@GetResourcePolicyResponse' {} a -> s {arn = a} :: GetResourcePolicyResponse)
+
+-- | The name of the secret that the resource-based policy was retrieved for.
+getResourcePolicyResponse_name :: Lens.Lens' GetResourcePolicyResponse (Prelude.Maybe Prelude.Text)
+getResourcePolicyResponse_name = Lens.lens (\GetResourcePolicyResponse' {name} -> name) (\s@GetResourcePolicyResponse' {} a -> s {name = a} :: GetResourcePolicyResponse)
 
 -- | A JSON-formatted string that contains the permissions policy attached to
 -- the secret. For more information about permissions policies, see
@@ -220,7 +220,7 @@ getResourcePolicyResponse_httpStatus = Lens.lens (\GetResourcePolicyResponse' {h
 
 instance Prelude.NFData GetResourcePolicyResponse where
   rnf GetResourcePolicyResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf resourcePolicy
       `Prelude.seq` Prelude.rnf httpStatus

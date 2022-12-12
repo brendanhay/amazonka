@@ -29,10 +29,10 @@ import Amazonka.Support.Types.Communication
 --
 -- /See:/ 'newRecentCaseCommunications' smart constructor.
 data RecentCaseCommunications = RecentCaseCommunications'
-  { -- | A resumption point for pagination.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The five most recent communications associated with the case.
-    communications :: Prelude.Maybe [Communication]
+  { -- | The five most recent communications associated with the case.
+    communications :: Prelude.Maybe [Communication],
+    -- | A resumption point for pagination.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data RecentCaseCommunications = RecentCaseCommunications'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'recentCaseCommunications_nextToken' - A resumption point for pagination.
---
 -- 'communications', 'recentCaseCommunications_communications' - The five most recent communications associated with the case.
+--
+-- 'nextToken', 'recentCaseCommunications_nextToken' - A resumption point for pagination.
 newRecentCaseCommunications ::
   RecentCaseCommunications
 newRecentCaseCommunications =
   RecentCaseCommunications'
-    { nextToken =
+    { communications =
         Prelude.Nothing,
-      communications = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | A resumption point for pagination.
-recentCaseCommunications_nextToken :: Lens.Lens' RecentCaseCommunications (Prelude.Maybe Prelude.Text)
-recentCaseCommunications_nextToken = Lens.lens (\RecentCaseCommunications' {nextToken} -> nextToken) (\s@RecentCaseCommunications' {} a -> s {nextToken = a} :: RecentCaseCommunications)
 
 -- | The five most recent communications associated with the case.
 recentCaseCommunications_communications :: Lens.Lens' RecentCaseCommunications (Prelude.Maybe [Communication])
 recentCaseCommunications_communications = Lens.lens (\RecentCaseCommunications' {communications} -> communications) (\s@RecentCaseCommunications' {} a -> s {communications = a} :: RecentCaseCommunications) Prelude.. Lens.mapping Lens.coerced
+
+-- | A resumption point for pagination.
+recentCaseCommunications_nextToken :: Lens.Lens' RecentCaseCommunications (Prelude.Maybe Prelude.Text)
+recentCaseCommunications_nextToken = Lens.lens (\RecentCaseCommunications' {nextToken} -> nextToken) (\s@RecentCaseCommunications' {} a -> s {nextToken = a} :: RecentCaseCommunications)
 
 instance Data.FromJSON RecentCaseCommunications where
   parseJSON =
@@ -70,18 +70,16 @@ instance Data.FromJSON RecentCaseCommunications where
       "RecentCaseCommunications"
       ( \x ->
           RecentCaseCommunications'
-            Prelude.<$> (x Data..:? "nextToken")
-            Prelude.<*> ( x Data..:? "communications"
-                            Data..!= Prelude.mempty
-                        )
+            Prelude.<$> (x Data..:? "communications" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "nextToken")
       )
 
 instance Prelude.Hashable RecentCaseCommunications where
   hashWithSalt _salt RecentCaseCommunications' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` communications
+    _salt `Prelude.hashWithSalt` communications
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData RecentCaseCommunications where
   rnf RecentCaseCommunications' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf communications
+    Prelude.rnf communications
+      `Prelude.seq` Prelude.rnf nextToken

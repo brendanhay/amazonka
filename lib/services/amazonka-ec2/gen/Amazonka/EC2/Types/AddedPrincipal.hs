@@ -32,12 +32,12 @@ import qualified Amazonka.Prelude as Prelude
 data AddedPrincipal = AddedPrincipal'
   { -- | The Amazon Resource Name (ARN) of the principal.
     principal :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the service permission.
-    servicePermissionId :: Prelude.Maybe Prelude.Text,
     -- | The type of principal.
     principalType :: Prelude.Maybe PrincipalType,
     -- | The ID of the service.
-    serviceId :: Prelude.Maybe Prelude.Text
+    serviceId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the service permission.
+    servicePermissionId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,28 +51,24 @@ data AddedPrincipal = AddedPrincipal'
 --
 -- 'principal', 'addedPrincipal_principal' - The Amazon Resource Name (ARN) of the principal.
 --
--- 'servicePermissionId', 'addedPrincipal_servicePermissionId' - The ID of the service permission.
---
 -- 'principalType', 'addedPrincipal_principalType' - The type of principal.
 --
 -- 'serviceId', 'addedPrincipal_serviceId' - The ID of the service.
+--
+-- 'servicePermissionId', 'addedPrincipal_servicePermissionId' - The ID of the service permission.
 newAddedPrincipal ::
   AddedPrincipal
 newAddedPrincipal =
   AddedPrincipal'
     { principal = Prelude.Nothing,
-      servicePermissionId = Prelude.Nothing,
       principalType = Prelude.Nothing,
-      serviceId = Prelude.Nothing
+      serviceId = Prelude.Nothing,
+      servicePermissionId = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the principal.
 addedPrincipal_principal :: Lens.Lens' AddedPrincipal (Prelude.Maybe Prelude.Text)
 addedPrincipal_principal = Lens.lens (\AddedPrincipal' {principal} -> principal) (\s@AddedPrincipal' {} a -> s {principal = a} :: AddedPrincipal)
-
--- | The ID of the service permission.
-addedPrincipal_servicePermissionId :: Lens.Lens' AddedPrincipal (Prelude.Maybe Prelude.Text)
-addedPrincipal_servicePermissionId = Lens.lens (\AddedPrincipal' {servicePermissionId} -> servicePermissionId) (\s@AddedPrincipal' {} a -> s {servicePermissionId = a} :: AddedPrincipal)
 
 -- | The type of principal.
 addedPrincipal_principalType :: Lens.Lens' AddedPrincipal (Prelude.Maybe PrincipalType)
@@ -82,24 +78,28 @@ addedPrincipal_principalType = Lens.lens (\AddedPrincipal' {principalType} -> pr
 addedPrincipal_serviceId :: Lens.Lens' AddedPrincipal (Prelude.Maybe Prelude.Text)
 addedPrincipal_serviceId = Lens.lens (\AddedPrincipal' {serviceId} -> serviceId) (\s@AddedPrincipal' {} a -> s {serviceId = a} :: AddedPrincipal)
 
+-- | The ID of the service permission.
+addedPrincipal_servicePermissionId :: Lens.Lens' AddedPrincipal (Prelude.Maybe Prelude.Text)
+addedPrincipal_servicePermissionId = Lens.lens (\AddedPrincipal' {servicePermissionId} -> servicePermissionId) (\s@AddedPrincipal' {} a -> s {servicePermissionId = a} :: AddedPrincipal)
+
 instance Data.FromXML AddedPrincipal where
   parseXML x =
     AddedPrincipal'
       Prelude.<$> (x Data..@? "principal")
-      Prelude.<*> (x Data..@? "servicePermissionId")
       Prelude.<*> (x Data..@? "principalType")
       Prelude.<*> (x Data..@? "serviceId")
+      Prelude.<*> (x Data..@? "servicePermissionId")
 
 instance Prelude.Hashable AddedPrincipal where
   hashWithSalt _salt AddedPrincipal' {..} =
     _salt `Prelude.hashWithSalt` principal
-      `Prelude.hashWithSalt` servicePermissionId
       `Prelude.hashWithSalt` principalType
       `Prelude.hashWithSalt` serviceId
+      `Prelude.hashWithSalt` servicePermissionId
 
 instance Prelude.NFData AddedPrincipal where
   rnf AddedPrincipal' {..} =
     Prelude.rnf principal
-      `Prelude.seq` Prelude.rnf servicePermissionId
       `Prelude.seq` Prelude.rnf principalType
       `Prelude.seq` Prelude.rnf serviceId
+      `Prelude.seq` Prelude.rnf servicePermissionId

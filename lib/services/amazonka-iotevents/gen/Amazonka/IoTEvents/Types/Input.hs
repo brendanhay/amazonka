@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInput' smart constructor.
 data Input = Input'
-  { -- | The definition of the input.
-    inputDefinition :: Prelude.Maybe InputDefinition,
-    -- | Information about the configuration of an input.
-    inputConfiguration :: Prelude.Maybe InputConfiguration
+  { -- | Information about the configuration of an input.
+    inputConfiguration :: Prelude.Maybe InputConfiguration,
+    -- | The definition of the input.
+    inputDefinition :: Prelude.Maybe InputDefinition
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,24 @@ data Input = Input'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'inputDefinition', 'input_inputDefinition' - The definition of the input.
---
 -- 'inputConfiguration', 'input_inputConfiguration' - Information about the configuration of an input.
+--
+-- 'inputDefinition', 'input_inputDefinition' - The definition of the input.
 newInput ::
   Input
 newInput =
   Input'
-    { inputDefinition = Prelude.Nothing,
-      inputConfiguration = Prelude.Nothing
+    { inputConfiguration = Prelude.Nothing,
+      inputDefinition = Prelude.Nothing
     }
-
--- | The definition of the input.
-input_inputDefinition :: Lens.Lens' Input (Prelude.Maybe InputDefinition)
-input_inputDefinition = Lens.lens (\Input' {inputDefinition} -> inputDefinition) (\s@Input' {} a -> s {inputDefinition = a} :: Input)
 
 -- | Information about the configuration of an input.
 input_inputConfiguration :: Lens.Lens' Input (Prelude.Maybe InputConfiguration)
 input_inputConfiguration = Lens.lens (\Input' {inputConfiguration} -> inputConfiguration) (\s@Input' {} a -> s {inputConfiguration = a} :: Input)
+
+-- | The definition of the input.
+input_inputDefinition :: Lens.Lens' Input (Prelude.Maybe InputDefinition)
+input_inputDefinition = Lens.lens (\Input' {inputDefinition} -> inputDefinition) (\s@Input' {} a -> s {inputDefinition = a} :: Input)
 
 instance Data.FromJSON Input where
   parseJSON =
@@ -70,16 +70,16 @@ instance Data.FromJSON Input where
       "Input"
       ( \x ->
           Input'
-            Prelude.<$> (x Data..:? "inputDefinition")
-            Prelude.<*> (x Data..:? "inputConfiguration")
+            Prelude.<$> (x Data..:? "inputConfiguration")
+            Prelude.<*> (x Data..:? "inputDefinition")
       )
 
 instance Prelude.Hashable Input where
   hashWithSalt _salt Input' {..} =
-    _salt `Prelude.hashWithSalt` inputDefinition
-      `Prelude.hashWithSalt` inputConfiguration
+    _salt `Prelude.hashWithSalt` inputConfiguration
+      `Prelude.hashWithSalt` inputDefinition
 
 instance Prelude.NFData Input where
   rnf Input' {..} =
-    Prelude.rnf inputDefinition
-      `Prelude.seq` Prelude.rnf inputConfiguration
+    Prelude.rnf inputConfiguration
+      `Prelude.seq` Prelude.rnf inputDefinition

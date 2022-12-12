@@ -35,8 +35,8 @@ module Amazonka.IoT.ListPrincipalThings
     newListPrincipalThings,
 
     -- * Request Lenses
-    listPrincipalThings_nextToken,
     listPrincipalThings_maxResults,
+    listPrincipalThings_nextToken,
     listPrincipalThings_principal,
 
     -- * Destructuring the Response
@@ -62,12 +62,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListPrincipalThings' smart constructor.
 data ListPrincipalThings = ListPrincipalThings'
-  { -- | To retrieve the next set of results, the @nextToken@ value from a
+  { -- | The maximum number of results to return in this operation.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | To retrieve the next set of results, the @nextToken@ value from a
     -- previous response; otherwise __null__ to receive the first set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in this operation.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The principal.
     principal :: Prelude.Text
   }
@@ -81,11 +81,11 @@ data ListPrincipalThings = ListPrincipalThings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listPrincipalThings_maxResults' - The maximum number of results to return in this operation.
+--
 -- 'nextToken', 'listPrincipalThings_nextToken' - To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
---
--- 'maxResults', 'listPrincipalThings_maxResults' - The maximum number of results to return in this operation.
 --
 -- 'principal', 'listPrincipalThings_principal' - The principal.
 newListPrincipalThings ::
@@ -94,20 +94,20 @@ newListPrincipalThings ::
   ListPrincipalThings
 newListPrincipalThings pPrincipal_ =
   ListPrincipalThings'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       principal = pPrincipal_
     }
+
+-- | The maximum number of results to return in this operation.
+listPrincipalThings_maxResults :: Lens.Lens' ListPrincipalThings (Prelude.Maybe Prelude.Natural)
+listPrincipalThings_maxResults = Lens.lens (\ListPrincipalThings' {maxResults} -> maxResults) (\s@ListPrincipalThings' {} a -> s {maxResults = a} :: ListPrincipalThings)
 
 -- | To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
 listPrincipalThings_nextToken :: Lens.Lens' ListPrincipalThings (Prelude.Maybe Prelude.Text)
 listPrincipalThings_nextToken = Lens.lens (\ListPrincipalThings' {nextToken} -> nextToken) (\s@ListPrincipalThings' {} a -> s {nextToken = a} :: ListPrincipalThings)
-
--- | The maximum number of results to return in this operation.
-listPrincipalThings_maxResults :: Lens.Lens' ListPrincipalThings (Prelude.Maybe Prelude.Natural)
-listPrincipalThings_maxResults = Lens.lens (\ListPrincipalThings' {maxResults} -> maxResults) (\s@ListPrincipalThings' {} a -> s {maxResults = a} :: ListPrincipalThings)
 
 -- | The principal.
 listPrincipalThings_principal :: Lens.Lens' ListPrincipalThings Prelude.Text
@@ -152,14 +152,14 @@ instance Core.AWSRequest ListPrincipalThings where
 
 instance Prelude.Hashable ListPrincipalThings where
   hashWithSalt _salt ListPrincipalThings' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` principal
 
 instance Prelude.NFData ListPrincipalThings where
   rnf ListPrincipalThings' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf principal
 
 instance Data.ToHeaders ListPrincipalThings where
@@ -173,8 +173,8 @@ instance Data.ToPath ListPrincipalThings where
 instance Data.ToQuery ListPrincipalThings where
   toQuery ListPrincipalThings' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | The output from the ListPrincipalThings operation.

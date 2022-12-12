@@ -32,11 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTrainingResultV2' smart constructor.
 data TrainingResultV2 = TrainingResultV2'
-  { -- | The training metric details.
-    trainingMetricsV2 :: Prelude.Maybe TrainingMetricsV2,
-    variableImportanceMetrics :: Prelude.Maybe VariableImportanceMetrics,
-    dataValidationMetrics :: Prelude.Maybe DataValidationMetrics,
-    -- | The variable importance metrics of the aggregated variables.
+  { -- | The variable importance metrics of the aggregated variables.
     --
     -- Account Takeover Insights (ATI) model uses event variables from the
     -- login data you provide to continuously calculate a set of variables
@@ -44,7 +40,11 @@ data TrainingResultV2 = TrainingResultV2'
     -- model might calculate the number of times an user has logged in using
     -- the same IP address. In this case, event variables used to derive the
     -- aggregated variables are @IP address@ and @user@.
-    aggregatedVariablesImportanceMetrics :: Prelude.Maybe AggregatedVariablesImportanceMetrics
+    aggregatedVariablesImportanceMetrics :: Prelude.Maybe AggregatedVariablesImportanceMetrics,
+    dataValidationMetrics :: Prelude.Maybe DataValidationMetrics,
+    -- | The training metric details.
+    trainingMetricsV2 :: Prelude.Maybe TrainingMetricsV2,
+    variableImportanceMetrics :: Prelude.Maybe VariableImportanceMetrics
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,12 +56,6 @@ data TrainingResultV2 = TrainingResultV2'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'trainingMetricsV2', 'trainingResultV2_trainingMetricsV2' - The training metric details.
---
--- 'variableImportanceMetrics', 'trainingResultV2_variableImportanceMetrics' - Undocumented member.
---
--- 'dataValidationMetrics', 'trainingResultV2_dataValidationMetrics' - Undocumented member.
---
 -- 'aggregatedVariablesImportanceMetrics', 'trainingResultV2_aggregatedVariablesImportanceMetrics' - The variable importance metrics of the aggregated variables.
 --
 -- Account Takeover Insights (ATI) model uses event variables from the
@@ -70,29 +64,22 @@ data TrainingResultV2 = TrainingResultV2'
 -- model might calculate the number of times an user has logged in using
 -- the same IP address. In this case, event variables used to derive the
 -- aggregated variables are @IP address@ and @user@.
+--
+-- 'dataValidationMetrics', 'trainingResultV2_dataValidationMetrics' - Undocumented member.
+--
+-- 'trainingMetricsV2', 'trainingResultV2_trainingMetricsV2' - The training metric details.
+--
+-- 'variableImportanceMetrics', 'trainingResultV2_variableImportanceMetrics' - Undocumented member.
 newTrainingResultV2 ::
   TrainingResultV2
 newTrainingResultV2 =
   TrainingResultV2'
-    { trainingMetricsV2 =
+    { aggregatedVariablesImportanceMetrics =
         Prelude.Nothing,
-      variableImportanceMetrics = Prelude.Nothing,
       dataValidationMetrics = Prelude.Nothing,
-      aggregatedVariablesImportanceMetrics =
-        Prelude.Nothing
+      trainingMetricsV2 = Prelude.Nothing,
+      variableImportanceMetrics = Prelude.Nothing
     }
-
--- | The training metric details.
-trainingResultV2_trainingMetricsV2 :: Lens.Lens' TrainingResultV2 (Prelude.Maybe TrainingMetricsV2)
-trainingResultV2_trainingMetricsV2 = Lens.lens (\TrainingResultV2' {trainingMetricsV2} -> trainingMetricsV2) (\s@TrainingResultV2' {} a -> s {trainingMetricsV2 = a} :: TrainingResultV2)
-
--- | Undocumented member.
-trainingResultV2_variableImportanceMetrics :: Lens.Lens' TrainingResultV2 (Prelude.Maybe VariableImportanceMetrics)
-trainingResultV2_variableImportanceMetrics = Lens.lens (\TrainingResultV2' {variableImportanceMetrics} -> variableImportanceMetrics) (\s@TrainingResultV2' {} a -> s {variableImportanceMetrics = a} :: TrainingResultV2)
-
--- | Undocumented member.
-trainingResultV2_dataValidationMetrics :: Lens.Lens' TrainingResultV2 (Prelude.Maybe DataValidationMetrics)
-trainingResultV2_dataValidationMetrics = Lens.lens (\TrainingResultV2' {dataValidationMetrics} -> dataValidationMetrics) (\s@TrainingResultV2' {} a -> s {dataValidationMetrics = a} :: TrainingResultV2)
 
 -- | The variable importance metrics of the aggregated variables.
 --
@@ -105,28 +92,41 @@ trainingResultV2_dataValidationMetrics = Lens.lens (\TrainingResultV2' {dataVali
 trainingResultV2_aggregatedVariablesImportanceMetrics :: Lens.Lens' TrainingResultV2 (Prelude.Maybe AggregatedVariablesImportanceMetrics)
 trainingResultV2_aggregatedVariablesImportanceMetrics = Lens.lens (\TrainingResultV2' {aggregatedVariablesImportanceMetrics} -> aggregatedVariablesImportanceMetrics) (\s@TrainingResultV2' {} a -> s {aggregatedVariablesImportanceMetrics = a} :: TrainingResultV2)
 
+-- | Undocumented member.
+trainingResultV2_dataValidationMetrics :: Lens.Lens' TrainingResultV2 (Prelude.Maybe DataValidationMetrics)
+trainingResultV2_dataValidationMetrics = Lens.lens (\TrainingResultV2' {dataValidationMetrics} -> dataValidationMetrics) (\s@TrainingResultV2' {} a -> s {dataValidationMetrics = a} :: TrainingResultV2)
+
+-- | The training metric details.
+trainingResultV2_trainingMetricsV2 :: Lens.Lens' TrainingResultV2 (Prelude.Maybe TrainingMetricsV2)
+trainingResultV2_trainingMetricsV2 = Lens.lens (\TrainingResultV2' {trainingMetricsV2} -> trainingMetricsV2) (\s@TrainingResultV2' {} a -> s {trainingMetricsV2 = a} :: TrainingResultV2)
+
+-- | Undocumented member.
+trainingResultV2_variableImportanceMetrics :: Lens.Lens' TrainingResultV2 (Prelude.Maybe VariableImportanceMetrics)
+trainingResultV2_variableImportanceMetrics = Lens.lens (\TrainingResultV2' {variableImportanceMetrics} -> variableImportanceMetrics) (\s@TrainingResultV2' {} a -> s {variableImportanceMetrics = a} :: TrainingResultV2)
+
 instance Data.FromJSON TrainingResultV2 where
   parseJSON =
     Data.withObject
       "TrainingResultV2"
       ( \x ->
           TrainingResultV2'
-            Prelude.<$> (x Data..:? "trainingMetricsV2")
-            Prelude.<*> (x Data..:? "variableImportanceMetrics")
+            Prelude.<$> (x Data..:? "aggregatedVariablesImportanceMetrics")
             Prelude.<*> (x Data..:? "dataValidationMetrics")
-            Prelude.<*> (x Data..:? "aggregatedVariablesImportanceMetrics")
+            Prelude.<*> (x Data..:? "trainingMetricsV2")
+            Prelude.<*> (x Data..:? "variableImportanceMetrics")
       )
 
 instance Prelude.Hashable TrainingResultV2 where
   hashWithSalt _salt TrainingResultV2' {..} =
-    _salt `Prelude.hashWithSalt` trainingMetricsV2
-      `Prelude.hashWithSalt` variableImportanceMetrics
-      `Prelude.hashWithSalt` dataValidationMetrics
+    _salt
       `Prelude.hashWithSalt` aggregatedVariablesImportanceMetrics
+      `Prelude.hashWithSalt` dataValidationMetrics
+      `Prelude.hashWithSalt` trainingMetricsV2
+      `Prelude.hashWithSalt` variableImportanceMetrics
 
 instance Prelude.NFData TrainingResultV2 where
   rnf TrainingResultV2' {..} =
-    Prelude.rnf trainingMetricsV2
-      `Prelude.seq` Prelude.rnf variableImportanceMetrics
+    Prelude.rnf aggregatedVariablesImportanceMetrics
       `Prelude.seq` Prelude.rnf dataValidationMetrics
-      `Prelude.seq` Prelude.rnf aggregatedVariablesImportanceMetrics
+      `Prelude.seq` Prelude.rnf trainingMetricsV2
+      `Prelude.seq` Prelude.rnf variableImportanceMetrics

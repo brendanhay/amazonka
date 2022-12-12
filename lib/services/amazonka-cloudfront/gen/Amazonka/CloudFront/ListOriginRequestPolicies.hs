@@ -38,9 +38,9 @@ module Amazonka.CloudFront.ListOriginRequestPolicies
     newListOriginRequestPolicies,
 
     -- * Request Lenses
-    listOriginRequestPolicies_type,
     listOriginRequestPolicies_marker,
     listOriginRequestPolicies_maxItems,
+    listOriginRequestPolicies_type,
 
     -- * Destructuring the Response
     ListOriginRequestPoliciesResponse (..),
@@ -62,16 +62,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListOriginRequestPolicies' smart constructor.
 data ListOriginRequestPolicies = ListOriginRequestPolicies'
-  { -- | A filter to return only the specified kinds of origin request policies.
-    -- Valid values are:
-    --
-    -- -   @managed@ – Returns only the managed policies created by Amazon Web
-    --     Services.
-    --
-    -- -   @custom@ – Returns only the custom policies created in your Amazon
-    --     Web Services account.
-    type' :: Prelude.Maybe OriginRequestPolicyType,
-    -- | Use this field when paginating results to indicate where to begin in
+  { -- | Use this field when paginating results to indicate where to begin in
     -- your list of origin request policies. The response includes origin
     -- request policies in the list that occur after the marker. To get the
     -- next page of the list, set this field’s value to the value of
@@ -79,7 +70,16 @@ data ListOriginRequestPolicies = ListOriginRequestPolicies'
     marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of origin request policies that you want in the
     -- response.
-    maxItems :: Prelude.Maybe Prelude.Text
+    maxItems :: Prelude.Maybe Prelude.Text,
+    -- | A filter to return only the specified kinds of origin request policies.
+    -- Valid values are:
+    --
+    -- -   @managed@ – Returns only the managed policies created by Amazon Web
+    --     Services.
+    --
+    -- -   @custom@ – Returns only the custom policies created in your Amazon
+    --     Web Services account.
+    type' :: Prelude.Maybe OriginRequestPolicyType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -91,15 +91,6 @@ data ListOriginRequestPolicies = ListOriginRequestPolicies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'listOriginRequestPolicies_type' - A filter to return only the specified kinds of origin request policies.
--- Valid values are:
---
--- -   @managed@ – Returns only the managed policies created by Amazon Web
---     Services.
---
--- -   @custom@ – Returns only the custom policies created in your Amazon
---     Web Services account.
---
 -- 'marker', 'listOriginRequestPolicies_marker' - Use this field when paginating results to indicate where to begin in
 -- your list of origin request policies. The response includes origin
 -- request policies in the list that occur after the marker. To get the
@@ -108,16 +99,8 @@ data ListOriginRequestPolicies = ListOriginRequestPolicies'
 --
 -- 'maxItems', 'listOriginRequestPolicies_maxItems' - The maximum number of origin request policies that you want in the
 -- response.
-newListOriginRequestPolicies ::
-  ListOriginRequestPolicies
-newListOriginRequestPolicies =
-  ListOriginRequestPolicies'
-    { type' = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxItems = Prelude.Nothing
-    }
-
--- | A filter to return only the specified kinds of origin request policies.
+--
+-- 'type'', 'listOriginRequestPolicies_type' - A filter to return only the specified kinds of origin request policies.
 -- Valid values are:
 --
 -- -   @managed@ – Returns only the managed policies created by Amazon Web
@@ -125,8 +108,15 @@ newListOriginRequestPolicies =
 --
 -- -   @custom@ – Returns only the custom policies created in your Amazon
 --     Web Services account.
-listOriginRequestPolicies_type :: Lens.Lens' ListOriginRequestPolicies (Prelude.Maybe OriginRequestPolicyType)
-listOriginRequestPolicies_type = Lens.lens (\ListOriginRequestPolicies' {type'} -> type') (\s@ListOriginRequestPolicies' {} a -> s {type' = a} :: ListOriginRequestPolicies)
+newListOriginRequestPolicies ::
+  ListOriginRequestPolicies
+newListOriginRequestPolicies =
+  ListOriginRequestPolicies'
+    { marker =
+        Prelude.Nothing,
+      maxItems = Prelude.Nothing,
+      type' = Prelude.Nothing
+    }
 
 -- | Use this field when paginating results to indicate where to begin in
 -- your list of origin request policies. The response includes origin
@@ -140,6 +130,17 @@ listOriginRequestPolicies_marker = Lens.lens (\ListOriginRequestPolicies' {marke
 -- response.
 listOriginRequestPolicies_maxItems :: Lens.Lens' ListOriginRequestPolicies (Prelude.Maybe Prelude.Text)
 listOriginRequestPolicies_maxItems = Lens.lens (\ListOriginRequestPolicies' {maxItems} -> maxItems) (\s@ListOriginRequestPolicies' {} a -> s {maxItems = a} :: ListOriginRequestPolicies)
+
+-- | A filter to return only the specified kinds of origin request policies.
+-- Valid values are:
+--
+-- -   @managed@ – Returns only the managed policies created by Amazon Web
+--     Services.
+--
+-- -   @custom@ – Returns only the custom policies created in your Amazon
+--     Web Services account.
+listOriginRequestPolicies_type :: Lens.Lens' ListOriginRequestPolicies (Prelude.Maybe OriginRequestPolicyType)
+listOriginRequestPolicies_type = Lens.lens (\ListOriginRequestPolicies' {type'} -> type') (\s@ListOriginRequestPolicies' {} a -> s {type' = a} :: ListOriginRequestPolicies)
 
 instance Core.AWSRequest ListOriginRequestPolicies where
   type
@@ -157,15 +158,15 @@ instance Core.AWSRequest ListOriginRequestPolicies where
 
 instance Prelude.Hashable ListOriginRequestPolicies where
   hashWithSalt _salt ListOriginRequestPolicies' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` marker
+    _salt `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData ListOriginRequestPolicies where
   rnf ListOriginRequestPolicies' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf type'
 
 instance Data.ToHeaders ListOriginRequestPolicies where
   toHeaders = Prelude.const Prelude.mempty
@@ -177,9 +178,9 @@ instance Data.ToPath ListOriginRequestPolicies where
 instance Data.ToQuery ListOriginRequestPolicies where
   toQuery ListOriginRequestPolicies' {..} =
     Prelude.mconcat
-      [ "Type" Data.=: type',
-        "Marker" Data.=: marker,
-        "MaxItems" Data.=: maxItems
+      [ "Marker" Data.=: marker,
+        "MaxItems" Data.=: maxItems,
+        "Type" Data.=: type'
       ]
 
 -- | /See:/ 'newListOriginRequestPoliciesResponse' smart constructor.

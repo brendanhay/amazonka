@@ -36,8 +36,8 @@ module Amazonka.Comprehend.DetectSentiment
     newDetectSentimentResponse,
 
     -- * Response Lenses
-    detectSentimentResponse_sentimentScore,
     detectSentimentResponse_sentiment,
+    detectSentimentResponse_sentimentScore,
     detectSentimentResponse_httpStatus,
   )
 where
@@ -119,8 +119,8 @@ instance Core.AWSRequest DetectSentiment where
     Response.receiveJSON
       ( \s h x ->
           DetectSentimentResponse'
-            Prelude.<$> (x Data..?> "SentimentScore")
-            Prelude.<*> (x Data..?> "Sentiment")
+            Prelude.<$> (x Data..?> "Sentiment")
+            Prelude.<*> (x Data..?> "SentimentScore")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -166,12 +166,12 @@ instance Data.ToQuery DetectSentiment where
 
 -- | /See:/ 'newDetectSentimentResponse' smart constructor.
 data DetectSentimentResponse = DetectSentimentResponse'
-  { -- | An object that lists the sentiments, and their corresponding confidence
-    -- levels.
-    sentimentScore :: Prelude.Maybe SentimentScore,
-    -- | The inferred sentiment that Amazon Comprehend has the highest level of
+  { -- | The inferred sentiment that Amazon Comprehend has the highest level of
     -- confidence in.
     sentiment :: Prelude.Maybe SentimentType,
+    -- | An object that lists the sentiments, and their corresponding confidence
+    -- levels.
+    sentimentScore :: Prelude.Maybe SentimentScore,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -185,11 +185,11 @@ data DetectSentimentResponse = DetectSentimentResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sentimentScore', 'detectSentimentResponse_sentimentScore' - An object that lists the sentiments, and their corresponding confidence
--- levels.
---
 -- 'sentiment', 'detectSentimentResponse_sentiment' - The inferred sentiment that Amazon Comprehend has the highest level of
 -- confidence in.
+--
+-- 'sentimentScore', 'detectSentimentResponse_sentimentScore' - An object that lists the sentiments, and their corresponding confidence
+-- levels.
 --
 -- 'httpStatus', 'detectSentimentResponse_httpStatus' - The response's http status code.
 newDetectSentimentResponse ::
@@ -198,21 +198,21 @@ newDetectSentimentResponse ::
   DetectSentimentResponse
 newDetectSentimentResponse pHttpStatus_ =
   DetectSentimentResponse'
-    { sentimentScore =
+    { sentiment =
         Prelude.Nothing,
-      sentiment = Prelude.Nothing,
+      sentimentScore = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An object that lists the sentiments, and their corresponding confidence
--- levels.
-detectSentimentResponse_sentimentScore :: Lens.Lens' DetectSentimentResponse (Prelude.Maybe SentimentScore)
-detectSentimentResponse_sentimentScore = Lens.lens (\DetectSentimentResponse' {sentimentScore} -> sentimentScore) (\s@DetectSentimentResponse' {} a -> s {sentimentScore = a} :: DetectSentimentResponse)
 
 -- | The inferred sentiment that Amazon Comprehend has the highest level of
 -- confidence in.
 detectSentimentResponse_sentiment :: Lens.Lens' DetectSentimentResponse (Prelude.Maybe SentimentType)
 detectSentimentResponse_sentiment = Lens.lens (\DetectSentimentResponse' {sentiment} -> sentiment) (\s@DetectSentimentResponse' {} a -> s {sentiment = a} :: DetectSentimentResponse)
+
+-- | An object that lists the sentiments, and their corresponding confidence
+-- levels.
+detectSentimentResponse_sentimentScore :: Lens.Lens' DetectSentimentResponse (Prelude.Maybe SentimentScore)
+detectSentimentResponse_sentimentScore = Lens.lens (\DetectSentimentResponse' {sentimentScore} -> sentimentScore) (\s@DetectSentimentResponse' {} a -> s {sentimentScore = a} :: DetectSentimentResponse)
 
 -- | The response's http status code.
 detectSentimentResponse_httpStatus :: Lens.Lens' DetectSentimentResponse Prelude.Int
@@ -220,6 +220,6 @@ detectSentimentResponse_httpStatus = Lens.lens (\DetectSentimentResponse' {httpS
 
 instance Prelude.NFData DetectSentimentResponse where
   rnf DetectSentimentResponse' {..} =
-    Prelude.rnf sentimentScore
-      `Prelude.seq` Prelude.rnf sentiment
+    Prelude.rnf sentiment
+      `Prelude.seq` Prelude.rnf sentimentScore
       `Prelude.seq` Prelude.rnf httpStatus

@@ -27,8 +27,8 @@ module Amazonka.DataBrew.CreateProject
     newCreateProject,
 
     -- * Request Lenses
-    createProject_tags,
     createProject_sample,
+    createProject_tags,
     createProject_datasetName,
     createProject_name,
     createProject_recipeName,
@@ -54,9 +54,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateProject' smart constructor.
 data CreateProject = CreateProject'
-  { -- | Metadata tags to apply to this project.
+  { sample :: Prelude.Maybe Sample,
+    -- | Metadata tags to apply to this project.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    sample :: Prelude.Maybe Sample,
     -- | The name of an existing dataset to associate this project with.
     datasetName :: Prelude.Text,
     -- | A unique name for the new project. Valid characters are alphanumeric
@@ -78,9 +78,9 @@ data CreateProject = CreateProject'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createProject_tags' - Metadata tags to apply to this project.
---
 -- 'sample', 'createProject_sample' - Undocumented member.
+--
+-- 'tags', 'createProject_tags' - Metadata tags to apply to this project.
 --
 -- 'datasetName', 'createProject_datasetName' - The name of an existing dataset to associate this project with.
 --
@@ -107,21 +107,21 @@ newCreateProject
   pRecipeName_
   pRoleArn_ =
     CreateProject'
-      { tags = Prelude.Nothing,
-        sample = Prelude.Nothing,
+      { sample = Prelude.Nothing,
+        tags = Prelude.Nothing,
         datasetName = pDatasetName_,
         name = pName_,
         recipeName = pRecipeName_,
         roleArn = pRoleArn_
       }
 
--- | Metadata tags to apply to this project.
-createProject_tags :: Lens.Lens' CreateProject (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createProject_tags = Lens.lens (\CreateProject' {tags} -> tags) (\s@CreateProject' {} a -> s {tags = a} :: CreateProject) Prelude.. Lens.mapping Lens.coerced
-
 -- | Undocumented member.
 createProject_sample :: Lens.Lens' CreateProject (Prelude.Maybe Sample)
 createProject_sample = Lens.lens (\CreateProject' {sample} -> sample) (\s@CreateProject' {} a -> s {sample = a} :: CreateProject)
+
+-- | Metadata tags to apply to this project.
+createProject_tags :: Lens.Lens' CreateProject (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createProject_tags = Lens.lens (\CreateProject' {tags} -> tags) (\s@CreateProject' {} a -> s {tags = a} :: CreateProject) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of an existing dataset to associate this project with.
 createProject_datasetName :: Lens.Lens' CreateProject Prelude.Text
@@ -157,8 +157,8 @@ instance Core.AWSRequest CreateProject where
 
 instance Prelude.Hashable CreateProject where
   hashWithSalt _salt CreateProject' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` sample
+    _salt `Prelude.hashWithSalt` sample
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` datasetName
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` recipeName
@@ -166,8 +166,8 @@ instance Prelude.Hashable CreateProject where
 
 instance Prelude.NFData CreateProject where
   rnf CreateProject' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf sample
+    Prelude.rnf sample
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf datasetName
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf recipeName
@@ -188,8 +188,8 @@ instance Data.ToJSON CreateProject where
   toJSON CreateProject' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Sample" Data..=) Prelude.<$> sample,
+          [ ("Sample" Data..=) Prelude.<$> sample,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("DatasetName" Data..= datasetName),
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("RecipeName" Data..= recipeName),

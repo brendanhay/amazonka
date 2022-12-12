@@ -29,9 +29,9 @@ module Amazonka.M2.ListEngineVersions
     newListEngineVersions,
 
     -- * Request Lenses
-    listEngineVersions_nextToken,
     listEngineVersions_engineType,
     listEngineVersions_maxResults,
+    listEngineVersions_nextToken,
 
     -- * Destructuring the Response
     ListEngineVersionsResponse (..),
@@ -54,14 +54,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListEngineVersions' smart constructor.
 data ListEngineVersions = ListEngineVersions'
-  { -- | A pagination token returned from a previous call to this operation. This
-    -- specifies the next item to return. To return to the beginning of the
-    -- list, exclude this parameter.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The type of target platform.
+  { -- | The type of target platform.
     engineType :: Prelude.Maybe EngineType,
     -- | The maximum number of objects to return.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A pagination token returned from a previous call to this operation. This
+    -- specifies the next item to return. To return to the beginning of the
+    -- list, exclude this parameter.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,27 +73,21 @@ data ListEngineVersions = ListEngineVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listEngineVersions_nextToken' - A pagination token returned from a previous call to this operation. This
--- specifies the next item to return. To return to the beginning of the
--- list, exclude this parameter.
---
 -- 'engineType', 'listEngineVersions_engineType' - The type of target platform.
 --
 -- 'maxResults', 'listEngineVersions_maxResults' - The maximum number of objects to return.
+--
+-- 'nextToken', 'listEngineVersions_nextToken' - A pagination token returned from a previous call to this operation. This
+-- specifies the next item to return. To return to the beginning of the
+-- list, exclude this parameter.
 newListEngineVersions ::
   ListEngineVersions
 newListEngineVersions =
   ListEngineVersions'
-    { nextToken = Prelude.Nothing,
-      engineType = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { engineType = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | A pagination token returned from a previous call to this operation. This
--- specifies the next item to return. To return to the beginning of the
--- list, exclude this parameter.
-listEngineVersions_nextToken :: Lens.Lens' ListEngineVersions (Prelude.Maybe Prelude.Text)
-listEngineVersions_nextToken = Lens.lens (\ListEngineVersions' {nextToken} -> nextToken) (\s@ListEngineVersions' {} a -> s {nextToken = a} :: ListEngineVersions)
 
 -- | The type of target platform.
 listEngineVersions_engineType :: Lens.Lens' ListEngineVersions (Prelude.Maybe EngineType)
@@ -102,6 +96,12 @@ listEngineVersions_engineType = Lens.lens (\ListEngineVersions' {engineType} -> 
 -- | The maximum number of objects to return.
 listEngineVersions_maxResults :: Lens.Lens' ListEngineVersions (Prelude.Maybe Prelude.Natural)
 listEngineVersions_maxResults = Lens.lens (\ListEngineVersions' {maxResults} -> maxResults) (\s@ListEngineVersions' {} a -> s {maxResults = a} :: ListEngineVersions)
+
+-- | A pagination token returned from a previous call to this operation. This
+-- specifies the next item to return. To return to the beginning of the
+-- list, exclude this parameter.
+listEngineVersions_nextToken :: Lens.Lens' ListEngineVersions (Prelude.Maybe Prelude.Text)
+listEngineVersions_nextToken = Lens.lens (\ListEngineVersions' {nextToken} -> nextToken) (\s@ListEngineVersions' {} a -> s {nextToken = a} :: ListEngineVersions)
 
 instance Core.AWSPager ListEngineVersions where
   page rq rs
@@ -143,15 +143,15 @@ instance Core.AWSRequest ListEngineVersions where
 
 instance Prelude.Hashable ListEngineVersions where
   hashWithSalt _salt ListEngineVersions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` engineType
+    _salt `Prelude.hashWithSalt` engineType
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListEngineVersions where
   rnf ListEngineVersions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf engineType
+    Prelude.rnf engineType
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListEngineVersions where
   toHeaders =
@@ -170,9 +170,9 @@ instance Data.ToPath ListEngineVersions where
 instance Data.ToQuery ListEngineVersions where
   toQuery ListEngineVersions' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "engineType" Data.=: engineType,
-        "maxResults" Data.=: maxResults
+      [ "engineType" Data.=: engineType,
+        "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListEngineVersionsResponse' smart constructor.

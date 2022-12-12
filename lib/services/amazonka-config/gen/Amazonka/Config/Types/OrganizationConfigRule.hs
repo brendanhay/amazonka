@@ -32,22 +32,22 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOrganizationConfigRule' smart constructor.
 data OrganizationConfigRule = OrganizationConfigRule'
-  { -- | An object that specifies metadata for your organization\'s Config Custom
+  { -- | A comma-separated list of accounts excluded from organization Config
+    -- rule.
+    excludedAccounts :: Prelude.Maybe [Prelude.Text],
+    -- | The timestamp of the last update.
+    lastUpdateTime :: Prelude.Maybe Data.POSIX,
+    -- | An object that specifies metadata for your organization\'s Config Custom
     -- Policy rule. The metadata includes the runtime system in use, which
     -- accounts have debug logging enabled, and other custom rule metadata,
     -- such as resource type, resource ID of Amazon Web Services resource, and
     -- organization trigger types that initiate Config to evaluate Amazon Web
     -- Services resources against a rule.
     organizationCustomPolicyRuleMetadata :: Prelude.Maybe OrganizationCustomPolicyRuleMetadataNoPolicy,
-    -- | A comma-separated list of accounts excluded from organization Config
-    -- rule.
-    excludedAccounts :: Prelude.Maybe [Prelude.Text],
-    -- | The timestamp of the last update.
-    lastUpdateTime :: Prelude.Maybe Data.POSIX,
-    -- | An @OrganizationManagedRuleMetadata@ object.
-    organizationManagedRuleMetadata :: Prelude.Maybe OrganizationManagedRuleMetadata,
     -- | An @OrganizationCustomRuleMetadata@ object.
     organizationCustomRuleMetadata :: Prelude.Maybe OrganizationCustomRuleMetadata,
+    -- | An @OrganizationManagedRuleMetadata@ object.
+    organizationManagedRuleMetadata :: Prelude.Maybe OrganizationManagedRuleMetadata,
     -- | The name that you assign to organization Config rule.
     organizationConfigRuleName :: Prelude.Text,
     -- | Amazon Resource Name (ARN) of organization Config rule.
@@ -63,6 +63,11 @@ data OrganizationConfigRule = OrganizationConfigRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'excludedAccounts', 'organizationConfigRule_excludedAccounts' - A comma-separated list of accounts excluded from organization Config
+-- rule.
+--
+-- 'lastUpdateTime', 'organizationConfigRule_lastUpdateTime' - The timestamp of the last update.
+--
 -- 'organizationCustomPolicyRuleMetadata', 'organizationConfigRule_organizationCustomPolicyRuleMetadata' - An object that specifies metadata for your organization\'s Config Custom
 -- Policy rule. The metadata includes the runtime system in use, which
 -- accounts have debug logging enabled, and other custom rule metadata,
@@ -70,14 +75,9 @@ data OrganizationConfigRule = OrganizationConfigRule'
 -- organization trigger types that initiate Config to evaluate Amazon Web
 -- Services resources against a rule.
 --
--- 'excludedAccounts', 'organizationConfigRule_excludedAccounts' - A comma-separated list of accounts excluded from organization Config
--- rule.
---
--- 'lastUpdateTime', 'organizationConfigRule_lastUpdateTime' - The timestamp of the last update.
+-- 'organizationCustomRuleMetadata', 'organizationConfigRule_organizationCustomRuleMetadata' - An @OrganizationCustomRuleMetadata@ object.
 --
 -- 'organizationManagedRuleMetadata', 'organizationConfigRule_organizationManagedRuleMetadata' - An @OrganizationManagedRuleMetadata@ object.
---
--- 'organizationCustomRuleMetadata', 'organizationConfigRule_organizationCustomRuleMetadata' - An @OrganizationCustomRuleMetadata@ object.
 --
 -- 'organizationConfigRuleName', 'organizationConfigRule_organizationConfigRuleName' - The name that you assign to organization Config rule.
 --
@@ -92,26 +92,18 @@ newOrganizationConfigRule
   pOrganizationConfigRuleName_
   pOrganizationConfigRuleArn_ =
     OrganizationConfigRule'
-      { organizationCustomPolicyRuleMetadata =
+      { excludedAccounts =
           Prelude.Nothing,
-        excludedAccounts = Prelude.Nothing,
         lastUpdateTime = Prelude.Nothing,
-        organizationManagedRuleMetadata = Prelude.Nothing,
+        organizationCustomPolicyRuleMetadata =
+          Prelude.Nothing,
         organizationCustomRuleMetadata = Prelude.Nothing,
+        organizationManagedRuleMetadata = Prelude.Nothing,
         organizationConfigRuleName =
           pOrganizationConfigRuleName_,
         organizationConfigRuleArn =
           pOrganizationConfigRuleArn_
       }
-
--- | An object that specifies metadata for your organization\'s Config Custom
--- Policy rule. The metadata includes the runtime system in use, which
--- accounts have debug logging enabled, and other custom rule metadata,
--- such as resource type, resource ID of Amazon Web Services resource, and
--- organization trigger types that initiate Config to evaluate Amazon Web
--- Services resources against a rule.
-organizationConfigRule_organizationCustomPolicyRuleMetadata :: Lens.Lens' OrganizationConfigRule (Prelude.Maybe OrganizationCustomPolicyRuleMetadataNoPolicy)
-organizationConfigRule_organizationCustomPolicyRuleMetadata = Lens.lens (\OrganizationConfigRule' {organizationCustomPolicyRuleMetadata} -> organizationCustomPolicyRuleMetadata) (\s@OrganizationConfigRule' {} a -> s {organizationCustomPolicyRuleMetadata = a} :: OrganizationConfigRule)
 
 -- | A comma-separated list of accounts excluded from organization Config
 -- rule.
@@ -122,13 +114,22 @@ organizationConfigRule_excludedAccounts = Lens.lens (\OrganizationConfigRule' {e
 organizationConfigRule_lastUpdateTime :: Lens.Lens' OrganizationConfigRule (Prelude.Maybe Prelude.UTCTime)
 organizationConfigRule_lastUpdateTime = Lens.lens (\OrganizationConfigRule' {lastUpdateTime} -> lastUpdateTime) (\s@OrganizationConfigRule' {} a -> s {lastUpdateTime = a} :: OrganizationConfigRule) Prelude.. Lens.mapping Data._Time
 
--- | An @OrganizationManagedRuleMetadata@ object.
-organizationConfigRule_organizationManagedRuleMetadata :: Lens.Lens' OrganizationConfigRule (Prelude.Maybe OrganizationManagedRuleMetadata)
-organizationConfigRule_organizationManagedRuleMetadata = Lens.lens (\OrganizationConfigRule' {organizationManagedRuleMetadata} -> organizationManagedRuleMetadata) (\s@OrganizationConfigRule' {} a -> s {organizationManagedRuleMetadata = a} :: OrganizationConfigRule)
+-- | An object that specifies metadata for your organization\'s Config Custom
+-- Policy rule. The metadata includes the runtime system in use, which
+-- accounts have debug logging enabled, and other custom rule metadata,
+-- such as resource type, resource ID of Amazon Web Services resource, and
+-- organization trigger types that initiate Config to evaluate Amazon Web
+-- Services resources against a rule.
+organizationConfigRule_organizationCustomPolicyRuleMetadata :: Lens.Lens' OrganizationConfigRule (Prelude.Maybe OrganizationCustomPolicyRuleMetadataNoPolicy)
+organizationConfigRule_organizationCustomPolicyRuleMetadata = Lens.lens (\OrganizationConfigRule' {organizationCustomPolicyRuleMetadata} -> organizationCustomPolicyRuleMetadata) (\s@OrganizationConfigRule' {} a -> s {organizationCustomPolicyRuleMetadata = a} :: OrganizationConfigRule)
 
 -- | An @OrganizationCustomRuleMetadata@ object.
 organizationConfigRule_organizationCustomRuleMetadata :: Lens.Lens' OrganizationConfigRule (Prelude.Maybe OrganizationCustomRuleMetadata)
 organizationConfigRule_organizationCustomRuleMetadata = Lens.lens (\OrganizationConfigRule' {organizationCustomRuleMetadata} -> organizationCustomRuleMetadata) (\s@OrganizationConfigRule' {} a -> s {organizationCustomRuleMetadata = a} :: OrganizationConfigRule)
+
+-- | An @OrganizationManagedRuleMetadata@ object.
+organizationConfigRule_organizationManagedRuleMetadata :: Lens.Lens' OrganizationConfigRule (Prelude.Maybe OrganizationManagedRuleMetadata)
+organizationConfigRule_organizationManagedRuleMetadata = Lens.lens (\OrganizationConfigRule' {organizationManagedRuleMetadata} -> organizationManagedRuleMetadata) (\s@OrganizationConfigRule' {} a -> s {organizationManagedRuleMetadata = a} :: OrganizationConfigRule)
 
 -- | The name that you assign to organization Config rule.
 organizationConfigRule_organizationConfigRuleName :: Lens.Lens' OrganizationConfigRule Prelude.Text
@@ -144,34 +145,33 @@ instance Data.FromJSON OrganizationConfigRule where
       "OrganizationConfigRule"
       ( \x ->
           OrganizationConfigRule'
-            Prelude.<$> (x Data..:? "OrganizationCustomPolicyRuleMetadata")
-            Prelude.<*> ( x Data..:? "ExcludedAccounts"
+            Prelude.<$> ( x Data..:? "ExcludedAccounts"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "LastUpdateTime")
-            Prelude.<*> (x Data..:? "OrganizationManagedRuleMetadata")
+            Prelude.<*> (x Data..:? "OrganizationCustomPolicyRuleMetadata")
             Prelude.<*> (x Data..:? "OrganizationCustomRuleMetadata")
+            Prelude.<*> (x Data..:? "OrganizationManagedRuleMetadata")
             Prelude.<*> (x Data..: "OrganizationConfigRuleName")
             Prelude.<*> (x Data..: "OrganizationConfigRuleArn")
       )
 
 instance Prelude.Hashable OrganizationConfigRule where
   hashWithSalt _salt OrganizationConfigRule' {..} =
-    _salt
-      `Prelude.hashWithSalt` organizationCustomPolicyRuleMetadata
-      `Prelude.hashWithSalt` excludedAccounts
+    _salt `Prelude.hashWithSalt` excludedAccounts
       `Prelude.hashWithSalt` lastUpdateTime
-      `Prelude.hashWithSalt` organizationManagedRuleMetadata
+      `Prelude.hashWithSalt` organizationCustomPolicyRuleMetadata
       `Prelude.hashWithSalt` organizationCustomRuleMetadata
+      `Prelude.hashWithSalt` organizationManagedRuleMetadata
       `Prelude.hashWithSalt` organizationConfigRuleName
       `Prelude.hashWithSalt` organizationConfigRuleArn
 
 instance Prelude.NFData OrganizationConfigRule where
   rnf OrganizationConfigRule' {..} =
-    Prelude.rnf organizationCustomPolicyRuleMetadata
-      `Prelude.seq` Prelude.rnf excludedAccounts
+    Prelude.rnf excludedAccounts
       `Prelude.seq` Prelude.rnf lastUpdateTime
-      `Prelude.seq` Prelude.rnf organizationManagedRuleMetadata
+      `Prelude.seq` Prelude.rnf organizationCustomPolicyRuleMetadata
       `Prelude.seq` Prelude.rnf organizationCustomRuleMetadata
+      `Prelude.seq` Prelude.rnf organizationManagedRuleMetadata
       `Prelude.seq` Prelude.rnf organizationConfigRuleName
       `Prelude.seq` Prelude.rnf organizationConfigRuleArn

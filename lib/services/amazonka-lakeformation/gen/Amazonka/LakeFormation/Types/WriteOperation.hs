@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newWriteOperation' smart constructor.
 data WriteOperation = WriteOperation'
-  { -- | An object to delete from the governed table.
-    deleteObject :: Prelude.Maybe DeleteObjectInput,
-    -- | A new object to add to the governed table.
-    addObject :: Prelude.Maybe AddObjectInput
+  { -- | A new object to add to the governed table.
+    addObject :: Prelude.Maybe AddObjectInput,
+    -- | An object to delete from the governed table.
+    deleteObject :: Prelude.Maybe DeleteObjectInput
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,40 +45,40 @@ data WriteOperation = WriteOperation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deleteObject', 'writeOperation_deleteObject' - An object to delete from the governed table.
---
 -- 'addObject', 'writeOperation_addObject' - A new object to add to the governed table.
+--
+-- 'deleteObject', 'writeOperation_deleteObject' - An object to delete from the governed table.
 newWriteOperation ::
   WriteOperation
 newWriteOperation =
   WriteOperation'
-    { deleteObject = Prelude.Nothing,
-      addObject = Prelude.Nothing
+    { addObject = Prelude.Nothing,
+      deleteObject = Prelude.Nothing
     }
-
--- | An object to delete from the governed table.
-writeOperation_deleteObject :: Lens.Lens' WriteOperation (Prelude.Maybe DeleteObjectInput)
-writeOperation_deleteObject = Lens.lens (\WriteOperation' {deleteObject} -> deleteObject) (\s@WriteOperation' {} a -> s {deleteObject = a} :: WriteOperation)
 
 -- | A new object to add to the governed table.
 writeOperation_addObject :: Lens.Lens' WriteOperation (Prelude.Maybe AddObjectInput)
 writeOperation_addObject = Lens.lens (\WriteOperation' {addObject} -> addObject) (\s@WriteOperation' {} a -> s {addObject = a} :: WriteOperation)
 
+-- | An object to delete from the governed table.
+writeOperation_deleteObject :: Lens.Lens' WriteOperation (Prelude.Maybe DeleteObjectInput)
+writeOperation_deleteObject = Lens.lens (\WriteOperation' {deleteObject} -> deleteObject) (\s@WriteOperation' {} a -> s {deleteObject = a} :: WriteOperation)
+
 instance Prelude.Hashable WriteOperation where
   hashWithSalt _salt WriteOperation' {..} =
-    _salt `Prelude.hashWithSalt` deleteObject
-      `Prelude.hashWithSalt` addObject
+    _salt `Prelude.hashWithSalt` addObject
+      `Prelude.hashWithSalt` deleteObject
 
 instance Prelude.NFData WriteOperation where
   rnf WriteOperation' {..} =
-    Prelude.rnf deleteObject
-      `Prelude.seq` Prelude.rnf addObject
+    Prelude.rnf addObject
+      `Prelude.seq` Prelude.rnf deleteObject
 
 instance Data.ToJSON WriteOperation where
   toJSON WriteOperation' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DeleteObject" Data..=) Prelude.<$> deleteObject,
-            ("AddObject" Data..=) Prelude.<$> addObject
+          [ ("AddObject" Data..=) Prelude.<$> addObject,
+            ("DeleteObject" Data..=) Prelude.<$> deleteObject
           ]
       )

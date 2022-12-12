@@ -30,8 +30,8 @@ module Amazonka.SSOAdmin.ListManagedPoliciesInPermissionSet
     newListManagedPoliciesInPermissionSet,
 
     -- * Request Lenses
-    listManagedPoliciesInPermissionSet_nextToken,
     listManagedPoliciesInPermissionSet_maxResults,
+    listManagedPoliciesInPermissionSet_nextToken,
     listManagedPoliciesInPermissionSet_instanceArn,
     listManagedPoliciesInPermissionSet_permissionSetArn,
 
@@ -40,8 +40,8 @@ module Amazonka.SSOAdmin.ListManagedPoliciesInPermissionSet
     newListManagedPoliciesInPermissionSetResponse,
 
     -- * Response Lenses
-    listManagedPoliciesInPermissionSetResponse_nextToken,
     listManagedPoliciesInPermissionSetResponse_attachedManagedPolicies,
+    listManagedPoliciesInPermissionSetResponse_nextToken,
     listManagedPoliciesInPermissionSetResponse_httpStatus,
   )
 where
@@ -56,11 +56,11 @@ import Amazonka.SSOAdmin.Types
 
 -- | /See:/ 'newListManagedPoliciesInPermissionSet' smart constructor.
 data ListManagedPoliciesInPermissionSet = ListManagedPoliciesInPermissionSet'
-  { -- | The pagination token for the list API. Initially the value is null. Use
+  { -- | The maximum number of results to display for the PermissionSet.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token for the list API. Initially the value is null. Use
     -- the output of previous API calls to make subsequent calls.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to display for the PermissionSet.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ARN of the IAM Identity Center instance under which the operation
     -- will be executed. For more information about ARNs, see
     -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
@@ -79,10 +79,10 @@ data ListManagedPoliciesInPermissionSet = ListManagedPoliciesInPermissionSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listManagedPoliciesInPermissionSet_maxResults' - The maximum number of results to display for the PermissionSet.
+--
 -- 'nextToken', 'listManagedPoliciesInPermissionSet_nextToken' - The pagination token for the list API. Initially the value is null. Use
 -- the output of previous API calls to make subsequent calls.
---
--- 'maxResults', 'listManagedPoliciesInPermissionSet_maxResults' - The maximum number of results to display for the PermissionSet.
 --
 -- 'instanceArn', 'listManagedPoliciesInPermissionSet_instanceArn' - The ARN of the IAM Identity Center instance under which the operation
 -- will be executed. For more information about ARNs, see
@@ -100,21 +100,21 @@ newListManagedPoliciesInPermissionSet
   pInstanceArn_
   pPermissionSetArn_ =
     ListManagedPoliciesInPermissionSet'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         instanceArn = pInstanceArn_,
         permissionSetArn = pPermissionSetArn_
       }
+
+-- | The maximum number of results to display for the PermissionSet.
+listManagedPoliciesInPermissionSet_maxResults :: Lens.Lens' ListManagedPoliciesInPermissionSet (Prelude.Maybe Prelude.Natural)
+listManagedPoliciesInPermissionSet_maxResults = Lens.lens (\ListManagedPoliciesInPermissionSet' {maxResults} -> maxResults) (\s@ListManagedPoliciesInPermissionSet' {} a -> s {maxResults = a} :: ListManagedPoliciesInPermissionSet)
 
 -- | The pagination token for the list API. Initially the value is null. Use
 -- the output of previous API calls to make subsequent calls.
 listManagedPoliciesInPermissionSet_nextToken :: Lens.Lens' ListManagedPoliciesInPermissionSet (Prelude.Maybe Prelude.Text)
 listManagedPoliciesInPermissionSet_nextToken = Lens.lens (\ListManagedPoliciesInPermissionSet' {nextToken} -> nextToken) (\s@ListManagedPoliciesInPermissionSet' {} a -> s {nextToken = a} :: ListManagedPoliciesInPermissionSet)
-
--- | The maximum number of results to display for the PermissionSet.
-listManagedPoliciesInPermissionSet_maxResults :: Lens.Lens' ListManagedPoliciesInPermissionSet (Prelude.Maybe Prelude.Natural)
-listManagedPoliciesInPermissionSet_maxResults = Lens.lens (\ListManagedPoliciesInPermissionSet' {maxResults} -> maxResults) (\s@ListManagedPoliciesInPermissionSet' {} a -> s {maxResults = a} :: ListManagedPoliciesInPermissionSet)
 
 -- | The ARN of the IAM Identity Center instance under which the operation
 -- will be executed. For more information about ARNs, see
@@ -165,10 +165,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListManagedPoliciesInPermissionSetResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-              Prelude.<*> ( x Data..?> "AttachedManagedPolicies"
-                              Core..!@ Prelude.mempty
-                          )
+            Prelude.<$> ( x Data..?> "AttachedManagedPolicies"
+                            Core..!@ Prelude.mempty
+                        )
+              Prelude.<*> (x Data..?> "NextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -179,8 +179,8 @@ instance
   hashWithSalt
     _salt
     ListManagedPoliciesInPermissionSet' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` instanceArn
         `Prelude.hashWithSalt` permissionSetArn
 
@@ -189,8 +189,8 @@ instance
     ListManagedPoliciesInPermissionSet
   where
   rnf ListManagedPoliciesInPermissionSet' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf instanceArn
       `Prelude.seq` Prelude.rnf permissionSetArn
 
@@ -219,8 +219,8 @@ instance
   toJSON ListManagedPoliciesInPermissionSet' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("InstanceArn" Data..= instanceArn),
             Prelude.Just
               ("PermissionSetArn" Data..= permissionSetArn)
@@ -241,11 +241,11 @@ instance
 
 -- | /See:/ 'newListManagedPoliciesInPermissionSetResponse' smart constructor.
 data ListManagedPoliciesInPermissionSetResponse = ListManagedPoliciesInPermissionSetResponse'
-  { -- | The pagination token for the list API. Initially the value is null. Use
+  { -- | An array of the AttachedManagedPolicy data type object.
+    attachedManagedPolicies :: Prelude.Maybe [AttachedManagedPolicy],
+    -- | The pagination token for the list API. Initially the value is null. Use
     -- the output of previous API calls to make subsequent calls.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of the AttachedManagedPolicy data type object.
-    attachedManagedPolicies :: Prelude.Maybe [AttachedManagedPolicy],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -259,10 +259,10 @@ data ListManagedPoliciesInPermissionSetResponse = ListManagedPoliciesInPermissio
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'attachedManagedPolicies', 'listManagedPoliciesInPermissionSetResponse_attachedManagedPolicies' - An array of the AttachedManagedPolicy data type object.
+--
 -- 'nextToken', 'listManagedPoliciesInPermissionSetResponse_nextToken' - The pagination token for the list API. Initially the value is null. Use
 -- the output of previous API calls to make subsequent calls.
---
--- 'attachedManagedPolicies', 'listManagedPoliciesInPermissionSetResponse_attachedManagedPolicies' - An array of the AttachedManagedPolicy data type object.
 --
 -- 'httpStatus', 'listManagedPoliciesInPermissionSetResponse_httpStatus' - The response's http status code.
 newListManagedPoliciesInPermissionSetResponse ::
@@ -272,21 +272,20 @@ newListManagedPoliciesInPermissionSetResponse ::
 newListManagedPoliciesInPermissionSetResponse
   pHttpStatus_ =
     ListManagedPoliciesInPermissionSetResponse'
-      { nextToken =
+      { attachedManagedPolicies =
           Prelude.Nothing,
-        attachedManagedPolicies =
-          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | An array of the AttachedManagedPolicy data type object.
+listManagedPoliciesInPermissionSetResponse_attachedManagedPolicies :: Lens.Lens' ListManagedPoliciesInPermissionSetResponse (Prelude.Maybe [AttachedManagedPolicy])
+listManagedPoliciesInPermissionSetResponse_attachedManagedPolicies = Lens.lens (\ListManagedPoliciesInPermissionSetResponse' {attachedManagedPolicies} -> attachedManagedPolicies) (\s@ListManagedPoliciesInPermissionSetResponse' {} a -> s {attachedManagedPolicies = a} :: ListManagedPoliciesInPermissionSetResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token for the list API. Initially the value is null. Use
 -- the output of previous API calls to make subsequent calls.
 listManagedPoliciesInPermissionSetResponse_nextToken :: Lens.Lens' ListManagedPoliciesInPermissionSetResponse (Prelude.Maybe Prelude.Text)
 listManagedPoliciesInPermissionSetResponse_nextToken = Lens.lens (\ListManagedPoliciesInPermissionSetResponse' {nextToken} -> nextToken) (\s@ListManagedPoliciesInPermissionSetResponse' {} a -> s {nextToken = a} :: ListManagedPoliciesInPermissionSetResponse)
-
--- | An array of the AttachedManagedPolicy data type object.
-listManagedPoliciesInPermissionSetResponse_attachedManagedPolicies :: Lens.Lens' ListManagedPoliciesInPermissionSetResponse (Prelude.Maybe [AttachedManagedPolicy])
-listManagedPoliciesInPermissionSetResponse_attachedManagedPolicies = Lens.lens (\ListManagedPoliciesInPermissionSetResponse' {attachedManagedPolicies} -> attachedManagedPolicies) (\s@ListManagedPoliciesInPermissionSetResponse' {} a -> s {attachedManagedPolicies = a} :: ListManagedPoliciesInPermissionSetResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listManagedPoliciesInPermissionSetResponse_httpStatus :: Lens.Lens' ListManagedPoliciesInPermissionSetResponse Prelude.Int
@@ -297,6 +296,6 @@ instance
     ListManagedPoliciesInPermissionSetResponse
   where
   rnf ListManagedPoliciesInPermissionSetResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf attachedManagedPolicies
+    Prelude.rnf attachedManagedPolicies
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

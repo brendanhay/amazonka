@@ -36,9 +36,9 @@ module Amazonka.Backup.DescribeProtectedResource
     newDescribeProtectedResourceResponse,
 
     -- * Response Lenses
-    describeProtectedResourceResponse_resourceType,
-    describeProtectedResourceResponse_resourceArn,
     describeProtectedResourceResponse_lastBackupTime,
+    describeProtectedResourceResponse_resourceArn,
+    describeProtectedResourceResponse_resourceType,
     describeProtectedResourceResponse_httpStatus,
   )
 where
@@ -94,9 +94,9 @@ instance Core.AWSRequest DescribeProtectedResource where
     Response.receiveJSON
       ( \s h x ->
           DescribeProtectedResourceResponse'
-            Prelude.<$> (x Data..?> "ResourceType")
+            Prelude.<$> (x Data..?> "LastBackupTime")
             Prelude.<*> (x Data..?> "ResourceArn")
-            Prelude.<*> (x Data..?> "LastBackupTime")
+            Prelude.<*> (x Data..?> "ResourceType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -129,17 +129,17 @@ instance Data.ToQuery DescribeProtectedResource where
 
 -- | /See:/ 'newDescribeProtectedResourceResponse' smart constructor.
 data DescribeProtectedResourceResponse = DescribeProtectedResourceResponse'
-  { -- | The type of Amazon Web Services resource saved as a recovery point; for
-    -- example, an Amazon EBS volume or an Amazon RDS database.
-    resourceType :: Prelude.Maybe Prelude.Text,
-    -- | An ARN that uniquely identifies a resource. The format of the ARN
-    -- depends on the resource type.
-    resourceArn :: Prelude.Maybe Prelude.Text,
-    -- | The date and time that a resource was last backed up, in Unix format and
+  { -- | The date and time that a resource was last backed up, in Unix format and
     -- Coordinated Universal Time (UTC). The value of @LastBackupTime@ is
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
     lastBackupTime :: Prelude.Maybe Data.POSIX,
+    -- | An ARN that uniquely identifies a resource. The format of the ARN
+    -- depends on the resource type.
+    resourceArn :: Prelude.Maybe Prelude.Text,
+    -- | The type of Amazon Web Services resource saved as a recovery point; for
+    -- example, an Amazon EBS volume or an Amazon RDS database.
+    resourceType :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -153,16 +153,16 @@ data DescribeProtectedResourceResponse = DescribeProtectedResourceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceType', 'describeProtectedResourceResponse_resourceType' - The type of Amazon Web Services resource saved as a recovery point; for
--- example, an Amazon EBS volume or an Amazon RDS database.
---
--- 'resourceArn', 'describeProtectedResourceResponse_resourceArn' - An ARN that uniquely identifies a resource. The format of the ARN
--- depends on the resource type.
---
 -- 'lastBackupTime', 'describeProtectedResourceResponse_lastBackupTime' - The date and time that a resource was last backed up, in Unix format and
 -- Coordinated Universal Time (UTC). The value of @LastBackupTime@ is
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
+--
+-- 'resourceArn', 'describeProtectedResourceResponse_resourceArn' - An ARN that uniquely identifies a resource. The format of the ARN
+-- depends on the resource type.
+--
+-- 'resourceType', 'describeProtectedResourceResponse_resourceType' - The type of Amazon Web Services resource saved as a recovery point; for
+-- example, an Amazon EBS volume or an Amazon RDS database.
 --
 -- 'httpStatus', 'describeProtectedResourceResponse_httpStatus' - The response's http status code.
 newDescribeProtectedResourceResponse ::
@@ -171,22 +171,12 @@ newDescribeProtectedResourceResponse ::
   DescribeProtectedResourceResponse
 newDescribeProtectedResourceResponse pHttpStatus_ =
   DescribeProtectedResourceResponse'
-    { resourceType =
+    { lastBackupTime =
         Prelude.Nothing,
       resourceArn = Prelude.Nothing,
-      lastBackupTime = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The type of Amazon Web Services resource saved as a recovery point; for
--- example, an Amazon EBS volume or an Amazon RDS database.
-describeProtectedResourceResponse_resourceType :: Lens.Lens' DescribeProtectedResourceResponse (Prelude.Maybe Prelude.Text)
-describeProtectedResourceResponse_resourceType = Lens.lens (\DescribeProtectedResourceResponse' {resourceType} -> resourceType) (\s@DescribeProtectedResourceResponse' {} a -> s {resourceType = a} :: DescribeProtectedResourceResponse)
-
--- | An ARN that uniquely identifies a resource. The format of the ARN
--- depends on the resource type.
-describeProtectedResourceResponse_resourceArn :: Lens.Lens' DescribeProtectedResourceResponse (Prelude.Maybe Prelude.Text)
-describeProtectedResourceResponse_resourceArn = Lens.lens (\DescribeProtectedResourceResponse' {resourceArn} -> resourceArn) (\s@DescribeProtectedResourceResponse' {} a -> s {resourceArn = a} :: DescribeProtectedResourceResponse)
 
 -- | The date and time that a resource was last backed up, in Unix format and
 -- Coordinated Universal Time (UTC). The value of @LastBackupTime@ is
@@ -194,6 +184,16 @@ describeProtectedResourceResponse_resourceArn = Lens.lens (\DescribeProtectedRes
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 describeProtectedResourceResponse_lastBackupTime :: Lens.Lens' DescribeProtectedResourceResponse (Prelude.Maybe Prelude.UTCTime)
 describeProtectedResourceResponse_lastBackupTime = Lens.lens (\DescribeProtectedResourceResponse' {lastBackupTime} -> lastBackupTime) (\s@DescribeProtectedResourceResponse' {} a -> s {lastBackupTime = a} :: DescribeProtectedResourceResponse) Prelude.. Lens.mapping Data._Time
+
+-- | An ARN that uniquely identifies a resource. The format of the ARN
+-- depends on the resource type.
+describeProtectedResourceResponse_resourceArn :: Lens.Lens' DescribeProtectedResourceResponse (Prelude.Maybe Prelude.Text)
+describeProtectedResourceResponse_resourceArn = Lens.lens (\DescribeProtectedResourceResponse' {resourceArn} -> resourceArn) (\s@DescribeProtectedResourceResponse' {} a -> s {resourceArn = a} :: DescribeProtectedResourceResponse)
+
+-- | The type of Amazon Web Services resource saved as a recovery point; for
+-- example, an Amazon EBS volume or an Amazon RDS database.
+describeProtectedResourceResponse_resourceType :: Lens.Lens' DescribeProtectedResourceResponse (Prelude.Maybe Prelude.Text)
+describeProtectedResourceResponse_resourceType = Lens.lens (\DescribeProtectedResourceResponse' {resourceType} -> resourceType) (\s@DescribeProtectedResourceResponse' {} a -> s {resourceType = a} :: DescribeProtectedResourceResponse)
 
 -- | The response's http status code.
 describeProtectedResourceResponse_httpStatus :: Lens.Lens' DescribeProtectedResourceResponse Prelude.Int
@@ -204,7 +204,7 @@ instance
     DescribeProtectedResourceResponse
   where
   rnf DescribeProtectedResourceResponse' {..} =
-    Prelude.rnf resourceType
+    Prelude.rnf lastBackupTime
       `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf lastBackupTime
+      `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf httpStatus

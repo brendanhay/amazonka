@@ -29,8 +29,8 @@ module Amazonka.GroundStation.ListEphemerides
     newListEphemerides,
 
     -- * Request Lenses
-    listEphemerides_nextToken,
     listEphemerides_maxResults,
+    listEphemerides_nextToken,
     listEphemerides_statusList,
     listEphemerides_endTime,
     listEphemerides_satelliteId,
@@ -41,8 +41,8 @@ module Amazonka.GroundStation.ListEphemerides
     newListEphemeridesResponse,
 
     -- * Response Lenses
-    listEphemeridesResponse_nextToken,
     listEphemeridesResponse_ephemerides,
+    listEphemeridesResponse_nextToken,
     listEphemeridesResponse_httpStatus,
   )
 where
@@ -57,10 +57,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListEphemerides' smart constructor.
 data ListEphemerides = ListEphemerides'
-  { -- | Pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Maximum number of ephemerides to return.
+  { -- | Maximum number of ephemerides to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The list of ephemeris status to return.
     statusList :: Prelude.Maybe [EphemerisStatus],
     -- | The end time to list in UTC. The operation will return an ephemeris if
@@ -84,9 +84,9 @@ data ListEphemerides = ListEphemerides'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listEphemerides_nextToken' - Pagination token.
---
 -- 'maxResults', 'listEphemerides_maxResults' - Maximum number of ephemerides to return.
+--
+-- 'nextToken', 'listEphemerides_nextToken' - Pagination token.
 --
 -- 'statusList', 'listEphemerides_statusList' - The list of ephemeris status to return.
 --
@@ -112,21 +112,21 @@ newListEphemerides
   pSatelliteId_
   pStartTime_ =
     ListEphemerides'
-      { nextToken = Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+      { maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         statusList = Prelude.Nothing,
         endTime = Data._Time Lens.# pEndTime_,
         satelliteId = pSatelliteId_,
         startTime = Data._Time Lens.# pStartTime_
       }
 
--- | Pagination token.
-listEphemerides_nextToken :: Lens.Lens' ListEphemerides (Prelude.Maybe Prelude.Text)
-listEphemerides_nextToken = Lens.lens (\ListEphemerides' {nextToken} -> nextToken) (\s@ListEphemerides' {} a -> s {nextToken = a} :: ListEphemerides)
-
 -- | Maximum number of ephemerides to return.
 listEphemerides_maxResults :: Lens.Lens' ListEphemerides (Prelude.Maybe Prelude.Natural)
 listEphemerides_maxResults = Lens.lens (\ListEphemerides' {maxResults} -> maxResults) (\s@ListEphemerides' {} a -> s {maxResults = a} :: ListEphemerides)
+
+-- | Pagination token.
+listEphemerides_nextToken :: Lens.Lens' ListEphemerides (Prelude.Maybe Prelude.Text)
+listEphemerides_nextToken = Lens.lens (\ListEphemerides' {nextToken} -> nextToken) (\s@ListEphemerides' {} a -> s {nextToken = a} :: ListEphemerides)
 
 -- | The list of ephemeris status to return.
 listEphemerides_statusList :: Lens.Lens' ListEphemerides (Prelude.Maybe [EphemerisStatus])
@@ -181,15 +181,15 @@ instance Core.AWSRequest ListEphemerides where
     Response.receiveJSON
       ( \s h x ->
           ListEphemeridesResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "ephemerides")
+            Prelude.<$> (x Data..?> "ephemerides")
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListEphemerides where
   hashWithSalt _salt ListEphemerides' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` statusList
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` satelliteId
@@ -197,8 +197,8 @@ instance Prelude.Hashable ListEphemerides where
 
 instance Prelude.NFData ListEphemerides where
   rnf ListEphemerides' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf statusList
       `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf satelliteId
@@ -232,16 +232,16 @@ instance Data.ToPath ListEphemerides where
 instance Data.ToQuery ListEphemerides where
   toQuery ListEphemerides' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListEphemeridesResponse' smart constructor.
 data ListEphemeridesResponse = ListEphemeridesResponse'
-  { -- | Pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | List of ephemerides.
+  { -- | List of ephemerides.
     ephemerides :: Prelude.Maybe (Prelude.NonEmpty EphemerisItem),
+    -- | Pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -255,9 +255,9 @@ data ListEphemeridesResponse = ListEphemeridesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listEphemeridesResponse_nextToken' - Pagination token.
---
 -- 'ephemerides', 'listEphemeridesResponse_ephemerides' - List of ephemerides.
+--
+-- 'nextToken', 'listEphemeridesResponse_nextToken' - Pagination token.
 --
 -- 'httpStatus', 'listEphemeridesResponse_httpStatus' - The response's http status code.
 newListEphemeridesResponse ::
@@ -266,19 +266,19 @@ newListEphemeridesResponse ::
   ListEphemeridesResponse
 newListEphemeridesResponse pHttpStatus_ =
   ListEphemeridesResponse'
-    { nextToken =
+    { ephemerides =
         Prelude.Nothing,
-      ephemerides = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Pagination token.
-listEphemeridesResponse_nextToken :: Lens.Lens' ListEphemeridesResponse (Prelude.Maybe Prelude.Text)
-listEphemeridesResponse_nextToken = Lens.lens (\ListEphemeridesResponse' {nextToken} -> nextToken) (\s@ListEphemeridesResponse' {} a -> s {nextToken = a} :: ListEphemeridesResponse)
 
 -- | List of ephemerides.
 listEphemeridesResponse_ephemerides :: Lens.Lens' ListEphemeridesResponse (Prelude.Maybe (Prelude.NonEmpty EphemerisItem))
 listEphemeridesResponse_ephemerides = Lens.lens (\ListEphemeridesResponse' {ephemerides} -> ephemerides) (\s@ListEphemeridesResponse' {} a -> s {ephemerides = a} :: ListEphemeridesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Pagination token.
+listEphemeridesResponse_nextToken :: Lens.Lens' ListEphemeridesResponse (Prelude.Maybe Prelude.Text)
+listEphemeridesResponse_nextToken = Lens.lens (\ListEphemeridesResponse' {nextToken} -> nextToken) (\s@ListEphemeridesResponse' {} a -> s {nextToken = a} :: ListEphemeridesResponse)
 
 -- | The response's http status code.
 listEphemeridesResponse_httpStatus :: Lens.Lens' ListEphemeridesResponse Prelude.Int
@@ -286,6 +286,6 @@ listEphemeridesResponse_httpStatus = Lens.lens (\ListEphemeridesResponse' {httpS
 
 instance Prelude.NFData ListEphemeridesResponse where
   rnf ListEphemeridesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf ephemerides
+    Prelude.rnf ephemerides
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

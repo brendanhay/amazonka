@@ -30,9 +30,9 @@ module Amazonka.WorkDocs.DescribeGroups
     newDescribeGroups,
 
     -- * Request Lenses
-    describeGroups_marker,
     describeGroups_authenticationToken,
     describeGroups_limit,
+    describeGroups_marker,
     describeGroups_organizationId,
     describeGroups_searchQuery,
 
@@ -41,8 +41,8 @@ module Amazonka.WorkDocs.DescribeGroups
     newDescribeGroupsResponse,
 
     -- * Response Lenses
-    describeGroupsResponse_marker,
     describeGroupsResponse_groups,
+    describeGroupsResponse_marker,
     describeGroupsResponse_httpStatus,
   )
 where
@@ -57,14 +57,14 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newDescribeGroups' smart constructor.
 data DescribeGroups = DescribeGroups'
-  { -- | The marker for the next set of results. (You received this marker from a
-    -- previous call.)
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | Amazon WorkDocs authentication token. Not required when using AWS
+  { -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The maximum number of items to return with this call.
     limit :: Prelude.Maybe Prelude.Natural,
+    -- | The marker for the next set of results. (You received this marker from a
+    -- previous call.)
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The ID of the organization.
     organizationId :: Prelude.Maybe Prelude.Text,
     -- | A query to describe groups by group name.
@@ -80,13 +80,13 @@ data DescribeGroups = DescribeGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'marker', 'describeGroups_marker' - The marker for the next set of results. (You received this marker from a
--- previous call.)
---
 -- 'authenticationToken', 'describeGroups_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 --
 -- 'limit', 'describeGroups_limit' - The maximum number of items to return with this call.
+--
+-- 'marker', 'describeGroups_marker' - The marker for the next set of results. (You received this marker from a
+-- previous call.)
 --
 -- 'organizationId', 'describeGroups_organizationId' - The ID of the organization.
 --
@@ -97,17 +97,13 @@ newDescribeGroups ::
   DescribeGroups
 newDescribeGroups pSearchQuery_ =
   DescribeGroups'
-    { marker = Prelude.Nothing,
-      authenticationToken = Prelude.Nothing,
+    { authenticationToken =
+        Prelude.Nothing,
       limit = Prelude.Nothing,
+      marker = Prelude.Nothing,
       organizationId = Prelude.Nothing,
       searchQuery = Data._Sensitive Lens.# pSearchQuery_
     }
-
--- | The marker for the next set of results. (You received this marker from a
--- previous call.)
-describeGroups_marker :: Lens.Lens' DescribeGroups (Prelude.Maybe Prelude.Text)
-describeGroups_marker = Lens.lens (\DescribeGroups' {marker} -> marker) (\s@DescribeGroups' {} a -> s {marker = a} :: DescribeGroups)
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
@@ -117,6 +113,11 @@ describeGroups_authenticationToken = Lens.lens (\DescribeGroups' {authentication
 -- | The maximum number of items to return with this call.
 describeGroups_limit :: Lens.Lens' DescribeGroups (Prelude.Maybe Prelude.Natural)
 describeGroups_limit = Lens.lens (\DescribeGroups' {limit} -> limit) (\s@DescribeGroups' {} a -> s {limit = a} :: DescribeGroups)
+
+-- | The marker for the next set of results. (You received this marker from a
+-- previous call.)
+describeGroups_marker :: Lens.Lens' DescribeGroups (Prelude.Maybe Prelude.Text)
+describeGroups_marker = Lens.lens (\DescribeGroups' {marker} -> marker) (\s@DescribeGroups' {} a -> s {marker = a} :: DescribeGroups)
 
 -- | The ID of the organization.
 describeGroups_organizationId :: Lens.Lens' DescribeGroups (Prelude.Maybe Prelude.Text)
@@ -155,24 +156,24 @@ instance Core.AWSRequest DescribeGroups where
     Response.receiveJSON
       ( \s h x ->
           DescribeGroupsResponse'
-            Prelude.<$> (x Data..?> "Marker")
-            Prelude.<*> (x Data..?> "Groups" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Groups" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeGroups where
   hashWithSalt _salt DescribeGroups' {..} =
-    _salt `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` authenticationToken
+    _salt `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` searchQuery
 
 instance Prelude.NFData DescribeGroups where
   rnf DescribeGroups' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf authenticationToken
+    Prelude.rnf authenticationToken
       `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf organizationId
       `Prelude.seq` Prelude.rnf searchQuery
 
@@ -190,19 +191,19 @@ instance Data.ToPath DescribeGroups where
 instance Data.ToQuery DescribeGroups where
   toQuery DescribeGroups' {..} =
     Prelude.mconcat
-      [ "marker" Data.=: marker,
-        "limit" Data.=: limit,
+      [ "limit" Data.=: limit,
+        "marker" Data.=: marker,
         "organizationId" Data.=: organizationId,
         "searchQuery" Data.=: searchQuery
       ]
 
 -- | /See:/ 'newDescribeGroupsResponse' smart constructor.
 data DescribeGroupsResponse = DescribeGroupsResponse'
-  { -- | The marker to use when requesting the next set of results. If there are
+  { -- | The list of groups.
+    groups :: Prelude.Maybe [GroupMetadata],
+    -- | The marker to use when requesting the next set of results. If there are
     -- no additional results, the string is empty.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | The list of groups.
-    groups :: Prelude.Maybe [GroupMetadata],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -216,10 +217,10 @@ data DescribeGroupsResponse = DescribeGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'groups', 'describeGroupsResponse_groups' - The list of groups.
+--
 -- 'marker', 'describeGroupsResponse_marker' - The marker to use when requesting the next set of results. If there are
 -- no additional results, the string is empty.
---
--- 'groups', 'describeGroupsResponse_groups' - The list of groups.
 --
 -- 'httpStatus', 'describeGroupsResponse_httpStatus' - The response's http status code.
 newDescribeGroupsResponse ::
@@ -228,19 +229,19 @@ newDescribeGroupsResponse ::
   DescribeGroupsResponse
 newDescribeGroupsResponse pHttpStatus_ =
   DescribeGroupsResponse'
-    { marker = Prelude.Nothing,
-      groups = Prelude.Nothing,
+    { groups = Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of groups.
+describeGroupsResponse_groups :: Lens.Lens' DescribeGroupsResponse (Prelude.Maybe [GroupMetadata])
+describeGroupsResponse_groups = Lens.lens (\DescribeGroupsResponse' {groups} -> groups) (\s@DescribeGroupsResponse' {} a -> s {groups = a} :: DescribeGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The marker to use when requesting the next set of results. If there are
 -- no additional results, the string is empty.
 describeGroupsResponse_marker :: Lens.Lens' DescribeGroupsResponse (Prelude.Maybe Prelude.Text)
 describeGroupsResponse_marker = Lens.lens (\DescribeGroupsResponse' {marker} -> marker) (\s@DescribeGroupsResponse' {} a -> s {marker = a} :: DescribeGroupsResponse)
-
--- | The list of groups.
-describeGroupsResponse_groups :: Lens.Lens' DescribeGroupsResponse (Prelude.Maybe [GroupMetadata])
-describeGroupsResponse_groups = Lens.lens (\DescribeGroupsResponse' {groups} -> groups) (\s@DescribeGroupsResponse' {} a -> s {groups = a} :: DescribeGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeGroupsResponse_httpStatus :: Lens.Lens' DescribeGroupsResponse Prelude.Int
@@ -248,6 +249,6 @@ describeGroupsResponse_httpStatus = Lens.lens (\DescribeGroupsResponse' {httpSta
 
 instance Prelude.NFData DescribeGroupsResponse where
   rnf DescribeGroupsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf groups
+    Prelude.rnf groups
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf httpStatus

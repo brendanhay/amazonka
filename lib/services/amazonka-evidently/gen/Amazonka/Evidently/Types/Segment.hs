@@ -31,17 +31,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSegment' smart constructor.
 data Segment = Segment'
-  { -- | The list of tag keys and values associated with this launch.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The customer-created description for this segment.
+  { -- | The customer-created description for this segment.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The number of launches that this segment is used in. This count includes
-    -- all current launches, not just those that are currently running.
-    launchCount :: Prelude.Maybe Prelude.Integer,
     -- | The number of experiments that this segment is used in. This count
     -- includes all current experiments, not just those that are currently
     -- running.
     experimentCount :: Prelude.Maybe Prelude.Integer,
+    -- | The number of launches that this segment is used in. This count includes
+    -- all current launches, not just those that are currently running.
+    launchCount :: Prelude.Maybe Prelude.Integer,
+    -- | The list of tag keys and values associated with this launch.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The ARN of the segment.
     arn :: Prelude.Text,
     -- | The date and time that this segment was created.
@@ -66,16 +66,16 @@ data Segment = Segment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'segment_tags' - The list of tag keys and values associated with this launch.
---
 -- 'description', 'segment_description' - The customer-created description for this segment.
---
--- 'launchCount', 'segment_launchCount' - The number of launches that this segment is used in. This count includes
--- all current launches, not just those that are currently running.
 --
 -- 'experimentCount', 'segment_experimentCount' - The number of experiments that this segment is used in. This count
 -- includes all current experiments, not just those that are currently
 -- running.
+--
+-- 'launchCount', 'segment_launchCount' - The number of launches that this segment is used in. This count includes
+-- all current launches, not just those that are currently running.
+--
+-- 'tags', 'segment_tags' - The list of tag keys and values associated with this launch.
 --
 -- 'arn', 'segment_arn' - The ARN of the segment.
 --
@@ -108,10 +108,10 @@ newSegment
   pName_
   pPattern_ =
     Segment'
-      { tags = Prelude.Nothing,
-        description = Prelude.Nothing,
-        launchCount = Prelude.Nothing,
+      { description = Prelude.Nothing,
         experimentCount = Prelude.Nothing,
+        launchCount = Prelude.Nothing,
+        tags = Prelude.Nothing,
         arn = pArn_,
         createdTime = Data._Time Lens.# pCreatedTime_,
         lastUpdatedTime =
@@ -120,24 +120,24 @@ newSegment
         pattern' = pPattern_
       }
 
--- | The list of tag keys and values associated with this launch.
-segment_tags :: Lens.Lens' Segment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-segment_tags = Lens.lens (\Segment' {tags} -> tags) (\s@Segment' {} a -> s {tags = a} :: Segment) Prelude.. Lens.mapping Lens.coerced
-
 -- | The customer-created description for this segment.
 segment_description :: Lens.Lens' Segment (Prelude.Maybe Prelude.Text)
 segment_description = Lens.lens (\Segment' {description} -> description) (\s@Segment' {} a -> s {description = a} :: Segment)
-
--- | The number of launches that this segment is used in. This count includes
--- all current launches, not just those that are currently running.
-segment_launchCount :: Lens.Lens' Segment (Prelude.Maybe Prelude.Integer)
-segment_launchCount = Lens.lens (\Segment' {launchCount} -> launchCount) (\s@Segment' {} a -> s {launchCount = a} :: Segment)
 
 -- | The number of experiments that this segment is used in. This count
 -- includes all current experiments, not just those that are currently
 -- running.
 segment_experimentCount :: Lens.Lens' Segment (Prelude.Maybe Prelude.Integer)
 segment_experimentCount = Lens.lens (\Segment' {experimentCount} -> experimentCount) (\s@Segment' {} a -> s {experimentCount = a} :: Segment)
+
+-- | The number of launches that this segment is used in. This count includes
+-- all current launches, not just those that are currently running.
+segment_launchCount :: Lens.Lens' Segment (Prelude.Maybe Prelude.Integer)
+segment_launchCount = Lens.lens (\Segment' {launchCount} -> launchCount) (\s@Segment' {} a -> s {launchCount = a} :: Segment)
+
+-- | The list of tag keys and values associated with this launch.
+segment_tags :: Lens.Lens' Segment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+segment_tags = Lens.lens (\Segment' {tags} -> tags) (\s@Segment' {} a -> s {tags = a} :: Segment) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the segment.
 segment_arn :: Lens.Lens' Segment Prelude.Text
@@ -168,10 +168,10 @@ instance Data.FromJSON Segment where
       "Segment"
       ( \x ->
           Segment'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "description")
-            Prelude.<*> (x Data..:? "launchCount")
+            Prelude.<$> (x Data..:? "description")
             Prelude.<*> (x Data..:? "experimentCount")
+            Prelude.<*> (x Data..:? "launchCount")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "arn")
             Prelude.<*> (x Data..: "createdTime")
             Prelude.<*> (x Data..: "lastUpdatedTime")
@@ -181,10 +181,10 @@ instance Data.FromJSON Segment where
 
 instance Prelude.Hashable Segment where
   hashWithSalt _salt Segment' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` launchCount
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` experimentCount
+      `Prelude.hashWithSalt` launchCount
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` lastUpdatedTime
@@ -193,10 +193,10 @@ instance Prelude.Hashable Segment where
 
 instance Prelude.NFData Segment where
   rnf Segment' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf launchCount
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf experimentCount
+      `Prelude.seq` Prelude.rnf launchCount
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf createdTime
       `Prelude.seq` Prelude.rnf lastUpdatedTime

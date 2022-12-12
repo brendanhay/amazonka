@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 data JobBookmarkEntry = JobBookmarkEntry'
   { -- | The attempt ID number.
     attempt :: Prelude.Maybe Prelude.Int,
+    -- | The bookmark itself.
+    jobBookmark :: Prelude.Maybe Prelude.Text,
     -- | The name of the job in question.
     jobName :: Prelude.Maybe Prelude.Text,
     -- | The unique run identifier associated with the previous job run.
     previousRunId :: Prelude.Maybe Prelude.Text,
-    -- | The bookmark itself.
-    jobBookmark :: Prelude.Maybe Prelude.Text,
     -- | The run ID number.
     run :: Prelude.Maybe Prelude.Int,
     -- | The run ID number.
@@ -55,11 +55,11 @@ data JobBookmarkEntry = JobBookmarkEntry'
 --
 -- 'attempt', 'jobBookmarkEntry_attempt' - The attempt ID number.
 --
+-- 'jobBookmark', 'jobBookmarkEntry_jobBookmark' - The bookmark itself.
+--
 -- 'jobName', 'jobBookmarkEntry_jobName' - The name of the job in question.
 --
 -- 'previousRunId', 'jobBookmarkEntry_previousRunId' - The unique run identifier associated with the previous job run.
---
--- 'jobBookmark', 'jobBookmarkEntry_jobBookmark' - The bookmark itself.
 --
 -- 'run', 'jobBookmarkEntry_run' - The run ID number.
 --
@@ -71,9 +71,9 @@ newJobBookmarkEntry ::
 newJobBookmarkEntry =
   JobBookmarkEntry'
     { attempt = Prelude.Nothing,
+      jobBookmark = Prelude.Nothing,
       jobName = Prelude.Nothing,
       previousRunId = Prelude.Nothing,
-      jobBookmark = Prelude.Nothing,
       run = Prelude.Nothing,
       runId = Prelude.Nothing,
       version = Prelude.Nothing
@@ -83,6 +83,10 @@ newJobBookmarkEntry =
 jobBookmarkEntry_attempt :: Lens.Lens' JobBookmarkEntry (Prelude.Maybe Prelude.Int)
 jobBookmarkEntry_attempt = Lens.lens (\JobBookmarkEntry' {attempt} -> attempt) (\s@JobBookmarkEntry' {} a -> s {attempt = a} :: JobBookmarkEntry)
 
+-- | The bookmark itself.
+jobBookmarkEntry_jobBookmark :: Lens.Lens' JobBookmarkEntry (Prelude.Maybe Prelude.Text)
+jobBookmarkEntry_jobBookmark = Lens.lens (\JobBookmarkEntry' {jobBookmark} -> jobBookmark) (\s@JobBookmarkEntry' {} a -> s {jobBookmark = a} :: JobBookmarkEntry)
+
 -- | The name of the job in question.
 jobBookmarkEntry_jobName :: Lens.Lens' JobBookmarkEntry (Prelude.Maybe Prelude.Text)
 jobBookmarkEntry_jobName = Lens.lens (\JobBookmarkEntry' {jobName} -> jobName) (\s@JobBookmarkEntry' {} a -> s {jobName = a} :: JobBookmarkEntry)
@@ -90,10 +94,6 @@ jobBookmarkEntry_jobName = Lens.lens (\JobBookmarkEntry' {jobName} -> jobName) (
 -- | The unique run identifier associated with the previous job run.
 jobBookmarkEntry_previousRunId :: Lens.Lens' JobBookmarkEntry (Prelude.Maybe Prelude.Text)
 jobBookmarkEntry_previousRunId = Lens.lens (\JobBookmarkEntry' {previousRunId} -> previousRunId) (\s@JobBookmarkEntry' {} a -> s {previousRunId = a} :: JobBookmarkEntry)
-
--- | The bookmark itself.
-jobBookmarkEntry_jobBookmark :: Lens.Lens' JobBookmarkEntry (Prelude.Maybe Prelude.Text)
-jobBookmarkEntry_jobBookmark = Lens.lens (\JobBookmarkEntry' {jobBookmark} -> jobBookmark) (\s@JobBookmarkEntry' {} a -> s {jobBookmark = a} :: JobBookmarkEntry)
 
 -- | The run ID number.
 jobBookmarkEntry_run :: Lens.Lens' JobBookmarkEntry (Prelude.Maybe Prelude.Int)
@@ -114,9 +114,9 @@ instance Data.FromJSON JobBookmarkEntry where
       ( \x ->
           JobBookmarkEntry'
             Prelude.<$> (x Data..:? "Attempt")
+            Prelude.<*> (x Data..:? "JobBookmark")
             Prelude.<*> (x Data..:? "JobName")
             Prelude.<*> (x Data..:? "PreviousRunId")
-            Prelude.<*> (x Data..:? "JobBookmark")
             Prelude.<*> (x Data..:? "Run")
             Prelude.<*> (x Data..:? "RunId")
             Prelude.<*> (x Data..:? "Version")
@@ -125,9 +125,9 @@ instance Data.FromJSON JobBookmarkEntry where
 instance Prelude.Hashable JobBookmarkEntry where
   hashWithSalt _salt JobBookmarkEntry' {..} =
     _salt `Prelude.hashWithSalt` attempt
+      `Prelude.hashWithSalt` jobBookmark
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` previousRunId
-      `Prelude.hashWithSalt` jobBookmark
       `Prelude.hashWithSalt` run
       `Prelude.hashWithSalt` runId
       `Prelude.hashWithSalt` version
@@ -135,9 +135,9 @@ instance Prelude.Hashable JobBookmarkEntry where
 instance Prelude.NFData JobBookmarkEntry where
   rnf JobBookmarkEntry' {..} =
     Prelude.rnf attempt
+      `Prelude.seq` Prelude.rnf jobBookmark
       `Prelude.seq` Prelude.rnf jobName
       `Prelude.seq` Prelude.rnf previousRunId
-      `Prelude.seq` Prelude.rnf jobBookmark
       `Prelude.seq` Prelude.rnf run
       `Prelude.seq` Prelude.rnf runId
       `Prelude.seq` Prelude.rnf version

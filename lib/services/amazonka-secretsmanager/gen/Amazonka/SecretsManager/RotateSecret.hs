@@ -81,10 +81,10 @@ module Amazonka.SecretsManager.RotateSecret
     newRotateSecret,
 
     -- * Request Lenses
-    rotateSecret_rotationLambdaARN,
     rotateSecret_clientRequestToken,
-    rotateSecret_rotationRules,
     rotateSecret_rotateImmediately,
+    rotateSecret_rotationLambdaARN,
+    rotateSecret_rotationRules,
     rotateSecret_secretId,
 
     -- * Destructuring the Response
@@ -92,8 +92,8 @@ module Amazonka.SecretsManager.RotateSecret
     newRotateSecretResponse,
 
     -- * Response Lenses
-    rotateSecretResponse_name,
     rotateSecretResponse_arn,
+    rotateSecretResponse_name,
     rotateSecretResponse_versionId,
     rotateSecretResponse_httpStatus,
   )
@@ -109,9 +109,7 @@ import Amazonka.SecretsManager.Types
 
 -- | /See:/ 'newRotateSecret' smart constructor.
 data RotateSecret = RotateSecret'
-  { -- | The ARN of the Lambda rotation function that can rotate the secret.
-    rotationLambdaARN :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for the new version of the secret that helps ensure
+  { -- | A unique identifier for the new version of the secret that helps ensure
     -- idempotency. Secrets Manager uses this value to prevent the accidental
     -- creation of duplicate versions if there are failures and retries during
     -- rotation. This value becomes the @VersionId@ of the new version.
@@ -130,8 +128,6 @@ data RotateSecret = RotateSecret'
     -- <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type>
     -- value to ensure uniqueness within the specified secret.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | A structure that defines the rotation configuration for this secret.
-    rotationRules :: Prelude.Maybe RotationRulesType,
     -- | Specifies whether to rotate the secret immediately or wait until the
     -- next scheduled rotation window. The rotation schedule is defined in
     -- RotateSecretRequest$RotationRules.
@@ -145,6 +141,10 @@ data RotateSecret = RotateSecret'
     -- If you don\'t specify this value, then by default, Secrets Manager
     -- rotates the secret immediately.
     rotateImmediately :: Prelude.Maybe Prelude.Bool,
+    -- | The ARN of the Lambda rotation function that can rotate the secret.
+    rotationLambdaARN :: Prelude.Maybe Prelude.Text,
+    -- | A structure that defines the rotation configuration for this secret.
+    rotationRules :: Prelude.Maybe RotationRulesType,
     -- | The ARN or name of the secret to rotate.
     --
     -- For an ARN, we recommend that you specify a complete ARN rather than a
@@ -161,8 +161,6 @@ data RotateSecret = RotateSecret'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'rotationLambdaARN', 'rotateSecret_rotationLambdaARN' - The ARN of the Lambda rotation function that can rotate the secret.
 --
 -- 'clientRequestToken', 'rotateSecret_clientRequestToken' - A unique identifier for the new version of the secret that helps ensure
 -- idempotency. Secrets Manager uses this value to prevent the accidental
@@ -183,8 +181,6 @@ data RotateSecret = RotateSecret'
 -- <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type>
 -- value to ensure uniqueness within the specified secret.
 --
--- 'rotationRules', 'rotateSecret_rotationRules' - A structure that defines the rotation configuration for this secret.
---
 -- 'rotateImmediately', 'rotateSecret_rotateImmediately' - Specifies whether to rotate the secret immediately or wait until the
 -- next scheduled rotation window. The rotation schedule is defined in
 -- RotateSecretRequest$RotationRules.
@@ -198,6 +194,10 @@ data RotateSecret = RotateSecret'
 -- If you don\'t specify this value, then by default, Secrets Manager
 -- rotates the secret immediately.
 --
+-- 'rotationLambdaARN', 'rotateSecret_rotationLambdaARN' - The ARN of the Lambda rotation function that can rotate the secret.
+--
+-- 'rotationRules', 'rotateSecret_rotationRules' - A structure that defines the rotation configuration for this secret.
+--
 -- 'secretId', 'rotateSecret_secretId' - The ARN or name of the secret to rotate.
 --
 -- For an ARN, we recommend that you specify a complete ARN rather than a
@@ -209,16 +209,12 @@ newRotateSecret ::
   RotateSecret
 newRotateSecret pSecretId_ =
   RotateSecret'
-    { rotationLambdaARN = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
-      rotationRules = Prelude.Nothing,
+    { clientRequestToken = Prelude.Nothing,
       rotateImmediately = Prelude.Nothing,
+      rotationLambdaARN = Prelude.Nothing,
+      rotationRules = Prelude.Nothing,
       secretId = pSecretId_
     }
-
--- | The ARN of the Lambda rotation function that can rotate the secret.
-rotateSecret_rotationLambdaARN :: Lens.Lens' RotateSecret (Prelude.Maybe Prelude.Text)
-rotateSecret_rotationLambdaARN = Lens.lens (\RotateSecret' {rotationLambdaARN} -> rotationLambdaARN) (\s@RotateSecret' {} a -> s {rotationLambdaARN = a} :: RotateSecret)
 
 -- | A unique identifier for the new version of the secret that helps ensure
 -- idempotency. Secrets Manager uses this value to prevent the accidental
@@ -241,10 +237,6 @@ rotateSecret_rotationLambdaARN = Lens.lens (\RotateSecret' {rotationLambdaARN} -
 rotateSecret_clientRequestToken :: Lens.Lens' RotateSecret (Prelude.Maybe Prelude.Text)
 rotateSecret_clientRequestToken = Lens.lens (\RotateSecret' {clientRequestToken} -> clientRequestToken) (\s@RotateSecret' {} a -> s {clientRequestToken = a} :: RotateSecret)
 
--- | A structure that defines the rotation configuration for this secret.
-rotateSecret_rotationRules :: Lens.Lens' RotateSecret (Prelude.Maybe RotationRulesType)
-rotateSecret_rotationRules = Lens.lens (\RotateSecret' {rotationRules} -> rotationRules) (\s@RotateSecret' {} a -> s {rotationRules = a} :: RotateSecret)
-
 -- | Specifies whether to rotate the secret immediately or wait until the
 -- next scheduled rotation window. The rotation schedule is defined in
 -- RotateSecretRequest$RotationRules.
@@ -259,6 +251,14 @@ rotateSecret_rotationRules = Lens.lens (\RotateSecret' {rotationRules} -> rotati
 -- rotates the secret immediately.
 rotateSecret_rotateImmediately :: Lens.Lens' RotateSecret (Prelude.Maybe Prelude.Bool)
 rotateSecret_rotateImmediately = Lens.lens (\RotateSecret' {rotateImmediately} -> rotateImmediately) (\s@RotateSecret' {} a -> s {rotateImmediately = a} :: RotateSecret)
+
+-- | The ARN of the Lambda rotation function that can rotate the secret.
+rotateSecret_rotationLambdaARN :: Lens.Lens' RotateSecret (Prelude.Maybe Prelude.Text)
+rotateSecret_rotationLambdaARN = Lens.lens (\RotateSecret' {rotationLambdaARN} -> rotationLambdaARN) (\s@RotateSecret' {} a -> s {rotationLambdaARN = a} :: RotateSecret)
+
+-- | A structure that defines the rotation configuration for this secret.
+rotateSecret_rotationRules :: Lens.Lens' RotateSecret (Prelude.Maybe RotationRulesType)
+rotateSecret_rotationRules = Lens.lens (\RotateSecret' {rotationRules} -> rotationRules) (\s@RotateSecret' {} a -> s {rotationRules = a} :: RotateSecret)
 
 -- | The ARN or name of the secret to rotate.
 --
@@ -276,26 +276,26 @@ instance Core.AWSRequest RotateSecret where
     Response.receiveJSON
       ( \s h x ->
           RotateSecretResponse'
-            Prelude.<$> (x Data..?> "Name")
-            Prelude.<*> (x Data..?> "ARN")
+            Prelude.<$> (x Data..?> "ARN")
+            Prelude.<*> (x Data..?> "Name")
             Prelude.<*> (x Data..?> "VersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable RotateSecret where
   hashWithSalt _salt RotateSecret' {..} =
-    _salt `Prelude.hashWithSalt` rotationLambdaARN
-      `Prelude.hashWithSalt` clientRequestToken
-      `Prelude.hashWithSalt` rotationRules
+    _salt `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` rotateImmediately
+      `Prelude.hashWithSalt` rotationLambdaARN
+      `Prelude.hashWithSalt` rotationRules
       `Prelude.hashWithSalt` secretId
 
 instance Prelude.NFData RotateSecret where
   rnf RotateSecret' {..} =
-    Prelude.rnf rotationLambdaARN
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf rotationRules
+    Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf rotateImmediately
+      `Prelude.seq` Prelude.rnf rotationLambdaARN
+      `Prelude.seq` Prelude.rnf rotationRules
       `Prelude.seq` Prelude.rnf secretId
 
 instance Data.ToHeaders RotateSecret where
@@ -317,13 +317,13 @@ instance Data.ToJSON RotateSecret where
   toJSON RotateSecret' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("RotationLambdaARN" Data..=)
-              Prelude.<$> rotationLambdaARN,
-            ("ClientRequestToken" Data..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("RotationRules" Data..=) Prelude.<$> rotationRules,
             ("RotateImmediately" Data..=)
               Prelude.<$> rotateImmediately,
+            ("RotationLambdaARN" Data..=)
+              Prelude.<$> rotationLambdaARN,
+            ("RotationRules" Data..=) Prelude.<$> rotationRules,
             Prelude.Just ("SecretId" Data..= secretId)
           ]
       )
@@ -336,10 +336,10 @@ instance Data.ToQuery RotateSecret where
 
 -- | /See:/ 'newRotateSecretResponse' smart constructor.
 data RotateSecretResponse = RotateSecretResponse'
-  { -- | The name of the secret.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the secret.
+  { -- | The ARN of the secret.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the secret.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The ID of the new version of the secret.
     versionId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -355,9 +355,9 @@ data RotateSecretResponse = RotateSecretResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'rotateSecretResponse_name' - The name of the secret.
---
 -- 'arn', 'rotateSecretResponse_arn' - The ARN of the secret.
+--
+-- 'name', 'rotateSecretResponse_name' - The name of the secret.
 --
 -- 'versionId', 'rotateSecretResponse_versionId' - The ID of the new version of the secret.
 --
@@ -368,19 +368,19 @@ newRotateSecretResponse ::
   RotateSecretResponse
 newRotateSecretResponse pHttpStatus_ =
   RotateSecretResponse'
-    { name = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      name = Prelude.Nothing,
       versionId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The name of the secret.
-rotateSecretResponse_name :: Lens.Lens' RotateSecretResponse (Prelude.Maybe Prelude.Text)
-rotateSecretResponse_name = Lens.lens (\RotateSecretResponse' {name} -> name) (\s@RotateSecretResponse' {} a -> s {name = a} :: RotateSecretResponse)
-
 -- | The ARN of the secret.
 rotateSecretResponse_arn :: Lens.Lens' RotateSecretResponse (Prelude.Maybe Prelude.Text)
 rotateSecretResponse_arn = Lens.lens (\RotateSecretResponse' {arn} -> arn) (\s@RotateSecretResponse' {} a -> s {arn = a} :: RotateSecretResponse)
+
+-- | The name of the secret.
+rotateSecretResponse_name :: Lens.Lens' RotateSecretResponse (Prelude.Maybe Prelude.Text)
+rotateSecretResponse_name = Lens.lens (\RotateSecretResponse' {name} -> name) (\s@RotateSecretResponse' {} a -> s {name = a} :: RotateSecretResponse)
 
 -- | The ID of the new version of the secret.
 rotateSecretResponse_versionId :: Lens.Lens' RotateSecretResponse (Prelude.Maybe Prelude.Text)
@@ -392,7 +392,7 @@ rotateSecretResponse_httpStatus = Lens.lens (\RotateSecretResponse' {httpStatus}
 
 instance Prelude.NFData RotateSecretResponse where
   rnf RotateSecretResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf versionId
       `Prelude.seq` Prelude.rnf httpStatus

@@ -29,9 +29,9 @@ module Amazonka.Kafka.ListClusters
     newListClusters,
 
     -- * Request Lenses
-    listClusters_nextToken,
-    listClusters_maxResults,
     listClusters_clusterNameFilter,
+    listClusters_maxResults,
+    listClusters_nextToken,
 
     -- * Destructuring the Response
     ListClustersResponse (..),
@@ -54,16 +54,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListClusters' smart constructor.
 data ListClusters = ListClusters'
-  { -- | The paginated results marker. When the result of the operation is
-    -- truncated, the call returns NextToken in the response. To get the next
-    -- batch, provide this token in your next request.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | Specify a prefix of the name of the clusters that you want to list. The
+    -- service lists all the clusters whose names start with this prefix.
+    clusterNameFilter :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return in the response. If there are
     -- more results, the response includes a NextToken parameter.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Specify a prefix of the name of the clusters that you want to list. The
-    -- service lists all the clusters whose names start with this prefix.
-    clusterNameFilter :: Prelude.Maybe Prelude.Text
+    -- | The paginated results marker. When the result of the operation is
+    -- truncated, the call returns NextToken in the response. To get the next
+    -- batch, provide this token in your next request.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,39 +75,39 @@ data ListClusters = ListClusters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listClusters_nextToken' - The paginated results marker. When the result of the operation is
--- truncated, the call returns NextToken in the response. To get the next
--- batch, provide this token in your next request.
+-- 'clusterNameFilter', 'listClusters_clusterNameFilter' - Specify a prefix of the name of the clusters that you want to list. The
+-- service lists all the clusters whose names start with this prefix.
 --
 -- 'maxResults', 'listClusters_maxResults' - The maximum number of results to return in the response. If there are
 -- more results, the response includes a NextToken parameter.
 --
--- 'clusterNameFilter', 'listClusters_clusterNameFilter' - Specify a prefix of the name of the clusters that you want to list. The
--- service lists all the clusters whose names start with this prefix.
+-- 'nextToken', 'listClusters_nextToken' - The paginated results marker. When the result of the operation is
+-- truncated, the call returns NextToken in the response. To get the next
+-- batch, provide this token in your next request.
 newListClusters ::
   ListClusters
 newListClusters =
   ListClusters'
-    { nextToken = Prelude.Nothing,
+    { clusterNameFilter = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      clusterNameFilter = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
 
--- | The paginated results marker. When the result of the operation is
--- truncated, the call returns NextToken in the response. To get the next
--- batch, provide this token in your next request.
-listClusters_nextToken :: Lens.Lens' ListClusters (Prelude.Maybe Prelude.Text)
-listClusters_nextToken = Lens.lens (\ListClusters' {nextToken} -> nextToken) (\s@ListClusters' {} a -> s {nextToken = a} :: ListClusters)
+-- | Specify a prefix of the name of the clusters that you want to list. The
+-- service lists all the clusters whose names start with this prefix.
+listClusters_clusterNameFilter :: Lens.Lens' ListClusters (Prelude.Maybe Prelude.Text)
+listClusters_clusterNameFilter = Lens.lens (\ListClusters' {clusterNameFilter} -> clusterNameFilter) (\s@ListClusters' {} a -> s {clusterNameFilter = a} :: ListClusters)
 
 -- | The maximum number of results to return in the response. If there are
 -- more results, the response includes a NextToken parameter.
 listClusters_maxResults :: Lens.Lens' ListClusters (Prelude.Maybe Prelude.Natural)
 listClusters_maxResults = Lens.lens (\ListClusters' {maxResults} -> maxResults) (\s@ListClusters' {} a -> s {maxResults = a} :: ListClusters)
 
--- | Specify a prefix of the name of the clusters that you want to list. The
--- service lists all the clusters whose names start with this prefix.
-listClusters_clusterNameFilter :: Lens.Lens' ListClusters (Prelude.Maybe Prelude.Text)
-listClusters_clusterNameFilter = Lens.lens (\ListClusters' {clusterNameFilter} -> clusterNameFilter) (\s@ListClusters' {} a -> s {clusterNameFilter = a} :: ListClusters)
+-- | The paginated results marker. When the result of the operation is
+-- truncated, the call returns NextToken in the response. To get the next
+-- batch, provide this token in your next request.
+listClusters_nextToken :: Lens.Lens' ListClusters (Prelude.Maybe Prelude.Text)
+listClusters_nextToken = Lens.lens (\ListClusters' {nextToken} -> nextToken) (\s@ListClusters' {} a -> s {nextToken = a} :: ListClusters)
 
 instance Core.AWSPager ListClusters where
   page rq rs
@@ -146,15 +146,15 @@ instance Core.AWSRequest ListClusters where
 
 instance Prelude.Hashable ListClusters where
   hashWithSalt _salt ListClusters' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` clusterNameFilter
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` clusterNameFilter
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListClusters where
   rnf ListClusters' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf clusterNameFilter
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf clusterNameFilter
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListClusters where
   toHeaders =
@@ -173,9 +173,9 @@ instance Data.ToPath ListClusters where
 instance Data.ToQuery ListClusters where
   toQuery ListClusters' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
+      [ "clusterNameFilter" Data.=: clusterNameFilter,
         "maxResults" Data.=: maxResults,
-        "clusterNameFilter" Data.=: clusterNameFilter
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListClustersResponse' smart constructor.

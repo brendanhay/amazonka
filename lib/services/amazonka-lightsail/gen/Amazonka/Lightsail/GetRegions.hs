@@ -29,8 +29,8 @@ module Amazonka.Lightsail.GetRegions
     newGetRegions,
 
     -- * Request Lenses
-    getRegions_includeRelationalDatabaseAvailabilityZones,
     getRegions_includeAvailabilityZones,
+    getRegions_includeRelationalDatabaseAvailabilityZones,
 
     -- * Destructuring the Response
     GetRegionsResponse (..),
@@ -52,14 +52,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetRegions' smart constructor.
 data GetRegions = GetRegions'
-  { -- | A Boolean value indicating whether to also include Availability Zones
-    -- for databases in your get regions request. Availability Zones are
-    -- indicated with a letter (e.g., @us-east-2a@).
-    includeRelationalDatabaseAvailabilityZones :: Prelude.Maybe Prelude.Bool,
-    -- | A Boolean value indicating whether to also include Availability Zones in
+  { -- | A Boolean value indicating whether to also include Availability Zones in
     -- your get regions request. Availability Zones are indicated with a
     -- letter: e.g., @us-east-2a@.
-    includeAvailabilityZones :: Prelude.Maybe Prelude.Bool
+    includeAvailabilityZones :: Prelude.Maybe Prelude.Bool,
+    -- | A Boolean value indicating whether to also include Availability Zones
+    -- for databases in your get regions request. Availability Zones are
+    -- indicated with a letter (e.g., @us-east-2a@).
+    includeRelationalDatabaseAvailabilityZones :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,33 +71,34 @@ data GetRegions = GetRegions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'includeRelationalDatabaseAvailabilityZones', 'getRegions_includeRelationalDatabaseAvailabilityZones' - A Boolean value indicating whether to also include Availability Zones
--- for databases in your get regions request. Availability Zones are
--- indicated with a letter (e.g., @us-east-2a@).
---
 -- 'includeAvailabilityZones', 'getRegions_includeAvailabilityZones' - A Boolean value indicating whether to also include Availability Zones in
 -- your get regions request. Availability Zones are indicated with a
 -- letter: e.g., @us-east-2a@.
+--
+-- 'includeRelationalDatabaseAvailabilityZones', 'getRegions_includeRelationalDatabaseAvailabilityZones' - A Boolean value indicating whether to also include Availability Zones
+-- for databases in your get regions request. Availability Zones are
+-- indicated with a letter (e.g., @us-east-2a@).
 newGetRegions ::
   GetRegions
 newGetRegions =
   GetRegions'
-    { includeRelationalDatabaseAvailabilityZones =
+    { includeAvailabilityZones =
         Prelude.Nothing,
-      includeAvailabilityZones = Prelude.Nothing
+      includeRelationalDatabaseAvailabilityZones =
+        Prelude.Nothing
     }
-
--- | A Boolean value indicating whether to also include Availability Zones
--- for databases in your get regions request. Availability Zones are
--- indicated with a letter (e.g., @us-east-2a@).
-getRegions_includeRelationalDatabaseAvailabilityZones :: Lens.Lens' GetRegions (Prelude.Maybe Prelude.Bool)
-getRegions_includeRelationalDatabaseAvailabilityZones = Lens.lens (\GetRegions' {includeRelationalDatabaseAvailabilityZones} -> includeRelationalDatabaseAvailabilityZones) (\s@GetRegions' {} a -> s {includeRelationalDatabaseAvailabilityZones = a} :: GetRegions)
 
 -- | A Boolean value indicating whether to also include Availability Zones in
 -- your get regions request. Availability Zones are indicated with a
 -- letter: e.g., @us-east-2a@.
 getRegions_includeAvailabilityZones :: Lens.Lens' GetRegions (Prelude.Maybe Prelude.Bool)
 getRegions_includeAvailabilityZones = Lens.lens (\GetRegions' {includeAvailabilityZones} -> includeAvailabilityZones) (\s@GetRegions' {} a -> s {includeAvailabilityZones = a} :: GetRegions)
+
+-- | A Boolean value indicating whether to also include Availability Zones
+-- for databases in your get regions request. Availability Zones are
+-- indicated with a letter (e.g., @us-east-2a@).
+getRegions_includeRelationalDatabaseAvailabilityZones :: Lens.Lens' GetRegions (Prelude.Maybe Prelude.Bool)
+getRegions_includeRelationalDatabaseAvailabilityZones = Lens.lens (\GetRegions' {includeRelationalDatabaseAvailabilityZones} -> includeRelationalDatabaseAvailabilityZones) (\s@GetRegions' {} a -> s {includeRelationalDatabaseAvailabilityZones = a} :: GetRegions)
 
 instance Core.AWSRequest GetRegions where
   type AWSResponse GetRegions = GetRegionsResponse
@@ -114,14 +115,14 @@ instance Core.AWSRequest GetRegions where
 instance Prelude.Hashable GetRegions where
   hashWithSalt _salt GetRegions' {..} =
     _salt
-      `Prelude.hashWithSalt` includeRelationalDatabaseAvailabilityZones
       `Prelude.hashWithSalt` includeAvailabilityZones
+      `Prelude.hashWithSalt` includeRelationalDatabaseAvailabilityZones
 
 instance Prelude.NFData GetRegions where
   rnf GetRegions' {..} =
-    Prelude.rnf
-      includeRelationalDatabaseAvailabilityZones
-      `Prelude.seq` Prelude.rnf includeAvailabilityZones
+    Prelude.rnf includeAvailabilityZones
+      `Prelude.seq` Prelude.rnf
+        includeRelationalDatabaseAvailabilityZones
 
 instance Data.ToHeaders GetRegions where
   toHeaders =
@@ -142,12 +143,12 @@ instance Data.ToJSON GetRegions where
   toJSON GetRegions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ( "includeRelationalDatabaseAvailabilityZones"
+          [ ("includeAvailabilityZones" Data..=)
+              Prelude.<$> includeAvailabilityZones,
+            ( "includeRelationalDatabaseAvailabilityZones"
                 Data..=
             )
-              Prelude.<$> includeRelationalDatabaseAvailabilityZones,
-            ("includeAvailabilityZones" Data..=)
-              Prelude.<$> includeAvailabilityZones
+              Prelude.<$> includeRelationalDatabaseAvailabilityZones
           ]
       )
 

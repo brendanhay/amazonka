@@ -31,18 +31,18 @@ module Amazonka.CognitoSync.ListIdentityPoolUsage
     newListIdentityPoolUsage,
 
     -- * Request Lenses
-    listIdentityPoolUsage_nextToken,
     listIdentityPoolUsage_maxResults,
+    listIdentityPoolUsage_nextToken,
 
     -- * Destructuring the Response
     ListIdentityPoolUsageResponse (..),
     newListIdentityPoolUsageResponse,
 
     -- * Response Lenses
-    listIdentityPoolUsageResponse_nextToken,
     listIdentityPoolUsageResponse_count,
-    listIdentityPoolUsageResponse_maxResults,
     listIdentityPoolUsageResponse_identityPoolUsages,
+    listIdentityPoolUsageResponse_maxResults,
+    listIdentityPoolUsageResponse_nextToken,
     listIdentityPoolUsageResponse_httpStatus,
   )
 where
@@ -59,10 +59,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListIdentityPoolUsage' smart constructor.
 data ListIdentityPoolUsage = ListIdentityPoolUsage'
-  { -- | A pagination token for obtaining the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be returned.
-    maxResults :: Prelude.Maybe Prelude.Int
+  { -- | The maximum number of results to be returned.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | A pagination token for obtaining the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,24 +74,25 @@ data ListIdentityPoolUsage = ListIdentityPoolUsage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listIdentityPoolUsage_nextToken' - A pagination token for obtaining the next page of results.
---
 -- 'maxResults', 'listIdentityPoolUsage_maxResults' - The maximum number of results to be returned.
+--
+-- 'nextToken', 'listIdentityPoolUsage_nextToken' - A pagination token for obtaining the next page of results.
 newListIdentityPoolUsage ::
   ListIdentityPoolUsage
 newListIdentityPoolUsage =
   ListIdentityPoolUsage'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | A pagination token for obtaining the next page of results.
-listIdentityPoolUsage_nextToken :: Lens.Lens' ListIdentityPoolUsage (Prelude.Maybe Prelude.Text)
-listIdentityPoolUsage_nextToken = Lens.lens (\ListIdentityPoolUsage' {nextToken} -> nextToken) (\s@ListIdentityPoolUsage' {} a -> s {nextToken = a} :: ListIdentityPoolUsage)
 
 -- | The maximum number of results to be returned.
 listIdentityPoolUsage_maxResults :: Lens.Lens' ListIdentityPoolUsage (Prelude.Maybe Prelude.Int)
 listIdentityPoolUsage_maxResults = Lens.lens (\ListIdentityPoolUsage' {maxResults} -> maxResults) (\s@ListIdentityPoolUsage' {} a -> s {maxResults = a} :: ListIdentityPoolUsage)
+
+-- | A pagination token for obtaining the next page of results.
+listIdentityPoolUsage_nextToken :: Lens.Lens' ListIdentityPoolUsage (Prelude.Maybe Prelude.Text)
+listIdentityPoolUsage_nextToken = Lens.lens (\ListIdentityPoolUsage' {nextToken} -> nextToken) (\s@ListIdentityPoolUsage' {} a -> s {nextToken = a} :: ListIdentityPoolUsage)
 
 instance Core.AWSRequest ListIdentityPoolUsage where
   type
@@ -103,24 +104,24 @@ instance Core.AWSRequest ListIdentityPoolUsage where
     Response.receiveJSON
       ( \s h x ->
           ListIdentityPoolUsageResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Count")
-            Prelude.<*> (x Data..?> "MaxResults")
+            Prelude.<$> (x Data..?> "Count")
             Prelude.<*> ( x Data..?> "IdentityPoolUsages"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "MaxResults")
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListIdentityPoolUsage where
   hashWithSalt _salt ListIdentityPoolUsage' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListIdentityPoolUsage where
   rnf ListIdentityPoolUsage' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListIdentityPoolUsage where
   toHeaders =
@@ -139,22 +140,22 @@ instance Data.ToPath ListIdentityPoolUsage where
 instance Data.ToQuery ListIdentityPoolUsage where
   toQuery ListIdentityPoolUsage' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | Returned for a successful ListIdentityPoolUsage request.
 --
 -- /See:/ 'newListIdentityPoolUsageResponse' smart constructor.
 data ListIdentityPoolUsageResponse = ListIdentityPoolUsageResponse'
-  { -- | A pagination token for obtaining the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Total number of identities for the identity pool.
+  { -- | Total number of identities for the identity pool.
     count :: Prelude.Maybe Prelude.Int,
-    -- | The maximum number of results to be returned.
-    maxResults :: Prelude.Maybe Prelude.Int,
     -- | Usage information for the identity pools.
     identityPoolUsages :: Prelude.Maybe [IdentityPoolUsage],
+    -- | The maximum number of results to be returned.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | A pagination token for obtaining the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -168,13 +169,13 @@ data ListIdentityPoolUsageResponse = ListIdentityPoolUsageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listIdentityPoolUsageResponse_nextToken' - A pagination token for obtaining the next page of results.
---
 -- 'count', 'listIdentityPoolUsageResponse_count' - Total number of identities for the identity pool.
+--
+-- 'identityPoolUsages', 'listIdentityPoolUsageResponse_identityPoolUsages' - Usage information for the identity pools.
 --
 -- 'maxResults', 'listIdentityPoolUsageResponse_maxResults' - The maximum number of results to be returned.
 --
--- 'identityPoolUsages', 'listIdentityPoolUsageResponse_identityPoolUsages' - Usage information for the identity pools.
+-- 'nextToken', 'listIdentityPoolUsageResponse_nextToken' - A pagination token for obtaining the next page of results.
 --
 -- 'httpStatus', 'listIdentityPoolUsageResponse_httpStatus' - The response's http status code.
 newListIdentityPoolUsageResponse ::
@@ -183,29 +184,29 @@ newListIdentityPoolUsageResponse ::
   ListIdentityPoolUsageResponse
 newListIdentityPoolUsageResponse pHttpStatus_ =
   ListIdentityPoolUsageResponse'
-    { nextToken =
+    { count =
         Prelude.Nothing,
-      count = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       identityPoolUsages = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A pagination token for obtaining the next page of results.
-listIdentityPoolUsageResponse_nextToken :: Lens.Lens' ListIdentityPoolUsageResponse (Prelude.Maybe Prelude.Text)
-listIdentityPoolUsageResponse_nextToken = Lens.lens (\ListIdentityPoolUsageResponse' {nextToken} -> nextToken) (\s@ListIdentityPoolUsageResponse' {} a -> s {nextToken = a} :: ListIdentityPoolUsageResponse)
 
 -- | Total number of identities for the identity pool.
 listIdentityPoolUsageResponse_count :: Lens.Lens' ListIdentityPoolUsageResponse (Prelude.Maybe Prelude.Int)
 listIdentityPoolUsageResponse_count = Lens.lens (\ListIdentityPoolUsageResponse' {count} -> count) (\s@ListIdentityPoolUsageResponse' {} a -> s {count = a} :: ListIdentityPoolUsageResponse)
 
+-- | Usage information for the identity pools.
+listIdentityPoolUsageResponse_identityPoolUsages :: Lens.Lens' ListIdentityPoolUsageResponse (Prelude.Maybe [IdentityPoolUsage])
+listIdentityPoolUsageResponse_identityPoolUsages = Lens.lens (\ListIdentityPoolUsageResponse' {identityPoolUsages} -> identityPoolUsages) (\s@ListIdentityPoolUsageResponse' {} a -> s {identityPoolUsages = a} :: ListIdentityPoolUsageResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The maximum number of results to be returned.
 listIdentityPoolUsageResponse_maxResults :: Lens.Lens' ListIdentityPoolUsageResponse (Prelude.Maybe Prelude.Int)
 listIdentityPoolUsageResponse_maxResults = Lens.lens (\ListIdentityPoolUsageResponse' {maxResults} -> maxResults) (\s@ListIdentityPoolUsageResponse' {} a -> s {maxResults = a} :: ListIdentityPoolUsageResponse)
 
--- | Usage information for the identity pools.
-listIdentityPoolUsageResponse_identityPoolUsages :: Lens.Lens' ListIdentityPoolUsageResponse (Prelude.Maybe [IdentityPoolUsage])
-listIdentityPoolUsageResponse_identityPoolUsages = Lens.lens (\ListIdentityPoolUsageResponse' {identityPoolUsages} -> identityPoolUsages) (\s@ListIdentityPoolUsageResponse' {} a -> s {identityPoolUsages = a} :: ListIdentityPoolUsageResponse) Prelude.. Lens.mapping Lens.coerced
+-- | A pagination token for obtaining the next page of results.
+listIdentityPoolUsageResponse_nextToken :: Lens.Lens' ListIdentityPoolUsageResponse (Prelude.Maybe Prelude.Text)
+listIdentityPoolUsageResponse_nextToken = Lens.lens (\ListIdentityPoolUsageResponse' {nextToken} -> nextToken) (\s@ListIdentityPoolUsageResponse' {} a -> s {nextToken = a} :: ListIdentityPoolUsageResponse)
 
 -- | The response's http status code.
 listIdentityPoolUsageResponse_httpStatus :: Lens.Lens' ListIdentityPoolUsageResponse Prelude.Int
@@ -213,8 +214,8 @@ listIdentityPoolUsageResponse_httpStatus = Lens.lens (\ListIdentityPoolUsageResp
 
 instance Prelude.NFData ListIdentityPoolUsageResponse where
   rnf ListIdentityPoolUsageResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf count
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf count
       `Prelude.seq` Prelude.rnf identityPoolUsages
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

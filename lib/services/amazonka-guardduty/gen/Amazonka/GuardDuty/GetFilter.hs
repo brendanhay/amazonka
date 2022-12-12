@@ -35,9 +35,9 @@ module Amazonka.GuardDuty.GetFilter
     newGetFilterResponse,
 
     -- * Response Lenses
-    getFilterResponse_tags,
-    getFilterResponse_rank,
     getFilterResponse_description,
+    getFilterResponse_rank,
+    getFilterResponse_tags,
     getFilterResponse_httpStatus,
     getFilterResponse_name,
     getFilterResponse_action,
@@ -101,9 +101,9 @@ instance Core.AWSRequest GetFilter where
     Response.receiveJSON
       ( \s h x ->
           GetFilterResponse'
-            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "description")
             Prelude.<*> (x Data..?> "rank")
-            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "name")
             Prelude.<*> (x Data..:> "action")
@@ -145,14 +145,14 @@ instance Data.ToQuery GetFilter where
 
 -- | /See:/ 'newGetFilterResponse' smart constructor.
 data GetFilterResponse = GetFilterResponse'
-  { -- | The tags of the filter resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | The description of the filter.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Specifies the position of the filter in the list of current filters.
     -- Also specifies the order in which this filter is applied to the
     -- findings.
     rank :: Prelude.Maybe Prelude.Natural,
-    -- | The description of the filter.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | The tags of the filter resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The name of the filter.
@@ -173,13 +173,13 @@ data GetFilterResponse = GetFilterResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'getFilterResponse_tags' - The tags of the filter resource.
+-- 'description', 'getFilterResponse_description' - The description of the filter.
 --
 -- 'rank', 'getFilterResponse_rank' - Specifies the position of the filter in the list of current filters.
 -- Also specifies the order in which this filter is applied to the
 -- findings.
 --
--- 'description', 'getFilterResponse_description' - The description of the filter.
+-- 'tags', 'getFilterResponse_tags' - The tags of the filter resource.
 --
 -- 'httpStatus', 'getFilterResponse_httpStatus' - The response's http status code.
 --
@@ -205,18 +205,18 @@ newGetFilterResponse
   pAction_
   pFindingCriteria_ =
     GetFilterResponse'
-      { tags = Prelude.Nothing,
+      { description = Prelude.Nothing,
         rank = Prelude.Nothing,
-        description = Prelude.Nothing,
+        tags = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         name = pName_,
         action = pAction_,
         findingCriteria = pFindingCriteria_
       }
 
--- | The tags of the filter resource.
-getFilterResponse_tags :: Lens.Lens' GetFilterResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getFilterResponse_tags = Lens.lens (\GetFilterResponse' {tags} -> tags) (\s@GetFilterResponse' {} a -> s {tags = a} :: GetFilterResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The description of the filter.
+getFilterResponse_description :: Lens.Lens' GetFilterResponse (Prelude.Maybe Prelude.Text)
+getFilterResponse_description = Lens.lens (\GetFilterResponse' {description} -> description) (\s@GetFilterResponse' {} a -> s {description = a} :: GetFilterResponse)
 
 -- | Specifies the position of the filter in the list of current filters.
 -- Also specifies the order in which this filter is applied to the
@@ -224,9 +224,9 @@ getFilterResponse_tags = Lens.lens (\GetFilterResponse' {tags} -> tags) (\s@GetF
 getFilterResponse_rank :: Lens.Lens' GetFilterResponse (Prelude.Maybe Prelude.Natural)
 getFilterResponse_rank = Lens.lens (\GetFilterResponse' {rank} -> rank) (\s@GetFilterResponse' {} a -> s {rank = a} :: GetFilterResponse)
 
--- | The description of the filter.
-getFilterResponse_description :: Lens.Lens' GetFilterResponse (Prelude.Maybe Prelude.Text)
-getFilterResponse_description = Lens.lens (\GetFilterResponse' {description} -> description) (\s@GetFilterResponse' {} a -> s {description = a} :: GetFilterResponse)
+-- | The tags of the filter resource.
+getFilterResponse_tags :: Lens.Lens' GetFilterResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getFilterResponse_tags = Lens.lens (\GetFilterResponse' {tags} -> tags) (\s@GetFilterResponse' {} a -> s {tags = a} :: GetFilterResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getFilterResponse_httpStatus :: Lens.Lens' GetFilterResponse Prelude.Int
@@ -247,9 +247,9 @@ getFilterResponse_findingCriteria = Lens.lens (\GetFilterResponse' {findingCrite
 
 instance Prelude.NFData GetFilterResponse where
   rnf GetFilterResponse' {..} =
-    Prelude.rnf tags
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf rank
-      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf action

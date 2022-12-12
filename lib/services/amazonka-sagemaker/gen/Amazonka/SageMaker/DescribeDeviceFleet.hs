@@ -34,9 +34,9 @@ module Amazonka.SageMaker.DescribeDeviceFleet
     newDescribeDeviceFleetResponse,
 
     -- * Response Lenses
+    describeDeviceFleetResponse_description,
     describeDeviceFleetResponse_iotRoleAlias,
     describeDeviceFleetResponse_roleArn,
-    describeDeviceFleetResponse_description,
     describeDeviceFleetResponse_httpStatus,
     describeDeviceFleetResponse_deviceFleetName,
     describeDeviceFleetResponse_deviceFleetArn,
@@ -94,9 +94,9 @@ instance Core.AWSRequest DescribeDeviceFleet where
     Response.receiveJSON
       ( \s h x ->
           DescribeDeviceFleetResponse'
-            Prelude.<$> (x Data..?> "IotRoleAlias")
+            Prelude.<$> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "IotRoleAlias")
             Prelude.<*> (x Data..?> "RoleArn")
-            Prelude.<*> (x Data..?> "Description")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "DeviceFleetName")
             Prelude.<*> (x Data..:> "DeviceFleetArn")
@@ -145,14 +145,14 @@ instance Data.ToQuery DescribeDeviceFleet where
 
 -- | /See:/ 'newDescribeDeviceFleetResponse' smart constructor.
 data DescribeDeviceFleetResponse = DescribeDeviceFleetResponse'
-  { -- | The Amazon Resource Name (ARN) alias created in Amazon Web Services
+  { -- | A description of the fleet.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) alias created in Amazon Web Services
     -- Internet of Things (IoT).
     iotRoleAlias :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) that has access to Amazon Web Services
     -- Internet of Things (IoT).
     roleArn :: Prelude.Maybe Prelude.Text,
-    -- | A description of the fleet.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The name of the fleet.
@@ -176,13 +176,13 @@ data DescribeDeviceFleetResponse = DescribeDeviceFleetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'describeDeviceFleetResponse_description' - A description of the fleet.
+--
 -- 'iotRoleAlias', 'describeDeviceFleetResponse_iotRoleAlias' - The Amazon Resource Name (ARN) alias created in Amazon Web Services
 -- Internet of Things (IoT).
 --
 -- 'roleArn', 'describeDeviceFleetResponse_roleArn' - The Amazon Resource Name (ARN) that has access to Amazon Web Services
 -- Internet of Things (IoT).
---
--- 'description', 'describeDeviceFleetResponse_description' - A description of the fleet.
 --
 -- 'httpStatus', 'describeDeviceFleetResponse_httpStatus' - The response's http status code.
 --
@@ -217,10 +217,10 @@ newDescribeDeviceFleetResponse
   pCreationTime_
   pLastModifiedTime_ =
     DescribeDeviceFleetResponse'
-      { iotRoleAlias =
+      { description =
           Prelude.Nothing,
+        iotRoleAlias = Prelude.Nothing,
         roleArn = Prelude.Nothing,
-        description = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         deviceFleetName = pDeviceFleetName_,
         deviceFleetArn = pDeviceFleetArn_,
@@ -231,6 +231,10 @@ newDescribeDeviceFleetResponse
           Data._Time Lens.# pLastModifiedTime_
       }
 
+-- | A description of the fleet.
+describeDeviceFleetResponse_description :: Lens.Lens' DescribeDeviceFleetResponse (Prelude.Maybe Prelude.Text)
+describeDeviceFleetResponse_description = Lens.lens (\DescribeDeviceFleetResponse' {description} -> description) (\s@DescribeDeviceFleetResponse' {} a -> s {description = a} :: DescribeDeviceFleetResponse)
+
 -- | The Amazon Resource Name (ARN) alias created in Amazon Web Services
 -- Internet of Things (IoT).
 describeDeviceFleetResponse_iotRoleAlias :: Lens.Lens' DescribeDeviceFleetResponse (Prelude.Maybe Prelude.Text)
@@ -240,10 +244,6 @@ describeDeviceFleetResponse_iotRoleAlias = Lens.lens (\DescribeDeviceFleetRespon
 -- Internet of Things (IoT).
 describeDeviceFleetResponse_roleArn :: Lens.Lens' DescribeDeviceFleetResponse (Prelude.Maybe Prelude.Text)
 describeDeviceFleetResponse_roleArn = Lens.lens (\DescribeDeviceFleetResponse' {roleArn} -> roleArn) (\s@DescribeDeviceFleetResponse' {} a -> s {roleArn = a} :: DescribeDeviceFleetResponse)
-
--- | A description of the fleet.
-describeDeviceFleetResponse_description :: Lens.Lens' DescribeDeviceFleetResponse (Prelude.Maybe Prelude.Text)
-describeDeviceFleetResponse_description = Lens.lens (\DescribeDeviceFleetResponse' {description} -> description) (\s@DescribeDeviceFleetResponse' {} a -> s {description = a} :: DescribeDeviceFleetResponse)
 
 -- | The response's http status code.
 describeDeviceFleetResponse_httpStatus :: Lens.Lens' DescribeDeviceFleetResponse Prelude.Int
@@ -271,9 +271,9 @@ describeDeviceFleetResponse_lastModifiedTime = Lens.lens (\DescribeDeviceFleetRe
 
 instance Prelude.NFData DescribeDeviceFleetResponse where
   rnf DescribeDeviceFleetResponse' {..} =
-    Prelude.rnf iotRoleAlias
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf iotRoleAlias
       `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf deviceFleetName
       `Prelude.seq` Prelude.rnf deviceFleetArn

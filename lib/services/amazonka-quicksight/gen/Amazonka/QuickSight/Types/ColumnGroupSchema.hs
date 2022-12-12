@@ -86,3 +86,13 @@ instance Prelude.NFData ColumnGroupSchema where
   rnf ColumnGroupSchema' {..} =
     Prelude.rnf columnGroupColumnSchemaList
       `Prelude.seq` Prelude.rnf name
+
+instance Data.ToJSON ColumnGroupSchema where
+  toJSON ColumnGroupSchema' {..} =
+    Data.object
+      ( Prelude.catMaybes
+          [ ("ColumnGroupColumnSchemaList" Data..=)
+              Prelude.<$> columnGroupColumnSchemaList,
+            ("Name" Data..=) Prelude.<$> name
+          ]
+      )

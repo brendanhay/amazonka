@@ -32,8 +32,8 @@ module Amazonka.LexV2Models.CreateUploadUrl
     newCreateUploadUrlResponse,
 
     -- * Response Lenses
-    createUploadUrlResponse_uploadUrl,
     createUploadUrlResponse_importId,
+    createUploadUrlResponse_uploadUrl,
     createUploadUrlResponse_httpStatus,
   )
 where
@@ -70,8 +70,8 @@ instance Core.AWSRequest CreateUploadUrl where
     Response.receiveJSON
       ( \s h x ->
           CreateUploadUrlResponse'
-            Prelude.<$> (x Data..?> "uploadUrl")
-            Prelude.<*> (x Data..?> "importId")
+            Prelude.<$> (x Data..?> "importId")
+            Prelude.<*> (x Data..?> "uploadUrl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -104,13 +104,13 @@ instance Data.ToQuery CreateUploadUrl where
 
 -- | /See:/ 'newCreateUploadUrlResponse' smart constructor.
 data CreateUploadUrlResponse = CreateUploadUrlResponse'
-  { -- | A pre-signed S3 write URL. Upload the zip archive file that contains the
-    -- definition of your bot or bot locale.
-    uploadUrl :: Prelude.Maybe Prelude.Text,
-    -- | An identifier for a unique import job. Use it when you call the
+  { -- | An identifier for a unique import job. Use it when you call the
     -- <https://docs.aws.amazon.com/lexv2/latest/dg/API_StartImport.html StartImport>
     -- operation.
     importId :: Prelude.Maybe Prelude.Text,
+    -- | A pre-signed S3 write URL. Upload the zip archive file that contains the
+    -- definition of your bot or bot locale.
+    uploadUrl :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -124,12 +124,12 @@ data CreateUploadUrlResponse = CreateUploadUrlResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'uploadUrl', 'createUploadUrlResponse_uploadUrl' - A pre-signed S3 write URL. Upload the zip archive file that contains the
--- definition of your bot or bot locale.
---
 -- 'importId', 'createUploadUrlResponse_importId' - An identifier for a unique import job. Use it when you call the
 -- <https://docs.aws.amazon.com/lexv2/latest/dg/API_StartImport.html StartImport>
 -- operation.
+--
+-- 'uploadUrl', 'createUploadUrlResponse_uploadUrl' - A pre-signed S3 write URL. Upload the zip archive file that contains the
+-- definition of your bot or bot locale.
 --
 -- 'httpStatus', 'createUploadUrlResponse_httpStatus' - The response's http status code.
 newCreateUploadUrlResponse ::
@@ -138,16 +138,11 @@ newCreateUploadUrlResponse ::
   CreateUploadUrlResponse
 newCreateUploadUrlResponse pHttpStatus_ =
   CreateUploadUrlResponse'
-    { uploadUrl =
+    { importId =
         Prelude.Nothing,
-      importId = Prelude.Nothing,
+      uploadUrl = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A pre-signed S3 write URL. Upload the zip archive file that contains the
--- definition of your bot or bot locale.
-createUploadUrlResponse_uploadUrl :: Lens.Lens' CreateUploadUrlResponse (Prelude.Maybe Prelude.Text)
-createUploadUrlResponse_uploadUrl = Lens.lens (\CreateUploadUrlResponse' {uploadUrl} -> uploadUrl) (\s@CreateUploadUrlResponse' {} a -> s {uploadUrl = a} :: CreateUploadUrlResponse)
 
 -- | An identifier for a unique import job. Use it when you call the
 -- <https://docs.aws.amazon.com/lexv2/latest/dg/API_StartImport.html StartImport>
@@ -155,12 +150,17 @@ createUploadUrlResponse_uploadUrl = Lens.lens (\CreateUploadUrlResponse' {upload
 createUploadUrlResponse_importId :: Lens.Lens' CreateUploadUrlResponse (Prelude.Maybe Prelude.Text)
 createUploadUrlResponse_importId = Lens.lens (\CreateUploadUrlResponse' {importId} -> importId) (\s@CreateUploadUrlResponse' {} a -> s {importId = a} :: CreateUploadUrlResponse)
 
+-- | A pre-signed S3 write URL. Upload the zip archive file that contains the
+-- definition of your bot or bot locale.
+createUploadUrlResponse_uploadUrl :: Lens.Lens' CreateUploadUrlResponse (Prelude.Maybe Prelude.Text)
+createUploadUrlResponse_uploadUrl = Lens.lens (\CreateUploadUrlResponse' {uploadUrl} -> uploadUrl) (\s@CreateUploadUrlResponse' {} a -> s {uploadUrl = a} :: CreateUploadUrlResponse)
+
 -- | The response's http status code.
 createUploadUrlResponse_httpStatus :: Lens.Lens' CreateUploadUrlResponse Prelude.Int
 createUploadUrlResponse_httpStatus = Lens.lens (\CreateUploadUrlResponse' {httpStatus} -> httpStatus) (\s@CreateUploadUrlResponse' {} a -> s {httpStatus = a} :: CreateUploadUrlResponse)
 
 instance Prelude.NFData CreateUploadUrlResponse where
   rnf CreateUploadUrlResponse' {..} =
-    Prelude.rnf uploadUrl
-      `Prelude.seq` Prelude.rnf importId
+    Prelude.rnf importId
+      `Prelude.seq` Prelude.rnf uploadUrl
       `Prelude.seq` Prelude.rnf httpStatus

@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newProvisionedCapacityDescription' smart constructor.
 data ProvisionedCapacityDescription = ProvisionedCapacityDescription'
-  { -- | The date that the provisioned capacity unit was purchased, in Universal
-    -- Coordinated Time (UTC).
-    startDate :: Prelude.Maybe Prelude.Text,
-    -- | The ID that identifies the provisioned capacity unit.
+  { -- | The ID that identifies the provisioned capacity unit.
     capacityId :: Prelude.Maybe Prelude.Text,
     -- | The date that the provisioned capacity unit expires, in Universal
     -- Coordinated Time (UTC).
-    expirationDate :: Prelude.Maybe Prelude.Text
+    expirationDate :: Prelude.Maybe Prelude.Text,
+    -- | The date that the provisioned capacity unit was purchased, in Universal
+    -- Coordinated Time (UTC).
+    startDate :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,27 +47,22 @@ data ProvisionedCapacityDescription = ProvisionedCapacityDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'startDate', 'provisionedCapacityDescription_startDate' - The date that the provisioned capacity unit was purchased, in Universal
--- Coordinated Time (UTC).
---
 -- 'capacityId', 'provisionedCapacityDescription_capacityId' - The ID that identifies the provisioned capacity unit.
 --
 -- 'expirationDate', 'provisionedCapacityDescription_expirationDate' - The date that the provisioned capacity unit expires, in Universal
+-- Coordinated Time (UTC).
+--
+-- 'startDate', 'provisionedCapacityDescription_startDate' - The date that the provisioned capacity unit was purchased, in Universal
 -- Coordinated Time (UTC).
 newProvisionedCapacityDescription ::
   ProvisionedCapacityDescription
 newProvisionedCapacityDescription =
   ProvisionedCapacityDescription'
-    { startDate =
+    { capacityId =
         Prelude.Nothing,
-      capacityId = Prelude.Nothing,
-      expirationDate = Prelude.Nothing
+      expirationDate = Prelude.Nothing,
+      startDate = Prelude.Nothing
     }
-
--- | The date that the provisioned capacity unit was purchased, in Universal
--- Coordinated Time (UTC).
-provisionedCapacityDescription_startDate :: Lens.Lens' ProvisionedCapacityDescription (Prelude.Maybe Prelude.Text)
-provisionedCapacityDescription_startDate = Lens.lens (\ProvisionedCapacityDescription' {startDate} -> startDate) (\s@ProvisionedCapacityDescription' {} a -> s {startDate = a} :: ProvisionedCapacityDescription)
 
 -- | The ID that identifies the provisioned capacity unit.
 provisionedCapacityDescription_capacityId :: Lens.Lens' ProvisionedCapacityDescription (Prelude.Maybe Prelude.Text)
@@ -78,15 +73,20 @@ provisionedCapacityDescription_capacityId = Lens.lens (\ProvisionedCapacityDescr
 provisionedCapacityDescription_expirationDate :: Lens.Lens' ProvisionedCapacityDescription (Prelude.Maybe Prelude.Text)
 provisionedCapacityDescription_expirationDate = Lens.lens (\ProvisionedCapacityDescription' {expirationDate} -> expirationDate) (\s@ProvisionedCapacityDescription' {} a -> s {expirationDate = a} :: ProvisionedCapacityDescription)
 
+-- | The date that the provisioned capacity unit was purchased, in Universal
+-- Coordinated Time (UTC).
+provisionedCapacityDescription_startDate :: Lens.Lens' ProvisionedCapacityDescription (Prelude.Maybe Prelude.Text)
+provisionedCapacityDescription_startDate = Lens.lens (\ProvisionedCapacityDescription' {startDate} -> startDate) (\s@ProvisionedCapacityDescription' {} a -> s {startDate = a} :: ProvisionedCapacityDescription)
+
 instance Data.FromJSON ProvisionedCapacityDescription where
   parseJSON =
     Data.withObject
       "ProvisionedCapacityDescription"
       ( \x ->
           ProvisionedCapacityDescription'
-            Prelude.<$> (x Data..:? "StartDate")
-            Prelude.<*> (x Data..:? "CapacityId")
+            Prelude.<$> (x Data..:? "CapacityId")
             Prelude.<*> (x Data..:? "ExpirationDate")
+            Prelude.<*> (x Data..:? "StartDate")
       )
 
 instance
@@ -96,15 +96,15 @@ instance
   hashWithSalt
     _salt
     ProvisionedCapacityDescription' {..} =
-      _salt `Prelude.hashWithSalt` startDate
-        `Prelude.hashWithSalt` capacityId
+      _salt `Prelude.hashWithSalt` capacityId
         `Prelude.hashWithSalt` expirationDate
+        `Prelude.hashWithSalt` startDate
 
 instance
   Prelude.NFData
     ProvisionedCapacityDescription
   where
   rnf ProvisionedCapacityDescription' {..} =
-    Prelude.rnf startDate
-      `Prelude.seq` Prelude.rnf capacityId
+    Prelude.rnf capacityId
       `Prelude.seq` Prelude.rnf expirationDate
+      `Prelude.seq` Prelude.rnf startDate

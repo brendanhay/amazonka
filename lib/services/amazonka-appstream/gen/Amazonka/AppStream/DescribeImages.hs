@@ -31,19 +31,19 @@ module Amazonka.AppStream.DescribeImages
     newDescribeImages,
 
     -- * Request Lenses
+    describeImages_arns,
+    describeImages_maxResults,
+    describeImages_names,
     describeImages_nextToken,
     describeImages_type,
-    describeImages_arns,
-    describeImages_names,
-    describeImages_maxResults,
 
     -- * Destructuring the Response
     DescribeImagesResponse (..),
     newDescribeImagesResponse,
 
     -- * Response Lenses
-    describeImagesResponse_nextToken,
     describeImagesResponse_images,
+    describeImagesResponse_nextToken,
     describeImagesResponse_httpStatus,
   )
 where
@@ -58,17 +58,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeImages' smart constructor.
 data DescribeImages = DescribeImages'
-  { -- | The pagination token to use to retrieve the next page of results for
+  { -- | The ARNs of the public, private, and shared images to describe.
+    arns :: Prelude.Maybe [Prelude.Text],
+    -- | The maximum size of each page of results.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The names of the public or private images to describe.
+    names :: Prelude.Maybe [Prelude.Text],
+    -- | The pagination token to use to retrieve the next page of results for
     -- this operation. If this value is null, it retrieves the first page.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The type of image (public, private, or shared) to describe.
-    type' :: Prelude.Maybe VisibilityType,
-    -- | The ARNs of the public, private, and shared images to describe.
-    arns :: Prelude.Maybe [Prelude.Text],
-    -- | The names of the public or private images to describe.
-    names :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum size of each page of results.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    type' :: Prelude.Maybe VisibilityType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,26 +80,38 @@ data DescribeImages = DescribeImages'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'arns', 'describeImages_arns' - The ARNs of the public, private, and shared images to describe.
+--
+-- 'maxResults', 'describeImages_maxResults' - The maximum size of each page of results.
+--
+-- 'names', 'describeImages_names' - The names of the public or private images to describe.
+--
 -- 'nextToken', 'describeImages_nextToken' - The pagination token to use to retrieve the next page of results for
 -- this operation. If this value is null, it retrieves the first page.
 --
 -- 'type'', 'describeImages_type' - The type of image (public, private, or shared) to describe.
---
--- 'arns', 'describeImages_arns' - The ARNs of the public, private, and shared images to describe.
---
--- 'names', 'describeImages_names' - The names of the public or private images to describe.
---
--- 'maxResults', 'describeImages_maxResults' - The maximum size of each page of results.
 newDescribeImages ::
   DescribeImages
 newDescribeImages =
   DescribeImages'
-    { nextToken = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      arns = Prelude.Nothing,
+    { arns = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       names = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
+
+-- | The ARNs of the public, private, and shared images to describe.
+describeImages_arns :: Lens.Lens' DescribeImages (Prelude.Maybe [Prelude.Text])
+describeImages_arns = Lens.lens (\DescribeImages' {arns} -> arns) (\s@DescribeImages' {} a -> s {arns = a} :: DescribeImages) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum size of each page of results.
+describeImages_maxResults :: Lens.Lens' DescribeImages (Prelude.Maybe Prelude.Natural)
+describeImages_maxResults = Lens.lens (\DescribeImages' {maxResults} -> maxResults) (\s@DescribeImages' {} a -> s {maxResults = a} :: DescribeImages)
+
+-- | The names of the public or private images to describe.
+describeImages_names :: Lens.Lens' DescribeImages (Prelude.Maybe [Prelude.Text])
+describeImages_names = Lens.lens (\DescribeImages' {names} -> names) (\s@DescribeImages' {} a -> s {names = a} :: DescribeImages) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token to use to retrieve the next page of results for
 -- this operation. If this value is null, it retrieves the first page.
@@ -109,18 +121,6 @@ describeImages_nextToken = Lens.lens (\DescribeImages' {nextToken} -> nextToken)
 -- | The type of image (public, private, or shared) to describe.
 describeImages_type :: Lens.Lens' DescribeImages (Prelude.Maybe VisibilityType)
 describeImages_type = Lens.lens (\DescribeImages' {type'} -> type') (\s@DescribeImages' {} a -> s {type' = a} :: DescribeImages)
-
--- | The ARNs of the public, private, and shared images to describe.
-describeImages_arns :: Lens.Lens' DescribeImages (Prelude.Maybe [Prelude.Text])
-describeImages_arns = Lens.lens (\DescribeImages' {arns} -> arns) (\s@DescribeImages' {} a -> s {arns = a} :: DescribeImages) Prelude.. Lens.mapping Lens.coerced
-
--- | The names of the public or private images to describe.
-describeImages_names :: Lens.Lens' DescribeImages (Prelude.Maybe [Prelude.Text])
-describeImages_names = Lens.lens (\DescribeImages' {names} -> names) (\s@DescribeImages' {} a -> s {names = a} :: DescribeImages) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum size of each page of results.
-describeImages_maxResults :: Lens.Lens' DescribeImages (Prelude.Maybe Prelude.Natural)
-describeImages_maxResults = Lens.lens (\DescribeImages' {maxResults} -> maxResults) (\s@DescribeImages' {} a -> s {maxResults = a} :: DescribeImages)
 
 instance Core.AWSPager DescribeImages where
   page rq rs
@@ -152,26 +152,26 @@ instance Core.AWSRequest DescribeImages where
     Response.receiveJSON
       ( \s h x ->
           DescribeImagesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Images" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Images" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeImages where
   hashWithSalt _salt DescribeImages' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` arns
-      `Prelude.hashWithSalt` names
+    _salt `Prelude.hashWithSalt` arns
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` names
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData DescribeImages where
   rnf DescribeImages' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf arns
-      `Prelude.seq` Prelude.rnf names
+    Prelude.rnf arns
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf names
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf type'
 
 instance Data.ToHeaders DescribeImages where
   toHeaders =
@@ -192,11 +192,11 @@ instance Data.ToJSON DescribeImages where
   toJSON DescribeImages' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Type" Data..=) Prelude.<$> type',
-            ("Arns" Data..=) Prelude.<$> arns,
+          [ ("Arns" Data..=) Prelude.<$> arns,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("Names" Data..=) Prelude.<$> names,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Type" Data..=) Prelude.<$> type'
           ]
       )
 
@@ -208,11 +208,11 @@ instance Data.ToQuery DescribeImages where
 
 -- | /See:/ 'newDescribeImagesResponse' smart constructor.
 data DescribeImagesResponse = DescribeImagesResponse'
-  { -- | The pagination token to use to retrieve the next page of results for
+  { -- | Information about the images.
+    images :: Prelude.Maybe [Image],
+    -- | The pagination token to use to retrieve the next page of results for
     -- this operation. If there are no more pages, this value is null.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the images.
-    images :: Prelude.Maybe [Image],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -226,10 +226,10 @@ data DescribeImagesResponse = DescribeImagesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'images', 'describeImagesResponse_images' - Information about the images.
+--
 -- 'nextToken', 'describeImagesResponse_nextToken' - The pagination token to use to retrieve the next page of results for
 -- this operation. If there are no more pages, this value is null.
---
--- 'images', 'describeImagesResponse_images' - Information about the images.
 --
 -- 'httpStatus', 'describeImagesResponse_httpStatus' - The response's http status code.
 newDescribeImagesResponse ::
@@ -238,20 +238,19 @@ newDescribeImagesResponse ::
   DescribeImagesResponse
 newDescribeImagesResponse pHttpStatus_ =
   DescribeImagesResponse'
-    { nextToken =
-        Prelude.Nothing,
-      images = Prelude.Nothing,
+    { images = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about the images.
+describeImagesResponse_images :: Lens.Lens' DescribeImagesResponse (Prelude.Maybe [Image])
+describeImagesResponse_images = Lens.lens (\DescribeImagesResponse' {images} -> images) (\s@DescribeImagesResponse' {} a -> s {images = a} :: DescribeImagesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token to use to retrieve the next page of results for
 -- this operation. If there are no more pages, this value is null.
 describeImagesResponse_nextToken :: Lens.Lens' DescribeImagesResponse (Prelude.Maybe Prelude.Text)
 describeImagesResponse_nextToken = Lens.lens (\DescribeImagesResponse' {nextToken} -> nextToken) (\s@DescribeImagesResponse' {} a -> s {nextToken = a} :: DescribeImagesResponse)
-
--- | Information about the images.
-describeImagesResponse_images :: Lens.Lens' DescribeImagesResponse (Prelude.Maybe [Image])
-describeImagesResponse_images = Lens.lens (\DescribeImagesResponse' {images} -> images) (\s@DescribeImagesResponse' {} a -> s {images = a} :: DescribeImagesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeImagesResponse_httpStatus :: Lens.Lens' DescribeImagesResponse Prelude.Int
@@ -259,6 +258,6 @@ describeImagesResponse_httpStatus = Lens.lens (\DescribeImagesResponse' {httpSta
 
 instance Prelude.NFData DescribeImagesResponse where
   rnf DescribeImagesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf images
+    Prelude.rnf images
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

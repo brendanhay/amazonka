@@ -72,23 +72,23 @@ module Amazonka.Route53RecoveryCluster
     -- ** AccessDeniedException
     _AccessDeniedException,
 
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** EndpointTemporarilyUnavailableException
+    _EndpointTemporarilyUnavailableException,
+
     -- ** InternalServerException
     _InternalServerException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** EndpointTemporarilyUnavailableException
-    _EndpointTemporarilyUnavailableException,
-
-    -- ** ConflictException
-    _ConflictException,
+    -- ** ServiceLimitExceededException
+    _ServiceLimitExceededException,
 
     -- ** ThrottlingException
     _ThrottlingException,
-
-    -- ** ServiceLimitExceededException
-    _ServiceLimitExceededException,
 
     -- ** ValidationException
     _ValidationException,

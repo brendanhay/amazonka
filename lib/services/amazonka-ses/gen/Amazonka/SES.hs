@@ -30,14 +30,86 @@ module Amazonka.SES
     -- * Errors
     -- $errors
 
+    -- ** AccountSendingPausedException
+    _AccountSendingPausedException,
+
+    -- ** AlreadyExistsException
+    _AlreadyExistsException,
+
+    -- ** CannotDeleteException
+    _CannotDeleteException,
+
+    -- ** ConfigurationSetAlreadyExistsException
+    _ConfigurationSetAlreadyExistsException,
+
+    -- ** ConfigurationSetDoesNotExistException
+    _ConfigurationSetDoesNotExistException,
+
+    -- ** ConfigurationSetSendingPausedException
+    _ConfigurationSetSendingPausedException,
+
+    -- ** CustomVerificationEmailInvalidContentException
+    _CustomVerificationEmailInvalidContentException,
+
     -- ** CustomVerificationEmailTemplateAlreadyExistsException
     _CustomVerificationEmailTemplateAlreadyExistsException,
+
+    -- ** CustomVerificationEmailTemplateDoesNotExistException
+    _CustomVerificationEmailTemplateDoesNotExistException,
+
+    -- ** EventDestinationAlreadyExistsException
+    _EventDestinationAlreadyExistsException,
+
+    -- ** EventDestinationDoesNotExistException
+    _EventDestinationDoesNotExistException,
+
+    -- ** FromEmailAddressNotVerifiedException
+    _FromEmailAddressNotVerifiedException,
+
+    -- ** InvalidCloudWatchDestinationException
+    _InvalidCloudWatchDestinationException,
+
+    -- ** InvalidConfigurationSetException
+    _InvalidConfigurationSetException,
+
+    -- ** InvalidDeliveryOptionsException
+    _InvalidDeliveryOptionsException,
+
+    -- ** InvalidFirehoseDestinationException
+    _InvalidFirehoseDestinationException,
+
+    -- ** InvalidLambdaFunctionException
+    _InvalidLambdaFunctionException,
+
+    -- ** InvalidPolicyException
+    _InvalidPolicyException,
+
+    -- ** InvalidRenderingParameterException
+    _InvalidRenderingParameterException,
+
+    -- ** InvalidS3ConfigurationException
+    _InvalidS3ConfigurationException,
 
     -- ** InvalidSNSDestinationException
     _InvalidSNSDestinationException,
 
-    -- ** InvalidDeliveryOptionsException
-    _InvalidDeliveryOptionsException,
+    -- ** InvalidSnsTopicException
+    _InvalidSnsTopicException,
+
+    -- ** InvalidTemplateException
+    _InvalidTemplateException,
+
+    -- ** InvalidTrackingOptionsException
+    _InvalidTrackingOptionsException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** MailFromDomainNotVerifiedException
+    _MailFromDomainNotVerifiedException,
+
+    -- ** MessageRejected
+    _MessageRejected,
 
     -- ** MissingRenderingAttributeException
     _MissingRenderingAttributeException,
@@ -45,92 +117,20 @@ module Amazonka.SES
     -- ** ProductionAccessNotGrantedException
     _ProductionAccessNotGrantedException,
 
-    -- ** CannotDeleteException
-    _CannotDeleteException,
-
-    -- ** MailFromDomainNotVerifiedException
-    _MailFromDomainNotVerifiedException,
-
-    -- ** InvalidSnsTopicException
-    _InvalidSnsTopicException,
-
-    -- ** TemplateDoesNotExistException
-    _TemplateDoesNotExistException,
-
-    -- ** EventDestinationDoesNotExistException
-    _EventDestinationDoesNotExistException,
-
-    -- ** AlreadyExistsException
-    _AlreadyExistsException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
-
-    -- ** InvalidTemplateException
-    _InvalidTemplateException,
-
-    -- ** CustomVerificationEmailTemplateDoesNotExistException
-    _CustomVerificationEmailTemplateDoesNotExistException,
-
-    -- ** InvalidS3ConfigurationException
-    _InvalidS3ConfigurationException,
-
-    -- ** InvalidTrackingOptionsException
-    _InvalidTrackingOptionsException,
+    -- ** RuleDoesNotExistException
+    _RuleDoesNotExistException,
 
     -- ** RuleSetDoesNotExistException
     _RuleSetDoesNotExistException,
 
-    -- ** InvalidCloudWatchDestinationException
-    _InvalidCloudWatchDestinationException,
-
-    -- ** AccountSendingPausedException
-    _AccountSendingPausedException,
-
-    -- ** InvalidRenderingParameterException
-    _InvalidRenderingParameterException,
-
-    -- ** MessageRejected
-    _MessageRejected,
-
-    -- ** ConfigurationSetAlreadyExistsException
-    _ConfigurationSetAlreadyExistsException,
-
-    -- ** RuleDoesNotExistException
-    _RuleDoesNotExistException,
+    -- ** TemplateDoesNotExistException
+    _TemplateDoesNotExistException,
 
     -- ** TrackingOptionsAlreadyExistsException
     _TrackingOptionsAlreadyExistsException,
 
-    -- ** ConfigurationSetDoesNotExistException
-    _ConfigurationSetDoesNotExistException,
-
-    -- ** InvalidLambdaFunctionException
-    _InvalidLambdaFunctionException,
-
-    -- ** InvalidConfigurationSetException
-    _InvalidConfigurationSetException,
-
-    -- ** FromEmailAddressNotVerifiedException
-    _FromEmailAddressNotVerifiedException,
-
-    -- ** ConfigurationSetSendingPausedException
-    _ConfigurationSetSendingPausedException,
-
-    -- ** InvalidFirehoseDestinationException
-    _InvalidFirehoseDestinationException,
-
-    -- ** EventDestinationAlreadyExistsException
-    _EventDestinationAlreadyExistsException,
-
     -- ** TrackingOptionsDoesNotExistException
     _TrackingOptionsDoesNotExistException,
-
-    -- ** CustomVerificationEmailInvalidContentException
-    _CustomVerificationEmailInvalidContentException,
-
-    -- ** InvalidPolicyException
-    _InvalidPolicyException,
 
     -- * Waiters
     -- $waiters

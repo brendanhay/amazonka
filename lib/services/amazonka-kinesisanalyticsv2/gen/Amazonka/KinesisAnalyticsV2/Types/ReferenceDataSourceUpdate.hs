@@ -35,9 +35,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newReferenceDataSourceUpdate' smart constructor.
 data ReferenceDataSourceUpdate = ReferenceDataSourceUpdate'
-  { -- | The in-application table name that is created by this update.
-    tableNameUpdate :: Prelude.Maybe Prelude.Text,
-    -- | Describes the format of the data in the streaming source, and how each
+  { -- | Describes the format of the data in the streaming source, and how each
     -- data element maps to corresponding columns created in the in-application
     -- stream.
     referenceSchemaUpdate :: Prelude.Maybe SourceSchema,
@@ -45,6 +43,8 @@ data ReferenceDataSourceUpdate = ReferenceDataSourceUpdate'
     -- Data Analytics can assume to read the Amazon S3 object on your behalf
     -- and populate the in-application reference table.
     s3ReferenceDataSourceUpdate :: Prelude.Maybe S3ReferenceDataSourceUpdate,
+    -- | The in-application table name that is created by this update.
+    tableNameUpdate :: Prelude.Maybe Prelude.Text,
     -- | The ID of the reference data source that is being updated. You can use
     -- the DescribeApplication operation to get this value.
     referenceId :: Prelude.Text
@@ -59,8 +59,6 @@ data ReferenceDataSourceUpdate = ReferenceDataSourceUpdate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tableNameUpdate', 'referenceDataSourceUpdate_tableNameUpdate' - The in-application table name that is created by this update.
---
 -- 'referenceSchemaUpdate', 'referenceDataSourceUpdate_referenceSchemaUpdate' - Describes the format of the data in the streaming source, and how each
 -- data element maps to corresponding columns created in the in-application
 -- stream.
@@ -68,6 +66,8 @@ data ReferenceDataSourceUpdate = ReferenceDataSourceUpdate'
 -- 's3ReferenceDataSourceUpdate', 'referenceDataSourceUpdate_s3ReferenceDataSourceUpdate' - Describes the S3 bucket name, object key name, and IAM role that Kinesis
 -- Data Analytics can assume to read the Amazon S3 object on your behalf
 -- and populate the in-application reference table.
+--
+-- 'tableNameUpdate', 'referenceDataSourceUpdate_tableNameUpdate' - The in-application table name that is created by this update.
 --
 -- 'referenceId', 'referenceDataSourceUpdate_referenceId' - The ID of the reference data source that is being updated. You can use
 -- the DescribeApplication operation to get this value.
@@ -77,16 +77,12 @@ newReferenceDataSourceUpdate ::
   ReferenceDataSourceUpdate
 newReferenceDataSourceUpdate pReferenceId_ =
   ReferenceDataSourceUpdate'
-    { tableNameUpdate =
+    { referenceSchemaUpdate =
         Prelude.Nothing,
-      referenceSchemaUpdate = Prelude.Nothing,
       s3ReferenceDataSourceUpdate = Prelude.Nothing,
+      tableNameUpdate = Prelude.Nothing,
       referenceId = pReferenceId_
     }
-
--- | The in-application table name that is created by this update.
-referenceDataSourceUpdate_tableNameUpdate :: Lens.Lens' ReferenceDataSourceUpdate (Prelude.Maybe Prelude.Text)
-referenceDataSourceUpdate_tableNameUpdate = Lens.lens (\ReferenceDataSourceUpdate' {tableNameUpdate} -> tableNameUpdate) (\s@ReferenceDataSourceUpdate' {} a -> s {tableNameUpdate = a} :: ReferenceDataSourceUpdate)
 
 -- | Describes the format of the data in the streaming source, and how each
 -- data element maps to corresponding columns created in the in-application
@@ -100,6 +96,10 @@ referenceDataSourceUpdate_referenceSchemaUpdate = Lens.lens (\ReferenceDataSourc
 referenceDataSourceUpdate_s3ReferenceDataSourceUpdate :: Lens.Lens' ReferenceDataSourceUpdate (Prelude.Maybe S3ReferenceDataSourceUpdate)
 referenceDataSourceUpdate_s3ReferenceDataSourceUpdate = Lens.lens (\ReferenceDataSourceUpdate' {s3ReferenceDataSourceUpdate} -> s3ReferenceDataSourceUpdate) (\s@ReferenceDataSourceUpdate' {} a -> s {s3ReferenceDataSourceUpdate = a} :: ReferenceDataSourceUpdate)
 
+-- | The in-application table name that is created by this update.
+referenceDataSourceUpdate_tableNameUpdate :: Lens.Lens' ReferenceDataSourceUpdate (Prelude.Maybe Prelude.Text)
+referenceDataSourceUpdate_tableNameUpdate = Lens.lens (\ReferenceDataSourceUpdate' {tableNameUpdate} -> tableNameUpdate) (\s@ReferenceDataSourceUpdate' {} a -> s {tableNameUpdate = a} :: ReferenceDataSourceUpdate)
+
 -- | The ID of the reference data source that is being updated. You can use
 -- the DescribeApplication operation to get this value.
 referenceDataSourceUpdate_referenceId :: Lens.Lens' ReferenceDataSourceUpdate Prelude.Text
@@ -107,28 +107,28 @@ referenceDataSourceUpdate_referenceId = Lens.lens (\ReferenceDataSourceUpdate' {
 
 instance Prelude.Hashable ReferenceDataSourceUpdate where
   hashWithSalt _salt ReferenceDataSourceUpdate' {..} =
-    _salt `Prelude.hashWithSalt` tableNameUpdate
-      `Prelude.hashWithSalt` referenceSchemaUpdate
+    _salt `Prelude.hashWithSalt` referenceSchemaUpdate
       `Prelude.hashWithSalt` s3ReferenceDataSourceUpdate
+      `Prelude.hashWithSalt` tableNameUpdate
       `Prelude.hashWithSalt` referenceId
 
 instance Prelude.NFData ReferenceDataSourceUpdate where
   rnf ReferenceDataSourceUpdate' {..} =
-    Prelude.rnf tableNameUpdate
-      `Prelude.seq` Prelude.rnf referenceSchemaUpdate
+    Prelude.rnf referenceSchemaUpdate
       `Prelude.seq` Prelude.rnf s3ReferenceDataSourceUpdate
+      `Prelude.seq` Prelude.rnf tableNameUpdate
       `Prelude.seq` Prelude.rnf referenceId
 
 instance Data.ToJSON ReferenceDataSourceUpdate where
   toJSON ReferenceDataSourceUpdate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("TableNameUpdate" Data..=)
-              Prelude.<$> tableNameUpdate,
-            ("ReferenceSchemaUpdate" Data..=)
+          [ ("ReferenceSchemaUpdate" Data..=)
               Prelude.<$> referenceSchemaUpdate,
             ("S3ReferenceDataSourceUpdate" Data..=)
               Prelude.<$> s3ReferenceDataSourceUpdate,
+            ("TableNameUpdate" Data..=)
+              Prelude.<$> tableNameUpdate,
             Prelude.Just ("ReferenceId" Data..= referenceId)
           ]
       )

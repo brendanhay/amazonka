@@ -23,14 +23,14 @@ module Amazonka.SageMakerEdge.Lens
     -- ** GetDeviceRegistration
     getDeviceRegistration_deviceName,
     getDeviceRegistration_deviceFleetName,
-    getDeviceRegistrationResponse_deviceRegistration,
     getDeviceRegistrationResponse_cacheTTL,
+    getDeviceRegistrationResponse_deviceRegistration,
     getDeviceRegistrationResponse_httpStatus,
 
     -- ** SendHeartbeat
-    sendHeartbeat_models,
-    sendHeartbeat_deploymentResult,
     sendHeartbeat_agentMetrics,
+    sendHeartbeat_deploymentResult,
+    sendHeartbeat_models,
     sendHeartbeat_agentVersion,
     sendHeartbeat_deviceName,
     sendHeartbeat_deviceFleetName,
@@ -38,51 +38,51 @@ module Amazonka.SageMakerEdge.Lens
     -- * Types
 
     -- ** Checksum
-    checksum_type,
     checksum_sum,
+    checksum_type,
 
     -- ** Definition
-    definition_state,
     definition_checksum,
-    definition_s3Url,
     definition_modelHandle,
+    definition_s3Url,
+    definition_state,
 
     -- ** DeploymentModel
-    deploymentModel_rollbackFailureReason,
-    deploymentModel_statusReason,
-    deploymentModel_state,
-    deploymentModel_modelVersion,
-    deploymentModel_status,
     deploymentModel_desiredState,
-    deploymentModel_modelName,
     deploymentModel_modelHandle,
+    deploymentModel_modelName,
+    deploymentModel_modelVersion,
+    deploymentModel_rollbackFailureReason,
+    deploymentModel_state,
+    deploymentModel_status,
+    deploymentModel_statusReason,
 
     -- ** DeploymentResult
-    deploymentResult_deploymentStatus,
-    deploymentResult_deploymentName,
-    deploymentResult_deploymentModels,
     deploymentResult_deploymentEndTime,
-    deploymentResult_deploymentStatusMessage,
+    deploymentResult_deploymentModels,
+    deploymentResult_deploymentName,
     deploymentResult_deploymentStartTime,
+    deploymentResult_deploymentStatus,
+    deploymentResult_deploymentStatusMessage,
 
     -- ** EdgeDeployment
-    edgeDeployment_type,
+    edgeDeployment_definitions,
     edgeDeployment_deploymentName,
     edgeDeployment_failureHandlingPolicy,
-    edgeDeployment_definitions,
+    edgeDeployment_type,
 
     -- ** EdgeMetric
-    edgeMetric_timestamp,
-    edgeMetric_metricName,
     edgeMetric_dimension,
+    edgeMetric_metricName,
+    edgeMetric_timestamp,
     edgeMetric_value,
 
     -- ** Model
+    model_latestInference,
     model_latestSampleTime,
-    model_modelVersion,
     model_modelMetrics,
     model_modelName,
-    model_latestInference,
+    model_modelVersion,
   )
 where
 

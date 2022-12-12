@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newChannel' smart constructor.
 data Channel = Channel'
-  { -- | The name of the CloudTrail channel. For service-linked channels, the
+  { -- | The Amazon Resource Name (ARN) of a channel.
+    channelArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the CloudTrail channel. For service-linked channels, the
     -- name is @aws-service-channel\/service-name\/custom-suffix@ where
     -- @service-name@ represents the name of the Amazon Web Services service
     -- that created the channel and @custom-suffix@ represents the suffix
     -- created by the Amazon Web Services service.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of a channel.
-    channelArn :: Prelude.Maybe Prelude.Text
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,20 +47,24 @@ data Channel = Channel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'channelArn', 'channel_channelArn' - The Amazon Resource Name (ARN) of a channel.
+--
 -- 'name', 'channel_name' - The name of the CloudTrail channel. For service-linked channels, the
 -- name is @aws-service-channel\/service-name\/custom-suffix@ where
 -- @service-name@ represents the name of the Amazon Web Services service
 -- that created the channel and @custom-suffix@ represents the suffix
 -- created by the Amazon Web Services service.
---
--- 'channelArn', 'channel_channelArn' - The Amazon Resource Name (ARN) of a channel.
 newChannel ::
   Channel
 newChannel =
   Channel'
-    { name = Prelude.Nothing,
-      channelArn = Prelude.Nothing
+    { channelArn = Prelude.Nothing,
+      name = Prelude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of a channel.
+channel_channelArn :: Lens.Lens' Channel (Prelude.Maybe Prelude.Text)
+channel_channelArn = Lens.lens (\Channel' {channelArn} -> channelArn) (\s@Channel' {} a -> s {channelArn = a} :: Channel)
 
 -- | The name of the CloudTrail channel. For service-linked channels, the
 -- name is @aws-service-channel\/service-name\/custom-suffix@ where
@@ -70,26 +74,22 @@ newChannel =
 channel_name :: Lens.Lens' Channel (Prelude.Maybe Prelude.Text)
 channel_name = Lens.lens (\Channel' {name} -> name) (\s@Channel' {} a -> s {name = a} :: Channel)
 
--- | The Amazon Resource Name (ARN) of a channel.
-channel_channelArn :: Lens.Lens' Channel (Prelude.Maybe Prelude.Text)
-channel_channelArn = Lens.lens (\Channel' {channelArn} -> channelArn) (\s@Channel' {} a -> s {channelArn = a} :: Channel)
-
 instance Data.FromJSON Channel where
   parseJSON =
     Data.withObject
       "Channel"
       ( \x ->
           Channel'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "ChannelArn")
+            Prelude.<$> (x Data..:? "ChannelArn")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable Channel where
   hashWithSalt _salt Channel' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` channelArn
+    _salt `Prelude.hashWithSalt` channelArn
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData Channel where
   rnf Channel' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf channelArn
+    Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf name

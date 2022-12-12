@@ -32,6 +32,9 @@ import Amazonka.RobOMaker.Types.WorldExportJobStatus
 data WorldExportJobSummary = WorldExportJobSummary'
   { -- | The Amazon Resource Name (ARN) of the world export job.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The time, in milliseconds since the epoch, when the world export job was
+    -- created.
+    createdAt :: Prelude.Maybe Data.POSIX,
     outputLocation :: Prelude.Maybe OutputLocation,
     -- | The status of the world export job.
     --
@@ -54,10 +57,7 @@ data WorldExportJobSummary = WorldExportJobSummary'
     --     The world export job is being cancelled.
     status :: Prelude.Maybe WorldExportJobStatus,
     -- | A list of worlds.
-    worlds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The time, in milliseconds since the epoch, when the world export job was
-    -- created.
-    createdAt :: Prelude.Maybe Data.POSIX
+    worlds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,6 +70,9 @@ data WorldExportJobSummary = WorldExportJobSummary'
 -- for backwards compatibility:
 --
 -- 'arn', 'worldExportJobSummary_arn' - The Amazon Resource Name (ARN) of the world export job.
+--
+-- 'createdAt', 'worldExportJobSummary_createdAt' - The time, in milliseconds since the epoch, when the world export job was
+-- created.
 --
 -- 'outputLocation', 'worldExportJobSummary_outputLocation' - Undocumented member.
 --
@@ -94,23 +97,25 @@ data WorldExportJobSummary = WorldExportJobSummary'
 --     The world export job is being cancelled.
 --
 -- 'worlds', 'worldExportJobSummary_worlds' - A list of worlds.
---
--- 'createdAt', 'worldExportJobSummary_createdAt' - The time, in milliseconds since the epoch, when the world export job was
--- created.
 newWorldExportJobSummary ::
   WorldExportJobSummary
 newWorldExportJobSummary =
   WorldExportJobSummary'
     { arn = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
       outputLocation = Prelude.Nothing,
       status = Prelude.Nothing,
-      worlds = Prelude.Nothing,
-      createdAt = Prelude.Nothing
+      worlds = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the world export job.
 worldExportJobSummary_arn :: Lens.Lens' WorldExportJobSummary (Prelude.Maybe Prelude.Text)
 worldExportJobSummary_arn = Lens.lens (\WorldExportJobSummary' {arn} -> arn) (\s@WorldExportJobSummary' {} a -> s {arn = a} :: WorldExportJobSummary)
+
+-- | The time, in milliseconds since the epoch, when the world export job was
+-- created.
+worldExportJobSummary_createdAt :: Lens.Lens' WorldExportJobSummary (Prelude.Maybe Prelude.UTCTime)
+worldExportJobSummary_createdAt = Lens.lens (\WorldExportJobSummary' {createdAt} -> createdAt) (\s@WorldExportJobSummary' {} a -> s {createdAt = a} :: WorldExportJobSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 worldExportJobSummary_outputLocation :: Lens.Lens' WorldExportJobSummary (Prelude.Maybe OutputLocation)
@@ -142,11 +147,6 @@ worldExportJobSummary_status = Lens.lens (\WorldExportJobSummary' {status} -> st
 worldExportJobSummary_worlds :: Lens.Lens' WorldExportJobSummary (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 worldExportJobSummary_worlds = Lens.lens (\WorldExportJobSummary' {worlds} -> worlds) (\s@WorldExportJobSummary' {} a -> s {worlds = a} :: WorldExportJobSummary) Prelude.. Lens.mapping Lens.coerced
 
--- | The time, in milliseconds since the epoch, when the world export job was
--- created.
-worldExportJobSummary_createdAt :: Lens.Lens' WorldExportJobSummary (Prelude.Maybe Prelude.UTCTime)
-worldExportJobSummary_createdAt = Lens.lens (\WorldExportJobSummary' {createdAt} -> createdAt) (\s@WorldExportJobSummary' {} a -> s {createdAt = a} :: WorldExportJobSummary) Prelude.. Lens.mapping Data._Time
-
 instance Data.FromJSON WorldExportJobSummary where
   parseJSON =
     Data.withObject
@@ -154,24 +154,24 @@ instance Data.FromJSON WorldExportJobSummary where
       ( \x ->
           WorldExportJobSummary'
             Prelude.<$> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "createdAt")
             Prelude.<*> (x Data..:? "outputLocation")
             Prelude.<*> (x Data..:? "status")
             Prelude.<*> (x Data..:? "worlds")
-            Prelude.<*> (x Data..:? "createdAt")
       )
 
 instance Prelude.Hashable WorldExportJobSummary where
   hashWithSalt _salt WorldExportJobSummary' {..} =
     _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` outputLocation
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` worlds
-      `Prelude.hashWithSalt` createdAt
 
 instance Prelude.NFData WorldExportJobSummary where
   rnf WorldExportJobSummary' {..} =
     Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf outputLocation
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf worlds
-      `Prelude.seq` Prelude.rnf createdAt

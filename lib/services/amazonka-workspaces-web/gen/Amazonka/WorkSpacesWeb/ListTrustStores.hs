@@ -27,8 +27,8 @@ module Amazonka.WorkSpacesWeb.ListTrustStores
     newListTrustStores,
 
     -- * Request Lenses
-    listTrustStores_nextToken,
     listTrustStores_maxResults,
+    listTrustStores_nextToken,
 
     -- * Destructuring the Response
     ListTrustStoresResponse (..),
@@ -51,11 +51,11 @@ import Amazonka.WorkSpacesWeb.Types
 
 -- | /See:/ 'newListTrustStores' smart constructor.
 data ListTrustStores = ListTrustStores'
-  { -- | The pagination token used to retrieve the next page of results for this
+  { -- | The maximum number of results to be included in the next page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token used to retrieve the next page of results for this
     -- operation.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be included in the next page.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,26 +67,26 @@ data ListTrustStores = ListTrustStores'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listTrustStores_maxResults' - The maximum number of results to be included in the next page.
+--
 -- 'nextToken', 'listTrustStores_nextToken' - The pagination token used to retrieve the next page of results for this
 -- operation.
---
--- 'maxResults', 'listTrustStores_maxResults' - The maximum number of results to be included in the next page.
 newListTrustStores ::
   ListTrustStores
 newListTrustStores =
   ListTrustStores'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of results to be included in the next page.
+listTrustStores_maxResults :: Lens.Lens' ListTrustStores (Prelude.Maybe Prelude.Natural)
+listTrustStores_maxResults = Lens.lens (\ListTrustStores' {maxResults} -> maxResults) (\s@ListTrustStores' {} a -> s {maxResults = a} :: ListTrustStores)
 
 -- | The pagination token used to retrieve the next page of results for this
 -- operation.
 listTrustStores_nextToken :: Lens.Lens' ListTrustStores (Prelude.Maybe Prelude.Text)
 listTrustStores_nextToken = Lens.lens (\ListTrustStores' {nextToken} -> nextToken) (\s@ListTrustStores' {} a -> s {nextToken = a} :: ListTrustStores)
-
--- | The maximum number of results to be included in the next page.
-listTrustStores_maxResults :: Lens.Lens' ListTrustStores (Prelude.Maybe Prelude.Natural)
-listTrustStores_maxResults = Lens.lens (\ListTrustStores' {maxResults} -> maxResults) (\s@ListTrustStores' {} a -> s {maxResults = a} :: ListTrustStores)
 
 instance Core.AWSRequest ListTrustStores where
   type
@@ -105,13 +105,13 @@ instance Core.AWSRequest ListTrustStores where
 
 instance Prelude.Hashable ListTrustStores where
   hashWithSalt _salt ListTrustStores' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListTrustStores where
   rnf ListTrustStores' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListTrustStores where
   toHeaders =
@@ -130,8 +130,8 @@ instance Data.ToPath ListTrustStores where
 instance Data.ToQuery ListTrustStores where
   toQuery ListTrustStores' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListTrustStoresResponse' smart constructor.

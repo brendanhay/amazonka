@@ -45,9 +45,9 @@ module Amazonka.GlobalAccelerator.ListCustomRoutingPortMappings
     newListCustomRoutingPortMappings,
 
     -- * Request Lenses
-    listCustomRoutingPortMappings_nextToken,
-    listCustomRoutingPortMappings_maxResults,
     listCustomRoutingPortMappings_endpointGroupArn,
+    listCustomRoutingPortMappings_maxResults,
+    listCustomRoutingPortMappings_nextToken,
     listCustomRoutingPortMappings_acceleratorArn,
 
     -- * Destructuring the Response
@@ -71,15 +71,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListCustomRoutingPortMappings' smart constructor.
 data ListCustomRoutingPortMappings = ListCustomRoutingPortMappings'
-  { -- | The token for the next set of results. You receive this token from a
-    -- previous call.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The Amazon Resource Name (ARN) of the endpoint group to list the custom
+    -- routing port mappings for.
+    endpointGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The number of destination port mappings that you want to return with
     -- this call. The default value is 10.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The Amazon Resource Name (ARN) of the endpoint group to list the custom
-    -- routing port mappings for.
-    endpointGroupArn :: Prelude.Maybe Prelude.Text,
+    -- | The token for the next set of results. You receive this token from a
+    -- previous call.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the accelerator to list the custom
     -- routing port mappings for.
     acceleratorArn :: Prelude.Text
@@ -94,14 +94,14 @@ data ListCustomRoutingPortMappings = ListCustomRoutingPortMappings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listCustomRoutingPortMappings_nextToken' - The token for the next set of results. You receive this token from a
--- previous call.
+-- 'endpointGroupArn', 'listCustomRoutingPortMappings_endpointGroupArn' - The Amazon Resource Name (ARN) of the endpoint group to list the custom
+-- routing port mappings for.
 --
 -- 'maxResults', 'listCustomRoutingPortMappings_maxResults' - The number of destination port mappings that you want to return with
 -- this call. The default value is 10.
 --
--- 'endpointGroupArn', 'listCustomRoutingPortMappings_endpointGroupArn' - The Amazon Resource Name (ARN) of the endpoint group to list the custom
--- routing port mappings for.
+-- 'nextToken', 'listCustomRoutingPortMappings_nextToken' - The token for the next set of results. You receive this token from a
+-- previous call.
 --
 -- 'acceleratorArn', 'listCustomRoutingPortMappings_acceleratorArn' - The Amazon Resource Name (ARN) of the accelerator to list the custom
 -- routing port mappings for.
@@ -111,27 +111,27 @@ newListCustomRoutingPortMappings ::
   ListCustomRoutingPortMappings
 newListCustomRoutingPortMappings pAcceleratorArn_ =
   ListCustomRoutingPortMappings'
-    { nextToken =
+    { endpointGroupArn =
         Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      endpointGroupArn = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       acceleratorArn = pAcceleratorArn_
     }
 
--- | The token for the next set of results. You receive this token from a
--- previous call.
-listCustomRoutingPortMappings_nextToken :: Lens.Lens' ListCustomRoutingPortMappings (Prelude.Maybe Prelude.Text)
-listCustomRoutingPortMappings_nextToken = Lens.lens (\ListCustomRoutingPortMappings' {nextToken} -> nextToken) (\s@ListCustomRoutingPortMappings' {} a -> s {nextToken = a} :: ListCustomRoutingPortMappings)
+-- | The Amazon Resource Name (ARN) of the endpoint group to list the custom
+-- routing port mappings for.
+listCustomRoutingPortMappings_endpointGroupArn :: Lens.Lens' ListCustomRoutingPortMappings (Prelude.Maybe Prelude.Text)
+listCustomRoutingPortMappings_endpointGroupArn = Lens.lens (\ListCustomRoutingPortMappings' {endpointGroupArn} -> endpointGroupArn) (\s@ListCustomRoutingPortMappings' {} a -> s {endpointGroupArn = a} :: ListCustomRoutingPortMappings)
 
 -- | The number of destination port mappings that you want to return with
 -- this call. The default value is 10.
 listCustomRoutingPortMappings_maxResults :: Lens.Lens' ListCustomRoutingPortMappings (Prelude.Maybe Prelude.Natural)
 listCustomRoutingPortMappings_maxResults = Lens.lens (\ListCustomRoutingPortMappings' {maxResults} -> maxResults) (\s@ListCustomRoutingPortMappings' {} a -> s {maxResults = a} :: ListCustomRoutingPortMappings)
 
--- | The Amazon Resource Name (ARN) of the endpoint group to list the custom
--- routing port mappings for.
-listCustomRoutingPortMappings_endpointGroupArn :: Lens.Lens' ListCustomRoutingPortMappings (Prelude.Maybe Prelude.Text)
-listCustomRoutingPortMappings_endpointGroupArn = Lens.lens (\ListCustomRoutingPortMappings' {endpointGroupArn} -> endpointGroupArn) (\s@ListCustomRoutingPortMappings' {} a -> s {endpointGroupArn = a} :: ListCustomRoutingPortMappings)
+-- | The token for the next set of results. You receive this token from a
+-- previous call.
+listCustomRoutingPortMappings_nextToken :: Lens.Lens' ListCustomRoutingPortMappings (Prelude.Maybe Prelude.Text)
+listCustomRoutingPortMappings_nextToken = Lens.lens (\ListCustomRoutingPortMappings' {nextToken} -> nextToken) (\s@ListCustomRoutingPortMappings' {} a -> s {nextToken = a} :: ListCustomRoutingPortMappings)
 
 -- | The Amazon Resource Name (ARN) of the accelerator to list the custom
 -- routing port mappings for.
@@ -183,16 +183,16 @@ instance
     ListCustomRoutingPortMappings
   where
   hashWithSalt _salt ListCustomRoutingPortMappings' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` endpointGroupArn
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` endpointGroupArn
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` acceleratorArn
 
 instance Prelude.NFData ListCustomRoutingPortMappings where
   rnf ListCustomRoutingPortMappings' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf endpointGroupArn
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf endpointGroupArn
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf acceleratorArn
 
 instance Data.ToHeaders ListCustomRoutingPortMappings where
@@ -214,10 +214,10 @@ instance Data.ToJSON ListCustomRoutingPortMappings where
   toJSON ListCustomRoutingPortMappings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("EndpointGroupArn" Data..=)
+          [ ("EndpointGroupArn" Data..=)
               Prelude.<$> endpointGroupArn,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("AcceleratorArn" Data..= acceleratorArn)
           ]

@@ -19,26 +19,26 @@ module Amazonka.ConnectCampaigns
     -- * Errors
     -- $errors
 
+    -- ** AccessDeniedException
+    _AccessDeniedException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** InternalServerException
+    _InternalServerException,
+
     -- ** InvalidCampaignStateException
     _InvalidCampaignStateException,
 
     -- ** InvalidStateException
     _InvalidStateException,
 
-    -- ** AccessDeniedException
-    _AccessDeniedException,
-
-    -- ** InternalServerException
-    _InternalServerException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
-
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** ConflictException
-    _ConflictException,
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
 
     -- ** ThrottlingException
     _ThrottlingException,

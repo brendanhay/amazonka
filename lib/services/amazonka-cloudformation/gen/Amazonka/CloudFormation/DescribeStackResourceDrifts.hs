@@ -41,9 +41,9 @@ module Amazonka.CloudFormation.DescribeStackResourceDrifts
     newDescribeStackResourceDrifts,
 
     -- * Request Lenses
-    describeStackResourceDrifts_stackResourceDriftStatusFilters,
-    describeStackResourceDrifts_nextToken,
     describeStackResourceDrifts_maxResults,
+    describeStackResourceDrifts_nextToken,
+    describeStackResourceDrifts_stackResourceDriftStatusFilters,
     describeStackResourceDrifts_stackName,
 
     -- * Destructuring the Response
@@ -67,7 +67,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeStackResourceDrifts' smart constructor.
 data DescribeStackResourceDrifts = DescribeStackResourceDrifts'
-  { -- | The resource drift status values to use as filters for the resource
+  { -- | The maximum number of results to be returned with a single call. If the
+    -- number of available results exceeds this maximum, the response includes
+    -- a @NextToken@ value that you can assign to the @NextToken@ request
+    -- parameter to get the next set of results.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A string that identifies the next page of stack resource drift results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The resource drift status values to use as filters for the resource
     -- drift results returned.
     --
     -- -   @DELETED@: The resource differs from its expected template
@@ -81,13 +88,6 @@ data DescribeStackResourceDrifts = DescribeStackResourceDrifts'
     --
     -- -   @NOT_CHECKED@: CloudFormation doesn\'t currently return this value.
     stackResourceDriftStatusFilters :: Prelude.Maybe (Prelude.NonEmpty StackResourceDriftStatus),
-    -- | A string that identifies the next page of stack resource drift results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be returned with a single call. If the
-    -- number of available results exceeds this maximum, the response includes
-    -- a @NextToken@ value that you can assign to the @NextToken@ request
-    -- parameter to get the next set of results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the stack for which you want drift information.
     stackName :: Prelude.Text
   }
@@ -100,6 +100,13 @@ data DescribeStackResourceDrifts = DescribeStackResourceDrifts'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'maxResults', 'describeStackResourceDrifts_maxResults' - The maximum number of results to be returned with a single call. If the
+-- number of available results exceeds this maximum, the response includes
+-- a @NextToken@ value that you can assign to the @NextToken@ request
+-- parameter to get the next set of results.
+--
+-- 'nextToken', 'describeStackResourceDrifts_nextToken' - A string that identifies the next page of stack resource drift results.
 --
 -- 'stackResourceDriftStatusFilters', 'describeStackResourceDrifts_stackResourceDriftStatusFilters' - The resource drift status values to use as filters for the resource
 -- drift results returned.
@@ -115,13 +122,6 @@ data DescribeStackResourceDrifts = DescribeStackResourceDrifts'
 --
 -- -   @NOT_CHECKED@: CloudFormation doesn\'t currently return this value.
 --
--- 'nextToken', 'describeStackResourceDrifts_nextToken' - A string that identifies the next page of stack resource drift results.
---
--- 'maxResults', 'describeStackResourceDrifts_maxResults' - The maximum number of results to be returned with a single call. If the
--- number of available results exceeds this maximum, the response includes
--- a @NextToken@ value that you can assign to the @NextToken@ request
--- parameter to get the next set of results.
---
 -- 'stackName', 'describeStackResourceDrifts_stackName' - The name of the stack for which you want drift information.
 newDescribeStackResourceDrifts ::
   -- | 'stackName'
@@ -129,12 +129,24 @@ newDescribeStackResourceDrifts ::
   DescribeStackResourceDrifts
 newDescribeStackResourceDrifts pStackName_ =
   DescribeStackResourceDrifts'
-    { stackResourceDriftStatusFilters =
+    { maxResults =
         Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      stackResourceDriftStatusFilters =
+        Prelude.Nothing,
       stackName = pStackName_
     }
+
+-- | The maximum number of results to be returned with a single call. If the
+-- number of available results exceeds this maximum, the response includes
+-- a @NextToken@ value that you can assign to the @NextToken@ request
+-- parameter to get the next set of results.
+describeStackResourceDrifts_maxResults :: Lens.Lens' DescribeStackResourceDrifts (Prelude.Maybe Prelude.Natural)
+describeStackResourceDrifts_maxResults = Lens.lens (\DescribeStackResourceDrifts' {maxResults} -> maxResults) (\s@DescribeStackResourceDrifts' {} a -> s {maxResults = a} :: DescribeStackResourceDrifts)
+
+-- | A string that identifies the next page of stack resource drift results.
+describeStackResourceDrifts_nextToken :: Lens.Lens' DescribeStackResourceDrifts (Prelude.Maybe Prelude.Text)
+describeStackResourceDrifts_nextToken = Lens.lens (\DescribeStackResourceDrifts' {nextToken} -> nextToken) (\s@DescribeStackResourceDrifts' {} a -> s {nextToken = a} :: DescribeStackResourceDrifts)
 
 -- | The resource drift status values to use as filters for the resource
 -- drift results returned.
@@ -151,17 +163,6 @@ newDescribeStackResourceDrifts pStackName_ =
 -- -   @NOT_CHECKED@: CloudFormation doesn\'t currently return this value.
 describeStackResourceDrifts_stackResourceDriftStatusFilters :: Lens.Lens' DescribeStackResourceDrifts (Prelude.Maybe (Prelude.NonEmpty StackResourceDriftStatus))
 describeStackResourceDrifts_stackResourceDriftStatusFilters = Lens.lens (\DescribeStackResourceDrifts' {stackResourceDriftStatusFilters} -> stackResourceDriftStatusFilters) (\s@DescribeStackResourceDrifts' {} a -> s {stackResourceDriftStatusFilters = a} :: DescribeStackResourceDrifts) Prelude.. Lens.mapping Lens.coerced
-
--- | A string that identifies the next page of stack resource drift results.
-describeStackResourceDrifts_nextToken :: Lens.Lens' DescribeStackResourceDrifts (Prelude.Maybe Prelude.Text)
-describeStackResourceDrifts_nextToken = Lens.lens (\DescribeStackResourceDrifts' {nextToken} -> nextToken) (\s@DescribeStackResourceDrifts' {} a -> s {nextToken = a} :: DescribeStackResourceDrifts)
-
--- | The maximum number of results to be returned with a single call. If the
--- number of available results exceeds this maximum, the response includes
--- a @NextToken@ value that you can assign to the @NextToken@ request
--- parameter to get the next set of results.
-describeStackResourceDrifts_maxResults :: Lens.Lens' DescribeStackResourceDrifts (Prelude.Maybe Prelude.Natural)
-describeStackResourceDrifts_maxResults = Lens.lens (\DescribeStackResourceDrifts' {maxResults} -> maxResults) (\s@DescribeStackResourceDrifts' {} a -> s {maxResults = a} :: DescribeStackResourceDrifts)
 
 -- | The name of the stack for which you want drift information.
 describeStackResourceDrifts_stackName :: Lens.Lens' DescribeStackResourceDrifts Prelude.Text
@@ -188,17 +189,16 @@ instance Core.AWSRequest DescribeStackResourceDrifts where
 
 instance Prelude.Hashable DescribeStackResourceDrifts where
   hashWithSalt _salt DescribeStackResourceDrifts' {..} =
-    _salt
-      `Prelude.hashWithSalt` stackResourceDriftStatusFilters
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` stackResourceDriftStatusFilters
       `Prelude.hashWithSalt` stackName
 
 instance Prelude.NFData DescribeStackResourceDrifts where
   rnf DescribeStackResourceDrifts' {..} =
-    Prelude.rnf stackResourceDriftStatusFilters
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf stackResourceDriftStatusFilters
       `Prelude.seq` Prelude.rnf stackName
 
 instance Data.ToHeaders DescribeStackResourceDrifts where
@@ -216,13 +216,13 @@ instance Data.ToQuery DescribeStackResourceDrifts where
                   ),
         "Version"
           Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken,
         "StackResourceDriftStatusFilters"
           Data.=: Data.toQuery
             ( Data.toQueryList "member"
                 Prelude.<$> stackResourceDriftStatusFilters
             ),
-        "NextToken" Data.=: nextToken,
-        "MaxResults" Data.=: maxResults,
         "StackName" Data.=: stackName
       ]
 

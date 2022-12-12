@@ -36,9 +36,9 @@ module Amazonka.LexV2Models.DeleteBotAlias
     newDeleteBotAliasResponse,
 
     -- * Response Lenses
+    deleteBotAliasResponse_botAliasId,
     deleteBotAliasResponse_botAliasStatus,
     deleteBotAliasResponse_botId,
-    deleteBotAliasResponse_botAliasId,
     deleteBotAliasResponse_httpStatus,
   )
 where
@@ -114,9 +114,9 @@ instance Core.AWSRequest DeleteBotAlias where
     Response.receiveJSON
       ( \s h x ->
           DeleteBotAliasResponse'
-            Prelude.<$> (x Data..?> "botAliasStatus")
+            Prelude.<$> (x Data..?> "botAliasId")
+            Prelude.<*> (x Data..?> "botAliasStatus")
             Prelude.<*> (x Data..?> "botId")
-            Prelude.<*> (x Data..?> "botAliasId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -162,15 +162,15 @@ instance Data.ToQuery DeleteBotAlias where
 
 -- | /See:/ 'newDeleteBotAliasResponse' smart constructor.
 data DeleteBotAliasResponse = DeleteBotAliasResponse'
-  { -- | The current status of the alias. The status is @Deleting@ while the
+  { -- | The unique identifier of the bot alias to delete.
+    botAliasId :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the alias. The status is @Deleting@ while the
     -- alias is in the process of being deleted. Once the alias is deleted, it
     -- will no longer appear in the list of aliases returned by the
     -- @ListBotAliases@ operation.
     botAliasStatus :: Prelude.Maybe BotAliasStatus,
     -- | The unique identifier of the bot that contains the alias to delete.
     botId :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier of the bot alias to delete.
-    botAliasId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -184,14 +184,14 @@ data DeleteBotAliasResponse = DeleteBotAliasResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'botAliasId', 'deleteBotAliasResponse_botAliasId' - The unique identifier of the bot alias to delete.
+--
 -- 'botAliasStatus', 'deleteBotAliasResponse_botAliasStatus' - The current status of the alias. The status is @Deleting@ while the
 -- alias is in the process of being deleted. Once the alias is deleted, it
 -- will no longer appear in the list of aliases returned by the
 -- @ListBotAliases@ operation.
 --
 -- 'botId', 'deleteBotAliasResponse_botId' - The unique identifier of the bot that contains the alias to delete.
---
--- 'botAliasId', 'deleteBotAliasResponse_botAliasId' - The unique identifier of the bot alias to delete.
 --
 -- 'httpStatus', 'deleteBotAliasResponse_httpStatus' - The response's http status code.
 newDeleteBotAliasResponse ::
@@ -200,12 +200,16 @@ newDeleteBotAliasResponse ::
   DeleteBotAliasResponse
 newDeleteBotAliasResponse pHttpStatus_ =
   DeleteBotAliasResponse'
-    { botAliasStatus =
+    { botAliasId =
         Prelude.Nothing,
+      botAliasStatus = Prelude.Nothing,
       botId = Prelude.Nothing,
-      botAliasId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The unique identifier of the bot alias to delete.
+deleteBotAliasResponse_botAliasId :: Lens.Lens' DeleteBotAliasResponse (Prelude.Maybe Prelude.Text)
+deleteBotAliasResponse_botAliasId = Lens.lens (\DeleteBotAliasResponse' {botAliasId} -> botAliasId) (\s@DeleteBotAliasResponse' {} a -> s {botAliasId = a} :: DeleteBotAliasResponse)
 
 -- | The current status of the alias. The status is @Deleting@ while the
 -- alias is in the process of being deleted. Once the alias is deleted, it
@@ -218,17 +222,13 @@ deleteBotAliasResponse_botAliasStatus = Lens.lens (\DeleteBotAliasResponse' {bot
 deleteBotAliasResponse_botId :: Lens.Lens' DeleteBotAliasResponse (Prelude.Maybe Prelude.Text)
 deleteBotAliasResponse_botId = Lens.lens (\DeleteBotAliasResponse' {botId} -> botId) (\s@DeleteBotAliasResponse' {} a -> s {botId = a} :: DeleteBotAliasResponse)
 
--- | The unique identifier of the bot alias to delete.
-deleteBotAliasResponse_botAliasId :: Lens.Lens' DeleteBotAliasResponse (Prelude.Maybe Prelude.Text)
-deleteBotAliasResponse_botAliasId = Lens.lens (\DeleteBotAliasResponse' {botAliasId} -> botAliasId) (\s@DeleteBotAliasResponse' {} a -> s {botAliasId = a} :: DeleteBotAliasResponse)
-
 -- | The response's http status code.
 deleteBotAliasResponse_httpStatus :: Lens.Lens' DeleteBotAliasResponse Prelude.Int
 deleteBotAliasResponse_httpStatus = Lens.lens (\DeleteBotAliasResponse' {httpStatus} -> httpStatus) (\s@DeleteBotAliasResponse' {} a -> s {httpStatus = a} :: DeleteBotAliasResponse)
 
 instance Prelude.NFData DeleteBotAliasResponse where
   rnf DeleteBotAliasResponse' {..} =
-    Prelude.rnf botAliasStatus
+    Prelude.rnf botAliasId
+      `Prelude.seq` Prelude.rnf botAliasStatus
       `Prelude.seq` Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf botAliasId
       `Prelude.seq` Prelude.rnf httpStatus

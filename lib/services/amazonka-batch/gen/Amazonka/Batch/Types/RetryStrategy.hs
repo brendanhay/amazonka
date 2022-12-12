@@ -32,16 +32,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRetryStrategy' smart constructor.
 data RetryStrategy = RetryStrategy'
-  { -- | Array of up to 5 objects that specify the conditions where jobs are
-    -- retried or failed. If this parameter is specified, then the @attempts@
-    -- parameter must also be specified. If none of the listed conditions
-    -- match, then the job is retried.
-    evaluateOnExit :: Prelude.Maybe [EvaluateOnExit],
-    -- | The number of times to move a job to the @RUNNABLE@ status. You can
+  { -- | The number of times to move a job to the @RUNNABLE@ status. You can
     -- specify between 1 and 10 attempts. If the value of @attempts@ is greater
     -- than one, the job is retried on failure the same number of attempts as
     -- the value.
-    attempts :: Prelude.Maybe Prelude.Int
+    attempts :: Prelude.Maybe Prelude.Int,
+    -- | Array of up to 5 objects that specify the conditions where jobs are
+    -- retried or failed. If this parameter is specified, then the @attempts@
+    -- parameter must also be specified. If none of the listed conditions
+    -- match, then the job is retried.
+    evaluateOnExit :: Prelude.Maybe [EvaluateOnExit]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,29 +53,22 @@ data RetryStrategy = RetryStrategy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'evaluateOnExit', 'retryStrategy_evaluateOnExit' - Array of up to 5 objects that specify the conditions where jobs are
--- retried or failed. If this parameter is specified, then the @attempts@
--- parameter must also be specified. If none of the listed conditions
--- match, then the job is retried.
---
 -- 'attempts', 'retryStrategy_attempts' - The number of times to move a job to the @RUNNABLE@ status. You can
 -- specify between 1 and 10 attempts. If the value of @attempts@ is greater
 -- than one, the job is retried on failure the same number of attempts as
 -- the value.
+--
+-- 'evaluateOnExit', 'retryStrategy_evaluateOnExit' - Array of up to 5 objects that specify the conditions where jobs are
+-- retried or failed. If this parameter is specified, then the @attempts@
+-- parameter must also be specified. If none of the listed conditions
+-- match, then the job is retried.
 newRetryStrategy ::
   RetryStrategy
 newRetryStrategy =
   RetryStrategy'
-    { evaluateOnExit = Prelude.Nothing,
-      attempts = Prelude.Nothing
+    { attempts = Prelude.Nothing,
+      evaluateOnExit = Prelude.Nothing
     }
-
--- | Array of up to 5 objects that specify the conditions where jobs are
--- retried or failed. If this parameter is specified, then the @attempts@
--- parameter must also be specified. If none of the listed conditions
--- match, then the job is retried.
-retryStrategy_evaluateOnExit :: Lens.Lens' RetryStrategy (Prelude.Maybe [EvaluateOnExit])
-retryStrategy_evaluateOnExit = Lens.lens (\RetryStrategy' {evaluateOnExit} -> evaluateOnExit) (\s@RetryStrategy' {} a -> s {evaluateOnExit = a} :: RetryStrategy) Prelude.. Lens.mapping Lens.coerced
 
 -- | The number of times to move a job to the @RUNNABLE@ status. You can
 -- specify between 1 and 10 attempts. If the value of @attempts@ is greater
@@ -84,32 +77,41 @@ retryStrategy_evaluateOnExit = Lens.lens (\RetryStrategy' {evaluateOnExit} -> ev
 retryStrategy_attempts :: Lens.Lens' RetryStrategy (Prelude.Maybe Prelude.Int)
 retryStrategy_attempts = Lens.lens (\RetryStrategy' {attempts} -> attempts) (\s@RetryStrategy' {} a -> s {attempts = a} :: RetryStrategy)
 
+-- | Array of up to 5 objects that specify the conditions where jobs are
+-- retried or failed. If this parameter is specified, then the @attempts@
+-- parameter must also be specified. If none of the listed conditions
+-- match, then the job is retried.
+retryStrategy_evaluateOnExit :: Lens.Lens' RetryStrategy (Prelude.Maybe [EvaluateOnExit])
+retryStrategy_evaluateOnExit = Lens.lens (\RetryStrategy' {evaluateOnExit} -> evaluateOnExit) (\s@RetryStrategy' {} a -> s {evaluateOnExit = a} :: RetryStrategy) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON RetryStrategy where
   parseJSON =
     Data.withObject
       "RetryStrategy"
       ( \x ->
           RetryStrategy'
-            Prelude.<$> (x Data..:? "evaluateOnExit" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "attempts")
+            Prelude.<$> (x Data..:? "attempts")
+            Prelude.<*> ( x Data..:? "evaluateOnExit"
+                            Data..!= Prelude.mempty
+                        )
       )
 
 instance Prelude.Hashable RetryStrategy where
   hashWithSalt _salt RetryStrategy' {..} =
-    _salt `Prelude.hashWithSalt` evaluateOnExit
-      `Prelude.hashWithSalt` attempts
+    _salt `Prelude.hashWithSalt` attempts
+      `Prelude.hashWithSalt` evaluateOnExit
 
 instance Prelude.NFData RetryStrategy where
   rnf RetryStrategy' {..} =
-    Prelude.rnf evaluateOnExit
-      `Prelude.seq` Prelude.rnf attempts
+    Prelude.rnf attempts
+      `Prelude.seq` Prelude.rnf evaluateOnExit
 
 instance Data.ToJSON RetryStrategy where
   toJSON RetryStrategy' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("evaluateOnExit" Data..=)
-              Prelude.<$> evaluateOnExit,
-            ("attempts" Data..=) Prelude.<$> attempts
+          [ ("attempts" Data..=) Prelude.<$> attempts,
+            ("evaluateOnExit" Data..=)
+              Prelude.<$> evaluateOnExit
           ]
       )

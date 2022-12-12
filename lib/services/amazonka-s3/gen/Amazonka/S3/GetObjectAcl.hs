@@ -67,9 +67,9 @@ module Amazonka.S3.GetObjectAcl
     newGetObjectAclResponse,
 
     -- * Response Lenses
-    getObjectAclResponse_requestCharged,
     getObjectAclResponse_grants,
     getObjectAclResponse_owner,
+    getObjectAclResponse_requestCharged,
     getObjectAclResponse_httpStatus,
   )
 where
@@ -194,12 +194,12 @@ instance Core.AWSRequest GetObjectAcl where
     Response.receiveXML
       ( \s h x ->
           GetObjectAclResponse'
-            Prelude.<$> (h Data..#? "x-amz-request-charged")
-            Prelude.<*> ( x Data..@? "AccessControlList"
+            Prelude.<$> ( x Data..@? "AccessControlList"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "Grant")
                         )
             Prelude.<*> (x Data..@? "Owner")
+            Prelude.<*> (h Data..#? "x-amz-request-charged")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -239,11 +239,11 @@ instance Data.ToQuery GetObjectAcl where
 
 -- | /See:/ 'newGetObjectAclResponse' smart constructor.
 data GetObjectAclResponse = GetObjectAclResponse'
-  { requestCharged :: Prelude.Maybe RequestCharged,
-    -- | A list of grants.
+  { -- | A list of grants.
     grants :: Prelude.Maybe [Grant],
     -- | Container for the bucket owner\'s display name and ID.
     owner :: Prelude.Maybe Owner,
+    requestCharged :: Prelude.Maybe RequestCharged,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -257,11 +257,11 @@ data GetObjectAclResponse = GetObjectAclResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestCharged', 'getObjectAclResponse_requestCharged' - Undocumented member.
---
 -- 'grants', 'getObjectAclResponse_grants' - A list of grants.
 --
 -- 'owner', 'getObjectAclResponse_owner' - Container for the bucket owner\'s display name and ID.
+--
+-- 'requestCharged', 'getObjectAclResponse_requestCharged' - Undocumented member.
 --
 -- 'httpStatus', 'getObjectAclResponse_httpStatus' - The response's http status code.
 newGetObjectAclResponse ::
@@ -270,16 +270,11 @@ newGetObjectAclResponse ::
   GetObjectAclResponse
 newGetObjectAclResponse pHttpStatus_ =
   GetObjectAclResponse'
-    { requestCharged =
-        Prelude.Nothing,
-      grants = Prelude.Nothing,
+    { grants = Prelude.Nothing,
       owner = Prelude.Nothing,
+      requestCharged = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Undocumented member.
-getObjectAclResponse_requestCharged :: Lens.Lens' GetObjectAclResponse (Prelude.Maybe RequestCharged)
-getObjectAclResponse_requestCharged = Lens.lens (\GetObjectAclResponse' {requestCharged} -> requestCharged) (\s@GetObjectAclResponse' {} a -> s {requestCharged = a} :: GetObjectAclResponse)
 
 -- | A list of grants.
 getObjectAclResponse_grants :: Lens.Lens' GetObjectAclResponse (Prelude.Maybe [Grant])
@@ -289,13 +284,17 @@ getObjectAclResponse_grants = Lens.lens (\GetObjectAclResponse' {grants} -> gran
 getObjectAclResponse_owner :: Lens.Lens' GetObjectAclResponse (Prelude.Maybe Owner)
 getObjectAclResponse_owner = Lens.lens (\GetObjectAclResponse' {owner} -> owner) (\s@GetObjectAclResponse' {} a -> s {owner = a} :: GetObjectAclResponse)
 
+-- | Undocumented member.
+getObjectAclResponse_requestCharged :: Lens.Lens' GetObjectAclResponse (Prelude.Maybe RequestCharged)
+getObjectAclResponse_requestCharged = Lens.lens (\GetObjectAclResponse' {requestCharged} -> requestCharged) (\s@GetObjectAclResponse' {} a -> s {requestCharged = a} :: GetObjectAclResponse)
+
 -- | The response's http status code.
 getObjectAclResponse_httpStatus :: Lens.Lens' GetObjectAclResponse Prelude.Int
 getObjectAclResponse_httpStatus = Lens.lens (\GetObjectAclResponse' {httpStatus} -> httpStatus) (\s@GetObjectAclResponse' {} a -> s {httpStatus = a} :: GetObjectAclResponse)
 
 instance Prelude.NFData GetObjectAclResponse where
   rnf GetObjectAclResponse' {..} =
-    Prelude.rnf requestCharged
-      `Prelude.seq` Prelude.rnf grants
+    Prelude.rnf grants
       `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf requestCharged
       `Prelude.seq` Prelude.rnf httpStatus

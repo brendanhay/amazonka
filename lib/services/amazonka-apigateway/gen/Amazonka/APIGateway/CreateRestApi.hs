@@ -27,15 +27,15 @@ module Amazonka.APIGateway.CreateRestApi
     newCreateRestApi,
 
     -- * Request Lenses
-    createRestApi_tags,
-    createRestApi_policy,
+    createRestApi_apiKeySource,
+    createRestApi_binaryMediaTypes,
     createRestApi_cloneFrom,
     createRestApi_description,
-    createRestApi_binaryMediaTypes,
     createRestApi_disableExecuteApiEndpoint,
     createRestApi_endpointConfiguration,
-    createRestApi_apiKeySource,
     createRestApi_minimumCompressionSize,
+    createRestApi_policy,
+    createRestApi_tags,
     createRestApi_version,
     createRestApi_name,
 
@@ -44,19 +44,19 @@ module Amazonka.APIGateway.CreateRestApi
     newRestApi,
 
     -- * Response Lenses
-    restApi_tags,
-    restApi_policy,
-    restApi_name,
-    restApi_description,
-    restApi_id,
+    restApi_apiKeySource,
     restApi_binaryMediaTypes,
-    restApi_warnings,
+    restApi_createdDate,
+    restApi_description,
     restApi_disableExecuteApiEndpoint,
     restApi_endpointConfiguration,
-    restApi_createdDate,
-    restApi_apiKeySource,
+    restApi_id,
     restApi_minimumCompressionSize,
+    restApi_name,
+    restApi_policy,
+    restApi_tags,
     restApi_version,
+    restApi_warnings,
   )
 where
 
@@ -72,20 +72,18 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateRestApi' smart constructor.
 data CreateRestApi = CreateRestApi'
-  { -- | The key-value map of strings. The valid character set is
-    -- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
-    -- start with @aws:@. The tag value can be up to 256 characters.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A stringified JSON policy document that applies to this RestApi
-    -- regardless of the caller and Method configuration.
-    policy :: Prelude.Maybe Prelude.Text,
+  { -- | The source of the API key for metering requests according to a usage
+    -- plan. Valid values are: >@HEADER@ to read the API key from the
+    -- @X-API-Key@ header of a request. @AUTHORIZER@ to read the API key from
+    -- the @UsageIdentifierKey@ from a custom authorizer.
+    apiKeySource :: Prelude.Maybe ApiKeySourceType,
+    -- | The list of binary media types supported by the RestApi. By default, the
+    -- RestApi supports only UTF-8-encoded text payloads.
+    binaryMediaTypes :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the RestApi that you want to clone from.
     cloneFrom :: Prelude.Maybe Prelude.Text,
     -- | The description of the RestApi.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The list of binary media types supported by the RestApi. By default, the
-    -- RestApi supports only UTF-8-encoded text payloads.
-    binaryMediaTypes :: Prelude.Maybe [Prelude.Text],
     -- | Specifies whether clients can invoke your API by using the default
     -- @execute-api@ endpoint. By default, clients can invoke your API with the
     -- default @https:\/\/{api_id}.execute-api.{region}.amazonaws.com@
@@ -95,11 +93,6 @@ data CreateRestApi = CreateRestApi'
     -- | The endpoint configuration of this RestApi showing the endpoint types of
     -- the API.
     endpointConfiguration :: Prelude.Maybe EndpointConfiguration,
-    -- | The source of the API key for metering requests according to a usage
-    -- plan. Valid values are: >@HEADER@ to read the API key from the
-    -- @X-API-Key@ header of a request. @AUTHORIZER@ to read the API key from
-    -- the @UsageIdentifierKey@ from a custom authorizer.
-    apiKeySource :: Prelude.Maybe ApiKeySourceType,
     -- | A nullable integer that is used to enable compression (with non-negative
     -- between 0 and 10485760 (10M) bytes, inclusive) or disable compression
     -- (with a null value) on an API. When compression is enabled, compression
@@ -107,6 +100,13 @@ data CreateRestApi = CreateRestApi'
     -- smaller than this value. Setting it to zero allows compression for any
     -- payload size.
     minimumCompressionSize :: Prelude.Maybe Prelude.Int,
+    -- | A stringified JSON policy document that applies to this RestApi
+    -- regardless of the caller and Method configuration.
+    policy :: Prelude.Maybe Prelude.Text,
+    -- | The key-value map of strings. The valid character set is
+    -- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
+    -- start with @aws:@. The tag value can be up to 256 characters.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A version identifier for the API.
     version :: Prelude.Maybe Prelude.Text,
     -- | The name of the RestApi.
@@ -122,19 +122,17 @@ data CreateRestApi = CreateRestApi'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createRestApi_tags' - The key-value map of strings. The valid character set is
--- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
--- start with @aws:@. The tag value can be up to 256 characters.
+-- 'apiKeySource', 'createRestApi_apiKeySource' - The source of the API key for metering requests according to a usage
+-- plan. Valid values are: >@HEADER@ to read the API key from the
+-- @X-API-Key@ header of a request. @AUTHORIZER@ to read the API key from
+-- the @UsageIdentifierKey@ from a custom authorizer.
 --
--- 'policy', 'createRestApi_policy' - A stringified JSON policy document that applies to this RestApi
--- regardless of the caller and Method configuration.
+-- 'binaryMediaTypes', 'createRestApi_binaryMediaTypes' - The list of binary media types supported by the RestApi. By default, the
+-- RestApi supports only UTF-8-encoded text payloads.
 --
 -- 'cloneFrom', 'createRestApi_cloneFrom' - The ID of the RestApi that you want to clone from.
 --
 -- 'description', 'createRestApi_description' - The description of the RestApi.
---
--- 'binaryMediaTypes', 'createRestApi_binaryMediaTypes' - The list of binary media types supported by the RestApi. By default, the
--- RestApi supports only UTF-8-encoded text payloads.
 --
 -- 'disableExecuteApiEndpoint', 'createRestApi_disableExecuteApiEndpoint' - Specifies whether clients can invoke your API by using the default
 -- @execute-api@ endpoint. By default, clients can invoke your API with the
@@ -145,17 +143,19 @@ data CreateRestApi = CreateRestApi'
 -- 'endpointConfiguration', 'createRestApi_endpointConfiguration' - The endpoint configuration of this RestApi showing the endpoint types of
 -- the API.
 --
--- 'apiKeySource', 'createRestApi_apiKeySource' - The source of the API key for metering requests according to a usage
--- plan. Valid values are: >@HEADER@ to read the API key from the
--- @X-API-Key@ header of a request. @AUTHORIZER@ to read the API key from
--- the @UsageIdentifierKey@ from a custom authorizer.
---
 -- 'minimumCompressionSize', 'createRestApi_minimumCompressionSize' - A nullable integer that is used to enable compression (with non-negative
 -- between 0 and 10485760 (10M) bytes, inclusive) or disable compression
 -- (with a null value) on an API. When compression is enabled, compression
 -- or decompression is not applied on the payload if the payload size is
 -- smaller than this value. Setting it to zero allows compression for any
 -- payload size.
+--
+-- 'policy', 'createRestApi_policy' - A stringified JSON policy document that applies to this RestApi
+-- regardless of the caller and Method configuration.
+--
+-- 'tags', 'createRestApi_tags' - The key-value map of strings. The valid character set is
+-- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
+-- start with @aws:@. The tag value can be up to 256 characters.
 --
 -- 'version', 'createRestApi_version' - A version identifier for the API.
 --
@@ -166,29 +166,30 @@ newCreateRestApi ::
   CreateRestApi
 newCreateRestApi pName_ =
   CreateRestApi'
-    { tags = Prelude.Nothing,
-      policy = Prelude.Nothing,
+    { apiKeySource = Prelude.Nothing,
+      binaryMediaTypes = Prelude.Nothing,
       cloneFrom = Prelude.Nothing,
       description = Prelude.Nothing,
-      binaryMediaTypes = Prelude.Nothing,
       disableExecuteApiEndpoint = Prelude.Nothing,
       endpointConfiguration = Prelude.Nothing,
-      apiKeySource = Prelude.Nothing,
       minimumCompressionSize = Prelude.Nothing,
+      policy = Prelude.Nothing,
+      tags = Prelude.Nothing,
       version = Prelude.Nothing,
       name = pName_
     }
 
--- | The key-value map of strings. The valid character set is
--- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
--- start with @aws:@. The tag value can be up to 256 characters.
-createRestApi_tags :: Lens.Lens' CreateRestApi (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createRestApi_tags = Lens.lens (\CreateRestApi' {tags} -> tags) (\s@CreateRestApi' {} a -> s {tags = a} :: CreateRestApi) Prelude.. Lens.mapping Lens.coerced
+-- | The source of the API key for metering requests according to a usage
+-- plan. Valid values are: >@HEADER@ to read the API key from the
+-- @X-API-Key@ header of a request. @AUTHORIZER@ to read the API key from
+-- the @UsageIdentifierKey@ from a custom authorizer.
+createRestApi_apiKeySource :: Lens.Lens' CreateRestApi (Prelude.Maybe ApiKeySourceType)
+createRestApi_apiKeySource = Lens.lens (\CreateRestApi' {apiKeySource} -> apiKeySource) (\s@CreateRestApi' {} a -> s {apiKeySource = a} :: CreateRestApi)
 
--- | A stringified JSON policy document that applies to this RestApi
--- regardless of the caller and Method configuration.
-createRestApi_policy :: Lens.Lens' CreateRestApi (Prelude.Maybe Prelude.Text)
-createRestApi_policy = Lens.lens (\CreateRestApi' {policy} -> policy) (\s@CreateRestApi' {} a -> s {policy = a} :: CreateRestApi)
+-- | The list of binary media types supported by the RestApi. By default, the
+-- RestApi supports only UTF-8-encoded text payloads.
+createRestApi_binaryMediaTypes :: Lens.Lens' CreateRestApi (Prelude.Maybe [Prelude.Text])
+createRestApi_binaryMediaTypes = Lens.lens (\CreateRestApi' {binaryMediaTypes} -> binaryMediaTypes) (\s@CreateRestApi' {} a -> s {binaryMediaTypes = a} :: CreateRestApi) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the RestApi that you want to clone from.
 createRestApi_cloneFrom :: Lens.Lens' CreateRestApi (Prelude.Maybe Prelude.Text)
@@ -197,11 +198,6 @@ createRestApi_cloneFrom = Lens.lens (\CreateRestApi' {cloneFrom} -> cloneFrom) (
 -- | The description of the RestApi.
 createRestApi_description :: Lens.Lens' CreateRestApi (Prelude.Maybe Prelude.Text)
 createRestApi_description = Lens.lens (\CreateRestApi' {description} -> description) (\s@CreateRestApi' {} a -> s {description = a} :: CreateRestApi)
-
--- | The list of binary media types supported by the RestApi. By default, the
--- RestApi supports only UTF-8-encoded text payloads.
-createRestApi_binaryMediaTypes :: Lens.Lens' CreateRestApi (Prelude.Maybe [Prelude.Text])
-createRestApi_binaryMediaTypes = Lens.lens (\CreateRestApi' {binaryMediaTypes} -> binaryMediaTypes) (\s@CreateRestApi' {} a -> s {binaryMediaTypes = a} :: CreateRestApi) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies whether clients can invoke your API by using the default
 -- @execute-api@ endpoint. By default, clients can invoke your API with the
@@ -216,13 +212,6 @@ createRestApi_disableExecuteApiEndpoint = Lens.lens (\CreateRestApi' {disableExe
 createRestApi_endpointConfiguration :: Lens.Lens' CreateRestApi (Prelude.Maybe EndpointConfiguration)
 createRestApi_endpointConfiguration = Lens.lens (\CreateRestApi' {endpointConfiguration} -> endpointConfiguration) (\s@CreateRestApi' {} a -> s {endpointConfiguration = a} :: CreateRestApi)
 
--- | The source of the API key for metering requests according to a usage
--- plan. Valid values are: >@HEADER@ to read the API key from the
--- @X-API-Key@ header of a request. @AUTHORIZER@ to read the API key from
--- the @UsageIdentifierKey@ from a custom authorizer.
-createRestApi_apiKeySource :: Lens.Lens' CreateRestApi (Prelude.Maybe ApiKeySourceType)
-createRestApi_apiKeySource = Lens.lens (\CreateRestApi' {apiKeySource} -> apiKeySource) (\s@CreateRestApi' {} a -> s {apiKeySource = a} :: CreateRestApi)
-
 -- | A nullable integer that is used to enable compression (with non-negative
 -- between 0 and 10485760 (10M) bytes, inclusive) or disable compression
 -- (with a null value) on an API. When compression is enabled, compression
@@ -231,6 +220,17 @@ createRestApi_apiKeySource = Lens.lens (\CreateRestApi' {apiKeySource} -> apiKey
 -- payload size.
 createRestApi_minimumCompressionSize :: Lens.Lens' CreateRestApi (Prelude.Maybe Prelude.Int)
 createRestApi_minimumCompressionSize = Lens.lens (\CreateRestApi' {minimumCompressionSize} -> minimumCompressionSize) (\s@CreateRestApi' {} a -> s {minimumCompressionSize = a} :: CreateRestApi)
+
+-- | A stringified JSON policy document that applies to this RestApi
+-- regardless of the caller and Method configuration.
+createRestApi_policy :: Lens.Lens' CreateRestApi (Prelude.Maybe Prelude.Text)
+createRestApi_policy = Lens.lens (\CreateRestApi' {policy} -> policy) (\s@CreateRestApi' {} a -> s {policy = a} :: CreateRestApi)
+
+-- | The key-value map of strings. The valid character set is
+-- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
+-- start with @aws:@. The tag value can be up to 256 characters.
+createRestApi_tags :: Lens.Lens' CreateRestApi (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createRestApi_tags = Lens.lens (\CreateRestApi' {tags} -> tags) (\s@CreateRestApi' {} a -> s {tags = a} :: CreateRestApi) Prelude.. Lens.mapping Lens.coerced
 
 -- | A version identifier for the API.
 createRestApi_version :: Lens.Lens' CreateRestApi (Prelude.Maybe Prelude.Text)
@@ -250,29 +250,29 @@ instance Core.AWSRequest CreateRestApi where
 
 instance Prelude.Hashable CreateRestApi where
   hashWithSalt _salt CreateRestApi' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` policy
+    _salt `Prelude.hashWithSalt` apiKeySource
+      `Prelude.hashWithSalt` binaryMediaTypes
       `Prelude.hashWithSalt` cloneFrom
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` binaryMediaTypes
       `Prelude.hashWithSalt` disableExecuteApiEndpoint
       `Prelude.hashWithSalt` endpointConfiguration
-      `Prelude.hashWithSalt` apiKeySource
       `Prelude.hashWithSalt` minimumCompressionSize
+      `Prelude.hashWithSalt` policy
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateRestApi where
   rnf CreateRestApi' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf policy
+    Prelude.rnf apiKeySource
+      `Prelude.seq` Prelude.rnf binaryMediaTypes
       `Prelude.seq` Prelude.rnf cloneFrom
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf binaryMediaTypes
       `Prelude.seq` Prelude.rnf disableExecuteApiEndpoint
       `Prelude.seq` Prelude.rnf endpointConfiguration
-      `Prelude.seq` Prelude.rnf apiKeySource
       `Prelude.seq` Prelude.rnf minimumCompressionSize
+      `Prelude.seq` Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf name
 
@@ -289,19 +289,19 @@ instance Data.ToJSON CreateRestApi where
   toJSON CreateRestApi' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("policy" Data..=) Prelude.<$> policy,
-            ("cloneFrom" Data..=) Prelude.<$> cloneFrom,
-            ("description" Data..=) Prelude.<$> description,
+          [ ("apiKeySource" Data..=) Prelude.<$> apiKeySource,
             ("binaryMediaTypes" Data..=)
               Prelude.<$> binaryMediaTypes,
+            ("cloneFrom" Data..=) Prelude.<$> cloneFrom,
+            ("description" Data..=) Prelude.<$> description,
             ("disableExecuteApiEndpoint" Data..=)
               Prelude.<$> disableExecuteApiEndpoint,
             ("endpointConfiguration" Data..=)
               Prelude.<$> endpointConfiguration,
-            ("apiKeySource" Data..=) Prelude.<$> apiKeySource,
             ("minimumCompressionSize" Data..=)
               Prelude.<$> minimumCompressionSize,
+            ("policy" Data..=) Prelude.<$> policy,
+            ("tags" Data..=) Prelude.<$> tags,
             ("version" Data..=) Prelude.<$> version,
             Prelude.Just ("name" Data..= name)
           ]

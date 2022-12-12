@@ -27,12 +27,12 @@ module Amazonka.IoTWireless.UpdateResourceEventConfiguration
     newUpdateResourceEventConfiguration,
 
     -- * Request Lenses
-    updateResourceEventConfiguration_deviceRegistrationState,
     updateResourceEventConfiguration_connectionStatus,
-    updateResourceEventConfiguration_messageDeliveryStatus,
+    updateResourceEventConfiguration_deviceRegistrationState,
     updateResourceEventConfiguration_join,
-    updateResourceEventConfiguration_proximity,
+    updateResourceEventConfiguration_messageDeliveryStatus,
     updateResourceEventConfiguration_partnerType,
+    updateResourceEventConfiguration_proximity,
     updateResourceEventConfiguration_identifier,
     updateResourceEventConfiguration_identifierType,
 
@@ -55,19 +55,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateResourceEventConfiguration' smart constructor.
 data UpdateResourceEventConfiguration = UpdateResourceEventConfiguration'
-  { -- | Event configuration for the device registration state event.
-    deviceRegistrationState :: Prelude.Maybe DeviceRegistrationStateEventConfiguration,
-    -- | Event configuration for the connection status event.
+  { -- | Event configuration for the connection status event.
     connectionStatus :: Prelude.Maybe ConnectionStatusEventConfiguration,
-    -- | Event configuration for the message delivery status event.
-    messageDeliveryStatus :: Prelude.Maybe MessageDeliveryStatusEventConfiguration,
+    -- | Event configuration for the device registration state event.
+    deviceRegistrationState :: Prelude.Maybe DeviceRegistrationStateEventConfiguration,
     -- | Event configuration for the join event.
     join :: Prelude.Maybe JoinEventConfiguration,
-    -- | Event configuration for the proximity event.
-    proximity :: Prelude.Maybe ProximityEventConfiguration,
+    -- | Event configuration for the message delivery status event.
+    messageDeliveryStatus :: Prelude.Maybe MessageDeliveryStatusEventConfiguration,
     -- | Partner type of the resource if the identifier type is
     -- @PartnerAccountId@
     partnerType :: Prelude.Maybe EventNotificationPartnerType,
+    -- | Event configuration for the proximity event.
+    proximity :: Prelude.Maybe ProximityEventConfiguration,
     -- | Resource identifier to opt in for event messaging.
     identifier :: Prelude.Text,
     -- | Identifier type of the particular resource identifier for event
@@ -84,18 +84,18 @@ data UpdateResourceEventConfiguration = UpdateResourceEventConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deviceRegistrationState', 'updateResourceEventConfiguration_deviceRegistrationState' - Event configuration for the device registration state event.
---
 -- 'connectionStatus', 'updateResourceEventConfiguration_connectionStatus' - Event configuration for the connection status event.
 --
--- 'messageDeliveryStatus', 'updateResourceEventConfiguration_messageDeliveryStatus' - Event configuration for the message delivery status event.
+-- 'deviceRegistrationState', 'updateResourceEventConfiguration_deviceRegistrationState' - Event configuration for the device registration state event.
 --
 -- 'join', 'updateResourceEventConfiguration_join' - Event configuration for the join event.
 --
--- 'proximity', 'updateResourceEventConfiguration_proximity' - Event configuration for the proximity event.
+-- 'messageDeliveryStatus', 'updateResourceEventConfiguration_messageDeliveryStatus' - Event configuration for the message delivery status event.
 --
 -- 'partnerType', 'updateResourceEventConfiguration_partnerType' - Partner type of the resource if the identifier type is
 -- @PartnerAccountId@
+--
+-- 'proximity', 'updateResourceEventConfiguration_proximity' - Event configuration for the proximity event.
 --
 -- 'identifier', 'updateResourceEventConfiguration_identifier' - Resource identifier to opt in for event messaging.
 --
@@ -111,41 +111,41 @@ newUpdateResourceEventConfiguration
   pIdentifier_
   pIdentifierType_ =
     UpdateResourceEventConfiguration'
-      { deviceRegistrationState =
+      { connectionStatus =
           Prelude.Nothing,
-        connectionStatus = Prelude.Nothing,
-        messageDeliveryStatus = Prelude.Nothing,
+        deviceRegistrationState = Prelude.Nothing,
         join = Prelude.Nothing,
-        proximity = Prelude.Nothing,
+        messageDeliveryStatus = Prelude.Nothing,
         partnerType = Prelude.Nothing,
+        proximity = Prelude.Nothing,
         identifier = pIdentifier_,
         identifierType = pIdentifierType_
       }
-
--- | Event configuration for the device registration state event.
-updateResourceEventConfiguration_deviceRegistrationState :: Lens.Lens' UpdateResourceEventConfiguration (Prelude.Maybe DeviceRegistrationStateEventConfiguration)
-updateResourceEventConfiguration_deviceRegistrationState = Lens.lens (\UpdateResourceEventConfiguration' {deviceRegistrationState} -> deviceRegistrationState) (\s@UpdateResourceEventConfiguration' {} a -> s {deviceRegistrationState = a} :: UpdateResourceEventConfiguration)
 
 -- | Event configuration for the connection status event.
 updateResourceEventConfiguration_connectionStatus :: Lens.Lens' UpdateResourceEventConfiguration (Prelude.Maybe ConnectionStatusEventConfiguration)
 updateResourceEventConfiguration_connectionStatus = Lens.lens (\UpdateResourceEventConfiguration' {connectionStatus} -> connectionStatus) (\s@UpdateResourceEventConfiguration' {} a -> s {connectionStatus = a} :: UpdateResourceEventConfiguration)
 
--- | Event configuration for the message delivery status event.
-updateResourceEventConfiguration_messageDeliveryStatus :: Lens.Lens' UpdateResourceEventConfiguration (Prelude.Maybe MessageDeliveryStatusEventConfiguration)
-updateResourceEventConfiguration_messageDeliveryStatus = Lens.lens (\UpdateResourceEventConfiguration' {messageDeliveryStatus} -> messageDeliveryStatus) (\s@UpdateResourceEventConfiguration' {} a -> s {messageDeliveryStatus = a} :: UpdateResourceEventConfiguration)
+-- | Event configuration for the device registration state event.
+updateResourceEventConfiguration_deviceRegistrationState :: Lens.Lens' UpdateResourceEventConfiguration (Prelude.Maybe DeviceRegistrationStateEventConfiguration)
+updateResourceEventConfiguration_deviceRegistrationState = Lens.lens (\UpdateResourceEventConfiguration' {deviceRegistrationState} -> deviceRegistrationState) (\s@UpdateResourceEventConfiguration' {} a -> s {deviceRegistrationState = a} :: UpdateResourceEventConfiguration)
 
 -- | Event configuration for the join event.
 updateResourceEventConfiguration_join :: Lens.Lens' UpdateResourceEventConfiguration (Prelude.Maybe JoinEventConfiguration)
 updateResourceEventConfiguration_join = Lens.lens (\UpdateResourceEventConfiguration' {join} -> join) (\s@UpdateResourceEventConfiguration' {} a -> s {join = a} :: UpdateResourceEventConfiguration)
 
--- | Event configuration for the proximity event.
-updateResourceEventConfiguration_proximity :: Lens.Lens' UpdateResourceEventConfiguration (Prelude.Maybe ProximityEventConfiguration)
-updateResourceEventConfiguration_proximity = Lens.lens (\UpdateResourceEventConfiguration' {proximity} -> proximity) (\s@UpdateResourceEventConfiguration' {} a -> s {proximity = a} :: UpdateResourceEventConfiguration)
+-- | Event configuration for the message delivery status event.
+updateResourceEventConfiguration_messageDeliveryStatus :: Lens.Lens' UpdateResourceEventConfiguration (Prelude.Maybe MessageDeliveryStatusEventConfiguration)
+updateResourceEventConfiguration_messageDeliveryStatus = Lens.lens (\UpdateResourceEventConfiguration' {messageDeliveryStatus} -> messageDeliveryStatus) (\s@UpdateResourceEventConfiguration' {} a -> s {messageDeliveryStatus = a} :: UpdateResourceEventConfiguration)
 
 -- | Partner type of the resource if the identifier type is
 -- @PartnerAccountId@
 updateResourceEventConfiguration_partnerType :: Lens.Lens' UpdateResourceEventConfiguration (Prelude.Maybe EventNotificationPartnerType)
 updateResourceEventConfiguration_partnerType = Lens.lens (\UpdateResourceEventConfiguration' {partnerType} -> partnerType) (\s@UpdateResourceEventConfiguration' {} a -> s {partnerType = a} :: UpdateResourceEventConfiguration)
+
+-- | Event configuration for the proximity event.
+updateResourceEventConfiguration_proximity :: Lens.Lens' UpdateResourceEventConfiguration (Prelude.Maybe ProximityEventConfiguration)
+updateResourceEventConfiguration_proximity = Lens.lens (\UpdateResourceEventConfiguration' {proximity} -> proximity) (\s@UpdateResourceEventConfiguration' {} a -> s {proximity = a} :: UpdateResourceEventConfiguration)
 
 -- | Resource identifier to opt in for event messaging.
 updateResourceEventConfiguration_identifier :: Lens.Lens' UpdateResourceEventConfiguration Prelude.Text
@@ -179,13 +179,12 @@ instance
   hashWithSalt
     _salt
     UpdateResourceEventConfiguration' {..} =
-      _salt
+      _salt `Prelude.hashWithSalt` connectionStatus
         `Prelude.hashWithSalt` deviceRegistrationState
-        `Prelude.hashWithSalt` connectionStatus
-        `Prelude.hashWithSalt` messageDeliveryStatus
         `Prelude.hashWithSalt` join
-        `Prelude.hashWithSalt` proximity
+        `Prelude.hashWithSalt` messageDeliveryStatus
         `Prelude.hashWithSalt` partnerType
+        `Prelude.hashWithSalt` proximity
         `Prelude.hashWithSalt` identifier
         `Prelude.hashWithSalt` identifierType
 
@@ -194,12 +193,12 @@ instance
     UpdateResourceEventConfiguration
   where
   rnf UpdateResourceEventConfiguration' {..} =
-    Prelude.rnf deviceRegistrationState
-      `Prelude.seq` Prelude.rnf connectionStatus
-      `Prelude.seq` Prelude.rnf messageDeliveryStatus
+    Prelude.rnf connectionStatus
+      `Prelude.seq` Prelude.rnf deviceRegistrationState
       `Prelude.seq` Prelude.rnf join
-      `Prelude.seq` Prelude.rnf proximity
+      `Prelude.seq` Prelude.rnf messageDeliveryStatus
       `Prelude.seq` Prelude.rnf partnerType
+      `Prelude.seq` Prelude.rnf proximity
       `Prelude.seq` Prelude.rnf identifier
       `Prelude.seq` Prelude.rnf identifierType
 
@@ -213,13 +212,13 @@ instance Data.ToJSON UpdateResourceEventConfiguration where
   toJSON UpdateResourceEventConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DeviceRegistrationState" Data..=)
-              Prelude.<$> deviceRegistrationState,
-            ("ConnectionStatus" Data..=)
+          [ ("ConnectionStatus" Data..=)
               Prelude.<$> connectionStatus,
+            ("DeviceRegistrationState" Data..=)
+              Prelude.<$> deviceRegistrationState,
+            ("Join" Data..=) Prelude.<$> join,
             ("MessageDeliveryStatus" Data..=)
               Prelude.<$> messageDeliveryStatus,
-            ("Join" Data..=) Prelude.<$> join,
             ("Proximity" Data..=) Prelude.<$> proximity
           ]
       )

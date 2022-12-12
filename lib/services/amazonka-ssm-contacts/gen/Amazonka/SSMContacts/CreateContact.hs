@@ -29,9 +29,9 @@ module Amazonka.SSMContacts.CreateContact
     newCreateContact,
 
     -- * Request Lenses
-    createContact_tags,
-    createContact_idempotencyToken,
     createContact_displayName,
+    createContact_idempotencyToken,
+    createContact_tags,
     createContact_alias,
     createContact_type,
     createContact_plan,
@@ -56,14 +56,14 @@ import Amazonka.SSMContacts.Types
 
 -- | /See:/ 'newCreateContact' smart constructor.
 data CreateContact = CreateContact'
-  { -- | Adds a tag to the target. You can only tag resources created in the
-    -- first Region of your replication set.
-    tags :: Prelude.Maybe [Tag],
+  { -- | The full name of the contact or escalation plan.
+    displayName :: Prelude.Maybe Prelude.Text,
     -- | A token ensuring that the operation is called only once with the
     -- specified details.
     idempotencyToken :: Prelude.Maybe Prelude.Text,
-    -- | The full name of the contact or escalation plan.
-    displayName :: Prelude.Maybe Prelude.Text,
+    -- | Adds a tag to the target. You can only tag resources created in the
+    -- first Region of your replication set.
+    tags :: Prelude.Maybe [Tag],
     -- | The short name to quickly identify a contact or escalation plan. The
     -- contact alias must be unique and identifiable.
     alias :: Prelude.Text,
@@ -85,13 +85,13 @@ data CreateContact = CreateContact'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createContact_tags' - Adds a tag to the target. You can only tag resources created in the
--- first Region of your replication set.
+-- 'displayName', 'createContact_displayName' - The full name of the contact or escalation plan.
 --
 -- 'idempotencyToken', 'createContact_idempotencyToken' - A token ensuring that the operation is called only once with the
 -- specified details.
 --
--- 'displayName', 'createContact_displayName' - The full name of the contact or escalation plan.
+-- 'tags', 'createContact_tags' - Adds a tag to the target. You can only tag resources created in the
+-- first Region of your replication set.
 --
 -- 'alias', 'createContact_alias' - The short name to quickly identify a contact or escalation plan. The
 -- contact alias must be unique and identifiable.
@@ -112,27 +112,27 @@ newCreateContact ::
   CreateContact
 newCreateContact pAlias_ pType_ pPlan_ =
   CreateContact'
-    { tags = Prelude.Nothing,
+    { displayName = Prelude.Nothing,
       idempotencyToken = Prelude.Nothing,
-      displayName = Prelude.Nothing,
+      tags = Prelude.Nothing,
       alias = pAlias_,
       type' = pType_,
       plan = pPlan_
     }
 
--- | Adds a tag to the target. You can only tag resources created in the
--- first Region of your replication set.
-createContact_tags :: Lens.Lens' CreateContact (Prelude.Maybe [Tag])
-createContact_tags = Lens.lens (\CreateContact' {tags} -> tags) (\s@CreateContact' {} a -> s {tags = a} :: CreateContact) Prelude.. Lens.mapping Lens.coerced
+-- | The full name of the contact or escalation plan.
+createContact_displayName :: Lens.Lens' CreateContact (Prelude.Maybe Prelude.Text)
+createContact_displayName = Lens.lens (\CreateContact' {displayName} -> displayName) (\s@CreateContact' {} a -> s {displayName = a} :: CreateContact)
 
 -- | A token ensuring that the operation is called only once with the
 -- specified details.
 createContact_idempotencyToken :: Lens.Lens' CreateContact (Prelude.Maybe Prelude.Text)
 createContact_idempotencyToken = Lens.lens (\CreateContact' {idempotencyToken} -> idempotencyToken) (\s@CreateContact' {} a -> s {idempotencyToken = a} :: CreateContact)
 
--- | The full name of the contact or escalation plan.
-createContact_displayName :: Lens.Lens' CreateContact (Prelude.Maybe Prelude.Text)
-createContact_displayName = Lens.lens (\CreateContact' {displayName} -> displayName) (\s@CreateContact' {} a -> s {displayName = a} :: CreateContact)
+-- | Adds a tag to the target. You can only tag resources created in the
+-- first Region of your replication set.
+createContact_tags :: Lens.Lens' CreateContact (Prelude.Maybe [Tag])
+createContact_tags = Lens.lens (\CreateContact' {tags} -> tags) (\s@CreateContact' {} a -> s {tags = a} :: CreateContact) Prelude.. Lens.mapping Lens.coerced
 
 -- | The short name to quickly identify a contact or escalation plan. The
 -- contact alias must be unique and identifiable.
@@ -166,18 +166,18 @@ instance Core.AWSRequest CreateContact where
 
 instance Prelude.Hashable CreateContact where
   hashWithSalt _salt CreateContact' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` idempotencyToken
-      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` alias
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` plan
 
 instance Prelude.NFData CreateContact where
   rnf CreateContact' {..} =
-    Prelude.rnf tags
+    Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf idempotencyToken
-      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf alias
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf plan
@@ -199,10 +199,10 @@ instance Data.ToJSON CreateContact where
   toJSON CreateContact' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
+          [ ("DisplayName" Data..=) Prelude.<$> displayName,
             ("IdempotencyToken" Data..=)
               Prelude.<$> idempotencyToken,
-            ("DisplayName" Data..=) Prelude.<$> displayName,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Alias" Data..= alias),
             Prelude.Just ("Type" Data..= type'),
             Prelude.Just ("Plan" Data..= plan)

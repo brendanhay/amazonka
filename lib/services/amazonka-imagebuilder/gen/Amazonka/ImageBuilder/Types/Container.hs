@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newContainer' smart constructor.
 data Container = Container'
-  { -- | Containers and container images are Region-specific. This is the Region
+  { -- | A list of URIs for containers created in the context Region.
+    imageUris :: Prelude.Maybe [Prelude.Text],
+    -- | Containers and container images are Region-specific. This is the Region
     -- context for the container.
-    region :: Prelude.Maybe Prelude.Text,
-    -- | A list of URIs for containers created in the context Region.
-    imageUris :: Prelude.Maybe [Prelude.Text]
+    region :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,26 +44,26 @@ data Container = Container'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'imageUris', 'container_imageUris' - A list of URIs for containers created in the context Region.
+--
 -- 'region', 'container_region' - Containers and container images are Region-specific. This is the Region
 -- context for the container.
---
--- 'imageUris', 'container_imageUris' - A list of URIs for containers created in the context Region.
 newContainer ::
   Container
 newContainer =
   Container'
-    { region = Prelude.Nothing,
-      imageUris = Prelude.Nothing
+    { imageUris = Prelude.Nothing,
+      region = Prelude.Nothing
     }
+
+-- | A list of URIs for containers created in the context Region.
+container_imageUris :: Lens.Lens' Container (Prelude.Maybe [Prelude.Text])
+container_imageUris = Lens.lens (\Container' {imageUris} -> imageUris) (\s@Container' {} a -> s {imageUris = a} :: Container) Prelude.. Lens.mapping Lens.coerced
 
 -- | Containers and container images are Region-specific. This is the Region
 -- context for the container.
 container_region :: Lens.Lens' Container (Prelude.Maybe Prelude.Text)
 container_region = Lens.lens (\Container' {region} -> region) (\s@Container' {} a -> s {region = a} :: Container)
-
--- | A list of URIs for containers created in the context Region.
-container_imageUris :: Lens.Lens' Container (Prelude.Maybe [Prelude.Text])
-container_imageUris = Lens.lens (\Container' {imageUris} -> imageUris) (\s@Container' {} a -> s {imageUris = a} :: Container) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON Container where
   parseJSON =
@@ -71,16 +71,16 @@ instance Data.FromJSON Container where
       "Container"
       ( \x ->
           Container'
-            Prelude.<$> (x Data..:? "region")
-            Prelude.<*> (x Data..:? "imageUris" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "imageUris" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "region")
       )
 
 instance Prelude.Hashable Container where
   hashWithSalt _salt Container' {..} =
-    _salt `Prelude.hashWithSalt` region
-      `Prelude.hashWithSalt` imageUris
+    _salt `Prelude.hashWithSalt` imageUris
+      `Prelude.hashWithSalt` region
 
 instance Prelude.NFData Container where
   rnf Container' {..} =
-    Prelude.rnf region
-      `Prelude.seq` Prelude.rnf imageUris
+    Prelude.rnf imageUris
+      `Prelude.seq` Prelude.rnf region

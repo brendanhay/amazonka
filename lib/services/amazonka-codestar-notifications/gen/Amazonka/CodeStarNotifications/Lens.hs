@@ -15,9 +15,9 @@ module Amazonka.CodeStarNotifications.Lens
   ( -- * Operations
 
     -- ** CreateNotificationRule
-    createNotificationRule_tags,
     createNotificationRule_clientRequestToken,
     createNotificationRule_status,
+    createNotificationRule_tags,
     createNotificationRule_name,
     createNotificationRule_eventTypeIds,
     createNotificationRule_resource,
@@ -38,31 +38,31 @@ module Amazonka.CodeStarNotifications.Lens
 
     -- ** DescribeNotificationRule
     describeNotificationRule_arn,
-    describeNotificationRuleResponse_tags,
-    describeNotificationRuleResponse_name,
-    describeNotificationRuleResponse_detailType,
-    describeNotificationRuleResponse_createdTimestamp,
-    describeNotificationRuleResponse_lastModifiedTimestamp,
-    describeNotificationRuleResponse_status,
-    describeNotificationRuleResponse_targets,
-    describeNotificationRuleResponse_eventTypes,
     describeNotificationRuleResponse_createdBy,
+    describeNotificationRuleResponse_createdTimestamp,
+    describeNotificationRuleResponse_detailType,
+    describeNotificationRuleResponse_eventTypes,
+    describeNotificationRuleResponse_lastModifiedTimestamp,
+    describeNotificationRuleResponse_name,
     describeNotificationRuleResponse_resource,
+    describeNotificationRuleResponse_status,
+    describeNotificationRuleResponse_tags,
+    describeNotificationRuleResponse_targets,
     describeNotificationRuleResponse_httpStatus,
     describeNotificationRuleResponse_arn,
 
     -- ** ListEventTypes
-    listEventTypes_nextToken,
     listEventTypes_filters,
     listEventTypes_maxResults,
-    listEventTypesResponse_nextToken,
+    listEventTypes_nextToken,
     listEventTypesResponse_eventTypes,
+    listEventTypesResponse_nextToken,
     listEventTypesResponse_httpStatus,
 
     -- ** ListNotificationRules
-    listNotificationRules_nextToken,
     listNotificationRules_filters,
     listNotificationRules_maxResults,
+    listNotificationRules_nextToken,
     listNotificationRulesResponse_nextToken,
     listNotificationRulesResponse_notificationRules,
     listNotificationRulesResponse_httpStatus,
@@ -73,9 +73,9 @@ module Amazonka.CodeStarNotifications.Lens
     listTagsForResourceResponse_httpStatus,
 
     -- ** ListTargets
-    listTargets_nextToken,
     listTargets_filters,
     listTargets_maxResults,
+    listTargets_nextToken,
     listTargetsResponse_nextToken,
     listTargetsResponse_targets,
     listTargetsResponse_httpStatus,
@@ -105,20 +105,20 @@ module Amazonka.CodeStarNotifications.Lens
     untagResourceResponse_httpStatus,
 
     -- ** UpdateNotificationRule
-    updateNotificationRule_name,
     updateNotificationRule_detailType,
+    updateNotificationRule_eventTypeIds,
+    updateNotificationRule_name,
     updateNotificationRule_status,
     updateNotificationRule_targets,
-    updateNotificationRule_eventTypeIds,
     updateNotificationRule_arn,
     updateNotificationRuleResponse_httpStatus,
 
     -- * Types
 
     -- ** EventTypeSummary
-    eventTypeSummary_resourceType,
-    eventTypeSummary_eventTypeName,
     eventTypeSummary_eventTypeId,
+    eventTypeSummary_eventTypeName,
+    eventTypeSummary_resourceType,
     eventTypeSummary_serviceName,
 
     -- ** ListEventTypesFilter
@@ -143,8 +143,8 @@ module Amazonka.CodeStarNotifications.Lens
 
     -- ** TargetSummary
     targetSummary_targetAddress,
-    targetSummary_targetType,
     targetSummary_targetStatus,
+    targetSummary_targetType,
   )
 where
 

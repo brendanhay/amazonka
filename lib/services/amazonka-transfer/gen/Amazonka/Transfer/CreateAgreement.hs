@@ -35,9 +35,9 @@ module Amazonka.Transfer.CreateAgreement
     newCreateAgreement,
 
     -- * Request Lenses
-    createAgreement_tags,
-    createAgreement_status,
     createAgreement_description,
+    createAgreement_status,
+    createAgreement_tags,
     createAgreement_serverId,
     createAgreement_localProfileId,
     createAgreement_partnerProfileId,
@@ -64,13 +64,13 @@ import Amazonka.Transfer.Types
 
 -- | /See:/ 'newCreateAgreement' smart constructor.
 data CreateAgreement = CreateAgreement'
-  { -- | Key-value pairs that can be used to group and search for agreements.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+  { -- | A name or short description to identify the agreement.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The status of the agreement. The agreement can be either @ACTIVE@ or
     -- @INACTIVE@.
     status :: Prelude.Maybe AgreementStatusType,
-    -- | A name or short description to identify the agreement.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | Key-value pairs that can be used to group and search for agreements.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | A system-assigned unique identifier for a server instance. This is the
     -- specific server that the agreement uses.
     serverId :: Prelude.Text,
@@ -107,12 +107,12 @@ data CreateAgreement = CreateAgreement'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createAgreement_tags' - Key-value pairs that can be used to group and search for agreements.
+-- 'description', 'createAgreement_description' - A name or short description to identify the agreement.
 --
 -- 'status', 'createAgreement_status' - The status of the agreement. The agreement can be either @ACTIVE@ or
 -- @INACTIVE@.
 --
--- 'description', 'createAgreement_description' - A name or short description to identify the agreement.
+-- 'tags', 'createAgreement_tags' - Key-value pairs that can be used to group and search for agreements.
 --
 -- 'serverId', 'createAgreement_serverId' - A system-assigned unique identifier for a server instance. This is the
 -- specific server that the agreement uses.
@@ -157,9 +157,9 @@ newCreateAgreement
   pBaseDirectory_
   pAccessRole_ =
     CreateAgreement'
-      { tags = Prelude.Nothing,
+      { description = Prelude.Nothing,
         status = Prelude.Nothing,
-        description = Prelude.Nothing,
+        tags = Prelude.Nothing,
         serverId = pServerId_,
         localProfileId = pLocalProfileId_,
         partnerProfileId = pPartnerProfileId_,
@@ -167,18 +167,18 @@ newCreateAgreement
         accessRole = pAccessRole_
       }
 
--- | Key-value pairs that can be used to group and search for agreements.
-createAgreement_tags :: Lens.Lens' CreateAgreement (Prelude.Maybe (Prelude.NonEmpty Tag))
-createAgreement_tags = Lens.lens (\CreateAgreement' {tags} -> tags) (\s@CreateAgreement' {} a -> s {tags = a} :: CreateAgreement) Prelude.. Lens.mapping Lens.coerced
+-- | A name or short description to identify the agreement.
+createAgreement_description :: Lens.Lens' CreateAgreement (Prelude.Maybe Prelude.Text)
+createAgreement_description = Lens.lens (\CreateAgreement' {description} -> description) (\s@CreateAgreement' {} a -> s {description = a} :: CreateAgreement)
 
 -- | The status of the agreement. The agreement can be either @ACTIVE@ or
 -- @INACTIVE@.
 createAgreement_status :: Lens.Lens' CreateAgreement (Prelude.Maybe AgreementStatusType)
 createAgreement_status = Lens.lens (\CreateAgreement' {status} -> status) (\s@CreateAgreement' {} a -> s {status = a} :: CreateAgreement)
 
--- | A name or short description to identify the agreement.
-createAgreement_description :: Lens.Lens' CreateAgreement (Prelude.Maybe Prelude.Text)
-createAgreement_description = Lens.lens (\CreateAgreement' {description} -> description) (\s@CreateAgreement' {} a -> s {description = a} :: CreateAgreement)
+-- | Key-value pairs that can be used to group and search for agreements.
+createAgreement_tags :: Lens.Lens' CreateAgreement (Prelude.Maybe (Prelude.NonEmpty Tag))
+createAgreement_tags = Lens.lens (\CreateAgreement' {tags} -> tags) (\s@CreateAgreement' {} a -> s {tags = a} :: CreateAgreement) Prelude.. Lens.mapping Lens.coerced
 
 -- | A system-assigned unique identifier for a server instance. This is the
 -- specific server that the agreement uses.
@@ -231,9 +231,9 @@ instance Core.AWSRequest CreateAgreement where
 
 instance Prelude.Hashable CreateAgreement where
   hashWithSalt _salt CreateAgreement' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` serverId
       `Prelude.hashWithSalt` localProfileId
       `Prelude.hashWithSalt` partnerProfileId
@@ -242,9 +242,9 @@ instance Prelude.Hashable CreateAgreement where
 
 instance Prelude.NFData CreateAgreement where
   rnf CreateAgreement' {..} =
-    Prelude.rnf tags
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf serverId
       `Prelude.seq` Prelude.rnf localProfileId
       `Prelude.seq` Prelude.rnf partnerProfileId
@@ -270,9 +270,9 @@ instance Data.ToJSON CreateAgreement where
   toJSON CreateAgreement' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
+          [ ("Description" Data..=) Prelude.<$> description,
             ("Status" Data..=) Prelude.<$> status,
-            ("Description" Data..=) Prelude.<$> description,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("ServerId" Data..= serverId),
             Prelude.Just
               ("LocalProfileId" Data..= localProfileId),

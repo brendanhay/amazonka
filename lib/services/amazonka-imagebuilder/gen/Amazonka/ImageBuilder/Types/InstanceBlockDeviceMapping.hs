@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceBlockDeviceMapping' smart constructor.
 data InstanceBlockDeviceMapping = InstanceBlockDeviceMapping'
-  { -- | Use to manage Amazon EBS-specific configuration for this mapping.
-    ebs :: Prelude.Maybe EbsInstanceBlockDeviceSpecification,
-    -- | The device to which these mappings apply.
+  { -- | The device to which these mappings apply.
     deviceName :: Prelude.Maybe Prelude.Text,
+    -- | Use to manage Amazon EBS-specific configuration for this mapping.
+    ebs :: Prelude.Maybe EbsInstanceBlockDeviceSpecification,
     -- | Use to remove a mapping from the base image.
     noDevice :: Prelude.Maybe Prelude.Text,
     -- | Use to manage instance ephemeral devices.
@@ -49,9 +49,9 @@ data InstanceBlockDeviceMapping = InstanceBlockDeviceMapping'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ebs', 'instanceBlockDeviceMapping_ebs' - Use to manage Amazon EBS-specific configuration for this mapping.
---
 -- 'deviceName', 'instanceBlockDeviceMapping_deviceName' - The device to which these mappings apply.
+--
+-- 'ebs', 'instanceBlockDeviceMapping_ebs' - Use to manage Amazon EBS-specific configuration for this mapping.
 --
 -- 'noDevice', 'instanceBlockDeviceMapping_noDevice' - Use to remove a mapping from the base image.
 --
@@ -60,19 +60,20 @@ newInstanceBlockDeviceMapping ::
   InstanceBlockDeviceMapping
 newInstanceBlockDeviceMapping =
   InstanceBlockDeviceMapping'
-    { ebs = Prelude.Nothing,
-      deviceName = Prelude.Nothing,
+    { deviceName =
+        Prelude.Nothing,
+      ebs = Prelude.Nothing,
       noDevice = Prelude.Nothing,
       virtualName = Prelude.Nothing
     }
 
--- | Use to manage Amazon EBS-specific configuration for this mapping.
-instanceBlockDeviceMapping_ebs :: Lens.Lens' InstanceBlockDeviceMapping (Prelude.Maybe EbsInstanceBlockDeviceSpecification)
-instanceBlockDeviceMapping_ebs = Lens.lens (\InstanceBlockDeviceMapping' {ebs} -> ebs) (\s@InstanceBlockDeviceMapping' {} a -> s {ebs = a} :: InstanceBlockDeviceMapping)
-
 -- | The device to which these mappings apply.
 instanceBlockDeviceMapping_deviceName :: Lens.Lens' InstanceBlockDeviceMapping (Prelude.Maybe Prelude.Text)
 instanceBlockDeviceMapping_deviceName = Lens.lens (\InstanceBlockDeviceMapping' {deviceName} -> deviceName) (\s@InstanceBlockDeviceMapping' {} a -> s {deviceName = a} :: InstanceBlockDeviceMapping)
+
+-- | Use to manage Amazon EBS-specific configuration for this mapping.
+instanceBlockDeviceMapping_ebs :: Lens.Lens' InstanceBlockDeviceMapping (Prelude.Maybe EbsInstanceBlockDeviceSpecification)
+instanceBlockDeviceMapping_ebs = Lens.lens (\InstanceBlockDeviceMapping' {ebs} -> ebs) (\s@InstanceBlockDeviceMapping' {} a -> s {ebs = a} :: InstanceBlockDeviceMapping)
 
 -- | Use to remove a mapping from the base image.
 instanceBlockDeviceMapping_noDevice :: Lens.Lens' InstanceBlockDeviceMapping (Prelude.Maybe Prelude.Text)
@@ -88,23 +89,23 @@ instance Data.FromJSON InstanceBlockDeviceMapping where
       "InstanceBlockDeviceMapping"
       ( \x ->
           InstanceBlockDeviceMapping'
-            Prelude.<$> (x Data..:? "ebs")
-            Prelude.<*> (x Data..:? "deviceName")
+            Prelude.<$> (x Data..:? "deviceName")
+            Prelude.<*> (x Data..:? "ebs")
             Prelude.<*> (x Data..:? "noDevice")
             Prelude.<*> (x Data..:? "virtualName")
       )
 
 instance Prelude.Hashable InstanceBlockDeviceMapping where
   hashWithSalt _salt InstanceBlockDeviceMapping' {..} =
-    _salt `Prelude.hashWithSalt` ebs
-      `Prelude.hashWithSalt` deviceName
+    _salt `Prelude.hashWithSalt` deviceName
+      `Prelude.hashWithSalt` ebs
       `Prelude.hashWithSalt` noDevice
       `Prelude.hashWithSalt` virtualName
 
 instance Prelude.NFData InstanceBlockDeviceMapping where
   rnf InstanceBlockDeviceMapping' {..} =
-    Prelude.rnf ebs
-      `Prelude.seq` Prelude.rnf deviceName
+    Prelude.rnf deviceName
+      `Prelude.seq` Prelude.rnf ebs
       `Prelude.seq` Prelude.rnf noDevice
       `Prelude.seq` Prelude.rnf virtualName
 
@@ -112,8 +113,8 @@ instance Data.ToJSON InstanceBlockDeviceMapping where
   toJSON InstanceBlockDeviceMapping' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ebs" Data..=) Prelude.<$> ebs,
-            ("deviceName" Data..=) Prelude.<$> deviceName,
+          [ ("deviceName" Data..=) Prelude.<$> deviceName,
+            ("ebs" Data..=) Prelude.<$> ebs,
             ("noDevice" Data..=) Prelude.<$> noDevice,
             ("virtualName" Data..=) Prelude.<$> virtualName
           ]

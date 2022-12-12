@@ -32,17 +32,17 @@ module Amazonka.Config.DescribeConfigurationAggregators
     newDescribeConfigurationAggregators,
 
     -- * Request Lenses
-    describeConfigurationAggregators_nextToken,
     describeConfigurationAggregators_configurationAggregatorNames,
     describeConfigurationAggregators_limit,
+    describeConfigurationAggregators_nextToken,
 
     -- * Destructuring the Response
     DescribeConfigurationAggregatorsResponse (..),
     newDescribeConfigurationAggregatorsResponse,
 
     -- * Response Lenses
-    describeConfigurationAggregatorsResponse_nextToken,
     describeConfigurationAggregatorsResponse_configurationAggregators,
+    describeConfigurationAggregatorsResponse_nextToken,
     describeConfigurationAggregatorsResponse_httpStatus,
   )
 where
@@ -57,14 +57,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeConfigurationAggregators' smart constructor.
 data DescribeConfigurationAggregators = DescribeConfigurationAggregators'
-  { -- | The @nextToken@ string returned on a previous page that you use to get
-    -- the next page of results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The name of the configuration aggregators.
+  { -- | The name of the configuration aggregators.
     configurationAggregatorNames :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of configuration aggregators returned on each page.
     -- The default is maximum. If you specify 0, Config uses the default.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | The @nextToken@ string returned on a previous page that you use to get
+    -- the next page of results in a paginated response.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,28 +76,22 @@ data DescribeConfigurationAggregators = DescribeConfigurationAggregators'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeConfigurationAggregators_nextToken' - The @nextToken@ string returned on a previous page that you use to get
--- the next page of results in a paginated response.
---
 -- 'configurationAggregatorNames', 'describeConfigurationAggregators_configurationAggregatorNames' - The name of the configuration aggregators.
 --
 -- 'limit', 'describeConfigurationAggregators_limit' - The maximum number of configuration aggregators returned on each page.
 -- The default is maximum. If you specify 0, Config uses the default.
+--
+-- 'nextToken', 'describeConfigurationAggregators_nextToken' - The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
 newDescribeConfigurationAggregators ::
   DescribeConfigurationAggregators
 newDescribeConfigurationAggregators =
   DescribeConfigurationAggregators'
-    { nextToken =
+    { configurationAggregatorNames =
         Prelude.Nothing,
-      configurationAggregatorNames =
-        Prelude.Nothing,
-      limit = Prelude.Nothing
+      limit = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The @nextToken@ string returned on a previous page that you use to get
--- the next page of results in a paginated response.
-describeConfigurationAggregators_nextToken :: Lens.Lens' DescribeConfigurationAggregators (Prelude.Maybe Prelude.Text)
-describeConfigurationAggregators_nextToken = Lens.lens (\DescribeConfigurationAggregators' {nextToken} -> nextToken) (\s@DescribeConfigurationAggregators' {} a -> s {nextToken = a} :: DescribeConfigurationAggregators)
 
 -- | The name of the configuration aggregators.
 describeConfigurationAggregators_configurationAggregatorNames :: Lens.Lens' DescribeConfigurationAggregators (Prelude.Maybe [Prelude.Text])
@@ -107,6 +101,11 @@ describeConfigurationAggregators_configurationAggregatorNames = Lens.lens (\Desc
 -- The default is maximum. If you specify 0, Config uses the default.
 describeConfigurationAggregators_limit :: Lens.Lens' DescribeConfigurationAggregators (Prelude.Maybe Prelude.Natural)
 describeConfigurationAggregators_limit = Lens.lens (\DescribeConfigurationAggregators' {limit} -> limit) (\s@DescribeConfigurationAggregators' {} a -> s {limit = a} :: DescribeConfigurationAggregators)
+
+-- | The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
+describeConfigurationAggregators_nextToken :: Lens.Lens' DescribeConfigurationAggregators (Prelude.Maybe Prelude.Text)
+describeConfigurationAggregators_nextToken = Lens.lens (\DescribeConfigurationAggregators' {nextToken} -> nextToken) (\s@DescribeConfigurationAggregators' {} a -> s {nextToken = a} :: DescribeConfigurationAggregators)
 
 instance
   Core.AWSPager
@@ -146,10 +145,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeConfigurationAggregatorsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ConfigurationAggregators"
+            Prelude.<$> ( x Data..?> "ConfigurationAggregators"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,18 +159,19 @@ instance
   hashWithSalt
     _salt
     DescribeConfigurationAggregators' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
+      _salt
         `Prelude.hashWithSalt` configurationAggregatorNames
         `Prelude.hashWithSalt` limit
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     DescribeConfigurationAggregators
   where
   rnf DescribeConfigurationAggregators' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf configurationAggregatorNames
+    Prelude.rnf configurationAggregatorNames
       `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -195,10 +195,10 @@ instance Data.ToJSON DescribeConfigurationAggregators where
   toJSON DescribeConfigurationAggregators' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("ConfigurationAggregatorNames" Data..=)
+          [ ("ConfigurationAggregatorNames" Data..=)
               Prelude.<$> configurationAggregatorNames,
-            ("Limit" Data..=) Prelude.<$> limit
+            ("Limit" Data..=) Prelude.<$> limit,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -213,11 +213,11 @@ instance
 
 -- | /See:/ 'newDescribeConfigurationAggregatorsResponse' smart constructor.
 data DescribeConfigurationAggregatorsResponse = DescribeConfigurationAggregatorsResponse'
-  { -- | The @nextToken@ string returned on a previous page that you use to get
+  { -- | Returns a ConfigurationAggregators object.
+    configurationAggregators :: Prelude.Maybe [ConfigurationAggregator],
+    -- | The @nextToken@ string returned on a previous page that you use to get
     -- the next page of results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Returns a ConfigurationAggregators object.
-    configurationAggregators :: Prelude.Maybe [ConfigurationAggregator],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -231,10 +231,10 @@ data DescribeConfigurationAggregatorsResponse = DescribeConfigurationAggregators
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'configurationAggregators', 'describeConfigurationAggregatorsResponse_configurationAggregators' - Returns a ConfigurationAggregators object.
+--
 -- 'nextToken', 'describeConfigurationAggregatorsResponse_nextToken' - The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
---
--- 'configurationAggregators', 'describeConfigurationAggregatorsResponse_configurationAggregators' - Returns a ConfigurationAggregators object.
 --
 -- 'httpStatus', 'describeConfigurationAggregatorsResponse_httpStatus' - The response's http status code.
 newDescribeConfigurationAggregatorsResponse ::
@@ -244,21 +244,20 @@ newDescribeConfigurationAggregatorsResponse ::
 newDescribeConfigurationAggregatorsResponse
   pHttpStatus_ =
     DescribeConfigurationAggregatorsResponse'
-      { nextToken =
+      { configurationAggregators =
           Prelude.Nothing,
-        configurationAggregators =
-          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | Returns a ConfigurationAggregators object.
+describeConfigurationAggregatorsResponse_configurationAggregators :: Lens.Lens' DescribeConfigurationAggregatorsResponse (Prelude.Maybe [ConfigurationAggregator])
+describeConfigurationAggregatorsResponse_configurationAggregators = Lens.lens (\DescribeConfigurationAggregatorsResponse' {configurationAggregators} -> configurationAggregators) (\s@DescribeConfigurationAggregatorsResponse' {} a -> s {configurationAggregators = a} :: DescribeConfigurationAggregatorsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
 describeConfigurationAggregatorsResponse_nextToken :: Lens.Lens' DescribeConfigurationAggregatorsResponse (Prelude.Maybe Prelude.Text)
 describeConfigurationAggregatorsResponse_nextToken = Lens.lens (\DescribeConfigurationAggregatorsResponse' {nextToken} -> nextToken) (\s@DescribeConfigurationAggregatorsResponse' {} a -> s {nextToken = a} :: DescribeConfigurationAggregatorsResponse)
-
--- | Returns a ConfigurationAggregators object.
-describeConfigurationAggregatorsResponse_configurationAggregators :: Lens.Lens' DescribeConfigurationAggregatorsResponse (Prelude.Maybe [ConfigurationAggregator])
-describeConfigurationAggregatorsResponse_configurationAggregators = Lens.lens (\DescribeConfigurationAggregatorsResponse' {configurationAggregators} -> configurationAggregators) (\s@DescribeConfigurationAggregatorsResponse' {} a -> s {configurationAggregators = a} :: DescribeConfigurationAggregatorsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeConfigurationAggregatorsResponse_httpStatus :: Lens.Lens' DescribeConfigurationAggregatorsResponse Prelude.Int
@@ -269,6 +268,6 @@ instance
     DescribeConfigurationAggregatorsResponse
   where
   rnf DescribeConfigurationAggregatorsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf configurationAggregators
+    Prelude.rnf configurationAggregators
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -33,17 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUpdateFileSystemLustreConfiguration' smart constructor.
 data UpdateFileSystemLustreConfiguration = UpdateFileSystemLustreConfiguration'
-  { -- | (Optional) The preferred start time to perform weekly maintenance,
-    -- formatted d:HH:MM in the UTC time zone. d is the weekday number, from 1
-    -- through 7, beginning with Monday and ending with Sunday.
-    weeklyMaintenanceStartTime :: Prelude.Maybe Prelude.Text,
-    -- | The Lustre logging configuration used when updating an Amazon FSx for
-    -- Lustre file system. When logging is enabled, Lustre logs error and
-    -- warning events for data repositories associated with your file system to
-    -- Amazon CloudWatch Logs.
-    logConfiguration :: Prelude.Maybe LustreLogCreateConfiguration,
-    automaticBackupRetentionDays :: Prelude.Maybe Prelude.Natural,
-    -- | (Optional) When you create your file system, your existing S3 objects
+  { -- | (Optional) When you create your file system, your existing S3 objects
     -- appear as file and directory listings. Use this property to choose how
     -- Amazon FSx keeps your file and directory listing up to date as you add
     -- or modify objects in your linked S3 bucket. @AutoImportPolicy@ can have
@@ -72,6 +62,7 @@ data UpdateFileSystemLustreConfiguration = UpdateFileSystemLustreConfiguration'
     -- systems with the @Persistent_2@ deployment type. Instead, use to update
     -- a data repository association on your @Persistent_2@ file system.
     autoImportPolicy :: Prelude.Maybe AutoImportPolicyType,
+    automaticBackupRetentionDays :: Prelude.Maybe Prelude.Natural,
     dailyAutomaticBackupStartTime :: Prelude.Maybe Prelude.Text,
     -- | Sets the data compression configuration for the file system.
     -- @DataCompressionType@ can have the following values:
@@ -86,10 +77,19 @@ data UpdateFileSystemLustreConfiguration = UpdateFileSystemLustreConfiguration'
     -- For more information, see
     -- <https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-compression.html Lustre data compression>.
     dataCompressionType :: Prelude.Maybe DataCompressionType,
+    -- | The Lustre logging configuration used when updating an Amazon FSx for
+    -- Lustre file system. When logging is enabled, Lustre logs error and
+    -- warning events for data repositories associated with your file system to
+    -- Amazon CloudWatch Logs.
+    logConfiguration :: Prelude.Maybe LustreLogCreateConfiguration,
     -- | The Lustre root squash configuration used when updating an Amazon FSx
     -- for Lustre file system. When enabled, root squash restricts root-level
     -- access from clients that try to access your file system as a root user.
-    rootSquashConfiguration :: Prelude.Maybe LustreRootSquashConfiguration
+    rootSquashConfiguration :: Prelude.Maybe LustreRootSquashConfiguration,
+    -- | (Optional) The preferred start time to perform weekly maintenance,
+    -- formatted d:HH:MM in the UTC time zone. d is the weekday number, from 1
+    -- through 7, beginning with Monday and ending with Sunday.
+    weeklyMaintenanceStartTime :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -100,17 +100,6 @@ data UpdateFileSystemLustreConfiguration = UpdateFileSystemLustreConfiguration'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'weeklyMaintenanceStartTime', 'updateFileSystemLustreConfiguration_weeklyMaintenanceStartTime' - (Optional) The preferred start time to perform weekly maintenance,
--- formatted d:HH:MM in the UTC time zone. d is the weekday number, from 1
--- through 7, beginning with Monday and ending with Sunday.
---
--- 'logConfiguration', 'updateFileSystemLustreConfiguration_logConfiguration' - The Lustre logging configuration used when updating an Amazon FSx for
--- Lustre file system. When logging is enabled, Lustre logs error and
--- warning events for data repositories associated with your file system to
--- Amazon CloudWatch Logs.
---
--- 'automaticBackupRetentionDays', 'updateFileSystemLustreConfiguration_automaticBackupRetentionDays' - Undocumented member.
 --
 -- 'autoImportPolicy', 'updateFileSystemLustreConfiguration_autoImportPolicy' - (Optional) When you create your file system, your existing S3 objects
 -- appear as file and directory listings. Use this property to choose how
@@ -141,6 +130,8 @@ data UpdateFileSystemLustreConfiguration = UpdateFileSystemLustreConfiguration'
 -- systems with the @Persistent_2@ deployment type. Instead, use to update
 -- a data repository association on your @Persistent_2@ file system.
 --
+-- 'automaticBackupRetentionDays', 'updateFileSystemLustreConfiguration_automaticBackupRetentionDays' - Undocumented member.
+--
 -- 'dailyAutomaticBackupStartTime', 'updateFileSystemLustreConfiguration_dailyAutomaticBackupStartTime' - Undocumented member.
 --
 -- 'dataCompressionType', 'updateFileSystemLustreConfiguration_dataCompressionType' - Sets the data compression configuration for the file system.
@@ -156,42 +147,35 @@ data UpdateFileSystemLustreConfiguration = UpdateFileSystemLustreConfiguration'
 -- For more information, see
 -- <https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-compression.html Lustre data compression>.
 --
+-- 'logConfiguration', 'updateFileSystemLustreConfiguration_logConfiguration' - The Lustre logging configuration used when updating an Amazon FSx for
+-- Lustre file system. When logging is enabled, Lustre logs error and
+-- warning events for data repositories associated with your file system to
+-- Amazon CloudWatch Logs.
+--
 -- 'rootSquashConfiguration', 'updateFileSystemLustreConfiguration_rootSquashConfiguration' - The Lustre root squash configuration used when updating an Amazon FSx
 -- for Lustre file system. When enabled, root squash restricts root-level
 -- access from clients that try to access your file system as a root user.
+--
+-- 'weeklyMaintenanceStartTime', 'updateFileSystemLustreConfiguration_weeklyMaintenanceStartTime' - (Optional) The preferred start time to perform weekly maintenance,
+-- formatted d:HH:MM in the UTC time zone. d is the weekday number, from 1
+-- through 7, beginning with Monday and ending with Sunday.
 newUpdateFileSystemLustreConfiguration ::
   UpdateFileSystemLustreConfiguration
 newUpdateFileSystemLustreConfiguration =
   UpdateFileSystemLustreConfiguration'
-    { weeklyMaintenanceStartTime =
+    { autoImportPolicy =
         Prelude.Nothing,
-      logConfiguration = Prelude.Nothing,
       automaticBackupRetentionDays =
         Prelude.Nothing,
-      autoImportPolicy = Prelude.Nothing,
       dailyAutomaticBackupStartTime =
         Prelude.Nothing,
       dataCompressionType = Prelude.Nothing,
+      logConfiguration = Prelude.Nothing,
       rootSquashConfiguration =
+        Prelude.Nothing,
+      weeklyMaintenanceStartTime =
         Prelude.Nothing
     }
-
--- | (Optional) The preferred start time to perform weekly maintenance,
--- formatted d:HH:MM in the UTC time zone. d is the weekday number, from 1
--- through 7, beginning with Monday and ending with Sunday.
-updateFileSystemLustreConfiguration_weeklyMaintenanceStartTime :: Lens.Lens' UpdateFileSystemLustreConfiguration (Prelude.Maybe Prelude.Text)
-updateFileSystemLustreConfiguration_weeklyMaintenanceStartTime = Lens.lens (\UpdateFileSystemLustreConfiguration' {weeklyMaintenanceStartTime} -> weeklyMaintenanceStartTime) (\s@UpdateFileSystemLustreConfiguration' {} a -> s {weeklyMaintenanceStartTime = a} :: UpdateFileSystemLustreConfiguration)
-
--- | The Lustre logging configuration used when updating an Amazon FSx for
--- Lustre file system. When logging is enabled, Lustre logs error and
--- warning events for data repositories associated with your file system to
--- Amazon CloudWatch Logs.
-updateFileSystemLustreConfiguration_logConfiguration :: Lens.Lens' UpdateFileSystemLustreConfiguration (Prelude.Maybe LustreLogCreateConfiguration)
-updateFileSystemLustreConfiguration_logConfiguration = Lens.lens (\UpdateFileSystemLustreConfiguration' {logConfiguration} -> logConfiguration) (\s@UpdateFileSystemLustreConfiguration' {} a -> s {logConfiguration = a} :: UpdateFileSystemLustreConfiguration)
-
--- | Undocumented member.
-updateFileSystemLustreConfiguration_automaticBackupRetentionDays :: Lens.Lens' UpdateFileSystemLustreConfiguration (Prelude.Maybe Prelude.Natural)
-updateFileSystemLustreConfiguration_automaticBackupRetentionDays = Lens.lens (\UpdateFileSystemLustreConfiguration' {automaticBackupRetentionDays} -> automaticBackupRetentionDays) (\s@UpdateFileSystemLustreConfiguration' {} a -> s {automaticBackupRetentionDays = a} :: UpdateFileSystemLustreConfiguration)
 
 -- | (Optional) When you create your file system, your existing S3 objects
 -- appear as file and directory listings. Use this property to choose how
@@ -225,6 +209,10 @@ updateFileSystemLustreConfiguration_autoImportPolicy :: Lens.Lens' UpdateFileSys
 updateFileSystemLustreConfiguration_autoImportPolicy = Lens.lens (\UpdateFileSystemLustreConfiguration' {autoImportPolicy} -> autoImportPolicy) (\s@UpdateFileSystemLustreConfiguration' {} a -> s {autoImportPolicy = a} :: UpdateFileSystemLustreConfiguration)
 
 -- | Undocumented member.
+updateFileSystemLustreConfiguration_automaticBackupRetentionDays :: Lens.Lens' UpdateFileSystemLustreConfiguration (Prelude.Maybe Prelude.Natural)
+updateFileSystemLustreConfiguration_automaticBackupRetentionDays = Lens.lens (\UpdateFileSystemLustreConfiguration' {automaticBackupRetentionDays} -> automaticBackupRetentionDays) (\s@UpdateFileSystemLustreConfiguration' {} a -> s {automaticBackupRetentionDays = a} :: UpdateFileSystemLustreConfiguration)
+
+-- | Undocumented member.
 updateFileSystemLustreConfiguration_dailyAutomaticBackupStartTime :: Lens.Lens' UpdateFileSystemLustreConfiguration (Prelude.Maybe Prelude.Text)
 updateFileSystemLustreConfiguration_dailyAutomaticBackupStartTime = Lens.lens (\UpdateFileSystemLustreConfiguration' {dailyAutomaticBackupStartTime} -> dailyAutomaticBackupStartTime) (\s@UpdateFileSystemLustreConfiguration' {} a -> s {dailyAutomaticBackupStartTime = a} :: UpdateFileSystemLustreConfiguration)
 
@@ -243,11 +231,24 @@ updateFileSystemLustreConfiguration_dailyAutomaticBackupStartTime = Lens.lens (\
 updateFileSystemLustreConfiguration_dataCompressionType :: Lens.Lens' UpdateFileSystemLustreConfiguration (Prelude.Maybe DataCompressionType)
 updateFileSystemLustreConfiguration_dataCompressionType = Lens.lens (\UpdateFileSystemLustreConfiguration' {dataCompressionType} -> dataCompressionType) (\s@UpdateFileSystemLustreConfiguration' {} a -> s {dataCompressionType = a} :: UpdateFileSystemLustreConfiguration)
 
+-- | The Lustre logging configuration used when updating an Amazon FSx for
+-- Lustre file system. When logging is enabled, Lustre logs error and
+-- warning events for data repositories associated with your file system to
+-- Amazon CloudWatch Logs.
+updateFileSystemLustreConfiguration_logConfiguration :: Lens.Lens' UpdateFileSystemLustreConfiguration (Prelude.Maybe LustreLogCreateConfiguration)
+updateFileSystemLustreConfiguration_logConfiguration = Lens.lens (\UpdateFileSystemLustreConfiguration' {logConfiguration} -> logConfiguration) (\s@UpdateFileSystemLustreConfiguration' {} a -> s {logConfiguration = a} :: UpdateFileSystemLustreConfiguration)
+
 -- | The Lustre root squash configuration used when updating an Amazon FSx
 -- for Lustre file system. When enabled, root squash restricts root-level
 -- access from clients that try to access your file system as a root user.
 updateFileSystemLustreConfiguration_rootSquashConfiguration :: Lens.Lens' UpdateFileSystemLustreConfiguration (Prelude.Maybe LustreRootSquashConfiguration)
 updateFileSystemLustreConfiguration_rootSquashConfiguration = Lens.lens (\UpdateFileSystemLustreConfiguration' {rootSquashConfiguration} -> rootSquashConfiguration) (\s@UpdateFileSystemLustreConfiguration' {} a -> s {rootSquashConfiguration = a} :: UpdateFileSystemLustreConfiguration)
+
+-- | (Optional) The preferred start time to perform weekly maintenance,
+-- formatted d:HH:MM in the UTC time zone. d is the weekday number, from 1
+-- through 7, beginning with Monday and ending with Sunday.
+updateFileSystemLustreConfiguration_weeklyMaintenanceStartTime :: Lens.Lens' UpdateFileSystemLustreConfiguration (Prelude.Maybe Prelude.Text)
+updateFileSystemLustreConfiguration_weeklyMaintenanceStartTime = Lens.lens (\UpdateFileSystemLustreConfiguration' {weeklyMaintenanceStartTime} -> weeklyMaintenanceStartTime) (\s@UpdateFileSystemLustreConfiguration' {} a -> s {weeklyMaintenanceStartTime = a} :: UpdateFileSystemLustreConfiguration)
 
 instance
   Prelude.Hashable
@@ -256,27 +257,26 @@ instance
   hashWithSalt
     _salt
     UpdateFileSystemLustreConfiguration' {..} =
-      _salt
-        `Prelude.hashWithSalt` weeklyMaintenanceStartTime
-        `Prelude.hashWithSalt` logConfiguration
+      _salt `Prelude.hashWithSalt` autoImportPolicy
         `Prelude.hashWithSalt` automaticBackupRetentionDays
-        `Prelude.hashWithSalt` autoImportPolicy
         `Prelude.hashWithSalt` dailyAutomaticBackupStartTime
         `Prelude.hashWithSalt` dataCompressionType
+        `Prelude.hashWithSalt` logConfiguration
         `Prelude.hashWithSalt` rootSquashConfiguration
+        `Prelude.hashWithSalt` weeklyMaintenanceStartTime
 
 instance
   Prelude.NFData
     UpdateFileSystemLustreConfiguration
   where
   rnf UpdateFileSystemLustreConfiguration' {..} =
-    Prelude.rnf weeklyMaintenanceStartTime
-      `Prelude.seq` Prelude.rnf logConfiguration
+    Prelude.rnf autoImportPolicy
       `Prelude.seq` Prelude.rnf automaticBackupRetentionDays
-      `Prelude.seq` Prelude.rnf autoImportPolicy
       `Prelude.seq` Prelude.rnf dailyAutomaticBackupStartTime
       `Prelude.seq` Prelude.rnf dataCompressionType
+      `Prelude.seq` Prelude.rnf logConfiguration
       `Prelude.seq` Prelude.rnf rootSquashConfiguration
+      `Prelude.seq` Prelude.rnf weeklyMaintenanceStartTime
 
 instance
   Data.ToJSON
@@ -285,19 +285,19 @@ instance
   toJSON UpdateFileSystemLustreConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("WeeklyMaintenanceStartTime" Data..=)
-              Prelude.<$> weeklyMaintenanceStartTime,
-            ("LogConfiguration" Data..=)
-              Prelude.<$> logConfiguration,
+          [ ("AutoImportPolicy" Data..=)
+              Prelude.<$> autoImportPolicy,
             ("AutomaticBackupRetentionDays" Data..=)
               Prelude.<$> automaticBackupRetentionDays,
-            ("AutoImportPolicy" Data..=)
-              Prelude.<$> autoImportPolicy,
             ("DailyAutomaticBackupStartTime" Data..=)
               Prelude.<$> dailyAutomaticBackupStartTime,
             ("DataCompressionType" Data..=)
               Prelude.<$> dataCompressionType,
+            ("LogConfiguration" Data..=)
+              Prelude.<$> logConfiguration,
             ("RootSquashConfiguration" Data..=)
-              Prelude.<$> rootSquashConfiguration
+              Prelude.<$> rootSquashConfiguration,
+            ("WeeklyMaintenanceStartTime" Data..=)
+              Prelude.<$> weeklyMaintenanceStartTime
           ]
       )

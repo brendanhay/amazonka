@@ -27,18 +27,18 @@ module Amazonka.ImageBuilder.ListImagePipelines
     newListImagePipelines,
 
     -- * Request Lenses
-    listImagePipelines_nextToken,
     listImagePipelines_filters,
     listImagePipelines_maxResults,
+    listImagePipelines_nextToken,
 
     -- * Destructuring the Response
     ListImagePipelinesResponse (..),
     newListImagePipelinesResponse,
 
     -- * Response Lenses
+    listImagePipelinesResponse_imagePipelineList,
     listImagePipelinesResponse_nextToken,
     listImagePipelinesResponse_requestId,
-    listImagePipelinesResponse_imagePipelineList,
     listImagePipelinesResponse_httpStatus,
   )
 where
@@ -53,10 +53,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListImagePipelines' smart constructor.
 data ListImagePipelines = ListImagePipelines'
-  { -- | A token to specify where to start paginating. This is the NextToken from
-    -- a previously truncated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Use the following filters to streamline results:
+  { -- | Use the following filters to streamline results:
     --
     -- -   @description@
     --
@@ -71,7 +68,10 @@ data ListImagePipelines = ListImagePipelines'
     -- -   @status@
     filters :: Prelude.Maybe (Prelude.NonEmpty Filter),
     -- | The maximum items to return in a request.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token to specify where to start paginating. This is the NextToken from
+    -- a previously truncated response.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,9 +82,6 @@ data ListImagePipelines = ListImagePipelines'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'listImagePipelines_nextToken' - A token to specify where to start paginating. This is the NextToken from
--- a previously truncated response.
 --
 -- 'filters', 'listImagePipelines_filters' - Use the following filters to streamline results:
 --
@@ -101,19 +98,17 @@ data ListImagePipelines = ListImagePipelines'
 -- -   @status@
 --
 -- 'maxResults', 'listImagePipelines_maxResults' - The maximum items to return in a request.
+--
+-- 'nextToken', 'listImagePipelines_nextToken' - A token to specify where to start paginating. This is the NextToken from
+-- a previously truncated response.
 newListImagePipelines ::
   ListImagePipelines
 newListImagePipelines =
   ListImagePipelines'
-    { nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | A token to specify where to start paginating. This is the NextToken from
--- a previously truncated response.
-listImagePipelines_nextToken :: Lens.Lens' ListImagePipelines (Prelude.Maybe Prelude.Text)
-listImagePipelines_nextToken = Lens.lens (\ListImagePipelines' {nextToken} -> nextToken) (\s@ListImagePipelines' {} a -> s {nextToken = a} :: ListImagePipelines)
 
 -- | Use the following filters to streamline results:
 --
@@ -135,6 +130,11 @@ listImagePipelines_filters = Lens.lens (\ListImagePipelines' {filters} -> filter
 listImagePipelines_maxResults :: Lens.Lens' ListImagePipelines (Prelude.Maybe Prelude.Natural)
 listImagePipelines_maxResults = Lens.lens (\ListImagePipelines' {maxResults} -> maxResults) (\s@ListImagePipelines' {} a -> s {maxResults = a} :: ListImagePipelines)
 
+-- | A token to specify where to start paginating. This is the NextToken from
+-- a previously truncated response.
+listImagePipelines_nextToken :: Lens.Lens' ListImagePipelines (Prelude.Maybe Prelude.Text)
+listImagePipelines_nextToken = Lens.lens (\ListImagePipelines' {nextToken} -> nextToken) (\s@ListImagePipelines' {} a -> s {nextToken = a} :: ListImagePipelines)
+
 instance Core.AWSRequest ListImagePipelines where
   type
     AWSResponse ListImagePipelines =
@@ -145,25 +145,25 @@ instance Core.AWSRequest ListImagePipelines where
     Response.receiveJSON
       ( \s h x ->
           ListImagePipelinesResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "requestId")
-            Prelude.<*> ( x Data..?> "imagePipelineList"
+            Prelude.<$> ( x Data..?> "imagePipelineList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListImagePipelines where
   hashWithSalt _salt ListImagePipelines' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListImagePipelines where
   rnf ListImagePipelines' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListImagePipelines where
   toHeaders =
@@ -180,9 +180,9 @@ instance Data.ToJSON ListImagePipelines where
   toJSON ListImagePipelines' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("filters" Data..=) Prelude.<$> filters,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("filters" Data..=) Prelude.<$> filters,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -194,15 +194,15 @@ instance Data.ToQuery ListImagePipelines where
 
 -- | /See:/ 'newListImagePipelinesResponse' smart constructor.
 data ListImagePipelinesResponse = ListImagePipelinesResponse'
-  { -- | The next token used for paginated responses. When this is not empty,
+  { -- | The list of image pipelines.
+    imagePipelineList :: Prelude.Maybe [ImagePipeline],
+    -- | The next token used for paginated responses. When this is not empty,
     -- there are additional elements that the service has not included in this
     -- request. Use this token with the next request to retrieve additional
     -- objects.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The request ID that uniquely identifies this request.
     requestId :: Prelude.Maybe Prelude.Text,
-    -- | The list of image pipelines.
-    imagePipelineList :: Prelude.Maybe [ImagePipeline],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -216,14 +216,14 @@ data ListImagePipelinesResponse = ListImagePipelinesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'imagePipelineList', 'listImagePipelinesResponse_imagePipelineList' - The list of image pipelines.
+--
 -- 'nextToken', 'listImagePipelinesResponse_nextToken' - The next token used for paginated responses. When this is not empty,
 -- there are additional elements that the service has not included in this
 -- request. Use this token with the next request to retrieve additional
 -- objects.
 --
 -- 'requestId', 'listImagePipelinesResponse_requestId' - The request ID that uniquely identifies this request.
---
--- 'imagePipelineList', 'listImagePipelinesResponse_imagePipelineList' - The list of image pipelines.
 --
 -- 'httpStatus', 'listImagePipelinesResponse_httpStatus' - The response's http status code.
 newListImagePipelinesResponse ::
@@ -232,12 +232,16 @@ newListImagePipelinesResponse ::
   ListImagePipelinesResponse
 newListImagePipelinesResponse pHttpStatus_ =
   ListImagePipelinesResponse'
-    { nextToken =
+    { imagePipelineList =
         Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       requestId = Prelude.Nothing,
-      imagePipelineList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of image pipelines.
+listImagePipelinesResponse_imagePipelineList :: Lens.Lens' ListImagePipelinesResponse (Prelude.Maybe [ImagePipeline])
+listImagePipelinesResponse_imagePipelineList = Lens.lens (\ListImagePipelinesResponse' {imagePipelineList} -> imagePipelineList) (\s@ListImagePipelinesResponse' {} a -> s {imagePipelineList = a} :: ListImagePipelinesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The next token used for paginated responses. When this is not empty,
 -- there are additional elements that the service has not included in this
@@ -250,17 +254,13 @@ listImagePipelinesResponse_nextToken = Lens.lens (\ListImagePipelinesResponse' {
 listImagePipelinesResponse_requestId :: Lens.Lens' ListImagePipelinesResponse (Prelude.Maybe Prelude.Text)
 listImagePipelinesResponse_requestId = Lens.lens (\ListImagePipelinesResponse' {requestId} -> requestId) (\s@ListImagePipelinesResponse' {} a -> s {requestId = a} :: ListImagePipelinesResponse)
 
--- | The list of image pipelines.
-listImagePipelinesResponse_imagePipelineList :: Lens.Lens' ListImagePipelinesResponse (Prelude.Maybe [ImagePipeline])
-listImagePipelinesResponse_imagePipelineList = Lens.lens (\ListImagePipelinesResponse' {imagePipelineList} -> imagePipelineList) (\s@ListImagePipelinesResponse' {} a -> s {imagePipelineList = a} :: ListImagePipelinesResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listImagePipelinesResponse_httpStatus :: Lens.Lens' ListImagePipelinesResponse Prelude.Int
 listImagePipelinesResponse_httpStatus = Lens.lens (\ListImagePipelinesResponse' {httpStatus} -> httpStatus) (\s@ListImagePipelinesResponse' {} a -> s {httpStatus = a} :: ListImagePipelinesResponse)
 
 instance Prelude.NFData ListImagePipelinesResponse where
   rnf ListImagePipelinesResponse' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf imagePipelineList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf imagePipelineList
       `Prelude.seq` Prelude.rnf httpStatus

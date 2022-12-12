@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRoomData' smart constructor.
 data RoomData = RoomData'
-  { -- | The profile name of a room.
-    profileName :: Prelude.Maybe Prelude.Text,
+  { -- | The description of a room.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The profile ARN of a room.
     profileArn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of a room.
-    roomArn :: Prelude.Maybe Prelude.Text,
-    -- | The description of a room.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | The profile name of a room.
+    profileName :: Prelude.Maybe Prelude.Text,
     -- | The provider calendar ARN of a room.
     providerCalendarId :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of a room.
+    roomArn :: Prelude.Maybe Prelude.Text,
     -- | The name of a room.
     roomName :: Prelude.Maybe Prelude.Text
   }
@@ -51,48 +51,48 @@ data RoomData = RoomData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'profileName', 'roomData_profileName' - The profile name of a room.
+-- 'description', 'roomData_description' - The description of a room.
 --
 -- 'profileArn', 'roomData_profileArn' - The profile ARN of a room.
 --
--- 'roomArn', 'roomData_roomArn' - The ARN of a room.
---
--- 'description', 'roomData_description' - The description of a room.
+-- 'profileName', 'roomData_profileName' - The profile name of a room.
 --
 -- 'providerCalendarId', 'roomData_providerCalendarId' - The provider calendar ARN of a room.
+--
+-- 'roomArn', 'roomData_roomArn' - The ARN of a room.
 --
 -- 'roomName', 'roomData_roomName' - The name of a room.
 newRoomData ::
   RoomData
 newRoomData =
   RoomData'
-    { profileName = Prelude.Nothing,
+    { description = Prelude.Nothing,
       profileArn = Prelude.Nothing,
-      roomArn = Prelude.Nothing,
-      description = Prelude.Nothing,
+      profileName = Prelude.Nothing,
       providerCalendarId = Prelude.Nothing,
+      roomArn = Prelude.Nothing,
       roomName = Prelude.Nothing
     }
-
--- | The profile name of a room.
-roomData_profileName :: Lens.Lens' RoomData (Prelude.Maybe Prelude.Text)
-roomData_profileName = Lens.lens (\RoomData' {profileName} -> profileName) (\s@RoomData' {} a -> s {profileName = a} :: RoomData)
-
--- | The profile ARN of a room.
-roomData_profileArn :: Lens.Lens' RoomData (Prelude.Maybe Prelude.Text)
-roomData_profileArn = Lens.lens (\RoomData' {profileArn} -> profileArn) (\s@RoomData' {} a -> s {profileArn = a} :: RoomData)
-
--- | The ARN of a room.
-roomData_roomArn :: Lens.Lens' RoomData (Prelude.Maybe Prelude.Text)
-roomData_roomArn = Lens.lens (\RoomData' {roomArn} -> roomArn) (\s@RoomData' {} a -> s {roomArn = a} :: RoomData)
 
 -- | The description of a room.
 roomData_description :: Lens.Lens' RoomData (Prelude.Maybe Prelude.Text)
 roomData_description = Lens.lens (\RoomData' {description} -> description) (\s@RoomData' {} a -> s {description = a} :: RoomData)
 
+-- | The profile ARN of a room.
+roomData_profileArn :: Lens.Lens' RoomData (Prelude.Maybe Prelude.Text)
+roomData_profileArn = Lens.lens (\RoomData' {profileArn} -> profileArn) (\s@RoomData' {} a -> s {profileArn = a} :: RoomData)
+
+-- | The profile name of a room.
+roomData_profileName :: Lens.Lens' RoomData (Prelude.Maybe Prelude.Text)
+roomData_profileName = Lens.lens (\RoomData' {profileName} -> profileName) (\s@RoomData' {} a -> s {profileName = a} :: RoomData)
+
 -- | The provider calendar ARN of a room.
 roomData_providerCalendarId :: Lens.Lens' RoomData (Prelude.Maybe Prelude.Text)
 roomData_providerCalendarId = Lens.lens (\RoomData' {providerCalendarId} -> providerCalendarId) (\s@RoomData' {} a -> s {providerCalendarId = a} :: RoomData)
+
+-- | The ARN of a room.
+roomData_roomArn :: Lens.Lens' RoomData (Prelude.Maybe Prelude.Text)
+roomData_roomArn = Lens.lens (\RoomData' {roomArn} -> roomArn) (\s@RoomData' {} a -> s {roomArn = a} :: RoomData)
 
 -- | The name of a room.
 roomData_roomName :: Lens.Lens' RoomData (Prelude.Maybe Prelude.Text)
@@ -104,28 +104,28 @@ instance Data.FromJSON RoomData where
       "RoomData"
       ( \x ->
           RoomData'
-            Prelude.<$> (x Data..:? "ProfileName")
+            Prelude.<$> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "ProfileArn")
-            Prelude.<*> (x Data..:? "RoomArn")
-            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "ProfileName")
             Prelude.<*> (x Data..:? "ProviderCalendarId")
+            Prelude.<*> (x Data..:? "RoomArn")
             Prelude.<*> (x Data..:? "RoomName")
       )
 
 instance Prelude.Hashable RoomData where
   hashWithSalt _salt RoomData' {..} =
-    _salt `Prelude.hashWithSalt` profileName
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` profileArn
-      `Prelude.hashWithSalt` roomArn
-      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` profileName
       `Prelude.hashWithSalt` providerCalendarId
+      `Prelude.hashWithSalt` roomArn
       `Prelude.hashWithSalt` roomName
 
 instance Prelude.NFData RoomData where
   rnf RoomData' {..} =
-    Prelude.rnf profileName
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf profileArn
-      `Prelude.seq` Prelude.rnf roomArn
-      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf profileName
       `Prelude.seq` Prelude.rnf providerCalendarId
+      `Prelude.seq` Prelude.rnf roomArn
       `Prelude.seq` Prelude.rnf roomName

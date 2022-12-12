@@ -30,9 +30,9 @@ import Amazonka.SageMaker.Types.EndpointInput
 --
 -- /See:/ 'newModelExplainabilityJobInput' smart constructor.
 data ModelExplainabilityJobInput = ModelExplainabilityJobInput'
-  { endpointInput :: Prelude.Maybe EndpointInput,
-    -- | Input object for the batch transform job.
-    batchTransformInput :: Prelude.Maybe BatchTransformInput
+  { -- | Input object for the batch transform job.
+    batchTransformInput :: Prelude.Maybe BatchTransformInput,
+    endpointInput :: Prelude.Maybe EndpointInput
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data ModelExplainabilityJobInput = ModelExplainabilityJobInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'endpointInput', 'modelExplainabilityJobInput_endpointInput' - Undocumented member.
---
 -- 'batchTransformInput', 'modelExplainabilityJobInput_batchTransformInput' - Input object for the batch transform job.
+--
+-- 'endpointInput', 'modelExplainabilityJobInput_endpointInput' - Undocumented member.
 newModelExplainabilityJobInput ::
   ModelExplainabilityJobInput
 newModelExplainabilityJobInput =
   ModelExplainabilityJobInput'
-    { endpointInput =
+    { batchTransformInput =
         Prelude.Nothing,
-      batchTransformInput = Prelude.Nothing
+      endpointInput = Prelude.Nothing
     }
-
--- | Undocumented member.
-modelExplainabilityJobInput_endpointInput :: Lens.Lens' ModelExplainabilityJobInput (Prelude.Maybe EndpointInput)
-modelExplainabilityJobInput_endpointInput = Lens.lens (\ModelExplainabilityJobInput' {endpointInput} -> endpointInput) (\s@ModelExplainabilityJobInput' {} a -> s {endpointInput = a} :: ModelExplainabilityJobInput)
 
 -- | Input object for the batch transform job.
 modelExplainabilityJobInput_batchTransformInput :: Lens.Lens' ModelExplainabilityJobInput (Prelude.Maybe BatchTransformInput)
 modelExplainabilityJobInput_batchTransformInput = Lens.lens (\ModelExplainabilityJobInput' {batchTransformInput} -> batchTransformInput) (\s@ModelExplainabilityJobInput' {} a -> s {batchTransformInput = a} :: ModelExplainabilityJobInput)
+
+-- | Undocumented member.
+modelExplainabilityJobInput_endpointInput :: Lens.Lens' ModelExplainabilityJobInput (Prelude.Maybe EndpointInput)
+modelExplainabilityJobInput_endpointInput = Lens.lens (\ModelExplainabilityJobInput' {endpointInput} -> endpointInput) (\s@ModelExplainabilityJobInput' {} a -> s {endpointInput = a} :: ModelExplainabilityJobInput)
 
 instance Data.FromJSON ModelExplainabilityJobInput where
   parseJSON =
@@ -70,26 +70,26 @@ instance Data.FromJSON ModelExplainabilityJobInput where
       "ModelExplainabilityJobInput"
       ( \x ->
           ModelExplainabilityJobInput'
-            Prelude.<$> (x Data..:? "EndpointInput")
-            Prelude.<*> (x Data..:? "BatchTransformInput")
+            Prelude.<$> (x Data..:? "BatchTransformInput")
+            Prelude.<*> (x Data..:? "EndpointInput")
       )
 
 instance Prelude.Hashable ModelExplainabilityJobInput where
   hashWithSalt _salt ModelExplainabilityJobInput' {..} =
-    _salt `Prelude.hashWithSalt` endpointInput
-      `Prelude.hashWithSalt` batchTransformInput
+    _salt `Prelude.hashWithSalt` batchTransformInput
+      `Prelude.hashWithSalt` endpointInput
 
 instance Prelude.NFData ModelExplainabilityJobInput where
   rnf ModelExplainabilityJobInput' {..} =
-    Prelude.rnf endpointInput
-      `Prelude.seq` Prelude.rnf batchTransformInput
+    Prelude.rnf batchTransformInput
+      `Prelude.seq` Prelude.rnf endpointInput
 
 instance Data.ToJSON ModelExplainabilityJobInput where
   toJSON ModelExplainabilityJobInput' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("EndpointInput" Data..=) Prelude.<$> endpointInput,
-            ("BatchTransformInput" Data..=)
-              Prelude.<$> batchTransformInput
+          [ ("BatchTransformInput" Data..=)
+              Prelude.<$> batchTransformInput,
+            ("EndpointInput" Data..=) Prelude.<$> endpointInput
           ]
       )

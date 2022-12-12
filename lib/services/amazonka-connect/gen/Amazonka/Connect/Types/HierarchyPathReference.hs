@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHierarchyPathReference' smart constructor.
 data HierarchyPathReference = HierarchyPathReference'
-  { -- | Information about level three.
-    levelThree :: Prelude.Maybe HierarchyGroupSummaryReference,
+  { -- | Information about level five.
+    levelFive :: Prelude.Maybe HierarchyGroupSummaryReference,
     -- | Information about level four.
     levelFour :: Prelude.Maybe HierarchyGroupSummaryReference,
     -- | Information about level one.
     levelOne :: Prelude.Maybe HierarchyGroupSummaryReference,
-    -- | Information about level five.
-    levelFive :: Prelude.Maybe HierarchyGroupSummaryReference,
+    -- | Information about level three.
+    levelThree :: Prelude.Maybe HierarchyGroupSummaryReference,
     -- | Information about level two.
     levelTwo :: Prelude.Maybe HierarchyGroupSummaryReference
   }
@@ -50,30 +50,30 @@ data HierarchyPathReference = HierarchyPathReference'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'levelThree', 'hierarchyPathReference_levelThree' - Information about level three.
+-- 'levelFive', 'hierarchyPathReference_levelFive' - Information about level five.
 --
 -- 'levelFour', 'hierarchyPathReference_levelFour' - Information about level four.
 --
 -- 'levelOne', 'hierarchyPathReference_levelOne' - Information about level one.
 --
--- 'levelFive', 'hierarchyPathReference_levelFive' - Information about level five.
+-- 'levelThree', 'hierarchyPathReference_levelThree' - Information about level three.
 --
 -- 'levelTwo', 'hierarchyPathReference_levelTwo' - Information about level two.
 newHierarchyPathReference ::
   HierarchyPathReference
 newHierarchyPathReference =
   HierarchyPathReference'
-    { levelThree =
+    { levelFive =
         Prelude.Nothing,
       levelFour = Prelude.Nothing,
       levelOne = Prelude.Nothing,
-      levelFive = Prelude.Nothing,
+      levelThree = Prelude.Nothing,
       levelTwo = Prelude.Nothing
     }
 
--- | Information about level three.
-hierarchyPathReference_levelThree :: Lens.Lens' HierarchyPathReference (Prelude.Maybe HierarchyGroupSummaryReference)
-hierarchyPathReference_levelThree = Lens.lens (\HierarchyPathReference' {levelThree} -> levelThree) (\s@HierarchyPathReference' {} a -> s {levelThree = a} :: HierarchyPathReference)
+-- | Information about level five.
+hierarchyPathReference_levelFive :: Lens.Lens' HierarchyPathReference (Prelude.Maybe HierarchyGroupSummaryReference)
+hierarchyPathReference_levelFive = Lens.lens (\HierarchyPathReference' {levelFive} -> levelFive) (\s@HierarchyPathReference' {} a -> s {levelFive = a} :: HierarchyPathReference)
 
 -- | Information about level four.
 hierarchyPathReference_levelFour :: Lens.Lens' HierarchyPathReference (Prelude.Maybe HierarchyGroupSummaryReference)
@@ -83,9 +83,9 @@ hierarchyPathReference_levelFour = Lens.lens (\HierarchyPathReference' {levelFou
 hierarchyPathReference_levelOne :: Lens.Lens' HierarchyPathReference (Prelude.Maybe HierarchyGroupSummaryReference)
 hierarchyPathReference_levelOne = Lens.lens (\HierarchyPathReference' {levelOne} -> levelOne) (\s@HierarchyPathReference' {} a -> s {levelOne = a} :: HierarchyPathReference)
 
--- | Information about level five.
-hierarchyPathReference_levelFive :: Lens.Lens' HierarchyPathReference (Prelude.Maybe HierarchyGroupSummaryReference)
-hierarchyPathReference_levelFive = Lens.lens (\HierarchyPathReference' {levelFive} -> levelFive) (\s@HierarchyPathReference' {} a -> s {levelFive = a} :: HierarchyPathReference)
+-- | Information about level three.
+hierarchyPathReference_levelThree :: Lens.Lens' HierarchyPathReference (Prelude.Maybe HierarchyGroupSummaryReference)
+hierarchyPathReference_levelThree = Lens.lens (\HierarchyPathReference' {levelThree} -> levelThree) (\s@HierarchyPathReference' {} a -> s {levelThree = a} :: HierarchyPathReference)
 
 -- | Information about level two.
 hierarchyPathReference_levelTwo :: Lens.Lens' HierarchyPathReference (Prelude.Maybe HierarchyGroupSummaryReference)
@@ -97,25 +97,25 @@ instance Data.FromJSON HierarchyPathReference where
       "HierarchyPathReference"
       ( \x ->
           HierarchyPathReference'
-            Prelude.<$> (x Data..:? "LevelThree")
+            Prelude.<$> (x Data..:? "LevelFive")
             Prelude.<*> (x Data..:? "LevelFour")
             Prelude.<*> (x Data..:? "LevelOne")
-            Prelude.<*> (x Data..:? "LevelFive")
+            Prelude.<*> (x Data..:? "LevelThree")
             Prelude.<*> (x Data..:? "LevelTwo")
       )
 
 instance Prelude.Hashable HierarchyPathReference where
   hashWithSalt _salt HierarchyPathReference' {..} =
-    _salt `Prelude.hashWithSalt` levelThree
+    _salt `Prelude.hashWithSalt` levelFive
       `Prelude.hashWithSalt` levelFour
       `Prelude.hashWithSalt` levelOne
-      `Prelude.hashWithSalt` levelFive
+      `Prelude.hashWithSalt` levelThree
       `Prelude.hashWithSalt` levelTwo
 
 instance Prelude.NFData HierarchyPathReference where
   rnf HierarchyPathReference' {..} =
-    Prelude.rnf levelThree
+    Prelude.rnf levelFive
       `Prelude.seq` Prelude.rnf levelFour
       `Prelude.seq` Prelude.rnf levelOne
-      `Prelude.seq` Prelude.rnf levelFive
+      `Prelude.seq` Prelude.rnf levelThree
       `Prelude.seq` Prelude.rnf levelTwo

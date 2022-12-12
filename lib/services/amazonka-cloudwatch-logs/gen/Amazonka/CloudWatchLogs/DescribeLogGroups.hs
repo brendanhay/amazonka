@@ -31,6 +31,11 @@
 -- information about using tags to control access, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html Controlling access to Amazon Web Services resources using tags>.
 --
+-- If you are using CloudWatch cross-account observability, you can use
+-- this operation in a monitoring account and view data from the linked
+-- source accounts. For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html CloudWatch cross-account observability>.
+--
 -- This operation returns paginated results.
 module Amazonka.CloudWatchLogs.DescribeLogGroups
   ( -- * Creating a Request
@@ -38,17 +43,20 @@ module Amazonka.CloudWatchLogs.DescribeLogGroups
     newDescribeLogGroups,
 
     -- * Request Lenses
-    describeLogGroups_nextToken,
+    describeLogGroups_accountIdentifiers,
+    describeLogGroups_includeLinkedAccounts,
     describeLogGroups_limit,
+    describeLogGroups_logGroupNamePattern,
     describeLogGroups_logGroupNamePrefix,
+    describeLogGroups_nextToken,
 
     -- * Destructuring the Response
     DescribeLogGroupsResponse (..),
     newDescribeLogGroupsResponse,
 
     -- * Response Lenses
-    describeLogGroupsResponse_nextToken,
     describeLogGroupsResponse_logGroups,
+    describeLogGroupsResponse_nextToken,
     describeLogGroupsResponse_httpStatus,
   )
 where
@@ -63,14 +71,43 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeLogGroups' smart constructor.
 data DescribeLogGroups = DescribeLogGroups'
-  { -- | The token for the next set of items to return. (You received this token
-    -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | When @includeLinkedAccounts@ is set to @True@, use this parameter to
+    -- specify the list of accounts to search. You can specify as many as 20
+    -- account IDs in the array.
+    accountIdentifiers :: Prelude.Maybe [Prelude.Text],
+    -- | If you are using a monitoring account, set this to @True@ to have the
+    -- operation return log groups in the accounts listed in
+    -- @accountIdentifiers@.
+    --
+    -- If this parameter is set to @true@ and @accountIdentifiers@ contains a
+    -- null value, the operation returns all log groups in the monitoring
+    -- account and all log groups in all source accounts that are linked to the
+    -- monitoring account.
+    --
+    -- If you specify @includeLinkedAccounts@ in your request, then
+    -- @metricFilterCount@, @retentionInDays@, and @storedBytes@ are not
+    -- included in the response.
+    includeLinkedAccounts :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of items returned. If you don\'t specify a value, the
     -- default is up to 50 items.
     limit :: Prelude.Maybe Prelude.Natural,
+    -- | If you specify a string for this parameter, the operation returns only
+    -- log groups that have names that match the string based on a
+    -- case-sensitive substring search. For example, if you specify @Foo@, log
+    -- groups named @FooBar@, @aws\/Foo@, and @GroupFoo@ would match, but
+    -- @foo@, @F\/o\/o@ and @Froo@ would not match.
+    --
+    -- @logGroupNamePattern@ and @logGroupNamePrefix@ are mutually exclusive.
+    -- Only one of these parameters can be passed.
+    logGroupNamePattern :: Prelude.Maybe Prelude.Text,
     -- | The prefix to match.
-    logGroupNamePrefix :: Prelude.Maybe Prelude.Text
+    --
+    -- @logGroupNamePrefix@ and @logGroupNamePattern@ are mutually exclusive.
+    -- Only one of these parameters can be passed.
+    logGroupNamePrefix :: Prelude.Maybe Prelude.Text,
+    -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,35 +119,103 @@ data DescribeLogGroups = DescribeLogGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeLogGroups_nextToken' - The token for the next set of items to return. (You received this token
--- from a previous call.)
+-- 'accountIdentifiers', 'describeLogGroups_accountIdentifiers' - When @includeLinkedAccounts@ is set to @True@, use this parameter to
+-- specify the list of accounts to search. You can specify as many as 20
+-- account IDs in the array.
+--
+-- 'includeLinkedAccounts', 'describeLogGroups_includeLinkedAccounts' - If you are using a monitoring account, set this to @True@ to have the
+-- operation return log groups in the accounts listed in
+-- @accountIdentifiers@.
+--
+-- If this parameter is set to @true@ and @accountIdentifiers@ contains a
+-- null value, the operation returns all log groups in the monitoring
+-- account and all log groups in all source accounts that are linked to the
+-- monitoring account.
+--
+-- If you specify @includeLinkedAccounts@ in your request, then
+-- @metricFilterCount@, @retentionInDays@, and @storedBytes@ are not
+-- included in the response.
 --
 -- 'limit', 'describeLogGroups_limit' - The maximum number of items returned. If you don\'t specify a value, the
 -- default is up to 50 items.
 --
+-- 'logGroupNamePattern', 'describeLogGroups_logGroupNamePattern' - If you specify a string for this parameter, the operation returns only
+-- log groups that have names that match the string based on a
+-- case-sensitive substring search. For example, if you specify @Foo@, log
+-- groups named @FooBar@, @aws\/Foo@, and @GroupFoo@ would match, but
+-- @foo@, @F\/o\/o@ and @Froo@ would not match.
+--
+-- @logGroupNamePattern@ and @logGroupNamePrefix@ are mutually exclusive.
+-- Only one of these parameters can be passed.
+--
 -- 'logGroupNamePrefix', 'describeLogGroups_logGroupNamePrefix' - The prefix to match.
+--
+-- @logGroupNamePrefix@ and @logGroupNamePattern@ are mutually exclusive.
+-- Only one of these parameters can be passed.
+--
+-- 'nextToken', 'describeLogGroups_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
 newDescribeLogGroups ::
   DescribeLogGroups
 newDescribeLogGroups =
   DescribeLogGroups'
-    { nextToken = Prelude.Nothing,
+    { accountIdentifiers =
+        Prelude.Nothing,
+      includeLinkedAccounts = Prelude.Nothing,
       limit = Prelude.Nothing,
-      logGroupNamePrefix = Prelude.Nothing
+      logGroupNamePattern = Prelude.Nothing,
+      logGroupNamePrefix = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
 
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
-describeLogGroups_nextToken :: Lens.Lens' DescribeLogGroups (Prelude.Maybe Prelude.Text)
-describeLogGroups_nextToken = Lens.lens (\DescribeLogGroups' {nextToken} -> nextToken) (\s@DescribeLogGroups' {} a -> s {nextToken = a} :: DescribeLogGroups)
+-- | When @includeLinkedAccounts@ is set to @True@, use this parameter to
+-- specify the list of accounts to search. You can specify as many as 20
+-- account IDs in the array.
+describeLogGroups_accountIdentifiers :: Lens.Lens' DescribeLogGroups (Prelude.Maybe [Prelude.Text])
+describeLogGroups_accountIdentifiers = Lens.lens (\DescribeLogGroups' {accountIdentifiers} -> accountIdentifiers) (\s@DescribeLogGroups' {} a -> s {accountIdentifiers = a} :: DescribeLogGroups) Prelude.. Lens.mapping Lens.coerced
+
+-- | If you are using a monitoring account, set this to @True@ to have the
+-- operation return log groups in the accounts listed in
+-- @accountIdentifiers@.
+--
+-- If this parameter is set to @true@ and @accountIdentifiers@ contains a
+-- null value, the operation returns all log groups in the monitoring
+-- account and all log groups in all source accounts that are linked to the
+-- monitoring account.
+--
+-- If you specify @includeLinkedAccounts@ in your request, then
+-- @metricFilterCount@, @retentionInDays@, and @storedBytes@ are not
+-- included in the response.
+describeLogGroups_includeLinkedAccounts :: Lens.Lens' DescribeLogGroups (Prelude.Maybe Prelude.Bool)
+describeLogGroups_includeLinkedAccounts = Lens.lens (\DescribeLogGroups' {includeLinkedAccounts} -> includeLinkedAccounts) (\s@DescribeLogGroups' {} a -> s {includeLinkedAccounts = a} :: DescribeLogGroups)
 
 -- | The maximum number of items returned. If you don\'t specify a value, the
 -- default is up to 50 items.
 describeLogGroups_limit :: Lens.Lens' DescribeLogGroups (Prelude.Maybe Prelude.Natural)
 describeLogGroups_limit = Lens.lens (\DescribeLogGroups' {limit} -> limit) (\s@DescribeLogGroups' {} a -> s {limit = a} :: DescribeLogGroups)
 
+-- | If you specify a string for this parameter, the operation returns only
+-- log groups that have names that match the string based on a
+-- case-sensitive substring search. For example, if you specify @Foo@, log
+-- groups named @FooBar@, @aws\/Foo@, and @GroupFoo@ would match, but
+-- @foo@, @F\/o\/o@ and @Froo@ would not match.
+--
+-- @logGroupNamePattern@ and @logGroupNamePrefix@ are mutually exclusive.
+-- Only one of these parameters can be passed.
+describeLogGroups_logGroupNamePattern :: Lens.Lens' DescribeLogGroups (Prelude.Maybe Prelude.Text)
+describeLogGroups_logGroupNamePattern = Lens.lens (\DescribeLogGroups' {logGroupNamePattern} -> logGroupNamePattern) (\s@DescribeLogGroups' {} a -> s {logGroupNamePattern = a} :: DescribeLogGroups)
+
 -- | The prefix to match.
+--
+-- @logGroupNamePrefix@ and @logGroupNamePattern@ are mutually exclusive.
+-- Only one of these parameters can be passed.
 describeLogGroups_logGroupNamePrefix :: Lens.Lens' DescribeLogGroups (Prelude.Maybe Prelude.Text)
 describeLogGroups_logGroupNamePrefix = Lens.lens (\DescribeLogGroups' {logGroupNamePrefix} -> logGroupNamePrefix) (\s@DescribeLogGroups' {} a -> s {logGroupNamePrefix = a} :: DescribeLogGroups)
+
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+describeLogGroups_nextToken :: Lens.Lens' DescribeLogGroups (Prelude.Maybe Prelude.Text)
+describeLogGroups_nextToken = Lens.lens (\DescribeLogGroups' {nextToken} -> nextToken) (\s@DescribeLogGroups' {} a -> s {nextToken = a} :: DescribeLogGroups)
 
 instance Core.AWSPager DescribeLogGroups where
   page rq rs
@@ -144,22 +249,28 @@ instance Core.AWSRequest DescribeLogGroups where
     Response.receiveJSON
       ( \s h x ->
           DescribeLogGroupsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "logGroups" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "logGroups" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeLogGroups where
   hashWithSalt _salt DescribeLogGroups' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` accountIdentifiers
+      `Prelude.hashWithSalt` includeLinkedAccounts
       `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` logGroupNamePattern
       `Prelude.hashWithSalt` logGroupNamePrefix
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeLogGroups where
   rnf DescribeLogGroups' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf accountIdentifiers
+      `Prelude.seq` Prelude.rnf includeLinkedAccounts
       `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf logGroupNamePattern
       `Prelude.seq` Prelude.rnf logGroupNamePrefix
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeLogGroups where
   toHeaders =
@@ -180,10 +291,16 @@ instance Data.ToJSON DescribeLogGroups where
   toJSON DescribeLogGroups' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+          [ ("accountIdentifiers" Data..=)
+              Prelude.<$> accountIdentifiers,
+            ("includeLinkedAccounts" Data..=)
+              Prelude.<$> includeLinkedAccounts,
             ("limit" Data..=) Prelude.<$> limit,
+            ("logGroupNamePattern" Data..=)
+              Prelude.<$> logGroupNamePattern,
             ("logGroupNamePrefix" Data..=)
-              Prelude.<$> logGroupNamePrefix
+              Prelude.<$> logGroupNamePrefix,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -195,12 +312,12 @@ instance Data.ToQuery DescribeLogGroups where
 
 -- | /See:/ 'newDescribeLogGroupsResponse' smart constructor.
 data DescribeLogGroupsResponse = DescribeLogGroupsResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The log groups.
+  { -- | The log groups.
     --
     -- If the @retentionInDays@ value is not included for a log group, then
-    -- that log group is set to have its events never expire.
+    -- that log group\'s events do not expire.
     logGroups :: Prelude.Maybe [LogGroup],
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -214,12 +331,12 @@ data DescribeLogGroupsResponse = DescribeLogGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeLogGroupsResponse_nextToken' - Undocumented member.
---
 -- 'logGroups', 'describeLogGroupsResponse_logGroups' - The log groups.
 --
 -- If the @retentionInDays@ value is not included for a log group, then
--- that log group is set to have its events never expire.
+-- that log group\'s events do not expire.
+--
+-- 'nextToken', 'describeLogGroupsResponse_nextToken' - Undocumented member.
 --
 -- 'httpStatus', 'describeLogGroupsResponse_httpStatus' - The response's http status code.
 newDescribeLogGroupsResponse ::
@@ -228,22 +345,22 @@ newDescribeLogGroupsResponse ::
   DescribeLogGroupsResponse
 newDescribeLogGroupsResponse pHttpStatus_ =
   DescribeLogGroupsResponse'
-    { nextToken =
+    { logGroups =
         Prelude.Nothing,
-      logGroups = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Undocumented member.
-describeLogGroupsResponse_nextToken :: Lens.Lens' DescribeLogGroupsResponse (Prelude.Maybe Prelude.Text)
-describeLogGroupsResponse_nextToken = Lens.lens (\DescribeLogGroupsResponse' {nextToken} -> nextToken) (\s@DescribeLogGroupsResponse' {} a -> s {nextToken = a} :: DescribeLogGroupsResponse)
 
 -- | The log groups.
 --
 -- If the @retentionInDays@ value is not included for a log group, then
--- that log group is set to have its events never expire.
+-- that log group\'s events do not expire.
 describeLogGroupsResponse_logGroups :: Lens.Lens' DescribeLogGroupsResponse (Prelude.Maybe [LogGroup])
 describeLogGroupsResponse_logGroups = Lens.lens (\DescribeLogGroupsResponse' {logGroups} -> logGroups) (\s@DescribeLogGroupsResponse' {} a -> s {logGroups = a} :: DescribeLogGroupsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+describeLogGroupsResponse_nextToken :: Lens.Lens' DescribeLogGroupsResponse (Prelude.Maybe Prelude.Text)
+describeLogGroupsResponse_nextToken = Lens.lens (\DescribeLogGroupsResponse' {nextToken} -> nextToken) (\s@DescribeLogGroupsResponse' {} a -> s {nextToken = a} :: DescribeLogGroupsResponse)
 
 -- | The response's http status code.
 describeLogGroupsResponse_httpStatus :: Lens.Lens' DescribeLogGroupsResponse Prelude.Int
@@ -251,6 +368,6 @@ describeLogGroupsResponse_httpStatus = Lens.lens (\DescribeLogGroupsResponse' {h
 
 instance Prelude.NFData DescribeLogGroupsResponse where
   rnf DescribeLogGroupsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf logGroups
+    Prelude.rnf logGroups
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

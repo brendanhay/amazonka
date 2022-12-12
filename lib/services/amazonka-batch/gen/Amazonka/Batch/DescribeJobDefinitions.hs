@@ -30,19 +30,19 @@ module Amazonka.Batch.DescribeJobDefinitions
     newDescribeJobDefinitions,
 
     -- * Request Lenses
-    describeJobDefinitions_nextToken,
     describeJobDefinitions_jobDefinitionName,
-    describeJobDefinitions_status,
     describeJobDefinitions_jobDefinitions,
     describeJobDefinitions_maxResults,
+    describeJobDefinitions_nextToken,
+    describeJobDefinitions_status,
 
     -- * Destructuring the Response
     DescribeJobDefinitionsResponse (..),
     newDescribeJobDefinitionsResponse,
 
     -- * Response Lenses
-    describeJobDefinitionsResponse_nextToken,
     describeJobDefinitionsResponse_jobDefinitions,
+    describeJobDefinitionsResponse_nextToken,
     describeJobDefinitionsResponse_httpStatus,
   )
 where
@@ -59,19 +59,8 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeJobDefinitions' smart constructor.
 data DescribeJobDefinitions = DescribeJobDefinitions'
-  { -- | The @nextToken@ value returned from a previous paginated
-    -- @DescribeJobDefinitions@ request where @maxResults@ was used and the
-    -- results exceeded the value of that parameter. Pagination continues from
-    -- the end of the previous results that returned the @nextToken@ value.
-    -- This value is @null@ when there are no more results to return.
-    --
-    -- Treat this token as an opaque identifier that\'s only used to retrieve
-    -- the next items in a list and not for other programmatic purposes.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The name of the job definition to describe.
+  { -- | The name of the job definition to describe.
     jobDefinitionName :: Prelude.Maybe Prelude.Text,
-    -- | The status used to filter job definitions.
-    status :: Prelude.Maybe Prelude.Text,
     -- | A list of up to 100 job definitions. Each entry in the list can either
     -- be an ARN in the format
     -- @arn:aws:batch:${Region}:${Account}:job-definition\/${JobDefinitionName}:${Revision}@
@@ -85,7 +74,18 @@ data DescribeJobDefinitions = DescribeJobDefinitions'
     -- returned @nextToken@ value. This value can be between 1 and 100. If this
     -- parameter isn\'t used, then @DescribeJobDefinitions@ returns up to 100
     -- results and a @nextToken@ value if applicable.
-    maxResults :: Prelude.Maybe Prelude.Int
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The @nextToken@ value returned from a previous paginated
+    -- @DescribeJobDefinitions@ request where @maxResults@ was used and the
+    -- results exceeded the value of that parameter. Pagination continues from
+    -- the end of the previous results that returned the @nextToken@ value.
+    -- This value is @null@ when there are no more results to return.
+    --
+    -- Treat this token as an opaque identifier that\'s only used to retrieve
+    -- the next items in a list and not for other programmatic purposes.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The status used to filter job definitions.
+    status :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -97,18 +97,7 @@ data DescribeJobDefinitions = DescribeJobDefinitions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeJobDefinitions_nextToken' - The @nextToken@ value returned from a previous paginated
--- @DescribeJobDefinitions@ request where @maxResults@ was used and the
--- results exceeded the value of that parameter. Pagination continues from
--- the end of the previous results that returned the @nextToken@ value.
--- This value is @null@ when there are no more results to return.
---
--- Treat this token as an opaque identifier that\'s only used to retrieve
--- the next items in a list and not for other programmatic purposes.
---
 -- 'jobDefinitionName', 'describeJobDefinitions_jobDefinitionName' - The name of the job definition to describe.
---
--- 'status', 'describeJobDefinitions_status' - The status used to filter job definitions.
 --
 -- 'jobDefinitions', 'describeJobDefinitions_jobDefinitions' - A list of up to 100 job definitions. Each entry in the list can either
 -- be an ARN in the format
@@ -123,19 +112,8 @@ data DescribeJobDefinitions = DescribeJobDefinitions'
 -- returned @nextToken@ value. This value can be between 1 and 100. If this
 -- parameter isn\'t used, then @DescribeJobDefinitions@ returns up to 100
 -- results and a @nextToken@ value if applicable.
-newDescribeJobDefinitions ::
-  DescribeJobDefinitions
-newDescribeJobDefinitions =
-  DescribeJobDefinitions'
-    { nextToken =
-        Prelude.Nothing,
-      jobDefinitionName = Prelude.Nothing,
-      status = Prelude.Nothing,
-      jobDefinitions = Prelude.Nothing,
-      maxResults = Prelude.Nothing
-    }
-
--- | The @nextToken@ value returned from a previous paginated
+--
+-- 'nextToken', 'describeJobDefinitions_nextToken' - The @nextToken@ value returned from a previous paginated
 -- @DescribeJobDefinitions@ request where @maxResults@ was used and the
 -- results exceeded the value of that parameter. Pagination continues from
 -- the end of the previous results that returned the @nextToken@ value.
@@ -143,16 +121,23 @@ newDescribeJobDefinitions =
 --
 -- Treat this token as an opaque identifier that\'s only used to retrieve
 -- the next items in a list and not for other programmatic purposes.
-describeJobDefinitions_nextToken :: Lens.Lens' DescribeJobDefinitions (Prelude.Maybe Prelude.Text)
-describeJobDefinitions_nextToken = Lens.lens (\DescribeJobDefinitions' {nextToken} -> nextToken) (\s@DescribeJobDefinitions' {} a -> s {nextToken = a} :: DescribeJobDefinitions)
+--
+-- 'status', 'describeJobDefinitions_status' - The status used to filter job definitions.
+newDescribeJobDefinitions ::
+  DescribeJobDefinitions
+newDescribeJobDefinitions =
+  DescribeJobDefinitions'
+    { jobDefinitionName =
+        Prelude.Nothing,
+      jobDefinitions = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      status = Prelude.Nothing
+    }
 
 -- | The name of the job definition to describe.
 describeJobDefinitions_jobDefinitionName :: Lens.Lens' DescribeJobDefinitions (Prelude.Maybe Prelude.Text)
 describeJobDefinitions_jobDefinitionName = Lens.lens (\DescribeJobDefinitions' {jobDefinitionName} -> jobDefinitionName) (\s@DescribeJobDefinitions' {} a -> s {jobDefinitionName = a} :: DescribeJobDefinitions)
-
--- | The status used to filter job definitions.
-describeJobDefinitions_status :: Lens.Lens' DescribeJobDefinitions (Prelude.Maybe Prelude.Text)
-describeJobDefinitions_status = Lens.lens (\DescribeJobDefinitions' {status} -> status) (\s@DescribeJobDefinitions' {} a -> s {status = a} :: DescribeJobDefinitions)
 
 -- | A list of up to 100 job definitions. Each entry in the list can either
 -- be an ARN in the format
@@ -171,6 +156,21 @@ describeJobDefinitions_jobDefinitions = Lens.lens (\DescribeJobDefinitions' {job
 -- results and a @nextToken@ value if applicable.
 describeJobDefinitions_maxResults :: Lens.Lens' DescribeJobDefinitions (Prelude.Maybe Prelude.Int)
 describeJobDefinitions_maxResults = Lens.lens (\DescribeJobDefinitions' {maxResults} -> maxResults) (\s@DescribeJobDefinitions' {} a -> s {maxResults = a} :: DescribeJobDefinitions)
+
+-- | The @nextToken@ value returned from a previous paginated
+-- @DescribeJobDefinitions@ request where @maxResults@ was used and the
+-- results exceeded the value of that parameter. Pagination continues from
+-- the end of the previous results that returned the @nextToken@ value.
+-- This value is @null@ when there are no more results to return.
+--
+-- Treat this token as an opaque identifier that\'s only used to retrieve
+-- the next items in a list and not for other programmatic purposes.
+describeJobDefinitions_nextToken :: Lens.Lens' DescribeJobDefinitions (Prelude.Maybe Prelude.Text)
+describeJobDefinitions_nextToken = Lens.lens (\DescribeJobDefinitions' {nextToken} -> nextToken) (\s@DescribeJobDefinitions' {} a -> s {nextToken = a} :: DescribeJobDefinitions)
+
+-- | The status used to filter job definitions.
+describeJobDefinitions_status :: Lens.Lens' DescribeJobDefinitions (Prelude.Maybe Prelude.Text)
+describeJobDefinitions_status = Lens.lens (\DescribeJobDefinitions' {status} -> status) (\s@DescribeJobDefinitions' {} a -> s {status = a} :: DescribeJobDefinitions)
 
 instance Core.AWSPager DescribeJobDefinitions where
   page rq rs
@@ -204,26 +204,26 @@ instance Core.AWSRequest DescribeJobDefinitions where
     Response.receiveJSON
       ( \s h x ->
           DescribeJobDefinitionsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "jobDefinitions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "jobDefinitions" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeJobDefinitions where
   hashWithSalt _salt DescribeJobDefinitions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` jobDefinitionName
-      `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` jobDefinitionName
       `Prelude.hashWithSalt` jobDefinitions
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData DescribeJobDefinitions where
   rnf DescribeJobDefinitions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf jobDefinitionName
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf jobDefinitionName
       `Prelude.seq` Prelude.rnf jobDefinitions
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf status
 
 instance Data.ToHeaders DescribeJobDefinitions where
   toHeaders =
@@ -240,13 +240,13 @@ instance Data.ToJSON DescribeJobDefinitions where
   toJSON DescribeJobDefinitions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("jobDefinitionName" Data..=)
+          [ ("jobDefinitionName" Data..=)
               Prelude.<$> jobDefinitionName,
-            ("status" Data..=) Prelude.<$> status,
             ("jobDefinitions" Data..=)
               Prelude.<$> jobDefinitions,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("status" Data..=) Prelude.<$> status
           ]
       )
 
@@ -258,13 +258,13 @@ instance Data.ToQuery DescribeJobDefinitions where
 
 -- | /See:/ 'newDescribeJobDefinitionsResponse' smart constructor.
 data DescribeJobDefinitionsResponse = DescribeJobDefinitionsResponse'
-  { -- | The @nextToken@ value to include in a future @DescribeJobDefinitions@
+  { -- | The list of job definitions.
+    jobDefinitions :: Prelude.Maybe [JobDefinition],
+    -- | The @nextToken@ value to include in a future @DescribeJobDefinitions@
     -- request. When the results of a @DescribeJobDefinitions@ request exceed
     -- @maxResults@, this value can be used to retrieve the next page of
     -- results. This value is @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of job definitions.
-    jobDefinitions :: Prelude.Maybe [JobDefinition],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -278,12 +278,12 @@ data DescribeJobDefinitionsResponse = DescribeJobDefinitionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'jobDefinitions', 'describeJobDefinitionsResponse_jobDefinitions' - The list of job definitions.
+--
 -- 'nextToken', 'describeJobDefinitionsResponse_nextToken' - The @nextToken@ value to include in a future @DescribeJobDefinitions@
 -- request. When the results of a @DescribeJobDefinitions@ request exceed
 -- @maxResults@, this value can be used to retrieve the next page of
 -- results. This value is @null@ when there are no more results to return.
---
--- 'jobDefinitions', 'describeJobDefinitionsResponse_jobDefinitions' - The list of job definitions.
 --
 -- 'httpStatus', 'describeJobDefinitionsResponse_httpStatus' - The response's http status code.
 newDescribeJobDefinitionsResponse ::
@@ -292,11 +292,15 @@ newDescribeJobDefinitionsResponse ::
   DescribeJobDefinitionsResponse
 newDescribeJobDefinitionsResponse pHttpStatus_ =
   DescribeJobDefinitionsResponse'
-    { nextToken =
+    { jobDefinitions =
         Prelude.Nothing,
-      jobDefinitions = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of job definitions.
+describeJobDefinitionsResponse_jobDefinitions :: Lens.Lens' DescribeJobDefinitionsResponse (Prelude.Maybe [JobDefinition])
+describeJobDefinitionsResponse_jobDefinitions = Lens.lens (\DescribeJobDefinitionsResponse' {jobDefinitions} -> jobDefinitions) (\s@DescribeJobDefinitionsResponse' {} a -> s {jobDefinitions = a} :: DescribeJobDefinitionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The @nextToken@ value to include in a future @DescribeJobDefinitions@
 -- request. When the results of a @DescribeJobDefinitions@ request exceed
@@ -304,10 +308,6 @@ newDescribeJobDefinitionsResponse pHttpStatus_ =
 -- results. This value is @null@ when there are no more results to return.
 describeJobDefinitionsResponse_nextToken :: Lens.Lens' DescribeJobDefinitionsResponse (Prelude.Maybe Prelude.Text)
 describeJobDefinitionsResponse_nextToken = Lens.lens (\DescribeJobDefinitionsResponse' {nextToken} -> nextToken) (\s@DescribeJobDefinitionsResponse' {} a -> s {nextToken = a} :: DescribeJobDefinitionsResponse)
-
--- | The list of job definitions.
-describeJobDefinitionsResponse_jobDefinitions :: Lens.Lens' DescribeJobDefinitionsResponse (Prelude.Maybe [JobDefinition])
-describeJobDefinitionsResponse_jobDefinitions = Lens.lens (\DescribeJobDefinitionsResponse' {jobDefinitions} -> jobDefinitions) (\s@DescribeJobDefinitionsResponse' {} a -> s {jobDefinitions = a} :: DescribeJobDefinitionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeJobDefinitionsResponse_httpStatus :: Lens.Lens' DescribeJobDefinitionsResponse Prelude.Int
@@ -318,6 +318,6 @@ instance
     DescribeJobDefinitionsResponse
   where
   rnf DescribeJobDefinitionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf jobDefinitions
+    Prelude.rnf jobDefinitions
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

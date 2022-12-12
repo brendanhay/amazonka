@@ -48,7 +48,7 @@ data InputDataConfig = InputDataConfig'
     s3Uri :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of an IAM role that has permissions to
     -- access the Amazon S3 bucket that contains your input files. If the role
-    -- you specify doesn’t have the appropriate permissions to access the
+    -- that you specify doesn’t have the appropriate permissions to access the
     -- specified Amazon S3 location, your request fails.
     --
     -- IAM role ARNs have the format
@@ -83,7 +83,7 @@ data InputDataConfig = InputDataConfig'
 --
 -- 'dataAccessRoleArn', 'inputDataConfig_dataAccessRoleArn' - The Amazon Resource Name (ARN) of an IAM role that has permissions to
 -- access the Amazon S3 bucket that contains your input files. If the role
--- you specify doesn’t have the appropriate permissions to access the
+-- that you specify doesn’t have the appropriate permissions to access the
 -- specified Amazon S3 location, your request fails.
 --
 -- IAM role ARNs have the format
@@ -123,7 +123,7 @@ inputDataConfig_s3Uri = Lens.lens (\InputDataConfig' {s3Uri} -> s3Uri) (\s@Input
 
 -- | The Amazon Resource Name (ARN) of an IAM role that has permissions to
 -- access the Amazon S3 bucket that contains your input files. If the role
--- you specify doesn’t have the appropriate permissions to access the
+-- that you specify doesn’t have the appropriate permissions to access the
 -- specified Amazon S3 location, your request fails.
 --
 -- IAM role ARNs have the format

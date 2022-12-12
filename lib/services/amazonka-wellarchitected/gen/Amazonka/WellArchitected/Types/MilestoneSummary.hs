@@ -29,10 +29,10 @@ import Amazonka.WellArchitected.Types.WorkloadSummary
 --
 -- /See:/ 'newMilestoneSummary' smart constructor.
 data MilestoneSummary = MilestoneSummary'
-  { recordedAt :: Prelude.Maybe Data.POSIX,
-    milestoneName :: Prelude.Maybe Prelude.Text,
-    workloadSummary :: Prelude.Maybe WorkloadSummary,
-    milestoneNumber :: Prelude.Maybe Prelude.Natural
+  { milestoneName :: Prelude.Maybe Prelude.Text,
+    milestoneNumber :: Prelude.Maybe Prelude.Natural,
+    recordedAt :: Prelude.Maybe Data.POSIX,
+    workloadSummary :: Prelude.Maybe WorkloadSummary
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,38 +44,38 @@ data MilestoneSummary = MilestoneSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'recordedAt', 'milestoneSummary_recordedAt' - Undocumented member.
---
 -- 'milestoneName', 'milestoneSummary_milestoneName' - Undocumented member.
 --
--- 'workloadSummary', 'milestoneSummary_workloadSummary' - Undocumented member.
---
 -- 'milestoneNumber', 'milestoneSummary_milestoneNumber' - Undocumented member.
+--
+-- 'recordedAt', 'milestoneSummary_recordedAt' - Undocumented member.
+--
+-- 'workloadSummary', 'milestoneSummary_workloadSummary' - Undocumented member.
 newMilestoneSummary ::
   MilestoneSummary
 newMilestoneSummary =
   MilestoneSummary'
-    { recordedAt = Prelude.Nothing,
-      milestoneName = Prelude.Nothing,
-      workloadSummary = Prelude.Nothing,
-      milestoneNumber = Prelude.Nothing
+    { milestoneName = Prelude.Nothing,
+      milestoneNumber = Prelude.Nothing,
+      recordedAt = Prelude.Nothing,
+      workloadSummary = Prelude.Nothing
     }
-
--- | Undocumented member.
-milestoneSummary_recordedAt :: Lens.Lens' MilestoneSummary (Prelude.Maybe Prelude.UTCTime)
-milestoneSummary_recordedAt = Lens.lens (\MilestoneSummary' {recordedAt} -> recordedAt) (\s@MilestoneSummary' {} a -> s {recordedAt = a} :: MilestoneSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 milestoneSummary_milestoneName :: Lens.Lens' MilestoneSummary (Prelude.Maybe Prelude.Text)
 milestoneSummary_milestoneName = Lens.lens (\MilestoneSummary' {milestoneName} -> milestoneName) (\s@MilestoneSummary' {} a -> s {milestoneName = a} :: MilestoneSummary)
 
 -- | Undocumented member.
-milestoneSummary_workloadSummary :: Lens.Lens' MilestoneSummary (Prelude.Maybe WorkloadSummary)
-milestoneSummary_workloadSummary = Lens.lens (\MilestoneSummary' {workloadSummary} -> workloadSummary) (\s@MilestoneSummary' {} a -> s {workloadSummary = a} :: MilestoneSummary)
-
--- | Undocumented member.
 milestoneSummary_milestoneNumber :: Lens.Lens' MilestoneSummary (Prelude.Maybe Prelude.Natural)
 milestoneSummary_milestoneNumber = Lens.lens (\MilestoneSummary' {milestoneNumber} -> milestoneNumber) (\s@MilestoneSummary' {} a -> s {milestoneNumber = a} :: MilestoneSummary)
+
+-- | Undocumented member.
+milestoneSummary_recordedAt :: Lens.Lens' MilestoneSummary (Prelude.Maybe Prelude.UTCTime)
+milestoneSummary_recordedAt = Lens.lens (\MilestoneSummary' {recordedAt} -> recordedAt) (\s@MilestoneSummary' {} a -> s {recordedAt = a} :: MilestoneSummary) Prelude.. Lens.mapping Data._Time
+
+-- | Undocumented member.
+milestoneSummary_workloadSummary :: Lens.Lens' MilestoneSummary (Prelude.Maybe WorkloadSummary)
+milestoneSummary_workloadSummary = Lens.lens (\MilestoneSummary' {workloadSummary} -> workloadSummary) (\s@MilestoneSummary' {} a -> s {workloadSummary = a} :: MilestoneSummary)
 
 instance Data.FromJSON MilestoneSummary where
   parseJSON =
@@ -83,22 +83,22 @@ instance Data.FromJSON MilestoneSummary where
       "MilestoneSummary"
       ( \x ->
           MilestoneSummary'
-            Prelude.<$> (x Data..:? "RecordedAt")
-            Prelude.<*> (x Data..:? "MilestoneName")
-            Prelude.<*> (x Data..:? "WorkloadSummary")
+            Prelude.<$> (x Data..:? "MilestoneName")
             Prelude.<*> (x Data..:? "MilestoneNumber")
+            Prelude.<*> (x Data..:? "RecordedAt")
+            Prelude.<*> (x Data..:? "WorkloadSummary")
       )
 
 instance Prelude.Hashable MilestoneSummary where
   hashWithSalt _salt MilestoneSummary' {..} =
-    _salt `Prelude.hashWithSalt` recordedAt
-      `Prelude.hashWithSalt` milestoneName
-      `Prelude.hashWithSalt` workloadSummary
+    _salt `Prelude.hashWithSalt` milestoneName
       `Prelude.hashWithSalt` milestoneNumber
+      `Prelude.hashWithSalt` recordedAt
+      `Prelude.hashWithSalt` workloadSummary
 
 instance Prelude.NFData MilestoneSummary where
   rnf MilestoneSummary' {..} =
-    Prelude.rnf recordedAt
-      `Prelude.seq` Prelude.rnf milestoneName
-      `Prelude.seq` Prelude.rnf workloadSummary
+    Prelude.rnf milestoneName
       `Prelude.seq` Prelude.rnf milestoneNumber
+      `Prelude.seq` Prelude.rnf recordedAt
+      `Prelude.seq` Prelude.rnf workloadSummary

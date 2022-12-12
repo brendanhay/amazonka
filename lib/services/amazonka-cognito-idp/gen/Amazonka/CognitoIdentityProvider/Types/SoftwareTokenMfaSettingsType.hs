@@ -33,13 +33,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSoftwareTokenMfaSettingsType' smart constructor.
 data SoftwareTokenMfaSettingsType = SoftwareTokenMfaSettingsType'
-  { -- | Specifies whether software token MFA is the preferred MFA method.
-    preferredMfa :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies whether software token MFA is activated. If an MFA type is
+  { -- | Specifies whether software token MFA is activated. If an MFA type is
     -- activated for a user, the user will be prompted for MFA during all
     -- sign-in attempts, unless device tracking is turned on and the device has
     -- been trusted.
-    enabled :: Prelude.Maybe Prelude.Bool
+    enabled :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies whether software token MFA is the preferred MFA method.
+    preferredMfa :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,24 +51,20 @@ data SoftwareTokenMfaSettingsType = SoftwareTokenMfaSettingsType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'preferredMfa', 'softwareTokenMfaSettingsType_preferredMfa' - Specifies whether software token MFA is the preferred MFA method.
---
 -- 'enabled', 'softwareTokenMfaSettingsType_enabled' - Specifies whether software token MFA is activated. If an MFA type is
 -- activated for a user, the user will be prompted for MFA during all
 -- sign-in attempts, unless device tracking is turned on and the device has
 -- been trusted.
+--
+-- 'preferredMfa', 'softwareTokenMfaSettingsType_preferredMfa' - Specifies whether software token MFA is the preferred MFA method.
 newSoftwareTokenMfaSettingsType ::
   SoftwareTokenMfaSettingsType
 newSoftwareTokenMfaSettingsType =
   SoftwareTokenMfaSettingsType'
-    { preferredMfa =
+    { enabled =
         Prelude.Nothing,
-      enabled = Prelude.Nothing
+      preferredMfa = Prelude.Nothing
     }
-
--- | Specifies whether software token MFA is the preferred MFA method.
-softwareTokenMfaSettingsType_preferredMfa :: Lens.Lens' SoftwareTokenMfaSettingsType (Prelude.Maybe Prelude.Bool)
-softwareTokenMfaSettingsType_preferredMfa = Lens.lens (\SoftwareTokenMfaSettingsType' {preferredMfa} -> preferredMfa) (\s@SoftwareTokenMfaSettingsType' {} a -> s {preferredMfa = a} :: SoftwareTokenMfaSettingsType)
 
 -- | Specifies whether software token MFA is activated. If an MFA type is
 -- activated for a user, the user will be prompted for MFA during all
@@ -77,24 +73,28 @@ softwareTokenMfaSettingsType_preferredMfa = Lens.lens (\SoftwareTokenMfaSettings
 softwareTokenMfaSettingsType_enabled :: Lens.Lens' SoftwareTokenMfaSettingsType (Prelude.Maybe Prelude.Bool)
 softwareTokenMfaSettingsType_enabled = Lens.lens (\SoftwareTokenMfaSettingsType' {enabled} -> enabled) (\s@SoftwareTokenMfaSettingsType' {} a -> s {enabled = a} :: SoftwareTokenMfaSettingsType)
 
+-- | Specifies whether software token MFA is the preferred MFA method.
+softwareTokenMfaSettingsType_preferredMfa :: Lens.Lens' SoftwareTokenMfaSettingsType (Prelude.Maybe Prelude.Bool)
+softwareTokenMfaSettingsType_preferredMfa = Lens.lens (\SoftwareTokenMfaSettingsType' {preferredMfa} -> preferredMfa) (\s@SoftwareTokenMfaSettingsType' {} a -> s {preferredMfa = a} :: SoftwareTokenMfaSettingsType)
+
 instance
   Prelude.Hashable
     SoftwareTokenMfaSettingsType
   where
   hashWithSalt _salt SoftwareTokenMfaSettingsType' {..} =
-    _salt `Prelude.hashWithSalt` preferredMfa
-      `Prelude.hashWithSalt` enabled
+    _salt `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` preferredMfa
 
 instance Prelude.NFData SoftwareTokenMfaSettingsType where
   rnf SoftwareTokenMfaSettingsType' {..} =
-    Prelude.rnf preferredMfa
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf preferredMfa
 
 instance Data.ToJSON SoftwareTokenMfaSettingsType where
   toJSON SoftwareTokenMfaSettingsType' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("PreferredMfa" Data..=) Prelude.<$> preferredMfa,
-            ("Enabled" Data..=) Prelude.<$> enabled
+          [ ("Enabled" Data..=) Prelude.<$> enabled,
+            ("PreferredMfa" Data..=) Prelude.<$> preferredMfa
           ]
       )

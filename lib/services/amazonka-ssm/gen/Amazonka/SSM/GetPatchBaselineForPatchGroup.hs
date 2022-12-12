@@ -36,8 +36,8 @@ module Amazonka.SSM.GetPatchBaselineForPatchGroup
     newGetPatchBaselineForPatchGroupResponse,
 
     -- * Response Lenses
-    getPatchBaselineForPatchGroupResponse_operatingSystem,
     getPatchBaselineForPatchGroupResponse_baselineId,
+    getPatchBaselineForPatchGroupResponse_operatingSystem,
     getPatchBaselineForPatchGroupResponse_patchGroup,
     getPatchBaselineForPatchGroupResponse_httpStatus,
   )
@@ -106,8 +106,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetPatchBaselineForPatchGroupResponse'
-            Prelude.<$> (x Data..?> "OperatingSystem")
-            Prelude.<*> (x Data..?> "BaselineId")
+            Prelude.<$> (x Data..?> "BaselineId")
+            Prelude.<*> (x Data..?> "OperatingSystem")
             Prelude.<*> (x Data..?> "PatchGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -158,11 +158,11 @@ instance Data.ToQuery GetPatchBaselineForPatchGroup where
 
 -- | /See:/ 'newGetPatchBaselineForPatchGroupResponse' smart constructor.
 data GetPatchBaselineForPatchGroupResponse = GetPatchBaselineForPatchGroupResponse'
-  { -- | The operating system rule specified for patch groups using the patch
+  { -- | The ID of the patch baseline that should be used for the patch group.
+    baselineId :: Prelude.Maybe Prelude.Text,
+    -- | The operating system rule specified for patch groups using the patch
     -- baseline.
     operatingSystem :: Prelude.Maybe OperatingSystem,
-    -- | The ID of the patch baseline that should be used for the patch group.
-    baselineId :: Prelude.Maybe Prelude.Text,
     -- | The name of the patch group.
     patchGroup :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -178,10 +178,10 @@ data GetPatchBaselineForPatchGroupResponse = GetPatchBaselineForPatchGroupRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'baselineId', 'getPatchBaselineForPatchGroupResponse_baselineId' - The ID of the patch baseline that should be used for the patch group.
+--
 -- 'operatingSystem', 'getPatchBaselineForPatchGroupResponse_operatingSystem' - The operating system rule specified for patch groups using the patch
 -- baseline.
---
--- 'baselineId', 'getPatchBaselineForPatchGroupResponse_baselineId' - The ID of the patch baseline that should be used for the patch group.
 --
 -- 'patchGroup', 'getPatchBaselineForPatchGroupResponse_patchGroup' - The name of the patch group.
 --
@@ -192,21 +192,21 @@ newGetPatchBaselineForPatchGroupResponse ::
   GetPatchBaselineForPatchGroupResponse
 newGetPatchBaselineForPatchGroupResponse pHttpStatus_ =
   GetPatchBaselineForPatchGroupResponse'
-    { operatingSystem =
+    { baselineId =
         Prelude.Nothing,
-      baselineId = Prelude.Nothing,
+      operatingSystem = Prelude.Nothing,
       patchGroup = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The ID of the patch baseline that should be used for the patch group.
+getPatchBaselineForPatchGroupResponse_baselineId :: Lens.Lens' GetPatchBaselineForPatchGroupResponse (Prelude.Maybe Prelude.Text)
+getPatchBaselineForPatchGroupResponse_baselineId = Lens.lens (\GetPatchBaselineForPatchGroupResponse' {baselineId} -> baselineId) (\s@GetPatchBaselineForPatchGroupResponse' {} a -> s {baselineId = a} :: GetPatchBaselineForPatchGroupResponse)
 
 -- | The operating system rule specified for patch groups using the patch
 -- baseline.
 getPatchBaselineForPatchGroupResponse_operatingSystem :: Lens.Lens' GetPatchBaselineForPatchGroupResponse (Prelude.Maybe OperatingSystem)
 getPatchBaselineForPatchGroupResponse_operatingSystem = Lens.lens (\GetPatchBaselineForPatchGroupResponse' {operatingSystem} -> operatingSystem) (\s@GetPatchBaselineForPatchGroupResponse' {} a -> s {operatingSystem = a} :: GetPatchBaselineForPatchGroupResponse)
-
--- | The ID of the patch baseline that should be used for the patch group.
-getPatchBaselineForPatchGroupResponse_baselineId :: Lens.Lens' GetPatchBaselineForPatchGroupResponse (Prelude.Maybe Prelude.Text)
-getPatchBaselineForPatchGroupResponse_baselineId = Lens.lens (\GetPatchBaselineForPatchGroupResponse' {baselineId} -> baselineId) (\s@GetPatchBaselineForPatchGroupResponse' {} a -> s {baselineId = a} :: GetPatchBaselineForPatchGroupResponse)
 
 -- | The name of the patch group.
 getPatchBaselineForPatchGroupResponse_patchGroup :: Lens.Lens' GetPatchBaselineForPatchGroupResponse (Prelude.Maybe Prelude.Text)
@@ -221,7 +221,7 @@ instance
     GetPatchBaselineForPatchGroupResponse
   where
   rnf GetPatchBaselineForPatchGroupResponse' {..} =
-    Prelude.rnf operatingSystem
-      `Prelude.seq` Prelude.rnf baselineId
+    Prelude.rnf baselineId
+      `Prelude.seq` Prelude.rnf operatingSystem
       `Prelude.seq` Prelude.rnf patchGroup
       `Prelude.seq` Prelude.rnf httpStatus

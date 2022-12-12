@@ -29,8 +29,8 @@ module Amazonka.Connect.ListUseCases
     newListUseCases,
 
     -- * Request Lenses
-    listUseCases_nextToken,
     listUseCases_maxResults,
+    listUseCases_nextToken,
     listUseCases_instanceId,
     listUseCases_integrationAssociationId,
 
@@ -58,12 +58,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListUseCases' smart constructor.
 data ListUseCases = ListUseCases'
-  { -- | The token for the next set of results. Use the value returned in the
+  { -- | The maximum number of results to return per page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
@@ -80,11 +80,11 @@ data ListUseCases = ListUseCases'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listUseCases_maxResults' - The maximum number of results to return per page.
+--
 -- 'nextToken', 'listUseCases_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
---
--- 'maxResults', 'listUseCases_maxResults' - The maximum number of results to return per page.
 --
 -- 'instanceId', 'listUseCases_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -100,22 +100,22 @@ newListUseCases
   pInstanceId_
   pIntegrationAssociationId_ =
     ListUseCases'
-      { nextToken = Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+      { maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         instanceId = pInstanceId_,
         integrationAssociationId =
           pIntegrationAssociationId_
       }
+
+-- | The maximum number of results to return per page.
+listUseCases_maxResults :: Lens.Lens' ListUseCases (Prelude.Maybe Prelude.Natural)
+listUseCases_maxResults = Lens.lens (\ListUseCases' {maxResults} -> maxResults) (\s@ListUseCases' {} a -> s {maxResults = a} :: ListUseCases)
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
 listUseCases_nextToken :: Lens.Lens' ListUseCases (Prelude.Maybe Prelude.Text)
 listUseCases_nextToken = Lens.lens (\ListUseCases' {nextToken} -> nextToken) (\s@ListUseCases' {} a -> s {nextToken = a} :: ListUseCases)
-
--- | The maximum number of results to return per page.
-listUseCases_maxResults :: Lens.Lens' ListUseCases (Prelude.Maybe Prelude.Natural)
-listUseCases_maxResults = Lens.lens (\ListUseCases' {maxResults} -> maxResults) (\s@ListUseCases' {} a -> s {maxResults = a} :: ListUseCases)
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -163,15 +163,15 @@ instance Core.AWSRequest ListUseCases where
 
 instance Prelude.Hashable ListUseCases where
   hashWithSalt _salt ListUseCases' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` integrationAssociationId
 
 instance Prelude.NFData ListUseCases where
   rnf ListUseCases' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf integrationAssociationId
 
@@ -199,8 +199,8 @@ instance Data.ToPath ListUseCases where
 instance Data.ToQuery ListUseCases where
   toQuery ListUseCases' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListUseCasesResponse' smart constructor.

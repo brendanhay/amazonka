@@ -31,9 +31,9 @@ data DecimalParameter = DecimalParameter'
   { -- | A display name for the decimal parameter.
     name :: Prelude.Text,
     -- | The values for the decimal parameter.
-    values :: [Prelude.Double]
+    values :: [Data.Sensitive Prelude.Double]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DecimalParameter' with all optional fields omitted.

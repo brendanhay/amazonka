@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCloudWatchEncryption' smart constructor.
 data CloudWatchEncryption = CloudWatchEncryption'
-  { -- | The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the
+  { -- | The encryption mode to use for CloudWatch data.
+    cloudWatchEncryptionMode :: Prelude.Maybe CloudWatchEncryptionMode,
+    -- | The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the
     -- data.
-    kmsKeyArn :: Prelude.Maybe Prelude.Text,
-    -- | The encryption mode to use for CloudWatch data.
-    cloudWatchEncryptionMode :: Prelude.Maybe CloudWatchEncryptionMode
+    kmsKeyArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,26 +45,27 @@ data CloudWatchEncryption = CloudWatchEncryption'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'cloudWatchEncryptionMode', 'cloudWatchEncryption_cloudWatchEncryptionMode' - The encryption mode to use for CloudWatch data.
+--
 -- 'kmsKeyArn', 'cloudWatchEncryption_kmsKeyArn' - The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the
 -- data.
---
--- 'cloudWatchEncryptionMode', 'cloudWatchEncryption_cloudWatchEncryptionMode' - The encryption mode to use for CloudWatch data.
 newCloudWatchEncryption ::
   CloudWatchEncryption
 newCloudWatchEncryption =
   CloudWatchEncryption'
-    { kmsKeyArn = Prelude.Nothing,
-      cloudWatchEncryptionMode = Prelude.Nothing
+    { cloudWatchEncryptionMode =
+        Prelude.Nothing,
+      kmsKeyArn = Prelude.Nothing
     }
+
+-- | The encryption mode to use for CloudWatch data.
+cloudWatchEncryption_cloudWatchEncryptionMode :: Lens.Lens' CloudWatchEncryption (Prelude.Maybe CloudWatchEncryptionMode)
+cloudWatchEncryption_cloudWatchEncryptionMode = Lens.lens (\CloudWatchEncryption' {cloudWatchEncryptionMode} -> cloudWatchEncryptionMode) (\s@CloudWatchEncryption' {} a -> s {cloudWatchEncryptionMode = a} :: CloudWatchEncryption)
 
 -- | The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the
 -- data.
 cloudWatchEncryption_kmsKeyArn :: Lens.Lens' CloudWatchEncryption (Prelude.Maybe Prelude.Text)
 cloudWatchEncryption_kmsKeyArn = Lens.lens (\CloudWatchEncryption' {kmsKeyArn} -> kmsKeyArn) (\s@CloudWatchEncryption' {} a -> s {kmsKeyArn = a} :: CloudWatchEncryption)
-
--- | The encryption mode to use for CloudWatch data.
-cloudWatchEncryption_cloudWatchEncryptionMode :: Lens.Lens' CloudWatchEncryption (Prelude.Maybe CloudWatchEncryptionMode)
-cloudWatchEncryption_cloudWatchEncryptionMode = Lens.lens (\CloudWatchEncryption' {cloudWatchEncryptionMode} -> cloudWatchEncryptionMode) (\s@CloudWatchEncryption' {} a -> s {cloudWatchEncryptionMode = a} :: CloudWatchEncryption)
 
 instance Data.FromJSON CloudWatchEncryption where
   parseJSON =
@@ -72,26 +73,27 @@ instance Data.FromJSON CloudWatchEncryption where
       "CloudWatchEncryption"
       ( \x ->
           CloudWatchEncryption'
-            Prelude.<$> (x Data..:? "KmsKeyArn")
-            Prelude.<*> (x Data..:? "CloudWatchEncryptionMode")
+            Prelude.<$> (x Data..:? "CloudWatchEncryptionMode")
+            Prelude.<*> (x Data..:? "KmsKeyArn")
       )
 
 instance Prelude.Hashable CloudWatchEncryption where
   hashWithSalt _salt CloudWatchEncryption' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyArn
+    _salt
       `Prelude.hashWithSalt` cloudWatchEncryptionMode
+      `Prelude.hashWithSalt` kmsKeyArn
 
 instance Prelude.NFData CloudWatchEncryption where
   rnf CloudWatchEncryption' {..} =
-    Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf cloudWatchEncryptionMode
+    Prelude.rnf cloudWatchEncryptionMode
+      `Prelude.seq` Prelude.rnf kmsKeyArn
 
 instance Data.ToJSON CloudWatchEncryption where
   toJSON CloudWatchEncryption' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("KmsKeyArn" Data..=) Prelude.<$> kmsKeyArn,
-            ("CloudWatchEncryptionMode" Data..=)
-              Prelude.<$> cloudWatchEncryptionMode
+          [ ("CloudWatchEncryptionMode" Data..=)
+              Prelude.<$> cloudWatchEncryptionMode,
+            ("KmsKeyArn" Data..=) Prelude.<$> kmsKeyArn
           ]
       )

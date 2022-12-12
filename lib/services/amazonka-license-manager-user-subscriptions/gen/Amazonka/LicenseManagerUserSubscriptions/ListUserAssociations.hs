@@ -29,9 +29,9 @@ module Amazonka.LicenseManagerUserSubscriptions.ListUserAssociations
     newListUserAssociations,
 
     -- * Request Lenses
-    listUserAssociations_nextToken,
     listUserAssociations_filters,
     listUserAssociations_maxResults,
+    listUserAssociations_nextToken,
     listUserAssociations_identityProvider,
     listUserAssociations_instanceId,
 
@@ -40,8 +40,8 @@ module Amazonka.LicenseManagerUserSubscriptions.ListUserAssociations
     newListUserAssociationsResponse,
 
     -- * Response Lenses
-    listUserAssociationsResponse_nextToken,
     listUserAssociationsResponse_instanceUserSummaries,
+    listUserAssociationsResponse_nextToken,
     listUserAssociationsResponse_httpStatus,
   )
 where
@@ -56,13 +56,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListUserAssociations' smart constructor.
 data ListUserAssociations = ListUserAssociations'
-  { -- | Token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of structures that you can use to filter the results to those
+  { -- | An array of structures that you can use to filter the results to those
     -- that match one or more sets of key-value pairs that you specify.
     filters :: Prelude.Maybe [Filter],
     -- | Maximum number of results to return in a single call.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | Token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | An object that specifies details for the identity provider.
     identityProvider :: IdentityProvider,
     -- | The ID of the EC2 instance, which provides user-based subscriptions.
@@ -78,12 +78,12 @@ data ListUserAssociations = ListUserAssociations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listUserAssociations_nextToken' - Token for the next set of results.
---
 -- 'filters', 'listUserAssociations_filters' - An array of structures that you can use to filter the results to those
 -- that match one or more sets of key-value pairs that you specify.
 --
 -- 'maxResults', 'listUserAssociations_maxResults' - Maximum number of results to return in a single call.
+--
+-- 'nextToken', 'listUserAssociations_nextToken' - Token for the next set of results.
 --
 -- 'identityProvider', 'listUserAssociations_identityProvider' - An object that specifies details for the identity provider.
 --
@@ -98,16 +98,12 @@ newListUserAssociations
   pIdentityProvider_
   pInstanceId_ =
     ListUserAssociations'
-      { nextToken = Prelude.Nothing,
-        filters = Prelude.Nothing,
+      { filters = Prelude.Nothing,
         maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         identityProvider = pIdentityProvider_,
         instanceId = pInstanceId_
       }
-
--- | Token for the next set of results.
-listUserAssociations_nextToken :: Lens.Lens' ListUserAssociations (Prelude.Maybe Prelude.Text)
-listUserAssociations_nextToken = Lens.lens (\ListUserAssociations' {nextToken} -> nextToken) (\s@ListUserAssociations' {} a -> s {nextToken = a} :: ListUserAssociations)
 
 -- | An array of structures that you can use to filter the results to those
 -- that match one or more sets of key-value pairs that you specify.
@@ -117,6 +113,10 @@ listUserAssociations_filters = Lens.lens (\ListUserAssociations' {filters} -> fi
 -- | Maximum number of results to return in a single call.
 listUserAssociations_maxResults :: Lens.Lens' ListUserAssociations (Prelude.Maybe Prelude.Int)
 listUserAssociations_maxResults = Lens.lens (\ListUserAssociations' {maxResults} -> maxResults) (\s@ListUserAssociations' {} a -> s {maxResults = a} :: ListUserAssociations)
+
+-- | Token for the next set of results.
+listUserAssociations_nextToken :: Lens.Lens' ListUserAssociations (Prelude.Maybe Prelude.Text)
+listUserAssociations_nextToken = Lens.lens (\ListUserAssociations' {nextToken} -> nextToken) (\s@ListUserAssociations' {} a -> s {nextToken = a} :: ListUserAssociations)
 
 -- | An object that specifies details for the identity provider.
 listUserAssociations_identityProvider :: Lens.Lens' ListUserAssociations IdentityProvider
@@ -158,26 +158,26 @@ instance Core.AWSRequest ListUserAssociations where
     Response.receiveJSON
       ( \s h x ->
           ListUserAssociationsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "InstanceUserSummaries"
+            Prelude.<$> ( x Data..?> "InstanceUserSummaries"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListUserAssociations where
   hashWithSalt _salt ListUserAssociations' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` identityProvider
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData ListUserAssociations where
   rnf ListUserAssociations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf identityProvider
       `Prelude.seq` Prelude.rnf instanceId
 
@@ -196,9 +196,9 @@ instance Data.ToJSON ListUserAssociations where
   toJSON ListUserAssociations' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
+          [ ("Filters" Data..=) Prelude.<$> filters,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("IdentityProvider" Data..= identityProvider),
             Prelude.Just ("InstanceId" Data..= instanceId)
@@ -213,10 +213,10 @@ instance Data.ToQuery ListUserAssociations where
 
 -- | /See:/ 'newListUserAssociationsResponse' smart constructor.
 data ListUserAssociationsResponse = ListUserAssociationsResponse'
-  { -- | Token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Metadata that describes the list user association operation.
+  { -- | Metadata that describes the list user association operation.
     instanceUserSummaries :: Prelude.Maybe [InstanceUserSummary],
+    -- | Token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -230,9 +230,9 @@ data ListUserAssociationsResponse = ListUserAssociationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listUserAssociationsResponse_nextToken' - Token for the next set of results.
---
 -- 'instanceUserSummaries', 'listUserAssociationsResponse_instanceUserSummaries' - Metadata that describes the list user association operation.
+--
+-- 'nextToken', 'listUserAssociationsResponse_nextToken' - Token for the next set of results.
 --
 -- 'httpStatus', 'listUserAssociationsResponse_httpStatus' - The response's http status code.
 newListUserAssociationsResponse ::
@@ -241,19 +241,19 @@ newListUserAssociationsResponse ::
   ListUserAssociationsResponse
 newListUserAssociationsResponse pHttpStatus_ =
   ListUserAssociationsResponse'
-    { nextToken =
+    { instanceUserSummaries =
         Prelude.Nothing,
-      instanceUserSummaries = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Token for the next set of results.
-listUserAssociationsResponse_nextToken :: Lens.Lens' ListUserAssociationsResponse (Prelude.Maybe Prelude.Text)
-listUserAssociationsResponse_nextToken = Lens.lens (\ListUserAssociationsResponse' {nextToken} -> nextToken) (\s@ListUserAssociationsResponse' {} a -> s {nextToken = a} :: ListUserAssociationsResponse)
 
 -- | Metadata that describes the list user association operation.
 listUserAssociationsResponse_instanceUserSummaries :: Lens.Lens' ListUserAssociationsResponse (Prelude.Maybe [InstanceUserSummary])
 listUserAssociationsResponse_instanceUserSummaries = Lens.lens (\ListUserAssociationsResponse' {instanceUserSummaries} -> instanceUserSummaries) (\s@ListUserAssociationsResponse' {} a -> s {instanceUserSummaries = a} :: ListUserAssociationsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Token for the next set of results.
+listUserAssociationsResponse_nextToken :: Lens.Lens' ListUserAssociationsResponse (Prelude.Maybe Prelude.Text)
+listUserAssociationsResponse_nextToken = Lens.lens (\ListUserAssociationsResponse' {nextToken} -> nextToken) (\s@ListUserAssociationsResponse' {} a -> s {nextToken = a} :: ListUserAssociationsResponse)
 
 -- | The response's http status code.
 listUserAssociationsResponse_httpStatus :: Lens.Lens' ListUserAssociationsResponse Prelude.Int
@@ -261,6 +261,6 @@ listUserAssociationsResponse_httpStatus = Lens.lens (\ListUserAssociationsRespon
 
 instance Prelude.NFData ListUserAssociationsResponse where
   rnf ListUserAssociationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instanceUserSummaries
+    Prelude.rnf instanceUserSummaries
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

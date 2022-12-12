@@ -34,8 +34,8 @@ module Amazonka.Lambda.AddLayerVersionPermission
     newAddLayerVersionPermission,
 
     -- * Request Lenses
-    addLayerVersionPermission_revisionId,
     addLayerVersionPermission_organizationId,
+    addLayerVersionPermission_revisionId,
     addLayerVersionPermission_layerName,
     addLayerVersionPermission_versionNumber,
     addLayerVersionPermission_statementId,
@@ -63,13 +63,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAddLayerVersionPermission' smart constructor.
 data AddLayerVersionPermission = AddLayerVersionPermission'
-  { -- | Only update the policy if the revision ID matches the ID specified. Use
+  { -- | With the principal set to @*@, grant permission to all accounts in the
+    -- specified organization.
+    organizationId :: Prelude.Maybe Prelude.Text,
+    -- | Only update the policy if the revision ID matches the ID specified. Use
     -- this option to avoid modifying a policy that has changed since you last
     -- read it.
     revisionId :: Prelude.Maybe Prelude.Text,
-    -- | With the principal set to @*@, grant permission to all accounts in the
-    -- specified organization.
-    organizationId :: Prelude.Maybe Prelude.Text,
     -- | The name or Amazon Resource Name (ARN) of the layer.
     layerName :: Prelude.Text,
     -- | The version number.
@@ -97,12 +97,12 @@ data AddLayerVersionPermission = AddLayerVersionPermission'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'organizationId', 'addLayerVersionPermission_organizationId' - With the principal set to @*@, grant permission to all accounts in the
+-- specified organization.
+--
 -- 'revisionId', 'addLayerVersionPermission_revisionId' - Only update the policy if the revision ID matches the ID specified. Use
 -- this option to avoid modifying a policy that has changed since you last
 -- read it.
---
--- 'organizationId', 'addLayerVersionPermission_organizationId' - With the principal set to @*@, grant permission to all accounts in the
--- specified organization.
 --
 -- 'layerName', 'addLayerVersionPermission_layerName' - The name or Amazon Resource Name (ARN) of the layer.
 --
@@ -138,9 +138,9 @@ newAddLayerVersionPermission
   pAction_
   pPrincipal_ =
     AddLayerVersionPermission'
-      { revisionId =
+      { organizationId =
           Prelude.Nothing,
-        organizationId = Prelude.Nothing,
+        revisionId = Prelude.Nothing,
         layerName = pLayerName_,
         versionNumber = pVersionNumber_,
         statementId = pStatementId_,
@@ -148,16 +148,16 @@ newAddLayerVersionPermission
         principal = pPrincipal_
       }
 
+-- | With the principal set to @*@, grant permission to all accounts in the
+-- specified organization.
+addLayerVersionPermission_organizationId :: Lens.Lens' AddLayerVersionPermission (Prelude.Maybe Prelude.Text)
+addLayerVersionPermission_organizationId = Lens.lens (\AddLayerVersionPermission' {organizationId} -> organizationId) (\s@AddLayerVersionPermission' {} a -> s {organizationId = a} :: AddLayerVersionPermission)
+
 -- | Only update the policy if the revision ID matches the ID specified. Use
 -- this option to avoid modifying a policy that has changed since you last
 -- read it.
 addLayerVersionPermission_revisionId :: Lens.Lens' AddLayerVersionPermission (Prelude.Maybe Prelude.Text)
 addLayerVersionPermission_revisionId = Lens.lens (\AddLayerVersionPermission' {revisionId} -> revisionId) (\s@AddLayerVersionPermission' {} a -> s {revisionId = a} :: AddLayerVersionPermission)
-
--- | With the principal set to @*@, grant permission to all accounts in the
--- specified organization.
-addLayerVersionPermission_organizationId :: Lens.Lens' AddLayerVersionPermission (Prelude.Maybe Prelude.Text)
-addLayerVersionPermission_organizationId = Lens.lens (\AddLayerVersionPermission' {organizationId} -> organizationId) (\s@AddLayerVersionPermission' {} a -> s {organizationId = a} :: AddLayerVersionPermission)
 
 -- | The name or Amazon Resource Name (ARN) of the layer.
 addLayerVersionPermission_layerName :: Lens.Lens' AddLayerVersionPermission Prelude.Text
@@ -202,8 +202,8 @@ instance Core.AWSRequest AddLayerVersionPermission where
 
 instance Prelude.Hashable AddLayerVersionPermission where
   hashWithSalt _salt AddLayerVersionPermission' {..} =
-    _salt `Prelude.hashWithSalt` revisionId
-      `Prelude.hashWithSalt` organizationId
+    _salt `Prelude.hashWithSalt` organizationId
+      `Prelude.hashWithSalt` revisionId
       `Prelude.hashWithSalt` layerName
       `Prelude.hashWithSalt` versionNumber
       `Prelude.hashWithSalt` statementId
@@ -212,8 +212,8 @@ instance Prelude.Hashable AddLayerVersionPermission where
 
 instance Prelude.NFData AddLayerVersionPermission where
   rnf AddLayerVersionPermission' {..} =
-    Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf organizationId
+    Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf revisionId
       `Prelude.seq` Prelude.rnf layerName
       `Prelude.seq` Prelude.rnf versionNumber
       `Prelude.seq` Prelude.rnf statementId

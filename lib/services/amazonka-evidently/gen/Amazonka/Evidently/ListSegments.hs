@@ -30,8 +30,8 @@ module Amazonka.Evidently.ListSegments
     newListSegments,
 
     -- * Request Lenses
-    listSegments_nextToken,
     listSegments_maxResults,
+    listSegments_nextToken,
 
     -- * Destructuring the Response
     ListSegmentsResponse (..),
@@ -54,12 +54,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListSegments' smart constructor.
 data ListSegments = ListSegments'
-  { -- | The token to use when requesting the next set of results. You received
-    -- this token from a previous @ListSegments@ operation.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to include in the response. If you omit
+  { -- | The maximum number of results to include in the response. If you omit
     -- this, the default of 50 is used.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to use when requesting the next set of results. You received
+    -- this token from a previous @ListSegments@ operation.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,28 +71,28 @@ data ListSegments = ListSegments'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listSegments_nextToken' - The token to use when requesting the next set of results. You received
--- this token from a previous @ListSegments@ operation.
---
 -- 'maxResults', 'listSegments_maxResults' - The maximum number of results to include in the response. If you omit
 -- this, the default of 50 is used.
+--
+-- 'nextToken', 'listSegments_nextToken' - The token to use when requesting the next set of results. You received
+-- this token from a previous @ListSegments@ operation.
 newListSegments ::
   ListSegments
 newListSegments =
   ListSegments'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token to use when requesting the next set of results. You received
--- this token from a previous @ListSegments@ operation.
-listSegments_nextToken :: Lens.Lens' ListSegments (Prelude.Maybe Prelude.Text)
-listSegments_nextToken = Lens.lens (\ListSegments' {nextToken} -> nextToken) (\s@ListSegments' {} a -> s {nextToken = a} :: ListSegments)
 
 -- | The maximum number of results to include in the response. If you omit
 -- this, the default of 50 is used.
 listSegments_maxResults :: Lens.Lens' ListSegments (Prelude.Maybe Prelude.Natural)
 listSegments_maxResults = Lens.lens (\ListSegments' {maxResults} -> maxResults) (\s@ListSegments' {} a -> s {maxResults = a} :: ListSegments)
+
+-- | The token to use when requesting the next set of results. You received
+-- this token from a previous @ListSegments@ operation.
+listSegments_nextToken :: Lens.Lens' ListSegments (Prelude.Maybe Prelude.Text)
+listSegments_nextToken = Lens.lens (\ListSegments' {nextToken} -> nextToken) (\s@ListSegments' {} a -> s {nextToken = a} :: ListSegments)
 
 instance Core.AWSPager ListSegments where
   page rq rs
@@ -128,13 +128,13 @@ instance Core.AWSRequest ListSegments where
 
 instance Prelude.Hashable ListSegments where
   hashWithSalt _salt ListSegments' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListSegments where
   rnf ListSegments' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListSegments where
   toHeaders =
@@ -153,8 +153,8 @@ instance Data.ToPath ListSegments where
 instance Data.ToQuery ListSegments where
   toQuery ListSegments' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListSegmentsResponse' smart constructor.

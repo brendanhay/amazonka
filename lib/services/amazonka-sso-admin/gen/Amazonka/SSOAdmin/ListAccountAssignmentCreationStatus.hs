@@ -30,9 +30,9 @@ module Amazonka.SSOAdmin.ListAccountAssignmentCreationStatus
     newListAccountAssignmentCreationStatus,
 
     -- * Request Lenses
-    listAccountAssignmentCreationStatus_nextToken,
     listAccountAssignmentCreationStatus_filter,
     listAccountAssignmentCreationStatus_maxResults,
+    listAccountAssignmentCreationStatus_nextToken,
     listAccountAssignmentCreationStatus_instanceArn,
 
     -- * Destructuring the Response
@@ -40,8 +40,8 @@ module Amazonka.SSOAdmin.ListAccountAssignmentCreationStatus
     newListAccountAssignmentCreationStatusResponse,
 
     -- * Response Lenses
-    listAccountAssignmentCreationStatusResponse_nextToken,
     listAccountAssignmentCreationStatusResponse_accountAssignmentsCreationStatus,
+    listAccountAssignmentCreationStatusResponse_nextToken,
     listAccountAssignmentCreationStatusResponse_httpStatus,
   )
 where
@@ -56,13 +56,13 @@ import Amazonka.SSOAdmin.Types
 
 -- | /See:/ 'newListAccountAssignmentCreationStatus' smart constructor.
 data ListAccountAssignmentCreationStatus = ListAccountAssignmentCreationStatus'
-  { -- | The pagination token for the list API. Initially the value is null. Use
-    -- the output of previous API calls to make subsequent calls.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters results based on the passed attribute value.
+  { -- | Filters results based on the passed attribute value.
     filter' :: Prelude.Maybe OperationStatusFilter,
     -- | The maximum number of results to display for the assignment.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token for the list API. Initially the value is null. Use
+    -- the output of previous API calls to make subsequent calls.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the IAM Identity Center instance under which the operation
     -- will be executed. For more information about ARNs, see
     -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
@@ -79,12 +79,12 @@ data ListAccountAssignmentCreationStatus = ListAccountAssignmentCreationStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAccountAssignmentCreationStatus_nextToken' - The pagination token for the list API. Initially the value is null. Use
--- the output of previous API calls to make subsequent calls.
---
 -- 'filter'', 'listAccountAssignmentCreationStatus_filter' - Filters results based on the passed attribute value.
 --
 -- 'maxResults', 'listAccountAssignmentCreationStatus_maxResults' - The maximum number of results to display for the assignment.
+--
+-- 'nextToken', 'listAccountAssignmentCreationStatus_nextToken' - The pagination token for the list API. Initially the value is null. Use
+-- the output of previous API calls to make subsequent calls.
 --
 -- 'instanceArn', 'listAccountAssignmentCreationStatus_instanceArn' - The ARN of the IAM Identity Center instance under which the operation
 -- will be executed. For more information about ARNs, see
@@ -96,17 +96,12 @@ newListAccountAssignmentCreationStatus ::
   ListAccountAssignmentCreationStatus
 newListAccountAssignmentCreationStatus pInstanceArn_ =
   ListAccountAssignmentCreationStatus'
-    { nextToken =
+    { filter' =
         Prelude.Nothing,
-      filter' = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       instanceArn = pInstanceArn_
     }
-
--- | The pagination token for the list API. Initially the value is null. Use
--- the output of previous API calls to make subsequent calls.
-listAccountAssignmentCreationStatus_nextToken :: Lens.Lens' ListAccountAssignmentCreationStatus (Prelude.Maybe Prelude.Text)
-listAccountAssignmentCreationStatus_nextToken = Lens.lens (\ListAccountAssignmentCreationStatus' {nextToken} -> nextToken) (\s@ListAccountAssignmentCreationStatus' {} a -> s {nextToken = a} :: ListAccountAssignmentCreationStatus)
 
 -- | Filters results based on the passed attribute value.
 listAccountAssignmentCreationStatus_filter :: Lens.Lens' ListAccountAssignmentCreationStatus (Prelude.Maybe OperationStatusFilter)
@@ -115,6 +110,11 @@ listAccountAssignmentCreationStatus_filter = Lens.lens (\ListAccountAssignmentCr
 -- | The maximum number of results to display for the assignment.
 listAccountAssignmentCreationStatus_maxResults :: Lens.Lens' ListAccountAssignmentCreationStatus (Prelude.Maybe Prelude.Natural)
 listAccountAssignmentCreationStatus_maxResults = Lens.lens (\ListAccountAssignmentCreationStatus' {maxResults} -> maxResults) (\s@ListAccountAssignmentCreationStatus' {} a -> s {maxResults = a} :: ListAccountAssignmentCreationStatus)
+
+-- | The pagination token for the list API. Initially the value is null. Use
+-- the output of previous API calls to make subsequent calls.
+listAccountAssignmentCreationStatus_nextToken :: Lens.Lens' ListAccountAssignmentCreationStatus (Prelude.Maybe Prelude.Text)
+listAccountAssignmentCreationStatus_nextToken = Lens.lens (\ListAccountAssignmentCreationStatus' {nextToken} -> nextToken) (\s@ListAccountAssignmentCreationStatus' {} a -> s {nextToken = a} :: ListAccountAssignmentCreationStatus)
 
 -- | The ARN of the IAM Identity Center instance under which the operation
 -- will be executed. For more information about ARNs, see
@@ -161,10 +161,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListAccountAssignmentCreationStatusResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-              Prelude.<*> ( x Data..?> "AccountAssignmentsCreationStatus"
-                              Core..!@ Prelude.mempty
-                          )
+            Prelude.<$> ( x Data..?> "AccountAssignmentsCreationStatus"
+                            Core..!@ Prelude.mempty
+                        )
+              Prelude.<*> (x Data..?> "NextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -175,9 +175,9 @@ instance
   hashWithSalt
     _salt
     ListAccountAssignmentCreationStatus' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` filter'
+      _salt `Prelude.hashWithSalt` filter'
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` instanceArn
 
 instance
@@ -185,9 +185,9 @@ instance
     ListAccountAssignmentCreationStatus
   where
   rnf ListAccountAssignmentCreationStatus' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filter'
+    Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf instanceArn
 
 instance
@@ -215,9 +215,9 @@ instance
   toJSON ListAccountAssignmentCreationStatus' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filter" Data..=) Prelude.<$> filter',
+          [ ("Filter" Data..=) Prelude.<$> filter',
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("InstanceArn" Data..= instanceArn)
           ]
       )
@@ -236,11 +236,11 @@ instance
 
 -- | /See:/ 'newListAccountAssignmentCreationStatusResponse' smart constructor.
 data ListAccountAssignmentCreationStatusResponse = ListAccountAssignmentCreationStatusResponse'
-  { -- | The pagination token for the list API. Initially the value is null. Use
+  { -- | The status object for the account assignment creation operation.
+    accountAssignmentsCreationStatus :: Prelude.Maybe [AccountAssignmentOperationStatusMetadata],
+    -- | The pagination token for the list API. Initially the value is null. Use
     -- the output of previous API calls to make subsequent calls.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The status object for the account assignment creation operation.
-    accountAssignmentsCreationStatus :: Prelude.Maybe [AccountAssignmentOperationStatusMetadata],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -254,10 +254,10 @@ data ListAccountAssignmentCreationStatusResponse = ListAccountAssignmentCreation
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'accountAssignmentsCreationStatus', 'listAccountAssignmentCreationStatusResponse_accountAssignmentsCreationStatus' - The status object for the account assignment creation operation.
+--
 -- 'nextToken', 'listAccountAssignmentCreationStatusResponse_nextToken' - The pagination token for the list API. Initially the value is null. Use
 -- the output of previous API calls to make subsequent calls.
---
--- 'accountAssignmentsCreationStatus', 'listAccountAssignmentCreationStatusResponse_accountAssignmentsCreationStatus' - The status object for the account assignment creation operation.
 --
 -- 'httpStatus', 'listAccountAssignmentCreationStatusResponse_httpStatus' - The response's http status code.
 newListAccountAssignmentCreationStatusResponse ::
@@ -267,21 +267,20 @@ newListAccountAssignmentCreationStatusResponse ::
 newListAccountAssignmentCreationStatusResponse
   pHttpStatus_ =
     ListAccountAssignmentCreationStatusResponse'
-      { nextToken =
+      { accountAssignmentsCreationStatus =
           Prelude.Nothing,
-        accountAssignmentsCreationStatus =
-          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | The status object for the account assignment creation operation.
+listAccountAssignmentCreationStatusResponse_accountAssignmentsCreationStatus :: Lens.Lens' ListAccountAssignmentCreationStatusResponse (Prelude.Maybe [AccountAssignmentOperationStatusMetadata])
+listAccountAssignmentCreationStatusResponse_accountAssignmentsCreationStatus = Lens.lens (\ListAccountAssignmentCreationStatusResponse' {accountAssignmentsCreationStatus} -> accountAssignmentsCreationStatus) (\s@ListAccountAssignmentCreationStatusResponse' {} a -> s {accountAssignmentsCreationStatus = a} :: ListAccountAssignmentCreationStatusResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token for the list API. Initially the value is null. Use
 -- the output of previous API calls to make subsequent calls.
 listAccountAssignmentCreationStatusResponse_nextToken :: Lens.Lens' ListAccountAssignmentCreationStatusResponse (Prelude.Maybe Prelude.Text)
 listAccountAssignmentCreationStatusResponse_nextToken = Lens.lens (\ListAccountAssignmentCreationStatusResponse' {nextToken} -> nextToken) (\s@ListAccountAssignmentCreationStatusResponse' {} a -> s {nextToken = a} :: ListAccountAssignmentCreationStatusResponse)
-
--- | The status object for the account assignment creation operation.
-listAccountAssignmentCreationStatusResponse_accountAssignmentsCreationStatus :: Lens.Lens' ListAccountAssignmentCreationStatusResponse (Prelude.Maybe [AccountAssignmentOperationStatusMetadata])
-listAccountAssignmentCreationStatusResponse_accountAssignmentsCreationStatus = Lens.lens (\ListAccountAssignmentCreationStatusResponse' {accountAssignmentsCreationStatus} -> accountAssignmentsCreationStatus) (\s@ListAccountAssignmentCreationStatusResponse' {} a -> s {accountAssignmentsCreationStatus = a} :: ListAccountAssignmentCreationStatusResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAccountAssignmentCreationStatusResponse_httpStatus :: Lens.Lens' ListAccountAssignmentCreationStatusResponse Prelude.Int
@@ -292,6 +291,6 @@ instance
     ListAccountAssignmentCreationStatusResponse
   where
   rnf ListAccountAssignmentCreationStatusResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf accountAssignmentsCreationStatus
+    Prelude.rnf accountAssignmentsCreationStatus
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -27,8 +27,8 @@ module Amazonka.AppConfig.ListDeploymentStrategies
     newListDeploymentStrategies,
 
     -- * Request Lenses
-    listDeploymentStrategies_nextToken,
     listDeploymentStrategies_maxResults,
+    listDeploymentStrategies_nextToken,
 
     -- * Destructuring the Response
     ListDeploymentStrategiesResponse (..),
@@ -51,13 +51,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDeploymentStrategies' smart constructor.
 data ListDeploymentStrategies = ListDeploymentStrategies'
-  { -- | A token to start the list. Use this token to get the next set of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return for this call. The call also
+  { -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token to start the list. Use this token to get the next set of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,31 +69,31 @@ data ListDeploymentStrategies = ListDeploymentStrategies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listDeploymentStrategies_nextToken' - A token to start the list. Use this token to get the next set of
--- results.
---
 -- 'maxResults', 'listDeploymentStrategies_maxResults' - The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
+--
+-- 'nextToken', 'listDeploymentStrategies_nextToken' - A token to start the list. Use this token to get the next set of
+-- results.
 newListDeploymentStrategies ::
   ListDeploymentStrategies
 newListDeploymentStrategies =
   ListDeploymentStrategies'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | A token to start the list. Use this token to get the next set of
--- results.
-listDeploymentStrategies_nextToken :: Lens.Lens' ListDeploymentStrategies (Prelude.Maybe Prelude.Text)
-listDeploymentStrategies_nextToken = Lens.lens (\ListDeploymentStrategies' {nextToken} -> nextToken) (\s@ListDeploymentStrategies' {} a -> s {nextToken = a} :: ListDeploymentStrategies)
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
 listDeploymentStrategies_maxResults :: Lens.Lens' ListDeploymentStrategies (Prelude.Maybe Prelude.Natural)
 listDeploymentStrategies_maxResults = Lens.lens (\ListDeploymentStrategies' {maxResults} -> maxResults) (\s@ListDeploymentStrategies' {} a -> s {maxResults = a} :: ListDeploymentStrategies)
+
+-- | A token to start the list. Use this token to get the next set of
+-- results.
+listDeploymentStrategies_nextToken :: Lens.Lens' ListDeploymentStrategies (Prelude.Maybe Prelude.Text)
+listDeploymentStrategies_nextToken = Lens.lens (\ListDeploymentStrategies' {nextToken} -> nextToken) (\s@ListDeploymentStrategies' {} a -> s {nextToken = a} :: ListDeploymentStrategies)
 
 instance Core.AWSRequest ListDeploymentStrategies where
   type
@@ -112,13 +112,13 @@ instance Core.AWSRequest ListDeploymentStrategies where
 
 instance Prelude.Hashable ListDeploymentStrategies where
   hashWithSalt _salt ListDeploymentStrategies' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListDeploymentStrategies where
   rnf ListDeploymentStrategies' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListDeploymentStrategies where
   toHeaders =
@@ -137,8 +137,8 @@ instance Data.ToPath ListDeploymentStrategies where
 instance Data.ToQuery ListDeploymentStrategies where
   toQuery ListDeploymentStrategies' {..} =
     Prelude.mconcat
-      [ "next_token" Data.=: nextToken,
-        "max_results" Data.=: maxResults
+      [ "max_results" Data.=: maxResults,
+        "next_token" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListDeploymentStrategiesResponse' smart constructor.

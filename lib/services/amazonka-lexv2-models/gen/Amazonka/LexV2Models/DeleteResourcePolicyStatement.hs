@@ -39,8 +39,8 @@ module Amazonka.LexV2Models.DeleteResourcePolicyStatement
     newDeleteResourcePolicyStatementResponse,
 
     -- * Response Lenses
-    deleteResourcePolicyStatementResponse_revisionId,
     deleteResourcePolicyStatementResponse_resourceArn,
+    deleteResourcePolicyStatementResponse_revisionId,
     deleteResourcePolicyStatementResponse_httpStatus,
   )
 where
@@ -136,8 +136,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DeleteResourcePolicyStatementResponse'
-            Prelude.<$> (x Data..?> "revisionId")
-            Prelude.<*> (x Data..?> "resourceArn")
+            Prelude.<$> (x Data..?> "resourceArn")
+            Prelude.<*> (x Data..?> "revisionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -184,14 +184,14 @@ instance Data.ToQuery DeleteResourcePolicyStatement where
 
 -- | /See:/ 'newDeleteResourcePolicyStatementResponse' smart constructor.
 data DeleteResourcePolicyStatementResponse = DeleteResourcePolicyStatementResponse'
-  { -- | The current revision of the resource policy. Use the revision ID to make
+  { -- | The Amazon Resource Name (ARN) of the bot or bot alias that the resource
+    -- policy statement was removed from.
+    resourceArn :: Prelude.Maybe Prelude.Text,
+    -- | The current revision of the resource policy. Use the revision ID to make
     -- sure that you are updating the most current version of a resource policy
     -- when you add a policy statement to a resource, delete a resource, or
     -- update a resource.
     revisionId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the bot or bot alias that the resource
-    -- policy statement was removed from.
-    resourceArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -205,13 +205,13 @@ data DeleteResourcePolicyStatementResponse = DeleteResourcePolicyStatementRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'resourceArn', 'deleteResourcePolicyStatementResponse_resourceArn' - The Amazon Resource Name (ARN) of the bot or bot alias that the resource
+-- policy statement was removed from.
+--
 -- 'revisionId', 'deleteResourcePolicyStatementResponse_revisionId' - The current revision of the resource policy. Use the revision ID to make
 -- sure that you are updating the most current version of a resource policy
 -- when you add a policy statement to a resource, delete a resource, or
 -- update a resource.
---
--- 'resourceArn', 'deleteResourcePolicyStatementResponse_resourceArn' - The Amazon Resource Name (ARN) of the bot or bot alias that the resource
--- policy statement was removed from.
 --
 -- 'httpStatus', 'deleteResourcePolicyStatementResponse_httpStatus' - The response's http status code.
 newDeleteResourcePolicyStatementResponse ::
@@ -220,11 +220,16 @@ newDeleteResourcePolicyStatementResponse ::
   DeleteResourcePolicyStatementResponse
 newDeleteResourcePolicyStatementResponse pHttpStatus_ =
   DeleteResourcePolicyStatementResponse'
-    { revisionId =
+    { resourceArn =
         Prelude.Nothing,
-      resourceArn = Prelude.Nothing,
+      revisionId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Amazon Resource Name (ARN) of the bot or bot alias that the resource
+-- policy statement was removed from.
+deleteResourcePolicyStatementResponse_resourceArn :: Lens.Lens' DeleteResourcePolicyStatementResponse (Prelude.Maybe Prelude.Text)
+deleteResourcePolicyStatementResponse_resourceArn = Lens.lens (\DeleteResourcePolicyStatementResponse' {resourceArn} -> resourceArn) (\s@DeleteResourcePolicyStatementResponse' {} a -> s {resourceArn = a} :: DeleteResourcePolicyStatementResponse)
 
 -- | The current revision of the resource policy. Use the revision ID to make
 -- sure that you are updating the most current version of a resource policy
@@ -232,11 +237,6 @@ newDeleteResourcePolicyStatementResponse pHttpStatus_ =
 -- update a resource.
 deleteResourcePolicyStatementResponse_revisionId :: Lens.Lens' DeleteResourcePolicyStatementResponse (Prelude.Maybe Prelude.Text)
 deleteResourcePolicyStatementResponse_revisionId = Lens.lens (\DeleteResourcePolicyStatementResponse' {revisionId} -> revisionId) (\s@DeleteResourcePolicyStatementResponse' {} a -> s {revisionId = a} :: DeleteResourcePolicyStatementResponse)
-
--- | The Amazon Resource Name (ARN) of the bot or bot alias that the resource
--- policy statement was removed from.
-deleteResourcePolicyStatementResponse_resourceArn :: Lens.Lens' DeleteResourcePolicyStatementResponse (Prelude.Maybe Prelude.Text)
-deleteResourcePolicyStatementResponse_resourceArn = Lens.lens (\DeleteResourcePolicyStatementResponse' {resourceArn} -> resourceArn) (\s@DeleteResourcePolicyStatementResponse' {} a -> s {resourceArn = a} :: DeleteResourcePolicyStatementResponse)
 
 -- | The response's http status code.
 deleteResourcePolicyStatementResponse_httpStatus :: Lens.Lens' DeleteResourcePolicyStatementResponse Prelude.Int
@@ -247,6 +247,6 @@ instance
     DeleteResourcePolicyStatementResponse
   where
   rnf DeleteResourcePolicyStatementResponse' {..} =
-    Prelude.rnf revisionId
-      `Prelude.seq` Prelude.rnf resourceArn
+    Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf revisionId
       `Prelude.seq` Prelude.rnf httpStatus

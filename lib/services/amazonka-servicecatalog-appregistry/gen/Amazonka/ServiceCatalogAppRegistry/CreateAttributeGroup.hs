@@ -30,8 +30,8 @@ module Amazonka.ServiceCatalogAppRegistry.CreateAttributeGroup
     newCreateAttributeGroup,
 
     -- * Request Lenses
-    createAttributeGroup_tags,
     createAttributeGroup_description,
+    createAttributeGroup_tags,
     createAttributeGroup_name,
     createAttributeGroup_attributes,
     createAttributeGroup_clientToken,
@@ -56,10 +56,10 @@ import Amazonka.ServiceCatalogAppRegistry.Types
 
 -- | /See:/ 'newCreateAttributeGroup' smart constructor.
 data CreateAttributeGroup = CreateAttributeGroup'
-  { -- | Key-value pairs you can use to associate with the attribute group.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The description of the attribute group that the user provides.
+  { -- | The description of the attribute group that the user provides.
     description :: Prelude.Maybe Prelude.Text,
+    -- | Key-value pairs you can use to associate with the attribute group.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the attribute group.
     name :: Prelude.Text,
     -- | A JSON string in the form of nested key-value pairs that represent the
@@ -82,9 +82,9 @@ data CreateAttributeGroup = CreateAttributeGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createAttributeGroup_tags' - Key-value pairs you can use to associate with the attribute group.
---
 -- 'description', 'createAttributeGroup_description' - The description of the attribute group that the user provides.
+--
+-- 'tags', 'createAttributeGroup_tags' - Key-value pairs you can use to associate with the attribute group.
 --
 -- 'name', 'createAttributeGroup_name' - The name of the attribute group.
 --
@@ -109,20 +109,21 @@ newCreateAttributeGroup
   pAttributes_
   pClientToken_ =
     CreateAttributeGroup'
-      { tags = Prelude.Nothing,
-        description = Prelude.Nothing,
+      { description =
+          Prelude.Nothing,
+        tags = Prelude.Nothing,
         name = pName_,
         attributes = pAttributes_,
         clientToken = pClientToken_
       }
 
--- | Key-value pairs you can use to associate with the attribute group.
-createAttributeGroup_tags :: Lens.Lens' CreateAttributeGroup (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createAttributeGroup_tags = Lens.lens (\CreateAttributeGroup' {tags} -> tags) (\s@CreateAttributeGroup' {} a -> s {tags = a} :: CreateAttributeGroup) Prelude.. Lens.mapping Lens.coerced
-
 -- | The description of the attribute group that the user provides.
 createAttributeGroup_description :: Lens.Lens' CreateAttributeGroup (Prelude.Maybe Prelude.Text)
 createAttributeGroup_description = Lens.lens (\CreateAttributeGroup' {description} -> description) (\s@CreateAttributeGroup' {} a -> s {description = a} :: CreateAttributeGroup)
+
+-- | Key-value pairs you can use to associate with the attribute group.
+createAttributeGroup_tags :: Lens.Lens' CreateAttributeGroup (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createAttributeGroup_tags = Lens.lens (\CreateAttributeGroup' {tags} -> tags) (\s@CreateAttributeGroup' {} a -> s {tags = a} :: CreateAttributeGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the attribute group.
 createAttributeGroup_name :: Lens.Lens' CreateAttributeGroup Prelude.Text
@@ -157,16 +158,16 @@ instance Core.AWSRequest CreateAttributeGroup where
 
 instance Prelude.Hashable CreateAttributeGroup where
   hashWithSalt _salt CreateAttributeGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` clientToken
 
 instance Prelude.NFData CreateAttributeGroup where
   rnf CreateAttributeGroup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf attributes
       `Prelude.seq` Prelude.rnf clientToken
@@ -186,8 +187,8 @@ instance Data.ToJSON CreateAttributeGroup where
   toJSON CreateAttributeGroup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("description" Data..=) Prelude.<$> description,
+          [ ("description" Data..=) Prelude.<$> description,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("name" Data..= name),
             Prelude.Just ("attributes" Data..= attributes),
             Prelude.Just ("clientToken" Data..= clientToken)

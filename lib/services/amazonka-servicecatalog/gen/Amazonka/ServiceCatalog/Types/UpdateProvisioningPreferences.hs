@@ -31,7 +31,76 @@ import Amazonka.ServiceCatalog.Types.StackSetOperationType
 --
 -- /See:/ 'newUpdateProvisioningPreferences' smart constructor.
 data UpdateProvisioningPreferences = UpdateProvisioningPreferences'
-  { -- | Determines what action Service Catalog performs to a stack set or a
+  { -- | One or more Amazon Web Services accounts that will have access to the
+    -- provisioned product.
+    --
+    -- Applicable only to a @CFN_STACKSET@ provisioned product type.
+    --
+    -- The Amazon Web Services accounts specified should be within the list of
+    -- accounts in the @STACKSET@ constraint. To get the list of accounts in
+    -- the @STACKSET@ constraint, use the @DescribeProvisioningParameters@
+    -- operation.
+    --
+    -- If no values are specified, the default value is all accounts from the
+    -- @STACKSET@ constraint.
+    stackSetAccounts :: Prelude.Maybe [Prelude.Text],
+    -- | The number of accounts, per Region, for which this operation can fail
+    -- before Service Catalog stops the operation in that Region. If the
+    -- operation is stopped in a Region, Service Catalog doesn\'t attempt the
+    -- operation in any subsequent Regions.
+    --
+    -- Applicable only to a @CFN_STACKSET@ provisioned product type.
+    --
+    -- Conditional: You must specify either @StackSetFailureToleranceCount@ or
+    -- @StackSetFailureTolerancePercentage@, but not both.
+    --
+    -- The default value is @0@ if no value is specified.
+    stackSetFailureToleranceCount :: Prelude.Maybe Prelude.Natural,
+    -- | The percentage of accounts, per Region, for which this stack operation
+    -- can fail before Service Catalog stops the operation in that Region. If
+    -- the operation is stopped in a Region, Service Catalog doesn\'t attempt
+    -- the operation in any subsequent Regions.
+    --
+    -- When calculating the number of accounts based on the specified
+    -- percentage, Service Catalog rounds down to the next whole number.
+    --
+    -- Applicable only to a @CFN_STACKSET@ provisioned product type.
+    --
+    -- Conditional: You must specify either @StackSetFailureToleranceCount@ or
+    -- @StackSetFailureTolerancePercentage@, but not both.
+    stackSetFailureTolerancePercentage :: Prelude.Maybe Prelude.Natural,
+    -- | The maximum number of accounts in which to perform this operation at one
+    -- time. This is dependent on the value of @StackSetFailureToleranceCount@.
+    -- @StackSetMaxConcurrentCount@ is at most one more than the
+    -- @StackSetFailureToleranceCount@.
+    --
+    -- Note that this setting lets you specify the maximum for operations. For
+    -- large deployments, under certain circumstances the actual number of
+    -- accounts acted upon concurrently may be lower due to service throttling.
+    --
+    -- Applicable only to a @CFN_STACKSET@ provisioned product type.
+    --
+    -- Conditional: You must specify either @StackSetMaxConcurrentCount@ or
+    -- @StackSetMaxConcurrentPercentage@, but not both.
+    stackSetMaxConcurrencyCount :: Prelude.Maybe Prelude.Natural,
+    -- | The maximum percentage of accounts in which to perform this operation at
+    -- one time.
+    --
+    -- When calculating the number of accounts based on the specified
+    -- percentage, Service Catalog rounds down to the next whole number. This
+    -- is true except in cases where rounding down would result is zero. In
+    -- this case, Service Catalog sets the number as @1@ instead.
+    --
+    -- Note that this setting lets you specify the maximum for operations. For
+    -- large deployments, under certain circumstances the actual number of
+    -- accounts acted upon concurrently may be lower due to service throttling.
+    --
+    -- Applicable only to a @CFN_STACKSET@ provisioned product type.
+    --
+    -- Conditional: You must specify either @StackSetMaxConcurrentCount@ or
+    -- @StackSetMaxConcurrentPercentage@, but not both.
+    stackSetMaxConcurrencyPercentage :: Prelude.Maybe Prelude.Natural,
+    -- | Determines what action Service Catalog performs to a stack set or a
     -- stack instance represented by the provisioned product. The default value
     -- is @UPDATE@ if nothing is specified.
     --
@@ -62,76 +131,7 @@ data UpdateProvisioningPreferences = UpdateProvisioningPreferences'
     --
     -- If no values are specified, the default value is all Regions from the
     -- @STACKSET@ constraint.
-    stackSetRegions :: Prelude.Maybe [Prelude.Text],
-    -- | The number of accounts, per Region, for which this operation can fail
-    -- before Service Catalog stops the operation in that Region. If the
-    -- operation is stopped in a Region, Service Catalog doesn\'t attempt the
-    -- operation in any subsequent Regions.
-    --
-    -- Applicable only to a @CFN_STACKSET@ provisioned product type.
-    --
-    -- Conditional: You must specify either @StackSetFailureToleranceCount@ or
-    -- @StackSetFailureTolerancePercentage@, but not both.
-    --
-    -- The default value is @0@ if no value is specified.
-    stackSetFailureToleranceCount :: Prelude.Maybe Prelude.Natural,
-    -- | The maximum percentage of accounts in which to perform this operation at
-    -- one time.
-    --
-    -- When calculating the number of accounts based on the specified
-    -- percentage, Service Catalog rounds down to the next whole number. This
-    -- is true except in cases where rounding down would result is zero. In
-    -- this case, Service Catalog sets the number as @1@ instead.
-    --
-    -- Note that this setting lets you specify the maximum for operations. For
-    -- large deployments, under certain circumstances the actual number of
-    -- accounts acted upon concurrently may be lower due to service throttling.
-    --
-    -- Applicable only to a @CFN_STACKSET@ provisioned product type.
-    --
-    -- Conditional: You must specify either @StackSetMaxConcurrentCount@ or
-    -- @StackSetMaxConcurrentPercentage@, but not both.
-    stackSetMaxConcurrencyPercentage :: Prelude.Maybe Prelude.Natural,
-    -- | One or more Amazon Web Services accounts that will have access to the
-    -- provisioned product.
-    --
-    -- Applicable only to a @CFN_STACKSET@ provisioned product type.
-    --
-    -- The Amazon Web Services accounts specified should be within the list of
-    -- accounts in the @STACKSET@ constraint. To get the list of accounts in
-    -- the @STACKSET@ constraint, use the @DescribeProvisioningParameters@
-    -- operation.
-    --
-    -- If no values are specified, the default value is all accounts from the
-    -- @STACKSET@ constraint.
-    stackSetAccounts :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of accounts in which to perform this operation at one
-    -- time. This is dependent on the value of @StackSetFailureToleranceCount@.
-    -- @StackSetMaxConcurrentCount@ is at most one more than the
-    -- @StackSetFailureToleranceCount@.
-    --
-    -- Note that this setting lets you specify the maximum for operations. For
-    -- large deployments, under certain circumstances the actual number of
-    -- accounts acted upon concurrently may be lower due to service throttling.
-    --
-    -- Applicable only to a @CFN_STACKSET@ provisioned product type.
-    --
-    -- Conditional: You must specify either @StackSetMaxConcurrentCount@ or
-    -- @StackSetMaxConcurrentPercentage@, but not both.
-    stackSetMaxConcurrencyCount :: Prelude.Maybe Prelude.Natural,
-    -- | The percentage of accounts, per Region, for which this stack operation
-    -- can fail before Service Catalog stops the operation in that Region. If
-    -- the operation is stopped in a Region, Service Catalog doesn\'t attempt
-    -- the operation in any subsequent Regions.
-    --
-    -- When calculating the number of accounts based on the specified
-    -- percentage, Service Catalog rounds down to the next whole number.
-    --
-    -- Applicable only to a @CFN_STACKSET@ provisioned product type.
-    --
-    -- Conditional: You must specify either @StackSetFailureToleranceCount@ or
-    -- @StackSetFailureTolerancePercentage@, but not both.
-    stackSetFailureTolerancePercentage :: Prelude.Maybe Prelude.Natural
+    stackSetRegions :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -142,6 +142,75 @@ data UpdateProvisioningPreferences = UpdateProvisioningPreferences'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'stackSetAccounts', 'updateProvisioningPreferences_stackSetAccounts' - One or more Amazon Web Services accounts that will have access to the
+-- provisioned product.
+--
+-- Applicable only to a @CFN_STACKSET@ provisioned product type.
+--
+-- The Amazon Web Services accounts specified should be within the list of
+-- accounts in the @STACKSET@ constraint. To get the list of accounts in
+-- the @STACKSET@ constraint, use the @DescribeProvisioningParameters@
+-- operation.
+--
+-- If no values are specified, the default value is all accounts from the
+-- @STACKSET@ constraint.
+--
+-- 'stackSetFailureToleranceCount', 'updateProvisioningPreferences_stackSetFailureToleranceCount' - The number of accounts, per Region, for which this operation can fail
+-- before Service Catalog stops the operation in that Region. If the
+-- operation is stopped in a Region, Service Catalog doesn\'t attempt the
+-- operation in any subsequent Regions.
+--
+-- Applicable only to a @CFN_STACKSET@ provisioned product type.
+--
+-- Conditional: You must specify either @StackSetFailureToleranceCount@ or
+-- @StackSetFailureTolerancePercentage@, but not both.
+--
+-- The default value is @0@ if no value is specified.
+--
+-- 'stackSetFailureTolerancePercentage', 'updateProvisioningPreferences_stackSetFailureTolerancePercentage' - The percentage of accounts, per Region, for which this stack operation
+-- can fail before Service Catalog stops the operation in that Region. If
+-- the operation is stopped in a Region, Service Catalog doesn\'t attempt
+-- the operation in any subsequent Regions.
+--
+-- When calculating the number of accounts based on the specified
+-- percentage, Service Catalog rounds down to the next whole number.
+--
+-- Applicable only to a @CFN_STACKSET@ provisioned product type.
+--
+-- Conditional: You must specify either @StackSetFailureToleranceCount@ or
+-- @StackSetFailureTolerancePercentage@, but not both.
+--
+-- 'stackSetMaxConcurrencyCount', 'updateProvisioningPreferences_stackSetMaxConcurrencyCount' - The maximum number of accounts in which to perform this operation at one
+-- time. This is dependent on the value of @StackSetFailureToleranceCount@.
+-- @StackSetMaxConcurrentCount@ is at most one more than the
+-- @StackSetFailureToleranceCount@.
+--
+-- Note that this setting lets you specify the maximum for operations. For
+-- large deployments, under certain circumstances the actual number of
+-- accounts acted upon concurrently may be lower due to service throttling.
+--
+-- Applicable only to a @CFN_STACKSET@ provisioned product type.
+--
+-- Conditional: You must specify either @StackSetMaxConcurrentCount@ or
+-- @StackSetMaxConcurrentPercentage@, but not both.
+--
+-- 'stackSetMaxConcurrencyPercentage', 'updateProvisioningPreferences_stackSetMaxConcurrencyPercentage' - The maximum percentage of accounts in which to perform this operation at
+-- one time.
+--
+-- When calculating the number of accounts based on the specified
+-- percentage, Service Catalog rounds down to the next whole number. This
+-- is true except in cases where rounding down would result is zero. In
+-- this case, Service Catalog sets the number as @1@ instead.
+--
+-- Note that this setting lets you specify the maximum for operations. For
+-- large deployments, under certain circumstances the actual number of
+-- accounts acted upon concurrently may be lower due to service throttling.
+--
+-- Applicable only to a @CFN_STACKSET@ provisioned product type.
+--
+-- Conditional: You must specify either @StackSetMaxConcurrentCount@ or
+-- @StackSetMaxConcurrentPercentage@, but not both.
 --
 -- 'stackSetOperationType', 'updateProvisioningPreferences_stackSetOperationType' - Determines what action Service Catalog performs to a stack set or a
 -- stack instance represented by the provisioned product. The default value
@@ -174,8 +243,40 @@ data UpdateProvisioningPreferences = UpdateProvisioningPreferences'
 --
 -- If no values are specified, the default value is all Regions from the
 -- @STACKSET@ constraint.
+newUpdateProvisioningPreferences ::
+  UpdateProvisioningPreferences
+newUpdateProvisioningPreferences =
+  UpdateProvisioningPreferences'
+    { stackSetAccounts =
+        Prelude.Nothing,
+      stackSetFailureToleranceCount =
+        Prelude.Nothing,
+      stackSetFailureTolerancePercentage =
+        Prelude.Nothing,
+      stackSetMaxConcurrencyCount =
+        Prelude.Nothing,
+      stackSetMaxConcurrencyPercentage =
+        Prelude.Nothing,
+      stackSetOperationType = Prelude.Nothing,
+      stackSetRegions = Prelude.Nothing
+    }
+
+-- | One or more Amazon Web Services accounts that will have access to the
+-- provisioned product.
 --
--- 'stackSetFailureToleranceCount', 'updateProvisioningPreferences_stackSetFailureToleranceCount' - The number of accounts, per Region, for which this operation can fail
+-- Applicable only to a @CFN_STACKSET@ provisioned product type.
+--
+-- The Amazon Web Services accounts specified should be within the list of
+-- accounts in the @STACKSET@ constraint. To get the list of accounts in
+-- the @STACKSET@ constraint, use the @DescribeProvisioningParameters@
+-- operation.
+--
+-- If no values are specified, the default value is all accounts from the
+-- @STACKSET@ constraint.
+updateProvisioningPreferences_stackSetAccounts :: Lens.Lens' UpdateProvisioningPreferences (Prelude.Maybe [Prelude.Text])
+updateProvisioningPreferences_stackSetAccounts = Lens.lens (\UpdateProvisioningPreferences' {stackSetAccounts} -> stackSetAccounts) (\s@UpdateProvisioningPreferences' {} a -> s {stackSetAccounts = a} :: UpdateProvisioningPreferences) Prelude.. Lens.mapping Lens.coerced
+
+-- | The number of accounts, per Region, for which this operation can fail
 -- before Service Catalog stops the operation in that Region. If the
 -- operation is stopped in a Region, Service Catalog doesn\'t attempt the
 -- operation in any subsequent Regions.
@@ -186,8 +287,41 @@ data UpdateProvisioningPreferences = UpdateProvisioningPreferences'
 -- @StackSetFailureTolerancePercentage@, but not both.
 --
 -- The default value is @0@ if no value is specified.
+updateProvisioningPreferences_stackSetFailureToleranceCount :: Lens.Lens' UpdateProvisioningPreferences (Prelude.Maybe Prelude.Natural)
+updateProvisioningPreferences_stackSetFailureToleranceCount = Lens.lens (\UpdateProvisioningPreferences' {stackSetFailureToleranceCount} -> stackSetFailureToleranceCount) (\s@UpdateProvisioningPreferences' {} a -> s {stackSetFailureToleranceCount = a} :: UpdateProvisioningPreferences)
+
+-- | The percentage of accounts, per Region, for which this stack operation
+-- can fail before Service Catalog stops the operation in that Region. If
+-- the operation is stopped in a Region, Service Catalog doesn\'t attempt
+-- the operation in any subsequent Regions.
 --
--- 'stackSetMaxConcurrencyPercentage', 'updateProvisioningPreferences_stackSetMaxConcurrencyPercentage' - The maximum percentage of accounts in which to perform this operation at
+-- When calculating the number of accounts based on the specified
+-- percentage, Service Catalog rounds down to the next whole number.
+--
+-- Applicable only to a @CFN_STACKSET@ provisioned product type.
+--
+-- Conditional: You must specify either @StackSetFailureToleranceCount@ or
+-- @StackSetFailureTolerancePercentage@, but not both.
+updateProvisioningPreferences_stackSetFailureTolerancePercentage :: Lens.Lens' UpdateProvisioningPreferences (Prelude.Maybe Prelude.Natural)
+updateProvisioningPreferences_stackSetFailureTolerancePercentage = Lens.lens (\UpdateProvisioningPreferences' {stackSetFailureTolerancePercentage} -> stackSetFailureTolerancePercentage) (\s@UpdateProvisioningPreferences' {} a -> s {stackSetFailureTolerancePercentage = a} :: UpdateProvisioningPreferences)
+
+-- | The maximum number of accounts in which to perform this operation at one
+-- time. This is dependent on the value of @StackSetFailureToleranceCount@.
+-- @StackSetMaxConcurrentCount@ is at most one more than the
+-- @StackSetFailureToleranceCount@.
+--
+-- Note that this setting lets you specify the maximum for operations. For
+-- large deployments, under certain circumstances the actual number of
+-- accounts acted upon concurrently may be lower due to service throttling.
+--
+-- Applicable only to a @CFN_STACKSET@ provisioned product type.
+--
+-- Conditional: You must specify either @StackSetMaxConcurrentCount@ or
+-- @StackSetMaxConcurrentPercentage@, but not both.
+updateProvisioningPreferences_stackSetMaxConcurrencyCount :: Lens.Lens' UpdateProvisioningPreferences (Prelude.Maybe Prelude.Natural)
+updateProvisioningPreferences_stackSetMaxConcurrencyCount = Lens.lens (\UpdateProvisioningPreferences' {stackSetMaxConcurrencyCount} -> stackSetMaxConcurrencyCount) (\s@UpdateProvisioningPreferences' {} a -> s {stackSetMaxConcurrencyCount = a} :: UpdateProvisioningPreferences)
+
+-- | The maximum percentage of accounts in which to perform this operation at
 -- one time.
 --
 -- When calculating the number of accounts based on the specified
@@ -203,63 +337,8 @@ data UpdateProvisioningPreferences = UpdateProvisioningPreferences'
 --
 -- Conditional: You must specify either @StackSetMaxConcurrentCount@ or
 -- @StackSetMaxConcurrentPercentage@, but not both.
---
--- 'stackSetAccounts', 'updateProvisioningPreferences_stackSetAccounts' - One or more Amazon Web Services accounts that will have access to the
--- provisioned product.
---
--- Applicable only to a @CFN_STACKSET@ provisioned product type.
---
--- The Amazon Web Services accounts specified should be within the list of
--- accounts in the @STACKSET@ constraint. To get the list of accounts in
--- the @STACKSET@ constraint, use the @DescribeProvisioningParameters@
--- operation.
---
--- If no values are specified, the default value is all accounts from the
--- @STACKSET@ constraint.
---
--- 'stackSetMaxConcurrencyCount', 'updateProvisioningPreferences_stackSetMaxConcurrencyCount' - The maximum number of accounts in which to perform this operation at one
--- time. This is dependent on the value of @StackSetFailureToleranceCount@.
--- @StackSetMaxConcurrentCount@ is at most one more than the
--- @StackSetFailureToleranceCount@.
---
--- Note that this setting lets you specify the maximum for operations. For
--- large deployments, under certain circumstances the actual number of
--- accounts acted upon concurrently may be lower due to service throttling.
---
--- Applicable only to a @CFN_STACKSET@ provisioned product type.
---
--- Conditional: You must specify either @StackSetMaxConcurrentCount@ or
--- @StackSetMaxConcurrentPercentage@, but not both.
---
--- 'stackSetFailureTolerancePercentage', 'updateProvisioningPreferences_stackSetFailureTolerancePercentage' - The percentage of accounts, per Region, for which this stack operation
--- can fail before Service Catalog stops the operation in that Region. If
--- the operation is stopped in a Region, Service Catalog doesn\'t attempt
--- the operation in any subsequent Regions.
---
--- When calculating the number of accounts based on the specified
--- percentage, Service Catalog rounds down to the next whole number.
---
--- Applicable only to a @CFN_STACKSET@ provisioned product type.
---
--- Conditional: You must specify either @StackSetFailureToleranceCount@ or
--- @StackSetFailureTolerancePercentage@, but not both.
-newUpdateProvisioningPreferences ::
-  UpdateProvisioningPreferences
-newUpdateProvisioningPreferences =
-  UpdateProvisioningPreferences'
-    { stackSetOperationType =
-        Prelude.Nothing,
-      stackSetRegions = Prelude.Nothing,
-      stackSetFailureToleranceCount =
-        Prelude.Nothing,
-      stackSetMaxConcurrencyPercentage =
-        Prelude.Nothing,
-      stackSetAccounts = Prelude.Nothing,
-      stackSetMaxConcurrencyCount =
-        Prelude.Nothing,
-      stackSetFailureTolerancePercentage =
-        Prelude.Nothing
-    }
+updateProvisioningPreferences_stackSetMaxConcurrencyPercentage :: Lens.Lens' UpdateProvisioningPreferences (Prelude.Maybe Prelude.Natural)
+updateProvisioningPreferences_stackSetMaxConcurrencyPercentage = Lens.lens (\UpdateProvisioningPreferences' {stackSetMaxConcurrencyPercentage} -> stackSetMaxConcurrencyPercentage) (\s@UpdateProvisioningPreferences' {} a -> s {stackSetMaxConcurrencyPercentage = a} :: UpdateProvisioningPreferences)
 
 -- | Determines what action Service Catalog performs to a stack set or a
 -- stack instance represented by the provisioned product. The default value
@@ -297,125 +376,46 @@ updateProvisioningPreferences_stackSetOperationType = Lens.lens (\UpdateProvisio
 updateProvisioningPreferences_stackSetRegions :: Lens.Lens' UpdateProvisioningPreferences (Prelude.Maybe [Prelude.Text])
 updateProvisioningPreferences_stackSetRegions = Lens.lens (\UpdateProvisioningPreferences' {stackSetRegions} -> stackSetRegions) (\s@UpdateProvisioningPreferences' {} a -> s {stackSetRegions = a} :: UpdateProvisioningPreferences) Prelude.. Lens.mapping Lens.coerced
 
--- | The number of accounts, per Region, for which this operation can fail
--- before Service Catalog stops the operation in that Region. If the
--- operation is stopped in a Region, Service Catalog doesn\'t attempt the
--- operation in any subsequent Regions.
---
--- Applicable only to a @CFN_STACKSET@ provisioned product type.
---
--- Conditional: You must specify either @StackSetFailureToleranceCount@ or
--- @StackSetFailureTolerancePercentage@, but not both.
---
--- The default value is @0@ if no value is specified.
-updateProvisioningPreferences_stackSetFailureToleranceCount :: Lens.Lens' UpdateProvisioningPreferences (Prelude.Maybe Prelude.Natural)
-updateProvisioningPreferences_stackSetFailureToleranceCount = Lens.lens (\UpdateProvisioningPreferences' {stackSetFailureToleranceCount} -> stackSetFailureToleranceCount) (\s@UpdateProvisioningPreferences' {} a -> s {stackSetFailureToleranceCount = a} :: UpdateProvisioningPreferences)
-
--- | The maximum percentage of accounts in which to perform this operation at
--- one time.
---
--- When calculating the number of accounts based on the specified
--- percentage, Service Catalog rounds down to the next whole number. This
--- is true except in cases where rounding down would result is zero. In
--- this case, Service Catalog sets the number as @1@ instead.
---
--- Note that this setting lets you specify the maximum for operations. For
--- large deployments, under certain circumstances the actual number of
--- accounts acted upon concurrently may be lower due to service throttling.
---
--- Applicable only to a @CFN_STACKSET@ provisioned product type.
---
--- Conditional: You must specify either @StackSetMaxConcurrentCount@ or
--- @StackSetMaxConcurrentPercentage@, but not both.
-updateProvisioningPreferences_stackSetMaxConcurrencyPercentage :: Lens.Lens' UpdateProvisioningPreferences (Prelude.Maybe Prelude.Natural)
-updateProvisioningPreferences_stackSetMaxConcurrencyPercentage = Lens.lens (\UpdateProvisioningPreferences' {stackSetMaxConcurrencyPercentage} -> stackSetMaxConcurrencyPercentage) (\s@UpdateProvisioningPreferences' {} a -> s {stackSetMaxConcurrencyPercentage = a} :: UpdateProvisioningPreferences)
-
--- | One or more Amazon Web Services accounts that will have access to the
--- provisioned product.
---
--- Applicable only to a @CFN_STACKSET@ provisioned product type.
---
--- The Amazon Web Services accounts specified should be within the list of
--- accounts in the @STACKSET@ constraint. To get the list of accounts in
--- the @STACKSET@ constraint, use the @DescribeProvisioningParameters@
--- operation.
---
--- If no values are specified, the default value is all accounts from the
--- @STACKSET@ constraint.
-updateProvisioningPreferences_stackSetAccounts :: Lens.Lens' UpdateProvisioningPreferences (Prelude.Maybe [Prelude.Text])
-updateProvisioningPreferences_stackSetAccounts = Lens.lens (\UpdateProvisioningPreferences' {stackSetAccounts} -> stackSetAccounts) (\s@UpdateProvisioningPreferences' {} a -> s {stackSetAccounts = a} :: UpdateProvisioningPreferences) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum number of accounts in which to perform this operation at one
--- time. This is dependent on the value of @StackSetFailureToleranceCount@.
--- @StackSetMaxConcurrentCount@ is at most one more than the
--- @StackSetFailureToleranceCount@.
---
--- Note that this setting lets you specify the maximum for operations. For
--- large deployments, under certain circumstances the actual number of
--- accounts acted upon concurrently may be lower due to service throttling.
---
--- Applicable only to a @CFN_STACKSET@ provisioned product type.
---
--- Conditional: You must specify either @StackSetMaxConcurrentCount@ or
--- @StackSetMaxConcurrentPercentage@, but not both.
-updateProvisioningPreferences_stackSetMaxConcurrencyCount :: Lens.Lens' UpdateProvisioningPreferences (Prelude.Maybe Prelude.Natural)
-updateProvisioningPreferences_stackSetMaxConcurrencyCount = Lens.lens (\UpdateProvisioningPreferences' {stackSetMaxConcurrencyCount} -> stackSetMaxConcurrencyCount) (\s@UpdateProvisioningPreferences' {} a -> s {stackSetMaxConcurrencyCount = a} :: UpdateProvisioningPreferences)
-
--- | The percentage of accounts, per Region, for which this stack operation
--- can fail before Service Catalog stops the operation in that Region. If
--- the operation is stopped in a Region, Service Catalog doesn\'t attempt
--- the operation in any subsequent Regions.
---
--- When calculating the number of accounts based on the specified
--- percentage, Service Catalog rounds down to the next whole number.
---
--- Applicable only to a @CFN_STACKSET@ provisioned product type.
---
--- Conditional: You must specify either @StackSetFailureToleranceCount@ or
--- @StackSetFailureTolerancePercentage@, but not both.
-updateProvisioningPreferences_stackSetFailureTolerancePercentage :: Lens.Lens' UpdateProvisioningPreferences (Prelude.Maybe Prelude.Natural)
-updateProvisioningPreferences_stackSetFailureTolerancePercentage = Lens.lens (\UpdateProvisioningPreferences' {stackSetFailureTolerancePercentage} -> stackSetFailureTolerancePercentage) (\s@UpdateProvisioningPreferences' {} a -> s {stackSetFailureTolerancePercentage = a} :: UpdateProvisioningPreferences)
-
 instance
   Prelude.Hashable
     UpdateProvisioningPreferences
   where
   hashWithSalt _salt UpdateProvisioningPreferences' {..} =
-    _salt `Prelude.hashWithSalt` stackSetOperationType
-      `Prelude.hashWithSalt` stackSetRegions
+    _salt `Prelude.hashWithSalt` stackSetAccounts
       `Prelude.hashWithSalt` stackSetFailureToleranceCount
-      `Prelude.hashWithSalt` stackSetMaxConcurrencyPercentage
-      `Prelude.hashWithSalt` stackSetAccounts
-      `Prelude.hashWithSalt` stackSetMaxConcurrencyCount
       `Prelude.hashWithSalt` stackSetFailureTolerancePercentage
+      `Prelude.hashWithSalt` stackSetMaxConcurrencyCount
+      `Prelude.hashWithSalt` stackSetMaxConcurrencyPercentage
+      `Prelude.hashWithSalt` stackSetOperationType
+      `Prelude.hashWithSalt` stackSetRegions
 
 instance Prelude.NFData UpdateProvisioningPreferences where
   rnf UpdateProvisioningPreferences' {..} =
-    Prelude.rnf stackSetOperationType
-      `Prelude.seq` Prelude.rnf stackSetRegions
+    Prelude.rnf stackSetAccounts
       `Prelude.seq` Prelude.rnf stackSetFailureToleranceCount
-      `Prelude.seq` Prelude.rnf stackSetMaxConcurrencyPercentage
-      `Prelude.seq` Prelude.rnf stackSetAccounts
-      `Prelude.seq` Prelude.rnf stackSetMaxConcurrencyCount
       `Prelude.seq` Prelude.rnf stackSetFailureTolerancePercentage
+      `Prelude.seq` Prelude.rnf stackSetMaxConcurrencyCount
+      `Prelude.seq` Prelude.rnf stackSetMaxConcurrencyPercentage
+      `Prelude.seq` Prelude.rnf stackSetOperationType
+      `Prelude.seq` Prelude.rnf stackSetRegions
 
 instance Data.ToJSON UpdateProvisioningPreferences where
   toJSON UpdateProvisioningPreferences' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("StackSetOperationType" Data..=)
-              Prelude.<$> stackSetOperationType,
-            ("StackSetRegions" Data..=)
-              Prelude.<$> stackSetRegions,
+          [ ("StackSetAccounts" Data..=)
+              Prelude.<$> stackSetAccounts,
             ("StackSetFailureToleranceCount" Data..=)
               Prelude.<$> stackSetFailureToleranceCount,
-            ("StackSetMaxConcurrencyPercentage" Data..=)
-              Prelude.<$> stackSetMaxConcurrencyPercentage,
-            ("StackSetAccounts" Data..=)
-              Prelude.<$> stackSetAccounts,
+            ("StackSetFailureTolerancePercentage" Data..=)
+              Prelude.<$> stackSetFailureTolerancePercentage,
             ("StackSetMaxConcurrencyCount" Data..=)
               Prelude.<$> stackSetMaxConcurrencyCount,
-            ("StackSetFailureTolerancePercentage" Data..=)
-              Prelude.<$> stackSetFailureTolerancePercentage
+            ("StackSetMaxConcurrencyPercentage" Data..=)
+              Prelude.<$> stackSetMaxConcurrencyPercentage,
+            ("StackSetOperationType" Data..=)
+              Prelude.<$> stackSetOperationType,
+            ("StackSetRegions" Data..=)
+              Prelude.<$> stackSetRegions
           ]
       )

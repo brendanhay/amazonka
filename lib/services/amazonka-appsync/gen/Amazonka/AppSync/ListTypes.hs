@@ -29,8 +29,8 @@ module Amazonka.AppSync.ListTypes
     newListTypes,
 
     -- * Request Lenses
-    listTypes_nextToken,
     listTypes_maxResults,
+    listTypes_nextToken,
     listTypes_apiId,
     listTypes_format,
 
@@ -55,12 +55,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTypes' smart constructor.
 data ListTypes = ListTypes'
-  { -- | An identifier that was returned from the previous call to this
+  { -- | The maximum number of results that you want the request to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | An identifier that was returned from the previous call to this
     -- operation, which you can use to return the next set of items in the
     -- list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results that you want the request to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The API ID.
     apiId :: Prelude.Text,
     -- | The type format: SDL or JSON.
@@ -76,11 +76,11 @@ data ListTypes = ListTypes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listTypes_maxResults' - The maximum number of results that you want the request to return.
+--
 -- 'nextToken', 'listTypes_nextToken' - An identifier that was returned from the previous call to this
 -- operation, which you can use to return the next set of items in the
 -- list.
---
--- 'maxResults', 'listTypes_maxResults' - The maximum number of results that you want the request to return.
 --
 -- 'apiId', 'listTypes_apiId' - The API ID.
 --
@@ -93,21 +93,21 @@ newListTypes ::
   ListTypes
 newListTypes pApiId_ pFormat_ =
   ListTypes'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       apiId = pApiId_,
       format = pFormat_
     }
+
+-- | The maximum number of results that you want the request to return.
+listTypes_maxResults :: Lens.Lens' ListTypes (Prelude.Maybe Prelude.Natural)
+listTypes_maxResults = Lens.lens (\ListTypes' {maxResults} -> maxResults) (\s@ListTypes' {} a -> s {maxResults = a} :: ListTypes)
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which you can use to return the next set of items in the
 -- list.
 listTypes_nextToken :: Lens.Lens' ListTypes (Prelude.Maybe Prelude.Text)
 listTypes_nextToken = Lens.lens (\ListTypes' {nextToken} -> nextToken) (\s@ListTypes' {} a -> s {nextToken = a} :: ListTypes)
-
--- | The maximum number of results that you want the request to return.
-listTypes_maxResults :: Lens.Lens' ListTypes (Prelude.Maybe Prelude.Natural)
-listTypes_maxResults = Lens.lens (\ListTypes' {maxResults} -> maxResults) (\s@ListTypes' {} a -> s {maxResults = a} :: ListTypes)
 
 -- | The API ID.
 listTypes_apiId :: Lens.Lens' ListTypes Prelude.Text
@@ -151,15 +151,15 @@ instance Core.AWSRequest ListTypes where
 
 instance Prelude.Hashable ListTypes where
   hashWithSalt _salt ListTypes' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` apiId
       `Prelude.hashWithSalt` format
 
 instance Prelude.NFData ListTypes where
   rnf ListTypes' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf apiId
       `Prelude.seq` Prelude.rnf format
 
@@ -182,8 +182,8 @@ instance Data.ToPath ListTypes where
 instance Data.ToQuery ListTypes where
   toQuery ListTypes' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults,
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
         "format" Data.=: format
       ]
 

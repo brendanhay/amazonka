@@ -24,14 +24,14 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Error response to GetFunctionConfiguration.
+-- | Error response to @GetFunctionConfiguration@.
 --
 -- /See:/ 'newImageConfigError' smart constructor.
 data ImageConfigError = ImageConfigError'
-  { -- | Error message.
-    message :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | Error code.
-    errorCode :: Prelude.Maybe Prelude.Text
+  { -- | Error code.
+    errorCode :: Prelude.Maybe Prelude.Text,
+    -- | Error message.
+    message :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data ImageConfigError = ImageConfigError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'imageConfigError_message' - Error message.
---
 -- 'errorCode', 'imageConfigError_errorCode' - Error code.
+--
+-- 'message', 'imageConfigError_message' - Error message.
 newImageConfigError ::
   ImageConfigError
 newImageConfigError =
   ImageConfigError'
-    { message = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+    { errorCode = Prelude.Nothing,
+      message = Prelude.Nothing
     }
-
--- | Error message.
-imageConfigError_message :: Lens.Lens' ImageConfigError (Prelude.Maybe Prelude.Text)
-imageConfigError_message = Lens.lens (\ImageConfigError' {message} -> message) (\s@ImageConfigError' {} a -> s {message = a} :: ImageConfigError) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Error code.
 imageConfigError_errorCode :: Lens.Lens' ImageConfigError (Prelude.Maybe Prelude.Text)
 imageConfigError_errorCode = Lens.lens (\ImageConfigError' {errorCode} -> errorCode) (\s@ImageConfigError' {} a -> s {errorCode = a} :: ImageConfigError)
+
+-- | Error message.
+imageConfigError_message :: Lens.Lens' ImageConfigError (Prelude.Maybe Prelude.Text)
+imageConfigError_message = Lens.lens (\ImageConfigError' {message} -> message) (\s@ImageConfigError' {} a -> s {message = a} :: ImageConfigError) Prelude.. Lens.mapping Data._Sensitive
 
 instance Data.FromJSON ImageConfigError where
   parseJSON =
@@ -68,16 +68,16 @@ instance Data.FromJSON ImageConfigError where
       "ImageConfigError"
       ( \x ->
           ImageConfigError'
-            Prelude.<$> (x Data..:? "Message")
-            Prelude.<*> (x Data..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "Message")
       )
 
 instance Prelude.Hashable ImageConfigError where
   hashWithSalt _salt ImageConfigError' {..} =
-    _salt `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` errorCode
+    _salt `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` message
 
 instance Prelude.NFData ImageConfigError where
   rnf ImageConfigError' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf errorCode
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf message

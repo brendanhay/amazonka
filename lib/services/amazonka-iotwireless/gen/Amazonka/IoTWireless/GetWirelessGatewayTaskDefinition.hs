@@ -34,9 +34,9 @@ module Amazonka.IoTWireless.GetWirelessGatewayTaskDefinition
     newGetWirelessGatewayTaskDefinitionResponse,
 
     -- * Response Lenses
-    getWirelessGatewayTaskDefinitionResponse_name,
     getWirelessGatewayTaskDefinitionResponse_arn,
     getWirelessGatewayTaskDefinitionResponse_autoCreateTasks,
+    getWirelessGatewayTaskDefinitionResponse_name,
     getWirelessGatewayTaskDefinitionResponse_update,
     getWirelessGatewayTaskDefinitionResponse_httpStatus,
   )
@@ -90,9 +90,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetWirelessGatewayTaskDefinitionResponse'
-            Prelude.<$> (x Data..?> "Name")
-            Prelude.<*> (x Data..?> "Arn")
+            Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (x Data..?> "AutoCreateTasks")
+            Prelude.<*> (x Data..?> "Name")
             Prelude.<*> (x Data..?> "Update")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -132,14 +132,14 @@ instance
 
 -- | /See:/ 'newGetWirelessGatewayTaskDefinitionResponse' smart constructor.
 data GetWirelessGatewayTaskDefinitionResponse = GetWirelessGatewayTaskDefinitionResponse'
-  { -- | The name of the resource.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name of the resource.
+  { -- | The Amazon Resource Name of the resource.
     arn :: Prelude.Maybe Prelude.Text,
     -- | Whether to automatically create tasks using this task definition for all
     -- gateways with the specified current version. If @false@, the task must
     -- me created by calling @CreateWirelessGatewayTask@.
     autoCreateTasks :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the resource.
+    name :: Prelude.Maybe Prelude.Text,
     -- | Information about the gateways to update.
     update :: Prelude.Maybe UpdateWirelessGatewayTaskCreate,
     -- | The response's http status code.
@@ -155,13 +155,13 @@ data GetWirelessGatewayTaskDefinitionResponse = GetWirelessGatewayTaskDefinition
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'getWirelessGatewayTaskDefinitionResponse_name' - The name of the resource.
---
 -- 'arn', 'getWirelessGatewayTaskDefinitionResponse_arn' - The Amazon Resource Name of the resource.
 --
 -- 'autoCreateTasks', 'getWirelessGatewayTaskDefinitionResponse_autoCreateTasks' - Whether to automatically create tasks using this task definition for all
 -- gateways with the specified current version. If @false@, the task must
 -- me created by calling @CreateWirelessGatewayTask@.
+--
+-- 'name', 'getWirelessGatewayTaskDefinitionResponse_name' - The name of the resource.
 --
 -- 'update', 'getWirelessGatewayTaskDefinitionResponse_update' - Information about the gateways to update.
 --
@@ -173,17 +173,13 @@ newGetWirelessGatewayTaskDefinitionResponse ::
 newGetWirelessGatewayTaskDefinitionResponse
   pHttpStatus_ =
     GetWirelessGatewayTaskDefinitionResponse'
-      { name =
+      { arn =
           Prelude.Nothing,
-        arn = Prelude.Nothing,
         autoCreateTasks = Prelude.Nothing,
+        name = Prelude.Nothing,
         update = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The name of the resource.
-getWirelessGatewayTaskDefinitionResponse_name :: Lens.Lens' GetWirelessGatewayTaskDefinitionResponse (Prelude.Maybe Prelude.Text)
-getWirelessGatewayTaskDefinitionResponse_name = Lens.lens (\GetWirelessGatewayTaskDefinitionResponse' {name} -> name) (\s@GetWirelessGatewayTaskDefinitionResponse' {} a -> s {name = a} :: GetWirelessGatewayTaskDefinitionResponse)
 
 -- | The Amazon Resource Name of the resource.
 getWirelessGatewayTaskDefinitionResponse_arn :: Lens.Lens' GetWirelessGatewayTaskDefinitionResponse (Prelude.Maybe Prelude.Text)
@@ -194,6 +190,10 @@ getWirelessGatewayTaskDefinitionResponse_arn = Lens.lens (\GetWirelessGatewayTas
 -- me created by calling @CreateWirelessGatewayTask@.
 getWirelessGatewayTaskDefinitionResponse_autoCreateTasks :: Lens.Lens' GetWirelessGatewayTaskDefinitionResponse (Prelude.Maybe Prelude.Bool)
 getWirelessGatewayTaskDefinitionResponse_autoCreateTasks = Lens.lens (\GetWirelessGatewayTaskDefinitionResponse' {autoCreateTasks} -> autoCreateTasks) (\s@GetWirelessGatewayTaskDefinitionResponse' {} a -> s {autoCreateTasks = a} :: GetWirelessGatewayTaskDefinitionResponse)
+
+-- | The name of the resource.
+getWirelessGatewayTaskDefinitionResponse_name :: Lens.Lens' GetWirelessGatewayTaskDefinitionResponse (Prelude.Maybe Prelude.Text)
+getWirelessGatewayTaskDefinitionResponse_name = Lens.lens (\GetWirelessGatewayTaskDefinitionResponse' {name} -> name) (\s@GetWirelessGatewayTaskDefinitionResponse' {} a -> s {name = a} :: GetWirelessGatewayTaskDefinitionResponse)
 
 -- | Information about the gateways to update.
 getWirelessGatewayTaskDefinitionResponse_update :: Lens.Lens' GetWirelessGatewayTaskDefinitionResponse (Prelude.Maybe UpdateWirelessGatewayTaskCreate)
@@ -208,8 +208,8 @@ instance
     GetWirelessGatewayTaskDefinitionResponse
   where
   rnf GetWirelessGatewayTaskDefinitionResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf autoCreateTasks
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf update
       `Prelude.seq` Prelude.rnf httpStatus

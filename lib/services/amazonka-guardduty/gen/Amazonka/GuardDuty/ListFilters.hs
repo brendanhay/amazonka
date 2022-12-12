@@ -29,8 +29,8 @@ module Amazonka.GuardDuty.ListFilters
     newListFilters,
 
     -- * Request Lenses
-    listFilters_nextToken,
     listFilters_maxResults,
+    listFilters_nextToken,
     listFilters_detectorId,
 
     -- * Destructuring the Response
@@ -54,15 +54,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListFilters' smart constructor.
 data ListFilters = ListFilters'
-  { -- | You can use this parameter when paginating results. Set the value of
+  { -- | You can use this parameter to indicate the maximum number of items that
+    -- you want in the response. The default value is 50. The maximum value is
+    -- 50.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | You can use this parameter when paginating results. Set the value of
     -- this parameter to null on your first call to the list action. For
     -- subsequent calls to the action, fill nextToken in the request with the
     -- value of NextToken from the previous response to continue listing data.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | You can use this parameter to indicate the maximum number of items that
-    -- you want in the response. The default value is 50. The maximum value is
-    -- 50.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The unique ID of the detector that the filter is associated with.
     detectorId :: Prelude.Text
   }
@@ -76,14 +76,14 @@ data ListFilters = ListFilters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listFilters_maxResults' - You can use this parameter to indicate the maximum number of items that
+-- you want in the response. The default value is 50. The maximum value is
+-- 50.
+--
 -- 'nextToken', 'listFilters_nextToken' - You can use this parameter when paginating results. Set the value of
 -- this parameter to null on your first call to the list action. For
 -- subsequent calls to the action, fill nextToken in the request with the
 -- value of NextToken from the previous response to continue listing data.
---
--- 'maxResults', 'listFilters_maxResults' - You can use this parameter to indicate the maximum number of items that
--- you want in the response. The default value is 50. The maximum value is
--- 50.
 --
 -- 'detectorId', 'listFilters_detectorId' - The unique ID of the detector that the filter is associated with.
 newListFilters ::
@@ -92,10 +92,16 @@ newListFilters ::
   ListFilters
 newListFilters pDetectorId_ =
   ListFilters'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       detectorId = pDetectorId_
     }
+
+-- | You can use this parameter to indicate the maximum number of items that
+-- you want in the response. The default value is 50. The maximum value is
+-- 50.
+listFilters_maxResults :: Lens.Lens' ListFilters (Prelude.Maybe Prelude.Natural)
+listFilters_maxResults = Lens.lens (\ListFilters' {maxResults} -> maxResults) (\s@ListFilters' {} a -> s {maxResults = a} :: ListFilters)
 
 -- | You can use this parameter when paginating results. Set the value of
 -- this parameter to null on your first call to the list action. For
@@ -103,12 +109,6 @@ newListFilters pDetectorId_ =
 -- value of NextToken from the previous response to continue listing data.
 listFilters_nextToken :: Lens.Lens' ListFilters (Prelude.Maybe Prelude.Text)
 listFilters_nextToken = Lens.lens (\ListFilters' {nextToken} -> nextToken) (\s@ListFilters' {} a -> s {nextToken = a} :: ListFilters)
-
--- | You can use this parameter to indicate the maximum number of items that
--- you want in the response. The default value is 50. The maximum value is
--- 50.
-listFilters_maxResults :: Lens.Lens' ListFilters (Prelude.Maybe Prelude.Natural)
-listFilters_maxResults = Lens.lens (\ListFilters' {maxResults} -> maxResults) (\s@ListFilters' {} a -> s {maxResults = a} :: ListFilters)
 
 -- | The unique ID of the detector that the filter is associated with.
 listFilters_detectorId :: Lens.Lens' ListFilters Prelude.Text
@@ -146,14 +146,14 @@ instance Core.AWSRequest ListFilters where
 
 instance Prelude.Hashable ListFilters where
   hashWithSalt _salt ListFilters' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` detectorId
 
 instance Prelude.NFData ListFilters where
   rnf ListFilters' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf detectorId
 
 instance Data.ToHeaders ListFilters where
@@ -175,8 +175,8 @@ instance Data.ToPath ListFilters where
 instance Data.ToQuery ListFilters where
   toQuery ListFilters' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListFiltersResponse' smart constructor.

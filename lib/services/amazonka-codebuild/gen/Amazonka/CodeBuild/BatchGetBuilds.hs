@@ -34,8 +34,8 @@ module Amazonka.CodeBuild.BatchGetBuilds
     newBatchGetBuildsResponse,
 
     -- * Response Lenses
-    batchGetBuildsResponse_buildsNotFound,
     batchGetBuildsResponse_builds,
+    batchGetBuildsResponse_buildsNotFound,
     batchGetBuildsResponse_httpStatus,
   )
 where
@@ -85,8 +85,8 @@ instance Core.AWSRequest BatchGetBuilds where
     Response.receiveJSON
       ( \s h x ->
           BatchGetBuildsResponse'
-            Prelude.<$> (x Data..?> "buildsNotFound")
-            Prelude.<*> (x Data..?> "builds" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "builds" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "buildsNotFound")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -127,10 +127,10 @@ instance Data.ToQuery BatchGetBuilds where
 
 -- | /See:/ 'newBatchGetBuildsResponse' smart constructor.
 data BatchGetBuildsResponse = BatchGetBuildsResponse'
-  { -- | The IDs of builds for which information could not be found.
-    buildsNotFound :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | Information about the requested builds.
+  { -- | Information about the requested builds.
     builds :: Prelude.Maybe [Build],
+    -- | The IDs of builds for which information could not be found.
+    buildsNotFound :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -144,9 +144,9 @@ data BatchGetBuildsResponse = BatchGetBuildsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'buildsNotFound', 'batchGetBuildsResponse_buildsNotFound' - The IDs of builds for which information could not be found.
---
 -- 'builds', 'batchGetBuildsResponse_builds' - Information about the requested builds.
+--
+-- 'buildsNotFound', 'batchGetBuildsResponse_buildsNotFound' - The IDs of builds for which information could not be found.
 --
 -- 'httpStatus', 'batchGetBuildsResponse_httpStatus' - The response's http status code.
 newBatchGetBuildsResponse ::
@@ -155,19 +155,18 @@ newBatchGetBuildsResponse ::
   BatchGetBuildsResponse
 newBatchGetBuildsResponse pHttpStatus_ =
   BatchGetBuildsResponse'
-    { buildsNotFound =
-        Prelude.Nothing,
-      builds = Prelude.Nothing,
+    { builds = Prelude.Nothing,
+      buildsNotFound = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The IDs of builds for which information could not be found.
-batchGetBuildsResponse_buildsNotFound :: Lens.Lens' BatchGetBuildsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-batchGetBuildsResponse_buildsNotFound = Lens.lens (\BatchGetBuildsResponse' {buildsNotFound} -> buildsNotFound) (\s@BatchGetBuildsResponse' {} a -> s {buildsNotFound = a} :: BatchGetBuildsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Information about the requested builds.
 batchGetBuildsResponse_builds :: Lens.Lens' BatchGetBuildsResponse (Prelude.Maybe [Build])
 batchGetBuildsResponse_builds = Lens.lens (\BatchGetBuildsResponse' {builds} -> builds) (\s@BatchGetBuildsResponse' {} a -> s {builds = a} :: BatchGetBuildsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The IDs of builds for which information could not be found.
+batchGetBuildsResponse_buildsNotFound :: Lens.Lens' BatchGetBuildsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+batchGetBuildsResponse_buildsNotFound = Lens.lens (\BatchGetBuildsResponse' {buildsNotFound} -> buildsNotFound) (\s@BatchGetBuildsResponse' {} a -> s {buildsNotFound = a} :: BatchGetBuildsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchGetBuildsResponse_httpStatus :: Lens.Lens' BatchGetBuildsResponse Prelude.Int
@@ -175,6 +174,6 @@ batchGetBuildsResponse_httpStatus = Lens.lens (\BatchGetBuildsResponse' {httpSta
 
 instance Prelude.NFData BatchGetBuildsResponse where
   rnf BatchGetBuildsResponse' {..} =
-    Prelude.rnf buildsNotFound
-      `Prelude.seq` Prelude.rnf builds
+    Prelude.rnf builds
+      `Prelude.seq` Prelude.rnf buildsNotFound
       `Prelude.seq` Prelude.rnf httpStatus

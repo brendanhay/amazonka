@@ -46,12 +46,12 @@ module Amazonka.CodeArtifact.GetPackageVersionReadme
     newGetPackageVersionReadmeResponse,
 
     -- * Response Lenses
-    getPackageVersionReadmeResponse_versionRevision,
     getPackageVersionReadmeResponse_format,
-    getPackageVersionReadmeResponse_readme,
-    getPackageVersionReadmeResponse_package,
     getPackageVersionReadmeResponse_namespace,
+    getPackageVersionReadmeResponse_package,
+    getPackageVersionReadmeResponse_readme,
     getPackageVersionReadmeResponse_version,
+    getPackageVersionReadmeResponse_versionRevision,
     getPackageVersionReadmeResponse_httpStatus,
   )
 where
@@ -210,12 +210,12 @@ instance Core.AWSRequest GetPackageVersionReadme where
     Response.receiveJSON
       ( \s h x ->
           GetPackageVersionReadmeResponse'
-            Prelude.<$> (x Data..?> "versionRevision")
-            Prelude.<*> (x Data..?> "format")
-            Prelude.<*> (x Data..?> "readme")
-            Prelude.<*> (x Data..?> "package")
+            Prelude.<$> (x Data..?> "format")
             Prelude.<*> (x Data..?> "namespace")
+            Prelude.<*> (x Data..?> "package")
+            Prelude.<*> (x Data..?> "readme")
             Prelude.<*> (x Data..?> "version")
+            Prelude.<*> (x Data..?> "versionRevision")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -267,14 +267,8 @@ instance Data.ToQuery GetPackageVersionReadme where
 
 -- | /See:/ 'newGetPackageVersionReadmeResponse' smart constructor.
 data GetPackageVersionReadmeResponse = GetPackageVersionReadmeResponse'
-  { -- | The current revision associated with the package version.
-    versionRevision :: Prelude.Maybe Prelude.Text,
-    -- | The format of the package with the requested readme file.
+  { -- | The format of the package with the requested readme file.
     format :: Prelude.Maybe PackageFormat,
-    -- | The text of the returned readme file.
-    readme :: Prelude.Maybe Prelude.Text,
-    -- | The name of the package that contains the returned readme file.
-    package :: Prelude.Maybe Prelude.Text,
     -- | The namespace of the package version with the requested readme file. The
     -- package version component that specifies its namespace depends on its
     -- type. For example:
@@ -287,8 +281,14 @@ data GetPackageVersionReadmeResponse = GetPackageVersionReadmeResponse'
     --     component, package versions of those formats do not have a
     --     namespace.
     namespace :: Prelude.Maybe Prelude.Text,
+    -- | The name of the package that contains the returned readme file.
+    package :: Prelude.Maybe Prelude.Text,
+    -- | The text of the returned readme file.
+    readme :: Prelude.Maybe Prelude.Text,
     -- | The version of the package with the requested readme file.
     version :: Prelude.Maybe Prelude.Text,
+    -- | The current revision associated with the package version.
+    versionRevision :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -302,13 +302,7 @@ data GetPackageVersionReadmeResponse = GetPackageVersionReadmeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'versionRevision', 'getPackageVersionReadmeResponse_versionRevision' - The current revision associated with the package version.
---
 -- 'format', 'getPackageVersionReadmeResponse_format' - The format of the package with the requested readme file.
---
--- 'readme', 'getPackageVersionReadmeResponse_readme' - The text of the returned readme file.
---
--- 'package', 'getPackageVersionReadmeResponse_package' - The name of the package that contains the returned readme file.
 --
 -- 'namespace', 'getPackageVersionReadmeResponse_namespace' - The namespace of the package version with the requested readme file. The
 -- package version component that specifies its namespace depends on its
@@ -322,7 +316,13 @@ data GetPackageVersionReadmeResponse = GetPackageVersionReadmeResponse'
 --     component, package versions of those formats do not have a
 --     namespace.
 --
+-- 'package', 'getPackageVersionReadmeResponse_package' - The name of the package that contains the returned readme file.
+--
+-- 'readme', 'getPackageVersionReadmeResponse_readme' - The text of the returned readme file.
+--
 -- 'version', 'getPackageVersionReadmeResponse_version' - The version of the package with the requested readme file.
+--
+-- 'versionRevision', 'getPackageVersionReadmeResponse_versionRevision' - The current revision associated with the package version.
 --
 -- 'httpStatus', 'getPackageVersionReadmeResponse_httpStatus' - The response's http status code.
 newGetPackageVersionReadmeResponse ::
@@ -331,31 +331,19 @@ newGetPackageVersionReadmeResponse ::
   GetPackageVersionReadmeResponse
 newGetPackageVersionReadmeResponse pHttpStatus_ =
   GetPackageVersionReadmeResponse'
-    { versionRevision =
+    { format =
         Prelude.Nothing,
-      format = Prelude.Nothing,
-      readme = Prelude.Nothing,
-      package = Prelude.Nothing,
       namespace = Prelude.Nothing,
+      package = Prelude.Nothing,
+      readme = Prelude.Nothing,
       version = Prelude.Nothing,
+      versionRevision = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The current revision associated with the package version.
-getPackageVersionReadmeResponse_versionRevision :: Lens.Lens' GetPackageVersionReadmeResponse (Prelude.Maybe Prelude.Text)
-getPackageVersionReadmeResponse_versionRevision = Lens.lens (\GetPackageVersionReadmeResponse' {versionRevision} -> versionRevision) (\s@GetPackageVersionReadmeResponse' {} a -> s {versionRevision = a} :: GetPackageVersionReadmeResponse)
 
 -- | The format of the package with the requested readme file.
 getPackageVersionReadmeResponse_format :: Lens.Lens' GetPackageVersionReadmeResponse (Prelude.Maybe PackageFormat)
 getPackageVersionReadmeResponse_format = Lens.lens (\GetPackageVersionReadmeResponse' {format} -> format) (\s@GetPackageVersionReadmeResponse' {} a -> s {format = a} :: GetPackageVersionReadmeResponse)
-
--- | The text of the returned readme file.
-getPackageVersionReadmeResponse_readme :: Lens.Lens' GetPackageVersionReadmeResponse (Prelude.Maybe Prelude.Text)
-getPackageVersionReadmeResponse_readme = Lens.lens (\GetPackageVersionReadmeResponse' {readme} -> readme) (\s@GetPackageVersionReadmeResponse' {} a -> s {readme = a} :: GetPackageVersionReadmeResponse)
-
--- | The name of the package that contains the returned readme file.
-getPackageVersionReadmeResponse_package :: Lens.Lens' GetPackageVersionReadmeResponse (Prelude.Maybe Prelude.Text)
-getPackageVersionReadmeResponse_package = Lens.lens (\GetPackageVersionReadmeResponse' {package} -> package) (\s@GetPackageVersionReadmeResponse' {} a -> s {package = a} :: GetPackageVersionReadmeResponse)
 
 -- | The namespace of the package version with the requested readme file. The
 -- package version component that specifies its namespace depends on its
@@ -371,9 +359,21 @@ getPackageVersionReadmeResponse_package = Lens.lens (\GetPackageVersionReadmeRes
 getPackageVersionReadmeResponse_namespace :: Lens.Lens' GetPackageVersionReadmeResponse (Prelude.Maybe Prelude.Text)
 getPackageVersionReadmeResponse_namespace = Lens.lens (\GetPackageVersionReadmeResponse' {namespace} -> namespace) (\s@GetPackageVersionReadmeResponse' {} a -> s {namespace = a} :: GetPackageVersionReadmeResponse)
 
+-- | The name of the package that contains the returned readme file.
+getPackageVersionReadmeResponse_package :: Lens.Lens' GetPackageVersionReadmeResponse (Prelude.Maybe Prelude.Text)
+getPackageVersionReadmeResponse_package = Lens.lens (\GetPackageVersionReadmeResponse' {package} -> package) (\s@GetPackageVersionReadmeResponse' {} a -> s {package = a} :: GetPackageVersionReadmeResponse)
+
+-- | The text of the returned readme file.
+getPackageVersionReadmeResponse_readme :: Lens.Lens' GetPackageVersionReadmeResponse (Prelude.Maybe Prelude.Text)
+getPackageVersionReadmeResponse_readme = Lens.lens (\GetPackageVersionReadmeResponse' {readme} -> readme) (\s@GetPackageVersionReadmeResponse' {} a -> s {readme = a} :: GetPackageVersionReadmeResponse)
+
 -- | The version of the package with the requested readme file.
 getPackageVersionReadmeResponse_version :: Lens.Lens' GetPackageVersionReadmeResponse (Prelude.Maybe Prelude.Text)
 getPackageVersionReadmeResponse_version = Lens.lens (\GetPackageVersionReadmeResponse' {version} -> version) (\s@GetPackageVersionReadmeResponse' {} a -> s {version = a} :: GetPackageVersionReadmeResponse)
+
+-- | The current revision associated with the package version.
+getPackageVersionReadmeResponse_versionRevision :: Lens.Lens' GetPackageVersionReadmeResponse (Prelude.Maybe Prelude.Text)
+getPackageVersionReadmeResponse_versionRevision = Lens.lens (\GetPackageVersionReadmeResponse' {versionRevision} -> versionRevision) (\s@GetPackageVersionReadmeResponse' {} a -> s {versionRevision = a} :: GetPackageVersionReadmeResponse)
 
 -- | The response's http status code.
 getPackageVersionReadmeResponse_httpStatus :: Lens.Lens' GetPackageVersionReadmeResponse Prelude.Int
@@ -384,10 +384,10 @@ instance
     GetPackageVersionReadmeResponse
   where
   rnf GetPackageVersionReadmeResponse' {..} =
-    Prelude.rnf versionRevision
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf readme
-      `Prelude.seq` Prelude.rnf package
+    Prelude.rnf format
       `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf package
+      `Prelude.seq` Prelude.rnf readme
       `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf versionRevision
       `Prelude.seq` Prelude.rnf httpStatus

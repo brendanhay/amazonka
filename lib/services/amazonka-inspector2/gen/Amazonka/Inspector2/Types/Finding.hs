@@ -22,6 +22,8 @@ module Amazonka.Inspector2.Types.Finding where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
+import Amazonka.Inspector2.Types.ExploitAvailable
+import Amazonka.Inspector2.Types.ExploitabilityDetails
 import Amazonka.Inspector2.Types.FindingStatus
 import Amazonka.Inspector2.Types.FindingType
 import Amazonka.Inspector2.Types.FixAvailable
@@ -37,21 +39,26 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFinding' smart constructor.
 data Finding = Finding'
-  { -- | The Amazon Inspector score given to the finding.
-    inspectorScore :: Prelude.Maybe Prelude.Double,
-    -- | An object that contains the details of a package vulnerability finding.
-    packageVulnerabilityDetails :: Prelude.Maybe PackageVulnerabilityDetails,
-    -- | The title of the finding.
-    title :: Prelude.Maybe Prelude.Text,
-    -- | An object that contains details of the Amazon Inspector score.
-    inspectorScoreDetails :: Prelude.Maybe InspectorScoreDetails,
-    -- | An object that contains the details of a network reachability finding.
-    networkReachabilityDetails :: Prelude.Maybe NetworkReachabilityDetails,
+  { -- | If a finding discovered in your environment has an exploit available.
+    exploitAvailable :: Prelude.Maybe ExploitAvailable,
+    -- | The details of an exploit available for a finding discovered in your
+    -- environment.
+    exploitabilityDetails :: Prelude.Maybe ExploitabilityDetails,
     -- | Details on whether a fix is available through a version update. This
     -- value can be @YES@, @NO@, or @PARTIAL@. A @PARTIAL@ fix means that some,
     -- but not all, of the packages identified in the finding have fixes
     -- available through updated versions.
     fixAvailable :: Prelude.Maybe FixAvailable,
+    -- | The Amazon Inspector score given to the finding.
+    inspectorScore :: Prelude.Maybe Prelude.Double,
+    -- | An object that contains details of the Amazon Inspector score.
+    inspectorScoreDetails :: Prelude.Maybe InspectorScoreDetails,
+    -- | An object that contains the details of a network reachability finding.
+    networkReachabilityDetails :: Prelude.Maybe NetworkReachabilityDetails,
+    -- | An object that contains the details of a package vulnerability finding.
+    packageVulnerabilityDetails :: Prelude.Maybe PackageVulnerabilityDetails,
+    -- | The title of the finding.
+    title :: Prelude.Maybe Prelude.Text,
     -- | The date and time the finding was last updated at.
     updatedAt :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Web Services account ID associated with the finding.
@@ -85,20 +92,25 @@ data Finding = Finding'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'inspectorScore', 'finding_inspectorScore' - The Amazon Inspector score given to the finding.
+-- 'exploitAvailable', 'finding_exploitAvailable' - If a finding discovered in your environment has an exploit available.
 --
--- 'packageVulnerabilityDetails', 'finding_packageVulnerabilityDetails' - An object that contains the details of a package vulnerability finding.
---
--- 'title', 'finding_title' - The title of the finding.
---
--- 'inspectorScoreDetails', 'finding_inspectorScoreDetails' - An object that contains details of the Amazon Inspector score.
---
--- 'networkReachabilityDetails', 'finding_networkReachabilityDetails' - An object that contains the details of a network reachability finding.
+-- 'exploitabilityDetails', 'finding_exploitabilityDetails' - The details of an exploit available for a finding discovered in your
+-- environment.
 --
 -- 'fixAvailable', 'finding_fixAvailable' - Details on whether a fix is available through a version update. This
 -- value can be @YES@, @NO@, or @PARTIAL@. A @PARTIAL@ fix means that some,
 -- but not all, of the packages identified in the finding have fixes
 -- available through updated versions.
+--
+-- 'inspectorScore', 'finding_inspectorScore' - The Amazon Inspector score given to the finding.
+--
+-- 'inspectorScoreDetails', 'finding_inspectorScoreDetails' - An object that contains details of the Amazon Inspector score.
+--
+-- 'networkReachabilityDetails', 'finding_networkReachabilityDetails' - An object that contains the details of a network reachability finding.
+--
+-- 'packageVulnerabilityDetails', 'finding_packageVulnerabilityDetails' - An object that contains the details of a package vulnerability finding.
+--
+-- 'title', 'finding_title' - The title of the finding.
 --
 -- 'updatedAt', 'finding_updatedAt' - The date and time the finding was last updated at.
 --
@@ -155,12 +167,14 @@ newFinding
   pStatus_
   pType_ =
     Finding'
-      { inspectorScore = Prelude.Nothing,
-        packageVulnerabilityDetails = Prelude.Nothing,
-        title = Prelude.Nothing,
+      { exploitAvailable = Prelude.Nothing,
+        exploitabilityDetails = Prelude.Nothing,
+        fixAvailable = Prelude.Nothing,
+        inspectorScore = Prelude.Nothing,
         inspectorScoreDetails = Prelude.Nothing,
         networkReachabilityDetails = Prelude.Nothing,
-        fixAvailable = Prelude.Nothing,
+        packageVulnerabilityDetails = Prelude.Nothing,
+        title = Prelude.Nothing,
         updatedAt = Prelude.Nothing,
         awsAccountId = pAwsAccountId_,
         description = pDescription_,
@@ -175,17 +189,25 @@ newFinding
         type' = pType_
       }
 
+-- | If a finding discovered in your environment has an exploit available.
+finding_exploitAvailable :: Lens.Lens' Finding (Prelude.Maybe ExploitAvailable)
+finding_exploitAvailable = Lens.lens (\Finding' {exploitAvailable} -> exploitAvailable) (\s@Finding' {} a -> s {exploitAvailable = a} :: Finding)
+
+-- | The details of an exploit available for a finding discovered in your
+-- environment.
+finding_exploitabilityDetails :: Lens.Lens' Finding (Prelude.Maybe ExploitabilityDetails)
+finding_exploitabilityDetails = Lens.lens (\Finding' {exploitabilityDetails} -> exploitabilityDetails) (\s@Finding' {} a -> s {exploitabilityDetails = a} :: Finding)
+
+-- | Details on whether a fix is available through a version update. This
+-- value can be @YES@, @NO@, or @PARTIAL@. A @PARTIAL@ fix means that some,
+-- but not all, of the packages identified in the finding have fixes
+-- available through updated versions.
+finding_fixAvailable :: Lens.Lens' Finding (Prelude.Maybe FixAvailable)
+finding_fixAvailable = Lens.lens (\Finding' {fixAvailable} -> fixAvailable) (\s@Finding' {} a -> s {fixAvailable = a} :: Finding)
+
 -- | The Amazon Inspector score given to the finding.
 finding_inspectorScore :: Lens.Lens' Finding (Prelude.Maybe Prelude.Double)
 finding_inspectorScore = Lens.lens (\Finding' {inspectorScore} -> inspectorScore) (\s@Finding' {} a -> s {inspectorScore = a} :: Finding)
-
--- | An object that contains the details of a package vulnerability finding.
-finding_packageVulnerabilityDetails :: Lens.Lens' Finding (Prelude.Maybe PackageVulnerabilityDetails)
-finding_packageVulnerabilityDetails = Lens.lens (\Finding' {packageVulnerabilityDetails} -> packageVulnerabilityDetails) (\s@Finding' {} a -> s {packageVulnerabilityDetails = a} :: Finding)
-
--- | The title of the finding.
-finding_title :: Lens.Lens' Finding (Prelude.Maybe Prelude.Text)
-finding_title = Lens.lens (\Finding' {title} -> title) (\s@Finding' {} a -> s {title = a} :: Finding)
 
 -- | An object that contains details of the Amazon Inspector score.
 finding_inspectorScoreDetails :: Lens.Lens' Finding (Prelude.Maybe InspectorScoreDetails)
@@ -195,12 +217,13 @@ finding_inspectorScoreDetails = Lens.lens (\Finding' {inspectorScoreDetails} -> 
 finding_networkReachabilityDetails :: Lens.Lens' Finding (Prelude.Maybe NetworkReachabilityDetails)
 finding_networkReachabilityDetails = Lens.lens (\Finding' {networkReachabilityDetails} -> networkReachabilityDetails) (\s@Finding' {} a -> s {networkReachabilityDetails = a} :: Finding)
 
--- | Details on whether a fix is available through a version update. This
--- value can be @YES@, @NO@, or @PARTIAL@. A @PARTIAL@ fix means that some,
--- but not all, of the packages identified in the finding have fixes
--- available through updated versions.
-finding_fixAvailable :: Lens.Lens' Finding (Prelude.Maybe FixAvailable)
-finding_fixAvailable = Lens.lens (\Finding' {fixAvailable} -> fixAvailable) (\s@Finding' {} a -> s {fixAvailable = a} :: Finding)
+-- | An object that contains the details of a package vulnerability finding.
+finding_packageVulnerabilityDetails :: Lens.Lens' Finding (Prelude.Maybe PackageVulnerabilityDetails)
+finding_packageVulnerabilityDetails = Lens.lens (\Finding' {packageVulnerabilityDetails} -> packageVulnerabilityDetails) (\s@Finding' {} a -> s {packageVulnerabilityDetails = a} :: Finding)
+
+-- | The title of the finding.
+finding_title :: Lens.Lens' Finding (Prelude.Maybe Prelude.Text)
+finding_title = Lens.lens (\Finding' {title} -> title) (\s@Finding' {} a -> s {title = a} :: Finding)
 
 -- | The date and time the finding was last updated at.
 finding_updatedAt :: Lens.Lens' Finding (Prelude.Maybe Prelude.UTCTime)
@@ -252,12 +275,14 @@ instance Data.FromJSON Finding where
       "Finding"
       ( \x ->
           Finding'
-            Prelude.<$> (x Data..:? "inspectorScore")
-            Prelude.<*> (x Data..:? "packageVulnerabilityDetails")
-            Prelude.<*> (x Data..:? "title")
+            Prelude.<$> (x Data..:? "exploitAvailable")
+            Prelude.<*> (x Data..:? "exploitabilityDetails")
+            Prelude.<*> (x Data..:? "fixAvailable")
+            Prelude.<*> (x Data..:? "inspectorScore")
             Prelude.<*> (x Data..:? "inspectorScoreDetails")
             Prelude.<*> (x Data..:? "networkReachabilityDetails")
-            Prelude.<*> (x Data..:? "fixAvailable")
+            Prelude.<*> (x Data..:? "packageVulnerabilityDetails")
+            Prelude.<*> (x Data..:? "title")
             Prelude.<*> (x Data..:? "updatedAt")
             Prelude.<*> (x Data..: "awsAccountId")
             Prelude.<*> (x Data..: "description")
@@ -273,12 +298,14 @@ instance Data.FromJSON Finding where
 
 instance Prelude.Hashable Finding where
   hashWithSalt _salt Finding' {..} =
-    _salt `Prelude.hashWithSalt` inspectorScore
-      `Prelude.hashWithSalt` packageVulnerabilityDetails
-      `Prelude.hashWithSalt` title
+    _salt `Prelude.hashWithSalt` exploitAvailable
+      `Prelude.hashWithSalt` exploitabilityDetails
+      `Prelude.hashWithSalt` fixAvailable
+      `Prelude.hashWithSalt` inspectorScore
       `Prelude.hashWithSalt` inspectorScoreDetails
       `Prelude.hashWithSalt` networkReachabilityDetails
-      `Prelude.hashWithSalt` fixAvailable
+      `Prelude.hashWithSalt` packageVulnerabilityDetails
+      `Prelude.hashWithSalt` title
       `Prelude.hashWithSalt` updatedAt
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` description
@@ -293,12 +320,14 @@ instance Prelude.Hashable Finding where
 
 instance Prelude.NFData Finding where
   rnf Finding' {..} =
-    Prelude.rnf inspectorScore
-      `Prelude.seq` Prelude.rnf packageVulnerabilityDetails
-      `Prelude.seq` Prelude.rnf title
+    Prelude.rnf exploitAvailable
+      `Prelude.seq` Prelude.rnf exploitabilityDetails
+      `Prelude.seq` Prelude.rnf fixAvailable
+      `Prelude.seq` Prelude.rnf inspectorScore
       `Prelude.seq` Prelude.rnf inspectorScoreDetails
       `Prelude.seq` Prelude.rnf networkReachabilityDetails
-      `Prelude.seq` Prelude.rnf fixAvailable
+      `Prelude.seq` Prelude.rnf packageVulnerabilityDetails
+      `Prelude.seq` Prelude.rnf title
       `Prelude.seq` Prelude.rnf updatedAt
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf description

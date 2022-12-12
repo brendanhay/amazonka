@@ -27,9 +27,9 @@ module Amazonka.Inspector2.CreateFilter
     newCreateFilter,
 
     -- * Request Lenses
-    createFilter_tags,
     createFilter_description,
     createFilter_reason,
+    createFilter_tags,
     createFilter_action,
     createFilter_filterCriteria,
     createFilter_name,
@@ -54,12 +54,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateFilter' smart constructor.
 data CreateFilter = CreateFilter'
-  { -- | A list of tags for the filter.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A description of the filter.
+  { -- | A description of the filter.
     description :: Prelude.Maybe Prelude.Text,
     -- | The reason for creating the filter.
     reason :: Prelude.Maybe Prelude.Text,
+    -- | A list of tags for the filter.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Defines the action that is to be applied to the findings that match the
     -- filter.
     action :: FilterAction,
@@ -80,11 +80,11 @@ data CreateFilter = CreateFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createFilter_tags' - A list of tags for the filter.
---
 -- 'description', 'createFilter_description' - A description of the filter.
 --
 -- 'reason', 'createFilter_reason' - The reason for creating the filter.
+--
+-- 'tags', 'createFilter_tags' - A list of tags for the filter.
 --
 -- 'action', 'createFilter_action' - Defines the action that is to be applied to the findings that match the
 -- filter.
@@ -104,17 +104,13 @@ newCreateFilter ::
   CreateFilter
 newCreateFilter pAction_ pFilterCriteria_ pName_ =
   CreateFilter'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
       reason = Prelude.Nothing,
+      tags = Prelude.Nothing,
       action = pAction_,
       filterCriteria = pFilterCriteria_,
       name = pName_
     }
-
--- | A list of tags for the filter.
-createFilter_tags :: Lens.Lens' CreateFilter (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createFilter_tags = Lens.lens (\CreateFilter' {tags} -> tags) (\s@CreateFilter' {} a -> s {tags = a} :: CreateFilter) Prelude.. Lens.mapping Lens.coerced
 
 -- | A description of the filter.
 createFilter_description :: Lens.Lens' CreateFilter (Prelude.Maybe Prelude.Text)
@@ -123,6 +119,10 @@ createFilter_description = Lens.lens (\CreateFilter' {description} -> descriptio
 -- | The reason for creating the filter.
 createFilter_reason :: Lens.Lens' CreateFilter (Prelude.Maybe Prelude.Text)
 createFilter_reason = Lens.lens (\CreateFilter' {reason} -> reason) (\s@CreateFilter' {} a -> s {reason = a} :: CreateFilter)
+
+-- | A list of tags for the filter.
+createFilter_tags :: Lens.Lens' CreateFilter (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createFilter_tags = Lens.lens (\CreateFilter' {tags} -> tags) (\s@CreateFilter' {} a -> s {tags = a} :: CreateFilter) Prelude.. Lens.mapping Lens.coerced
 
 -- | Defines the action that is to be applied to the findings that match the
 -- filter.
@@ -153,18 +153,18 @@ instance Core.AWSRequest CreateFilter where
 
 instance Prelude.Hashable CreateFilter where
   hashWithSalt _salt CreateFilter' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` filterCriteria
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateFilter where
   rnf CreateFilter' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf action
       `Prelude.seq` Prelude.rnf filterCriteria
       `Prelude.seq` Prelude.rnf name
@@ -184,9 +184,9 @@ instance Data.ToJSON CreateFilter where
   toJSON CreateFilter' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("description" Data..=) Prelude.<$> description,
+          [ ("description" Data..=) Prelude.<$> description,
             ("reason" Data..=) Prelude.<$> reason,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("action" Data..= action),
             Prelude.Just
               ("filterCriteria" Data..= filterCriteria),

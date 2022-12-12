@@ -33,11 +33,11 @@ module Amazonka.SES.UpdateCustomVerificationEmailTemplate
     newUpdateCustomVerificationEmailTemplate,
 
     -- * Request Lenses
-    updateCustomVerificationEmailTemplate_successRedirectionURL,
+    updateCustomVerificationEmailTemplate_failureRedirectionURL,
     updateCustomVerificationEmailTemplate_fromEmailAddress,
+    updateCustomVerificationEmailTemplate_successRedirectionURL,
     updateCustomVerificationEmailTemplate_templateContent,
     updateCustomVerificationEmailTemplate_templateSubject,
-    updateCustomVerificationEmailTemplate_failureRedirectionURL,
     updateCustomVerificationEmailTemplate_templateName,
 
     -- * Destructuring the Response
@@ -60,10 +60,13 @@ import Amazonka.SES.Types
 -- /See:/ 'newUpdateCustomVerificationEmailTemplate' smart constructor.
 data UpdateCustomVerificationEmailTemplate = UpdateCustomVerificationEmailTemplate'
   { -- | The URL that the recipient of the verification email is sent to if his
-    -- or her address is successfully verified.
-    successRedirectionURL :: Prelude.Maybe Prelude.Text,
+    -- or her address is not successfully verified.
+    failureRedirectionURL :: Prelude.Maybe Prelude.Text,
     -- | The email address that the custom verification email is sent from.
     fromEmailAddress :: Prelude.Maybe Prelude.Text,
+    -- | The URL that the recipient of the verification email is sent to if his
+    -- or her address is successfully verified.
+    successRedirectionURL :: Prelude.Maybe Prelude.Text,
     -- | The content of the custom verification email. The total size of the
     -- email must be less than 10 MB. The message body may contain HTML, with
     -- some limitations. For more information, see
@@ -72,9 +75,6 @@ data UpdateCustomVerificationEmailTemplate = UpdateCustomVerificationEmailTempla
     templateContent :: Prelude.Maybe Prelude.Text,
     -- | The subject line of the custom verification email.
     templateSubject :: Prelude.Maybe Prelude.Text,
-    -- | The URL that the recipient of the verification email is sent to if his
-    -- or her address is not successfully verified.
-    failureRedirectionURL :: Prelude.Maybe Prelude.Text,
     -- | The name of the custom verification email template that you want to
     -- update.
     templateName :: Prelude.Text
@@ -89,10 +89,13 @@ data UpdateCustomVerificationEmailTemplate = UpdateCustomVerificationEmailTempla
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'successRedirectionURL', 'updateCustomVerificationEmailTemplate_successRedirectionURL' - The URL that the recipient of the verification email is sent to if his
--- or her address is successfully verified.
+-- 'failureRedirectionURL', 'updateCustomVerificationEmailTemplate_failureRedirectionURL' - The URL that the recipient of the verification email is sent to if his
+-- or her address is not successfully verified.
 --
 -- 'fromEmailAddress', 'updateCustomVerificationEmailTemplate_fromEmailAddress' - The email address that the custom verification email is sent from.
+--
+-- 'successRedirectionURL', 'updateCustomVerificationEmailTemplate_successRedirectionURL' - The URL that the recipient of the verification email is sent to if his
+-- or her address is successfully verified.
 --
 -- 'templateContent', 'updateCustomVerificationEmailTemplate_templateContent' - The content of the custom verification email. The total size of the
 -- email must be less than 10 MB. The message body may contain HTML, with
@@ -101,9 +104,6 @@ data UpdateCustomVerificationEmailTemplate = UpdateCustomVerificationEmailTempla
 -- in the /Amazon SES Developer Guide/.
 --
 -- 'templateSubject', 'updateCustomVerificationEmailTemplate_templateSubject' - The subject line of the custom verification email.
---
--- 'failureRedirectionURL', 'updateCustomVerificationEmailTemplate_failureRedirectionURL' - The URL that the recipient of the verification email is sent to if his
--- or her address is not successfully verified.
 --
 -- 'templateName', 'updateCustomVerificationEmailTemplate_templateName' - The name of the custom verification email template that you want to
 -- update.
@@ -114,24 +114,29 @@ newUpdateCustomVerificationEmailTemplate ::
 newUpdateCustomVerificationEmailTemplate
   pTemplateName_ =
     UpdateCustomVerificationEmailTemplate'
-      { successRedirectionURL =
+      { failureRedirectionURL =
           Prelude.Nothing,
         fromEmailAddress = Prelude.Nothing,
+        successRedirectionURL =
+          Prelude.Nothing,
         templateContent = Prelude.Nothing,
         templateSubject = Prelude.Nothing,
-        failureRedirectionURL =
-          Prelude.Nothing,
         templateName = pTemplateName_
       }
+
+-- | The URL that the recipient of the verification email is sent to if his
+-- or her address is not successfully verified.
+updateCustomVerificationEmailTemplate_failureRedirectionURL :: Lens.Lens' UpdateCustomVerificationEmailTemplate (Prelude.Maybe Prelude.Text)
+updateCustomVerificationEmailTemplate_failureRedirectionURL = Lens.lens (\UpdateCustomVerificationEmailTemplate' {failureRedirectionURL} -> failureRedirectionURL) (\s@UpdateCustomVerificationEmailTemplate' {} a -> s {failureRedirectionURL = a} :: UpdateCustomVerificationEmailTemplate)
+
+-- | The email address that the custom verification email is sent from.
+updateCustomVerificationEmailTemplate_fromEmailAddress :: Lens.Lens' UpdateCustomVerificationEmailTemplate (Prelude.Maybe Prelude.Text)
+updateCustomVerificationEmailTemplate_fromEmailAddress = Lens.lens (\UpdateCustomVerificationEmailTemplate' {fromEmailAddress} -> fromEmailAddress) (\s@UpdateCustomVerificationEmailTemplate' {} a -> s {fromEmailAddress = a} :: UpdateCustomVerificationEmailTemplate)
 
 -- | The URL that the recipient of the verification email is sent to if his
 -- or her address is successfully verified.
 updateCustomVerificationEmailTemplate_successRedirectionURL :: Lens.Lens' UpdateCustomVerificationEmailTemplate (Prelude.Maybe Prelude.Text)
 updateCustomVerificationEmailTemplate_successRedirectionURL = Lens.lens (\UpdateCustomVerificationEmailTemplate' {successRedirectionURL} -> successRedirectionURL) (\s@UpdateCustomVerificationEmailTemplate' {} a -> s {successRedirectionURL = a} :: UpdateCustomVerificationEmailTemplate)
-
--- | The email address that the custom verification email is sent from.
-updateCustomVerificationEmailTemplate_fromEmailAddress :: Lens.Lens' UpdateCustomVerificationEmailTemplate (Prelude.Maybe Prelude.Text)
-updateCustomVerificationEmailTemplate_fromEmailAddress = Lens.lens (\UpdateCustomVerificationEmailTemplate' {fromEmailAddress} -> fromEmailAddress) (\s@UpdateCustomVerificationEmailTemplate' {} a -> s {fromEmailAddress = a} :: UpdateCustomVerificationEmailTemplate)
 
 -- | The content of the custom verification email. The total size of the
 -- email must be less than 10 MB. The message body may contain HTML, with
@@ -144,11 +149,6 @@ updateCustomVerificationEmailTemplate_templateContent = Lens.lens (\UpdateCustom
 -- | The subject line of the custom verification email.
 updateCustomVerificationEmailTemplate_templateSubject :: Lens.Lens' UpdateCustomVerificationEmailTemplate (Prelude.Maybe Prelude.Text)
 updateCustomVerificationEmailTemplate_templateSubject = Lens.lens (\UpdateCustomVerificationEmailTemplate' {templateSubject} -> templateSubject) (\s@UpdateCustomVerificationEmailTemplate' {} a -> s {templateSubject = a} :: UpdateCustomVerificationEmailTemplate)
-
--- | The URL that the recipient of the verification email is sent to if his
--- or her address is not successfully verified.
-updateCustomVerificationEmailTemplate_failureRedirectionURL :: Lens.Lens' UpdateCustomVerificationEmailTemplate (Prelude.Maybe Prelude.Text)
-updateCustomVerificationEmailTemplate_failureRedirectionURL = Lens.lens (\UpdateCustomVerificationEmailTemplate' {failureRedirectionURL} -> failureRedirectionURL) (\s@UpdateCustomVerificationEmailTemplate' {} a -> s {failureRedirectionURL = a} :: UpdateCustomVerificationEmailTemplate)
 
 -- | The name of the custom verification email template that you want to
 -- update.
@@ -176,11 +176,11 @@ instance
   hashWithSalt
     _salt
     UpdateCustomVerificationEmailTemplate' {..} =
-      _salt `Prelude.hashWithSalt` successRedirectionURL
+      _salt `Prelude.hashWithSalt` failureRedirectionURL
         `Prelude.hashWithSalt` fromEmailAddress
+        `Prelude.hashWithSalt` successRedirectionURL
         `Prelude.hashWithSalt` templateContent
         `Prelude.hashWithSalt` templateSubject
-        `Prelude.hashWithSalt` failureRedirectionURL
         `Prelude.hashWithSalt` templateName
 
 instance
@@ -188,11 +188,11 @@ instance
     UpdateCustomVerificationEmailTemplate
   where
   rnf UpdateCustomVerificationEmailTemplate' {..} =
-    Prelude.rnf successRedirectionURL
+    Prelude.rnf failureRedirectionURL
       `Prelude.seq` Prelude.rnf fromEmailAddress
+      `Prelude.seq` Prelude.rnf successRedirectionURL
       `Prelude.seq` Prelude.rnf templateContent
       `Prelude.seq` Prelude.rnf templateSubject
-      `Prelude.seq` Prelude.rnf failureRedirectionURL
       `Prelude.seq` Prelude.rnf templateName
 
 instance
@@ -219,13 +219,13 @@ instance
                   ),
         "Version"
           Data.=: ("2010-12-01" :: Prelude.ByteString),
-        "SuccessRedirectionURL"
-          Data.=: successRedirectionURL,
-        "FromEmailAddress" Data.=: fromEmailAddress,
-        "TemplateContent" Data.=: templateContent,
-        "TemplateSubject" Data.=: templateSubject,
         "FailureRedirectionURL"
           Data.=: failureRedirectionURL,
+        "FromEmailAddress" Data.=: fromEmailAddress,
+        "SuccessRedirectionURL"
+          Data.=: successRedirectionURL,
+        "TemplateContent" Data.=: templateContent,
+        "TemplateSubject" Data.=: templateSubject,
         "TemplateName" Data.=: templateName
       ]
 

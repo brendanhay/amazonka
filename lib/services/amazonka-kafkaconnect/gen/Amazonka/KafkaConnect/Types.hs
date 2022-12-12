@@ -18,14 +18,14 @@ module Amazonka.KafkaConnect.Types
     defaultService,
 
     -- * Errors
-    _UnauthorizedException,
+    _BadRequestException,
+    _ConflictException,
+    _ForbiddenException,
+    _InternalServerErrorException,
     _NotFoundException,
     _ServiceUnavailableException,
-    _InternalServerErrorException,
-    _ForbiddenException,
-    _ConflictException,
-    _BadRequestException,
     _TooManyRequestsException,
+    _UnauthorizedException,
 
     -- * ConnectorState
     ConnectorState (..),
@@ -51,14 +51,14 @@ module Amazonka.KafkaConnect.Types
     -- * ApacheKafkaClusterDescription
     ApacheKafkaClusterDescription (..),
     newApacheKafkaClusterDescription,
-    apacheKafkaClusterDescription_vpc,
     apacheKafkaClusterDescription_bootstrapServers,
+    apacheKafkaClusterDescription_vpc,
 
     -- * AutoScaling
     AutoScaling (..),
     newAutoScaling,
-    autoScaling_scaleOutPolicy,
     autoScaling_scaleInPolicy,
+    autoScaling_scaleOutPolicy,
     autoScaling_maxWorkerCount,
     autoScaling_mcuCount,
     autoScaling_minWorkerCount,
@@ -66,11 +66,11 @@ module Amazonka.KafkaConnect.Types
     -- * AutoScalingDescription
     AutoScalingDescription (..),
     newAutoScalingDescription,
+    autoScalingDescription_maxWorkerCount,
     autoScalingDescription_mcuCount,
     autoScalingDescription_minWorkerCount,
-    autoScalingDescription_maxWorkerCount,
-    autoScalingDescription_scaleOutPolicy,
     autoScalingDescription_scaleInPolicy,
+    autoScalingDescription_scaleOutPolicy,
 
     -- * AutoScalingUpdate
     AutoScalingUpdate (..),
@@ -84,20 +84,20 @@ module Amazonka.KafkaConnect.Types
     -- * Capacity
     Capacity (..),
     newCapacity,
-    capacity_provisionedCapacity,
     capacity_autoScaling,
+    capacity_provisionedCapacity,
 
     -- * CapacityDescription
     CapacityDescription (..),
     newCapacityDescription,
-    capacityDescription_provisionedCapacity,
     capacityDescription_autoScaling,
+    capacityDescription_provisionedCapacity,
 
     -- * CapacityUpdate
     CapacityUpdate (..),
     newCapacityUpdate,
-    capacityUpdate_provisionedCapacity,
     capacityUpdate_autoScaling,
+    capacityUpdate_provisionedCapacity,
 
     -- * CloudWatchLogsLogDelivery
     CloudWatchLogsLogDelivery (..),
@@ -108,26 +108,26 @@ module Amazonka.KafkaConnect.Types
     -- * CloudWatchLogsLogDeliveryDescription
     CloudWatchLogsLogDeliveryDescription (..),
     newCloudWatchLogsLogDeliveryDescription,
-    cloudWatchLogsLogDeliveryDescription_logGroup,
     cloudWatchLogsLogDeliveryDescription_enabled,
+    cloudWatchLogsLogDeliveryDescription_logGroup,
 
     -- * ConnectorSummary
     ConnectorSummary (..),
     newConnectorSummary,
+    connectorSummary_capacity,
+    connectorSummary_connectorArn,
     connectorSummary_connectorDescription,
+    connectorSummary_connectorName,
+    connectorSummary_connectorState,
+    connectorSummary_creationTime,
+    connectorSummary_currentVersion,
+    connectorSummary_kafkaCluster,
+    connectorSummary_kafkaClusterClientAuthentication,
     connectorSummary_kafkaClusterEncryptionInTransit,
     connectorSummary_kafkaConnectVersion,
-    connectorSummary_serviceExecutionRoleArn,
-    connectorSummary_connectorArn,
-    connectorSummary_plugins,
-    connectorSummary_kafkaClusterClientAuthentication,
-    connectorSummary_currentVersion,
     connectorSummary_logDelivery,
-    connectorSummary_connectorName,
-    connectorSummary_creationTime,
-    connectorSummary_kafkaCluster,
-    connectorSummary_capacity,
-    connectorSummary_connectorState,
+    connectorSummary_plugins,
+    connectorSummary_serviceExecutionRoleArn,
     connectorSummary_workerConfiguration,
 
     -- * CustomPlugin
@@ -139,14 +139,14 @@ module Amazonka.KafkaConnect.Types
     -- * CustomPluginDescription
     CustomPluginDescription (..),
     newCustomPluginDescription,
-    customPluginDescription_revision,
     customPluginDescription_customPluginArn,
+    customPluginDescription_revision,
 
     -- * CustomPluginFileDescription
     CustomPluginFileDescription (..),
     newCustomPluginFileDescription,
-    customPluginFileDescription_fileSize,
     customPluginFileDescription_fileMd5,
+    customPluginFileDescription_fileSize,
 
     -- * CustomPluginLocation
     CustomPluginLocation (..),
@@ -161,22 +161,22 @@ module Amazonka.KafkaConnect.Types
     -- * CustomPluginRevisionSummary
     CustomPluginRevisionSummary (..),
     newCustomPluginRevisionSummary,
-    customPluginRevisionSummary_revision,
+    customPluginRevisionSummary_contentType,
+    customPluginRevisionSummary_creationTime,
     customPluginRevisionSummary_description,
     customPluginRevisionSummary_fileDescription,
     customPluginRevisionSummary_location,
-    customPluginRevisionSummary_creationTime,
-    customPluginRevisionSummary_contentType,
+    customPluginRevisionSummary_revision,
 
     -- * CustomPluginSummary
     CustomPluginSummary (..),
     newCustomPluginSummary,
-    customPluginSummary_latestRevision,
-    customPluginSummary_name,
-    customPluginSummary_customPluginState,
-    customPluginSummary_description,
     customPluginSummary_creationTime,
     customPluginSummary_customPluginArn,
+    customPluginSummary_customPluginState,
+    customPluginSummary_description,
+    customPluginSummary_latestRevision,
+    customPluginSummary_name,
 
     -- * FirehoseLogDelivery
     FirehoseLogDelivery (..),
@@ -249,8 +249,8 @@ module Amazonka.KafkaConnect.Types
     -- * ProvisionedCapacityDescription
     ProvisionedCapacityDescription (..),
     newProvisionedCapacityDescription,
-    provisionedCapacityDescription_workerCount,
     provisionedCapacityDescription_mcuCount,
+    provisionedCapacityDescription_workerCount,
 
     -- * ProvisionedCapacityUpdate
     ProvisionedCapacityUpdate (..),
@@ -268,9 +268,9 @@ module Amazonka.KafkaConnect.Types
     -- * S3LocationDescription
     S3LocationDescription (..),
     newS3LocationDescription,
+    s3LocationDescription_bucketArn,
     s3LocationDescription_fileKey,
     s3LocationDescription_objectVersion,
-    s3LocationDescription_bucketArn,
 
     -- * S3LogDelivery
     S3LogDelivery (..),
@@ -319,8 +319,8 @@ module Amazonka.KafkaConnect.Types
     -- * StateDescription
     StateDescription (..),
     newStateDescription,
-    stateDescription_message,
     stateDescription_code,
+    stateDescription_message,
 
     -- * Vpc
     Vpc (..),
@@ -331,8 +331,8 @@ module Amazonka.KafkaConnect.Types
     -- * VpcDescription
     VpcDescription (..),
     newVpcDescription,
-    vpcDescription_subnets,
     vpcDescription_securityGroups,
+    vpcDescription_subnets,
 
     -- * WorkerConfiguration
     WorkerConfiguration (..),
@@ -349,26 +349,26 @@ module Amazonka.KafkaConnect.Types
     -- * WorkerConfigurationRevisionDescription
     WorkerConfigurationRevisionDescription (..),
     newWorkerConfigurationRevisionDescription,
-    workerConfigurationRevisionDescription_revision,
-    workerConfigurationRevisionDescription_description,
     workerConfigurationRevisionDescription_creationTime,
+    workerConfigurationRevisionDescription_description,
     workerConfigurationRevisionDescription_propertiesFileContent,
+    workerConfigurationRevisionDescription_revision,
 
     -- * WorkerConfigurationRevisionSummary
     WorkerConfigurationRevisionSummary (..),
     newWorkerConfigurationRevisionSummary,
-    workerConfigurationRevisionSummary_revision,
-    workerConfigurationRevisionSummary_description,
     workerConfigurationRevisionSummary_creationTime,
+    workerConfigurationRevisionSummary_description,
+    workerConfigurationRevisionSummary_revision,
 
     -- * WorkerConfigurationSummary
     WorkerConfigurationSummary (..),
     newWorkerConfigurationSummary,
+    workerConfigurationSummary_creationTime,
+    workerConfigurationSummary_description,
     workerConfigurationSummary_latestRevision,
     workerConfigurationSummary_name,
-    workerConfigurationSummary_description,
     workerConfigurationSummary_workerConfigurationArn,
-    workerConfigurationSummary_creationTime,
 
     -- * WorkerLogDelivery
     WorkerLogDelivery (..),
@@ -474,28 +474,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -503,13 +497,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -517,16 +515,45 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
--- | HTTP Status Code 401: Unauthorized request. The provided credentials
--- couldn\'t be validated.
-_UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnauthorizedException =
+-- | HTTP Status Code 400: Bad request due to incorrect input. Correct your
+-- request and then retry it.
+_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException =
   Core._MatchServiceError
     defaultService
-    "UnauthorizedException"
-    Prelude.. Core.hasStatus 401
+    "BadRequestException"
+    Prelude.. Core.hasStatus 400
+
+-- | HTTP Status Code 409: Conflict. A resource with this name already
+-- exists. Retry your request with another name.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
+-- | HTTP Status Code 403: Access forbidden. Correct your credentials and
+-- then retry your request.
+_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ForbiddenException =
+  Core._MatchServiceError
+    defaultService
+    "ForbiddenException"
+    Prelude.. Core.hasStatus 403
+
+-- | HTTP Status Code 500: Unexpected internal server error. Retrying your
+-- request might resolve the issue.
+_InternalServerErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerErrorException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServerErrorException"
+    Prelude.. Core.hasStatus 500
 
 -- | HTTP Status Code 404: Resource not found due to incorrect input. Correct
 -- your request and then retry it.
@@ -546,42 +573,6 @@ _ServiceUnavailableException =
     "ServiceUnavailableException"
     Prelude.. Core.hasStatus 503
 
--- | HTTP Status Code 500: Unexpected internal server error. Retrying your
--- request might resolve the issue.
-_InternalServerErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerErrorException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServerErrorException"
-    Prelude.. Core.hasStatus 500
-
--- | HTTP Status Code 403: Access forbidden. Correct your credentials and
--- then retry your request.
-_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ForbiddenException =
-  Core._MatchServiceError
-    defaultService
-    "ForbiddenException"
-    Prelude.. Core.hasStatus 403
-
--- | HTTP Status Code 409: Conflict. A resource with this name already
--- exists. Retry your request with another name.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
-
--- | HTTP Status Code 400: Bad request due to incorrect input. Correct your
--- request and then retry it.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_BadRequestException =
-  Core._MatchServiceError
-    defaultService
-    "BadRequestException"
-    Prelude.. Core.hasStatus 400
-
 -- | HTTP Status Code 429: Limit exceeded. Resource limit reached.
 _TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyRequestsException =
@@ -589,3 +580,12 @@ _TooManyRequestsException =
     defaultService
     "TooManyRequestsException"
     Prelude.. Core.hasStatus 429
+
+-- | HTTP Status Code 401: Unauthorized request. The provided credentials
+-- couldn\'t be validated.
+_UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnauthorizedException =
+  Core._MatchServiceError
+    defaultService
+    "UnauthorizedException"
+    Prelude.. Core.hasStatus 401

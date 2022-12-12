@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPlainTextMessageType' smart constructor.
 data PlainTextMessageType = PlainTextMessageType'
-  { -- | The name of the voice that you want to use to deliver the message. For a
-    -- complete list of supported voices, see the Amazon Polly Developer Guide.
-    voiceId :: Prelude.Maybe Prelude.Text,
-    -- | The language to use when delivering the message. For a complete list of
+  { -- | The language to use when delivering the message. For a complete list of
     -- supported languages, see the Amazon Polly Developer Guide.
     languageCode :: Prelude.Maybe Prelude.Text,
     -- | The plain (not SSML-formatted) text to deliver to the recipient.
-    text :: Prelude.Maybe Prelude.Text
+    text :: Prelude.Maybe Prelude.Text,
+    -- | The name of the voice that you want to use to deliver the message. For a
+    -- complete list of supported voices, see the Amazon Polly Developer Guide.
+    voiceId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,26 +47,22 @@ data PlainTextMessageType = PlainTextMessageType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceId', 'plainTextMessageType_voiceId' - The name of the voice that you want to use to deliver the message. For a
--- complete list of supported voices, see the Amazon Polly Developer Guide.
---
 -- 'languageCode', 'plainTextMessageType_languageCode' - The language to use when delivering the message. For a complete list of
 -- supported languages, see the Amazon Polly Developer Guide.
 --
 -- 'text', 'plainTextMessageType_text' - The plain (not SSML-formatted) text to deliver to the recipient.
+--
+-- 'voiceId', 'plainTextMessageType_voiceId' - The name of the voice that you want to use to deliver the message. For a
+-- complete list of supported voices, see the Amazon Polly Developer Guide.
 newPlainTextMessageType ::
   PlainTextMessageType
 newPlainTextMessageType =
   PlainTextMessageType'
-    { voiceId = Prelude.Nothing,
-      languageCode = Prelude.Nothing,
-      text = Prelude.Nothing
+    { languageCode =
+        Prelude.Nothing,
+      text = Prelude.Nothing,
+      voiceId = Prelude.Nothing
     }
-
--- | The name of the voice that you want to use to deliver the message. For a
--- complete list of supported voices, see the Amazon Polly Developer Guide.
-plainTextMessageType_voiceId :: Lens.Lens' PlainTextMessageType (Prelude.Maybe Prelude.Text)
-plainTextMessageType_voiceId = Lens.lens (\PlainTextMessageType' {voiceId} -> voiceId) (\s@PlainTextMessageType' {} a -> s {voiceId = a} :: PlainTextMessageType)
 
 -- | The language to use when delivering the message. For a complete list of
 -- supported languages, see the Amazon Polly Developer Guide.
@@ -77,24 +73,29 @@ plainTextMessageType_languageCode = Lens.lens (\PlainTextMessageType' {languageC
 plainTextMessageType_text :: Lens.Lens' PlainTextMessageType (Prelude.Maybe Prelude.Text)
 plainTextMessageType_text = Lens.lens (\PlainTextMessageType' {text} -> text) (\s@PlainTextMessageType' {} a -> s {text = a} :: PlainTextMessageType)
 
+-- | The name of the voice that you want to use to deliver the message. For a
+-- complete list of supported voices, see the Amazon Polly Developer Guide.
+plainTextMessageType_voiceId :: Lens.Lens' PlainTextMessageType (Prelude.Maybe Prelude.Text)
+plainTextMessageType_voiceId = Lens.lens (\PlainTextMessageType' {voiceId} -> voiceId) (\s@PlainTextMessageType' {} a -> s {voiceId = a} :: PlainTextMessageType)
+
 instance Prelude.Hashable PlainTextMessageType where
   hashWithSalt _salt PlainTextMessageType' {..} =
-    _salt `Prelude.hashWithSalt` voiceId
-      `Prelude.hashWithSalt` languageCode
+    _salt `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` text
+      `Prelude.hashWithSalt` voiceId
 
 instance Prelude.NFData PlainTextMessageType where
   rnf PlainTextMessageType' {..} =
-    Prelude.rnf voiceId
-      `Prelude.seq` Prelude.rnf languageCode
+    Prelude.rnf languageCode
       `Prelude.seq` Prelude.rnf text
+      `Prelude.seq` Prelude.rnf voiceId
 
 instance Data.ToJSON PlainTextMessageType where
   toJSON PlainTextMessageType' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("VoiceId" Data..=) Prelude.<$> voiceId,
-            ("LanguageCode" Data..=) Prelude.<$> languageCode,
-            ("Text" Data..=) Prelude.<$> text
+          [ ("LanguageCode" Data..=) Prelude.<$> languageCode,
+            ("Text" Data..=) Prelude.<$> text,
+            ("VoiceId" Data..=) Prelude.<$> voiceId
           ]
       )

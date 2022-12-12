@@ -69,3 +69,12 @@ instance Prelude.Hashable DataSetSchema where
 
 instance Prelude.NFData DataSetSchema where
   rnf DataSetSchema' {..} = Prelude.rnf columnSchemaList
+
+instance Data.ToJSON DataSetSchema where
+  toJSON DataSetSchema' {..} =
+    Data.object
+      ( Prelude.catMaybes
+          [ ("ColumnSchemaList" Data..=)
+              Prelude.<$> columnSchemaList
+          ]
+      )

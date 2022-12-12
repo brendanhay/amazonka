@@ -28,22 +28,22 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newWorkflowRunStatistics' smart constructor.
 data WorkflowRunStatistics = WorkflowRunStatistics'
-  { -- | Total number of Actions that timed out.
-    timeoutActions :: Prelude.Maybe Prelude.Int,
-    -- | Indicates the count of job runs in WAITING state in the workflow run.
-    waitingActions :: Prelude.Maybe Prelude.Int,
-    -- | Total number of Actions that have succeeded.
-    succeededActions :: Prelude.Maybe Prelude.Int,
-    -- | Total number of Actions in the workflow run.
-    totalActions :: Prelude.Maybe Prelude.Int,
-    -- | Total number of Actions that have stopped.
-    stoppedActions :: Prelude.Maybe Prelude.Int,
+  { -- | Indicates the count of job runs in the ERROR state in the workflow run.
+    erroredActions :: Prelude.Maybe Prelude.Int,
     -- | Total number of Actions that have failed.
     failedActions :: Prelude.Maybe Prelude.Int,
     -- | Total number Actions in running state.
     runningActions :: Prelude.Maybe Prelude.Int,
-    -- | Indicates the count of job runs in the ERROR state in the workflow run.
-    erroredActions :: Prelude.Maybe Prelude.Int
+    -- | Total number of Actions that have stopped.
+    stoppedActions :: Prelude.Maybe Prelude.Int,
+    -- | Total number of Actions that have succeeded.
+    succeededActions :: Prelude.Maybe Prelude.Int,
+    -- | Total number of Actions that timed out.
+    timeoutActions :: Prelude.Maybe Prelude.Int,
+    -- | Total number of Actions in the workflow run.
+    totalActions :: Prelude.Maybe Prelude.Int,
+    -- | Indicates the count of job runs in WAITING state in the workflow run.
+    waitingActions :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,55 +55,39 @@ data WorkflowRunStatistics = WorkflowRunStatistics'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'timeoutActions', 'workflowRunStatistics_timeoutActions' - Total number of Actions that timed out.
---
--- 'waitingActions', 'workflowRunStatistics_waitingActions' - Indicates the count of job runs in WAITING state in the workflow run.
---
--- 'succeededActions', 'workflowRunStatistics_succeededActions' - Total number of Actions that have succeeded.
---
--- 'totalActions', 'workflowRunStatistics_totalActions' - Total number of Actions in the workflow run.
---
--- 'stoppedActions', 'workflowRunStatistics_stoppedActions' - Total number of Actions that have stopped.
+-- 'erroredActions', 'workflowRunStatistics_erroredActions' - Indicates the count of job runs in the ERROR state in the workflow run.
 --
 -- 'failedActions', 'workflowRunStatistics_failedActions' - Total number of Actions that have failed.
 --
 -- 'runningActions', 'workflowRunStatistics_runningActions' - Total number Actions in running state.
 --
--- 'erroredActions', 'workflowRunStatistics_erroredActions' - Indicates the count of job runs in the ERROR state in the workflow run.
+-- 'stoppedActions', 'workflowRunStatistics_stoppedActions' - Total number of Actions that have stopped.
+--
+-- 'succeededActions', 'workflowRunStatistics_succeededActions' - Total number of Actions that have succeeded.
+--
+-- 'timeoutActions', 'workflowRunStatistics_timeoutActions' - Total number of Actions that timed out.
+--
+-- 'totalActions', 'workflowRunStatistics_totalActions' - Total number of Actions in the workflow run.
+--
+-- 'waitingActions', 'workflowRunStatistics_waitingActions' - Indicates the count of job runs in WAITING state in the workflow run.
 newWorkflowRunStatistics ::
   WorkflowRunStatistics
 newWorkflowRunStatistics =
   WorkflowRunStatistics'
-    { timeoutActions =
+    { erroredActions =
         Prelude.Nothing,
-      waitingActions = Prelude.Nothing,
-      succeededActions = Prelude.Nothing,
-      totalActions = Prelude.Nothing,
-      stoppedActions = Prelude.Nothing,
       failedActions = Prelude.Nothing,
       runningActions = Prelude.Nothing,
-      erroredActions = Prelude.Nothing
+      stoppedActions = Prelude.Nothing,
+      succeededActions = Prelude.Nothing,
+      timeoutActions = Prelude.Nothing,
+      totalActions = Prelude.Nothing,
+      waitingActions = Prelude.Nothing
     }
 
--- | Total number of Actions that timed out.
-workflowRunStatistics_timeoutActions :: Lens.Lens' WorkflowRunStatistics (Prelude.Maybe Prelude.Int)
-workflowRunStatistics_timeoutActions = Lens.lens (\WorkflowRunStatistics' {timeoutActions} -> timeoutActions) (\s@WorkflowRunStatistics' {} a -> s {timeoutActions = a} :: WorkflowRunStatistics)
-
--- | Indicates the count of job runs in WAITING state in the workflow run.
-workflowRunStatistics_waitingActions :: Lens.Lens' WorkflowRunStatistics (Prelude.Maybe Prelude.Int)
-workflowRunStatistics_waitingActions = Lens.lens (\WorkflowRunStatistics' {waitingActions} -> waitingActions) (\s@WorkflowRunStatistics' {} a -> s {waitingActions = a} :: WorkflowRunStatistics)
-
--- | Total number of Actions that have succeeded.
-workflowRunStatistics_succeededActions :: Lens.Lens' WorkflowRunStatistics (Prelude.Maybe Prelude.Int)
-workflowRunStatistics_succeededActions = Lens.lens (\WorkflowRunStatistics' {succeededActions} -> succeededActions) (\s@WorkflowRunStatistics' {} a -> s {succeededActions = a} :: WorkflowRunStatistics)
-
--- | Total number of Actions in the workflow run.
-workflowRunStatistics_totalActions :: Lens.Lens' WorkflowRunStatistics (Prelude.Maybe Prelude.Int)
-workflowRunStatistics_totalActions = Lens.lens (\WorkflowRunStatistics' {totalActions} -> totalActions) (\s@WorkflowRunStatistics' {} a -> s {totalActions = a} :: WorkflowRunStatistics)
-
--- | Total number of Actions that have stopped.
-workflowRunStatistics_stoppedActions :: Lens.Lens' WorkflowRunStatistics (Prelude.Maybe Prelude.Int)
-workflowRunStatistics_stoppedActions = Lens.lens (\WorkflowRunStatistics' {stoppedActions} -> stoppedActions) (\s@WorkflowRunStatistics' {} a -> s {stoppedActions = a} :: WorkflowRunStatistics)
+-- | Indicates the count of job runs in the ERROR state in the workflow run.
+workflowRunStatistics_erroredActions :: Lens.Lens' WorkflowRunStatistics (Prelude.Maybe Prelude.Int)
+workflowRunStatistics_erroredActions = Lens.lens (\WorkflowRunStatistics' {erroredActions} -> erroredActions) (\s@WorkflowRunStatistics' {} a -> s {erroredActions = a} :: WorkflowRunStatistics)
 
 -- | Total number of Actions that have failed.
 workflowRunStatistics_failedActions :: Lens.Lens' WorkflowRunStatistics (Prelude.Maybe Prelude.Int)
@@ -113,9 +97,25 @@ workflowRunStatistics_failedActions = Lens.lens (\WorkflowRunStatistics' {failed
 workflowRunStatistics_runningActions :: Lens.Lens' WorkflowRunStatistics (Prelude.Maybe Prelude.Int)
 workflowRunStatistics_runningActions = Lens.lens (\WorkflowRunStatistics' {runningActions} -> runningActions) (\s@WorkflowRunStatistics' {} a -> s {runningActions = a} :: WorkflowRunStatistics)
 
--- | Indicates the count of job runs in the ERROR state in the workflow run.
-workflowRunStatistics_erroredActions :: Lens.Lens' WorkflowRunStatistics (Prelude.Maybe Prelude.Int)
-workflowRunStatistics_erroredActions = Lens.lens (\WorkflowRunStatistics' {erroredActions} -> erroredActions) (\s@WorkflowRunStatistics' {} a -> s {erroredActions = a} :: WorkflowRunStatistics)
+-- | Total number of Actions that have stopped.
+workflowRunStatistics_stoppedActions :: Lens.Lens' WorkflowRunStatistics (Prelude.Maybe Prelude.Int)
+workflowRunStatistics_stoppedActions = Lens.lens (\WorkflowRunStatistics' {stoppedActions} -> stoppedActions) (\s@WorkflowRunStatistics' {} a -> s {stoppedActions = a} :: WorkflowRunStatistics)
+
+-- | Total number of Actions that have succeeded.
+workflowRunStatistics_succeededActions :: Lens.Lens' WorkflowRunStatistics (Prelude.Maybe Prelude.Int)
+workflowRunStatistics_succeededActions = Lens.lens (\WorkflowRunStatistics' {succeededActions} -> succeededActions) (\s@WorkflowRunStatistics' {} a -> s {succeededActions = a} :: WorkflowRunStatistics)
+
+-- | Total number of Actions that timed out.
+workflowRunStatistics_timeoutActions :: Lens.Lens' WorkflowRunStatistics (Prelude.Maybe Prelude.Int)
+workflowRunStatistics_timeoutActions = Lens.lens (\WorkflowRunStatistics' {timeoutActions} -> timeoutActions) (\s@WorkflowRunStatistics' {} a -> s {timeoutActions = a} :: WorkflowRunStatistics)
+
+-- | Total number of Actions in the workflow run.
+workflowRunStatistics_totalActions :: Lens.Lens' WorkflowRunStatistics (Prelude.Maybe Prelude.Int)
+workflowRunStatistics_totalActions = Lens.lens (\WorkflowRunStatistics' {totalActions} -> totalActions) (\s@WorkflowRunStatistics' {} a -> s {totalActions = a} :: WorkflowRunStatistics)
+
+-- | Indicates the count of job runs in WAITING state in the workflow run.
+workflowRunStatistics_waitingActions :: Lens.Lens' WorkflowRunStatistics (Prelude.Maybe Prelude.Int)
+workflowRunStatistics_waitingActions = Lens.lens (\WorkflowRunStatistics' {waitingActions} -> waitingActions) (\s@WorkflowRunStatistics' {} a -> s {waitingActions = a} :: WorkflowRunStatistics)
 
 instance Data.FromJSON WorkflowRunStatistics where
   parseJSON =
@@ -123,34 +123,34 @@ instance Data.FromJSON WorkflowRunStatistics where
       "WorkflowRunStatistics"
       ( \x ->
           WorkflowRunStatistics'
-            Prelude.<$> (x Data..:? "TimeoutActions")
-            Prelude.<*> (x Data..:? "WaitingActions")
-            Prelude.<*> (x Data..:? "SucceededActions")
-            Prelude.<*> (x Data..:? "TotalActions")
-            Prelude.<*> (x Data..:? "StoppedActions")
+            Prelude.<$> (x Data..:? "ErroredActions")
             Prelude.<*> (x Data..:? "FailedActions")
             Prelude.<*> (x Data..:? "RunningActions")
-            Prelude.<*> (x Data..:? "ErroredActions")
+            Prelude.<*> (x Data..:? "StoppedActions")
+            Prelude.<*> (x Data..:? "SucceededActions")
+            Prelude.<*> (x Data..:? "TimeoutActions")
+            Prelude.<*> (x Data..:? "TotalActions")
+            Prelude.<*> (x Data..:? "WaitingActions")
       )
 
 instance Prelude.Hashable WorkflowRunStatistics where
   hashWithSalt _salt WorkflowRunStatistics' {..} =
-    _salt `Prelude.hashWithSalt` timeoutActions
-      `Prelude.hashWithSalt` waitingActions
-      `Prelude.hashWithSalt` succeededActions
-      `Prelude.hashWithSalt` totalActions
-      `Prelude.hashWithSalt` stoppedActions
+    _salt `Prelude.hashWithSalt` erroredActions
       `Prelude.hashWithSalt` failedActions
       `Prelude.hashWithSalt` runningActions
-      `Prelude.hashWithSalt` erroredActions
+      `Prelude.hashWithSalt` stoppedActions
+      `Prelude.hashWithSalt` succeededActions
+      `Prelude.hashWithSalt` timeoutActions
+      `Prelude.hashWithSalt` totalActions
+      `Prelude.hashWithSalt` waitingActions
 
 instance Prelude.NFData WorkflowRunStatistics where
   rnf WorkflowRunStatistics' {..} =
-    Prelude.rnf timeoutActions
-      `Prelude.seq` Prelude.rnf waitingActions
-      `Prelude.seq` Prelude.rnf succeededActions
-      `Prelude.seq` Prelude.rnf totalActions
-      `Prelude.seq` Prelude.rnf stoppedActions
+    Prelude.rnf erroredActions
       `Prelude.seq` Prelude.rnf failedActions
       `Prelude.seq` Prelude.rnf runningActions
-      `Prelude.seq` Prelude.rnf erroredActions
+      `Prelude.seq` Prelude.rnf stoppedActions
+      `Prelude.seq` Prelude.rnf succeededActions
+      `Prelude.seq` Prelude.rnf timeoutActions
+      `Prelude.seq` Prelude.rnf totalActions
+      `Prelude.seq` Prelude.rnf waitingActions

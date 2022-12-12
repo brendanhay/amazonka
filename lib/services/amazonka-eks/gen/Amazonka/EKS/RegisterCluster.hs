@@ -44,8 +44,8 @@ module Amazonka.EKS.RegisterCluster
     newRegisterCluster,
 
     -- * Request Lenses
-    registerCluster_tags,
     registerCluster_clientRequestToken,
+    registerCluster_tags,
     registerCluster_name,
     registerCluster_connectorConfig,
 
@@ -69,14 +69,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRegisterCluster' smart constructor.
 data RegisterCluster = RegisterCluster'
-  { -- | The metadata that you apply to the cluster to assist with categorization
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | The metadata that you apply to the cluster to assist with categorization
     -- and organization. Each tag consists of a key and an optional value, both
     -- of which you define. Cluster tags do not propagate to any other
     -- resources associated with the cluster.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | Define a unique name for this cluster for your Region.
     name :: Prelude.Text,
     -- | The configuration settings required to connect the Kubernetes cluster to
@@ -93,13 +93,13 @@ data RegisterCluster = RegisterCluster'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clientRequestToken', 'registerCluster_clientRequestToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request.
+--
 -- 'tags', 'registerCluster_tags' - The metadata that you apply to the cluster to assist with categorization
 -- and organization. Each tag consists of a key and an optional value, both
 -- of which you define. Cluster tags do not propagate to any other
 -- resources associated with the cluster.
---
--- 'clientRequestToken', 'registerCluster_clientRequestToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
 --
 -- 'name', 'registerCluster_name' - Define a unique name for this cluster for your Region.
 --
@@ -113,11 +113,17 @@ newRegisterCluster ::
   RegisterCluster
 newRegisterCluster pName_ pConnectorConfig_ =
   RegisterCluster'
-    { tags = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
+    { clientRequestToken =
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_,
       connectorConfig = pConnectorConfig_
     }
+
+-- | Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request.
+registerCluster_clientRequestToken :: Lens.Lens' RegisterCluster (Prelude.Maybe Prelude.Text)
+registerCluster_clientRequestToken = Lens.lens (\RegisterCluster' {clientRequestToken} -> clientRequestToken) (\s@RegisterCluster' {} a -> s {clientRequestToken = a} :: RegisterCluster)
 
 -- | The metadata that you apply to the cluster to assist with categorization
 -- and organization. Each tag consists of a key and an optional value, both
@@ -125,11 +131,6 @@ newRegisterCluster pName_ pConnectorConfig_ =
 -- resources associated with the cluster.
 registerCluster_tags :: Lens.Lens' RegisterCluster (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 registerCluster_tags = Lens.lens (\RegisterCluster' {tags} -> tags) (\s@RegisterCluster' {} a -> s {tags = a} :: RegisterCluster) Prelude.. Lens.mapping Lens.coerced
-
--- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
-registerCluster_clientRequestToken :: Lens.Lens' RegisterCluster (Prelude.Maybe Prelude.Text)
-registerCluster_clientRequestToken = Lens.lens (\RegisterCluster' {clientRequestToken} -> clientRequestToken) (\s@RegisterCluster' {} a -> s {clientRequestToken = a} :: RegisterCluster)
 
 -- | Define a unique name for this cluster for your Region.
 registerCluster_name :: Lens.Lens' RegisterCluster Prelude.Text
@@ -156,15 +157,15 @@ instance Core.AWSRequest RegisterCluster where
 
 instance Prelude.Hashable RegisterCluster where
   hashWithSalt _salt RegisterCluster' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientRequestToken
+    _salt `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` connectorConfig
 
 instance Prelude.NFData RegisterCluster where
   rnf RegisterCluster' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf connectorConfig
 
@@ -183,9 +184,9 @@ instance Data.ToJSON RegisterCluster where
   toJSON RegisterCluster' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("clientRequestToken" Data..=)
+          [ ("clientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("name" Data..= name),
             Prelude.Just
               ("connectorConfig" Data..= connectorConfig)

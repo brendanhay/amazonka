@@ -36,12 +36,12 @@ data ControlInsightsMetadataItem = ControlInsightsMetadataItem'
   { -- | A breakdown of the compliance check status for the evidence that’s
     -- associated with the control.
     evidenceInsights :: Prelude.Maybe EvidenceInsights,
-    -- | The name of the control.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the control.
     id :: Prelude.Maybe Prelude.Text,
     -- | The time when the control insights were last updated.
-    lastUpdated :: Prelude.Maybe Data.POSIX
+    lastUpdated :: Prelude.Maybe Data.POSIX,
+    -- | The name of the control.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,30 +56,26 @@ data ControlInsightsMetadataItem = ControlInsightsMetadataItem'
 -- 'evidenceInsights', 'controlInsightsMetadataItem_evidenceInsights' - A breakdown of the compliance check status for the evidence that’s
 -- associated with the control.
 --
--- 'name', 'controlInsightsMetadataItem_name' - The name of the control.
---
 -- 'id', 'controlInsightsMetadataItem_id' - The unique identifier for the control.
 --
 -- 'lastUpdated', 'controlInsightsMetadataItem_lastUpdated' - The time when the control insights were last updated.
+--
+-- 'name', 'controlInsightsMetadataItem_name' - The name of the control.
 newControlInsightsMetadataItem ::
   ControlInsightsMetadataItem
 newControlInsightsMetadataItem =
   ControlInsightsMetadataItem'
     { evidenceInsights =
         Prelude.Nothing,
-      name = Prelude.Nothing,
       id = Prelude.Nothing,
-      lastUpdated = Prelude.Nothing
+      lastUpdated = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | A breakdown of the compliance check status for the evidence that’s
 -- associated with the control.
 controlInsightsMetadataItem_evidenceInsights :: Lens.Lens' ControlInsightsMetadataItem (Prelude.Maybe EvidenceInsights)
 controlInsightsMetadataItem_evidenceInsights = Lens.lens (\ControlInsightsMetadataItem' {evidenceInsights} -> evidenceInsights) (\s@ControlInsightsMetadataItem' {} a -> s {evidenceInsights = a} :: ControlInsightsMetadataItem)
-
--- | The name of the control.
-controlInsightsMetadataItem_name :: Lens.Lens' ControlInsightsMetadataItem (Prelude.Maybe Prelude.Text)
-controlInsightsMetadataItem_name = Lens.lens (\ControlInsightsMetadataItem' {name} -> name) (\s@ControlInsightsMetadataItem' {} a -> s {name = a} :: ControlInsightsMetadataItem)
 
 -- | The unique identifier for the control.
 controlInsightsMetadataItem_id :: Lens.Lens' ControlInsightsMetadataItem (Prelude.Maybe Prelude.Text)
@@ -89,6 +85,10 @@ controlInsightsMetadataItem_id = Lens.lens (\ControlInsightsMetadataItem' {id} -
 controlInsightsMetadataItem_lastUpdated :: Lens.Lens' ControlInsightsMetadataItem (Prelude.Maybe Prelude.UTCTime)
 controlInsightsMetadataItem_lastUpdated = Lens.lens (\ControlInsightsMetadataItem' {lastUpdated} -> lastUpdated) (\s@ControlInsightsMetadataItem' {} a -> s {lastUpdated = a} :: ControlInsightsMetadataItem) Prelude.. Lens.mapping Data._Time
 
+-- | The name of the control.
+controlInsightsMetadataItem_name :: Lens.Lens' ControlInsightsMetadataItem (Prelude.Maybe Prelude.Text)
+controlInsightsMetadataItem_name = Lens.lens (\ControlInsightsMetadataItem' {name} -> name) (\s@ControlInsightsMetadataItem' {} a -> s {name = a} :: ControlInsightsMetadataItem)
+
 instance Data.FromJSON ControlInsightsMetadataItem where
   parseJSON =
     Data.withObject
@@ -96,21 +96,21 @@ instance Data.FromJSON ControlInsightsMetadataItem where
       ( \x ->
           ControlInsightsMetadataItem'
             Prelude.<$> (x Data..:? "evidenceInsights")
-            Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "id")
             Prelude.<*> (x Data..:? "lastUpdated")
+            Prelude.<*> (x Data..:? "name")
       )
 
 instance Prelude.Hashable ControlInsightsMetadataItem where
   hashWithSalt _salt ControlInsightsMetadataItem' {..} =
     _salt `Prelude.hashWithSalt` evidenceInsights
-      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` lastUpdated
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData ControlInsightsMetadataItem where
   rnf ControlInsightsMetadataItem' {..} =
     Prelude.rnf evidenceInsights
-      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf lastUpdated
+      `Prelude.seq` Prelude.rnf name

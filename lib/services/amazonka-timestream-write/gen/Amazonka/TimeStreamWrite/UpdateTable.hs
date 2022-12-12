@@ -38,8 +38,8 @@ module Amazonka.TimeStreamWrite.UpdateTable
     newUpdateTable,
 
     -- * Request Lenses
-    updateTable_retentionProperties,
     updateTable_magneticStoreWriteProperties,
+    updateTable_retentionProperties,
     updateTable_databaseName,
     updateTable_tableName,
 
@@ -63,11 +63,11 @@ import Amazonka.TimeStreamWrite.Types
 
 -- | /See:/ 'newUpdateTable' smart constructor.
 data UpdateTable = UpdateTable'
-  { -- | The retention duration of the memory store and the magnetic store.
-    retentionProperties :: Prelude.Maybe RetentionProperties,
-    -- | Contains properties to set on the table when enabling magnetic store
+  { -- | Contains properties to set on the table when enabling magnetic store
     -- writes.
     magneticStoreWriteProperties :: Prelude.Maybe MagneticStoreWriteProperties,
+    -- | The retention duration of the memory store and the magnetic store.
+    retentionProperties :: Prelude.Maybe RetentionProperties,
     -- | The name of the Timestream database.
     databaseName :: Prelude.Text,
     -- | The name of the Timestream table.
@@ -83,10 +83,10 @@ data UpdateTable = UpdateTable'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'retentionProperties', 'updateTable_retentionProperties' - The retention duration of the memory store and the magnetic store.
---
 -- 'magneticStoreWriteProperties', 'updateTable_magneticStoreWriteProperties' - Contains properties to set on the table when enabling magnetic store
 -- writes.
+--
+-- 'retentionProperties', 'updateTable_retentionProperties' - The retention duration of the memory store and the magnetic store.
 --
 -- 'databaseName', 'updateTable_databaseName' - The name of the Timestream database.
 --
@@ -99,20 +99,21 @@ newUpdateTable ::
   UpdateTable
 newUpdateTable pDatabaseName_ pTableName_ =
   UpdateTable'
-    { retentionProperties = Prelude.Nothing,
-      magneticStoreWriteProperties = Prelude.Nothing,
+    { magneticStoreWriteProperties =
+        Prelude.Nothing,
+      retentionProperties = Prelude.Nothing,
       databaseName = pDatabaseName_,
       tableName = pTableName_
     }
-
--- | The retention duration of the memory store and the magnetic store.
-updateTable_retentionProperties :: Lens.Lens' UpdateTable (Prelude.Maybe RetentionProperties)
-updateTable_retentionProperties = Lens.lens (\UpdateTable' {retentionProperties} -> retentionProperties) (\s@UpdateTable' {} a -> s {retentionProperties = a} :: UpdateTable)
 
 -- | Contains properties to set on the table when enabling magnetic store
 -- writes.
 updateTable_magneticStoreWriteProperties :: Lens.Lens' UpdateTable (Prelude.Maybe MagneticStoreWriteProperties)
 updateTable_magneticStoreWriteProperties = Lens.lens (\UpdateTable' {magneticStoreWriteProperties} -> magneticStoreWriteProperties) (\s@UpdateTable' {} a -> s {magneticStoreWriteProperties = a} :: UpdateTable)
+
+-- | The retention duration of the memory store and the magnetic store.
+updateTable_retentionProperties :: Lens.Lens' UpdateTable (Prelude.Maybe RetentionProperties)
+updateTable_retentionProperties = Lens.lens (\UpdateTable' {retentionProperties} -> retentionProperties) (\s@UpdateTable' {} a -> s {retentionProperties = a} :: UpdateTable)
 
 -- | The name of the Timestream database.
 updateTable_databaseName :: Lens.Lens' UpdateTable Prelude.Text
@@ -136,15 +137,16 @@ instance Core.AWSRequest UpdateTable where
 
 instance Prelude.Hashable UpdateTable where
   hashWithSalt _salt UpdateTable' {..} =
-    _salt `Prelude.hashWithSalt` retentionProperties
+    _salt
       `Prelude.hashWithSalt` magneticStoreWriteProperties
+      `Prelude.hashWithSalt` retentionProperties
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tableName
 
 instance Prelude.NFData UpdateTable where
   rnf UpdateTable' {..} =
-    Prelude.rnf retentionProperties
-      `Prelude.seq` Prelude.rnf magneticStoreWriteProperties
+    Prelude.rnf magneticStoreWriteProperties
+      `Prelude.seq` Prelude.rnf retentionProperties
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf tableName
 
@@ -167,10 +169,10 @@ instance Data.ToJSON UpdateTable where
   toJSON UpdateTable' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("RetentionProperties" Data..=)
-              Prelude.<$> retentionProperties,
-            ("MagneticStoreWriteProperties" Data..=)
+          [ ("MagneticStoreWriteProperties" Data..=)
               Prelude.<$> magneticStoreWriteProperties,
+            ("RetentionProperties" Data..=)
+              Prelude.<$> retentionProperties,
             Prelude.Just ("DatabaseName" Data..= databaseName),
             Prelude.Just ("TableName" Data..= tableName)
           ]

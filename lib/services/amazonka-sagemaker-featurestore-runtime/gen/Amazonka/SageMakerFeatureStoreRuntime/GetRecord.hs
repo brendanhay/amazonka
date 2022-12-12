@@ -56,7 +56,7 @@ data GetRecord = GetRecord'
   { -- | List of names of Features to be retrieved. If not specified, the latest
     -- value for all the Features are returned.
     featureNames :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The name of the feature group in which you want to put the records.
+    -- | The name of the feature group from which you want to retrieve a record.
     featureGroupName :: Prelude.Text,
     -- | The value that corresponds to @RecordIdentifier@ type and uniquely
     -- identifies the record in the @FeatureGroup@.
@@ -75,7 +75,7 @@ data GetRecord = GetRecord'
 -- 'featureNames', 'getRecord_featureNames' - List of names of Features to be retrieved. If not specified, the latest
 -- value for all the Features are returned.
 --
--- 'featureGroupName', 'getRecord_featureGroupName' - The name of the feature group in which you want to put the records.
+-- 'featureGroupName', 'getRecord_featureGroupName' - The name of the feature group from which you want to retrieve a record.
 --
 -- 'recordIdentifierValueAsString', 'getRecord_recordIdentifierValueAsString' - The value that corresponds to @RecordIdentifier@ type and uniquely
 -- identifies the record in the @FeatureGroup@.
@@ -100,7 +100,7 @@ newGetRecord
 getRecord_featureNames :: Lens.Lens' GetRecord (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 getRecord_featureNames = Lens.lens (\GetRecord' {featureNames} -> featureNames) (\s@GetRecord' {} a -> s {featureNames = a} :: GetRecord) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the feature group in which you want to put the records.
+-- | The name of the feature group from which you want to retrieve a record.
 getRecord_featureGroupName :: Lens.Lens' GetRecord Prelude.Text
 getRecord_featureGroupName = Lens.lens (\GetRecord' {featureGroupName} -> featureGroupName) (\s@GetRecord' {} a -> s {featureGroupName = a} :: GetRecord)
 

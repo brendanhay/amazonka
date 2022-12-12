@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCloudWatchLogsLogDeliveryDescription' smart constructor.
 data CloudWatchLogsLogDeliveryDescription = CloudWatchLogsLogDeliveryDescription'
-  { -- | The name of the CloudWatch log group that is the destination for log
+  { -- | Whether log delivery to Amazon CloudWatch Logs is enabled.
+    enabled :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the CloudWatch log group that is the destination for log
     -- delivery.
-    logGroup :: Prelude.Maybe Prelude.Text,
-    -- | Whether log delivery to Amazon CloudWatch Logs is enabled.
-    enabled :: Prelude.Maybe Prelude.Bool
+    logGroup :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,27 +44,27 @@ data CloudWatchLogsLogDeliveryDescription = CloudWatchLogsLogDeliveryDescription
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'enabled', 'cloudWatchLogsLogDeliveryDescription_enabled' - Whether log delivery to Amazon CloudWatch Logs is enabled.
+--
 -- 'logGroup', 'cloudWatchLogsLogDeliveryDescription_logGroup' - The name of the CloudWatch log group that is the destination for log
 -- delivery.
---
--- 'enabled', 'cloudWatchLogsLogDeliveryDescription_enabled' - Whether log delivery to Amazon CloudWatch Logs is enabled.
 newCloudWatchLogsLogDeliveryDescription ::
   CloudWatchLogsLogDeliveryDescription
 newCloudWatchLogsLogDeliveryDescription =
   CloudWatchLogsLogDeliveryDescription'
-    { logGroup =
+    { enabled =
         Prelude.Nothing,
-      enabled = Prelude.Nothing
+      logGroup = Prelude.Nothing
     }
+
+-- | Whether log delivery to Amazon CloudWatch Logs is enabled.
+cloudWatchLogsLogDeliveryDescription_enabled :: Lens.Lens' CloudWatchLogsLogDeliveryDescription (Prelude.Maybe Prelude.Bool)
+cloudWatchLogsLogDeliveryDescription_enabled = Lens.lens (\CloudWatchLogsLogDeliveryDescription' {enabled} -> enabled) (\s@CloudWatchLogsLogDeliveryDescription' {} a -> s {enabled = a} :: CloudWatchLogsLogDeliveryDescription)
 
 -- | The name of the CloudWatch log group that is the destination for log
 -- delivery.
 cloudWatchLogsLogDeliveryDescription_logGroup :: Lens.Lens' CloudWatchLogsLogDeliveryDescription (Prelude.Maybe Prelude.Text)
 cloudWatchLogsLogDeliveryDescription_logGroup = Lens.lens (\CloudWatchLogsLogDeliveryDescription' {logGroup} -> logGroup) (\s@CloudWatchLogsLogDeliveryDescription' {} a -> s {logGroup = a} :: CloudWatchLogsLogDeliveryDescription)
-
--- | Whether log delivery to Amazon CloudWatch Logs is enabled.
-cloudWatchLogsLogDeliveryDescription_enabled :: Lens.Lens' CloudWatchLogsLogDeliveryDescription (Prelude.Maybe Prelude.Bool)
-cloudWatchLogsLogDeliveryDescription_enabled = Lens.lens (\CloudWatchLogsLogDeliveryDescription' {enabled} -> enabled) (\s@CloudWatchLogsLogDeliveryDescription' {} a -> s {enabled = a} :: CloudWatchLogsLogDeliveryDescription)
 
 instance
   Data.FromJSON
@@ -75,8 +75,8 @@ instance
       "CloudWatchLogsLogDeliveryDescription"
       ( \x ->
           CloudWatchLogsLogDeliveryDescription'
-            Prelude.<$> (x Data..:? "logGroup")
-            Prelude.<*> (x Data..:? "enabled")
+            Prelude.<$> (x Data..:? "enabled")
+            Prelude.<*> (x Data..:? "logGroup")
       )
 
 instance
@@ -86,13 +86,13 @@ instance
   hashWithSalt
     _salt
     CloudWatchLogsLogDeliveryDescription' {..} =
-      _salt `Prelude.hashWithSalt` logGroup
-        `Prelude.hashWithSalt` enabled
+      _salt `Prelude.hashWithSalt` enabled
+        `Prelude.hashWithSalt` logGroup
 
 instance
   Prelude.NFData
     CloudWatchLogsLogDeliveryDescription
   where
   rnf CloudWatchLogsLogDeliveryDescription' {..} =
-    Prelude.rnf logGroup
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf logGroup

@@ -49,8 +49,8 @@ module Amazonka.Support.AddAttachmentsToSet
     newAddAttachmentsToSetResponse,
 
     -- * Response Lenses
-    addAttachmentsToSetResponse_expiryTime,
     addAttachmentsToSetResponse_attachmentSetId,
+    addAttachmentsToSetResponse_expiryTime,
     addAttachmentsToSetResponse_httpStatus,
   )
 where
@@ -140,8 +140,8 @@ instance Core.AWSRequest AddAttachmentsToSet where
     Response.receiveJSON
       ( \s h x ->
           AddAttachmentsToSetResponse'
-            Prelude.<$> (x Data..?> "expiryTime")
-            Prelude.<*> (x Data..?> "attachmentSetId")
+            Prelude.<$> (x Data..?> "attachmentSetId")
+            Prelude.<*> (x Data..?> "expiryTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -191,13 +191,13 @@ instance Data.ToQuery AddAttachmentsToSet where
 --
 -- /See:/ 'newAddAttachmentsToSetResponse' smart constructor.
 data AddAttachmentsToSetResponse = AddAttachmentsToSetResponse'
-  { -- | The time and date when the attachment set expires.
-    expiryTime :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the attachment set. If an @attachmentSetId@ was not specified,
+  { -- | The ID of the attachment set. If an @attachmentSetId@ was not specified,
     -- a new attachment set is created, and the ID of the set is returned in
     -- the response. If an @attachmentSetId@ was specified, the attachments are
     -- added to the specified set, if it exists.
     attachmentSetId :: Prelude.Maybe Prelude.Text,
+    -- | The time and date when the attachment set expires.
+    expiryTime :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -211,12 +211,12 @@ data AddAttachmentsToSetResponse = AddAttachmentsToSetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expiryTime', 'addAttachmentsToSetResponse_expiryTime' - The time and date when the attachment set expires.
---
 -- 'attachmentSetId', 'addAttachmentsToSetResponse_attachmentSetId' - The ID of the attachment set. If an @attachmentSetId@ was not specified,
 -- a new attachment set is created, and the ID of the set is returned in
 -- the response. If an @attachmentSetId@ was specified, the attachments are
 -- added to the specified set, if it exists.
+--
+-- 'expiryTime', 'addAttachmentsToSetResponse_expiryTime' - The time and date when the attachment set expires.
 --
 -- 'httpStatus', 'addAttachmentsToSetResponse_httpStatus' - The response's http status code.
 newAddAttachmentsToSetResponse ::
@@ -225,15 +225,11 @@ newAddAttachmentsToSetResponse ::
   AddAttachmentsToSetResponse
 newAddAttachmentsToSetResponse pHttpStatus_ =
   AddAttachmentsToSetResponse'
-    { expiryTime =
+    { attachmentSetId =
         Prelude.Nothing,
-      attachmentSetId = Prelude.Nothing,
+      expiryTime = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The time and date when the attachment set expires.
-addAttachmentsToSetResponse_expiryTime :: Lens.Lens' AddAttachmentsToSetResponse (Prelude.Maybe Prelude.Text)
-addAttachmentsToSetResponse_expiryTime = Lens.lens (\AddAttachmentsToSetResponse' {expiryTime} -> expiryTime) (\s@AddAttachmentsToSetResponse' {} a -> s {expiryTime = a} :: AddAttachmentsToSetResponse)
 
 -- | The ID of the attachment set. If an @attachmentSetId@ was not specified,
 -- a new attachment set is created, and the ID of the set is returned in
@@ -242,12 +238,16 @@ addAttachmentsToSetResponse_expiryTime = Lens.lens (\AddAttachmentsToSetResponse
 addAttachmentsToSetResponse_attachmentSetId :: Lens.Lens' AddAttachmentsToSetResponse (Prelude.Maybe Prelude.Text)
 addAttachmentsToSetResponse_attachmentSetId = Lens.lens (\AddAttachmentsToSetResponse' {attachmentSetId} -> attachmentSetId) (\s@AddAttachmentsToSetResponse' {} a -> s {attachmentSetId = a} :: AddAttachmentsToSetResponse)
 
+-- | The time and date when the attachment set expires.
+addAttachmentsToSetResponse_expiryTime :: Lens.Lens' AddAttachmentsToSetResponse (Prelude.Maybe Prelude.Text)
+addAttachmentsToSetResponse_expiryTime = Lens.lens (\AddAttachmentsToSetResponse' {expiryTime} -> expiryTime) (\s@AddAttachmentsToSetResponse' {} a -> s {expiryTime = a} :: AddAttachmentsToSetResponse)
+
 -- | The response's http status code.
 addAttachmentsToSetResponse_httpStatus :: Lens.Lens' AddAttachmentsToSetResponse Prelude.Int
 addAttachmentsToSetResponse_httpStatus = Lens.lens (\AddAttachmentsToSetResponse' {httpStatus} -> httpStatus) (\s@AddAttachmentsToSetResponse' {} a -> s {httpStatus = a} :: AddAttachmentsToSetResponse)
 
 instance Prelude.NFData AddAttachmentsToSetResponse where
   rnf AddAttachmentsToSetResponse' {..} =
-    Prelude.rnf expiryTime
-      `Prelude.seq` Prelude.rnf attachmentSetId
+    Prelude.rnf attachmentSetId
+      `Prelude.seq` Prelude.rnf expiryTime
       `Prelude.seq` Prelude.rnf httpStatus

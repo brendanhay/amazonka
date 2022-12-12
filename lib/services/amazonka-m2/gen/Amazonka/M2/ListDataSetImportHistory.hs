@@ -29,8 +29,8 @@ module Amazonka.M2.ListDataSetImportHistory
     newListDataSetImportHistory,
 
     -- * Request Lenses
-    listDataSetImportHistory_nextToken,
     listDataSetImportHistory_maxResults,
+    listDataSetImportHistory_nextToken,
     listDataSetImportHistory_applicationId,
 
     -- * Destructuring the Response
@@ -54,12 +54,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDataSetImportHistory' smart constructor.
 data ListDataSetImportHistory = ListDataSetImportHistory'
-  { -- | A pagination token returned from a previous call to this operation. This
+  { -- | The maximum number of objects to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A pagination token returned from a previous call to this operation. This
     -- specifies the next item to return. To return to the beginning of the
     -- list, exclude this parameter.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of objects to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The unique identifier of the application.
     applicationId :: Prelude.Text
   }
@@ -73,11 +73,11 @@ data ListDataSetImportHistory = ListDataSetImportHistory'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listDataSetImportHistory_maxResults' - The maximum number of objects to return.
+--
 -- 'nextToken', 'listDataSetImportHistory_nextToken' - A pagination token returned from a previous call to this operation. This
 -- specifies the next item to return. To return to the beginning of the
 -- list, exclude this parameter.
---
--- 'maxResults', 'listDataSetImportHistory_maxResults' - The maximum number of objects to return.
 --
 -- 'applicationId', 'listDataSetImportHistory_applicationId' - The unique identifier of the application.
 newListDataSetImportHistory ::
@@ -86,21 +86,21 @@ newListDataSetImportHistory ::
   ListDataSetImportHistory
 newListDataSetImportHistory pApplicationId_ =
   ListDataSetImportHistory'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       applicationId = pApplicationId_
     }
+
+-- | The maximum number of objects to return.
+listDataSetImportHistory_maxResults :: Lens.Lens' ListDataSetImportHistory (Prelude.Maybe Prelude.Natural)
+listDataSetImportHistory_maxResults = Lens.lens (\ListDataSetImportHistory' {maxResults} -> maxResults) (\s@ListDataSetImportHistory' {} a -> s {maxResults = a} :: ListDataSetImportHistory)
 
 -- | A pagination token returned from a previous call to this operation. This
 -- specifies the next item to return. To return to the beginning of the
 -- list, exclude this parameter.
 listDataSetImportHistory_nextToken :: Lens.Lens' ListDataSetImportHistory (Prelude.Maybe Prelude.Text)
 listDataSetImportHistory_nextToken = Lens.lens (\ListDataSetImportHistory' {nextToken} -> nextToken) (\s@ListDataSetImportHistory' {} a -> s {nextToken = a} :: ListDataSetImportHistory)
-
--- | The maximum number of objects to return.
-listDataSetImportHistory_maxResults :: Lens.Lens' ListDataSetImportHistory (Prelude.Maybe Prelude.Natural)
-listDataSetImportHistory_maxResults = Lens.lens (\ListDataSetImportHistory' {maxResults} -> maxResults) (\s@ListDataSetImportHistory' {} a -> s {maxResults = a} :: ListDataSetImportHistory)
 
 -- | The unique identifier of the application.
 listDataSetImportHistory_applicationId :: Lens.Lens' ListDataSetImportHistory Prelude.Text
@@ -146,14 +146,14 @@ instance Core.AWSRequest ListDataSetImportHistory where
 
 instance Prelude.Hashable ListDataSetImportHistory where
   hashWithSalt _salt ListDataSetImportHistory' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` applicationId
 
 instance Prelude.NFData ListDataSetImportHistory where
   rnf ListDataSetImportHistory' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf applicationId
 
 instance Data.ToHeaders ListDataSetImportHistory where
@@ -178,8 +178,8 @@ instance Data.ToPath ListDataSetImportHistory where
 instance Data.ToQuery ListDataSetImportHistory where
   toQuery ListDataSetImportHistory' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListDataSetImportHistoryResponse' smart constructor.

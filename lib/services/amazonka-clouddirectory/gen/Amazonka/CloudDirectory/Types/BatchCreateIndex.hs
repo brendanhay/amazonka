@@ -35,10 +35,10 @@ data BatchCreateIndex = BatchCreateIndex'
     -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html Transaction Support>
     -- for more information.
     batchReferenceName :: Prelude.Maybe Prelude.Text,
-    -- | A reference to the parent object that contains the index object.
-    parentReference :: Prelude.Maybe ObjectReference,
     -- | The name of the link between the parent object and the index object.
     linkName :: Prelude.Maybe Prelude.Text,
+    -- | A reference to the parent object that contains the index object.
+    parentReference :: Prelude.Maybe ObjectReference,
     -- | Specifies the attributes that should be indexed on. Currently only a
     -- single attribute is supported.
     orderedIndexedAttributeList :: [AttributeKey],
@@ -60,9 +60,9 @@ data BatchCreateIndex = BatchCreateIndex'
 -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html Transaction Support>
 -- for more information.
 --
--- 'parentReference', 'batchCreateIndex_parentReference' - A reference to the parent object that contains the index object.
---
 -- 'linkName', 'batchCreateIndex_linkName' - The name of the link between the parent object and the index object.
+--
+-- 'parentReference', 'batchCreateIndex_parentReference' - A reference to the parent object that contains the index object.
 --
 -- 'orderedIndexedAttributeList', 'batchCreateIndex_orderedIndexedAttributeList' - Specifies the attributes that should be indexed on. Currently only a
 -- single attribute is supported.
@@ -77,8 +77,8 @@ newBatchCreateIndex pIsUnique_ =
   BatchCreateIndex'
     { batchReferenceName =
         Prelude.Nothing,
-      parentReference = Prelude.Nothing,
       linkName = Prelude.Nothing,
+      parentReference = Prelude.Nothing,
       orderedIndexedAttributeList = Prelude.mempty,
       isUnique = pIsUnique_
     }
@@ -89,13 +89,13 @@ newBatchCreateIndex pIsUnique_ =
 batchCreateIndex_batchReferenceName :: Lens.Lens' BatchCreateIndex (Prelude.Maybe Prelude.Text)
 batchCreateIndex_batchReferenceName = Lens.lens (\BatchCreateIndex' {batchReferenceName} -> batchReferenceName) (\s@BatchCreateIndex' {} a -> s {batchReferenceName = a} :: BatchCreateIndex)
 
--- | A reference to the parent object that contains the index object.
-batchCreateIndex_parentReference :: Lens.Lens' BatchCreateIndex (Prelude.Maybe ObjectReference)
-batchCreateIndex_parentReference = Lens.lens (\BatchCreateIndex' {parentReference} -> parentReference) (\s@BatchCreateIndex' {} a -> s {parentReference = a} :: BatchCreateIndex)
-
 -- | The name of the link between the parent object and the index object.
 batchCreateIndex_linkName :: Lens.Lens' BatchCreateIndex (Prelude.Maybe Prelude.Text)
 batchCreateIndex_linkName = Lens.lens (\BatchCreateIndex' {linkName} -> linkName) (\s@BatchCreateIndex' {} a -> s {linkName = a} :: BatchCreateIndex)
+
+-- | A reference to the parent object that contains the index object.
+batchCreateIndex_parentReference :: Lens.Lens' BatchCreateIndex (Prelude.Maybe ObjectReference)
+batchCreateIndex_parentReference = Lens.lens (\BatchCreateIndex' {parentReference} -> parentReference) (\s@BatchCreateIndex' {} a -> s {parentReference = a} :: BatchCreateIndex)
 
 -- | Specifies the attributes that should be indexed on. Currently only a
 -- single attribute is supported.
@@ -110,16 +110,16 @@ batchCreateIndex_isUnique = Lens.lens (\BatchCreateIndex' {isUnique} -> isUnique
 instance Prelude.Hashable BatchCreateIndex where
   hashWithSalt _salt BatchCreateIndex' {..} =
     _salt `Prelude.hashWithSalt` batchReferenceName
-      `Prelude.hashWithSalt` parentReference
       `Prelude.hashWithSalt` linkName
+      `Prelude.hashWithSalt` parentReference
       `Prelude.hashWithSalt` orderedIndexedAttributeList
       `Prelude.hashWithSalt` isUnique
 
 instance Prelude.NFData BatchCreateIndex where
   rnf BatchCreateIndex' {..} =
     Prelude.rnf batchReferenceName
-      `Prelude.seq` Prelude.rnf parentReference
       `Prelude.seq` Prelude.rnf linkName
+      `Prelude.seq` Prelude.rnf parentReference
       `Prelude.seq` Prelude.rnf orderedIndexedAttributeList
       `Prelude.seq` Prelude.rnf isUnique
 
@@ -129,9 +129,9 @@ instance Data.ToJSON BatchCreateIndex where
       ( Prelude.catMaybes
           [ ("BatchReferenceName" Data..=)
               Prelude.<$> batchReferenceName,
+            ("LinkName" Data..=) Prelude.<$> linkName,
             ("ParentReference" Data..=)
               Prelude.<$> parentReference,
-            ("LinkName" Data..=) Prelude.<$> linkName,
             Prelude.Just
               ( "OrderedIndexedAttributeList"
                   Data..= orderedIndexedAttributeList

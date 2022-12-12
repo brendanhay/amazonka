@@ -27,11 +27,11 @@ module Amazonka.NetworkFirewall.UpdateFirewallPolicy
     newUpdateFirewallPolicy,
 
     -- * Request Lenses
-    updateFirewallPolicy_firewallPolicyName,
     updateFirewallPolicy_description,
     updateFirewallPolicy_dryRun,
     updateFirewallPolicy_encryptionConfiguration,
     updateFirewallPolicy_firewallPolicyArn,
+    updateFirewallPolicy_firewallPolicyName,
     updateFirewallPolicy_updateToken,
     updateFirewallPolicy_firewallPolicy,
 
@@ -56,12 +56,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateFirewallPolicy' smart constructor.
 data UpdateFirewallPolicy = UpdateFirewallPolicy'
-  { -- | The descriptive name of the firewall policy. You can\'t change the name
-    -- of a firewall policy after you create it.
-    --
-    -- You must specify the ARN or the name, and you can specify both.
-    firewallPolicyName :: Prelude.Maybe Prelude.Text,
-    -- | A description of the firewall policy.
+  { -- | A description of the firewall policy.
     description :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether you want Network Firewall to just check the validity
     -- of the request, rather than run the request.
@@ -84,6 +79,11 @@ data UpdateFirewallPolicy = UpdateFirewallPolicy'
     --
     -- You must specify the ARN or the name, and you can specify both.
     firewallPolicyArn :: Prelude.Maybe Prelude.Text,
+    -- | The descriptive name of the firewall policy. You can\'t change the name
+    -- of a firewall policy after you create it.
+    --
+    -- You must specify the ARN or the name, and you can specify both.
+    firewallPolicyName :: Prelude.Maybe Prelude.Text,
     -- | A token used for optimistic locking. Network Firewall returns a token to
     -- your requests that access the firewall policy. The token marks the state
     -- of the policy resource at the time of the request.
@@ -109,11 +109,6 @@ data UpdateFirewallPolicy = UpdateFirewallPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'firewallPolicyName', 'updateFirewallPolicy_firewallPolicyName' - The descriptive name of the firewall policy. You can\'t change the name
--- of a firewall policy after you create it.
---
--- You must specify the ARN or the name, and you can specify both.
---
 -- 'description', 'updateFirewallPolicy_description' - A description of the firewall policy.
 --
 -- 'dryRun', 'updateFirewallPolicy_dryRun' - Indicates whether you want Network Firewall to just check the validity
@@ -134,6 +129,11 @@ data UpdateFirewallPolicy = UpdateFirewallPolicy'
 -- policy resources.
 --
 -- 'firewallPolicyArn', 'updateFirewallPolicy_firewallPolicyArn' - The Amazon Resource Name (ARN) of the firewall policy.
+--
+-- You must specify the ARN or the name, and you can specify both.
+--
+-- 'firewallPolicyName', 'updateFirewallPolicy_firewallPolicyName' - The descriptive name of the firewall policy. You can\'t change the name
+-- of a firewall policy after you create it.
 --
 -- You must specify the ARN or the name, and you can specify both.
 --
@@ -160,22 +160,15 @@ newUpdateFirewallPolicy
   pUpdateToken_
   pFirewallPolicy_ =
     UpdateFirewallPolicy'
-      { firewallPolicyName =
+      { description =
           Prelude.Nothing,
-        description = Prelude.Nothing,
         dryRun = Prelude.Nothing,
         encryptionConfiguration = Prelude.Nothing,
         firewallPolicyArn = Prelude.Nothing,
+        firewallPolicyName = Prelude.Nothing,
         updateToken = pUpdateToken_,
         firewallPolicy = pFirewallPolicy_
       }
-
--- | The descriptive name of the firewall policy. You can\'t change the name
--- of a firewall policy after you create it.
---
--- You must specify the ARN or the name, and you can specify both.
-updateFirewallPolicy_firewallPolicyName :: Lens.Lens' UpdateFirewallPolicy (Prelude.Maybe Prelude.Text)
-updateFirewallPolicy_firewallPolicyName = Lens.lens (\UpdateFirewallPolicy' {firewallPolicyName} -> firewallPolicyName) (\s@UpdateFirewallPolicy' {} a -> s {firewallPolicyName = a} :: UpdateFirewallPolicy)
 
 -- | A description of the firewall policy.
 updateFirewallPolicy_description :: Lens.Lens' UpdateFirewallPolicy (Prelude.Maybe Prelude.Text)
@@ -207,6 +200,13 @@ updateFirewallPolicy_encryptionConfiguration = Lens.lens (\UpdateFirewallPolicy'
 -- You must specify the ARN or the name, and you can specify both.
 updateFirewallPolicy_firewallPolicyArn :: Lens.Lens' UpdateFirewallPolicy (Prelude.Maybe Prelude.Text)
 updateFirewallPolicy_firewallPolicyArn = Lens.lens (\UpdateFirewallPolicy' {firewallPolicyArn} -> firewallPolicyArn) (\s@UpdateFirewallPolicy' {} a -> s {firewallPolicyArn = a} :: UpdateFirewallPolicy)
+
+-- | The descriptive name of the firewall policy. You can\'t change the name
+-- of a firewall policy after you create it.
+--
+-- You must specify the ARN or the name, and you can specify both.
+updateFirewallPolicy_firewallPolicyName :: Lens.Lens' UpdateFirewallPolicy (Prelude.Maybe Prelude.Text)
+updateFirewallPolicy_firewallPolicyName = Lens.lens (\UpdateFirewallPolicy' {firewallPolicyName} -> firewallPolicyName) (\s@UpdateFirewallPolicy' {} a -> s {firewallPolicyName = a} :: UpdateFirewallPolicy)
 
 -- | A token used for optimistic locking. Network Firewall returns a token to
 -- your requests that access the firewall policy. The token marks the state
@@ -243,21 +243,21 @@ instance Core.AWSRequest UpdateFirewallPolicy where
 
 instance Prelude.Hashable UpdateFirewallPolicy where
   hashWithSalt _salt UpdateFirewallPolicy' {..} =
-    _salt `Prelude.hashWithSalt` firewallPolicyName
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` encryptionConfiguration
       `Prelude.hashWithSalt` firewallPolicyArn
+      `Prelude.hashWithSalt` firewallPolicyName
       `Prelude.hashWithSalt` updateToken
       `Prelude.hashWithSalt` firewallPolicy
 
 instance Prelude.NFData UpdateFirewallPolicy where
   rnf UpdateFirewallPolicy' {..} =
-    Prelude.rnf firewallPolicyName
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf encryptionConfiguration
       `Prelude.seq` Prelude.rnf firewallPolicyArn
+      `Prelude.seq` Prelude.rnf firewallPolicyName
       `Prelude.seq` Prelude.rnf updateToken
       `Prelude.seq` Prelude.rnf firewallPolicy
 
@@ -280,14 +280,14 @@ instance Data.ToJSON UpdateFirewallPolicy where
   toJSON UpdateFirewallPolicy' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("FirewallPolicyName" Data..=)
-              Prelude.<$> firewallPolicyName,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
             ("DryRun" Data..=) Prelude.<$> dryRun,
             ("EncryptionConfiguration" Data..=)
               Prelude.<$> encryptionConfiguration,
             ("FirewallPolicyArn" Data..=)
               Prelude.<$> firewallPolicyArn,
+            ("FirewallPolicyName" Data..=)
+              Prelude.<$> firewallPolicyName,
             Prelude.Just ("UpdateToken" Data..= updateToken),
             Prelude.Just
               ("FirewallPolicy" Data..= firewallPolicy)

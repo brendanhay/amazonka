@@ -32,15 +32,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newScanDetections' smart constructor.
 data ScanDetections = ScanDetections'
-  { -- | Total number of infected files.
-    threatsDetectedItemCount :: Prelude.Maybe ThreatsDetectedItemCount,
+  { -- | Details of the highest severity threat detected during malware scan and
+    -- number of infected files.
+    highestSeverityThreatDetails :: Prelude.Maybe HighestSeverityThreatDetails,
     -- | Total number of scanned files.
     scannedItemCount :: Prelude.Maybe ScannedItemCount,
     -- | Contains details about identified threats organized by threat name.
     threatDetectedByName :: Prelude.Maybe ThreatDetectedByName,
-    -- | Details of the highest severity threat detected during malware scan and
-    -- number of infected files.
-    highestSeverityThreatDetails :: Prelude.Maybe HighestSeverityThreatDetails
+    -- | Total number of infected files.
+    threatsDetectedItemCount :: Prelude.Maybe ThreatsDetectedItemCount
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,28 +52,29 @@ data ScanDetections = ScanDetections'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'threatsDetectedItemCount', 'scanDetections_threatsDetectedItemCount' - Total number of infected files.
+-- 'highestSeverityThreatDetails', 'scanDetections_highestSeverityThreatDetails' - Details of the highest severity threat detected during malware scan and
+-- number of infected files.
 --
 -- 'scannedItemCount', 'scanDetections_scannedItemCount' - Total number of scanned files.
 --
 -- 'threatDetectedByName', 'scanDetections_threatDetectedByName' - Contains details about identified threats organized by threat name.
 --
--- 'highestSeverityThreatDetails', 'scanDetections_highestSeverityThreatDetails' - Details of the highest severity threat detected during malware scan and
--- number of infected files.
+-- 'threatsDetectedItemCount', 'scanDetections_threatsDetectedItemCount' - Total number of infected files.
 newScanDetections ::
   ScanDetections
 newScanDetections =
   ScanDetections'
-    { threatsDetectedItemCount =
+    { highestSeverityThreatDetails =
         Prelude.Nothing,
       scannedItemCount = Prelude.Nothing,
       threatDetectedByName = Prelude.Nothing,
-      highestSeverityThreatDetails = Prelude.Nothing
+      threatsDetectedItemCount = Prelude.Nothing
     }
 
--- | Total number of infected files.
-scanDetections_threatsDetectedItemCount :: Lens.Lens' ScanDetections (Prelude.Maybe ThreatsDetectedItemCount)
-scanDetections_threatsDetectedItemCount = Lens.lens (\ScanDetections' {threatsDetectedItemCount} -> threatsDetectedItemCount) (\s@ScanDetections' {} a -> s {threatsDetectedItemCount = a} :: ScanDetections)
+-- | Details of the highest severity threat detected during malware scan and
+-- number of infected files.
+scanDetections_highestSeverityThreatDetails :: Lens.Lens' ScanDetections (Prelude.Maybe HighestSeverityThreatDetails)
+scanDetections_highestSeverityThreatDetails = Lens.lens (\ScanDetections' {highestSeverityThreatDetails} -> highestSeverityThreatDetails) (\s@ScanDetections' {} a -> s {highestSeverityThreatDetails = a} :: ScanDetections)
 
 -- | Total number of scanned files.
 scanDetections_scannedItemCount :: Lens.Lens' ScanDetections (Prelude.Maybe ScannedItemCount)
@@ -83,10 +84,9 @@ scanDetections_scannedItemCount = Lens.lens (\ScanDetections' {scannedItemCount}
 scanDetections_threatDetectedByName :: Lens.Lens' ScanDetections (Prelude.Maybe ThreatDetectedByName)
 scanDetections_threatDetectedByName = Lens.lens (\ScanDetections' {threatDetectedByName} -> threatDetectedByName) (\s@ScanDetections' {} a -> s {threatDetectedByName = a} :: ScanDetections)
 
--- | Details of the highest severity threat detected during malware scan and
--- number of infected files.
-scanDetections_highestSeverityThreatDetails :: Lens.Lens' ScanDetections (Prelude.Maybe HighestSeverityThreatDetails)
-scanDetections_highestSeverityThreatDetails = Lens.lens (\ScanDetections' {highestSeverityThreatDetails} -> highestSeverityThreatDetails) (\s@ScanDetections' {} a -> s {highestSeverityThreatDetails = a} :: ScanDetections)
+-- | Total number of infected files.
+scanDetections_threatsDetectedItemCount :: Lens.Lens' ScanDetections (Prelude.Maybe ThreatsDetectedItemCount)
+scanDetections_threatsDetectedItemCount = Lens.lens (\ScanDetections' {threatsDetectedItemCount} -> threatsDetectedItemCount) (\s@ScanDetections' {} a -> s {threatsDetectedItemCount = a} :: ScanDetections)
 
 instance Data.FromJSON ScanDetections where
   parseJSON =
@@ -94,23 +94,23 @@ instance Data.FromJSON ScanDetections where
       "ScanDetections"
       ( \x ->
           ScanDetections'
-            Prelude.<$> (x Data..:? "threatsDetectedItemCount")
+            Prelude.<$> (x Data..:? "highestSeverityThreatDetails")
             Prelude.<*> (x Data..:? "scannedItemCount")
             Prelude.<*> (x Data..:? "threatDetectedByName")
-            Prelude.<*> (x Data..:? "highestSeverityThreatDetails")
+            Prelude.<*> (x Data..:? "threatsDetectedItemCount")
       )
 
 instance Prelude.Hashable ScanDetections where
   hashWithSalt _salt ScanDetections' {..} =
     _salt
-      `Prelude.hashWithSalt` threatsDetectedItemCount
+      `Prelude.hashWithSalt` highestSeverityThreatDetails
       `Prelude.hashWithSalt` scannedItemCount
       `Prelude.hashWithSalt` threatDetectedByName
-      `Prelude.hashWithSalt` highestSeverityThreatDetails
+      `Prelude.hashWithSalt` threatsDetectedItemCount
 
 instance Prelude.NFData ScanDetections where
   rnf ScanDetections' {..} =
-    Prelude.rnf threatsDetectedItemCount
+    Prelude.rnf highestSeverityThreatDetails
       `Prelude.seq` Prelude.rnf scannedItemCount
       `Prelude.seq` Prelude.rnf threatDetectedByName
-      `Prelude.seq` Prelude.rnf highestSeverityThreatDetails
+      `Prelude.seq` Prelude.rnf threatsDetectedItemCount

@@ -31,8 +31,8 @@ module Amazonka.StorageGateway.AttachVolume
     newAttachVolume,
 
     -- * Request Lenses
-    attachVolume_targetName,
     attachVolume_diskId,
+    attachVolume_targetName,
     attachVolume_gatewayARN,
     attachVolume_volumeARN,
     attachVolume_networkInterfaceId,
@@ -60,7 +60,11 @@ import Amazonka.StorageGateway.Types
 --
 -- /See:/ 'newAttachVolume' smart constructor.
 data AttachVolume = AttachVolume'
-  { -- | The name of the iSCSI target used by an initiator to connect to a volume
+  { -- | The unique device ID or other distinguishing data that identifies the
+    -- local disk used to create the volume. This value is only required when
+    -- you are attaching a stored volume.
+    diskId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the iSCSI target used by an initiator to connect to a volume
     -- and used as a suffix for the target ARN. For example, specifying
     -- @TargetName@ as /myvolume/ results in the target ARN of
     -- @arn:aws:storagegateway:us-east-2:111122223333:gateway\/sgw-12A3456B\/target\/iqn.1997-05.com.amazon:myvolume@.
@@ -69,10 +73,6 @@ data AttachVolume = AttachVolume'
     -- If you don\'t specify a value, Storage Gateway uses the value that was
     -- previously used for this volume as the new target name.
     targetName :: Prelude.Maybe Prelude.Text,
-    -- | The unique device ID or other distinguishing data that identifies the
-    -- local disk used to create the volume. This value is only required when
-    -- you are attaching a stored volume.
-    diskId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the gateway that you want to attach
     -- the volume to.
     gatewayARN :: Prelude.Text,
@@ -96,6 +96,10 @@ data AttachVolume = AttachVolume'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'diskId', 'attachVolume_diskId' - The unique device ID or other distinguishing data that identifies the
+-- local disk used to create the volume. This value is only required when
+-- you are attaching a stored volume.
+--
 -- 'targetName', 'attachVolume_targetName' - The name of the iSCSI target used by an initiator to connect to a volume
 -- and used as a suffix for the target ARN. For example, specifying
 -- @TargetName@ as /myvolume/ results in the target ARN of
@@ -104,10 +108,6 @@ data AttachVolume = AttachVolume'
 --
 -- If you don\'t specify a value, Storage Gateway uses the value that was
 -- previously used for this volume as the new target name.
---
--- 'diskId', 'attachVolume_diskId' - The unique device ID or other distinguishing data that identifies the
--- local disk used to create the volume. This value is only required when
--- you are attaching a stored volume.
 --
 -- 'gatewayARN', 'attachVolume_gatewayARN' - The Amazon Resource Name (ARN) of the gateway that you want to attach
 -- the volume to.
@@ -133,12 +133,18 @@ newAttachVolume
   pVolumeARN_
   pNetworkInterfaceId_ =
     AttachVolume'
-      { targetName = Prelude.Nothing,
-        diskId = Prelude.Nothing,
+      { diskId = Prelude.Nothing,
+        targetName = Prelude.Nothing,
         gatewayARN = pGatewayARN_,
         volumeARN = pVolumeARN_,
         networkInterfaceId = pNetworkInterfaceId_
       }
+
+-- | The unique device ID or other distinguishing data that identifies the
+-- local disk used to create the volume. This value is only required when
+-- you are attaching a stored volume.
+attachVolume_diskId :: Lens.Lens' AttachVolume (Prelude.Maybe Prelude.Text)
+attachVolume_diskId = Lens.lens (\AttachVolume' {diskId} -> diskId) (\s@AttachVolume' {} a -> s {diskId = a} :: AttachVolume)
 
 -- | The name of the iSCSI target used by an initiator to connect to a volume
 -- and used as a suffix for the target ARN. For example, specifying
@@ -150,12 +156,6 @@ newAttachVolume
 -- previously used for this volume as the new target name.
 attachVolume_targetName :: Lens.Lens' AttachVolume (Prelude.Maybe Prelude.Text)
 attachVolume_targetName = Lens.lens (\AttachVolume' {targetName} -> targetName) (\s@AttachVolume' {} a -> s {targetName = a} :: AttachVolume)
-
--- | The unique device ID or other distinguishing data that identifies the
--- local disk used to create the volume. This value is only required when
--- you are attaching a stored volume.
-attachVolume_diskId :: Lens.Lens' AttachVolume (Prelude.Maybe Prelude.Text)
-attachVolume_diskId = Lens.lens (\AttachVolume' {diskId} -> diskId) (\s@AttachVolume' {} a -> s {diskId = a} :: AttachVolume)
 
 -- | The Amazon Resource Name (ARN) of the gateway that you want to attach
 -- the volume to.
@@ -190,16 +190,16 @@ instance Core.AWSRequest AttachVolume where
 
 instance Prelude.Hashable AttachVolume where
   hashWithSalt _salt AttachVolume' {..} =
-    _salt `Prelude.hashWithSalt` targetName
-      `Prelude.hashWithSalt` diskId
+    _salt `Prelude.hashWithSalt` diskId
+      `Prelude.hashWithSalt` targetName
       `Prelude.hashWithSalt` gatewayARN
       `Prelude.hashWithSalt` volumeARN
       `Prelude.hashWithSalt` networkInterfaceId
 
 instance Prelude.NFData AttachVolume where
   rnf AttachVolume' {..} =
-    Prelude.rnf targetName
-      `Prelude.seq` Prelude.rnf diskId
+    Prelude.rnf diskId
+      `Prelude.seq` Prelude.rnf targetName
       `Prelude.seq` Prelude.rnf gatewayARN
       `Prelude.seq` Prelude.rnf volumeARN
       `Prelude.seq` Prelude.rnf networkInterfaceId
@@ -223,8 +223,8 @@ instance Data.ToJSON AttachVolume where
   toJSON AttachVolume' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("TargetName" Data..=) Prelude.<$> targetName,
-            ("DiskId" Data..=) Prelude.<$> diskId,
+          [ ("DiskId" Data..=) Prelude.<$> diskId,
+            ("TargetName" Data..=) Prelude.<$> targetName,
             Prelude.Just ("GatewayARN" Data..= gatewayARN),
             Prelude.Just ("VolumeARN" Data..= volumeARN),
             Prelude.Just

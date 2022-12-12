@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCloudWatchConfig' smart constructor.
 data CloudWatchConfig = CloudWatchConfig'
-  { -- | An IAM role that gives Amazon Lookout for Metrics permission to access
+  { -- | Settings for backtest mode.
+    backTestConfiguration :: Prelude.Maybe BackTestConfiguration,
+    -- | An IAM role that gives Amazon Lookout for Metrics permission to access
     -- data in Amazon CloudWatch.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | Settings for backtest mode.
-    backTestConfiguration :: Prelude.Maybe BackTestConfiguration
+    roleArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,26 +45,27 @@ data CloudWatchConfig = CloudWatchConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'backTestConfiguration', 'cloudWatchConfig_backTestConfiguration' - Settings for backtest mode.
+--
 -- 'roleArn', 'cloudWatchConfig_roleArn' - An IAM role that gives Amazon Lookout for Metrics permission to access
 -- data in Amazon CloudWatch.
---
--- 'backTestConfiguration', 'cloudWatchConfig_backTestConfiguration' - Settings for backtest mode.
 newCloudWatchConfig ::
   CloudWatchConfig
 newCloudWatchConfig =
   CloudWatchConfig'
-    { roleArn = Prelude.Nothing,
-      backTestConfiguration = Prelude.Nothing
+    { backTestConfiguration =
+        Prelude.Nothing,
+      roleArn = Prelude.Nothing
     }
+
+-- | Settings for backtest mode.
+cloudWatchConfig_backTestConfiguration :: Lens.Lens' CloudWatchConfig (Prelude.Maybe BackTestConfiguration)
+cloudWatchConfig_backTestConfiguration = Lens.lens (\CloudWatchConfig' {backTestConfiguration} -> backTestConfiguration) (\s@CloudWatchConfig' {} a -> s {backTestConfiguration = a} :: CloudWatchConfig)
 
 -- | An IAM role that gives Amazon Lookout for Metrics permission to access
 -- data in Amazon CloudWatch.
 cloudWatchConfig_roleArn :: Lens.Lens' CloudWatchConfig (Prelude.Maybe Prelude.Text)
 cloudWatchConfig_roleArn = Lens.lens (\CloudWatchConfig' {roleArn} -> roleArn) (\s@CloudWatchConfig' {} a -> s {roleArn = a} :: CloudWatchConfig)
-
--- | Settings for backtest mode.
-cloudWatchConfig_backTestConfiguration :: Lens.Lens' CloudWatchConfig (Prelude.Maybe BackTestConfiguration)
-cloudWatchConfig_backTestConfiguration = Lens.lens (\CloudWatchConfig' {backTestConfiguration} -> backTestConfiguration) (\s@CloudWatchConfig' {} a -> s {backTestConfiguration = a} :: CloudWatchConfig)
 
 instance Data.FromJSON CloudWatchConfig where
   parseJSON =
@@ -72,26 +73,26 @@ instance Data.FromJSON CloudWatchConfig where
       "CloudWatchConfig"
       ( \x ->
           CloudWatchConfig'
-            Prelude.<$> (x Data..:? "RoleArn")
-            Prelude.<*> (x Data..:? "BackTestConfiguration")
+            Prelude.<$> (x Data..:? "BackTestConfiguration")
+            Prelude.<*> (x Data..:? "RoleArn")
       )
 
 instance Prelude.Hashable CloudWatchConfig where
   hashWithSalt _salt CloudWatchConfig' {..} =
-    _salt `Prelude.hashWithSalt` roleArn
-      `Prelude.hashWithSalt` backTestConfiguration
+    _salt `Prelude.hashWithSalt` backTestConfiguration
+      `Prelude.hashWithSalt` roleArn
 
 instance Prelude.NFData CloudWatchConfig where
   rnf CloudWatchConfig' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf backTestConfiguration
+    Prelude.rnf backTestConfiguration
+      `Prelude.seq` Prelude.rnf roleArn
 
 instance Data.ToJSON CloudWatchConfig where
   toJSON CloudWatchConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("RoleArn" Data..=) Prelude.<$> roleArn,
-            ("BackTestConfiguration" Data..=)
-              Prelude.<$> backTestConfiguration
+          [ ("BackTestConfiguration" Data..=)
+              Prelude.<$> backTestConfiguration,
+            ("RoleArn" Data..=) Prelude.<$> roleArn
           ]
       )

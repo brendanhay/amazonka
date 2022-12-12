@@ -35,13 +35,13 @@ module Amazonka.Proton.CreateEnvironmentAccountConnection
     newCreateEnvironmentAccountConnection,
 
     -- * Request Lenses
-    createEnvironmentAccountConnection_tags,
     createEnvironmentAccountConnection_clientToken,
     createEnvironmentAccountConnection_codebuildRoleArn,
     createEnvironmentAccountConnection_componentRoleArn,
+    createEnvironmentAccountConnection_roleArn,
+    createEnvironmentAccountConnection_tags,
     createEnvironmentAccountConnection_environmentName,
     createEnvironmentAccountConnection_managementAccountId,
-    createEnvironmentAccountConnection_roleArn,
 
     -- * Destructuring the Response
     CreateEnvironmentAccountConnectionResponse (..),
@@ -63,14 +63,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateEnvironmentAccountConnection' smart constructor.
 data CreateEnvironmentAccountConnection = CreateEnvironmentAccountConnection'
-  { -- | An optional list of metadata items that you can associate with the
-    -- Proton environment account connection. A tag is a key-value pair.
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
-    -- in the /Proton User Guide/.
-    tags :: Prelude.Maybe [Tag],
-    -- | When included, if two identical requests are made with the same client
+  { -- | When included, if two identical requests are made with the same client
     -- token, Proton returns the environment account connection that the first
     -- request created.
     clientToken :: Prelude.Maybe Prelude.Text,
@@ -91,6 +84,17 @@ data CreateEnvironmentAccountConnection = CreateEnvironmentAccountConnection'
     -- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
     -- in the /Proton User Guide/.
     componentRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the IAM service role that\'s created
+    -- in the environment account. Proton uses this role to provision
+    -- infrastructure resources in the associated environment account.
+    roleArn :: Prelude.Maybe Prelude.Text,
+    -- | An optional list of metadata items that you can associate with the
+    -- Proton environment account connection. A tag is a key-value pair.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
+    -- in the /Proton User Guide/.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the Proton environment that\'s created in the associated
     -- management account.
     environmentName :: Prelude.Text,
@@ -100,11 +104,7 @@ data CreateEnvironmentAccountConnection = CreateEnvironmentAccountConnection'
     -- connection, Proton can use the associated IAM role to provision
     -- environment infrastructure resources in the associated environment
     -- account.
-    managementAccountId :: Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the IAM service role that\'s created
-    -- in the environment account. Proton uses this role to provision
-    -- infrastructure resources in the associated environment account.
-    roleArn :: Prelude.Text
+    managementAccountId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -115,13 +115,6 @@ data CreateEnvironmentAccountConnection = CreateEnvironmentAccountConnection'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'tags', 'createEnvironmentAccountConnection_tags' - An optional list of metadata items that you can associate with the
--- Proton environment account connection. A tag is a key-value pair.
---
--- For more information, see
--- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
--- in the /Proton User Guide/.
 --
 -- 'clientToken', 'createEnvironmentAccountConnection_clientToken' - When included, if two identical requests are made with the same client
 -- token, Proton returns the environment account connection that the first
@@ -144,6 +137,17 @@ data CreateEnvironmentAccountConnection = CreateEnvironmentAccountConnection'
 -- <https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html Proton components>
 -- in the /Proton User Guide/.
 --
+-- 'roleArn', 'createEnvironmentAccountConnection_roleArn' - The Amazon Resource Name (ARN) of the IAM service role that\'s created
+-- in the environment account. Proton uses this role to provision
+-- infrastructure resources in the associated environment account.
+--
+-- 'tags', 'createEnvironmentAccountConnection_tags' - An optional list of metadata items that you can associate with the
+-- Proton environment account connection. A tag is a key-value pair.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
+-- in the /Proton User Guide/.
+--
 -- 'environmentName', 'createEnvironmentAccountConnection_environmentName' - The name of the Proton environment that\'s created in the associated
 -- management account.
 --
@@ -153,42 +157,26 @@ data CreateEnvironmentAccountConnection = CreateEnvironmentAccountConnection'
 -- connection, Proton can use the associated IAM role to provision
 -- environment infrastructure resources in the associated environment
 -- account.
---
--- 'roleArn', 'createEnvironmentAccountConnection_roleArn' - The Amazon Resource Name (ARN) of the IAM service role that\'s created
--- in the environment account. Proton uses this role to provision
--- infrastructure resources in the associated environment account.
 newCreateEnvironmentAccountConnection ::
   -- | 'environmentName'
   Prelude.Text ->
   -- | 'managementAccountId'
   Prelude.Text ->
-  -- | 'roleArn'
-  Prelude.Text ->
   CreateEnvironmentAccountConnection
 newCreateEnvironmentAccountConnection
   pEnvironmentName_
-  pManagementAccountId_
-  pRoleArn_ =
+  pManagementAccountId_ =
     CreateEnvironmentAccountConnection'
-      { tags =
+      { clientToken =
           Prelude.Nothing,
-        clientToken = Prelude.Nothing,
         codebuildRoleArn = Prelude.Nothing,
         componentRoleArn = Prelude.Nothing,
+        roleArn = Prelude.Nothing,
+        tags = Prelude.Nothing,
         environmentName = pEnvironmentName_,
         managementAccountId =
-          pManagementAccountId_,
-        roleArn = pRoleArn_
+          pManagementAccountId_
       }
-
--- | An optional list of metadata items that you can associate with the
--- Proton environment account connection. A tag is a key-value pair.
---
--- For more information, see
--- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
--- in the /Proton User Guide/.
-createEnvironmentAccountConnection_tags :: Lens.Lens' CreateEnvironmentAccountConnection (Prelude.Maybe [Tag])
-createEnvironmentAccountConnection_tags = Lens.lens (\CreateEnvironmentAccountConnection' {tags} -> tags) (\s@CreateEnvironmentAccountConnection' {} a -> s {tags = a} :: CreateEnvironmentAccountConnection) Prelude.. Lens.mapping Lens.coerced
 
 -- | When included, if two identical requests are made with the same client
 -- token, Proton returns the environment account connection that the first
@@ -217,6 +205,21 @@ createEnvironmentAccountConnection_codebuildRoleArn = Lens.lens (\CreateEnvironm
 createEnvironmentAccountConnection_componentRoleArn :: Lens.Lens' CreateEnvironmentAccountConnection (Prelude.Maybe Prelude.Text)
 createEnvironmentAccountConnection_componentRoleArn = Lens.lens (\CreateEnvironmentAccountConnection' {componentRoleArn} -> componentRoleArn) (\s@CreateEnvironmentAccountConnection' {} a -> s {componentRoleArn = a} :: CreateEnvironmentAccountConnection)
 
+-- | The Amazon Resource Name (ARN) of the IAM service role that\'s created
+-- in the environment account. Proton uses this role to provision
+-- infrastructure resources in the associated environment account.
+createEnvironmentAccountConnection_roleArn :: Lens.Lens' CreateEnvironmentAccountConnection (Prelude.Maybe Prelude.Text)
+createEnvironmentAccountConnection_roleArn = Lens.lens (\CreateEnvironmentAccountConnection' {roleArn} -> roleArn) (\s@CreateEnvironmentAccountConnection' {} a -> s {roleArn = a} :: CreateEnvironmentAccountConnection)
+
+-- | An optional list of metadata items that you can associate with the
+-- Proton environment account connection. A tag is a key-value pair.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
+-- in the /Proton User Guide/.
+createEnvironmentAccountConnection_tags :: Lens.Lens' CreateEnvironmentAccountConnection (Prelude.Maybe [Tag])
+createEnvironmentAccountConnection_tags = Lens.lens (\CreateEnvironmentAccountConnection' {tags} -> tags) (\s@CreateEnvironmentAccountConnection' {} a -> s {tags = a} :: CreateEnvironmentAccountConnection) Prelude.. Lens.mapping Lens.coerced
+
 -- | The name of the Proton environment that\'s created in the associated
 -- management account.
 createEnvironmentAccountConnection_environmentName :: Lens.Lens' CreateEnvironmentAccountConnection Prelude.Text
@@ -230,12 +233,6 @@ createEnvironmentAccountConnection_environmentName = Lens.lens (\CreateEnvironme
 -- account.
 createEnvironmentAccountConnection_managementAccountId :: Lens.Lens' CreateEnvironmentAccountConnection Prelude.Text
 createEnvironmentAccountConnection_managementAccountId = Lens.lens (\CreateEnvironmentAccountConnection' {managementAccountId} -> managementAccountId) (\s@CreateEnvironmentAccountConnection' {} a -> s {managementAccountId = a} :: CreateEnvironmentAccountConnection)
-
--- | The Amazon Resource Name (ARN) of the IAM service role that\'s created
--- in the environment account. Proton uses this role to provision
--- infrastructure resources in the associated environment account.
-createEnvironmentAccountConnection_roleArn :: Lens.Lens' CreateEnvironmentAccountConnection Prelude.Text
-createEnvironmentAccountConnection_roleArn = Lens.lens (\CreateEnvironmentAccountConnection' {roleArn} -> roleArn) (\s@CreateEnvironmentAccountConnection' {} a -> s {roleArn = a} :: CreateEnvironmentAccountConnection)
 
 instance
   Core.AWSRequest
@@ -261,26 +258,26 @@ instance
   hashWithSalt
     _salt
     CreateEnvironmentAccountConnection' {..} =
-      _salt `Prelude.hashWithSalt` tags
-        `Prelude.hashWithSalt` clientToken
+      _salt `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` codebuildRoleArn
         `Prelude.hashWithSalt` componentRoleArn
+        `Prelude.hashWithSalt` roleArn
+        `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` environmentName
         `Prelude.hashWithSalt` managementAccountId
-        `Prelude.hashWithSalt` roleArn
 
 instance
   Prelude.NFData
     CreateEnvironmentAccountConnection
   where
   rnf CreateEnvironmentAccountConnection' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf codebuildRoleArn
       `Prelude.seq` Prelude.rnf componentRoleArn
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf environmentName
       `Prelude.seq` Prelude.rnf managementAccountId
-      `Prelude.seq` Prelude.rnf roleArn
 
 instance
   Data.ToHeaders
@@ -307,17 +304,17 @@ instance
   toJSON CreateEnvironmentAccountConnection' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("clientToken" Data..=) Prelude.<$> clientToken,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
             ("codebuildRoleArn" Data..=)
               Prelude.<$> codebuildRoleArn,
             ("componentRoleArn" Data..=)
               Prelude.<$> componentRoleArn,
+            ("roleArn" Data..=) Prelude.<$> roleArn,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("environmentName" Data..= environmentName),
             Prelude.Just
-              ("managementAccountId" Data..= managementAccountId),
-            Prelude.Just ("roleArn" Data..= roleArn)
+              ("managementAccountId" Data..= managementAccountId)
           ]
       )
 

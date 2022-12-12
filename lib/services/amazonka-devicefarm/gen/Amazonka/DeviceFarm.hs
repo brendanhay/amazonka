@@ -34,41 +34,41 @@ module Amazonka.DeviceFarm
     -- * Errors
     -- $errors
 
-    -- ** ServiceAccountException
-    _ServiceAccountException,
-
-    -- ** InvalidOperationException
-    _InvalidOperationException,
-
-    -- ** TooManyTagsException
-    _TooManyTagsException,
-
-    -- ** NotFoundException
-    _NotFoundException,
-
     -- ** ArgumentException
     _ArgumentException,
-
-    -- ** IdempotencyException
-    _IdempotencyException,
 
     -- ** CannotDeleteException
     _CannotDeleteException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
-
-    -- ** TagOperationException
-    _TagOperationException,
+    -- ** IdempotencyException
+    _IdempotencyException,
 
     -- ** InternalServiceException
     _InternalServiceException,
 
+    -- ** InvalidOperationException
+    _InvalidOperationException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
     -- ** NotEligibleException
     _NotEligibleException,
 
+    -- ** NotFoundException
+    _NotFoundException,
+
+    -- ** ServiceAccountException
+    _ServiceAccountException,
+
+    -- ** TagOperationException
+    _TagOperationException,
+
     -- ** TagPolicyException
     _TagPolicyException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
 
     -- * Waiters
     -- $waiters

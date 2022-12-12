@@ -22,8 +22,17 @@ module Amazonka.Mobile
     -- * Errors
     -- $errors
 
-    -- ** UnauthorizedException
-    _UnauthorizedException,
+    -- ** AccountActionRequiredException
+    _AccountActionRequiredException,
+
+    -- ** BadRequestException
+    _BadRequestException,
+
+    -- ** InternalFailureException
+    _InternalFailureException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- ** NotFoundException
     _NotFoundException,
@@ -31,20 +40,11 @@ module Amazonka.Mobile
     -- ** ServiceUnavailableException
     _ServiceUnavailableException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
-
-    -- ** AccountActionRequiredException
-    _AccountActionRequiredException,
-
-    -- ** BadRequestException
-    _BadRequestException,
-
     -- ** TooManyRequestsException
     _TooManyRequestsException,
 
-    -- ** InternalFailureException
-    _InternalFailureException,
+    -- ** UnauthorizedException
+    _UnauthorizedException,
 
     -- * Waiters
     -- $waiters

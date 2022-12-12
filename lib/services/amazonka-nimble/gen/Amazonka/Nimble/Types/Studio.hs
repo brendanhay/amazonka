@@ -50,46 +50,46 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStudio' smart constructor.
 data Studio = Studio'
-  { -- | The unique identifier for a studio resource. In Nimble Studio, all other
-    -- resources are contained in a studio resource.
-    studioId :: Prelude.Maybe Prelude.Text,
-    -- | A collection of labels, in the form of key:value pairs, that apply to
-    -- this resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The name of the studio, as included in the URL when accessing it in the
-    -- Nimble Studio portal.
-    studioName :: Prelude.Maybe Prelude.Text,
-    -- | The IAM Identity Center application client ID used to integrate with IAM
-    -- Identity Center to enable IAM Identity Center users to log in to Nimble
-    -- Studio portal.
-    ssoClientId :: Prelude.Maybe Prelude.Text,
-    -- | The IAM role that studio admins assume when logging in to the Nimble
+  { -- | The IAM role that studio admins assume when logging in to the Nimble
     -- Studio portal.
     adminRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) that is assigned to a studio resource and
     -- uniquely identifies it. ARNs are unique across all Regions.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The Unix epoch timestamp in seconds for when the resource was created.
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | A friendly name for the studio.
     displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The current state of the studio resource.
-    state :: Prelude.Maybe StudioState,
-    -- | Configuration of the encryption method that is used for the studio.
-    studioEncryptionConfiguration :: Prelude.Maybe StudioEncryptionConfiguration,
-    -- | The address of the web page for the studio.
-    studioUrl :: Prelude.Maybe Prelude.Text,
-    -- | The IAM role that studio users assume when logging in to the Nimble
-    -- Studio portal.
-    userRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services Region where the studio resource is located.
     homeRegion :: Prelude.Maybe Prelude.Text,
+    -- | The IAM Identity Center application client ID used to integrate with IAM
+    -- Identity Center to enable IAM Identity Center users to log in to Nimble
+    -- Studio portal.
+    ssoClientId :: Prelude.Maybe Prelude.Text,
+    -- | The current state of the studio resource.
+    state :: Prelude.Maybe StudioState,
     -- | Status codes that provide additional detail on the studio state.
     statusCode :: Prelude.Maybe StudioStatusCode,
     -- | Additional detail on the studio state.
     statusMessage :: Prelude.Maybe Prelude.Text,
-    -- | The Unix epoch timestamp in seconds for when the resource was created.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | Configuration of the encryption method that is used for the studio.
+    studioEncryptionConfiguration :: Prelude.Maybe StudioEncryptionConfiguration,
+    -- | The unique identifier for a studio resource. In Nimble Studio, all other
+    -- resources are contained in a studio resource.
+    studioId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the studio, as included in the URL when accessing it in the
+    -- Nimble Studio portal.
+    studioName :: Prelude.Maybe Prelude.Text,
+    -- | The address of the web page for the studio.
+    studioUrl :: Prelude.Maybe Prelude.Text,
+    -- | A collection of labels, in the form of key:value pairs, that apply to
+    -- this resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The Unix epoch timestamp in seconds for when the resource was updated.
-    updatedAt :: Prelude.Maybe Data.POSIX
+    updatedAt :: Prelude.Maybe Data.POSIX,
+    -- | The IAM role that studio users assume when logging in to the Nimble
+    -- Studio portal.
+    userRoleArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -101,87 +101,66 @@ data Studio = Studio'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'studioId', 'studio_studioId' - The unique identifier for a studio resource. In Nimble Studio, all other
--- resources are contained in a studio resource.
---
--- 'tags', 'studio_tags' - A collection of labels, in the form of key:value pairs, that apply to
--- this resource.
---
--- 'studioName', 'studio_studioName' - The name of the studio, as included in the URL when accessing it in the
--- Nimble Studio portal.
---
--- 'ssoClientId', 'studio_ssoClientId' - The IAM Identity Center application client ID used to integrate with IAM
--- Identity Center to enable IAM Identity Center users to log in to Nimble
--- Studio portal.
---
 -- 'adminRoleArn', 'studio_adminRoleArn' - The IAM role that studio admins assume when logging in to the Nimble
 -- Studio portal.
 --
 -- 'arn', 'studio_arn' - The Amazon Resource Name (ARN) that is assigned to a studio resource and
 -- uniquely identifies it. ARNs are unique across all Regions.
 --
+-- 'createdAt', 'studio_createdAt' - The Unix epoch timestamp in seconds for when the resource was created.
+--
 -- 'displayName', 'studio_displayName' - A friendly name for the studio.
 --
--- 'state', 'studio_state' - The current state of the studio resource.
+-- 'homeRegion', 'studio_homeRegion' - The Amazon Web Services Region where the studio resource is located.
 --
--- 'studioEncryptionConfiguration', 'studio_studioEncryptionConfiguration' - Configuration of the encryption method that is used for the studio.
---
--- 'studioUrl', 'studio_studioUrl' - The address of the web page for the studio.
---
--- 'userRoleArn', 'studio_userRoleArn' - The IAM role that studio users assume when logging in to the Nimble
+-- 'ssoClientId', 'studio_ssoClientId' - The IAM Identity Center application client ID used to integrate with IAM
+-- Identity Center to enable IAM Identity Center users to log in to Nimble
 -- Studio portal.
 --
--- 'homeRegion', 'studio_homeRegion' - The Amazon Web Services Region where the studio resource is located.
+-- 'state', 'studio_state' - The current state of the studio resource.
 --
 -- 'statusCode', 'studio_statusCode' - Status codes that provide additional detail on the studio state.
 --
 -- 'statusMessage', 'studio_statusMessage' - Additional detail on the studio state.
 --
--- 'createdAt', 'studio_createdAt' - The Unix epoch timestamp in seconds for when the resource was created.
+-- 'studioEncryptionConfiguration', 'studio_studioEncryptionConfiguration' - Configuration of the encryption method that is used for the studio.
+--
+-- 'studioId', 'studio_studioId' - The unique identifier for a studio resource. In Nimble Studio, all other
+-- resources are contained in a studio resource.
+--
+-- 'studioName', 'studio_studioName' - The name of the studio, as included in the URL when accessing it in the
+-- Nimble Studio portal.
+--
+-- 'studioUrl', 'studio_studioUrl' - The address of the web page for the studio.
+--
+-- 'tags', 'studio_tags' - A collection of labels, in the form of key:value pairs, that apply to
+-- this resource.
 --
 -- 'updatedAt', 'studio_updatedAt' - The Unix epoch timestamp in seconds for when the resource was updated.
+--
+-- 'userRoleArn', 'studio_userRoleArn' - The IAM role that studio users assume when logging in to the Nimble
+-- Studio portal.
 newStudio ::
   Studio
 newStudio =
   Studio'
-    { studioId = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      studioName = Prelude.Nothing,
-      ssoClientId = Prelude.Nothing,
-      adminRoleArn = Prelude.Nothing,
+    { adminRoleArn = Prelude.Nothing,
       arn = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
       displayName = Prelude.Nothing,
-      state = Prelude.Nothing,
-      studioEncryptionConfiguration = Prelude.Nothing,
-      studioUrl = Prelude.Nothing,
-      userRoleArn = Prelude.Nothing,
       homeRegion = Prelude.Nothing,
+      ssoClientId = Prelude.Nothing,
+      state = Prelude.Nothing,
       statusCode = Prelude.Nothing,
       statusMessage = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      updatedAt = Prelude.Nothing
+      studioEncryptionConfiguration = Prelude.Nothing,
+      studioId = Prelude.Nothing,
+      studioName = Prelude.Nothing,
+      studioUrl = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      updatedAt = Prelude.Nothing,
+      userRoleArn = Prelude.Nothing
     }
-
--- | The unique identifier for a studio resource. In Nimble Studio, all other
--- resources are contained in a studio resource.
-studio_studioId :: Lens.Lens' Studio (Prelude.Maybe Prelude.Text)
-studio_studioId = Lens.lens (\Studio' {studioId} -> studioId) (\s@Studio' {} a -> s {studioId = a} :: Studio)
-
--- | A collection of labels, in the form of key:value pairs, that apply to
--- this resource.
-studio_tags :: Lens.Lens' Studio (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-studio_tags = Lens.lens (\Studio' {tags} -> tags) (\s@Studio' {} a -> s {tags = a} :: Studio) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the studio, as included in the URL when accessing it in the
--- Nimble Studio portal.
-studio_studioName :: Lens.Lens' Studio (Prelude.Maybe Prelude.Text)
-studio_studioName = Lens.lens (\Studio' {studioName} -> studioName) (\s@Studio' {} a -> s {studioName = a} :: Studio)
-
--- | The IAM Identity Center application client ID used to integrate with IAM
--- Identity Center to enable IAM Identity Center users to log in to Nimble
--- Studio portal.
-studio_ssoClientId :: Lens.Lens' Studio (Prelude.Maybe Prelude.Text)
-studio_ssoClientId = Lens.lens (\Studio' {ssoClientId} -> ssoClientId) (\s@Studio' {} a -> s {ssoClientId = a} :: Studio)
 
 -- | The IAM role that studio admins assume when logging in to the Nimble
 -- Studio portal.
@@ -193,30 +172,27 @@ studio_adminRoleArn = Lens.lens (\Studio' {adminRoleArn} -> adminRoleArn) (\s@St
 studio_arn :: Lens.Lens' Studio (Prelude.Maybe Prelude.Text)
 studio_arn = Lens.lens (\Studio' {arn} -> arn) (\s@Studio' {} a -> s {arn = a} :: Studio)
 
+-- | The Unix epoch timestamp in seconds for when the resource was created.
+studio_createdAt :: Lens.Lens' Studio (Prelude.Maybe Prelude.UTCTime)
+studio_createdAt = Lens.lens (\Studio' {createdAt} -> createdAt) (\s@Studio' {} a -> s {createdAt = a} :: Studio) Prelude.. Lens.mapping Data._Time
+
 -- | A friendly name for the studio.
 studio_displayName :: Lens.Lens' Studio (Prelude.Maybe Prelude.Text)
 studio_displayName = Lens.lens (\Studio' {displayName} -> displayName) (\s@Studio' {} a -> s {displayName = a} :: Studio) Prelude.. Lens.mapping Data._Sensitive
 
--- | The current state of the studio resource.
-studio_state :: Lens.Lens' Studio (Prelude.Maybe StudioState)
-studio_state = Lens.lens (\Studio' {state} -> state) (\s@Studio' {} a -> s {state = a} :: Studio)
-
--- | Configuration of the encryption method that is used for the studio.
-studio_studioEncryptionConfiguration :: Lens.Lens' Studio (Prelude.Maybe StudioEncryptionConfiguration)
-studio_studioEncryptionConfiguration = Lens.lens (\Studio' {studioEncryptionConfiguration} -> studioEncryptionConfiguration) (\s@Studio' {} a -> s {studioEncryptionConfiguration = a} :: Studio)
-
--- | The address of the web page for the studio.
-studio_studioUrl :: Lens.Lens' Studio (Prelude.Maybe Prelude.Text)
-studio_studioUrl = Lens.lens (\Studio' {studioUrl} -> studioUrl) (\s@Studio' {} a -> s {studioUrl = a} :: Studio)
-
--- | The IAM role that studio users assume when logging in to the Nimble
--- Studio portal.
-studio_userRoleArn :: Lens.Lens' Studio (Prelude.Maybe Prelude.Text)
-studio_userRoleArn = Lens.lens (\Studio' {userRoleArn} -> userRoleArn) (\s@Studio' {} a -> s {userRoleArn = a} :: Studio)
-
 -- | The Amazon Web Services Region where the studio resource is located.
 studio_homeRegion :: Lens.Lens' Studio (Prelude.Maybe Prelude.Text)
 studio_homeRegion = Lens.lens (\Studio' {homeRegion} -> homeRegion) (\s@Studio' {} a -> s {homeRegion = a} :: Studio)
+
+-- | The IAM Identity Center application client ID used to integrate with IAM
+-- Identity Center to enable IAM Identity Center users to log in to Nimble
+-- Studio portal.
+studio_ssoClientId :: Lens.Lens' Studio (Prelude.Maybe Prelude.Text)
+studio_ssoClientId = Lens.lens (\Studio' {ssoClientId} -> ssoClientId) (\s@Studio' {} a -> s {ssoClientId = a} :: Studio)
+
+-- | The current state of the studio resource.
+studio_state :: Lens.Lens' Studio (Prelude.Maybe StudioState)
+studio_state = Lens.lens (\Studio' {state} -> state) (\s@Studio' {} a -> s {state = a} :: Studio)
 
 -- | Status codes that provide additional detail on the studio state.
 studio_statusCode :: Lens.Lens' Studio (Prelude.Maybe StudioStatusCode)
@@ -226,13 +202,37 @@ studio_statusCode = Lens.lens (\Studio' {statusCode} -> statusCode) (\s@Studio' 
 studio_statusMessage :: Lens.Lens' Studio (Prelude.Maybe Prelude.Text)
 studio_statusMessage = Lens.lens (\Studio' {statusMessage} -> statusMessage) (\s@Studio' {} a -> s {statusMessage = a} :: Studio)
 
--- | The Unix epoch timestamp in seconds for when the resource was created.
-studio_createdAt :: Lens.Lens' Studio (Prelude.Maybe Prelude.UTCTime)
-studio_createdAt = Lens.lens (\Studio' {createdAt} -> createdAt) (\s@Studio' {} a -> s {createdAt = a} :: Studio) Prelude.. Lens.mapping Data._Time
+-- | Configuration of the encryption method that is used for the studio.
+studio_studioEncryptionConfiguration :: Lens.Lens' Studio (Prelude.Maybe StudioEncryptionConfiguration)
+studio_studioEncryptionConfiguration = Lens.lens (\Studio' {studioEncryptionConfiguration} -> studioEncryptionConfiguration) (\s@Studio' {} a -> s {studioEncryptionConfiguration = a} :: Studio)
+
+-- | The unique identifier for a studio resource. In Nimble Studio, all other
+-- resources are contained in a studio resource.
+studio_studioId :: Lens.Lens' Studio (Prelude.Maybe Prelude.Text)
+studio_studioId = Lens.lens (\Studio' {studioId} -> studioId) (\s@Studio' {} a -> s {studioId = a} :: Studio)
+
+-- | The name of the studio, as included in the URL when accessing it in the
+-- Nimble Studio portal.
+studio_studioName :: Lens.Lens' Studio (Prelude.Maybe Prelude.Text)
+studio_studioName = Lens.lens (\Studio' {studioName} -> studioName) (\s@Studio' {} a -> s {studioName = a} :: Studio)
+
+-- | The address of the web page for the studio.
+studio_studioUrl :: Lens.Lens' Studio (Prelude.Maybe Prelude.Text)
+studio_studioUrl = Lens.lens (\Studio' {studioUrl} -> studioUrl) (\s@Studio' {} a -> s {studioUrl = a} :: Studio)
+
+-- | A collection of labels, in the form of key:value pairs, that apply to
+-- this resource.
+studio_tags :: Lens.Lens' Studio (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+studio_tags = Lens.lens (\Studio' {tags} -> tags) (\s@Studio' {} a -> s {tags = a} :: Studio) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Unix epoch timestamp in seconds for when the resource was updated.
 studio_updatedAt :: Lens.Lens' Studio (Prelude.Maybe Prelude.UTCTime)
 studio_updatedAt = Lens.lens (\Studio' {updatedAt} -> updatedAt) (\s@Studio' {} a -> s {updatedAt = a} :: Studio) Prelude.. Lens.mapping Data._Time
+
+-- | The IAM role that studio users assume when logging in to the Nimble
+-- Studio portal.
+studio_userRoleArn :: Lens.Lens' Studio (Prelude.Maybe Prelude.Text)
+studio_userRoleArn = Lens.lens (\Studio' {userRoleArn} -> userRoleArn) (\s@Studio' {} a -> s {userRoleArn = a} :: Studio)
 
 instance Data.FromJSON Studio where
   parseJSON =
@@ -240,58 +240,58 @@ instance Data.FromJSON Studio where
       "Studio"
       ( \x ->
           Studio'
-            Prelude.<$> (x Data..:? "studioId")
-            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "studioName")
-            Prelude.<*> (x Data..:? "ssoClientId")
-            Prelude.<*> (x Data..:? "adminRoleArn")
+            Prelude.<$> (x Data..:? "adminRoleArn")
             Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "createdAt")
             Prelude.<*> (x Data..:? "displayName")
-            Prelude.<*> (x Data..:? "state")
-            Prelude.<*> (x Data..:? "studioEncryptionConfiguration")
-            Prelude.<*> (x Data..:? "studioUrl")
-            Prelude.<*> (x Data..:? "userRoleArn")
             Prelude.<*> (x Data..:? "homeRegion")
+            Prelude.<*> (x Data..:? "ssoClientId")
+            Prelude.<*> (x Data..:? "state")
             Prelude.<*> (x Data..:? "statusCode")
             Prelude.<*> (x Data..:? "statusMessage")
-            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "studioEncryptionConfiguration")
+            Prelude.<*> (x Data..:? "studioId")
+            Prelude.<*> (x Data..:? "studioName")
+            Prelude.<*> (x Data..:? "studioUrl")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "updatedAt")
+            Prelude.<*> (x Data..:? "userRoleArn")
       )
 
 instance Prelude.Hashable Studio where
   hashWithSalt _salt Studio' {..} =
-    _salt `Prelude.hashWithSalt` studioId
-      `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` studioName
-      `Prelude.hashWithSalt` ssoClientId
-      `Prelude.hashWithSalt` adminRoleArn
+    _salt `Prelude.hashWithSalt` adminRoleArn
       `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` displayName
-      `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` studioEncryptionConfiguration
-      `Prelude.hashWithSalt` studioUrl
-      `Prelude.hashWithSalt` userRoleArn
       `Prelude.hashWithSalt` homeRegion
+      `Prelude.hashWithSalt` ssoClientId
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` statusCode
       `Prelude.hashWithSalt` statusMessage
-      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` studioEncryptionConfiguration
+      `Prelude.hashWithSalt` studioId
+      `Prelude.hashWithSalt` studioName
+      `Prelude.hashWithSalt` studioUrl
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` updatedAt
+      `Prelude.hashWithSalt` userRoleArn
 
 instance Prelude.NFData Studio where
   rnf Studio' {..} =
-    Prelude.rnf studioId
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf studioName
-      `Prelude.seq` Prelude.rnf ssoClientId
-      `Prelude.seq` Prelude.rnf adminRoleArn
+    Prelude.rnf adminRoleArn
       `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf studioEncryptionConfiguration
-      `Prelude.seq` Prelude.rnf studioUrl
-      `Prelude.seq` Prelude.rnf userRoleArn
       `Prelude.seq` Prelude.rnf homeRegion
+      `Prelude.seq` Prelude.rnf ssoClientId
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf statusCode
       `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf studioEncryptionConfiguration
+      `Prelude.seq` Prelude.rnf studioId
+      `Prelude.seq` Prelude.rnf studioName
+      `Prelude.seq` Prelude.rnf studioUrl
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf userRoleArn

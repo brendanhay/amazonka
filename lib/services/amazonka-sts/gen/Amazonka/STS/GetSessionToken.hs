@@ -94,8 +94,8 @@ module Amazonka.STS.GetSessionToken
 
     -- * Request Lenses
     getSessionToken_durationSeconds,
-    getSessionToken_tokenCode,
     getSessionToken_serialNumber,
+    getSessionToken_tokenCode,
 
     -- * Destructuring the Response
     GetSessionTokenResponse (..),
@@ -125,16 +125,6 @@ data GetSessionToken = GetSessionToken'
     -- longer than one hour, the session for Amazon Web Services account owners
     -- defaults to one hour.
     durationSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | The value provided by the MFA device, if MFA is required. If any policy
-    -- requires the IAM user to submit an MFA code, specify this value. If MFA
-    -- authentication is required, the user must provide a code when requesting
-    -- a set of temporary security credentials. A user who fails to provide the
-    -- code receives an \"access denied\" response when requesting resources
-    -- that require MFA authentication.
-    --
-    -- The format for this parameter, as described by its regex pattern, is a
-    -- sequence of six numeric digits.
-    tokenCode :: Prelude.Maybe Prelude.Text,
     -- | The identification number of the MFA device that is associated with the
     -- IAM user who is making the @GetSessionToken@ call. Specify this value if
     -- the IAM user has a policy that requires MFA authentication. The value is
@@ -148,7 +138,17 @@ data GetSessionToken = GetSessionToken'
     -- consisting of upper- and lower-case alphanumeric characters with no
     -- spaces. You can also include underscores or any of the following
     -- characters: =,.\@:\/-
-    serialNumber :: Prelude.Maybe Prelude.Text
+    serialNumber :: Prelude.Maybe Prelude.Text,
+    -- | The value provided by the MFA device, if MFA is required. If any policy
+    -- requires the IAM user to submit an MFA code, specify this value. If MFA
+    -- authentication is required, the user must provide a code when requesting
+    -- a set of temporary security credentials. A user who fails to provide the
+    -- code receives an \"access denied\" response when requesting resources
+    -- that require MFA authentication.
+    --
+    -- The format for this parameter, as described by its regex pattern, is a
+    -- sequence of six numeric digits.
+    tokenCode :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -168,16 +168,6 @@ data GetSessionToken = GetSessionToken'
 -- longer than one hour, the session for Amazon Web Services account owners
 -- defaults to one hour.
 --
--- 'tokenCode', 'getSessionToken_tokenCode' - The value provided by the MFA device, if MFA is required. If any policy
--- requires the IAM user to submit an MFA code, specify this value. If MFA
--- authentication is required, the user must provide a code when requesting
--- a set of temporary security credentials. A user who fails to provide the
--- code receives an \"access denied\" response when requesting resources
--- that require MFA authentication.
---
--- The format for this parameter, as described by its regex pattern, is a
--- sequence of six numeric digits.
---
 -- 'serialNumber', 'getSessionToken_serialNumber' - The identification number of the MFA device that is associated with the
 -- IAM user who is making the @GetSessionToken@ call. Specify this value if
 -- the IAM user has a policy that requires MFA authentication. The value is
@@ -191,13 +181,23 @@ data GetSessionToken = GetSessionToken'
 -- consisting of upper- and lower-case alphanumeric characters with no
 -- spaces. You can also include underscores or any of the following
 -- characters: =,.\@:\/-
+--
+-- 'tokenCode', 'getSessionToken_tokenCode' - The value provided by the MFA device, if MFA is required. If any policy
+-- requires the IAM user to submit an MFA code, specify this value. If MFA
+-- authentication is required, the user must provide a code when requesting
+-- a set of temporary security credentials. A user who fails to provide the
+-- code receives an \"access denied\" response when requesting resources
+-- that require MFA authentication.
+--
+-- The format for this parameter, as described by its regex pattern, is a
+-- sequence of six numeric digits.
 newGetSessionToken ::
   GetSessionToken
 newGetSessionToken =
   GetSessionToken'
     { durationSeconds = Prelude.Nothing,
-      tokenCode = Prelude.Nothing,
-      serialNumber = Prelude.Nothing
+      serialNumber = Prelude.Nothing,
+      tokenCode = Prelude.Nothing
     }
 
 -- | The duration, in seconds, that the credentials should remain valid.
@@ -209,18 +209,6 @@ newGetSessionToken =
 -- defaults to one hour.
 getSessionToken_durationSeconds :: Lens.Lens' GetSessionToken (Prelude.Maybe Prelude.Natural)
 getSessionToken_durationSeconds = Lens.lens (\GetSessionToken' {durationSeconds} -> durationSeconds) (\s@GetSessionToken' {} a -> s {durationSeconds = a} :: GetSessionToken)
-
--- | The value provided by the MFA device, if MFA is required. If any policy
--- requires the IAM user to submit an MFA code, specify this value. If MFA
--- authentication is required, the user must provide a code when requesting
--- a set of temporary security credentials. A user who fails to provide the
--- code receives an \"access denied\" response when requesting resources
--- that require MFA authentication.
---
--- The format for this parameter, as described by its regex pattern, is a
--- sequence of six numeric digits.
-getSessionToken_tokenCode :: Lens.Lens' GetSessionToken (Prelude.Maybe Prelude.Text)
-getSessionToken_tokenCode = Lens.lens (\GetSessionToken' {tokenCode} -> tokenCode) (\s@GetSessionToken' {} a -> s {tokenCode = a} :: GetSessionToken)
 
 -- | The identification number of the MFA device that is associated with the
 -- IAM user who is making the @GetSessionToken@ call. Specify this value if
@@ -237,6 +225,18 @@ getSessionToken_tokenCode = Lens.lens (\GetSessionToken' {tokenCode} -> tokenCod
 -- characters: =,.\@:\/-
 getSessionToken_serialNumber :: Lens.Lens' GetSessionToken (Prelude.Maybe Prelude.Text)
 getSessionToken_serialNumber = Lens.lens (\GetSessionToken' {serialNumber} -> serialNumber) (\s@GetSessionToken' {} a -> s {serialNumber = a} :: GetSessionToken)
+
+-- | The value provided by the MFA device, if MFA is required. If any policy
+-- requires the IAM user to submit an MFA code, specify this value. If MFA
+-- authentication is required, the user must provide a code when requesting
+-- a set of temporary security credentials. A user who fails to provide the
+-- code receives an \"access denied\" response when requesting resources
+-- that require MFA authentication.
+--
+-- The format for this parameter, as described by its regex pattern, is a
+-- sequence of six numeric digits.
+getSessionToken_tokenCode :: Lens.Lens' GetSessionToken (Prelude.Maybe Prelude.Text)
+getSessionToken_tokenCode = Lens.lens (\GetSessionToken' {tokenCode} -> tokenCode) (\s@GetSessionToken' {} a -> s {tokenCode = a} :: GetSessionToken)
 
 instance Core.AWSRequest GetSessionToken where
   type
@@ -256,14 +256,14 @@ instance Core.AWSRequest GetSessionToken where
 instance Prelude.Hashable GetSessionToken where
   hashWithSalt _salt GetSessionToken' {..} =
     _salt `Prelude.hashWithSalt` durationSeconds
-      `Prelude.hashWithSalt` tokenCode
       `Prelude.hashWithSalt` serialNumber
+      `Prelude.hashWithSalt` tokenCode
 
 instance Prelude.NFData GetSessionToken where
   rnf GetSessionToken' {..} =
     Prelude.rnf durationSeconds
-      `Prelude.seq` Prelude.rnf tokenCode
       `Prelude.seq` Prelude.rnf serialNumber
+      `Prelude.seq` Prelude.rnf tokenCode
 
 instance Data.ToHeaders GetSessionToken where
   toHeaders = Prelude.const Prelude.mempty
@@ -279,8 +279,8 @@ instance Data.ToQuery GetSessionToken where
         "Version"
           Data.=: ("2011-06-15" :: Prelude.ByteString),
         "DurationSeconds" Data.=: durationSeconds,
-        "TokenCode" Data.=: tokenCode,
-        "SerialNumber" Data.=: serialNumber
+        "SerialNumber" Data.=: serialNumber,
+        "TokenCode" Data.=: tokenCode
       ]
 
 -- | Contains the response to a successful GetSessionToken request, including

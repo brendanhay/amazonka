@@ -39,9 +39,9 @@ module Amazonka.EC2.DescribeAddresses
 
     -- * Request Lenses
     describeAddresses_allocationIds,
+    describeAddresses_dryRun,
     describeAddresses_filters,
     describeAddresses_publicIps,
-    describeAddresses_dryRun,
 
     -- * Destructuring the Response
     DescribeAddressesResponse (..),
@@ -65,6 +65,11 @@ import qualified Amazonka.Response as Response
 data DescribeAddresses = DescribeAddresses'
   { -- | [EC2-VPC] Information about the allocation IDs.
     allocationIds :: Prelude.Maybe [Prelude.Text],
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | One or more filters. Filter names and values are case-sensitive.
     --
     -- -   @allocation-id@ - [EC2-VPC] The allocation ID for the address.
@@ -105,12 +110,7 @@ data DescribeAddresses = DescribeAddresses'
     -- | One or more Elastic IP addresses.
     --
     -- Default: Describes all your Elastic IP addresses.
-    publicIps :: Prelude.Maybe [Prelude.Text],
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool
+    publicIps :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -123,6 +123,11 @@ data DescribeAddresses = DescribeAddresses'
 -- for backwards compatibility:
 --
 -- 'allocationIds', 'describeAddresses_allocationIds' - [EC2-VPC] Information about the allocation IDs.
+--
+-- 'dryRun', 'describeAddresses_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'filters', 'describeAddresses_filters' - One or more filters. Filter names and values are case-sensitive.
 --
@@ -164,24 +169,26 @@ data DescribeAddresses = DescribeAddresses'
 -- 'publicIps', 'describeAddresses_publicIps' - One or more Elastic IP addresses.
 --
 -- Default: Describes all your Elastic IP addresses.
---
--- 'dryRun', 'describeAddresses_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
 newDescribeAddresses ::
   DescribeAddresses
 newDescribeAddresses =
   DescribeAddresses'
     { allocationIds = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       filters = Prelude.Nothing,
-      publicIps = Prelude.Nothing,
-      dryRun = Prelude.Nothing
+      publicIps = Prelude.Nothing
     }
 
 -- | [EC2-VPC] Information about the allocation IDs.
 describeAddresses_allocationIds :: Lens.Lens' DescribeAddresses (Prelude.Maybe [Prelude.Text])
 describeAddresses_allocationIds = Lens.lens (\DescribeAddresses' {allocationIds} -> allocationIds) (\s@DescribeAddresses' {} a -> s {allocationIds = a} :: DescribeAddresses) Prelude.. Lens.mapping Lens.coerced
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeAddresses_dryRun :: Lens.Lens' DescribeAddresses (Prelude.Maybe Prelude.Bool)
+describeAddresses_dryRun = Lens.lens (\DescribeAddresses' {dryRun} -> dryRun) (\s@DescribeAddresses' {} a -> s {dryRun = a} :: DescribeAddresses)
 
 -- | One or more filters. Filter names and values are case-sensitive.
 --
@@ -228,13 +235,6 @@ describeAddresses_filters = Lens.lens (\DescribeAddresses' {filters} -> filters)
 describeAddresses_publicIps :: Lens.Lens' DescribeAddresses (Prelude.Maybe [Prelude.Text])
 describeAddresses_publicIps = Lens.lens (\DescribeAddresses' {publicIps} -> publicIps) (\s@DescribeAddresses' {} a -> s {publicIps = a} :: DescribeAddresses) Prelude.. Lens.mapping Lens.coerced
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeAddresses_dryRun :: Lens.Lens' DescribeAddresses (Prelude.Maybe Prelude.Bool)
-describeAddresses_dryRun = Lens.lens (\DescribeAddresses' {dryRun} -> dryRun) (\s@DescribeAddresses' {} a -> s {dryRun = a} :: DescribeAddresses)
-
 instance Core.AWSRequest DescribeAddresses where
   type
     AWSResponse DescribeAddresses =
@@ -254,16 +254,16 @@ instance Core.AWSRequest DescribeAddresses where
 instance Prelude.Hashable DescribeAddresses where
   hashWithSalt _salt DescribeAddresses' {..} =
     _salt `Prelude.hashWithSalt` allocationIds
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` publicIps
-      `Prelude.hashWithSalt` dryRun
 
 instance Prelude.NFData DescribeAddresses where
   rnf DescribeAddresses' {..} =
     Prelude.rnf allocationIds
+      `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf publicIps
-      `Prelude.seq` Prelude.rnf dryRun
 
 instance Data.ToHeaders DescribeAddresses where
   toHeaders = Prelude.const Prelude.mempty
@@ -282,11 +282,11 @@ instance Data.ToQuery DescribeAddresses where
           ( Data.toQueryList "AllocationId"
               Prelude.<$> allocationIds
           ),
+        "DryRun" Data.=: dryRun,
         Data.toQuery
           (Data.toQueryList "Filter" Prelude.<$> filters),
         Data.toQuery
-          (Data.toQueryList "PublicIp" Prelude.<$> publicIps),
-        "DryRun" Data.=: dryRun
+          (Data.toQueryList "PublicIp" Prelude.<$> publicIps)
       ]
 
 -- | /See:/ 'newDescribeAddressesResponse' smart constructor.

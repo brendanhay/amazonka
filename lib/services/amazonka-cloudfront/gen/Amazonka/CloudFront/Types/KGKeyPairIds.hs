@@ -30,9 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newKGKeyPairIds' smart constructor.
 data KGKeyPairIds = KGKeyPairIds'
-  { keyPairIds :: Prelude.Maybe KeyPairIds,
-    -- | The identifier of the key group that contains the public keys.
-    keyGroupId :: Prelude.Maybe Prelude.Text
+  { -- | The identifier of the key group that contains the public keys.
+    keyGroupId :: Prelude.Maybe Prelude.Text,
+    keyPairIds :: Prelude.Maybe KeyPairIds
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,37 +44,37 @@ data KGKeyPairIds = KGKeyPairIds'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'keyPairIds', 'kGKeyPairIds_keyPairIds' - Undocumented member.
---
 -- 'keyGroupId', 'kGKeyPairIds_keyGroupId' - The identifier of the key group that contains the public keys.
+--
+-- 'keyPairIds', 'kGKeyPairIds_keyPairIds' - Undocumented member.
 newKGKeyPairIds ::
   KGKeyPairIds
 newKGKeyPairIds =
   KGKeyPairIds'
-    { keyPairIds = Prelude.Nothing,
-      keyGroupId = Prelude.Nothing
+    { keyGroupId = Prelude.Nothing,
+      keyPairIds = Prelude.Nothing
     }
-
--- | Undocumented member.
-kGKeyPairIds_keyPairIds :: Lens.Lens' KGKeyPairIds (Prelude.Maybe KeyPairIds)
-kGKeyPairIds_keyPairIds = Lens.lens (\KGKeyPairIds' {keyPairIds} -> keyPairIds) (\s@KGKeyPairIds' {} a -> s {keyPairIds = a} :: KGKeyPairIds)
 
 -- | The identifier of the key group that contains the public keys.
 kGKeyPairIds_keyGroupId :: Lens.Lens' KGKeyPairIds (Prelude.Maybe Prelude.Text)
 kGKeyPairIds_keyGroupId = Lens.lens (\KGKeyPairIds' {keyGroupId} -> keyGroupId) (\s@KGKeyPairIds' {} a -> s {keyGroupId = a} :: KGKeyPairIds)
 
+-- | Undocumented member.
+kGKeyPairIds_keyPairIds :: Lens.Lens' KGKeyPairIds (Prelude.Maybe KeyPairIds)
+kGKeyPairIds_keyPairIds = Lens.lens (\KGKeyPairIds' {keyPairIds} -> keyPairIds) (\s@KGKeyPairIds' {} a -> s {keyPairIds = a} :: KGKeyPairIds)
+
 instance Data.FromXML KGKeyPairIds where
   parseXML x =
     KGKeyPairIds'
-      Prelude.<$> (x Data..@? "KeyPairIds")
-      Prelude.<*> (x Data..@? "KeyGroupId")
+      Prelude.<$> (x Data..@? "KeyGroupId")
+      Prelude.<*> (x Data..@? "KeyPairIds")
 
 instance Prelude.Hashable KGKeyPairIds where
   hashWithSalt _salt KGKeyPairIds' {..} =
-    _salt `Prelude.hashWithSalt` keyPairIds
-      `Prelude.hashWithSalt` keyGroupId
+    _salt `Prelude.hashWithSalt` keyGroupId
+      `Prelude.hashWithSalt` keyPairIds
 
 instance Prelude.NFData KGKeyPairIds where
   rnf KGKeyPairIds' {..} =
-    Prelude.rnf keyPairIds
-      `Prelude.seq` Prelude.rnf keyGroupId
+    Prelude.rnf keyGroupId
+      `Prelude.seq` Prelude.rnf keyPairIds

@@ -36,16 +36,16 @@ module Amazonka.DataExchange.RevokeRevision
     newRevokeRevisionResponse,
 
     -- * Response Lenses
-    revokeRevisionResponse_sourceId,
-    revokeRevisionResponse_revocationComment,
     revokeRevisionResponse_arn,
-    revokeRevisionResponse_id,
     revokeRevisionResponse_comment,
-    revokeRevisionResponse_finalized,
-    revokeRevisionResponse_dataSetId,
-    revokeRevisionResponse_revokedAt,
-    revokeRevisionResponse_revoked,
     revokeRevisionResponse_createdAt,
+    revokeRevisionResponse_dataSetId,
+    revokeRevisionResponse_finalized,
+    revokeRevisionResponse_id,
+    revokeRevisionResponse_revocationComment,
+    revokeRevisionResponse_revoked,
+    revokeRevisionResponse_revokedAt,
+    revokeRevisionResponse_sourceId,
     revokeRevisionResponse_updatedAt,
     revokeRevisionResponse_httpStatus,
   )
@@ -126,16 +126,16 @@ instance Core.AWSRequest RevokeRevision where
     Response.receiveJSON
       ( \s h x ->
           RevokeRevisionResponse'
-            Prelude.<$> (x Data..?> "SourceId")
-            Prelude.<*> (x Data..?> "RevocationComment")
-            Prelude.<*> (x Data..?> "Arn")
-            Prelude.<*> (x Data..?> "Id")
+            Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (x Data..?> "Comment")
-            Prelude.<*> (x Data..?> "Finalized")
-            Prelude.<*> (x Data..?> "DataSetId")
-            Prelude.<*> (x Data..?> "RevokedAt")
-            Prelude.<*> (x Data..?> "Revoked")
             Prelude.<*> (x Data..?> "CreatedAt")
+            Prelude.<*> (x Data..?> "DataSetId")
+            Prelude.<*> (x Data..?> "Finalized")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "RevocationComment")
+            Prelude.<*> (x Data..?> "Revoked")
+            Prelude.<*> (x Data..?> "RevokedAt")
+            Prelude.<*> (x Data..?> "SourceId")
             Prelude.<*> (x Data..?> "UpdatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -187,19 +187,15 @@ instance Data.ToQuery RevokeRevision where
 
 -- | /See:/ 'newRevokeRevisionResponse' smart constructor.
 data RevokeRevisionResponse = RevokeRevisionResponse'
-  { -- | The revision ID of the owned revision corresponding to the entitled
-    -- revision being viewed. This parameter is returned when a revision owner
-    -- is viewing the entitled copy of its owned revision.
-    sourceId :: Prelude.Maybe Prelude.Text,
-    -- | A required comment to inform subscribers of the reason their access to
-    -- the revision was revoked.
-    revocationComment :: Prelude.Maybe Prelude.Text,
-    -- | The ARN for the revision.
+  { -- | The ARN for the revision.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the revision.
-    id :: Prelude.Maybe Prelude.Text,
     -- | An optional comment about the revision.
     comment :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that the revision was created, in ISO 8601 format.
+    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | The unique identifier for the data set associated with the data set
+    -- revision.
+    dataSetId :: Prelude.Maybe Prelude.Text,
     -- | To publish a revision to a data set in a product, the revision must
     -- first be finalized. Finalizing a revision tells AWS Data Exchange that
     -- changes to the assets in the revision are complete. After it\'s in this
@@ -209,15 +205,20 @@ data RevokeRevisionResponse = RevokeRevisionResponse'
     -- Marketplace Catalog API action. When using the API, revisions are
     -- uniquely identified by their ARN.
     finalized :: Prelude.Maybe Prelude.Bool,
-    -- | The unique identifier for the data set associated with this revision.
-    dataSetId :: Prelude.Maybe Prelude.Text,
-    -- | The date and time that the revision was revoked, in ISO 8601 format.
-    revokedAt :: Prelude.Maybe Data.POSIX,
+    -- | The unique identifier for the revision.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | A required comment to inform subscribers of the reason their access to
+    -- the revision was revoked.
+    revocationComment :: Prelude.Maybe Prelude.Text,
     -- | A status indicating that subscribers\' access to the revision was
     -- revoked.
     revoked :: Prelude.Maybe Prelude.Bool,
-    -- | The date and time that the revision was created, in ISO 8601 format.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | The date and time that the revision was revoked, in ISO 8601 format.
+    revokedAt :: Prelude.Maybe Data.POSIX,
+    -- | The revision ID of the owned revision corresponding to the entitled
+    -- revision being viewed. This parameter is returned when a revision owner
+    -- is viewing the entitled copy of its owned revision.
+    sourceId :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the revision was last updated, in ISO 8601
     -- format.
     updatedAt :: Prelude.Maybe Data.POSIX,
@@ -234,18 +235,14 @@ data RevokeRevisionResponse = RevokeRevisionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceId', 'revokeRevisionResponse_sourceId' - The revision ID of the owned revision corresponding to the entitled
--- revision being viewed. This parameter is returned when a revision owner
--- is viewing the entitled copy of its owned revision.
---
--- 'revocationComment', 'revokeRevisionResponse_revocationComment' - A required comment to inform subscribers of the reason their access to
--- the revision was revoked.
---
 -- 'arn', 'revokeRevisionResponse_arn' - The ARN for the revision.
 --
--- 'id', 'revokeRevisionResponse_id' - The unique identifier for the revision.
---
 -- 'comment', 'revokeRevisionResponse_comment' - An optional comment about the revision.
+--
+-- 'createdAt', 'revokeRevisionResponse_createdAt' - The date and time that the revision was created, in ISO 8601 format.
+--
+-- 'dataSetId', 'revokeRevisionResponse_dataSetId' - The unique identifier for the data set associated with the data set
+-- revision.
 --
 -- 'finalized', 'revokeRevisionResponse_finalized' - To publish a revision to a data set in a product, the revision must
 -- first be finalized. Finalizing a revision tells AWS Data Exchange that
@@ -256,14 +253,19 @@ data RevokeRevisionResponse = RevokeRevisionResponse'
 -- Marketplace Catalog API action. When using the API, revisions are
 -- uniquely identified by their ARN.
 --
--- 'dataSetId', 'revokeRevisionResponse_dataSetId' - The unique identifier for the data set associated with this revision.
+-- 'id', 'revokeRevisionResponse_id' - The unique identifier for the revision.
 --
--- 'revokedAt', 'revokeRevisionResponse_revokedAt' - The date and time that the revision was revoked, in ISO 8601 format.
+-- 'revocationComment', 'revokeRevisionResponse_revocationComment' - A required comment to inform subscribers of the reason their access to
+-- the revision was revoked.
 --
 -- 'revoked', 'revokeRevisionResponse_revoked' - A status indicating that subscribers\' access to the revision was
 -- revoked.
 --
--- 'createdAt', 'revokeRevisionResponse_createdAt' - The date and time that the revision was created, in ISO 8601 format.
+-- 'revokedAt', 'revokeRevisionResponse_revokedAt' - The date and time that the revision was revoked, in ISO 8601 format.
+--
+-- 'sourceId', 'revokeRevisionResponse_sourceId' - The revision ID of the owned revision corresponding to the entitled
+-- revision being viewed. This parameter is returned when a revision owner
+-- is viewing the entitled copy of its owned revision.
 --
 -- 'updatedAt', 'revokeRevisionResponse_updatedAt' - The date and time that the revision was last updated, in ISO 8601
 -- format.
@@ -275,42 +277,36 @@ newRevokeRevisionResponse ::
   RevokeRevisionResponse
 newRevokeRevisionResponse pHttpStatus_ =
   RevokeRevisionResponse'
-    { sourceId = Prelude.Nothing,
-      revocationComment = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      id = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       comment = Prelude.Nothing,
-      finalized = Prelude.Nothing,
-      dataSetId = Prelude.Nothing,
-      revokedAt = Prelude.Nothing,
-      revoked = Prelude.Nothing,
       createdAt = Prelude.Nothing,
+      dataSetId = Prelude.Nothing,
+      finalized = Prelude.Nothing,
+      id = Prelude.Nothing,
+      revocationComment = Prelude.Nothing,
+      revoked = Prelude.Nothing,
+      revokedAt = Prelude.Nothing,
+      sourceId = Prelude.Nothing,
       updatedAt = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The revision ID of the owned revision corresponding to the entitled
--- revision being viewed. This parameter is returned when a revision owner
--- is viewing the entitled copy of its owned revision.
-revokeRevisionResponse_sourceId :: Lens.Lens' RevokeRevisionResponse (Prelude.Maybe Prelude.Text)
-revokeRevisionResponse_sourceId = Lens.lens (\RevokeRevisionResponse' {sourceId} -> sourceId) (\s@RevokeRevisionResponse' {} a -> s {sourceId = a} :: RevokeRevisionResponse)
-
--- | A required comment to inform subscribers of the reason their access to
--- the revision was revoked.
-revokeRevisionResponse_revocationComment :: Lens.Lens' RevokeRevisionResponse (Prelude.Maybe Prelude.Text)
-revokeRevisionResponse_revocationComment = Lens.lens (\RevokeRevisionResponse' {revocationComment} -> revocationComment) (\s@RevokeRevisionResponse' {} a -> s {revocationComment = a} :: RevokeRevisionResponse)
 
 -- | The ARN for the revision.
 revokeRevisionResponse_arn :: Lens.Lens' RevokeRevisionResponse (Prelude.Maybe Prelude.Text)
 revokeRevisionResponse_arn = Lens.lens (\RevokeRevisionResponse' {arn} -> arn) (\s@RevokeRevisionResponse' {} a -> s {arn = a} :: RevokeRevisionResponse)
 
--- | The unique identifier for the revision.
-revokeRevisionResponse_id :: Lens.Lens' RevokeRevisionResponse (Prelude.Maybe Prelude.Text)
-revokeRevisionResponse_id = Lens.lens (\RevokeRevisionResponse' {id} -> id) (\s@RevokeRevisionResponse' {} a -> s {id = a} :: RevokeRevisionResponse)
-
 -- | An optional comment about the revision.
 revokeRevisionResponse_comment :: Lens.Lens' RevokeRevisionResponse (Prelude.Maybe Prelude.Text)
 revokeRevisionResponse_comment = Lens.lens (\RevokeRevisionResponse' {comment} -> comment) (\s@RevokeRevisionResponse' {} a -> s {comment = a} :: RevokeRevisionResponse)
+
+-- | The date and time that the revision was created, in ISO 8601 format.
+revokeRevisionResponse_createdAt :: Lens.Lens' RevokeRevisionResponse (Prelude.Maybe Prelude.UTCTime)
+revokeRevisionResponse_createdAt = Lens.lens (\RevokeRevisionResponse' {createdAt} -> createdAt) (\s@RevokeRevisionResponse' {} a -> s {createdAt = a} :: RevokeRevisionResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The unique identifier for the data set associated with the data set
+-- revision.
+revokeRevisionResponse_dataSetId :: Lens.Lens' RevokeRevisionResponse (Prelude.Maybe Prelude.Text)
+revokeRevisionResponse_dataSetId = Lens.lens (\RevokeRevisionResponse' {dataSetId} -> dataSetId) (\s@RevokeRevisionResponse' {} a -> s {dataSetId = a} :: RevokeRevisionResponse)
 
 -- | To publish a revision to a data set in a product, the revision must
 -- first be finalized. Finalizing a revision tells AWS Data Exchange that
@@ -323,22 +319,29 @@ revokeRevisionResponse_comment = Lens.lens (\RevokeRevisionResponse' {comment} -
 revokeRevisionResponse_finalized :: Lens.Lens' RevokeRevisionResponse (Prelude.Maybe Prelude.Bool)
 revokeRevisionResponse_finalized = Lens.lens (\RevokeRevisionResponse' {finalized} -> finalized) (\s@RevokeRevisionResponse' {} a -> s {finalized = a} :: RevokeRevisionResponse)
 
--- | The unique identifier for the data set associated with this revision.
-revokeRevisionResponse_dataSetId :: Lens.Lens' RevokeRevisionResponse (Prelude.Maybe Prelude.Text)
-revokeRevisionResponse_dataSetId = Lens.lens (\RevokeRevisionResponse' {dataSetId} -> dataSetId) (\s@RevokeRevisionResponse' {} a -> s {dataSetId = a} :: RevokeRevisionResponse)
+-- | The unique identifier for the revision.
+revokeRevisionResponse_id :: Lens.Lens' RevokeRevisionResponse (Prelude.Maybe Prelude.Text)
+revokeRevisionResponse_id = Lens.lens (\RevokeRevisionResponse' {id} -> id) (\s@RevokeRevisionResponse' {} a -> s {id = a} :: RevokeRevisionResponse)
 
--- | The date and time that the revision was revoked, in ISO 8601 format.
-revokeRevisionResponse_revokedAt :: Lens.Lens' RevokeRevisionResponse (Prelude.Maybe Prelude.UTCTime)
-revokeRevisionResponse_revokedAt = Lens.lens (\RevokeRevisionResponse' {revokedAt} -> revokedAt) (\s@RevokeRevisionResponse' {} a -> s {revokedAt = a} :: RevokeRevisionResponse) Prelude.. Lens.mapping Data._Time
+-- | A required comment to inform subscribers of the reason their access to
+-- the revision was revoked.
+revokeRevisionResponse_revocationComment :: Lens.Lens' RevokeRevisionResponse (Prelude.Maybe Prelude.Text)
+revokeRevisionResponse_revocationComment = Lens.lens (\RevokeRevisionResponse' {revocationComment} -> revocationComment) (\s@RevokeRevisionResponse' {} a -> s {revocationComment = a} :: RevokeRevisionResponse)
 
 -- | A status indicating that subscribers\' access to the revision was
 -- revoked.
 revokeRevisionResponse_revoked :: Lens.Lens' RevokeRevisionResponse (Prelude.Maybe Prelude.Bool)
 revokeRevisionResponse_revoked = Lens.lens (\RevokeRevisionResponse' {revoked} -> revoked) (\s@RevokeRevisionResponse' {} a -> s {revoked = a} :: RevokeRevisionResponse)
 
--- | The date and time that the revision was created, in ISO 8601 format.
-revokeRevisionResponse_createdAt :: Lens.Lens' RevokeRevisionResponse (Prelude.Maybe Prelude.UTCTime)
-revokeRevisionResponse_createdAt = Lens.lens (\RevokeRevisionResponse' {createdAt} -> createdAt) (\s@RevokeRevisionResponse' {} a -> s {createdAt = a} :: RevokeRevisionResponse) Prelude.. Lens.mapping Data._Time
+-- | The date and time that the revision was revoked, in ISO 8601 format.
+revokeRevisionResponse_revokedAt :: Lens.Lens' RevokeRevisionResponse (Prelude.Maybe Prelude.UTCTime)
+revokeRevisionResponse_revokedAt = Lens.lens (\RevokeRevisionResponse' {revokedAt} -> revokedAt) (\s@RevokeRevisionResponse' {} a -> s {revokedAt = a} :: RevokeRevisionResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The revision ID of the owned revision corresponding to the entitled
+-- revision being viewed. This parameter is returned when a revision owner
+-- is viewing the entitled copy of its owned revision.
+revokeRevisionResponse_sourceId :: Lens.Lens' RevokeRevisionResponse (Prelude.Maybe Prelude.Text)
+revokeRevisionResponse_sourceId = Lens.lens (\RevokeRevisionResponse' {sourceId} -> sourceId) (\s@RevokeRevisionResponse' {} a -> s {sourceId = a} :: RevokeRevisionResponse)
 
 -- | The date and time that the revision was last updated, in ISO 8601
 -- format.
@@ -351,15 +354,15 @@ revokeRevisionResponse_httpStatus = Lens.lens (\RevokeRevisionResponse' {httpSta
 
 instance Prelude.NFData RevokeRevisionResponse where
   rnf RevokeRevisionResponse' {..} =
-    Prelude.rnf sourceId
-      `Prelude.seq` Prelude.rnf revocationComment
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf finalized
-      `Prelude.seq` Prelude.rnf dataSetId
-      `Prelude.seq` Prelude.rnf revokedAt
-      `Prelude.seq` Prelude.rnf revoked
       `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf dataSetId
+      `Prelude.seq` Prelude.rnf finalized
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf revocationComment
+      `Prelude.seq` Prelude.rnf revoked
+      `Prelude.seq` Prelude.rnf revokedAt
+      `Prelude.seq` Prelude.rnf sourceId
       `Prelude.seq` Prelude.rnf updatedAt
       `Prelude.seq` Prelude.rnf httpStatus

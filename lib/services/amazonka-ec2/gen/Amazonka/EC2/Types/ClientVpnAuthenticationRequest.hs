@@ -36,8 +36,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newClientVpnAuthenticationRequest' smart constructor.
 data ClientVpnAuthenticationRequest = ClientVpnAuthenticationRequest'
-  { -- | The type of client authentication to be used.
-    type' :: Prelude.Maybe ClientVpnAuthenticationType,
+  { -- | Information about the Active Directory to be used, if applicable. You
+    -- must provide this information if __Type__ is
+    -- @directory-service-authentication@.
+    activeDirectory :: Prelude.Maybe DirectoryServiceAuthenticationRequest,
     -- | Information about the IAM SAML identity provider to be used, if
     -- applicable. You must provide this information if __Type__ is
     -- @federated-authentication@.
@@ -46,10 +48,8 @@ data ClientVpnAuthenticationRequest = ClientVpnAuthenticationRequest'
     -- applicable. You must provide this information if __Type__ is
     -- @certificate-authentication@.
     mutualAuthentication :: Prelude.Maybe CertificateAuthenticationRequest,
-    -- | Information about the Active Directory to be used, if applicable. You
-    -- must provide this information if __Type__ is
-    -- @directory-service-authentication@.
-    activeDirectory :: Prelude.Maybe DirectoryServiceAuthenticationRequest
+    -- | The type of client authentication to be used.
+    type' :: Prelude.Maybe ClientVpnAuthenticationType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,7 +61,9 @@ data ClientVpnAuthenticationRequest = ClientVpnAuthenticationRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'clientVpnAuthenticationRequest_type' - The type of client authentication to be used.
+-- 'activeDirectory', 'clientVpnAuthenticationRequest_activeDirectory' - Information about the Active Directory to be used, if applicable. You
+-- must provide this information if __Type__ is
+-- @directory-service-authentication@.
 --
 -- 'federatedAuthentication', 'clientVpnAuthenticationRequest_federatedAuthentication' - Information about the IAM SAML identity provider to be used, if
 -- applicable. You must provide this information if __Type__ is
@@ -71,23 +73,23 @@ data ClientVpnAuthenticationRequest = ClientVpnAuthenticationRequest'
 -- applicable. You must provide this information if __Type__ is
 -- @certificate-authentication@.
 --
--- 'activeDirectory', 'clientVpnAuthenticationRequest_activeDirectory' - Information about the Active Directory to be used, if applicable. You
--- must provide this information if __Type__ is
--- @directory-service-authentication@.
+-- 'type'', 'clientVpnAuthenticationRequest_type' - The type of client authentication to be used.
 newClientVpnAuthenticationRequest ::
   ClientVpnAuthenticationRequest
 newClientVpnAuthenticationRequest =
   ClientVpnAuthenticationRequest'
-    { type' =
+    { activeDirectory =
         Prelude.Nothing,
       federatedAuthentication = Prelude.Nothing,
       mutualAuthentication = Prelude.Nothing,
-      activeDirectory = Prelude.Nothing
+      type' = Prelude.Nothing
     }
 
--- | The type of client authentication to be used.
-clientVpnAuthenticationRequest_type :: Lens.Lens' ClientVpnAuthenticationRequest (Prelude.Maybe ClientVpnAuthenticationType)
-clientVpnAuthenticationRequest_type = Lens.lens (\ClientVpnAuthenticationRequest' {type'} -> type') (\s@ClientVpnAuthenticationRequest' {} a -> s {type' = a} :: ClientVpnAuthenticationRequest)
+-- | Information about the Active Directory to be used, if applicable. You
+-- must provide this information if __Type__ is
+-- @directory-service-authentication@.
+clientVpnAuthenticationRequest_activeDirectory :: Lens.Lens' ClientVpnAuthenticationRequest (Prelude.Maybe DirectoryServiceAuthenticationRequest)
+clientVpnAuthenticationRequest_activeDirectory = Lens.lens (\ClientVpnAuthenticationRequest' {activeDirectory} -> activeDirectory) (\s@ClientVpnAuthenticationRequest' {} a -> s {activeDirectory = a} :: ClientVpnAuthenticationRequest)
 
 -- | Information about the IAM SAML identity provider to be used, if
 -- applicable. You must provide this information if __Type__ is
@@ -101,11 +103,9 @@ clientVpnAuthenticationRequest_federatedAuthentication = Lens.lens (\ClientVpnAu
 clientVpnAuthenticationRequest_mutualAuthentication :: Lens.Lens' ClientVpnAuthenticationRequest (Prelude.Maybe CertificateAuthenticationRequest)
 clientVpnAuthenticationRequest_mutualAuthentication = Lens.lens (\ClientVpnAuthenticationRequest' {mutualAuthentication} -> mutualAuthentication) (\s@ClientVpnAuthenticationRequest' {} a -> s {mutualAuthentication = a} :: ClientVpnAuthenticationRequest)
 
--- | Information about the Active Directory to be used, if applicable. You
--- must provide this information if __Type__ is
--- @directory-service-authentication@.
-clientVpnAuthenticationRequest_activeDirectory :: Lens.Lens' ClientVpnAuthenticationRequest (Prelude.Maybe DirectoryServiceAuthenticationRequest)
-clientVpnAuthenticationRequest_activeDirectory = Lens.lens (\ClientVpnAuthenticationRequest' {activeDirectory} -> activeDirectory) (\s@ClientVpnAuthenticationRequest' {} a -> s {activeDirectory = a} :: ClientVpnAuthenticationRequest)
+-- | The type of client authentication to be used.
+clientVpnAuthenticationRequest_type :: Lens.Lens' ClientVpnAuthenticationRequest (Prelude.Maybe ClientVpnAuthenticationType)
+clientVpnAuthenticationRequest_type = Lens.lens (\ClientVpnAuthenticationRequest' {type'} -> type') (\s@ClientVpnAuthenticationRequest' {} a -> s {type' = a} :: ClientVpnAuthenticationRequest)
 
 instance
   Prelude.Hashable
@@ -114,27 +114,27 @@ instance
   hashWithSalt
     _salt
     ClientVpnAuthenticationRequest' {..} =
-      _salt `Prelude.hashWithSalt` type'
+      _salt `Prelude.hashWithSalt` activeDirectory
         `Prelude.hashWithSalt` federatedAuthentication
         `Prelude.hashWithSalt` mutualAuthentication
-        `Prelude.hashWithSalt` activeDirectory
+        `Prelude.hashWithSalt` type'
 
 instance
   Prelude.NFData
     ClientVpnAuthenticationRequest
   where
   rnf ClientVpnAuthenticationRequest' {..} =
-    Prelude.rnf type'
+    Prelude.rnf activeDirectory
       `Prelude.seq` Prelude.rnf federatedAuthentication
       `Prelude.seq` Prelude.rnf mutualAuthentication
-      `Prelude.seq` Prelude.rnf activeDirectory
+      `Prelude.seq` Prelude.rnf type'
 
 instance Data.ToQuery ClientVpnAuthenticationRequest where
   toQuery ClientVpnAuthenticationRequest' {..} =
     Prelude.mconcat
-      [ "Type" Data.=: type',
+      [ "ActiveDirectory" Data.=: activeDirectory,
         "FederatedAuthentication"
           Data.=: federatedAuthentication,
         "MutualAuthentication" Data.=: mutualAuthentication,
-        "ActiveDirectory" Data.=: activeDirectory
+        "Type" Data.=: type'
       ]

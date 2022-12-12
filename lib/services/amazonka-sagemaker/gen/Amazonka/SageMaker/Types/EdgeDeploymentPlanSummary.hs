@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEdgeDeploymentPlanSummary' smart constructor.
 data EdgeDeploymentPlanSummary = EdgeDeploymentPlanSummary'
-  { -- | The time when the edge deployment plan was last updated.
-    lastModifiedTime :: Prelude.Maybe Data.POSIX,
-    -- | The time when the edge deployment plan was created.
+  { -- | The time when the edge deployment plan was created.
     creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The time when the edge deployment plan was last updated.
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the edge deployment plan.
     edgeDeploymentPlanArn :: Prelude.Text,
     -- | The name of the edge deployment plan.
@@ -56,9 +56,9 @@ data EdgeDeploymentPlanSummary = EdgeDeploymentPlanSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastModifiedTime', 'edgeDeploymentPlanSummary_lastModifiedTime' - The time when the edge deployment plan was last updated.
---
 -- 'creationTime', 'edgeDeploymentPlanSummary_creationTime' - The time when the edge deployment plan was created.
+--
+-- 'lastModifiedTime', 'edgeDeploymentPlanSummary_lastModifiedTime' - The time when the edge deployment plan was last updated.
 --
 -- 'edgeDeploymentPlanArn', 'edgeDeploymentPlanSummary_edgeDeploymentPlanArn' - The ARN of the edge deployment plan.
 --
@@ -94,9 +94,9 @@ newEdgeDeploymentPlanSummary
   pEdgeDeploymentPending_
   pEdgeDeploymentFailed_ =
     EdgeDeploymentPlanSummary'
-      { lastModifiedTime =
+      { creationTime =
           Prelude.Nothing,
-        creationTime = Prelude.Nothing,
+        lastModifiedTime = Prelude.Nothing,
         edgeDeploymentPlanArn = pEdgeDeploymentPlanArn_,
         edgeDeploymentPlanName =
           pEdgeDeploymentPlanName_,
@@ -106,13 +106,13 @@ newEdgeDeploymentPlanSummary
         edgeDeploymentFailed = pEdgeDeploymentFailed_
       }
 
--- | The time when the edge deployment plan was last updated.
-edgeDeploymentPlanSummary_lastModifiedTime :: Lens.Lens' EdgeDeploymentPlanSummary (Prelude.Maybe Prelude.UTCTime)
-edgeDeploymentPlanSummary_lastModifiedTime = Lens.lens (\EdgeDeploymentPlanSummary' {lastModifiedTime} -> lastModifiedTime) (\s@EdgeDeploymentPlanSummary' {} a -> s {lastModifiedTime = a} :: EdgeDeploymentPlanSummary) Prelude.. Lens.mapping Data._Time
-
 -- | The time when the edge deployment plan was created.
 edgeDeploymentPlanSummary_creationTime :: Lens.Lens' EdgeDeploymentPlanSummary (Prelude.Maybe Prelude.UTCTime)
 edgeDeploymentPlanSummary_creationTime = Lens.lens (\EdgeDeploymentPlanSummary' {creationTime} -> creationTime) (\s@EdgeDeploymentPlanSummary' {} a -> s {creationTime = a} :: EdgeDeploymentPlanSummary) Prelude.. Lens.mapping Data._Time
+
+-- | The time when the edge deployment plan was last updated.
+edgeDeploymentPlanSummary_lastModifiedTime :: Lens.Lens' EdgeDeploymentPlanSummary (Prelude.Maybe Prelude.UTCTime)
+edgeDeploymentPlanSummary_lastModifiedTime = Lens.lens (\EdgeDeploymentPlanSummary' {lastModifiedTime} -> lastModifiedTime) (\s@EdgeDeploymentPlanSummary' {} a -> s {lastModifiedTime = a} :: EdgeDeploymentPlanSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the edge deployment plan.
 edgeDeploymentPlanSummary_edgeDeploymentPlanArn :: Lens.Lens' EdgeDeploymentPlanSummary Prelude.Text
@@ -145,8 +145,8 @@ instance Data.FromJSON EdgeDeploymentPlanSummary where
       "EdgeDeploymentPlanSummary"
       ( \x ->
           EdgeDeploymentPlanSummary'
-            Prelude.<$> (x Data..:? "LastModifiedTime")
-            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<$> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
             Prelude.<*> (x Data..: "EdgeDeploymentPlanArn")
             Prelude.<*> (x Data..: "EdgeDeploymentPlanName")
             Prelude.<*> (x Data..: "DeviceFleetName")
@@ -157,8 +157,8 @@ instance Data.FromJSON EdgeDeploymentPlanSummary where
 
 instance Prelude.Hashable EdgeDeploymentPlanSummary where
   hashWithSalt _salt EdgeDeploymentPlanSummary' {..} =
-    _salt `Prelude.hashWithSalt` lastModifiedTime
-      `Prelude.hashWithSalt` creationTime
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` edgeDeploymentPlanArn
       `Prelude.hashWithSalt` edgeDeploymentPlanName
       `Prelude.hashWithSalt` deviceFleetName
@@ -168,8 +168,8 @@ instance Prelude.Hashable EdgeDeploymentPlanSummary where
 
 instance Prelude.NFData EdgeDeploymentPlanSummary where
   rnf EdgeDeploymentPlanSummary' {..} =
-    Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf creationTime
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf lastModifiedTime
       `Prelude.seq` Prelude.rnf edgeDeploymentPlanArn
       `Prelude.seq` Prelude.rnf edgeDeploymentPlanName
       `Prelude.seq` Prelude.rnf deviceFleetName

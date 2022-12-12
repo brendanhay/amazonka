@@ -27,8 +27,8 @@ module Amazonka.IoTWireless.ListWirelessGateways
     newListWirelessGateways,
 
     -- * Request Lenses
-    listWirelessGateways_nextToken,
     listWirelessGateways_maxResults,
+    listWirelessGateways_nextToken,
 
     -- * Destructuring the Response
     ListWirelessGatewaysResponse (..),
@@ -51,12 +51,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListWirelessGateways' smart constructor.
 data ListWirelessGateways = ListWirelessGateways'
-  { -- | To retrieve the next set of results, the @nextToken@ value from a
+  { -- | The maximum number of results to return in this operation.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | To retrieve the next set of results, the @nextToken@ value from a
     -- previous response; otherwise __null__ to receive the first set of
     -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in this operation.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,28 +68,28 @@ data ListWirelessGateways = ListWirelessGateways'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listWirelessGateways_maxResults' - The maximum number of results to return in this operation.
+--
 -- 'nextToken', 'listWirelessGateways_nextToken' - To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
---
--- 'maxResults', 'listWirelessGateways_maxResults' - The maximum number of results to return in this operation.
 newListWirelessGateways ::
   ListWirelessGateways
 newListWirelessGateways =
   ListWirelessGateways'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of results to return in this operation.
+listWirelessGateways_maxResults :: Lens.Lens' ListWirelessGateways (Prelude.Maybe Prelude.Natural)
+listWirelessGateways_maxResults = Lens.lens (\ListWirelessGateways' {maxResults} -> maxResults) (\s@ListWirelessGateways' {} a -> s {maxResults = a} :: ListWirelessGateways)
 
 -- | To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
 listWirelessGateways_nextToken :: Lens.Lens' ListWirelessGateways (Prelude.Maybe Prelude.Text)
 listWirelessGateways_nextToken = Lens.lens (\ListWirelessGateways' {nextToken} -> nextToken) (\s@ListWirelessGateways' {} a -> s {nextToken = a} :: ListWirelessGateways)
-
--- | The maximum number of results to return in this operation.
-listWirelessGateways_maxResults :: Lens.Lens' ListWirelessGateways (Prelude.Maybe Prelude.Natural)
-listWirelessGateways_maxResults = Lens.lens (\ListWirelessGateways' {maxResults} -> maxResults) (\s@ListWirelessGateways' {} a -> s {maxResults = a} :: ListWirelessGateways)
 
 instance Core.AWSRequest ListWirelessGateways where
   type
@@ -110,13 +110,13 @@ instance Core.AWSRequest ListWirelessGateways where
 
 instance Prelude.Hashable ListWirelessGateways where
   hashWithSalt _salt ListWirelessGateways' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListWirelessGateways where
   rnf ListWirelessGateways' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListWirelessGateways where
   toHeaders = Prelude.const Prelude.mempty
@@ -127,8 +127,8 @@ instance Data.ToPath ListWirelessGateways where
 instance Data.ToQuery ListWirelessGateways where
   toQuery ListWirelessGateways' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListWirelessGatewaysResponse' smart constructor.

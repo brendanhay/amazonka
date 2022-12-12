@@ -32,10 +32,10 @@ data TableColumn = TableColumn'
   { -- | The column level format that is applied in the table. An empty value in
     -- this field means that the column format is the default value \'AUTO\'.
     format :: Prelude.Maybe Format,
-    -- | The name of the column in the table.
-    tableColumnName :: Prelude.Maybe Prelude.Text,
     -- | The id of the column in the table.
-    tableColumnId :: Prelude.Maybe Prelude.Text
+    tableColumnId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the column in the table.
+    tableColumnName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,16 +50,16 @@ data TableColumn = TableColumn'
 -- 'format', 'tableColumn_format' - The column level format that is applied in the table. An empty value in
 -- this field means that the column format is the default value \'AUTO\'.
 --
--- 'tableColumnName', 'tableColumn_tableColumnName' - The name of the column in the table.
---
 -- 'tableColumnId', 'tableColumn_tableColumnId' - The id of the column in the table.
+--
+-- 'tableColumnName', 'tableColumn_tableColumnName' - The name of the column in the table.
 newTableColumn ::
   TableColumn
 newTableColumn =
   TableColumn'
     { format = Prelude.Nothing,
-      tableColumnName = Prelude.Nothing,
-      tableColumnId = Prelude.Nothing
+      tableColumnId = Prelude.Nothing,
+      tableColumnName = Prelude.Nothing
     }
 
 -- | The column level format that is applied in the table. An empty value in
@@ -67,13 +67,13 @@ newTableColumn =
 tableColumn_format :: Lens.Lens' TableColumn (Prelude.Maybe Format)
 tableColumn_format = Lens.lens (\TableColumn' {format} -> format) (\s@TableColumn' {} a -> s {format = a} :: TableColumn)
 
--- | The name of the column in the table.
-tableColumn_tableColumnName :: Lens.Lens' TableColumn (Prelude.Maybe Prelude.Text)
-tableColumn_tableColumnName = Lens.lens (\TableColumn' {tableColumnName} -> tableColumnName) (\s@TableColumn' {} a -> s {tableColumnName = a} :: TableColumn)
-
 -- | The id of the column in the table.
 tableColumn_tableColumnId :: Lens.Lens' TableColumn (Prelude.Maybe Prelude.Text)
 tableColumn_tableColumnId = Lens.lens (\TableColumn' {tableColumnId} -> tableColumnId) (\s@TableColumn' {} a -> s {tableColumnId = a} :: TableColumn)
+
+-- | The name of the column in the table.
+tableColumn_tableColumnName :: Lens.Lens' TableColumn (Prelude.Maybe Prelude.Text)
+tableColumn_tableColumnName = Lens.lens (\TableColumn' {tableColumnName} -> tableColumnName) (\s@TableColumn' {} a -> s {tableColumnName = a} :: TableColumn)
 
 instance Data.FromJSON TableColumn where
   parseJSON =
@@ -82,18 +82,18 @@ instance Data.FromJSON TableColumn where
       ( \x ->
           TableColumn'
             Prelude.<$> (x Data..:? "format")
-            Prelude.<*> (x Data..:? "tableColumnName")
             Prelude.<*> (x Data..:? "tableColumnId")
+            Prelude.<*> (x Data..:? "tableColumnName")
       )
 
 instance Prelude.Hashable TableColumn where
   hashWithSalt _salt TableColumn' {..} =
     _salt `Prelude.hashWithSalt` format
-      `Prelude.hashWithSalt` tableColumnName
       `Prelude.hashWithSalt` tableColumnId
+      `Prelude.hashWithSalt` tableColumnName
 
 instance Prelude.NFData TableColumn where
   rnf TableColumn' {..} =
     Prelude.rnf format
-      `Prelude.seq` Prelude.rnf tableColumnName
       `Prelude.seq` Prelude.rnf tableColumnId
+      `Prelude.seq` Prelude.rnf tableColumnName

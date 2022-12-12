@@ -29,8 +29,8 @@ module Amazonka.Proton.ListRepositories
     newListRepositories,
 
     -- * Request Lenses
-    listRepositories_nextToken,
     listRepositories_maxResults,
+    listRepositories_nextToken,
 
     -- * Destructuring the Response
     ListRepositoriesResponse (..),
@@ -53,11 +53,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListRepositories' smart constructor.
 data ListRepositories = ListRepositories'
-  { -- | A token that indicates the location of the next repository in the array
+  { -- | The maximum number of repositories to list.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token that indicates the location of the next repository in the array
     -- of repositories, after the list of repositories previously requested.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of repositories to list.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,26 +69,26 @@ data ListRepositories = ListRepositories'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listRepositories_maxResults' - The maximum number of repositories to list.
+--
 -- 'nextToken', 'listRepositories_nextToken' - A token that indicates the location of the next repository in the array
 -- of repositories, after the list of repositories previously requested.
---
--- 'maxResults', 'listRepositories_maxResults' - The maximum number of repositories to list.
 newListRepositories ::
   ListRepositories
 newListRepositories =
   ListRepositories'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of repositories to list.
+listRepositories_maxResults :: Lens.Lens' ListRepositories (Prelude.Maybe Prelude.Natural)
+listRepositories_maxResults = Lens.lens (\ListRepositories' {maxResults} -> maxResults) (\s@ListRepositories' {} a -> s {maxResults = a} :: ListRepositories)
 
 -- | A token that indicates the location of the next repository in the array
 -- of repositories, after the list of repositories previously requested.
 listRepositories_nextToken :: Lens.Lens' ListRepositories (Prelude.Maybe Prelude.Text)
 listRepositories_nextToken = Lens.lens (\ListRepositories' {nextToken} -> nextToken) (\s@ListRepositories' {} a -> s {nextToken = a} :: ListRepositories)
-
--- | The maximum number of repositories to list.
-listRepositories_maxResults :: Lens.Lens' ListRepositories (Prelude.Maybe Prelude.Natural)
-listRepositories_maxResults = Lens.lens (\ListRepositories' {maxResults} -> maxResults) (\s@ListRepositories' {} a -> s {maxResults = a} :: ListRepositories)
 
 instance Core.AWSPager ListRepositories where
   page rq rs
@@ -126,13 +126,13 @@ instance Core.AWSRequest ListRepositories where
 
 instance Prelude.Hashable ListRepositories where
   hashWithSalt _salt ListRepositories' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListRepositories where
   rnf ListRepositories' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListRepositories where
   toHeaders =
@@ -153,8 +153,8 @@ instance Data.ToJSON ListRepositories where
   toJSON ListRepositories' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

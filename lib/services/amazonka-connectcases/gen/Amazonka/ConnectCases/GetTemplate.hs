@@ -35,10 +35,10 @@ module Amazonka.ConnectCases.GetTemplate
     newGetTemplateResponse,
 
     -- * Response Lenses
-    getTemplateResponse_tags,
-    getTemplateResponse_layoutConfiguration,
     getTemplateResponse_description,
+    getTemplateResponse_layoutConfiguration,
     getTemplateResponse_requiredFields,
+    getTemplateResponse_tags,
     getTemplateResponse_httpStatus,
     getTemplateResponse_name,
     getTemplateResponse_status,
@@ -103,10 +103,10 @@ instance Core.AWSRequest GetTemplate where
     Response.receiveJSON
       ( \s h x ->
           GetTemplateResponse'
-            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "description")
             Prelude.<*> (x Data..?> "layoutConfiguration")
-            Prelude.<*> (x Data..?> "description")
             Prelude.<*> (x Data..?> "requiredFields" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "name")
             Prelude.<*> (x Data..:> "status")
@@ -152,16 +152,16 @@ instance Data.ToQuery GetTemplate where
 
 -- | /See:/ 'newGetTemplateResponse' smart constructor.
 data GetTemplateResponse = GetTemplateResponse'
-  { -- | A map of of key-value pairs that represent tags on a resource. Tags are
-    -- used to organize, track, or control access for this resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | A brief description of the template.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Configuration of layouts associated to the template.
     layoutConfiguration :: Prelude.Maybe LayoutConfiguration,
-    -- | A brief description of the template.
-    description :: Prelude.Maybe Prelude.Text,
     -- | A list of fields that must contain a value for a case to be successfully
     -- created with this template.
     requiredFields :: Prelude.Maybe [RequiredField],
+    -- | A map of of key-value pairs that represent tags on a resource. Tags are
+    -- used to organize, track, or control access for this resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The name of the template.
@@ -183,15 +183,15 @@ data GetTemplateResponse = GetTemplateResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'getTemplateResponse_tags' - A map of of key-value pairs that represent tags on a resource. Tags are
--- used to organize, track, or control access for this resource.
+-- 'description', 'getTemplateResponse_description' - A brief description of the template.
 --
 -- 'layoutConfiguration', 'getTemplateResponse_layoutConfiguration' - Configuration of layouts associated to the template.
 --
--- 'description', 'getTemplateResponse_description' - A brief description of the template.
---
 -- 'requiredFields', 'getTemplateResponse_requiredFields' - A list of fields that must contain a value for a case to be successfully
 -- created with this template.
+--
+-- 'tags', 'getTemplateResponse_tags' - A map of of key-value pairs that represent tags on a resource. Tags are
+-- used to organize, track, or control access for this resource.
 --
 -- 'httpStatus', 'getTemplateResponse_httpStatus' - The response's http status code.
 --
@@ -221,10 +221,10 @@ newGetTemplateResponse
   pTemplateArn_
   pTemplateId_ =
     GetTemplateResponse'
-      { tags = Prelude.Nothing,
+      { description = Prelude.Nothing,
         layoutConfiguration = Prelude.Nothing,
-        description = Prelude.Nothing,
         requiredFields = Prelude.Nothing,
+        tags = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         name = pName_,
         status = pStatus_,
@@ -232,23 +232,23 @@ newGetTemplateResponse
         templateId = pTemplateId_
       }
 
--- | A map of of key-value pairs that represent tags on a resource. Tags are
--- used to organize, track, or control access for this resource.
-getTemplateResponse_tags :: Lens.Lens' GetTemplateResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getTemplateResponse_tags = Lens.lens (\GetTemplateResponse' {tags} -> tags) (\s@GetTemplateResponse' {} a -> s {tags = a} :: GetTemplateResponse) Prelude.. Lens.mapping Lens.coerced
+-- | A brief description of the template.
+getTemplateResponse_description :: Lens.Lens' GetTemplateResponse (Prelude.Maybe Prelude.Text)
+getTemplateResponse_description = Lens.lens (\GetTemplateResponse' {description} -> description) (\s@GetTemplateResponse' {} a -> s {description = a} :: GetTemplateResponse)
 
 -- | Configuration of layouts associated to the template.
 getTemplateResponse_layoutConfiguration :: Lens.Lens' GetTemplateResponse (Prelude.Maybe LayoutConfiguration)
 getTemplateResponse_layoutConfiguration = Lens.lens (\GetTemplateResponse' {layoutConfiguration} -> layoutConfiguration) (\s@GetTemplateResponse' {} a -> s {layoutConfiguration = a} :: GetTemplateResponse)
 
--- | A brief description of the template.
-getTemplateResponse_description :: Lens.Lens' GetTemplateResponse (Prelude.Maybe Prelude.Text)
-getTemplateResponse_description = Lens.lens (\GetTemplateResponse' {description} -> description) (\s@GetTemplateResponse' {} a -> s {description = a} :: GetTemplateResponse)
-
 -- | A list of fields that must contain a value for a case to be successfully
 -- created with this template.
 getTemplateResponse_requiredFields :: Lens.Lens' GetTemplateResponse (Prelude.Maybe [RequiredField])
 getTemplateResponse_requiredFields = Lens.lens (\GetTemplateResponse' {requiredFields} -> requiredFields) (\s@GetTemplateResponse' {} a -> s {requiredFields = a} :: GetTemplateResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A map of of key-value pairs that represent tags on a resource. Tags are
+-- used to organize, track, or control access for this resource.
+getTemplateResponse_tags :: Lens.Lens' GetTemplateResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getTemplateResponse_tags = Lens.lens (\GetTemplateResponse' {tags} -> tags) (\s@GetTemplateResponse' {} a -> s {tags = a} :: GetTemplateResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getTemplateResponse_httpStatus :: Lens.Lens' GetTemplateResponse Prelude.Int
@@ -272,10 +272,10 @@ getTemplateResponse_templateId = Lens.lens (\GetTemplateResponse' {templateId} -
 
 instance Prelude.NFData GetTemplateResponse where
   rnf GetTemplateResponse' {..} =
-    Prelude.rnf tags
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf layoutConfiguration
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf requiredFields
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf status

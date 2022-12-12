@@ -29,11 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceState' smart constructor.
 data InstanceState = InstanceState'
-  { -- | The current state of the instance.
-    --
-    -- Valid values: @InService@ | @OutOfService@ | @Unknown@
-    state :: Prelude.Maybe Prelude.Text,
-    -- | A description of the instance state. This string can contain one or more
+  { -- | A description of the instance state. This string can contain one or more
     -- of the following messages.
     --
     -- -   @N\/A@
@@ -66,7 +62,11 @@ data InstanceState = InstanceState'
     -- whether the cause is Elastic Load Balancing or the instance.
     --
     -- Valid values: @ELB@ | @Instance@ | @N\/A@
-    reasonCode :: Prelude.Maybe Prelude.Text
+    reasonCode :: Prelude.Maybe Prelude.Text,
+    -- | The current state of the instance.
+    --
+    -- Valid values: @InService@ | @OutOfService@ | @Unknown@
+    state :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,10 +77,6 @@ data InstanceState = InstanceState'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'state', 'instanceState_state' - The current state of the instance.
---
--- Valid values: @InService@ | @OutOfService@ | @Unknown@
 --
 -- 'description', 'instanceState_description' - A description of the instance state. This string can contain one or more
 -- of the following messages.
@@ -115,21 +111,19 @@ data InstanceState = InstanceState'
 -- whether the cause is Elastic Load Balancing or the instance.
 --
 -- Valid values: @ELB@ | @Instance@ | @N\/A@
+--
+-- 'state', 'instanceState_state' - The current state of the instance.
+--
+-- Valid values: @InService@ | @OutOfService@ | @Unknown@
 newInstanceState ::
   InstanceState
 newInstanceState =
   InstanceState'
-    { state = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
       instanceId = Prelude.Nothing,
-      reasonCode = Prelude.Nothing
+      reasonCode = Prelude.Nothing,
+      state = Prelude.Nothing
     }
-
--- | The current state of the instance.
---
--- Valid values: @InService@ | @OutOfService@ | @Unknown@
-instanceState_state :: Lens.Lens' InstanceState (Prelude.Maybe Prelude.Text)
-instanceState_state = Lens.lens (\InstanceState' {state} -> state) (\s@InstanceState' {} a -> s {state = a} :: InstanceState)
 
 -- | A description of the instance state. This string can contain one or more
 -- of the following messages.
@@ -171,24 +165,30 @@ instanceState_instanceId = Lens.lens (\InstanceState' {instanceId} -> instanceId
 instanceState_reasonCode :: Lens.Lens' InstanceState (Prelude.Maybe Prelude.Text)
 instanceState_reasonCode = Lens.lens (\InstanceState' {reasonCode} -> reasonCode) (\s@InstanceState' {} a -> s {reasonCode = a} :: InstanceState)
 
+-- | The current state of the instance.
+--
+-- Valid values: @InService@ | @OutOfService@ | @Unknown@
+instanceState_state :: Lens.Lens' InstanceState (Prelude.Maybe Prelude.Text)
+instanceState_state = Lens.lens (\InstanceState' {state} -> state) (\s@InstanceState' {} a -> s {state = a} :: InstanceState)
+
 instance Data.FromXML InstanceState where
   parseXML x =
     InstanceState'
-      Prelude.<$> (x Data..@? "State")
-      Prelude.<*> (x Data..@? "Description")
+      Prelude.<$> (x Data..@? "Description")
       Prelude.<*> (x Data..@? "InstanceId")
       Prelude.<*> (x Data..@? "ReasonCode")
+      Prelude.<*> (x Data..@? "State")
 
 instance Prelude.Hashable InstanceState where
   hashWithSalt _salt InstanceState' {..} =
-    _salt `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` reasonCode
+      `Prelude.hashWithSalt` state
 
 instance Prelude.NFData InstanceState where
   rnf InstanceState' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf reasonCode
+      `Prelude.seq` Prelude.rnf state

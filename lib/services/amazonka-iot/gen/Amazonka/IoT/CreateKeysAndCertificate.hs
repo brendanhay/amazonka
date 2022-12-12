@@ -44,10 +44,10 @@ module Amazonka.IoT.CreateKeysAndCertificate
     newCreateKeysAndCertificateResponse,
 
     -- * Response Lenses
-    createKeysAndCertificateResponse_keyPair,
     createKeysAndCertificateResponse_certificateArn,
     createKeysAndCertificateResponse_certificateId,
     createKeysAndCertificateResponse_certificatePem,
+    createKeysAndCertificateResponse_keyPair,
     createKeysAndCertificateResponse_httpStatus,
   )
 where
@@ -104,10 +104,10 @@ instance Core.AWSRequest CreateKeysAndCertificate where
     Response.receiveJSON
       ( \s h x ->
           CreateKeysAndCertificateResponse'
-            Prelude.<$> (x Data..?> "keyPair")
-            Prelude.<*> (x Data..?> "certificateArn")
+            Prelude.<$> (x Data..?> "certificateArn")
             Prelude.<*> (x Data..?> "certificateId")
             Prelude.<*> (x Data..?> "certificatePem")
+            Prelude.<*> (x Data..?> "keyPair")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,15 +136,15 @@ instance Data.ToQuery CreateKeysAndCertificate where
 --
 -- /See:/ 'newCreateKeysAndCertificateResponse' smart constructor.
 data CreateKeysAndCertificateResponse = CreateKeysAndCertificateResponse'
-  { -- | The generated key pair.
-    keyPair :: Prelude.Maybe KeyPair,
-    -- | The ARN of the certificate.
+  { -- | The ARN of the certificate.
     certificateArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the certificate. IoT issues a default subject name for the
     -- certificate (for example, IoT Certificate).
     certificateId :: Prelude.Maybe Prelude.Text,
     -- | The certificate data, in PEM format.
     certificatePem :: Prelude.Maybe Prelude.Text,
+    -- | The generated key pair.
+    keyPair :: Prelude.Maybe KeyPair,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -158,14 +158,14 @@ data CreateKeysAndCertificateResponse = CreateKeysAndCertificateResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'keyPair', 'createKeysAndCertificateResponse_keyPair' - The generated key pair.
---
 -- 'certificateArn', 'createKeysAndCertificateResponse_certificateArn' - The ARN of the certificate.
 --
 -- 'certificateId', 'createKeysAndCertificateResponse_certificateId' - The ID of the certificate. IoT issues a default subject name for the
 -- certificate (for example, IoT Certificate).
 --
 -- 'certificatePem', 'createKeysAndCertificateResponse_certificatePem' - The certificate data, in PEM format.
+--
+-- 'keyPair', 'createKeysAndCertificateResponse_keyPair' - The generated key pair.
 --
 -- 'httpStatus', 'createKeysAndCertificateResponse_httpStatus' - The response's http status code.
 newCreateKeysAndCertificateResponse ::
@@ -174,17 +174,13 @@ newCreateKeysAndCertificateResponse ::
   CreateKeysAndCertificateResponse
 newCreateKeysAndCertificateResponse pHttpStatus_ =
   CreateKeysAndCertificateResponse'
-    { keyPair =
+    { certificateArn =
         Prelude.Nothing,
-      certificateArn = Prelude.Nothing,
       certificateId = Prelude.Nothing,
       certificatePem = Prelude.Nothing,
+      keyPair = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The generated key pair.
-createKeysAndCertificateResponse_keyPair :: Lens.Lens' CreateKeysAndCertificateResponse (Prelude.Maybe KeyPair)
-createKeysAndCertificateResponse_keyPair = Lens.lens (\CreateKeysAndCertificateResponse' {keyPair} -> keyPair) (\s@CreateKeysAndCertificateResponse' {} a -> s {keyPair = a} :: CreateKeysAndCertificateResponse)
 
 -- | The ARN of the certificate.
 createKeysAndCertificateResponse_certificateArn :: Lens.Lens' CreateKeysAndCertificateResponse (Prelude.Maybe Prelude.Text)
@@ -199,6 +195,10 @@ createKeysAndCertificateResponse_certificateId = Lens.lens (\CreateKeysAndCertif
 createKeysAndCertificateResponse_certificatePem :: Lens.Lens' CreateKeysAndCertificateResponse (Prelude.Maybe Prelude.Text)
 createKeysAndCertificateResponse_certificatePem = Lens.lens (\CreateKeysAndCertificateResponse' {certificatePem} -> certificatePem) (\s@CreateKeysAndCertificateResponse' {} a -> s {certificatePem = a} :: CreateKeysAndCertificateResponse)
 
+-- | The generated key pair.
+createKeysAndCertificateResponse_keyPair :: Lens.Lens' CreateKeysAndCertificateResponse (Prelude.Maybe KeyPair)
+createKeysAndCertificateResponse_keyPair = Lens.lens (\CreateKeysAndCertificateResponse' {keyPair} -> keyPair) (\s@CreateKeysAndCertificateResponse' {} a -> s {keyPair = a} :: CreateKeysAndCertificateResponse)
+
 -- | The response's http status code.
 createKeysAndCertificateResponse_httpStatus :: Lens.Lens' CreateKeysAndCertificateResponse Prelude.Int
 createKeysAndCertificateResponse_httpStatus = Lens.lens (\CreateKeysAndCertificateResponse' {httpStatus} -> httpStatus) (\s@CreateKeysAndCertificateResponse' {} a -> s {httpStatus = a} :: CreateKeysAndCertificateResponse)
@@ -208,8 +208,8 @@ instance
     CreateKeysAndCertificateResponse
   where
   rnf CreateKeysAndCertificateResponse' {..} =
-    Prelude.rnf keyPair
-      `Prelude.seq` Prelude.rnf certificateArn
+    Prelude.rnf certificateArn
       `Prelude.seq` Prelude.rnf certificateId
       `Prelude.seq` Prelude.rnf certificatePem
+      `Prelude.seq` Prelude.rnf keyPair
       `Prelude.seq` Prelude.rnf httpStatus

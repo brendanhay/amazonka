@@ -31,8 +31,6 @@ import qualified Amazonka.Prelude as Prelude
 data RefResource = RefResource'
   { -- | The ARN of the experiment or launch.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The status of the experiment or launch.
-    status :: Prelude.Maybe Prelude.Text,
     -- | The day and time that this experiment or launch ended.
     endTime :: Prelude.Maybe Prelude.Text,
     -- | The day and time that this experiment or launch was most recently
@@ -40,6 +38,8 @@ data RefResource = RefResource'
     lastUpdatedOn :: Prelude.Maybe Prelude.Text,
     -- | The day and time that this experiment or launch started.
     startTime :: Prelude.Maybe Prelude.Text,
+    -- | The status of the experiment or launch.
+    status :: Prelude.Maybe Prelude.Text,
     -- | The name of the experiment or launch.
     name :: Prelude.Text,
     -- | Specifies whether the resource that this structure contains information
@@ -58,14 +58,14 @@ data RefResource = RefResource'
 --
 -- 'arn', 'refResource_arn' - The ARN of the experiment or launch.
 --
--- 'status', 'refResource_status' - The status of the experiment or launch.
---
 -- 'endTime', 'refResource_endTime' - The day and time that this experiment or launch ended.
 --
 -- 'lastUpdatedOn', 'refResource_lastUpdatedOn' - The day and time that this experiment or launch was most recently
 -- updated.
 --
 -- 'startTime', 'refResource_startTime' - The day and time that this experiment or launch started.
+--
+-- 'status', 'refResource_status' - The status of the experiment or launch.
 --
 -- 'name', 'refResource_name' - The name of the experiment or launch.
 --
@@ -80,10 +80,10 @@ newRefResource ::
 newRefResource pName_ pType_ =
   RefResource'
     { arn = Prelude.Nothing,
-      status = Prelude.Nothing,
       endTime = Prelude.Nothing,
       lastUpdatedOn = Prelude.Nothing,
       startTime = Prelude.Nothing,
+      status = Prelude.Nothing,
       name = pName_,
       type' = pType_
     }
@@ -91,10 +91,6 @@ newRefResource pName_ pType_ =
 -- | The ARN of the experiment or launch.
 refResource_arn :: Lens.Lens' RefResource (Prelude.Maybe Prelude.Text)
 refResource_arn = Lens.lens (\RefResource' {arn} -> arn) (\s@RefResource' {} a -> s {arn = a} :: RefResource)
-
--- | The status of the experiment or launch.
-refResource_status :: Lens.Lens' RefResource (Prelude.Maybe Prelude.Text)
-refResource_status = Lens.lens (\RefResource' {status} -> status) (\s@RefResource' {} a -> s {status = a} :: RefResource)
 
 -- | The day and time that this experiment or launch ended.
 refResource_endTime :: Lens.Lens' RefResource (Prelude.Maybe Prelude.Text)
@@ -108,6 +104,10 @@ refResource_lastUpdatedOn = Lens.lens (\RefResource' {lastUpdatedOn} -> lastUpda
 -- | The day and time that this experiment or launch started.
 refResource_startTime :: Lens.Lens' RefResource (Prelude.Maybe Prelude.Text)
 refResource_startTime = Lens.lens (\RefResource' {startTime} -> startTime) (\s@RefResource' {} a -> s {startTime = a} :: RefResource)
+
+-- | The status of the experiment or launch.
+refResource_status :: Lens.Lens' RefResource (Prelude.Maybe Prelude.Text)
+refResource_status = Lens.lens (\RefResource' {status} -> status) (\s@RefResource' {} a -> s {status = a} :: RefResource)
 
 -- | The name of the experiment or launch.
 refResource_name :: Lens.Lens' RefResource Prelude.Text
@@ -125,10 +125,10 @@ instance Data.FromJSON RefResource where
       ( \x ->
           RefResource'
             Prelude.<$> (x Data..:? "arn")
-            Prelude.<*> (x Data..:? "status")
             Prelude.<*> (x Data..:? "endTime")
             Prelude.<*> (x Data..:? "lastUpdatedOn")
             Prelude.<*> (x Data..:? "startTime")
+            Prelude.<*> (x Data..:? "status")
             Prelude.<*> (x Data..: "name")
             Prelude.<*> (x Data..: "type")
       )
@@ -136,19 +136,19 @@ instance Data.FromJSON RefResource where
 instance Prelude.Hashable RefResource where
   hashWithSalt _salt RefResource' {..} =
     _salt `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` lastUpdatedOn
       `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData RefResource where
   rnf RefResource' {..} =
     Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf lastUpdatedOn
       `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf type'

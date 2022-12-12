@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPathStatementRequest' smart constructor.
 data PathStatementRequest = PathStatementRequest'
-  { -- | The resource statement.
-    resourceStatement :: Prelude.Maybe ResourceStatementRequest,
-    -- | The packet header statement.
-    packetHeaderStatement :: Prelude.Maybe PacketHeaderStatementRequest
+  { -- | The packet header statement.
+    packetHeaderStatement :: Prelude.Maybe PacketHeaderStatementRequest,
+    -- | The resource statement.
+    resourceStatement :: Prelude.Maybe ResourceStatementRequest
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,40 +46,40 @@ data PathStatementRequest = PathStatementRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceStatement', 'pathStatementRequest_resourceStatement' - The resource statement.
---
 -- 'packetHeaderStatement', 'pathStatementRequest_packetHeaderStatement' - The packet header statement.
+--
+-- 'resourceStatement', 'pathStatementRequest_resourceStatement' - The resource statement.
 newPathStatementRequest ::
   PathStatementRequest
 newPathStatementRequest =
   PathStatementRequest'
-    { resourceStatement =
+    { packetHeaderStatement =
         Prelude.Nothing,
-      packetHeaderStatement = Prelude.Nothing
+      resourceStatement = Prelude.Nothing
     }
-
--- | The resource statement.
-pathStatementRequest_resourceStatement :: Lens.Lens' PathStatementRequest (Prelude.Maybe ResourceStatementRequest)
-pathStatementRequest_resourceStatement = Lens.lens (\PathStatementRequest' {resourceStatement} -> resourceStatement) (\s@PathStatementRequest' {} a -> s {resourceStatement = a} :: PathStatementRequest)
 
 -- | The packet header statement.
 pathStatementRequest_packetHeaderStatement :: Lens.Lens' PathStatementRequest (Prelude.Maybe PacketHeaderStatementRequest)
 pathStatementRequest_packetHeaderStatement = Lens.lens (\PathStatementRequest' {packetHeaderStatement} -> packetHeaderStatement) (\s@PathStatementRequest' {} a -> s {packetHeaderStatement = a} :: PathStatementRequest)
 
+-- | The resource statement.
+pathStatementRequest_resourceStatement :: Lens.Lens' PathStatementRequest (Prelude.Maybe ResourceStatementRequest)
+pathStatementRequest_resourceStatement = Lens.lens (\PathStatementRequest' {resourceStatement} -> resourceStatement) (\s@PathStatementRequest' {} a -> s {resourceStatement = a} :: PathStatementRequest)
+
 instance Prelude.Hashable PathStatementRequest where
   hashWithSalt _salt PathStatementRequest' {..} =
-    _salt `Prelude.hashWithSalt` resourceStatement
-      `Prelude.hashWithSalt` packetHeaderStatement
+    _salt `Prelude.hashWithSalt` packetHeaderStatement
+      `Prelude.hashWithSalt` resourceStatement
 
 instance Prelude.NFData PathStatementRequest where
   rnf PathStatementRequest' {..} =
-    Prelude.rnf resourceStatement
-      `Prelude.seq` Prelude.rnf packetHeaderStatement
+    Prelude.rnf packetHeaderStatement
+      `Prelude.seq` Prelude.rnf resourceStatement
 
 instance Data.ToQuery PathStatementRequest where
   toQuery PathStatementRequest' {..} =
     Prelude.mconcat
-      [ "ResourceStatement" Data.=: resourceStatement,
-        "PacketHeaderStatement"
-          Data.=: packetHeaderStatement
+      [ "PacketHeaderStatement"
+          Data.=: packetHeaderStatement,
+        "ResourceStatement" Data.=: resourceStatement
       ]

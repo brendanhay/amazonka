@@ -28,16 +28,16 @@ module Amazonka.Detective.ListOrganizationAdminAccounts
     newListOrganizationAdminAccounts,
 
     -- * Request Lenses
-    listOrganizationAdminAccounts_nextToken,
     listOrganizationAdminAccounts_maxResults,
+    listOrganizationAdminAccounts_nextToken,
 
     -- * Destructuring the Response
     ListOrganizationAdminAccountsResponse (..),
     newListOrganizationAdminAccountsResponse,
 
     -- * Response Lenses
-    listOrganizationAdminAccountsResponse_nextToken,
     listOrganizationAdminAccountsResponse_administrators,
+    listOrganizationAdminAccountsResponse_nextToken,
     listOrganizationAdminAccountsResponse_httpStatus,
   )
 where
@@ -52,12 +52,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListOrganizationAdminAccounts' smart constructor.
 data ListOrganizationAdminAccounts = ListOrganizationAdminAccounts'
-  { -- | For requests to get the next page of results, the pagination token that
+  { -- | The maximum number of results to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | For requests to get the next page of results, the pagination token that
     -- was returned with the previous set of results. The initial request does
     -- not include a pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,29 +69,29 @@ data ListOrganizationAdminAccounts = ListOrganizationAdminAccounts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listOrganizationAdminAccounts_maxResults' - The maximum number of results to return.
+--
 -- 'nextToken', 'listOrganizationAdminAccounts_nextToken' - For requests to get the next page of results, the pagination token that
 -- was returned with the previous set of results. The initial request does
 -- not include a pagination token.
---
--- 'maxResults', 'listOrganizationAdminAccounts_maxResults' - The maximum number of results to return.
 newListOrganizationAdminAccounts ::
   ListOrganizationAdminAccounts
 newListOrganizationAdminAccounts =
   ListOrganizationAdminAccounts'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of results to return.
+listOrganizationAdminAccounts_maxResults :: Lens.Lens' ListOrganizationAdminAccounts (Prelude.Maybe Prelude.Natural)
+listOrganizationAdminAccounts_maxResults = Lens.lens (\ListOrganizationAdminAccounts' {maxResults} -> maxResults) (\s@ListOrganizationAdminAccounts' {} a -> s {maxResults = a} :: ListOrganizationAdminAccounts)
 
 -- | For requests to get the next page of results, the pagination token that
 -- was returned with the previous set of results. The initial request does
 -- not include a pagination token.
 listOrganizationAdminAccounts_nextToken :: Lens.Lens' ListOrganizationAdminAccounts (Prelude.Maybe Prelude.Text)
 listOrganizationAdminAccounts_nextToken = Lens.lens (\ListOrganizationAdminAccounts' {nextToken} -> nextToken) (\s@ListOrganizationAdminAccounts' {} a -> s {nextToken = a} :: ListOrganizationAdminAccounts)
-
--- | The maximum number of results to return.
-listOrganizationAdminAccounts_maxResults :: Lens.Lens' ListOrganizationAdminAccounts (Prelude.Maybe Prelude.Natural)
-listOrganizationAdminAccounts_maxResults = Lens.lens (\ListOrganizationAdminAccounts' {maxResults} -> maxResults) (\s@ListOrganizationAdminAccounts' {} a -> s {maxResults = a} :: ListOrganizationAdminAccounts)
 
 instance
   Core.AWSRequest
@@ -106,8 +106,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListOrganizationAdminAccountsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Administrators" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Administrators" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -116,13 +116,13 @@ instance
     ListOrganizationAdminAccounts
   where
   hashWithSalt _salt ListOrganizationAdminAccounts' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListOrganizationAdminAccounts where
   rnf ListOrganizationAdminAccounts' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListOrganizationAdminAccounts where
   toHeaders =
@@ -139,8 +139,8 @@ instance Data.ToJSON ListOrganizationAdminAccounts where
   toJSON ListOrganizationAdminAccounts' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -152,11 +152,11 @@ instance Data.ToQuery ListOrganizationAdminAccounts where
 
 -- | /See:/ 'newListOrganizationAdminAccountsResponse' smart constructor.
 data ListOrganizationAdminAccountsResponse = ListOrganizationAdminAccountsResponse'
-  { -- | If there are more accounts remaining in the results, then this is the
+  { -- | The list of Detective administrator accounts.
+    administrators :: Prelude.Maybe [Administrator],
+    -- | If there are more accounts remaining in the results, then this is the
     -- pagination token to use to request the next page of accounts.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of Detective administrator accounts.
-    administrators :: Prelude.Maybe [Administrator],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -170,10 +170,10 @@ data ListOrganizationAdminAccountsResponse = ListOrganizationAdminAccountsRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'administrators', 'listOrganizationAdminAccountsResponse_administrators' - The list of Detective administrator accounts.
+--
 -- 'nextToken', 'listOrganizationAdminAccountsResponse_nextToken' - If there are more accounts remaining in the results, then this is the
 -- pagination token to use to request the next page of accounts.
---
--- 'administrators', 'listOrganizationAdminAccountsResponse_administrators' - The list of Detective administrator accounts.
 --
 -- 'httpStatus', 'listOrganizationAdminAccountsResponse_httpStatus' - The response's http status code.
 newListOrganizationAdminAccountsResponse ::
@@ -182,20 +182,20 @@ newListOrganizationAdminAccountsResponse ::
   ListOrganizationAdminAccountsResponse
 newListOrganizationAdminAccountsResponse pHttpStatus_ =
   ListOrganizationAdminAccountsResponse'
-    { nextToken =
+    { administrators =
         Prelude.Nothing,
-      administrators = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of Detective administrator accounts.
+listOrganizationAdminAccountsResponse_administrators :: Lens.Lens' ListOrganizationAdminAccountsResponse (Prelude.Maybe [Administrator])
+listOrganizationAdminAccountsResponse_administrators = Lens.lens (\ListOrganizationAdminAccountsResponse' {administrators} -> administrators) (\s@ListOrganizationAdminAccountsResponse' {} a -> s {administrators = a} :: ListOrganizationAdminAccountsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are more accounts remaining in the results, then this is the
 -- pagination token to use to request the next page of accounts.
 listOrganizationAdminAccountsResponse_nextToken :: Lens.Lens' ListOrganizationAdminAccountsResponse (Prelude.Maybe Prelude.Text)
 listOrganizationAdminAccountsResponse_nextToken = Lens.lens (\ListOrganizationAdminAccountsResponse' {nextToken} -> nextToken) (\s@ListOrganizationAdminAccountsResponse' {} a -> s {nextToken = a} :: ListOrganizationAdminAccountsResponse)
-
--- | The list of Detective administrator accounts.
-listOrganizationAdminAccountsResponse_administrators :: Lens.Lens' ListOrganizationAdminAccountsResponse (Prelude.Maybe [Administrator])
-listOrganizationAdminAccountsResponse_administrators = Lens.lens (\ListOrganizationAdminAccountsResponse' {administrators} -> administrators) (\s@ListOrganizationAdminAccountsResponse' {} a -> s {administrators = a} :: ListOrganizationAdminAccountsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listOrganizationAdminAccountsResponse_httpStatus :: Lens.Lens' ListOrganizationAdminAccountsResponse Prelude.Int
@@ -206,6 +206,6 @@ instance
     ListOrganizationAdminAccountsResponse
   where
   rnf ListOrganizationAdminAccountsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf administrators
+    Prelude.rnf administrators
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

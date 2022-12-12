@@ -34,9 +34,9 @@ module Amazonka.Route53AutoNaming.CreateHttpNamespace
     newCreateHttpNamespace,
 
     -- * Request Lenses
-    createHttpNamespace_tags,
-    createHttpNamespace_description,
     createHttpNamespace_creatorRequestId,
+    createHttpNamespace_description,
+    createHttpNamespace_tags,
     createHttpNamespace_name,
 
     -- * Destructuring the Response
@@ -59,17 +59,17 @@ import Amazonka.Route53AutoNaming.Types
 
 -- | /See:/ 'newCreateHttpNamespace' smart constructor.
 data CreateHttpNamespace = CreateHttpNamespace'
-  { -- | The tags to add to the namespace. Each tag consists of a key and an
-    -- optional value that you define. Tags keys can be up to 128 characters in
-    -- length, and tag values can be up to 256 characters in length.
-    tags :: Prelude.Maybe [Tag],
-    -- | A description for the namespace.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | A unique string that identifies the request and that allows failed
+  { -- | A unique string that identifies the request and that allows failed
     -- @CreateHttpNamespace@ requests to be retried without the risk of running
     -- the operation twice. @CreatorRequestId@ can be any unique string (for
     -- example, a date\/time stamp).
     creatorRequestId :: Prelude.Maybe Prelude.Text,
+    -- | A description for the namespace.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The tags to add to the namespace. Each tag consists of a key and an
+    -- optional value that you define. Tags keys can be up to 128 characters in
+    -- length, and tag values can be up to 256 characters in length.
+    tags :: Prelude.Maybe [Tag],
     -- | The name that you want to assign to this namespace.
     name :: Prelude.Text
   }
@@ -83,16 +83,16 @@ data CreateHttpNamespace = CreateHttpNamespace'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createHttpNamespace_tags' - The tags to add to the namespace. Each tag consists of a key and an
--- optional value that you define. Tags keys can be up to 128 characters in
--- length, and tag values can be up to 256 characters in length.
---
--- 'description', 'createHttpNamespace_description' - A description for the namespace.
---
 -- 'creatorRequestId', 'createHttpNamespace_creatorRequestId' - A unique string that identifies the request and that allows failed
 -- @CreateHttpNamespace@ requests to be retried without the risk of running
 -- the operation twice. @CreatorRequestId@ can be any unique string (for
 -- example, a date\/time stamp).
+--
+-- 'description', 'createHttpNamespace_description' - A description for the namespace.
+--
+-- 'tags', 'createHttpNamespace_tags' - The tags to add to the namespace. Each tag consists of a key and an
+-- optional value that you define. Tags keys can be up to 128 characters in
+-- length, and tag values can be up to 256 characters in length.
 --
 -- 'name', 'createHttpNamespace_name' - The name that you want to assign to this namespace.
 newCreateHttpNamespace ::
@@ -101,21 +101,12 @@ newCreateHttpNamespace ::
   CreateHttpNamespace
 newCreateHttpNamespace pName_ =
   CreateHttpNamespace'
-    { tags = Prelude.Nothing,
+    { creatorRequestId =
+        Prelude.Nothing,
       description = Prelude.Nothing,
-      creatorRequestId = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_
     }
-
--- | The tags to add to the namespace. Each tag consists of a key and an
--- optional value that you define. Tags keys can be up to 128 characters in
--- length, and tag values can be up to 256 characters in length.
-createHttpNamespace_tags :: Lens.Lens' CreateHttpNamespace (Prelude.Maybe [Tag])
-createHttpNamespace_tags = Lens.lens (\CreateHttpNamespace' {tags} -> tags) (\s@CreateHttpNamespace' {} a -> s {tags = a} :: CreateHttpNamespace) Prelude.. Lens.mapping Lens.coerced
-
--- | A description for the namespace.
-createHttpNamespace_description :: Lens.Lens' CreateHttpNamespace (Prelude.Maybe Prelude.Text)
-createHttpNamespace_description = Lens.lens (\CreateHttpNamespace' {description} -> description) (\s@CreateHttpNamespace' {} a -> s {description = a} :: CreateHttpNamespace)
 
 -- | A unique string that identifies the request and that allows failed
 -- @CreateHttpNamespace@ requests to be retried without the risk of running
@@ -123,6 +114,16 @@ createHttpNamespace_description = Lens.lens (\CreateHttpNamespace' {description}
 -- example, a date\/time stamp).
 createHttpNamespace_creatorRequestId :: Lens.Lens' CreateHttpNamespace (Prelude.Maybe Prelude.Text)
 createHttpNamespace_creatorRequestId = Lens.lens (\CreateHttpNamespace' {creatorRequestId} -> creatorRequestId) (\s@CreateHttpNamespace' {} a -> s {creatorRequestId = a} :: CreateHttpNamespace)
+
+-- | A description for the namespace.
+createHttpNamespace_description :: Lens.Lens' CreateHttpNamespace (Prelude.Maybe Prelude.Text)
+createHttpNamespace_description = Lens.lens (\CreateHttpNamespace' {description} -> description) (\s@CreateHttpNamespace' {} a -> s {description = a} :: CreateHttpNamespace)
+
+-- | The tags to add to the namespace. Each tag consists of a key and an
+-- optional value that you define. Tags keys can be up to 128 characters in
+-- length, and tag values can be up to 256 characters in length.
+createHttpNamespace_tags :: Lens.Lens' CreateHttpNamespace (Prelude.Maybe [Tag])
+createHttpNamespace_tags = Lens.lens (\CreateHttpNamespace' {tags} -> tags) (\s@CreateHttpNamespace' {} a -> s {tags = a} :: CreateHttpNamespace) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name that you want to assign to this namespace.
 createHttpNamespace_name :: Lens.Lens' CreateHttpNamespace Prelude.Text
@@ -144,16 +145,16 @@ instance Core.AWSRequest CreateHttpNamespace where
 
 instance Prelude.Hashable CreateHttpNamespace where
   hashWithSalt _salt CreateHttpNamespace' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` creatorRequestId
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` creatorRequestId
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateHttpNamespace where
   rnf CreateHttpNamespace' {..} =
-    Prelude.rnf tags
+    Prelude.rnf creatorRequestId
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf creatorRequestId
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders CreateHttpNamespace where
@@ -175,10 +176,10 @@ instance Data.ToJSON CreateHttpNamespace where
   toJSON CreateHttpNamespace' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Description" Data..=) Prelude.<$> description,
-            ("CreatorRequestId" Data..=)
+          [ ("CreatorRequestId" Data..=)
               Prelude.<$> creatorRequestId,
+            ("Description" Data..=) Prelude.<$> description,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Name" Data..= name)
           ]
       )

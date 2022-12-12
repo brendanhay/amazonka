@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSourceSecurityGroup' smart constructor.
 data SourceSecurityGroup = SourceSecurityGroup'
-  { -- | The owner of the security group.
-    ownerAlias :: Prelude.Maybe Prelude.Text,
-    -- | The name of the security group.
-    groupName :: Prelude.Maybe Prelude.Text
+  { -- | The name of the security group.
+    groupName :: Prelude.Maybe Prelude.Text,
+    -- | The owner of the security group.
+    ownerAlias :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,37 +44,37 @@ data SourceSecurityGroup = SourceSecurityGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ownerAlias', 'sourceSecurityGroup_ownerAlias' - The owner of the security group.
---
 -- 'groupName', 'sourceSecurityGroup_groupName' - The name of the security group.
+--
+-- 'ownerAlias', 'sourceSecurityGroup_ownerAlias' - The owner of the security group.
 newSourceSecurityGroup ::
   SourceSecurityGroup
 newSourceSecurityGroup =
   SourceSecurityGroup'
-    { ownerAlias = Prelude.Nothing,
-      groupName = Prelude.Nothing
+    { groupName = Prelude.Nothing,
+      ownerAlias = Prelude.Nothing
     }
-
--- | The owner of the security group.
-sourceSecurityGroup_ownerAlias :: Lens.Lens' SourceSecurityGroup (Prelude.Maybe Prelude.Text)
-sourceSecurityGroup_ownerAlias = Lens.lens (\SourceSecurityGroup' {ownerAlias} -> ownerAlias) (\s@SourceSecurityGroup' {} a -> s {ownerAlias = a} :: SourceSecurityGroup)
 
 -- | The name of the security group.
 sourceSecurityGroup_groupName :: Lens.Lens' SourceSecurityGroup (Prelude.Maybe Prelude.Text)
 sourceSecurityGroup_groupName = Lens.lens (\SourceSecurityGroup' {groupName} -> groupName) (\s@SourceSecurityGroup' {} a -> s {groupName = a} :: SourceSecurityGroup)
 
+-- | The owner of the security group.
+sourceSecurityGroup_ownerAlias :: Lens.Lens' SourceSecurityGroup (Prelude.Maybe Prelude.Text)
+sourceSecurityGroup_ownerAlias = Lens.lens (\SourceSecurityGroup' {ownerAlias} -> ownerAlias) (\s@SourceSecurityGroup' {} a -> s {ownerAlias = a} :: SourceSecurityGroup)
+
 instance Data.FromXML SourceSecurityGroup where
   parseXML x =
     SourceSecurityGroup'
-      Prelude.<$> (x Data..@? "OwnerAlias")
-      Prelude.<*> (x Data..@? "GroupName")
+      Prelude.<$> (x Data..@? "GroupName")
+      Prelude.<*> (x Data..@? "OwnerAlias")
 
 instance Prelude.Hashable SourceSecurityGroup where
   hashWithSalt _salt SourceSecurityGroup' {..} =
-    _salt `Prelude.hashWithSalt` ownerAlias
-      `Prelude.hashWithSalt` groupName
+    _salt `Prelude.hashWithSalt` groupName
+      `Prelude.hashWithSalt` ownerAlias
 
 instance Prelude.NFData SourceSecurityGroup where
   rnf SourceSecurityGroup' {..} =
-    Prelude.rnf ownerAlias
-      `Prelude.seq` Prelude.rnf groupName
+    Prelude.rnf groupName
+      `Prelude.seq` Prelude.rnf ownerAlias

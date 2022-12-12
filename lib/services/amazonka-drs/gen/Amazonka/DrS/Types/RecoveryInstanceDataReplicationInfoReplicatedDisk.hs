@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRecoveryInstanceDataReplicationInfoReplicatedDisk' smart constructor.
 data RecoveryInstanceDataReplicationInfoReplicatedDisk = RecoveryInstanceDataReplicationInfoReplicatedDisk'
-  { -- | The amount of data to be rescanned in bytes.
-    rescannedStorageBytes :: Prelude.Maybe Prelude.Natural,
-    -- | The size of the replication backlog in bytes.
+  { -- | The size of the replication backlog in bytes.
     backloggedStorageBytes :: Prelude.Maybe Prelude.Natural,
     -- | The name of the device.
     deviceName :: Prelude.Maybe Prelude.Text,
-    -- | The total amount of data to be replicated in bytes.
-    totalStorageBytes :: Prelude.Maybe Prelude.Natural,
     -- | The amount of data replicated so far in bytes.
-    replicatedStorageBytes :: Prelude.Maybe Prelude.Natural
+    replicatedStorageBytes :: Prelude.Maybe Prelude.Natural,
+    -- | The amount of data to be rescanned in bytes.
+    rescannedStorageBytes :: Prelude.Maybe Prelude.Natural,
+    -- | The total amount of data to be replicated in bytes.
+    totalStorageBytes :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,34 +49,30 @@ data RecoveryInstanceDataReplicationInfoReplicatedDisk = RecoveryInstanceDataRep
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'rescannedStorageBytes', 'recoveryInstanceDataReplicationInfoReplicatedDisk_rescannedStorageBytes' - The amount of data to be rescanned in bytes.
---
 -- 'backloggedStorageBytes', 'recoveryInstanceDataReplicationInfoReplicatedDisk_backloggedStorageBytes' - The size of the replication backlog in bytes.
 --
 -- 'deviceName', 'recoveryInstanceDataReplicationInfoReplicatedDisk_deviceName' - The name of the device.
 --
--- 'totalStorageBytes', 'recoveryInstanceDataReplicationInfoReplicatedDisk_totalStorageBytes' - The total amount of data to be replicated in bytes.
---
 -- 'replicatedStorageBytes', 'recoveryInstanceDataReplicationInfoReplicatedDisk_replicatedStorageBytes' - The amount of data replicated so far in bytes.
+--
+-- 'rescannedStorageBytes', 'recoveryInstanceDataReplicationInfoReplicatedDisk_rescannedStorageBytes' - The amount of data to be rescanned in bytes.
+--
+-- 'totalStorageBytes', 'recoveryInstanceDataReplicationInfoReplicatedDisk_totalStorageBytes' - The total amount of data to be replicated in bytes.
 newRecoveryInstanceDataReplicationInfoReplicatedDisk ::
   RecoveryInstanceDataReplicationInfoReplicatedDisk
 newRecoveryInstanceDataReplicationInfoReplicatedDisk =
   RecoveryInstanceDataReplicationInfoReplicatedDisk'
-    { rescannedStorageBytes =
-        Prelude.Nothing,
-      backloggedStorageBytes =
+    { backloggedStorageBytes =
         Prelude.Nothing,
       deviceName =
         Prelude.Nothing,
-      totalStorageBytes =
-        Prelude.Nothing,
       replicatedStorageBytes =
+        Prelude.Nothing,
+      rescannedStorageBytes =
+        Prelude.Nothing,
+      totalStorageBytes =
         Prelude.Nothing
     }
-
--- | The amount of data to be rescanned in bytes.
-recoveryInstanceDataReplicationInfoReplicatedDisk_rescannedStorageBytes :: Lens.Lens' RecoveryInstanceDataReplicationInfoReplicatedDisk (Prelude.Maybe Prelude.Natural)
-recoveryInstanceDataReplicationInfoReplicatedDisk_rescannedStorageBytes = Lens.lens (\RecoveryInstanceDataReplicationInfoReplicatedDisk' {rescannedStorageBytes} -> rescannedStorageBytes) (\s@RecoveryInstanceDataReplicationInfoReplicatedDisk' {} a -> s {rescannedStorageBytes = a} :: RecoveryInstanceDataReplicationInfoReplicatedDisk)
 
 -- | The size of the replication backlog in bytes.
 recoveryInstanceDataReplicationInfoReplicatedDisk_backloggedStorageBytes :: Lens.Lens' RecoveryInstanceDataReplicationInfoReplicatedDisk (Prelude.Maybe Prelude.Natural)
@@ -86,13 +82,17 @@ recoveryInstanceDataReplicationInfoReplicatedDisk_backloggedStorageBytes = Lens.
 recoveryInstanceDataReplicationInfoReplicatedDisk_deviceName :: Lens.Lens' RecoveryInstanceDataReplicationInfoReplicatedDisk (Prelude.Maybe Prelude.Text)
 recoveryInstanceDataReplicationInfoReplicatedDisk_deviceName = Lens.lens (\RecoveryInstanceDataReplicationInfoReplicatedDisk' {deviceName} -> deviceName) (\s@RecoveryInstanceDataReplicationInfoReplicatedDisk' {} a -> s {deviceName = a} :: RecoveryInstanceDataReplicationInfoReplicatedDisk)
 
--- | The total amount of data to be replicated in bytes.
-recoveryInstanceDataReplicationInfoReplicatedDisk_totalStorageBytes :: Lens.Lens' RecoveryInstanceDataReplicationInfoReplicatedDisk (Prelude.Maybe Prelude.Natural)
-recoveryInstanceDataReplicationInfoReplicatedDisk_totalStorageBytes = Lens.lens (\RecoveryInstanceDataReplicationInfoReplicatedDisk' {totalStorageBytes} -> totalStorageBytes) (\s@RecoveryInstanceDataReplicationInfoReplicatedDisk' {} a -> s {totalStorageBytes = a} :: RecoveryInstanceDataReplicationInfoReplicatedDisk)
-
 -- | The amount of data replicated so far in bytes.
 recoveryInstanceDataReplicationInfoReplicatedDisk_replicatedStorageBytes :: Lens.Lens' RecoveryInstanceDataReplicationInfoReplicatedDisk (Prelude.Maybe Prelude.Natural)
 recoveryInstanceDataReplicationInfoReplicatedDisk_replicatedStorageBytes = Lens.lens (\RecoveryInstanceDataReplicationInfoReplicatedDisk' {replicatedStorageBytes} -> replicatedStorageBytes) (\s@RecoveryInstanceDataReplicationInfoReplicatedDisk' {} a -> s {replicatedStorageBytes = a} :: RecoveryInstanceDataReplicationInfoReplicatedDisk)
+
+-- | The amount of data to be rescanned in bytes.
+recoveryInstanceDataReplicationInfoReplicatedDisk_rescannedStorageBytes :: Lens.Lens' RecoveryInstanceDataReplicationInfoReplicatedDisk (Prelude.Maybe Prelude.Natural)
+recoveryInstanceDataReplicationInfoReplicatedDisk_rescannedStorageBytes = Lens.lens (\RecoveryInstanceDataReplicationInfoReplicatedDisk' {rescannedStorageBytes} -> rescannedStorageBytes) (\s@RecoveryInstanceDataReplicationInfoReplicatedDisk' {} a -> s {rescannedStorageBytes = a} :: RecoveryInstanceDataReplicationInfoReplicatedDisk)
+
+-- | The total amount of data to be replicated in bytes.
+recoveryInstanceDataReplicationInfoReplicatedDisk_totalStorageBytes :: Lens.Lens' RecoveryInstanceDataReplicationInfoReplicatedDisk (Prelude.Maybe Prelude.Natural)
+recoveryInstanceDataReplicationInfoReplicatedDisk_totalStorageBytes = Lens.lens (\RecoveryInstanceDataReplicationInfoReplicatedDisk' {totalStorageBytes} -> totalStorageBytes) (\s@RecoveryInstanceDataReplicationInfoReplicatedDisk' {} a -> s {totalStorageBytes = a} :: RecoveryInstanceDataReplicationInfoReplicatedDisk)
 
 instance
   Data.FromJSON
@@ -103,11 +103,11 @@ instance
       "RecoveryInstanceDataReplicationInfoReplicatedDisk"
       ( \x ->
           RecoveryInstanceDataReplicationInfoReplicatedDisk'
-            Prelude.<$> (x Data..:? "rescannedStorageBytes")
-              Prelude.<*> (x Data..:? "backloggedStorageBytes")
+            Prelude.<$> (x Data..:? "backloggedStorageBytes")
               Prelude.<*> (x Data..:? "deviceName")
-              Prelude.<*> (x Data..:? "totalStorageBytes")
               Prelude.<*> (x Data..:? "replicatedStorageBytes")
+              Prelude.<*> (x Data..:? "rescannedStorageBytes")
+              Prelude.<*> (x Data..:? "totalStorageBytes")
       )
 
 instance
@@ -117,11 +117,11 @@ instance
   hashWithSalt
     _salt
     RecoveryInstanceDataReplicationInfoReplicatedDisk' {..} =
-      _salt `Prelude.hashWithSalt` rescannedStorageBytes
-        `Prelude.hashWithSalt` backloggedStorageBytes
+      _salt `Prelude.hashWithSalt` backloggedStorageBytes
         `Prelude.hashWithSalt` deviceName
-        `Prelude.hashWithSalt` totalStorageBytes
         `Prelude.hashWithSalt` replicatedStorageBytes
+        `Prelude.hashWithSalt` rescannedStorageBytes
+        `Prelude.hashWithSalt` totalStorageBytes
 
 instance
   Prelude.NFData
@@ -129,8 +129,8 @@ instance
   where
   rnf
     RecoveryInstanceDataReplicationInfoReplicatedDisk' {..} =
-      Prelude.rnf rescannedStorageBytes
-        `Prelude.seq` Prelude.rnf backloggedStorageBytes
+      Prelude.rnf backloggedStorageBytes
         `Prelude.seq` Prelude.rnf deviceName
-        `Prelude.seq` Prelude.rnf totalStorageBytes
         `Prelude.seq` Prelude.rnf replicatedStorageBytes
+        `Prelude.seq` Prelude.rnf rescannedStorageBytes
+        `Prelude.seq` Prelude.rnf totalStorageBytes

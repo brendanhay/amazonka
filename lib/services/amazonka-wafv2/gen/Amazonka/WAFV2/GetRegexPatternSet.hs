@@ -36,8 +36,8 @@ module Amazonka.WAFV2.GetRegexPatternSet
     newGetRegexPatternSetResponse,
 
     -- * Response Lenses
-    getRegexPatternSetResponse_regexPatternSet,
     getRegexPatternSetResponse_lockToken,
+    getRegexPatternSetResponse_regexPatternSet,
     getRegexPatternSetResponse_httpStatus,
   )
 where
@@ -153,8 +153,8 @@ instance Core.AWSRequest GetRegexPatternSet where
     Response.receiveJSON
       ( \s h x ->
           GetRegexPatternSetResponse'
-            Prelude.<$> (x Data..?> "RegexPatternSet")
-            Prelude.<*> (x Data..?> "LockToken")
+            Prelude.<$> (x Data..?> "LockToken")
+            Prelude.<*> (x Data..?> "RegexPatternSet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -203,8 +203,7 @@ instance Data.ToQuery GetRegexPatternSet where
 
 -- | /See:/ 'newGetRegexPatternSetResponse' smart constructor.
 data GetRegexPatternSetResponse = GetRegexPatternSetResponse'
-  { regexPatternSet :: Prelude.Maybe RegexPatternSet,
-    -- | A token used for optimistic locking. WAF returns a token to your @get@
+  { -- | A token used for optimistic locking. WAF returns a token to your @get@
     -- and @list@ requests, to mark the state of the entity at the time of the
     -- request. To make changes to the entity associated with the token, you
     -- provide the token to operations like @update@ and @delete@. WAF uses the
@@ -213,6 +212,7 @@ data GetRegexPatternSetResponse = GetRegexPatternSetResponse'
     -- @WAFOptimisticLockException@. If this happens, perform another @get@,
     -- and use the new token returned by that operation.
     lockToken :: Prelude.Maybe Prelude.Text,
+    regexPatternSet :: Prelude.Maybe RegexPatternSet,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -226,8 +226,6 @@ data GetRegexPatternSetResponse = GetRegexPatternSetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'regexPatternSet', 'getRegexPatternSetResponse_regexPatternSet' -
---
 -- 'lockToken', 'getRegexPatternSetResponse_lockToken' - A token used for optimistic locking. WAF returns a token to your @get@
 -- and @list@ requests, to mark the state of the entity at the time of the
 -- request. To make changes to the entity associated with the token, you
@@ -237,6 +235,8 @@ data GetRegexPatternSetResponse = GetRegexPatternSetResponse'
 -- @WAFOptimisticLockException@. If this happens, perform another @get@,
 -- and use the new token returned by that operation.
 --
+-- 'regexPatternSet', 'getRegexPatternSetResponse_regexPatternSet' -
+--
 -- 'httpStatus', 'getRegexPatternSetResponse_httpStatus' - The response's http status code.
 newGetRegexPatternSetResponse ::
   -- | 'httpStatus'
@@ -244,15 +244,11 @@ newGetRegexPatternSetResponse ::
   GetRegexPatternSetResponse
 newGetRegexPatternSetResponse pHttpStatus_ =
   GetRegexPatternSetResponse'
-    { regexPatternSet =
+    { lockToken =
         Prelude.Nothing,
-      lockToken = Prelude.Nothing,
+      regexPatternSet = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- |
-getRegexPatternSetResponse_regexPatternSet :: Lens.Lens' GetRegexPatternSetResponse (Prelude.Maybe RegexPatternSet)
-getRegexPatternSetResponse_regexPatternSet = Lens.lens (\GetRegexPatternSetResponse' {regexPatternSet} -> regexPatternSet) (\s@GetRegexPatternSetResponse' {} a -> s {regexPatternSet = a} :: GetRegexPatternSetResponse)
 
 -- | A token used for optimistic locking. WAF returns a token to your @get@
 -- and @list@ requests, to mark the state of the entity at the time of the
@@ -265,12 +261,16 @@ getRegexPatternSetResponse_regexPatternSet = Lens.lens (\GetRegexPatternSetRespo
 getRegexPatternSetResponse_lockToken :: Lens.Lens' GetRegexPatternSetResponse (Prelude.Maybe Prelude.Text)
 getRegexPatternSetResponse_lockToken = Lens.lens (\GetRegexPatternSetResponse' {lockToken} -> lockToken) (\s@GetRegexPatternSetResponse' {} a -> s {lockToken = a} :: GetRegexPatternSetResponse)
 
+-- |
+getRegexPatternSetResponse_regexPatternSet :: Lens.Lens' GetRegexPatternSetResponse (Prelude.Maybe RegexPatternSet)
+getRegexPatternSetResponse_regexPatternSet = Lens.lens (\GetRegexPatternSetResponse' {regexPatternSet} -> regexPatternSet) (\s@GetRegexPatternSetResponse' {} a -> s {regexPatternSet = a} :: GetRegexPatternSetResponse)
+
 -- | The response's http status code.
 getRegexPatternSetResponse_httpStatus :: Lens.Lens' GetRegexPatternSetResponse Prelude.Int
 getRegexPatternSetResponse_httpStatus = Lens.lens (\GetRegexPatternSetResponse' {httpStatus} -> httpStatus) (\s@GetRegexPatternSetResponse' {} a -> s {httpStatus = a} :: GetRegexPatternSetResponse)
 
 instance Prelude.NFData GetRegexPatternSetResponse where
   rnf GetRegexPatternSetResponse' {..} =
-    Prelude.rnf regexPatternSet
-      `Prelude.seq` Prelude.rnf lockToken
+    Prelude.rnf lockToken
+      `Prelude.seq` Prelude.rnf regexPatternSet
       `Prelude.seq` Prelude.rnf httpStatus

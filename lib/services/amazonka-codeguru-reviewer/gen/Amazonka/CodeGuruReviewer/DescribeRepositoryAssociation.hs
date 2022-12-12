@@ -37,8 +37,8 @@ module Amazonka.CodeGuruReviewer.DescribeRepositoryAssociation
     newDescribeRepositoryAssociationResponse,
 
     -- * Response Lenses
-    describeRepositoryAssociationResponse_tags,
     describeRepositoryAssociationResponse_repositoryAssociation,
+    describeRepositoryAssociationResponse_tags,
     describeRepositoryAssociationResponse_httpStatus,
   )
 where
@@ -103,8 +103,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeRepositoryAssociationResponse'
-            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "RepositoryAssociation")
+            Prelude.<$> (x Data..?> "RepositoryAssociation")
+            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -140,7 +140,9 @@ instance Data.ToQuery DescribeRepositoryAssociation where
 
 -- | /See:/ 'newDescribeRepositoryAssociationResponse' smart constructor.
 data DescribeRepositoryAssociationResponse = DescribeRepositoryAssociationResponse'
-  { -- | An array of key-value pairs used to tag an associated repository. A tag
+  { -- | Information about the repository association.
+    repositoryAssociation :: Prelude.Maybe RepositoryAssociation,
+    -- | An array of key-value pairs used to tag an associated repository. A tag
     -- is a custom attribute label with two parts:
     --
     -- -   A /tag key/ (for example, @CostCenter@, @Environment@, @Project@, or
@@ -151,8 +153,6 @@ data DescribeRepositoryAssociationResponse = DescribeRepositoryAssociationRespon
     --     value is the same as using an empty string. Like tag keys, tag
     --     values are case sensitive.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Information about the repository association.
-    repositoryAssociation :: Prelude.Maybe RepositoryAssociation,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -166,6 +166,8 @@ data DescribeRepositoryAssociationResponse = DescribeRepositoryAssociationRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'repositoryAssociation', 'describeRepositoryAssociationResponse_repositoryAssociation' - Information about the repository association.
+--
 -- 'tags', 'describeRepositoryAssociationResponse_tags' - An array of key-value pairs used to tag an associated repository. A tag
 -- is a custom attribute label with two parts:
 --
@@ -177,8 +179,6 @@ data DescribeRepositoryAssociationResponse = DescribeRepositoryAssociationRespon
 --     value is the same as using an empty string. Like tag keys, tag
 --     values are case sensitive.
 --
--- 'repositoryAssociation', 'describeRepositoryAssociationResponse_repositoryAssociation' - Information about the repository association.
---
 -- 'httpStatus', 'describeRepositoryAssociationResponse_httpStatus' - The response's http status code.
 newDescribeRepositoryAssociationResponse ::
   -- | 'httpStatus'
@@ -186,12 +186,15 @@ newDescribeRepositoryAssociationResponse ::
   DescribeRepositoryAssociationResponse
 newDescribeRepositoryAssociationResponse pHttpStatus_ =
   DescribeRepositoryAssociationResponse'
-    { tags =
+    { repositoryAssociation =
         Prelude.Nothing,
-      repositoryAssociation =
-        Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about the repository association.
+describeRepositoryAssociationResponse_repositoryAssociation :: Lens.Lens' DescribeRepositoryAssociationResponse (Prelude.Maybe RepositoryAssociation)
+describeRepositoryAssociationResponse_repositoryAssociation = Lens.lens (\DescribeRepositoryAssociationResponse' {repositoryAssociation} -> repositoryAssociation) (\s@DescribeRepositoryAssociationResponse' {} a -> s {repositoryAssociation = a} :: DescribeRepositoryAssociationResponse)
 
 -- | An array of key-value pairs used to tag an associated repository. A tag
 -- is a custom attribute label with two parts:
@@ -206,10 +209,6 @@ newDescribeRepositoryAssociationResponse pHttpStatus_ =
 describeRepositoryAssociationResponse_tags :: Lens.Lens' DescribeRepositoryAssociationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 describeRepositoryAssociationResponse_tags = Lens.lens (\DescribeRepositoryAssociationResponse' {tags} -> tags) (\s@DescribeRepositoryAssociationResponse' {} a -> s {tags = a} :: DescribeRepositoryAssociationResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Information about the repository association.
-describeRepositoryAssociationResponse_repositoryAssociation :: Lens.Lens' DescribeRepositoryAssociationResponse (Prelude.Maybe RepositoryAssociation)
-describeRepositoryAssociationResponse_repositoryAssociation = Lens.lens (\DescribeRepositoryAssociationResponse' {repositoryAssociation} -> repositoryAssociation) (\s@DescribeRepositoryAssociationResponse' {} a -> s {repositoryAssociation = a} :: DescribeRepositoryAssociationResponse)
-
 -- | The response's http status code.
 describeRepositoryAssociationResponse_httpStatus :: Lens.Lens' DescribeRepositoryAssociationResponse Prelude.Int
 describeRepositoryAssociationResponse_httpStatus = Lens.lens (\DescribeRepositoryAssociationResponse' {httpStatus} -> httpStatus) (\s@DescribeRepositoryAssociationResponse' {} a -> s {httpStatus = a} :: DescribeRepositoryAssociationResponse)
@@ -219,6 +218,6 @@ instance
     DescribeRepositoryAssociationResponse
   where
   rnf DescribeRepositoryAssociationResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf repositoryAssociation
+    Prelude.rnf repositoryAssociation
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

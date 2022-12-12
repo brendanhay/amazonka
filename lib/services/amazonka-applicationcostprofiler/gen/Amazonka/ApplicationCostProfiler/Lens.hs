@@ -36,8 +36,8 @@ module Amazonka.ApplicationCostProfiler.Lens
     importApplicationUsageResponse_importId,
 
     -- ** ListReportDefinitions
-    listReportDefinitions_nextToken,
     listReportDefinitions_maxResults,
+    listReportDefinitions_nextToken,
     listReportDefinitionsResponse_nextToken,
     listReportDefinitionsResponse_reportDefinitions,
     listReportDefinitionsResponse_httpStatus,
@@ -63,13 +63,13 @@ module Amazonka.ApplicationCostProfiler.Lens
     -- * Types
 
     -- ** ReportDefinition
-    reportDefinition_lastUpdatedAt,
-    reportDefinition_destinationS3Location,
-    reportDefinition_reportFrequency,
-    reportDefinition_reportDescription,
-    reportDefinition_format,
-    reportDefinition_reportId,
     reportDefinition_createdAt,
+    reportDefinition_destinationS3Location,
+    reportDefinition_format,
+    reportDefinition_lastUpdatedAt,
+    reportDefinition_reportDescription,
+    reportDefinition_reportFrequency,
+    reportDefinition_reportId,
 
     -- ** S3Location
     s3Location_bucket,

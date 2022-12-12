@@ -44,8 +44,8 @@ module Amazonka.Lightsail.GetContainerServiceMetricData
     newGetContainerServiceMetricDataResponse,
 
     -- * Response Lenses
-    getContainerServiceMetricDataResponse_metricName,
     getContainerServiceMetricDataResponse_metricData,
+    getContainerServiceMetricDataResponse_metricName,
     getContainerServiceMetricDataResponse_httpStatus,
   )
 where
@@ -306,8 +306,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetContainerServiceMetricDataResponse'
-            Prelude.<$> (x Data..?> "metricName")
-            Prelude.<*> (x Data..?> "metricData" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "metricData" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "metricName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -368,10 +368,10 @@ instance Data.ToQuery GetContainerServiceMetricData where
 
 -- | /See:/ 'newGetContainerServiceMetricDataResponse' smart constructor.
 data GetContainerServiceMetricDataResponse = GetContainerServiceMetricDataResponse'
-  { -- | The name of the metric returned.
-    metricName :: Prelude.Maybe ContainerServiceMetricName,
-    -- | An array of objects that describe the metric data returned.
+  { -- | An array of objects that describe the metric data returned.
     metricData :: Prelude.Maybe [MetricDatapoint],
+    -- | The name of the metric returned.
+    metricName :: Prelude.Maybe ContainerServiceMetricName,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -385,9 +385,9 @@ data GetContainerServiceMetricDataResponse = GetContainerServiceMetricDataRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metricName', 'getContainerServiceMetricDataResponse_metricName' - The name of the metric returned.
---
 -- 'metricData', 'getContainerServiceMetricDataResponse_metricData' - An array of objects that describe the metric data returned.
+--
+-- 'metricName', 'getContainerServiceMetricDataResponse_metricName' - The name of the metric returned.
 --
 -- 'httpStatus', 'getContainerServiceMetricDataResponse_httpStatus' - The response's http status code.
 newGetContainerServiceMetricDataResponse ::
@@ -396,19 +396,19 @@ newGetContainerServiceMetricDataResponse ::
   GetContainerServiceMetricDataResponse
 newGetContainerServiceMetricDataResponse pHttpStatus_ =
   GetContainerServiceMetricDataResponse'
-    { metricName =
+    { metricData =
         Prelude.Nothing,
-      metricData = Prelude.Nothing,
+      metricName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The name of the metric returned.
-getContainerServiceMetricDataResponse_metricName :: Lens.Lens' GetContainerServiceMetricDataResponse (Prelude.Maybe ContainerServiceMetricName)
-getContainerServiceMetricDataResponse_metricName = Lens.lens (\GetContainerServiceMetricDataResponse' {metricName} -> metricName) (\s@GetContainerServiceMetricDataResponse' {} a -> s {metricName = a} :: GetContainerServiceMetricDataResponse)
 
 -- | An array of objects that describe the metric data returned.
 getContainerServiceMetricDataResponse_metricData :: Lens.Lens' GetContainerServiceMetricDataResponse (Prelude.Maybe [MetricDatapoint])
 getContainerServiceMetricDataResponse_metricData = Lens.lens (\GetContainerServiceMetricDataResponse' {metricData} -> metricData) (\s@GetContainerServiceMetricDataResponse' {} a -> s {metricData = a} :: GetContainerServiceMetricDataResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of the metric returned.
+getContainerServiceMetricDataResponse_metricName :: Lens.Lens' GetContainerServiceMetricDataResponse (Prelude.Maybe ContainerServiceMetricName)
+getContainerServiceMetricDataResponse_metricName = Lens.lens (\GetContainerServiceMetricDataResponse' {metricName} -> metricName) (\s@GetContainerServiceMetricDataResponse' {} a -> s {metricName = a} :: GetContainerServiceMetricDataResponse)
 
 -- | The response's http status code.
 getContainerServiceMetricDataResponse_httpStatus :: Lens.Lens' GetContainerServiceMetricDataResponse Prelude.Int
@@ -419,6 +419,6 @@ instance
     GetContainerServiceMetricDataResponse
   where
   rnf GetContainerServiceMetricDataResponse' {..} =
-    Prelude.rnf metricName
-      `Prelude.seq` Prelude.rnf metricData
+    Prelude.rnf metricData
+      `Prelude.seq` Prelude.rnf metricName
       `Prelude.seq` Prelude.rnf httpStatus

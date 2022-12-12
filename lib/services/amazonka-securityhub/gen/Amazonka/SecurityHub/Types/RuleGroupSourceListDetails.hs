@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRuleGroupSourceListDetails' smart constructor.
 data RuleGroupSourceListDetails = RuleGroupSourceListDetails'
-  { -- | The protocols that you want to inspect. Specify @LS_SNI@ for HTTPS.
-    -- Specify @HTTP_HOST@ for HTTP. You can specify either or both.
-    targetTypes :: Prelude.Maybe [Prelude.Text],
-    -- | Indicates whether to allow or deny access to the domains listed in
+  { -- | Indicates whether to allow or deny access to the domains listed in
     -- @Targets@.
     generatedRulesType :: Prelude.Maybe Prelude.Text,
+    -- | The protocols that you want to inspect. Specify @LS_SNI@ for HTTPS.
+    -- Specify @HTTP_HOST@ for HTTP. You can specify either or both.
+    targetTypes :: Prelude.Maybe [Prelude.Text],
     -- | The domains that you want to inspect for in your traffic flows. You can
     -- provide full domain names, or use the \'.\' prefix as a wildcard. For
     -- example, @.example.com@ matches all domains that end with @example.com@.
@@ -49,11 +49,11 @@ data RuleGroupSourceListDetails = RuleGroupSourceListDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetTypes', 'ruleGroupSourceListDetails_targetTypes' - The protocols that you want to inspect. Specify @LS_SNI@ for HTTPS.
--- Specify @HTTP_HOST@ for HTTP. You can specify either or both.
---
 -- 'generatedRulesType', 'ruleGroupSourceListDetails_generatedRulesType' - Indicates whether to allow or deny access to the domains listed in
 -- @Targets@.
+--
+-- 'targetTypes', 'ruleGroupSourceListDetails_targetTypes' - The protocols that you want to inspect. Specify @LS_SNI@ for HTTPS.
+-- Specify @HTTP_HOST@ for HTTP. You can specify either or both.
 --
 -- 'targets', 'ruleGroupSourceListDetails_targets' - The domains that you want to inspect for in your traffic flows. You can
 -- provide full domain names, or use the \'.\' prefix as a wildcard. For
@@ -62,21 +62,21 @@ newRuleGroupSourceListDetails ::
   RuleGroupSourceListDetails
 newRuleGroupSourceListDetails =
   RuleGroupSourceListDetails'
-    { targetTypes =
+    { generatedRulesType =
         Prelude.Nothing,
-      generatedRulesType = Prelude.Nothing,
+      targetTypes = Prelude.Nothing,
       targets = Prelude.Nothing
     }
-
--- | The protocols that you want to inspect. Specify @LS_SNI@ for HTTPS.
--- Specify @HTTP_HOST@ for HTTP. You can specify either or both.
-ruleGroupSourceListDetails_targetTypes :: Lens.Lens' RuleGroupSourceListDetails (Prelude.Maybe [Prelude.Text])
-ruleGroupSourceListDetails_targetTypes = Lens.lens (\RuleGroupSourceListDetails' {targetTypes} -> targetTypes) (\s@RuleGroupSourceListDetails' {} a -> s {targetTypes = a} :: RuleGroupSourceListDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | Indicates whether to allow or deny access to the domains listed in
 -- @Targets@.
 ruleGroupSourceListDetails_generatedRulesType :: Lens.Lens' RuleGroupSourceListDetails (Prelude.Maybe Prelude.Text)
 ruleGroupSourceListDetails_generatedRulesType = Lens.lens (\RuleGroupSourceListDetails' {generatedRulesType} -> generatedRulesType) (\s@RuleGroupSourceListDetails' {} a -> s {generatedRulesType = a} :: RuleGroupSourceListDetails)
+
+-- | The protocols that you want to inspect. Specify @LS_SNI@ for HTTPS.
+-- Specify @HTTP_HOST@ for HTTP. You can specify either or both.
+ruleGroupSourceListDetails_targetTypes :: Lens.Lens' RuleGroupSourceListDetails (Prelude.Maybe [Prelude.Text])
+ruleGroupSourceListDetails_targetTypes = Lens.lens (\RuleGroupSourceListDetails' {targetTypes} -> targetTypes) (\s@RuleGroupSourceListDetails' {} a -> s {targetTypes = a} :: RuleGroupSourceListDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | The domains that you want to inspect for in your traffic flows. You can
 -- provide full domain names, or use the \'.\' prefix as a wildcard. For
@@ -90,30 +90,30 @@ instance Data.FromJSON RuleGroupSourceListDetails where
       "RuleGroupSourceListDetails"
       ( \x ->
           RuleGroupSourceListDetails'
-            Prelude.<$> (x Data..:? "TargetTypes" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "GeneratedRulesType")
+            Prelude.<$> (x Data..:? "GeneratedRulesType")
+            Prelude.<*> (x Data..:? "TargetTypes" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Targets" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable RuleGroupSourceListDetails where
   hashWithSalt _salt RuleGroupSourceListDetails' {..} =
-    _salt `Prelude.hashWithSalt` targetTypes
-      `Prelude.hashWithSalt` generatedRulesType
+    _salt `Prelude.hashWithSalt` generatedRulesType
+      `Prelude.hashWithSalt` targetTypes
       `Prelude.hashWithSalt` targets
 
 instance Prelude.NFData RuleGroupSourceListDetails where
   rnf RuleGroupSourceListDetails' {..} =
-    Prelude.rnf targetTypes
-      `Prelude.seq` Prelude.rnf generatedRulesType
+    Prelude.rnf generatedRulesType
+      `Prelude.seq` Prelude.rnf targetTypes
       `Prelude.seq` Prelude.rnf targets
 
 instance Data.ToJSON RuleGroupSourceListDetails where
   toJSON RuleGroupSourceListDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("TargetTypes" Data..=) Prelude.<$> targetTypes,
-            ("GeneratedRulesType" Data..=)
+          [ ("GeneratedRulesType" Data..=)
               Prelude.<$> generatedRulesType,
+            ("TargetTypes" Data..=) Prelude.<$> targetTypes,
             ("Targets" Data..=) Prelude.<$> targets
           ]
       )

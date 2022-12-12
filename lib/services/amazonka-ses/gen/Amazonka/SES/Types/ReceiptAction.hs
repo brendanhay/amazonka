@@ -42,21 +42,21 @@ import Amazonka.SES.Types.WorkmailAction
 data ReceiptAction = ReceiptAction'
   { -- | Adds a header to the received email.
     addHeaderAction :: Prelude.Maybe AddHeaderAction,
+    -- | Rejects the received email by returning a bounce response to the sender
+    -- and, optionally, publishes a notification to Amazon Simple Notification
+    -- Service (Amazon SNS).
+    bounceAction :: Prelude.Maybe BounceAction,
     -- | Calls an AWS Lambda function, and optionally, publishes a notification
     -- to Amazon SNS.
     lambdaAction :: Prelude.Maybe LambdaAction,
     -- | Saves the received message to an Amazon Simple Storage Service (Amazon
     -- S3) bucket and, optionally, publishes a notification to Amazon SNS.
     s3Action :: Prelude.Maybe S3Action,
+    -- | Publishes the email content within a notification to Amazon SNS.
+    sNSAction :: Prelude.Maybe SNSAction,
     -- | Terminates the evaluation of the receipt rule set and optionally
     -- publishes a notification to Amazon SNS.
     stopAction :: Prelude.Maybe StopAction,
-    -- | Publishes the email content within a notification to Amazon SNS.
-    sNSAction :: Prelude.Maybe SNSAction,
-    -- | Rejects the received email by returning a bounce response to the sender
-    -- and, optionally, publishes a notification to Amazon Simple Notification
-    -- Service (Amazon SNS).
-    bounceAction :: Prelude.Maybe BounceAction,
     -- | Calls Amazon WorkMail and, optionally, publishes a notification to
     -- Amazon Amazon SNS.
     workmailAction :: Prelude.Maybe WorkmailAction
@@ -73,20 +73,20 @@ data ReceiptAction = ReceiptAction'
 --
 -- 'addHeaderAction', 'receiptAction_addHeaderAction' - Adds a header to the received email.
 --
+-- 'bounceAction', 'receiptAction_bounceAction' - Rejects the received email by returning a bounce response to the sender
+-- and, optionally, publishes a notification to Amazon Simple Notification
+-- Service (Amazon SNS).
+--
 -- 'lambdaAction', 'receiptAction_lambdaAction' - Calls an AWS Lambda function, and optionally, publishes a notification
 -- to Amazon SNS.
 --
 -- 's3Action', 'receiptAction_s3Action' - Saves the received message to an Amazon Simple Storage Service (Amazon
 -- S3) bucket and, optionally, publishes a notification to Amazon SNS.
 --
--- 'stopAction', 'receiptAction_stopAction' - Terminates the evaluation of the receipt rule set and optionally
--- publishes a notification to Amazon SNS.
---
 -- 'sNSAction', 'receiptAction_sNSAction' - Publishes the email content within a notification to Amazon SNS.
 --
--- 'bounceAction', 'receiptAction_bounceAction' - Rejects the received email by returning a bounce response to the sender
--- and, optionally, publishes a notification to Amazon Simple Notification
--- Service (Amazon SNS).
+-- 'stopAction', 'receiptAction_stopAction' - Terminates the evaluation of the receipt rule set and optionally
+-- publishes a notification to Amazon SNS.
 --
 -- 'workmailAction', 'receiptAction_workmailAction' - Calls Amazon WorkMail and, optionally, publishes a notification to
 -- Amazon Amazon SNS.
@@ -95,17 +95,23 @@ newReceiptAction ::
 newReceiptAction =
   ReceiptAction'
     { addHeaderAction = Prelude.Nothing,
+      bounceAction = Prelude.Nothing,
       lambdaAction = Prelude.Nothing,
       s3Action = Prelude.Nothing,
-      stopAction = Prelude.Nothing,
       sNSAction = Prelude.Nothing,
-      bounceAction = Prelude.Nothing,
+      stopAction = Prelude.Nothing,
       workmailAction = Prelude.Nothing
     }
 
 -- | Adds a header to the received email.
 receiptAction_addHeaderAction :: Lens.Lens' ReceiptAction (Prelude.Maybe AddHeaderAction)
 receiptAction_addHeaderAction = Lens.lens (\ReceiptAction' {addHeaderAction} -> addHeaderAction) (\s@ReceiptAction' {} a -> s {addHeaderAction = a} :: ReceiptAction)
+
+-- | Rejects the received email by returning a bounce response to the sender
+-- and, optionally, publishes a notification to Amazon Simple Notification
+-- Service (Amazon SNS).
+receiptAction_bounceAction :: Lens.Lens' ReceiptAction (Prelude.Maybe BounceAction)
+receiptAction_bounceAction = Lens.lens (\ReceiptAction' {bounceAction} -> bounceAction) (\s@ReceiptAction' {} a -> s {bounceAction = a} :: ReceiptAction)
 
 -- | Calls an AWS Lambda function, and optionally, publishes a notification
 -- to Amazon SNS.
@@ -117,20 +123,14 @@ receiptAction_lambdaAction = Lens.lens (\ReceiptAction' {lambdaAction} -> lambda
 receiptAction_s3Action :: Lens.Lens' ReceiptAction (Prelude.Maybe S3Action)
 receiptAction_s3Action = Lens.lens (\ReceiptAction' {s3Action} -> s3Action) (\s@ReceiptAction' {} a -> s {s3Action = a} :: ReceiptAction)
 
--- | Terminates the evaluation of the receipt rule set and optionally
--- publishes a notification to Amazon SNS.
-receiptAction_stopAction :: Lens.Lens' ReceiptAction (Prelude.Maybe StopAction)
-receiptAction_stopAction = Lens.lens (\ReceiptAction' {stopAction} -> stopAction) (\s@ReceiptAction' {} a -> s {stopAction = a} :: ReceiptAction)
-
 -- | Publishes the email content within a notification to Amazon SNS.
 receiptAction_sNSAction :: Lens.Lens' ReceiptAction (Prelude.Maybe SNSAction)
 receiptAction_sNSAction = Lens.lens (\ReceiptAction' {sNSAction} -> sNSAction) (\s@ReceiptAction' {} a -> s {sNSAction = a} :: ReceiptAction)
 
--- | Rejects the received email by returning a bounce response to the sender
--- and, optionally, publishes a notification to Amazon Simple Notification
--- Service (Amazon SNS).
-receiptAction_bounceAction :: Lens.Lens' ReceiptAction (Prelude.Maybe BounceAction)
-receiptAction_bounceAction = Lens.lens (\ReceiptAction' {bounceAction} -> bounceAction) (\s@ReceiptAction' {} a -> s {bounceAction = a} :: ReceiptAction)
+-- | Terminates the evaluation of the receipt rule set and optionally
+-- publishes a notification to Amazon SNS.
+receiptAction_stopAction :: Lens.Lens' ReceiptAction (Prelude.Maybe StopAction)
+receiptAction_stopAction = Lens.lens (\ReceiptAction' {stopAction} -> stopAction) (\s@ReceiptAction' {} a -> s {stopAction = a} :: ReceiptAction)
 
 -- | Calls Amazon WorkMail and, optionally, publishes a notification to
 -- Amazon Amazon SNS.
@@ -141,41 +141,41 @@ instance Data.FromXML ReceiptAction where
   parseXML x =
     ReceiptAction'
       Prelude.<$> (x Data..@? "AddHeaderAction")
+      Prelude.<*> (x Data..@? "BounceAction")
       Prelude.<*> (x Data..@? "LambdaAction")
       Prelude.<*> (x Data..@? "S3Action")
-      Prelude.<*> (x Data..@? "StopAction")
       Prelude.<*> (x Data..@? "SNSAction")
-      Prelude.<*> (x Data..@? "BounceAction")
+      Prelude.<*> (x Data..@? "StopAction")
       Prelude.<*> (x Data..@? "WorkmailAction")
 
 instance Prelude.Hashable ReceiptAction where
   hashWithSalt _salt ReceiptAction' {..} =
     _salt `Prelude.hashWithSalt` addHeaderAction
+      `Prelude.hashWithSalt` bounceAction
       `Prelude.hashWithSalt` lambdaAction
       `Prelude.hashWithSalt` s3Action
-      `Prelude.hashWithSalt` stopAction
       `Prelude.hashWithSalt` sNSAction
-      `Prelude.hashWithSalt` bounceAction
+      `Prelude.hashWithSalt` stopAction
       `Prelude.hashWithSalt` workmailAction
 
 instance Prelude.NFData ReceiptAction where
   rnf ReceiptAction' {..} =
     Prelude.rnf addHeaderAction
+      `Prelude.seq` Prelude.rnf bounceAction
       `Prelude.seq` Prelude.rnf lambdaAction
       `Prelude.seq` Prelude.rnf s3Action
-      `Prelude.seq` Prelude.rnf stopAction
       `Prelude.seq` Prelude.rnf sNSAction
-      `Prelude.seq` Prelude.rnf bounceAction
+      `Prelude.seq` Prelude.rnf stopAction
       `Prelude.seq` Prelude.rnf workmailAction
 
 instance Data.ToQuery ReceiptAction where
   toQuery ReceiptAction' {..} =
     Prelude.mconcat
       [ "AddHeaderAction" Data.=: addHeaderAction,
+        "BounceAction" Data.=: bounceAction,
         "LambdaAction" Data.=: lambdaAction,
         "S3Action" Data.=: s3Action,
-        "StopAction" Data.=: stopAction,
         "SNSAction" Data.=: sNSAction,
-        "BounceAction" Data.=: bounceAction,
+        "StopAction" Data.=: stopAction,
         "WorkmailAction" Data.=: workmailAction
       ]

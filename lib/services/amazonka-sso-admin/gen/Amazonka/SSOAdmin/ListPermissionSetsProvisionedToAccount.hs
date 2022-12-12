@@ -30,9 +30,9 @@ module Amazonka.SSOAdmin.ListPermissionSetsProvisionedToAccount
     newListPermissionSetsProvisionedToAccount,
 
     -- * Request Lenses
+    listPermissionSetsProvisionedToAccount_maxResults,
     listPermissionSetsProvisionedToAccount_nextToken,
     listPermissionSetsProvisionedToAccount_provisioningStatus,
-    listPermissionSetsProvisionedToAccount_maxResults,
     listPermissionSetsProvisionedToAccount_instanceArn,
     listPermissionSetsProvisionedToAccount_accountId,
 
@@ -57,13 +57,13 @@ import Amazonka.SSOAdmin.Types
 
 -- | /See:/ 'newListPermissionSetsProvisionedToAccount' smart constructor.
 data ListPermissionSetsProvisionedToAccount = ListPermissionSetsProvisionedToAccount'
-  { -- | The pagination token for the list API. Initially the value is null. Use
+  { -- | The maximum number of results to display for the assignment.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token for the list API. Initially the value is null. Use
     -- the output of previous API calls to make subsequent calls.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The status object for the permission set provisioning operation.
     provisioningStatus :: Prelude.Maybe ProvisioningStatus,
-    -- | The maximum number of results to display for the assignment.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ARN of the IAM Identity Center instance under which the operation
     -- will be executed. For more information about ARNs, see
     -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
@@ -82,12 +82,12 @@ data ListPermissionSetsProvisionedToAccount = ListPermissionSetsProvisionedToAcc
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listPermissionSetsProvisionedToAccount_maxResults' - The maximum number of results to display for the assignment.
+--
 -- 'nextToken', 'listPermissionSetsProvisionedToAccount_nextToken' - The pagination token for the list API. Initially the value is null. Use
 -- the output of previous API calls to make subsequent calls.
 --
 -- 'provisioningStatus', 'listPermissionSetsProvisionedToAccount_provisioningStatus' - The status object for the permission set provisioning operation.
---
--- 'maxResults', 'listPermissionSetsProvisionedToAccount_maxResults' - The maximum number of results to display for the assignment.
 --
 -- 'instanceArn', 'listPermissionSetsProvisionedToAccount_instanceArn' - The ARN of the IAM Identity Center instance under which the operation
 -- will be executed. For more information about ARNs, see
@@ -105,14 +105,18 @@ newListPermissionSetsProvisionedToAccount
   pInstanceArn_
   pAccountId_ =
     ListPermissionSetsProvisionedToAccount'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         provisioningStatus =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
         instanceArn = pInstanceArn_,
         accountId = pAccountId_
       }
+
+-- | The maximum number of results to display for the assignment.
+listPermissionSetsProvisionedToAccount_maxResults :: Lens.Lens' ListPermissionSetsProvisionedToAccount (Prelude.Maybe Prelude.Natural)
+listPermissionSetsProvisionedToAccount_maxResults = Lens.lens (\ListPermissionSetsProvisionedToAccount' {maxResults} -> maxResults) (\s@ListPermissionSetsProvisionedToAccount' {} a -> s {maxResults = a} :: ListPermissionSetsProvisionedToAccount)
 
 -- | The pagination token for the list API. Initially the value is null. Use
 -- the output of previous API calls to make subsequent calls.
@@ -122,10 +126,6 @@ listPermissionSetsProvisionedToAccount_nextToken = Lens.lens (\ListPermissionSet
 -- | The status object for the permission set provisioning operation.
 listPermissionSetsProvisionedToAccount_provisioningStatus :: Lens.Lens' ListPermissionSetsProvisionedToAccount (Prelude.Maybe ProvisioningStatus)
 listPermissionSetsProvisionedToAccount_provisioningStatus = Lens.lens (\ListPermissionSetsProvisionedToAccount' {provisioningStatus} -> provisioningStatus) (\s@ListPermissionSetsProvisionedToAccount' {} a -> s {provisioningStatus = a} :: ListPermissionSetsProvisionedToAccount)
-
--- | The maximum number of results to display for the assignment.
-listPermissionSetsProvisionedToAccount_maxResults :: Lens.Lens' ListPermissionSetsProvisionedToAccount (Prelude.Maybe Prelude.Natural)
-listPermissionSetsProvisionedToAccount_maxResults = Lens.lens (\ListPermissionSetsProvisionedToAccount' {maxResults} -> maxResults) (\s@ListPermissionSetsProvisionedToAccount' {} a -> s {maxResults = a} :: ListPermissionSetsProvisionedToAccount)
 
 -- | The ARN of the IAM Identity Center instance under which the operation
 -- will be executed. For more information about ARNs, see
@@ -189,9 +189,9 @@ instance
   hashWithSalt
     _salt
     ListPermissionSetsProvisionedToAccount' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` provisioningStatus
-        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` instanceArn
         `Prelude.hashWithSalt` accountId
 
@@ -200,9 +200,9 @@ instance
     ListPermissionSetsProvisionedToAccount
   where
   rnf ListPermissionSetsProvisionedToAccount' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf provisioningStatus
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf instanceArn
       `Prelude.seq` Prelude.rnf accountId
 
@@ -231,10 +231,10 @@ instance
   toJSON ListPermissionSetsProvisionedToAccount' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("ProvisioningStatus" Data..=)
               Prelude.<$> provisioningStatus,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just ("InstanceArn" Data..= instanceArn),
             Prelude.Just ("AccountId" Data..= accountId)
           ]

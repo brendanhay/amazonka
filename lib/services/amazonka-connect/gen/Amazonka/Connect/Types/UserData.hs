@@ -34,31 +34,31 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUserData' smart constructor.
 data UserData = UserData'
-  { -- | A map of available slots by channel. The key is a channel name. The
+  { -- | A map of active slots by channel. The key is a channel name. The value
+    -- is an integer: the number of active slots.
+    activeSlotsByChannel :: Prelude.Maybe (Prelude.HashMap Channel Prelude.Natural),
+    -- | A map of available slots by channel. The key is a channel name. The
     -- value is an integer: the available number of slots.
     availableSlotsByChannel :: Prelude.Maybe (Prelude.HashMap Channel Prelude.Natural),
-    -- | Information about the user for the data that is returned. It contains
-    -- the @resourceId@ and ARN of the user.
-    user :: Prelude.Maybe UserReference,
+    -- | A list of contact reference information.
+    contacts :: Prelude.Maybe [AgentContactReference],
     -- | Contains information about the levels of a hierarchy group assigned to a
     -- user.
     hierarchyPath :: Prelude.Maybe HierarchyPathReference,
+    -- | A map of maximum slots by channel. The key is a channel name. The value
+    -- is an integer: the maximum number of slots. This is calculated from
+    -- <https://docs.aws.amazon.com/connect/latest/APIReference/API_MediaConcurrency.html MediaConcurrency>
+    -- of the @RoutingProfile@ assigned to the agent.
+    maxSlotsByChannel :: Prelude.Maybe (Prelude.HashMap Channel Prelude.Natural),
     -- | Information about the routing profile that is assigned to the user.
     routingProfile :: Prelude.Maybe RoutingProfileReference,
     -- | The status of the agent that they manually set in their Contact Control
     -- Panel (CCP), or that the supervisor manually changes in the real-time
     -- metrics report.
     status :: Prelude.Maybe AgentStatusReference,
-    -- | A map of active slots by channel. The key is a channel name. The value
-    -- is an integer: the number of active slots.
-    activeSlotsByChannel :: Prelude.Maybe (Prelude.HashMap Channel Prelude.Natural),
-    -- | A map of maximum slots by channel. The key is a channel name. The value
-    -- is an integer: the maximum number of slots. This is calculated from
-    -- <https://docs.aws.amazon.com/connect/latest/APIReference/API_MediaConcurrency.html MediaConcurrency>
-    -- of the @RoutingProfile@ assigned to the agent.
-    maxSlotsByChannel :: Prelude.Maybe (Prelude.HashMap Channel Prelude.Natural),
-    -- | A list of contact reference information.
-    contacts :: Prelude.Maybe [AgentContactReference]
+    -- | Information about the user for the data that is returned. It contains
+    -- the @resourceId@ and ARN of the user.
+    user :: Prelude.Maybe UserReference
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,14 +70,21 @@ data UserData = UserData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'activeSlotsByChannel', 'userData_activeSlotsByChannel' - A map of active slots by channel. The key is a channel name. The value
+-- is an integer: the number of active slots.
+--
 -- 'availableSlotsByChannel', 'userData_availableSlotsByChannel' - A map of available slots by channel. The key is a channel name. The
 -- value is an integer: the available number of slots.
 --
--- 'user', 'userData_user' - Information about the user for the data that is returned. It contains
--- the @resourceId@ and ARN of the user.
+-- 'contacts', 'userData_contacts' - A list of contact reference information.
 --
 -- 'hierarchyPath', 'userData_hierarchyPath' - Contains information about the levels of a hierarchy group assigned to a
 -- user.
+--
+-- 'maxSlotsByChannel', 'userData_maxSlotsByChannel' - A map of maximum slots by channel. The key is a channel name. The value
+-- is an integer: the maximum number of slots. This is calculated from
+-- <https://docs.aws.amazon.com/connect/latest/APIReference/API_MediaConcurrency.html MediaConcurrency>
+-- of the @RoutingProfile@ assigned to the agent.
 --
 -- 'routingProfile', 'userData_routingProfile' - Information about the routing profile that is assigned to the user.
 --
@@ -85,44 +92,47 @@ data UserData = UserData'
 -- Panel (CCP), or that the supervisor manually changes in the real-time
 -- metrics report.
 --
--- 'activeSlotsByChannel', 'userData_activeSlotsByChannel' - A map of active slots by channel. The key is a channel name. The value
--- is an integer: the number of active slots.
---
--- 'maxSlotsByChannel', 'userData_maxSlotsByChannel' - A map of maximum slots by channel. The key is a channel name. The value
--- is an integer: the maximum number of slots. This is calculated from
--- <https://docs.aws.amazon.com/connect/latest/APIReference/API_MediaConcurrency.html MediaConcurrency>
--- of the @RoutingProfile@ assigned to the agent.
---
--- 'contacts', 'userData_contacts' - A list of contact reference information.
+-- 'user', 'userData_user' - Information about the user for the data that is returned. It contains
+-- the @resourceId@ and ARN of the user.
 newUserData ::
   UserData
 newUserData =
   UserData'
-    { availableSlotsByChannel =
-        Prelude.Nothing,
-      user = Prelude.Nothing,
+    { activeSlotsByChannel = Prelude.Nothing,
+      availableSlotsByChannel = Prelude.Nothing,
+      contacts = Prelude.Nothing,
       hierarchyPath = Prelude.Nothing,
+      maxSlotsByChannel = Prelude.Nothing,
       routingProfile = Prelude.Nothing,
       status = Prelude.Nothing,
-      activeSlotsByChannel = Prelude.Nothing,
-      maxSlotsByChannel = Prelude.Nothing,
-      contacts = Prelude.Nothing
+      user = Prelude.Nothing
     }
+
+-- | A map of active slots by channel. The key is a channel name. The value
+-- is an integer: the number of active slots.
+userData_activeSlotsByChannel :: Lens.Lens' UserData (Prelude.Maybe (Prelude.HashMap Channel Prelude.Natural))
+userData_activeSlotsByChannel = Lens.lens (\UserData' {activeSlotsByChannel} -> activeSlotsByChannel) (\s@UserData' {} a -> s {activeSlotsByChannel = a} :: UserData) Prelude.. Lens.mapping Lens.coerced
 
 -- | A map of available slots by channel. The key is a channel name. The
 -- value is an integer: the available number of slots.
 userData_availableSlotsByChannel :: Lens.Lens' UserData (Prelude.Maybe (Prelude.HashMap Channel Prelude.Natural))
 userData_availableSlotsByChannel = Lens.lens (\UserData' {availableSlotsByChannel} -> availableSlotsByChannel) (\s@UserData' {} a -> s {availableSlotsByChannel = a} :: UserData) Prelude.. Lens.mapping Lens.coerced
 
--- | Information about the user for the data that is returned. It contains
--- the @resourceId@ and ARN of the user.
-userData_user :: Lens.Lens' UserData (Prelude.Maybe UserReference)
-userData_user = Lens.lens (\UserData' {user} -> user) (\s@UserData' {} a -> s {user = a} :: UserData)
+-- | A list of contact reference information.
+userData_contacts :: Lens.Lens' UserData (Prelude.Maybe [AgentContactReference])
+userData_contacts = Lens.lens (\UserData' {contacts} -> contacts) (\s@UserData' {} a -> s {contacts = a} :: UserData) Prelude.. Lens.mapping Lens.coerced
 
 -- | Contains information about the levels of a hierarchy group assigned to a
 -- user.
 userData_hierarchyPath :: Lens.Lens' UserData (Prelude.Maybe HierarchyPathReference)
 userData_hierarchyPath = Lens.lens (\UserData' {hierarchyPath} -> hierarchyPath) (\s@UserData' {} a -> s {hierarchyPath = a} :: UserData)
+
+-- | A map of maximum slots by channel. The key is a channel name. The value
+-- is an integer: the maximum number of slots. This is calculated from
+-- <https://docs.aws.amazon.com/connect/latest/APIReference/API_MediaConcurrency.html MediaConcurrency>
+-- of the @RoutingProfile@ assigned to the agent.
+userData_maxSlotsByChannel :: Lens.Lens' UserData (Prelude.Maybe (Prelude.HashMap Channel Prelude.Natural))
+userData_maxSlotsByChannel = Lens.lens (\UserData' {maxSlotsByChannel} -> maxSlotsByChannel) (\s@UserData' {} a -> s {maxSlotsByChannel = a} :: UserData) Prelude.. Lens.mapping Lens.coerced
 
 -- | Information about the routing profile that is assigned to the user.
 userData_routingProfile :: Lens.Lens' UserData (Prelude.Maybe RoutingProfileReference)
@@ -134,21 +144,10 @@ userData_routingProfile = Lens.lens (\UserData' {routingProfile} -> routingProfi
 userData_status :: Lens.Lens' UserData (Prelude.Maybe AgentStatusReference)
 userData_status = Lens.lens (\UserData' {status} -> status) (\s@UserData' {} a -> s {status = a} :: UserData)
 
--- | A map of active slots by channel. The key is a channel name. The value
--- is an integer: the number of active slots.
-userData_activeSlotsByChannel :: Lens.Lens' UserData (Prelude.Maybe (Prelude.HashMap Channel Prelude.Natural))
-userData_activeSlotsByChannel = Lens.lens (\UserData' {activeSlotsByChannel} -> activeSlotsByChannel) (\s@UserData' {} a -> s {activeSlotsByChannel = a} :: UserData) Prelude.. Lens.mapping Lens.coerced
-
--- | A map of maximum slots by channel. The key is a channel name. The value
--- is an integer: the maximum number of slots. This is calculated from
--- <https://docs.aws.amazon.com/connect/latest/APIReference/API_MediaConcurrency.html MediaConcurrency>
--- of the @RoutingProfile@ assigned to the agent.
-userData_maxSlotsByChannel :: Lens.Lens' UserData (Prelude.Maybe (Prelude.HashMap Channel Prelude.Natural))
-userData_maxSlotsByChannel = Lens.lens (\UserData' {maxSlotsByChannel} -> maxSlotsByChannel) (\s@UserData' {} a -> s {maxSlotsByChannel = a} :: UserData) Prelude.. Lens.mapping Lens.coerced
-
--- | A list of contact reference information.
-userData_contacts :: Lens.Lens' UserData (Prelude.Maybe [AgentContactReference])
-userData_contacts = Lens.lens (\UserData' {contacts} -> contacts) (\s@UserData' {} a -> s {contacts = a} :: UserData) Prelude.. Lens.mapping Lens.coerced
+-- | Information about the user for the data that is returned. It contains
+-- the @resourceId@ and ARN of the user.
+userData_user :: Lens.Lens' UserData (Prelude.Maybe UserReference)
+userData_user = Lens.lens (\UserData' {user} -> user) (\s@UserData' {} a -> s {user = a} :: UserData)
 
 instance Data.FromJSON UserData where
   parseJSON =
@@ -156,41 +155,40 @@ instance Data.FromJSON UserData where
       "UserData"
       ( \x ->
           UserData'
-            Prelude.<$> ( x Data..:? "AvailableSlotsByChannel"
+            Prelude.<$> ( x Data..:? "ActiveSlotsByChannel"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "User")
-            Prelude.<*> (x Data..:? "HierarchyPath")
-            Prelude.<*> (x Data..:? "RoutingProfile")
-            Prelude.<*> (x Data..:? "Status")
-            Prelude.<*> ( x Data..:? "ActiveSlotsByChannel"
-                            Data..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Data..:? "MaxSlotsByChannel"
+            Prelude.<*> ( x Data..:? "AvailableSlotsByChannel"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Contacts" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "HierarchyPath")
+            Prelude.<*> ( x Data..:? "MaxSlotsByChannel"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "RoutingProfile")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "User")
       )
 
 instance Prelude.Hashable UserData where
   hashWithSalt _salt UserData' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` activeSlotsByChannel
       `Prelude.hashWithSalt` availableSlotsByChannel
-      `Prelude.hashWithSalt` user
+      `Prelude.hashWithSalt` contacts
       `Prelude.hashWithSalt` hierarchyPath
+      `Prelude.hashWithSalt` maxSlotsByChannel
       `Prelude.hashWithSalt` routingProfile
       `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` activeSlotsByChannel
-      `Prelude.hashWithSalt` maxSlotsByChannel
-      `Prelude.hashWithSalt` contacts
+      `Prelude.hashWithSalt` user
 
 instance Prelude.NFData UserData where
   rnf UserData' {..} =
-    Prelude.rnf availableSlotsByChannel
-      `Prelude.seq` Prelude.rnf user
+    Prelude.rnf activeSlotsByChannel
+      `Prelude.seq` Prelude.rnf availableSlotsByChannel
+      `Prelude.seq` Prelude.rnf contacts
       `Prelude.seq` Prelude.rnf hierarchyPath
+      `Prelude.seq` Prelude.rnf maxSlotsByChannel
       `Prelude.seq` Prelude.rnf routingProfile
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf activeSlotsByChannel
-      `Prelude.seq` Prelude.rnf maxSlotsByChannel
-      `Prelude.seq` Prelude.rnf contacts
+      `Prelude.seq` Prelude.rnf user

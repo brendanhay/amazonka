@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUnsuccessfulInstanceCreditSpecificationItemError' smart constructor.
 data UnsuccessfulInstanceCreditSpecificationItemError = UnsuccessfulInstanceCreditSpecificationItemError'
-  { -- | The applicable error message.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The error code.
-    code :: Prelude.Maybe UnsuccessfulInstanceCreditSpecificationErrorCode
+  { -- | The error code.
+    code :: Prelude.Maybe UnsuccessfulInstanceCreditSpecificationErrorCode,
+    -- | The applicable error message.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,25 +46,25 @@ data UnsuccessfulInstanceCreditSpecificationItemError = UnsuccessfulInstanceCred
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'unsuccessfulInstanceCreditSpecificationItemError_message' - The applicable error message.
---
 -- 'code', 'unsuccessfulInstanceCreditSpecificationItemError_code' - The error code.
+--
+-- 'message', 'unsuccessfulInstanceCreditSpecificationItemError_message' - The applicable error message.
 newUnsuccessfulInstanceCreditSpecificationItemError ::
   UnsuccessfulInstanceCreditSpecificationItemError
 newUnsuccessfulInstanceCreditSpecificationItemError =
   UnsuccessfulInstanceCreditSpecificationItemError'
-    { message =
+    { code =
         Prelude.Nothing,
-      code = Prelude.Nothing
+      message = Prelude.Nothing
     }
-
--- | The applicable error message.
-unsuccessfulInstanceCreditSpecificationItemError_message :: Lens.Lens' UnsuccessfulInstanceCreditSpecificationItemError (Prelude.Maybe Prelude.Text)
-unsuccessfulInstanceCreditSpecificationItemError_message = Lens.lens (\UnsuccessfulInstanceCreditSpecificationItemError' {message} -> message) (\s@UnsuccessfulInstanceCreditSpecificationItemError' {} a -> s {message = a} :: UnsuccessfulInstanceCreditSpecificationItemError)
 
 -- | The error code.
 unsuccessfulInstanceCreditSpecificationItemError_code :: Lens.Lens' UnsuccessfulInstanceCreditSpecificationItemError (Prelude.Maybe UnsuccessfulInstanceCreditSpecificationErrorCode)
 unsuccessfulInstanceCreditSpecificationItemError_code = Lens.lens (\UnsuccessfulInstanceCreditSpecificationItemError' {code} -> code) (\s@UnsuccessfulInstanceCreditSpecificationItemError' {} a -> s {code = a} :: UnsuccessfulInstanceCreditSpecificationItemError)
+
+-- | The applicable error message.
+unsuccessfulInstanceCreditSpecificationItemError_message :: Lens.Lens' UnsuccessfulInstanceCreditSpecificationItemError (Prelude.Maybe Prelude.Text)
+unsuccessfulInstanceCreditSpecificationItemError_message = Lens.lens (\UnsuccessfulInstanceCreditSpecificationItemError' {message} -> message) (\s@UnsuccessfulInstanceCreditSpecificationItemError' {} a -> s {message = a} :: UnsuccessfulInstanceCreditSpecificationItemError)
 
 instance
   Data.FromXML
@@ -72,8 +72,8 @@ instance
   where
   parseXML x =
     UnsuccessfulInstanceCreditSpecificationItemError'
-      Prelude.<$> (x Data..@? "message")
-        Prelude.<*> (x Data..@? "code")
+      Prelude.<$> (x Data..@? "code")
+        Prelude.<*> (x Data..@? "message")
 
 instance
   Prelude.Hashable
@@ -82,8 +82,8 @@ instance
   hashWithSalt
     _salt
     UnsuccessfulInstanceCreditSpecificationItemError' {..} =
-      _salt `Prelude.hashWithSalt` message
-        `Prelude.hashWithSalt` code
+      _salt `Prelude.hashWithSalt` code
+        `Prelude.hashWithSalt` message
 
 instance
   Prelude.NFData
@@ -91,4 +91,4 @@ instance
   where
   rnf
     UnsuccessfulInstanceCreditSpecificationItemError' {..} =
-      Prelude.rnf message `Prelude.seq` Prelude.rnf code
+      Prelude.rnf code `Prelude.seq` Prelude.rnf message

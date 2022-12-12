@@ -30,18 +30,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCsvFormatDescriptor' smart constructor.
 data CsvFormatDescriptor = CsvFormatDescriptor'
-  { -- | The character used as a quote character.
-    quoteSymbol :: Prelude.Maybe Prelude.Text,
+  { -- | The character set in which the source CSV file is written.
+    charset :: Prelude.Maybe Prelude.Text,
     -- | Whether or not the source CSV file contains a header.
     containsHeader :: Prelude.Maybe Prelude.Bool,
     -- | The character used to delimit the source CSV file.
     delimiter :: Prelude.Maybe Prelude.Text,
-    -- | A list of the source CSV file\'s headers, if any.
-    headerList :: Prelude.Maybe [Prelude.Text],
     -- | The level of compression of the source CSV file.
     fileCompression :: Prelude.Maybe CSVFileCompression,
-    -- | The character set in which the source CSV file is written.
-    charset :: Prelude.Maybe Prelude.Text
+    -- | A list of the source CSV file\'s headers, if any.
+    headerList :: Prelude.Maybe [Prelude.Text],
+    -- | The character used as a quote character.
+    quoteSymbol :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,32 +53,32 @@ data CsvFormatDescriptor = CsvFormatDescriptor'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'quoteSymbol', 'csvFormatDescriptor_quoteSymbol' - The character used as a quote character.
+-- 'charset', 'csvFormatDescriptor_charset' - The character set in which the source CSV file is written.
 --
 -- 'containsHeader', 'csvFormatDescriptor_containsHeader' - Whether or not the source CSV file contains a header.
 --
 -- 'delimiter', 'csvFormatDescriptor_delimiter' - The character used to delimit the source CSV file.
 --
--- 'headerList', 'csvFormatDescriptor_headerList' - A list of the source CSV file\'s headers, if any.
---
 -- 'fileCompression', 'csvFormatDescriptor_fileCompression' - The level of compression of the source CSV file.
 --
--- 'charset', 'csvFormatDescriptor_charset' - The character set in which the source CSV file is written.
+-- 'headerList', 'csvFormatDescriptor_headerList' - A list of the source CSV file\'s headers, if any.
+--
+-- 'quoteSymbol', 'csvFormatDescriptor_quoteSymbol' - The character used as a quote character.
 newCsvFormatDescriptor ::
   CsvFormatDescriptor
 newCsvFormatDescriptor =
   CsvFormatDescriptor'
-    { quoteSymbol = Prelude.Nothing,
+    { charset = Prelude.Nothing,
       containsHeader = Prelude.Nothing,
       delimiter = Prelude.Nothing,
-      headerList = Prelude.Nothing,
       fileCompression = Prelude.Nothing,
-      charset = Prelude.Nothing
+      headerList = Prelude.Nothing,
+      quoteSymbol = Prelude.Nothing
     }
 
--- | The character used as a quote character.
-csvFormatDescriptor_quoteSymbol :: Lens.Lens' CsvFormatDescriptor (Prelude.Maybe Prelude.Text)
-csvFormatDescriptor_quoteSymbol = Lens.lens (\CsvFormatDescriptor' {quoteSymbol} -> quoteSymbol) (\s@CsvFormatDescriptor' {} a -> s {quoteSymbol = a} :: CsvFormatDescriptor)
+-- | The character set in which the source CSV file is written.
+csvFormatDescriptor_charset :: Lens.Lens' CsvFormatDescriptor (Prelude.Maybe Prelude.Text)
+csvFormatDescriptor_charset = Lens.lens (\CsvFormatDescriptor' {charset} -> charset) (\s@CsvFormatDescriptor' {} a -> s {charset = a} :: CsvFormatDescriptor)
 
 -- | Whether or not the source CSV file contains a header.
 csvFormatDescriptor_containsHeader :: Lens.Lens' CsvFormatDescriptor (Prelude.Maybe Prelude.Bool)
@@ -88,17 +88,17 @@ csvFormatDescriptor_containsHeader = Lens.lens (\CsvFormatDescriptor' {containsH
 csvFormatDescriptor_delimiter :: Lens.Lens' CsvFormatDescriptor (Prelude.Maybe Prelude.Text)
 csvFormatDescriptor_delimiter = Lens.lens (\CsvFormatDescriptor' {delimiter} -> delimiter) (\s@CsvFormatDescriptor' {} a -> s {delimiter = a} :: CsvFormatDescriptor)
 
--- | A list of the source CSV file\'s headers, if any.
-csvFormatDescriptor_headerList :: Lens.Lens' CsvFormatDescriptor (Prelude.Maybe [Prelude.Text])
-csvFormatDescriptor_headerList = Lens.lens (\CsvFormatDescriptor' {headerList} -> headerList) (\s@CsvFormatDescriptor' {} a -> s {headerList = a} :: CsvFormatDescriptor) Prelude.. Lens.mapping Lens.coerced
-
 -- | The level of compression of the source CSV file.
 csvFormatDescriptor_fileCompression :: Lens.Lens' CsvFormatDescriptor (Prelude.Maybe CSVFileCompression)
 csvFormatDescriptor_fileCompression = Lens.lens (\CsvFormatDescriptor' {fileCompression} -> fileCompression) (\s@CsvFormatDescriptor' {} a -> s {fileCompression = a} :: CsvFormatDescriptor)
 
--- | The character set in which the source CSV file is written.
-csvFormatDescriptor_charset :: Lens.Lens' CsvFormatDescriptor (Prelude.Maybe Prelude.Text)
-csvFormatDescriptor_charset = Lens.lens (\CsvFormatDescriptor' {charset} -> charset) (\s@CsvFormatDescriptor' {} a -> s {charset = a} :: CsvFormatDescriptor)
+-- | A list of the source CSV file\'s headers, if any.
+csvFormatDescriptor_headerList :: Lens.Lens' CsvFormatDescriptor (Prelude.Maybe [Prelude.Text])
+csvFormatDescriptor_headerList = Lens.lens (\CsvFormatDescriptor' {headerList} -> headerList) (\s@CsvFormatDescriptor' {} a -> s {headerList = a} :: CsvFormatDescriptor) Prelude.. Lens.mapping Lens.coerced
+
+-- | The character used as a quote character.
+csvFormatDescriptor_quoteSymbol :: Lens.Lens' CsvFormatDescriptor (Prelude.Maybe Prelude.Text)
+csvFormatDescriptor_quoteSymbol = Lens.lens (\CsvFormatDescriptor' {quoteSymbol} -> quoteSymbol) (\s@CsvFormatDescriptor' {} a -> s {quoteSymbol = a} :: CsvFormatDescriptor)
 
 instance Data.FromJSON CsvFormatDescriptor where
   parseJSON =
@@ -106,43 +106,43 @@ instance Data.FromJSON CsvFormatDescriptor where
       "CsvFormatDescriptor"
       ( \x ->
           CsvFormatDescriptor'
-            Prelude.<$> (x Data..:? "QuoteSymbol")
+            Prelude.<$> (x Data..:? "Charset")
             Prelude.<*> (x Data..:? "ContainsHeader")
             Prelude.<*> (x Data..:? "Delimiter")
-            Prelude.<*> (x Data..:? "HeaderList" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "FileCompression")
-            Prelude.<*> (x Data..:? "Charset")
+            Prelude.<*> (x Data..:? "HeaderList" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "QuoteSymbol")
       )
 
 instance Prelude.Hashable CsvFormatDescriptor where
   hashWithSalt _salt CsvFormatDescriptor' {..} =
-    _salt `Prelude.hashWithSalt` quoteSymbol
+    _salt `Prelude.hashWithSalt` charset
       `Prelude.hashWithSalt` containsHeader
       `Prelude.hashWithSalt` delimiter
-      `Prelude.hashWithSalt` headerList
       `Prelude.hashWithSalt` fileCompression
-      `Prelude.hashWithSalt` charset
+      `Prelude.hashWithSalt` headerList
+      `Prelude.hashWithSalt` quoteSymbol
 
 instance Prelude.NFData CsvFormatDescriptor where
   rnf CsvFormatDescriptor' {..} =
-    Prelude.rnf quoteSymbol
+    Prelude.rnf charset
       `Prelude.seq` Prelude.rnf containsHeader
       `Prelude.seq` Prelude.rnf delimiter
-      `Prelude.seq` Prelude.rnf headerList
       `Prelude.seq` Prelude.rnf fileCompression
-      `Prelude.seq` Prelude.rnf charset
+      `Prelude.seq` Prelude.rnf headerList
+      `Prelude.seq` Prelude.rnf quoteSymbol
 
 instance Data.ToJSON CsvFormatDescriptor where
   toJSON CsvFormatDescriptor' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("QuoteSymbol" Data..=) Prelude.<$> quoteSymbol,
+          [ ("Charset" Data..=) Prelude.<$> charset,
             ("ContainsHeader" Data..=)
               Prelude.<$> containsHeader,
             ("Delimiter" Data..=) Prelude.<$> delimiter,
-            ("HeaderList" Data..=) Prelude.<$> headerList,
             ("FileCompression" Data..=)
               Prelude.<$> fileCompression,
-            ("Charset" Data..=) Prelude.<$> charset
+            ("HeaderList" Data..=) Prelude.<$> headerList,
+            ("QuoteSymbol" Data..=) Prelude.<$> quoteSymbol
           ]
       )

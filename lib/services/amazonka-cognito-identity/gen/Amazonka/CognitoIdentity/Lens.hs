@@ -16,21 +16,21 @@ module Amazonka.CognitoIdentity.Lens
 
     -- ** CreateIdentityPool
     createIdentityPool_allowClassicFlow,
-    createIdentityPool_identityPoolTags,
     createIdentityPool_cognitoIdentityProviders,
+    createIdentityPool_developerProviderName,
+    createIdentityPool_identityPoolTags,
+    createIdentityPool_openIdConnectProviderARNs,
     createIdentityPool_samlProviderARNs,
     createIdentityPool_supportedLoginProviders,
-    createIdentityPool_openIdConnectProviderARNs,
-    createIdentityPool_developerProviderName,
     createIdentityPool_identityPoolName,
     createIdentityPool_allowUnauthenticatedIdentities,
     identityPool_allowClassicFlow,
-    identityPool_identityPoolTags,
     identityPool_cognitoIdentityProviders,
+    identityPool_developerProviderName,
+    identityPool_identityPoolTags,
+    identityPool_openIdConnectProviderARNs,
     identityPool_samlProviderARNs,
     identityPool_supportedLoginProviders,
-    identityPool_openIdConnectProviderARNs,
-    identityPool_developerProviderName,
     identityPool_identityPoolId,
     identityPool_identityPoolName,
     identityPool_allowUnauthenticatedIdentities,
@@ -45,35 +45,35 @@ module Amazonka.CognitoIdentity.Lens
 
     -- ** DescribeIdentity
     describeIdentity_identityId,
-    identityDescription_logins,
-    identityDescription_lastModifiedDate,
     identityDescription_creationDate,
     identityDescription_identityId,
+    identityDescription_lastModifiedDate,
+    identityDescription_logins,
 
     -- ** DescribeIdentityPool
     describeIdentityPool_identityPoolId,
     identityPool_allowClassicFlow,
-    identityPool_identityPoolTags,
     identityPool_cognitoIdentityProviders,
+    identityPool_developerProviderName,
+    identityPool_identityPoolTags,
+    identityPool_openIdConnectProviderARNs,
     identityPool_samlProviderARNs,
     identityPool_supportedLoginProviders,
-    identityPool_openIdConnectProviderARNs,
-    identityPool_developerProviderName,
     identityPool_identityPoolId,
     identityPool_identityPoolName,
     identityPool_allowUnauthenticatedIdentities,
 
     -- ** GetCredentialsForIdentity
-    getCredentialsForIdentity_logins,
     getCredentialsForIdentity_customRoleArn,
+    getCredentialsForIdentity_logins,
     getCredentialsForIdentity_identityId,
     getCredentialsForIdentityResponse_credentials,
     getCredentialsForIdentityResponse_identityId,
     getCredentialsForIdentityResponse_httpStatus,
 
     -- ** GetId
-    getId_logins,
     getId_accountId,
+    getId_logins,
     getId_identityPoolId,
     getIdResponse_identityId,
     getIdResponse_httpStatus,
@@ -93,9 +93,9 @@ module Amazonka.CognitoIdentity.Lens
     getOpenIdTokenResponse_httpStatus,
 
     -- ** GetOpenIdTokenForDeveloperIdentity
-    getOpenIdTokenForDeveloperIdentity_tokenDuration,
-    getOpenIdTokenForDeveloperIdentity_principalTags,
     getOpenIdTokenForDeveloperIdentity_identityId,
+    getOpenIdTokenForDeveloperIdentity_principalTags,
+    getOpenIdTokenForDeveloperIdentity_tokenDuration,
     getOpenIdTokenForDeveloperIdentity_identityPoolId,
     getOpenIdTokenForDeveloperIdentity_logins,
     getOpenIdTokenForDeveloperIdentityResponse_identityId,
@@ -105,27 +105,27 @@ module Amazonka.CognitoIdentity.Lens
     -- ** GetPrincipalTagAttributeMap
     getPrincipalTagAttributeMap_identityPoolId,
     getPrincipalTagAttributeMap_identityProviderName,
-    getPrincipalTagAttributeMapResponse_useDefaults,
-    getPrincipalTagAttributeMapResponse_identityProviderName,
     getPrincipalTagAttributeMapResponse_identityPoolId,
+    getPrincipalTagAttributeMapResponse_identityProviderName,
     getPrincipalTagAttributeMapResponse_principalTags,
+    getPrincipalTagAttributeMapResponse_useDefaults,
     getPrincipalTagAttributeMapResponse_httpStatus,
 
     -- ** ListIdentities
-    listIdentities_nextToken,
     listIdentities_hideDisabled,
+    listIdentities_nextToken,
     listIdentities_identityPoolId,
     listIdentities_maxResults,
-    listIdentitiesResponse_nextToken,
     listIdentitiesResponse_identities,
     listIdentitiesResponse_identityPoolId,
+    listIdentitiesResponse_nextToken,
     listIdentitiesResponse_httpStatus,
 
     -- ** ListIdentityPools
     listIdentityPools_nextToken,
     listIdentityPools_maxResults,
-    listIdentityPoolsResponse_nextToken,
     listIdentityPoolsResponse_identityPools,
+    listIdentityPoolsResponse_nextToken,
     listIdentityPoolsResponse_httpStatus,
 
     -- ** ListTagsForResource
@@ -134,14 +134,14 @@ module Amazonka.CognitoIdentity.Lens
     listTagsForResourceResponse_httpStatus,
 
     -- ** LookupDeveloperIdentity
-    lookupDeveloperIdentity_nextToken,
     lookupDeveloperIdentity_developerUserIdentifier,
-    lookupDeveloperIdentity_maxResults,
     lookupDeveloperIdentity_identityId,
+    lookupDeveloperIdentity_maxResults,
+    lookupDeveloperIdentity_nextToken,
     lookupDeveloperIdentity_identityPoolId,
-    lookupDeveloperIdentityResponse_nextToken,
-    lookupDeveloperIdentityResponse_identityId,
     lookupDeveloperIdentityResponse_developerUserIdentifierList,
+    lookupDeveloperIdentityResponse_identityId,
+    lookupDeveloperIdentityResponse_nextToken,
     lookupDeveloperIdentityResponse_httpStatus,
 
     -- ** MergeDeveloperIdentities
@@ -158,14 +158,14 @@ module Amazonka.CognitoIdentity.Lens
     setIdentityPoolRoles_roles,
 
     -- ** SetPrincipalTagAttributeMap
-    setPrincipalTagAttributeMap_useDefaults,
     setPrincipalTagAttributeMap_principalTags,
+    setPrincipalTagAttributeMap_useDefaults,
     setPrincipalTagAttributeMap_identityPoolId,
     setPrincipalTagAttributeMap_identityProviderName,
-    setPrincipalTagAttributeMapResponse_useDefaults,
-    setPrincipalTagAttributeMapResponse_identityProviderName,
     setPrincipalTagAttributeMapResponse_identityPoolId,
+    setPrincipalTagAttributeMapResponse_identityProviderName,
     setPrincipalTagAttributeMapResponse_principalTags,
+    setPrincipalTagAttributeMapResponse_useDefaults,
     setPrincipalTagAttributeMapResponse_httpStatus,
 
     -- ** TagResource
@@ -191,22 +191,22 @@ module Amazonka.CognitoIdentity.Lens
 
     -- ** UpdateIdentityPool
     updateIdentityPool_allowClassicFlow,
-    updateIdentityPool_identityPoolTags,
     updateIdentityPool_cognitoIdentityProviders,
+    updateIdentityPool_developerProviderName,
+    updateIdentityPool_identityPoolTags,
+    updateIdentityPool_openIdConnectProviderARNs,
     updateIdentityPool_samlProviderARNs,
     updateIdentityPool_supportedLoginProviders,
-    updateIdentityPool_openIdConnectProviderARNs,
-    updateIdentityPool_developerProviderName,
     updateIdentityPool_identityPoolId,
     updateIdentityPool_identityPoolName,
     updateIdentityPool_allowUnauthenticatedIdentities,
     identityPool_allowClassicFlow,
-    identityPool_identityPoolTags,
     identityPool_cognitoIdentityProviders,
+    identityPool_developerProviderName,
+    identityPool_identityPoolTags,
+    identityPool_openIdConnectProviderARNs,
     identityPool_samlProviderARNs,
     identityPool_supportedLoginProviders,
-    identityPool_openIdConnectProviderARNs,
-    identityPool_developerProviderName,
     identityPool_identityPoolId,
     identityPool_identityPoolName,
     identityPool_allowUnauthenticatedIdentities,
@@ -219,32 +219,32 @@ module Amazonka.CognitoIdentity.Lens
     cognitoIdentityProvider_serverSideTokenCheck,
 
     -- ** Credentials
-    credentials_sessionToken,
+    credentials_accessKeyId,
     credentials_expiration,
     credentials_secretKey,
-    credentials_accessKeyId,
+    credentials_sessionToken,
 
     -- ** IdentityDescription
-    identityDescription_logins,
-    identityDescription_lastModifiedDate,
     identityDescription_creationDate,
     identityDescription_identityId,
+    identityDescription_lastModifiedDate,
+    identityDescription_logins,
 
     -- ** IdentityPool
     identityPool_allowClassicFlow,
-    identityPool_identityPoolTags,
     identityPool_cognitoIdentityProviders,
+    identityPool_developerProviderName,
+    identityPool_identityPoolTags,
+    identityPool_openIdConnectProviderARNs,
     identityPool_samlProviderARNs,
     identityPool_supportedLoginProviders,
-    identityPool_openIdConnectProviderARNs,
-    identityPool_developerProviderName,
     identityPool_identityPoolId,
     identityPool_identityPoolName,
     identityPool_allowUnauthenticatedIdentities,
 
     -- ** IdentityPoolShortDescription
-    identityPoolShortDescription_identityPoolName,
     identityPoolShortDescription_identityPoolId,
+    identityPoolShortDescription_identityPoolName,
 
     -- ** MappingRule
     mappingRule_claim,

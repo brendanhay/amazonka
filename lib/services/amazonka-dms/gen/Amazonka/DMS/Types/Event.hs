@@ -32,18 +32,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEvent' smart constructor.
 data Event = Event'
-  { -- | The event message.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The date of the event.
+  { -- | The date of the event.
     date :: Prelude.Maybe Data.POSIX,
+    -- | The event categories available for the specified source type.
+    eventCategories :: Prelude.Maybe [Prelude.Text],
+    -- | The event message.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of an event source.
+    sourceIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The type of DMS resource that generates events.
     --
     -- Valid values: replication-instance | endpoint | replication-task
-    sourceType :: Prelude.Maybe SourceType,
-    -- | The identifier of an event source.
-    sourceIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The event categories available for the specified source type.
-    eventCategories :: Prelude.Maybe [Prelude.Text]
+    sourceType :: Prelude.Maybe SourceType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,35 +55,43 @@ data Event = Event'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'date', 'event_date' - The date of the event.
+--
+-- 'eventCategories', 'event_eventCategories' - The event categories available for the specified source type.
+--
 -- 'message', 'event_message' - The event message.
 --
--- 'date', 'event_date' - The date of the event.
+-- 'sourceIdentifier', 'event_sourceIdentifier' - The identifier of an event source.
 --
 -- 'sourceType', 'event_sourceType' - The type of DMS resource that generates events.
 --
 -- Valid values: replication-instance | endpoint | replication-task
---
--- 'sourceIdentifier', 'event_sourceIdentifier' - The identifier of an event source.
---
--- 'eventCategories', 'event_eventCategories' - The event categories available for the specified source type.
 newEvent ::
   Event
 newEvent =
   Event'
-    { message = Prelude.Nothing,
-      date = Prelude.Nothing,
-      sourceType = Prelude.Nothing,
+    { date = Prelude.Nothing,
+      eventCategories = Prelude.Nothing,
+      message = Prelude.Nothing,
       sourceIdentifier = Prelude.Nothing,
-      eventCategories = Prelude.Nothing
+      sourceType = Prelude.Nothing
     }
+
+-- | The date of the event.
+event_date :: Lens.Lens' Event (Prelude.Maybe Prelude.UTCTime)
+event_date = Lens.lens (\Event' {date} -> date) (\s@Event' {} a -> s {date = a} :: Event) Prelude.. Lens.mapping Data._Time
+
+-- | The event categories available for the specified source type.
+event_eventCategories :: Lens.Lens' Event (Prelude.Maybe [Prelude.Text])
+event_eventCategories = Lens.lens (\Event' {eventCategories} -> eventCategories) (\s@Event' {} a -> s {eventCategories = a} :: Event) Prelude.. Lens.mapping Lens.coerced
 
 -- | The event message.
 event_message :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_message = Lens.lens (\Event' {message} -> message) (\s@Event' {} a -> s {message = a} :: Event)
 
--- | The date of the event.
-event_date :: Lens.Lens' Event (Prelude.Maybe Prelude.UTCTime)
-event_date = Lens.lens (\Event' {date} -> date) (\s@Event' {} a -> s {date = a} :: Event) Prelude.. Lens.mapping Data._Time
+-- | The identifier of an event source.
+event_sourceIdentifier :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
+event_sourceIdentifier = Lens.lens (\Event' {sourceIdentifier} -> sourceIdentifier) (\s@Event' {} a -> s {sourceIdentifier = a} :: Event)
 
 -- | The type of DMS resource that generates events.
 --
@@ -91,41 +99,33 @@ event_date = Lens.lens (\Event' {date} -> date) (\s@Event' {} a -> s {date = a} 
 event_sourceType :: Lens.Lens' Event (Prelude.Maybe SourceType)
 event_sourceType = Lens.lens (\Event' {sourceType} -> sourceType) (\s@Event' {} a -> s {sourceType = a} :: Event)
 
--- | The identifier of an event source.
-event_sourceIdentifier :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
-event_sourceIdentifier = Lens.lens (\Event' {sourceIdentifier} -> sourceIdentifier) (\s@Event' {} a -> s {sourceIdentifier = a} :: Event)
-
--- | The event categories available for the specified source type.
-event_eventCategories :: Lens.Lens' Event (Prelude.Maybe [Prelude.Text])
-event_eventCategories = Lens.lens (\Event' {eventCategories} -> eventCategories) (\s@Event' {} a -> s {eventCategories = a} :: Event) Prelude.. Lens.mapping Lens.coerced
-
 instance Data.FromJSON Event where
   parseJSON =
     Data.withObject
       "Event"
       ( \x ->
           Event'
-            Prelude.<$> (x Data..:? "Message")
-            Prelude.<*> (x Data..:? "Date")
-            Prelude.<*> (x Data..:? "SourceType")
-            Prelude.<*> (x Data..:? "SourceIdentifier")
+            Prelude.<$> (x Data..:? "Date")
             Prelude.<*> ( x Data..:? "EventCategories"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "Message")
+            Prelude.<*> (x Data..:? "SourceIdentifier")
+            Prelude.<*> (x Data..:? "SourceType")
       )
 
 instance Prelude.Hashable Event where
   hashWithSalt _salt Event' {..} =
-    _salt `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` date
-      `Prelude.hashWithSalt` sourceType
-      `Prelude.hashWithSalt` sourceIdentifier
+    _salt `Prelude.hashWithSalt` date
       `Prelude.hashWithSalt` eventCategories
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` sourceIdentifier
+      `Prelude.hashWithSalt` sourceType
 
 instance Prelude.NFData Event where
   rnf Event' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf date
-      `Prelude.seq` Prelude.rnf sourceType
-      `Prelude.seq` Prelude.rnf sourceIdentifier
+    Prelude.rnf date
       `Prelude.seq` Prelude.rnf eventCategories
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf sourceIdentifier
+      `Prelude.seq` Prelude.rnf sourceType

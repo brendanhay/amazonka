@@ -27,12 +27,12 @@ module Amazonka.ResilienceHub.CreateRecommendationTemplate
     newCreateRecommendationTemplate,
 
     -- * Request Lenses
-    createRecommendationTemplate_tags,
+    createRecommendationTemplate_bucketName,
     createRecommendationTemplate_clientToken,
     createRecommendationTemplate_format,
     createRecommendationTemplate_recommendationIds,
-    createRecommendationTemplate_bucketName,
     createRecommendationTemplate_recommendationTypes,
+    createRecommendationTemplate_tags,
     createRecommendationTemplate_assessmentArn,
     createRecommendationTemplate_name,
 
@@ -56,9 +56,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateRecommendationTemplate' smart constructor.
 data CreateRecommendationTemplate = CreateRecommendationTemplate'
-  { -- | The tags assigned to the resource. A tag is a label that you assign to
-    -- an Amazon Web Services resource. Each tag consists of a key\/value pair.
-    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+  { -- | The name of the Amazon S3 bucket that will contain the recommendation
+    -- template.
+    bucketName :: Prelude.Maybe Prelude.Text,
     -- | Used for an idempotency token. A client token is a unique,
     -- case-sensitive string of up to 64 ASCII characters. You should not reuse
     -- the same client token for other API requests.
@@ -74,9 +74,6 @@ data CreateRecommendationTemplate = CreateRecommendationTemplate'
     -- | Identifiers for the recommendations used to create a recommendation
     -- template.
     recommendationIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The name of the Amazon S3 bucket that will contain the recommendation
-    -- template.
-    bucketName :: Prelude.Maybe Prelude.Text,
     -- | An array of strings that specify the recommendation template type or
     -- types.
     --
@@ -89,6 +86,9 @@ data CreateRecommendationTemplate = CreateRecommendationTemplate'
     -- [Test]
     --     The template is a TestRecommendation template.
     recommendationTypes :: Prelude.Maybe (Prelude.NonEmpty RenderRecommendationType),
+    -- | The tags assigned to the resource. A tag is a label that you assign to
+    -- an Amazon Web Services resource. Each tag consists of a key\/value pair.
+    tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The Amazon Resource Name (ARN) of the assessment. The format for this
     -- ARN is:
     -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
@@ -109,8 +109,8 @@ data CreateRecommendationTemplate = CreateRecommendationTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createRecommendationTemplate_tags' - The tags assigned to the resource. A tag is a label that you assign to
--- an Amazon Web Services resource. Each tag consists of a key\/value pair.
+-- 'bucketName', 'createRecommendationTemplate_bucketName' - The name of the Amazon S3 bucket that will contain the recommendation
+-- template.
 --
 -- 'clientToken', 'createRecommendationTemplate_clientToken' - Used for an idempotency token. A client token is a unique,
 -- case-sensitive string of up to 64 ASCII characters. You should not reuse
@@ -127,9 +127,6 @@ data CreateRecommendationTemplate = CreateRecommendationTemplate'
 -- 'recommendationIds', 'createRecommendationTemplate_recommendationIds' - Identifiers for the recommendations used to create a recommendation
 -- template.
 --
--- 'bucketName', 'createRecommendationTemplate_bucketName' - The name of the Amazon S3 bucket that will contain the recommendation
--- template.
---
 -- 'recommendationTypes', 'createRecommendationTemplate_recommendationTypes' - An array of strings that specify the recommendation template type or
 -- types.
 --
@@ -141,6 +138,9 @@ data CreateRecommendationTemplate = CreateRecommendationTemplate'
 --
 -- [Test]
 --     The template is a TestRecommendation template.
+--
+-- 'tags', 'createRecommendationTemplate_tags' - The tags assigned to the resource. A tag is a label that you assign to
+-- an Amazon Web Services resource. Each tag consists of a key\/value pair.
 --
 -- 'assessmentArn', 'createRecommendationTemplate_assessmentArn' - The Amazon Resource Name (ARN) of the assessment. The format for this
 -- ARN is:
@@ -160,21 +160,21 @@ newCreateRecommendationTemplate
   pAssessmentArn_
   pName_ =
     CreateRecommendationTemplate'
-      { tags =
+      { bucketName =
           Prelude.Nothing,
         clientToken = Prelude.Nothing,
         format = Prelude.Nothing,
         recommendationIds = Prelude.Nothing,
-        bucketName = Prelude.Nothing,
         recommendationTypes = Prelude.Nothing,
+        tags = Prelude.Nothing,
         assessmentArn = pAssessmentArn_,
         name = pName_
       }
 
--- | The tags assigned to the resource. A tag is a label that you assign to
--- an Amazon Web Services resource. Each tag consists of a key\/value pair.
-createRecommendationTemplate_tags :: Lens.Lens' CreateRecommendationTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createRecommendationTemplate_tags = Lens.lens (\CreateRecommendationTemplate' {tags} -> tags) (\s@CreateRecommendationTemplate' {} a -> s {tags = a} :: CreateRecommendationTemplate) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
+-- | The name of the Amazon S3 bucket that will contain the recommendation
+-- template.
+createRecommendationTemplate_bucketName :: Lens.Lens' CreateRecommendationTemplate (Prelude.Maybe Prelude.Text)
+createRecommendationTemplate_bucketName = Lens.lens (\CreateRecommendationTemplate' {bucketName} -> bucketName) (\s@CreateRecommendationTemplate' {} a -> s {bucketName = a} :: CreateRecommendationTemplate)
 
 -- | Used for an idempotency token. A client token is a unique,
 -- case-sensitive string of up to 64 ASCII characters. You should not reuse
@@ -197,11 +197,6 @@ createRecommendationTemplate_format = Lens.lens (\CreateRecommendationTemplate' 
 createRecommendationTemplate_recommendationIds :: Lens.Lens' CreateRecommendationTemplate (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 createRecommendationTemplate_recommendationIds = Lens.lens (\CreateRecommendationTemplate' {recommendationIds} -> recommendationIds) (\s@CreateRecommendationTemplate' {} a -> s {recommendationIds = a} :: CreateRecommendationTemplate) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the Amazon S3 bucket that will contain the recommendation
--- template.
-createRecommendationTemplate_bucketName :: Lens.Lens' CreateRecommendationTemplate (Prelude.Maybe Prelude.Text)
-createRecommendationTemplate_bucketName = Lens.lens (\CreateRecommendationTemplate' {bucketName} -> bucketName) (\s@CreateRecommendationTemplate' {} a -> s {bucketName = a} :: CreateRecommendationTemplate)
-
 -- | An array of strings that specify the recommendation template type or
 -- types.
 --
@@ -215,6 +210,11 @@ createRecommendationTemplate_bucketName = Lens.lens (\CreateRecommendationTempla
 --     The template is a TestRecommendation template.
 createRecommendationTemplate_recommendationTypes :: Lens.Lens' CreateRecommendationTemplate (Prelude.Maybe (Prelude.NonEmpty RenderRecommendationType))
 createRecommendationTemplate_recommendationTypes = Lens.lens (\CreateRecommendationTemplate' {recommendationTypes} -> recommendationTypes) (\s@CreateRecommendationTemplate' {} a -> s {recommendationTypes = a} :: CreateRecommendationTemplate) Prelude.. Lens.mapping Lens.coerced
+
+-- | The tags assigned to the resource. A tag is a label that you assign to
+-- an Amazon Web Services resource. Each tag consists of a key\/value pair.
+createRecommendationTemplate_tags :: Lens.Lens' CreateRecommendationTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createRecommendationTemplate_tags = Lens.lens (\CreateRecommendationTemplate' {tags} -> tags) (\s@CreateRecommendationTemplate' {} a -> s {tags = a} :: CreateRecommendationTemplate) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The Amazon Resource Name (ARN) of the assessment. The format for this
 -- ARN is:
@@ -248,23 +248,23 @@ instance
     CreateRecommendationTemplate
   where
   hashWithSalt _salt CreateRecommendationTemplate' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` bucketName
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` recommendationIds
-      `Prelude.hashWithSalt` bucketName
       `Prelude.hashWithSalt` recommendationTypes
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` assessmentArn
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateRecommendationTemplate where
   rnf CreateRecommendationTemplate' {..} =
-    Prelude.rnf tags
+    Prelude.rnf bucketName
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf format
       `Prelude.seq` Prelude.rnf recommendationIds
-      `Prelude.seq` Prelude.rnf bucketName
       `Prelude.seq` Prelude.rnf recommendationTypes
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf assessmentArn
       `Prelude.seq` Prelude.rnf name
 
@@ -283,14 +283,14 @@ instance Data.ToJSON CreateRecommendationTemplate where
   toJSON CreateRecommendationTemplate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
+          [ ("bucketName" Data..=) Prelude.<$> bucketName,
             ("clientToken" Data..=) Prelude.<$> clientToken,
             ("format" Data..=) Prelude.<$> format,
             ("recommendationIds" Data..=)
               Prelude.<$> recommendationIds,
-            ("bucketName" Data..=) Prelude.<$> bucketName,
             ("recommendationTypes" Data..=)
               Prelude.<$> recommendationTypes,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("assessmentArn" Data..= assessmentArn),
             Prelude.Just ("name" Data..= name)
           ]

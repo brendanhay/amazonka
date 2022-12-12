@@ -29,8 +29,8 @@ module Amazonka.AppSync.ListResolvers
     newListResolvers,
 
     -- * Request Lenses
-    listResolvers_nextToken,
     listResolvers_maxResults,
+    listResolvers_nextToken,
     listResolvers_apiId,
     listResolvers_typeName,
 
@@ -55,12 +55,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListResolvers' smart constructor.
 data ListResolvers = ListResolvers'
-  { -- | An identifier that was returned from the previous call to this
+  { -- | The maximum number of results that you want the request to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | An identifier that was returned from the previous call to this
     -- operation, which you can use to return the next set of items in the
     -- list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results that you want the request to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The API ID.
     apiId :: Prelude.Text,
     -- | The type name.
@@ -76,11 +76,11 @@ data ListResolvers = ListResolvers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listResolvers_maxResults' - The maximum number of results that you want the request to return.
+--
 -- 'nextToken', 'listResolvers_nextToken' - An identifier that was returned from the previous call to this
 -- operation, which you can use to return the next set of items in the
 -- list.
---
--- 'maxResults', 'listResolvers_maxResults' - The maximum number of results that you want the request to return.
 --
 -- 'apiId', 'listResolvers_apiId' - The API ID.
 --
@@ -93,21 +93,21 @@ newListResolvers ::
   ListResolvers
 newListResolvers pApiId_ pTypeName_ =
   ListResolvers'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       apiId = pApiId_,
       typeName = pTypeName_
     }
+
+-- | The maximum number of results that you want the request to return.
+listResolvers_maxResults :: Lens.Lens' ListResolvers (Prelude.Maybe Prelude.Natural)
+listResolvers_maxResults = Lens.lens (\ListResolvers' {maxResults} -> maxResults) (\s@ListResolvers' {} a -> s {maxResults = a} :: ListResolvers)
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which you can use to return the next set of items in the
 -- list.
 listResolvers_nextToken :: Lens.Lens' ListResolvers (Prelude.Maybe Prelude.Text)
 listResolvers_nextToken = Lens.lens (\ListResolvers' {nextToken} -> nextToken) (\s@ListResolvers' {} a -> s {nextToken = a} :: ListResolvers)
-
--- | The maximum number of results that you want the request to return.
-listResolvers_maxResults :: Lens.Lens' ListResolvers (Prelude.Maybe Prelude.Natural)
-listResolvers_maxResults = Lens.lens (\ListResolvers' {maxResults} -> maxResults) (\s@ListResolvers' {} a -> s {maxResults = a} :: ListResolvers)
 
 -- | The API ID.
 listResolvers_apiId :: Lens.Lens' ListResolvers Prelude.Text
@@ -153,15 +153,15 @@ instance Core.AWSRequest ListResolvers where
 
 instance Prelude.Hashable ListResolvers where
   hashWithSalt _salt ListResolvers' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` apiId
       `Prelude.hashWithSalt` typeName
 
 instance Prelude.NFData ListResolvers where
   rnf ListResolvers' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf apiId
       `Prelude.seq` Prelude.rnf typeName
 
@@ -189,8 +189,8 @@ instance Data.ToPath ListResolvers where
 instance Data.ToQuery ListResolvers where
   toQuery ListResolvers' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListResolversResponse' smart constructor.

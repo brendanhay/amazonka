@@ -26,9 +26,8 @@
 --
 -- If the fleet being deleted has a VPC peering connection, you first need
 -- to get a valid authorization (good for 24 hours) by calling
--- CreateVpcPeeringAuthorization. You do not need to explicitly delete the
--- VPC peering connection--this is done as part of the delete fleet
--- process.
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateVpcPeeringAuthorization.html CreateVpcPeeringAuthorization>.
+-- You do not need to explicitly delete the VPC peering connection.
 --
 -- To delete a fleet, specify the fleet ID to be terminated. During the
 -- deletion process the fleet status is changed to @DELETING@. When
@@ -38,14 +37,6 @@
 -- __Learn more__
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up GameLift Fleets>
---
--- __Related actions__
---
--- CreateFleetLocations | UpdateFleetAttributes | UpdateFleetCapacity |
--- UpdateFleetPortSettings | UpdateRuntimeConfiguration | StopFleetActions
--- | StartFleetActions | PutScalingPolicy | DeleteFleet |
--- DeleteFleetLocations | DeleteScalingPolicy |
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Amazonka.GameLift.DeleteFleet
   ( -- * Creating a Request
     DeleteFleet (..),
@@ -68,9 +59,7 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Represents the input for a request operation.
---
--- /See:/ 'newDeleteFleet' smart constructor.
+-- | /See:/ 'newDeleteFleet' smart constructor.
 data DeleteFleet = DeleteFleet'
   { -- | A unique identifier for the fleet to be deleted. You can use either the
     -- fleet ID or ARN value.

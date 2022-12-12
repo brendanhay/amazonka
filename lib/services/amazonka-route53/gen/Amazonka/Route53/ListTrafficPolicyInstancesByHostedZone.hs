@@ -38,9 +38,9 @@ module Amazonka.Route53.ListTrafficPolicyInstancesByHostedZone
     newListTrafficPolicyInstancesByHostedZone,
 
     -- * Request Lenses
-    listTrafficPolicyInstancesByHostedZone_trafficPolicyInstanceTypeMarker,
-    listTrafficPolicyInstancesByHostedZone_trafficPolicyInstanceNameMarker,
     listTrafficPolicyInstancesByHostedZone_maxItems,
+    listTrafficPolicyInstancesByHostedZone_trafficPolicyInstanceNameMarker,
+    listTrafficPolicyInstancesByHostedZone_trafficPolicyInstanceTypeMarker,
     listTrafficPolicyInstancesByHostedZone_hostedZoneId,
 
     -- * Destructuring the Response
@@ -48,8 +48,8 @@ module Amazonka.Route53.ListTrafficPolicyInstancesByHostedZone
     newListTrafficPolicyInstancesByHostedZoneResponse,
 
     -- * Response Lenses
-    listTrafficPolicyInstancesByHostedZoneResponse_trafficPolicyInstanceTypeMarker,
     listTrafficPolicyInstancesByHostedZoneResponse_trafficPolicyInstanceNameMarker,
+    listTrafficPolicyInstancesByHostedZoneResponse_trafficPolicyInstanceTypeMarker,
     listTrafficPolicyInstancesByHostedZoneResponse_httpStatus,
     listTrafficPolicyInstancesByHostedZoneResponse_trafficPolicyInstances,
     listTrafficPolicyInstancesByHostedZoneResponse_isTruncated,
@@ -70,17 +70,14 @@ import Amazonka.Route53.Types
 --
 -- /See:/ 'newListTrafficPolicyInstancesByHostedZone' smart constructor.
 data ListTrafficPolicyInstancesByHostedZone = ListTrafficPolicyInstancesByHostedZone'
-  { -- | If the value of @IsTruncated@ in the previous response is true, you have
-    -- more traffic policy instances. To get more traffic policy instances,
-    -- submit another @ListTrafficPolicyInstances@ request. For the value of
-    -- @trafficpolicyinstancetype@, specify the value of
-    -- @TrafficPolicyInstanceTypeMarker@ from the previous response, which is
-    -- the type of the first traffic policy instance in the next group of
-    -- traffic policy instances.
-    --
-    -- If the value of @IsTruncated@ in the previous response was @false@,
-    -- there are no more traffic policy instances to get.
-    trafficPolicyInstanceTypeMarker :: Prelude.Maybe RRType,
+  { -- | The maximum number of traffic policy instances to be included in the
+    -- response body for this request. If you have more than @MaxItems@ traffic
+    -- policy instances, the value of the @IsTruncated@ element in the response
+    -- is @true@, and the values of @HostedZoneIdMarker@,
+    -- @TrafficPolicyInstanceNameMarker@, and @TrafficPolicyInstanceTypeMarker@
+    -- represent the first traffic policy instance that Amazon Route 53 will
+    -- return if you submit another request.
+    maxItems :: Prelude.Maybe Prelude.Text,
     -- | If the value of @IsTruncated@ in the previous response is true, you have
     -- more traffic policy instances. To get more traffic policy instances,
     -- submit another @ListTrafficPolicyInstances@ request. For the value of
@@ -92,14 +89,17 @@ data ListTrafficPolicyInstancesByHostedZone = ListTrafficPolicyInstancesByHosted
     -- If the value of @IsTruncated@ in the previous response was @false@,
     -- there are no more traffic policy instances to get.
     trafficPolicyInstanceNameMarker :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of traffic policy instances to be included in the
-    -- response body for this request. If you have more than @MaxItems@ traffic
-    -- policy instances, the value of the @IsTruncated@ element in the response
-    -- is @true@, and the values of @HostedZoneIdMarker@,
-    -- @TrafficPolicyInstanceNameMarker@, and @TrafficPolicyInstanceTypeMarker@
-    -- represent the first traffic policy instance that Amazon Route 53 will
-    -- return if you submit another request.
-    maxItems :: Prelude.Maybe Prelude.Text,
+    -- | If the value of @IsTruncated@ in the previous response is true, you have
+    -- more traffic policy instances. To get more traffic policy instances,
+    -- submit another @ListTrafficPolicyInstances@ request. For the value of
+    -- @trafficpolicyinstancetype@, specify the value of
+    -- @TrafficPolicyInstanceTypeMarker@ from the previous response, which is
+    -- the type of the first traffic policy instance in the next group of
+    -- traffic policy instances.
+    --
+    -- If the value of @IsTruncated@ in the previous response was @false@,
+    -- there are no more traffic policy instances to get.
+    trafficPolicyInstanceTypeMarker :: Prelude.Maybe RRType,
     -- | The ID of the hosted zone that you want to list traffic policy instances
     -- for.
     hostedZoneId :: ResourceId
@@ -114,16 +114,13 @@ data ListTrafficPolicyInstancesByHostedZone = ListTrafficPolicyInstancesByHosted
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'trafficPolicyInstanceTypeMarker', 'listTrafficPolicyInstancesByHostedZone_trafficPolicyInstanceTypeMarker' - If the value of @IsTruncated@ in the previous response is true, you have
--- more traffic policy instances. To get more traffic policy instances,
--- submit another @ListTrafficPolicyInstances@ request. For the value of
--- @trafficpolicyinstancetype@, specify the value of
--- @TrafficPolicyInstanceTypeMarker@ from the previous response, which is
--- the type of the first traffic policy instance in the next group of
--- traffic policy instances.
---
--- If the value of @IsTruncated@ in the previous response was @false@,
--- there are no more traffic policy instances to get.
+-- 'maxItems', 'listTrafficPolicyInstancesByHostedZone_maxItems' - The maximum number of traffic policy instances to be included in the
+-- response body for this request. If you have more than @MaxItems@ traffic
+-- policy instances, the value of the @IsTruncated@ element in the response
+-- is @true@, and the values of @HostedZoneIdMarker@,
+-- @TrafficPolicyInstanceNameMarker@, and @TrafficPolicyInstanceTypeMarker@
+-- represent the first traffic policy instance that Amazon Route 53 will
+-- return if you submit another request.
 --
 -- 'trafficPolicyInstanceNameMarker', 'listTrafficPolicyInstancesByHostedZone_trafficPolicyInstanceNameMarker' - If the value of @IsTruncated@ in the previous response is true, you have
 -- more traffic policy instances. To get more traffic policy instances,
@@ -136,13 +133,16 @@ data ListTrafficPolicyInstancesByHostedZone = ListTrafficPolicyInstancesByHosted
 -- If the value of @IsTruncated@ in the previous response was @false@,
 -- there are no more traffic policy instances to get.
 --
--- 'maxItems', 'listTrafficPolicyInstancesByHostedZone_maxItems' - The maximum number of traffic policy instances to be included in the
--- response body for this request. If you have more than @MaxItems@ traffic
--- policy instances, the value of the @IsTruncated@ element in the response
--- is @true@, and the values of @HostedZoneIdMarker@,
--- @TrafficPolicyInstanceNameMarker@, and @TrafficPolicyInstanceTypeMarker@
--- represent the first traffic policy instance that Amazon Route 53 will
--- return if you submit another request.
+-- 'trafficPolicyInstanceTypeMarker', 'listTrafficPolicyInstancesByHostedZone_trafficPolicyInstanceTypeMarker' - If the value of @IsTruncated@ in the previous response is true, you have
+-- more traffic policy instances. To get more traffic policy instances,
+-- submit another @ListTrafficPolicyInstances@ request. For the value of
+-- @trafficpolicyinstancetype@, specify the value of
+-- @TrafficPolicyInstanceTypeMarker@ from the previous response, which is
+-- the type of the first traffic policy instance in the next group of
+-- traffic policy instances.
+--
+-- If the value of @IsTruncated@ in the previous response was @false@,
+-- there are no more traffic policy instances to get.
 --
 -- 'hostedZoneId', 'listTrafficPolicyInstancesByHostedZone_hostedZoneId' - The ID of the hosted zone that you want to list traffic policy instances
 -- for.
@@ -153,26 +153,24 @@ newListTrafficPolicyInstancesByHostedZone ::
 newListTrafficPolicyInstancesByHostedZone
   pHostedZoneId_ =
     ListTrafficPolicyInstancesByHostedZone'
-      { trafficPolicyInstanceTypeMarker =
+      { maxItems =
           Prelude.Nothing,
         trafficPolicyInstanceNameMarker =
           Prelude.Nothing,
-        maxItems = Prelude.Nothing,
+        trafficPolicyInstanceTypeMarker =
+          Prelude.Nothing,
         hostedZoneId = pHostedZoneId_
       }
 
--- | If the value of @IsTruncated@ in the previous response is true, you have
--- more traffic policy instances. To get more traffic policy instances,
--- submit another @ListTrafficPolicyInstances@ request. For the value of
--- @trafficpolicyinstancetype@, specify the value of
--- @TrafficPolicyInstanceTypeMarker@ from the previous response, which is
--- the type of the first traffic policy instance in the next group of
--- traffic policy instances.
---
--- If the value of @IsTruncated@ in the previous response was @false@,
--- there are no more traffic policy instances to get.
-listTrafficPolicyInstancesByHostedZone_trafficPolicyInstanceTypeMarker :: Lens.Lens' ListTrafficPolicyInstancesByHostedZone (Prelude.Maybe RRType)
-listTrafficPolicyInstancesByHostedZone_trafficPolicyInstanceTypeMarker = Lens.lens (\ListTrafficPolicyInstancesByHostedZone' {trafficPolicyInstanceTypeMarker} -> trafficPolicyInstanceTypeMarker) (\s@ListTrafficPolicyInstancesByHostedZone' {} a -> s {trafficPolicyInstanceTypeMarker = a} :: ListTrafficPolicyInstancesByHostedZone)
+-- | The maximum number of traffic policy instances to be included in the
+-- response body for this request. If you have more than @MaxItems@ traffic
+-- policy instances, the value of the @IsTruncated@ element in the response
+-- is @true@, and the values of @HostedZoneIdMarker@,
+-- @TrafficPolicyInstanceNameMarker@, and @TrafficPolicyInstanceTypeMarker@
+-- represent the first traffic policy instance that Amazon Route 53 will
+-- return if you submit another request.
+listTrafficPolicyInstancesByHostedZone_maxItems :: Lens.Lens' ListTrafficPolicyInstancesByHostedZone (Prelude.Maybe Prelude.Text)
+listTrafficPolicyInstancesByHostedZone_maxItems = Lens.lens (\ListTrafficPolicyInstancesByHostedZone' {maxItems} -> maxItems) (\s@ListTrafficPolicyInstancesByHostedZone' {} a -> s {maxItems = a} :: ListTrafficPolicyInstancesByHostedZone)
 
 -- | If the value of @IsTruncated@ in the previous response is true, you have
 -- more traffic policy instances. To get more traffic policy instances,
@@ -187,15 +185,18 @@ listTrafficPolicyInstancesByHostedZone_trafficPolicyInstanceTypeMarker = Lens.le
 listTrafficPolicyInstancesByHostedZone_trafficPolicyInstanceNameMarker :: Lens.Lens' ListTrafficPolicyInstancesByHostedZone (Prelude.Maybe Prelude.Text)
 listTrafficPolicyInstancesByHostedZone_trafficPolicyInstanceNameMarker = Lens.lens (\ListTrafficPolicyInstancesByHostedZone' {trafficPolicyInstanceNameMarker} -> trafficPolicyInstanceNameMarker) (\s@ListTrafficPolicyInstancesByHostedZone' {} a -> s {trafficPolicyInstanceNameMarker = a} :: ListTrafficPolicyInstancesByHostedZone)
 
--- | The maximum number of traffic policy instances to be included in the
--- response body for this request. If you have more than @MaxItems@ traffic
--- policy instances, the value of the @IsTruncated@ element in the response
--- is @true@, and the values of @HostedZoneIdMarker@,
--- @TrafficPolicyInstanceNameMarker@, and @TrafficPolicyInstanceTypeMarker@
--- represent the first traffic policy instance that Amazon Route 53 will
--- return if you submit another request.
-listTrafficPolicyInstancesByHostedZone_maxItems :: Lens.Lens' ListTrafficPolicyInstancesByHostedZone (Prelude.Maybe Prelude.Text)
-listTrafficPolicyInstancesByHostedZone_maxItems = Lens.lens (\ListTrafficPolicyInstancesByHostedZone' {maxItems} -> maxItems) (\s@ListTrafficPolicyInstancesByHostedZone' {} a -> s {maxItems = a} :: ListTrafficPolicyInstancesByHostedZone)
+-- | If the value of @IsTruncated@ in the previous response is true, you have
+-- more traffic policy instances. To get more traffic policy instances,
+-- submit another @ListTrafficPolicyInstances@ request. For the value of
+-- @trafficpolicyinstancetype@, specify the value of
+-- @TrafficPolicyInstanceTypeMarker@ from the previous response, which is
+-- the type of the first traffic policy instance in the next group of
+-- traffic policy instances.
+--
+-- If the value of @IsTruncated@ in the previous response was @false@,
+-- there are no more traffic policy instances to get.
+listTrafficPolicyInstancesByHostedZone_trafficPolicyInstanceTypeMarker :: Lens.Lens' ListTrafficPolicyInstancesByHostedZone (Prelude.Maybe RRType)
+listTrafficPolicyInstancesByHostedZone_trafficPolicyInstanceTypeMarker = Lens.lens (\ListTrafficPolicyInstancesByHostedZone' {trafficPolicyInstanceTypeMarker} -> trafficPolicyInstanceTypeMarker) (\s@ListTrafficPolicyInstancesByHostedZone' {} a -> s {trafficPolicyInstanceTypeMarker = a} :: ListTrafficPolicyInstancesByHostedZone)
 
 -- | The ID of the hosted zone that you want to list traffic policy instances
 -- for.
@@ -216,8 +217,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           ListTrafficPolicyInstancesByHostedZoneResponse'
-            Prelude.<$> (x Data..@? "TrafficPolicyInstanceTypeMarker")
-              Prelude.<*> (x Data..@? "TrafficPolicyInstanceNameMarker")
+            Prelude.<$> (x Data..@? "TrafficPolicyInstanceNameMarker")
+              Prelude.<*> (x Data..@? "TrafficPolicyInstanceTypeMarker")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
               Prelude.<*> ( x Data..@? "TrafficPolicyInstances"
                               Core..!@ Prelude.mempty
@@ -234,10 +235,9 @@ instance
   hashWithSalt
     _salt
     ListTrafficPolicyInstancesByHostedZone' {..} =
-      _salt
-        `Prelude.hashWithSalt` trafficPolicyInstanceTypeMarker
+      _salt `Prelude.hashWithSalt` maxItems
         `Prelude.hashWithSalt` trafficPolicyInstanceNameMarker
-        `Prelude.hashWithSalt` maxItems
+        `Prelude.hashWithSalt` trafficPolicyInstanceTypeMarker
         `Prelude.hashWithSalt` hostedZoneId
 
 instance
@@ -245,9 +245,9 @@ instance
     ListTrafficPolicyInstancesByHostedZone
   where
   rnf ListTrafficPolicyInstancesByHostedZone' {..} =
-    Prelude.rnf trafficPolicyInstanceTypeMarker
+    Prelude.rnf maxItems
       `Prelude.seq` Prelude.rnf trafficPolicyInstanceNameMarker
-      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf trafficPolicyInstanceTypeMarker
       `Prelude.seq` Prelude.rnf hostedZoneId
 
 instance
@@ -270,11 +270,11 @@ instance
   where
   toQuery ListTrafficPolicyInstancesByHostedZone' {..} =
     Prelude.mconcat
-      [ "trafficpolicyinstancetype"
-          Data.=: trafficPolicyInstanceTypeMarker,
+      [ "maxitems" Data.=: maxItems,
         "trafficpolicyinstancename"
           Data.=: trafficPolicyInstanceNameMarker,
-        "maxitems" Data.=: maxItems,
+        "trafficpolicyinstancetype"
+          Data.=: trafficPolicyInstanceTypeMarker,
         "id" Data.=: hostedZoneId
       ]
 
@@ -282,14 +282,14 @@ instance
 --
 -- /See:/ 'newListTrafficPolicyInstancesByHostedZoneResponse' smart constructor.
 data ListTrafficPolicyInstancesByHostedZoneResponse = ListTrafficPolicyInstancesByHostedZoneResponse'
-  { -- | If @IsTruncated@ is true, @TrafficPolicyInstanceTypeMarker@ is the DNS
-    -- type of the resource record sets that are associated with the first
-    -- traffic policy instance in the next group of traffic policy instances.
-    trafficPolicyInstanceTypeMarker :: Prelude.Maybe RRType,
-    -- | If @IsTruncated@ is @true@, @TrafficPolicyInstanceNameMarker@ is the
+  { -- | If @IsTruncated@ is @true@, @TrafficPolicyInstanceNameMarker@ is the
     -- name of the first traffic policy instance in the next group of traffic
     -- policy instances.
     trafficPolicyInstanceNameMarker :: Prelude.Maybe Prelude.Text,
+    -- | If @IsTruncated@ is true, @TrafficPolicyInstanceTypeMarker@ is the DNS
+    -- type of the resource record sets that are associated with the first
+    -- traffic policy instance in the next group of traffic policy instances.
+    trafficPolicyInstanceTypeMarker :: Prelude.Maybe RRType,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | A list that contains one @TrafficPolicyInstance@ element for each
@@ -318,13 +318,13 @@ data ListTrafficPolicyInstancesByHostedZoneResponse = ListTrafficPolicyInstances
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'trafficPolicyInstanceTypeMarker', 'listTrafficPolicyInstancesByHostedZoneResponse_trafficPolicyInstanceTypeMarker' - If @IsTruncated@ is true, @TrafficPolicyInstanceTypeMarker@ is the DNS
--- type of the resource record sets that are associated with the first
--- traffic policy instance in the next group of traffic policy instances.
---
 -- 'trafficPolicyInstanceNameMarker', 'listTrafficPolicyInstancesByHostedZoneResponse_trafficPolicyInstanceNameMarker' - If @IsTruncated@ is @true@, @TrafficPolicyInstanceNameMarker@ is the
 -- name of the first traffic policy instance in the next group of traffic
 -- policy instances.
+--
+-- 'trafficPolicyInstanceTypeMarker', 'listTrafficPolicyInstancesByHostedZoneResponse_trafficPolicyInstanceTypeMarker' - If @IsTruncated@ is true, @TrafficPolicyInstanceTypeMarker@ is the DNS
+-- type of the resource record sets that are associated with the first
+-- traffic policy instance in the next group of traffic policy instances.
 --
 -- 'httpStatus', 'listTrafficPolicyInstancesByHostedZoneResponse_httpStatus' - The response's http status code.
 --
@@ -355,9 +355,9 @@ newListTrafficPolicyInstancesByHostedZoneResponse
   pIsTruncated_
   pMaxItems_ =
     ListTrafficPolicyInstancesByHostedZoneResponse'
-      { trafficPolicyInstanceTypeMarker =
+      { trafficPolicyInstanceNameMarker =
           Prelude.Nothing,
-        trafficPolicyInstanceNameMarker =
+        trafficPolicyInstanceTypeMarker =
           Prelude.Nothing,
         httpStatus = pHttpStatus_,
         trafficPolicyInstances =
@@ -366,17 +366,17 @@ newListTrafficPolicyInstancesByHostedZoneResponse
         maxItems = pMaxItems_
       }
 
--- | If @IsTruncated@ is true, @TrafficPolicyInstanceTypeMarker@ is the DNS
--- type of the resource record sets that are associated with the first
--- traffic policy instance in the next group of traffic policy instances.
-listTrafficPolicyInstancesByHostedZoneResponse_trafficPolicyInstanceTypeMarker :: Lens.Lens' ListTrafficPolicyInstancesByHostedZoneResponse (Prelude.Maybe RRType)
-listTrafficPolicyInstancesByHostedZoneResponse_trafficPolicyInstanceTypeMarker = Lens.lens (\ListTrafficPolicyInstancesByHostedZoneResponse' {trafficPolicyInstanceTypeMarker} -> trafficPolicyInstanceTypeMarker) (\s@ListTrafficPolicyInstancesByHostedZoneResponse' {} a -> s {trafficPolicyInstanceTypeMarker = a} :: ListTrafficPolicyInstancesByHostedZoneResponse)
-
 -- | If @IsTruncated@ is @true@, @TrafficPolicyInstanceNameMarker@ is the
 -- name of the first traffic policy instance in the next group of traffic
 -- policy instances.
 listTrafficPolicyInstancesByHostedZoneResponse_trafficPolicyInstanceNameMarker :: Lens.Lens' ListTrafficPolicyInstancesByHostedZoneResponse (Prelude.Maybe Prelude.Text)
 listTrafficPolicyInstancesByHostedZoneResponse_trafficPolicyInstanceNameMarker = Lens.lens (\ListTrafficPolicyInstancesByHostedZoneResponse' {trafficPolicyInstanceNameMarker} -> trafficPolicyInstanceNameMarker) (\s@ListTrafficPolicyInstancesByHostedZoneResponse' {} a -> s {trafficPolicyInstanceNameMarker = a} :: ListTrafficPolicyInstancesByHostedZoneResponse)
+
+-- | If @IsTruncated@ is true, @TrafficPolicyInstanceTypeMarker@ is the DNS
+-- type of the resource record sets that are associated with the first
+-- traffic policy instance in the next group of traffic policy instances.
+listTrafficPolicyInstancesByHostedZoneResponse_trafficPolicyInstanceTypeMarker :: Lens.Lens' ListTrafficPolicyInstancesByHostedZoneResponse (Prelude.Maybe RRType)
+listTrafficPolicyInstancesByHostedZoneResponse_trafficPolicyInstanceTypeMarker = Lens.lens (\ListTrafficPolicyInstancesByHostedZoneResponse' {trafficPolicyInstanceTypeMarker} -> trafficPolicyInstanceTypeMarker) (\s@ListTrafficPolicyInstancesByHostedZoneResponse' {} a -> s {trafficPolicyInstanceTypeMarker = a} :: ListTrafficPolicyInstancesByHostedZoneResponse)
 
 -- | The response's http status code.
 listTrafficPolicyInstancesByHostedZoneResponse_httpStatus :: Lens.Lens' ListTrafficPolicyInstancesByHostedZoneResponse Prelude.Int
@@ -409,8 +409,8 @@ instance
   where
   rnf
     ListTrafficPolicyInstancesByHostedZoneResponse' {..} =
-      Prelude.rnf trafficPolicyInstanceTypeMarker
-        `Prelude.seq` Prelude.rnf trafficPolicyInstanceNameMarker
+      Prelude.rnf trafficPolicyInstanceNameMarker
+        `Prelude.seq` Prelude.rnf trafficPolicyInstanceTypeMarker
         `Prelude.seq` Prelude.rnf httpStatus
         `Prelude.seq` Prelude.rnf trafficPolicyInstances
         `Prelude.seq` Prelude.rnf isTruncated

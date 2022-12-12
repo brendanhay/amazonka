@@ -19,11 +19,11 @@ module Amazonka.ResourceGroupsTagging.Types
 
     -- * Errors
     _ConcurrentModificationException,
-    _InternalServiceException,
-    _ThrottledException,
-    _PaginationTokenExpiredException,
     _ConstraintViolationException,
+    _InternalServiceException,
     _InvalidParameterException,
+    _PaginationTokenExpiredException,
+    _ThrottledException,
 
     -- * GroupByAttribute
     GroupByAttribute (..),
@@ -37,33 +37,33 @@ module Amazonka.ResourceGroupsTagging.Types
     -- * ComplianceDetails
     ComplianceDetails (..),
     newComplianceDetails,
-    complianceDetails_noncompliantKeys,
     complianceDetails_complianceStatus,
     complianceDetails_keysWithNoncompliantValues,
+    complianceDetails_noncompliantKeys,
 
     -- * FailureInfo
     FailureInfo (..),
     newFailureInfo,
-    failureInfo_errorMessage,
     failureInfo_errorCode,
+    failureInfo_errorMessage,
     failureInfo_statusCode,
 
     -- * ResourceTagMapping
     ResourceTagMapping (..),
     newResourceTagMapping,
-    resourceTagMapping_tags,
     resourceTagMapping_complianceDetails,
     resourceTagMapping_resourceARN,
+    resourceTagMapping_tags,
 
     -- * Summary
     Summary (..),
     newSummary,
+    summary_lastUpdated,
+    summary_nonCompliantResources,
+    summary_region,
     summary_resourceType,
     summary_targetId,
     summary_targetIdType,
-    summary_lastUpdated,
-    summary_region,
-    summary_nonCompliantResources,
 
     -- * Tag
     Tag (..),
@@ -119,28 +119,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -148,13 +142,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -162,6 +160,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The target of the operation is currently being modified by a different
@@ -171,29 +171,6 @@ _ConcurrentModificationException =
   Core._MatchServiceError
     defaultService
     "ConcurrentModificationException"
-
--- | The request processing failed because of an unknown error, exception, or
--- failure. You can retry the request.
-_InternalServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServiceException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServiceException"
-
--- | The request was denied to limit the frequency of submitted requests.
-_ThrottledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ThrottledException =
-  Core._MatchServiceError
-    defaultService
-    "ThrottledException"
-
--- | A @PaginationToken@ is valid for a maximum of 15 minutes. Your request
--- was denied because the specified @PaginationToken@ has expired.
-_PaginationTokenExpiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_PaginationTokenExpiredException =
-  Core._MatchServiceError
-    defaultService
-    "PaginationTokenExpiredException"
 
 -- | The request was denied because performing this operation violates a
 -- constraint.
@@ -219,6 +196,14 @@ _ConstraintViolationException =
     defaultService
     "ConstraintViolationException"
 
+-- | The request processing failed because of an unknown error, exception, or
+-- failure. You can retry the request.
+_InternalServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServiceException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServiceException"
+
 -- | This error indicates one of the following:
 --
 -- -   A parameter is missing.
@@ -238,3 +223,18 @@ _InvalidParameterException =
   Core._MatchServiceError
     defaultService
     "InvalidParameterException"
+
+-- | A @PaginationToken@ is valid for a maximum of 15 minutes. Your request
+-- was denied because the specified @PaginationToken@ has expired.
+_PaginationTokenExpiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PaginationTokenExpiredException =
+  Core._MatchServiceError
+    defaultService
+    "PaginationTokenExpiredException"
+
+-- | The request was denied to limit the frequency of submitted requests.
+_ThrottledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottledException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottledException"

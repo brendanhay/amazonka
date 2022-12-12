@@ -36,8 +36,8 @@ module Amazonka.QuickSight.DescribeDataSet
     newDescribeDataSetResponse,
 
     -- * Response Lenses
-    describeDataSetResponse_requestId,
     describeDataSetResponse_dataSet,
+    describeDataSetResponse_requestId,
     describeDataSetResponse_status,
   )
 where
@@ -103,8 +103,8 @@ instance Core.AWSRequest DescribeDataSet where
     Response.receiveJSON
       ( \s h x ->
           DescribeDataSetResponse'
-            Prelude.<$> (x Data..?> "RequestId")
-            Prelude.<*> (x Data..?> "DataSet")
+            Prelude.<$> (x Data..?> "DataSet")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,10 +143,10 @@ instance Data.ToQuery DescribeDataSet where
 
 -- | /See:/ 'newDescribeDataSetResponse' smart constructor.
 data DescribeDataSetResponse = DescribeDataSetResponse'
-  { -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | Information on the dataset.
+  { -- | Information on the dataset.
     dataSet :: Prelude.Maybe DataSet,
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -160,9 +160,9 @@ data DescribeDataSetResponse = DescribeDataSetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'describeDataSetResponse_requestId' - The Amazon Web Services request ID for this operation.
---
 -- 'dataSet', 'describeDataSetResponse_dataSet' - Information on the dataset.
+--
+-- 'requestId', 'describeDataSetResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'status', 'describeDataSetResponse_status' - The HTTP status of the request.
 newDescribeDataSetResponse ::
@@ -171,19 +171,18 @@ newDescribeDataSetResponse ::
   DescribeDataSetResponse
 newDescribeDataSetResponse pStatus_ =
   DescribeDataSetResponse'
-    { requestId =
-        Prelude.Nothing,
-      dataSet = Prelude.Nothing,
+    { dataSet = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       status = pStatus_
     }
-
--- | The Amazon Web Services request ID for this operation.
-describeDataSetResponse_requestId :: Lens.Lens' DescribeDataSetResponse (Prelude.Maybe Prelude.Text)
-describeDataSetResponse_requestId = Lens.lens (\DescribeDataSetResponse' {requestId} -> requestId) (\s@DescribeDataSetResponse' {} a -> s {requestId = a} :: DescribeDataSetResponse)
 
 -- | Information on the dataset.
 describeDataSetResponse_dataSet :: Lens.Lens' DescribeDataSetResponse (Prelude.Maybe DataSet)
 describeDataSetResponse_dataSet = Lens.lens (\DescribeDataSetResponse' {dataSet} -> dataSet) (\s@DescribeDataSetResponse' {} a -> s {dataSet = a} :: DescribeDataSetResponse)
+
+-- | The Amazon Web Services request ID for this operation.
+describeDataSetResponse_requestId :: Lens.Lens' DescribeDataSetResponse (Prelude.Maybe Prelude.Text)
+describeDataSetResponse_requestId = Lens.lens (\DescribeDataSetResponse' {requestId} -> requestId) (\s@DescribeDataSetResponse' {} a -> s {requestId = a} :: DescribeDataSetResponse)
 
 -- | The HTTP status of the request.
 describeDataSetResponse_status :: Lens.Lens' DescribeDataSetResponse Prelude.Int
@@ -191,6 +190,6 @@ describeDataSetResponse_status = Lens.lens (\DescribeDataSetResponse' {status} -
 
 instance Prelude.NFData DescribeDataSetResponse where
   rnf DescribeDataSetResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf dataSet
+    Prelude.rnf dataSet
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf status

@@ -23,7 +23,8 @@ module Amazonka.IoT.Types.JobStatus
         JobStatus_CANCELED,
         JobStatus_COMPLETED,
         JobStatus_DELETION_IN_PROGRESS,
-        JobStatus_IN_PROGRESS
+        JobStatus_IN_PROGRESS,
+        JobStatus_SCHEDULED
       ),
   )
 where
@@ -72,10 +73,14 @@ pattern JobStatus_DELETION_IN_PROGRESS = JobStatus' "DELETION_IN_PROGRESS"
 pattern JobStatus_IN_PROGRESS :: JobStatus
 pattern JobStatus_IN_PROGRESS = JobStatus' "IN_PROGRESS"
 
+pattern JobStatus_SCHEDULED :: JobStatus
+pattern JobStatus_SCHEDULED = JobStatus' "SCHEDULED"
+
 {-# COMPLETE
   JobStatus_CANCELED,
   JobStatus_COMPLETED,
   JobStatus_DELETION_IN_PROGRESS,
   JobStatus_IN_PROGRESS,
+  JobStatus_SCHEDULED,
   JobStatus'
   #-}

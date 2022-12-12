@@ -47,7 +47,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAccountLevelBpaSync' smart constructor.
 data AccountLevelBpaSync = AccountLevelBpaSync'
-  { -- | A message that provides a reason for a @Failed@ or @Defaulted@
+  { -- | A Boolean value that indicates whether account-level block public access
+    -- is affecting your Lightsail buckets.
+    bpaImpactsLightsail :: Prelude.Maybe Prelude.Bool,
+    -- | The timestamp of when the account-level BPA configuration was last
+    -- synchronized. This value is null when the account-level BPA
+    -- configuration has not been synchronized.
+    lastSyncedAt :: Prelude.Maybe Data.POSIX,
+    -- | A message that provides a reason for a @Failed@ or @Defaulted@
     -- synchronization status.
     --
     -- The following messages are possible:
@@ -101,14 +108,7 @@ data AccountLevelBpaSync = AccountLevelBpaSync'
     -- You might need to complete further actions if the status is @Failed@ or
     -- @Defaulted@. The @message@ parameter provides more information for those
     -- statuses.
-    status :: Prelude.Maybe AccountLevelBpaSyncStatus,
-    -- | The timestamp of when the account-level BPA configuration was last
-    -- synchronized. This value is null when the account-level BPA
-    -- configuration has not been synchronized.
-    lastSyncedAt :: Prelude.Maybe Data.POSIX,
-    -- | A Boolean value that indicates whether account-level block public access
-    -- is affecting your Lightsail buckets.
-    bpaImpactsLightsail :: Prelude.Maybe Prelude.Bool
+    status :: Prelude.Maybe AccountLevelBpaSyncStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -119,6 +119,13 @@ data AccountLevelBpaSync = AccountLevelBpaSync'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'bpaImpactsLightsail', 'accountLevelBpaSync_bpaImpactsLightsail' - A Boolean value that indicates whether account-level block public access
+-- is affecting your Lightsail buckets.
+--
+-- 'lastSyncedAt', 'accountLevelBpaSync_lastSyncedAt' - The timestamp of when the account-level BPA configuration was last
+-- synchronized. This value is null when the account-level BPA
+-- configuration has not been synchronized.
 --
 -- 'message', 'accountLevelBpaSync_message' - A message that provides a reason for a @Failed@ or @Defaulted@
 -- synchronization status.
@@ -174,22 +181,27 @@ data AccountLevelBpaSync = AccountLevelBpaSync'
 -- You might need to complete further actions if the status is @Failed@ or
 -- @Defaulted@. The @message@ parameter provides more information for those
 -- statuses.
---
--- 'lastSyncedAt', 'accountLevelBpaSync_lastSyncedAt' - The timestamp of when the account-level BPA configuration was last
--- synchronized. This value is null when the account-level BPA
--- configuration has not been synchronized.
---
--- 'bpaImpactsLightsail', 'accountLevelBpaSync_bpaImpactsLightsail' - A Boolean value that indicates whether account-level block public access
--- is affecting your Lightsail buckets.
 newAccountLevelBpaSync ::
   AccountLevelBpaSync
 newAccountLevelBpaSync =
   AccountLevelBpaSync'
-    { message = Prelude.Nothing,
-      status = Prelude.Nothing,
+    { bpaImpactsLightsail =
+        Prelude.Nothing,
       lastSyncedAt = Prelude.Nothing,
-      bpaImpactsLightsail = Prelude.Nothing
+      message = Prelude.Nothing,
+      status = Prelude.Nothing
     }
+
+-- | A Boolean value that indicates whether account-level block public access
+-- is affecting your Lightsail buckets.
+accountLevelBpaSync_bpaImpactsLightsail :: Lens.Lens' AccountLevelBpaSync (Prelude.Maybe Prelude.Bool)
+accountLevelBpaSync_bpaImpactsLightsail = Lens.lens (\AccountLevelBpaSync' {bpaImpactsLightsail} -> bpaImpactsLightsail) (\s@AccountLevelBpaSync' {} a -> s {bpaImpactsLightsail = a} :: AccountLevelBpaSync)
+
+-- | The timestamp of when the account-level BPA configuration was last
+-- synchronized. This value is null when the account-level BPA
+-- configuration has not been synchronized.
+accountLevelBpaSync_lastSyncedAt :: Lens.Lens' AccountLevelBpaSync (Prelude.Maybe Prelude.UTCTime)
+accountLevelBpaSync_lastSyncedAt = Lens.lens (\AccountLevelBpaSync' {lastSyncedAt} -> lastSyncedAt) (\s@AccountLevelBpaSync' {} a -> s {lastSyncedAt = a} :: AccountLevelBpaSync) Prelude.. Lens.mapping Data._Time
 
 -- | A message that provides a reason for a @Failed@ or @Defaulted@
 -- synchronization status.
@@ -250,39 +262,28 @@ accountLevelBpaSync_message = Lens.lens (\AccountLevelBpaSync' {message} -> mess
 accountLevelBpaSync_status :: Lens.Lens' AccountLevelBpaSync (Prelude.Maybe AccountLevelBpaSyncStatus)
 accountLevelBpaSync_status = Lens.lens (\AccountLevelBpaSync' {status} -> status) (\s@AccountLevelBpaSync' {} a -> s {status = a} :: AccountLevelBpaSync)
 
--- | The timestamp of when the account-level BPA configuration was last
--- synchronized. This value is null when the account-level BPA
--- configuration has not been synchronized.
-accountLevelBpaSync_lastSyncedAt :: Lens.Lens' AccountLevelBpaSync (Prelude.Maybe Prelude.UTCTime)
-accountLevelBpaSync_lastSyncedAt = Lens.lens (\AccountLevelBpaSync' {lastSyncedAt} -> lastSyncedAt) (\s@AccountLevelBpaSync' {} a -> s {lastSyncedAt = a} :: AccountLevelBpaSync) Prelude.. Lens.mapping Data._Time
-
--- | A Boolean value that indicates whether account-level block public access
--- is affecting your Lightsail buckets.
-accountLevelBpaSync_bpaImpactsLightsail :: Lens.Lens' AccountLevelBpaSync (Prelude.Maybe Prelude.Bool)
-accountLevelBpaSync_bpaImpactsLightsail = Lens.lens (\AccountLevelBpaSync' {bpaImpactsLightsail} -> bpaImpactsLightsail) (\s@AccountLevelBpaSync' {} a -> s {bpaImpactsLightsail = a} :: AccountLevelBpaSync)
-
 instance Data.FromJSON AccountLevelBpaSync where
   parseJSON =
     Data.withObject
       "AccountLevelBpaSync"
       ( \x ->
           AccountLevelBpaSync'
-            Prelude.<$> (x Data..:? "message")
-            Prelude.<*> (x Data..:? "status")
+            Prelude.<$> (x Data..:? "bpaImpactsLightsail")
             Prelude.<*> (x Data..:? "lastSyncedAt")
-            Prelude.<*> (x Data..:? "bpaImpactsLightsail")
+            Prelude.<*> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "status")
       )
 
 instance Prelude.Hashable AccountLevelBpaSync where
   hashWithSalt _salt AccountLevelBpaSync' {..} =
-    _salt `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` bpaImpactsLightsail
       `Prelude.hashWithSalt` lastSyncedAt
-      `Prelude.hashWithSalt` bpaImpactsLightsail
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData AccountLevelBpaSync where
   rnf AccountLevelBpaSync' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf bpaImpactsLightsail
       `Prelude.seq` Prelude.rnf lastSyncedAt
-      `Prelude.seq` Prelude.rnf bpaImpactsLightsail
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf status

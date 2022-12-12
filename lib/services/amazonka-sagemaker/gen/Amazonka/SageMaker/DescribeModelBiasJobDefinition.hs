@@ -34,8 +34,8 @@ module Amazonka.SageMaker.DescribeModelBiasJobDefinition
     newDescribeModelBiasJobDefinitionResponse,
 
     -- * Response Lenses
-    describeModelBiasJobDefinitionResponse_networkConfig,
     describeModelBiasJobDefinitionResponse_modelBiasBaselineConfig,
+    describeModelBiasJobDefinitionResponse_networkConfig,
     describeModelBiasJobDefinitionResponse_stoppingCondition,
     describeModelBiasJobDefinitionResponse_httpStatus,
     describeModelBiasJobDefinitionResponse_jobDefinitionArn,
@@ -103,8 +103,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeModelBiasJobDefinitionResponse'
-            Prelude.<$> (x Data..?> "NetworkConfig")
-            Prelude.<*> (x Data..?> "ModelBiasBaselineConfig")
+            Prelude.<$> (x Data..?> "ModelBiasBaselineConfig")
+            Prelude.<*> (x Data..?> "NetworkConfig")
             Prelude.<*> (x Data..?> "StoppingCondition")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "JobDefinitionArn")
@@ -168,10 +168,10 @@ instance Data.ToQuery DescribeModelBiasJobDefinition where
 
 -- | /See:/ 'newDescribeModelBiasJobDefinitionResponse' smart constructor.
 data DescribeModelBiasJobDefinitionResponse = DescribeModelBiasJobDefinitionResponse'
-  { -- | Networking options for a model bias job.
-    networkConfig :: Prelude.Maybe MonitoringNetworkConfig,
-    -- | The baseline configuration for a model bias job.
+  { -- | The baseline configuration for a model bias job.
     modelBiasBaselineConfig :: Prelude.Maybe ModelBiasBaselineConfig,
+    -- | Networking options for a model bias job.
+    networkConfig :: Prelude.Maybe MonitoringNetworkConfig,
     stoppingCondition :: Prelude.Maybe MonitoringStoppingCondition,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -203,9 +203,9 @@ data DescribeModelBiasJobDefinitionResponse = DescribeModelBiasJobDefinitionResp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'networkConfig', 'describeModelBiasJobDefinitionResponse_networkConfig' - Networking options for a model bias job.
---
 -- 'modelBiasBaselineConfig', 'describeModelBiasJobDefinitionResponse_modelBiasBaselineConfig' - The baseline configuration for a model bias job.
+--
+-- 'networkConfig', 'describeModelBiasJobDefinitionResponse_networkConfig' - Networking options for a model bias job.
 --
 -- 'stoppingCondition', 'describeModelBiasJobDefinitionResponse_stoppingCondition' - Undocumented member.
 --
@@ -260,10 +260,9 @@ newDescribeModelBiasJobDefinitionResponse
   pJobResources_
   pRoleArn_ =
     DescribeModelBiasJobDefinitionResponse'
-      { networkConfig =
+      { modelBiasBaselineConfig =
           Prelude.Nothing,
-        modelBiasBaselineConfig =
-          Prelude.Nothing,
+        networkConfig = Prelude.Nothing,
         stoppingCondition = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         jobDefinitionArn =
@@ -282,13 +281,13 @@ newDescribeModelBiasJobDefinitionResponse
         roleArn = pRoleArn_
       }
 
--- | Networking options for a model bias job.
-describeModelBiasJobDefinitionResponse_networkConfig :: Lens.Lens' DescribeModelBiasJobDefinitionResponse (Prelude.Maybe MonitoringNetworkConfig)
-describeModelBiasJobDefinitionResponse_networkConfig = Lens.lens (\DescribeModelBiasJobDefinitionResponse' {networkConfig} -> networkConfig) (\s@DescribeModelBiasJobDefinitionResponse' {} a -> s {networkConfig = a} :: DescribeModelBiasJobDefinitionResponse)
-
 -- | The baseline configuration for a model bias job.
 describeModelBiasJobDefinitionResponse_modelBiasBaselineConfig :: Lens.Lens' DescribeModelBiasJobDefinitionResponse (Prelude.Maybe ModelBiasBaselineConfig)
 describeModelBiasJobDefinitionResponse_modelBiasBaselineConfig = Lens.lens (\DescribeModelBiasJobDefinitionResponse' {modelBiasBaselineConfig} -> modelBiasBaselineConfig) (\s@DescribeModelBiasJobDefinitionResponse' {} a -> s {modelBiasBaselineConfig = a} :: DescribeModelBiasJobDefinitionResponse)
+
+-- | Networking options for a model bias job.
+describeModelBiasJobDefinitionResponse_networkConfig :: Lens.Lens' DescribeModelBiasJobDefinitionResponse (Prelude.Maybe MonitoringNetworkConfig)
+describeModelBiasJobDefinitionResponse_networkConfig = Lens.lens (\DescribeModelBiasJobDefinitionResponse' {networkConfig} -> networkConfig) (\s@DescribeModelBiasJobDefinitionResponse' {} a -> s {networkConfig = a} :: DescribeModelBiasJobDefinitionResponse)
 
 -- | Undocumented member.
 describeModelBiasJobDefinitionResponse_stoppingCondition :: Lens.Lens' DescribeModelBiasJobDefinitionResponse (Prelude.Maybe MonitoringStoppingCondition)
@@ -338,8 +337,8 @@ instance
     DescribeModelBiasJobDefinitionResponse
   where
   rnf DescribeModelBiasJobDefinitionResponse' {..} =
-    Prelude.rnf networkConfig
-      `Prelude.seq` Prelude.rnf modelBiasBaselineConfig
+    Prelude.rnf modelBiasBaselineConfig
+      `Prelude.seq` Prelude.rnf networkConfig
       `Prelude.seq` Prelude.rnf stoppingCondition
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf jobDefinitionArn

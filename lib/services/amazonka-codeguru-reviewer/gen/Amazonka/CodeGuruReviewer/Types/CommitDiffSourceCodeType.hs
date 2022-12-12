@@ -32,14 +32,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCommitDiffSourceCodeType' smart constructor.
 data CommitDiffSourceCodeType = CommitDiffSourceCodeType'
-  { -- | The SHA of the source commit used to generate a commit diff. This field
-    -- is required for a pull request code review.
-    sourceCommit :: Prelude.Maybe Prelude.Text,
+  { -- | The SHA of the destination commit used to generate a commit diff. This
+    -- field is required for a pull request code review.
+    destinationCommit :: Prelude.Maybe Prelude.Text,
     -- | The SHA of the merge base of a commit.
     mergeBaseCommit :: Prelude.Maybe Prelude.Text,
-    -- | The SHA of the destination commit used to generate a commit diff. This
-    -- field is required for a pull request code review.
-    destinationCommit :: Prelude.Maybe Prelude.Text
+    -- | The SHA of the source commit used to generate a commit diff. This field
+    -- is required for a pull request code review.
+    sourceCommit :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,36 +51,36 @@ data CommitDiffSourceCodeType = CommitDiffSourceCodeType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceCommit', 'commitDiffSourceCodeType_sourceCommit' - The SHA of the source commit used to generate a commit diff. This field
--- is required for a pull request code review.
+-- 'destinationCommit', 'commitDiffSourceCodeType_destinationCommit' - The SHA of the destination commit used to generate a commit diff. This
+-- field is required for a pull request code review.
 --
 -- 'mergeBaseCommit', 'commitDiffSourceCodeType_mergeBaseCommit' - The SHA of the merge base of a commit.
 --
--- 'destinationCommit', 'commitDiffSourceCodeType_destinationCommit' - The SHA of the destination commit used to generate a commit diff. This
--- field is required for a pull request code review.
+-- 'sourceCommit', 'commitDiffSourceCodeType_sourceCommit' - The SHA of the source commit used to generate a commit diff. This field
+-- is required for a pull request code review.
 newCommitDiffSourceCodeType ::
   CommitDiffSourceCodeType
 newCommitDiffSourceCodeType =
   CommitDiffSourceCodeType'
-    { sourceCommit =
+    { destinationCommit =
         Prelude.Nothing,
       mergeBaseCommit = Prelude.Nothing,
-      destinationCommit = Prelude.Nothing
+      sourceCommit = Prelude.Nothing
     }
-
--- | The SHA of the source commit used to generate a commit diff. This field
--- is required for a pull request code review.
-commitDiffSourceCodeType_sourceCommit :: Lens.Lens' CommitDiffSourceCodeType (Prelude.Maybe Prelude.Text)
-commitDiffSourceCodeType_sourceCommit = Lens.lens (\CommitDiffSourceCodeType' {sourceCommit} -> sourceCommit) (\s@CommitDiffSourceCodeType' {} a -> s {sourceCommit = a} :: CommitDiffSourceCodeType)
-
--- | The SHA of the merge base of a commit.
-commitDiffSourceCodeType_mergeBaseCommit :: Lens.Lens' CommitDiffSourceCodeType (Prelude.Maybe Prelude.Text)
-commitDiffSourceCodeType_mergeBaseCommit = Lens.lens (\CommitDiffSourceCodeType' {mergeBaseCommit} -> mergeBaseCommit) (\s@CommitDiffSourceCodeType' {} a -> s {mergeBaseCommit = a} :: CommitDiffSourceCodeType)
 
 -- | The SHA of the destination commit used to generate a commit diff. This
 -- field is required for a pull request code review.
 commitDiffSourceCodeType_destinationCommit :: Lens.Lens' CommitDiffSourceCodeType (Prelude.Maybe Prelude.Text)
 commitDiffSourceCodeType_destinationCommit = Lens.lens (\CommitDiffSourceCodeType' {destinationCommit} -> destinationCommit) (\s@CommitDiffSourceCodeType' {} a -> s {destinationCommit = a} :: CommitDiffSourceCodeType)
+
+-- | The SHA of the merge base of a commit.
+commitDiffSourceCodeType_mergeBaseCommit :: Lens.Lens' CommitDiffSourceCodeType (Prelude.Maybe Prelude.Text)
+commitDiffSourceCodeType_mergeBaseCommit = Lens.lens (\CommitDiffSourceCodeType' {mergeBaseCommit} -> mergeBaseCommit) (\s@CommitDiffSourceCodeType' {} a -> s {mergeBaseCommit = a} :: CommitDiffSourceCodeType)
+
+-- | The SHA of the source commit used to generate a commit diff. This field
+-- is required for a pull request code review.
+commitDiffSourceCodeType_sourceCommit :: Lens.Lens' CommitDiffSourceCodeType (Prelude.Maybe Prelude.Text)
+commitDiffSourceCodeType_sourceCommit = Lens.lens (\CommitDiffSourceCodeType' {sourceCommit} -> sourceCommit) (\s@CommitDiffSourceCodeType' {} a -> s {sourceCommit = a} :: CommitDiffSourceCodeType)
 
 instance Data.FromJSON CommitDiffSourceCodeType where
   parseJSON =
@@ -88,31 +88,31 @@ instance Data.FromJSON CommitDiffSourceCodeType where
       "CommitDiffSourceCodeType"
       ( \x ->
           CommitDiffSourceCodeType'
-            Prelude.<$> (x Data..:? "SourceCommit")
+            Prelude.<$> (x Data..:? "DestinationCommit")
             Prelude.<*> (x Data..:? "MergeBaseCommit")
-            Prelude.<*> (x Data..:? "DestinationCommit")
+            Prelude.<*> (x Data..:? "SourceCommit")
       )
 
 instance Prelude.Hashable CommitDiffSourceCodeType where
   hashWithSalt _salt CommitDiffSourceCodeType' {..} =
-    _salt `Prelude.hashWithSalt` sourceCommit
+    _salt `Prelude.hashWithSalt` destinationCommit
       `Prelude.hashWithSalt` mergeBaseCommit
-      `Prelude.hashWithSalt` destinationCommit
+      `Prelude.hashWithSalt` sourceCommit
 
 instance Prelude.NFData CommitDiffSourceCodeType where
   rnf CommitDiffSourceCodeType' {..} =
-    Prelude.rnf sourceCommit
+    Prelude.rnf destinationCommit
       `Prelude.seq` Prelude.rnf mergeBaseCommit
-      `Prelude.seq` Prelude.rnf destinationCommit
+      `Prelude.seq` Prelude.rnf sourceCommit
 
 instance Data.ToJSON CommitDiffSourceCodeType where
   toJSON CommitDiffSourceCodeType' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SourceCommit" Data..=) Prelude.<$> sourceCommit,
+          [ ("DestinationCommit" Data..=)
+              Prelude.<$> destinationCommit,
             ("MergeBaseCommit" Data..=)
               Prelude.<$> mergeBaseCommit,
-            ("DestinationCommit" Data..=)
-              Prelude.<$> destinationCommit
+            ("SourceCommit" Data..=) Prelude.<$> sourceCommit
           ]
       )

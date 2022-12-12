@@ -27,17 +27,17 @@ import qualified Amazonka.Prelude as Prelude
 -- | Temporary access credentials used for uploading game build files to
 -- Amazon GameLift. They are valid for a limited time. If they expire
 -- before you upload your game build, get a new set by calling
--- RequestUploadCredentials.
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_RequestUploadCredentials.html RequestUploadCredentials>.
 --
 -- /See:/ 'newAwsCredentials' smart constructor.
 data AwsCredentials = AwsCredentials'
-  { -- | Token used to associate a specific build ID with the files uploaded
-    -- using these credentials.
-    sessionToken :: Prelude.Maybe Prelude.Text,
+  { -- | Temporary key allowing access to the Amazon GameLift S3 account.
+    accessKeyId :: Prelude.Maybe Prelude.Text,
     -- | Temporary secret key allowing access to the Amazon GameLift S3 account.
     secretAccessKey :: Prelude.Maybe Prelude.Text,
-    -- | Temporary key allowing access to the Amazon GameLift S3 account.
-    accessKeyId :: Prelude.Maybe Prelude.Text
+    -- | Token used to associate a specific build ID with the files uploaded
+    -- using these credentials.
+    sessionToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -49,33 +49,33 @@ data AwsCredentials = AwsCredentials'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sessionToken', 'awsCredentials_sessionToken' - Token used to associate a specific build ID with the files uploaded
--- using these credentials.
+-- 'accessKeyId', 'awsCredentials_accessKeyId' - Temporary key allowing access to the Amazon GameLift S3 account.
 --
 -- 'secretAccessKey', 'awsCredentials_secretAccessKey' - Temporary secret key allowing access to the Amazon GameLift S3 account.
 --
--- 'accessKeyId', 'awsCredentials_accessKeyId' - Temporary key allowing access to the Amazon GameLift S3 account.
+-- 'sessionToken', 'awsCredentials_sessionToken' - Token used to associate a specific build ID with the files uploaded
+-- using these credentials.
 newAwsCredentials ::
   AwsCredentials
 newAwsCredentials =
   AwsCredentials'
-    { sessionToken = Prelude.Nothing,
+    { accessKeyId = Prelude.Nothing,
       secretAccessKey = Prelude.Nothing,
-      accessKeyId = Prelude.Nothing
+      sessionToken = Prelude.Nothing
     }
 
--- | Token used to associate a specific build ID with the files uploaded
--- using these credentials.
-awsCredentials_sessionToken :: Lens.Lens' AwsCredentials (Prelude.Maybe Prelude.Text)
-awsCredentials_sessionToken = Lens.lens (\AwsCredentials' {sessionToken} -> sessionToken) (\s@AwsCredentials' {} a -> s {sessionToken = a} :: AwsCredentials)
+-- | Temporary key allowing access to the Amazon GameLift S3 account.
+awsCredentials_accessKeyId :: Lens.Lens' AwsCredentials (Prelude.Maybe Prelude.Text)
+awsCredentials_accessKeyId = Lens.lens (\AwsCredentials' {accessKeyId} -> accessKeyId) (\s@AwsCredentials' {} a -> s {accessKeyId = a} :: AwsCredentials)
 
 -- | Temporary secret key allowing access to the Amazon GameLift S3 account.
 awsCredentials_secretAccessKey :: Lens.Lens' AwsCredentials (Prelude.Maybe Prelude.Text)
 awsCredentials_secretAccessKey = Lens.lens (\AwsCredentials' {secretAccessKey} -> secretAccessKey) (\s@AwsCredentials' {} a -> s {secretAccessKey = a} :: AwsCredentials)
 
--- | Temporary key allowing access to the Amazon GameLift S3 account.
-awsCredentials_accessKeyId :: Lens.Lens' AwsCredentials (Prelude.Maybe Prelude.Text)
-awsCredentials_accessKeyId = Lens.lens (\AwsCredentials' {accessKeyId} -> accessKeyId) (\s@AwsCredentials' {} a -> s {accessKeyId = a} :: AwsCredentials)
+-- | Token used to associate a specific build ID with the files uploaded
+-- using these credentials.
+awsCredentials_sessionToken :: Lens.Lens' AwsCredentials (Prelude.Maybe Prelude.Text)
+awsCredentials_sessionToken = Lens.lens (\AwsCredentials' {sessionToken} -> sessionToken) (\s@AwsCredentials' {} a -> s {sessionToken = a} :: AwsCredentials)
 
 instance Data.FromJSON AwsCredentials where
   parseJSON =
@@ -83,19 +83,19 @@ instance Data.FromJSON AwsCredentials where
       "AwsCredentials"
       ( \x ->
           AwsCredentials'
-            Prelude.<$> (x Data..:? "SessionToken")
+            Prelude.<$> (x Data..:? "AccessKeyId")
             Prelude.<*> (x Data..:? "SecretAccessKey")
-            Prelude.<*> (x Data..:? "AccessKeyId")
+            Prelude.<*> (x Data..:? "SessionToken")
       )
 
 instance Prelude.Hashable AwsCredentials where
   hashWithSalt _salt AwsCredentials' {..} =
-    _salt `Prelude.hashWithSalt` sessionToken
+    _salt `Prelude.hashWithSalt` accessKeyId
       `Prelude.hashWithSalt` secretAccessKey
-      `Prelude.hashWithSalt` accessKeyId
+      `Prelude.hashWithSalt` sessionToken
 
 instance Prelude.NFData AwsCredentials where
   rnf AwsCredentials' {..} =
-    Prelude.rnf sessionToken
+    Prelude.rnf accessKeyId
       `Prelude.seq` Prelude.rnf secretAccessKey
-      `Prelude.seq` Prelude.rnf accessKeyId
+      `Prelude.seq` Prelude.rnf sessionToken

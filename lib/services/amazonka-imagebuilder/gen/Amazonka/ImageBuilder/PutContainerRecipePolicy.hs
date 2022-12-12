@@ -43,8 +43,8 @@ module Amazonka.ImageBuilder.PutContainerRecipePolicy
     newPutContainerRecipePolicyResponse,
 
     -- * Response Lenses
-    putContainerRecipePolicyResponse_requestId,
     putContainerRecipePolicyResponse_containerRecipeArn,
+    putContainerRecipePolicyResponse_requestId,
     putContainerRecipePolicyResponse_httpStatus,
   )
 where
@@ -113,8 +113,8 @@ instance Core.AWSRequest PutContainerRecipePolicy where
     Response.receiveJSON
       ( \s h x ->
           PutContainerRecipePolicyResponse'
-            Prelude.<$> (x Data..?> "requestId")
-            Prelude.<*> (x Data..?> "containerRecipeArn")
+            Prelude.<$> (x Data..?> "containerRecipeArn")
+            Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,11 +157,11 @@ instance Data.ToQuery PutContainerRecipePolicy where
 
 -- | /See:/ 'newPutContainerRecipePolicyResponse' smart constructor.
 data PutContainerRecipePolicyResponse = PutContainerRecipePolicyResponse'
-  { -- | The request ID that uniquely identifies this request.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the container recipe that this policy
+  { -- | The Amazon Resource Name (ARN) of the container recipe that this policy
     -- was applied to.
     containerRecipeArn :: Prelude.Maybe Prelude.Text,
+    -- | The request ID that uniquely identifies this request.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -175,10 +175,10 @@ data PutContainerRecipePolicyResponse = PutContainerRecipePolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'putContainerRecipePolicyResponse_requestId' - The request ID that uniquely identifies this request.
---
 -- 'containerRecipeArn', 'putContainerRecipePolicyResponse_containerRecipeArn' - The Amazon Resource Name (ARN) of the container recipe that this policy
 -- was applied to.
+--
+-- 'requestId', 'putContainerRecipePolicyResponse_requestId' - The request ID that uniquely identifies this request.
 --
 -- 'httpStatus', 'putContainerRecipePolicyResponse_httpStatus' - The response's http status code.
 newPutContainerRecipePolicyResponse ::
@@ -187,20 +187,20 @@ newPutContainerRecipePolicyResponse ::
   PutContainerRecipePolicyResponse
 newPutContainerRecipePolicyResponse pHttpStatus_ =
   PutContainerRecipePolicyResponse'
-    { requestId =
+    { containerRecipeArn =
         Prelude.Nothing,
-      containerRecipeArn = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The request ID that uniquely identifies this request.
-putContainerRecipePolicyResponse_requestId :: Lens.Lens' PutContainerRecipePolicyResponse (Prelude.Maybe Prelude.Text)
-putContainerRecipePolicyResponse_requestId = Lens.lens (\PutContainerRecipePolicyResponse' {requestId} -> requestId) (\s@PutContainerRecipePolicyResponse' {} a -> s {requestId = a} :: PutContainerRecipePolicyResponse)
 
 -- | The Amazon Resource Name (ARN) of the container recipe that this policy
 -- was applied to.
 putContainerRecipePolicyResponse_containerRecipeArn :: Lens.Lens' PutContainerRecipePolicyResponse (Prelude.Maybe Prelude.Text)
 putContainerRecipePolicyResponse_containerRecipeArn = Lens.lens (\PutContainerRecipePolicyResponse' {containerRecipeArn} -> containerRecipeArn) (\s@PutContainerRecipePolicyResponse' {} a -> s {containerRecipeArn = a} :: PutContainerRecipePolicyResponse)
+
+-- | The request ID that uniquely identifies this request.
+putContainerRecipePolicyResponse_requestId :: Lens.Lens' PutContainerRecipePolicyResponse (Prelude.Maybe Prelude.Text)
+putContainerRecipePolicyResponse_requestId = Lens.lens (\PutContainerRecipePolicyResponse' {requestId} -> requestId) (\s@PutContainerRecipePolicyResponse' {} a -> s {requestId = a} :: PutContainerRecipePolicyResponse)
 
 -- | The response's http status code.
 putContainerRecipePolicyResponse_httpStatus :: Lens.Lens' PutContainerRecipePolicyResponse Prelude.Int
@@ -211,6 +211,6 @@ instance
     PutContainerRecipePolicyResponse
   where
   rnf PutContainerRecipePolicyResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf containerRecipeArn
+    Prelude.rnf containerRecipeArn
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf httpStatus

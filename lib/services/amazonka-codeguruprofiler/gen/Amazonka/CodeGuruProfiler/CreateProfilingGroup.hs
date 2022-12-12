@@ -27,9 +27,9 @@ module Amazonka.CodeGuruProfiler.CreateProfilingGroup
     newCreateProfilingGroup,
 
     -- * Request Lenses
-    createProfilingGroup_tags,
-    createProfilingGroup_computePlatform,
     createProfilingGroup_agentOrchestrationConfig,
+    createProfilingGroup_computePlatform,
+    createProfilingGroup_tags,
     createProfilingGroup_clientToken,
     createProfilingGroup_profilingGroupName,
 
@@ -55,17 +55,17 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateProfilingGroup' smart constructor.
 data CreateProfilingGroup = CreateProfilingGroup'
-  { -- | A list of tags to add to the created profiling group.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | Specifies whether profiling is enabled or disabled for the created
+    -- profiling group.
+    agentOrchestrationConfig :: Prelude.Maybe AgentOrchestrationConfig,
     -- | The compute platform of the profiling group. Use @AWSLambda@ if your
     -- application runs on AWS Lambda. Use @Default@ if your application runs
     -- on a compute platform that is not AWS Lambda, such an Amazon EC2
     -- instance, an on-premises server, or a different platform. If not
     -- specified, @Default@ is used.
     computePlatform :: Prelude.Maybe ComputePlatform,
-    -- | Specifies whether profiling is enabled or disabled for the created
-    -- profiling group.
-    agentOrchestrationConfig :: Prelude.Maybe AgentOrchestrationConfig,
+    -- | A list of tags to add to the created profiling group.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Amazon CodeGuru Profiler uses this universally unique identifier (UUID)
     -- to prevent the accidental creation of duplicate profiling groups if
     -- there are failures and retries.
@@ -83,7 +83,8 @@ data CreateProfilingGroup = CreateProfilingGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createProfilingGroup_tags' - A list of tags to add to the created profiling group.
+-- 'agentOrchestrationConfig', 'createProfilingGroup_agentOrchestrationConfig' - Specifies whether profiling is enabled or disabled for the created
+-- profiling group.
 --
 -- 'computePlatform', 'createProfilingGroup_computePlatform' - The compute platform of the profiling group. Use @AWSLambda@ if your
 -- application runs on AWS Lambda. Use @Default@ if your application runs
@@ -91,8 +92,7 @@ data CreateProfilingGroup = CreateProfilingGroup'
 -- instance, an on-premises server, or a different platform. If not
 -- specified, @Default@ is used.
 --
--- 'agentOrchestrationConfig', 'createProfilingGroup_agentOrchestrationConfig' - Specifies whether profiling is enabled or disabled for the created
--- profiling group.
+-- 'tags', 'createProfilingGroup_tags' - A list of tags to add to the created profiling group.
 --
 -- 'clientToken', 'createProfilingGroup_clientToken' - Amazon CodeGuru Profiler uses this universally unique identifier (UUID)
 -- to prevent the accidental creation of duplicate profiling groups if
@@ -109,16 +109,18 @@ newCreateProfilingGroup
   pClientToken_
   pProfilingGroupName_ =
     CreateProfilingGroup'
-      { tags = Prelude.Nothing,
+      { agentOrchestrationConfig =
+          Prelude.Nothing,
         computePlatform = Prelude.Nothing,
-        agentOrchestrationConfig = Prelude.Nothing,
+        tags = Prelude.Nothing,
         clientToken = pClientToken_,
         profilingGroupName = pProfilingGroupName_
       }
 
--- | A list of tags to add to the created profiling group.
-createProfilingGroup_tags :: Lens.Lens' CreateProfilingGroup (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createProfilingGroup_tags = Lens.lens (\CreateProfilingGroup' {tags} -> tags) (\s@CreateProfilingGroup' {} a -> s {tags = a} :: CreateProfilingGroup) Prelude.. Lens.mapping Lens.coerced
+-- | Specifies whether profiling is enabled or disabled for the created
+-- profiling group.
+createProfilingGroup_agentOrchestrationConfig :: Lens.Lens' CreateProfilingGroup (Prelude.Maybe AgentOrchestrationConfig)
+createProfilingGroup_agentOrchestrationConfig = Lens.lens (\CreateProfilingGroup' {agentOrchestrationConfig} -> agentOrchestrationConfig) (\s@CreateProfilingGroup' {} a -> s {agentOrchestrationConfig = a} :: CreateProfilingGroup)
 
 -- | The compute platform of the profiling group. Use @AWSLambda@ if your
 -- application runs on AWS Lambda. Use @Default@ if your application runs
@@ -128,10 +130,9 @@ createProfilingGroup_tags = Lens.lens (\CreateProfilingGroup' {tags} -> tags) (\
 createProfilingGroup_computePlatform :: Lens.Lens' CreateProfilingGroup (Prelude.Maybe ComputePlatform)
 createProfilingGroup_computePlatform = Lens.lens (\CreateProfilingGroup' {computePlatform} -> computePlatform) (\s@CreateProfilingGroup' {} a -> s {computePlatform = a} :: CreateProfilingGroup)
 
--- | Specifies whether profiling is enabled or disabled for the created
--- profiling group.
-createProfilingGroup_agentOrchestrationConfig :: Lens.Lens' CreateProfilingGroup (Prelude.Maybe AgentOrchestrationConfig)
-createProfilingGroup_agentOrchestrationConfig = Lens.lens (\CreateProfilingGroup' {agentOrchestrationConfig} -> agentOrchestrationConfig) (\s@CreateProfilingGroup' {} a -> s {agentOrchestrationConfig = a} :: CreateProfilingGroup)
+-- | A list of tags to add to the created profiling group.
+createProfilingGroup_tags :: Lens.Lens' CreateProfilingGroup (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createProfilingGroup_tags = Lens.lens (\CreateProfilingGroup' {tags} -> tags) (\s@CreateProfilingGroup' {} a -> s {tags = a} :: CreateProfilingGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | Amazon CodeGuru Profiler uses this universally unique identifier (UUID)
 -- to prevent the accidental creation of duplicate profiling groups if
@@ -159,17 +160,18 @@ instance Core.AWSRequest CreateProfilingGroup where
 
 instance Prelude.Hashable CreateProfilingGroup where
   hashWithSalt _salt CreateProfilingGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` computePlatform
+    _salt
       `Prelude.hashWithSalt` agentOrchestrationConfig
+      `Prelude.hashWithSalt` computePlatform
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` profilingGroupName
 
 instance Prelude.NFData CreateProfilingGroup where
   rnf CreateProfilingGroup' {..} =
-    Prelude.rnf tags
+    Prelude.rnf agentOrchestrationConfig
       `Prelude.seq` Prelude.rnf computePlatform
-      `Prelude.seq` Prelude.rnf agentOrchestrationConfig
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf profilingGroupName
 
@@ -188,11 +190,11 @@ instance Data.ToJSON CreateProfilingGroup where
   toJSON CreateProfilingGroup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
+          [ ("agentOrchestrationConfig" Data..=)
+              Prelude.<$> agentOrchestrationConfig,
             ("computePlatform" Data..=)
               Prelude.<$> computePlatform,
-            ("agentOrchestrationConfig" Data..=)
-              Prelude.<$> agentOrchestrationConfig,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("profilingGroupName" Data..= profilingGroupName)
           ]

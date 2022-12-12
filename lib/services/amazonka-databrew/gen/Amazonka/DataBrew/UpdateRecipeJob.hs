@@ -27,15 +27,15 @@ module Amazonka.DataBrew.UpdateRecipeJob
     newUpdateRecipeJob,
 
     -- * Request Lenses
-    updateRecipeJob_encryptionKeyArn,
-    updateRecipeJob_timeout,
-    updateRecipeJob_databaseOutputs,
     updateRecipeJob_dataCatalogOutputs,
+    updateRecipeJob_databaseOutputs,
+    updateRecipeJob_encryptionKeyArn,
+    updateRecipeJob_encryptionMode,
     updateRecipeJob_logSubscription,
+    updateRecipeJob_maxCapacity,
     updateRecipeJob_maxRetries,
     updateRecipeJob_outputs,
-    updateRecipeJob_maxCapacity,
-    updateRecipeJob_encryptionMode,
+    updateRecipeJob_timeout,
     updateRecipeJob_name,
     updateRecipeJob_roleArn,
 
@@ -59,34 +59,34 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateRecipeJob' smart constructor.
 data UpdateRecipeJob = UpdateRecipeJob'
-  { -- | The Amazon Resource Name (ARN) of an encryption key that is used to
-    -- protect the job.
-    encryptionKeyArn :: Prelude.Maybe Prelude.Text,
-    -- | The job\'s timeout in minutes. A job that attempts to run longer than
-    -- this timeout period ends with a status of @TIMEOUT@.
-    timeout :: Prelude.Maybe Prelude.Natural,
+  { -- | One or more artifacts that represent the Glue Data Catalog output from
+    -- running the job.
+    dataCatalogOutputs :: Prelude.Maybe (Prelude.NonEmpty DataCatalogOutput),
     -- | Represents a list of JDBC database output objects which defines the
     -- output destination for a DataBrew recipe job to write into.
     databaseOutputs :: Prelude.Maybe (Prelude.NonEmpty DatabaseOutput),
-    -- | One or more artifacts that represent the Glue Data Catalog output from
-    -- running the job.
-    dataCatalogOutputs :: Prelude.Maybe (Prelude.NonEmpty DataCatalogOutput),
-    -- | Enables or disables Amazon CloudWatch logging for the job. If logging is
-    -- enabled, CloudWatch writes one log stream for each job run.
-    logSubscription :: Prelude.Maybe LogSubscription,
-    -- | The maximum number of times to retry the job after a job run fails.
-    maxRetries :: Prelude.Maybe Prelude.Natural,
-    -- | One or more artifacts that represent the output from running the job.
-    outputs :: Prelude.Maybe (Prelude.NonEmpty Output),
-    -- | The maximum number of nodes that DataBrew can consume when the job
-    -- processes data.
-    maxCapacity :: Prelude.Maybe Prelude.Int,
+    -- | The Amazon Resource Name (ARN) of an encryption key that is used to
+    -- protect the job.
+    encryptionKeyArn :: Prelude.Maybe Prelude.Text,
     -- | The encryption mode for the job, which can be one of the following:
     --
     -- -   @SSE-KMS@ - Server-side encryption with keys managed by KMS.
     --
     -- -   @SSE-S3@ - Server-side encryption with keys managed by Amazon S3.
     encryptionMode :: Prelude.Maybe EncryptionMode,
+    -- | Enables or disables Amazon CloudWatch logging for the job. If logging is
+    -- enabled, CloudWatch writes one log stream for each job run.
+    logSubscription :: Prelude.Maybe LogSubscription,
+    -- | The maximum number of nodes that DataBrew can consume when the job
+    -- processes data.
+    maxCapacity :: Prelude.Maybe Prelude.Int,
+    -- | The maximum number of times to retry the job after a job run fails.
+    maxRetries :: Prelude.Maybe Prelude.Natural,
+    -- | One or more artifacts that represent the output from running the job.
+    outputs :: Prelude.Maybe (Prelude.NonEmpty Output),
+    -- | The job\'s timeout in minutes. A job that attempts to run longer than
+    -- this timeout period ends with a status of @TIMEOUT@.
+    timeout :: Prelude.Maybe Prelude.Natural,
     -- | The name of the job to update.
     name :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Identity and Access Management
@@ -103,33 +103,33 @@ data UpdateRecipeJob = UpdateRecipeJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'encryptionKeyArn', 'updateRecipeJob_encryptionKeyArn' - The Amazon Resource Name (ARN) of an encryption key that is used to
--- protect the job.
---
--- 'timeout', 'updateRecipeJob_timeout' - The job\'s timeout in minutes. A job that attempts to run longer than
--- this timeout period ends with a status of @TIMEOUT@.
+-- 'dataCatalogOutputs', 'updateRecipeJob_dataCatalogOutputs' - One or more artifacts that represent the Glue Data Catalog output from
+-- running the job.
 --
 -- 'databaseOutputs', 'updateRecipeJob_databaseOutputs' - Represents a list of JDBC database output objects which defines the
 -- output destination for a DataBrew recipe job to write into.
 --
--- 'dataCatalogOutputs', 'updateRecipeJob_dataCatalogOutputs' - One or more artifacts that represent the Glue Data Catalog output from
--- running the job.
---
--- 'logSubscription', 'updateRecipeJob_logSubscription' - Enables or disables Amazon CloudWatch logging for the job. If logging is
--- enabled, CloudWatch writes one log stream for each job run.
---
--- 'maxRetries', 'updateRecipeJob_maxRetries' - The maximum number of times to retry the job after a job run fails.
---
--- 'outputs', 'updateRecipeJob_outputs' - One or more artifacts that represent the output from running the job.
---
--- 'maxCapacity', 'updateRecipeJob_maxCapacity' - The maximum number of nodes that DataBrew can consume when the job
--- processes data.
+-- 'encryptionKeyArn', 'updateRecipeJob_encryptionKeyArn' - The Amazon Resource Name (ARN) of an encryption key that is used to
+-- protect the job.
 --
 -- 'encryptionMode', 'updateRecipeJob_encryptionMode' - The encryption mode for the job, which can be one of the following:
 --
 -- -   @SSE-KMS@ - Server-side encryption with keys managed by KMS.
 --
 -- -   @SSE-S3@ - Server-side encryption with keys managed by Amazon S3.
+--
+-- 'logSubscription', 'updateRecipeJob_logSubscription' - Enables or disables Amazon CloudWatch logging for the job. If logging is
+-- enabled, CloudWatch writes one log stream for each job run.
+--
+-- 'maxCapacity', 'updateRecipeJob_maxCapacity' - The maximum number of nodes that DataBrew can consume when the job
+-- processes data.
+--
+-- 'maxRetries', 'updateRecipeJob_maxRetries' - The maximum number of times to retry the job after a job run fails.
+--
+-- 'outputs', 'updateRecipeJob_outputs' - One or more artifacts that represent the output from running the job.
+--
+-- 'timeout', 'updateRecipeJob_timeout' - The job\'s timeout in minutes. A job that attempts to run longer than
+-- this timeout period ends with a status of @TIMEOUT@.
 --
 -- 'name', 'updateRecipeJob_name' - The name of the job to update.
 --
@@ -143,44 +143,52 @@ newUpdateRecipeJob ::
   UpdateRecipeJob
 newUpdateRecipeJob pName_ pRoleArn_ =
   UpdateRecipeJob'
-    { encryptionKeyArn =
+    { dataCatalogOutputs =
         Prelude.Nothing,
-      timeout = Prelude.Nothing,
       databaseOutputs = Prelude.Nothing,
-      dataCatalogOutputs = Prelude.Nothing,
+      encryptionKeyArn = Prelude.Nothing,
+      encryptionMode = Prelude.Nothing,
       logSubscription = Prelude.Nothing,
+      maxCapacity = Prelude.Nothing,
       maxRetries = Prelude.Nothing,
       outputs = Prelude.Nothing,
-      maxCapacity = Prelude.Nothing,
-      encryptionMode = Prelude.Nothing,
+      timeout = Prelude.Nothing,
       name = pName_,
       roleArn = pRoleArn_
     }
-
--- | The Amazon Resource Name (ARN) of an encryption key that is used to
--- protect the job.
-updateRecipeJob_encryptionKeyArn :: Lens.Lens' UpdateRecipeJob (Prelude.Maybe Prelude.Text)
-updateRecipeJob_encryptionKeyArn = Lens.lens (\UpdateRecipeJob' {encryptionKeyArn} -> encryptionKeyArn) (\s@UpdateRecipeJob' {} a -> s {encryptionKeyArn = a} :: UpdateRecipeJob)
-
--- | The job\'s timeout in minutes. A job that attempts to run longer than
--- this timeout period ends with a status of @TIMEOUT@.
-updateRecipeJob_timeout :: Lens.Lens' UpdateRecipeJob (Prelude.Maybe Prelude.Natural)
-updateRecipeJob_timeout = Lens.lens (\UpdateRecipeJob' {timeout} -> timeout) (\s@UpdateRecipeJob' {} a -> s {timeout = a} :: UpdateRecipeJob)
-
--- | Represents a list of JDBC database output objects which defines the
--- output destination for a DataBrew recipe job to write into.
-updateRecipeJob_databaseOutputs :: Lens.Lens' UpdateRecipeJob (Prelude.Maybe (Prelude.NonEmpty DatabaseOutput))
-updateRecipeJob_databaseOutputs = Lens.lens (\UpdateRecipeJob' {databaseOutputs} -> databaseOutputs) (\s@UpdateRecipeJob' {} a -> s {databaseOutputs = a} :: UpdateRecipeJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | One or more artifacts that represent the Glue Data Catalog output from
 -- running the job.
 updateRecipeJob_dataCatalogOutputs :: Lens.Lens' UpdateRecipeJob (Prelude.Maybe (Prelude.NonEmpty DataCatalogOutput))
 updateRecipeJob_dataCatalogOutputs = Lens.lens (\UpdateRecipeJob' {dataCatalogOutputs} -> dataCatalogOutputs) (\s@UpdateRecipeJob' {} a -> s {dataCatalogOutputs = a} :: UpdateRecipeJob) Prelude.. Lens.mapping Lens.coerced
 
+-- | Represents a list of JDBC database output objects which defines the
+-- output destination for a DataBrew recipe job to write into.
+updateRecipeJob_databaseOutputs :: Lens.Lens' UpdateRecipeJob (Prelude.Maybe (Prelude.NonEmpty DatabaseOutput))
+updateRecipeJob_databaseOutputs = Lens.lens (\UpdateRecipeJob' {databaseOutputs} -> databaseOutputs) (\s@UpdateRecipeJob' {} a -> s {databaseOutputs = a} :: UpdateRecipeJob) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Resource Name (ARN) of an encryption key that is used to
+-- protect the job.
+updateRecipeJob_encryptionKeyArn :: Lens.Lens' UpdateRecipeJob (Prelude.Maybe Prelude.Text)
+updateRecipeJob_encryptionKeyArn = Lens.lens (\UpdateRecipeJob' {encryptionKeyArn} -> encryptionKeyArn) (\s@UpdateRecipeJob' {} a -> s {encryptionKeyArn = a} :: UpdateRecipeJob)
+
+-- | The encryption mode for the job, which can be one of the following:
+--
+-- -   @SSE-KMS@ - Server-side encryption with keys managed by KMS.
+--
+-- -   @SSE-S3@ - Server-side encryption with keys managed by Amazon S3.
+updateRecipeJob_encryptionMode :: Lens.Lens' UpdateRecipeJob (Prelude.Maybe EncryptionMode)
+updateRecipeJob_encryptionMode = Lens.lens (\UpdateRecipeJob' {encryptionMode} -> encryptionMode) (\s@UpdateRecipeJob' {} a -> s {encryptionMode = a} :: UpdateRecipeJob)
+
 -- | Enables or disables Amazon CloudWatch logging for the job. If logging is
 -- enabled, CloudWatch writes one log stream for each job run.
 updateRecipeJob_logSubscription :: Lens.Lens' UpdateRecipeJob (Prelude.Maybe LogSubscription)
 updateRecipeJob_logSubscription = Lens.lens (\UpdateRecipeJob' {logSubscription} -> logSubscription) (\s@UpdateRecipeJob' {} a -> s {logSubscription = a} :: UpdateRecipeJob)
+
+-- | The maximum number of nodes that DataBrew can consume when the job
+-- processes data.
+updateRecipeJob_maxCapacity :: Lens.Lens' UpdateRecipeJob (Prelude.Maybe Prelude.Int)
+updateRecipeJob_maxCapacity = Lens.lens (\UpdateRecipeJob' {maxCapacity} -> maxCapacity) (\s@UpdateRecipeJob' {} a -> s {maxCapacity = a} :: UpdateRecipeJob)
 
 -- | The maximum number of times to retry the job after a job run fails.
 updateRecipeJob_maxRetries :: Lens.Lens' UpdateRecipeJob (Prelude.Maybe Prelude.Natural)
@@ -190,18 +198,10 @@ updateRecipeJob_maxRetries = Lens.lens (\UpdateRecipeJob' {maxRetries} -> maxRet
 updateRecipeJob_outputs :: Lens.Lens' UpdateRecipeJob (Prelude.Maybe (Prelude.NonEmpty Output))
 updateRecipeJob_outputs = Lens.lens (\UpdateRecipeJob' {outputs} -> outputs) (\s@UpdateRecipeJob' {} a -> s {outputs = a} :: UpdateRecipeJob) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum number of nodes that DataBrew can consume when the job
--- processes data.
-updateRecipeJob_maxCapacity :: Lens.Lens' UpdateRecipeJob (Prelude.Maybe Prelude.Int)
-updateRecipeJob_maxCapacity = Lens.lens (\UpdateRecipeJob' {maxCapacity} -> maxCapacity) (\s@UpdateRecipeJob' {} a -> s {maxCapacity = a} :: UpdateRecipeJob)
-
--- | The encryption mode for the job, which can be one of the following:
---
--- -   @SSE-KMS@ - Server-side encryption with keys managed by KMS.
---
--- -   @SSE-S3@ - Server-side encryption with keys managed by Amazon S3.
-updateRecipeJob_encryptionMode :: Lens.Lens' UpdateRecipeJob (Prelude.Maybe EncryptionMode)
-updateRecipeJob_encryptionMode = Lens.lens (\UpdateRecipeJob' {encryptionMode} -> encryptionMode) (\s@UpdateRecipeJob' {} a -> s {encryptionMode = a} :: UpdateRecipeJob)
+-- | The job\'s timeout in minutes. A job that attempts to run longer than
+-- this timeout period ends with a status of @TIMEOUT@.
+updateRecipeJob_timeout :: Lens.Lens' UpdateRecipeJob (Prelude.Maybe Prelude.Natural)
+updateRecipeJob_timeout = Lens.lens (\UpdateRecipeJob' {timeout} -> timeout) (\s@UpdateRecipeJob' {} a -> s {timeout = a} :: UpdateRecipeJob)
 
 -- | The name of the job to update.
 updateRecipeJob_name :: Lens.Lens' UpdateRecipeJob Prelude.Text
@@ -228,29 +228,29 @@ instance Core.AWSRequest UpdateRecipeJob where
 
 instance Prelude.Hashable UpdateRecipeJob where
   hashWithSalt _salt UpdateRecipeJob' {..} =
-    _salt `Prelude.hashWithSalt` encryptionKeyArn
-      `Prelude.hashWithSalt` timeout
+    _salt `Prelude.hashWithSalt` dataCatalogOutputs
       `Prelude.hashWithSalt` databaseOutputs
-      `Prelude.hashWithSalt` dataCatalogOutputs
+      `Prelude.hashWithSalt` encryptionKeyArn
+      `Prelude.hashWithSalt` encryptionMode
       `Prelude.hashWithSalt` logSubscription
+      `Prelude.hashWithSalt` maxCapacity
       `Prelude.hashWithSalt` maxRetries
       `Prelude.hashWithSalt` outputs
-      `Prelude.hashWithSalt` maxCapacity
-      `Prelude.hashWithSalt` encryptionMode
+      `Prelude.hashWithSalt` timeout
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` roleArn
 
 instance Prelude.NFData UpdateRecipeJob where
   rnf UpdateRecipeJob' {..} =
-    Prelude.rnf encryptionKeyArn
-      `Prelude.seq` Prelude.rnf timeout
+    Prelude.rnf dataCatalogOutputs
       `Prelude.seq` Prelude.rnf databaseOutputs
-      `Prelude.seq` Prelude.rnf dataCatalogOutputs
+      `Prelude.seq` Prelude.rnf encryptionKeyArn
+      `Prelude.seq` Prelude.rnf encryptionMode
       `Prelude.seq` Prelude.rnf logSubscription
+      `Prelude.seq` Prelude.rnf maxCapacity
       `Prelude.seq` Prelude.rnf maxRetries
       `Prelude.seq` Prelude.rnf outputs
-      `Prelude.seq` Prelude.rnf maxCapacity
-      `Prelude.seq` Prelude.rnf encryptionMode
+      `Prelude.seq` Prelude.rnf timeout
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf roleArn
 
@@ -269,20 +269,20 @@ instance Data.ToJSON UpdateRecipeJob where
   toJSON UpdateRecipeJob' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("EncryptionKeyArn" Data..=)
-              Prelude.<$> encryptionKeyArn,
-            ("Timeout" Data..=) Prelude.<$> timeout,
+          [ ("DataCatalogOutputs" Data..=)
+              Prelude.<$> dataCatalogOutputs,
             ("DatabaseOutputs" Data..=)
               Prelude.<$> databaseOutputs,
-            ("DataCatalogOutputs" Data..=)
-              Prelude.<$> dataCatalogOutputs,
-            ("LogSubscription" Data..=)
-              Prelude.<$> logSubscription,
-            ("MaxRetries" Data..=) Prelude.<$> maxRetries,
-            ("Outputs" Data..=) Prelude.<$> outputs,
-            ("MaxCapacity" Data..=) Prelude.<$> maxCapacity,
+            ("EncryptionKeyArn" Data..=)
+              Prelude.<$> encryptionKeyArn,
             ("EncryptionMode" Data..=)
               Prelude.<$> encryptionMode,
+            ("LogSubscription" Data..=)
+              Prelude.<$> logSubscription,
+            ("MaxCapacity" Data..=) Prelude.<$> maxCapacity,
+            ("MaxRetries" Data..=) Prelude.<$> maxRetries,
+            ("Outputs" Data..=) Prelude.<$> outputs,
+            ("Timeout" Data..=) Prelude.<$> timeout,
             Prelude.Just ("RoleArn" Data..= roleArn)
           ]
       )

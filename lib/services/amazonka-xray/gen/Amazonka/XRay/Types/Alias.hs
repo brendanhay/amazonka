@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 data Alias = Alias'
   { -- | The canonical name of the alias.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The type of the alias.
-    type' :: Prelude.Maybe Prelude.Text,
     -- | A list of names for the alias, including the canonical name.
-    names :: Prelude.Maybe [Prelude.Text]
+    names :: Prelude.Maybe [Prelude.Text],
+    -- | The type of the alias.
+    type' :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,29 +47,29 @@ data Alias = Alias'
 --
 -- 'name', 'alias_name' - The canonical name of the alias.
 --
--- 'type'', 'alias_type' - The type of the alias.
---
 -- 'names', 'alias_names' - A list of names for the alias, including the canonical name.
+--
+-- 'type'', 'alias_type' - The type of the alias.
 newAlias ::
   Alias
 newAlias =
   Alias'
     { name = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      names = Prelude.Nothing
+      names = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | The canonical name of the alias.
 alias_name :: Lens.Lens' Alias (Prelude.Maybe Prelude.Text)
 alias_name = Lens.lens (\Alias' {name} -> name) (\s@Alias' {} a -> s {name = a} :: Alias)
 
--- | The type of the alias.
-alias_type :: Lens.Lens' Alias (Prelude.Maybe Prelude.Text)
-alias_type = Lens.lens (\Alias' {type'} -> type') (\s@Alias' {} a -> s {type' = a} :: Alias)
-
 -- | A list of names for the alias, including the canonical name.
 alias_names :: Lens.Lens' Alias (Prelude.Maybe [Prelude.Text])
 alias_names = Lens.lens (\Alias' {names} -> names) (\s@Alias' {} a -> s {names = a} :: Alias) Prelude.. Lens.mapping Lens.coerced
+
+-- | The type of the alias.
+alias_type :: Lens.Lens' Alias (Prelude.Maybe Prelude.Text)
+alias_type = Lens.lens (\Alias' {type'} -> type') (\s@Alias' {} a -> s {type' = a} :: Alias)
 
 instance Data.FromJSON Alias where
   parseJSON =
@@ -78,18 +78,18 @@ instance Data.FromJSON Alias where
       ( \x ->
           Alias'
             Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Type")
             Prelude.<*> (x Data..:? "Names" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable Alias where
   hashWithSalt _salt Alias' {..} =
     _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` names
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Alias where
   rnf Alias' {..} =
     Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf names
+      `Prelude.seq` Prelude.rnf type'

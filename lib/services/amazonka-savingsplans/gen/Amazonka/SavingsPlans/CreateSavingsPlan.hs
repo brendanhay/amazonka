@@ -27,10 +27,10 @@ module Amazonka.SavingsPlans.CreateSavingsPlan
     newCreateSavingsPlan,
 
     -- * Request Lenses
-    createSavingsPlan_tags,
-    createSavingsPlan_upfrontPaymentAmount,
     createSavingsPlan_clientToken,
     createSavingsPlan_purchaseTime,
+    createSavingsPlan_tags,
+    createSavingsPlan_upfrontPaymentAmount,
     createSavingsPlan_savingsPlanOfferingId,
     createSavingsPlan_commitment,
 
@@ -54,18 +54,18 @@ import Amazonka.SavingsPlans.Types
 
 -- | /See:/ 'newCreateSavingsPlan' smart constructor.
 data CreateSavingsPlan = CreateSavingsPlan'
-  { -- | One or more tags.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The up-front payment amount. This is a whole number between 50 and 99
-    -- percent of the total value of the Savings Plan. This parameter is
-    -- supported only if the payment option is @Partial Upfront@.
-    upfrontPaymentAmount :: Prelude.Maybe Prelude.Text,
-    -- | Unique, case-sensitive identifier that you provide to ensure the
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The time at which to purchase the Savings Plan, in UTC format
     -- (YYYY-MM-DDTHH:MM:SSZ).
     purchaseTime :: Prelude.Maybe Data.POSIX,
+    -- | One or more tags.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The up-front payment amount. This is a whole number between 50 and 99
+    -- percent of the total value of the Savings Plan. This parameter is
+    -- supported only if the payment option is @Partial Upfront@.
+    upfrontPaymentAmount :: Prelude.Maybe Prelude.Text,
     -- | The ID of the offering.
     savingsPlanOfferingId :: Prelude.Text,
     -- | The hourly commitment, in USD. This is a value between 0.001 and 1
@@ -83,17 +83,17 @@ data CreateSavingsPlan = CreateSavingsPlan'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createSavingsPlan_tags' - One or more tags.
---
--- 'upfrontPaymentAmount', 'createSavingsPlan_upfrontPaymentAmount' - The up-front payment amount. This is a whole number between 50 and 99
--- percent of the total value of the Savings Plan. This parameter is
--- supported only if the payment option is @Partial Upfront@.
---
 -- 'clientToken', 'createSavingsPlan_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
 --
 -- 'purchaseTime', 'createSavingsPlan_purchaseTime' - The time at which to purchase the Savings Plan, in UTC format
 -- (YYYY-MM-DDTHH:MM:SSZ).
+--
+-- 'tags', 'createSavingsPlan_tags' - One or more tags.
+--
+-- 'upfrontPaymentAmount', 'createSavingsPlan_upfrontPaymentAmount' - The up-front payment amount. This is a whole number between 50 and 99
+-- percent of the total value of the Savings Plan. This parameter is
+-- supported only if the payment option is @Partial Upfront@.
 --
 -- 'savingsPlanOfferingId', 'createSavingsPlan_savingsPlanOfferingId' - The ID of the offering.
 --
@@ -110,23 +110,13 @@ newCreateSavingsPlan
   pSavingsPlanOfferingId_
   pCommitment_ =
     CreateSavingsPlan'
-      { tags = Prelude.Nothing,
-        upfrontPaymentAmount = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+      { clientToken = Prelude.Nothing,
         purchaseTime = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        upfrontPaymentAmount = Prelude.Nothing,
         savingsPlanOfferingId = pSavingsPlanOfferingId_,
         commitment = pCommitment_
       }
-
--- | One or more tags.
-createSavingsPlan_tags :: Lens.Lens' CreateSavingsPlan (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createSavingsPlan_tags = Lens.lens (\CreateSavingsPlan' {tags} -> tags) (\s@CreateSavingsPlan' {} a -> s {tags = a} :: CreateSavingsPlan) Prelude.. Lens.mapping Lens.coerced
-
--- | The up-front payment amount. This is a whole number between 50 and 99
--- percent of the total value of the Savings Plan. This parameter is
--- supported only if the payment option is @Partial Upfront@.
-createSavingsPlan_upfrontPaymentAmount :: Lens.Lens' CreateSavingsPlan (Prelude.Maybe Prelude.Text)
-createSavingsPlan_upfrontPaymentAmount = Lens.lens (\CreateSavingsPlan' {upfrontPaymentAmount} -> upfrontPaymentAmount) (\s@CreateSavingsPlan' {} a -> s {upfrontPaymentAmount = a} :: CreateSavingsPlan)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
@@ -137,6 +127,16 @@ createSavingsPlan_clientToken = Lens.lens (\CreateSavingsPlan' {clientToken} -> 
 -- (YYYY-MM-DDTHH:MM:SSZ).
 createSavingsPlan_purchaseTime :: Lens.Lens' CreateSavingsPlan (Prelude.Maybe Prelude.UTCTime)
 createSavingsPlan_purchaseTime = Lens.lens (\CreateSavingsPlan' {purchaseTime} -> purchaseTime) (\s@CreateSavingsPlan' {} a -> s {purchaseTime = a} :: CreateSavingsPlan) Prelude.. Lens.mapping Data._Time
+
+-- | One or more tags.
+createSavingsPlan_tags :: Lens.Lens' CreateSavingsPlan (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createSavingsPlan_tags = Lens.lens (\CreateSavingsPlan' {tags} -> tags) (\s@CreateSavingsPlan' {} a -> s {tags = a} :: CreateSavingsPlan) Prelude.. Lens.mapping Lens.coerced
+
+-- | The up-front payment amount. This is a whole number between 50 and 99
+-- percent of the total value of the Savings Plan. This parameter is
+-- supported only if the payment option is @Partial Upfront@.
+createSavingsPlan_upfrontPaymentAmount :: Lens.Lens' CreateSavingsPlan (Prelude.Maybe Prelude.Text)
+createSavingsPlan_upfrontPaymentAmount = Lens.lens (\CreateSavingsPlan' {upfrontPaymentAmount} -> upfrontPaymentAmount) (\s@CreateSavingsPlan' {} a -> s {upfrontPaymentAmount = a} :: CreateSavingsPlan)
 
 -- | The ID of the offering.
 createSavingsPlan_savingsPlanOfferingId :: Lens.Lens' CreateSavingsPlan Prelude.Text
@@ -164,19 +164,19 @@ instance Core.AWSRequest CreateSavingsPlan where
 
 instance Prelude.Hashable CreateSavingsPlan where
   hashWithSalt _salt CreateSavingsPlan' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` upfrontPaymentAmount
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` purchaseTime
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` upfrontPaymentAmount
       `Prelude.hashWithSalt` savingsPlanOfferingId
       `Prelude.hashWithSalt` commitment
 
 instance Prelude.NFData CreateSavingsPlan where
   rnf CreateSavingsPlan' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf upfrontPaymentAmount
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf purchaseTime
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf upfrontPaymentAmount
       `Prelude.seq` Prelude.rnf savingsPlanOfferingId
       `Prelude.seq` Prelude.rnf commitment
 
@@ -195,11 +195,11 @@ instance Data.ToJSON CreateSavingsPlan where
   toJSON CreateSavingsPlan' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("purchaseTime" Data..=) Prelude.<$> purchaseTime,
+            ("tags" Data..=) Prelude.<$> tags,
             ("upfrontPaymentAmount" Data..=)
               Prelude.<$> upfrontPaymentAmount,
-            ("clientToken" Data..=) Prelude.<$> clientToken,
-            ("purchaseTime" Data..=) Prelude.<$> purchaseTime,
             Prelude.Just
               ( "savingsPlanOfferingId"
                   Data..= savingsPlanOfferingId

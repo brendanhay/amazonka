@@ -32,14 +32,14 @@ import Amazonka.SageMaker.Types.MonitoringType
 data MonitoringExecutionSummary = MonitoringExecutionSummary'
   { -- | The name of the endpoint used to run the monitoring job.
     endpointName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the monitoring job.
-    processingJobArn :: Prelude.Maybe Prelude.Text,
-    -- | The type of the monitoring job.
-    monitoringType :: Prelude.Maybe MonitoringType,
     -- | Contains the reason a monitoring job failed, if it failed.
     failureReason :: Prelude.Maybe Prelude.Text,
     -- | The name of the monitoring job.
     monitoringJobDefinitionName :: Prelude.Maybe Prelude.Text,
+    -- | The type of the monitoring job.
+    monitoringType :: Prelude.Maybe MonitoringType,
+    -- | The Amazon Resource Name (ARN) of the monitoring job.
+    processingJobArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the monitoring schedule.
     monitoringScheduleName :: Prelude.Text,
     -- | The time the monitoring job was scheduled.
@@ -64,13 +64,13 @@ data MonitoringExecutionSummary = MonitoringExecutionSummary'
 --
 -- 'endpointName', 'monitoringExecutionSummary_endpointName' - The name of the endpoint used to run the monitoring job.
 --
--- 'processingJobArn', 'monitoringExecutionSummary_processingJobArn' - The Amazon Resource Name (ARN) of the monitoring job.
---
--- 'monitoringType', 'monitoringExecutionSummary_monitoringType' - The type of the monitoring job.
---
 -- 'failureReason', 'monitoringExecutionSummary_failureReason' - Contains the reason a monitoring job failed, if it failed.
 --
 -- 'monitoringJobDefinitionName', 'monitoringExecutionSummary_monitoringJobDefinitionName' - The name of the monitoring job.
+--
+-- 'monitoringType', 'monitoringExecutionSummary_monitoringType' - The type of the monitoring job.
+--
+-- 'processingJobArn', 'monitoringExecutionSummary_processingJobArn' - The Amazon Resource Name (ARN) of the monitoring job.
 --
 -- 'monitoringScheduleName', 'monitoringExecutionSummary_monitoringScheduleName' - The name of the monitoring schedule.
 --
@@ -103,10 +103,10 @@ newMonitoringExecutionSummary
     MonitoringExecutionSummary'
       { endpointName =
           Prelude.Nothing,
-        processingJobArn = Prelude.Nothing,
-        monitoringType = Prelude.Nothing,
         failureReason = Prelude.Nothing,
         monitoringJobDefinitionName = Prelude.Nothing,
+        monitoringType = Prelude.Nothing,
+        processingJobArn = Prelude.Nothing,
         monitoringScheduleName =
           pMonitoringScheduleName_,
         scheduledTime =
@@ -122,14 +122,6 @@ newMonitoringExecutionSummary
 monitoringExecutionSummary_endpointName :: Lens.Lens' MonitoringExecutionSummary (Prelude.Maybe Prelude.Text)
 monitoringExecutionSummary_endpointName = Lens.lens (\MonitoringExecutionSummary' {endpointName} -> endpointName) (\s@MonitoringExecutionSummary' {} a -> s {endpointName = a} :: MonitoringExecutionSummary)
 
--- | The Amazon Resource Name (ARN) of the monitoring job.
-monitoringExecutionSummary_processingJobArn :: Lens.Lens' MonitoringExecutionSummary (Prelude.Maybe Prelude.Text)
-monitoringExecutionSummary_processingJobArn = Lens.lens (\MonitoringExecutionSummary' {processingJobArn} -> processingJobArn) (\s@MonitoringExecutionSummary' {} a -> s {processingJobArn = a} :: MonitoringExecutionSummary)
-
--- | The type of the monitoring job.
-monitoringExecutionSummary_monitoringType :: Lens.Lens' MonitoringExecutionSummary (Prelude.Maybe MonitoringType)
-monitoringExecutionSummary_monitoringType = Lens.lens (\MonitoringExecutionSummary' {monitoringType} -> monitoringType) (\s@MonitoringExecutionSummary' {} a -> s {monitoringType = a} :: MonitoringExecutionSummary)
-
 -- | Contains the reason a monitoring job failed, if it failed.
 monitoringExecutionSummary_failureReason :: Lens.Lens' MonitoringExecutionSummary (Prelude.Maybe Prelude.Text)
 monitoringExecutionSummary_failureReason = Lens.lens (\MonitoringExecutionSummary' {failureReason} -> failureReason) (\s@MonitoringExecutionSummary' {} a -> s {failureReason = a} :: MonitoringExecutionSummary)
@@ -137,6 +129,14 @@ monitoringExecutionSummary_failureReason = Lens.lens (\MonitoringExecutionSummar
 -- | The name of the monitoring job.
 monitoringExecutionSummary_monitoringJobDefinitionName :: Lens.Lens' MonitoringExecutionSummary (Prelude.Maybe Prelude.Text)
 monitoringExecutionSummary_monitoringJobDefinitionName = Lens.lens (\MonitoringExecutionSummary' {monitoringJobDefinitionName} -> monitoringJobDefinitionName) (\s@MonitoringExecutionSummary' {} a -> s {monitoringJobDefinitionName = a} :: MonitoringExecutionSummary)
+
+-- | The type of the monitoring job.
+monitoringExecutionSummary_monitoringType :: Lens.Lens' MonitoringExecutionSummary (Prelude.Maybe MonitoringType)
+monitoringExecutionSummary_monitoringType = Lens.lens (\MonitoringExecutionSummary' {monitoringType} -> monitoringType) (\s@MonitoringExecutionSummary' {} a -> s {monitoringType = a} :: MonitoringExecutionSummary)
+
+-- | The Amazon Resource Name (ARN) of the monitoring job.
+monitoringExecutionSummary_processingJobArn :: Lens.Lens' MonitoringExecutionSummary (Prelude.Maybe Prelude.Text)
+monitoringExecutionSummary_processingJobArn = Lens.lens (\MonitoringExecutionSummary' {processingJobArn} -> processingJobArn) (\s@MonitoringExecutionSummary' {} a -> s {processingJobArn = a} :: MonitoringExecutionSummary)
 
 -- | The name of the monitoring schedule.
 monitoringExecutionSummary_monitoringScheduleName :: Lens.Lens' MonitoringExecutionSummary Prelude.Text
@@ -166,10 +166,10 @@ instance Data.FromJSON MonitoringExecutionSummary where
       ( \x ->
           MonitoringExecutionSummary'
             Prelude.<$> (x Data..:? "EndpointName")
-            Prelude.<*> (x Data..:? "ProcessingJobArn")
-            Prelude.<*> (x Data..:? "MonitoringType")
             Prelude.<*> (x Data..:? "FailureReason")
             Prelude.<*> (x Data..:? "MonitoringJobDefinitionName")
+            Prelude.<*> (x Data..:? "MonitoringType")
+            Prelude.<*> (x Data..:? "ProcessingJobArn")
             Prelude.<*> (x Data..: "MonitoringScheduleName")
             Prelude.<*> (x Data..: "ScheduledTime")
             Prelude.<*> (x Data..: "CreationTime")
@@ -180,10 +180,10 @@ instance Data.FromJSON MonitoringExecutionSummary where
 instance Prelude.Hashable MonitoringExecutionSummary where
   hashWithSalt _salt MonitoringExecutionSummary' {..} =
     _salt `Prelude.hashWithSalt` endpointName
-      `Prelude.hashWithSalt` processingJobArn
-      `Prelude.hashWithSalt` monitoringType
       `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` monitoringJobDefinitionName
+      `Prelude.hashWithSalt` monitoringType
+      `Prelude.hashWithSalt` processingJobArn
       `Prelude.hashWithSalt` monitoringScheduleName
       `Prelude.hashWithSalt` scheduledTime
       `Prelude.hashWithSalt` creationTime
@@ -193,10 +193,10 @@ instance Prelude.Hashable MonitoringExecutionSummary where
 instance Prelude.NFData MonitoringExecutionSummary where
   rnf MonitoringExecutionSummary' {..} =
     Prelude.rnf endpointName
-      `Prelude.seq` Prelude.rnf processingJobArn
-      `Prelude.seq` Prelude.rnf monitoringType
       `Prelude.seq` Prelude.rnf failureReason
       `Prelude.seq` Prelude.rnf monitoringJobDefinitionName
+      `Prelude.seq` Prelude.rnf monitoringType
+      `Prelude.seq` Prelude.rnf processingJobArn
       `Prelude.seq` Prelude.rnf monitoringScheduleName
       `Prelude.seq` Prelude.rnf scheduledTime
       `Prelude.seq` Prelude.rnf creationTime

@@ -33,16 +33,16 @@ module Amazonka.Macie.Lens
     disassociateS3ResourcesResponse_httpStatus,
 
     -- ** ListMemberAccounts
-    listMemberAccounts_nextToken,
     listMemberAccounts_maxResults,
-    listMemberAccountsResponse_nextToken,
+    listMemberAccounts_nextToken,
     listMemberAccountsResponse_memberAccounts,
+    listMemberAccountsResponse_nextToken,
     listMemberAccountsResponse_httpStatus,
 
     -- ** ListS3Resources
-    listS3Resources_nextToken,
     listS3Resources_maxResults,
     listS3Resources_memberAccountId,
+    listS3Resources_nextToken,
     listS3ResourcesResponse_nextToken,
     listS3ResourcesResponse_s3Resources,
     listS3ResourcesResponse_httpStatus,
@@ -60,13 +60,13 @@ module Amazonka.Macie.Lens
     classificationType_continuous,
 
     -- ** ClassificationTypeUpdate
-    classificationTypeUpdate_oneTime,
     classificationTypeUpdate_continuous,
+    classificationTypeUpdate_oneTime,
 
     -- ** FailedS3Resource
-    failedS3Resource_failedItem,
-    failedS3Resource_errorMessage,
     failedS3Resource_errorCode,
+    failedS3Resource_errorMessage,
+    failedS3Resource_failedItem,
 
     -- ** MemberAccount
     memberAccount_accountId,

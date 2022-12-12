@@ -30,9 +30,9 @@ module Amazonka.Evidently.ListExperiments
     newListExperiments,
 
     -- * Request Lenses
+    listExperiments_maxResults,
     listExperiments_nextToken,
     listExperiments_status,
-    listExperiments_maxResults,
     listExperiments_project,
 
     -- * Destructuring the Response
@@ -56,14 +56,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListExperiments' smart constructor.
 data ListExperiments = ListExperiments'
-  { -- | The token to use when requesting the next set of results. You received
+  { -- | The maximum number of results to include in the response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to use when requesting the next set of results. You received
     -- this token from a previous @ListExperiments@ operation.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Use this optional parameter to limit the returned results to only the
     -- experiments with the status that you specify here.
     status :: Prelude.Maybe ExperimentStatus,
-    -- | The maximum number of results to include in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name or ARN of the project to return the experiment list from.
     project :: Prelude.Text
   }
@@ -77,13 +77,13 @@ data ListExperiments = ListExperiments'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listExperiments_maxResults' - The maximum number of results to include in the response.
+--
 -- 'nextToken', 'listExperiments_nextToken' - The token to use when requesting the next set of results. You received
 -- this token from a previous @ListExperiments@ operation.
 --
 -- 'status', 'listExperiments_status' - Use this optional parameter to limit the returned results to only the
 -- experiments with the status that you specify here.
---
--- 'maxResults', 'listExperiments_maxResults' - The maximum number of results to include in the response.
 --
 -- 'project', 'listExperiments_project' - The name or ARN of the project to return the experiment list from.
 newListExperiments ::
@@ -92,11 +92,15 @@ newListExperiments ::
   ListExperiments
 newListExperiments pProject_ =
   ListExperiments'
-    { nextToken = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       status = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       project = pProject_
     }
+
+-- | The maximum number of results to include in the response.
+listExperiments_maxResults :: Lens.Lens' ListExperiments (Prelude.Maybe Prelude.Natural)
+listExperiments_maxResults = Lens.lens (\ListExperiments' {maxResults} -> maxResults) (\s@ListExperiments' {} a -> s {maxResults = a} :: ListExperiments)
 
 -- | The token to use when requesting the next set of results. You received
 -- this token from a previous @ListExperiments@ operation.
@@ -107,10 +111,6 @@ listExperiments_nextToken = Lens.lens (\ListExperiments' {nextToken} -> nextToke
 -- experiments with the status that you specify here.
 listExperiments_status :: Lens.Lens' ListExperiments (Prelude.Maybe ExperimentStatus)
 listExperiments_status = Lens.lens (\ListExperiments' {status} -> status) (\s@ListExperiments' {} a -> s {status = a} :: ListExperiments)
-
--- | The maximum number of results to include in the response.
-listExperiments_maxResults :: Lens.Lens' ListExperiments (Prelude.Maybe Prelude.Natural)
-listExperiments_maxResults = Lens.lens (\ListExperiments' {maxResults} -> maxResults) (\s@ListExperiments' {} a -> s {maxResults = a} :: ListExperiments)
 
 -- | The name or ARN of the project to return the experiment list from.
 listExperiments_project :: Lens.Lens' ListExperiments Prelude.Text
@@ -155,16 +155,16 @@ instance Core.AWSRequest ListExperiments where
 
 instance Prelude.Hashable ListExperiments where
   hashWithSalt _salt ListExperiments' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` project
 
 instance Prelude.NFData ListExperiments where
   rnf ListExperiments' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf project
 
 instance Data.ToHeaders ListExperiments where
@@ -186,9 +186,9 @@ instance Data.ToPath ListExperiments where
 instance Data.ToQuery ListExperiments where
   toQuery ListExperiments' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "status" Data.=: status,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
+        "status" Data.=: status
       ]
 
 -- | /See:/ 'newListExperimentsResponse' smart constructor.

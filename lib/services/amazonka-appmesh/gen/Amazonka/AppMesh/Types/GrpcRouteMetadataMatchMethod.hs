@@ -32,12 +32,12 @@ import qualified Amazonka.Prelude as Prelude
 data GrpcRouteMetadataMatchMethod = GrpcRouteMetadataMatchMethod'
   { -- | The value sent by the client must match the specified value exactly.
     exact :: Prelude.Maybe Prelude.Text,
-    -- | The value sent by the client must include the specified characters.
-    regex :: Prelude.Maybe Prelude.Text,
-    -- | An object that represents the range of values to match on.
-    range :: Prelude.Maybe MatchRange,
     -- | The value sent by the client must begin with the specified characters.
     prefix :: Prelude.Maybe Prelude.Text,
+    -- | An object that represents the range of values to match on.
+    range :: Prelude.Maybe MatchRange,
+    -- | The value sent by the client must include the specified characters.
+    regex :: Prelude.Maybe Prelude.Text,
     -- | The value sent by the client must end with the specified characters.
     suffix :: Prelude.Maybe Prelude.Text
   }
@@ -53,11 +53,11 @@ data GrpcRouteMetadataMatchMethod = GrpcRouteMetadataMatchMethod'
 --
 -- 'exact', 'grpcRouteMetadataMatchMethod_exact' - The value sent by the client must match the specified value exactly.
 --
--- 'regex', 'grpcRouteMetadataMatchMethod_regex' - The value sent by the client must include the specified characters.
+-- 'prefix', 'grpcRouteMetadataMatchMethod_prefix' - The value sent by the client must begin with the specified characters.
 --
 -- 'range', 'grpcRouteMetadataMatchMethod_range' - An object that represents the range of values to match on.
 --
--- 'prefix', 'grpcRouteMetadataMatchMethod_prefix' - The value sent by the client must begin with the specified characters.
+-- 'regex', 'grpcRouteMetadataMatchMethod_regex' - The value sent by the client must include the specified characters.
 --
 -- 'suffix', 'grpcRouteMetadataMatchMethod_suffix' - The value sent by the client must end with the specified characters.
 newGrpcRouteMetadataMatchMethod ::
@@ -66,9 +66,9 @@ newGrpcRouteMetadataMatchMethod =
   GrpcRouteMetadataMatchMethod'
     { exact =
         Prelude.Nothing,
-      regex = Prelude.Nothing,
-      range = Prelude.Nothing,
       prefix = Prelude.Nothing,
+      range = Prelude.Nothing,
+      regex = Prelude.Nothing,
       suffix = Prelude.Nothing
     }
 
@@ -76,17 +76,17 @@ newGrpcRouteMetadataMatchMethod =
 grpcRouteMetadataMatchMethod_exact :: Lens.Lens' GrpcRouteMetadataMatchMethod (Prelude.Maybe Prelude.Text)
 grpcRouteMetadataMatchMethod_exact = Lens.lens (\GrpcRouteMetadataMatchMethod' {exact} -> exact) (\s@GrpcRouteMetadataMatchMethod' {} a -> s {exact = a} :: GrpcRouteMetadataMatchMethod)
 
--- | The value sent by the client must include the specified characters.
-grpcRouteMetadataMatchMethod_regex :: Lens.Lens' GrpcRouteMetadataMatchMethod (Prelude.Maybe Prelude.Text)
-grpcRouteMetadataMatchMethod_regex = Lens.lens (\GrpcRouteMetadataMatchMethod' {regex} -> regex) (\s@GrpcRouteMetadataMatchMethod' {} a -> s {regex = a} :: GrpcRouteMetadataMatchMethod)
+-- | The value sent by the client must begin with the specified characters.
+grpcRouteMetadataMatchMethod_prefix :: Lens.Lens' GrpcRouteMetadataMatchMethod (Prelude.Maybe Prelude.Text)
+grpcRouteMetadataMatchMethod_prefix = Lens.lens (\GrpcRouteMetadataMatchMethod' {prefix} -> prefix) (\s@GrpcRouteMetadataMatchMethod' {} a -> s {prefix = a} :: GrpcRouteMetadataMatchMethod)
 
 -- | An object that represents the range of values to match on.
 grpcRouteMetadataMatchMethod_range :: Lens.Lens' GrpcRouteMetadataMatchMethod (Prelude.Maybe MatchRange)
 grpcRouteMetadataMatchMethod_range = Lens.lens (\GrpcRouteMetadataMatchMethod' {range} -> range) (\s@GrpcRouteMetadataMatchMethod' {} a -> s {range = a} :: GrpcRouteMetadataMatchMethod)
 
--- | The value sent by the client must begin with the specified characters.
-grpcRouteMetadataMatchMethod_prefix :: Lens.Lens' GrpcRouteMetadataMatchMethod (Prelude.Maybe Prelude.Text)
-grpcRouteMetadataMatchMethod_prefix = Lens.lens (\GrpcRouteMetadataMatchMethod' {prefix} -> prefix) (\s@GrpcRouteMetadataMatchMethod' {} a -> s {prefix = a} :: GrpcRouteMetadataMatchMethod)
+-- | The value sent by the client must include the specified characters.
+grpcRouteMetadataMatchMethod_regex :: Lens.Lens' GrpcRouteMetadataMatchMethod (Prelude.Maybe Prelude.Text)
+grpcRouteMetadataMatchMethod_regex = Lens.lens (\GrpcRouteMetadataMatchMethod' {regex} -> regex) (\s@GrpcRouteMetadataMatchMethod' {} a -> s {regex = a} :: GrpcRouteMetadataMatchMethod)
 
 -- | The value sent by the client must end with the specified characters.
 grpcRouteMetadataMatchMethod_suffix :: Lens.Lens' GrpcRouteMetadataMatchMethod (Prelude.Maybe Prelude.Text)
@@ -99,9 +99,9 @@ instance Data.FromJSON GrpcRouteMetadataMatchMethod where
       ( \x ->
           GrpcRouteMetadataMatchMethod'
             Prelude.<$> (x Data..:? "exact")
-            Prelude.<*> (x Data..:? "regex")
-            Prelude.<*> (x Data..:? "range")
             Prelude.<*> (x Data..:? "prefix")
+            Prelude.<*> (x Data..:? "range")
+            Prelude.<*> (x Data..:? "regex")
             Prelude.<*> (x Data..:? "suffix")
       )
 
@@ -111,17 +111,17 @@ instance
   where
   hashWithSalt _salt GrpcRouteMetadataMatchMethod' {..} =
     _salt `Prelude.hashWithSalt` exact
-      `Prelude.hashWithSalt` regex
-      `Prelude.hashWithSalt` range
       `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` range
+      `Prelude.hashWithSalt` regex
       `Prelude.hashWithSalt` suffix
 
 instance Prelude.NFData GrpcRouteMetadataMatchMethod where
   rnf GrpcRouteMetadataMatchMethod' {..} =
     Prelude.rnf exact
-      `Prelude.seq` Prelude.rnf regex
-      `Prelude.seq` Prelude.rnf range
       `Prelude.seq` Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf range
+      `Prelude.seq` Prelude.rnf regex
       `Prelude.seq` Prelude.rnf suffix
 
 instance Data.ToJSON GrpcRouteMetadataMatchMethod where
@@ -129,9 +129,9 @@ instance Data.ToJSON GrpcRouteMetadataMatchMethod where
     Data.object
       ( Prelude.catMaybes
           [ ("exact" Data..=) Prelude.<$> exact,
-            ("regex" Data..=) Prelude.<$> regex,
-            ("range" Data..=) Prelude.<$> range,
             ("prefix" Data..=) Prelude.<$> prefix,
+            ("range" Data..=) Prelude.<$> range,
+            ("regex" Data..=) Prelude.<$> regex,
             ("suffix" Data..=) Prelude.<$> suffix
           ]
       )

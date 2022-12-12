@@ -28,20 +28,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRoleAliasDescription' smart constructor.
 data RoleAliasDescription = RoleAliasDescription'
-  { -- | The role ARN.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | The UNIX timestamp of when the role alias was last modified.
-    lastModifiedDate :: Prelude.Maybe Data.POSIX,
-    -- | The role alias.
-    roleAlias :: Prelude.Maybe Prelude.Text,
+  { -- | The UNIX timestamp of when the role alias was created.
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | The number of seconds for which the credential is valid.
     credentialDurationSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | The UNIX timestamp of when the role alias was created.
-    creationDate :: Prelude.Maybe Data.POSIX,
+    -- | The UNIX timestamp of when the role alias was last modified.
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | The role alias owner.
     owner :: Prelude.Maybe Prelude.Text,
+    -- | The role alias.
+    roleAlias :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the role alias.
-    roleAliasArn :: Prelude.Maybe Prelude.Text
+    roleAliasArn :: Prelude.Maybe Prelude.Text,
+    -- | The role ARN.
+    roleArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,59 +53,60 @@ data RoleAliasDescription = RoleAliasDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'roleAliasDescription_roleArn' - The role ARN.
---
--- 'lastModifiedDate', 'roleAliasDescription_lastModifiedDate' - The UNIX timestamp of when the role alias was last modified.
---
--- 'roleAlias', 'roleAliasDescription_roleAlias' - The role alias.
+-- 'creationDate', 'roleAliasDescription_creationDate' - The UNIX timestamp of when the role alias was created.
 --
 -- 'credentialDurationSeconds', 'roleAliasDescription_credentialDurationSeconds' - The number of seconds for which the credential is valid.
 --
--- 'creationDate', 'roleAliasDescription_creationDate' - The UNIX timestamp of when the role alias was created.
+-- 'lastModifiedDate', 'roleAliasDescription_lastModifiedDate' - The UNIX timestamp of when the role alias was last modified.
 --
 -- 'owner', 'roleAliasDescription_owner' - The role alias owner.
 --
+-- 'roleAlias', 'roleAliasDescription_roleAlias' - The role alias.
+--
 -- 'roleAliasArn', 'roleAliasDescription_roleAliasArn' - The ARN of the role alias.
+--
+-- 'roleArn', 'roleAliasDescription_roleArn' - The role ARN.
 newRoleAliasDescription ::
   RoleAliasDescription
 newRoleAliasDescription =
   RoleAliasDescription'
-    { roleArn = Prelude.Nothing,
-      lastModifiedDate = Prelude.Nothing,
-      roleAlias = Prelude.Nothing,
+    { creationDate =
+        Prelude.Nothing,
       credentialDurationSeconds = Prelude.Nothing,
-      creationDate = Prelude.Nothing,
+      lastModifiedDate = Prelude.Nothing,
       owner = Prelude.Nothing,
-      roleAliasArn = Prelude.Nothing
+      roleAlias = Prelude.Nothing,
+      roleAliasArn = Prelude.Nothing,
+      roleArn = Prelude.Nothing
     }
-
--- | The role ARN.
-roleAliasDescription_roleArn :: Lens.Lens' RoleAliasDescription (Prelude.Maybe Prelude.Text)
-roleAliasDescription_roleArn = Lens.lens (\RoleAliasDescription' {roleArn} -> roleArn) (\s@RoleAliasDescription' {} a -> s {roleArn = a} :: RoleAliasDescription)
-
--- | The UNIX timestamp of when the role alias was last modified.
-roleAliasDescription_lastModifiedDate :: Lens.Lens' RoleAliasDescription (Prelude.Maybe Prelude.UTCTime)
-roleAliasDescription_lastModifiedDate = Lens.lens (\RoleAliasDescription' {lastModifiedDate} -> lastModifiedDate) (\s@RoleAliasDescription' {} a -> s {lastModifiedDate = a} :: RoleAliasDescription) Prelude.. Lens.mapping Data._Time
-
--- | The role alias.
-roleAliasDescription_roleAlias :: Lens.Lens' RoleAliasDescription (Prelude.Maybe Prelude.Text)
-roleAliasDescription_roleAlias = Lens.lens (\RoleAliasDescription' {roleAlias} -> roleAlias) (\s@RoleAliasDescription' {} a -> s {roleAlias = a} :: RoleAliasDescription)
-
--- | The number of seconds for which the credential is valid.
-roleAliasDescription_credentialDurationSeconds :: Lens.Lens' RoleAliasDescription (Prelude.Maybe Prelude.Natural)
-roleAliasDescription_credentialDurationSeconds = Lens.lens (\RoleAliasDescription' {credentialDurationSeconds} -> credentialDurationSeconds) (\s@RoleAliasDescription' {} a -> s {credentialDurationSeconds = a} :: RoleAliasDescription)
 
 -- | The UNIX timestamp of when the role alias was created.
 roleAliasDescription_creationDate :: Lens.Lens' RoleAliasDescription (Prelude.Maybe Prelude.UTCTime)
 roleAliasDescription_creationDate = Lens.lens (\RoleAliasDescription' {creationDate} -> creationDate) (\s@RoleAliasDescription' {} a -> s {creationDate = a} :: RoleAliasDescription) Prelude.. Lens.mapping Data._Time
 
+-- | The number of seconds for which the credential is valid.
+roleAliasDescription_credentialDurationSeconds :: Lens.Lens' RoleAliasDescription (Prelude.Maybe Prelude.Natural)
+roleAliasDescription_credentialDurationSeconds = Lens.lens (\RoleAliasDescription' {credentialDurationSeconds} -> credentialDurationSeconds) (\s@RoleAliasDescription' {} a -> s {credentialDurationSeconds = a} :: RoleAliasDescription)
+
+-- | The UNIX timestamp of when the role alias was last modified.
+roleAliasDescription_lastModifiedDate :: Lens.Lens' RoleAliasDescription (Prelude.Maybe Prelude.UTCTime)
+roleAliasDescription_lastModifiedDate = Lens.lens (\RoleAliasDescription' {lastModifiedDate} -> lastModifiedDate) (\s@RoleAliasDescription' {} a -> s {lastModifiedDate = a} :: RoleAliasDescription) Prelude.. Lens.mapping Data._Time
+
 -- | The role alias owner.
 roleAliasDescription_owner :: Lens.Lens' RoleAliasDescription (Prelude.Maybe Prelude.Text)
 roleAliasDescription_owner = Lens.lens (\RoleAliasDescription' {owner} -> owner) (\s@RoleAliasDescription' {} a -> s {owner = a} :: RoleAliasDescription)
 
+-- | The role alias.
+roleAliasDescription_roleAlias :: Lens.Lens' RoleAliasDescription (Prelude.Maybe Prelude.Text)
+roleAliasDescription_roleAlias = Lens.lens (\RoleAliasDescription' {roleAlias} -> roleAlias) (\s@RoleAliasDescription' {} a -> s {roleAlias = a} :: RoleAliasDescription)
+
 -- | The ARN of the role alias.
 roleAliasDescription_roleAliasArn :: Lens.Lens' RoleAliasDescription (Prelude.Maybe Prelude.Text)
 roleAliasDescription_roleAliasArn = Lens.lens (\RoleAliasDescription' {roleAliasArn} -> roleAliasArn) (\s@RoleAliasDescription' {} a -> s {roleAliasArn = a} :: RoleAliasDescription)
+
+-- | The role ARN.
+roleAliasDescription_roleArn :: Lens.Lens' RoleAliasDescription (Prelude.Maybe Prelude.Text)
+roleAliasDescription_roleArn = Lens.lens (\RoleAliasDescription' {roleArn} -> roleArn) (\s@RoleAliasDescription' {} a -> s {roleArn = a} :: RoleAliasDescription)
 
 instance Data.FromJSON RoleAliasDescription where
   parseJSON =
@@ -113,31 +114,31 @@ instance Data.FromJSON RoleAliasDescription where
       "RoleAliasDescription"
       ( \x ->
           RoleAliasDescription'
-            Prelude.<$> (x Data..:? "roleArn")
-            Prelude.<*> (x Data..:? "lastModifiedDate")
-            Prelude.<*> (x Data..:? "roleAlias")
+            Prelude.<$> (x Data..:? "creationDate")
             Prelude.<*> (x Data..:? "credentialDurationSeconds")
-            Prelude.<*> (x Data..:? "creationDate")
+            Prelude.<*> (x Data..:? "lastModifiedDate")
             Prelude.<*> (x Data..:? "owner")
+            Prelude.<*> (x Data..:? "roleAlias")
             Prelude.<*> (x Data..:? "roleAliasArn")
+            Prelude.<*> (x Data..:? "roleArn")
       )
 
 instance Prelude.Hashable RoleAliasDescription where
   hashWithSalt _salt RoleAliasDescription' {..} =
-    _salt `Prelude.hashWithSalt` roleArn
-      `Prelude.hashWithSalt` lastModifiedDate
-      `Prelude.hashWithSalt` roleAlias
+    _salt `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` credentialDurationSeconds
-      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` lastModifiedDate
       `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` roleAlias
       `Prelude.hashWithSalt` roleAliasArn
+      `Prelude.hashWithSalt` roleArn
 
 instance Prelude.NFData RoleAliasDescription where
   rnf RoleAliasDescription' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf roleAlias
+    Prelude.rnf creationDate
       `Prelude.seq` Prelude.rnf credentialDurationSeconds
-      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf lastModifiedDate
       `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf roleAlias
       `Prelude.seq` Prelude.rnf roleAliasArn
+      `Prelude.seq` Prelude.rnf roleArn

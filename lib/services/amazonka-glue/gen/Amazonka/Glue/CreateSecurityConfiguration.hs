@@ -39,8 +39,8 @@ module Amazonka.Glue.CreateSecurityConfiguration
     newCreateSecurityConfigurationResponse,
 
     -- * Response Lenses
-    createSecurityConfigurationResponse_name,
     createSecurityConfigurationResponse_createdTimestamp,
+    createSecurityConfigurationResponse_name,
     createSecurityConfigurationResponse_httpStatus,
   )
 where
@@ -106,8 +106,8 @@ instance Core.AWSRequest CreateSecurityConfiguration where
     Response.receiveJSON
       ( \s h x ->
           CreateSecurityConfigurationResponse'
-            Prelude.<$> (x Data..?> "Name")
-            Prelude.<*> (x Data..?> "CreatedTimestamp")
+            Prelude.<$> (x Data..?> "CreatedTimestamp")
+            Prelude.<*> (x Data..?> "Name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,10 +156,10 @@ instance Data.ToQuery CreateSecurityConfiguration where
 
 -- | /See:/ 'newCreateSecurityConfigurationResponse' smart constructor.
 data CreateSecurityConfigurationResponse = CreateSecurityConfigurationResponse'
-  { -- | The name assigned to the new security configuration.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The time at which the new security configuration was created.
+  { -- | The time at which the new security configuration was created.
     createdTimestamp :: Prelude.Maybe Data.POSIX,
+    -- | The name assigned to the new security configuration.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -173,9 +173,9 @@ data CreateSecurityConfigurationResponse = CreateSecurityConfigurationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'createSecurityConfigurationResponse_name' - The name assigned to the new security configuration.
---
 -- 'createdTimestamp', 'createSecurityConfigurationResponse_createdTimestamp' - The time at which the new security configuration was created.
+--
+-- 'name', 'createSecurityConfigurationResponse_name' - The name assigned to the new security configuration.
 --
 -- 'httpStatus', 'createSecurityConfigurationResponse_httpStatus' - The response's http status code.
 newCreateSecurityConfigurationResponse ::
@@ -184,19 +184,19 @@ newCreateSecurityConfigurationResponse ::
   CreateSecurityConfigurationResponse
 newCreateSecurityConfigurationResponse pHttpStatus_ =
   CreateSecurityConfigurationResponse'
-    { name =
+    { createdTimestamp =
         Prelude.Nothing,
-      createdTimestamp = Prelude.Nothing,
+      name = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The name assigned to the new security configuration.
-createSecurityConfigurationResponse_name :: Lens.Lens' CreateSecurityConfigurationResponse (Prelude.Maybe Prelude.Text)
-createSecurityConfigurationResponse_name = Lens.lens (\CreateSecurityConfigurationResponse' {name} -> name) (\s@CreateSecurityConfigurationResponse' {} a -> s {name = a} :: CreateSecurityConfigurationResponse)
 
 -- | The time at which the new security configuration was created.
 createSecurityConfigurationResponse_createdTimestamp :: Lens.Lens' CreateSecurityConfigurationResponse (Prelude.Maybe Prelude.UTCTime)
 createSecurityConfigurationResponse_createdTimestamp = Lens.lens (\CreateSecurityConfigurationResponse' {createdTimestamp} -> createdTimestamp) (\s@CreateSecurityConfigurationResponse' {} a -> s {createdTimestamp = a} :: CreateSecurityConfigurationResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The name assigned to the new security configuration.
+createSecurityConfigurationResponse_name :: Lens.Lens' CreateSecurityConfigurationResponse (Prelude.Maybe Prelude.Text)
+createSecurityConfigurationResponse_name = Lens.lens (\CreateSecurityConfigurationResponse' {name} -> name) (\s@CreateSecurityConfigurationResponse' {} a -> s {name = a} :: CreateSecurityConfigurationResponse)
 
 -- | The response's http status code.
 createSecurityConfigurationResponse_httpStatus :: Lens.Lens' CreateSecurityConfigurationResponse Prelude.Int
@@ -207,6 +207,6 @@ instance
     CreateSecurityConfigurationResponse
   where
   rnf CreateSecurityConfigurationResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf createdTimestamp
+    Prelude.rnf createdTimestamp
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf httpStatus

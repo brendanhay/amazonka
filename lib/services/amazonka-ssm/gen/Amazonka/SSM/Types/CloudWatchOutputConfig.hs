@@ -29,15 +29,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCloudWatchOutputConfig' smart constructor.
 data CloudWatchOutputConfig = CloudWatchOutputConfig'
-  { -- | Enables Systems Manager to send command output to CloudWatch Logs.
-    cloudWatchOutputEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the CloudWatch Logs log group where you want to send command
+  { -- | The name of the CloudWatch Logs log group where you want to send command
     -- output. If you don\'t specify a group name, Amazon Web Services Systems
     -- Manager automatically creates a log group for you. The log group uses
     -- the following naming format:
     --
     -- @aws\/ssm\/SystemsManagerDocumentName @
-    cloudWatchLogGroupName :: Prelude.Maybe Prelude.Text
+    cloudWatchLogGroupName :: Prelude.Maybe Prelude.Text,
+    -- | Enables Systems Manager to send command output to CloudWatch Logs.
+    cloudWatchOutputEnabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,26 +49,22 @@ data CloudWatchOutputConfig = CloudWatchOutputConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'cloudWatchOutputEnabled', 'cloudWatchOutputConfig_cloudWatchOutputEnabled' - Enables Systems Manager to send command output to CloudWatch Logs.
---
 -- 'cloudWatchLogGroupName', 'cloudWatchOutputConfig_cloudWatchLogGroupName' - The name of the CloudWatch Logs log group where you want to send command
 -- output. If you don\'t specify a group name, Amazon Web Services Systems
 -- Manager automatically creates a log group for you. The log group uses
 -- the following naming format:
 --
 -- @aws\/ssm\/SystemsManagerDocumentName @
+--
+-- 'cloudWatchOutputEnabled', 'cloudWatchOutputConfig_cloudWatchOutputEnabled' - Enables Systems Manager to send command output to CloudWatch Logs.
 newCloudWatchOutputConfig ::
   CloudWatchOutputConfig
 newCloudWatchOutputConfig =
   CloudWatchOutputConfig'
-    { cloudWatchOutputEnabled =
+    { cloudWatchLogGroupName =
         Prelude.Nothing,
-      cloudWatchLogGroupName = Prelude.Nothing
+      cloudWatchOutputEnabled = Prelude.Nothing
     }
-
--- | Enables Systems Manager to send command output to CloudWatch Logs.
-cloudWatchOutputConfig_cloudWatchOutputEnabled :: Lens.Lens' CloudWatchOutputConfig (Prelude.Maybe Prelude.Bool)
-cloudWatchOutputConfig_cloudWatchOutputEnabled = Lens.lens (\CloudWatchOutputConfig' {cloudWatchOutputEnabled} -> cloudWatchOutputEnabled) (\s@CloudWatchOutputConfig' {} a -> s {cloudWatchOutputEnabled = a} :: CloudWatchOutputConfig)
 
 -- | The name of the CloudWatch Logs log group where you want to send command
 -- output. If you don\'t specify a group name, Amazon Web Services Systems
@@ -79,34 +75,37 @@ cloudWatchOutputConfig_cloudWatchOutputEnabled = Lens.lens (\CloudWatchOutputCon
 cloudWatchOutputConfig_cloudWatchLogGroupName :: Lens.Lens' CloudWatchOutputConfig (Prelude.Maybe Prelude.Text)
 cloudWatchOutputConfig_cloudWatchLogGroupName = Lens.lens (\CloudWatchOutputConfig' {cloudWatchLogGroupName} -> cloudWatchLogGroupName) (\s@CloudWatchOutputConfig' {} a -> s {cloudWatchLogGroupName = a} :: CloudWatchOutputConfig)
 
+-- | Enables Systems Manager to send command output to CloudWatch Logs.
+cloudWatchOutputConfig_cloudWatchOutputEnabled :: Lens.Lens' CloudWatchOutputConfig (Prelude.Maybe Prelude.Bool)
+cloudWatchOutputConfig_cloudWatchOutputEnabled = Lens.lens (\CloudWatchOutputConfig' {cloudWatchOutputEnabled} -> cloudWatchOutputEnabled) (\s@CloudWatchOutputConfig' {} a -> s {cloudWatchOutputEnabled = a} :: CloudWatchOutputConfig)
+
 instance Data.FromJSON CloudWatchOutputConfig where
   parseJSON =
     Data.withObject
       "CloudWatchOutputConfig"
       ( \x ->
           CloudWatchOutputConfig'
-            Prelude.<$> (x Data..:? "CloudWatchOutputEnabled")
-            Prelude.<*> (x Data..:? "CloudWatchLogGroupName")
+            Prelude.<$> (x Data..:? "CloudWatchLogGroupName")
+            Prelude.<*> (x Data..:? "CloudWatchOutputEnabled")
       )
 
 instance Prelude.Hashable CloudWatchOutputConfig where
   hashWithSalt _salt CloudWatchOutputConfig' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` cloudWatchLogGroupName
       `Prelude.hashWithSalt` cloudWatchOutputEnabled
-      `Prelude.hashWithSalt` cloudWatchLogGroupName
 
 instance Prelude.NFData CloudWatchOutputConfig where
   rnf CloudWatchOutputConfig' {..} =
-    Prelude.rnf cloudWatchOutputEnabled
-      `Prelude.seq` Prelude.rnf cloudWatchLogGroupName
+    Prelude.rnf cloudWatchLogGroupName
+      `Prelude.seq` Prelude.rnf cloudWatchOutputEnabled
 
 instance Data.ToJSON CloudWatchOutputConfig where
   toJSON CloudWatchOutputConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("CloudWatchOutputEnabled" Data..=)
-              Prelude.<$> cloudWatchOutputEnabled,
-            ("CloudWatchLogGroupName" Data..=)
-              Prelude.<$> cloudWatchLogGroupName
+          [ ("CloudWatchLogGroupName" Data..=)
+              Prelude.<$> cloudWatchLogGroupName,
+            ("CloudWatchOutputEnabled" Data..=)
+              Prelude.<$> cloudWatchOutputEnabled
           ]
       )

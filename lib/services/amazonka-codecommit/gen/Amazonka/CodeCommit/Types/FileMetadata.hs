@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFileMetadata' smart constructor.
 data FileMetadata = FileMetadata'
-  { -- | The extrapolated file mode permissions for the file. Valid values
-    -- include EXECUTABLE and NORMAL.
-    fileMode :: Prelude.Maybe FileModeTypeEnum,
-    -- | The full path to the file to be added or updated, including the name of
+  { -- | The full path to the file to be added or updated, including the name of
     -- the file.
     absolutePath :: Prelude.Maybe Prelude.Text,
     -- | The blob ID that contains the file information.
-    blobId :: Prelude.Maybe Prelude.Text
+    blobId :: Prelude.Maybe Prelude.Text,
+    -- | The extrapolated file mode permissions for the file. Valid values
+    -- include EXECUTABLE and NORMAL.
+    fileMode :: Prelude.Maybe FileModeTypeEnum
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,26 +48,21 @@ data FileMetadata = FileMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fileMode', 'fileMetadata_fileMode' - The extrapolated file mode permissions for the file. Valid values
--- include EXECUTABLE and NORMAL.
---
 -- 'absolutePath', 'fileMetadata_absolutePath' - The full path to the file to be added or updated, including the name of
 -- the file.
 --
 -- 'blobId', 'fileMetadata_blobId' - The blob ID that contains the file information.
+--
+-- 'fileMode', 'fileMetadata_fileMode' - The extrapolated file mode permissions for the file. Valid values
+-- include EXECUTABLE and NORMAL.
 newFileMetadata ::
   FileMetadata
 newFileMetadata =
   FileMetadata'
-    { fileMode = Prelude.Nothing,
-      absolutePath = Prelude.Nothing,
-      blobId = Prelude.Nothing
+    { absolutePath = Prelude.Nothing,
+      blobId = Prelude.Nothing,
+      fileMode = Prelude.Nothing
     }
-
--- | The extrapolated file mode permissions for the file. Valid values
--- include EXECUTABLE and NORMAL.
-fileMetadata_fileMode :: Lens.Lens' FileMetadata (Prelude.Maybe FileModeTypeEnum)
-fileMetadata_fileMode = Lens.lens (\FileMetadata' {fileMode} -> fileMode) (\s@FileMetadata' {} a -> s {fileMode = a} :: FileMetadata)
 
 -- | The full path to the file to be added or updated, including the name of
 -- the file.
@@ -78,25 +73,30 @@ fileMetadata_absolutePath = Lens.lens (\FileMetadata' {absolutePath} -> absolute
 fileMetadata_blobId :: Lens.Lens' FileMetadata (Prelude.Maybe Prelude.Text)
 fileMetadata_blobId = Lens.lens (\FileMetadata' {blobId} -> blobId) (\s@FileMetadata' {} a -> s {blobId = a} :: FileMetadata)
 
+-- | The extrapolated file mode permissions for the file. Valid values
+-- include EXECUTABLE and NORMAL.
+fileMetadata_fileMode :: Lens.Lens' FileMetadata (Prelude.Maybe FileModeTypeEnum)
+fileMetadata_fileMode = Lens.lens (\FileMetadata' {fileMode} -> fileMode) (\s@FileMetadata' {} a -> s {fileMode = a} :: FileMetadata)
+
 instance Data.FromJSON FileMetadata where
   parseJSON =
     Data.withObject
       "FileMetadata"
       ( \x ->
           FileMetadata'
-            Prelude.<$> (x Data..:? "fileMode")
-            Prelude.<*> (x Data..:? "absolutePath")
+            Prelude.<$> (x Data..:? "absolutePath")
             Prelude.<*> (x Data..:? "blobId")
+            Prelude.<*> (x Data..:? "fileMode")
       )
 
 instance Prelude.Hashable FileMetadata where
   hashWithSalt _salt FileMetadata' {..} =
-    _salt `Prelude.hashWithSalt` fileMode
-      `Prelude.hashWithSalt` absolutePath
+    _salt `Prelude.hashWithSalt` absolutePath
       `Prelude.hashWithSalt` blobId
+      `Prelude.hashWithSalt` fileMode
 
 instance Prelude.NFData FileMetadata where
   rnf FileMetadata' {..} =
-    Prelude.rnf fileMode
-      `Prelude.seq` Prelude.rnf absolutePath
+    Prelude.rnf absolutePath
       `Prelude.seq` Prelude.rnf blobId
+      `Prelude.seq` Prelude.rnf fileMode

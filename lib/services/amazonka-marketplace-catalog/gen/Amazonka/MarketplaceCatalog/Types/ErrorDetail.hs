@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newErrorDetail' smart constructor.
 data ErrorDetail = ErrorDetail'
-  { -- | The message for the error.
-    errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | The error code that identifies the type of error.
-    errorCode :: Prelude.Maybe Prelude.Text
+  { -- | The error code that identifies the type of error.
+    errorCode :: Prelude.Maybe Prelude.Text,
+    -- | The message for the error.
+    errorMessage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data ErrorDetail = ErrorDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'errorMessage', 'errorDetail_errorMessage' - The message for the error.
---
 -- 'errorCode', 'errorDetail_errorCode' - The error code that identifies the type of error.
+--
+-- 'errorMessage', 'errorDetail_errorMessage' - The message for the error.
 newErrorDetail ::
   ErrorDetail
 newErrorDetail =
   ErrorDetail'
-    { errorMessage = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+    { errorCode = Prelude.Nothing,
+      errorMessage = Prelude.Nothing
     }
-
--- | The message for the error.
-errorDetail_errorMessage :: Lens.Lens' ErrorDetail (Prelude.Maybe Prelude.Text)
-errorDetail_errorMessage = Lens.lens (\ErrorDetail' {errorMessage} -> errorMessage) (\s@ErrorDetail' {} a -> s {errorMessage = a} :: ErrorDetail)
 
 -- | The error code that identifies the type of error.
 errorDetail_errorCode :: Lens.Lens' ErrorDetail (Prelude.Maybe Prelude.Text)
 errorDetail_errorCode = Lens.lens (\ErrorDetail' {errorCode} -> errorCode) (\s@ErrorDetail' {} a -> s {errorCode = a} :: ErrorDetail)
+
+-- | The message for the error.
+errorDetail_errorMessage :: Lens.Lens' ErrorDetail (Prelude.Maybe Prelude.Text)
+errorDetail_errorMessage = Lens.lens (\ErrorDetail' {errorMessage} -> errorMessage) (\s@ErrorDetail' {} a -> s {errorMessage = a} :: ErrorDetail)
 
 instance Data.FromJSON ErrorDetail where
   parseJSON =
@@ -68,16 +68,16 @@ instance Data.FromJSON ErrorDetail where
       "ErrorDetail"
       ( \x ->
           ErrorDetail'
-            Prelude.<$> (x Data..:? "ErrorMessage")
-            Prelude.<*> (x Data..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "ErrorMessage")
       )
 
 instance Prelude.Hashable ErrorDetail where
   hashWithSalt _salt ErrorDetail' {..} =
-    _salt `Prelude.hashWithSalt` errorMessage
-      `Prelude.hashWithSalt` errorCode
+    _salt `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` errorMessage
 
 instance Prelude.NFData ErrorDetail where
   rnf ErrorDetail' {..} =
-    Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf errorCode
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage

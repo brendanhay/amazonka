@@ -27,11 +27,11 @@ module Amazonka.IoTWireless.CreateFuotaTask
     newCreateFuotaTask,
 
     -- * Request Lenses
-    createFuotaTask_tags,
-    createFuotaTask_name,
     createFuotaTask_clientRequestToken,
-    createFuotaTask_loRaWAN,
     createFuotaTask_description,
+    createFuotaTask_loRaWAN,
+    createFuotaTask_name,
+    createFuotaTask_tags,
     createFuotaTask_firmwareUpdateImage,
     createFuotaTask_firmwareUpdateRole,
 
@@ -56,11 +56,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateFuotaTask' smart constructor.
 data CreateFuotaTask = CreateFuotaTask'
-  { tags :: Prelude.Maybe [Tag],
-    name :: Prelude.Maybe Prelude.Text,
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
-    loRaWAN :: Prelude.Maybe LoRaWANFuotaTask,
+  { clientRequestToken :: Prelude.Maybe Prelude.Text,
     description :: Prelude.Maybe Prelude.Text,
+    loRaWAN :: Prelude.Maybe LoRaWANFuotaTask,
+    name :: Prelude.Maybe Prelude.Text,
+    tags :: Prelude.Maybe [Tag],
     firmwareUpdateImage :: Prelude.Text,
     firmwareUpdateRole :: Prelude.Text
   }
@@ -74,15 +74,15 @@ data CreateFuotaTask = CreateFuotaTask'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createFuotaTask_tags' - Undocumented member.
---
--- 'name', 'createFuotaTask_name' - Undocumented member.
---
 -- 'clientRequestToken', 'createFuotaTask_clientRequestToken' - Undocumented member.
+--
+-- 'description', 'createFuotaTask_description' - Undocumented member.
 --
 -- 'loRaWAN', 'createFuotaTask_loRaWAN' - Undocumented member.
 --
--- 'description', 'createFuotaTask_description' - Undocumented member.
+-- 'name', 'createFuotaTask_name' - Undocumented member.
+--
+-- 'tags', 'createFuotaTask_tags' - Undocumented member.
 --
 -- 'firmwareUpdateImage', 'createFuotaTask_firmwareUpdateImage' - Undocumented member.
 --
@@ -97,34 +97,35 @@ newCreateFuotaTask
   pFirmwareUpdateImage_
   pFirmwareUpdateRole_ =
     CreateFuotaTask'
-      { tags = Prelude.Nothing,
-        name = Prelude.Nothing,
-        clientRequestToken = Prelude.Nothing,
-        loRaWAN = Prelude.Nothing,
+      { clientRequestToken =
+          Prelude.Nothing,
         description = Prelude.Nothing,
+        loRaWAN = Prelude.Nothing,
+        name = Prelude.Nothing,
+        tags = Prelude.Nothing,
         firmwareUpdateImage = pFirmwareUpdateImage_,
         firmwareUpdateRole = pFirmwareUpdateRole_
       }
-
--- | Undocumented member.
-createFuotaTask_tags :: Lens.Lens' CreateFuotaTask (Prelude.Maybe [Tag])
-createFuotaTask_tags = Lens.lens (\CreateFuotaTask' {tags} -> tags) (\s@CreateFuotaTask' {} a -> s {tags = a} :: CreateFuotaTask) Prelude.. Lens.mapping Lens.coerced
-
--- | Undocumented member.
-createFuotaTask_name :: Lens.Lens' CreateFuotaTask (Prelude.Maybe Prelude.Text)
-createFuotaTask_name = Lens.lens (\CreateFuotaTask' {name} -> name) (\s@CreateFuotaTask' {} a -> s {name = a} :: CreateFuotaTask)
 
 -- | Undocumented member.
 createFuotaTask_clientRequestToken :: Lens.Lens' CreateFuotaTask (Prelude.Maybe Prelude.Text)
 createFuotaTask_clientRequestToken = Lens.lens (\CreateFuotaTask' {clientRequestToken} -> clientRequestToken) (\s@CreateFuotaTask' {} a -> s {clientRequestToken = a} :: CreateFuotaTask)
 
 -- | Undocumented member.
+createFuotaTask_description :: Lens.Lens' CreateFuotaTask (Prelude.Maybe Prelude.Text)
+createFuotaTask_description = Lens.lens (\CreateFuotaTask' {description} -> description) (\s@CreateFuotaTask' {} a -> s {description = a} :: CreateFuotaTask)
+
+-- | Undocumented member.
 createFuotaTask_loRaWAN :: Lens.Lens' CreateFuotaTask (Prelude.Maybe LoRaWANFuotaTask)
 createFuotaTask_loRaWAN = Lens.lens (\CreateFuotaTask' {loRaWAN} -> loRaWAN) (\s@CreateFuotaTask' {} a -> s {loRaWAN = a} :: CreateFuotaTask)
 
 -- | Undocumented member.
-createFuotaTask_description :: Lens.Lens' CreateFuotaTask (Prelude.Maybe Prelude.Text)
-createFuotaTask_description = Lens.lens (\CreateFuotaTask' {description} -> description) (\s@CreateFuotaTask' {} a -> s {description = a} :: CreateFuotaTask)
+createFuotaTask_name :: Lens.Lens' CreateFuotaTask (Prelude.Maybe Prelude.Text)
+createFuotaTask_name = Lens.lens (\CreateFuotaTask' {name} -> name) (\s@CreateFuotaTask' {} a -> s {name = a} :: CreateFuotaTask)
+
+-- | Undocumented member.
+createFuotaTask_tags :: Lens.Lens' CreateFuotaTask (Prelude.Maybe [Tag])
+createFuotaTask_tags = Lens.lens (\CreateFuotaTask' {tags} -> tags) (\s@CreateFuotaTask' {} a -> s {tags = a} :: CreateFuotaTask) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 createFuotaTask_firmwareUpdateImage :: Lens.Lens' CreateFuotaTask Prelude.Text
@@ -151,21 +152,21 @@ instance Core.AWSRequest CreateFuotaTask where
 
 instance Prelude.Hashable CreateFuotaTask where
   hashWithSalt _salt CreateFuotaTask' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` clientRequestToken
-      `Prelude.hashWithSalt` loRaWAN
+    _salt `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` loRaWAN
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` firmwareUpdateImage
       `Prelude.hashWithSalt` firmwareUpdateRole
 
 instance Prelude.NFData CreateFuotaTask where
   rnf CreateFuotaTask' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf loRaWAN
+    Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf loRaWAN
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf firmwareUpdateImage
       `Prelude.seq` Prelude.rnf firmwareUpdateRole
 
@@ -176,12 +177,12 @@ instance Data.ToJSON CreateFuotaTask where
   toJSON CreateFuotaTask' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Name" Data..=) Prelude.<$> name,
-            ("ClientRequestToken" Data..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("LoRaWAN" Data..=) Prelude.<$> loRaWAN,
             ("Description" Data..=) Prelude.<$> description,
+            ("LoRaWAN" Data..=) Prelude.<$> loRaWAN,
+            ("Name" Data..=) Prelude.<$> name,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("FirmwareUpdateImage" Data..= firmwareUpdateImage),
             Prelude.Just

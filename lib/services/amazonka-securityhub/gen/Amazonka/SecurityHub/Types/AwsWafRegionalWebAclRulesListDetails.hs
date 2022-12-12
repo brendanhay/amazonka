@@ -32,18 +32,18 @@ import Amazonka.SecurityHub.Types.AwsWafRegionalWebAclRulesListOverrideActionDet
 --
 -- /See:/ 'newAwsWafRegionalWebAclRulesListDetails' smart constructor.
 data AwsWafRegionalWebAclRulesListDetails = AwsWafRegionalWebAclRulesListDetails'
-  { -- | For actions that are associated with a rule, the action that WAF takes
-    -- when a web request matches all conditions in a rule.
-    type' :: Prelude.Maybe Prelude.Text,
-    -- | The ID of an WAF Regional rule to associate with a web ACL.
-    ruleId :: Prelude.Maybe Prelude.Text,
+  { -- | The action that WAF takes when a web request matches all conditions in
+    -- the rule, such as allow, block, or count the request.
+    action :: Prelude.Maybe AwsWafRegionalWebAclRulesListActionDetails,
     -- | Overrides the rule evaluation result in the rule group.
     overrideAction :: Prelude.Maybe AwsWafRegionalWebAclRulesListOverrideActionDetails,
     -- | The order in which WAF evaluates the rules in a web ACL.
     priority :: Prelude.Maybe Prelude.Int,
-    -- | The action that WAF takes when a web request matches all conditions in
-    -- the rule, such as allow, block, or count the request.
-    action :: Prelude.Maybe AwsWafRegionalWebAclRulesListActionDetails
+    -- | The ID of an WAF Regional rule to associate with a web ACL.
+    ruleId :: Prelude.Maybe Prelude.Text,
+    -- | For actions that are associated with a rule, the action that WAF takes
+    -- when a web request matches all conditions in a rule.
+    type' :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,37 +55,33 @@ data AwsWafRegionalWebAclRulesListDetails = AwsWafRegionalWebAclRulesListDetails
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'awsWafRegionalWebAclRulesListDetails_type' - For actions that are associated with a rule, the action that WAF takes
--- when a web request matches all conditions in a rule.
---
--- 'ruleId', 'awsWafRegionalWebAclRulesListDetails_ruleId' - The ID of an WAF Regional rule to associate with a web ACL.
+-- 'action', 'awsWafRegionalWebAclRulesListDetails_action' - The action that WAF takes when a web request matches all conditions in
+-- the rule, such as allow, block, or count the request.
 --
 -- 'overrideAction', 'awsWafRegionalWebAclRulesListDetails_overrideAction' - Overrides the rule evaluation result in the rule group.
 --
 -- 'priority', 'awsWafRegionalWebAclRulesListDetails_priority' - The order in which WAF evaluates the rules in a web ACL.
 --
--- 'action', 'awsWafRegionalWebAclRulesListDetails_action' - The action that WAF takes when a web request matches all conditions in
--- the rule, such as allow, block, or count the request.
+-- 'ruleId', 'awsWafRegionalWebAclRulesListDetails_ruleId' - The ID of an WAF Regional rule to associate with a web ACL.
+--
+-- 'type'', 'awsWafRegionalWebAclRulesListDetails_type' - For actions that are associated with a rule, the action that WAF takes
+-- when a web request matches all conditions in a rule.
 newAwsWafRegionalWebAclRulesListDetails ::
   AwsWafRegionalWebAclRulesListDetails
 newAwsWafRegionalWebAclRulesListDetails =
   AwsWafRegionalWebAclRulesListDetails'
-    { type' =
+    { action =
         Prelude.Nothing,
-      ruleId = Prelude.Nothing,
       overrideAction = Prelude.Nothing,
       priority = Prelude.Nothing,
-      action = Prelude.Nothing
+      ruleId = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
--- | For actions that are associated with a rule, the action that WAF takes
--- when a web request matches all conditions in a rule.
-awsWafRegionalWebAclRulesListDetails_type :: Lens.Lens' AwsWafRegionalWebAclRulesListDetails (Prelude.Maybe Prelude.Text)
-awsWafRegionalWebAclRulesListDetails_type = Lens.lens (\AwsWafRegionalWebAclRulesListDetails' {type'} -> type') (\s@AwsWafRegionalWebAclRulesListDetails' {} a -> s {type' = a} :: AwsWafRegionalWebAclRulesListDetails)
-
--- | The ID of an WAF Regional rule to associate with a web ACL.
-awsWafRegionalWebAclRulesListDetails_ruleId :: Lens.Lens' AwsWafRegionalWebAclRulesListDetails (Prelude.Maybe Prelude.Text)
-awsWafRegionalWebAclRulesListDetails_ruleId = Lens.lens (\AwsWafRegionalWebAclRulesListDetails' {ruleId} -> ruleId) (\s@AwsWafRegionalWebAclRulesListDetails' {} a -> s {ruleId = a} :: AwsWafRegionalWebAclRulesListDetails)
+-- | The action that WAF takes when a web request matches all conditions in
+-- the rule, such as allow, block, or count the request.
+awsWafRegionalWebAclRulesListDetails_action :: Lens.Lens' AwsWafRegionalWebAclRulesListDetails (Prelude.Maybe AwsWafRegionalWebAclRulesListActionDetails)
+awsWafRegionalWebAclRulesListDetails_action = Lens.lens (\AwsWafRegionalWebAclRulesListDetails' {action} -> action) (\s@AwsWafRegionalWebAclRulesListDetails' {} a -> s {action = a} :: AwsWafRegionalWebAclRulesListDetails)
 
 -- | Overrides the rule evaluation result in the rule group.
 awsWafRegionalWebAclRulesListDetails_overrideAction :: Lens.Lens' AwsWafRegionalWebAclRulesListDetails (Prelude.Maybe AwsWafRegionalWebAclRulesListOverrideActionDetails)
@@ -95,10 +91,14 @@ awsWafRegionalWebAclRulesListDetails_overrideAction = Lens.lens (\AwsWafRegional
 awsWafRegionalWebAclRulesListDetails_priority :: Lens.Lens' AwsWafRegionalWebAclRulesListDetails (Prelude.Maybe Prelude.Int)
 awsWafRegionalWebAclRulesListDetails_priority = Lens.lens (\AwsWafRegionalWebAclRulesListDetails' {priority} -> priority) (\s@AwsWafRegionalWebAclRulesListDetails' {} a -> s {priority = a} :: AwsWafRegionalWebAclRulesListDetails)
 
--- | The action that WAF takes when a web request matches all conditions in
--- the rule, such as allow, block, or count the request.
-awsWafRegionalWebAclRulesListDetails_action :: Lens.Lens' AwsWafRegionalWebAclRulesListDetails (Prelude.Maybe AwsWafRegionalWebAclRulesListActionDetails)
-awsWafRegionalWebAclRulesListDetails_action = Lens.lens (\AwsWafRegionalWebAclRulesListDetails' {action} -> action) (\s@AwsWafRegionalWebAclRulesListDetails' {} a -> s {action = a} :: AwsWafRegionalWebAclRulesListDetails)
+-- | The ID of an WAF Regional rule to associate with a web ACL.
+awsWafRegionalWebAclRulesListDetails_ruleId :: Lens.Lens' AwsWafRegionalWebAclRulesListDetails (Prelude.Maybe Prelude.Text)
+awsWafRegionalWebAclRulesListDetails_ruleId = Lens.lens (\AwsWafRegionalWebAclRulesListDetails' {ruleId} -> ruleId) (\s@AwsWafRegionalWebAclRulesListDetails' {} a -> s {ruleId = a} :: AwsWafRegionalWebAclRulesListDetails)
+
+-- | For actions that are associated with a rule, the action that WAF takes
+-- when a web request matches all conditions in a rule.
+awsWafRegionalWebAclRulesListDetails_type :: Lens.Lens' AwsWafRegionalWebAclRulesListDetails (Prelude.Maybe Prelude.Text)
+awsWafRegionalWebAclRulesListDetails_type = Lens.lens (\AwsWafRegionalWebAclRulesListDetails' {type'} -> type') (\s@AwsWafRegionalWebAclRulesListDetails' {} a -> s {type' = a} :: AwsWafRegionalWebAclRulesListDetails)
 
 instance
   Data.FromJSON
@@ -109,11 +109,11 @@ instance
       "AwsWafRegionalWebAclRulesListDetails"
       ( \x ->
           AwsWafRegionalWebAclRulesListDetails'
-            Prelude.<$> (x Data..:? "Type")
-            Prelude.<*> (x Data..:? "RuleId")
+            Prelude.<$> (x Data..:? "Action")
             Prelude.<*> (x Data..:? "OverrideAction")
             Prelude.<*> (x Data..:? "Priority")
-            Prelude.<*> (x Data..:? "Action")
+            Prelude.<*> (x Data..:? "RuleId")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance
@@ -123,22 +123,22 @@ instance
   hashWithSalt
     _salt
     AwsWafRegionalWebAclRulesListDetails' {..} =
-      _salt `Prelude.hashWithSalt` type'
-        `Prelude.hashWithSalt` ruleId
+      _salt `Prelude.hashWithSalt` action
         `Prelude.hashWithSalt` overrideAction
         `Prelude.hashWithSalt` priority
-        `Prelude.hashWithSalt` action
+        `Prelude.hashWithSalt` ruleId
+        `Prelude.hashWithSalt` type'
 
 instance
   Prelude.NFData
     AwsWafRegionalWebAclRulesListDetails
   where
   rnf AwsWafRegionalWebAclRulesListDetails' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf ruleId
+    Prelude.rnf action
       `Prelude.seq` Prelude.rnf overrideAction
       `Prelude.seq` Prelude.rnf priority
-      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf ruleId
+      `Prelude.seq` Prelude.rnf type'
 
 instance
   Data.ToJSON
@@ -147,11 +147,11 @@ instance
   toJSON AwsWafRegionalWebAclRulesListDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Type" Data..=) Prelude.<$> type',
-            ("RuleId" Data..=) Prelude.<$> ruleId,
+          [ ("Action" Data..=) Prelude.<$> action,
             ("OverrideAction" Data..=)
               Prelude.<$> overrideAction,
             ("Priority" Data..=) Prelude.<$> priority,
-            ("Action" Data..=) Prelude.<$> action
+            ("RuleId" Data..=) Prelude.<$> ruleId,
+            ("Type" Data..=) Prelude.<$> type'
           ]
       )

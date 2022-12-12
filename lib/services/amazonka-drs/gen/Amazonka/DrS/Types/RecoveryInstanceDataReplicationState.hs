@@ -26,7 +26,9 @@ module Amazonka.DrS.Types.RecoveryInstanceDataReplicationState
         RecoveryInstanceDataReplicationState_DISCONNECTED,
         RecoveryInstanceDataReplicationState_INITIAL_SYNC,
         RecoveryInstanceDataReplicationState_INITIATING,
+        RecoveryInstanceDataReplicationState_NOT_STARTED,
         RecoveryInstanceDataReplicationState_PAUSED,
+        RecoveryInstanceDataReplicationState_REPLICATION_STATE_NOT_AVAILABLE,
         RecoveryInstanceDataReplicationState_RESCAN,
         RecoveryInstanceDataReplicationState_STALLED,
         RecoveryInstanceDataReplicationState_STOPPED
@@ -84,8 +86,14 @@ pattern RecoveryInstanceDataReplicationState_INITIAL_SYNC = RecoveryInstanceData
 pattern RecoveryInstanceDataReplicationState_INITIATING :: RecoveryInstanceDataReplicationState
 pattern RecoveryInstanceDataReplicationState_INITIATING = RecoveryInstanceDataReplicationState' "INITIATING"
 
+pattern RecoveryInstanceDataReplicationState_NOT_STARTED :: RecoveryInstanceDataReplicationState
+pattern RecoveryInstanceDataReplicationState_NOT_STARTED = RecoveryInstanceDataReplicationState' "NOT_STARTED"
+
 pattern RecoveryInstanceDataReplicationState_PAUSED :: RecoveryInstanceDataReplicationState
 pattern RecoveryInstanceDataReplicationState_PAUSED = RecoveryInstanceDataReplicationState' "PAUSED"
+
+pattern RecoveryInstanceDataReplicationState_REPLICATION_STATE_NOT_AVAILABLE :: RecoveryInstanceDataReplicationState
+pattern RecoveryInstanceDataReplicationState_REPLICATION_STATE_NOT_AVAILABLE = RecoveryInstanceDataReplicationState' "REPLICATION_STATE_NOT_AVAILABLE"
 
 pattern RecoveryInstanceDataReplicationState_RESCAN :: RecoveryInstanceDataReplicationState
 pattern RecoveryInstanceDataReplicationState_RESCAN = RecoveryInstanceDataReplicationState' "RESCAN"
@@ -103,7 +111,9 @@ pattern RecoveryInstanceDataReplicationState_STOPPED = RecoveryInstanceDataRepli
   RecoveryInstanceDataReplicationState_DISCONNECTED,
   RecoveryInstanceDataReplicationState_INITIAL_SYNC,
   RecoveryInstanceDataReplicationState_INITIATING,
+  RecoveryInstanceDataReplicationState_NOT_STARTED,
   RecoveryInstanceDataReplicationState_PAUSED,
+  RecoveryInstanceDataReplicationState_REPLICATION_STATE_NOT_AVAILABLE,
   RecoveryInstanceDataReplicationState_RESCAN,
   RecoveryInstanceDataReplicationState_STALLED,
   RecoveryInstanceDataReplicationState_STOPPED,

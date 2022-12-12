@@ -31,13 +31,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUnmappedAttribute' smart constructor.
 data UnmappedAttribute = UnmappedAttribute'
-  { -- | The type of the unmapped attribute, could be one of the following
+  { -- | The specific attribute that has been extracted but not mapped to an
+    -- entity.
+    attribute :: Prelude.Maybe Attribute,
+    -- | The type of the unmapped attribute, could be one of the following
     -- values: \"MEDICATION\", \"MEDICAL_CONDITION\", \"ANATOMY\",
     -- \"TEST_AND_TREATMENT_PROCEDURE\" or \"PROTECTED_HEALTH_INFORMATION\".
-    type' :: Prelude.Maybe EntityType,
-    -- | The specific attribute that has been extracted but not mapped to an
-    -- entity.
-    attribute :: Prelude.Maybe Attribute
+    type' :: Prelude.Maybe EntityType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,19 +49,24 @@ data UnmappedAttribute = UnmappedAttribute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'attribute', 'unmappedAttribute_attribute' - The specific attribute that has been extracted but not mapped to an
+-- entity.
+--
 -- 'type'', 'unmappedAttribute_type' - The type of the unmapped attribute, could be one of the following
 -- values: \"MEDICATION\", \"MEDICAL_CONDITION\", \"ANATOMY\",
 -- \"TEST_AND_TREATMENT_PROCEDURE\" or \"PROTECTED_HEALTH_INFORMATION\".
---
--- 'attribute', 'unmappedAttribute_attribute' - The specific attribute that has been extracted but not mapped to an
--- entity.
 newUnmappedAttribute ::
   UnmappedAttribute
 newUnmappedAttribute =
   UnmappedAttribute'
-    { type' = Prelude.Nothing,
-      attribute = Prelude.Nothing
+    { attribute = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
+
+-- | The specific attribute that has been extracted but not mapped to an
+-- entity.
+unmappedAttribute_attribute :: Lens.Lens' UnmappedAttribute (Prelude.Maybe Attribute)
+unmappedAttribute_attribute = Lens.lens (\UnmappedAttribute' {attribute} -> attribute) (\s@UnmappedAttribute' {} a -> s {attribute = a} :: UnmappedAttribute)
 
 -- | The type of the unmapped attribute, could be one of the following
 -- values: \"MEDICATION\", \"MEDICAL_CONDITION\", \"ANATOMY\",
@@ -69,27 +74,22 @@ newUnmappedAttribute =
 unmappedAttribute_type :: Lens.Lens' UnmappedAttribute (Prelude.Maybe EntityType)
 unmappedAttribute_type = Lens.lens (\UnmappedAttribute' {type'} -> type') (\s@UnmappedAttribute' {} a -> s {type' = a} :: UnmappedAttribute)
 
--- | The specific attribute that has been extracted but not mapped to an
--- entity.
-unmappedAttribute_attribute :: Lens.Lens' UnmappedAttribute (Prelude.Maybe Attribute)
-unmappedAttribute_attribute = Lens.lens (\UnmappedAttribute' {attribute} -> attribute) (\s@UnmappedAttribute' {} a -> s {attribute = a} :: UnmappedAttribute)
-
 instance Data.FromJSON UnmappedAttribute where
   parseJSON =
     Data.withObject
       "UnmappedAttribute"
       ( \x ->
           UnmappedAttribute'
-            Prelude.<$> (x Data..:? "Type")
-            Prelude.<*> (x Data..:? "Attribute")
+            Prelude.<$> (x Data..:? "Attribute")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable UnmappedAttribute where
   hashWithSalt _salt UnmappedAttribute' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` attribute
+    _salt `Prelude.hashWithSalt` attribute
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData UnmappedAttribute where
   rnf UnmappedAttribute' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf attribute
+    Prelude.rnf attribute
+      `Prelude.seq` Prelude.rnf type'

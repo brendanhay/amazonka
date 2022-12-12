@@ -33,12 +33,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newReplicaAutoScalingDescription' smart constructor.
 data ReplicaAutoScalingDescription = ReplicaAutoScalingDescription'
-  { replicaProvisionedReadCapacityAutoScalingSettings :: Prelude.Maybe AutoScalingSettingsDescription,
-    replicaProvisionedWriteCapacityAutoScalingSettings :: Prelude.Maybe AutoScalingSettingsDescription,
+  { -- | Replica-specific global secondary index auto scaling settings.
+    globalSecondaryIndexes :: Prelude.Maybe [ReplicaGlobalSecondaryIndexAutoScalingDescription],
     -- | The Region where the replica exists.
     regionName :: Prelude.Maybe Prelude.Text,
-    -- | Replica-specific global secondary index auto scaling settings.
-    globalSecondaryIndexes :: Prelude.Maybe [ReplicaGlobalSecondaryIndexAutoScalingDescription],
+    replicaProvisionedReadCapacityAutoScalingSettings :: Prelude.Maybe AutoScalingSettingsDescription,
+    replicaProvisionedWriteCapacityAutoScalingSettings :: Prelude.Maybe AutoScalingSettingsDescription,
     -- | The current state of the replica:
     --
     -- -   @CREATING@ - The replica is being created.
@@ -60,13 +60,13 @@ data ReplicaAutoScalingDescription = ReplicaAutoScalingDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'replicaProvisionedReadCapacityAutoScalingSettings', 'replicaAutoScalingDescription_replicaProvisionedReadCapacityAutoScalingSettings' - Undocumented member.
---
--- 'replicaProvisionedWriteCapacityAutoScalingSettings', 'replicaAutoScalingDescription_replicaProvisionedWriteCapacityAutoScalingSettings' - Undocumented member.
+-- 'globalSecondaryIndexes', 'replicaAutoScalingDescription_globalSecondaryIndexes' - Replica-specific global secondary index auto scaling settings.
 --
 -- 'regionName', 'replicaAutoScalingDescription_regionName' - The Region where the replica exists.
 --
--- 'globalSecondaryIndexes', 'replicaAutoScalingDescription_globalSecondaryIndexes' - Replica-specific global secondary index auto scaling settings.
+-- 'replicaProvisionedReadCapacityAutoScalingSettings', 'replicaAutoScalingDescription_replicaProvisionedReadCapacityAutoScalingSettings' - Undocumented member.
+--
+-- 'replicaProvisionedWriteCapacityAutoScalingSettings', 'replicaAutoScalingDescription_replicaProvisionedWriteCapacityAutoScalingSettings' - Undocumented member.
 --
 -- 'replicaStatus', 'replicaAutoScalingDescription_replicaStatus' - The current state of the replica:
 --
@@ -81,14 +81,23 @@ newReplicaAutoScalingDescription ::
   ReplicaAutoScalingDescription
 newReplicaAutoScalingDescription =
   ReplicaAutoScalingDescription'
-    { replicaProvisionedReadCapacityAutoScalingSettings =
+    { globalSecondaryIndexes =
+        Prelude.Nothing,
+      regionName = Prelude.Nothing,
+      replicaProvisionedReadCapacityAutoScalingSettings =
         Prelude.Nothing,
       replicaProvisionedWriteCapacityAutoScalingSettings =
         Prelude.Nothing,
-      regionName = Prelude.Nothing,
-      globalSecondaryIndexes = Prelude.Nothing,
       replicaStatus = Prelude.Nothing
     }
+
+-- | Replica-specific global secondary index auto scaling settings.
+replicaAutoScalingDescription_globalSecondaryIndexes :: Lens.Lens' ReplicaAutoScalingDescription (Prelude.Maybe [ReplicaGlobalSecondaryIndexAutoScalingDescription])
+replicaAutoScalingDescription_globalSecondaryIndexes = Lens.lens (\ReplicaAutoScalingDescription' {globalSecondaryIndexes} -> globalSecondaryIndexes) (\s@ReplicaAutoScalingDescription' {} a -> s {globalSecondaryIndexes = a} :: ReplicaAutoScalingDescription) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Region where the replica exists.
+replicaAutoScalingDescription_regionName :: Lens.Lens' ReplicaAutoScalingDescription (Prelude.Maybe Prelude.Text)
+replicaAutoScalingDescription_regionName = Lens.lens (\ReplicaAutoScalingDescription' {regionName} -> regionName) (\s@ReplicaAutoScalingDescription' {} a -> s {regionName = a} :: ReplicaAutoScalingDescription)
 
 -- | Undocumented member.
 replicaAutoScalingDescription_replicaProvisionedReadCapacityAutoScalingSettings :: Lens.Lens' ReplicaAutoScalingDescription (Prelude.Maybe AutoScalingSettingsDescription)
@@ -97,14 +106,6 @@ replicaAutoScalingDescription_replicaProvisionedReadCapacityAutoScalingSettings 
 -- | Undocumented member.
 replicaAutoScalingDescription_replicaProvisionedWriteCapacityAutoScalingSettings :: Lens.Lens' ReplicaAutoScalingDescription (Prelude.Maybe AutoScalingSettingsDescription)
 replicaAutoScalingDescription_replicaProvisionedWriteCapacityAutoScalingSettings = Lens.lens (\ReplicaAutoScalingDescription' {replicaProvisionedWriteCapacityAutoScalingSettings} -> replicaProvisionedWriteCapacityAutoScalingSettings) (\s@ReplicaAutoScalingDescription' {} a -> s {replicaProvisionedWriteCapacityAutoScalingSettings = a} :: ReplicaAutoScalingDescription)
-
--- | The Region where the replica exists.
-replicaAutoScalingDescription_regionName :: Lens.Lens' ReplicaAutoScalingDescription (Prelude.Maybe Prelude.Text)
-replicaAutoScalingDescription_regionName = Lens.lens (\ReplicaAutoScalingDescription' {regionName} -> regionName) (\s@ReplicaAutoScalingDescription' {} a -> s {regionName = a} :: ReplicaAutoScalingDescription)
-
--- | Replica-specific global secondary index auto scaling settings.
-replicaAutoScalingDescription_globalSecondaryIndexes :: Lens.Lens' ReplicaAutoScalingDescription (Prelude.Maybe [ReplicaGlobalSecondaryIndexAutoScalingDescription])
-replicaAutoScalingDescription_globalSecondaryIndexes = Lens.lens (\ReplicaAutoScalingDescription' {globalSecondaryIndexes} -> globalSecondaryIndexes) (\s@ReplicaAutoScalingDescription' {} a -> s {globalSecondaryIndexes = a} :: ReplicaAutoScalingDescription) Prelude.. Lens.mapping Lens.coerced
 
 -- | The current state of the replica:
 --
@@ -124,15 +125,15 @@ instance Data.FromJSON ReplicaAutoScalingDescription where
       "ReplicaAutoScalingDescription"
       ( \x ->
           ReplicaAutoScalingDescription'
-            Prelude.<$> ( x
+            Prelude.<$> ( x Data..:? "GlobalSecondaryIndexes"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "RegionName")
+            Prelude.<*> ( x
                             Data..:? "ReplicaProvisionedReadCapacityAutoScalingSettings"
                         )
             Prelude.<*> ( x
                             Data..:? "ReplicaProvisionedWriteCapacityAutoScalingSettings"
-                        )
-            Prelude.<*> (x Data..:? "RegionName")
-            Prelude.<*> ( x Data..:? "GlobalSecondaryIndexes"
-                            Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ReplicaStatus")
       )
@@ -142,19 +143,18 @@ instance
     ReplicaAutoScalingDescription
   where
   hashWithSalt _salt ReplicaAutoScalingDescription' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` globalSecondaryIndexes
+      `Prelude.hashWithSalt` regionName
       `Prelude.hashWithSalt` replicaProvisionedReadCapacityAutoScalingSettings
       `Prelude.hashWithSalt` replicaProvisionedWriteCapacityAutoScalingSettings
-      `Prelude.hashWithSalt` regionName
-      `Prelude.hashWithSalt` globalSecondaryIndexes
       `Prelude.hashWithSalt` replicaStatus
 
 instance Prelude.NFData ReplicaAutoScalingDescription where
   rnf ReplicaAutoScalingDescription' {..} =
-    Prelude.rnf
-      replicaProvisionedReadCapacityAutoScalingSettings
+    Prelude.rnf globalSecondaryIndexes
+      `Prelude.seq` Prelude.rnf regionName
+      `Prelude.seq` Prelude.rnf
+        replicaProvisionedReadCapacityAutoScalingSettings
       `Prelude.seq` Prelude.rnf
         replicaProvisionedWriteCapacityAutoScalingSettings
-      `Prelude.seq` Prelude.rnf regionName
-      `Prelude.seq` Prelude.rnf globalSecondaryIndexes
       `Prelude.seq` Prelude.rnf replicaStatus

@@ -28,7 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDynamoDBTarget' smart constructor.
 data DynamoDBTarget = DynamoDBTarget'
-  { -- | Indicates whether to scan all the records, or to sample rows from the
+  { -- | The name of the DynamoDB table to crawl.
+    path :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether to scan all the records, or to sample rows from the
     -- table. Scanning all the records can take a long time when the table is
     -- not a high throughput table.
     --
@@ -36,8 +38,6 @@ data DynamoDBTarget = DynamoDBTarget'
     -- means to sample the records. If no value is specified, the value
     -- defaults to @true@.
     scanAll :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the DynamoDB table to crawl.
-    path :: Prelude.Maybe Prelude.Text,
     -- | The percentage of the configured read capacity units to use by the Glue
     -- crawler. Read capacity units is a term defined by DynamoDB, and is a
     -- numeric value that acts as rate limiter for the number of reads that can
@@ -59,6 +59,8 @@ data DynamoDBTarget = DynamoDBTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'path', 'dynamoDBTarget_path' - The name of the DynamoDB table to crawl.
+--
 -- 'scanAll', 'dynamoDBTarget_scanAll' - Indicates whether to scan all the records, or to sample rows from the
 -- table. Scanning all the records can take a long time when the table is
 -- not a high throughput table.
@@ -66,8 +68,6 @@ data DynamoDBTarget = DynamoDBTarget'
 -- A value of @true@ means to scan all records, while a value of @false@
 -- means to sample the records. If no value is specified, the value
 -- defaults to @true@.
---
--- 'path', 'dynamoDBTarget_path' - The name of the DynamoDB table to crawl.
 --
 -- 'scanRate', 'dynamoDBTarget_scanRate' - The percentage of the configured read capacity units to use by the Glue
 -- crawler. Read capacity units is a term defined by DynamoDB, and is a
@@ -82,10 +82,14 @@ newDynamoDBTarget ::
   DynamoDBTarget
 newDynamoDBTarget =
   DynamoDBTarget'
-    { scanAll = Prelude.Nothing,
-      path = Prelude.Nothing,
+    { path = Prelude.Nothing,
+      scanAll = Prelude.Nothing,
       scanRate = Prelude.Nothing
     }
+
+-- | The name of the DynamoDB table to crawl.
+dynamoDBTarget_path :: Lens.Lens' DynamoDBTarget (Prelude.Maybe Prelude.Text)
+dynamoDBTarget_path = Lens.lens (\DynamoDBTarget' {path} -> path) (\s@DynamoDBTarget' {} a -> s {path = a} :: DynamoDBTarget)
 
 -- | Indicates whether to scan all the records, or to sample rows from the
 -- table. Scanning all the records can take a long time when the table is
@@ -96,10 +100,6 @@ newDynamoDBTarget =
 -- defaults to @true@.
 dynamoDBTarget_scanAll :: Lens.Lens' DynamoDBTarget (Prelude.Maybe Prelude.Bool)
 dynamoDBTarget_scanAll = Lens.lens (\DynamoDBTarget' {scanAll} -> scanAll) (\s@DynamoDBTarget' {} a -> s {scanAll = a} :: DynamoDBTarget)
-
--- | The name of the DynamoDB table to crawl.
-dynamoDBTarget_path :: Lens.Lens' DynamoDBTarget (Prelude.Maybe Prelude.Text)
-dynamoDBTarget_path = Lens.lens (\DynamoDBTarget' {path} -> path) (\s@DynamoDBTarget' {} a -> s {path = a} :: DynamoDBTarget)
 
 -- | The percentage of the configured read capacity units to use by the Glue
 -- crawler. Read capacity units is a term defined by DynamoDB, and is a
@@ -119,29 +119,29 @@ instance Data.FromJSON DynamoDBTarget where
       "DynamoDBTarget"
       ( \x ->
           DynamoDBTarget'
-            Prelude.<$> (x Data..:? "scanAll")
-            Prelude.<*> (x Data..:? "Path")
+            Prelude.<$> (x Data..:? "Path")
+            Prelude.<*> (x Data..:? "scanAll")
             Prelude.<*> (x Data..:? "scanRate")
       )
 
 instance Prelude.Hashable DynamoDBTarget where
   hashWithSalt _salt DynamoDBTarget' {..} =
-    _salt `Prelude.hashWithSalt` scanAll
-      `Prelude.hashWithSalt` path
+    _salt `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` scanAll
       `Prelude.hashWithSalt` scanRate
 
 instance Prelude.NFData DynamoDBTarget where
   rnf DynamoDBTarget' {..} =
-    Prelude.rnf scanAll
-      `Prelude.seq` Prelude.rnf path
+    Prelude.rnf path
+      `Prelude.seq` Prelude.rnf scanAll
       `Prelude.seq` Prelude.rnf scanRate
 
 instance Data.ToJSON DynamoDBTarget where
   toJSON DynamoDBTarget' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("scanAll" Data..=) Prelude.<$> scanAll,
-            ("Path" Data..=) Prelude.<$> path,
+          [ ("Path" Data..=) Prelude.<$> path,
+            ("scanAll" Data..=) Prelude.<$> scanAll,
             ("scanRate" Data..=) Prelude.<$> scanRate
           ]
       )

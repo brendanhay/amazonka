@@ -32,12 +32,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAmiAggregation' smart constructor.
 data AmiAggregation = AmiAggregation'
-  { -- | The order to sort results by.
-    sortOrder :: Prelude.Maybe SortOrder,
+  { -- | The IDs of AMIs to aggregate findings for.
+    amis :: Prelude.Maybe (Prelude.NonEmpty StringFilter),
     -- | The value to sort results by.
     sortBy :: Prelude.Maybe AmiSortBy,
-    -- | The IDs of AMIs to aggregate findings for.
-    amis :: Prelude.Maybe (Prelude.NonEmpty StringFilter)
+    -- | The order to sort results by.
+    sortOrder :: Prelude.Maybe SortOrder
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,50 +49,50 @@ data AmiAggregation = AmiAggregation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'amiAggregation_sortOrder' - The order to sort results by.
+-- 'amis', 'amiAggregation_amis' - The IDs of AMIs to aggregate findings for.
 --
 -- 'sortBy', 'amiAggregation_sortBy' - The value to sort results by.
 --
--- 'amis', 'amiAggregation_amis' - The IDs of AMIs to aggregate findings for.
+-- 'sortOrder', 'amiAggregation_sortOrder' - The order to sort results by.
 newAmiAggregation ::
   AmiAggregation
 newAmiAggregation =
   AmiAggregation'
-    { sortOrder = Prelude.Nothing,
+    { amis = Prelude.Nothing,
       sortBy = Prelude.Nothing,
-      amis = Prelude.Nothing
+      sortOrder = Prelude.Nothing
     }
-
--- | The order to sort results by.
-amiAggregation_sortOrder :: Lens.Lens' AmiAggregation (Prelude.Maybe SortOrder)
-amiAggregation_sortOrder = Lens.lens (\AmiAggregation' {sortOrder} -> sortOrder) (\s@AmiAggregation' {} a -> s {sortOrder = a} :: AmiAggregation)
-
--- | The value to sort results by.
-amiAggregation_sortBy :: Lens.Lens' AmiAggregation (Prelude.Maybe AmiSortBy)
-amiAggregation_sortBy = Lens.lens (\AmiAggregation' {sortBy} -> sortBy) (\s@AmiAggregation' {} a -> s {sortBy = a} :: AmiAggregation)
 
 -- | The IDs of AMIs to aggregate findings for.
 amiAggregation_amis :: Lens.Lens' AmiAggregation (Prelude.Maybe (Prelude.NonEmpty StringFilter))
 amiAggregation_amis = Lens.lens (\AmiAggregation' {amis} -> amis) (\s@AmiAggregation' {} a -> s {amis = a} :: AmiAggregation) Prelude.. Lens.mapping Lens.coerced
 
+-- | The value to sort results by.
+amiAggregation_sortBy :: Lens.Lens' AmiAggregation (Prelude.Maybe AmiSortBy)
+amiAggregation_sortBy = Lens.lens (\AmiAggregation' {sortBy} -> sortBy) (\s@AmiAggregation' {} a -> s {sortBy = a} :: AmiAggregation)
+
+-- | The order to sort results by.
+amiAggregation_sortOrder :: Lens.Lens' AmiAggregation (Prelude.Maybe SortOrder)
+amiAggregation_sortOrder = Lens.lens (\AmiAggregation' {sortOrder} -> sortOrder) (\s@AmiAggregation' {} a -> s {sortOrder = a} :: AmiAggregation)
+
 instance Prelude.Hashable AmiAggregation where
   hashWithSalt _salt AmiAggregation' {..} =
-    _salt `Prelude.hashWithSalt` sortOrder
+    _salt `Prelude.hashWithSalt` amis
       `Prelude.hashWithSalt` sortBy
-      `Prelude.hashWithSalt` amis
+      `Prelude.hashWithSalt` sortOrder
 
 instance Prelude.NFData AmiAggregation where
   rnf AmiAggregation' {..} =
-    Prelude.rnf sortOrder
+    Prelude.rnf amis
       `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf amis
+      `Prelude.seq` Prelude.rnf sortOrder
 
 instance Data.ToJSON AmiAggregation where
   toJSON AmiAggregation' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("sortOrder" Data..=) Prelude.<$> sortOrder,
+          [ ("amis" Data..=) Prelude.<$> amis,
             ("sortBy" Data..=) Prelude.<$> sortBy,
-            ("amis" Data..=) Prelude.<$> amis
+            ("sortOrder" Data..=) Prelude.<$> sortOrder
           ]
       )

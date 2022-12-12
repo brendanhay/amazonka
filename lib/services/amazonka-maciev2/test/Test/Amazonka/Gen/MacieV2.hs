@@ -108,11 +108,17 @@ import Test.Tasty
 --         , requestGetAllowList $
 --             newGetAllowList
 --
+--         , requestGetAutomatedDiscoveryConfiguration $
+--             newGetAutomatedDiscoveryConfiguration
+--
 --         , requestGetBucketStatistics $
 --             newGetBucketStatistics
 --
 --         , requestGetClassificationExportConfiguration $
 --             newGetClassificationExportConfiguration
+--
+--         , requestGetClassificationScope $
+--             newGetClassificationScope
 --
 --         , requestGetCustomDataIdentifier $
 --             newGetCustomDataIdentifier
@@ -141,6 +147,9 @@ import Test.Tasty
 --         , requestGetMember $
 --             newGetMember
 --
+--         , requestGetResourceProfile $
+--             newGetResourceProfile
+--
 --         , requestGetRevealConfiguration $
 --             newGetRevealConfiguration
 --
@@ -149,6 +158,9 @@ import Test.Tasty
 --
 --         , requestGetSensitiveDataOccurrencesAvailability $
 --             newGetSensitiveDataOccurrencesAvailability
+--
+--         , requestGetSensitivityInspectionTemplate $
+--             newGetSensitivityInspectionTemplate
 --
 --         , requestGetUsageStatistics $
 --             newGetUsageStatistics
@@ -161,6 +173,9 @@ import Test.Tasty
 --
 --         , requestListClassificationJobs $
 --             newListClassificationJobs
+--
+--         , requestListClassificationScopes $
+--             newListClassificationScopes
 --
 --         , requestListCustomDataIdentifiers $
 --             newListCustomDataIdentifiers
@@ -182,6 +197,15 @@ import Test.Tasty
 --
 --         , requestListOrganizationAdminAccounts $
 --             newListOrganizationAdminAccounts
+--
+--         , requestListResourceProfileArtifacts $
+--             newListResourceProfileArtifacts
+--
+--         , requestListResourceProfileDetections $
+--             newListResourceProfileDetections
+--
+--         , requestListSensitivityInspectionTemplates $
+--             newListSensitivityInspectionTemplates
 --
 --         , requestListTagsForResource $
 --             newListTagsForResource
@@ -207,8 +231,14 @@ import Test.Tasty
 --         , requestUpdateAllowList $
 --             newUpdateAllowList
 --
+--         , requestUpdateAutomatedDiscoveryConfiguration $
+--             newUpdateAutomatedDiscoveryConfiguration
+--
 --         , requestUpdateClassificationJob $
 --             newUpdateClassificationJob
+--
+--         , requestUpdateClassificationScope $
+--             newUpdateClassificationScope
 --
 --         , requestUpdateFindingsFilter $
 --             newUpdateFindingsFilter
@@ -222,8 +252,17 @@ import Test.Tasty
 --         , requestUpdateOrganizationConfiguration $
 --             newUpdateOrganizationConfiguration
 --
+--         , requestUpdateResourceProfile $
+--             newUpdateResourceProfile
+--
+--         , requestUpdateResourceProfileDetections $
+--             newUpdateResourceProfileDetections
+--
 --         , requestUpdateRevealConfiguration $
 --             newUpdateRevealConfiguration
+--
+--         , requestUpdateSensitivityInspectionTemplate $
+--             newUpdateSensitivityInspectionTemplate
 --
 --           ]
 
@@ -309,11 +348,17 @@ import Test.Tasty
 --         , responseGetAllowList $
 --             newGetAllowListResponse
 --
+--         , responseGetAutomatedDiscoveryConfiguration $
+--             newGetAutomatedDiscoveryConfigurationResponse
+--
 --         , responseGetBucketStatistics $
 --             newGetBucketStatisticsResponse
 --
 --         , responseGetClassificationExportConfiguration $
 --             newGetClassificationExportConfigurationResponse
+--
+--         , responseGetClassificationScope $
+--             newGetClassificationScopeResponse
 --
 --         , responseGetCustomDataIdentifier $
 --             newGetCustomDataIdentifierResponse
@@ -342,6 +387,9 @@ import Test.Tasty
 --         , responseGetMember $
 --             newGetMemberResponse
 --
+--         , responseGetResourceProfile $
+--             newGetResourceProfileResponse
+--
 --         , responseGetRevealConfiguration $
 --             newGetRevealConfigurationResponse
 --
@@ -350,6 +398,9 @@ import Test.Tasty
 --
 --         , responseGetSensitiveDataOccurrencesAvailability $
 --             newGetSensitiveDataOccurrencesAvailabilityResponse
+--
+--         , responseGetSensitivityInspectionTemplate $
+--             newGetSensitivityInspectionTemplateResponse
 --
 --         , responseGetUsageStatistics $
 --             newGetUsageStatisticsResponse
@@ -362,6 +413,9 @@ import Test.Tasty
 --
 --         , responseListClassificationJobs $
 --             newListClassificationJobsResponse
+--
+--         , responseListClassificationScopes $
+--             newListClassificationScopesResponse
 --
 --         , responseListCustomDataIdentifiers $
 --             newListCustomDataIdentifiersResponse
@@ -383,6 +437,15 @@ import Test.Tasty
 --
 --         , responseListOrganizationAdminAccounts $
 --             newListOrganizationAdminAccountsResponse
+--
+--         , responseListResourceProfileArtifacts $
+--             newListResourceProfileArtifactsResponse
+--
+--         , responseListResourceProfileDetections $
+--             newListResourceProfileDetectionsResponse
+--
+--         , responseListSensitivityInspectionTemplates $
+--             newListSensitivityInspectionTemplatesResponse
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
@@ -408,8 +471,14 @@ import Test.Tasty
 --         , responseUpdateAllowList $
 --             newUpdateAllowListResponse
 --
+--         , responseUpdateAutomatedDiscoveryConfiguration $
+--             newUpdateAutomatedDiscoveryConfigurationResponse
+--
 --         , responseUpdateClassificationJob $
 --             newUpdateClassificationJobResponse
+--
+--         , responseUpdateClassificationScope $
+--             newUpdateClassificationScopeResponse
 --
 --         , responseUpdateFindingsFilter $
 --             newUpdateFindingsFilterResponse
@@ -423,8 +492,17 @@ import Test.Tasty
 --         , responseUpdateOrganizationConfiguration $
 --             newUpdateOrganizationConfigurationResponse
 --
+--         , responseUpdateResourceProfile $
+--             newUpdateResourceProfileResponse
+--
+--         , responseUpdateResourceProfileDetections $
+--             newUpdateResourceProfileDetectionsResponse
+--
 --         , responseUpdateRevealConfiguration $
 --             newUpdateRevealConfigurationResponse
+--
+--         , responseUpdateSensitivityInspectionTemplate $
+--             newUpdateSensitivityInspectionTemplateResponse
 --
 --           ]
 --     ]
@@ -593,6 +671,12 @@ requestGetAllowList =
     "GetAllowList"
     "fixture/GetAllowList.yaml"
 
+requestGetAutomatedDiscoveryConfiguration :: GetAutomatedDiscoveryConfiguration -> TestTree
+requestGetAutomatedDiscoveryConfiguration =
+  req
+    "GetAutomatedDiscoveryConfiguration"
+    "fixture/GetAutomatedDiscoveryConfiguration.yaml"
+
 requestGetBucketStatistics :: GetBucketStatistics -> TestTree
 requestGetBucketStatistics =
   req
@@ -604,6 +688,12 @@ requestGetClassificationExportConfiguration =
   req
     "GetClassificationExportConfiguration"
     "fixture/GetClassificationExportConfiguration.yaml"
+
+requestGetClassificationScope :: GetClassificationScope -> TestTree
+requestGetClassificationScope =
+  req
+    "GetClassificationScope"
+    "fixture/GetClassificationScope.yaml"
 
 requestGetCustomDataIdentifier :: GetCustomDataIdentifier -> TestTree
 requestGetCustomDataIdentifier =
@@ -659,6 +749,12 @@ requestGetMember =
     "GetMember"
     "fixture/GetMember.yaml"
 
+requestGetResourceProfile :: GetResourceProfile -> TestTree
+requestGetResourceProfile =
+  req
+    "GetResourceProfile"
+    "fixture/GetResourceProfile.yaml"
+
 requestGetRevealConfiguration :: GetRevealConfiguration -> TestTree
 requestGetRevealConfiguration =
   req
@@ -676,6 +772,12 @@ requestGetSensitiveDataOccurrencesAvailability =
   req
     "GetSensitiveDataOccurrencesAvailability"
     "fixture/GetSensitiveDataOccurrencesAvailability.yaml"
+
+requestGetSensitivityInspectionTemplate :: GetSensitivityInspectionTemplate -> TestTree
+requestGetSensitivityInspectionTemplate =
+  req
+    "GetSensitivityInspectionTemplate"
+    "fixture/GetSensitivityInspectionTemplate.yaml"
 
 requestGetUsageStatistics :: GetUsageStatistics -> TestTree
 requestGetUsageStatistics =
@@ -700,6 +802,12 @@ requestListClassificationJobs =
   req
     "ListClassificationJobs"
     "fixture/ListClassificationJobs.yaml"
+
+requestListClassificationScopes :: ListClassificationScopes -> TestTree
+requestListClassificationScopes =
+  req
+    "ListClassificationScopes"
+    "fixture/ListClassificationScopes.yaml"
 
 requestListCustomDataIdentifiers :: ListCustomDataIdentifiers -> TestTree
 requestListCustomDataIdentifiers =
@@ -742,6 +850,24 @@ requestListOrganizationAdminAccounts =
   req
     "ListOrganizationAdminAccounts"
     "fixture/ListOrganizationAdminAccounts.yaml"
+
+requestListResourceProfileArtifacts :: ListResourceProfileArtifacts -> TestTree
+requestListResourceProfileArtifacts =
+  req
+    "ListResourceProfileArtifacts"
+    "fixture/ListResourceProfileArtifacts.yaml"
+
+requestListResourceProfileDetections :: ListResourceProfileDetections -> TestTree
+requestListResourceProfileDetections =
+  req
+    "ListResourceProfileDetections"
+    "fixture/ListResourceProfileDetections.yaml"
+
+requestListSensitivityInspectionTemplates :: ListSensitivityInspectionTemplates -> TestTree
+requestListSensitivityInspectionTemplates =
+  req
+    "ListSensitivityInspectionTemplates"
+    "fixture/ListSensitivityInspectionTemplates.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
 requestListTagsForResource =
@@ -791,11 +917,23 @@ requestUpdateAllowList =
     "UpdateAllowList"
     "fixture/UpdateAllowList.yaml"
 
+requestUpdateAutomatedDiscoveryConfiguration :: UpdateAutomatedDiscoveryConfiguration -> TestTree
+requestUpdateAutomatedDiscoveryConfiguration =
+  req
+    "UpdateAutomatedDiscoveryConfiguration"
+    "fixture/UpdateAutomatedDiscoveryConfiguration.yaml"
+
 requestUpdateClassificationJob :: UpdateClassificationJob -> TestTree
 requestUpdateClassificationJob =
   req
     "UpdateClassificationJob"
     "fixture/UpdateClassificationJob.yaml"
+
+requestUpdateClassificationScope :: UpdateClassificationScope -> TestTree
+requestUpdateClassificationScope =
+  req
+    "UpdateClassificationScope"
+    "fixture/UpdateClassificationScope.yaml"
 
 requestUpdateFindingsFilter :: UpdateFindingsFilter -> TestTree
 requestUpdateFindingsFilter =
@@ -821,11 +959,29 @@ requestUpdateOrganizationConfiguration =
     "UpdateOrganizationConfiguration"
     "fixture/UpdateOrganizationConfiguration.yaml"
 
+requestUpdateResourceProfile :: UpdateResourceProfile -> TestTree
+requestUpdateResourceProfile =
+  req
+    "UpdateResourceProfile"
+    "fixture/UpdateResourceProfile.yaml"
+
+requestUpdateResourceProfileDetections :: UpdateResourceProfileDetections -> TestTree
+requestUpdateResourceProfileDetections =
+  req
+    "UpdateResourceProfileDetections"
+    "fixture/UpdateResourceProfileDetections.yaml"
+
 requestUpdateRevealConfiguration :: UpdateRevealConfiguration -> TestTree
 requestUpdateRevealConfiguration =
   req
     "UpdateRevealConfiguration"
     "fixture/UpdateRevealConfiguration.yaml"
+
+requestUpdateSensitivityInspectionTemplate :: UpdateSensitivityInspectionTemplate -> TestTree
+requestUpdateSensitivityInspectionTemplate =
+  req
+    "UpdateSensitivityInspectionTemplate"
+    "fixture/UpdateSensitivityInspectionTemplate.yaml"
 
 -- Responses
 
@@ -1045,6 +1201,14 @@ responseGetAllowList =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetAllowList)
 
+responseGetAutomatedDiscoveryConfiguration :: GetAutomatedDiscoveryConfigurationResponse -> TestTree
+responseGetAutomatedDiscoveryConfiguration =
+  res
+    "GetAutomatedDiscoveryConfigurationResponse"
+    "fixture/GetAutomatedDiscoveryConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetAutomatedDiscoveryConfiguration)
+
 responseGetBucketStatistics :: GetBucketStatisticsResponse -> TestTree
 responseGetBucketStatistics =
   res
@@ -1060,6 +1224,14 @@ responseGetClassificationExportConfiguration =
     "fixture/GetClassificationExportConfigurationResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetClassificationExportConfiguration)
+
+responseGetClassificationScope :: GetClassificationScopeResponse -> TestTree
+responseGetClassificationScope =
+  res
+    "GetClassificationScopeResponse"
+    "fixture/GetClassificationScopeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetClassificationScope)
 
 responseGetCustomDataIdentifier :: GetCustomDataIdentifierResponse -> TestTree
 responseGetCustomDataIdentifier =
@@ -1133,6 +1305,14 @@ responseGetMember =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetMember)
 
+responseGetResourceProfile :: GetResourceProfileResponse -> TestTree
+responseGetResourceProfile =
+  res
+    "GetResourceProfileResponse"
+    "fixture/GetResourceProfileResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetResourceProfile)
+
 responseGetRevealConfiguration :: GetRevealConfigurationResponse -> TestTree
 responseGetRevealConfiguration =
   res
@@ -1156,6 +1336,14 @@ responseGetSensitiveDataOccurrencesAvailability =
     "fixture/GetSensitiveDataOccurrencesAvailabilityResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetSensitiveDataOccurrencesAvailability)
+
+responseGetSensitivityInspectionTemplate :: GetSensitivityInspectionTemplateResponse -> TestTree
+responseGetSensitivityInspectionTemplate =
+  res
+    "GetSensitivityInspectionTemplateResponse"
+    "fixture/GetSensitivityInspectionTemplateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetSensitivityInspectionTemplate)
 
 responseGetUsageStatistics :: GetUsageStatisticsResponse -> TestTree
 responseGetUsageStatistics =
@@ -1188,6 +1376,14 @@ responseListClassificationJobs =
     "fixture/ListClassificationJobsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListClassificationJobs)
+
+responseListClassificationScopes :: ListClassificationScopesResponse -> TestTree
+responseListClassificationScopes =
+  res
+    "ListClassificationScopesResponse"
+    "fixture/ListClassificationScopesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListClassificationScopes)
 
 responseListCustomDataIdentifiers :: ListCustomDataIdentifiersResponse -> TestTree
 responseListCustomDataIdentifiers =
@@ -1244,6 +1440,30 @@ responseListOrganizationAdminAccounts =
     "fixture/ListOrganizationAdminAccountsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListOrganizationAdminAccounts)
+
+responseListResourceProfileArtifacts :: ListResourceProfileArtifactsResponse -> TestTree
+responseListResourceProfileArtifacts =
+  res
+    "ListResourceProfileArtifactsResponse"
+    "fixture/ListResourceProfileArtifactsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListResourceProfileArtifacts)
+
+responseListResourceProfileDetections :: ListResourceProfileDetectionsResponse -> TestTree
+responseListResourceProfileDetections =
+  res
+    "ListResourceProfileDetectionsResponse"
+    "fixture/ListResourceProfileDetectionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListResourceProfileDetections)
+
+responseListSensitivityInspectionTemplates :: ListSensitivityInspectionTemplatesResponse -> TestTree
+responseListSensitivityInspectionTemplates =
+  res
+    "ListSensitivityInspectionTemplatesResponse"
+    "fixture/ListSensitivityInspectionTemplatesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListSensitivityInspectionTemplates)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -1309,6 +1529,14 @@ responseUpdateAllowList =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateAllowList)
 
+responseUpdateAutomatedDiscoveryConfiguration :: UpdateAutomatedDiscoveryConfigurationResponse -> TestTree
+responseUpdateAutomatedDiscoveryConfiguration =
+  res
+    "UpdateAutomatedDiscoveryConfigurationResponse"
+    "fixture/UpdateAutomatedDiscoveryConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateAutomatedDiscoveryConfiguration)
+
 responseUpdateClassificationJob :: UpdateClassificationJobResponse -> TestTree
 responseUpdateClassificationJob =
   res
@@ -1316,6 +1544,14 @@ responseUpdateClassificationJob =
     "fixture/UpdateClassificationJobResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateClassificationJob)
+
+responseUpdateClassificationScope :: UpdateClassificationScopeResponse -> TestTree
+responseUpdateClassificationScope =
+  res
+    "UpdateClassificationScopeResponse"
+    "fixture/UpdateClassificationScopeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateClassificationScope)
 
 responseUpdateFindingsFilter :: UpdateFindingsFilterResponse -> TestTree
 responseUpdateFindingsFilter =
@@ -1349,6 +1585,22 @@ responseUpdateOrganizationConfiguration =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateOrganizationConfiguration)
 
+responseUpdateResourceProfile :: UpdateResourceProfileResponse -> TestTree
+responseUpdateResourceProfile =
+  res
+    "UpdateResourceProfileResponse"
+    "fixture/UpdateResourceProfileResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateResourceProfile)
+
+responseUpdateResourceProfileDetections :: UpdateResourceProfileDetectionsResponse -> TestTree
+responseUpdateResourceProfileDetections =
+  res
+    "UpdateResourceProfileDetectionsResponse"
+    "fixture/UpdateResourceProfileDetectionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateResourceProfileDetections)
+
 responseUpdateRevealConfiguration :: UpdateRevealConfigurationResponse -> TestTree
 responseUpdateRevealConfiguration =
   res
@@ -1356,3 +1608,11 @@ responseUpdateRevealConfiguration =
     "fixture/UpdateRevealConfigurationResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateRevealConfiguration)
+
+responseUpdateSensitivityInspectionTemplate :: UpdateSensitivityInspectionTemplateResponse -> TestTree
+responseUpdateSensitivityInspectionTemplate =
+  res
+    "UpdateSensitivityInspectionTemplateResponse"
+    "fixture/UpdateSensitivityInspectionTemplateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateSensitivityInspectionTemplate)

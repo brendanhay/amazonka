@@ -15,8 +15,8 @@ module Amazonka.PersonalizeRuntime.Lens
   ( -- * Operations
 
     -- ** GetPersonalizedRanking
-    getPersonalizedRanking_filterArn,
     getPersonalizedRanking_context,
+    getPersonalizedRanking_filterArn,
     getPersonalizedRanking_filterValues,
     getPersonalizedRanking_campaignArn,
     getPersonalizedRanking_inputList,
@@ -26,31 +26,31 @@ module Amazonka.PersonalizeRuntime.Lens
     getPersonalizedRankingResponse_httpStatus,
 
     -- ** GetRecommendations
-    getRecommendations_filterArn,
-    getRecommendations_recommenderArn,
-    getRecommendations_numResults,
-    getRecommendations_context,
-    getRecommendations_userId,
-    getRecommendations_itemId,
-    getRecommendations_filterValues,
-    getRecommendations_promotions,
     getRecommendations_campaignArn,
-    getRecommendationsResponse_recommendationId,
+    getRecommendations_context,
+    getRecommendations_filterArn,
+    getRecommendations_filterValues,
+    getRecommendations_itemId,
+    getRecommendations_numResults,
+    getRecommendations_promotions,
+    getRecommendations_recommenderArn,
+    getRecommendations_userId,
     getRecommendationsResponse_itemList,
+    getRecommendationsResponse_recommendationId,
     getRecommendationsResponse_httpStatus,
 
     -- * Types
 
     -- ** PredictedItem
-    predictedItem_score,
-    predictedItem_promotionName,
     predictedItem_itemId,
+    predictedItem_promotionName,
+    predictedItem_score,
 
     -- ** Promotion
-    promotion_name,
-    promotion_percentPromotedItems,
     promotion_filterArn,
     promotion_filterValues,
+    promotion_name,
+    promotion_percentPromotedItems,
   )
 where
 

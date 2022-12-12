@@ -41,8 +41,8 @@ module Amazonka.Proton.CreateRepository
     newCreateRepository,
 
     -- * Request Lenses
-    createRepository_tags,
     createRepository_encryptionKey,
+    createRepository_tags,
     createRepository_connectionArn,
     createRepository_name,
     createRepository_provider,
@@ -67,16 +67,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateRepository' smart constructor.
 data CreateRepository = CreateRepository'
-  { -- | An optional list of metadata items that you can associate with the
+  { -- | The ARN of your customer Amazon Web Services Key Management Service
+    -- (Amazon Web Services KMS) key.
+    encryptionKey :: Prelude.Maybe Prelude.Text,
+    -- | An optional list of metadata items that you can associate with the
     -- Proton repository. A tag is a key-value pair.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
     -- in the /Proton User Guide/.
     tags :: Prelude.Maybe [Tag],
-    -- | The ARN of your customer Amazon Web Services Key Management Service
-    -- (Amazon Web Services KMS) key.
-    encryptionKey :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of your AWS CodeStar connection that
     -- connects Proton to your repository provider account. For more
     -- information, see
@@ -98,15 +98,15 @@ data CreateRepository = CreateRepository'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'encryptionKey', 'createRepository_encryptionKey' - The ARN of your customer Amazon Web Services Key Management Service
+-- (Amazon Web Services KMS) key.
+--
 -- 'tags', 'createRepository_tags' - An optional list of metadata items that you can associate with the
 -- Proton repository. A tag is a key-value pair.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton resources and tagging>
 -- in the /Proton User Guide/.
---
--- 'encryptionKey', 'createRepository_encryptionKey' - The ARN of your customer Amazon Web Services Key Management Service
--- (Amazon Web Services KMS) key.
 --
 -- 'connectionArn', 'createRepository_connectionArn' - The Amazon Resource Name (ARN) of your AWS CodeStar connection that
 -- connects Proton to your repository provider account. For more
@@ -127,12 +127,17 @@ newCreateRepository ::
   CreateRepository
 newCreateRepository pConnectionArn_ pName_ pProvider_ =
   CreateRepository'
-    { tags = Prelude.Nothing,
-      encryptionKey = Prelude.Nothing,
+    { encryptionKey = Prelude.Nothing,
+      tags = Prelude.Nothing,
       connectionArn = pConnectionArn_,
       name = pName_,
       provider = pProvider_
     }
+
+-- | The ARN of your customer Amazon Web Services Key Management Service
+-- (Amazon Web Services KMS) key.
+createRepository_encryptionKey :: Lens.Lens' CreateRepository (Prelude.Maybe Prelude.Text)
+createRepository_encryptionKey = Lens.lens (\CreateRepository' {encryptionKey} -> encryptionKey) (\s@CreateRepository' {} a -> s {encryptionKey = a} :: CreateRepository)
 
 -- | An optional list of metadata items that you can associate with the
 -- Proton repository. A tag is a key-value pair.
@@ -142,11 +147,6 @@ newCreateRepository pConnectionArn_ pName_ pProvider_ =
 -- in the /Proton User Guide/.
 createRepository_tags :: Lens.Lens' CreateRepository (Prelude.Maybe [Tag])
 createRepository_tags = Lens.lens (\CreateRepository' {tags} -> tags) (\s@CreateRepository' {} a -> s {tags = a} :: CreateRepository) Prelude.. Lens.mapping Lens.coerced
-
--- | The ARN of your customer Amazon Web Services Key Management Service
--- (Amazon Web Services KMS) key.
-createRepository_encryptionKey :: Lens.Lens' CreateRepository (Prelude.Maybe Prelude.Text)
-createRepository_encryptionKey = Lens.lens (\CreateRepository' {encryptionKey} -> encryptionKey) (\s@CreateRepository' {} a -> s {encryptionKey = a} :: CreateRepository)
 
 -- | The Amazon Resource Name (ARN) of your AWS CodeStar connection that
 -- connects Proton to your repository provider account. For more
@@ -180,16 +180,16 @@ instance Core.AWSRequest CreateRepository where
 
 instance Prelude.Hashable CreateRepository where
   hashWithSalt _salt CreateRepository' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` encryptionKey
+    _salt `Prelude.hashWithSalt` encryptionKey
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` connectionArn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` provider
 
 instance Prelude.NFData CreateRepository where
   rnf CreateRepository' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf encryptionKey
+    Prelude.rnf encryptionKey
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf connectionArn
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf provider
@@ -213,8 +213,8 @@ instance Data.ToJSON CreateRepository where
   toJSON CreateRepository' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("encryptionKey" Data..=) Prelude.<$> encryptionKey,
+          [ ("encryptionKey" Data..=) Prelude.<$> encryptionKey,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("connectionArn" Data..= connectionArn),
             Prelude.Just ("name" Data..= name),
             Prelude.Just ("provider" Data..= provider)

@@ -39,10 +39,10 @@ data ContainerServicePower = ContainerServicePower'
     isActive :: Prelude.Maybe Prelude.Bool,
     -- | The friendly name of the power (e.g., @nano@).
     name :: Prelude.Maybe Prelude.Text,
-    -- | The monthly price of the power in USD.
-    price :: Prelude.Maybe Prelude.Double,
     -- | The ID of the power (e.g., @nano-1@).
     powerId :: Prelude.Maybe Prelude.Text,
+    -- | The monthly price of the power in USD.
+    price :: Prelude.Maybe Prelude.Double,
     -- | The amount of RAM (in GB) of the power.
     ramSizeInGb :: Prelude.Maybe Prelude.Double
   }
@@ -63,9 +63,9 @@ data ContainerServicePower = ContainerServicePower'
 --
 -- 'name', 'containerServicePower_name' - The friendly name of the power (e.g., @nano@).
 --
--- 'price', 'containerServicePower_price' - The monthly price of the power in USD.
---
 -- 'powerId', 'containerServicePower_powerId' - The ID of the power (e.g., @nano-1@).
+--
+-- 'price', 'containerServicePower_price' - The monthly price of the power in USD.
 --
 -- 'ramSizeInGb', 'containerServicePower_ramSizeInGb' - The amount of RAM (in GB) of the power.
 newContainerServicePower ::
@@ -75,8 +75,8 @@ newContainerServicePower =
     { cpuCount = Prelude.Nothing,
       isActive = Prelude.Nothing,
       name = Prelude.Nothing,
-      price = Prelude.Nothing,
       powerId = Prelude.Nothing,
+      price = Prelude.Nothing,
       ramSizeInGb = Prelude.Nothing
     }
 
@@ -93,13 +93,13 @@ containerServicePower_isActive = Lens.lens (\ContainerServicePower' {isActive} -
 containerServicePower_name :: Lens.Lens' ContainerServicePower (Prelude.Maybe Prelude.Text)
 containerServicePower_name = Lens.lens (\ContainerServicePower' {name} -> name) (\s@ContainerServicePower' {} a -> s {name = a} :: ContainerServicePower)
 
--- | The monthly price of the power in USD.
-containerServicePower_price :: Lens.Lens' ContainerServicePower (Prelude.Maybe Prelude.Double)
-containerServicePower_price = Lens.lens (\ContainerServicePower' {price} -> price) (\s@ContainerServicePower' {} a -> s {price = a} :: ContainerServicePower)
-
 -- | The ID of the power (e.g., @nano-1@).
 containerServicePower_powerId :: Lens.Lens' ContainerServicePower (Prelude.Maybe Prelude.Text)
 containerServicePower_powerId = Lens.lens (\ContainerServicePower' {powerId} -> powerId) (\s@ContainerServicePower' {} a -> s {powerId = a} :: ContainerServicePower)
+
+-- | The monthly price of the power in USD.
+containerServicePower_price :: Lens.Lens' ContainerServicePower (Prelude.Maybe Prelude.Double)
+containerServicePower_price = Lens.lens (\ContainerServicePower' {price} -> price) (\s@ContainerServicePower' {} a -> s {price = a} :: ContainerServicePower)
 
 -- | The amount of RAM (in GB) of the power.
 containerServicePower_ramSizeInGb :: Lens.Lens' ContainerServicePower (Prelude.Maybe Prelude.Double)
@@ -114,8 +114,8 @@ instance Data.FromJSON ContainerServicePower where
             Prelude.<$> (x Data..:? "cpuCount")
             Prelude.<*> (x Data..:? "isActive")
             Prelude.<*> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "price")
             Prelude.<*> (x Data..:? "powerId")
+            Prelude.<*> (x Data..:? "price")
             Prelude.<*> (x Data..:? "ramSizeInGb")
       )
 
@@ -124,8 +124,8 @@ instance Prelude.Hashable ContainerServicePower where
     _salt `Prelude.hashWithSalt` cpuCount
       `Prelude.hashWithSalt` isActive
       `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` price
       `Prelude.hashWithSalt` powerId
+      `Prelude.hashWithSalt` price
       `Prelude.hashWithSalt` ramSizeInGb
 
 instance Prelude.NFData ContainerServicePower where
@@ -133,6 +133,6 @@ instance Prelude.NFData ContainerServicePower where
     Prelude.rnf cpuCount
       `Prelude.seq` Prelude.rnf isActive
       `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf price
       `Prelude.seq` Prelude.rnf powerId
+      `Prelude.seq` Prelude.rnf price
       `Prelude.seq` Prelude.rnf ramSizeInGb

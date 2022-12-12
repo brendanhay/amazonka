@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPredictorExecution' smart constructor.
 data PredictorExecution = PredictorExecution'
-  { -- | An array of test windows used to evaluate the algorithm. The
+  { -- | The ARN of the algorithm used to test the predictor.
+    algorithmArn :: Prelude.Maybe Prelude.Text,
+    -- | An array of test windows used to evaluate the algorithm. The
     -- @NumberOfBacktestWindows@ from the object determines the number of
     -- windows in the array.
-    testWindows :: Prelude.Maybe [TestWindowSummary],
-    -- | The ARN of the algorithm used to test the predictor.
-    algorithmArn :: Prelude.Maybe Prelude.Text
+    testWindows :: Prelude.Maybe [TestWindowSummary]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,18 +46,22 @@ data PredictorExecution = PredictorExecution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'algorithmArn', 'predictorExecution_algorithmArn' - The ARN of the algorithm used to test the predictor.
+--
 -- 'testWindows', 'predictorExecution_testWindows' - An array of test windows used to evaluate the algorithm. The
 -- @NumberOfBacktestWindows@ from the object determines the number of
 -- windows in the array.
---
--- 'algorithmArn', 'predictorExecution_algorithmArn' - The ARN of the algorithm used to test the predictor.
 newPredictorExecution ::
   PredictorExecution
 newPredictorExecution =
   PredictorExecution'
-    { testWindows = Prelude.Nothing,
-      algorithmArn = Prelude.Nothing
+    { algorithmArn = Prelude.Nothing,
+      testWindows = Prelude.Nothing
     }
+
+-- | The ARN of the algorithm used to test the predictor.
+predictorExecution_algorithmArn :: Lens.Lens' PredictorExecution (Prelude.Maybe Prelude.Text)
+predictorExecution_algorithmArn = Lens.lens (\PredictorExecution' {algorithmArn} -> algorithmArn) (\s@PredictorExecution' {} a -> s {algorithmArn = a} :: PredictorExecution)
 
 -- | An array of test windows used to evaluate the algorithm. The
 -- @NumberOfBacktestWindows@ from the object determines the number of
@@ -65,26 +69,22 @@ newPredictorExecution =
 predictorExecution_testWindows :: Lens.Lens' PredictorExecution (Prelude.Maybe [TestWindowSummary])
 predictorExecution_testWindows = Lens.lens (\PredictorExecution' {testWindows} -> testWindows) (\s@PredictorExecution' {} a -> s {testWindows = a} :: PredictorExecution) Prelude.. Lens.mapping Lens.coerced
 
--- | The ARN of the algorithm used to test the predictor.
-predictorExecution_algorithmArn :: Lens.Lens' PredictorExecution (Prelude.Maybe Prelude.Text)
-predictorExecution_algorithmArn = Lens.lens (\PredictorExecution' {algorithmArn} -> algorithmArn) (\s@PredictorExecution' {} a -> s {algorithmArn = a} :: PredictorExecution)
-
 instance Data.FromJSON PredictorExecution where
   parseJSON =
     Data.withObject
       "PredictorExecution"
       ( \x ->
           PredictorExecution'
-            Prelude.<$> (x Data..:? "TestWindows" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "AlgorithmArn")
+            Prelude.<$> (x Data..:? "AlgorithmArn")
+            Prelude.<*> (x Data..:? "TestWindows" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable PredictorExecution where
   hashWithSalt _salt PredictorExecution' {..} =
-    _salt `Prelude.hashWithSalt` testWindows
-      `Prelude.hashWithSalt` algorithmArn
+    _salt `Prelude.hashWithSalt` algorithmArn
+      `Prelude.hashWithSalt` testWindows
 
 instance Prelude.NFData PredictorExecution where
   rnf PredictorExecution' {..} =
-    Prelude.rnf testWindows
-      `Prelude.seq` Prelude.rnf algorithmArn
+    Prelude.rnf algorithmArn
+      `Prelude.seq` Prelude.rnf testWindows

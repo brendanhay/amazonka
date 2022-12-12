@@ -30,9 +30,9 @@ module Amazonka.ManagedBlockChain.Lens
     createMemberResponse_httpStatus,
 
     -- ** CreateNetwork
-    createNetwork_tags,
-    createNetwork_frameworkConfiguration,
     createNetwork_description,
+    createNetwork_frameworkConfiguration,
+    createNetwork_tags,
     createNetwork_clientRequestToken,
     createNetwork_name,
     createNetwork_framework,
@@ -44,8 +44,8 @@ module Amazonka.ManagedBlockChain.Lens
     createNetworkResponse_httpStatus,
 
     -- ** CreateNode
-    createNode_tags,
     createNode_memberId,
+    createNode_tags,
     createNode_clientRequestToken,
     createNode_networkId,
     createNode_nodeConfiguration,
@@ -53,8 +53,8 @@ module Amazonka.ManagedBlockChain.Lens
     createNodeResponse_httpStatus,
 
     -- ** CreateProposal
-    createProposal_tags,
     createProposal_description,
+    createProposal_tags,
     createProposal_clientRequestToken,
     createProposal_networkId,
     createProposal_memberId,
@@ -107,53 +107,53 @@ module Amazonka.ManagedBlockChain.Lens
     getProposalResponse_httpStatus,
 
     -- ** ListAccessors
-    listAccessors_nextToken,
     listAccessors_maxResults,
-    listAccessorsResponse_nextToken,
+    listAccessors_nextToken,
     listAccessorsResponse_accessors,
+    listAccessorsResponse_nextToken,
     listAccessorsResponse_httpStatus,
 
     -- ** ListInvitations
-    listInvitations_nextToken,
     listInvitations_maxResults,
+    listInvitations_nextToken,
     listInvitationsResponse_invitations,
     listInvitationsResponse_nextToken,
     listInvitationsResponse_httpStatus,
 
     -- ** ListMembers
+    listMembers_isOwned,
+    listMembers_maxResults,
     listMembers_name,
     listMembers_nextToken,
     listMembers_status,
-    listMembers_maxResults,
-    listMembers_isOwned,
     listMembers_networkId,
-    listMembersResponse_nextToken,
     listMembersResponse_members,
+    listMembersResponse_nextToken,
     listMembersResponse_httpStatus,
 
     -- ** ListNetworks
+    listNetworks_framework,
+    listNetworks_maxResults,
     listNetworks_name,
     listNetworks_nextToken,
     listNetworks_status,
-    listNetworks_maxResults,
-    listNetworks_framework,
     listNetworksResponse_networks,
     listNetworksResponse_nextToken,
     listNetworksResponse_httpStatus,
 
     -- ** ListNodes
+    listNodes_maxResults,
     listNodes_memberId,
     listNodes_nextToken,
     listNodes_status,
-    listNodes_maxResults,
     listNodes_networkId,
     listNodesResponse_nextToken,
     listNodesResponse_nodes,
     listNodesResponse_httpStatus,
 
     -- ** ListProposalVotes
-    listProposalVotes_nextToken,
     listProposalVotes_maxResults,
+    listProposalVotes_nextToken,
     listProposalVotes_networkId,
     listProposalVotes_proposalId,
     listProposalVotesResponse_nextToken,
@@ -161,8 +161,8 @@ module Amazonka.ManagedBlockChain.Lens
     listProposalVotesResponse_httpStatus,
 
     -- ** ListProposals
-    listProposals_nextToken,
     listProposals_maxResults,
+    listProposals_nextToken,
     listProposals_networkId,
     listProposalsResponse_nextToken,
     listProposalsResponse_proposals,
@@ -194,8 +194,8 @@ module Amazonka.ManagedBlockChain.Lens
     updateMemberResponse_httpStatus,
 
     -- ** UpdateNode
-    updateNode_memberId,
     updateNode_logPublishingConfiguration,
+    updateNode_memberId,
     updateNode_networkId,
     updateNode_nodeId,
     updateNodeResponse_httpStatus,
@@ -210,32 +210,32 @@ module Amazonka.ManagedBlockChain.Lens
     -- * Types
 
     -- ** Accessor
-    accessor_billingToken,
-    accessor_type,
     accessor_arn,
+    accessor_billingToken,
     accessor_creationDate,
-    accessor_status,
     accessor_id,
+    accessor_status,
+    accessor_type,
 
     -- ** AccessorSummary
-    accessorSummary_type,
     accessorSummary_arn,
     accessorSummary_creationDate,
-    accessorSummary_status,
     accessorSummary_id,
+    accessorSummary_status,
+    accessorSummary_type,
 
     -- ** ApprovalThresholdPolicy
     approvalThresholdPolicy_proposalDurationInHours,
-    approvalThresholdPolicy_thresholdPercentage,
     approvalThresholdPolicy_thresholdComparator,
+    approvalThresholdPolicy_thresholdPercentage,
 
     -- ** Invitation
     invitation_arn,
     invitation_creationDate,
-    invitation_status,
-    invitation_networkSummary,
     invitation_expirationDate,
     invitation_invitationId,
+    invitation_networkSummary,
+    invitation_status,
 
     -- ** InviteAction
     inviteAction_principal,
@@ -247,29 +247,29 @@ module Amazonka.ManagedBlockChain.Lens
     logConfigurations_cloudwatch,
 
     -- ** Member
-    member_tags,
-    member_name,
-    member_frameworkAttributes,
     member_arn,
     member_creationDate,
-    member_status,
-    member_id,
     member_description,
+    member_frameworkAttributes,
+    member_id,
     member_kmsKeyArn,
-    member_networkId,
     member_logPublishingConfiguration,
+    member_name,
+    member_networkId,
+    member_status,
+    member_tags,
 
     -- ** MemberConfiguration
-    memberConfiguration_tags,
     memberConfiguration_description,
     memberConfiguration_kmsKeyArn,
     memberConfiguration_logPublishingConfiguration,
+    memberConfiguration_tags,
     memberConfiguration_name,
     memberConfiguration_frameworkConfiguration,
 
     -- ** MemberFabricAttributes
-    memberFabricAttributes_caEndpoint,
     memberFabricAttributes_adminUsername,
+    memberFabricAttributes_caEndpoint,
 
     -- ** MemberFabricConfiguration
     memberFabricConfiguration_adminUsername,
@@ -288,74 +288,74 @@ module Amazonka.ManagedBlockChain.Lens
     memberLogPublishingConfiguration_fabric,
 
     -- ** MemberSummary
-    memberSummary_name,
     memberSummary_arn,
     memberSummary_creationDate,
-    memberSummary_status,
-    memberSummary_id,
     memberSummary_description,
+    memberSummary_id,
     memberSummary_isOwned,
+    memberSummary_name,
+    memberSummary_status,
 
     -- ** Network
-    network_tags,
-    network_name,
-    network_frameworkAttributes,
-    network_vpcEndpointServiceName,
     network_arn,
     network_creationDate,
-    network_votingPolicy,
-    network_status,
-    network_id,
     network_description,
-    network_frameworkVersion,
     network_framework,
+    network_frameworkAttributes,
+    network_frameworkVersion,
+    network_id,
+    network_name,
+    network_status,
+    network_tags,
+    network_votingPolicy,
+    network_vpcEndpointServiceName,
 
     -- ** NetworkEthereumAttributes
     networkEthereumAttributes_chainId,
 
     -- ** NetworkFabricAttributes
-    networkFabricAttributes_orderingServiceEndpoint,
     networkFabricAttributes_edition,
+    networkFabricAttributes_orderingServiceEndpoint,
 
     -- ** NetworkFabricConfiguration
     networkFabricConfiguration_edition,
 
     -- ** NetworkFrameworkAttributes
-    networkFrameworkAttributes_fabric,
     networkFrameworkAttributes_ethereum,
+    networkFrameworkAttributes_fabric,
 
     -- ** NetworkFrameworkConfiguration
     networkFrameworkConfiguration_fabric,
 
     -- ** NetworkSummary
-    networkSummary_name,
     networkSummary_arn,
     networkSummary_creationDate,
-    networkSummary_status,
-    networkSummary_id,
     networkSummary_description,
-    networkSummary_frameworkVersion,
     networkSummary_framework,
+    networkSummary_frameworkVersion,
+    networkSummary_id,
+    networkSummary_name,
+    networkSummary_status,
 
     -- ** Node
-    node_tags,
-    node_memberId,
-    node_frameworkAttributes,
     node_arn,
-    node_creationDate,
-    node_status,
     node_availabilityZone,
+    node_creationDate,
+    node_frameworkAttributes,
     node_id,
-    node_kmsKeyArn,
     node_instanceType,
+    node_kmsKeyArn,
+    node_logPublishingConfiguration,
+    node_memberId,
     node_networkId,
     node_stateDB,
-    node_logPublishingConfiguration,
+    node_status,
+    node_tags,
 
     -- ** NodeConfiguration
     nodeConfiguration_availabilityZone,
-    nodeConfiguration_stateDB,
     nodeConfiguration_logPublishingConfiguration,
+    nodeConfiguration_stateDB,
     nodeConfiguration_instanceType,
 
     -- ** NodeEthereumAttributes
@@ -367,60 +367,60 @@ module Amazonka.ManagedBlockChain.Lens
     nodeFabricAttributes_peerEventEndpoint,
 
     -- ** NodeFabricLogPublishingConfiguration
-    nodeFabricLogPublishingConfiguration_peerLogs,
     nodeFabricLogPublishingConfiguration_chaincodeLogs,
+    nodeFabricLogPublishingConfiguration_peerLogs,
 
     -- ** NodeFrameworkAttributes
-    nodeFrameworkAttributes_fabric,
     nodeFrameworkAttributes_ethereum,
+    nodeFrameworkAttributes_fabric,
 
     -- ** NodeLogPublishingConfiguration
     nodeLogPublishingConfiguration_fabric,
 
     -- ** NodeSummary
     nodeSummary_arn,
-    nodeSummary_creationDate,
-    nodeSummary_status,
     nodeSummary_availabilityZone,
+    nodeSummary_creationDate,
     nodeSummary_id,
     nodeSummary_instanceType,
+    nodeSummary_status,
 
     -- ** Proposal
-    proposal_tags,
-    proposal_proposalId,
-    proposal_yesVoteCount,
+    proposal_actions,
     proposal_arn,
     proposal_creationDate,
-    proposal_status,
     proposal_description,
-    proposal_outstandingVoteCount,
+    proposal_expirationDate,
+    proposal_networkId,
     proposal_noVoteCount,
+    proposal_outstandingVoteCount,
+    proposal_proposalId,
     proposal_proposedByMemberId,
     proposal_proposedByMemberName,
-    proposal_networkId,
-    proposal_expirationDate,
-    proposal_actions,
+    proposal_status,
+    proposal_tags,
+    proposal_yesVoteCount,
 
     -- ** ProposalActions
     proposalActions_invitations,
     proposalActions_removals,
 
     -- ** ProposalSummary
-    proposalSummary_proposalId,
     proposalSummary_arn,
     proposalSummary_creationDate,
-    proposalSummary_status,
     proposalSummary_description,
+    proposalSummary_expirationDate,
+    proposalSummary_proposalId,
     proposalSummary_proposedByMemberId,
     proposalSummary_proposedByMemberName,
-    proposalSummary_expirationDate,
+    proposalSummary_status,
 
     -- ** RemoveAction
     removeAction_memberId,
 
     -- ** VoteSummary
-    voteSummary_memberName,
     voteSummary_memberId,
+    voteSummary_memberName,
     voteSummary_vote,
 
     -- ** VotingPolicy

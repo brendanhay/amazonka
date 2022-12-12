@@ -27,8 +27,8 @@ module Amazonka.IoTWireless.ListServiceProfiles
     newListServiceProfiles,
 
     -- * Request Lenses
-    listServiceProfiles_nextToken,
     listServiceProfiles_maxResults,
+    listServiceProfiles_nextToken,
 
     -- * Destructuring the Response
     ListServiceProfilesResponse (..),
@@ -51,12 +51,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListServiceProfiles' smart constructor.
 data ListServiceProfiles = ListServiceProfiles'
-  { -- | To retrieve the next set of results, the @nextToken@ value from a
+  { -- | The maximum number of results to return in this operation.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | To retrieve the next set of results, the @nextToken@ value from a
     -- previous response; otherwise __null__ to receive the first set of
     -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in this operation.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,28 +68,28 @@ data ListServiceProfiles = ListServiceProfiles'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listServiceProfiles_maxResults' - The maximum number of results to return in this operation.
+--
 -- 'nextToken', 'listServiceProfiles_nextToken' - To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
---
--- 'maxResults', 'listServiceProfiles_maxResults' - The maximum number of results to return in this operation.
 newListServiceProfiles ::
   ListServiceProfiles
 newListServiceProfiles =
   ListServiceProfiles'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of results to return in this operation.
+listServiceProfiles_maxResults :: Lens.Lens' ListServiceProfiles (Prelude.Maybe Prelude.Natural)
+listServiceProfiles_maxResults = Lens.lens (\ListServiceProfiles' {maxResults} -> maxResults) (\s@ListServiceProfiles' {} a -> s {maxResults = a} :: ListServiceProfiles)
 
 -- | To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
 listServiceProfiles_nextToken :: Lens.Lens' ListServiceProfiles (Prelude.Maybe Prelude.Text)
 listServiceProfiles_nextToken = Lens.lens (\ListServiceProfiles' {nextToken} -> nextToken) (\s@ListServiceProfiles' {} a -> s {nextToken = a} :: ListServiceProfiles)
-
--- | The maximum number of results to return in this operation.
-listServiceProfiles_maxResults :: Lens.Lens' ListServiceProfiles (Prelude.Maybe Prelude.Natural)
-listServiceProfiles_maxResults = Lens.lens (\ListServiceProfiles' {maxResults} -> maxResults) (\s@ListServiceProfiles' {} a -> s {maxResults = a} :: ListServiceProfiles)
 
 instance Core.AWSRequest ListServiceProfiles where
   type
@@ -110,13 +110,13 @@ instance Core.AWSRequest ListServiceProfiles where
 
 instance Prelude.Hashable ListServiceProfiles where
   hashWithSalt _salt ListServiceProfiles' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListServiceProfiles where
   rnf ListServiceProfiles' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListServiceProfiles where
   toHeaders = Prelude.const Prelude.mempty
@@ -127,8 +127,8 @@ instance Data.ToPath ListServiceProfiles where
 instance Data.ToQuery ListServiceProfiles where
   toQuery ListServiceProfiles' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListServiceProfilesResponse' smart constructor.

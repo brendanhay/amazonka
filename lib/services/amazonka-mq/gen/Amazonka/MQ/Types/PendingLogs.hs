@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPendingLogs' smart constructor.
 data PendingLogs = PendingLogs'
-  { -- | Enables general logging.
-    general :: Prelude.Maybe Prelude.Bool,
-    -- | Enables audit logging. Every user management action made using JMX or
+  { -- | Enables audit logging. Every user management action made using JMX or
     -- the ActiveMQ Web Console is logged.
-    audit :: Prelude.Maybe Prelude.Bool
+    audit :: Prelude.Maybe Prelude.Bool,
+    -- | Enables general logging.
+    general :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,26 +45,26 @@ data PendingLogs = PendingLogs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'general', 'pendingLogs_general' - Enables general logging.
---
 -- 'audit', 'pendingLogs_audit' - Enables audit logging. Every user management action made using JMX or
 -- the ActiveMQ Web Console is logged.
+--
+-- 'general', 'pendingLogs_general' - Enables general logging.
 newPendingLogs ::
   PendingLogs
 newPendingLogs =
   PendingLogs'
-    { general = Prelude.Nothing,
-      audit = Prelude.Nothing
+    { audit = Prelude.Nothing,
+      general = Prelude.Nothing
     }
-
--- | Enables general logging.
-pendingLogs_general :: Lens.Lens' PendingLogs (Prelude.Maybe Prelude.Bool)
-pendingLogs_general = Lens.lens (\PendingLogs' {general} -> general) (\s@PendingLogs' {} a -> s {general = a} :: PendingLogs)
 
 -- | Enables audit logging. Every user management action made using JMX or
 -- the ActiveMQ Web Console is logged.
 pendingLogs_audit :: Lens.Lens' PendingLogs (Prelude.Maybe Prelude.Bool)
 pendingLogs_audit = Lens.lens (\PendingLogs' {audit} -> audit) (\s@PendingLogs' {} a -> s {audit = a} :: PendingLogs)
+
+-- | Enables general logging.
+pendingLogs_general :: Lens.Lens' PendingLogs (Prelude.Maybe Prelude.Bool)
+pendingLogs_general = Lens.lens (\PendingLogs' {general} -> general) (\s@PendingLogs' {} a -> s {general = a} :: PendingLogs)
 
 instance Data.FromJSON PendingLogs where
   parseJSON =
@@ -72,15 +72,15 @@ instance Data.FromJSON PendingLogs where
       "PendingLogs"
       ( \x ->
           PendingLogs'
-            Prelude.<$> (x Data..:? "general")
-            Prelude.<*> (x Data..:? "audit")
+            Prelude.<$> (x Data..:? "audit")
+            Prelude.<*> (x Data..:? "general")
       )
 
 instance Prelude.Hashable PendingLogs where
   hashWithSalt _salt PendingLogs' {..} =
-    _salt `Prelude.hashWithSalt` general
-      `Prelude.hashWithSalt` audit
+    _salt `Prelude.hashWithSalt` audit
+      `Prelude.hashWithSalt` general
 
 instance Prelude.NFData PendingLogs where
   rnf PendingLogs' {..} =
-    Prelude.rnf general `Prelude.seq` Prelude.rnf audit
+    Prelude.rnf audit `Prelude.seq` Prelude.rnf general

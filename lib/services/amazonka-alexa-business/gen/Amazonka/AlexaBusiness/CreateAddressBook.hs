@@ -27,9 +27,9 @@ module Amazonka.AlexaBusiness.CreateAddressBook
     newCreateAddressBook,
 
     -- * Request Lenses
-    createAddressBook_tags,
     createAddressBook_clientRequestToken,
     createAddressBook_description,
+    createAddressBook_tags,
     createAddressBook_name,
 
     -- * Destructuring the Response
@@ -52,14 +52,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateAddressBook' smart constructor.
 data CreateAddressBook = CreateAddressBook'
-  { -- | The tags to be added to the specified resource. Do not provide system
-    -- tags.
-    tags :: Prelude.Maybe [Tag],
-    -- | A unique, user-specified identifier for the request that ensures
+  { -- | A unique, user-specified identifier for the request that ensures
     -- idempotency.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The description of the address book.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The tags to be added to the specified resource. Do not provide system
+    -- tags.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the address book.
     name :: Prelude.Text
   }
@@ -73,13 +73,13 @@ data CreateAddressBook = CreateAddressBook'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createAddressBook_tags' - The tags to be added to the specified resource. Do not provide system
--- tags.
---
 -- 'clientRequestToken', 'createAddressBook_clientRequestToken' - A unique, user-specified identifier for the request that ensures
 -- idempotency.
 --
 -- 'description', 'createAddressBook_description' - The description of the address book.
+--
+-- 'tags', 'createAddressBook_tags' - The tags to be added to the specified resource. Do not provide system
+-- tags.
 --
 -- 'name', 'createAddressBook_name' - The name of the address book.
 newCreateAddressBook ::
@@ -88,16 +88,12 @@ newCreateAddressBook ::
   CreateAddressBook
 newCreateAddressBook pName_ =
   CreateAddressBook'
-    { tags = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
+    { clientRequestToken =
+        Prelude.Nothing,
       description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_
     }
-
--- | The tags to be added to the specified resource. Do not provide system
--- tags.
-createAddressBook_tags :: Lens.Lens' CreateAddressBook (Prelude.Maybe [Tag])
-createAddressBook_tags = Lens.lens (\CreateAddressBook' {tags} -> tags) (\s@CreateAddressBook' {} a -> s {tags = a} :: CreateAddressBook) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique, user-specified identifier for the request that ensures
 -- idempotency.
@@ -107,6 +103,11 @@ createAddressBook_clientRequestToken = Lens.lens (\CreateAddressBook' {clientReq
 -- | The description of the address book.
 createAddressBook_description :: Lens.Lens' CreateAddressBook (Prelude.Maybe Prelude.Text)
 createAddressBook_description = Lens.lens (\CreateAddressBook' {description} -> description) (\s@CreateAddressBook' {} a -> s {description = a} :: CreateAddressBook)
+
+-- | The tags to be added to the specified resource. Do not provide system
+-- tags.
+createAddressBook_tags :: Lens.Lens' CreateAddressBook (Prelude.Maybe [Tag])
+createAddressBook_tags = Lens.lens (\CreateAddressBook' {tags} -> tags) (\s@CreateAddressBook' {} a -> s {tags = a} :: CreateAddressBook) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the address book.
 createAddressBook_name :: Lens.Lens' CreateAddressBook Prelude.Text
@@ -128,16 +129,16 @@ instance Core.AWSRequest CreateAddressBook where
 
 instance Prelude.Hashable CreateAddressBook where
   hashWithSalt _salt CreateAddressBook' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientRequestToken
+    _salt `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateAddressBook where
   rnf CreateAddressBook' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders CreateAddressBook where
@@ -159,10 +160,10 @@ instance Data.ToJSON CreateAddressBook where
   toJSON CreateAddressBook' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ClientRequestToken" Data..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
             ("Description" Data..=) Prelude.<$> description,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Name" Data..= name)
           ]
       )

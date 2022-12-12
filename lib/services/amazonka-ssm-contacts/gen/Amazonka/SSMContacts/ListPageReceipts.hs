@@ -30,8 +30,8 @@ module Amazonka.SSMContacts.ListPageReceipts
     newListPageReceipts,
 
     -- * Request Lenses
-    listPageReceipts_nextToken,
     listPageReceipts_maxResults,
+    listPageReceipts_nextToken,
     listPageReceipts_pageId,
 
     -- * Destructuring the Response
@@ -55,10 +55,10 @@ import Amazonka.SSMContacts.Types
 
 -- | /See:/ 'newListPageReceipts' smart constructor.
 data ListPageReceipts = ListPageReceipts'
-  { -- | The pagination token to continue to the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of acknowledgements per page of results.
+  { -- | The maximum number of acknowledgements per page of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token to continue to the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the engagement to a specific contact
     -- channel.
     pageId :: Prelude.Text
@@ -73,9 +73,9 @@ data ListPageReceipts = ListPageReceipts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPageReceipts_nextToken' - The pagination token to continue to the next page of results.
---
 -- 'maxResults', 'listPageReceipts_maxResults' - The maximum number of acknowledgements per page of results.
+--
+-- 'nextToken', 'listPageReceipts_nextToken' - The pagination token to continue to the next page of results.
 --
 -- 'pageId', 'listPageReceipts_pageId' - The Amazon Resource Name (ARN) of the engagement to a specific contact
 -- channel.
@@ -85,18 +85,18 @@ newListPageReceipts ::
   ListPageReceipts
 newListPageReceipts pPageId_ =
   ListPageReceipts'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       pageId = pPageId_
     }
-
--- | The pagination token to continue to the next page of results.
-listPageReceipts_nextToken :: Lens.Lens' ListPageReceipts (Prelude.Maybe Prelude.Text)
-listPageReceipts_nextToken = Lens.lens (\ListPageReceipts' {nextToken} -> nextToken) (\s@ListPageReceipts' {} a -> s {nextToken = a} :: ListPageReceipts)
 
 -- | The maximum number of acknowledgements per page of results.
 listPageReceipts_maxResults :: Lens.Lens' ListPageReceipts (Prelude.Maybe Prelude.Natural)
 listPageReceipts_maxResults = Lens.lens (\ListPageReceipts' {maxResults} -> maxResults) (\s@ListPageReceipts' {} a -> s {maxResults = a} :: ListPageReceipts)
+
+-- | The pagination token to continue to the next page of results.
+listPageReceipts_nextToken :: Lens.Lens' ListPageReceipts (Prelude.Maybe Prelude.Text)
+listPageReceipts_nextToken = Lens.lens (\ListPageReceipts' {nextToken} -> nextToken) (\s@ListPageReceipts' {} a -> s {nextToken = a} :: ListPageReceipts)
 
 -- | The Amazon Resource Name (ARN) of the engagement to a specific contact
 -- channel.
@@ -142,14 +142,14 @@ instance Core.AWSRequest ListPageReceipts where
 
 instance Prelude.Hashable ListPageReceipts where
   hashWithSalt _salt ListPageReceipts' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` pageId
 
 instance Prelude.NFData ListPageReceipts where
   rnf ListPageReceipts' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf pageId
 
 instance Data.ToHeaders ListPageReceipts where
@@ -171,8 +171,8 @@ instance Data.ToJSON ListPageReceipts where
   toJSON ListPageReceipts' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("PageId" Data..= pageId)
           ]
       )

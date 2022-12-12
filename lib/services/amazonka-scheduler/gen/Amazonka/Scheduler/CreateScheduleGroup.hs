@@ -27,8 +27,8 @@ module Amazonka.Scheduler.CreateScheduleGroup
     newCreateScheduleGroup,
 
     -- * Request Lenses
-    createScheduleGroup_tags,
     createScheduleGroup_clientToken,
+    createScheduleGroup_tags,
     createScheduleGroup_name,
 
     -- * Destructuring the Response
@@ -51,13 +51,13 @@ import Amazonka.Scheduler.Types
 
 -- | /See:/ 'newCreateScheduleGroup' smart constructor.
 data CreateScheduleGroup = CreateScheduleGroup'
-  { -- | The list of tags to associate with the schedule group.
-    tags :: Prelude.Maybe [Tag],
-    -- | Unique, case-sensitive identifier you provide to ensure the idempotency
+  { -- | Unique, case-sensitive identifier you provide to ensure the idempotency
     -- of the request. If you do not specify a client token, EventBridge
     -- Scheduler uses a randomly generated token for the request to ensure
     -- idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The list of tags to associate with the schedule group.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the schedule group that you are creating.
     name :: Prelude.Text
   }
@@ -71,12 +71,12 @@ data CreateScheduleGroup = CreateScheduleGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createScheduleGroup_tags' - The list of tags to associate with the schedule group.
---
 -- 'clientToken', 'createScheduleGroup_clientToken' - Unique, case-sensitive identifier you provide to ensure the idempotency
 -- of the request. If you do not specify a client token, EventBridge
 -- Scheduler uses a randomly generated token for the request to ensure
 -- idempotency.
+--
+-- 'tags', 'createScheduleGroup_tags' - The list of tags to associate with the schedule group.
 --
 -- 'name', 'createScheduleGroup_name' - The name of the schedule group that you are creating.
 newCreateScheduleGroup ::
@@ -85,14 +85,10 @@ newCreateScheduleGroup ::
   CreateScheduleGroup
 newCreateScheduleGroup pName_ =
   CreateScheduleGroup'
-    { tags = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+    { clientToken = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_
     }
-
--- | The list of tags to associate with the schedule group.
-createScheduleGroup_tags :: Lens.Lens' CreateScheduleGroup (Prelude.Maybe [Tag])
-createScheduleGroup_tags = Lens.lens (\CreateScheduleGroup' {tags} -> tags) (\s@CreateScheduleGroup' {} a -> s {tags = a} :: CreateScheduleGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency
 -- of the request. If you do not specify a client token, EventBridge
@@ -100,6 +96,10 @@ createScheduleGroup_tags = Lens.lens (\CreateScheduleGroup' {tags} -> tags) (\s@
 -- idempotency.
 createScheduleGroup_clientToken :: Lens.Lens' CreateScheduleGroup (Prelude.Maybe Prelude.Text)
 createScheduleGroup_clientToken = Lens.lens (\CreateScheduleGroup' {clientToken} -> clientToken) (\s@CreateScheduleGroup' {} a -> s {clientToken = a} :: CreateScheduleGroup)
+
+-- | The list of tags to associate with the schedule group.
+createScheduleGroup_tags :: Lens.Lens' CreateScheduleGroup (Prelude.Maybe [Tag])
+createScheduleGroup_tags = Lens.lens (\CreateScheduleGroup' {tags} -> tags) (\s@CreateScheduleGroup' {} a -> s {tags = a} :: CreateScheduleGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the schedule group that you are creating.
 createScheduleGroup_name :: Lens.Lens' CreateScheduleGroup Prelude.Text
@@ -121,14 +121,14 @@ instance Core.AWSRequest CreateScheduleGroup where
 
 instance Prelude.Hashable CreateScheduleGroup where
   hashWithSalt _salt CreateScheduleGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateScheduleGroup where
   rnf CreateScheduleGroup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders CreateScheduleGroup where
@@ -146,8 +146,8 @@ instance Data.ToJSON CreateScheduleGroup where
   toJSON CreateScheduleGroup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ClientToken" Data..=) Prelude.<$> clientToken
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("Tags" Data..=) Prelude.<$> tags
           ]
       )
 

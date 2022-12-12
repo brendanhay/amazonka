@@ -39,9 +39,9 @@ module Amazonka.Config.DescribeOrganizationConformancePackStatuses
     newDescribeOrganizationConformancePackStatuses,
 
     -- * Request Lenses
-    describeOrganizationConformancePackStatuses_organizationConformancePackNames,
-    describeOrganizationConformancePackStatuses_nextToken,
     describeOrganizationConformancePackStatuses_limit,
+    describeOrganizationConformancePackStatuses_nextToken,
+    describeOrganizationConformancePackStatuses_organizationConformancePackNames,
 
     -- * Destructuring the Response
     DescribeOrganizationConformancePackStatusesResponse (..),
@@ -64,17 +64,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeOrganizationConformancePackStatuses' smart constructor.
 data DescribeOrganizationConformancePackStatuses = DescribeOrganizationConformancePackStatuses'
-  { -- | The names of organization conformance packs for which you want status
-    -- details. If you do not specify any names, Config returns details for all
-    -- your organization conformance packs.
-    organizationConformancePackNames :: Prelude.Maybe [Prelude.Text],
+  { -- | The maximum number of OrganizationConformancePackStatuses returned on
+    -- each page. If you do no specify a number, Config uses the default. The
+    -- default is 100.
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | The nextToken string returned on a previous page that you use to get the
     -- next page of results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of OrganizationConformancePackStatuses returned on
-    -- each page. If you do no specify a number, Config uses the default. The
-    -- default is 100.
-    limit :: Prelude.Maybe Prelude.Natural
+    -- | The names of organization conformance packs for which you want status
+    -- details. If you do not specify any names, Config returns details for all
+    -- your organization conformance packs.
+    organizationConformancePackNames :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -86,42 +86,43 @@ data DescribeOrganizationConformancePackStatuses = DescribeOrganizationConforman
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'organizationConformancePackNames', 'describeOrganizationConformancePackStatuses_organizationConformancePackNames' - The names of organization conformance packs for which you want status
--- details. If you do not specify any names, Config returns details for all
--- your organization conformance packs.
+-- 'limit', 'describeOrganizationConformancePackStatuses_limit' - The maximum number of OrganizationConformancePackStatuses returned on
+-- each page. If you do no specify a number, Config uses the default. The
+-- default is 100.
 --
 -- 'nextToken', 'describeOrganizationConformancePackStatuses_nextToken' - The nextToken string returned on a previous page that you use to get the
 -- next page of results in a paginated response.
 --
--- 'limit', 'describeOrganizationConformancePackStatuses_limit' - The maximum number of OrganizationConformancePackStatuses returned on
--- each page. If you do no specify a number, Config uses the default. The
--- default is 100.
+-- 'organizationConformancePackNames', 'describeOrganizationConformancePackStatuses_organizationConformancePackNames' - The names of organization conformance packs for which you want status
+-- details. If you do not specify any names, Config returns details for all
+-- your organization conformance packs.
 newDescribeOrganizationConformancePackStatuses ::
   DescribeOrganizationConformancePackStatuses
 newDescribeOrganizationConformancePackStatuses =
   DescribeOrganizationConformancePackStatuses'
-    { organizationConformancePackNames =
+    { limit =
         Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      limit = Prelude.Nothing
+      organizationConformancePackNames =
+        Prelude.Nothing
     }
-
--- | The names of organization conformance packs for which you want status
--- details. If you do not specify any names, Config returns details for all
--- your organization conformance packs.
-describeOrganizationConformancePackStatuses_organizationConformancePackNames :: Lens.Lens' DescribeOrganizationConformancePackStatuses (Prelude.Maybe [Prelude.Text])
-describeOrganizationConformancePackStatuses_organizationConformancePackNames = Lens.lens (\DescribeOrganizationConformancePackStatuses' {organizationConformancePackNames} -> organizationConformancePackNames) (\s@DescribeOrganizationConformancePackStatuses' {} a -> s {organizationConformancePackNames = a} :: DescribeOrganizationConformancePackStatuses) Prelude.. Lens.mapping Lens.coerced
-
--- | The nextToken string returned on a previous page that you use to get the
--- next page of results in a paginated response.
-describeOrganizationConformancePackStatuses_nextToken :: Lens.Lens' DescribeOrganizationConformancePackStatuses (Prelude.Maybe Prelude.Text)
-describeOrganizationConformancePackStatuses_nextToken = Lens.lens (\DescribeOrganizationConformancePackStatuses' {nextToken} -> nextToken) (\s@DescribeOrganizationConformancePackStatuses' {} a -> s {nextToken = a} :: DescribeOrganizationConformancePackStatuses)
 
 -- | The maximum number of OrganizationConformancePackStatuses returned on
 -- each page. If you do no specify a number, Config uses the default. The
 -- default is 100.
 describeOrganizationConformancePackStatuses_limit :: Lens.Lens' DescribeOrganizationConformancePackStatuses (Prelude.Maybe Prelude.Natural)
 describeOrganizationConformancePackStatuses_limit = Lens.lens (\DescribeOrganizationConformancePackStatuses' {limit} -> limit) (\s@DescribeOrganizationConformancePackStatuses' {} a -> s {limit = a} :: DescribeOrganizationConformancePackStatuses)
+
+-- | The nextToken string returned on a previous page that you use to get the
+-- next page of results in a paginated response.
+describeOrganizationConformancePackStatuses_nextToken :: Lens.Lens' DescribeOrganizationConformancePackStatuses (Prelude.Maybe Prelude.Text)
+describeOrganizationConformancePackStatuses_nextToken = Lens.lens (\DescribeOrganizationConformancePackStatuses' {nextToken} -> nextToken) (\s@DescribeOrganizationConformancePackStatuses' {} a -> s {nextToken = a} :: DescribeOrganizationConformancePackStatuses)
+
+-- | The names of organization conformance packs for which you want status
+-- details. If you do not specify any names, Config returns details for all
+-- your organization conformance packs.
+describeOrganizationConformancePackStatuses_organizationConformancePackNames :: Lens.Lens' DescribeOrganizationConformancePackStatuses (Prelude.Maybe [Prelude.Text])
+describeOrganizationConformancePackStatuses_organizationConformancePackNames = Lens.lens (\DescribeOrganizationConformancePackStatuses' {organizationConformancePackNames} -> organizationConformancePackNames) (\s@DescribeOrganizationConformancePackStatuses' {} a -> s {organizationConformancePackNames = a} :: DescribeOrganizationConformancePackStatuses) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.AWSPager
@@ -176,19 +177,18 @@ instance
   hashWithSalt
     _salt
     DescribeOrganizationConformancePackStatuses' {..} =
-      _salt
-        `Prelude.hashWithSalt` organizationConformancePackNames
+      _salt `Prelude.hashWithSalt` limit
         `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` limit
+        `Prelude.hashWithSalt` organizationConformancePackNames
 
 instance
   Prelude.NFData
     DescribeOrganizationConformancePackStatuses
   where
   rnf DescribeOrganizationConformancePackStatuses' {..} =
-    Prelude.rnf organizationConformancePackNames
+    Prelude.rnf limit
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf organizationConformancePackNames
 
 instance
   Data.ToHeaders
@@ -216,10 +216,10 @@ instance
     DescribeOrganizationConformancePackStatuses' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("OrganizationConformancePackNames" Data..=)
-                Prelude.<$> organizationConformancePackNames,
+            [ ("Limit" Data..=) Prelude.<$> limit,
               ("NextToken" Data..=) Prelude.<$> nextToken,
-              ("Limit" Data..=) Prelude.<$> limit
+              ("OrganizationConformancePackNames" Data..=)
+                Prelude.<$> organizationConformancePackNames
             ]
         )
 

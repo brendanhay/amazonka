@@ -36,15 +36,15 @@ module Amazonka.Redshift.AuthorizeEndpointAccess
     newEndpointAuthorization,
 
     -- * Response Lenses
-    endpointAuthorization_clusterIdentifier,
-    endpointAuthorization_endpointCount,
     endpointAuthorization_allowedAllVPCs,
-    endpointAuthorization_status,
-    endpointAuthorization_authorizeTime,
-    endpointAuthorization_clusterStatus,
-    endpointAuthorization_grantor,
-    endpointAuthorization_grantee,
     endpointAuthorization_allowedVPCs,
+    endpointAuthorization_authorizeTime,
+    endpointAuthorization_clusterIdentifier,
+    endpointAuthorization_clusterStatus,
+    endpointAuthorization_endpointCount,
+    endpointAuthorization_grantee,
+    endpointAuthorization_grantor,
+    endpointAuthorization_status,
   )
 where
 

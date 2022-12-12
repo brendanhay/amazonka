@@ -32,7 +32,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLinuxParameters' smart constructor.
 data LinuxParameters = LinuxParameters'
-  { -- | Any host devices to expose to the container. This parameter maps to
+  { -- | The Linux capabilities for the container that are added to or dropped
+    -- from the default configuration provided by Docker.
+    --
+    -- For tasks that use the Fargate launch type, @capabilities@ is supported
+    -- for all platform versions but the @add@ parameter is only supported if
+    -- using platform version 1.4.0 or later.
+    capabilities :: Prelude.Maybe KernelCapabilities,
+    -- | Any host devices to expose to the container. This parameter maps to
     -- @Devices@ in the
     -- <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container>
     -- section of the
@@ -43,26 +50,6 @@ data LinuxParameters = LinuxParameters'
     -- If you\'re using tasks that use the Fargate launch type, the @devices@
     -- parameter isn\'t supported.
     devices :: Prelude.Maybe [Device],
-    -- | This allows you to tune a container\'s memory swappiness behavior. A
-    -- @swappiness@ value of @0@ will cause swapping to not happen unless
-    -- absolutely necessary. A @swappiness@ value of @100@ will cause pages to
-    -- be swapped very aggressively. Accepted values are whole numbers between
-    -- @0@ and @100@. If the @swappiness@ parameter is not specified, a default
-    -- value of @60@ is used. If a value is not specified for @maxSwap@ then
-    -- this parameter is ignored. This parameter maps to the
-    -- @--memory-swappiness@ option to
-    -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
-    --
-    -- If you\'re using tasks that use the Fargate launch type, the
-    -- @swappiness@ parameter isn\'t supported.
-    swappiness :: Prelude.Maybe Prelude.Int,
-    -- | The container path, mount options, and size (in MiB) of the tmpfs mount.
-    -- This parameter maps to the @--tmpfs@ option to
-    -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
-    --
-    -- If you\'re using tasks that use the Fargate launch type, the @tmpfs@
-    -- parameter isn\'t supported.
-    tmpfs :: Prelude.Maybe [Tmpfs],
     -- | Run an @init@ process inside the container that forwards signals and
     -- reaps processes. This parameter maps to the @--init@ option to
     -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
@@ -87,20 +74,33 @@ data LinuxParameters = LinuxParameters'
     -- If you\'re using tasks that use the Fargate launch type, the @maxSwap@
     -- parameter isn\'t supported.
     maxSwap :: Prelude.Maybe Prelude.Int,
-    -- | The Linux capabilities for the container that are added to or dropped
-    -- from the default configuration provided by Docker.
-    --
-    -- For tasks that use the Fargate launch type, @capabilities@ is supported
-    -- for all platform versions but the @add@ parameter is only supported if
-    -- using platform version 1.4.0 or later.
-    capabilities :: Prelude.Maybe KernelCapabilities,
     -- | The value for the size (in MiB) of the @\/dev\/shm@ volume. This
     -- parameter maps to the @--shm-size@ option to
     -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
     --
     -- If you are using tasks that use the Fargate launch type, the
     -- @sharedMemorySize@ parameter is not supported.
-    sharedMemorySize :: Prelude.Maybe Prelude.Int
+    sharedMemorySize :: Prelude.Maybe Prelude.Int,
+    -- | This allows you to tune a container\'s memory swappiness behavior. A
+    -- @swappiness@ value of @0@ will cause swapping to not happen unless
+    -- absolutely necessary. A @swappiness@ value of @100@ will cause pages to
+    -- be swapped very aggressively. Accepted values are whole numbers between
+    -- @0@ and @100@. If the @swappiness@ parameter is not specified, a default
+    -- value of @60@ is used. If a value is not specified for @maxSwap@ then
+    -- this parameter is ignored. This parameter maps to the
+    -- @--memory-swappiness@ option to
+    -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
+    --
+    -- If you\'re using tasks that use the Fargate launch type, the
+    -- @swappiness@ parameter isn\'t supported.
+    swappiness :: Prelude.Maybe Prelude.Int,
+    -- | The container path, mount options, and size (in MiB) of the tmpfs mount.
+    -- This parameter maps to the @--tmpfs@ option to
+    -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
+    --
+    -- If you\'re using tasks that use the Fargate launch type, the @tmpfs@
+    -- parameter isn\'t supported.
+    tmpfs :: Prelude.Maybe [Tmpfs]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -112,6 +112,13 @@ data LinuxParameters = LinuxParameters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'capabilities', 'linuxParameters_capabilities' - The Linux capabilities for the container that are added to or dropped
+-- from the default configuration provided by Docker.
+--
+-- For tasks that use the Fargate launch type, @capabilities@ is supported
+-- for all platform versions but the @add@ parameter is only supported if
+-- using platform version 1.4.0 or later.
+--
 -- 'devices', 'linuxParameters_devices' - Any host devices to expose to the container. This parameter maps to
 -- @Devices@ in the
 -- <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container>
@@ -121,26 +128,6 @@ data LinuxParameters = LinuxParameters'
 -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
 --
 -- If you\'re using tasks that use the Fargate launch type, the @devices@
--- parameter isn\'t supported.
---
--- 'swappiness', 'linuxParameters_swappiness' - This allows you to tune a container\'s memory swappiness behavior. A
--- @swappiness@ value of @0@ will cause swapping to not happen unless
--- absolutely necessary. A @swappiness@ value of @100@ will cause pages to
--- be swapped very aggressively. Accepted values are whole numbers between
--- @0@ and @100@. If the @swappiness@ parameter is not specified, a default
--- value of @60@ is used. If a value is not specified for @maxSwap@ then
--- this parameter is ignored. This parameter maps to the
--- @--memory-swappiness@ option to
--- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
---
--- If you\'re using tasks that use the Fargate launch type, the
--- @swappiness@ parameter isn\'t supported.
---
--- 'tmpfs', 'linuxParameters_tmpfs' - The container path, mount options, and size (in MiB) of the tmpfs mount.
--- This parameter maps to the @--tmpfs@ option to
--- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
---
--- If you\'re using tasks that use the Fargate launch type, the @tmpfs@
 -- parameter isn\'t supported.
 --
 -- 'initProcessEnabled', 'linuxParameters_initProcessEnabled' - Run an @init@ process inside the container that forwards signals and
@@ -167,31 +154,53 @@ data LinuxParameters = LinuxParameters'
 -- If you\'re using tasks that use the Fargate launch type, the @maxSwap@
 -- parameter isn\'t supported.
 --
--- 'capabilities', 'linuxParameters_capabilities' - The Linux capabilities for the container that are added to or dropped
--- from the default configuration provided by Docker.
---
--- For tasks that use the Fargate launch type, @capabilities@ is supported
--- for all platform versions but the @add@ parameter is only supported if
--- using platform version 1.4.0 or later.
---
 -- 'sharedMemorySize', 'linuxParameters_sharedMemorySize' - The value for the size (in MiB) of the @\/dev\/shm@ volume. This
 -- parameter maps to the @--shm-size@ option to
 -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
 --
 -- If you are using tasks that use the Fargate launch type, the
 -- @sharedMemorySize@ parameter is not supported.
+--
+-- 'swappiness', 'linuxParameters_swappiness' - This allows you to tune a container\'s memory swappiness behavior. A
+-- @swappiness@ value of @0@ will cause swapping to not happen unless
+-- absolutely necessary. A @swappiness@ value of @100@ will cause pages to
+-- be swapped very aggressively. Accepted values are whole numbers between
+-- @0@ and @100@. If the @swappiness@ parameter is not specified, a default
+-- value of @60@ is used. If a value is not specified for @maxSwap@ then
+-- this parameter is ignored. This parameter maps to the
+-- @--memory-swappiness@ option to
+-- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
+--
+-- If you\'re using tasks that use the Fargate launch type, the
+-- @swappiness@ parameter isn\'t supported.
+--
+-- 'tmpfs', 'linuxParameters_tmpfs' - The container path, mount options, and size (in MiB) of the tmpfs mount.
+-- This parameter maps to the @--tmpfs@ option to
+-- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
+--
+-- If you\'re using tasks that use the Fargate launch type, the @tmpfs@
+-- parameter isn\'t supported.
 newLinuxParameters ::
   LinuxParameters
 newLinuxParameters =
   LinuxParameters'
-    { devices = Prelude.Nothing,
-      swappiness = Prelude.Nothing,
-      tmpfs = Prelude.Nothing,
+    { capabilities = Prelude.Nothing,
+      devices = Prelude.Nothing,
       initProcessEnabled = Prelude.Nothing,
       maxSwap = Prelude.Nothing,
-      capabilities = Prelude.Nothing,
-      sharedMemorySize = Prelude.Nothing
+      sharedMemorySize = Prelude.Nothing,
+      swappiness = Prelude.Nothing,
+      tmpfs = Prelude.Nothing
     }
+
+-- | The Linux capabilities for the container that are added to or dropped
+-- from the default configuration provided by Docker.
+--
+-- For tasks that use the Fargate launch type, @capabilities@ is supported
+-- for all platform versions but the @add@ parameter is only supported if
+-- using platform version 1.4.0 or later.
+linuxParameters_capabilities :: Lens.Lens' LinuxParameters (Prelude.Maybe KernelCapabilities)
+linuxParameters_capabilities = Lens.lens (\LinuxParameters' {capabilities} -> capabilities) (\s@LinuxParameters' {} a -> s {capabilities = a} :: LinuxParameters)
 
 -- | Any host devices to expose to the container. This parameter maps to
 -- @Devices@ in the
@@ -205,30 +214,6 @@ newLinuxParameters =
 -- parameter isn\'t supported.
 linuxParameters_devices :: Lens.Lens' LinuxParameters (Prelude.Maybe [Device])
 linuxParameters_devices = Lens.lens (\LinuxParameters' {devices} -> devices) (\s@LinuxParameters' {} a -> s {devices = a} :: LinuxParameters) Prelude.. Lens.mapping Lens.coerced
-
--- | This allows you to tune a container\'s memory swappiness behavior. A
--- @swappiness@ value of @0@ will cause swapping to not happen unless
--- absolutely necessary. A @swappiness@ value of @100@ will cause pages to
--- be swapped very aggressively. Accepted values are whole numbers between
--- @0@ and @100@. If the @swappiness@ parameter is not specified, a default
--- value of @60@ is used. If a value is not specified for @maxSwap@ then
--- this parameter is ignored. This parameter maps to the
--- @--memory-swappiness@ option to
--- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
---
--- If you\'re using tasks that use the Fargate launch type, the
--- @swappiness@ parameter isn\'t supported.
-linuxParameters_swappiness :: Lens.Lens' LinuxParameters (Prelude.Maybe Prelude.Int)
-linuxParameters_swappiness = Lens.lens (\LinuxParameters' {swappiness} -> swappiness) (\s@LinuxParameters' {} a -> s {swappiness = a} :: LinuxParameters)
-
--- | The container path, mount options, and size (in MiB) of the tmpfs mount.
--- This parameter maps to the @--tmpfs@ option to
--- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
---
--- If you\'re using tasks that use the Fargate launch type, the @tmpfs@
--- parameter isn\'t supported.
-linuxParameters_tmpfs :: Lens.Lens' LinuxParameters (Prelude.Maybe [Tmpfs])
-linuxParameters_tmpfs = Lens.lens (\LinuxParameters' {tmpfs} -> tmpfs) (\s@LinuxParameters' {} a -> s {tmpfs = a} :: LinuxParameters) Prelude.. Lens.mapping Lens.coerced
 
 -- | Run an @init@ process inside the container that forwards signals and
 -- reaps processes. This parameter maps to the @--init@ option to
@@ -258,15 +243,6 @@ linuxParameters_initProcessEnabled = Lens.lens (\LinuxParameters' {initProcessEn
 linuxParameters_maxSwap :: Lens.Lens' LinuxParameters (Prelude.Maybe Prelude.Int)
 linuxParameters_maxSwap = Lens.lens (\LinuxParameters' {maxSwap} -> maxSwap) (\s@LinuxParameters' {} a -> s {maxSwap = a} :: LinuxParameters)
 
--- | The Linux capabilities for the container that are added to or dropped
--- from the default configuration provided by Docker.
---
--- For tasks that use the Fargate launch type, @capabilities@ is supported
--- for all platform versions but the @add@ parameter is only supported if
--- using platform version 1.4.0 or later.
-linuxParameters_capabilities :: Lens.Lens' LinuxParameters (Prelude.Maybe KernelCapabilities)
-linuxParameters_capabilities = Lens.lens (\LinuxParameters' {capabilities} -> capabilities) (\s@LinuxParameters' {} a -> s {capabilities = a} :: LinuxParameters)
-
 -- | The value for the size (in MiB) of the @\/dev\/shm@ volume. This
 -- parameter maps to the @--shm-size@ option to
 -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
@@ -276,53 +252,77 @@ linuxParameters_capabilities = Lens.lens (\LinuxParameters' {capabilities} -> ca
 linuxParameters_sharedMemorySize :: Lens.Lens' LinuxParameters (Prelude.Maybe Prelude.Int)
 linuxParameters_sharedMemorySize = Lens.lens (\LinuxParameters' {sharedMemorySize} -> sharedMemorySize) (\s@LinuxParameters' {} a -> s {sharedMemorySize = a} :: LinuxParameters)
 
+-- | This allows you to tune a container\'s memory swappiness behavior. A
+-- @swappiness@ value of @0@ will cause swapping to not happen unless
+-- absolutely necessary. A @swappiness@ value of @100@ will cause pages to
+-- be swapped very aggressively. Accepted values are whole numbers between
+-- @0@ and @100@. If the @swappiness@ parameter is not specified, a default
+-- value of @60@ is used. If a value is not specified for @maxSwap@ then
+-- this parameter is ignored. This parameter maps to the
+-- @--memory-swappiness@ option to
+-- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
+--
+-- If you\'re using tasks that use the Fargate launch type, the
+-- @swappiness@ parameter isn\'t supported.
+linuxParameters_swappiness :: Lens.Lens' LinuxParameters (Prelude.Maybe Prelude.Int)
+linuxParameters_swappiness = Lens.lens (\LinuxParameters' {swappiness} -> swappiness) (\s@LinuxParameters' {} a -> s {swappiness = a} :: LinuxParameters)
+
+-- | The container path, mount options, and size (in MiB) of the tmpfs mount.
+-- This parameter maps to the @--tmpfs@ option to
+-- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
+--
+-- If you\'re using tasks that use the Fargate launch type, the @tmpfs@
+-- parameter isn\'t supported.
+linuxParameters_tmpfs :: Lens.Lens' LinuxParameters (Prelude.Maybe [Tmpfs])
+linuxParameters_tmpfs = Lens.lens (\LinuxParameters' {tmpfs} -> tmpfs) (\s@LinuxParameters' {} a -> s {tmpfs = a} :: LinuxParameters) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON LinuxParameters where
   parseJSON =
     Data.withObject
       "LinuxParameters"
       ( \x ->
           LinuxParameters'
-            Prelude.<$> (x Data..:? "devices" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "swappiness")
-            Prelude.<*> (x Data..:? "tmpfs" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "capabilities")
+            Prelude.<*> (x Data..:? "devices" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "initProcessEnabled")
             Prelude.<*> (x Data..:? "maxSwap")
-            Prelude.<*> (x Data..:? "capabilities")
             Prelude.<*> (x Data..:? "sharedMemorySize")
+            Prelude.<*> (x Data..:? "swappiness")
+            Prelude.<*> (x Data..:? "tmpfs" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable LinuxParameters where
   hashWithSalt _salt LinuxParameters' {..} =
-    _salt `Prelude.hashWithSalt` devices
-      `Prelude.hashWithSalt` swappiness
-      `Prelude.hashWithSalt` tmpfs
+    _salt `Prelude.hashWithSalt` capabilities
+      `Prelude.hashWithSalt` devices
       `Prelude.hashWithSalt` initProcessEnabled
       `Prelude.hashWithSalt` maxSwap
-      `Prelude.hashWithSalt` capabilities
       `Prelude.hashWithSalt` sharedMemorySize
+      `Prelude.hashWithSalt` swappiness
+      `Prelude.hashWithSalt` tmpfs
 
 instance Prelude.NFData LinuxParameters where
   rnf LinuxParameters' {..} =
-    Prelude.rnf devices
-      `Prelude.seq` Prelude.rnf swappiness
-      `Prelude.seq` Prelude.rnf tmpfs
+    Prelude.rnf capabilities
+      `Prelude.seq` Prelude.rnf devices
       `Prelude.seq` Prelude.rnf initProcessEnabled
       `Prelude.seq` Prelude.rnf maxSwap
-      `Prelude.seq` Prelude.rnf capabilities
       `Prelude.seq` Prelude.rnf sharedMemorySize
+      `Prelude.seq` Prelude.rnf swappiness
+      `Prelude.seq` Prelude.rnf tmpfs
 
 instance Data.ToJSON LinuxParameters where
   toJSON LinuxParameters' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("devices" Data..=) Prelude.<$> devices,
-            ("swappiness" Data..=) Prelude.<$> swappiness,
-            ("tmpfs" Data..=) Prelude.<$> tmpfs,
+          [ ("capabilities" Data..=) Prelude.<$> capabilities,
+            ("devices" Data..=) Prelude.<$> devices,
             ("initProcessEnabled" Data..=)
               Prelude.<$> initProcessEnabled,
             ("maxSwap" Data..=) Prelude.<$> maxSwap,
-            ("capabilities" Data..=) Prelude.<$> capabilities,
             ("sharedMemorySize" Data..=)
-              Prelude.<$> sharedMemorySize
+              Prelude.<$> sharedMemorySize,
+            ("swappiness" Data..=) Prelude.<$> swappiness,
+            ("tmpfs" Data..=) Prelude.<$> tmpfs
           ]
       )

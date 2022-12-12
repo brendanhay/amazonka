@@ -29,10 +29,10 @@ module Amazonka.CognitoIdentityProvider.ListUsers
     newListUsers,
 
     -- * Request Lenses
-    listUsers_paginationToken,
     listUsers_attributesToGet,
     listUsers_filter,
     listUsers_limit,
+    listUsers_paginationToken,
     listUsers_userPoolId,
 
     -- * Destructuring the Response
@@ -58,11 +58,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListUsers' smart constructor.
 data ListUsers = ListUsers'
-  { -- | An identifier that was returned from the previous call to this
-    -- operation, which can be used to return the next set of items in the
-    -- list.
-    paginationToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of strings, where each string is the name of a user attribute
+  { -- | An array of strings, where each string is the name of a user attribute
     -- to be returned for each user in the search results. If the array is
     -- null, all attributes are returned.
     attributesToGet :: Prelude.Maybe [Prelude.Text],
@@ -131,6 +127,10 @@ data ListUsers = ListUsers'
     filter' :: Prelude.Maybe Prelude.Text,
     -- | Maximum number of users to be returned.
     limit :: Prelude.Maybe Prelude.Natural,
+    -- | An identifier that was returned from the previous call to this
+    -- operation, which can be used to return the next set of items in the
+    -- list.
+    paginationToken :: Prelude.Maybe Prelude.Text,
     -- | The user pool ID for the user pool on which the search should be
     -- performed.
     userPoolId :: Prelude.Text
@@ -144,10 +144,6 @@ data ListUsers = ListUsers'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'paginationToken', 'listUsers_paginationToken' - An identifier that was returned from the previous call to this
--- operation, which can be used to return the next set of items in the
--- list.
 --
 -- 'attributesToGet', 'listUsers_attributesToGet' - An array of strings, where each string is the name of a user attribute
 -- to be returned for each user in the search results. If the array is
@@ -218,6 +214,10 @@ data ListUsers = ListUsers'
 --
 -- 'limit', 'listUsers_limit' - Maximum number of users to be returned.
 --
+-- 'paginationToken', 'listUsers_paginationToken' - An identifier that was returned from the previous call to this
+-- operation, which can be used to return the next set of items in the
+-- list.
+--
 -- 'userPoolId', 'listUsers_userPoolId' - The user pool ID for the user pool on which the search should be
 -- performed.
 newListUsers ::
@@ -226,18 +226,12 @@ newListUsers ::
   ListUsers
 newListUsers pUserPoolId_ =
   ListUsers'
-    { paginationToken = Prelude.Nothing,
-      attributesToGet = Prelude.Nothing,
+    { attributesToGet = Prelude.Nothing,
       filter' = Prelude.Nothing,
       limit = Prelude.Nothing,
+      paginationToken = Prelude.Nothing,
       userPoolId = pUserPoolId_
     }
-
--- | An identifier that was returned from the previous call to this
--- operation, which can be used to return the next set of items in the
--- list.
-listUsers_paginationToken :: Lens.Lens' ListUsers (Prelude.Maybe Prelude.Text)
-listUsers_paginationToken = Lens.lens (\ListUsers' {paginationToken} -> paginationToken) (\s@ListUsers' {} a -> s {paginationToken = a} :: ListUsers)
 
 -- | An array of strings, where each string is the name of a user attribute
 -- to be returned for each user in the search results. If the array is
@@ -314,6 +308,12 @@ listUsers_filter = Lens.lens (\ListUsers' {filter'} -> filter') (\s@ListUsers' {
 listUsers_limit :: Lens.Lens' ListUsers (Prelude.Maybe Prelude.Natural)
 listUsers_limit = Lens.lens (\ListUsers' {limit} -> limit) (\s@ListUsers' {} a -> s {limit = a} :: ListUsers)
 
+-- | An identifier that was returned from the previous call to this
+-- operation, which can be used to return the next set of items in the
+-- list.
+listUsers_paginationToken :: Lens.Lens' ListUsers (Prelude.Maybe Prelude.Text)
+listUsers_paginationToken = Lens.lens (\ListUsers' {paginationToken} -> paginationToken) (\s@ListUsers' {} a -> s {paginationToken = a} :: ListUsers)
+
 -- | The user pool ID for the user pool on which the search should be
 -- performed.
 listUsers_userPoolId :: Lens.Lens' ListUsers Prelude.Text
@@ -355,18 +355,18 @@ instance Core.AWSRequest ListUsers where
 
 instance Prelude.Hashable ListUsers where
   hashWithSalt _salt ListUsers' {..} =
-    _salt `Prelude.hashWithSalt` paginationToken
-      `Prelude.hashWithSalt` attributesToGet
+    _salt `Prelude.hashWithSalt` attributesToGet
       `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` paginationToken
       `Prelude.hashWithSalt` userPoolId
 
 instance Prelude.NFData ListUsers where
   rnf ListUsers' {..} =
-    Prelude.rnf paginationToken
-      `Prelude.seq` Prelude.rnf attributesToGet
+    Prelude.rnf attributesToGet
       `Prelude.seq` Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf paginationToken
       `Prelude.seq` Prelude.rnf userPoolId
 
 instance Data.ToHeaders ListUsers where
@@ -388,12 +388,12 @@ instance Data.ToJSON ListUsers where
   toJSON ListUsers' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("PaginationToken" Data..=)
-              Prelude.<$> paginationToken,
-            ("AttributesToGet" Data..=)
+          [ ("AttributesToGet" Data..=)
               Prelude.<$> attributesToGet,
             ("Filter" Data..=) Prelude.<$> filter',
             ("Limit" Data..=) Prelude.<$> limit,
+            ("PaginationToken" Data..=)
+              Prelude.<$> paginationToken,
             Prelude.Just ("UserPoolId" Data..= userPoolId)
           ]
       )

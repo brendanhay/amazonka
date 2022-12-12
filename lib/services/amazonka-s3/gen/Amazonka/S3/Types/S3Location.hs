@@ -38,13 +38,13 @@ import Amazonka.S3.Types.Tagging
 data S3Location = S3Location'
   { -- | A list of grants that control access to the staged results.
     accessControlList :: Prelude.Maybe [Grant],
-    -- | The tag-set that is applied to the restore results.
-    tagging :: Prelude.Maybe Tagging,
+    -- | The canned ACL to apply to the restore results.
+    cannedACL :: Prelude.Maybe ObjectCannedACL,
     encryption :: Prelude.Maybe Encryption,
     -- | The class of storage used to store the restore results.
     storageClass :: Prelude.Maybe StorageClass,
-    -- | The canned ACL to apply to the restore results.
-    cannedACL :: Prelude.Maybe ObjectCannedACL,
+    -- | The tag-set that is applied to the restore results.
+    tagging :: Prelude.Maybe Tagging,
     -- | A list of metadata to store with the restore results in S3.
     userMetadata :: Prelude.Maybe [MetadataEntry],
     -- | The name of the bucket where the restore results will be placed.
@@ -64,13 +64,13 @@ data S3Location = S3Location'
 --
 -- 'accessControlList', 's3Location_accessControlList' - A list of grants that control access to the staged results.
 --
--- 'tagging', 's3Location_tagging' - The tag-set that is applied to the restore results.
+-- 'cannedACL', 's3Location_cannedACL' - The canned ACL to apply to the restore results.
 --
 -- 'encryption', 's3Location_encryption' - Undocumented member.
 --
 -- 'storageClass', 's3Location_storageClass' - The class of storage used to store the restore results.
 --
--- 'cannedACL', 's3Location_cannedACL' - The canned ACL to apply to the restore results.
+-- 'tagging', 's3Location_tagging' - The tag-set that is applied to the restore results.
 --
 -- 'userMetadata', 's3Location_userMetadata' - A list of metadata to store with the restore results in S3.
 --
@@ -86,10 +86,10 @@ newS3Location ::
 newS3Location pBucketName_ pPrefix_ =
   S3Location'
     { accessControlList = Prelude.Nothing,
-      tagging = Prelude.Nothing,
+      cannedACL = Prelude.Nothing,
       encryption = Prelude.Nothing,
       storageClass = Prelude.Nothing,
-      cannedACL = Prelude.Nothing,
+      tagging = Prelude.Nothing,
       userMetadata = Prelude.Nothing,
       bucketName = pBucketName_,
       prefix = pPrefix_
@@ -99,9 +99,9 @@ newS3Location pBucketName_ pPrefix_ =
 s3Location_accessControlList :: Lens.Lens' S3Location (Prelude.Maybe [Grant])
 s3Location_accessControlList = Lens.lens (\S3Location' {accessControlList} -> accessControlList) (\s@S3Location' {} a -> s {accessControlList = a} :: S3Location) Prelude.. Lens.mapping Lens.coerced
 
--- | The tag-set that is applied to the restore results.
-s3Location_tagging :: Lens.Lens' S3Location (Prelude.Maybe Tagging)
-s3Location_tagging = Lens.lens (\S3Location' {tagging} -> tagging) (\s@S3Location' {} a -> s {tagging = a} :: S3Location)
+-- | The canned ACL to apply to the restore results.
+s3Location_cannedACL :: Lens.Lens' S3Location (Prelude.Maybe ObjectCannedACL)
+s3Location_cannedACL = Lens.lens (\S3Location' {cannedACL} -> cannedACL) (\s@S3Location' {} a -> s {cannedACL = a} :: S3Location)
 
 -- | Undocumented member.
 s3Location_encryption :: Lens.Lens' S3Location (Prelude.Maybe Encryption)
@@ -111,9 +111,9 @@ s3Location_encryption = Lens.lens (\S3Location' {encryption} -> encryption) (\s@
 s3Location_storageClass :: Lens.Lens' S3Location (Prelude.Maybe StorageClass)
 s3Location_storageClass = Lens.lens (\S3Location' {storageClass} -> storageClass) (\s@S3Location' {} a -> s {storageClass = a} :: S3Location)
 
--- | The canned ACL to apply to the restore results.
-s3Location_cannedACL :: Lens.Lens' S3Location (Prelude.Maybe ObjectCannedACL)
-s3Location_cannedACL = Lens.lens (\S3Location' {cannedACL} -> cannedACL) (\s@S3Location' {} a -> s {cannedACL = a} :: S3Location)
+-- | The tag-set that is applied to the restore results.
+s3Location_tagging :: Lens.Lens' S3Location (Prelude.Maybe Tagging)
+s3Location_tagging = Lens.lens (\S3Location' {tagging} -> tagging) (\s@S3Location' {} a -> s {tagging = a} :: S3Location)
 
 -- | A list of metadata to store with the restore results in S3.
 s3Location_userMetadata :: Lens.Lens' S3Location (Prelude.Maybe [MetadataEntry])
@@ -130,10 +130,10 @@ s3Location_prefix = Lens.lens (\S3Location' {prefix} -> prefix) (\s@S3Location' 
 instance Prelude.Hashable S3Location where
   hashWithSalt _salt S3Location' {..} =
     _salt `Prelude.hashWithSalt` accessControlList
-      `Prelude.hashWithSalt` tagging
+      `Prelude.hashWithSalt` cannedACL
       `Prelude.hashWithSalt` encryption
       `Prelude.hashWithSalt` storageClass
-      `Prelude.hashWithSalt` cannedACL
+      `Prelude.hashWithSalt` tagging
       `Prelude.hashWithSalt` userMetadata
       `Prelude.hashWithSalt` bucketName
       `Prelude.hashWithSalt` prefix
@@ -141,10 +141,10 @@ instance Prelude.Hashable S3Location where
 instance Prelude.NFData S3Location where
   rnf S3Location' {..} =
     Prelude.rnf accessControlList
-      `Prelude.seq` Prelude.rnf tagging
+      `Prelude.seq` Prelude.rnf cannedACL
       `Prelude.seq` Prelude.rnf encryption
       `Prelude.seq` Prelude.rnf storageClass
-      `Prelude.seq` Prelude.rnf cannedACL
+      `Prelude.seq` Prelude.rnf tagging
       `Prelude.seq` Prelude.rnf userMetadata
       `Prelude.seq` Prelude.rnf bucketName
       `Prelude.seq` Prelude.rnf prefix
@@ -157,10 +157,10 @@ instance Data.ToXML S3Location where
             ( Data.toXMLList "Grant"
                 Prelude.<$> accessControlList
             ),
-        "Tagging" Data.@= tagging,
+        "CannedACL" Data.@= cannedACL,
         "Encryption" Data.@= encryption,
         "StorageClass" Data.@= storageClass,
-        "CannedACL" Data.@= cannedACL,
+        "Tagging" Data.@= tagging,
         "UserMetadata"
           Data.@= Data.toXML
             ( Data.toXMLList "MetadataEntry"

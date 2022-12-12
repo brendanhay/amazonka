@@ -35,9 +35,9 @@ module Amazonka.SSM.DeleteAssociation
     newDeleteAssociation,
 
     -- * Request Lenses
-    deleteAssociation_name,
-    deleteAssociation_instanceId,
     deleteAssociation_associationId,
+    deleteAssociation_instanceId,
+    deleteAssociation_name,
 
     -- * Destructuring the Response
     DeleteAssociationResponse (..),
@@ -58,8 +58,8 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newDeleteAssociation' smart constructor.
 data DeleteAssociation = DeleteAssociation'
-  { -- | The name of the SSM document.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | The association ID that you want to delete.
+    associationId :: Prelude.Maybe Prelude.Text,
     -- | The managed node ID.
     --
     -- @InstanceId@ has been deprecated. To specify a managed node ID for an
@@ -71,8 +71,8 @@ data DeleteAssociation = DeleteAssociation'
     -- @OutputLocation@, or @ScheduleExpression@. To use these parameters, you
     -- must use the @Targets@ parameter.
     instanceId :: Prelude.Maybe Prelude.Text,
-    -- | The association ID that you want to delete.
-    associationId :: Prelude.Maybe Prelude.Text
+    -- | The name of the SSM document.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,7 +84,7 @@ data DeleteAssociation = DeleteAssociation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'deleteAssociation_name' - The name of the SSM document.
+-- 'associationId', 'deleteAssociation_associationId' - The association ID that you want to delete.
 --
 -- 'instanceId', 'deleteAssociation_instanceId' - The managed node ID.
 --
@@ -97,19 +97,19 @@ data DeleteAssociation = DeleteAssociation'
 -- @OutputLocation@, or @ScheduleExpression@. To use these parameters, you
 -- must use the @Targets@ parameter.
 --
--- 'associationId', 'deleteAssociation_associationId' - The association ID that you want to delete.
+-- 'name', 'deleteAssociation_name' - The name of the SSM document.
 newDeleteAssociation ::
   DeleteAssociation
 newDeleteAssociation =
   DeleteAssociation'
-    { name = Prelude.Nothing,
+    { associationId = Prelude.Nothing,
       instanceId = Prelude.Nothing,
-      associationId = Prelude.Nothing
+      name = Prelude.Nothing
     }
 
--- | The name of the SSM document.
-deleteAssociation_name :: Lens.Lens' DeleteAssociation (Prelude.Maybe Prelude.Text)
-deleteAssociation_name = Lens.lens (\DeleteAssociation' {name} -> name) (\s@DeleteAssociation' {} a -> s {name = a} :: DeleteAssociation)
+-- | The association ID that you want to delete.
+deleteAssociation_associationId :: Lens.Lens' DeleteAssociation (Prelude.Maybe Prelude.Text)
+deleteAssociation_associationId = Lens.lens (\DeleteAssociation' {associationId} -> associationId) (\s@DeleteAssociation' {} a -> s {associationId = a} :: DeleteAssociation)
 
 -- | The managed node ID.
 --
@@ -124,9 +124,9 @@ deleteAssociation_name = Lens.lens (\DeleteAssociation' {name} -> name) (\s@Dele
 deleteAssociation_instanceId :: Lens.Lens' DeleteAssociation (Prelude.Maybe Prelude.Text)
 deleteAssociation_instanceId = Lens.lens (\DeleteAssociation' {instanceId} -> instanceId) (\s@DeleteAssociation' {} a -> s {instanceId = a} :: DeleteAssociation)
 
--- | The association ID that you want to delete.
-deleteAssociation_associationId :: Lens.Lens' DeleteAssociation (Prelude.Maybe Prelude.Text)
-deleteAssociation_associationId = Lens.lens (\DeleteAssociation' {associationId} -> associationId) (\s@DeleteAssociation' {} a -> s {associationId = a} :: DeleteAssociation)
+-- | The name of the SSM document.
+deleteAssociation_name :: Lens.Lens' DeleteAssociation (Prelude.Maybe Prelude.Text)
+deleteAssociation_name = Lens.lens (\DeleteAssociation' {name} -> name) (\s@DeleteAssociation' {} a -> s {name = a} :: DeleteAssociation)
 
 instance Core.AWSRequest DeleteAssociation where
   type
@@ -143,15 +143,15 @@ instance Core.AWSRequest DeleteAssociation where
 
 instance Prelude.Hashable DeleteAssociation where
   hashWithSalt _salt DeleteAssociation' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` associationId
       `Prelude.hashWithSalt` instanceId
-      `Prelude.hashWithSalt` associationId
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData DeleteAssociation where
   rnf DeleteAssociation' {..} =
-    Prelude.rnf name
+    Prelude.rnf associationId
       `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders DeleteAssociation where
   toHeaders =
@@ -172,9 +172,9 @@ instance Data.ToJSON DeleteAssociation where
   toJSON DeleteAssociation' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
+          [ ("AssociationId" Data..=) Prelude.<$> associationId,
             ("InstanceId" Data..=) Prelude.<$> instanceId,
-            ("AssociationId" Data..=) Prelude.<$> associationId
+            ("Name" Data..=) Prelude.<$> name
           ]
       )
 

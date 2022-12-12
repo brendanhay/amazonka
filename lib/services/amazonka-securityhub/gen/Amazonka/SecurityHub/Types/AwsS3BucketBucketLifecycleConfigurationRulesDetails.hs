@@ -32,35 +32,10 @@ import Amazonka.SecurityHub.Types.AwsS3BucketBucketLifecycleConfigurationRulesTr
 --
 -- /See:/ 'newAwsS3BucketBucketLifecycleConfigurationRulesDetails' smart constructor.
 data AwsS3BucketBucketLifecycleConfigurationRulesDetails = AwsS3BucketBucketLifecycleConfigurationRulesDetails'
-  { -- | Transition rules that indicate when objects transition to a specified
-    -- storage class.
-    transitions :: Prelude.Maybe [AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails],
-    -- | Whether Amazon S3 removes a delete marker that has no noncurrent
-    -- versions. If set to @true@, the delete marker is expired. If set to
-    -- @false@, the policy takes no action.
-    --
-    -- If you provide @ExpiredObjectDeleteMarker@, you cannot provide
-    -- @ExpirationInDays@ or @ExpirationDate@.
-    expiredObjectDeleteMarker :: Prelude.Maybe Prelude.Bool,
-    -- | The current status of the rule. Indicates whether the rule is currently
-    -- being applied.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier of the rule.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | Identifies the objects that a rule applies to.
-    filter' :: Prelude.Maybe AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails,
-    -- | The length in days of the lifetime for objects that are subject to the
-    -- rule.
-    expirationInDays :: Prelude.Maybe Prelude.Int,
-    -- | Transition rules that describe when noncurrent objects transition to a
-    -- specified storage class.
-    noncurrentVersionTransitions :: Prelude.Maybe [AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails],
-    -- | How Amazon S3 responds when a multipart upload is incomplete.
+  { -- | How Amazon S3 responds when a multipart upload is incomplete.
     -- Specifically, provides a number of days before Amazon S3 cancels the
     -- entire upload.
     abortIncompleteMultipartUpload :: Prelude.Maybe AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails,
-    -- | A prefix that identifies one or more objects that the rule applies to.
-    prefix :: Prelude.Maybe Prelude.Text,
     -- | The date when objects are moved or deleted.
     --
     -- Uses the @date-time@ format specified in
@@ -68,9 +43,34 @@ data AwsS3BucketBucketLifecycleConfigurationRulesDetails = AwsS3BucketBucketLife
     -- The value cannot contain spaces. For example,
     -- @2020-03-22T13:22:13.933Z@.
     expirationDate :: Prelude.Maybe Prelude.Text,
+    -- | The length in days of the lifetime for objects that are subject to the
+    -- rule.
+    expirationInDays :: Prelude.Maybe Prelude.Int,
+    -- | Whether Amazon S3 removes a delete marker that has no noncurrent
+    -- versions. If set to @true@, the delete marker is expired. If set to
+    -- @false@, the policy takes no action.
+    --
+    -- If you provide @ExpiredObjectDeleteMarker@, you cannot provide
+    -- @ExpirationInDays@ or @ExpirationDate@.
+    expiredObjectDeleteMarker :: Prelude.Maybe Prelude.Bool,
+    -- | Identifies the objects that a rule applies to.
+    filter' :: Prelude.Maybe AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails,
+    -- | The unique identifier of the rule.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The number of days that an object is noncurrent before Amazon S3 can
     -- perform the associated action.
-    noncurrentVersionExpirationInDays :: Prelude.Maybe Prelude.Int
+    noncurrentVersionExpirationInDays :: Prelude.Maybe Prelude.Int,
+    -- | Transition rules that describe when noncurrent objects transition to a
+    -- specified storage class.
+    noncurrentVersionTransitions :: Prelude.Maybe [AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails],
+    -- | A prefix that identifies one or more objects that the rule applies to.
+    prefix :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the rule. Indicates whether the rule is currently
+    -- being applied.
+    status :: Prelude.Maybe Prelude.Text,
+    -- | Transition rules that indicate when objects transition to a specified
+    -- storage class.
+    transitions :: Prelude.Maybe [AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,34 +82,9 @@ data AwsS3BucketBucketLifecycleConfigurationRulesDetails = AwsS3BucketBucketLife
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'transitions', 'awsS3BucketBucketLifecycleConfigurationRulesDetails_transitions' - Transition rules that indicate when objects transition to a specified
--- storage class.
---
--- 'expiredObjectDeleteMarker', 'awsS3BucketBucketLifecycleConfigurationRulesDetails_expiredObjectDeleteMarker' - Whether Amazon S3 removes a delete marker that has no noncurrent
--- versions. If set to @true@, the delete marker is expired. If set to
--- @false@, the policy takes no action.
---
--- If you provide @ExpiredObjectDeleteMarker@, you cannot provide
--- @ExpirationInDays@ or @ExpirationDate@.
---
--- 'status', 'awsS3BucketBucketLifecycleConfigurationRulesDetails_status' - The current status of the rule. Indicates whether the rule is currently
--- being applied.
---
--- 'id', 'awsS3BucketBucketLifecycleConfigurationRulesDetails_id' - The unique identifier of the rule.
---
--- 'filter'', 'awsS3BucketBucketLifecycleConfigurationRulesDetails_filter' - Identifies the objects that a rule applies to.
---
--- 'expirationInDays', 'awsS3BucketBucketLifecycleConfigurationRulesDetails_expirationInDays' - The length in days of the lifetime for objects that are subject to the
--- rule.
---
--- 'noncurrentVersionTransitions', 'awsS3BucketBucketLifecycleConfigurationRulesDetails_noncurrentVersionTransitions' - Transition rules that describe when noncurrent objects transition to a
--- specified storage class.
---
 -- 'abortIncompleteMultipartUpload', 'awsS3BucketBucketLifecycleConfigurationRulesDetails_abortIncompleteMultipartUpload' - How Amazon S3 responds when a multipart upload is incomplete.
 -- Specifically, provides a number of days before Amazon S3 cancels the
 -- entire upload.
---
--- 'prefix', 'awsS3BucketBucketLifecycleConfigurationRulesDetails_prefix' - A prefix that identifies one or more objects that the rule applies to.
 --
 -- 'expirationDate', 'awsS3BucketBucketLifecycleConfigurationRulesDetails_expirationDate' - The date when objects are moved or deleted.
 --
@@ -118,81 +93,65 @@ data AwsS3BucketBucketLifecycleConfigurationRulesDetails = AwsS3BucketBucketLife
 -- The value cannot contain spaces. For example,
 -- @2020-03-22T13:22:13.933Z@.
 --
--- 'noncurrentVersionExpirationInDays', 'awsS3BucketBucketLifecycleConfigurationRulesDetails_noncurrentVersionExpirationInDays' - The number of days that an object is noncurrent before Amazon S3 can
--- perform the associated action.
-newAwsS3BucketBucketLifecycleConfigurationRulesDetails ::
-  AwsS3BucketBucketLifecycleConfigurationRulesDetails
-newAwsS3BucketBucketLifecycleConfigurationRulesDetails =
-  AwsS3BucketBucketLifecycleConfigurationRulesDetails'
-    { transitions =
-        Prelude.Nothing,
-      expiredObjectDeleteMarker =
-        Prelude.Nothing,
-      status =
-        Prelude.Nothing,
-      id = Prelude.Nothing,
-      filter' =
-        Prelude.Nothing,
-      expirationInDays =
-        Prelude.Nothing,
-      noncurrentVersionTransitions =
-        Prelude.Nothing,
-      abortIncompleteMultipartUpload =
-        Prelude.Nothing,
-      prefix =
-        Prelude.Nothing,
-      expirationDate =
-        Prelude.Nothing,
-      noncurrentVersionExpirationInDays =
-        Prelude.Nothing
-    }
-
--- | Transition rules that indicate when objects transition to a specified
--- storage class.
-awsS3BucketBucketLifecycleConfigurationRulesDetails_transitions :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesDetails (Prelude.Maybe [AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails])
-awsS3BucketBucketLifecycleConfigurationRulesDetails_transitions = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesDetails' {transitions} -> transitions) (\s@AwsS3BucketBucketLifecycleConfigurationRulesDetails' {} a -> s {transitions = a} :: AwsS3BucketBucketLifecycleConfigurationRulesDetails) Prelude.. Lens.mapping Lens.coerced
-
--- | Whether Amazon S3 removes a delete marker that has no noncurrent
+-- 'expirationInDays', 'awsS3BucketBucketLifecycleConfigurationRulesDetails_expirationInDays' - The length in days of the lifetime for objects that are subject to the
+-- rule.
+--
+-- 'expiredObjectDeleteMarker', 'awsS3BucketBucketLifecycleConfigurationRulesDetails_expiredObjectDeleteMarker' - Whether Amazon S3 removes a delete marker that has no noncurrent
 -- versions. If set to @true@, the delete marker is expired. If set to
 -- @false@, the policy takes no action.
 --
 -- If you provide @ExpiredObjectDeleteMarker@, you cannot provide
 -- @ExpirationInDays@ or @ExpirationDate@.
-awsS3BucketBucketLifecycleConfigurationRulesDetails_expiredObjectDeleteMarker :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesDetails (Prelude.Maybe Prelude.Bool)
-awsS3BucketBucketLifecycleConfigurationRulesDetails_expiredObjectDeleteMarker = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesDetails' {expiredObjectDeleteMarker} -> expiredObjectDeleteMarker) (\s@AwsS3BucketBucketLifecycleConfigurationRulesDetails' {} a -> s {expiredObjectDeleteMarker = a} :: AwsS3BucketBucketLifecycleConfigurationRulesDetails)
-
--- | The current status of the rule. Indicates whether the rule is currently
--- being applied.
-awsS3BucketBucketLifecycleConfigurationRulesDetails_status :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesDetails (Prelude.Maybe Prelude.Text)
-awsS3BucketBucketLifecycleConfigurationRulesDetails_status = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesDetails' {status} -> status) (\s@AwsS3BucketBucketLifecycleConfigurationRulesDetails' {} a -> s {status = a} :: AwsS3BucketBucketLifecycleConfigurationRulesDetails)
-
--- | The unique identifier of the rule.
-awsS3BucketBucketLifecycleConfigurationRulesDetails_id :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesDetails (Prelude.Maybe Prelude.Text)
-awsS3BucketBucketLifecycleConfigurationRulesDetails_id = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesDetails' {id} -> id) (\s@AwsS3BucketBucketLifecycleConfigurationRulesDetails' {} a -> s {id = a} :: AwsS3BucketBucketLifecycleConfigurationRulesDetails)
-
--- | Identifies the objects that a rule applies to.
-awsS3BucketBucketLifecycleConfigurationRulesDetails_filter :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesDetails (Prelude.Maybe AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails)
-awsS3BucketBucketLifecycleConfigurationRulesDetails_filter = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesDetails' {filter'} -> filter') (\s@AwsS3BucketBucketLifecycleConfigurationRulesDetails' {} a -> s {filter' = a} :: AwsS3BucketBucketLifecycleConfigurationRulesDetails)
-
--- | The length in days of the lifetime for objects that are subject to the
--- rule.
-awsS3BucketBucketLifecycleConfigurationRulesDetails_expirationInDays :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesDetails (Prelude.Maybe Prelude.Int)
-awsS3BucketBucketLifecycleConfigurationRulesDetails_expirationInDays = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesDetails' {expirationInDays} -> expirationInDays) (\s@AwsS3BucketBucketLifecycleConfigurationRulesDetails' {} a -> s {expirationInDays = a} :: AwsS3BucketBucketLifecycleConfigurationRulesDetails)
-
--- | Transition rules that describe when noncurrent objects transition to a
+--
+-- 'filter'', 'awsS3BucketBucketLifecycleConfigurationRulesDetails_filter' - Identifies the objects that a rule applies to.
+--
+-- 'id', 'awsS3BucketBucketLifecycleConfigurationRulesDetails_id' - The unique identifier of the rule.
+--
+-- 'noncurrentVersionExpirationInDays', 'awsS3BucketBucketLifecycleConfigurationRulesDetails_noncurrentVersionExpirationInDays' - The number of days that an object is noncurrent before Amazon S3 can
+-- perform the associated action.
+--
+-- 'noncurrentVersionTransitions', 'awsS3BucketBucketLifecycleConfigurationRulesDetails_noncurrentVersionTransitions' - Transition rules that describe when noncurrent objects transition to a
 -- specified storage class.
-awsS3BucketBucketLifecycleConfigurationRulesDetails_noncurrentVersionTransitions :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesDetails (Prelude.Maybe [AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails])
-awsS3BucketBucketLifecycleConfigurationRulesDetails_noncurrentVersionTransitions = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesDetails' {noncurrentVersionTransitions} -> noncurrentVersionTransitions) (\s@AwsS3BucketBucketLifecycleConfigurationRulesDetails' {} a -> s {noncurrentVersionTransitions = a} :: AwsS3BucketBucketLifecycleConfigurationRulesDetails) Prelude.. Lens.mapping Lens.coerced
+--
+-- 'prefix', 'awsS3BucketBucketLifecycleConfigurationRulesDetails_prefix' - A prefix that identifies one or more objects that the rule applies to.
+--
+-- 'status', 'awsS3BucketBucketLifecycleConfigurationRulesDetails_status' - The current status of the rule. Indicates whether the rule is currently
+-- being applied.
+--
+-- 'transitions', 'awsS3BucketBucketLifecycleConfigurationRulesDetails_transitions' - Transition rules that indicate when objects transition to a specified
+-- storage class.
+newAwsS3BucketBucketLifecycleConfigurationRulesDetails ::
+  AwsS3BucketBucketLifecycleConfigurationRulesDetails
+newAwsS3BucketBucketLifecycleConfigurationRulesDetails =
+  AwsS3BucketBucketLifecycleConfigurationRulesDetails'
+    { abortIncompleteMultipartUpload =
+        Prelude.Nothing,
+      expirationDate =
+        Prelude.Nothing,
+      expirationInDays =
+        Prelude.Nothing,
+      expiredObjectDeleteMarker =
+        Prelude.Nothing,
+      filter' =
+        Prelude.Nothing,
+      id = Prelude.Nothing,
+      noncurrentVersionExpirationInDays =
+        Prelude.Nothing,
+      noncurrentVersionTransitions =
+        Prelude.Nothing,
+      prefix =
+        Prelude.Nothing,
+      status =
+        Prelude.Nothing,
+      transitions =
+        Prelude.Nothing
+    }
 
 -- | How Amazon S3 responds when a multipart upload is incomplete.
 -- Specifically, provides a number of days before Amazon S3 cancels the
 -- entire upload.
 awsS3BucketBucketLifecycleConfigurationRulesDetails_abortIncompleteMultipartUpload :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesDetails (Prelude.Maybe AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails)
 awsS3BucketBucketLifecycleConfigurationRulesDetails_abortIncompleteMultipartUpload = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesDetails' {abortIncompleteMultipartUpload} -> abortIncompleteMultipartUpload) (\s@AwsS3BucketBucketLifecycleConfigurationRulesDetails' {} a -> s {abortIncompleteMultipartUpload = a} :: AwsS3BucketBucketLifecycleConfigurationRulesDetails)
-
--- | A prefix that identifies one or more objects that the rule applies to.
-awsS3BucketBucketLifecycleConfigurationRulesDetails_prefix :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesDetails (Prelude.Maybe Prelude.Text)
-awsS3BucketBucketLifecycleConfigurationRulesDetails_prefix = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesDetails' {prefix} -> prefix) (\s@AwsS3BucketBucketLifecycleConfigurationRulesDetails' {} a -> s {prefix = a} :: AwsS3BucketBucketLifecycleConfigurationRulesDetails)
 
 -- | The date when objects are moved or deleted.
 --
@@ -203,10 +162,51 @@ awsS3BucketBucketLifecycleConfigurationRulesDetails_prefix = Lens.lens (\AwsS3Bu
 awsS3BucketBucketLifecycleConfigurationRulesDetails_expirationDate :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesDetails (Prelude.Maybe Prelude.Text)
 awsS3BucketBucketLifecycleConfigurationRulesDetails_expirationDate = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesDetails' {expirationDate} -> expirationDate) (\s@AwsS3BucketBucketLifecycleConfigurationRulesDetails' {} a -> s {expirationDate = a} :: AwsS3BucketBucketLifecycleConfigurationRulesDetails)
 
+-- | The length in days of the lifetime for objects that are subject to the
+-- rule.
+awsS3BucketBucketLifecycleConfigurationRulesDetails_expirationInDays :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesDetails (Prelude.Maybe Prelude.Int)
+awsS3BucketBucketLifecycleConfigurationRulesDetails_expirationInDays = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesDetails' {expirationInDays} -> expirationInDays) (\s@AwsS3BucketBucketLifecycleConfigurationRulesDetails' {} a -> s {expirationInDays = a} :: AwsS3BucketBucketLifecycleConfigurationRulesDetails)
+
+-- | Whether Amazon S3 removes a delete marker that has no noncurrent
+-- versions. If set to @true@, the delete marker is expired. If set to
+-- @false@, the policy takes no action.
+--
+-- If you provide @ExpiredObjectDeleteMarker@, you cannot provide
+-- @ExpirationInDays@ or @ExpirationDate@.
+awsS3BucketBucketLifecycleConfigurationRulesDetails_expiredObjectDeleteMarker :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesDetails (Prelude.Maybe Prelude.Bool)
+awsS3BucketBucketLifecycleConfigurationRulesDetails_expiredObjectDeleteMarker = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesDetails' {expiredObjectDeleteMarker} -> expiredObjectDeleteMarker) (\s@AwsS3BucketBucketLifecycleConfigurationRulesDetails' {} a -> s {expiredObjectDeleteMarker = a} :: AwsS3BucketBucketLifecycleConfigurationRulesDetails)
+
+-- | Identifies the objects that a rule applies to.
+awsS3BucketBucketLifecycleConfigurationRulesDetails_filter :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesDetails (Prelude.Maybe AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails)
+awsS3BucketBucketLifecycleConfigurationRulesDetails_filter = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesDetails' {filter'} -> filter') (\s@AwsS3BucketBucketLifecycleConfigurationRulesDetails' {} a -> s {filter' = a} :: AwsS3BucketBucketLifecycleConfigurationRulesDetails)
+
+-- | The unique identifier of the rule.
+awsS3BucketBucketLifecycleConfigurationRulesDetails_id :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesDetails (Prelude.Maybe Prelude.Text)
+awsS3BucketBucketLifecycleConfigurationRulesDetails_id = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesDetails' {id} -> id) (\s@AwsS3BucketBucketLifecycleConfigurationRulesDetails' {} a -> s {id = a} :: AwsS3BucketBucketLifecycleConfigurationRulesDetails)
+
 -- | The number of days that an object is noncurrent before Amazon S3 can
 -- perform the associated action.
 awsS3BucketBucketLifecycleConfigurationRulesDetails_noncurrentVersionExpirationInDays :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesDetails (Prelude.Maybe Prelude.Int)
 awsS3BucketBucketLifecycleConfigurationRulesDetails_noncurrentVersionExpirationInDays = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesDetails' {noncurrentVersionExpirationInDays} -> noncurrentVersionExpirationInDays) (\s@AwsS3BucketBucketLifecycleConfigurationRulesDetails' {} a -> s {noncurrentVersionExpirationInDays = a} :: AwsS3BucketBucketLifecycleConfigurationRulesDetails)
+
+-- | Transition rules that describe when noncurrent objects transition to a
+-- specified storage class.
+awsS3BucketBucketLifecycleConfigurationRulesDetails_noncurrentVersionTransitions :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesDetails (Prelude.Maybe [AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails])
+awsS3BucketBucketLifecycleConfigurationRulesDetails_noncurrentVersionTransitions = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesDetails' {noncurrentVersionTransitions} -> noncurrentVersionTransitions) (\s@AwsS3BucketBucketLifecycleConfigurationRulesDetails' {} a -> s {noncurrentVersionTransitions = a} :: AwsS3BucketBucketLifecycleConfigurationRulesDetails) Prelude.. Lens.mapping Lens.coerced
+
+-- | A prefix that identifies one or more objects that the rule applies to.
+awsS3BucketBucketLifecycleConfigurationRulesDetails_prefix :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesDetails (Prelude.Maybe Prelude.Text)
+awsS3BucketBucketLifecycleConfigurationRulesDetails_prefix = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesDetails' {prefix} -> prefix) (\s@AwsS3BucketBucketLifecycleConfigurationRulesDetails' {} a -> s {prefix = a} :: AwsS3BucketBucketLifecycleConfigurationRulesDetails)
+
+-- | The current status of the rule. Indicates whether the rule is currently
+-- being applied.
+awsS3BucketBucketLifecycleConfigurationRulesDetails_status :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesDetails (Prelude.Maybe Prelude.Text)
+awsS3BucketBucketLifecycleConfigurationRulesDetails_status = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesDetails' {status} -> status) (\s@AwsS3BucketBucketLifecycleConfigurationRulesDetails' {} a -> s {status = a} :: AwsS3BucketBucketLifecycleConfigurationRulesDetails)
+
+-- | Transition rules that indicate when objects transition to a specified
+-- storage class.
+awsS3BucketBucketLifecycleConfigurationRulesDetails_transitions :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesDetails (Prelude.Maybe [AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails])
+awsS3BucketBucketLifecycleConfigurationRulesDetails_transitions = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesDetails' {transitions} -> transitions) (\s@AwsS3BucketBucketLifecycleConfigurationRulesDetails' {} a -> s {transitions = a} :: AwsS3BucketBucketLifecycleConfigurationRulesDetails) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Data.FromJSON
@@ -217,19 +217,19 @@ instance
       "AwsS3BucketBucketLifecycleConfigurationRulesDetails"
       ( \x ->
           AwsS3BucketBucketLifecycleConfigurationRulesDetails'
-            Prelude.<$> (x Data..:? "Transitions" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "ExpiredObjectDeleteMarker")
-              Prelude.<*> (x Data..:? "Status")
-              Prelude.<*> (x Data..:? "ID")
-              Prelude.<*> (x Data..:? "Filter")
+            Prelude.<$> (x Data..:? "AbortIncompleteMultipartUpload")
+              Prelude.<*> (x Data..:? "ExpirationDate")
               Prelude.<*> (x Data..:? "ExpirationInDays")
+              Prelude.<*> (x Data..:? "ExpiredObjectDeleteMarker")
+              Prelude.<*> (x Data..:? "Filter")
+              Prelude.<*> (x Data..:? "ID")
+              Prelude.<*> (x Data..:? "NoncurrentVersionExpirationInDays")
               Prelude.<*> ( x Data..:? "NoncurrentVersionTransitions"
                               Data..!= Prelude.mempty
                           )
-              Prelude.<*> (x Data..:? "AbortIncompleteMultipartUpload")
               Prelude.<*> (x Data..:? "Prefix")
-              Prelude.<*> (x Data..:? "ExpirationDate")
-              Prelude.<*> (x Data..:? "NoncurrentVersionExpirationInDays")
+              Prelude.<*> (x Data..:? "Status")
+              Prelude.<*> (x Data..:? "Transitions" Data..!= Prelude.mempty)
       )
 
 instance
@@ -239,17 +239,18 @@ instance
   hashWithSalt
     _salt
     AwsS3BucketBucketLifecycleConfigurationRulesDetails' {..} =
-      _salt `Prelude.hashWithSalt` transitions
-        `Prelude.hashWithSalt` expiredObjectDeleteMarker
-        `Prelude.hashWithSalt` status
-        `Prelude.hashWithSalt` id
-        `Prelude.hashWithSalt` filter'
-        `Prelude.hashWithSalt` expirationInDays
-        `Prelude.hashWithSalt` noncurrentVersionTransitions
+      _salt
         `Prelude.hashWithSalt` abortIncompleteMultipartUpload
-        `Prelude.hashWithSalt` prefix
         `Prelude.hashWithSalt` expirationDate
+        `Prelude.hashWithSalt` expirationInDays
+        `Prelude.hashWithSalt` expiredObjectDeleteMarker
+        `Prelude.hashWithSalt` filter'
+        `Prelude.hashWithSalt` id
         `Prelude.hashWithSalt` noncurrentVersionExpirationInDays
+        `Prelude.hashWithSalt` noncurrentVersionTransitions
+        `Prelude.hashWithSalt` prefix
+        `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` transitions
 
 instance
   Prelude.NFData
@@ -257,17 +258,17 @@ instance
   where
   rnf
     AwsS3BucketBucketLifecycleConfigurationRulesDetails' {..} =
-      Prelude.rnf transitions
-        `Prelude.seq` Prelude.rnf expiredObjectDeleteMarker
-        `Prelude.seq` Prelude.rnf status
-        `Prelude.seq` Prelude.rnf id
-        `Prelude.seq` Prelude.rnf filter'
-        `Prelude.seq` Prelude.rnf expirationInDays
-        `Prelude.seq` Prelude.rnf noncurrentVersionTransitions
-        `Prelude.seq` Prelude.rnf abortIncompleteMultipartUpload
-        `Prelude.seq` Prelude.rnf prefix
+      Prelude.rnf abortIncompleteMultipartUpload
         `Prelude.seq` Prelude.rnf expirationDate
+        `Prelude.seq` Prelude.rnf expirationInDays
+        `Prelude.seq` Prelude.rnf expiredObjectDeleteMarker
+        `Prelude.seq` Prelude.rnf filter'
+        `Prelude.seq` Prelude.rnf id
         `Prelude.seq` Prelude.rnf noncurrentVersionExpirationInDays
+        `Prelude.seq` Prelude.rnf noncurrentVersionTransitions
+        `Prelude.seq` Prelude.rnf prefix
+        `Prelude.seq` Prelude.rnf status
+        `Prelude.seq` Prelude.rnf transitions
 
 instance
   Data.ToJSON
@@ -277,22 +278,22 @@ instance
     AwsS3BucketBucketLifecycleConfigurationRulesDetails' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("Transitions" Data..=) Prelude.<$> transitions,
-              ("ExpiredObjectDeleteMarker" Data..=)
-                Prelude.<$> expiredObjectDeleteMarker,
-              ("Status" Data..=) Prelude.<$> status,
-              ("ID" Data..=) Prelude.<$> id,
-              ("Filter" Data..=) Prelude.<$> filter',
-              ("ExpirationInDays" Data..=)
-                Prelude.<$> expirationInDays,
-              ("NoncurrentVersionTransitions" Data..=)
-                Prelude.<$> noncurrentVersionTransitions,
-              ("AbortIncompleteMultipartUpload" Data..=)
+            [ ("AbortIncompleteMultipartUpload" Data..=)
                 Prelude.<$> abortIncompleteMultipartUpload,
-              ("Prefix" Data..=) Prelude.<$> prefix,
               ("ExpirationDate" Data..=)
                 Prelude.<$> expirationDate,
+              ("ExpirationInDays" Data..=)
+                Prelude.<$> expirationInDays,
+              ("ExpiredObjectDeleteMarker" Data..=)
+                Prelude.<$> expiredObjectDeleteMarker,
+              ("Filter" Data..=) Prelude.<$> filter',
+              ("ID" Data..=) Prelude.<$> id,
               ("NoncurrentVersionExpirationInDays" Data..=)
-                Prelude.<$> noncurrentVersionExpirationInDays
+                Prelude.<$> noncurrentVersionExpirationInDays,
+              ("NoncurrentVersionTransitions" Data..=)
+                Prelude.<$> noncurrentVersionTransitions,
+              ("Prefix" Data..=) Prelude.<$> prefix,
+              ("Status" Data..=) Prelude.<$> status,
+              ("Transitions" Data..=) Prelude.<$> transitions
             ]
         )

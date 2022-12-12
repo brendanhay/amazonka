@@ -39,12 +39,12 @@ module Amazonka.AmplifyBackend.ImportBackendAuth
     newImportBackendAuthResponse,
 
     -- * Response Lenses
-    importBackendAuthResponse_jobId,
-    importBackendAuthResponse_status,
-    importBackendAuthResponse_error,
-    importBackendAuthResponse_operation,
     importBackendAuthResponse_appId,
     importBackendAuthResponse_backendEnvironmentName,
+    importBackendAuthResponse_error,
+    importBackendAuthResponse_jobId,
+    importBackendAuthResponse_operation,
+    importBackendAuthResponse_status,
     importBackendAuthResponse_httpStatus,
   )
 where
@@ -157,12 +157,12 @@ instance Core.AWSRequest ImportBackendAuth where
     Response.receiveJSON
       ( \s h x ->
           ImportBackendAuthResponse'
-            Prelude.<$> (x Data..?> "jobId")
-            Prelude.<*> (x Data..?> "status")
-            Prelude.<*> (x Data..?> "error")
-            Prelude.<*> (x Data..?> "operation")
-            Prelude.<*> (x Data..?> "appId")
+            Prelude.<$> (x Data..?> "appId")
             Prelude.<*> (x Data..?> "backendEnvironmentName")
+            Prelude.<*> (x Data..?> "error")
+            Prelude.<*> (x Data..?> "jobId")
+            Prelude.<*> (x Data..?> "operation")
+            Prelude.<*> (x Data..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -223,18 +223,18 @@ instance Data.ToQuery ImportBackendAuth where
 
 -- | /See:/ 'newImportBackendAuthResponse' smart constructor.
 data ImportBackendAuthResponse = ImportBackendAuthResponse'
-  { -- | The ID for the job.
-    jobId :: Prelude.Maybe Prelude.Text,
-    -- | The current status of the request.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | If the request fails, this error is returned.
-    error :: Prelude.Maybe Prelude.Text,
-    -- | The name of the operation.
-    operation :: Prelude.Maybe Prelude.Text,
-    -- | The app ID.
+  { -- | The app ID.
     appId :: Prelude.Maybe Prelude.Text,
     -- | The name of the backend environment.
     backendEnvironmentName :: Prelude.Maybe Prelude.Text,
+    -- | If the request fails, this error is returned.
+    error :: Prelude.Maybe Prelude.Text,
+    -- | The ID for the job.
+    jobId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the operation.
+    operation :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the request.
+    status :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -248,17 +248,17 @@ data ImportBackendAuthResponse = ImportBackendAuthResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobId', 'importBackendAuthResponse_jobId' - The ID for the job.
---
--- 'status', 'importBackendAuthResponse_status' - The current status of the request.
---
--- 'error', 'importBackendAuthResponse_error' - If the request fails, this error is returned.
---
--- 'operation', 'importBackendAuthResponse_operation' - The name of the operation.
---
 -- 'appId', 'importBackendAuthResponse_appId' - The app ID.
 --
 -- 'backendEnvironmentName', 'importBackendAuthResponse_backendEnvironmentName' - The name of the backend environment.
+--
+-- 'error', 'importBackendAuthResponse_error' - If the request fails, this error is returned.
+--
+-- 'jobId', 'importBackendAuthResponse_jobId' - The ID for the job.
+--
+-- 'operation', 'importBackendAuthResponse_operation' - The name of the operation.
+--
+-- 'status', 'importBackendAuthResponse_status' - The current status of the request.
 --
 -- 'httpStatus', 'importBackendAuthResponse_httpStatus' - The response's http status code.
 newImportBackendAuthResponse ::
@@ -267,30 +267,14 @@ newImportBackendAuthResponse ::
   ImportBackendAuthResponse
 newImportBackendAuthResponse pHttpStatus_ =
   ImportBackendAuthResponse'
-    { jobId = Prelude.Nothing,
-      status = Prelude.Nothing,
-      error = Prelude.Nothing,
-      operation = Prelude.Nothing,
-      appId = Prelude.Nothing,
+    { appId = Prelude.Nothing,
       backendEnvironmentName = Prelude.Nothing,
+      error = Prelude.Nothing,
+      jobId = Prelude.Nothing,
+      operation = Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ID for the job.
-importBackendAuthResponse_jobId :: Lens.Lens' ImportBackendAuthResponse (Prelude.Maybe Prelude.Text)
-importBackendAuthResponse_jobId = Lens.lens (\ImportBackendAuthResponse' {jobId} -> jobId) (\s@ImportBackendAuthResponse' {} a -> s {jobId = a} :: ImportBackendAuthResponse)
-
--- | The current status of the request.
-importBackendAuthResponse_status :: Lens.Lens' ImportBackendAuthResponse (Prelude.Maybe Prelude.Text)
-importBackendAuthResponse_status = Lens.lens (\ImportBackendAuthResponse' {status} -> status) (\s@ImportBackendAuthResponse' {} a -> s {status = a} :: ImportBackendAuthResponse)
-
--- | If the request fails, this error is returned.
-importBackendAuthResponse_error :: Lens.Lens' ImportBackendAuthResponse (Prelude.Maybe Prelude.Text)
-importBackendAuthResponse_error = Lens.lens (\ImportBackendAuthResponse' {error} -> error) (\s@ImportBackendAuthResponse' {} a -> s {error = a} :: ImportBackendAuthResponse)
-
--- | The name of the operation.
-importBackendAuthResponse_operation :: Lens.Lens' ImportBackendAuthResponse (Prelude.Maybe Prelude.Text)
-importBackendAuthResponse_operation = Lens.lens (\ImportBackendAuthResponse' {operation} -> operation) (\s@ImportBackendAuthResponse' {} a -> s {operation = a} :: ImportBackendAuthResponse)
 
 -- | The app ID.
 importBackendAuthResponse_appId :: Lens.Lens' ImportBackendAuthResponse (Prelude.Maybe Prelude.Text)
@@ -300,16 +284,32 @@ importBackendAuthResponse_appId = Lens.lens (\ImportBackendAuthResponse' {appId}
 importBackendAuthResponse_backendEnvironmentName :: Lens.Lens' ImportBackendAuthResponse (Prelude.Maybe Prelude.Text)
 importBackendAuthResponse_backendEnvironmentName = Lens.lens (\ImportBackendAuthResponse' {backendEnvironmentName} -> backendEnvironmentName) (\s@ImportBackendAuthResponse' {} a -> s {backendEnvironmentName = a} :: ImportBackendAuthResponse)
 
+-- | If the request fails, this error is returned.
+importBackendAuthResponse_error :: Lens.Lens' ImportBackendAuthResponse (Prelude.Maybe Prelude.Text)
+importBackendAuthResponse_error = Lens.lens (\ImportBackendAuthResponse' {error} -> error) (\s@ImportBackendAuthResponse' {} a -> s {error = a} :: ImportBackendAuthResponse)
+
+-- | The ID for the job.
+importBackendAuthResponse_jobId :: Lens.Lens' ImportBackendAuthResponse (Prelude.Maybe Prelude.Text)
+importBackendAuthResponse_jobId = Lens.lens (\ImportBackendAuthResponse' {jobId} -> jobId) (\s@ImportBackendAuthResponse' {} a -> s {jobId = a} :: ImportBackendAuthResponse)
+
+-- | The name of the operation.
+importBackendAuthResponse_operation :: Lens.Lens' ImportBackendAuthResponse (Prelude.Maybe Prelude.Text)
+importBackendAuthResponse_operation = Lens.lens (\ImportBackendAuthResponse' {operation} -> operation) (\s@ImportBackendAuthResponse' {} a -> s {operation = a} :: ImportBackendAuthResponse)
+
+-- | The current status of the request.
+importBackendAuthResponse_status :: Lens.Lens' ImportBackendAuthResponse (Prelude.Maybe Prelude.Text)
+importBackendAuthResponse_status = Lens.lens (\ImportBackendAuthResponse' {status} -> status) (\s@ImportBackendAuthResponse' {} a -> s {status = a} :: ImportBackendAuthResponse)
+
 -- | The response's http status code.
 importBackendAuthResponse_httpStatus :: Lens.Lens' ImportBackendAuthResponse Prelude.Int
 importBackendAuthResponse_httpStatus = Lens.lens (\ImportBackendAuthResponse' {httpStatus} -> httpStatus) (\s@ImportBackendAuthResponse' {} a -> s {httpStatus = a} :: ImportBackendAuthResponse)
 
 instance Prelude.NFData ImportBackendAuthResponse where
   rnf ImportBackendAuthResponse' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf error
-      `Prelude.seq` Prelude.rnf operation
-      `Prelude.seq` Prelude.rnf appId
+    Prelude.rnf appId
       `Prelude.seq` Prelude.rnf backendEnvironmentName
+      `Prelude.seq` Prelude.rnf error
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf operation
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

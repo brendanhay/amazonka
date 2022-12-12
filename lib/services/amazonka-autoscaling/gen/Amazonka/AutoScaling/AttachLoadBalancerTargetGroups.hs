@@ -72,9 +72,9 @@ import qualified Amazonka.Response as Response
 data AttachLoadBalancerTargetGroups = AttachLoadBalancerTargetGroups'
   { -- | The name of the Auto Scaling group.
     autoScalingGroupName :: Prelude.Text,
-    -- | The Amazon Resource Names (ARN) of the target groups. You can specify up
-    -- to 10 target groups. To get the ARN of a target group, use the Elastic
-    -- Load Balancing
+    -- | The Amazon Resource Names (ARNs) of the target groups. You can specify
+    -- up to 10 target groups. To get the ARN of a target group, use the
+    -- Elastic Load Balancing
     -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html DescribeTargetGroups>
     -- API operation.
     targetGroupARNs :: [Prelude.Text]
@@ -91,9 +91,9 @@ data AttachLoadBalancerTargetGroups = AttachLoadBalancerTargetGroups'
 --
 -- 'autoScalingGroupName', 'attachLoadBalancerTargetGroups_autoScalingGroupName' - The name of the Auto Scaling group.
 --
--- 'targetGroupARNs', 'attachLoadBalancerTargetGroups_targetGroupARNs' - The Amazon Resource Names (ARN) of the target groups. You can specify up
--- to 10 target groups. To get the ARN of a target group, use the Elastic
--- Load Balancing
+-- 'targetGroupARNs', 'attachLoadBalancerTargetGroups_targetGroupARNs' - The Amazon Resource Names (ARNs) of the target groups. You can specify
+-- up to 10 target groups. To get the ARN of a target group, use the
+-- Elastic Load Balancing
 -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html DescribeTargetGroups>
 -- API operation.
 newAttachLoadBalancerTargetGroups ::
@@ -112,9 +112,9 @@ newAttachLoadBalancerTargetGroups
 attachLoadBalancerTargetGroups_autoScalingGroupName :: Lens.Lens' AttachLoadBalancerTargetGroups Prelude.Text
 attachLoadBalancerTargetGroups_autoScalingGroupName = Lens.lens (\AttachLoadBalancerTargetGroups' {autoScalingGroupName} -> autoScalingGroupName) (\s@AttachLoadBalancerTargetGroups' {} a -> s {autoScalingGroupName = a} :: AttachLoadBalancerTargetGroups)
 
--- | The Amazon Resource Names (ARN) of the target groups. You can specify up
--- to 10 target groups. To get the ARN of a target group, use the Elastic
--- Load Balancing
+-- | The Amazon Resource Names (ARNs) of the target groups. You can specify
+-- up to 10 target groups. To get the ARN of a target group, use the
+-- Elastic Load Balancing
 -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html DescribeTargetGroups>
 -- API operation.
 attachLoadBalancerTargetGroups_targetGroupARNs :: Lens.Lens' AttachLoadBalancerTargetGroups [Prelude.Text]

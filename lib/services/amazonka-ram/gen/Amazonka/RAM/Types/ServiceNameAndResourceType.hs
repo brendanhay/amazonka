@@ -30,9 +30,7 @@ import Amazonka.RAM.Types.ResourceRegionScope
 --
 -- /See:/ 'newServiceNameAndResourceType' smart constructor.
 data ServiceNameAndResourceType = ServiceNameAndResourceType'
-  { -- | The type of the resource.
-    resourceType :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the scope of visibility of resources of this type:
+  { -- | Specifies the scope of visibility of resources of this type:
     --
     -- -   __REGIONAL__ – The resource can be accessed only by using requests
     --     that target the Amazon Web Services Region in which the resource
@@ -41,6 +39,8 @@ data ServiceNameAndResourceType = ServiceNameAndResourceType'
     -- -   __GLOBAL__ – The resource can be accessed from any Amazon Web
     --     Services Region.
     resourceRegionScope :: Prelude.Maybe ResourceRegionScope,
+    -- | The type of the resource.
+    resourceType :: Prelude.Maybe Prelude.Text,
     -- | The name of the Amazon Web Services service to which resources of this
     -- type belong.
     serviceName :: Prelude.Maybe Prelude.Text
@@ -55,8 +55,6 @@ data ServiceNameAndResourceType = ServiceNameAndResourceType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceType', 'serviceNameAndResourceType_resourceType' - The type of the resource.
---
 -- 'resourceRegionScope', 'serviceNameAndResourceType_resourceRegionScope' - Specifies the scope of visibility of resources of this type:
 --
 -- -   __REGIONAL__ – The resource can be accessed only by using requests
@@ -66,21 +64,19 @@ data ServiceNameAndResourceType = ServiceNameAndResourceType'
 -- -   __GLOBAL__ – The resource can be accessed from any Amazon Web
 --     Services Region.
 --
+-- 'resourceType', 'serviceNameAndResourceType_resourceType' - The type of the resource.
+--
 -- 'serviceName', 'serviceNameAndResourceType_serviceName' - The name of the Amazon Web Services service to which resources of this
 -- type belong.
 newServiceNameAndResourceType ::
   ServiceNameAndResourceType
 newServiceNameAndResourceType =
   ServiceNameAndResourceType'
-    { resourceType =
+    { resourceRegionScope =
         Prelude.Nothing,
-      resourceRegionScope = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
       serviceName = Prelude.Nothing
     }
-
--- | The type of the resource.
-serviceNameAndResourceType_resourceType :: Lens.Lens' ServiceNameAndResourceType (Prelude.Maybe Prelude.Text)
-serviceNameAndResourceType_resourceType = Lens.lens (\ServiceNameAndResourceType' {resourceType} -> resourceType) (\s@ServiceNameAndResourceType' {} a -> s {resourceType = a} :: ServiceNameAndResourceType)
 
 -- | Specifies the scope of visibility of resources of this type:
 --
@@ -93,6 +89,10 @@ serviceNameAndResourceType_resourceType = Lens.lens (\ServiceNameAndResourceType
 serviceNameAndResourceType_resourceRegionScope :: Lens.Lens' ServiceNameAndResourceType (Prelude.Maybe ResourceRegionScope)
 serviceNameAndResourceType_resourceRegionScope = Lens.lens (\ServiceNameAndResourceType' {resourceRegionScope} -> resourceRegionScope) (\s@ServiceNameAndResourceType' {} a -> s {resourceRegionScope = a} :: ServiceNameAndResourceType)
 
+-- | The type of the resource.
+serviceNameAndResourceType_resourceType :: Lens.Lens' ServiceNameAndResourceType (Prelude.Maybe Prelude.Text)
+serviceNameAndResourceType_resourceType = Lens.lens (\ServiceNameAndResourceType' {resourceType} -> resourceType) (\s@ServiceNameAndResourceType' {} a -> s {resourceType = a} :: ServiceNameAndResourceType)
+
 -- | The name of the Amazon Web Services service to which resources of this
 -- type belong.
 serviceNameAndResourceType_serviceName :: Lens.Lens' ServiceNameAndResourceType (Prelude.Maybe Prelude.Text)
@@ -104,19 +104,19 @@ instance Data.FromJSON ServiceNameAndResourceType where
       "ServiceNameAndResourceType"
       ( \x ->
           ServiceNameAndResourceType'
-            Prelude.<$> (x Data..:? "resourceType")
-            Prelude.<*> (x Data..:? "resourceRegionScope")
+            Prelude.<$> (x Data..:? "resourceRegionScope")
+            Prelude.<*> (x Data..:? "resourceType")
             Prelude.<*> (x Data..:? "serviceName")
       )
 
 instance Prelude.Hashable ServiceNameAndResourceType where
   hashWithSalt _salt ServiceNameAndResourceType' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
-      `Prelude.hashWithSalt` resourceRegionScope
+    _salt `Prelude.hashWithSalt` resourceRegionScope
+      `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` serviceName
 
 instance Prelude.NFData ServiceNameAndResourceType where
   rnf ServiceNameAndResourceType' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf resourceRegionScope
+    Prelude.rnf resourceRegionScope
+      `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf serviceName

@@ -28,13 +28,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFixedResponseActionConfig' smart constructor.
 data FixedResponseActionConfig = FixedResponseActionConfig'
-  { -- | The message.
-    messageBody :: Prelude.Maybe Prelude.Text,
-    -- | The content type.
+  { -- | The content type.
     --
     -- Valid Values: text\/plain | text\/css | text\/html |
     -- application\/javascript | application\/json
     contentType :: Prelude.Maybe Prelude.Text,
+    -- | The message.
+    messageBody :: Prelude.Maybe Prelude.Text,
     -- | The HTTP response code (2XX, 4XX, or 5XX).
     statusCode :: Prelude.Text
   }
@@ -48,12 +48,12 @@ data FixedResponseActionConfig = FixedResponseActionConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'messageBody', 'fixedResponseActionConfig_messageBody' - The message.
---
 -- 'contentType', 'fixedResponseActionConfig_contentType' - The content type.
 --
 -- Valid Values: text\/plain | text\/css | text\/html |
 -- application\/javascript | application\/json
+--
+-- 'messageBody', 'fixedResponseActionConfig_messageBody' - The message.
 --
 -- 'statusCode', 'fixedResponseActionConfig_statusCode' - The HTTP response code (2XX, 4XX, or 5XX).
 newFixedResponseActionConfig ::
@@ -62,15 +62,11 @@ newFixedResponseActionConfig ::
   FixedResponseActionConfig
 newFixedResponseActionConfig pStatusCode_ =
   FixedResponseActionConfig'
-    { messageBody =
+    { contentType =
         Prelude.Nothing,
-      contentType = Prelude.Nothing,
+      messageBody = Prelude.Nothing,
       statusCode = pStatusCode_
     }
-
--- | The message.
-fixedResponseActionConfig_messageBody :: Lens.Lens' FixedResponseActionConfig (Prelude.Maybe Prelude.Text)
-fixedResponseActionConfig_messageBody = Lens.lens (\FixedResponseActionConfig' {messageBody} -> messageBody) (\s@FixedResponseActionConfig' {} a -> s {messageBody = a} :: FixedResponseActionConfig)
 
 -- | The content type.
 --
@@ -79,6 +75,10 @@ fixedResponseActionConfig_messageBody = Lens.lens (\FixedResponseActionConfig' {
 fixedResponseActionConfig_contentType :: Lens.Lens' FixedResponseActionConfig (Prelude.Maybe Prelude.Text)
 fixedResponseActionConfig_contentType = Lens.lens (\FixedResponseActionConfig' {contentType} -> contentType) (\s@FixedResponseActionConfig' {} a -> s {contentType = a} :: FixedResponseActionConfig)
 
+-- | The message.
+fixedResponseActionConfig_messageBody :: Lens.Lens' FixedResponseActionConfig (Prelude.Maybe Prelude.Text)
+fixedResponseActionConfig_messageBody = Lens.lens (\FixedResponseActionConfig' {messageBody} -> messageBody) (\s@FixedResponseActionConfig' {} a -> s {messageBody = a} :: FixedResponseActionConfig)
+
 -- | The HTTP response code (2XX, 4XX, or 5XX).
 fixedResponseActionConfig_statusCode :: Lens.Lens' FixedResponseActionConfig Prelude.Text
 fixedResponseActionConfig_statusCode = Lens.lens (\FixedResponseActionConfig' {statusCode} -> statusCode) (\s@FixedResponseActionConfig' {} a -> s {statusCode = a} :: FixedResponseActionConfig)
@@ -86,26 +86,26 @@ fixedResponseActionConfig_statusCode = Lens.lens (\FixedResponseActionConfig' {s
 instance Data.FromXML FixedResponseActionConfig where
   parseXML x =
     FixedResponseActionConfig'
-      Prelude.<$> (x Data..@? "MessageBody")
-      Prelude.<*> (x Data..@? "ContentType")
+      Prelude.<$> (x Data..@? "ContentType")
+      Prelude.<*> (x Data..@? "MessageBody")
       Prelude.<*> (x Data..@ "StatusCode")
 
 instance Prelude.Hashable FixedResponseActionConfig where
   hashWithSalt _salt FixedResponseActionConfig' {..} =
-    _salt `Prelude.hashWithSalt` messageBody
-      `Prelude.hashWithSalt` contentType
+    _salt `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` messageBody
       `Prelude.hashWithSalt` statusCode
 
 instance Prelude.NFData FixedResponseActionConfig where
   rnf FixedResponseActionConfig' {..} =
-    Prelude.rnf messageBody
-      `Prelude.seq` Prelude.rnf contentType
+    Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf messageBody
       `Prelude.seq` Prelude.rnf statusCode
 
 instance Data.ToQuery FixedResponseActionConfig where
   toQuery FixedResponseActionConfig' {..} =
     Prelude.mconcat
-      [ "MessageBody" Data.=: messageBody,
-        "ContentType" Data.=: contentType,
+      [ "ContentType" Data.=: contentType,
+        "MessageBody" Data.=: messageBody,
         "StatusCode" Data.=: statusCode
       ]

@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRedactedEwsAvailabilityProvider' smart constructor.
 data RedactedEwsAvailabilityProvider = RedactedEwsAvailabilityProvider'
-  { -- | The username used to authenticate the remote EWS server.
-    ewsUsername :: Prelude.Maybe Prelude.Text,
-    -- | The endpoint of the remote EWS server.
-    ewsEndpoint :: Prelude.Maybe Prelude.Text
+  { -- | The endpoint of the remote EWS server.
+    ewsEndpoint :: Prelude.Maybe Prelude.Text,
+    -- | The username used to authenticate the remote EWS server.
+    ewsUsername :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data RedactedEwsAvailabilityProvider = RedactedEwsAvailabilityProvider'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ewsUsername', 'redactedEwsAvailabilityProvider_ewsUsername' - The username used to authenticate the remote EWS server.
---
 -- 'ewsEndpoint', 'redactedEwsAvailabilityProvider_ewsEndpoint' - The endpoint of the remote EWS server.
+--
+-- 'ewsUsername', 'redactedEwsAvailabilityProvider_ewsUsername' - The username used to authenticate the remote EWS server.
 newRedactedEwsAvailabilityProvider ::
   RedactedEwsAvailabilityProvider
 newRedactedEwsAvailabilityProvider =
   RedactedEwsAvailabilityProvider'
-    { ewsUsername =
+    { ewsEndpoint =
         Prelude.Nothing,
-      ewsEndpoint = Prelude.Nothing
+      ewsUsername = Prelude.Nothing
     }
-
--- | The username used to authenticate the remote EWS server.
-redactedEwsAvailabilityProvider_ewsUsername :: Lens.Lens' RedactedEwsAvailabilityProvider (Prelude.Maybe Prelude.Text)
-redactedEwsAvailabilityProvider_ewsUsername = Lens.lens (\RedactedEwsAvailabilityProvider' {ewsUsername} -> ewsUsername) (\s@RedactedEwsAvailabilityProvider' {} a -> s {ewsUsername = a} :: RedactedEwsAvailabilityProvider)
 
 -- | The endpoint of the remote EWS server.
 redactedEwsAvailabilityProvider_ewsEndpoint :: Lens.Lens' RedactedEwsAvailabilityProvider (Prelude.Maybe Prelude.Text)
 redactedEwsAvailabilityProvider_ewsEndpoint = Lens.lens (\RedactedEwsAvailabilityProvider' {ewsEndpoint} -> ewsEndpoint) (\s@RedactedEwsAvailabilityProvider' {} a -> s {ewsEndpoint = a} :: RedactedEwsAvailabilityProvider)
+
+-- | The username used to authenticate the remote EWS server.
+redactedEwsAvailabilityProvider_ewsUsername :: Lens.Lens' RedactedEwsAvailabilityProvider (Prelude.Maybe Prelude.Text)
+redactedEwsAvailabilityProvider_ewsUsername = Lens.lens (\RedactedEwsAvailabilityProvider' {ewsUsername} -> ewsUsername) (\s@RedactedEwsAvailabilityProvider' {} a -> s {ewsUsername = a} :: RedactedEwsAvailabilityProvider)
 
 instance
   Data.FromJSON
@@ -73,8 +73,8 @@ instance
       "RedactedEwsAvailabilityProvider"
       ( \x ->
           RedactedEwsAvailabilityProvider'
-            Prelude.<$> (x Data..:? "EwsUsername")
-            Prelude.<*> (x Data..:? "EwsEndpoint")
+            Prelude.<$> (x Data..:? "EwsEndpoint")
+            Prelude.<*> (x Data..:? "EwsUsername")
       )
 
 instance
@@ -84,13 +84,13 @@ instance
   hashWithSalt
     _salt
     RedactedEwsAvailabilityProvider' {..} =
-      _salt `Prelude.hashWithSalt` ewsUsername
-        `Prelude.hashWithSalt` ewsEndpoint
+      _salt `Prelude.hashWithSalt` ewsEndpoint
+        `Prelude.hashWithSalt` ewsUsername
 
 instance
   Prelude.NFData
     RedactedEwsAvailabilityProvider
   where
   rnf RedactedEwsAvailabilityProvider' {..} =
-    Prelude.rnf ewsUsername
-      `Prelude.seq` Prelude.rnf ewsEndpoint
+    Prelude.rnf ewsEndpoint
+      `Prelude.seq` Prelude.rnf ewsUsername

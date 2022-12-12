@@ -30,11 +30,11 @@ import Amazonka.Route53.Internal
 --
 -- /See:/ 'newDelegationSet' smart constructor.
 data DelegationSet = DelegationSet'
-  { -- | The ID that Amazon Route 53 assigns to a reusable delegation set.
-    id :: Prelude.Maybe ResourceId,
-    -- | The value that you specified for @CallerReference@ when you created the
+  { -- | The value that you specified for @CallerReference@ when you created the
     -- reusable delegation set.
     callerReference :: Prelude.Maybe Prelude.Text,
+    -- | The ID that Amazon Route 53 assigns to a reusable delegation set.
+    id :: Prelude.Maybe ResourceId,
     -- | A complex type that contains a list of the authoritative name servers
     -- for a hosted zone or for a reusable delegation set.
     nameServers :: Prelude.NonEmpty Prelude.Text
@@ -49,10 +49,10 @@ data DelegationSet = DelegationSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'delegationSet_id' - The ID that Amazon Route 53 assigns to a reusable delegation set.
---
 -- 'callerReference', 'delegationSet_callerReference' - The value that you specified for @CallerReference@ when you created the
 -- reusable delegation set.
+--
+-- 'id', 'delegationSet_id' - The ID that Amazon Route 53 assigns to a reusable delegation set.
 --
 -- 'nameServers', 'delegationSet_nameServers' - A complex type that contains a list of the authoritative name servers
 -- for a hosted zone or for a reusable delegation set.
@@ -62,19 +62,19 @@ newDelegationSet ::
   DelegationSet
 newDelegationSet pNameServers_ =
   DelegationSet'
-    { id = Prelude.Nothing,
-      callerReference = Prelude.Nothing,
+    { callerReference = Prelude.Nothing,
+      id = Prelude.Nothing,
       nameServers = Lens.coerced Lens.# pNameServers_
     }
-
--- | The ID that Amazon Route 53 assigns to a reusable delegation set.
-delegationSet_id :: Lens.Lens' DelegationSet (Prelude.Maybe ResourceId)
-delegationSet_id = Lens.lens (\DelegationSet' {id} -> id) (\s@DelegationSet' {} a -> s {id = a} :: DelegationSet)
 
 -- | The value that you specified for @CallerReference@ when you created the
 -- reusable delegation set.
 delegationSet_callerReference :: Lens.Lens' DelegationSet (Prelude.Maybe Prelude.Text)
 delegationSet_callerReference = Lens.lens (\DelegationSet' {callerReference} -> callerReference) (\s@DelegationSet' {} a -> s {callerReference = a} :: DelegationSet)
+
+-- | The ID that Amazon Route 53 assigns to a reusable delegation set.
+delegationSet_id :: Lens.Lens' DelegationSet (Prelude.Maybe ResourceId)
+delegationSet_id = Lens.lens (\DelegationSet' {id} -> id) (\s@DelegationSet' {} a -> s {id = a} :: DelegationSet)
 
 -- | A complex type that contains a list of the authoritative name servers
 -- for a hosted zone or for a reusable delegation set.
@@ -84,20 +84,20 @@ delegationSet_nameServers = Lens.lens (\DelegationSet' {nameServers} -> nameServ
 instance Data.FromXML DelegationSet where
   parseXML x =
     DelegationSet'
-      Prelude.<$> (x Data..@? "Id")
-      Prelude.<*> (x Data..@? "CallerReference")
+      Prelude.<$> (x Data..@? "CallerReference")
+      Prelude.<*> (x Data..@? "Id")
       Prelude.<*> ( x Data..@? "NameServers" Core..!@ Prelude.mempty
                       Prelude.>>= Data.parseXMLList1 "NameServer"
                   )
 
 instance Prelude.Hashable DelegationSet where
   hashWithSalt _salt DelegationSet' {..} =
-    _salt `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` callerReference
+    _salt `Prelude.hashWithSalt` callerReference
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` nameServers
 
 instance Prelude.NFData DelegationSet where
   rnf DelegationSet' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf callerReference
+    Prelude.rnf callerReference
+      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf nameServers

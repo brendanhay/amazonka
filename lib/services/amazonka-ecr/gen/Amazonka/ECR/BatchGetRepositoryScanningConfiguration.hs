@@ -34,8 +34,8 @@ module Amazonka.ECR.BatchGetRepositoryScanningConfiguration
     newBatchGetRepositoryScanningConfigurationResponse,
 
     -- * Response Lenses
-    batchGetRepositoryScanningConfigurationResponse_scanningConfigurations,
     batchGetRepositoryScanningConfigurationResponse_failures,
+    batchGetRepositoryScanningConfigurationResponse_scanningConfigurations,
     batchGetRepositoryScanningConfigurationResponse_httpStatus,
   )
 where
@@ -94,10 +94,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           BatchGetRepositoryScanningConfigurationResponse'
-            Prelude.<$> ( x Data..?> "scanningConfigurations"
-                            Core..!@ Prelude.mempty
-                        )
-              Prelude.<*> (x Data..?> "failures" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "failures" Core..!@ Prelude.mempty)
+              Prelude.<*> ( x Data..?> "scanningConfigurations"
+                              Core..!@ Prelude.mempty
+                          )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,10 +161,10 @@ instance
 
 -- | /See:/ 'newBatchGetRepositoryScanningConfigurationResponse' smart constructor.
 data BatchGetRepositoryScanningConfigurationResponse = BatchGetRepositoryScanningConfigurationResponse'
-  { -- | The scanning configuration for the requested repositories.
-    scanningConfigurations :: Prelude.Maybe [RepositoryScanningConfiguration],
-    -- | Any failures associated with the call.
+  { -- | Any failures associated with the call.
     failures :: Prelude.Maybe [RepositoryScanningConfigurationFailure],
+    -- | The scanning configuration for the requested repositories.
+    scanningConfigurations :: Prelude.Maybe [RepositoryScanningConfiguration],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -178,9 +178,9 @@ data BatchGetRepositoryScanningConfigurationResponse = BatchGetRepositoryScannin
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'scanningConfigurations', 'batchGetRepositoryScanningConfigurationResponse_scanningConfigurations' - The scanning configuration for the requested repositories.
---
 -- 'failures', 'batchGetRepositoryScanningConfigurationResponse_failures' - Any failures associated with the call.
+--
+-- 'scanningConfigurations', 'batchGetRepositoryScanningConfigurationResponse_scanningConfigurations' - The scanning configuration for the requested repositories.
 --
 -- 'httpStatus', 'batchGetRepositoryScanningConfigurationResponse_httpStatus' - The response's http status code.
 newBatchGetRepositoryScanningConfigurationResponse ::
@@ -190,19 +190,20 @@ newBatchGetRepositoryScanningConfigurationResponse ::
 newBatchGetRepositoryScanningConfigurationResponse
   pHttpStatus_ =
     BatchGetRepositoryScanningConfigurationResponse'
-      { scanningConfigurations =
+      { failures =
           Prelude.Nothing,
-        failures = Prelude.Nothing,
+        scanningConfigurations =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The scanning configuration for the requested repositories.
-batchGetRepositoryScanningConfigurationResponse_scanningConfigurations :: Lens.Lens' BatchGetRepositoryScanningConfigurationResponse (Prelude.Maybe [RepositoryScanningConfiguration])
-batchGetRepositoryScanningConfigurationResponse_scanningConfigurations = Lens.lens (\BatchGetRepositoryScanningConfigurationResponse' {scanningConfigurations} -> scanningConfigurations) (\s@BatchGetRepositoryScanningConfigurationResponse' {} a -> s {scanningConfigurations = a} :: BatchGetRepositoryScanningConfigurationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Any failures associated with the call.
 batchGetRepositoryScanningConfigurationResponse_failures :: Lens.Lens' BatchGetRepositoryScanningConfigurationResponse (Prelude.Maybe [RepositoryScanningConfigurationFailure])
 batchGetRepositoryScanningConfigurationResponse_failures = Lens.lens (\BatchGetRepositoryScanningConfigurationResponse' {failures} -> failures) (\s@BatchGetRepositoryScanningConfigurationResponse' {} a -> s {failures = a} :: BatchGetRepositoryScanningConfigurationResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The scanning configuration for the requested repositories.
+batchGetRepositoryScanningConfigurationResponse_scanningConfigurations :: Lens.Lens' BatchGetRepositoryScanningConfigurationResponse (Prelude.Maybe [RepositoryScanningConfiguration])
+batchGetRepositoryScanningConfigurationResponse_scanningConfigurations = Lens.lens (\BatchGetRepositoryScanningConfigurationResponse' {scanningConfigurations} -> scanningConfigurations) (\s@BatchGetRepositoryScanningConfigurationResponse' {} a -> s {scanningConfigurations = a} :: BatchGetRepositoryScanningConfigurationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchGetRepositoryScanningConfigurationResponse_httpStatus :: Lens.Lens' BatchGetRepositoryScanningConfigurationResponse Prelude.Int
@@ -214,6 +215,6 @@ instance
   where
   rnf
     BatchGetRepositoryScanningConfigurationResponse' {..} =
-      Prelude.rnf scanningConfigurations
-        `Prelude.seq` Prelude.rnf failures
+      Prelude.rnf failures
+        `Prelude.seq` Prelude.rnf scanningConfigurations
         `Prelude.seq` Prelude.rnf httpStatus

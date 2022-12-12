@@ -28,8 +28,8 @@ module Amazonka.Pi.ListAvailableResourceDimensions
     newListAvailableResourceDimensions,
 
     -- * Request Lenses
-    listAvailableResourceDimensions_nextToken,
     listAvailableResourceDimensions_maxResults,
+    listAvailableResourceDimensions_nextToken,
     listAvailableResourceDimensions_serviceType,
     listAvailableResourceDimensions_identifier,
     listAvailableResourceDimensions_metrics,
@@ -39,8 +39,8 @@ module Amazonka.Pi.ListAvailableResourceDimensions
     newListAvailableResourceDimensionsResponse,
 
     -- * Response Lenses
-    listAvailableResourceDimensionsResponse_nextToken,
     listAvailableResourceDimensionsResponse_metricDimensions,
+    listAvailableResourceDimensionsResponse_nextToken,
     listAvailableResourceDimensionsResponse_httpStatus,
   )
 where
@@ -55,14 +55,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAvailableResourceDimensions' smart constructor.
 data ListAvailableResourceDimensions = ListAvailableResourceDimensions'
-  { -- | An optional pagination token provided by a previous request. If this
-    -- parameter is specified, the response includes only records beyond the
-    -- token, up to the value specified by @MaxRecords@.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return in the response. If more items
+  { -- | The maximum number of items to return in the response. If more items
     -- exist than the specified @MaxRecords@ value, a pagination token is
     -- included in the response so that the remaining results can be retrieved.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | An optional pagination token provided by a previous request. If this
+    -- parameter is specified, the response includes only records beyond the
+    -- token, up to the value specified by @MaxRecords@.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services service for which Performance Insights returns
     -- metrics.
     serviceType :: ServiceType,
@@ -86,13 +86,13 @@ data ListAvailableResourceDimensions = ListAvailableResourceDimensions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAvailableResourceDimensions_nextToken' - An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- token, up to the value specified by @MaxRecords@.
---
 -- 'maxResults', 'listAvailableResourceDimensions_maxResults' - The maximum number of items to return in the response. If more items
 -- exist than the specified @MaxRecords@ value, a pagination token is
 -- included in the response so that the remaining results can be retrieved.
+--
+-- 'nextToken', 'listAvailableResourceDimensions_nextToken' - An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- token, up to the value specified by @MaxRecords@.
 --
 -- 'serviceType', 'listAvailableResourceDimensions_serviceType' - The Amazon Web Services service for which Performance Insights returns
 -- metrics.
@@ -118,25 +118,25 @@ newListAvailableResourceDimensions
   pIdentifier_
   pMetrics_ =
     ListAvailableResourceDimensions'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         serviceType = pServiceType_,
         identifier = pIdentifier_,
         metrics = Lens.coerced Lens.# pMetrics_
       }
-
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- token, up to the value specified by @MaxRecords@.
-listAvailableResourceDimensions_nextToken :: Lens.Lens' ListAvailableResourceDimensions (Prelude.Maybe Prelude.Text)
-listAvailableResourceDimensions_nextToken = Lens.lens (\ListAvailableResourceDimensions' {nextToken} -> nextToken) (\s@ListAvailableResourceDimensions' {} a -> s {nextToken = a} :: ListAvailableResourceDimensions)
 
 -- | The maximum number of items to return in the response. If more items
 -- exist than the specified @MaxRecords@ value, a pagination token is
 -- included in the response so that the remaining results can be retrieved.
 listAvailableResourceDimensions_maxResults :: Lens.Lens' ListAvailableResourceDimensions (Prelude.Maybe Prelude.Natural)
 listAvailableResourceDimensions_maxResults = Lens.lens (\ListAvailableResourceDimensions' {maxResults} -> maxResults) (\s@ListAvailableResourceDimensions' {} a -> s {maxResults = a} :: ListAvailableResourceDimensions)
+
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- token, up to the value specified by @MaxRecords@.
+listAvailableResourceDimensions_nextToken :: Lens.Lens' ListAvailableResourceDimensions (Prelude.Maybe Prelude.Text)
+listAvailableResourceDimensions_nextToken = Lens.lens (\ListAvailableResourceDimensions' {nextToken} -> nextToken) (\s@ListAvailableResourceDimensions' {} a -> s {nextToken = a} :: ListAvailableResourceDimensions)
 
 -- | The Amazon Web Services service for which Performance Insights returns
 -- metrics.
@@ -169,10 +169,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListAvailableResourceDimensionsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "MetricDimensions"
+            Prelude.<$> ( x Data..?> "MetricDimensions"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -183,8 +183,8 @@ instance
   hashWithSalt
     _salt
     ListAvailableResourceDimensions' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` serviceType
         `Prelude.hashWithSalt` identifier
         `Prelude.hashWithSalt` metrics
@@ -194,8 +194,8 @@ instance
     ListAvailableResourceDimensions
   where
   rnf ListAvailableResourceDimensions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf serviceType
       `Prelude.seq` Prelude.rnf identifier
       `Prelude.seq` Prelude.rnf metrics
@@ -222,8 +222,8 @@ instance Data.ToJSON ListAvailableResourceDimensions where
   toJSON ListAvailableResourceDimensions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("ServiceType" Data..= serviceType),
             Prelude.Just ("Identifier" Data..= identifier),
             Prelude.Just ("Metrics" Data..= metrics)
@@ -238,12 +238,12 @@ instance Data.ToQuery ListAvailableResourceDimensions where
 
 -- | /See:/ 'newListAvailableResourceDimensionsResponse' smart constructor.
 data ListAvailableResourceDimensionsResponse = ListAvailableResourceDimensionsResponse'
-  { -- | An optional pagination token provided by a previous request. If this
+  { -- | The dimension information returned for requested metric types.
+    metricDimensions :: Prelude.Maybe [MetricDimensionGroups],
+    -- | An optional pagination token provided by a previous request. If this
     -- parameter is specified, the response includes only records beyond the
     -- token, up to the value specified by @MaxRecords@.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The dimension information returned for requested metric types.
-    metricDimensions :: Prelude.Maybe [MetricDimensionGroups],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -257,11 +257,11 @@ data ListAvailableResourceDimensionsResponse = ListAvailableResourceDimensionsRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'metricDimensions', 'listAvailableResourceDimensionsResponse_metricDimensions' - The dimension information returned for requested metric types.
+--
 -- 'nextToken', 'listAvailableResourceDimensionsResponse_nextToken' - An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- token, up to the value specified by @MaxRecords@.
---
--- 'metricDimensions', 'listAvailableResourceDimensionsResponse_metricDimensions' - The dimension information returned for requested metric types.
 --
 -- 'httpStatus', 'listAvailableResourceDimensionsResponse_httpStatus' - The response's http status code.
 newListAvailableResourceDimensionsResponse ::
@@ -271,21 +271,21 @@ newListAvailableResourceDimensionsResponse ::
 newListAvailableResourceDimensionsResponse
   pHttpStatus_ =
     ListAvailableResourceDimensionsResponse'
-      { nextToken =
+      { metricDimensions =
           Prelude.Nothing,
-        metricDimensions = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | The dimension information returned for requested metric types.
+listAvailableResourceDimensionsResponse_metricDimensions :: Lens.Lens' ListAvailableResourceDimensionsResponse (Prelude.Maybe [MetricDimensionGroups])
+listAvailableResourceDimensionsResponse_metricDimensions = Lens.lens (\ListAvailableResourceDimensionsResponse' {metricDimensions} -> metricDimensions) (\s@ListAvailableResourceDimensionsResponse' {} a -> s {metricDimensions = a} :: ListAvailableResourceDimensionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- token, up to the value specified by @MaxRecords@.
 listAvailableResourceDimensionsResponse_nextToken :: Lens.Lens' ListAvailableResourceDimensionsResponse (Prelude.Maybe Prelude.Text)
 listAvailableResourceDimensionsResponse_nextToken = Lens.lens (\ListAvailableResourceDimensionsResponse' {nextToken} -> nextToken) (\s@ListAvailableResourceDimensionsResponse' {} a -> s {nextToken = a} :: ListAvailableResourceDimensionsResponse)
-
--- | The dimension information returned for requested metric types.
-listAvailableResourceDimensionsResponse_metricDimensions :: Lens.Lens' ListAvailableResourceDimensionsResponse (Prelude.Maybe [MetricDimensionGroups])
-listAvailableResourceDimensionsResponse_metricDimensions = Lens.lens (\ListAvailableResourceDimensionsResponse' {metricDimensions} -> metricDimensions) (\s@ListAvailableResourceDimensionsResponse' {} a -> s {metricDimensions = a} :: ListAvailableResourceDimensionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAvailableResourceDimensionsResponse_httpStatus :: Lens.Lens' ListAvailableResourceDimensionsResponse Prelude.Int
@@ -296,6 +296,6 @@ instance
     ListAvailableResourceDimensionsResponse
   where
   rnf ListAvailableResourceDimensionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf metricDimensions
+    Prelude.rnf metricDimensions
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

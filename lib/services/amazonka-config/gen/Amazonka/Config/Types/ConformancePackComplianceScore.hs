@@ -33,13 +33,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConformancePackComplianceScore' smart constructor.
 data ConformancePackComplianceScore = ConformancePackComplianceScore'
-  { -- | Compliance score for the conformance pack. Conformance packs with no
-    -- evaluation results will have a compliance score of @INSUFFICIENT_DATA@.
-    score :: Prelude.Maybe Prelude.Text,
-    -- | The name of the conformance pack.
+  { -- | The name of the conformance pack.
     conformancePackName :: Prelude.Maybe Prelude.Text,
     -- | The time that the conformance pack compliance score was last updated.
-    lastUpdatedTime :: Prelude.Maybe Data.POSIX
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
+    -- | Compliance score for the conformance pack. Conformance packs with no
+    -- evaluation results will have a compliance score of @INSUFFICIENT_DATA@.
+    score :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,26 +51,21 @@ data ConformancePackComplianceScore = ConformancePackComplianceScore'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'score', 'conformancePackComplianceScore_score' - Compliance score for the conformance pack. Conformance packs with no
--- evaluation results will have a compliance score of @INSUFFICIENT_DATA@.
---
 -- 'conformancePackName', 'conformancePackComplianceScore_conformancePackName' - The name of the conformance pack.
 --
 -- 'lastUpdatedTime', 'conformancePackComplianceScore_lastUpdatedTime' - The time that the conformance pack compliance score was last updated.
+--
+-- 'score', 'conformancePackComplianceScore_score' - Compliance score for the conformance pack. Conformance packs with no
+-- evaluation results will have a compliance score of @INSUFFICIENT_DATA@.
 newConformancePackComplianceScore ::
   ConformancePackComplianceScore
 newConformancePackComplianceScore =
   ConformancePackComplianceScore'
-    { score =
+    { conformancePackName =
         Prelude.Nothing,
-      conformancePackName = Prelude.Nothing,
-      lastUpdatedTime = Prelude.Nothing
+      lastUpdatedTime = Prelude.Nothing,
+      score = Prelude.Nothing
     }
-
--- | Compliance score for the conformance pack. Conformance packs with no
--- evaluation results will have a compliance score of @INSUFFICIENT_DATA@.
-conformancePackComplianceScore_score :: Lens.Lens' ConformancePackComplianceScore (Prelude.Maybe Prelude.Text)
-conformancePackComplianceScore_score = Lens.lens (\ConformancePackComplianceScore' {score} -> score) (\s@ConformancePackComplianceScore' {} a -> s {score = a} :: ConformancePackComplianceScore)
 
 -- | The name of the conformance pack.
 conformancePackComplianceScore_conformancePackName :: Lens.Lens' ConformancePackComplianceScore (Prelude.Maybe Prelude.Text)
@@ -80,15 +75,20 @@ conformancePackComplianceScore_conformancePackName = Lens.lens (\ConformancePack
 conformancePackComplianceScore_lastUpdatedTime :: Lens.Lens' ConformancePackComplianceScore (Prelude.Maybe Prelude.UTCTime)
 conformancePackComplianceScore_lastUpdatedTime = Lens.lens (\ConformancePackComplianceScore' {lastUpdatedTime} -> lastUpdatedTime) (\s@ConformancePackComplianceScore' {} a -> s {lastUpdatedTime = a} :: ConformancePackComplianceScore) Prelude.. Lens.mapping Data._Time
 
+-- | Compliance score for the conformance pack. Conformance packs with no
+-- evaluation results will have a compliance score of @INSUFFICIENT_DATA@.
+conformancePackComplianceScore_score :: Lens.Lens' ConformancePackComplianceScore (Prelude.Maybe Prelude.Text)
+conformancePackComplianceScore_score = Lens.lens (\ConformancePackComplianceScore' {score} -> score) (\s@ConformancePackComplianceScore' {} a -> s {score = a} :: ConformancePackComplianceScore)
+
 instance Data.FromJSON ConformancePackComplianceScore where
   parseJSON =
     Data.withObject
       "ConformancePackComplianceScore"
       ( \x ->
           ConformancePackComplianceScore'
-            Prelude.<$> (x Data..:? "Score")
-            Prelude.<*> (x Data..:? "ConformancePackName")
+            Prelude.<$> (x Data..:? "ConformancePackName")
             Prelude.<*> (x Data..:? "LastUpdatedTime")
+            Prelude.<*> (x Data..:? "Score")
       )
 
 instance
@@ -98,15 +98,15 @@ instance
   hashWithSalt
     _salt
     ConformancePackComplianceScore' {..} =
-      _salt `Prelude.hashWithSalt` score
-        `Prelude.hashWithSalt` conformancePackName
+      _salt `Prelude.hashWithSalt` conformancePackName
         `Prelude.hashWithSalt` lastUpdatedTime
+        `Prelude.hashWithSalt` score
 
 instance
   Prelude.NFData
     ConformancePackComplianceScore
   where
   rnf ConformancePackComplianceScore' {..} =
-    Prelude.rnf score
-      `Prelude.seq` Prelude.rnf conformancePackName
+    Prelude.rnf conformancePackName
       `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf score

@@ -29,9 +29,7 @@ import Amazonka.SnowDeviceManagement.Types.InstanceStateName
 --
 -- /See:/ 'newInstanceState' smart constructor.
 data InstanceState = InstanceState'
-  { -- | The current state of the instance.
-    name :: Prelude.Maybe InstanceStateName,
-    -- | The state of the instance as a 16-bit unsigned integer.
+  { -- | The state of the instance as a 16-bit unsigned integer.
     --
     -- The high byte is all of the bits between 2^8 and (2^16)-1, which equals
     -- decimal values between 256 and 65,535. These numerical values are used
@@ -57,7 +55,9 @@ data InstanceState = InstanceState'
     --
     -- You can ignore the high byte value by zeroing out all of the bits above
     -- 2^8 or 256 in decimal.
-    code :: Prelude.Maybe Prelude.Int
+    code :: Prelude.Maybe Prelude.Int,
+    -- | The current state of the instance.
+    name :: Prelude.Maybe InstanceStateName
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,8 +68,6 @@ data InstanceState = InstanceState'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'name', 'instanceState_name' - The current state of the instance.
 --
 -- 'code', 'instanceState_code' - The state of the instance as a 16-bit unsigned integer.
 --
@@ -97,17 +95,15 @@ data InstanceState = InstanceState'
 --
 -- You can ignore the high byte value by zeroing out all of the bits above
 -- 2^8 or 256 in decimal.
+--
+-- 'name', 'instanceState_name' - The current state of the instance.
 newInstanceState ::
   InstanceState
 newInstanceState =
   InstanceState'
-    { name = Prelude.Nothing,
-      code = Prelude.Nothing
+    { code = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | The current state of the instance.
-instanceState_name :: Lens.Lens' InstanceState (Prelude.Maybe InstanceStateName)
-instanceState_name = Lens.lens (\InstanceState' {name} -> name) (\s@InstanceState' {} a -> s {name = a} :: InstanceState)
 
 -- | The state of the instance as a 16-bit unsigned integer.
 --
@@ -138,20 +134,24 @@ instanceState_name = Lens.lens (\InstanceState' {name} -> name) (\s@InstanceStat
 instanceState_code :: Lens.Lens' InstanceState (Prelude.Maybe Prelude.Int)
 instanceState_code = Lens.lens (\InstanceState' {code} -> code) (\s@InstanceState' {} a -> s {code = a} :: InstanceState)
 
+-- | The current state of the instance.
+instanceState_name :: Lens.Lens' InstanceState (Prelude.Maybe InstanceStateName)
+instanceState_name = Lens.lens (\InstanceState' {name} -> name) (\s@InstanceState' {} a -> s {name = a} :: InstanceState)
+
 instance Data.FromJSON InstanceState where
   parseJSON =
     Data.withObject
       "InstanceState"
       ( \x ->
           InstanceState'
-            Prelude.<$> (x Data..:? "name") Prelude.<*> (x Data..:? "code")
+            Prelude.<$> (x Data..:? "code") Prelude.<*> (x Data..:? "name")
       )
 
 instance Prelude.Hashable InstanceState where
   hashWithSalt _salt InstanceState' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` code
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData InstanceState where
   rnf InstanceState' {..} =
-    Prelude.rnf name `Prelude.seq` Prelude.rnf code
+    Prelude.rnf code `Prelude.seq` Prelude.rnf name

@@ -29,16 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFilePaths' smart constructor.
 data FilePaths = FilePaths'
-  { -- | The Amazon Resource Name (ARN) of the resource on which the threat was
-    -- detected.
-    resourceId :: Prelude.Maybe Prelude.Text,
+  { -- | The name of the infected or suspicious file corresponding to the hash.
+    fileName :: Prelude.Maybe Prelude.Text,
     -- | Path to the infected or suspicious file on the resource it was detected
     -- on.
     filePath :: Prelude.Maybe Prelude.Text,
     -- | The hash value for the infected or suspicious file.
     hash :: Prelude.Maybe Prelude.Text,
-    -- | The name of the infected or suspicious file corresponding to the hash.
-    fileName :: Prelude.Maybe Prelude.Text
+    -- | The Amazon Resource Name (ARN) of the resource on which the threat was
+    -- detected.
+    resourceId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,29 +50,28 @@ data FilePaths = FilePaths'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceId', 'filePaths_resourceId' - The Amazon Resource Name (ARN) of the resource on which the threat was
--- detected.
+-- 'fileName', 'filePaths_fileName' - The name of the infected or suspicious file corresponding to the hash.
 --
 -- 'filePath', 'filePaths_filePath' - Path to the infected or suspicious file on the resource it was detected
 -- on.
 --
 -- 'hash', 'filePaths_hash' - The hash value for the infected or suspicious file.
 --
--- 'fileName', 'filePaths_fileName' - The name of the infected or suspicious file corresponding to the hash.
+-- 'resourceId', 'filePaths_resourceId' - The Amazon Resource Name (ARN) of the resource on which the threat was
+-- detected.
 newFilePaths ::
   FilePaths
 newFilePaths =
   FilePaths'
-    { resourceId = Prelude.Nothing,
+    { fileName = Prelude.Nothing,
       filePath = Prelude.Nothing,
       hash = Prelude.Nothing,
-      fileName = Prelude.Nothing
+      resourceId = Prelude.Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the resource on which the threat was
--- detected.
-filePaths_resourceId :: Lens.Lens' FilePaths (Prelude.Maybe Prelude.Text)
-filePaths_resourceId = Lens.lens (\FilePaths' {resourceId} -> resourceId) (\s@FilePaths' {} a -> s {resourceId = a} :: FilePaths)
+-- | The name of the infected or suspicious file corresponding to the hash.
+filePaths_fileName :: Lens.Lens' FilePaths (Prelude.Maybe Prelude.Text)
+filePaths_fileName = Lens.lens (\FilePaths' {fileName} -> fileName) (\s@FilePaths' {} a -> s {fileName = a} :: FilePaths)
 
 -- | Path to the infected or suspicious file on the resource it was detected
 -- on.
@@ -83,9 +82,10 @@ filePaths_filePath = Lens.lens (\FilePaths' {filePath} -> filePath) (\s@FilePath
 filePaths_hash :: Lens.Lens' FilePaths (Prelude.Maybe Prelude.Text)
 filePaths_hash = Lens.lens (\FilePaths' {hash} -> hash) (\s@FilePaths' {} a -> s {hash = a} :: FilePaths)
 
--- | The name of the infected or suspicious file corresponding to the hash.
-filePaths_fileName :: Lens.Lens' FilePaths (Prelude.Maybe Prelude.Text)
-filePaths_fileName = Lens.lens (\FilePaths' {fileName} -> fileName) (\s@FilePaths' {} a -> s {fileName = a} :: FilePaths)
+-- | The Amazon Resource Name (ARN) of the resource on which the threat was
+-- detected.
+filePaths_resourceId :: Lens.Lens' FilePaths (Prelude.Maybe Prelude.Text)
+filePaths_resourceId = Lens.lens (\FilePaths' {resourceId} -> resourceId) (\s@FilePaths' {} a -> s {resourceId = a} :: FilePaths)
 
 instance Data.FromJSON FilePaths where
   parseJSON =
@@ -93,33 +93,33 @@ instance Data.FromJSON FilePaths where
       "FilePaths"
       ( \x ->
           FilePaths'
-            Prelude.<$> (x Data..:? "ResourceId")
+            Prelude.<$> (x Data..:? "FileName")
             Prelude.<*> (x Data..:? "FilePath")
             Prelude.<*> (x Data..:? "Hash")
-            Prelude.<*> (x Data..:? "FileName")
+            Prelude.<*> (x Data..:? "ResourceId")
       )
 
 instance Prelude.Hashable FilePaths where
   hashWithSalt _salt FilePaths' {..} =
-    _salt `Prelude.hashWithSalt` resourceId
+    _salt `Prelude.hashWithSalt` fileName
       `Prelude.hashWithSalt` filePath
       `Prelude.hashWithSalt` hash
-      `Prelude.hashWithSalt` fileName
+      `Prelude.hashWithSalt` resourceId
 
 instance Prelude.NFData FilePaths where
   rnf FilePaths' {..} =
-    Prelude.rnf resourceId
+    Prelude.rnf fileName
       `Prelude.seq` Prelude.rnf filePath
       `Prelude.seq` Prelude.rnf hash
-      `Prelude.seq` Prelude.rnf fileName
+      `Prelude.seq` Prelude.rnf resourceId
 
 instance Data.ToJSON FilePaths where
   toJSON FilePaths' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ResourceId" Data..=) Prelude.<$> resourceId,
+          [ ("FileName" Data..=) Prelude.<$> fileName,
             ("FilePath" Data..=) Prelude.<$> filePath,
             ("Hash" Data..=) Prelude.<$> hash,
-            ("FileName" Data..=) Prelude.<$> fileName
+            ("ResourceId" Data..=) Prelude.<$> resourceId
           ]
       )

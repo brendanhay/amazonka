@@ -35,9 +35,9 @@ data Finding = Finding'
     confidence :: Prelude.Maybe Prelude.Double,
     -- | The description of the finding.
     description :: Prelude.Maybe Prelude.Text,
-    service :: Prelude.Maybe ServiceInfo,
     -- | The partition associated with the finding.
     partition :: Prelude.Maybe Prelude.Text,
+    service :: Prelude.Maybe ServiceInfo,
     -- | The title of the finding.
     title :: Prelude.Maybe Prelude.Text,
     -- | The ID of the account in which the finding was generated.
@@ -74,9 +74,9 @@ data Finding = Finding'
 --
 -- 'description', 'finding_description' - The description of the finding.
 --
--- 'service', 'finding_service' - Undocumented member.
---
 -- 'partition', 'finding_partition' - The partition associated with the finding.
+--
+-- 'service', 'finding_service' - Undocumented member.
 --
 -- 'title', 'finding_title' - The title of the finding.
 --
@@ -135,8 +135,8 @@ newFinding
     Finding'
       { confidence = Prelude.Nothing,
         description = Prelude.Nothing,
-        service = Prelude.Nothing,
         partition = Prelude.Nothing,
+        service = Prelude.Nothing,
         title = Prelude.Nothing,
         accountId = pAccountId_,
         arn = pArn_,
@@ -158,13 +158,13 @@ finding_confidence = Lens.lens (\Finding' {confidence} -> confidence) (\s@Findin
 finding_description :: Lens.Lens' Finding (Prelude.Maybe Prelude.Text)
 finding_description = Lens.lens (\Finding' {description} -> description) (\s@Finding' {} a -> s {description = a} :: Finding)
 
--- | Undocumented member.
-finding_service :: Lens.Lens' Finding (Prelude.Maybe ServiceInfo)
-finding_service = Lens.lens (\Finding' {service} -> service) (\s@Finding' {} a -> s {service = a} :: Finding)
-
 -- | The partition associated with the finding.
 finding_partition :: Lens.Lens' Finding (Prelude.Maybe Prelude.Text)
 finding_partition = Lens.lens (\Finding' {partition} -> partition) (\s@Finding' {} a -> s {partition = a} :: Finding)
+
+-- | Undocumented member.
+finding_service :: Lens.Lens' Finding (Prelude.Maybe ServiceInfo)
+finding_service = Lens.lens (\Finding' {service} -> service) (\s@Finding' {} a -> s {service = a} :: Finding)
 
 -- | The title of the finding.
 finding_title :: Lens.Lens' Finding (Prelude.Maybe Prelude.Text)
@@ -218,8 +218,8 @@ instance Data.FromJSON Finding where
           Finding'
             Prelude.<$> (x Data..:? "confidence")
             Prelude.<*> (x Data..:? "description")
-            Prelude.<*> (x Data..:? "service")
             Prelude.<*> (x Data..:? "partition")
+            Prelude.<*> (x Data..:? "service")
             Prelude.<*> (x Data..:? "title")
             Prelude.<*> (x Data..: "accountId")
             Prelude.<*> (x Data..: "arn")
@@ -237,8 +237,8 @@ instance Prelude.Hashable Finding where
   hashWithSalt _salt Finding' {..} =
     _salt `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` service
       `Prelude.hashWithSalt` partition
+      `Prelude.hashWithSalt` service
       `Prelude.hashWithSalt` title
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` arn
@@ -255,8 +255,8 @@ instance Prelude.NFData Finding where
   rnf Finding' {..} =
     Prelude.rnf confidence
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf service
       `Prelude.seq` Prelude.rnf partition
+      `Prelude.seq` Prelude.rnf service
       `Prelude.seq` Prelude.rnf title
       `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf arn

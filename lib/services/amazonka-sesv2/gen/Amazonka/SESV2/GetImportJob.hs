@@ -34,15 +34,15 @@ module Amazonka.SESV2.GetImportJob
     newGetImportJobResponse,
 
     -- * Response Lenses
-    getImportJobResponse_jobStatus,
-    getImportJobResponse_createdTimestamp,
-    getImportJobResponse_jobId,
-    getImportJobResponse_importDestination,
-    getImportJobResponse_failureInfo,
-    getImportJobResponse_failedRecordsCount,
-    getImportJobResponse_processedRecordsCount,
     getImportJobResponse_completedTimestamp,
+    getImportJobResponse_createdTimestamp,
+    getImportJobResponse_failedRecordsCount,
+    getImportJobResponse_failureInfo,
     getImportJobResponse_importDataSource,
+    getImportJobResponse_importDestination,
+    getImportJobResponse_jobId,
+    getImportJobResponse_jobStatus,
+    getImportJobResponse_processedRecordsCount,
     getImportJobResponse_httpStatus,
   )
 where
@@ -93,15 +93,15 @@ instance Core.AWSRequest GetImportJob where
     Response.receiveJSON
       ( \s h x ->
           GetImportJobResponse'
-            Prelude.<$> (x Data..?> "JobStatus")
+            Prelude.<$> (x Data..?> "CompletedTimestamp")
             Prelude.<*> (x Data..?> "CreatedTimestamp")
-            Prelude.<*> (x Data..?> "JobId")
-            Prelude.<*> (x Data..?> "ImportDestination")
-            Prelude.<*> (x Data..?> "FailureInfo")
             Prelude.<*> (x Data..?> "FailedRecordsCount")
-            Prelude.<*> (x Data..?> "ProcessedRecordsCount")
-            Prelude.<*> (x Data..?> "CompletedTimestamp")
+            Prelude.<*> (x Data..?> "FailureInfo")
             Prelude.<*> (x Data..?> "ImportDataSource")
+            Prelude.<*> (x Data..?> "ImportDestination")
+            Prelude.<*> (x Data..?> "JobId")
+            Prelude.<*> (x Data..?> "JobStatus")
+            Prelude.<*> (x Data..?> "ProcessedRecordsCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,25 +136,25 @@ instance Data.ToQuery GetImportJob where
 --
 -- /See:/ 'newGetImportJobResponse' smart constructor.
 data GetImportJobResponse = GetImportJobResponse'
-  { -- | The status of the import job.
-    jobStatus :: Prelude.Maybe JobStatus,
+  { -- | The time stamp of when the import job was completed.
+    completedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The time stamp of when the import job was created.
     createdTimestamp :: Prelude.Maybe Data.POSIX,
-    -- | A string that represents the import job ID.
-    jobId :: Prelude.Maybe Prelude.Text,
-    -- | The destination of the import job.
-    importDestination :: Prelude.Maybe ImportDestination,
-    -- | The failure details about an import job.
-    failureInfo :: Prelude.Maybe FailureInfo,
     -- | The number of records that failed processing because of invalid input or
     -- other reasons.
     failedRecordsCount :: Prelude.Maybe Prelude.Int,
-    -- | The current number of records processed.
-    processedRecordsCount :: Prelude.Maybe Prelude.Int,
-    -- | The time stamp of when the import job was completed.
-    completedTimestamp :: Prelude.Maybe Data.POSIX,
+    -- | The failure details about an import job.
+    failureInfo :: Prelude.Maybe FailureInfo,
     -- | The data source of the import job.
     importDataSource :: Prelude.Maybe ImportDataSource,
+    -- | The destination of the import job.
+    importDestination :: Prelude.Maybe ImportDestination,
+    -- | A string that represents the import job ID.
+    jobId :: Prelude.Maybe Prelude.Text,
+    -- | The status of the import job.
+    jobStatus :: Prelude.Maybe JobStatus,
+    -- | The current number of records processed.
+    processedRecordsCount :: Prelude.Maybe Prelude.Int,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -168,24 +168,24 @@ data GetImportJobResponse = GetImportJobResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobStatus', 'getImportJobResponse_jobStatus' - The status of the import job.
+-- 'completedTimestamp', 'getImportJobResponse_completedTimestamp' - The time stamp of when the import job was completed.
 --
 -- 'createdTimestamp', 'getImportJobResponse_createdTimestamp' - The time stamp of when the import job was created.
---
--- 'jobId', 'getImportJobResponse_jobId' - A string that represents the import job ID.
---
--- 'importDestination', 'getImportJobResponse_importDestination' - The destination of the import job.
---
--- 'failureInfo', 'getImportJobResponse_failureInfo' - The failure details about an import job.
 --
 -- 'failedRecordsCount', 'getImportJobResponse_failedRecordsCount' - The number of records that failed processing because of invalid input or
 -- other reasons.
 --
--- 'processedRecordsCount', 'getImportJobResponse_processedRecordsCount' - The current number of records processed.
---
--- 'completedTimestamp', 'getImportJobResponse_completedTimestamp' - The time stamp of when the import job was completed.
+-- 'failureInfo', 'getImportJobResponse_failureInfo' - The failure details about an import job.
 --
 -- 'importDataSource', 'getImportJobResponse_importDataSource' - The data source of the import job.
+--
+-- 'importDestination', 'getImportJobResponse_importDestination' - The destination of the import job.
+--
+-- 'jobId', 'getImportJobResponse_jobId' - A string that represents the import job ID.
+--
+-- 'jobStatus', 'getImportJobResponse_jobStatus' - The status of the import job.
+--
+-- 'processedRecordsCount', 'getImportJobResponse_processedRecordsCount' - The current number of records processed.
 --
 -- 'httpStatus', 'getImportJobResponse_httpStatus' - The response's http status code.
 newGetImportJobResponse ::
@@ -194,54 +194,55 @@ newGetImportJobResponse ::
   GetImportJobResponse
 newGetImportJobResponse pHttpStatus_ =
   GetImportJobResponse'
-    { jobStatus = Prelude.Nothing,
+    { completedTimestamp =
+        Prelude.Nothing,
       createdTimestamp = Prelude.Nothing,
-      jobId = Prelude.Nothing,
-      importDestination = Prelude.Nothing,
-      failureInfo = Prelude.Nothing,
       failedRecordsCount = Prelude.Nothing,
-      processedRecordsCount = Prelude.Nothing,
-      completedTimestamp = Prelude.Nothing,
+      failureInfo = Prelude.Nothing,
       importDataSource = Prelude.Nothing,
+      importDestination = Prelude.Nothing,
+      jobId = Prelude.Nothing,
+      jobStatus = Prelude.Nothing,
+      processedRecordsCount = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The status of the import job.
-getImportJobResponse_jobStatus :: Lens.Lens' GetImportJobResponse (Prelude.Maybe JobStatus)
-getImportJobResponse_jobStatus = Lens.lens (\GetImportJobResponse' {jobStatus} -> jobStatus) (\s@GetImportJobResponse' {} a -> s {jobStatus = a} :: GetImportJobResponse)
+-- | The time stamp of when the import job was completed.
+getImportJobResponse_completedTimestamp :: Lens.Lens' GetImportJobResponse (Prelude.Maybe Prelude.UTCTime)
+getImportJobResponse_completedTimestamp = Lens.lens (\GetImportJobResponse' {completedTimestamp} -> completedTimestamp) (\s@GetImportJobResponse' {} a -> s {completedTimestamp = a} :: GetImportJobResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The time stamp of when the import job was created.
 getImportJobResponse_createdTimestamp :: Lens.Lens' GetImportJobResponse (Prelude.Maybe Prelude.UTCTime)
 getImportJobResponse_createdTimestamp = Lens.lens (\GetImportJobResponse' {createdTimestamp} -> createdTimestamp) (\s@GetImportJobResponse' {} a -> s {createdTimestamp = a} :: GetImportJobResponse) Prelude.. Lens.mapping Data._Time
-
--- | A string that represents the import job ID.
-getImportJobResponse_jobId :: Lens.Lens' GetImportJobResponse (Prelude.Maybe Prelude.Text)
-getImportJobResponse_jobId = Lens.lens (\GetImportJobResponse' {jobId} -> jobId) (\s@GetImportJobResponse' {} a -> s {jobId = a} :: GetImportJobResponse)
-
--- | The destination of the import job.
-getImportJobResponse_importDestination :: Lens.Lens' GetImportJobResponse (Prelude.Maybe ImportDestination)
-getImportJobResponse_importDestination = Lens.lens (\GetImportJobResponse' {importDestination} -> importDestination) (\s@GetImportJobResponse' {} a -> s {importDestination = a} :: GetImportJobResponse)
-
--- | The failure details about an import job.
-getImportJobResponse_failureInfo :: Lens.Lens' GetImportJobResponse (Prelude.Maybe FailureInfo)
-getImportJobResponse_failureInfo = Lens.lens (\GetImportJobResponse' {failureInfo} -> failureInfo) (\s@GetImportJobResponse' {} a -> s {failureInfo = a} :: GetImportJobResponse)
 
 -- | The number of records that failed processing because of invalid input or
 -- other reasons.
 getImportJobResponse_failedRecordsCount :: Lens.Lens' GetImportJobResponse (Prelude.Maybe Prelude.Int)
 getImportJobResponse_failedRecordsCount = Lens.lens (\GetImportJobResponse' {failedRecordsCount} -> failedRecordsCount) (\s@GetImportJobResponse' {} a -> s {failedRecordsCount = a} :: GetImportJobResponse)
 
--- | The current number of records processed.
-getImportJobResponse_processedRecordsCount :: Lens.Lens' GetImportJobResponse (Prelude.Maybe Prelude.Int)
-getImportJobResponse_processedRecordsCount = Lens.lens (\GetImportJobResponse' {processedRecordsCount} -> processedRecordsCount) (\s@GetImportJobResponse' {} a -> s {processedRecordsCount = a} :: GetImportJobResponse)
-
--- | The time stamp of when the import job was completed.
-getImportJobResponse_completedTimestamp :: Lens.Lens' GetImportJobResponse (Prelude.Maybe Prelude.UTCTime)
-getImportJobResponse_completedTimestamp = Lens.lens (\GetImportJobResponse' {completedTimestamp} -> completedTimestamp) (\s@GetImportJobResponse' {} a -> s {completedTimestamp = a} :: GetImportJobResponse) Prelude.. Lens.mapping Data._Time
+-- | The failure details about an import job.
+getImportJobResponse_failureInfo :: Lens.Lens' GetImportJobResponse (Prelude.Maybe FailureInfo)
+getImportJobResponse_failureInfo = Lens.lens (\GetImportJobResponse' {failureInfo} -> failureInfo) (\s@GetImportJobResponse' {} a -> s {failureInfo = a} :: GetImportJobResponse)
 
 -- | The data source of the import job.
 getImportJobResponse_importDataSource :: Lens.Lens' GetImportJobResponse (Prelude.Maybe ImportDataSource)
 getImportJobResponse_importDataSource = Lens.lens (\GetImportJobResponse' {importDataSource} -> importDataSource) (\s@GetImportJobResponse' {} a -> s {importDataSource = a} :: GetImportJobResponse)
+
+-- | The destination of the import job.
+getImportJobResponse_importDestination :: Lens.Lens' GetImportJobResponse (Prelude.Maybe ImportDestination)
+getImportJobResponse_importDestination = Lens.lens (\GetImportJobResponse' {importDestination} -> importDestination) (\s@GetImportJobResponse' {} a -> s {importDestination = a} :: GetImportJobResponse)
+
+-- | A string that represents the import job ID.
+getImportJobResponse_jobId :: Lens.Lens' GetImportJobResponse (Prelude.Maybe Prelude.Text)
+getImportJobResponse_jobId = Lens.lens (\GetImportJobResponse' {jobId} -> jobId) (\s@GetImportJobResponse' {} a -> s {jobId = a} :: GetImportJobResponse)
+
+-- | The status of the import job.
+getImportJobResponse_jobStatus :: Lens.Lens' GetImportJobResponse (Prelude.Maybe JobStatus)
+getImportJobResponse_jobStatus = Lens.lens (\GetImportJobResponse' {jobStatus} -> jobStatus) (\s@GetImportJobResponse' {} a -> s {jobStatus = a} :: GetImportJobResponse)
+
+-- | The current number of records processed.
+getImportJobResponse_processedRecordsCount :: Lens.Lens' GetImportJobResponse (Prelude.Maybe Prelude.Int)
+getImportJobResponse_processedRecordsCount = Lens.lens (\GetImportJobResponse' {processedRecordsCount} -> processedRecordsCount) (\s@GetImportJobResponse' {} a -> s {processedRecordsCount = a} :: GetImportJobResponse)
 
 -- | The response's http status code.
 getImportJobResponse_httpStatus :: Lens.Lens' GetImportJobResponse Prelude.Int
@@ -249,13 +250,13 @@ getImportJobResponse_httpStatus = Lens.lens (\GetImportJobResponse' {httpStatus}
 
 instance Prelude.NFData GetImportJobResponse where
   rnf GetImportJobResponse' {..} =
-    Prelude.rnf jobStatus
+    Prelude.rnf completedTimestamp
       `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf importDestination
-      `Prelude.seq` Prelude.rnf failureInfo
       `Prelude.seq` Prelude.rnf failedRecordsCount
-      `Prelude.seq` Prelude.rnf processedRecordsCount
-      `Prelude.seq` Prelude.rnf completedTimestamp
+      `Prelude.seq` Prelude.rnf failureInfo
       `Prelude.seq` Prelude.rnf importDataSource
+      `Prelude.seq` Prelude.rnf importDestination
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf processedRecordsCount
       `Prelude.seq` Prelude.rnf httpStatus

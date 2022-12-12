@@ -31,20 +31,20 @@ import qualified Amazonka.Prelude as Prelude
 data Alarm = Alarm'
   { -- | The name of the alarm model.
     alarmModelName :: Prelude.Maybe Prelude.Text,
-    -- | Contains information about the current state of the alarm.
-    alarmState :: Prelude.Maybe AlarmState,
-    -- | A non-negative integer that reflects the severity level of the alarm.
-    severity :: Prelude.Maybe Prelude.Natural,
     -- | The version of the alarm model.
     alarmModelVersion :: Prelude.Maybe Prelude.Text,
+    -- | Contains information about the current state of the alarm.
+    alarmState :: Prelude.Maybe AlarmState,
+    -- | The time the alarm was created, in the Unix epoch format.
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The value of the key used as a filter to select only the alarms
     -- associated with the
     -- <https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateAlarmModel.html#iotevents-CreateAlarmModel-request-key key>.
     keyValue :: Prelude.Maybe Prelude.Text,
-    -- | The time the alarm was created, in the Unix epoch format.
-    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The time the alarm was last updated, in the Unix epoch format.
-    lastUpdateTime :: Prelude.Maybe Data.POSIX
+    lastUpdateTime :: Prelude.Maybe Data.POSIX,
+    -- | A non-negative integer that reflects the severity level of the alarm.
+    severity :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,47 +58,47 @@ data Alarm = Alarm'
 --
 -- 'alarmModelName', 'alarm_alarmModelName' - The name of the alarm model.
 --
+-- 'alarmModelVersion', 'alarm_alarmModelVersion' - The version of the alarm model.
+--
 -- 'alarmState', 'alarm_alarmState' - Contains information about the current state of the alarm.
 --
--- 'severity', 'alarm_severity' - A non-negative integer that reflects the severity level of the alarm.
---
--- 'alarmModelVersion', 'alarm_alarmModelVersion' - The version of the alarm model.
+-- 'creationTime', 'alarm_creationTime' - The time the alarm was created, in the Unix epoch format.
 --
 -- 'keyValue', 'alarm_keyValue' - The value of the key used as a filter to select only the alarms
 -- associated with the
 -- <https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateAlarmModel.html#iotevents-CreateAlarmModel-request-key key>.
 --
--- 'creationTime', 'alarm_creationTime' - The time the alarm was created, in the Unix epoch format.
---
 -- 'lastUpdateTime', 'alarm_lastUpdateTime' - The time the alarm was last updated, in the Unix epoch format.
+--
+-- 'severity', 'alarm_severity' - A non-negative integer that reflects the severity level of the alarm.
 newAlarm ::
   Alarm
 newAlarm =
   Alarm'
     { alarmModelName = Prelude.Nothing,
-      alarmState = Prelude.Nothing,
-      severity = Prelude.Nothing,
       alarmModelVersion = Prelude.Nothing,
-      keyValue = Prelude.Nothing,
+      alarmState = Prelude.Nothing,
       creationTime = Prelude.Nothing,
-      lastUpdateTime = Prelude.Nothing
+      keyValue = Prelude.Nothing,
+      lastUpdateTime = Prelude.Nothing,
+      severity = Prelude.Nothing
     }
 
 -- | The name of the alarm model.
 alarm_alarmModelName :: Lens.Lens' Alarm (Prelude.Maybe Prelude.Text)
 alarm_alarmModelName = Lens.lens (\Alarm' {alarmModelName} -> alarmModelName) (\s@Alarm' {} a -> s {alarmModelName = a} :: Alarm)
 
+-- | The version of the alarm model.
+alarm_alarmModelVersion :: Lens.Lens' Alarm (Prelude.Maybe Prelude.Text)
+alarm_alarmModelVersion = Lens.lens (\Alarm' {alarmModelVersion} -> alarmModelVersion) (\s@Alarm' {} a -> s {alarmModelVersion = a} :: Alarm)
+
 -- | Contains information about the current state of the alarm.
 alarm_alarmState :: Lens.Lens' Alarm (Prelude.Maybe AlarmState)
 alarm_alarmState = Lens.lens (\Alarm' {alarmState} -> alarmState) (\s@Alarm' {} a -> s {alarmState = a} :: Alarm)
 
--- | A non-negative integer that reflects the severity level of the alarm.
-alarm_severity :: Lens.Lens' Alarm (Prelude.Maybe Prelude.Natural)
-alarm_severity = Lens.lens (\Alarm' {severity} -> severity) (\s@Alarm' {} a -> s {severity = a} :: Alarm)
-
--- | The version of the alarm model.
-alarm_alarmModelVersion :: Lens.Lens' Alarm (Prelude.Maybe Prelude.Text)
-alarm_alarmModelVersion = Lens.lens (\Alarm' {alarmModelVersion} -> alarmModelVersion) (\s@Alarm' {} a -> s {alarmModelVersion = a} :: Alarm)
+-- | The time the alarm was created, in the Unix epoch format.
+alarm_creationTime :: Lens.Lens' Alarm (Prelude.Maybe Prelude.UTCTime)
+alarm_creationTime = Lens.lens (\Alarm' {creationTime} -> creationTime) (\s@Alarm' {} a -> s {creationTime = a} :: Alarm) Prelude.. Lens.mapping Data._Time
 
 -- | The value of the key used as a filter to select only the alarms
 -- associated with the
@@ -106,13 +106,13 @@ alarm_alarmModelVersion = Lens.lens (\Alarm' {alarmModelVersion} -> alarmModelVe
 alarm_keyValue :: Lens.Lens' Alarm (Prelude.Maybe Prelude.Text)
 alarm_keyValue = Lens.lens (\Alarm' {keyValue} -> keyValue) (\s@Alarm' {} a -> s {keyValue = a} :: Alarm)
 
--- | The time the alarm was created, in the Unix epoch format.
-alarm_creationTime :: Lens.Lens' Alarm (Prelude.Maybe Prelude.UTCTime)
-alarm_creationTime = Lens.lens (\Alarm' {creationTime} -> creationTime) (\s@Alarm' {} a -> s {creationTime = a} :: Alarm) Prelude.. Lens.mapping Data._Time
-
 -- | The time the alarm was last updated, in the Unix epoch format.
 alarm_lastUpdateTime :: Lens.Lens' Alarm (Prelude.Maybe Prelude.UTCTime)
 alarm_lastUpdateTime = Lens.lens (\Alarm' {lastUpdateTime} -> lastUpdateTime) (\s@Alarm' {} a -> s {lastUpdateTime = a} :: Alarm) Prelude.. Lens.mapping Data._Time
+
+-- | A non-negative integer that reflects the severity level of the alarm.
+alarm_severity :: Lens.Lens' Alarm (Prelude.Maybe Prelude.Natural)
+alarm_severity = Lens.lens (\Alarm' {severity} -> severity) (\s@Alarm' {} a -> s {severity = a} :: Alarm)
 
 instance Data.FromJSON Alarm where
   parseJSON =
@@ -121,30 +121,30 @@ instance Data.FromJSON Alarm where
       ( \x ->
           Alarm'
             Prelude.<$> (x Data..:? "alarmModelName")
-            Prelude.<*> (x Data..:? "alarmState")
-            Prelude.<*> (x Data..:? "severity")
             Prelude.<*> (x Data..:? "alarmModelVersion")
-            Prelude.<*> (x Data..:? "keyValue")
+            Prelude.<*> (x Data..:? "alarmState")
             Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "keyValue")
             Prelude.<*> (x Data..:? "lastUpdateTime")
+            Prelude.<*> (x Data..:? "severity")
       )
 
 instance Prelude.Hashable Alarm where
   hashWithSalt _salt Alarm' {..} =
     _salt `Prelude.hashWithSalt` alarmModelName
-      `Prelude.hashWithSalt` alarmState
-      `Prelude.hashWithSalt` severity
       `Prelude.hashWithSalt` alarmModelVersion
-      `Prelude.hashWithSalt` keyValue
+      `Prelude.hashWithSalt` alarmState
       `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` keyValue
       `Prelude.hashWithSalt` lastUpdateTime
+      `Prelude.hashWithSalt` severity
 
 instance Prelude.NFData Alarm where
   rnf Alarm' {..} =
     Prelude.rnf alarmModelName
-      `Prelude.seq` Prelude.rnf alarmState
-      `Prelude.seq` Prelude.rnf severity
       `Prelude.seq` Prelude.rnf alarmModelVersion
-      `Prelude.seq` Prelude.rnf keyValue
+      `Prelude.seq` Prelude.rnf alarmState
       `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf keyValue
       `Prelude.seq` Prelude.rnf lastUpdateTime
+      `Prelude.seq` Prelude.rnf severity

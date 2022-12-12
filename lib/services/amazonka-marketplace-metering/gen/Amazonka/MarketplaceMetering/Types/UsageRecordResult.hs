@@ -31,7 +31,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUsageRecordResult' smart constructor.
 data UsageRecordResult = UsageRecordResult'
-  { -- | The @UsageRecordResult@ @Status@ indicates the status of an individual
+  { -- | The @MeteringRecordId@ is a unique identifier for this metering event.
+    meteringRecordId :: Prelude.Maybe Prelude.Text,
+    -- | The @UsageRecordResult@ @Status@ indicates the status of an individual
     -- @UsageRecord@ processed by @BatchMeterUsage@.
     --
     -- -   /Success/- The @UsageRecord@ was accepted and honored by
@@ -54,8 +56,6 @@ data UsageRecordResult = UsageRecordResult'
     --     not honored. A previously metered @UsageRecord@ had the same
     --     customer, dimension, and time, but a different quantity.
     status :: Prelude.Maybe UsageRecordResultStatus,
-    -- | The @MeteringRecordId@ is a unique identifier for this metering event.
-    meteringRecordId :: Prelude.Maybe Prelude.Text,
     -- | The @UsageRecord@ that was part of the @BatchMeterUsage@ request.
     usageRecord :: Prelude.Maybe UsageRecord
   }
@@ -68,6 +68,8 @@ data UsageRecordResult = UsageRecordResult'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'meteringRecordId', 'usageRecordResult_meteringRecordId' - The @MeteringRecordId@ is a unique identifier for this metering event.
 --
 -- 'status', 'usageRecordResult_status' - The @UsageRecordResult@ @Status@ indicates the status of an individual
 -- @UsageRecord@ processed by @BatchMeterUsage@.
@@ -92,17 +94,20 @@ data UsageRecordResult = UsageRecordResult'
 --     not honored. A previously metered @UsageRecord@ had the same
 --     customer, dimension, and time, but a different quantity.
 --
--- 'meteringRecordId', 'usageRecordResult_meteringRecordId' - The @MeteringRecordId@ is a unique identifier for this metering event.
---
 -- 'usageRecord', 'usageRecordResult_usageRecord' - The @UsageRecord@ that was part of the @BatchMeterUsage@ request.
 newUsageRecordResult ::
   UsageRecordResult
 newUsageRecordResult =
   UsageRecordResult'
-    { status = Prelude.Nothing,
-      meteringRecordId = Prelude.Nothing,
+    { meteringRecordId =
+        Prelude.Nothing,
+      status = Prelude.Nothing,
       usageRecord = Prelude.Nothing
     }
+
+-- | The @MeteringRecordId@ is a unique identifier for this metering event.
+usageRecordResult_meteringRecordId :: Lens.Lens' UsageRecordResult (Prelude.Maybe Prelude.Text)
+usageRecordResult_meteringRecordId = Lens.lens (\UsageRecordResult' {meteringRecordId} -> meteringRecordId) (\s@UsageRecordResult' {} a -> s {meteringRecordId = a} :: UsageRecordResult)
 
 -- | The @UsageRecordResult@ @Status@ indicates the status of an individual
 -- @UsageRecord@ processed by @BatchMeterUsage@.
@@ -129,10 +134,6 @@ newUsageRecordResult =
 usageRecordResult_status :: Lens.Lens' UsageRecordResult (Prelude.Maybe UsageRecordResultStatus)
 usageRecordResult_status = Lens.lens (\UsageRecordResult' {status} -> status) (\s@UsageRecordResult' {} a -> s {status = a} :: UsageRecordResult)
 
--- | The @MeteringRecordId@ is a unique identifier for this metering event.
-usageRecordResult_meteringRecordId :: Lens.Lens' UsageRecordResult (Prelude.Maybe Prelude.Text)
-usageRecordResult_meteringRecordId = Lens.lens (\UsageRecordResult' {meteringRecordId} -> meteringRecordId) (\s@UsageRecordResult' {} a -> s {meteringRecordId = a} :: UsageRecordResult)
-
 -- | The @UsageRecord@ that was part of the @BatchMeterUsage@ request.
 usageRecordResult_usageRecord :: Lens.Lens' UsageRecordResult (Prelude.Maybe UsageRecord)
 usageRecordResult_usageRecord = Lens.lens (\UsageRecordResult' {usageRecord} -> usageRecord) (\s@UsageRecordResult' {} a -> s {usageRecord = a} :: UsageRecordResult)
@@ -143,19 +144,19 @@ instance Data.FromJSON UsageRecordResult where
       "UsageRecordResult"
       ( \x ->
           UsageRecordResult'
-            Prelude.<$> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "MeteringRecordId")
+            Prelude.<$> (x Data..:? "MeteringRecordId")
+            Prelude.<*> (x Data..:? "Status")
             Prelude.<*> (x Data..:? "UsageRecord")
       )
 
 instance Prelude.Hashable UsageRecordResult where
   hashWithSalt _salt UsageRecordResult' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` meteringRecordId
+    _salt `Prelude.hashWithSalt` meteringRecordId
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` usageRecord
 
 instance Prelude.NFData UsageRecordResult where
   rnf UsageRecordResult' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf meteringRecordId
+    Prelude.rnf meteringRecordId
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf usageRecord

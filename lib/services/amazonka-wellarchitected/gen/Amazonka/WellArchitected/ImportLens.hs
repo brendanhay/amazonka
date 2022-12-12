@@ -46,8 +46,8 @@ module Amazonka.WellArchitected.ImportLens
     newImportLens,
 
     -- * Request Lenses
-    importLens_tags,
     importLens_lensAlias,
+    importLens_tags,
     importLens_jSONString,
     importLens_clientRequestToken,
 
@@ -72,9 +72,9 @@ import Amazonka.WellArchitected.Types
 
 -- | /See:/ 'newImportLens' smart constructor.
 data ImportLens = ImportLens'
-  { -- | Tags to associate to a lens.
+  { lensAlias :: Prelude.Maybe Prelude.Text,
+    -- | Tags to associate to a lens.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    lensAlias :: Prelude.Maybe Prelude.Text,
     -- | The JSON representation of a lens.
     jSONString :: Prelude.Text,
     clientRequestToken :: Prelude.Text
@@ -89,9 +89,9 @@ data ImportLens = ImportLens'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'importLens_tags' - Tags to associate to a lens.
---
 -- 'lensAlias', 'importLens_lensAlias' - Undocumented member.
+--
+-- 'tags', 'importLens_tags' - Tags to associate to a lens.
 --
 -- 'jSONString', 'importLens_jSONString' - The JSON representation of a lens.
 --
@@ -104,19 +104,19 @@ newImportLens ::
   ImportLens
 newImportLens pJSONString_ pClientRequestToken_ =
   ImportLens'
-    { tags = Prelude.Nothing,
-      lensAlias = Prelude.Nothing,
+    { lensAlias = Prelude.Nothing,
+      tags = Prelude.Nothing,
       jSONString = pJSONString_,
       clientRequestToken = pClientRequestToken_
     }
 
--- | Tags to associate to a lens.
-importLens_tags :: Lens.Lens' ImportLens (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-importLens_tags = Lens.lens (\ImportLens' {tags} -> tags) (\s@ImportLens' {} a -> s {tags = a} :: ImportLens) Prelude.. Lens.mapping Lens.coerced
-
 -- | Undocumented member.
 importLens_lensAlias :: Lens.Lens' ImportLens (Prelude.Maybe Prelude.Text)
 importLens_lensAlias = Lens.lens (\ImportLens' {lensAlias} -> lensAlias) (\s@ImportLens' {} a -> s {lensAlias = a} :: ImportLens)
+
+-- | Tags to associate to a lens.
+importLens_tags :: Lens.Lens' ImportLens (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+importLens_tags = Lens.lens (\ImportLens' {tags} -> tags) (\s@ImportLens' {} a -> s {tags = a} :: ImportLens) Prelude.. Lens.mapping Lens.coerced
 
 -- | The JSON representation of a lens.
 importLens_jSONString :: Lens.Lens' ImportLens Prelude.Text
@@ -141,15 +141,15 @@ instance Core.AWSRequest ImportLens where
 
 instance Prelude.Hashable ImportLens where
   hashWithSalt _salt ImportLens' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` lensAlias
+    _salt `Prelude.hashWithSalt` lensAlias
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` jSONString
       `Prelude.hashWithSalt` clientRequestToken
 
 instance Prelude.NFData ImportLens where
   rnf ImportLens' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf lensAlias
+    Prelude.rnf lensAlias
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf jSONString
       `Prelude.seq` Prelude.rnf clientRequestToken
 
@@ -168,8 +168,8 @@ instance Data.ToJSON ImportLens where
   toJSON ImportLens' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("LensAlias" Data..=) Prelude.<$> lensAlias,
+          [ ("LensAlias" Data..=) Prelude.<$> lensAlias,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("JSONString" Data..= jSONString),
             Prelude.Just
               ("ClientRequestToken" Data..= clientRequestToken)

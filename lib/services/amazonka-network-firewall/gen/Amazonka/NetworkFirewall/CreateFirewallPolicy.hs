@@ -32,10 +32,10 @@ module Amazonka.NetworkFirewall.CreateFirewallPolicy
     newCreateFirewallPolicy,
 
     -- * Request Lenses
-    createFirewallPolicy_tags,
     createFirewallPolicy_description,
     createFirewallPolicy_dryRun,
     createFirewallPolicy_encryptionConfiguration,
+    createFirewallPolicy_tags,
     createFirewallPolicy_firewallPolicyName,
     createFirewallPolicy_firewallPolicy,
 
@@ -60,9 +60,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateFirewallPolicy' smart constructor.
 data CreateFirewallPolicy = CreateFirewallPolicy'
-  { -- | The key:value pairs to associate with the resource.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | A description of the firewall policy.
+  { -- | A description of the firewall policy.
     description :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether you want Network Firewall to just check the validity
     -- of the request, rather than run the request.
@@ -81,6 +79,8 @@ data CreateFirewallPolicy = CreateFirewallPolicy'
     -- | A complex type that contains settings for encryption of your firewall
     -- policy resources.
     encryptionConfiguration :: Prelude.Maybe EncryptionConfiguration,
+    -- | The key:value pairs to associate with the resource.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The descriptive name of the firewall policy. You can\'t change the name
     -- of a firewall policy after you create it.
     firewallPolicyName :: Prelude.Text,
@@ -96,8 +96,6 @@ data CreateFirewallPolicy = CreateFirewallPolicy'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'tags', 'createFirewallPolicy_tags' - The key:value pairs to associate with the resource.
 --
 -- 'description', 'createFirewallPolicy_description' - A description of the firewall policy.
 --
@@ -118,6 +116,8 @@ data CreateFirewallPolicy = CreateFirewallPolicy'
 -- 'encryptionConfiguration', 'createFirewallPolicy_encryptionConfiguration' - A complex type that contains settings for encryption of your firewall
 -- policy resources.
 --
+-- 'tags', 'createFirewallPolicy_tags' - The key:value pairs to associate with the resource.
+--
 -- 'firewallPolicyName', 'createFirewallPolicy_firewallPolicyName' - The descriptive name of the firewall policy. You can\'t change the name
 -- of a firewall policy after you create it.
 --
@@ -132,17 +132,14 @@ newCreateFirewallPolicy
   pFirewallPolicyName_
   pFirewallPolicy_ =
     CreateFirewallPolicy'
-      { tags = Prelude.Nothing,
-        description = Prelude.Nothing,
+      { description =
+          Prelude.Nothing,
         dryRun = Prelude.Nothing,
         encryptionConfiguration = Prelude.Nothing,
+        tags = Prelude.Nothing,
         firewallPolicyName = pFirewallPolicyName_,
         firewallPolicy = pFirewallPolicy_
       }
-
--- | The key:value pairs to associate with the resource.
-createFirewallPolicy_tags :: Lens.Lens' CreateFirewallPolicy (Prelude.Maybe (Prelude.NonEmpty Tag))
-createFirewallPolicy_tags = Lens.lens (\CreateFirewallPolicy' {tags} -> tags) (\s@CreateFirewallPolicy' {} a -> s {tags = a} :: CreateFirewallPolicy) Prelude.. Lens.mapping Lens.coerced
 
 -- | A description of the firewall policy.
 createFirewallPolicy_description :: Lens.Lens' CreateFirewallPolicy (Prelude.Maybe Prelude.Text)
@@ -168,6 +165,10 @@ createFirewallPolicy_dryRun = Lens.lens (\CreateFirewallPolicy' {dryRun} -> dryR
 -- policy resources.
 createFirewallPolicy_encryptionConfiguration :: Lens.Lens' CreateFirewallPolicy (Prelude.Maybe EncryptionConfiguration)
 createFirewallPolicy_encryptionConfiguration = Lens.lens (\CreateFirewallPolicy' {encryptionConfiguration} -> encryptionConfiguration) (\s@CreateFirewallPolicy' {} a -> s {encryptionConfiguration = a} :: CreateFirewallPolicy)
+
+-- | The key:value pairs to associate with the resource.
+createFirewallPolicy_tags :: Lens.Lens' CreateFirewallPolicy (Prelude.Maybe (Prelude.NonEmpty Tag))
+createFirewallPolicy_tags = Lens.lens (\CreateFirewallPolicy' {tags} -> tags) (\s@CreateFirewallPolicy' {} a -> s {tags = a} :: CreateFirewallPolicy) Prelude.. Lens.mapping Lens.coerced
 
 -- | The descriptive name of the firewall policy. You can\'t change the name
 -- of a firewall policy after you create it.
@@ -195,19 +196,19 @@ instance Core.AWSRequest CreateFirewallPolicy where
 
 instance Prelude.Hashable CreateFirewallPolicy where
   hashWithSalt _salt CreateFirewallPolicy' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` encryptionConfiguration
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` firewallPolicyName
       `Prelude.hashWithSalt` firewallPolicy
 
 instance Prelude.NFData CreateFirewallPolicy where
   rnf CreateFirewallPolicy' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf encryptionConfiguration
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf firewallPolicyName
       `Prelude.seq` Prelude.rnf firewallPolicy
 
@@ -230,11 +231,11 @@ instance Data.ToJSON CreateFirewallPolicy where
   toJSON CreateFirewallPolicy' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
             ("DryRun" Data..=) Prelude.<$> dryRun,
             ("EncryptionConfiguration" Data..=)
               Prelude.<$> encryptionConfiguration,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("FirewallPolicyName" Data..= firewallPolicyName),
             Prelude.Just

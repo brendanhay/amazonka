@@ -25,11 +25,11 @@ module Amazonka.IoTSecureTunneling
     -- * Errors
     -- $errors
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
     -- ** LimitExceededException
     _LimitExceededException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- * Waiters
     -- $waiters

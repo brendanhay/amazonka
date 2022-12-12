@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLaunchPermissionModifications' smart constructor.
 data LaunchPermissionModifications = LaunchPermissionModifications'
-  { -- | The Amazon Web Services account ID, organization ARN, or OU ARN to
-    -- remove from the list of launch permissions for the AMI.
-    remove :: Prelude.Maybe [LaunchPermission],
-    -- | The Amazon Web Services account ID, organization ARN, or OU ARN to add
+  { -- | The Amazon Web Services account ID, organization ARN, or OU ARN to add
     -- to the list of launch permissions for the AMI.
-    add :: Prelude.Maybe [LaunchPermission]
+    add :: Prelude.Maybe [LaunchPermission],
+    -- | The Amazon Web Services account ID, organization ARN, or OU ARN to
+    -- remove from the list of launch permissions for the AMI.
+    remove :: Prelude.Maybe [LaunchPermission]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,47 +47,47 @@ data LaunchPermissionModifications = LaunchPermissionModifications'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'remove', 'launchPermissionModifications_remove' - The Amazon Web Services account ID, organization ARN, or OU ARN to
--- remove from the list of launch permissions for the AMI.
---
 -- 'add', 'launchPermissionModifications_add' - The Amazon Web Services account ID, organization ARN, or OU ARN to add
 -- to the list of launch permissions for the AMI.
+--
+-- 'remove', 'launchPermissionModifications_remove' - The Amazon Web Services account ID, organization ARN, or OU ARN to
+-- remove from the list of launch permissions for the AMI.
 newLaunchPermissionModifications ::
   LaunchPermissionModifications
 newLaunchPermissionModifications =
   LaunchPermissionModifications'
-    { remove =
+    { add =
         Prelude.Nothing,
-      add = Prelude.Nothing
+      remove = Prelude.Nothing
     }
-
--- | The Amazon Web Services account ID, organization ARN, or OU ARN to
--- remove from the list of launch permissions for the AMI.
-launchPermissionModifications_remove :: Lens.Lens' LaunchPermissionModifications (Prelude.Maybe [LaunchPermission])
-launchPermissionModifications_remove = Lens.lens (\LaunchPermissionModifications' {remove} -> remove) (\s@LaunchPermissionModifications' {} a -> s {remove = a} :: LaunchPermissionModifications) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Web Services account ID, organization ARN, or OU ARN to add
 -- to the list of launch permissions for the AMI.
 launchPermissionModifications_add :: Lens.Lens' LaunchPermissionModifications (Prelude.Maybe [LaunchPermission])
 launchPermissionModifications_add = Lens.lens (\LaunchPermissionModifications' {add} -> add) (\s@LaunchPermissionModifications' {} a -> s {add = a} :: LaunchPermissionModifications) Prelude.. Lens.mapping Lens.coerced
 
+-- | The Amazon Web Services account ID, organization ARN, or OU ARN to
+-- remove from the list of launch permissions for the AMI.
+launchPermissionModifications_remove :: Lens.Lens' LaunchPermissionModifications (Prelude.Maybe [LaunchPermission])
+launchPermissionModifications_remove = Lens.lens (\LaunchPermissionModifications' {remove} -> remove) (\s@LaunchPermissionModifications' {} a -> s {remove = a} :: LaunchPermissionModifications) Prelude.. Lens.mapping Lens.coerced
+
 instance
   Prelude.Hashable
     LaunchPermissionModifications
   where
   hashWithSalt _salt LaunchPermissionModifications' {..} =
-    _salt `Prelude.hashWithSalt` remove
-      `Prelude.hashWithSalt` add
+    _salt `Prelude.hashWithSalt` add
+      `Prelude.hashWithSalt` remove
 
 instance Prelude.NFData LaunchPermissionModifications where
   rnf LaunchPermissionModifications' {..} =
-    Prelude.rnf remove `Prelude.seq` Prelude.rnf add
+    Prelude.rnf add `Prelude.seq` Prelude.rnf remove
 
 instance Data.ToQuery LaunchPermissionModifications where
   toQuery LaunchPermissionModifications' {..} =
     Prelude.mconcat
       [ Data.toQuery
-          (Data.toQueryList "Remove" Prelude.<$> remove),
+          (Data.toQueryList "Add" Prelude.<$> add),
         Data.toQuery
-          (Data.toQueryList "Add" Prelude.<$> add)
+          (Data.toQueryList "Remove" Prelude.<$> remove)
       ]

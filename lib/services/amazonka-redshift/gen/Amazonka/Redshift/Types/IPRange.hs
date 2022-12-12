@@ -30,12 +30,12 @@ import Amazonka.Redshift.Types.Tag
 --
 -- /See:/ 'newIPRange' smart constructor.
 data IPRange = IPRange'
-  { -- | The list of tags for the IP range.
-    tags :: Prelude.Maybe [Tag],
+  { -- | The IP range in Classless Inter-Domain Routing (CIDR) notation.
+    cidrip :: Prelude.Maybe Prelude.Text,
     -- | The status of the IP range, for example, \"authorized\".
     status :: Prelude.Maybe Prelude.Text,
-    -- | The IP range in Classless Inter-Domain Routing (CIDR) notation.
-    cidrip :: Prelude.Maybe Prelude.Text
+    -- | The list of tags for the IP range.
+    tags :: Prelude.Maybe [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,49 +47,49 @@ data IPRange = IPRange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'iPRange_tags' - The list of tags for the IP range.
+-- 'cidrip', 'iPRange_cidrip' - The IP range in Classless Inter-Domain Routing (CIDR) notation.
 --
 -- 'status', 'iPRange_status' - The status of the IP range, for example, \"authorized\".
 --
--- 'cidrip', 'iPRange_cidrip' - The IP range in Classless Inter-Domain Routing (CIDR) notation.
+-- 'tags', 'iPRange_tags' - The list of tags for the IP range.
 newIPRange ::
   IPRange
 newIPRange =
   IPRange'
-    { tags = Prelude.Nothing,
+    { cidrip = Prelude.Nothing,
       status = Prelude.Nothing,
-      cidrip = Prelude.Nothing
+      tags = Prelude.Nothing
     }
-
--- | The list of tags for the IP range.
-iPRange_tags :: Lens.Lens' IPRange (Prelude.Maybe [Tag])
-iPRange_tags = Lens.lens (\IPRange' {tags} -> tags) (\s@IPRange' {} a -> s {tags = a} :: IPRange) Prelude.. Lens.mapping Lens.coerced
-
--- | The status of the IP range, for example, \"authorized\".
-iPRange_status :: Lens.Lens' IPRange (Prelude.Maybe Prelude.Text)
-iPRange_status = Lens.lens (\IPRange' {status} -> status) (\s@IPRange' {} a -> s {status = a} :: IPRange)
 
 -- | The IP range in Classless Inter-Domain Routing (CIDR) notation.
 iPRange_cidrip :: Lens.Lens' IPRange (Prelude.Maybe Prelude.Text)
 iPRange_cidrip = Lens.lens (\IPRange' {cidrip} -> cidrip) (\s@IPRange' {} a -> s {cidrip = a} :: IPRange)
 
+-- | The status of the IP range, for example, \"authorized\".
+iPRange_status :: Lens.Lens' IPRange (Prelude.Maybe Prelude.Text)
+iPRange_status = Lens.lens (\IPRange' {status} -> status) (\s@IPRange' {} a -> s {status = a} :: IPRange)
+
+-- | The list of tags for the IP range.
+iPRange_tags :: Lens.Lens' IPRange (Prelude.Maybe [Tag])
+iPRange_tags = Lens.lens (\IPRange' {tags} -> tags) (\s@IPRange' {} a -> s {tags = a} :: IPRange) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromXML IPRange where
   parseXML x =
     IPRange'
-      Prelude.<$> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+      Prelude.<$> (x Data..@? "CIDRIP")
+      Prelude.<*> (x Data..@? "Status")
+      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
-      Prelude.<*> (x Data..@? "Status")
-      Prelude.<*> (x Data..@? "CIDRIP")
 
 instance Prelude.Hashable IPRange where
   hashWithSalt _salt IPRange' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` cidrip
       `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` cidrip
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData IPRange where
   rnf IPRange' {..} =
-    Prelude.rnf tags
+    Prelude.rnf cidrip
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf cidrip
+      `Prelude.seq` Prelude.rnf tags

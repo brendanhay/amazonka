@@ -22,8 +22,8 @@ module Amazonka.Comprehend
     -- * Errors
     -- $errors
 
-    -- ** ResourceUnavailableException
-    _ResourceUnavailableException,
+    -- ** BatchSizeLimitExceededException
+    _BatchSizeLimitExceededException,
 
     -- ** ConcurrentModificationException
     _ConcurrentModificationException,
@@ -31,44 +31,44 @@ module Amazonka.Comprehend
     -- ** InternalServerException
     _InternalServerException,
 
-    -- ** TooManyTagsException
-    _TooManyTagsException,
-
-    -- ** TooManyTagKeysException
-    _TooManyTagKeysException,
-
-    -- ** UnsupportedLanguageException
-    _UnsupportedLanguageException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** ResourceInUseException
-    _ResourceInUseException,
-
     -- ** InvalidFilterException
     _InvalidFilterException,
-
-    -- ** ResourceLimitExceededException
-    _ResourceLimitExceededException,
-
-    -- ** TextSizeLimitExceededException
-    _TextSizeLimitExceededException,
-
-    -- ** BatchSizeLimitExceededException
-    _BatchSizeLimitExceededException,
-
-    -- ** KmsKeyValidationException
-    _KmsKeyValidationException,
-
-    -- ** TooManyRequestsException
-    _TooManyRequestsException,
 
     -- ** InvalidRequestException
     _InvalidRequestException,
 
     -- ** JobNotFoundException
     _JobNotFoundException,
+
+    -- ** KmsKeyValidationException
+    _KmsKeyValidationException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
+
+    -- ** ResourceLimitExceededException
+    _ResourceLimitExceededException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ResourceUnavailableException
+    _ResourceUnavailableException,
+
+    -- ** TextSizeLimitExceededException
+    _TextSizeLimitExceededException,
+
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
+
+    -- ** TooManyTagKeysException
+    _TooManyTagKeysException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
+
+    -- ** UnsupportedLanguageException
+    _UnsupportedLanguageException,
 
     -- * Waiters
     -- $waiters
@@ -316,7 +316,7 @@ module Amazonka.Comprehend
     ListDominantLanguageDetectionJobsResponse (ListDominantLanguageDetectionJobsResponse'),
     newListDominantLanguageDetectionJobsResponse,
 
-    -- ** ListEndpoints
+    -- ** ListEndpoints (Paginated)
     ListEndpoints (ListEndpoints'),
     newListEndpoints,
     ListEndpointsResponse (ListEndpointsResponse'),
@@ -352,7 +352,7 @@ module Amazonka.Comprehend
     ListKeyPhrasesDetectionJobsResponse (ListKeyPhrasesDetectionJobsResponse'),
     newListKeyPhrasesDetectionJobsResponse,
 
-    -- ** ListPiiEntitiesDetectionJobs
+    -- ** ListPiiEntitiesDetectionJobs (Paginated)
     ListPiiEntitiesDetectionJobs (ListPiiEntitiesDetectionJobs'),
     newListPiiEntitiesDetectionJobs,
     ListPiiEntitiesDetectionJobsResponse (ListPiiEntitiesDetectionJobsResponse'),
@@ -519,6 +519,9 @@ module Amazonka.Comprehend
     -- ** AugmentedManifestsDocumentTypeFormat
     AugmentedManifestsDocumentTypeFormat (..),
 
+    -- ** BlockType
+    BlockType (..),
+
     -- ** DocumentClassifierDataFormat
     DocumentClassifierDataFormat (..),
 
@@ -533,6 +536,9 @@ module Amazonka.Comprehend
 
     -- ** DocumentReadMode
     DocumentReadMode (..),
+
+    -- ** DocumentType
+    DocumentType (..),
 
     -- ** EndpointStatus
     EndpointStatus (..),
@@ -555,6 +561,9 @@ module Amazonka.Comprehend
     -- ** ModelStatus
     ModelStatus (..),
 
+    -- ** PageBasedErrorCode
+    PageBasedErrorCode (..),
+
     -- ** PartOfSpeechTagType
     PartOfSpeechTagType (..),
 
@@ -566,6 +575,9 @@ module Amazonka.Comprehend
 
     -- ** PiiEntityType
     PiiEntityType (..),
+
+    -- ** RelationshipType
+    RelationshipType (..),
 
     -- ** SentimentType
     SentimentType (..),
@@ -611,6 +623,22 @@ module Amazonka.Comprehend
     BatchItemError (BatchItemError'),
     newBatchItemError,
 
+    -- ** Block
+    Block (Block'),
+    newBlock,
+
+    -- ** BlockReference
+    BlockReference (BlockReference'),
+    newBlockReference,
+
+    -- ** BoundingBox
+    BoundingBox (BoundingBox'),
+    newBoundingBox,
+
+    -- ** ChildBlock
+    ChildBlock (ChildBlock'),
+    newChildBlock,
+
     -- ** ClassifierEvaluationMetrics
     ClassifierEvaluationMetrics (ClassifierEvaluationMetrics'),
     newClassifierEvaluationMetrics,
@@ -655,9 +683,17 @@ module Amazonka.Comprehend
     DocumentLabel (DocumentLabel'),
     newDocumentLabel,
 
+    -- ** DocumentMetadata
+    DocumentMetadata (DocumentMetadata'),
+    newDocumentMetadata,
+
     -- ** DocumentReaderConfig
     DocumentReaderConfig (DocumentReaderConfig'),
     newDocumentReaderConfig,
+
+    -- ** DocumentTypeListItem
+    DocumentTypeListItem (DocumentTypeListItem'),
+    newDocumentTypeListItem,
 
     -- ** DominantLanguage
     DominantLanguage (DominantLanguage'),
@@ -743,6 +779,10 @@ module Amazonka.Comprehend
     EntityTypesListItem (EntityTypesListItem'),
     newEntityTypesListItem,
 
+    -- ** ErrorsListItem
+    ErrorsListItem (ErrorsListItem'),
+    newErrorsListItem,
+
     -- ** EventsDetectionJobFilter
     EventsDetectionJobFilter (EventsDetectionJobFilter'),
     newEventsDetectionJobFilter,
@@ -750,6 +790,14 @@ module Amazonka.Comprehend
     -- ** EventsDetectionJobProperties
     EventsDetectionJobProperties (EventsDetectionJobProperties'),
     newEventsDetectionJobProperties,
+
+    -- ** ExtractedCharactersListItem
+    ExtractedCharactersListItem (ExtractedCharactersListItem'),
+    newExtractedCharactersListItem,
+
+    -- ** Geometry
+    Geometry (Geometry'),
+    newGeometry,
 
     -- ** InputDataConfig
     InputDataConfig (InputDataConfig'),
@@ -795,9 +843,17 @@ module Amazonka.Comprehend
     PiiOutputDataConfig (PiiOutputDataConfig'),
     newPiiOutputDataConfig,
 
+    -- ** Point
+    Point (Point'),
+    newPoint,
+
     -- ** RedactionConfig
     RedactionConfig (RedactionConfig'),
     newRedactionConfig,
+
+    -- ** RelationshipsListItem
+    RelationshipsListItem (RelationshipsListItem'),
+    newRelationshipsListItem,
 
     -- ** SentimentDetectionJobFilter
     SentimentDetectionJobFilter (SentimentDetectionJobFilter'),

@@ -29,9 +29,7 @@ import Amazonka.SecurityHub.Types.AwsCorsConfiguration
 --
 -- /See:/ 'newAwsApiGatewayV2ApiDetails' smart constructor.
 data AwsApiGatewayV2ApiDetails = AwsApiGatewayV2ApiDetails'
-  { -- | The name of the API.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The URI of the API.
+  { -- | The URI of the API.
     --
     -- Uses the format @ \<api-id>.execute-api.\<region>.amazonaws.com@
     --
@@ -40,21 +38,11 @@ data AwsApiGatewayV2ApiDetails = AwsApiGatewayV2ApiDetails'
     apiEndpoint :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the API.
     apiId :: Prelude.Maybe Prelude.Text,
-    -- | The route selection expression for the API.
-    --
-    -- For HTTP APIs, must be @${request.method} ${request.path}@. This is the
-    -- default value for HTTP APIs.
-    --
-    -- For WebSocket APIs, there is no default value.
-    routeSelectionExpression :: Prelude.Maybe Prelude.Text,
-    -- | A description of the API.
-    description :: Prelude.Maybe Prelude.Text,
     -- | An API key selection expression. Supported only for WebSocket APIs.
     apiKeySelectionExpression :: Prelude.Maybe Prelude.Text,
-    -- | The API protocol for the API.
-    --
-    -- Valid values: @WEBSOCKET@ | @HTTP@
-    protocolType :: Prelude.Maybe Prelude.Text,
+    -- | A cross-origin resource sharing (CORS) configuration. Supported only for
+    -- HTTP APIs.
+    corsConfiguration :: Prelude.Maybe AwsCorsConfiguration,
     -- | Indicates when the API was created.
     --
     -- Uses the @date-time@ format specified in
@@ -62,9 +50,21 @@ data AwsApiGatewayV2ApiDetails = AwsApiGatewayV2ApiDetails'
     -- The value cannot contain spaces. For example,
     -- @2020-03-22T13:22:13.933Z@.
     createdDate :: Prelude.Maybe Prelude.Text,
-    -- | A cross-origin resource sharing (CORS) configuration. Supported only for
-    -- HTTP APIs.
-    corsConfiguration :: Prelude.Maybe AwsCorsConfiguration,
+    -- | A description of the API.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The name of the API.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The API protocol for the API.
+    --
+    -- Valid values: @WEBSOCKET@ | @HTTP@
+    protocolType :: Prelude.Maybe Prelude.Text,
+    -- | The route selection expression for the API.
+    --
+    -- For HTTP APIs, must be @${request.method} ${request.path}@. This is the
+    -- default value for HTTP APIs.
+    --
+    -- For WebSocket APIs, there is no default value.
+    routeSelectionExpression :: Prelude.Maybe Prelude.Text,
     -- | The version identifier for the API.
     version :: Prelude.Maybe Prelude.Text
   }
@@ -78,8 +78,6 @@ data AwsApiGatewayV2ApiDetails = AwsApiGatewayV2ApiDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'awsApiGatewayV2ApiDetails_name' - The name of the API.
---
 -- 'apiEndpoint', 'awsApiGatewayV2ApiDetails_apiEndpoint' - The URI of the API.
 --
 -- Uses the format @ \<api-id>.execute-api.\<region>.amazonaws.com@
@@ -89,20 +87,10 @@ data AwsApiGatewayV2ApiDetails = AwsApiGatewayV2ApiDetails'
 --
 -- 'apiId', 'awsApiGatewayV2ApiDetails_apiId' - The identifier of the API.
 --
--- 'routeSelectionExpression', 'awsApiGatewayV2ApiDetails_routeSelectionExpression' - The route selection expression for the API.
---
--- For HTTP APIs, must be @${request.method} ${request.path}@. This is the
--- default value for HTTP APIs.
---
--- For WebSocket APIs, there is no default value.
---
--- 'description', 'awsApiGatewayV2ApiDetails_description' - A description of the API.
---
 -- 'apiKeySelectionExpression', 'awsApiGatewayV2ApiDetails_apiKeySelectionExpression' - An API key selection expression. Supported only for WebSocket APIs.
 --
--- 'protocolType', 'awsApiGatewayV2ApiDetails_protocolType' - The API protocol for the API.
---
--- Valid values: @WEBSOCKET@ | @HTTP@
+-- 'corsConfiguration', 'awsApiGatewayV2ApiDetails_corsConfiguration' - A cross-origin resource sharing (CORS) configuration. Supported only for
+-- HTTP APIs.
 --
 -- 'createdDate', 'awsApiGatewayV2ApiDetails_createdDate' - Indicates when the API was created.
 --
@@ -111,29 +99,38 @@ data AwsApiGatewayV2ApiDetails = AwsApiGatewayV2ApiDetails'
 -- The value cannot contain spaces. For example,
 -- @2020-03-22T13:22:13.933Z@.
 --
--- 'corsConfiguration', 'awsApiGatewayV2ApiDetails_corsConfiguration' - A cross-origin resource sharing (CORS) configuration. Supported only for
--- HTTP APIs.
+-- 'description', 'awsApiGatewayV2ApiDetails_description' - A description of the API.
+--
+-- 'name', 'awsApiGatewayV2ApiDetails_name' - The name of the API.
+--
+-- 'protocolType', 'awsApiGatewayV2ApiDetails_protocolType' - The API protocol for the API.
+--
+-- Valid values: @WEBSOCKET@ | @HTTP@
+--
+-- 'routeSelectionExpression', 'awsApiGatewayV2ApiDetails_routeSelectionExpression' - The route selection expression for the API.
+--
+-- For HTTP APIs, must be @${request.method} ${request.path}@. This is the
+-- default value for HTTP APIs.
+--
+-- For WebSocket APIs, there is no default value.
 --
 -- 'version', 'awsApiGatewayV2ApiDetails_version' - The version identifier for the API.
 newAwsApiGatewayV2ApiDetails ::
   AwsApiGatewayV2ApiDetails
 newAwsApiGatewayV2ApiDetails =
   AwsApiGatewayV2ApiDetails'
-    { name = Prelude.Nothing,
-      apiEndpoint = Prelude.Nothing,
+    { apiEndpoint =
+        Prelude.Nothing,
       apiId = Prelude.Nothing,
-      routeSelectionExpression = Prelude.Nothing,
-      description = Prelude.Nothing,
       apiKeySelectionExpression = Prelude.Nothing,
-      protocolType = Prelude.Nothing,
-      createdDate = Prelude.Nothing,
       corsConfiguration = Prelude.Nothing,
+      createdDate = Prelude.Nothing,
+      description = Prelude.Nothing,
+      name = Prelude.Nothing,
+      protocolType = Prelude.Nothing,
+      routeSelectionExpression = Prelude.Nothing,
       version = Prelude.Nothing
     }
-
--- | The name of the API.
-awsApiGatewayV2ApiDetails_name :: Lens.Lens' AwsApiGatewayV2ApiDetails (Prelude.Maybe Prelude.Text)
-awsApiGatewayV2ApiDetails_name = Lens.lens (\AwsApiGatewayV2ApiDetails' {name} -> name) (\s@AwsApiGatewayV2ApiDetails' {} a -> s {name = a} :: AwsApiGatewayV2ApiDetails)
 
 -- | The URI of the API.
 --
@@ -148,28 +145,14 @@ awsApiGatewayV2ApiDetails_apiEndpoint = Lens.lens (\AwsApiGatewayV2ApiDetails' {
 awsApiGatewayV2ApiDetails_apiId :: Lens.Lens' AwsApiGatewayV2ApiDetails (Prelude.Maybe Prelude.Text)
 awsApiGatewayV2ApiDetails_apiId = Lens.lens (\AwsApiGatewayV2ApiDetails' {apiId} -> apiId) (\s@AwsApiGatewayV2ApiDetails' {} a -> s {apiId = a} :: AwsApiGatewayV2ApiDetails)
 
--- | The route selection expression for the API.
---
--- For HTTP APIs, must be @${request.method} ${request.path}@. This is the
--- default value for HTTP APIs.
---
--- For WebSocket APIs, there is no default value.
-awsApiGatewayV2ApiDetails_routeSelectionExpression :: Lens.Lens' AwsApiGatewayV2ApiDetails (Prelude.Maybe Prelude.Text)
-awsApiGatewayV2ApiDetails_routeSelectionExpression = Lens.lens (\AwsApiGatewayV2ApiDetails' {routeSelectionExpression} -> routeSelectionExpression) (\s@AwsApiGatewayV2ApiDetails' {} a -> s {routeSelectionExpression = a} :: AwsApiGatewayV2ApiDetails)
-
--- | A description of the API.
-awsApiGatewayV2ApiDetails_description :: Lens.Lens' AwsApiGatewayV2ApiDetails (Prelude.Maybe Prelude.Text)
-awsApiGatewayV2ApiDetails_description = Lens.lens (\AwsApiGatewayV2ApiDetails' {description} -> description) (\s@AwsApiGatewayV2ApiDetails' {} a -> s {description = a} :: AwsApiGatewayV2ApiDetails)
-
 -- | An API key selection expression. Supported only for WebSocket APIs.
 awsApiGatewayV2ApiDetails_apiKeySelectionExpression :: Lens.Lens' AwsApiGatewayV2ApiDetails (Prelude.Maybe Prelude.Text)
 awsApiGatewayV2ApiDetails_apiKeySelectionExpression = Lens.lens (\AwsApiGatewayV2ApiDetails' {apiKeySelectionExpression} -> apiKeySelectionExpression) (\s@AwsApiGatewayV2ApiDetails' {} a -> s {apiKeySelectionExpression = a} :: AwsApiGatewayV2ApiDetails)
 
--- | The API protocol for the API.
---
--- Valid values: @WEBSOCKET@ | @HTTP@
-awsApiGatewayV2ApiDetails_protocolType :: Lens.Lens' AwsApiGatewayV2ApiDetails (Prelude.Maybe Prelude.Text)
-awsApiGatewayV2ApiDetails_protocolType = Lens.lens (\AwsApiGatewayV2ApiDetails' {protocolType} -> protocolType) (\s@AwsApiGatewayV2ApiDetails' {} a -> s {protocolType = a} :: AwsApiGatewayV2ApiDetails)
+-- | A cross-origin resource sharing (CORS) configuration. Supported only for
+-- HTTP APIs.
+awsApiGatewayV2ApiDetails_corsConfiguration :: Lens.Lens' AwsApiGatewayV2ApiDetails (Prelude.Maybe AwsCorsConfiguration)
+awsApiGatewayV2ApiDetails_corsConfiguration = Lens.lens (\AwsApiGatewayV2ApiDetails' {corsConfiguration} -> corsConfiguration) (\s@AwsApiGatewayV2ApiDetails' {} a -> s {corsConfiguration = a} :: AwsApiGatewayV2ApiDetails)
 
 -- | Indicates when the API was created.
 --
@@ -180,10 +163,28 @@ awsApiGatewayV2ApiDetails_protocolType = Lens.lens (\AwsApiGatewayV2ApiDetails' 
 awsApiGatewayV2ApiDetails_createdDate :: Lens.Lens' AwsApiGatewayV2ApiDetails (Prelude.Maybe Prelude.Text)
 awsApiGatewayV2ApiDetails_createdDate = Lens.lens (\AwsApiGatewayV2ApiDetails' {createdDate} -> createdDate) (\s@AwsApiGatewayV2ApiDetails' {} a -> s {createdDate = a} :: AwsApiGatewayV2ApiDetails)
 
--- | A cross-origin resource sharing (CORS) configuration. Supported only for
--- HTTP APIs.
-awsApiGatewayV2ApiDetails_corsConfiguration :: Lens.Lens' AwsApiGatewayV2ApiDetails (Prelude.Maybe AwsCorsConfiguration)
-awsApiGatewayV2ApiDetails_corsConfiguration = Lens.lens (\AwsApiGatewayV2ApiDetails' {corsConfiguration} -> corsConfiguration) (\s@AwsApiGatewayV2ApiDetails' {} a -> s {corsConfiguration = a} :: AwsApiGatewayV2ApiDetails)
+-- | A description of the API.
+awsApiGatewayV2ApiDetails_description :: Lens.Lens' AwsApiGatewayV2ApiDetails (Prelude.Maybe Prelude.Text)
+awsApiGatewayV2ApiDetails_description = Lens.lens (\AwsApiGatewayV2ApiDetails' {description} -> description) (\s@AwsApiGatewayV2ApiDetails' {} a -> s {description = a} :: AwsApiGatewayV2ApiDetails)
+
+-- | The name of the API.
+awsApiGatewayV2ApiDetails_name :: Lens.Lens' AwsApiGatewayV2ApiDetails (Prelude.Maybe Prelude.Text)
+awsApiGatewayV2ApiDetails_name = Lens.lens (\AwsApiGatewayV2ApiDetails' {name} -> name) (\s@AwsApiGatewayV2ApiDetails' {} a -> s {name = a} :: AwsApiGatewayV2ApiDetails)
+
+-- | The API protocol for the API.
+--
+-- Valid values: @WEBSOCKET@ | @HTTP@
+awsApiGatewayV2ApiDetails_protocolType :: Lens.Lens' AwsApiGatewayV2ApiDetails (Prelude.Maybe Prelude.Text)
+awsApiGatewayV2ApiDetails_protocolType = Lens.lens (\AwsApiGatewayV2ApiDetails' {protocolType} -> protocolType) (\s@AwsApiGatewayV2ApiDetails' {} a -> s {protocolType = a} :: AwsApiGatewayV2ApiDetails)
+
+-- | The route selection expression for the API.
+--
+-- For HTTP APIs, must be @${request.method} ${request.path}@. This is the
+-- default value for HTTP APIs.
+--
+-- For WebSocket APIs, there is no default value.
+awsApiGatewayV2ApiDetails_routeSelectionExpression :: Lens.Lens' AwsApiGatewayV2ApiDetails (Prelude.Maybe Prelude.Text)
+awsApiGatewayV2ApiDetails_routeSelectionExpression = Lens.lens (\AwsApiGatewayV2ApiDetails' {routeSelectionExpression} -> routeSelectionExpression) (\s@AwsApiGatewayV2ApiDetails' {} a -> s {routeSelectionExpression = a} :: AwsApiGatewayV2ApiDetails)
 
 -- | The version identifier for the API.
 awsApiGatewayV2ApiDetails_version :: Lens.Lens' AwsApiGatewayV2ApiDetails (Prelude.Maybe Prelude.Text)
@@ -195,60 +196,60 @@ instance Data.FromJSON AwsApiGatewayV2ApiDetails where
       "AwsApiGatewayV2ApiDetails"
       ( \x ->
           AwsApiGatewayV2ApiDetails'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "ApiEndpoint")
+            Prelude.<$> (x Data..:? "ApiEndpoint")
             Prelude.<*> (x Data..:? "ApiId")
-            Prelude.<*> (x Data..:? "RouteSelectionExpression")
-            Prelude.<*> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "ApiKeySelectionExpression")
-            Prelude.<*> (x Data..:? "ProtocolType")
-            Prelude.<*> (x Data..:? "CreatedDate")
             Prelude.<*> (x Data..:? "CorsConfiguration")
+            Prelude.<*> (x Data..:? "CreatedDate")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "ProtocolType")
+            Prelude.<*> (x Data..:? "RouteSelectionExpression")
             Prelude.<*> (x Data..:? "Version")
       )
 
 instance Prelude.Hashable AwsApiGatewayV2ApiDetails where
   hashWithSalt _salt AwsApiGatewayV2ApiDetails' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` apiEndpoint
+    _salt `Prelude.hashWithSalt` apiEndpoint
       `Prelude.hashWithSalt` apiId
-      `Prelude.hashWithSalt` routeSelectionExpression
-      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` apiKeySelectionExpression
-      `Prelude.hashWithSalt` protocolType
-      `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` corsConfiguration
+      `Prelude.hashWithSalt` createdDate
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` protocolType
+      `Prelude.hashWithSalt` routeSelectionExpression
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData AwsApiGatewayV2ApiDetails where
   rnf AwsApiGatewayV2ApiDetails' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf apiEndpoint
+    Prelude.rnf apiEndpoint
       `Prelude.seq` Prelude.rnf apiId
-      `Prelude.seq` Prelude.rnf routeSelectionExpression
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf apiKeySelectionExpression
-      `Prelude.seq` Prelude.rnf protocolType
-      `Prelude.seq` Prelude.rnf createdDate
       `Prelude.seq` Prelude.rnf corsConfiguration
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf protocolType
+      `Prelude.seq` Prelude.rnf routeSelectionExpression
       `Prelude.seq` Prelude.rnf version
 
 instance Data.ToJSON AwsApiGatewayV2ApiDetails where
   toJSON AwsApiGatewayV2ApiDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
-            ("ApiEndpoint" Data..=) Prelude.<$> apiEndpoint,
+          [ ("ApiEndpoint" Data..=) Prelude.<$> apiEndpoint,
             ("ApiId" Data..=) Prelude.<$> apiId,
-            ("RouteSelectionExpression" Data..=)
-              Prelude.<$> routeSelectionExpression,
-            ("Description" Data..=) Prelude.<$> description,
             ("ApiKeySelectionExpression" Data..=)
               Prelude.<$> apiKeySelectionExpression,
-            ("ProtocolType" Data..=) Prelude.<$> protocolType,
-            ("CreatedDate" Data..=) Prelude.<$> createdDate,
             ("CorsConfiguration" Data..=)
               Prelude.<$> corsConfiguration,
+            ("CreatedDate" Data..=) Prelude.<$> createdDate,
+            ("Description" Data..=) Prelude.<$> description,
+            ("Name" Data..=) Prelude.<$> name,
+            ("ProtocolType" Data..=) Prelude.<$> protocolType,
+            ("RouteSelectionExpression" Data..=)
+              Prelude.<$> routeSelectionExpression,
             ("Version" Data..=) Prelude.<$> version
           ]
       )

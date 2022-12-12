@@ -28,9 +28,9 @@ module Amazonka.IoTFleetWise.CreateSignalCatalog
     newCreateSignalCatalog,
 
     -- * Request Lenses
-    createSignalCatalog_tags,
-    createSignalCatalog_nodes,
     createSignalCatalog_description,
+    createSignalCatalog_nodes,
+    createSignalCatalog_tags,
     createSignalCatalog_name,
 
     -- * Destructuring the Response
@@ -54,13 +54,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateSignalCatalog' smart constructor.
 data CreateSignalCatalog = CreateSignalCatalog'
-  { -- | Metadata that can be used to manage the signal catalog.
-    tags :: Prelude.Maybe [Tag],
+  { -- | A brief description of the signal catalog.
+    description :: Prelude.Maybe Prelude.Text,
     -- | A list of information about nodes, which are a general abstraction of
     -- signals. For more information, see the API data type.
     nodes :: Prelude.Maybe [Node],
-    -- | A brief description of the signal catalog.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | Metadata that can be used to manage the signal catalog.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the signal catalog to create.
     name :: Prelude.Text
   }
@@ -74,12 +74,12 @@ data CreateSignalCatalog = CreateSignalCatalog'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createSignalCatalog_tags' - Metadata that can be used to manage the signal catalog.
+-- 'description', 'createSignalCatalog_description' - A brief description of the signal catalog.
 --
 -- 'nodes', 'createSignalCatalog_nodes' - A list of information about nodes, which are a general abstraction of
 -- signals. For more information, see the API data type.
 --
--- 'description', 'createSignalCatalog_description' - A brief description of the signal catalog.
+-- 'tags', 'createSignalCatalog_tags' - Metadata that can be used to manage the signal catalog.
 --
 -- 'name', 'createSignalCatalog_name' - The name of the signal catalog to create.
 newCreateSignalCatalog ::
@@ -88,24 +88,24 @@ newCreateSignalCatalog ::
   CreateSignalCatalog
 newCreateSignalCatalog pName_ =
   CreateSignalCatalog'
-    { tags = Prelude.Nothing,
+    { description = Prelude.Nothing,
       nodes = Prelude.Nothing,
-      description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_
     }
 
--- | Metadata that can be used to manage the signal catalog.
-createSignalCatalog_tags :: Lens.Lens' CreateSignalCatalog (Prelude.Maybe [Tag])
-createSignalCatalog_tags = Lens.lens (\CreateSignalCatalog' {tags} -> tags) (\s@CreateSignalCatalog' {} a -> s {tags = a} :: CreateSignalCatalog) Prelude.. Lens.mapping Lens.coerced
+-- | A brief description of the signal catalog.
+createSignalCatalog_description :: Lens.Lens' CreateSignalCatalog (Prelude.Maybe Prelude.Text)
+createSignalCatalog_description = Lens.lens (\CreateSignalCatalog' {description} -> description) (\s@CreateSignalCatalog' {} a -> s {description = a} :: CreateSignalCatalog)
 
 -- | A list of information about nodes, which are a general abstraction of
 -- signals. For more information, see the API data type.
 createSignalCatalog_nodes :: Lens.Lens' CreateSignalCatalog (Prelude.Maybe [Node])
 createSignalCatalog_nodes = Lens.lens (\CreateSignalCatalog' {nodes} -> nodes) (\s@CreateSignalCatalog' {} a -> s {nodes = a} :: CreateSignalCatalog) Prelude.. Lens.mapping Lens.coerced
 
--- | A brief description of the signal catalog.
-createSignalCatalog_description :: Lens.Lens' CreateSignalCatalog (Prelude.Maybe Prelude.Text)
-createSignalCatalog_description = Lens.lens (\CreateSignalCatalog' {description} -> description) (\s@CreateSignalCatalog' {} a -> s {description = a} :: CreateSignalCatalog)
+-- | Metadata that can be used to manage the signal catalog.
+createSignalCatalog_tags :: Lens.Lens' CreateSignalCatalog (Prelude.Maybe [Tag])
+createSignalCatalog_tags = Lens.lens (\CreateSignalCatalog' {tags} -> tags) (\s@CreateSignalCatalog' {} a -> s {tags = a} :: CreateSignalCatalog) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the signal catalog to create.
 createSignalCatalog_name :: Lens.Lens' CreateSignalCatalog Prelude.Text
@@ -128,16 +128,16 @@ instance Core.AWSRequest CreateSignalCatalog where
 
 instance Prelude.Hashable CreateSignalCatalog where
   hashWithSalt _salt CreateSignalCatalog' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` nodes
-      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateSignalCatalog where
   rnf CreateSignalCatalog' {..} =
-    Prelude.rnf tags
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf nodes
-      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders CreateSignalCatalog where
@@ -159,9 +159,9 @@ instance Data.ToJSON CreateSignalCatalog where
   toJSON CreateSignalCatalog' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
+          [ ("description" Data..=) Prelude.<$> description,
             ("nodes" Data..=) Prelude.<$> nodes,
-            ("description" Data..=) Prelude.<$> description,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("name" Data..= name)
           ]
       )

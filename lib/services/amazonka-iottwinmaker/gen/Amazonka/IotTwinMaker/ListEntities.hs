@@ -27,9 +27,9 @@ module Amazonka.IotTwinMaker.ListEntities
     newListEntities,
 
     -- * Request Lenses
-    listEntities_nextToken,
     listEntities_filters,
     listEntities_maxResults,
+    listEntities_nextToken,
     listEntities_workspaceId,
 
     -- * Destructuring the Response
@@ -37,8 +37,8 @@ module Amazonka.IotTwinMaker.ListEntities
     newListEntitiesResponse,
 
     -- * Response Lenses
-    listEntitiesResponse_nextToken,
     listEntitiesResponse_entitySummaries,
+    listEntitiesResponse_nextToken,
     listEntitiesResponse_httpStatus,
   )
 where
@@ -53,9 +53,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListEntities' smart constructor.
 data ListEntities = ListEntities'
-  { -- | The string that specifies the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of objects that filter the request.
+  { -- | A list of objects that filter the request.
     --
     -- Only one object is accepted as a valid input.
     filters :: Prelude.Maybe [ListEntitiesFilter],
@@ -63,6 +61,8 @@ data ListEntities = ListEntities'
     --
     -- Valid Range: Minimum value of 1. Maximum value of 250.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The string that specifies the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the workspace.
     workspaceId :: Prelude.Text
   }
@@ -76,8 +76,6 @@ data ListEntities = ListEntities'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listEntities_nextToken' - The string that specifies the next page of results.
---
 -- 'filters', 'listEntities_filters' - A list of objects that filter the request.
 --
 -- Only one object is accepted as a valid input.
@@ -86,6 +84,8 @@ data ListEntities = ListEntities'
 --
 -- Valid Range: Minimum value of 1. Maximum value of 250.
 --
+-- 'nextToken', 'listEntities_nextToken' - The string that specifies the next page of results.
+--
 -- 'workspaceId', 'listEntities_workspaceId' - The ID of the workspace.
 newListEntities ::
   -- | 'workspaceId'
@@ -93,15 +93,11 @@ newListEntities ::
   ListEntities
 newListEntities pWorkspaceId_ =
   ListEntities'
-    { nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
+    { filters = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       workspaceId = pWorkspaceId_
     }
-
--- | The string that specifies the next page of results.
-listEntities_nextToken :: Lens.Lens' ListEntities (Prelude.Maybe Prelude.Text)
-listEntities_nextToken = Lens.lens (\ListEntities' {nextToken} -> nextToken) (\s@ListEntities' {} a -> s {nextToken = a} :: ListEntities)
 
 -- | A list of objects that filter the request.
 --
@@ -115,6 +111,10 @@ listEntities_filters = Lens.lens (\ListEntities' {filters} -> filters) (\s@ListE
 listEntities_maxResults :: Lens.Lens' ListEntities (Prelude.Maybe Prelude.Natural)
 listEntities_maxResults = Lens.lens (\ListEntities' {maxResults} -> maxResults) (\s@ListEntities' {} a -> s {maxResults = a} :: ListEntities)
 
+-- | The string that specifies the next page of results.
+listEntities_nextToken :: Lens.Lens' ListEntities (Prelude.Maybe Prelude.Text)
+listEntities_nextToken = Lens.lens (\ListEntities' {nextToken} -> nextToken) (\s@ListEntities' {} a -> s {nextToken = a} :: ListEntities)
+
 -- | The ID of the workspace.
 listEntities_workspaceId :: Lens.Lens' ListEntities Prelude.Text
 listEntities_workspaceId = Lens.lens (\ListEntities' {workspaceId} -> workspaceId) (\s@ListEntities' {} a -> s {workspaceId = a} :: ListEntities)
@@ -127,25 +127,25 @@ instance Core.AWSRequest ListEntities where
     Response.receiveJSON
       ( \s h x ->
           ListEntitiesResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "entitySummaries"
+            Prelude.<$> ( x Data..?> "entitySummaries"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListEntities where
   hashWithSalt _salt ListEntities' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` workspaceId
 
 instance Prelude.NFData ListEntities where
   rnf ListEntities' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf workspaceId
 
 instance Data.ToHeaders ListEntities where
@@ -163,9 +163,9 @@ instance Data.ToJSON ListEntities where
   toJSON ListEntities' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("filters" Data..=) Prelude.<$> filters,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("filters" Data..=) Prelude.<$> filters,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -182,10 +182,10 @@ instance Data.ToQuery ListEntities where
 
 -- | /See:/ 'newListEntitiesResponse' smart constructor.
 data ListEntitiesResponse = ListEntitiesResponse'
-  { -- | The string that specifies the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of objects that contain information about the entities.
+  { -- | A list of objects that contain information about the entities.
     entitySummaries :: Prelude.Maybe [EntitySummary],
+    -- | The string that specifies the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -199,9 +199,9 @@ data ListEntitiesResponse = ListEntitiesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listEntitiesResponse_nextToken' - The string that specifies the next page of results.
---
 -- 'entitySummaries', 'listEntitiesResponse_entitySummaries' - A list of objects that contain information about the entities.
+--
+-- 'nextToken', 'listEntitiesResponse_nextToken' - The string that specifies the next page of results.
 --
 -- 'httpStatus', 'listEntitiesResponse_httpStatus' - The response's http status code.
 newListEntitiesResponse ::
@@ -210,18 +210,19 @@ newListEntitiesResponse ::
   ListEntitiesResponse
 newListEntitiesResponse pHttpStatus_ =
   ListEntitiesResponse'
-    { nextToken = Prelude.Nothing,
-      entitySummaries = Prelude.Nothing,
+    { entitySummaries =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The string that specifies the next page of results.
-listEntitiesResponse_nextToken :: Lens.Lens' ListEntitiesResponse (Prelude.Maybe Prelude.Text)
-listEntitiesResponse_nextToken = Lens.lens (\ListEntitiesResponse' {nextToken} -> nextToken) (\s@ListEntitiesResponse' {} a -> s {nextToken = a} :: ListEntitiesResponse)
 
 -- | A list of objects that contain information about the entities.
 listEntitiesResponse_entitySummaries :: Lens.Lens' ListEntitiesResponse (Prelude.Maybe [EntitySummary])
 listEntitiesResponse_entitySummaries = Lens.lens (\ListEntitiesResponse' {entitySummaries} -> entitySummaries) (\s@ListEntitiesResponse' {} a -> s {entitySummaries = a} :: ListEntitiesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The string that specifies the next page of results.
+listEntitiesResponse_nextToken :: Lens.Lens' ListEntitiesResponse (Prelude.Maybe Prelude.Text)
+listEntitiesResponse_nextToken = Lens.lens (\ListEntitiesResponse' {nextToken} -> nextToken) (\s@ListEntitiesResponse' {} a -> s {nextToken = a} :: ListEntitiesResponse)
 
 -- | The response's http status code.
 listEntitiesResponse_httpStatus :: Lens.Lens' ListEntitiesResponse Prelude.Int
@@ -229,6 +230,6 @@ listEntitiesResponse_httpStatus = Lens.lens (\ListEntitiesResponse' {httpStatus}
 
 instance Prelude.NFData ListEntitiesResponse where
   rnf ListEntitiesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf entitySummaries
+    Prelude.rnf entitySummaries
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

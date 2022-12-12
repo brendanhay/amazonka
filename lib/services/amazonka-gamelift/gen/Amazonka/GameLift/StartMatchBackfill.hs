@@ -30,14 +30,13 @@
 --
 -- When using FlexMatch with GameLift managed hosting, you can request a
 -- backfill match from a client service by calling this operation with a
--- GameSession identifier. You also have the option of making backfill
--- requests directly from your game server. In response to a request,
--- FlexMatch creates player sessions for the new players, updates the
--- @GameSession@ resource, and sends updated matchmaking data to the game
--- server. You can request a backfill match at any point after a game
--- session is started. Each game session can have only one active backfill
--- request at a time; a subsequent request automatically replaces the
--- earlier request.
+-- @GameSessions@ ID. You also have the option of making backfill requests
+-- directly from your game server. In response to a request, FlexMatch
+-- creates player sessions for the new players, updates the @GameSession@
+-- resource, and sends updated matchmaking data to the game server. You can
+-- request a backfill match at any point after a game session is started.
+-- Each game session can have only one active backfill request at a time; a
+-- subsequent request automatically replaces the earlier request.
 --
 -- When using FlexMatch as a standalone component, request a backfill match
 -- by calling this operation without a game session identifier. As with
@@ -63,20 +62,14 @@
 -- (reference)
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/gamelift-match.html How GameLift FlexMatch works>
---
--- __Related actions__
---
--- StartMatchmaking | DescribeMatchmaking | StopMatchmaking | AcceptMatch |
--- StartMatchBackfill |
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Amazonka.GameLift.StartMatchBackfill
   ( -- * Creating a Request
     StartMatchBackfill (..),
     newStartMatchBackfill,
 
     -- * Request Lenses
-    startMatchBackfill_ticketId,
     startMatchBackfill_gameSessionArn,
+    startMatchBackfill_ticketId,
     startMatchBackfill_configurationName,
     startMatchBackfill_players,
 
@@ -98,30 +91,30 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Represents the input for a request operation.
---
--- /See:/ 'newStartMatchBackfill' smart constructor.
+-- | /See:/ 'newStartMatchBackfill' smart constructor.
 data StartMatchBackfill = StartMatchBackfill'
-  { -- | A unique identifier for a matchmaking ticket. If no ticket ID is
+  { -- | A unique identifier for the game session. Use the game session ID. When
+    -- using FlexMatch as a standalone matchmaking solution, this parameter is
+    -- not needed.
+    gameSessionArn :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for a matchmaking ticket. If no ticket ID is
     -- specified here, Amazon GameLift will generate one in the form of a UUID.
     -- Use this identifier to track the match backfill ticket status and
     -- retrieve match results.
     ticketId :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for the game session. Use the game session ID. When
-    -- using FlexMatch as a standalone matchmaking solution, this parameter is
-    -- not needed.
-    gameSessionArn :: Prelude.Maybe Prelude.Text,
     -- | Name of the matchmaker to use for this request. You can use either the
     -- configuration name or ARN value. The ARN of the matchmaker that was used
-    -- with the original game session is listed in the GameSession object,
+    -- with the original game session is listed in the @GameSession@ object,
     -- @MatchmakerData@ property.
     configurationName :: Prelude.Text,
     -- | Match information on all players that are currently assigned to the game
     -- session. This information is used by the matchmaker to find new players
     -- and add them to the existing game.
     --
+    -- You can include up to 199 @Players@ in a @StartMatchBackfill@ request.
+    --
     -- -   PlayerID, PlayerAttributes, Team -- This information is maintained
-    --     in the GameSession object, @MatchmakerData@ property, for all
+    --     in the @GameSession@ object, @MatchmakerData@ property, for all
     --     players who are currently assigned to the game session. The
     --     matchmaker data is in JSON syntax, formatted as a string. For more
     --     details, see
@@ -145,26 +138,28 @@ data StartMatchBackfill = StartMatchBackfill'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'gameSessionArn', 'startMatchBackfill_gameSessionArn' - A unique identifier for the game session. Use the game session ID. When
+-- using FlexMatch as a standalone matchmaking solution, this parameter is
+-- not needed.
+--
 -- 'ticketId', 'startMatchBackfill_ticketId' - A unique identifier for a matchmaking ticket. If no ticket ID is
 -- specified here, Amazon GameLift will generate one in the form of a UUID.
 -- Use this identifier to track the match backfill ticket status and
 -- retrieve match results.
 --
--- 'gameSessionArn', 'startMatchBackfill_gameSessionArn' - A unique identifier for the game session. Use the game session ID. When
--- using FlexMatch as a standalone matchmaking solution, this parameter is
--- not needed.
---
 -- 'configurationName', 'startMatchBackfill_configurationName' - Name of the matchmaker to use for this request. You can use either the
 -- configuration name or ARN value. The ARN of the matchmaker that was used
--- with the original game session is listed in the GameSession object,
+-- with the original game session is listed in the @GameSession@ object,
 -- @MatchmakerData@ property.
 --
 -- 'players', 'startMatchBackfill_players' - Match information on all players that are currently assigned to the game
 -- session. This information is used by the matchmaker to find new players
 -- and add them to the existing game.
 --
+-- You can include up to 199 @Players@ in a @StartMatchBackfill@ request.
+--
 -- -   PlayerID, PlayerAttributes, Team -- This information is maintained
---     in the GameSession object, @MatchmakerData@ property, for all
+--     in the @GameSession@ object, @MatchmakerData@ property, for all
 --     players who are currently assigned to the game session. The
 --     matchmaker data is in JSON syntax, formatted as a string. For more
 --     details, see
@@ -182,11 +177,18 @@ newStartMatchBackfill ::
   StartMatchBackfill
 newStartMatchBackfill pConfigurationName_ =
   StartMatchBackfill'
-    { ticketId = Prelude.Nothing,
-      gameSessionArn = Prelude.Nothing,
+    { gameSessionArn =
+        Prelude.Nothing,
+      ticketId = Prelude.Nothing,
       configurationName = pConfigurationName_,
       players = Prelude.mempty
     }
+
+-- | A unique identifier for the game session. Use the game session ID. When
+-- using FlexMatch as a standalone matchmaking solution, this parameter is
+-- not needed.
+startMatchBackfill_gameSessionArn :: Lens.Lens' StartMatchBackfill (Prelude.Maybe Prelude.Text)
+startMatchBackfill_gameSessionArn = Lens.lens (\StartMatchBackfill' {gameSessionArn} -> gameSessionArn) (\s@StartMatchBackfill' {} a -> s {gameSessionArn = a} :: StartMatchBackfill)
 
 -- | A unique identifier for a matchmaking ticket. If no ticket ID is
 -- specified here, Amazon GameLift will generate one in the form of a UUID.
@@ -195,15 +197,9 @@ newStartMatchBackfill pConfigurationName_ =
 startMatchBackfill_ticketId :: Lens.Lens' StartMatchBackfill (Prelude.Maybe Prelude.Text)
 startMatchBackfill_ticketId = Lens.lens (\StartMatchBackfill' {ticketId} -> ticketId) (\s@StartMatchBackfill' {} a -> s {ticketId = a} :: StartMatchBackfill)
 
--- | A unique identifier for the game session. Use the game session ID. When
--- using FlexMatch as a standalone matchmaking solution, this parameter is
--- not needed.
-startMatchBackfill_gameSessionArn :: Lens.Lens' StartMatchBackfill (Prelude.Maybe Prelude.Text)
-startMatchBackfill_gameSessionArn = Lens.lens (\StartMatchBackfill' {gameSessionArn} -> gameSessionArn) (\s@StartMatchBackfill' {} a -> s {gameSessionArn = a} :: StartMatchBackfill)
-
 -- | Name of the matchmaker to use for this request. You can use either the
 -- configuration name or ARN value. The ARN of the matchmaker that was used
--- with the original game session is listed in the GameSession object,
+-- with the original game session is listed in the @GameSession@ object,
 -- @MatchmakerData@ property.
 startMatchBackfill_configurationName :: Lens.Lens' StartMatchBackfill Prelude.Text
 startMatchBackfill_configurationName = Lens.lens (\StartMatchBackfill' {configurationName} -> configurationName) (\s@StartMatchBackfill' {} a -> s {configurationName = a} :: StartMatchBackfill)
@@ -212,8 +208,10 @@ startMatchBackfill_configurationName = Lens.lens (\StartMatchBackfill' {configur
 -- session. This information is used by the matchmaker to find new players
 -- and add them to the existing game.
 --
+-- You can include up to 199 @Players@ in a @StartMatchBackfill@ request.
+--
 -- -   PlayerID, PlayerAttributes, Team -- This information is maintained
---     in the GameSession object, @MatchmakerData@ property, for all
+--     in the @GameSession@ object, @MatchmakerData@ property, for all
 --     players who are currently assigned to the game session. The
 --     matchmaker data is in JSON syntax, formatted as a string. For more
 --     details, see
@@ -244,15 +242,15 @@ instance Core.AWSRequest StartMatchBackfill where
 
 instance Prelude.Hashable StartMatchBackfill where
   hashWithSalt _salt StartMatchBackfill' {..} =
-    _salt `Prelude.hashWithSalt` ticketId
-      `Prelude.hashWithSalt` gameSessionArn
+    _salt `Prelude.hashWithSalt` gameSessionArn
+      `Prelude.hashWithSalt` ticketId
       `Prelude.hashWithSalt` configurationName
       `Prelude.hashWithSalt` players
 
 instance Prelude.NFData StartMatchBackfill where
   rnf StartMatchBackfill' {..} =
-    Prelude.rnf ticketId
-      `Prelude.seq` Prelude.rnf gameSessionArn
+    Prelude.rnf gameSessionArn
+      `Prelude.seq` Prelude.rnf ticketId
       `Prelude.seq` Prelude.rnf configurationName
       `Prelude.seq` Prelude.rnf players
 
@@ -275,9 +273,9 @@ instance Data.ToJSON StartMatchBackfill where
   toJSON StartMatchBackfill' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("TicketId" Data..=) Prelude.<$> ticketId,
-            ("GameSessionArn" Data..=)
+          [ ("GameSessionArn" Data..=)
               Prelude.<$> gameSessionArn,
+            ("TicketId" Data..=) Prelude.<$> ticketId,
             Prelude.Just
               ("ConfigurationName" Data..= configurationName),
             Prelude.Just ("Players" Data..= players)
@@ -290,9 +288,7 @@ instance Data.ToPath StartMatchBackfill where
 instance Data.ToQuery StartMatchBackfill where
   toQuery = Prelude.const Prelude.mempty
 
--- | Represents the returned data in response to a request operation.
---
--- /See:/ 'newStartMatchBackfillResponse' smart constructor.
+-- | /See:/ 'newStartMatchBackfillResponse' smart constructor.
 data StartMatchBackfillResponse = StartMatchBackfillResponse'
   { -- | Ticket representing the backfill matchmaking request. This object
     -- includes the information in the request, ticket status, and match

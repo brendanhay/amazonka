@@ -27,9 +27,9 @@ module Amazonka.IoTRoboRunner.UpdateSite
     newUpdateSite,
 
     -- * Request Lenses
-    updateSite_name,
     updateSite_countryCode,
     updateSite_description,
+    updateSite_name,
     updateSite_id,
 
     -- * Destructuring the Response
@@ -57,9 +57,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateSite' smart constructor.
 data UpdateSite = UpdateSite'
-  { name :: Prelude.Maybe Prelude.Text,
-    countryCode :: Prelude.Maybe Prelude.Text,
+  { countryCode :: Prelude.Maybe Prelude.Text,
     description :: Prelude.Maybe Prelude.Text,
+    name :: Prelude.Maybe Prelude.Text,
     id :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,11 +72,11 @@ data UpdateSite = UpdateSite'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateSite_name' - Undocumented member.
---
 -- 'countryCode', 'updateSite_countryCode' - Undocumented member.
 --
 -- 'description', 'updateSite_description' - Undocumented member.
+--
+-- 'name', 'updateSite_name' - Undocumented member.
 --
 -- 'id', 'updateSite_id' - Undocumented member.
 newUpdateSite ::
@@ -85,15 +85,11 @@ newUpdateSite ::
   UpdateSite
 newUpdateSite pId_ =
   UpdateSite'
-    { name = Prelude.Nothing,
-      countryCode = Prelude.Nothing,
+    { countryCode = Prelude.Nothing,
       description = Prelude.Nothing,
+      name = Prelude.Nothing,
       id = pId_
     }
-
--- | Undocumented member.
-updateSite_name :: Lens.Lens' UpdateSite (Prelude.Maybe Prelude.Text)
-updateSite_name = Lens.lens (\UpdateSite' {name} -> name) (\s@UpdateSite' {} a -> s {name = a} :: UpdateSite)
 
 -- | Undocumented member.
 updateSite_countryCode :: Lens.Lens' UpdateSite (Prelude.Maybe Prelude.Text)
@@ -102,6 +98,10 @@ updateSite_countryCode = Lens.lens (\UpdateSite' {countryCode} -> countryCode) (
 -- | Undocumented member.
 updateSite_description :: Lens.Lens' UpdateSite (Prelude.Maybe Prelude.Text)
 updateSite_description = Lens.lens (\UpdateSite' {description} -> description) (\s@UpdateSite' {} a -> s {description = a} :: UpdateSite)
+
+-- | Undocumented member.
+updateSite_name :: Lens.Lens' UpdateSite (Prelude.Maybe Prelude.Text)
+updateSite_name = Lens.lens (\UpdateSite' {name} -> name) (\s@UpdateSite' {} a -> s {name = a} :: UpdateSite)
 
 -- | Undocumented member.
 updateSite_id :: Lens.Lens' UpdateSite Prelude.Text
@@ -126,16 +126,16 @@ instance Core.AWSRequest UpdateSite where
 
 instance Prelude.Hashable UpdateSite where
   hashWithSalt _salt UpdateSite' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` countryCode
+    _salt `Prelude.hashWithSalt` countryCode
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData UpdateSite where
   rnf UpdateSite' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf countryCode
+    Prelude.rnf countryCode
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf id
 
 instance Data.ToHeaders UpdateSite where
@@ -153,9 +153,9 @@ instance Data.ToJSON UpdateSite where
   toJSON UpdateSite' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("name" Data..=) Prelude.<$> name,
-            ("countryCode" Data..=) Prelude.<$> countryCode,
+          [ ("countryCode" Data..=) Prelude.<$> countryCode,
             ("description" Data..=) Prelude.<$> description,
+            ("name" Data..=) Prelude.<$> name,
             Prelude.Just ("id" Data..= id)
           ]
       )

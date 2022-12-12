@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBatchDeleteImportDataError' smart constructor.
 data BatchDeleteImportDataError = BatchDeleteImportDataError'
-  { -- | The unique import ID associated with the error that occurred.
-    importTaskId :: Prelude.Maybe Prelude.Text,
-    -- | The type of error that occurred for a specific import task.
+  { -- | The type of error that occurred for a specific import task.
     errorCode :: Prelude.Maybe BatchDeleteImportDataErrorCode,
     -- | The description of the error that occurred for a specific import task.
-    errorDescription :: Prelude.Maybe Prelude.Text
+    errorDescription :: Prelude.Maybe Prelude.Text,
+    -- | The unique import ID associated with the error that occurred.
+    importTaskId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,24 +47,20 @@ data BatchDeleteImportDataError = BatchDeleteImportDataError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'importTaskId', 'batchDeleteImportDataError_importTaskId' - The unique import ID associated with the error that occurred.
---
 -- 'errorCode', 'batchDeleteImportDataError_errorCode' - The type of error that occurred for a specific import task.
 --
 -- 'errorDescription', 'batchDeleteImportDataError_errorDescription' - The description of the error that occurred for a specific import task.
+--
+-- 'importTaskId', 'batchDeleteImportDataError_importTaskId' - The unique import ID associated with the error that occurred.
 newBatchDeleteImportDataError ::
   BatchDeleteImportDataError
 newBatchDeleteImportDataError =
   BatchDeleteImportDataError'
-    { importTaskId =
+    { errorCode =
         Prelude.Nothing,
-      errorCode = Prelude.Nothing,
-      errorDescription = Prelude.Nothing
+      errorDescription = Prelude.Nothing,
+      importTaskId = Prelude.Nothing
     }
-
--- | The unique import ID associated with the error that occurred.
-batchDeleteImportDataError_importTaskId :: Lens.Lens' BatchDeleteImportDataError (Prelude.Maybe Prelude.Text)
-batchDeleteImportDataError_importTaskId = Lens.lens (\BatchDeleteImportDataError' {importTaskId} -> importTaskId) (\s@BatchDeleteImportDataError' {} a -> s {importTaskId = a} :: BatchDeleteImportDataError)
 
 -- | The type of error that occurred for a specific import task.
 batchDeleteImportDataError_errorCode :: Lens.Lens' BatchDeleteImportDataError (Prelude.Maybe BatchDeleteImportDataErrorCode)
@@ -74,25 +70,29 @@ batchDeleteImportDataError_errorCode = Lens.lens (\BatchDeleteImportDataError' {
 batchDeleteImportDataError_errorDescription :: Lens.Lens' BatchDeleteImportDataError (Prelude.Maybe Prelude.Text)
 batchDeleteImportDataError_errorDescription = Lens.lens (\BatchDeleteImportDataError' {errorDescription} -> errorDescription) (\s@BatchDeleteImportDataError' {} a -> s {errorDescription = a} :: BatchDeleteImportDataError)
 
+-- | The unique import ID associated with the error that occurred.
+batchDeleteImportDataError_importTaskId :: Lens.Lens' BatchDeleteImportDataError (Prelude.Maybe Prelude.Text)
+batchDeleteImportDataError_importTaskId = Lens.lens (\BatchDeleteImportDataError' {importTaskId} -> importTaskId) (\s@BatchDeleteImportDataError' {} a -> s {importTaskId = a} :: BatchDeleteImportDataError)
+
 instance Data.FromJSON BatchDeleteImportDataError where
   parseJSON =
     Data.withObject
       "BatchDeleteImportDataError"
       ( \x ->
           BatchDeleteImportDataError'
-            Prelude.<$> (x Data..:? "importTaskId")
-            Prelude.<*> (x Data..:? "errorCode")
+            Prelude.<$> (x Data..:? "errorCode")
             Prelude.<*> (x Data..:? "errorDescription")
+            Prelude.<*> (x Data..:? "importTaskId")
       )
 
 instance Prelude.Hashable BatchDeleteImportDataError where
   hashWithSalt _salt BatchDeleteImportDataError' {..} =
-    _salt `Prelude.hashWithSalt` importTaskId
-      `Prelude.hashWithSalt` errorCode
+    _salt `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorDescription
+      `Prelude.hashWithSalt` importTaskId
 
 instance Prelude.NFData BatchDeleteImportDataError where
   rnf BatchDeleteImportDataError' {..} =
-    Prelude.rnf importTaskId
-      `Prelude.seq` Prelude.rnf errorCode
+    Prelude.rnf errorCode
       `Prelude.seq` Prelude.rnf errorDescription
+      `Prelude.seq` Prelude.rnf importTaskId

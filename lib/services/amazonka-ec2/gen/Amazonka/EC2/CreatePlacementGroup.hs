@@ -40,10 +40,10 @@ module Amazonka.EC2.CreatePlacementGroup
     newCreatePlacementGroup,
 
     -- * Request Lenses
+    createPlacementGroup_dryRun,
+    createPlacementGroup_groupName,
     createPlacementGroup_partitionCount,
     createPlacementGroup_spreadLevel,
-    createPlacementGroup_groupName,
-    createPlacementGroup_dryRun,
     createPlacementGroup_strategy,
     createPlacementGroup_tagSpecifications,
 
@@ -67,7 +67,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreatePlacementGroup' smart constructor.
 data CreatePlacementGroup = CreatePlacementGroup'
-  { -- | The number of partitions. Valid only when __Strategy__ is set to
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | A name for the placement group. Must be unique within the scope of your
+    -- account for the Region.
+    --
+    -- Constraints: Up to 255 ASCII characters
+    groupName :: Prelude.Maybe Prelude.Text,
+    -- | The number of partitions. Valid only when __Strategy__ is set to
     -- @partition@.
     partitionCount :: Prelude.Maybe Prelude.Int,
     -- | Determines how placement groups spread instances.
@@ -76,16 +86,6 @@ data CreatePlacementGroup = CreatePlacementGroup'
     --
     -- -   Rack – No usage restrictions.
     spreadLevel :: Prelude.Maybe SpreadLevel,
-    -- | A name for the placement group. Must be unique within the scope of your
-    -- account for the Region.
-    --
-    -- Constraints: Up to 255 ASCII characters
-    groupName :: Prelude.Maybe Prelude.Text,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The placement strategy.
     strategy :: Prelude.Maybe PlacementStrategy,
     -- | The tags to apply to the new placement group.
@@ -101,6 +101,16 @@ data CreatePlacementGroup = CreatePlacementGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dryRun', 'createPlacementGroup_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'groupName', 'createPlacementGroup_groupName' - A name for the placement group. Must be unique within the scope of your
+-- account for the Region.
+--
+-- Constraints: Up to 255 ASCII characters
+--
 -- 'partitionCount', 'createPlacementGroup_partitionCount' - The number of partitions. Valid only when __Strategy__ is set to
 -- @partition@.
 --
@@ -110,16 +120,6 @@ data CreatePlacementGroup = CreatePlacementGroup'
 --
 -- -   Rack – No usage restrictions.
 --
--- 'groupName', 'createPlacementGroup_groupName' - A name for the placement group. Must be unique within the scope of your
--- account for the Region.
---
--- Constraints: Up to 255 ASCII characters
---
--- 'dryRun', 'createPlacementGroup_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'strategy', 'createPlacementGroup_strategy' - The placement strategy.
 --
 -- 'tagSpecifications', 'createPlacementGroup_tagSpecifications' - The tags to apply to the new placement group.
@@ -127,14 +127,27 @@ newCreatePlacementGroup ::
   CreatePlacementGroup
 newCreatePlacementGroup =
   CreatePlacementGroup'
-    { partitionCount =
-        Prelude.Nothing,
-      spreadLevel = Prelude.Nothing,
+    { dryRun = Prelude.Nothing,
       groupName = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
+      partitionCount = Prelude.Nothing,
+      spreadLevel = Prelude.Nothing,
       strategy = Prelude.Nothing,
       tagSpecifications = Prelude.Nothing
     }
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+createPlacementGroup_dryRun :: Lens.Lens' CreatePlacementGroup (Prelude.Maybe Prelude.Bool)
+createPlacementGroup_dryRun = Lens.lens (\CreatePlacementGroup' {dryRun} -> dryRun) (\s@CreatePlacementGroup' {} a -> s {dryRun = a} :: CreatePlacementGroup)
+
+-- | A name for the placement group. Must be unique within the scope of your
+-- account for the Region.
+--
+-- Constraints: Up to 255 ASCII characters
+createPlacementGroup_groupName :: Lens.Lens' CreatePlacementGroup (Prelude.Maybe Prelude.Text)
+createPlacementGroup_groupName = Lens.lens (\CreatePlacementGroup' {groupName} -> groupName) (\s@CreatePlacementGroup' {} a -> s {groupName = a} :: CreatePlacementGroup)
 
 -- | The number of partitions. Valid only when __Strategy__ is set to
 -- @partition@.
@@ -148,20 +161,6 @@ createPlacementGroup_partitionCount = Lens.lens (\CreatePlacementGroup' {partiti
 -- -   Rack – No usage restrictions.
 createPlacementGroup_spreadLevel :: Lens.Lens' CreatePlacementGroup (Prelude.Maybe SpreadLevel)
 createPlacementGroup_spreadLevel = Lens.lens (\CreatePlacementGroup' {spreadLevel} -> spreadLevel) (\s@CreatePlacementGroup' {} a -> s {spreadLevel = a} :: CreatePlacementGroup)
-
--- | A name for the placement group. Must be unique within the scope of your
--- account for the Region.
---
--- Constraints: Up to 255 ASCII characters
-createPlacementGroup_groupName :: Lens.Lens' CreatePlacementGroup (Prelude.Maybe Prelude.Text)
-createPlacementGroup_groupName = Lens.lens (\CreatePlacementGroup' {groupName} -> groupName) (\s@CreatePlacementGroup' {} a -> s {groupName = a} :: CreatePlacementGroup)
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-createPlacementGroup_dryRun :: Lens.Lens' CreatePlacementGroup (Prelude.Maybe Prelude.Bool)
-createPlacementGroup_dryRun = Lens.lens (\CreatePlacementGroup' {dryRun} -> dryRun) (\s@CreatePlacementGroup' {} a -> s {dryRun = a} :: CreatePlacementGroup)
 
 -- | The placement strategy.
 createPlacementGroup_strategy :: Lens.Lens' CreatePlacementGroup (Prelude.Maybe PlacementStrategy)
@@ -187,19 +186,19 @@ instance Core.AWSRequest CreatePlacementGroup where
 
 instance Prelude.Hashable CreatePlacementGroup where
   hashWithSalt _salt CreatePlacementGroup' {..} =
-    _salt `Prelude.hashWithSalt` partitionCount
-      `Prelude.hashWithSalt` spreadLevel
+    _salt `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` groupName
-      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` partitionCount
+      `Prelude.hashWithSalt` spreadLevel
       `Prelude.hashWithSalt` strategy
       `Prelude.hashWithSalt` tagSpecifications
 
 instance Prelude.NFData CreatePlacementGroup where
   rnf CreatePlacementGroup' {..} =
-    Prelude.rnf partitionCount
-      `Prelude.seq` Prelude.rnf spreadLevel
+    Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf partitionCount
+      `Prelude.seq` Prelude.rnf spreadLevel
       `Prelude.seq` Prelude.rnf strategy
       `Prelude.seq` Prelude.rnf tagSpecifications
 
@@ -216,10 +215,10 @@ instance Data.ToQuery CreatePlacementGroup where
           Data.=: ("CreatePlacementGroup" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "GroupName" Data.=: groupName,
         "PartitionCount" Data.=: partitionCount,
         "SpreadLevel" Data.=: spreadLevel,
-        "GroupName" Data.=: groupName,
-        "DryRun" Data.=: dryRun,
         "Strategy" Data.=: strategy,
         Data.toQuery
           ( Data.toQueryList "TagSpecification"

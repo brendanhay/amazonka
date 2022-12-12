@@ -107,15 +107,6 @@ module Amazonka.OpsWorks
     -- * Waiters
     -- $waiters
 
-    -- ** InstanceStopped
-    newInstanceStopped,
-
-    -- ** InstanceRegistered
-    newInstanceRegistered,
-
-    -- ** InstanceTerminated
-    newInstanceTerminated,
-
     -- ** AppExists
     newAppExists,
 
@@ -124,6 +115,15 @@ module Amazonka.OpsWorks
 
     -- ** InstanceOnline
     newInstanceOnline,
+
+    -- ** InstanceRegistered
+    newInstanceRegistered,
+
+    -- ** InstanceStopped
+    newInstanceStopped,
+
+    -- ** InstanceTerminated
+    newInstanceTerminated,
 
     -- * Operations
     -- $operations

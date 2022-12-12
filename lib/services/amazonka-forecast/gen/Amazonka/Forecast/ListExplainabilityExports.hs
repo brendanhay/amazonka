@@ -36,17 +36,17 @@ module Amazonka.Forecast.ListExplainabilityExports
     newListExplainabilityExports,
 
     -- * Request Lenses
-    listExplainabilityExports_nextToken,
     listExplainabilityExports_filters,
     listExplainabilityExports_maxResults,
+    listExplainabilityExports_nextToken,
 
     -- * Destructuring the Response
     ListExplainabilityExportsResponse (..),
     newListExplainabilityExportsResponse,
 
     -- * Response Lenses
-    listExplainabilityExportsResponse_nextToken,
     listExplainabilityExportsResponse_explainabilityExports,
+    listExplainabilityExportsResponse_nextToken,
     listExplainabilityExportsResponse_httpStatus,
   )
 where
@@ -61,11 +61,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListExplainabilityExports' smart constructor.
 data ListExplainabilityExports = ListExplainabilityExports'
-  { -- | If the result of the previous request was truncated, the response
-    -- includes a NextToken. To retrieve the next set of results, use the token
-    -- in the next request. Tokens expire after 24 hours.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of filters. For each filter, provide a condition and a match
+  { -- | An array of filters. For each filter, provide a condition and a match
     -- statement. The condition is either @IS@ or @IS_NOT@, which specifies
     -- whether to include or exclude resources that match the statement from
     -- the list. The match statement consists of a key and a value.
@@ -81,7 +77,11 @@ data ListExplainabilityExports = ListExplainabilityExports'
     -- -   @Value@ - The value to match.
     filters :: Prelude.Maybe [Filter],
     -- | The number of items to return in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the result of the previous request was truncated, the response
+    -- includes a NextToken. To retrieve the next set of results, use the token
+    -- in the next request. Tokens expire after 24 hours.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -92,10 +92,6 @@ data ListExplainabilityExports = ListExplainabilityExports'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'listExplainabilityExports_nextToken' - If the result of the previous request was truncated, the response
--- includes a NextToken. To retrieve the next set of results, use the token
--- in the next request. Tokens expire after 24 hours.
 --
 -- 'filters', 'listExplainabilityExports_filters' - An array of filters. For each filter, provide a condition and a match
 -- statement. The condition is either @IS@ or @IS_NOT@, which specifies
@@ -113,21 +109,19 @@ data ListExplainabilityExports = ListExplainabilityExports'
 -- -   @Value@ - The value to match.
 --
 -- 'maxResults', 'listExplainabilityExports_maxResults' - The number of items to return in the response.
+--
+-- 'nextToken', 'listExplainabilityExports_nextToken' - If the result of the previous request was truncated, the response
+-- includes a NextToken. To retrieve the next set of results, use the token
+-- in the next request. Tokens expire after 24 hours.
 newListExplainabilityExports ::
   ListExplainabilityExports
 newListExplainabilityExports =
   ListExplainabilityExports'
-    { nextToken =
+    { filters =
         Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | If the result of the previous request was truncated, the response
--- includes a NextToken. To retrieve the next set of results, use the token
--- in the next request. Tokens expire after 24 hours.
-listExplainabilityExports_nextToken :: Lens.Lens' ListExplainabilityExports (Prelude.Maybe Prelude.Text)
-listExplainabilityExports_nextToken = Lens.lens (\ListExplainabilityExports' {nextToken} -> nextToken) (\s@ListExplainabilityExports' {} a -> s {nextToken = a} :: ListExplainabilityExports)
 
 -- | An array of filters. For each filter, provide a condition and a match
 -- statement. The condition is either @IS@ or @IS_NOT@, which specifies
@@ -149,6 +143,12 @@ listExplainabilityExports_filters = Lens.lens (\ListExplainabilityExports' {filt
 -- | The number of items to return in the response.
 listExplainabilityExports_maxResults :: Lens.Lens' ListExplainabilityExports (Prelude.Maybe Prelude.Natural)
 listExplainabilityExports_maxResults = Lens.lens (\ListExplainabilityExports' {maxResults} -> maxResults) (\s@ListExplainabilityExports' {} a -> s {maxResults = a} :: ListExplainabilityExports)
+
+-- | If the result of the previous request was truncated, the response
+-- includes a NextToken. To retrieve the next set of results, use the token
+-- in the next request. Tokens expire after 24 hours.
+listExplainabilityExports_nextToken :: Lens.Lens' ListExplainabilityExports (Prelude.Maybe Prelude.Text)
+listExplainabilityExports_nextToken = Lens.lens (\ListExplainabilityExports' {nextToken} -> nextToken) (\s@ListExplainabilityExports' {} a -> s {nextToken = a} :: ListExplainabilityExports)
 
 instance Core.AWSPager ListExplainabilityExports where
   page rq rs
@@ -182,24 +182,24 @@ instance Core.AWSRequest ListExplainabilityExports where
     Response.receiveJSON
       ( \s h x ->
           ListExplainabilityExportsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ExplainabilityExports"
+            Prelude.<$> ( x Data..?> "ExplainabilityExports"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListExplainabilityExports where
   hashWithSalt _salt ListExplainabilityExports' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListExplainabilityExports where
   rnf ListExplainabilityExports' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListExplainabilityExports where
   toHeaders =
@@ -220,9 +220,9 @@ instance Data.ToJSON ListExplainabilityExports where
   toJSON ListExplainabilityExports' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -234,12 +234,12 @@ instance Data.ToQuery ListExplainabilityExports where
 
 -- | /See:/ 'newListExplainabilityExportsResponse' smart constructor.
 data ListExplainabilityExportsResponse = ListExplainabilityExportsResponse'
-  { -- | Returns this token if the response is truncated. To retrieve the next
-    -- set of results, use the token in the next request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of objects that summarize the properties of each Explainability
+  { -- | An array of objects that summarize the properties of each Explainability
     -- export.
     explainabilityExports :: Prelude.Maybe [ExplainabilityExportSummary],
+    -- | Returns this token if the response is truncated. To retrieve the next
+    -- set of results, use the token in the next request.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -253,11 +253,11 @@ data ListExplainabilityExportsResponse = ListExplainabilityExportsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listExplainabilityExportsResponse_nextToken' - Returns this token if the response is truncated. To retrieve the next
--- set of results, use the token in the next request.
---
 -- 'explainabilityExports', 'listExplainabilityExportsResponse_explainabilityExports' - An array of objects that summarize the properties of each Explainability
 -- export.
+--
+-- 'nextToken', 'listExplainabilityExportsResponse_nextToken' - Returns this token if the response is truncated. To retrieve the next
+-- set of results, use the token in the next request.
 --
 -- 'httpStatus', 'listExplainabilityExportsResponse_httpStatus' - The response's http status code.
 newListExplainabilityExportsResponse ::
@@ -266,21 +266,21 @@ newListExplainabilityExportsResponse ::
   ListExplainabilityExportsResponse
 newListExplainabilityExportsResponse pHttpStatus_ =
   ListExplainabilityExportsResponse'
-    { nextToken =
+    { explainabilityExports =
         Prelude.Nothing,
-      explainabilityExports = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Returns this token if the response is truncated. To retrieve the next
--- set of results, use the token in the next request.
-listExplainabilityExportsResponse_nextToken :: Lens.Lens' ListExplainabilityExportsResponse (Prelude.Maybe Prelude.Text)
-listExplainabilityExportsResponse_nextToken = Lens.lens (\ListExplainabilityExportsResponse' {nextToken} -> nextToken) (\s@ListExplainabilityExportsResponse' {} a -> s {nextToken = a} :: ListExplainabilityExportsResponse)
 
 -- | An array of objects that summarize the properties of each Explainability
 -- export.
 listExplainabilityExportsResponse_explainabilityExports :: Lens.Lens' ListExplainabilityExportsResponse (Prelude.Maybe [ExplainabilityExportSummary])
 listExplainabilityExportsResponse_explainabilityExports = Lens.lens (\ListExplainabilityExportsResponse' {explainabilityExports} -> explainabilityExports) (\s@ListExplainabilityExportsResponse' {} a -> s {explainabilityExports = a} :: ListExplainabilityExportsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Returns this token if the response is truncated. To retrieve the next
+-- set of results, use the token in the next request.
+listExplainabilityExportsResponse_nextToken :: Lens.Lens' ListExplainabilityExportsResponse (Prelude.Maybe Prelude.Text)
+listExplainabilityExportsResponse_nextToken = Lens.lens (\ListExplainabilityExportsResponse' {nextToken} -> nextToken) (\s@ListExplainabilityExportsResponse' {} a -> s {nextToken = a} :: ListExplainabilityExportsResponse)
 
 -- | The response's http status code.
 listExplainabilityExportsResponse_httpStatus :: Lens.Lens' ListExplainabilityExportsResponse Prelude.Int
@@ -291,6 +291,6 @@ instance
     ListExplainabilityExportsResponse
   where
   rnf ListExplainabilityExportsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf explainabilityExports
+    Prelude.rnf explainabilityExports
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

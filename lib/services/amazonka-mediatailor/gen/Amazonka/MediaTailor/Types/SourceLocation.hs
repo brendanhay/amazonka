@@ -35,21 +35,21 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSourceLocation' smart constructor.
 data SourceLocation = SourceLocation'
-  { -- | The tags assigned to the source location. Tags are key-value pairs that
-    -- you can associate with Amazon resources to help with organization,
-    -- access control, and cost tracking. For more information, see
-    -- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The segment delivery configurations for the source location.
-    segmentDeliveryConfigurations :: Prelude.Maybe [SegmentDeliveryConfiguration],
-    -- | The access configuration for the source location.
+  { -- | The access configuration for the source location.
     accessConfiguration :: Prelude.Maybe AccessConfiguration,
+    -- | The timestamp that indicates when the source location was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The default segment delivery configuration.
     defaultSegmentDeliveryConfiguration :: Prelude.Maybe DefaultSegmentDeliveryConfiguration,
     -- | The timestamp that indicates when the source location was last modified.
     lastModifiedTime :: Prelude.Maybe Data.POSIX,
-    -- | The timestamp that indicates when the source location was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The segment delivery configurations for the source location.
+    segmentDeliveryConfigurations :: Prelude.Maybe [SegmentDeliveryConfiguration],
+    -- | The tags assigned to the source location. Tags are key-value pairs that
+    -- you can associate with Amazon resources to help with organization,
+    -- access control, and cost tracking. For more information, see
+    -- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The ARN of the SourceLocation.
     arn :: Prelude.Text,
     -- | The HTTP configuration for the source location.
@@ -67,20 +67,20 @@ data SourceLocation = SourceLocation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'sourceLocation_tags' - The tags assigned to the source location. Tags are key-value pairs that
--- you can associate with Amazon resources to help with organization,
--- access control, and cost tracking. For more information, see
--- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
---
--- 'segmentDeliveryConfigurations', 'sourceLocation_segmentDeliveryConfigurations' - The segment delivery configurations for the source location.
---
 -- 'accessConfiguration', 'sourceLocation_accessConfiguration' - The access configuration for the source location.
+--
+-- 'creationTime', 'sourceLocation_creationTime' - The timestamp that indicates when the source location was created.
 --
 -- 'defaultSegmentDeliveryConfiguration', 'sourceLocation_defaultSegmentDeliveryConfiguration' - The default segment delivery configuration.
 --
 -- 'lastModifiedTime', 'sourceLocation_lastModifiedTime' - The timestamp that indicates when the source location was last modified.
 --
--- 'creationTime', 'sourceLocation_creationTime' - The timestamp that indicates when the source location was created.
+-- 'segmentDeliveryConfigurations', 'sourceLocation_segmentDeliveryConfigurations' - The segment delivery configurations for the source location.
+--
+-- 'tags', 'sourceLocation_tags' - The tags assigned to the source location. Tags are key-value pairs that
+-- you can associate with Amazon resources to help with organization,
+-- access control, and cost tracking. For more information, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 --
 -- 'arn', 'sourceLocation_arn' - The ARN of the SourceLocation.
 --
@@ -100,32 +100,26 @@ newSourceLocation
   pHttpConfiguration_
   pSourceLocationName_ =
     SourceLocation'
-      { tags = Prelude.Nothing,
-        segmentDeliveryConfigurations = Prelude.Nothing,
-        accessConfiguration = Prelude.Nothing,
+      { accessConfiguration =
+          Prelude.Nothing,
+        creationTime = Prelude.Nothing,
         defaultSegmentDeliveryConfiguration =
           Prelude.Nothing,
         lastModifiedTime = Prelude.Nothing,
-        creationTime = Prelude.Nothing,
+        segmentDeliveryConfigurations = Prelude.Nothing,
+        tags = Prelude.Nothing,
         arn = pArn_,
         httpConfiguration = pHttpConfiguration_,
         sourceLocationName = pSourceLocationName_
       }
 
--- | The tags assigned to the source location. Tags are key-value pairs that
--- you can associate with Amazon resources to help with organization,
--- access control, and cost tracking. For more information, see
--- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
-sourceLocation_tags :: Lens.Lens' SourceLocation (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-sourceLocation_tags = Lens.lens (\SourceLocation' {tags} -> tags) (\s@SourceLocation' {} a -> s {tags = a} :: SourceLocation) Prelude.. Lens.mapping Lens.coerced
-
--- | The segment delivery configurations for the source location.
-sourceLocation_segmentDeliveryConfigurations :: Lens.Lens' SourceLocation (Prelude.Maybe [SegmentDeliveryConfiguration])
-sourceLocation_segmentDeliveryConfigurations = Lens.lens (\SourceLocation' {segmentDeliveryConfigurations} -> segmentDeliveryConfigurations) (\s@SourceLocation' {} a -> s {segmentDeliveryConfigurations = a} :: SourceLocation) Prelude.. Lens.mapping Lens.coerced
-
 -- | The access configuration for the source location.
 sourceLocation_accessConfiguration :: Lens.Lens' SourceLocation (Prelude.Maybe AccessConfiguration)
 sourceLocation_accessConfiguration = Lens.lens (\SourceLocation' {accessConfiguration} -> accessConfiguration) (\s@SourceLocation' {} a -> s {accessConfiguration = a} :: SourceLocation)
+
+-- | The timestamp that indicates when the source location was created.
+sourceLocation_creationTime :: Lens.Lens' SourceLocation (Prelude.Maybe Prelude.UTCTime)
+sourceLocation_creationTime = Lens.lens (\SourceLocation' {creationTime} -> creationTime) (\s@SourceLocation' {} a -> s {creationTime = a} :: SourceLocation) Prelude.. Lens.mapping Data._Time
 
 -- | The default segment delivery configuration.
 sourceLocation_defaultSegmentDeliveryConfiguration :: Lens.Lens' SourceLocation (Prelude.Maybe DefaultSegmentDeliveryConfiguration)
@@ -135,9 +129,16 @@ sourceLocation_defaultSegmentDeliveryConfiguration = Lens.lens (\SourceLocation'
 sourceLocation_lastModifiedTime :: Lens.Lens' SourceLocation (Prelude.Maybe Prelude.UTCTime)
 sourceLocation_lastModifiedTime = Lens.lens (\SourceLocation' {lastModifiedTime} -> lastModifiedTime) (\s@SourceLocation' {} a -> s {lastModifiedTime = a} :: SourceLocation) Prelude.. Lens.mapping Data._Time
 
--- | The timestamp that indicates when the source location was created.
-sourceLocation_creationTime :: Lens.Lens' SourceLocation (Prelude.Maybe Prelude.UTCTime)
-sourceLocation_creationTime = Lens.lens (\SourceLocation' {creationTime} -> creationTime) (\s@SourceLocation' {} a -> s {creationTime = a} :: SourceLocation) Prelude.. Lens.mapping Data._Time
+-- | The segment delivery configurations for the source location.
+sourceLocation_segmentDeliveryConfigurations :: Lens.Lens' SourceLocation (Prelude.Maybe [SegmentDeliveryConfiguration])
+sourceLocation_segmentDeliveryConfigurations = Lens.lens (\SourceLocation' {segmentDeliveryConfigurations} -> segmentDeliveryConfigurations) (\s@SourceLocation' {} a -> s {segmentDeliveryConfigurations = a} :: SourceLocation) Prelude.. Lens.mapping Lens.coerced
+
+-- | The tags assigned to the source location. Tags are key-value pairs that
+-- you can associate with Amazon resources to help with organization,
+-- access control, and cost tracking. For more information, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
+sourceLocation_tags :: Lens.Lens' SourceLocation (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+sourceLocation_tags = Lens.lens (\SourceLocation' {tags} -> tags) (\s@SourceLocation' {} a -> s {tags = a} :: SourceLocation) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the SourceLocation.
 sourceLocation_arn :: Lens.Lens' SourceLocation Prelude.Text
@@ -157,14 +158,14 @@ instance Data.FromJSON SourceLocation where
       "SourceLocation"
       ( \x ->
           SourceLocation'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "AccessConfiguration")
+            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "DefaultSegmentDeliveryConfiguration")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
             Prelude.<*> ( x Data..:? "SegmentDeliveryConfigurations"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "AccessConfiguration")
-            Prelude.<*> (x Data..:? "DefaultSegmentDeliveryConfiguration")
-            Prelude.<*> (x Data..:? "LastModifiedTime")
-            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "Arn")
             Prelude.<*> (x Data..: "HttpConfiguration")
             Prelude.<*> (x Data..: "SourceLocationName")
@@ -172,24 +173,24 @@ instance Data.FromJSON SourceLocation where
 
 instance Prelude.Hashable SourceLocation where
   hashWithSalt _salt SourceLocation' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` segmentDeliveryConfigurations
-      `Prelude.hashWithSalt` accessConfiguration
+    _salt `Prelude.hashWithSalt` accessConfiguration
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` defaultSegmentDeliveryConfiguration
       `Prelude.hashWithSalt` lastModifiedTime
-      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` segmentDeliveryConfigurations
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` httpConfiguration
       `Prelude.hashWithSalt` sourceLocationName
 
 instance Prelude.NFData SourceLocation where
   rnf SourceLocation' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf segmentDeliveryConfigurations
-      `Prelude.seq` Prelude.rnf accessConfiguration
+    Prelude.rnf accessConfiguration
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf defaultSegmentDeliveryConfiguration
       `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf segmentDeliveryConfigurations
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf httpConfiguration
       `Prelude.seq` Prelude.rnf sourceLocationName

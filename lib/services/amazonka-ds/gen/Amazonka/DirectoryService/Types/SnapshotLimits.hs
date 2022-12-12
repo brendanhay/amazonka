@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSnapshotLimits' smart constructor.
 data SnapshotLimits = SnapshotLimits'
-  { -- | Indicates if the manual snapshot limit has been reached.
-    manualSnapshotsLimitReached :: Prelude.Maybe Prelude.Bool,
-    -- | The current number of manual snapshots of the directory.
+  { -- | The current number of manual snapshots of the directory.
     manualSnapshotsCurrentCount :: Prelude.Maybe Prelude.Natural,
     -- | The maximum number of manual snapshots allowed.
-    manualSnapshotsLimit :: Prelude.Maybe Prelude.Natural
+    manualSnapshotsLimit :: Prelude.Maybe Prelude.Natural,
+    -- | Indicates if the manual snapshot limit has been reached.
+    manualSnapshotsLimitReached :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,20 @@ data SnapshotLimits = SnapshotLimits'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'manualSnapshotsLimitReached', 'snapshotLimits_manualSnapshotsLimitReached' - Indicates if the manual snapshot limit has been reached.
---
 -- 'manualSnapshotsCurrentCount', 'snapshotLimits_manualSnapshotsCurrentCount' - The current number of manual snapshots of the directory.
 --
 -- 'manualSnapshotsLimit', 'snapshotLimits_manualSnapshotsLimit' - The maximum number of manual snapshots allowed.
+--
+-- 'manualSnapshotsLimitReached', 'snapshotLimits_manualSnapshotsLimitReached' - Indicates if the manual snapshot limit has been reached.
 newSnapshotLimits ::
   SnapshotLimits
 newSnapshotLimits =
   SnapshotLimits'
-    { manualSnapshotsLimitReached =
+    { manualSnapshotsCurrentCount =
         Prelude.Nothing,
-      manualSnapshotsCurrentCount = Prelude.Nothing,
-      manualSnapshotsLimit = Prelude.Nothing
+      manualSnapshotsLimit = Prelude.Nothing,
+      manualSnapshotsLimitReached = Prelude.Nothing
     }
-
--- | Indicates if the manual snapshot limit has been reached.
-snapshotLimits_manualSnapshotsLimitReached :: Lens.Lens' SnapshotLimits (Prelude.Maybe Prelude.Bool)
-snapshotLimits_manualSnapshotsLimitReached = Lens.lens (\SnapshotLimits' {manualSnapshotsLimitReached} -> manualSnapshotsLimitReached) (\s@SnapshotLimits' {} a -> s {manualSnapshotsLimitReached = a} :: SnapshotLimits)
 
 -- | The current number of manual snapshots of the directory.
 snapshotLimits_manualSnapshotsCurrentCount :: Lens.Lens' SnapshotLimits (Prelude.Maybe Prelude.Natural)
@@ -72,26 +68,30 @@ snapshotLimits_manualSnapshotsCurrentCount = Lens.lens (\SnapshotLimits' {manual
 snapshotLimits_manualSnapshotsLimit :: Lens.Lens' SnapshotLimits (Prelude.Maybe Prelude.Natural)
 snapshotLimits_manualSnapshotsLimit = Lens.lens (\SnapshotLimits' {manualSnapshotsLimit} -> manualSnapshotsLimit) (\s@SnapshotLimits' {} a -> s {manualSnapshotsLimit = a} :: SnapshotLimits)
 
+-- | Indicates if the manual snapshot limit has been reached.
+snapshotLimits_manualSnapshotsLimitReached :: Lens.Lens' SnapshotLimits (Prelude.Maybe Prelude.Bool)
+snapshotLimits_manualSnapshotsLimitReached = Lens.lens (\SnapshotLimits' {manualSnapshotsLimitReached} -> manualSnapshotsLimitReached) (\s@SnapshotLimits' {} a -> s {manualSnapshotsLimitReached = a} :: SnapshotLimits)
+
 instance Data.FromJSON SnapshotLimits where
   parseJSON =
     Data.withObject
       "SnapshotLimits"
       ( \x ->
           SnapshotLimits'
-            Prelude.<$> (x Data..:? "ManualSnapshotsLimitReached")
-            Prelude.<*> (x Data..:? "ManualSnapshotsCurrentCount")
+            Prelude.<$> (x Data..:? "ManualSnapshotsCurrentCount")
             Prelude.<*> (x Data..:? "ManualSnapshotsLimit")
+            Prelude.<*> (x Data..:? "ManualSnapshotsLimitReached")
       )
 
 instance Prelude.Hashable SnapshotLimits where
   hashWithSalt _salt SnapshotLimits' {..} =
     _salt
-      `Prelude.hashWithSalt` manualSnapshotsLimitReached
       `Prelude.hashWithSalt` manualSnapshotsCurrentCount
       `Prelude.hashWithSalt` manualSnapshotsLimit
+      `Prelude.hashWithSalt` manualSnapshotsLimitReached
 
 instance Prelude.NFData SnapshotLimits where
   rnf SnapshotLimits' {..} =
-    Prelude.rnf manualSnapshotsLimitReached
-      `Prelude.seq` Prelude.rnf manualSnapshotsCurrentCount
+    Prelude.rnf manualSnapshotsCurrentCount
       `Prelude.seq` Prelude.rnf manualSnapshotsLimit
+      `Prelude.seq` Prelude.rnf manualSnapshotsLimitReached

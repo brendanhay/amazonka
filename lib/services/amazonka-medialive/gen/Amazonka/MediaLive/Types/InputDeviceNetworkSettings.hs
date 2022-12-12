@@ -29,18 +29,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInputDeviceNetworkSettings' smart constructor.
 data InputDeviceNetworkSettings = InputDeviceNetworkSettings'
-  { -- | The network gateway IP address.
+  { -- | The DNS addresses of the input device.
+    dnsAddresses :: Prelude.Maybe [Prelude.Text],
+    -- | The network gateway IP address.
     gateway :: Prelude.Maybe Prelude.Text,
+    -- | The IP address of the input device.
+    ipAddress :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the input device has been configured (outside of
     -- MediaLive) to use a dynamic IP address assignment (DHCP) or a static IP
     -- address.
     ipScheme :: Prelude.Maybe InputDeviceIpScheme,
-    -- | The DNS addresses of the input device.
-    dnsAddresses :: Prelude.Maybe [Prelude.Text],
     -- | The subnet mask of the input device.
-    subnetMask :: Prelude.Maybe Prelude.Text,
-    -- | The IP address of the input device.
-    ipAddress :: Prelude.Maybe Prelude.Text
+    subnetMask :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,32 +52,40 @@ data InputDeviceNetworkSettings = InputDeviceNetworkSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dnsAddresses', 'inputDeviceNetworkSettings_dnsAddresses' - The DNS addresses of the input device.
+--
 -- 'gateway', 'inputDeviceNetworkSettings_gateway' - The network gateway IP address.
+--
+-- 'ipAddress', 'inputDeviceNetworkSettings_ipAddress' - The IP address of the input device.
 --
 -- 'ipScheme', 'inputDeviceNetworkSettings_ipScheme' - Specifies whether the input device has been configured (outside of
 -- MediaLive) to use a dynamic IP address assignment (DHCP) or a static IP
 -- address.
 --
--- 'dnsAddresses', 'inputDeviceNetworkSettings_dnsAddresses' - The DNS addresses of the input device.
---
 -- 'subnetMask', 'inputDeviceNetworkSettings_subnetMask' - The subnet mask of the input device.
---
--- 'ipAddress', 'inputDeviceNetworkSettings_ipAddress' - The IP address of the input device.
 newInputDeviceNetworkSettings ::
   InputDeviceNetworkSettings
 newInputDeviceNetworkSettings =
   InputDeviceNetworkSettings'
-    { gateway =
+    { dnsAddresses =
         Prelude.Nothing,
+      gateway = Prelude.Nothing,
+      ipAddress = Prelude.Nothing,
       ipScheme = Prelude.Nothing,
-      dnsAddresses = Prelude.Nothing,
-      subnetMask = Prelude.Nothing,
-      ipAddress = Prelude.Nothing
+      subnetMask = Prelude.Nothing
     }
+
+-- | The DNS addresses of the input device.
+inputDeviceNetworkSettings_dnsAddresses :: Lens.Lens' InputDeviceNetworkSettings (Prelude.Maybe [Prelude.Text])
+inputDeviceNetworkSettings_dnsAddresses = Lens.lens (\InputDeviceNetworkSettings' {dnsAddresses} -> dnsAddresses) (\s@InputDeviceNetworkSettings' {} a -> s {dnsAddresses = a} :: InputDeviceNetworkSettings) Prelude.. Lens.mapping Lens.coerced
 
 -- | The network gateway IP address.
 inputDeviceNetworkSettings_gateway :: Lens.Lens' InputDeviceNetworkSettings (Prelude.Maybe Prelude.Text)
 inputDeviceNetworkSettings_gateway = Lens.lens (\InputDeviceNetworkSettings' {gateway} -> gateway) (\s@InputDeviceNetworkSettings' {} a -> s {gateway = a} :: InputDeviceNetworkSettings)
+
+-- | The IP address of the input device.
+inputDeviceNetworkSettings_ipAddress :: Lens.Lens' InputDeviceNetworkSettings (Prelude.Maybe Prelude.Text)
+inputDeviceNetworkSettings_ipAddress = Lens.lens (\InputDeviceNetworkSettings' {ipAddress} -> ipAddress) (\s@InputDeviceNetworkSettings' {} a -> s {ipAddress = a} :: InputDeviceNetworkSettings)
 
 -- | Specifies whether the input device has been configured (outside of
 -- MediaLive) to use a dynamic IP address assignment (DHCP) or a static IP
@@ -85,17 +93,9 @@ inputDeviceNetworkSettings_gateway = Lens.lens (\InputDeviceNetworkSettings' {ga
 inputDeviceNetworkSettings_ipScheme :: Lens.Lens' InputDeviceNetworkSettings (Prelude.Maybe InputDeviceIpScheme)
 inputDeviceNetworkSettings_ipScheme = Lens.lens (\InputDeviceNetworkSettings' {ipScheme} -> ipScheme) (\s@InputDeviceNetworkSettings' {} a -> s {ipScheme = a} :: InputDeviceNetworkSettings)
 
--- | The DNS addresses of the input device.
-inputDeviceNetworkSettings_dnsAddresses :: Lens.Lens' InputDeviceNetworkSettings (Prelude.Maybe [Prelude.Text])
-inputDeviceNetworkSettings_dnsAddresses = Lens.lens (\InputDeviceNetworkSettings' {dnsAddresses} -> dnsAddresses) (\s@InputDeviceNetworkSettings' {} a -> s {dnsAddresses = a} :: InputDeviceNetworkSettings) Prelude.. Lens.mapping Lens.coerced
-
 -- | The subnet mask of the input device.
 inputDeviceNetworkSettings_subnetMask :: Lens.Lens' InputDeviceNetworkSettings (Prelude.Maybe Prelude.Text)
 inputDeviceNetworkSettings_subnetMask = Lens.lens (\InputDeviceNetworkSettings' {subnetMask} -> subnetMask) (\s@InputDeviceNetworkSettings' {} a -> s {subnetMask = a} :: InputDeviceNetworkSettings)
-
--- | The IP address of the input device.
-inputDeviceNetworkSettings_ipAddress :: Lens.Lens' InputDeviceNetworkSettings (Prelude.Maybe Prelude.Text)
-inputDeviceNetworkSettings_ipAddress = Lens.lens (\InputDeviceNetworkSettings' {ipAddress} -> ipAddress) (\s@InputDeviceNetworkSettings' {} a -> s {ipAddress = a} :: InputDeviceNetworkSettings)
 
 instance Data.FromJSON InputDeviceNetworkSettings where
   parseJSON =
@@ -103,25 +103,25 @@ instance Data.FromJSON InputDeviceNetworkSettings where
       "InputDeviceNetworkSettings"
       ( \x ->
           InputDeviceNetworkSettings'
-            Prelude.<$> (x Data..:? "gateway")
-            Prelude.<*> (x Data..:? "ipScheme")
-            Prelude.<*> (x Data..:? "dnsAddresses" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "subnetMask")
+            Prelude.<$> (x Data..:? "dnsAddresses" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "gateway")
             Prelude.<*> (x Data..:? "ipAddress")
+            Prelude.<*> (x Data..:? "ipScheme")
+            Prelude.<*> (x Data..:? "subnetMask")
       )
 
 instance Prelude.Hashable InputDeviceNetworkSettings where
   hashWithSalt _salt InputDeviceNetworkSettings' {..} =
-    _salt `Prelude.hashWithSalt` gateway
-      `Prelude.hashWithSalt` ipScheme
-      `Prelude.hashWithSalt` dnsAddresses
-      `Prelude.hashWithSalt` subnetMask
+    _salt `Prelude.hashWithSalt` dnsAddresses
+      `Prelude.hashWithSalt` gateway
       `Prelude.hashWithSalt` ipAddress
+      `Prelude.hashWithSalt` ipScheme
+      `Prelude.hashWithSalt` subnetMask
 
 instance Prelude.NFData InputDeviceNetworkSettings where
   rnf InputDeviceNetworkSettings' {..} =
-    Prelude.rnf gateway
-      `Prelude.seq` Prelude.rnf ipScheme
-      `Prelude.seq` Prelude.rnf dnsAddresses
-      `Prelude.seq` Prelude.rnf subnetMask
+    Prelude.rnf dnsAddresses
+      `Prelude.seq` Prelude.rnf gateway
       `Prelude.seq` Prelude.rnf ipAddress
+      `Prelude.seq` Prelude.rnf ipScheme
+      `Prelude.seq` Prelude.rnf subnetMask

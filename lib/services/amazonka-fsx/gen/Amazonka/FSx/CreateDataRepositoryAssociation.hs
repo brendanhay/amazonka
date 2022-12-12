@@ -43,12 +43,12 @@ module Amazonka.FSx.CreateDataRepositoryAssociation
     newCreateDataRepositoryAssociation,
 
     -- * Request Lenses
-    createDataRepositoryAssociation_tags,
-    createDataRepositoryAssociation_clientRequestToken,
-    createDataRepositoryAssociation_s3,
-    createDataRepositoryAssociation_importedFileChunkSize,
-    createDataRepositoryAssociation_fileSystemPath,
     createDataRepositoryAssociation_batchImportMetaDataOnCreate,
+    createDataRepositoryAssociation_clientRequestToken,
+    createDataRepositoryAssociation_fileSystemPath,
+    createDataRepositoryAssociation_importedFileChunkSize,
+    createDataRepositoryAssociation_s3,
+    createDataRepositoryAssociation_tags,
     createDataRepositoryAssociation_fileSystemId,
     createDataRepositoryAssociation_dataRepositoryPath,
 
@@ -72,24 +72,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDataRepositoryAssociation' smart constructor.
 data CreateDataRepositoryAssociation = CreateDataRepositoryAssociation'
-  { tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+  { -- | Set to @true@ to run an import data repository task to import metadata
+    -- from the data repository to the file system after the data repository
+    -- association is created. Default is @false@.
+    batchImportMetaDataOnCreate :: Prelude.Maybe Prelude.Bool,
     clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | The configuration for an Amazon S3 data repository linked to an Amazon
-    -- FSx Lustre file system with a data repository association. The
-    -- configuration defines which file events (new, changed, or deleted files
-    -- or directories) are automatically imported from the linked data
-    -- repository to the file system or automatically exported from the file
-    -- system to the data repository.
-    s3 :: Prelude.Maybe S3DataRepositoryConfiguration,
-    -- | For files imported from a data repository, this value determines the
-    -- stripe count and maximum amount of data per file (in MiB) stored on a
-    -- single physical disk. The maximum number of disks that a single file can
-    -- be striped across is limited by the total number of disks that make up
-    -- the file system.
-    --
-    -- The default chunk size is 1,024 MiB (1 GiB) and can go as high as
-    -- 512,000 MiB (500 GiB). Amazon S3 objects have a maximum size of 5 TB.
-    importedFileChunkSize :: Prelude.Maybe Prelude.Natural,
     -- | A path on the file system that points to a high-level directory (such as
     -- @\/ns1\/@) or subdirectory (such as @\/ns1\/subdir\/@) that will be
     -- mapped 1-1 with @DataRepositoryPath@. The leading forward slash in the
@@ -108,10 +95,23 @@ data CreateDataRepositoryAssociation = CreateDataRepositoryAssociation'
     -- specify \"\/\" as the file system path for the first data repository
     -- associated with a file system.
     fileSystemPath :: Prelude.Maybe Prelude.Text,
-    -- | Set to @true@ to run an import data repository task to import metadata
-    -- from the data repository to the file system after the data repository
-    -- association is created. Default is @false@.
-    batchImportMetaDataOnCreate :: Prelude.Maybe Prelude.Bool,
+    -- | For files imported from a data repository, this value determines the
+    -- stripe count and maximum amount of data per file (in MiB) stored on a
+    -- single physical disk. The maximum number of disks that a single file can
+    -- be striped across is limited by the total number of disks that make up
+    -- the file system.
+    --
+    -- The default chunk size is 1,024 MiB (1 GiB) and can go as high as
+    -- 512,000 MiB (500 GiB). Amazon S3 objects have a maximum size of 5 TB.
+    importedFileChunkSize :: Prelude.Maybe Prelude.Natural,
+    -- | The configuration for an Amazon S3 data repository linked to an Amazon
+    -- FSx Lustre file system with a data repository association. The
+    -- configuration defines which file events (new, changed, or deleted files
+    -- or directories) are automatically imported from the linked data
+    -- repository to the file system or automatically exported from the file
+    -- system to the data repository.
+    s3 :: Prelude.Maybe S3DataRepositoryConfiguration,
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     fileSystemId :: Prelude.Text,
     -- | The path to the Amazon S3 data repository that will be linked to the
     -- file system. The path can be an S3 bucket or prefix in the format
@@ -129,25 +129,11 @@ data CreateDataRepositoryAssociation = CreateDataRepositoryAssociation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createDataRepositoryAssociation_tags' - Undocumented member.
+-- 'batchImportMetaDataOnCreate', 'createDataRepositoryAssociation_batchImportMetaDataOnCreate' - Set to @true@ to run an import data repository task to import metadata
+-- from the data repository to the file system after the data repository
+-- association is created. Default is @false@.
 --
 -- 'clientRequestToken', 'createDataRepositoryAssociation_clientRequestToken' - Undocumented member.
---
--- 's3', 'createDataRepositoryAssociation_s3' - The configuration for an Amazon S3 data repository linked to an Amazon
--- FSx Lustre file system with a data repository association. The
--- configuration defines which file events (new, changed, or deleted files
--- or directories) are automatically imported from the linked data
--- repository to the file system or automatically exported from the file
--- system to the data repository.
---
--- 'importedFileChunkSize', 'createDataRepositoryAssociation_importedFileChunkSize' - For files imported from a data repository, this value determines the
--- stripe count and maximum amount of data per file (in MiB) stored on a
--- single physical disk. The maximum number of disks that a single file can
--- be striped across is limited by the total number of disks that make up
--- the file system.
---
--- The default chunk size is 1,024 MiB (1 GiB) and can go as high as
--- 512,000 MiB (500 GiB). Amazon S3 objects have a maximum size of 5 TB.
 --
 -- 'fileSystemPath', 'createDataRepositoryAssociation_fileSystemPath' - A path on the file system that points to a high-level directory (such as
 -- @\/ns1\/@) or subdirectory (such as @\/ns1\/subdir\/@) that will be
@@ -167,9 +153,23 @@ data CreateDataRepositoryAssociation = CreateDataRepositoryAssociation'
 -- specify \"\/\" as the file system path for the first data repository
 -- associated with a file system.
 --
--- 'batchImportMetaDataOnCreate', 'createDataRepositoryAssociation_batchImportMetaDataOnCreate' - Set to @true@ to run an import data repository task to import metadata
--- from the data repository to the file system after the data repository
--- association is created. Default is @false@.
+-- 'importedFileChunkSize', 'createDataRepositoryAssociation_importedFileChunkSize' - For files imported from a data repository, this value determines the
+-- stripe count and maximum amount of data per file (in MiB) stored on a
+-- single physical disk. The maximum number of disks that a single file can
+-- be striped across is limited by the total number of disks that make up
+-- the file system.
+--
+-- The default chunk size is 1,024 MiB (1 GiB) and can go as high as
+-- 512,000 MiB (500 GiB). Amazon S3 objects have a maximum size of 5 TB.
+--
+-- 's3', 'createDataRepositoryAssociation_s3' - The configuration for an Amazon S3 data repository linked to an Amazon
+-- FSx Lustre file system with a data repository association. The
+-- configuration defines which file events (new, changed, or deleted files
+-- or directories) are automatically imported from the linked data
+-- repository to the file system or automatically exported from the file
+-- system to the data repository.
+--
+-- 'tags', 'createDataRepositoryAssociation_tags' - Undocumented member.
 --
 -- 'fileSystemId', 'createDataRepositoryAssociation_fileSystemId' - Undocumented member.
 --
@@ -187,45 +187,26 @@ newCreateDataRepositoryAssociation
   pFileSystemId_
   pDataRepositoryPath_ =
     CreateDataRepositoryAssociation'
-      { tags =
+      { batchImportMetaDataOnCreate =
           Prelude.Nothing,
         clientRequestToken = Prelude.Nothing,
-        s3 = Prelude.Nothing,
-        importedFileChunkSize = Prelude.Nothing,
         fileSystemPath = Prelude.Nothing,
-        batchImportMetaDataOnCreate =
-          Prelude.Nothing,
+        importedFileChunkSize = Prelude.Nothing,
+        s3 = Prelude.Nothing,
+        tags = Prelude.Nothing,
         fileSystemId = pFileSystemId_,
         dataRepositoryPath = pDataRepositoryPath_
       }
 
--- | Undocumented member.
-createDataRepositoryAssociation_tags :: Lens.Lens' CreateDataRepositoryAssociation (Prelude.Maybe (Prelude.NonEmpty Tag))
-createDataRepositoryAssociation_tags = Lens.lens (\CreateDataRepositoryAssociation' {tags} -> tags) (\s@CreateDataRepositoryAssociation' {} a -> s {tags = a} :: CreateDataRepositoryAssociation) Prelude.. Lens.mapping Lens.coerced
+-- | Set to @true@ to run an import data repository task to import metadata
+-- from the data repository to the file system after the data repository
+-- association is created. Default is @false@.
+createDataRepositoryAssociation_batchImportMetaDataOnCreate :: Lens.Lens' CreateDataRepositoryAssociation (Prelude.Maybe Prelude.Bool)
+createDataRepositoryAssociation_batchImportMetaDataOnCreate = Lens.lens (\CreateDataRepositoryAssociation' {batchImportMetaDataOnCreate} -> batchImportMetaDataOnCreate) (\s@CreateDataRepositoryAssociation' {} a -> s {batchImportMetaDataOnCreate = a} :: CreateDataRepositoryAssociation)
 
 -- | Undocumented member.
 createDataRepositoryAssociation_clientRequestToken :: Lens.Lens' CreateDataRepositoryAssociation (Prelude.Maybe Prelude.Text)
 createDataRepositoryAssociation_clientRequestToken = Lens.lens (\CreateDataRepositoryAssociation' {clientRequestToken} -> clientRequestToken) (\s@CreateDataRepositoryAssociation' {} a -> s {clientRequestToken = a} :: CreateDataRepositoryAssociation)
-
--- | The configuration for an Amazon S3 data repository linked to an Amazon
--- FSx Lustre file system with a data repository association. The
--- configuration defines which file events (new, changed, or deleted files
--- or directories) are automatically imported from the linked data
--- repository to the file system or automatically exported from the file
--- system to the data repository.
-createDataRepositoryAssociation_s3 :: Lens.Lens' CreateDataRepositoryAssociation (Prelude.Maybe S3DataRepositoryConfiguration)
-createDataRepositoryAssociation_s3 = Lens.lens (\CreateDataRepositoryAssociation' {s3} -> s3) (\s@CreateDataRepositoryAssociation' {} a -> s {s3 = a} :: CreateDataRepositoryAssociation)
-
--- | For files imported from a data repository, this value determines the
--- stripe count and maximum amount of data per file (in MiB) stored on a
--- single physical disk. The maximum number of disks that a single file can
--- be striped across is limited by the total number of disks that make up
--- the file system.
---
--- The default chunk size is 1,024 MiB (1 GiB) and can go as high as
--- 512,000 MiB (500 GiB). Amazon S3 objects have a maximum size of 5 TB.
-createDataRepositoryAssociation_importedFileChunkSize :: Lens.Lens' CreateDataRepositoryAssociation (Prelude.Maybe Prelude.Natural)
-createDataRepositoryAssociation_importedFileChunkSize = Lens.lens (\CreateDataRepositoryAssociation' {importedFileChunkSize} -> importedFileChunkSize) (\s@CreateDataRepositoryAssociation' {} a -> s {importedFileChunkSize = a} :: CreateDataRepositoryAssociation)
 
 -- | A path on the file system that points to a high-level directory (such as
 -- @\/ns1\/@) or subdirectory (such as @\/ns1\/subdir\/@) that will be
@@ -247,11 +228,29 @@ createDataRepositoryAssociation_importedFileChunkSize = Lens.lens (\CreateDataRe
 createDataRepositoryAssociation_fileSystemPath :: Lens.Lens' CreateDataRepositoryAssociation (Prelude.Maybe Prelude.Text)
 createDataRepositoryAssociation_fileSystemPath = Lens.lens (\CreateDataRepositoryAssociation' {fileSystemPath} -> fileSystemPath) (\s@CreateDataRepositoryAssociation' {} a -> s {fileSystemPath = a} :: CreateDataRepositoryAssociation)
 
--- | Set to @true@ to run an import data repository task to import metadata
--- from the data repository to the file system after the data repository
--- association is created. Default is @false@.
-createDataRepositoryAssociation_batchImportMetaDataOnCreate :: Lens.Lens' CreateDataRepositoryAssociation (Prelude.Maybe Prelude.Bool)
-createDataRepositoryAssociation_batchImportMetaDataOnCreate = Lens.lens (\CreateDataRepositoryAssociation' {batchImportMetaDataOnCreate} -> batchImportMetaDataOnCreate) (\s@CreateDataRepositoryAssociation' {} a -> s {batchImportMetaDataOnCreate = a} :: CreateDataRepositoryAssociation)
+-- | For files imported from a data repository, this value determines the
+-- stripe count and maximum amount of data per file (in MiB) stored on a
+-- single physical disk. The maximum number of disks that a single file can
+-- be striped across is limited by the total number of disks that make up
+-- the file system.
+--
+-- The default chunk size is 1,024 MiB (1 GiB) and can go as high as
+-- 512,000 MiB (500 GiB). Amazon S3 objects have a maximum size of 5 TB.
+createDataRepositoryAssociation_importedFileChunkSize :: Lens.Lens' CreateDataRepositoryAssociation (Prelude.Maybe Prelude.Natural)
+createDataRepositoryAssociation_importedFileChunkSize = Lens.lens (\CreateDataRepositoryAssociation' {importedFileChunkSize} -> importedFileChunkSize) (\s@CreateDataRepositoryAssociation' {} a -> s {importedFileChunkSize = a} :: CreateDataRepositoryAssociation)
+
+-- | The configuration for an Amazon S3 data repository linked to an Amazon
+-- FSx Lustre file system with a data repository association. The
+-- configuration defines which file events (new, changed, or deleted files
+-- or directories) are automatically imported from the linked data
+-- repository to the file system or automatically exported from the file
+-- system to the data repository.
+createDataRepositoryAssociation_s3 :: Lens.Lens' CreateDataRepositoryAssociation (Prelude.Maybe S3DataRepositoryConfiguration)
+createDataRepositoryAssociation_s3 = Lens.lens (\CreateDataRepositoryAssociation' {s3} -> s3) (\s@CreateDataRepositoryAssociation' {} a -> s {s3 = a} :: CreateDataRepositoryAssociation)
+
+-- | Undocumented member.
+createDataRepositoryAssociation_tags :: Lens.Lens' CreateDataRepositoryAssociation (Prelude.Maybe (Prelude.NonEmpty Tag))
+createDataRepositoryAssociation_tags = Lens.lens (\CreateDataRepositoryAssociation' {tags} -> tags) (\s@CreateDataRepositoryAssociation' {} a -> s {tags = a} :: CreateDataRepositoryAssociation) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 createDataRepositoryAssociation_fileSystemId :: Lens.Lens' CreateDataRepositoryAssociation Prelude.Text
@@ -288,12 +287,13 @@ instance
   hashWithSalt
     _salt
     CreateDataRepositoryAssociation' {..} =
-      _salt `Prelude.hashWithSalt` tags
-        `Prelude.hashWithSalt` clientRequestToken
-        `Prelude.hashWithSalt` s3
-        `Prelude.hashWithSalt` importedFileChunkSize
-        `Prelude.hashWithSalt` fileSystemPath
+      _salt
         `Prelude.hashWithSalt` batchImportMetaDataOnCreate
+        `Prelude.hashWithSalt` clientRequestToken
+        `Prelude.hashWithSalt` fileSystemPath
+        `Prelude.hashWithSalt` importedFileChunkSize
+        `Prelude.hashWithSalt` s3
+        `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` fileSystemId
         `Prelude.hashWithSalt` dataRepositoryPath
 
@@ -302,12 +302,12 @@ instance
     CreateDataRepositoryAssociation
   where
   rnf CreateDataRepositoryAssociation' {..} =
-    Prelude.rnf tags
+    Prelude.rnf batchImportMetaDataOnCreate
       `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf s3
-      `Prelude.seq` Prelude.rnf importedFileChunkSize
       `Prelude.seq` Prelude.rnf fileSystemPath
-      `Prelude.seq` Prelude.rnf batchImportMetaDataOnCreate
+      `Prelude.seq` Prelude.rnf importedFileChunkSize
+      `Prelude.seq` Prelude.rnf s3
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf fileSystemId
       `Prelude.seq` Prelude.rnf dataRepositoryPath
 
@@ -333,16 +333,16 @@ instance Data.ToJSON CreateDataRepositoryAssociation where
   toJSON CreateDataRepositoryAssociation' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
+          [ ("BatchImportMetaDataOnCreate" Data..=)
+              Prelude.<$> batchImportMetaDataOnCreate,
             ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("S3" Data..=) Prelude.<$> s3,
-            ("ImportedFileChunkSize" Data..=)
-              Prelude.<$> importedFileChunkSize,
             ("FileSystemPath" Data..=)
               Prelude.<$> fileSystemPath,
-            ("BatchImportMetaDataOnCreate" Data..=)
-              Prelude.<$> batchImportMetaDataOnCreate,
+            ("ImportedFileChunkSize" Data..=)
+              Prelude.<$> importedFileChunkSize,
+            ("S3" Data..=) Prelude.<$> s3,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("FileSystemId" Data..= fileSystemId),
             Prelude.Just
               ("DataRepositoryPath" Data..= dataRepositoryPath)

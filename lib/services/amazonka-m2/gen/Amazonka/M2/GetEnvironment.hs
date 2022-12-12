@@ -34,16 +34,16 @@ module Amazonka.M2.GetEnvironment
     newGetEnvironmentResponse,
 
     -- * Response Lenses
-    getEnvironmentResponse_tags,
     getEnvironmentResponse_actualCapacity,
+    getEnvironmentResponse_description,
+    getEnvironmentResponse_highAvailabilityConfig,
+    getEnvironmentResponse_loadBalancerArn,
     getEnvironmentResponse_pendingMaintenance,
+    getEnvironmentResponse_preferredMaintenanceWindow,
+    getEnvironmentResponse_publiclyAccessible,
     getEnvironmentResponse_statusReason,
     getEnvironmentResponse_storageConfigurations,
-    getEnvironmentResponse_loadBalancerArn,
-    getEnvironmentResponse_description,
-    getEnvironmentResponse_publiclyAccessible,
-    getEnvironmentResponse_preferredMaintenanceWindow,
-    getEnvironmentResponse_highAvailabilityConfig,
+    getEnvironmentResponse_tags,
     getEnvironmentResponse_httpStatus,
     getEnvironmentResponse_creationTime,
     getEnvironmentResponse_engineType,
@@ -104,18 +104,18 @@ instance Core.AWSRequest GetEnvironment where
     Response.receiveJSON
       ( \s h x ->
           GetEnvironmentResponse'
-            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "actualCapacity")
+            Prelude.<$> (x Data..?> "actualCapacity")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "highAvailabilityConfig")
+            Prelude.<*> (x Data..?> "loadBalancerArn")
             Prelude.<*> (x Data..?> "pendingMaintenance")
+            Prelude.<*> (x Data..?> "preferredMaintenanceWindow")
+            Prelude.<*> (x Data..?> "publiclyAccessible")
             Prelude.<*> (x Data..?> "statusReason")
             Prelude.<*> ( x Data..?> "storageConfigurations"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "loadBalancerArn")
-            Prelude.<*> (x Data..?> "description")
-            Prelude.<*> (x Data..?> "publiclyAccessible")
-            Prelude.<*> (x Data..?> "preferredMaintenanceWindow")
-            Prelude.<*> (x Data..?> "highAvailabilityConfig")
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "creationTime")
             Prelude.<*> (x Data..:> "engineType")
@@ -160,33 +160,33 @@ instance Data.ToQuery GetEnvironment where
 
 -- | /See:/ 'newGetEnvironmentResponse' smart constructor.
 data GetEnvironmentResponse = GetEnvironmentResponse'
-  { -- | The tags defined for this runtime environment.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The number of instances included in the runtime environment. A
+  { -- | The number of instances included in the runtime environment. A
     -- standalone runtime environment has a maxiumum of one instance.
     -- Currently, a high availability runtime environment has a maximum of two
     -- instances.
     actualCapacity :: Prelude.Maybe Prelude.Natural,
+    -- | The description of the runtime environment.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The desired capacity of the high availability configuration for the
+    -- runtime environment.
+    highAvailabilityConfig :: Prelude.Maybe HighAvailabilityConfig,
+    -- | The Amazon Resource Name (ARN) for the load balancer used with the
+    -- runtime environment.
+    loadBalancerArn :: Prelude.Maybe Prelude.Text,
     -- | Indicates the pending maintenance scheduled on this environment.
     pendingMaintenance :: Prelude.Maybe PendingMaintenance,
+    -- | Configures a desired maintenance window for the environment. If you do
+    -- not provide a value, a random system-generated value will be assigned.
+    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
+    -- | Whether applications running in this runtime environment are publicly
+    -- accessible.
+    publiclyAccessible :: Prelude.Maybe Prelude.Bool,
     -- | The reason for the reported status.
     statusReason :: Prelude.Maybe Prelude.Text,
     -- | The storage configurations defined for the runtime environment.
     storageConfigurations :: Prelude.Maybe [StorageConfiguration],
-    -- | The Amazon Resource Name (ARN) for the load balancer used with the
-    -- runtime environment.
-    loadBalancerArn :: Prelude.Maybe Prelude.Text,
-    -- | The description of the runtime environment.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Whether applications running in this runtime environment are publicly
-    -- accessible.
-    publiclyAccessible :: Prelude.Maybe Prelude.Bool,
-    -- | Configures a desired maintenance window for the environment. If you do
-    -- not provide a value, a random system-generated value will be assigned.
-    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
-    -- | The desired capacity of the high availability configuration for the
-    -- runtime environment.
-    highAvailabilityConfig :: Prelude.Maybe HighAvailabilityConfig,
+    -- | The tags defined for this runtime environment.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The timestamp when the runtime environment was created.
@@ -224,32 +224,32 @@ data GetEnvironmentResponse = GetEnvironmentResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'getEnvironmentResponse_tags' - The tags defined for this runtime environment.
---
 -- 'actualCapacity', 'getEnvironmentResponse_actualCapacity' - The number of instances included in the runtime environment. A
 -- standalone runtime environment has a maxiumum of one instance.
 -- Currently, a high availability runtime environment has a maximum of two
 -- instances.
 --
+-- 'description', 'getEnvironmentResponse_description' - The description of the runtime environment.
+--
+-- 'highAvailabilityConfig', 'getEnvironmentResponse_highAvailabilityConfig' - The desired capacity of the high availability configuration for the
+-- runtime environment.
+--
+-- 'loadBalancerArn', 'getEnvironmentResponse_loadBalancerArn' - The Amazon Resource Name (ARN) for the load balancer used with the
+-- runtime environment.
+--
 -- 'pendingMaintenance', 'getEnvironmentResponse_pendingMaintenance' - Indicates the pending maintenance scheduled on this environment.
+--
+-- 'preferredMaintenanceWindow', 'getEnvironmentResponse_preferredMaintenanceWindow' - Configures a desired maintenance window for the environment. If you do
+-- not provide a value, a random system-generated value will be assigned.
+--
+-- 'publiclyAccessible', 'getEnvironmentResponse_publiclyAccessible' - Whether applications running in this runtime environment are publicly
+-- accessible.
 --
 -- 'statusReason', 'getEnvironmentResponse_statusReason' - The reason for the reported status.
 --
 -- 'storageConfigurations', 'getEnvironmentResponse_storageConfigurations' - The storage configurations defined for the runtime environment.
 --
--- 'loadBalancerArn', 'getEnvironmentResponse_loadBalancerArn' - The Amazon Resource Name (ARN) for the load balancer used with the
--- runtime environment.
---
--- 'description', 'getEnvironmentResponse_description' - The description of the runtime environment.
---
--- 'publiclyAccessible', 'getEnvironmentResponse_publiclyAccessible' - Whether applications running in this runtime environment are publicly
--- accessible.
---
--- 'preferredMaintenanceWindow', 'getEnvironmentResponse_preferredMaintenanceWindow' - Configures a desired maintenance window for the environment. If you do
--- not provide a value, a random system-generated value will be assigned.
---
--- 'highAvailabilityConfig', 'getEnvironmentResponse_highAvailabilityConfig' - The desired capacity of the high availability configuration for the
--- runtime environment.
+-- 'tags', 'getEnvironmentResponse_tags' - The tags defined for this runtime environment.
 --
 -- 'httpStatus', 'getEnvironmentResponse_httpStatus' - The response's http status code.
 --
@@ -310,16 +310,17 @@ newGetEnvironmentResponse
   pStatus_
   pVpcId_ =
     GetEnvironmentResponse'
-      { tags = Prelude.Nothing,
-        actualCapacity = Prelude.Nothing,
+      { actualCapacity =
+          Prelude.Nothing,
+        description = Prelude.Nothing,
+        highAvailabilityConfig = Prelude.Nothing,
+        loadBalancerArn = Prelude.Nothing,
         pendingMaintenance = Prelude.Nothing,
+        preferredMaintenanceWindow = Prelude.Nothing,
+        publiclyAccessible = Prelude.Nothing,
         statusReason = Prelude.Nothing,
         storageConfigurations = Prelude.Nothing,
-        loadBalancerArn = Prelude.Nothing,
-        description = Prelude.Nothing,
-        publiclyAccessible = Prelude.Nothing,
-        preferredMaintenanceWindow = Prelude.Nothing,
-        highAvailabilityConfig = Prelude.Nothing,
+        tags = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         creationTime = Data._Time Lens.# pCreationTime_,
         engineType = pEngineType_,
@@ -334,10 +335,6 @@ newGetEnvironmentResponse
         vpcId = pVpcId_
       }
 
--- | The tags defined for this runtime environment.
-getEnvironmentResponse_tags :: Lens.Lens' GetEnvironmentResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getEnvironmentResponse_tags = Lens.lens (\GetEnvironmentResponse' {tags} -> tags) (\s@GetEnvironmentResponse' {} a -> s {tags = a} :: GetEnvironmentResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The number of instances included in the runtime environment. A
 -- standalone runtime environment has a maxiumum of one instance.
 -- Currently, a high availability runtime environment has a maximum of two
@@ -345,9 +342,33 @@ getEnvironmentResponse_tags = Lens.lens (\GetEnvironmentResponse' {tags} -> tags
 getEnvironmentResponse_actualCapacity :: Lens.Lens' GetEnvironmentResponse (Prelude.Maybe Prelude.Natural)
 getEnvironmentResponse_actualCapacity = Lens.lens (\GetEnvironmentResponse' {actualCapacity} -> actualCapacity) (\s@GetEnvironmentResponse' {} a -> s {actualCapacity = a} :: GetEnvironmentResponse)
 
+-- | The description of the runtime environment.
+getEnvironmentResponse_description :: Lens.Lens' GetEnvironmentResponse (Prelude.Maybe Prelude.Text)
+getEnvironmentResponse_description = Lens.lens (\GetEnvironmentResponse' {description} -> description) (\s@GetEnvironmentResponse' {} a -> s {description = a} :: GetEnvironmentResponse)
+
+-- | The desired capacity of the high availability configuration for the
+-- runtime environment.
+getEnvironmentResponse_highAvailabilityConfig :: Lens.Lens' GetEnvironmentResponse (Prelude.Maybe HighAvailabilityConfig)
+getEnvironmentResponse_highAvailabilityConfig = Lens.lens (\GetEnvironmentResponse' {highAvailabilityConfig} -> highAvailabilityConfig) (\s@GetEnvironmentResponse' {} a -> s {highAvailabilityConfig = a} :: GetEnvironmentResponse)
+
+-- | The Amazon Resource Name (ARN) for the load balancer used with the
+-- runtime environment.
+getEnvironmentResponse_loadBalancerArn :: Lens.Lens' GetEnvironmentResponse (Prelude.Maybe Prelude.Text)
+getEnvironmentResponse_loadBalancerArn = Lens.lens (\GetEnvironmentResponse' {loadBalancerArn} -> loadBalancerArn) (\s@GetEnvironmentResponse' {} a -> s {loadBalancerArn = a} :: GetEnvironmentResponse)
+
 -- | Indicates the pending maintenance scheduled on this environment.
 getEnvironmentResponse_pendingMaintenance :: Lens.Lens' GetEnvironmentResponse (Prelude.Maybe PendingMaintenance)
 getEnvironmentResponse_pendingMaintenance = Lens.lens (\GetEnvironmentResponse' {pendingMaintenance} -> pendingMaintenance) (\s@GetEnvironmentResponse' {} a -> s {pendingMaintenance = a} :: GetEnvironmentResponse)
+
+-- | Configures a desired maintenance window for the environment. If you do
+-- not provide a value, a random system-generated value will be assigned.
+getEnvironmentResponse_preferredMaintenanceWindow :: Lens.Lens' GetEnvironmentResponse (Prelude.Maybe Prelude.Text)
+getEnvironmentResponse_preferredMaintenanceWindow = Lens.lens (\GetEnvironmentResponse' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@GetEnvironmentResponse' {} a -> s {preferredMaintenanceWindow = a} :: GetEnvironmentResponse)
+
+-- | Whether applications running in this runtime environment are publicly
+-- accessible.
+getEnvironmentResponse_publiclyAccessible :: Lens.Lens' GetEnvironmentResponse (Prelude.Maybe Prelude.Bool)
+getEnvironmentResponse_publiclyAccessible = Lens.lens (\GetEnvironmentResponse' {publiclyAccessible} -> publiclyAccessible) (\s@GetEnvironmentResponse' {} a -> s {publiclyAccessible = a} :: GetEnvironmentResponse)
 
 -- | The reason for the reported status.
 getEnvironmentResponse_statusReason :: Lens.Lens' GetEnvironmentResponse (Prelude.Maybe Prelude.Text)
@@ -357,29 +378,9 @@ getEnvironmentResponse_statusReason = Lens.lens (\GetEnvironmentResponse' {statu
 getEnvironmentResponse_storageConfigurations :: Lens.Lens' GetEnvironmentResponse (Prelude.Maybe [StorageConfiguration])
 getEnvironmentResponse_storageConfigurations = Lens.lens (\GetEnvironmentResponse' {storageConfigurations} -> storageConfigurations) (\s@GetEnvironmentResponse' {} a -> s {storageConfigurations = a} :: GetEnvironmentResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Resource Name (ARN) for the load balancer used with the
--- runtime environment.
-getEnvironmentResponse_loadBalancerArn :: Lens.Lens' GetEnvironmentResponse (Prelude.Maybe Prelude.Text)
-getEnvironmentResponse_loadBalancerArn = Lens.lens (\GetEnvironmentResponse' {loadBalancerArn} -> loadBalancerArn) (\s@GetEnvironmentResponse' {} a -> s {loadBalancerArn = a} :: GetEnvironmentResponse)
-
--- | The description of the runtime environment.
-getEnvironmentResponse_description :: Lens.Lens' GetEnvironmentResponse (Prelude.Maybe Prelude.Text)
-getEnvironmentResponse_description = Lens.lens (\GetEnvironmentResponse' {description} -> description) (\s@GetEnvironmentResponse' {} a -> s {description = a} :: GetEnvironmentResponse)
-
--- | Whether applications running in this runtime environment are publicly
--- accessible.
-getEnvironmentResponse_publiclyAccessible :: Lens.Lens' GetEnvironmentResponse (Prelude.Maybe Prelude.Bool)
-getEnvironmentResponse_publiclyAccessible = Lens.lens (\GetEnvironmentResponse' {publiclyAccessible} -> publiclyAccessible) (\s@GetEnvironmentResponse' {} a -> s {publiclyAccessible = a} :: GetEnvironmentResponse)
-
--- | Configures a desired maintenance window for the environment. If you do
--- not provide a value, a random system-generated value will be assigned.
-getEnvironmentResponse_preferredMaintenanceWindow :: Lens.Lens' GetEnvironmentResponse (Prelude.Maybe Prelude.Text)
-getEnvironmentResponse_preferredMaintenanceWindow = Lens.lens (\GetEnvironmentResponse' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@GetEnvironmentResponse' {} a -> s {preferredMaintenanceWindow = a} :: GetEnvironmentResponse)
-
--- | The desired capacity of the high availability configuration for the
--- runtime environment.
-getEnvironmentResponse_highAvailabilityConfig :: Lens.Lens' GetEnvironmentResponse (Prelude.Maybe HighAvailabilityConfig)
-getEnvironmentResponse_highAvailabilityConfig = Lens.lens (\GetEnvironmentResponse' {highAvailabilityConfig} -> highAvailabilityConfig) (\s@GetEnvironmentResponse' {} a -> s {highAvailabilityConfig = a} :: GetEnvironmentResponse)
+-- | The tags defined for this runtime environment.
+getEnvironmentResponse_tags :: Lens.Lens' GetEnvironmentResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getEnvironmentResponse_tags = Lens.lens (\GetEnvironmentResponse' {tags} -> tags) (\s@GetEnvironmentResponse' {} a -> s {tags = a} :: GetEnvironmentResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getEnvironmentResponse_httpStatus :: Lens.Lens' GetEnvironmentResponse Prelude.Int
@@ -433,16 +434,16 @@ getEnvironmentResponse_vpcId = Lens.lens (\GetEnvironmentResponse' {vpcId} -> vp
 
 instance Prelude.NFData GetEnvironmentResponse where
   rnf GetEnvironmentResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf actualCapacity
+    Prelude.rnf actualCapacity
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf highAvailabilityConfig
+      `Prelude.seq` Prelude.rnf loadBalancerArn
       `Prelude.seq` Prelude.rnf pendingMaintenance
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf publiclyAccessible
       `Prelude.seq` Prelude.rnf statusReason
       `Prelude.seq` Prelude.rnf storageConfigurations
-      `Prelude.seq` Prelude.rnf loadBalancerArn
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf publiclyAccessible
-      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
-      `Prelude.seq` Prelude.rnf highAvailabilityConfig
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf engineType

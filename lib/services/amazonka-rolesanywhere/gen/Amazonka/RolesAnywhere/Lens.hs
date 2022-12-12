@@ -15,19 +15,19 @@ module Amazonka.RolesAnywhere.Lens
   ( -- * Operations
 
     -- ** CreateProfile
-    createProfile_tags,
-    createProfile_managedPolicyArns,
-    createProfile_enabled,
     createProfile_durationSeconds,
-    createProfile_sessionPolicy,
+    createProfile_enabled,
+    createProfile_managedPolicyArns,
     createProfile_requireInstanceProperties,
+    createProfile_sessionPolicy,
+    createProfile_tags,
     createProfile_name,
     createProfile_roleArns,
     profileDetailResponse_profile,
 
     -- ** CreateTrustAnchor
-    createTrustAnchor_tags,
     createTrustAnchor_enabled,
+    createTrustAnchor_tags,
     createTrustAnchor_name,
     createTrustAnchor_source,
     trustAnchorDetailResponse_trustAnchor,
@@ -86,8 +86,8 @@ module Amazonka.RolesAnywhere.Lens
     trustAnchorDetailResponse_trustAnchor,
 
     -- ** ImportCrl
-    importCrl_tags,
     importCrl_enabled,
+    importCrl_tags,
     importCrl_crlData,
     importCrl_name,
     importCrl_trustAnchorArn,
@@ -96,8 +96,8 @@ module Amazonka.RolesAnywhere.Lens
     -- ** ListCrls
     listCrls_nextToken,
     listCrls_pageSize,
-    listCrlsResponse_nextToken,
     listCrlsResponse_crls,
+    listCrlsResponse_nextToken,
     listCrlsResponse_httpStatus,
 
     -- ** ListProfiles
@@ -137,16 +137,16 @@ module Amazonka.RolesAnywhere.Lens
     untagResourceResponse_httpStatus,
 
     -- ** UpdateCrl
-    updateCrl_name,
     updateCrl_crlData,
+    updateCrl_name,
     updateCrl_crlId,
     crlDetailResponse_crl,
 
     -- ** UpdateProfile
-    updateProfile_name,
-    updateProfile_managedPolicyArns,
-    updateProfile_roleArns,
     updateProfile_durationSeconds,
+    updateProfile_managedPolicyArns,
+    updateProfile_name,
+    updateProfile_roleArns,
     updateProfile_sessionPolicy,
     updateProfile_profileId,
     profileDetailResponse_profile,
@@ -160,21 +160,21 @@ module Amazonka.RolesAnywhere.Lens
     -- * Types
 
     -- ** CredentialSummary
-    credentialSummary_issuer,
-    credentialSummary_failed,
-    credentialSummary_seenAt,
     credentialSummary_enabled,
+    credentialSummary_failed,
+    credentialSummary_issuer,
+    credentialSummary_seenAt,
     credentialSummary_serialNumber,
     credentialSummary_x509CertificateData,
 
     -- ** CrlDetail
-    crlDetail_crlArn,
-    crlDetail_crlId,
-    crlDetail_name,
-    crlDetail_crlData,
-    crlDetail_enabled,
-    crlDetail_trustAnchorArn,
     crlDetail_createdAt,
+    crlDetail_crlArn,
+    crlDetail_crlData,
+    crlDetail_crlId,
+    crlDetail_enabled,
+    crlDetail_name,
+    crlDetail_trustAnchorArn,
     crlDetail_updatedAt,
 
     -- ** CrlDetailResponse
@@ -182,25 +182,25 @@ module Amazonka.RolesAnywhere.Lens
 
     -- ** InstanceProperty
     instanceProperty_failed,
-    instanceProperty_seenAt,
     instanceProperty_properties,
+    instanceProperty_seenAt,
 
     -- ** ListRequest
     listRequest_nextToken,
     listRequest_pageSize,
 
     -- ** ProfileDetail
-    profileDetail_name,
-    profileDetail_profileId,
-    profileDetail_managedPolicyArns,
-    profileDetail_profileArn,
-    profileDetail_roleArns,
-    profileDetail_enabled,
-    profileDetail_durationSeconds,
-    profileDetail_sessionPolicy,
-    profileDetail_createdBy,
-    profileDetail_requireInstanceProperties,
     profileDetail_createdAt,
+    profileDetail_createdBy,
+    profileDetail_durationSeconds,
+    profileDetail_enabled,
+    profileDetail_managedPolicyArns,
+    profileDetail_name,
+    profileDetail_profileArn,
+    profileDetail_profileId,
+    profileDetail_requireInstanceProperties,
+    profileDetail_roleArns,
+    profileDetail_sessionPolicy,
     profileDetail_updatedAt,
 
     -- ** ProfileDetailResponse
@@ -216,44 +216,44 @@ module Amazonka.RolesAnywhere.Lens
     scalarTrustAnchorRequest_trustAnchorId,
 
     -- ** Source
-    source_sourceType,
     source_sourceData,
+    source_sourceType,
 
     -- ** SourceData
     sourceData_acmPcaArn,
     sourceData_x509CertificateData,
 
     -- ** SubjectDetail
-    subjectDetail_subjectId,
-    subjectDetail_enabled,
-    subjectDetail_subjectArn,
-    subjectDetail_credentials,
-    subjectDetail_x509Subject,
-    subjectDetail_instanceProperties,
     subjectDetail_createdAt,
-    subjectDetail_updatedAt,
+    subjectDetail_credentials,
+    subjectDetail_enabled,
+    subjectDetail_instanceProperties,
     subjectDetail_lastSeenAt,
+    subjectDetail_subjectArn,
+    subjectDetail_subjectId,
+    subjectDetail_updatedAt,
+    subjectDetail_x509Subject,
 
     -- ** SubjectSummary
-    subjectSummary_subjectId,
-    subjectSummary_enabled,
-    subjectSummary_subjectArn,
-    subjectSummary_x509Subject,
     subjectSummary_createdAt,
-    subjectSummary_updatedAt,
+    subjectSummary_enabled,
     subjectSummary_lastSeenAt,
+    subjectSummary_subjectArn,
+    subjectSummary_subjectId,
+    subjectSummary_updatedAt,
+    subjectSummary_x509Subject,
 
     -- ** Tag
     tag_key,
     tag_value,
 
     -- ** TrustAnchorDetail
-    trustAnchorDetail_name,
-    trustAnchorDetail_trustAnchorId,
+    trustAnchorDetail_createdAt,
     trustAnchorDetail_enabled,
+    trustAnchorDetail_name,
     trustAnchorDetail_source,
     trustAnchorDetail_trustAnchorArn,
-    trustAnchorDetail_createdAt,
+    trustAnchorDetail_trustAnchorId,
     trustAnchorDetail_updatedAt,
 
     -- ** TrustAnchorDetailResponse

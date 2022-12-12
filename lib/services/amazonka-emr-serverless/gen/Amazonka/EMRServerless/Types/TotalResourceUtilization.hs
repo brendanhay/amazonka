@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTotalResourceUtilization' smart constructor.
 data TotalResourceUtilization = TotalResourceUtilization'
-  { -- | The aggregated storage used per hour from the time job start executing
-    -- till the time job is terminated.
-    storageGBHour :: Prelude.Maybe Prelude.Double,
-    -- | The aggregated memory used per hour from the time job start executing
+  { -- | The aggregated memory used per hour from the time job start executing
     -- till the time job is terminated.
     memoryGBHour :: Prelude.Maybe Prelude.Double,
+    -- | The aggregated storage used per hour from the time job start executing
+    -- till the time job is terminated.
+    storageGBHour :: Prelude.Maybe Prelude.Double,
     -- | The aggregated vCPU used per hour from the time job start executing till
     -- the time job is terminated.
     vCPUHour :: Prelude.Maybe Prelude.Double
@@ -50,10 +50,10 @@ data TotalResourceUtilization = TotalResourceUtilization'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'storageGBHour', 'totalResourceUtilization_storageGBHour' - The aggregated storage used per hour from the time job start executing
+-- 'memoryGBHour', 'totalResourceUtilization_memoryGBHour' - The aggregated memory used per hour from the time job start executing
 -- till the time job is terminated.
 --
--- 'memoryGBHour', 'totalResourceUtilization_memoryGBHour' - The aggregated memory used per hour from the time job start executing
+-- 'storageGBHour', 'totalResourceUtilization_storageGBHour' - The aggregated storage used per hour from the time job start executing
 -- till the time job is terminated.
 --
 -- 'vCPUHour', 'totalResourceUtilization_vCPUHour' - The aggregated vCPU used per hour from the time job start executing till
@@ -62,21 +62,21 @@ newTotalResourceUtilization ::
   TotalResourceUtilization
 newTotalResourceUtilization =
   TotalResourceUtilization'
-    { storageGBHour =
+    { memoryGBHour =
         Prelude.Nothing,
-      memoryGBHour = Prelude.Nothing,
+      storageGBHour = Prelude.Nothing,
       vCPUHour = Prelude.Nothing
     }
-
--- | The aggregated storage used per hour from the time job start executing
--- till the time job is terminated.
-totalResourceUtilization_storageGBHour :: Lens.Lens' TotalResourceUtilization (Prelude.Maybe Prelude.Double)
-totalResourceUtilization_storageGBHour = Lens.lens (\TotalResourceUtilization' {storageGBHour} -> storageGBHour) (\s@TotalResourceUtilization' {} a -> s {storageGBHour = a} :: TotalResourceUtilization)
 
 -- | The aggregated memory used per hour from the time job start executing
 -- till the time job is terminated.
 totalResourceUtilization_memoryGBHour :: Lens.Lens' TotalResourceUtilization (Prelude.Maybe Prelude.Double)
 totalResourceUtilization_memoryGBHour = Lens.lens (\TotalResourceUtilization' {memoryGBHour} -> memoryGBHour) (\s@TotalResourceUtilization' {} a -> s {memoryGBHour = a} :: TotalResourceUtilization)
+
+-- | The aggregated storage used per hour from the time job start executing
+-- till the time job is terminated.
+totalResourceUtilization_storageGBHour :: Lens.Lens' TotalResourceUtilization (Prelude.Maybe Prelude.Double)
+totalResourceUtilization_storageGBHour = Lens.lens (\TotalResourceUtilization' {storageGBHour} -> storageGBHour) (\s@TotalResourceUtilization' {} a -> s {storageGBHour = a} :: TotalResourceUtilization)
 
 -- | The aggregated vCPU used per hour from the time job start executing till
 -- the time job is terminated.
@@ -89,19 +89,19 @@ instance Data.FromJSON TotalResourceUtilization where
       "TotalResourceUtilization"
       ( \x ->
           TotalResourceUtilization'
-            Prelude.<$> (x Data..:? "storageGBHour")
-            Prelude.<*> (x Data..:? "memoryGBHour")
+            Prelude.<$> (x Data..:? "memoryGBHour")
+            Prelude.<*> (x Data..:? "storageGBHour")
             Prelude.<*> (x Data..:? "vCPUHour")
       )
 
 instance Prelude.Hashable TotalResourceUtilization where
   hashWithSalt _salt TotalResourceUtilization' {..} =
-    _salt `Prelude.hashWithSalt` storageGBHour
-      `Prelude.hashWithSalt` memoryGBHour
+    _salt `Prelude.hashWithSalt` memoryGBHour
+      `Prelude.hashWithSalt` storageGBHour
       `Prelude.hashWithSalt` vCPUHour
 
 instance Prelude.NFData TotalResourceUtilization where
   rnf TotalResourceUtilization' {..} =
-    Prelude.rnf storageGBHour
-      `Prelude.seq` Prelude.rnf memoryGBHour
+    Prelude.rnf memoryGBHour
+      `Prelude.seq` Prelude.rnf storageGBHour
       `Prelude.seq` Prelude.rnf vCPUHour

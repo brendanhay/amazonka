@@ -31,16 +31,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNetworkRoute' smart constructor.
 data NetworkRoute = NetworkRoute'
-  { -- | The route type. The possible values are @propagated@ and @static@.
-    type' :: Prelude.Maybe RouteType,
+  { -- | A unique identifier for the route, such as a CIDR block.
+    destinationCidrBlock :: Prelude.Maybe Prelude.Text,
+    -- | The destinations.
+    destinations :: Prelude.Maybe [NetworkRouteDestination],
     -- | The ID of the prefix list.
     prefixListId :: Prelude.Maybe Prelude.Text,
     -- | The route state. The possible values are @active@ and @blackhole@.
     state :: Prelude.Maybe RouteState,
-    -- | A unique identifier for the route, such as a CIDR block.
-    destinationCidrBlock :: Prelude.Maybe Prelude.Text,
-    -- | The destinations.
-    destinations :: Prelude.Maybe [NetworkRouteDestination]
+    -- | The route type. The possible values are @propagated@ and @static@.
+    type' :: Prelude.Maybe RouteType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,37 +52,26 @@ data NetworkRoute = NetworkRoute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'networkRoute_type' - The route type. The possible values are @propagated@ and @static@.
+-- 'destinationCidrBlock', 'networkRoute_destinationCidrBlock' - A unique identifier for the route, such as a CIDR block.
+--
+-- 'destinations', 'networkRoute_destinations' - The destinations.
 --
 -- 'prefixListId', 'networkRoute_prefixListId' - The ID of the prefix list.
 --
 -- 'state', 'networkRoute_state' - The route state. The possible values are @active@ and @blackhole@.
 --
--- 'destinationCidrBlock', 'networkRoute_destinationCidrBlock' - A unique identifier for the route, such as a CIDR block.
---
--- 'destinations', 'networkRoute_destinations' - The destinations.
+-- 'type'', 'networkRoute_type' - The route type. The possible values are @propagated@ and @static@.
 newNetworkRoute ::
   NetworkRoute
 newNetworkRoute =
   NetworkRoute'
-    { type' = Prelude.Nothing,
+    { destinationCidrBlock =
+        Prelude.Nothing,
+      destinations = Prelude.Nothing,
       prefixListId = Prelude.Nothing,
       state = Prelude.Nothing,
-      destinationCidrBlock = Prelude.Nothing,
-      destinations = Prelude.Nothing
+      type' = Prelude.Nothing
     }
-
--- | The route type. The possible values are @propagated@ and @static@.
-networkRoute_type :: Lens.Lens' NetworkRoute (Prelude.Maybe RouteType)
-networkRoute_type = Lens.lens (\NetworkRoute' {type'} -> type') (\s@NetworkRoute' {} a -> s {type' = a} :: NetworkRoute)
-
--- | The ID of the prefix list.
-networkRoute_prefixListId :: Lens.Lens' NetworkRoute (Prelude.Maybe Prelude.Text)
-networkRoute_prefixListId = Lens.lens (\NetworkRoute' {prefixListId} -> prefixListId) (\s@NetworkRoute' {} a -> s {prefixListId = a} :: NetworkRoute)
-
--- | The route state. The possible values are @active@ and @blackhole@.
-networkRoute_state :: Lens.Lens' NetworkRoute (Prelude.Maybe RouteState)
-networkRoute_state = Lens.lens (\NetworkRoute' {state} -> state) (\s@NetworkRoute' {} a -> s {state = a} :: NetworkRoute)
 
 -- | A unique identifier for the route, such as a CIDR block.
 networkRoute_destinationCidrBlock :: Lens.Lens' NetworkRoute (Prelude.Maybe Prelude.Text)
@@ -92,31 +81,43 @@ networkRoute_destinationCidrBlock = Lens.lens (\NetworkRoute' {destinationCidrBl
 networkRoute_destinations :: Lens.Lens' NetworkRoute (Prelude.Maybe [NetworkRouteDestination])
 networkRoute_destinations = Lens.lens (\NetworkRoute' {destinations} -> destinations) (\s@NetworkRoute' {} a -> s {destinations = a} :: NetworkRoute) Prelude.. Lens.mapping Lens.coerced
 
+-- | The ID of the prefix list.
+networkRoute_prefixListId :: Lens.Lens' NetworkRoute (Prelude.Maybe Prelude.Text)
+networkRoute_prefixListId = Lens.lens (\NetworkRoute' {prefixListId} -> prefixListId) (\s@NetworkRoute' {} a -> s {prefixListId = a} :: NetworkRoute)
+
+-- | The route state. The possible values are @active@ and @blackhole@.
+networkRoute_state :: Lens.Lens' NetworkRoute (Prelude.Maybe RouteState)
+networkRoute_state = Lens.lens (\NetworkRoute' {state} -> state) (\s@NetworkRoute' {} a -> s {state = a} :: NetworkRoute)
+
+-- | The route type. The possible values are @propagated@ and @static@.
+networkRoute_type :: Lens.Lens' NetworkRoute (Prelude.Maybe RouteType)
+networkRoute_type = Lens.lens (\NetworkRoute' {type'} -> type') (\s@NetworkRoute' {} a -> s {type' = a} :: NetworkRoute)
+
 instance Data.FromJSON NetworkRoute where
   parseJSON =
     Data.withObject
       "NetworkRoute"
       ( \x ->
           NetworkRoute'
-            Prelude.<$> (x Data..:? "Type")
+            Prelude.<$> (x Data..:? "DestinationCidrBlock")
+            Prelude.<*> (x Data..:? "Destinations" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "PrefixListId")
             Prelude.<*> (x Data..:? "State")
-            Prelude.<*> (x Data..:? "DestinationCidrBlock")
-            Prelude.<*> (x Data..:? "Destinations" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable NetworkRoute where
   hashWithSalt _salt NetworkRoute' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` destinationCidrBlock
+      `Prelude.hashWithSalt` destinations
       `Prelude.hashWithSalt` prefixListId
       `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` destinationCidrBlock
-      `Prelude.hashWithSalt` destinations
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData NetworkRoute where
   rnf NetworkRoute' {..} =
-    Prelude.rnf type'
+    Prelude.rnf destinationCidrBlock
+      `Prelude.seq` Prelude.rnf destinations
       `Prelude.seq` Prelude.rnf prefixListId
       `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf destinationCidrBlock
-      `Prelude.seq` Prelude.rnf destinations
+      `Prelude.seq` Prelude.rnf type'

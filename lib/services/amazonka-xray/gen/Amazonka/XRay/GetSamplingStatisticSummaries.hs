@@ -37,8 +37,8 @@ module Amazonka.XRay.GetSamplingStatisticSummaries
     newGetSamplingStatisticSummariesResponse,
 
     -- * Response Lenses
-    getSamplingStatisticSummariesResponse_samplingStatisticSummaries,
     getSamplingStatisticSummariesResponse_nextToken,
+    getSamplingStatisticSummariesResponse_samplingStatisticSummaries,
     getSamplingStatisticSummariesResponse_httpStatus,
   )
 where
@@ -114,10 +114,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetSamplingStatisticSummariesResponse'
-            Prelude.<$> ( x Data..?> "SamplingStatisticSummaries"
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> ( x Data..?> "SamplingStatisticSummaries"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -150,11 +150,11 @@ instance Data.ToQuery GetSamplingStatisticSummaries where
 
 -- | /See:/ 'newGetSamplingStatisticSummariesResponse' smart constructor.
 data GetSamplingStatisticSummariesResponse = GetSamplingStatisticSummariesResponse'
-  { -- | Information about the number of requests instrumented for each sampling
+  { -- | Pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the number of requests instrumented for each sampling
     -- rule.
     samplingStatisticSummaries :: Prelude.Maybe [SamplingStatisticSummary],
-    -- | Pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -168,10 +168,10 @@ data GetSamplingStatisticSummariesResponse = GetSamplingStatisticSummariesRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'getSamplingStatisticSummariesResponse_nextToken' - Pagination token.
+--
 -- 'samplingStatisticSummaries', 'getSamplingStatisticSummariesResponse_samplingStatisticSummaries' - Information about the number of requests instrumented for each sampling
 -- rule.
---
--- 'nextToken', 'getSamplingStatisticSummariesResponse_nextToken' - Pagination token.
 --
 -- 'httpStatus', 'getSamplingStatisticSummariesResponse_httpStatus' - The response's http status code.
 newGetSamplingStatisticSummariesResponse ::
@@ -180,20 +180,21 @@ newGetSamplingStatisticSummariesResponse ::
   GetSamplingStatisticSummariesResponse
 newGetSamplingStatisticSummariesResponse pHttpStatus_ =
   GetSamplingStatisticSummariesResponse'
-    { samplingStatisticSummaries =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      samplingStatisticSummaries =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Pagination token.
+getSamplingStatisticSummariesResponse_nextToken :: Lens.Lens' GetSamplingStatisticSummariesResponse (Prelude.Maybe Prelude.Text)
+getSamplingStatisticSummariesResponse_nextToken = Lens.lens (\GetSamplingStatisticSummariesResponse' {nextToken} -> nextToken) (\s@GetSamplingStatisticSummariesResponse' {} a -> s {nextToken = a} :: GetSamplingStatisticSummariesResponse)
 
 -- | Information about the number of requests instrumented for each sampling
 -- rule.
 getSamplingStatisticSummariesResponse_samplingStatisticSummaries :: Lens.Lens' GetSamplingStatisticSummariesResponse (Prelude.Maybe [SamplingStatisticSummary])
 getSamplingStatisticSummariesResponse_samplingStatisticSummaries = Lens.lens (\GetSamplingStatisticSummariesResponse' {samplingStatisticSummaries} -> samplingStatisticSummaries) (\s@GetSamplingStatisticSummariesResponse' {} a -> s {samplingStatisticSummaries = a} :: GetSamplingStatisticSummariesResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Pagination token.
-getSamplingStatisticSummariesResponse_nextToken :: Lens.Lens' GetSamplingStatisticSummariesResponse (Prelude.Maybe Prelude.Text)
-getSamplingStatisticSummariesResponse_nextToken = Lens.lens (\GetSamplingStatisticSummariesResponse' {nextToken} -> nextToken) (\s@GetSamplingStatisticSummariesResponse' {} a -> s {nextToken = a} :: GetSamplingStatisticSummariesResponse)
 
 -- | The response's http status code.
 getSamplingStatisticSummariesResponse_httpStatus :: Lens.Lens' GetSamplingStatisticSummariesResponse Prelude.Int
@@ -204,6 +205,6 @@ instance
     GetSamplingStatisticSummariesResponse
   where
   rnf GetSamplingStatisticSummariesResponse' {..} =
-    Prelude.rnf samplingStatisticSummaries
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf samplingStatisticSummaries
       `Prelude.seq` Prelude.rnf httpStatus

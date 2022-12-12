@@ -30,16 +30,16 @@ module Amazonka.Config.DescribeAggregationAuthorizations
     newDescribeAggregationAuthorizations,
 
     -- * Request Lenses
-    describeAggregationAuthorizations_nextToken,
     describeAggregationAuthorizations_limit,
+    describeAggregationAuthorizations_nextToken,
 
     -- * Destructuring the Response
     DescribeAggregationAuthorizationsResponse (..),
     newDescribeAggregationAuthorizationsResponse,
 
     -- * Response Lenses
-    describeAggregationAuthorizationsResponse_nextToken,
     describeAggregationAuthorizationsResponse_aggregationAuthorizations,
+    describeAggregationAuthorizationsResponse_nextToken,
     describeAggregationAuthorizationsResponse_httpStatus,
   )
 where
@@ -54,12 +54,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeAggregationAuthorizations' smart constructor.
 data DescribeAggregationAuthorizations = DescribeAggregationAuthorizations'
-  { -- | The @nextToken@ string returned on a previous page that you use to get
-    -- the next page of results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of AggregationAuthorizations returned on each page.
+  { -- | The maximum number of AggregationAuthorizations returned on each page.
     -- The default is maximum. If you specify 0, Config uses the default.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | The @nextToken@ string returned on a previous page that you use to get
+    -- the next page of results in a paginated response.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,29 +71,29 @@ data DescribeAggregationAuthorizations = DescribeAggregationAuthorizations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeAggregationAuthorizations_nextToken' - The @nextToken@ string returned on a previous page that you use to get
--- the next page of results in a paginated response.
---
 -- 'limit', 'describeAggregationAuthorizations_limit' - The maximum number of AggregationAuthorizations returned on each page.
 -- The default is maximum. If you specify 0, Config uses the default.
+--
+-- 'nextToken', 'describeAggregationAuthorizations_nextToken' - The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
 newDescribeAggregationAuthorizations ::
   DescribeAggregationAuthorizations
 newDescribeAggregationAuthorizations =
   DescribeAggregationAuthorizations'
-    { nextToken =
+    { limit =
         Prelude.Nothing,
-      limit = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | The @nextToken@ string returned on a previous page that you use to get
--- the next page of results in a paginated response.
-describeAggregationAuthorizations_nextToken :: Lens.Lens' DescribeAggregationAuthorizations (Prelude.Maybe Prelude.Text)
-describeAggregationAuthorizations_nextToken = Lens.lens (\DescribeAggregationAuthorizations' {nextToken} -> nextToken) (\s@DescribeAggregationAuthorizations' {} a -> s {nextToken = a} :: DescribeAggregationAuthorizations)
 
 -- | The maximum number of AggregationAuthorizations returned on each page.
 -- The default is maximum. If you specify 0, Config uses the default.
 describeAggregationAuthorizations_limit :: Lens.Lens' DescribeAggregationAuthorizations (Prelude.Maybe Prelude.Natural)
 describeAggregationAuthorizations_limit = Lens.lens (\DescribeAggregationAuthorizations' {limit} -> limit) (\s@DescribeAggregationAuthorizations' {} a -> s {limit = a} :: DescribeAggregationAuthorizations)
+
+-- | The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
+describeAggregationAuthorizations_nextToken :: Lens.Lens' DescribeAggregationAuthorizations (Prelude.Maybe Prelude.Text)
+describeAggregationAuthorizations_nextToken = Lens.lens (\DescribeAggregationAuthorizations' {nextToken} -> nextToken) (\s@DescribeAggregationAuthorizations' {} a -> s {nextToken = a} :: DescribeAggregationAuthorizations)
 
 instance
   Core.AWSPager
@@ -133,10 +133,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeAggregationAuthorizationsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-              Prelude.<*> ( x Data..?> "AggregationAuthorizations"
-                              Core..!@ Prelude.mempty
-                          )
+            Prelude.<$> ( x Data..?> "AggregationAuthorizations"
+                            Core..!@ Prelude.mempty
+                        )
+              Prelude.<*> (x Data..?> "NextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,16 +147,16 @@ instance
   hashWithSalt
     _salt
     DescribeAggregationAuthorizations' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` limit
+      _salt `Prelude.hashWithSalt` limit
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     DescribeAggregationAuthorizations
   where
   rnf DescribeAggregationAuthorizations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -183,8 +183,8 @@ instance
   toJSON DescribeAggregationAuthorizations' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Limit" Data..=) Prelude.<$> limit
+          [ ("Limit" Data..=) Prelude.<$> limit,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -202,12 +202,12 @@ instance
 
 -- | /See:/ 'newDescribeAggregationAuthorizationsResponse' smart constructor.
 data DescribeAggregationAuthorizationsResponse = DescribeAggregationAuthorizationsResponse'
-  { -- | The @nextToken@ string returned on a previous page that you use to get
-    -- the next page of results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Returns a list of authorizations granted to various aggregator accounts
+  { -- | Returns a list of authorizations granted to various aggregator accounts
     -- and regions.
     aggregationAuthorizations :: Prelude.Maybe [AggregationAuthorization],
+    -- | The @nextToken@ string returned on a previous page that you use to get
+    -- the next page of results in a paginated response.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -221,11 +221,11 @@ data DescribeAggregationAuthorizationsResponse = DescribeAggregationAuthorizatio
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeAggregationAuthorizationsResponse_nextToken' - The @nextToken@ string returned on a previous page that you use to get
--- the next page of results in a paginated response.
---
 -- 'aggregationAuthorizations', 'describeAggregationAuthorizationsResponse_aggregationAuthorizations' - Returns a list of authorizations granted to various aggregator accounts
 -- and regions.
+--
+-- 'nextToken', 'describeAggregationAuthorizationsResponse_nextToken' - The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
 --
 -- 'httpStatus', 'describeAggregationAuthorizationsResponse_httpStatus' - The response's http status code.
 newDescribeAggregationAuthorizationsResponse ::
@@ -235,22 +235,21 @@ newDescribeAggregationAuthorizationsResponse ::
 newDescribeAggregationAuthorizationsResponse
   pHttpStatus_ =
     DescribeAggregationAuthorizationsResponse'
-      { nextToken =
+      { aggregationAuthorizations =
           Prelude.Nothing,
-        aggregationAuthorizations =
-          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The @nextToken@ string returned on a previous page that you use to get
--- the next page of results in a paginated response.
-describeAggregationAuthorizationsResponse_nextToken :: Lens.Lens' DescribeAggregationAuthorizationsResponse (Prelude.Maybe Prelude.Text)
-describeAggregationAuthorizationsResponse_nextToken = Lens.lens (\DescribeAggregationAuthorizationsResponse' {nextToken} -> nextToken) (\s@DescribeAggregationAuthorizationsResponse' {} a -> s {nextToken = a} :: DescribeAggregationAuthorizationsResponse)
 
 -- | Returns a list of authorizations granted to various aggregator accounts
 -- and regions.
 describeAggregationAuthorizationsResponse_aggregationAuthorizations :: Lens.Lens' DescribeAggregationAuthorizationsResponse (Prelude.Maybe [AggregationAuthorization])
 describeAggregationAuthorizationsResponse_aggregationAuthorizations = Lens.lens (\DescribeAggregationAuthorizationsResponse' {aggregationAuthorizations} -> aggregationAuthorizations) (\s@DescribeAggregationAuthorizationsResponse' {} a -> s {aggregationAuthorizations = a} :: DescribeAggregationAuthorizationsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
+describeAggregationAuthorizationsResponse_nextToken :: Lens.Lens' DescribeAggregationAuthorizationsResponse (Prelude.Maybe Prelude.Text)
+describeAggregationAuthorizationsResponse_nextToken = Lens.lens (\DescribeAggregationAuthorizationsResponse' {nextToken} -> nextToken) (\s@DescribeAggregationAuthorizationsResponse' {} a -> s {nextToken = a} :: DescribeAggregationAuthorizationsResponse)
 
 -- | The response's http status code.
 describeAggregationAuthorizationsResponse_httpStatus :: Lens.Lens' DescribeAggregationAuthorizationsResponse Prelude.Int
@@ -261,6 +260,6 @@ instance
     DescribeAggregationAuthorizationsResponse
   where
   rnf DescribeAggregationAuthorizationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf aggregationAuthorizations
+    Prelude.rnf aggregationAuthorizations
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

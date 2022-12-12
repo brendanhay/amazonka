@@ -31,12 +31,12 @@ data MonitorDataSource = MonitorDataSource'
   { -- | The Amazon Resource Name (ARN) of the dataset import job used to import
     -- the data that initiated the monitor evaluation.
     datasetImportJobArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the predictor resource you are
-    -- monitoring.
-    predictorArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the forecast the monitor used during
     -- the evaluation.
-    forecastArn :: Prelude.Maybe Prelude.Text
+    forecastArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the predictor resource you are
+    -- monitoring.
+    predictorArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,19 +51,19 @@ data MonitorDataSource = MonitorDataSource'
 -- 'datasetImportJobArn', 'monitorDataSource_datasetImportJobArn' - The Amazon Resource Name (ARN) of the dataset import job used to import
 -- the data that initiated the monitor evaluation.
 --
--- 'predictorArn', 'monitorDataSource_predictorArn' - The Amazon Resource Name (ARN) of the predictor resource you are
--- monitoring.
---
 -- 'forecastArn', 'monitorDataSource_forecastArn' - The Amazon Resource Name (ARN) of the forecast the monitor used during
 -- the evaluation.
+--
+-- 'predictorArn', 'monitorDataSource_predictorArn' - The Amazon Resource Name (ARN) of the predictor resource you are
+-- monitoring.
 newMonitorDataSource ::
   MonitorDataSource
 newMonitorDataSource =
   MonitorDataSource'
     { datasetImportJobArn =
         Prelude.Nothing,
-      predictorArn = Prelude.Nothing,
-      forecastArn = Prelude.Nothing
+      forecastArn = Prelude.Nothing,
+      predictorArn = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the dataset import job used to import
@@ -71,15 +71,15 @@ newMonitorDataSource =
 monitorDataSource_datasetImportJobArn :: Lens.Lens' MonitorDataSource (Prelude.Maybe Prelude.Text)
 monitorDataSource_datasetImportJobArn = Lens.lens (\MonitorDataSource' {datasetImportJobArn} -> datasetImportJobArn) (\s@MonitorDataSource' {} a -> s {datasetImportJobArn = a} :: MonitorDataSource)
 
--- | The Amazon Resource Name (ARN) of the predictor resource you are
--- monitoring.
-monitorDataSource_predictorArn :: Lens.Lens' MonitorDataSource (Prelude.Maybe Prelude.Text)
-monitorDataSource_predictorArn = Lens.lens (\MonitorDataSource' {predictorArn} -> predictorArn) (\s@MonitorDataSource' {} a -> s {predictorArn = a} :: MonitorDataSource)
-
 -- | The Amazon Resource Name (ARN) of the forecast the monitor used during
 -- the evaluation.
 monitorDataSource_forecastArn :: Lens.Lens' MonitorDataSource (Prelude.Maybe Prelude.Text)
 monitorDataSource_forecastArn = Lens.lens (\MonitorDataSource' {forecastArn} -> forecastArn) (\s@MonitorDataSource' {} a -> s {forecastArn = a} :: MonitorDataSource)
+
+-- | The Amazon Resource Name (ARN) of the predictor resource you are
+-- monitoring.
+monitorDataSource_predictorArn :: Lens.Lens' MonitorDataSource (Prelude.Maybe Prelude.Text)
+monitorDataSource_predictorArn = Lens.lens (\MonitorDataSource' {predictorArn} -> predictorArn) (\s@MonitorDataSource' {} a -> s {predictorArn = a} :: MonitorDataSource)
 
 instance Data.FromJSON MonitorDataSource where
   parseJSON =
@@ -88,18 +88,18 @@ instance Data.FromJSON MonitorDataSource where
       ( \x ->
           MonitorDataSource'
             Prelude.<$> (x Data..:? "DatasetImportJobArn")
-            Prelude.<*> (x Data..:? "PredictorArn")
             Prelude.<*> (x Data..:? "ForecastArn")
+            Prelude.<*> (x Data..:? "PredictorArn")
       )
 
 instance Prelude.Hashable MonitorDataSource where
   hashWithSalt _salt MonitorDataSource' {..} =
     _salt `Prelude.hashWithSalt` datasetImportJobArn
-      `Prelude.hashWithSalt` predictorArn
       `Prelude.hashWithSalt` forecastArn
+      `Prelude.hashWithSalt` predictorArn
 
 instance Prelude.NFData MonitorDataSource where
   rnf MonitorDataSource' {..} =
     Prelude.rnf datasetImportJobArn
-      `Prelude.seq` Prelude.rnf predictorArn
       `Prelude.seq` Prelude.rnf forecastArn
+      `Prelude.seq` Prelude.rnf predictorArn

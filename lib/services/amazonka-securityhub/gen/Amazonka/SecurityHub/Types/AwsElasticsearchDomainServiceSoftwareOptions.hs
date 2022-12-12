@@ -29,12 +29,21 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsElasticsearchDomainServiceSoftwareOptions' smart constructor.
 data AwsElasticsearchDomainServiceSoftwareOptions = AwsElasticsearchDomainServiceSoftwareOptions'
-  { -- | The most recent version of the service software.
+  { -- | The epoch time when the deployment window closes for required updates.
+    -- After this time, Amazon OpenSearch Service schedules the software
+    -- upgrade automatically.
+    automatedUpdateDate :: Prelude.Maybe Prelude.Text,
+    -- | Whether a request to update the domain can be canceled.
+    cancellable :: Prelude.Maybe Prelude.Bool,
+    -- | The version of the service software that is currently installed on the
+    -- domain.
+    currentVersion :: Prelude.Maybe Prelude.Text,
+    -- | A more detailed description of the service software status.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The most recent version of the service software.
     newVersion' :: Prelude.Maybe Prelude.Text,
     -- | Whether a service software update is available for the domain.
     updateAvailable :: Prelude.Maybe Prelude.Bool,
-    -- | Whether a request to update the domain can be canceled.
-    cancellable :: Prelude.Maybe Prelude.Bool,
     -- | The status of the service software update. Valid values are as follows:
     --
     -- -   @COMPLETED@
@@ -46,16 +55,7 @@ data AwsElasticsearchDomainServiceSoftwareOptions = AwsElasticsearchDomainServic
     -- -   @NOT_ELIGIBLE@
     --
     -- -   @PENDING_UPDATE@
-    updateStatus :: Prelude.Maybe Prelude.Text,
-    -- | The epoch time when the deployment window closes for required updates.
-    -- After this time, Amazon OpenSearch Service schedules the software
-    -- upgrade automatically.
-    automatedUpdateDate :: Prelude.Maybe Prelude.Text,
-    -- | A more detailed description of the service software status.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The version of the service software that is currently installed on the
-    -- domain.
-    currentVersion :: Prelude.Maybe Prelude.Text
+    updateStatus :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,11 +67,20 @@ data AwsElasticsearchDomainServiceSoftwareOptions = AwsElasticsearchDomainServic
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'automatedUpdateDate', 'awsElasticsearchDomainServiceSoftwareOptions_automatedUpdateDate' - The epoch time when the deployment window closes for required updates.
+-- After this time, Amazon OpenSearch Service schedules the software
+-- upgrade automatically.
+--
+-- 'cancellable', 'awsElasticsearchDomainServiceSoftwareOptions_cancellable' - Whether a request to update the domain can be canceled.
+--
+-- 'currentVersion', 'awsElasticsearchDomainServiceSoftwareOptions_currentVersion' - The version of the service software that is currently installed on the
+-- domain.
+--
+-- 'description', 'awsElasticsearchDomainServiceSoftwareOptions_description' - A more detailed description of the service software status.
+--
 -- 'newVersion'', 'awsElasticsearchDomainServiceSoftwareOptions_newVersion' - The most recent version of the service software.
 --
 -- 'updateAvailable', 'awsElasticsearchDomainServiceSoftwareOptions_updateAvailable' - Whether a service software update is available for the domain.
---
--- 'cancellable', 'awsElasticsearchDomainServiceSoftwareOptions_cancellable' - Whether a request to update the domain can be canceled.
 --
 -- 'updateStatus', 'awsElasticsearchDomainServiceSoftwareOptions_updateStatus' - The status of the service software update. Valid values are as follows:
 --
@@ -84,32 +93,41 @@ data AwsElasticsearchDomainServiceSoftwareOptions = AwsElasticsearchDomainServic
 -- -   @NOT_ELIGIBLE@
 --
 -- -   @PENDING_UPDATE@
---
--- 'automatedUpdateDate', 'awsElasticsearchDomainServiceSoftwareOptions_automatedUpdateDate' - The epoch time when the deployment window closes for required updates.
--- After this time, Amazon OpenSearch Service schedules the software
--- upgrade automatically.
---
--- 'description', 'awsElasticsearchDomainServiceSoftwareOptions_description' - A more detailed description of the service software status.
---
--- 'currentVersion', 'awsElasticsearchDomainServiceSoftwareOptions_currentVersion' - The version of the service software that is currently installed on the
--- domain.
 newAwsElasticsearchDomainServiceSoftwareOptions ::
   AwsElasticsearchDomainServiceSoftwareOptions
 newAwsElasticsearchDomainServiceSoftwareOptions =
   AwsElasticsearchDomainServiceSoftwareOptions'
-    { newVersion' =
-        Prelude.Nothing,
-      updateAvailable =
+    { automatedUpdateDate =
         Prelude.Nothing,
       cancellable = Prelude.Nothing,
-      updateStatus =
-        Prelude.Nothing,
-      automatedUpdateDate =
+      currentVersion =
         Prelude.Nothing,
       description = Prelude.Nothing,
-      currentVersion =
+      newVersion' = Prelude.Nothing,
+      updateAvailable =
+        Prelude.Nothing,
+      updateStatus =
         Prelude.Nothing
     }
+
+-- | The epoch time when the deployment window closes for required updates.
+-- After this time, Amazon OpenSearch Service schedules the software
+-- upgrade automatically.
+awsElasticsearchDomainServiceSoftwareOptions_automatedUpdateDate :: Lens.Lens' AwsElasticsearchDomainServiceSoftwareOptions (Prelude.Maybe Prelude.Text)
+awsElasticsearchDomainServiceSoftwareOptions_automatedUpdateDate = Lens.lens (\AwsElasticsearchDomainServiceSoftwareOptions' {automatedUpdateDate} -> automatedUpdateDate) (\s@AwsElasticsearchDomainServiceSoftwareOptions' {} a -> s {automatedUpdateDate = a} :: AwsElasticsearchDomainServiceSoftwareOptions)
+
+-- | Whether a request to update the domain can be canceled.
+awsElasticsearchDomainServiceSoftwareOptions_cancellable :: Lens.Lens' AwsElasticsearchDomainServiceSoftwareOptions (Prelude.Maybe Prelude.Bool)
+awsElasticsearchDomainServiceSoftwareOptions_cancellable = Lens.lens (\AwsElasticsearchDomainServiceSoftwareOptions' {cancellable} -> cancellable) (\s@AwsElasticsearchDomainServiceSoftwareOptions' {} a -> s {cancellable = a} :: AwsElasticsearchDomainServiceSoftwareOptions)
+
+-- | The version of the service software that is currently installed on the
+-- domain.
+awsElasticsearchDomainServiceSoftwareOptions_currentVersion :: Lens.Lens' AwsElasticsearchDomainServiceSoftwareOptions (Prelude.Maybe Prelude.Text)
+awsElasticsearchDomainServiceSoftwareOptions_currentVersion = Lens.lens (\AwsElasticsearchDomainServiceSoftwareOptions' {currentVersion} -> currentVersion) (\s@AwsElasticsearchDomainServiceSoftwareOptions' {} a -> s {currentVersion = a} :: AwsElasticsearchDomainServiceSoftwareOptions)
+
+-- | A more detailed description of the service software status.
+awsElasticsearchDomainServiceSoftwareOptions_description :: Lens.Lens' AwsElasticsearchDomainServiceSoftwareOptions (Prelude.Maybe Prelude.Text)
+awsElasticsearchDomainServiceSoftwareOptions_description = Lens.lens (\AwsElasticsearchDomainServiceSoftwareOptions' {description} -> description) (\s@AwsElasticsearchDomainServiceSoftwareOptions' {} a -> s {description = a} :: AwsElasticsearchDomainServiceSoftwareOptions)
 
 -- | The most recent version of the service software.
 awsElasticsearchDomainServiceSoftwareOptions_newVersion :: Lens.Lens' AwsElasticsearchDomainServiceSoftwareOptions (Prelude.Maybe Prelude.Text)
@@ -118,10 +136,6 @@ awsElasticsearchDomainServiceSoftwareOptions_newVersion = Lens.lens (\AwsElastic
 -- | Whether a service software update is available for the domain.
 awsElasticsearchDomainServiceSoftwareOptions_updateAvailable :: Lens.Lens' AwsElasticsearchDomainServiceSoftwareOptions (Prelude.Maybe Prelude.Bool)
 awsElasticsearchDomainServiceSoftwareOptions_updateAvailable = Lens.lens (\AwsElasticsearchDomainServiceSoftwareOptions' {updateAvailable} -> updateAvailable) (\s@AwsElasticsearchDomainServiceSoftwareOptions' {} a -> s {updateAvailable = a} :: AwsElasticsearchDomainServiceSoftwareOptions)
-
--- | Whether a request to update the domain can be canceled.
-awsElasticsearchDomainServiceSoftwareOptions_cancellable :: Lens.Lens' AwsElasticsearchDomainServiceSoftwareOptions (Prelude.Maybe Prelude.Bool)
-awsElasticsearchDomainServiceSoftwareOptions_cancellable = Lens.lens (\AwsElasticsearchDomainServiceSoftwareOptions' {cancellable} -> cancellable) (\s@AwsElasticsearchDomainServiceSoftwareOptions' {} a -> s {cancellable = a} :: AwsElasticsearchDomainServiceSoftwareOptions)
 
 -- | The status of the service software update. Valid values are as follows:
 --
@@ -137,21 +151,6 @@ awsElasticsearchDomainServiceSoftwareOptions_cancellable = Lens.lens (\AwsElasti
 awsElasticsearchDomainServiceSoftwareOptions_updateStatus :: Lens.Lens' AwsElasticsearchDomainServiceSoftwareOptions (Prelude.Maybe Prelude.Text)
 awsElasticsearchDomainServiceSoftwareOptions_updateStatus = Lens.lens (\AwsElasticsearchDomainServiceSoftwareOptions' {updateStatus} -> updateStatus) (\s@AwsElasticsearchDomainServiceSoftwareOptions' {} a -> s {updateStatus = a} :: AwsElasticsearchDomainServiceSoftwareOptions)
 
--- | The epoch time when the deployment window closes for required updates.
--- After this time, Amazon OpenSearch Service schedules the software
--- upgrade automatically.
-awsElasticsearchDomainServiceSoftwareOptions_automatedUpdateDate :: Lens.Lens' AwsElasticsearchDomainServiceSoftwareOptions (Prelude.Maybe Prelude.Text)
-awsElasticsearchDomainServiceSoftwareOptions_automatedUpdateDate = Lens.lens (\AwsElasticsearchDomainServiceSoftwareOptions' {automatedUpdateDate} -> automatedUpdateDate) (\s@AwsElasticsearchDomainServiceSoftwareOptions' {} a -> s {automatedUpdateDate = a} :: AwsElasticsearchDomainServiceSoftwareOptions)
-
--- | A more detailed description of the service software status.
-awsElasticsearchDomainServiceSoftwareOptions_description :: Lens.Lens' AwsElasticsearchDomainServiceSoftwareOptions (Prelude.Maybe Prelude.Text)
-awsElasticsearchDomainServiceSoftwareOptions_description = Lens.lens (\AwsElasticsearchDomainServiceSoftwareOptions' {description} -> description) (\s@AwsElasticsearchDomainServiceSoftwareOptions' {} a -> s {description = a} :: AwsElasticsearchDomainServiceSoftwareOptions)
-
--- | The version of the service software that is currently installed on the
--- domain.
-awsElasticsearchDomainServiceSoftwareOptions_currentVersion :: Lens.Lens' AwsElasticsearchDomainServiceSoftwareOptions (Prelude.Maybe Prelude.Text)
-awsElasticsearchDomainServiceSoftwareOptions_currentVersion = Lens.lens (\AwsElasticsearchDomainServiceSoftwareOptions' {currentVersion} -> currentVersion) (\s@AwsElasticsearchDomainServiceSoftwareOptions' {} a -> s {currentVersion = a} :: AwsElasticsearchDomainServiceSoftwareOptions)
-
 instance
   Data.FromJSON
     AwsElasticsearchDomainServiceSoftwareOptions
@@ -161,13 +160,13 @@ instance
       "AwsElasticsearchDomainServiceSoftwareOptions"
       ( \x ->
           AwsElasticsearchDomainServiceSoftwareOptions'
-            Prelude.<$> (x Data..:? "NewVersion")
-              Prelude.<*> (x Data..:? "UpdateAvailable")
+            Prelude.<$> (x Data..:? "AutomatedUpdateDate")
               Prelude.<*> (x Data..:? "Cancellable")
-              Prelude.<*> (x Data..:? "UpdateStatus")
-              Prelude.<*> (x Data..:? "AutomatedUpdateDate")
-              Prelude.<*> (x Data..:? "Description")
               Prelude.<*> (x Data..:? "CurrentVersion")
+              Prelude.<*> (x Data..:? "Description")
+              Prelude.<*> (x Data..:? "NewVersion")
+              Prelude.<*> (x Data..:? "UpdateAvailable")
+              Prelude.<*> (x Data..:? "UpdateStatus")
       )
 
 instance
@@ -177,26 +176,26 @@ instance
   hashWithSalt
     _salt
     AwsElasticsearchDomainServiceSoftwareOptions' {..} =
-      _salt `Prelude.hashWithSalt` newVersion'
-        `Prelude.hashWithSalt` updateAvailable
+      _salt `Prelude.hashWithSalt` automatedUpdateDate
         `Prelude.hashWithSalt` cancellable
-        `Prelude.hashWithSalt` updateStatus
-        `Prelude.hashWithSalt` automatedUpdateDate
-        `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` currentVersion
+        `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` newVersion'
+        `Prelude.hashWithSalt` updateAvailable
+        `Prelude.hashWithSalt` updateStatus
 
 instance
   Prelude.NFData
     AwsElasticsearchDomainServiceSoftwareOptions
   where
   rnf AwsElasticsearchDomainServiceSoftwareOptions' {..} =
-    Prelude.rnf newVersion'
-      `Prelude.seq` Prelude.rnf updateAvailable
+    Prelude.rnf automatedUpdateDate
       `Prelude.seq` Prelude.rnf cancellable
-      `Prelude.seq` Prelude.rnf updateStatus
-      `Prelude.seq` Prelude.rnf automatedUpdateDate
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf currentVersion
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf newVersion'
+      `Prelude.seq` Prelude.rnf updateAvailable
+      `Prelude.seq` Prelude.rnf updateStatus
 
 instance
   Data.ToJSON
@@ -206,15 +205,15 @@ instance
     AwsElasticsearchDomainServiceSoftwareOptions' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("NewVersion" Data..=) Prelude.<$> newVersion',
+            [ ("AutomatedUpdateDate" Data..=)
+                Prelude.<$> automatedUpdateDate,
+              ("Cancellable" Data..=) Prelude.<$> cancellable,
+              ("CurrentVersion" Data..=)
+                Prelude.<$> currentVersion,
+              ("Description" Data..=) Prelude.<$> description,
+              ("NewVersion" Data..=) Prelude.<$> newVersion',
               ("UpdateAvailable" Data..=)
                 Prelude.<$> updateAvailable,
-              ("Cancellable" Data..=) Prelude.<$> cancellable,
-              ("UpdateStatus" Data..=) Prelude.<$> updateStatus,
-              ("AutomatedUpdateDate" Data..=)
-                Prelude.<$> automatedUpdateDate,
-              ("Description" Data..=) Prelude.<$> description,
-              ("CurrentVersion" Data..=)
-                Prelude.<$> currentVersion
+              ("UpdateStatus" Data..=) Prelude.<$> updateStatus
             ]
         )

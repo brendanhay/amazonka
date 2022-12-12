@@ -29,16 +29,16 @@ module Amazonka.SageMaker.ListAutoMLJobs
     newListAutoMLJobs,
 
     -- * Request Lenses
-    listAutoMLJobs_sortOrder,
-    listAutoMLJobs_nextToken,
-    listAutoMLJobs_lastModifiedTimeAfter,
-    listAutoMLJobs_nameContains,
-    listAutoMLJobs_lastModifiedTimeBefore,
-    listAutoMLJobs_creationTimeBefore,
-    listAutoMLJobs_sortBy,
-    listAutoMLJobs_maxResults,
-    listAutoMLJobs_statusEquals,
     listAutoMLJobs_creationTimeAfter,
+    listAutoMLJobs_creationTimeBefore,
+    listAutoMLJobs_lastModifiedTimeAfter,
+    listAutoMLJobs_lastModifiedTimeBefore,
+    listAutoMLJobs_maxResults,
+    listAutoMLJobs_nameContains,
+    listAutoMLJobs_nextToken,
+    listAutoMLJobs_sortBy,
+    listAutoMLJobs_sortOrder,
+    listAutoMLJobs_statusEquals,
 
     -- * Destructuring the Response
     ListAutoMLJobsResponse (..),
@@ -61,27 +61,27 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newListAutoMLJobs' smart constructor.
 data ListAutoMLJobs = ListAutoMLJobs'
-  { -- | The sort order for the results. The default is @Descending@.
-    sortOrder :: Prelude.Maybe AutoMLSortOrder,
+  { -- | Request a list of jobs, using a filter for time.
+    creationTimeAfter :: Prelude.Maybe Data.POSIX,
+    -- | Request a list of jobs, using a filter for time.
+    creationTimeBefore :: Prelude.Maybe Data.POSIX,
+    -- | Request a list of jobs, using a filter for time.
+    lastModifiedTimeAfter :: Prelude.Maybe Data.POSIX,
+    -- | Request a list of jobs, using a filter for time.
+    lastModifiedTimeBefore :: Prelude.Maybe Data.POSIX,
+    -- | Request a list of jobs up to a specified limit.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Request a list of jobs, using a search filter for name.
+    nameContains :: Prelude.Maybe Prelude.Text,
     -- | If the previous response was truncated, you receive this token. Use it
     -- in your next request to receive the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Request a list of jobs, using a filter for time.
-    lastModifiedTimeAfter :: Prelude.Maybe Data.POSIX,
-    -- | Request a list of jobs, using a search filter for name.
-    nameContains :: Prelude.Maybe Prelude.Text,
-    -- | Request a list of jobs, using a filter for time.
-    lastModifiedTimeBefore :: Prelude.Maybe Data.POSIX,
-    -- | Request a list of jobs, using a filter for time.
-    creationTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | The parameter by which to sort the results. The default is @Name@.
     sortBy :: Prelude.Maybe AutoMLSortBy,
-    -- | Request a list of jobs up to a specified limit.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The sort order for the results. The default is @Descending@.
+    sortOrder :: Prelude.Maybe AutoMLSortOrder,
     -- | Request a list of jobs, using a filter for status.
-    statusEquals :: Prelude.Maybe AutoMLJobStatus,
-    -- | Request a list of jobs, using a filter for time.
-    creationTimeAfter :: Prelude.Maybe Data.POSIX
+    statusEquals :: Prelude.Maybe AutoMLJobStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -93,82 +93,83 @@ data ListAutoMLJobs = ListAutoMLJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listAutoMLJobs_sortOrder' - The sort order for the results. The default is @Descending@.
+-- 'creationTimeAfter', 'listAutoMLJobs_creationTimeAfter' - Request a list of jobs, using a filter for time.
+--
+-- 'creationTimeBefore', 'listAutoMLJobs_creationTimeBefore' - Request a list of jobs, using a filter for time.
+--
+-- 'lastModifiedTimeAfter', 'listAutoMLJobs_lastModifiedTimeAfter' - Request a list of jobs, using a filter for time.
+--
+-- 'lastModifiedTimeBefore', 'listAutoMLJobs_lastModifiedTimeBefore' - Request a list of jobs, using a filter for time.
+--
+-- 'maxResults', 'listAutoMLJobs_maxResults' - Request a list of jobs up to a specified limit.
+--
+-- 'nameContains', 'listAutoMLJobs_nameContains' - Request a list of jobs, using a search filter for name.
 --
 -- 'nextToken', 'listAutoMLJobs_nextToken' - If the previous response was truncated, you receive this token. Use it
 -- in your next request to receive the next set of results.
 --
--- 'lastModifiedTimeAfter', 'listAutoMLJobs_lastModifiedTimeAfter' - Request a list of jobs, using a filter for time.
---
--- 'nameContains', 'listAutoMLJobs_nameContains' - Request a list of jobs, using a search filter for name.
---
--- 'lastModifiedTimeBefore', 'listAutoMLJobs_lastModifiedTimeBefore' - Request a list of jobs, using a filter for time.
---
--- 'creationTimeBefore', 'listAutoMLJobs_creationTimeBefore' - Request a list of jobs, using a filter for time.
---
 -- 'sortBy', 'listAutoMLJobs_sortBy' - The parameter by which to sort the results. The default is @Name@.
 --
--- 'maxResults', 'listAutoMLJobs_maxResults' - Request a list of jobs up to a specified limit.
+-- 'sortOrder', 'listAutoMLJobs_sortOrder' - The sort order for the results. The default is @Descending@.
 --
 -- 'statusEquals', 'listAutoMLJobs_statusEquals' - Request a list of jobs, using a filter for status.
---
--- 'creationTimeAfter', 'listAutoMLJobs_creationTimeAfter' - Request a list of jobs, using a filter for time.
 newListAutoMLJobs ::
   ListAutoMLJobs
 newListAutoMLJobs =
   ListAutoMLJobs'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      lastModifiedTimeAfter = Prelude.Nothing,
-      nameContains = Prelude.Nothing,
-      lastModifiedTimeBefore = Prelude.Nothing,
+    { creationTimeAfter =
+        Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
+      lastModifiedTimeAfter = Prelude.Nothing,
+      lastModifiedTimeBefore = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      statusEquals = Prelude.Nothing,
-      creationTimeAfter = Prelude.Nothing
+      nameContains = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
+      statusEquals = Prelude.Nothing
     }
 
--- | The sort order for the results. The default is @Descending@.
-listAutoMLJobs_sortOrder :: Lens.Lens' ListAutoMLJobs (Prelude.Maybe AutoMLSortOrder)
-listAutoMLJobs_sortOrder = Lens.lens (\ListAutoMLJobs' {sortOrder} -> sortOrder) (\s@ListAutoMLJobs' {} a -> s {sortOrder = a} :: ListAutoMLJobs)
+-- | Request a list of jobs, using a filter for time.
+listAutoMLJobs_creationTimeAfter :: Lens.Lens' ListAutoMLJobs (Prelude.Maybe Prelude.UTCTime)
+listAutoMLJobs_creationTimeAfter = Lens.lens (\ListAutoMLJobs' {creationTimeAfter} -> creationTimeAfter) (\s@ListAutoMLJobs' {} a -> s {creationTimeAfter = a} :: ListAutoMLJobs) Prelude.. Lens.mapping Data._Time
+
+-- | Request a list of jobs, using a filter for time.
+listAutoMLJobs_creationTimeBefore :: Lens.Lens' ListAutoMLJobs (Prelude.Maybe Prelude.UTCTime)
+listAutoMLJobs_creationTimeBefore = Lens.lens (\ListAutoMLJobs' {creationTimeBefore} -> creationTimeBefore) (\s@ListAutoMLJobs' {} a -> s {creationTimeBefore = a} :: ListAutoMLJobs) Prelude.. Lens.mapping Data._Time
+
+-- | Request a list of jobs, using a filter for time.
+listAutoMLJobs_lastModifiedTimeAfter :: Lens.Lens' ListAutoMLJobs (Prelude.Maybe Prelude.UTCTime)
+listAutoMLJobs_lastModifiedTimeAfter = Lens.lens (\ListAutoMLJobs' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListAutoMLJobs' {} a -> s {lastModifiedTimeAfter = a} :: ListAutoMLJobs) Prelude.. Lens.mapping Data._Time
+
+-- | Request a list of jobs, using a filter for time.
+listAutoMLJobs_lastModifiedTimeBefore :: Lens.Lens' ListAutoMLJobs (Prelude.Maybe Prelude.UTCTime)
+listAutoMLJobs_lastModifiedTimeBefore = Lens.lens (\ListAutoMLJobs' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListAutoMLJobs' {} a -> s {lastModifiedTimeBefore = a} :: ListAutoMLJobs) Prelude.. Lens.mapping Data._Time
+
+-- | Request a list of jobs up to a specified limit.
+listAutoMLJobs_maxResults :: Lens.Lens' ListAutoMLJobs (Prelude.Maybe Prelude.Natural)
+listAutoMLJobs_maxResults = Lens.lens (\ListAutoMLJobs' {maxResults} -> maxResults) (\s@ListAutoMLJobs' {} a -> s {maxResults = a} :: ListAutoMLJobs)
+
+-- | Request a list of jobs, using a search filter for name.
+listAutoMLJobs_nameContains :: Lens.Lens' ListAutoMLJobs (Prelude.Maybe Prelude.Text)
+listAutoMLJobs_nameContains = Lens.lens (\ListAutoMLJobs' {nameContains} -> nameContains) (\s@ListAutoMLJobs' {} a -> s {nameContains = a} :: ListAutoMLJobs)
 
 -- | If the previous response was truncated, you receive this token. Use it
 -- in your next request to receive the next set of results.
 listAutoMLJobs_nextToken :: Lens.Lens' ListAutoMLJobs (Prelude.Maybe Prelude.Text)
 listAutoMLJobs_nextToken = Lens.lens (\ListAutoMLJobs' {nextToken} -> nextToken) (\s@ListAutoMLJobs' {} a -> s {nextToken = a} :: ListAutoMLJobs)
 
--- | Request a list of jobs, using a filter for time.
-listAutoMLJobs_lastModifiedTimeAfter :: Lens.Lens' ListAutoMLJobs (Prelude.Maybe Prelude.UTCTime)
-listAutoMLJobs_lastModifiedTimeAfter = Lens.lens (\ListAutoMLJobs' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListAutoMLJobs' {} a -> s {lastModifiedTimeAfter = a} :: ListAutoMLJobs) Prelude.. Lens.mapping Data._Time
-
--- | Request a list of jobs, using a search filter for name.
-listAutoMLJobs_nameContains :: Lens.Lens' ListAutoMLJobs (Prelude.Maybe Prelude.Text)
-listAutoMLJobs_nameContains = Lens.lens (\ListAutoMLJobs' {nameContains} -> nameContains) (\s@ListAutoMLJobs' {} a -> s {nameContains = a} :: ListAutoMLJobs)
-
--- | Request a list of jobs, using a filter for time.
-listAutoMLJobs_lastModifiedTimeBefore :: Lens.Lens' ListAutoMLJobs (Prelude.Maybe Prelude.UTCTime)
-listAutoMLJobs_lastModifiedTimeBefore = Lens.lens (\ListAutoMLJobs' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListAutoMLJobs' {} a -> s {lastModifiedTimeBefore = a} :: ListAutoMLJobs) Prelude.. Lens.mapping Data._Time
-
--- | Request a list of jobs, using a filter for time.
-listAutoMLJobs_creationTimeBefore :: Lens.Lens' ListAutoMLJobs (Prelude.Maybe Prelude.UTCTime)
-listAutoMLJobs_creationTimeBefore = Lens.lens (\ListAutoMLJobs' {creationTimeBefore} -> creationTimeBefore) (\s@ListAutoMLJobs' {} a -> s {creationTimeBefore = a} :: ListAutoMLJobs) Prelude.. Lens.mapping Data._Time
-
 -- | The parameter by which to sort the results. The default is @Name@.
 listAutoMLJobs_sortBy :: Lens.Lens' ListAutoMLJobs (Prelude.Maybe AutoMLSortBy)
 listAutoMLJobs_sortBy = Lens.lens (\ListAutoMLJobs' {sortBy} -> sortBy) (\s@ListAutoMLJobs' {} a -> s {sortBy = a} :: ListAutoMLJobs)
 
--- | Request a list of jobs up to a specified limit.
-listAutoMLJobs_maxResults :: Lens.Lens' ListAutoMLJobs (Prelude.Maybe Prelude.Natural)
-listAutoMLJobs_maxResults = Lens.lens (\ListAutoMLJobs' {maxResults} -> maxResults) (\s@ListAutoMLJobs' {} a -> s {maxResults = a} :: ListAutoMLJobs)
+-- | The sort order for the results. The default is @Descending@.
+listAutoMLJobs_sortOrder :: Lens.Lens' ListAutoMLJobs (Prelude.Maybe AutoMLSortOrder)
+listAutoMLJobs_sortOrder = Lens.lens (\ListAutoMLJobs' {sortOrder} -> sortOrder) (\s@ListAutoMLJobs' {} a -> s {sortOrder = a} :: ListAutoMLJobs)
 
 -- | Request a list of jobs, using a filter for status.
 listAutoMLJobs_statusEquals :: Lens.Lens' ListAutoMLJobs (Prelude.Maybe AutoMLJobStatus)
 listAutoMLJobs_statusEquals = Lens.lens (\ListAutoMLJobs' {statusEquals} -> statusEquals) (\s@ListAutoMLJobs' {} a -> s {statusEquals = a} :: ListAutoMLJobs)
-
--- | Request a list of jobs, using a filter for time.
-listAutoMLJobs_creationTimeAfter :: Lens.Lens' ListAutoMLJobs (Prelude.Maybe Prelude.UTCTime)
-listAutoMLJobs_creationTimeAfter = Lens.lens (\ListAutoMLJobs' {creationTimeAfter} -> creationTimeAfter) (\s@ListAutoMLJobs' {} a -> s {creationTimeAfter = a} :: ListAutoMLJobs) Prelude.. Lens.mapping Data._Time
 
 instance Core.AWSPager ListAutoMLJobs where
   page rq rs
@@ -209,29 +210,29 @@ instance Core.AWSRequest ListAutoMLJobs where
 
 instance Prelude.Hashable ListAutoMLJobs where
   hashWithSalt _salt ListAutoMLJobs' {..} =
-    _salt `Prelude.hashWithSalt` sortOrder
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` lastModifiedTimeAfter
-      `Prelude.hashWithSalt` nameContains
-      `Prelude.hashWithSalt` lastModifiedTimeBefore
+    _salt `Prelude.hashWithSalt` creationTimeAfter
       `Prelude.hashWithSalt` creationTimeBefore
-      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` lastModifiedTimeAfter
+      `Prelude.hashWithSalt` lastModifiedTimeBefore
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nameContains
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` sortOrder
       `Prelude.hashWithSalt` statusEquals
-      `Prelude.hashWithSalt` creationTimeAfter
 
 instance Prelude.NFData ListAutoMLJobs where
   rnf ListAutoMLJobs' {..} =
-    Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
+    Prelude.rnf creationTimeAfter
       `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
+      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf sortOrder
       `Prelude.seq` Prelude.rnf statusEquals
-      `Prelude.seq` Prelude.rnf creationTimeAfter
 
 instance Data.ToHeaders ListAutoMLJobs where
   toHeaders =
@@ -250,20 +251,20 @@ instance Data.ToJSON ListAutoMLJobs where
   toJSON ListAutoMLJobs' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
-            ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("LastModifiedTimeAfter" Data..=)
-              Prelude.<$> lastModifiedTimeAfter,
-            ("NameContains" Data..=) Prelude.<$> nameContains,
-            ("LastModifiedTimeBefore" Data..=)
-              Prelude.<$> lastModifiedTimeBefore,
+          [ ("CreationTimeAfter" Data..=)
+              Prelude.<$> creationTimeAfter,
             ("CreationTimeBefore" Data..=)
               Prelude.<$> creationTimeBefore,
-            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("LastModifiedTimeAfter" Data..=)
+              Prelude.<$> lastModifiedTimeAfter,
+            ("LastModifiedTimeBefore" Data..=)
+              Prelude.<$> lastModifiedTimeBefore,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("StatusEquals" Data..=) Prelude.<$> statusEquals,
-            ("CreationTimeAfter" Data..=)
-              Prelude.<$> creationTimeAfter
+            ("NameContains" Data..=) Prelude.<$> nameContains,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("StatusEquals" Data..=) Prelude.<$> statusEquals
           ]
       )
 

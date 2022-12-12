@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTransitGatewayConnectPeerAssociation' smart constructor.
 data TransitGatewayConnectPeerAssociation = TransitGatewayConnectPeerAssociation'
-  { -- | The ID of the global network.
+  { -- | The ID of the device.
+    deviceId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the global network.
     globalNetworkId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the link.
     linkId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the device.
-    deviceId :: Prelude.Maybe Prelude.Text,
     -- | The state of the association.
     state :: Prelude.Maybe TransitGatewayConnectPeerAssociationState,
     -- | The Amazon Resource Name (ARN) of the transit gateway Connect peer.
@@ -50,11 +50,11 @@ data TransitGatewayConnectPeerAssociation = TransitGatewayConnectPeerAssociation
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'deviceId', 'transitGatewayConnectPeerAssociation_deviceId' - The ID of the device.
+--
 -- 'globalNetworkId', 'transitGatewayConnectPeerAssociation_globalNetworkId' - The ID of the global network.
 --
 -- 'linkId', 'transitGatewayConnectPeerAssociation_linkId' - The ID of the link.
---
--- 'deviceId', 'transitGatewayConnectPeerAssociation_deviceId' - The ID of the device.
 --
 -- 'state', 'transitGatewayConnectPeerAssociation_state' - The state of the association.
 --
@@ -63,14 +63,18 @@ newTransitGatewayConnectPeerAssociation ::
   TransitGatewayConnectPeerAssociation
 newTransitGatewayConnectPeerAssociation =
   TransitGatewayConnectPeerAssociation'
-    { globalNetworkId =
+    { deviceId =
         Prelude.Nothing,
+      globalNetworkId = Prelude.Nothing,
       linkId = Prelude.Nothing,
-      deviceId = Prelude.Nothing,
       state = Prelude.Nothing,
       transitGatewayConnectPeerArn =
         Prelude.Nothing
     }
+
+-- | The ID of the device.
+transitGatewayConnectPeerAssociation_deviceId :: Lens.Lens' TransitGatewayConnectPeerAssociation (Prelude.Maybe Prelude.Text)
+transitGatewayConnectPeerAssociation_deviceId = Lens.lens (\TransitGatewayConnectPeerAssociation' {deviceId} -> deviceId) (\s@TransitGatewayConnectPeerAssociation' {} a -> s {deviceId = a} :: TransitGatewayConnectPeerAssociation)
 
 -- | The ID of the global network.
 transitGatewayConnectPeerAssociation_globalNetworkId :: Lens.Lens' TransitGatewayConnectPeerAssociation (Prelude.Maybe Prelude.Text)
@@ -79,10 +83,6 @@ transitGatewayConnectPeerAssociation_globalNetworkId = Lens.lens (\TransitGatewa
 -- | The ID of the link.
 transitGatewayConnectPeerAssociation_linkId :: Lens.Lens' TransitGatewayConnectPeerAssociation (Prelude.Maybe Prelude.Text)
 transitGatewayConnectPeerAssociation_linkId = Lens.lens (\TransitGatewayConnectPeerAssociation' {linkId} -> linkId) (\s@TransitGatewayConnectPeerAssociation' {} a -> s {linkId = a} :: TransitGatewayConnectPeerAssociation)
-
--- | The ID of the device.
-transitGatewayConnectPeerAssociation_deviceId :: Lens.Lens' TransitGatewayConnectPeerAssociation (Prelude.Maybe Prelude.Text)
-transitGatewayConnectPeerAssociation_deviceId = Lens.lens (\TransitGatewayConnectPeerAssociation' {deviceId} -> deviceId) (\s@TransitGatewayConnectPeerAssociation' {} a -> s {deviceId = a} :: TransitGatewayConnectPeerAssociation)
 
 -- | The state of the association.
 transitGatewayConnectPeerAssociation_state :: Lens.Lens' TransitGatewayConnectPeerAssociation (Prelude.Maybe TransitGatewayConnectPeerAssociationState)
@@ -101,9 +101,9 @@ instance
       "TransitGatewayConnectPeerAssociation"
       ( \x ->
           TransitGatewayConnectPeerAssociation'
-            Prelude.<$> (x Data..:? "GlobalNetworkId")
+            Prelude.<$> (x Data..:? "DeviceId")
+            Prelude.<*> (x Data..:? "GlobalNetworkId")
             Prelude.<*> (x Data..:? "LinkId")
-            Prelude.<*> (x Data..:? "DeviceId")
             Prelude.<*> (x Data..:? "State")
             Prelude.<*> (x Data..:? "TransitGatewayConnectPeerArn")
       )
@@ -115,9 +115,9 @@ instance
   hashWithSalt
     _salt
     TransitGatewayConnectPeerAssociation' {..} =
-      _salt `Prelude.hashWithSalt` globalNetworkId
+      _salt `Prelude.hashWithSalt` deviceId
+        `Prelude.hashWithSalt` globalNetworkId
         `Prelude.hashWithSalt` linkId
-        `Prelude.hashWithSalt` deviceId
         `Prelude.hashWithSalt` state
         `Prelude.hashWithSalt` transitGatewayConnectPeerArn
 
@@ -126,8 +126,8 @@ instance
     TransitGatewayConnectPeerAssociation
   where
   rnf TransitGatewayConnectPeerAssociation' {..} =
-    Prelude.rnf globalNetworkId
+    Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf globalNetworkId
       `Prelude.seq` Prelude.rnf linkId
-      `Prelude.seq` Prelude.rnf deviceId
       `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf transitGatewayConnectPeerArn

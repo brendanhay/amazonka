@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPendingAggregationRequest' smart constructor.
 data PendingAggregationRequest = PendingAggregationRequest'
-  { -- | The region requesting to aggregate data.
-    requesterAwsRegion :: Prelude.Maybe Prelude.Text,
-    -- | The 12-digit account ID of the account requesting to aggregate data.
-    requesterAccountId :: Prelude.Maybe Prelude.Text
+  { -- | The 12-digit account ID of the account requesting to aggregate data.
+    requesterAccountId :: Prelude.Maybe Prelude.Text,
+    -- | The region requesting to aggregate data.
+    requesterAwsRegion :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data PendingAggregationRequest = PendingAggregationRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requesterAwsRegion', 'pendingAggregationRequest_requesterAwsRegion' - The region requesting to aggregate data.
---
 -- 'requesterAccountId', 'pendingAggregationRequest_requesterAccountId' - The 12-digit account ID of the account requesting to aggregate data.
+--
+-- 'requesterAwsRegion', 'pendingAggregationRequest_requesterAwsRegion' - The region requesting to aggregate data.
 newPendingAggregationRequest ::
   PendingAggregationRequest
 newPendingAggregationRequest =
   PendingAggregationRequest'
-    { requesterAwsRegion =
+    { requesterAccountId =
         Prelude.Nothing,
-      requesterAccountId = Prelude.Nothing
+      requesterAwsRegion = Prelude.Nothing
     }
-
--- | The region requesting to aggregate data.
-pendingAggregationRequest_requesterAwsRegion :: Lens.Lens' PendingAggregationRequest (Prelude.Maybe Prelude.Text)
-pendingAggregationRequest_requesterAwsRegion = Lens.lens (\PendingAggregationRequest' {requesterAwsRegion} -> requesterAwsRegion) (\s@PendingAggregationRequest' {} a -> s {requesterAwsRegion = a} :: PendingAggregationRequest)
 
 -- | The 12-digit account ID of the account requesting to aggregate data.
 pendingAggregationRequest_requesterAccountId :: Lens.Lens' PendingAggregationRequest (Prelude.Maybe Prelude.Text)
 pendingAggregationRequest_requesterAccountId = Lens.lens (\PendingAggregationRequest' {requesterAccountId} -> requesterAccountId) (\s@PendingAggregationRequest' {} a -> s {requesterAccountId = a} :: PendingAggregationRequest)
+
+-- | The region requesting to aggregate data.
+pendingAggregationRequest_requesterAwsRegion :: Lens.Lens' PendingAggregationRequest (Prelude.Maybe Prelude.Text)
+pendingAggregationRequest_requesterAwsRegion = Lens.lens (\PendingAggregationRequest' {requesterAwsRegion} -> requesterAwsRegion) (\s@PendingAggregationRequest' {} a -> s {requesterAwsRegion = a} :: PendingAggregationRequest)
 
 instance Data.FromJSON PendingAggregationRequest where
   parseJSON =
@@ -70,16 +70,16 @@ instance Data.FromJSON PendingAggregationRequest where
       "PendingAggregationRequest"
       ( \x ->
           PendingAggregationRequest'
-            Prelude.<$> (x Data..:? "RequesterAwsRegion")
-            Prelude.<*> (x Data..:? "RequesterAccountId")
+            Prelude.<$> (x Data..:? "RequesterAccountId")
+            Prelude.<*> (x Data..:? "RequesterAwsRegion")
       )
 
 instance Prelude.Hashable PendingAggregationRequest where
   hashWithSalt _salt PendingAggregationRequest' {..} =
-    _salt `Prelude.hashWithSalt` requesterAwsRegion
-      `Prelude.hashWithSalt` requesterAccountId
+    _salt `Prelude.hashWithSalt` requesterAccountId
+      `Prelude.hashWithSalt` requesterAwsRegion
 
 instance Prelude.NFData PendingAggregationRequest where
   rnf PendingAggregationRequest' {..} =
-    Prelude.rnf requesterAwsRegion
-      `Prelude.seq` Prelude.rnf requesterAccountId
+    Prelude.rnf requesterAccountId
+      `Prelude.seq` Prelude.rnf requesterAwsRegion

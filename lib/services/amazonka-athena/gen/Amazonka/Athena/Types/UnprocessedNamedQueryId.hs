@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUnprocessedNamedQueryId' smart constructor.
 data UnprocessedNamedQueryId = UnprocessedNamedQueryId'
-  { -- | The error message returned when the processing request for the named
-    -- query failed, if applicable.
-    errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | The error code returned when the processing request for the named query
+  { -- | The error code returned when the processing request for the named query
     -- failed, if applicable.
     errorCode :: Prelude.Maybe Prelude.Text,
+    -- | The error message returned when the processing request for the named
+    -- query failed, if applicable.
+    errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the named query.
     namedQueryId :: Prelude.Maybe Prelude.Text
   }
@@ -47,32 +47,32 @@ data UnprocessedNamedQueryId = UnprocessedNamedQueryId'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'errorMessage', 'unprocessedNamedQueryId_errorMessage' - The error message returned when the processing request for the named
--- query failed, if applicable.
---
 -- 'errorCode', 'unprocessedNamedQueryId_errorCode' - The error code returned when the processing request for the named query
 -- failed, if applicable.
+--
+-- 'errorMessage', 'unprocessedNamedQueryId_errorMessage' - The error message returned when the processing request for the named
+-- query failed, if applicable.
 --
 -- 'namedQueryId', 'unprocessedNamedQueryId_namedQueryId' - The unique identifier of the named query.
 newUnprocessedNamedQueryId ::
   UnprocessedNamedQueryId
 newUnprocessedNamedQueryId =
   UnprocessedNamedQueryId'
-    { errorMessage =
+    { errorCode =
         Prelude.Nothing,
-      errorCode = Prelude.Nothing,
+      errorMessage = Prelude.Nothing,
       namedQueryId = Prelude.Nothing
     }
-
--- | The error message returned when the processing request for the named
--- query failed, if applicable.
-unprocessedNamedQueryId_errorMessage :: Lens.Lens' UnprocessedNamedQueryId (Prelude.Maybe Prelude.Text)
-unprocessedNamedQueryId_errorMessage = Lens.lens (\UnprocessedNamedQueryId' {errorMessage} -> errorMessage) (\s@UnprocessedNamedQueryId' {} a -> s {errorMessage = a} :: UnprocessedNamedQueryId)
 
 -- | The error code returned when the processing request for the named query
 -- failed, if applicable.
 unprocessedNamedQueryId_errorCode :: Lens.Lens' UnprocessedNamedQueryId (Prelude.Maybe Prelude.Text)
 unprocessedNamedQueryId_errorCode = Lens.lens (\UnprocessedNamedQueryId' {errorCode} -> errorCode) (\s@UnprocessedNamedQueryId' {} a -> s {errorCode = a} :: UnprocessedNamedQueryId)
+
+-- | The error message returned when the processing request for the named
+-- query failed, if applicable.
+unprocessedNamedQueryId_errorMessage :: Lens.Lens' UnprocessedNamedQueryId (Prelude.Maybe Prelude.Text)
+unprocessedNamedQueryId_errorMessage = Lens.lens (\UnprocessedNamedQueryId' {errorMessage} -> errorMessage) (\s@UnprocessedNamedQueryId' {} a -> s {errorMessage = a} :: UnprocessedNamedQueryId)
 
 -- | The unique identifier of the named query.
 unprocessedNamedQueryId_namedQueryId :: Lens.Lens' UnprocessedNamedQueryId (Prelude.Maybe Prelude.Text)
@@ -84,19 +84,19 @@ instance Data.FromJSON UnprocessedNamedQueryId where
       "UnprocessedNamedQueryId"
       ( \x ->
           UnprocessedNamedQueryId'
-            Prelude.<$> (x Data..:? "ErrorMessage")
-            Prelude.<*> (x Data..:? "ErrorCode")
+            Prelude.<$> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "ErrorMessage")
             Prelude.<*> (x Data..:? "NamedQueryId")
       )
 
 instance Prelude.Hashable UnprocessedNamedQueryId where
   hashWithSalt _salt UnprocessedNamedQueryId' {..} =
-    _salt `Prelude.hashWithSalt` errorMessage
-      `Prelude.hashWithSalt` errorCode
+    _salt `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` namedQueryId
 
 instance Prelude.NFData UnprocessedNamedQueryId where
   rnf UnprocessedNamedQueryId' {..} =
-    Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf errorCode
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage
       `Prelude.seq` Prelude.rnf namedQueryId

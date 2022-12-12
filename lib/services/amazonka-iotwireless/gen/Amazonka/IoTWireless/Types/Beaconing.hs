@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBeaconing' smart constructor.
 data Beaconing = Beaconing'
-  { -- | The frequency list for the gateways to send the beacons.
-    frequencies :: Prelude.Maybe [Prelude.Natural],
-    -- | The data rate for gateways that are sending the beacons.
-    dataRate :: Prelude.Maybe Prelude.Natural
+  { -- | The data rate for gateways that are sending the beacons.
+    dataRate :: Prelude.Maybe Prelude.Natural,
+    -- | The frequency list for the gateways to send the beacons.
+    frequencies :: Prelude.Maybe [Prelude.Natural]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data Beaconing = Beaconing'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'frequencies', 'beaconing_frequencies' - The frequency list for the gateways to send the beacons.
---
 -- 'dataRate', 'beaconing_dataRate' - The data rate for gateways that are sending the beacons.
+--
+-- 'frequencies', 'beaconing_frequencies' - The frequency list for the gateways to send the beacons.
 newBeaconing ::
   Beaconing
 newBeaconing =
   Beaconing'
-    { frequencies = Prelude.Nothing,
-      dataRate = Prelude.Nothing
+    { dataRate = Prelude.Nothing,
+      frequencies = Prelude.Nothing
     }
-
--- | The frequency list for the gateways to send the beacons.
-beaconing_frequencies :: Lens.Lens' Beaconing (Prelude.Maybe [Prelude.Natural])
-beaconing_frequencies = Lens.lens (\Beaconing' {frequencies} -> frequencies) (\s@Beaconing' {} a -> s {frequencies = a} :: Beaconing) Prelude.. Lens.mapping Lens.coerced
 
 -- | The data rate for gateways that are sending the beacons.
 beaconing_dataRate :: Lens.Lens' Beaconing (Prelude.Maybe Prelude.Natural)
 beaconing_dataRate = Lens.lens (\Beaconing' {dataRate} -> dataRate) (\s@Beaconing' {} a -> s {dataRate = a} :: Beaconing)
+
+-- | The frequency list for the gateways to send the beacons.
+beaconing_frequencies :: Lens.Lens' Beaconing (Prelude.Maybe [Prelude.Natural])
+beaconing_frequencies = Lens.lens (\Beaconing' {frequencies} -> frequencies) (\s@Beaconing' {} a -> s {frequencies = a} :: Beaconing) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON Beaconing where
   parseJSON =
@@ -68,25 +68,25 @@ instance Data.FromJSON Beaconing where
       "Beaconing"
       ( \x ->
           Beaconing'
-            Prelude.<$> (x Data..:? "Frequencies" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "DataRate")
+            Prelude.<$> (x Data..:? "DataRate")
+            Prelude.<*> (x Data..:? "Frequencies" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Beaconing where
   hashWithSalt _salt Beaconing' {..} =
-    _salt `Prelude.hashWithSalt` frequencies
-      `Prelude.hashWithSalt` dataRate
+    _salt `Prelude.hashWithSalt` dataRate
+      `Prelude.hashWithSalt` frequencies
 
 instance Prelude.NFData Beaconing where
   rnf Beaconing' {..} =
-    Prelude.rnf frequencies
-      `Prelude.seq` Prelude.rnf dataRate
+    Prelude.rnf dataRate
+      `Prelude.seq` Prelude.rnf frequencies
 
 instance Data.ToJSON Beaconing where
   toJSON Beaconing' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Frequencies" Data..=) Prelude.<$> frequencies,
-            ("DataRate" Data..=) Prelude.<$> dataRate
+          [ ("DataRate" Data..=) Prelude.<$> dataRate,
+            ("Frequencies" Data..=) Prelude.<$> frequencies
           ]
       )

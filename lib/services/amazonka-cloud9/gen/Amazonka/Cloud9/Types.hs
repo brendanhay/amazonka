@@ -18,13 +18,13 @@ module Amazonka.Cloud9.Types
     defaultService,
 
     -- * Errors
-    _NotFoundException,
-    _InternalServerErrorException,
-    _ConcurrentAccessException,
-    _LimitExceededException,
-    _ForbiddenException,
-    _ConflictException,
     _BadRequestException,
+    _ConcurrentAccessException,
+    _ConflictException,
+    _ForbiddenException,
+    _InternalServerErrorException,
+    _LimitExceededException,
+    _NotFoundException,
     _TooManyRequestsException,
 
     -- * ConnectionType
@@ -54,12 +54,12 @@ module Amazonka.Cloud9.Types
     -- * Environment
     Environment (..),
     newEnvironment,
-    environment_name,
-    environment_lifecycle,
     environment_connectionType,
-    environment_managedCredentialsStatus,
     environment_description,
     environment_id,
+    environment_lifecycle,
+    environment_managedCredentialsStatus,
+    environment_name,
     environment_type,
     environment_arn,
     environment_ownerArn,
@@ -67,9 +67,9 @@ module Amazonka.Cloud9.Types
     -- * EnvironmentLifecycle
     EnvironmentLifecycle (..),
     newEnvironmentLifecycle,
-    environmentLifecycle_status,
-    environmentLifecycle_reason,
     environmentLifecycle_failureResource,
+    environmentLifecycle_reason,
+    environmentLifecycle_status,
 
     -- * EnvironmentMember
     EnvironmentMember (..),
@@ -130,28 +130,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -159,13 +153,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -173,21 +171,16 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The target resource cannot be found.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NotFoundException =
+-- | The target request is invalid.
+_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException =
   Core._MatchServiceError
     defaultService
-    "NotFoundException"
-
--- | An internal server error occurred.
-_InternalServerErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerErrorException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServerErrorException"
+    "BadRequestException"
 
 -- | A concurrent access issue occurred.
 _ConcurrentAccessException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -196,12 +189,12 @@ _ConcurrentAccessException =
     defaultService
     "ConcurrentAccessException"
 
--- | A service limit was exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
+-- | A conflict occurred.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
   Core._MatchServiceError
     defaultService
-    "LimitExceededException"
+    "ConflictException"
 
 -- | An access permissions issue occurred.
 _ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -210,19 +203,26 @@ _ForbiddenException =
     defaultService
     "ForbiddenException"
 
--- | A conflict occurred.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
+-- | An internal server error occurred.
+_InternalServerErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerErrorException =
   Core._MatchServiceError
     defaultService
-    "ConflictException"
+    "InternalServerErrorException"
 
--- | The target request is invalid.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_BadRequestException =
+-- | A service limit was exceeded.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
   Core._MatchServiceError
     defaultService
-    "BadRequestException"
+    "LimitExceededException"
+
+-- | The target resource cannot be found.
+_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "NotFoundException"
 
 -- | Too many service requests were made over the given time period.
 _TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

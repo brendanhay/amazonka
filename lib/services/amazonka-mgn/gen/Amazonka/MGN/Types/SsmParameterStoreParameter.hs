@@ -25,13 +25,13 @@ import qualified Amazonka.Data as Data
 import Amazonka.MGN.Types.SsmParameterStoreParameterType
 import qualified Amazonka.Prelude as Prelude
 
--- | Source server replication type.
+-- | AWS Systems Manager Parameter Store parameter.
 --
 -- /See:/ 'newSsmParameterStoreParameter' smart constructor.
 data SsmParameterStoreParameter = SsmParameterStoreParameter'
-  { -- | Source server replication type.
+  { -- | AWS Systems Manager Parameter Store parameter name.
     parameterName :: Prelude.Text,
-    -- | Source server replication type.
+    -- | AWS Systems Manager Parameter Store parameter type.
     parameterType :: SsmParameterStoreParameterType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,9 +44,9 @@ data SsmParameterStoreParameter = SsmParameterStoreParameter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'parameterName', 'ssmParameterStoreParameter_parameterName' - Source server replication type.
+-- 'parameterName', 'ssmParameterStoreParameter_parameterName' - AWS Systems Manager Parameter Store parameter name.
 --
--- 'parameterType', 'ssmParameterStoreParameter_parameterType' - Source server replication type.
+-- 'parameterType', 'ssmParameterStoreParameter_parameterType' - AWS Systems Manager Parameter Store parameter type.
 newSsmParameterStoreParameter ::
   -- | 'parameterName'
   Prelude.Text ->
@@ -62,11 +62,11 @@ newSsmParameterStoreParameter
         parameterType = pParameterType_
       }
 
--- | Source server replication type.
+-- | AWS Systems Manager Parameter Store parameter name.
 ssmParameterStoreParameter_parameterName :: Lens.Lens' SsmParameterStoreParameter Prelude.Text
 ssmParameterStoreParameter_parameterName = Lens.lens (\SsmParameterStoreParameter' {parameterName} -> parameterName) (\s@SsmParameterStoreParameter' {} a -> s {parameterName = a} :: SsmParameterStoreParameter)
 
--- | Source server replication type.
+-- | AWS Systems Manager Parameter Store parameter type.
 ssmParameterStoreParameter_parameterType :: Lens.Lens' SsmParameterStoreParameter SsmParameterStoreParameterType
 ssmParameterStoreParameter_parameterType = Lens.lens (\SsmParameterStoreParameter' {parameterType} -> parameterType) (\s@SsmParameterStoreParameter' {} a -> s {parameterType = a} :: SsmParameterStoreParameter)
 

@@ -27,8 +27,8 @@ module Amazonka.IoTEvents.CreateInput
     newCreateInput,
 
     -- * Request Lenses
-    createInput_tags,
     createInput_inputDescription,
+    createInput_tags,
     createInput_inputName,
     createInput_inputDefinition,
 
@@ -52,10 +52,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateInput' smart constructor.
 data CreateInput = CreateInput'
-  { -- | Metadata that can be used to manage the input.
-    tags :: Prelude.Maybe [Tag],
-    -- | A brief description of the input.
+  { -- | A brief description of the input.
     inputDescription :: Prelude.Maybe Prelude.Text,
+    -- | Metadata that can be used to manage the input.
+    tags :: Prelude.Maybe [Tag],
     -- | The name you want to give to the input.
     inputName :: Prelude.Text,
     -- | The definition of the input.
@@ -71,9 +71,9 @@ data CreateInput = CreateInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createInput_tags' - Metadata that can be used to manage the input.
---
 -- 'inputDescription', 'createInput_inputDescription' - A brief description of the input.
+--
+-- 'tags', 'createInput_tags' - Metadata that can be used to manage the input.
 --
 -- 'inputName', 'createInput_inputName' - The name you want to give to the input.
 --
@@ -86,19 +86,19 @@ newCreateInput ::
   CreateInput
 newCreateInput pInputName_ pInputDefinition_ =
   CreateInput'
-    { tags = Prelude.Nothing,
-      inputDescription = Prelude.Nothing,
+    { inputDescription = Prelude.Nothing,
+      tags = Prelude.Nothing,
       inputName = pInputName_,
       inputDefinition = pInputDefinition_
     }
 
--- | Metadata that can be used to manage the input.
-createInput_tags :: Lens.Lens' CreateInput (Prelude.Maybe [Tag])
-createInput_tags = Lens.lens (\CreateInput' {tags} -> tags) (\s@CreateInput' {} a -> s {tags = a} :: CreateInput) Prelude.. Lens.mapping Lens.coerced
-
 -- | A brief description of the input.
 createInput_inputDescription :: Lens.Lens' CreateInput (Prelude.Maybe Prelude.Text)
 createInput_inputDescription = Lens.lens (\CreateInput' {inputDescription} -> inputDescription) (\s@CreateInput' {} a -> s {inputDescription = a} :: CreateInput)
+
+-- | Metadata that can be used to manage the input.
+createInput_tags :: Lens.Lens' CreateInput (Prelude.Maybe [Tag])
+createInput_tags = Lens.lens (\CreateInput' {tags} -> tags) (\s@CreateInput' {} a -> s {tags = a} :: CreateInput) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name you want to give to the input.
 createInput_inputName :: Lens.Lens' CreateInput Prelude.Text
@@ -122,15 +122,15 @@ instance Core.AWSRequest CreateInput where
 
 instance Prelude.Hashable CreateInput where
   hashWithSalt _salt CreateInput' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` inputDescription
+    _salt `Prelude.hashWithSalt` inputDescription
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` inputName
       `Prelude.hashWithSalt` inputDefinition
 
 instance Prelude.NFData CreateInput where
   rnf CreateInput' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf inputDescription
+    Prelude.rnf inputDescription
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf inputName
       `Prelude.seq` Prelude.rnf inputDefinition
 
@@ -141,9 +141,9 @@ instance Data.ToJSON CreateInput where
   toJSON CreateInput' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("inputDescription" Data..=)
+          [ ("inputDescription" Data..=)
               Prelude.<$> inputDescription,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("inputName" Data..= inputName),
             Prelude.Just
               ("inputDefinition" Data..= inputDefinition)

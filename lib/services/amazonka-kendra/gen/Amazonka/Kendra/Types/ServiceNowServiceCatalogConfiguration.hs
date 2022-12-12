@@ -30,17 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newServiceNowServiceCatalogConfiguration' smart constructor.
 data ServiceNowServiceCatalogConfiguration = ServiceNowServiceCatalogConfiguration'
-  { -- | A list of regular expression patterns to include certain attachments of
-    -- catalogs in your ServiceNow. Item that match the patterns are included
-    -- in the index. Items that don\'t match the patterns are excluded from the
-    -- index. If an item matches both an inclusion and exclusion pattern, the
-    -- exclusion pattern takes precedence and the item isn\'t included in the
-    -- index.
-    --
-    -- The regex is applied to the file name of the attachment.
-    includeAttachmentFilePatterns :: Prelude.Maybe [Prelude.Text],
-    -- | @TRUE@ to index attachments to service catalog items.
+  { -- | @TRUE@ to index attachments to service catalog items.
     crawlAttachments :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the ServiceNow field that is mapped to the index document
+    -- title field.
+    documentTitleFieldName :: Prelude.Maybe Prelude.Text,
     -- | A list of regular expression patterns to exclude certain attachments of
     -- catalogs in your ServiceNow. Item that match the patterns are excluded
     -- from the index. Items that don\'t match the patterns are included in the
@@ -57,9 +51,15 @@ data ServiceNowServiceCatalogConfiguration = ServiceNowServiceCatalogConfigurati
     -- The ServiceNow data source field names must exist in your ServiceNow
     -- custom metadata.
     fieldMappings :: Prelude.Maybe (Prelude.NonEmpty DataSourceToIndexFieldMapping),
-    -- | The name of the ServiceNow field that is mapped to the index document
-    -- title field.
-    documentTitleFieldName :: Prelude.Maybe Prelude.Text,
+    -- | A list of regular expression patterns to include certain attachments of
+    -- catalogs in your ServiceNow. Item that match the patterns are included
+    -- in the index. Items that don\'t match the patterns are excluded from the
+    -- index. If an item matches both an inclusion and exclusion pattern, the
+    -- exclusion pattern takes precedence and the item isn\'t included in the
+    -- index.
+    --
+    -- The regex is applied to the file name of the attachment.
+    includeAttachmentFilePatterns :: Prelude.Maybe [Prelude.Text],
     -- | The name of the ServiceNow field that is mapped to the index document
     -- contents field in the Amazon Kendra index.
     documentDataFieldName :: Prelude.Text
@@ -74,16 +74,10 @@ data ServiceNowServiceCatalogConfiguration = ServiceNowServiceCatalogConfigurati
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'includeAttachmentFilePatterns', 'serviceNowServiceCatalogConfiguration_includeAttachmentFilePatterns' - A list of regular expression patterns to include certain attachments of
--- catalogs in your ServiceNow. Item that match the patterns are included
--- in the index. Items that don\'t match the patterns are excluded from the
--- index. If an item matches both an inclusion and exclusion pattern, the
--- exclusion pattern takes precedence and the item isn\'t included in the
--- index.
---
--- The regex is applied to the file name of the attachment.
---
 -- 'crawlAttachments', 'serviceNowServiceCatalogConfiguration_crawlAttachments' - @TRUE@ to index attachments to service catalog items.
+--
+-- 'documentTitleFieldName', 'serviceNowServiceCatalogConfiguration_documentTitleFieldName' - The name of the ServiceNow field that is mapped to the index document
+-- title field.
 --
 -- 'excludeAttachmentFilePatterns', 'serviceNowServiceCatalogConfiguration_excludeAttachmentFilePatterns' - A list of regular expression patterns to exclude certain attachments of
 -- catalogs in your ServiceNow. Item that match the patterns are excluded
@@ -101,8 +95,14 @@ data ServiceNowServiceCatalogConfiguration = ServiceNowServiceCatalogConfigurati
 -- The ServiceNow data source field names must exist in your ServiceNow
 -- custom metadata.
 --
--- 'documentTitleFieldName', 'serviceNowServiceCatalogConfiguration_documentTitleFieldName' - The name of the ServiceNow field that is mapped to the index document
--- title field.
+-- 'includeAttachmentFilePatterns', 'serviceNowServiceCatalogConfiguration_includeAttachmentFilePatterns' - A list of regular expression patterns to include certain attachments of
+-- catalogs in your ServiceNow. Item that match the patterns are included
+-- in the index. Items that don\'t match the patterns are excluded from the
+-- index. If an item matches both an inclusion and exclusion pattern, the
+-- exclusion pattern takes precedence and the item isn\'t included in the
+-- index.
+--
+-- The regex is applied to the file name of the attachment.
 --
 -- 'documentDataFieldName', 'serviceNowServiceCatalogConfiguration_documentDataFieldName' - The name of the ServiceNow field that is mapped to the index document
 -- contents field in the Amazon Kendra index.
@@ -113,32 +113,27 @@ newServiceNowServiceCatalogConfiguration ::
 newServiceNowServiceCatalogConfiguration
   pDocumentDataFieldName_ =
     ServiceNowServiceCatalogConfiguration'
-      { includeAttachmentFilePatterns =
+      { crawlAttachments =
           Prelude.Nothing,
-        crawlAttachments = Prelude.Nothing,
+        documentTitleFieldName =
+          Prelude.Nothing,
         excludeAttachmentFilePatterns =
           Prelude.Nothing,
         fieldMappings = Prelude.Nothing,
-        documentTitleFieldName =
+        includeAttachmentFilePatterns =
           Prelude.Nothing,
         documentDataFieldName =
           pDocumentDataFieldName_
       }
 
--- | A list of regular expression patterns to include certain attachments of
--- catalogs in your ServiceNow. Item that match the patterns are included
--- in the index. Items that don\'t match the patterns are excluded from the
--- index. If an item matches both an inclusion and exclusion pattern, the
--- exclusion pattern takes precedence and the item isn\'t included in the
--- index.
---
--- The regex is applied to the file name of the attachment.
-serviceNowServiceCatalogConfiguration_includeAttachmentFilePatterns :: Lens.Lens' ServiceNowServiceCatalogConfiguration (Prelude.Maybe [Prelude.Text])
-serviceNowServiceCatalogConfiguration_includeAttachmentFilePatterns = Lens.lens (\ServiceNowServiceCatalogConfiguration' {includeAttachmentFilePatterns} -> includeAttachmentFilePatterns) (\s@ServiceNowServiceCatalogConfiguration' {} a -> s {includeAttachmentFilePatterns = a} :: ServiceNowServiceCatalogConfiguration) Prelude.. Lens.mapping Lens.coerced
-
 -- | @TRUE@ to index attachments to service catalog items.
 serviceNowServiceCatalogConfiguration_crawlAttachments :: Lens.Lens' ServiceNowServiceCatalogConfiguration (Prelude.Maybe Prelude.Bool)
 serviceNowServiceCatalogConfiguration_crawlAttachments = Lens.lens (\ServiceNowServiceCatalogConfiguration' {crawlAttachments} -> crawlAttachments) (\s@ServiceNowServiceCatalogConfiguration' {} a -> s {crawlAttachments = a} :: ServiceNowServiceCatalogConfiguration)
+
+-- | The name of the ServiceNow field that is mapped to the index document
+-- title field.
+serviceNowServiceCatalogConfiguration_documentTitleFieldName :: Lens.Lens' ServiceNowServiceCatalogConfiguration (Prelude.Maybe Prelude.Text)
+serviceNowServiceCatalogConfiguration_documentTitleFieldName = Lens.lens (\ServiceNowServiceCatalogConfiguration' {documentTitleFieldName} -> documentTitleFieldName) (\s@ServiceNowServiceCatalogConfiguration' {} a -> s {documentTitleFieldName = a} :: ServiceNowServiceCatalogConfiguration)
 
 -- | A list of regular expression patterns to exclude certain attachments of
 -- catalogs in your ServiceNow. Item that match the patterns are excluded
@@ -160,10 +155,16 @@ serviceNowServiceCatalogConfiguration_excludeAttachmentFilePatterns = Lens.lens 
 serviceNowServiceCatalogConfiguration_fieldMappings :: Lens.Lens' ServiceNowServiceCatalogConfiguration (Prelude.Maybe (Prelude.NonEmpty DataSourceToIndexFieldMapping))
 serviceNowServiceCatalogConfiguration_fieldMappings = Lens.lens (\ServiceNowServiceCatalogConfiguration' {fieldMappings} -> fieldMappings) (\s@ServiceNowServiceCatalogConfiguration' {} a -> s {fieldMappings = a} :: ServiceNowServiceCatalogConfiguration) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the ServiceNow field that is mapped to the index document
--- title field.
-serviceNowServiceCatalogConfiguration_documentTitleFieldName :: Lens.Lens' ServiceNowServiceCatalogConfiguration (Prelude.Maybe Prelude.Text)
-serviceNowServiceCatalogConfiguration_documentTitleFieldName = Lens.lens (\ServiceNowServiceCatalogConfiguration' {documentTitleFieldName} -> documentTitleFieldName) (\s@ServiceNowServiceCatalogConfiguration' {} a -> s {documentTitleFieldName = a} :: ServiceNowServiceCatalogConfiguration)
+-- | A list of regular expression patterns to include certain attachments of
+-- catalogs in your ServiceNow. Item that match the patterns are included
+-- in the index. Items that don\'t match the patterns are excluded from the
+-- index. If an item matches both an inclusion and exclusion pattern, the
+-- exclusion pattern takes precedence and the item isn\'t included in the
+-- index.
+--
+-- The regex is applied to the file name of the attachment.
+serviceNowServiceCatalogConfiguration_includeAttachmentFilePatterns :: Lens.Lens' ServiceNowServiceCatalogConfiguration (Prelude.Maybe [Prelude.Text])
+serviceNowServiceCatalogConfiguration_includeAttachmentFilePatterns = Lens.lens (\ServiceNowServiceCatalogConfiguration' {includeAttachmentFilePatterns} -> includeAttachmentFilePatterns) (\s@ServiceNowServiceCatalogConfiguration' {} a -> s {includeAttachmentFilePatterns = a} :: ServiceNowServiceCatalogConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the ServiceNow field that is mapped to the index document
 -- contents field in the Amazon Kendra index.
@@ -179,15 +180,15 @@ instance
       "ServiceNowServiceCatalogConfiguration"
       ( \x ->
           ServiceNowServiceCatalogConfiguration'
-            Prelude.<$> ( x Data..:? "IncludeAttachmentFilePatterns"
-                            Data..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Data..:? "CrawlAttachments")
+            Prelude.<$> (x Data..:? "CrawlAttachments")
+            Prelude.<*> (x Data..:? "DocumentTitleFieldName")
             Prelude.<*> ( x Data..:? "ExcludeAttachmentFilePatterns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "FieldMappings")
-            Prelude.<*> (x Data..:? "DocumentTitleFieldName")
+            Prelude.<*> ( x Data..:? "IncludeAttachmentFilePatterns"
+                            Data..!= Prelude.mempty
+                        )
             Prelude.<*> (x Data..: "DocumentDataFieldName")
       )
 
@@ -198,12 +199,11 @@ instance
   hashWithSalt
     _salt
     ServiceNowServiceCatalogConfiguration' {..} =
-      _salt
-        `Prelude.hashWithSalt` includeAttachmentFilePatterns
-        `Prelude.hashWithSalt` crawlAttachments
+      _salt `Prelude.hashWithSalt` crawlAttachments
+        `Prelude.hashWithSalt` documentTitleFieldName
         `Prelude.hashWithSalt` excludeAttachmentFilePatterns
         `Prelude.hashWithSalt` fieldMappings
-        `Prelude.hashWithSalt` documentTitleFieldName
+        `Prelude.hashWithSalt` includeAttachmentFilePatterns
         `Prelude.hashWithSalt` documentDataFieldName
 
 instance
@@ -211,11 +211,11 @@ instance
     ServiceNowServiceCatalogConfiguration
   where
   rnf ServiceNowServiceCatalogConfiguration' {..} =
-    Prelude.rnf includeAttachmentFilePatterns
-      `Prelude.seq` Prelude.rnf crawlAttachments
+    Prelude.rnf crawlAttachments
+      `Prelude.seq` Prelude.rnf documentTitleFieldName
       `Prelude.seq` Prelude.rnf excludeAttachmentFilePatterns
       `Prelude.seq` Prelude.rnf fieldMappings
-      `Prelude.seq` Prelude.rnf documentTitleFieldName
+      `Prelude.seq` Prelude.rnf includeAttachmentFilePatterns
       `Prelude.seq` Prelude.rnf documentDataFieldName
 
 instance
@@ -225,15 +225,15 @@ instance
   toJSON ServiceNowServiceCatalogConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("IncludeAttachmentFilePatterns" Data..=)
-              Prelude.<$> includeAttachmentFilePatterns,
-            ("CrawlAttachments" Data..=)
+          [ ("CrawlAttachments" Data..=)
               Prelude.<$> crawlAttachments,
+            ("DocumentTitleFieldName" Data..=)
+              Prelude.<$> documentTitleFieldName,
             ("ExcludeAttachmentFilePatterns" Data..=)
               Prelude.<$> excludeAttachmentFilePatterns,
             ("FieldMappings" Data..=) Prelude.<$> fieldMappings,
-            ("DocumentTitleFieldName" Data..=)
-              Prelude.<$> documentTitleFieldName,
+            ("IncludeAttachmentFilePatterns" Data..=)
+              Prelude.<$> includeAttachmentFilePatterns,
             Prelude.Just
               ( "DocumentDataFieldName"
                   Data..= documentDataFieldName

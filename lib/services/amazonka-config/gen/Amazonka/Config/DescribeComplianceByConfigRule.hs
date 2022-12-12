@@ -53,17 +53,17 @@ module Amazonka.Config.DescribeComplianceByConfigRule
     newDescribeComplianceByConfigRule,
 
     -- * Request Lenses
-    describeComplianceByConfigRule_nextToken,
     describeComplianceByConfigRule_complianceTypes,
     describeComplianceByConfigRule_configRuleNames,
+    describeComplianceByConfigRule_nextToken,
 
     -- * Destructuring the Response
     DescribeComplianceByConfigRuleResponse (..),
     newDescribeComplianceByConfigRuleResponse,
 
     -- * Response Lenses
-    describeComplianceByConfigRuleResponse_nextToken,
     describeComplianceByConfigRuleResponse_complianceByConfigRules,
+    describeComplianceByConfigRuleResponse_nextToken,
     describeComplianceByConfigRuleResponse_httpStatus,
   )
 where
@@ -80,15 +80,15 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeComplianceByConfigRule' smart constructor.
 data DescribeComplianceByConfigRule = DescribeComplianceByConfigRule'
-  { -- | The @nextToken@ string returned on a previous page that you use to get
-    -- the next page of results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters the results by compliance.
+  { -- | Filters the results by compliance.
     --
     -- The allowed values are @COMPLIANT@ and @NON_COMPLIANT@.
     complianceTypes :: Prelude.Maybe [ComplianceType],
     -- | Specify one or more Config rule names to filter the results by rule.
-    configRuleNames :: Prelude.Maybe [Prelude.Text]
+    configRuleNames :: Prelude.Maybe [Prelude.Text],
+    -- | The @nextToken@ string returned on a previous page that you use to get
+    -- the next page of results in a paginated response.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -100,28 +100,23 @@ data DescribeComplianceByConfigRule = DescribeComplianceByConfigRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeComplianceByConfigRule_nextToken' - The @nextToken@ string returned on a previous page that you use to get
--- the next page of results in a paginated response.
---
 -- 'complianceTypes', 'describeComplianceByConfigRule_complianceTypes' - Filters the results by compliance.
 --
 -- The allowed values are @COMPLIANT@ and @NON_COMPLIANT@.
 --
 -- 'configRuleNames', 'describeComplianceByConfigRule_configRuleNames' - Specify one or more Config rule names to filter the results by rule.
+--
+-- 'nextToken', 'describeComplianceByConfigRule_nextToken' - The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
 newDescribeComplianceByConfigRule ::
   DescribeComplianceByConfigRule
 newDescribeComplianceByConfigRule =
   DescribeComplianceByConfigRule'
-    { nextToken =
+    { complianceTypes =
         Prelude.Nothing,
-      complianceTypes = Prelude.Nothing,
-      configRuleNames = Prelude.Nothing
+      configRuleNames = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The @nextToken@ string returned on a previous page that you use to get
--- the next page of results in a paginated response.
-describeComplianceByConfigRule_nextToken :: Lens.Lens' DescribeComplianceByConfigRule (Prelude.Maybe Prelude.Text)
-describeComplianceByConfigRule_nextToken = Lens.lens (\DescribeComplianceByConfigRule' {nextToken} -> nextToken) (\s@DescribeComplianceByConfigRule' {} a -> s {nextToken = a} :: DescribeComplianceByConfigRule)
 
 -- | Filters the results by compliance.
 --
@@ -132,6 +127,11 @@ describeComplianceByConfigRule_complianceTypes = Lens.lens (\DescribeComplianceB
 -- | Specify one or more Config rule names to filter the results by rule.
 describeComplianceByConfigRule_configRuleNames :: Lens.Lens' DescribeComplianceByConfigRule (Prelude.Maybe [Prelude.Text])
 describeComplianceByConfigRule_configRuleNames = Lens.lens (\DescribeComplianceByConfigRule' {configRuleNames} -> configRuleNames) (\s@DescribeComplianceByConfigRule' {} a -> s {configRuleNames = a} :: DescribeComplianceByConfigRule) Prelude.. Lens.mapping Lens.coerced
+
+-- | The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
+describeComplianceByConfigRule_nextToken :: Lens.Lens' DescribeComplianceByConfigRule (Prelude.Maybe Prelude.Text)
+describeComplianceByConfigRule_nextToken = Lens.lens (\DescribeComplianceByConfigRule' {nextToken} -> nextToken) (\s@DescribeComplianceByConfigRule' {} a -> s {nextToken = a} :: DescribeComplianceByConfigRule)
 
 instance Core.AWSPager DescribeComplianceByConfigRule where
   page rq rs
@@ -168,10 +168,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeComplianceByConfigRuleResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ComplianceByConfigRules"
+            Prelude.<$> ( x Data..?> "ComplianceByConfigRules"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -182,18 +182,18 @@ instance
   hashWithSalt
     _salt
     DescribeComplianceByConfigRule' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` complianceTypes
+      _salt `Prelude.hashWithSalt` complianceTypes
         `Prelude.hashWithSalt` configRuleNames
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     DescribeComplianceByConfigRule
   where
   rnf DescribeComplianceByConfigRule' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf complianceTypes
+    Prelude.rnf complianceTypes
       `Prelude.seq` Prelude.rnf configRuleNames
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -217,11 +217,11 @@ instance Data.ToJSON DescribeComplianceByConfigRule where
   toJSON DescribeComplianceByConfigRule' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("ComplianceTypes" Data..=)
+          [ ("ComplianceTypes" Data..=)
               Prelude.<$> complianceTypes,
             ("ConfigRuleNames" Data..=)
-              Prelude.<$> configRuleNames
+              Prelude.<$> configRuleNames,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -235,11 +235,11 @@ instance Data.ToQuery DescribeComplianceByConfigRule where
 --
 -- /See:/ 'newDescribeComplianceByConfigRuleResponse' smart constructor.
 data DescribeComplianceByConfigRuleResponse = DescribeComplianceByConfigRuleResponse'
-  { -- | The string that you use in a subsequent request to get the next page of
+  { -- | Indicates whether each of the specified Config rules is compliant.
+    complianceByConfigRules :: Prelude.Maybe [ComplianceByConfigRule],
+    -- | The string that you use in a subsequent request to get the next page of
     -- results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether each of the specified Config rules is compliant.
-    complianceByConfigRules :: Prelude.Maybe [ComplianceByConfigRule],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -253,10 +253,10 @@ data DescribeComplianceByConfigRuleResponse = DescribeComplianceByConfigRuleResp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'complianceByConfigRules', 'describeComplianceByConfigRuleResponse_complianceByConfigRules' - Indicates whether each of the specified Config rules is compliant.
+--
 -- 'nextToken', 'describeComplianceByConfigRuleResponse_nextToken' - The string that you use in a subsequent request to get the next page of
 -- results in a paginated response.
---
--- 'complianceByConfigRules', 'describeComplianceByConfigRuleResponse_complianceByConfigRules' - Indicates whether each of the specified Config rules is compliant.
 --
 -- 'httpStatus', 'describeComplianceByConfigRuleResponse_httpStatus' - The response's http status code.
 newDescribeComplianceByConfigRuleResponse ::
@@ -266,21 +266,20 @@ newDescribeComplianceByConfigRuleResponse ::
 newDescribeComplianceByConfigRuleResponse
   pHttpStatus_ =
     DescribeComplianceByConfigRuleResponse'
-      { nextToken =
+      { complianceByConfigRules =
           Prelude.Nothing,
-        complianceByConfigRules =
-          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | Indicates whether each of the specified Config rules is compliant.
+describeComplianceByConfigRuleResponse_complianceByConfigRules :: Lens.Lens' DescribeComplianceByConfigRuleResponse (Prelude.Maybe [ComplianceByConfigRule])
+describeComplianceByConfigRuleResponse_complianceByConfigRules = Lens.lens (\DescribeComplianceByConfigRuleResponse' {complianceByConfigRules} -> complianceByConfigRules) (\s@DescribeComplianceByConfigRuleResponse' {} a -> s {complianceByConfigRules = a} :: DescribeComplianceByConfigRuleResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The string that you use in a subsequent request to get the next page of
 -- results in a paginated response.
 describeComplianceByConfigRuleResponse_nextToken :: Lens.Lens' DescribeComplianceByConfigRuleResponse (Prelude.Maybe Prelude.Text)
 describeComplianceByConfigRuleResponse_nextToken = Lens.lens (\DescribeComplianceByConfigRuleResponse' {nextToken} -> nextToken) (\s@DescribeComplianceByConfigRuleResponse' {} a -> s {nextToken = a} :: DescribeComplianceByConfigRuleResponse)
-
--- | Indicates whether each of the specified Config rules is compliant.
-describeComplianceByConfigRuleResponse_complianceByConfigRules :: Lens.Lens' DescribeComplianceByConfigRuleResponse (Prelude.Maybe [ComplianceByConfigRule])
-describeComplianceByConfigRuleResponse_complianceByConfigRules = Lens.lens (\DescribeComplianceByConfigRuleResponse' {complianceByConfigRules} -> complianceByConfigRules) (\s@DescribeComplianceByConfigRuleResponse' {} a -> s {complianceByConfigRules = a} :: DescribeComplianceByConfigRuleResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeComplianceByConfigRuleResponse_httpStatus :: Lens.Lens' DescribeComplianceByConfigRuleResponse Prelude.Int
@@ -291,6 +290,6 @@ instance
     DescribeComplianceByConfigRuleResponse
   where
   rnf DescribeComplianceByConfigRuleResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf complianceByConfigRules
+    Prelude.rnf complianceByConfigRules
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

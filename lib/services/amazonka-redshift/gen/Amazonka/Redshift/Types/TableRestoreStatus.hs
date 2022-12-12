@@ -30,9 +30,7 @@ import Amazonka.Redshift.Types.TableRestoreStatusType
 --
 -- /See:/ 'newTableRestoreStatus' smart constructor.
 data TableRestoreStatus = TableRestoreStatus'
-  { -- | The total amount of data to restore to the new table, in megabytes (MB).
-    totalDataInMegaBytes :: Prelude.Maybe Prelude.Integer,
-    -- | The identifier of the Amazon Redshift cluster that the table is being
+  { -- | The identifier of the Amazon Redshift cluster that the table is being
     -- restored to.
     clusterIdentifier :: Prelude.Maybe Prelude.Text,
     -- | A description of the status of the table restore request. Status values
@@ -41,8 +39,8 @@ data TableRestoreStatus = TableRestoreStatus'
     -- | The name of the table to create as a result of the table restore
     -- request.
     newTableName' :: Prelude.Maybe Prelude.Text,
-    -- | The name of the schema to restore the table to.
-    targetSchemaName :: Prelude.Maybe Prelude.Text,
+    -- | The amount of data restored to the new table so far, in megabytes (MB).
+    progressInMegaBytes :: Prelude.Maybe Prelude.Integer,
     -- | The time that the table restore request was made, in Universal
     -- Coordinated Time (UTC).
     requestTime :: Prelude.Maybe Data.ISO8601,
@@ -52,19 +50,21 @@ data TableRestoreStatus = TableRestoreStatus'
     sourceDatabaseName :: Prelude.Maybe Prelude.Text,
     -- | The name of the source schema that contains the table being restored.
     sourceSchemaName :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the table restore request.
-    tableRestoreRequestId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the database to restore the table to.
-    targetDatabaseName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the source table being restored.
+    sourceTableName :: Prelude.Maybe Prelude.Text,
     -- | A value that describes the current state of the table restore request.
     --
     -- Valid Values: @SUCCEEDED@, @FAILED@, @CANCELED@, @PENDING@,
     -- @IN_PROGRESS@
     status :: Prelude.Maybe TableRestoreStatusType,
-    -- | The amount of data restored to the new table so far, in megabytes (MB).
-    progressInMegaBytes :: Prelude.Maybe Prelude.Integer,
-    -- | The name of the source table being restored.
-    sourceTableName :: Prelude.Maybe Prelude.Text
+    -- | The unique identifier for the table restore request.
+    tableRestoreRequestId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the database to restore the table to.
+    targetDatabaseName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the schema to restore the table to.
+    targetSchemaName :: Prelude.Maybe Prelude.Text,
+    -- | The total amount of data to restore to the new table, in megabytes (MB).
+    totalDataInMegaBytes :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,8 +76,6 @@ data TableRestoreStatus = TableRestoreStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'totalDataInMegaBytes', 'tableRestoreStatus_totalDataInMegaBytes' - The total amount of data to restore to the new table, in megabytes (MB).
---
 -- 'clusterIdentifier', 'tableRestoreStatus_clusterIdentifier' - The identifier of the Amazon Redshift cluster that the table is being
 -- restored to.
 --
@@ -87,7 +85,7 @@ data TableRestoreStatus = TableRestoreStatus'
 -- 'newTableName'', 'tableRestoreStatus_newTableName' - The name of the table to create as a result of the table restore
 -- request.
 --
--- 'targetSchemaName', 'tableRestoreStatus_targetSchemaName' - The name of the schema to restore the table to.
+-- 'progressInMegaBytes', 'tableRestoreStatus_progressInMegaBytes' - The amount of data restored to the new table so far, in megabytes (MB).
 --
 -- 'requestTime', 'tableRestoreStatus_requestTime' - The time that the table restore request was made, in Universal
 -- Coordinated Time (UTC).
@@ -98,42 +96,40 @@ data TableRestoreStatus = TableRestoreStatus'
 --
 -- 'sourceSchemaName', 'tableRestoreStatus_sourceSchemaName' - The name of the source schema that contains the table being restored.
 --
--- 'tableRestoreRequestId', 'tableRestoreStatus_tableRestoreRequestId' - The unique identifier for the table restore request.
---
--- 'targetDatabaseName', 'tableRestoreStatus_targetDatabaseName' - The name of the database to restore the table to.
+-- 'sourceTableName', 'tableRestoreStatus_sourceTableName' - The name of the source table being restored.
 --
 -- 'status', 'tableRestoreStatus_status' - A value that describes the current state of the table restore request.
 --
 -- Valid Values: @SUCCEEDED@, @FAILED@, @CANCELED@, @PENDING@,
 -- @IN_PROGRESS@
 --
--- 'progressInMegaBytes', 'tableRestoreStatus_progressInMegaBytes' - The amount of data restored to the new table so far, in megabytes (MB).
+-- 'tableRestoreRequestId', 'tableRestoreStatus_tableRestoreRequestId' - The unique identifier for the table restore request.
 --
--- 'sourceTableName', 'tableRestoreStatus_sourceTableName' - The name of the source table being restored.
+-- 'targetDatabaseName', 'tableRestoreStatus_targetDatabaseName' - The name of the database to restore the table to.
+--
+-- 'targetSchemaName', 'tableRestoreStatus_targetSchemaName' - The name of the schema to restore the table to.
+--
+-- 'totalDataInMegaBytes', 'tableRestoreStatus_totalDataInMegaBytes' - The total amount of data to restore to the new table, in megabytes (MB).
 newTableRestoreStatus ::
   TableRestoreStatus
 newTableRestoreStatus =
   TableRestoreStatus'
-    { totalDataInMegaBytes =
+    { clusterIdentifier =
         Prelude.Nothing,
-      clusterIdentifier = Prelude.Nothing,
       message = Prelude.Nothing,
       newTableName' = Prelude.Nothing,
-      targetSchemaName = Prelude.Nothing,
+      progressInMegaBytes = Prelude.Nothing,
       requestTime = Prelude.Nothing,
       snapshotIdentifier = Prelude.Nothing,
       sourceDatabaseName = Prelude.Nothing,
       sourceSchemaName = Prelude.Nothing,
+      sourceTableName = Prelude.Nothing,
+      status = Prelude.Nothing,
       tableRestoreRequestId = Prelude.Nothing,
       targetDatabaseName = Prelude.Nothing,
-      status = Prelude.Nothing,
-      progressInMegaBytes = Prelude.Nothing,
-      sourceTableName = Prelude.Nothing
+      targetSchemaName = Prelude.Nothing,
+      totalDataInMegaBytes = Prelude.Nothing
     }
-
--- | The total amount of data to restore to the new table, in megabytes (MB).
-tableRestoreStatus_totalDataInMegaBytes :: Lens.Lens' TableRestoreStatus (Prelude.Maybe Prelude.Integer)
-tableRestoreStatus_totalDataInMegaBytes = Lens.lens (\TableRestoreStatus' {totalDataInMegaBytes} -> totalDataInMegaBytes) (\s@TableRestoreStatus' {} a -> s {totalDataInMegaBytes = a} :: TableRestoreStatus)
 
 -- | The identifier of the Amazon Redshift cluster that the table is being
 -- restored to.
@@ -150,9 +146,9 @@ tableRestoreStatus_message = Lens.lens (\TableRestoreStatus' {message} -> messag
 tableRestoreStatus_newTableName :: Lens.Lens' TableRestoreStatus (Prelude.Maybe Prelude.Text)
 tableRestoreStatus_newTableName = Lens.lens (\TableRestoreStatus' {newTableName'} -> newTableName') (\s@TableRestoreStatus' {} a -> s {newTableName' = a} :: TableRestoreStatus)
 
--- | The name of the schema to restore the table to.
-tableRestoreStatus_targetSchemaName :: Lens.Lens' TableRestoreStatus (Prelude.Maybe Prelude.Text)
-tableRestoreStatus_targetSchemaName = Lens.lens (\TableRestoreStatus' {targetSchemaName} -> targetSchemaName) (\s@TableRestoreStatus' {} a -> s {targetSchemaName = a} :: TableRestoreStatus)
+-- | The amount of data restored to the new table so far, in megabytes (MB).
+tableRestoreStatus_progressInMegaBytes :: Lens.Lens' TableRestoreStatus (Prelude.Maybe Prelude.Integer)
+tableRestoreStatus_progressInMegaBytes = Lens.lens (\TableRestoreStatus' {progressInMegaBytes} -> progressInMegaBytes) (\s@TableRestoreStatus' {} a -> s {progressInMegaBytes = a} :: TableRestoreStatus)
 
 -- | The time that the table restore request was made, in Universal
 -- Coordinated Time (UTC).
@@ -171,13 +167,9 @@ tableRestoreStatus_sourceDatabaseName = Lens.lens (\TableRestoreStatus' {sourceD
 tableRestoreStatus_sourceSchemaName :: Lens.Lens' TableRestoreStatus (Prelude.Maybe Prelude.Text)
 tableRestoreStatus_sourceSchemaName = Lens.lens (\TableRestoreStatus' {sourceSchemaName} -> sourceSchemaName) (\s@TableRestoreStatus' {} a -> s {sourceSchemaName = a} :: TableRestoreStatus)
 
--- | The unique identifier for the table restore request.
-tableRestoreStatus_tableRestoreRequestId :: Lens.Lens' TableRestoreStatus (Prelude.Maybe Prelude.Text)
-tableRestoreStatus_tableRestoreRequestId = Lens.lens (\TableRestoreStatus' {tableRestoreRequestId} -> tableRestoreRequestId) (\s@TableRestoreStatus' {} a -> s {tableRestoreRequestId = a} :: TableRestoreStatus)
-
--- | The name of the database to restore the table to.
-tableRestoreStatus_targetDatabaseName :: Lens.Lens' TableRestoreStatus (Prelude.Maybe Prelude.Text)
-tableRestoreStatus_targetDatabaseName = Lens.lens (\TableRestoreStatus' {targetDatabaseName} -> targetDatabaseName) (\s@TableRestoreStatus' {} a -> s {targetDatabaseName = a} :: TableRestoreStatus)
+-- | The name of the source table being restored.
+tableRestoreStatus_sourceTableName :: Lens.Lens' TableRestoreStatus (Prelude.Maybe Prelude.Text)
+tableRestoreStatus_sourceTableName = Lens.lens (\TableRestoreStatus' {sourceTableName} -> sourceTableName) (\s@TableRestoreStatus' {} a -> s {sourceTableName = a} :: TableRestoreStatus)
 
 -- | A value that describes the current state of the table restore request.
 --
@@ -186,62 +178,70 @@ tableRestoreStatus_targetDatabaseName = Lens.lens (\TableRestoreStatus' {targetD
 tableRestoreStatus_status :: Lens.Lens' TableRestoreStatus (Prelude.Maybe TableRestoreStatusType)
 tableRestoreStatus_status = Lens.lens (\TableRestoreStatus' {status} -> status) (\s@TableRestoreStatus' {} a -> s {status = a} :: TableRestoreStatus)
 
--- | The amount of data restored to the new table so far, in megabytes (MB).
-tableRestoreStatus_progressInMegaBytes :: Lens.Lens' TableRestoreStatus (Prelude.Maybe Prelude.Integer)
-tableRestoreStatus_progressInMegaBytes = Lens.lens (\TableRestoreStatus' {progressInMegaBytes} -> progressInMegaBytes) (\s@TableRestoreStatus' {} a -> s {progressInMegaBytes = a} :: TableRestoreStatus)
+-- | The unique identifier for the table restore request.
+tableRestoreStatus_tableRestoreRequestId :: Lens.Lens' TableRestoreStatus (Prelude.Maybe Prelude.Text)
+tableRestoreStatus_tableRestoreRequestId = Lens.lens (\TableRestoreStatus' {tableRestoreRequestId} -> tableRestoreRequestId) (\s@TableRestoreStatus' {} a -> s {tableRestoreRequestId = a} :: TableRestoreStatus)
 
--- | The name of the source table being restored.
-tableRestoreStatus_sourceTableName :: Lens.Lens' TableRestoreStatus (Prelude.Maybe Prelude.Text)
-tableRestoreStatus_sourceTableName = Lens.lens (\TableRestoreStatus' {sourceTableName} -> sourceTableName) (\s@TableRestoreStatus' {} a -> s {sourceTableName = a} :: TableRestoreStatus)
+-- | The name of the database to restore the table to.
+tableRestoreStatus_targetDatabaseName :: Lens.Lens' TableRestoreStatus (Prelude.Maybe Prelude.Text)
+tableRestoreStatus_targetDatabaseName = Lens.lens (\TableRestoreStatus' {targetDatabaseName} -> targetDatabaseName) (\s@TableRestoreStatus' {} a -> s {targetDatabaseName = a} :: TableRestoreStatus)
+
+-- | The name of the schema to restore the table to.
+tableRestoreStatus_targetSchemaName :: Lens.Lens' TableRestoreStatus (Prelude.Maybe Prelude.Text)
+tableRestoreStatus_targetSchemaName = Lens.lens (\TableRestoreStatus' {targetSchemaName} -> targetSchemaName) (\s@TableRestoreStatus' {} a -> s {targetSchemaName = a} :: TableRestoreStatus)
+
+-- | The total amount of data to restore to the new table, in megabytes (MB).
+tableRestoreStatus_totalDataInMegaBytes :: Lens.Lens' TableRestoreStatus (Prelude.Maybe Prelude.Integer)
+tableRestoreStatus_totalDataInMegaBytes = Lens.lens (\TableRestoreStatus' {totalDataInMegaBytes} -> totalDataInMegaBytes) (\s@TableRestoreStatus' {} a -> s {totalDataInMegaBytes = a} :: TableRestoreStatus)
 
 instance Data.FromXML TableRestoreStatus where
   parseXML x =
     TableRestoreStatus'
-      Prelude.<$> (x Data..@? "TotalDataInMegaBytes")
-      Prelude.<*> (x Data..@? "ClusterIdentifier")
+      Prelude.<$> (x Data..@? "ClusterIdentifier")
       Prelude.<*> (x Data..@? "Message")
       Prelude.<*> (x Data..@? "NewTableName")
-      Prelude.<*> (x Data..@? "TargetSchemaName")
+      Prelude.<*> (x Data..@? "ProgressInMegaBytes")
       Prelude.<*> (x Data..@? "RequestTime")
       Prelude.<*> (x Data..@? "SnapshotIdentifier")
       Prelude.<*> (x Data..@? "SourceDatabaseName")
       Prelude.<*> (x Data..@? "SourceSchemaName")
+      Prelude.<*> (x Data..@? "SourceTableName")
+      Prelude.<*> (x Data..@? "Status")
       Prelude.<*> (x Data..@? "TableRestoreRequestId")
       Prelude.<*> (x Data..@? "TargetDatabaseName")
-      Prelude.<*> (x Data..@? "Status")
-      Prelude.<*> (x Data..@? "ProgressInMegaBytes")
-      Prelude.<*> (x Data..@? "SourceTableName")
+      Prelude.<*> (x Data..@? "TargetSchemaName")
+      Prelude.<*> (x Data..@? "TotalDataInMegaBytes")
 
 instance Prelude.Hashable TableRestoreStatus where
   hashWithSalt _salt TableRestoreStatus' {..} =
-    _salt `Prelude.hashWithSalt` totalDataInMegaBytes
-      `Prelude.hashWithSalt` clusterIdentifier
+    _salt `Prelude.hashWithSalt` clusterIdentifier
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` newTableName'
-      `Prelude.hashWithSalt` targetSchemaName
+      `Prelude.hashWithSalt` progressInMegaBytes
       `Prelude.hashWithSalt` requestTime
       `Prelude.hashWithSalt` snapshotIdentifier
       `Prelude.hashWithSalt` sourceDatabaseName
       `Prelude.hashWithSalt` sourceSchemaName
+      `Prelude.hashWithSalt` sourceTableName
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` tableRestoreRequestId
       `Prelude.hashWithSalt` targetDatabaseName
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` progressInMegaBytes
-      `Prelude.hashWithSalt` sourceTableName
+      `Prelude.hashWithSalt` targetSchemaName
+      `Prelude.hashWithSalt` totalDataInMegaBytes
 
 instance Prelude.NFData TableRestoreStatus where
   rnf TableRestoreStatus' {..} =
-    Prelude.rnf totalDataInMegaBytes
-      `Prelude.seq` Prelude.rnf clusterIdentifier
+    Prelude.rnf clusterIdentifier
       `Prelude.seq` Prelude.rnf message
       `Prelude.seq` Prelude.rnf newTableName'
-      `Prelude.seq` Prelude.rnf targetSchemaName
+      `Prelude.seq` Prelude.rnf progressInMegaBytes
       `Prelude.seq` Prelude.rnf requestTime
       `Prelude.seq` Prelude.rnf snapshotIdentifier
       `Prelude.seq` Prelude.rnf sourceDatabaseName
       `Prelude.seq` Prelude.rnf sourceSchemaName
+      `Prelude.seq` Prelude.rnf sourceTableName
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf tableRestoreRequestId
       `Prelude.seq` Prelude.rnf targetDatabaseName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf progressInMegaBytes
-      `Prelude.seq` Prelude.rnf sourceTableName
+      `Prelude.seq` Prelude.rnf targetSchemaName
+      `Prelude.seq` Prelude.rnf totalDataInMegaBytes

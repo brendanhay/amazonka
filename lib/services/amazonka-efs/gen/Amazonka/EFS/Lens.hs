@@ -15,40 +15,40 @@ module Amazonka.EFS.Lens
   ( -- * Operations
 
     -- ** CreateAccessPoint
-    createAccessPoint_tags,
     createAccessPoint_posixUser,
     createAccessPoint_rootDirectory,
+    createAccessPoint_tags,
     createAccessPoint_clientToken,
     createAccessPoint_fileSystemId,
-    accessPointDescription_tags,
+    accessPointDescription_accessPointArn,
+    accessPointDescription_accessPointId,
     accessPointDescription_clientToken,
+    accessPointDescription_fileSystemId,
+    accessPointDescription_lifeCycleState,
     accessPointDescription_name,
     accessPointDescription_ownerId,
-    accessPointDescription_accessPointArn,
     accessPointDescription_posixUser,
-    accessPointDescription_fileSystemId,
-    accessPointDescription_accessPointId,
     accessPointDescription_rootDirectory,
-    accessPointDescription_lifeCycleState,
+    accessPointDescription_tags,
 
     -- ** CreateFileSystem
-    createFileSystem_tags,
-    createFileSystem_performanceMode,
-    createFileSystem_provisionedThroughputInMibps,
-    createFileSystem_backup,
     createFileSystem_availabilityZoneName,
+    createFileSystem_backup,
     createFileSystem_encrypted,
     createFileSystem_kmsKeyId,
+    createFileSystem_performanceMode,
+    createFileSystem_provisionedThroughputInMibps,
+    createFileSystem_tags,
     createFileSystem_throughputMode,
     createFileSystem_creationToken,
-    fileSystemDescription_name,
-    fileSystemDescription_provisionedThroughputInMibps,
-    fileSystemDescription_fileSystemArn,
+    fileSystemDescription_availabilityZoneId,
     fileSystemDescription_availabilityZoneName,
     fileSystemDescription_encrypted,
+    fileSystemDescription_fileSystemArn,
     fileSystemDescription_kmsKeyId,
+    fileSystemDescription_name,
+    fileSystemDescription_provisionedThroughputInMibps,
     fileSystemDescription_throughputMode,
-    fileSystemDescription_availabilityZoneId,
     fileSystemDescription_ownerId,
     fileSystemDescription_creationToken,
     fileSystemDescription_fileSystemId,
@@ -60,16 +60,16 @@ module Amazonka.EFS.Lens
     fileSystemDescription_tags,
 
     -- ** CreateMountTarget
-    createMountTarget_securityGroups,
     createMountTarget_ipAddress,
+    createMountTarget_securityGroups,
     createMountTarget_fileSystemId,
     createMountTarget_subnetId,
-    mountTargetDescription_ownerId,
-    mountTargetDescription_availabilityZoneName,
-    mountTargetDescription_networkInterfaceId,
-    mountTargetDescription_vpcId,
-    mountTargetDescription_ipAddress,
     mountTargetDescription_availabilityZoneId,
+    mountTargetDescription_availabilityZoneName,
+    mountTargetDescription_ipAddress,
+    mountTargetDescription_networkInterfaceId,
+    mountTargetDescription_ownerId,
+    mountTargetDescription_vpcId,
     mountTargetDescription_mountTargetId,
     mountTargetDescription_fileSystemId,
     mountTargetDescription_subnetId,
@@ -101,17 +101,17 @@ module Amazonka.EFS.Lens
     deleteReplicationConfiguration_sourceFileSystemId,
 
     -- ** DescribeAccessPoints
-    describeAccessPoints_nextToken,
-    describeAccessPoints_fileSystemId,
     describeAccessPoints_accessPointId,
+    describeAccessPoints_fileSystemId,
     describeAccessPoints_maxResults,
-    describeAccessPointsResponse_nextToken,
+    describeAccessPoints_nextToken,
     describeAccessPointsResponse_accessPoints,
+    describeAccessPointsResponse_nextToken,
     describeAccessPointsResponse_httpStatus,
 
     -- ** DescribeAccountPreferences
-    describeAccountPreferences_nextToken,
     describeAccountPreferences_maxResults,
+    describeAccountPreferences_nextToken,
     describeAccountPreferencesResponse_nextToken,
     describeAccountPreferencesResponse_resourceIdPreference,
     describeAccountPreferencesResponse_httpStatus,
@@ -122,16 +122,16 @@ module Amazonka.EFS.Lens
 
     -- ** DescribeFileSystemPolicy
     describeFileSystemPolicy_fileSystemId,
-    fileSystemPolicyDescription_policy,
     fileSystemPolicyDescription_fileSystemId,
+    fileSystemPolicyDescription_policy,
 
     -- ** DescribeFileSystems
-    describeFileSystems_marker,
     describeFileSystems_creationToken,
-    describeFileSystems_maxItems,
     describeFileSystems_fileSystemId,
-    describeFileSystemsResponse_marker,
+    describeFileSystems_marker,
+    describeFileSystems_maxItems,
     describeFileSystemsResponse_fileSystems,
+    describeFileSystemsResponse_marker,
     describeFileSystemsResponse_nextMarker,
     describeFileSystemsResponse_httpStatus,
 
@@ -145,30 +145,30 @@ module Amazonka.EFS.Lens
     describeMountTargetSecurityGroupsResponse_securityGroups,
 
     -- ** DescribeMountTargets
-    describeMountTargets_marker,
-    describeMountTargets_mountTargetId,
-    describeMountTargets_maxItems,
-    describeMountTargets_fileSystemId,
     describeMountTargets_accessPointId,
+    describeMountTargets_fileSystemId,
+    describeMountTargets_marker,
+    describeMountTargets_maxItems,
+    describeMountTargets_mountTargetId,
     describeMountTargetsResponse_marker,
     describeMountTargetsResponse_mountTargets,
     describeMountTargetsResponse_nextMarker,
     describeMountTargetsResponse_httpStatus,
 
     -- ** DescribeReplicationConfigurations
-    describeReplicationConfigurations_nextToken,
     describeReplicationConfigurations_fileSystemId,
     describeReplicationConfigurations_maxResults,
+    describeReplicationConfigurations_nextToken,
     describeReplicationConfigurationsResponse_nextToken,
     describeReplicationConfigurationsResponse_replications,
     describeReplicationConfigurationsResponse_httpStatus,
 
     -- ** ListTagsForResource
-    listTagsForResource_nextToken,
     listTagsForResource_maxResults,
+    listTagsForResource_nextToken,
     listTagsForResource_resourceId,
-    listTagsForResourceResponse_tags,
     listTagsForResourceResponse_nextToken,
+    listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
 
     -- ** ModifyMountTargetSecurityGroups
@@ -189,8 +189,8 @@ module Amazonka.EFS.Lens
     putFileSystemPolicy_bypassPolicyLockoutSafetyCheck,
     putFileSystemPolicy_fileSystemId,
     putFileSystemPolicy_policy,
-    fileSystemPolicyDescription_policy,
     fileSystemPolicyDescription_fileSystemId,
+    fileSystemPolicyDescription_policy,
 
     -- ** PutLifecycleConfiguration
     putLifecycleConfiguration_fileSystemId,
@@ -209,14 +209,14 @@ module Amazonka.EFS.Lens
     updateFileSystem_provisionedThroughputInMibps,
     updateFileSystem_throughputMode,
     updateFileSystem_fileSystemId,
-    fileSystemDescription_name,
-    fileSystemDescription_provisionedThroughputInMibps,
-    fileSystemDescription_fileSystemArn,
+    fileSystemDescription_availabilityZoneId,
     fileSystemDescription_availabilityZoneName,
     fileSystemDescription_encrypted,
+    fileSystemDescription_fileSystemArn,
     fileSystemDescription_kmsKeyId,
+    fileSystemDescription_name,
+    fileSystemDescription_provisionedThroughputInMibps,
     fileSystemDescription_throughputMode,
-    fileSystemDescription_availabilityZoneId,
     fileSystemDescription_ownerId,
     fileSystemDescription_creationToken,
     fileSystemDescription_fileSystemId,
@@ -230,16 +230,16 @@ module Amazonka.EFS.Lens
     -- * Types
 
     -- ** AccessPointDescription
-    accessPointDescription_tags,
+    accessPointDescription_accessPointArn,
+    accessPointDescription_accessPointId,
     accessPointDescription_clientToken,
+    accessPointDescription_fileSystemId,
+    accessPointDescription_lifeCycleState,
     accessPointDescription_name,
     accessPointDescription_ownerId,
-    accessPointDescription_accessPointArn,
     accessPointDescription_posixUser,
-    accessPointDescription_fileSystemId,
-    accessPointDescription_accessPointId,
     accessPointDescription_rootDirectory,
-    accessPointDescription_lifeCycleState,
+    accessPointDescription_tags,
 
     -- ** BackupPolicy
     backupPolicy_status,
@@ -260,18 +260,18 @@ module Amazonka.EFS.Lens
 
     -- ** DestinationToCreate
     destinationToCreate_availabilityZoneName,
-    destinationToCreate_region,
     destinationToCreate_kmsKeyId,
+    destinationToCreate_region,
 
     -- ** FileSystemDescription
-    fileSystemDescription_name,
-    fileSystemDescription_provisionedThroughputInMibps,
-    fileSystemDescription_fileSystemArn,
+    fileSystemDescription_availabilityZoneId,
     fileSystemDescription_availabilityZoneName,
     fileSystemDescription_encrypted,
+    fileSystemDescription_fileSystemArn,
     fileSystemDescription_kmsKeyId,
+    fileSystemDescription_name,
+    fileSystemDescription_provisionedThroughputInMibps,
     fileSystemDescription_throughputMode,
-    fileSystemDescription_availabilityZoneId,
     fileSystemDescription_ownerId,
     fileSystemDescription_creationToken,
     fileSystemDescription_fileSystemId,
@@ -283,13 +283,13 @@ module Amazonka.EFS.Lens
     fileSystemDescription_tags,
 
     -- ** FileSystemPolicyDescription
-    fileSystemPolicyDescription_policy,
     fileSystemPolicyDescription_fileSystemId,
+    fileSystemPolicyDescription_policy,
 
     -- ** FileSystemSize
     fileSystemSize_timestamp,
-    fileSystemSize_valueInStandard,
     fileSystemSize_valueInIA,
+    fileSystemSize_valueInStandard,
     fileSystemSize_value,
 
     -- ** LifecycleConfigurationDescription
@@ -300,12 +300,12 @@ module Amazonka.EFS.Lens
     lifecyclePolicy_transitionToPrimaryStorageClass,
 
     -- ** MountTargetDescription
-    mountTargetDescription_ownerId,
-    mountTargetDescription_availabilityZoneName,
-    mountTargetDescription_networkInterfaceId,
-    mountTargetDescription_vpcId,
-    mountTargetDescription_ipAddress,
     mountTargetDescription_availabilityZoneId,
+    mountTargetDescription_availabilityZoneName,
+    mountTargetDescription_ipAddress,
+    mountTargetDescription_networkInterfaceId,
+    mountTargetDescription_ownerId,
+    mountTargetDescription_vpcId,
     mountTargetDescription_mountTargetId,
     mountTargetDescription_fileSystemId,
     mountTargetDescription_subnetId,
@@ -325,8 +325,8 @@ module Amazonka.EFS.Lens
     replicationConfigurationDescription_destinations,
 
     -- ** ResourceIdPreference
-    resourceIdPreference_resources,
     resourceIdPreference_resourceIdType,
+    resourceIdPreference_resources,
 
     -- ** RootDirectory
     rootDirectory_creationInfo,

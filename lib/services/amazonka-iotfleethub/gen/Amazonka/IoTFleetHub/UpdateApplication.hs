@@ -31,9 +31,9 @@ module Amazonka.IoTFleetHub.UpdateApplication
     newUpdateApplication,
 
     -- * Request Lenses
-    updateApplication_clientToken,
     updateApplication_applicationDescription,
     updateApplication_applicationName,
+    updateApplication_clientToken,
     updateApplication_applicationId,
 
     -- * Destructuring the Response
@@ -55,14 +55,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateApplication' smart constructor.
 data UpdateApplication = UpdateApplication'
-  { -- | A unique case-sensitive identifier that you can provide to ensure the
-    -- idempotency of the request. Don\'t reuse this client token if a new
-    -- idempotent request is required.
-    clientToken :: Prelude.Maybe Prelude.Text,
-    -- | An optional description of the web application.
+  { -- | An optional description of the web application.
     applicationDescription :: Prelude.Maybe Prelude.Text,
     -- | The name of the web application.
     applicationName :: Prelude.Maybe Prelude.Text,
+    -- | A unique case-sensitive identifier that you can provide to ensure the
+    -- idempotency of the request. Don\'t reuse this client token if a new
+    -- idempotent request is required.
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The unique Id of the web application.
     applicationId :: Prelude.Text
   }
@@ -76,13 +76,13 @@ data UpdateApplication = UpdateApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'updateApplication_clientToken' - A unique case-sensitive identifier that you can provide to ensure the
--- idempotency of the request. Don\'t reuse this client token if a new
--- idempotent request is required.
---
 -- 'applicationDescription', 'updateApplication_applicationDescription' - An optional description of the web application.
 --
 -- 'applicationName', 'updateApplication_applicationName' - The name of the web application.
+--
+-- 'clientToken', 'updateApplication_clientToken' - A unique case-sensitive identifier that you can provide to ensure the
+-- idempotency of the request. Don\'t reuse this client token if a new
+-- idempotent request is required.
 --
 -- 'applicationId', 'updateApplication_applicationId' - The unique Id of the web application.
 newUpdateApplication ::
@@ -91,17 +91,12 @@ newUpdateApplication ::
   UpdateApplication
 newUpdateApplication pApplicationId_ =
   UpdateApplication'
-    { clientToken = Prelude.Nothing,
-      applicationDescription = Prelude.Nothing,
+    { applicationDescription =
+        Prelude.Nothing,
       applicationName = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
       applicationId = pApplicationId_
     }
-
--- | A unique case-sensitive identifier that you can provide to ensure the
--- idempotency of the request. Don\'t reuse this client token if a new
--- idempotent request is required.
-updateApplication_clientToken :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Text)
-updateApplication_clientToken = Lens.lens (\UpdateApplication' {clientToken} -> clientToken) (\s@UpdateApplication' {} a -> s {clientToken = a} :: UpdateApplication)
 
 -- | An optional description of the web application.
 updateApplication_applicationDescription :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Text)
@@ -110,6 +105,12 @@ updateApplication_applicationDescription = Lens.lens (\UpdateApplication' {appli
 -- | The name of the web application.
 updateApplication_applicationName :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Text)
 updateApplication_applicationName = Lens.lens (\UpdateApplication' {applicationName} -> applicationName) (\s@UpdateApplication' {} a -> s {applicationName = a} :: UpdateApplication)
+
+-- | A unique case-sensitive identifier that you can provide to ensure the
+-- idempotency of the request. Don\'t reuse this client token if a new
+-- idempotent request is required.
+updateApplication_clientToken :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Text)
+updateApplication_clientToken = Lens.lens (\UpdateApplication' {clientToken} -> clientToken) (\s@UpdateApplication' {} a -> s {clientToken = a} :: UpdateApplication)
 
 -- | The unique Id of the web application.
 updateApplication_applicationId :: Lens.Lens' UpdateApplication Prelude.Text
@@ -130,16 +131,16 @@ instance Core.AWSRequest UpdateApplication where
 
 instance Prelude.Hashable UpdateApplication where
   hashWithSalt _salt UpdateApplication' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` applicationDescription
+    _salt `Prelude.hashWithSalt` applicationDescription
       `Prelude.hashWithSalt` applicationName
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` applicationId
 
 instance Prelude.NFData UpdateApplication where
   rnf UpdateApplication' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf applicationDescription
+    Prelude.rnf applicationDescription
       `Prelude.seq` Prelude.rnf applicationName
+      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf applicationId
 
 instance Data.ToHeaders UpdateApplication where
@@ -157,11 +158,11 @@ instance Data.ToJSON UpdateApplication where
   toJSON UpdateApplication' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("clientToken" Data..=) Prelude.<$> clientToken,
-            ("applicationDescription" Data..=)
+          [ ("applicationDescription" Data..=)
               Prelude.<$> applicationDescription,
             ("applicationName" Data..=)
-              Prelude.<$> applicationName
+              Prelude.<$> applicationName,
+            ("clientToken" Data..=) Prelude.<$> clientToken
           ]
       )
 

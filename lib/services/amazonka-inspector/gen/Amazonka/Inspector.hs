@@ -24,38 +24,38 @@ module Amazonka.Inspector
     -- * Errors
     -- $errors
 
+    -- ** AccessDeniedException
+    _AccessDeniedException,
+
+    -- ** AgentsAlreadyRunningAssessmentException
+    _AgentsAlreadyRunningAssessmentException,
+
+    -- ** AssessmentRunInProgressException
+    _AssessmentRunInProgressException,
+
+    -- ** InternalException
+    _InternalException,
+
     -- ** InvalidCrossAccountRoleException
     _InvalidCrossAccountRoleException,
 
     -- ** InvalidInputException
     _InvalidInputException,
 
-    -- ** AccessDeniedException
-    _AccessDeniedException,
-
-    -- ** PreviewGenerationInProgressException
-    _PreviewGenerationInProgressException,
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- ** NoSuchEntityException
     _NoSuchEntityException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
-
-    -- ** UnsupportedFeatureException
-    _UnsupportedFeatureException,
-
-    -- ** InternalException
-    _InternalException,
-
-    -- ** AssessmentRunInProgressException
-    _AssessmentRunInProgressException,
-
-    -- ** AgentsAlreadyRunningAssessmentException
-    _AgentsAlreadyRunningAssessmentException,
+    -- ** PreviewGenerationInProgressException
+    _PreviewGenerationInProgressException,
 
     -- ** ServiceTemporarilyUnavailableException
     _ServiceTemporarilyUnavailableException,
+
+    -- ** UnsupportedFeatureException
+    _UnsupportedFeatureException,
 
     -- * Waiters
     -- $waiters

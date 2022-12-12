@@ -27,8 +27,8 @@ module Amazonka.RAM.ListPermissionVersions
     newListPermissionVersions,
 
     -- * Request Lenses
-    listPermissionVersions_nextToken,
     listPermissionVersions_maxResults,
+    listPermissionVersions_nextToken,
     listPermissionVersions_permissionArn,
 
     -- * Destructuring the Response
@@ -52,13 +52,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPermissionVersions' smart constructor.
 data ListPermissionVersions = ListPermissionVersions'
-  { -- | Specifies that you want to receive the next page of results. Valid only
-    -- if you received a @NextToken@ response in the previous request. If you
-    -- did, it indicates that more output is available. Set this parameter to
-    -- the value provided by the previous call\'s @NextToken@ response to
-    -- request the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the total number of results that you want included on each
+  { -- | Specifies the total number of results that you want included on each
     -- page of the response. If you do not include this parameter, it defaults
     -- to a value that is specific to the operation. If additional items exist
     -- beyond the number you specify, the @NextToken@ response element is
@@ -69,6 +63,12 @@ data ListPermissionVersions = ListPermissionVersions'
     -- should check @NextToken@ after every operation to ensure that you
     -- receive all of the results.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Specifies that you want to receive the next page of results. Valid only
+    -- if you received a @NextToken@ response in the previous request. If you
+    -- did, it indicates that more output is available. Set this parameter to
+    -- the value provided by the previous call\'s @NextToken@ response to
+    -- request the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies the
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
     -- of the RAM permission whose versions you want to list. You can use the
@@ -86,12 +86,6 @@ data ListPermissionVersions = ListPermissionVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPermissionVersions_nextToken' - Specifies that you want to receive the next page of results. Valid only
--- if you received a @NextToken@ response in the previous request. If you
--- did, it indicates that more output is available. Set this parameter to
--- the value provided by the previous call\'s @NextToken@ response to
--- request the next page of results.
---
 -- 'maxResults', 'listPermissionVersions_maxResults' - Specifies the total number of results that you want included on each
 -- page of the response. If you do not include this parameter, it defaults
 -- to a value that is specific to the operation. If additional items exist
@@ -102,6 +96,12 @@ data ListPermissionVersions = ListPermissionVersions'
 -- results than the maximum even when there are more results available. You
 -- should check @NextToken@ after every operation to ensure that you
 -- receive all of the results.
+--
+-- 'nextToken', 'listPermissionVersions_nextToken' - Specifies that you want to receive the next page of results. Valid only
+-- if you received a @NextToken@ response in the previous request. If you
+-- did, it indicates that more output is available. Set this parameter to
+-- the value provided by the previous call\'s @NextToken@ response to
+-- request the next page of results.
 --
 -- 'permissionArn', 'listPermissionVersions_permissionArn' - Specifies the
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
@@ -114,19 +114,11 @@ newListPermissionVersions ::
   ListPermissionVersions
 newListPermissionVersions pPermissionArn_ =
   ListPermissionVersions'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       permissionArn = pPermissionArn_
     }
-
--- | Specifies that you want to receive the next page of results. Valid only
--- if you received a @NextToken@ response in the previous request. If you
--- did, it indicates that more output is available. Set this parameter to
--- the value provided by the previous call\'s @NextToken@ response to
--- request the next page of results.
-listPermissionVersions_nextToken :: Lens.Lens' ListPermissionVersions (Prelude.Maybe Prelude.Text)
-listPermissionVersions_nextToken = Lens.lens (\ListPermissionVersions' {nextToken} -> nextToken) (\s@ListPermissionVersions' {} a -> s {nextToken = a} :: ListPermissionVersions)
 
 -- | Specifies the total number of results that you want included on each
 -- page of the response. If you do not include this parameter, it defaults
@@ -140,6 +132,14 @@ listPermissionVersions_nextToken = Lens.lens (\ListPermissionVersions' {nextToke
 -- receive all of the results.
 listPermissionVersions_maxResults :: Lens.Lens' ListPermissionVersions (Prelude.Maybe Prelude.Natural)
 listPermissionVersions_maxResults = Lens.lens (\ListPermissionVersions' {maxResults} -> maxResults) (\s@ListPermissionVersions' {} a -> s {maxResults = a} :: ListPermissionVersions)
+
+-- | Specifies that you want to receive the next page of results. Valid only
+-- if you received a @NextToken@ response in the previous request. If you
+-- did, it indicates that more output is available. Set this parameter to
+-- the value provided by the previous call\'s @NextToken@ response to
+-- request the next page of results.
+listPermissionVersions_nextToken :: Lens.Lens' ListPermissionVersions (Prelude.Maybe Prelude.Text)
+listPermissionVersions_nextToken = Lens.lens (\ListPermissionVersions' {nextToken} -> nextToken) (\s@ListPermissionVersions' {} a -> s {nextToken = a} :: ListPermissionVersions)
 
 -- | Specifies the
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
@@ -166,14 +166,14 @@ instance Core.AWSRequest ListPermissionVersions where
 
 instance Prelude.Hashable ListPermissionVersions where
   hashWithSalt _salt ListPermissionVersions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` permissionArn
 
 instance Prelude.NFData ListPermissionVersions where
   rnf ListPermissionVersions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf permissionArn
 
 instance Data.ToHeaders ListPermissionVersions where
@@ -191,8 +191,8 @@ instance Data.ToJSON ListPermissionVersions where
   toJSON ListPermissionVersions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("permissionArn" Data..= permissionArn)
           ]

@@ -36,15 +36,15 @@ import Amazonka.S3.Types.TopicConfiguration
 data NotificationConfiguration = NotificationConfiguration'
   { -- | Enables delivery of events to Amazon EventBridge.
     eventBridgeConfiguration :: Prelude.Maybe EventBridgeConfiguration,
+    -- | Describes the Lambda functions to invoke and the events for which to
+    -- invoke them.
+    lambdaFunctionConfigurations :: Prelude.Maybe [LambdaFunctionConfiguration],
     -- | The Amazon Simple Queue Service queues to publish messages to and the
     -- events for which to publish messages.
     queueConfigurations :: Prelude.Maybe [QueueConfiguration],
     -- | The topic to which notifications are sent and the events for which
     -- notifications are generated.
-    topicConfigurations :: Prelude.Maybe [TopicConfiguration],
-    -- | Describes the Lambda functions to invoke and the events for which to
-    -- invoke them.
-    lambdaFunctionConfigurations :: Prelude.Maybe [LambdaFunctionConfiguration]
+    topicConfigurations :: Prelude.Maybe [TopicConfiguration]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,28 +58,33 @@ data NotificationConfiguration = NotificationConfiguration'
 --
 -- 'eventBridgeConfiguration', 'notificationConfiguration_eventBridgeConfiguration' - Enables delivery of events to Amazon EventBridge.
 --
+-- 'lambdaFunctionConfigurations', 'notificationConfiguration_lambdaFunctionConfigurations' - Describes the Lambda functions to invoke and the events for which to
+-- invoke them.
+--
 -- 'queueConfigurations', 'notificationConfiguration_queueConfigurations' - The Amazon Simple Queue Service queues to publish messages to and the
 -- events for which to publish messages.
 --
 -- 'topicConfigurations', 'notificationConfiguration_topicConfigurations' - The topic to which notifications are sent and the events for which
 -- notifications are generated.
---
--- 'lambdaFunctionConfigurations', 'notificationConfiguration_lambdaFunctionConfigurations' - Describes the Lambda functions to invoke and the events for which to
--- invoke them.
 newNotificationConfiguration ::
   NotificationConfiguration
 newNotificationConfiguration =
   NotificationConfiguration'
     { eventBridgeConfiguration =
         Prelude.Nothing,
+      lambdaFunctionConfigurations = Prelude.Nothing,
       queueConfigurations = Prelude.Nothing,
-      topicConfigurations = Prelude.Nothing,
-      lambdaFunctionConfigurations = Prelude.Nothing
+      topicConfigurations = Prelude.Nothing
     }
 
 -- | Enables delivery of events to Amazon EventBridge.
 notificationConfiguration_eventBridgeConfiguration :: Lens.Lens' NotificationConfiguration (Prelude.Maybe EventBridgeConfiguration)
 notificationConfiguration_eventBridgeConfiguration = Lens.lens (\NotificationConfiguration' {eventBridgeConfiguration} -> eventBridgeConfiguration) (\s@NotificationConfiguration' {} a -> s {eventBridgeConfiguration = a} :: NotificationConfiguration)
+
+-- | Describes the Lambda functions to invoke and the events for which to
+-- invoke them.
+notificationConfiguration_lambdaFunctionConfigurations :: Lens.Lens' NotificationConfiguration (Prelude.Maybe [LambdaFunctionConfiguration])
+notificationConfiguration_lambdaFunctionConfigurations = Lens.lens (\NotificationConfiguration' {lambdaFunctionConfigurations} -> lambdaFunctionConfigurations) (\s@NotificationConfiguration' {} a -> s {lambdaFunctionConfigurations = a} :: NotificationConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Simple Queue Service queues to publish messages to and the
 -- events for which to publish messages.
@@ -91,36 +96,31 @@ notificationConfiguration_queueConfigurations = Lens.lens (\NotificationConfigur
 notificationConfiguration_topicConfigurations :: Lens.Lens' NotificationConfiguration (Prelude.Maybe [TopicConfiguration])
 notificationConfiguration_topicConfigurations = Lens.lens (\NotificationConfiguration' {topicConfigurations} -> topicConfigurations) (\s@NotificationConfiguration' {} a -> s {topicConfigurations = a} :: NotificationConfiguration) Prelude.. Lens.mapping Lens.coerced
 
--- | Describes the Lambda functions to invoke and the events for which to
--- invoke them.
-notificationConfiguration_lambdaFunctionConfigurations :: Lens.Lens' NotificationConfiguration (Prelude.Maybe [LambdaFunctionConfiguration])
-notificationConfiguration_lambdaFunctionConfigurations = Lens.lens (\NotificationConfiguration' {lambdaFunctionConfigurations} -> lambdaFunctionConfigurations) (\s@NotificationConfiguration' {} a -> s {lambdaFunctionConfigurations = a} :: NotificationConfiguration) Prelude.. Lens.mapping Lens.coerced
-
 instance Data.FromXML NotificationConfiguration where
   parseXML x =
     NotificationConfiguration'
       Prelude.<$> (x Data..@? "EventBridgeConfiguration")
-      Prelude.<*> (Core.may (Data.parseXMLList "QueueConfiguration") x)
-      Prelude.<*> (Core.may (Data.parseXMLList "TopicConfiguration") x)
       Prelude.<*> ( Core.may
                       (Data.parseXMLList "CloudFunctionConfiguration")
                       x
                   )
+      Prelude.<*> (Core.may (Data.parseXMLList "QueueConfiguration") x)
+      Prelude.<*> (Core.may (Data.parseXMLList "TopicConfiguration") x)
 
 instance Prelude.Hashable NotificationConfiguration where
   hashWithSalt _salt NotificationConfiguration' {..} =
     _salt
       `Prelude.hashWithSalt` eventBridgeConfiguration
+      `Prelude.hashWithSalt` lambdaFunctionConfigurations
       `Prelude.hashWithSalt` queueConfigurations
       `Prelude.hashWithSalt` topicConfigurations
-      `Prelude.hashWithSalt` lambdaFunctionConfigurations
 
 instance Prelude.NFData NotificationConfiguration where
   rnf NotificationConfiguration' {..} =
     Prelude.rnf eventBridgeConfiguration
+      `Prelude.seq` Prelude.rnf lambdaFunctionConfigurations
       `Prelude.seq` Prelude.rnf queueConfigurations
       `Prelude.seq` Prelude.rnf topicConfigurations
-      `Prelude.seq` Prelude.rnf lambdaFunctionConfigurations
 
 instance Data.ToXML NotificationConfiguration where
   toXML NotificationConfiguration' {..} =
@@ -128,15 +128,15 @@ instance Data.ToXML NotificationConfiguration where
       [ "EventBridgeConfiguration"
           Data.@= eventBridgeConfiguration,
         Data.toXML
+          ( Data.toXMLList "CloudFunctionConfiguration"
+              Prelude.<$> lambdaFunctionConfigurations
+          ),
+        Data.toXML
           ( Data.toXMLList "QueueConfiguration"
               Prelude.<$> queueConfigurations
           ),
         Data.toXML
           ( Data.toXMLList "TopicConfiguration"
               Prelude.<$> topicConfigurations
-          ),
-        Data.toXML
-          ( Data.toXMLList "CloudFunctionConfiguration"
-              Prelude.<$> lambdaFunctionConfigurations
           )
       ]

@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsIamAttachedManagedPolicy' smart constructor.
 data AwsIamAttachedManagedPolicy = AwsIamAttachedManagedPolicy'
-  { -- | The name of the policy.
-    policyName :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the policy.
-    policyArn :: Prelude.Maybe Prelude.Text
+  { -- | The ARN of the policy.
+    policyArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the policy.
+    policyName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data AwsIamAttachedManagedPolicy = AwsIamAttachedManagedPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyName', 'awsIamAttachedManagedPolicy_policyName' - The name of the policy.
---
 -- 'policyArn', 'awsIamAttachedManagedPolicy_policyArn' - The ARN of the policy.
+--
+-- 'policyName', 'awsIamAttachedManagedPolicy_policyName' - The name of the policy.
 newAwsIamAttachedManagedPolicy ::
   AwsIamAttachedManagedPolicy
 newAwsIamAttachedManagedPolicy =
   AwsIamAttachedManagedPolicy'
-    { policyName =
+    { policyArn =
         Prelude.Nothing,
-      policyArn = Prelude.Nothing
+      policyName = Prelude.Nothing
     }
-
--- | The name of the policy.
-awsIamAttachedManagedPolicy_policyName :: Lens.Lens' AwsIamAttachedManagedPolicy (Prelude.Maybe Prelude.Text)
-awsIamAttachedManagedPolicy_policyName = Lens.lens (\AwsIamAttachedManagedPolicy' {policyName} -> policyName) (\s@AwsIamAttachedManagedPolicy' {} a -> s {policyName = a} :: AwsIamAttachedManagedPolicy)
 
 -- | The ARN of the policy.
 awsIamAttachedManagedPolicy_policyArn :: Lens.Lens' AwsIamAttachedManagedPolicy (Prelude.Maybe Prelude.Text)
 awsIamAttachedManagedPolicy_policyArn = Lens.lens (\AwsIamAttachedManagedPolicy' {policyArn} -> policyArn) (\s@AwsIamAttachedManagedPolicy' {} a -> s {policyArn = a} :: AwsIamAttachedManagedPolicy)
+
+-- | The name of the policy.
+awsIamAttachedManagedPolicy_policyName :: Lens.Lens' AwsIamAttachedManagedPolicy (Prelude.Maybe Prelude.Text)
+awsIamAttachedManagedPolicy_policyName = Lens.lens (\AwsIamAttachedManagedPolicy' {policyName} -> policyName) (\s@AwsIamAttachedManagedPolicy' {} a -> s {policyName = a} :: AwsIamAttachedManagedPolicy)
 
 instance Data.FromJSON AwsIamAttachedManagedPolicy where
   parseJSON =
@@ -69,25 +69,25 @@ instance Data.FromJSON AwsIamAttachedManagedPolicy where
       "AwsIamAttachedManagedPolicy"
       ( \x ->
           AwsIamAttachedManagedPolicy'
-            Prelude.<$> (x Data..:? "PolicyName")
-            Prelude.<*> (x Data..:? "PolicyArn")
+            Prelude.<$> (x Data..:? "PolicyArn")
+            Prelude.<*> (x Data..:? "PolicyName")
       )
 
 instance Prelude.Hashable AwsIamAttachedManagedPolicy where
   hashWithSalt _salt AwsIamAttachedManagedPolicy' {..} =
-    _salt `Prelude.hashWithSalt` policyName
-      `Prelude.hashWithSalt` policyArn
+    _salt `Prelude.hashWithSalt` policyArn
+      `Prelude.hashWithSalt` policyName
 
 instance Prelude.NFData AwsIamAttachedManagedPolicy where
   rnf AwsIamAttachedManagedPolicy' {..} =
-    Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf policyArn
+    Prelude.rnf policyArn
+      `Prelude.seq` Prelude.rnf policyName
 
 instance Data.ToJSON AwsIamAttachedManagedPolicy where
   toJSON AwsIamAttachedManagedPolicy' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("PolicyName" Data..=) Prelude.<$> policyName,
-            ("PolicyArn" Data..=) Prelude.<$> policyArn
+          [ ("PolicyArn" Data..=) Prelude.<$> policyArn,
+            ("PolicyName" Data..=) Prelude.<$> policyName
           ]
       )

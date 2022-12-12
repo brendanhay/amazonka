@@ -76,14 +76,14 @@ module Amazonka.SecretsManager.CreateSecret
     newCreateSecret,
 
     -- * Request Lenses
-    createSecret_tags,
     createSecret_addReplicaRegions,
     createSecret_clientRequestToken,
-    createSecret_forceOverwriteReplicaSecret,
     createSecret_description,
-    createSecret_secretBinary,
+    createSecret_forceOverwriteReplicaSecret,
     createSecret_kmsKeyId,
+    createSecret_secretBinary,
     createSecret_secretString,
+    createSecret_tags,
     createSecret_name,
 
     -- * Destructuring the Response
@@ -91,9 +91,9 @@ module Amazonka.SecretsManager.CreateSecret
     newCreateSecretResponse,
 
     -- * Response Lenses
+    createSecretResponse_arn,
     createSecretResponse_name,
     createSecretResponse_replicationStatus,
-    createSecretResponse_arn,
     createSecretResponse_versionId,
     createSecretResponse_httpStatus,
   )
@@ -109,7 +109,85 @@ import Amazonka.SecretsManager.Types
 
 -- | /See:/ 'newCreateSecret' smart constructor.
 data CreateSecret = CreateSecret'
-  { -- | A list of tags to attach to the secret. Each tag is a key and value pair
+  { -- | A list of Regions and KMS keys to replicate secrets.
+    addReplicaRegions :: Prelude.Maybe (Prelude.NonEmpty ReplicaRegionType),
+    -- | If you include @SecretString@ or @SecretBinary@, then Secrets Manager
+    -- creates an initial version for the secret, and this parameter specifies
+    -- the unique identifier for the new version.
+    --
+    -- If you use the Amazon Web Services CLI or one of the Amazon Web Services
+    -- SDKs to call this operation, then you can leave this parameter empty.
+    -- The CLI or SDK generates a random UUID for you and includes it as the
+    -- value for this parameter in the request. If you don\'t use the SDK and
+    -- instead generate a raw HTTP request to the Secrets Manager service
+    -- endpoint, then you must generate a @ClientRequestToken@ yourself for the
+    -- new version and include the value in the request.
+    --
+    -- This value helps ensure idempotency. Secrets Manager uses this value to
+    -- prevent the accidental creation of duplicate versions if there are
+    -- failures and retries during a rotation. We recommend that you generate a
+    -- <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type>
+    -- value to ensure uniqueness of your versions within the specified secret.
+    --
+    -- -   If the @ClientRequestToken@ value isn\'t already associated with a
+    --     version of the secret then a new version of the secret is created.
+    --
+    -- -   If a version with this value already exists and the version
+    --     @SecretString@ and @SecretBinary@ values are the same as those in
+    --     the request, then the request is ignored.
+    --
+    -- -   If a version with this value already exists and that version\'s
+    --     @SecretString@ and @SecretBinary@ values are different from those in
+    --     the request, then the request fails because you cannot modify an
+    --     existing version. Instead, use PutSecretValue to create a new
+    --     version.
+    --
+    -- This value becomes the @VersionId@ of the new version.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | The description of the secret.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether to overwrite a secret with the same name in the
+    -- destination Region.
+    forceOverwriteReplicaSecret :: Prelude.Maybe Prelude.Bool,
+    -- | The ARN, key ID, or alias of the KMS key that Secrets Manager uses to
+    -- encrypt the secret value in the secret. An alias is always prefixed by
+    -- @alias\/@, for example @alias\/aws\/secretsmanager@. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/alias-about.html About aliases>.
+    --
+    -- To use a KMS key in a different account, use the key ARN or the alias
+    -- ARN.
+    --
+    -- If you don\'t specify this value, then Secrets Manager uses the key
+    -- @aws\/secretsmanager@. If that key doesn\'t yet exist, then Secrets
+    -- Manager creates it for you automatically the first time it encrypts the
+    -- secret value.
+    --
+    -- If the secret is in a different Amazon Web Services account from the
+    -- credentials calling the API, then you can\'t use @aws\/secretsmanager@
+    -- to encrypt the secret, and you must create and use a customer managed
+    -- KMS key.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The binary data to encrypt and store in the new version of the secret.
+    -- We recommend that you store your binary data in a file and then pass the
+    -- contents of the file as a parameter.
+    --
+    -- Either @SecretString@ or @SecretBinary@ must have a value, but not both.
+    --
+    -- This parameter is not available in the Secrets Manager console.
+    secretBinary :: Prelude.Maybe (Data.Sensitive Data.Base64),
+    -- | The text data to encrypt and store in this new version of the secret. We
+    -- recommend you use a JSON structure of key\/value pairs for your secret
+    -- value.
+    --
+    -- Either @SecretString@ or @SecretBinary@ must have a value, but not both.
+    --
+    -- If you create a secret by using the Secrets Manager console then Secrets
+    -- Manager puts the protected secret text in only the @SecretString@
+    -- parameter. The Secrets Manager console stores the information as a JSON
+    -- structure of key\/value pairs that a Lambda rotation function can parse.
+    secretString :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | A list of tags to attach to the secret. Each tag is a key and value pair
     -- of strings in a JSON text string, for example:
     --
     -- @[{\"Key\":\"CostCenter\",\"Value\":\"12345\"},{\"Key\":\"environment\",\"Value\":\"production\"}]@
@@ -154,84 +232,6 @@ data CreateSecret = CreateSecret'
     --     numbers representable in UTF-8, plus the following special
     --     characters: + - = . _ : \/ \@.
     tags :: Prelude.Maybe [Tag],
-    -- | A list of Regions and KMS keys to replicate secrets.
-    addReplicaRegions :: Prelude.Maybe (Prelude.NonEmpty ReplicaRegionType),
-    -- | If you include @SecretString@ or @SecretBinary@, then Secrets Manager
-    -- creates an initial version for the secret, and this parameter specifies
-    -- the unique identifier for the new version.
-    --
-    -- If you use the Amazon Web Services CLI or one of the Amazon Web Services
-    -- SDKs to call this operation, then you can leave this parameter empty.
-    -- The CLI or SDK generates a random UUID for you and includes it as the
-    -- value for this parameter in the request. If you don\'t use the SDK and
-    -- instead generate a raw HTTP request to the Secrets Manager service
-    -- endpoint, then you must generate a @ClientRequestToken@ yourself for the
-    -- new version and include the value in the request.
-    --
-    -- This value helps ensure idempotency. Secrets Manager uses this value to
-    -- prevent the accidental creation of duplicate versions if there are
-    -- failures and retries during a rotation. We recommend that you generate a
-    -- <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type>
-    -- value to ensure uniqueness of your versions within the specified secret.
-    --
-    -- -   If the @ClientRequestToken@ value isn\'t already associated with a
-    --     version of the secret then a new version of the secret is created.
-    --
-    -- -   If a version with this value already exists and the version
-    --     @SecretString@ and @SecretBinary@ values are the same as those in
-    --     the request, then the request is ignored.
-    --
-    -- -   If a version with this value already exists and that version\'s
-    --     @SecretString@ and @SecretBinary@ values are different from those in
-    --     the request, then the request fails because you cannot modify an
-    --     existing version. Instead, use PutSecretValue to create a new
-    --     version.
-    --
-    -- This value becomes the @VersionId@ of the new version.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether to overwrite a secret with the same name in the
-    -- destination Region.
-    forceOverwriteReplicaSecret :: Prelude.Maybe Prelude.Bool,
-    -- | The description of the secret.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The binary data to encrypt and store in the new version of the secret.
-    -- We recommend that you store your binary data in a file and then pass the
-    -- contents of the file as a parameter.
-    --
-    -- Either @SecretString@ or @SecretBinary@ must have a value, but not both.
-    --
-    -- This parameter is not available in the Secrets Manager console.
-    secretBinary :: Prelude.Maybe (Data.Sensitive Data.Base64),
-    -- | The ARN, key ID, or alias of the KMS key that Secrets Manager uses to
-    -- encrypt the secret value in the secret. An alias is always prefixed by
-    -- @alias\/@, for example @alias\/aws\/secretsmanager@. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/alias-about.html About aliases>.
-    --
-    -- To use a KMS key in a different account, use the key ARN or the alias
-    -- ARN.
-    --
-    -- If you don\'t specify this value, then Secrets Manager uses the key
-    -- @aws\/secretsmanager@. If that key doesn\'t yet exist, then Secrets
-    -- Manager creates it for you automatically the first time it encrypts the
-    -- secret value.
-    --
-    -- If the secret is in a different Amazon Web Services account from the
-    -- credentials calling the API, then you can\'t use @aws\/secretsmanager@
-    -- to encrypt the secret, and you must create and use a customer managed
-    -- KMS key.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The text data to encrypt and store in this new version of the secret. We
-    -- recommend you use a JSON structure of key\/value pairs for your secret
-    -- value.
-    --
-    -- Either @SecretString@ or @SecretBinary@ must have a value, but not both.
-    --
-    -- If you create a secret by using the Secrets Manager console then Secrets
-    -- Manager puts the protected secret text in only the @SecretString@
-    -- parameter. The Secrets Manager console stores the information as a JSON
-    -- structure of key\/value pairs that a Lambda rotation function can parse.
-    secretString :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the new secret.
     --
     -- The secret name can contain ASCII letters, numbers, and the following
@@ -252,6 +252,88 @@ data CreateSecret = CreateSecret'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'addReplicaRegions', 'createSecret_addReplicaRegions' - A list of Regions and KMS keys to replicate secrets.
+--
+-- 'clientRequestToken', 'createSecret_clientRequestToken' - If you include @SecretString@ or @SecretBinary@, then Secrets Manager
+-- creates an initial version for the secret, and this parameter specifies
+-- the unique identifier for the new version.
+--
+-- If you use the Amazon Web Services CLI or one of the Amazon Web Services
+-- SDKs to call this operation, then you can leave this parameter empty.
+-- The CLI or SDK generates a random UUID for you and includes it as the
+-- value for this parameter in the request. If you don\'t use the SDK and
+-- instead generate a raw HTTP request to the Secrets Manager service
+-- endpoint, then you must generate a @ClientRequestToken@ yourself for the
+-- new version and include the value in the request.
+--
+-- This value helps ensure idempotency. Secrets Manager uses this value to
+-- prevent the accidental creation of duplicate versions if there are
+-- failures and retries during a rotation. We recommend that you generate a
+-- <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type>
+-- value to ensure uniqueness of your versions within the specified secret.
+--
+-- -   If the @ClientRequestToken@ value isn\'t already associated with a
+--     version of the secret then a new version of the secret is created.
+--
+-- -   If a version with this value already exists and the version
+--     @SecretString@ and @SecretBinary@ values are the same as those in
+--     the request, then the request is ignored.
+--
+-- -   If a version with this value already exists and that version\'s
+--     @SecretString@ and @SecretBinary@ values are different from those in
+--     the request, then the request fails because you cannot modify an
+--     existing version. Instead, use PutSecretValue to create a new
+--     version.
+--
+-- This value becomes the @VersionId@ of the new version.
+--
+-- 'description', 'createSecret_description' - The description of the secret.
+--
+-- 'forceOverwriteReplicaSecret', 'createSecret_forceOverwriteReplicaSecret' - Specifies whether to overwrite a secret with the same name in the
+-- destination Region.
+--
+-- 'kmsKeyId', 'createSecret_kmsKeyId' - The ARN, key ID, or alias of the KMS key that Secrets Manager uses to
+-- encrypt the secret value in the secret. An alias is always prefixed by
+-- @alias\/@, for example @alias\/aws\/secretsmanager@. For more
+-- information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/alias-about.html About aliases>.
+--
+-- To use a KMS key in a different account, use the key ARN or the alias
+-- ARN.
+--
+-- If you don\'t specify this value, then Secrets Manager uses the key
+-- @aws\/secretsmanager@. If that key doesn\'t yet exist, then Secrets
+-- Manager creates it for you automatically the first time it encrypts the
+-- secret value.
+--
+-- If the secret is in a different Amazon Web Services account from the
+-- credentials calling the API, then you can\'t use @aws\/secretsmanager@
+-- to encrypt the secret, and you must create and use a customer managed
+-- KMS key.
+--
+-- 'secretBinary', 'createSecret_secretBinary' - The binary data to encrypt and store in the new version of the secret.
+-- We recommend that you store your binary data in a file and then pass the
+-- contents of the file as a parameter.
+--
+-- Either @SecretString@ or @SecretBinary@ must have a value, but not both.
+--
+-- This parameter is not available in the Secrets Manager console.--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- 'secretString', 'createSecret_secretString' - The text data to encrypt and store in this new version of the secret. We
+-- recommend you use a JSON structure of key\/value pairs for your secret
+-- value.
+--
+-- Either @SecretString@ or @SecretBinary@ must have a value, but not both.
+--
+-- If you create a secret by using the Secrets Manager console then Secrets
+-- Manager puts the protected secret text in only the @SecretString@
+-- parameter. The Secrets Manager console stores the information as a JSON
+-- structure of key\/value pairs that a Lambda rotation function can parse.
 --
 -- 'tags', 'createSecret_tags' - A list of tags to attach to the secret. Each tag is a key and value pair
 -- of strings in a JSON text string, for example:
@@ -298,9 +380,37 @@ data CreateSecret = CreateSecret'
 --     numbers representable in UTF-8, plus the following special
 --     characters: + - = . _ : \/ \@.
 --
--- 'addReplicaRegions', 'createSecret_addReplicaRegions' - A list of Regions and KMS keys to replicate secrets.
+-- 'name', 'createSecret_name' - The name of the new secret.
 --
--- 'clientRequestToken', 'createSecret_clientRequestToken' - If you include @SecretString@ or @SecretBinary@, then Secrets Manager
+-- The secret name can contain ASCII letters, numbers, and the following
+-- characters: \/_+=.\@-
+--
+-- Do not end your secret name with a hyphen followed by six characters. If
+-- you do so, you risk confusion and unexpected results when searching for
+-- a secret by partial ARN. Secrets Manager automatically adds a hyphen and
+-- six random characters after the secret name at the end of the ARN.
+newCreateSecret ::
+  -- | 'name'
+  Prelude.Text ->
+  CreateSecret
+newCreateSecret pName_ =
+  CreateSecret'
+    { addReplicaRegions = Prelude.Nothing,
+      clientRequestToken = Prelude.Nothing,
+      description = Prelude.Nothing,
+      forceOverwriteReplicaSecret = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
+      secretBinary = Prelude.Nothing,
+      secretString = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      name = pName_
+    }
+
+-- | A list of Regions and KMS keys to replicate secrets.
+createSecret_addReplicaRegions :: Lens.Lens' CreateSecret (Prelude.Maybe (Prelude.NonEmpty ReplicaRegionType))
+createSecret_addReplicaRegions = Lens.lens (\CreateSecret' {addReplicaRegions} -> addReplicaRegions) (\s@CreateSecret' {} a -> s {addReplicaRegions = a} :: CreateSecret) Prelude.. Lens.mapping Lens.coerced
+
+-- | If you include @SecretString@ or @SecretBinary@, then Secrets Manager
 -- creates an initial version for the secret, and this parameter specifies
 -- the unique identifier for the new version.
 --
@@ -332,25 +442,19 @@ data CreateSecret = CreateSecret'
 --     version.
 --
 -- This value becomes the @VersionId@ of the new version.
---
--- 'forceOverwriteReplicaSecret', 'createSecret_forceOverwriteReplicaSecret' - Specifies whether to overwrite a secret with the same name in the
+createSecret_clientRequestToken :: Lens.Lens' CreateSecret (Prelude.Maybe Prelude.Text)
+createSecret_clientRequestToken = Lens.lens (\CreateSecret' {clientRequestToken} -> clientRequestToken) (\s@CreateSecret' {} a -> s {clientRequestToken = a} :: CreateSecret)
+
+-- | The description of the secret.
+createSecret_description :: Lens.Lens' CreateSecret (Prelude.Maybe Prelude.Text)
+createSecret_description = Lens.lens (\CreateSecret' {description} -> description) (\s@CreateSecret' {} a -> s {description = a} :: CreateSecret)
+
+-- | Specifies whether to overwrite a secret with the same name in the
 -- destination Region.
---
--- 'description', 'createSecret_description' - The description of the secret.
---
--- 'secretBinary', 'createSecret_secretBinary' - The binary data to encrypt and store in the new version of the secret.
--- We recommend that you store your binary data in a file and then pass the
--- contents of the file as a parameter.
---
--- Either @SecretString@ or @SecretBinary@ must have a value, but not both.
---
--- This parameter is not available in the Secrets Manager console.--
--- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- -- The underlying isomorphism will encode to Base64 representation during
--- -- serialisation, and decode from Base64 representation during deserialisation.
--- -- This 'Lens' accepts and returns only raw unencoded data.
---
--- 'kmsKeyId', 'createSecret_kmsKeyId' - The ARN, key ID, or alias of the KMS key that Secrets Manager uses to
+createSecret_forceOverwriteReplicaSecret :: Lens.Lens' CreateSecret (Prelude.Maybe Prelude.Bool)
+createSecret_forceOverwriteReplicaSecret = Lens.lens (\CreateSecret' {forceOverwriteReplicaSecret} -> forceOverwriteReplicaSecret) (\s@CreateSecret' {} a -> s {forceOverwriteReplicaSecret = a} :: CreateSecret)
+
+-- | The ARN, key ID, or alias of the KMS key that Secrets Manager uses to
 -- encrypt the secret value in the secret. An alias is always prefixed by
 -- @alias\/@, for example @alias\/aws\/secretsmanager@. For more
 -- information, see
@@ -368,8 +472,24 @@ data CreateSecret = CreateSecret'
 -- credentials calling the API, then you can\'t use @aws\/secretsmanager@
 -- to encrypt the secret, and you must create and use a customer managed
 -- KMS key.
+createSecret_kmsKeyId :: Lens.Lens' CreateSecret (Prelude.Maybe Prelude.Text)
+createSecret_kmsKeyId = Lens.lens (\CreateSecret' {kmsKeyId} -> kmsKeyId) (\s@CreateSecret' {} a -> s {kmsKeyId = a} :: CreateSecret)
+
+-- | The binary data to encrypt and store in the new version of the secret.
+-- We recommend that you store your binary data in a file and then pass the
+-- contents of the file as a parameter.
 --
--- 'secretString', 'createSecret_secretString' - The text data to encrypt and store in this new version of the secret. We
+-- Either @SecretString@ or @SecretBinary@ must have a value, but not both.
+--
+-- This parameter is not available in the Secrets Manager console.--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
+createSecret_secretBinary :: Lens.Lens' CreateSecret (Prelude.Maybe Prelude.ByteString)
+createSecret_secretBinary = Lens.lens (\CreateSecret' {secretBinary} -> secretBinary) (\s@CreateSecret' {} a -> s {secretBinary = a} :: CreateSecret) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Data._Base64)
+
+-- | The text data to encrypt and store in this new version of the secret. We
 -- recommend you use a JSON structure of key\/value pairs for your secret
 -- value.
 --
@@ -379,32 +499,8 @@ data CreateSecret = CreateSecret'
 -- Manager puts the protected secret text in only the @SecretString@
 -- parameter. The Secrets Manager console stores the information as a JSON
 -- structure of key\/value pairs that a Lambda rotation function can parse.
---
--- 'name', 'createSecret_name' - The name of the new secret.
---
--- The secret name can contain ASCII letters, numbers, and the following
--- characters: \/_+=.\@-
---
--- Do not end your secret name with a hyphen followed by six characters. If
--- you do so, you risk confusion and unexpected results when searching for
--- a secret by partial ARN. Secrets Manager automatically adds a hyphen and
--- six random characters after the secret name at the end of the ARN.
-newCreateSecret ::
-  -- | 'name'
-  Prelude.Text ->
-  CreateSecret
-newCreateSecret pName_ =
-  CreateSecret'
-    { tags = Prelude.Nothing,
-      addReplicaRegions = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
-      forceOverwriteReplicaSecret = Prelude.Nothing,
-      description = Prelude.Nothing,
-      secretBinary = Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing,
-      secretString = Prelude.Nothing,
-      name = pName_
-    }
+createSecret_secretString :: Lens.Lens' CreateSecret (Prelude.Maybe Prelude.Text)
+createSecret_secretString = Lens.lens (\CreateSecret' {secretString} -> secretString) (\s@CreateSecret' {} a -> s {secretString = a} :: CreateSecret) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A list of tags to attach to the secret. Each tag is a key and value pair
 -- of strings in a JSON text string, for example:
@@ -453,102 +549,6 @@ newCreateSecret pName_ =
 createSecret_tags :: Lens.Lens' CreateSecret (Prelude.Maybe [Tag])
 createSecret_tags = Lens.lens (\CreateSecret' {tags} -> tags) (\s@CreateSecret' {} a -> s {tags = a} :: CreateSecret) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of Regions and KMS keys to replicate secrets.
-createSecret_addReplicaRegions :: Lens.Lens' CreateSecret (Prelude.Maybe (Prelude.NonEmpty ReplicaRegionType))
-createSecret_addReplicaRegions = Lens.lens (\CreateSecret' {addReplicaRegions} -> addReplicaRegions) (\s@CreateSecret' {} a -> s {addReplicaRegions = a} :: CreateSecret) Prelude.. Lens.mapping Lens.coerced
-
--- | If you include @SecretString@ or @SecretBinary@, then Secrets Manager
--- creates an initial version for the secret, and this parameter specifies
--- the unique identifier for the new version.
---
--- If you use the Amazon Web Services CLI or one of the Amazon Web Services
--- SDKs to call this operation, then you can leave this parameter empty.
--- The CLI or SDK generates a random UUID for you and includes it as the
--- value for this parameter in the request. If you don\'t use the SDK and
--- instead generate a raw HTTP request to the Secrets Manager service
--- endpoint, then you must generate a @ClientRequestToken@ yourself for the
--- new version and include the value in the request.
---
--- This value helps ensure idempotency. Secrets Manager uses this value to
--- prevent the accidental creation of duplicate versions if there are
--- failures and retries during a rotation. We recommend that you generate a
--- <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type>
--- value to ensure uniqueness of your versions within the specified secret.
---
--- -   If the @ClientRequestToken@ value isn\'t already associated with a
---     version of the secret then a new version of the secret is created.
---
--- -   If a version with this value already exists and the version
---     @SecretString@ and @SecretBinary@ values are the same as those in
---     the request, then the request is ignored.
---
--- -   If a version with this value already exists and that version\'s
---     @SecretString@ and @SecretBinary@ values are different from those in
---     the request, then the request fails because you cannot modify an
---     existing version. Instead, use PutSecretValue to create a new
---     version.
---
--- This value becomes the @VersionId@ of the new version.
-createSecret_clientRequestToken :: Lens.Lens' CreateSecret (Prelude.Maybe Prelude.Text)
-createSecret_clientRequestToken = Lens.lens (\CreateSecret' {clientRequestToken} -> clientRequestToken) (\s@CreateSecret' {} a -> s {clientRequestToken = a} :: CreateSecret)
-
--- | Specifies whether to overwrite a secret with the same name in the
--- destination Region.
-createSecret_forceOverwriteReplicaSecret :: Lens.Lens' CreateSecret (Prelude.Maybe Prelude.Bool)
-createSecret_forceOverwriteReplicaSecret = Lens.lens (\CreateSecret' {forceOverwriteReplicaSecret} -> forceOverwriteReplicaSecret) (\s@CreateSecret' {} a -> s {forceOverwriteReplicaSecret = a} :: CreateSecret)
-
--- | The description of the secret.
-createSecret_description :: Lens.Lens' CreateSecret (Prelude.Maybe Prelude.Text)
-createSecret_description = Lens.lens (\CreateSecret' {description} -> description) (\s@CreateSecret' {} a -> s {description = a} :: CreateSecret)
-
--- | The binary data to encrypt and store in the new version of the secret.
--- We recommend that you store your binary data in a file and then pass the
--- contents of the file as a parameter.
---
--- Either @SecretString@ or @SecretBinary@ must have a value, but not both.
---
--- This parameter is not available in the Secrets Manager console.--
--- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- -- The underlying isomorphism will encode to Base64 representation during
--- -- serialisation, and decode from Base64 representation during deserialisation.
--- -- This 'Lens' accepts and returns only raw unencoded data.
-createSecret_secretBinary :: Lens.Lens' CreateSecret (Prelude.Maybe Prelude.ByteString)
-createSecret_secretBinary = Lens.lens (\CreateSecret' {secretBinary} -> secretBinary) (\s@CreateSecret' {} a -> s {secretBinary = a} :: CreateSecret) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Data._Base64)
-
--- | The ARN, key ID, or alias of the KMS key that Secrets Manager uses to
--- encrypt the secret value in the secret. An alias is always prefixed by
--- @alias\/@, for example @alias\/aws\/secretsmanager@. For more
--- information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/alias-about.html About aliases>.
---
--- To use a KMS key in a different account, use the key ARN or the alias
--- ARN.
---
--- If you don\'t specify this value, then Secrets Manager uses the key
--- @aws\/secretsmanager@. If that key doesn\'t yet exist, then Secrets
--- Manager creates it for you automatically the first time it encrypts the
--- secret value.
---
--- If the secret is in a different Amazon Web Services account from the
--- credentials calling the API, then you can\'t use @aws\/secretsmanager@
--- to encrypt the secret, and you must create and use a customer managed
--- KMS key.
-createSecret_kmsKeyId :: Lens.Lens' CreateSecret (Prelude.Maybe Prelude.Text)
-createSecret_kmsKeyId = Lens.lens (\CreateSecret' {kmsKeyId} -> kmsKeyId) (\s@CreateSecret' {} a -> s {kmsKeyId = a} :: CreateSecret)
-
--- | The text data to encrypt and store in this new version of the secret. We
--- recommend you use a JSON structure of key\/value pairs for your secret
--- value.
---
--- Either @SecretString@ or @SecretBinary@ must have a value, but not both.
---
--- If you create a secret by using the Secrets Manager console then Secrets
--- Manager puts the protected secret text in only the @SecretString@
--- parameter. The Secrets Manager console stores the information as a JSON
--- structure of key\/value pairs that a Lambda rotation function can parse.
-createSecret_secretString :: Lens.Lens' CreateSecret (Prelude.Maybe Prelude.Text)
-createSecret_secretString = Lens.lens (\CreateSecret' {secretString} -> secretString) (\s@CreateSecret' {} a -> s {secretString = a} :: CreateSecret) Prelude.. Lens.mapping Data._Sensitive
-
 -- | The name of the new secret.
 --
 -- The secret name can contain ASCII letters, numbers, and the following
@@ -569,37 +569,37 @@ instance Core.AWSRequest CreateSecret where
     Response.receiveJSON
       ( \s h x ->
           CreateSecretResponse'
-            Prelude.<$> (x Data..?> "Name")
+            Prelude.<$> (x Data..?> "ARN")
+            Prelude.<*> (x Data..?> "Name")
             Prelude.<*> ( x Data..?> "ReplicationStatus"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "ARN")
             Prelude.<*> (x Data..?> "VersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateSecret where
   hashWithSalt _salt CreateSecret' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` addReplicaRegions
+    _salt `Prelude.hashWithSalt` addReplicaRegions
       `Prelude.hashWithSalt` clientRequestToken
-      `Prelude.hashWithSalt` forceOverwriteReplicaSecret
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` secretBinary
+      `Prelude.hashWithSalt` forceOverwriteReplicaSecret
       `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` secretBinary
       `Prelude.hashWithSalt` secretString
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateSecret where
   rnf CreateSecret' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf addReplicaRegions
+    Prelude.rnf addReplicaRegions
       `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf forceOverwriteReplicaSecret
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf secretBinary
+      `Prelude.seq` Prelude.rnf forceOverwriteReplicaSecret
       `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf secretBinary
       `Prelude.seq` Prelude.rnf secretString
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders CreateSecret where
@@ -621,17 +621,17 @@ instance Data.ToJSON CreateSecret where
   toJSON CreateSecret' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("AddReplicaRegions" Data..=)
+          [ ("AddReplicaRegions" Data..=)
               Prelude.<$> addReplicaRegions,
             ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
+            ("Description" Data..=) Prelude.<$> description,
             ("ForceOverwriteReplicaSecret" Data..=)
               Prelude.<$> forceOverwriteReplicaSecret,
-            ("Description" Data..=) Prelude.<$> description,
-            ("SecretBinary" Data..=) Prelude.<$> secretBinary,
             ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("SecretBinary" Data..=) Prelude.<$> secretBinary,
             ("SecretString" Data..=) Prelude.<$> secretString,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Name" Data..= name)
           ]
       )
@@ -644,7 +644,13 @@ instance Data.ToQuery CreateSecret where
 
 -- | /See:/ 'newCreateSecretResponse' smart constructor.
 data CreateSecretResponse = CreateSecretResponse'
-  { -- | The name of the new secret.
+  { -- | The ARN of the new secret. The ARN includes the name of the secret
+    -- followed by six random characters. This ensures that if you create a new
+    -- secret with the same name as a deleted secret, then users with access to
+    -- the old secret don\'t get access to the new secret because the ARNs are
+    -- different.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the new secret.
     name :: Prelude.Maybe Prelude.Text,
     -- | A list of the replicas of this secret and their status:
     --
@@ -655,12 +661,6 @@ data CreateSecretResponse = CreateSecretResponse'
     --
     -- -   @InSync@, which indicates that the replica was created.
     replicationStatus :: Prelude.Maybe [ReplicationStatusType],
-    -- | The ARN of the new secret. The ARN includes the name of the secret
-    -- followed by six random characters. This ensures that if you create a new
-    -- secret with the same name as a deleted secret, then users with access to
-    -- the old secret don\'t get access to the new secret because the ARNs are
-    -- different.
-    arn :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier associated with the version of the new secret.
     versionId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -676,6 +676,12 @@ data CreateSecretResponse = CreateSecretResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'arn', 'createSecretResponse_arn' - The ARN of the new secret. The ARN includes the name of the secret
+-- followed by six random characters. This ensures that if you create a new
+-- secret with the same name as a deleted secret, then users with access to
+-- the old secret don\'t get access to the new secret because the ARNs are
+-- different.
+--
 -- 'name', 'createSecretResponse_name' - The name of the new secret.
 --
 -- 'replicationStatus', 'createSecretResponse_replicationStatus' - A list of the replicas of this secret and their status:
@@ -687,12 +693,6 @@ data CreateSecretResponse = CreateSecretResponse'
 --
 -- -   @InSync@, which indicates that the replica was created.
 --
--- 'arn', 'createSecretResponse_arn' - The ARN of the new secret. The ARN includes the name of the secret
--- followed by six random characters. This ensures that if you create a new
--- secret with the same name as a deleted secret, then users with access to
--- the old secret don\'t get access to the new secret because the ARNs are
--- different.
---
 -- 'versionId', 'createSecretResponse_versionId' - The unique identifier associated with the version of the new secret.
 --
 -- 'httpStatus', 'createSecretResponse_httpStatus' - The response's http status code.
@@ -702,12 +702,20 @@ newCreateSecretResponse ::
   CreateSecretResponse
 newCreateSecretResponse pHttpStatus_ =
   CreateSecretResponse'
-    { name = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      name = Prelude.Nothing,
       replicationStatus = Prelude.Nothing,
-      arn = Prelude.Nothing,
       versionId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The ARN of the new secret. The ARN includes the name of the secret
+-- followed by six random characters. This ensures that if you create a new
+-- secret with the same name as a deleted secret, then users with access to
+-- the old secret don\'t get access to the new secret because the ARNs are
+-- different.
+createSecretResponse_arn :: Lens.Lens' CreateSecretResponse (Prelude.Maybe Prelude.Text)
+createSecretResponse_arn = Lens.lens (\CreateSecretResponse' {arn} -> arn) (\s@CreateSecretResponse' {} a -> s {arn = a} :: CreateSecretResponse)
 
 -- | The name of the new secret.
 createSecretResponse_name :: Lens.Lens' CreateSecretResponse (Prelude.Maybe Prelude.Text)
@@ -724,14 +732,6 @@ createSecretResponse_name = Lens.lens (\CreateSecretResponse' {name} -> name) (\
 createSecretResponse_replicationStatus :: Lens.Lens' CreateSecretResponse (Prelude.Maybe [ReplicationStatusType])
 createSecretResponse_replicationStatus = Lens.lens (\CreateSecretResponse' {replicationStatus} -> replicationStatus) (\s@CreateSecretResponse' {} a -> s {replicationStatus = a} :: CreateSecretResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The ARN of the new secret. The ARN includes the name of the secret
--- followed by six random characters. This ensures that if you create a new
--- secret with the same name as a deleted secret, then users with access to
--- the old secret don\'t get access to the new secret because the ARNs are
--- different.
-createSecretResponse_arn :: Lens.Lens' CreateSecretResponse (Prelude.Maybe Prelude.Text)
-createSecretResponse_arn = Lens.lens (\CreateSecretResponse' {arn} -> arn) (\s@CreateSecretResponse' {} a -> s {arn = a} :: CreateSecretResponse)
-
 -- | The unique identifier associated with the version of the new secret.
 createSecretResponse_versionId :: Lens.Lens' CreateSecretResponse (Prelude.Maybe Prelude.Text)
 createSecretResponse_versionId = Lens.lens (\CreateSecretResponse' {versionId} -> versionId) (\s@CreateSecretResponse' {} a -> s {versionId = a} :: CreateSecretResponse)
@@ -742,8 +742,8 @@ createSecretResponse_httpStatus = Lens.lens (\CreateSecretResponse' {httpStatus}
 
 instance Prelude.NFData CreateSecretResponse where
   rnf CreateSecretResponse' {..} =
-    Prelude.rnf name
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf replicationStatus
-      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf versionId
       `Prelude.seq` Prelude.rnf httpStatus

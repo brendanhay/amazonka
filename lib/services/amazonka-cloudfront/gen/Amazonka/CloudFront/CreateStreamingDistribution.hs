@@ -38,9 +38,9 @@ module Amazonka.CloudFront.CreateStreamingDistribution
     newCreateStreamingDistributionResponse,
 
     -- * Response Lenses
+    createStreamingDistributionResponse_eTag,
     createStreamingDistributionResponse_location,
     createStreamingDistributionResponse_streamingDistribution,
-    createStreamingDistributionResponse_eTag,
     createStreamingDistributionResponse_httpStatus,
   )
 where
@@ -96,9 +96,9 @@ instance Core.AWSRequest CreateStreamingDistribution where
     Response.receiveXML
       ( \s h x ->
           CreateStreamingDistributionResponse'
-            Prelude.<$> (h Data..#? "Location")
+            Prelude.<$> (h Data..#? "ETag")
+            Prelude.<*> (h Data..#? "Location")
             Prelude.<*> (Data.parseXML x)
-            Prelude.<*> (h Data..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,13 +131,13 @@ instance Data.ToQuery CreateStreamingDistribution where
 --
 -- /See:/ 'newCreateStreamingDistributionResponse' smart constructor.
 data CreateStreamingDistributionResponse = CreateStreamingDistributionResponse'
-  { -- | The fully qualified URI of the new streaming distribution resource just
+  { -- | The current version of the streaming distribution created.
+    eTag :: Prelude.Maybe Prelude.Text,
+    -- | The fully qualified URI of the new streaming distribution resource just
     -- created.
     location :: Prelude.Maybe Prelude.Text,
     -- | The streaming distribution\'s information.
     streamingDistribution :: Prelude.Maybe StreamingDistribution,
-    -- | The current version of the streaming distribution created.
-    eTag :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -151,12 +151,12 @@ data CreateStreamingDistributionResponse = CreateStreamingDistributionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'eTag', 'createStreamingDistributionResponse_eTag' - The current version of the streaming distribution created.
+--
 -- 'location', 'createStreamingDistributionResponse_location' - The fully qualified URI of the new streaming distribution resource just
 -- created.
 --
 -- 'streamingDistribution', 'createStreamingDistributionResponse_streamingDistribution' - The streaming distribution\'s information.
---
--- 'eTag', 'createStreamingDistributionResponse_eTag' - The current version of the streaming distribution created.
 --
 -- 'httpStatus', 'createStreamingDistributionResponse_httpStatus' - The response's http status code.
 newCreateStreamingDistributionResponse ::
@@ -165,13 +165,17 @@ newCreateStreamingDistributionResponse ::
   CreateStreamingDistributionResponse
 newCreateStreamingDistributionResponse pHttpStatus_ =
   CreateStreamingDistributionResponse'
-    { location =
+    { eTag =
         Prelude.Nothing,
+      location = Prelude.Nothing,
       streamingDistribution =
         Prelude.Nothing,
-      eTag = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The current version of the streaming distribution created.
+createStreamingDistributionResponse_eTag :: Lens.Lens' CreateStreamingDistributionResponse (Prelude.Maybe Prelude.Text)
+createStreamingDistributionResponse_eTag = Lens.lens (\CreateStreamingDistributionResponse' {eTag} -> eTag) (\s@CreateStreamingDistributionResponse' {} a -> s {eTag = a} :: CreateStreamingDistributionResponse)
 
 -- | The fully qualified URI of the new streaming distribution resource just
 -- created.
@@ -182,10 +186,6 @@ createStreamingDistributionResponse_location = Lens.lens (\CreateStreamingDistri
 createStreamingDistributionResponse_streamingDistribution :: Lens.Lens' CreateStreamingDistributionResponse (Prelude.Maybe StreamingDistribution)
 createStreamingDistributionResponse_streamingDistribution = Lens.lens (\CreateStreamingDistributionResponse' {streamingDistribution} -> streamingDistribution) (\s@CreateStreamingDistributionResponse' {} a -> s {streamingDistribution = a} :: CreateStreamingDistributionResponse)
 
--- | The current version of the streaming distribution created.
-createStreamingDistributionResponse_eTag :: Lens.Lens' CreateStreamingDistributionResponse (Prelude.Maybe Prelude.Text)
-createStreamingDistributionResponse_eTag = Lens.lens (\CreateStreamingDistributionResponse' {eTag} -> eTag) (\s@CreateStreamingDistributionResponse' {} a -> s {eTag = a} :: CreateStreamingDistributionResponse)
-
 -- | The response's http status code.
 createStreamingDistributionResponse_httpStatus :: Lens.Lens' CreateStreamingDistributionResponse Prelude.Int
 createStreamingDistributionResponse_httpStatus = Lens.lens (\CreateStreamingDistributionResponse' {httpStatus} -> httpStatus) (\s@CreateStreamingDistributionResponse' {} a -> s {httpStatus = a} :: CreateStreamingDistributionResponse)
@@ -195,7 +195,7 @@ instance
     CreateStreamingDistributionResponse
   where
   rnf CreateStreamingDistributionResponse' {..} =
-    Prelude.rnf location
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf location
       `Prelude.seq` Prelude.rnf streamingDistribution
-      `Prelude.seq` Prelude.rnf eTag
       `Prelude.seq` Prelude.rnf httpStatus

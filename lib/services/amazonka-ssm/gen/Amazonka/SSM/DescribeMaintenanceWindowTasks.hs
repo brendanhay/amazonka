@@ -35,9 +35,9 @@ module Amazonka.SSM.DescribeMaintenanceWindowTasks
     newDescribeMaintenanceWindowTasks,
 
     -- * Request Lenses
-    describeMaintenanceWindowTasks_nextToken,
     describeMaintenanceWindowTasks_filters,
     describeMaintenanceWindowTasks_maxResults,
+    describeMaintenanceWindowTasks_nextToken,
     describeMaintenanceWindowTasks_windowId,
 
     -- * Destructuring the Response
@@ -45,8 +45,8 @@ module Amazonka.SSM.DescribeMaintenanceWindowTasks
     newDescribeMaintenanceWindowTasksResponse,
 
     -- * Response Lenses
-    describeMaintenanceWindowTasksResponse_tasks,
     describeMaintenanceWindowTasksResponse_nextToken,
+    describeMaintenanceWindowTasksResponse_tasks,
     describeMaintenanceWindowTasksResponse_httpStatus,
   )
 where
@@ -61,10 +61,7 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newDescribeMaintenanceWindowTasks' smart constructor.
 data DescribeMaintenanceWindowTasks = DescribeMaintenanceWindowTasks'
-  { -- | The token for the next set of items to return. (You received this token
-    -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Optional filters used to narrow down the scope of the returned tasks.
+  { -- | Optional filters used to narrow down the scope of the returned tasks.
     -- The supported filter keys are @WindowTaskId@, @TaskArn@, @Priority@, and
     -- @TaskType@.
     filters :: Prelude.Maybe [MaintenanceWindowFilter],
@@ -72,6 +69,9 @@ data DescribeMaintenanceWindowTasks = DescribeMaintenanceWindowTasks'
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the maintenance window whose tasks should be retrieved.
     windowId :: Prelude.Text
   }
@@ -85,9 +85,6 @@ data DescribeMaintenanceWindowTasks = DescribeMaintenanceWindowTasks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeMaintenanceWindowTasks_nextToken' - The token for the next set of items to return. (You received this token
--- from a previous call.)
---
 -- 'filters', 'describeMaintenanceWindowTasks_filters' - Optional filters used to narrow down the scope of the returned tasks.
 -- The supported filter keys are @WindowTaskId@, @TaskArn@, @Priority@, and
 -- @TaskType@.
@@ -96,6 +93,9 @@ data DescribeMaintenanceWindowTasks = DescribeMaintenanceWindowTasks'
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
 --
+-- 'nextToken', 'describeMaintenanceWindowTasks_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
+--
 -- 'windowId', 'describeMaintenanceWindowTasks_windowId' - The ID of the maintenance window whose tasks should be retrieved.
 newDescribeMaintenanceWindowTasks ::
   -- | 'windowId'
@@ -103,17 +103,12 @@ newDescribeMaintenanceWindowTasks ::
   DescribeMaintenanceWindowTasks
 newDescribeMaintenanceWindowTasks pWindowId_ =
   DescribeMaintenanceWindowTasks'
-    { nextToken =
+    { filters =
         Prelude.Nothing,
-      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       windowId = pWindowId_
     }
-
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
-describeMaintenanceWindowTasks_nextToken :: Lens.Lens' DescribeMaintenanceWindowTasks (Prelude.Maybe Prelude.Text)
-describeMaintenanceWindowTasks_nextToken = Lens.lens (\DescribeMaintenanceWindowTasks' {nextToken} -> nextToken) (\s@DescribeMaintenanceWindowTasks' {} a -> s {nextToken = a} :: DescribeMaintenanceWindowTasks)
 
 -- | Optional filters used to narrow down the scope of the returned tasks.
 -- The supported filter keys are @WindowTaskId@, @TaskArn@, @Priority@, and
@@ -126,6 +121,11 @@ describeMaintenanceWindowTasks_filters = Lens.lens (\DescribeMaintenanceWindowTa
 -- next set of results.
 describeMaintenanceWindowTasks_maxResults :: Lens.Lens' DescribeMaintenanceWindowTasks (Prelude.Maybe Prelude.Natural)
 describeMaintenanceWindowTasks_maxResults = Lens.lens (\DescribeMaintenanceWindowTasks' {maxResults} -> maxResults) (\s@DescribeMaintenanceWindowTasks' {} a -> s {maxResults = a} :: DescribeMaintenanceWindowTasks)
+
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+describeMaintenanceWindowTasks_nextToken :: Lens.Lens' DescribeMaintenanceWindowTasks (Prelude.Maybe Prelude.Text)
+describeMaintenanceWindowTasks_nextToken = Lens.lens (\DescribeMaintenanceWindowTasks' {nextToken} -> nextToken) (\s@DescribeMaintenanceWindowTasks' {} a -> s {nextToken = a} :: DescribeMaintenanceWindowTasks)
 
 -- | The ID of the maintenance window whose tasks should be retrieved.
 describeMaintenanceWindowTasks_windowId :: Lens.Lens' DescribeMaintenanceWindowTasks Prelude.Text
@@ -166,8 +166,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeMaintenanceWindowTasksResponse'
-            Prelude.<$> (x Data..?> "Tasks" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Tasks" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -178,9 +178,9 @@ instance
   hashWithSalt
     _salt
     DescribeMaintenanceWindowTasks' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` filters
+      _salt `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` windowId
 
 instance
@@ -188,9 +188,9 @@ instance
     DescribeMaintenanceWindowTasks
   where
   rnf DescribeMaintenanceWindowTasks' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf windowId
 
 instance
@@ -215,9 +215,9 @@ instance Data.ToJSON DescribeMaintenanceWindowTasks where
   toJSON DescribeMaintenanceWindowTasks' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
+          [ ("Filters" Data..=) Prelude.<$> filters,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("WindowId" Data..= windowId)
           ]
       )
@@ -230,11 +230,11 @@ instance Data.ToQuery DescribeMaintenanceWindowTasks where
 
 -- | /See:/ 'newDescribeMaintenanceWindowTasksResponse' smart constructor.
 data DescribeMaintenanceWindowTasksResponse = DescribeMaintenanceWindowTasksResponse'
-  { -- | Information about the tasks in the maintenance window.
-    tasks :: Prelude.Maybe [MaintenanceWindowTask],
-    -- | The token to use when requesting the next set of items. If there are no
+  { -- | The token to use when requesting the next set of items. If there are no
     -- additional items to return, the string is empty.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the tasks in the maintenance window.
+    tasks :: Prelude.Maybe [MaintenanceWindowTask],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -248,10 +248,10 @@ data DescribeMaintenanceWindowTasksResponse = DescribeMaintenanceWindowTasksResp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tasks', 'describeMaintenanceWindowTasksResponse_tasks' - Information about the tasks in the maintenance window.
---
 -- 'nextToken', 'describeMaintenanceWindowTasksResponse_nextToken' - The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
+--
+-- 'tasks', 'describeMaintenanceWindowTasksResponse_tasks' - Information about the tasks in the maintenance window.
 --
 -- 'httpStatus', 'describeMaintenanceWindowTasksResponse_httpStatus' - The response's http status code.
 newDescribeMaintenanceWindowTasksResponse ::
@@ -261,20 +261,20 @@ newDescribeMaintenanceWindowTasksResponse ::
 newDescribeMaintenanceWindowTasksResponse
   pHttpStatus_ =
     DescribeMaintenanceWindowTasksResponse'
-      { tasks =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        tasks = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | Information about the tasks in the maintenance window.
-describeMaintenanceWindowTasksResponse_tasks :: Lens.Lens' DescribeMaintenanceWindowTasksResponse (Prelude.Maybe [MaintenanceWindowTask])
-describeMaintenanceWindowTasksResponse_tasks = Lens.lens (\DescribeMaintenanceWindowTasksResponse' {tasks} -> tasks) (\s@DescribeMaintenanceWindowTasksResponse' {} a -> s {tasks = a} :: DescribeMaintenanceWindowTasksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
 describeMaintenanceWindowTasksResponse_nextToken :: Lens.Lens' DescribeMaintenanceWindowTasksResponse (Prelude.Maybe Prelude.Text)
 describeMaintenanceWindowTasksResponse_nextToken = Lens.lens (\DescribeMaintenanceWindowTasksResponse' {nextToken} -> nextToken) (\s@DescribeMaintenanceWindowTasksResponse' {} a -> s {nextToken = a} :: DescribeMaintenanceWindowTasksResponse)
+
+-- | Information about the tasks in the maintenance window.
+describeMaintenanceWindowTasksResponse_tasks :: Lens.Lens' DescribeMaintenanceWindowTasksResponse (Prelude.Maybe [MaintenanceWindowTask])
+describeMaintenanceWindowTasksResponse_tasks = Lens.lens (\DescribeMaintenanceWindowTasksResponse' {tasks} -> tasks) (\s@DescribeMaintenanceWindowTasksResponse' {} a -> s {tasks = a} :: DescribeMaintenanceWindowTasksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeMaintenanceWindowTasksResponse_httpStatus :: Lens.Lens' DescribeMaintenanceWindowTasksResponse Prelude.Int
@@ -285,6 +285,6 @@ instance
     DescribeMaintenanceWindowTasksResponse
   where
   rnf DescribeMaintenanceWindowTasksResponse' {..} =
-    Prelude.rnf tasks
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf tasks
       `Prelude.seq` Prelude.rnf httpStatus

@@ -30,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceEventWindowAssociationTarget' smart constructor.
 data InstanceEventWindowAssociationTarget = InstanceEventWindowAssociationTarget'
-  { -- | The instance tags associated with the event window. Any instances
-    -- associated with the tags will be associated with the event window.
-    tags :: Prelude.Maybe [Tag],
-    -- | The IDs of the Dedicated Hosts associated with the event window.
+  { -- | The IDs of the Dedicated Hosts associated with the event window.
     dedicatedHostIds :: Prelude.Maybe [Prelude.Text],
     -- | The IDs of the instances associated with the event window.
-    instanceIds :: Prelude.Maybe [Prelude.Text]
+    instanceIds :: Prelude.Maybe [Prelude.Text],
+    -- | The instance tags associated with the event window. Any instances
+    -- associated with the tags will be associated with the event window.
+    tags :: Prelude.Maybe [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,26 +48,21 @@ data InstanceEventWindowAssociationTarget = InstanceEventWindowAssociationTarget
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'instanceEventWindowAssociationTarget_tags' - The instance tags associated with the event window. Any instances
--- associated with the tags will be associated with the event window.
---
 -- 'dedicatedHostIds', 'instanceEventWindowAssociationTarget_dedicatedHostIds' - The IDs of the Dedicated Hosts associated with the event window.
 --
 -- 'instanceIds', 'instanceEventWindowAssociationTarget_instanceIds' - The IDs of the instances associated with the event window.
+--
+-- 'tags', 'instanceEventWindowAssociationTarget_tags' - The instance tags associated with the event window. Any instances
+-- associated with the tags will be associated with the event window.
 newInstanceEventWindowAssociationTarget ::
   InstanceEventWindowAssociationTarget
 newInstanceEventWindowAssociationTarget =
   InstanceEventWindowAssociationTarget'
-    { tags =
+    { dedicatedHostIds =
         Prelude.Nothing,
-      dedicatedHostIds = Prelude.Nothing,
-      instanceIds = Prelude.Nothing
+      instanceIds = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
-
--- | The instance tags associated with the event window. Any instances
--- associated with the tags will be associated with the event window.
-instanceEventWindowAssociationTarget_tags :: Lens.Lens' InstanceEventWindowAssociationTarget (Prelude.Maybe [Tag])
-instanceEventWindowAssociationTarget_tags = Lens.lens (\InstanceEventWindowAssociationTarget' {tags} -> tags) (\s@InstanceEventWindowAssociationTarget' {} a -> s {tags = a} :: InstanceEventWindowAssociationTarget) Prelude.. Lens.mapping Lens.coerced
 
 -- | The IDs of the Dedicated Hosts associated with the event window.
 instanceEventWindowAssociationTarget_dedicatedHostIds :: Lens.Lens' InstanceEventWindowAssociationTarget (Prelude.Maybe [Prelude.Text])
@@ -77,20 +72,25 @@ instanceEventWindowAssociationTarget_dedicatedHostIds = Lens.lens (\InstanceEven
 instanceEventWindowAssociationTarget_instanceIds :: Lens.Lens' InstanceEventWindowAssociationTarget (Prelude.Maybe [Prelude.Text])
 instanceEventWindowAssociationTarget_instanceIds = Lens.lens (\InstanceEventWindowAssociationTarget' {instanceIds} -> instanceIds) (\s@InstanceEventWindowAssociationTarget' {} a -> s {instanceIds = a} :: InstanceEventWindowAssociationTarget) Prelude.. Lens.mapping Lens.coerced
 
+-- | The instance tags associated with the event window. Any instances
+-- associated with the tags will be associated with the event window.
+instanceEventWindowAssociationTarget_tags :: Lens.Lens' InstanceEventWindowAssociationTarget (Prelude.Maybe [Tag])
+instanceEventWindowAssociationTarget_tags = Lens.lens (\InstanceEventWindowAssociationTarget' {tags} -> tags) (\s@InstanceEventWindowAssociationTarget' {} a -> s {tags = a} :: InstanceEventWindowAssociationTarget) Prelude.. Lens.mapping Lens.coerced
+
 instance
   Data.FromXML
     InstanceEventWindowAssociationTarget
   where
   parseXML x =
     InstanceEventWindowAssociationTarget'
-      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Data.parseXMLList "item")
-                  )
-      Prelude.<*> ( x Data..@? "dedicatedHostIdSet"
+      Prelude.<$> ( x Data..@? "dedicatedHostIdSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> ( x Data..@? "instanceIdSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
+                  )
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
@@ -101,15 +101,15 @@ instance
   hashWithSalt
     _salt
     InstanceEventWindowAssociationTarget' {..} =
-      _salt `Prelude.hashWithSalt` tags
-        `Prelude.hashWithSalt` dedicatedHostIds
+      _salt `Prelude.hashWithSalt` dedicatedHostIds
         `Prelude.hashWithSalt` instanceIds
+        `Prelude.hashWithSalt` tags
 
 instance
   Prelude.NFData
     InstanceEventWindowAssociationTarget
   where
   rnf InstanceEventWindowAssociationTarget' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf dedicatedHostIds
+    Prelude.rnf dedicatedHostIds
       `Prelude.seq` Prelude.rnf instanceIds
+      `Prelude.seq` Prelude.rnf tags

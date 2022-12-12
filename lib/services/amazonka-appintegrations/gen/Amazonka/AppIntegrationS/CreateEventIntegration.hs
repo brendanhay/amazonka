@@ -31,9 +31,9 @@ module Amazonka.AppIntegrationS.CreateEventIntegration
     newCreateEventIntegration,
 
     -- * Request Lenses
-    createEventIntegration_tags,
     createEventIntegration_clientToken,
     createEventIntegration_description,
+    createEventIntegration_tags,
     createEventIntegration_name,
     createEventIntegration_eventFilter,
     createEventIntegration_eventBridgeBus,
@@ -58,13 +58,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateEventIntegration' smart constructor.
 data CreateEventIntegration = CreateEventIntegration'
-  { -- | One or more tags.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A unique, case-sensitive identifier that you provide to ensure the
+  { -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The description of the event integration.
     description :: Prelude.Maybe Prelude.Text,
+    -- | One or more tags.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the event integration.
     name :: Prelude.Text,
     -- | The event filter.
@@ -82,12 +82,12 @@ data CreateEventIntegration = CreateEventIntegration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createEventIntegration_tags' - One or more tags.
---
 -- 'clientToken', 'createEventIntegration_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
 --
 -- 'description', 'createEventIntegration_description' - The description of the event integration.
+--
+-- 'tags', 'createEventIntegration_tags' - One or more tags.
 --
 -- 'name', 'createEventIntegration_name' - The name of the event integration.
 --
@@ -107,17 +107,14 @@ newCreateEventIntegration
   pEventFilter_
   pEventBridgeBus_ =
     CreateEventIntegration'
-      { tags = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+      { clientToken =
+          Prelude.Nothing,
         description = Prelude.Nothing,
+        tags = Prelude.Nothing,
         name = pName_,
         eventFilter = pEventFilter_,
         eventBridgeBus = pEventBridgeBus_
       }
-
--- | One or more tags.
-createEventIntegration_tags :: Lens.Lens' CreateEventIntegration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createEventIntegration_tags = Lens.lens (\CreateEventIntegration' {tags} -> tags) (\s@CreateEventIntegration' {} a -> s {tags = a} :: CreateEventIntegration) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
@@ -127,6 +124,10 @@ createEventIntegration_clientToken = Lens.lens (\CreateEventIntegration' {client
 -- | The description of the event integration.
 createEventIntegration_description :: Lens.Lens' CreateEventIntegration (Prelude.Maybe Prelude.Text)
 createEventIntegration_description = Lens.lens (\CreateEventIntegration' {description} -> description) (\s@CreateEventIntegration' {} a -> s {description = a} :: CreateEventIntegration)
+
+-- | One or more tags.
+createEventIntegration_tags :: Lens.Lens' CreateEventIntegration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createEventIntegration_tags = Lens.lens (\CreateEventIntegration' {tags} -> tags) (\s@CreateEventIntegration' {} a -> s {tags = a} :: CreateEventIntegration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the event integration.
 createEventIntegration_name :: Lens.Lens' CreateEventIntegration Prelude.Text
@@ -156,18 +157,18 @@ instance Core.AWSRequest CreateEventIntegration where
 
 instance Prelude.Hashable CreateEventIntegration where
   hashWithSalt _salt CreateEventIntegration' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` eventFilter
       `Prelude.hashWithSalt` eventBridgeBus
 
 instance Prelude.NFData CreateEventIntegration where
   rnf CreateEventIntegration' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf eventFilter
       `Prelude.seq` Prelude.rnf eventBridgeBus
@@ -187,9 +188,9 @@ instance Data.ToJSON CreateEventIntegration where
   toJSON CreateEventIntegration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ClientToken" Data..=) Prelude.<$> clientToken,
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
             ("Description" Data..=) Prelude.<$> description,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("EventFilter" Data..= eventFilter),
             Prelude.Just

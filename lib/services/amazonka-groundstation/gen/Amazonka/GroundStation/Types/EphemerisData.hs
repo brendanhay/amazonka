@@ -30,8 +30,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEphemerisData' smart constructor.
 data EphemerisData = EphemerisData'
-  { tle :: Prelude.Maybe TLEEphemeris,
-    oem :: Prelude.Maybe OEMEphemeris
+  { oem :: Prelude.Maybe OEMEphemeris,
+    tle :: Prelude.Maybe TLEEphemeris
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,39 +43,39 @@ data EphemerisData = EphemerisData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tle', 'ephemerisData_tle' - Undocumented member.
---
 -- 'oem', 'ephemerisData_oem' - Undocumented member.
+--
+-- 'tle', 'ephemerisData_tle' - Undocumented member.
 newEphemerisData ::
   EphemerisData
 newEphemerisData =
   EphemerisData'
-    { tle = Prelude.Nothing,
-      oem = Prelude.Nothing
+    { oem = Prelude.Nothing,
+      tle = Prelude.Nothing
     }
-
--- | Undocumented member.
-ephemerisData_tle :: Lens.Lens' EphemerisData (Prelude.Maybe TLEEphemeris)
-ephemerisData_tle = Lens.lens (\EphemerisData' {tle} -> tle) (\s@EphemerisData' {} a -> s {tle = a} :: EphemerisData)
 
 -- | Undocumented member.
 ephemerisData_oem :: Lens.Lens' EphemerisData (Prelude.Maybe OEMEphemeris)
 ephemerisData_oem = Lens.lens (\EphemerisData' {oem} -> oem) (\s@EphemerisData' {} a -> s {oem = a} :: EphemerisData)
 
+-- | Undocumented member.
+ephemerisData_tle :: Lens.Lens' EphemerisData (Prelude.Maybe TLEEphemeris)
+ephemerisData_tle = Lens.lens (\EphemerisData' {tle} -> tle) (\s@EphemerisData' {} a -> s {tle = a} :: EphemerisData)
+
 instance Prelude.Hashable EphemerisData where
   hashWithSalt _salt EphemerisData' {..} =
-    _salt `Prelude.hashWithSalt` tle
-      `Prelude.hashWithSalt` oem
+    _salt `Prelude.hashWithSalt` oem
+      `Prelude.hashWithSalt` tle
 
 instance Prelude.NFData EphemerisData where
   rnf EphemerisData' {..} =
-    Prelude.rnf tle `Prelude.seq` Prelude.rnf oem
+    Prelude.rnf oem `Prelude.seq` Prelude.rnf tle
 
 instance Data.ToJSON EphemerisData where
   toJSON EphemerisData' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tle" Data..=) Prelude.<$> tle,
-            ("oem" Data..=) Prelude.<$> oem
+          [ ("oem" Data..=) Prelude.<$> oem,
+            ("tle" Data..=) Prelude.<$> tle
           ]
       )

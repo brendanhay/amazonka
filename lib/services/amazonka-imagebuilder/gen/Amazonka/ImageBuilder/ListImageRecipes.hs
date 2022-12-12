@@ -27,19 +27,19 @@ module Amazonka.ImageBuilder.ListImageRecipes
     newListImageRecipes,
 
     -- * Request Lenses
-    listImageRecipes_nextToken,
     listImageRecipes_filters,
-    listImageRecipes_owner,
     listImageRecipes_maxResults,
+    listImageRecipes_nextToken,
+    listImageRecipes_owner,
 
     -- * Destructuring the Response
     ListImageRecipesResponse (..),
     newListImageRecipesResponse,
 
     -- * Response Lenses
+    listImageRecipesResponse_imageRecipeSummaryList,
     listImageRecipesResponse_nextToken,
     listImageRecipesResponse_requestId,
-    listImageRecipesResponse_imageRecipeSummaryList,
     listImageRecipesResponse_httpStatus,
   )
 where
@@ -54,10 +54,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListImageRecipes' smart constructor.
 data ListImageRecipes = ListImageRecipes'
-  { -- | A token to specify where to start paginating. This is the NextToken from
-    -- a previously truncated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Use the following filters to streamline results:
+  { -- | Use the following filters to streamline results:
     --
     -- -   @name@
     --
@@ -65,14 +62,17 @@ data ListImageRecipes = ListImageRecipes'
     --
     -- -   @platform@
     filters :: Prelude.Maybe (Prelude.NonEmpty Filter),
+    -- | The maximum items to return in a request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token to specify where to start paginating. This is the NextToken from
+    -- a previously truncated response.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The owner defines which image recipes you want to list. By default, this
     -- request will only show image recipes owned by your account. You can use
     -- this field to specify if you want to view image recipes owned by
     -- yourself, by Amazon, or those image recipes that have been shared with
     -- you by other customers.
-    owner :: Prelude.Maybe Ownership,
-    -- | The maximum items to return in a request.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    owner :: Prelude.Maybe Ownership
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,9 +84,6 @@ data ListImageRecipes = ListImageRecipes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listImageRecipes_nextToken' - A token to specify where to start paginating. This is the NextToken from
--- a previously truncated response.
---
 -- 'filters', 'listImageRecipes_filters' - Use the following filters to streamline results:
 --
 -- -   @name@
@@ -95,27 +92,25 @@ data ListImageRecipes = ListImageRecipes'
 --
 -- -   @platform@
 --
+-- 'maxResults', 'listImageRecipes_maxResults' - The maximum items to return in a request.
+--
+-- 'nextToken', 'listImageRecipes_nextToken' - A token to specify where to start paginating. This is the NextToken from
+-- a previously truncated response.
+--
 -- 'owner', 'listImageRecipes_owner' - The owner defines which image recipes you want to list. By default, this
 -- request will only show image recipes owned by your account. You can use
 -- this field to specify if you want to view image recipes owned by
 -- yourself, by Amazon, or those image recipes that have been shared with
 -- you by other customers.
---
--- 'maxResults', 'listImageRecipes_maxResults' - The maximum items to return in a request.
 newListImageRecipes ::
   ListImageRecipes
 newListImageRecipes =
   ListImageRecipes'
-    { nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      owner = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      owner = Prelude.Nothing
     }
-
--- | A token to specify where to start paginating. This is the NextToken from
--- a previously truncated response.
-listImageRecipes_nextToken :: Lens.Lens' ListImageRecipes (Prelude.Maybe Prelude.Text)
-listImageRecipes_nextToken = Lens.lens (\ListImageRecipes' {nextToken} -> nextToken) (\s@ListImageRecipes' {} a -> s {nextToken = a} :: ListImageRecipes)
 
 -- | Use the following filters to streamline results:
 --
@@ -127,6 +122,15 @@ listImageRecipes_nextToken = Lens.lens (\ListImageRecipes' {nextToken} -> nextTo
 listImageRecipes_filters :: Lens.Lens' ListImageRecipes (Prelude.Maybe (Prelude.NonEmpty Filter))
 listImageRecipes_filters = Lens.lens (\ListImageRecipes' {filters} -> filters) (\s@ListImageRecipes' {} a -> s {filters = a} :: ListImageRecipes) Prelude.. Lens.mapping Lens.coerced
 
+-- | The maximum items to return in a request.
+listImageRecipes_maxResults :: Lens.Lens' ListImageRecipes (Prelude.Maybe Prelude.Natural)
+listImageRecipes_maxResults = Lens.lens (\ListImageRecipes' {maxResults} -> maxResults) (\s@ListImageRecipes' {} a -> s {maxResults = a} :: ListImageRecipes)
+
+-- | A token to specify where to start paginating. This is the NextToken from
+-- a previously truncated response.
+listImageRecipes_nextToken :: Lens.Lens' ListImageRecipes (Prelude.Maybe Prelude.Text)
+listImageRecipes_nextToken = Lens.lens (\ListImageRecipes' {nextToken} -> nextToken) (\s@ListImageRecipes' {} a -> s {nextToken = a} :: ListImageRecipes)
+
 -- | The owner defines which image recipes you want to list. By default, this
 -- request will only show image recipes owned by your account. You can use
 -- this field to specify if you want to view image recipes owned by
@@ -134,10 +138,6 @@ listImageRecipes_filters = Lens.lens (\ListImageRecipes' {filters} -> filters) (
 -- you by other customers.
 listImageRecipes_owner :: Lens.Lens' ListImageRecipes (Prelude.Maybe Ownership)
 listImageRecipes_owner = Lens.lens (\ListImageRecipes' {owner} -> owner) (\s@ListImageRecipes' {} a -> s {owner = a} :: ListImageRecipes)
-
--- | The maximum items to return in a request.
-listImageRecipes_maxResults :: Lens.Lens' ListImageRecipes (Prelude.Maybe Prelude.Natural)
-listImageRecipes_maxResults = Lens.lens (\ListImageRecipes' {maxResults} -> maxResults) (\s@ListImageRecipes' {} a -> s {maxResults = a} :: ListImageRecipes)
 
 instance Core.AWSRequest ListImageRecipes where
   type
@@ -149,27 +149,27 @@ instance Core.AWSRequest ListImageRecipes where
     Response.receiveJSON
       ( \s h x ->
           ListImageRecipesResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "requestId")
-            Prelude.<*> ( x Data..?> "imageRecipeSummaryList"
+            Prelude.<$> ( x Data..?> "imageRecipeSummaryList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListImageRecipes where
   hashWithSalt _salt ListImageRecipes' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` owner
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` owner
 
 instance Prelude.NFData ListImageRecipes where
   rnf ListImageRecipes' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf owner
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf owner
 
 instance Data.ToHeaders ListImageRecipes where
   toHeaders =
@@ -186,10 +186,10 @@ instance Data.ToJSON ListImageRecipes where
   toJSON ListImageRecipes' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("filters" Data..=) Prelude.<$> filters,
-            ("owner" Data..=) Prelude.<$> owner,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("filters" Data..=) Prelude.<$> filters,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("owner" Data..=) Prelude.<$> owner
           ]
       )
 
@@ -201,15 +201,15 @@ instance Data.ToQuery ListImageRecipes where
 
 -- | /See:/ 'newListImageRecipesResponse' smart constructor.
 data ListImageRecipesResponse = ListImageRecipesResponse'
-  { -- | The next token used for paginated responses. When this is not empty,
+  { -- | The list of image pipelines.
+    imageRecipeSummaryList :: Prelude.Maybe [ImageRecipeSummary],
+    -- | The next token used for paginated responses. When this is not empty,
     -- there are additional elements that the service has not included in this
     -- request. Use this token with the next request to retrieve additional
     -- objects.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The request ID that uniquely identifies this request.
     requestId :: Prelude.Maybe Prelude.Text,
-    -- | The list of image pipelines.
-    imageRecipeSummaryList :: Prelude.Maybe [ImageRecipeSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -223,14 +223,14 @@ data ListImageRecipesResponse = ListImageRecipesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'imageRecipeSummaryList', 'listImageRecipesResponse_imageRecipeSummaryList' - The list of image pipelines.
+--
 -- 'nextToken', 'listImageRecipesResponse_nextToken' - The next token used for paginated responses. When this is not empty,
 -- there are additional elements that the service has not included in this
 -- request. Use this token with the next request to retrieve additional
 -- objects.
 --
 -- 'requestId', 'listImageRecipesResponse_requestId' - The request ID that uniquely identifies this request.
---
--- 'imageRecipeSummaryList', 'listImageRecipesResponse_imageRecipeSummaryList' - The list of image pipelines.
 --
 -- 'httpStatus', 'listImageRecipesResponse_httpStatus' - The response's http status code.
 newListImageRecipesResponse ::
@@ -239,12 +239,16 @@ newListImageRecipesResponse ::
   ListImageRecipesResponse
 newListImageRecipesResponse pHttpStatus_ =
   ListImageRecipesResponse'
-    { nextToken =
+    { imageRecipeSummaryList =
         Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       requestId = Prelude.Nothing,
-      imageRecipeSummaryList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of image pipelines.
+listImageRecipesResponse_imageRecipeSummaryList :: Lens.Lens' ListImageRecipesResponse (Prelude.Maybe [ImageRecipeSummary])
+listImageRecipesResponse_imageRecipeSummaryList = Lens.lens (\ListImageRecipesResponse' {imageRecipeSummaryList} -> imageRecipeSummaryList) (\s@ListImageRecipesResponse' {} a -> s {imageRecipeSummaryList = a} :: ListImageRecipesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The next token used for paginated responses. When this is not empty,
 -- there are additional elements that the service has not included in this
@@ -257,17 +261,13 @@ listImageRecipesResponse_nextToken = Lens.lens (\ListImageRecipesResponse' {next
 listImageRecipesResponse_requestId :: Lens.Lens' ListImageRecipesResponse (Prelude.Maybe Prelude.Text)
 listImageRecipesResponse_requestId = Lens.lens (\ListImageRecipesResponse' {requestId} -> requestId) (\s@ListImageRecipesResponse' {} a -> s {requestId = a} :: ListImageRecipesResponse)
 
--- | The list of image pipelines.
-listImageRecipesResponse_imageRecipeSummaryList :: Lens.Lens' ListImageRecipesResponse (Prelude.Maybe [ImageRecipeSummary])
-listImageRecipesResponse_imageRecipeSummaryList = Lens.lens (\ListImageRecipesResponse' {imageRecipeSummaryList} -> imageRecipeSummaryList) (\s@ListImageRecipesResponse' {} a -> s {imageRecipeSummaryList = a} :: ListImageRecipesResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listImageRecipesResponse_httpStatus :: Lens.Lens' ListImageRecipesResponse Prelude.Int
 listImageRecipesResponse_httpStatus = Lens.lens (\ListImageRecipesResponse' {httpStatus} -> httpStatus) (\s@ListImageRecipesResponse' {} a -> s {httpStatus = a} :: ListImageRecipesResponse)
 
 instance Prelude.NFData ListImageRecipesResponse where
   rnf ListImageRecipesResponse' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf imageRecipeSummaryList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf imageRecipeSummaryList
       `Prelude.seq` Prelude.rnf httpStatus

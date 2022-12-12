@@ -28,24 +28,24 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTrialComponentMetricSummary' smart constructor.
 data TrialComponentMetricSummary = TrialComponentMetricSummary'
-  { -- | The Amazon Resource Name (ARN) of the source.
-    sourceArn :: Prelude.Maybe Prelude.Text,
-    -- | The maximum value of the metric.
-    max :: Prelude.Maybe Prelude.Double,
-    -- | When the metric was last updated.
-    timeStamp :: Prelude.Maybe Data.POSIX,
-    -- | The average value of the metric.
+  { -- | The average value of the metric.
     avg :: Prelude.Maybe Prelude.Double,
     -- | The number of samples used to generate the metric.
     count :: Prelude.Maybe Prelude.Int,
     -- | The most recent value of the metric.
     last :: Prelude.Maybe Prelude.Double,
-    -- | The minimum value of the metric.
-    min :: Prelude.Maybe Prelude.Double,
+    -- | The maximum value of the metric.
+    max :: Prelude.Maybe Prelude.Double,
     -- | The name of the metric.
     metricName :: Prelude.Maybe Prelude.Text,
+    -- | The minimum value of the metric.
+    min :: Prelude.Maybe Prelude.Double,
+    -- | The Amazon Resource Name (ARN) of the source.
+    sourceArn :: Prelude.Maybe Prelude.Text,
     -- | The standard deviation of the metric.
-    stdDev :: Prelude.Maybe Prelude.Double
+    stdDev :: Prelude.Maybe Prelude.Double,
+    -- | When the metric was last updated.
+    timeStamp :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,50 +57,37 @@ data TrialComponentMetricSummary = TrialComponentMetricSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceArn', 'trialComponentMetricSummary_sourceArn' - The Amazon Resource Name (ARN) of the source.
---
--- 'max', 'trialComponentMetricSummary_max' - The maximum value of the metric.
---
--- 'timeStamp', 'trialComponentMetricSummary_timeStamp' - When the metric was last updated.
---
 -- 'avg', 'trialComponentMetricSummary_avg' - The average value of the metric.
 --
 -- 'count', 'trialComponentMetricSummary_count' - The number of samples used to generate the metric.
 --
 -- 'last', 'trialComponentMetricSummary_last' - The most recent value of the metric.
 --
--- 'min', 'trialComponentMetricSummary_min' - The minimum value of the metric.
+-- 'max', 'trialComponentMetricSummary_max' - The maximum value of the metric.
 --
 -- 'metricName', 'trialComponentMetricSummary_metricName' - The name of the metric.
 --
+-- 'min', 'trialComponentMetricSummary_min' - The minimum value of the metric.
+--
+-- 'sourceArn', 'trialComponentMetricSummary_sourceArn' - The Amazon Resource Name (ARN) of the source.
+--
 -- 'stdDev', 'trialComponentMetricSummary_stdDev' - The standard deviation of the metric.
+--
+-- 'timeStamp', 'trialComponentMetricSummary_timeStamp' - When the metric was last updated.
 newTrialComponentMetricSummary ::
   TrialComponentMetricSummary
 newTrialComponentMetricSummary =
   TrialComponentMetricSummary'
-    { sourceArn =
-        Prelude.Nothing,
-      max = Prelude.Nothing,
-      timeStamp = Prelude.Nothing,
-      avg = Prelude.Nothing,
+    { avg = Prelude.Nothing,
       count = Prelude.Nothing,
       last = Prelude.Nothing,
-      min = Prelude.Nothing,
+      max = Prelude.Nothing,
       metricName = Prelude.Nothing,
-      stdDev = Prelude.Nothing
+      min = Prelude.Nothing,
+      sourceArn = Prelude.Nothing,
+      stdDev = Prelude.Nothing,
+      timeStamp = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the source.
-trialComponentMetricSummary_sourceArn :: Lens.Lens' TrialComponentMetricSummary (Prelude.Maybe Prelude.Text)
-trialComponentMetricSummary_sourceArn = Lens.lens (\TrialComponentMetricSummary' {sourceArn} -> sourceArn) (\s@TrialComponentMetricSummary' {} a -> s {sourceArn = a} :: TrialComponentMetricSummary)
-
--- | The maximum value of the metric.
-trialComponentMetricSummary_max :: Lens.Lens' TrialComponentMetricSummary (Prelude.Maybe Prelude.Double)
-trialComponentMetricSummary_max = Lens.lens (\TrialComponentMetricSummary' {max} -> max) (\s@TrialComponentMetricSummary' {} a -> s {max = a} :: TrialComponentMetricSummary)
-
--- | When the metric was last updated.
-trialComponentMetricSummary_timeStamp :: Lens.Lens' TrialComponentMetricSummary (Prelude.Maybe Prelude.UTCTime)
-trialComponentMetricSummary_timeStamp = Lens.lens (\TrialComponentMetricSummary' {timeStamp} -> timeStamp) (\s@TrialComponentMetricSummary' {} a -> s {timeStamp = a} :: TrialComponentMetricSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The average value of the metric.
 trialComponentMetricSummary_avg :: Lens.Lens' TrialComponentMetricSummary (Prelude.Maybe Prelude.Double)
@@ -114,17 +101,29 @@ trialComponentMetricSummary_count = Lens.lens (\TrialComponentMetricSummary' {co
 trialComponentMetricSummary_last :: Lens.Lens' TrialComponentMetricSummary (Prelude.Maybe Prelude.Double)
 trialComponentMetricSummary_last = Lens.lens (\TrialComponentMetricSummary' {last} -> last) (\s@TrialComponentMetricSummary' {} a -> s {last = a} :: TrialComponentMetricSummary)
 
--- | The minimum value of the metric.
-trialComponentMetricSummary_min :: Lens.Lens' TrialComponentMetricSummary (Prelude.Maybe Prelude.Double)
-trialComponentMetricSummary_min = Lens.lens (\TrialComponentMetricSummary' {min} -> min) (\s@TrialComponentMetricSummary' {} a -> s {min = a} :: TrialComponentMetricSummary)
+-- | The maximum value of the metric.
+trialComponentMetricSummary_max :: Lens.Lens' TrialComponentMetricSummary (Prelude.Maybe Prelude.Double)
+trialComponentMetricSummary_max = Lens.lens (\TrialComponentMetricSummary' {max} -> max) (\s@TrialComponentMetricSummary' {} a -> s {max = a} :: TrialComponentMetricSummary)
 
 -- | The name of the metric.
 trialComponentMetricSummary_metricName :: Lens.Lens' TrialComponentMetricSummary (Prelude.Maybe Prelude.Text)
 trialComponentMetricSummary_metricName = Lens.lens (\TrialComponentMetricSummary' {metricName} -> metricName) (\s@TrialComponentMetricSummary' {} a -> s {metricName = a} :: TrialComponentMetricSummary)
 
+-- | The minimum value of the metric.
+trialComponentMetricSummary_min :: Lens.Lens' TrialComponentMetricSummary (Prelude.Maybe Prelude.Double)
+trialComponentMetricSummary_min = Lens.lens (\TrialComponentMetricSummary' {min} -> min) (\s@TrialComponentMetricSummary' {} a -> s {min = a} :: TrialComponentMetricSummary)
+
+-- | The Amazon Resource Name (ARN) of the source.
+trialComponentMetricSummary_sourceArn :: Lens.Lens' TrialComponentMetricSummary (Prelude.Maybe Prelude.Text)
+trialComponentMetricSummary_sourceArn = Lens.lens (\TrialComponentMetricSummary' {sourceArn} -> sourceArn) (\s@TrialComponentMetricSummary' {} a -> s {sourceArn = a} :: TrialComponentMetricSummary)
+
 -- | The standard deviation of the metric.
 trialComponentMetricSummary_stdDev :: Lens.Lens' TrialComponentMetricSummary (Prelude.Maybe Prelude.Double)
 trialComponentMetricSummary_stdDev = Lens.lens (\TrialComponentMetricSummary' {stdDev} -> stdDev) (\s@TrialComponentMetricSummary' {} a -> s {stdDev = a} :: TrialComponentMetricSummary)
+
+-- | When the metric was last updated.
+trialComponentMetricSummary_timeStamp :: Lens.Lens' TrialComponentMetricSummary (Prelude.Maybe Prelude.UTCTime)
+trialComponentMetricSummary_timeStamp = Lens.lens (\TrialComponentMetricSummary' {timeStamp} -> timeStamp) (\s@TrialComponentMetricSummary' {} a -> s {timeStamp = a} :: TrialComponentMetricSummary) Prelude.. Lens.mapping Data._Time
 
 instance Data.FromJSON TrialComponentMetricSummary where
   parseJSON =
@@ -132,37 +131,37 @@ instance Data.FromJSON TrialComponentMetricSummary where
       "TrialComponentMetricSummary"
       ( \x ->
           TrialComponentMetricSummary'
-            Prelude.<$> (x Data..:? "SourceArn")
-            Prelude.<*> (x Data..:? "Max")
-            Prelude.<*> (x Data..:? "TimeStamp")
-            Prelude.<*> (x Data..:? "Avg")
+            Prelude.<$> (x Data..:? "Avg")
             Prelude.<*> (x Data..:? "Count")
             Prelude.<*> (x Data..:? "Last")
-            Prelude.<*> (x Data..:? "Min")
+            Prelude.<*> (x Data..:? "Max")
             Prelude.<*> (x Data..:? "MetricName")
+            Prelude.<*> (x Data..:? "Min")
+            Prelude.<*> (x Data..:? "SourceArn")
             Prelude.<*> (x Data..:? "StdDev")
+            Prelude.<*> (x Data..:? "TimeStamp")
       )
 
 instance Prelude.Hashable TrialComponentMetricSummary where
   hashWithSalt _salt TrialComponentMetricSummary' {..} =
-    _salt `Prelude.hashWithSalt` sourceArn
-      `Prelude.hashWithSalt` max
-      `Prelude.hashWithSalt` timeStamp
-      `Prelude.hashWithSalt` avg
+    _salt `Prelude.hashWithSalt` avg
       `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` last
-      `Prelude.hashWithSalt` min
+      `Prelude.hashWithSalt` max
       `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` min
+      `Prelude.hashWithSalt` sourceArn
       `Prelude.hashWithSalt` stdDev
+      `Prelude.hashWithSalt` timeStamp
 
 instance Prelude.NFData TrialComponentMetricSummary where
   rnf TrialComponentMetricSummary' {..} =
-    Prelude.rnf sourceArn
-      `Prelude.seq` Prelude.rnf max
-      `Prelude.seq` Prelude.rnf timeStamp
-      `Prelude.seq` Prelude.rnf avg
+    Prelude.rnf avg
       `Prelude.seq` Prelude.rnf count
       `Prelude.seq` Prelude.rnf last
-      `Prelude.seq` Prelude.rnf min
+      `Prelude.seq` Prelude.rnf max
       `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf min
+      `Prelude.seq` Prelude.rnf sourceArn
       `Prelude.seq` Prelude.rnf stdDev
+      `Prelude.seq` Prelude.rnf timeStamp

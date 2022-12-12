@@ -33,11 +33,11 @@ data ConnectionLogOptions = ConnectionLogOptions'
   { -- | The name of the CloudWatch Logs log group. Required if connection
     -- logging is enabled.
     cloudwatchLogGroup :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether connection logging is enabled.
-    enabled :: Prelude.Maybe Prelude.Bool,
     -- | The name of the CloudWatch Logs log stream to which the connection data
     -- is published.
-    cloudwatchLogStream :: Prelude.Maybe Prelude.Text
+    cloudwatchLogStream :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether connection logging is enabled.
+    enabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,18 +52,18 @@ data ConnectionLogOptions = ConnectionLogOptions'
 -- 'cloudwatchLogGroup', 'connectionLogOptions_cloudwatchLogGroup' - The name of the CloudWatch Logs log group. Required if connection
 -- logging is enabled.
 --
--- 'enabled', 'connectionLogOptions_enabled' - Indicates whether connection logging is enabled.
---
 -- 'cloudwatchLogStream', 'connectionLogOptions_cloudwatchLogStream' - The name of the CloudWatch Logs log stream to which the connection data
 -- is published.
+--
+-- 'enabled', 'connectionLogOptions_enabled' - Indicates whether connection logging is enabled.
 newConnectionLogOptions ::
   ConnectionLogOptions
 newConnectionLogOptions =
   ConnectionLogOptions'
     { cloudwatchLogGroup =
         Prelude.Nothing,
-      enabled = Prelude.Nothing,
-      cloudwatchLogStream = Prelude.Nothing
+      cloudwatchLogStream = Prelude.Nothing,
+      enabled = Prelude.Nothing
     }
 
 -- | The name of the CloudWatch Logs log group. Required if connection
@@ -71,31 +71,31 @@ newConnectionLogOptions =
 connectionLogOptions_cloudwatchLogGroup :: Lens.Lens' ConnectionLogOptions (Prelude.Maybe Prelude.Text)
 connectionLogOptions_cloudwatchLogGroup = Lens.lens (\ConnectionLogOptions' {cloudwatchLogGroup} -> cloudwatchLogGroup) (\s@ConnectionLogOptions' {} a -> s {cloudwatchLogGroup = a} :: ConnectionLogOptions)
 
--- | Indicates whether connection logging is enabled.
-connectionLogOptions_enabled :: Lens.Lens' ConnectionLogOptions (Prelude.Maybe Prelude.Bool)
-connectionLogOptions_enabled = Lens.lens (\ConnectionLogOptions' {enabled} -> enabled) (\s@ConnectionLogOptions' {} a -> s {enabled = a} :: ConnectionLogOptions)
-
 -- | The name of the CloudWatch Logs log stream to which the connection data
 -- is published.
 connectionLogOptions_cloudwatchLogStream :: Lens.Lens' ConnectionLogOptions (Prelude.Maybe Prelude.Text)
 connectionLogOptions_cloudwatchLogStream = Lens.lens (\ConnectionLogOptions' {cloudwatchLogStream} -> cloudwatchLogStream) (\s@ConnectionLogOptions' {} a -> s {cloudwatchLogStream = a} :: ConnectionLogOptions)
 
+-- | Indicates whether connection logging is enabled.
+connectionLogOptions_enabled :: Lens.Lens' ConnectionLogOptions (Prelude.Maybe Prelude.Bool)
+connectionLogOptions_enabled = Lens.lens (\ConnectionLogOptions' {enabled} -> enabled) (\s@ConnectionLogOptions' {} a -> s {enabled = a} :: ConnectionLogOptions)
+
 instance Prelude.Hashable ConnectionLogOptions where
   hashWithSalt _salt ConnectionLogOptions' {..} =
     _salt `Prelude.hashWithSalt` cloudwatchLogGroup
-      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` cloudwatchLogStream
+      `Prelude.hashWithSalt` enabled
 
 instance Prelude.NFData ConnectionLogOptions where
   rnf ConnectionLogOptions' {..} =
     Prelude.rnf cloudwatchLogGroup
-      `Prelude.seq` Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf cloudwatchLogStream
+      `Prelude.seq` Prelude.rnf enabled
 
 instance Data.ToQuery ConnectionLogOptions where
   toQuery ConnectionLogOptions' {..} =
     Prelude.mconcat
       [ "CloudwatchLogGroup" Data.=: cloudwatchLogGroup,
-        "Enabled" Data.=: enabled,
-        "CloudwatchLogStream" Data.=: cloudwatchLogStream
+        "CloudwatchLogStream" Data.=: cloudwatchLogStream,
+        "Enabled" Data.=: enabled
       ]

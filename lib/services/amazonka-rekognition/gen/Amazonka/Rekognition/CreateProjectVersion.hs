@@ -65,9 +65,9 @@ module Amazonka.Rekognition.CreateProjectVersion
     newCreateProjectVersion,
 
     -- * Request Lenses
+    createProjectVersion_kmsKeyId,
     createProjectVersion_tags,
     createProjectVersion_testingData,
-    createProjectVersion_kmsKeyId,
     createProjectVersion_trainingData,
     createProjectVersion_projectArn,
     createProjectVersion_versionName,
@@ -93,13 +93,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateProjectVersion' smart constructor.
 data CreateProjectVersion = CreateProjectVersion'
-  { -- | A set of tags (key-value pairs) that you want to attach to the model.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Specifies an external manifest that the service uses to test the model.
-    -- If you specify @TestingData@ you must also specify @TrainingData@. The
-    -- project must not have any associated datasets.
-    testingData :: Prelude.Maybe TestingData,
-    -- | The identifier for your AWS Key Management Service key (AWS KMS key).
+  { -- | The identifier for your AWS Key Management Service key (AWS KMS key).
     -- You can supply the Amazon Resource Name (ARN) of your KMS key, the ID of
     -- your KMS key, an alias for your KMS key, or an alias ARN. The key is
     -- used to encrypt training and test images copied into the service for
@@ -121,6 +115,12 @@ data CreateProjectVersion = CreateProjectVersion'
     -- If you don\'t specify a value for @KmsKeyId@, images copied into the
     -- service are encrypted using a key that AWS owns and manages.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | A set of tags (key-value pairs) that you want to attach to the model.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Specifies an external manifest that the service uses to test the model.
+    -- If you specify @TestingData@ you must also specify @TrainingData@. The
+    -- project must not have any associated datasets.
+    testingData :: Prelude.Maybe TestingData,
     -- | Specifies an external manifest that the services uses to train the
     -- model. If you specify @TrainingData@ you must also specify
     -- @TestingData@. The project must not have any associated datasets.
@@ -145,12 +145,6 @@ data CreateProjectVersion = CreateProjectVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createProjectVersion_tags' - A set of tags (key-value pairs) that you want to attach to the model.
---
--- 'testingData', 'createProjectVersion_testingData' - Specifies an external manifest that the service uses to test the model.
--- If you specify @TestingData@ you must also specify @TrainingData@. The
--- project must not have any associated datasets.
---
 -- 'kmsKeyId', 'createProjectVersion_kmsKeyId' - The identifier for your AWS Key Management Service key (AWS KMS key).
 -- You can supply the Amazon Resource Name (ARN) of your KMS key, the ID of
 -- your KMS key, an alias for your KMS key, or an alias ARN. The key is
@@ -172,6 +166,12 @@ data CreateProjectVersion = CreateProjectVersion'
 --
 -- If you don\'t specify a value for @KmsKeyId@, images copied into the
 -- service are encrypted using a key that AWS owns and manages.
+--
+-- 'tags', 'createProjectVersion_tags' - A set of tags (key-value pairs) that you want to attach to the model.
+--
+-- 'testingData', 'createProjectVersion_testingData' - Specifies an external manifest that the service uses to test the model.
+-- If you specify @TestingData@ you must also specify @TrainingData@. The
+-- project must not have any associated datasets.
 --
 -- 'trainingData', 'createProjectVersion_trainingData' - Specifies an external manifest that the services uses to train the
 -- model. If you specify @TrainingData@ you must also specify
@@ -198,24 +198,14 @@ newCreateProjectVersion
   pVersionName_
   pOutputConfig_ =
     CreateProjectVersion'
-      { tags = Prelude.Nothing,
+      { kmsKeyId = Prelude.Nothing,
+        tags = Prelude.Nothing,
         testingData = Prelude.Nothing,
-        kmsKeyId = Prelude.Nothing,
         trainingData = Prelude.Nothing,
         projectArn = pProjectArn_,
         versionName = pVersionName_,
         outputConfig = pOutputConfig_
       }
-
--- | A set of tags (key-value pairs) that you want to attach to the model.
-createProjectVersion_tags :: Lens.Lens' CreateProjectVersion (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createProjectVersion_tags = Lens.lens (\CreateProjectVersion' {tags} -> tags) (\s@CreateProjectVersion' {} a -> s {tags = a} :: CreateProjectVersion) Prelude.. Lens.mapping Lens.coerced
-
--- | Specifies an external manifest that the service uses to test the model.
--- If you specify @TestingData@ you must also specify @TrainingData@. The
--- project must not have any associated datasets.
-createProjectVersion_testingData :: Lens.Lens' CreateProjectVersion (Prelude.Maybe TestingData)
-createProjectVersion_testingData = Lens.lens (\CreateProjectVersion' {testingData} -> testingData) (\s@CreateProjectVersion' {} a -> s {testingData = a} :: CreateProjectVersion)
 
 -- | The identifier for your AWS Key Management Service key (AWS KMS key).
 -- You can supply the Amazon Resource Name (ARN) of your KMS key, the ID of
@@ -240,6 +230,16 @@ createProjectVersion_testingData = Lens.lens (\CreateProjectVersion' {testingDat
 -- service are encrypted using a key that AWS owns and manages.
 createProjectVersion_kmsKeyId :: Lens.Lens' CreateProjectVersion (Prelude.Maybe Prelude.Text)
 createProjectVersion_kmsKeyId = Lens.lens (\CreateProjectVersion' {kmsKeyId} -> kmsKeyId) (\s@CreateProjectVersion' {} a -> s {kmsKeyId = a} :: CreateProjectVersion)
+
+-- | A set of tags (key-value pairs) that you want to attach to the model.
+createProjectVersion_tags :: Lens.Lens' CreateProjectVersion (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createProjectVersion_tags = Lens.lens (\CreateProjectVersion' {tags} -> tags) (\s@CreateProjectVersion' {} a -> s {tags = a} :: CreateProjectVersion) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specifies an external manifest that the service uses to test the model.
+-- If you specify @TestingData@ you must also specify @TrainingData@. The
+-- project must not have any associated datasets.
+createProjectVersion_testingData :: Lens.Lens' CreateProjectVersion (Prelude.Maybe TestingData)
+createProjectVersion_testingData = Lens.lens (\CreateProjectVersion' {testingData} -> testingData) (\s@CreateProjectVersion' {} a -> s {testingData = a} :: CreateProjectVersion)
 
 -- | Specifies an external manifest that the services uses to train the
 -- model. If you specify @TrainingData@ you must also specify
@@ -278,9 +278,9 @@ instance Core.AWSRequest CreateProjectVersion where
 
 instance Prelude.Hashable CreateProjectVersion where
   hashWithSalt _salt CreateProjectVersion' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` testingData
-      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` trainingData
       `Prelude.hashWithSalt` projectArn
       `Prelude.hashWithSalt` versionName
@@ -288,9 +288,9 @@ instance Prelude.Hashable CreateProjectVersion where
 
 instance Prelude.NFData CreateProjectVersion where
   rnf CreateProjectVersion' {..} =
-    Prelude.rnf tags
+    Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf testingData
-      `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf trainingData
       `Prelude.seq` Prelude.rnf projectArn
       `Prelude.seq` Prelude.rnf versionName
@@ -315,9 +315,9 @@ instance Data.ToJSON CreateProjectVersion where
   toJSON CreateProjectVersion' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
+          [ ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("Tags" Data..=) Prelude.<$> tags,
             ("TestingData" Data..=) Prelude.<$> testingData,
-            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
             ("TrainingData" Data..=) Prelude.<$> trainingData,
             Prelude.Just ("ProjectArn" Data..= projectArn),
             Prelude.Just ("VersionName" Data..= versionName),

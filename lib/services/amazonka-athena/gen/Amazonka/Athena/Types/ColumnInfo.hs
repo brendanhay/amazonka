@@ -29,16 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newColumnInfo' smart constructor.
 data ColumnInfo = ColumnInfo'
-  { -- | The table name for the query results.
-    tableName :: Prelude.Maybe Prelude.Text,
+  { -- | Indicates whether values in the column are case-sensitive.
+    caseSensitive :: Prelude.Maybe Prelude.Bool,
     -- | The catalog to which the query results belong.
     catalogName :: Prelude.Maybe Prelude.Text,
     -- | A column label.
     label :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether values in the column are case-sensitive.
-    caseSensitive :: Prelude.Maybe Prelude.Bool,
-    -- | The schema name (database name) to which the query results belong.
-    schemaName :: Prelude.Maybe Prelude.Text,
     -- | Indicates the column\'s nullable status.
     nullable :: Prelude.Maybe ColumnNullable,
     -- | For @DECIMAL@ data types, specifies the total number of digits, up to
@@ -47,6 +43,10 @@ data ColumnInfo = ColumnInfo'
     -- | For @DECIMAL@ data types, specifies the total number of digits in the
     -- fractional part of the value. Defaults to 0.
     scale :: Prelude.Maybe Prelude.Int,
+    -- | The schema name (database name) to which the query results belong.
+    schemaName :: Prelude.Maybe Prelude.Text,
+    -- | The table name for the query results.
+    tableName :: Prelude.Maybe Prelude.Text,
     -- | The name of the column.
     name :: Prelude.Text,
     -- | The data type of the column.
@@ -62,15 +62,11 @@ data ColumnInfo = ColumnInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tableName', 'columnInfo_tableName' - The table name for the query results.
+-- 'caseSensitive', 'columnInfo_caseSensitive' - Indicates whether values in the column are case-sensitive.
 --
 -- 'catalogName', 'columnInfo_catalogName' - The catalog to which the query results belong.
 --
 -- 'label', 'columnInfo_label' - A column label.
---
--- 'caseSensitive', 'columnInfo_caseSensitive' - Indicates whether values in the column are case-sensitive.
---
--- 'schemaName', 'columnInfo_schemaName' - The schema name (database name) to which the query results belong.
 --
 -- 'nullable', 'columnInfo_nullable' - Indicates the column\'s nullable status.
 --
@@ -79,6 +75,10 @@ data ColumnInfo = ColumnInfo'
 --
 -- 'scale', 'columnInfo_scale' - For @DECIMAL@ data types, specifies the total number of digits in the
 -- fractional part of the value. Defaults to 0.
+--
+-- 'schemaName', 'columnInfo_schemaName' - The schema name (database name) to which the query results belong.
+--
+-- 'tableName', 'columnInfo_tableName' - The table name for the query results.
 --
 -- 'name', 'columnInfo_name' - The name of the column.
 --
@@ -91,21 +91,21 @@ newColumnInfo ::
   ColumnInfo
 newColumnInfo pName_ pType_ =
   ColumnInfo'
-    { tableName = Prelude.Nothing,
+    { caseSensitive = Prelude.Nothing,
       catalogName = Prelude.Nothing,
       label = Prelude.Nothing,
-      caseSensitive = Prelude.Nothing,
-      schemaName = Prelude.Nothing,
       nullable = Prelude.Nothing,
       precision = Prelude.Nothing,
       scale = Prelude.Nothing,
+      schemaName = Prelude.Nothing,
+      tableName = Prelude.Nothing,
       name = pName_,
       type' = pType_
     }
 
--- | The table name for the query results.
-columnInfo_tableName :: Lens.Lens' ColumnInfo (Prelude.Maybe Prelude.Text)
-columnInfo_tableName = Lens.lens (\ColumnInfo' {tableName} -> tableName) (\s@ColumnInfo' {} a -> s {tableName = a} :: ColumnInfo)
+-- | Indicates whether values in the column are case-sensitive.
+columnInfo_caseSensitive :: Lens.Lens' ColumnInfo (Prelude.Maybe Prelude.Bool)
+columnInfo_caseSensitive = Lens.lens (\ColumnInfo' {caseSensitive} -> caseSensitive) (\s@ColumnInfo' {} a -> s {caseSensitive = a} :: ColumnInfo)
 
 -- | The catalog to which the query results belong.
 columnInfo_catalogName :: Lens.Lens' ColumnInfo (Prelude.Maybe Prelude.Text)
@@ -114,14 +114,6 @@ columnInfo_catalogName = Lens.lens (\ColumnInfo' {catalogName} -> catalogName) (
 -- | A column label.
 columnInfo_label :: Lens.Lens' ColumnInfo (Prelude.Maybe Prelude.Text)
 columnInfo_label = Lens.lens (\ColumnInfo' {label} -> label) (\s@ColumnInfo' {} a -> s {label = a} :: ColumnInfo)
-
--- | Indicates whether values in the column are case-sensitive.
-columnInfo_caseSensitive :: Lens.Lens' ColumnInfo (Prelude.Maybe Prelude.Bool)
-columnInfo_caseSensitive = Lens.lens (\ColumnInfo' {caseSensitive} -> caseSensitive) (\s@ColumnInfo' {} a -> s {caseSensitive = a} :: ColumnInfo)
-
--- | The schema name (database name) to which the query results belong.
-columnInfo_schemaName :: Lens.Lens' ColumnInfo (Prelude.Maybe Prelude.Text)
-columnInfo_schemaName = Lens.lens (\ColumnInfo' {schemaName} -> schemaName) (\s@ColumnInfo' {} a -> s {schemaName = a} :: ColumnInfo)
 
 -- | Indicates the column\'s nullable status.
 columnInfo_nullable :: Lens.Lens' ColumnInfo (Prelude.Maybe ColumnNullable)
@@ -137,6 +129,14 @@ columnInfo_precision = Lens.lens (\ColumnInfo' {precision} -> precision) (\s@Col
 columnInfo_scale :: Lens.Lens' ColumnInfo (Prelude.Maybe Prelude.Int)
 columnInfo_scale = Lens.lens (\ColumnInfo' {scale} -> scale) (\s@ColumnInfo' {} a -> s {scale = a} :: ColumnInfo)
 
+-- | The schema name (database name) to which the query results belong.
+columnInfo_schemaName :: Lens.Lens' ColumnInfo (Prelude.Maybe Prelude.Text)
+columnInfo_schemaName = Lens.lens (\ColumnInfo' {schemaName} -> schemaName) (\s@ColumnInfo' {} a -> s {schemaName = a} :: ColumnInfo)
+
+-- | The table name for the query results.
+columnInfo_tableName :: Lens.Lens' ColumnInfo (Prelude.Maybe Prelude.Text)
+columnInfo_tableName = Lens.lens (\ColumnInfo' {tableName} -> tableName) (\s@ColumnInfo' {} a -> s {tableName = a} :: ColumnInfo)
+
 -- | The name of the column.
 columnInfo_name :: Lens.Lens' ColumnInfo Prelude.Text
 columnInfo_name = Lens.lens (\ColumnInfo' {name} -> name) (\s@ColumnInfo' {} a -> s {name = a} :: ColumnInfo)
@@ -151,40 +151,40 @@ instance Data.FromJSON ColumnInfo where
       "ColumnInfo"
       ( \x ->
           ColumnInfo'
-            Prelude.<$> (x Data..:? "TableName")
+            Prelude.<$> (x Data..:? "CaseSensitive")
             Prelude.<*> (x Data..:? "CatalogName")
             Prelude.<*> (x Data..:? "Label")
-            Prelude.<*> (x Data..:? "CaseSensitive")
-            Prelude.<*> (x Data..:? "SchemaName")
             Prelude.<*> (x Data..:? "Nullable")
             Prelude.<*> (x Data..:? "Precision")
             Prelude.<*> (x Data..:? "Scale")
+            Prelude.<*> (x Data..:? "SchemaName")
+            Prelude.<*> (x Data..:? "TableName")
             Prelude.<*> (x Data..: "Name")
             Prelude.<*> (x Data..: "Type")
       )
 
 instance Prelude.Hashable ColumnInfo where
   hashWithSalt _salt ColumnInfo' {..} =
-    _salt `Prelude.hashWithSalt` tableName
+    _salt `Prelude.hashWithSalt` caseSensitive
       `Prelude.hashWithSalt` catalogName
       `Prelude.hashWithSalt` label
-      `Prelude.hashWithSalt` caseSensitive
-      `Prelude.hashWithSalt` schemaName
       `Prelude.hashWithSalt` nullable
       `Prelude.hashWithSalt` precision
       `Prelude.hashWithSalt` scale
+      `Prelude.hashWithSalt` schemaName
+      `Prelude.hashWithSalt` tableName
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData ColumnInfo where
   rnf ColumnInfo' {..} =
-    Prelude.rnf tableName
+    Prelude.rnf caseSensitive
       `Prelude.seq` Prelude.rnf catalogName
       `Prelude.seq` Prelude.rnf label
-      `Prelude.seq` Prelude.rnf caseSensitive
-      `Prelude.seq` Prelude.rnf schemaName
       `Prelude.seq` Prelude.rnf nullable
       `Prelude.seq` Prelude.rnf precision
       `Prelude.seq` Prelude.rnf scale
+      `Prelude.seq` Prelude.rnf schemaName
+      `Prelude.seq` Prelude.rnf tableName
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf type'

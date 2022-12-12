@@ -37,10 +37,10 @@ module Amazonka.GreengrassV2.Lens
     cancelDeploymentResponse_httpStatus,
 
     -- ** CreateComponentVersion
-    createComponentVersion_inlineRecipe,
-    createComponentVersion_tags,
     createComponentVersion_clientToken,
+    createComponentVersion_inlineRecipe,
     createComponentVersion_lambdaFunction,
+    createComponentVersion_tags,
     createComponentVersionResponse_arn,
     createComponentVersionResponse_httpStatus,
     createComponentVersionResponse_componentName,
@@ -49,17 +49,17 @@ module Amazonka.GreengrassV2.Lens
     createComponentVersionResponse_status,
 
     -- ** CreateDeployment
-    createDeployment_tags,
     createDeployment_clientToken,
-    createDeployment_iotJobConfiguration,
-    createDeployment_deploymentName,
-    createDeployment_parentTargetArn,
-    createDeployment_deploymentPolicies,
     createDeployment_components,
+    createDeployment_deploymentName,
+    createDeployment_deploymentPolicies,
+    createDeployment_iotJobConfiguration,
+    createDeployment_parentTargetArn,
+    createDeployment_tags,
     createDeployment_targetArn,
+    createDeploymentResponse_deploymentId,
     createDeploymentResponse_iotJobArn,
     createDeploymentResponse_iotJobId,
-    createDeploymentResponse_deploymentId,
     createDeploymentResponse_httpStatus,
 
     -- ** DeleteComponent
@@ -73,15 +73,15 @@ module Amazonka.GreengrassV2.Lens
 
     -- ** DescribeComponent
     describeComponent_arn,
-    describeComponentResponse_tags,
-    describeComponentResponse_componentVersion,
-    describeComponentResponse_componentName,
     describeComponentResponse_arn,
-    describeComponentResponse_status,
-    describeComponentResponse_description,
+    describeComponentResponse_componentName,
+    describeComponentResponse_componentVersion,
     describeComponentResponse_creationTimestamp,
+    describeComponentResponse_description,
     describeComponentResponse_platforms,
     describeComponentResponse_publisher,
+    describeComponentResponse_status,
+    describeComponentResponse_tags,
     describeComponentResponse_httpStatus,
 
     -- ** DisassociateServiceRoleFromAccount
@@ -104,102 +104,102 @@ module Amazonka.GreengrassV2.Lens
 
     -- ** GetConnectivityInfo
     getConnectivityInfo_thingName,
-    getConnectivityInfoResponse_message,
     getConnectivityInfoResponse_connectivityInfo,
+    getConnectivityInfoResponse_message,
     getConnectivityInfoResponse_httpStatus,
 
     -- ** GetCoreDevice
     getCoreDevice_coreDeviceThingName,
-    getCoreDeviceResponse_tags,
+    getCoreDeviceResponse_architecture,
     getCoreDeviceResponse_coreDeviceThingName,
-    getCoreDeviceResponse_status,
-    getCoreDeviceResponse_platform,
     getCoreDeviceResponse_coreVersion,
     getCoreDeviceResponse_lastStatusUpdateTimestamp,
-    getCoreDeviceResponse_architecture,
+    getCoreDeviceResponse_platform,
+    getCoreDeviceResponse_status,
+    getCoreDeviceResponse_tags,
     getCoreDeviceResponse_httpStatus,
 
     -- ** GetDeployment
     getDeployment_deploymentId,
-    getDeploymentResponse_deploymentStatus,
-    getDeploymentResponse_tags,
-    getDeploymentResponse_iotJobConfiguration,
-    getDeploymentResponse_iotJobArn,
-    getDeploymentResponse_iotJobId,
-    getDeploymentResponse_deploymentName,
-    getDeploymentResponse_deploymentId,
-    getDeploymentResponse_targetArn,
-    getDeploymentResponse_isLatestForTarget,
-    getDeploymentResponse_creationTimestamp,
-    getDeploymentResponse_parentTargetArn,
-    getDeploymentResponse_deploymentPolicies,
     getDeploymentResponse_components,
+    getDeploymentResponse_creationTimestamp,
+    getDeploymentResponse_deploymentId,
+    getDeploymentResponse_deploymentName,
+    getDeploymentResponse_deploymentPolicies,
+    getDeploymentResponse_deploymentStatus,
+    getDeploymentResponse_iotJobArn,
+    getDeploymentResponse_iotJobConfiguration,
+    getDeploymentResponse_iotJobId,
+    getDeploymentResponse_isLatestForTarget,
+    getDeploymentResponse_parentTargetArn,
     getDeploymentResponse_revisionId,
+    getDeploymentResponse_tags,
+    getDeploymentResponse_targetArn,
     getDeploymentResponse_httpStatus,
 
     -- ** GetServiceRoleForAccount
-    getServiceRoleForAccountResponse_roleArn,
     getServiceRoleForAccountResponse_associatedAt,
+    getServiceRoleForAccountResponse_roleArn,
     getServiceRoleForAccountResponse_httpStatus,
 
     -- ** ListClientDevicesAssociatedWithCoreDevice
-    listClientDevicesAssociatedWithCoreDevice_nextToken,
     listClientDevicesAssociatedWithCoreDevice_maxResults,
+    listClientDevicesAssociatedWithCoreDevice_nextToken,
     listClientDevicesAssociatedWithCoreDevice_coreDeviceThingName,
-    listClientDevicesAssociatedWithCoreDeviceResponse_nextToken,
     listClientDevicesAssociatedWithCoreDeviceResponse_associatedClientDevices,
+    listClientDevicesAssociatedWithCoreDeviceResponse_nextToken,
     listClientDevicesAssociatedWithCoreDeviceResponse_httpStatus,
 
     -- ** ListComponentVersions
-    listComponentVersions_nextToken,
     listComponentVersions_maxResults,
+    listComponentVersions_nextToken,
     listComponentVersions_arn,
-    listComponentVersionsResponse_nextToken,
     listComponentVersionsResponse_componentVersions,
+    listComponentVersionsResponse_nextToken,
     listComponentVersionsResponse_httpStatus,
 
     -- ** ListComponents
-    listComponents_nextToken,
     listComponents_maxResults,
+    listComponents_nextToken,
     listComponents_scope,
-    listComponentsResponse_nextToken,
     listComponentsResponse_components,
+    listComponentsResponse_nextToken,
     listComponentsResponse_httpStatus,
 
     -- ** ListCoreDevices
+    listCoreDevices_maxResults,
     listCoreDevices_nextToken,
     listCoreDevices_status,
-    listCoreDevices_maxResults,
     listCoreDevices_thingGroupArn,
-    listCoreDevicesResponse_nextToken,
     listCoreDevicesResponse_coreDevices,
+    listCoreDevicesResponse_nextToken,
     listCoreDevicesResponse_httpStatus,
 
     -- ** ListDeployments
-    listDeployments_nextToken,
-    listDeployments_targetArn,
-    listDeployments_parentTargetArn,
-    listDeployments_maxResults,
     listDeployments_historyFilter,
-    listDeploymentsResponse_nextToken,
+    listDeployments_maxResults,
+    listDeployments_nextToken,
+    listDeployments_parentTargetArn,
+    listDeployments_targetArn,
     listDeploymentsResponse_deployments,
+    listDeploymentsResponse_nextToken,
     listDeploymentsResponse_httpStatus,
 
     -- ** ListEffectiveDeployments
-    listEffectiveDeployments_nextToken,
     listEffectiveDeployments_maxResults,
+    listEffectiveDeployments_nextToken,
     listEffectiveDeployments_coreDeviceThingName,
     listEffectiveDeploymentsResponse_effectiveDeployments,
     listEffectiveDeploymentsResponse_nextToken,
     listEffectiveDeploymentsResponse_httpStatus,
 
     -- ** ListInstalledComponents
+    listInstalledComponents_maxResults,
     listInstalledComponents_nextToken,
     listInstalledComponents_topologyFilter,
-    listInstalledComponents_maxResults,
     listInstalledComponents_coreDeviceThingName,
-    listInstalledComponentsResponse_nextToken,
     listInstalledComponentsResponse_installedComponents,
+    listInstalledComponentsResponse_nextToken,
     listInstalledComponentsResponse_httpStatus,
 
     -- ** ListTagsForResource
@@ -208,8 +208,8 @@ module Amazonka.GreengrassV2.Lens
     listTagsForResourceResponse_httpStatus,
 
     -- ** ResolveComponentCandidates
-    resolveComponentCandidates_platform,
     resolveComponentCandidates_componentCandidates,
+    resolveComponentCandidates_platform,
     resolveComponentCandidatesResponse_resolvedComponentVersions,
     resolveComponentCandidatesResponse_httpStatus,
 
@@ -236,29 +236,29 @@ module Amazonka.GreengrassV2.Lens
     associateClientDeviceWithCoreDeviceEntry_thingName,
 
     -- ** AssociateClientDeviceWithCoreDeviceErrorEntry
+    associateClientDeviceWithCoreDeviceErrorEntry_code,
     associateClientDeviceWithCoreDeviceErrorEntry_message,
     associateClientDeviceWithCoreDeviceErrorEntry_thingName,
-    associateClientDeviceWithCoreDeviceErrorEntry_code,
 
     -- ** AssociatedClientDevice
-    associatedClientDevice_thingName,
     associatedClientDevice_associationTimestamp,
+    associatedClientDevice_thingName,
 
     -- ** CloudComponentStatus
+    cloudComponentStatus_componentState,
+    cloudComponentStatus_errors,
     cloudComponentStatus_message,
     cloudComponentStatus_vendorGuidance,
     cloudComponentStatus_vendorGuidanceMessage,
-    cloudComponentStatus_errors,
-    cloudComponentStatus_componentState,
 
     -- ** Component
-    component_componentName,
     component_arn,
+    component_componentName,
     component_latestVersion,
 
     -- ** ComponentCandidate
-    componentCandidate_componentVersion,
     componentCandidate_componentName,
+    componentCandidate_componentVersion,
     componentCandidate_versionRequirements,
 
     -- ** ComponentConfigurationUpdate
@@ -266,67 +266,67 @@ module Amazonka.GreengrassV2.Lens
     componentConfigurationUpdate_reset,
 
     -- ** ComponentDependencyRequirement
-    componentDependencyRequirement_versionRequirement,
     componentDependencyRequirement_dependencyType,
+    componentDependencyRequirement_versionRequirement,
 
     -- ** ComponentDeploymentSpecification
     componentDeploymentSpecification_componentVersion,
-    componentDeploymentSpecification_runWith,
     componentDeploymentSpecification_configurationUpdate,
+    componentDeploymentSpecification_runWith,
 
     -- ** ComponentLatestVersion
-    componentLatestVersion_componentVersion,
     componentLatestVersion_arn,
-    componentLatestVersion_description,
+    componentLatestVersion_componentVersion,
     componentLatestVersion_creationTimestamp,
+    componentLatestVersion_description,
     componentLatestVersion_platforms,
     componentLatestVersion_publisher,
 
     -- ** ComponentPlatform
-    componentPlatform_name,
     componentPlatform_attributes,
+    componentPlatform_name,
 
     -- ** ComponentRunWith
-    componentRunWith_systemResourceLimits,
     componentRunWith_posixUser,
+    componentRunWith_systemResourceLimits,
     componentRunWith_windowsUser,
 
     -- ** ComponentVersionListItem
-    componentVersionListItem_componentVersion,
-    componentVersionListItem_componentName,
     componentVersionListItem_arn,
+    componentVersionListItem_componentName,
+    componentVersionListItem_componentVersion,
 
     -- ** ConnectivityInfo
-    connectivityInfo_portNumber,
-    connectivityInfo_metadata,
-    connectivityInfo_id,
     connectivityInfo_hostAddress,
+    connectivityInfo_id,
+    connectivityInfo_metadata,
+    connectivityInfo_portNumber,
 
     -- ** CoreDevice
     coreDevice_coreDeviceThingName,
-    coreDevice_status,
     coreDevice_lastStatusUpdateTimestamp,
+    coreDevice_status,
 
     -- ** Deployment
-    deployment_deploymentStatus,
-    deployment_deploymentName,
-    deployment_deploymentId,
-    deployment_targetArn,
-    deployment_isLatestForTarget,
     deployment_creationTimestamp,
+    deployment_deploymentId,
+    deployment_deploymentName,
+    deployment_deploymentStatus,
+    deployment_isLatestForTarget,
     deployment_parentTargetArn,
     deployment_revisionId,
+    deployment_targetArn,
 
     -- ** DeploymentComponentUpdatePolicy
-    deploymentComponentUpdatePolicy_timeoutInSeconds,
     deploymentComponentUpdatePolicy_action,
+    deploymentComponentUpdatePolicy_timeoutInSeconds,
 
     -- ** DeploymentConfigurationValidationPolicy
     deploymentConfigurationValidationPolicy_timeoutInSeconds,
 
     -- ** DeploymentIoTJobConfiguration
-    deploymentIoTJobConfiguration_jobExecutionsRolloutConfig,
     deploymentIoTJobConfiguration_abortConfig,
+    deploymentIoTJobConfiguration_jobExecutionsRolloutConfig,
     deploymentIoTJobConfiguration_timeoutConfig,
 
     -- ** DeploymentPolicies
@@ -338,16 +338,16 @@ module Amazonka.GreengrassV2.Lens
     disassociateClientDeviceFromCoreDeviceEntry_thingName,
 
     -- ** DisassociateClientDeviceFromCoreDeviceErrorEntry
+    disassociateClientDeviceFromCoreDeviceErrorEntry_code,
     disassociateClientDeviceFromCoreDeviceErrorEntry_message,
     disassociateClientDeviceFromCoreDeviceErrorEntry_thingName,
-    disassociateClientDeviceFromCoreDeviceErrorEntry_code,
 
     -- ** EffectiveDeployment
+    effectiveDeployment_description,
     effectiveDeployment_iotJobArn,
     effectiveDeployment_iotJobId,
-    effectiveDeployment_statusDetails,
-    effectiveDeployment_description,
     effectiveDeployment_reason,
+    effectiveDeployment_statusDetails,
     effectiveDeployment_deploymentId,
     effectiveDeployment_deploymentName,
     effectiveDeployment_targetArn,
@@ -360,15 +360,15 @@ module Amazonka.GreengrassV2.Lens
     effectiveDeploymentStatusDetails_errorTypes,
 
     -- ** InstalledComponent
-    installedComponent_componentVersion,
     installedComponent_componentName,
+    installedComponent_componentVersion,
+    installedComponent_isRoot,
+    installedComponent_lastInstallationSource,
     installedComponent_lastReportedTimestamp,
-    installedComponent_lifecycleStatusCodes,
+    installedComponent_lastStatusChangeTimestamp,
     installedComponent_lifecycleState,
     installedComponent_lifecycleStateDetails,
-    installedComponent_lastInstallationSource,
-    installedComponent_lastStatusChangeTimestamp,
-    installedComponent_isRoot,
+    installedComponent_lifecycleStatusCodes,
 
     -- ** IoTJobAbortConfig
     ioTJobAbortConfig_criteriaList,
@@ -380,8 +380,8 @@ module Amazonka.GreengrassV2.Lens
     ioTJobAbortCriteria_minNumberOfExecutedThings,
 
     -- ** IoTJobExecutionsRolloutConfig
-    ioTJobExecutionsRolloutConfig_maximumPerMinute,
     ioTJobExecutionsRolloutConfig_exponentialRate,
+    ioTJobExecutionsRolloutConfig_maximumPerMinute,
 
     -- ** IoTJobExponentialRolloutRate
     ioTJobExponentialRolloutRate_baseRatePerMinute,
@@ -389,8 +389,8 @@ module Amazonka.GreengrassV2.Lens
     ioTJobExponentialRolloutRate_rateIncreaseCriteria,
 
     -- ** IoTJobRateIncreaseCriteria
-    ioTJobRateIncreaseCriteria_numberOfSucceededThings,
     ioTJobRateIncreaseCriteria_numberOfNotifiedThings,
+    ioTJobRateIncreaseCriteria_numberOfSucceededThings,
 
     -- ** IoTJobTimeoutConfig
     ioTJobTimeoutConfig_inProgressTimeoutInMinutes,
@@ -398,8 +398,8 @@ module Amazonka.GreengrassV2.Lens
     -- ** LambdaContainerParams
     lambdaContainerParams_devices,
     lambdaContainerParams_memorySizeInKB,
-    lambdaContainerParams_volumes,
     lambdaContainerParams_mountROSysfs,
+    lambdaContainerParams_volumes,
 
     -- ** LambdaDeviceMount
     lambdaDeviceMount_addGroupOwner,
@@ -411,24 +411,24 @@ module Amazonka.GreengrassV2.Lens
     lambdaEventSource_type,
 
     -- ** LambdaExecutionParameters
-    lambdaExecutionParameters_statusTimeoutInSeconds,
-    lambdaExecutionParameters_linuxProcessParams,
-    lambdaExecutionParameters_execArgs,
-    lambdaExecutionParameters_maxIdleTimeInSeconds,
-    lambdaExecutionParameters_eventSources,
-    lambdaExecutionParameters_timeoutInSeconds,
-    lambdaExecutionParameters_inputPayloadEncodingType,
     lambdaExecutionParameters_environmentVariables,
+    lambdaExecutionParameters_eventSources,
+    lambdaExecutionParameters_execArgs,
+    lambdaExecutionParameters_inputPayloadEncodingType,
+    lambdaExecutionParameters_linuxProcessParams,
+    lambdaExecutionParameters_maxIdleTimeInSeconds,
+    lambdaExecutionParameters_maxInstancesCount,
     lambdaExecutionParameters_maxQueueSize,
     lambdaExecutionParameters_pinned,
-    lambdaExecutionParameters_maxInstancesCount,
+    lambdaExecutionParameters_statusTimeoutInSeconds,
+    lambdaExecutionParameters_timeoutInSeconds,
 
     -- ** LambdaFunctionRecipeSource
-    lambdaFunctionRecipeSource_componentPlatforms,
     lambdaFunctionRecipeSource_componentDependencies,
     lambdaFunctionRecipeSource_componentLambdaParameters,
-    lambdaFunctionRecipeSource_componentVersion,
     lambdaFunctionRecipeSource_componentName,
+    lambdaFunctionRecipeSource_componentPlatforms,
+    lambdaFunctionRecipeSource_componentVersion,
     lambdaFunctionRecipeSource_lambdaArn,
 
     -- ** LambdaLinuxProcessParams
@@ -442,12 +442,12 @@ module Amazonka.GreengrassV2.Lens
     lambdaVolumeMount_destinationPath,
 
     -- ** ResolvedComponentVersion
-    resolvedComponentVersion_message,
-    resolvedComponentVersion_vendorGuidance,
-    resolvedComponentVersion_componentVersion,
-    resolvedComponentVersion_recipe,
-    resolvedComponentVersion_componentName,
     resolvedComponentVersion_arn,
+    resolvedComponentVersion_componentName,
+    resolvedComponentVersion_componentVersion,
+    resolvedComponentVersion_message,
+    resolvedComponentVersion_recipe,
+    resolvedComponentVersion_vendorGuidance,
 
     -- ** SystemResourceLimits
     systemResourceLimits_cpus,

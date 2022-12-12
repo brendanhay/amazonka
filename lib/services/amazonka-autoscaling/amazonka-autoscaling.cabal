@@ -47,6 +47,7 @@ library
     Amazonka.AutoScaling.AttachInstances
     Amazonka.AutoScaling.AttachLoadBalancers
     Amazonka.AutoScaling.AttachLoadBalancerTargetGroups
+    Amazonka.AutoScaling.AttachTrafficSources
     Amazonka.AutoScaling.BatchDeleteScheduledAction
     Amazonka.AutoScaling.BatchPutScheduledUpdateGroupAction
     Amazonka.AutoScaling.CancelInstanceRefresh
@@ -81,10 +82,12 @@ library
     Amazonka.AutoScaling.DescribeScheduledActions
     Amazonka.AutoScaling.DescribeTags
     Amazonka.AutoScaling.DescribeTerminationPolicyTypes
+    Amazonka.AutoScaling.DescribeTrafficSources
     Amazonka.AutoScaling.DescribeWarmPool
     Amazonka.AutoScaling.DetachInstances
     Amazonka.AutoScaling.DetachLoadBalancers
     Amazonka.AutoScaling.DetachLoadBalancerTargetGroups
+    Amazonka.AutoScaling.DetachTrafficSources
     Amazonka.AutoScaling.DisableMetricsCollection
     Amazonka.AutoScaling.EnableMetricsCollection
     Amazonka.AutoScaling.EnterStandby
@@ -195,7 +198,11 @@ library
     Amazonka.AutoScaling.Types.Tag
     Amazonka.AutoScaling.Types.TagDescription
     Amazonka.AutoScaling.Types.TargetTrackingConfiguration
+    Amazonka.AutoScaling.Types.TargetTrackingMetricDataQuery
+    Amazonka.AutoScaling.Types.TargetTrackingMetricStat
     Amazonka.AutoScaling.Types.TotalLocalStorageGBRequest
+    Amazonka.AutoScaling.Types.TrafficSourceIdentifier
+    Amazonka.AutoScaling.Types.TrafficSourceState
     Amazonka.AutoScaling.Types.VCpuCountRequest
     Amazonka.AutoScaling.Types.WarmPoolConfiguration
     Amazonka.AutoScaling.Types.WarmPoolState

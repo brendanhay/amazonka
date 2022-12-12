@@ -36,6 +36,9 @@ import Test.Tasty
 --         , requestAttachLoadBalancers $
 --             newAttachLoadBalancers
 --
+--         , requestAttachTrafficSources $
+--             newAttachTrafficSources
+--
 --         , requestBatchDeleteScheduledAction $
 --             newBatchDeleteScheduledAction
 --
@@ -138,6 +141,9 @@ import Test.Tasty
 --         , requestDescribeTerminationPolicyTypes $
 --             newDescribeTerminationPolicyTypes
 --
+--         , requestDescribeTrafficSources $
+--             newDescribeTrafficSources
+--
 --         , requestDescribeWarmPool $
 --             newDescribeWarmPool
 --
@@ -149,6 +155,9 @@ import Test.Tasty
 --
 --         , requestDetachLoadBalancers $
 --             newDetachLoadBalancers
+--
+--         , requestDetachTrafficSources $
+--             newDetachTrafficSources
 --
 --         , requestDisableMetricsCollection $
 --             newDisableMetricsCollection
@@ -221,6 +230,9 @@ import Test.Tasty
 --
 --         , responseAttachLoadBalancers $
 --             newAttachLoadBalancersResponse
+--
+--         , responseAttachTrafficSources $
+--             newAttachTrafficSourcesResponse
 --
 --         , responseBatchDeleteScheduledAction $
 --             newBatchDeleteScheduledActionResponse
@@ -324,6 +336,9 @@ import Test.Tasty
 --         , responseDescribeTerminationPolicyTypes $
 --             newDescribeTerminationPolicyTypesResponse
 --
+--         , responseDescribeTrafficSources $
+--             newDescribeTrafficSourcesResponse
+--
 --         , responseDescribeWarmPool $
 --             newDescribeWarmPoolResponse
 --
@@ -335,6 +350,9 @@ import Test.Tasty
 --
 --         , responseDetachLoadBalancers $
 --             newDetachLoadBalancersResponse
+--
+--         , responseDetachTrafficSources $
+--             newDetachTrafficSourcesResponse
 --
 --         , responseDisableMetricsCollection $
 --             newDisableMetricsCollectionResponse
@@ -418,6 +436,12 @@ requestAttachLoadBalancers =
   req
     "AttachLoadBalancers"
     "fixture/AttachLoadBalancers.yaml"
+
+requestAttachTrafficSources :: AttachTrafficSources -> TestTree
+requestAttachTrafficSources =
+  req
+    "AttachTrafficSources"
+    "fixture/AttachTrafficSources.yaml"
 
 requestBatchDeleteScheduledAction :: BatchDeleteScheduledAction -> TestTree
 requestBatchDeleteScheduledAction =
@@ -623,6 +647,12 @@ requestDescribeTerminationPolicyTypes =
     "DescribeTerminationPolicyTypes"
     "fixture/DescribeTerminationPolicyTypes.yaml"
 
+requestDescribeTrafficSources :: DescribeTrafficSources -> TestTree
+requestDescribeTrafficSources =
+  req
+    "DescribeTrafficSources"
+    "fixture/DescribeTrafficSources.yaml"
+
 requestDescribeWarmPool :: DescribeWarmPool -> TestTree
 requestDescribeWarmPool =
   req
@@ -646,6 +676,12 @@ requestDetachLoadBalancers =
   req
     "DetachLoadBalancers"
     "fixture/DetachLoadBalancers.yaml"
+
+requestDetachTrafficSources :: DetachTrafficSources -> TestTree
+requestDetachTrafficSources =
+  req
+    "DetachTrafficSources"
+    "fixture/DetachTrafficSources.yaml"
 
 requestDisableMetricsCollection :: DisableMetricsCollection -> TestTree
 requestDisableMetricsCollection =
@@ -792,6 +828,14 @@ responseAttachLoadBalancers =
     "fixture/AttachLoadBalancersResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AttachLoadBalancers)
+
+responseAttachTrafficSources :: AttachTrafficSourcesResponse -> TestTree
+responseAttachTrafficSources =
+  res
+    "AttachTrafficSourcesResponse"
+    "fixture/AttachTrafficSourcesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AttachTrafficSources)
 
 responseBatchDeleteScheduledAction :: BatchDeleteScheduledActionResponse -> TestTree
 responseBatchDeleteScheduledAction =
@@ -1065,6 +1109,14 @@ responseDescribeTerminationPolicyTypes =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeTerminationPolicyTypes)
 
+responseDescribeTrafficSources :: DescribeTrafficSourcesResponse -> TestTree
+responseDescribeTrafficSources =
+  res
+    "DescribeTrafficSourcesResponse"
+    "fixture/DescribeTrafficSourcesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeTrafficSources)
+
 responseDescribeWarmPool :: DescribeWarmPoolResponse -> TestTree
 responseDescribeWarmPool =
   res
@@ -1096,6 +1148,14 @@ responseDetachLoadBalancers =
     "fixture/DetachLoadBalancersResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DetachLoadBalancers)
+
+responseDetachTrafficSources :: DetachTrafficSourcesResponse -> TestTree
+responseDetachTrafficSources =
+  res
+    "DetachTrafficSourcesResponse"
+    "fixture/DetachTrafficSourcesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DetachTrafficSources)
 
 responseDisableMetricsCollection :: DisableMetricsCollectionResponse -> TestTree
 responseDisableMetricsCollection =

@@ -35,8 +35,8 @@ module Amazonka.IotTwinMaker.GetScene
     newGetSceneResponse,
 
     -- * Response Lenses
-    getSceneResponse_description,
     getSceneResponse_capabilities,
+    getSceneResponse_description,
     getSceneResponse_httpStatus,
     getSceneResponse_workspaceId,
     getSceneResponse_sceneId,
@@ -103,8 +103,8 @@ instance Core.AWSRequest GetScene where
     Response.receiveJSON
       ( \s h x ->
           GetSceneResponse'
-            Prelude.<$> (x Data..?> "description")
-            Prelude.<*> (x Data..?> "capabilities" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "capabilities" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "description")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "workspaceId")
             Prelude.<*> (x Data..:> "sceneId")
@@ -149,10 +149,10 @@ instance Data.ToQuery GetScene where
 
 -- | /See:/ 'newGetSceneResponse' smart constructor.
 data GetSceneResponse = GetSceneResponse'
-  { -- | The description of the scene.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | A list of capabilities that the scene uses to render.
+  { -- | A list of capabilities that the scene uses to render.
     capabilities :: Prelude.Maybe [Prelude.Text],
+    -- | The description of the scene.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The ID of the workspace that contains the scene.
@@ -179,9 +179,9 @@ data GetSceneResponse = GetSceneResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'getSceneResponse_description' - The description of the scene.
---
 -- 'capabilities', 'getSceneResponse_capabilities' - A list of capabilities that the scene uses to render.
+--
+-- 'description', 'getSceneResponse_description' - The description of the scene.
 --
 -- 'httpStatus', 'getSceneResponse_httpStatus' - The response's http status code.
 --
@@ -222,8 +222,8 @@ newGetSceneResponse
   pCreationDateTime_
   pUpdateDateTime_ =
     GetSceneResponse'
-      { description = Prelude.Nothing,
-        capabilities = Prelude.Nothing,
+      { capabilities = Prelude.Nothing,
+        description = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         workspaceId = pWorkspaceId_,
         sceneId = pSceneId_,
@@ -234,13 +234,13 @@ newGetSceneResponse
         updateDateTime = Data._Time Lens.# pUpdateDateTime_
       }
 
--- | The description of the scene.
-getSceneResponse_description :: Lens.Lens' GetSceneResponse (Prelude.Maybe Prelude.Text)
-getSceneResponse_description = Lens.lens (\GetSceneResponse' {description} -> description) (\s@GetSceneResponse' {} a -> s {description = a} :: GetSceneResponse)
-
 -- | A list of capabilities that the scene uses to render.
 getSceneResponse_capabilities :: Lens.Lens' GetSceneResponse (Prelude.Maybe [Prelude.Text])
 getSceneResponse_capabilities = Lens.lens (\GetSceneResponse' {capabilities} -> capabilities) (\s@GetSceneResponse' {} a -> s {capabilities = a} :: GetSceneResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The description of the scene.
+getSceneResponse_description :: Lens.Lens' GetSceneResponse (Prelude.Maybe Prelude.Text)
+getSceneResponse_description = Lens.lens (\GetSceneResponse' {description} -> description) (\s@GetSceneResponse' {} a -> s {description = a} :: GetSceneResponse)
 
 -- | The response's http status code.
 getSceneResponse_httpStatus :: Lens.Lens' GetSceneResponse Prelude.Int
@@ -273,8 +273,8 @@ getSceneResponse_updateDateTime = Lens.lens (\GetSceneResponse' {updateDateTime}
 
 instance Prelude.NFData GetSceneResponse where
   rnf GetSceneResponse' {..} =
-    Prelude.rnf description
-      `Prelude.seq` Prelude.rnf capabilities
+    Prelude.rnf capabilities
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf workspaceId
       `Prelude.seq` Prelude.rnf sceneId

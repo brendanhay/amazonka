@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAssociatedApplication' smart constructor.
 data AssociatedApplication = AssociatedApplication'
-  { -- | Name of the application as defined in Application Discovery Service.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | ID of the application as defined in Application Discovery Service.
-    id :: Prelude.Maybe Prelude.Text
+  { -- | ID of the application as defined in Application Discovery Service.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | Name of the application as defined in Application Discovery Service.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data AssociatedApplication = AssociatedApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'associatedApplication_name' - Name of the application as defined in Application Discovery Service.
---
 -- 'id', 'associatedApplication_id' - ID of the application as defined in Application Discovery Service.
+--
+-- 'name', 'associatedApplication_name' - Name of the application as defined in Application Discovery Service.
 newAssociatedApplication ::
   AssociatedApplication
 newAssociatedApplication =
   AssociatedApplication'
-    { name = Prelude.Nothing,
-      id = Prelude.Nothing
+    { id = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | Name of the application as defined in Application Discovery Service.
-associatedApplication_name :: Lens.Lens' AssociatedApplication (Prelude.Maybe Prelude.Text)
-associatedApplication_name = Lens.lens (\AssociatedApplication' {name} -> name) (\s@AssociatedApplication' {} a -> s {name = a} :: AssociatedApplication)
 
 -- | ID of the application as defined in Application Discovery Service.
 associatedApplication_id :: Lens.Lens' AssociatedApplication (Prelude.Maybe Prelude.Text)
 associatedApplication_id = Lens.lens (\AssociatedApplication' {id} -> id) (\s@AssociatedApplication' {} a -> s {id = a} :: AssociatedApplication)
+
+-- | Name of the application as defined in Application Discovery Service.
+associatedApplication_name :: Lens.Lens' AssociatedApplication (Prelude.Maybe Prelude.Text)
+associatedApplication_name = Lens.lens (\AssociatedApplication' {name} -> name) (\s@AssociatedApplication' {} a -> s {name = a} :: AssociatedApplication)
 
 instance Data.FromJSON AssociatedApplication where
   parseJSON =
@@ -69,14 +69,14 @@ instance Data.FromJSON AssociatedApplication where
       "AssociatedApplication"
       ( \x ->
           AssociatedApplication'
-            Prelude.<$> (x Data..:? "name") Prelude.<*> (x Data..:? "id")
+            Prelude.<$> (x Data..:? "id") Prelude.<*> (x Data..:? "name")
       )
 
 instance Prelude.Hashable AssociatedApplication where
   hashWithSalt _salt AssociatedApplication' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` id
+    _salt `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData AssociatedApplication where
   rnf AssociatedApplication' {..} =
-    Prelude.rnf name `Prelude.seq` Prelude.rnf id
+    Prelude.rnf id `Prelude.seq` Prelude.rnf name

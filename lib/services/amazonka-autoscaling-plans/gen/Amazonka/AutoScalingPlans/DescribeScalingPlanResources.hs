@@ -29,8 +29,8 @@ module Amazonka.AutoScalingPlans.DescribeScalingPlanResources
     newDescribeScalingPlanResources,
 
     -- * Request Lenses
-    describeScalingPlanResources_nextToken,
     describeScalingPlanResources_maxResults,
+    describeScalingPlanResources_nextToken,
     describeScalingPlanResources_scalingPlanName,
     describeScalingPlanResources_scalingPlanVersion,
 
@@ -55,11 +55,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeScalingPlanResources' smart constructor.
 data DescribeScalingPlanResources = DescribeScalingPlanResources'
-  { -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of scalable resources to return. The value must be
+  { -- | The maximum number of scalable resources to return. The value must be
     -- between 1 and 50. The default value is 50.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the scaling plan.
     scalingPlanName :: Prelude.Text,
     -- | The version number of the scaling plan. Currently, the only valid value
@@ -76,10 +76,10 @@ data DescribeScalingPlanResources = DescribeScalingPlanResources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeScalingPlanResources_nextToken' - The token for the next set of results.
---
 -- 'maxResults', 'describeScalingPlanResources_maxResults' - The maximum number of scalable resources to return. The value must be
 -- between 1 and 50. The default value is 50.
+--
+-- 'nextToken', 'describeScalingPlanResources_nextToken' - The token for the next set of results.
 --
 -- 'scalingPlanName', 'describeScalingPlanResources_scalingPlanName' - The name of the scaling plan.
 --
@@ -95,21 +95,21 @@ newDescribeScalingPlanResources
   pScalingPlanName_
   pScalingPlanVersion_ =
     DescribeScalingPlanResources'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         scalingPlanName = pScalingPlanName_,
         scalingPlanVersion = pScalingPlanVersion_
       }
-
--- | The token for the next set of results.
-describeScalingPlanResources_nextToken :: Lens.Lens' DescribeScalingPlanResources (Prelude.Maybe Prelude.Text)
-describeScalingPlanResources_nextToken = Lens.lens (\DescribeScalingPlanResources' {nextToken} -> nextToken) (\s@DescribeScalingPlanResources' {} a -> s {nextToken = a} :: DescribeScalingPlanResources)
 
 -- | The maximum number of scalable resources to return. The value must be
 -- between 1 and 50. The default value is 50.
 describeScalingPlanResources_maxResults :: Lens.Lens' DescribeScalingPlanResources (Prelude.Maybe Prelude.Int)
 describeScalingPlanResources_maxResults = Lens.lens (\DescribeScalingPlanResources' {maxResults} -> maxResults) (\s@DescribeScalingPlanResources' {} a -> s {maxResults = a} :: DescribeScalingPlanResources)
+
+-- | The token for the next set of results.
+describeScalingPlanResources_nextToken :: Lens.Lens' DescribeScalingPlanResources (Prelude.Maybe Prelude.Text)
+describeScalingPlanResources_nextToken = Lens.lens (\DescribeScalingPlanResources' {nextToken} -> nextToken) (\s@DescribeScalingPlanResources' {} a -> s {nextToken = a} :: DescribeScalingPlanResources)
 
 -- | The name of the scaling plan.
 describeScalingPlanResources_scalingPlanName :: Lens.Lens' DescribeScalingPlanResources Prelude.Text
@@ -164,15 +164,15 @@ instance
     DescribeScalingPlanResources
   where
   hashWithSalt _salt DescribeScalingPlanResources' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` scalingPlanName
       `Prelude.hashWithSalt` scalingPlanVersion
 
 instance Prelude.NFData DescribeScalingPlanResources where
   rnf DescribeScalingPlanResources' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf scalingPlanName
       `Prelude.seq` Prelude.rnf scalingPlanVersion
 
@@ -195,8 +195,8 @@ instance Data.ToJSON DescribeScalingPlanResources where
   toJSON DescribeScalingPlanResources' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("ScalingPlanName" Data..= scalingPlanName),
             Prelude.Just

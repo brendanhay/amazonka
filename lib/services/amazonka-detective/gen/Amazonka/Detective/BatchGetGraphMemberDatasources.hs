@@ -35,8 +35,8 @@ module Amazonka.Detective.BatchGetGraphMemberDatasources
     newBatchGetGraphMemberDatasourcesResponse,
 
     -- * Response Lenses
-    batchGetGraphMemberDatasourcesResponse_unprocessedAccounts,
     batchGetGraphMemberDatasourcesResponse_memberDatasources,
+    batchGetGraphMemberDatasourcesResponse_unprocessedAccounts,
     batchGetGraphMemberDatasourcesResponse_httpStatus,
   )
 where
@@ -109,10 +109,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           BatchGetGraphMemberDatasourcesResponse'
-            Prelude.<$> ( x Data..?> "UnprocessedAccounts"
+            Prelude.<$> ( x Data..?> "MemberDatasources"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "MemberDatasources"
+            Prelude.<*> ( x Data..?> "UnprocessedAccounts"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -167,12 +167,12 @@ instance Data.ToQuery BatchGetGraphMemberDatasources where
 
 -- | /See:/ 'newBatchGetGraphMemberDatasourcesResponse' smart constructor.
 data BatchGetGraphMemberDatasourcesResponse = BatchGetGraphMemberDatasourcesResponse'
-  { -- | Accounts that data source package information could not be retrieved
-    -- for.
-    unprocessedAccounts :: Prelude.Maybe [UnprocessedAccount],
-    -- | Details on the status of data source packages for members of the
+  { -- | Details on the status of data source packages for members of the
     -- behavior graph.
     memberDatasources :: Prelude.Maybe [MembershipDatasources],
+    -- | Accounts that data source package information could not be retrieved
+    -- for.
+    unprocessedAccounts :: Prelude.Maybe [UnprocessedAccount],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -186,11 +186,11 @@ data BatchGetGraphMemberDatasourcesResponse = BatchGetGraphMemberDatasourcesResp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'unprocessedAccounts', 'batchGetGraphMemberDatasourcesResponse_unprocessedAccounts' - Accounts that data source package information could not be retrieved
--- for.
---
 -- 'memberDatasources', 'batchGetGraphMemberDatasourcesResponse_memberDatasources' - Details on the status of data source packages for members of the
 -- behavior graph.
+--
+-- 'unprocessedAccounts', 'batchGetGraphMemberDatasourcesResponse_unprocessedAccounts' - Accounts that data source package information could not be retrieved
+-- for.
 --
 -- 'httpStatus', 'batchGetGraphMemberDatasourcesResponse_httpStatus' - The response's http status code.
 newBatchGetGraphMemberDatasourcesResponse ::
@@ -200,21 +200,22 @@ newBatchGetGraphMemberDatasourcesResponse ::
 newBatchGetGraphMemberDatasourcesResponse
   pHttpStatus_ =
     BatchGetGraphMemberDatasourcesResponse'
-      { unprocessedAccounts =
+      { memberDatasources =
           Prelude.Nothing,
-        memberDatasources = Prelude.Nothing,
+        unprocessedAccounts =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | Accounts that data source package information could not be retrieved
--- for.
-batchGetGraphMemberDatasourcesResponse_unprocessedAccounts :: Lens.Lens' BatchGetGraphMemberDatasourcesResponse (Prelude.Maybe [UnprocessedAccount])
-batchGetGraphMemberDatasourcesResponse_unprocessedAccounts = Lens.lens (\BatchGetGraphMemberDatasourcesResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@BatchGetGraphMemberDatasourcesResponse' {} a -> s {unprocessedAccounts = a} :: BatchGetGraphMemberDatasourcesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Details on the status of data source packages for members of the
 -- behavior graph.
 batchGetGraphMemberDatasourcesResponse_memberDatasources :: Lens.Lens' BatchGetGraphMemberDatasourcesResponse (Prelude.Maybe [MembershipDatasources])
 batchGetGraphMemberDatasourcesResponse_memberDatasources = Lens.lens (\BatchGetGraphMemberDatasourcesResponse' {memberDatasources} -> memberDatasources) (\s@BatchGetGraphMemberDatasourcesResponse' {} a -> s {memberDatasources = a} :: BatchGetGraphMemberDatasourcesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Accounts that data source package information could not be retrieved
+-- for.
+batchGetGraphMemberDatasourcesResponse_unprocessedAccounts :: Lens.Lens' BatchGetGraphMemberDatasourcesResponse (Prelude.Maybe [UnprocessedAccount])
+batchGetGraphMemberDatasourcesResponse_unprocessedAccounts = Lens.lens (\BatchGetGraphMemberDatasourcesResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@BatchGetGraphMemberDatasourcesResponse' {} a -> s {unprocessedAccounts = a} :: BatchGetGraphMemberDatasourcesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchGetGraphMemberDatasourcesResponse_httpStatus :: Lens.Lens' BatchGetGraphMemberDatasourcesResponse Prelude.Int
@@ -225,6 +226,6 @@ instance
     BatchGetGraphMemberDatasourcesResponse
   where
   rnf BatchGetGraphMemberDatasourcesResponse' {..} =
-    Prelude.rnf unprocessedAccounts
-      `Prelude.seq` Prelude.rnf memberDatasources
+    Prelude.rnf memberDatasources
+      `Prelude.seq` Prelude.rnf unprocessedAccounts
       `Prelude.seq` Prelude.rnf httpStatus

@@ -33,11 +33,11 @@ module Amazonka.Chime.CreateChannel
     newCreateChannel,
 
     -- * Request Lenses
-    createChannel_tags,
     createChannel_chimeBearer,
     createChannel_metadata,
-    createChannel_privacy,
     createChannel_mode,
+    createChannel_privacy,
+    createChannel_tags,
     createChannel_appInstanceArn,
     createChannel_name,
     createChannel_clientRequestToken,
@@ -62,21 +62,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateChannel' smart constructor.
 data CreateChannel = CreateChannel'
-  { -- | The tags for the creation request.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | The @AppInstanceUserArn@ of the user that makes the API call.
+  { -- | The @AppInstanceUserArn@ of the user that makes the API call.
     chimeBearer :: Prelude.Maybe Prelude.Text,
     -- | The metadata of the creation request. Limited to 1KB and UTF-8.
     metadata :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The channel\'s privacy level: @PUBLIC@ or @PRIVATE@. Private channels
-    -- aren\'t discoverable by users outside the channel. Public channels are
-    -- discoverable by anyone in the @AppInstance@.
-    privacy :: Prelude.Maybe ChannelPrivacy,
     -- | The channel mode: @UNRESTRICTED@ or @RESTRICTED@. Administrators,
     -- moderators, and channel members can add themselves and other members to
     -- unrestricted channels. Only administrators and moderators can add
     -- members to restricted channels.
     mode :: Prelude.Maybe ChannelMode,
+    -- | The channel\'s privacy level: @PUBLIC@ or @PRIVATE@. Private channels
+    -- aren\'t discoverable by users outside the channel. Public channels are
+    -- discoverable by anyone in the @AppInstance@.
+    privacy :: Prelude.Maybe ChannelPrivacy,
+    -- | The tags for the creation request.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The ARN of the channel request.
     appInstanceArn :: Prelude.Text,
     -- | The name of the channel.
@@ -94,20 +94,20 @@ data CreateChannel = CreateChannel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createChannel_tags' - The tags for the creation request.
---
 -- 'chimeBearer', 'createChannel_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.
 --
 -- 'metadata', 'createChannel_metadata' - The metadata of the creation request. Limited to 1KB and UTF-8.
---
--- 'privacy', 'createChannel_privacy' - The channel\'s privacy level: @PUBLIC@ or @PRIVATE@. Private channels
--- aren\'t discoverable by users outside the channel. Public channels are
--- discoverable by anyone in the @AppInstance@.
 --
 -- 'mode', 'createChannel_mode' - The channel mode: @UNRESTRICTED@ or @RESTRICTED@. Administrators,
 -- moderators, and channel members can add themselves and other members to
 -- unrestricted channels. Only administrators and moderators can add
 -- members to restricted channels.
+--
+-- 'privacy', 'createChannel_privacy' - The channel\'s privacy level: @PUBLIC@ or @PRIVATE@. Private channels
+-- aren\'t discoverable by users outside the channel. Public channels are
+-- discoverable by anyone in the @AppInstance@.
+--
+-- 'tags', 'createChannel_tags' - The tags for the creation request.
 --
 -- 'appInstanceArn', 'createChannel_appInstanceArn' - The ARN of the channel request.
 --
@@ -127,20 +127,16 @@ newCreateChannel
   pName_
   pClientRequestToken_ =
     CreateChannel'
-      { tags = Prelude.Nothing,
-        chimeBearer = Prelude.Nothing,
+      { chimeBearer = Prelude.Nothing,
         metadata = Prelude.Nothing,
-        privacy = Prelude.Nothing,
         mode = Prelude.Nothing,
+        privacy = Prelude.Nothing,
+        tags = Prelude.Nothing,
         appInstanceArn = pAppInstanceArn_,
         name = Data._Sensitive Lens.# pName_,
         clientRequestToken =
           Data._Sensitive Lens.# pClientRequestToken_
       }
-
--- | The tags for the creation request.
-createChannel_tags :: Lens.Lens' CreateChannel (Prelude.Maybe (Prelude.NonEmpty Tag))
-createChannel_tags = Lens.lens (\CreateChannel' {tags} -> tags) (\s@CreateChannel' {} a -> s {tags = a} :: CreateChannel) Prelude.. Lens.mapping Lens.coerced
 
 -- | The @AppInstanceUserArn@ of the user that makes the API call.
 createChannel_chimeBearer :: Lens.Lens' CreateChannel (Prelude.Maybe Prelude.Text)
@@ -150,18 +146,22 @@ createChannel_chimeBearer = Lens.lens (\CreateChannel' {chimeBearer} -> chimeBea
 createChannel_metadata :: Lens.Lens' CreateChannel (Prelude.Maybe Prelude.Text)
 createChannel_metadata = Lens.lens (\CreateChannel' {metadata} -> metadata) (\s@CreateChannel' {} a -> s {metadata = a} :: CreateChannel) Prelude.. Lens.mapping Data._Sensitive
 
--- | The channel\'s privacy level: @PUBLIC@ or @PRIVATE@. Private channels
--- aren\'t discoverable by users outside the channel. Public channels are
--- discoverable by anyone in the @AppInstance@.
-createChannel_privacy :: Lens.Lens' CreateChannel (Prelude.Maybe ChannelPrivacy)
-createChannel_privacy = Lens.lens (\CreateChannel' {privacy} -> privacy) (\s@CreateChannel' {} a -> s {privacy = a} :: CreateChannel)
-
 -- | The channel mode: @UNRESTRICTED@ or @RESTRICTED@. Administrators,
 -- moderators, and channel members can add themselves and other members to
 -- unrestricted channels. Only administrators and moderators can add
 -- members to restricted channels.
 createChannel_mode :: Lens.Lens' CreateChannel (Prelude.Maybe ChannelMode)
 createChannel_mode = Lens.lens (\CreateChannel' {mode} -> mode) (\s@CreateChannel' {} a -> s {mode = a} :: CreateChannel)
+
+-- | The channel\'s privacy level: @PUBLIC@ or @PRIVATE@. Private channels
+-- aren\'t discoverable by users outside the channel. Public channels are
+-- discoverable by anyone in the @AppInstance@.
+createChannel_privacy :: Lens.Lens' CreateChannel (Prelude.Maybe ChannelPrivacy)
+createChannel_privacy = Lens.lens (\CreateChannel' {privacy} -> privacy) (\s@CreateChannel' {} a -> s {privacy = a} :: CreateChannel)
+
+-- | The tags for the creation request.
+createChannel_tags :: Lens.Lens' CreateChannel (Prelude.Maybe (Prelude.NonEmpty Tag))
+createChannel_tags = Lens.lens (\CreateChannel' {tags} -> tags) (\s@CreateChannel' {} a -> s {tags = a} :: CreateChannel) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the channel request.
 createChannel_appInstanceArn :: Lens.Lens' CreateChannel Prelude.Text
@@ -191,22 +191,22 @@ instance Core.AWSRequest CreateChannel where
 
 instance Prelude.Hashable CreateChannel where
   hashWithSalt _salt CreateChannel' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` chimeBearer
+    _salt `Prelude.hashWithSalt` chimeBearer
       `Prelude.hashWithSalt` metadata
-      `Prelude.hashWithSalt` privacy
       `Prelude.hashWithSalt` mode
+      `Prelude.hashWithSalt` privacy
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` appInstanceArn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` clientRequestToken
 
 instance Prelude.NFData CreateChannel where
   rnf CreateChannel' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf chimeBearer
+    Prelude.rnf chimeBearer
       `Prelude.seq` Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf privacy
       `Prelude.seq` Prelude.rnf mode
+      `Prelude.seq` Prelude.rnf privacy
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf appInstanceArn
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf clientRequestToken
@@ -220,10 +220,10 @@ instance Data.ToJSON CreateChannel where
   toJSON CreateChannel' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Metadata" Data..=) Prelude.<$> metadata,
-            ("Privacy" Data..=) Prelude.<$> privacy,
+          [ ("Metadata" Data..=) Prelude.<$> metadata,
             ("Mode" Data..=) Prelude.<$> mode,
+            ("Privacy" Data..=) Prelude.<$> privacy,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("AppInstanceArn" Data..= appInstanceArn),
             Prelude.Just ("Name" Data..= name),

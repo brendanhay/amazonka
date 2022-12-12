@@ -34,21 +34,21 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAnalyticsConfigurationType' smart constructor.
 data AnalyticsConfigurationType = AnalyticsConfigurationType'
-  { -- | If @UserDataShared@ is @true@, Amazon Cognito includes user data in the
-    -- events that it publishes to Amazon Pinpoint analytics.
-    userDataShared :: Prelude.Maybe Prelude.Bool,
-    -- | The ARN of an Identity and Access Management role that authorizes Amazon
-    -- Cognito to publish events to Amazon Pinpoint analytics.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of an Amazon Pinpoint project. You can
+  { -- | The Amazon Resource Name (ARN) of an Amazon Pinpoint project. You can
     -- use the Amazon Pinpoint project to integrate with the chosen user pool
     -- Client. Amazon Cognito publishes events to the Amazon Pinpoint project
     -- that the app ARN declares.
     applicationArn :: Prelude.Maybe Prelude.Text,
+    -- | The application ID for an Amazon Pinpoint application.
+    applicationId :: Prelude.Maybe Prelude.Text,
     -- | The external ID.
     externalId :: Prelude.Maybe Prelude.Text,
-    -- | The application ID for an Amazon Pinpoint application.
-    applicationId :: Prelude.Maybe Prelude.Text
+    -- | The ARN of an Identity and Access Management role that authorizes Amazon
+    -- Cognito to publish events to Amazon Pinpoint analytics.
+    roleArn :: Prelude.Maybe Prelude.Text,
+    -- | If @UserDataShared@ is @true@, Amazon Cognito includes user data in the
+    -- events that it publishes to Amazon Pinpoint analytics.
+    userDataShared :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,41 +60,31 @@ data AnalyticsConfigurationType = AnalyticsConfigurationType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'userDataShared', 'analyticsConfigurationType_userDataShared' - If @UserDataShared@ is @true@, Amazon Cognito includes user data in the
--- events that it publishes to Amazon Pinpoint analytics.
---
--- 'roleArn', 'analyticsConfigurationType_roleArn' - The ARN of an Identity and Access Management role that authorizes Amazon
--- Cognito to publish events to Amazon Pinpoint analytics.
---
 -- 'applicationArn', 'analyticsConfigurationType_applicationArn' - The Amazon Resource Name (ARN) of an Amazon Pinpoint project. You can
 -- use the Amazon Pinpoint project to integrate with the chosen user pool
 -- Client. Amazon Cognito publishes events to the Amazon Pinpoint project
 -- that the app ARN declares.
 --
+-- 'applicationId', 'analyticsConfigurationType_applicationId' - The application ID for an Amazon Pinpoint application.
+--
 -- 'externalId', 'analyticsConfigurationType_externalId' - The external ID.
 --
--- 'applicationId', 'analyticsConfigurationType_applicationId' - The application ID for an Amazon Pinpoint application.
+-- 'roleArn', 'analyticsConfigurationType_roleArn' - The ARN of an Identity and Access Management role that authorizes Amazon
+-- Cognito to publish events to Amazon Pinpoint analytics.
+--
+-- 'userDataShared', 'analyticsConfigurationType_userDataShared' - If @UserDataShared@ is @true@, Amazon Cognito includes user data in the
+-- events that it publishes to Amazon Pinpoint analytics.
 newAnalyticsConfigurationType ::
   AnalyticsConfigurationType
 newAnalyticsConfigurationType =
   AnalyticsConfigurationType'
-    { userDataShared =
+    { applicationArn =
         Prelude.Nothing,
-      roleArn = Prelude.Nothing,
-      applicationArn = Prelude.Nothing,
+      applicationId = Prelude.Nothing,
       externalId = Prelude.Nothing,
-      applicationId = Prelude.Nothing
+      roleArn = Prelude.Nothing,
+      userDataShared = Prelude.Nothing
     }
-
--- | If @UserDataShared@ is @true@, Amazon Cognito includes user data in the
--- events that it publishes to Amazon Pinpoint analytics.
-analyticsConfigurationType_userDataShared :: Lens.Lens' AnalyticsConfigurationType (Prelude.Maybe Prelude.Bool)
-analyticsConfigurationType_userDataShared = Lens.lens (\AnalyticsConfigurationType' {userDataShared} -> userDataShared) (\s@AnalyticsConfigurationType' {} a -> s {userDataShared = a} :: AnalyticsConfigurationType)
-
--- | The ARN of an Identity and Access Management role that authorizes Amazon
--- Cognito to publish events to Amazon Pinpoint analytics.
-analyticsConfigurationType_roleArn :: Lens.Lens' AnalyticsConfigurationType (Prelude.Maybe Prelude.Text)
-analyticsConfigurationType_roleArn = Lens.lens (\AnalyticsConfigurationType' {roleArn} -> roleArn) (\s@AnalyticsConfigurationType' {} a -> s {roleArn = a} :: AnalyticsConfigurationType)
 
 -- | The Amazon Resource Name (ARN) of an Amazon Pinpoint project. You can
 -- use the Amazon Pinpoint project to integrate with the chosen user pool
@@ -103,13 +93,23 @@ analyticsConfigurationType_roleArn = Lens.lens (\AnalyticsConfigurationType' {ro
 analyticsConfigurationType_applicationArn :: Lens.Lens' AnalyticsConfigurationType (Prelude.Maybe Prelude.Text)
 analyticsConfigurationType_applicationArn = Lens.lens (\AnalyticsConfigurationType' {applicationArn} -> applicationArn) (\s@AnalyticsConfigurationType' {} a -> s {applicationArn = a} :: AnalyticsConfigurationType)
 
+-- | The application ID for an Amazon Pinpoint application.
+analyticsConfigurationType_applicationId :: Lens.Lens' AnalyticsConfigurationType (Prelude.Maybe Prelude.Text)
+analyticsConfigurationType_applicationId = Lens.lens (\AnalyticsConfigurationType' {applicationId} -> applicationId) (\s@AnalyticsConfigurationType' {} a -> s {applicationId = a} :: AnalyticsConfigurationType)
+
 -- | The external ID.
 analyticsConfigurationType_externalId :: Lens.Lens' AnalyticsConfigurationType (Prelude.Maybe Prelude.Text)
 analyticsConfigurationType_externalId = Lens.lens (\AnalyticsConfigurationType' {externalId} -> externalId) (\s@AnalyticsConfigurationType' {} a -> s {externalId = a} :: AnalyticsConfigurationType)
 
--- | The application ID for an Amazon Pinpoint application.
-analyticsConfigurationType_applicationId :: Lens.Lens' AnalyticsConfigurationType (Prelude.Maybe Prelude.Text)
-analyticsConfigurationType_applicationId = Lens.lens (\AnalyticsConfigurationType' {applicationId} -> applicationId) (\s@AnalyticsConfigurationType' {} a -> s {applicationId = a} :: AnalyticsConfigurationType)
+-- | The ARN of an Identity and Access Management role that authorizes Amazon
+-- Cognito to publish events to Amazon Pinpoint analytics.
+analyticsConfigurationType_roleArn :: Lens.Lens' AnalyticsConfigurationType (Prelude.Maybe Prelude.Text)
+analyticsConfigurationType_roleArn = Lens.lens (\AnalyticsConfigurationType' {roleArn} -> roleArn) (\s@AnalyticsConfigurationType' {} a -> s {roleArn = a} :: AnalyticsConfigurationType)
+
+-- | If @UserDataShared@ is @true@, Amazon Cognito includes user data in the
+-- events that it publishes to Amazon Pinpoint analytics.
+analyticsConfigurationType_userDataShared :: Lens.Lens' AnalyticsConfigurationType (Prelude.Maybe Prelude.Bool)
+analyticsConfigurationType_userDataShared = Lens.lens (\AnalyticsConfigurationType' {userDataShared} -> userDataShared) (\s@AnalyticsConfigurationType' {} a -> s {userDataShared = a} :: AnalyticsConfigurationType)
 
 instance Data.FromJSON AnalyticsConfigurationType where
   parseJSON =
@@ -117,39 +117,39 @@ instance Data.FromJSON AnalyticsConfigurationType where
       "AnalyticsConfigurationType"
       ( \x ->
           AnalyticsConfigurationType'
-            Prelude.<$> (x Data..:? "UserDataShared")
-            Prelude.<*> (x Data..:? "RoleArn")
-            Prelude.<*> (x Data..:? "ApplicationArn")
-            Prelude.<*> (x Data..:? "ExternalId")
+            Prelude.<$> (x Data..:? "ApplicationArn")
             Prelude.<*> (x Data..:? "ApplicationId")
+            Prelude.<*> (x Data..:? "ExternalId")
+            Prelude.<*> (x Data..:? "RoleArn")
+            Prelude.<*> (x Data..:? "UserDataShared")
       )
 
 instance Prelude.Hashable AnalyticsConfigurationType where
   hashWithSalt _salt AnalyticsConfigurationType' {..} =
-    _salt `Prelude.hashWithSalt` userDataShared
-      `Prelude.hashWithSalt` roleArn
-      `Prelude.hashWithSalt` applicationArn
-      `Prelude.hashWithSalt` externalId
+    _salt `Prelude.hashWithSalt` applicationArn
       `Prelude.hashWithSalt` applicationId
+      `Prelude.hashWithSalt` externalId
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` userDataShared
 
 instance Prelude.NFData AnalyticsConfigurationType where
   rnf AnalyticsConfigurationType' {..} =
-    Prelude.rnf userDataShared
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf applicationArn
-      `Prelude.seq` Prelude.rnf externalId
+    Prelude.rnf applicationArn
       `Prelude.seq` Prelude.rnf applicationId
+      `Prelude.seq` Prelude.rnf externalId
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf userDataShared
 
 instance Data.ToJSON AnalyticsConfigurationType where
   toJSON AnalyticsConfigurationType' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("UserDataShared" Data..=)
-              Prelude.<$> userDataShared,
-            ("RoleArn" Data..=) Prelude.<$> roleArn,
-            ("ApplicationArn" Data..=)
+          [ ("ApplicationArn" Data..=)
               Prelude.<$> applicationArn,
+            ("ApplicationId" Data..=) Prelude.<$> applicationId,
             ("ExternalId" Data..=) Prelude.<$> externalId,
-            ("ApplicationId" Data..=) Prelude.<$> applicationId
+            ("RoleArn" Data..=) Prelude.<$> roleArn,
+            ("UserDataShared" Data..=)
+              Prelude.<$> userDataShared
           ]
       )

@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPolicyDescription' smart constructor.
 data PolicyDescription = PolicyDescription'
-  { -- | The name of the policy.
-    policyName :: Prelude.Maybe Prelude.Text,
-    -- | The policy attributes.
+  { -- | The policy attributes.
     policyAttributeDescriptions :: Prelude.Maybe [PolicyAttributeDescription],
+    -- | The name of the policy.
+    policyName :: Prelude.Maybe Prelude.Text,
     -- | The name of the policy type.
     policyTypeName :: Prelude.Maybe Prelude.Text
   }
@@ -47,27 +47,28 @@ data PolicyDescription = PolicyDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyName', 'policyDescription_policyName' - The name of the policy.
---
 -- 'policyAttributeDescriptions', 'policyDescription_policyAttributeDescriptions' - The policy attributes.
+--
+-- 'policyName', 'policyDescription_policyName' - The name of the policy.
 --
 -- 'policyTypeName', 'policyDescription_policyTypeName' - The name of the policy type.
 newPolicyDescription ::
   PolicyDescription
 newPolicyDescription =
   PolicyDescription'
-    { policyName = Prelude.Nothing,
-      policyAttributeDescriptions = Prelude.Nothing,
+    { policyAttributeDescriptions =
+        Prelude.Nothing,
+      policyName = Prelude.Nothing,
       policyTypeName = Prelude.Nothing
     }
-
--- | The name of the policy.
-policyDescription_policyName :: Lens.Lens' PolicyDescription (Prelude.Maybe Prelude.Text)
-policyDescription_policyName = Lens.lens (\PolicyDescription' {policyName} -> policyName) (\s@PolicyDescription' {} a -> s {policyName = a} :: PolicyDescription)
 
 -- | The policy attributes.
 policyDescription_policyAttributeDescriptions :: Lens.Lens' PolicyDescription (Prelude.Maybe [PolicyAttributeDescription])
 policyDescription_policyAttributeDescriptions = Lens.lens (\PolicyDescription' {policyAttributeDescriptions} -> policyAttributeDescriptions) (\s@PolicyDescription' {} a -> s {policyAttributeDescriptions = a} :: PolicyDescription) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of the policy.
+policyDescription_policyName :: Lens.Lens' PolicyDescription (Prelude.Maybe Prelude.Text)
+policyDescription_policyName = Lens.lens (\PolicyDescription' {policyName} -> policyName) (\s@PolicyDescription' {} a -> s {policyName = a} :: PolicyDescription)
 
 -- | The name of the policy type.
 policyDescription_policyTypeName :: Lens.Lens' PolicyDescription (Prelude.Maybe Prelude.Text)
@@ -76,21 +77,22 @@ policyDescription_policyTypeName = Lens.lens (\PolicyDescription' {policyTypeNam
 instance Data.FromXML PolicyDescription where
   parseXML x =
     PolicyDescription'
-      Prelude.<$> (x Data..@? "PolicyName")
-      Prelude.<*> ( x Data..@? "PolicyAttributeDescriptions"
+      Prelude.<$> ( x Data..@? "PolicyAttributeDescriptions"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
+      Prelude.<*> (x Data..@? "PolicyName")
       Prelude.<*> (x Data..@? "PolicyTypeName")
 
 instance Prelude.Hashable PolicyDescription where
   hashWithSalt _salt PolicyDescription' {..} =
-    _salt `Prelude.hashWithSalt` policyName
+    _salt
       `Prelude.hashWithSalt` policyAttributeDescriptions
+      `Prelude.hashWithSalt` policyName
       `Prelude.hashWithSalt` policyTypeName
 
 instance Prelude.NFData PolicyDescription where
   rnf PolicyDescription' {..} =
-    Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf policyAttributeDescriptions
+    Prelude.rnf policyAttributeDescriptions
+      `Prelude.seq` Prelude.rnf policyName
       `Prelude.seq` Prelude.rnf policyTypeName

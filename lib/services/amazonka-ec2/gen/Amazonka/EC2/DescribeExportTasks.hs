@@ -28,8 +28,8 @@ module Amazonka.EC2.DescribeExportTasks
     newDescribeExportTasks,
 
     -- * Request Lenses
-    describeExportTasks_filters,
     describeExportTasks_exportTaskIds,
+    describeExportTasks_filters,
 
     -- * Destructuring the Response
     DescribeExportTasksResponse (..),
@@ -51,10 +51,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeExportTasks' smart constructor.
 data DescribeExportTasks = DescribeExportTasks'
-  { -- | the filters for the export tasks.
-    filters :: Prelude.Maybe [Filter],
-    -- | The export task IDs.
-    exportTaskIds :: Prelude.Maybe [Prelude.Text]
+  { -- | The export task IDs.
+    exportTaskIds :: Prelude.Maybe [Prelude.Text],
+    -- | the filters for the export tasks.
+    filters :: Prelude.Maybe [Filter]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,24 +66,25 @@ data DescribeExportTasks = DescribeExportTasks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filters', 'describeExportTasks_filters' - the filters for the export tasks.
---
 -- 'exportTaskIds', 'describeExportTasks_exportTaskIds' - The export task IDs.
+--
+-- 'filters', 'describeExportTasks_filters' - the filters for the export tasks.
 newDescribeExportTasks ::
   DescribeExportTasks
 newDescribeExportTasks =
   DescribeExportTasks'
-    { filters = Prelude.Nothing,
-      exportTaskIds = Prelude.Nothing
+    { exportTaskIds =
+        Prelude.Nothing,
+      filters = Prelude.Nothing
     }
-
--- | the filters for the export tasks.
-describeExportTasks_filters :: Lens.Lens' DescribeExportTasks (Prelude.Maybe [Filter])
-describeExportTasks_filters = Lens.lens (\DescribeExportTasks' {filters} -> filters) (\s@DescribeExportTasks' {} a -> s {filters = a} :: DescribeExportTasks) Prelude.. Lens.mapping Lens.coerced
 
 -- | The export task IDs.
 describeExportTasks_exportTaskIds :: Lens.Lens' DescribeExportTasks (Prelude.Maybe [Prelude.Text])
 describeExportTasks_exportTaskIds = Lens.lens (\DescribeExportTasks' {exportTaskIds} -> exportTaskIds) (\s@DescribeExportTasks' {} a -> s {exportTaskIds = a} :: DescribeExportTasks) Prelude.. Lens.mapping Lens.coerced
+
+-- | the filters for the export tasks.
+describeExportTasks_filters :: Lens.Lens' DescribeExportTasks (Prelude.Maybe [Filter])
+describeExportTasks_filters = Lens.lens (\DescribeExportTasks' {filters} -> filters) (\s@DescribeExportTasks' {} a -> s {filters = a} :: DescribeExportTasks) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest DescribeExportTasks where
   type
@@ -103,13 +104,13 @@ instance Core.AWSRequest DescribeExportTasks where
 
 instance Prelude.Hashable DescribeExportTasks where
   hashWithSalt _salt DescribeExportTasks' {..} =
-    _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` exportTaskIds
+    _salt `Prelude.hashWithSalt` exportTaskIds
+      `Prelude.hashWithSalt` filters
 
 instance Prelude.NFData DescribeExportTasks where
   rnf DescribeExportTasks' {..} =
-    Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf exportTaskIds
+    Prelude.rnf exportTaskIds
+      `Prelude.seq` Prelude.rnf filters
 
 instance Data.ToHeaders DescribeExportTasks where
   toHeaders = Prelude.const Prelude.mempty
@@ -125,11 +126,11 @@ instance Data.ToQuery DescribeExportTasks where
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
         Data.toQuery
-          (Data.toQueryList "Filter" Prelude.<$> filters),
-        Data.toQuery
           ( Data.toQueryList "ExportTaskId"
               Prelude.<$> exportTaskIds
-          )
+          ),
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters)
       ]
 
 -- | /See:/ 'newDescribeExportTasksResponse' smart constructor.

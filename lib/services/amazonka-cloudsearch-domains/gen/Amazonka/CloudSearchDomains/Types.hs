@@ -46,36 +46,36 @@ module Amazonka.CloudSearchDomains.Types
     -- * FieldStats
     FieldStats (..),
     newFieldStats,
-    fieldStats_missing,
-    fieldStats_max,
-    fieldStats_sumOfSquares,
     fieldStats_count,
+    fieldStats_max,
+    fieldStats_mean,
     fieldStats_min,
+    fieldStats_missing,
     fieldStats_stddev,
     fieldStats_sum,
-    fieldStats_mean,
+    fieldStats_sumOfSquares,
 
     -- * Hit
     Hit (..),
     newHit,
     hit_exprs,
-    hit_highlights,
     hit_fields,
+    hit_highlights,
     hit_id,
 
     -- * Hits
     Hits (..),
     newHits,
-    hits_start,
-    hits_hit,
     hits_cursor,
     hits_found,
+    hits_hit,
+    hits_start,
 
     -- * SearchStatus
     SearchStatus (..),
     newSearchStatus,
-    searchStatus_timems,
     searchStatus_rid,
+    searchStatus_timems,
 
     -- * SuggestModel
     SuggestModel (..),
@@ -87,15 +87,15 @@ module Amazonka.CloudSearchDomains.Types
     -- * SuggestStatus
     SuggestStatus (..),
     newSuggestStatus,
-    suggestStatus_timems,
     suggestStatus_rid,
+    suggestStatus_timems,
 
     -- * SuggestionMatch
     SuggestionMatch (..),
     newSuggestionMatch,
-    suggestionMatch_suggestion,
-    suggestionMatch_score,
     suggestionMatch_id,
+    suggestionMatch_score,
+    suggestionMatch_suggestion,
   )
 where
 
@@ -142,28 +142,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -171,13 +165,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -185,6 +183,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Information about any problems encountered while processing an upload

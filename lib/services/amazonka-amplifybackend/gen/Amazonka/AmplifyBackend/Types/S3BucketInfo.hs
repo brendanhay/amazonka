@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newS3BucketInfo' smart constructor.
 data S3BucketInfo = S3BucketInfo'
-  { -- | The name of the S3 bucket.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The creation date of the S3 bucket.
-    creationDate :: Prelude.Maybe Prelude.Text
+  { -- | The creation date of the S3 bucket.
+    creationDate :: Prelude.Maybe Prelude.Text,
+    -- | The name of the S3 bucket.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data S3BucketInfo = S3BucketInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 's3BucketInfo_name' - The name of the S3 bucket.
---
 -- 'creationDate', 's3BucketInfo_creationDate' - The creation date of the S3 bucket.
+--
+-- 'name', 's3BucketInfo_name' - The name of the S3 bucket.
 newS3BucketInfo ::
   S3BucketInfo
 newS3BucketInfo =
   S3BucketInfo'
-    { name = Prelude.Nothing,
-      creationDate = Prelude.Nothing
+    { creationDate = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | The name of the S3 bucket.
-s3BucketInfo_name :: Lens.Lens' S3BucketInfo (Prelude.Maybe Prelude.Text)
-s3BucketInfo_name = Lens.lens (\S3BucketInfo' {name} -> name) (\s@S3BucketInfo' {} a -> s {name = a} :: S3BucketInfo)
 
 -- | The creation date of the S3 bucket.
 s3BucketInfo_creationDate :: Lens.Lens' S3BucketInfo (Prelude.Maybe Prelude.Text)
 s3BucketInfo_creationDate = Lens.lens (\S3BucketInfo' {creationDate} -> creationDate) (\s@S3BucketInfo' {} a -> s {creationDate = a} :: S3BucketInfo)
+
+-- | The name of the S3 bucket.
+s3BucketInfo_name :: Lens.Lens' S3BucketInfo (Prelude.Maybe Prelude.Text)
+s3BucketInfo_name = Lens.lens (\S3BucketInfo' {name} -> name) (\s@S3BucketInfo' {} a -> s {name = a} :: S3BucketInfo)
 
 instance Data.FromJSON S3BucketInfo where
   parseJSON =
@@ -68,16 +68,16 @@ instance Data.FromJSON S3BucketInfo where
       "S3BucketInfo"
       ( \x ->
           S3BucketInfo'
-            Prelude.<$> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "creationDate")
+            Prelude.<$> (x Data..:? "creationDate")
+            Prelude.<*> (x Data..:? "name")
       )
 
 instance Prelude.Hashable S3BucketInfo where
   hashWithSalt _salt S3BucketInfo' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` creationDate
+    _salt `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData S3BucketInfo where
   rnf S3BucketInfo' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf creationDate
+    Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf name

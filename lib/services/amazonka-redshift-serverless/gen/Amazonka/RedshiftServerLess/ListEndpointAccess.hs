@@ -29,10 +29,10 @@ module Amazonka.RedshiftServerLess.ListEndpointAccess
     newListEndpointAccess,
 
     -- * Request Lenses
-    listEndpointAccess_nextToken,
-    listEndpointAccess_workgroupName,
     listEndpointAccess_maxResults,
+    listEndpointAccess_nextToken,
     listEndpointAccess_vpcId,
+    listEndpointAccess_workgroupName,
 
     -- * Destructuring the Response
     ListEndpointAccessResponse (..),
@@ -55,18 +55,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListEndpointAccess' smart constructor.
 data ListEndpointAccess = ListEndpointAccess'
-  { -- | If your initial @ListEndpointAccess@ operation returns a @nextToken@,
-    -- you can include the returned @nextToken@ in subsequent
+  { -- | An optional parameter that specifies the maximum number of results to
+    -- return. You can use @nextToken@ to display the next page of results.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If your initial @ListEndpointAccess@ operation returns a @nextToken@,
+    -- you can include the returned @nextToken@ in following
     -- @ListEndpointAccess@ operations, which returns results in the next page.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The name of the workgroup associated with the VPC endpoint to return.
-    workgroupName :: Prelude.Maybe Prelude.Text,
-    -- | An optional parameter that specifies the maximum number of results to
-    -- return. You can use @nextToken@ to get the next page of results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The unique identifier of the virtual private cloud with access to Amazon
     -- Redshift Serverless.
-    vpcId :: Prelude.Maybe Prelude.Text
+    vpcId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the workgroup associated with the VPC endpoint to return.
+    workgroupName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,46 +78,46 @@ data ListEndpointAccess = ListEndpointAccess'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listEndpointAccess_nextToken' - If your initial @ListEndpointAccess@ operation returns a @nextToken@,
--- you can include the returned @nextToken@ in subsequent
--- @ListEndpointAccess@ operations, which returns results in the next page.
---
--- 'workgroupName', 'listEndpointAccess_workgroupName' - The name of the workgroup associated with the VPC endpoint to return.
---
 -- 'maxResults', 'listEndpointAccess_maxResults' - An optional parameter that specifies the maximum number of results to
--- return. You can use @nextToken@ to get the next page of results.
+-- return. You can use @nextToken@ to display the next page of results.
+--
+-- 'nextToken', 'listEndpointAccess_nextToken' - If your initial @ListEndpointAccess@ operation returns a @nextToken@,
+-- you can include the returned @nextToken@ in following
+-- @ListEndpointAccess@ operations, which returns results in the next page.
 --
 -- 'vpcId', 'listEndpointAccess_vpcId' - The unique identifier of the virtual private cloud with access to Amazon
 -- Redshift Serverless.
+--
+-- 'workgroupName', 'listEndpointAccess_workgroupName' - The name of the workgroup associated with the VPC endpoint to return.
 newListEndpointAccess ::
   ListEndpointAccess
 newListEndpointAccess =
   ListEndpointAccess'
-    { nextToken = Prelude.Nothing,
-      workgroupName = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      vpcId = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      vpcId = Prelude.Nothing,
+      workgroupName = Prelude.Nothing
     }
 
+-- | An optional parameter that specifies the maximum number of results to
+-- return. You can use @nextToken@ to display the next page of results.
+listEndpointAccess_maxResults :: Lens.Lens' ListEndpointAccess (Prelude.Maybe Prelude.Natural)
+listEndpointAccess_maxResults = Lens.lens (\ListEndpointAccess' {maxResults} -> maxResults) (\s@ListEndpointAccess' {} a -> s {maxResults = a} :: ListEndpointAccess)
+
 -- | If your initial @ListEndpointAccess@ operation returns a @nextToken@,
--- you can include the returned @nextToken@ in subsequent
+-- you can include the returned @nextToken@ in following
 -- @ListEndpointAccess@ operations, which returns results in the next page.
 listEndpointAccess_nextToken :: Lens.Lens' ListEndpointAccess (Prelude.Maybe Prelude.Text)
 listEndpointAccess_nextToken = Lens.lens (\ListEndpointAccess' {nextToken} -> nextToken) (\s@ListEndpointAccess' {} a -> s {nextToken = a} :: ListEndpointAccess)
-
--- | The name of the workgroup associated with the VPC endpoint to return.
-listEndpointAccess_workgroupName :: Lens.Lens' ListEndpointAccess (Prelude.Maybe Prelude.Text)
-listEndpointAccess_workgroupName = Lens.lens (\ListEndpointAccess' {workgroupName} -> workgroupName) (\s@ListEndpointAccess' {} a -> s {workgroupName = a} :: ListEndpointAccess)
-
--- | An optional parameter that specifies the maximum number of results to
--- return. You can use @nextToken@ to get the next page of results.
-listEndpointAccess_maxResults :: Lens.Lens' ListEndpointAccess (Prelude.Maybe Prelude.Natural)
-listEndpointAccess_maxResults = Lens.lens (\ListEndpointAccess' {maxResults} -> maxResults) (\s@ListEndpointAccess' {} a -> s {maxResults = a} :: ListEndpointAccess)
 
 -- | The unique identifier of the virtual private cloud with access to Amazon
 -- Redshift Serverless.
 listEndpointAccess_vpcId :: Lens.Lens' ListEndpointAccess (Prelude.Maybe Prelude.Text)
 listEndpointAccess_vpcId = Lens.lens (\ListEndpointAccess' {vpcId} -> vpcId) (\s@ListEndpointAccess' {} a -> s {vpcId = a} :: ListEndpointAccess)
+
+-- | The name of the workgroup associated with the VPC endpoint to return.
+listEndpointAccess_workgroupName :: Lens.Lens' ListEndpointAccess (Prelude.Maybe Prelude.Text)
+listEndpointAccess_workgroupName = Lens.lens (\ListEndpointAccess' {workgroupName} -> workgroupName) (\s@ListEndpointAccess' {} a -> s {workgroupName = a} :: ListEndpointAccess)
 
 instance Core.AWSPager ListEndpointAccess where
   page rq rs
@@ -155,17 +155,17 @@ instance Core.AWSRequest ListEndpointAccess where
 
 instance Prelude.Hashable ListEndpointAccess where
   hashWithSalt _salt ListEndpointAccess' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` workgroupName
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` workgroupName
 
 instance Prelude.NFData ListEndpointAccess where
   rnf ListEndpointAccess' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf workgroupName
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf workgroupName
 
 instance Data.ToHeaders ListEndpointAccess where
   toHeaders =
@@ -186,10 +186,10 @@ instance Data.ToJSON ListEndpointAccess where
   toJSON ListEndpointAccess' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("workgroupName" Data..=) Prelude.<$> workgroupName,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
-            ("vpcId" Data..=) Prelude.<$> vpcId
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("vpcId" Data..=) Prelude.<$> vpcId,
+            ("workgroupName" Data..=) Prelude.<$> workgroupName
           ]
       )
 

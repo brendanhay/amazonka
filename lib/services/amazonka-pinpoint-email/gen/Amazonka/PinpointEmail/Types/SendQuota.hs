@@ -33,13 +33,13 @@ data SendQuota = SendQuota'
   { -- | The maximum number of emails that you can send in the current AWS Region
     -- over a 24-hour period. This value is also called your /sending quota/.
     max24HourSend :: Prelude.Maybe Prelude.Double,
-    -- | The number of emails sent from your Amazon Pinpoint account in the
-    -- current AWS Region over the past 24 hours.
-    sentLast24Hours :: Prelude.Maybe Prelude.Double,
     -- | The maximum number of emails that you can send per second in the current
     -- AWS Region. This value is also called your /maximum sending rate/ or
     -- your /maximum TPS (transactions per second) rate/.
-    maxSendRate :: Prelude.Maybe Prelude.Double
+    maxSendRate :: Prelude.Maybe Prelude.Double,
+    -- | The number of emails sent from your Amazon Pinpoint account in the
+    -- current AWS Region over the past 24 hours.
+    sentLast24Hours :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,19 +54,19 @@ data SendQuota = SendQuota'
 -- 'max24HourSend', 'sendQuota_max24HourSend' - The maximum number of emails that you can send in the current AWS Region
 -- over a 24-hour period. This value is also called your /sending quota/.
 --
--- 'sentLast24Hours', 'sendQuota_sentLast24Hours' - The number of emails sent from your Amazon Pinpoint account in the
--- current AWS Region over the past 24 hours.
---
 -- 'maxSendRate', 'sendQuota_maxSendRate' - The maximum number of emails that you can send per second in the current
 -- AWS Region. This value is also called your /maximum sending rate/ or
 -- your /maximum TPS (transactions per second) rate/.
+--
+-- 'sentLast24Hours', 'sendQuota_sentLast24Hours' - The number of emails sent from your Amazon Pinpoint account in the
+-- current AWS Region over the past 24 hours.
 newSendQuota ::
   SendQuota
 newSendQuota =
   SendQuota'
     { max24HourSend = Prelude.Nothing,
-      sentLast24Hours = Prelude.Nothing,
-      maxSendRate = Prelude.Nothing
+      maxSendRate = Prelude.Nothing,
+      sentLast24Hours = Prelude.Nothing
     }
 
 -- | The maximum number of emails that you can send in the current AWS Region
@@ -74,16 +74,16 @@ newSendQuota =
 sendQuota_max24HourSend :: Lens.Lens' SendQuota (Prelude.Maybe Prelude.Double)
 sendQuota_max24HourSend = Lens.lens (\SendQuota' {max24HourSend} -> max24HourSend) (\s@SendQuota' {} a -> s {max24HourSend = a} :: SendQuota)
 
--- | The number of emails sent from your Amazon Pinpoint account in the
--- current AWS Region over the past 24 hours.
-sendQuota_sentLast24Hours :: Lens.Lens' SendQuota (Prelude.Maybe Prelude.Double)
-sendQuota_sentLast24Hours = Lens.lens (\SendQuota' {sentLast24Hours} -> sentLast24Hours) (\s@SendQuota' {} a -> s {sentLast24Hours = a} :: SendQuota)
-
 -- | The maximum number of emails that you can send per second in the current
 -- AWS Region. This value is also called your /maximum sending rate/ or
 -- your /maximum TPS (transactions per second) rate/.
 sendQuota_maxSendRate :: Lens.Lens' SendQuota (Prelude.Maybe Prelude.Double)
 sendQuota_maxSendRate = Lens.lens (\SendQuota' {maxSendRate} -> maxSendRate) (\s@SendQuota' {} a -> s {maxSendRate = a} :: SendQuota)
+
+-- | The number of emails sent from your Amazon Pinpoint account in the
+-- current AWS Region over the past 24 hours.
+sendQuota_sentLast24Hours :: Lens.Lens' SendQuota (Prelude.Maybe Prelude.Double)
+sendQuota_sentLast24Hours = Lens.lens (\SendQuota' {sentLast24Hours} -> sentLast24Hours) (\s@SendQuota' {} a -> s {sentLast24Hours = a} :: SendQuota)
 
 instance Data.FromJSON SendQuota where
   parseJSON =
@@ -92,18 +92,18 @@ instance Data.FromJSON SendQuota where
       ( \x ->
           SendQuota'
             Prelude.<$> (x Data..:? "Max24HourSend")
-            Prelude.<*> (x Data..:? "SentLast24Hours")
             Prelude.<*> (x Data..:? "MaxSendRate")
+            Prelude.<*> (x Data..:? "SentLast24Hours")
       )
 
 instance Prelude.Hashable SendQuota where
   hashWithSalt _salt SendQuota' {..} =
     _salt `Prelude.hashWithSalt` max24HourSend
-      `Prelude.hashWithSalt` sentLast24Hours
       `Prelude.hashWithSalt` maxSendRate
+      `Prelude.hashWithSalt` sentLast24Hours
 
 instance Prelude.NFData SendQuota where
   rnf SendQuota' {..} =
     Prelude.rnf max24HourSend
-      `Prelude.seq` Prelude.rnf sentLast24Hours
       `Prelude.seq` Prelude.rnf maxSendRate
+      `Prelude.seq` Prelude.rnf sentLast24Hours

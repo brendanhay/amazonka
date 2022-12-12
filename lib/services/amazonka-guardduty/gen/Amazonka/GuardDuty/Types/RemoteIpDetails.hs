@@ -32,16 +32,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRemoteIpDetails' smart constructor.
 data RemoteIpDetails = RemoteIpDetails'
-  { -- | The country code of the remote IP address.
+  { -- | The city information of the remote IP address.
+    city :: Prelude.Maybe City,
+    -- | The country code of the remote IP address.
     country :: Prelude.Maybe Country,
+    -- | The location information of the remote IP address.
+    geoLocation :: Prelude.Maybe GeoLocation,
     -- | The IPv4 remote address of the connection.
     ipAddressV4 :: Prelude.Maybe Prelude.Text,
-    -- | The city information of the remote IP address.
-    city :: Prelude.Maybe City,
     -- | The ISP organization information of the remote IP address.
-    organization :: Prelude.Maybe Organization,
-    -- | The location information of the remote IP address.
-    geoLocation :: Prelude.Maybe GeoLocation
+    organization :: Prelude.Maybe Organization
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,45 +53,45 @@ data RemoteIpDetails = RemoteIpDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'city', 'remoteIpDetails_city' - The city information of the remote IP address.
+--
 -- 'country', 'remoteIpDetails_country' - The country code of the remote IP address.
+--
+-- 'geoLocation', 'remoteIpDetails_geoLocation' - The location information of the remote IP address.
 --
 -- 'ipAddressV4', 'remoteIpDetails_ipAddressV4' - The IPv4 remote address of the connection.
 --
--- 'city', 'remoteIpDetails_city' - The city information of the remote IP address.
---
 -- 'organization', 'remoteIpDetails_organization' - The ISP organization information of the remote IP address.
---
--- 'geoLocation', 'remoteIpDetails_geoLocation' - The location information of the remote IP address.
 newRemoteIpDetails ::
   RemoteIpDetails
 newRemoteIpDetails =
   RemoteIpDetails'
-    { country = Prelude.Nothing,
+    { city = Prelude.Nothing,
+      country = Prelude.Nothing,
+      geoLocation = Prelude.Nothing,
       ipAddressV4 = Prelude.Nothing,
-      city = Prelude.Nothing,
-      organization = Prelude.Nothing,
-      geoLocation = Prelude.Nothing
+      organization = Prelude.Nothing
     }
-
--- | The country code of the remote IP address.
-remoteIpDetails_country :: Lens.Lens' RemoteIpDetails (Prelude.Maybe Country)
-remoteIpDetails_country = Lens.lens (\RemoteIpDetails' {country} -> country) (\s@RemoteIpDetails' {} a -> s {country = a} :: RemoteIpDetails)
-
--- | The IPv4 remote address of the connection.
-remoteIpDetails_ipAddressV4 :: Lens.Lens' RemoteIpDetails (Prelude.Maybe Prelude.Text)
-remoteIpDetails_ipAddressV4 = Lens.lens (\RemoteIpDetails' {ipAddressV4} -> ipAddressV4) (\s@RemoteIpDetails' {} a -> s {ipAddressV4 = a} :: RemoteIpDetails)
 
 -- | The city information of the remote IP address.
 remoteIpDetails_city :: Lens.Lens' RemoteIpDetails (Prelude.Maybe City)
 remoteIpDetails_city = Lens.lens (\RemoteIpDetails' {city} -> city) (\s@RemoteIpDetails' {} a -> s {city = a} :: RemoteIpDetails)
 
--- | The ISP organization information of the remote IP address.
-remoteIpDetails_organization :: Lens.Lens' RemoteIpDetails (Prelude.Maybe Organization)
-remoteIpDetails_organization = Lens.lens (\RemoteIpDetails' {organization} -> organization) (\s@RemoteIpDetails' {} a -> s {organization = a} :: RemoteIpDetails)
+-- | The country code of the remote IP address.
+remoteIpDetails_country :: Lens.Lens' RemoteIpDetails (Prelude.Maybe Country)
+remoteIpDetails_country = Lens.lens (\RemoteIpDetails' {country} -> country) (\s@RemoteIpDetails' {} a -> s {country = a} :: RemoteIpDetails)
 
 -- | The location information of the remote IP address.
 remoteIpDetails_geoLocation :: Lens.Lens' RemoteIpDetails (Prelude.Maybe GeoLocation)
 remoteIpDetails_geoLocation = Lens.lens (\RemoteIpDetails' {geoLocation} -> geoLocation) (\s@RemoteIpDetails' {} a -> s {geoLocation = a} :: RemoteIpDetails)
+
+-- | The IPv4 remote address of the connection.
+remoteIpDetails_ipAddressV4 :: Lens.Lens' RemoteIpDetails (Prelude.Maybe Prelude.Text)
+remoteIpDetails_ipAddressV4 = Lens.lens (\RemoteIpDetails' {ipAddressV4} -> ipAddressV4) (\s@RemoteIpDetails' {} a -> s {ipAddressV4 = a} :: RemoteIpDetails)
+
+-- | The ISP organization information of the remote IP address.
+remoteIpDetails_organization :: Lens.Lens' RemoteIpDetails (Prelude.Maybe Organization)
+remoteIpDetails_organization = Lens.lens (\RemoteIpDetails' {organization} -> organization) (\s@RemoteIpDetails' {} a -> s {organization = a} :: RemoteIpDetails)
 
 instance Data.FromJSON RemoteIpDetails where
   parseJSON =
@@ -99,25 +99,25 @@ instance Data.FromJSON RemoteIpDetails where
       "RemoteIpDetails"
       ( \x ->
           RemoteIpDetails'
-            Prelude.<$> (x Data..:? "country")
-            Prelude.<*> (x Data..:? "ipAddressV4")
-            Prelude.<*> (x Data..:? "city")
-            Prelude.<*> (x Data..:? "organization")
+            Prelude.<$> (x Data..:? "city")
+            Prelude.<*> (x Data..:? "country")
             Prelude.<*> (x Data..:? "geoLocation")
+            Prelude.<*> (x Data..:? "ipAddressV4")
+            Prelude.<*> (x Data..:? "organization")
       )
 
 instance Prelude.Hashable RemoteIpDetails where
   hashWithSalt _salt RemoteIpDetails' {..} =
-    _salt `Prelude.hashWithSalt` country
-      `Prelude.hashWithSalt` ipAddressV4
-      `Prelude.hashWithSalt` city
-      `Prelude.hashWithSalt` organization
+    _salt `Prelude.hashWithSalt` city
+      `Prelude.hashWithSalt` country
       `Prelude.hashWithSalt` geoLocation
+      `Prelude.hashWithSalt` ipAddressV4
+      `Prelude.hashWithSalt` organization
 
 instance Prelude.NFData RemoteIpDetails where
   rnf RemoteIpDetails' {..} =
-    Prelude.rnf country
-      `Prelude.seq` Prelude.rnf ipAddressV4
-      `Prelude.seq` Prelude.rnf city
-      `Prelude.seq` Prelude.rnf organization
+    Prelude.rnf city
+      `Prelude.seq` Prelude.rnf country
       `Prelude.seq` Prelude.rnf geoLocation
+      `Prelude.seq` Prelude.rnf ipAddressV4
+      `Prelude.seq` Prelude.rnf organization

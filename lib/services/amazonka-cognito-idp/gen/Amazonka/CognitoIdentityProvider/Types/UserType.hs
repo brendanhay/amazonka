@@ -31,16 +31,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUserType' smart constructor.
 data UserType = UserType'
-  { -- | The user name of the user you want to describe.
-    username :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The last modified date of the user.
-    userLastModifiedDate :: Prelude.Maybe Data.POSIX,
-    -- | The creation date of the user.
-    userCreateDate :: Prelude.Maybe Data.POSIX,
+  { -- | A container with information about the user type attributes.
+    attributes :: Prelude.Maybe [AttributeType],
     -- | Specifies whether the user is enabled.
     enabled :: Prelude.Maybe Prelude.Bool,
-    -- | A container with information about the user type attributes.
-    attributes :: Prelude.Maybe [AttributeType],
+    -- | The MFA options for the user.
+    mfaOptions :: Prelude.Maybe [MFAOptionType],
+    -- | The creation date of the user.
+    userCreateDate :: Prelude.Maybe Data.POSIX,
+    -- | The last modified date of the user.
+    userLastModifiedDate :: Prelude.Maybe Data.POSIX,
     -- | The user status. This can be one of the following:
     --
     -- -   UNCONFIRMED - User has been created but not confirmed.
@@ -60,8 +60,8 @@ data UserType = UserType'
     --     in using a temporary password, but on first sign-in, the user must
     --     change their password to a new value before doing anything else.
     userStatus :: Prelude.Maybe UserStatusType,
-    -- | The MFA options for the user.
-    mfaOptions :: Prelude.Maybe [MFAOptionType]
+    -- | The user name of the user you want to describe.
+    username :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -73,15 +73,15 @@ data UserType = UserType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'username', 'userType_username' - The user name of the user you want to describe.
---
--- 'userLastModifiedDate', 'userType_userLastModifiedDate' - The last modified date of the user.
---
--- 'userCreateDate', 'userType_userCreateDate' - The creation date of the user.
+-- 'attributes', 'userType_attributes' - A container with information about the user type attributes.
 --
 -- 'enabled', 'userType_enabled' - Specifies whether the user is enabled.
 --
--- 'attributes', 'userType_attributes' - A container with information about the user type attributes.
+-- 'mfaOptions', 'userType_mfaOptions' - The MFA options for the user.
+--
+-- 'userCreateDate', 'userType_userCreateDate' - The creation date of the user.
+--
+-- 'userLastModifiedDate', 'userType_userLastModifiedDate' - The last modified date of the user.
 --
 -- 'userStatus', 'userType_userStatus' - The user status. This can be one of the following:
 --
@@ -102,39 +102,39 @@ data UserType = UserType'
 --     in using a temporary password, but on first sign-in, the user must
 --     change their password to a new value before doing anything else.
 --
--- 'mfaOptions', 'userType_mfaOptions' - The MFA options for the user.
+-- 'username', 'userType_username' - The user name of the user you want to describe.
 newUserType ::
   UserType
 newUserType =
   UserType'
-    { username = Prelude.Nothing,
-      userLastModifiedDate = Prelude.Nothing,
-      userCreateDate = Prelude.Nothing,
+    { attributes = Prelude.Nothing,
       enabled = Prelude.Nothing,
-      attributes = Prelude.Nothing,
+      mfaOptions = Prelude.Nothing,
+      userCreateDate = Prelude.Nothing,
+      userLastModifiedDate = Prelude.Nothing,
       userStatus = Prelude.Nothing,
-      mfaOptions = Prelude.Nothing
+      username = Prelude.Nothing
     }
 
--- | The user name of the user you want to describe.
-userType_username :: Lens.Lens' UserType (Prelude.Maybe Prelude.Text)
-userType_username = Lens.lens (\UserType' {username} -> username) (\s@UserType' {} a -> s {username = a} :: UserType) Prelude.. Lens.mapping Data._Sensitive
-
--- | The last modified date of the user.
-userType_userLastModifiedDate :: Lens.Lens' UserType (Prelude.Maybe Prelude.UTCTime)
-userType_userLastModifiedDate = Lens.lens (\UserType' {userLastModifiedDate} -> userLastModifiedDate) (\s@UserType' {} a -> s {userLastModifiedDate = a} :: UserType) Prelude.. Lens.mapping Data._Time
-
--- | The creation date of the user.
-userType_userCreateDate :: Lens.Lens' UserType (Prelude.Maybe Prelude.UTCTime)
-userType_userCreateDate = Lens.lens (\UserType' {userCreateDate} -> userCreateDate) (\s@UserType' {} a -> s {userCreateDate = a} :: UserType) Prelude.. Lens.mapping Data._Time
+-- | A container with information about the user type attributes.
+userType_attributes :: Lens.Lens' UserType (Prelude.Maybe [AttributeType])
+userType_attributes = Lens.lens (\UserType' {attributes} -> attributes) (\s@UserType' {} a -> s {attributes = a} :: UserType) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies whether the user is enabled.
 userType_enabled :: Lens.Lens' UserType (Prelude.Maybe Prelude.Bool)
 userType_enabled = Lens.lens (\UserType' {enabled} -> enabled) (\s@UserType' {} a -> s {enabled = a} :: UserType)
 
--- | A container with information about the user type attributes.
-userType_attributes :: Lens.Lens' UserType (Prelude.Maybe [AttributeType])
-userType_attributes = Lens.lens (\UserType' {attributes} -> attributes) (\s@UserType' {} a -> s {attributes = a} :: UserType) Prelude.. Lens.mapping Lens.coerced
+-- | The MFA options for the user.
+userType_mfaOptions :: Lens.Lens' UserType (Prelude.Maybe [MFAOptionType])
+userType_mfaOptions = Lens.lens (\UserType' {mfaOptions} -> mfaOptions) (\s@UserType' {} a -> s {mfaOptions = a} :: UserType) Prelude.. Lens.mapping Lens.coerced
+
+-- | The creation date of the user.
+userType_userCreateDate :: Lens.Lens' UserType (Prelude.Maybe Prelude.UTCTime)
+userType_userCreateDate = Lens.lens (\UserType' {userCreateDate} -> userCreateDate) (\s@UserType' {} a -> s {userCreateDate = a} :: UserType) Prelude.. Lens.mapping Data._Time
+
+-- | The last modified date of the user.
+userType_userLastModifiedDate :: Lens.Lens' UserType (Prelude.Maybe Prelude.UTCTime)
+userType_userLastModifiedDate = Lens.lens (\UserType' {userLastModifiedDate} -> userLastModifiedDate) (\s@UserType' {} a -> s {userLastModifiedDate = a} :: UserType) Prelude.. Lens.mapping Data._Time
 
 -- | The user status. This can be one of the following:
 --
@@ -157,9 +157,9 @@ userType_attributes = Lens.lens (\UserType' {attributes} -> attributes) (\s@User
 userType_userStatus :: Lens.Lens' UserType (Prelude.Maybe UserStatusType)
 userType_userStatus = Lens.lens (\UserType' {userStatus} -> userStatus) (\s@UserType' {} a -> s {userStatus = a} :: UserType)
 
--- | The MFA options for the user.
-userType_mfaOptions :: Lens.Lens' UserType (Prelude.Maybe [MFAOptionType])
-userType_mfaOptions = Lens.lens (\UserType' {mfaOptions} -> mfaOptions) (\s@UserType' {} a -> s {mfaOptions = a} :: UserType) Prelude.. Lens.mapping Lens.coerced
+-- | The user name of the user you want to describe.
+userType_username :: Lens.Lens' UserType (Prelude.Maybe Prelude.Text)
+userType_username = Lens.lens (\UserType' {username} -> username) (\s@UserType' {} a -> s {username = a} :: UserType) Prelude.. Lens.mapping Data._Sensitive
 
 instance Data.FromJSON UserType where
   parseJSON =
@@ -167,31 +167,31 @@ instance Data.FromJSON UserType where
       "UserType"
       ( \x ->
           UserType'
-            Prelude.<$> (x Data..:? "Username")
-            Prelude.<*> (x Data..:? "UserLastModifiedDate")
-            Prelude.<*> (x Data..:? "UserCreateDate")
+            Prelude.<$> (x Data..:? "Attributes" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Enabled")
-            Prelude.<*> (x Data..:? "Attributes" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "UserStatus")
             Prelude.<*> (x Data..:? "MFAOptions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "UserCreateDate")
+            Prelude.<*> (x Data..:? "UserLastModifiedDate")
+            Prelude.<*> (x Data..:? "UserStatus")
+            Prelude.<*> (x Data..:? "Username")
       )
 
 instance Prelude.Hashable UserType where
   hashWithSalt _salt UserType' {..} =
-    _salt `Prelude.hashWithSalt` username
-      `Prelude.hashWithSalt` userLastModifiedDate
-      `Prelude.hashWithSalt` userCreateDate
+    _salt `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` enabled
-      `Prelude.hashWithSalt` attributes
-      `Prelude.hashWithSalt` userStatus
       `Prelude.hashWithSalt` mfaOptions
+      `Prelude.hashWithSalt` userCreateDate
+      `Prelude.hashWithSalt` userLastModifiedDate
+      `Prelude.hashWithSalt` userStatus
+      `Prelude.hashWithSalt` username
 
 instance Prelude.NFData UserType where
   rnf UserType' {..} =
-    Prelude.rnf username
-      `Prelude.seq` Prelude.rnf userLastModifiedDate
-      `Prelude.seq` Prelude.rnf userCreateDate
+    Prelude.rnf attributes
       `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf userStatus
       `Prelude.seq` Prelude.rnf mfaOptions
+      `Prelude.seq` Prelude.rnf userCreateDate
+      `Prelude.seq` Prelude.rnf userLastModifiedDate
+      `Prelude.seq` Prelude.rnf userStatus
+      `Prelude.seq` Prelude.rnf username

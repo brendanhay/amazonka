@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeleteFileSystemLustreResponse' smart constructor.
 data DeleteFileSystemLustreResponse = DeleteFileSystemLustreResponse'
-  { -- | The set of tags applied to the final backup.
-    finalBackupTags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | The ID of the final backup for this file system.
-    finalBackupId :: Prelude.Maybe Prelude.Text
+  { -- | The ID of the final backup for this file system.
+    finalBackupId :: Prelude.Maybe Prelude.Text,
+    -- | The set of tags applied to the final backup.
+    finalBackupTags :: Prelude.Maybe (Prelude.NonEmpty Tag)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,25 +45,25 @@ data DeleteFileSystemLustreResponse = DeleteFileSystemLustreResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'finalBackupTags', 'deleteFileSystemLustreResponse_finalBackupTags' - The set of tags applied to the final backup.
---
 -- 'finalBackupId', 'deleteFileSystemLustreResponse_finalBackupId' - The ID of the final backup for this file system.
+--
+-- 'finalBackupTags', 'deleteFileSystemLustreResponse_finalBackupTags' - The set of tags applied to the final backup.
 newDeleteFileSystemLustreResponse ::
   DeleteFileSystemLustreResponse
 newDeleteFileSystemLustreResponse =
   DeleteFileSystemLustreResponse'
-    { finalBackupTags =
+    { finalBackupId =
         Prelude.Nothing,
-      finalBackupId = Prelude.Nothing
+      finalBackupTags = Prelude.Nothing
     }
-
--- | The set of tags applied to the final backup.
-deleteFileSystemLustreResponse_finalBackupTags :: Lens.Lens' DeleteFileSystemLustreResponse (Prelude.Maybe (Prelude.NonEmpty Tag))
-deleteFileSystemLustreResponse_finalBackupTags = Lens.lens (\DeleteFileSystemLustreResponse' {finalBackupTags} -> finalBackupTags) (\s@DeleteFileSystemLustreResponse' {} a -> s {finalBackupTags = a} :: DeleteFileSystemLustreResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the final backup for this file system.
 deleteFileSystemLustreResponse_finalBackupId :: Lens.Lens' DeleteFileSystemLustreResponse (Prelude.Maybe Prelude.Text)
 deleteFileSystemLustreResponse_finalBackupId = Lens.lens (\DeleteFileSystemLustreResponse' {finalBackupId} -> finalBackupId) (\s@DeleteFileSystemLustreResponse' {} a -> s {finalBackupId = a} :: DeleteFileSystemLustreResponse)
+
+-- | The set of tags applied to the final backup.
+deleteFileSystemLustreResponse_finalBackupTags :: Lens.Lens' DeleteFileSystemLustreResponse (Prelude.Maybe (Prelude.NonEmpty Tag))
+deleteFileSystemLustreResponse_finalBackupTags = Lens.lens (\DeleteFileSystemLustreResponse' {finalBackupTags} -> finalBackupTags) (\s@DeleteFileSystemLustreResponse' {} a -> s {finalBackupTags = a} :: DeleteFileSystemLustreResponse) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON DeleteFileSystemLustreResponse where
   parseJSON =
@@ -71,8 +71,8 @@ instance Data.FromJSON DeleteFileSystemLustreResponse where
       "DeleteFileSystemLustreResponse"
       ( \x ->
           DeleteFileSystemLustreResponse'
-            Prelude.<$> (x Data..:? "FinalBackupTags")
-            Prelude.<*> (x Data..:? "FinalBackupId")
+            Prelude.<$> (x Data..:? "FinalBackupId")
+            Prelude.<*> (x Data..:? "FinalBackupTags")
       )
 
 instance
@@ -82,13 +82,13 @@ instance
   hashWithSalt
     _salt
     DeleteFileSystemLustreResponse' {..} =
-      _salt `Prelude.hashWithSalt` finalBackupTags
-        `Prelude.hashWithSalt` finalBackupId
+      _salt `Prelude.hashWithSalt` finalBackupId
+        `Prelude.hashWithSalt` finalBackupTags
 
 instance
   Prelude.NFData
     DeleteFileSystemLustreResponse
   where
   rnf DeleteFileSystemLustreResponse' {..} =
-    Prelude.rnf finalBackupTags
-      `Prelude.seq` Prelude.rnf finalBackupId
+    Prelude.rnf finalBackupId
+      `Prelude.seq` Prelude.rnf finalBackupTags

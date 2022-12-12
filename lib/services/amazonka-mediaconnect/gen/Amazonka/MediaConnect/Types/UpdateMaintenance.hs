@@ -29,15 +29,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUpdateMaintenance' smart constructor.
 data UpdateMaintenance = UpdateMaintenance'
-  { -- | A scheduled date in ISO UTC format when the maintenance will happen. Use
+  { -- | A day of a week when the maintenance will happen. use
+    -- Monday\/Tuesday\/Wednesday\/Thursday\/Friday\/Saturday\/Sunday.
+    maintenanceDay :: Prelude.Maybe MaintenanceDay,
+    -- | A scheduled date in ISO UTC format when the maintenance will happen. Use
     -- YYYY-MM-DD format. Example: 2021-01-30.
     maintenanceScheduledDate :: Prelude.Maybe Prelude.Text,
     -- | UTC time when the maintenance will happen. Use 24-hour HH:MM format.
     -- Minutes must be 00. Example: 13:00. The default value is 02:00.
-    maintenanceStartHour :: Prelude.Maybe Prelude.Text,
-    -- | A day of a week when the maintenance will happen. use
-    -- Monday\/Tuesday\/Wednesday\/Thursday\/Friday\/Saturday\/Sunday.
-    maintenanceDay :: Prelude.Maybe MaintenanceDay
+    maintenanceStartHour :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,23 +49,28 @@ data UpdateMaintenance = UpdateMaintenance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maintenanceDay', 'updateMaintenance_maintenanceDay' - A day of a week when the maintenance will happen. use
+-- Monday\/Tuesday\/Wednesday\/Thursday\/Friday\/Saturday\/Sunday.
+--
 -- 'maintenanceScheduledDate', 'updateMaintenance_maintenanceScheduledDate' - A scheduled date in ISO UTC format when the maintenance will happen. Use
 -- YYYY-MM-DD format. Example: 2021-01-30.
 --
 -- 'maintenanceStartHour', 'updateMaintenance_maintenanceStartHour' - UTC time when the maintenance will happen. Use 24-hour HH:MM format.
 -- Minutes must be 00. Example: 13:00. The default value is 02:00.
---
--- 'maintenanceDay', 'updateMaintenance_maintenanceDay' - A day of a week when the maintenance will happen. use
--- Monday\/Tuesday\/Wednesday\/Thursday\/Friday\/Saturday\/Sunday.
 newUpdateMaintenance ::
   UpdateMaintenance
 newUpdateMaintenance =
   UpdateMaintenance'
-    { maintenanceScheduledDate =
+    { maintenanceDay =
         Prelude.Nothing,
-      maintenanceStartHour = Prelude.Nothing,
-      maintenanceDay = Prelude.Nothing
+      maintenanceScheduledDate = Prelude.Nothing,
+      maintenanceStartHour = Prelude.Nothing
     }
+
+-- | A day of a week when the maintenance will happen. use
+-- Monday\/Tuesday\/Wednesday\/Thursday\/Friday\/Saturday\/Sunday.
+updateMaintenance_maintenanceDay :: Lens.Lens' UpdateMaintenance (Prelude.Maybe MaintenanceDay)
+updateMaintenance_maintenanceDay = Lens.lens (\UpdateMaintenance' {maintenanceDay} -> maintenanceDay) (\s@UpdateMaintenance' {} a -> s {maintenanceDay = a} :: UpdateMaintenance)
 
 -- | A scheduled date in ISO UTC format when the maintenance will happen. Use
 -- YYYY-MM-DD format. Example: 2021-01-30.
@@ -77,33 +82,27 @@ updateMaintenance_maintenanceScheduledDate = Lens.lens (\UpdateMaintenance' {mai
 updateMaintenance_maintenanceStartHour :: Lens.Lens' UpdateMaintenance (Prelude.Maybe Prelude.Text)
 updateMaintenance_maintenanceStartHour = Lens.lens (\UpdateMaintenance' {maintenanceStartHour} -> maintenanceStartHour) (\s@UpdateMaintenance' {} a -> s {maintenanceStartHour = a} :: UpdateMaintenance)
 
--- | A day of a week when the maintenance will happen. use
--- Monday\/Tuesday\/Wednesday\/Thursday\/Friday\/Saturday\/Sunday.
-updateMaintenance_maintenanceDay :: Lens.Lens' UpdateMaintenance (Prelude.Maybe MaintenanceDay)
-updateMaintenance_maintenanceDay = Lens.lens (\UpdateMaintenance' {maintenanceDay} -> maintenanceDay) (\s@UpdateMaintenance' {} a -> s {maintenanceDay = a} :: UpdateMaintenance)
-
 instance Prelude.Hashable UpdateMaintenance where
   hashWithSalt _salt UpdateMaintenance' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` maintenanceDay
       `Prelude.hashWithSalt` maintenanceScheduledDate
       `Prelude.hashWithSalt` maintenanceStartHour
-      `Prelude.hashWithSalt` maintenanceDay
 
 instance Prelude.NFData UpdateMaintenance where
   rnf UpdateMaintenance' {..} =
-    Prelude.rnf maintenanceScheduledDate
+    Prelude.rnf maintenanceDay
+      `Prelude.seq` Prelude.rnf maintenanceScheduledDate
       `Prelude.seq` Prelude.rnf maintenanceStartHour
-      `Prelude.seq` Prelude.rnf maintenanceDay
 
 instance Data.ToJSON UpdateMaintenance where
   toJSON UpdateMaintenance' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("maintenanceScheduledDate" Data..=)
+          [ ("maintenanceDay" Data..=)
+              Prelude.<$> maintenanceDay,
+            ("maintenanceScheduledDate" Data..=)
               Prelude.<$> maintenanceScheduledDate,
             ("maintenanceStartHour" Data..=)
-              Prelude.<$> maintenanceStartHour,
-            ("maintenanceDay" Data..=)
-              Prelude.<$> maintenanceDay
+              Prelude.<$> maintenanceStartHour
           ]
       )

@@ -34,19 +34,23 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEngineTranscribeSettings' smart constructor.
 data EngineTranscribeSettings = EngineTranscribeSettings'
-  { -- | The filtering method passed to Amazon Transcribe.
-    vocabularyFilterMethod :: Prelude.Maybe TranscribeVocabularyFilterMethod,
-    -- | The name of the vocabulary passed to Amazon Transcribe.
-    vocabularyName :: Prelude.Maybe Prelude.Text,
-    -- | Set this field to @PII@ to identify personally identifiable information
+  { -- | Set this field to @PII@ to identify personally identifiable information
     -- in the transcription output.
     contentIdentificationType :: Prelude.Maybe TranscribeContentIdentificationType,
+    -- | Set this field to @PII@ to redact personally identifiable information in
+    -- the transcription output. Content redaction is performed only upon
+    -- complete transcription of the audio segments.
+    contentRedactionType :: Prelude.Maybe TranscribeContentRedactionType,
     -- | Generates partial transcription results that are less likely to change
     -- as meeting attendees speak. It does so by only allowing the last few
     -- words from the partial results to change.
     enablePartialResultsStabilization :: Prelude.Maybe Prelude.Bool,
     -- | The name of the language model used during transcription.
     languageModelName :: Prelude.Maybe Prelude.Text,
+    -- | The stabity level of a partial results transcription. Determines how
+    -- stable you want the transcription results to be. A higher level means
+    -- the transcription results are less likely to change.
+    partialResultsStability :: Prelude.Maybe TranscribePartialResultsStability,
     -- | Lists the PII entity types you want to identify or redact. To specify
     -- entity types, you must enable @ContentIdentificationType@ or
     -- @ContentRedactionType@.
@@ -61,16 +65,12 @@ data EngineTranscribeSettings = EngineTranscribeSettings'
     -- | The AWS Region passed to Amazon Transcribe. If you don\'t specify a
     -- Region, Amazon Chime uses the meeting\'s Region.
     region :: Prelude.Maybe TranscribeRegion,
+    -- | The filtering method passed to Amazon Transcribe.
+    vocabularyFilterMethod :: Prelude.Maybe TranscribeVocabularyFilterMethod,
     -- | The name of the vocabulary filter passed to Amazon Transcribe.
     vocabularyFilterName :: Prelude.Maybe Prelude.Text,
-    -- | Set this field to @PII@ to redact personally identifiable information in
-    -- the transcription output. Content redaction is performed only upon
-    -- complete transcription of the audio segments.
-    contentRedactionType :: Prelude.Maybe TranscribeContentRedactionType,
-    -- | The stabity level of a partial results transcription. Determines how
-    -- stable you want the transcription results to be. A higher level means
-    -- the transcription results are less likely to change.
-    partialResultsStability :: Prelude.Maybe TranscribePartialResultsStability,
+    -- | The name of the vocabulary passed to Amazon Transcribe.
+    vocabularyName :: Prelude.Maybe Prelude.Text,
     -- | The language code specified for the Amazon Transcribe engine.
     languageCode :: TranscribeLanguageCode
   }
@@ -84,18 +84,22 @@ data EngineTranscribeSettings = EngineTranscribeSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vocabularyFilterMethod', 'engineTranscribeSettings_vocabularyFilterMethod' - The filtering method passed to Amazon Transcribe.
---
--- 'vocabularyName', 'engineTranscribeSettings_vocabularyName' - The name of the vocabulary passed to Amazon Transcribe.
---
 -- 'contentIdentificationType', 'engineTranscribeSettings_contentIdentificationType' - Set this field to @PII@ to identify personally identifiable information
 -- in the transcription output.
+--
+-- 'contentRedactionType', 'engineTranscribeSettings_contentRedactionType' - Set this field to @PII@ to redact personally identifiable information in
+-- the transcription output. Content redaction is performed only upon
+-- complete transcription of the audio segments.
 --
 -- 'enablePartialResultsStabilization', 'engineTranscribeSettings_enablePartialResultsStabilization' - Generates partial transcription results that are less likely to change
 -- as meeting attendees speak. It does so by only allowing the last few
 -- words from the partial results to change.
 --
 -- 'languageModelName', 'engineTranscribeSettings_languageModelName' - The name of the language model used during transcription.
+--
+-- 'partialResultsStability', 'engineTranscribeSettings_partialResultsStability' - The stabity level of a partial results transcription. Determines how
+-- stable you want the transcription results to be. A higher level means
+-- the transcription results are less likely to change.
 --
 -- 'piiEntityTypes', 'engineTranscribeSettings_piiEntityTypes' - Lists the PII entity types you want to identify or redact. To specify
 -- entity types, you must enable @ContentIdentificationType@ or
@@ -111,15 +115,11 @@ data EngineTranscribeSettings = EngineTranscribeSettings'
 -- 'region', 'engineTranscribeSettings_region' - The AWS Region passed to Amazon Transcribe. If you don\'t specify a
 -- Region, Amazon Chime uses the meeting\'s Region.
 --
+-- 'vocabularyFilterMethod', 'engineTranscribeSettings_vocabularyFilterMethod' - The filtering method passed to Amazon Transcribe.
+--
 -- 'vocabularyFilterName', 'engineTranscribeSettings_vocabularyFilterName' - The name of the vocabulary filter passed to Amazon Transcribe.
 --
--- 'contentRedactionType', 'engineTranscribeSettings_contentRedactionType' - Set this field to @PII@ to redact personally identifiable information in
--- the transcription output. Content redaction is performed only upon
--- complete transcription of the audio segments.
---
--- 'partialResultsStability', 'engineTranscribeSettings_partialResultsStability' - The stabity level of a partial results transcription. Determines how
--- stable you want the transcription results to be. A higher level means
--- the transcription results are less likely to change.
+-- 'vocabularyName', 'engineTranscribeSettings_vocabularyName' - The name of the vocabulary passed to Amazon Transcribe.
 --
 -- 'languageCode', 'engineTranscribeSettings_languageCode' - The language code specified for the Amazon Transcribe engine.
 newEngineTranscribeSettings ::
@@ -128,33 +128,31 @@ newEngineTranscribeSettings ::
   EngineTranscribeSettings
 newEngineTranscribeSettings pLanguageCode_ =
   EngineTranscribeSettings'
-    { vocabularyFilterMethod =
+    { contentIdentificationType =
         Prelude.Nothing,
-      vocabularyName = Prelude.Nothing,
-      contentIdentificationType = Prelude.Nothing,
+      contentRedactionType = Prelude.Nothing,
       enablePartialResultsStabilization =
         Prelude.Nothing,
       languageModelName = Prelude.Nothing,
+      partialResultsStability = Prelude.Nothing,
       piiEntityTypes = Prelude.Nothing,
       region = Prelude.Nothing,
+      vocabularyFilterMethod = Prelude.Nothing,
       vocabularyFilterName = Prelude.Nothing,
-      contentRedactionType = Prelude.Nothing,
-      partialResultsStability = Prelude.Nothing,
+      vocabularyName = Prelude.Nothing,
       languageCode = pLanguageCode_
     }
-
--- | The filtering method passed to Amazon Transcribe.
-engineTranscribeSettings_vocabularyFilterMethod :: Lens.Lens' EngineTranscribeSettings (Prelude.Maybe TranscribeVocabularyFilterMethod)
-engineTranscribeSettings_vocabularyFilterMethod = Lens.lens (\EngineTranscribeSettings' {vocabularyFilterMethod} -> vocabularyFilterMethod) (\s@EngineTranscribeSettings' {} a -> s {vocabularyFilterMethod = a} :: EngineTranscribeSettings)
-
--- | The name of the vocabulary passed to Amazon Transcribe.
-engineTranscribeSettings_vocabularyName :: Lens.Lens' EngineTranscribeSettings (Prelude.Maybe Prelude.Text)
-engineTranscribeSettings_vocabularyName = Lens.lens (\EngineTranscribeSettings' {vocabularyName} -> vocabularyName) (\s@EngineTranscribeSettings' {} a -> s {vocabularyName = a} :: EngineTranscribeSettings)
 
 -- | Set this field to @PII@ to identify personally identifiable information
 -- in the transcription output.
 engineTranscribeSettings_contentIdentificationType :: Lens.Lens' EngineTranscribeSettings (Prelude.Maybe TranscribeContentIdentificationType)
 engineTranscribeSettings_contentIdentificationType = Lens.lens (\EngineTranscribeSettings' {contentIdentificationType} -> contentIdentificationType) (\s@EngineTranscribeSettings' {} a -> s {contentIdentificationType = a} :: EngineTranscribeSettings)
+
+-- | Set this field to @PII@ to redact personally identifiable information in
+-- the transcription output. Content redaction is performed only upon
+-- complete transcription of the audio segments.
+engineTranscribeSettings_contentRedactionType :: Lens.Lens' EngineTranscribeSettings (Prelude.Maybe TranscribeContentRedactionType)
+engineTranscribeSettings_contentRedactionType = Lens.lens (\EngineTranscribeSettings' {contentRedactionType} -> contentRedactionType) (\s@EngineTranscribeSettings' {} a -> s {contentRedactionType = a} :: EngineTranscribeSettings)
 
 -- | Generates partial transcription results that are less likely to change
 -- as meeting attendees speak. It does so by only allowing the last few
@@ -165,6 +163,12 @@ engineTranscribeSettings_enablePartialResultsStabilization = Lens.lens (\EngineT
 -- | The name of the language model used during transcription.
 engineTranscribeSettings_languageModelName :: Lens.Lens' EngineTranscribeSettings (Prelude.Maybe Prelude.Text)
 engineTranscribeSettings_languageModelName = Lens.lens (\EngineTranscribeSettings' {languageModelName} -> languageModelName) (\s@EngineTranscribeSettings' {} a -> s {languageModelName = a} :: EngineTranscribeSettings)
+
+-- | The stabity level of a partial results transcription. Determines how
+-- stable you want the transcription results to be. A higher level means
+-- the transcription results are less likely to change.
+engineTranscribeSettings_partialResultsStability :: Lens.Lens' EngineTranscribeSettings (Prelude.Maybe TranscribePartialResultsStability)
+engineTranscribeSettings_partialResultsStability = Lens.lens (\EngineTranscribeSettings' {partialResultsStability} -> partialResultsStability) (\s@EngineTranscribeSettings' {} a -> s {partialResultsStability = a} :: EngineTranscribeSettings)
 
 -- | Lists the PII entity types you want to identify or redact. To specify
 -- entity types, you must enable @ContentIdentificationType@ or
@@ -184,21 +188,17 @@ engineTranscribeSettings_piiEntityTypes = Lens.lens (\EngineTranscribeSettings' 
 engineTranscribeSettings_region :: Lens.Lens' EngineTranscribeSettings (Prelude.Maybe TranscribeRegion)
 engineTranscribeSettings_region = Lens.lens (\EngineTranscribeSettings' {region} -> region) (\s@EngineTranscribeSettings' {} a -> s {region = a} :: EngineTranscribeSettings)
 
+-- | The filtering method passed to Amazon Transcribe.
+engineTranscribeSettings_vocabularyFilterMethod :: Lens.Lens' EngineTranscribeSettings (Prelude.Maybe TranscribeVocabularyFilterMethod)
+engineTranscribeSettings_vocabularyFilterMethod = Lens.lens (\EngineTranscribeSettings' {vocabularyFilterMethod} -> vocabularyFilterMethod) (\s@EngineTranscribeSettings' {} a -> s {vocabularyFilterMethod = a} :: EngineTranscribeSettings)
+
 -- | The name of the vocabulary filter passed to Amazon Transcribe.
 engineTranscribeSettings_vocabularyFilterName :: Lens.Lens' EngineTranscribeSettings (Prelude.Maybe Prelude.Text)
 engineTranscribeSettings_vocabularyFilterName = Lens.lens (\EngineTranscribeSettings' {vocabularyFilterName} -> vocabularyFilterName) (\s@EngineTranscribeSettings' {} a -> s {vocabularyFilterName = a} :: EngineTranscribeSettings)
 
--- | Set this field to @PII@ to redact personally identifiable information in
--- the transcription output. Content redaction is performed only upon
--- complete transcription of the audio segments.
-engineTranscribeSettings_contentRedactionType :: Lens.Lens' EngineTranscribeSettings (Prelude.Maybe TranscribeContentRedactionType)
-engineTranscribeSettings_contentRedactionType = Lens.lens (\EngineTranscribeSettings' {contentRedactionType} -> contentRedactionType) (\s@EngineTranscribeSettings' {} a -> s {contentRedactionType = a} :: EngineTranscribeSettings)
-
--- | The stabity level of a partial results transcription. Determines how
--- stable you want the transcription results to be. A higher level means
--- the transcription results are less likely to change.
-engineTranscribeSettings_partialResultsStability :: Lens.Lens' EngineTranscribeSettings (Prelude.Maybe TranscribePartialResultsStability)
-engineTranscribeSettings_partialResultsStability = Lens.lens (\EngineTranscribeSettings' {partialResultsStability} -> partialResultsStability) (\s@EngineTranscribeSettings' {} a -> s {partialResultsStability = a} :: EngineTranscribeSettings)
+-- | The name of the vocabulary passed to Amazon Transcribe.
+engineTranscribeSettings_vocabularyName :: Lens.Lens' EngineTranscribeSettings (Prelude.Maybe Prelude.Text)
+engineTranscribeSettings_vocabularyName = Lens.lens (\EngineTranscribeSettings' {vocabularyName} -> vocabularyName) (\s@EngineTranscribeSettings' {} a -> s {vocabularyName = a} :: EngineTranscribeSettings)
 
 -- | The language code specified for the Amazon Transcribe engine.
 engineTranscribeSettings_languageCode :: Lens.Lens' EngineTranscribeSettings TranscribeLanguageCode
@@ -206,55 +206,56 @@ engineTranscribeSettings_languageCode = Lens.lens (\EngineTranscribeSettings' {l
 
 instance Prelude.Hashable EngineTranscribeSettings where
   hashWithSalt _salt EngineTranscribeSettings' {..} =
-    _salt `Prelude.hashWithSalt` vocabularyFilterMethod
-      `Prelude.hashWithSalt` vocabularyName
+    _salt
       `Prelude.hashWithSalt` contentIdentificationType
+      `Prelude.hashWithSalt` contentRedactionType
       `Prelude.hashWithSalt` enablePartialResultsStabilization
       `Prelude.hashWithSalt` languageModelName
+      `Prelude.hashWithSalt` partialResultsStability
       `Prelude.hashWithSalt` piiEntityTypes
       `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` vocabularyFilterMethod
       `Prelude.hashWithSalt` vocabularyFilterName
-      `Prelude.hashWithSalt` contentRedactionType
-      `Prelude.hashWithSalt` partialResultsStability
+      `Prelude.hashWithSalt` vocabularyName
       `Prelude.hashWithSalt` languageCode
 
 instance Prelude.NFData EngineTranscribeSettings where
   rnf EngineTranscribeSettings' {..} =
-    Prelude.rnf vocabularyFilterMethod
-      `Prelude.seq` Prelude.rnf vocabularyName
-      `Prelude.seq` Prelude.rnf contentIdentificationType
+    Prelude.rnf contentIdentificationType
+      `Prelude.seq` Prelude.rnf contentRedactionType
       `Prelude.seq` Prelude.rnf enablePartialResultsStabilization
       `Prelude.seq` Prelude.rnf languageModelName
+      `Prelude.seq` Prelude.rnf partialResultsStability
       `Prelude.seq` Prelude.rnf piiEntityTypes
       `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf vocabularyFilterMethod
       `Prelude.seq` Prelude.rnf vocabularyFilterName
-      `Prelude.seq` Prelude.rnf contentRedactionType
-      `Prelude.seq` Prelude.rnf partialResultsStability
+      `Prelude.seq` Prelude.rnf vocabularyName
       `Prelude.seq` Prelude.rnf languageCode
 
 instance Data.ToJSON EngineTranscribeSettings where
   toJSON EngineTranscribeSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("VocabularyFilterMethod" Data..=)
-              Prelude.<$> vocabularyFilterMethod,
-            ("VocabularyName" Data..=)
-              Prelude.<$> vocabularyName,
-            ("ContentIdentificationType" Data..=)
+          [ ("ContentIdentificationType" Data..=)
               Prelude.<$> contentIdentificationType,
+            ("ContentRedactionType" Data..=)
+              Prelude.<$> contentRedactionType,
             ("EnablePartialResultsStabilization" Data..=)
               Prelude.<$> enablePartialResultsStabilization,
             ("LanguageModelName" Data..=)
               Prelude.<$> languageModelName,
+            ("PartialResultsStability" Data..=)
+              Prelude.<$> partialResultsStability,
             ("PiiEntityTypes" Data..=)
               Prelude.<$> piiEntityTypes,
             ("Region" Data..=) Prelude.<$> region,
+            ("VocabularyFilterMethod" Data..=)
+              Prelude.<$> vocabularyFilterMethod,
             ("VocabularyFilterName" Data..=)
               Prelude.<$> vocabularyFilterName,
-            ("ContentRedactionType" Data..=)
-              Prelude.<$> contentRedactionType,
-            ("PartialResultsStability" Data..=)
-              Prelude.<$> partialResultsStability,
+            ("VocabularyName" Data..=)
+              Prelude.<$> vocabularyName,
             Prelude.Just ("LanguageCode" Data..= languageCode)
           ]
       )

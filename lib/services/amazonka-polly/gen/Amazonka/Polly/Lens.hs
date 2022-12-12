@@ -19,18 +19,18 @@ module Amazonka.Polly.Lens
     deleteLexiconResponse_httpStatus,
 
     -- ** DescribeVoices
-    describeVoices_nextToken,
-    describeVoices_languageCode,
-    describeVoices_includeAdditionalLanguageCodes,
     describeVoices_engine,
-    describeVoicesResponse_voices,
+    describeVoices_includeAdditionalLanguageCodes,
+    describeVoices_languageCode,
+    describeVoices_nextToken,
     describeVoicesResponse_nextToken,
+    describeVoicesResponse_voices,
     describeVoicesResponse_httpStatus,
 
     -- ** GetLexicon
     getLexicon_name,
-    getLexiconResponse_lexiconAttributes,
     getLexiconResponse_lexicon,
+    getLexiconResponse_lexiconAttributes,
     getLexiconResponse_httpStatus,
 
     -- ** GetSpeechSynthesisTask
@@ -40,14 +40,14 @@ module Amazonka.Polly.Lens
 
     -- ** ListLexicons
     listLexicons_nextToken,
-    listLexiconsResponse_nextToken,
     listLexiconsResponse_lexicons,
+    listLexiconsResponse_nextToken,
     listLexiconsResponse_httpStatus,
 
     -- ** ListSpeechSynthesisTasks
+    listSpeechSynthesisTasks_maxResults,
     listSpeechSynthesisTasks_nextToken,
     listSpeechSynthesisTasks_status,
-    listSpeechSynthesisTasks_maxResults,
     listSpeechSynthesisTasksResponse_nextToken,
     listSpeechSynthesisTasksResponse_synthesisTasks,
     listSpeechSynthesisTasksResponse_httpStatus,
@@ -58,14 +58,14 @@ module Amazonka.Polly.Lens
     putLexiconResponse_httpStatus,
 
     -- ** StartSpeechSynthesisTask
-    startSpeechSynthesisTask_sampleRate,
-    startSpeechSynthesisTask_speechMarkTypes,
-    startSpeechSynthesisTask_snsTopicArn,
+    startSpeechSynthesisTask_engine,
     startSpeechSynthesisTask_languageCode,
     startSpeechSynthesisTask_lexiconNames,
-    startSpeechSynthesisTask_engine,
-    startSpeechSynthesisTask_textType,
     startSpeechSynthesisTask_outputS3KeyPrefix,
+    startSpeechSynthesisTask_sampleRate,
+    startSpeechSynthesisTask_snsTopicArn,
+    startSpeechSynthesisTask_speechMarkTypes,
+    startSpeechSynthesisTask_textType,
     startSpeechSynthesisTask_outputFormat,
     startSpeechSynthesisTask_outputS3BucketName,
     startSpeechSynthesisTask_text,
@@ -74,63 +74,63 @@ module Amazonka.Polly.Lens
     startSpeechSynthesisTaskResponse_httpStatus,
 
     -- ** SynthesizeSpeech
-    synthesizeSpeech_sampleRate,
-    synthesizeSpeech_speechMarkTypes,
+    synthesizeSpeech_engine,
     synthesizeSpeech_languageCode,
     synthesizeSpeech_lexiconNames,
-    synthesizeSpeech_engine,
+    synthesizeSpeech_sampleRate,
+    synthesizeSpeech_speechMarkTypes,
     synthesizeSpeech_textType,
     synthesizeSpeech_outputFormat,
     synthesizeSpeech_text,
     synthesizeSpeech_voiceId,
-    synthesizeSpeechResponse_requestCharacters,
     synthesizeSpeechResponse_contentType,
+    synthesizeSpeechResponse_requestCharacters,
     synthesizeSpeechResponse_httpStatus,
     synthesizeSpeechResponse_audioStream,
 
     -- * Types
 
     -- ** Lexicon
-    lexicon_name,
     lexicon_content,
+    lexicon_name,
 
     -- ** LexiconAttributes
     lexiconAttributes_alphabet,
-    lexiconAttributes_lexiconArn,
-    lexiconAttributes_size,
     lexiconAttributes_languageCode,
     lexiconAttributes_lastModified,
     lexiconAttributes_lexemesCount,
+    lexiconAttributes_lexiconArn,
+    lexiconAttributes_size,
 
     -- ** LexiconDescription
-    lexiconDescription_name,
     lexiconDescription_attributes,
+    lexiconDescription_name,
 
     -- ** SynthesisTask
-    synthesisTask_voiceId,
-    synthesisTask_taskStatusReason,
-    synthesisTask_taskId,
-    synthesisTask_sampleRate,
-    synthesisTask_taskStatus,
-    synthesisTask_speechMarkTypes,
+    synthesisTask_creationTime,
+    synthesisTask_engine,
+    synthesisTask_languageCode,
+    synthesisTask_lexiconNames,
     synthesisTask_outputFormat,
     synthesisTask_outputUri,
-    synthesisTask_snsTopicArn,
-    synthesisTask_languageCode,
     synthesisTask_requestCharacters,
-    synthesisTask_lexiconNames,
-    synthesisTask_engine,
-    synthesisTask_creationTime,
+    synthesisTask_sampleRate,
+    synthesisTask_snsTopicArn,
+    synthesisTask_speechMarkTypes,
+    synthesisTask_taskId,
+    synthesisTask_taskStatus,
+    synthesisTask_taskStatusReason,
     synthesisTask_textType,
+    synthesisTask_voiceId,
 
     -- ** Voice
-    voice_supportedEngines,
-    voice_name,
     voice_additionalLanguageCodes,
+    voice_gender,
     voice_id,
     voice_languageCode,
     voice_languageName,
-    voice_gender,
+    voice_name,
+    voice_supportedEngines,
   )
 where
 

@@ -27,10 +27,10 @@ module Amazonka.IoTFleetWise.UpdateVehicle
     newUpdateVehicle,
 
     -- * Request Lenses
-    updateVehicle_modelManifestArn,
+    updateVehicle_attributeUpdateMode,
     updateVehicle_attributes,
     updateVehicle_decoderManifestArn,
-    updateVehicle_attributeUpdateMode,
+    updateVehicle_modelManifestArn,
     updateVehicle_vehicleName,
 
     -- * Destructuring the Response
@@ -54,20 +54,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateVehicle' smart constructor.
 data UpdateVehicle = UpdateVehicle'
-  { -- | The ARN of a vehicle model (model manifest) associated with the vehicle.
-    modelManifestArn :: Prelude.Maybe Prelude.Text,
+  { -- | The method the specified attributes will update the existing attributes
+    -- on the vehicle. Use@Overwite@ to replace the vehicle attributes with the
+    -- specified attributes. Or use @Merge@ to combine all attributes.
+    --
+    -- This is required if attributes are present in the input.
+    attributeUpdateMode :: Prelude.Maybe UpdateMode,
     -- | Static information about a vehicle in a key-value pair. For example:
     --
     -- @\"engineType\"@ : @\"1.3 L R2\"@
     attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The ARN of the decoder manifest associated with this vehicle.
     decoderManifestArn :: Prelude.Maybe Prelude.Text,
-    -- | The method the specified attributes will update the existing attributes
-    -- on the vehicle. Use@Overwite@ to replace the vehicle attributes with the
-    -- specified attributes. Or use @Merge@ to combine all attributes.
-    --
-    -- This is required if attributes are present in the input.
-    attributeUpdateMode :: Prelude.Maybe UpdateMode,
+    -- | The ARN of a vehicle model (model manifest) associated with the vehicle.
+    modelManifestArn :: Prelude.Maybe Prelude.Text,
     -- | The unique ID of the vehicle to update.
     vehicleName :: Prelude.Text
   }
@@ -81,7 +81,11 @@ data UpdateVehicle = UpdateVehicle'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'modelManifestArn', 'updateVehicle_modelManifestArn' - The ARN of a vehicle model (model manifest) associated with the vehicle.
+-- 'attributeUpdateMode', 'updateVehicle_attributeUpdateMode' - The method the specified attributes will update the existing attributes
+-- on the vehicle. Use@Overwite@ to replace the vehicle attributes with the
+-- specified attributes. Or use @Merge@ to combine all attributes.
+--
+-- This is required if attributes are present in the input.
 --
 -- 'attributes', 'updateVehicle_attributes' - Static information about a vehicle in a key-value pair. For example:
 --
@@ -89,11 +93,7 @@ data UpdateVehicle = UpdateVehicle'
 --
 -- 'decoderManifestArn', 'updateVehicle_decoderManifestArn' - The ARN of the decoder manifest associated with this vehicle.
 --
--- 'attributeUpdateMode', 'updateVehicle_attributeUpdateMode' - The method the specified attributes will update the existing attributes
--- on the vehicle. Use@Overwite@ to replace the vehicle attributes with the
--- specified attributes. Or use @Merge@ to combine all attributes.
---
--- This is required if attributes are present in the input.
+-- 'modelManifestArn', 'updateVehicle_modelManifestArn' - The ARN of a vehicle model (model manifest) associated with the vehicle.
 --
 -- 'vehicleName', 'updateVehicle_vehicleName' - The unique ID of the vehicle to update.
 newUpdateVehicle ::
@@ -102,16 +102,21 @@ newUpdateVehicle ::
   UpdateVehicle
 newUpdateVehicle pVehicleName_ =
   UpdateVehicle'
-    { modelManifestArn = Prelude.Nothing,
+    { attributeUpdateMode =
+        Prelude.Nothing,
       attributes = Prelude.Nothing,
       decoderManifestArn = Prelude.Nothing,
-      attributeUpdateMode = Prelude.Nothing,
+      modelManifestArn = Prelude.Nothing,
       vehicleName = pVehicleName_
     }
 
--- | The ARN of a vehicle model (model manifest) associated with the vehicle.
-updateVehicle_modelManifestArn :: Lens.Lens' UpdateVehicle (Prelude.Maybe Prelude.Text)
-updateVehicle_modelManifestArn = Lens.lens (\UpdateVehicle' {modelManifestArn} -> modelManifestArn) (\s@UpdateVehicle' {} a -> s {modelManifestArn = a} :: UpdateVehicle)
+-- | The method the specified attributes will update the existing attributes
+-- on the vehicle. Use@Overwite@ to replace the vehicle attributes with the
+-- specified attributes. Or use @Merge@ to combine all attributes.
+--
+-- This is required if attributes are present in the input.
+updateVehicle_attributeUpdateMode :: Lens.Lens' UpdateVehicle (Prelude.Maybe UpdateMode)
+updateVehicle_attributeUpdateMode = Lens.lens (\UpdateVehicle' {attributeUpdateMode} -> attributeUpdateMode) (\s@UpdateVehicle' {} a -> s {attributeUpdateMode = a} :: UpdateVehicle)
 
 -- | Static information about a vehicle in a key-value pair. For example:
 --
@@ -123,13 +128,9 @@ updateVehicle_attributes = Lens.lens (\UpdateVehicle' {attributes} -> attributes
 updateVehicle_decoderManifestArn :: Lens.Lens' UpdateVehicle (Prelude.Maybe Prelude.Text)
 updateVehicle_decoderManifestArn = Lens.lens (\UpdateVehicle' {decoderManifestArn} -> decoderManifestArn) (\s@UpdateVehicle' {} a -> s {decoderManifestArn = a} :: UpdateVehicle)
 
--- | The method the specified attributes will update the existing attributes
--- on the vehicle. Use@Overwite@ to replace the vehicle attributes with the
--- specified attributes. Or use @Merge@ to combine all attributes.
---
--- This is required if attributes are present in the input.
-updateVehicle_attributeUpdateMode :: Lens.Lens' UpdateVehicle (Prelude.Maybe UpdateMode)
-updateVehicle_attributeUpdateMode = Lens.lens (\UpdateVehicle' {attributeUpdateMode} -> attributeUpdateMode) (\s@UpdateVehicle' {} a -> s {attributeUpdateMode = a} :: UpdateVehicle)
+-- | The ARN of a vehicle model (model manifest) associated with the vehicle.
+updateVehicle_modelManifestArn :: Lens.Lens' UpdateVehicle (Prelude.Maybe Prelude.Text)
+updateVehicle_modelManifestArn = Lens.lens (\UpdateVehicle' {modelManifestArn} -> modelManifestArn) (\s@UpdateVehicle' {} a -> s {modelManifestArn = a} :: UpdateVehicle)
 
 -- | The unique ID of the vehicle to update.
 updateVehicle_vehicleName :: Lens.Lens' UpdateVehicle Prelude.Text
@@ -152,18 +153,18 @@ instance Core.AWSRequest UpdateVehicle where
 
 instance Prelude.Hashable UpdateVehicle where
   hashWithSalt _salt UpdateVehicle' {..} =
-    _salt `Prelude.hashWithSalt` modelManifestArn
+    _salt `Prelude.hashWithSalt` attributeUpdateMode
       `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` decoderManifestArn
-      `Prelude.hashWithSalt` attributeUpdateMode
+      `Prelude.hashWithSalt` modelManifestArn
       `Prelude.hashWithSalt` vehicleName
 
 instance Prelude.NFData UpdateVehicle where
   rnf UpdateVehicle' {..} =
-    Prelude.rnf modelManifestArn
+    Prelude.rnf attributeUpdateMode
       `Prelude.seq` Prelude.rnf attributes
       `Prelude.seq` Prelude.rnf decoderManifestArn
-      `Prelude.seq` Prelude.rnf attributeUpdateMode
+      `Prelude.seq` Prelude.rnf modelManifestArn
       `Prelude.seq` Prelude.rnf vehicleName
 
 instance Data.ToHeaders UpdateVehicle where
@@ -185,13 +186,13 @@ instance Data.ToJSON UpdateVehicle where
   toJSON UpdateVehicle' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("modelManifestArn" Data..=)
-              Prelude.<$> modelManifestArn,
+          [ ("attributeUpdateMode" Data..=)
+              Prelude.<$> attributeUpdateMode,
             ("attributes" Data..=) Prelude.<$> attributes,
             ("decoderManifestArn" Data..=)
               Prelude.<$> decoderManifestArn,
-            ("attributeUpdateMode" Data..=)
-              Prelude.<$> attributeUpdateMode,
+            ("modelManifestArn" Data..=)
+              Prelude.<$> modelManifestArn,
             Prelude.Just ("vehicleName" Data..= vehicleName)
           ]
       )

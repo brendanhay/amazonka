@@ -32,12 +32,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTypedLinkAttributeDefinition' smart constructor.
 data TypedLinkAttributeDefinition = TypedLinkAttributeDefinition'
-  { -- | Validation rules that are attached to the attribute definition.
-    rules :: Prelude.Maybe (Prelude.HashMap Prelude.Text Rule),
-    -- | The default value of the attribute (if configured).
+  { -- | The default value of the attribute (if configured).
     defaultValue :: Prelude.Maybe TypedAttributeValue,
     -- | Whether the attribute is mutable or not.
     isImmutable :: Prelude.Maybe Prelude.Bool,
+    -- | Validation rules that are attached to the attribute definition.
+    rules :: Prelude.Maybe (Prelude.HashMap Prelude.Text Rule),
     -- | The unique name of the typed link attribute.
     name :: Prelude.Text,
     -- | The type of the attribute.
@@ -55,11 +55,11 @@ data TypedLinkAttributeDefinition = TypedLinkAttributeDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'rules', 'typedLinkAttributeDefinition_rules' - Validation rules that are attached to the attribute definition.
---
 -- 'defaultValue', 'typedLinkAttributeDefinition_defaultValue' - The default value of the attribute (if configured).
 --
 -- 'isImmutable', 'typedLinkAttributeDefinition_isImmutable' - Whether the attribute is mutable or not.
+--
+-- 'rules', 'typedLinkAttributeDefinition_rules' - Validation rules that are attached to the attribute definition.
 --
 -- 'name', 'typedLinkAttributeDefinition_name' - The unique name of the typed link attribute.
 --
@@ -79,18 +79,14 @@ newTypedLinkAttributeDefinition
   pType_
   pRequiredBehavior_ =
     TypedLinkAttributeDefinition'
-      { rules =
+      { defaultValue =
           Prelude.Nothing,
-        defaultValue = Prelude.Nothing,
         isImmutable = Prelude.Nothing,
+        rules = Prelude.Nothing,
         name = pName_,
         type' = pType_,
         requiredBehavior = pRequiredBehavior_
       }
-
--- | Validation rules that are attached to the attribute definition.
-typedLinkAttributeDefinition_rules :: Lens.Lens' TypedLinkAttributeDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Rule))
-typedLinkAttributeDefinition_rules = Lens.lens (\TypedLinkAttributeDefinition' {rules} -> rules) (\s@TypedLinkAttributeDefinition' {} a -> s {rules = a} :: TypedLinkAttributeDefinition) Prelude.. Lens.mapping Lens.coerced
 
 -- | The default value of the attribute (if configured).
 typedLinkAttributeDefinition_defaultValue :: Lens.Lens' TypedLinkAttributeDefinition (Prelude.Maybe TypedAttributeValue)
@@ -99,6 +95,10 @@ typedLinkAttributeDefinition_defaultValue = Lens.lens (\TypedLinkAttributeDefini
 -- | Whether the attribute is mutable or not.
 typedLinkAttributeDefinition_isImmutable :: Lens.Lens' TypedLinkAttributeDefinition (Prelude.Maybe Prelude.Bool)
 typedLinkAttributeDefinition_isImmutable = Lens.lens (\TypedLinkAttributeDefinition' {isImmutable} -> isImmutable) (\s@TypedLinkAttributeDefinition' {} a -> s {isImmutable = a} :: TypedLinkAttributeDefinition)
+
+-- | Validation rules that are attached to the attribute definition.
+typedLinkAttributeDefinition_rules :: Lens.Lens' TypedLinkAttributeDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Rule))
+typedLinkAttributeDefinition_rules = Lens.lens (\TypedLinkAttributeDefinition' {rules} -> rules) (\s@TypedLinkAttributeDefinition' {} a -> s {rules = a} :: TypedLinkAttributeDefinition) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique name of the typed link attribute.
 typedLinkAttributeDefinition_name :: Lens.Lens' TypedLinkAttributeDefinition Prelude.Text
@@ -118,9 +118,9 @@ instance Data.FromJSON TypedLinkAttributeDefinition where
       "TypedLinkAttributeDefinition"
       ( \x ->
           TypedLinkAttributeDefinition'
-            Prelude.<$> (x Data..:? "Rules" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "DefaultValue")
+            Prelude.<$> (x Data..:? "DefaultValue")
             Prelude.<*> (x Data..:? "IsImmutable")
+            Prelude.<*> (x Data..:? "Rules" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "Name")
             Prelude.<*> (x Data..: "Type")
             Prelude.<*> (x Data..: "RequiredBehavior")
@@ -131,18 +131,18 @@ instance
     TypedLinkAttributeDefinition
   where
   hashWithSalt _salt TypedLinkAttributeDefinition' {..} =
-    _salt `Prelude.hashWithSalt` rules
-      `Prelude.hashWithSalt` defaultValue
+    _salt `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` isImmutable
+      `Prelude.hashWithSalt` rules
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` requiredBehavior
 
 instance Prelude.NFData TypedLinkAttributeDefinition where
   rnf TypedLinkAttributeDefinition' {..} =
-    Prelude.rnf rules
-      `Prelude.seq` Prelude.rnf defaultValue
+    Prelude.rnf defaultValue
       `Prelude.seq` Prelude.rnf isImmutable
+      `Prelude.seq` Prelude.rnf rules
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf requiredBehavior
@@ -151,9 +151,9 @@ instance Data.ToJSON TypedLinkAttributeDefinition where
   toJSON TypedLinkAttributeDefinition' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Rules" Data..=) Prelude.<$> rules,
-            ("DefaultValue" Data..=) Prelude.<$> defaultValue,
+          [ ("DefaultValue" Data..=) Prelude.<$> defaultValue,
             ("IsImmutable" Data..=) Prelude.<$> isImmutable,
+            ("Rules" Data..=) Prelude.<$> rules,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("Type" Data..= type'),
             Prelude.Just

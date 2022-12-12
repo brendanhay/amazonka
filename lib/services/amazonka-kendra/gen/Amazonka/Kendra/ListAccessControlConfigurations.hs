@@ -30,8 +30,8 @@ module Amazonka.Kendra.ListAccessControlConfigurations
     newListAccessControlConfigurations,
 
     -- * Request Lenses
-    listAccessControlConfigurations_nextToken,
     listAccessControlConfigurations_maxResults,
+    listAccessControlConfigurations_nextToken,
     listAccessControlConfigurations_indexId,
 
     -- * Destructuring the Response
@@ -55,13 +55,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAccessControlConfigurations' smart constructor.
 data ListAccessControlConfigurations = ListAccessControlConfigurations'
-  { -- | If the previous response was incomplete (because there\'s more data to
+  { -- | The maximum number of access control configurations to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the previous response was incomplete (because there\'s more data to
     -- retrieve), Amazon Kendra returns a pagination token in the response. You
     -- can use this pagination token to retrieve the next set of access control
     -- configurations.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of access control configurations to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the index for the access control configuration.
     indexId :: Prelude.Text
   }
@@ -75,12 +75,12 @@ data ListAccessControlConfigurations = ListAccessControlConfigurations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listAccessControlConfigurations_maxResults' - The maximum number of access control configurations to return.
+--
 -- 'nextToken', 'listAccessControlConfigurations_nextToken' - If the previous response was incomplete (because there\'s more data to
 -- retrieve), Amazon Kendra returns a pagination token in the response. You
 -- can use this pagination token to retrieve the next set of access control
 -- configurations.
---
--- 'maxResults', 'listAccessControlConfigurations_maxResults' - The maximum number of access control configurations to return.
 --
 -- 'indexId', 'listAccessControlConfigurations_indexId' - The identifier of the index for the access control configuration.
 newListAccessControlConfigurations ::
@@ -89,11 +89,15 @@ newListAccessControlConfigurations ::
   ListAccessControlConfigurations
 newListAccessControlConfigurations pIndexId_ =
   ListAccessControlConfigurations'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       indexId = pIndexId_
     }
+
+-- | The maximum number of access control configurations to return.
+listAccessControlConfigurations_maxResults :: Lens.Lens' ListAccessControlConfigurations (Prelude.Maybe Prelude.Natural)
+listAccessControlConfigurations_maxResults = Lens.lens (\ListAccessControlConfigurations' {maxResults} -> maxResults) (\s@ListAccessControlConfigurations' {} a -> s {maxResults = a} :: ListAccessControlConfigurations)
 
 -- | If the previous response was incomplete (because there\'s more data to
 -- retrieve), Amazon Kendra returns a pagination token in the response. You
@@ -101,10 +105,6 @@ newListAccessControlConfigurations pIndexId_ =
 -- configurations.
 listAccessControlConfigurations_nextToken :: Lens.Lens' ListAccessControlConfigurations (Prelude.Maybe Prelude.Text)
 listAccessControlConfigurations_nextToken = Lens.lens (\ListAccessControlConfigurations' {nextToken} -> nextToken) (\s@ListAccessControlConfigurations' {} a -> s {nextToken = a} :: ListAccessControlConfigurations)
-
--- | The maximum number of access control configurations to return.
-listAccessControlConfigurations_maxResults :: Lens.Lens' ListAccessControlConfigurations (Prelude.Maybe Prelude.Natural)
-listAccessControlConfigurations_maxResults = Lens.lens (\ListAccessControlConfigurations' {maxResults} -> maxResults) (\s@ListAccessControlConfigurations' {} a -> s {maxResults = a} :: ListAccessControlConfigurations)
 
 -- | The identifier of the index for the access control configuration.
 listAccessControlConfigurations_indexId :: Lens.Lens' ListAccessControlConfigurations Prelude.Text
@@ -137,8 +137,8 @@ instance
   hashWithSalt
     _salt
     ListAccessControlConfigurations' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` indexId
 
 instance
@@ -146,8 +146,8 @@ instance
     ListAccessControlConfigurations
   where
   rnf ListAccessControlConfigurations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf indexId
 
 instance
@@ -172,8 +172,8 @@ instance Data.ToJSON ListAccessControlConfigurations where
   toJSON ListAccessControlConfigurations' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("IndexId" Data..= indexId)
           ]
       )

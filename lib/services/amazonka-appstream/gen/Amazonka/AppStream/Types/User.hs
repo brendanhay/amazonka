@@ -29,16 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUser' smart constructor.
 data User = User'
-  { -- | The date and time the user was created in the user pool.
+  { -- | The ARN of the user.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The date and time the user was created in the user pool.
     createdTime :: Prelude.Maybe Data.POSIX,
+    -- | Specifies whether the user in the user pool is enabled.
+    enabled :: Prelude.Maybe Prelude.Bool,
     -- | The first name, or given name, of the user.
     firstName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The email address of the user.
-    --
-    -- Users\' email addresses are case-sensitive.
-    userName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The ARN of the user.
-    arn :: Prelude.Maybe Prelude.Text,
+    -- | The last name, or surname, of the user.
+    lastName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The status of the user in the user pool. The status can be one of the
     -- following:
     --
@@ -53,10 +53,10 @@ data User = User'
     --
     -- -   UNKNOWN – The user status is not known.
     status :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether the user in the user pool is enabled.
-    enabled :: Prelude.Maybe Prelude.Bool,
-    -- | The last name, or surname, of the user.
-    lastName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The email address of the user.
+    --
+    -- Users\' email addresses are case-sensitive.
+    userName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The authentication type for the user.
     authenticationType :: AuthenticationType
   }
@@ -70,15 +70,15 @@ data User = User'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'arn', 'user_arn' - The ARN of the user.
+--
 -- 'createdTime', 'user_createdTime' - The date and time the user was created in the user pool.
+--
+-- 'enabled', 'user_enabled' - Specifies whether the user in the user pool is enabled.
 --
 -- 'firstName', 'user_firstName' - The first name, or given name, of the user.
 --
--- 'userName', 'user_userName' - The email address of the user.
---
--- Users\' email addresses are case-sensitive.
---
--- 'arn', 'user_arn' - The ARN of the user.
+-- 'lastName', 'user_lastName' - The last name, or surname, of the user.
 --
 -- 'status', 'user_status' - The status of the user in the user pool. The status can be one of the
 -- following:
@@ -94,9 +94,9 @@ data User = User'
 --
 -- -   UNKNOWN – The user status is not known.
 --
--- 'enabled', 'user_enabled' - Specifies whether the user in the user pool is enabled.
+-- 'userName', 'user_userName' - The email address of the user.
 --
--- 'lastName', 'user_lastName' - The last name, or surname, of the user.
+-- Users\' email addresses are case-sensitive.
 --
 -- 'authenticationType', 'user_authenticationType' - The authentication type for the user.
 newUser ::
@@ -105,33 +105,35 @@ newUser ::
   User
 newUser pAuthenticationType_ =
   User'
-    { createdTime = Prelude.Nothing,
-      firstName = Prelude.Nothing,
-      userName = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      status = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      createdTime = Prelude.Nothing,
       enabled = Prelude.Nothing,
+      firstName = Prelude.Nothing,
       lastName = Prelude.Nothing,
+      status = Prelude.Nothing,
+      userName = Prelude.Nothing,
       authenticationType = pAuthenticationType_
     }
+
+-- | The ARN of the user.
+user_arn :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
+user_arn = Lens.lens (\User' {arn} -> arn) (\s@User' {} a -> s {arn = a} :: User)
 
 -- | The date and time the user was created in the user pool.
 user_createdTime :: Lens.Lens' User (Prelude.Maybe Prelude.UTCTime)
 user_createdTime = Lens.lens (\User' {createdTime} -> createdTime) (\s@User' {} a -> s {createdTime = a} :: User) Prelude.. Lens.mapping Data._Time
 
+-- | Specifies whether the user in the user pool is enabled.
+user_enabled :: Lens.Lens' User (Prelude.Maybe Prelude.Bool)
+user_enabled = Lens.lens (\User' {enabled} -> enabled) (\s@User' {} a -> s {enabled = a} :: User)
+
 -- | The first name, or given name, of the user.
 user_firstName :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
 user_firstName = Lens.lens (\User' {firstName} -> firstName) (\s@User' {} a -> s {firstName = a} :: User) Prelude.. Lens.mapping Data._Sensitive
 
--- | The email address of the user.
---
--- Users\' email addresses are case-sensitive.
-user_userName :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
-user_userName = Lens.lens (\User' {userName} -> userName) (\s@User' {} a -> s {userName = a} :: User) Prelude.. Lens.mapping Data._Sensitive
-
--- | The ARN of the user.
-user_arn :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
-user_arn = Lens.lens (\User' {arn} -> arn) (\s@User' {} a -> s {arn = a} :: User)
+-- | The last name, or surname, of the user.
+user_lastName :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
+user_lastName = Lens.lens (\User' {lastName} -> lastName) (\s@User' {} a -> s {lastName = a} :: User) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The status of the user in the user pool. The status can be one of the
 -- following:
@@ -149,13 +151,11 @@ user_arn = Lens.lens (\User' {arn} -> arn) (\s@User' {} a -> s {arn = a} :: User
 user_status :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
 user_status = Lens.lens (\User' {status} -> status) (\s@User' {} a -> s {status = a} :: User)
 
--- | Specifies whether the user in the user pool is enabled.
-user_enabled :: Lens.Lens' User (Prelude.Maybe Prelude.Bool)
-user_enabled = Lens.lens (\User' {enabled} -> enabled) (\s@User' {} a -> s {enabled = a} :: User)
-
--- | The last name, or surname, of the user.
-user_lastName :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
-user_lastName = Lens.lens (\User' {lastName} -> lastName) (\s@User' {} a -> s {lastName = a} :: User) Prelude.. Lens.mapping Data._Sensitive
+-- | The email address of the user.
+--
+-- Users\' email addresses are case-sensitive.
+user_userName :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
+user_userName = Lens.lens (\User' {userName} -> userName) (\s@User' {} a -> s {userName = a} :: User) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The authentication type for the user.
 user_authenticationType :: Lens.Lens' User AuthenticationType
@@ -167,34 +167,34 @@ instance Data.FromJSON User where
       "User"
       ( \x ->
           User'
-            Prelude.<$> (x Data..:? "CreatedTime")
-            Prelude.<*> (x Data..:? "FirstName")
-            Prelude.<*> (x Data..:? "UserName")
-            Prelude.<*> (x Data..:? "Arn")
-            Prelude.<*> (x Data..:? "Status")
+            Prelude.<$> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "CreatedTime")
             Prelude.<*> (x Data..:? "Enabled")
+            Prelude.<*> (x Data..:? "FirstName")
             Prelude.<*> (x Data..:? "LastName")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "UserName")
             Prelude.<*> (x Data..: "AuthenticationType")
       )
 
 instance Prelude.Hashable User where
   hashWithSalt _salt User' {..} =
-    _salt `Prelude.hashWithSalt` createdTime
-      `Prelude.hashWithSalt` firstName
-      `Prelude.hashWithSalt` userName
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` firstName
       `Prelude.hashWithSalt` lastName
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` authenticationType
 
 instance Prelude.NFData User where
   rnf User' {..} =
-    Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf firstName
-      `Prelude.seq` Prelude.rnf userName
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdTime
       `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf firstName
       `Prelude.seq` Prelude.rnf lastName
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf userName
       `Prelude.seq` Prelude.rnf authenticationType

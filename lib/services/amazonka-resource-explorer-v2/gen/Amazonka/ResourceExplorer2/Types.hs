@@ -19,12 +19,12 @@ module Amazonka.ResourceExplorer2.Types
 
     -- * Errors
     _AccessDeniedException,
-    _InternalServerException,
-    _UnauthorizedException,
-    _ServiceQuotaExceededException,
-    _ResourceNotFoundException,
     _ConflictException,
+    _InternalServerException,
+    _ResourceNotFoundException,
+    _ServiceQuotaExceededException,
     _ThrottlingException,
+    _UnauthorizedException,
     _ValidationException,
 
     -- * IndexState
@@ -51,20 +51,20 @@ module Amazonka.ResourceExplorer2.Types
     -- * Index
     Index (..),
     newIndex,
-    index_type,
     index_arn,
     index_region,
+    index_type,
 
     -- * Resource
     Resource (..),
     newResource,
-    resource_resourceType,
-    resource_lastReportedAt,
-    resource_properties,
     resource_arn,
-    resource_service,
-    resource_region,
+    resource_lastReportedAt,
     resource_owningAccountId,
+    resource_properties,
+    resource_region,
+    resource_resourceType,
+    resource_service,
 
     -- * ResourceCount
     ResourceCount (..),
@@ -75,9 +75,9 @@ module Amazonka.ResourceExplorer2.Types
     -- * ResourceProperty
     ResourceProperty (..),
     newResourceProperty,
-    resourceProperty_name,
-    resourceProperty_lastReportedAt,
     resourceProperty_data,
+    resourceProperty_lastReportedAt,
+    resourceProperty_name,
 
     -- * SearchFilter
     SearchFilter (..),
@@ -93,9 +93,9 @@ module Amazonka.ResourceExplorer2.Types
     -- * View
     View (..),
     newView,
-    view_lastUpdatedAt,
     view_filters,
     view_includedProperties,
+    view_lastUpdatedAt,
     view_owner,
     view_scope,
     view_viewArn,
@@ -144,28 +144,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -173,13 +167,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -187,6 +185,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The credentials that you used to call this operation don\'t have the
@@ -198,41 +198,6 @@ _AccessDeniedException =
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
--- | The request failed because of internal service error. Try your request
--- again later.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServerException"
-    Prelude.. Core.hasStatus 500
-
--- | The principal making the request isn\'t permitted to perform the
--- operation.
-_UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnauthorizedException =
-  Core._MatchServiceError
-    defaultService
-    "UnauthorizedException"
-    Prelude.. Core.hasStatus 401
-
--- | The request failed because it exceeds a service quota.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceQuotaExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceQuotaExceededException"
-    Prelude.. Core.hasStatus 402
-
--- | You specified a resource that doesn\'t exist. Check the ID or ARN that
--- you used to identity the resource, and try again.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
-
 -- | You tried to create a new view or index when one already exists, and you
 -- either didn\'t specify or specified a different idempotency token as the
 -- original request.
@@ -243,6 +208,32 @@ _ConflictException =
     "ConflictException"
     Prelude.. Core.hasStatus 409
 
+-- | The request failed because of internal service error. Try your request
+-- again later.
+_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServerException"
+    Prelude.. Core.hasStatus 500
+
+-- | You specified a resource that doesn\'t exist. Check the ID or ARN that
+-- you used to identity the resource, and try again.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
+
+-- | The request failed because it exceeds a service quota.
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceQuotaExceededException"
+    Prelude.. Core.hasStatus 402
+
 -- | The request failed because you exceeded a rate limit for this operation.
 -- For more information, see
 -- <https://docs.aws.amazon.com/arexug/mainline/quotas.html Quotas for Resource Explorer>.
@@ -252,6 +243,15 @@ _ThrottlingException =
     defaultService
     "ThrottlingException"
     Prelude.. Core.hasStatus 429
+
+-- | The principal making the request isn\'t permitted to perform the
+-- operation.
+_UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnauthorizedException =
+  Core._MatchServiceError
+    defaultService
+    "UnauthorizedException"
+    Prelude.. Core.hasStatus 401
 
 -- | You provided an invalid value for one of the operation\'s parameters.
 -- Check the syntax for the operation, and try again.

@@ -29,8 +29,8 @@ module Amazonka.RedshiftServerLess.DeleteNamespace
     newDeleteNamespace,
 
     -- * Request Lenses
-    deleteNamespace_finalSnapshotRetentionPeriod,
     deleteNamespace_finalSnapshotName,
+    deleteNamespace_finalSnapshotRetentionPeriod,
     deleteNamespace_namespaceName,
 
     -- * Destructuring the Response
@@ -53,10 +53,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteNamespace' smart constructor.
 data DeleteNamespace = DeleteNamespace'
-  { -- | How long to retain the final snapshot.
-    finalSnapshotRetentionPeriod :: Prelude.Maybe Prelude.Int,
-    -- | The name of the snapshot to be created before the namespace is deleted.
+  { -- | The name of the snapshot to be created before the namespace is deleted.
     finalSnapshotName :: Prelude.Maybe Prelude.Text,
+    -- | How long to retain the final snapshot.
+    finalSnapshotRetentionPeriod :: Prelude.Maybe Prelude.Int,
     -- | The name of the namespace to delete.
     namespaceName :: Prelude.Text
   }
@@ -70,9 +70,9 @@ data DeleteNamespace = DeleteNamespace'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'finalSnapshotRetentionPeriod', 'deleteNamespace_finalSnapshotRetentionPeriod' - How long to retain the final snapshot.
---
 -- 'finalSnapshotName', 'deleteNamespace_finalSnapshotName' - The name of the snapshot to be created before the namespace is deleted.
+--
+-- 'finalSnapshotRetentionPeriod', 'deleteNamespace_finalSnapshotRetentionPeriod' - How long to retain the final snapshot.
 --
 -- 'namespaceName', 'deleteNamespace_namespaceName' - The name of the namespace to delete.
 newDeleteNamespace ::
@@ -81,19 +81,19 @@ newDeleteNamespace ::
   DeleteNamespace
 newDeleteNamespace pNamespaceName_ =
   DeleteNamespace'
-    { finalSnapshotRetentionPeriod =
+    { finalSnapshotName =
         Prelude.Nothing,
-      finalSnapshotName = Prelude.Nothing,
+      finalSnapshotRetentionPeriod = Prelude.Nothing,
       namespaceName = pNamespaceName_
     }
-
--- | How long to retain the final snapshot.
-deleteNamespace_finalSnapshotRetentionPeriod :: Lens.Lens' DeleteNamespace (Prelude.Maybe Prelude.Int)
-deleteNamespace_finalSnapshotRetentionPeriod = Lens.lens (\DeleteNamespace' {finalSnapshotRetentionPeriod} -> finalSnapshotRetentionPeriod) (\s@DeleteNamespace' {} a -> s {finalSnapshotRetentionPeriod = a} :: DeleteNamespace)
 
 -- | The name of the snapshot to be created before the namespace is deleted.
 deleteNamespace_finalSnapshotName :: Lens.Lens' DeleteNamespace (Prelude.Maybe Prelude.Text)
 deleteNamespace_finalSnapshotName = Lens.lens (\DeleteNamespace' {finalSnapshotName} -> finalSnapshotName) (\s@DeleteNamespace' {} a -> s {finalSnapshotName = a} :: DeleteNamespace)
+
+-- | How long to retain the final snapshot.
+deleteNamespace_finalSnapshotRetentionPeriod :: Lens.Lens' DeleteNamespace (Prelude.Maybe Prelude.Int)
+deleteNamespace_finalSnapshotRetentionPeriod = Lens.lens (\DeleteNamespace' {finalSnapshotRetentionPeriod} -> finalSnapshotRetentionPeriod) (\s@DeleteNamespace' {} a -> s {finalSnapshotRetentionPeriod = a} :: DeleteNamespace)
 
 -- | The name of the namespace to delete.
 deleteNamespace_namespaceName :: Lens.Lens' DeleteNamespace Prelude.Text
@@ -115,15 +115,14 @@ instance Core.AWSRequest DeleteNamespace where
 
 instance Prelude.Hashable DeleteNamespace where
   hashWithSalt _salt DeleteNamespace' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` finalSnapshotName
       `Prelude.hashWithSalt` finalSnapshotRetentionPeriod
-      `Prelude.hashWithSalt` finalSnapshotName
       `Prelude.hashWithSalt` namespaceName
 
 instance Prelude.NFData DeleteNamespace where
   rnf DeleteNamespace' {..} =
-    Prelude.rnf finalSnapshotRetentionPeriod
-      `Prelude.seq` Prelude.rnf finalSnapshotName
+    Prelude.rnf finalSnapshotName
+      `Prelude.seq` Prelude.rnf finalSnapshotRetentionPeriod
       `Prelude.seq` Prelude.rnf namespaceName
 
 instance Data.ToHeaders DeleteNamespace where
@@ -145,10 +144,10 @@ instance Data.ToJSON DeleteNamespace where
   toJSON DeleteNamespace' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("finalSnapshotRetentionPeriod" Data..=)
-              Prelude.<$> finalSnapshotRetentionPeriod,
-            ("finalSnapshotName" Data..=)
+          [ ("finalSnapshotName" Data..=)
               Prelude.<$> finalSnapshotName,
+            ("finalSnapshotRetentionPeriod" Data..=)
+              Prelude.<$> finalSnapshotRetentionPeriod,
             Prelude.Just
               ("namespaceName" Data..= namespaceName)
           ]

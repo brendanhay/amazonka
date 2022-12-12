@@ -40,21 +40,21 @@ module Amazonka.FraudDetector.GetEventPredictionMetadata
     newGetEventPredictionMetadataResponse,
 
     -- * Response Lenses
-    getEventPredictionMetadataResponse_entityId,
-    getEventPredictionMetadataResponse_eventTimestamp,
+    getEventPredictionMetadataResponse_detectorId,
     getEventPredictionMetadataResponse_detectorVersionId,
-    getEventPredictionMetadataResponse_rules,
-    getEventPredictionMetadataResponse_evaluatedExternalModels,
     getEventPredictionMetadataResponse_detectorVersionStatus,
+    getEventPredictionMetadataResponse_entityId,
+    getEventPredictionMetadataResponse_entityType,
+    getEventPredictionMetadataResponse_evaluatedExternalModels,
     getEventPredictionMetadataResponse_evaluatedModelVersions,
     getEventPredictionMetadataResponse_eventId,
+    getEventPredictionMetadataResponse_eventTimestamp,
+    getEventPredictionMetadataResponse_eventTypeName,
+    getEventPredictionMetadataResponse_eventVariables,
     getEventPredictionMetadataResponse_outcomes,
-    getEventPredictionMetadataResponse_entityType,
     getEventPredictionMetadataResponse_predictionTimestamp,
     getEventPredictionMetadataResponse_ruleExecutionMode,
-    getEventPredictionMetadataResponse_eventTypeName,
-    getEventPredictionMetadataResponse_detectorId,
-    getEventPredictionMetadataResponse_eventVariables,
+    getEventPredictionMetadataResponse_rules,
     getEventPredictionMetadataResponse_httpStatus,
   )
 where
@@ -176,25 +176,25 @@ instance Core.AWSRequest GetEventPredictionMetadata where
     Response.receiveJSON
       ( \s h x ->
           GetEventPredictionMetadataResponse'
-            Prelude.<$> (x Data..?> "entityId")
-            Prelude.<*> (x Data..?> "eventTimestamp")
+            Prelude.<$> (x Data..?> "detectorId")
             Prelude.<*> (x Data..?> "detectorVersionId")
-            Prelude.<*> (x Data..?> "rules" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "detectorVersionStatus")
+            Prelude.<*> (x Data..?> "entityId")
+            Prelude.<*> (x Data..?> "entityType")
             Prelude.<*> ( x Data..?> "evaluatedExternalModels"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "detectorVersionStatus")
             Prelude.<*> ( x Data..?> "evaluatedModelVersions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "eventId")
+            Prelude.<*> (x Data..?> "eventTimestamp")
+            Prelude.<*> (x Data..?> "eventTypeName")
+            Prelude.<*> (x Data..?> "eventVariables" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "outcomes" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "entityType")
             Prelude.<*> (x Data..?> "predictionTimestamp")
             Prelude.<*> (x Data..?> "ruleExecutionMode")
-            Prelude.<*> (x Data..?> "eventTypeName")
-            Prelude.<*> (x Data..?> "detectorId")
-            Prelude.<*> (x Data..?> "eventVariables" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "rules" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -251,40 +251,40 @@ instance Data.ToQuery GetEventPredictionMetadata where
 
 -- | /See:/ 'newGetEventPredictionMetadataResponse' smart constructor.
 data GetEventPredictionMetadataResponse = GetEventPredictionMetadataResponse'
-  { -- | The entity ID.
-    entityId :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp for when the prediction was generated for the associated
-    -- event ID.
-    eventTimestamp :: Prelude.Maybe Prelude.Text,
+  { -- | The detector ID.
+    detectorId :: Prelude.Maybe Prelude.Text,
     -- | The detector version ID.
     detectorVersionId :: Prelude.Maybe Prelude.Text,
-    -- | List of rules associated with the detector version that were used for
-    -- evaluating variable values.
-    rules :: Prelude.Maybe [EvaluatedRule],
+    -- | The status of the detector version.
+    detectorVersionStatus :: Prelude.Maybe Prelude.Text,
+    -- | The entity ID.
+    entityId :: Prelude.Maybe Prelude.Text,
+    -- | The entity type.
+    entityType :: Prelude.Maybe Prelude.Text,
     -- | External (Amazon SageMaker) models that were evaluated for generating
     -- predictions.
     evaluatedExternalModels :: Prelude.Maybe [EvaluatedExternalModel],
-    -- | The status of the detector version.
-    detectorVersionStatus :: Prelude.Maybe Prelude.Text,
     -- | Model versions that were evaluated for generating predictions.
     evaluatedModelVersions :: Prelude.Maybe [EvaluatedModelVersion],
     -- | The event ID.
     eventId :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp for when the prediction was generated for the associated
+    -- event ID.
+    eventTimestamp :: Prelude.Maybe Prelude.Text,
+    -- | The event type associated with the detector specified for this
+    -- prediction.
+    eventTypeName :: Prelude.Maybe Prelude.Text,
+    -- | A list of event variables that influenced the prediction scores.
+    eventVariables :: Prelude.Maybe [EventVariableSummary],
     -- | The outcomes of the matched rule, based on the rule execution mode.
     outcomes :: Prelude.Maybe [Prelude.Text],
-    -- | The entity type.
-    entityType :: Prelude.Maybe Prelude.Text,
     -- | The timestamp that defines when the prediction was generated.
     predictionTimestamp :: Prelude.Maybe Prelude.Text,
     -- | The execution mode of the rule used for evaluating variable values.
     ruleExecutionMode :: Prelude.Maybe RuleExecutionMode,
-    -- | The event type associated with the detector specified for this
-    -- prediction.
-    eventTypeName :: Prelude.Maybe Prelude.Text,
-    -- | The detector ID.
-    detectorId :: Prelude.Maybe Prelude.Text,
-    -- | A list of event variables that influenced the prediction scores.
-    eventVariables :: Prelude.Maybe [EventVariableSummary],
+    -- | List of rules associated with the detector version that were used for
+    -- evaluating variable values.
+    rules :: Prelude.Maybe [EvaluatedRule],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -298,39 +298,39 @@ data GetEventPredictionMetadataResponse = GetEventPredictionMetadataResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'entityId', 'getEventPredictionMetadataResponse_entityId' - The entity ID.
---
--- 'eventTimestamp', 'getEventPredictionMetadataResponse_eventTimestamp' - The timestamp for when the prediction was generated for the associated
--- event ID.
+-- 'detectorId', 'getEventPredictionMetadataResponse_detectorId' - The detector ID.
 --
 -- 'detectorVersionId', 'getEventPredictionMetadataResponse_detectorVersionId' - The detector version ID.
 --
--- 'rules', 'getEventPredictionMetadataResponse_rules' - List of rules associated with the detector version that were used for
--- evaluating variable values.
+-- 'detectorVersionStatus', 'getEventPredictionMetadataResponse_detectorVersionStatus' - The status of the detector version.
+--
+-- 'entityId', 'getEventPredictionMetadataResponse_entityId' - The entity ID.
+--
+-- 'entityType', 'getEventPredictionMetadataResponse_entityType' - The entity type.
 --
 -- 'evaluatedExternalModels', 'getEventPredictionMetadataResponse_evaluatedExternalModels' - External (Amazon SageMaker) models that were evaluated for generating
 -- predictions.
---
--- 'detectorVersionStatus', 'getEventPredictionMetadataResponse_detectorVersionStatus' - The status of the detector version.
 --
 -- 'evaluatedModelVersions', 'getEventPredictionMetadataResponse_evaluatedModelVersions' - Model versions that were evaluated for generating predictions.
 --
 -- 'eventId', 'getEventPredictionMetadataResponse_eventId' - The event ID.
 --
--- 'outcomes', 'getEventPredictionMetadataResponse_outcomes' - The outcomes of the matched rule, based on the rule execution mode.
+-- 'eventTimestamp', 'getEventPredictionMetadataResponse_eventTimestamp' - The timestamp for when the prediction was generated for the associated
+-- event ID.
 --
--- 'entityType', 'getEventPredictionMetadataResponse_entityType' - The entity type.
+-- 'eventTypeName', 'getEventPredictionMetadataResponse_eventTypeName' - The event type associated with the detector specified for this
+-- prediction.
+--
+-- 'eventVariables', 'getEventPredictionMetadataResponse_eventVariables' - A list of event variables that influenced the prediction scores.
+--
+-- 'outcomes', 'getEventPredictionMetadataResponse_outcomes' - The outcomes of the matched rule, based on the rule execution mode.
 --
 -- 'predictionTimestamp', 'getEventPredictionMetadataResponse_predictionTimestamp' - The timestamp that defines when the prediction was generated.
 --
 -- 'ruleExecutionMode', 'getEventPredictionMetadataResponse_ruleExecutionMode' - The execution mode of the rule used for evaluating variable values.
 --
--- 'eventTypeName', 'getEventPredictionMetadataResponse_eventTypeName' - The event type associated with the detector specified for this
--- prediction.
---
--- 'detectorId', 'getEventPredictionMetadataResponse_detectorId' - The detector ID.
---
--- 'eventVariables', 'getEventPredictionMetadataResponse_eventVariables' - A list of event variables that influenced the prediction scores.
+-- 'rules', 'getEventPredictionMetadataResponse_rules' - List of rules associated with the detector version that were used for
+-- evaluating variable values.
 --
 -- 'httpStatus', 'getEventPredictionMetadataResponse_httpStatus' - The response's http status code.
 newGetEventPredictionMetadataResponse ::
@@ -339,53 +339,51 @@ newGetEventPredictionMetadataResponse ::
   GetEventPredictionMetadataResponse
 newGetEventPredictionMetadataResponse pHttpStatus_ =
   GetEventPredictionMetadataResponse'
-    { entityId =
+    { detectorId =
         Prelude.Nothing,
-      eventTimestamp = Prelude.Nothing,
       detectorVersionId = Prelude.Nothing,
-      rules = Prelude.Nothing,
+      detectorVersionStatus = Prelude.Nothing,
+      entityId = Prelude.Nothing,
+      entityType = Prelude.Nothing,
       evaluatedExternalModels =
         Prelude.Nothing,
-      detectorVersionStatus = Prelude.Nothing,
       evaluatedModelVersions =
         Prelude.Nothing,
       eventId = Prelude.Nothing,
+      eventTimestamp = Prelude.Nothing,
+      eventTypeName = Prelude.Nothing,
+      eventVariables = Prelude.Nothing,
       outcomes = Prelude.Nothing,
-      entityType = Prelude.Nothing,
       predictionTimestamp = Prelude.Nothing,
       ruleExecutionMode = Prelude.Nothing,
-      eventTypeName = Prelude.Nothing,
-      detectorId = Prelude.Nothing,
-      eventVariables = Prelude.Nothing,
+      rules = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The entity ID.
-getEventPredictionMetadataResponse_entityId :: Lens.Lens' GetEventPredictionMetadataResponse (Prelude.Maybe Prelude.Text)
-getEventPredictionMetadataResponse_entityId = Lens.lens (\GetEventPredictionMetadataResponse' {entityId} -> entityId) (\s@GetEventPredictionMetadataResponse' {} a -> s {entityId = a} :: GetEventPredictionMetadataResponse)
-
--- | The timestamp for when the prediction was generated for the associated
--- event ID.
-getEventPredictionMetadataResponse_eventTimestamp :: Lens.Lens' GetEventPredictionMetadataResponse (Prelude.Maybe Prelude.Text)
-getEventPredictionMetadataResponse_eventTimestamp = Lens.lens (\GetEventPredictionMetadataResponse' {eventTimestamp} -> eventTimestamp) (\s@GetEventPredictionMetadataResponse' {} a -> s {eventTimestamp = a} :: GetEventPredictionMetadataResponse)
+-- | The detector ID.
+getEventPredictionMetadataResponse_detectorId :: Lens.Lens' GetEventPredictionMetadataResponse (Prelude.Maybe Prelude.Text)
+getEventPredictionMetadataResponse_detectorId = Lens.lens (\GetEventPredictionMetadataResponse' {detectorId} -> detectorId) (\s@GetEventPredictionMetadataResponse' {} a -> s {detectorId = a} :: GetEventPredictionMetadataResponse)
 
 -- | The detector version ID.
 getEventPredictionMetadataResponse_detectorVersionId :: Lens.Lens' GetEventPredictionMetadataResponse (Prelude.Maybe Prelude.Text)
 getEventPredictionMetadataResponse_detectorVersionId = Lens.lens (\GetEventPredictionMetadataResponse' {detectorVersionId} -> detectorVersionId) (\s@GetEventPredictionMetadataResponse' {} a -> s {detectorVersionId = a} :: GetEventPredictionMetadataResponse)
 
--- | List of rules associated with the detector version that were used for
--- evaluating variable values.
-getEventPredictionMetadataResponse_rules :: Lens.Lens' GetEventPredictionMetadataResponse (Prelude.Maybe [EvaluatedRule])
-getEventPredictionMetadataResponse_rules = Lens.lens (\GetEventPredictionMetadataResponse' {rules} -> rules) (\s@GetEventPredictionMetadataResponse' {} a -> s {rules = a} :: GetEventPredictionMetadataResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The status of the detector version.
+getEventPredictionMetadataResponse_detectorVersionStatus :: Lens.Lens' GetEventPredictionMetadataResponse (Prelude.Maybe Prelude.Text)
+getEventPredictionMetadataResponse_detectorVersionStatus = Lens.lens (\GetEventPredictionMetadataResponse' {detectorVersionStatus} -> detectorVersionStatus) (\s@GetEventPredictionMetadataResponse' {} a -> s {detectorVersionStatus = a} :: GetEventPredictionMetadataResponse)
+
+-- | The entity ID.
+getEventPredictionMetadataResponse_entityId :: Lens.Lens' GetEventPredictionMetadataResponse (Prelude.Maybe Prelude.Text)
+getEventPredictionMetadataResponse_entityId = Lens.lens (\GetEventPredictionMetadataResponse' {entityId} -> entityId) (\s@GetEventPredictionMetadataResponse' {} a -> s {entityId = a} :: GetEventPredictionMetadataResponse)
+
+-- | The entity type.
+getEventPredictionMetadataResponse_entityType :: Lens.Lens' GetEventPredictionMetadataResponse (Prelude.Maybe Prelude.Text)
+getEventPredictionMetadataResponse_entityType = Lens.lens (\GetEventPredictionMetadataResponse' {entityType} -> entityType) (\s@GetEventPredictionMetadataResponse' {} a -> s {entityType = a} :: GetEventPredictionMetadataResponse)
 
 -- | External (Amazon SageMaker) models that were evaluated for generating
 -- predictions.
 getEventPredictionMetadataResponse_evaluatedExternalModels :: Lens.Lens' GetEventPredictionMetadataResponse (Prelude.Maybe [EvaluatedExternalModel])
 getEventPredictionMetadataResponse_evaluatedExternalModels = Lens.lens (\GetEventPredictionMetadataResponse' {evaluatedExternalModels} -> evaluatedExternalModels) (\s@GetEventPredictionMetadataResponse' {} a -> s {evaluatedExternalModels = a} :: GetEventPredictionMetadataResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The status of the detector version.
-getEventPredictionMetadataResponse_detectorVersionStatus :: Lens.Lens' GetEventPredictionMetadataResponse (Prelude.Maybe Prelude.Text)
-getEventPredictionMetadataResponse_detectorVersionStatus = Lens.lens (\GetEventPredictionMetadataResponse' {detectorVersionStatus} -> detectorVersionStatus) (\s@GetEventPredictionMetadataResponse' {} a -> s {detectorVersionStatus = a} :: GetEventPredictionMetadataResponse)
 
 -- | Model versions that were evaluated for generating predictions.
 getEventPredictionMetadataResponse_evaluatedModelVersions :: Lens.Lens' GetEventPredictionMetadataResponse (Prelude.Maybe [EvaluatedModelVersion])
@@ -395,13 +393,23 @@ getEventPredictionMetadataResponse_evaluatedModelVersions = Lens.lens (\GetEvent
 getEventPredictionMetadataResponse_eventId :: Lens.Lens' GetEventPredictionMetadataResponse (Prelude.Maybe Prelude.Text)
 getEventPredictionMetadataResponse_eventId = Lens.lens (\GetEventPredictionMetadataResponse' {eventId} -> eventId) (\s@GetEventPredictionMetadataResponse' {} a -> s {eventId = a} :: GetEventPredictionMetadataResponse)
 
+-- | The timestamp for when the prediction was generated for the associated
+-- event ID.
+getEventPredictionMetadataResponse_eventTimestamp :: Lens.Lens' GetEventPredictionMetadataResponse (Prelude.Maybe Prelude.Text)
+getEventPredictionMetadataResponse_eventTimestamp = Lens.lens (\GetEventPredictionMetadataResponse' {eventTimestamp} -> eventTimestamp) (\s@GetEventPredictionMetadataResponse' {} a -> s {eventTimestamp = a} :: GetEventPredictionMetadataResponse)
+
+-- | The event type associated with the detector specified for this
+-- prediction.
+getEventPredictionMetadataResponse_eventTypeName :: Lens.Lens' GetEventPredictionMetadataResponse (Prelude.Maybe Prelude.Text)
+getEventPredictionMetadataResponse_eventTypeName = Lens.lens (\GetEventPredictionMetadataResponse' {eventTypeName} -> eventTypeName) (\s@GetEventPredictionMetadataResponse' {} a -> s {eventTypeName = a} :: GetEventPredictionMetadataResponse)
+
+-- | A list of event variables that influenced the prediction scores.
+getEventPredictionMetadataResponse_eventVariables :: Lens.Lens' GetEventPredictionMetadataResponse (Prelude.Maybe [EventVariableSummary])
+getEventPredictionMetadataResponse_eventVariables = Lens.lens (\GetEventPredictionMetadataResponse' {eventVariables} -> eventVariables) (\s@GetEventPredictionMetadataResponse' {} a -> s {eventVariables = a} :: GetEventPredictionMetadataResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The outcomes of the matched rule, based on the rule execution mode.
 getEventPredictionMetadataResponse_outcomes :: Lens.Lens' GetEventPredictionMetadataResponse (Prelude.Maybe [Prelude.Text])
 getEventPredictionMetadataResponse_outcomes = Lens.lens (\GetEventPredictionMetadataResponse' {outcomes} -> outcomes) (\s@GetEventPredictionMetadataResponse' {} a -> s {outcomes = a} :: GetEventPredictionMetadataResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The entity type.
-getEventPredictionMetadataResponse_entityType :: Lens.Lens' GetEventPredictionMetadataResponse (Prelude.Maybe Prelude.Text)
-getEventPredictionMetadataResponse_entityType = Lens.lens (\GetEventPredictionMetadataResponse' {entityType} -> entityType) (\s@GetEventPredictionMetadataResponse' {} a -> s {entityType = a} :: GetEventPredictionMetadataResponse)
 
 -- | The timestamp that defines when the prediction was generated.
 getEventPredictionMetadataResponse_predictionTimestamp :: Lens.Lens' GetEventPredictionMetadataResponse (Prelude.Maybe Prelude.Text)
@@ -411,18 +419,10 @@ getEventPredictionMetadataResponse_predictionTimestamp = Lens.lens (\GetEventPre
 getEventPredictionMetadataResponse_ruleExecutionMode :: Lens.Lens' GetEventPredictionMetadataResponse (Prelude.Maybe RuleExecutionMode)
 getEventPredictionMetadataResponse_ruleExecutionMode = Lens.lens (\GetEventPredictionMetadataResponse' {ruleExecutionMode} -> ruleExecutionMode) (\s@GetEventPredictionMetadataResponse' {} a -> s {ruleExecutionMode = a} :: GetEventPredictionMetadataResponse)
 
--- | The event type associated with the detector specified for this
--- prediction.
-getEventPredictionMetadataResponse_eventTypeName :: Lens.Lens' GetEventPredictionMetadataResponse (Prelude.Maybe Prelude.Text)
-getEventPredictionMetadataResponse_eventTypeName = Lens.lens (\GetEventPredictionMetadataResponse' {eventTypeName} -> eventTypeName) (\s@GetEventPredictionMetadataResponse' {} a -> s {eventTypeName = a} :: GetEventPredictionMetadataResponse)
-
--- | The detector ID.
-getEventPredictionMetadataResponse_detectorId :: Lens.Lens' GetEventPredictionMetadataResponse (Prelude.Maybe Prelude.Text)
-getEventPredictionMetadataResponse_detectorId = Lens.lens (\GetEventPredictionMetadataResponse' {detectorId} -> detectorId) (\s@GetEventPredictionMetadataResponse' {} a -> s {detectorId = a} :: GetEventPredictionMetadataResponse)
-
--- | A list of event variables that influenced the prediction scores.
-getEventPredictionMetadataResponse_eventVariables :: Lens.Lens' GetEventPredictionMetadataResponse (Prelude.Maybe [EventVariableSummary])
-getEventPredictionMetadataResponse_eventVariables = Lens.lens (\GetEventPredictionMetadataResponse' {eventVariables} -> eventVariables) (\s@GetEventPredictionMetadataResponse' {} a -> s {eventVariables = a} :: GetEventPredictionMetadataResponse) Prelude.. Lens.mapping Lens.coerced
+-- | List of rules associated with the detector version that were used for
+-- evaluating variable values.
+getEventPredictionMetadataResponse_rules :: Lens.Lens' GetEventPredictionMetadataResponse (Prelude.Maybe [EvaluatedRule])
+getEventPredictionMetadataResponse_rules = Lens.lens (\GetEventPredictionMetadataResponse' {rules} -> rules) (\s@GetEventPredictionMetadataResponse' {} a -> s {rules = a} :: GetEventPredictionMetadataResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getEventPredictionMetadataResponse_httpStatus :: Lens.Lens' GetEventPredictionMetadataResponse Prelude.Int
@@ -433,19 +433,19 @@ instance
     GetEventPredictionMetadataResponse
   where
   rnf GetEventPredictionMetadataResponse' {..} =
-    Prelude.rnf entityId
-      `Prelude.seq` Prelude.rnf eventTimestamp
+    Prelude.rnf detectorId
       `Prelude.seq` Prelude.rnf detectorVersionId
-      `Prelude.seq` Prelude.rnf rules
-      `Prelude.seq` Prelude.rnf evaluatedExternalModels
       `Prelude.seq` Prelude.rnf detectorVersionStatus
+      `Prelude.seq` Prelude.rnf entityId
+      `Prelude.seq` Prelude.rnf entityType
+      `Prelude.seq` Prelude.rnf evaluatedExternalModels
       `Prelude.seq` Prelude.rnf evaluatedModelVersions
       `Prelude.seq` Prelude.rnf eventId
+      `Prelude.seq` Prelude.rnf eventTimestamp
+      `Prelude.seq` Prelude.rnf eventTypeName
+      `Prelude.seq` Prelude.rnf eventVariables
       `Prelude.seq` Prelude.rnf outcomes
-      `Prelude.seq` Prelude.rnf entityType
       `Prelude.seq` Prelude.rnf predictionTimestamp
       `Prelude.seq` Prelude.rnf ruleExecutionMode
-      `Prelude.seq` Prelude.rnf eventTypeName
-      `Prelude.seq` Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf eventVariables
+      `Prelude.seq` Prelude.rnf rules
       `Prelude.seq` Prelude.rnf httpStatus

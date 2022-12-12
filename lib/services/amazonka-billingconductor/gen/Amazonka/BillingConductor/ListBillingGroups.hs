@@ -31,18 +31,18 @@ module Amazonka.BillingConductor.ListBillingGroups
     newListBillingGroups,
 
     -- * Request Lenses
-    listBillingGroups_nextToken,
     listBillingGroups_billingPeriod,
     listBillingGroups_filters,
     listBillingGroups_maxResults,
+    listBillingGroups_nextToken,
 
     -- * Destructuring the Response
     ListBillingGroupsResponse (..),
     newListBillingGroupsResponse,
 
     -- * Response Lenses
-    listBillingGroupsResponse_nextToken,
     listBillingGroupsResponse_billingGroups,
+    listBillingGroupsResponse_nextToken,
     listBillingGroupsResponse_httpStatus,
   )
 where
@@ -57,16 +57,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListBillingGroups' smart constructor.
 data ListBillingGroups = ListBillingGroups'
-  { -- | The pagination token that\'s used on subsequent calls to get billing
-    -- groups.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The preferred billing period to get billing groups.
+  { -- | The preferred billing period to get billing groups.
     billingPeriod :: Prelude.Maybe Prelude.Text,
     -- | A @ListBillingGroupsFilter@ that specifies the billing group and pricing
     -- plan to retrieve billing group information.
     filters :: Prelude.Maybe ListBillingGroupsFilter,
     -- | The maximum number of billing groups to retrieve.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token that\'s used on subsequent calls to get billing
+    -- groups.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,29 +78,24 @@ data ListBillingGroups = ListBillingGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listBillingGroups_nextToken' - The pagination token that\'s used on subsequent calls to get billing
--- groups.
---
 -- 'billingPeriod', 'listBillingGroups_billingPeriod' - The preferred billing period to get billing groups.
 --
 -- 'filters', 'listBillingGroups_filters' - A @ListBillingGroupsFilter@ that specifies the billing group and pricing
 -- plan to retrieve billing group information.
 --
 -- 'maxResults', 'listBillingGroups_maxResults' - The maximum number of billing groups to retrieve.
+--
+-- 'nextToken', 'listBillingGroups_nextToken' - The pagination token that\'s used on subsequent calls to get billing
+-- groups.
 newListBillingGroups ::
   ListBillingGroups
 newListBillingGroups =
   ListBillingGroups'
-    { nextToken = Prelude.Nothing,
-      billingPeriod = Prelude.Nothing,
+    { billingPeriod = Prelude.Nothing,
       filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The pagination token that\'s used on subsequent calls to get billing
--- groups.
-listBillingGroups_nextToken :: Lens.Lens' ListBillingGroups (Prelude.Maybe Prelude.Text)
-listBillingGroups_nextToken = Lens.lens (\ListBillingGroups' {nextToken} -> nextToken) (\s@ListBillingGroups' {} a -> s {nextToken = a} :: ListBillingGroups)
 
 -- | The preferred billing period to get billing groups.
 listBillingGroups_billingPeriod :: Lens.Lens' ListBillingGroups (Prelude.Maybe Prelude.Text)
@@ -114,6 +109,11 @@ listBillingGroups_filters = Lens.lens (\ListBillingGroups' {filters} -> filters)
 -- | The maximum number of billing groups to retrieve.
 listBillingGroups_maxResults :: Lens.Lens' ListBillingGroups (Prelude.Maybe Prelude.Natural)
 listBillingGroups_maxResults = Lens.lens (\ListBillingGroups' {maxResults} -> maxResults) (\s@ListBillingGroups' {} a -> s {maxResults = a} :: ListBillingGroups)
+
+-- | The pagination token that\'s used on subsequent calls to get billing
+-- groups.
+listBillingGroups_nextToken :: Lens.Lens' ListBillingGroups (Prelude.Maybe Prelude.Text)
+listBillingGroups_nextToken = Lens.lens (\ListBillingGroups' {nextToken} -> nextToken) (\s@ListBillingGroups' {} a -> s {nextToken = a} :: ListBillingGroups)
 
 instance Core.AWSPager ListBillingGroups where
   page rq rs
@@ -147,24 +147,24 @@ instance Core.AWSRequest ListBillingGroups where
     Response.receiveJSON
       ( \s h x ->
           ListBillingGroupsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "BillingGroups" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "BillingGroups" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListBillingGroups where
   hashWithSalt _salt ListBillingGroups' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` billingPeriod
+    _salt `Prelude.hashWithSalt` billingPeriod
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListBillingGroups where
   rnf ListBillingGroups' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf billingPeriod
+    Prelude.rnf billingPeriod
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListBillingGroups where
   toHeaders =
@@ -181,10 +181,10 @@ instance Data.ToJSON ListBillingGroups where
   toJSON ListBillingGroups' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("BillingPeriod" Data..=) Prelude.<$> billingPeriod,
+          [ ("BillingPeriod" Data..=) Prelude.<$> billingPeriod,
             ("Filters" Data..=) Prelude.<$> filters,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -196,11 +196,11 @@ instance Data.ToQuery ListBillingGroups where
 
 -- | /See:/ 'newListBillingGroupsResponse' smart constructor.
 data ListBillingGroupsResponse = ListBillingGroupsResponse'
-  { -- | The pagination token that\'s used on subsequent calls to get billing
+  { -- | A list of @BillingGroupListElement@ retrieved.
+    billingGroups :: Prelude.Maybe [BillingGroupListElement],
+    -- | The pagination token that\'s used on subsequent calls to get billing
     -- groups.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of @BillingGroupListElement@ retrieved.
-    billingGroups :: Prelude.Maybe [BillingGroupListElement],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -214,10 +214,10 @@ data ListBillingGroupsResponse = ListBillingGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'billingGroups', 'listBillingGroupsResponse_billingGroups' - A list of @BillingGroupListElement@ retrieved.
+--
 -- 'nextToken', 'listBillingGroupsResponse_nextToken' - The pagination token that\'s used on subsequent calls to get billing
 -- groups.
---
--- 'billingGroups', 'listBillingGroupsResponse_billingGroups' - A list of @BillingGroupListElement@ retrieved.
 --
 -- 'httpStatus', 'listBillingGroupsResponse_httpStatus' - The response's http status code.
 newListBillingGroupsResponse ::
@@ -226,20 +226,20 @@ newListBillingGroupsResponse ::
   ListBillingGroupsResponse
 newListBillingGroupsResponse pHttpStatus_ =
   ListBillingGroupsResponse'
-    { nextToken =
+    { billingGroups =
         Prelude.Nothing,
-      billingGroups = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of @BillingGroupListElement@ retrieved.
+listBillingGroupsResponse_billingGroups :: Lens.Lens' ListBillingGroupsResponse (Prelude.Maybe [BillingGroupListElement])
+listBillingGroupsResponse_billingGroups = Lens.lens (\ListBillingGroupsResponse' {billingGroups} -> billingGroups) (\s@ListBillingGroupsResponse' {} a -> s {billingGroups = a} :: ListBillingGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token that\'s used on subsequent calls to get billing
 -- groups.
 listBillingGroupsResponse_nextToken :: Lens.Lens' ListBillingGroupsResponse (Prelude.Maybe Prelude.Text)
 listBillingGroupsResponse_nextToken = Lens.lens (\ListBillingGroupsResponse' {nextToken} -> nextToken) (\s@ListBillingGroupsResponse' {} a -> s {nextToken = a} :: ListBillingGroupsResponse)
-
--- | A list of @BillingGroupListElement@ retrieved.
-listBillingGroupsResponse_billingGroups :: Lens.Lens' ListBillingGroupsResponse (Prelude.Maybe [BillingGroupListElement])
-listBillingGroupsResponse_billingGroups = Lens.lens (\ListBillingGroupsResponse' {billingGroups} -> billingGroups) (\s@ListBillingGroupsResponse' {} a -> s {billingGroups = a} :: ListBillingGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listBillingGroupsResponse_httpStatus :: Lens.Lens' ListBillingGroupsResponse Prelude.Int
@@ -247,6 +247,6 @@ listBillingGroupsResponse_httpStatus = Lens.lens (\ListBillingGroupsResponse' {h
 
 instance Prelude.NFData ListBillingGroupsResponse where
   rnf ListBillingGroupsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf billingGroups
+    Prelude.rnf billingGroups
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

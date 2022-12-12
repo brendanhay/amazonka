@@ -33,10 +33,10 @@ module Amazonka.EMRContainers.ListJobTemplates
     newListJobTemplates,
 
     -- * Request Lenses
-    listJobTemplates_nextToken,
+    listJobTemplates_createdAfter,
     listJobTemplates_createdBefore,
     listJobTemplates_maxResults,
-    listJobTemplates_createdAfter,
+    listJobTemplates_nextToken,
 
     -- * Destructuring the Response
     ListJobTemplatesResponse (..),
@@ -59,14 +59,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListJobTemplates' smart constructor.
 data ListJobTemplates = ListJobTemplates'
-  { -- | The token for the next set of job templates to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The date and time after which the job templates were created.
+    createdAfter :: Prelude.Maybe Data.POSIX,
     -- | The date and time before which the job templates were created.
     createdBefore :: Prelude.Maybe Data.POSIX,
     -- | The maximum number of job templates that can be listed.
     maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The date and time after which the job templates were created.
-    createdAfter :: Prelude.Maybe Data.POSIX
+    -- | The token for the next set of job templates to return.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,26 +78,26 @@ data ListJobTemplates = ListJobTemplates'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listJobTemplates_nextToken' - The token for the next set of job templates to return.
+-- 'createdAfter', 'listJobTemplates_createdAfter' - The date and time after which the job templates were created.
 --
 -- 'createdBefore', 'listJobTemplates_createdBefore' - The date and time before which the job templates were created.
 --
 -- 'maxResults', 'listJobTemplates_maxResults' - The maximum number of job templates that can be listed.
 --
--- 'createdAfter', 'listJobTemplates_createdAfter' - The date and time after which the job templates were created.
+-- 'nextToken', 'listJobTemplates_nextToken' - The token for the next set of job templates to return.
 newListJobTemplates ::
   ListJobTemplates
 newListJobTemplates =
   ListJobTemplates'
-    { nextToken = Prelude.Nothing,
+    { createdAfter = Prelude.Nothing,
       createdBefore = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      createdAfter = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
 
--- | The token for the next set of job templates to return.
-listJobTemplates_nextToken :: Lens.Lens' ListJobTemplates (Prelude.Maybe Prelude.Text)
-listJobTemplates_nextToken = Lens.lens (\ListJobTemplates' {nextToken} -> nextToken) (\s@ListJobTemplates' {} a -> s {nextToken = a} :: ListJobTemplates)
+-- | The date and time after which the job templates were created.
+listJobTemplates_createdAfter :: Lens.Lens' ListJobTemplates (Prelude.Maybe Prelude.UTCTime)
+listJobTemplates_createdAfter = Lens.lens (\ListJobTemplates' {createdAfter} -> createdAfter) (\s@ListJobTemplates' {} a -> s {createdAfter = a} :: ListJobTemplates) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time before which the job templates were created.
 listJobTemplates_createdBefore :: Lens.Lens' ListJobTemplates (Prelude.Maybe Prelude.UTCTime)
@@ -107,9 +107,9 @@ listJobTemplates_createdBefore = Lens.lens (\ListJobTemplates' {createdBefore} -
 listJobTemplates_maxResults :: Lens.Lens' ListJobTemplates (Prelude.Maybe Prelude.Int)
 listJobTemplates_maxResults = Lens.lens (\ListJobTemplates' {maxResults} -> maxResults) (\s@ListJobTemplates' {} a -> s {maxResults = a} :: ListJobTemplates)
 
--- | The date and time after which the job templates were created.
-listJobTemplates_createdAfter :: Lens.Lens' ListJobTemplates (Prelude.Maybe Prelude.UTCTime)
-listJobTemplates_createdAfter = Lens.lens (\ListJobTemplates' {createdAfter} -> createdAfter) (\s@ListJobTemplates' {} a -> s {createdAfter = a} :: ListJobTemplates) Prelude.. Lens.mapping Data._Time
+-- | The token for the next set of job templates to return.
+listJobTemplates_nextToken :: Lens.Lens' ListJobTemplates (Prelude.Maybe Prelude.Text)
+listJobTemplates_nextToken = Lens.lens (\ListJobTemplates' {nextToken} -> nextToken) (\s@ListJobTemplates' {} a -> s {nextToken = a} :: ListJobTemplates)
 
 instance Core.AWSPager ListJobTemplates where
   page rq rs
@@ -150,17 +150,17 @@ instance Core.AWSRequest ListJobTemplates where
 
 instance Prelude.Hashable ListJobTemplates where
   hashWithSalt _salt ListJobTemplates' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` createdAfter
       `Prelude.hashWithSalt` createdBefore
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` createdAfter
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListJobTemplates where
   rnf ListJobTemplates' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf createdAfter
       `Prelude.seq` Prelude.rnf createdBefore
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf createdAfter
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListJobTemplates where
   toHeaders =
@@ -179,10 +179,10 @@ instance Data.ToPath ListJobTemplates where
 instance Data.ToQuery ListJobTemplates where
   toQuery ListJobTemplates' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
+      [ "createdAfter" Data.=: createdAfter,
         "createdBefore" Data.=: createdBefore,
         "maxResults" Data.=: maxResults,
-        "createdAfter" Data.=: createdAfter
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListJobTemplatesResponse' smart constructor.

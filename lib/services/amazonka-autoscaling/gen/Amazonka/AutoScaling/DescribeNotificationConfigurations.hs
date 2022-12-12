@@ -30,9 +30,9 @@ module Amazonka.AutoScaling.DescribeNotificationConfigurations
     newDescribeNotificationConfigurations,
 
     -- * Request Lenses
-    describeNotificationConfigurations_nextToken,
     describeNotificationConfigurations_autoScalingGroupNames,
     describeNotificationConfigurations_maxRecords,
+    describeNotificationConfigurations_nextToken,
 
     -- * Destructuring the Response
     DescribeNotificationConfigurationsResponse (..),
@@ -55,14 +55,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeNotificationConfigurations' smart constructor.
 data DescribeNotificationConfigurations = DescribeNotificationConfigurations'
-  { -- | The token for the next set of items to return. (You received this token
-    -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The name of the Auto Scaling group.
+  { -- | The name of the Auto Scaling group.
     autoScalingGroupNames :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of items to return with this call. The default value
     -- is @50@ and the maximum value is @100@.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,27 +74,22 @@ data DescribeNotificationConfigurations = DescribeNotificationConfigurations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeNotificationConfigurations_nextToken' - The token for the next set of items to return. (You received this token
--- from a previous call.)
---
 -- 'autoScalingGroupNames', 'describeNotificationConfigurations_autoScalingGroupNames' - The name of the Auto Scaling group.
 --
 -- 'maxRecords', 'describeNotificationConfigurations_maxRecords' - The maximum number of items to return with this call. The default value
 -- is @50@ and the maximum value is @100@.
+--
+-- 'nextToken', 'describeNotificationConfigurations_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
 newDescribeNotificationConfigurations ::
   DescribeNotificationConfigurations
 newDescribeNotificationConfigurations =
   DescribeNotificationConfigurations'
-    { nextToken =
+    { autoScalingGroupNames =
         Prelude.Nothing,
-      autoScalingGroupNames = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
-describeNotificationConfigurations_nextToken :: Lens.Lens' DescribeNotificationConfigurations (Prelude.Maybe Prelude.Text)
-describeNotificationConfigurations_nextToken = Lens.lens (\DescribeNotificationConfigurations' {nextToken} -> nextToken) (\s@DescribeNotificationConfigurations' {} a -> s {nextToken = a} :: DescribeNotificationConfigurations)
 
 -- | The name of the Auto Scaling group.
 describeNotificationConfigurations_autoScalingGroupNames :: Lens.Lens' DescribeNotificationConfigurations (Prelude.Maybe [Prelude.Text])
@@ -104,6 +99,11 @@ describeNotificationConfigurations_autoScalingGroupNames = Lens.lens (\DescribeN
 -- is @50@ and the maximum value is @100@.
 describeNotificationConfigurations_maxRecords :: Lens.Lens' DescribeNotificationConfigurations (Prelude.Maybe Prelude.Int)
 describeNotificationConfigurations_maxRecords = Lens.lens (\DescribeNotificationConfigurations' {maxRecords} -> maxRecords) (\s@DescribeNotificationConfigurations' {} a -> s {maxRecords = a} :: DescribeNotificationConfigurations)
+
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+describeNotificationConfigurations_nextToken :: Lens.Lens' DescribeNotificationConfigurations (Prelude.Maybe Prelude.Text)
+describeNotificationConfigurations_nextToken = Lens.lens (\DescribeNotificationConfigurations' {nextToken} -> nextToken) (\s@DescribeNotificationConfigurations' {} a -> s {nextToken = a} :: DescribeNotificationConfigurations)
 
 instance
   Core.AWSPager
@@ -158,18 +158,18 @@ instance
   hashWithSalt
     _salt
     DescribeNotificationConfigurations' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` autoScalingGroupNames
+      _salt `Prelude.hashWithSalt` autoScalingGroupNames
         `Prelude.hashWithSalt` maxRecords
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     DescribeNotificationConfigurations
   where
   rnf DescribeNotificationConfigurations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf autoScalingGroupNames
+    Prelude.rnf autoScalingGroupNames
       `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -195,13 +195,13 @@ instance
                   ),
         "Version"
           Data.=: ("2011-01-01" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
         "AutoScalingGroupNames"
           Data.=: Data.toQuery
             ( Data.toQueryList "member"
                 Prelude.<$> autoScalingGroupNames
             ),
-        "MaxRecords" Data.=: maxRecords
+        "MaxRecords" Data.=: maxRecords,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newDescribeNotificationConfigurationsResponse' smart constructor.

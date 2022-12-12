@@ -50,14 +50,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBoundingBox' smart constructor.
 data BoundingBox = BoundingBox'
-  { -- | Width of the bounding box as a ratio of the overall image width.
-    width :: Prelude.Maybe Prelude.Double,
-    -- | Top coordinate of the bounding box as a ratio of overall image height.
-    top :: Prelude.Maybe Prelude.Double,
+  { -- | Height of the bounding box as a ratio of the overall image height.
+    height :: Prelude.Maybe Prelude.Double,
     -- | Left coordinate of the bounding box as a ratio of overall image width.
     left :: Prelude.Maybe Prelude.Double,
-    -- | Height of the bounding box as a ratio of the overall image height.
-    height :: Prelude.Maybe Prelude.Double
+    -- | Top coordinate of the bounding box as a ratio of overall image height.
+    top :: Prelude.Maybe Prelude.Double,
+    -- | Width of the bounding box as a ratio of the overall image width.
+    width :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,38 +69,38 @@ data BoundingBox = BoundingBox'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'width', 'boundingBox_width' - Width of the bounding box as a ratio of the overall image width.
---
--- 'top', 'boundingBox_top' - Top coordinate of the bounding box as a ratio of overall image height.
+-- 'height', 'boundingBox_height' - Height of the bounding box as a ratio of the overall image height.
 --
 -- 'left', 'boundingBox_left' - Left coordinate of the bounding box as a ratio of overall image width.
 --
--- 'height', 'boundingBox_height' - Height of the bounding box as a ratio of the overall image height.
+-- 'top', 'boundingBox_top' - Top coordinate of the bounding box as a ratio of overall image height.
+--
+-- 'width', 'boundingBox_width' - Width of the bounding box as a ratio of the overall image width.
 newBoundingBox ::
   BoundingBox
 newBoundingBox =
   BoundingBox'
-    { width = Prelude.Nothing,
-      top = Prelude.Nothing,
+    { height = Prelude.Nothing,
       left = Prelude.Nothing,
-      height = Prelude.Nothing
+      top = Prelude.Nothing,
+      width = Prelude.Nothing
     }
 
--- | Width of the bounding box as a ratio of the overall image width.
-boundingBox_width :: Lens.Lens' BoundingBox (Prelude.Maybe Prelude.Double)
-boundingBox_width = Lens.lens (\BoundingBox' {width} -> width) (\s@BoundingBox' {} a -> s {width = a} :: BoundingBox)
-
--- | Top coordinate of the bounding box as a ratio of overall image height.
-boundingBox_top :: Lens.Lens' BoundingBox (Prelude.Maybe Prelude.Double)
-boundingBox_top = Lens.lens (\BoundingBox' {top} -> top) (\s@BoundingBox' {} a -> s {top = a} :: BoundingBox)
+-- | Height of the bounding box as a ratio of the overall image height.
+boundingBox_height :: Lens.Lens' BoundingBox (Prelude.Maybe Prelude.Double)
+boundingBox_height = Lens.lens (\BoundingBox' {height} -> height) (\s@BoundingBox' {} a -> s {height = a} :: BoundingBox)
 
 -- | Left coordinate of the bounding box as a ratio of overall image width.
 boundingBox_left :: Lens.Lens' BoundingBox (Prelude.Maybe Prelude.Double)
 boundingBox_left = Lens.lens (\BoundingBox' {left} -> left) (\s@BoundingBox' {} a -> s {left = a} :: BoundingBox)
 
--- | Height of the bounding box as a ratio of the overall image height.
-boundingBox_height :: Lens.Lens' BoundingBox (Prelude.Maybe Prelude.Double)
-boundingBox_height = Lens.lens (\BoundingBox' {height} -> height) (\s@BoundingBox' {} a -> s {height = a} :: BoundingBox)
+-- | Top coordinate of the bounding box as a ratio of overall image height.
+boundingBox_top :: Lens.Lens' BoundingBox (Prelude.Maybe Prelude.Double)
+boundingBox_top = Lens.lens (\BoundingBox' {top} -> top) (\s@BoundingBox' {} a -> s {top = a} :: BoundingBox)
+
+-- | Width of the bounding box as a ratio of the overall image width.
+boundingBox_width :: Lens.Lens' BoundingBox (Prelude.Maybe Prelude.Double)
+boundingBox_width = Lens.lens (\BoundingBox' {width} -> width) (\s@BoundingBox' {} a -> s {width = a} :: BoundingBox)
 
 instance Data.FromJSON BoundingBox where
   parseJSON =
@@ -108,33 +108,33 @@ instance Data.FromJSON BoundingBox where
       "BoundingBox"
       ( \x ->
           BoundingBox'
-            Prelude.<$> (x Data..:? "Width")
-            Prelude.<*> (x Data..:? "Top")
+            Prelude.<$> (x Data..:? "Height")
             Prelude.<*> (x Data..:? "Left")
-            Prelude.<*> (x Data..:? "Height")
+            Prelude.<*> (x Data..:? "Top")
+            Prelude.<*> (x Data..:? "Width")
       )
 
 instance Prelude.Hashable BoundingBox where
   hashWithSalt _salt BoundingBox' {..} =
-    _salt `Prelude.hashWithSalt` width
-      `Prelude.hashWithSalt` top
+    _salt `Prelude.hashWithSalt` height
       `Prelude.hashWithSalt` left
-      `Prelude.hashWithSalt` height
+      `Prelude.hashWithSalt` top
+      `Prelude.hashWithSalt` width
 
 instance Prelude.NFData BoundingBox where
   rnf BoundingBox' {..} =
-    Prelude.rnf width
-      `Prelude.seq` Prelude.rnf top
+    Prelude.rnf height
       `Prelude.seq` Prelude.rnf left
-      `Prelude.seq` Prelude.rnf height
+      `Prelude.seq` Prelude.rnf top
+      `Prelude.seq` Prelude.rnf width
 
 instance Data.ToJSON BoundingBox where
   toJSON BoundingBox' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Width" Data..=) Prelude.<$> width,
-            ("Top" Data..=) Prelude.<$> top,
+          [ ("Height" Data..=) Prelude.<$> height,
             ("Left" Data..=) Prelude.<$> left,
-            ("Height" Data..=) Prelude.<$> height
+            ("Top" Data..=) Prelude.<$> top,
+            ("Width" Data..=) Prelude.<$> width
           ]
       )

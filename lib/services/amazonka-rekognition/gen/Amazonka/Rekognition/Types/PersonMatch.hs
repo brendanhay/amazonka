@@ -34,14 +34,14 @@ import Amazonka.Rekognition.Types.PersonDetail
 --
 -- /See:/ 'newPersonMatch' smart constructor.
 data PersonMatch = PersonMatch'
-  { -- | Information about the matched person.
+  { -- | Information about the faces in the input collection that match the face
+    -- of a person in the video.
+    faceMatches :: Prelude.Maybe [FaceMatch],
+    -- | Information about the matched person.
     person :: Prelude.Maybe PersonDetail,
     -- | The time, in milliseconds from the beginning of the video, that the
     -- person was matched in the video.
-    timestamp :: Prelude.Maybe Prelude.Integer,
-    -- | Information about the faces in the input collection that match the face
-    -- of a person in the video.
-    faceMatches :: Prelude.Maybe [FaceMatch]
+    timestamp :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,21 +53,26 @@ data PersonMatch = PersonMatch'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'faceMatches', 'personMatch_faceMatches' - Information about the faces in the input collection that match the face
+-- of a person in the video.
+--
 -- 'person', 'personMatch_person' - Information about the matched person.
 --
 -- 'timestamp', 'personMatch_timestamp' - The time, in milliseconds from the beginning of the video, that the
 -- person was matched in the video.
---
--- 'faceMatches', 'personMatch_faceMatches' - Information about the faces in the input collection that match the face
--- of a person in the video.
 newPersonMatch ::
   PersonMatch
 newPersonMatch =
   PersonMatch'
-    { person = Prelude.Nothing,
-      timestamp = Prelude.Nothing,
-      faceMatches = Prelude.Nothing
+    { faceMatches = Prelude.Nothing,
+      person = Prelude.Nothing,
+      timestamp = Prelude.Nothing
     }
+
+-- | Information about the faces in the input collection that match the face
+-- of a person in the video.
+personMatch_faceMatches :: Lens.Lens' PersonMatch (Prelude.Maybe [FaceMatch])
+personMatch_faceMatches = Lens.lens (\PersonMatch' {faceMatches} -> faceMatches) (\s@PersonMatch' {} a -> s {faceMatches = a} :: PersonMatch) Prelude.. Lens.mapping Lens.coerced
 
 -- | Information about the matched person.
 personMatch_person :: Lens.Lens' PersonMatch (Prelude.Maybe PersonDetail)
@@ -78,30 +83,25 @@ personMatch_person = Lens.lens (\PersonMatch' {person} -> person) (\s@PersonMatc
 personMatch_timestamp :: Lens.Lens' PersonMatch (Prelude.Maybe Prelude.Integer)
 personMatch_timestamp = Lens.lens (\PersonMatch' {timestamp} -> timestamp) (\s@PersonMatch' {} a -> s {timestamp = a} :: PersonMatch)
 
--- | Information about the faces in the input collection that match the face
--- of a person in the video.
-personMatch_faceMatches :: Lens.Lens' PersonMatch (Prelude.Maybe [FaceMatch])
-personMatch_faceMatches = Lens.lens (\PersonMatch' {faceMatches} -> faceMatches) (\s@PersonMatch' {} a -> s {faceMatches = a} :: PersonMatch) Prelude.. Lens.mapping Lens.coerced
-
 instance Data.FromJSON PersonMatch where
   parseJSON =
     Data.withObject
       "PersonMatch"
       ( \x ->
           PersonMatch'
-            Prelude.<$> (x Data..:? "Person")
+            Prelude.<$> (x Data..:? "FaceMatches" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Person")
             Prelude.<*> (x Data..:? "Timestamp")
-            Prelude.<*> (x Data..:? "FaceMatches" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable PersonMatch where
   hashWithSalt _salt PersonMatch' {..} =
-    _salt `Prelude.hashWithSalt` person
+    _salt `Prelude.hashWithSalt` faceMatches
+      `Prelude.hashWithSalt` person
       `Prelude.hashWithSalt` timestamp
-      `Prelude.hashWithSalt` faceMatches
 
 instance Prelude.NFData PersonMatch where
   rnf PersonMatch' {..} =
-    Prelude.rnf person
+    Prelude.rnf faceMatches
+      `Prelude.seq` Prelude.rnf person
       `Prelude.seq` Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf faceMatches

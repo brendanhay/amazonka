@@ -29,18 +29,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRecommendationReportDetails' smart constructor.
 data RecommendationReportDetails = RecommendationReportDetails'
-  { -- | The S3 bucket where the report file is located.
-    s3Bucket :: Prelude.Maybe Prelude.Text,
-    -- | The status of the recommendation report generation task.
-    status :: Prelude.Maybe RecommendationReportStatus,
-    -- | The time that the recommendation report generation task completes.
+  { -- | The time that the recommendation report generation task completes.
     completionTime :: Prelude.Maybe Data.POSIX,
-    -- | The status message for recommendation report generation.
-    statusMessage :: Prelude.Maybe Prelude.Text,
+    -- | The S3 bucket where the report file is located.
+    s3Bucket :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon S3 key name of the report file.
+    s3Keys :: Prelude.Maybe [Prelude.Text],
     -- | The time that the recommendation report generation task starts.
     startTime :: Prelude.Maybe Data.POSIX,
-    -- | The Amazon S3 key name of the report file.
-    s3Keys :: Prelude.Maybe [Prelude.Text]
+    -- | The status of the recommendation report generation task.
+    status :: Prelude.Maybe RecommendationReportStatus,
+    -- | The status message for recommendation report generation.
+    statusMessage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,53 +52,53 @@ data RecommendationReportDetails = RecommendationReportDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 's3Bucket', 'recommendationReportDetails_s3Bucket' - The S3 bucket where the report file is located.
---
--- 'status', 'recommendationReportDetails_status' - The status of the recommendation report generation task.
---
 -- 'completionTime', 'recommendationReportDetails_completionTime' - The time that the recommendation report generation task completes.
 --
--- 'statusMessage', 'recommendationReportDetails_statusMessage' - The status message for recommendation report generation.
+-- 's3Bucket', 'recommendationReportDetails_s3Bucket' - The S3 bucket where the report file is located.
+--
+-- 's3Keys', 'recommendationReportDetails_s3Keys' - The Amazon S3 key name of the report file.
 --
 -- 'startTime', 'recommendationReportDetails_startTime' - The time that the recommendation report generation task starts.
 --
--- 's3Keys', 'recommendationReportDetails_s3Keys' - The Amazon S3 key name of the report file.
+-- 'status', 'recommendationReportDetails_status' - The status of the recommendation report generation task.
+--
+-- 'statusMessage', 'recommendationReportDetails_statusMessage' - The status message for recommendation report generation.
 newRecommendationReportDetails ::
   RecommendationReportDetails
 newRecommendationReportDetails =
   RecommendationReportDetails'
-    { s3Bucket =
+    { completionTime =
         Prelude.Nothing,
-      status = Prelude.Nothing,
-      completionTime = Prelude.Nothing,
-      statusMessage = Prelude.Nothing,
+      s3Bucket = Prelude.Nothing,
+      s3Keys = Prelude.Nothing,
       startTime = Prelude.Nothing,
-      s3Keys = Prelude.Nothing
+      status = Prelude.Nothing,
+      statusMessage = Prelude.Nothing
     }
-
--- | The S3 bucket where the report file is located.
-recommendationReportDetails_s3Bucket :: Lens.Lens' RecommendationReportDetails (Prelude.Maybe Prelude.Text)
-recommendationReportDetails_s3Bucket = Lens.lens (\RecommendationReportDetails' {s3Bucket} -> s3Bucket) (\s@RecommendationReportDetails' {} a -> s {s3Bucket = a} :: RecommendationReportDetails)
-
--- | The status of the recommendation report generation task.
-recommendationReportDetails_status :: Lens.Lens' RecommendationReportDetails (Prelude.Maybe RecommendationReportStatus)
-recommendationReportDetails_status = Lens.lens (\RecommendationReportDetails' {status} -> status) (\s@RecommendationReportDetails' {} a -> s {status = a} :: RecommendationReportDetails)
 
 -- | The time that the recommendation report generation task completes.
 recommendationReportDetails_completionTime :: Lens.Lens' RecommendationReportDetails (Prelude.Maybe Prelude.UTCTime)
 recommendationReportDetails_completionTime = Lens.lens (\RecommendationReportDetails' {completionTime} -> completionTime) (\s@RecommendationReportDetails' {} a -> s {completionTime = a} :: RecommendationReportDetails) Prelude.. Lens.mapping Data._Time
 
--- | The status message for recommendation report generation.
-recommendationReportDetails_statusMessage :: Lens.Lens' RecommendationReportDetails (Prelude.Maybe Prelude.Text)
-recommendationReportDetails_statusMessage = Lens.lens (\RecommendationReportDetails' {statusMessage} -> statusMessage) (\s@RecommendationReportDetails' {} a -> s {statusMessage = a} :: RecommendationReportDetails)
+-- | The S3 bucket where the report file is located.
+recommendationReportDetails_s3Bucket :: Lens.Lens' RecommendationReportDetails (Prelude.Maybe Prelude.Text)
+recommendationReportDetails_s3Bucket = Lens.lens (\RecommendationReportDetails' {s3Bucket} -> s3Bucket) (\s@RecommendationReportDetails' {} a -> s {s3Bucket = a} :: RecommendationReportDetails)
+
+-- | The Amazon S3 key name of the report file.
+recommendationReportDetails_s3Keys :: Lens.Lens' RecommendationReportDetails (Prelude.Maybe [Prelude.Text])
+recommendationReportDetails_s3Keys = Lens.lens (\RecommendationReportDetails' {s3Keys} -> s3Keys) (\s@RecommendationReportDetails' {} a -> s {s3Keys = a} :: RecommendationReportDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | The time that the recommendation report generation task starts.
 recommendationReportDetails_startTime :: Lens.Lens' RecommendationReportDetails (Prelude.Maybe Prelude.UTCTime)
 recommendationReportDetails_startTime = Lens.lens (\RecommendationReportDetails' {startTime} -> startTime) (\s@RecommendationReportDetails' {} a -> s {startTime = a} :: RecommendationReportDetails) Prelude.. Lens.mapping Data._Time
 
--- | The Amazon S3 key name of the report file.
-recommendationReportDetails_s3Keys :: Lens.Lens' RecommendationReportDetails (Prelude.Maybe [Prelude.Text])
-recommendationReportDetails_s3Keys = Lens.lens (\RecommendationReportDetails' {s3Keys} -> s3Keys) (\s@RecommendationReportDetails' {} a -> s {s3Keys = a} :: RecommendationReportDetails) Prelude.. Lens.mapping Lens.coerced
+-- | The status of the recommendation report generation task.
+recommendationReportDetails_status :: Lens.Lens' RecommendationReportDetails (Prelude.Maybe RecommendationReportStatus)
+recommendationReportDetails_status = Lens.lens (\RecommendationReportDetails' {status} -> status) (\s@RecommendationReportDetails' {} a -> s {status = a} :: RecommendationReportDetails)
+
+-- | The status message for recommendation report generation.
+recommendationReportDetails_statusMessage :: Lens.Lens' RecommendationReportDetails (Prelude.Maybe Prelude.Text)
+recommendationReportDetails_statusMessage = Lens.lens (\RecommendationReportDetails' {statusMessage} -> statusMessage) (\s@RecommendationReportDetails' {} a -> s {statusMessage = a} :: RecommendationReportDetails)
 
 instance Data.FromJSON RecommendationReportDetails where
   parseJSON =
@@ -106,28 +106,28 @@ instance Data.FromJSON RecommendationReportDetails where
       "RecommendationReportDetails"
       ( \x ->
           RecommendationReportDetails'
-            Prelude.<$> (x Data..:? "s3Bucket")
-            Prelude.<*> (x Data..:? "status")
-            Prelude.<*> (x Data..:? "completionTime")
-            Prelude.<*> (x Data..:? "statusMessage")
-            Prelude.<*> (x Data..:? "startTime")
+            Prelude.<$> (x Data..:? "completionTime")
+            Prelude.<*> (x Data..:? "s3Bucket")
             Prelude.<*> (x Data..:? "s3Keys" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "startTime")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "statusMessage")
       )
 
 instance Prelude.Hashable RecommendationReportDetails where
   hashWithSalt _salt RecommendationReportDetails' {..} =
-    _salt `Prelude.hashWithSalt` s3Bucket
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` completionTime
-      `Prelude.hashWithSalt` statusMessage
-      `Prelude.hashWithSalt` startTime
+    _salt `Prelude.hashWithSalt` completionTime
+      `Prelude.hashWithSalt` s3Bucket
       `Prelude.hashWithSalt` s3Keys
+      `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` statusMessage
 
 instance Prelude.NFData RecommendationReportDetails where
   rnf RecommendationReportDetails' {..} =
-    Prelude.rnf s3Bucket
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf completionTime
-      `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf completionTime
+      `Prelude.seq` Prelude.rnf s3Bucket
       `Prelude.seq` Prelude.rnf s3Keys
+      `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf statusMessage

@@ -30,24 +30,24 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVideoConfiguration' smart constructor.
 data VideoConfiguration = VideoConfiguration'
-  { -- | The expected ingest framerate. This is configured in the encoder.
-    targetFramerate :: Prelude.Maybe Prelude.Integer,
+  { -- | Indicates the degree of required decoder performance for a profile.
+    -- Normally this is set automatically by the encoder. For details, see the
+    -- H.264 specification.
+    avcLevel :: Prelude.Maybe Prelude.Text,
+    -- | Indicates to the decoder the requirements for decoding the stream. For
+    -- definitions of the valid values, see the H.264 specification.
+    avcProfile :: Prelude.Maybe Prelude.Text,
+    -- | Codec used for the video encoding.
+    codec :: Prelude.Maybe Prelude.Text,
     -- | Software or hardware used to encode the video.
     encoder :: Prelude.Maybe Prelude.Text,
     -- | The expected ingest bitrate (bits per second). This is configured in the
     -- encoder.
     targetBitrate :: Prelude.Maybe Prelude.Integer,
-    -- | Indicates to the decoder the requirements for decoding the stream. For
-    -- definitions of the valid values, see the H.264 specification.
-    avcProfile :: Prelude.Maybe Prelude.Text,
-    -- | Indicates the degree of required decoder performance for a profile.
-    -- Normally this is set automatically by the encoder. For details, see the
-    -- H.264 specification.
-    avcLevel :: Prelude.Maybe Prelude.Text,
+    -- | The expected ingest framerate. This is configured in the encoder.
+    targetFramerate :: Prelude.Maybe Prelude.Integer,
     -- | Video-resolution height in pixels.
     videoHeight :: Prelude.Maybe Prelude.Integer,
-    -- | Codec used for the video encoding.
-    codec :: Prelude.Maybe Prelude.Text,
     -- | Video-resolution width in pixels.
     videoWidth :: Prelude.Maybe Prelude.Integer
   }
@@ -61,43 +61,53 @@ data VideoConfiguration = VideoConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetFramerate', 'videoConfiguration_targetFramerate' - The expected ingest framerate. This is configured in the encoder.
+-- 'avcLevel', 'videoConfiguration_avcLevel' - Indicates the degree of required decoder performance for a profile.
+-- Normally this is set automatically by the encoder. For details, see the
+-- H.264 specification.
+--
+-- 'avcProfile', 'videoConfiguration_avcProfile' - Indicates to the decoder the requirements for decoding the stream. For
+-- definitions of the valid values, see the H.264 specification.
+--
+-- 'codec', 'videoConfiguration_codec' - Codec used for the video encoding.
 --
 -- 'encoder', 'videoConfiguration_encoder' - Software or hardware used to encode the video.
 --
 -- 'targetBitrate', 'videoConfiguration_targetBitrate' - The expected ingest bitrate (bits per second). This is configured in the
 -- encoder.
 --
--- 'avcProfile', 'videoConfiguration_avcProfile' - Indicates to the decoder the requirements for decoding the stream. For
--- definitions of the valid values, see the H.264 specification.
---
--- 'avcLevel', 'videoConfiguration_avcLevel' - Indicates the degree of required decoder performance for a profile.
--- Normally this is set automatically by the encoder. For details, see the
--- H.264 specification.
+-- 'targetFramerate', 'videoConfiguration_targetFramerate' - The expected ingest framerate. This is configured in the encoder.
 --
 -- 'videoHeight', 'videoConfiguration_videoHeight' - Video-resolution height in pixels.
---
--- 'codec', 'videoConfiguration_codec' - Codec used for the video encoding.
 --
 -- 'videoWidth', 'videoConfiguration_videoWidth' - Video-resolution width in pixels.
 newVideoConfiguration ::
   VideoConfiguration
 newVideoConfiguration =
   VideoConfiguration'
-    { targetFramerate =
-        Prelude.Nothing,
+    { avcLevel = Prelude.Nothing,
+      avcProfile = Prelude.Nothing,
+      codec = Prelude.Nothing,
       encoder = Prelude.Nothing,
       targetBitrate = Prelude.Nothing,
-      avcProfile = Prelude.Nothing,
-      avcLevel = Prelude.Nothing,
+      targetFramerate = Prelude.Nothing,
       videoHeight = Prelude.Nothing,
-      codec = Prelude.Nothing,
       videoWidth = Prelude.Nothing
     }
 
--- | The expected ingest framerate. This is configured in the encoder.
-videoConfiguration_targetFramerate :: Lens.Lens' VideoConfiguration (Prelude.Maybe Prelude.Integer)
-videoConfiguration_targetFramerate = Lens.lens (\VideoConfiguration' {targetFramerate} -> targetFramerate) (\s@VideoConfiguration' {} a -> s {targetFramerate = a} :: VideoConfiguration)
+-- | Indicates the degree of required decoder performance for a profile.
+-- Normally this is set automatically by the encoder. For details, see the
+-- H.264 specification.
+videoConfiguration_avcLevel :: Lens.Lens' VideoConfiguration (Prelude.Maybe Prelude.Text)
+videoConfiguration_avcLevel = Lens.lens (\VideoConfiguration' {avcLevel} -> avcLevel) (\s@VideoConfiguration' {} a -> s {avcLevel = a} :: VideoConfiguration)
+
+-- | Indicates to the decoder the requirements for decoding the stream. For
+-- definitions of the valid values, see the H.264 specification.
+videoConfiguration_avcProfile :: Lens.Lens' VideoConfiguration (Prelude.Maybe Prelude.Text)
+videoConfiguration_avcProfile = Lens.lens (\VideoConfiguration' {avcProfile} -> avcProfile) (\s@VideoConfiguration' {} a -> s {avcProfile = a} :: VideoConfiguration)
+
+-- | Codec used for the video encoding.
+videoConfiguration_codec :: Lens.Lens' VideoConfiguration (Prelude.Maybe Prelude.Text)
+videoConfiguration_codec = Lens.lens (\VideoConfiguration' {codec} -> codec) (\s@VideoConfiguration' {} a -> s {codec = a} :: VideoConfiguration)
 
 -- | Software or hardware used to encode the video.
 videoConfiguration_encoder :: Lens.Lens' VideoConfiguration (Prelude.Maybe Prelude.Text)
@@ -108,24 +118,13 @@ videoConfiguration_encoder = Lens.lens (\VideoConfiguration' {encoder} -> encode
 videoConfiguration_targetBitrate :: Lens.Lens' VideoConfiguration (Prelude.Maybe Prelude.Integer)
 videoConfiguration_targetBitrate = Lens.lens (\VideoConfiguration' {targetBitrate} -> targetBitrate) (\s@VideoConfiguration' {} a -> s {targetBitrate = a} :: VideoConfiguration)
 
--- | Indicates to the decoder the requirements for decoding the stream. For
--- definitions of the valid values, see the H.264 specification.
-videoConfiguration_avcProfile :: Lens.Lens' VideoConfiguration (Prelude.Maybe Prelude.Text)
-videoConfiguration_avcProfile = Lens.lens (\VideoConfiguration' {avcProfile} -> avcProfile) (\s@VideoConfiguration' {} a -> s {avcProfile = a} :: VideoConfiguration)
-
--- | Indicates the degree of required decoder performance for a profile.
--- Normally this is set automatically by the encoder. For details, see the
--- H.264 specification.
-videoConfiguration_avcLevel :: Lens.Lens' VideoConfiguration (Prelude.Maybe Prelude.Text)
-videoConfiguration_avcLevel = Lens.lens (\VideoConfiguration' {avcLevel} -> avcLevel) (\s@VideoConfiguration' {} a -> s {avcLevel = a} :: VideoConfiguration)
+-- | The expected ingest framerate. This is configured in the encoder.
+videoConfiguration_targetFramerate :: Lens.Lens' VideoConfiguration (Prelude.Maybe Prelude.Integer)
+videoConfiguration_targetFramerate = Lens.lens (\VideoConfiguration' {targetFramerate} -> targetFramerate) (\s@VideoConfiguration' {} a -> s {targetFramerate = a} :: VideoConfiguration)
 
 -- | Video-resolution height in pixels.
 videoConfiguration_videoHeight :: Lens.Lens' VideoConfiguration (Prelude.Maybe Prelude.Integer)
 videoConfiguration_videoHeight = Lens.lens (\VideoConfiguration' {videoHeight} -> videoHeight) (\s@VideoConfiguration' {} a -> s {videoHeight = a} :: VideoConfiguration)
-
--- | Codec used for the video encoding.
-videoConfiguration_codec :: Lens.Lens' VideoConfiguration (Prelude.Maybe Prelude.Text)
-videoConfiguration_codec = Lens.lens (\VideoConfiguration' {codec} -> codec) (\s@VideoConfiguration' {} a -> s {codec = a} :: VideoConfiguration)
 
 -- | Video-resolution width in pixels.
 videoConfiguration_videoWidth :: Lens.Lens' VideoConfiguration (Prelude.Maybe Prelude.Integer)
@@ -137,34 +136,34 @@ instance Data.FromJSON VideoConfiguration where
       "VideoConfiguration"
       ( \x ->
           VideoConfiguration'
-            Prelude.<$> (x Data..:? "targetFramerate")
+            Prelude.<$> (x Data..:? "avcLevel")
+            Prelude.<*> (x Data..:? "avcProfile")
+            Prelude.<*> (x Data..:? "codec")
             Prelude.<*> (x Data..:? "encoder")
             Prelude.<*> (x Data..:? "targetBitrate")
-            Prelude.<*> (x Data..:? "avcProfile")
-            Prelude.<*> (x Data..:? "avcLevel")
+            Prelude.<*> (x Data..:? "targetFramerate")
             Prelude.<*> (x Data..:? "videoHeight")
-            Prelude.<*> (x Data..:? "codec")
             Prelude.<*> (x Data..:? "videoWidth")
       )
 
 instance Prelude.Hashable VideoConfiguration where
   hashWithSalt _salt VideoConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` targetFramerate
+    _salt `Prelude.hashWithSalt` avcLevel
+      `Prelude.hashWithSalt` avcProfile
+      `Prelude.hashWithSalt` codec
       `Prelude.hashWithSalt` encoder
       `Prelude.hashWithSalt` targetBitrate
-      `Prelude.hashWithSalt` avcProfile
-      `Prelude.hashWithSalt` avcLevel
+      `Prelude.hashWithSalt` targetFramerate
       `Prelude.hashWithSalt` videoHeight
-      `Prelude.hashWithSalt` codec
       `Prelude.hashWithSalt` videoWidth
 
 instance Prelude.NFData VideoConfiguration where
   rnf VideoConfiguration' {..} =
-    Prelude.rnf targetFramerate
+    Prelude.rnf avcLevel
+      `Prelude.seq` Prelude.rnf avcProfile
+      `Prelude.seq` Prelude.rnf codec
       `Prelude.seq` Prelude.rnf encoder
       `Prelude.seq` Prelude.rnf targetBitrate
-      `Prelude.seq` Prelude.rnf avcProfile
-      `Prelude.seq` Prelude.rnf avcLevel
+      `Prelude.seq` Prelude.rnf targetFramerate
       `Prelude.seq` Prelude.rnf videoHeight
-      `Prelude.seq` Prelude.rnf codec
       `Prelude.seq` Prelude.rnf videoWidth

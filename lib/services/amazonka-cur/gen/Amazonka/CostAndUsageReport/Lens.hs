@@ -20,8 +20,8 @@ module Amazonka.CostAndUsageReport.Lens
     deleteReportDefinitionResponse_httpStatus,
 
     -- ** DescribeReportDefinitions
-    describeReportDefinitions_nextToken,
     describeReportDefinitions_maxResults,
+    describeReportDefinitions_nextToken,
     describeReportDefinitionsResponse_nextToken,
     describeReportDefinitionsResponse_reportDefinitions,
     describeReportDefinitionsResponse_httpStatus,
@@ -38,10 +38,10 @@ module Amazonka.CostAndUsageReport.Lens
     -- * Types
 
     -- ** ReportDefinition
+    reportDefinition_additionalArtifacts,
+    reportDefinition_billingViewArn,
     reportDefinition_refreshClosedReports,
     reportDefinition_reportVersioning,
-    reportDefinition_billingViewArn,
-    reportDefinition_additionalArtifacts,
     reportDefinition_reportName,
     reportDefinition_timeUnit,
     reportDefinition_format,

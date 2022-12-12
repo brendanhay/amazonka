@@ -27,16 +27,16 @@ module Amazonka.Glue.ListCustomEntityTypes
     newListCustomEntityTypes,
 
     -- * Request Lenses
-    listCustomEntityTypes_nextToken,
     listCustomEntityTypes_maxResults,
+    listCustomEntityTypes_nextToken,
 
     -- * Destructuring the Response
     ListCustomEntityTypesResponse (..),
     newListCustomEntityTypesResponse,
 
     -- * Response Lenses
-    listCustomEntityTypesResponse_nextToken,
     listCustomEntityTypesResponse_customEntityTypes,
+    listCustomEntityTypesResponse_nextToken,
     listCustomEntityTypesResponse_httpStatus,
   )
 where
@@ -51,10 +51,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListCustomEntityTypes' smart constructor.
 data ListCustomEntityTypes = ListCustomEntityTypes'
-  { -- | A paginated token to offset the results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return.
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { -- | The maximum number of results to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A paginated token to offset the results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,24 +66,25 @@ data ListCustomEntityTypes = ListCustomEntityTypes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listCustomEntityTypes_nextToken' - A paginated token to offset the results.
---
 -- 'maxResults', 'listCustomEntityTypes_maxResults' - The maximum number of results to return.
+--
+-- 'nextToken', 'listCustomEntityTypes_nextToken' - A paginated token to offset the results.
 newListCustomEntityTypes ::
   ListCustomEntityTypes
 newListCustomEntityTypes =
   ListCustomEntityTypes'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | A paginated token to offset the results.
-listCustomEntityTypes_nextToken :: Lens.Lens' ListCustomEntityTypes (Prelude.Maybe Prelude.Text)
-listCustomEntityTypes_nextToken = Lens.lens (\ListCustomEntityTypes' {nextToken} -> nextToken) (\s@ListCustomEntityTypes' {} a -> s {nextToken = a} :: ListCustomEntityTypes)
 
 -- | The maximum number of results to return.
 listCustomEntityTypes_maxResults :: Lens.Lens' ListCustomEntityTypes (Prelude.Maybe Prelude.Natural)
 listCustomEntityTypes_maxResults = Lens.lens (\ListCustomEntityTypes' {maxResults} -> maxResults) (\s@ListCustomEntityTypes' {} a -> s {maxResults = a} :: ListCustomEntityTypes)
+
+-- | A paginated token to offset the results.
+listCustomEntityTypes_nextToken :: Lens.Lens' ListCustomEntityTypes (Prelude.Maybe Prelude.Text)
+listCustomEntityTypes_nextToken = Lens.lens (\ListCustomEntityTypes' {nextToken} -> nextToken) (\s@ListCustomEntityTypes' {} a -> s {nextToken = a} :: ListCustomEntityTypes)
 
 instance Core.AWSRequest ListCustomEntityTypes where
   type
@@ -95,22 +96,22 @@ instance Core.AWSRequest ListCustomEntityTypes where
     Response.receiveJSON
       ( \s h x ->
           ListCustomEntityTypesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "CustomEntityTypes"
+            Prelude.<$> ( x Data..?> "CustomEntityTypes"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListCustomEntityTypes where
   hashWithSalt _salt ListCustomEntityTypes' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListCustomEntityTypes where
   rnf ListCustomEntityTypes' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListCustomEntityTypes where
   toHeaders =
@@ -131,8 +132,8 @@ instance Data.ToJSON ListCustomEntityTypes where
   toJSON ListCustomEntityTypes' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -144,10 +145,10 @@ instance Data.ToQuery ListCustomEntityTypes where
 
 -- | /See:/ 'newListCustomEntityTypesResponse' smart constructor.
 data ListCustomEntityTypesResponse = ListCustomEntityTypesResponse'
-  { -- | A pagination token, if more results are available.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of @CustomEntityType@ objects representing custom patterns.
+  { -- | A list of @CustomEntityType@ objects representing custom patterns.
     customEntityTypes :: Prelude.Maybe [CustomEntityType],
+    -- | A pagination token, if more results are available.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -161,9 +162,9 @@ data ListCustomEntityTypesResponse = ListCustomEntityTypesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listCustomEntityTypesResponse_nextToken' - A pagination token, if more results are available.
---
 -- 'customEntityTypes', 'listCustomEntityTypesResponse_customEntityTypes' - A list of @CustomEntityType@ objects representing custom patterns.
+--
+-- 'nextToken', 'listCustomEntityTypesResponse_nextToken' - A pagination token, if more results are available.
 --
 -- 'httpStatus', 'listCustomEntityTypesResponse_httpStatus' - The response's http status code.
 newListCustomEntityTypesResponse ::
@@ -172,19 +173,19 @@ newListCustomEntityTypesResponse ::
   ListCustomEntityTypesResponse
 newListCustomEntityTypesResponse pHttpStatus_ =
   ListCustomEntityTypesResponse'
-    { nextToken =
+    { customEntityTypes =
         Prelude.Nothing,
-      customEntityTypes = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A pagination token, if more results are available.
-listCustomEntityTypesResponse_nextToken :: Lens.Lens' ListCustomEntityTypesResponse (Prelude.Maybe Prelude.Text)
-listCustomEntityTypesResponse_nextToken = Lens.lens (\ListCustomEntityTypesResponse' {nextToken} -> nextToken) (\s@ListCustomEntityTypesResponse' {} a -> s {nextToken = a} :: ListCustomEntityTypesResponse)
 
 -- | A list of @CustomEntityType@ objects representing custom patterns.
 listCustomEntityTypesResponse_customEntityTypes :: Lens.Lens' ListCustomEntityTypesResponse (Prelude.Maybe [CustomEntityType])
 listCustomEntityTypesResponse_customEntityTypes = Lens.lens (\ListCustomEntityTypesResponse' {customEntityTypes} -> customEntityTypes) (\s@ListCustomEntityTypesResponse' {} a -> s {customEntityTypes = a} :: ListCustomEntityTypesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A pagination token, if more results are available.
+listCustomEntityTypesResponse_nextToken :: Lens.Lens' ListCustomEntityTypesResponse (Prelude.Maybe Prelude.Text)
+listCustomEntityTypesResponse_nextToken = Lens.lens (\ListCustomEntityTypesResponse' {nextToken} -> nextToken) (\s@ListCustomEntityTypesResponse' {} a -> s {nextToken = a} :: ListCustomEntityTypesResponse)
 
 -- | The response's http status code.
 listCustomEntityTypesResponse_httpStatus :: Lens.Lens' ListCustomEntityTypesResponse Prelude.Int
@@ -192,6 +193,6 @@ listCustomEntityTypesResponse_httpStatus = Lens.lens (\ListCustomEntityTypesResp
 
 instance Prelude.NFData ListCustomEntityTypesResponse where
   rnf ListCustomEntityTypesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf customEntityTypes
+    Prelude.rnf customEntityTypes
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

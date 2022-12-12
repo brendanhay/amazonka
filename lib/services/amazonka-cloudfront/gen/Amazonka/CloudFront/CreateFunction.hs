@@ -49,9 +49,9 @@ module Amazonka.CloudFront.CreateFunction
     newCreateFunctionResponse,
 
     -- * Response Lenses
+    createFunctionResponse_eTag,
     createFunctionResponse_functionSummary,
     createFunctionResponse_location,
-    createFunctionResponse_eTag,
     createFunctionResponse_httpStatus,
   )
 where
@@ -150,9 +150,9 @@ instance Core.AWSRequest CreateFunction where
     Response.receiveXML
       ( \s h x ->
           CreateFunctionResponse'
-            Prelude.<$> (Data.parseXML x)
+            Prelude.<$> (h Data..#? "ETag")
+            Prelude.<*> (Data.parseXML x)
             Prelude.<*> (h Data..#? "Location")
-            Prelude.<*> (h Data..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -192,15 +192,15 @@ instance Data.ToXML CreateFunction where
 
 -- | /See:/ 'newCreateFunctionResponse' smart constructor.
 data CreateFunctionResponse = CreateFunctionResponse'
-  { -- | Contains configuration information and metadata about a CloudFront
+  { -- | The version identifier for the current version of the CloudFront
+    -- function.
+    eTag :: Prelude.Maybe Prelude.Text,
+    -- | Contains configuration information and metadata about a CloudFront
     -- function.
     functionSummary :: Prelude.Maybe FunctionSummary,
     -- | The URL of the CloudFront function. Use the URL to manage the function
     -- with the CloudFront API.
     location :: Prelude.Maybe Prelude.Text,
-    -- | The version identifier for the current version of the CloudFront
-    -- function.
-    eTag :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -214,14 +214,14 @@ data CreateFunctionResponse = CreateFunctionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'eTag', 'createFunctionResponse_eTag' - The version identifier for the current version of the CloudFront
+-- function.
+--
 -- 'functionSummary', 'createFunctionResponse_functionSummary' - Contains configuration information and metadata about a CloudFront
 -- function.
 --
 -- 'location', 'createFunctionResponse_location' - The URL of the CloudFront function. Use the URL to manage the function
 -- with the CloudFront API.
---
--- 'eTag', 'createFunctionResponse_eTag' - The version identifier for the current version of the CloudFront
--- function.
 --
 -- 'httpStatus', 'createFunctionResponse_httpStatus' - The response's http status code.
 newCreateFunctionResponse ::
@@ -230,12 +230,16 @@ newCreateFunctionResponse ::
   CreateFunctionResponse
 newCreateFunctionResponse pHttpStatus_ =
   CreateFunctionResponse'
-    { functionSummary =
-        Prelude.Nothing,
+    { eTag = Prelude.Nothing,
+      functionSummary = Prelude.Nothing,
       location = Prelude.Nothing,
-      eTag = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The version identifier for the current version of the CloudFront
+-- function.
+createFunctionResponse_eTag :: Lens.Lens' CreateFunctionResponse (Prelude.Maybe Prelude.Text)
+createFunctionResponse_eTag = Lens.lens (\CreateFunctionResponse' {eTag} -> eTag) (\s@CreateFunctionResponse' {} a -> s {eTag = a} :: CreateFunctionResponse)
 
 -- | Contains configuration information and metadata about a CloudFront
 -- function.
@@ -247,18 +251,13 @@ createFunctionResponse_functionSummary = Lens.lens (\CreateFunctionResponse' {fu
 createFunctionResponse_location :: Lens.Lens' CreateFunctionResponse (Prelude.Maybe Prelude.Text)
 createFunctionResponse_location = Lens.lens (\CreateFunctionResponse' {location} -> location) (\s@CreateFunctionResponse' {} a -> s {location = a} :: CreateFunctionResponse)
 
--- | The version identifier for the current version of the CloudFront
--- function.
-createFunctionResponse_eTag :: Lens.Lens' CreateFunctionResponse (Prelude.Maybe Prelude.Text)
-createFunctionResponse_eTag = Lens.lens (\CreateFunctionResponse' {eTag} -> eTag) (\s@CreateFunctionResponse' {} a -> s {eTag = a} :: CreateFunctionResponse)
-
 -- | The response's http status code.
 createFunctionResponse_httpStatus :: Lens.Lens' CreateFunctionResponse Prelude.Int
 createFunctionResponse_httpStatus = Lens.lens (\CreateFunctionResponse' {httpStatus} -> httpStatus) (\s@CreateFunctionResponse' {} a -> s {httpStatus = a} :: CreateFunctionResponse)
 
 instance Prelude.NFData CreateFunctionResponse where
   rnf CreateFunctionResponse' {..} =
-    Prelude.rnf functionSummary
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf functionSummary
       `Prelude.seq` Prelude.rnf location
-      `Prelude.seq` Prelude.rnf eTag
       `Prelude.seq` Prelude.rnf httpStatus

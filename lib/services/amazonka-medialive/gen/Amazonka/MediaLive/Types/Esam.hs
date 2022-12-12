@@ -28,22 +28,22 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEsam' smart constructor.
 data Esam = Esam'
-  { -- | Username if credentials are required to access the POIS endpoint. This
-    -- can be either a plaintext username, or a reference to an AWS parameter
-    -- store name from which the username can be retrieved. AWS Parameter store
-    -- format: \"ssm:\/\/\"
-    username :: Prelude.Maybe Prelude.Text,
+  { -- | When specified, this offset (in milliseconds) is added to the input Ad
+    -- Avail PTS time. This only applies to embedded SCTE 104\/35 messages and
+    -- does not apply to OOB messages.
+    adAvailOffset :: Prelude.Maybe Prelude.Int,
     -- | Password if credentials are required to access the POIS endpoint. This
     -- is a reference to an AWS parameter store name from which the password
     -- can be retrieved. AWS Parameter store format: \"ssm:\/\/\"
     passwordParam :: Prelude.Maybe Prelude.Text,
+    -- | Username if credentials are required to access the POIS endpoint. This
+    -- can be either a plaintext username, or a reference to an AWS parameter
+    -- store name from which the username can be retrieved. AWS Parameter store
+    -- format: \"ssm:\/\/\"
+    username :: Prelude.Maybe Prelude.Text,
     -- | Optional data sent as zoneIdentity to identify the MediaLive channel to
     -- the POIS.
     zoneIdentity :: Prelude.Maybe Prelude.Text,
-    -- | When specified, this offset (in milliseconds) is added to the input Ad
-    -- Avail PTS time. This only applies to embedded SCTE 104\/35 messages and
-    -- does not apply to OOB messages.
-    adAvailOffset :: Prelude.Maybe Prelude.Int,
     -- | Sent as acquisitionPointIdentity to identify the MediaLive channel to
     -- the POIS.
     acquisitionPointId :: Prelude.Text,
@@ -62,21 +62,21 @@ data Esam = Esam'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'username', 'esam_username' - Username if credentials are required to access the POIS endpoint. This
--- can be either a plaintext username, or a reference to an AWS parameter
--- store name from which the username can be retrieved. AWS Parameter store
--- format: \"ssm:\/\/\"
+-- 'adAvailOffset', 'esam_adAvailOffset' - When specified, this offset (in milliseconds) is added to the input Ad
+-- Avail PTS time. This only applies to embedded SCTE 104\/35 messages and
+-- does not apply to OOB messages.
 --
 -- 'passwordParam', 'esam_passwordParam' - Password if credentials are required to access the POIS endpoint. This
 -- is a reference to an AWS parameter store name from which the password
 -- can be retrieved. AWS Parameter store format: \"ssm:\/\/\"
 --
+-- 'username', 'esam_username' - Username if credentials are required to access the POIS endpoint. This
+-- can be either a plaintext username, or a reference to an AWS parameter
+-- store name from which the username can be retrieved. AWS Parameter store
+-- format: \"ssm:\/\/\"
+--
 -- 'zoneIdentity', 'esam_zoneIdentity' - Optional data sent as zoneIdentity to identify the MediaLive channel to
 -- the POIS.
---
--- 'adAvailOffset', 'esam_adAvailOffset' - When specified, this offset (in milliseconds) is added to the input Ad
--- Avail PTS time. This only applies to embedded SCTE 104\/35 messages and
--- does not apply to OOB messages.
 --
 -- 'acquisitionPointId', 'esam_acquisitionPointId' - Sent as acquisitionPointIdentity to identify the MediaLive channel to
 -- the POIS.
@@ -92,13 +92,25 @@ newEsam ::
   Esam
 newEsam pAcquisitionPointId_ pPoisEndpoint_ =
   Esam'
-    { username = Prelude.Nothing,
+    { adAvailOffset = Prelude.Nothing,
       passwordParam = Prelude.Nothing,
+      username = Prelude.Nothing,
       zoneIdentity = Prelude.Nothing,
-      adAvailOffset = Prelude.Nothing,
       acquisitionPointId = pAcquisitionPointId_,
       poisEndpoint = pPoisEndpoint_
     }
+
+-- | When specified, this offset (in milliseconds) is added to the input Ad
+-- Avail PTS time. This only applies to embedded SCTE 104\/35 messages and
+-- does not apply to OOB messages.
+esam_adAvailOffset :: Lens.Lens' Esam (Prelude.Maybe Prelude.Int)
+esam_adAvailOffset = Lens.lens (\Esam' {adAvailOffset} -> adAvailOffset) (\s@Esam' {} a -> s {adAvailOffset = a} :: Esam)
+
+-- | Password if credentials are required to access the POIS endpoint. This
+-- is a reference to an AWS parameter store name from which the password
+-- can be retrieved. AWS Parameter store format: \"ssm:\/\/\"
+esam_passwordParam :: Lens.Lens' Esam (Prelude.Maybe Prelude.Text)
+esam_passwordParam = Lens.lens (\Esam' {passwordParam} -> passwordParam) (\s@Esam' {} a -> s {passwordParam = a} :: Esam)
 
 -- | Username if credentials are required to access the POIS endpoint. This
 -- can be either a plaintext username, or a reference to an AWS parameter
@@ -107,22 +119,10 @@ newEsam pAcquisitionPointId_ pPoisEndpoint_ =
 esam_username :: Lens.Lens' Esam (Prelude.Maybe Prelude.Text)
 esam_username = Lens.lens (\Esam' {username} -> username) (\s@Esam' {} a -> s {username = a} :: Esam)
 
--- | Password if credentials are required to access the POIS endpoint. This
--- is a reference to an AWS parameter store name from which the password
--- can be retrieved. AWS Parameter store format: \"ssm:\/\/\"
-esam_passwordParam :: Lens.Lens' Esam (Prelude.Maybe Prelude.Text)
-esam_passwordParam = Lens.lens (\Esam' {passwordParam} -> passwordParam) (\s@Esam' {} a -> s {passwordParam = a} :: Esam)
-
 -- | Optional data sent as zoneIdentity to identify the MediaLive channel to
 -- the POIS.
 esam_zoneIdentity :: Lens.Lens' Esam (Prelude.Maybe Prelude.Text)
 esam_zoneIdentity = Lens.lens (\Esam' {zoneIdentity} -> zoneIdentity) (\s@Esam' {} a -> s {zoneIdentity = a} :: Esam)
-
--- | When specified, this offset (in milliseconds) is added to the input Ad
--- Avail PTS time. This only applies to embedded SCTE 104\/35 messages and
--- does not apply to OOB messages.
-esam_adAvailOffset :: Lens.Lens' Esam (Prelude.Maybe Prelude.Int)
-esam_adAvailOffset = Lens.lens (\Esam' {adAvailOffset} -> adAvailOffset) (\s@Esam' {} a -> s {adAvailOffset = a} :: Esam)
 
 -- | Sent as acquisitionPointIdentity to identify the MediaLive channel to
 -- the POIS.
@@ -141,29 +141,29 @@ instance Data.FromJSON Esam where
       "Esam"
       ( \x ->
           Esam'
-            Prelude.<$> (x Data..:? "username")
+            Prelude.<$> (x Data..:? "adAvailOffset")
             Prelude.<*> (x Data..:? "passwordParam")
+            Prelude.<*> (x Data..:? "username")
             Prelude.<*> (x Data..:? "zoneIdentity")
-            Prelude.<*> (x Data..:? "adAvailOffset")
             Prelude.<*> (x Data..: "acquisitionPointId")
             Prelude.<*> (x Data..: "poisEndpoint")
       )
 
 instance Prelude.Hashable Esam where
   hashWithSalt _salt Esam' {..} =
-    _salt `Prelude.hashWithSalt` username
+    _salt `Prelude.hashWithSalt` adAvailOffset
       `Prelude.hashWithSalt` passwordParam
+      `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` zoneIdentity
-      `Prelude.hashWithSalt` adAvailOffset
       `Prelude.hashWithSalt` acquisitionPointId
       `Prelude.hashWithSalt` poisEndpoint
 
 instance Prelude.NFData Esam where
   rnf Esam' {..} =
-    Prelude.rnf username
+    Prelude.rnf adAvailOffset
       `Prelude.seq` Prelude.rnf passwordParam
+      `Prelude.seq` Prelude.rnf username
       `Prelude.seq` Prelude.rnf zoneIdentity
-      `Prelude.seq` Prelude.rnf adAvailOffset
       `Prelude.seq` Prelude.rnf acquisitionPointId
       `Prelude.seq` Prelude.rnf poisEndpoint
 
@@ -171,10 +171,10 @@ instance Data.ToJSON Esam where
   toJSON Esam' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("username" Data..=) Prelude.<$> username,
+          [ ("adAvailOffset" Data..=) Prelude.<$> adAvailOffset,
             ("passwordParam" Data..=) Prelude.<$> passwordParam,
+            ("username" Data..=) Prelude.<$> username,
             ("zoneIdentity" Data..=) Prelude.<$> zoneIdentity,
-            ("adAvailOffset" Data..=) Prelude.<$> adAvailOffset,
             Prelude.Just
               ("acquisitionPointId" Data..= acquisitionPointId),
             Prelude.Just ("poisEndpoint" Data..= poisEndpoint)

@@ -40,8 +40,8 @@ module Amazonka.Redshift.CopyClusterSnapshot
     newCopyClusterSnapshot,
 
     -- * Request Lenses
-    copyClusterSnapshot_sourceSnapshotClusterIdentifier,
     copyClusterSnapshot_manualSnapshotRetentionPeriod,
+    copyClusterSnapshot_sourceSnapshotClusterIdentifier,
     copyClusterSnapshot_sourceSnapshotIdentifier,
     copyClusterSnapshot_targetSnapshotIdentifier,
 
@@ -67,7 +67,14 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCopyClusterSnapshot' smart constructor.
 data CopyClusterSnapshot = CopyClusterSnapshot'
-  { -- | The identifier of the cluster the source snapshot was created from. This
+  { -- | The number of days that a manual snapshot is retained. If the value is
+    -- -1, the manual snapshot is retained indefinitely.
+    --
+    -- The value must be either -1 or an integer between 1 and 3,653.
+    --
+    -- The default value is -1.
+    manualSnapshotRetentionPeriod :: Prelude.Maybe Prelude.Int,
+    -- | The identifier of the cluster the source snapshot was created from. This
     -- parameter is required if your IAM user has a policy containing a
     -- snapshot resource element that specifies anything other than * for the
     -- cluster name.
@@ -76,13 +83,6 @@ data CopyClusterSnapshot = CopyClusterSnapshot'
     --
     -- -   Must be the identifier for a valid cluster.
     sourceSnapshotClusterIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The number of days that a manual snapshot is retained. If the value is
-    -- -1, the manual snapshot is retained indefinitely.
-    --
-    -- The value must be either -1 or an integer between 1 and 3,653.
-    --
-    -- The default value is -1.
-    manualSnapshotRetentionPeriod :: Prelude.Maybe Prelude.Int,
     -- | The identifier for the source snapshot.
     --
     -- Constraints:
@@ -116,6 +116,13 @@ data CopyClusterSnapshot = CopyClusterSnapshot'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'manualSnapshotRetentionPeriod', 'copyClusterSnapshot_manualSnapshotRetentionPeriod' - The number of days that a manual snapshot is retained. If the value is
+-- -1, the manual snapshot is retained indefinitely.
+--
+-- The value must be either -1 or an integer between 1 and 3,653.
+--
+-- The default value is -1.
+--
 -- 'sourceSnapshotClusterIdentifier', 'copyClusterSnapshot_sourceSnapshotClusterIdentifier' - The identifier of the cluster the source snapshot was created from. This
 -- parameter is required if your IAM user has a policy containing a
 -- snapshot resource element that specifies anything other than * for the
@@ -124,13 +131,6 @@ data CopyClusterSnapshot = CopyClusterSnapshot'
 -- Constraints:
 --
 -- -   Must be the identifier for a valid cluster.
---
--- 'manualSnapshotRetentionPeriod', 'copyClusterSnapshot_manualSnapshotRetentionPeriod' - The number of days that a manual snapshot is retained. If the value is
--- -1, the manual snapshot is retained indefinitely.
---
--- The value must be either -1 or an integer between 1 and 3,653.
---
--- The default value is -1.
 --
 -- 'sourceSnapshotIdentifier', 'copyClusterSnapshot_sourceSnapshotIdentifier' - The identifier for the source snapshot.
 --
@@ -163,14 +163,23 @@ newCopyClusterSnapshot
   pSourceSnapshotIdentifier_
   pTargetSnapshotIdentifier_ =
     CopyClusterSnapshot'
-      { sourceSnapshotClusterIdentifier =
+      { manualSnapshotRetentionPeriod =
           Prelude.Nothing,
-        manualSnapshotRetentionPeriod = Prelude.Nothing,
+        sourceSnapshotClusterIdentifier = Prelude.Nothing,
         sourceSnapshotIdentifier =
           pSourceSnapshotIdentifier_,
         targetSnapshotIdentifier =
           pTargetSnapshotIdentifier_
       }
+
+-- | The number of days that a manual snapshot is retained. If the value is
+-- -1, the manual snapshot is retained indefinitely.
+--
+-- The value must be either -1 or an integer between 1 and 3,653.
+--
+-- The default value is -1.
+copyClusterSnapshot_manualSnapshotRetentionPeriod :: Lens.Lens' CopyClusterSnapshot (Prelude.Maybe Prelude.Int)
+copyClusterSnapshot_manualSnapshotRetentionPeriod = Lens.lens (\CopyClusterSnapshot' {manualSnapshotRetentionPeriod} -> manualSnapshotRetentionPeriod) (\s@CopyClusterSnapshot' {} a -> s {manualSnapshotRetentionPeriod = a} :: CopyClusterSnapshot)
 
 -- | The identifier of the cluster the source snapshot was created from. This
 -- parameter is required if your IAM user has a policy containing a
@@ -182,15 +191,6 @@ newCopyClusterSnapshot
 -- -   Must be the identifier for a valid cluster.
 copyClusterSnapshot_sourceSnapshotClusterIdentifier :: Lens.Lens' CopyClusterSnapshot (Prelude.Maybe Prelude.Text)
 copyClusterSnapshot_sourceSnapshotClusterIdentifier = Lens.lens (\CopyClusterSnapshot' {sourceSnapshotClusterIdentifier} -> sourceSnapshotClusterIdentifier) (\s@CopyClusterSnapshot' {} a -> s {sourceSnapshotClusterIdentifier = a} :: CopyClusterSnapshot)
-
--- | The number of days that a manual snapshot is retained. If the value is
--- -1, the manual snapshot is retained indefinitely.
---
--- The value must be either -1 or an integer between 1 and 3,653.
---
--- The default value is -1.
-copyClusterSnapshot_manualSnapshotRetentionPeriod :: Lens.Lens' CopyClusterSnapshot (Prelude.Maybe Prelude.Int)
-copyClusterSnapshot_manualSnapshotRetentionPeriod = Lens.lens (\CopyClusterSnapshot' {manualSnapshotRetentionPeriod} -> manualSnapshotRetentionPeriod) (\s@CopyClusterSnapshot' {} a -> s {manualSnapshotRetentionPeriod = a} :: CopyClusterSnapshot)
 
 -- | The identifier for the source snapshot.
 --
@@ -236,15 +236,15 @@ instance Core.AWSRequest CopyClusterSnapshot where
 instance Prelude.Hashable CopyClusterSnapshot where
   hashWithSalt _salt CopyClusterSnapshot' {..} =
     _salt
-      `Prelude.hashWithSalt` sourceSnapshotClusterIdentifier
       `Prelude.hashWithSalt` manualSnapshotRetentionPeriod
+      `Prelude.hashWithSalt` sourceSnapshotClusterIdentifier
       `Prelude.hashWithSalt` sourceSnapshotIdentifier
       `Prelude.hashWithSalt` targetSnapshotIdentifier
 
 instance Prelude.NFData CopyClusterSnapshot where
   rnf CopyClusterSnapshot' {..} =
-    Prelude.rnf sourceSnapshotClusterIdentifier
-      `Prelude.seq` Prelude.rnf manualSnapshotRetentionPeriod
+    Prelude.rnf manualSnapshotRetentionPeriod
+      `Prelude.seq` Prelude.rnf sourceSnapshotClusterIdentifier
       `Prelude.seq` Prelude.rnf sourceSnapshotIdentifier
       `Prelude.seq` Prelude.rnf targetSnapshotIdentifier
 
@@ -261,10 +261,10 @@ instance Data.ToQuery CopyClusterSnapshot where
           Data.=: ("CopyClusterSnapshot" :: Prelude.ByteString),
         "Version"
           Data.=: ("2012-12-01" :: Prelude.ByteString),
-        "SourceSnapshotClusterIdentifier"
-          Data.=: sourceSnapshotClusterIdentifier,
         "ManualSnapshotRetentionPeriod"
           Data.=: manualSnapshotRetentionPeriod,
+        "SourceSnapshotClusterIdentifier"
+          Data.=: sourceSnapshotClusterIdentifier,
         "SourceSnapshotIdentifier"
           Data.=: sourceSnapshotIdentifier,
         "TargetSnapshotIdentifier"

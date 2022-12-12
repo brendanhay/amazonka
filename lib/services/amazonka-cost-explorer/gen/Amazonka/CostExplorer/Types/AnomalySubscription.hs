@@ -33,10 +33,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAnomalySubscription' smart constructor.
 data AnomalySubscription = AnomalySubscription'
-  { -- | The @AnomalySubscription@ Amazon Resource Name (ARN).
-    subscriptionArn :: Prelude.Maybe Prelude.Text,
-    -- | Your unique account identifier.
+  { -- | Your unique account identifier.
     accountId :: Prelude.Maybe Prelude.Text,
+    -- | The @AnomalySubscription@ Amazon Resource Name (ARN).
+    subscriptionArn :: Prelude.Maybe Prelude.Text,
     -- | A list of cost anomaly monitors.
     monitorArnList :: [Prelude.Text],
     -- | A list of subscribers to notify.
@@ -59,9 +59,9 @@ data AnomalySubscription = AnomalySubscription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'subscriptionArn', 'anomalySubscription_subscriptionArn' - The @AnomalySubscription@ Amazon Resource Name (ARN).
---
 -- 'accountId', 'anomalySubscription_accountId' - Your unique account identifier.
+--
+-- 'subscriptionArn', 'anomalySubscription_subscriptionArn' - The @AnomalySubscription@ Amazon Resource Name (ARN).
 --
 -- 'monitorArnList', 'anomalySubscription_monitorArnList' - A list of cost anomaly monitors.
 --
@@ -86,9 +86,8 @@ newAnomalySubscription
   pFrequency_
   pSubscriptionName_ =
     AnomalySubscription'
-      { subscriptionArn =
-          Prelude.Nothing,
-        accountId = Prelude.Nothing,
+      { accountId = Prelude.Nothing,
+        subscriptionArn = Prelude.Nothing,
         monitorArnList = Prelude.mempty,
         subscribers = Prelude.mempty,
         threshold = pThreshold_,
@@ -96,13 +95,13 @@ newAnomalySubscription
         subscriptionName = pSubscriptionName_
       }
 
--- | The @AnomalySubscription@ Amazon Resource Name (ARN).
-anomalySubscription_subscriptionArn :: Lens.Lens' AnomalySubscription (Prelude.Maybe Prelude.Text)
-anomalySubscription_subscriptionArn = Lens.lens (\AnomalySubscription' {subscriptionArn} -> subscriptionArn) (\s@AnomalySubscription' {} a -> s {subscriptionArn = a} :: AnomalySubscription)
-
 -- | Your unique account identifier.
 anomalySubscription_accountId :: Lens.Lens' AnomalySubscription (Prelude.Maybe Prelude.Text)
 anomalySubscription_accountId = Lens.lens (\AnomalySubscription' {accountId} -> accountId) (\s@AnomalySubscription' {} a -> s {accountId = a} :: AnomalySubscription)
+
+-- | The @AnomalySubscription@ Amazon Resource Name (ARN).
+anomalySubscription_subscriptionArn :: Lens.Lens' AnomalySubscription (Prelude.Maybe Prelude.Text)
+anomalySubscription_subscriptionArn = Lens.lens (\AnomalySubscription' {subscriptionArn} -> subscriptionArn) (\s@AnomalySubscription' {} a -> s {subscriptionArn = a} :: AnomalySubscription)
 
 -- | A list of cost anomaly monitors.
 anomalySubscription_monitorArnList :: Lens.Lens' AnomalySubscription [Prelude.Text]
@@ -131,8 +130,8 @@ instance Data.FromJSON AnomalySubscription where
       "AnomalySubscription"
       ( \x ->
           AnomalySubscription'
-            Prelude.<$> (x Data..:? "SubscriptionArn")
-            Prelude.<*> (x Data..:? "AccountId")
+            Prelude.<$> (x Data..:? "AccountId")
+            Prelude.<*> (x Data..:? "SubscriptionArn")
             Prelude.<*> (x Data..:? "MonitorArnList" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Subscribers" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "Threshold")
@@ -142,8 +141,8 @@ instance Data.FromJSON AnomalySubscription where
 
 instance Prelude.Hashable AnomalySubscription where
   hashWithSalt _salt AnomalySubscription' {..} =
-    _salt `Prelude.hashWithSalt` subscriptionArn
-      `Prelude.hashWithSalt` accountId
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` subscriptionArn
       `Prelude.hashWithSalt` monitorArnList
       `Prelude.hashWithSalt` subscribers
       `Prelude.hashWithSalt` threshold
@@ -152,8 +151,8 @@ instance Prelude.Hashable AnomalySubscription where
 
 instance Prelude.NFData AnomalySubscription where
   rnf AnomalySubscription' {..} =
-    Prelude.rnf subscriptionArn
-      `Prelude.seq` Prelude.rnf accountId
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf subscriptionArn
       `Prelude.seq` Prelude.rnf monitorArnList
       `Prelude.seq` Prelude.rnf subscribers
       `Prelude.seq` Prelude.rnf threshold
@@ -164,9 +163,9 @@ instance Data.ToJSON AnomalySubscription where
   toJSON AnomalySubscription' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SubscriptionArn" Data..=)
+          [ ("AccountId" Data..=) Prelude.<$> accountId,
+            ("SubscriptionArn" Data..=)
               Prelude.<$> subscriptionArn,
-            ("AccountId" Data..=) Prelude.<$> accountId,
             Prelude.Just
               ("MonitorArnList" Data..= monitorArnList),
             Prelude.Just ("Subscribers" Data..= subscribers),

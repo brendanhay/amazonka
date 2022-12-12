@@ -30,7 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newParallelismConfigurationUpdate' smart constructor.
 data ParallelismConfigurationUpdate = ParallelismConfigurationUpdate'
-  { -- | Describes updates to whether the application uses the default
+  { -- | Describes updates to whether the Kinesis Data Analytics service can
+    -- increase the parallelism of a Flink-based Kinesis Data Analytics
+    -- application in response to increased throughput.
+    autoScalingEnabledUpdate :: Prelude.Maybe Prelude.Bool,
+    -- | Describes updates to whether the application uses the default
     -- parallelism for the Kinesis Data Analytics service, or if a custom
     -- parallelism is used. You must set this property to @CUSTOM@ in order to
     -- change your application\'s @AutoScalingEnabled@, @Parallelism@, or
@@ -48,11 +52,7 @@ data ParallelismConfigurationUpdate = ParallelismConfigurationUpdate'
     -- default, and can be increased by requesting a limit increase. If
     -- application load is reduced, the service will reduce
     -- @CurrentParallelism@ down to the @Parallelism@ setting.
-    parallelismUpdate :: Prelude.Maybe Prelude.Natural,
-    -- | Describes updates to whether the Kinesis Data Analytics service can
-    -- increase the parallelism of a Flink-based Kinesis Data Analytics
-    -- application in response to increased throughput.
-    autoScalingEnabledUpdate :: Prelude.Maybe Prelude.Bool
+    parallelismUpdate :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,6 +63,10 @@ data ParallelismConfigurationUpdate = ParallelismConfigurationUpdate'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'autoScalingEnabledUpdate', 'parallelismConfigurationUpdate_autoScalingEnabledUpdate' - Describes updates to whether the Kinesis Data Analytics service can
+-- increase the parallelism of a Flink-based Kinesis Data Analytics
+-- application in response to increased throughput.
 --
 -- 'configurationTypeUpdate', 'parallelismConfigurationUpdate_configurationTypeUpdate' - Describes updates to whether the application uses the default
 -- parallelism for the Kinesis Data Analytics service, or if a custom
@@ -82,20 +86,22 @@ data ParallelismConfigurationUpdate = ParallelismConfigurationUpdate'
 -- default, and can be increased by requesting a limit increase. If
 -- application load is reduced, the service will reduce
 -- @CurrentParallelism@ down to the @Parallelism@ setting.
---
--- 'autoScalingEnabledUpdate', 'parallelismConfigurationUpdate_autoScalingEnabledUpdate' - Describes updates to whether the Kinesis Data Analytics service can
--- increase the parallelism of a Flink-based Kinesis Data Analytics
--- application in response to increased throughput.
 newParallelismConfigurationUpdate ::
   ParallelismConfigurationUpdate
 newParallelismConfigurationUpdate =
   ParallelismConfigurationUpdate'
-    { configurationTypeUpdate =
+    { autoScalingEnabledUpdate =
         Prelude.Nothing,
+      configurationTypeUpdate = Prelude.Nothing,
       parallelismPerKPUUpdate = Prelude.Nothing,
-      parallelismUpdate = Prelude.Nothing,
-      autoScalingEnabledUpdate = Prelude.Nothing
+      parallelismUpdate = Prelude.Nothing
     }
+
+-- | Describes updates to whether the Kinesis Data Analytics service can
+-- increase the parallelism of a Flink-based Kinesis Data Analytics
+-- application in response to increased throughput.
+parallelismConfigurationUpdate_autoScalingEnabledUpdate :: Lens.Lens' ParallelismConfigurationUpdate (Prelude.Maybe Prelude.Bool)
+parallelismConfigurationUpdate_autoScalingEnabledUpdate = Lens.lens (\ParallelismConfigurationUpdate' {autoScalingEnabledUpdate} -> autoScalingEnabledUpdate) (\s@ParallelismConfigurationUpdate' {} a -> s {autoScalingEnabledUpdate = a} :: ParallelismConfigurationUpdate)
 
 -- | Describes updates to whether the application uses the default
 -- parallelism for the Kinesis Data Analytics service, or if a custom
@@ -122,12 +128,6 @@ parallelismConfigurationUpdate_parallelismPerKPUUpdate = Lens.lens (\Parallelism
 parallelismConfigurationUpdate_parallelismUpdate :: Lens.Lens' ParallelismConfigurationUpdate (Prelude.Maybe Prelude.Natural)
 parallelismConfigurationUpdate_parallelismUpdate = Lens.lens (\ParallelismConfigurationUpdate' {parallelismUpdate} -> parallelismUpdate) (\s@ParallelismConfigurationUpdate' {} a -> s {parallelismUpdate = a} :: ParallelismConfigurationUpdate)
 
--- | Describes updates to whether the Kinesis Data Analytics service can
--- increase the parallelism of a Flink-based Kinesis Data Analytics
--- application in response to increased throughput.
-parallelismConfigurationUpdate_autoScalingEnabledUpdate :: Lens.Lens' ParallelismConfigurationUpdate (Prelude.Maybe Prelude.Bool)
-parallelismConfigurationUpdate_autoScalingEnabledUpdate = Lens.lens (\ParallelismConfigurationUpdate' {autoScalingEnabledUpdate} -> autoScalingEnabledUpdate) (\s@ParallelismConfigurationUpdate' {} a -> s {autoScalingEnabledUpdate = a} :: ParallelismConfigurationUpdate)
-
 instance
   Prelude.Hashable
     ParallelismConfigurationUpdate
@@ -136,32 +136,32 @@ instance
     _salt
     ParallelismConfigurationUpdate' {..} =
       _salt
+        `Prelude.hashWithSalt` autoScalingEnabledUpdate
         `Prelude.hashWithSalt` configurationTypeUpdate
         `Prelude.hashWithSalt` parallelismPerKPUUpdate
         `Prelude.hashWithSalt` parallelismUpdate
-        `Prelude.hashWithSalt` autoScalingEnabledUpdate
 
 instance
   Prelude.NFData
     ParallelismConfigurationUpdate
   where
   rnf ParallelismConfigurationUpdate' {..} =
-    Prelude.rnf configurationTypeUpdate
+    Prelude.rnf autoScalingEnabledUpdate
+      `Prelude.seq` Prelude.rnf configurationTypeUpdate
       `Prelude.seq` Prelude.rnf parallelismPerKPUUpdate
       `Prelude.seq` Prelude.rnf parallelismUpdate
-      `Prelude.seq` Prelude.rnf autoScalingEnabledUpdate
 
 instance Data.ToJSON ParallelismConfigurationUpdate where
   toJSON ParallelismConfigurationUpdate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ConfigurationTypeUpdate" Data..=)
+          [ ("AutoScalingEnabledUpdate" Data..=)
+              Prelude.<$> autoScalingEnabledUpdate,
+            ("ConfigurationTypeUpdate" Data..=)
               Prelude.<$> configurationTypeUpdate,
             ("ParallelismPerKPUUpdate" Data..=)
               Prelude.<$> parallelismPerKPUUpdate,
             ("ParallelismUpdate" Data..=)
-              Prelude.<$> parallelismUpdate,
-            ("AutoScalingEnabledUpdate" Data..=)
-              Prelude.<$> autoScalingEnabledUpdate
+              Prelude.<$> parallelismUpdate
           ]
       )

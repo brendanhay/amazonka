@@ -30,16 +30,16 @@ import qualified Amazonka.Prelude as Prelude
 data Metrics = Metrics'
   { -- | Total number of recommendations found in the code review.
     findingsCount :: Prelude.Maybe Prelude.Integer,
+    -- | @MeteredLinesOfCodeCount@ is the number of lines of code in the
+    -- repository where the code review happened. This does not include
+    -- non-code lines such as comments and blank lines.
+    meteredLinesOfCodeCount :: Prelude.Maybe Prelude.Integer,
     -- | @SuppressedLinesOfCodeCount@ is the number of lines of code in the
     -- repository where the code review happened that CodeGuru Reviewer did not
     -- analyze. The lines suppressed in the analysis is based on the
     -- @excludeFiles@ variable in the @aws-codeguru-reviewer.yml@ file. This
     -- number does not include non-code lines such as comments and blank lines.
-    suppressedLinesOfCodeCount :: Prelude.Maybe Prelude.Integer,
-    -- | @MeteredLinesOfCodeCount@ is the number of lines of code in the
-    -- repository where the code review happened. This does not include
-    -- non-code lines such as comments and blank lines.
-    meteredLinesOfCodeCount :: Prelude.Maybe Prelude.Integer
+    suppressedLinesOfCodeCount :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,27 +53,33 @@ data Metrics = Metrics'
 --
 -- 'findingsCount', 'metrics_findingsCount' - Total number of recommendations found in the code review.
 --
+-- 'meteredLinesOfCodeCount', 'metrics_meteredLinesOfCodeCount' - @MeteredLinesOfCodeCount@ is the number of lines of code in the
+-- repository where the code review happened. This does not include
+-- non-code lines such as comments and blank lines.
+--
 -- 'suppressedLinesOfCodeCount', 'metrics_suppressedLinesOfCodeCount' - @SuppressedLinesOfCodeCount@ is the number of lines of code in the
 -- repository where the code review happened that CodeGuru Reviewer did not
 -- analyze. The lines suppressed in the analysis is based on the
 -- @excludeFiles@ variable in the @aws-codeguru-reviewer.yml@ file. This
 -- number does not include non-code lines such as comments and blank lines.
---
--- 'meteredLinesOfCodeCount', 'metrics_meteredLinesOfCodeCount' - @MeteredLinesOfCodeCount@ is the number of lines of code in the
--- repository where the code review happened. This does not include
--- non-code lines such as comments and blank lines.
 newMetrics ::
   Metrics
 newMetrics =
   Metrics'
     { findingsCount = Prelude.Nothing,
-      suppressedLinesOfCodeCount = Prelude.Nothing,
-      meteredLinesOfCodeCount = Prelude.Nothing
+      meteredLinesOfCodeCount = Prelude.Nothing,
+      suppressedLinesOfCodeCount = Prelude.Nothing
     }
 
 -- | Total number of recommendations found in the code review.
 metrics_findingsCount :: Lens.Lens' Metrics (Prelude.Maybe Prelude.Integer)
 metrics_findingsCount = Lens.lens (\Metrics' {findingsCount} -> findingsCount) (\s@Metrics' {} a -> s {findingsCount = a} :: Metrics)
+
+-- | @MeteredLinesOfCodeCount@ is the number of lines of code in the
+-- repository where the code review happened. This does not include
+-- non-code lines such as comments and blank lines.
+metrics_meteredLinesOfCodeCount :: Lens.Lens' Metrics (Prelude.Maybe Prelude.Integer)
+metrics_meteredLinesOfCodeCount = Lens.lens (\Metrics' {meteredLinesOfCodeCount} -> meteredLinesOfCodeCount) (\s@Metrics' {} a -> s {meteredLinesOfCodeCount = a} :: Metrics)
 
 -- | @SuppressedLinesOfCodeCount@ is the number of lines of code in the
 -- repository where the code review happened that CodeGuru Reviewer did not
@@ -83,12 +89,6 @@ metrics_findingsCount = Lens.lens (\Metrics' {findingsCount} -> findingsCount) (
 metrics_suppressedLinesOfCodeCount :: Lens.Lens' Metrics (Prelude.Maybe Prelude.Integer)
 metrics_suppressedLinesOfCodeCount = Lens.lens (\Metrics' {suppressedLinesOfCodeCount} -> suppressedLinesOfCodeCount) (\s@Metrics' {} a -> s {suppressedLinesOfCodeCount = a} :: Metrics)
 
--- | @MeteredLinesOfCodeCount@ is the number of lines of code in the
--- repository where the code review happened. This does not include
--- non-code lines such as comments and blank lines.
-metrics_meteredLinesOfCodeCount :: Lens.Lens' Metrics (Prelude.Maybe Prelude.Integer)
-metrics_meteredLinesOfCodeCount = Lens.lens (\Metrics' {meteredLinesOfCodeCount} -> meteredLinesOfCodeCount) (\s@Metrics' {} a -> s {meteredLinesOfCodeCount = a} :: Metrics)
-
 instance Data.FromJSON Metrics where
   parseJSON =
     Data.withObject
@@ -96,18 +96,18 @@ instance Data.FromJSON Metrics where
       ( \x ->
           Metrics'
             Prelude.<$> (x Data..:? "FindingsCount")
-            Prelude.<*> (x Data..:? "SuppressedLinesOfCodeCount")
             Prelude.<*> (x Data..:? "MeteredLinesOfCodeCount")
+            Prelude.<*> (x Data..:? "SuppressedLinesOfCodeCount")
       )
 
 instance Prelude.Hashable Metrics where
   hashWithSalt _salt Metrics' {..} =
     _salt `Prelude.hashWithSalt` findingsCount
-      `Prelude.hashWithSalt` suppressedLinesOfCodeCount
       `Prelude.hashWithSalt` meteredLinesOfCodeCount
+      `Prelude.hashWithSalt` suppressedLinesOfCodeCount
 
 instance Prelude.NFData Metrics where
   rnf Metrics' {..} =
     Prelude.rnf findingsCount
-      `Prelude.seq` Prelude.rnf suppressedLinesOfCodeCount
       `Prelude.seq` Prelude.rnf meteredLinesOfCodeCount
+      `Prelude.seq` Prelude.rnf suppressedLinesOfCodeCount

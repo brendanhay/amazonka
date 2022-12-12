@@ -36,9 +36,9 @@ module Amazonka.ElasticBeanstalk.ListPlatformVersions
     newListPlatformVersions,
 
     -- * Request Lenses
-    listPlatformVersions_nextToken,
     listPlatformVersions_filters,
     listPlatformVersions_maxRecords,
+    listPlatformVersions_nextToken,
 
     -- * Destructuring the Response
     ListPlatformVersionsResponse (..),
@@ -61,18 +61,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPlatformVersions' smart constructor.
 data ListPlatformVersions = ListPlatformVersions'
-  { -- | For a paginated request. Specify a token from a previous response page
-    -- to retrieve the next response page. All other parameter values must be
-    -- identical to the ones specified in the initial request.
-    --
-    -- If no @NextToken@ is specified, the first page is retrieved.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Criteria for restricting the resulting list of platform versions. The
+  { -- | Criteria for restricting the resulting list of platform versions. The
     -- filter is interpreted as a logical conjunction (AND) of the separate
     -- @PlatformFilter@ terms.
     filters :: Prelude.Maybe [PlatformFilter],
     -- | The maximum number of platform version values returned in one call.
-    maxRecords :: Prelude.Maybe Prelude.Natural
+    maxRecords :: Prelude.Maybe Prelude.Natural,
+    -- | For a paginated request. Specify a token from a previous response page
+    -- to retrieve the next response page. All other parameter values must be
+    -- identical to the ones specified in the initial request.
+    --
+    -- If no @NextToken@ is specified, the first page is retrieved.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,33 +84,25 @@ data ListPlatformVersions = ListPlatformVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPlatformVersions_nextToken' - For a paginated request. Specify a token from a previous response page
--- to retrieve the next response page. All other parameter values must be
--- identical to the ones specified in the initial request.
---
--- If no @NextToken@ is specified, the first page is retrieved.
---
 -- 'filters', 'listPlatformVersions_filters' - Criteria for restricting the resulting list of platform versions. The
 -- filter is interpreted as a logical conjunction (AND) of the separate
 -- @PlatformFilter@ terms.
 --
 -- 'maxRecords', 'listPlatformVersions_maxRecords' - The maximum number of platform version values returned in one call.
-newListPlatformVersions ::
-  ListPlatformVersions
-newListPlatformVersions =
-  ListPlatformVersions'
-    { nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
-    }
-
--- | For a paginated request. Specify a token from a previous response page
+--
+-- 'nextToken', 'listPlatformVersions_nextToken' - For a paginated request. Specify a token from a previous response page
 -- to retrieve the next response page. All other parameter values must be
 -- identical to the ones specified in the initial request.
 --
 -- If no @NextToken@ is specified, the first page is retrieved.
-listPlatformVersions_nextToken :: Lens.Lens' ListPlatformVersions (Prelude.Maybe Prelude.Text)
-listPlatformVersions_nextToken = Lens.lens (\ListPlatformVersions' {nextToken} -> nextToken) (\s@ListPlatformVersions' {} a -> s {nextToken = a} :: ListPlatformVersions)
+newListPlatformVersions ::
+  ListPlatformVersions
+newListPlatformVersions =
+  ListPlatformVersions'
+    { filters = Prelude.Nothing,
+      maxRecords = Prelude.Nothing,
+      nextToken = Prelude.Nothing
+    }
 
 -- | Criteria for restricting the resulting list of platform versions. The
 -- filter is interpreted as a logical conjunction (AND) of the separate
@@ -121,6 +113,14 @@ listPlatformVersions_filters = Lens.lens (\ListPlatformVersions' {filters} -> fi
 -- | The maximum number of platform version values returned in one call.
 listPlatformVersions_maxRecords :: Lens.Lens' ListPlatformVersions (Prelude.Maybe Prelude.Natural)
 listPlatformVersions_maxRecords = Lens.lens (\ListPlatformVersions' {maxRecords} -> maxRecords) (\s@ListPlatformVersions' {} a -> s {maxRecords = a} :: ListPlatformVersions)
+
+-- | For a paginated request. Specify a token from a previous response page
+-- to retrieve the next response page. All other parameter values must be
+-- identical to the ones specified in the initial request.
+--
+-- If no @NextToken@ is specified, the first page is retrieved.
+listPlatformVersions_nextToken :: Lens.Lens' ListPlatformVersions (Prelude.Maybe Prelude.Text)
+listPlatformVersions_nextToken = Lens.lens (\ListPlatformVersions' {nextToken} -> nextToken) (\s@ListPlatformVersions' {} a -> s {nextToken = a} :: ListPlatformVersions)
 
 instance Core.AWSPager ListPlatformVersions where
   page rq rs
@@ -165,15 +165,15 @@ instance Core.AWSRequest ListPlatformVersions where
 
 instance Prelude.Hashable ListPlatformVersions where
   hashWithSalt _salt ListPlatformVersions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListPlatformVersions where
   rnf ListPlatformVersions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListPlatformVersions where
   toHeaders = Prelude.const Prelude.mempty
@@ -188,11 +188,11 @@ instance Data.ToQuery ListPlatformVersions where
           Data.=: ("ListPlatformVersions" :: Prelude.ByteString),
         "Version"
           Data.=: ("2010-12-01" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
         "Filters"
           Data.=: Data.toQuery
             (Data.toQueryList "member" Prelude.<$> filters),
-        "MaxRecords" Data.=: maxRecords
+        "MaxRecords" Data.=: maxRecords,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListPlatformVersionsResponse' smart constructor.

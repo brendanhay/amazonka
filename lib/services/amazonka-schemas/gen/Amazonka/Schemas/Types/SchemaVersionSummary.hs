@@ -27,14 +27,14 @@ import Amazonka.Schemas.Types.Type
 
 -- | /See:/ 'newSchemaVersionSummary' smart constructor.
 data SchemaVersionSummary = SchemaVersionSummary'
-  { -- | The type of schema.
-    type' :: Prelude.Maybe Type,
+  { -- | The ARN of the schema version.
+    schemaArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the schema.
     schemaName :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the schema version.
-    schemaArn :: Prelude.Maybe Prelude.Text,
     -- | The version number of the schema.
-    schemaVersion :: Prelude.Maybe Prelude.Text
+    schemaVersion :: Prelude.Maybe Prelude.Text,
+    -- | The type of schema.
+    type' :: Prelude.Maybe Type
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,38 +46,38 @@ data SchemaVersionSummary = SchemaVersionSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'schemaVersionSummary_type' - The type of schema.
+-- 'schemaArn', 'schemaVersionSummary_schemaArn' - The ARN of the schema version.
 --
 -- 'schemaName', 'schemaVersionSummary_schemaName' - The name of the schema.
 --
--- 'schemaArn', 'schemaVersionSummary_schemaArn' - The ARN of the schema version.
---
 -- 'schemaVersion', 'schemaVersionSummary_schemaVersion' - The version number of the schema.
+--
+-- 'type'', 'schemaVersionSummary_type' - The type of schema.
 newSchemaVersionSummary ::
   SchemaVersionSummary
 newSchemaVersionSummary =
   SchemaVersionSummary'
-    { type' = Prelude.Nothing,
+    { schemaArn = Prelude.Nothing,
       schemaName = Prelude.Nothing,
-      schemaArn = Prelude.Nothing,
-      schemaVersion = Prelude.Nothing
+      schemaVersion = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
-
--- | The type of schema.
-schemaVersionSummary_type :: Lens.Lens' SchemaVersionSummary (Prelude.Maybe Type)
-schemaVersionSummary_type = Lens.lens (\SchemaVersionSummary' {type'} -> type') (\s@SchemaVersionSummary' {} a -> s {type' = a} :: SchemaVersionSummary)
-
--- | The name of the schema.
-schemaVersionSummary_schemaName :: Lens.Lens' SchemaVersionSummary (Prelude.Maybe Prelude.Text)
-schemaVersionSummary_schemaName = Lens.lens (\SchemaVersionSummary' {schemaName} -> schemaName) (\s@SchemaVersionSummary' {} a -> s {schemaName = a} :: SchemaVersionSummary)
 
 -- | The ARN of the schema version.
 schemaVersionSummary_schemaArn :: Lens.Lens' SchemaVersionSummary (Prelude.Maybe Prelude.Text)
 schemaVersionSummary_schemaArn = Lens.lens (\SchemaVersionSummary' {schemaArn} -> schemaArn) (\s@SchemaVersionSummary' {} a -> s {schemaArn = a} :: SchemaVersionSummary)
 
+-- | The name of the schema.
+schemaVersionSummary_schemaName :: Lens.Lens' SchemaVersionSummary (Prelude.Maybe Prelude.Text)
+schemaVersionSummary_schemaName = Lens.lens (\SchemaVersionSummary' {schemaName} -> schemaName) (\s@SchemaVersionSummary' {} a -> s {schemaName = a} :: SchemaVersionSummary)
+
 -- | The version number of the schema.
 schemaVersionSummary_schemaVersion :: Lens.Lens' SchemaVersionSummary (Prelude.Maybe Prelude.Text)
 schemaVersionSummary_schemaVersion = Lens.lens (\SchemaVersionSummary' {schemaVersion} -> schemaVersion) (\s@SchemaVersionSummary' {} a -> s {schemaVersion = a} :: SchemaVersionSummary)
+
+-- | The type of schema.
+schemaVersionSummary_type :: Lens.Lens' SchemaVersionSummary (Prelude.Maybe Type)
+schemaVersionSummary_type = Lens.lens (\SchemaVersionSummary' {type'} -> type') (\s@SchemaVersionSummary' {} a -> s {type' = a} :: SchemaVersionSummary)
 
 instance Data.FromJSON SchemaVersionSummary where
   parseJSON =
@@ -85,22 +85,22 @@ instance Data.FromJSON SchemaVersionSummary where
       "SchemaVersionSummary"
       ( \x ->
           SchemaVersionSummary'
-            Prelude.<$> (x Data..:? "Type")
+            Prelude.<$> (x Data..:? "SchemaArn")
             Prelude.<*> (x Data..:? "SchemaName")
-            Prelude.<*> (x Data..:? "SchemaArn")
             Prelude.<*> (x Data..:? "SchemaVersion")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable SchemaVersionSummary where
   hashWithSalt _salt SchemaVersionSummary' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` schemaArn
       `Prelude.hashWithSalt` schemaName
-      `Prelude.hashWithSalt` schemaArn
       `Prelude.hashWithSalt` schemaVersion
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData SchemaVersionSummary where
   rnf SchemaVersionSummary' {..} =
-    Prelude.rnf type'
+    Prelude.rnf schemaArn
       `Prelude.seq` Prelude.rnf schemaName
-      `Prelude.seq` Prelude.rnf schemaArn
       `Prelude.seq` Prelude.rnf schemaVersion
+      `Prelude.seq` Prelude.rnf type'

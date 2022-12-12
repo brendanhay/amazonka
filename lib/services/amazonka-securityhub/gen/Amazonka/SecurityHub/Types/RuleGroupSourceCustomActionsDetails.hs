@@ -30,10 +30,10 @@ import Amazonka.SecurityHub.Types.StatelessCustomActionDefinition
 --
 -- /See:/ 'newRuleGroupSourceCustomActionsDetails' smart constructor.
 data RuleGroupSourceCustomActionsDetails = RuleGroupSourceCustomActionsDetails'
-  { -- | A descriptive name of the custom action.
-    actionName :: Prelude.Maybe Prelude.Text,
-    -- | The definition of a custom action.
-    actionDefinition :: Prelude.Maybe StatelessCustomActionDefinition
+  { -- | The definition of a custom action.
+    actionDefinition :: Prelude.Maybe StatelessCustomActionDefinition,
+    -- | A descriptive name of the custom action.
+    actionName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,25 +45,25 @@ data RuleGroupSourceCustomActionsDetails = RuleGroupSourceCustomActionsDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'actionName', 'ruleGroupSourceCustomActionsDetails_actionName' - A descriptive name of the custom action.
---
 -- 'actionDefinition', 'ruleGroupSourceCustomActionsDetails_actionDefinition' - The definition of a custom action.
+--
+-- 'actionName', 'ruleGroupSourceCustomActionsDetails_actionName' - A descriptive name of the custom action.
 newRuleGroupSourceCustomActionsDetails ::
   RuleGroupSourceCustomActionsDetails
 newRuleGroupSourceCustomActionsDetails =
   RuleGroupSourceCustomActionsDetails'
-    { actionName =
+    { actionDefinition =
         Prelude.Nothing,
-      actionDefinition = Prelude.Nothing
+      actionName = Prelude.Nothing
     }
-
--- | A descriptive name of the custom action.
-ruleGroupSourceCustomActionsDetails_actionName :: Lens.Lens' RuleGroupSourceCustomActionsDetails (Prelude.Maybe Prelude.Text)
-ruleGroupSourceCustomActionsDetails_actionName = Lens.lens (\RuleGroupSourceCustomActionsDetails' {actionName} -> actionName) (\s@RuleGroupSourceCustomActionsDetails' {} a -> s {actionName = a} :: RuleGroupSourceCustomActionsDetails)
 
 -- | The definition of a custom action.
 ruleGroupSourceCustomActionsDetails_actionDefinition :: Lens.Lens' RuleGroupSourceCustomActionsDetails (Prelude.Maybe StatelessCustomActionDefinition)
 ruleGroupSourceCustomActionsDetails_actionDefinition = Lens.lens (\RuleGroupSourceCustomActionsDetails' {actionDefinition} -> actionDefinition) (\s@RuleGroupSourceCustomActionsDetails' {} a -> s {actionDefinition = a} :: RuleGroupSourceCustomActionsDetails)
+
+-- | A descriptive name of the custom action.
+ruleGroupSourceCustomActionsDetails_actionName :: Lens.Lens' RuleGroupSourceCustomActionsDetails (Prelude.Maybe Prelude.Text)
+ruleGroupSourceCustomActionsDetails_actionName = Lens.lens (\RuleGroupSourceCustomActionsDetails' {actionName} -> actionName) (\s@RuleGroupSourceCustomActionsDetails' {} a -> s {actionName = a} :: RuleGroupSourceCustomActionsDetails)
 
 instance
   Data.FromJSON
@@ -74,8 +74,8 @@ instance
       "RuleGroupSourceCustomActionsDetails"
       ( \x ->
           RuleGroupSourceCustomActionsDetails'
-            Prelude.<$> (x Data..:? "ActionName")
-            Prelude.<*> (x Data..:? "ActionDefinition")
+            Prelude.<$> (x Data..:? "ActionDefinition")
+            Prelude.<*> (x Data..:? "ActionName")
       )
 
 instance
@@ -85,16 +85,16 @@ instance
   hashWithSalt
     _salt
     RuleGroupSourceCustomActionsDetails' {..} =
-      _salt `Prelude.hashWithSalt` actionName
-        `Prelude.hashWithSalt` actionDefinition
+      _salt `Prelude.hashWithSalt` actionDefinition
+        `Prelude.hashWithSalt` actionName
 
 instance
   Prelude.NFData
     RuleGroupSourceCustomActionsDetails
   where
   rnf RuleGroupSourceCustomActionsDetails' {..} =
-    Prelude.rnf actionName
-      `Prelude.seq` Prelude.rnf actionDefinition
+    Prelude.rnf actionDefinition
+      `Prelude.seq` Prelude.rnf actionName
 
 instance
   Data.ToJSON
@@ -103,8 +103,8 @@ instance
   toJSON RuleGroupSourceCustomActionsDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ActionName" Data..=) Prelude.<$> actionName,
-            ("ActionDefinition" Data..=)
-              Prelude.<$> actionDefinition
+          [ ("ActionDefinition" Data..=)
+              Prelude.<$> actionDefinition,
+            ("ActionName" Data..=) Prelude.<$> actionName
           ]
       )

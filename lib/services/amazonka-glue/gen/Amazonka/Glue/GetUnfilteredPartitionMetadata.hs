@@ -40,8 +40,8 @@ module Amazonka.Glue.GetUnfilteredPartitionMetadata
 
     -- * Response Lenses
     getUnfilteredPartitionMetadataResponse_authorizedColumns,
-    getUnfilteredPartitionMetadataResponse_partition,
     getUnfilteredPartitionMetadataResponse_isRegisteredWithLakeFormation,
+    getUnfilteredPartitionMetadataResponse_partition,
     getUnfilteredPartitionMetadataResponse_httpStatus,
   )
 where
@@ -151,8 +151,8 @@ instance
             Prelude.<$> ( x Data..?> "AuthorizedColumns"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "Partition")
             Prelude.<*> (x Data..?> "IsRegisteredWithLakeFormation")
+            Prelude.<*> (x Data..?> "Partition")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -226,8 +226,8 @@ instance Data.ToQuery GetUnfilteredPartitionMetadata where
 -- | /See:/ 'newGetUnfilteredPartitionMetadataResponse' smart constructor.
 data GetUnfilteredPartitionMetadataResponse = GetUnfilteredPartitionMetadataResponse'
   { authorizedColumns :: Prelude.Maybe [Prelude.Text],
-    partition :: Prelude.Maybe Partition,
     isRegisteredWithLakeFormation :: Prelude.Maybe Prelude.Bool,
+    partition :: Prelude.Maybe Partition,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -243,9 +243,9 @@ data GetUnfilteredPartitionMetadataResponse = GetUnfilteredPartitionMetadataResp
 --
 -- 'authorizedColumns', 'getUnfilteredPartitionMetadataResponse_authorizedColumns' - Undocumented member.
 --
--- 'partition', 'getUnfilteredPartitionMetadataResponse_partition' - Undocumented member.
---
 -- 'isRegisteredWithLakeFormation', 'getUnfilteredPartitionMetadataResponse_isRegisteredWithLakeFormation' - Undocumented member.
+--
+-- 'partition', 'getUnfilteredPartitionMetadataResponse_partition' - Undocumented member.
 --
 -- 'httpStatus', 'getUnfilteredPartitionMetadataResponse_httpStatus' - The response's http status code.
 newGetUnfilteredPartitionMetadataResponse ::
@@ -257,9 +257,9 @@ newGetUnfilteredPartitionMetadataResponse
     GetUnfilteredPartitionMetadataResponse'
       { authorizedColumns =
           Prelude.Nothing,
-        partition = Prelude.Nothing,
         isRegisteredWithLakeFormation =
           Prelude.Nothing,
+        partition = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
@@ -268,12 +268,12 @@ getUnfilteredPartitionMetadataResponse_authorizedColumns :: Lens.Lens' GetUnfilt
 getUnfilteredPartitionMetadataResponse_authorizedColumns = Lens.lens (\GetUnfilteredPartitionMetadataResponse' {authorizedColumns} -> authorizedColumns) (\s@GetUnfilteredPartitionMetadataResponse' {} a -> s {authorizedColumns = a} :: GetUnfilteredPartitionMetadataResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
-getUnfilteredPartitionMetadataResponse_partition :: Lens.Lens' GetUnfilteredPartitionMetadataResponse (Prelude.Maybe Partition)
-getUnfilteredPartitionMetadataResponse_partition = Lens.lens (\GetUnfilteredPartitionMetadataResponse' {partition} -> partition) (\s@GetUnfilteredPartitionMetadataResponse' {} a -> s {partition = a} :: GetUnfilteredPartitionMetadataResponse)
-
--- | Undocumented member.
 getUnfilteredPartitionMetadataResponse_isRegisteredWithLakeFormation :: Lens.Lens' GetUnfilteredPartitionMetadataResponse (Prelude.Maybe Prelude.Bool)
 getUnfilteredPartitionMetadataResponse_isRegisteredWithLakeFormation = Lens.lens (\GetUnfilteredPartitionMetadataResponse' {isRegisteredWithLakeFormation} -> isRegisteredWithLakeFormation) (\s@GetUnfilteredPartitionMetadataResponse' {} a -> s {isRegisteredWithLakeFormation = a} :: GetUnfilteredPartitionMetadataResponse)
+
+-- | Undocumented member.
+getUnfilteredPartitionMetadataResponse_partition :: Lens.Lens' GetUnfilteredPartitionMetadataResponse (Prelude.Maybe Partition)
+getUnfilteredPartitionMetadataResponse_partition = Lens.lens (\GetUnfilteredPartitionMetadataResponse' {partition} -> partition) (\s@GetUnfilteredPartitionMetadataResponse' {} a -> s {partition = a} :: GetUnfilteredPartitionMetadataResponse)
 
 -- | The response's http status code.
 getUnfilteredPartitionMetadataResponse_httpStatus :: Lens.Lens' GetUnfilteredPartitionMetadataResponse Prelude.Int
@@ -285,6 +285,6 @@ instance
   where
   rnf GetUnfilteredPartitionMetadataResponse' {..} =
     Prelude.rnf authorizedColumns
-      `Prelude.seq` Prelude.rnf partition
       `Prelude.seq` Prelude.rnf isRegisteredWithLakeFormation
+      `Prelude.seq` Prelude.rnf partition
       `Prelude.seq` Prelude.rnf httpStatus

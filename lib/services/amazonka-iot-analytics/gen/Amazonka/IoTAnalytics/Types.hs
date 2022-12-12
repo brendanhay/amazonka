@@ -18,13 +18,13 @@ module Amazonka.IoTAnalytics.Types
     defaultService,
 
     -- * Errors
-    _ResourceAlreadyExistsException,
-    _ServiceUnavailableException,
-    _ResourceNotFoundException,
-    _LimitExceededException,
-    _ThrottlingException,
-    _InvalidRequestException,
     _InternalFailureException,
+    _InvalidRequestException,
+    _LimitExceededException,
+    _ResourceAlreadyExistsException,
+    _ResourceNotFoundException,
+    _ServiceUnavailableException,
+    _ThrottlingException,
 
     -- * ChannelStatus
     ChannelStatus (..),
@@ -63,21 +63,21 @@ module Amazonka.IoTAnalytics.Types
     -- * BatchPutMessageErrorEntry
     BatchPutMessageErrorEntry (..),
     newBatchPutMessageErrorEntry,
+    batchPutMessageErrorEntry_errorCode,
     batchPutMessageErrorEntry_errorMessage,
     batchPutMessageErrorEntry_messageId,
-    batchPutMessageErrorEntry_errorCode,
 
     -- * Channel
     Channel (..),
     newChannel,
-    channel_name,
     channel_arn,
-    channel_storage,
-    channel_status,
-    channel_retentionPeriod,
     channel_creationTime,
-    channel_lastUpdateTime,
     channel_lastMessageArrivalTime,
+    channel_lastUpdateTime,
+    channel_name,
+    channel_retentionPeriod,
+    channel_status,
+    channel_storage,
 
     -- * ChannelActivity
     ChannelActivity (..),
@@ -113,10 +113,10 @@ module Amazonka.IoTAnalytics.Types
     newChannelSummary,
     channelSummary_channelName,
     channelSummary_channelStorage,
-    channelSummary_status,
     channelSummary_creationTime,
-    channelSummary_lastUpdateTime,
     channelSummary_lastMessageArrivalTime,
+    channelSummary_lastUpdateTime,
+    channelSummary_status,
 
     -- * Column
     Column (..),
@@ -142,9 +142,9 @@ module Amazonka.IoTAnalytics.Types
     -- * CustomerManagedChannelS3StorageSummary
     CustomerManagedChannelS3StorageSummary (..),
     newCustomerManagedChannelS3StorageSummary,
-    customerManagedChannelS3StorageSummary_roleArn,
     customerManagedChannelS3StorageSummary_bucket,
     customerManagedChannelS3StorageSummary_keyPrefix,
+    customerManagedChannelS3StorageSummary_roleArn,
 
     -- * CustomerManagedDatastoreS3Storage
     CustomerManagedDatastoreS3Storage (..),
@@ -156,31 +156,31 @@ module Amazonka.IoTAnalytics.Types
     -- * CustomerManagedDatastoreS3StorageSummary
     CustomerManagedDatastoreS3StorageSummary (..),
     newCustomerManagedDatastoreS3StorageSummary,
-    customerManagedDatastoreS3StorageSummary_roleArn,
     customerManagedDatastoreS3StorageSummary_bucket,
     customerManagedDatastoreS3StorageSummary_keyPrefix,
+    customerManagedDatastoreS3StorageSummary_roleArn,
 
     -- * Dataset
     Dataset (..),
     newDataset,
-    dataset_name,
-    dataset_lateDataRules,
-    dataset_versioningConfiguration,
+    dataset_actions,
     dataset_arn,
-    dataset_status,
-    dataset_triggers,
     dataset_contentDeliveryRules,
-    dataset_retentionPeriod,
     dataset_creationTime,
     dataset_lastUpdateTime,
-    dataset_actions,
+    dataset_lateDataRules,
+    dataset_name,
+    dataset_retentionPeriod,
+    dataset_status,
+    dataset_triggers,
+    dataset_versioningConfiguration,
 
     -- * DatasetAction
     DatasetAction (..),
     newDatasetAction,
-    datasetAction_queryAction,
     datasetAction_actionName,
     datasetAction_containerAction,
+    datasetAction_queryAction,
 
     -- * DatasetActionSummary
     DatasetActionSummary (..),
@@ -191,8 +191,8 @@ module Amazonka.IoTAnalytics.Types
     -- * DatasetContentDeliveryDestination
     DatasetContentDeliveryDestination (..),
     newDatasetContentDeliveryDestination,
-    datasetContentDeliveryDestination_s3DestinationConfiguration,
     datasetContentDeliveryDestination_iotEventsDestinationConfiguration,
+    datasetContentDeliveryDestination_s3DestinationConfiguration,
 
     -- * DatasetContentDeliveryRule
     DatasetContentDeliveryRule (..),
@@ -203,16 +203,16 @@ module Amazonka.IoTAnalytics.Types
     -- * DatasetContentStatus
     DatasetContentStatus (..),
     newDatasetContentStatus,
-    datasetContentStatus_state,
     datasetContentStatus_reason,
+    datasetContentStatus_state,
 
     -- * DatasetContentSummary
     DatasetContentSummary (..),
     newDatasetContentSummary,
-    datasetContentSummary_status,
     datasetContentSummary_completionTime,
-    datasetContentSummary_scheduleTime,
     datasetContentSummary_creationTime,
+    datasetContentSummary_scheduleTime,
+    datasetContentSummary_status,
     datasetContentSummary_version,
 
     -- * DatasetContentVersionValue
@@ -223,38 +223,38 @@ module Amazonka.IoTAnalytics.Types
     -- * DatasetEntry
     DatasetEntry (..),
     newDatasetEntry,
-    datasetEntry_entryName,
     datasetEntry_dataURI,
+    datasetEntry_entryName,
 
     -- * DatasetSummary
     DatasetSummary (..),
     newDatasetSummary,
+    datasetSummary_actions,
+    datasetSummary_creationTime,
     datasetSummary_datasetName,
+    datasetSummary_lastUpdateTime,
     datasetSummary_status,
     datasetSummary_triggers,
-    datasetSummary_creationTime,
-    datasetSummary_lastUpdateTime,
-    datasetSummary_actions,
 
     -- * DatasetTrigger
     DatasetTrigger (..),
     newDatasetTrigger,
-    datasetTrigger_schedule,
     datasetTrigger_dataset,
+    datasetTrigger_schedule,
 
     -- * Datastore
     Datastore (..),
     newDatastore,
-    datastore_name,
     datastore_arn,
-    datastore_storage,
-    datastore_status,
-    datastore_fileFormatConfiguration,
-    datastore_retentionPeriod,
     datastore_creationTime,
-    datastore_lastUpdateTime,
-    datastore_lastMessageArrivalTime,
     datastore_datastorePartitions,
+    datastore_fileFormatConfiguration,
+    datastore_lastMessageArrivalTime,
+    datastore_lastUpdateTime,
+    datastore_name,
+    datastore_retentionPeriod,
+    datastore_status,
+    datastore_storage,
 
     -- * DatastoreActivity
     DatastoreActivity (..),
@@ -305,14 +305,14 @@ module Amazonka.IoTAnalytics.Types
     -- * DatastoreSummary
     DatastoreSummary (..),
     newDatastoreSummary,
-    datastoreSummary_fileFormatType,
-    datastoreSummary_status,
-    datastoreSummary_datastoreName,
     datastoreSummary_creationTime,
-    datastoreSummary_lastUpdateTime,
-    datastoreSummary_datastoreStorage,
-    datastoreSummary_lastMessageArrivalTime,
+    datastoreSummary_datastoreName,
     datastoreSummary_datastorePartitions,
+    datastoreSummary_datastoreStorage,
+    datastoreSummary_fileFormatType,
+    datastoreSummary_lastMessageArrivalTime,
+    datastoreSummary_lastUpdateTime,
+    datastoreSummary_status,
 
     -- * DeltaTime
     DeltaTime (..),
@@ -346,14 +346,14 @@ module Amazonka.IoTAnalytics.Types
     -- * EstimatedResourceSize
     EstimatedResourceSize (..),
     newEstimatedResourceSize,
-    estimatedResourceSize_estimatedSizeInBytes,
     estimatedResourceSize_estimatedOn,
+    estimatedResourceSize_estimatedSizeInBytes,
 
     -- * FileFormatConfiguration
     FileFormatConfiguration (..),
     newFileFormatConfiguration,
-    fileFormatConfiguration_parquetConfiguration,
     fileFormatConfiguration_jsonConfiguration,
+    fileFormatConfiguration_parquetConfiguration,
 
     -- * FilterActivity
     FilterActivity (..),
@@ -448,34 +448,34 @@ module Amazonka.IoTAnalytics.Types
     -- * Pipeline
     Pipeline (..),
     newPipeline,
-    pipeline_name,
     pipeline_activities,
-    pipeline_reprocessingSummaries,
     pipeline_arn,
     pipeline_creationTime,
     pipeline_lastUpdateTime,
+    pipeline_name,
+    pipeline_reprocessingSummaries,
 
     -- * PipelineActivity
     PipelineActivity (..),
     newPipelineActivity,
-    pipelineActivity_deviceRegistryEnrich,
-    pipelineActivity_selectAttributes,
-    pipelineActivity_datastore,
     pipelineActivity_addAttributes,
     pipelineActivity_channel,
-    pipelineActivity_removeAttributes,
+    pipelineActivity_datastore,
+    pipelineActivity_deviceRegistryEnrich,
     pipelineActivity_deviceShadowEnrich,
     pipelineActivity_filter,
-    pipelineActivity_math,
     pipelineActivity_lambda,
+    pipelineActivity_math,
+    pipelineActivity_removeAttributes,
+    pipelineActivity_selectAttributes,
 
     -- * PipelineSummary
     PipelineSummary (..),
     newPipelineSummary,
-    pipelineSummary_reprocessingSummaries,
-    pipelineSummary_pipelineName,
     pipelineSummary_creationTime,
     pipelineSummary_lastUpdateTime,
+    pipelineSummary_pipelineName,
+    pipelineSummary_reprocessingSummaries,
 
     -- * QueryFilter
     QueryFilter (..),
@@ -492,9 +492,9 @@ module Amazonka.IoTAnalytics.Types
     -- * ReprocessingSummary
     ReprocessingSummary (..),
     newReprocessingSummary,
-    reprocessingSummary_status,
-    reprocessingSummary_id,
     reprocessingSummary_creationTime,
+    reprocessingSummary_id,
+    reprocessingSummary_status,
 
     -- * ResourceConfiguration
     ResourceConfiguration (..),
@@ -575,10 +575,10 @@ module Amazonka.IoTAnalytics.Types
     -- * Variable
     Variable (..),
     newVariable,
-    variable_doubleValue,
-    variable_stringValue,
-    variable_outputFileUriValue,
     variable_datasetContentVersionValue,
+    variable_doubleValue,
+    variable_outputFileUriValue,
+    variable_stringValue,
     variable_name,
 
     -- * VersioningConfiguration
@@ -707,28 +707,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -736,13 +730,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -750,47 +748,17 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
--- | A resource with the same name already exists.
-_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceAlreadyExistsException =
+-- | There was an internal failure.
+_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalFailureException =
   Core._MatchServiceError
     defaultService
-    "ResourceAlreadyExistsException"
-    Prelude.. Core.hasStatus 409
-
--- | The service is temporarily unavailable.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceUnavailableException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceUnavailableException"
-    Prelude.. Core.hasStatus 503
-
--- | A resource with the specified name could not be found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
-
--- | The command caused an internal limit to be exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "LimitExceededException"
-    Prelude.. Core.hasStatus 410
-
--- | The request was denied due to request throttling.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ThrottlingException =
-  Core._MatchServiceError
-    defaultService
-    "ThrottlingException"
-    Prelude.. Core.hasStatus 429
+    "InternalFailureException"
+    Prelude.. Core.hasStatus 500
 
 -- | The request was not valid.
 _InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -800,10 +768,42 @@ _InvalidRequestException =
     "InvalidRequestException"
     Prelude.. Core.hasStatus 400
 
--- | There was an internal failure.
-_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalFailureException =
+-- | The command caused an internal limit to be exceeded.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
   Core._MatchServiceError
     defaultService
-    "InternalFailureException"
-    Prelude.. Core.hasStatus 500
+    "LimitExceededException"
+    Prelude.. Core.hasStatus 410
+
+-- | A resource with the same name already exists.
+_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceAlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceAlreadyExistsException"
+    Prelude.. Core.hasStatus 409
+
+-- | A resource with the specified name could not be found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
+
+-- | The service is temporarily unavailable.
+_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceUnavailableException"
+    Prelude.. Core.hasStatus 503
+
+-- | The request was denied due to request throttling.
+_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottlingException"
+    Prelude.. Core.hasStatus 429

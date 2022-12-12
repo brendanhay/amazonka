@@ -29,8 +29,8 @@ module Amazonka.AppRunner.CreateVpcConnector
     newCreateVpcConnector,
 
     -- * Request Lenses
-    createVpcConnector_tags,
     createVpcConnector_securityGroups,
+    createVpcConnector_tags,
     createVpcConnector_vpcConnectorName,
     createVpcConnector_subnets,
 
@@ -54,14 +54,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateVpcConnector' smart constructor.
 data CreateVpcConnector = CreateVpcConnector'
-  { -- | A list of metadata items that you can associate with your VPC connector
-    -- resource. A tag is a key-value pair.
-    tags :: Prelude.Maybe [Tag],
-    -- | A list of IDs of security groups that App Runner should use for access
+  { -- | A list of IDs of security groups that App Runner should use for access
     -- to Amazon Web Services resources under the specified subnets. If not
     -- specified, App Runner uses the default security group of the Amazon VPC.
     -- The default security group allows all outbound traffic.
     securityGroups :: Prelude.Maybe [Prelude.Text],
+    -- | A list of metadata items that you can associate with your VPC connector
+    -- resource. A tag is a key-value pair.
+    tags :: Prelude.Maybe [Tag],
     -- | A name for the VPC connector.
     vpcConnectorName :: Prelude.Text,
     -- | A list of IDs of subnets that App Runner should use when it associates
@@ -82,13 +82,13 @@ data CreateVpcConnector = CreateVpcConnector'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createVpcConnector_tags' - A list of metadata items that you can associate with your VPC connector
--- resource. A tag is a key-value pair.
---
 -- 'securityGroups', 'createVpcConnector_securityGroups' - A list of IDs of security groups that App Runner should use for access
 -- to Amazon Web Services resources under the specified subnets. If not
 -- specified, App Runner uses the default security group of the Amazon VPC.
 -- The default security group allows all outbound traffic.
+--
+-- 'tags', 'createVpcConnector_tags' - A list of metadata items that you can associate with your VPC connector
+-- resource. A tag is a key-value pair.
 --
 -- 'vpcConnectorName', 'createVpcConnector_vpcConnectorName' - A name for the VPC connector.
 --
@@ -104,16 +104,12 @@ newCreateVpcConnector ::
   CreateVpcConnector
 newCreateVpcConnector pVpcConnectorName_ =
   CreateVpcConnector'
-    { tags = Prelude.Nothing,
-      securityGroups = Prelude.Nothing,
+    { securityGroups =
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
       vpcConnectorName = pVpcConnectorName_,
       subnets = Prelude.mempty
     }
-
--- | A list of metadata items that you can associate with your VPC connector
--- resource. A tag is a key-value pair.
-createVpcConnector_tags :: Lens.Lens' CreateVpcConnector (Prelude.Maybe [Tag])
-createVpcConnector_tags = Lens.lens (\CreateVpcConnector' {tags} -> tags) (\s@CreateVpcConnector' {} a -> s {tags = a} :: CreateVpcConnector) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of IDs of security groups that App Runner should use for access
 -- to Amazon Web Services resources under the specified subnets. If not
@@ -121,6 +117,11 @@ createVpcConnector_tags = Lens.lens (\CreateVpcConnector' {tags} -> tags) (\s@Cr
 -- The default security group allows all outbound traffic.
 createVpcConnector_securityGroups :: Lens.Lens' CreateVpcConnector (Prelude.Maybe [Prelude.Text])
 createVpcConnector_securityGroups = Lens.lens (\CreateVpcConnector' {securityGroups} -> securityGroups) (\s@CreateVpcConnector' {} a -> s {securityGroups = a} :: CreateVpcConnector) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of metadata items that you can associate with your VPC connector
+-- resource. A tag is a key-value pair.
+createVpcConnector_tags :: Lens.Lens' CreateVpcConnector (Prelude.Maybe [Tag])
+createVpcConnector_tags = Lens.lens (\CreateVpcConnector' {tags} -> tags) (\s@CreateVpcConnector' {} a -> s {tags = a} :: CreateVpcConnector) Prelude.. Lens.mapping Lens.coerced
 
 -- | A name for the VPC connector.
 createVpcConnector_vpcConnectorName :: Lens.Lens' CreateVpcConnector Prelude.Text
@@ -151,15 +152,15 @@ instance Core.AWSRequest CreateVpcConnector where
 
 instance Prelude.Hashable CreateVpcConnector where
   hashWithSalt _salt CreateVpcConnector' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` securityGroups
+    _salt `Prelude.hashWithSalt` securityGroups
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` vpcConnectorName
       `Prelude.hashWithSalt` subnets
 
 instance Prelude.NFData CreateVpcConnector where
   rnf CreateVpcConnector' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf securityGroups
+    Prelude.rnf securityGroups
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf vpcConnectorName
       `Prelude.seq` Prelude.rnf subnets
 
@@ -182,9 +183,9 @@ instance Data.ToJSON CreateVpcConnector where
   toJSON CreateVpcConnector' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("SecurityGroups" Data..=)
+          [ ("SecurityGroups" Data..=)
               Prelude.<$> securityGroups,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("VpcConnectorName" Data..= vpcConnectorName),
             Prelude.Just ("Subnets" Data..= subnets)

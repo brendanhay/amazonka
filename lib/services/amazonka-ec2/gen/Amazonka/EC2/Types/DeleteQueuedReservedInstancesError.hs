@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeleteQueuedReservedInstancesError' smart constructor.
 data DeleteQueuedReservedInstancesError = DeleteQueuedReservedInstancesError'
-  { -- | The error message.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The error code.
-    code :: Prelude.Maybe DeleteQueuedReservedInstancesErrorCode
+  { -- | The error code.
+    code :: Prelude.Maybe DeleteQueuedReservedInstancesErrorCode,
+    -- | The error message.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,25 +46,25 @@ data DeleteQueuedReservedInstancesError = DeleteQueuedReservedInstancesError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'deleteQueuedReservedInstancesError_message' - The error message.
---
 -- 'code', 'deleteQueuedReservedInstancesError_code' - The error code.
+--
+-- 'message', 'deleteQueuedReservedInstancesError_message' - The error message.
 newDeleteQueuedReservedInstancesError ::
   DeleteQueuedReservedInstancesError
 newDeleteQueuedReservedInstancesError =
   DeleteQueuedReservedInstancesError'
-    { message =
+    { code =
         Prelude.Nothing,
-      code = Prelude.Nothing
+      message = Prelude.Nothing
     }
-
--- | The error message.
-deleteQueuedReservedInstancesError_message :: Lens.Lens' DeleteQueuedReservedInstancesError (Prelude.Maybe Prelude.Text)
-deleteQueuedReservedInstancesError_message = Lens.lens (\DeleteQueuedReservedInstancesError' {message} -> message) (\s@DeleteQueuedReservedInstancesError' {} a -> s {message = a} :: DeleteQueuedReservedInstancesError)
 
 -- | The error code.
 deleteQueuedReservedInstancesError_code :: Lens.Lens' DeleteQueuedReservedInstancesError (Prelude.Maybe DeleteQueuedReservedInstancesErrorCode)
 deleteQueuedReservedInstancesError_code = Lens.lens (\DeleteQueuedReservedInstancesError' {code} -> code) (\s@DeleteQueuedReservedInstancesError' {} a -> s {code = a} :: DeleteQueuedReservedInstancesError)
+
+-- | The error message.
+deleteQueuedReservedInstancesError_message :: Lens.Lens' DeleteQueuedReservedInstancesError (Prelude.Maybe Prelude.Text)
+deleteQueuedReservedInstancesError_message = Lens.lens (\DeleteQueuedReservedInstancesError' {message} -> message) (\s@DeleteQueuedReservedInstancesError' {} a -> s {message = a} :: DeleteQueuedReservedInstancesError)
 
 instance
   Data.FromXML
@@ -72,8 +72,8 @@ instance
   where
   parseXML x =
     DeleteQueuedReservedInstancesError'
-      Prelude.<$> (x Data..@? "message")
-      Prelude.<*> (x Data..@? "code")
+      Prelude.<$> (x Data..@? "code")
+      Prelude.<*> (x Data..@? "message")
 
 instance
   Prelude.Hashable
@@ -82,12 +82,12 @@ instance
   hashWithSalt
     _salt
     DeleteQueuedReservedInstancesError' {..} =
-      _salt `Prelude.hashWithSalt` message
-        `Prelude.hashWithSalt` code
+      _salt `Prelude.hashWithSalt` code
+        `Prelude.hashWithSalt` message
 
 instance
   Prelude.NFData
     DeleteQueuedReservedInstancesError
   where
   rnf DeleteQueuedReservedInstancesError' {..} =
-    Prelude.rnf message `Prelude.seq` Prelude.rnf code
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

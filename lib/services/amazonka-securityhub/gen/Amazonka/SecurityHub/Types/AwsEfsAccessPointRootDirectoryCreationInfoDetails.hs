@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEfsAccessPointRootDirectoryCreationInfoDetails' smart constructor.
 data AwsEfsAccessPointRootDirectoryCreationInfoDetails = AwsEfsAccessPointRootDirectoryCreationInfoDetails'
-  { -- | Specifies the POSIX permissions to apply to the root directory, in the
-    -- format of an octal number representing the file\'s mode bits.
-    permissions :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the POSIX group ID to apply to the root directory.
+  { -- | Specifies the POSIX group ID to apply to the root directory.
     ownerGid :: Prelude.Maybe Prelude.Text,
     -- | Specifies the POSIX user ID to apply to the root directory.
-    ownerUid :: Prelude.Maybe Prelude.Text
+    ownerUid :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the POSIX permissions to apply to the root directory, in the
+    -- format of an octal number representing the file\'s mode bits.
+    permissions :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,28 +47,23 @@ data AwsEfsAccessPointRootDirectoryCreationInfoDetails = AwsEfsAccessPointRootDi
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'permissions', 'awsEfsAccessPointRootDirectoryCreationInfoDetails_permissions' - Specifies the POSIX permissions to apply to the root directory, in the
--- format of an octal number representing the file\'s mode bits.
---
 -- 'ownerGid', 'awsEfsAccessPointRootDirectoryCreationInfoDetails_ownerGid' - Specifies the POSIX group ID to apply to the root directory.
 --
 -- 'ownerUid', 'awsEfsAccessPointRootDirectoryCreationInfoDetails_ownerUid' - Specifies the POSIX user ID to apply to the root directory.
+--
+-- 'permissions', 'awsEfsAccessPointRootDirectoryCreationInfoDetails_permissions' - Specifies the POSIX permissions to apply to the root directory, in the
+-- format of an octal number representing the file\'s mode bits.
 newAwsEfsAccessPointRootDirectoryCreationInfoDetails ::
   AwsEfsAccessPointRootDirectoryCreationInfoDetails
 newAwsEfsAccessPointRootDirectoryCreationInfoDetails =
   AwsEfsAccessPointRootDirectoryCreationInfoDetails'
-    { permissions =
-        Prelude.Nothing,
-      ownerGid =
+    { ownerGid =
         Prelude.Nothing,
       ownerUid =
+        Prelude.Nothing,
+      permissions =
         Prelude.Nothing
     }
-
--- | Specifies the POSIX permissions to apply to the root directory, in the
--- format of an octal number representing the file\'s mode bits.
-awsEfsAccessPointRootDirectoryCreationInfoDetails_permissions :: Lens.Lens' AwsEfsAccessPointRootDirectoryCreationInfoDetails (Prelude.Maybe Prelude.Text)
-awsEfsAccessPointRootDirectoryCreationInfoDetails_permissions = Lens.lens (\AwsEfsAccessPointRootDirectoryCreationInfoDetails' {permissions} -> permissions) (\s@AwsEfsAccessPointRootDirectoryCreationInfoDetails' {} a -> s {permissions = a} :: AwsEfsAccessPointRootDirectoryCreationInfoDetails)
 
 -- | Specifies the POSIX group ID to apply to the root directory.
 awsEfsAccessPointRootDirectoryCreationInfoDetails_ownerGid :: Lens.Lens' AwsEfsAccessPointRootDirectoryCreationInfoDetails (Prelude.Maybe Prelude.Text)
@@ -77,6 +72,11 @@ awsEfsAccessPointRootDirectoryCreationInfoDetails_ownerGid = Lens.lens (\AwsEfsA
 -- | Specifies the POSIX user ID to apply to the root directory.
 awsEfsAccessPointRootDirectoryCreationInfoDetails_ownerUid :: Lens.Lens' AwsEfsAccessPointRootDirectoryCreationInfoDetails (Prelude.Maybe Prelude.Text)
 awsEfsAccessPointRootDirectoryCreationInfoDetails_ownerUid = Lens.lens (\AwsEfsAccessPointRootDirectoryCreationInfoDetails' {ownerUid} -> ownerUid) (\s@AwsEfsAccessPointRootDirectoryCreationInfoDetails' {} a -> s {ownerUid = a} :: AwsEfsAccessPointRootDirectoryCreationInfoDetails)
+
+-- | Specifies the POSIX permissions to apply to the root directory, in the
+-- format of an octal number representing the file\'s mode bits.
+awsEfsAccessPointRootDirectoryCreationInfoDetails_permissions :: Lens.Lens' AwsEfsAccessPointRootDirectoryCreationInfoDetails (Prelude.Maybe Prelude.Text)
+awsEfsAccessPointRootDirectoryCreationInfoDetails_permissions = Lens.lens (\AwsEfsAccessPointRootDirectoryCreationInfoDetails' {permissions} -> permissions) (\s@AwsEfsAccessPointRootDirectoryCreationInfoDetails' {} a -> s {permissions = a} :: AwsEfsAccessPointRootDirectoryCreationInfoDetails)
 
 instance
   Data.FromJSON
@@ -87,9 +87,9 @@ instance
       "AwsEfsAccessPointRootDirectoryCreationInfoDetails"
       ( \x ->
           AwsEfsAccessPointRootDirectoryCreationInfoDetails'
-            Prelude.<$> (x Data..:? "Permissions")
-              Prelude.<*> (x Data..:? "OwnerGid")
+            Prelude.<$> (x Data..:? "OwnerGid")
               Prelude.<*> (x Data..:? "OwnerUid")
+              Prelude.<*> (x Data..:? "Permissions")
       )
 
 instance
@@ -99,9 +99,9 @@ instance
   hashWithSalt
     _salt
     AwsEfsAccessPointRootDirectoryCreationInfoDetails' {..} =
-      _salt `Prelude.hashWithSalt` permissions
-        `Prelude.hashWithSalt` ownerGid
+      _salt `Prelude.hashWithSalt` ownerGid
         `Prelude.hashWithSalt` ownerUid
+        `Prelude.hashWithSalt` permissions
 
 instance
   Prelude.NFData
@@ -109,9 +109,9 @@ instance
   where
   rnf
     AwsEfsAccessPointRootDirectoryCreationInfoDetails' {..} =
-      Prelude.rnf permissions
-        `Prelude.seq` Prelude.rnf ownerGid
+      Prelude.rnf ownerGid
         `Prelude.seq` Prelude.rnf ownerUid
+        `Prelude.seq` Prelude.rnf permissions
 
 instance
   Data.ToJSON
@@ -121,8 +121,8 @@ instance
     AwsEfsAccessPointRootDirectoryCreationInfoDetails' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("Permissions" Data..=) Prelude.<$> permissions,
-              ("OwnerGid" Data..=) Prelude.<$> ownerGid,
-              ("OwnerUid" Data..=) Prelude.<$> ownerUid
+            [ ("OwnerGid" Data..=) Prelude.<$> ownerGid,
+              ("OwnerUid" Data..=) Prelude.<$> ownerUid,
+              ("Permissions" Data..=) Prelude.<$> permissions
             ]
         )

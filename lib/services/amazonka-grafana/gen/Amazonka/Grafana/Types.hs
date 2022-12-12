@@ -19,10 +19,10 @@ module Amazonka.Grafana.Types
 
     -- * Errors
     _AccessDeniedException,
-    _InternalServerException,
-    _ServiceQuotaExceededException,
-    _ResourceNotFoundException,
     _ConflictException,
+    _InternalServerException,
+    _ResourceNotFoundException,
+    _ServiceQuotaExceededException,
     _ThrottlingException,
     _ValidationException,
 
@@ -62,12 +62,12 @@ module Amazonka.Grafana.Types
     -- * AssertionAttributes
     AssertionAttributes (..),
     newAssertionAttributes,
-    assertionAttributes_name,
     assertionAttributes_email,
+    assertionAttributes_groups,
     assertionAttributes_login,
+    assertionAttributes_name,
     assertionAttributes_org,
     assertionAttributes_role,
-    assertionAttributes_groups,
 
     -- * AuthenticationDescription
     AuthenticationDescription (..),
@@ -114,10 +114,10 @@ module Amazonka.Grafana.Types
     -- * SamlConfiguration
     SamlConfiguration (..),
     newSamlConfiguration,
-    samlConfiguration_loginValidityDuration,
     samlConfiguration_allowedOrganizations,
-    samlConfiguration_roleValues,
     samlConfiguration_assertionAttributes,
+    samlConfiguration_loginValidityDuration,
+    samlConfiguration_roleValues,
     samlConfiguration_idpMetadata,
 
     -- * UpdateError
@@ -149,21 +149,21 @@ module Amazonka.Grafana.Types
     -- * WorkspaceDescription
     WorkspaceDescription (..),
     newWorkspaceDescription,
-    workspaceDescription_vpcConfiguration,
-    workspaceDescription_tags,
-    workspaceDescription_permissionType,
-    workspaceDescription_name,
-    workspaceDescription_organizationRoleName,
-    workspaceDescription_freeTrialConsumed,
-    workspaceDescription_licenseType,
-    workspaceDescription_licenseExpiration,
-    workspaceDescription_stackSetName,
-    workspaceDescription_freeTrialExpiration,
-    workspaceDescription_workspaceRoleArn,
-    workspaceDescription_description,
-    workspaceDescription_organizationalUnits,
-    workspaceDescription_notificationDestinations,
     workspaceDescription_accountAccessType,
+    workspaceDescription_description,
+    workspaceDescription_freeTrialConsumed,
+    workspaceDescription_freeTrialExpiration,
+    workspaceDescription_licenseExpiration,
+    workspaceDescription_licenseType,
+    workspaceDescription_name,
+    workspaceDescription_notificationDestinations,
+    workspaceDescription_organizationRoleName,
+    workspaceDescription_organizationalUnits,
+    workspaceDescription_permissionType,
+    workspaceDescription_stackSetName,
+    workspaceDescription_tags,
+    workspaceDescription_vpcConfiguration,
+    workspaceDescription_workspaceRoleArn,
     workspaceDescription_authentication,
     workspaceDescription_created,
     workspaceDescription_dataSources,
@@ -176,10 +176,10 @@ module Amazonka.Grafana.Types
     -- * WorkspaceSummary
     WorkspaceSummary (..),
     newWorkspaceSummary,
-    workspaceSummary_tags,
-    workspaceSummary_name,
     workspaceSummary_description,
+    workspaceSummary_name,
     workspaceSummary_notificationDestinations,
+    workspaceSummary_tags,
     workspaceSummary_authentication,
     workspaceSummary_created,
     workspaceSummary_endpoint,
@@ -246,28 +246,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -275,13 +269,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -289,6 +287,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient permissions to perform this action.
@@ -299,6 +299,14 @@ _AccessDeniedException =
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
+-- | A resource was in an inconsistent state during an update or a deletion.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
 -- | Unexpected error while processing the request. Retry the request.
 _InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InternalServerException =
@@ -306,14 +314,6 @@ _InternalServerException =
     defaultService
     "InternalServerException"
     Prelude.. Core.hasStatus 500
-
--- | The request would cause a service quota to be exceeded.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceQuotaExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceQuotaExceededException"
-    Prelude.. Core.hasStatus 402
 
 -- | The request references a resource that does not exist.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -323,13 +323,13 @@ _ResourceNotFoundException =
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
 
--- | A resource was in an inconsistent state during an update or a deletion.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
+-- | The request would cause a service quota to be exceeded.
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
+    "ServiceQuotaExceededException"
+    Prelude.. Core.hasStatus 402
 
 -- | The request was denied because of request throttling. Retry the request.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEventConfigurationItem' smart constructor.
 data EventConfigurationItem = EventConfigurationItem'
-  { -- | Identifier type of the particular resource identifier for event
-    -- configuration.
-    identifierType :: Prelude.Maybe IdentifierType,
-    events :: Prelude.Maybe EventNotificationItemConfigurations,
+  { events :: Prelude.Maybe EventNotificationItemConfigurations,
     -- | Resource identifier opted in for event messaging.
     identifier :: Prelude.Maybe Prelude.Text,
+    -- | Identifier type of the particular resource identifier for event
+    -- configuration.
+    identifierType :: Prelude.Maybe IdentifierType,
     -- | Partner type of the resource if the identifier type is PartnerAccountId.
     partnerType :: Prelude.Maybe EventNotificationPartnerType
   }
@@ -50,29 +50,23 @@ data EventConfigurationItem = EventConfigurationItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'identifierType', 'eventConfigurationItem_identifierType' - Identifier type of the particular resource identifier for event
--- configuration.
---
 -- 'events', 'eventConfigurationItem_events' - Undocumented member.
 --
 -- 'identifier', 'eventConfigurationItem_identifier' - Resource identifier opted in for event messaging.
+--
+-- 'identifierType', 'eventConfigurationItem_identifierType' - Identifier type of the particular resource identifier for event
+-- configuration.
 --
 -- 'partnerType', 'eventConfigurationItem_partnerType' - Partner type of the resource if the identifier type is PartnerAccountId.
 newEventConfigurationItem ::
   EventConfigurationItem
 newEventConfigurationItem =
   EventConfigurationItem'
-    { identifierType =
-        Prelude.Nothing,
-      events = Prelude.Nothing,
+    { events = Prelude.Nothing,
       identifier = Prelude.Nothing,
+      identifierType = Prelude.Nothing,
       partnerType = Prelude.Nothing
     }
-
--- | Identifier type of the particular resource identifier for event
--- configuration.
-eventConfigurationItem_identifierType :: Lens.Lens' EventConfigurationItem (Prelude.Maybe IdentifierType)
-eventConfigurationItem_identifierType = Lens.lens (\EventConfigurationItem' {identifierType} -> identifierType) (\s@EventConfigurationItem' {} a -> s {identifierType = a} :: EventConfigurationItem)
 
 -- | Undocumented member.
 eventConfigurationItem_events :: Lens.Lens' EventConfigurationItem (Prelude.Maybe EventNotificationItemConfigurations)
@@ -81,6 +75,11 @@ eventConfigurationItem_events = Lens.lens (\EventConfigurationItem' {events} -> 
 -- | Resource identifier opted in for event messaging.
 eventConfigurationItem_identifier :: Lens.Lens' EventConfigurationItem (Prelude.Maybe Prelude.Text)
 eventConfigurationItem_identifier = Lens.lens (\EventConfigurationItem' {identifier} -> identifier) (\s@EventConfigurationItem' {} a -> s {identifier = a} :: EventConfigurationItem)
+
+-- | Identifier type of the particular resource identifier for event
+-- configuration.
+eventConfigurationItem_identifierType :: Lens.Lens' EventConfigurationItem (Prelude.Maybe IdentifierType)
+eventConfigurationItem_identifierType = Lens.lens (\EventConfigurationItem' {identifierType} -> identifierType) (\s@EventConfigurationItem' {} a -> s {identifierType = a} :: EventConfigurationItem)
 
 -- | Partner type of the resource if the identifier type is PartnerAccountId.
 eventConfigurationItem_partnerType :: Lens.Lens' EventConfigurationItem (Prelude.Maybe EventNotificationPartnerType)
@@ -92,22 +91,22 @@ instance Data.FromJSON EventConfigurationItem where
       "EventConfigurationItem"
       ( \x ->
           EventConfigurationItem'
-            Prelude.<$> (x Data..:? "IdentifierType")
-            Prelude.<*> (x Data..:? "Events")
+            Prelude.<$> (x Data..:? "Events")
             Prelude.<*> (x Data..:? "Identifier")
+            Prelude.<*> (x Data..:? "IdentifierType")
             Prelude.<*> (x Data..:? "PartnerType")
       )
 
 instance Prelude.Hashable EventConfigurationItem where
   hashWithSalt _salt EventConfigurationItem' {..} =
-    _salt `Prelude.hashWithSalt` identifierType
-      `Prelude.hashWithSalt` events
+    _salt `Prelude.hashWithSalt` events
       `Prelude.hashWithSalt` identifier
+      `Prelude.hashWithSalt` identifierType
       `Prelude.hashWithSalt` partnerType
 
 instance Prelude.NFData EventConfigurationItem where
   rnf EventConfigurationItem' {..} =
-    Prelude.rnf identifierType
-      `Prelude.seq` Prelude.rnf events
+    Prelude.rnf events
       `Prelude.seq` Prelude.rnf identifier
+      `Prelude.seq` Prelude.rnf identifierType
       `Prelude.seq` Prelude.rnf partnerType

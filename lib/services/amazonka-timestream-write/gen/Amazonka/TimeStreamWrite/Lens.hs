@@ -15,16 +15,16 @@ module Amazonka.TimeStreamWrite.Lens
   ( -- * Operations
 
     -- ** CreateDatabase
-    createDatabase_tags,
     createDatabase_kmsKeyId,
+    createDatabase_tags,
     createDatabase_databaseName,
     createDatabaseResponse_database,
     createDatabaseResponse_httpStatus,
 
     -- ** CreateTable
-    createTable_tags,
-    createTable_retentionProperties,
     createTable_magneticStoreWriteProperties,
+    createTable_retentionProperties,
+    createTable_tags,
     createTable_databaseName,
     createTable_tableName,
     createTableResponse_table,
@@ -53,18 +53,18 @@ module Amazonka.TimeStreamWrite.Lens
     describeTableResponse_httpStatus,
 
     -- ** ListDatabases
-    listDatabases_nextToken,
     listDatabases_maxResults,
-    listDatabasesResponse_nextToken,
+    listDatabases_nextToken,
     listDatabasesResponse_databases,
+    listDatabasesResponse_nextToken,
     listDatabasesResponse_httpStatus,
 
     -- ** ListTables
-    listTables_nextToken,
     listTables_databaseName,
     listTables_maxResults,
-    listTablesResponse_tables,
+    listTables_nextToken,
     listTablesResponse_nextToken,
+    listTablesResponse_tables,
     listTablesResponse_httpStatus,
 
     -- ** ListTagsForResource
@@ -89,8 +89,8 @@ module Amazonka.TimeStreamWrite.Lens
     updateDatabaseResponse_httpStatus,
 
     -- ** UpdateTable
-    updateTable_retentionProperties,
     updateTable_magneticStoreWriteProperties,
+    updateTable_retentionProperties,
     updateTable_databaseName,
     updateTable_tableName,
     updateTableResponse_table,
@@ -107,11 +107,11 @@ module Amazonka.TimeStreamWrite.Lens
     -- * Types
 
     -- ** Database
-    database_databaseName,
     database_arn,
-    database_lastUpdatedTime,
-    database_kmsKeyId,
     database_creationTime,
+    database_databaseName,
+    database_kmsKeyId,
+    database_lastUpdatedTime,
     database_tableCount,
 
     -- ** Dimension
@@ -136,39 +136,39 @@ module Amazonka.TimeStreamWrite.Lens
     measureValue_type,
 
     -- ** Record
-    record_timeUnit,
-    record_measureValue,
-    record_measureValues,
-    record_time,
     record_dimensions,
     record_measureName,
+    record_measureValue,
     record_measureValueType,
+    record_measureValues,
+    record_time,
+    record_timeUnit,
     record_version,
 
     -- ** RecordsIngested
-    recordsIngested_total,
     recordsIngested_magneticStore,
     recordsIngested_memoryStore,
+    recordsIngested_total,
 
     -- ** RetentionProperties
     retentionProperties_memoryStoreRetentionPeriodInHours,
     retentionProperties_magneticStoreRetentionPeriodInDays,
 
     -- ** S3Configuration
-    s3Configuration_objectKeyPrefix,
-    s3Configuration_encryptionOption,
     s3Configuration_bucketName,
+    s3Configuration_encryptionOption,
     s3Configuration_kmsKeyId,
+    s3Configuration_objectKeyPrefix,
 
     -- ** Table
+    table_arn,
+    table_creationTime,
+    table_databaseName,
+    table_lastUpdatedTime,
+    table_magneticStoreWriteProperties,
+    table_retentionProperties,
     table_tableName,
     table_tableStatus,
-    table_databaseName,
-    table_arn,
-    table_lastUpdatedTime,
-    table_retentionProperties,
-    table_magneticStoreWriteProperties,
-    table_creationTime,
 
     -- ** Tag
     tag_key,

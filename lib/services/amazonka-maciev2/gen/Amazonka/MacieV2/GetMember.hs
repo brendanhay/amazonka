@@ -35,14 +35,14 @@ module Amazonka.MacieV2.GetMember
     newGetMemberResponse,
 
     -- * Response Lenses
-    getMemberResponse_tags,
-    getMemberResponse_email,
-    getMemberResponse_arn,
-    getMemberResponse_masterAccountId,
     getMemberResponse_accountId,
-    getMemberResponse_invitedAt,
     getMemberResponse_administratorAccountId,
+    getMemberResponse_arn,
+    getMemberResponse_email,
+    getMemberResponse_invitedAt,
+    getMemberResponse_masterAccountId,
     getMemberResponse_relationshipStatus,
+    getMemberResponse_tags,
     getMemberResponse_updatedAt,
     getMemberResponse_httpStatus,
   )
@@ -93,14 +93,14 @@ instance Core.AWSRequest GetMember where
     Response.receiveJSON
       ( \s h x ->
           GetMemberResponse'
-            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "email")
-            Prelude.<*> (x Data..?> "arn")
-            Prelude.<*> (x Data..?> "masterAccountId")
-            Prelude.<*> (x Data..?> "accountId")
-            Prelude.<*> (x Data..?> "invitedAt")
+            Prelude.<$> (x Data..?> "accountId")
             Prelude.<*> (x Data..?> "administratorAccountId")
+            Prelude.<*> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "email")
+            Prelude.<*> (x Data..?> "invitedAt")
+            Prelude.<*> (x Data..?> "masterAccountId")
             Prelude.<*> (x Data..?> "relationshipStatus")
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "updatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -132,28 +132,28 @@ instance Data.ToQuery GetMember where
 
 -- | /See:/ 'newGetMemberResponse' smart constructor.
 data GetMemberResponse = GetMemberResponse'
-  { -- | A map of key-value pairs that specifies which tags (keys and values) are
-    -- associated with the account in Amazon Macie.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The email address for the account.
-    email :: Prelude.Maybe Prelude.Text,
+  { -- | The Amazon Web Services account ID for the account.
+    accountId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services account ID for the administrator account.
+    administratorAccountId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the account.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | (Deprecated) The Amazon Web Services account ID for the administrator
-    -- account. This property has been replaced by the administratorAccountId
-    -- property and is retained only for backward compatibility.
-    masterAccountId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services account ID for the account.
-    accountId :: Prelude.Maybe Prelude.Text,
+    -- | The email address for the account.
+    email :: Prelude.Maybe Prelude.Text,
     -- | The date and time, in UTC and extended ISO 8601 format, when an Amazon
     -- Macie membership invitation was last sent to the account. This value is
     -- null if an invitation hasn\'t been sent to the account.
     invitedAt :: Prelude.Maybe Data.POSIX,
-    -- | The Amazon Web Services account ID for the administrator account.
-    administratorAccountId :: Prelude.Maybe Prelude.Text,
+    -- | (Deprecated) The Amazon Web Services account ID for the administrator
+    -- account. This property has been replaced by the administratorAccountId
+    -- property and is retained only for backward compatibility.
+    masterAccountId :: Prelude.Maybe Prelude.Text,
     -- | The current status of the relationship between the account and the
     -- administrator account.
     relationshipStatus :: Prelude.Maybe RelationshipStatus,
+    -- | A map of key-value pairs that specifies which tags (keys and values) are
+    -- associated with the account in Amazon Macie.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The date and time, in UTC and extended ISO 8601 format, of the most
     -- recent change to the status of the relationship between the account and
     -- the administrator account.
@@ -171,27 +171,27 @@ data GetMemberResponse = GetMemberResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'getMemberResponse_tags' - A map of key-value pairs that specifies which tags (keys and values) are
--- associated with the account in Amazon Macie.
+-- 'accountId', 'getMemberResponse_accountId' - The Amazon Web Services account ID for the account.
 --
--- 'email', 'getMemberResponse_email' - The email address for the account.
+-- 'administratorAccountId', 'getMemberResponse_administratorAccountId' - The Amazon Web Services account ID for the administrator account.
 --
 -- 'arn', 'getMemberResponse_arn' - The Amazon Resource Name (ARN) of the account.
 --
--- 'masterAccountId', 'getMemberResponse_masterAccountId' - (Deprecated) The Amazon Web Services account ID for the administrator
--- account. This property has been replaced by the administratorAccountId
--- property and is retained only for backward compatibility.
---
--- 'accountId', 'getMemberResponse_accountId' - The Amazon Web Services account ID for the account.
+-- 'email', 'getMemberResponse_email' - The email address for the account.
 --
 -- 'invitedAt', 'getMemberResponse_invitedAt' - The date and time, in UTC and extended ISO 8601 format, when an Amazon
 -- Macie membership invitation was last sent to the account. This value is
 -- null if an invitation hasn\'t been sent to the account.
 --
--- 'administratorAccountId', 'getMemberResponse_administratorAccountId' - The Amazon Web Services account ID for the administrator account.
+-- 'masterAccountId', 'getMemberResponse_masterAccountId' - (Deprecated) The Amazon Web Services account ID for the administrator
+-- account. This property has been replaced by the administratorAccountId
+-- property and is retained only for backward compatibility.
 --
 -- 'relationshipStatus', 'getMemberResponse_relationshipStatus' - The current status of the relationship between the account and the
 -- administrator account.
+--
+-- 'tags', 'getMemberResponse_tags' - A map of key-value pairs that specifies which tags (keys and values) are
+-- associated with the account in Amazon Macie.
 --
 -- 'updatedAt', 'getMemberResponse_updatedAt' - The date and time, in UTC and extended ISO 8601 format, of the most
 -- recent change to the status of the relationship between the account and
@@ -204,40 +204,33 @@ newGetMemberResponse ::
   GetMemberResponse
 newGetMemberResponse pHttpStatus_ =
   GetMemberResponse'
-    { tags = Prelude.Nothing,
-      email = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      masterAccountId = Prelude.Nothing,
-      accountId = Prelude.Nothing,
-      invitedAt = Prelude.Nothing,
+    { accountId = Prelude.Nothing,
       administratorAccountId = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      email = Prelude.Nothing,
+      invitedAt = Prelude.Nothing,
+      masterAccountId = Prelude.Nothing,
       relationshipStatus = Prelude.Nothing,
+      tags = Prelude.Nothing,
       updatedAt = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | A map of key-value pairs that specifies which tags (keys and values) are
--- associated with the account in Amazon Macie.
-getMemberResponse_tags :: Lens.Lens' GetMemberResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getMemberResponse_tags = Lens.lens (\GetMemberResponse' {tags} -> tags) (\s@GetMemberResponse' {} a -> s {tags = a} :: GetMemberResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The Amazon Web Services account ID for the account.
+getMemberResponse_accountId :: Lens.Lens' GetMemberResponse (Prelude.Maybe Prelude.Text)
+getMemberResponse_accountId = Lens.lens (\GetMemberResponse' {accountId} -> accountId) (\s@GetMemberResponse' {} a -> s {accountId = a} :: GetMemberResponse)
 
--- | The email address for the account.
-getMemberResponse_email :: Lens.Lens' GetMemberResponse (Prelude.Maybe Prelude.Text)
-getMemberResponse_email = Lens.lens (\GetMemberResponse' {email} -> email) (\s@GetMemberResponse' {} a -> s {email = a} :: GetMemberResponse)
+-- | The Amazon Web Services account ID for the administrator account.
+getMemberResponse_administratorAccountId :: Lens.Lens' GetMemberResponse (Prelude.Maybe Prelude.Text)
+getMemberResponse_administratorAccountId = Lens.lens (\GetMemberResponse' {administratorAccountId} -> administratorAccountId) (\s@GetMemberResponse' {} a -> s {administratorAccountId = a} :: GetMemberResponse)
 
 -- | The Amazon Resource Name (ARN) of the account.
 getMemberResponse_arn :: Lens.Lens' GetMemberResponse (Prelude.Maybe Prelude.Text)
 getMemberResponse_arn = Lens.lens (\GetMemberResponse' {arn} -> arn) (\s@GetMemberResponse' {} a -> s {arn = a} :: GetMemberResponse)
 
--- | (Deprecated) The Amazon Web Services account ID for the administrator
--- account. This property has been replaced by the administratorAccountId
--- property and is retained only for backward compatibility.
-getMemberResponse_masterAccountId :: Lens.Lens' GetMemberResponse (Prelude.Maybe Prelude.Text)
-getMemberResponse_masterAccountId = Lens.lens (\GetMemberResponse' {masterAccountId} -> masterAccountId) (\s@GetMemberResponse' {} a -> s {masterAccountId = a} :: GetMemberResponse)
-
--- | The Amazon Web Services account ID for the account.
-getMemberResponse_accountId :: Lens.Lens' GetMemberResponse (Prelude.Maybe Prelude.Text)
-getMemberResponse_accountId = Lens.lens (\GetMemberResponse' {accountId} -> accountId) (\s@GetMemberResponse' {} a -> s {accountId = a} :: GetMemberResponse)
+-- | The email address for the account.
+getMemberResponse_email :: Lens.Lens' GetMemberResponse (Prelude.Maybe Prelude.Text)
+getMemberResponse_email = Lens.lens (\GetMemberResponse' {email} -> email) (\s@GetMemberResponse' {} a -> s {email = a} :: GetMemberResponse)
 
 -- | The date and time, in UTC and extended ISO 8601 format, when an Amazon
 -- Macie membership invitation was last sent to the account. This value is
@@ -245,14 +238,21 @@ getMemberResponse_accountId = Lens.lens (\GetMemberResponse' {accountId} -> acco
 getMemberResponse_invitedAt :: Lens.Lens' GetMemberResponse (Prelude.Maybe Prelude.UTCTime)
 getMemberResponse_invitedAt = Lens.lens (\GetMemberResponse' {invitedAt} -> invitedAt) (\s@GetMemberResponse' {} a -> s {invitedAt = a} :: GetMemberResponse) Prelude.. Lens.mapping Data._Time
 
--- | The Amazon Web Services account ID for the administrator account.
-getMemberResponse_administratorAccountId :: Lens.Lens' GetMemberResponse (Prelude.Maybe Prelude.Text)
-getMemberResponse_administratorAccountId = Lens.lens (\GetMemberResponse' {administratorAccountId} -> administratorAccountId) (\s@GetMemberResponse' {} a -> s {administratorAccountId = a} :: GetMemberResponse)
+-- | (Deprecated) The Amazon Web Services account ID for the administrator
+-- account. This property has been replaced by the administratorAccountId
+-- property and is retained only for backward compatibility.
+getMemberResponse_masterAccountId :: Lens.Lens' GetMemberResponse (Prelude.Maybe Prelude.Text)
+getMemberResponse_masterAccountId = Lens.lens (\GetMemberResponse' {masterAccountId} -> masterAccountId) (\s@GetMemberResponse' {} a -> s {masterAccountId = a} :: GetMemberResponse)
 
 -- | The current status of the relationship between the account and the
 -- administrator account.
 getMemberResponse_relationshipStatus :: Lens.Lens' GetMemberResponse (Prelude.Maybe RelationshipStatus)
 getMemberResponse_relationshipStatus = Lens.lens (\GetMemberResponse' {relationshipStatus} -> relationshipStatus) (\s@GetMemberResponse' {} a -> s {relationshipStatus = a} :: GetMemberResponse)
+
+-- | A map of key-value pairs that specifies which tags (keys and values) are
+-- associated with the account in Amazon Macie.
+getMemberResponse_tags :: Lens.Lens' GetMemberResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getMemberResponse_tags = Lens.lens (\GetMemberResponse' {tags} -> tags) (\s@GetMemberResponse' {} a -> s {tags = a} :: GetMemberResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The date and time, in UTC and extended ISO 8601 format, of the most
 -- recent change to the status of the relationship between the account and
@@ -266,13 +266,13 @@ getMemberResponse_httpStatus = Lens.lens (\GetMemberResponse' {httpStatus} -> ht
 
 instance Prelude.NFData GetMemberResponse where
   rnf GetMemberResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf email
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf masterAccountId
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf invitedAt
+    Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf administratorAccountId
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf email
+      `Prelude.seq` Prelude.rnf invitedAt
+      `Prelude.seq` Prelude.rnf masterAccountId
       `Prelude.seq` Prelude.rnf relationshipStatus
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf updatedAt
       `Prelude.seq` Prelude.rnf httpStatus

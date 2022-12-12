@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNotifyEmailType' smart constructor.
 data NotifyEmailType = NotifyEmailType'
-  { -- | The email text body.
-    textBody :: Prelude.Maybe Prelude.Text,
-    -- | The email HTML body.
+  { -- | The email HTML body.
     htmlBody :: Prelude.Maybe Prelude.Text,
+    -- | The email text body.
+    textBody :: Prelude.Maybe Prelude.Text,
     -- | The email subject.
     subject :: Prelude.Text
   }
@@ -45,9 +45,9 @@ data NotifyEmailType = NotifyEmailType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'textBody', 'notifyEmailType_textBody' - The email text body.
---
 -- 'htmlBody', 'notifyEmailType_htmlBody' - The email HTML body.
+--
+-- 'textBody', 'notifyEmailType_textBody' - The email text body.
 --
 -- 'subject', 'notifyEmailType_subject' - The email subject.
 newNotifyEmailType ::
@@ -56,18 +56,18 @@ newNotifyEmailType ::
   NotifyEmailType
 newNotifyEmailType pSubject_ =
   NotifyEmailType'
-    { textBody = Prelude.Nothing,
-      htmlBody = Prelude.Nothing,
+    { htmlBody = Prelude.Nothing,
+      textBody = Prelude.Nothing,
       subject = pSubject_
     }
-
--- | The email text body.
-notifyEmailType_textBody :: Lens.Lens' NotifyEmailType (Prelude.Maybe Prelude.Text)
-notifyEmailType_textBody = Lens.lens (\NotifyEmailType' {textBody} -> textBody) (\s@NotifyEmailType' {} a -> s {textBody = a} :: NotifyEmailType)
 
 -- | The email HTML body.
 notifyEmailType_htmlBody :: Lens.Lens' NotifyEmailType (Prelude.Maybe Prelude.Text)
 notifyEmailType_htmlBody = Lens.lens (\NotifyEmailType' {htmlBody} -> htmlBody) (\s@NotifyEmailType' {} a -> s {htmlBody = a} :: NotifyEmailType)
+
+-- | The email text body.
+notifyEmailType_textBody :: Lens.Lens' NotifyEmailType (Prelude.Maybe Prelude.Text)
+notifyEmailType_textBody = Lens.lens (\NotifyEmailType' {textBody} -> textBody) (\s@NotifyEmailType' {} a -> s {textBody = a} :: NotifyEmailType)
 
 -- | The email subject.
 notifyEmailType_subject :: Lens.Lens' NotifyEmailType Prelude.Text
@@ -79,29 +79,29 @@ instance Data.FromJSON NotifyEmailType where
       "NotifyEmailType"
       ( \x ->
           NotifyEmailType'
-            Prelude.<$> (x Data..:? "TextBody")
-            Prelude.<*> (x Data..:? "HtmlBody")
+            Prelude.<$> (x Data..:? "HtmlBody")
+            Prelude.<*> (x Data..:? "TextBody")
             Prelude.<*> (x Data..: "Subject")
       )
 
 instance Prelude.Hashable NotifyEmailType where
   hashWithSalt _salt NotifyEmailType' {..} =
-    _salt `Prelude.hashWithSalt` textBody
-      `Prelude.hashWithSalt` htmlBody
+    _salt `Prelude.hashWithSalt` htmlBody
+      `Prelude.hashWithSalt` textBody
       `Prelude.hashWithSalt` subject
 
 instance Prelude.NFData NotifyEmailType where
   rnf NotifyEmailType' {..} =
-    Prelude.rnf textBody
-      `Prelude.seq` Prelude.rnf htmlBody
+    Prelude.rnf htmlBody
+      `Prelude.seq` Prelude.rnf textBody
       `Prelude.seq` Prelude.rnf subject
 
 instance Data.ToJSON NotifyEmailType where
   toJSON NotifyEmailType' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("TextBody" Data..=) Prelude.<$> textBody,
-            ("HtmlBody" Data..=) Prelude.<$> htmlBody,
+          [ ("HtmlBody" Data..=) Prelude.<$> htmlBody,
+            ("TextBody" Data..=) Prelude.<$> textBody,
             Prelude.Just ("Subject" Data..= subject)
           ]
       )

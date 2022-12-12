@@ -47,7 +47,7 @@ data FunctionUrlConfig = FunctionUrlConfig'
     -- (YYYY-MM-DDThh:mm:ss.sTZD).
     lastModifiedTime :: Prelude.Text,
     -- | The type of authentication that your function URL uses. Set to @AWS_IAM@
-    -- if you want to restrict access to authenticated @IAM@ users only. Set to
+    -- if you want to restrict access to authenticated IAM users only. Set to
     -- @NONE@ if you want to bypass IAM authentication to create a public
     -- endpoint. For more information, see
     -- <https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html Security and auth model for Lambda function URLs>.
@@ -80,7 +80,7 @@ data FunctionUrlConfig = FunctionUrlConfig'
 -- (YYYY-MM-DDThh:mm:ss.sTZD).
 --
 -- 'authType', 'functionUrlConfig_authType' - The type of authentication that your function URL uses. Set to @AWS_IAM@
--- if you want to restrict access to authenticated @IAM@ users only. Set to
+-- if you want to restrict access to authenticated IAM users only. Set to
 -- @NONE@ if you want to bypass IAM authentication to create a public
 -- endpoint. For more information, see
 -- <https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html Security and auth model for Lambda function URLs>.
@@ -138,7 +138,7 @@ functionUrlConfig_lastModifiedTime :: Lens.Lens' FunctionUrlConfig Prelude.Text
 functionUrlConfig_lastModifiedTime = Lens.lens (\FunctionUrlConfig' {lastModifiedTime} -> lastModifiedTime) (\s@FunctionUrlConfig' {} a -> s {lastModifiedTime = a} :: FunctionUrlConfig)
 
 -- | The type of authentication that your function URL uses. Set to @AWS_IAM@
--- if you want to restrict access to authenticated @IAM@ users only. Set to
+-- if you want to restrict access to authenticated IAM users only. Set to
 -- @NONE@ if you want to bypass IAM authentication to create a public
 -- endpoint. For more information, see
 -- <https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html Security and auth model for Lambda function URLs>.

@@ -27,9 +27,9 @@ module Amazonka.Connect.UpdateContactFlowMetadata
     newUpdateContactFlowMetadata,
 
     -- * Request Lenses
-    updateContactFlowMetadata_name,
     updateContactFlowMetadata_contactFlowState,
     updateContactFlowMetadata_description,
+    updateContactFlowMetadata_name,
     updateContactFlowMetadata_instanceId,
     updateContactFlowMetadata_contactFlowId,
 
@@ -49,12 +49,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateContactFlowMetadata' smart constructor.
 data UpdateContactFlowMetadata = UpdateContactFlowMetadata'
-  { -- | The name of the flow.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The state of flow.
+  { -- | The state of flow.
     contactFlowState :: Prelude.Maybe ContactFlowState,
     -- | The description of the flow.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The name of the flow.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
@@ -71,11 +71,11 @@ data UpdateContactFlowMetadata = UpdateContactFlowMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateContactFlowMetadata_name' - The name of the flow.
---
 -- 'contactFlowState', 'updateContactFlowMetadata_contactFlowState' - The state of flow.
 --
 -- 'description', 'updateContactFlowMetadata_description' - The description of the flow.
+--
+-- 'name', 'updateContactFlowMetadata_name' - The name of the flow.
 --
 -- 'instanceId', 'updateContactFlowMetadata_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -91,16 +91,13 @@ newUpdateContactFlowMetadata
   pInstanceId_
   pContactFlowId_ =
     UpdateContactFlowMetadata'
-      { name = Prelude.Nothing,
-        contactFlowState = Prelude.Nothing,
+      { contactFlowState =
+          Prelude.Nothing,
         description = Prelude.Nothing,
+        name = Prelude.Nothing,
         instanceId = pInstanceId_,
         contactFlowId = pContactFlowId_
       }
-
--- | The name of the flow.
-updateContactFlowMetadata_name :: Lens.Lens' UpdateContactFlowMetadata (Prelude.Maybe Prelude.Text)
-updateContactFlowMetadata_name = Lens.lens (\UpdateContactFlowMetadata' {name} -> name) (\s@UpdateContactFlowMetadata' {} a -> s {name = a} :: UpdateContactFlowMetadata)
 
 -- | The state of flow.
 updateContactFlowMetadata_contactFlowState :: Lens.Lens' UpdateContactFlowMetadata (Prelude.Maybe ContactFlowState)
@@ -109,6 +106,10 @@ updateContactFlowMetadata_contactFlowState = Lens.lens (\UpdateContactFlowMetada
 -- | The description of the flow.
 updateContactFlowMetadata_description :: Lens.Lens' UpdateContactFlowMetadata (Prelude.Maybe Prelude.Text)
 updateContactFlowMetadata_description = Lens.lens (\UpdateContactFlowMetadata' {description} -> description) (\s@UpdateContactFlowMetadata' {} a -> s {description = a} :: UpdateContactFlowMetadata)
+
+-- | The name of the flow.
+updateContactFlowMetadata_name :: Lens.Lens' UpdateContactFlowMetadata (Prelude.Maybe Prelude.Text)
+updateContactFlowMetadata_name = Lens.lens (\UpdateContactFlowMetadata' {name} -> name) (\s@UpdateContactFlowMetadata' {} a -> s {name = a} :: UpdateContactFlowMetadata)
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -131,17 +132,17 @@ instance Core.AWSRequest UpdateContactFlowMetadata where
 
 instance Prelude.Hashable UpdateContactFlowMetadata where
   hashWithSalt _salt UpdateContactFlowMetadata' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` contactFlowState
+    _salt `Prelude.hashWithSalt` contactFlowState
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` contactFlowId
 
 instance Prelude.NFData UpdateContactFlowMetadata where
   rnf UpdateContactFlowMetadata' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf contactFlowState
+    Prelude.rnf contactFlowState
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf contactFlowId
 
@@ -160,10 +161,10 @@ instance Data.ToJSON UpdateContactFlowMetadata where
   toJSON UpdateContactFlowMetadata' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
-            ("ContactFlowState" Data..=)
+          [ ("ContactFlowState" Data..=)
               Prelude.<$> contactFlowState,
-            ("Description" Data..=) Prelude.<$> description
+            ("Description" Data..=) Prelude.<$> description,
+            ("Name" Data..=) Prelude.<$> name
           ]
       )
 

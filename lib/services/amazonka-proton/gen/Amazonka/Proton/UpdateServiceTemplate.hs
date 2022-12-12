@@ -27,8 +27,8 @@ module Amazonka.Proton.UpdateServiceTemplate
     newUpdateServiceTemplate,
 
     -- * Request Lenses
-    updateServiceTemplate_displayName,
     updateServiceTemplate_description,
+    updateServiceTemplate_displayName,
     updateServiceTemplate_name,
 
     -- * Destructuring the Response
@@ -51,11 +51,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateServiceTemplate' smart constructor.
 data UpdateServiceTemplate = UpdateServiceTemplate'
-  { -- | The name of the service template to update that\'s displayed in the
+  { -- | A description of the service template update.
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The name of the service template to update that\'s displayed in the
     -- developer interface.
     displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | A description of the service template update.
-    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the service template to update.
     name :: Prelude.Text
   }
@@ -69,10 +69,10 @@ data UpdateServiceTemplate = UpdateServiceTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'updateServiceTemplate_description' - A description of the service template update.
+--
 -- 'displayName', 'updateServiceTemplate_displayName' - The name of the service template to update that\'s displayed in the
 -- developer interface.
---
--- 'description', 'updateServiceTemplate_description' - A description of the service template update.
 --
 -- 'name', 'updateServiceTemplate_name' - The name of the service template to update.
 newUpdateServiceTemplate ::
@@ -81,20 +81,20 @@ newUpdateServiceTemplate ::
   UpdateServiceTemplate
 newUpdateServiceTemplate pName_ =
   UpdateServiceTemplate'
-    { displayName =
+    { description =
         Prelude.Nothing,
-      description = Prelude.Nothing,
+      displayName = Prelude.Nothing,
       name = pName_
     }
+
+-- | A description of the service template update.
+updateServiceTemplate_description :: Lens.Lens' UpdateServiceTemplate (Prelude.Maybe Prelude.Text)
+updateServiceTemplate_description = Lens.lens (\UpdateServiceTemplate' {description} -> description) (\s@UpdateServiceTemplate' {} a -> s {description = a} :: UpdateServiceTemplate) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the service template to update that\'s displayed in the
 -- developer interface.
 updateServiceTemplate_displayName :: Lens.Lens' UpdateServiceTemplate (Prelude.Maybe Prelude.Text)
 updateServiceTemplate_displayName = Lens.lens (\UpdateServiceTemplate' {displayName} -> displayName) (\s@UpdateServiceTemplate' {} a -> s {displayName = a} :: UpdateServiceTemplate) Prelude.. Lens.mapping Data._Sensitive
-
--- | A description of the service template update.
-updateServiceTemplate_description :: Lens.Lens' UpdateServiceTemplate (Prelude.Maybe Prelude.Text)
-updateServiceTemplate_description = Lens.lens (\UpdateServiceTemplate' {description} -> description) (\s@UpdateServiceTemplate' {} a -> s {description = a} :: UpdateServiceTemplate) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the service template to update.
 updateServiceTemplate_name :: Lens.Lens' UpdateServiceTemplate Prelude.Text
@@ -116,14 +116,14 @@ instance Core.AWSRequest UpdateServiceTemplate where
 
 instance Prelude.Hashable UpdateServiceTemplate where
   hashWithSalt _salt UpdateServiceTemplate' {..} =
-    _salt `Prelude.hashWithSalt` displayName
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData UpdateServiceTemplate where
   rnf UpdateServiceTemplate' {..} =
-    Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders UpdateServiceTemplate where
@@ -145,8 +145,8 @@ instance Data.ToJSON UpdateServiceTemplate where
   toJSON UpdateServiceTemplate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("displayName" Data..=) Prelude.<$> displayName,
-            ("description" Data..=) Prelude.<$> description,
+          [ ("description" Data..=) Prelude.<$> description,
+            ("displayName" Data..=) Prelude.<$> displayName,
             Prelude.Just ("name" Data..= name)
           ]
       )

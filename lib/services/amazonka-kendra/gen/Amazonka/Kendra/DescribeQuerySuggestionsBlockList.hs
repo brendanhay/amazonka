@@ -42,17 +42,17 @@ module Amazonka.Kendra.DescribeQuerySuggestionsBlockList
     newDescribeQuerySuggestionsBlockListResponse,
 
     -- * Response Lenses
+    describeQuerySuggestionsBlockListResponse_createdAt,
+    describeQuerySuggestionsBlockListResponse_description,
+    describeQuerySuggestionsBlockListResponse_errorMessage,
+    describeQuerySuggestionsBlockListResponse_fileSizeBytes,
+    describeQuerySuggestionsBlockListResponse_id,
     describeQuerySuggestionsBlockListResponse_indexId,
+    describeQuerySuggestionsBlockListResponse_itemCount,
     describeQuerySuggestionsBlockListResponse_name,
     describeQuerySuggestionsBlockListResponse_roleArn,
-    describeQuerySuggestionsBlockListResponse_errorMessage,
-    describeQuerySuggestionsBlockListResponse_itemCount,
-    describeQuerySuggestionsBlockListResponse_status,
-    describeQuerySuggestionsBlockListResponse_id,
-    describeQuerySuggestionsBlockListResponse_description,
     describeQuerySuggestionsBlockListResponse_sourceS3Path,
-    describeQuerySuggestionsBlockListResponse_fileSizeBytes,
-    describeQuerySuggestionsBlockListResponse_createdAt,
+    describeQuerySuggestionsBlockListResponse_status,
     describeQuerySuggestionsBlockListResponse_updatedAt,
     describeQuerySuggestionsBlockListResponse_httpStatus,
   )
@@ -120,17 +120,17 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeQuerySuggestionsBlockListResponse'
-            Prelude.<$> (x Data..?> "IndexId")
+            Prelude.<$> (x Data..?> "CreatedAt")
+              Prelude.<*> (x Data..?> "Description")
+              Prelude.<*> (x Data..?> "ErrorMessage")
+              Prelude.<*> (x Data..?> "FileSizeBytes")
+              Prelude.<*> (x Data..?> "Id")
+              Prelude.<*> (x Data..?> "IndexId")
+              Prelude.<*> (x Data..?> "ItemCount")
               Prelude.<*> (x Data..?> "Name")
               Prelude.<*> (x Data..?> "RoleArn")
-              Prelude.<*> (x Data..?> "ErrorMessage")
-              Prelude.<*> (x Data..?> "ItemCount")
-              Prelude.<*> (x Data..?> "Status")
-              Prelude.<*> (x Data..?> "Id")
-              Prelude.<*> (x Data..?> "Description")
               Prelude.<*> (x Data..?> "SourceS3Path")
-              Prelude.<*> (x Data..?> "FileSizeBytes")
-              Prelude.<*> (x Data..?> "CreatedAt")
+              Prelude.<*> (x Data..?> "Status")
               Prelude.<*> (x Data..?> "UpdatedAt")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -196,8 +196,22 @@ instance
 
 -- | /See:/ 'newDescribeQuerySuggestionsBlockListResponse' smart constructor.
 data DescribeQuerySuggestionsBlockListResponse = DescribeQuerySuggestionsBlockListResponse'
-  { -- | The identifier of the index for the block list.
+  { -- | The date-time a block list for query suggestions was created.
+    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | The description for the block list.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The error message containing details if there are issues processing the
+    -- block list.
+    errorMessage :: Prelude.Maybe Prelude.Text,
+    -- | The current size of the block list text file in S3.
+    fileSizeBytes :: Prelude.Maybe Prelude.Integer,
+    -- | The identifier of the block list.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the index for the block list.
     indexId :: Prelude.Maybe Prelude.Text,
+    -- | The current number of valid, non-empty words or phrases in the block
+    -- list text file.
+    itemCount :: Prelude.Maybe Prelude.Int,
     -- | The name of the block list.
     name :: Prelude.Maybe Prelude.Text,
     -- | The IAM (Identity and Access Management) role used by Amazon Kendra to
@@ -206,19 +220,6 @@ data DescribeQuerySuggestionsBlockListResponse = DescribeQuerySuggestionsBlockLi
     -- The role needs S3 read permissions to your file in S3 and needs to give
     -- STS (Security Token Service) assume role permissions to Amazon Kendra.
     roleArn :: Prelude.Maybe Prelude.Text,
-    -- | The error message containing details if there are issues processing the
-    -- block list.
-    errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | The current number of valid, non-empty words or phrases in the block
-    -- list text file.
-    itemCount :: Prelude.Maybe Prelude.Int,
-    -- | The current status of the block list. When the value is @ACTIVE@, the
-    -- block list is ready for use.
-    status :: Prelude.Maybe QuerySuggestionsBlockListStatus,
-    -- | The identifier of the block list.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The description for the block list.
-    description :: Prelude.Maybe Prelude.Text,
     -- | Shows the current S3 path to your block list text file in your S3
     -- bucket.
     --
@@ -227,10 +228,9 @@ data DescribeQuerySuggestionsBlockListResponse = DescribeQuerySuggestionsBlockLi
     -- For information on the current quota limits for block lists, see
     -- <https://docs.aws.amazon.com/kendra/latest/dg/quotas.html Quotas for Amazon Kendra>.
     sourceS3Path :: Prelude.Maybe S3Path,
-    -- | The current size of the block list text file in S3.
-    fileSizeBytes :: Prelude.Maybe Prelude.Integer,
-    -- | The date-time a block list for query suggestions was created.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | The current status of the block list. When the value is @ACTIVE@, the
+    -- block list is ready for use.
+    status :: Prelude.Maybe QuerySuggestionsBlockListStatus,
     -- | The date-time a block list for query suggestions was last updated.
     updatedAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
@@ -246,7 +246,21 @@ data DescribeQuerySuggestionsBlockListResponse = DescribeQuerySuggestionsBlockLi
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'createdAt', 'describeQuerySuggestionsBlockListResponse_createdAt' - The date-time a block list for query suggestions was created.
+--
+-- 'description', 'describeQuerySuggestionsBlockListResponse_description' - The description for the block list.
+--
+-- 'errorMessage', 'describeQuerySuggestionsBlockListResponse_errorMessage' - The error message containing details if there are issues processing the
+-- block list.
+--
+-- 'fileSizeBytes', 'describeQuerySuggestionsBlockListResponse_fileSizeBytes' - The current size of the block list text file in S3.
+--
+-- 'id', 'describeQuerySuggestionsBlockListResponse_id' - The identifier of the block list.
+--
 -- 'indexId', 'describeQuerySuggestionsBlockListResponse_indexId' - The identifier of the index for the block list.
+--
+-- 'itemCount', 'describeQuerySuggestionsBlockListResponse_itemCount' - The current number of valid, non-empty words or phrases in the block
+-- list text file.
 --
 -- 'name', 'describeQuerySuggestionsBlockListResponse_name' - The name of the block list.
 --
@@ -256,19 +270,6 @@ data DescribeQuerySuggestionsBlockListResponse = DescribeQuerySuggestionsBlockLi
 -- The role needs S3 read permissions to your file in S3 and needs to give
 -- STS (Security Token Service) assume role permissions to Amazon Kendra.
 --
--- 'errorMessage', 'describeQuerySuggestionsBlockListResponse_errorMessage' - The error message containing details if there are issues processing the
--- block list.
---
--- 'itemCount', 'describeQuerySuggestionsBlockListResponse_itemCount' - The current number of valid, non-empty words or phrases in the block
--- list text file.
---
--- 'status', 'describeQuerySuggestionsBlockListResponse_status' - The current status of the block list. When the value is @ACTIVE@, the
--- block list is ready for use.
---
--- 'id', 'describeQuerySuggestionsBlockListResponse_id' - The identifier of the block list.
---
--- 'description', 'describeQuerySuggestionsBlockListResponse_description' - The description for the block list.
---
 -- 'sourceS3Path', 'describeQuerySuggestionsBlockListResponse_sourceS3Path' - Shows the current S3 path to your block list text file in your S3
 -- bucket.
 --
@@ -277,9 +278,8 @@ data DescribeQuerySuggestionsBlockListResponse = DescribeQuerySuggestionsBlockLi
 -- For information on the current quota limits for block lists, see
 -- <https://docs.aws.amazon.com/kendra/latest/dg/quotas.html Quotas for Amazon Kendra>.
 --
--- 'fileSizeBytes', 'describeQuerySuggestionsBlockListResponse_fileSizeBytes' - The current size of the block list text file in S3.
---
--- 'createdAt', 'describeQuerySuggestionsBlockListResponse_createdAt' - The date-time a block list for query suggestions was created.
+-- 'status', 'describeQuerySuggestionsBlockListResponse_status' - The current status of the block list. When the value is @ACTIVE@, the
+-- block list is ready for use.
 --
 -- 'updatedAt', 'describeQuerySuggestionsBlockListResponse_updatedAt' - The date-time a block list for query suggestions was last updated.
 --
@@ -291,25 +291,51 @@ newDescribeQuerySuggestionsBlockListResponse ::
 newDescribeQuerySuggestionsBlockListResponse
   pHttpStatus_ =
     DescribeQuerySuggestionsBlockListResponse'
-      { indexId =
+      { createdAt =
           Prelude.Nothing,
+        description = Prelude.Nothing,
+        errorMessage = Prelude.Nothing,
+        fileSizeBytes = Prelude.Nothing,
+        id = Prelude.Nothing,
+        indexId = Prelude.Nothing,
+        itemCount = Prelude.Nothing,
         name = Prelude.Nothing,
         roleArn = Prelude.Nothing,
-        errorMessage = Prelude.Nothing,
-        itemCount = Prelude.Nothing,
-        status = Prelude.Nothing,
-        id = Prelude.Nothing,
-        description = Prelude.Nothing,
         sourceS3Path = Prelude.Nothing,
-        fileSizeBytes = Prelude.Nothing,
-        createdAt = Prelude.Nothing,
+        status = Prelude.Nothing,
         updatedAt = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
+-- | The date-time a block list for query suggestions was created.
+describeQuerySuggestionsBlockListResponse_createdAt :: Lens.Lens' DescribeQuerySuggestionsBlockListResponse (Prelude.Maybe Prelude.UTCTime)
+describeQuerySuggestionsBlockListResponse_createdAt = Lens.lens (\DescribeQuerySuggestionsBlockListResponse' {createdAt} -> createdAt) (\s@DescribeQuerySuggestionsBlockListResponse' {} a -> s {createdAt = a} :: DescribeQuerySuggestionsBlockListResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The description for the block list.
+describeQuerySuggestionsBlockListResponse_description :: Lens.Lens' DescribeQuerySuggestionsBlockListResponse (Prelude.Maybe Prelude.Text)
+describeQuerySuggestionsBlockListResponse_description = Lens.lens (\DescribeQuerySuggestionsBlockListResponse' {description} -> description) (\s@DescribeQuerySuggestionsBlockListResponse' {} a -> s {description = a} :: DescribeQuerySuggestionsBlockListResponse)
+
+-- | The error message containing details if there are issues processing the
+-- block list.
+describeQuerySuggestionsBlockListResponse_errorMessage :: Lens.Lens' DescribeQuerySuggestionsBlockListResponse (Prelude.Maybe Prelude.Text)
+describeQuerySuggestionsBlockListResponse_errorMessage = Lens.lens (\DescribeQuerySuggestionsBlockListResponse' {errorMessage} -> errorMessage) (\s@DescribeQuerySuggestionsBlockListResponse' {} a -> s {errorMessage = a} :: DescribeQuerySuggestionsBlockListResponse)
+
+-- | The current size of the block list text file in S3.
+describeQuerySuggestionsBlockListResponse_fileSizeBytes :: Lens.Lens' DescribeQuerySuggestionsBlockListResponse (Prelude.Maybe Prelude.Integer)
+describeQuerySuggestionsBlockListResponse_fileSizeBytes = Lens.lens (\DescribeQuerySuggestionsBlockListResponse' {fileSizeBytes} -> fileSizeBytes) (\s@DescribeQuerySuggestionsBlockListResponse' {} a -> s {fileSizeBytes = a} :: DescribeQuerySuggestionsBlockListResponse)
+
+-- | The identifier of the block list.
+describeQuerySuggestionsBlockListResponse_id :: Lens.Lens' DescribeQuerySuggestionsBlockListResponse (Prelude.Maybe Prelude.Text)
+describeQuerySuggestionsBlockListResponse_id = Lens.lens (\DescribeQuerySuggestionsBlockListResponse' {id} -> id) (\s@DescribeQuerySuggestionsBlockListResponse' {} a -> s {id = a} :: DescribeQuerySuggestionsBlockListResponse)
+
 -- | The identifier of the index for the block list.
 describeQuerySuggestionsBlockListResponse_indexId :: Lens.Lens' DescribeQuerySuggestionsBlockListResponse (Prelude.Maybe Prelude.Text)
 describeQuerySuggestionsBlockListResponse_indexId = Lens.lens (\DescribeQuerySuggestionsBlockListResponse' {indexId} -> indexId) (\s@DescribeQuerySuggestionsBlockListResponse' {} a -> s {indexId = a} :: DescribeQuerySuggestionsBlockListResponse)
+
+-- | The current number of valid, non-empty words or phrases in the block
+-- list text file.
+describeQuerySuggestionsBlockListResponse_itemCount :: Lens.Lens' DescribeQuerySuggestionsBlockListResponse (Prelude.Maybe Prelude.Int)
+describeQuerySuggestionsBlockListResponse_itemCount = Lens.lens (\DescribeQuerySuggestionsBlockListResponse' {itemCount} -> itemCount) (\s@DescribeQuerySuggestionsBlockListResponse' {} a -> s {itemCount = a} :: DescribeQuerySuggestionsBlockListResponse)
 
 -- | The name of the block list.
 describeQuerySuggestionsBlockListResponse_name :: Lens.Lens' DescribeQuerySuggestionsBlockListResponse (Prelude.Maybe Prelude.Text)
@@ -323,29 +349,6 @@ describeQuerySuggestionsBlockListResponse_name = Lens.lens (\DescribeQuerySugges
 describeQuerySuggestionsBlockListResponse_roleArn :: Lens.Lens' DescribeQuerySuggestionsBlockListResponse (Prelude.Maybe Prelude.Text)
 describeQuerySuggestionsBlockListResponse_roleArn = Lens.lens (\DescribeQuerySuggestionsBlockListResponse' {roleArn} -> roleArn) (\s@DescribeQuerySuggestionsBlockListResponse' {} a -> s {roleArn = a} :: DescribeQuerySuggestionsBlockListResponse)
 
--- | The error message containing details if there are issues processing the
--- block list.
-describeQuerySuggestionsBlockListResponse_errorMessage :: Lens.Lens' DescribeQuerySuggestionsBlockListResponse (Prelude.Maybe Prelude.Text)
-describeQuerySuggestionsBlockListResponse_errorMessage = Lens.lens (\DescribeQuerySuggestionsBlockListResponse' {errorMessage} -> errorMessage) (\s@DescribeQuerySuggestionsBlockListResponse' {} a -> s {errorMessage = a} :: DescribeQuerySuggestionsBlockListResponse)
-
--- | The current number of valid, non-empty words or phrases in the block
--- list text file.
-describeQuerySuggestionsBlockListResponse_itemCount :: Lens.Lens' DescribeQuerySuggestionsBlockListResponse (Prelude.Maybe Prelude.Int)
-describeQuerySuggestionsBlockListResponse_itemCount = Lens.lens (\DescribeQuerySuggestionsBlockListResponse' {itemCount} -> itemCount) (\s@DescribeQuerySuggestionsBlockListResponse' {} a -> s {itemCount = a} :: DescribeQuerySuggestionsBlockListResponse)
-
--- | The current status of the block list. When the value is @ACTIVE@, the
--- block list is ready for use.
-describeQuerySuggestionsBlockListResponse_status :: Lens.Lens' DescribeQuerySuggestionsBlockListResponse (Prelude.Maybe QuerySuggestionsBlockListStatus)
-describeQuerySuggestionsBlockListResponse_status = Lens.lens (\DescribeQuerySuggestionsBlockListResponse' {status} -> status) (\s@DescribeQuerySuggestionsBlockListResponse' {} a -> s {status = a} :: DescribeQuerySuggestionsBlockListResponse)
-
--- | The identifier of the block list.
-describeQuerySuggestionsBlockListResponse_id :: Lens.Lens' DescribeQuerySuggestionsBlockListResponse (Prelude.Maybe Prelude.Text)
-describeQuerySuggestionsBlockListResponse_id = Lens.lens (\DescribeQuerySuggestionsBlockListResponse' {id} -> id) (\s@DescribeQuerySuggestionsBlockListResponse' {} a -> s {id = a} :: DescribeQuerySuggestionsBlockListResponse)
-
--- | The description for the block list.
-describeQuerySuggestionsBlockListResponse_description :: Lens.Lens' DescribeQuerySuggestionsBlockListResponse (Prelude.Maybe Prelude.Text)
-describeQuerySuggestionsBlockListResponse_description = Lens.lens (\DescribeQuerySuggestionsBlockListResponse' {description} -> description) (\s@DescribeQuerySuggestionsBlockListResponse' {} a -> s {description = a} :: DescribeQuerySuggestionsBlockListResponse)
-
 -- | Shows the current S3 path to your block list text file in your S3
 -- bucket.
 --
@@ -356,13 +359,10 @@ describeQuerySuggestionsBlockListResponse_description = Lens.lens (\DescribeQuer
 describeQuerySuggestionsBlockListResponse_sourceS3Path :: Lens.Lens' DescribeQuerySuggestionsBlockListResponse (Prelude.Maybe S3Path)
 describeQuerySuggestionsBlockListResponse_sourceS3Path = Lens.lens (\DescribeQuerySuggestionsBlockListResponse' {sourceS3Path} -> sourceS3Path) (\s@DescribeQuerySuggestionsBlockListResponse' {} a -> s {sourceS3Path = a} :: DescribeQuerySuggestionsBlockListResponse)
 
--- | The current size of the block list text file in S3.
-describeQuerySuggestionsBlockListResponse_fileSizeBytes :: Lens.Lens' DescribeQuerySuggestionsBlockListResponse (Prelude.Maybe Prelude.Integer)
-describeQuerySuggestionsBlockListResponse_fileSizeBytes = Lens.lens (\DescribeQuerySuggestionsBlockListResponse' {fileSizeBytes} -> fileSizeBytes) (\s@DescribeQuerySuggestionsBlockListResponse' {} a -> s {fileSizeBytes = a} :: DescribeQuerySuggestionsBlockListResponse)
-
--- | The date-time a block list for query suggestions was created.
-describeQuerySuggestionsBlockListResponse_createdAt :: Lens.Lens' DescribeQuerySuggestionsBlockListResponse (Prelude.Maybe Prelude.UTCTime)
-describeQuerySuggestionsBlockListResponse_createdAt = Lens.lens (\DescribeQuerySuggestionsBlockListResponse' {createdAt} -> createdAt) (\s@DescribeQuerySuggestionsBlockListResponse' {} a -> s {createdAt = a} :: DescribeQuerySuggestionsBlockListResponse) Prelude.. Lens.mapping Data._Time
+-- | The current status of the block list. When the value is @ACTIVE@, the
+-- block list is ready for use.
+describeQuerySuggestionsBlockListResponse_status :: Lens.Lens' DescribeQuerySuggestionsBlockListResponse (Prelude.Maybe QuerySuggestionsBlockListStatus)
+describeQuerySuggestionsBlockListResponse_status = Lens.lens (\DescribeQuerySuggestionsBlockListResponse' {status} -> status) (\s@DescribeQuerySuggestionsBlockListResponse' {} a -> s {status = a} :: DescribeQuerySuggestionsBlockListResponse)
 
 -- | The date-time a block list for query suggestions was last updated.
 describeQuerySuggestionsBlockListResponse_updatedAt :: Lens.Lens' DescribeQuerySuggestionsBlockListResponse (Prelude.Maybe Prelude.UTCTime)
@@ -377,16 +377,16 @@ instance
     DescribeQuerySuggestionsBlockListResponse
   where
   rnf DescribeQuerySuggestionsBlockListResponse' {..} =
-    Prelude.rnf indexId
+    Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf fileSizeBytes
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf indexId
+      `Prelude.seq` Prelude.rnf itemCount
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf itemCount
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf sourceS3Path
-      `Prelude.seq` Prelude.rnf fileSizeBytes
-      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf updatedAt
       `Prelude.seq` Prelude.rnf httpStatus

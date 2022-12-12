@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 data ExtensionVersionDetails = ExtensionVersionDetails'
   { -- | The name of the extension.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The model that defines the interface for this extension version.
-    schema :: Prelude.Maybe Prelude.Text,
     -- | The namespace (qualifier) of the extension.
     namespace :: Prelude.Maybe Prelude.Text,
+    -- | The model that defines the interface for this extension version.
+    schema :: Prelude.Maybe Prelude.Text,
     -- | The version of the extension.
     version :: Prelude.Maybe Prelude.Text
   }
@@ -49,9 +49,9 @@ data ExtensionVersionDetails = ExtensionVersionDetails'
 --
 -- 'name', 'extensionVersionDetails_name' - The name of the extension.
 --
--- 'schema', 'extensionVersionDetails_schema' - The model that defines the interface for this extension version.
---
 -- 'namespace', 'extensionVersionDetails_namespace' - The namespace (qualifier) of the extension.
+--
+-- 'schema', 'extensionVersionDetails_schema' - The model that defines the interface for this extension version.
 --
 -- 'version', 'extensionVersionDetails_version' - The version of the extension.
 newExtensionVersionDetails ::
@@ -59,8 +59,8 @@ newExtensionVersionDetails ::
 newExtensionVersionDetails =
   ExtensionVersionDetails'
     { name = Prelude.Nothing,
-      schema = Prelude.Nothing,
       namespace = Prelude.Nothing,
+      schema = Prelude.Nothing,
       version = Prelude.Nothing
     }
 
@@ -68,13 +68,13 @@ newExtensionVersionDetails =
 extensionVersionDetails_name :: Lens.Lens' ExtensionVersionDetails (Prelude.Maybe Prelude.Text)
 extensionVersionDetails_name = Lens.lens (\ExtensionVersionDetails' {name} -> name) (\s@ExtensionVersionDetails' {} a -> s {name = a} :: ExtensionVersionDetails)
 
--- | The model that defines the interface for this extension version.
-extensionVersionDetails_schema :: Lens.Lens' ExtensionVersionDetails (Prelude.Maybe Prelude.Text)
-extensionVersionDetails_schema = Lens.lens (\ExtensionVersionDetails' {schema} -> schema) (\s@ExtensionVersionDetails' {} a -> s {schema = a} :: ExtensionVersionDetails)
-
 -- | The namespace (qualifier) of the extension.
 extensionVersionDetails_namespace :: Lens.Lens' ExtensionVersionDetails (Prelude.Maybe Prelude.Text)
 extensionVersionDetails_namespace = Lens.lens (\ExtensionVersionDetails' {namespace} -> namespace) (\s@ExtensionVersionDetails' {} a -> s {namespace = a} :: ExtensionVersionDetails)
+
+-- | The model that defines the interface for this extension version.
+extensionVersionDetails_schema :: Lens.Lens' ExtensionVersionDetails (Prelude.Maybe Prelude.Text)
+extensionVersionDetails_schema = Lens.lens (\ExtensionVersionDetails' {schema} -> schema) (\s@ExtensionVersionDetails' {} a -> s {schema = a} :: ExtensionVersionDetails)
 
 -- | The version of the extension.
 extensionVersionDetails_version :: Lens.Lens' ExtensionVersionDetails (Prelude.Maybe Prelude.Text)
@@ -87,21 +87,21 @@ instance Data.FromJSON ExtensionVersionDetails where
       ( \x ->
           ExtensionVersionDetails'
             Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Schema")
             Prelude.<*> (x Data..:? "Namespace")
+            Prelude.<*> (x Data..:? "Schema")
             Prelude.<*> (x Data..:? "Version")
       )
 
 instance Prelude.Hashable ExtensionVersionDetails where
   hashWithSalt _salt ExtensionVersionDetails' {..} =
     _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` schema
       `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` schema
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData ExtensionVersionDetails where
   rnf ExtensionVersionDetails' {..} =
     Prelude.rnf name
-      `Prelude.seq` Prelude.rnf schema
       `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf schema
       `Prelude.seq` Prelude.rnf version

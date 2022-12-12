@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDelegatedAdminAccount' smart constructor.
 data DelegatedAdminAccount = DelegatedAdminAccount'
-  { -- | The status of the Amazon Inspector delegated administrator.
-    status :: Prelude.Maybe DelegatedAdminStatus,
-    -- | The Amazon Web Services account ID of the Amazon Inspector delegated
+  { -- | The Amazon Web Services account ID of the Amazon Inspector delegated
     -- administrator for your organization.
-    accountId :: Prelude.Maybe Prelude.Text
+    accountId :: Prelude.Maybe Prelude.Text,
+    -- | The status of the Amazon Inspector delegated administrator.
+    status :: Prelude.Maybe DelegatedAdminStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,26 +46,26 @@ data DelegatedAdminAccount = DelegatedAdminAccount'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'delegatedAdminAccount_status' - The status of the Amazon Inspector delegated administrator.
---
 -- 'accountId', 'delegatedAdminAccount_accountId' - The Amazon Web Services account ID of the Amazon Inspector delegated
 -- administrator for your organization.
+--
+-- 'status', 'delegatedAdminAccount_status' - The status of the Amazon Inspector delegated administrator.
 newDelegatedAdminAccount ::
   DelegatedAdminAccount
 newDelegatedAdminAccount =
   DelegatedAdminAccount'
-    { status = Prelude.Nothing,
-      accountId = Prelude.Nothing
+    { accountId = Prelude.Nothing,
+      status = Prelude.Nothing
     }
-
--- | The status of the Amazon Inspector delegated administrator.
-delegatedAdminAccount_status :: Lens.Lens' DelegatedAdminAccount (Prelude.Maybe DelegatedAdminStatus)
-delegatedAdminAccount_status = Lens.lens (\DelegatedAdminAccount' {status} -> status) (\s@DelegatedAdminAccount' {} a -> s {status = a} :: DelegatedAdminAccount)
 
 -- | The Amazon Web Services account ID of the Amazon Inspector delegated
 -- administrator for your organization.
 delegatedAdminAccount_accountId :: Lens.Lens' DelegatedAdminAccount (Prelude.Maybe Prelude.Text)
 delegatedAdminAccount_accountId = Lens.lens (\DelegatedAdminAccount' {accountId} -> accountId) (\s@DelegatedAdminAccount' {} a -> s {accountId = a} :: DelegatedAdminAccount)
+
+-- | The status of the Amazon Inspector delegated administrator.
+delegatedAdminAccount_status :: Lens.Lens' DelegatedAdminAccount (Prelude.Maybe DelegatedAdminStatus)
+delegatedAdminAccount_status = Lens.lens (\DelegatedAdminAccount' {status} -> status) (\s@DelegatedAdminAccount' {} a -> s {status = a} :: DelegatedAdminAccount)
 
 instance Data.FromJSON DelegatedAdminAccount where
   parseJSON =
@@ -73,16 +73,16 @@ instance Data.FromJSON DelegatedAdminAccount where
       "DelegatedAdminAccount"
       ( \x ->
           DelegatedAdminAccount'
-            Prelude.<$> (x Data..:? "status")
-            Prelude.<*> (x Data..:? "accountId")
+            Prelude.<$> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "status")
       )
 
 instance Prelude.Hashable DelegatedAdminAccount where
   hashWithSalt _salt DelegatedAdminAccount' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` accountId
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData DelegatedAdminAccount where
   rnf DelegatedAdminAccount' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf accountId
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf status

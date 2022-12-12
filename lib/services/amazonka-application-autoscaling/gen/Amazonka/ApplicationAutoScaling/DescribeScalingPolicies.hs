@@ -39,11 +39,11 @@ module Amazonka.ApplicationAutoScaling.DescribeScalingPolicies
     newDescribeScalingPolicies,
 
     -- * Request Lenses
-    describeScalingPolicies_resourceId,
-    describeScalingPolicies_nextToken,
-    describeScalingPolicies_scalableDimension,
-    describeScalingPolicies_policyNames,
     describeScalingPolicies_maxResults,
+    describeScalingPolicies_nextToken,
+    describeScalingPolicies_policyNames,
+    describeScalingPolicies_resourceId,
+    describeScalingPolicies_scalableDimension,
     describeScalingPolicies_serviceNamespace,
 
     -- * Destructuring the Response
@@ -67,7 +67,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeScalingPolicies' smart constructor.
 data DescribeScalingPolicies = DescribeScalingPolicies'
-  { -- | The identifier of the resource associated with the scaling policy. This
+  { -- | The maximum number of scalable targets. This value can be between 1 and
+    -- 10. The default value is 10.
+    --
+    -- If this parameter is used, the operation returns up to @MaxResults@
+    -- results at a time, along with a @NextToken@ value. To get the next set
+    -- of results, include the @NextToken@ value in a subsequent call. If this
+    -- parameter is not used, the operation returns up to 10 results and a
+    -- @NextToken@ value, if applicable.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The names of the scaling policies to describe.
+    policyNames :: Prelude.Maybe [Prelude.Text],
+    -- | The identifier of the resource associated with the scaling policy. This
     -- string consists of the resource type and unique identifier.
     --
     -- -   ECS service - The resource type is @service@ and the unique
@@ -135,8 +148,6 @@ data DescribeScalingPolicies = DescribeScalingPolicies'
     -- -   Neptune cluster - The resource type is @cluster@ and the unique
     --     identifier is the cluster name. Example: @cluster:mycluster@.
     resourceId :: Prelude.Maybe Prelude.Text,
-    -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The scalable dimension. This string consists of the service namespace,
     -- resource type, and scaling property. If you specify a scalable
     -- dimension, you must also specify a resource ID.
@@ -204,17 +215,6 @@ data DescribeScalingPolicies = DescribeScalingPolicies'
     -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
     --     an Amazon Neptune DB cluster.
     scalableDimension :: Prelude.Maybe ScalableDimension,
-    -- | The names of the scaling policies to describe.
-    policyNames :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of scalable targets. This value can be between 1 and
-    -- 10. The default value is 10.
-    --
-    -- If this parameter is used, the operation returns up to @MaxResults@
-    -- results at a time, along with a @NextToken@ value. To get the next set
-    -- of results, include the @NextToken@ value in a subsequent call. If this
-    -- parameter is not used, the operation returns up to 10 results and a
-    -- @NextToken@ value, if applicable.
-    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The namespace of the Amazon Web Services service that provides the
     -- resource. For a resource provided by your own application or service,
     -- use @custom-resource@ instead.
@@ -229,6 +229,19 @@ data DescribeScalingPolicies = DescribeScalingPolicies'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'maxResults', 'describeScalingPolicies_maxResults' - The maximum number of scalable targets. This value can be between 1 and
+-- 10. The default value is 10.
+--
+-- If this parameter is used, the operation returns up to @MaxResults@
+-- results at a time, along with a @NextToken@ value. To get the next set
+-- of results, include the @NextToken@ value in a subsequent call. If this
+-- parameter is not used, the operation returns up to 10 results and a
+-- @NextToken@ value, if applicable.
+--
+-- 'nextToken', 'describeScalingPolicies_nextToken' - The token for the next set of results.
+--
+-- 'policyNames', 'describeScalingPolicies_policyNames' - The names of the scaling policies to describe.
 --
 -- 'resourceId', 'describeScalingPolicies_resourceId' - The identifier of the resource associated with the scaling policy. This
 -- string consists of the resource type and unique identifier.
@@ -298,8 +311,6 @@ data DescribeScalingPolicies = DescribeScalingPolicies'
 -- -   Neptune cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:mycluster@.
 --
--- 'nextToken', 'describeScalingPolicies_nextToken' - The token for the next set of results.
---
 -- 'scalableDimension', 'describeScalingPolicies_scalableDimension' - The scalable dimension. This string consists of the service namespace,
 -- resource type, and scaling property. If you specify a scalable
 -- dimension, you must also specify a resource ID.
@@ -367,17 +378,6 @@ data DescribeScalingPolicies = DescribeScalingPolicies'
 -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
 --     an Amazon Neptune DB cluster.
 --
--- 'policyNames', 'describeScalingPolicies_policyNames' - The names of the scaling policies to describe.
---
--- 'maxResults', 'describeScalingPolicies_maxResults' - The maximum number of scalable targets. This value can be between 1 and
--- 10. The default value is 10.
---
--- If this parameter is used, the operation returns up to @MaxResults@
--- results at a time, along with a @NextToken@ value. To get the next set
--- of results, include the @NextToken@ value in a subsequent call. If this
--- parameter is not used, the operation returns up to 10 results and a
--- @NextToken@ value, if applicable.
---
 -- 'serviceNamespace', 'describeScalingPolicies_serviceNamespace' - The namespace of the Amazon Web Services service that provides the
 -- resource. For a resource provided by your own application or service,
 -- use @custom-resource@ instead.
@@ -387,14 +387,33 @@ newDescribeScalingPolicies ::
   DescribeScalingPolicies
 newDescribeScalingPolicies pServiceNamespace_ =
   DescribeScalingPolicies'
-    { resourceId =
+    { maxResults =
         Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      scalableDimension = Prelude.Nothing,
       policyNames = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      resourceId = Prelude.Nothing,
+      scalableDimension = Prelude.Nothing,
       serviceNamespace = pServiceNamespace_
     }
+
+-- | The maximum number of scalable targets. This value can be between 1 and
+-- 10. The default value is 10.
+--
+-- If this parameter is used, the operation returns up to @MaxResults@
+-- results at a time, along with a @NextToken@ value. To get the next set
+-- of results, include the @NextToken@ value in a subsequent call. If this
+-- parameter is not used, the operation returns up to 10 results and a
+-- @NextToken@ value, if applicable.
+describeScalingPolicies_maxResults :: Lens.Lens' DescribeScalingPolicies (Prelude.Maybe Prelude.Int)
+describeScalingPolicies_maxResults = Lens.lens (\DescribeScalingPolicies' {maxResults} -> maxResults) (\s@DescribeScalingPolicies' {} a -> s {maxResults = a} :: DescribeScalingPolicies)
+
+-- | The token for the next set of results.
+describeScalingPolicies_nextToken :: Lens.Lens' DescribeScalingPolicies (Prelude.Maybe Prelude.Text)
+describeScalingPolicies_nextToken = Lens.lens (\DescribeScalingPolicies' {nextToken} -> nextToken) (\s@DescribeScalingPolicies' {} a -> s {nextToken = a} :: DescribeScalingPolicies)
+
+-- | The names of the scaling policies to describe.
+describeScalingPolicies_policyNames :: Lens.Lens' DescribeScalingPolicies (Prelude.Maybe [Prelude.Text])
+describeScalingPolicies_policyNames = Lens.lens (\DescribeScalingPolicies' {policyNames} -> policyNames) (\s@DescribeScalingPolicies' {} a -> s {policyNames = a} :: DescribeScalingPolicies) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the resource associated with the scaling policy. This
 -- string consists of the resource type and unique identifier.
@@ -466,10 +485,6 @@ newDescribeScalingPolicies pServiceNamespace_ =
 describeScalingPolicies_resourceId :: Lens.Lens' DescribeScalingPolicies (Prelude.Maybe Prelude.Text)
 describeScalingPolicies_resourceId = Lens.lens (\DescribeScalingPolicies' {resourceId} -> resourceId) (\s@DescribeScalingPolicies' {} a -> s {resourceId = a} :: DescribeScalingPolicies)
 
--- | The token for the next set of results.
-describeScalingPolicies_nextToken :: Lens.Lens' DescribeScalingPolicies (Prelude.Maybe Prelude.Text)
-describeScalingPolicies_nextToken = Lens.lens (\DescribeScalingPolicies' {nextToken} -> nextToken) (\s@DescribeScalingPolicies' {} a -> s {nextToken = a} :: DescribeScalingPolicies)
-
 -- | The scalable dimension. This string consists of the service namespace,
 -- resource type, and scaling property. If you specify a scalable
 -- dimension, you must also specify a resource ID.
@@ -539,21 +554,6 @@ describeScalingPolicies_nextToken = Lens.lens (\DescribeScalingPolicies' {nextTo
 describeScalingPolicies_scalableDimension :: Lens.Lens' DescribeScalingPolicies (Prelude.Maybe ScalableDimension)
 describeScalingPolicies_scalableDimension = Lens.lens (\DescribeScalingPolicies' {scalableDimension} -> scalableDimension) (\s@DescribeScalingPolicies' {} a -> s {scalableDimension = a} :: DescribeScalingPolicies)
 
--- | The names of the scaling policies to describe.
-describeScalingPolicies_policyNames :: Lens.Lens' DescribeScalingPolicies (Prelude.Maybe [Prelude.Text])
-describeScalingPolicies_policyNames = Lens.lens (\DescribeScalingPolicies' {policyNames} -> policyNames) (\s@DescribeScalingPolicies' {} a -> s {policyNames = a} :: DescribeScalingPolicies) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum number of scalable targets. This value can be between 1 and
--- 10. The default value is 10.
---
--- If this parameter is used, the operation returns up to @MaxResults@
--- results at a time, along with a @NextToken@ value. To get the next set
--- of results, include the @NextToken@ value in a subsequent call. If this
--- parameter is not used, the operation returns up to 10 results and a
--- @NextToken@ value, if applicable.
-describeScalingPolicies_maxResults :: Lens.Lens' DescribeScalingPolicies (Prelude.Maybe Prelude.Int)
-describeScalingPolicies_maxResults = Lens.lens (\DescribeScalingPolicies' {maxResults} -> maxResults) (\s@DescribeScalingPolicies' {} a -> s {maxResults = a} :: DescribeScalingPolicies)
-
 -- | The namespace of the Amazon Web Services service that provides the
 -- resource. For a resource provided by your own application or service,
 -- use @custom-resource@ instead.
@@ -601,20 +601,20 @@ instance Core.AWSRequest DescribeScalingPolicies where
 
 instance Prelude.Hashable DescribeScalingPolicies where
   hashWithSalt _salt DescribeScalingPolicies' {..} =
-    _salt `Prelude.hashWithSalt` resourceId
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` scalableDimension
       `Prelude.hashWithSalt` policyNames
-      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` resourceId
+      `Prelude.hashWithSalt` scalableDimension
       `Prelude.hashWithSalt` serviceNamespace
 
 instance Prelude.NFData DescribeScalingPolicies where
   rnf DescribeScalingPolicies' {..} =
-    Prelude.rnf resourceId
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf scalableDimension
       `Prelude.seq` Prelude.rnf policyNames
-      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf resourceId
+      `Prelude.seq` Prelude.rnf scalableDimension
       `Prelude.seq` Prelude.rnf serviceNamespace
 
 instance Data.ToHeaders DescribeScalingPolicies where
@@ -636,12 +636,12 @@ instance Data.ToJSON DescribeScalingPolicies where
   toJSON DescribeScalingPolicies' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ResourceId" Data..=) Prelude.<$> resourceId,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("PolicyNames" Data..=) Prelude.<$> policyNames,
+            ("ResourceId" Data..=) Prelude.<$> resourceId,
             ("ScalableDimension" Data..=)
               Prelude.<$> scalableDimension,
-            ("PolicyNames" Data..=) Prelude.<$> policyNames,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
               ("ServiceNamespace" Data..= serviceNamespace)
           ]

@@ -30,30 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newReportJob' smart constructor.
 data ReportJob = ReportJob'
-  { -- | An Amazon Resource Name (ARN) that uniquely identifies a resource. The
-    -- format of the ARN depends on the resource type.
-    reportPlanArn :: Prelude.Maybe Prelude.Text,
-    -- | Identifies the report template for the report. Reports are built using a
-    -- report template. The report templates are:
-    --
-    -- @RESOURCE_COMPLIANCE_REPORT | CONTROL_COMPLIANCE_REPORT | BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT@
-    reportTemplate :: Prelude.Maybe Prelude.Text,
-    -- | The identifier for a report job. A unique, randomly generated, Unicode,
-    -- UTF-8 encoded string that is at most 1,024 bytes long. Report job IDs
-    -- cannot be edited.
-    reportJobId :: Prelude.Maybe Prelude.Text,
-    -- | The S3 bucket name and S3 keys for the destination where the report job
-    -- publishes the report.
-    reportDestination :: Prelude.Maybe ReportDestination,
-    -- | The status of a report job. The statuses are:
-    --
-    -- @CREATED | RUNNING | COMPLETED | FAILED@
-    --
-    -- @COMPLETED@ means that the report is available for your review at your
-    -- designated destination. If the status is @FAILED@, review the
-    -- @StatusMessage@ for the reason.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The date and time that a report job is completed, in Unix format and
+  { -- | The date and time that a report job is completed, in Unix format and
     -- Coordinated Universal Time (UTC). The value of @CompletionTime@ is
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
@@ -63,6 +40,29 @@ data ReportJob = ReportJob'
     -- accurate to milliseconds. For example, the value 1516925490.087
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
     creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The S3 bucket name and S3 keys for the destination where the report job
+    -- publishes the report.
+    reportDestination :: Prelude.Maybe ReportDestination,
+    -- | The identifier for a report job. A unique, randomly generated, Unicode,
+    -- UTF-8 encoded string that is at most 1,024 bytes long. Report job IDs
+    -- cannot be edited.
+    reportJobId :: Prelude.Maybe Prelude.Text,
+    -- | An Amazon Resource Name (ARN) that uniquely identifies a resource. The
+    -- format of the ARN depends on the resource type.
+    reportPlanArn :: Prelude.Maybe Prelude.Text,
+    -- | Identifies the report template for the report. Reports are built using a
+    -- report template. The report templates are:
+    --
+    -- @RESOURCE_COMPLIANCE_REPORT | CONTROL_COMPLIANCE_REPORT | BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT@
+    reportTemplate :: Prelude.Maybe Prelude.Text,
+    -- | The status of a report job. The statuses are:
+    --
+    -- @CREATED | RUNNING | COMPLETED | FAILED@
+    --
+    -- @COMPLETED@ means that the report is available for your review at your
+    -- designated destination. If the status is @FAILED@, review the
+    -- @StatusMessage@ for the reason.
+    status :: Prelude.Maybe Prelude.Text,
     -- | A message explaining the status of the report job.
     statusMessage :: Prelude.Maybe Prelude.Text
   }
@@ -76,29 +76,6 @@ data ReportJob = ReportJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'reportPlanArn', 'reportJob_reportPlanArn' - An Amazon Resource Name (ARN) that uniquely identifies a resource. The
--- format of the ARN depends on the resource type.
---
--- 'reportTemplate', 'reportJob_reportTemplate' - Identifies the report template for the report. Reports are built using a
--- report template. The report templates are:
---
--- @RESOURCE_COMPLIANCE_REPORT | CONTROL_COMPLIANCE_REPORT | BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT@
---
--- 'reportJobId', 'reportJob_reportJobId' - The identifier for a report job. A unique, randomly generated, Unicode,
--- UTF-8 encoded string that is at most 1,024 bytes long. Report job IDs
--- cannot be edited.
---
--- 'reportDestination', 'reportJob_reportDestination' - The S3 bucket name and S3 keys for the destination where the report job
--- publishes the report.
---
--- 'status', 'reportJob_status' - The status of a report job. The statuses are:
---
--- @CREATED | RUNNING | COMPLETED | FAILED@
---
--- @COMPLETED@ means that the report is available for your review at your
--- designated destination. If the status is @FAILED@, review the
--- @StatusMessage@ for the reason.
---
 -- 'completionTime', 'reportJob_completionTime' - The date and time that a report job is completed, in Unix format and
 -- Coordinated Universal Time (UTC). The value of @CompletionTime@ is
 -- accurate to milliseconds. For example, the value 1516925490.087
@@ -109,53 +86,43 @@ data ReportJob = ReportJob'
 -- accurate to milliseconds. For example, the value 1516925490.087
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
 --
--- 'statusMessage', 'reportJob_statusMessage' - A message explaining the status of the report job.
-newReportJob ::
-  ReportJob
-newReportJob =
-  ReportJob'
-    { reportPlanArn = Prelude.Nothing,
-      reportTemplate = Prelude.Nothing,
-      reportJobId = Prelude.Nothing,
-      reportDestination = Prelude.Nothing,
-      status = Prelude.Nothing,
-      completionTime = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      statusMessage = Prelude.Nothing
-    }
-
--- | An Amazon Resource Name (ARN) that uniquely identifies a resource. The
+-- 'reportDestination', 'reportJob_reportDestination' - The S3 bucket name and S3 keys for the destination where the report job
+-- publishes the report.
+--
+-- 'reportJobId', 'reportJob_reportJobId' - The identifier for a report job. A unique, randomly generated, Unicode,
+-- UTF-8 encoded string that is at most 1,024 bytes long. Report job IDs
+-- cannot be edited.
+--
+-- 'reportPlanArn', 'reportJob_reportPlanArn' - An Amazon Resource Name (ARN) that uniquely identifies a resource. The
 -- format of the ARN depends on the resource type.
-reportJob_reportPlanArn :: Lens.Lens' ReportJob (Prelude.Maybe Prelude.Text)
-reportJob_reportPlanArn = Lens.lens (\ReportJob' {reportPlanArn} -> reportPlanArn) (\s@ReportJob' {} a -> s {reportPlanArn = a} :: ReportJob)
-
--- | Identifies the report template for the report. Reports are built using a
+--
+-- 'reportTemplate', 'reportJob_reportTemplate' - Identifies the report template for the report. Reports are built using a
 -- report template. The report templates are:
 --
 -- @RESOURCE_COMPLIANCE_REPORT | CONTROL_COMPLIANCE_REPORT | BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT@
-reportJob_reportTemplate :: Lens.Lens' ReportJob (Prelude.Maybe Prelude.Text)
-reportJob_reportTemplate = Lens.lens (\ReportJob' {reportTemplate} -> reportTemplate) (\s@ReportJob' {} a -> s {reportTemplate = a} :: ReportJob)
-
--- | The identifier for a report job. A unique, randomly generated, Unicode,
--- UTF-8 encoded string that is at most 1,024 bytes long. Report job IDs
--- cannot be edited.
-reportJob_reportJobId :: Lens.Lens' ReportJob (Prelude.Maybe Prelude.Text)
-reportJob_reportJobId = Lens.lens (\ReportJob' {reportJobId} -> reportJobId) (\s@ReportJob' {} a -> s {reportJobId = a} :: ReportJob)
-
--- | The S3 bucket name and S3 keys for the destination where the report job
--- publishes the report.
-reportJob_reportDestination :: Lens.Lens' ReportJob (Prelude.Maybe ReportDestination)
-reportJob_reportDestination = Lens.lens (\ReportJob' {reportDestination} -> reportDestination) (\s@ReportJob' {} a -> s {reportDestination = a} :: ReportJob)
-
--- | The status of a report job. The statuses are:
+--
+-- 'status', 'reportJob_status' - The status of a report job. The statuses are:
 --
 -- @CREATED | RUNNING | COMPLETED | FAILED@
 --
 -- @COMPLETED@ means that the report is available for your review at your
 -- designated destination. If the status is @FAILED@, review the
 -- @StatusMessage@ for the reason.
-reportJob_status :: Lens.Lens' ReportJob (Prelude.Maybe Prelude.Text)
-reportJob_status = Lens.lens (\ReportJob' {status} -> status) (\s@ReportJob' {} a -> s {status = a} :: ReportJob)
+--
+-- 'statusMessage', 'reportJob_statusMessage' - A message explaining the status of the report job.
+newReportJob ::
+  ReportJob
+newReportJob =
+  ReportJob'
+    { completionTime = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      reportDestination = Prelude.Nothing,
+      reportJobId = Prelude.Nothing,
+      reportPlanArn = Prelude.Nothing,
+      reportTemplate = Prelude.Nothing,
+      status = Prelude.Nothing,
+      statusMessage = Prelude.Nothing
+    }
 
 -- | The date and time that a report job is completed, in Unix format and
 -- Coordinated Universal Time (UTC). The value of @CompletionTime@ is
@@ -171,6 +138,39 @@ reportJob_completionTime = Lens.lens (\ReportJob' {completionTime} -> completion
 reportJob_creationTime :: Lens.Lens' ReportJob (Prelude.Maybe Prelude.UTCTime)
 reportJob_creationTime = Lens.lens (\ReportJob' {creationTime} -> creationTime) (\s@ReportJob' {} a -> s {creationTime = a} :: ReportJob) Prelude.. Lens.mapping Data._Time
 
+-- | The S3 bucket name and S3 keys for the destination where the report job
+-- publishes the report.
+reportJob_reportDestination :: Lens.Lens' ReportJob (Prelude.Maybe ReportDestination)
+reportJob_reportDestination = Lens.lens (\ReportJob' {reportDestination} -> reportDestination) (\s@ReportJob' {} a -> s {reportDestination = a} :: ReportJob)
+
+-- | The identifier for a report job. A unique, randomly generated, Unicode,
+-- UTF-8 encoded string that is at most 1,024 bytes long. Report job IDs
+-- cannot be edited.
+reportJob_reportJobId :: Lens.Lens' ReportJob (Prelude.Maybe Prelude.Text)
+reportJob_reportJobId = Lens.lens (\ReportJob' {reportJobId} -> reportJobId) (\s@ReportJob' {} a -> s {reportJobId = a} :: ReportJob)
+
+-- | An Amazon Resource Name (ARN) that uniquely identifies a resource. The
+-- format of the ARN depends on the resource type.
+reportJob_reportPlanArn :: Lens.Lens' ReportJob (Prelude.Maybe Prelude.Text)
+reportJob_reportPlanArn = Lens.lens (\ReportJob' {reportPlanArn} -> reportPlanArn) (\s@ReportJob' {} a -> s {reportPlanArn = a} :: ReportJob)
+
+-- | Identifies the report template for the report. Reports are built using a
+-- report template. The report templates are:
+--
+-- @RESOURCE_COMPLIANCE_REPORT | CONTROL_COMPLIANCE_REPORT | BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT@
+reportJob_reportTemplate :: Lens.Lens' ReportJob (Prelude.Maybe Prelude.Text)
+reportJob_reportTemplate = Lens.lens (\ReportJob' {reportTemplate} -> reportTemplate) (\s@ReportJob' {} a -> s {reportTemplate = a} :: ReportJob)
+
+-- | The status of a report job. The statuses are:
+--
+-- @CREATED | RUNNING | COMPLETED | FAILED@
+--
+-- @COMPLETED@ means that the report is available for your review at your
+-- designated destination. If the status is @FAILED@, review the
+-- @StatusMessage@ for the reason.
+reportJob_status :: Lens.Lens' ReportJob (Prelude.Maybe Prelude.Text)
+reportJob_status = Lens.lens (\ReportJob' {status} -> status) (\s@ReportJob' {} a -> s {status = a} :: ReportJob)
+
 -- | A message explaining the status of the report job.
 reportJob_statusMessage :: Lens.Lens' ReportJob (Prelude.Maybe Prelude.Text)
 reportJob_statusMessage = Lens.lens (\ReportJob' {statusMessage} -> statusMessage) (\s@ReportJob' {} a -> s {statusMessage = a} :: ReportJob)
@@ -181,34 +181,34 @@ instance Data.FromJSON ReportJob where
       "ReportJob"
       ( \x ->
           ReportJob'
-            Prelude.<$> (x Data..:? "ReportPlanArn")
-            Prelude.<*> (x Data..:? "ReportTemplate")
-            Prelude.<*> (x Data..:? "ReportJobId")
-            Prelude.<*> (x Data..:? "ReportDestination")
-            Prelude.<*> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "CompletionTime")
+            Prelude.<$> (x Data..:? "CompletionTime")
             Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "ReportDestination")
+            Prelude.<*> (x Data..:? "ReportJobId")
+            Prelude.<*> (x Data..:? "ReportPlanArn")
+            Prelude.<*> (x Data..:? "ReportTemplate")
+            Prelude.<*> (x Data..:? "Status")
             Prelude.<*> (x Data..:? "StatusMessage")
       )
 
 instance Prelude.Hashable ReportJob where
   hashWithSalt _salt ReportJob' {..} =
-    _salt `Prelude.hashWithSalt` reportPlanArn
-      `Prelude.hashWithSalt` reportTemplate
-      `Prelude.hashWithSalt` reportJobId
-      `Prelude.hashWithSalt` reportDestination
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` completionTime
+    _salt `Prelude.hashWithSalt` completionTime
       `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` reportDestination
+      `Prelude.hashWithSalt` reportJobId
+      `Prelude.hashWithSalt` reportPlanArn
+      `Prelude.hashWithSalt` reportTemplate
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` statusMessage
 
 instance Prelude.NFData ReportJob where
   rnf ReportJob' {..} =
-    Prelude.rnf reportPlanArn
-      `Prelude.seq` Prelude.rnf reportTemplate
-      `Prelude.seq` Prelude.rnf reportJobId
-      `Prelude.seq` Prelude.rnf reportDestination
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf completionTime
+    Prelude.rnf completionTime
       `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf reportDestination
+      `Prelude.seq` Prelude.rnf reportJobId
+      `Prelude.seq` Prelude.rnf reportPlanArn
+      `Prelude.seq` Prelude.rnf reportTemplate
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf statusMessage

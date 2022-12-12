@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMapIterationEventDetails' smart constructor.
 data MapIterationEventDetails = MapIterationEventDetails'
-  { -- | The name of the iteration’s parent Map state.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The index of the array belonging to the Map state iteration.
-    index :: Prelude.Maybe Prelude.Natural
+  { -- | The index of the array belonging to the Map state iteration.
+    index :: Prelude.Maybe Prelude.Natural,
+    -- | The name of the iteration’s parent Map state.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data MapIterationEventDetails = MapIterationEventDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'mapIterationEventDetails_name' - The name of the iteration’s parent Map state.
---
 -- 'index', 'mapIterationEventDetails_index' - The index of the array belonging to the Map state iteration.
+--
+-- 'name', 'mapIterationEventDetails_name' - The name of the iteration’s parent Map state.
 newMapIterationEventDetails ::
   MapIterationEventDetails
 newMapIterationEventDetails =
   MapIterationEventDetails'
-    { name = Prelude.Nothing,
-      index = Prelude.Nothing
+    { index = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | The name of the iteration’s parent Map state.
-mapIterationEventDetails_name :: Lens.Lens' MapIterationEventDetails (Prelude.Maybe Prelude.Text)
-mapIterationEventDetails_name = Lens.lens (\MapIterationEventDetails' {name} -> name) (\s@MapIterationEventDetails' {} a -> s {name = a} :: MapIterationEventDetails)
 
 -- | The index of the array belonging to the Map state iteration.
 mapIterationEventDetails_index :: Lens.Lens' MapIterationEventDetails (Prelude.Maybe Prelude.Natural)
 mapIterationEventDetails_index = Lens.lens (\MapIterationEventDetails' {index} -> index) (\s@MapIterationEventDetails' {} a -> s {index = a} :: MapIterationEventDetails)
+
+-- | The name of the iteration’s parent Map state.
+mapIterationEventDetails_name :: Lens.Lens' MapIterationEventDetails (Prelude.Maybe Prelude.Text)
+mapIterationEventDetails_name = Lens.lens (\MapIterationEventDetails' {name} -> name) (\s@MapIterationEventDetails' {} a -> s {name = a} :: MapIterationEventDetails)
 
 instance Data.FromJSON MapIterationEventDetails where
   parseJSON =
@@ -68,14 +68,14 @@ instance Data.FromJSON MapIterationEventDetails where
       "MapIterationEventDetails"
       ( \x ->
           MapIterationEventDetails'
-            Prelude.<$> (x Data..:? "name") Prelude.<*> (x Data..:? "index")
+            Prelude.<$> (x Data..:? "index") Prelude.<*> (x Data..:? "name")
       )
 
 instance Prelude.Hashable MapIterationEventDetails where
   hashWithSalt _salt MapIterationEventDetails' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` index
+    _salt `Prelude.hashWithSalt` index
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData MapIterationEventDetails where
   rnf MapIterationEventDetails' {..} =
-    Prelude.rnf name `Prelude.seq` Prelude.rnf index
+    Prelude.rnf index `Prelude.seq` Prelude.rnf name

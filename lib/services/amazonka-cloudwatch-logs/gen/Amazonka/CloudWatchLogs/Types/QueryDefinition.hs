@@ -29,15 +29,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newQueryDefinition' smart constructor.
 data QueryDefinition = QueryDefinition'
-  { -- | The name of the query definition.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The unique ID of the query definition.
-    queryDefinitionId :: Prelude.Maybe Prelude.Text,
+  { -- | The date that the query definition was most recently modified.
+    lastModified :: Prelude.Maybe Prelude.Natural,
     -- | If this query definition contains a list of log groups that it is
     -- limited to, that list appears here.
     logGroupNames :: Prelude.Maybe [Prelude.Text],
-    -- | The date that the query definition was most recently modified.
-    lastModified :: Prelude.Maybe Prelude.Natural,
+    -- | The name of the query definition.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The unique ID of the query definition.
+    queryDefinitionId :: Prelude.Maybe Prelude.Text,
     -- | The query string to use for this definition. For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html CloudWatch Logs Insights Query Syntax>.
     queryString :: Prelude.Maybe Prelude.Text
@@ -52,14 +52,14 @@ data QueryDefinition = QueryDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'queryDefinition_name' - The name of the query definition.
---
--- 'queryDefinitionId', 'queryDefinition_queryDefinitionId' - The unique ID of the query definition.
+-- 'lastModified', 'queryDefinition_lastModified' - The date that the query definition was most recently modified.
 --
 -- 'logGroupNames', 'queryDefinition_logGroupNames' - If this query definition contains a list of log groups that it is
 -- limited to, that list appears here.
 --
--- 'lastModified', 'queryDefinition_lastModified' - The date that the query definition was most recently modified.
+-- 'name', 'queryDefinition_name' - The name of the query definition.
+--
+-- 'queryDefinitionId', 'queryDefinition_queryDefinitionId' - The unique ID of the query definition.
 --
 -- 'queryString', 'queryDefinition_queryString' - The query string to use for this definition. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html CloudWatch Logs Insights Query Syntax>.
@@ -67,12 +67,21 @@ newQueryDefinition ::
   QueryDefinition
 newQueryDefinition =
   QueryDefinition'
-    { name = Prelude.Nothing,
-      queryDefinitionId = Prelude.Nothing,
+    { lastModified = Prelude.Nothing,
       logGroupNames = Prelude.Nothing,
-      lastModified = Prelude.Nothing,
+      name = Prelude.Nothing,
+      queryDefinitionId = Prelude.Nothing,
       queryString = Prelude.Nothing
     }
+
+-- | The date that the query definition was most recently modified.
+queryDefinition_lastModified :: Lens.Lens' QueryDefinition (Prelude.Maybe Prelude.Natural)
+queryDefinition_lastModified = Lens.lens (\QueryDefinition' {lastModified} -> lastModified) (\s@QueryDefinition' {} a -> s {lastModified = a} :: QueryDefinition)
+
+-- | If this query definition contains a list of log groups that it is
+-- limited to, that list appears here.
+queryDefinition_logGroupNames :: Lens.Lens' QueryDefinition (Prelude.Maybe [Prelude.Text])
+queryDefinition_logGroupNames = Lens.lens (\QueryDefinition' {logGroupNames} -> logGroupNames) (\s@QueryDefinition' {} a -> s {logGroupNames = a} :: QueryDefinition) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the query definition.
 queryDefinition_name :: Lens.Lens' QueryDefinition (Prelude.Maybe Prelude.Text)
@@ -81,15 +90,6 @@ queryDefinition_name = Lens.lens (\QueryDefinition' {name} -> name) (\s@QueryDef
 -- | The unique ID of the query definition.
 queryDefinition_queryDefinitionId :: Lens.Lens' QueryDefinition (Prelude.Maybe Prelude.Text)
 queryDefinition_queryDefinitionId = Lens.lens (\QueryDefinition' {queryDefinitionId} -> queryDefinitionId) (\s@QueryDefinition' {} a -> s {queryDefinitionId = a} :: QueryDefinition)
-
--- | If this query definition contains a list of log groups that it is
--- limited to, that list appears here.
-queryDefinition_logGroupNames :: Lens.Lens' QueryDefinition (Prelude.Maybe [Prelude.Text])
-queryDefinition_logGroupNames = Lens.lens (\QueryDefinition' {logGroupNames} -> logGroupNames) (\s@QueryDefinition' {} a -> s {logGroupNames = a} :: QueryDefinition) Prelude.. Lens.mapping Lens.coerced
-
--- | The date that the query definition was most recently modified.
-queryDefinition_lastModified :: Lens.Lens' QueryDefinition (Prelude.Maybe Prelude.Natural)
-queryDefinition_lastModified = Lens.lens (\QueryDefinition' {lastModified} -> lastModified) (\s@QueryDefinition' {} a -> s {lastModified = a} :: QueryDefinition)
 
 -- | The query string to use for this definition. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html CloudWatch Logs Insights Query Syntax>.
@@ -102,25 +102,25 @@ instance Data.FromJSON QueryDefinition where
       "QueryDefinition"
       ( \x ->
           QueryDefinition'
-            Prelude.<$> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "queryDefinitionId")
+            Prelude.<$> (x Data..:? "lastModified")
             Prelude.<*> (x Data..:? "logGroupNames" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "lastModified")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "queryDefinitionId")
             Prelude.<*> (x Data..:? "queryString")
       )
 
 instance Prelude.Hashable QueryDefinition where
   hashWithSalt _salt QueryDefinition' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` queryDefinitionId
+    _salt `Prelude.hashWithSalt` lastModified
       `Prelude.hashWithSalt` logGroupNames
-      `Prelude.hashWithSalt` lastModified
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` queryDefinitionId
       `Prelude.hashWithSalt` queryString
 
 instance Prelude.NFData QueryDefinition where
   rnf QueryDefinition' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf queryDefinitionId
+    Prelude.rnf lastModified
       `Prelude.seq` Prelude.rnf logGroupNames
-      `Prelude.seq` Prelude.rnf lastModified
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf queryDefinitionId
       `Prelude.seq` Prelude.rnf queryString

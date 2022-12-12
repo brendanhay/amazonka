@@ -22,7 +22,8 @@ module Amazonka.Inspector2.Types.CoverageResourceType
       ( ..,
         CoverageResourceType_AWS_EC2_INSTANCE,
         CoverageResourceType_AWS_ECR_CONTAINER_IMAGE,
-        CoverageResourceType_AWS_ECR_REPOSITORY
+        CoverageResourceType_AWS_ECR_REPOSITORY,
+        CoverageResourceType_AWS_LAMBDA_FUNCTION
       ),
   )
 where
@@ -68,9 +69,13 @@ pattern CoverageResourceType_AWS_ECR_CONTAINER_IMAGE = CoverageResourceType' "AW
 pattern CoverageResourceType_AWS_ECR_REPOSITORY :: CoverageResourceType
 pattern CoverageResourceType_AWS_ECR_REPOSITORY = CoverageResourceType' "AWS_ECR_REPOSITORY"
 
+pattern CoverageResourceType_AWS_LAMBDA_FUNCTION :: CoverageResourceType
+pattern CoverageResourceType_AWS_LAMBDA_FUNCTION = CoverageResourceType' "AWS_LAMBDA_FUNCTION"
+
 {-# COMPLETE
   CoverageResourceType_AWS_EC2_INSTANCE,
   CoverageResourceType_AWS_ECR_CONTAINER_IMAGE,
   CoverageResourceType_AWS_ECR_REPOSITORY,
+  CoverageResourceType_AWS_LAMBDA_FUNCTION,
   CoverageResourceType'
   #-}

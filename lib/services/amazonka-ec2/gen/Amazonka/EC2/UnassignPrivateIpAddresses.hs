@@ -28,8 +28,8 @@ module Amazonka.EC2.UnassignPrivateIpAddresses
     newUnassignPrivateIpAddresses,
 
     -- * Request Lenses
-    unassignPrivateIpAddresses_privateIpAddresses,
     unassignPrivateIpAddresses_ipv4Prefixes,
+    unassignPrivateIpAddresses_privateIpAddresses,
     unassignPrivateIpAddresses_networkInterfaceId,
 
     -- * Destructuring the Response
@@ -50,12 +50,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUnassignPrivateIpAddresses' smart constructor.
 data UnassignPrivateIpAddresses = UnassignPrivateIpAddresses'
-  { -- | The secondary private IP addresses to unassign from the network
+  { -- | The IPv4 prefixes to unassign from the network interface.
+    ipv4Prefixes :: Prelude.Maybe [Prelude.Text],
+    -- | The secondary private IP addresses to unassign from the network
     -- interface. You can specify this option multiple times to unassign more
     -- than one IP address.
     privateIpAddresses :: Prelude.Maybe [Prelude.Text],
-    -- | The IPv4 prefixes to unassign from the network interface.
-    ipv4Prefixes :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the network interface.
     networkInterfaceId :: Prelude.Text
   }
@@ -69,11 +69,11 @@ data UnassignPrivateIpAddresses = UnassignPrivateIpAddresses'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ipv4Prefixes', 'unassignPrivateIpAddresses_ipv4Prefixes' - The IPv4 prefixes to unassign from the network interface.
+--
 -- 'privateIpAddresses', 'unassignPrivateIpAddresses_privateIpAddresses' - The secondary private IP addresses to unassign from the network
 -- interface. You can specify this option multiple times to unassign more
 -- than one IP address.
---
--- 'ipv4Prefixes', 'unassignPrivateIpAddresses_ipv4Prefixes' - The IPv4 prefixes to unassign from the network interface.
 --
 -- 'networkInterfaceId', 'unassignPrivateIpAddresses_networkInterfaceId' - The ID of the network interface.
 newUnassignPrivateIpAddresses ::
@@ -82,21 +82,21 @@ newUnassignPrivateIpAddresses ::
   UnassignPrivateIpAddresses
 newUnassignPrivateIpAddresses pNetworkInterfaceId_ =
   UnassignPrivateIpAddresses'
-    { privateIpAddresses =
+    { ipv4Prefixes =
         Prelude.Nothing,
-      ipv4Prefixes = Prelude.Nothing,
+      privateIpAddresses = Prelude.Nothing,
       networkInterfaceId = pNetworkInterfaceId_
     }
+
+-- | The IPv4 prefixes to unassign from the network interface.
+unassignPrivateIpAddresses_ipv4Prefixes :: Lens.Lens' UnassignPrivateIpAddresses (Prelude.Maybe [Prelude.Text])
+unassignPrivateIpAddresses_ipv4Prefixes = Lens.lens (\UnassignPrivateIpAddresses' {ipv4Prefixes} -> ipv4Prefixes) (\s@UnassignPrivateIpAddresses' {} a -> s {ipv4Prefixes = a} :: UnassignPrivateIpAddresses) Prelude.. Lens.mapping Lens.coerced
 
 -- | The secondary private IP addresses to unassign from the network
 -- interface. You can specify this option multiple times to unassign more
 -- than one IP address.
 unassignPrivateIpAddresses_privateIpAddresses :: Lens.Lens' UnassignPrivateIpAddresses (Prelude.Maybe [Prelude.Text])
 unassignPrivateIpAddresses_privateIpAddresses = Lens.lens (\UnassignPrivateIpAddresses' {privateIpAddresses} -> privateIpAddresses) (\s@UnassignPrivateIpAddresses' {} a -> s {privateIpAddresses = a} :: UnassignPrivateIpAddresses) Prelude.. Lens.mapping Lens.coerced
-
--- | The IPv4 prefixes to unassign from the network interface.
-unassignPrivateIpAddresses_ipv4Prefixes :: Lens.Lens' UnassignPrivateIpAddresses (Prelude.Maybe [Prelude.Text])
-unassignPrivateIpAddresses_ipv4Prefixes = Lens.lens (\UnassignPrivateIpAddresses' {ipv4Prefixes} -> ipv4Prefixes) (\s@UnassignPrivateIpAddresses' {} a -> s {ipv4Prefixes = a} :: UnassignPrivateIpAddresses) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the network interface.
 unassignPrivateIpAddresses_networkInterfaceId :: Lens.Lens' UnassignPrivateIpAddresses Prelude.Text
@@ -114,14 +114,14 @@ instance Core.AWSRequest UnassignPrivateIpAddresses where
 
 instance Prelude.Hashable UnassignPrivateIpAddresses where
   hashWithSalt _salt UnassignPrivateIpAddresses' {..} =
-    _salt `Prelude.hashWithSalt` privateIpAddresses
-      `Prelude.hashWithSalt` ipv4Prefixes
+    _salt `Prelude.hashWithSalt` ipv4Prefixes
+      `Prelude.hashWithSalt` privateIpAddresses
       `Prelude.hashWithSalt` networkInterfaceId
 
 instance Prelude.NFData UnassignPrivateIpAddresses where
   rnf UnassignPrivateIpAddresses' {..} =
-    Prelude.rnf privateIpAddresses
-      `Prelude.seq` Prelude.rnf ipv4Prefixes
+    Prelude.rnf ipv4Prefixes
+      `Prelude.seq` Prelude.rnf privateIpAddresses
       `Prelude.seq` Prelude.rnf networkInterfaceId
 
 instance Data.ToHeaders UnassignPrivateIpAddresses where
@@ -138,12 +138,12 @@ instance Data.ToQuery UnassignPrivateIpAddresses where
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
         Data.toQuery
-          ( Data.toQueryList "PrivateIpAddress"
-              Prelude.<$> privateIpAddresses
-          ),
-        Data.toQuery
           ( Data.toQueryList "Ipv4Prefix"
               Prelude.<$> ipv4Prefixes
+          ),
+        Data.toQuery
+          ( Data.toQueryList "PrivateIpAddress"
+              Prelude.<$> privateIpAddresses
           ),
         "NetworkInterfaceId" Data.=: networkInterfaceId
       ]

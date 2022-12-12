@@ -27,8 +27,8 @@ module Amazonka.FraudDetector.CreateModel
     newCreateModel,
 
     -- * Request Lenses
-    createModel_tags,
     createModel_description,
+    createModel_tags,
     createModel_modelId,
     createModel_modelType,
     createModel_eventTypeName,
@@ -52,10 +52,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateModel' smart constructor.
 data CreateModel = CreateModel'
-  { -- | A collection of key and value pairs.
-    tags :: Prelude.Maybe [Tag],
-    -- | The model description.
+  { -- | The model description.
     description :: Prelude.Maybe Prelude.Text,
+    -- | A collection of key and value pairs.
+    tags :: Prelude.Maybe [Tag],
     -- | The model ID.
     modelId :: Prelude.Text,
     -- | The model type.
@@ -73,9 +73,9 @@ data CreateModel = CreateModel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createModel_tags' - A collection of key and value pairs.
---
 -- 'description', 'createModel_description' - The model description.
+--
+-- 'tags', 'createModel_tags' - A collection of key and value pairs.
 --
 -- 'modelId', 'createModel_modelId' - The model ID.
 --
@@ -92,20 +92,20 @@ newCreateModel ::
   CreateModel
 newCreateModel pModelId_ pModelType_ pEventTypeName_ =
   CreateModel'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       modelId = pModelId_,
       modelType = pModelType_,
       eventTypeName = pEventTypeName_
     }
 
--- | A collection of key and value pairs.
-createModel_tags :: Lens.Lens' CreateModel (Prelude.Maybe [Tag])
-createModel_tags = Lens.lens (\CreateModel' {tags} -> tags) (\s@CreateModel' {} a -> s {tags = a} :: CreateModel) Prelude.. Lens.mapping Lens.coerced
-
 -- | The model description.
 createModel_description :: Lens.Lens' CreateModel (Prelude.Maybe Prelude.Text)
 createModel_description = Lens.lens (\CreateModel' {description} -> description) (\s@CreateModel' {} a -> s {description = a} :: CreateModel)
+
+-- | A collection of key and value pairs.
+createModel_tags :: Lens.Lens' CreateModel (Prelude.Maybe [Tag])
+createModel_tags = Lens.lens (\CreateModel' {tags} -> tags) (\s@CreateModel' {} a -> s {tags = a} :: CreateModel) Prelude.. Lens.mapping Lens.coerced
 
 -- | The model ID.
 createModel_modelId :: Lens.Lens' CreateModel Prelude.Text
@@ -132,16 +132,16 @@ instance Core.AWSRequest CreateModel where
 
 instance Prelude.Hashable CreateModel where
   hashWithSalt _salt CreateModel' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` modelId
       `Prelude.hashWithSalt` modelType
       `Prelude.hashWithSalt` eventTypeName
 
 instance Prelude.NFData CreateModel where
   rnf CreateModel' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf modelId
       `Prelude.seq` Prelude.rnf modelType
       `Prelude.seq` Prelude.rnf eventTypeName
@@ -165,8 +165,8 @@ instance Data.ToJSON CreateModel where
   toJSON CreateModel' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("description" Data..=) Prelude.<$> description,
+          [ ("description" Data..=) Prelude.<$> description,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("modelId" Data..= modelId),
             Prelude.Just ("modelType" Data..= modelType),
             Prelude.Just

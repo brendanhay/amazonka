@@ -34,12 +34,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMinBottomRenditionSize' smart constructor.
 data MinBottomRenditionSize = MinBottomRenditionSize'
-  { -- | Use Width to define the video resolution width, in pixels, for this
+  { -- | Use Height to define the video resolution height, in pixels, for this
     -- rule.
-    width :: Prelude.Maybe Prelude.Natural,
-    -- | Use Height to define the video resolution height, in pixels, for this
+    height :: Prelude.Maybe Prelude.Natural,
+    -- | Use Width to define the video resolution width, in pixels, for this
     -- rule.
-    height :: Prelude.Maybe Prelude.Natural
+    width :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,28 +51,28 @@ data MinBottomRenditionSize = MinBottomRenditionSize'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'width', 'minBottomRenditionSize_width' - Use Width to define the video resolution width, in pixels, for this
+-- 'height', 'minBottomRenditionSize_height' - Use Height to define the video resolution height, in pixels, for this
 -- rule.
 --
--- 'height', 'minBottomRenditionSize_height' - Use Height to define the video resolution height, in pixels, for this
+-- 'width', 'minBottomRenditionSize_width' - Use Width to define the video resolution width, in pixels, for this
 -- rule.
 newMinBottomRenditionSize ::
   MinBottomRenditionSize
 newMinBottomRenditionSize =
   MinBottomRenditionSize'
-    { width = Prelude.Nothing,
-      height = Prelude.Nothing
+    { height = Prelude.Nothing,
+      width = Prelude.Nothing
     }
-
--- | Use Width to define the video resolution width, in pixels, for this
--- rule.
-minBottomRenditionSize_width :: Lens.Lens' MinBottomRenditionSize (Prelude.Maybe Prelude.Natural)
-minBottomRenditionSize_width = Lens.lens (\MinBottomRenditionSize' {width} -> width) (\s@MinBottomRenditionSize' {} a -> s {width = a} :: MinBottomRenditionSize)
 
 -- | Use Height to define the video resolution height, in pixels, for this
 -- rule.
 minBottomRenditionSize_height :: Lens.Lens' MinBottomRenditionSize (Prelude.Maybe Prelude.Natural)
 minBottomRenditionSize_height = Lens.lens (\MinBottomRenditionSize' {height} -> height) (\s@MinBottomRenditionSize' {} a -> s {height = a} :: MinBottomRenditionSize)
+
+-- | Use Width to define the video resolution width, in pixels, for this
+-- rule.
+minBottomRenditionSize_width :: Lens.Lens' MinBottomRenditionSize (Prelude.Maybe Prelude.Natural)
+minBottomRenditionSize_width = Lens.lens (\MinBottomRenditionSize' {width} -> width) (\s@MinBottomRenditionSize' {} a -> s {width = a} :: MinBottomRenditionSize)
 
 instance Data.FromJSON MinBottomRenditionSize where
   parseJSON =
@@ -80,24 +80,24 @@ instance Data.FromJSON MinBottomRenditionSize where
       "MinBottomRenditionSize"
       ( \x ->
           MinBottomRenditionSize'
-            Prelude.<$> (x Data..:? "width")
-            Prelude.<*> (x Data..:? "height")
+            Prelude.<$> (x Data..:? "height")
+            Prelude.<*> (x Data..:? "width")
       )
 
 instance Prelude.Hashable MinBottomRenditionSize where
   hashWithSalt _salt MinBottomRenditionSize' {..} =
-    _salt `Prelude.hashWithSalt` width
-      `Prelude.hashWithSalt` height
+    _salt `Prelude.hashWithSalt` height
+      `Prelude.hashWithSalt` width
 
 instance Prelude.NFData MinBottomRenditionSize where
   rnf MinBottomRenditionSize' {..} =
-    Prelude.rnf width `Prelude.seq` Prelude.rnf height
+    Prelude.rnf height `Prelude.seq` Prelude.rnf width
 
 instance Data.ToJSON MinBottomRenditionSize where
   toJSON MinBottomRenditionSize' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("width" Data..=) Prelude.<$> width,
-            ("height" Data..=) Prelude.<$> height
+          [ ("height" Data..=) Prelude.<$> height,
+            ("width" Data..=) Prelude.<$> width
           ]
       )

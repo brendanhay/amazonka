@@ -47,64 +47,64 @@ module Amazonka.MwAA.Types
     -- * Environment
     Environment (..),
     newEnvironment,
-    environment_tags,
-    environment_schedulers,
-    environment_pluginsS3ObjectVersion,
-    environment_name,
-    environment_requirementsS3Path,
-    environment_pluginsS3Path,
-    environment_airflowVersion,
-    environment_serviceRoleArn,
-    environment_dagS3Path,
-    environment_sourceBucketArn,
-    environment_kmsKey,
-    environment_arn,
     environment_airflowConfigurationOptions,
-    environment_networkConfiguration,
-    environment_status,
-    environment_minWorkers,
-    environment_environmentClass,
-    environment_weeklyMaintenanceWindowStart,
-    environment_lastUpdate,
-    environment_requirementsS3ObjectVersion,
-    environment_executionRoleArn,
-    environment_webserverAccessMode,
-    environment_maxWorkers,
+    environment_airflowVersion,
+    environment_arn,
     environment_createdAt,
-    environment_webserverUrl,
+    environment_dagS3Path,
+    environment_environmentClass,
+    environment_executionRoleArn,
+    environment_kmsKey,
+    environment_lastUpdate,
     environment_loggingConfiguration,
+    environment_maxWorkers,
+    environment_minWorkers,
+    environment_name,
+    environment_networkConfiguration,
+    environment_pluginsS3ObjectVersion,
+    environment_pluginsS3Path,
+    environment_requirementsS3ObjectVersion,
+    environment_requirementsS3Path,
+    environment_schedulers,
+    environment_serviceRoleArn,
+    environment_sourceBucketArn,
+    environment_status,
+    environment_tags,
+    environment_webserverAccessMode,
+    environment_webserverUrl,
+    environment_weeklyMaintenanceWindowStart,
 
     -- * LastUpdate
     LastUpdate (..),
     newLastUpdate,
-    lastUpdate_status,
-    lastUpdate_source,
-    lastUpdate_error,
     lastUpdate_createdAt,
+    lastUpdate_error,
+    lastUpdate_source,
+    lastUpdate_status,
 
     -- * LoggingConfiguration
     LoggingConfiguration (..),
     newLoggingConfiguration,
     loggingConfiguration_dagProcessingLogs,
-    loggingConfiguration_taskLogs,
-    loggingConfiguration_workerLogs,
-    loggingConfiguration_webserverLogs,
     loggingConfiguration_schedulerLogs,
+    loggingConfiguration_taskLogs,
+    loggingConfiguration_webserverLogs,
+    loggingConfiguration_workerLogs,
 
     -- * LoggingConfigurationInput
     LoggingConfigurationInput (..),
     newLoggingConfigurationInput,
     loggingConfigurationInput_dagProcessingLogs,
-    loggingConfigurationInput_taskLogs,
-    loggingConfigurationInput_workerLogs,
-    loggingConfigurationInput_webserverLogs,
     loggingConfigurationInput_schedulerLogs,
+    loggingConfigurationInput_taskLogs,
+    loggingConfigurationInput_webserverLogs,
+    loggingConfigurationInput_workerLogs,
 
     -- * MetricDatum
     MetricDatum (..),
     newMetricDatum,
-    metricDatum_statisticValues,
     metricDatum_dimensions,
+    metricDatum_statisticValues,
     metricDatum_unit,
     metricDatum_value,
     metricDatum_metricName,
@@ -113,9 +113,9 @@ module Amazonka.MwAA.Types
     -- * ModuleLoggingConfiguration
     ModuleLoggingConfiguration (..),
     newModuleLoggingConfiguration,
-    moduleLoggingConfiguration_logLevel,
     moduleLoggingConfiguration_cloudWatchLogGroupArn,
     moduleLoggingConfiguration_enabled,
+    moduleLoggingConfiguration_logLevel,
 
     -- * ModuleLoggingConfigurationInput
     ModuleLoggingConfigurationInput (..),
@@ -132,16 +132,16 @@ module Amazonka.MwAA.Types
     -- * StatisticSet
     StatisticSet (..),
     newStatisticSet,
+    statisticSet_maximum,
     statisticSet_minimum,
     statisticSet_sampleCount,
     statisticSet_sum,
-    statisticSet_maximum,
 
     -- * UpdateError
     UpdateError (..),
     newUpdateError,
-    updateError_errorMessage,
     updateError_errorCode,
+    updateError_errorMessage,
 
     -- * UpdateNetworkConfigurationInput
     UpdateNetworkConfigurationInput (..),
@@ -197,28 +197,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -226,13 +220,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -240,6 +238,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Access to the Apache Airflow Web UI or CLI has been denied due to

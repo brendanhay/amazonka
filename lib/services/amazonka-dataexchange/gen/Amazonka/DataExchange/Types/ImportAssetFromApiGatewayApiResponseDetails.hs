@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newImportAssetFromApiGatewayApiResponseDetails' smart constructor.
 data ImportAssetFromApiGatewayApiResponseDetails = ImportAssetFromApiGatewayApiResponseDetails'
-  { -- | The API key.
-    apiKey :: Prelude.Maybe Prelude.Text,
-    -- | The API description.
+  { -- | The API description.
     apiDescription :: Prelude.Maybe Prelude.Text,
+    -- | The API key.
+    apiKey :: Prelude.Maybe Prelude.Text,
     -- | The API ID.
     apiId :: Prelude.Text,
     -- | The API name.
@@ -63,9 +63,9 @@ data ImportAssetFromApiGatewayApiResponseDetails = ImportAssetFromApiGatewayApiR
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'apiKey', 'importAssetFromApiGatewayApiResponseDetails_apiKey' - The API key.
---
 -- 'apiDescription', 'importAssetFromApiGatewayApiResponseDetails_apiDescription' - The API description.
+--
+-- 'apiKey', 'importAssetFromApiGatewayApiResponseDetails_apiKey' - The API key.
 --
 -- 'apiId', 'importAssetFromApiGatewayApiResponseDetails_apiId' - The API ID.
 --
@@ -116,10 +116,9 @@ newImportAssetFromApiGatewayApiResponseDetails
   pRevisionId_
   pStage_ =
     ImportAssetFromApiGatewayApiResponseDetails'
-      { apiKey =
+      { apiDescription =
           Prelude.Nothing,
-        apiDescription =
-          Prelude.Nothing,
+        apiKey = Prelude.Nothing,
         apiId = pApiId_,
         apiName = pApiName_,
         apiSpecificationMd5Hash =
@@ -135,13 +134,13 @@ newImportAssetFromApiGatewayApiResponseDetails
         stage = pStage_
       }
 
--- | The API key.
-importAssetFromApiGatewayApiResponseDetails_apiKey :: Lens.Lens' ImportAssetFromApiGatewayApiResponseDetails (Prelude.Maybe Prelude.Text)
-importAssetFromApiGatewayApiResponseDetails_apiKey = Lens.lens (\ImportAssetFromApiGatewayApiResponseDetails' {apiKey} -> apiKey) (\s@ImportAssetFromApiGatewayApiResponseDetails' {} a -> s {apiKey = a} :: ImportAssetFromApiGatewayApiResponseDetails)
-
 -- | The API description.
 importAssetFromApiGatewayApiResponseDetails_apiDescription :: Lens.Lens' ImportAssetFromApiGatewayApiResponseDetails (Prelude.Maybe Prelude.Text)
 importAssetFromApiGatewayApiResponseDetails_apiDescription = Lens.lens (\ImportAssetFromApiGatewayApiResponseDetails' {apiDescription} -> apiDescription) (\s@ImportAssetFromApiGatewayApiResponseDetails' {} a -> s {apiDescription = a} :: ImportAssetFromApiGatewayApiResponseDetails)
+
+-- | The API key.
+importAssetFromApiGatewayApiResponseDetails_apiKey :: Lens.Lens' ImportAssetFromApiGatewayApiResponseDetails (Prelude.Maybe Prelude.Text)
+importAssetFromApiGatewayApiResponseDetails_apiKey = Lens.lens (\ImportAssetFromApiGatewayApiResponseDetails' {apiKey} -> apiKey) (\s@ImportAssetFromApiGatewayApiResponseDetails' {} a -> s {apiKey = a} :: ImportAssetFromApiGatewayApiResponseDetails)
 
 -- | The API ID.
 importAssetFromApiGatewayApiResponseDetails_apiId :: Lens.Lens' ImportAssetFromApiGatewayApiResponseDetails Prelude.Text
@@ -189,8 +188,8 @@ instance
       "ImportAssetFromApiGatewayApiResponseDetails"
       ( \x ->
           ImportAssetFromApiGatewayApiResponseDetails'
-            Prelude.<$> (x Data..:? "ApiKey")
-              Prelude.<*> (x Data..:? "ApiDescription")
+            Prelude.<$> (x Data..:? "ApiDescription")
+              Prelude.<*> (x Data..:? "ApiKey")
               Prelude.<*> (x Data..: "ApiId")
               Prelude.<*> (x Data..: "ApiName")
               Prelude.<*> (x Data..: "ApiSpecificationMd5Hash")
@@ -209,8 +208,8 @@ instance
   hashWithSalt
     _salt
     ImportAssetFromApiGatewayApiResponseDetails' {..} =
-      _salt `Prelude.hashWithSalt` apiKey
-        `Prelude.hashWithSalt` apiDescription
+      _salt `Prelude.hashWithSalt` apiDescription
+        `Prelude.hashWithSalt` apiKey
         `Prelude.hashWithSalt` apiId
         `Prelude.hashWithSalt` apiName
         `Prelude.hashWithSalt` apiSpecificationMd5Hash
@@ -226,8 +225,8 @@ instance
     ImportAssetFromApiGatewayApiResponseDetails
   where
   rnf ImportAssetFromApiGatewayApiResponseDetails' {..} =
-    Prelude.rnf apiKey
-      `Prelude.seq` Prelude.rnf apiDescription
+    Prelude.rnf apiDescription
+      `Prelude.seq` Prelude.rnf apiKey
       `Prelude.seq` Prelude.rnf apiId
       `Prelude.seq` Prelude.rnf apiName
       `Prelude.seq` Prelude.rnf apiSpecificationMd5Hash

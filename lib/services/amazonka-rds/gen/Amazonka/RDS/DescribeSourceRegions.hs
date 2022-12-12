@@ -41,8 +41,8 @@ module Amazonka.RDS.DescribeSourceRegions
     newDescribeSourceRegions,
 
     -- * Request Lenses
-    describeSourceRegions_marker,
     describeSourceRegions_filters,
+    describeSourceRegions_marker,
     describeSourceRegions_maxRecords,
     describeSourceRegions_regionName,
 
@@ -69,13 +69,13 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeSourceRegions' smart constructor.
 data DescribeSourceRegions = DescribeSourceRegions'
-  { -- | An optional pagination token provided by a previous
+  { -- | This parameter isn\'t currently supported.
+    filters :: Prelude.Maybe [Filter],
+    -- | An optional pagination token provided by a previous
     -- @DescribeSourceRegions@ request. If this parameter is specified, the
     -- response includes only records beyond the marker, up to the value
     -- specified by @MaxRecords@.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | This parameter isn\'t currently supported.
-    filters :: Prelude.Maybe [Filter],
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so you can retrieve the
@@ -102,12 +102,12 @@ data DescribeSourceRegions = DescribeSourceRegions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'filters', 'describeSourceRegions_filters' - This parameter isn\'t currently supported.
+--
 -- 'marker', 'describeSourceRegions_marker' - An optional pagination token provided by a previous
 -- @DescribeSourceRegions@ request. If this parameter is specified, the
 -- response includes only records beyond the marker, up to the value
 -- specified by @MaxRecords@.
---
--- 'filters', 'describeSourceRegions_filters' - This parameter isn\'t currently supported.
 --
 -- 'maxRecords', 'describeSourceRegions_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -127,11 +127,15 @@ newDescribeSourceRegions ::
   DescribeSourceRegions
 newDescribeSourceRegions =
   DescribeSourceRegions'
-    { marker = Prelude.Nothing,
-      filters = Prelude.Nothing,
+    { filters = Prelude.Nothing,
+      marker = Prelude.Nothing,
       maxRecords = Prelude.Nothing,
       regionName = Prelude.Nothing
     }
+
+-- | This parameter isn\'t currently supported.
+describeSourceRegions_filters :: Lens.Lens' DescribeSourceRegions (Prelude.Maybe [Filter])
+describeSourceRegions_filters = Lens.lens (\DescribeSourceRegions' {filters} -> filters) (\s@DescribeSourceRegions' {} a -> s {filters = a} :: DescribeSourceRegions) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional pagination token provided by a previous
 -- @DescribeSourceRegions@ request. If this parameter is specified, the
@@ -139,10 +143,6 @@ newDescribeSourceRegions =
 -- specified by @MaxRecords@.
 describeSourceRegions_marker :: Lens.Lens' DescribeSourceRegions (Prelude.Maybe Prelude.Text)
 describeSourceRegions_marker = Lens.lens (\DescribeSourceRegions' {marker} -> marker) (\s@DescribeSourceRegions' {} a -> s {marker = a} :: DescribeSourceRegions)
-
--- | This parameter isn\'t currently supported.
-describeSourceRegions_filters :: Lens.Lens' DescribeSourceRegions (Prelude.Maybe [Filter])
-describeSourceRegions_filters = Lens.lens (\DescribeSourceRegions' {filters} -> filters) (\s@DescribeSourceRegions' {} a -> s {filters = a} :: DescribeSourceRegions) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -205,15 +205,15 @@ instance Core.AWSRequest DescribeSourceRegions where
 
 instance Prelude.Hashable DescribeSourceRegions where
   hashWithSalt _salt DescribeSourceRegions' {..} =
-    _salt `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` regionName
 
 instance Prelude.NFData DescribeSourceRegions where
   rnf DescribeSourceRegions' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf regionName
 
@@ -230,10 +230,10 @@ instance Data.ToQuery DescribeSourceRegions where
           Data.=: ("DescribeSourceRegions" :: Prelude.ByteString),
         "Version"
           Data.=: ("2014-10-31" :: Prelude.ByteString),
-        "Marker" Data.=: marker,
         "Filters"
           Data.=: Data.toQuery
             (Data.toQueryList "Filter" Prelude.<$> filters),
+        "Marker" Data.=: marker,
         "MaxRecords" Data.=: maxRecords,
         "RegionName" Data.=: regionName
       ]

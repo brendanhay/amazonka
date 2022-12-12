@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGroupSummary' smart constructor.
 data GroupSummary = GroupSummary'
-  { -- | The timestamp identifier used for the latest @PUT@ or @DELETE@ action.
-    orderingId :: Prelude.Maybe Prelude.Natural,
-    -- | The identifier of the group you want group summary information on.
-    groupId :: Prelude.Maybe Prelude.Text
+  { -- | The identifier of the group you want group summary information on.
+    groupId :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp identifier used for the latest @PUT@ or @DELETE@ action.
+    orderingId :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data GroupSummary = GroupSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'orderingId', 'groupSummary_orderingId' - The timestamp identifier used for the latest @PUT@ or @DELETE@ action.
---
 -- 'groupId', 'groupSummary_groupId' - The identifier of the group you want group summary information on.
+--
+-- 'orderingId', 'groupSummary_orderingId' - The timestamp identifier used for the latest @PUT@ or @DELETE@ action.
 newGroupSummary ::
   GroupSummary
 newGroupSummary =
   GroupSummary'
-    { orderingId = Prelude.Nothing,
-      groupId = Prelude.Nothing
+    { groupId = Prelude.Nothing,
+      orderingId = Prelude.Nothing
     }
-
--- | The timestamp identifier used for the latest @PUT@ or @DELETE@ action.
-groupSummary_orderingId :: Lens.Lens' GroupSummary (Prelude.Maybe Prelude.Natural)
-groupSummary_orderingId = Lens.lens (\GroupSummary' {orderingId} -> orderingId) (\s@GroupSummary' {} a -> s {orderingId = a} :: GroupSummary)
 
 -- | The identifier of the group you want group summary information on.
 groupSummary_groupId :: Lens.Lens' GroupSummary (Prelude.Maybe Prelude.Text)
 groupSummary_groupId = Lens.lens (\GroupSummary' {groupId} -> groupId) (\s@GroupSummary' {} a -> s {groupId = a} :: GroupSummary)
+
+-- | The timestamp identifier used for the latest @PUT@ or @DELETE@ action.
+groupSummary_orderingId :: Lens.Lens' GroupSummary (Prelude.Maybe Prelude.Natural)
+groupSummary_orderingId = Lens.lens (\GroupSummary' {orderingId} -> orderingId) (\s@GroupSummary' {} a -> s {orderingId = a} :: GroupSummary)
 
 instance Data.FromJSON GroupSummary where
   parseJSON =
@@ -68,16 +68,16 @@ instance Data.FromJSON GroupSummary where
       "GroupSummary"
       ( \x ->
           GroupSummary'
-            Prelude.<$> (x Data..:? "OrderingId")
-            Prelude.<*> (x Data..:? "GroupId")
+            Prelude.<$> (x Data..:? "GroupId")
+            Prelude.<*> (x Data..:? "OrderingId")
       )
 
 instance Prelude.Hashable GroupSummary where
   hashWithSalt _salt GroupSummary' {..} =
-    _salt `Prelude.hashWithSalt` orderingId
-      `Prelude.hashWithSalt` groupId
+    _salt `Prelude.hashWithSalt` groupId
+      `Prelude.hashWithSalt` orderingId
 
 instance Prelude.NFData GroupSummary where
   rnf GroupSummary' {..} =
-    Prelude.rnf orderingId
-      `Prelude.seq` Prelude.rnf groupId
+    Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf orderingId

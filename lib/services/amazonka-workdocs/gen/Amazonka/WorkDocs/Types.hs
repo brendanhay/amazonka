@@ -18,31 +18,31 @@ module Amazonka.WorkDocs.Types
     defaultService,
 
     -- * Errors
-    _RequestedEntityTooLargeException,
-    _InvalidArgumentException,
-    _EntityAlreadyExistsException,
-    _TooManySubscriptionsException,
-    _InvalidOperationException,
-    _EntityNotExistsException,
-    _ProhibitedStateException,
     _ConcurrentModificationException,
     _ConflictingOperationException,
-    _IllegalUserStateException,
-    _InvalidCommentOperationException,
-    _UnauthorizedOperationException,
     _CustomMetadataLimitExceededException,
-    _TooManyLabelsException,
-    _DocumentLockedForCommentsException,
-    _UnauthorizedResourceAccessException,
-    _FailedDependencyException,
-    _InvalidPasswordException,
-    _ServiceUnavailableException,
-    _DraftUploadOutOfSyncException,
-    _LimitExceededException,
-    _ResourceAlreadyCheckedOutException,
     _DeactivatingLastSystemUserException,
+    _DocumentLockedForCommentsException,
+    _DraftUploadOutOfSyncException,
+    _EntityAlreadyExistsException,
+    _EntityNotExistsException,
+    _FailedDependencyException,
+    _IllegalUserStateException,
+    _InvalidArgumentException,
+    _InvalidCommentOperationException,
+    _InvalidOperationException,
+    _InvalidPasswordException,
+    _LimitExceededException,
+    _ProhibitedStateException,
+    _RequestedEntityTooLargeException,
+    _ResourceAlreadyCheckedOutException,
+    _ServiceUnavailableException,
     _StorageLimitExceededException,
     _StorageLimitWillExceedException,
+    _TooManyLabelsException,
+    _TooManySubscriptionsException,
+    _UnauthorizedOperationException,
+    _UnauthorizedResourceAccessException,
 
     -- * ActivityType
     ActivityType (..),
@@ -126,121 +126,121 @@ module Amazonka.WorkDocs.Types
     Activity (..),
     newActivity,
     activity_commentMetadata,
-    activity_type,
-    activity_resourceMetadata,
-    activity_timeStamp,
+    activity_initiator,
     activity_isIndirectActivity,
     activity_organizationId,
     activity_originalParent,
-    activity_initiator,
     activity_participants,
+    activity_resourceMetadata,
+    activity_timeStamp,
+    activity_type,
 
     -- * Comment
     Comment (..),
     newComment,
+    comment_contributor,
     comment_createdTimestamp,
-    comment_threadId,
-    comment_visibility,
     comment_parentId,
+    comment_recipientId,
     comment_status,
     comment_text,
-    comment_contributor,
-    comment_recipientId,
+    comment_threadId,
+    comment_visibility,
     comment_commentId,
 
     -- * CommentMetadata
     CommentMetadata (..),
     newCommentMetadata,
-    commentMetadata_createdTimestamp,
-    commentMetadata_commentStatus,
     commentMetadata_commentId,
+    commentMetadata_commentStatus,
     commentMetadata_contributor,
+    commentMetadata_createdTimestamp,
     commentMetadata_recipientId,
 
     -- * DocumentMetadata
     DocumentMetadata (..),
     newDocumentMetadata,
-    documentMetadata_creatorId,
-    documentMetadata_parentFolderId,
-    documentMetadata_latestVersionMetadata,
     documentMetadata_createdTimestamp,
+    documentMetadata_creatorId,
     documentMetadata_id,
     documentMetadata_labels,
-    documentMetadata_resourceState,
+    documentMetadata_latestVersionMetadata,
     documentMetadata_modifiedTimestamp,
+    documentMetadata_parentFolderId,
+    documentMetadata_resourceState,
 
     -- * DocumentVersionMetadata
     DocumentVersionMetadata (..),
     newDocumentVersionMetadata,
-    documentVersionMetadata_creatorId,
-    documentVersionMetadata_name,
-    documentVersionMetadata_createdTimestamp,
-    documentVersionMetadata_thumbnail,
-    documentVersionMetadata_size,
     documentVersionMetadata_contentCreatedTimestamp,
-    documentVersionMetadata_status,
-    documentVersionMetadata_id,
     documentVersionMetadata_contentModifiedTimestamp,
-    documentVersionMetadata_source,
-    documentVersionMetadata_signature,
     documentVersionMetadata_contentType,
+    documentVersionMetadata_createdTimestamp,
+    documentVersionMetadata_creatorId,
+    documentVersionMetadata_id,
     documentVersionMetadata_modifiedTimestamp,
+    documentVersionMetadata_name,
+    documentVersionMetadata_signature,
+    documentVersionMetadata_size,
+    documentVersionMetadata_source,
+    documentVersionMetadata_status,
+    documentVersionMetadata_thumbnail,
 
     -- * FolderMetadata
     FolderMetadata (..),
     newFolderMetadata,
-    folderMetadata_creatorId,
-    folderMetadata_name,
-    folderMetadata_parentFolderId,
     folderMetadata_createdTimestamp,
-    folderMetadata_size,
+    folderMetadata_creatorId,
     folderMetadata_id,
     folderMetadata_labels,
-    folderMetadata_resourceState,
-    folderMetadata_signature,
     folderMetadata_latestVersionSize,
     folderMetadata_modifiedTimestamp,
+    folderMetadata_name,
+    folderMetadata_parentFolderId,
+    folderMetadata_resourceState,
+    folderMetadata_signature,
+    folderMetadata_size,
 
     -- * GroupMetadata
     GroupMetadata (..),
     newGroupMetadata,
-    groupMetadata_name,
     groupMetadata_id,
+    groupMetadata_name,
 
     -- * NotificationOptions
     NotificationOptions (..),
     newNotificationOptions,
-    notificationOptions_sendEmail,
     notificationOptions_emailMessage,
+    notificationOptions_sendEmail,
 
     -- * Participants
     Participants (..),
     newParticipants,
-    participants_users,
     participants_groups,
+    participants_users,
 
     -- * PermissionInfo
     PermissionInfo (..),
     newPermissionInfo,
-    permissionInfo_type,
     permissionInfo_role,
+    permissionInfo_type,
 
     -- * Principal
     Principal (..),
     newPrincipal,
-    principal_type,
     principal_id,
     principal_roles,
+    principal_type,
 
     -- * ResourceMetadata
     ResourceMetadata (..),
     newResourceMetadata,
-    resourceMetadata_name,
-    resourceMetadata_type,
-    resourceMetadata_originalName,
-    resourceMetadata_parentId,
-    resourceMetadata_owner,
     resourceMetadata_id,
+    resourceMetadata_name,
+    resourceMetadata_originalName,
+    resourceMetadata_owner,
+    resourceMetadata_parentId,
+    resourceMetadata_type,
     resourceMetadata_versionId,
 
     -- * ResourcePath
@@ -251,8 +251,8 @@ module Amazonka.WorkDocs.Types
     -- * ResourcePathComponent
     ResourcePathComponent (..),
     newResourcePathComponent,
-    resourcePathComponent_name,
     resourcePathComponent_id,
+    resourcePathComponent_name,
 
     -- * SharePrincipal
     SharePrincipal (..),
@@ -264,12 +264,12 @@ module Amazonka.WorkDocs.Types
     -- * ShareResult
     ShareResult (..),
     newShareResult,
-    shareResult_principalId,
-    shareResult_status,
-    shareResult_shareId,
-    shareResult_role,
-    shareResult_statusMessage,
     shareResult_inviteePrincipalId,
+    shareResult_principalId,
+    shareResult_role,
+    shareResult_shareId,
+    shareResult_status,
+    shareResult_statusMessage,
 
     -- * StorageRuleType
     StorageRuleType (..),
@@ -280,9 +280,9 @@ module Amazonka.WorkDocs.Types
     -- * Subscription
     Subscription (..),
     newSubscription,
-    subscription_subscriptionId,
-    subscription_protocol,
     subscription_endPoint,
+    subscription_protocol,
+    subscription_subscriptionId,
 
     -- * UploadMetadata
     UploadMetadata (..),
@@ -293,36 +293,36 @@ module Amazonka.WorkDocs.Types
     -- * User
     User (..),
     newUser,
-    user_recycleBinFolderId,
-    user_type,
-    user_timeZoneId,
     user_createdTimestamp,
-    user_username,
-    user_locale,
-    user_givenName,
-    user_storage,
-    user_status,
-    user_id,
-    user_surname,
-    user_organizationId,
     user_emailAddress,
-    user_rootFolderId,
+    user_givenName,
+    user_id,
+    user_locale,
     user_modifiedTimestamp,
+    user_organizationId,
+    user_recycleBinFolderId,
+    user_rootFolderId,
+    user_status,
+    user_storage,
+    user_surname,
+    user_timeZoneId,
+    user_type,
+    user_username,
 
     -- * UserMetadata
     UserMetadata (..),
     newUserMetadata,
-    userMetadata_username,
+    userMetadata_emailAddress,
     userMetadata_givenName,
     userMetadata_id,
     userMetadata_surname,
-    userMetadata_emailAddress,
+    userMetadata_username,
 
     -- * UserStorageMetadata
     UserStorageMetadata (..),
     newUserStorageMetadata,
-    userStorageMetadata_storageUtilizedInBytes,
     userStorageMetadata_storageRule,
+    userStorageMetadata_storageUtilizedInBytes,
   )
 where
 
@@ -404,28 +404,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -433,13 +427,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -447,65 +445,9 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The response is too large to return. The request must include a filter
--- to reduce the size of the response.
-_RequestedEntityTooLargeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_RequestedEntityTooLargeException =
-  Core._MatchServiceError
-    defaultService
-    "RequestedEntityTooLargeException"
-    Prelude.. Core.hasStatus 413
-
--- | The pagination marker or limit fields are not valid.
-_InvalidArgumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidArgumentException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidArgumentException"
-    Prelude.. Core.hasStatus 400
-
--- | The resource already exists.
-_EntityAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_EntityAlreadyExistsException =
-  Core._MatchServiceError
-    defaultService
-    "EntityAlreadyExistsException"
-    Prelude.. Core.hasStatus 409
-
--- | You\'ve reached the limit on the number of subscriptions for the
--- WorkDocs instance.
-_TooManySubscriptionsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManySubscriptionsException =
-  Core._MatchServiceError
-    defaultService
-    "TooManySubscriptionsException"
-    Prelude.. Core.hasStatus 429
-
--- | The operation is invalid.
-_InvalidOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidOperationException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidOperationException"
-    Prelude.. Core.hasStatus 405
-
--- | The resource does not exist.
-_EntityNotExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_EntityNotExistsException =
-  Core._MatchServiceError
-    defaultService
-    "EntityNotExistsException"
-    Prelude.. Core.hasStatus 404
-
--- | The specified document version is not in the INITIALIZED state.
-_ProhibitedStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ProhibitedStateException =
-  Core._MatchServiceError
-    defaultService
-    "ProhibitedStateException"
-    Prelude.. Core.hasStatus 409
 
 -- | The resource hierarchy is changing.
 _ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -524,30 +466,6 @@ _ConflictingOperationException =
     "ConflictingOperationException"
     Prelude.. Core.hasStatus 409
 
--- | The user is undergoing transfer of ownership.
-_IllegalUserStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_IllegalUserStateException =
-  Core._MatchServiceError
-    defaultService
-    "IllegalUserStateException"
-    Prelude.. Core.hasStatus 409
-
--- | The requested operation is not allowed on the specified comment object.
-_InvalidCommentOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidCommentOperationException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidCommentOperationException"
-    Prelude.. Core.hasStatus 409
-
--- | The operation is not permitted.
-_UnauthorizedOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnauthorizedOperationException =
-  Core._MatchServiceError
-    defaultService
-    "UnauthorizedOperationException"
-    Prelude.. Core.hasStatus 403
-
 -- | The limit has been reached on the number of custom properties for the
 -- specified resource.
 _CustomMetadataLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -557,14 +475,13 @@ _CustomMetadataLimitExceededException =
     "CustomMetadataLimitExceededException"
     Prelude.. Core.hasStatus 429
 
--- | The limit has been reached on the number of labels for the specified
--- resource.
-_TooManyLabelsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyLabelsException =
+-- | The last user in the organization is being deactivated.
+_DeactivatingLastSystemUserException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DeactivatingLastSystemUserException =
   Core._MatchServiceError
     defaultService
-    "TooManyLabelsException"
-    Prelude.. Core.hasStatus 429
+    "DeactivatingLastSystemUserException"
+    Prelude.. Core.hasStatus 409
 
 -- | This exception is thrown when the document is locked for comments and
 -- user tries to create or delete a comment on that document.
@@ -575,12 +492,30 @@ _DocumentLockedForCommentsException =
     "DocumentLockedForCommentsException"
     Prelude.. Core.hasStatus 409
 
--- | The caller does not have access to perform the action on the resource.
-_UnauthorizedResourceAccessException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnauthorizedResourceAccessException =
+-- | This exception is thrown when a valid checkout ID is not presented on
+-- document version upload calls for a document that has been checked out
+-- from Web client.
+_DraftUploadOutOfSyncException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DraftUploadOutOfSyncException =
   Core._MatchServiceError
     defaultService
-    "UnauthorizedResourceAccessException"
+    "DraftUploadOutOfSyncException"
+    Prelude.. Core.hasStatus 409
+
+-- | The resource already exists.
+_EntityAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EntityAlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "EntityAlreadyExistsException"
+    Prelude.. Core.hasStatus 409
+
+-- | The resource does not exist.
+_EntityNotExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EntityNotExistsException =
+  Core._MatchServiceError
+    defaultService
+    "EntityNotExistsException"
     Prelude.. Core.hasStatus 404
 
 -- | The AWS Directory Service cannot reach an on-premises instance. Or a
@@ -593,6 +528,38 @@ _FailedDependencyException =
     "FailedDependencyException"
     Prelude.. Core.hasStatus 424
 
+-- | The user is undergoing transfer of ownership.
+_IllegalUserStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IllegalUserStateException =
+  Core._MatchServiceError
+    defaultService
+    "IllegalUserStateException"
+    Prelude.. Core.hasStatus 409
+
+-- | The pagination marker or limit fields are not valid.
+_InvalidArgumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidArgumentException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidArgumentException"
+    Prelude.. Core.hasStatus 400
+
+-- | The requested operation is not allowed on the specified comment object.
+_InvalidCommentOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidCommentOperationException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidCommentOperationException"
+    Prelude.. Core.hasStatus 409
+
+-- | The operation is invalid.
+_InvalidOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidOperationException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidOperationException"
+    Prelude.. Core.hasStatus 405
+
 -- | The password is invalid.
 _InvalidPasswordException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidPasswordException =
@@ -600,24 +567,6 @@ _InvalidPasswordException =
     defaultService
     "InvalidPasswordException"
     Prelude.. Core.hasStatus 401
-
--- | One or more of the dependencies is unavailable.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceUnavailableException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceUnavailableException"
-    Prelude.. Core.hasStatus 503
-
--- | This exception is thrown when a valid checkout ID is not presented on
--- document version upload calls for a document that has been checked out
--- from Web client.
-_DraftUploadOutOfSyncException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DraftUploadOutOfSyncException =
-  Core._MatchServiceError
-    defaultService
-    "DraftUploadOutOfSyncException"
-    Prelude.. Core.hasStatus 409
 
 -- | The maximum of 100,000 files and folders under the parent folder has
 -- been exceeded.
@@ -628,6 +577,23 @@ _LimitExceededException =
     "LimitExceededException"
     Prelude.. Core.hasStatus 409
 
+-- | The specified document version is not in the INITIALIZED state.
+_ProhibitedStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ProhibitedStateException =
+  Core._MatchServiceError
+    defaultService
+    "ProhibitedStateException"
+    Prelude.. Core.hasStatus 409
+
+-- | The response is too large to return. The request must include a filter
+-- to reduce the size of the response.
+_RequestedEntityTooLargeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RequestedEntityTooLargeException =
+  Core._MatchServiceError
+    defaultService
+    "RequestedEntityTooLargeException"
+    Prelude.. Core.hasStatus 413
+
 -- | The resource is already checked out.
 _ResourceAlreadyCheckedOutException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceAlreadyCheckedOutException =
@@ -636,13 +602,13 @@ _ResourceAlreadyCheckedOutException =
     "ResourceAlreadyCheckedOutException"
     Prelude.. Core.hasStatus 409
 
--- | The last user in the organization is being deactivated.
-_DeactivatingLastSystemUserException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DeactivatingLastSystemUserException =
+-- | One or more of the dependencies is unavailable.
+_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
-    "DeactivatingLastSystemUserException"
-    Prelude.. Core.hasStatus 409
+    "ServiceUnavailableException"
+    Prelude.. Core.hasStatus 503
 
 -- | The storage limit has been exceeded.
 _StorageLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -659,3 +625,37 @@ _StorageLimitWillExceedException =
     defaultService
     "StorageLimitWillExceedException"
     Prelude.. Core.hasStatus 413
+
+-- | The limit has been reached on the number of labels for the specified
+-- resource.
+_TooManyLabelsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyLabelsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyLabelsException"
+    Prelude.. Core.hasStatus 429
+
+-- | You\'ve reached the limit on the number of subscriptions for the
+-- WorkDocs instance.
+_TooManySubscriptionsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManySubscriptionsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManySubscriptionsException"
+    Prelude.. Core.hasStatus 429
+
+-- | The operation is not permitted.
+_UnauthorizedOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnauthorizedOperationException =
+  Core._MatchServiceError
+    defaultService
+    "UnauthorizedOperationException"
+    Prelude.. Core.hasStatus 403
+
+-- | The caller does not have access to perform the action on the resource.
+_UnauthorizedResourceAccessException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnauthorizedResourceAccessException =
+  Core._MatchServiceError
+    defaultService
+    "UnauthorizedResourceAccessException"
+    Prelude.. Core.hasStatus 404

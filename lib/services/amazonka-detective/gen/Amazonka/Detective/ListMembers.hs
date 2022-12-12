@@ -34,8 +34,8 @@ module Amazonka.Detective.ListMembers
     newListMembers,
 
     -- * Request Lenses
-    listMembers_nextToken,
     listMembers_maxResults,
+    listMembers_nextToken,
     listMembers_graphArn,
 
     -- * Destructuring the Response
@@ -43,8 +43,8 @@ module Amazonka.Detective.ListMembers
     newListMembersResponse,
 
     -- * Response Lenses
-    listMembersResponse_nextToken,
     listMembersResponse_memberDetails,
+    listMembersResponse_nextToken,
     listMembersResponse_httpStatus,
   )
 where
@@ -59,14 +59,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListMembers' smart constructor.
 data ListMembers = ListMembers'
-  { -- | For requests to retrieve the next page of member account results, the
-    -- pagination token that was returned with the previous page of results.
-    -- The initial request does not include a pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of member accounts to include in the response. The
+  { -- | The maximum number of member accounts to include in the response. The
     -- total must be less than the overall limit on the number of results to
     -- return, which is currently 200.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | For requests to retrieve the next page of member account results, the
+    -- pagination token that was returned with the previous page of results.
+    -- The initial request does not include a pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the behavior graph for which to retrieve the list of member
     -- accounts.
     graphArn :: Prelude.Text
@@ -81,13 +81,13 @@ data ListMembers = ListMembers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listMembers_nextToken' - For requests to retrieve the next page of member account results, the
--- pagination token that was returned with the previous page of results.
--- The initial request does not include a pagination token.
---
 -- 'maxResults', 'listMembers_maxResults' - The maximum number of member accounts to include in the response. The
 -- total must be less than the overall limit on the number of results to
 -- return, which is currently 200.
+--
+-- 'nextToken', 'listMembers_nextToken' - For requests to retrieve the next page of member account results, the
+-- pagination token that was returned with the previous page of results.
+-- The initial request does not include a pagination token.
 --
 -- 'graphArn', 'listMembers_graphArn' - The ARN of the behavior graph for which to retrieve the list of member
 -- accounts.
@@ -97,22 +97,22 @@ newListMembers ::
   ListMembers
 newListMembers pGraphArn_ =
   ListMembers'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       graphArn = pGraphArn_
     }
-
--- | For requests to retrieve the next page of member account results, the
--- pagination token that was returned with the previous page of results.
--- The initial request does not include a pagination token.
-listMembers_nextToken :: Lens.Lens' ListMembers (Prelude.Maybe Prelude.Text)
-listMembers_nextToken = Lens.lens (\ListMembers' {nextToken} -> nextToken) (\s@ListMembers' {} a -> s {nextToken = a} :: ListMembers)
 
 -- | The maximum number of member accounts to include in the response. The
 -- total must be less than the overall limit on the number of results to
 -- return, which is currently 200.
 listMembers_maxResults :: Lens.Lens' ListMembers (Prelude.Maybe Prelude.Natural)
 listMembers_maxResults = Lens.lens (\ListMembers' {maxResults} -> maxResults) (\s@ListMembers' {} a -> s {maxResults = a} :: ListMembers)
+
+-- | For requests to retrieve the next page of member account results, the
+-- pagination token that was returned with the previous page of results.
+-- The initial request does not include a pagination token.
+listMembers_nextToken :: Lens.Lens' ListMembers (Prelude.Maybe Prelude.Text)
+listMembers_nextToken = Lens.lens (\ListMembers' {nextToken} -> nextToken) (\s@ListMembers' {} a -> s {nextToken = a} :: ListMembers)
 
 -- | The ARN of the behavior graph for which to retrieve the list of member
 -- accounts.
@@ -127,21 +127,21 @@ instance Core.AWSRequest ListMembers where
     Response.receiveJSON
       ( \s h x ->
           ListMembersResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "MemberDetails" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "MemberDetails" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListMembers where
   hashWithSalt _salt ListMembers' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` graphArn
 
 instance Prelude.NFData ListMembers where
   rnf ListMembers' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf graphArn
 
 instance Data.ToHeaders ListMembers where
@@ -159,8 +159,8 @@ instance Data.ToJSON ListMembers where
   toJSON ListMembers' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("GraphArn" Data..= graphArn)
           ]
       )
@@ -173,10 +173,7 @@ instance Data.ToQuery ListMembers where
 
 -- | /See:/ 'newListMembersResponse' smart constructor.
 data ListMembersResponse = ListMembersResponse'
-  { -- | If there are more member accounts remaining in the results, then use
-    -- this pagination token to request the next page of member accounts.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of member accounts in the behavior graph.
+  { -- | The list of member accounts in the behavior graph.
     --
     -- For invited accounts, the results include member accounts that did not
     -- pass verification and member accounts that have not yet accepted the
@@ -187,6 +184,9 @@ data ListMembersResponse = ListMembersResponse'
     -- organization accounts that the Detective administrator account has not
     -- enabled as member accounts.
     memberDetails :: Prelude.Maybe [MemberDetail],
+    -- | If there are more member accounts remaining in the results, then use
+    -- this pagination token to request the next page of member accounts.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -200,9 +200,6 @@ data ListMembersResponse = ListMembersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listMembersResponse_nextToken' - If there are more member accounts remaining in the results, then use
--- this pagination token to request the next page of member accounts.
---
 -- 'memberDetails', 'listMembersResponse_memberDetails' - The list of member accounts in the behavior graph.
 --
 -- For invited accounts, the results include member accounts that did not
@@ -214,6 +211,9 @@ data ListMembersResponse = ListMembersResponse'
 -- organization accounts that the Detective administrator account has not
 -- enabled as member accounts.
 --
+-- 'nextToken', 'listMembersResponse_nextToken' - If there are more member accounts remaining in the results, then use
+-- this pagination token to request the next page of member accounts.
+--
 -- 'httpStatus', 'listMembersResponse_httpStatus' - The response's http status code.
 newListMembersResponse ::
   -- | 'httpStatus'
@@ -221,15 +221,11 @@ newListMembersResponse ::
   ListMembersResponse
 newListMembersResponse pHttpStatus_ =
   ListMembersResponse'
-    { nextToken = Prelude.Nothing,
-      memberDetails = Prelude.Nothing,
+    { memberDetails =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | If there are more member accounts remaining in the results, then use
--- this pagination token to request the next page of member accounts.
-listMembersResponse_nextToken :: Lens.Lens' ListMembersResponse (Prelude.Maybe Prelude.Text)
-listMembersResponse_nextToken = Lens.lens (\ListMembersResponse' {nextToken} -> nextToken) (\s@ListMembersResponse' {} a -> s {nextToken = a} :: ListMembersResponse)
 
 -- | The list of member accounts in the behavior graph.
 --
@@ -244,12 +240,17 @@ listMembersResponse_nextToken = Lens.lens (\ListMembersResponse' {nextToken} -> 
 listMembersResponse_memberDetails :: Lens.Lens' ListMembersResponse (Prelude.Maybe [MemberDetail])
 listMembersResponse_memberDetails = Lens.lens (\ListMembersResponse' {memberDetails} -> memberDetails) (\s@ListMembersResponse' {} a -> s {memberDetails = a} :: ListMembersResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | If there are more member accounts remaining in the results, then use
+-- this pagination token to request the next page of member accounts.
+listMembersResponse_nextToken :: Lens.Lens' ListMembersResponse (Prelude.Maybe Prelude.Text)
+listMembersResponse_nextToken = Lens.lens (\ListMembersResponse' {nextToken} -> nextToken) (\s@ListMembersResponse' {} a -> s {nextToken = a} :: ListMembersResponse)
+
 -- | The response's http status code.
 listMembersResponse_httpStatus :: Lens.Lens' ListMembersResponse Prelude.Int
 listMembersResponse_httpStatus = Lens.lens (\ListMembersResponse' {httpStatus} -> httpStatus) (\s@ListMembersResponse' {} a -> s {httpStatus = a} :: ListMembersResponse)
 
 instance Prelude.NFData ListMembersResponse where
   rnf ListMembersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf memberDetails
+    Prelude.rnf memberDetails
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

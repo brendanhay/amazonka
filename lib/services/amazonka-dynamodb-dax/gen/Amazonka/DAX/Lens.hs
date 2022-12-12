@@ -15,16 +15,16 @@ module Amazonka.DAX.Lens
   ( -- * Operations
 
     -- ** CreateCluster
-    createCluster_tags,
-    createCluster_subnetGroupName,
-    createCluster_parameterGroupName,
-    createCluster_securityGroupIds,
     createCluster_availabilityZones,
-    createCluster_description,
-    createCluster_sSESpecification,
-    createCluster_notificationTopicArn,
     createCluster_clusterEndpointEncryptionType,
+    createCluster_description,
+    createCluster_notificationTopicArn,
+    createCluster_parameterGroupName,
     createCluster_preferredMaintenanceWindow,
+    createCluster_sSESpecification,
+    createCluster_securityGroupIds,
+    createCluster_subnetGroupName,
+    createCluster_tags,
     createCluster_clusterName,
     createCluster_nodeType,
     createCluster_replicationFactor,
@@ -69,53 +69,53 @@ module Amazonka.DAX.Lens
     deleteSubnetGroupResponse_httpStatus,
 
     -- ** DescribeClusters
-    describeClusters_nextToken,
-    describeClusters_maxResults,
     describeClusters_clusterNames,
-    describeClustersResponse_nextToken,
+    describeClusters_maxResults,
+    describeClusters_nextToken,
     describeClustersResponse_clusters,
+    describeClustersResponse_nextToken,
     describeClustersResponse_httpStatus,
 
     -- ** DescribeDefaultParameters
-    describeDefaultParameters_nextToken,
     describeDefaultParameters_maxResults,
+    describeDefaultParameters_nextToken,
     describeDefaultParametersResponse_nextToken,
     describeDefaultParametersResponse_parameters,
     describeDefaultParametersResponse_httpStatus,
 
     -- ** DescribeEvents
+    describeEvents_duration,
+    describeEvents_endTime,
+    describeEvents_maxResults,
     describeEvents_nextToken,
     describeEvents_sourceName,
     describeEvents_sourceType,
-    describeEvents_endTime,
-    describeEvents_duration,
-    describeEvents_maxResults,
     describeEvents_startTime,
-    describeEventsResponse_nextToken,
     describeEventsResponse_events,
+    describeEventsResponse_nextToken,
     describeEventsResponse_httpStatus,
 
     -- ** DescribeParameterGroups
+    describeParameterGroups_maxResults,
     describeParameterGroups_nextToken,
     describeParameterGroups_parameterGroupNames,
-    describeParameterGroups_maxResults,
     describeParameterGroupsResponse_nextToken,
     describeParameterGroupsResponse_parameterGroups,
     describeParameterGroupsResponse_httpStatus,
 
     -- ** DescribeParameters
+    describeParameters_maxResults,
     describeParameters_nextToken,
     describeParameters_source,
-    describeParameters_maxResults,
     describeParameters_parameterGroupName,
     describeParametersResponse_nextToken,
     describeParametersResponse_parameters,
     describeParametersResponse_httpStatus,
 
     -- ** DescribeSubnetGroups
+    describeSubnetGroups_maxResults,
     describeSubnetGroups_nextToken,
     describeSubnetGroups_subnetGroupNames,
-    describeSubnetGroups_maxResults,
     describeSubnetGroupsResponse_nextToken,
     describeSubnetGroupsResponse_subnetGroups,
     describeSubnetGroupsResponse_httpStatus,
@@ -130,8 +130,8 @@ module Amazonka.DAX.Lens
     -- ** ListTags
     listTags_nextToken,
     listTags_resourceName,
-    listTagsResponse_tags,
     listTagsResponse_nextToken,
+    listTagsResponse_tags,
     listTagsResponse_httpStatus,
 
     -- ** RebootNode
@@ -153,12 +153,12 @@ module Amazonka.DAX.Lens
     untagResourceResponse_httpStatus,
 
     -- ** UpdateCluster
-    updateCluster_notificationTopicStatus,
-    updateCluster_parameterGroupName,
-    updateCluster_securityGroupIds,
     updateCluster_description,
     updateCluster_notificationTopicArn,
+    updateCluster_notificationTopicStatus,
+    updateCluster_parameterGroupName,
     updateCluster_preferredMaintenanceWindow,
+    updateCluster_securityGroupIds,
     updateCluster_clusterName,
     updateClusterResponse_cluster,
     updateClusterResponse_httpStatus,
@@ -179,76 +179,76 @@ module Amazonka.DAX.Lens
     -- * Types
 
     -- ** Cluster
-    cluster_clusterArn,
     cluster_activeNodes,
-    cluster_nodes,
-    cluster_subnetGroup,
-    cluster_notificationConfiguration,
-    cluster_status,
+    cluster_clusterArn,
+    cluster_clusterDiscoveryEndpoint,
+    cluster_clusterEndpointEncryptionType,
+    cluster_clusterName,
     cluster_description,
-    cluster_nodeType,
     cluster_iamRoleArn,
     cluster_nodeIdsToRemove,
-    cluster_totalNodes,
-    cluster_securityGroups,
+    cluster_nodeType,
+    cluster_nodes,
+    cluster_notificationConfiguration,
     cluster_parameterGroup,
-    cluster_clusterEndpointEncryptionType,
-    cluster_sSEDescription,
     cluster_preferredMaintenanceWindow,
-    cluster_clusterDiscoveryEndpoint,
-    cluster_clusterName,
+    cluster_sSEDescription,
+    cluster_securityGroups,
+    cluster_status,
+    cluster_subnetGroup,
+    cluster_totalNodes,
 
     -- ** Endpoint
+    endpoint_address,
     endpoint_port,
     endpoint_url,
-    endpoint_address,
 
     -- ** Event
+    event_date,
     event_message,
     event_sourceName,
-    event_date,
     event_sourceType,
 
     -- ** Node
-    node_nodeStatus,
-    node_nodeId,
-    node_nodeCreateTime,
     node_availabilityZone,
-    node_parameterGroupStatus,
     node_endpoint,
+    node_nodeCreateTime,
+    node_nodeId,
+    node_nodeStatus,
+    node_parameterGroupStatus,
 
     -- ** NodeTypeSpecificValue
     nodeTypeSpecificValue_nodeType,
     nodeTypeSpecificValue_value,
 
     -- ** NotificationConfiguration
-    notificationConfiguration_topicStatus,
     notificationConfiguration_topicArn,
+    notificationConfiguration_topicStatus,
 
     -- ** Parameter
-    parameter_changeType,
-    parameter_parameterValue,
-    parameter_isModifiable,
-    parameter_description,
-    parameter_parameterName,
-    parameter_nodeTypeSpecificValues,
-    parameter_source,
-    parameter_parameterType,
     parameter_allowedValues,
+    parameter_changeType,
     parameter_dataType,
+    parameter_description,
+    parameter_isModifiable,
+    parameter_nodeTypeSpecificValues,
+    parameter_parameterName,
+    parameter_parameterType,
+    parameter_parameterValue,
+    parameter_source,
 
     -- ** ParameterGroup
-    parameterGroup_parameterGroupName,
     parameterGroup_description,
+    parameterGroup_parameterGroupName,
 
     -- ** ParameterGroupStatus
-    parameterGroupStatus_parameterGroupName,
-    parameterGroupStatus_parameterApplyStatus,
     parameterGroupStatus_nodeIdsToReboot,
+    parameterGroupStatus_parameterApplyStatus,
+    parameterGroupStatus_parameterGroupName,
 
     -- ** ParameterNameValue
-    parameterNameValue_parameterValue,
     parameterNameValue_parameterName,
+    parameterNameValue_parameterValue,
 
     -- ** SSEDescription
     sSEDescription_status,
@@ -261,13 +261,13 @@ module Amazonka.DAX.Lens
     securityGroupMembership_status,
 
     -- ** Subnet
-    subnet_subnetIdentifier,
     subnet_subnetAvailabilityZone,
+    subnet_subnetIdentifier,
 
     -- ** SubnetGroup
+    subnetGroup_description,
     subnetGroup_subnetGroupName,
     subnetGroup_subnets,
-    subnetGroup_description,
     subnetGroup_vpcId,
 
     -- ** Tag

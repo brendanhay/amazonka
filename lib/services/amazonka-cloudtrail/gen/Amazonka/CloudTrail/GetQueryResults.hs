@@ -28,9 +28,9 @@ module Amazonka.CloudTrail.GetQueryResults
     newGetQueryResults,
 
     -- * Request Lenses
-    getQueryResults_nextToken,
     getQueryResults_eventDataStore,
     getQueryResults_maxQueryResults,
+    getQueryResults_nextToken,
     getQueryResults_queryId,
 
     -- * Destructuring the Response
@@ -38,11 +38,11 @@ module Amazonka.CloudTrail.GetQueryResults
     newGetQueryResultsResponse,
 
     -- * Response Lenses
-    getQueryResultsResponse_nextToken,
-    getQueryResultsResponse_queryStatistics,
-    getQueryResultsResponse_queryResultRows,
-    getQueryResultsResponse_queryStatus,
     getQueryResultsResponse_errorMessage,
+    getQueryResultsResponse_nextToken,
+    getQueryResultsResponse_queryResultRows,
+    getQueryResultsResponse_queryStatistics,
+    getQueryResultsResponse_queryStatus,
     getQueryResultsResponse_httpStatus,
   )
 where
@@ -57,13 +57,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetQueryResults' smart constructor.
 data GetQueryResults = GetQueryResults'
-  { -- | A token you can use to get the next page of query results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The ARN (or ID suffix of the ARN) of the event data store against which
+  { -- | The ARN (or ID suffix of the ARN) of the event data store against which
     -- the query was run.
     eventDataStore :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of query results to display on a single page.
     maxQueryResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token you can use to get the next page of query results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the query for which you want to get results.
     queryId :: Prelude.Text
   }
@@ -77,12 +77,12 @@ data GetQueryResults = GetQueryResults'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getQueryResults_nextToken' - A token you can use to get the next page of query results.
---
 -- 'eventDataStore', 'getQueryResults_eventDataStore' - The ARN (or ID suffix of the ARN) of the event data store against which
 -- the query was run.
 --
 -- 'maxQueryResults', 'getQueryResults_maxQueryResults' - The maximum number of query results to display on a single page.
+--
+-- 'nextToken', 'getQueryResults_nextToken' - A token you can use to get the next page of query results.
 --
 -- 'queryId', 'getQueryResults_queryId' - The ID of the query for which you want to get results.
 newGetQueryResults ::
@@ -91,15 +91,11 @@ newGetQueryResults ::
   GetQueryResults
 newGetQueryResults pQueryId_ =
   GetQueryResults'
-    { nextToken = Prelude.Nothing,
-      eventDataStore = Prelude.Nothing,
+    { eventDataStore = Prelude.Nothing,
       maxQueryResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       queryId = pQueryId_
     }
-
--- | A token you can use to get the next page of query results.
-getQueryResults_nextToken :: Lens.Lens' GetQueryResults (Prelude.Maybe Prelude.Text)
-getQueryResults_nextToken = Lens.lens (\GetQueryResults' {nextToken} -> nextToken) (\s@GetQueryResults' {} a -> s {nextToken = a} :: GetQueryResults)
 
 -- | The ARN (or ID suffix of the ARN) of the event data store against which
 -- the query was run.
@@ -109,6 +105,10 @@ getQueryResults_eventDataStore = Lens.lens (\GetQueryResults' {eventDataStore} -
 -- | The maximum number of query results to display on a single page.
 getQueryResults_maxQueryResults :: Lens.Lens' GetQueryResults (Prelude.Maybe Prelude.Natural)
 getQueryResults_maxQueryResults = Lens.lens (\GetQueryResults' {maxQueryResults} -> maxQueryResults) (\s@GetQueryResults' {} a -> s {maxQueryResults = a} :: GetQueryResults)
+
+-- | A token you can use to get the next page of query results.
+getQueryResults_nextToken :: Lens.Lens' GetQueryResults (Prelude.Maybe Prelude.Text)
+getQueryResults_nextToken = Lens.lens (\GetQueryResults' {nextToken} -> nextToken) (\s@GetQueryResults' {} a -> s {nextToken = a} :: GetQueryResults)
 
 -- | The ID of the query for which you want to get results.
 getQueryResults_queryId :: Lens.Lens' GetQueryResults Prelude.Text
@@ -124,28 +124,28 @@ instance Core.AWSRequest GetQueryResults where
     Response.receiveJSON
       ( \s h x ->
           GetQueryResultsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "QueryStatistics")
+            Prelude.<$> (x Data..?> "ErrorMessage")
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> ( x Data..?> "QueryResultRows"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "QueryStatistics")
             Prelude.<*> (x Data..?> "QueryStatus")
-            Prelude.<*> (x Data..?> "ErrorMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetQueryResults where
   hashWithSalt _salt GetQueryResults' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` eventDataStore
+    _salt `Prelude.hashWithSalt` eventDataStore
       `Prelude.hashWithSalt` maxQueryResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` queryId
 
 instance Prelude.NFData GetQueryResults where
   rnf GetQueryResults' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf eventDataStore
+    Prelude.rnf eventDataStore
       `Prelude.seq` Prelude.rnf maxQueryResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf queryId
 
 instance Data.ToHeaders GetQueryResults where
@@ -167,11 +167,11 @@ instance Data.ToJSON GetQueryResults where
   toJSON GetQueryResults' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("EventDataStore" Data..=)
+          [ ("EventDataStore" Data..=)
               Prelude.<$> eventDataStore,
             ("MaxQueryResults" Data..=)
               Prelude.<$> maxQueryResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("QueryId" Data..= queryId)
           ]
       )
@@ -184,17 +184,17 @@ instance Data.ToQuery GetQueryResults where
 
 -- | /See:/ 'newGetQueryResultsResponse' smart constructor.
 data GetQueryResultsResponse = GetQueryResultsResponse'
-  { -- | A token you can use to get the next page of query results.
+  { -- | The error message returned if a query failed.
+    errorMessage :: Prelude.Maybe Prelude.Text,
+    -- | A token you can use to get the next page of query results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Shows the count of query results.
-    queryStatistics :: Prelude.Maybe QueryStatistics,
     -- | Contains the individual event results of the query.
     queryResultRows :: Prelude.Maybe [[Prelude.HashMap Prelude.Text Prelude.Text]],
+    -- | Shows the count of query results.
+    queryStatistics :: Prelude.Maybe QueryStatistics,
     -- | The status of the query. Values include @QUEUED@, @RUNNING@, @FINISHED@,
     -- @FAILED@, @TIMED_OUT@, or @CANCELLED@.
     queryStatus :: Prelude.Maybe QueryStatus,
-    -- | The error message returned if a query failed.
-    errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -208,16 +208,16 @@ data GetQueryResultsResponse = GetQueryResultsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getQueryResultsResponse_nextToken' - A token you can use to get the next page of query results.
+-- 'errorMessage', 'getQueryResultsResponse_errorMessage' - The error message returned if a query failed.
 --
--- 'queryStatistics', 'getQueryResultsResponse_queryStatistics' - Shows the count of query results.
+-- 'nextToken', 'getQueryResultsResponse_nextToken' - A token you can use to get the next page of query results.
 --
 -- 'queryResultRows', 'getQueryResultsResponse_queryResultRows' - Contains the individual event results of the query.
 --
+-- 'queryStatistics', 'getQueryResultsResponse_queryStatistics' - Shows the count of query results.
+--
 -- 'queryStatus', 'getQueryResultsResponse_queryStatus' - The status of the query. Values include @QUEUED@, @RUNNING@, @FINISHED@,
 -- @FAILED@, @TIMED_OUT@, or @CANCELLED@.
---
--- 'errorMessage', 'getQueryResultsResponse_errorMessage' - The error message returned if a query failed.
 --
 -- 'httpStatus', 'getQueryResultsResponse_httpStatus' - The response's http status code.
 newGetQueryResultsResponse ::
@@ -226,35 +226,35 @@ newGetQueryResultsResponse ::
   GetQueryResultsResponse
 newGetQueryResultsResponse pHttpStatus_ =
   GetQueryResultsResponse'
-    { nextToken =
+    { errorMessage =
         Prelude.Nothing,
-      queryStatistics = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       queryResultRows = Prelude.Nothing,
+      queryStatistics = Prelude.Nothing,
       queryStatus = Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The error message returned if a query failed.
+getQueryResultsResponse_errorMessage :: Lens.Lens' GetQueryResultsResponse (Prelude.Maybe Prelude.Text)
+getQueryResultsResponse_errorMessage = Lens.lens (\GetQueryResultsResponse' {errorMessage} -> errorMessage) (\s@GetQueryResultsResponse' {} a -> s {errorMessage = a} :: GetQueryResultsResponse)
 
 -- | A token you can use to get the next page of query results.
 getQueryResultsResponse_nextToken :: Lens.Lens' GetQueryResultsResponse (Prelude.Maybe Prelude.Text)
 getQueryResultsResponse_nextToken = Lens.lens (\GetQueryResultsResponse' {nextToken} -> nextToken) (\s@GetQueryResultsResponse' {} a -> s {nextToken = a} :: GetQueryResultsResponse)
 
--- | Shows the count of query results.
-getQueryResultsResponse_queryStatistics :: Lens.Lens' GetQueryResultsResponse (Prelude.Maybe QueryStatistics)
-getQueryResultsResponse_queryStatistics = Lens.lens (\GetQueryResultsResponse' {queryStatistics} -> queryStatistics) (\s@GetQueryResultsResponse' {} a -> s {queryStatistics = a} :: GetQueryResultsResponse)
-
 -- | Contains the individual event results of the query.
 getQueryResultsResponse_queryResultRows :: Lens.Lens' GetQueryResultsResponse (Prelude.Maybe [[Prelude.HashMap Prelude.Text Prelude.Text]])
 getQueryResultsResponse_queryResultRows = Lens.lens (\GetQueryResultsResponse' {queryResultRows} -> queryResultRows) (\s@GetQueryResultsResponse' {} a -> s {queryResultRows = a} :: GetQueryResultsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Shows the count of query results.
+getQueryResultsResponse_queryStatistics :: Lens.Lens' GetQueryResultsResponse (Prelude.Maybe QueryStatistics)
+getQueryResultsResponse_queryStatistics = Lens.lens (\GetQueryResultsResponse' {queryStatistics} -> queryStatistics) (\s@GetQueryResultsResponse' {} a -> s {queryStatistics = a} :: GetQueryResultsResponse)
 
 -- | The status of the query. Values include @QUEUED@, @RUNNING@, @FINISHED@,
 -- @FAILED@, @TIMED_OUT@, or @CANCELLED@.
 getQueryResultsResponse_queryStatus :: Lens.Lens' GetQueryResultsResponse (Prelude.Maybe QueryStatus)
 getQueryResultsResponse_queryStatus = Lens.lens (\GetQueryResultsResponse' {queryStatus} -> queryStatus) (\s@GetQueryResultsResponse' {} a -> s {queryStatus = a} :: GetQueryResultsResponse)
-
--- | The error message returned if a query failed.
-getQueryResultsResponse_errorMessage :: Lens.Lens' GetQueryResultsResponse (Prelude.Maybe Prelude.Text)
-getQueryResultsResponse_errorMessage = Lens.lens (\GetQueryResultsResponse' {errorMessage} -> errorMessage) (\s@GetQueryResultsResponse' {} a -> s {errorMessage = a} :: GetQueryResultsResponse)
 
 -- | The response's http status code.
 getQueryResultsResponse_httpStatus :: Lens.Lens' GetQueryResultsResponse Prelude.Int
@@ -262,9 +262,9 @@ getQueryResultsResponse_httpStatus = Lens.lens (\GetQueryResultsResponse' {httpS
 
 instance Prelude.NFData GetQueryResultsResponse where
   rnf GetQueryResultsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf queryStatistics
+    Prelude.rnf errorMessage
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf queryResultRows
+      `Prelude.seq` Prelude.rnf queryStatistics
       `Prelude.seq` Prelude.rnf queryStatus
-      `Prelude.seq` Prelude.rnf errorMessage
       `Prelude.seq` Prelude.rnf httpStatus

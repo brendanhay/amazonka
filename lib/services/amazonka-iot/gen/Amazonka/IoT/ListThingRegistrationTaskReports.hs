@@ -29,8 +29,8 @@ module Amazonka.IoT.ListThingRegistrationTaskReports
     newListThingRegistrationTaskReports,
 
     -- * Request Lenses
-    listThingRegistrationTaskReports_nextToken,
     listThingRegistrationTaskReports_maxResults,
+    listThingRegistrationTaskReports_nextToken,
     listThingRegistrationTaskReports_taskId,
     listThingRegistrationTaskReports_reportType,
 
@@ -56,12 +56,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListThingRegistrationTaskReports' smart constructor.
 data ListThingRegistrationTaskReports = ListThingRegistrationTaskReports'
-  { -- | To retrieve the next set of results, the @nextToken@ value from a
+  { -- | The maximum number of results to return per request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | To retrieve the next set of results, the @nextToken@ value from a
     -- previous response; otherwise __null__ to receive the first set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per request.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The id of the task.
     taskId :: Prelude.Text,
     -- | The type of task report.
@@ -77,11 +77,11 @@ data ListThingRegistrationTaskReports = ListThingRegistrationTaskReports'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listThingRegistrationTaskReports_maxResults' - The maximum number of results to return per request.
+--
 -- 'nextToken', 'listThingRegistrationTaskReports_nextToken' - To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
---
--- 'maxResults', 'listThingRegistrationTaskReports_maxResults' - The maximum number of results to return per request.
 --
 -- 'taskId', 'listThingRegistrationTaskReports_taskId' - The id of the task.
 --
@@ -96,22 +96,22 @@ newListThingRegistrationTaskReports
   pTaskId_
   pReportType_ =
     ListThingRegistrationTaskReports'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         taskId = pTaskId_,
         reportType = pReportType_
       }
+
+-- | The maximum number of results to return per request.
+listThingRegistrationTaskReports_maxResults :: Lens.Lens' ListThingRegistrationTaskReports (Prelude.Maybe Prelude.Natural)
+listThingRegistrationTaskReports_maxResults = Lens.lens (\ListThingRegistrationTaskReports' {maxResults} -> maxResults) (\s@ListThingRegistrationTaskReports' {} a -> s {maxResults = a} :: ListThingRegistrationTaskReports)
 
 -- | To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
 listThingRegistrationTaskReports_nextToken :: Lens.Lens' ListThingRegistrationTaskReports (Prelude.Maybe Prelude.Text)
 listThingRegistrationTaskReports_nextToken = Lens.lens (\ListThingRegistrationTaskReports' {nextToken} -> nextToken) (\s@ListThingRegistrationTaskReports' {} a -> s {nextToken = a} :: ListThingRegistrationTaskReports)
-
--- | The maximum number of results to return per request.
-listThingRegistrationTaskReports_maxResults :: Lens.Lens' ListThingRegistrationTaskReports (Prelude.Maybe Prelude.Natural)
-listThingRegistrationTaskReports_maxResults = Lens.lens (\ListThingRegistrationTaskReports' {maxResults} -> maxResults) (\s@ListThingRegistrationTaskReports' {} a -> s {maxResults = a} :: ListThingRegistrationTaskReports)
 
 -- | The id of the task.
 listThingRegistrationTaskReports_taskId :: Lens.Lens' ListThingRegistrationTaskReports Prelude.Text
@@ -172,8 +172,8 @@ instance
   hashWithSalt
     _salt
     ListThingRegistrationTaskReports' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` taskId
         `Prelude.hashWithSalt` reportType
 
@@ -182,8 +182,8 @@ instance
     ListThingRegistrationTaskReports
   where
   rnf ListThingRegistrationTaskReports' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf taskId
       `Prelude.seq` Prelude.rnf reportType
 
@@ -207,8 +207,8 @@ instance
   where
   toQuery ListThingRegistrationTaskReports' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults,
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
         "reportType" Data.=: reportType
       ]
 

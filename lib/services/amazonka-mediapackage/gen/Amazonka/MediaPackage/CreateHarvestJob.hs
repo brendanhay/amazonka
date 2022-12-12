@@ -39,14 +39,14 @@ module Amazonka.MediaPackage.CreateHarvestJob
 
     -- * Response Lenses
     createHarvestJobResponse_arn,
-    createHarvestJobResponse_status,
+    createHarvestJobResponse_channelId,
+    createHarvestJobResponse_createdAt,
     createHarvestJobResponse_endTime,
     createHarvestJobResponse_id,
-    createHarvestJobResponse_channelId,
-    createHarvestJobResponse_s3Destination,
     createHarvestJobResponse_originEndpointId,
-    createHarvestJobResponse_createdAt,
+    createHarvestJobResponse_s3Destination,
     createHarvestJobResponse_startTime,
+    createHarvestJobResponse_status,
     createHarvestJobResponse_httpStatus,
   )
 where
@@ -155,14 +155,14 @@ instance Core.AWSRequest CreateHarvestJob where
       ( \s h x ->
           CreateHarvestJobResponse'
             Prelude.<$> (x Data..?> "arn")
-            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "channelId")
+            Prelude.<*> (x Data..?> "createdAt")
             Prelude.<*> (x Data..?> "endTime")
             Prelude.<*> (x Data..?> "id")
-            Prelude.<*> (x Data..?> "channelId")
-            Prelude.<*> (x Data..?> "s3Destination")
             Prelude.<*> (x Data..?> "originEndpointId")
-            Prelude.<*> (x Data..?> "createdAt")
+            Prelude.<*> (x Data..?> "s3Destination")
             Prelude.<*> (x Data..?> "startTime")
+            Prelude.<*> (x Data..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -217,26 +217,26 @@ instance Data.ToQuery CreateHarvestJob where
 data CreateHarvestJobResponse = CreateHarvestJobResponse'
   { -- | The Amazon Resource Name (ARN) assigned to the HarvestJob.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The current status of the HarvestJob. Consider setting up a CloudWatch
-    -- Event to listen for HarvestJobs as they succeed or fail. In the event of
-    -- failure, the CloudWatch Event will include an explanation of why the
-    -- HarvestJob failed.
-    status :: Prelude.Maybe Status,
+    -- | The ID of the Channel that the HarvestJob will harvest from.
+    channelId :: Prelude.Maybe Prelude.Text,
+    -- | The time the HarvestJob was submitted
+    createdAt :: Prelude.Maybe Prelude.Text,
     -- | The end of the time-window which will be harvested.
     endTime :: Prelude.Maybe Prelude.Text,
     -- | The ID of the HarvestJob. The ID must be unique within the region and it
     -- cannot be changed after the HarvestJob is submitted.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the Channel that the HarvestJob will harvest from.
-    channelId :: Prelude.Maybe Prelude.Text,
-    s3Destination :: Prelude.Maybe S3Destination,
     -- | The ID of the OriginEndpoint that the HarvestJob will harvest from. This
     -- cannot be changed after the HarvestJob is submitted.
     originEndpointId :: Prelude.Maybe Prelude.Text,
-    -- | The time the HarvestJob was submitted
-    createdAt :: Prelude.Maybe Prelude.Text,
+    s3Destination :: Prelude.Maybe S3Destination,
     -- | The start of the time-window which will be harvested.
     startTime :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the HarvestJob. Consider setting up a CloudWatch
+    -- Event to listen for HarvestJobs as they succeed or fail. In the event of
+    -- failure, the CloudWatch Event will include an explanation of why the
+    -- HarvestJob failed.
+    status :: Prelude.Maybe Status,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -252,26 +252,26 @@ data CreateHarvestJobResponse = CreateHarvestJobResponse'
 --
 -- 'arn', 'createHarvestJobResponse_arn' - The Amazon Resource Name (ARN) assigned to the HarvestJob.
 --
--- 'status', 'createHarvestJobResponse_status' - The current status of the HarvestJob. Consider setting up a CloudWatch
--- Event to listen for HarvestJobs as they succeed or fail. In the event of
--- failure, the CloudWatch Event will include an explanation of why the
--- HarvestJob failed.
+-- 'channelId', 'createHarvestJobResponse_channelId' - The ID of the Channel that the HarvestJob will harvest from.
+--
+-- 'createdAt', 'createHarvestJobResponse_createdAt' - The time the HarvestJob was submitted
 --
 -- 'endTime', 'createHarvestJobResponse_endTime' - The end of the time-window which will be harvested.
 --
 -- 'id', 'createHarvestJobResponse_id' - The ID of the HarvestJob. The ID must be unique within the region and it
 -- cannot be changed after the HarvestJob is submitted.
 --
--- 'channelId', 'createHarvestJobResponse_channelId' - The ID of the Channel that the HarvestJob will harvest from.
---
--- 's3Destination', 'createHarvestJobResponse_s3Destination' - Undocumented member.
---
 -- 'originEndpointId', 'createHarvestJobResponse_originEndpointId' - The ID of the OriginEndpoint that the HarvestJob will harvest from. This
 -- cannot be changed after the HarvestJob is submitted.
 --
--- 'createdAt', 'createHarvestJobResponse_createdAt' - The time the HarvestJob was submitted
+-- 's3Destination', 'createHarvestJobResponse_s3Destination' - Undocumented member.
 --
 -- 'startTime', 'createHarvestJobResponse_startTime' - The start of the time-window which will be harvested.
+--
+-- 'status', 'createHarvestJobResponse_status' - The current status of the HarvestJob. Consider setting up a CloudWatch
+-- Event to listen for HarvestJobs as they succeed or fail. In the event of
+-- failure, the CloudWatch Event will include an explanation of why the
+-- HarvestJob failed.
 --
 -- 'httpStatus', 'createHarvestJobResponse_httpStatus' - The response's http status code.
 newCreateHarvestJobResponse ::
@@ -281,14 +281,14 @@ newCreateHarvestJobResponse ::
 newCreateHarvestJobResponse pHttpStatus_ =
   CreateHarvestJobResponse'
     { arn = Prelude.Nothing,
-      status = Prelude.Nothing,
+      channelId = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
       endTime = Prelude.Nothing,
       id = Prelude.Nothing,
-      channelId = Prelude.Nothing,
-      s3Destination = Prelude.Nothing,
       originEndpointId = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
+      s3Destination = Prelude.Nothing,
       startTime = Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -296,12 +296,13 @@ newCreateHarvestJobResponse pHttpStatus_ =
 createHarvestJobResponse_arn :: Lens.Lens' CreateHarvestJobResponse (Prelude.Maybe Prelude.Text)
 createHarvestJobResponse_arn = Lens.lens (\CreateHarvestJobResponse' {arn} -> arn) (\s@CreateHarvestJobResponse' {} a -> s {arn = a} :: CreateHarvestJobResponse)
 
--- | The current status of the HarvestJob. Consider setting up a CloudWatch
--- Event to listen for HarvestJobs as they succeed or fail. In the event of
--- failure, the CloudWatch Event will include an explanation of why the
--- HarvestJob failed.
-createHarvestJobResponse_status :: Lens.Lens' CreateHarvestJobResponse (Prelude.Maybe Status)
-createHarvestJobResponse_status = Lens.lens (\CreateHarvestJobResponse' {status} -> status) (\s@CreateHarvestJobResponse' {} a -> s {status = a} :: CreateHarvestJobResponse)
+-- | The ID of the Channel that the HarvestJob will harvest from.
+createHarvestJobResponse_channelId :: Lens.Lens' CreateHarvestJobResponse (Prelude.Maybe Prelude.Text)
+createHarvestJobResponse_channelId = Lens.lens (\CreateHarvestJobResponse' {channelId} -> channelId) (\s@CreateHarvestJobResponse' {} a -> s {channelId = a} :: CreateHarvestJobResponse)
+
+-- | The time the HarvestJob was submitted
+createHarvestJobResponse_createdAt :: Lens.Lens' CreateHarvestJobResponse (Prelude.Maybe Prelude.Text)
+createHarvestJobResponse_createdAt = Lens.lens (\CreateHarvestJobResponse' {createdAt} -> createdAt) (\s@CreateHarvestJobResponse' {} a -> s {createdAt = a} :: CreateHarvestJobResponse)
 
 -- | The end of the time-window which will be harvested.
 createHarvestJobResponse_endTime :: Lens.Lens' CreateHarvestJobResponse (Prelude.Maybe Prelude.Text)
@@ -312,26 +313,25 @@ createHarvestJobResponse_endTime = Lens.lens (\CreateHarvestJobResponse' {endTim
 createHarvestJobResponse_id :: Lens.Lens' CreateHarvestJobResponse (Prelude.Maybe Prelude.Text)
 createHarvestJobResponse_id = Lens.lens (\CreateHarvestJobResponse' {id} -> id) (\s@CreateHarvestJobResponse' {} a -> s {id = a} :: CreateHarvestJobResponse)
 
--- | The ID of the Channel that the HarvestJob will harvest from.
-createHarvestJobResponse_channelId :: Lens.Lens' CreateHarvestJobResponse (Prelude.Maybe Prelude.Text)
-createHarvestJobResponse_channelId = Lens.lens (\CreateHarvestJobResponse' {channelId} -> channelId) (\s@CreateHarvestJobResponse' {} a -> s {channelId = a} :: CreateHarvestJobResponse)
-
--- | Undocumented member.
-createHarvestJobResponse_s3Destination :: Lens.Lens' CreateHarvestJobResponse (Prelude.Maybe S3Destination)
-createHarvestJobResponse_s3Destination = Lens.lens (\CreateHarvestJobResponse' {s3Destination} -> s3Destination) (\s@CreateHarvestJobResponse' {} a -> s {s3Destination = a} :: CreateHarvestJobResponse)
-
 -- | The ID of the OriginEndpoint that the HarvestJob will harvest from. This
 -- cannot be changed after the HarvestJob is submitted.
 createHarvestJobResponse_originEndpointId :: Lens.Lens' CreateHarvestJobResponse (Prelude.Maybe Prelude.Text)
 createHarvestJobResponse_originEndpointId = Lens.lens (\CreateHarvestJobResponse' {originEndpointId} -> originEndpointId) (\s@CreateHarvestJobResponse' {} a -> s {originEndpointId = a} :: CreateHarvestJobResponse)
 
--- | The time the HarvestJob was submitted
-createHarvestJobResponse_createdAt :: Lens.Lens' CreateHarvestJobResponse (Prelude.Maybe Prelude.Text)
-createHarvestJobResponse_createdAt = Lens.lens (\CreateHarvestJobResponse' {createdAt} -> createdAt) (\s@CreateHarvestJobResponse' {} a -> s {createdAt = a} :: CreateHarvestJobResponse)
+-- | Undocumented member.
+createHarvestJobResponse_s3Destination :: Lens.Lens' CreateHarvestJobResponse (Prelude.Maybe S3Destination)
+createHarvestJobResponse_s3Destination = Lens.lens (\CreateHarvestJobResponse' {s3Destination} -> s3Destination) (\s@CreateHarvestJobResponse' {} a -> s {s3Destination = a} :: CreateHarvestJobResponse)
 
 -- | The start of the time-window which will be harvested.
 createHarvestJobResponse_startTime :: Lens.Lens' CreateHarvestJobResponse (Prelude.Maybe Prelude.Text)
 createHarvestJobResponse_startTime = Lens.lens (\CreateHarvestJobResponse' {startTime} -> startTime) (\s@CreateHarvestJobResponse' {} a -> s {startTime = a} :: CreateHarvestJobResponse)
+
+-- | The current status of the HarvestJob. Consider setting up a CloudWatch
+-- Event to listen for HarvestJobs as they succeed or fail. In the event of
+-- failure, the CloudWatch Event will include an explanation of why the
+-- HarvestJob failed.
+createHarvestJobResponse_status :: Lens.Lens' CreateHarvestJobResponse (Prelude.Maybe Status)
+createHarvestJobResponse_status = Lens.lens (\CreateHarvestJobResponse' {status} -> status) (\s@CreateHarvestJobResponse' {} a -> s {status = a} :: CreateHarvestJobResponse)
 
 -- | The response's http status code.
 createHarvestJobResponse_httpStatus :: Lens.Lens' CreateHarvestJobResponse Prelude.Int
@@ -340,12 +340,12 @@ createHarvestJobResponse_httpStatus = Lens.lens (\CreateHarvestJobResponse' {htt
 instance Prelude.NFData CreateHarvestJobResponse where
   rnf CreateHarvestJobResponse' {..} =
     Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf channelId
+      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf channelId
-      `Prelude.seq` Prelude.rnf s3Destination
       `Prelude.seq` Prelude.rnf originEndpointId
-      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf s3Destination
       `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

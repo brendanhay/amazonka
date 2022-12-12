@@ -31,11 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 data OAuth2Credentials = OAuth2Credentials'
   { -- | The access token used to access the connector on your behalf.
     accessToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The identifier for the desired client.
+    clientId :: Prelude.Maybe Prelude.Text,
     -- | The client secret used by the OAuth client to authenticate to the
     -- authorization server.
     clientSecret :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The identifier for the desired client.
-    clientId :: Prelude.Maybe Prelude.Text,
     oAuthRequest :: Prelude.Maybe ConnectorOAuthRequest,
     -- | The refresh token used to refresh an expired access token.
     refreshToken :: Prelude.Maybe Prelude.Text
@@ -52,10 +52,10 @@ data OAuth2Credentials = OAuth2Credentials'
 --
 -- 'accessToken', 'oAuth2Credentials_accessToken' - The access token used to access the connector on your behalf.
 --
+-- 'clientId', 'oAuth2Credentials_clientId' - The identifier for the desired client.
+--
 -- 'clientSecret', 'oAuth2Credentials_clientSecret' - The client secret used by the OAuth client to authenticate to the
 -- authorization server.
---
--- 'clientId', 'oAuth2Credentials_clientId' - The identifier for the desired client.
 --
 -- 'oAuthRequest', 'oAuth2Credentials_oAuthRequest' - Undocumented member.
 --
@@ -65,8 +65,8 @@ newOAuth2Credentials ::
 newOAuth2Credentials =
   OAuth2Credentials'
     { accessToken = Prelude.Nothing,
-      clientSecret = Prelude.Nothing,
       clientId = Prelude.Nothing,
+      clientSecret = Prelude.Nothing,
       oAuthRequest = Prelude.Nothing,
       refreshToken = Prelude.Nothing
     }
@@ -75,14 +75,14 @@ newOAuth2Credentials =
 oAuth2Credentials_accessToken :: Lens.Lens' OAuth2Credentials (Prelude.Maybe Prelude.Text)
 oAuth2Credentials_accessToken = Lens.lens (\OAuth2Credentials' {accessToken} -> accessToken) (\s@OAuth2Credentials' {} a -> s {accessToken = a} :: OAuth2Credentials) Prelude.. Lens.mapping Data._Sensitive
 
+-- | The identifier for the desired client.
+oAuth2Credentials_clientId :: Lens.Lens' OAuth2Credentials (Prelude.Maybe Prelude.Text)
+oAuth2Credentials_clientId = Lens.lens (\OAuth2Credentials' {clientId} -> clientId) (\s@OAuth2Credentials' {} a -> s {clientId = a} :: OAuth2Credentials)
+
 -- | The client secret used by the OAuth client to authenticate to the
 -- authorization server.
 oAuth2Credentials_clientSecret :: Lens.Lens' OAuth2Credentials (Prelude.Maybe Prelude.Text)
 oAuth2Credentials_clientSecret = Lens.lens (\OAuth2Credentials' {clientSecret} -> clientSecret) (\s@OAuth2Credentials' {} a -> s {clientSecret = a} :: OAuth2Credentials) Prelude.. Lens.mapping Data._Sensitive
-
--- | The identifier for the desired client.
-oAuth2Credentials_clientId :: Lens.Lens' OAuth2Credentials (Prelude.Maybe Prelude.Text)
-oAuth2Credentials_clientId = Lens.lens (\OAuth2Credentials' {clientId} -> clientId) (\s@OAuth2Credentials' {} a -> s {clientId = a} :: OAuth2Credentials)
 
 -- | Undocumented member.
 oAuth2Credentials_oAuthRequest :: Lens.Lens' OAuth2Credentials (Prelude.Maybe ConnectorOAuthRequest)
@@ -95,16 +95,16 @@ oAuth2Credentials_refreshToken = Lens.lens (\OAuth2Credentials' {refreshToken} -
 instance Prelude.Hashable OAuth2Credentials where
   hashWithSalt _salt OAuth2Credentials' {..} =
     _salt `Prelude.hashWithSalt` accessToken
-      `Prelude.hashWithSalt` clientSecret
       `Prelude.hashWithSalt` clientId
+      `Prelude.hashWithSalt` clientSecret
       `Prelude.hashWithSalt` oAuthRequest
       `Prelude.hashWithSalt` refreshToken
 
 instance Prelude.NFData OAuth2Credentials where
   rnf OAuth2Credentials' {..} =
     Prelude.rnf accessToken
-      `Prelude.seq` Prelude.rnf clientSecret
       `Prelude.seq` Prelude.rnf clientId
+      `Prelude.seq` Prelude.rnf clientSecret
       `Prelude.seq` Prelude.rnf oAuthRequest
       `Prelude.seq` Prelude.rnf refreshToken
 
@@ -113,8 +113,8 @@ instance Data.ToJSON OAuth2Credentials where
     Data.object
       ( Prelude.catMaybes
           [ ("accessToken" Data..=) Prelude.<$> accessToken,
-            ("clientSecret" Data..=) Prelude.<$> clientSecret,
             ("clientId" Data..=) Prelude.<$> clientId,
+            ("clientSecret" Data..=) Prelude.<$> clientSecret,
             ("oAuthRequest" Data..=) Prelude.<$> oAuthRequest,
             ("refreshToken" Data..=) Prelude.<$> refreshToken
           ]

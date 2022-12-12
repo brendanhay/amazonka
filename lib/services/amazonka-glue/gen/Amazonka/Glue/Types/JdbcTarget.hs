@@ -29,21 +29,21 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJdbcTarget' smart constructor.
 data JdbcTarget = JdbcTarget'
-  { -- | Specify a value of @RAWTYPES@ or @COMMENTS@ to enable additional
+  { -- | The name of the connection to use to connect to the JDBC target.
+    connectionName :: Prelude.Maybe Prelude.Text,
+    -- | Specify a value of @RAWTYPES@ or @COMMENTS@ to enable additional
     -- metadata in table responses. @RAWTYPES@ provides the native-level
     -- datatype. @COMMENTS@ provides comments associated with a column or table
     -- in the database.
     --
     -- If you do not need additional metadata, keep the field empty.
     enableAdditionalMetadata :: Prelude.Maybe [JdbcMetadataEntry],
-    -- | The path of the JDBC target.
-    path :: Prelude.Maybe Prelude.Text,
     -- | A list of glob patterns used to exclude from the crawl. For more
     -- information, see
     -- <https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html Catalog Tables with a Crawler>.
     exclusions :: Prelude.Maybe [Prelude.Text],
-    -- | The name of the connection to use to connect to the JDBC target.
-    connectionName :: Prelude.Maybe Prelude.Text
+    -- | The path of the JDBC target.
+    path :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,6 +55,8 @@ data JdbcTarget = JdbcTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'connectionName', 'jdbcTarget_connectionName' - The name of the connection to use to connect to the JDBC target.
+--
 -- 'enableAdditionalMetadata', 'jdbcTarget_enableAdditionalMetadata' - Specify a value of @RAWTYPES@ or @COMMENTS@ to enable additional
 -- metadata in table responses. @RAWTYPES@ provides the native-level
 -- datatype. @COMMENTS@ provides comments associated with a column or table
@@ -62,23 +64,24 @@ data JdbcTarget = JdbcTarget'
 --
 -- If you do not need additional metadata, keep the field empty.
 --
--- 'path', 'jdbcTarget_path' - The path of the JDBC target.
---
 -- 'exclusions', 'jdbcTarget_exclusions' - A list of glob patterns used to exclude from the crawl. For more
 -- information, see
 -- <https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html Catalog Tables with a Crawler>.
 --
--- 'connectionName', 'jdbcTarget_connectionName' - The name of the connection to use to connect to the JDBC target.
+-- 'path', 'jdbcTarget_path' - The path of the JDBC target.
 newJdbcTarget ::
   JdbcTarget
 newJdbcTarget =
   JdbcTarget'
-    { enableAdditionalMetadata =
-        Prelude.Nothing,
-      path = Prelude.Nothing,
+    { connectionName = Prelude.Nothing,
+      enableAdditionalMetadata = Prelude.Nothing,
       exclusions = Prelude.Nothing,
-      connectionName = Prelude.Nothing
+      path = Prelude.Nothing
     }
+
+-- | The name of the connection to use to connect to the JDBC target.
+jdbcTarget_connectionName :: Lens.Lens' JdbcTarget (Prelude.Maybe Prelude.Text)
+jdbcTarget_connectionName = Lens.lens (\JdbcTarget' {connectionName} -> connectionName) (\s@JdbcTarget' {} a -> s {connectionName = a} :: JdbcTarget)
 
 -- | Specify a value of @RAWTYPES@ or @COMMENTS@ to enable additional
 -- metadata in table responses. @RAWTYPES@ provides the native-level
@@ -89,19 +92,15 @@ newJdbcTarget =
 jdbcTarget_enableAdditionalMetadata :: Lens.Lens' JdbcTarget (Prelude.Maybe [JdbcMetadataEntry])
 jdbcTarget_enableAdditionalMetadata = Lens.lens (\JdbcTarget' {enableAdditionalMetadata} -> enableAdditionalMetadata) (\s@JdbcTarget' {} a -> s {enableAdditionalMetadata = a} :: JdbcTarget) Prelude.. Lens.mapping Lens.coerced
 
--- | The path of the JDBC target.
-jdbcTarget_path :: Lens.Lens' JdbcTarget (Prelude.Maybe Prelude.Text)
-jdbcTarget_path = Lens.lens (\JdbcTarget' {path} -> path) (\s@JdbcTarget' {} a -> s {path = a} :: JdbcTarget)
-
 -- | A list of glob patterns used to exclude from the crawl. For more
 -- information, see
 -- <https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html Catalog Tables with a Crawler>.
 jdbcTarget_exclusions :: Lens.Lens' JdbcTarget (Prelude.Maybe [Prelude.Text])
 jdbcTarget_exclusions = Lens.lens (\JdbcTarget' {exclusions} -> exclusions) (\s@JdbcTarget' {} a -> s {exclusions = a} :: JdbcTarget) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the connection to use to connect to the JDBC target.
-jdbcTarget_connectionName :: Lens.Lens' JdbcTarget (Prelude.Maybe Prelude.Text)
-jdbcTarget_connectionName = Lens.lens (\JdbcTarget' {connectionName} -> connectionName) (\s@JdbcTarget' {} a -> s {connectionName = a} :: JdbcTarget)
+-- | The path of the JDBC target.
+jdbcTarget_path :: Lens.Lens' JdbcTarget (Prelude.Maybe Prelude.Text)
+jdbcTarget_path = Lens.lens (\JdbcTarget' {path} -> path) (\s@JdbcTarget' {} a -> s {path = a} :: JdbcTarget)
 
 instance Data.FromJSON JdbcTarget where
   parseJSON =
@@ -109,38 +108,37 @@ instance Data.FromJSON JdbcTarget where
       "JdbcTarget"
       ( \x ->
           JdbcTarget'
-            Prelude.<$> ( x Data..:? "EnableAdditionalMetadata"
+            Prelude.<$> (x Data..:? "ConnectionName")
+            Prelude.<*> ( x Data..:? "EnableAdditionalMetadata"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "Path")
             Prelude.<*> (x Data..:? "Exclusions" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "ConnectionName")
+            Prelude.<*> (x Data..:? "Path")
       )
 
 instance Prelude.Hashable JdbcTarget where
   hashWithSalt _salt JdbcTarget' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` connectionName
       `Prelude.hashWithSalt` enableAdditionalMetadata
-      `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` exclusions
-      `Prelude.hashWithSalt` connectionName
+      `Prelude.hashWithSalt` path
 
 instance Prelude.NFData JdbcTarget where
   rnf JdbcTarget' {..} =
-    Prelude.rnf enableAdditionalMetadata
-      `Prelude.seq` Prelude.rnf path
+    Prelude.rnf connectionName
+      `Prelude.seq` Prelude.rnf enableAdditionalMetadata
       `Prelude.seq` Prelude.rnf exclusions
-      `Prelude.seq` Prelude.rnf connectionName
+      `Prelude.seq` Prelude.rnf path
 
 instance Data.ToJSON JdbcTarget where
   toJSON JdbcTarget' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("EnableAdditionalMetadata" Data..=)
+          [ ("ConnectionName" Data..=)
+              Prelude.<$> connectionName,
+            ("EnableAdditionalMetadata" Data..=)
               Prelude.<$> enableAdditionalMetadata,
-            ("Path" Data..=) Prelude.<$> path,
             ("Exclusions" Data..=) Prelude.<$> exclusions,
-            ("ConnectionName" Data..=)
-              Prelude.<$> connectionName
+            ("Path" Data..=) Prelude.<$> path
           ]
       )

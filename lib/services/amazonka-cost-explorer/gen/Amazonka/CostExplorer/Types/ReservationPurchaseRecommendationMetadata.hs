@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newReservationPurchaseRecommendationMetadata' smart constructor.
 data ReservationPurchaseRecommendationMetadata = ReservationPurchaseRecommendationMetadata'
-  { -- | The ID for this specific recommendation.
-    recommendationId :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp for when Amazon Web Services made this recommendation.
-    generationTimestamp :: Prelude.Maybe Prelude.Text
+  { -- | The timestamp for when Amazon Web Services made this recommendation.
+    generationTimestamp :: Prelude.Maybe Prelude.Text,
+    -- | The ID for this specific recommendation.
+    recommendationId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,26 +44,26 @@ data ReservationPurchaseRecommendationMetadata = ReservationPurchaseRecommendati
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'recommendationId', 'reservationPurchaseRecommendationMetadata_recommendationId' - The ID for this specific recommendation.
---
 -- 'generationTimestamp', 'reservationPurchaseRecommendationMetadata_generationTimestamp' - The timestamp for when Amazon Web Services made this recommendation.
+--
+-- 'recommendationId', 'reservationPurchaseRecommendationMetadata_recommendationId' - The ID for this specific recommendation.
 newReservationPurchaseRecommendationMetadata ::
   ReservationPurchaseRecommendationMetadata
 newReservationPurchaseRecommendationMetadata =
   ReservationPurchaseRecommendationMetadata'
-    { recommendationId =
+    { generationTimestamp =
         Prelude.Nothing,
-      generationTimestamp =
+      recommendationId =
         Prelude.Nothing
     }
-
--- | The ID for this specific recommendation.
-reservationPurchaseRecommendationMetadata_recommendationId :: Lens.Lens' ReservationPurchaseRecommendationMetadata (Prelude.Maybe Prelude.Text)
-reservationPurchaseRecommendationMetadata_recommendationId = Lens.lens (\ReservationPurchaseRecommendationMetadata' {recommendationId} -> recommendationId) (\s@ReservationPurchaseRecommendationMetadata' {} a -> s {recommendationId = a} :: ReservationPurchaseRecommendationMetadata)
 
 -- | The timestamp for when Amazon Web Services made this recommendation.
 reservationPurchaseRecommendationMetadata_generationTimestamp :: Lens.Lens' ReservationPurchaseRecommendationMetadata (Prelude.Maybe Prelude.Text)
 reservationPurchaseRecommendationMetadata_generationTimestamp = Lens.lens (\ReservationPurchaseRecommendationMetadata' {generationTimestamp} -> generationTimestamp) (\s@ReservationPurchaseRecommendationMetadata' {} a -> s {generationTimestamp = a} :: ReservationPurchaseRecommendationMetadata)
+
+-- | The ID for this specific recommendation.
+reservationPurchaseRecommendationMetadata_recommendationId :: Lens.Lens' ReservationPurchaseRecommendationMetadata (Prelude.Maybe Prelude.Text)
+reservationPurchaseRecommendationMetadata_recommendationId = Lens.lens (\ReservationPurchaseRecommendationMetadata' {recommendationId} -> recommendationId) (\s@ReservationPurchaseRecommendationMetadata' {} a -> s {recommendationId = a} :: ReservationPurchaseRecommendationMetadata)
 
 instance
   Data.FromJSON
@@ -74,8 +74,8 @@ instance
       "ReservationPurchaseRecommendationMetadata"
       ( \x ->
           ReservationPurchaseRecommendationMetadata'
-            Prelude.<$> (x Data..:? "RecommendationId")
-              Prelude.<*> (x Data..:? "GenerationTimestamp")
+            Prelude.<$> (x Data..:? "GenerationTimestamp")
+              Prelude.<*> (x Data..:? "RecommendationId")
       )
 
 instance
@@ -85,13 +85,13 @@ instance
   hashWithSalt
     _salt
     ReservationPurchaseRecommendationMetadata' {..} =
-      _salt `Prelude.hashWithSalt` recommendationId
-        `Prelude.hashWithSalt` generationTimestamp
+      _salt `Prelude.hashWithSalt` generationTimestamp
+        `Prelude.hashWithSalt` recommendationId
 
 instance
   Prelude.NFData
     ReservationPurchaseRecommendationMetadata
   where
   rnf ReservationPurchaseRecommendationMetadata' {..} =
-    Prelude.rnf recommendationId
-      `Prelude.seq` Prelude.rnf generationTimestamp
+    Prelude.rnf generationTimestamp
+      `Prelude.seq` Prelude.rnf recommendationId

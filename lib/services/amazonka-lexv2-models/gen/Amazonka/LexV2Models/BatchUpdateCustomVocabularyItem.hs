@@ -38,10 +38,10 @@ module Amazonka.LexV2Models.BatchUpdateCustomVocabularyItem
     newBatchUpdateCustomVocabularyItemResponse,
 
     -- * Response Lenses
-    batchUpdateCustomVocabularyItemResponse_botVersion,
-    batchUpdateCustomVocabularyItemResponse_localeId,
     batchUpdateCustomVocabularyItemResponse_botId,
+    batchUpdateCustomVocabularyItemResponse_botVersion,
     batchUpdateCustomVocabularyItemResponse_errors,
+    batchUpdateCustomVocabularyItemResponse_localeId,
     batchUpdateCustomVocabularyItemResponse_resources,
     batchUpdateCustomVocabularyItemResponse_httpStatus,
   )
@@ -148,10 +148,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           BatchUpdateCustomVocabularyItemResponse'
-            Prelude.<$> (x Data..?> "botVersion")
-            Prelude.<*> (x Data..?> "localeId")
-            Prelude.<*> (x Data..?> "botId")
+            Prelude.<$> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "botVersion")
             Prelude.<*> (x Data..?> "errors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "localeId")
             Prelude.<*> (x Data..?> "resources" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -220,18 +220,18 @@ instance Data.ToQuery BatchUpdateCustomVocabularyItem where
 
 -- | /See:/ 'newBatchUpdateCustomVocabularyItemResponse' smart constructor.
 data BatchUpdateCustomVocabularyItemResponse = BatchUpdateCustomVocabularyItemResponse'
-  { -- | The bot version of the bot to the batch update response for the custom
-    -- vocabulary item.
-    botVersion :: Prelude.Maybe Prelude.Text,
-    -- | The locale identifier of the bot to the batch update response for the
-    -- custom vocabulary item.
-    localeId :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier of the bot to the batch update response for the
+  { -- | The unique identifier of the bot to the batch update response for the
     -- custom vocabulary item.
     botId :: Prelude.Maybe Prelude.Text,
+    -- | The bot version of the bot to the batch update response for the custom
+    -- vocabulary item.
+    botVersion :: Prelude.Maybe Prelude.Text,
     -- | The errors of the action to batch update response for the custom
     -- vocabulary item.
     errors :: Prelude.Maybe [FailedCustomVocabularyItem],
+    -- | The locale identifier of the bot to the batch update response for the
+    -- custom vocabulary item.
+    localeId :: Prelude.Maybe Prelude.Text,
     -- | The resources of the action to batch update response for the custom
     -- vocabulary item.
     resources :: Prelude.Maybe [CustomVocabularyItem],
@@ -248,17 +248,17 @@ data BatchUpdateCustomVocabularyItemResponse = BatchUpdateCustomVocabularyItemRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'botId', 'batchUpdateCustomVocabularyItemResponse_botId' - The unique identifier of the bot to the batch update response for the
+-- custom vocabulary item.
+--
 -- 'botVersion', 'batchUpdateCustomVocabularyItemResponse_botVersion' - The bot version of the bot to the batch update response for the custom
+-- vocabulary item.
+--
+-- 'errors', 'batchUpdateCustomVocabularyItemResponse_errors' - The errors of the action to batch update response for the custom
 -- vocabulary item.
 --
 -- 'localeId', 'batchUpdateCustomVocabularyItemResponse_localeId' - The locale identifier of the bot to the batch update response for the
 -- custom vocabulary item.
---
--- 'botId', 'batchUpdateCustomVocabularyItemResponse_botId' - The unique identifier of the bot to the batch update response for the
--- custom vocabulary item.
---
--- 'errors', 'batchUpdateCustomVocabularyItemResponse_errors' - The errors of the action to batch update response for the custom
--- vocabulary item.
 --
 -- 'resources', 'batchUpdateCustomVocabularyItemResponse_resources' - The resources of the action to batch update response for the custom
 -- vocabulary item.
@@ -271,34 +271,34 @@ newBatchUpdateCustomVocabularyItemResponse ::
 newBatchUpdateCustomVocabularyItemResponse
   pHttpStatus_ =
     BatchUpdateCustomVocabularyItemResponse'
-      { botVersion =
+      { botId =
           Prelude.Nothing,
-        localeId = Prelude.Nothing,
-        botId = Prelude.Nothing,
+        botVersion = Prelude.Nothing,
         errors = Prelude.Nothing,
+        localeId = Prelude.Nothing,
         resources = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The bot version of the bot to the batch update response for the custom
--- vocabulary item.
-batchUpdateCustomVocabularyItemResponse_botVersion :: Lens.Lens' BatchUpdateCustomVocabularyItemResponse (Prelude.Maybe Prelude.Text)
-batchUpdateCustomVocabularyItemResponse_botVersion = Lens.lens (\BatchUpdateCustomVocabularyItemResponse' {botVersion} -> botVersion) (\s@BatchUpdateCustomVocabularyItemResponse' {} a -> s {botVersion = a} :: BatchUpdateCustomVocabularyItemResponse)
-
--- | The locale identifier of the bot to the batch update response for the
--- custom vocabulary item.
-batchUpdateCustomVocabularyItemResponse_localeId :: Lens.Lens' BatchUpdateCustomVocabularyItemResponse (Prelude.Maybe Prelude.Text)
-batchUpdateCustomVocabularyItemResponse_localeId = Lens.lens (\BatchUpdateCustomVocabularyItemResponse' {localeId} -> localeId) (\s@BatchUpdateCustomVocabularyItemResponse' {} a -> s {localeId = a} :: BatchUpdateCustomVocabularyItemResponse)
 
 -- | The unique identifier of the bot to the batch update response for the
 -- custom vocabulary item.
 batchUpdateCustomVocabularyItemResponse_botId :: Lens.Lens' BatchUpdateCustomVocabularyItemResponse (Prelude.Maybe Prelude.Text)
 batchUpdateCustomVocabularyItemResponse_botId = Lens.lens (\BatchUpdateCustomVocabularyItemResponse' {botId} -> botId) (\s@BatchUpdateCustomVocabularyItemResponse' {} a -> s {botId = a} :: BatchUpdateCustomVocabularyItemResponse)
 
+-- | The bot version of the bot to the batch update response for the custom
+-- vocabulary item.
+batchUpdateCustomVocabularyItemResponse_botVersion :: Lens.Lens' BatchUpdateCustomVocabularyItemResponse (Prelude.Maybe Prelude.Text)
+batchUpdateCustomVocabularyItemResponse_botVersion = Lens.lens (\BatchUpdateCustomVocabularyItemResponse' {botVersion} -> botVersion) (\s@BatchUpdateCustomVocabularyItemResponse' {} a -> s {botVersion = a} :: BatchUpdateCustomVocabularyItemResponse)
+
 -- | The errors of the action to batch update response for the custom
 -- vocabulary item.
 batchUpdateCustomVocabularyItemResponse_errors :: Lens.Lens' BatchUpdateCustomVocabularyItemResponse (Prelude.Maybe [FailedCustomVocabularyItem])
 batchUpdateCustomVocabularyItemResponse_errors = Lens.lens (\BatchUpdateCustomVocabularyItemResponse' {errors} -> errors) (\s@BatchUpdateCustomVocabularyItemResponse' {} a -> s {errors = a} :: BatchUpdateCustomVocabularyItemResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The locale identifier of the bot to the batch update response for the
+-- custom vocabulary item.
+batchUpdateCustomVocabularyItemResponse_localeId :: Lens.Lens' BatchUpdateCustomVocabularyItemResponse (Prelude.Maybe Prelude.Text)
+batchUpdateCustomVocabularyItemResponse_localeId = Lens.lens (\BatchUpdateCustomVocabularyItemResponse' {localeId} -> localeId) (\s@BatchUpdateCustomVocabularyItemResponse' {} a -> s {localeId = a} :: BatchUpdateCustomVocabularyItemResponse)
 
 -- | The resources of the action to batch update response for the custom
 -- vocabulary item.
@@ -314,9 +314,9 @@ instance
     BatchUpdateCustomVocabularyItemResponse
   where
   rnf BatchUpdateCustomVocabularyItemResponse' {..} =
-    Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf botId
+    Prelude.rnf botId
+      `Prelude.seq` Prelude.rnf botVersion
       `Prelude.seq` Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf localeId
       `Prelude.seq` Prelude.rnf resources
       `Prelude.seq` Prelude.rnf httpStatus

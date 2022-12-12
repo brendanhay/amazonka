@@ -33,9 +33,9 @@ module Amazonka.CodeArtifact.ListRepositories
     newListRepositories,
 
     -- * Request Lenses
+    listRepositories_maxResults,
     listRepositories_nextToken,
     listRepositories_repositoryPrefix,
-    listRepositories_maxResults,
 
     -- * Destructuring the Response
     ListRepositoriesResponse (..),
@@ -58,15 +58,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListRepositories' smart constructor.
 data ListRepositories = ListRepositories'
-  { -- | The token for the next set of results. Use the value returned in the
+  { -- | The maximum number of results to return per page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A prefix used to filter returned repositories. Only repositories with
     -- names that start with @repositoryPrefix@ are returned.
-    repositoryPrefix :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per page.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    repositoryPrefix :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,22 +78,26 @@ data ListRepositories = ListRepositories'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listRepositories_maxResults' - The maximum number of results to return per page.
+--
 -- 'nextToken', 'listRepositories_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
 --
 -- 'repositoryPrefix', 'listRepositories_repositoryPrefix' - A prefix used to filter returned repositories. Only repositories with
 -- names that start with @repositoryPrefix@ are returned.
---
--- 'maxResults', 'listRepositories_maxResults' - The maximum number of results to return per page.
 newListRepositories ::
   ListRepositories
 newListRepositories =
   ListRepositories'
-    { nextToken = Prelude.Nothing,
-      repositoryPrefix = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      repositoryPrefix = Prelude.Nothing
     }
+
+-- | The maximum number of results to return per page.
+listRepositories_maxResults :: Lens.Lens' ListRepositories (Prelude.Maybe Prelude.Natural)
+listRepositories_maxResults = Lens.lens (\ListRepositories' {maxResults} -> maxResults) (\s@ListRepositories' {} a -> s {maxResults = a} :: ListRepositories)
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
@@ -105,10 +109,6 @@ listRepositories_nextToken = Lens.lens (\ListRepositories' {nextToken} -> nextTo
 -- names that start with @repositoryPrefix@ are returned.
 listRepositories_repositoryPrefix :: Lens.Lens' ListRepositories (Prelude.Maybe Prelude.Text)
 listRepositories_repositoryPrefix = Lens.lens (\ListRepositories' {repositoryPrefix} -> repositoryPrefix) (\s@ListRepositories' {} a -> s {repositoryPrefix = a} :: ListRepositories)
-
--- | The maximum number of results to return per page.
-listRepositories_maxResults :: Lens.Lens' ListRepositories (Prelude.Maybe Prelude.Natural)
-listRepositories_maxResults = Lens.lens (\ListRepositories' {maxResults} -> maxResults) (\s@ListRepositories' {} a -> s {maxResults = a} :: ListRepositories)
 
 instance Core.AWSPager ListRepositories where
   page rq rs
@@ -149,15 +149,15 @@ instance Core.AWSRequest ListRepositories where
 
 instance Prelude.Hashable ListRepositories where
   hashWithSalt _salt ListRepositories' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` repositoryPrefix
-      `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListRepositories where
   rnf ListRepositories' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf repositoryPrefix
-      `Prelude.seq` Prelude.rnf maxResults
 
 instance Data.ToHeaders ListRepositories where
   toHeaders =
@@ -179,9 +179,9 @@ instance Data.ToPath ListRepositories where
 instance Data.ToQuery ListRepositories where
   toQuery ListRepositories' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
-        "repository-prefix" Data.=: repositoryPrefix,
-        "max-results" Data.=: maxResults
+      [ "max-results" Data.=: maxResults,
+        "next-token" Data.=: nextToken,
+        "repository-prefix" Data.=: repositoryPrefix
       ]
 
 -- | /See:/ 'newListRepositoriesResponse' smart constructor.

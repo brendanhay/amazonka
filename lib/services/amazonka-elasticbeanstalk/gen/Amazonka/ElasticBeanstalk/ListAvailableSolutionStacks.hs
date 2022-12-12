@@ -32,8 +32,8 @@ module Amazonka.ElasticBeanstalk.ListAvailableSolutionStacks
     newListAvailableSolutionStacksResponse,
 
     -- * Response Lenses
-    listAvailableSolutionStacksResponse_solutionStacks,
     listAvailableSolutionStacksResponse_solutionStackDetails,
+    listAvailableSolutionStacksResponse_solutionStacks,
     listAvailableSolutionStacksResponse_httpStatus,
   )
 where
@@ -72,11 +72,11 @@ instance Core.AWSRequest ListAvailableSolutionStacks where
       "ListAvailableSolutionStacksResult"
       ( \s h x ->
           ListAvailableSolutionStacksResponse'
-            Prelude.<$> ( x Data..@? "SolutionStacks" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "SolutionStackDetails"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x Data..@? "SolutionStackDetails"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "SolutionStacks" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -112,10 +112,10 @@ instance Data.ToQuery ListAvailableSolutionStacks where
 --
 -- /See:/ 'newListAvailableSolutionStacksResponse' smart constructor.
 data ListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse'
-  { -- | A list of available solution stacks.
-    solutionStacks :: Prelude.Maybe [Prelude.Text],
-    -- | A list of available solution stacks and their SolutionStackDescription.
+  { -- | A list of available solution stacks and their SolutionStackDescription.
     solutionStackDetails :: Prelude.Maybe [SolutionStackDescription],
+    -- | A list of available solution stacks.
+    solutionStacks :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -129,9 +129,9 @@ data ListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'solutionStacks', 'listAvailableSolutionStacksResponse_solutionStacks' - A list of available solution stacks.
---
 -- 'solutionStackDetails', 'listAvailableSolutionStacksResponse_solutionStackDetails' - A list of available solution stacks and their SolutionStackDescription.
+--
+-- 'solutionStacks', 'listAvailableSolutionStacksResponse_solutionStacks' - A list of available solution stacks.
 --
 -- 'httpStatus', 'listAvailableSolutionStacksResponse_httpStatus' - The response's http status code.
 newListAvailableSolutionStacksResponse ::
@@ -140,19 +140,19 @@ newListAvailableSolutionStacksResponse ::
   ListAvailableSolutionStacksResponse
 newListAvailableSolutionStacksResponse pHttpStatus_ =
   ListAvailableSolutionStacksResponse'
-    { solutionStacks =
+    { solutionStackDetails =
         Prelude.Nothing,
-      solutionStackDetails = Prelude.Nothing,
+      solutionStacks = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of available solution stacks.
-listAvailableSolutionStacksResponse_solutionStacks :: Lens.Lens' ListAvailableSolutionStacksResponse (Prelude.Maybe [Prelude.Text])
-listAvailableSolutionStacksResponse_solutionStacks = Lens.lens (\ListAvailableSolutionStacksResponse' {solutionStacks} -> solutionStacks) (\s@ListAvailableSolutionStacksResponse' {} a -> s {solutionStacks = a} :: ListAvailableSolutionStacksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of available solution stacks and their SolutionStackDescription.
 listAvailableSolutionStacksResponse_solutionStackDetails :: Lens.Lens' ListAvailableSolutionStacksResponse (Prelude.Maybe [SolutionStackDescription])
 listAvailableSolutionStacksResponse_solutionStackDetails = Lens.lens (\ListAvailableSolutionStacksResponse' {solutionStackDetails} -> solutionStackDetails) (\s@ListAvailableSolutionStacksResponse' {} a -> s {solutionStackDetails = a} :: ListAvailableSolutionStacksResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of available solution stacks.
+listAvailableSolutionStacksResponse_solutionStacks :: Lens.Lens' ListAvailableSolutionStacksResponse (Prelude.Maybe [Prelude.Text])
+listAvailableSolutionStacksResponse_solutionStacks = Lens.lens (\ListAvailableSolutionStacksResponse' {solutionStacks} -> solutionStacks) (\s@ListAvailableSolutionStacksResponse' {} a -> s {solutionStacks = a} :: ListAvailableSolutionStacksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAvailableSolutionStacksResponse_httpStatus :: Lens.Lens' ListAvailableSolutionStacksResponse Prelude.Int
@@ -163,6 +163,6 @@ instance
     ListAvailableSolutionStacksResponse
   where
   rnf ListAvailableSolutionStacksResponse' {..} =
-    Prelude.rnf solutionStacks
-      `Prelude.seq` Prelude.rnf solutionStackDetails
+    Prelude.rnf solutionStackDetails
+      `Prelude.seq` Prelude.rnf solutionStacks
       `Prelude.seq` Prelude.rnf httpStatus

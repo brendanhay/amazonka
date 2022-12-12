@@ -31,14 +31,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCarrierGateway' smart constructor.
 data CarrierGateway = CarrierGateway'
-  { -- | The tags assigned to the carrier gateway.
-    tags :: Prelude.Maybe [Tag],
-    -- | The ID of the carrier gateway.
+  { -- | The ID of the carrier gateway.
     carrierGatewayId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services account ID of the owner of the carrier gateway.
     ownerId :: Prelude.Maybe Prelude.Text,
     -- | The state of the carrier gateway.
     state :: Prelude.Maybe CarrierGatewayState,
+    -- | The tags assigned to the carrier gateway.
+    tags :: Prelude.Maybe [Tag],
     -- | The ID of the VPC associated with the carrier gateway.
     vpcId :: Prelude.Maybe Prelude.Text
   }
@@ -52,29 +52,25 @@ data CarrierGateway = CarrierGateway'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'carrierGateway_tags' - The tags assigned to the carrier gateway.
---
 -- 'carrierGatewayId', 'carrierGateway_carrierGatewayId' - The ID of the carrier gateway.
 --
 -- 'ownerId', 'carrierGateway_ownerId' - The Amazon Web Services account ID of the owner of the carrier gateway.
 --
 -- 'state', 'carrierGateway_state' - The state of the carrier gateway.
 --
+-- 'tags', 'carrierGateway_tags' - The tags assigned to the carrier gateway.
+--
 -- 'vpcId', 'carrierGateway_vpcId' - The ID of the VPC associated with the carrier gateway.
 newCarrierGateway ::
   CarrierGateway
 newCarrierGateway =
   CarrierGateway'
-    { tags = Prelude.Nothing,
-      carrierGatewayId = Prelude.Nothing,
+    { carrierGatewayId = Prelude.Nothing,
       ownerId = Prelude.Nothing,
       state = Prelude.Nothing,
+      tags = Prelude.Nothing,
       vpcId = Prelude.Nothing
     }
-
--- | The tags assigned to the carrier gateway.
-carrierGateway_tags :: Lens.Lens' CarrierGateway (Prelude.Maybe [Tag])
-carrierGateway_tags = Lens.lens (\CarrierGateway' {tags} -> tags) (\s@CarrierGateway' {} a -> s {tags = a} :: CarrierGateway) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the carrier gateway.
 carrierGateway_carrierGatewayId :: Lens.Lens' CarrierGateway (Prelude.Maybe Prelude.Text)
@@ -88,6 +84,10 @@ carrierGateway_ownerId = Lens.lens (\CarrierGateway' {ownerId} -> ownerId) (\s@C
 carrierGateway_state :: Lens.Lens' CarrierGateway (Prelude.Maybe CarrierGatewayState)
 carrierGateway_state = Lens.lens (\CarrierGateway' {state} -> state) (\s@CarrierGateway' {} a -> s {state = a} :: CarrierGateway)
 
+-- | The tags assigned to the carrier gateway.
+carrierGateway_tags :: Lens.Lens' CarrierGateway (Prelude.Maybe [Tag])
+carrierGateway_tags = Lens.lens (\CarrierGateway' {tags} -> tags) (\s@CarrierGateway' {} a -> s {tags = a} :: CarrierGateway) Prelude.. Lens.mapping Lens.coerced
+
 -- | The ID of the VPC associated with the carrier gateway.
 carrierGateway_vpcId :: Lens.Lens' CarrierGateway (Prelude.Maybe Prelude.Text)
 carrierGateway_vpcId = Lens.lens (\CarrierGateway' {vpcId} -> vpcId) (\s@CarrierGateway' {} a -> s {vpcId = a} :: CarrierGateway)
@@ -95,26 +95,26 @@ carrierGateway_vpcId = Lens.lens (\CarrierGateway' {vpcId} -> vpcId) (\s@Carrier
 instance Data.FromXML CarrierGateway where
   parseXML x =
     CarrierGateway'
-      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Data.parseXMLList "item")
-                  )
-      Prelude.<*> (x Data..@? "carrierGatewayId")
+      Prelude.<$> (x Data..@? "carrierGatewayId")
       Prelude.<*> (x Data..@? "ownerId")
       Prelude.<*> (x Data..@? "state")
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
+                  )
       Prelude.<*> (x Data..@? "vpcId")
 
 instance Prelude.Hashable CarrierGateway where
   hashWithSalt _salt CarrierGateway' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` carrierGatewayId
+    _salt `Prelude.hashWithSalt` carrierGatewayId
       `Prelude.hashWithSalt` ownerId
       `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` vpcId
 
 instance Prelude.NFData CarrierGateway where
   rnf CarrierGateway' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf carrierGatewayId
+    Prelude.rnf carrierGatewayId
       `Prelude.seq` Prelude.rnf ownerId
       `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf vpcId

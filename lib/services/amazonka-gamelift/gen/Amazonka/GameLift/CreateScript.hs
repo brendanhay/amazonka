@@ -55,8 +55,6 @@
 --
 -- __Related actions__
 --
--- CreateScript | ListScripts | DescribeScript | UpdateScript |
--- DeleteScript |
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Amazonka.GameLift.CreateScript
   ( -- * Creating a Request
@@ -64,11 +62,11 @@ module Amazonka.GameLift.CreateScript
     newCreateScript,
 
     -- * Request Lenses
-    createScript_tags,
     createScript_name,
-    createScript_zipFile,
     createScript_storageLocation,
+    createScript_tags,
     createScript_version,
+    createScript_zipFile,
 
     -- * Destructuring the Response
     CreateScriptResponse (..),
@@ -90,30 +88,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateScript' smart constructor.
 data CreateScript = CreateScript'
-  { -- | A list of labels to assign to the new script resource. Tags are
-    -- developer-defined key-value pairs. Tagging Amazon Web Services resources
-    -- are useful for resource management, access management and cost
-    -- allocation. For more information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
-    -- in the /Amazon Web Services General Reference/. Once the resource is
-    -- created, you can use TagResource, UntagResource, and ListTagsForResource
-    -- to add, remove, and view tags. The maximum tag limit may be lower than
-    -- stated. See the Amazon Web Services General Reference for actual tagging
-    -- limits.
-    tags :: Prelude.Maybe [Tag],
-    -- | A descriptive label that is associated with a script. Script names do
-    -- not need to be unique. You can use UpdateScript to change this value
-    -- later.
+  { -- | A descriptive label that is associated with a script. Script names do
+    -- not need to be unique. You can use
+    -- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateScript.html UpdateScript>
+    -- to change this value later.
     name :: Prelude.Maybe Prelude.Text,
-    -- | A data object containing your Realtime scripts and dependencies as a zip
-    -- file. The zip file can have one or multiple files. Maximum size of a zip
-    -- file is 5 MB.
-    --
-    -- When using the Amazon Web Services CLI tool to create a script, this
-    -- parameter is set to the zip file name. It must be prepended with the
-    -- string \"fileb:\/\/\" to indicate that the file data is a binary object.
-    -- For example: @--zip-file fileb:\/\/myRealtimeScript.zip@.
-    zipFile :: Prelude.Maybe Data.Base64,
     -- | The location of the Amazon S3 bucket where a zipped file containing your
     -- Realtime scripts is stored. The storage location must specify the Amazon
     -- S3 bucket name, the zip file name (the \"key\"), and a role ARN that
@@ -123,10 +102,35 @@ data CreateScript = CreateScript'
     -- if you have S3 object versioning turned on, you can use the
     -- @ObjectVersion@ parameter to specify an earlier version.
     storageLocation :: Prelude.Maybe S3Location,
-    -- | Version information that is associated with a build or script. Version
-    -- strings do not need to be unique. You can use UpdateScript to change
-    -- this value later.
-    version :: Prelude.Maybe Prelude.Text
+    -- | A list of labels to assign to the new script resource. Tags are
+    -- developer-defined key-value pairs. Tagging Amazon Web Services resources
+    -- are useful for resource management, access management and cost
+    -- allocation. For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+    -- in the /Amazon Web Services General Reference/. Once the resource is
+    -- created, you can use
+    -- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_TagResource.html TagResource>,
+    -- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_UntagResource.html UntagResource>,
+    -- and
+    -- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListTagsForResource.html ListTagsForResource>
+    -- to add, remove, and view tags. The maximum tag limit may be lower than
+    -- stated. See the Amazon Web Services General Reference for actual tagging
+    -- limits.
+    tags :: Prelude.Maybe [Tag],
+    -- | Version information associated with a build or script. Version strings
+    -- do not need to be unique. You can use
+    -- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateScript.html UpdateScript>
+    -- to change this value later.
+    version :: Prelude.Maybe Prelude.Text,
+    -- | A data object containing your Realtime scripts and dependencies as a zip
+    -- file. The zip file can have one or multiple files. Maximum size of a zip
+    -- file is 5 MB.
+    --
+    -- When using the Amazon Web Services CLI tool to create a script, this
+    -- parameter is set to the zip file name. It must be prepended with the
+    -- string \"fileb:\/\/\" to indicate that the file data is a binary object.
+    -- For example: @--zip-file fileb:\/\/myRealtimeScript.zip@.
+    zipFile :: Prelude.Maybe Data.Base64
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -138,20 +142,39 @@ data CreateScript = CreateScript'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'createScript_name' - A descriptive label that is associated with a script. Script names do
+-- not need to be unique. You can use
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateScript.html UpdateScript>
+-- to change this value later.
+--
+-- 'storageLocation', 'createScript_storageLocation' - The location of the Amazon S3 bucket where a zipped file containing your
+-- Realtime scripts is stored. The storage location must specify the Amazon
+-- S3 bucket name, the zip file name (the \"key\"), and a role ARN that
+-- allows Amazon GameLift to access the Amazon S3 storage location. The S3
+-- bucket must be in the same Region where you want to create a new script.
+-- By default, Amazon GameLift uploads the latest version of the zip file;
+-- if you have S3 object versioning turned on, you can use the
+-- @ObjectVersion@ parameter to specify an earlier version.
+--
 -- 'tags', 'createScript_tags' - A list of labels to assign to the new script resource. Tags are
 -- developer-defined key-value pairs. Tagging Amazon Web Services resources
 -- are useful for resource management, access management and cost
 -- allocation. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
 -- in the /Amazon Web Services General Reference/. Once the resource is
--- created, you can use TagResource, UntagResource, and ListTagsForResource
+-- created, you can use
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_TagResource.html TagResource>,
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_UntagResource.html UntagResource>,
+-- and
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListTagsForResource.html ListTagsForResource>
 -- to add, remove, and view tags. The maximum tag limit may be lower than
 -- stated. See the Amazon Web Services General Reference for actual tagging
 -- limits.
 --
--- 'name', 'createScript_name' - A descriptive label that is associated with a script. Script names do
--- not need to be unique. You can use UpdateScript to change this value
--- later.
+-- 'version', 'createScript_version' - Version information associated with a build or script. Version strings
+-- do not need to be unique. You can use
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateScript.html UpdateScript>
+-- to change this value later.
 --
 -- 'zipFile', 'createScript_zipFile' - A data object containing your Realtime scripts and dependencies as a zip
 -- file. The zip file can have one or multiple files. Maximum size of a zip
@@ -165,8 +188,25 @@ data CreateScript = CreateScript'
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
---
--- 'storageLocation', 'createScript_storageLocation' - The location of the Amazon S3 bucket where a zipped file containing your
+newCreateScript ::
+  CreateScript
+newCreateScript =
+  CreateScript'
+    { name = Prelude.Nothing,
+      storageLocation = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      version = Prelude.Nothing,
+      zipFile = Prelude.Nothing
+    }
+
+-- | A descriptive label that is associated with a script. Script names do
+-- not need to be unique. You can use
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateScript.html UpdateScript>
+-- to change this value later.
+createScript_name :: Lens.Lens' CreateScript (Prelude.Maybe Prelude.Text)
+createScript_name = Lens.lens (\CreateScript' {name} -> name) (\s@CreateScript' {} a -> s {name = a} :: CreateScript)
+
+-- | The location of the Amazon S3 bucket where a zipped file containing your
 -- Realtime scripts is stored. The storage location must specify the Amazon
 -- S3 bucket name, the zip file name (the \"key\"), and a role ARN that
 -- allows Amazon GameLift to access the Amazon S3 storage location. The S3
@@ -174,20 +214,8 @@ data CreateScript = CreateScript'
 -- By default, Amazon GameLift uploads the latest version of the zip file;
 -- if you have S3 object versioning turned on, you can use the
 -- @ObjectVersion@ parameter to specify an earlier version.
---
--- 'version', 'createScript_version' - Version information that is associated with a build or script. Version
--- strings do not need to be unique. You can use UpdateScript to change
--- this value later.
-newCreateScript ::
-  CreateScript
-newCreateScript =
-  CreateScript'
-    { tags = Prelude.Nothing,
-      name = Prelude.Nothing,
-      zipFile = Prelude.Nothing,
-      storageLocation = Prelude.Nothing,
-      version = Prelude.Nothing
-    }
+createScript_storageLocation :: Lens.Lens' CreateScript (Prelude.Maybe S3Location)
+createScript_storageLocation = Lens.lens (\CreateScript' {storageLocation} -> storageLocation) (\s@CreateScript' {} a -> s {storageLocation = a} :: CreateScript)
 
 -- | A list of labels to assign to the new script resource. Tags are
 -- developer-defined key-value pairs. Tagging Amazon Web Services resources
@@ -195,18 +223,23 @@ newCreateScript =
 -- allocation. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
 -- in the /Amazon Web Services General Reference/. Once the resource is
--- created, you can use TagResource, UntagResource, and ListTagsForResource
+-- created, you can use
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_TagResource.html TagResource>,
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_UntagResource.html UntagResource>,
+-- and
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListTagsForResource.html ListTagsForResource>
 -- to add, remove, and view tags. The maximum tag limit may be lower than
 -- stated. See the Amazon Web Services General Reference for actual tagging
 -- limits.
 createScript_tags :: Lens.Lens' CreateScript (Prelude.Maybe [Tag])
 createScript_tags = Lens.lens (\CreateScript' {tags} -> tags) (\s@CreateScript' {} a -> s {tags = a} :: CreateScript) Prelude.. Lens.mapping Lens.coerced
 
--- | A descriptive label that is associated with a script. Script names do
--- not need to be unique. You can use UpdateScript to change this value
--- later.
-createScript_name :: Lens.Lens' CreateScript (Prelude.Maybe Prelude.Text)
-createScript_name = Lens.lens (\CreateScript' {name} -> name) (\s@CreateScript' {} a -> s {name = a} :: CreateScript)
+-- | Version information associated with a build or script. Version strings
+-- do not need to be unique. You can use
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateScript.html UpdateScript>
+-- to change this value later.
+createScript_version :: Lens.Lens' CreateScript (Prelude.Maybe Prelude.Text)
+createScript_version = Lens.lens (\CreateScript' {version} -> version) (\s@CreateScript' {} a -> s {version = a} :: CreateScript)
 
 -- | A data object containing your Realtime scripts and dependencies as a zip
 -- file. The zip file can have one or multiple files. Maximum size of a zip
@@ -223,23 +256,6 @@ createScript_name = Lens.lens (\CreateScript' {name} -> name) (\s@CreateScript' 
 createScript_zipFile :: Lens.Lens' CreateScript (Prelude.Maybe Prelude.ByteString)
 createScript_zipFile = Lens.lens (\CreateScript' {zipFile} -> zipFile) (\s@CreateScript' {} a -> s {zipFile = a} :: CreateScript) Prelude.. Lens.mapping Data._Base64
 
--- | The location of the Amazon S3 bucket where a zipped file containing your
--- Realtime scripts is stored. The storage location must specify the Amazon
--- S3 bucket name, the zip file name (the \"key\"), and a role ARN that
--- allows Amazon GameLift to access the Amazon S3 storage location. The S3
--- bucket must be in the same Region where you want to create a new script.
--- By default, Amazon GameLift uploads the latest version of the zip file;
--- if you have S3 object versioning turned on, you can use the
--- @ObjectVersion@ parameter to specify an earlier version.
-createScript_storageLocation :: Lens.Lens' CreateScript (Prelude.Maybe S3Location)
-createScript_storageLocation = Lens.lens (\CreateScript' {storageLocation} -> storageLocation) (\s@CreateScript' {} a -> s {storageLocation = a} :: CreateScript)
-
--- | Version information that is associated with a build or script. Version
--- strings do not need to be unique. You can use UpdateScript to change
--- this value later.
-createScript_version :: Lens.Lens' CreateScript (Prelude.Maybe Prelude.Text)
-createScript_version = Lens.lens (\CreateScript' {version} -> version) (\s@CreateScript' {} a -> s {version = a} :: CreateScript)
-
 instance Core.AWSRequest CreateScript where
   type AWSResponse CreateScript = CreateScriptResponse
   request overrides =
@@ -254,19 +270,19 @@ instance Core.AWSRequest CreateScript where
 
 instance Prelude.Hashable CreateScript where
   hashWithSalt _salt CreateScript' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` zipFile
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` storageLocation
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` version
+      `Prelude.hashWithSalt` zipFile
 
 instance Prelude.NFData CreateScript where
   rnf CreateScript' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf zipFile
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf storageLocation
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf zipFile
 
 instance Data.ToHeaders CreateScript where
   toHeaders =
@@ -285,12 +301,12 @@ instance Data.ToJSON CreateScript where
   toJSON CreateScript' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Name" Data..=) Prelude.<$> name,
-            ("ZipFile" Data..=) Prelude.<$> zipFile,
+          [ ("Name" Data..=) Prelude.<$> name,
             ("StorageLocation" Data..=)
               Prelude.<$> storageLocation,
-            ("Version" Data..=) Prelude.<$> version
+            ("Tags" Data..=) Prelude.<$> tags,
+            ("Version" Data..=) Prelude.<$> version,
+            ("ZipFile" Data..=) Prelude.<$> zipFile
           ]
       )
 

@@ -23,14 +23,15 @@
 -- Reserves open slots in a game session for a group of players. New player
 -- sessions can be created in any game session with an open slot that is in
 -- @ACTIVE@ status and has a player creation policy of @ACCEPT_ALL@. To add
--- a single player to a game session, use CreatePlayerSession.
+-- a single player to a game session, use
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreatePlayerSession.html CreatePlayerSession>
 --
 -- To create player sessions, specify a game session ID and a list of
 -- player IDs. Optionally, provide a set of player data for each player ID.
 --
 -- If successful, a slot is reserved in the game session for each player,
--- and new PlayerSession objects are returned with player session IDs. Each
--- player references their player session ID when sending a connection
+-- and new @PlayerSession@ objects are returned with player session IDs.
+-- Each player references their player session ID when sending a connection
 -- request to the game session, and the game server can use it to validate
 -- the player reservation with the GameLift service. Player sessions cannot
 -- be updated.
@@ -38,12 +39,8 @@
 -- The maximum number of players per game session is 200. It is not
 -- adjustable.
 --
--- /Available in Amazon GameLift Local./
---
 -- __Related actions__
 --
--- CreatePlayerSession | CreatePlayerSessions | DescribePlayerSessions |
--- StartGameSessionPlacement | DescribeGameSessionPlacement |
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Amazonka.GameLift.CreatePlayerSessions
   ( -- * Creating a Request
@@ -73,9 +70,7 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Represents the input for a request operation.
---
--- /See:/ 'newCreatePlayerSessions' smart constructor.
+-- | /See:/ 'newCreatePlayerSessions' smart constructor.
 data CreatePlayerSessions = CreatePlayerSessions'
   { -- | Map of string pairs, each specifying a player ID and a set of
     -- developer-defined information related to the player. Amazon GameLift
@@ -194,9 +189,7 @@ instance Data.ToPath CreatePlayerSessions where
 instance Data.ToQuery CreatePlayerSessions where
   toQuery = Prelude.const Prelude.mempty
 
--- | Represents the returned data in response to a request operation.
---
--- /See:/ 'newCreatePlayerSessionsResponse' smart constructor.
+-- | /See:/ 'newCreatePlayerSessionsResponse' smart constructor.
 data CreatePlayerSessionsResponse = CreatePlayerSessionsResponse'
   { -- | A collection of player session objects created for the added players.
     playerSessions :: Prelude.Maybe [PlayerSession],

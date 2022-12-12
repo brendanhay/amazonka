@@ -29,9 +29,9 @@ module Amazonka.AccessAnalyzer.ListAnalyzers
     newListAnalyzers,
 
     -- * Request Lenses
+    listAnalyzers_maxResults,
     listAnalyzers_nextToken,
     listAnalyzers_type,
-    listAnalyzers_maxResults,
 
     -- * Destructuring the Response
     ListAnalyzersResponse (..),
@@ -56,12 +56,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListAnalyzers' smart constructor.
 data ListAnalyzers = ListAnalyzers'
-  { -- | A token used for pagination of results returned.
+  { -- | The maximum number of results to return in the response.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | A token used for pagination of results returned.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The type of analyzer.
-    type' :: Prelude.Maybe Type,
-    -- | The maximum number of results to return in the response.
-    maxResults :: Prelude.Maybe Prelude.Int
+    type' :: Prelude.Maybe Type
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,19 +73,23 @@ data ListAnalyzers = ListAnalyzers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listAnalyzers_maxResults' - The maximum number of results to return in the response.
+--
 -- 'nextToken', 'listAnalyzers_nextToken' - A token used for pagination of results returned.
 --
 -- 'type'', 'listAnalyzers_type' - The type of analyzer.
---
--- 'maxResults', 'listAnalyzers_maxResults' - The maximum number of results to return in the response.
 newListAnalyzers ::
   ListAnalyzers
 newListAnalyzers =
   ListAnalyzers'
-    { nextToken = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
+
+-- | The maximum number of results to return in the response.
+listAnalyzers_maxResults :: Lens.Lens' ListAnalyzers (Prelude.Maybe Prelude.Int)
+listAnalyzers_maxResults = Lens.lens (\ListAnalyzers' {maxResults} -> maxResults) (\s@ListAnalyzers' {} a -> s {maxResults = a} :: ListAnalyzers)
 
 -- | A token used for pagination of results returned.
 listAnalyzers_nextToken :: Lens.Lens' ListAnalyzers (Prelude.Maybe Prelude.Text)
@@ -94,10 +98,6 @@ listAnalyzers_nextToken = Lens.lens (\ListAnalyzers' {nextToken} -> nextToken) (
 -- | The type of analyzer.
 listAnalyzers_type :: Lens.Lens' ListAnalyzers (Prelude.Maybe Type)
 listAnalyzers_type = Lens.lens (\ListAnalyzers' {type'} -> type') (\s@ListAnalyzers' {} a -> s {type' = a} :: ListAnalyzers)
-
--- | The maximum number of results to return in the response.
-listAnalyzers_maxResults :: Lens.Lens' ListAnalyzers (Prelude.Maybe Prelude.Int)
-listAnalyzers_maxResults = Lens.lens (\ListAnalyzers' {maxResults} -> maxResults) (\s@ListAnalyzers' {} a -> s {maxResults = a} :: ListAnalyzers)
 
 instance Core.AWSPager ListAnalyzers where
   page rq rs
@@ -133,15 +133,15 @@ instance Core.AWSRequest ListAnalyzers where
 
 instance Prelude.Hashable ListAnalyzers where
   hashWithSalt _salt ListAnalyzers' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListAnalyzers where
   rnf ListAnalyzers' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf maxResults
 
 instance Data.ToHeaders ListAnalyzers where
   toHeaders =
@@ -160,9 +160,9 @@ instance Data.ToPath ListAnalyzers where
 instance Data.ToQuery ListAnalyzers where
   toQuery ListAnalyzers' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "type" Data.=: type',
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
+        "type" Data.=: type'
       ]
 
 -- | The response to the request.

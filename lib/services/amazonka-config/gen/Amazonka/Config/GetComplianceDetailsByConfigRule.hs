@@ -32,9 +32,9 @@ module Amazonka.Config.GetComplianceDetailsByConfigRule
     newGetComplianceDetailsByConfigRule,
 
     -- * Request Lenses
-    getComplianceDetailsByConfigRule_nextToken,
     getComplianceDetailsByConfigRule_complianceTypes,
     getComplianceDetailsByConfigRule_limit,
+    getComplianceDetailsByConfigRule_nextToken,
     getComplianceDetailsByConfigRule_configRuleName,
 
     -- * Destructuring the Response
@@ -60,10 +60,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newGetComplianceDetailsByConfigRule' smart constructor.
 data GetComplianceDetailsByConfigRule = GetComplianceDetailsByConfigRule'
-  { -- | The @nextToken@ string returned on a previous page that you use to get
-    -- the next page of results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters the results by compliance.
+  { -- | Filters the results by compliance.
     --
     -- The allowed values are @COMPLIANT@, @NON_COMPLIANT@, and
     -- @NOT_APPLICABLE@.
@@ -72,6 +69,9 @@ data GetComplianceDetailsByConfigRule = GetComplianceDetailsByConfigRule'
     -- default is 10. You cannot specify a number greater than 100. If you
     -- specify 0, Config uses the default.
     limit :: Prelude.Maybe Prelude.Natural,
+    -- | The @nextToken@ string returned on a previous page that you use to get
+    -- the next page of results in a paginated response.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the Config rule for which you want compliance information.
     configRuleName :: Prelude.Text
   }
@@ -85,9 +85,6 @@ data GetComplianceDetailsByConfigRule = GetComplianceDetailsByConfigRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getComplianceDetailsByConfigRule_nextToken' - The @nextToken@ string returned on a previous page that you use to get
--- the next page of results in a paginated response.
---
 -- 'complianceTypes', 'getComplianceDetailsByConfigRule_complianceTypes' - Filters the results by compliance.
 --
 -- The allowed values are @COMPLIANT@, @NON_COMPLIANT@, and
@@ -97,6 +94,9 @@ data GetComplianceDetailsByConfigRule = GetComplianceDetailsByConfigRule'
 -- default is 10. You cannot specify a number greater than 100. If you
 -- specify 0, Config uses the default.
 --
+-- 'nextToken', 'getComplianceDetailsByConfigRule_nextToken' - The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
+--
 -- 'configRuleName', 'getComplianceDetailsByConfigRule_configRuleName' - The name of the Config rule for which you want compliance information.
 newGetComplianceDetailsByConfigRule ::
   -- | 'configRuleName'
@@ -104,17 +104,12 @@ newGetComplianceDetailsByConfigRule ::
   GetComplianceDetailsByConfigRule
 newGetComplianceDetailsByConfigRule pConfigRuleName_ =
   GetComplianceDetailsByConfigRule'
-    { nextToken =
+    { complianceTypes =
         Prelude.Nothing,
-      complianceTypes = Prelude.Nothing,
       limit = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       configRuleName = pConfigRuleName_
     }
-
--- | The @nextToken@ string returned on a previous page that you use to get
--- the next page of results in a paginated response.
-getComplianceDetailsByConfigRule_nextToken :: Lens.Lens' GetComplianceDetailsByConfigRule (Prelude.Maybe Prelude.Text)
-getComplianceDetailsByConfigRule_nextToken = Lens.lens (\GetComplianceDetailsByConfigRule' {nextToken} -> nextToken) (\s@GetComplianceDetailsByConfigRule' {} a -> s {nextToken = a} :: GetComplianceDetailsByConfigRule)
 
 -- | Filters the results by compliance.
 --
@@ -128,6 +123,11 @@ getComplianceDetailsByConfigRule_complianceTypes = Lens.lens (\GetComplianceDeta
 -- specify 0, Config uses the default.
 getComplianceDetailsByConfigRule_limit :: Lens.Lens' GetComplianceDetailsByConfigRule (Prelude.Maybe Prelude.Natural)
 getComplianceDetailsByConfigRule_limit = Lens.lens (\GetComplianceDetailsByConfigRule' {limit} -> limit) (\s@GetComplianceDetailsByConfigRule' {} a -> s {limit = a} :: GetComplianceDetailsByConfigRule)
+
+-- | The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
+getComplianceDetailsByConfigRule_nextToken :: Lens.Lens' GetComplianceDetailsByConfigRule (Prelude.Maybe Prelude.Text)
+getComplianceDetailsByConfigRule_nextToken = Lens.lens (\GetComplianceDetailsByConfigRule' {nextToken} -> nextToken) (\s@GetComplianceDetailsByConfigRule' {} a -> s {nextToken = a} :: GetComplianceDetailsByConfigRule)
 
 -- | The name of the Config rule for which you want compliance information.
 getComplianceDetailsByConfigRule_configRuleName :: Lens.Lens' GetComplianceDetailsByConfigRule Prelude.Text
@@ -185,9 +185,9 @@ instance
   hashWithSalt
     _salt
     GetComplianceDetailsByConfigRule' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` complianceTypes
+      _salt `Prelude.hashWithSalt` complianceTypes
         `Prelude.hashWithSalt` limit
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` configRuleName
 
 instance
@@ -195,9 +195,9 @@ instance
     GetComplianceDetailsByConfigRule
   where
   rnf GetComplianceDetailsByConfigRule' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf complianceTypes
+    Prelude.rnf complianceTypes
       `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf configRuleName
 
 instance
@@ -222,10 +222,10 @@ instance Data.ToJSON GetComplianceDetailsByConfigRule where
   toJSON GetComplianceDetailsByConfigRule' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("ComplianceTypes" Data..=)
+          [ ("ComplianceTypes" Data..=)
               Prelude.<$> complianceTypes,
             ("Limit" Data..=) Prelude.<$> limit,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("ConfigRuleName" Data..= configRuleName)
           ]

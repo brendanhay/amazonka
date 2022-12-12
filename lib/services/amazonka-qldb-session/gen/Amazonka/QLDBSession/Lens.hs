@@ -16,20 +16,20 @@ module Amazonka.QLDBSession.Lens
 
     -- ** SendCommand
     sendCommand_abortTransaction,
-    sendCommand_sessionToken,
-    sendCommand_executeStatement,
-    sendCommand_endSession,
-    sendCommand_startTransaction,
-    sendCommand_startSession,
     sendCommand_commitTransaction,
+    sendCommand_endSession,
+    sendCommand_executeStatement,
     sendCommand_fetchPage,
+    sendCommand_sessionToken,
+    sendCommand_startSession,
+    sendCommand_startTransaction,
     sendCommandResponse_abortTransaction,
-    sendCommandResponse_executeStatement,
-    sendCommandResponse_endSession,
-    sendCommandResponse_startTransaction,
-    sendCommandResponse_startSession,
     sendCommandResponse_commitTransaction,
+    sendCommandResponse_endSession,
+    sendCommandResponse_executeStatement,
     sendCommandResponse_fetchPage,
+    sendCommandResponse_startSession,
+    sendCommandResponse_startTransaction,
     sendCommandResponse_httpStatus,
 
     -- * Types
@@ -45,8 +45,8 @@ module Amazonka.QLDBSession.Lens
 
     -- ** CommitTransactionResult
     commitTransactionResult_commitDigest,
-    commitTransactionResult_timingInformation,
     commitTransactionResult_consumedIOs,
+    commitTransactionResult_timingInformation,
     commitTransactionResult_transactionId,
 
     -- ** EndSessionRequest
@@ -60,18 +60,18 @@ module Amazonka.QLDBSession.Lens
     executeStatementRequest_statement,
 
     -- ** ExecuteStatementResult
-    executeStatementResult_timingInformation,
     executeStatementResult_consumedIOs,
     executeStatementResult_firstPage,
+    executeStatementResult_timingInformation,
 
     -- ** FetchPageRequest
     fetchPageRequest_transactionId,
     fetchPageRequest_nextPageToken,
 
     -- ** FetchPageResult
-    fetchPageResult_timingInformation,
     fetchPageResult_consumedIOs,
     fetchPageResult_page,
+    fetchPageResult_timingInformation,
 
     -- ** IOUsage
     iOUsage_readIOs,
@@ -85,8 +85,8 @@ module Amazonka.QLDBSession.Lens
     startSessionRequest_ledgerName,
 
     -- ** StartSessionResult
-    startSessionResult_timingInformation,
     startSessionResult_sessionToken,
+    startSessionResult_timingInformation,
 
     -- ** StartTransactionRequest
 

@@ -27,10 +27,10 @@ module Amazonka.IoTWireless.CreateMulticastGroup
     newCreateMulticastGroup,
 
     -- * Request Lenses
-    createMulticastGroup_tags,
-    createMulticastGroup_name,
     createMulticastGroup_clientRequestToken,
     createMulticastGroup_description,
+    createMulticastGroup_name,
+    createMulticastGroup_tags,
     createMulticastGroup_loRaWAN,
 
     -- * Destructuring the Response
@@ -54,15 +54,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateMulticastGroup' smart constructor.
 data CreateMulticastGroup = CreateMulticastGroup'
-  { tags :: Prelude.Maybe [Tag],
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Each resource must have a unique client request token. If you try to
+  { -- | Each resource must have a unique client request token. If you try to
     -- create a new resource with the same token as a resource that already
     -- exists, an exception occurs. If you omit this value, AWS SDKs will
     -- automatically generate a unique client request.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The description of the multicast group.
     description :: Prelude.Maybe Prelude.Text,
+    name :: Prelude.Maybe Prelude.Text,
+    tags :: Prelude.Maybe [Tag],
     loRaWAN :: LoRaWANMulticast
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -75,16 +75,16 @@ data CreateMulticastGroup = CreateMulticastGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createMulticastGroup_tags' - Undocumented member.
---
--- 'name', 'createMulticastGroup_name' - Undocumented member.
---
 -- 'clientRequestToken', 'createMulticastGroup_clientRequestToken' - Each resource must have a unique client request token. If you try to
 -- create a new resource with the same token as a resource that already
 -- exists, an exception occurs. If you omit this value, AWS SDKs will
 -- automatically generate a unique client request.
 --
 -- 'description', 'createMulticastGroup_description' - The description of the multicast group.
+--
+-- 'name', 'createMulticastGroup_name' - Undocumented member.
+--
+-- 'tags', 'createMulticastGroup_tags' - Undocumented member.
 --
 -- 'loRaWAN', 'createMulticastGroup_loRaWAN' - Undocumented member.
 newCreateMulticastGroup ::
@@ -93,20 +93,13 @@ newCreateMulticastGroup ::
   CreateMulticastGroup
 newCreateMulticastGroup pLoRaWAN_ =
   CreateMulticastGroup'
-    { tags = Prelude.Nothing,
-      name = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
+    { clientRequestToken =
+        Prelude.Nothing,
       description = Prelude.Nothing,
+      name = Prelude.Nothing,
+      tags = Prelude.Nothing,
       loRaWAN = pLoRaWAN_
     }
-
--- | Undocumented member.
-createMulticastGroup_tags :: Lens.Lens' CreateMulticastGroup (Prelude.Maybe [Tag])
-createMulticastGroup_tags = Lens.lens (\CreateMulticastGroup' {tags} -> tags) (\s@CreateMulticastGroup' {} a -> s {tags = a} :: CreateMulticastGroup) Prelude.. Lens.mapping Lens.coerced
-
--- | Undocumented member.
-createMulticastGroup_name :: Lens.Lens' CreateMulticastGroup (Prelude.Maybe Prelude.Text)
-createMulticastGroup_name = Lens.lens (\CreateMulticastGroup' {name} -> name) (\s@CreateMulticastGroup' {} a -> s {name = a} :: CreateMulticastGroup)
 
 -- | Each resource must have a unique client request token. If you try to
 -- create a new resource with the same token as a resource that already
@@ -118,6 +111,14 @@ createMulticastGroup_clientRequestToken = Lens.lens (\CreateMulticastGroup' {cli
 -- | The description of the multicast group.
 createMulticastGroup_description :: Lens.Lens' CreateMulticastGroup (Prelude.Maybe Prelude.Text)
 createMulticastGroup_description = Lens.lens (\CreateMulticastGroup' {description} -> description) (\s@CreateMulticastGroup' {} a -> s {description = a} :: CreateMulticastGroup)
+
+-- | Undocumented member.
+createMulticastGroup_name :: Lens.Lens' CreateMulticastGroup (Prelude.Maybe Prelude.Text)
+createMulticastGroup_name = Lens.lens (\CreateMulticastGroup' {name} -> name) (\s@CreateMulticastGroup' {} a -> s {name = a} :: CreateMulticastGroup)
+
+-- | Undocumented member.
+createMulticastGroup_tags :: Lens.Lens' CreateMulticastGroup (Prelude.Maybe [Tag])
+createMulticastGroup_tags = Lens.lens (\CreateMulticastGroup' {tags} -> tags) (\s@CreateMulticastGroup' {} a -> s {tags = a} :: CreateMulticastGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 createMulticastGroup_loRaWAN :: Lens.Lens' CreateMulticastGroup LoRaWANMulticast
@@ -140,18 +141,18 @@ instance Core.AWSRequest CreateMulticastGroup where
 
 instance Prelude.Hashable CreateMulticastGroup where
   hashWithSalt _salt CreateMulticastGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` clientRequestToken
+    _salt `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` loRaWAN
 
 instance Prelude.NFData CreateMulticastGroup where
   rnf CreateMulticastGroup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf loRaWAN
 
 instance Data.ToHeaders CreateMulticastGroup where
@@ -161,11 +162,11 @@ instance Data.ToJSON CreateMulticastGroup where
   toJSON CreateMulticastGroup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Name" Data..=) Prelude.<$> name,
-            ("ClientRequestToken" Data..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
             ("Description" Data..=) Prelude.<$> description,
+            ("Name" Data..=) Prelude.<$> name,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("LoRaWAN" Data..= loRaWAN)
           ]
       )

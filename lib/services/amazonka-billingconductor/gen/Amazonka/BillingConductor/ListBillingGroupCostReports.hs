@@ -31,18 +31,18 @@ module Amazonka.BillingConductor.ListBillingGroupCostReports
     newListBillingGroupCostReports,
 
     -- * Request Lenses
-    listBillingGroupCostReports_nextToken,
     listBillingGroupCostReports_billingPeriod,
     listBillingGroupCostReports_filters,
     listBillingGroupCostReports_maxResults,
+    listBillingGroupCostReports_nextToken,
 
     -- * Destructuring the Response
     ListBillingGroupCostReportsResponse (..),
     newListBillingGroupCostReportsResponse,
 
     -- * Response Lenses
-    listBillingGroupCostReportsResponse_nextToken,
     listBillingGroupCostReportsResponse_billingGroupCostReports,
+    listBillingGroupCostReportsResponse_nextToken,
     listBillingGroupCostReportsResponse_httpStatus,
   )
 where
@@ -57,15 +57,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListBillingGroupCostReports' smart constructor.
 data ListBillingGroupCostReports = ListBillingGroupCostReports'
-  { -- | The pagination token that\'s used on subsequent calls to get reports.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The preferred billing period for your report.
+  { -- | The preferred billing period for your report.
     billingPeriod :: Prelude.Maybe Prelude.Text,
     -- | A @ListBillingGroupCostReportsFilter@ to specify billing groups to
     -- retrieve reports from.
     filters :: Prelude.Maybe ListBillingGroupCostReportsFilter,
     -- | The maximum number of reports to retrieve.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token that\'s used on subsequent calls to get reports.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,28 +77,24 @@ data ListBillingGroupCostReports = ListBillingGroupCostReports'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listBillingGroupCostReports_nextToken' - The pagination token that\'s used on subsequent calls to get reports.
---
 -- 'billingPeriod', 'listBillingGroupCostReports_billingPeriod' - The preferred billing period for your report.
 --
 -- 'filters', 'listBillingGroupCostReports_filters' - A @ListBillingGroupCostReportsFilter@ to specify billing groups to
 -- retrieve reports from.
 --
 -- 'maxResults', 'listBillingGroupCostReports_maxResults' - The maximum number of reports to retrieve.
+--
+-- 'nextToken', 'listBillingGroupCostReports_nextToken' - The pagination token that\'s used on subsequent calls to get reports.
 newListBillingGroupCostReports ::
   ListBillingGroupCostReports
 newListBillingGroupCostReports =
   ListBillingGroupCostReports'
-    { nextToken =
+    { billingPeriod =
         Prelude.Nothing,
-      billingPeriod = Prelude.Nothing,
       filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The pagination token that\'s used on subsequent calls to get reports.
-listBillingGroupCostReports_nextToken :: Lens.Lens' ListBillingGroupCostReports (Prelude.Maybe Prelude.Text)
-listBillingGroupCostReports_nextToken = Lens.lens (\ListBillingGroupCostReports' {nextToken} -> nextToken) (\s@ListBillingGroupCostReports' {} a -> s {nextToken = a} :: ListBillingGroupCostReports)
 
 -- | The preferred billing period for your report.
 listBillingGroupCostReports_billingPeriod :: Lens.Lens' ListBillingGroupCostReports (Prelude.Maybe Prelude.Text)
@@ -112,6 +108,10 @@ listBillingGroupCostReports_filters = Lens.lens (\ListBillingGroupCostReports' {
 -- | The maximum number of reports to retrieve.
 listBillingGroupCostReports_maxResults :: Lens.Lens' ListBillingGroupCostReports (Prelude.Maybe Prelude.Natural)
 listBillingGroupCostReports_maxResults = Lens.lens (\ListBillingGroupCostReports' {maxResults} -> maxResults) (\s@ListBillingGroupCostReports' {} a -> s {maxResults = a} :: ListBillingGroupCostReports)
+
+-- | The pagination token that\'s used on subsequent calls to get reports.
+listBillingGroupCostReports_nextToken :: Lens.Lens' ListBillingGroupCostReports (Prelude.Maybe Prelude.Text)
+listBillingGroupCostReports_nextToken = Lens.lens (\ListBillingGroupCostReports' {nextToken} -> nextToken) (\s@ListBillingGroupCostReports' {} a -> s {nextToken = a} :: ListBillingGroupCostReports)
 
 instance Core.AWSPager ListBillingGroupCostReports where
   page rq rs
@@ -145,26 +145,26 @@ instance Core.AWSRequest ListBillingGroupCostReports where
     Response.receiveJSON
       ( \s h x ->
           ListBillingGroupCostReportsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "BillingGroupCostReports"
+            Prelude.<$> ( x Data..?> "BillingGroupCostReports"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListBillingGroupCostReports where
   hashWithSalt _salt ListBillingGroupCostReports' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` billingPeriod
+    _salt `Prelude.hashWithSalt` billingPeriod
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListBillingGroupCostReports where
   rnf ListBillingGroupCostReports' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf billingPeriod
+    Prelude.rnf billingPeriod
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListBillingGroupCostReports where
   toHeaders =
@@ -181,10 +181,10 @@ instance Data.ToJSON ListBillingGroupCostReports where
   toJSON ListBillingGroupCostReports' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("BillingPeriod" Data..=) Prelude.<$> billingPeriod,
+          [ ("BillingPeriod" Data..=) Prelude.<$> billingPeriod,
             ("Filters" Data..=) Prelude.<$> filters,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -197,10 +197,10 @@ instance Data.ToQuery ListBillingGroupCostReports where
 
 -- | /See:/ 'newListBillingGroupCostReportsResponse' smart constructor.
 data ListBillingGroupCostReportsResponse = ListBillingGroupCostReportsResponse'
-  { -- | The pagination token that\'s used on subsequent calls to get reports.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of @BillingGroupCostReportElement@ retrieved.
+  { -- | A list of @BillingGroupCostReportElement@ retrieved.
     billingGroupCostReports :: Prelude.Maybe [BillingGroupCostReportElement],
+    -- | The pagination token that\'s used on subsequent calls to get reports.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -214,9 +214,9 @@ data ListBillingGroupCostReportsResponse = ListBillingGroupCostReportsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listBillingGroupCostReportsResponse_nextToken' - The pagination token that\'s used on subsequent calls to get reports.
---
 -- 'billingGroupCostReports', 'listBillingGroupCostReportsResponse_billingGroupCostReports' - A list of @BillingGroupCostReportElement@ retrieved.
+--
+-- 'nextToken', 'listBillingGroupCostReportsResponse_nextToken' - The pagination token that\'s used on subsequent calls to get reports.
 --
 -- 'httpStatus', 'listBillingGroupCostReportsResponse_httpStatus' - The response's http status code.
 newListBillingGroupCostReportsResponse ::
@@ -225,20 +225,19 @@ newListBillingGroupCostReportsResponse ::
   ListBillingGroupCostReportsResponse
 newListBillingGroupCostReportsResponse pHttpStatus_ =
   ListBillingGroupCostReportsResponse'
-    { nextToken =
+    { billingGroupCostReports =
         Prelude.Nothing,
-      billingGroupCostReports =
-        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The pagination token that\'s used on subsequent calls to get reports.
-listBillingGroupCostReportsResponse_nextToken :: Lens.Lens' ListBillingGroupCostReportsResponse (Prelude.Maybe Prelude.Text)
-listBillingGroupCostReportsResponse_nextToken = Lens.lens (\ListBillingGroupCostReportsResponse' {nextToken} -> nextToken) (\s@ListBillingGroupCostReportsResponse' {} a -> s {nextToken = a} :: ListBillingGroupCostReportsResponse)
 
 -- | A list of @BillingGroupCostReportElement@ retrieved.
 listBillingGroupCostReportsResponse_billingGroupCostReports :: Lens.Lens' ListBillingGroupCostReportsResponse (Prelude.Maybe [BillingGroupCostReportElement])
 listBillingGroupCostReportsResponse_billingGroupCostReports = Lens.lens (\ListBillingGroupCostReportsResponse' {billingGroupCostReports} -> billingGroupCostReports) (\s@ListBillingGroupCostReportsResponse' {} a -> s {billingGroupCostReports = a} :: ListBillingGroupCostReportsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The pagination token that\'s used on subsequent calls to get reports.
+listBillingGroupCostReportsResponse_nextToken :: Lens.Lens' ListBillingGroupCostReportsResponse (Prelude.Maybe Prelude.Text)
+listBillingGroupCostReportsResponse_nextToken = Lens.lens (\ListBillingGroupCostReportsResponse' {nextToken} -> nextToken) (\s@ListBillingGroupCostReportsResponse' {} a -> s {nextToken = a} :: ListBillingGroupCostReportsResponse)
 
 -- | The response's http status code.
 listBillingGroupCostReportsResponse_httpStatus :: Lens.Lens' ListBillingGroupCostReportsResponse Prelude.Int
@@ -249,6 +248,6 @@ instance
     ListBillingGroupCostReportsResponse
   where
   rnf ListBillingGroupCostReportsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf billingGroupCostReports
+    Prelude.rnf billingGroupCostReports
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

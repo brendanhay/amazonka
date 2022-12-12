@@ -28,17 +28,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStreamSessionSummary' smart constructor.
 data StreamSessionSummary = StreamSessionSummary'
-  { -- | Unique identifier for a live or previously live stream in the specified
-    -- channel.
-    streamId :: Prelude.Maybe Prelude.Text,
-    -- | Time when the channel went offline. This is an ISO 8601 timestamp; /note
+  { -- | Time when the channel went offline. This is an ISO 8601 timestamp; /note
     -- that this is returned as a string/. For live streams, this is @NULL@.
     endTime :: Prelude.Maybe Data.POSIX,
     -- | If @true@, this stream encountered a quota breach or failure.
     hasErrorEvent :: Prelude.Maybe Prelude.Bool,
     -- | Time when the channel went live. This is an ISO 8601 timestamp; /note
     -- that this is returned as a string/.
-    startTime :: Prelude.Maybe Data.POSIX
+    startTime :: Prelude.Maybe Data.POSIX,
+    -- | Unique identifier for a live or previously live stream in the specified
+    -- channel.
+    streamId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,9 +50,6 @@ data StreamSessionSummary = StreamSessionSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'streamId', 'streamSessionSummary_streamId' - Unique identifier for a live or previously live stream in the specified
--- channel.
---
 -- 'endTime', 'streamSessionSummary_endTime' - Time when the channel went offline. This is an ISO 8601 timestamp; /note
 -- that this is returned as a string/. For live streams, this is @NULL@.
 --
@@ -60,20 +57,18 @@ data StreamSessionSummary = StreamSessionSummary'
 --
 -- 'startTime', 'streamSessionSummary_startTime' - Time when the channel went live. This is an ISO 8601 timestamp; /note
 -- that this is returned as a string/.
+--
+-- 'streamId', 'streamSessionSummary_streamId' - Unique identifier for a live or previously live stream in the specified
+-- channel.
 newStreamSessionSummary ::
   StreamSessionSummary
 newStreamSessionSummary =
   StreamSessionSummary'
-    { streamId = Prelude.Nothing,
-      endTime = Prelude.Nothing,
+    { endTime = Prelude.Nothing,
       hasErrorEvent = Prelude.Nothing,
-      startTime = Prelude.Nothing
+      startTime = Prelude.Nothing,
+      streamId = Prelude.Nothing
     }
-
--- | Unique identifier for a live or previously live stream in the specified
--- channel.
-streamSessionSummary_streamId :: Lens.Lens' StreamSessionSummary (Prelude.Maybe Prelude.Text)
-streamSessionSummary_streamId = Lens.lens (\StreamSessionSummary' {streamId} -> streamId) (\s@StreamSessionSummary' {} a -> s {streamId = a} :: StreamSessionSummary)
 
 -- | Time when the channel went offline. This is an ISO 8601 timestamp; /note
 -- that this is returned as a string/. For live streams, this is @NULL@.
@@ -89,28 +84,33 @@ streamSessionSummary_hasErrorEvent = Lens.lens (\StreamSessionSummary' {hasError
 streamSessionSummary_startTime :: Lens.Lens' StreamSessionSummary (Prelude.Maybe Prelude.UTCTime)
 streamSessionSummary_startTime = Lens.lens (\StreamSessionSummary' {startTime} -> startTime) (\s@StreamSessionSummary' {} a -> s {startTime = a} :: StreamSessionSummary) Prelude.. Lens.mapping Data._Time
 
+-- | Unique identifier for a live or previously live stream in the specified
+-- channel.
+streamSessionSummary_streamId :: Lens.Lens' StreamSessionSummary (Prelude.Maybe Prelude.Text)
+streamSessionSummary_streamId = Lens.lens (\StreamSessionSummary' {streamId} -> streamId) (\s@StreamSessionSummary' {} a -> s {streamId = a} :: StreamSessionSummary)
+
 instance Data.FromJSON StreamSessionSummary where
   parseJSON =
     Data.withObject
       "StreamSessionSummary"
       ( \x ->
           StreamSessionSummary'
-            Prelude.<$> (x Data..:? "streamId")
-            Prelude.<*> (x Data..:? "endTime")
+            Prelude.<$> (x Data..:? "endTime")
             Prelude.<*> (x Data..:? "hasErrorEvent")
             Prelude.<*> (x Data..:? "startTime")
+            Prelude.<*> (x Data..:? "streamId")
       )
 
 instance Prelude.Hashable StreamSessionSummary where
   hashWithSalt _salt StreamSessionSummary' {..} =
-    _salt `Prelude.hashWithSalt` streamId
-      `Prelude.hashWithSalt` endTime
+    _salt `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` hasErrorEvent
       `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` streamId
 
 instance Prelude.NFData StreamSessionSummary where
   rnf StreamSessionSummary' {..} =
-    Prelude.rnf streamId
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf hasErrorEvent
       `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf streamId

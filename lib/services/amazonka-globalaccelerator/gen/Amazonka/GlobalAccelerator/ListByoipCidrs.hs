@@ -31,16 +31,16 @@ module Amazonka.GlobalAccelerator.ListByoipCidrs
     newListByoipCidrs,
 
     -- * Request Lenses
-    listByoipCidrs_nextToken,
     listByoipCidrs_maxResults,
+    listByoipCidrs_nextToken,
 
     -- * Destructuring the Response
     ListByoipCidrsResponse (..),
     newListByoipCidrsResponse,
 
     -- * Response Lenses
-    listByoipCidrsResponse_nextToken,
     listByoipCidrsResponse_byoipCidrs,
+    listByoipCidrsResponse_nextToken,
     listByoipCidrsResponse_httpStatus,
   )
 where
@@ -55,12 +55,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListByoipCidrs' smart constructor.
 data ListByoipCidrs = ListByoipCidrs'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return with a single call. To retrieve
+  { -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,28 +72,28 @@ data ListByoipCidrs = ListByoipCidrs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listByoipCidrs_nextToken' - The token for the next page of results.
---
 -- 'maxResults', 'listByoipCidrs_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
+--
+-- 'nextToken', 'listByoipCidrs_nextToken' - The token for the next page of results.
 newListByoipCidrs ::
   ListByoipCidrs
 newListByoipCidrs =
   ListByoipCidrs'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token for the next page of results.
-listByoipCidrs_nextToken :: Lens.Lens' ListByoipCidrs (Prelude.Maybe Prelude.Text)
-listByoipCidrs_nextToken = Lens.lens (\ListByoipCidrs' {nextToken} -> nextToken) (\s@ListByoipCidrs' {} a -> s {nextToken = a} :: ListByoipCidrs)
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
 listByoipCidrs_maxResults :: Lens.Lens' ListByoipCidrs (Prelude.Maybe Prelude.Natural)
 listByoipCidrs_maxResults = Lens.lens (\ListByoipCidrs' {maxResults} -> maxResults) (\s@ListByoipCidrs' {} a -> s {maxResults = a} :: ListByoipCidrs)
+
+-- | The token for the next page of results.
+listByoipCidrs_nextToken :: Lens.Lens' ListByoipCidrs (Prelude.Maybe Prelude.Text)
+listByoipCidrs_nextToken = Lens.lens (\ListByoipCidrs' {nextToken} -> nextToken) (\s@ListByoipCidrs' {} a -> s {nextToken = a} :: ListByoipCidrs)
 
 instance Core.AWSPager ListByoipCidrs where
   page rq rs
@@ -126,20 +126,20 @@ instance Core.AWSRequest ListByoipCidrs where
     Response.receiveJSON
       ( \s h x ->
           ListByoipCidrsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "ByoipCidrs" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "ByoipCidrs" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListByoipCidrs where
   hashWithSalt _salt ListByoipCidrs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListByoipCidrs where
   rnf ListByoipCidrs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListByoipCidrs where
   toHeaders =
@@ -160,8 +160,8 @@ instance Data.ToJSON ListByoipCidrs where
   toJSON ListByoipCidrs' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -173,10 +173,10 @@ instance Data.ToQuery ListByoipCidrs where
 
 -- | /See:/ 'newListByoipCidrsResponse' smart constructor.
 data ListByoipCidrsResponse = ListByoipCidrsResponse'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about your address ranges.
+  { -- | Information about your address ranges.
     byoipCidrs :: Prelude.Maybe [ByoipCidr],
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -190,9 +190,9 @@ data ListByoipCidrsResponse = ListByoipCidrsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listByoipCidrsResponse_nextToken' - The token for the next page of results.
---
 -- 'byoipCidrs', 'listByoipCidrsResponse_byoipCidrs' - Information about your address ranges.
+--
+-- 'nextToken', 'listByoipCidrsResponse_nextToken' - The token for the next page of results.
 --
 -- 'httpStatus', 'listByoipCidrsResponse_httpStatus' - The response's http status code.
 newListByoipCidrsResponse ::
@@ -201,19 +201,19 @@ newListByoipCidrsResponse ::
   ListByoipCidrsResponse
 newListByoipCidrsResponse pHttpStatus_ =
   ListByoipCidrsResponse'
-    { nextToken =
+    { byoipCidrs =
         Prelude.Nothing,
-      byoipCidrs = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token for the next page of results.
-listByoipCidrsResponse_nextToken :: Lens.Lens' ListByoipCidrsResponse (Prelude.Maybe Prelude.Text)
-listByoipCidrsResponse_nextToken = Lens.lens (\ListByoipCidrsResponse' {nextToken} -> nextToken) (\s@ListByoipCidrsResponse' {} a -> s {nextToken = a} :: ListByoipCidrsResponse)
 
 -- | Information about your address ranges.
 listByoipCidrsResponse_byoipCidrs :: Lens.Lens' ListByoipCidrsResponse (Prelude.Maybe [ByoipCidr])
 listByoipCidrsResponse_byoipCidrs = Lens.lens (\ListByoipCidrsResponse' {byoipCidrs} -> byoipCidrs) (\s@ListByoipCidrsResponse' {} a -> s {byoipCidrs = a} :: ListByoipCidrsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next page of results.
+listByoipCidrsResponse_nextToken :: Lens.Lens' ListByoipCidrsResponse (Prelude.Maybe Prelude.Text)
+listByoipCidrsResponse_nextToken = Lens.lens (\ListByoipCidrsResponse' {nextToken} -> nextToken) (\s@ListByoipCidrsResponse' {} a -> s {nextToken = a} :: ListByoipCidrsResponse)
 
 -- | The response's http status code.
 listByoipCidrsResponse_httpStatus :: Lens.Lens' ListByoipCidrsResponse Prelude.Int
@@ -221,6 +221,6 @@ listByoipCidrsResponse_httpStatus = Lens.lens (\ListByoipCidrsResponse' {httpSta
 
 instance Prelude.NFData ListByoipCidrsResponse where
   rnf ListByoipCidrsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf byoipCidrs
+    Prelude.rnf byoipCidrs
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

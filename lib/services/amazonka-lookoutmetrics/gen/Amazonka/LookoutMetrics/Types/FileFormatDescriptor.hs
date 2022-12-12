@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFileFormatDescriptor' smart constructor.
 data FileFormatDescriptor = FileFormatDescriptor'
-  { -- | Contains information about how a source JSON data file should be
+  { -- | Contains information about how a source CSV data file should be
     -- analyzed.
-    jsonFormatDescriptor :: Prelude.Maybe JsonFormatDescriptor,
-    -- | Contains information about how a source CSV data file should be
+    csvFormatDescriptor :: Prelude.Maybe CsvFormatDescriptor,
+    -- | Contains information about how a source JSON data file should be
     -- analyzed.
-    csvFormatDescriptor :: Prelude.Maybe CsvFormatDescriptor
+    jsonFormatDescriptor :: Prelude.Maybe JsonFormatDescriptor
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,29 +47,29 @@ data FileFormatDescriptor = FileFormatDescriptor'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jsonFormatDescriptor', 'fileFormatDescriptor_jsonFormatDescriptor' - Contains information about how a source JSON data file should be
+-- 'csvFormatDescriptor', 'fileFormatDescriptor_csvFormatDescriptor' - Contains information about how a source CSV data file should be
 -- analyzed.
 --
--- 'csvFormatDescriptor', 'fileFormatDescriptor_csvFormatDescriptor' - Contains information about how a source CSV data file should be
+-- 'jsonFormatDescriptor', 'fileFormatDescriptor_jsonFormatDescriptor' - Contains information about how a source JSON data file should be
 -- analyzed.
 newFileFormatDescriptor ::
   FileFormatDescriptor
 newFileFormatDescriptor =
   FileFormatDescriptor'
-    { jsonFormatDescriptor =
+    { csvFormatDescriptor =
         Prelude.Nothing,
-      csvFormatDescriptor = Prelude.Nothing
+      jsonFormatDescriptor = Prelude.Nothing
     }
-
--- | Contains information about how a source JSON data file should be
--- analyzed.
-fileFormatDescriptor_jsonFormatDescriptor :: Lens.Lens' FileFormatDescriptor (Prelude.Maybe JsonFormatDescriptor)
-fileFormatDescriptor_jsonFormatDescriptor = Lens.lens (\FileFormatDescriptor' {jsonFormatDescriptor} -> jsonFormatDescriptor) (\s@FileFormatDescriptor' {} a -> s {jsonFormatDescriptor = a} :: FileFormatDescriptor)
 
 -- | Contains information about how a source CSV data file should be
 -- analyzed.
 fileFormatDescriptor_csvFormatDescriptor :: Lens.Lens' FileFormatDescriptor (Prelude.Maybe CsvFormatDescriptor)
 fileFormatDescriptor_csvFormatDescriptor = Lens.lens (\FileFormatDescriptor' {csvFormatDescriptor} -> csvFormatDescriptor) (\s@FileFormatDescriptor' {} a -> s {csvFormatDescriptor = a} :: FileFormatDescriptor)
+
+-- | Contains information about how a source JSON data file should be
+-- analyzed.
+fileFormatDescriptor_jsonFormatDescriptor :: Lens.Lens' FileFormatDescriptor (Prelude.Maybe JsonFormatDescriptor)
+fileFormatDescriptor_jsonFormatDescriptor = Lens.lens (\FileFormatDescriptor' {jsonFormatDescriptor} -> jsonFormatDescriptor) (\s@FileFormatDescriptor' {} a -> s {jsonFormatDescriptor = a} :: FileFormatDescriptor)
 
 instance Data.FromJSON FileFormatDescriptor where
   parseJSON =
@@ -77,27 +77,27 @@ instance Data.FromJSON FileFormatDescriptor where
       "FileFormatDescriptor"
       ( \x ->
           FileFormatDescriptor'
-            Prelude.<$> (x Data..:? "JsonFormatDescriptor")
-            Prelude.<*> (x Data..:? "CsvFormatDescriptor")
+            Prelude.<$> (x Data..:? "CsvFormatDescriptor")
+            Prelude.<*> (x Data..:? "JsonFormatDescriptor")
       )
 
 instance Prelude.Hashable FileFormatDescriptor where
   hashWithSalt _salt FileFormatDescriptor' {..} =
-    _salt `Prelude.hashWithSalt` jsonFormatDescriptor
-      `Prelude.hashWithSalt` csvFormatDescriptor
+    _salt `Prelude.hashWithSalt` csvFormatDescriptor
+      `Prelude.hashWithSalt` jsonFormatDescriptor
 
 instance Prelude.NFData FileFormatDescriptor where
   rnf FileFormatDescriptor' {..} =
-    Prelude.rnf jsonFormatDescriptor
-      `Prelude.seq` Prelude.rnf csvFormatDescriptor
+    Prelude.rnf csvFormatDescriptor
+      `Prelude.seq` Prelude.rnf jsonFormatDescriptor
 
 instance Data.ToJSON FileFormatDescriptor where
   toJSON FileFormatDescriptor' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("JsonFormatDescriptor" Data..=)
-              Prelude.<$> jsonFormatDescriptor,
-            ("CsvFormatDescriptor" Data..=)
-              Prelude.<$> csvFormatDescriptor
+          [ ("CsvFormatDescriptor" Data..=)
+              Prelude.<$> csvFormatDescriptor,
+            ("JsonFormatDescriptor" Data..=)
+              Prelude.<$> jsonFormatDescriptor
           ]
       )

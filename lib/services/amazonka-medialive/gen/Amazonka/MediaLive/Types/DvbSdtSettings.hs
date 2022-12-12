@@ -40,12 +40,12 @@ data DvbSdtSettings = DvbSdtSettings'
     -- | The number of milliseconds between instances of this table in the output
     -- transport stream.
     repInterval :: Prelude.Maybe Prelude.Natural,
-    -- | The service provider name placed in the serviceDescriptor in the Service
-    -- Description Table. Maximum length is 256 characters.
-    serviceProviderName :: Prelude.Maybe Prelude.Text,
     -- | The service name placed in the serviceDescriptor in the Service
     -- Description Table. Maximum length is 256 characters.
-    serviceName :: Prelude.Maybe Prelude.Text
+    serviceName :: Prelude.Maybe Prelude.Text,
+    -- | The service provider name placed in the serviceDescriptor in the Service
+    -- Description Table. Maximum length is 256 characters.
+    serviceProviderName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,10 +68,10 @@ data DvbSdtSettings = DvbSdtSettings'
 -- 'repInterval', 'dvbSdtSettings_repInterval' - The number of milliseconds between instances of this table in the output
 -- transport stream.
 --
--- 'serviceProviderName', 'dvbSdtSettings_serviceProviderName' - The service provider name placed in the serviceDescriptor in the Service
+-- 'serviceName', 'dvbSdtSettings_serviceName' - The service name placed in the serviceDescriptor in the Service
 -- Description Table. Maximum length is 256 characters.
 --
--- 'serviceName', 'dvbSdtSettings_serviceName' - The service name placed in the serviceDescriptor in the Service
+-- 'serviceProviderName', 'dvbSdtSettings_serviceProviderName' - The service provider name placed in the serviceDescriptor in the Service
 -- Description Table. Maximum length is 256 characters.
 newDvbSdtSettings ::
   DvbSdtSettings
@@ -79,8 +79,8 @@ newDvbSdtSettings =
   DvbSdtSettings'
     { outputSdt = Prelude.Nothing,
       repInterval = Prelude.Nothing,
-      serviceProviderName = Prelude.Nothing,
-      serviceName = Prelude.Nothing
+      serviceName = Prelude.Nothing,
+      serviceProviderName = Prelude.Nothing
     }
 
 -- | Selects method of inserting SDT information into output stream. The
@@ -98,15 +98,15 @@ dvbSdtSettings_outputSdt = Lens.lens (\DvbSdtSettings' {outputSdt} -> outputSdt)
 dvbSdtSettings_repInterval :: Lens.Lens' DvbSdtSettings (Prelude.Maybe Prelude.Natural)
 dvbSdtSettings_repInterval = Lens.lens (\DvbSdtSettings' {repInterval} -> repInterval) (\s@DvbSdtSettings' {} a -> s {repInterval = a} :: DvbSdtSettings)
 
--- | The service provider name placed in the serviceDescriptor in the Service
--- Description Table. Maximum length is 256 characters.
-dvbSdtSettings_serviceProviderName :: Lens.Lens' DvbSdtSettings (Prelude.Maybe Prelude.Text)
-dvbSdtSettings_serviceProviderName = Lens.lens (\DvbSdtSettings' {serviceProviderName} -> serviceProviderName) (\s@DvbSdtSettings' {} a -> s {serviceProviderName = a} :: DvbSdtSettings)
-
 -- | The service name placed in the serviceDescriptor in the Service
 -- Description Table. Maximum length is 256 characters.
 dvbSdtSettings_serviceName :: Lens.Lens' DvbSdtSettings (Prelude.Maybe Prelude.Text)
 dvbSdtSettings_serviceName = Lens.lens (\DvbSdtSettings' {serviceName} -> serviceName) (\s@DvbSdtSettings' {} a -> s {serviceName = a} :: DvbSdtSettings)
+
+-- | The service provider name placed in the serviceDescriptor in the Service
+-- Description Table. Maximum length is 256 characters.
+dvbSdtSettings_serviceProviderName :: Lens.Lens' DvbSdtSettings (Prelude.Maybe Prelude.Text)
+dvbSdtSettings_serviceProviderName = Lens.lens (\DvbSdtSettings' {serviceProviderName} -> serviceProviderName) (\s@DvbSdtSettings' {} a -> s {serviceProviderName = a} :: DvbSdtSettings)
 
 instance Data.FromJSON DvbSdtSettings where
   parseJSON =
@@ -116,23 +116,23 @@ instance Data.FromJSON DvbSdtSettings where
           DvbSdtSettings'
             Prelude.<$> (x Data..:? "outputSdt")
             Prelude.<*> (x Data..:? "repInterval")
-            Prelude.<*> (x Data..:? "serviceProviderName")
             Prelude.<*> (x Data..:? "serviceName")
+            Prelude.<*> (x Data..:? "serviceProviderName")
       )
 
 instance Prelude.Hashable DvbSdtSettings where
   hashWithSalt _salt DvbSdtSettings' {..} =
     _salt `Prelude.hashWithSalt` outputSdt
       `Prelude.hashWithSalt` repInterval
-      `Prelude.hashWithSalt` serviceProviderName
       `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` serviceProviderName
 
 instance Prelude.NFData DvbSdtSettings where
   rnf DvbSdtSettings' {..} =
     Prelude.rnf outputSdt
       `Prelude.seq` Prelude.rnf repInterval
-      `Prelude.seq` Prelude.rnf serviceProviderName
       `Prelude.seq` Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf serviceProviderName
 
 instance Data.ToJSON DvbSdtSettings where
   toJSON DvbSdtSettings' {..} =
@@ -140,8 +140,8 @@ instance Data.ToJSON DvbSdtSettings where
       ( Prelude.catMaybes
           [ ("outputSdt" Data..=) Prelude.<$> outputSdt,
             ("repInterval" Data..=) Prelude.<$> repInterval,
+            ("serviceName" Data..=) Prelude.<$> serviceName,
             ("serviceProviderName" Data..=)
-              Prelude.<$> serviceProviderName,
-            ("serviceName" Data..=) Prelude.<$> serviceName
+              Prelude.<$> serviceProviderName
           ]
       )

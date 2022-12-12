@@ -34,17 +34,17 @@ module Amazonka.DataSync.ListLocations
     newListLocations,
 
     -- * Request Lenses
-    listLocations_nextToken,
     listLocations_filters,
     listLocations_maxResults,
+    listLocations_nextToken,
 
     -- * Destructuring the Response
     ListLocationsResponse (..),
     newListLocationsResponse,
 
     -- * Response Lenses
-    listLocationsResponse_nextToken,
     listLocationsResponse_locations,
+    listLocationsResponse_nextToken,
     listLocationsResponse_httpStatus,
   )
 where
@@ -61,16 +61,16 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListLocations' smart constructor.
 data ListLocations = ListLocations'
-  { -- | An opaque string that indicates the position at which to begin the next
-    -- list of locations.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | You can use API filters to narrow down the list of resources returned by
+  { -- | You can use API filters to narrow down the list of resources returned by
     -- @ListLocations@. For example, to retrieve all tasks on a specific source
     -- location, you can use @ListLocations@ with filter name @LocationType S3@
     -- and @Operator Equals@.
     filters :: Prelude.Maybe [LocationFilter],
     -- | The maximum number of locations to return.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | An opaque string that indicates the position at which to begin the next
+    -- list of locations.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,28 +82,23 @@ data ListLocations = ListLocations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listLocations_nextToken' - An opaque string that indicates the position at which to begin the next
--- list of locations.
---
 -- 'filters', 'listLocations_filters' - You can use API filters to narrow down the list of resources returned by
 -- @ListLocations@. For example, to retrieve all tasks on a specific source
 -- location, you can use @ListLocations@ with filter name @LocationType S3@
 -- and @Operator Equals@.
 --
 -- 'maxResults', 'listLocations_maxResults' - The maximum number of locations to return.
+--
+-- 'nextToken', 'listLocations_nextToken' - An opaque string that indicates the position at which to begin the next
+-- list of locations.
 newListLocations ::
   ListLocations
 newListLocations =
   ListLocations'
-    { nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | An opaque string that indicates the position at which to begin the next
--- list of locations.
-listLocations_nextToken :: Lens.Lens' ListLocations (Prelude.Maybe Prelude.Text)
-listLocations_nextToken = Lens.lens (\ListLocations' {nextToken} -> nextToken) (\s@ListLocations' {} a -> s {nextToken = a} :: ListLocations)
 
 -- | You can use API filters to narrow down the list of resources returned by
 -- @ListLocations@. For example, to retrieve all tasks on a specific source
@@ -115,6 +110,11 @@ listLocations_filters = Lens.lens (\ListLocations' {filters} -> filters) (\s@Lis
 -- | The maximum number of locations to return.
 listLocations_maxResults :: Lens.Lens' ListLocations (Prelude.Maybe Prelude.Natural)
 listLocations_maxResults = Lens.lens (\ListLocations' {maxResults} -> maxResults) (\s@ListLocations' {} a -> s {maxResults = a} :: ListLocations)
+
+-- | An opaque string that indicates the position at which to begin the next
+-- list of locations.
+listLocations_nextToken :: Lens.Lens' ListLocations (Prelude.Maybe Prelude.Text)
+listLocations_nextToken = Lens.lens (\ListLocations' {nextToken} -> nextToken) (\s@ListLocations' {} a -> s {nextToken = a} :: ListLocations)
 
 instance Core.AWSPager ListLocations where
   page rq rs
@@ -145,22 +145,22 @@ instance Core.AWSRequest ListLocations where
     Response.receiveJSON
       ( \s h x ->
           ListLocationsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Locations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Locations" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListLocations where
   hashWithSalt _salt ListLocations' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListLocations where
   rnf ListLocations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListLocations where
   toHeaders =
@@ -179,9 +179,9 @@ instance Data.ToJSON ListLocations where
   toJSON ListLocations' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -195,11 +195,11 @@ instance Data.ToQuery ListLocations where
 --
 -- /See:/ 'newListLocationsResponse' smart constructor.
 data ListLocationsResponse = ListLocationsResponse'
-  { -- | An opaque string that indicates the position at which to begin returning
+  { -- | An array that contains a list of locations.
+    locations :: Prelude.Maybe [LocationListEntry],
+    -- | An opaque string that indicates the position at which to begin returning
     -- the next list of locations.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array that contains a list of locations.
-    locations :: Prelude.Maybe [LocationListEntry],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -213,10 +213,10 @@ data ListLocationsResponse = ListLocationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'locations', 'listLocationsResponse_locations' - An array that contains a list of locations.
+--
 -- 'nextToken', 'listLocationsResponse_nextToken' - An opaque string that indicates the position at which to begin returning
 -- the next list of locations.
---
--- 'locations', 'listLocationsResponse_locations' - An array that contains a list of locations.
 --
 -- 'httpStatus', 'listLocationsResponse_httpStatus' - The response's http status code.
 newListLocationsResponse ::
@@ -225,19 +225,19 @@ newListLocationsResponse ::
   ListLocationsResponse
 newListLocationsResponse pHttpStatus_ =
   ListLocationsResponse'
-    { nextToken = Prelude.Nothing,
-      locations = Prelude.Nothing,
+    { locations = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array that contains a list of locations.
+listLocationsResponse_locations :: Lens.Lens' ListLocationsResponse (Prelude.Maybe [LocationListEntry])
+listLocationsResponse_locations = Lens.lens (\ListLocationsResponse' {locations} -> locations) (\s@ListLocationsResponse' {} a -> s {locations = a} :: ListLocationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An opaque string that indicates the position at which to begin returning
 -- the next list of locations.
 listLocationsResponse_nextToken :: Lens.Lens' ListLocationsResponse (Prelude.Maybe Prelude.Text)
 listLocationsResponse_nextToken = Lens.lens (\ListLocationsResponse' {nextToken} -> nextToken) (\s@ListLocationsResponse' {} a -> s {nextToken = a} :: ListLocationsResponse)
-
--- | An array that contains a list of locations.
-listLocationsResponse_locations :: Lens.Lens' ListLocationsResponse (Prelude.Maybe [LocationListEntry])
-listLocationsResponse_locations = Lens.lens (\ListLocationsResponse' {locations} -> locations) (\s@ListLocationsResponse' {} a -> s {locations = a} :: ListLocationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listLocationsResponse_httpStatus :: Lens.Lens' ListLocationsResponse Prelude.Int
@@ -245,6 +245,6 @@ listLocationsResponse_httpStatus = Lens.lens (\ListLocationsResponse' {httpStatu
 
 instance Prelude.NFData ListLocationsResponse where
   rnf ListLocationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf locations
+    Prelude.rnf locations
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -54,8 +54,8 @@ module Amazonka.Forecast.CreateForecast
     newCreateForecast,
 
     -- * Request Lenses
-    createForecast_tags,
     createForecast_forecastTypes,
+    createForecast_tags,
     createForecast_timeSeriesSelector,
     createForecast_forecastName,
     createForecast_predictorArn,
@@ -80,7 +80,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateForecast' smart constructor.
 data CreateForecast = CreateForecast'
-  { -- | The optional metadata that you apply to the forecast to help you
+  { -- | The quantiles at which probabilistic forecasts are generated. __You can
+    -- currently specify up to 5 quantiles per forecast__. Accepted values
+    -- include @0.01 to 0.99@ (increments of .01 only) and @mean@. The mean
+    -- forecast is different from the median (0.50) when the distribution is
+    -- not symmetric (for example, Beta and Negative Binomial).
+    --
+    -- The default quantiles are the quantiles you specified during predictor
+    -- creation. If you didn\'t specify quantiles, the default values are
+    -- @[\"0.1\", \"0.5\", \"0.9\"]@.
+    forecastTypes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The optional metadata that you apply to the forecast to help you
     -- categorize and organize them. Each tag consists of a key and an optional
     -- value, both of which you define.
     --
@@ -111,16 +121,6 @@ data CreateForecast = CreateForecast'
     --     the limit of 50 tags. Tags with only the key prefix of @aws@ do not
     --     count against your tags per resource limit.
     tags :: Prelude.Maybe [Tag],
-    -- | The quantiles at which probabilistic forecasts are generated. __You can
-    -- currently specify up to 5 quantiles per forecast__. Accepted values
-    -- include @0.01 to 0.99@ (increments of .01 only) and @mean@. The mean
-    -- forecast is different from the median (0.50) when the distribution is
-    -- not symmetric (for example, Beta and Negative Binomial).
-    --
-    -- The default quantiles are the quantiles you specified during predictor
-    -- creation. If you didn\'t specify quantiles, the default values are
-    -- @[\"0.1\", \"0.5\", \"0.9\"]@.
-    forecastTypes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | Defines the set of time series that are used to create the forecasts in
     -- a @TimeSeriesIdentifiers@ object.
     --
@@ -147,6 +147,16 @@ data CreateForecast = CreateForecast'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'forecastTypes', 'createForecast_forecastTypes' - The quantiles at which probabilistic forecasts are generated. __You can
+-- currently specify up to 5 quantiles per forecast__. Accepted values
+-- include @0.01 to 0.99@ (increments of .01 only) and @mean@. The mean
+-- forecast is different from the median (0.50) when the distribution is
+-- not symmetric (for example, Beta and Negative Binomial).
+--
+-- The default quantiles are the quantiles you specified during predictor
+-- creation. If you didn\'t specify quantiles, the default values are
+-- @[\"0.1\", \"0.5\", \"0.9\"]@.
 --
 -- 'tags', 'createForecast_tags' - The optional metadata that you apply to the forecast to help you
 -- categorize and organize them. Each tag consists of a key and an optional
@@ -179,16 +189,6 @@ data CreateForecast = CreateForecast'
 --     the limit of 50 tags. Tags with only the key prefix of @aws@ do not
 --     count against your tags per resource limit.
 --
--- 'forecastTypes', 'createForecast_forecastTypes' - The quantiles at which probabilistic forecasts are generated. __You can
--- currently specify up to 5 quantiles per forecast__. Accepted values
--- include @0.01 to 0.99@ (increments of .01 only) and @mean@. The mean
--- forecast is different from the median (0.50) when the distribution is
--- not symmetric (for example, Beta and Negative Binomial).
---
--- The default quantiles are the quantiles you specified during predictor
--- creation. If you didn\'t specify quantiles, the default values are
--- @[\"0.1\", \"0.5\", \"0.9\"]@.
---
 -- 'timeSeriesSelector', 'createForecast_timeSeriesSelector' - Defines the set of time series that are used to create the forecasts in
 -- a @TimeSeriesIdentifiers@ object.
 --
@@ -212,12 +212,24 @@ newCreateForecast ::
   CreateForecast
 newCreateForecast pForecastName_ pPredictorArn_ =
   CreateForecast'
-    { tags = Prelude.Nothing,
-      forecastTypes = Prelude.Nothing,
+    { forecastTypes = Prelude.Nothing,
+      tags = Prelude.Nothing,
       timeSeriesSelector = Prelude.Nothing,
       forecastName = pForecastName_,
       predictorArn = pPredictorArn_
     }
+
+-- | The quantiles at which probabilistic forecasts are generated. __You can
+-- currently specify up to 5 quantiles per forecast__. Accepted values
+-- include @0.01 to 0.99@ (increments of .01 only) and @mean@. The mean
+-- forecast is different from the median (0.50) when the distribution is
+-- not symmetric (for example, Beta and Negative Binomial).
+--
+-- The default quantiles are the quantiles you specified during predictor
+-- creation. If you didn\'t specify quantiles, the default values are
+-- @[\"0.1\", \"0.5\", \"0.9\"]@.
+createForecast_forecastTypes :: Lens.Lens' CreateForecast (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+createForecast_forecastTypes = Lens.lens (\CreateForecast' {forecastTypes} -> forecastTypes) (\s@CreateForecast' {} a -> s {forecastTypes = a} :: CreateForecast) Prelude.. Lens.mapping Lens.coerced
 
 -- | The optional metadata that you apply to the forecast to help you
 -- categorize and organize them. Each tag consists of a key and an optional
@@ -251,18 +263,6 @@ newCreateForecast pForecastName_ pPredictorArn_ =
 --     count against your tags per resource limit.
 createForecast_tags :: Lens.Lens' CreateForecast (Prelude.Maybe [Tag])
 createForecast_tags = Lens.lens (\CreateForecast' {tags} -> tags) (\s@CreateForecast' {} a -> s {tags = a} :: CreateForecast) Prelude.. Lens.mapping Lens.coerced
-
--- | The quantiles at which probabilistic forecasts are generated. __You can
--- currently specify up to 5 quantiles per forecast__. Accepted values
--- include @0.01 to 0.99@ (increments of .01 only) and @mean@. The mean
--- forecast is different from the median (0.50) when the distribution is
--- not symmetric (for example, Beta and Negative Binomial).
---
--- The default quantiles are the quantiles you specified during predictor
--- creation. If you didn\'t specify quantiles, the default values are
--- @[\"0.1\", \"0.5\", \"0.9\"]@.
-createForecast_forecastTypes :: Lens.Lens' CreateForecast (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-createForecast_forecastTypes = Lens.lens (\CreateForecast' {forecastTypes} -> forecastTypes) (\s@CreateForecast' {} a -> s {forecastTypes = a} :: CreateForecast) Prelude.. Lens.mapping Lens.coerced
 
 -- | Defines the set of time series that are used to create the forecasts in
 -- a @TimeSeriesIdentifiers@ object.
@@ -302,16 +302,16 @@ instance Core.AWSRequest CreateForecast where
 
 instance Prelude.Hashable CreateForecast where
   hashWithSalt _salt CreateForecast' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` forecastTypes
+    _salt `Prelude.hashWithSalt` forecastTypes
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` timeSeriesSelector
       `Prelude.hashWithSalt` forecastName
       `Prelude.hashWithSalt` predictorArn
 
 instance Prelude.NFData CreateForecast where
   rnf CreateForecast' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf forecastTypes
+    Prelude.rnf forecastTypes
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf timeSeriesSelector
       `Prelude.seq` Prelude.rnf forecastName
       `Prelude.seq` Prelude.rnf predictorArn
@@ -335,8 +335,8 @@ instance Data.ToJSON CreateForecast where
   toJSON CreateForecast' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ForecastTypes" Data..=) Prelude.<$> forecastTypes,
+          [ ("ForecastTypes" Data..=) Prelude.<$> forecastTypes,
+            ("Tags" Data..=) Prelude.<$> tags,
             ("TimeSeriesSelector" Data..=)
               Prelude.<$> timeSeriesSelector,
             Prelude.Just ("ForecastName" Data..= forecastName),

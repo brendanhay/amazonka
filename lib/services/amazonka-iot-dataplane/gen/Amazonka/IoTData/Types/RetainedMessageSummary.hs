@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRetainedMessageSummary' smart constructor.
 data RetainedMessageSummary = RetainedMessageSummary'
-  { -- | The size of the retained message\'s payload in bytes.
-    payloadSize :: Prelude.Maybe Prelude.Integer,
-    -- | The Epoch date and time, in milliseconds, when the retained message was
+  { -- | The Epoch date and time, in milliseconds, when the retained message was
     -- stored by IoT.
     lastModifiedTime :: Prelude.Maybe Prelude.Integer,
+    -- | The size of the retained message\'s payload in bytes.
+    payloadSize :: Prelude.Maybe Prelude.Integer,
     -- | The quality of service (QoS) level used to publish the retained message.
     qos :: Prelude.Maybe Prelude.Natural,
     -- | The topic name to which the retained message was published.
@@ -48,10 +48,10 @@ data RetainedMessageSummary = RetainedMessageSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'payloadSize', 'retainedMessageSummary_payloadSize' - The size of the retained message\'s payload in bytes.
---
 -- 'lastModifiedTime', 'retainedMessageSummary_lastModifiedTime' - The Epoch date and time, in milliseconds, when the retained message was
 -- stored by IoT.
+--
+-- 'payloadSize', 'retainedMessageSummary_payloadSize' - The size of the retained message\'s payload in bytes.
 --
 -- 'qos', 'retainedMessageSummary_qos' - The quality of service (QoS) level used to publish the retained message.
 --
@@ -60,21 +60,21 @@ newRetainedMessageSummary ::
   RetainedMessageSummary
 newRetainedMessageSummary =
   RetainedMessageSummary'
-    { payloadSize =
+    { lastModifiedTime =
         Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
+      payloadSize = Prelude.Nothing,
       qos = Prelude.Nothing,
       topic = Prelude.Nothing
     }
-
--- | The size of the retained message\'s payload in bytes.
-retainedMessageSummary_payloadSize :: Lens.Lens' RetainedMessageSummary (Prelude.Maybe Prelude.Integer)
-retainedMessageSummary_payloadSize = Lens.lens (\RetainedMessageSummary' {payloadSize} -> payloadSize) (\s@RetainedMessageSummary' {} a -> s {payloadSize = a} :: RetainedMessageSummary)
 
 -- | The Epoch date and time, in milliseconds, when the retained message was
 -- stored by IoT.
 retainedMessageSummary_lastModifiedTime :: Lens.Lens' RetainedMessageSummary (Prelude.Maybe Prelude.Integer)
 retainedMessageSummary_lastModifiedTime = Lens.lens (\RetainedMessageSummary' {lastModifiedTime} -> lastModifiedTime) (\s@RetainedMessageSummary' {} a -> s {lastModifiedTime = a} :: RetainedMessageSummary)
+
+-- | The size of the retained message\'s payload in bytes.
+retainedMessageSummary_payloadSize :: Lens.Lens' RetainedMessageSummary (Prelude.Maybe Prelude.Integer)
+retainedMessageSummary_payloadSize = Lens.lens (\RetainedMessageSummary' {payloadSize} -> payloadSize) (\s@RetainedMessageSummary' {} a -> s {payloadSize = a} :: RetainedMessageSummary)
 
 -- | The quality of service (QoS) level used to publish the retained message.
 retainedMessageSummary_qos :: Lens.Lens' RetainedMessageSummary (Prelude.Maybe Prelude.Natural)
@@ -90,22 +90,22 @@ instance Data.FromJSON RetainedMessageSummary where
       "RetainedMessageSummary"
       ( \x ->
           RetainedMessageSummary'
-            Prelude.<$> (x Data..:? "payloadSize")
-            Prelude.<*> (x Data..:? "lastModifiedTime")
+            Prelude.<$> (x Data..:? "lastModifiedTime")
+            Prelude.<*> (x Data..:? "payloadSize")
             Prelude.<*> (x Data..:? "qos")
             Prelude.<*> (x Data..:? "topic")
       )
 
 instance Prelude.Hashable RetainedMessageSummary where
   hashWithSalt _salt RetainedMessageSummary' {..} =
-    _salt `Prelude.hashWithSalt` payloadSize
-      `Prelude.hashWithSalt` lastModifiedTime
+    _salt `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` payloadSize
       `Prelude.hashWithSalt` qos
       `Prelude.hashWithSalt` topic
 
 instance Prelude.NFData RetainedMessageSummary where
   rnf RetainedMessageSummary' {..} =
-    Prelude.rnf payloadSize
-      `Prelude.seq` Prelude.rnf lastModifiedTime
+    Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf payloadSize
       `Prelude.seq` Prelude.rnf qos
       `Prelude.seq` Prelude.rnf topic

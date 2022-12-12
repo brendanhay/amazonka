@@ -28,8 +28,8 @@ module Amazonka.CustomerProfiles.ListDomains
     newListDomains,
 
     -- * Request Lenses
-    listDomains_nextToken,
     listDomains_maxResults,
+    listDomains_nextToken,
 
     -- * Destructuring the Response
     ListDomainsResponse (..),
@@ -52,10 +52,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDomains' smart constructor.
 data ListDomains = ListDomains'
-  { -- | The pagination token from the previous ListDomain API call.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of objects returned per page.
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { -- | The maximum number of objects returned per page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token from the previous ListDomain API call.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,24 +67,24 @@ data ListDomains = ListDomains'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listDomains_nextToken' - The pagination token from the previous ListDomain API call.
---
 -- 'maxResults', 'listDomains_maxResults' - The maximum number of objects returned per page.
+--
+-- 'nextToken', 'listDomains_nextToken' - The pagination token from the previous ListDomain API call.
 newListDomains ::
   ListDomains
 newListDomains =
   ListDomains'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The pagination token from the previous ListDomain API call.
-listDomains_nextToken :: Lens.Lens' ListDomains (Prelude.Maybe Prelude.Text)
-listDomains_nextToken = Lens.lens (\ListDomains' {nextToken} -> nextToken) (\s@ListDomains' {} a -> s {nextToken = a} :: ListDomains)
 
 -- | The maximum number of objects returned per page.
 listDomains_maxResults :: Lens.Lens' ListDomains (Prelude.Maybe Prelude.Natural)
 listDomains_maxResults = Lens.lens (\ListDomains' {maxResults} -> maxResults) (\s@ListDomains' {} a -> s {maxResults = a} :: ListDomains)
+
+-- | The pagination token from the previous ListDomain API call.
+listDomains_nextToken :: Lens.Lens' ListDomains (Prelude.Maybe Prelude.Text)
+listDomains_nextToken = Lens.lens (\ListDomains' {nextToken} -> nextToken) (\s@ListDomains' {} a -> s {nextToken = a} :: ListDomains)
 
 instance Core.AWSRequest ListDomains where
   type AWSResponse ListDomains = ListDomainsResponse
@@ -101,13 +101,13 @@ instance Core.AWSRequest ListDomains where
 
 instance Prelude.Hashable ListDomains where
   hashWithSalt _salt ListDomains' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListDomains where
   rnf ListDomains' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListDomains where
   toHeaders =
@@ -126,8 +126,8 @@ instance Data.ToPath ListDomains where
 instance Data.ToQuery ListDomains where
   toQuery ListDomains' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
-        "max-results" Data.=: maxResults
+      [ "max-results" Data.=: maxResults,
+        "next-token" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListDomainsResponse' smart constructor.

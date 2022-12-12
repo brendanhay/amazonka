@@ -35,9 +35,9 @@ module Amazonka.SageMaker.DescribeMonitoringSchedule
 
     -- * Response Lenses
     describeMonitoringScheduleResponse_endpointName,
-    describeMonitoringScheduleResponse_monitoringType,
-    describeMonitoringScheduleResponse_lastMonitoringExecutionSummary,
     describeMonitoringScheduleResponse_failureReason,
+    describeMonitoringScheduleResponse_lastMonitoringExecutionSummary,
+    describeMonitoringScheduleResponse_monitoringType,
     describeMonitoringScheduleResponse_httpStatus,
     describeMonitoringScheduleResponse_monitoringScheduleArn,
     describeMonitoringScheduleResponse_monitoringScheduleName,
@@ -98,9 +98,9 @@ instance Core.AWSRequest DescribeMonitoringSchedule where
       ( \s h x ->
           DescribeMonitoringScheduleResponse'
             Prelude.<$> (x Data..?> "EndpointName")
-            Prelude.<*> (x Data..?> "MonitoringType")
-            Prelude.<*> (x Data..?> "LastMonitoringExecutionSummary")
             Prelude.<*> (x Data..?> "FailureReason")
+            Prelude.<*> (x Data..?> "LastMonitoringExecutionSummary")
+            Prelude.<*> (x Data..?> "MonitoringType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "MonitoringScheduleArn")
             Prelude.<*> (x Data..:> "MonitoringScheduleName")
@@ -154,6 +154,11 @@ instance Data.ToQuery DescribeMonitoringSchedule where
 data DescribeMonitoringScheduleResponse = DescribeMonitoringScheduleResponse'
   { -- | The name of the endpoint for the monitoring job.
     endpointName :: Prelude.Maybe Prelude.Text,
+    -- | A string, up to one KB in size, that contains the reason a monitoring
+    -- job failed, if it failed.
+    failureReason :: Prelude.Maybe Prelude.Text,
+    -- | Describes metadata on the last execution to run, if there was one.
+    lastMonitoringExecutionSummary :: Prelude.Maybe MonitoringExecutionSummary,
     -- | The type of the monitoring job that this schedule runs. This is one of
     -- the following values.
     --
@@ -167,11 +172,6 @@ data DescribeMonitoringScheduleResponse = DescribeMonitoringScheduleResponse'
     -- -   @MODEL_EXPLAINABILITY@ - The schedule is for an explainability
     --     monitoring job.
     monitoringType :: Prelude.Maybe MonitoringType,
-    -- | Describes metadata on the last execution to run, if there was one.
-    lastMonitoringExecutionSummary :: Prelude.Maybe MonitoringExecutionSummary,
-    -- | A string, up to one KB in size, that contains the reason a monitoring
-    -- job failed, if it failed.
-    failureReason :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the monitoring schedule.
@@ -200,6 +200,11 @@ data DescribeMonitoringScheduleResponse = DescribeMonitoringScheduleResponse'
 --
 -- 'endpointName', 'describeMonitoringScheduleResponse_endpointName' - The name of the endpoint for the monitoring job.
 --
+-- 'failureReason', 'describeMonitoringScheduleResponse_failureReason' - A string, up to one KB in size, that contains the reason a monitoring
+-- job failed, if it failed.
+--
+-- 'lastMonitoringExecutionSummary', 'describeMonitoringScheduleResponse_lastMonitoringExecutionSummary' - Describes metadata on the last execution to run, if there was one.
+--
 -- 'monitoringType', 'describeMonitoringScheduleResponse_monitoringType' - The type of the monitoring job that this schedule runs. This is one of
 -- the following values.
 --
@@ -212,11 +217,6 @@ data DescribeMonitoringScheduleResponse = DescribeMonitoringScheduleResponse'
 --
 -- -   @MODEL_EXPLAINABILITY@ - The schedule is for an explainability
 --     monitoring job.
---
--- 'lastMonitoringExecutionSummary', 'describeMonitoringScheduleResponse_lastMonitoringExecutionSummary' - Describes metadata on the last execution to run, if there was one.
---
--- 'failureReason', 'describeMonitoringScheduleResponse_failureReason' - A string, up to one KB in size, that contains the reason a monitoring
--- job failed, if it failed.
 --
 -- 'httpStatus', 'describeMonitoringScheduleResponse_httpStatus' - The response's http status code.
 --
@@ -259,10 +259,10 @@ newDescribeMonitoringScheduleResponse
     DescribeMonitoringScheduleResponse'
       { endpointName =
           Prelude.Nothing,
-        monitoringType = Prelude.Nothing,
+        failureReason = Prelude.Nothing,
         lastMonitoringExecutionSummary =
           Prelude.Nothing,
-        failureReason = Prelude.Nothing,
+        monitoringType = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         monitoringScheduleArn =
           pMonitoringScheduleArn_,
@@ -282,6 +282,15 @@ newDescribeMonitoringScheduleResponse
 describeMonitoringScheduleResponse_endpointName :: Lens.Lens' DescribeMonitoringScheduleResponse (Prelude.Maybe Prelude.Text)
 describeMonitoringScheduleResponse_endpointName = Lens.lens (\DescribeMonitoringScheduleResponse' {endpointName} -> endpointName) (\s@DescribeMonitoringScheduleResponse' {} a -> s {endpointName = a} :: DescribeMonitoringScheduleResponse)
 
+-- | A string, up to one KB in size, that contains the reason a monitoring
+-- job failed, if it failed.
+describeMonitoringScheduleResponse_failureReason :: Lens.Lens' DescribeMonitoringScheduleResponse (Prelude.Maybe Prelude.Text)
+describeMonitoringScheduleResponse_failureReason = Lens.lens (\DescribeMonitoringScheduleResponse' {failureReason} -> failureReason) (\s@DescribeMonitoringScheduleResponse' {} a -> s {failureReason = a} :: DescribeMonitoringScheduleResponse)
+
+-- | Describes metadata on the last execution to run, if there was one.
+describeMonitoringScheduleResponse_lastMonitoringExecutionSummary :: Lens.Lens' DescribeMonitoringScheduleResponse (Prelude.Maybe MonitoringExecutionSummary)
+describeMonitoringScheduleResponse_lastMonitoringExecutionSummary = Lens.lens (\DescribeMonitoringScheduleResponse' {lastMonitoringExecutionSummary} -> lastMonitoringExecutionSummary) (\s@DescribeMonitoringScheduleResponse' {} a -> s {lastMonitoringExecutionSummary = a} :: DescribeMonitoringScheduleResponse)
+
 -- | The type of the monitoring job that this schedule runs. This is one of
 -- the following values.
 --
@@ -296,15 +305,6 @@ describeMonitoringScheduleResponse_endpointName = Lens.lens (\DescribeMonitoring
 --     monitoring job.
 describeMonitoringScheduleResponse_monitoringType :: Lens.Lens' DescribeMonitoringScheduleResponse (Prelude.Maybe MonitoringType)
 describeMonitoringScheduleResponse_monitoringType = Lens.lens (\DescribeMonitoringScheduleResponse' {monitoringType} -> monitoringType) (\s@DescribeMonitoringScheduleResponse' {} a -> s {monitoringType = a} :: DescribeMonitoringScheduleResponse)
-
--- | Describes metadata on the last execution to run, if there was one.
-describeMonitoringScheduleResponse_lastMonitoringExecutionSummary :: Lens.Lens' DescribeMonitoringScheduleResponse (Prelude.Maybe MonitoringExecutionSummary)
-describeMonitoringScheduleResponse_lastMonitoringExecutionSummary = Lens.lens (\DescribeMonitoringScheduleResponse' {lastMonitoringExecutionSummary} -> lastMonitoringExecutionSummary) (\s@DescribeMonitoringScheduleResponse' {} a -> s {lastMonitoringExecutionSummary = a} :: DescribeMonitoringScheduleResponse)
-
--- | A string, up to one KB in size, that contains the reason a monitoring
--- job failed, if it failed.
-describeMonitoringScheduleResponse_failureReason :: Lens.Lens' DescribeMonitoringScheduleResponse (Prelude.Maybe Prelude.Text)
-describeMonitoringScheduleResponse_failureReason = Lens.lens (\DescribeMonitoringScheduleResponse' {failureReason} -> failureReason) (\s@DescribeMonitoringScheduleResponse' {} a -> s {failureReason = a} :: DescribeMonitoringScheduleResponse)
 
 -- | The response's http status code.
 describeMonitoringScheduleResponse_httpStatus :: Lens.Lens' DescribeMonitoringScheduleResponse Prelude.Int
@@ -341,9 +341,9 @@ instance
   where
   rnf DescribeMonitoringScheduleResponse' {..} =
     Prelude.rnf endpointName
-      `Prelude.seq` Prelude.rnf monitoringType
-      `Prelude.seq` Prelude.rnf lastMonitoringExecutionSummary
       `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf lastMonitoringExecutionSummary
+      `Prelude.seq` Prelude.rnf monitoringType
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf monitoringScheduleArn
       `Prelude.seq` Prelude.rnf monitoringScheduleName

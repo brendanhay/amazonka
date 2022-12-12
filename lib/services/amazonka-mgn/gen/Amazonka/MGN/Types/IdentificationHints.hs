@@ -34,10 +34,10 @@ data IdentificationHints = IdentificationHints'
     fqdn :: Prelude.Maybe Prelude.Text,
     -- | Hostname identification hint.
     hostname :: Prelude.Maybe Prelude.Text,
-    -- | vmWare UUID identification hint.
-    vmWareUuid :: Prelude.Maybe Prelude.Text,
     -- | vCenter VM path identification hint.
-    vmPath :: Prelude.Maybe Prelude.Text
+    vmPath :: Prelude.Maybe Prelude.Text,
+    -- | vmWare UUID identification hint.
+    vmWareUuid :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,9 +55,9 @@ data IdentificationHints = IdentificationHints'
 --
 -- 'hostname', 'identificationHints_hostname' - Hostname identification hint.
 --
--- 'vmWareUuid', 'identificationHints_vmWareUuid' - vmWare UUID identification hint.
---
 -- 'vmPath', 'identificationHints_vmPath' - vCenter VM path identification hint.
+--
+-- 'vmWareUuid', 'identificationHints_vmWareUuid' - vmWare UUID identification hint.
 newIdentificationHints ::
   IdentificationHints
 newIdentificationHints =
@@ -66,8 +66,8 @@ newIdentificationHints =
         Prelude.Nothing,
       fqdn = Prelude.Nothing,
       hostname = Prelude.Nothing,
-      vmWareUuid = Prelude.Nothing,
-      vmPath = Prelude.Nothing
+      vmPath = Prelude.Nothing,
+      vmWareUuid = Prelude.Nothing
     }
 
 -- | AWS Instance ID identification hint.
@@ -82,13 +82,13 @@ identificationHints_fqdn = Lens.lens (\IdentificationHints' {fqdn} -> fqdn) (\s@
 identificationHints_hostname :: Lens.Lens' IdentificationHints (Prelude.Maybe Prelude.Text)
 identificationHints_hostname = Lens.lens (\IdentificationHints' {hostname} -> hostname) (\s@IdentificationHints' {} a -> s {hostname = a} :: IdentificationHints)
 
--- | vmWare UUID identification hint.
-identificationHints_vmWareUuid :: Lens.Lens' IdentificationHints (Prelude.Maybe Prelude.Text)
-identificationHints_vmWareUuid = Lens.lens (\IdentificationHints' {vmWareUuid} -> vmWareUuid) (\s@IdentificationHints' {} a -> s {vmWareUuid = a} :: IdentificationHints)
-
 -- | vCenter VM path identification hint.
 identificationHints_vmPath :: Lens.Lens' IdentificationHints (Prelude.Maybe Prelude.Text)
 identificationHints_vmPath = Lens.lens (\IdentificationHints' {vmPath} -> vmPath) (\s@IdentificationHints' {} a -> s {vmPath = a} :: IdentificationHints)
+
+-- | vmWare UUID identification hint.
+identificationHints_vmWareUuid :: Lens.Lens' IdentificationHints (Prelude.Maybe Prelude.Text)
+identificationHints_vmWareUuid = Lens.lens (\IdentificationHints' {vmWareUuid} -> vmWareUuid) (\s@IdentificationHints' {} a -> s {vmWareUuid = a} :: IdentificationHints)
 
 instance Data.FromJSON IdentificationHints where
   parseJSON =
@@ -99,8 +99,8 @@ instance Data.FromJSON IdentificationHints where
             Prelude.<$> (x Data..:? "awsInstanceID")
             Prelude.<*> (x Data..:? "fqdn")
             Prelude.<*> (x Data..:? "hostname")
-            Prelude.<*> (x Data..:? "vmWareUuid")
             Prelude.<*> (x Data..:? "vmPath")
+            Prelude.<*> (x Data..:? "vmWareUuid")
       )
 
 instance Prelude.Hashable IdentificationHints where
@@ -108,13 +108,13 @@ instance Prelude.Hashable IdentificationHints where
     _salt `Prelude.hashWithSalt` awsInstanceID
       `Prelude.hashWithSalt` fqdn
       `Prelude.hashWithSalt` hostname
-      `Prelude.hashWithSalt` vmWareUuid
       `Prelude.hashWithSalt` vmPath
+      `Prelude.hashWithSalt` vmWareUuid
 
 instance Prelude.NFData IdentificationHints where
   rnf IdentificationHints' {..} =
     Prelude.rnf awsInstanceID
       `Prelude.seq` Prelude.rnf fqdn
       `Prelude.seq` Prelude.rnf hostname
-      `Prelude.seq` Prelude.rnf vmWareUuid
       `Prelude.seq` Prelude.rnf vmPath
+      `Prelude.seq` Prelude.rnf vmWareUuid

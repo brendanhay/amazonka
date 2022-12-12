@@ -30,18 +30,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStatementOutput' smart constructor.
 data StatementOutput = StatementOutput'
-  { -- | The status of the code execution output.
-    status :: Prelude.Maybe StatementState,
+  { -- | The code execution output.
+    data' :: Prelude.Maybe StatementOutputData,
+    -- | The name of the error in the output.
+    errorName :: Prelude.Maybe Prelude.Text,
     -- | The error value of the output.
     errorValue :: Prelude.Maybe Prelude.Text,
     -- | The execution count of the output.
     executionCount :: Prelude.Maybe Prelude.Int,
-    -- | The name of the error in the output.
-    errorName :: Prelude.Maybe Prelude.Text,
+    -- | The status of the code execution output.
+    status :: Prelude.Maybe StatementState,
     -- | The traceback of the output.
-    traceback :: Prelude.Maybe [Prelude.Text],
-    -- | The code execution output.
-    data' :: Prelude.Maybe StatementOutputData
+    traceback :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,32 +53,36 @@ data StatementOutput = StatementOutput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'statementOutput_status' - The status of the code execution output.
+-- 'data'', 'statementOutput_data' - The code execution output.
+--
+-- 'errorName', 'statementOutput_errorName' - The name of the error in the output.
 --
 -- 'errorValue', 'statementOutput_errorValue' - The error value of the output.
 --
 -- 'executionCount', 'statementOutput_executionCount' - The execution count of the output.
 --
--- 'errorName', 'statementOutput_errorName' - The name of the error in the output.
+-- 'status', 'statementOutput_status' - The status of the code execution output.
 --
 -- 'traceback', 'statementOutput_traceback' - The traceback of the output.
---
--- 'data'', 'statementOutput_data' - The code execution output.
 newStatementOutput ::
   StatementOutput
 newStatementOutput =
   StatementOutput'
-    { status = Prelude.Nothing,
+    { data' = Prelude.Nothing,
+      errorName = Prelude.Nothing,
       errorValue = Prelude.Nothing,
       executionCount = Prelude.Nothing,
-      errorName = Prelude.Nothing,
-      traceback = Prelude.Nothing,
-      data' = Prelude.Nothing
+      status = Prelude.Nothing,
+      traceback = Prelude.Nothing
     }
 
--- | The status of the code execution output.
-statementOutput_status :: Lens.Lens' StatementOutput (Prelude.Maybe StatementState)
-statementOutput_status = Lens.lens (\StatementOutput' {status} -> status) (\s@StatementOutput' {} a -> s {status = a} :: StatementOutput)
+-- | The code execution output.
+statementOutput_data :: Lens.Lens' StatementOutput (Prelude.Maybe StatementOutputData)
+statementOutput_data = Lens.lens (\StatementOutput' {data'} -> data') (\s@StatementOutput' {} a -> s {data' = a} :: StatementOutput)
+
+-- | The name of the error in the output.
+statementOutput_errorName :: Lens.Lens' StatementOutput (Prelude.Maybe Prelude.Text)
+statementOutput_errorName = Lens.lens (\StatementOutput' {errorName} -> errorName) (\s@StatementOutput' {} a -> s {errorName = a} :: StatementOutput)
 
 -- | The error value of the output.
 statementOutput_errorValue :: Lens.Lens' StatementOutput (Prelude.Maybe Prelude.Text)
@@ -88,17 +92,13 @@ statementOutput_errorValue = Lens.lens (\StatementOutput' {errorValue} -> errorV
 statementOutput_executionCount :: Lens.Lens' StatementOutput (Prelude.Maybe Prelude.Int)
 statementOutput_executionCount = Lens.lens (\StatementOutput' {executionCount} -> executionCount) (\s@StatementOutput' {} a -> s {executionCount = a} :: StatementOutput)
 
--- | The name of the error in the output.
-statementOutput_errorName :: Lens.Lens' StatementOutput (Prelude.Maybe Prelude.Text)
-statementOutput_errorName = Lens.lens (\StatementOutput' {errorName} -> errorName) (\s@StatementOutput' {} a -> s {errorName = a} :: StatementOutput)
+-- | The status of the code execution output.
+statementOutput_status :: Lens.Lens' StatementOutput (Prelude.Maybe StatementState)
+statementOutput_status = Lens.lens (\StatementOutput' {status} -> status) (\s@StatementOutput' {} a -> s {status = a} :: StatementOutput)
 
 -- | The traceback of the output.
 statementOutput_traceback :: Lens.Lens' StatementOutput (Prelude.Maybe [Prelude.Text])
 statementOutput_traceback = Lens.lens (\StatementOutput' {traceback} -> traceback) (\s@StatementOutput' {} a -> s {traceback = a} :: StatementOutput) Prelude.. Lens.mapping Lens.coerced
-
--- | The code execution output.
-statementOutput_data :: Lens.Lens' StatementOutput (Prelude.Maybe StatementOutputData)
-statementOutput_data = Lens.lens (\StatementOutput' {data'} -> data') (\s@StatementOutput' {} a -> s {data' = a} :: StatementOutput)
 
 instance Data.FromJSON StatementOutput where
   parseJSON =
@@ -106,28 +106,28 @@ instance Data.FromJSON StatementOutput where
       "StatementOutput"
       ( \x ->
           StatementOutput'
-            Prelude.<$> (x Data..:? "Status")
+            Prelude.<$> (x Data..:? "Data")
+            Prelude.<*> (x Data..:? "ErrorName")
             Prelude.<*> (x Data..:? "ErrorValue")
             Prelude.<*> (x Data..:? "ExecutionCount")
-            Prelude.<*> (x Data..:? "ErrorName")
+            Prelude.<*> (x Data..:? "Status")
             Prelude.<*> (x Data..:? "Traceback" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "Data")
       )
 
 instance Prelude.Hashable StatementOutput where
   hashWithSalt _salt StatementOutput' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` data'
+      `Prelude.hashWithSalt` errorName
       `Prelude.hashWithSalt` errorValue
       `Prelude.hashWithSalt` executionCount
-      `Prelude.hashWithSalt` errorName
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` traceback
-      `Prelude.hashWithSalt` data'
 
 instance Prelude.NFData StatementOutput where
   rnf StatementOutput' {..} =
-    Prelude.rnf status
+    Prelude.rnf data'
+      `Prelude.seq` Prelude.rnf errorName
       `Prelude.seq` Prelude.rnf errorValue
       `Prelude.seq` Prelude.rnf executionCount
-      `Prelude.seq` Prelude.rnf errorName
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf traceback
-      `Prelude.seq` Prelude.rnf data'

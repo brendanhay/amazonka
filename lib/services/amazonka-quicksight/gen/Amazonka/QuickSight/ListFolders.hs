@@ -27,8 +27,8 @@ module Amazonka.QuickSight.ListFolders
     newListFolders,
 
     -- * Request Lenses
-    listFolders_nextToken,
     listFolders_maxResults,
+    listFolders_nextToken,
     listFolders_awsAccountId,
 
     -- * Destructuring the Response
@@ -36,8 +36,8 @@ module Amazonka.QuickSight.ListFolders
     newListFoldersResponse,
 
     -- * Response Lenses
-    listFoldersResponse_nextToken,
     listFoldersResponse_folderSummaryList,
+    listFoldersResponse_nextToken,
     listFoldersResponse_requestId,
     listFoldersResponse_status,
   )
@@ -53,11 +53,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListFolders' smart constructor.
 data ListFolders = ListFolders'
-  { -- | The token for the next set of results, or null if there are no more
+  { -- | The maximum number of results to be returned per request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results, or null if there are no more
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be returned per request.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID for the Amazon Web Services account that contains the folder.
     awsAccountId :: Prelude.Text
   }
@@ -71,10 +71,10 @@ data ListFolders = ListFolders'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listFolders_maxResults' - The maximum number of results to be returned per request.
+--
 -- 'nextToken', 'listFolders_nextToken' - The token for the next set of results, or null if there are no more
 -- results.
---
--- 'maxResults', 'listFolders_maxResults' - The maximum number of results to be returned per request.
 --
 -- 'awsAccountId', 'listFolders_awsAccountId' - The ID for the Amazon Web Services account that contains the folder.
 newListFolders ::
@@ -83,19 +83,19 @@ newListFolders ::
   ListFolders
 newListFolders pAwsAccountId_ =
   ListFolders'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       awsAccountId = pAwsAccountId_
     }
+
+-- | The maximum number of results to be returned per request.
+listFolders_maxResults :: Lens.Lens' ListFolders (Prelude.Maybe Prelude.Natural)
+listFolders_maxResults = Lens.lens (\ListFolders' {maxResults} -> maxResults) (\s@ListFolders' {} a -> s {maxResults = a} :: ListFolders)
 
 -- | The token for the next set of results, or null if there are no more
 -- results.
 listFolders_nextToken :: Lens.Lens' ListFolders (Prelude.Maybe Prelude.Text)
 listFolders_nextToken = Lens.lens (\ListFolders' {nextToken} -> nextToken) (\s@ListFolders' {} a -> s {nextToken = a} :: ListFolders)
-
--- | The maximum number of results to be returned per request.
-listFolders_maxResults :: Lens.Lens' ListFolders (Prelude.Maybe Prelude.Natural)
-listFolders_maxResults = Lens.lens (\ListFolders' {maxResults} -> maxResults) (\s@ListFolders' {} a -> s {maxResults = a} :: ListFolders)
 
 -- | The ID for the Amazon Web Services account that contains the folder.
 listFolders_awsAccountId :: Lens.Lens' ListFolders Prelude.Text
@@ -109,24 +109,24 @@ instance Core.AWSRequest ListFolders where
     Response.receiveJSON
       ( \s h x ->
           ListFoldersResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "FolderSummaryList"
+            Prelude.<$> ( x Data..?> "FolderSummaryList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListFolders where
   hashWithSalt _salt ListFolders' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` awsAccountId
 
 instance Prelude.NFData ListFolders where
   rnf ListFolders' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf awsAccountId
 
 instance Data.ToHeaders ListFolders where
@@ -148,18 +148,18 @@ instance Data.ToPath ListFolders where
 instance Data.ToQuery ListFolders where
   toQuery ListFolders' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
-        "max-results" Data.=: maxResults
+      [ "max-results" Data.=: maxResults,
+        "next-token" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListFoldersResponse' smart constructor.
 data ListFoldersResponse = ListFoldersResponse'
-  { -- | The token for the next set of results, or null if there are no more
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A structure that contains all of the folders in the Amazon Web Services
+  { -- | A structure that contains all of the folders in the Amazon Web Services
     -- account. This structure provides basic information about the folders.
     folderSummaryList :: Prelude.Maybe [FolderSummary],
+    -- | The token for the next set of results, or null if there are no more
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
@@ -175,11 +175,11 @@ data ListFoldersResponse = ListFoldersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listFoldersResponse_nextToken' - The token for the next set of results, or null if there are no more
--- results.
---
 -- 'folderSummaryList', 'listFoldersResponse_folderSummaryList' - A structure that contains all of the folders in the Amazon Web Services
 -- account. This structure provides basic information about the folders.
+--
+-- 'nextToken', 'listFoldersResponse_nextToken' - The token for the next set of results, or null if there are no more
+-- results.
 --
 -- 'requestId', 'listFoldersResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
@@ -190,21 +190,22 @@ newListFoldersResponse ::
   ListFoldersResponse
 newListFoldersResponse pStatus_ =
   ListFoldersResponse'
-    { nextToken = Prelude.Nothing,
-      folderSummaryList = Prelude.Nothing,
+    { folderSummaryList =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       requestId = Prelude.Nothing,
       status = pStatus_
     }
-
--- | The token for the next set of results, or null if there are no more
--- results.
-listFoldersResponse_nextToken :: Lens.Lens' ListFoldersResponse (Prelude.Maybe Prelude.Text)
-listFoldersResponse_nextToken = Lens.lens (\ListFoldersResponse' {nextToken} -> nextToken) (\s@ListFoldersResponse' {} a -> s {nextToken = a} :: ListFoldersResponse)
 
 -- | A structure that contains all of the folders in the Amazon Web Services
 -- account. This structure provides basic information about the folders.
 listFoldersResponse_folderSummaryList :: Lens.Lens' ListFoldersResponse (Prelude.Maybe [FolderSummary])
 listFoldersResponse_folderSummaryList = Lens.lens (\ListFoldersResponse' {folderSummaryList} -> folderSummaryList) (\s@ListFoldersResponse' {} a -> s {folderSummaryList = a} :: ListFoldersResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next set of results, or null if there are no more
+-- results.
+listFoldersResponse_nextToken :: Lens.Lens' ListFoldersResponse (Prelude.Maybe Prelude.Text)
+listFoldersResponse_nextToken = Lens.lens (\ListFoldersResponse' {nextToken} -> nextToken) (\s@ListFoldersResponse' {} a -> s {nextToken = a} :: ListFoldersResponse)
 
 -- | The Amazon Web Services request ID for this operation.
 listFoldersResponse_requestId :: Lens.Lens' ListFoldersResponse (Prelude.Maybe Prelude.Text)
@@ -216,7 +217,7 @@ listFoldersResponse_status = Lens.lens (\ListFoldersResponse' {status} -> status
 
 instance Prelude.NFData ListFoldersResponse where
   rnf ListFoldersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf folderSummaryList
+    Prelude.rnf folderSummaryList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf status

@@ -41,8 +41,8 @@ module Amazonka.IoTFleetWise.BatchUpdateVehicle
     newBatchUpdateVehicleResponse,
 
     -- * Response Lenses
-    batchUpdateVehicleResponse_vehicles,
     batchUpdateVehicleResponse_errors,
+    batchUpdateVehicleResponse_vehicles,
     batchUpdateVehicleResponse_httpStatus,
   )
 where
@@ -93,8 +93,8 @@ instance Core.AWSRequest BatchUpdateVehicle where
     Response.receiveJSON
       ( \s h x ->
           BatchUpdateVehicleResponse'
-            Prelude.<$> (x Data..?> "vehicles" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "errors" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "errors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "vehicles" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -135,13 +135,13 @@ instance Data.ToQuery BatchUpdateVehicle where
 
 -- | /See:/ 'newBatchUpdateVehicleResponse' smart constructor.
 data BatchUpdateVehicleResponse = BatchUpdateVehicleResponse'
-  { -- | A list of information about the batch of updated vehicles.
+  { -- | A list of information about errors returned while updating a batch of
+    -- vehicles, or, if there aren\'t any errors, an empty list.
+    errors :: Prelude.Maybe [UpdateVehicleError],
+    -- | A list of information about the batch of updated vehicles.
     --
     -- This list contains only unique IDs for the vehicles that were updated.
     vehicles :: Prelude.Maybe [UpdateVehicleResponseItem],
-    -- | A list of information about errors returned while updating a batch of
-    -- vehicles, or, if there aren\'t any errors, an empty list.
-    errors :: Prelude.Maybe [UpdateVehicleError],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -155,12 +155,12 @@ data BatchUpdateVehicleResponse = BatchUpdateVehicleResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'errors', 'batchUpdateVehicleResponse_errors' - A list of information about errors returned while updating a batch of
+-- vehicles, or, if there aren\'t any errors, an empty list.
+--
 -- 'vehicles', 'batchUpdateVehicleResponse_vehicles' - A list of information about the batch of updated vehicles.
 --
 -- This list contains only unique IDs for the vehicles that were updated.
---
--- 'errors', 'batchUpdateVehicleResponse_errors' - A list of information about errors returned while updating a batch of
--- vehicles, or, if there aren\'t any errors, an empty list.
 --
 -- 'httpStatus', 'batchUpdateVehicleResponse_httpStatus' - The response's http status code.
 newBatchUpdateVehicleResponse ::
@@ -169,11 +169,16 @@ newBatchUpdateVehicleResponse ::
   BatchUpdateVehicleResponse
 newBatchUpdateVehicleResponse pHttpStatus_ =
   BatchUpdateVehicleResponse'
-    { vehicles =
+    { errors =
         Prelude.Nothing,
-      errors = Prelude.Nothing,
+      vehicles = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of information about errors returned while updating a batch of
+-- vehicles, or, if there aren\'t any errors, an empty list.
+batchUpdateVehicleResponse_errors :: Lens.Lens' BatchUpdateVehicleResponse (Prelude.Maybe [UpdateVehicleError])
+batchUpdateVehicleResponse_errors = Lens.lens (\BatchUpdateVehicleResponse' {errors} -> errors) (\s@BatchUpdateVehicleResponse' {} a -> s {errors = a} :: BatchUpdateVehicleResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of information about the batch of updated vehicles.
 --
@@ -181,17 +186,12 @@ newBatchUpdateVehicleResponse pHttpStatus_ =
 batchUpdateVehicleResponse_vehicles :: Lens.Lens' BatchUpdateVehicleResponse (Prelude.Maybe [UpdateVehicleResponseItem])
 batchUpdateVehicleResponse_vehicles = Lens.lens (\BatchUpdateVehicleResponse' {vehicles} -> vehicles) (\s@BatchUpdateVehicleResponse' {} a -> s {vehicles = a} :: BatchUpdateVehicleResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of information about errors returned while updating a batch of
--- vehicles, or, if there aren\'t any errors, an empty list.
-batchUpdateVehicleResponse_errors :: Lens.Lens' BatchUpdateVehicleResponse (Prelude.Maybe [UpdateVehicleError])
-batchUpdateVehicleResponse_errors = Lens.lens (\BatchUpdateVehicleResponse' {errors} -> errors) (\s@BatchUpdateVehicleResponse' {} a -> s {errors = a} :: BatchUpdateVehicleResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 batchUpdateVehicleResponse_httpStatus :: Lens.Lens' BatchUpdateVehicleResponse Prelude.Int
 batchUpdateVehicleResponse_httpStatus = Lens.lens (\BatchUpdateVehicleResponse' {httpStatus} -> httpStatus) (\s@BatchUpdateVehicleResponse' {} a -> s {httpStatus = a} :: BatchUpdateVehicleResponse)
 
 instance Prelude.NFData BatchUpdateVehicleResponse where
   rnf BatchUpdateVehicleResponse' {..} =
-    Prelude.rnf vehicles
-      `Prelude.seq` Prelude.rnf errors
+    Prelude.rnf errors
+      `Prelude.seq` Prelude.rnf vehicles
       `Prelude.seq` Prelude.rnf httpStatus

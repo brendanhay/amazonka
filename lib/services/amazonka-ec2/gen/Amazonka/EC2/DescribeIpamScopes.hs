@@ -29,19 +29,19 @@ module Amazonka.EC2.DescribeIpamScopes
     newDescribeIpamScopes,
 
     -- * Request Lenses
-    describeIpamScopes_nextToken,
-    describeIpamScopes_filters,
     describeIpamScopes_dryRun,
-    describeIpamScopes_maxResults,
+    describeIpamScopes_filters,
     describeIpamScopes_ipamScopeIds,
+    describeIpamScopes_maxResults,
+    describeIpamScopes_nextToken,
 
     -- * Destructuring the Response
     DescribeIpamScopesResponse (..),
     newDescribeIpamScopesResponse,
 
     -- * Response Lenses
-    describeIpamScopesResponse_nextToken,
     describeIpamScopesResponse_ipamScopes,
+    describeIpamScopesResponse_nextToken,
     describeIpamScopesResponse_httpStatus,
   )
 where
@@ -56,21 +56,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeIpamScopes' smart constructor.
 data DescribeIpamScopes = DescribeIpamScopes'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | One or more filters for the request. For more information about
-    -- filtering, see
-    -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html Filtering CLI output>.
-    filters :: Prelude.Maybe [Filter],
-    -- | A check for whether you have the required permissions for the action
+  { -- | A check for whether you have the required permissions for the action
     -- without actually making the request and provides an error response. If
     -- you have the required permissions, the error response is
     -- @DryRunOperation@. Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | One or more filters for the request. For more information about
+    -- filtering, see
+    -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html Filtering CLI output>.
+    filters :: Prelude.Maybe [Filter],
+    -- | The IDs of the scopes you want information on.
+    ipamScopeIds :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of results to return in the request.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The IDs of the scopes you want information on.
-    ipamScopeIds :: Prelude.Maybe [Prelude.Text]
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,40 +82,30 @@ data DescribeIpamScopes = DescribeIpamScopes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeIpamScopes_nextToken' - The token for the next page of results.
---
--- 'filters', 'describeIpamScopes_filters' - One or more filters for the request. For more information about
--- filtering, see
--- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html Filtering CLI output>.
---
 -- 'dryRun', 'describeIpamScopes_dryRun' - A check for whether you have the required permissions for the action
 -- without actually making the request and provides an error response. If
 -- you have the required permissions, the error response is
 -- @DryRunOperation@. Otherwise, it is @UnauthorizedOperation@.
 --
--- 'maxResults', 'describeIpamScopes_maxResults' - The maximum number of results to return in the request.
+-- 'filters', 'describeIpamScopes_filters' - One or more filters for the request. For more information about
+-- filtering, see
+-- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html Filtering CLI output>.
 --
 -- 'ipamScopeIds', 'describeIpamScopes_ipamScopeIds' - The IDs of the scopes you want information on.
+--
+-- 'maxResults', 'describeIpamScopes_maxResults' - The maximum number of results to return in the request.
+--
+-- 'nextToken', 'describeIpamScopes_nextToken' - The token for the next page of results.
 newDescribeIpamScopes ::
   DescribeIpamScopes
 newDescribeIpamScopes =
   DescribeIpamScopes'
-    { nextToken = Prelude.Nothing,
+    { dryRun = Prelude.Nothing,
       filters = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
+      ipamScopeIds = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      ipamScopeIds = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | The token for the next page of results.
-describeIpamScopes_nextToken :: Lens.Lens' DescribeIpamScopes (Prelude.Maybe Prelude.Text)
-describeIpamScopes_nextToken = Lens.lens (\DescribeIpamScopes' {nextToken} -> nextToken) (\s@DescribeIpamScopes' {} a -> s {nextToken = a} :: DescribeIpamScopes)
-
--- | One or more filters for the request. For more information about
--- filtering, see
--- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html Filtering CLI output>.
-describeIpamScopes_filters :: Lens.Lens' DescribeIpamScopes (Prelude.Maybe [Filter])
-describeIpamScopes_filters = Lens.lens (\DescribeIpamScopes' {filters} -> filters) (\s@DescribeIpamScopes' {} a -> s {filters = a} :: DescribeIpamScopes) Prelude.. Lens.mapping Lens.coerced
 
 -- | A check for whether you have the required permissions for the action
 -- without actually making the request and provides an error response. If
@@ -124,13 +114,23 @@ describeIpamScopes_filters = Lens.lens (\DescribeIpamScopes' {filters} -> filter
 describeIpamScopes_dryRun :: Lens.Lens' DescribeIpamScopes (Prelude.Maybe Prelude.Bool)
 describeIpamScopes_dryRun = Lens.lens (\DescribeIpamScopes' {dryRun} -> dryRun) (\s@DescribeIpamScopes' {} a -> s {dryRun = a} :: DescribeIpamScopes)
 
--- | The maximum number of results to return in the request.
-describeIpamScopes_maxResults :: Lens.Lens' DescribeIpamScopes (Prelude.Maybe Prelude.Natural)
-describeIpamScopes_maxResults = Lens.lens (\DescribeIpamScopes' {maxResults} -> maxResults) (\s@DescribeIpamScopes' {} a -> s {maxResults = a} :: DescribeIpamScopes)
+-- | One or more filters for the request. For more information about
+-- filtering, see
+-- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html Filtering CLI output>.
+describeIpamScopes_filters :: Lens.Lens' DescribeIpamScopes (Prelude.Maybe [Filter])
+describeIpamScopes_filters = Lens.lens (\DescribeIpamScopes' {filters} -> filters) (\s@DescribeIpamScopes' {} a -> s {filters = a} :: DescribeIpamScopes) Prelude.. Lens.mapping Lens.coerced
 
 -- | The IDs of the scopes you want information on.
 describeIpamScopes_ipamScopeIds :: Lens.Lens' DescribeIpamScopes (Prelude.Maybe [Prelude.Text])
 describeIpamScopes_ipamScopeIds = Lens.lens (\DescribeIpamScopes' {ipamScopeIds} -> ipamScopeIds) (\s@DescribeIpamScopes' {} a -> s {ipamScopeIds = a} :: DescribeIpamScopes) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum number of results to return in the request.
+describeIpamScopes_maxResults :: Lens.Lens' DescribeIpamScopes (Prelude.Maybe Prelude.Natural)
+describeIpamScopes_maxResults = Lens.lens (\DescribeIpamScopes' {maxResults} -> maxResults) (\s@DescribeIpamScopes' {} a -> s {maxResults = a} :: DescribeIpamScopes)
+
+-- | The token for the next page of results.
+describeIpamScopes_nextToken :: Lens.Lens' DescribeIpamScopes (Prelude.Maybe Prelude.Text)
+describeIpamScopes_nextToken = Lens.lens (\DescribeIpamScopes' {nextToken} -> nextToken) (\s@DescribeIpamScopes' {} a -> s {nextToken = a} :: DescribeIpamScopes)
 
 instance Core.AWSPager DescribeIpamScopes where
   page rq rs
@@ -164,28 +164,28 @@ instance Core.AWSRequest DescribeIpamScopes where
     Response.receiveXML
       ( \s h x ->
           DescribeIpamScopesResponse'
-            Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "ipamScopeSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "ipamScopeSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
+            Prelude.<*> (x Data..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeIpamScopes where
   hashWithSalt _salt DescribeIpamScopes' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` dryRun
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` ipamScopeIds
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeIpamScopes where
   rnf DescribeIpamScopes' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf ipamScopeIds
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeIpamScopes where
   toHeaders = Prelude.const Prelude.mempty
@@ -200,24 +200,24 @@ instance Data.ToQuery DescribeIpamScopes where
           Data.=: ("DescribeIpamScopes" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
+        "DryRun" Data.=: dryRun,
         Data.toQuery
           (Data.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Data.=: dryRun,
-        "MaxResults" Data.=: maxResults,
         Data.toQuery
           ( Data.toQueryList "IpamScopeId"
               Prelude.<$> ipamScopeIds
-          )
+          ),
+        "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newDescribeIpamScopesResponse' smart constructor.
 data DescribeIpamScopesResponse = DescribeIpamScopesResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
+  { -- | The scopes you want information on.
+    ipamScopes :: Prelude.Maybe [IpamScope],
+    -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The scopes you want information on.
-    ipamScopes :: Prelude.Maybe [IpamScope],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -231,10 +231,10 @@ data DescribeIpamScopesResponse = DescribeIpamScopesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ipamScopes', 'describeIpamScopesResponse_ipamScopes' - The scopes you want information on.
+--
 -- 'nextToken', 'describeIpamScopesResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
---
--- 'ipamScopes', 'describeIpamScopesResponse_ipamScopes' - The scopes you want information on.
 --
 -- 'httpStatus', 'describeIpamScopesResponse_httpStatus' - The response's http status code.
 newDescribeIpamScopesResponse ::
@@ -243,20 +243,20 @@ newDescribeIpamScopesResponse ::
   DescribeIpamScopesResponse
 newDescribeIpamScopesResponse pHttpStatus_ =
   DescribeIpamScopesResponse'
-    { nextToken =
+    { ipamScopes =
         Prelude.Nothing,
-      ipamScopes = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The scopes you want information on.
+describeIpamScopesResponse_ipamScopes :: Lens.Lens' DescribeIpamScopesResponse (Prelude.Maybe [IpamScope])
+describeIpamScopesResponse_ipamScopes = Lens.lens (\DescribeIpamScopesResponse' {ipamScopes} -> ipamScopes) (\s@DescribeIpamScopesResponse' {} a -> s {ipamScopes = a} :: DescribeIpamScopesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 describeIpamScopesResponse_nextToken :: Lens.Lens' DescribeIpamScopesResponse (Prelude.Maybe Prelude.Text)
 describeIpamScopesResponse_nextToken = Lens.lens (\DescribeIpamScopesResponse' {nextToken} -> nextToken) (\s@DescribeIpamScopesResponse' {} a -> s {nextToken = a} :: DescribeIpamScopesResponse)
-
--- | The scopes you want information on.
-describeIpamScopesResponse_ipamScopes :: Lens.Lens' DescribeIpamScopesResponse (Prelude.Maybe [IpamScope])
-describeIpamScopesResponse_ipamScopes = Lens.lens (\DescribeIpamScopesResponse' {ipamScopes} -> ipamScopes) (\s@DescribeIpamScopesResponse' {} a -> s {ipamScopes = a} :: DescribeIpamScopesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeIpamScopesResponse_httpStatus :: Lens.Lens' DescribeIpamScopesResponse Prelude.Int
@@ -264,6 +264,6 @@ describeIpamScopesResponse_httpStatus = Lens.lens (\DescribeIpamScopesResponse' 
 
 instance Prelude.NFData DescribeIpamScopesResponse where
   rnf DescribeIpamScopesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf ipamScopes
+    Prelude.rnf ipamScopes
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

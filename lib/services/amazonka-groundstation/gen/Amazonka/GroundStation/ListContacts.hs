@@ -32,11 +32,11 @@ module Amazonka.GroundStation.ListContacts
     newListContacts,
 
     -- * Request Lenses
+    listContacts_groundStation,
+    listContacts_maxResults,
     listContacts_missionProfileArn,
     listContacts_nextToken,
     listContacts_satelliteArn,
-    listContacts_maxResults,
-    listContacts_groundStation,
     listContacts_endTime,
     listContacts_startTime,
     listContacts_statusList,
@@ -46,8 +46,8 @@ module Amazonka.GroundStation.ListContacts
     newListContactsResponse,
 
     -- * Response Lenses
-    listContactsResponse_nextToken,
     listContactsResponse_contactList,
+    listContactsResponse_nextToken,
     listContactsResponse_httpStatus,
   )
 where
@@ -64,17 +64,17 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListContacts' smart constructor.
 data ListContacts = ListContacts'
-  { -- | ARN of a mission profile.
+  { -- | Name of a ground station.
+    groundStation :: Prelude.Maybe Prelude.Text,
+    -- | Maximum number of contacts returned.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | ARN of a mission profile.
     missionProfileArn :: Prelude.Maybe Prelude.Text,
     -- | Next token returned in the request of a previous @ListContacts@ call.
     -- Used to get the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | ARN of a satellite.
     satelliteArn :: Prelude.Maybe Prelude.Text,
-    -- | Maximum number of contacts returned.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Name of a ground station.
-    groundStation :: Prelude.Maybe Prelude.Text,
     -- | End time of a contact in UTC.
     endTime :: Data.POSIX,
     -- | Start time of a contact in UTC.
@@ -92,16 +92,16 @@ data ListContacts = ListContacts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'groundStation', 'listContacts_groundStation' - Name of a ground station.
+--
+-- 'maxResults', 'listContacts_maxResults' - Maximum number of contacts returned.
+--
 -- 'missionProfileArn', 'listContacts_missionProfileArn' - ARN of a mission profile.
 --
 -- 'nextToken', 'listContacts_nextToken' - Next token returned in the request of a previous @ListContacts@ call.
 -- Used to get the next page of results.
 --
 -- 'satelliteArn', 'listContacts_satelliteArn' - ARN of a satellite.
---
--- 'maxResults', 'listContacts_maxResults' - Maximum number of contacts returned.
---
--- 'groundStation', 'listContacts_groundStation' - Name of a ground station.
 --
 -- 'endTime', 'listContacts_endTime' - End time of a contact in UTC.
 --
@@ -116,15 +116,23 @@ newListContacts ::
   ListContacts
 newListContacts pEndTime_ pStartTime_ =
   ListContacts'
-    { missionProfileArn = Prelude.Nothing,
+    { groundStation = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      missionProfileArn = Prelude.Nothing,
       nextToken = Prelude.Nothing,
       satelliteArn = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      groundStation = Prelude.Nothing,
       endTime = Data._Time Lens.# pEndTime_,
       startTime = Data._Time Lens.# pStartTime_,
       statusList = Prelude.mempty
     }
+
+-- | Name of a ground station.
+listContacts_groundStation :: Lens.Lens' ListContacts (Prelude.Maybe Prelude.Text)
+listContacts_groundStation = Lens.lens (\ListContacts' {groundStation} -> groundStation) (\s@ListContacts' {} a -> s {groundStation = a} :: ListContacts)
+
+-- | Maximum number of contacts returned.
+listContacts_maxResults :: Lens.Lens' ListContacts (Prelude.Maybe Prelude.Natural)
+listContacts_maxResults = Lens.lens (\ListContacts' {maxResults} -> maxResults) (\s@ListContacts' {} a -> s {maxResults = a} :: ListContacts)
 
 -- | ARN of a mission profile.
 listContacts_missionProfileArn :: Lens.Lens' ListContacts (Prelude.Maybe Prelude.Text)
@@ -138,14 +146,6 @@ listContacts_nextToken = Lens.lens (\ListContacts' {nextToken} -> nextToken) (\s
 -- | ARN of a satellite.
 listContacts_satelliteArn :: Lens.Lens' ListContacts (Prelude.Maybe Prelude.Text)
 listContacts_satelliteArn = Lens.lens (\ListContacts' {satelliteArn} -> satelliteArn) (\s@ListContacts' {} a -> s {satelliteArn = a} :: ListContacts)
-
--- | Maximum number of contacts returned.
-listContacts_maxResults :: Lens.Lens' ListContacts (Prelude.Maybe Prelude.Natural)
-listContacts_maxResults = Lens.lens (\ListContacts' {maxResults} -> maxResults) (\s@ListContacts' {} a -> s {maxResults = a} :: ListContacts)
-
--- | Name of a ground station.
-listContacts_groundStation :: Lens.Lens' ListContacts (Prelude.Maybe Prelude.Text)
-listContacts_groundStation = Lens.lens (\ListContacts' {groundStation} -> groundStation) (\s@ListContacts' {} a -> s {groundStation = a} :: ListContacts)
 
 -- | End time of a contact in UTC.
 listContacts_endTime :: Lens.Lens' ListContacts Prelude.UTCTime
@@ -187,29 +187,29 @@ instance Core.AWSRequest ListContacts where
     Response.receiveJSON
       ( \s h x ->
           ListContactsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "contactList" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "contactList" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListContacts where
   hashWithSalt _salt ListContacts' {..} =
-    _salt `Prelude.hashWithSalt` missionProfileArn
+    _salt `Prelude.hashWithSalt` groundStation
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` missionProfileArn
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` satelliteArn
-      `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` groundStation
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` statusList
 
 instance Prelude.NFData ListContacts where
   rnf ListContacts' {..} =
-    Prelude.rnf missionProfileArn
+    Prelude.rnf groundStation
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf missionProfileArn
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf satelliteArn
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf groundStation
       `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf statusList
@@ -229,12 +229,12 @@ instance Data.ToJSON ListContacts where
   toJSON ListContacts' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("missionProfileArn" Data..=)
+          [ ("groundStation" Data..=) Prelude.<$> groundStation,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("missionProfileArn" Data..=)
               Prelude.<$> missionProfileArn,
             ("nextToken" Data..=) Prelude.<$> nextToken,
             ("satelliteArn" Data..=) Prelude.<$> satelliteArn,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
-            ("groundStation" Data..=) Prelude.<$> groundStation,
             Prelude.Just ("endTime" Data..= endTime),
             Prelude.Just ("startTime" Data..= startTime),
             Prelude.Just ("statusList" Data..= statusList)
@@ -251,11 +251,11 @@ instance Data.ToQuery ListContacts where
 --
 -- /See:/ 'newListContactsResponse' smart constructor.
 data ListContactsResponse = ListContactsResponse'
-  { -- | Next token returned in the response of a previous @ListContacts@ call.
+  { -- | List of contacts.
+    contactList :: Prelude.Maybe [ContactData],
+    -- | Next token returned in the response of a previous @ListContacts@ call.
     -- Used to get the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | List of contacts.
-    contactList :: Prelude.Maybe [ContactData],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -269,10 +269,10 @@ data ListContactsResponse = ListContactsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'contactList', 'listContactsResponse_contactList' - List of contacts.
+--
 -- 'nextToken', 'listContactsResponse_nextToken' - Next token returned in the response of a previous @ListContacts@ call.
 -- Used to get the next page of results.
---
--- 'contactList', 'listContactsResponse_contactList' - List of contacts.
 --
 -- 'httpStatus', 'listContactsResponse_httpStatus' - The response's http status code.
 newListContactsResponse ::
@@ -281,19 +281,20 @@ newListContactsResponse ::
   ListContactsResponse
 newListContactsResponse pHttpStatus_ =
   ListContactsResponse'
-    { nextToken = Prelude.Nothing,
-      contactList = Prelude.Nothing,
+    { contactList =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | List of contacts.
+listContactsResponse_contactList :: Lens.Lens' ListContactsResponse (Prelude.Maybe [ContactData])
+listContactsResponse_contactList = Lens.lens (\ListContactsResponse' {contactList} -> contactList) (\s@ListContactsResponse' {} a -> s {contactList = a} :: ListContactsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Next token returned in the response of a previous @ListContacts@ call.
 -- Used to get the next page of results.
 listContactsResponse_nextToken :: Lens.Lens' ListContactsResponse (Prelude.Maybe Prelude.Text)
 listContactsResponse_nextToken = Lens.lens (\ListContactsResponse' {nextToken} -> nextToken) (\s@ListContactsResponse' {} a -> s {nextToken = a} :: ListContactsResponse)
-
--- | List of contacts.
-listContactsResponse_contactList :: Lens.Lens' ListContactsResponse (Prelude.Maybe [ContactData])
-listContactsResponse_contactList = Lens.lens (\ListContactsResponse' {contactList} -> contactList) (\s@ListContactsResponse' {} a -> s {contactList = a} :: ListContactsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listContactsResponse_httpStatus :: Lens.Lens' ListContactsResponse Prelude.Int
@@ -301,6 +302,6 @@ listContactsResponse_httpStatus = Lens.lens (\ListContactsResponse' {httpStatus}
 
 instance Prelude.NFData ListContactsResponse where
   rnf ListContactsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf contactList
+    Prelude.rnf contactList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

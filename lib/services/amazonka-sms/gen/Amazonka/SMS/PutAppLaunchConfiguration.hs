@@ -28,10 +28,10 @@ module Amazonka.SMS.PutAppLaunchConfiguration
     newPutAppLaunchConfiguration,
 
     -- * Request Lenses
+    putAppLaunchConfiguration_appId,
+    putAppLaunchConfiguration_autoLaunch,
     putAppLaunchConfiguration_roleName,
     putAppLaunchConfiguration_serverGroupLaunchConfigurations,
-    putAppLaunchConfiguration_autoLaunch,
-    putAppLaunchConfiguration_appId,
 
     -- * Destructuring the Response
     PutAppLaunchConfigurationResponse (..),
@@ -52,17 +52,17 @@ import Amazonka.SMS.Types
 
 -- | /See:/ 'newPutAppLaunchConfiguration' smart constructor.
 data PutAppLaunchConfiguration = PutAppLaunchConfiguration'
-  { -- | The name of service role in the customer\'s account that CloudFormation
+  { -- | The ID of the application.
+    appId :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether the application is configured to launch automatically
+    -- after replication is complete.
+    autoLaunch :: Prelude.Maybe Prelude.Bool,
+    -- | The name of service role in the customer\'s account that CloudFormation
     -- uses to launch the application.
     roleName :: Prelude.Maybe Prelude.Text,
     -- | Information about the launch configurations for server groups in the
     -- application.
-    serverGroupLaunchConfigurations :: Prelude.Maybe [ServerGroupLaunchConfiguration],
-    -- | Indicates whether the application is configured to launch automatically
-    -- after replication is complete.
-    autoLaunch :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the application.
-    appId :: Prelude.Maybe Prelude.Text
+    serverGroupLaunchConfigurations :: Prelude.Maybe [ServerGroupLaunchConfiguration]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,27 +74,35 @@ data PutAppLaunchConfiguration = PutAppLaunchConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'appId', 'putAppLaunchConfiguration_appId' - The ID of the application.
+--
+-- 'autoLaunch', 'putAppLaunchConfiguration_autoLaunch' - Indicates whether the application is configured to launch automatically
+-- after replication is complete.
+--
 -- 'roleName', 'putAppLaunchConfiguration_roleName' - The name of service role in the customer\'s account that CloudFormation
 -- uses to launch the application.
 --
 -- 'serverGroupLaunchConfigurations', 'putAppLaunchConfiguration_serverGroupLaunchConfigurations' - Information about the launch configurations for server groups in the
 -- application.
---
--- 'autoLaunch', 'putAppLaunchConfiguration_autoLaunch' - Indicates whether the application is configured to launch automatically
--- after replication is complete.
---
--- 'appId', 'putAppLaunchConfiguration_appId' - The ID of the application.
 newPutAppLaunchConfiguration ::
   PutAppLaunchConfiguration
 newPutAppLaunchConfiguration =
   PutAppLaunchConfiguration'
-    { roleName =
-        Prelude.Nothing,
-      serverGroupLaunchConfigurations =
-        Prelude.Nothing,
+    { appId = Prelude.Nothing,
       autoLaunch = Prelude.Nothing,
-      appId = Prelude.Nothing
+      roleName = Prelude.Nothing,
+      serverGroupLaunchConfigurations =
+        Prelude.Nothing
     }
+
+-- | The ID of the application.
+putAppLaunchConfiguration_appId :: Lens.Lens' PutAppLaunchConfiguration (Prelude.Maybe Prelude.Text)
+putAppLaunchConfiguration_appId = Lens.lens (\PutAppLaunchConfiguration' {appId} -> appId) (\s@PutAppLaunchConfiguration' {} a -> s {appId = a} :: PutAppLaunchConfiguration)
+
+-- | Indicates whether the application is configured to launch automatically
+-- after replication is complete.
+putAppLaunchConfiguration_autoLaunch :: Lens.Lens' PutAppLaunchConfiguration (Prelude.Maybe Prelude.Bool)
+putAppLaunchConfiguration_autoLaunch = Lens.lens (\PutAppLaunchConfiguration' {autoLaunch} -> autoLaunch) (\s@PutAppLaunchConfiguration' {} a -> s {autoLaunch = a} :: PutAppLaunchConfiguration)
 
 -- | The name of service role in the customer\'s account that CloudFormation
 -- uses to launch the application.
@@ -105,15 +113,6 @@ putAppLaunchConfiguration_roleName = Lens.lens (\PutAppLaunchConfiguration' {rol
 -- application.
 putAppLaunchConfiguration_serverGroupLaunchConfigurations :: Lens.Lens' PutAppLaunchConfiguration (Prelude.Maybe [ServerGroupLaunchConfiguration])
 putAppLaunchConfiguration_serverGroupLaunchConfigurations = Lens.lens (\PutAppLaunchConfiguration' {serverGroupLaunchConfigurations} -> serverGroupLaunchConfigurations) (\s@PutAppLaunchConfiguration' {} a -> s {serverGroupLaunchConfigurations = a} :: PutAppLaunchConfiguration) Prelude.. Lens.mapping Lens.coerced
-
--- | Indicates whether the application is configured to launch automatically
--- after replication is complete.
-putAppLaunchConfiguration_autoLaunch :: Lens.Lens' PutAppLaunchConfiguration (Prelude.Maybe Prelude.Bool)
-putAppLaunchConfiguration_autoLaunch = Lens.lens (\PutAppLaunchConfiguration' {autoLaunch} -> autoLaunch) (\s@PutAppLaunchConfiguration' {} a -> s {autoLaunch = a} :: PutAppLaunchConfiguration)
-
--- | The ID of the application.
-putAppLaunchConfiguration_appId :: Lens.Lens' PutAppLaunchConfiguration (Prelude.Maybe Prelude.Text)
-putAppLaunchConfiguration_appId = Lens.lens (\PutAppLaunchConfiguration' {appId} -> appId) (\s@PutAppLaunchConfiguration' {} a -> s {appId = a} :: PutAppLaunchConfiguration)
 
 instance Core.AWSRequest PutAppLaunchConfiguration where
   type
@@ -130,17 +129,17 @@ instance Core.AWSRequest PutAppLaunchConfiguration where
 
 instance Prelude.Hashable PutAppLaunchConfiguration where
   hashWithSalt _salt PutAppLaunchConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` roleName
-      `Prelude.hashWithSalt` serverGroupLaunchConfigurations
+    _salt `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` autoLaunch
-      `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` roleName
+      `Prelude.hashWithSalt` serverGroupLaunchConfigurations
 
 instance Prelude.NFData PutAppLaunchConfiguration where
   rnf PutAppLaunchConfiguration' {..} =
-    Prelude.rnf roleName
-      `Prelude.seq` Prelude.rnf serverGroupLaunchConfigurations
+    Prelude.rnf appId
       `Prelude.seq` Prelude.rnf autoLaunch
-      `Prelude.seq` Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf roleName
+      `Prelude.seq` Prelude.rnf serverGroupLaunchConfigurations
 
 instance Data.ToHeaders PutAppLaunchConfiguration where
   toHeaders =
@@ -161,11 +160,11 @@ instance Data.ToJSON PutAppLaunchConfiguration where
   toJSON PutAppLaunchConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("roleName" Data..=) Prelude.<$> roleName,
-            ("serverGroupLaunchConfigurations" Data..=)
-              Prelude.<$> serverGroupLaunchConfigurations,
+          [ ("appId" Data..=) Prelude.<$> appId,
             ("autoLaunch" Data..=) Prelude.<$> autoLaunch,
-            ("appId" Data..=) Prelude.<$> appId
+            ("roleName" Data..=) Prelude.<$> roleName,
+            ("serverGroupLaunchConfigurations" Data..=)
+              Prelude.<$> serverGroupLaunchConfigurations
           ]
       )
 

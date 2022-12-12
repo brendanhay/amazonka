@@ -29,8 +29,8 @@ module Amazonka.CodeStar.ListTeamMembers
     newListTeamMembers,
 
     -- * Request Lenses
-    listTeamMembers_nextToken,
     listTeamMembers_maxResults,
+    listTeamMembers_nextToken,
     listTeamMembers_projectId,
 
     -- * Destructuring the Response
@@ -54,11 +54,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTeamMembers' smart constructor.
 data ListTeamMembers = ListTeamMembers'
-  { -- | The continuation token for the next set of results, if the results
+  { -- | The maximum number of team members you want returned in a response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The continuation token for the next set of results, if the results
     -- cannot be returned in one response.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of team members you want returned in a response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the project for which you want to list team members.
     projectId :: Prelude.Text
   }
@@ -72,10 +72,10 @@ data ListTeamMembers = ListTeamMembers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listTeamMembers_maxResults' - The maximum number of team members you want returned in a response.
+--
 -- 'nextToken', 'listTeamMembers_nextToken' - The continuation token for the next set of results, if the results
 -- cannot be returned in one response.
---
--- 'maxResults', 'listTeamMembers_maxResults' - The maximum number of team members you want returned in a response.
 --
 -- 'projectId', 'listTeamMembers_projectId' - The ID of the project for which you want to list team members.
 newListTeamMembers ::
@@ -84,19 +84,19 @@ newListTeamMembers ::
   ListTeamMembers
 newListTeamMembers pProjectId_ =
   ListTeamMembers'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       projectId = pProjectId_
     }
+
+-- | The maximum number of team members you want returned in a response.
+listTeamMembers_maxResults :: Lens.Lens' ListTeamMembers (Prelude.Maybe Prelude.Natural)
+listTeamMembers_maxResults = Lens.lens (\ListTeamMembers' {maxResults} -> maxResults) (\s@ListTeamMembers' {} a -> s {maxResults = a} :: ListTeamMembers)
 
 -- | The continuation token for the next set of results, if the results
 -- cannot be returned in one response.
 listTeamMembers_nextToken :: Lens.Lens' ListTeamMembers (Prelude.Maybe Prelude.Text)
 listTeamMembers_nextToken = Lens.lens (\ListTeamMembers' {nextToken} -> nextToken) (\s@ListTeamMembers' {} a -> s {nextToken = a} :: ListTeamMembers)
-
--- | The maximum number of team members you want returned in a response.
-listTeamMembers_maxResults :: Lens.Lens' ListTeamMembers (Prelude.Maybe Prelude.Natural)
-listTeamMembers_maxResults = Lens.lens (\ListTeamMembers' {maxResults} -> maxResults) (\s@ListTeamMembers' {} a -> s {maxResults = a} :: ListTeamMembers)
 
 -- | The ID of the project for which you want to list team members.
 listTeamMembers_projectId :: Lens.Lens' ListTeamMembers Prelude.Text
@@ -138,14 +138,14 @@ instance Core.AWSRequest ListTeamMembers where
 
 instance Prelude.Hashable ListTeamMembers where
   hashWithSalt _salt ListTeamMembers' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` projectId
 
 instance Prelude.NFData ListTeamMembers where
   rnf ListTeamMembers' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf projectId
 
 instance Data.ToHeaders ListTeamMembers where
@@ -167,8 +167,8 @@ instance Data.ToJSON ListTeamMembers where
   toJSON ListTeamMembers' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("projectId" Data..= projectId)
           ]
       )

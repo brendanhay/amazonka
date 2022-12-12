@@ -28,15 +28,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCatalogTarget' smart constructor.
 data CatalogTarget = CatalogTarget'
-  { -- | A valid Amazon dead-letter SQS ARN. For example,
+  { -- | The name of the connection for an Amazon S3-backed Data Catalog table to
+    -- be a target of the crawl when using a @Catalog@ connection type paired
+    -- with a @NETWORK@ Connection type.
+    connectionName :: Prelude.Maybe Prelude.Text,
+    -- | A valid Amazon dead-letter SQS ARN. For example,
     -- @arn:aws:sqs:region:account:deadLetterQueue@.
     dlqEventQueueArn :: Prelude.Maybe Prelude.Text,
     -- | A valid Amazon SQS ARN. For example, @arn:aws:sqs:region:account:sqs@.
     eventQueueArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the connection for an Amazon S3-backed Data Catalog table to
-    -- be a target of the crawl when using a @Catalog@ connection type paired
-    -- with a @NETWORK@ Connection type.
-    connectionName :: Prelude.Maybe Prelude.Text,
     -- | The name of the database to be synchronized.
     databaseName :: Prelude.Text,
     -- | A list of the tables to be synchronized.
@@ -52,14 +52,14 @@ data CatalogTarget = CatalogTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'connectionName', 'catalogTarget_connectionName' - The name of the connection for an Amazon S3-backed Data Catalog table to
+-- be a target of the crawl when using a @Catalog@ connection type paired
+-- with a @NETWORK@ Connection type.
+--
 -- 'dlqEventQueueArn', 'catalogTarget_dlqEventQueueArn' - A valid Amazon dead-letter SQS ARN. For example,
 -- @arn:aws:sqs:region:account:deadLetterQueue@.
 --
 -- 'eventQueueArn', 'catalogTarget_eventQueueArn' - A valid Amazon SQS ARN. For example, @arn:aws:sqs:region:account:sqs@.
---
--- 'connectionName', 'catalogTarget_connectionName' - The name of the connection for an Amazon S3-backed Data Catalog table to
--- be a target of the crawl when using a @Catalog@ connection type paired
--- with a @NETWORK@ Connection type.
 --
 -- 'databaseName', 'catalogTarget_databaseName' - The name of the database to be synchronized.
 --
@@ -72,12 +72,18 @@ newCatalogTarget ::
   CatalogTarget
 newCatalogTarget pDatabaseName_ pTables_ =
   CatalogTarget'
-    { dlqEventQueueArn = Prelude.Nothing,
+    { connectionName = Prelude.Nothing,
+      dlqEventQueueArn = Prelude.Nothing,
       eventQueueArn = Prelude.Nothing,
-      connectionName = Prelude.Nothing,
       databaseName = pDatabaseName_,
       tables = Lens.coerced Lens.# pTables_
     }
+
+-- | The name of the connection for an Amazon S3-backed Data Catalog table to
+-- be a target of the crawl when using a @Catalog@ connection type paired
+-- with a @NETWORK@ Connection type.
+catalogTarget_connectionName :: Lens.Lens' CatalogTarget (Prelude.Maybe Prelude.Text)
+catalogTarget_connectionName = Lens.lens (\CatalogTarget' {connectionName} -> connectionName) (\s@CatalogTarget' {} a -> s {connectionName = a} :: CatalogTarget)
 
 -- | A valid Amazon dead-letter SQS ARN. For example,
 -- @arn:aws:sqs:region:account:deadLetterQueue@.
@@ -87,12 +93,6 @@ catalogTarget_dlqEventQueueArn = Lens.lens (\CatalogTarget' {dlqEventQueueArn} -
 -- | A valid Amazon SQS ARN. For example, @arn:aws:sqs:region:account:sqs@.
 catalogTarget_eventQueueArn :: Lens.Lens' CatalogTarget (Prelude.Maybe Prelude.Text)
 catalogTarget_eventQueueArn = Lens.lens (\CatalogTarget' {eventQueueArn} -> eventQueueArn) (\s@CatalogTarget' {} a -> s {eventQueueArn = a} :: CatalogTarget)
-
--- | The name of the connection for an Amazon S3-backed Data Catalog table to
--- be a target of the crawl when using a @Catalog@ connection type paired
--- with a @NETWORK@ Connection type.
-catalogTarget_connectionName :: Lens.Lens' CatalogTarget (Prelude.Maybe Prelude.Text)
-catalogTarget_connectionName = Lens.lens (\CatalogTarget' {connectionName} -> connectionName) (\s@CatalogTarget' {} a -> s {connectionName = a} :: CatalogTarget)
 
 -- | The name of the database to be synchronized.
 catalogTarget_databaseName :: Lens.Lens' CatalogTarget Prelude.Text
@@ -108,26 +108,26 @@ instance Data.FromJSON CatalogTarget where
       "CatalogTarget"
       ( \x ->
           CatalogTarget'
-            Prelude.<$> (x Data..:? "DlqEventQueueArn")
+            Prelude.<$> (x Data..:? "ConnectionName")
+            Prelude.<*> (x Data..:? "DlqEventQueueArn")
             Prelude.<*> (x Data..:? "EventQueueArn")
-            Prelude.<*> (x Data..:? "ConnectionName")
             Prelude.<*> (x Data..: "DatabaseName")
             Prelude.<*> (x Data..: "Tables")
       )
 
 instance Prelude.Hashable CatalogTarget where
   hashWithSalt _salt CatalogTarget' {..} =
-    _salt `Prelude.hashWithSalt` dlqEventQueueArn
+    _salt `Prelude.hashWithSalt` connectionName
+      `Prelude.hashWithSalt` dlqEventQueueArn
       `Prelude.hashWithSalt` eventQueueArn
-      `Prelude.hashWithSalt` connectionName
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tables
 
 instance Prelude.NFData CatalogTarget where
   rnf CatalogTarget' {..} =
-    Prelude.rnf dlqEventQueueArn
+    Prelude.rnf connectionName
+      `Prelude.seq` Prelude.rnf dlqEventQueueArn
       `Prelude.seq` Prelude.rnf eventQueueArn
-      `Prelude.seq` Prelude.rnf connectionName
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf tables
 
@@ -135,11 +135,11 @@ instance Data.ToJSON CatalogTarget where
   toJSON CatalogTarget' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DlqEventQueueArn" Data..=)
+          [ ("ConnectionName" Data..=)
+              Prelude.<$> connectionName,
+            ("DlqEventQueueArn" Data..=)
               Prelude.<$> dlqEventQueueArn,
             ("EventQueueArn" Data..=) Prelude.<$> eventQueueArn,
-            ("ConnectionName" Data..=)
-              Prelude.<$> connectionName,
             Prelude.Just ("DatabaseName" Data..= databaseName),
             Prelude.Just ("Tables" Data..= tables)
           ]

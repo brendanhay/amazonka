@@ -33,10 +33,30 @@ import Amazonka.XRay.Types.ServiceStatistics
 --
 -- /See:/ 'newServiceInfo' smart constructor.
 data ServiceInfo = ServiceInfo'
-  { -- | Connections to downstream services.
+  { -- | Identifier of the Amazon Web Services account in which the service runs.
+    accountId :: Prelude.Maybe Prelude.Text,
+    -- | A histogram that maps the spread of service durations.
+    durationHistogram :: Prelude.Maybe [HistogramEntry],
+    -- | Connections to downstream services.
     edges :: Prelude.Maybe [Edge],
+    -- | The end time of the last segment that the service generated.
+    endTime :: Prelude.Maybe Data.POSIX,
     -- | The canonical name of the service.
     name :: Prelude.Maybe Prelude.Text,
+    -- | A list of names for the service, including the canonical name.
+    names :: Prelude.Maybe [Prelude.Text],
+    -- | Identifier for the service. Unique within the service map.
+    referenceId :: Prelude.Maybe Prelude.Int,
+    -- | A histogram that maps the spread of service response times.
+    responseTimeHistogram :: Prelude.Maybe [HistogramEntry],
+    -- | Indicates that the service was the first service to process a request.
+    root :: Prelude.Maybe Prelude.Bool,
+    -- | The start time of the first segment that the service generated.
+    startTime :: Prelude.Maybe Data.POSIX,
+    -- | The service\'s state.
+    state :: Prelude.Maybe Prelude.Text,
+    -- | Aggregated statistics for the service.
+    summaryStatistics :: Prelude.Maybe ServiceStatistics,
     -- | The type of service.
     --
     -- -   Amazon Web Services Resource - The type of an Amazon Web Services
@@ -52,27 +72,7 @@ data ServiceInfo = ServiceInfo'
     --     service.
     --
     -- -   @remote@ - A downstream service of indeterminate type.
-    type' :: Prelude.Maybe Prelude.Text,
-    -- | Aggregated statistics for the service.
-    summaryStatistics :: Prelude.Maybe ServiceStatistics,
-    -- | The service\'s state.
-    state :: Prelude.Maybe Prelude.Text,
-    -- | The end time of the last segment that the service generated.
-    endTime :: Prelude.Maybe Data.POSIX,
-    -- | A list of names for the service, including the canonical name.
-    names :: Prelude.Maybe [Prelude.Text],
-    -- | A histogram that maps the spread of service response times.
-    responseTimeHistogram :: Prelude.Maybe [HistogramEntry],
-    -- | Identifier of the Amazon Web Services account in which the service runs.
-    accountId :: Prelude.Maybe Prelude.Text,
-    -- | Indicates that the service was the first service to process a request.
-    root :: Prelude.Maybe Prelude.Bool,
-    -- | Identifier for the service. Unique within the service map.
-    referenceId :: Prelude.Maybe Prelude.Int,
-    -- | A histogram that maps the spread of service durations.
-    durationHistogram :: Prelude.Maybe [HistogramEntry],
-    -- | The start time of the first segment that the service generated.
-    startTime :: Prelude.Maybe Data.POSIX
+    type' :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,9 +84,29 @@ data ServiceInfo = ServiceInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'accountId', 'serviceInfo_accountId' - Identifier of the Amazon Web Services account in which the service runs.
+--
+-- 'durationHistogram', 'serviceInfo_durationHistogram' - A histogram that maps the spread of service durations.
+--
 -- 'edges', 'serviceInfo_edges' - Connections to downstream services.
 --
+-- 'endTime', 'serviceInfo_endTime' - The end time of the last segment that the service generated.
+--
 -- 'name', 'serviceInfo_name' - The canonical name of the service.
+--
+-- 'names', 'serviceInfo_names' - A list of names for the service, including the canonical name.
+--
+-- 'referenceId', 'serviceInfo_referenceId' - Identifier for the service. Unique within the service map.
+--
+-- 'responseTimeHistogram', 'serviceInfo_responseTimeHistogram' - A histogram that maps the spread of service response times.
+--
+-- 'root', 'serviceInfo_root' - Indicates that the service was the first service to process a request.
+--
+-- 'startTime', 'serviceInfo_startTime' - The start time of the first segment that the service generated.
+--
+-- 'state', 'serviceInfo_state' - The service\'s state.
+--
+-- 'summaryStatistics', 'serviceInfo_summaryStatistics' - Aggregated statistics for the service.
 --
 -- 'type'', 'serviceInfo_type' - The type of service.
 --
@@ -103,52 +123,72 @@ data ServiceInfo = ServiceInfo'
 --     service.
 --
 -- -   @remote@ - A downstream service of indeterminate type.
---
--- 'summaryStatistics', 'serviceInfo_summaryStatistics' - Aggregated statistics for the service.
---
--- 'state', 'serviceInfo_state' - The service\'s state.
---
--- 'endTime', 'serviceInfo_endTime' - The end time of the last segment that the service generated.
---
--- 'names', 'serviceInfo_names' - A list of names for the service, including the canonical name.
---
--- 'responseTimeHistogram', 'serviceInfo_responseTimeHistogram' - A histogram that maps the spread of service response times.
---
--- 'accountId', 'serviceInfo_accountId' - Identifier of the Amazon Web Services account in which the service runs.
---
--- 'root', 'serviceInfo_root' - Indicates that the service was the first service to process a request.
---
--- 'referenceId', 'serviceInfo_referenceId' - Identifier for the service. Unique within the service map.
---
--- 'durationHistogram', 'serviceInfo_durationHistogram' - A histogram that maps the spread of service durations.
---
--- 'startTime', 'serviceInfo_startTime' - The start time of the first segment that the service generated.
 newServiceInfo ::
   ServiceInfo
 newServiceInfo =
   ServiceInfo'
-    { edges = Prelude.Nothing,
-      name = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      summaryStatistics = Prelude.Nothing,
-      state = Prelude.Nothing,
-      endTime = Prelude.Nothing,
-      names = Prelude.Nothing,
-      responseTimeHistogram = Prelude.Nothing,
-      accountId = Prelude.Nothing,
-      root = Prelude.Nothing,
-      referenceId = Prelude.Nothing,
+    { accountId = Prelude.Nothing,
       durationHistogram = Prelude.Nothing,
-      startTime = Prelude.Nothing
+      edges = Prelude.Nothing,
+      endTime = Prelude.Nothing,
+      name = Prelude.Nothing,
+      names = Prelude.Nothing,
+      referenceId = Prelude.Nothing,
+      responseTimeHistogram = Prelude.Nothing,
+      root = Prelude.Nothing,
+      startTime = Prelude.Nothing,
+      state = Prelude.Nothing,
+      summaryStatistics = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
+
+-- | Identifier of the Amazon Web Services account in which the service runs.
+serviceInfo_accountId :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.Text)
+serviceInfo_accountId = Lens.lens (\ServiceInfo' {accountId} -> accountId) (\s@ServiceInfo' {} a -> s {accountId = a} :: ServiceInfo)
+
+-- | A histogram that maps the spread of service durations.
+serviceInfo_durationHistogram :: Lens.Lens' ServiceInfo (Prelude.Maybe [HistogramEntry])
+serviceInfo_durationHistogram = Lens.lens (\ServiceInfo' {durationHistogram} -> durationHistogram) (\s@ServiceInfo' {} a -> s {durationHistogram = a} :: ServiceInfo) Prelude.. Lens.mapping Lens.coerced
 
 -- | Connections to downstream services.
 serviceInfo_edges :: Lens.Lens' ServiceInfo (Prelude.Maybe [Edge])
 serviceInfo_edges = Lens.lens (\ServiceInfo' {edges} -> edges) (\s@ServiceInfo' {} a -> s {edges = a} :: ServiceInfo) Prelude.. Lens.mapping Lens.coerced
 
+-- | The end time of the last segment that the service generated.
+serviceInfo_endTime :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.UTCTime)
+serviceInfo_endTime = Lens.lens (\ServiceInfo' {endTime} -> endTime) (\s@ServiceInfo' {} a -> s {endTime = a} :: ServiceInfo) Prelude.. Lens.mapping Data._Time
+
 -- | The canonical name of the service.
 serviceInfo_name :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.Text)
 serviceInfo_name = Lens.lens (\ServiceInfo' {name} -> name) (\s@ServiceInfo' {} a -> s {name = a} :: ServiceInfo)
+
+-- | A list of names for the service, including the canonical name.
+serviceInfo_names :: Lens.Lens' ServiceInfo (Prelude.Maybe [Prelude.Text])
+serviceInfo_names = Lens.lens (\ServiceInfo' {names} -> names) (\s@ServiceInfo' {} a -> s {names = a} :: ServiceInfo) Prelude.. Lens.mapping Lens.coerced
+
+-- | Identifier for the service. Unique within the service map.
+serviceInfo_referenceId :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.Int)
+serviceInfo_referenceId = Lens.lens (\ServiceInfo' {referenceId} -> referenceId) (\s@ServiceInfo' {} a -> s {referenceId = a} :: ServiceInfo)
+
+-- | A histogram that maps the spread of service response times.
+serviceInfo_responseTimeHistogram :: Lens.Lens' ServiceInfo (Prelude.Maybe [HistogramEntry])
+serviceInfo_responseTimeHistogram = Lens.lens (\ServiceInfo' {responseTimeHistogram} -> responseTimeHistogram) (\s@ServiceInfo' {} a -> s {responseTimeHistogram = a} :: ServiceInfo) Prelude.. Lens.mapping Lens.coerced
+
+-- | Indicates that the service was the first service to process a request.
+serviceInfo_root :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.Bool)
+serviceInfo_root = Lens.lens (\ServiceInfo' {root} -> root) (\s@ServiceInfo' {} a -> s {root = a} :: ServiceInfo)
+
+-- | The start time of the first segment that the service generated.
+serviceInfo_startTime :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.UTCTime)
+serviceInfo_startTime = Lens.lens (\ServiceInfo' {startTime} -> startTime) (\s@ServiceInfo' {} a -> s {startTime = a} :: ServiceInfo) Prelude.. Lens.mapping Data._Time
+
+-- | The service\'s state.
+serviceInfo_state :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.Text)
+serviceInfo_state = Lens.lens (\ServiceInfo' {state} -> state) (\s@ServiceInfo' {} a -> s {state = a} :: ServiceInfo)
+
+-- | Aggregated statistics for the service.
+serviceInfo_summaryStatistics :: Lens.Lens' ServiceInfo (Prelude.Maybe ServiceStatistics)
+serviceInfo_summaryStatistics = Lens.lens (\ServiceInfo' {summaryStatistics} -> summaryStatistics) (\s@ServiceInfo' {} a -> s {summaryStatistics = a} :: ServiceInfo)
 
 -- | The type of service.
 --
@@ -168,99 +208,59 @@ serviceInfo_name = Lens.lens (\ServiceInfo' {name} -> name) (\s@ServiceInfo' {} 
 serviceInfo_type :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.Text)
 serviceInfo_type = Lens.lens (\ServiceInfo' {type'} -> type') (\s@ServiceInfo' {} a -> s {type' = a} :: ServiceInfo)
 
--- | Aggregated statistics for the service.
-serviceInfo_summaryStatistics :: Lens.Lens' ServiceInfo (Prelude.Maybe ServiceStatistics)
-serviceInfo_summaryStatistics = Lens.lens (\ServiceInfo' {summaryStatistics} -> summaryStatistics) (\s@ServiceInfo' {} a -> s {summaryStatistics = a} :: ServiceInfo)
-
--- | The service\'s state.
-serviceInfo_state :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.Text)
-serviceInfo_state = Lens.lens (\ServiceInfo' {state} -> state) (\s@ServiceInfo' {} a -> s {state = a} :: ServiceInfo)
-
--- | The end time of the last segment that the service generated.
-serviceInfo_endTime :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.UTCTime)
-serviceInfo_endTime = Lens.lens (\ServiceInfo' {endTime} -> endTime) (\s@ServiceInfo' {} a -> s {endTime = a} :: ServiceInfo) Prelude.. Lens.mapping Data._Time
-
--- | A list of names for the service, including the canonical name.
-serviceInfo_names :: Lens.Lens' ServiceInfo (Prelude.Maybe [Prelude.Text])
-serviceInfo_names = Lens.lens (\ServiceInfo' {names} -> names) (\s@ServiceInfo' {} a -> s {names = a} :: ServiceInfo) Prelude.. Lens.mapping Lens.coerced
-
--- | A histogram that maps the spread of service response times.
-serviceInfo_responseTimeHistogram :: Lens.Lens' ServiceInfo (Prelude.Maybe [HistogramEntry])
-serviceInfo_responseTimeHistogram = Lens.lens (\ServiceInfo' {responseTimeHistogram} -> responseTimeHistogram) (\s@ServiceInfo' {} a -> s {responseTimeHistogram = a} :: ServiceInfo) Prelude.. Lens.mapping Lens.coerced
-
--- | Identifier of the Amazon Web Services account in which the service runs.
-serviceInfo_accountId :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.Text)
-serviceInfo_accountId = Lens.lens (\ServiceInfo' {accountId} -> accountId) (\s@ServiceInfo' {} a -> s {accountId = a} :: ServiceInfo)
-
--- | Indicates that the service was the first service to process a request.
-serviceInfo_root :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.Bool)
-serviceInfo_root = Lens.lens (\ServiceInfo' {root} -> root) (\s@ServiceInfo' {} a -> s {root = a} :: ServiceInfo)
-
--- | Identifier for the service. Unique within the service map.
-serviceInfo_referenceId :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.Int)
-serviceInfo_referenceId = Lens.lens (\ServiceInfo' {referenceId} -> referenceId) (\s@ServiceInfo' {} a -> s {referenceId = a} :: ServiceInfo)
-
--- | A histogram that maps the spread of service durations.
-serviceInfo_durationHistogram :: Lens.Lens' ServiceInfo (Prelude.Maybe [HistogramEntry])
-serviceInfo_durationHistogram = Lens.lens (\ServiceInfo' {durationHistogram} -> durationHistogram) (\s@ServiceInfo' {} a -> s {durationHistogram = a} :: ServiceInfo) Prelude.. Lens.mapping Lens.coerced
-
--- | The start time of the first segment that the service generated.
-serviceInfo_startTime :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.UTCTime)
-serviceInfo_startTime = Lens.lens (\ServiceInfo' {startTime} -> startTime) (\s@ServiceInfo' {} a -> s {startTime = a} :: ServiceInfo) Prelude.. Lens.mapping Data._Time
-
 instance Data.FromJSON ServiceInfo where
   parseJSON =
     Data.withObject
       "ServiceInfo"
       ( \x ->
           ServiceInfo'
-            Prelude.<$> (x Data..:? "Edges" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Type")
-            Prelude.<*> (x Data..:? "SummaryStatistics")
-            Prelude.<*> (x Data..:? "State")
-            Prelude.<*> (x Data..:? "EndTime")
-            Prelude.<*> (x Data..:? "Names" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "ResponseTimeHistogram"
-                            Data..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Data..:? "AccountId")
-            Prelude.<*> (x Data..:? "Root")
-            Prelude.<*> (x Data..:? "ReferenceId")
+            Prelude.<$> (x Data..:? "AccountId")
             Prelude.<*> ( x Data..:? "DurationHistogram"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "Edges" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Names" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ReferenceId")
+            Prelude.<*> ( x Data..:? "ResponseTimeHistogram"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "Root")
             Prelude.<*> (x Data..:? "StartTime")
+            Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "SummaryStatistics")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable ServiceInfo where
   hashWithSalt _salt ServiceInfo' {..} =
-    _salt `Prelude.hashWithSalt` edges
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` summaryStatistics
-      `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` endTime
-      `Prelude.hashWithSalt` names
-      `Prelude.hashWithSalt` responseTimeHistogram
-      `Prelude.hashWithSalt` accountId
-      `Prelude.hashWithSalt` root
-      `Prelude.hashWithSalt` referenceId
+    _salt `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` durationHistogram
+      `Prelude.hashWithSalt` edges
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` names
+      `Prelude.hashWithSalt` referenceId
+      `Prelude.hashWithSalt` responseTimeHistogram
+      `Prelude.hashWithSalt` root
       `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` summaryStatistics
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData ServiceInfo where
   rnf ServiceInfo' {..} =
-    Prelude.rnf edges
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf summaryStatistics
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf names
-      `Prelude.seq` Prelude.rnf responseTimeHistogram
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf root
-      `Prelude.seq` Prelude.rnf referenceId
+    Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf durationHistogram
+      `Prelude.seq` Prelude.rnf edges
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf names
+      `Prelude.seq` Prelude.rnf referenceId
+      `Prelude.seq` Prelude.rnf responseTimeHistogram
+      `Prelude.seq` Prelude.rnf root
       `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf summaryStatistics
+      `Prelude.seq` Prelude.rnf type'

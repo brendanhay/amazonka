@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHPOResourceConfig' smart constructor.
 data HPOResourceConfig = HPOResourceConfig'
-  { -- | The maximum number of parallel training jobs when you create a solution
-    -- version. The maximum value for @maxParallelTrainingJobs@ is @10@.
-    maxParallelTrainingJobs :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of training jobs when you create a solution version.
+  { -- | The maximum number of training jobs when you create a solution version.
     -- The maximum value for @maxNumberOfTrainingJobs@ is @40@.
-    maxNumberOfTrainingJobs :: Prelude.Maybe Prelude.Text
+    maxNumberOfTrainingJobs :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of parallel training jobs when you create a solution
+    -- version. The maximum value for @maxParallelTrainingJobs@ is @10@.
+    maxParallelTrainingJobs :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,29 +46,29 @@ data HPOResourceConfig = HPOResourceConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxParallelTrainingJobs', 'hPOResourceConfig_maxParallelTrainingJobs' - The maximum number of parallel training jobs when you create a solution
--- version. The maximum value for @maxParallelTrainingJobs@ is @10@.
---
 -- 'maxNumberOfTrainingJobs', 'hPOResourceConfig_maxNumberOfTrainingJobs' - The maximum number of training jobs when you create a solution version.
 -- The maximum value for @maxNumberOfTrainingJobs@ is @40@.
+--
+-- 'maxParallelTrainingJobs', 'hPOResourceConfig_maxParallelTrainingJobs' - The maximum number of parallel training jobs when you create a solution
+-- version. The maximum value for @maxParallelTrainingJobs@ is @10@.
 newHPOResourceConfig ::
   HPOResourceConfig
 newHPOResourceConfig =
   HPOResourceConfig'
-    { maxParallelTrainingJobs =
+    { maxNumberOfTrainingJobs =
         Prelude.Nothing,
-      maxNumberOfTrainingJobs = Prelude.Nothing
+      maxParallelTrainingJobs = Prelude.Nothing
     }
-
--- | The maximum number of parallel training jobs when you create a solution
--- version. The maximum value for @maxParallelTrainingJobs@ is @10@.
-hPOResourceConfig_maxParallelTrainingJobs :: Lens.Lens' HPOResourceConfig (Prelude.Maybe Prelude.Text)
-hPOResourceConfig_maxParallelTrainingJobs = Lens.lens (\HPOResourceConfig' {maxParallelTrainingJobs} -> maxParallelTrainingJobs) (\s@HPOResourceConfig' {} a -> s {maxParallelTrainingJobs = a} :: HPOResourceConfig)
 
 -- | The maximum number of training jobs when you create a solution version.
 -- The maximum value for @maxNumberOfTrainingJobs@ is @40@.
 hPOResourceConfig_maxNumberOfTrainingJobs :: Lens.Lens' HPOResourceConfig (Prelude.Maybe Prelude.Text)
 hPOResourceConfig_maxNumberOfTrainingJobs = Lens.lens (\HPOResourceConfig' {maxNumberOfTrainingJobs} -> maxNumberOfTrainingJobs) (\s@HPOResourceConfig' {} a -> s {maxNumberOfTrainingJobs = a} :: HPOResourceConfig)
+
+-- | The maximum number of parallel training jobs when you create a solution
+-- version. The maximum value for @maxParallelTrainingJobs@ is @10@.
+hPOResourceConfig_maxParallelTrainingJobs :: Lens.Lens' HPOResourceConfig (Prelude.Maybe Prelude.Text)
+hPOResourceConfig_maxParallelTrainingJobs = Lens.lens (\HPOResourceConfig' {maxParallelTrainingJobs} -> maxParallelTrainingJobs) (\s@HPOResourceConfig' {} a -> s {maxParallelTrainingJobs = a} :: HPOResourceConfig)
 
 instance Data.FromJSON HPOResourceConfig where
   parseJSON =
@@ -76,28 +76,28 @@ instance Data.FromJSON HPOResourceConfig where
       "HPOResourceConfig"
       ( \x ->
           HPOResourceConfig'
-            Prelude.<$> (x Data..:? "maxParallelTrainingJobs")
-            Prelude.<*> (x Data..:? "maxNumberOfTrainingJobs")
+            Prelude.<$> (x Data..:? "maxNumberOfTrainingJobs")
+            Prelude.<*> (x Data..:? "maxParallelTrainingJobs")
       )
 
 instance Prelude.Hashable HPOResourceConfig where
   hashWithSalt _salt HPOResourceConfig' {..} =
     _salt
-      `Prelude.hashWithSalt` maxParallelTrainingJobs
       `Prelude.hashWithSalt` maxNumberOfTrainingJobs
+      `Prelude.hashWithSalt` maxParallelTrainingJobs
 
 instance Prelude.NFData HPOResourceConfig where
   rnf HPOResourceConfig' {..} =
-    Prelude.rnf maxParallelTrainingJobs
-      `Prelude.seq` Prelude.rnf maxNumberOfTrainingJobs
+    Prelude.rnf maxNumberOfTrainingJobs
+      `Prelude.seq` Prelude.rnf maxParallelTrainingJobs
 
 instance Data.ToJSON HPOResourceConfig where
   toJSON HPOResourceConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("maxParallelTrainingJobs" Data..=)
-              Prelude.<$> maxParallelTrainingJobs,
-            ("maxNumberOfTrainingJobs" Data..=)
-              Prelude.<$> maxNumberOfTrainingJobs
+          [ ("maxNumberOfTrainingJobs" Data..=)
+              Prelude.<$> maxNumberOfTrainingJobs,
+            ("maxParallelTrainingJobs" Data..=)
+              Prelude.<$> maxParallelTrainingJobs
           ]
       )

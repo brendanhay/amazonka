@@ -19,10 +19,10 @@ module Amazonka.Nimble.Types
 
     -- * Errors
     _AccessDeniedException,
-    _ServiceQuotaExceededException,
-    _ResourceNotFoundException,
-    _InternalServerErrorException,
     _ConflictException,
+    _InternalServerErrorException,
+    _ResourceNotFoundException,
+    _ServiceQuotaExceededException,
     _ThrottlingException,
     _ValidationException,
 
@@ -113,8 +113,8 @@ module Amazonka.Nimble.Types
     -- * ActiveDirectoryConfiguration
     ActiveDirectoryConfiguration (..),
     newActiveDirectoryConfiguration,
-    activeDirectoryConfiguration_directoryId,
     activeDirectoryConfiguration_computerAttributes,
+    activeDirectoryConfiguration_directoryId,
     activeDirectoryConfiguration_organizationalUnitDistinguishedName,
 
     -- * ComputeFarmConfiguration
@@ -126,82 +126,82 @@ module Amazonka.Nimble.Types
     -- * Eula
     Eula (..),
     newEula,
-    eula_name,
-    eula_eulaId,
     eula_content,
     eula_createdAt,
+    eula_eulaId,
+    eula_name,
     eula_updatedAt,
 
     -- * EulaAcceptance
     EulaAcceptance (..),
     newEulaAcceptance,
-    eulaAcceptance_eulaAcceptanceId,
-    eulaAcceptance_accepteeId,
-    eulaAcceptance_eulaId,
     eulaAcceptance_acceptedAt,
     eulaAcceptance_acceptedBy,
+    eulaAcceptance_accepteeId,
+    eulaAcceptance_eulaAcceptanceId,
+    eulaAcceptance_eulaId,
 
     -- * LaunchProfile
     LaunchProfile (..),
     newLaunchProfile,
-    launchProfile_ec2SubnetIds,
-    launchProfile_tags,
-    launchProfile_launchProfileId,
-    launchProfile_studioComponentIds,
-    launchProfile_name,
-    launchProfile_updatedBy,
     launchProfile_arn,
-    launchProfile_state,
-    launchProfile_description,
-    launchProfile_streamConfiguration,
-    launchProfile_validationResults,
-    launchProfile_launchProfileProtocolVersions,
-    launchProfile_statusCode,
-    launchProfile_createdBy,
-    launchProfile_statusMessage,
     launchProfile_createdAt,
+    launchProfile_createdBy,
+    launchProfile_description,
+    launchProfile_ec2SubnetIds,
+    launchProfile_launchProfileId,
+    launchProfile_launchProfileProtocolVersions,
+    launchProfile_name,
+    launchProfile_state,
+    launchProfile_statusCode,
+    launchProfile_statusMessage,
+    launchProfile_streamConfiguration,
+    launchProfile_studioComponentIds,
+    launchProfile_tags,
     launchProfile_updatedAt,
+    launchProfile_updatedBy,
+    launchProfile_validationResults,
 
     -- * LaunchProfileInitialization
     LaunchProfileInitialization (..),
     newLaunchProfileInitialization,
+    launchProfileInitialization_activeDirectory,
+    launchProfileInitialization_ec2SecurityGroupIds,
     launchProfileInitialization_launchProfileId,
+    launchProfileInitialization_launchProfileProtocolVersion,
+    launchProfileInitialization_launchPurpose,
     launchProfileInitialization_name,
     launchProfileInitialization_platform,
-    launchProfileInitialization_userInitializationScripts,
-    launchProfileInitialization_activeDirectory,
-    launchProfileInitialization_launchPurpose,
-    launchProfileInitialization_launchProfileProtocolVersion,
-    launchProfileInitialization_ec2SecurityGroupIds,
     launchProfileInitialization_systemInitializationScripts,
+    launchProfileInitialization_userInitializationScripts,
 
     -- * LaunchProfileInitializationActiveDirectory
     LaunchProfileInitializationActiveDirectory (..),
     newLaunchProfileInitializationActiveDirectory,
+    launchProfileInitializationActiveDirectory_computerAttributes,
     launchProfileInitializationActiveDirectory_directoryId,
     launchProfileInitializationActiveDirectory_directoryName,
-    launchProfileInitializationActiveDirectory_computerAttributes,
-    launchProfileInitializationActiveDirectory_studioComponentId,
-    launchProfileInitializationActiveDirectory_organizationalUnitDistinguishedName,
     launchProfileInitializationActiveDirectory_dnsIpAddresses,
+    launchProfileInitializationActiveDirectory_organizationalUnitDistinguishedName,
+    launchProfileInitializationActiveDirectory_studioComponentId,
     launchProfileInitializationActiveDirectory_studioComponentName,
 
     -- * LaunchProfileInitializationScript
     LaunchProfileInitializationScript (..),
     newLaunchProfileInitializationScript,
+    launchProfileInitializationScript_runtimeRoleArn,
+    launchProfileInitializationScript_script,
     launchProfileInitializationScript_secureInitializationRoleArn,
     launchProfileInitializationScript_studioComponentId,
-    launchProfileInitializationScript_runtimeRoleArn,
     launchProfileInitializationScript_studioComponentName,
-    launchProfileInitializationScript_script,
 
     -- * LaunchProfileMembership
     LaunchProfileMembership (..),
     newLaunchProfileMembership,
-    launchProfileMembership_principalId,
-    launchProfileMembership_persona,
-    launchProfileMembership_sid,
     launchProfileMembership_identityStoreId,
+    launchProfileMembership_persona,
+    launchProfileMembership_principalId,
+    launchProfileMembership_sid,
 
     -- * LicenseServiceConfiguration
     LicenseServiceConfiguration (..),
@@ -229,17 +229,17 @@ module Amazonka.Nimble.Types
     -- * SharedFileSystemConfiguration
     SharedFileSystemConfiguration (..),
     newSharedFileSystemConfiguration,
-    sharedFileSystemConfiguration_windowsMountDrive,
-    sharedFileSystemConfiguration_linuxMountPoint,
-    sharedFileSystemConfiguration_fileSystemId,
-    sharedFileSystemConfiguration_shareName,
     sharedFileSystemConfiguration_endpoint,
+    sharedFileSystemConfiguration_fileSystemId,
+    sharedFileSystemConfiguration_linuxMountPoint,
+    sharedFileSystemConfiguration_shareName,
+    sharedFileSystemConfiguration_windowsMountDrive,
 
     -- * StreamConfiguration
     StreamConfiguration (..),
     newStreamConfiguration,
-    streamConfiguration_maxStoppedSessionLengthInMinutes,
     streamConfiguration_maxSessionLengthInMinutes,
+    streamConfiguration_maxStoppedSessionLengthInMinutes,
     streamConfiguration_sessionStorage,
     streamConfiguration_clipboardMode,
     streamConfiguration_ec2InstanceTypes,
@@ -248,8 +248,8 @@ module Amazonka.Nimble.Types
     -- * StreamConfigurationCreate
     StreamConfigurationCreate (..),
     newStreamConfigurationCreate,
-    streamConfigurationCreate_maxStoppedSessionLengthInMinutes,
     streamConfigurationCreate_maxSessionLengthInMinutes,
+    streamConfigurationCreate_maxStoppedSessionLengthInMinutes,
     streamConfigurationCreate_sessionStorage,
     streamConfigurationCreate_clipboardMode,
     streamConfigurationCreate_ec2InstanceTypes,
@@ -264,19 +264,19 @@ module Amazonka.Nimble.Types
     -- * StreamingImage
     StreamingImage (..),
     newStreamingImage,
-    streamingImage_tags,
-    streamingImage_streamingImageId,
-    streamingImage_name,
-    streamingImage_ec2ImageId,
     streamingImage_arn,
-    streamingImage_state,
-    streamingImage_owner,
     streamingImage_description,
-    streamingImage_platform,
-    streamingImage_eulaIds,
+    streamingImage_ec2ImageId,
     streamingImage_encryptionConfiguration,
+    streamingImage_eulaIds,
+    streamingImage_name,
+    streamingImage_owner,
+    streamingImage_platform,
+    streamingImage_state,
     streamingImage_statusCode,
     streamingImage_statusMessage,
+    streamingImage_streamingImageId,
+    streamingImage_tags,
 
     -- * StreamingImageEncryptionConfiguration
     StreamingImageEncryptionConfiguration (..),
@@ -287,117 +287,117 @@ module Amazonka.Nimble.Types
     -- * StreamingSession
     StreamingSession (..),
     newStreamingSession,
-    streamingSession_tags,
-    streamingSession_launchProfileId,
-    streamingSession_streamingImageId,
-    streamingSession_stopAt,
-    streamingSession_updatedBy,
-    streamingSession_ec2InstanceType,
-    streamingSession_terminateAt,
-    streamingSession_stoppedBy,
     streamingSession_arn,
-    streamingSession_state,
-    streamingSession_startedBy,
-    streamingSession_startedAt,
-    streamingSession_sessionId,
-    streamingSession_stoppedAt,
-    streamingSession_statusCode,
-    streamingSession_createdBy,
-    streamingSession_statusMessage,
-    streamingSession_ownedBy,
     streamingSession_createdAt,
+    streamingSession_createdBy,
+    streamingSession_ec2InstanceType,
+    streamingSession_launchProfileId,
+    streamingSession_ownedBy,
+    streamingSession_sessionId,
+    streamingSession_startedAt,
+    streamingSession_startedBy,
+    streamingSession_state,
+    streamingSession_statusCode,
+    streamingSession_statusMessage,
+    streamingSession_stopAt,
+    streamingSession_stoppedAt,
+    streamingSession_stoppedBy,
+    streamingSession_streamingImageId,
+    streamingSession_tags,
+    streamingSession_terminateAt,
     streamingSession_updatedAt,
+    streamingSession_updatedBy,
 
     -- * StreamingSessionStorageRoot
     StreamingSessionStorageRoot (..),
     newStreamingSessionStorageRoot,
-    streamingSessionStorageRoot_windows,
     streamingSessionStorageRoot_linux,
+    streamingSessionStorageRoot_windows,
 
     -- * StreamingSessionStream
     StreamingSessionStream (..),
     newStreamingSessionStream,
+    streamingSessionStream_createdAt,
+    streamingSessionStream_createdBy,
+    streamingSessionStream_expiresAt,
+    streamingSessionStream_ownedBy,
     streamingSessionStream_state,
+    streamingSessionStream_statusCode,
     streamingSessionStream_streamId,
     streamingSessionStream_url,
-    streamingSessionStream_expiresAt,
-    streamingSessionStream_statusCode,
-    streamingSessionStream_createdBy,
-    streamingSessionStream_ownedBy,
-    streamingSessionStream_createdAt,
 
     -- * Studio
     Studio (..),
     newStudio,
-    studio_studioId,
-    studio_tags,
-    studio_studioName,
-    studio_ssoClientId,
     studio_adminRoleArn,
     studio_arn,
+    studio_createdAt,
     studio_displayName,
-    studio_state,
-    studio_studioEncryptionConfiguration,
-    studio_studioUrl,
-    studio_userRoleArn,
     studio_homeRegion,
+    studio_ssoClientId,
+    studio_state,
     studio_statusCode,
     studio_statusMessage,
-    studio_createdAt,
+    studio_studioEncryptionConfiguration,
+    studio_studioId,
+    studio_studioName,
+    studio_studioUrl,
+    studio_tags,
     studio_updatedAt,
+    studio_userRoleArn,
 
     -- * StudioComponent
     StudioComponent (..),
     newStudioComponent,
-    studioComponent_tags,
-    studioComponent_scriptParameters,
-    studioComponent_name,
-    studioComponent_type,
-    studioComponent_updatedBy,
-    studioComponent_initializationScripts,
-    studioComponent_configuration,
     studioComponent_arn,
-    studioComponent_state,
+    studioComponent_configuration,
+    studioComponent_createdAt,
+    studioComponent_createdBy,
     studioComponent_description,
+    studioComponent_ec2SecurityGroupIds,
+    studioComponent_initializationScripts,
+    studioComponent_name,
+    studioComponent_runtimeRoleArn,
+    studioComponent_scriptParameters,
     studioComponent_secureInitializationRoleArn,
+    studioComponent_state,
+    studioComponent_statusCode,
+    studioComponent_statusMessage,
     studioComponent_studioComponentId,
     studioComponent_subtype,
-    studioComponent_runtimeRoleArn,
-    studioComponent_statusCode,
-    studioComponent_createdBy,
-    studioComponent_statusMessage,
-    studioComponent_ec2SecurityGroupIds,
-    studioComponent_createdAt,
+    studioComponent_tags,
+    studioComponent_type,
     studioComponent_updatedAt,
+    studioComponent_updatedBy,
 
     -- * StudioComponentConfiguration
     StudioComponentConfiguration (..),
     newStudioComponentConfiguration,
     studioComponentConfiguration_activeDirectoryConfiguration,
-    studioComponentConfiguration_licenseServiceConfiguration,
     studioComponentConfiguration_computeFarmConfiguration,
+    studioComponentConfiguration_licenseServiceConfiguration,
     studioComponentConfiguration_sharedFileSystemConfiguration,
 
     -- * StudioComponentInitializationScript
     StudioComponentInitializationScript (..),
     newStudioComponentInitializationScript,
-    studioComponentInitializationScript_platform,
     studioComponentInitializationScript_launchProfileProtocolVersion,
+    studioComponentInitializationScript_platform,
     studioComponentInitializationScript_runContext,
     studioComponentInitializationScript_script,
 
     -- * StudioComponentSummary
     StudioComponentSummary (..),
     newStudioComponentSummary,
-    studioComponentSummary_name,
-    studioComponentSummary_type,
-    studioComponentSummary_updatedBy,
+    studioComponentSummary_createdAt,
+    studioComponentSummary_createdBy,
     studioComponentSummary_description,
+    studioComponentSummary_name,
     studioComponentSummary_studioComponentId,
     studioComponentSummary_subtype,
-    studioComponentSummary_createdBy,
-    studioComponentSummary_createdAt,
+    studioComponentSummary_type,
     studioComponentSummary_updatedAt,
+    studioComponentSummary_updatedBy,
 
     -- * StudioEncryptionConfiguration
     StudioEncryptionConfiguration (..),
@@ -408,10 +408,10 @@ module Amazonka.Nimble.Types
     -- * StudioMembership
     StudioMembership (..),
     newStudioMembership,
-    studioMembership_principalId,
-    studioMembership_persona,
-    studioMembership_sid,
     studioMembership_identityStoreId,
+    studioMembership_persona,
+    studioMembership_principalId,
+    studioMembership_sid,
 
     -- * ValidationResult
     ValidationResult (..),
@@ -510,28 +510,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -539,13 +533,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -553,6 +551,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You are not authorized to perform this operation. Check your IAM
@@ -563,6 +563,30 @@ _AccessDeniedException =
     defaultService
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
+
+-- | Another operation is in progress.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
+-- | An internal error has occurred. Please retry your request.
+_InternalServerErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerErrorException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServerErrorException"
+    Prelude.. Core.hasStatus 500
+
+-- | The specified resource could not be found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
 
 -- | Your current quota does not allow you to perform the request action. You
 -- can request increases for some quotas, and other quotas cannot be
@@ -575,30 +599,6 @@ _ServiceQuotaExceededException =
     defaultService
     "ServiceQuotaExceededException"
     Prelude.. Core.hasStatus 402
-
--- | The specified resource could not be found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
-
--- | An internal error has occurred. Please retry your request.
-_InternalServerErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerErrorException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServerErrorException"
-    Prelude.. Core.hasStatus 500
-
--- | Another operation is in progress.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
 
 -- | The request throughput limit was exceeded.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

@@ -39,9 +39,9 @@ module Amazonka.WAFV2.ListAvailableManagedRuleGroupVersions
     newListAvailableManagedRuleGroupVersionsResponse,
 
     -- * Response Lenses
-    listAvailableManagedRuleGroupVersionsResponse_versions,
-    listAvailableManagedRuleGroupVersionsResponse_nextMarker,
     listAvailableManagedRuleGroupVersionsResponse_currentDefaultVersion,
+    listAvailableManagedRuleGroupVersionsResponse_nextMarker,
+    listAvailableManagedRuleGroupVersionsResponse_versions,
     listAvailableManagedRuleGroupVersionsResponse_httpStatus,
   )
 where
@@ -198,9 +198,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListAvailableManagedRuleGroupVersionsResponse'
-            Prelude.<$> (x Data..?> "Versions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "CurrentDefaultVersion")
               Prelude.<*> (x Data..?> "NextMarker")
-              Prelude.<*> (x Data..?> "CurrentDefaultVersion")
+              Prelude.<*> (x Data..?> "Versions" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -275,16 +275,16 @@ instance
 
 -- | /See:/ 'newListAvailableManagedRuleGroupVersionsResponse' smart constructor.
 data ListAvailableManagedRuleGroupVersionsResponse = ListAvailableManagedRuleGroupVersionsResponse'
-  { -- | The versions that are currently available for the specified managed rule
-    -- group.
-    versions :: Prelude.Maybe [ManagedRuleGroupVersion],
+  { -- | The name of the version that\'s currently set as the default.
+    currentDefaultVersion :: Prelude.Maybe Prelude.Text,
     -- | When you request a list of objects with a @Limit@ setting, if the number
     -- of objects that are still available for retrieval exceeds the limit, WAF
     -- returns a @NextMarker@ value in the response. To retrieve the next batch
     -- of objects, provide the marker from the prior call in your next request.
     nextMarker :: Prelude.Maybe Prelude.Text,
-    -- | The name of the version that\'s currently set as the default.
-    currentDefaultVersion :: Prelude.Maybe Prelude.Text,
+    -- | The versions that are currently available for the specified managed rule
+    -- group.
+    versions :: Prelude.Maybe [ManagedRuleGroupVersion],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -298,15 +298,15 @@ data ListAvailableManagedRuleGroupVersionsResponse = ListAvailableManagedRuleGro
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'versions', 'listAvailableManagedRuleGroupVersionsResponse_versions' - The versions that are currently available for the specified managed rule
--- group.
+-- 'currentDefaultVersion', 'listAvailableManagedRuleGroupVersionsResponse_currentDefaultVersion' - The name of the version that\'s currently set as the default.
 --
 -- 'nextMarker', 'listAvailableManagedRuleGroupVersionsResponse_nextMarker' - When you request a list of objects with a @Limit@ setting, if the number
 -- of objects that are still available for retrieval exceeds the limit, WAF
 -- returns a @NextMarker@ value in the response. To retrieve the next batch
 -- of objects, provide the marker from the prior call in your next request.
 --
--- 'currentDefaultVersion', 'listAvailableManagedRuleGroupVersionsResponse_currentDefaultVersion' - The name of the version that\'s currently set as the default.
+-- 'versions', 'listAvailableManagedRuleGroupVersionsResponse_versions' - The versions that are currently available for the specified managed rule
+-- group.
 --
 -- 'httpStatus', 'listAvailableManagedRuleGroupVersionsResponse_httpStatus' - The response's http status code.
 newListAvailableManagedRuleGroupVersionsResponse ::
@@ -316,18 +316,16 @@ newListAvailableManagedRuleGroupVersionsResponse ::
 newListAvailableManagedRuleGroupVersionsResponse
   pHttpStatus_ =
     ListAvailableManagedRuleGroupVersionsResponse'
-      { versions =
+      { currentDefaultVersion =
           Prelude.Nothing,
         nextMarker = Prelude.Nothing,
-        currentDefaultVersion =
-          Prelude.Nothing,
+        versions = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
--- | The versions that are currently available for the specified managed rule
--- group.
-listAvailableManagedRuleGroupVersionsResponse_versions :: Lens.Lens' ListAvailableManagedRuleGroupVersionsResponse (Prelude.Maybe [ManagedRuleGroupVersion])
-listAvailableManagedRuleGroupVersionsResponse_versions = Lens.lens (\ListAvailableManagedRuleGroupVersionsResponse' {versions} -> versions) (\s@ListAvailableManagedRuleGroupVersionsResponse' {} a -> s {versions = a} :: ListAvailableManagedRuleGroupVersionsResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The name of the version that\'s currently set as the default.
+listAvailableManagedRuleGroupVersionsResponse_currentDefaultVersion :: Lens.Lens' ListAvailableManagedRuleGroupVersionsResponse (Prelude.Maybe Prelude.Text)
+listAvailableManagedRuleGroupVersionsResponse_currentDefaultVersion = Lens.lens (\ListAvailableManagedRuleGroupVersionsResponse' {currentDefaultVersion} -> currentDefaultVersion) (\s@ListAvailableManagedRuleGroupVersionsResponse' {} a -> s {currentDefaultVersion = a} :: ListAvailableManagedRuleGroupVersionsResponse)
 
 -- | When you request a list of objects with a @Limit@ setting, if the number
 -- of objects that are still available for retrieval exceeds the limit, WAF
@@ -336,9 +334,10 @@ listAvailableManagedRuleGroupVersionsResponse_versions = Lens.lens (\ListAvailab
 listAvailableManagedRuleGroupVersionsResponse_nextMarker :: Lens.Lens' ListAvailableManagedRuleGroupVersionsResponse (Prelude.Maybe Prelude.Text)
 listAvailableManagedRuleGroupVersionsResponse_nextMarker = Lens.lens (\ListAvailableManagedRuleGroupVersionsResponse' {nextMarker} -> nextMarker) (\s@ListAvailableManagedRuleGroupVersionsResponse' {} a -> s {nextMarker = a} :: ListAvailableManagedRuleGroupVersionsResponse)
 
--- | The name of the version that\'s currently set as the default.
-listAvailableManagedRuleGroupVersionsResponse_currentDefaultVersion :: Lens.Lens' ListAvailableManagedRuleGroupVersionsResponse (Prelude.Maybe Prelude.Text)
-listAvailableManagedRuleGroupVersionsResponse_currentDefaultVersion = Lens.lens (\ListAvailableManagedRuleGroupVersionsResponse' {currentDefaultVersion} -> currentDefaultVersion) (\s@ListAvailableManagedRuleGroupVersionsResponse' {} a -> s {currentDefaultVersion = a} :: ListAvailableManagedRuleGroupVersionsResponse)
+-- | The versions that are currently available for the specified managed rule
+-- group.
+listAvailableManagedRuleGroupVersionsResponse_versions :: Lens.Lens' ListAvailableManagedRuleGroupVersionsResponse (Prelude.Maybe [ManagedRuleGroupVersion])
+listAvailableManagedRuleGroupVersionsResponse_versions = Lens.lens (\ListAvailableManagedRuleGroupVersionsResponse' {versions} -> versions) (\s@ListAvailableManagedRuleGroupVersionsResponse' {} a -> s {versions = a} :: ListAvailableManagedRuleGroupVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAvailableManagedRuleGroupVersionsResponse_httpStatus :: Lens.Lens' ListAvailableManagedRuleGroupVersionsResponse Prelude.Int
@@ -350,7 +349,7 @@ instance
   where
   rnf
     ListAvailableManagedRuleGroupVersionsResponse' {..} =
-      Prelude.rnf versions
+      Prelude.rnf currentDefaultVersion
         `Prelude.seq` Prelude.rnf nextMarker
-        `Prelude.seq` Prelude.rnf currentDefaultVersion
+        `Prelude.seq` Prelude.rnf versions
         `Prelude.seq` Prelude.rnf httpStatus

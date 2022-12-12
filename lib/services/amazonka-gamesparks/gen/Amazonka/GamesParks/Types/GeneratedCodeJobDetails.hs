@@ -29,18 +29,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGeneratedCodeJobDetails' smart constructor.
 data GeneratedCodeJobDetails = GeneratedCodeJobDetails'
-  { -- | The expiration date and time for the download URL.
+  { -- | The description of the generated code job.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The expiration date and time for the download URL.
     --
     -- The download URL us guaranteed to be available until at least this time.
     expirationTime :: Prelude.Maybe Data.POSIX,
     -- | The identifier for the generated code job.
     generatedCodeJobId :: Prelude.Maybe Prelude.Text,
-    -- | The status of the generated code job
-    status :: Prelude.Maybe GeneratedCodeJobState,
-    -- | The description of the generated code job.
-    description :: Prelude.Maybe Prelude.Text,
     -- | A presigned URL that can be used to download the generated code.
-    s3Url :: Prelude.Maybe Prelude.Text
+    s3Url :: Prelude.Maybe Prelude.Text,
+    -- | The status of the generated code job
+    status :: Prelude.Maybe GeneratedCodeJobState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,28 +52,32 @@ data GeneratedCodeJobDetails = GeneratedCodeJobDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'generatedCodeJobDetails_description' - The description of the generated code job.
+--
 -- 'expirationTime', 'generatedCodeJobDetails_expirationTime' - The expiration date and time for the download URL.
 --
 -- The download URL us guaranteed to be available until at least this time.
 --
 -- 'generatedCodeJobId', 'generatedCodeJobDetails_generatedCodeJobId' - The identifier for the generated code job.
 --
--- 'status', 'generatedCodeJobDetails_status' - The status of the generated code job
---
--- 'description', 'generatedCodeJobDetails_description' - The description of the generated code job.
---
 -- 's3Url', 'generatedCodeJobDetails_s3Url' - A presigned URL that can be used to download the generated code.
+--
+-- 'status', 'generatedCodeJobDetails_status' - The status of the generated code job
 newGeneratedCodeJobDetails ::
   GeneratedCodeJobDetails
 newGeneratedCodeJobDetails =
   GeneratedCodeJobDetails'
-    { expirationTime =
+    { description =
         Prelude.Nothing,
+      expirationTime = Prelude.Nothing,
       generatedCodeJobId = Prelude.Nothing,
-      status = Prelude.Nothing,
-      description = Prelude.Nothing,
-      s3Url = Prelude.Nothing
+      s3Url = Prelude.Nothing,
+      status = Prelude.Nothing
     }
+
+-- | The description of the generated code job.
+generatedCodeJobDetails_description :: Lens.Lens' GeneratedCodeJobDetails (Prelude.Maybe Prelude.Text)
+generatedCodeJobDetails_description = Lens.lens (\GeneratedCodeJobDetails' {description} -> description) (\s@GeneratedCodeJobDetails' {} a -> s {description = a} :: GeneratedCodeJobDetails)
 
 -- | The expiration date and time for the download URL.
 --
@@ -85,17 +89,13 @@ generatedCodeJobDetails_expirationTime = Lens.lens (\GeneratedCodeJobDetails' {e
 generatedCodeJobDetails_generatedCodeJobId :: Lens.Lens' GeneratedCodeJobDetails (Prelude.Maybe Prelude.Text)
 generatedCodeJobDetails_generatedCodeJobId = Lens.lens (\GeneratedCodeJobDetails' {generatedCodeJobId} -> generatedCodeJobId) (\s@GeneratedCodeJobDetails' {} a -> s {generatedCodeJobId = a} :: GeneratedCodeJobDetails)
 
--- | The status of the generated code job
-generatedCodeJobDetails_status :: Lens.Lens' GeneratedCodeJobDetails (Prelude.Maybe GeneratedCodeJobState)
-generatedCodeJobDetails_status = Lens.lens (\GeneratedCodeJobDetails' {status} -> status) (\s@GeneratedCodeJobDetails' {} a -> s {status = a} :: GeneratedCodeJobDetails)
-
--- | The description of the generated code job.
-generatedCodeJobDetails_description :: Lens.Lens' GeneratedCodeJobDetails (Prelude.Maybe Prelude.Text)
-generatedCodeJobDetails_description = Lens.lens (\GeneratedCodeJobDetails' {description} -> description) (\s@GeneratedCodeJobDetails' {} a -> s {description = a} :: GeneratedCodeJobDetails)
-
 -- | A presigned URL that can be used to download the generated code.
 generatedCodeJobDetails_s3Url :: Lens.Lens' GeneratedCodeJobDetails (Prelude.Maybe Prelude.Text)
 generatedCodeJobDetails_s3Url = Lens.lens (\GeneratedCodeJobDetails' {s3Url} -> s3Url) (\s@GeneratedCodeJobDetails' {} a -> s {s3Url = a} :: GeneratedCodeJobDetails)
+
+-- | The status of the generated code job
+generatedCodeJobDetails_status :: Lens.Lens' GeneratedCodeJobDetails (Prelude.Maybe GeneratedCodeJobState)
+generatedCodeJobDetails_status = Lens.lens (\GeneratedCodeJobDetails' {status} -> status) (\s@GeneratedCodeJobDetails' {} a -> s {status = a} :: GeneratedCodeJobDetails)
 
 instance Data.FromJSON GeneratedCodeJobDetails where
   parseJSON =
@@ -103,25 +103,25 @@ instance Data.FromJSON GeneratedCodeJobDetails where
       "GeneratedCodeJobDetails"
       ( \x ->
           GeneratedCodeJobDetails'
-            Prelude.<$> (x Data..:? "ExpirationTime")
+            Prelude.<$> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "ExpirationTime")
             Prelude.<*> (x Data..:? "GeneratedCodeJobId")
-            Prelude.<*> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "S3Url")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable GeneratedCodeJobDetails where
   hashWithSalt _salt GeneratedCodeJobDetails' {..} =
-    _salt `Prelude.hashWithSalt` expirationTime
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` expirationTime
       `Prelude.hashWithSalt` generatedCodeJobId
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` s3Url
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData GeneratedCodeJobDetails where
   rnf GeneratedCodeJobDetails' {..} =
-    Prelude.rnf expirationTime
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf expirationTime
       `Prelude.seq` Prelude.rnf generatedCodeJobId
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf s3Url
+      `Prelude.seq` Prelude.rnf status

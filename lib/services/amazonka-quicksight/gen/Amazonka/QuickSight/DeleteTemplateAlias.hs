@@ -38,10 +38,10 @@ module Amazonka.QuickSight.DeleteTemplateAlias
     newDeleteTemplateAliasResponse,
 
     -- * Response Lenses
-    deleteTemplateAliasResponse_requestId,
-    deleteTemplateAliasResponse_arn,
-    deleteTemplateAliasResponse_templateId,
     deleteTemplateAliasResponse_aliasName,
+    deleteTemplateAliasResponse_arn,
+    deleteTemplateAliasResponse_requestId,
+    deleteTemplateAliasResponse_templateId,
     deleteTemplateAliasResponse_status,
   )
 where
@@ -130,10 +130,10 @@ instance Core.AWSRequest DeleteTemplateAlias where
     Response.receiveJSON
       ( \s h x ->
           DeleteTemplateAliasResponse'
-            Prelude.<$> (x Data..?> "RequestId")
+            Prelude.<$> (x Data..?> "AliasName")
             Prelude.<*> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (x Data..?> "TemplateId")
-            Prelude.<*> (x Data..?> "AliasName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -176,14 +176,14 @@ instance Data.ToQuery DeleteTemplateAlias where
 
 -- | /See:/ 'newDeleteTemplateAliasResponse' smart constructor.
 data DeleteTemplateAliasResponse = DeleteTemplateAliasResponse'
-  { -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
+  { -- | The name for the template alias.
+    aliasName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the template you want to delete.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | An ID for the template associated with the deletion.
     templateId :: Prelude.Maybe Prelude.Text,
-    -- | The name for the template alias.
-    aliasName :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -197,13 +197,13 @@ data DeleteTemplateAliasResponse = DeleteTemplateAliasResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'deleteTemplateAliasResponse_requestId' - The Amazon Web Services request ID for this operation.
+-- 'aliasName', 'deleteTemplateAliasResponse_aliasName' - The name for the template alias.
 --
 -- 'arn', 'deleteTemplateAliasResponse_arn' - The Amazon Resource Name (ARN) of the template you want to delete.
 --
--- 'templateId', 'deleteTemplateAliasResponse_templateId' - An ID for the template associated with the deletion.
+-- 'requestId', 'deleteTemplateAliasResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
--- 'aliasName', 'deleteTemplateAliasResponse_aliasName' - The name for the template alias.
+-- 'templateId', 'deleteTemplateAliasResponse_templateId' - An ID for the template associated with the deletion.
 --
 -- 'status', 'deleteTemplateAliasResponse_status' - The HTTP status of the request.
 newDeleteTemplateAliasResponse ::
@@ -212,29 +212,29 @@ newDeleteTemplateAliasResponse ::
   DeleteTemplateAliasResponse
 newDeleteTemplateAliasResponse pStatus_ =
   DeleteTemplateAliasResponse'
-    { requestId =
+    { aliasName =
         Prelude.Nothing,
       arn = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       templateId = Prelude.Nothing,
-      aliasName = Prelude.Nothing,
       status = pStatus_
     }
 
--- | The Amazon Web Services request ID for this operation.
-deleteTemplateAliasResponse_requestId :: Lens.Lens' DeleteTemplateAliasResponse (Prelude.Maybe Prelude.Text)
-deleteTemplateAliasResponse_requestId = Lens.lens (\DeleteTemplateAliasResponse' {requestId} -> requestId) (\s@DeleteTemplateAliasResponse' {} a -> s {requestId = a} :: DeleteTemplateAliasResponse)
+-- | The name for the template alias.
+deleteTemplateAliasResponse_aliasName :: Lens.Lens' DeleteTemplateAliasResponse (Prelude.Maybe Prelude.Text)
+deleteTemplateAliasResponse_aliasName = Lens.lens (\DeleteTemplateAliasResponse' {aliasName} -> aliasName) (\s@DeleteTemplateAliasResponse' {} a -> s {aliasName = a} :: DeleteTemplateAliasResponse)
 
 -- | The Amazon Resource Name (ARN) of the template you want to delete.
 deleteTemplateAliasResponse_arn :: Lens.Lens' DeleteTemplateAliasResponse (Prelude.Maybe Prelude.Text)
 deleteTemplateAliasResponse_arn = Lens.lens (\DeleteTemplateAliasResponse' {arn} -> arn) (\s@DeleteTemplateAliasResponse' {} a -> s {arn = a} :: DeleteTemplateAliasResponse)
 
+-- | The Amazon Web Services request ID for this operation.
+deleteTemplateAliasResponse_requestId :: Lens.Lens' DeleteTemplateAliasResponse (Prelude.Maybe Prelude.Text)
+deleteTemplateAliasResponse_requestId = Lens.lens (\DeleteTemplateAliasResponse' {requestId} -> requestId) (\s@DeleteTemplateAliasResponse' {} a -> s {requestId = a} :: DeleteTemplateAliasResponse)
+
 -- | An ID for the template associated with the deletion.
 deleteTemplateAliasResponse_templateId :: Lens.Lens' DeleteTemplateAliasResponse (Prelude.Maybe Prelude.Text)
 deleteTemplateAliasResponse_templateId = Lens.lens (\DeleteTemplateAliasResponse' {templateId} -> templateId) (\s@DeleteTemplateAliasResponse' {} a -> s {templateId = a} :: DeleteTemplateAliasResponse)
-
--- | The name for the template alias.
-deleteTemplateAliasResponse_aliasName :: Lens.Lens' DeleteTemplateAliasResponse (Prelude.Maybe Prelude.Text)
-deleteTemplateAliasResponse_aliasName = Lens.lens (\DeleteTemplateAliasResponse' {aliasName} -> aliasName) (\s@DeleteTemplateAliasResponse' {} a -> s {aliasName = a} :: DeleteTemplateAliasResponse)
 
 -- | The HTTP status of the request.
 deleteTemplateAliasResponse_status :: Lens.Lens' DeleteTemplateAliasResponse Prelude.Int
@@ -242,8 +242,8 @@ deleteTemplateAliasResponse_status = Lens.lens (\DeleteTemplateAliasResponse' {s
 
 instance Prelude.NFData DeleteTemplateAliasResponse where
   rnf DeleteTemplateAliasResponse' {..} =
-    Prelude.rnf requestId
+    Prelude.rnf aliasName
       `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf templateId
-      `Prelude.seq` Prelude.rnf aliasName
       `Prelude.seq` Prelude.rnf status

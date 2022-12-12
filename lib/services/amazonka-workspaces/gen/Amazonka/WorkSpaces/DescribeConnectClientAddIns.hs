@@ -28,8 +28,8 @@ module Amazonka.WorkSpaces.DescribeConnectClientAddIns
     newDescribeConnectClientAddIns,
 
     -- * Request Lenses
-    describeConnectClientAddIns_nextToken,
     describeConnectClientAddIns_maxResults,
+    describeConnectClientAddIns_nextToken,
     describeConnectClientAddIns_resourceId,
 
     -- * Destructuring the Response
@@ -37,8 +37,8 @@ module Amazonka.WorkSpaces.DescribeConnectClientAddIns
     newDescribeConnectClientAddInsResponse,
 
     -- * Response Lenses
-    describeConnectClientAddInsResponse_nextToken,
     describeConnectClientAddInsResponse_addIns,
+    describeConnectClientAddInsResponse_nextToken,
     describeConnectClientAddInsResponse_httpStatus,
   )
 where
@@ -53,11 +53,11 @@ import Amazonka.WorkSpaces.Types
 
 -- | /See:/ 'newDescribeConnectClientAddIns' smart constructor.
 data DescribeConnectClientAddIns = DescribeConnectClientAddIns'
-  { -- | If you received a @NextToken@ from a previous call that was paginated,
+  { -- | The maximum number of items to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If you received a @NextToken@ from a previous call that was paginated,
     -- provide this token to receive the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The directory identifier for which the client add-in is configured.
     resourceId :: Prelude.Text
   }
@@ -71,10 +71,10 @@ data DescribeConnectClientAddIns = DescribeConnectClientAddIns'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'describeConnectClientAddIns_maxResults' - The maximum number of items to return.
+--
 -- 'nextToken', 'describeConnectClientAddIns_nextToken' - If you received a @NextToken@ from a previous call that was paginated,
 -- provide this token to receive the next set of results.
---
--- 'maxResults', 'describeConnectClientAddIns_maxResults' - The maximum number of items to return.
 --
 -- 'resourceId', 'describeConnectClientAddIns_resourceId' - The directory identifier for which the client add-in is configured.
 newDescribeConnectClientAddIns ::
@@ -83,20 +83,20 @@ newDescribeConnectClientAddIns ::
   DescribeConnectClientAddIns
 newDescribeConnectClientAddIns pResourceId_ =
   DescribeConnectClientAddIns'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       resourceId = pResourceId_
     }
+
+-- | The maximum number of items to return.
+describeConnectClientAddIns_maxResults :: Lens.Lens' DescribeConnectClientAddIns (Prelude.Maybe Prelude.Natural)
+describeConnectClientAddIns_maxResults = Lens.lens (\DescribeConnectClientAddIns' {maxResults} -> maxResults) (\s@DescribeConnectClientAddIns' {} a -> s {maxResults = a} :: DescribeConnectClientAddIns)
 
 -- | If you received a @NextToken@ from a previous call that was paginated,
 -- provide this token to receive the next set of results.
 describeConnectClientAddIns_nextToken :: Lens.Lens' DescribeConnectClientAddIns (Prelude.Maybe Prelude.Text)
 describeConnectClientAddIns_nextToken = Lens.lens (\DescribeConnectClientAddIns' {nextToken} -> nextToken) (\s@DescribeConnectClientAddIns' {} a -> s {nextToken = a} :: DescribeConnectClientAddIns)
-
--- | The maximum number of items to return.
-describeConnectClientAddIns_maxResults :: Lens.Lens' DescribeConnectClientAddIns (Prelude.Maybe Prelude.Natural)
-describeConnectClientAddIns_maxResults = Lens.lens (\DescribeConnectClientAddIns' {maxResults} -> maxResults) (\s@DescribeConnectClientAddIns' {} a -> s {maxResults = a} :: DescribeConnectClientAddIns)
 
 -- | The directory identifier for which the client add-in is configured.
 describeConnectClientAddIns_resourceId :: Lens.Lens' DescribeConnectClientAddIns Prelude.Text
@@ -112,21 +112,21 @@ instance Core.AWSRequest DescribeConnectClientAddIns where
     Response.receiveJSON
       ( \s h x ->
           DescribeConnectClientAddInsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "AddIns" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "AddIns" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeConnectClientAddIns where
   hashWithSalt _salt DescribeConnectClientAddIns' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceId
 
 instance Prelude.NFData DescribeConnectClientAddIns where
   rnf DescribeConnectClientAddIns' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf resourceId
 
 instance Data.ToHeaders DescribeConnectClientAddIns where
@@ -148,8 +148,8 @@ instance Data.ToJSON DescribeConnectClientAddIns where
   toJSON DescribeConnectClientAddIns' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("ResourceId" Data..= resourceId)
           ]
       )
@@ -162,11 +162,11 @@ instance Data.ToQuery DescribeConnectClientAddIns where
 
 -- | /See:/ 'newDescribeConnectClientAddInsResponse' smart constructor.
 data DescribeConnectClientAddInsResponse = DescribeConnectClientAddInsResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
+  { -- | Information about client add-ins.
+    addIns :: Prelude.Maybe [ConnectClientAddIn],
+    -- | The token to use to retrieve the next page of results. This value is
     -- null when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about client add-ins.
-    addIns :: Prelude.Maybe [ConnectClientAddIn],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -180,10 +180,10 @@ data DescribeConnectClientAddInsResponse = DescribeConnectClientAddInsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'addIns', 'describeConnectClientAddInsResponse_addIns' - Information about client add-ins.
+--
 -- 'nextToken', 'describeConnectClientAddInsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- null when there are no more results to return.
---
--- 'addIns', 'describeConnectClientAddInsResponse_addIns' - Information about client add-ins.
 --
 -- 'httpStatus', 'describeConnectClientAddInsResponse_httpStatus' - The response's http status code.
 newDescribeConnectClientAddInsResponse ::
@@ -192,20 +192,20 @@ newDescribeConnectClientAddInsResponse ::
   DescribeConnectClientAddInsResponse
 newDescribeConnectClientAddInsResponse pHttpStatus_ =
   DescribeConnectClientAddInsResponse'
-    { nextToken =
+    { addIns =
         Prelude.Nothing,
-      addIns = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about client add-ins.
+describeConnectClientAddInsResponse_addIns :: Lens.Lens' DescribeConnectClientAddInsResponse (Prelude.Maybe [ConnectClientAddIn])
+describeConnectClientAddInsResponse_addIns = Lens.lens (\DescribeConnectClientAddInsResponse' {addIns} -> addIns) (\s@DescribeConnectClientAddInsResponse' {} a -> s {addIns = a} :: DescribeConnectClientAddInsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- null when there are no more results to return.
 describeConnectClientAddInsResponse_nextToken :: Lens.Lens' DescribeConnectClientAddInsResponse (Prelude.Maybe Prelude.Text)
 describeConnectClientAddInsResponse_nextToken = Lens.lens (\DescribeConnectClientAddInsResponse' {nextToken} -> nextToken) (\s@DescribeConnectClientAddInsResponse' {} a -> s {nextToken = a} :: DescribeConnectClientAddInsResponse)
-
--- | Information about client add-ins.
-describeConnectClientAddInsResponse_addIns :: Lens.Lens' DescribeConnectClientAddInsResponse (Prelude.Maybe [ConnectClientAddIn])
-describeConnectClientAddInsResponse_addIns = Lens.lens (\DescribeConnectClientAddInsResponse' {addIns} -> addIns) (\s@DescribeConnectClientAddInsResponse' {} a -> s {addIns = a} :: DescribeConnectClientAddInsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeConnectClientAddInsResponse_httpStatus :: Lens.Lens' DescribeConnectClientAddInsResponse Prelude.Int
@@ -216,6 +216,6 @@ instance
     DescribeConnectClientAddInsResponse
   where
   rnf DescribeConnectClientAddInsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf addIns
+    Prelude.rnf addIns
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

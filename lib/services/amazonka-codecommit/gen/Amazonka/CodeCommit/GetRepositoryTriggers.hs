@@ -34,8 +34,8 @@ module Amazonka.CodeCommit.GetRepositoryTriggers
     newGetRepositoryTriggersResponse,
 
     -- * Response Lenses
-    getRepositoryTriggersResponse_triggers,
     getRepositoryTriggersResponse_configurationId,
+    getRepositoryTriggersResponse_triggers,
     getRepositoryTriggersResponse_httpStatus,
   )
 where
@@ -90,8 +90,8 @@ instance Core.AWSRequest GetRepositoryTriggers where
     Response.receiveJSON
       ( \s h x ->
           GetRepositoryTriggersResponse'
-            Prelude.<$> (x Data..?> "triggers" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "configurationId")
+            Prelude.<$> (x Data..?> "configurationId")
+            Prelude.<*> (x Data..?> "triggers" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,10 +137,10 @@ instance Data.ToQuery GetRepositoryTriggers where
 --
 -- /See:/ 'newGetRepositoryTriggersResponse' smart constructor.
 data GetRepositoryTriggersResponse = GetRepositoryTriggersResponse'
-  { -- | The JSON block of configuration information for each trigger.
-    triggers :: Prelude.Maybe [RepositoryTrigger],
-    -- | The system-generated unique ID for the trigger.
+  { -- | The system-generated unique ID for the trigger.
     configurationId :: Prelude.Maybe Prelude.Text,
+    -- | The JSON block of configuration information for each trigger.
+    triggers :: Prelude.Maybe [RepositoryTrigger],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -154,9 +154,9 @@ data GetRepositoryTriggersResponse = GetRepositoryTriggersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'triggers', 'getRepositoryTriggersResponse_triggers' - The JSON block of configuration information for each trigger.
---
 -- 'configurationId', 'getRepositoryTriggersResponse_configurationId' - The system-generated unique ID for the trigger.
+--
+-- 'triggers', 'getRepositoryTriggersResponse_triggers' - The JSON block of configuration information for each trigger.
 --
 -- 'httpStatus', 'getRepositoryTriggersResponse_httpStatus' - The response's http status code.
 newGetRepositoryTriggersResponse ::
@@ -165,19 +165,19 @@ newGetRepositoryTriggersResponse ::
   GetRepositoryTriggersResponse
 newGetRepositoryTriggersResponse pHttpStatus_ =
   GetRepositoryTriggersResponse'
-    { triggers =
+    { configurationId =
         Prelude.Nothing,
-      configurationId = Prelude.Nothing,
+      triggers = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The JSON block of configuration information for each trigger.
-getRepositoryTriggersResponse_triggers :: Lens.Lens' GetRepositoryTriggersResponse (Prelude.Maybe [RepositoryTrigger])
-getRepositoryTriggersResponse_triggers = Lens.lens (\GetRepositoryTriggersResponse' {triggers} -> triggers) (\s@GetRepositoryTriggersResponse' {} a -> s {triggers = a} :: GetRepositoryTriggersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The system-generated unique ID for the trigger.
 getRepositoryTriggersResponse_configurationId :: Lens.Lens' GetRepositoryTriggersResponse (Prelude.Maybe Prelude.Text)
 getRepositoryTriggersResponse_configurationId = Lens.lens (\GetRepositoryTriggersResponse' {configurationId} -> configurationId) (\s@GetRepositoryTriggersResponse' {} a -> s {configurationId = a} :: GetRepositoryTriggersResponse)
+
+-- | The JSON block of configuration information for each trigger.
+getRepositoryTriggersResponse_triggers :: Lens.Lens' GetRepositoryTriggersResponse (Prelude.Maybe [RepositoryTrigger])
+getRepositoryTriggersResponse_triggers = Lens.lens (\GetRepositoryTriggersResponse' {triggers} -> triggers) (\s@GetRepositoryTriggersResponse' {} a -> s {triggers = a} :: GetRepositoryTriggersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getRepositoryTriggersResponse_httpStatus :: Lens.Lens' GetRepositoryTriggersResponse Prelude.Int
@@ -185,6 +185,6 @@ getRepositoryTriggersResponse_httpStatus = Lens.lens (\GetRepositoryTriggersResp
 
 instance Prelude.NFData GetRepositoryTriggersResponse where
   rnf GetRepositoryTriggersResponse' {..} =
-    Prelude.rnf triggers
-      `Prelude.seq` Prelude.rnf configurationId
+    Prelude.rnf configurationId
+      `Prelude.seq` Prelude.rnf triggers
       `Prelude.seq` Prelude.rnf httpStatus

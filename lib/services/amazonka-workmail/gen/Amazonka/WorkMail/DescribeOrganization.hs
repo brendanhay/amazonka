@@ -35,15 +35,15 @@ module Amazonka.WorkMail.DescribeOrganization
     newDescribeOrganizationResponse,
 
     -- * Response Lenses
+    describeOrganizationResponse_arn,
     describeOrganizationResponse_alias,
+    describeOrganizationResponse_completedDate,
+    describeOrganizationResponse_defaultMailDomain,
     describeOrganizationResponse_directoryId,
     describeOrganizationResponse_directoryType,
-    describeOrganizationResponse_completedDate,
     describeOrganizationResponse_errorMessage,
-    describeOrganizationResponse_defaultMailDomain,
-    describeOrganizationResponse_arn,
-    describeOrganizationResponse_state,
     describeOrganizationResponse_organizationId,
+    describeOrganizationResponse_state,
     describeOrganizationResponse_httpStatus,
   )
 where
@@ -96,15 +96,15 @@ instance Core.AWSRequest DescribeOrganization where
     Response.receiveJSON
       ( \s h x ->
           DescribeOrganizationResponse'
-            Prelude.<$> (x Data..?> "Alias")
+            Prelude.<$> (x Data..?> "ARN")
+            Prelude.<*> (x Data..?> "Alias")
+            Prelude.<*> (x Data..?> "CompletedDate")
+            Prelude.<*> (x Data..?> "DefaultMailDomain")
             Prelude.<*> (x Data..?> "DirectoryId")
             Prelude.<*> (x Data..?> "DirectoryType")
-            Prelude.<*> (x Data..?> "CompletedDate")
             Prelude.<*> (x Data..?> "ErrorMessage")
-            Prelude.<*> (x Data..?> "DefaultMailDomain")
-            Prelude.<*> (x Data..?> "ARN")
-            Prelude.<*> (x Data..?> "State")
             Prelude.<*> (x Data..?> "OrganizationId")
+            Prelude.<*> (x Data..?> "State")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,27 +148,27 @@ instance Data.ToQuery DescribeOrganization where
 
 -- | /See:/ 'newDescribeOrganizationResponse' smart constructor.
 data DescribeOrganizationResponse = DescribeOrganizationResponse'
-  { -- | The alias for an organization.
+  { -- | The Amazon Resource Name (ARN) of the organization.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The alias for an organization.
     alias :: Prelude.Maybe Prelude.Text,
+    -- | The date at which the organization became usable in the WorkMail
+    -- context, in UNIX epoch time format.
+    completedDate :: Prelude.Maybe Data.POSIX,
+    -- | The default mail domain associated with the organization.
+    defaultMailDomain :: Prelude.Maybe Prelude.Text,
     -- | The identifier for the directory associated with an WorkMail
     -- organization.
     directoryId :: Prelude.Maybe Prelude.Text,
     -- | The type of directory associated with the WorkMail organization.
     directoryType :: Prelude.Maybe Prelude.Text,
-    -- | The date at which the organization became usable in the WorkMail
-    -- context, in UNIX epoch time format.
-    completedDate :: Prelude.Maybe Data.POSIX,
     -- | (Optional) The error message indicating if unexpected behavior was
     -- encountered with regards to the organization.
     errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | The default mail domain associated with the organization.
-    defaultMailDomain :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the organization.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The state of an organization.
-    state :: Prelude.Maybe Prelude.Text,
     -- | The identifier of an organization.
     organizationId :: Prelude.Maybe Prelude.Text,
+    -- | The state of an organization.
+    state :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -182,26 +182,26 @@ data DescribeOrganizationResponse = DescribeOrganizationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'arn', 'describeOrganizationResponse_arn' - The Amazon Resource Name (ARN) of the organization.
+--
 -- 'alias', 'describeOrganizationResponse_alias' - The alias for an organization.
+--
+-- 'completedDate', 'describeOrganizationResponse_completedDate' - The date at which the organization became usable in the WorkMail
+-- context, in UNIX epoch time format.
+--
+-- 'defaultMailDomain', 'describeOrganizationResponse_defaultMailDomain' - The default mail domain associated with the organization.
 --
 -- 'directoryId', 'describeOrganizationResponse_directoryId' - The identifier for the directory associated with an WorkMail
 -- organization.
 --
 -- 'directoryType', 'describeOrganizationResponse_directoryType' - The type of directory associated with the WorkMail organization.
 --
--- 'completedDate', 'describeOrganizationResponse_completedDate' - The date at which the organization became usable in the WorkMail
--- context, in UNIX epoch time format.
---
 -- 'errorMessage', 'describeOrganizationResponse_errorMessage' - (Optional) The error message indicating if unexpected behavior was
 -- encountered with regards to the organization.
 --
--- 'defaultMailDomain', 'describeOrganizationResponse_defaultMailDomain' - The default mail domain associated with the organization.
---
--- 'arn', 'describeOrganizationResponse_arn' - The Amazon Resource Name (ARN) of the organization.
+-- 'organizationId', 'describeOrganizationResponse_organizationId' - The identifier of an organization.
 --
 -- 'state', 'describeOrganizationResponse_state' - The state of an organization.
---
--- 'organizationId', 'describeOrganizationResponse_organizationId' - The identifier of an organization.
 --
 -- 'httpStatus', 'describeOrganizationResponse_httpStatus' - The response's http status code.
 newDescribeOrganizationResponse ::
@@ -210,22 +210,35 @@ newDescribeOrganizationResponse ::
   DescribeOrganizationResponse
 newDescribeOrganizationResponse pHttpStatus_ =
   DescribeOrganizationResponse'
-    { alias =
+    { arn =
         Prelude.Nothing,
+      alias = Prelude.Nothing,
+      completedDate = Prelude.Nothing,
+      defaultMailDomain = Prelude.Nothing,
       directoryId = Prelude.Nothing,
       directoryType = Prelude.Nothing,
-      completedDate = Prelude.Nothing,
       errorMessage = Prelude.Nothing,
-      defaultMailDomain = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      state = Prelude.Nothing,
       organizationId = Prelude.Nothing,
+      state = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Amazon Resource Name (ARN) of the organization.
+describeOrganizationResponse_arn :: Lens.Lens' DescribeOrganizationResponse (Prelude.Maybe Prelude.Text)
+describeOrganizationResponse_arn = Lens.lens (\DescribeOrganizationResponse' {arn} -> arn) (\s@DescribeOrganizationResponse' {} a -> s {arn = a} :: DescribeOrganizationResponse)
 
 -- | The alias for an organization.
 describeOrganizationResponse_alias :: Lens.Lens' DescribeOrganizationResponse (Prelude.Maybe Prelude.Text)
 describeOrganizationResponse_alias = Lens.lens (\DescribeOrganizationResponse' {alias} -> alias) (\s@DescribeOrganizationResponse' {} a -> s {alias = a} :: DescribeOrganizationResponse)
+
+-- | The date at which the organization became usable in the WorkMail
+-- context, in UNIX epoch time format.
+describeOrganizationResponse_completedDate :: Lens.Lens' DescribeOrganizationResponse (Prelude.Maybe Prelude.UTCTime)
+describeOrganizationResponse_completedDate = Lens.lens (\DescribeOrganizationResponse' {completedDate} -> completedDate) (\s@DescribeOrganizationResponse' {} a -> s {completedDate = a} :: DescribeOrganizationResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The default mail domain associated with the organization.
+describeOrganizationResponse_defaultMailDomain :: Lens.Lens' DescribeOrganizationResponse (Prelude.Maybe Prelude.Text)
+describeOrganizationResponse_defaultMailDomain = Lens.lens (\DescribeOrganizationResponse' {defaultMailDomain} -> defaultMailDomain) (\s@DescribeOrganizationResponse' {} a -> s {defaultMailDomain = a} :: DescribeOrganizationResponse)
 
 -- | The identifier for the directory associated with an WorkMail
 -- organization.
@@ -236,31 +249,18 @@ describeOrganizationResponse_directoryId = Lens.lens (\DescribeOrganizationRespo
 describeOrganizationResponse_directoryType :: Lens.Lens' DescribeOrganizationResponse (Prelude.Maybe Prelude.Text)
 describeOrganizationResponse_directoryType = Lens.lens (\DescribeOrganizationResponse' {directoryType} -> directoryType) (\s@DescribeOrganizationResponse' {} a -> s {directoryType = a} :: DescribeOrganizationResponse)
 
--- | The date at which the organization became usable in the WorkMail
--- context, in UNIX epoch time format.
-describeOrganizationResponse_completedDate :: Lens.Lens' DescribeOrganizationResponse (Prelude.Maybe Prelude.UTCTime)
-describeOrganizationResponse_completedDate = Lens.lens (\DescribeOrganizationResponse' {completedDate} -> completedDate) (\s@DescribeOrganizationResponse' {} a -> s {completedDate = a} :: DescribeOrganizationResponse) Prelude.. Lens.mapping Data._Time
-
 -- | (Optional) The error message indicating if unexpected behavior was
 -- encountered with regards to the organization.
 describeOrganizationResponse_errorMessage :: Lens.Lens' DescribeOrganizationResponse (Prelude.Maybe Prelude.Text)
 describeOrganizationResponse_errorMessage = Lens.lens (\DescribeOrganizationResponse' {errorMessage} -> errorMessage) (\s@DescribeOrganizationResponse' {} a -> s {errorMessage = a} :: DescribeOrganizationResponse)
 
--- | The default mail domain associated with the organization.
-describeOrganizationResponse_defaultMailDomain :: Lens.Lens' DescribeOrganizationResponse (Prelude.Maybe Prelude.Text)
-describeOrganizationResponse_defaultMailDomain = Lens.lens (\DescribeOrganizationResponse' {defaultMailDomain} -> defaultMailDomain) (\s@DescribeOrganizationResponse' {} a -> s {defaultMailDomain = a} :: DescribeOrganizationResponse)
-
--- | The Amazon Resource Name (ARN) of the organization.
-describeOrganizationResponse_arn :: Lens.Lens' DescribeOrganizationResponse (Prelude.Maybe Prelude.Text)
-describeOrganizationResponse_arn = Lens.lens (\DescribeOrganizationResponse' {arn} -> arn) (\s@DescribeOrganizationResponse' {} a -> s {arn = a} :: DescribeOrganizationResponse)
+-- | The identifier of an organization.
+describeOrganizationResponse_organizationId :: Lens.Lens' DescribeOrganizationResponse (Prelude.Maybe Prelude.Text)
+describeOrganizationResponse_organizationId = Lens.lens (\DescribeOrganizationResponse' {organizationId} -> organizationId) (\s@DescribeOrganizationResponse' {} a -> s {organizationId = a} :: DescribeOrganizationResponse)
 
 -- | The state of an organization.
 describeOrganizationResponse_state :: Lens.Lens' DescribeOrganizationResponse (Prelude.Maybe Prelude.Text)
 describeOrganizationResponse_state = Lens.lens (\DescribeOrganizationResponse' {state} -> state) (\s@DescribeOrganizationResponse' {} a -> s {state = a} :: DescribeOrganizationResponse)
-
--- | The identifier of an organization.
-describeOrganizationResponse_organizationId :: Lens.Lens' DescribeOrganizationResponse (Prelude.Maybe Prelude.Text)
-describeOrganizationResponse_organizationId = Lens.lens (\DescribeOrganizationResponse' {organizationId} -> organizationId) (\s@DescribeOrganizationResponse' {} a -> s {organizationId = a} :: DescribeOrganizationResponse)
 
 -- | The response's http status code.
 describeOrganizationResponse_httpStatus :: Lens.Lens' DescribeOrganizationResponse Prelude.Int
@@ -268,13 +268,13 @@ describeOrganizationResponse_httpStatus = Lens.lens (\DescribeOrganizationRespon
 
 instance Prelude.NFData DescribeOrganizationResponse where
   rnf DescribeOrganizationResponse' {..} =
-    Prelude.rnf alias
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf alias
+      `Prelude.seq` Prelude.rnf completedDate
+      `Prelude.seq` Prelude.rnf defaultMailDomain
       `Prelude.seq` Prelude.rnf directoryId
       `Prelude.seq` Prelude.rnf directoryType
-      `Prelude.seq` Prelude.rnf completedDate
       `Prelude.seq` Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf defaultMailDomain
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf organizationId
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf httpStatus

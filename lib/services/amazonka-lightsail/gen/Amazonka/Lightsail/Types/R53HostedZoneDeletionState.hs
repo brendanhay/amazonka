@@ -31,9 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newR53HostedZoneDeletionState' smart constructor.
 data R53HostedZoneDeletionState = R53HostedZoneDeletionState'
-  { -- | The message that describes the reason for the status code.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The status code for the deletion state.
+  { -- | The status code for the deletion state.
     --
     -- Following are the possible values:
     --
@@ -44,7 +42,9 @@ data R53HostedZoneDeletionState = R53HostedZoneDeletionState'
     -- -   @FAILED@ - The hosted zone deletion failed.
     --
     -- -   @STARTED@ - The hosted zone deletion started.
-    code :: Prelude.Maybe R53HostedZoneDeletionStateCode
+    code :: Prelude.Maybe R53HostedZoneDeletionStateCode,
+    -- | The message that describes the reason for the status code.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,8 +55,6 @@ data R53HostedZoneDeletionState = R53HostedZoneDeletionState'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'message', 'r53HostedZoneDeletionState_message' - The message that describes the reason for the status code.
 --
 -- 'code', 'r53HostedZoneDeletionState_code' - The status code for the deletion state.
 --
@@ -69,18 +67,15 @@ data R53HostedZoneDeletionState = R53HostedZoneDeletionState'
 -- -   @FAILED@ - The hosted zone deletion failed.
 --
 -- -   @STARTED@ - The hosted zone deletion started.
+--
+-- 'message', 'r53HostedZoneDeletionState_message' - The message that describes the reason for the status code.
 newR53HostedZoneDeletionState ::
   R53HostedZoneDeletionState
 newR53HostedZoneDeletionState =
   R53HostedZoneDeletionState'
-    { message =
-        Prelude.Nothing,
-      code = Prelude.Nothing
+    { code = Prelude.Nothing,
+      message = Prelude.Nothing
     }
-
--- | The message that describes the reason for the status code.
-r53HostedZoneDeletionState_message :: Lens.Lens' R53HostedZoneDeletionState (Prelude.Maybe Prelude.Text)
-r53HostedZoneDeletionState_message = Lens.lens (\R53HostedZoneDeletionState' {message} -> message) (\s@R53HostedZoneDeletionState' {} a -> s {message = a} :: R53HostedZoneDeletionState)
 
 -- | The status code for the deletion state.
 --
@@ -96,21 +91,25 @@ r53HostedZoneDeletionState_message = Lens.lens (\R53HostedZoneDeletionState' {me
 r53HostedZoneDeletionState_code :: Lens.Lens' R53HostedZoneDeletionState (Prelude.Maybe R53HostedZoneDeletionStateCode)
 r53HostedZoneDeletionState_code = Lens.lens (\R53HostedZoneDeletionState' {code} -> code) (\s@R53HostedZoneDeletionState' {} a -> s {code = a} :: R53HostedZoneDeletionState)
 
+-- | The message that describes the reason for the status code.
+r53HostedZoneDeletionState_message :: Lens.Lens' R53HostedZoneDeletionState (Prelude.Maybe Prelude.Text)
+r53HostedZoneDeletionState_message = Lens.lens (\R53HostedZoneDeletionState' {message} -> message) (\s@R53HostedZoneDeletionState' {} a -> s {message = a} :: R53HostedZoneDeletionState)
+
 instance Data.FromJSON R53HostedZoneDeletionState where
   parseJSON =
     Data.withObject
       "R53HostedZoneDeletionState"
       ( \x ->
           R53HostedZoneDeletionState'
-            Prelude.<$> (x Data..:? "message")
-            Prelude.<*> (x Data..:? "code")
+            Prelude.<$> (x Data..:? "code")
+            Prelude.<*> (x Data..:? "message")
       )
 
 instance Prelude.Hashable R53HostedZoneDeletionState where
   hashWithSalt _salt R53HostedZoneDeletionState' {..} =
-    _salt `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` code
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` message
 
 instance Prelude.NFData R53HostedZoneDeletionState where
   rnf R53HostedZoneDeletionState' {..} =
-    Prelude.rnf message `Prelude.seq` Prelude.rnf code
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

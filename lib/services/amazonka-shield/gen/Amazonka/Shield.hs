@@ -26,35 +26,26 @@ module Amazonka.Shield
     -- * Errors
     -- $errors
 
-    -- ** ResourceAlreadyExistsException
-    _ResourceAlreadyExistsException,
-
-    -- ** NoAssociatedRoleException
-    _NoAssociatedRoleException,
-
-    -- ** InvalidOperationException
-    _InvalidOperationException,
-
-    -- ** InvalidResourceException
-    _InvalidResourceException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** InternalErrorException
-    _InternalErrorException,
-
-    -- ** InvalidPaginationTokenException
-    _InvalidPaginationTokenException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
 
     -- ** AccessDeniedForDependencyException
     _AccessDeniedForDependencyException,
 
-    -- ** OptimisticLockException
-    _OptimisticLockException,
+    -- ** InternalErrorException
+    _InternalErrorException,
+
+    -- ** InvalidOperationException
+    _InvalidOperationException,
+
+    -- ** InvalidPaginationTokenException
+    _InvalidPaginationTokenException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
+    -- ** InvalidResourceException
+    _InvalidResourceException,
 
     -- ** LimitsExceededException
     _LimitsExceededException,
@@ -62,8 +53,17 @@ module Amazonka.Shield
     -- ** LockedSubscriptionException
     _LockedSubscriptionException,
 
-    -- ** InvalidParameterException
-    _InvalidParameterException,
+    -- ** NoAssociatedRoleException
+    _NoAssociatedRoleException,
+
+    -- ** OptimisticLockException
+    _OptimisticLockException,
+
+    -- ** ResourceAlreadyExistsException
+    _ResourceAlreadyExistsException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- * Waiters
     -- $waiters

@@ -29,16 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newObjectTypeField' smart constructor.
 data ObjectTypeField = ObjectTypeField'
-  { -- | The location of the data in the standard ProfileObject model. For
-    -- example: _profile.Address.PostalCode.
-    target :: Prelude.Maybe Prelude.Text,
+  { -- | The content type of the field. Used for determining equality when
+    -- searching.
+    contentType :: Prelude.Maybe FieldContentType,
     -- | A field of a ProfileObject. For example: _source.FirstName, where
     -- “_source” is a ProfileObjectType of a Zendesk user and “FirstName” is a
     -- field in that ObjectType.
     source :: Prelude.Maybe Prelude.Text,
-    -- | The content type of the field. Used for determining equality when
-    -- searching.
-    contentType :: Prelude.Maybe FieldContentType
+    -- | The location of the data in the standard ProfileObject model. For
+    -- example: _profile.Address.PostalCode.
+    target :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,28 +50,28 @@ data ObjectTypeField = ObjectTypeField'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'target', 'objectTypeField_target' - The location of the data in the standard ProfileObject model. For
--- example: _profile.Address.PostalCode.
+-- 'contentType', 'objectTypeField_contentType' - The content type of the field. Used for determining equality when
+-- searching.
 --
 -- 'source', 'objectTypeField_source' - A field of a ProfileObject. For example: _source.FirstName, where
 -- “_source” is a ProfileObjectType of a Zendesk user and “FirstName” is a
 -- field in that ObjectType.
 --
--- 'contentType', 'objectTypeField_contentType' - The content type of the field. Used for determining equality when
--- searching.
+-- 'target', 'objectTypeField_target' - The location of the data in the standard ProfileObject model. For
+-- example: _profile.Address.PostalCode.
 newObjectTypeField ::
   ObjectTypeField
 newObjectTypeField =
   ObjectTypeField'
-    { target = Prelude.Nothing,
+    { contentType = Prelude.Nothing,
       source = Prelude.Nothing,
-      contentType = Prelude.Nothing
+      target = Prelude.Nothing
     }
 
--- | The location of the data in the standard ProfileObject model. For
--- example: _profile.Address.PostalCode.
-objectTypeField_target :: Lens.Lens' ObjectTypeField (Prelude.Maybe Prelude.Text)
-objectTypeField_target = Lens.lens (\ObjectTypeField' {target} -> target) (\s@ObjectTypeField' {} a -> s {target = a} :: ObjectTypeField)
+-- | The content type of the field. Used for determining equality when
+-- searching.
+objectTypeField_contentType :: Lens.Lens' ObjectTypeField (Prelude.Maybe FieldContentType)
+objectTypeField_contentType = Lens.lens (\ObjectTypeField' {contentType} -> contentType) (\s@ObjectTypeField' {} a -> s {contentType = a} :: ObjectTypeField)
 
 -- | A field of a ProfileObject. For example: _source.FirstName, where
 -- “_source” is a ProfileObjectType of a Zendesk user and “FirstName” is a
@@ -79,10 +79,10 @@ objectTypeField_target = Lens.lens (\ObjectTypeField' {target} -> target) (\s@Ob
 objectTypeField_source :: Lens.Lens' ObjectTypeField (Prelude.Maybe Prelude.Text)
 objectTypeField_source = Lens.lens (\ObjectTypeField' {source} -> source) (\s@ObjectTypeField' {} a -> s {source = a} :: ObjectTypeField)
 
--- | The content type of the field. Used for determining equality when
--- searching.
-objectTypeField_contentType :: Lens.Lens' ObjectTypeField (Prelude.Maybe FieldContentType)
-objectTypeField_contentType = Lens.lens (\ObjectTypeField' {contentType} -> contentType) (\s@ObjectTypeField' {} a -> s {contentType = a} :: ObjectTypeField)
+-- | The location of the data in the standard ProfileObject model. For
+-- example: _profile.Address.PostalCode.
+objectTypeField_target :: Lens.Lens' ObjectTypeField (Prelude.Maybe Prelude.Text)
+objectTypeField_target = Lens.lens (\ObjectTypeField' {target} -> target) (\s@ObjectTypeField' {} a -> s {target = a} :: ObjectTypeField)
 
 instance Data.FromJSON ObjectTypeField where
   parseJSON =
@@ -90,29 +90,29 @@ instance Data.FromJSON ObjectTypeField where
       "ObjectTypeField"
       ( \x ->
           ObjectTypeField'
-            Prelude.<$> (x Data..:? "Target")
+            Prelude.<$> (x Data..:? "ContentType")
             Prelude.<*> (x Data..:? "Source")
-            Prelude.<*> (x Data..:? "ContentType")
+            Prelude.<*> (x Data..:? "Target")
       )
 
 instance Prelude.Hashable ObjectTypeField where
   hashWithSalt _salt ObjectTypeField' {..} =
-    _salt `Prelude.hashWithSalt` target
+    _salt `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` source
-      `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` target
 
 instance Prelude.NFData ObjectTypeField where
   rnf ObjectTypeField' {..} =
-    Prelude.rnf target
+    Prelude.rnf contentType
       `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf target
 
 instance Data.ToJSON ObjectTypeField where
   toJSON ObjectTypeField' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Target" Data..=) Prelude.<$> target,
+          [ ("ContentType" Data..=) Prelude.<$> contentType,
             ("Source" Data..=) Prelude.<$> source,
-            ("ContentType" Data..=) Prelude.<$> contentType
+            ("Target" Data..=) Prelude.<$> target
           ]
       )

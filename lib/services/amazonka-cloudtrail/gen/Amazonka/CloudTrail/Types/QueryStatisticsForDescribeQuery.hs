@@ -30,18 +30,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newQueryStatisticsForDescribeQuery' smart constructor.
 data QueryStatisticsForDescribeQuery = QueryStatisticsForDescribeQuery'
-  { -- | The number of events that the query scanned in the event data store.
-    eventsScanned :: Prelude.Maybe Prelude.Integer,
-    -- | The total bytes that the query scanned in the event data store. This
+  { -- | The total bytes that the query scanned in the event data store. This
     -- value matches the number of bytes for which your account is billed for
     -- the query, unless the query is still running.
     bytesScanned :: Prelude.Maybe Prelude.Integer,
-    -- | The query\'s run time, in milliseconds.
-    executionTimeInMillis :: Prelude.Maybe Prelude.Int,
+    -- | The creation time of the query.
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The number of events that matched a query.
     eventsMatched :: Prelude.Maybe Prelude.Integer,
-    -- | The creation time of the query.
-    creationTime :: Prelude.Maybe Data.POSIX
+    -- | The number of events that the query scanned in the event data store.
+    eventsScanned :: Prelude.Maybe Prelude.Integer,
+    -- | The query\'s run time, in milliseconds.
+    executionTimeInMillis :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,32 +53,28 @@ data QueryStatisticsForDescribeQuery = QueryStatisticsForDescribeQuery'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eventsScanned', 'queryStatisticsForDescribeQuery_eventsScanned' - The number of events that the query scanned in the event data store.
---
 -- 'bytesScanned', 'queryStatisticsForDescribeQuery_bytesScanned' - The total bytes that the query scanned in the event data store. This
 -- value matches the number of bytes for which your account is billed for
 -- the query, unless the query is still running.
 --
--- 'executionTimeInMillis', 'queryStatisticsForDescribeQuery_executionTimeInMillis' - The query\'s run time, in milliseconds.
+-- 'creationTime', 'queryStatisticsForDescribeQuery_creationTime' - The creation time of the query.
 --
 -- 'eventsMatched', 'queryStatisticsForDescribeQuery_eventsMatched' - The number of events that matched a query.
 --
--- 'creationTime', 'queryStatisticsForDescribeQuery_creationTime' - The creation time of the query.
+-- 'eventsScanned', 'queryStatisticsForDescribeQuery_eventsScanned' - The number of events that the query scanned in the event data store.
+--
+-- 'executionTimeInMillis', 'queryStatisticsForDescribeQuery_executionTimeInMillis' - The query\'s run time, in milliseconds.
 newQueryStatisticsForDescribeQuery ::
   QueryStatisticsForDescribeQuery
 newQueryStatisticsForDescribeQuery =
   QueryStatisticsForDescribeQuery'
-    { eventsScanned =
+    { bytesScanned =
         Prelude.Nothing,
-      bytesScanned = Prelude.Nothing,
-      executionTimeInMillis = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
       eventsMatched = Prelude.Nothing,
-      creationTime = Prelude.Nothing
+      eventsScanned = Prelude.Nothing,
+      executionTimeInMillis = Prelude.Nothing
     }
-
--- | The number of events that the query scanned in the event data store.
-queryStatisticsForDescribeQuery_eventsScanned :: Lens.Lens' QueryStatisticsForDescribeQuery (Prelude.Maybe Prelude.Integer)
-queryStatisticsForDescribeQuery_eventsScanned = Lens.lens (\QueryStatisticsForDescribeQuery' {eventsScanned} -> eventsScanned) (\s@QueryStatisticsForDescribeQuery' {} a -> s {eventsScanned = a} :: QueryStatisticsForDescribeQuery)
 
 -- | The total bytes that the query scanned in the event data store. This
 -- value matches the number of bytes for which your account is billed for
@@ -86,17 +82,21 @@ queryStatisticsForDescribeQuery_eventsScanned = Lens.lens (\QueryStatisticsForDe
 queryStatisticsForDescribeQuery_bytesScanned :: Lens.Lens' QueryStatisticsForDescribeQuery (Prelude.Maybe Prelude.Integer)
 queryStatisticsForDescribeQuery_bytesScanned = Lens.lens (\QueryStatisticsForDescribeQuery' {bytesScanned} -> bytesScanned) (\s@QueryStatisticsForDescribeQuery' {} a -> s {bytesScanned = a} :: QueryStatisticsForDescribeQuery)
 
--- | The query\'s run time, in milliseconds.
-queryStatisticsForDescribeQuery_executionTimeInMillis :: Lens.Lens' QueryStatisticsForDescribeQuery (Prelude.Maybe Prelude.Int)
-queryStatisticsForDescribeQuery_executionTimeInMillis = Lens.lens (\QueryStatisticsForDescribeQuery' {executionTimeInMillis} -> executionTimeInMillis) (\s@QueryStatisticsForDescribeQuery' {} a -> s {executionTimeInMillis = a} :: QueryStatisticsForDescribeQuery)
+-- | The creation time of the query.
+queryStatisticsForDescribeQuery_creationTime :: Lens.Lens' QueryStatisticsForDescribeQuery (Prelude.Maybe Prelude.UTCTime)
+queryStatisticsForDescribeQuery_creationTime = Lens.lens (\QueryStatisticsForDescribeQuery' {creationTime} -> creationTime) (\s@QueryStatisticsForDescribeQuery' {} a -> s {creationTime = a} :: QueryStatisticsForDescribeQuery) Prelude.. Lens.mapping Data._Time
 
 -- | The number of events that matched a query.
 queryStatisticsForDescribeQuery_eventsMatched :: Lens.Lens' QueryStatisticsForDescribeQuery (Prelude.Maybe Prelude.Integer)
 queryStatisticsForDescribeQuery_eventsMatched = Lens.lens (\QueryStatisticsForDescribeQuery' {eventsMatched} -> eventsMatched) (\s@QueryStatisticsForDescribeQuery' {} a -> s {eventsMatched = a} :: QueryStatisticsForDescribeQuery)
 
--- | The creation time of the query.
-queryStatisticsForDescribeQuery_creationTime :: Lens.Lens' QueryStatisticsForDescribeQuery (Prelude.Maybe Prelude.UTCTime)
-queryStatisticsForDescribeQuery_creationTime = Lens.lens (\QueryStatisticsForDescribeQuery' {creationTime} -> creationTime) (\s@QueryStatisticsForDescribeQuery' {} a -> s {creationTime = a} :: QueryStatisticsForDescribeQuery) Prelude.. Lens.mapping Data._Time
+-- | The number of events that the query scanned in the event data store.
+queryStatisticsForDescribeQuery_eventsScanned :: Lens.Lens' QueryStatisticsForDescribeQuery (Prelude.Maybe Prelude.Integer)
+queryStatisticsForDescribeQuery_eventsScanned = Lens.lens (\QueryStatisticsForDescribeQuery' {eventsScanned} -> eventsScanned) (\s@QueryStatisticsForDescribeQuery' {} a -> s {eventsScanned = a} :: QueryStatisticsForDescribeQuery)
+
+-- | The query\'s run time, in milliseconds.
+queryStatisticsForDescribeQuery_executionTimeInMillis :: Lens.Lens' QueryStatisticsForDescribeQuery (Prelude.Maybe Prelude.Int)
+queryStatisticsForDescribeQuery_executionTimeInMillis = Lens.lens (\QueryStatisticsForDescribeQuery' {executionTimeInMillis} -> executionTimeInMillis) (\s@QueryStatisticsForDescribeQuery' {} a -> s {executionTimeInMillis = a} :: QueryStatisticsForDescribeQuery)
 
 instance
   Data.FromJSON
@@ -107,11 +107,11 @@ instance
       "QueryStatisticsForDescribeQuery"
       ( \x ->
           QueryStatisticsForDescribeQuery'
-            Prelude.<$> (x Data..:? "EventsScanned")
-            Prelude.<*> (x Data..:? "BytesScanned")
-            Prelude.<*> (x Data..:? "ExecutionTimeInMillis")
-            Prelude.<*> (x Data..:? "EventsMatched")
+            Prelude.<$> (x Data..:? "BytesScanned")
             Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "EventsMatched")
+            Prelude.<*> (x Data..:? "EventsScanned")
+            Prelude.<*> (x Data..:? "ExecutionTimeInMillis")
       )
 
 instance
@@ -121,19 +121,19 @@ instance
   hashWithSalt
     _salt
     QueryStatisticsForDescribeQuery' {..} =
-      _salt `Prelude.hashWithSalt` eventsScanned
-        `Prelude.hashWithSalt` bytesScanned
-        `Prelude.hashWithSalt` executionTimeInMillis
-        `Prelude.hashWithSalt` eventsMatched
+      _salt `Prelude.hashWithSalt` bytesScanned
         `Prelude.hashWithSalt` creationTime
+        `Prelude.hashWithSalt` eventsMatched
+        `Prelude.hashWithSalt` eventsScanned
+        `Prelude.hashWithSalt` executionTimeInMillis
 
 instance
   Prelude.NFData
     QueryStatisticsForDescribeQuery
   where
   rnf QueryStatisticsForDescribeQuery' {..} =
-    Prelude.rnf eventsScanned
-      `Prelude.seq` Prelude.rnf bytesScanned
-      `Prelude.seq` Prelude.rnf executionTimeInMillis
-      `Prelude.seq` Prelude.rnf eventsMatched
+    Prelude.rnf bytesScanned
       `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf eventsMatched
+      `Prelude.seq` Prelude.rnf eventsScanned
+      `Prelude.seq` Prelude.rnf executionTimeInMillis

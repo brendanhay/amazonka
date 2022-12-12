@@ -22,7 +22,8 @@ module Amazonka.Inspector2.Types.ResourceType
       ( ..,
         ResourceType_AWS_EC2_INSTANCE,
         ResourceType_AWS_ECR_CONTAINER_IMAGE,
-        ResourceType_AWS_ECR_REPOSITORY
+        ResourceType_AWS_ECR_REPOSITORY,
+        ResourceType_AWS_LAMBDA_FUNCTION
       ),
   )
 where
@@ -68,9 +69,13 @@ pattern ResourceType_AWS_ECR_CONTAINER_IMAGE = ResourceType' "AWS_ECR_CONTAINER_
 pattern ResourceType_AWS_ECR_REPOSITORY :: ResourceType
 pattern ResourceType_AWS_ECR_REPOSITORY = ResourceType' "AWS_ECR_REPOSITORY"
 
+pattern ResourceType_AWS_LAMBDA_FUNCTION :: ResourceType
+pattern ResourceType_AWS_LAMBDA_FUNCTION = ResourceType' "AWS_LAMBDA_FUNCTION"
+
 {-# COMPLETE
   ResourceType_AWS_EC2_INSTANCE,
   ResourceType_AWS_ECR_CONTAINER_IMAGE,
   ResourceType_AWS_ECR_REPOSITORY,
+  ResourceType_AWS_LAMBDA_FUNCTION,
   ResourceType'
   #-}

@@ -29,8 +29,8 @@ module Amazonka.GroundStation.ListSatellites
     newListSatellites,
 
     -- * Request Lenses
-    listSatellites_nextToken,
     listSatellites_maxResults,
+    listSatellites_nextToken,
 
     -- * Destructuring the Response
     ListSatellitesResponse (..),
@@ -55,11 +55,11 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListSatellites' smart constructor.
 data ListSatellites = ListSatellites'
-  { -- | Next token that can be supplied in the next call to get the next page of
+  { -- | Maximum number of satellites returned.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Next token that can be supplied in the next call to get the next page of
     -- satellites.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Maximum number of satellites returned.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,26 +71,26 @@ data ListSatellites = ListSatellites'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listSatellites_maxResults' - Maximum number of satellites returned.
+--
 -- 'nextToken', 'listSatellites_nextToken' - Next token that can be supplied in the next call to get the next page of
 -- satellites.
---
--- 'maxResults', 'listSatellites_maxResults' - Maximum number of satellites returned.
 newListSatellites ::
   ListSatellites
 newListSatellites =
   ListSatellites'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | Maximum number of satellites returned.
+listSatellites_maxResults :: Lens.Lens' ListSatellites (Prelude.Maybe Prelude.Natural)
+listSatellites_maxResults = Lens.lens (\ListSatellites' {maxResults} -> maxResults) (\s@ListSatellites' {} a -> s {maxResults = a} :: ListSatellites)
 
 -- | Next token that can be supplied in the next call to get the next page of
 -- satellites.
 listSatellites_nextToken :: Lens.Lens' ListSatellites (Prelude.Maybe Prelude.Text)
 listSatellites_nextToken = Lens.lens (\ListSatellites' {nextToken} -> nextToken) (\s@ListSatellites' {} a -> s {nextToken = a} :: ListSatellites)
-
--- | Maximum number of satellites returned.
-listSatellites_maxResults :: Lens.Lens' ListSatellites (Prelude.Maybe Prelude.Natural)
-listSatellites_maxResults = Lens.lens (\ListSatellites' {maxResults} -> maxResults) (\s@ListSatellites' {} a -> s {maxResults = a} :: ListSatellites)
 
 instance Core.AWSPager ListSatellites where
   page rq rs
@@ -130,13 +130,13 @@ instance Core.AWSRequest ListSatellites where
 
 instance Prelude.Hashable ListSatellites where
   hashWithSalt _salt ListSatellites' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListSatellites where
   rnf ListSatellites' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListSatellites where
   toHeaders =
@@ -155,8 +155,8 @@ instance Data.ToPath ListSatellites where
 instance Data.ToQuery ListSatellites where
   toQuery ListSatellites' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- |

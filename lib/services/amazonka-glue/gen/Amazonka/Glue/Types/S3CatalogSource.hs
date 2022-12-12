@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newS3CatalogSource' smart constructor.
 data S3CatalogSource = S3CatalogSource'
-  { -- | Partitions satisfying this predicate are deleted. Files within the
+  { -- | Specifies additional connection options.
+    additionalOptions :: Prelude.Maybe S3SourceAdditionalOptions,
+    -- | Partitions satisfying this predicate are deleted. Files within the
     -- retention period in these partitions are not deleted. Set to @\"\"@ –
     -- empty by default.
     partitionPredicate :: Prelude.Maybe Prelude.Text,
-    -- | Specifies additional connection options.
-    additionalOptions :: Prelude.Maybe S3SourceAdditionalOptions,
     -- | The name of the data store.
     name :: Prelude.Text,
     -- | The database to read from.
@@ -52,11 +52,11 @@ data S3CatalogSource = S3CatalogSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'additionalOptions', 's3CatalogSource_additionalOptions' - Specifies additional connection options.
+--
 -- 'partitionPredicate', 's3CatalogSource_partitionPredicate' - Partitions satisfying this predicate are deleted. Files within the
 -- retention period in these partitions are not deleted. Set to @\"\"@ –
 -- empty by default.
---
--- 'additionalOptions', 's3CatalogSource_additionalOptions' - Specifies additional connection options.
 --
 -- 'name', 's3CatalogSource_name' - The name of the data store.
 --
@@ -73,23 +73,23 @@ newS3CatalogSource ::
   S3CatalogSource
 newS3CatalogSource pName_ pDatabase_ pTable_ =
   S3CatalogSource'
-    { partitionPredicate =
+    { additionalOptions =
         Prelude.Nothing,
-      additionalOptions = Prelude.Nothing,
+      partitionPredicate = Prelude.Nothing,
       name = pName_,
       database = pDatabase_,
       table = pTable_
     }
+
+-- | Specifies additional connection options.
+s3CatalogSource_additionalOptions :: Lens.Lens' S3CatalogSource (Prelude.Maybe S3SourceAdditionalOptions)
+s3CatalogSource_additionalOptions = Lens.lens (\S3CatalogSource' {additionalOptions} -> additionalOptions) (\s@S3CatalogSource' {} a -> s {additionalOptions = a} :: S3CatalogSource)
 
 -- | Partitions satisfying this predicate are deleted. Files within the
 -- retention period in these partitions are not deleted. Set to @\"\"@ –
 -- empty by default.
 s3CatalogSource_partitionPredicate :: Lens.Lens' S3CatalogSource (Prelude.Maybe Prelude.Text)
 s3CatalogSource_partitionPredicate = Lens.lens (\S3CatalogSource' {partitionPredicate} -> partitionPredicate) (\s@S3CatalogSource' {} a -> s {partitionPredicate = a} :: S3CatalogSource)
-
--- | Specifies additional connection options.
-s3CatalogSource_additionalOptions :: Lens.Lens' S3CatalogSource (Prelude.Maybe S3SourceAdditionalOptions)
-s3CatalogSource_additionalOptions = Lens.lens (\S3CatalogSource' {additionalOptions} -> additionalOptions) (\s@S3CatalogSource' {} a -> s {additionalOptions = a} :: S3CatalogSource)
 
 -- | The name of the data store.
 s3CatalogSource_name :: Lens.Lens' S3CatalogSource Prelude.Text
@@ -109,8 +109,8 @@ instance Data.FromJSON S3CatalogSource where
       "S3CatalogSource"
       ( \x ->
           S3CatalogSource'
-            Prelude.<$> (x Data..:? "PartitionPredicate")
-            Prelude.<*> (x Data..:? "AdditionalOptions")
+            Prelude.<$> (x Data..:? "AdditionalOptions")
+            Prelude.<*> (x Data..:? "PartitionPredicate")
             Prelude.<*> (x Data..: "Name")
             Prelude.<*> (x Data..: "Database")
             Prelude.<*> (x Data..: "Table")
@@ -118,16 +118,16 @@ instance Data.FromJSON S3CatalogSource where
 
 instance Prelude.Hashable S3CatalogSource where
   hashWithSalt _salt S3CatalogSource' {..} =
-    _salt `Prelude.hashWithSalt` partitionPredicate
-      `Prelude.hashWithSalt` additionalOptions
+    _salt `Prelude.hashWithSalt` additionalOptions
+      `Prelude.hashWithSalt` partitionPredicate
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` database
       `Prelude.hashWithSalt` table
 
 instance Prelude.NFData S3CatalogSource where
   rnf S3CatalogSource' {..} =
-    Prelude.rnf partitionPredicate
-      `Prelude.seq` Prelude.rnf additionalOptions
+    Prelude.rnf additionalOptions
+      `Prelude.seq` Prelude.rnf partitionPredicate
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf database
       `Prelude.seq` Prelude.rnf table
@@ -136,10 +136,10 @@ instance Data.ToJSON S3CatalogSource where
   toJSON S3CatalogSource' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("PartitionPredicate" Data..=)
-              Prelude.<$> partitionPredicate,
-            ("AdditionalOptions" Data..=)
+          [ ("AdditionalOptions" Data..=)
               Prelude.<$> additionalOptions,
+            ("PartitionPredicate" Data..=)
+              Prelude.<$> partitionPredicate,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("Database" Data..= database),
             Prelude.Just ("Table" Data..= table)

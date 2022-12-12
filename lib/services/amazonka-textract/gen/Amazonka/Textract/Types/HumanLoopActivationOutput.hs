@@ -32,10 +32,10 @@ data HumanLoopActivationOutput = HumanLoopActivationOutput'
   { -- | Shows the result of condition evaluations, including those conditions
     -- which activated a human review.
     humanLoopActivationConditionsEvaluationResults :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the HumanLoop created.
-    humanLoopArn :: Prelude.Maybe Prelude.Text,
     -- | Shows if and why human review was needed.
-    humanLoopActivationReasons :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
+    humanLoopActivationReasons :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The Amazon Resource Name (ARN) of the HumanLoop created.
+    humanLoopArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,17 +50,17 @@ data HumanLoopActivationOutput = HumanLoopActivationOutput'
 -- 'humanLoopActivationConditionsEvaluationResults', 'humanLoopActivationOutput_humanLoopActivationConditionsEvaluationResults' - Shows the result of condition evaluations, including those conditions
 -- which activated a human review.
 --
--- 'humanLoopArn', 'humanLoopActivationOutput_humanLoopArn' - The Amazon Resource Name (ARN) of the HumanLoop created.
---
 -- 'humanLoopActivationReasons', 'humanLoopActivationOutput_humanLoopActivationReasons' - Shows if and why human review was needed.
+--
+-- 'humanLoopArn', 'humanLoopActivationOutput_humanLoopArn' - The Amazon Resource Name (ARN) of the HumanLoop created.
 newHumanLoopActivationOutput ::
   HumanLoopActivationOutput
 newHumanLoopActivationOutput =
   HumanLoopActivationOutput'
     { humanLoopActivationConditionsEvaluationResults =
         Prelude.Nothing,
-      humanLoopArn = Prelude.Nothing,
-      humanLoopActivationReasons = Prelude.Nothing
+      humanLoopActivationReasons = Prelude.Nothing,
+      humanLoopArn = Prelude.Nothing
     }
 
 -- | Shows the result of condition evaluations, including those conditions
@@ -68,13 +68,13 @@ newHumanLoopActivationOutput =
 humanLoopActivationOutput_humanLoopActivationConditionsEvaluationResults :: Lens.Lens' HumanLoopActivationOutput (Prelude.Maybe Prelude.Text)
 humanLoopActivationOutput_humanLoopActivationConditionsEvaluationResults = Lens.lens (\HumanLoopActivationOutput' {humanLoopActivationConditionsEvaluationResults} -> humanLoopActivationConditionsEvaluationResults) (\s@HumanLoopActivationOutput' {} a -> s {humanLoopActivationConditionsEvaluationResults = a} :: HumanLoopActivationOutput)
 
--- | The Amazon Resource Name (ARN) of the HumanLoop created.
-humanLoopActivationOutput_humanLoopArn :: Lens.Lens' HumanLoopActivationOutput (Prelude.Maybe Prelude.Text)
-humanLoopActivationOutput_humanLoopArn = Lens.lens (\HumanLoopActivationOutput' {humanLoopArn} -> humanLoopArn) (\s@HumanLoopActivationOutput' {} a -> s {humanLoopArn = a} :: HumanLoopActivationOutput)
-
 -- | Shows if and why human review was needed.
 humanLoopActivationOutput_humanLoopActivationReasons :: Lens.Lens' HumanLoopActivationOutput (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 humanLoopActivationOutput_humanLoopActivationReasons = Lens.lens (\HumanLoopActivationOutput' {humanLoopActivationReasons} -> humanLoopActivationReasons) (\s@HumanLoopActivationOutput' {} a -> s {humanLoopActivationReasons = a} :: HumanLoopActivationOutput) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Resource Name (ARN) of the HumanLoop created.
+humanLoopActivationOutput_humanLoopArn :: Lens.Lens' HumanLoopActivationOutput (Prelude.Maybe Prelude.Text)
+humanLoopActivationOutput_humanLoopArn = Lens.lens (\HumanLoopActivationOutput' {humanLoopArn} -> humanLoopArn) (\s@HumanLoopActivationOutput' {} a -> s {humanLoopArn = a} :: HumanLoopActivationOutput)
 
 instance Data.FromJSON HumanLoopActivationOutput where
   parseJSON =
@@ -85,20 +85,20 @@ instance Data.FromJSON HumanLoopActivationOutput where
             Prelude.<$> ( x
                             Data..:? "HumanLoopActivationConditionsEvaluationResults"
                         )
-            Prelude.<*> (x Data..:? "HumanLoopArn")
             Prelude.<*> (x Data..:? "HumanLoopActivationReasons")
+            Prelude.<*> (x Data..:? "HumanLoopArn")
       )
 
 instance Prelude.Hashable HumanLoopActivationOutput where
   hashWithSalt _salt HumanLoopActivationOutput' {..} =
     _salt
       `Prelude.hashWithSalt` humanLoopActivationConditionsEvaluationResults
-      `Prelude.hashWithSalt` humanLoopArn
       `Prelude.hashWithSalt` humanLoopActivationReasons
+      `Prelude.hashWithSalt` humanLoopArn
 
 instance Prelude.NFData HumanLoopActivationOutput where
   rnf HumanLoopActivationOutput' {..} =
     Prelude.rnf
       humanLoopActivationConditionsEvaluationResults
-      `Prelude.seq` Prelude.rnf humanLoopArn
       `Prelude.seq` Prelude.rnf humanLoopActivationReasons
+      `Prelude.seq` Prelude.rnf humanLoopArn

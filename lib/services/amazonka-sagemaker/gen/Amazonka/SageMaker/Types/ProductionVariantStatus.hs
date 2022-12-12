@@ -29,10 +29,10 @@ import Amazonka.SageMaker.Types.VariantStatus
 --
 -- /See:/ 'newProductionVariantStatus' smart constructor.
 data ProductionVariantStatus = ProductionVariantStatus'
-  { -- | A message that describes the status of the production variant.
-    statusMessage :: Prelude.Maybe Prelude.Text,
-    -- | The start time of the current status change.
+  { -- | The start time of the current status change.
     startTime :: Prelude.Maybe Data.POSIX,
+    -- | A message that describes the status of the production variant.
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The endpoint variant status which describes the current deployment stage
     -- status or operational status.
     --
@@ -59,9 +59,9 @@ data ProductionVariantStatus = ProductionVariantStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statusMessage', 'productionVariantStatus_statusMessage' - A message that describes the status of the production variant.
---
 -- 'startTime', 'productionVariantStatus_startTime' - The start time of the current status change.
+--
+-- 'statusMessage', 'productionVariantStatus_statusMessage' - A message that describes the status of the production variant.
 --
 -- 'status', 'productionVariantStatus_status' - The endpoint variant status which describes the current deployment stage
 -- status or operational status.
@@ -83,19 +83,19 @@ newProductionVariantStatus ::
   ProductionVariantStatus
 newProductionVariantStatus pStatus_ =
   ProductionVariantStatus'
-    { statusMessage =
+    { startTime =
         Prelude.Nothing,
-      startTime = Prelude.Nothing,
+      statusMessage = Prelude.Nothing,
       status = pStatus_
     }
-
--- | A message that describes the status of the production variant.
-productionVariantStatus_statusMessage :: Lens.Lens' ProductionVariantStatus (Prelude.Maybe Prelude.Text)
-productionVariantStatus_statusMessage = Lens.lens (\ProductionVariantStatus' {statusMessage} -> statusMessage) (\s@ProductionVariantStatus' {} a -> s {statusMessage = a} :: ProductionVariantStatus)
 
 -- | The start time of the current status change.
 productionVariantStatus_startTime :: Lens.Lens' ProductionVariantStatus (Prelude.Maybe Prelude.UTCTime)
 productionVariantStatus_startTime = Lens.lens (\ProductionVariantStatus' {startTime} -> startTime) (\s@ProductionVariantStatus' {} a -> s {startTime = a} :: ProductionVariantStatus) Prelude.. Lens.mapping Data._Time
+
+-- | A message that describes the status of the production variant.
+productionVariantStatus_statusMessage :: Lens.Lens' ProductionVariantStatus (Prelude.Maybe Prelude.Text)
+productionVariantStatus_statusMessage = Lens.lens (\ProductionVariantStatus' {statusMessage} -> statusMessage) (\s@ProductionVariantStatus' {} a -> s {statusMessage = a} :: ProductionVariantStatus)
 
 -- | The endpoint variant status which describes the current deployment stage
 -- status or operational status.
@@ -120,19 +120,19 @@ instance Data.FromJSON ProductionVariantStatus where
       "ProductionVariantStatus"
       ( \x ->
           ProductionVariantStatus'
-            Prelude.<$> (x Data..:? "StatusMessage")
-            Prelude.<*> (x Data..:? "StartTime")
+            Prelude.<$> (x Data..:? "StartTime")
+            Prelude.<*> (x Data..:? "StatusMessage")
             Prelude.<*> (x Data..: "Status")
       )
 
 instance Prelude.Hashable ProductionVariantStatus where
   hashWithSalt _salt ProductionVariantStatus' {..} =
-    _salt `Prelude.hashWithSalt` statusMessage
-      `Prelude.hashWithSalt` startTime
+    _salt `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ProductionVariantStatus where
   rnf ProductionVariantStatus' {..} =
-    Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf startTime
+    Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf statusMessage
       `Prelude.seq` Prelude.rnf status

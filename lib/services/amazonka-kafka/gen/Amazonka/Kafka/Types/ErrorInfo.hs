@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newErrorInfo' smart constructor.
 data ErrorInfo = ErrorInfo'
-  { -- | An optional field to provide more details about the error.
-    errorString :: Prelude.Maybe Prelude.Text,
-    -- | A number describing the error programmatically.
-    errorCode :: Prelude.Maybe Prelude.Text
+  { -- | A number describing the error programmatically.
+    errorCode :: Prelude.Maybe Prelude.Text,
+    -- | An optional field to provide more details about the error.
+    errorString :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data ErrorInfo = ErrorInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'errorString', 'errorInfo_errorString' - An optional field to provide more details about the error.
---
 -- 'errorCode', 'errorInfo_errorCode' - A number describing the error programmatically.
+--
+-- 'errorString', 'errorInfo_errorString' - An optional field to provide more details about the error.
 newErrorInfo ::
   ErrorInfo
 newErrorInfo =
   ErrorInfo'
-    { errorString = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+    { errorCode = Prelude.Nothing,
+      errorString = Prelude.Nothing
     }
-
--- | An optional field to provide more details about the error.
-errorInfo_errorString :: Lens.Lens' ErrorInfo (Prelude.Maybe Prelude.Text)
-errorInfo_errorString = Lens.lens (\ErrorInfo' {errorString} -> errorString) (\s@ErrorInfo' {} a -> s {errorString = a} :: ErrorInfo)
 
 -- | A number describing the error programmatically.
 errorInfo_errorCode :: Lens.Lens' ErrorInfo (Prelude.Maybe Prelude.Text)
 errorInfo_errorCode = Lens.lens (\ErrorInfo' {errorCode} -> errorCode) (\s@ErrorInfo' {} a -> s {errorCode = a} :: ErrorInfo)
+
+-- | An optional field to provide more details about the error.
+errorInfo_errorString :: Lens.Lens' ErrorInfo (Prelude.Maybe Prelude.Text)
+errorInfo_errorString = Lens.lens (\ErrorInfo' {errorString} -> errorString) (\s@ErrorInfo' {} a -> s {errorString = a} :: ErrorInfo)
 
 instance Data.FromJSON ErrorInfo where
   parseJSON =
@@ -68,16 +68,16 @@ instance Data.FromJSON ErrorInfo where
       "ErrorInfo"
       ( \x ->
           ErrorInfo'
-            Prelude.<$> (x Data..:? "errorString")
-            Prelude.<*> (x Data..:? "errorCode")
+            Prelude.<$> (x Data..:? "errorCode")
+            Prelude.<*> (x Data..:? "errorString")
       )
 
 instance Prelude.Hashable ErrorInfo where
   hashWithSalt _salt ErrorInfo' {..} =
-    _salt `Prelude.hashWithSalt` errorString
-      `Prelude.hashWithSalt` errorCode
+    _salt `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` errorString
 
 instance Prelude.NFData ErrorInfo where
   rnf ErrorInfo' {..} =
-    Prelude.rnf errorString
-      `Prelude.seq` Prelude.rnf errorCode
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorString

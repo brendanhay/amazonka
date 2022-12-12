@@ -41,9 +41,9 @@ module Amazonka.CloudFormation.ContinueUpdateRollback
     newContinueUpdateRollback,
 
     -- * Request Lenses
+    continueUpdateRollback_clientRequestToken,
     continueUpdateRollback_resourcesToSkip,
     continueUpdateRollback_roleARN,
-    continueUpdateRollback_clientRequestToken,
     continueUpdateRollback_stackName,
 
     -- * Destructuring the Response
@@ -67,7 +67,13 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newContinueUpdateRollback' smart constructor.
 data ContinueUpdateRollback = ContinueUpdateRollback'
-  { -- | A list of the logical IDs of the resources that CloudFormation skips
+  { -- | A unique identifier for this @ContinueUpdateRollback@ request. Specify
+    -- this token if you plan to retry requests so that CloudFormationknows
+    -- that you\'re not attempting to continue the rollback to a stack with the
+    -- same name. You might retry @ContinueUpdateRollback@ requests to ensure
+    -- that CloudFormation successfully received them.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of the logical IDs of the resources that CloudFormation skips
     -- during the continue update rollback operation. You can specify only
     -- resources that are in the @UPDATE_FAILED@ state because a rollback
     -- failed. You can\'t specify resources that are in the @UPDATE_FAILED@
@@ -117,12 +123,6 @@ data ContinueUpdateRollback = ContinueUpdateRollback'
     -- CloudFormation uses a temporary session that\'s generated from your user
     -- credentials.
     roleARN :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for this @ContinueUpdateRollback@ request. Specify
-    -- this token if you plan to retry requests so that CloudFormationknows
-    -- that you\'re not attempting to continue the rollback to a stack with the
-    -- same name. You might retry @ContinueUpdateRollback@ requests to ensure
-    -- that CloudFormation successfully received them.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The name or the unique ID of the stack that you want to continue rolling
     -- back.
     --
@@ -141,6 +141,12 @@ data ContinueUpdateRollback = ContinueUpdateRollback'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'clientRequestToken', 'continueUpdateRollback_clientRequestToken' - A unique identifier for this @ContinueUpdateRollback@ request. Specify
+-- this token if you plan to retry requests so that CloudFormationknows
+-- that you\'re not attempting to continue the rollback to a stack with the
+-- same name. You might retry @ContinueUpdateRollback@ requests to ensure
+-- that CloudFormation successfully received them.
 --
 -- 'resourcesToSkip', 'continueUpdateRollback_resourcesToSkip' - A list of the logical IDs of the resources that CloudFormation skips
 -- during the continue update rollback operation. You can specify only
@@ -192,12 +198,6 @@ data ContinueUpdateRollback = ContinueUpdateRollback'
 -- CloudFormation uses a temporary session that\'s generated from your user
 -- credentials.
 --
--- 'clientRequestToken', 'continueUpdateRollback_clientRequestToken' - A unique identifier for this @ContinueUpdateRollback@ request. Specify
--- this token if you plan to retry requests so that CloudFormationknows
--- that you\'re not attempting to continue the rollback to a stack with the
--- same name. You might retry @ContinueUpdateRollback@ requests to ensure
--- that CloudFormation successfully received them.
---
 -- 'stackName', 'continueUpdateRollback_stackName' - The name or the unique ID of the stack that you want to continue rolling
 -- back.
 --
@@ -211,12 +211,20 @@ newContinueUpdateRollback ::
   ContinueUpdateRollback
 newContinueUpdateRollback pStackName_ =
   ContinueUpdateRollback'
-    { resourcesToSkip =
+    { clientRequestToken =
         Prelude.Nothing,
+      resourcesToSkip = Prelude.Nothing,
       roleARN = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
       stackName = pStackName_
     }
+
+-- | A unique identifier for this @ContinueUpdateRollback@ request. Specify
+-- this token if you plan to retry requests so that CloudFormationknows
+-- that you\'re not attempting to continue the rollback to a stack with the
+-- same name. You might retry @ContinueUpdateRollback@ requests to ensure
+-- that CloudFormation successfully received them.
+continueUpdateRollback_clientRequestToken :: Lens.Lens' ContinueUpdateRollback (Prelude.Maybe Prelude.Text)
+continueUpdateRollback_clientRequestToken = Lens.lens (\ContinueUpdateRollback' {clientRequestToken} -> clientRequestToken) (\s@ContinueUpdateRollback' {} a -> s {clientRequestToken = a} :: ContinueUpdateRollback)
 
 -- | A list of the logical IDs of the resources that CloudFormation skips
 -- during the continue update rollback operation. You can specify only
@@ -272,14 +280,6 @@ continueUpdateRollback_resourcesToSkip = Lens.lens (\ContinueUpdateRollback' {re
 continueUpdateRollback_roleARN :: Lens.Lens' ContinueUpdateRollback (Prelude.Maybe Prelude.Text)
 continueUpdateRollback_roleARN = Lens.lens (\ContinueUpdateRollback' {roleARN} -> roleARN) (\s@ContinueUpdateRollback' {} a -> s {roleARN = a} :: ContinueUpdateRollback)
 
--- | A unique identifier for this @ContinueUpdateRollback@ request. Specify
--- this token if you plan to retry requests so that CloudFormationknows
--- that you\'re not attempting to continue the rollback to a stack with the
--- same name. You might retry @ContinueUpdateRollback@ requests to ensure
--- that CloudFormation successfully received them.
-continueUpdateRollback_clientRequestToken :: Lens.Lens' ContinueUpdateRollback (Prelude.Maybe Prelude.Text)
-continueUpdateRollback_clientRequestToken = Lens.lens (\ContinueUpdateRollback' {clientRequestToken} -> clientRequestToken) (\s@ContinueUpdateRollback' {} a -> s {clientRequestToken = a} :: ContinueUpdateRollback)
-
 -- | The name or the unique ID of the stack that you want to continue rolling
 -- back.
 --
@@ -306,16 +306,16 @@ instance Core.AWSRequest ContinueUpdateRollback where
 
 instance Prelude.Hashable ContinueUpdateRollback where
   hashWithSalt _salt ContinueUpdateRollback' {..} =
-    _salt `Prelude.hashWithSalt` resourcesToSkip
+    _salt `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` resourcesToSkip
       `Prelude.hashWithSalt` roleARN
-      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` stackName
 
 instance Prelude.NFData ContinueUpdateRollback where
   rnf ContinueUpdateRollback' {..} =
-    Prelude.rnf resourcesToSkip
+    Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf resourcesToSkip
       `Prelude.seq` Prelude.rnf roleARN
-      `Prelude.seq` Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf stackName
 
 instance Data.ToHeaders ContinueUpdateRollback where
@@ -331,13 +331,13 @@ instance Data.ToQuery ContinueUpdateRollback where
           Data.=: ("ContinueUpdateRollback" :: Prelude.ByteString),
         "Version"
           Data.=: ("2010-05-15" :: Prelude.ByteString),
+        "ClientRequestToken" Data.=: clientRequestToken,
         "ResourcesToSkip"
           Data.=: Data.toQuery
             ( Data.toQueryList "member"
                 Prelude.<$> resourcesToSkip
             ),
         "RoleARN" Data.=: roleARN,
-        "ClientRequestToken" Data.=: clientRequestToken,
         "StackName" Data.=: stackName
       ]
 

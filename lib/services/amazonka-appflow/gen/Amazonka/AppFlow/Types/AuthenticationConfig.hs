@@ -33,12 +33,12 @@ import qualified Amazonka.Prelude as Prelude
 data AuthenticationConfig = AuthenticationConfig'
   { -- | Contains information required for custom authentication.
     customAuthConfigs :: Prelude.Maybe [CustomAuthConfig],
-    -- | Indicates whether custom authentication is supported by the connector
-    isCustomAuthSupported :: Prelude.Maybe Prelude.Bool,
     -- | Indicates whether API key authentication is supported by the connector
     isApiKeyAuthSupported :: Prelude.Maybe Prelude.Bool,
     -- | Indicates whether basic authentication is supported by the connector.
     isBasicAuthSupported :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates whether custom authentication is supported by the connector
+    isCustomAuthSupported :: Prelude.Maybe Prelude.Bool,
     -- | Indicates whether OAuth 2.0 authentication is supported by the
     -- connector.
     isOAuth2Supported :: Prelude.Maybe Prelude.Bool,
@@ -57,11 +57,11 @@ data AuthenticationConfig = AuthenticationConfig'
 --
 -- 'customAuthConfigs', 'authenticationConfig_customAuthConfigs' - Contains information required for custom authentication.
 --
--- 'isCustomAuthSupported', 'authenticationConfig_isCustomAuthSupported' - Indicates whether custom authentication is supported by the connector
---
 -- 'isApiKeyAuthSupported', 'authenticationConfig_isApiKeyAuthSupported' - Indicates whether API key authentication is supported by the connector
 --
 -- 'isBasicAuthSupported', 'authenticationConfig_isBasicAuthSupported' - Indicates whether basic authentication is supported by the connector.
+--
+-- 'isCustomAuthSupported', 'authenticationConfig_isCustomAuthSupported' - Indicates whether custom authentication is supported by the connector
 --
 -- 'isOAuth2Supported', 'authenticationConfig_isOAuth2Supported' - Indicates whether OAuth 2.0 authentication is supported by the
 -- connector.
@@ -73,9 +73,9 @@ newAuthenticationConfig =
   AuthenticationConfig'
     { customAuthConfigs =
         Prelude.Nothing,
-      isCustomAuthSupported = Prelude.Nothing,
       isApiKeyAuthSupported = Prelude.Nothing,
       isBasicAuthSupported = Prelude.Nothing,
+      isCustomAuthSupported = Prelude.Nothing,
       isOAuth2Supported = Prelude.Nothing,
       oAuth2Defaults = Prelude.Nothing
     }
@@ -84,10 +84,6 @@ newAuthenticationConfig =
 authenticationConfig_customAuthConfigs :: Lens.Lens' AuthenticationConfig (Prelude.Maybe [CustomAuthConfig])
 authenticationConfig_customAuthConfigs = Lens.lens (\AuthenticationConfig' {customAuthConfigs} -> customAuthConfigs) (\s@AuthenticationConfig' {} a -> s {customAuthConfigs = a} :: AuthenticationConfig) Prelude.. Lens.mapping Lens.coerced
 
--- | Indicates whether custom authentication is supported by the connector
-authenticationConfig_isCustomAuthSupported :: Lens.Lens' AuthenticationConfig (Prelude.Maybe Prelude.Bool)
-authenticationConfig_isCustomAuthSupported = Lens.lens (\AuthenticationConfig' {isCustomAuthSupported} -> isCustomAuthSupported) (\s@AuthenticationConfig' {} a -> s {isCustomAuthSupported = a} :: AuthenticationConfig)
-
 -- | Indicates whether API key authentication is supported by the connector
 authenticationConfig_isApiKeyAuthSupported :: Lens.Lens' AuthenticationConfig (Prelude.Maybe Prelude.Bool)
 authenticationConfig_isApiKeyAuthSupported = Lens.lens (\AuthenticationConfig' {isApiKeyAuthSupported} -> isApiKeyAuthSupported) (\s@AuthenticationConfig' {} a -> s {isApiKeyAuthSupported = a} :: AuthenticationConfig)
@@ -95,6 +91,10 @@ authenticationConfig_isApiKeyAuthSupported = Lens.lens (\AuthenticationConfig' {
 -- | Indicates whether basic authentication is supported by the connector.
 authenticationConfig_isBasicAuthSupported :: Lens.Lens' AuthenticationConfig (Prelude.Maybe Prelude.Bool)
 authenticationConfig_isBasicAuthSupported = Lens.lens (\AuthenticationConfig' {isBasicAuthSupported} -> isBasicAuthSupported) (\s@AuthenticationConfig' {} a -> s {isBasicAuthSupported = a} :: AuthenticationConfig)
+
+-- | Indicates whether custom authentication is supported by the connector
+authenticationConfig_isCustomAuthSupported :: Lens.Lens' AuthenticationConfig (Prelude.Maybe Prelude.Bool)
+authenticationConfig_isCustomAuthSupported = Lens.lens (\AuthenticationConfig' {isCustomAuthSupported} -> isCustomAuthSupported) (\s@AuthenticationConfig' {} a -> s {isCustomAuthSupported = a} :: AuthenticationConfig)
 
 -- | Indicates whether OAuth 2.0 authentication is supported by the
 -- connector.
@@ -114,9 +114,9 @@ instance Data.FromJSON AuthenticationConfig where
             Prelude.<$> ( x Data..:? "customAuthConfigs"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "isCustomAuthSupported")
             Prelude.<*> (x Data..:? "isApiKeyAuthSupported")
             Prelude.<*> (x Data..:? "isBasicAuthSupported")
+            Prelude.<*> (x Data..:? "isCustomAuthSupported")
             Prelude.<*> (x Data..:? "isOAuth2Supported")
             Prelude.<*> (x Data..:? "oAuth2Defaults")
       )
@@ -124,17 +124,17 @@ instance Data.FromJSON AuthenticationConfig where
 instance Prelude.Hashable AuthenticationConfig where
   hashWithSalt _salt AuthenticationConfig' {..} =
     _salt `Prelude.hashWithSalt` customAuthConfigs
-      `Prelude.hashWithSalt` isCustomAuthSupported
       `Prelude.hashWithSalt` isApiKeyAuthSupported
       `Prelude.hashWithSalt` isBasicAuthSupported
+      `Prelude.hashWithSalt` isCustomAuthSupported
       `Prelude.hashWithSalt` isOAuth2Supported
       `Prelude.hashWithSalt` oAuth2Defaults
 
 instance Prelude.NFData AuthenticationConfig where
   rnf AuthenticationConfig' {..} =
     Prelude.rnf customAuthConfigs
-      `Prelude.seq` Prelude.rnf isCustomAuthSupported
       `Prelude.seq` Prelude.rnf isApiKeyAuthSupported
       `Prelude.seq` Prelude.rnf isBasicAuthSupported
+      `Prelude.seq` Prelude.rnf isCustomAuthSupported
       `Prelude.seq` Prelude.rnf isOAuth2Supported
       `Prelude.seq` Prelude.rnf oAuth2Defaults

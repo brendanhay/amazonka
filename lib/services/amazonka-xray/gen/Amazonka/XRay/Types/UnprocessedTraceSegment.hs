@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUnprocessedTraceSegment' smart constructor.
 data UnprocessedTraceSegment = UnprocessedTraceSegment'
-  { -- | The error message.
-    message :: Prelude.Maybe Prelude.Text,
+  { -- | The error that caused processing to fail.
+    errorCode :: Prelude.Maybe Prelude.Text,
     -- | The segment\'s ID.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The error that caused processing to fail.
-    errorCode :: Prelude.Maybe Prelude.Text
+    -- | The error message.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,31 +45,32 @@ data UnprocessedTraceSegment = UnprocessedTraceSegment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'unprocessedTraceSegment_message' - The error message.
+-- 'errorCode', 'unprocessedTraceSegment_errorCode' - The error that caused processing to fail.
 --
 -- 'id', 'unprocessedTraceSegment_id' - The segment\'s ID.
 --
--- 'errorCode', 'unprocessedTraceSegment_errorCode' - The error that caused processing to fail.
+-- 'message', 'unprocessedTraceSegment_message' - The error message.
 newUnprocessedTraceSegment ::
   UnprocessedTraceSegment
 newUnprocessedTraceSegment =
   UnprocessedTraceSegment'
-    { message = Prelude.Nothing,
+    { errorCode =
+        Prelude.Nothing,
       id = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+      message = Prelude.Nothing
     }
 
--- | The error message.
-unprocessedTraceSegment_message :: Lens.Lens' UnprocessedTraceSegment (Prelude.Maybe Prelude.Text)
-unprocessedTraceSegment_message = Lens.lens (\UnprocessedTraceSegment' {message} -> message) (\s@UnprocessedTraceSegment' {} a -> s {message = a} :: UnprocessedTraceSegment)
+-- | The error that caused processing to fail.
+unprocessedTraceSegment_errorCode :: Lens.Lens' UnprocessedTraceSegment (Prelude.Maybe Prelude.Text)
+unprocessedTraceSegment_errorCode = Lens.lens (\UnprocessedTraceSegment' {errorCode} -> errorCode) (\s@UnprocessedTraceSegment' {} a -> s {errorCode = a} :: UnprocessedTraceSegment)
 
 -- | The segment\'s ID.
 unprocessedTraceSegment_id :: Lens.Lens' UnprocessedTraceSegment (Prelude.Maybe Prelude.Text)
 unprocessedTraceSegment_id = Lens.lens (\UnprocessedTraceSegment' {id} -> id) (\s@UnprocessedTraceSegment' {} a -> s {id = a} :: UnprocessedTraceSegment)
 
--- | The error that caused processing to fail.
-unprocessedTraceSegment_errorCode :: Lens.Lens' UnprocessedTraceSegment (Prelude.Maybe Prelude.Text)
-unprocessedTraceSegment_errorCode = Lens.lens (\UnprocessedTraceSegment' {errorCode} -> errorCode) (\s@UnprocessedTraceSegment' {} a -> s {errorCode = a} :: UnprocessedTraceSegment)
+-- | The error message.
+unprocessedTraceSegment_message :: Lens.Lens' UnprocessedTraceSegment (Prelude.Maybe Prelude.Text)
+unprocessedTraceSegment_message = Lens.lens (\UnprocessedTraceSegment' {message} -> message) (\s@UnprocessedTraceSegment' {} a -> s {message = a} :: UnprocessedTraceSegment)
 
 instance Data.FromJSON UnprocessedTraceSegment where
   parseJSON =
@@ -77,19 +78,19 @@ instance Data.FromJSON UnprocessedTraceSegment where
       "UnprocessedTraceSegment"
       ( \x ->
           UnprocessedTraceSegment'
-            Prelude.<$> (x Data..:? "Message")
+            Prelude.<$> (x Data..:? "ErrorCode")
             Prelude.<*> (x Data..:? "Id")
-            Prelude.<*> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "Message")
       )
 
 instance Prelude.Hashable UnprocessedTraceSegment where
   hashWithSalt _salt UnprocessedTraceSegment' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` message
 
 instance Prelude.NFData UnprocessedTraceSegment where
   rnf UnprocessedTraceSegment' {..} =
-    Prelude.rnf message
+    Prelude.rnf errorCode
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf message

@@ -27,11 +27,11 @@ module Amazonka.AuditManager.UpdateSettings
     newUpdateSettings,
 
     -- * Request Lenses
-    updateSettings_defaultProcessOwners,
-    updateSettings_snsTopic,
-    updateSettings_kmsKey,
     updateSettings_defaultAssessmentReportsDestination,
+    updateSettings_defaultProcessOwners,
     updateSettings_evidenceFinderEnabled,
+    updateSettings_kmsKey,
+    updateSettings_snsTopic,
 
     -- * Destructuring the Response
     UpdateSettingsResponse (..),
@@ -53,15 +53,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateSettings' smart constructor.
 data UpdateSettings = UpdateSettings'
-  { -- | A list of the default audit owners.
-    defaultProcessOwners :: Prelude.Maybe [Role],
-    -- | The Amazon Simple Notification Service (Amazon SNS) topic that Audit
-    -- Manager sends notifications to.
-    snsTopic :: Prelude.Maybe Prelude.Text,
-    -- | The KMS key details.
-    kmsKey :: Prelude.Maybe Prelude.Text,
-    -- | The default storage destination for assessment reports.
+  { -- | The default storage destination for assessment reports.
     defaultAssessmentReportsDestination :: Prelude.Maybe AssessmentReportsDestination,
+    -- | A list of the default audit owners.
+    defaultProcessOwners :: Prelude.Maybe [Role],
     -- | Specifies whether the evidence finder feature is enabled. Change this
     -- attribute to enable or disable evidence finder.
     --
@@ -78,7 +73,12 @@ data UpdateSettings = UpdateSettings'
     -- carefully before you proceed. If you’re using Audit Manager as a
     -- delegated administrator, keep in mind that this action applies to all
     -- member accounts in your organization.
-    evidenceFinderEnabled :: Prelude.Maybe Prelude.Bool
+    evidenceFinderEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The KMS key details.
+    kmsKey :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Simple Notification Service (Amazon SNS) topic that Audit
+    -- Manager sends notifications to.
+    snsTopic :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -90,14 +90,9 @@ data UpdateSettings = UpdateSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'defaultProcessOwners', 'updateSettings_defaultProcessOwners' - A list of the default audit owners.
---
--- 'snsTopic', 'updateSettings_snsTopic' - The Amazon Simple Notification Service (Amazon SNS) topic that Audit
--- Manager sends notifications to.
---
--- 'kmsKey', 'updateSettings_kmsKey' - The KMS key details.
---
 -- 'defaultAssessmentReportsDestination', 'updateSettings_defaultAssessmentReportsDestination' - The default storage destination for assessment reports.
+--
+-- 'defaultProcessOwners', 'updateSettings_defaultProcessOwners' - A list of the default audit owners.
 --
 -- 'evidenceFinderEnabled', 'updateSettings_evidenceFinderEnabled' - Specifies whether the evidence finder feature is enabled. Change this
 -- attribute to enable or disable evidence finder.
@@ -115,35 +110,30 @@ data UpdateSettings = UpdateSettings'
 -- carefully before you proceed. If you’re using Audit Manager as a
 -- delegated administrator, keep in mind that this action applies to all
 -- member accounts in your organization.
+--
+-- 'kmsKey', 'updateSettings_kmsKey' - The KMS key details.
+--
+-- 'snsTopic', 'updateSettings_snsTopic' - The Amazon Simple Notification Service (Amazon SNS) topic that Audit
+-- Manager sends notifications to.
 newUpdateSettings ::
   UpdateSettings
 newUpdateSettings =
   UpdateSettings'
-    { defaultProcessOwners =
+    { defaultAssessmentReportsDestination =
         Prelude.Nothing,
-      snsTopic = Prelude.Nothing,
+      defaultProcessOwners = Prelude.Nothing,
+      evidenceFinderEnabled = Prelude.Nothing,
       kmsKey = Prelude.Nothing,
-      defaultAssessmentReportsDestination =
-        Prelude.Nothing,
-      evidenceFinderEnabled = Prelude.Nothing
+      snsTopic = Prelude.Nothing
     }
-
--- | A list of the default audit owners.
-updateSettings_defaultProcessOwners :: Lens.Lens' UpdateSettings (Prelude.Maybe [Role])
-updateSettings_defaultProcessOwners = Lens.lens (\UpdateSettings' {defaultProcessOwners} -> defaultProcessOwners) (\s@UpdateSettings' {} a -> s {defaultProcessOwners = a} :: UpdateSettings) Prelude.. Lens.mapping Lens.coerced
-
--- | The Amazon Simple Notification Service (Amazon SNS) topic that Audit
--- Manager sends notifications to.
-updateSettings_snsTopic :: Lens.Lens' UpdateSettings (Prelude.Maybe Prelude.Text)
-updateSettings_snsTopic = Lens.lens (\UpdateSettings' {snsTopic} -> snsTopic) (\s@UpdateSettings' {} a -> s {snsTopic = a} :: UpdateSettings)
-
--- | The KMS key details.
-updateSettings_kmsKey :: Lens.Lens' UpdateSettings (Prelude.Maybe Prelude.Text)
-updateSettings_kmsKey = Lens.lens (\UpdateSettings' {kmsKey} -> kmsKey) (\s@UpdateSettings' {} a -> s {kmsKey = a} :: UpdateSettings)
 
 -- | The default storage destination for assessment reports.
 updateSettings_defaultAssessmentReportsDestination :: Lens.Lens' UpdateSettings (Prelude.Maybe AssessmentReportsDestination)
 updateSettings_defaultAssessmentReportsDestination = Lens.lens (\UpdateSettings' {defaultAssessmentReportsDestination} -> defaultAssessmentReportsDestination) (\s@UpdateSettings' {} a -> s {defaultAssessmentReportsDestination = a} :: UpdateSettings)
+
+-- | A list of the default audit owners.
+updateSettings_defaultProcessOwners :: Lens.Lens' UpdateSettings (Prelude.Maybe [Role])
+updateSettings_defaultProcessOwners = Lens.lens (\UpdateSettings' {defaultProcessOwners} -> defaultProcessOwners) (\s@UpdateSettings' {} a -> s {defaultProcessOwners = a} :: UpdateSettings) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies whether the evidence finder feature is enabled. Change this
 -- attribute to enable or disable evidence finder.
@@ -164,6 +154,15 @@ updateSettings_defaultAssessmentReportsDestination = Lens.lens (\UpdateSettings'
 updateSettings_evidenceFinderEnabled :: Lens.Lens' UpdateSettings (Prelude.Maybe Prelude.Bool)
 updateSettings_evidenceFinderEnabled = Lens.lens (\UpdateSettings' {evidenceFinderEnabled} -> evidenceFinderEnabled) (\s@UpdateSettings' {} a -> s {evidenceFinderEnabled = a} :: UpdateSettings)
 
+-- | The KMS key details.
+updateSettings_kmsKey :: Lens.Lens' UpdateSettings (Prelude.Maybe Prelude.Text)
+updateSettings_kmsKey = Lens.lens (\UpdateSettings' {kmsKey} -> kmsKey) (\s@UpdateSettings' {} a -> s {kmsKey = a} :: UpdateSettings)
+
+-- | The Amazon Simple Notification Service (Amazon SNS) topic that Audit
+-- Manager sends notifications to.
+updateSettings_snsTopic :: Lens.Lens' UpdateSettings (Prelude.Maybe Prelude.Text)
+updateSettings_snsTopic = Lens.lens (\UpdateSettings' {snsTopic} -> snsTopic) (\s@UpdateSettings' {} a -> s {snsTopic = a} :: UpdateSettings)
+
 instance Core.AWSRequest UpdateSettings where
   type
     AWSResponse UpdateSettings =
@@ -180,19 +179,20 @@ instance Core.AWSRequest UpdateSettings where
 
 instance Prelude.Hashable UpdateSettings where
   hashWithSalt _salt UpdateSettings' {..} =
-    _salt `Prelude.hashWithSalt` defaultProcessOwners
-      `Prelude.hashWithSalt` snsTopic
-      `Prelude.hashWithSalt` kmsKey
+    _salt
       `Prelude.hashWithSalt` defaultAssessmentReportsDestination
+      `Prelude.hashWithSalt` defaultProcessOwners
       `Prelude.hashWithSalt` evidenceFinderEnabled
+      `Prelude.hashWithSalt` kmsKey
+      `Prelude.hashWithSalt` snsTopic
 
 instance Prelude.NFData UpdateSettings where
   rnf UpdateSettings' {..} =
-    Prelude.rnf defaultProcessOwners
-      `Prelude.seq` Prelude.rnf snsTopic
-      `Prelude.seq` Prelude.rnf kmsKey
-      `Prelude.seq` Prelude.rnf defaultAssessmentReportsDestination
+    Prelude.rnf defaultAssessmentReportsDestination
+      `Prelude.seq` Prelude.rnf defaultProcessOwners
       `Prelude.seq` Prelude.rnf evidenceFinderEnabled
+      `Prelude.seq` Prelude.rnf kmsKey
+      `Prelude.seq` Prelude.rnf snsTopic
 
 instance Data.ToHeaders UpdateSettings where
   toHeaders =
@@ -209,14 +209,14 @@ instance Data.ToJSON UpdateSettings where
   toJSON UpdateSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("defaultProcessOwners" Data..=)
-              Prelude.<$> defaultProcessOwners,
-            ("snsTopic" Data..=) Prelude.<$> snsTopic,
-            ("kmsKey" Data..=) Prelude.<$> kmsKey,
-            ("defaultAssessmentReportsDestination" Data..=)
+          [ ("defaultAssessmentReportsDestination" Data..=)
               Prelude.<$> defaultAssessmentReportsDestination,
+            ("defaultProcessOwners" Data..=)
+              Prelude.<$> defaultProcessOwners,
             ("evidenceFinderEnabled" Data..=)
-              Prelude.<$> evidenceFinderEnabled
+              Prelude.<$> evidenceFinderEnabled,
+            ("kmsKey" Data..=) Prelude.<$> kmsKey,
+            ("snsTopic" Data..=) Prelude.<$> snsTopic
           ]
       )
 

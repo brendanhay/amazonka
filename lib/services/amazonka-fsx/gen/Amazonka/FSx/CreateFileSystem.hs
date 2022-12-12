@@ -68,16 +68,16 @@ module Amazonka.FSx.CreateFileSystem
     newCreateFileSystem,
 
     -- * Request Lenses
-    createFileSystem_tags,
     createFileSystem_clientRequestToken,
     createFileSystem_fileSystemTypeVersion,
-    createFileSystem_securityGroupIds,
-    createFileSystem_openZFSConfiguration,
-    createFileSystem_storageType,
-    createFileSystem_ontapConfiguration,
-    createFileSystem_windowsConfiguration,
     createFileSystem_kmsKeyId,
     createFileSystem_lustreConfiguration,
+    createFileSystem_ontapConfiguration,
+    createFileSystem_openZFSConfiguration,
+    createFileSystem_securityGroupIds,
+    createFileSystem_storageType,
+    createFileSystem_tags,
+    createFileSystem_windowsConfiguration,
     createFileSystem_fileSystemType,
     createFileSystem_storageCapacity,
     createFileSystem_subnetIds,
@@ -104,10 +104,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateFileSystem' smart constructor.
 data CreateFileSystem = CreateFileSystem'
-  { -- | The tags to apply to the file system that\'s being created. The key
-    -- value of the @Name@ tag appears in the console as the file system name.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | A string of up to 64 ASCII characters that Amazon FSx uses to ensure
+  { -- | A string of up to 64 ASCII characters that Amazon FSx uses to ensure
     -- idempotent creation. This string is automatically filled on your behalf
     -- when you use the Command Line Interface (CLI) or an Amazon Web Services
     -- SDK.
@@ -128,12 +125,15 @@ data CreateFileSystem = CreateFileSystem'
     -- If you set @FileSystemTypeVersion@ to @2.10@ for a @PERSISTENT_2@ Lustre
     -- deployment type, the @CreateFileSystem@ operation fails.
     fileSystemTypeVersion :: Prelude.Maybe Prelude.Text,
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    lustreConfiguration :: Prelude.Maybe CreateFileSystemLustreConfiguration,
+    ontapConfiguration :: Prelude.Maybe CreateFileSystemOntapConfiguration,
+    -- | The OpenZFS configuration for the file system that\'s being created.
+    openZFSConfiguration :: Prelude.Maybe CreateFileSystemOpenZFSConfiguration,
     -- | A list of IDs specifying the security groups to apply to all network
     -- interfaces created for file system access. This list isn\'t returned in
     -- later requests to describe the file system.
     securityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | The OpenZFS configuration for the file system that\'s being created.
-    openZFSConfiguration :: Prelude.Maybe CreateFileSystemOpenZFSConfiguration,
     -- | Sets the storage type for the file system that you\'re creating. Valid
     -- values are @SSD@ and @HDD@.
     --
@@ -150,12 +150,12 @@ data CreateFileSystem = CreateFileSystem'
     -- <https://docs.aws.amazon.com/fsx/latest/LustreGuide/what-is.html#storage-options Multiple storage options>
     -- in the /FSx for Lustre User Guide/.
     storageType :: Prelude.Maybe StorageType,
-    ontapConfiguration :: Prelude.Maybe CreateFileSystemOntapConfiguration,
+    -- | The tags to apply to the file system that\'s being created. The key
+    -- value of the @Name@ tag appears in the console as the file system name.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The Microsoft Windows configuration for the file system that\'s being
     -- created.
     windowsConfiguration :: Prelude.Maybe CreateFileSystemWindowsConfiguration,
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
-    lustreConfiguration :: Prelude.Maybe CreateFileSystemLustreConfiguration,
     -- | The type of Amazon FSx file system to create. Valid values are
     -- @WINDOWS@, @LUSTRE@, @ONTAP@, and @OPENZFS@.
     fileSystemType :: FileSystemType,
@@ -218,9 +218,6 @@ data CreateFileSystem = CreateFileSystem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createFileSystem_tags' - The tags to apply to the file system that\'s being created. The key
--- value of the @Name@ tag appears in the console as the file system name.
---
 -- 'clientRequestToken', 'createFileSystem_clientRequestToken' - A string of up to 64 ASCII characters that Amazon FSx uses to ensure
 -- idempotent creation. This string is automatically filled on your behalf
 -- when you use the Command Line Interface (CLI) or an Amazon Web Services
@@ -242,11 +239,17 @@ data CreateFileSystem = CreateFileSystem'
 -- If you set @FileSystemTypeVersion@ to @2.10@ for a @PERSISTENT_2@ Lustre
 -- deployment type, the @CreateFileSystem@ operation fails.
 --
+-- 'kmsKeyId', 'createFileSystem_kmsKeyId' - Undocumented member.
+--
+-- 'lustreConfiguration', 'createFileSystem_lustreConfiguration' - Undocumented member.
+--
+-- 'ontapConfiguration', 'createFileSystem_ontapConfiguration' - Undocumented member.
+--
+-- 'openZFSConfiguration', 'createFileSystem_openZFSConfiguration' - The OpenZFS configuration for the file system that\'s being created.
+--
 -- 'securityGroupIds', 'createFileSystem_securityGroupIds' - A list of IDs specifying the security groups to apply to all network
 -- interfaces created for file system access. This list isn\'t returned in
 -- later requests to describe the file system.
---
--- 'openZFSConfiguration', 'createFileSystem_openZFSConfiguration' - The OpenZFS configuration for the file system that\'s being created.
 --
 -- 'storageType', 'createFileSystem_storageType' - Sets the storage type for the file system that you\'re creating. Valid
 -- values are @SSD@ and @HDD@.
@@ -264,14 +267,11 @@ data CreateFileSystem = CreateFileSystem'
 -- <https://docs.aws.amazon.com/fsx/latest/LustreGuide/what-is.html#storage-options Multiple storage options>
 -- in the /FSx for Lustre User Guide/.
 --
--- 'ontapConfiguration', 'createFileSystem_ontapConfiguration' - Undocumented member.
+-- 'tags', 'createFileSystem_tags' - The tags to apply to the file system that\'s being created. The key
+-- value of the @Name@ tag appears in the console as the file system name.
 --
 -- 'windowsConfiguration', 'createFileSystem_windowsConfiguration' - The Microsoft Windows configuration for the file system that\'s being
 -- created.
---
--- 'kmsKeyId', 'createFileSystem_kmsKeyId' - Undocumented member.
---
--- 'lustreConfiguration', 'createFileSystem_lustreConfiguration' - Undocumented member.
 --
 -- 'fileSystemType', 'createFileSystem_fileSystemType' - The type of Amazon FSx file system to create. Valid values are
 -- @WINDOWS@, @LUSTRE@, @ONTAP@, and @OPENZFS@.
@@ -333,25 +333,21 @@ newCreateFileSystem
   pFileSystemType_
   pStorageCapacity_ =
     CreateFileSystem'
-      { tags = Prelude.Nothing,
-        clientRequestToken = Prelude.Nothing,
+      { clientRequestToken =
+          Prelude.Nothing,
         fileSystemTypeVersion = Prelude.Nothing,
-        securityGroupIds = Prelude.Nothing,
-        openZFSConfiguration = Prelude.Nothing,
-        storageType = Prelude.Nothing,
-        ontapConfiguration = Prelude.Nothing,
-        windowsConfiguration = Prelude.Nothing,
         kmsKeyId = Prelude.Nothing,
         lustreConfiguration = Prelude.Nothing,
+        ontapConfiguration = Prelude.Nothing,
+        openZFSConfiguration = Prelude.Nothing,
+        securityGroupIds = Prelude.Nothing,
+        storageType = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        windowsConfiguration = Prelude.Nothing,
         fileSystemType = pFileSystemType_,
         storageCapacity = pStorageCapacity_,
         subnetIds = Prelude.mempty
       }
-
--- | The tags to apply to the file system that\'s being created. The key
--- value of the @Name@ tag appears in the console as the file system name.
-createFileSystem_tags :: Lens.Lens' CreateFileSystem (Prelude.Maybe (Prelude.NonEmpty Tag))
-createFileSystem_tags = Lens.lens (\CreateFileSystem' {tags} -> tags) (\s@CreateFileSystem' {} a -> s {tags = a} :: CreateFileSystem) Prelude.. Lens.mapping Lens.coerced
 
 -- | A string of up to 64 ASCII characters that Amazon FSx uses to ensure
 -- idempotent creation. This string is automatically filled on your behalf
@@ -378,15 +374,27 @@ createFileSystem_clientRequestToken = Lens.lens (\CreateFileSystem' {clientReque
 createFileSystem_fileSystemTypeVersion :: Lens.Lens' CreateFileSystem (Prelude.Maybe Prelude.Text)
 createFileSystem_fileSystemTypeVersion = Lens.lens (\CreateFileSystem' {fileSystemTypeVersion} -> fileSystemTypeVersion) (\s@CreateFileSystem' {} a -> s {fileSystemTypeVersion = a} :: CreateFileSystem)
 
+-- | Undocumented member.
+createFileSystem_kmsKeyId :: Lens.Lens' CreateFileSystem (Prelude.Maybe Prelude.Text)
+createFileSystem_kmsKeyId = Lens.lens (\CreateFileSystem' {kmsKeyId} -> kmsKeyId) (\s@CreateFileSystem' {} a -> s {kmsKeyId = a} :: CreateFileSystem)
+
+-- | Undocumented member.
+createFileSystem_lustreConfiguration :: Lens.Lens' CreateFileSystem (Prelude.Maybe CreateFileSystemLustreConfiguration)
+createFileSystem_lustreConfiguration = Lens.lens (\CreateFileSystem' {lustreConfiguration} -> lustreConfiguration) (\s@CreateFileSystem' {} a -> s {lustreConfiguration = a} :: CreateFileSystem)
+
+-- | Undocumented member.
+createFileSystem_ontapConfiguration :: Lens.Lens' CreateFileSystem (Prelude.Maybe CreateFileSystemOntapConfiguration)
+createFileSystem_ontapConfiguration = Lens.lens (\CreateFileSystem' {ontapConfiguration} -> ontapConfiguration) (\s@CreateFileSystem' {} a -> s {ontapConfiguration = a} :: CreateFileSystem)
+
+-- | The OpenZFS configuration for the file system that\'s being created.
+createFileSystem_openZFSConfiguration :: Lens.Lens' CreateFileSystem (Prelude.Maybe CreateFileSystemOpenZFSConfiguration)
+createFileSystem_openZFSConfiguration = Lens.lens (\CreateFileSystem' {openZFSConfiguration} -> openZFSConfiguration) (\s@CreateFileSystem' {} a -> s {openZFSConfiguration = a} :: CreateFileSystem)
+
 -- | A list of IDs specifying the security groups to apply to all network
 -- interfaces created for file system access. This list isn\'t returned in
 -- later requests to describe the file system.
 createFileSystem_securityGroupIds :: Lens.Lens' CreateFileSystem (Prelude.Maybe [Prelude.Text])
 createFileSystem_securityGroupIds = Lens.lens (\CreateFileSystem' {securityGroupIds} -> securityGroupIds) (\s@CreateFileSystem' {} a -> s {securityGroupIds = a} :: CreateFileSystem) Prelude.. Lens.mapping Lens.coerced
-
--- | The OpenZFS configuration for the file system that\'s being created.
-createFileSystem_openZFSConfiguration :: Lens.Lens' CreateFileSystem (Prelude.Maybe CreateFileSystemOpenZFSConfiguration)
-createFileSystem_openZFSConfiguration = Lens.lens (\CreateFileSystem' {openZFSConfiguration} -> openZFSConfiguration) (\s@CreateFileSystem' {} a -> s {openZFSConfiguration = a} :: CreateFileSystem)
 
 -- | Sets the storage type for the file system that you\'re creating. Valid
 -- values are @SSD@ and @HDD@.
@@ -406,22 +414,15 @@ createFileSystem_openZFSConfiguration = Lens.lens (\CreateFileSystem' {openZFSCo
 createFileSystem_storageType :: Lens.Lens' CreateFileSystem (Prelude.Maybe StorageType)
 createFileSystem_storageType = Lens.lens (\CreateFileSystem' {storageType} -> storageType) (\s@CreateFileSystem' {} a -> s {storageType = a} :: CreateFileSystem)
 
--- | Undocumented member.
-createFileSystem_ontapConfiguration :: Lens.Lens' CreateFileSystem (Prelude.Maybe CreateFileSystemOntapConfiguration)
-createFileSystem_ontapConfiguration = Lens.lens (\CreateFileSystem' {ontapConfiguration} -> ontapConfiguration) (\s@CreateFileSystem' {} a -> s {ontapConfiguration = a} :: CreateFileSystem)
+-- | The tags to apply to the file system that\'s being created. The key
+-- value of the @Name@ tag appears in the console as the file system name.
+createFileSystem_tags :: Lens.Lens' CreateFileSystem (Prelude.Maybe (Prelude.NonEmpty Tag))
+createFileSystem_tags = Lens.lens (\CreateFileSystem' {tags} -> tags) (\s@CreateFileSystem' {} a -> s {tags = a} :: CreateFileSystem) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Microsoft Windows configuration for the file system that\'s being
 -- created.
 createFileSystem_windowsConfiguration :: Lens.Lens' CreateFileSystem (Prelude.Maybe CreateFileSystemWindowsConfiguration)
 createFileSystem_windowsConfiguration = Lens.lens (\CreateFileSystem' {windowsConfiguration} -> windowsConfiguration) (\s@CreateFileSystem' {} a -> s {windowsConfiguration = a} :: CreateFileSystem)
-
--- | Undocumented member.
-createFileSystem_kmsKeyId :: Lens.Lens' CreateFileSystem (Prelude.Maybe Prelude.Text)
-createFileSystem_kmsKeyId = Lens.lens (\CreateFileSystem' {kmsKeyId} -> kmsKeyId) (\s@CreateFileSystem' {} a -> s {kmsKeyId = a} :: CreateFileSystem)
-
--- | Undocumented member.
-createFileSystem_lustreConfiguration :: Lens.Lens' CreateFileSystem (Prelude.Maybe CreateFileSystemLustreConfiguration)
-createFileSystem_lustreConfiguration = Lens.lens (\CreateFileSystem' {lustreConfiguration} -> lustreConfiguration) (\s@CreateFileSystem' {} a -> s {lustreConfiguration = a} :: CreateFileSystem)
 
 -- | The type of Amazon FSx file system to create. Valid values are
 -- @WINDOWS@, @LUSTRE@, @ONTAP@, and @OPENZFS@.
@@ -496,32 +497,32 @@ instance Core.AWSRequest CreateFileSystem where
 
 instance Prelude.Hashable CreateFileSystem where
   hashWithSalt _salt CreateFileSystem' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientRequestToken
+    _salt `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` fileSystemTypeVersion
-      `Prelude.hashWithSalt` securityGroupIds
-      `Prelude.hashWithSalt` openZFSConfiguration
-      `Prelude.hashWithSalt` storageType
-      `Prelude.hashWithSalt` ontapConfiguration
-      `Prelude.hashWithSalt` windowsConfiguration
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` lustreConfiguration
+      `Prelude.hashWithSalt` ontapConfiguration
+      `Prelude.hashWithSalt` openZFSConfiguration
+      `Prelude.hashWithSalt` securityGroupIds
+      `Prelude.hashWithSalt` storageType
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` windowsConfiguration
       `Prelude.hashWithSalt` fileSystemType
       `Prelude.hashWithSalt` storageCapacity
       `Prelude.hashWithSalt` subnetIds
 
 instance Prelude.NFData CreateFileSystem where
   rnf CreateFileSystem' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientRequestToken
+    Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf fileSystemTypeVersion
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf openZFSConfiguration
-      `Prelude.seq` Prelude.rnf storageType
-      `Prelude.seq` Prelude.rnf ontapConfiguration
-      `Prelude.seq` Prelude.rnf windowsConfiguration
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf lustreConfiguration
+      `Prelude.seq` Prelude.rnf ontapConfiguration
+      `Prelude.seq` Prelude.rnf openZFSConfiguration
+      `Prelude.seq` Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf storageType
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf windowsConfiguration
       `Prelude.seq` Prelude.rnf fileSystemType
       `Prelude.seq` Prelude.rnf storageCapacity
       `Prelude.seq` Prelude.rnf subnetIds
@@ -545,23 +546,23 @@ instance Data.ToJSON CreateFileSystem where
   toJSON CreateFileSystem' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ClientRequestToken" Data..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
             ("FileSystemTypeVersion" Data..=)
               Prelude.<$> fileSystemTypeVersion,
-            ("SecurityGroupIds" Data..=)
-              Prelude.<$> securityGroupIds,
-            ("OpenZFSConfiguration" Data..=)
-              Prelude.<$> openZFSConfiguration,
-            ("StorageType" Data..=) Prelude.<$> storageType,
-            ("OntapConfiguration" Data..=)
-              Prelude.<$> ontapConfiguration,
-            ("WindowsConfiguration" Data..=)
-              Prelude.<$> windowsConfiguration,
             ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
             ("LustreConfiguration" Data..=)
               Prelude.<$> lustreConfiguration,
+            ("OntapConfiguration" Data..=)
+              Prelude.<$> ontapConfiguration,
+            ("OpenZFSConfiguration" Data..=)
+              Prelude.<$> openZFSConfiguration,
+            ("SecurityGroupIds" Data..=)
+              Prelude.<$> securityGroupIds,
+            ("StorageType" Data..=) Prelude.<$> storageType,
+            ("Tags" Data..=) Prelude.<$> tags,
+            ("WindowsConfiguration" Data..=)
+              Prelude.<$> windowsConfiguration,
             Prelude.Just
               ("FileSystemType" Data..= fileSystemType),
             Prelude.Just

@@ -28,10 +28,10 @@ module Amazonka.ElastiCache.ModifyUser
 
     -- * Request Lenses
     modifyUser_accessString,
-    modifyUser_passwords,
     modifyUser_appendAccessString,
     modifyUser_authenticationMode,
     modifyUser_noPasswordRequired,
+    modifyUser_passwords,
     modifyUser_userId,
 
     -- * Destructuring the Response
@@ -39,15 +39,15 @@ module Amazonka.ElastiCache.ModifyUser
     newUser,
 
     -- * Response Lenses
+    user_arn,
     user_accessString,
     user_authentication,
-    user_userName,
-    user_arn,
-    user_status,
+    user_engine,
     user_minimumEngineVersion,
+    user_status,
     user_userGroupIds,
     user_userId,
-    user_engine,
+    user_userName,
   )
 where
 
@@ -63,14 +63,14 @@ import qualified Amazonka.Response as Response
 data ModifyUser = ModifyUser'
   { -- | Access permissions string used for this user.
     accessString :: Prelude.Maybe Prelude.Text,
-    -- | The passwords belonging to the user. You are allowed up to two.
-    passwords :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | Adds additional user permissions to the access string.
     appendAccessString :: Prelude.Maybe Prelude.Text,
     -- | Specifies how to authenticate the user.
     authenticationMode :: Prelude.Maybe AuthenticationMode,
     -- | Indicates no password is required for the user.
     noPasswordRequired :: Prelude.Maybe Prelude.Bool,
+    -- | The passwords belonging to the user. You are allowed up to two.
+    passwords :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The ID of the user.
     userId :: Prelude.Text
   }
@@ -86,13 +86,13 @@ data ModifyUser = ModifyUser'
 --
 -- 'accessString', 'modifyUser_accessString' - Access permissions string used for this user.
 --
--- 'passwords', 'modifyUser_passwords' - The passwords belonging to the user. You are allowed up to two.
---
 -- 'appendAccessString', 'modifyUser_appendAccessString' - Adds additional user permissions to the access string.
 --
 -- 'authenticationMode', 'modifyUser_authenticationMode' - Specifies how to authenticate the user.
 --
 -- 'noPasswordRequired', 'modifyUser_noPasswordRequired' - Indicates no password is required for the user.
+--
+-- 'passwords', 'modifyUser_passwords' - The passwords belonging to the user. You are allowed up to two.
 --
 -- 'userId', 'modifyUser_userId' - The ID of the user.
 newModifyUser ::
@@ -102,20 +102,16 @@ newModifyUser ::
 newModifyUser pUserId_ =
   ModifyUser'
     { accessString = Prelude.Nothing,
-      passwords = Prelude.Nothing,
       appendAccessString = Prelude.Nothing,
       authenticationMode = Prelude.Nothing,
       noPasswordRequired = Prelude.Nothing,
+      passwords = Prelude.Nothing,
       userId = pUserId_
     }
 
 -- | Access permissions string used for this user.
 modifyUser_accessString :: Lens.Lens' ModifyUser (Prelude.Maybe Prelude.Text)
 modifyUser_accessString = Lens.lens (\ModifyUser' {accessString} -> accessString) (\s@ModifyUser' {} a -> s {accessString = a} :: ModifyUser)
-
--- | The passwords belonging to the user. You are allowed up to two.
-modifyUser_passwords :: Lens.Lens' ModifyUser (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-modifyUser_passwords = Lens.lens (\ModifyUser' {passwords} -> passwords) (\s@ModifyUser' {} a -> s {passwords = a} :: ModifyUser) Prelude.. Lens.mapping Lens.coerced
 
 -- | Adds additional user permissions to the access string.
 modifyUser_appendAccessString :: Lens.Lens' ModifyUser (Prelude.Maybe Prelude.Text)
@@ -128,6 +124,10 @@ modifyUser_authenticationMode = Lens.lens (\ModifyUser' {authenticationMode} -> 
 -- | Indicates no password is required for the user.
 modifyUser_noPasswordRequired :: Lens.Lens' ModifyUser (Prelude.Maybe Prelude.Bool)
 modifyUser_noPasswordRequired = Lens.lens (\ModifyUser' {noPasswordRequired} -> noPasswordRequired) (\s@ModifyUser' {} a -> s {noPasswordRequired = a} :: ModifyUser)
+
+-- | The passwords belonging to the user. You are allowed up to two.
+modifyUser_passwords :: Lens.Lens' ModifyUser (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+modifyUser_passwords = Lens.lens (\ModifyUser' {passwords} -> passwords) (\s@ModifyUser' {} a -> s {passwords = a} :: ModifyUser) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the user.
 modifyUser_userId :: Lens.Lens' ModifyUser Prelude.Text
@@ -145,19 +145,19 @@ instance Core.AWSRequest ModifyUser where
 instance Prelude.Hashable ModifyUser where
   hashWithSalt _salt ModifyUser' {..} =
     _salt `Prelude.hashWithSalt` accessString
-      `Prelude.hashWithSalt` passwords
       `Prelude.hashWithSalt` appendAccessString
       `Prelude.hashWithSalt` authenticationMode
       `Prelude.hashWithSalt` noPasswordRequired
+      `Prelude.hashWithSalt` passwords
       `Prelude.hashWithSalt` userId
 
 instance Prelude.NFData ModifyUser where
   rnf ModifyUser' {..} =
     Prelude.rnf accessString
-      `Prelude.seq` Prelude.rnf passwords
       `Prelude.seq` Prelude.rnf appendAccessString
       `Prelude.seq` Prelude.rnf authenticationMode
       `Prelude.seq` Prelude.rnf noPasswordRequired
+      `Prelude.seq` Prelude.rnf passwords
       `Prelude.seq` Prelude.rnf userId
 
 instance Data.ToHeaders ModifyUser where
@@ -174,11 +174,11 @@ instance Data.ToQuery ModifyUser where
         "Version"
           Data.=: ("2015-02-02" :: Prelude.ByteString),
         "AccessString" Data.=: accessString,
-        "Passwords"
-          Data.=: Data.toQuery
-            (Data.toQueryList "member" Prelude.<$> passwords),
         "AppendAccessString" Data.=: appendAccessString,
         "AuthenticationMode" Data.=: authenticationMode,
         "NoPasswordRequired" Data.=: noPasswordRequired,
+        "Passwords"
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> passwords),
         "UserId" Data.=: userId
       ]

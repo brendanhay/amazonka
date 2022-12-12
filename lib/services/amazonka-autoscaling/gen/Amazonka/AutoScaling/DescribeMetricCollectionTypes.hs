@@ -31,8 +31,8 @@ module Amazonka.AutoScaling.DescribeMetricCollectionTypes
     newDescribeMetricCollectionTypesResponse,
 
     -- * Response Lenses
-    describeMetricCollectionTypesResponse_metrics,
     describeMetricCollectionTypesResponse_granularities,
+    describeMetricCollectionTypesResponse_metrics,
     describeMetricCollectionTypesResponse_httpStatus,
   )
 where
@@ -74,10 +74,10 @@ instance
       "DescribeMetricCollectionTypesResult"
       ( \s h x ->
           DescribeMetricCollectionTypesResponse'
-            Prelude.<$> ( x Data..@? "Metrics" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Granularities" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x Data..@? "Granularities" Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "Metrics" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -114,10 +114,10 @@ instance Data.ToQuery DescribeMetricCollectionTypes where
 
 -- | /See:/ 'newDescribeMetricCollectionTypesResponse' smart constructor.
 data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse'
-  { -- | The metrics.
-    metrics :: Prelude.Maybe [MetricCollectionType],
-    -- | The granularities for the metrics.
+  { -- | The granularities for the metrics.
     granularities :: Prelude.Maybe [MetricGranularityType],
+    -- | The metrics.
+    metrics :: Prelude.Maybe [MetricCollectionType],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -131,9 +131,9 @@ data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metrics', 'describeMetricCollectionTypesResponse_metrics' - The metrics.
---
 -- 'granularities', 'describeMetricCollectionTypesResponse_granularities' - The granularities for the metrics.
+--
+-- 'metrics', 'describeMetricCollectionTypesResponse_metrics' - The metrics.
 --
 -- 'httpStatus', 'describeMetricCollectionTypesResponse_httpStatus' - The response's http status code.
 newDescribeMetricCollectionTypesResponse ::
@@ -142,19 +142,19 @@ newDescribeMetricCollectionTypesResponse ::
   DescribeMetricCollectionTypesResponse
 newDescribeMetricCollectionTypesResponse pHttpStatus_ =
   DescribeMetricCollectionTypesResponse'
-    { metrics =
+    { granularities =
         Prelude.Nothing,
-      granularities = Prelude.Nothing,
+      metrics = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The metrics.
-describeMetricCollectionTypesResponse_metrics :: Lens.Lens' DescribeMetricCollectionTypesResponse (Prelude.Maybe [MetricCollectionType])
-describeMetricCollectionTypesResponse_metrics = Lens.lens (\DescribeMetricCollectionTypesResponse' {metrics} -> metrics) (\s@DescribeMetricCollectionTypesResponse' {} a -> s {metrics = a} :: DescribeMetricCollectionTypesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The granularities for the metrics.
 describeMetricCollectionTypesResponse_granularities :: Lens.Lens' DescribeMetricCollectionTypesResponse (Prelude.Maybe [MetricGranularityType])
 describeMetricCollectionTypesResponse_granularities = Lens.lens (\DescribeMetricCollectionTypesResponse' {granularities} -> granularities) (\s@DescribeMetricCollectionTypesResponse' {} a -> s {granularities = a} :: DescribeMetricCollectionTypesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The metrics.
+describeMetricCollectionTypesResponse_metrics :: Lens.Lens' DescribeMetricCollectionTypesResponse (Prelude.Maybe [MetricCollectionType])
+describeMetricCollectionTypesResponse_metrics = Lens.lens (\DescribeMetricCollectionTypesResponse' {metrics} -> metrics) (\s@DescribeMetricCollectionTypesResponse' {} a -> s {metrics = a} :: DescribeMetricCollectionTypesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeMetricCollectionTypesResponse_httpStatus :: Lens.Lens' DescribeMetricCollectionTypesResponse Prelude.Int
@@ -165,6 +165,6 @@ instance
     DescribeMetricCollectionTypesResponse
   where
   rnf DescribeMetricCollectionTypesResponse' {..} =
-    Prelude.rnf metrics
-      `Prelude.seq` Prelude.rnf granularities
+    Prelude.rnf granularities
+      `Prelude.seq` Prelude.rnf metrics
       `Prelude.seq` Prelude.rnf httpStatus

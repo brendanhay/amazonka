@@ -33,8 +33,8 @@ import Amazonka.S3.Types.NotificationConfigurationFilter
 --
 -- /See:/ 'newTopicConfiguration' smart constructor.
 data TopicConfiguration = TopicConfiguration'
-  { id :: Prelude.Maybe Prelude.Text,
-    filter' :: Prelude.Maybe NotificationConfigurationFilter,
+  { filter' :: Prelude.Maybe NotificationConfigurationFilter,
+    id :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which Amazon
     -- S3 publishes a message when it detects events of the specified type.
     topicArn :: Prelude.Text,
@@ -54,9 +54,9 @@ data TopicConfiguration = TopicConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'topicConfiguration_id' - Undocumented member.
---
 -- 'filter'', 'topicConfiguration_filter' - Undocumented member.
+--
+-- 'id', 'topicConfiguration_id' - Undocumented member.
 --
 -- 'topicArn', 'topicConfiguration_topicArn' - The Amazon Resource Name (ARN) of the Amazon SNS topic to which Amazon
 -- S3 publishes a message when it detects events of the specified type.
@@ -71,19 +71,19 @@ newTopicConfiguration ::
   TopicConfiguration
 newTopicConfiguration pTopicArn_ =
   TopicConfiguration'
-    { id = Prelude.Nothing,
-      filter' = Prelude.Nothing,
+    { filter' = Prelude.Nothing,
+      id = Prelude.Nothing,
       topicArn = pTopicArn_,
       events = Prelude.mempty
     }
 
 -- | Undocumented member.
-topicConfiguration_id :: Lens.Lens' TopicConfiguration (Prelude.Maybe Prelude.Text)
-topicConfiguration_id = Lens.lens (\TopicConfiguration' {id} -> id) (\s@TopicConfiguration' {} a -> s {id = a} :: TopicConfiguration)
-
--- | Undocumented member.
 topicConfiguration_filter :: Lens.Lens' TopicConfiguration (Prelude.Maybe NotificationConfigurationFilter)
 topicConfiguration_filter = Lens.lens (\TopicConfiguration' {filter'} -> filter') (\s@TopicConfiguration' {} a -> s {filter' = a} :: TopicConfiguration)
+
+-- | Undocumented member.
+topicConfiguration_id :: Lens.Lens' TopicConfiguration (Prelude.Maybe Prelude.Text)
+topicConfiguration_id = Lens.lens (\TopicConfiguration' {id} -> id) (\s@TopicConfiguration' {} a -> s {id = a} :: TopicConfiguration)
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which Amazon
 -- S3 publishes a message when it detects events of the specified type.
@@ -100,30 +100,30 @@ topicConfiguration_events = Lens.lens (\TopicConfiguration' {events} -> events) 
 instance Data.FromXML TopicConfiguration where
   parseXML x =
     TopicConfiguration'
-      Prelude.<$> (x Data..@? "Id")
-      Prelude.<*> (x Data..@? "Filter")
+      Prelude.<$> (x Data..@? "Filter")
+      Prelude.<*> (x Data..@? "Id")
       Prelude.<*> (x Data..@ "Topic")
       Prelude.<*> (Data.parseXMLList "Event" x)
 
 instance Prelude.Hashable TopicConfiguration where
   hashWithSalt _salt TopicConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` filter'
+    _salt `Prelude.hashWithSalt` filter'
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` topicArn
       `Prelude.hashWithSalt` events
 
 instance Prelude.NFData TopicConfiguration where
   rnf TopicConfiguration' {..} =
-    Prelude.rnf id
-      `Prelude.seq` Prelude.rnf filter'
+    Prelude.rnf filter'
+      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf topicArn
       `Prelude.seq` Prelude.rnf events
 
 instance Data.ToXML TopicConfiguration where
   toXML TopicConfiguration' {..} =
     Prelude.mconcat
-      [ "Id" Data.@= id,
-        "Filter" Data.@= filter',
+      [ "Filter" Data.@= filter',
+        "Id" Data.@= id,
         "Topic" Data.@= topicArn,
         Data.toXMLList "Event" events
       ]

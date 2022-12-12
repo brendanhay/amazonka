@@ -29,15 +29,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEgressEndpoint' smart constructor.
 data EgressEndpoint = EgressEndpoint'
-  { -- | The URL of the parent manifest for the repackaged Asset.
-    url :: Prelude.Maybe Prelude.Text,
+  { -- | The ID of the PackagingConfiguration being applied to the Asset.
+    packagingConfigurationId :: Prelude.Maybe Prelude.Text,
     -- | The current processing status of the asset used for the packaging
     -- configuration. The status can be either QUEUED, PROCESSING, PLAYABLE, or
     -- FAILED. Status information won\'t be available for most assets ingested
     -- before 2021-09-30.
     status :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the PackagingConfiguration being applied to the Asset.
-    packagingConfigurationId :: Prelude.Maybe Prelude.Text
+    -- | The URL of the parent manifest for the repackaged Asset.
+    url :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,26 +49,27 @@ data EgressEndpoint = EgressEndpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'url', 'egressEndpoint_url' - The URL of the parent manifest for the repackaged Asset.
+-- 'packagingConfigurationId', 'egressEndpoint_packagingConfigurationId' - The ID of the PackagingConfiguration being applied to the Asset.
 --
 -- 'status', 'egressEndpoint_status' - The current processing status of the asset used for the packaging
 -- configuration. The status can be either QUEUED, PROCESSING, PLAYABLE, or
 -- FAILED. Status information won\'t be available for most assets ingested
 -- before 2021-09-30.
 --
--- 'packagingConfigurationId', 'egressEndpoint_packagingConfigurationId' - The ID of the PackagingConfiguration being applied to the Asset.
+-- 'url', 'egressEndpoint_url' - The URL of the parent manifest for the repackaged Asset.
 newEgressEndpoint ::
   EgressEndpoint
 newEgressEndpoint =
   EgressEndpoint'
-    { url = Prelude.Nothing,
+    { packagingConfigurationId =
+        Prelude.Nothing,
       status = Prelude.Nothing,
-      packagingConfigurationId = Prelude.Nothing
+      url = Prelude.Nothing
     }
 
--- | The URL of the parent manifest for the repackaged Asset.
-egressEndpoint_url :: Lens.Lens' EgressEndpoint (Prelude.Maybe Prelude.Text)
-egressEndpoint_url = Lens.lens (\EgressEndpoint' {url} -> url) (\s@EgressEndpoint' {} a -> s {url = a} :: EgressEndpoint)
+-- | The ID of the PackagingConfiguration being applied to the Asset.
+egressEndpoint_packagingConfigurationId :: Lens.Lens' EgressEndpoint (Prelude.Maybe Prelude.Text)
+egressEndpoint_packagingConfigurationId = Lens.lens (\EgressEndpoint' {packagingConfigurationId} -> packagingConfigurationId) (\s@EgressEndpoint' {} a -> s {packagingConfigurationId = a} :: EgressEndpoint)
 
 -- | The current processing status of the asset used for the packaging
 -- configuration. The status can be either QUEUED, PROCESSING, PLAYABLE, or
@@ -77,9 +78,9 @@ egressEndpoint_url = Lens.lens (\EgressEndpoint' {url} -> url) (\s@EgressEndpoin
 egressEndpoint_status :: Lens.Lens' EgressEndpoint (Prelude.Maybe Prelude.Text)
 egressEndpoint_status = Lens.lens (\EgressEndpoint' {status} -> status) (\s@EgressEndpoint' {} a -> s {status = a} :: EgressEndpoint)
 
--- | The ID of the PackagingConfiguration being applied to the Asset.
-egressEndpoint_packagingConfigurationId :: Lens.Lens' EgressEndpoint (Prelude.Maybe Prelude.Text)
-egressEndpoint_packagingConfigurationId = Lens.lens (\EgressEndpoint' {packagingConfigurationId} -> packagingConfigurationId) (\s@EgressEndpoint' {} a -> s {packagingConfigurationId = a} :: EgressEndpoint)
+-- | The URL of the parent manifest for the repackaged Asset.
+egressEndpoint_url :: Lens.Lens' EgressEndpoint (Prelude.Maybe Prelude.Text)
+egressEndpoint_url = Lens.lens (\EgressEndpoint' {url} -> url) (\s@EgressEndpoint' {} a -> s {url = a} :: EgressEndpoint)
 
 instance Data.FromJSON EgressEndpoint where
   parseJSON =
@@ -87,19 +88,20 @@ instance Data.FromJSON EgressEndpoint where
       "EgressEndpoint"
       ( \x ->
           EgressEndpoint'
-            Prelude.<$> (x Data..:? "url")
+            Prelude.<$> (x Data..:? "packagingConfigurationId")
             Prelude.<*> (x Data..:? "status")
-            Prelude.<*> (x Data..:? "packagingConfigurationId")
+            Prelude.<*> (x Data..:? "url")
       )
 
 instance Prelude.Hashable EgressEndpoint where
   hashWithSalt _salt EgressEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` url
-      `Prelude.hashWithSalt` status
+    _salt
       `Prelude.hashWithSalt` packagingConfigurationId
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` url
 
 instance Prelude.NFData EgressEndpoint where
   rnf EgressEndpoint' {..} =
-    Prelude.rnf url
+    Prelude.rnf packagingConfigurationId
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf packagingConfigurationId
+      `Prelude.seq` Prelude.rnf url

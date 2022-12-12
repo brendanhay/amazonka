@@ -30,14 +30,14 @@ import Amazonka.ServiceCatalog.Types.ResourceTargetDefinition
 --
 -- /See:/ 'newResourceChangeDetail' smart constructor.
 data ResourceChangeDetail = ResourceChangeDetail'
-  { -- | Information about the resource attribute to be modified.
-    target :: Prelude.Maybe ResourceTargetDefinition,
+  { -- | The ID of the entity that caused the change.
+    causingEntity :: Prelude.Maybe Prelude.Text,
     -- | For static evaluations, the value of the resource attribute will change
     -- and the new value is known. For dynamic evaluations, the value might
     -- change, and any new value will be determined when the plan is updated.
     evaluation :: Prelude.Maybe EvaluationType,
-    -- | The ID of the entity that caused the change.
-    causingEntity :: Prelude.Maybe Prelude.Text
+    -- | Information about the resource attribute to be modified.
+    target :: Prelude.Maybe ResourceTargetDefinition
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,25 +49,26 @@ data ResourceChangeDetail = ResourceChangeDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'target', 'resourceChangeDetail_target' - Information about the resource attribute to be modified.
+-- 'causingEntity', 'resourceChangeDetail_causingEntity' - The ID of the entity that caused the change.
 --
 -- 'evaluation', 'resourceChangeDetail_evaluation' - For static evaluations, the value of the resource attribute will change
 -- and the new value is known. For dynamic evaluations, the value might
 -- change, and any new value will be determined when the plan is updated.
 --
--- 'causingEntity', 'resourceChangeDetail_causingEntity' - The ID of the entity that caused the change.
+-- 'target', 'resourceChangeDetail_target' - Information about the resource attribute to be modified.
 newResourceChangeDetail ::
   ResourceChangeDetail
 newResourceChangeDetail =
   ResourceChangeDetail'
-    { target = Prelude.Nothing,
+    { causingEntity =
+        Prelude.Nothing,
       evaluation = Prelude.Nothing,
-      causingEntity = Prelude.Nothing
+      target = Prelude.Nothing
     }
 
--- | Information about the resource attribute to be modified.
-resourceChangeDetail_target :: Lens.Lens' ResourceChangeDetail (Prelude.Maybe ResourceTargetDefinition)
-resourceChangeDetail_target = Lens.lens (\ResourceChangeDetail' {target} -> target) (\s@ResourceChangeDetail' {} a -> s {target = a} :: ResourceChangeDetail)
+-- | The ID of the entity that caused the change.
+resourceChangeDetail_causingEntity :: Lens.Lens' ResourceChangeDetail (Prelude.Maybe Prelude.Text)
+resourceChangeDetail_causingEntity = Lens.lens (\ResourceChangeDetail' {causingEntity} -> causingEntity) (\s@ResourceChangeDetail' {} a -> s {causingEntity = a} :: ResourceChangeDetail)
 
 -- | For static evaluations, the value of the resource attribute will change
 -- and the new value is known. For dynamic evaluations, the value might
@@ -75,9 +76,9 @@ resourceChangeDetail_target = Lens.lens (\ResourceChangeDetail' {target} -> targ
 resourceChangeDetail_evaluation :: Lens.Lens' ResourceChangeDetail (Prelude.Maybe EvaluationType)
 resourceChangeDetail_evaluation = Lens.lens (\ResourceChangeDetail' {evaluation} -> evaluation) (\s@ResourceChangeDetail' {} a -> s {evaluation = a} :: ResourceChangeDetail)
 
--- | The ID of the entity that caused the change.
-resourceChangeDetail_causingEntity :: Lens.Lens' ResourceChangeDetail (Prelude.Maybe Prelude.Text)
-resourceChangeDetail_causingEntity = Lens.lens (\ResourceChangeDetail' {causingEntity} -> causingEntity) (\s@ResourceChangeDetail' {} a -> s {causingEntity = a} :: ResourceChangeDetail)
+-- | Information about the resource attribute to be modified.
+resourceChangeDetail_target :: Lens.Lens' ResourceChangeDetail (Prelude.Maybe ResourceTargetDefinition)
+resourceChangeDetail_target = Lens.lens (\ResourceChangeDetail' {target} -> target) (\s@ResourceChangeDetail' {} a -> s {target = a} :: ResourceChangeDetail)
 
 instance Data.FromJSON ResourceChangeDetail where
   parseJSON =
@@ -85,19 +86,19 @@ instance Data.FromJSON ResourceChangeDetail where
       "ResourceChangeDetail"
       ( \x ->
           ResourceChangeDetail'
-            Prelude.<$> (x Data..:? "Target")
+            Prelude.<$> (x Data..:? "CausingEntity")
             Prelude.<*> (x Data..:? "Evaluation")
-            Prelude.<*> (x Data..:? "CausingEntity")
+            Prelude.<*> (x Data..:? "Target")
       )
 
 instance Prelude.Hashable ResourceChangeDetail where
   hashWithSalt _salt ResourceChangeDetail' {..} =
-    _salt `Prelude.hashWithSalt` target
+    _salt `Prelude.hashWithSalt` causingEntity
       `Prelude.hashWithSalt` evaluation
-      `Prelude.hashWithSalt` causingEntity
+      `Prelude.hashWithSalt` target
 
 instance Prelude.NFData ResourceChangeDetail where
   rnf ResourceChangeDetail' {..} =
-    Prelude.rnf target
+    Prelude.rnf causingEntity
       `Prelude.seq` Prelude.rnf evaluation
-      `Prelude.seq` Prelude.rnf causingEntity
+      `Prelude.seq` Prelude.rnf target

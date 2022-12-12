@@ -34,18 +34,18 @@ data Notification = Notification'
     assessmentId :: Prelude.Maybe Prelude.Text,
     -- | The name of the related assessment.
     assessmentName :: Prelude.Maybe Prelude.Text,
+    -- | The identifier for the control set.
+    controlSetId :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the name of the control set that the notification is about.
+    controlSetName :: Prelude.Maybe Prelude.Text,
     -- | The description of the notification.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The time when the notification was sent.
+    eventTime :: Prelude.Maybe Data.POSIX,
     -- | The unique identifier for the notification.
     id :: Prelude.Maybe Prelude.Text,
     -- | The sender of the notification.
-    source :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the name of the control set that the notification is about.
-    controlSetName :: Prelude.Maybe Prelude.Text,
-    -- | The identifier for the control set.
-    controlSetId :: Prelude.Maybe Prelude.Text,
-    -- | The time when the notification was sent.
-    eventTime :: Prelude.Maybe Data.POSIX
+    source :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,29 +61,29 @@ data Notification = Notification'
 --
 -- 'assessmentName', 'notification_assessmentName' - The name of the related assessment.
 --
+-- 'controlSetId', 'notification_controlSetId' - The identifier for the control set.
+--
+-- 'controlSetName', 'notification_controlSetName' - Specifies the name of the control set that the notification is about.
+--
 -- 'description', 'notification_description' - The description of the notification.
+--
+-- 'eventTime', 'notification_eventTime' - The time when the notification was sent.
 --
 -- 'id', 'notification_id' - The unique identifier for the notification.
 --
 -- 'source', 'notification_source' - The sender of the notification.
---
--- 'controlSetName', 'notification_controlSetName' - Specifies the name of the control set that the notification is about.
---
--- 'controlSetId', 'notification_controlSetId' - The identifier for the control set.
---
--- 'eventTime', 'notification_eventTime' - The time when the notification was sent.
 newNotification ::
   Notification
 newNotification =
   Notification'
     { assessmentId = Prelude.Nothing,
       assessmentName = Prelude.Nothing,
-      description = Prelude.Nothing,
-      id = Prelude.Nothing,
-      source = Prelude.Nothing,
-      controlSetName = Prelude.Nothing,
       controlSetId = Prelude.Nothing,
-      eventTime = Prelude.Nothing
+      controlSetName = Prelude.Nothing,
+      description = Prelude.Nothing,
+      eventTime = Prelude.Nothing,
+      id = Prelude.Nothing,
+      source = Prelude.Nothing
     }
 
 -- | The identifier for the assessment.
@@ -94,9 +94,21 @@ notification_assessmentId = Lens.lens (\Notification' {assessmentId} -> assessme
 notification_assessmentName :: Lens.Lens' Notification (Prelude.Maybe Prelude.Text)
 notification_assessmentName = Lens.lens (\Notification' {assessmentName} -> assessmentName) (\s@Notification' {} a -> s {assessmentName = a} :: Notification)
 
+-- | The identifier for the control set.
+notification_controlSetId :: Lens.Lens' Notification (Prelude.Maybe Prelude.Text)
+notification_controlSetId = Lens.lens (\Notification' {controlSetId} -> controlSetId) (\s@Notification' {} a -> s {controlSetId = a} :: Notification)
+
+-- | Specifies the name of the control set that the notification is about.
+notification_controlSetName :: Lens.Lens' Notification (Prelude.Maybe Prelude.Text)
+notification_controlSetName = Lens.lens (\Notification' {controlSetName} -> controlSetName) (\s@Notification' {} a -> s {controlSetName = a} :: Notification)
+
 -- | The description of the notification.
 notification_description :: Lens.Lens' Notification (Prelude.Maybe Prelude.Text)
 notification_description = Lens.lens (\Notification' {description} -> description) (\s@Notification' {} a -> s {description = a} :: Notification)
+
+-- | The time when the notification was sent.
+notification_eventTime :: Lens.Lens' Notification (Prelude.Maybe Prelude.UTCTime)
+notification_eventTime = Lens.lens (\Notification' {eventTime} -> eventTime) (\s@Notification' {} a -> s {eventTime = a} :: Notification) Prelude.. Lens.mapping Data._Time
 
 -- | The unique identifier for the notification.
 notification_id :: Lens.Lens' Notification (Prelude.Maybe Prelude.Text)
@@ -106,18 +118,6 @@ notification_id = Lens.lens (\Notification' {id} -> id) (\s@Notification' {} a -
 notification_source :: Lens.Lens' Notification (Prelude.Maybe Prelude.Text)
 notification_source = Lens.lens (\Notification' {source} -> source) (\s@Notification' {} a -> s {source = a} :: Notification)
 
--- | Specifies the name of the control set that the notification is about.
-notification_controlSetName :: Lens.Lens' Notification (Prelude.Maybe Prelude.Text)
-notification_controlSetName = Lens.lens (\Notification' {controlSetName} -> controlSetName) (\s@Notification' {} a -> s {controlSetName = a} :: Notification)
-
--- | The identifier for the control set.
-notification_controlSetId :: Lens.Lens' Notification (Prelude.Maybe Prelude.Text)
-notification_controlSetId = Lens.lens (\Notification' {controlSetId} -> controlSetId) (\s@Notification' {} a -> s {controlSetId = a} :: Notification)
-
--- | The time when the notification was sent.
-notification_eventTime :: Lens.Lens' Notification (Prelude.Maybe Prelude.UTCTime)
-notification_eventTime = Lens.lens (\Notification' {eventTime} -> eventTime) (\s@Notification' {} a -> s {eventTime = a} :: Notification) Prelude.. Lens.mapping Data._Time
-
 instance Data.FromJSON Notification where
   parseJSON =
     Data.withObject
@@ -126,32 +126,32 @@ instance Data.FromJSON Notification where
           Notification'
             Prelude.<$> (x Data..:? "assessmentId")
             Prelude.<*> (x Data..:? "assessmentName")
+            Prelude.<*> (x Data..:? "controlSetId")
+            Prelude.<*> (x Data..:? "controlSetName")
             Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "eventTime")
             Prelude.<*> (x Data..:? "id")
             Prelude.<*> (x Data..:? "source")
-            Prelude.<*> (x Data..:? "controlSetName")
-            Prelude.<*> (x Data..:? "controlSetId")
-            Prelude.<*> (x Data..:? "eventTime")
       )
 
 instance Prelude.Hashable Notification where
   hashWithSalt _salt Notification' {..} =
     _salt `Prelude.hashWithSalt` assessmentId
       `Prelude.hashWithSalt` assessmentName
+      `Prelude.hashWithSalt` controlSetId
+      `Prelude.hashWithSalt` controlSetName
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` eventTime
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` source
-      `Prelude.hashWithSalt` controlSetName
-      `Prelude.hashWithSalt` controlSetId
-      `Prelude.hashWithSalt` eventTime
 
 instance Prelude.NFData Notification where
   rnf Notification' {..} =
     Prelude.rnf assessmentId
       `Prelude.seq` Prelude.rnf assessmentName
+      `Prelude.seq` Prelude.rnf controlSetId
+      `Prelude.seq` Prelude.rnf controlSetName
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf eventTime
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf controlSetName
-      `Prelude.seq` Prelude.rnf controlSetId
-      `Prelude.seq` Prelude.rnf eventTime

@@ -31,8 +31,8 @@ import Amazonka.SageMaker.Types.ProblemType
 --
 -- /See:/ 'newResolvedAttributes' smart constructor.
 data ResolvedAttributes = ResolvedAttributes'
-  { completionCriteria :: Prelude.Maybe AutoMLJobCompletionCriteria,
-    autoMLJobObjective :: Prelude.Maybe AutoMLJobObjective,
+  { autoMLJobObjective :: Prelude.Maybe AutoMLJobObjective,
+    completionCriteria :: Prelude.Maybe AutoMLJobCompletionCriteria,
     -- | The problem type.
     problemType :: Prelude.Maybe ProblemType
   }
@@ -46,28 +46,28 @@ data ResolvedAttributes = ResolvedAttributes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'completionCriteria', 'resolvedAttributes_completionCriteria' - Undocumented member.
---
 -- 'autoMLJobObjective', 'resolvedAttributes_autoMLJobObjective' - Undocumented member.
+--
+-- 'completionCriteria', 'resolvedAttributes_completionCriteria' - Undocumented member.
 --
 -- 'problemType', 'resolvedAttributes_problemType' - The problem type.
 newResolvedAttributes ::
   ResolvedAttributes
 newResolvedAttributes =
   ResolvedAttributes'
-    { completionCriteria =
+    { autoMLJobObjective =
         Prelude.Nothing,
-      autoMLJobObjective = Prelude.Nothing,
+      completionCriteria = Prelude.Nothing,
       problemType = Prelude.Nothing
     }
 
 -- | Undocumented member.
-resolvedAttributes_completionCriteria :: Lens.Lens' ResolvedAttributes (Prelude.Maybe AutoMLJobCompletionCriteria)
-resolvedAttributes_completionCriteria = Lens.lens (\ResolvedAttributes' {completionCriteria} -> completionCriteria) (\s@ResolvedAttributes' {} a -> s {completionCriteria = a} :: ResolvedAttributes)
-
--- | Undocumented member.
 resolvedAttributes_autoMLJobObjective :: Lens.Lens' ResolvedAttributes (Prelude.Maybe AutoMLJobObjective)
 resolvedAttributes_autoMLJobObjective = Lens.lens (\ResolvedAttributes' {autoMLJobObjective} -> autoMLJobObjective) (\s@ResolvedAttributes' {} a -> s {autoMLJobObjective = a} :: ResolvedAttributes)
+
+-- | Undocumented member.
+resolvedAttributes_completionCriteria :: Lens.Lens' ResolvedAttributes (Prelude.Maybe AutoMLJobCompletionCriteria)
+resolvedAttributes_completionCriteria = Lens.lens (\ResolvedAttributes' {completionCriteria} -> completionCriteria) (\s@ResolvedAttributes' {} a -> s {completionCriteria = a} :: ResolvedAttributes)
 
 -- | The problem type.
 resolvedAttributes_problemType :: Lens.Lens' ResolvedAttributes (Prelude.Maybe ProblemType)
@@ -79,19 +79,19 @@ instance Data.FromJSON ResolvedAttributes where
       "ResolvedAttributes"
       ( \x ->
           ResolvedAttributes'
-            Prelude.<$> (x Data..:? "CompletionCriteria")
-            Prelude.<*> (x Data..:? "AutoMLJobObjective")
+            Prelude.<$> (x Data..:? "AutoMLJobObjective")
+            Prelude.<*> (x Data..:? "CompletionCriteria")
             Prelude.<*> (x Data..:? "ProblemType")
       )
 
 instance Prelude.Hashable ResolvedAttributes where
   hashWithSalt _salt ResolvedAttributes' {..} =
-    _salt `Prelude.hashWithSalt` completionCriteria
-      `Prelude.hashWithSalt` autoMLJobObjective
+    _salt `Prelude.hashWithSalt` autoMLJobObjective
+      `Prelude.hashWithSalt` completionCriteria
       `Prelude.hashWithSalt` problemType
 
 instance Prelude.NFData ResolvedAttributes where
   rnf ResolvedAttributes' {..} =
-    Prelude.rnf completionCriteria
-      `Prelude.seq` Prelude.rnf autoMLJobObjective
+    Prelude.rnf autoMLJobObjective
+      `Prelude.seq` Prelude.rnf completionCriteria
       `Prelude.seq` Prelude.rnf problemType

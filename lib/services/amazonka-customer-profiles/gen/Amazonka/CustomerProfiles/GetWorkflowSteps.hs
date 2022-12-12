@@ -27,8 +27,8 @@ module Amazonka.CustomerProfiles.GetWorkflowSteps
     newGetWorkflowSteps,
 
     -- * Request Lenses
-    getWorkflowSteps_nextToken,
     getWorkflowSteps_maxResults,
+    getWorkflowSteps_nextToken,
     getWorkflowSteps_domainName,
     getWorkflowSteps_workflowId,
 
@@ -55,12 +55,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetWorkflowSteps' smart constructor.
 data GetWorkflowSteps = GetWorkflowSteps'
-  { -- | The token for the next set of results. Use the value returned in the
+  { -- | The maximum number of results to return per page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The unique name of the domain.
     domainName :: Prelude.Text,
     -- | Unique identifier for the workflow.
@@ -76,11 +76,11 @@ data GetWorkflowSteps = GetWorkflowSteps'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'getWorkflowSteps_maxResults' - The maximum number of results to return per page.
+--
 -- 'nextToken', 'getWorkflowSteps_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
---
--- 'maxResults', 'getWorkflowSteps_maxResults' - The maximum number of results to return per page.
 --
 -- 'domainName', 'getWorkflowSteps_domainName' - The unique name of the domain.
 --
@@ -93,21 +93,21 @@ newGetWorkflowSteps ::
   GetWorkflowSteps
 newGetWorkflowSteps pDomainName_ pWorkflowId_ =
   GetWorkflowSteps'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       domainName = pDomainName_,
       workflowId = pWorkflowId_
     }
+
+-- | The maximum number of results to return per page.
+getWorkflowSteps_maxResults :: Lens.Lens' GetWorkflowSteps (Prelude.Maybe Prelude.Natural)
+getWorkflowSteps_maxResults = Lens.lens (\GetWorkflowSteps' {maxResults} -> maxResults) (\s@GetWorkflowSteps' {} a -> s {maxResults = a} :: GetWorkflowSteps)
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
 getWorkflowSteps_nextToken :: Lens.Lens' GetWorkflowSteps (Prelude.Maybe Prelude.Text)
 getWorkflowSteps_nextToken = Lens.lens (\GetWorkflowSteps' {nextToken} -> nextToken) (\s@GetWorkflowSteps' {} a -> s {nextToken = a} :: GetWorkflowSteps)
-
--- | The maximum number of results to return per page.
-getWorkflowSteps_maxResults :: Lens.Lens' GetWorkflowSteps (Prelude.Maybe Prelude.Natural)
-getWorkflowSteps_maxResults = Lens.lens (\GetWorkflowSteps' {maxResults} -> maxResults) (\s@GetWorkflowSteps' {} a -> s {maxResults = a} :: GetWorkflowSteps)
 
 -- | The unique name of the domain.
 getWorkflowSteps_domainName :: Lens.Lens' GetWorkflowSteps Prelude.Text
@@ -136,15 +136,15 @@ instance Core.AWSRequest GetWorkflowSteps where
 
 instance Prelude.Hashable GetWorkflowSteps where
   hashWithSalt _salt GetWorkflowSteps' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` workflowId
 
 instance Prelude.NFData GetWorkflowSteps where
   rnf GetWorkflowSteps' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf workflowId
 
@@ -172,8 +172,8 @@ instance Data.ToPath GetWorkflowSteps where
 instance Data.ToQuery GetWorkflowSteps where
   toQuery GetWorkflowSteps' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
-        "max-results" Data.=: maxResults
+      [ "max-results" Data.=: maxResults,
+        "next-token" Data.=: nextToken
       ]
 
 -- | /See:/ 'newGetWorkflowStepsResponse' smart constructor.

@@ -28,10 +28,10 @@ module Amazonka.NetworkManager.CreateCoreNetwork
     newCreateCoreNetwork,
 
     -- * Request Lenses
-    createCoreNetwork_tags,
     createCoreNetwork_clientToken,
     createCoreNetwork_description,
     createCoreNetwork_policyDocument,
+    createCoreNetwork_tags,
     createCoreNetwork_globalNetworkId,
 
     -- * Destructuring the Response
@@ -54,14 +54,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateCoreNetwork' smart constructor.
 data CreateCoreNetwork = CreateCoreNetwork'
-  { -- | Key-value tags associated with a core network request.
-    tags :: Prelude.Maybe [Tag],
-    -- | The client token associated with a core network request.
+  { -- | The client token associated with a core network request.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The description of a core network.
     description :: Prelude.Maybe Prelude.Text,
     -- | The policy document for creating a core network.
     policyDocument :: Prelude.Maybe Prelude.Text,
+    -- | Key-value tags associated with a core network request.
+    tags :: Prelude.Maybe [Tag],
     -- | The ID of the global network that a core network will be a part of.
     globalNetworkId :: Prelude.Text
   }
@@ -75,13 +75,13 @@ data CreateCoreNetwork = CreateCoreNetwork'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createCoreNetwork_tags' - Key-value tags associated with a core network request.
---
 -- 'clientToken', 'createCoreNetwork_clientToken' - The client token associated with a core network request.
 --
 -- 'description', 'createCoreNetwork_description' - The description of a core network.
 --
 -- 'policyDocument', 'createCoreNetwork_policyDocument' - The policy document for creating a core network.
+--
+-- 'tags', 'createCoreNetwork_tags' - Key-value tags associated with a core network request.
 --
 -- 'globalNetworkId', 'createCoreNetwork_globalNetworkId' - The ID of the global network that a core network will be a part of.
 newCreateCoreNetwork ::
@@ -90,16 +90,12 @@ newCreateCoreNetwork ::
   CreateCoreNetwork
 newCreateCoreNetwork pGlobalNetworkId_ =
   CreateCoreNetwork'
-    { tags = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+    { clientToken = Prelude.Nothing,
       description = Prelude.Nothing,
       policyDocument = Prelude.Nothing,
+      tags = Prelude.Nothing,
       globalNetworkId = pGlobalNetworkId_
     }
-
--- | Key-value tags associated with a core network request.
-createCoreNetwork_tags :: Lens.Lens' CreateCoreNetwork (Prelude.Maybe [Tag])
-createCoreNetwork_tags = Lens.lens (\CreateCoreNetwork' {tags} -> tags) (\s@CreateCoreNetwork' {} a -> s {tags = a} :: CreateCoreNetwork) Prelude.. Lens.mapping Lens.coerced
 
 -- | The client token associated with a core network request.
 createCoreNetwork_clientToken :: Lens.Lens' CreateCoreNetwork (Prelude.Maybe Prelude.Text)
@@ -112,6 +108,10 @@ createCoreNetwork_description = Lens.lens (\CreateCoreNetwork' {description} -> 
 -- | The policy document for creating a core network.
 createCoreNetwork_policyDocument :: Lens.Lens' CreateCoreNetwork (Prelude.Maybe Prelude.Text)
 createCoreNetwork_policyDocument = Lens.lens (\CreateCoreNetwork' {policyDocument} -> policyDocument) (\s@CreateCoreNetwork' {} a -> s {policyDocument = a} :: CreateCoreNetwork)
+
+-- | Key-value tags associated with a core network request.
+createCoreNetwork_tags :: Lens.Lens' CreateCoreNetwork (Prelude.Maybe [Tag])
+createCoreNetwork_tags = Lens.lens (\CreateCoreNetwork' {tags} -> tags) (\s@CreateCoreNetwork' {} a -> s {tags = a} :: CreateCoreNetwork) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the global network that a core network will be a part of.
 createCoreNetwork_globalNetworkId :: Lens.Lens' CreateCoreNetwork Prelude.Text
@@ -133,18 +133,18 @@ instance Core.AWSRequest CreateCoreNetwork where
 
 instance Prelude.Hashable CreateCoreNetwork where
   hashWithSalt _salt CreateCoreNetwork' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` policyDocument
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` globalNetworkId
 
 instance Prelude.NFData CreateCoreNetwork where
   rnf CreateCoreNetwork' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf policyDocument
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf globalNetworkId
 
 instance Data.ToHeaders CreateCoreNetwork where
@@ -162,11 +162,11 @@ instance Data.ToJSON CreateCoreNetwork where
   toJSON CreateCoreNetwork' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ClientToken" Data..=) Prelude.<$> clientToken,
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
             ("Description" Data..=) Prelude.<$> description,
             ("PolicyDocument" Data..=)
               Prelude.<$> policyDocument,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("GlobalNetworkId" Data..= globalNetworkId)
           ]

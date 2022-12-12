@@ -41,8 +41,8 @@ module Amazonka.ImageBuilder.PutImagePolicy
     newPutImagePolicyResponse,
 
     -- * Response Lenses
-    putImagePolicyResponse_requestId,
     putImagePolicyResponse_imageArn,
+    putImagePolicyResponse_requestId,
     putImagePolicyResponse_httpStatus,
   )
 where
@@ -108,8 +108,8 @@ instance Core.AWSRequest PutImagePolicy where
     Response.receiveJSON
       ( \s h x ->
           PutImagePolicyResponse'
-            Prelude.<$> (x Data..?> "requestId")
-            Prelude.<*> (x Data..?> "imageArn")
+            Prelude.<$> (x Data..?> "imageArn")
+            Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,11 +151,11 @@ instance Data.ToQuery PutImagePolicy where
 
 -- | /See:/ 'newPutImagePolicyResponse' smart constructor.
 data PutImagePolicyResponse = PutImagePolicyResponse'
-  { -- | The request ID that uniquely identifies this request.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the image that this policy was applied
+  { -- | The Amazon Resource Name (ARN) of the image that this policy was applied
     -- to.
     imageArn :: Prelude.Maybe Prelude.Text,
+    -- | The request ID that uniquely identifies this request.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -169,10 +169,10 @@ data PutImagePolicyResponse = PutImagePolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'putImagePolicyResponse_requestId' - The request ID that uniquely identifies this request.
---
 -- 'imageArn', 'putImagePolicyResponse_imageArn' - The Amazon Resource Name (ARN) of the image that this policy was applied
 -- to.
+--
+-- 'requestId', 'putImagePolicyResponse_requestId' - The request ID that uniquely identifies this request.
 --
 -- 'httpStatus', 'putImagePolicyResponse_httpStatus' - The response's http status code.
 newPutImagePolicyResponse ::
@@ -181,20 +181,19 @@ newPutImagePolicyResponse ::
   PutImagePolicyResponse
 newPutImagePolicyResponse pHttpStatus_ =
   PutImagePolicyResponse'
-    { requestId =
-        Prelude.Nothing,
-      imageArn = Prelude.Nothing,
+    { imageArn = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The request ID that uniquely identifies this request.
-putImagePolicyResponse_requestId :: Lens.Lens' PutImagePolicyResponse (Prelude.Maybe Prelude.Text)
-putImagePolicyResponse_requestId = Lens.lens (\PutImagePolicyResponse' {requestId} -> requestId) (\s@PutImagePolicyResponse' {} a -> s {requestId = a} :: PutImagePolicyResponse)
 
 -- | The Amazon Resource Name (ARN) of the image that this policy was applied
 -- to.
 putImagePolicyResponse_imageArn :: Lens.Lens' PutImagePolicyResponse (Prelude.Maybe Prelude.Text)
 putImagePolicyResponse_imageArn = Lens.lens (\PutImagePolicyResponse' {imageArn} -> imageArn) (\s@PutImagePolicyResponse' {} a -> s {imageArn = a} :: PutImagePolicyResponse)
+
+-- | The request ID that uniquely identifies this request.
+putImagePolicyResponse_requestId :: Lens.Lens' PutImagePolicyResponse (Prelude.Maybe Prelude.Text)
+putImagePolicyResponse_requestId = Lens.lens (\PutImagePolicyResponse' {requestId} -> requestId) (\s@PutImagePolicyResponse' {} a -> s {requestId = a} :: PutImagePolicyResponse)
 
 -- | The response's http status code.
 putImagePolicyResponse_httpStatus :: Lens.Lens' PutImagePolicyResponse Prelude.Int
@@ -202,6 +201,6 @@ putImagePolicyResponse_httpStatus = Lens.lens (\PutImagePolicyResponse' {httpSta
 
 instance Prelude.NFData PutImagePolicyResponse where
   rnf PutImagePolicyResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf imageArn
+    Prelude.rnf imageArn
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf httpStatus

@@ -33,9 +33,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResourceChangeDetail' smart constructor.
 data ResourceChangeDetail = ResourceChangeDetail'
-  { -- | A @ResourceTargetDefinition@ structure that describes the field that
-    -- CloudFormation will change and whether the resource will be recreated.
-    target :: Prelude.Maybe ResourceTargetDefinition,
+  { -- | The identity of the entity that triggered this change. This entity is a
+    -- member of the group that\'s specified by the @ChangeSource@ field. For
+    -- example, if you modified the value of the @KeyPairName@ parameter, the
+    -- @CausingEntity@ is the name of the parameter (@KeyPairName@).
+    --
+    -- If the @ChangeSource@ value is @DirectModification@, no value is given
+    -- for @CausingEntity@.
+    causingEntity :: Prelude.Maybe Prelude.Text,
     -- | The group to which the @CausingEntity@ value belongs. There are five
     -- entity groups:
     --
@@ -80,14 +85,9 @@ data ResourceChangeDetail = ResourceChangeDetail'
     -- If the resource is recreated, it will have a new physical ID, so all
     -- references to that resource will also be updated.
     evaluation :: Prelude.Maybe EvaluationType,
-    -- | The identity of the entity that triggered this change. This entity is a
-    -- member of the group that\'s specified by the @ChangeSource@ field. For
-    -- example, if you modified the value of the @KeyPairName@ parameter, the
-    -- @CausingEntity@ is the name of the parameter (@KeyPairName@).
-    --
-    -- If the @ChangeSource@ value is @DirectModification@, no value is given
-    -- for @CausingEntity@.
-    causingEntity :: Prelude.Maybe Prelude.Text
+    -- | A @ResourceTargetDefinition@ structure that describes the field that
+    -- CloudFormation will change and whether the resource will be recreated.
+    target :: Prelude.Maybe ResourceTargetDefinition
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -99,8 +99,13 @@ data ResourceChangeDetail = ResourceChangeDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'target', 'resourceChangeDetail_target' - A @ResourceTargetDefinition@ structure that describes the field that
--- CloudFormation will change and whether the resource will be recreated.
+-- 'causingEntity', 'resourceChangeDetail_causingEntity' - The identity of the entity that triggered this change. This entity is a
+-- member of the group that\'s specified by the @ChangeSource@ field. For
+-- example, if you modified the value of the @KeyPairName@ parameter, the
+-- @CausingEntity@ is the name of the parameter (@KeyPairName@).
+--
+-- If the @ChangeSource@ value is @DirectModification@, no value is given
+-- for @CausingEntity@.
 --
 -- 'changeSource', 'resourceChangeDetail_changeSource' - The group to which the @CausingEntity@ value belongs. There are five
 -- entity groups:
@@ -146,27 +151,28 @@ data ResourceChangeDetail = ResourceChangeDetail'
 -- If the resource is recreated, it will have a new physical ID, so all
 -- references to that resource will also be updated.
 --
--- 'causingEntity', 'resourceChangeDetail_causingEntity' - The identity of the entity that triggered this change. This entity is a
+-- 'target', 'resourceChangeDetail_target' - A @ResourceTargetDefinition@ structure that describes the field that
+-- CloudFormation will change and whether the resource will be recreated.
+newResourceChangeDetail ::
+  ResourceChangeDetail
+newResourceChangeDetail =
+  ResourceChangeDetail'
+    { causingEntity =
+        Prelude.Nothing,
+      changeSource = Prelude.Nothing,
+      evaluation = Prelude.Nothing,
+      target = Prelude.Nothing
+    }
+
+-- | The identity of the entity that triggered this change. This entity is a
 -- member of the group that\'s specified by the @ChangeSource@ field. For
 -- example, if you modified the value of the @KeyPairName@ parameter, the
 -- @CausingEntity@ is the name of the parameter (@KeyPairName@).
 --
 -- If the @ChangeSource@ value is @DirectModification@, no value is given
 -- for @CausingEntity@.
-newResourceChangeDetail ::
-  ResourceChangeDetail
-newResourceChangeDetail =
-  ResourceChangeDetail'
-    { target = Prelude.Nothing,
-      changeSource = Prelude.Nothing,
-      evaluation = Prelude.Nothing,
-      causingEntity = Prelude.Nothing
-    }
-
--- | A @ResourceTargetDefinition@ structure that describes the field that
--- CloudFormation will change and whether the resource will be recreated.
-resourceChangeDetail_target :: Lens.Lens' ResourceChangeDetail (Prelude.Maybe ResourceTargetDefinition)
-resourceChangeDetail_target = Lens.lens (\ResourceChangeDetail' {target} -> target) (\s@ResourceChangeDetail' {} a -> s {target = a} :: ResourceChangeDetail)
+resourceChangeDetail_causingEntity :: Lens.Lens' ResourceChangeDetail (Prelude.Maybe Prelude.Text)
+resourceChangeDetail_causingEntity = Lens.lens (\ResourceChangeDetail' {causingEntity} -> causingEntity) (\s@ResourceChangeDetail' {} a -> s {causingEntity = a} :: ResourceChangeDetail)
 
 -- | The group to which the @CausingEntity@ value belongs. There are five
 -- entity groups:
@@ -216,34 +222,29 @@ resourceChangeDetail_changeSource = Lens.lens (\ResourceChangeDetail' {changeSou
 resourceChangeDetail_evaluation :: Lens.Lens' ResourceChangeDetail (Prelude.Maybe EvaluationType)
 resourceChangeDetail_evaluation = Lens.lens (\ResourceChangeDetail' {evaluation} -> evaluation) (\s@ResourceChangeDetail' {} a -> s {evaluation = a} :: ResourceChangeDetail)
 
--- | The identity of the entity that triggered this change. This entity is a
--- member of the group that\'s specified by the @ChangeSource@ field. For
--- example, if you modified the value of the @KeyPairName@ parameter, the
--- @CausingEntity@ is the name of the parameter (@KeyPairName@).
---
--- If the @ChangeSource@ value is @DirectModification@, no value is given
--- for @CausingEntity@.
-resourceChangeDetail_causingEntity :: Lens.Lens' ResourceChangeDetail (Prelude.Maybe Prelude.Text)
-resourceChangeDetail_causingEntity = Lens.lens (\ResourceChangeDetail' {causingEntity} -> causingEntity) (\s@ResourceChangeDetail' {} a -> s {causingEntity = a} :: ResourceChangeDetail)
+-- | A @ResourceTargetDefinition@ structure that describes the field that
+-- CloudFormation will change and whether the resource will be recreated.
+resourceChangeDetail_target :: Lens.Lens' ResourceChangeDetail (Prelude.Maybe ResourceTargetDefinition)
+resourceChangeDetail_target = Lens.lens (\ResourceChangeDetail' {target} -> target) (\s@ResourceChangeDetail' {} a -> s {target = a} :: ResourceChangeDetail)
 
 instance Data.FromXML ResourceChangeDetail where
   parseXML x =
     ResourceChangeDetail'
-      Prelude.<$> (x Data..@? "Target")
+      Prelude.<$> (x Data..@? "CausingEntity")
       Prelude.<*> (x Data..@? "ChangeSource")
       Prelude.<*> (x Data..@? "Evaluation")
-      Prelude.<*> (x Data..@? "CausingEntity")
+      Prelude.<*> (x Data..@? "Target")
 
 instance Prelude.Hashable ResourceChangeDetail where
   hashWithSalt _salt ResourceChangeDetail' {..} =
-    _salt `Prelude.hashWithSalt` target
+    _salt `Prelude.hashWithSalt` causingEntity
       `Prelude.hashWithSalt` changeSource
       `Prelude.hashWithSalt` evaluation
-      `Prelude.hashWithSalt` causingEntity
+      `Prelude.hashWithSalt` target
 
 instance Prelude.NFData ResourceChangeDetail where
   rnf ResourceChangeDetail' {..} =
-    Prelude.rnf target
+    Prelude.rnf causingEntity
       `Prelude.seq` Prelude.rnf changeSource
       `Prelude.seq` Prelude.rnf evaluation
-      `Prelude.seq` Prelude.rnf causingEntity
+      `Prelude.seq` Prelude.rnf target

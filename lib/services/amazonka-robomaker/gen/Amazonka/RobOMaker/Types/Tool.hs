@@ -29,7 +29,11 @@ import Amazonka.RobOMaker.Types.ExitBehavior
 --
 -- /See:/ 'newTool' smart constructor.
 data Tool = Tool'
-  { -- | Boolean indicating whether logs will be recorded in CloudWatch for the
+  { -- | Exit behavior determines what happens when your tool quits running.
+    -- @RESTART@ will cause your tool to be restarted. @FAIL@ will cause your
+    -- job to exit. The default is @RESTART@.
+    exitBehavior :: Prelude.Maybe ExitBehavior,
+    -- | Boolean indicating whether logs will be recorded in CloudWatch for the
     -- tool. The default is @False@.
     streamOutputToCloudWatch :: Prelude.Maybe Prelude.Bool,
     -- | Boolean indicating whether a streaming session will be configured for
@@ -37,10 +41,6 @@ data Tool = Tool'
     -- can interact with the tool as it is running in the simulation. It must
     -- have a graphical user interface. The default is @False@.
     streamUI :: Prelude.Maybe Prelude.Bool,
-    -- | Exit behavior determines what happens when your tool quits running.
-    -- @RESTART@ will cause your tool to be restarted. @FAIL@ will cause your
-    -- job to exit. The default is @RESTART@.
-    exitBehavior :: Prelude.Maybe ExitBehavior,
     -- | The name of the tool.
     name :: Prelude.Text,
     -- | Command-line arguments for the tool. It must include the tool executable
@@ -57,6 +57,10 @@ data Tool = Tool'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'exitBehavior', 'tool_exitBehavior' - Exit behavior determines what happens when your tool quits running.
+-- @RESTART@ will cause your tool to be restarted. @FAIL@ will cause your
+-- job to exit. The default is @RESTART@.
+--
 -- 'streamOutputToCloudWatch', 'tool_streamOutputToCloudWatch' - Boolean indicating whether logs will be recorded in CloudWatch for the
 -- tool. The default is @False@.
 --
@@ -64,10 +68,6 @@ data Tool = Tool'
 -- the tool. If @True@, AWS RoboMaker will configure a connection so you
 -- can interact with the tool as it is running in the simulation. It must
 -- have a graphical user interface. The default is @False@.
---
--- 'exitBehavior', 'tool_exitBehavior' - Exit behavior determines what happens when your tool quits running.
--- @RESTART@ will cause your tool to be restarted. @FAIL@ will cause your
--- job to exit. The default is @RESTART@.
 --
 -- 'name', 'tool_name' - The name of the tool.
 --
@@ -81,12 +81,18 @@ newTool ::
   Tool
 newTool pName_ pCommand_ =
   Tool'
-    { streamOutputToCloudWatch = Prelude.Nothing,
+    { exitBehavior = Prelude.Nothing,
+      streamOutputToCloudWatch = Prelude.Nothing,
       streamUI = Prelude.Nothing,
-      exitBehavior = Prelude.Nothing,
       name = pName_,
       command = pCommand_
     }
+
+-- | Exit behavior determines what happens when your tool quits running.
+-- @RESTART@ will cause your tool to be restarted. @FAIL@ will cause your
+-- job to exit. The default is @RESTART@.
+tool_exitBehavior :: Lens.Lens' Tool (Prelude.Maybe ExitBehavior)
+tool_exitBehavior = Lens.lens (\Tool' {exitBehavior} -> exitBehavior) (\s@Tool' {} a -> s {exitBehavior = a} :: Tool)
 
 -- | Boolean indicating whether logs will be recorded in CloudWatch for the
 -- tool. The default is @False@.
@@ -99,12 +105,6 @@ tool_streamOutputToCloudWatch = Lens.lens (\Tool' {streamOutputToCloudWatch} -> 
 -- have a graphical user interface. The default is @False@.
 tool_streamUI :: Lens.Lens' Tool (Prelude.Maybe Prelude.Bool)
 tool_streamUI = Lens.lens (\Tool' {streamUI} -> streamUI) (\s@Tool' {} a -> s {streamUI = a} :: Tool)
-
--- | Exit behavior determines what happens when your tool quits running.
--- @RESTART@ will cause your tool to be restarted. @FAIL@ will cause your
--- job to exit. The default is @RESTART@.
-tool_exitBehavior :: Lens.Lens' Tool (Prelude.Maybe ExitBehavior)
-tool_exitBehavior = Lens.lens (\Tool' {exitBehavior} -> exitBehavior) (\s@Tool' {} a -> s {exitBehavior = a} :: Tool)
 
 -- | The name of the tool.
 tool_name :: Lens.Lens' Tool Prelude.Text
@@ -121,27 +121,26 @@ instance Data.FromJSON Tool where
       "Tool"
       ( \x ->
           Tool'
-            Prelude.<$> (x Data..:? "streamOutputToCloudWatch")
+            Prelude.<$> (x Data..:? "exitBehavior")
+            Prelude.<*> (x Data..:? "streamOutputToCloudWatch")
             Prelude.<*> (x Data..:? "streamUI")
-            Prelude.<*> (x Data..:? "exitBehavior")
             Prelude.<*> (x Data..: "name")
             Prelude.<*> (x Data..: "command")
       )
 
 instance Prelude.Hashable Tool where
   hashWithSalt _salt Tool' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` exitBehavior
       `Prelude.hashWithSalt` streamOutputToCloudWatch
       `Prelude.hashWithSalt` streamUI
-      `Prelude.hashWithSalt` exitBehavior
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` command
 
 instance Prelude.NFData Tool where
   rnf Tool' {..} =
-    Prelude.rnf streamOutputToCloudWatch
+    Prelude.rnf exitBehavior
+      `Prelude.seq` Prelude.rnf streamOutputToCloudWatch
       `Prelude.seq` Prelude.rnf streamUI
-      `Prelude.seq` Prelude.rnf exitBehavior
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf command
 
@@ -149,10 +148,10 @@ instance Data.ToJSON Tool where
   toJSON Tool' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("streamOutputToCloudWatch" Data..=)
+          [ ("exitBehavior" Data..=) Prelude.<$> exitBehavior,
+            ("streamOutputToCloudWatch" Data..=)
               Prelude.<$> streamOutputToCloudWatch,
             ("streamUI" Data..=) Prelude.<$> streamUI,
-            ("exitBehavior" Data..=) Prelude.<$> exitBehavior,
             Prelude.Just ("name" Data..= name),
             Prelude.Just ("command" Data..= command)
           ]

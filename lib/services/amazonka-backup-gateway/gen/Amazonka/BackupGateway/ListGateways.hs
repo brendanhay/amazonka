@@ -31,16 +31,16 @@ module Amazonka.BackupGateway.ListGateways
     newListGateways,
 
     -- * Request Lenses
-    listGateways_nextToken,
     listGateways_maxResults,
+    listGateways_nextToken,
 
     -- * Destructuring the Response
     ListGatewaysResponse (..),
     newListGatewaysResponse,
 
     -- * Response Lenses
-    listGatewaysResponse_nextToken,
     listGatewaysResponse_gateways,
+    listGatewaysResponse_nextToken,
     listGatewaysResponse_httpStatus,
   )
 where
@@ -55,13 +55,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListGateways' smart constructor.
 data ListGateways = ListGateways'
-  { -- | The next item following a partial list of returned resources. For
+  { -- | The maximum number of gateways to list.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The next item following a partial list of returned resources. For
     -- example, if a request is made to return @MaxResults@ number of
     -- resources, @NextToken@ allows you to return more items in your list
     -- starting at the location pointed to by the next token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of gateways to list.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,19 +73,23 @@ data ListGateways = ListGateways'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listGateways_maxResults' - The maximum number of gateways to list.
+--
 -- 'nextToken', 'listGateways_nextToken' - The next item following a partial list of returned resources. For
 -- example, if a request is made to return @MaxResults@ number of
 -- resources, @NextToken@ allows you to return more items in your list
 -- starting at the location pointed to by the next token.
---
--- 'maxResults', 'listGateways_maxResults' - The maximum number of gateways to list.
 newListGateways ::
   ListGateways
 newListGateways =
   ListGateways'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of gateways to list.
+listGateways_maxResults :: Lens.Lens' ListGateways (Prelude.Maybe Prelude.Natural)
+listGateways_maxResults = Lens.lens (\ListGateways' {maxResults} -> maxResults) (\s@ListGateways' {} a -> s {maxResults = a} :: ListGateways)
 
 -- | The next item following a partial list of returned resources. For
 -- example, if a request is made to return @MaxResults@ number of
@@ -93,10 +97,6 @@ newListGateways =
 -- starting at the location pointed to by the next token.
 listGateways_nextToken :: Lens.Lens' ListGateways (Prelude.Maybe Prelude.Text)
 listGateways_nextToken = Lens.lens (\ListGateways' {nextToken} -> nextToken) (\s@ListGateways' {} a -> s {nextToken = a} :: ListGateways)
-
--- | The maximum number of gateways to list.
-listGateways_maxResults :: Lens.Lens' ListGateways (Prelude.Maybe Prelude.Natural)
-listGateways_maxResults = Lens.lens (\ListGateways' {maxResults} -> maxResults) (\s@ListGateways' {} a -> s {maxResults = a} :: ListGateways)
 
 instance Core.AWSPager ListGateways where
   page rq rs
@@ -125,20 +125,20 @@ instance Core.AWSRequest ListGateways where
     Response.receiveJSON
       ( \s h x ->
           ListGatewaysResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Gateways" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Gateways" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListGateways where
   hashWithSalt _salt ListGateways' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListGateways where
   rnf ListGateways' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListGateways where
   toHeaders =
@@ -159,8 +159,8 @@ instance Data.ToJSON ListGateways where
   toJSON ListGateways' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -172,13 +172,13 @@ instance Data.ToQuery ListGateways where
 
 -- | /See:/ 'newListGatewaysResponse' smart constructor.
 data ListGatewaysResponse = ListGatewaysResponse'
-  { -- | The next item following a partial list of returned resources. For
+  { -- | A list of your gateways.
+    gateways :: Prelude.Maybe [Gateway],
+    -- | The next item following a partial list of returned resources. For
     -- example, if a request is made to return @maxResults@ number of
     -- resources, @NextToken@ allows you to return more items in your list
     -- starting at the location pointed to by the next token.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of your gateways.
-    gateways :: Prelude.Maybe [Gateway],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -192,12 +192,12 @@ data ListGatewaysResponse = ListGatewaysResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'gateways', 'listGatewaysResponse_gateways' - A list of your gateways.
+--
 -- 'nextToken', 'listGatewaysResponse_nextToken' - The next item following a partial list of returned resources. For
 -- example, if a request is made to return @maxResults@ number of
 -- resources, @NextToken@ allows you to return more items in your list
 -- starting at the location pointed to by the next token.
---
--- 'gateways', 'listGatewaysResponse_gateways' - A list of your gateways.
 --
 -- 'httpStatus', 'listGatewaysResponse_httpStatus' - The response's http status code.
 newListGatewaysResponse ::
@@ -206,10 +206,14 @@ newListGatewaysResponse ::
   ListGatewaysResponse
 newListGatewaysResponse pHttpStatus_ =
   ListGatewaysResponse'
-    { nextToken = Prelude.Nothing,
-      gateways = Prelude.Nothing,
+    { gateways = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of your gateways.
+listGatewaysResponse_gateways :: Lens.Lens' ListGatewaysResponse (Prelude.Maybe [Gateway])
+listGatewaysResponse_gateways = Lens.lens (\ListGatewaysResponse' {gateways} -> gateways) (\s@ListGatewaysResponse' {} a -> s {gateways = a} :: ListGatewaysResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The next item following a partial list of returned resources. For
 -- example, if a request is made to return @maxResults@ number of
@@ -218,16 +222,12 @@ newListGatewaysResponse pHttpStatus_ =
 listGatewaysResponse_nextToken :: Lens.Lens' ListGatewaysResponse (Prelude.Maybe Prelude.Text)
 listGatewaysResponse_nextToken = Lens.lens (\ListGatewaysResponse' {nextToken} -> nextToken) (\s@ListGatewaysResponse' {} a -> s {nextToken = a} :: ListGatewaysResponse)
 
--- | A list of your gateways.
-listGatewaysResponse_gateways :: Lens.Lens' ListGatewaysResponse (Prelude.Maybe [Gateway])
-listGatewaysResponse_gateways = Lens.lens (\ListGatewaysResponse' {gateways} -> gateways) (\s@ListGatewaysResponse' {} a -> s {gateways = a} :: ListGatewaysResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listGatewaysResponse_httpStatus :: Lens.Lens' ListGatewaysResponse Prelude.Int
 listGatewaysResponse_httpStatus = Lens.lens (\ListGatewaysResponse' {httpStatus} -> httpStatus) (\s@ListGatewaysResponse' {} a -> s {httpStatus = a} :: ListGatewaysResponse)
 
 instance Prelude.NFData ListGatewaysResponse where
   rnf ListGatewaysResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf gateways
+    Prelude.rnf gateways
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

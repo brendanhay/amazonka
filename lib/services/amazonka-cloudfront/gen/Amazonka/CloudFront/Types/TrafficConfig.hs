@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTrafficConfig' smart constructor.
 data TrafficConfig = TrafficConfig'
-  { -- | Contains the percentage of traffic to send to the staging distribution.
-    singleWeightConfig :: Prelude.Maybe ContinuousDeploymentSingleWeightConfig,
-    -- | Determines which HTTP requests are sent to the staging distribution.
+  { -- | Determines which HTTP requests are sent to the staging distribution.
     singleHeaderConfig :: Prelude.Maybe ContinuousDeploymentSingleHeaderConfig,
+    -- | Contains the percentage of traffic to send to the staging distribution.
+    singleWeightConfig :: Prelude.Maybe ContinuousDeploymentSingleWeightConfig,
     -- | The type of traffic configuration.
     type' :: ContinuousDeploymentPolicyType
   }
@@ -48,9 +48,9 @@ data TrafficConfig = TrafficConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'singleWeightConfig', 'trafficConfig_singleWeightConfig' - Contains the percentage of traffic to send to the staging distribution.
---
 -- 'singleHeaderConfig', 'trafficConfig_singleHeaderConfig' - Determines which HTTP requests are sent to the staging distribution.
+--
+-- 'singleWeightConfig', 'trafficConfig_singleWeightConfig' - Contains the percentage of traffic to send to the staging distribution.
 --
 -- 'type'', 'trafficConfig_type' - The type of traffic configuration.
 newTrafficConfig ::
@@ -59,19 +59,19 @@ newTrafficConfig ::
   TrafficConfig
 newTrafficConfig pType_ =
   TrafficConfig'
-    { singleWeightConfig =
+    { singleHeaderConfig =
         Prelude.Nothing,
-      singleHeaderConfig = Prelude.Nothing,
+      singleWeightConfig = Prelude.Nothing,
       type' = pType_
     }
-
--- | Contains the percentage of traffic to send to the staging distribution.
-trafficConfig_singleWeightConfig :: Lens.Lens' TrafficConfig (Prelude.Maybe ContinuousDeploymentSingleWeightConfig)
-trafficConfig_singleWeightConfig = Lens.lens (\TrafficConfig' {singleWeightConfig} -> singleWeightConfig) (\s@TrafficConfig' {} a -> s {singleWeightConfig = a} :: TrafficConfig)
 
 -- | Determines which HTTP requests are sent to the staging distribution.
 trafficConfig_singleHeaderConfig :: Lens.Lens' TrafficConfig (Prelude.Maybe ContinuousDeploymentSingleHeaderConfig)
 trafficConfig_singleHeaderConfig = Lens.lens (\TrafficConfig' {singleHeaderConfig} -> singleHeaderConfig) (\s@TrafficConfig' {} a -> s {singleHeaderConfig = a} :: TrafficConfig)
+
+-- | Contains the percentage of traffic to send to the staging distribution.
+trafficConfig_singleWeightConfig :: Lens.Lens' TrafficConfig (Prelude.Maybe ContinuousDeploymentSingleWeightConfig)
+trafficConfig_singleWeightConfig = Lens.lens (\TrafficConfig' {singleWeightConfig} -> singleWeightConfig) (\s@TrafficConfig' {} a -> s {singleWeightConfig = a} :: TrafficConfig)
 
 -- | The type of traffic configuration.
 trafficConfig_type :: Lens.Lens' TrafficConfig ContinuousDeploymentPolicyType
@@ -80,26 +80,26 @@ trafficConfig_type = Lens.lens (\TrafficConfig' {type'} -> type') (\s@TrafficCon
 instance Data.FromXML TrafficConfig where
   parseXML x =
     TrafficConfig'
-      Prelude.<$> (x Data..@? "SingleWeightConfig")
-      Prelude.<*> (x Data..@? "SingleHeaderConfig")
+      Prelude.<$> (x Data..@? "SingleHeaderConfig")
+      Prelude.<*> (x Data..@? "SingleWeightConfig")
       Prelude.<*> (x Data..@ "Type")
 
 instance Prelude.Hashable TrafficConfig where
   hashWithSalt _salt TrafficConfig' {..} =
-    _salt `Prelude.hashWithSalt` singleWeightConfig
-      `Prelude.hashWithSalt` singleHeaderConfig
+    _salt `Prelude.hashWithSalt` singleHeaderConfig
+      `Prelude.hashWithSalt` singleWeightConfig
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData TrafficConfig where
   rnf TrafficConfig' {..} =
-    Prelude.rnf singleWeightConfig
-      `Prelude.seq` Prelude.rnf singleHeaderConfig
+    Prelude.rnf singleHeaderConfig
+      `Prelude.seq` Prelude.rnf singleWeightConfig
       `Prelude.seq` Prelude.rnf type'
 
 instance Data.ToXML TrafficConfig where
   toXML TrafficConfig' {..} =
     Prelude.mconcat
-      [ "SingleWeightConfig" Data.@= singleWeightConfig,
-        "SingleHeaderConfig" Data.@= singleHeaderConfig,
+      [ "SingleHeaderConfig" Data.@= singleHeaderConfig,
+        "SingleWeightConfig" Data.@= singleWeightConfig,
         "Type" Data.@= type'
       ]

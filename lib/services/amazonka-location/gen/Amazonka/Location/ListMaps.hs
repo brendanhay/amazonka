@@ -29,8 +29,8 @@ module Amazonka.Location.ListMaps
     newListMaps,
 
     -- * Request Lenses
-    listMaps_nextToken,
     listMaps_maxResults,
+    listMaps_nextToken,
 
     -- * Destructuring the Response
     ListMapsResponse (..),
@@ -53,15 +53,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListMaps' smart constructor.
 data ListMaps = ListMaps'
-  { -- | The pagination token specifying which page of results to return in the
+  { -- | An optional limit for the number of resources returned in a single call.
+    --
+    -- Default value: @100@
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token specifying which page of results to return in the
     -- response. If no token is provided, the default page is the first page.
     --
     -- Default value: @null@
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An optional limit for the number of resources returned in a single call.
-    --
-    -- Default value: @100@
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,21 +73,27 @@ data ListMaps = ListMaps'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listMaps_maxResults' - An optional limit for the number of resources returned in a single call.
+--
+-- Default value: @100@
+--
 -- 'nextToken', 'listMaps_nextToken' - The pagination token specifying which page of results to return in the
 -- response. If no token is provided, the default page is the first page.
 --
 -- Default value: @null@
---
--- 'maxResults', 'listMaps_maxResults' - An optional limit for the number of resources returned in a single call.
---
--- Default value: @100@
 newListMaps ::
   ListMaps
 newListMaps =
   ListMaps'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | An optional limit for the number of resources returned in a single call.
+--
+-- Default value: @100@
+listMaps_maxResults :: Lens.Lens' ListMaps (Prelude.Maybe Prelude.Natural)
+listMaps_maxResults = Lens.lens (\ListMaps' {maxResults} -> maxResults) (\s@ListMaps' {} a -> s {maxResults = a} :: ListMaps)
 
 -- | The pagination token specifying which page of results to return in the
 -- response. If no token is provided, the default page is the first page.
@@ -95,12 +101,6 @@ newListMaps =
 -- Default value: @null@
 listMaps_nextToken :: Lens.Lens' ListMaps (Prelude.Maybe Prelude.Text)
 listMaps_nextToken = Lens.lens (\ListMaps' {nextToken} -> nextToken) (\s@ListMaps' {} a -> s {nextToken = a} :: ListMaps)
-
--- | An optional limit for the number of resources returned in a single call.
---
--- Default value: @100@
-listMaps_maxResults :: Lens.Lens' ListMaps (Prelude.Maybe Prelude.Natural)
-listMaps_maxResults = Lens.lens (\ListMaps' {maxResults} -> maxResults) (\s@ListMaps' {} a -> s {maxResults = a} :: ListMaps)
 
 instance Core.AWSPager ListMaps where
   page rq rs
@@ -133,13 +133,13 @@ instance Core.AWSRequest ListMaps where
 
 instance Prelude.Hashable ListMaps where
   hashWithSalt _salt ListMaps' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListMaps where
   rnf ListMaps' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListMaps where
   toHeaders =
@@ -156,8 +156,8 @@ instance Data.ToJSON ListMaps where
   toJSON ListMaps' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

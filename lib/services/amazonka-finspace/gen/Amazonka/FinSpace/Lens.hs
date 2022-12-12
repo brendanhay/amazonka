@@ -15,17 +15,17 @@ module Amazonka.FinSpace.Lens
   ( -- * Operations
 
     -- ** CreateEnvironment
-    createEnvironment_tags,
     createEnvironment_dataBundles,
-    createEnvironment_superuserParameters,
-    createEnvironment_federationParameters,
     createEnvironment_description,
     createEnvironment_federationMode,
+    createEnvironment_federationParameters,
     createEnvironment_kmsKeyId,
+    createEnvironment_superuserParameters,
+    createEnvironment_tags,
     createEnvironment_name,
-    createEnvironmentResponse_environmentUrl,
     createEnvironmentResponse_environmentArn,
     createEnvironmentResponse_environmentId,
+    createEnvironmentResponse_environmentUrl,
     createEnvironmentResponse_httpStatus,
 
     -- ** DeleteEnvironment
@@ -38,10 +38,10 @@ module Amazonka.FinSpace.Lens
     getEnvironmentResponse_httpStatus,
 
     -- ** ListEnvironments
-    listEnvironments_nextToken,
     listEnvironments_maxResults,
-    listEnvironmentsResponse_nextToken,
+    listEnvironments_nextToken,
     listEnvironmentsResponse_environments,
+    listEnvironmentsResponse_nextToken,
     listEnvironmentsResponse_httpStatus,
 
     -- ** ListTagsForResource
@@ -60,10 +60,10 @@ module Amazonka.FinSpace.Lens
     untagResourceResponse_httpStatus,
 
     -- ** UpdateEnvironment
-    updateEnvironment_name,
-    updateEnvironment_federationParameters,
     updateEnvironment_description,
     updateEnvironment_federationMode,
+    updateEnvironment_federationParameters,
+    updateEnvironment_name,
     updateEnvironment_environmentId,
     updateEnvironmentResponse_environment,
     updateEnvironmentResponse_httpStatus,
@@ -72,25 +72,25 @@ module Amazonka.FinSpace.Lens
 
     -- ** Environment
     environment_awsAccountId,
-    environment_name,
-    environment_federationParameters,
-    environment_status,
-    environment_description,
-    environment_federationMode,
-    environment_environmentUrl,
-    environment_kmsKeyId,
     environment_dedicatedServiceAccountId,
+    environment_description,
     environment_environmentArn,
     environment_environmentId,
+    environment_environmentUrl,
+    environment_federationMode,
+    environment_federationParameters,
+    environment_kmsKeyId,
+    environment_name,
     environment_sageMakerStudioDomainUrl,
+    environment_status,
 
     -- ** FederationParameters
-    federationParameters_federationProviderName,
-    federationParameters_samlMetadataDocument,
-    federationParameters_federationURN,
-    federationParameters_samlMetadataURL,
     federationParameters_applicationCallBackURL,
     federationParameters_attributeMap,
+    federationParameters_federationProviderName,
+    federationParameters_federationURN,
+    federationParameters_samlMetadataDocument,
+    federationParameters_samlMetadataURL,
 
     -- ** SuperuserParameters
     superuserParameters_emailAddress,

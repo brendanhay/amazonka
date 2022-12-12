@@ -43,9 +43,9 @@ module Amazonka.Glue.ListCrawls
     newListCrawls,
 
     -- * Request Lenses
-    listCrawls_nextToken,
     listCrawls_filters,
     listCrawls_maxResults,
+    listCrawls_nextToken,
     listCrawls_crawlerName,
 
     -- * Destructuring the Response
@@ -69,14 +69,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListCrawls' smart constructor.
 data ListCrawls = ListCrawls'
-  { -- | A continuation token, if this is a continuation call.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters the crawls by the criteria you specify in a list of
+  { -- | Filters the crawls by the criteria you specify in a list of
     -- @CrawlsFilter@ objects.
     filters :: Prelude.Maybe [CrawlsFilter],
     -- | The maximum number of results to return. The default is 20, and maximum
     -- is 100.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A continuation token, if this is a continuation call.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the crawler whose runs you want to retrieve.
     crawlerName :: Prelude.Text
   }
@@ -90,13 +90,13 @@ data ListCrawls = ListCrawls'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listCrawls_nextToken' - A continuation token, if this is a continuation call.
---
 -- 'filters', 'listCrawls_filters' - Filters the crawls by the criteria you specify in a list of
 -- @CrawlsFilter@ objects.
 --
 -- 'maxResults', 'listCrawls_maxResults' - The maximum number of results to return. The default is 20, and maximum
 -- is 100.
+--
+-- 'nextToken', 'listCrawls_nextToken' - A continuation token, if this is a continuation call.
 --
 -- 'crawlerName', 'listCrawls_crawlerName' - The name of the crawler whose runs you want to retrieve.
 newListCrawls ::
@@ -105,15 +105,11 @@ newListCrawls ::
   ListCrawls
 newListCrawls pCrawlerName_ =
   ListCrawls'
-    { nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
+    { filters = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       crawlerName = pCrawlerName_
     }
-
--- | A continuation token, if this is a continuation call.
-listCrawls_nextToken :: Lens.Lens' ListCrawls (Prelude.Maybe Prelude.Text)
-listCrawls_nextToken = Lens.lens (\ListCrawls' {nextToken} -> nextToken) (\s@ListCrawls' {} a -> s {nextToken = a} :: ListCrawls)
 
 -- | Filters the crawls by the criteria you specify in a list of
 -- @CrawlsFilter@ objects.
@@ -124,6 +120,10 @@ listCrawls_filters = Lens.lens (\ListCrawls' {filters} -> filters) (\s@ListCrawl
 -- is 100.
 listCrawls_maxResults :: Lens.Lens' ListCrawls (Prelude.Maybe Prelude.Natural)
 listCrawls_maxResults = Lens.lens (\ListCrawls' {maxResults} -> maxResults) (\s@ListCrawls' {} a -> s {maxResults = a} :: ListCrawls)
+
+-- | A continuation token, if this is a continuation call.
+listCrawls_nextToken :: Lens.Lens' ListCrawls (Prelude.Maybe Prelude.Text)
+listCrawls_nextToken = Lens.lens (\ListCrawls' {nextToken} -> nextToken) (\s@ListCrawls' {} a -> s {nextToken = a} :: ListCrawls)
 
 -- | The name of the crawler whose runs you want to retrieve.
 listCrawls_crawlerName :: Lens.Lens' ListCrawls Prelude.Text
@@ -144,16 +144,16 @@ instance Core.AWSRequest ListCrawls where
 
 instance Prelude.Hashable ListCrawls where
   hashWithSalt _salt ListCrawls' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` crawlerName
 
 instance Prelude.NFData ListCrawls where
   rnf ListCrawls' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf crawlerName
 
 instance Data.ToHeaders ListCrawls where
@@ -173,9 +173,9 @@ instance Data.ToJSON ListCrawls where
   toJSON ListCrawls' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
+          [ ("Filters" Data..=) Prelude.<$> filters,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("CrawlerName" Data..= crawlerName)
           ]
       )

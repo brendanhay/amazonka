@@ -18,9 +18,9 @@ module Amazonka.MarketplaceEntitlement.Types
     defaultService,
 
     -- * Errors
-    _ThrottlingException,
     _InternalServiceErrorException,
     _InvalidParameterException,
+    _ThrottlingException,
 
     -- * GetEntitlementFilterName
     GetEntitlementFilterName (..),
@@ -29,17 +29,17 @@ module Amazonka.MarketplaceEntitlement.Types
     Entitlement (..),
     newEntitlement,
     entitlement_customerIdentifier,
-    entitlement_productCode,
     entitlement_dimension,
     entitlement_expirationDate,
+    entitlement_productCode,
     entitlement_value,
 
     -- * EntitlementValue
     EntitlementValue (..),
     newEntitlementValue,
-    entitlementValue_integerValue,
-    entitlementValue_doubleValue,
     entitlementValue_booleanValue,
+    entitlementValue_doubleValue,
+    entitlementValue_integerValue,
     entitlementValue_stringValue,
   )
 where
@@ -79,28 +79,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -108,13 +102,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -122,14 +120,9 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The calls to the GetEntitlements API are throttled.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ThrottlingException =
-  Core._MatchServiceError
-    defaultService
-    "ThrottlingException"
 
 -- | An internal error has occurred. Retry your request. If the problem
 -- persists, post a message with details on the AWS forums.
@@ -145,3 +138,10 @@ _InvalidParameterException =
   Core._MatchServiceError
     defaultService
     "InvalidParameterException"
+
+-- | The calls to the GetEntitlements API are throttled.
+_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottlingException"

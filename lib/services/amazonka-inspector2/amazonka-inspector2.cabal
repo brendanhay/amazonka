@@ -87,12 +87,14 @@ library
     Amazonka.Inspector2.Types.AmiAggregation
     Amazonka.Inspector2.Types.AmiAggregationResponse
     Amazonka.Inspector2.Types.AmiSortBy
+    Amazonka.Inspector2.Types.Architecture
     Amazonka.Inspector2.Types.AutoEnable
     Amazonka.Inspector2.Types.AwsEc2InstanceDetails
     Amazonka.Inspector2.Types.AwsEcrContainerAggregation
     Amazonka.Inspector2.Types.AwsEcrContainerAggregationResponse
     Amazonka.Inspector2.Types.AwsEcrContainerImageDetails
     Amazonka.Inspector2.Types.AwsEcrContainerSortBy
+    Amazonka.Inspector2.Types.AwsLambdaFunctionDetails
     Amazonka.Inspector2.Types.Counts
     Amazonka.Inspector2.Types.CoverageFilterCriteria
     Amazonka.Inspector2.Types.CoverageMapComparison
@@ -124,6 +126,8 @@ library
     Amazonka.Inspector2.Types.EcrRescanDurationStatus
     Amazonka.Inspector2.Types.EcrScanFrequency
     Amazonka.Inspector2.Types.ErrorCode
+    Amazonka.Inspector2.Types.ExploitabilityDetails
+    Amazonka.Inspector2.Types.ExploitAvailable
     Amazonka.Inspector2.Types.ExternalReportStatus
     Amazonka.Inspector2.Types.FailedAccount
     Amazonka.Inspector2.Types.Filter
@@ -147,6 +151,14 @@ library
     Amazonka.Inspector2.Types.ImageLayerAggregationResponse
     Amazonka.Inspector2.Types.ImageLayerSortBy
     Amazonka.Inspector2.Types.InspectorScoreDetails
+    Amazonka.Inspector2.Types.LambdaFunctionAggregation
+    Amazonka.Inspector2.Types.LambdaFunctionAggregationResponse
+    Amazonka.Inspector2.Types.LambdaFunctionMetadata
+    Amazonka.Inspector2.Types.LambdaFunctionSortBy
+    Amazonka.Inspector2.Types.LambdaLayerAggregation
+    Amazonka.Inspector2.Types.LambdaLayerAggregationResponse
+    Amazonka.Inspector2.Types.LambdaLayerSortBy
+    Amazonka.Inspector2.Types.LambdaVpcConfig
     Amazonka.Inspector2.Types.MapComparison
     Amazonka.Inspector2.Types.MapFilter
     Amazonka.Inspector2.Types.Member
@@ -160,6 +172,7 @@ library
     Amazonka.Inspector2.Types.PackageFilter
     Amazonka.Inspector2.Types.PackageManager
     Amazonka.Inspector2.Types.PackageSortBy
+    Amazonka.Inspector2.Types.PackageType
     Amazonka.Inspector2.Types.PackageVulnerabilityDetails
     Amazonka.Inspector2.Types.Permission
     Amazonka.Inspector2.Types.PortRange
@@ -179,6 +192,7 @@ library
     Amazonka.Inspector2.Types.ResourceState
     Amazonka.Inspector2.Types.ResourceStatus
     Amazonka.Inspector2.Types.ResourceType
+    Amazonka.Inspector2.Types.Runtime
     Amazonka.Inspector2.Types.ScanStatus
     Amazonka.Inspector2.Types.ScanStatusCode
     Amazonka.Inspector2.Types.ScanStatusReason

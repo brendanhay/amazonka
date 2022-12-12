@@ -30,14 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCreateVehicleRequestItem' smart constructor.
 data CreateVehicleRequestItem = CreateVehicleRequestItem'
-  { -- | Metadata which can be used to manage the vehicle.
-    tags :: Prelude.Maybe [Tag],
+  { -- | An option to create a new Amazon Web Services IoT thing when creating a
+    -- vehicle, or to validate an existing thing as a vehicle.
+    associationBehavior :: Prelude.Maybe VehicleAssociationBehavior,
     -- | Static information about a vehicle in a key-value pair. For example:
     -- @\"engine Type\"@ : @\"v6\"@
     attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | An option to create a new Amazon Web Services IoT thing when creating a
-    -- vehicle, or to validate an existing thing as a vehicle.
-    associationBehavior :: Prelude.Maybe VehicleAssociationBehavior,
+    -- | Metadata which can be used to manage the vehicle.
+    tags :: Prelude.Maybe [Tag],
     -- | The unique ID of the vehicle to create.
     vehicleName :: Prelude.Text,
     -- | The ARN of the vehicle model (model manifest) to create the vehicle
@@ -57,13 +57,13 @@ data CreateVehicleRequestItem = CreateVehicleRequestItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createVehicleRequestItem_tags' - Metadata which can be used to manage the vehicle.
+-- 'associationBehavior', 'createVehicleRequestItem_associationBehavior' - An option to create a new Amazon Web Services IoT thing when creating a
+-- vehicle, or to validate an existing thing as a vehicle.
 --
 -- 'attributes', 'createVehicleRequestItem_attributes' - Static information about a vehicle in a key-value pair. For example:
 -- @\"engine Type\"@ : @\"v6\"@
 --
--- 'associationBehavior', 'createVehicleRequestItem_associationBehavior' - An option to create a new Amazon Web Services IoT thing when creating a
--- vehicle, or to validate an existing thing as a vehicle.
+-- 'tags', 'createVehicleRequestItem_tags' - Metadata which can be used to manage the vehicle.
 --
 -- 'vehicleName', 'createVehicleRequestItem_vehicleName' - The unique ID of the vehicle to create.
 --
@@ -85,27 +85,28 @@ newCreateVehicleRequestItem
   pModelManifestArn_
   pDecoderManifestArn_ =
     CreateVehicleRequestItem'
-      { tags = Prelude.Nothing,
+      { associationBehavior =
+          Prelude.Nothing,
         attributes = Prelude.Nothing,
-        associationBehavior = Prelude.Nothing,
+        tags = Prelude.Nothing,
         vehicleName = pVehicleName_,
         modelManifestArn = pModelManifestArn_,
         decoderManifestArn = pDecoderManifestArn_
       }
 
--- | Metadata which can be used to manage the vehicle.
-createVehicleRequestItem_tags :: Lens.Lens' CreateVehicleRequestItem (Prelude.Maybe [Tag])
-createVehicleRequestItem_tags = Lens.lens (\CreateVehicleRequestItem' {tags} -> tags) (\s@CreateVehicleRequestItem' {} a -> s {tags = a} :: CreateVehicleRequestItem) Prelude.. Lens.mapping Lens.coerced
+-- | An option to create a new Amazon Web Services IoT thing when creating a
+-- vehicle, or to validate an existing thing as a vehicle.
+createVehicleRequestItem_associationBehavior :: Lens.Lens' CreateVehicleRequestItem (Prelude.Maybe VehicleAssociationBehavior)
+createVehicleRequestItem_associationBehavior = Lens.lens (\CreateVehicleRequestItem' {associationBehavior} -> associationBehavior) (\s@CreateVehicleRequestItem' {} a -> s {associationBehavior = a} :: CreateVehicleRequestItem)
 
 -- | Static information about a vehicle in a key-value pair. For example:
 -- @\"engine Type\"@ : @\"v6\"@
 createVehicleRequestItem_attributes :: Lens.Lens' CreateVehicleRequestItem (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createVehicleRequestItem_attributes = Lens.lens (\CreateVehicleRequestItem' {attributes} -> attributes) (\s@CreateVehicleRequestItem' {} a -> s {attributes = a} :: CreateVehicleRequestItem) Prelude.. Lens.mapping Lens.coerced
 
--- | An option to create a new Amazon Web Services IoT thing when creating a
--- vehicle, or to validate an existing thing as a vehicle.
-createVehicleRequestItem_associationBehavior :: Lens.Lens' CreateVehicleRequestItem (Prelude.Maybe VehicleAssociationBehavior)
-createVehicleRequestItem_associationBehavior = Lens.lens (\CreateVehicleRequestItem' {associationBehavior} -> associationBehavior) (\s@CreateVehicleRequestItem' {} a -> s {associationBehavior = a} :: CreateVehicleRequestItem)
+-- | Metadata which can be used to manage the vehicle.
+createVehicleRequestItem_tags :: Lens.Lens' CreateVehicleRequestItem (Prelude.Maybe [Tag])
+createVehicleRequestItem_tags = Lens.lens (\CreateVehicleRequestItem' {tags} -> tags) (\s@CreateVehicleRequestItem' {} a -> s {tags = a} :: CreateVehicleRequestItem) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique ID of the vehicle to create.
 createVehicleRequestItem_vehicleName :: Lens.Lens' CreateVehicleRequestItem Prelude.Text
@@ -123,18 +124,18 @@ createVehicleRequestItem_decoderManifestArn = Lens.lens (\CreateVehicleRequestIt
 
 instance Prelude.Hashable CreateVehicleRequestItem where
   hashWithSalt _salt CreateVehicleRequestItem' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` associationBehavior
       `Prelude.hashWithSalt` attributes
-      `Prelude.hashWithSalt` associationBehavior
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` vehicleName
       `Prelude.hashWithSalt` modelManifestArn
       `Prelude.hashWithSalt` decoderManifestArn
 
 instance Prelude.NFData CreateVehicleRequestItem where
   rnf CreateVehicleRequestItem' {..} =
-    Prelude.rnf tags
+    Prelude.rnf associationBehavior
       `Prelude.seq` Prelude.rnf attributes
-      `Prelude.seq` Prelude.rnf associationBehavior
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf vehicleName
       `Prelude.seq` Prelude.rnf modelManifestArn
       `Prelude.seq` Prelude.rnf decoderManifestArn
@@ -143,10 +144,10 @@ instance Data.ToJSON CreateVehicleRequestItem where
   toJSON CreateVehicleRequestItem' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("attributes" Data..=) Prelude.<$> attributes,
-            ("associationBehavior" Data..=)
+          [ ("associationBehavior" Data..=)
               Prelude.<$> associationBehavior,
+            ("attributes" Data..=) Prelude.<$> attributes,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("vehicleName" Data..= vehicleName),
             Prelude.Just
               ("modelManifestArn" Data..= modelManifestArn),

@@ -31,9 +31,9 @@ module Amazonka.TimeStreamQuery.CreateScheduledQuery
     newCreateScheduledQuery,
 
     -- * Request Lenses
-    createScheduledQuery_tags,
     createScheduledQuery_clientToken,
     createScheduledQuery_kmsKeyId,
+    createScheduledQuery_tags,
     createScheduledQuery_targetConfiguration,
     createScheduledQuery_name,
     createScheduledQuery_queryString,
@@ -62,9 +62,7 @@ import Amazonka.TimeStreamQuery.Types
 
 -- | /See:/ 'newCreateScheduledQuery' smart constructor.
 data CreateScheduledQuery = CreateScheduledQuery'
-  { -- | A list of key-value pairs to label the scheduled query.
-    tags :: Prelude.Maybe [Tag],
-    -- | Using a ClientToken makes the call to CreateScheduledQuery idempotent,
+  { -- | Using a ClientToken makes the call to CreateScheduledQuery idempotent,
     -- in other words, making the same request repeatedly will produce the same
     -- result. Making multiple identical CreateScheduledQuery requests has the
     -- same effect as making a single request.
@@ -84,6 +82,8 @@ data CreateScheduledQuery = CreateScheduledQuery'
     -- If ErrorReportConfiguration uses @SSE_KMS@ as encryption type, the same
     -- KmsKeyId is used to encrypt the error report at rest.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | A list of key-value pairs to label the scheduled query.
+    tags :: Prelude.Maybe [Tag],
     -- | Configuration used for writing the result of a query.
     targetConfiguration :: Prelude.Maybe TargetConfiguration,
     -- | Name of the scheduled query.
@@ -123,8 +123,6 @@ data CreateScheduledQuery = CreateScheduledQuery'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createScheduledQuery_tags' - A list of key-value pairs to label the scheduled query.
---
 -- 'clientToken', 'createScheduledQuery_clientToken' - Using a ClientToken makes the call to CreateScheduledQuery idempotent,
 -- in other words, making the same request repeatedly will produce the same
 -- result. Making multiple identical CreateScheduledQuery requests has the
@@ -144,6 +142,8 @@ data CreateScheduledQuery = CreateScheduledQuery'
 --
 -- If ErrorReportConfiguration uses @SSE_KMS@ as encryption type, the same
 -- KmsKeyId is used to encrypt the error report at rest.
+--
+-- 'tags', 'createScheduledQuery_tags' - A list of key-value pairs to label the scheduled query.
 --
 -- 'targetConfiguration', 'createScheduledQuery_targetConfiguration' - Configuration used for writing the result of a query.
 --
@@ -194,9 +194,10 @@ newCreateScheduledQuery
   pScheduledQueryExecutionRoleArn_
   pErrorReportConfiguration_ =
     CreateScheduledQuery'
-      { tags = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+      { clientToken =
+          Prelude.Nothing,
         kmsKeyId = Prelude.Nothing,
+        tags = Prelude.Nothing,
         targetConfiguration = Prelude.Nothing,
         name = pName_,
         queryString = Data._Sensitive Lens.# pQueryString_,
@@ -208,10 +209,6 @@ newCreateScheduledQuery
         errorReportConfiguration =
           pErrorReportConfiguration_
       }
-
--- | A list of key-value pairs to label the scheduled query.
-createScheduledQuery_tags :: Lens.Lens' CreateScheduledQuery (Prelude.Maybe [Tag])
-createScheduledQuery_tags = Lens.lens (\CreateScheduledQuery' {tags} -> tags) (\s@CreateScheduledQuery' {} a -> s {tags = a} :: CreateScheduledQuery) Prelude.. Lens.mapping Lens.coerced
 
 -- | Using a ClientToken makes the call to CreateScheduledQuery idempotent,
 -- in other words, making the same request repeatedly will produce the same
@@ -236,6 +233,10 @@ createScheduledQuery_clientToken = Lens.lens (\CreateScheduledQuery' {clientToke
 -- KmsKeyId is used to encrypt the error report at rest.
 createScheduledQuery_kmsKeyId :: Lens.Lens' CreateScheduledQuery (Prelude.Maybe Prelude.Text)
 createScheduledQuery_kmsKeyId = Lens.lens (\CreateScheduledQuery' {kmsKeyId} -> kmsKeyId) (\s@CreateScheduledQuery' {} a -> s {kmsKeyId = a} :: CreateScheduledQuery)
+
+-- | A list of key-value pairs to label the scheduled query.
+createScheduledQuery_tags :: Lens.Lens' CreateScheduledQuery (Prelude.Maybe [Tag])
+createScheduledQuery_tags = Lens.lens (\CreateScheduledQuery' {tags} -> tags) (\s@CreateScheduledQuery' {} a -> s {tags = a} :: CreateScheduledQuery) Prelude.. Lens.mapping Lens.coerced
 
 -- | Configuration used for writing the result of a query.
 createScheduledQuery_targetConfiguration :: Lens.Lens' CreateScheduledQuery (Prelude.Maybe TargetConfiguration)
@@ -295,9 +296,9 @@ instance Core.AWSRequest CreateScheduledQuery where
 
 instance Prelude.Hashable CreateScheduledQuery where
   hashWithSalt _salt CreateScheduledQuery' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` targetConfiguration
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` queryString
@@ -308,9 +309,9 @@ instance Prelude.Hashable CreateScheduledQuery where
 
 instance Prelude.NFData CreateScheduledQuery where
   rnf CreateScheduledQuery' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf targetConfiguration
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf queryString
@@ -338,9 +339,9 @@ instance Data.ToJSON CreateScheduledQuery where
   toJSON CreateScheduledQuery' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ClientToken" Data..=) Prelude.<$> clientToken,
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
             ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("Tags" Data..=) Prelude.<$> tags,
             ("TargetConfiguration" Data..=)
               Prelude.<$> targetConfiguration,
             Prelude.Just ("Name" Data..= name),

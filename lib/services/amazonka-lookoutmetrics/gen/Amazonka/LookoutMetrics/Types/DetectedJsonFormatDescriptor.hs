@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDetectedJsonFormatDescriptor' smart constructor.
 data DetectedJsonFormatDescriptor = DetectedJsonFormatDescriptor'
-  { -- | The format\'s file compression.
-    fileCompression :: Prelude.Maybe DetectedField,
-    -- | The format\'s character set.
-    charset :: Prelude.Maybe DetectedField
+  { -- | The format\'s character set.
+    charset :: Prelude.Maybe DetectedField,
+    -- | The format\'s file compression.
+    fileCompression :: Prelude.Maybe DetectedField
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data DetectedJsonFormatDescriptor = DetectedJsonFormatDescriptor'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fileCompression', 'detectedJsonFormatDescriptor_fileCompression' - The format\'s file compression.
---
 -- 'charset', 'detectedJsonFormatDescriptor_charset' - The format\'s character set.
+--
+-- 'fileCompression', 'detectedJsonFormatDescriptor_fileCompression' - The format\'s file compression.
 newDetectedJsonFormatDescriptor ::
   DetectedJsonFormatDescriptor
 newDetectedJsonFormatDescriptor =
   DetectedJsonFormatDescriptor'
-    { fileCompression =
+    { charset =
         Prelude.Nothing,
-      charset = Prelude.Nothing
+      fileCompression = Prelude.Nothing
     }
-
--- | The format\'s file compression.
-detectedJsonFormatDescriptor_fileCompression :: Lens.Lens' DetectedJsonFormatDescriptor (Prelude.Maybe DetectedField)
-detectedJsonFormatDescriptor_fileCompression = Lens.lens (\DetectedJsonFormatDescriptor' {fileCompression} -> fileCompression) (\s@DetectedJsonFormatDescriptor' {} a -> s {fileCompression = a} :: DetectedJsonFormatDescriptor)
 
 -- | The format\'s character set.
 detectedJsonFormatDescriptor_charset :: Lens.Lens' DetectedJsonFormatDescriptor (Prelude.Maybe DetectedField)
 detectedJsonFormatDescriptor_charset = Lens.lens (\DetectedJsonFormatDescriptor' {charset} -> charset) (\s@DetectedJsonFormatDescriptor' {} a -> s {charset = a} :: DetectedJsonFormatDescriptor)
+
+-- | The format\'s file compression.
+detectedJsonFormatDescriptor_fileCompression :: Lens.Lens' DetectedJsonFormatDescriptor (Prelude.Maybe DetectedField)
+detectedJsonFormatDescriptor_fileCompression = Lens.lens (\DetectedJsonFormatDescriptor' {fileCompression} -> fileCompression) (\s@DetectedJsonFormatDescriptor' {} a -> s {fileCompression = a} :: DetectedJsonFormatDescriptor)
 
 instance Data.FromJSON DetectedJsonFormatDescriptor where
   parseJSON =
@@ -70,8 +70,8 @@ instance Data.FromJSON DetectedJsonFormatDescriptor where
       "DetectedJsonFormatDescriptor"
       ( \x ->
           DetectedJsonFormatDescriptor'
-            Prelude.<$> (x Data..:? "FileCompression")
-            Prelude.<*> (x Data..:? "Charset")
+            Prelude.<$> (x Data..:? "Charset")
+            Prelude.<*> (x Data..:? "FileCompression")
       )
 
 instance
@@ -79,10 +79,10 @@ instance
     DetectedJsonFormatDescriptor
   where
   hashWithSalt _salt DetectedJsonFormatDescriptor' {..} =
-    _salt `Prelude.hashWithSalt` fileCompression
-      `Prelude.hashWithSalt` charset
+    _salt `Prelude.hashWithSalt` charset
+      `Prelude.hashWithSalt` fileCompression
 
 instance Prelude.NFData DetectedJsonFormatDescriptor where
   rnf DetectedJsonFormatDescriptor' {..} =
-    Prelude.rnf fileCompression
-      `Prelude.seq` Prelude.rnf charset
+    Prelude.rnf charset
+      `Prelude.seq` Prelude.rnf fileCompression

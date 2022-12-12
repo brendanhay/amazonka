@@ -58,8 +58,8 @@ module Amazonka.AutoScaling.RecordLifecycleActionHeartbeat
     newRecordLifecycleActionHeartbeat,
 
     -- * Request Lenses
-    recordLifecycleActionHeartbeat_lifecycleActionToken,
     recordLifecycleActionHeartbeat_instanceId,
+    recordLifecycleActionHeartbeat_lifecycleActionToken,
     recordLifecycleActionHeartbeat_lifecycleHookName,
     recordLifecycleActionHeartbeat_autoScalingGroupName,
 
@@ -82,13 +82,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRecordLifecycleActionHeartbeat' smart constructor.
 data RecordLifecycleActionHeartbeat = RecordLifecycleActionHeartbeat'
-  { -- | A token that uniquely identifies a specific lifecycle action associated
+  { -- | The ID of the instance.
+    instanceId :: Prelude.Maybe Prelude.Text,
+    -- | A token that uniquely identifies a specific lifecycle action associated
     -- with an instance. Amazon EC2 Auto Scaling sends this token to the
     -- notification target that you specified when you created the lifecycle
     -- hook.
     lifecycleActionToken :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the instance.
-    instanceId :: Prelude.Maybe Prelude.Text,
     -- | The name of the lifecycle hook.
     lifecycleHookName :: Prelude.Text,
     -- | The name of the Auto Scaling group.
@@ -104,12 +104,12 @@ data RecordLifecycleActionHeartbeat = RecordLifecycleActionHeartbeat'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'instanceId', 'recordLifecycleActionHeartbeat_instanceId' - The ID of the instance.
+--
 -- 'lifecycleActionToken', 'recordLifecycleActionHeartbeat_lifecycleActionToken' - A token that uniquely identifies a specific lifecycle action associated
 -- with an instance. Amazon EC2 Auto Scaling sends this token to the
 -- notification target that you specified when you created the lifecycle
 -- hook.
---
--- 'instanceId', 'recordLifecycleActionHeartbeat_instanceId' - The ID of the instance.
 --
 -- 'lifecycleHookName', 'recordLifecycleActionHeartbeat_lifecycleHookName' - The name of the lifecycle hook.
 --
@@ -124,13 +124,17 @@ newRecordLifecycleActionHeartbeat
   pLifecycleHookName_
   pAutoScalingGroupName_ =
     RecordLifecycleActionHeartbeat'
-      { lifecycleActionToken =
+      { instanceId =
           Prelude.Nothing,
-        instanceId = Prelude.Nothing,
+        lifecycleActionToken = Prelude.Nothing,
         lifecycleHookName = pLifecycleHookName_,
         autoScalingGroupName =
           pAutoScalingGroupName_
       }
+
+-- | The ID of the instance.
+recordLifecycleActionHeartbeat_instanceId :: Lens.Lens' RecordLifecycleActionHeartbeat (Prelude.Maybe Prelude.Text)
+recordLifecycleActionHeartbeat_instanceId = Lens.lens (\RecordLifecycleActionHeartbeat' {instanceId} -> instanceId) (\s@RecordLifecycleActionHeartbeat' {} a -> s {instanceId = a} :: RecordLifecycleActionHeartbeat)
 
 -- | A token that uniquely identifies a specific lifecycle action associated
 -- with an instance. Amazon EC2 Auto Scaling sends this token to the
@@ -138,10 +142,6 @@ newRecordLifecycleActionHeartbeat
 -- hook.
 recordLifecycleActionHeartbeat_lifecycleActionToken :: Lens.Lens' RecordLifecycleActionHeartbeat (Prelude.Maybe Prelude.Text)
 recordLifecycleActionHeartbeat_lifecycleActionToken = Lens.lens (\RecordLifecycleActionHeartbeat' {lifecycleActionToken} -> lifecycleActionToken) (\s@RecordLifecycleActionHeartbeat' {} a -> s {lifecycleActionToken = a} :: RecordLifecycleActionHeartbeat)
-
--- | The ID of the instance.
-recordLifecycleActionHeartbeat_instanceId :: Lens.Lens' RecordLifecycleActionHeartbeat (Prelude.Maybe Prelude.Text)
-recordLifecycleActionHeartbeat_instanceId = Lens.lens (\RecordLifecycleActionHeartbeat' {instanceId} -> instanceId) (\s@RecordLifecycleActionHeartbeat' {} a -> s {instanceId = a} :: RecordLifecycleActionHeartbeat)
 
 -- | The name of the lifecycle hook.
 recordLifecycleActionHeartbeat_lifecycleHookName :: Lens.Lens' RecordLifecycleActionHeartbeat Prelude.Text
@@ -175,8 +175,8 @@ instance
   hashWithSalt
     _salt
     RecordLifecycleActionHeartbeat' {..} =
-      _salt `Prelude.hashWithSalt` lifecycleActionToken
-        `Prelude.hashWithSalt` instanceId
+      _salt `Prelude.hashWithSalt` instanceId
+        `Prelude.hashWithSalt` lifecycleActionToken
         `Prelude.hashWithSalt` lifecycleHookName
         `Prelude.hashWithSalt` autoScalingGroupName
 
@@ -185,8 +185,8 @@ instance
     RecordLifecycleActionHeartbeat
   where
   rnf RecordLifecycleActionHeartbeat' {..} =
-    Prelude.rnf lifecycleActionToken
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf lifecycleActionToken
       `Prelude.seq` Prelude.rnf lifecycleHookName
       `Prelude.seq` Prelude.rnf autoScalingGroupName
 
@@ -208,8 +208,8 @@ instance Data.ToQuery RecordLifecycleActionHeartbeat where
                   ),
         "Version"
           Data.=: ("2011-01-01" :: Prelude.ByteString),
-        "LifecycleActionToken" Data.=: lifecycleActionToken,
         "InstanceId" Data.=: instanceId,
+        "LifecycleActionToken" Data.=: lifecycleActionToken,
         "LifecycleHookName" Data.=: lifecycleHookName,
         "AutoScalingGroupName" Data.=: autoScalingGroupName
       ]

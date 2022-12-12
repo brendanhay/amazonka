@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 data Member = Member'
   { -- | The administrator account ID.
     administratorId :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp when the invitation was sent.
-    invitedAt :: Prelude.Maybe Prelude.Text,
     -- | The detector ID of the member account.
     detectorId :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp when the invitation was sent.
+    invitedAt :: Prelude.Maybe Prelude.Text,
     -- | The ID of the member account.
     accountId :: Prelude.Text,
     -- | The administrator account ID.
@@ -57,9 +57,9 @@ data Member = Member'
 --
 -- 'administratorId', 'member_administratorId' - The administrator account ID.
 --
--- 'invitedAt', 'member_invitedAt' - The timestamp when the invitation was sent.
---
 -- 'detectorId', 'member_detectorId' - The detector ID of the member account.
+--
+-- 'invitedAt', 'member_invitedAt' - The timestamp when the invitation was sent.
 --
 -- 'accountId', 'member_accountId' - The ID of the member account.
 --
@@ -90,8 +90,8 @@ newMember
   pUpdatedAt_ =
     Member'
       { administratorId = Prelude.Nothing,
-        invitedAt = Prelude.Nothing,
         detectorId = Prelude.Nothing,
+        invitedAt = Prelude.Nothing,
         accountId = pAccountId_,
         masterId = pMasterId_,
         email = pEmail_,
@@ -103,13 +103,13 @@ newMember
 member_administratorId :: Lens.Lens' Member (Prelude.Maybe Prelude.Text)
 member_administratorId = Lens.lens (\Member' {administratorId} -> administratorId) (\s@Member' {} a -> s {administratorId = a} :: Member)
 
--- | The timestamp when the invitation was sent.
-member_invitedAt :: Lens.Lens' Member (Prelude.Maybe Prelude.Text)
-member_invitedAt = Lens.lens (\Member' {invitedAt} -> invitedAt) (\s@Member' {} a -> s {invitedAt = a} :: Member)
-
 -- | The detector ID of the member account.
 member_detectorId :: Lens.Lens' Member (Prelude.Maybe Prelude.Text)
 member_detectorId = Lens.lens (\Member' {detectorId} -> detectorId) (\s@Member' {} a -> s {detectorId = a} :: Member)
+
+-- | The timestamp when the invitation was sent.
+member_invitedAt :: Lens.Lens' Member (Prelude.Maybe Prelude.Text)
+member_invitedAt = Lens.lens (\Member' {invitedAt} -> invitedAt) (\s@Member' {} a -> s {invitedAt = a} :: Member)
 
 -- | The ID of the member account.
 member_accountId :: Lens.Lens' Member Prelude.Text
@@ -138,8 +138,8 @@ instance Data.FromJSON Member where
       ( \x ->
           Member'
             Prelude.<$> (x Data..:? "administratorId")
-            Prelude.<*> (x Data..:? "invitedAt")
             Prelude.<*> (x Data..:? "detectorId")
+            Prelude.<*> (x Data..:? "invitedAt")
             Prelude.<*> (x Data..: "accountId")
             Prelude.<*> (x Data..: "masterId")
             Prelude.<*> (x Data..: "email")
@@ -150,8 +150,8 @@ instance Data.FromJSON Member where
 instance Prelude.Hashable Member where
   hashWithSalt _salt Member' {..} =
     _salt `Prelude.hashWithSalt` administratorId
-      `Prelude.hashWithSalt` invitedAt
       `Prelude.hashWithSalt` detectorId
+      `Prelude.hashWithSalt` invitedAt
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` masterId
       `Prelude.hashWithSalt` email
@@ -161,8 +161,8 @@ instance Prelude.Hashable Member where
 instance Prelude.NFData Member where
   rnf Member' {..} =
     Prelude.rnf administratorId
-      `Prelude.seq` Prelude.rnf invitedAt
       `Prelude.seq` Prelude.rnf detectorId
+      `Prelude.seq` Prelude.rnf invitedAt
       `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf masterId
       `Prelude.seq` Prelude.rnf email

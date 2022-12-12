@@ -18,18 +18,18 @@ module Amazonka.ChimeSdkMeetings.Types
     defaultService,
 
     -- * Errors
-    _UnauthorizedException,
-    _TooManyTagsException,
-    _NotFoundException,
-    _ServiceUnavailableException,
-    _ResourceNotFoundException,
-    _UnprocessableEntityException,
-    _LimitExceededException,
-    _ForbiddenException,
-    _ConflictException,
-    _ThrottlingException,
     _BadRequestException,
+    _ConflictException,
+    _ForbiddenException,
+    _LimitExceededException,
+    _NotFoundException,
+    _ResourceNotFoundException,
     _ServiceFailureException,
+    _ServiceUnavailableException,
+    _ThrottlingException,
+    _TooManyTagsException,
+    _UnauthorizedException,
+    _UnprocessableEntityException,
 
     -- * MediaCapabilities
     MediaCapabilities (..),
@@ -73,9 +73,9 @@ module Amazonka.ChimeSdkMeetings.Types
     -- * Attendee
     Attendee (..),
     newAttendee,
-    attendee_externalUserId,
     attendee_attendeeId,
     attendee_capabilities,
+    attendee_externalUserId,
     attendee_joinToken,
 
     -- * AttendeeCapabilities
@@ -98,9 +98,9 @@ module Amazonka.ChimeSdkMeetings.Types
     -- * CreateAttendeeError
     CreateAttendeeError (..),
     newCreateAttendeeError,
-    createAttendeeError_externalUserId,
-    createAttendeeError_errorMessage,
     createAttendeeError_errorCode,
+    createAttendeeError_errorMessage,
+    createAttendeeError_externalUserId,
 
     -- * CreateAttendeeRequestItem
     CreateAttendeeRequestItem (..),
@@ -111,9 +111,9 @@ module Amazonka.ChimeSdkMeetings.Types
     -- * EngineTranscribeMedicalSettings
     EngineTranscribeMedicalSettings (..),
     newEngineTranscribeMedicalSettings,
-    engineTranscribeMedicalSettings_vocabularyName,
     engineTranscribeMedicalSettings_contentIdentificationType,
     engineTranscribeMedicalSettings_region,
+    engineTranscribeMedicalSettings_vocabularyName,
     engineTranscribeMedicalSettings_languageCode,
     engineTranscribeMedicalSettings_specialty,
     engineTranscribeMedicalSettings_type,
@@ -121,45 +121,45 @@ module Amazonka.ChimeSdkMeetings.Types
     -- * EngineTranscribeSettings
     EngineTranscribeSettings (..),
     newEngineTranscribeSettings,
-    engineTranscribeSettings_vocabularyFilterMethod,
-    engineTranscribeSettings_vocabularyName,
     engineTranscribeSettings_contentIdentificationType,
+    engineTranscribeSettings_contentRedactionType,
     engineTranscribeSettings_enablePartialResultsStabilization,
-    engineTranscribeSettings_languageModelName,
-    engineTranscribeSettings_piiEntityTypes,
     engineTranscribeSettings_identifyLanguage,
+    engineTranscribeSettings_languageCode,
+    engineTranscribeSettings_languageModelName,
+    engineTranscribeSettings_languageOptions,
+    engineTranscribeSettings_partialResultsStability,
+    engineTranscribeSettings_piiEntityTypes,
     engineTranscribeSettings_preferredLanguage,
     engineTranscribeSettings_region,
-    engineTranscribeSettings_languageCode,
+    engineTranscribeSettings_vocabularyFilterMethod,
     engineTranscribeSettings_vocabularyFilterName,
-    engineTranscribeSettings_contentRedactionType,
-    engineTranscribeSettings_partialResultsStability,
-    engineTranscribeSettings_languageOptions,
+    engineTranscribeSettings_vocabularyName,
 
     -- * MediaPlacement
     MediaPlacement (..),
     newMediaPlacement,
-    mediaPlacement_signalingUrl,
-    mediaPlacement_screenViewingUrl,
-    mediaPlacement_eventIngestionUrl,
-    mediaPlacement_audioHostUrl,
-    mediaPlacement_screenSharingUrl,
-    mediaPlacement_screenDataUrl,
     mediaPlacement_audioFallbackUrl,
+    mediaPlacement_audioHostUrl,
+    mediaPlacement_eventIngestionUrl,
+    mediaPlacement_screenDataUrl,
+    mediaPlacement_screenSharingUrl,
+    mediaPlacement_screenViewingUrl,
+    mediaPlacement_signalingUrl,
     mediaPlacement_turnControlUrl,
 
     -- * Meeting
     Meeting (..),
     newMeeting,
-    meeting_meetingFeatures,
-    meeting_meetingHostId,
-    meeting_mediaRegion,
     meeting_externalMeetingId,
     meeting_mediaPlacement,
-    meeting_meetingId,
-    meeting_tenantIds,
+    meeting_mediaRegion,
     meeting_meetingArn,
+    meeting_meetingFeatures,
+    meeting_meetingHostId,
+    meeting_meetingId,
     meeting_primaryMeetingId,
+    meeting_tenantIds,
 
     -- * MeetingFeaturesConfiguration
     MeetingFeaturesConfiguration (..),
@@ -244,28 +244,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -273,13 +267,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -287,22 +285,40 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The user isn\'t authorized to request a resource.
-_UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnauthorizedException =
+-- | The input parameters don\'t match the service\'s restrictions.
+_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException =
   Core._MatchServiceError
     defaultService
-    "UnauthorizedException"
-    Prelude.. Core.hasStatus 401
+    "BadRequestException"
+    Prelude.. Core.hasStatus 400
 
--- | Too many tags were added to the specified resource.
-_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyTagsException =
+-- | Multiple instances of the same request have been made simultaneously.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
   Core._MatchServiceError
     defaultService
-    "TooManyTagsException"
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
+-- | The client is permanently forbidden from making the request.
+_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ForbiddenException =
+  Core._MatchServiceError
+    defaultService
+    "ForbiddenException"
+    Prelude.. Core.hasStatus 403
+
+-- | The request exceeds the resource limit.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
     Prelude.. Core.hasStatus 400
 
 -- | One or more of the resources in the request does not exist in the
@@ -314,14 +330,6 @@ _NotFoundException =
     "NotFoundException"
     Prelude.. Core.hasStatus 404
 
--- | The service is currently unavailable.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceUnavailableException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceUnavailableException"
-    Prelude.. Core.hasStatus 503
-
 -- | The resource that you want to tag couldn\'t be found.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
@@ -330,38 +338,21 @@ _ResourceNotFoundException =
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
 
--- | The request was well-formed but was unable to be followed due to
--- semantic errors.
-_UnprocessableEntityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnprocessableEntityException =
+-- | The service encountered an unexpected error.
+_ServiceFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceFailureException =
   Core._MatchServiceError
     defaultService
-    "UnprocessableEntityException"
-    Prelude.. Core.hasStatus 422
+    "ServiceFailureException"
+    Prelude.. Core.hasStatus 500
 
--- | The request exceeds the resource limit.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
+-- | The service is currently unavailable.
+_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
-    "LimitExceededException"
-    Prelude.. Core.hasStatus 400
-
--- | The client is permanently forbidden from making the request.
-_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ForbiddenException =
-  Core._MatchServiceError
-    defaultService
-    "ForbiddenException"
-    Prelude.. Core.hasStatus 403
-
--- | Multiple instances of the same request have been made simultaneously.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
+    "ServiceUnavailableException"
+    Prelude.. Core.hasStatus 503
 
 -- | The number of customer requests exceeds the request rate limit.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -371,18 +362,27 @@ _ThrottlingException =
     "ThrottlingException"
     Prelude.. Core.hasStatus 429
 
--- | The input parameters don\'t match the service\'s restrictions.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_BadRequestException =
+-- | Too many tags were added to the specified resource.
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException =
   Core._MatchServiceError
     defaultService
-    "BadRequestException"
+    "TooManyTagsException"
     Prelude.. Core.hasStatus 400
 
--- | The service encountered an unexpected error.
-_ServiceFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceFailureException =
+-- | The user isn\'t authorized to request a resource.
+_UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnauthorizedException =
   Core._MatchServiceError
     defaultService
-    "ServiceFailureException"
-    Prelude.. Core.hasStatus 500
+    "UnauthorizedException"
+    Prelude.. Core.hasStatus 401
+
+-- | The request was well-formed but was unable to be followed due to
+-- semantic errors.
+_UnprocessableEntityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnprocessableEntityException =
+  Core._MatchServiceError
+    defaultService
+    "UnprocessableEntityException"
+    Prelude.. Core.hasStatus 422

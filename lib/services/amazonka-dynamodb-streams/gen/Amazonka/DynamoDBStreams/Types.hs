@@ -18,10 +18,10 @@ module Amazonka.DynamoDBStreams.Types
     defaultService,
 
     -- * Errors
-    _ResourceNotFoundException,
-    _LimitExceededException,
-    _InternalServerError,
     _ExpiredIteratorException,
+    _InternalServerError,
+    _LimitExceededException,
+    _ResourceNotFoundException,
     _TrimmedDataAccessException,
 
     -- * Re-exported Types
@@ -57,13 +57,13 @@ module Amazonka.DynamoDBStreams.Types
     -- * Record
     Record (..),
     newRecord,
-    record_userIdentity,
-    record_dynamodb,
-    record_eventVersion,
-    record_eventName,
-    record_eventID,
     record_awsRegion,
+    record_dynamodb,
+    record_eventID,
+    record_eventName,
     record_eventSource,
+    record_eventVersion,
+    record_userIdentity,
 
     -- * SequenceNumberRange
     SequenceNumberRange (..),
@@ -74,40 +74,40 @@ module Amazonka.DynamoDBStreams.Types
     -- * Shard
     Shard (..),
     newShard,
-    shard_sequenceNumberRange,
     shard_parentShardId,
+    shard_sequenceNumberRange,
     shard_shardId,
 
     -- * Stream
     Stream (..),
     newStream,
-    stream_tableName,
-    stream_streamLabel,
     stream_streamArn,
+    stream_streamLabel,
+    stream_tableName,
 
     -- * StreamDescription
     StreamDescription (..),
     newStreamDescription,
-    streamDescription_tableName,
-    streamDescription_streamLabel,
     streamDescription_creationRequestDateTime,
-    streamDescription_streamViewType,
-    streamDescription_streamStatus,
     streamDescription_keySchema,
+    streamDescription_lastEvaluatedShardId,
     streamDescription_shards,
     streamDescription_streamArn,
-    streamDescription_lastEvaluatedShardId,
+    streamDescription_streamLabel,
+    streamDescription_streamStatus,
+    streamDescription_streamViewType,
+    streamDescription_tableName,
 
     -- * StreamRecord
     StreamRecord (..),
     newStreamRecord,
-    streamRecord_sizeBytes,
-    streamRecord_streamViewType,
-    streamRecord_oldImage,
     streamRecord_approximateCreationDateTime,
-    streamRecord_sequenceNumber,
     streamRecord_keys,
     streamRecord_newImage,
+    streamRecord_oldImage,
+    streamRecord_sequenceNumber,
+    streamRecord_sizeBytes,
+    streamRecord_streamViewType,
   )
 where
 
@@ -155,28 +155,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -184,13 +178,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -198,15 +196,25 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The operation tried to access a nonexistent table or index. The resource
--- might not be specified correctly, or its status might not be @ACTIVE@.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
+-- | The shard iterator has expired and can no longer be used to retrieve
+-- stream records. A shard iterator expires 15 minutes after it is
+-- retrieved using the @GetShardIterator@ action.
+_ExpiredIteratorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ExpiredIteratorException =
   Core._MatchServiceError
     defaultService
-    "ResourceNotFoundException"
+    "ExpiredIteratorException"
+
+-- | An error occurred on the server side.
+_InternalServerError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerError =
+  Core._MatchServiceError
+    defaultService
+    "InternalServerError"
 
 -- | There is no limit to the number of daily on-demand backups that can be
 -- taken.
@@ -231,21 +239,13 @@ _LimitExceededException =
     defaultService
     "LimitExceededException"
 
--- | An error occurred on the server side.
-_InternalServerError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerError =
+-- | The operation tried to access a nonexistent table or index. The resource
+-- might not be specified correctly, or its status might not be @ACTIVE@.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
-    "InternalServerError"
-
--- | The shard iterator has expired and can no longer be used to retrieve
--- stream records. A shard iterator expires 15 minutes after it is
--- retrieved using the @GetShardIterator@ action.
-_ExpiredIteratorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ExpiredIteratorException =
-  Core._MatchServiceError
-    defaultService
-    "ExpiredIteratorException"
+    "ResourceNotFoundException"
 
 -- | The operation attempted to read past the oldest stream record in a
 -- shard.

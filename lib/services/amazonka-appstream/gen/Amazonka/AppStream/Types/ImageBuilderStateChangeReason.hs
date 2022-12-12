@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newImageBuilderStateChangeReason' smart constructor.
 data ImageBuilderStateChangeReason = ImageBuilderStateChangeReason'
-  { -- | The state change reason message.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The state change reason code.
-    code :: Prelude.Maybe ImageBuilderStateChangeReasonCode
+  { -- | The state change reason code.
+    code :: Prelude.Maybe ImageBuilderStateChangeReasonCode,
+    -- | The state change reason message.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data ImageBuilderStateChangeReason = ImageBuilderStateChangeReason'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'imageBuilderStateChangeReason_message' - The state change reason message.
---
 -- 'code', 'imageBuilderStateChangeReason_code' - The state change reason code.
+--
+-- 'message', 'imageBuilderStateChangeReason_message' - The state change reason message.
 newImageBuilderStateChangeReason ::
   ImageBuilderStateChangeReason
 newImageBuilderStateChangeReason =
   ImageBuilderStateChangeReason'
-    { message =
+    { code =
         Prelude.Nothing,
-      code = Prelude.Nothing
+      message = Prelude.Nothing
     }
-
--- | The state change reason message.
-imageBuilderStateChangeReason_message :: Lens.Lens' ImageBuilderStateChangeReason (Prelude.Maybe Prelude.Text)
-imageBuilderStateChangeReason_message = Lens.lens (\ImageBuilderStateChangeReason' {message} -> message) (\s@ImageBuilderStateChangeReason' {} a -> s {message = a} :: ImageBuilderStateChangeReason)
 
 -- | The state change reason code.
 imageBuilderStateChangeReason_code :: Lens.Lens' ImageBuilderStateChangeReason (Prelude.Maybe ImageBuilderStateChangeReasonCode)
 imageBuilderStateChangeReason_code = Lens.lens (\ImageBuilderStateChangeReason' {code} -> code) (\s@ImageBuilderStateChangeReason' {} a -> s {code = a} :: ImageBuilderStateChangeReason)
+
+-- | The state change reason message.
+imageBuilderStateChangeReason_message :: Lens.Lens' ImageBuilderStateChangeReason (Prelude.Maybe Prelude.Text)
+imageBuilderStateChangeReason_message = Lens.lens (\ImageBuilderStateChangeReason' {message} -> message) (\s@ImageBuilderStateChangeReason' {} a -> s {message = a} :: ImageBuilderStateChangeReason)
 
 instance Data.FromJSON ImageBuilderStateChangeReason where
   parseJSON =
@@ -70,8 +70,8 @@ instance Data.FromJSON ImageBuilderStateChangeReason where
       "ImageBuilderStateChangeReason"
       ( \x ->
           ImageBuilderStateChangeReason'
-            Prelude.<$> (x Data..:? "Message")
-            Prelude.<*> (x Data..:? "Code")
+            Prelude.<$> (x Data..:? "Code")
+            Prelude.<*> (x Data..:? "Message")
       )
 
 instance
@@ -79,9 +79,9 @@ instance
     ImageBuilderStateChangeReason
   where
   hashWithSalt _salt ImageBuilderStateChangeReason' {..} =
-    _salt `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` code
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` message
 
 instance Prelude.NFData ImageBuilderStateChangeReason where
   rnf ImageBuilderStateChangeReason' {..} =
-    Prelude.rnf message `Prelude.seq` Prelude.rnf code
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

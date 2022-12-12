@@ -32,9 +32,9 @@ module Amazonka.CodeGuruProfiler.GetProfile
 
     -- * Request Lenses
     getProfile_accept,
-    getProfile_period,
-    getProfile_maxDepth,
     getProfile_endTime,
+    getProfile_maxDepth,
+    getProfile_period,
     getProfile_startTime,
     getProfile_profilingGroupName,
 
@@ -68,18 +68,6 @@ data GetProfile = GetProfile'
     --
     -- >  <ul> <li> <p> <code>application/json</code> — standard JSON format </p> </li> <li> <p> <code>application/x-amzn-ion</code> — the Amazon Ion data format. For more information, see <a href="http://amzn.github.io/ion-docs/">Amazon Ion</a>. </p> </li> </ul>
     accept :: Prelude.Maybe Prelude.Text,
-    -- | Used with @startTime@ or @endTime@ to specify the time range for the
-    -- returned aggregated profile. Specify using the ISO 8601 format. For
-    -- example, @P1DT1H1M1S@.
-    --
-    -- >  <p> To get the latest aggregated profile, specify only <code>period</code>. </p>
-    period :: Prelude.Maybe Prelude.Text,
-    -- | The maximum depth of the stacks in the code that is represented in the
-    -- aggregated profile. For example, if CodeGuru Profiler finds a method
-    -- @A@, which calls method @B@, which calls method @C@, which calls method
-    -- @D@, then the depth is 4. If the @maxDepth@ is set to 2, then the
-    -- aggregated profile contains representations of methods @A@ and @B@.
-    maxDepth :: Prelude.Maybe Prelude.Natural,
     -- | The end time of the requested profile. Specify using the ISO 8601
     -- format. For example, 2020-06-01T13:15:02.001Z represents 1 millisecond
     -- past June 1, 2020 1:15:02 PM UTC.
@@ -87,6 +75,18 @@ data GetProfile = GetProfile'
     -- If you specify @endTime@, then you must also specify @period@ or
     -- @startTime@, but not both.
     endTime :: Prelude.Maybe Data.POSIX,
+    -- | The maximum depth of the stacks in the code that is represented in the
+    -- aggregated profile. For example, if CodeGuru Profiler finds a method
+    -- @A@, which calls method @B@, which calls method @C@, which calls method
+    -- @D@, then the depth is 4. If the @maxDepth@ is set to 2, then the
+    -- aggregated profile contains representations of methods @A@ and @B@.
+    maxDepth :: Prelude.Maybe Prelude.Natural,
+    -- | Used with @startTime@ or @endTime@ to specify the time range for the
+    -- returned aggregated profile. Specify using the ISO 8601 format. For
+    -- example, @P1DT1H1M1S@.
+    --
+    -- >  <p> To get the latest aggregated profile, specify only <code>period</code>. </p>
+    period :: Prelude.Maybe Prelude.Text,
     -- | The start time of the profile to get. Specify using the ISO 8601 format.
     -- For example, 2020-06-01T13:15:02.001Z represents 1 millisecond past June
     -- 1, 2020 1:15:02 PM UTC.
@@ -112,11 +112,12 @@ data GetProfile = GetProfile'
 --
 -- >  <ul> <li> <p> <code>application/json</code> — standard JSON format </p> </li> <li> <p> <code>application/x-amzn-ion</code> — the Amazon Ion data format. For more information, see <a href="http://amzn.github.io/ion-docs/">Amazon Ion</a>. </p> </li> </ul>
 --
--- 'period', 'getProfile_period' - Used with @startTime@ or @endTime@ to specify the time range for the
--- returned aggregated profile. Specify using the ISO 8601 format. For
--- example, @P1DT1H1M1S@.
+-- 'endTime', 'getProfile_endTime' - The end time of the requested profile. Specify using the ISO 8601
+-- format. For example, 2020-06-01T13:15:02.001Z represents 1 millisecond
+-- past June 1, 2020 1:15:02 PM UTC.
 --
--- >  <p> To get the latest aggregated profile, specify only <code>period</code>. </p>
+-- If you specify @endTime@, then you must also specify @period@ or
+-- @startTime@, but not both.
 --
 -- 'maxDepth', 'getProfile_maxDepth' - The maximum depth of the stacks in the code that is represented in the
 -- aggregated profile. For example, if CodeGuru Profiler finds a method
@@ -124,12 +125,11 @@ data GetProfile = GetProfile'
 -- @D@, then the depth is 4. If the @maxDepth@ is set to 2, then the
 -- aggregated profile contains representations of methods @A@ and @B@.
 --
--- 'endTime', 'getProfile_endTime' - The end time of the requested profile. Specify using the ISO 8601
--- format. For example, 2020-06-01T13:15:02.001Z represents 1 millisecond
--- past June 1, 2020 1:15:02 PM UTC.
+-- 'period', 'getProfile_period' - Used with @startTime@ or @endTime@ to specify the time range for the
+-- returned aggregated profile. Specify using the ISO 8601 format. For
+-- example, @P1DT1H1M1S@.
 --
--- If you specify @endTime@, then you must also specify @period@ or
--- @startTime@, but not both.
+-- >  <p> To get the latest aggregated profile, specify only <code>period</code>. </p>
 --
 -- 'startTime', 'getProfile_startTime' - The start time of the profile to get. Specify using the ISO 8601 format.
 -- For example, 2020-06-01T13:15:02.001Z represents 1 millisecond past June
@@ -145,9 +145,9 @@ newGetProfile ::
 newGetProfile pProfilingGroupName_ =
   GetProfile'
     { accept = Prelude.Nothing,
-      period = Prelude.Nothing,
-      maxDepth = Prelude.Nothing,
       endTime = Prelude.Nothing,
+      maxDepth = Prelude.Nothing,
+      period = Prelude.Nothing,
       startTime = Prelude.Nothing,
       profilingGroupName = pProfilingGroupName_
     }
@@ -160,13 +160,14 @@ newGetProfile pProfilingGroupName_ =
 getProfile_accept :: Lens.Lens' GetProfile (Prelude.Maybe Prelude.Text)
 getProfile_accept = Lens.lens (\GetProfile' {accept} -> accept) (\s@GetProfile' {} a -> s {accept = a} :: GetProfile)
 
--- | Used with @startTime@ or @endTime@ to specify the time range for the
--- returned aggregated profile. Specify using the ISO 8601 format. For
--- example, @P1DT1H1M1S@.
+-- | The end time of the requested profile. Specify using the ISO 8601
+-- format. For example, 2020-06-01T13:15:02.001Z represents 1 millisecond
+-- past June 1, 2020 1:15:02 PM UTC.
 --
--- >  <p> To get the latest aggregated profile, specify only <code>period</code>. </p>
-getProfile_period :: Lens.Lens' GetProfile (Prelude.Maybe Prelude.Text)
-getProfile_period = Lens.lens (\GetProfile' {period} -> period) (\s@GetProfile' {} a -> s {period = a} :: GetProfile)
+-- If you specify @endTime@, then you must also specify @period@ or
+-- @startTime@, but not both.
+getProfile_endTime :: Lens.Lens' GetProfile (Prelude.Maybe Prelude.UTCTime)
+getProfile_endTime = Lens.lens (\GetProfile' {endTime} -> endTime) (\s@GetProfile' {} a -> s {endTime = a} :: GetProfile) Prelude.. Lens.mapping Data._Time
 
 -- | The maximum depth of the stacks in the code that is represented in the
 -- aggregated profile. For example, if CodeGuru Profiler finds a method
@@ -176,14 +177,13 @@ getProfile_period = Lens.lens (\GetProfile' {period} -> period) (\s@GetProfile' 
 getProfile_maxDepth :: Lens.Lens' GetProfile (Prelude.Maybe Prelude.Natural)
 getProfile_maxDepth = Lens.lens (\GetProfile' {maxDepth} -> maxDepth) (\s@GetProfile' {} a -> s {maxDepth = a} :: GetProfile)
 
--- | The end time of the requested profile. Specify using the ISO 8601
--- format. For example, 2020-06-01T13:15:02.001Z represents 1 millisecond
--- past June 1, 2020 1:15:02 PM UTC.
+-- | Used with @startTime@ or @endTime@ to specify the time range for the
+-- returned aggregated profile. Specify using the ISO 8601 format. For
+-- example, @P1DT1H1M1S@.
 --
--- If you specify @endTime@, then you must also specify @period@ or
--- @startTime@, but not both.
-getProfile_endTime :: Lens.Lens' GetProfile (Prelude.Maybe Prelude.UTCTime)
-getProfile_endTime = Lens.lens (\GetProfile' {endTime} -> endTime) (\s@GetProfile' {} a -> s {endTime = a} :: GetProfile) Prelude.. Lens.mapping Data._Time
+-- >  <p> To get the latest aggregated profile, specify only <code>period</code>. </p>
+getProfile_period :: Lens.Lens' GetProfile (Prelude.Maybe Prelude.Text)
+getProfile_period = Lens.lens (\GetProfile' {period} -> period) (\s@GetProfile' {} a -> s {period = a} :: GetProfile)
 
 -- | The start time of the profile to get. Specify using the ISO 8601 format.
 -- For example, 2020-06-01T13:15:02.001Z represents 1 millisecond past June
@@ -214,18 +214,18 @@ instance Core.AWSRequest GetProfile where
 instance Prelude.Hashable GetProfile where
   hashWithSalt _salt GetProfile' {..} =
     _salt `Prelude.hashWithSalt` accept
-      `Prelude.hashWithSalt` period
-      `Prelude.hashWithSalt` maxDepth
       `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` maxDepth
+      `Prelude.hashWithSalt` period
       `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` profilingGroupName
 
 instance Prelude.NFData GetProfile where
   rnf GetProfile' {..} =
     Prelude.rnf accept
-      `Prelude.seq` Prelude.rnf period
-      `Prelude.seq` Prelude.rnf maxDepth
       `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf maxDepth
+      `Prelude.seq` Prelude.rnf period
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf profilingGroupName
 
@@ -248,9 +248,9 @@ instance Data.ToPath GetProfile where
 instance Data.ToQuery GetProfile where
   toQuery GetProfile' {..} =
     Prelude.mconcat
-      [ "period" Data.=: period,
+      [ "endTime" Data.=: endTime,
         "maxDepth" Data.=: maxDepth,
-        "endTime" Data.=: endTime,
+        "period" Data.=: period,
         "startTime" Data.=: startTime
       ]
 

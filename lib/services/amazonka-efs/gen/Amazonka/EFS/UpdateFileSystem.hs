@@ -37,14 +37,14 @@ module Amazonka.EFS.UpdateFileSystem
     newFileSystemDescription,
 
     -- * Response Lenses
-    fileSystemDescription_name,
-    fileSystemDescription_provisionedThroughputInMibps,
-    fileSystemDescription_fileSystemArn,
+    fileSystemDescription_availabilityZoneId,
     fileSystemDescription_availabilityZoneName,
     fileSystemDescription_encrypted,
+    fileSystemDescription_fileSystemArn,
     fileSystemDescription_kmsKeyId,
+    fileSystemDescription_name,
+    fileSystemDescription_provisionedThroughputInMibps,
     fileSystemDescription_throughputMode,
-    fileSystemDescription_availabilityZoneId,
     fileSystemDescription_ownerId,
     fileSystemDescription_creationToken,
     fileSystemDescription_fileSystemId,

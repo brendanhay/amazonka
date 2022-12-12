@@ -27,12 +27,12 @@ module Amazonka.IoTWireless.CreateNetworkAnalyzerConfiguration
     newCreateNetworkAnalyzerConfiguration,
 
     -- * Request Lenses
-    createNetworkAnalyzerConfiguration_tags,
-    createNetworkAnalyzerConfiguration_wirelessGateways,
     createNetworkAnalyzerConfiguration_clientRequestToken,
-    createNetworkAnalyzerConfiguration_wirelessDevices,
     createNetworkAnalyzerConfiguration_description,
+    createNetworkAnalyzerConfiguration_tags,
     createNetworkAnalyzerConfiguration_traceContent,
+    createNetworkAnalyzerConfiguration_wirelessDevices,
+    createNetworkAnalyzerConfiguration_wirelessGateways,
     createNetworkAnalyzerConfiguration_name,
 
     -- * Destructuring the Response
@@ -40,8 +40,8 @@ module Amazonka.IoTWireless.CreateNetworkAnalyzerConfiguration
     newCreateNetworkAnalyzerConfigurationResponse,
 
     -- * Response Lenses
-    createNetworkAnalyzerConfigurationResponse_name,
     createNetworkAnalyzerConfigurationResponse_arn,
+    createNetworkAnalyzerConfigurationResponse_name,
     createNetworkAnalyzerConfigurationResponse_httpStatus,
   )
 where
@@ -56,18 +56,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateNetworkAnalyzerConfiguration' smart constructor.
 data CreateNetworkAnalyzerConfiguration = CreateNetworkAnalyzerConfiguration'
-  { tags :: Prelude.Maybe [Tag],
-    -- | Wireless gateway resources to add to the network analyzer configuration.
-    -- Provide the @WirelessGatewayId@ of the resource to add in the input
-    -- array.
-    wirelessGateways :: Prelude.Maybe [Prelude.Text],
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
+  { clientRequestToken :: Prelude.Maybe Prelude.Text,
+    description :: Prelude.Maybe Prelude.Text,
+    tags :: Prelude.Maybe [Tag],
+    traceContent :: Prelude.Maybe TraceContent,
     -- | Wireless device resources to add to the network analyzer configuration.
     -- Provide the @WirelessDeviceId@ of the resource to add in the input
     -- array.
     wirelessDevices :: Prelude.Maybe [Prelude.Text],
-    description :: Prelude.Maybe Prelude.Text,
-    traceContent :: Prelude.Maybe TraceContent,
+    -- | Wireless gateway resources to add to the network analyzer configuration.
+    -- Provide the @WirelessGatewayId@ of the resource to add in the input
+    -- array.
+    wirelessGateways :: Prelude.Maybe [Prelude.Text],
     name :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -80,21 +80,21 @@ data CreateNetworkAnalyzerConfiguration = CreateNetworkAnalyzerConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clientRequestToken', 'createNetworkAnalyzerConfiguration_clientRequestToken' - Undocumented member.
+--
+-- 'description', 'createNetworkAnalyzerConfiguration_description' - Undocumented member.
+--
 -- 'tags', 'createNetworkAnalyzerConfiguration_tags' - Undocumented member.
 --
--- 'wirelessGateways', 'createNetworkAnalyzerConfiguration_wirelessGateways' - Wireless gateway resources to add to the network analyzer configuration.
--- Provide the @WirelessGatewayId@ of the resource to add in the input
--- array.
---
--- 'clientRequestToken', 'createNetworkAnalyzerConfiguration_clientRequestToken' - Undocumented member.
+-- 'traceContent', 'createNetworkAnalyzerConfiguration_traceContent' - Undocumented member.
 --
 -- 'wirelessDevices', 'createNetworkAnalyzerConfiguration_wirelessDevices' - Wireless device resources to add to the network analyzer configuration.
 -- Provide the @WirelessDeviceId@ of the resource to add in the input
 -- array.
 --
--- 'description', 'createNetworkAnalyzerConfiguration_description' - Undocumented member.
---
--- 'traceContent', 'createNetworkAnalyzerConfiguration_traceContent' - Undocumented member.
+-- 'wirelessGateways', 'createNetworkAnalyzerConfiguration_wirelessGateways' - Wireless gateway resources to add to the network analyzer configuration.
+-- Provide the @WirelessGatewayId@ of the resource to add in the input
+-- array.
 --
 -- 'name', 'createNetworkAnalyzerConfiguration_name' - Undocumented member.
 newCreateNetworkAnalyzerConfiguration ::
@@ -103,29 +103,31 @@ newCreateNetworkAnalyzerConfiguration ::
   CreateNetworkAnalyzerConfiguration
 newCreateNetworkAnalyzerConfiguration pName_ =
   CreateNetworkAnalyzerConfiguration'
-    { tags =
+    { clientRequestToken =
         Prelude.Nothing,
-      wirelessGateways = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
-      wirelessDevices = Prelude.Nothing,
       description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       traceContent = Prelude.Nothing,
+      wirelessDevices = Prelude.Nothing,
+      wirelessGateways = Prelude.Nothing,
       name = pName_
     }
+
+-- | Undocumented member.
+createNetworkAnalyzerConfiguration_clientRequestToken :: Lens.Lens' CreateNetworkAnalyzerConfiguration (Prelude.Maybe Prelude.Text)
+createNetworkAnalyzerConfiguration_clientRequestToken = Lens.lens (\CreateNetworkAnalyzerConfiguration' {clientRequestToken} -> clientRequestToken) (\s@CreateNetworkAnalyzerConfiguration' {} a -> s {clientRequestToken = a} :: CreateNetworkAnalyzerConfiguration)
+
+-- | Undocumented member.
+createNetworkAnalyzerConfiguration_description :: Lens.Lens' CreateNetworkAnalyzerConfiguration (Prelude.Maybe Prelude.Text)
+createNetworkAnalyzerConfiguration_description = Lens.lens (\CreateNetworkAnalyzerConfiguration' {description} -> description) (\s@CreateNetworkAnalyzerConfiguration' {} a -> s {description = a} :: CreateNetworkAnalyzerConfiguration)
 
 -- | Undocumented member.
 createNetworkAnalyzerConfiguration_tags :: Lens.Lens' CreateNetworkAnalyzerConfiguration (Prelude.Maybe [Tag])
 createNetworkAnalyzerConfiguration_tags = Lens.lens (\CreateNetworkAnalyzerConfiguration' {tags} -> tags) (\s@CreateNetworkAnalyzerConfiguration' {} a -> s {tags = a} :: CreateNetworkAnalyzerConfiguration) Prelude.. Lens.mapping Lens.coerced
 
--- | Wireless gateway resources to add to the network analyzer configuration.
--- Provide the @WirelessGatewayId@ of the resource to add in the input
--- array.
-createNetworkAnalyzerConfiguration_wirelessGateways :: Lens.Lens' CreateNetworkAnalyzerConfiguration (Prelude.Maybe [Prelude.Text])
-createNetworkAnalyzerConfiguration_wirelessGateways = Lens.lens (\CreateNetworkAnalyzerConfiguration' {wirelessGateways} -> wirelessGateways) (\s@CreateNetworkAnalyzerConfiguration' {} a -> s {wirelessGateways = a} :: CreateNetworkAnalyzerConfiguration) Prelude.. Lens.mapping Lens.coerced
-
 -- | Undocumented member.
-createNetworkAnalyzerConfiguration_clientRequestToken :: Lens.Lens' CreateNetworkAnalyzerConfiguration (Prelude.Maybe Prelude.Text)
-createNetworkAnalyzerConfiguration_clientRequestToken = Lens.lens (\CreateNetworkAnalyzerConfiguration' {clientRequestToken} -> clientRequestToken) (\s@CreateNetworkAnalyzerConfiguration' {} a -> s {clientRequestToken = a} :: CreateNetworkAnalyzerConfiguration)
+createNetworkAnalyzerConfiguration_traceContent :: Lens.Lens' CreateNetworkAnalyzerConfiguration (Prelude.Maybe TraceContent)
+createNetworkAnalyzerConfiguration_traceContent = Lens.lens (\CreateNetworkAnalyzerConfiguration' {traceContent} -> traceContent) (\s@CreateNetworkAnalyzerConfiguration' {} a -> s {traceContent = a} :: CreateNetworkAnalyzerConfiguration)
 
 -- | Wireless device resources to add to the network analyzer configuration.
 -- Provide the @WirelessDeviceId@ of the resource to add in the input
@@ -133,13 +135,11 @@ createNetworkAnalyzerConfiguration_clientRequestToken = Lens.lens (\CreateNetwor
 createNetworkAnalyzerConfiguration_wirelessDevices :: Lens.Lens' CreateNetworkAnalyzerConfiguration (Prelude.Maybe [Prelude.Text])
 createNetworkAnalyzerConfiguration_wirelessDevices = Lens.lens (\CreateNetworkAnalyzerConfiguration' {wirelessDevices} -> wirelessDevices) (\s@CreateNetworkAnalyzerConfiguration' {} a -> s {wirelessDevices = a} :: CreateNetworkAnalyzerConfiguration) Prelude.. Lens.mapping Lens.coerced
 
--- | Undocumented member.
-createNetworkAnalyzerConfiguration_description :: Lens.Lens' CreateNetworkAnalyzerConfiguration (Prelude.Maybe Prelude.Text)
-createNetworkAnalyzerConfiguration_description = Lens.lens (\CreateNetworkAnalyzerConfiguration' {description} -> description) (\s@CreateNetworkAnalyzerConfiguration' {} a -> s {description = a} :: CreateNetworkAnalyzerConfiguration)
-
--- | Undocumented member.
-createNetworkAnalyzerConfiguration_traceContent :: Lens.Lens' CreateNetworkAnalyzerConfiguration (Prelude.Maybe TraceContent)
-createNetworkAnalyzerConfiguration_traceContent = Lens.lens (\CreateNetworkAnalyzerConfiguration' {traceContent} -> traceContent) (\s@CreateNetworkAnalyzerConfiguration' {} a -> s {traceContent = a} :: CreateNetworkAnalyzerConfiguration)
+-- | Wireless gateway resources to add to the network analyzer configuration.
+-- Provide the @WirelessGatewayId@ of the resource to add in the input
+-- array.
+createNetworkAnalyzerConfiguration_wirelessGateways :: Lens.Lens' CreateNetworkAnalyzerConfiguration (Prelude.Maybe [Prelude.Text])
+createNetworkAnalyzerConfiguration_wirelessGateways = Lens.lens (\CreateNetworkAnalyzerConfiguration' {wirelessGateways} -> wirelessGateways) (\s@CreateNetworkAnalyzerConfiguration' {} a -> s {wirelessGateways = a} :: CreateNetworkAnalyzerConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 createNetworkAnalyzerConfiguration_name :: Lens.Lens' CreateNetworkAnalyzerConfiguration Prelude.Text
@@ -158,7 +158,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateNetworkAnalyzerConfigurationResponse'
-            Prelude.<$> (x Data..?> "Name") Prelude.<*> (x Data..?> "Arn")
+            Prelude.<$> (x Data..?> "Arn") Prelude.<*> (x Data..?> "Name")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,12 +169,12 @@ instance
   hashWithSalt
     _salt
     CreateNetworkAnalyzerConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` tags
-        `Prelude.hashWithSalt` wirelessGateways
-        `Prelude.hashWithSalt` clientRequestToken
-        `Prelude.hashWithSalt` wirelessDevices
+      _salt `Prelude.hashWithSalt` clientRequestToken
         `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` traceContent
+        `Prelude.hashWithSalt` wirelessDevices
+        `Prelude.hashWithSalt` wirelessGateways
         `Prelude.hashWithSalt` name
 
 instance
@@ -182,12 +182,12 @@ instance
     CreateNetworkAnalyzerConfiguration
   where
   rnf CreateNetworkAnalyzerConfiguration' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf wirelessGateways
-      `Prelude.seq` Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf wirelessDevices
+    Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf traceContent
+      `Prelude.seq` Prelude.rnf wirelessDevices
+      `Prelude.seq` Prelude.rnf wirelessGateways
       `Prelude.seq` Prelude.rnf name
 
 instance
@@ -203,15 +203,15 @@ instance
   toJSON CreateNetworkAnalyzerConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("WirelessGateways" Data..=)
-              Prelude.<$> wirelessGateways,
-            ("ClientRequestToken" Data..=)
+          [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
+            ("Description" Data..=) Prelude.<$> description,
+            ("Tags" Data..=) Prelude.<$> tags,
+            ("TraceContent" Data..=) Prelude.<$> traceContent,
             ("WirelessDevices" Data..=)
               Prelude.<$> wirelessDevices,
-            ("Description" Data..=) Prelude.<$> description,
-            ("TraceContent" Data..=) Prelude.<$> traceContent,
+            ("WirelessGateways" Data..=)
+              Prelude.<$> wirelessGateways,
             Prelude.Just ("Name" Data..= name)
           ]
       )
@@ -231,9 +231,9 @@ instance
 
 -- | /See:/ 'newCreateNetworkAnalyzerConfigurationResponse' smart constructor.
 data CreateNetworkAnalyzerConfigurationResponse = CreateNetworkAnalyzerConfigurationResponse'
-  { name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name of the new resource.
+  { -- | The Amazon Resource Name of the new resource.
     arn :: Prelude.Maybe Prelude.Text,
+    name :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -247,9 +247,9 @@ data CreateNetworkAnalyzerConfigurationResponse = CreateNetworkAnalyzerConfigura
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'createNetworkAnalyzerConfigurationResponse_name' - Undocumented member.
---
 -- 'arn', 'createNetworkAnalyzerConfigurationResponse_arn' - The Amazon Resource Name of the new resource.
+--
+-- 'name', 'createNetworkAnalyzerConfigurationResponse_name' - Undocumented member.
 --
 -- 'httpStatus', 'createNetworkAnalyzerConfigurationResponse_httpStatus' - The response's http status code.
 newCreateNetworkAnalyzerConfigurationResponse ::
@@ -259,19 +259,19 @@ newCreateNetworkAnalyzerConfigurationResponse ::
 newCreateNetworkAnalyzerConfigurationResponse
   pHttpStatus_ =
     CreateNetworkAnalyzerConfigurationResponse'
-      { name =
+      { arn =
           Prelude.Nothing,
-        arn = Prelude.Nothing,
+        name = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | Undocumented member.
-createNetworkAnalyzerConfigurationResponse_name :: Lens.Lens' CreateNetworkAnalyzerConfigurationResponse (Prelude.Maybe Prelude.Text)
-createNetworkAnalyzerConfigurationResponse_name = Lens.lens (\CreateNetworkAnalyzerConfigurationResponse' {name} -> name) (\s@CreateNetworkAnalyzerConfigurationResponse' {} a -> s {name = a} :: CreateNetworkAnalyzerConfigurationResponse)
 
 -- | The Amazon Resource Name of the new resource.
 createNetworkAnalyzerConfigurationResponse_arn :: Lens.Lens' CreateNetworkAnalyzerConfigurationResponse (Prelude.Maybe Prelude.Text)
 createNetworkAnalyzerConfigurationResponse_arn = Lens.lens (\CreateNetworkAnalyzerConfigurationResponse' {arn} -> arn) (\s@CreateNetworkAnalyzerConfigurationResponse' {} a -> s {arn = a} :: CreateNetworkAnalyzerConfigurationResponse)
+
+-- | Undocumented member.
+createNetworkAnalyzerConfigurationResponse_name :: Lens.Lens' CreateNetworkAnalyzerConfigurationResponse (Prelude.Maybe Prelude.Text)
+createNetworkAnalyzerConfigurationResponse_name = Lens.lens (\CreateNetworkAnalyzerConfigurationResponse' {name} -> name) (\s@CreateNetworkAnalyzerConfigurationResponse' {} a -> s {name = a} :: CreateNetworkAnalyzerConfigurationResponse)
 
 -- | The response's http status code.
 createNetworkAnalyzerConfigurationResponse_httpStatus :: Lens.Lens' CreateNetworkAnalyzerConfigurationResponse Prelude.Int
@@ -282,6 +282,6 @@ instance
     CreateNetworkAnalyzerConfigurationResponse
   where
   rnf CreateNetworkAnalyzerConfigurationResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf httpStatus

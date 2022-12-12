@@ -28,17 +28,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsOpenSearchServiceDomainDomainEndpointOptionsDetails' smart constructor.
 data AwsOpenSearchServiceDomainDomainEndpointOptionsDetails = AwsOpenSearchServiceDomainDomainEndpointOptionsDetails'
-  { -- | The ARN for the security certificate. The certificate is managed in ACM.
+  { -- | The fully qualified URL for the custom endpoint.
+    customEndpoint :: Prelude.Maybe Prelude.Text,
+    -- | The ARN for the security certificate. The certificate is managed in ACM.
     customEndpointCertificateArn :: Prelude.Maybe Prelude.Text,
-    -- | The TLS security policy to apply to the HTTPS endpoint of the OpenSearch
-    -- domain.
-    tLSSecurityPolicy :: Prelude.Maybe Prelude.Text,
     -- | Whether to enable a custom endpoint for the domain.
     customEndpointEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Whether to require that all traffic to the domain arrive over HTTPS.
     enforceHTTPS :: Prelude.Maybe Prelude.Bool,
-    -- | The fully qualified URL for the custom endpoint.
-    customEndpoint :: Prelude.Maybe Prelude.Text
+    -- | The TLS security policy to apply to the HTTPS endpoint of the OpenSearch
+    -- domain.
+    tLSSecurityPolicy :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,40 +50,39 @@ data AwsOpenSearchServiceDomainDomainEndpointOptionsDetails = AwsOpenSearchServi
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'customEndpointCertificateArn', 'awsOpenSearchServiceDomainDomainEndpointOptionsDetails_customEndpointCertificateArn' - The ARN for the security certificate. The certificate is managed in ACM.
+-- 'customEndpoint', 'awsOpenSearchServiceDomainDomainEndpointOptionsDetails_customEndpoint' - The fully qualified URL for the custom endpoint.
 --
--- 'tLSSecurityPolicy', 'awsOpenSearchServiceDomainDomainEndpointOptionsDetails_tLSSecurityPolicy' - The TLS security policy to apply to the HTTPS endpoint of the OpenSearch
--- domain.
+-- 'customEndpointCertificateArn', 'awsOpenSearchServiceDomainDomainEndpointOptionsDetails_customEndpointCertificateArn' - The ARN for the security certificate. The certificate is managed in ACM.
 --
 -- 'customEndpointEnabled', 'awsOpenSearchServiceDomainDomainEndpointOptionsDetails_customEndpointEnabled' - Whether to enable a custom endpoint for the domain.
 --
 -- 'enforceHTTPS', 'awsOpenSearchServiceDomainDomainEndpointOptionsDetails_enforceHTTPS' - Whether to require that all traffic to the domain arrive over HTTPS.
 --
--- 'customEndpoint', 'awsOpenSearchServiceDomainDomainEndpointOptionsDetails_customEndpoint' - The fully qualified URL for the custom endpoint.
+-- 'tLSSecurityPolicy', 'awsOpenSearchServiceDomainDomainEndpointOptionsDetails_tLSSecurityPolicy' - The TLS security policy to apply to the HTTPS endpoint of the OpenSearch
+-- domain.
 newAwsOpenSearchServiceDomainDomainEndpointOptionsDetails ::
   AwsOpenSearchServiceDomainDomainEndpointOptionsDetails
 newAwsOpenSearchServiceDomainDomainEndpointOptionsDetails =
   AwsOpenSearchServiceDomainDomainEndpointOptionsDetails'
-    { customEndpointCertificateArn =
+    { customEndpoint =
         Prelude.Nothing,
-      tLSSecurityPolicy =
+      customEndpointCertificateArn =
         Prelude.Nothing,
       customEndpointEnabled =
         Prelude.Nothing,
       enforceHTTPS =
         Prelude.Nothing,
-      customEndpoint =
+      tLSSecurityPolicy =
         Prelude.Nothing
     }
+
+-- | The fully qualified URL for the custom endpoint.
+awsOpenSearchServiceDomainDomainEndpointOptionsDetails_customEndpoint :: Lens.Lens' AwsOpenSearchServiceDomainDomainEndpointOptionsDetails (Prelude.Maybe Prelude.Text)
+awsOpenSearchServiceDomainDomainEndpointOptionsDetails_customEndpoint = Lens.lens (\AwsOpenSearchServiceDomainDomainEndpointOptionsDetails' {customEndpoint} -> customEndpoint) (\s@AwsOpenSearchServiceDomainDomainEndpointOptionsDetails' {} a -> s {customEndpoint = a} :: AwsOpenSearchServiceDomainDomainEndpointOptionsDetails)
 
 -- | The ARN for the security certificate. The certificate is managed in ACM.
 awsOpenSearchServiceDomainDomainEndpointOptionsDetails_customEndpointCertificateArn :: Lens.Lens' AwsOpenSearchServiceDomainDomainEndpointOptionsDetails (Prelude.Maybe Prelude.Text)
 awsOpenSearchServiceDomainDomainEndpointOptionsDetails_customEndpointCertificateArn = Lens.lens (\AwsOpenSearchServiceDomainDomainEndpointOptionsDetails' {customEndpointCertificateArn} -> customEndpointCertificateArn) (\s@AwsOpenSearchServiceDomainDomainEndpointOptionsDetails' {} a -> s {customEndpointCertificateArn = a} :: AwsOpenSearchServiceDomainDomainEndpointOptionsDetails)
-
--- | The TLS security policy to apply to the HTTPS endpoint of the OpenSearch
--- domain.
-awsOpenSearchServiceDomainDomainEndpointOptionsDetails_tLSSecurityPolicy :: Lens.Lens' AwsOpenSearchServiceDomainDomainEndpointOptionsDetails (Prelude.Maybe Prelude.Text)
-awsOpenSearchServiceDomainDomainEndpointOptionsDetails_tLSSecurityPolicy = Lens.lens (\AwsOpenSearchServiceDomainDomainEndpointOptionsDetails' {tLSSecurityPolicy} -> tLSSecurityPolicy) (\s@AwsOpenSearchServiceDomainDomainEndpointOptionsDetails' {} a -> s {tLSSecurityPolicy = a} :: AwsOpenSearchServiceDomainDomainEndpointOptionsDetails)
 
 -- | Whether to enable a custom endpoint for the domain.
 awsOpenSearchServiceDomainDomainEndpointOptionsDetails_customEndpointEnabled :: Lens.Lens' AwsOpenSearchServiceDomainDomainEndpointOptionsDetails (Prelude.Maybe Prelude.Bool)
@@ -93,9 +92,10 @@ awsOpenSearchServiceDomainDomainEndpointOptionsDetails_customEndpointEnabled = L
 awsOpenSearchServiceDomainDomainEndpointOptionsDetails_enforceHTTPS :: Lens.Lens' AwsOpenSearchServiceDomainDomainEndpointOptionsDetails (Prelude.Maybe Prelude.Bool)
 awsOpenSearchServiceDomainDomainEndpointOptionsDetails_enforceHTTPS = Lens.lens (\AwsOpenSearchServiceDomainDomainEndpointOptionsDetails' {enforceHTTPS} -> enforceHTTPS) (\s@AwsOpenSearchServiceDomainDomainEndpointOptionsDetails' {} a -> s {enforceHTTPS = a} :: AwsOpenSearchServiceDomainDomainEndpointOptionsDetails)
 
--- | The fully qualified URL for the custom endpoint.
-awsOpenSearchServiceDomainDomainEndpointOptionsDetails_customEndpoint :: Lens.Lens' AwsOpenSearchServiceDomainDomainEndpointOptionsDetails (Prelude.Maybe Prelude.Text)
-awsOpenSearchServiceDomainDomainEndpointOptionsDetails_customEndpoint = Lens.lens (\AwsOpenSearchServiceDomainDomainEndpointOptionsDetails' {customEndpoint} -> customEndpoint) (\s@AwsOpenSearchServiceDomainDomainEndpointOptionsDetails' {} a -> s {customEndpoint = a} :: AwsOpenSearchServiceDomainDomainEndpointOptionsDetails)
+-- | The TLS security policy to apply to the HTTPS endpoint of the OpenSearch
+-- domain.
+awsOpenSearchServiceDomainDomainEndpointOptionsDetails_tLSSecurityPolicy :: Lens.Lens' AwsOpenSearchServiceDomainDomainEndpointOptionsDetails (Prelude.Maybe Prelude.Text)
+awsOpenSearchServiceDomainDomainEndpointOptionsDetails_tLSSecurityPolicy = Lens.lens (\AwsOpenSearchServiceDomainDomainEndpointOptionsDetails' {tLSSecurityPolicy} -> tLSSecurityPolicy) (\s@AwsOpenSearchServiceDomainDomainEndpointOptionsDetails' {} a -> s {tLSSecurityPolicy = a} :: AwsOpenSearchServiceDomainDomainEndpointOptionsDetails)
 
 instance
   Data.FromJSON
@@ -106,11 +106,11 @@ instance
       "AwsOpenSearchServiceDomainDomainEndpointOptionsDetails"
       ( \x ->
           AwsOpenSearchServiceDomainDomainEndpointOptionsDetails'
-            Prelude.<$> (x Data..:? "CustomEndpointCertificateArn")
-              Prelude.<*> (x Data..:? "TLSSecurityPolicy")
+            Prelude.<$> (x Data..:? "CustomEndpoint")
+              Prelude.<*> (x Data..:? "CustomEndpointCertificateArn")
               Prelude.<*> (x Data..:? "CustomEndpointEnabled")
               Prelude.<*> (x Data..:? "EnforceHTTPS")
-              Prelude.<*> (x Data..:? "CustomEndpoint")
+              Prelude.<*> (x Data..:? "TLSSecurityPolicy")
       )
 
 instance
@@ -120,12 +120,11 @@ instance
   hashWithSalt
     _salt
     AwsOpenSearchServiceDomainDomainEndpointOptionsDetails' {..} =
-      _salt
+      _salt `Prelude.hashWithSalt` customEndpoint
         `Prelude.hashWithSalt` customEndpointCertificateArn
-        `Prelude.hashWithSalt` tLSSecurityPolicy
         `Prelude.hashWithSalt` customEndpointEnabled
         `Prelude.hashWithSalt` enforceHTTPS
-        `Prelude.hashWithSalt` customEndpoint
+        `Prelude.hashWithSalt` tLSSecurityPolicy
 
 instance
   Prelude.NFData
@@ -133,11 +132,11 @@ instance
   where
   rnf
     AwsOpenSearchServiceDomainDomainEndpointOptionsDetails' {..} =
-      Prelude.rnf customEndpointCertificateArn
-        `Prelude.seq` Prelude.rnf tLSSecurityPolicy
+      Prelude.rnf customEndpoint
+        `Prelude.seq` Prelude.rnf customEndpointCertificateArn
         `Prelude.seq` Prelude.rnf customEndpointEnabled
         `Prelude.seq` Prelude.rnf enforceHTTPS
-        `Prelude.seq` Prelude.rnf customEndpoint
+        `Prelude.seq` Prelude.rnf tLSSecurityPolicy
 
 instance
   Data.ToJSON
@@ -147,14 +146,14 @@ instance
     AwsOpenSearchServiceDomainDomainEndpointOptionsDetails' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("CustomEndpointCertificateArn" Data..=)
+            [ ("CustomEndpoint" Data..=)
+                Prelude.<$> customEndpoint,
+              ("CustomEndpointCertificateArn" Data..=)
                 Prelude.<$> customEndpointCertificateArn,
-              ("TLSSecurityPolicy" Data..=)
-                Prelude.<$> tLSSecurityPolicy,
               ("CustomEndpointEnabled" Data..=)
                 Prelude.<$> customEndpointEnabled,
               ("EnforceHTTPS" Data..=) Prelude.<$> enforceHTTPS,
-              ("CustomEndpoint" Data..=)
-                Prelude.<$> customEndpoint
+              ("TLSSecurityPolicy" Data..=)
+                Prelude.<$> tLSSecurityPolicy
             ]
         )

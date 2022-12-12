@@ -31,8 +31,8 @@ module Amazonka.ECS.DescribeTaskSets
     newDescribeTaskSets,
 
     -- * Request Lenses
-    describeTaskSets_taskSets,
     describeTaskSets_include,
+    describeTaskSets_taskSets,
     describeTaskSets_cluster,
     describeTaskSets_service,
 
@@ -57,12 +57,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeTaskSets' smart constructor.
 data DescribeTaskSets = DescribeTaskSets'
-  { -- | The ID or full Amazon Resource Name (ARN) of task sets to describe.
-    taskSets :: Prelude.Maybe [Prelude.Text],
-    -- | Specifies whether to see the resource tags for the task set. If @TAGS@
+  { -- | Specifies whether to see the resource tags for the task set. If @TAGS@
     -- is specified, the tags are included in the response. If this field is
     -- omitted, tags aren\'t included in the response.
     include :: Prelude.Maybe [TaskSetField],
+    -- | The ID or full Amazon Resource Name (ARN) of task sets to describe.
+    taskSets :: Prelude.Maybe [Prelude.Text],
     -- | The short name or full Amazon Resource Name (ARN) of the cluster that
     -- hosts the service that the task sets exist in.
     cluster :: Prelude.Text,
@@ -80,11 +80,11 @@ data DescribeTaskSets = DescribeTaskSets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'taskSets', 'describeTaskSets_taskSets' - The ID or full Amazon Resource Name (ARN) of task sets to describe.
---
 -- 'include', 'describeTaskSets_include' - Specifies whether to see the resource tags for the task set. If @TAGS@
 -- is specified, the tags are included in the response. If this field is
 -- omitted, tags aren\'t included in the response.
+--
+-- 'taskSets', 'describeTaskSets_taskSets' - The ID or full Amazon Resource Name (ARN) of task sets to describe.
 --
 -- 'cluster', 'describeTaskSets_cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the service that the task sets exist in.
@@ -99,21 +99,21 @@ newDescribeTaskSets ::
   DescribeTaskSets
 newDescribeTaskSets pCluster_ pService_ =
   DescribeTaskSets'
-    { taskSets = Prelude.Nothing,
-      include = Prelude.Nothing,
+    { include = Prelude.Nothing,
+      taskSets = Prelude.Nothing,
       cluster = pCluster_,
       service = pService_
     }
-
--- | The ID or full Amazon Resource Name (ARN) of task sets to describe.
-describeTaskSets_taskSets :: Lens.Lens' DescribeTaskSets (Prelude.Maybe [Prelude.Text])
-describeTaskSets_taskSets = Lens.lens (\DescribeTaskSets' {taskSets} -> taskSets) (\s@DescribeTaskSets' {} a -> s {taskSets = a} :: DescribeTaskSets) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies whether to see the resource tags for the task set. If @TAGS@
 -- is specified, the tags are included in the response. If this field is
 -- omitted, tags aren\'t included in the response.
 describeTaskSets_include :: Lens.Lens' DescribeTaskSets (Prelude.Maybe [TaskSetField])
 describeTaskSets_include = Lens.lens (\DescribeTaskSets' {include} -> include) (\s@DescribeTaskSets' {} a -> s {include = a} :: DescribeTaskSets) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ID or full Amazon Resource Name (ARN) of task sets to describe.
+describeTaskSets_taskSets :: Lens.Lens' DescribeTaskSets (Prelude.Maybe [Prelude.Text])
+describeTaskSets_taskSets = Lens.lens (\DescribeTaskSets' {taskSets} -> taskSets) (\s@DescribeTaskSets' {} a -> s {taskSets = a} :: DescribeTaskSets) Prelude.. Lens.mapping Lens.coerced
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the service that the task sets exist in.
@@ -142,15 +142,15 @@ instance Core.AWSRequest DescribeTaskSets where
 
 instance Prelude.Hashable DescribeTaskSets where
   hashWithSalt _salt DescribeTaskSets' {..} =
-    _salt `Prelude.hashWithSalt` taskSets
-      `Prelude.hashWithSalt` include
+    _salt `Prelude.hashWithSalt` include
+      `Prelude.hashWithSalt` taskSets
       `Prelude.hashWithSalt` cluster
       `Prelude.hashWithSalt` service
 
 instance Prelude.NFData DescribeTaskSets where
   rnf DescribeTaskSets' {..} =
-    Prelude.rnf taskSets
-      `Prelude.seq` Prelude.rnf include
+    Prelude.rnf include
+      `Prelude.seq` Prelude.rnf taskSets
       `Prelude.seq` Prelude.rnf cluster
       `Prelude.seq` Prelude.rnf service
 
@@ -173,8 +173,8 @@ instance Data.ToJSON DescribeTaskSets where
   toJSON DescribeTaskSets' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("taskSets" Data..=) Prelude.<$> taskSets,
-            ("include" Data..=) Prelude.<$> include,
+          [ ("include" Data..=) Prelude.<$> include,
+            ("taskSets" Data..=) Prelude.<$> taskSets,
             Prelude.Just ("cluster" Data..= cluster),
             Prelude.Just ("service" Data..= service)
           ]

@@ -39,10 +39,10 @@ module Amazonka.StorageGateway.CreateStorediSCSIVolume
     newCreateStorediSCSIVolume,
 
     -- * Request Lenses
-    createStorediSCSIVolume_tags,
-    createStorediSCSIVolume_snapshotId,
-    createStorediSCSIVolume_kmsKey,
     createStorediSCSIVolume_kmsEncrypted,
+    createStorediSCSIVolume_kmsKey,
+    createStorediSCSIVolume_snapshotId,
+    createStorediSCSIVolume_tags,
     createStorediSCSIVolume_gatewayARN,
     createStorediSCSIVolume_diskId,
     createStorediSCSIVolume_preserveExistingData,
@@ -54,9 +54,9 @@ module Amazonka.StorageGateway.CreateStorediSCSIVolume
     newCreateStorediSCSIVolumeResponse,
 
     -- * Response Lenses
-    createStorediSCSIVolumeResponse_volumeSizeInBytes,
     createStorediSCSIVolumeResponse_targetARN,
     createStorediSCSIVolumeResponse_volumeARN,
+    createStorediSCSIVolumeResponse_volumeSizeInBytes,
     createStorediSCSIVolumeResponse_httpStatus,
   )
 where
@@ -83,14 +83,16 @@ import Amazonka.StorageGateway.Types
 --
 -- /See:/ 'newCreateStorediSCSIVolume' smart constructor.
 data CreateStorediSCSIVolume = CreateStorediSCSIVolume'
-  { -- | A list of up to 50 tags that can be assigned to a stored volume. Each
-    -- tag is a key-value pair.
+  { -- | Set to @true@ to use Amazon S3 server-side encryption with your own KMS
+    -- key, or @false@ to use a key managed by Amazon S3. Optional.
     --
-    -- Valid characters for key and value are letters, spaces, and numbers
-    -- representable in UTF-8 format, and the following special characters: + -
-    -- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
-    -- the maximum length for a tag\'s value is 256.
-    tags :: Prelude.Maybe [Tag],
+    -- Valid Values: @true@ | @false@
+    kmsEncrypted :: Prelude.Maybe Prelude.Bool,
+    -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
+    -- used for Amazon S3 server-side encryption. Storage Gateway does not
+    -- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
+    -- is @true@. Optional.
+    kmsKey :: Prelude.Maybe Prelude.Text,
     -- | The snapshot ID (e.g., \"snap-1122aabb\") of the snapshot to restore as
     -- the new stored volume. Specify this field if you want to create the
     -- iSCSI storage volume from a snapshot; otherwise, do not include this
@@ -98,16 +100,14 @@ data CreateStorediSCSIVolume = CreateStorediSCSIVolume'
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots>
     -- in the /Amazon Elastic Compute Cloud API Reference/.
     snapshotId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
-    -- used for Amazon S3 server-side encryption. Storage Gateway does not
-    -- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
-    -- is @true@. Optional.
-    kmsKey :: Prelude.Maybe Prelude.Text,
-    -- | Set to @true@ to use Amazon S3 server-side encryption with your own KMS
-    -- key, or @false@ to use a key managed by Amazon S3. Optional.
+    -- | A list of up to 50 tags that can be assigned to a stored volume. Each
+    -- tag is a key-value pair.
     --
-    -- Valid Values: @true@ | @false@
-    kmsEncrypted :: Prelude.Maybe Prelude.Bool,
+    -- Valid characters for key and value are letters, spaces, and numbers
+    -- representable in UTF-8 format, and the following special characters: + -
+    -- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
+    -- the maximum length for a tag\'s value is 256.
+    tags :: Prelude.Maybe [Tag],
     gatewayARN :: Prelude.Text,
     -- | The unique identifier for the gateway local disk that is configured as a
     -- stored volume. Use
@@ -145,13 +145,15 @@ data CreateStorediSCSIVolume = CreateStorediSCSIVolume'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createStorediSCSIVolume_tags' - A list of up to 50 tags that can be assigned to a stored volume. Each
--- tag is a key-value pair.
+-- 'kmsEncrypted', 'createStorediSCSIVolume_kmsEncrypted' - Set to @true@ to use Amazon S3 server-side encryption with your own KMS
+-- key, or @false@ to use a key managed by Amazon S3. Optional.
 --
--- Valid characters for key and value are letters, spaces, and numbers
--- representable in UTF-8 format, and the following special characters: + -
--- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
--- the maximum length for a tag\'s value is 256.
+-- Valid Values: @true@ | @false@
+--
+-- 'kmsKey', 'createStorediSCSIVolume_kmsKey' - The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
+-- used for Amazon S3 server-side encryption. Storage Gateway does not
+-- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
+-- is @true@. Optional.
 --
 -- 'snapshotId', 'createStorediSCSIVolume_snapshotId' - The snapshot ID (e.g., \"snap-1122aabb\") of the snapshot to restore as
 -- the new stored volume. Specify this field if you want to create the
@@ -160,15 +162,13 @@ data CreateStorediSCSIVolume = CreateStorediSCSIVolume'
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots>
 -- in the /Amazon Elastic Compute Cloud API Reference/.
 --
--- 'kmsKey', 'createStorediSCSIVolume_kmsKey' - The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
--- used for Amazon S3 server-side encryption. Storage Gateway does not
--- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
--- is @true@. Optional.
+-- 'tags', 'createStorediSCSIVolume_tags' - A list of up to 50 tags that can be assigned to a stored volume. Each
+-- tag is a key-value pair.
 --
--- 'kmsEncrypted', 'createStorediSCSIVolume_kmsEncrypted' - Set to @true@ to use Amazon S3 server-side encryption with your own KMS
--- key, or @false@ to use a key managed by Amazon S3. Optional.
---
--- Valid Values: @true@ | @false@
+-- Valid characters for key and value are letters, spaces, and numbers
+-- representable in UTF-8 format, and the following special characters: + -
+-- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
+-- the maximum length for a tag\'s value is 256.
 --
 -- 'gatewayARN', 'createStorediSCSIVolume_gatewayARN' - Undocumented member.
 --
@@ -215,10 +215,11 @@ newCreateStorediSCSIVolume
   pTargetName_
   pNetworkInterfaceId_ =
     CreateStorediSCSIVolume'
-      { tags = Prelude.Nothing,
-        snapshotId = Prelude.Nothing,
+      { kmsEncrypted =
+          Prelude.Nothing,
         kmsKey = Prelude.Nothing,
-        kmsEncrypted = Prelude.Nothing,
+        snapshotId = Prelude.Nothing,
+        tags = Prelude.Nothing,
         gatewayARN = pGatewayARN_,
         diskId = pDiskId_,
         preserveExistingData = pPreserveExistingData_,
@@ -226,15 +227,19 @@ newCreateStorediSCSIVolume
         networkInterfaceId = pNetworkInterfaceId_
       }
 
--- | A list of up to 50 tags that can be assigned to a stored volume. Each
--- tag is a key-value pair.
+-- | Set to @true@ to use Amazon S3 server-side encryption with your own KMS
+-- key, or @false@ to use a key managed by Amazon S3. Optional.
 --
--- Valid characters for key and value are letters, spaces, and numbers
--- representable in UTF-8 format, and the following special characters: + -
--- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
--- the maximum length for a tag\'s value is 256.
-createStorediSCSIVolume_tags :: Lens.Lens' CreateStorediSCSIVolume (Prelude.Maybe [Tag])
-createStorediSCSIVolume_tags = Lens.lens (\CreateStorediSCSIVolume' {tags} -> tags) (\s@CreateStorediSCSIVolume' {} a -> s {tags = a} :: CreateStorediSCSIVolume) Prelude.. Lens.mapping Lens.coerced
+-- Valid Values: @true@ | @false@
+createStorediSCSIVolume_kmsEncrypted :: Lens.Lens' CreateStorediSCSIVolume (Prelude.Maybe Prelude.Bool)
+createStorediSCSIVolume_kmsEncrypted = Lens.lens (\CreateStorediSCSIVolume' {kmsEncrypted} -> kmsEncrypted) (\s@CreateStorediSCSIVolume' {} a -> s {kmsEncrypted = a} :: CreateStorediSCSIVolume)
+
+-- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
+-- used for Amazon S3 server-side encryption. Storage Gateway does not
+-- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
+-- is @true@. Optional.
+createStorediSCSIVolume_kmsKey :: Lens.Lens' CreateStorediSCSIVolume (Prelude.Maybe Prelude.Text)
+createStorediSCSIVolume_kmsKey = Lens.lens (\CreateStorediSCSIVolume' {kmsKey} -> kmsKey) (\s@CreateStorediSCSIVolume' {} a -> s {kmsKey = a} :: CreateStorediSCSIVolume)
 
 -- | The snapshot ID (e.g., \"snap-1122aabb\") of the snapshot to restore as
 -- the new stored volume. Specify this field if you want to create the
@@ -245,19 +250,15 @@ createStorediSCSIVolume_tags = Lens.lens (\CreateStorediSCSIVolume' {tags} -> ta
 createStorediSCSIVolume_snapshotId :: Lens.Lens' CreateStorediSCSIVolume (Prelude.Maybe Prelude.Text)
 createStorediSCSIVolume_snapshotId = Lens.lens (\CreateStorediSCSIVolume' {snapshotId} -> snapshotId) (\s@CreateStorediSCSIVolume' {} a -> s {snapshotId = a} :: CreateStorediSCSIVolume)
 
--- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
--- used for Amazon S3 server-side encryption. Storage Gateway does not
--- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
--- is @true@. Optional.
-createStorediSCSIVolume_kmsKey :: Lens.Lens' CreateStorediSCSIVolume (Prelude.Maybe Prelude.Text)
-createStorediSCSIVolume_kmsKey = Lens.lens (\CreateStorediSCSIVolume' {kmsKey} -> kmsKey) (\s@CreateStorediSCSIVolume' {} a -> s {kmsKey = a} :: CreateStorediSCSIVolume)
-
--- | Set to @true@ to use Amazon S3 server-side encryption with your own KMS
--- key, or @false@ to use a key managed by Amazon S3. Optional.
+-- | A list of up to 50 tags that can be assigned to a stored volume. Each
+-- tag is a key-value pair.
 --
--- Valid Values: @true@ | @false@
-createStorediSCSIVolume_kmsEncrypted :: Lens.Lens' CreateStorediSCSIVolume (Prelude.Maybe Prelude.Bool)
-createStorediSCSIVolume_kmsEncrypted = Lens.lens (\CreateStorediSCSIVolume' {kmsEncrypted} -> kmsEncrypted) (\s@CreateStorediSCSIVolume' {} a -> s {kmsEncrypted = a} :: CreateStorediSCSIVolume)
+-- Valid characters for key and value are letters, spaces, and numbers
+-- representable in UTF-8 format, and the following special characters: + -
+-- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
+-- the maximum length for a tag\'s value is 256.
+createStorediSCSIVolume_tags :: Lens.Lens' CreateStorediSCSIVolume (Prelude.Maybe [Tag])
+createStorediSCSIVolume_tags = Lens.lens (\CreateStorediSCSIVolume' {tags} -> tags) (\s@CreateStorediSCSIVolume' {} a -> s {tags = a} :: CreateStorediSCSIVolume) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 createStorediSCSIVolume_gatewayARN :: Lens.Lens' CreateStorediSCSIVolume Prelude.Text
@@ -306,18 +307,18 @@ instance Core.AWSRequest CreateStorediSCSIVolume where
     Response.receiveJSON
       ( \s h x ->
           CreateStorediSCSIVolumeResponse'
-            Prelude.<$> (x Data..?> "VolumeSizeInBytes")
-            Prelude.<*> (x Data..?> "TargetARN")
+            Prelude.<$> (x Data..?> "TargetARN")
             Prelude.<*> (x Data..?> "VolumeARN")
+            Prelude.<*> (x Data..?> "VolumeSizeInBytes")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateStorediSCSIVolume where
   hashWithSalt _salt CreateStorediSCSIVolume' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` snapshotId
+    _salt `Prelude.hashWithSalt` kmsEncrypted
       `Prelude.hashWithSalt` kmsKey
-      `Prelude.hashWithSalt` kmsEncrypted
+      `Prelude.hashWithSalt` snapshotId
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` gatewayARN
       `Prelude.hashWithSalt` diskId
       `Prelude.hashWithSalt` preserveExistingData
@@ -326,10 +327,10 @@ instance Prelude.Hashable CreateStorediSCSIVolume where
 
 instance Prelude.NFData CreateStorediSCSIVolume where
   rnf CreateStorediSCSIVolume' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf snapshotId
+    Prelude.rnf kmsEncrypted
       `Prelude.seq` Prelude.rnf kmsKey
-      `Prelude.seq` Prelude.rnf kmsEncrypted
+      `Prelude.seq` Prelude.rnf snapshotId
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf gatewayARN
       `Prelude.seq` Prelude.rnf diskId
       `Prelude.seq` Prelude.rnf preserveExistingData
@@ -355,10 +356,10 @@ instance Data.ToJSON CreateStorediSCSIVolume where
   toJSON CreateStorediSCSIVolume' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("SnapshotId" Data..=) Prelude.<$> snapshotId,
+          [ ("KMSEncrypted" Data..=) Prelude.<$> kmsEncrypted,
             ("KMSKey" Data..=) Prelude.<$> kmsKey,
-            ("KMSEncrypted" Data..=) Prelude.<$> kmsEncrypted,
+            ("SnapshotId" Data..=) Prelude.<$> snapshotId,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("GatewayARN" Data..= gatewayARN),
             Prelude.Just ("DiskId" Data..= diskId),
             Prelude.Just
@@ -381,13 +382,13 @@ instance Data.ToQuery CreateStorediSCSIVolume where
 --
 -- /See:/ 'newCreateStorediSCSIVolumeResponse' smart constructor.
 data CreateStorediSCSIVolumeResponse = CreateStorediSCSIVolumeResponse'
-  { -- | The size of the volume in bytes.
-    volumeSizeInBytes :: Prelude.Maybe Prelude.Integer,
-    -- | The Amazon Resource Name (ARN) of the volume target, which includes the
+  { -- | The Amazon Resource Name (ARN) of the volume target, which includes the
     -- iSCSI name that initiators can use to connect to the target.
     targetARN :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the configured volume.
     volumeARN :: Prelude.Maybe Prelude.Text,
+    -- | The size of the volume in bytes.
+    volumeSizeInBytes :: Prelude.Maybe Prelude.Integer,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -401,12 +402,12 @@ data CreateStorediSCSIVolumeResponse = CreateStorediSCSIVolumeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'volumeSizeInBytes', 'createStorediSCSIVolumeResponse_volumeSizeInBytes' - The size of the volume in bytes.
---
 -- 'targetARN', 'createStorediSCSIVolumeResponse_targetARN' - The Amazon Resource Name (ARN) of the volume target, which includes the
 -- iSCSI name that initiators can use to connect to the target.
 --
 -- 'volumeARN', 'createStorediSCSIVolumeResponse_volumeARN' - The Amazon Resource Name (ARN) of the configured volume.
+--
+-- 'volumeSizeInBytes', 'createStorediSCSIVolumeResponse_volumeSizeInBytes' - The size of the volume in bytes.
 --
 -- 'httpStatus', 'createStorediSCSIVolumeResponse_httpStatus' - The response's http status code.
 newCreateStorediSCSIVolumeResponse ::
@@ -415,16 +416,12 @@ newCreateStorediSCSIVolumeResponse ::
   CreateStorediSCSIVolumeResponse
 newCreateStorediSCSIVolumeResponse pHttpStatus_ =
   CreateStorediSCSIVolumeResponse'
-    { volumeSizeInBytes =
+    { targetARN =
         Prelude.Nothing,
-      targetARN = Prelude.Nothing,
       volumeARN = Prelude.Nothing,
+      volumeSizeInBytes = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The size of the volume in bytes.
-createStorediSCSIVolumeResponse_volumeSizeInBytes :: Lens.Lens' CreateStorediSCSIVolumeResponse (Prelude.Maybe Prelude.Integer)
-createStorediSCSIVolumeResponse_volumeSizeInBytes = Lens.lens (\CreateStorediSCSIVolumeResponse' {volumeSizeInBytes} -> volumeSizeInBytes) (\s@CreateStorediSCSIVolumeResponse' {} a -> s {volumeSizeInBytes = a} :: CreateStorediSCSIVolumeResponse)
 
 -- | The Amazon Resource Name (ARN) of the volume target, which includes the
 -- iSCSI name that initiators can use to connect to the target.
@@ -435,6 +432,10 @@ createStorediSCSIVolumeResponse_targetARN = Lens.lens (\CreateStorediSCSIVolumeR
 createStorediSCSIVolumeResponse_volumeARN :: Lens.Lens' CreateStorediSCSIVolumeResponse (Prelude.Maybe Prelude.Text)
 createStorediSCSIVolumeResponse_volumeARN = Lens.lens (\CreateStorediSCSIVolumeResponse' {volumeARN} -> volumeARN) (\s@CreateStorediSCSIVolumeResponse' {} a -> s {volumeARN = a} :: CreateStorediSCSIVolumeResponse)
 
+-- | The size of the volume in bytes.
+createStorediSCSIVolumeResponse_volumeSizeInBytes :: Lens.Lens' CreateStorediSCSIVolumeResponse (Prelude.Maybe Prelude.Integer)
+createStorediSCSIVolumeResponse_volumeSizeInBytes = Lens.lens (\CreateStorediSCSIVolumeResponse' {volumeSizeInBytes} -> volumeSizeInBytes) (\s@CreateStorediSCSIVolumeResponse' {} a -> s {volumeSizeInBytes = a} :: CreateStorediSCSIVolumeResponse)
+
 -- | The response's http status code.
 createStorediSCSIVolumeResponse_httpStatus :: Lens.Lens' CreateStorediSCSIVolumeResponse Prelude.Int
 createStorediSCSIVolumeResponse_httpStatus = Lens.lens (\CreateStorediSCSIVolumeResponse' {httpStatus} -> httpStatus) (\s@CreateStorediSCSIVolumeResponse' {} a -> s {httpStatus = a} :: CreateStorediSCSIVolumeResponse)
@@ -444,7 +445,7 @@ instance
     CreateStorediSCSIVolumeResponse
   where
   rnf CreateStorediSCSIVolumeResponse' {..} =
-    Prelude.rnf volumeSizeInBytes
-      `Prelude.seq` Prelude.rnf targetARN
+    Prelude.rnf targetARN
       `Prelude.seq` Prelude.rnf volumeARN
+      `Prelude.seq` Prelude.rnf volumeSizeInBytes
       `Prelude.seq` Prelude.rnf httpStatus

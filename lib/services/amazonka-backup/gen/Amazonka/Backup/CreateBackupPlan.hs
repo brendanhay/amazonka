@@ -41,10 +41,10 @@ module Amazonka.Backup.CreateBackupPlan
     newCreateBackupPlanResponse,
 
     -- * Response Lenses
-    createBackupPlanResponse_creationDate,
+    createBackupPlanResponse_advancedBackupSettings,
     createBackupPlanResponse_backupPlanArn,
     createBackupPlanResponse_backupPlanId,
-    createBackupPlanResponse_advancedBackupSettings,
+    createBackupPlanResponse_creationDate,
     createBackupPlanResponse_versionId,
     createBackupPlanResponse_httpStatus,
   )
@@ -142,12 +142,12 @@ instance Core.AWSRequest CreateBackupPlan where
     Response.receiveJSON
       ( \s h x ->
           CreateBackupPlanResponse'
-            Prelude.<$> (x Data..?> "CreationDate")
-            Prelude.<*> (x Data..?> "BackupPlanArn")
-            Prelude.<*> (x Data..?> "BackupPlanId")
-            Prelude.<*> ( x Data..?> "AdvancedBackupSettings"
+            Prelude.<$> ( x Data..?> "AdvancedBackupSettings"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "BackupPlanArn")
+            Prelude.<*> (x Data..?> "BackupPlanId")
+            Prelude.<*> (x Data..?> "CreationDate")
             Prelude.<*> (x Data..?> "VersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -195,20 +195,20 @@ instance Data.ToQuery CreateBackupPlan where
 
 -- | /See:/ 'newCreateBackupPlanResponse' smart constructor.
 data CreateBackupPlanResponse = CreateBackupPlanResponse'
-  { -- | The date and time that a backup plan is created, in Unix format and
-    -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
-    -- accurate to milliseconds. For example, the value 1516925490.087
-    -- represents Friday, January 26, 2018 12:11:30.087 AM.
-    creationDate :: Prelude.Maybe Data.POSIX,
+  { -- | A list of @BackupOptions@ settings for a resource type. This option is
+    -- only available for Windows Volume Shadow Copy Service (VSS) backup jobs.
+    advancedBackupSettings :: Prelude.Maybe [AdvancedBackupSetting],
     -- | An Amazon Resource Name (ARN) that uniquely identifies a backup plan;
     -- for example,
     -- @arn:aws:backup:us-east-1:123456789012:plan:8F81F553-3A74-4A3F-B93D-B3360DC80C50@.
     backupPlanArn :: Prelude.Maybe Prelude.Text,
     -- | Uniquely identifies a backup plan.
     backupPlanId :: Prelude.Maybe Prelude.Text,
-    -- | A list of @BackupOptions@ settings for a resource type. This option is
-    -- only available for Windows Volume Shadow Copy Service (VSS) backup jobs.
-    advancedBackupSettings :: Prelude.Maybe [AdvancedBackupSetting],
+    -- | The date and time that a backup plan is created, in Unix format and
+    -- Coordinated Universal Time (UTC). The value of @CreationDate@ is
+    -- accurate to milliseconds. For example, the value 1516925490.087
+    -- represents Friday, January 26, 2018 12:11:30.087 AM.
+    creationDate :: Prelude.Maybe Data.POSIX,
     -- | Unique, randomly generated, Unicode, UTF-8 encoded strings that are at
     -- most 1,024 bytes long. They cannot be edited.
     versionId :: Prelude.Maybe Prelude.Text,
@@ -225,10 +225,8 @@ data CreateBackupPlanResponse = CreateBackupPlanResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationDate', 'createBackupPlanResponse_creationDate' - The date and time that a backup plan is created, in Unix format and
--- Coordinated Universal Time (UTC). The value of @CreationDate@ is
--- accurate to milliseconds. For example, the value 1516925490.087
--- represents Friday, January 26, 2018 12:11:30.087 AM.
+-- 'advancedBackupSettings', 'createBackupPlanResponse_advancedBackupSettings' - A list of @BackupOptions@ settings for a resource type. This option is
+-- only available for Windows Volume Shadow Copy Service (VSS) backup jobs.
 --
 -- 'backupPlanArn', 'createBackupPlanResponse_backupPlanArn' - An Amazon Resource Name (ARN) that uniquely identifies a backup plan;
 -- for example,
@@ -236,8 +234,10 @@ data CreateBackupPlanResponse = CreateBackupPlanResponse'
 --
 -- 'backupPlanId', 'createBackupPlanResponse_backupPlanId' - Uniquely identifies a backup plan.
 --
--- 'advancedBackupSettings', 'createBackupPlanResponse_advancedBackupSettings' - A list of @BackupOptions@ settings for a resource type. This option is
--- only available for Windows Volume Shadow Copy Service (VSS) backup jobs.
+-- 'creationDate', 'createBackupPlanResponse_creationDate' - The date and time that a backup plan is created, in Unix format and
+-- Coordinated Universal Time (UTC). The value of @CreationDate@ is
+-- accurate to milliseconds. For example, the value 1516925490.087
+-- represents Friday, January 26, 2018 12:11:30.087 AM.
 --
 -- 'versionId', 'createBackupPlanResponse_versionId' - Unique, randomly generated, Unicode, UTF-8 encoded strings that are at
 -- most 1,024 bytes long. They cannot be edited.
@@ -249,21 +249,19 @@ newCreateBackupPlanResponse ::
   CreateBackupPlanResponse
 newCreateBackupPlanResponse pHttpStatus_ =
   CreateBackupPlanResponse'
-    { creationDate =
+    { advancedBackupSettings =
         Prelude.Nothing,
       backupPlanArn = Prelude.Nothing,
       backupPlanId = Prelude.Nothing,
-      advancedBackupSettings = Prelude.Nothing,
+      creationDate = Prelude.Nothing,
       versionId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The date and time that a backup plan is created, in Unix format and
--- Coordinated Universal Time (UTC). The value of @CreationDate@ is
--- accurate to milliseconds. For example, the value 1516925490.087
--- represents Friday, January 26, 2018 12:11:30.087 AM.
-createBackupPlanResponse_creationDate :: Lens.Lens' CreateBackupPlanResponse (Prelude.Maybe Prelude.UTCTime)
-createBackupPlanResponse_creationDate = Lens.lens (\CreateBackupPlanResponse' {creationDate} -> creationDate) (\s@CreateBackupPlanResponse' {} a -> s {creationDate = a} :: CreateBackupPlanResponse) Prelude.. Lens.mapping Data._Time
+-- | A list of @BackupOptions@ settings for a resource type. This option is
+-- only available for Windows Volume Shadow Copy Service (VSS) backup jobs.
+createBackupPlanResponse_advancedBackupSettings :: Lens.Lens' CreateBackupPlanResponse (Prelude.Maybe [AdvancedBackupSetting])
+createBackupPlanResponse_advancedBackupSettings = Lens.lens (\CreateBackupPlanResponse' {advancedBackupSettings} -> advancedBackupSettings) (\s@CreateBackupPlanResponse' {} a -> s {advancedBackupSettings = a} :: CreateBackupPlanResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An Amazon Resource Name (ARN) that uniquely identifies a backup plan;
 -- for example,
@@ -275,10 +273,12 @@ createBackupPlanResponse_backupPlanArn = Lens.lens (\CreateBackupPlanResponse' {
 createBackupPlanResponse_backupPlanId :: Lens.Lens' CreateBackupPlanResponse (Prelude.Maybe Prelude.Text)
 createBackupPlanResponse_backupPlanId = Lens.lens (\CreateBackupPlanResponse' {backupPlanId} -> backupPlanId) (\s@CreateBackupPlanResponse' {} a -> s {backupPlanId = a} :: CreateBackupPlanResponse)
 
--- | A list of @BackupOptions@ settings for a resource type. This option is
--- only available for Windows Volume Shadow Copy Service (VSS) backup jobs.
-createBackupPlanResponse_advancedBackupSettings :: Lens.Lens' CreateBackupPlanResponse (Prelude.Maybe [AdvancedBackupSetting])
-createBackupPlanResponse_advancedBackupSettings = Lens.lens (\CreateBackupPlanResponse' {advancedBackupSettings} -> advancedBackupSettings) (\s@CreateBackupPlanResponse' {} a -> s {advancedBackupSettings = a} :: CreateBackupPlanResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The date and time that a backup plan is created, in Unix format and
+-- Coordinated Universal Time (UTC). The value of @CreationDate@ is
+-- accurate to milliseconds. For example, the value 1516925490.087
+-- represents Friday, January 26, 2018 12:11:30.087 AM.
+createBackupPlanResponse_creationDate :: Lens.Lens' CreateBackupPlanResponse (Prelude.Maybe Prelude.UTCTime)
+createBackupPlanResponse_creationDate = Lens.lens (\CreateBackupPlanResponse' {creationDate} -> creationDate) (\s@CreateBackupPlanResponse' {} a -> s {creationDate = a} :: CreateBackupPlanResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Unique, randomly generated, Unicode, UTF-8 encoded strings that are at
 -- most 1,024 bytes long. They cannot be edited.
@@ -291,9 +291,9 @@ createBackupPlanResponse_httpStatus = Lens.lens (\CreateBackupPlanResponse' {htt
 
 instance Prelude.NFData CreateBackupPlanResponse where
   rnf CreateBackupPlanResponse' {..} =
-    Prelude.rnf creationDate
+    Prelude.rnf advancedBackupSettings
       `Prelude.seq` Prelude.rnf backupPlanArn
       `Prelude.seq` Prelude.rnf backupPlanId
-      `Prelude.seq` Prelude.rnf advancedBackupSettings
+      `Prelude.seq` Prelude.rnf creationDate
       `Prelude.seq` Prelude.rnf versionId
       `Prelude.seq` Prelude.rnf httpStatus

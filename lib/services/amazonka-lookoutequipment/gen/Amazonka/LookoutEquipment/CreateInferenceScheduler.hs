@@ -32,9 +32,9 @@ module Amazonka.LookoutEquipment.CreateInferenceScheduler
     newCreateInferenceScheduler,
 
     -- * Request Lenses
-    createInferenceScheduler_tags,
-    createInferenceScheduler_serverSideKmsKeyId,
     createInferenceScheduler_dataDelayOffsetInMinutes,
+    createInferenceScheduler_serverSideKmsKeyId,
+    createInferenceScheduler_tags,
     createInferenceScheduler_modelName,
     createInferenceScheduler_inferenceSchedulerName,
     createInferenceScheduler_dataUploadFrequency,
@@ -48,9 +48,9 @@ module Amazonka.LookoutEquipment.CreateInferenceScheduler
     newCreateInferenceSchedulerResponse,
 
     -- * Response Lenses
+    createInferenceSchedulerResponse_inferenceSchedulerArn,
     createInferenceSchedulerResponse_inferenceSchedulerName,
     createInferenceSchedulerResponse_status,
-    createInferenceSchedulerResponse_inferenceSchedulerArn,
     createInferenceSchedulerResponse_httpStatus,
   )
 where
@@ -65,12 +65,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateInferenceScheduler' smart constructor.
 data CreateInferenceScheduler = CreateInferenceScheduler'
-  { -- | Any tags associated with the inference scheduler.
-    tags :: Prelude.Maybe [Tag],
-    -- | Provides the identifier of the KMS key used to encrypt inference
-    -- scheduler data by Amazon Lookout for Equipment.
-    serverSideKmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The interval (in minutes) of planned delay at the start of each
+  { -- | The interval (in minutes) of planned delay at the start of each
     -- inference segment. For example, if inference is set to run every ten
     -- minutes, the delay is set to five minutes and the time is 09:08. The
     -- inference scheduler will wake up at the configured interval (which,
@@ -83,6 +78,11 @@ data CreateInferenceScheduler = CreateInferenceScheduler'
     -- For more information, see
     -- <https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/understanding-inference-process.html Understanding the inference process>.
     dataDelayOffsetInMinutes :: Prelude.Maybe Prelude.Natural,
+    -- | Provides the identifier of the KMS key used to encrypt inference
+    -- scheduler data by Amazon Lookout for Equipment.
+    serverSideKmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | Any tags associated with the inference scheduler.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the previously trained ML model being used to create the
     -- inference scheduler.
     modelName :: Prelude.Text,
@@ -121,11 +121,6 @@ data CreateInferenceScheduler = CreateInferenceScheduler'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createInferenceScheduler_tags' - Any tags associated with the inference scheduler.
---
--- 'serverSideKmsKeyId', 'createInferenceScheduler_serverSideKmsKeyId' - Provides the identifier of the KMS key used to encrypt inference
--- scheduler data by Amazon Lookout for Equipment.
---
 -- 'dataDelayOffsetInMinutes', 'createInferenceScheduler_dataDelayOffsetInMinutes' - The interval (in minutes) of planned delay at the start of each
 -- inference segment. For example, if inference is set to run every ten
 -- minutes, the delay is set to five minutes and the time is 09:08. The
@@ -138,6 +133,11 @@ data CreateInferenceScheduler = CreateInferenceScheduler'
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/understanding-inference-process.html Understanding the inference process>.
+--
+-- 'serverSideKmsKeyId', 'createInferenceScheduler_serverSideKmsKeyId' - Provides the identifier of the KMS key used to encrypt inference
+-- scheduler data by Amazon Lookout for Equipment.
+--
+-- 'tags', 'createInferenceScheduler_tags' - Any tags associated with the inference scheduler.
 --
 -- 'modelName', 'createInferenceScheduler_modelName' - The name of the previously trained ML model being used to create the
 -- inference scheduler.
@@ -190,9 +190,10 @@ newCreateInferenceScheduler
   pRoleArn_
   pClientToken_ =
     CreateInferenceScheduler'
-      { tags = Prelude.Nothing,
+      { dataDelayOffsetInMinutes =
+          Prelude.Nothing,
         serverSideKmsKeyId = Prelude.Nothing,
-        dataDelayOffsetInMinutes = Prelude.Nothing,
+        tags = Prelude.Nothing,
         modelName = pModelName_,
         inferenceSchedulerName = pInferenceSchedulerName_,
         dataUploadFrequency = pDataUploadFrequency_,
@@ -202,15 +203,6 @@ newCreateInferenceScheduler
         roleArn = pRoleArn_,
         clientToken = pClientToken_
       }
-
--- | Any tags associated with the inference scheduler.
-createInferenceScheduler_tags :: Lens.Lens' CreateInferenceScheduler (Prelude.Maybe [Tag])
-createInferenceScheduler_tags = Lens.lens (\CreateInferenceScheduler' {tags} -> tags) (\s@CreateInferenceScheduler' {} a -> s {tags = a} :: CreateInferenceScheduler) Prelude.. Lens.mapping Lens.coerced
-
--- | Provides the identifier of the KMS key used to encrypt inference
--- scheduler data by Amazon Lookout for Equipment.
-createInferenceScheduler_serverSideKmsKeyId :: Lens.Lens' CreateInferenceScheduler (Prelude.Maybe Prelude.Text)
-createInferenceScheduler_serverSideKmsKeyId = Lens.lens (\CreateInferenceScheduler' {serverSideKmsKeyId} -> serverSideKmsKeyId) (\s@CreateInferenceScheduler' {} a -> s {serverSideKmsKeyId = a} :: CreateInferenceScheduler)
 
 -- | The interval (in minutes) of planned delay at the start of each
 -- inference segment. For example, if inference is set to run every ten
@@ -226,6 +218,15 @@ createInferenceScheduler_serverSideKmsKeyId = Lens.lens (\CreateInferenceSchedul
 -- <https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/understanding-inference-process.html Understanding the inference process>.
 createInferenceScheduler_dataDelayOffsetInMinutes :: Lens.Lens' CreateInferenceScheduler (Prelude.Maybe Prelude.Natural)
 createInferenceScheduler_dataDelayOffsetInMinutes = Lens.lens (\CreateInferenceScheduler' {dataDelayOffsetInMinutes} -> dataDelayOffsetInMinutes) (\s@CreateInferenceScheduler' {} a -> s {dataDelayOffsetInMinutes = a} :: CreateInferenceScheduler)
+
+-- | Provides the identifier of the KMS key used to encrypt inference
+-- scheduler data by Amazon Lookout for Equipment.
+createInferenceScheduler_serverSideKmsKeyId :: Lens.Lens' CreateInferenceScheduler (Prelude.Maybe Prelude.Text)
+createInferenceScheduler_serverSideKmsKeyId = Lens.lens (\CreateInferenceScheduler' {serverSideKmsKeyId} -> serverSideKmsKeyId) (\s@CreateInferenceScheduler' {} a -> s {serverSideKmsKeyId = a} :: CreateInferenceScheduler)
+
+-- | Any tags associated with the inference scheduler.
+createInferenceScheduler_tags :: Lens.Lens' CreateInferenceScheduler (Prelude.Maybe [Tag])
+createInferenceScheduler_tags = Lens.lens (\CreateInferenceScheduler' {tags} -> tags) (\s@CreateInferenceScheduler' {} a -> s {tags = a} :: CreateInferenceScheduler) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the previously trained ML model being used to create the
 -- inference scheduler.
@@ -278,17 +279,18 @@ instance Core.AWSRequest CreateInferenceScheduler where
     Response.receiveJSON
       ( \s h x ->
           CreateInferenceSchedulerResponse'
-            Prelude.<$> (x Data..?> "InferenceSchedulerName")
+            Prelude.<$> (x Data..?> "InferenceSchedulerArn")
+            Prelude.<*> (x Data..?> "InferenceSchedulerName")
             Prelude.<*> (x Data..?> "Status")
-            Prelude.<*> (x Data..?> "InferenceSchedulerArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateInferenceScheduler where
   hashWithSalt _salt CreateInferenceScheduler' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` serverSideKmsKeyId
+    _salt
       `Prelude.hashWithSalt` dataDelayOffsetInMinutes
+      `Prelude.hashWithSalt` serverSideKmsKeyId
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` modelName
       `Prelude.hashWithSalt` inferenceSchedulerName
       `Prelude.hashWithSalt` dataUploadFrequency
@@ -299,9 +301,9 @@ instance Prelude.Hashable CreateInferenceScheduler where
 
 instance Prelude.NFData CreateInferenceScheduler where
   rnf CreateInferenceScheduler' {..} =
-    Prelude.rnf tags
+    Prelude.rnf dataDelayOffsetInMinutes
       `Prelude.seq` Prelude.rnf serverSideKmsKeyId
-      `Prelude.seq` Prelude.rnf dataDelayOffsetInMinutes
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf modelName
       `Prelude.seq` Prelude.rnf inferenceSchedulerName
       `Prelude.seq` Prelude.rnf dataUploadFrequency
@@ -329,11 +331,11 @@ instance Data.ToJSON CreateInferenceScheduler where
   toJSON CreateInferenceScheduler' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
+          [ ("DataDelayOffsetInMinutes" Data..=)
+              Prelude.<$> dataDelayOffsetInMinutes,
             ("ServerSideKmsKeyId" Data..=)
               Prelude.<$> serverSideKmsKeyId,
-            ("DataDelayOffsetInMinutes" Data..=)
-              Prelude.<$> dataDelayOffsetInMinutes,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("ModelName" Data..= modelName),
             Prelude.Just
               ( "InferenceSchedulerName"
@@ -362,12 +364,12 @@ instance Data.ToQuery CreateInferenceScheduler where
 
 -- | /See:/ 'newCreateInferenceSchedulerResponse' smart constructor.
 data CreateInferenceSchedulerResponse = CreateInferenceSchedulerResponse'
-  { -- | The name of inference scheduler being created.
+  { -- | The Amazon Resource Name (ARN) of the inference scheduler being created.
+    inferenceSchedulerArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of inference scheduler being created.
     inferenceSchedulerName :: Prelude.Maybe Prelude.Text,
     -- | Indicates the status of the @CreateInferenceScheduler@ operation.
     status :: Prelude.Maybe InferenceSchedulerStatus,
-    -- | The Amazon Resource Name (ARN) of the inference scheduler being created.
-    inferenceSchedulerArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -381,11 +383,11 @@ data CreateInferenceSchedulerResponse = CreateInferenceSchedulerResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'inferenceSchedulerArn', 'createInferenceSchedulerResponse_inferenceSchedulerArn' - The Amazon Resource Name (ARN) of the inference scheduler being created.
+--
 -- 'inferenceSchedulerName', 'createInferenceSchedulerResponse_inferenceSchedulerName' - The name of inference scheduler being created.
 --
 -- 'status', 'createInferenceSchedulerResponse_status' - Indicates the status of the @CreateInferenceScheduler@ operation.
---
--- 'inferenceSchedulerArn', 'createInferenceSchedulerResponse_inferenceSchedulerArn' - The Amazon Resource Name (ARN) of the inference scheduler being created.
 --
 -- 'httpStatus', 'createInferenceSchedulerResponse_httpStatus' - The response's http status code.
 newCreateInferenceSchedulerResponse ::
@@ -394,12 +396,16 @@ newCreateInferenceSchedulerResponse ::
   CreateInferenceSchedulerResponse
 newCreateInferenceSchedulerResponse pHttpStatus_ =
   CreateInferenceSchedulerResponse'
-    { inferenceSchedulerName =
+    { inferenceSchedulerArn =
         Prelude.Nothing,
+      inferenceSchedulerName = Prelude.Nothing,
       status = Prelude.Nothing,
-      inferenceSchedulerArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Amazon Resource Name (ARN) of the inference scheduler being created.
+createInferenceSchedulerResponse_inferenceSchedulerArn :: Lens.Lens' CreateInferenceSchedulerResponse (Prelude.Maybe Prelude.Text)
+createInferenceSchedulerResponse_inferenceSchedulerArn = Lens.lens (\CreateInferenceSchedulerResponse' {inferenceSchedulerArn} -> inferenceSchedulerArn) (\s@CreateInferenceSchedulerResponse' {} a -> s {inferenceSchedulerArn = a} :: CreateInferenceSchedulerResponse)
 
 -- | The name of inference scheduler being created.
 createInferenceSchedulerResponse_inferenceSchedulerName :: Lens.Lens' CreateInferenceSchedulerResponse (Prelude.Maybe Prelude.Text)
@@ -408,10 +414,6 @@ createInferenceSchedulerResponse_inferenceSchedulerName = Lens.lens (\CreateInfe
 -- | Indicates the status of the @CreateInferenceScheduler@ operation.
 createInferenceSchedulerResponse_status :: Lens.Lens' CreateInferenceSchedulerResponse (Prelude.Maybe InferenceSchedulerStatus)
 createInferenceSchedulerResponse_status = Lens.lens (\CreateInferenceSchedulerResponse' {status} -> status) (\s@CreateInferenceSchedulerResponse' {} a -> s {status = a} :: CreateInferenceSchedulerResponse)
-
--- | The Amazon Resource Name (ARN) of the inference scheduler being created.
-createInferenceSchedulerResponse_inferenceSchedulerArn :: Lens.Lens' CreateInferenceSchedulerResponse (Prelude.Maybe Prelude.Text)
-createInferenceSchedulerResponse_inferenceSchedulerArn = Lens.lens (\CreateInferenceSchedulerResponse' {inferenceSchedulerArn} -> inferenceSchedulerArn) (\s@CreateInferenceSchedulerResponse' {} a -> s {inferenceSchedulerArn = a} :: CreateInferenceSchedulerResponse)
 
 -- | The response's http status code.
 createInferenceSchedulerResponse_httpStatus :: Lens.Lens' CreateInferenceSchedulerResponse Prelude.Int
@@ -422,7 +424,7 @@ instance
     CreateInferenceSchedulerResponse
   where
   rnf CreateInferenceSchedulerResponse' {..} =
-    Prelude.rnf inferenceSchedulerName
+    Prelude.rnf inferenceSchedulerArn
+      `Prelude.seq` Prelude.rnf inferenceSchedulerName
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf inferenceSchedulerArn
       `Prelude.seq` Prelude.rnf httpStatus

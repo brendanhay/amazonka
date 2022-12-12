@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEcrRepositoryLifecyclePolicyDetails' smart constructor.
 data AwsEcrRepositoryLifecyclePolicyDetails = AwsEcrRepositoryLifecyclePolicyDetails'
-  { -- | The Amazon Web Services account identifier that is associated with the
+  { -- | The text of the lifecycle policy.
+    lifecyclePolicyText :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services account identifier that is associated with the
     -- registry that contains the repository.
-    registryId :: Prelude.Maybe Prelude.Text,
-    -- | The text of the lifecycle policy.
-    lifecyclePolicyText :: Prelude.Maybe Prelude.Text
+    registryId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,28 +44,27 @@ data AwsEcrRepositoryLifecyclePolicyDetails = AwsEcrRepositoryLifecyclePolicyDet
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'lifecyclePolicyText', 'awsEcrRepositoryLifecyclePolicyDetails_lifecyclePolicyText' - The text of the lifecycle policy.
+--
 -- 'registryId', 'awsEcrRepositoryLifecyclePolicyDetails_registryId' - The Amazon Web Services account identifier that is associated with the
 -- registry that contains the repository.
---
--- 'lifecyclePolicyText', 'awsEcrRepositoryLifecyclePolicyDetails_lifecyclePolicyText' - The text of the lifecycle policy.
 newAwsEcrRepositoryLifecyclePolicyDetails ::
   AwsEcrRepositoryLifecyclePolicyDetails
 newAwsEcrRepositoryLifecyclePolicyDetails =
   AwsEcrRepositoryLifecyclePolicyDetails'
-    { registryId =
+    { lifecyclePolicyText =
         Prelude.Nothing,
-      lifecyclePolicyText =
-        Prelude.Nothing
+      registryId = Prelude.Nothing
     }
+
+-- | The text of the lifecycle policy.
+awsEcrRepositoryLifecyclePolicyDetails_lifecyclePolicyText :: Lens.Lens' AwsEcrRepositoryLifecyclePolicyDetails (Prelude.Maybe Prelude.Text)
+awsEcrRepositoryLifecyclePolicyDetails_lifecyclePolicyText = Lens.lens (\AwsEcrRepositoryLifecyclePolicyDetails' {lifecyclePolicyText} -> lifecyclePolicyText) (\s@AwsEcrRepositoryLifecyclePolicyDetails' {} a -> s {lifecyclePolicyText = a} :: AwsEcrRepositoryLifecyclePolicyDetails)
 
 -- | The Amazon Web Services account identifier that is associated with the
 -- registry that contains the repository.
 awsEcrRepositoryLifecyclePolicyDetails_registryId :: Lens.Lens' AwsEcrRepositoryLifecyclePolicyDetails (Prelude.Maybe Prelude.Text)
 awsEcrRepositoryLifecyclePolicyDetails_registryId = Lens.lens (\AwsEcrRepositoryLifecyclePolicyDetails' {registryId} -> registryId) (\s@AwsEcrRepositoryLifecyclePolicyDetails' {} a -> s {registryId = a} :: AwsEcrRepositoryLifecyclePolicyDetails)
-
--- | The text of the lifecycle policy.
-awsEcrRepositoryLifecyclePolicyDetails_lifecyclePolicyText :: Lens.Lens' AwsEcrRepositoryLifecyclePolicyDetails (Prelude.Maybe Prelude.Text)
-awsEcrRepositoryLifecyclePolicyDetails_lifecyclePolicyText = Lens.lens (\AwsEcrRepositoryLifecyclePolicyDetails' {lifecyclePolicyText} -> lifecyclePolicyText) (\s@AwsEcrRepositoryLifecyclePolicyDetails' {} a -> s {lifecyclePolicyText = a} :: AwsEcrRepositoryLifecyclePolicyDetails)
 
 instance
   Data.FromJSON
@@ -76,8 +75,8 @@ instance
       "AwsEcrRepositoryLifecyclePolicyDetails"
       ( \x ->
           AwsEcrRepositoryLifecyclePolicyDetails'
-            Prelude.<$> (x Data..:? "RegistryId")
-            Prelude.<*> (x Data..:? "LifecyclePolicyText")
+            Prelude.<$> (x Data..:? "LifecyclePolicyText")
+            Prelude.<*> (x Data..:? "RegistryId")
       )
 
 instance
@@ -87,16 +86,16 @@ instance
   hashWithSalt
     _salt
     AwsEcrRepositoryLifecyclePolicyDetails' {..} =
-      _salt `Prelude.hashWithSalt` registryId
-        `Prelude.hashWithSalt` lifecyclePolicyText
+      _salt `Prelude.hashWithSalt` lifecyclePolicyText
+        `Prelude.hashWithSalt` registryId
 
 instance
   Prelude.NFData
     AwsEcrRepositoryLifecyclePolicyDetails
   where
   rnf AwsEcrRepositoryLifecyclePolicyDetails' {..} =
-    Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf lifecyclePolicyText
+    Prelude.rnf lifecyclePolicyText
+      `Prelude.seq` Prelude.rnf registryId
 
 instance
   Data.ToJSON
@@ -105,8 +104,8 @@ instance
   toJSON AwsEcrRepositoryLifecyclePolicyDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("RegistryId" Data..=) Prelude.<$> registryId,
-            ("LifecyclePolicyText" Data..=)
-              Prelude.<$> lifecyclePolicyText
+          [ ("LifecyclePolicyText" Data..=)
+              Prelude.<$> lifecyclePolicyText,
+            ("RegistryId" Data..=) Prelude.<$> registryId
           ]
       )

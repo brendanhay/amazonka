@@ -20,56 +20,56 @@ module Amazonka.LicenseManager
     -- * Errors
     -- $errors
 
-    -- ** RateLimitExceededException
-    _RateLimitExceededException,
-
-    -- ** LicenseUsageException
-    _LicenseUsageException,
+    -- ** AccessDeniedException
+    _AccessDeniedException,
 
     -- ** AuthorizationException
     _AuthorizationException,
 
-    -- ** AccessDeniedException
-    _AccessDeniedException,
-
-    -- ** InvalidResourceStateException
-    _InvalidResourceStateException,
-
-    -- ** ServerInternalException
-    _ServerInternalException,
-
-    -- ** FailedDependencyException
-    _FailedDependencyException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** UnsupportedDigitalSignatureMethodException
-    _UnsupportedDigitalSignatureMethodException,
-
-    -- ** FilterLimitExceededException
-    _FilterLimitExceededException,
-
-    -- ** ResourceLimitExceededException
-    _ResourceLimitExceededException,
-
     -- ** ConflictException
     _ConflictException,
-
-    -- ** NoEntitlementsAllowedException
-    _NoEntitlementsAllowedException,
-
-    -- ** ValidationException
-    _ValidationException,
 
     -- ** EntitlementNotAllowedException
     _EntitlementNotAllowedException,
 
-    -- ** RedirectException
-    _RedirectException,
+    -- ** FailedDependencyException
+    _FailedDependencyException,
+
+    -- ** FilterLimitExceededException
+    _FilterLimitExceededException,
 
     -- ** InvalidParameterValueException
     _InvalidParameterValueException,
+
+    -- ** InvalidResourceStateException
+    _InvalidResourceStateException,
+
+    -- ** LicenseUsageException
+    _LicenseUsageException,
+
+    -- ** NoEntitlementsAllowedException
+    _NoEntitlementsAllowedException,
+
+    -- ** RateLimitExceededException
+    _RateLimitExceededException,
+
+    -- ** RedirectException
+    _RedirectException,
+
+    -- ** ResourceLimitExceededException
+    _ResourceLimitExceededException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ServerInternalException
+    _ServerInternalException,
+
+    -- ** UnsupportedDigitalSignatureMethodException
+    _UnsupportedDigitalSignatureMethodException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters

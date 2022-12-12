@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJobLogEventData' smart constructor.
 data JobLogEventData = JobLogEventData'
-  { -- | Job Event Target instance ID.
-    targetInstanceID :: Prelude.Maybe Prelude.Text,
+  { -- | Job Event conversion Server ID.
+    conversionServerID :: Prelude.Maybe Prelude.Text,
     -- | Job error.
     rawError :: Prelude.Maybe Prelude.Text,
-    -- | Job Event conversion Server ID.
-    conversionServerID :: Prelude.Maybe Prelude.Text,
     -- | Job Event Source Server ID.
-    sourceServerID :: Prelude.Maybe Prelude.Text
+    sourceServerID :: Prelude.Maybe Prelude.Text,
+    -- | Job Event Target instance ID.
+    targetInstanceID :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,39 +47,39 @@ data JobLogEventData = JobLogEventData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetInstanceID', 'jobLogEventData_targetInstanceID' - Job Event Target instance ID.
+-- 'conversionServerID', 'jobLogEventData_conversionServerID' - Job Event conversion Server ID.
 --
 -- 'rawError', 'jobLogEventData_rawError' - Job error.
 --
--- 'conversionServerID', 'jobLogEventData_conversionServerID' - Job Event conversion Server ID.
---
 -- 'sourceServerID', 'jobLogEventData_sourceServerID' - Job Event Source Server ID.
+--
+-- 'targetInstanceID', 'jobLogEventData_targetInstanceID' - Job Event Target instance ID.
 newJobLogEventData ::
   JobLogEventData
 newJobLogEventData =
   JobLogEventData'
-    { targetInstanceID =
+    { conversionServerID =
         Prelude.Nothing,
       rawError = Prelude.Nothing,
-      conversionServerID = Prelude.Nothing,
-      sourceServerID = Prelude.Nothing
+      sourceServerID = Prelude.Nothing,
+      targetInstanceID = Prelude.Nothing
     }
-
--- | Job Event Target instance ID.
-jobLogEventData_targetInstanceID :: Lens.Lens' JobLogEventData (Prelude.Maybe Prelude.Text)
-jobLogEventData_targetInstanceID = Lens.lens (\JobLogEventData' {targetInstanceID} -> targetInstanceID) (\s@JobLogEventData' {} a -> s {targetInstanceID = a} :: JobLogEventData)
-
--- | Job error.
-jobLogEventData_rawError :: Lens.Lens' JobLogEventData (Prelude.Maybe Prelude.Text)
-jobLogEventData_rawError = Lens.lens (\JobLogEventData' {rawError} -> rawError) (\s@JobLogEventData' {} a -> s {rawError = a} :: JobLogEventData)
 
 -- | Job Event conversion Server ID.
 jobLogEventData_conversionServerID :: Lens.Lens' JobLogEventData (Prelude.Maybe Prelude.Text)
 jobLogEventData_conversionServerID = Lens.lens (\JobLogEventData' {conversionServerID} -> conversionServerID) (\s@JobLogEventData' {} a -> s {conversionServerID = a} :: JobLogEventData)
 
+-- | Job error.
+jobLogEventData_rawError :: Lens.Lens' JobLogEventData (Prelude.Maybe Prelude.Text)
+jobLogEventData_rawError = Lens.lens (\JobLogEventData' {rawError} -> rawError) (\s@JobLogEventData' {} a -> s {rawError = a} :: JobLogEventData)
+
 -- | Job Event Source Server ID.
 jobLogEventData_sourceServerID :: Lens.Lens' JobLogEventData (Prelude.Maybe Prelude.Text)
 jobLogEventData_sourceServerID = Lens.lens (\JobLogEventData' {sourceServerID} -> sourceServerID) (\s@JobLogEventData' {} a -> s {sourceServerID = a} :: JobLogEventData)
+
+-- | Job Event Target instance ID.
+jobLogEventData_targetInstanceID :: Lens.Lens' JobLogEventData (Prelude.Maybe Prelude.Text)
+jobLogEventData_targetInstanceID = Lens.lens (\JobLogEventData' {targetInstanceID} -> targetInstanceID) (\s@JobLogEventData' {} a -> s {targetInstanceID = a} :: JobLogEventData)
 
 instance Data.FromJSON JobLogEventData where
   parseJSON =
@@ -87,22 +87,22 @@ instance Data.FromJSON JobLogEventData where
       "JobLogEventData"
       ( \x ->
           JobLogEventData'
-            Prelude.<$> (x Data..:? "targetInstanceID")
+            Prelude.<$> (x Data..:? "conversionServerID")
             Prelude.<*> (x Data..:? "rawError")
-            Prelude.<*> (x Data..:? "conversionServerID")
             Prelude.<*> (x Data..:? "sourceServerID")
+            Prelude.<*> (x Data..:? "targetInstanceID")
       )
 
 instance Prelude.Hashable JobLogEventData where
   hashWithSalt _salt JobLogEventData' {..} =
-    _salt `Prelude.hashWithSalt` targetInstanceID
+    _salt `Prelude.hashWithSalt` conversionServerID
       `Prelude.hashWithSalt` rawError
-      `Prelude.hashWithSalt` conversionServerID
       `Prelude.hashWithSalt` sourceServerID
+      `Prelude.hashWithSalt` targetInstanceID
 
 instance Prelude.NFData JobLogEventData where
   rnf JobLogEventData' {..} =
-    Prelude.rnf targetInstanceID
+    Prelude.rnf conversionServerID
       `Prelude.seq` Prelude.rnf rawError
-      `Prelude.seq` Prelude.rnf conversionServerID
       `Prelude.seq` Prelude.rnf sourceServerID
+      `Prelude.seq` Prelude.rnf targetInstanceID

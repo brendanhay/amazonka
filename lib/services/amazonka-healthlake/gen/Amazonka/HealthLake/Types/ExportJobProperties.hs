@@ -31,15 +31,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newExportJobProperties' smart constructor.
 data ExportJobProperties = ExportJobProperties'
-  { -- | An explanation of any errors that may have occurred during the export
-    -- job.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The user generated name for an export job.
-    jobName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name used during the initiation of the job.
+  { -- | The Amazon Resource Name used during the initiation of the job.
     dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The time an export job completed.
     endTime :: Prelude.Maybe Data.POSIX,
+    -- | The user generated name for an export job.
+    jobName :: Prelude.Maybe Prelude.Text,
+    -- | An explanation of any errors that may have occurred during the export
+    -- job.
+    message :: Prelude.Maybe Prelude.Text,
     -- | The AWS generated ID for an export job.
     jobId :: Prelude.Text,
     -- | The status of a FHIR export job. Possible statuses are SUBMITTED,
@@ -64,14 +64,14 @@ data ExportJobProperties = ExportJobProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'exportJobProperties_message' - An explanation of any errors that may have occurred during the export
--- job.
---
--- 'jobName', 'exportJobProperties_jobName' - The user generated name for an export job.
---
 -- 'dataAccessRoleArn', 'exportJobProperties_dataAccessRoleArn' - The Amazon Resource Name used during the initiation of the job.
 --
 -- 'endTime', 'exportJobProperties_endTime' - The time an export job completed.
+--
+-- 'jobName', 'exportJobProperties_jobName' - The user generated name for an export job.
+--
+-- 'message', 'exportJobProperties_message' - An explanation of any errors that may have occurred during the export
+-- job.
 --
 -- 'jobId', 'exportJobProperties_jobId' - The AWS generated ID for an export job.
 --
@@ -104,25 +104,17 @@ newExportJobProperties
   pDatastoreId_
   pOutputDataConfig_ =
     ExportJobProperties'
-      { message = Prelude.Nothing,
-        jobName = Prelude.Nothing,
-        dataAccessRoleArn = Prelude.Nothing,
+      { dataAccessRoleArn =
+          Prelude.Nothing,
         endTime = Prelude.Nothing,
+        jobName = Prelude.Nothing,
+        message = Prelude.Nothing,
         jobId = pJobId_,
         jobStatus = pJobStatus_,
         submitTime = Data._Time Lens.# pSubmitTime_,
         datastoreId = pDatastoreId_,
         outputDataConfig = pOutputDataConfig_
       }
-
--- | An explanation of any errors that may have occurred during the export
--- job.
-exportJobProperties_message :: Lens.Lens' ExportJobProperties (Prelude.Maybe Prelude.Text)
-exportJobProperties_message = Lens.lens (\ExportJobProperties' {message} -> message) (\s@ExportJobProperties' {} a -> s {message = a} :: ExportJobProperties)
-
--- | The user generated name for an export job.
-exportJobProperties_jobName :: Lens.Lens' ExportJobProperties (Prelude.Maybe Prelude.Text)
-exportJobProperties_jobName = Lens.lens (\ExportJobProperties' {jobName} -> jobName) (\s@ExportJobProperties' {} a -> s {jobName = a} :: ExportJobProperties)
 
 -- | The Amazon Resource Name used during the initiation of the job.
 exportJobProperties_dataAccessRoleArn :: Lens.Lens' ExportJobProperties (Prelude.Maybe Prelude.Text)
@@ -131,6 +123,15 @@ exportJobProperties_dataAccessRoleArn = Lens.lens (\ExportJobProperties' {dataAc
 -- | The time an export job completed.
 exportJobProperties_endTime :: Lens.Lens' ExportJobProperties (Prelude.Maybe Prelude.UTCTime)
 exportJobProperties_endTime = Lens.lens (\ExportJobProperties' {endTime} -> endTime) (\s@ExportJobProperties' {} a -> s {endTime = a} :: ExportJobProperties) Prelude.. Lens.mapping Data._Time
+
+-- | The user generated name for an export job.
+exportJobProperties_jobName :: Lens.Lens' ExportJobProperties (Prelude.Maybe Prelude.Text)
+exportJobProperties_jobName = Lens.lens (\ExportJobProperties' {jobName} -> jobName) (\s@ExportJobProperties' {} a -> s {jobName = a} :: ExportJobProperties)
+
+-- | An explanation of any errors that may have occurred during the export
+-- job.
+exportJobProperties_message :: Lens.Lens' ExportJobProperties (Prelude.Maybe Prelude.Text)
+exportJobProperties_message = Lens.lens (\ExportJobProperties' {message} -> message) (\s@ExportJobProperties' {} a -> s {message = a} :: ExportJobProperties)
 
 -- | The AWS generated ID for an export job.
 exportJobProperties_jobId :: Lens.Lens' ExportJobProperties Prelude.Text
@@ -161,10 +162,10 @@ instance Data.FromJSON ExportJobProperties where
       "ExportJobProperties"
       ( \x ->
           ExportJobProperties'
-            Prelude.<$> (x Data..:? "Message")
-            Prelude.<*> (x Data..:? "JobName")
-            Prelude.<*> (x Data..:? "DataAccessRoleArn")
+            Prelude.<$> (x Data..:? "DataAccessRoleArn")
             Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "JobName")
+            Prelude.<*> (x Data..:? "Message")
             Prelude.<*> (x Data..: "JobId")
             Prelude.<*> (x Data..: "JobStatus")
             Prelude.<*> (x Data..: "SubmitTime")
@@ -174,10 +175,10 @@ instance Data.FromJSON ExportJobProperties where
 
 instance Prelude.Hashable ExportJobProperties where
   hashWithSalt _salt ExportJobProperties' {..} =
-    _salt `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` jobName
-      `Prelude.hashWithSalt` dataAccessRoleArn
+    _salt `Prelude.hashWithSalt` dataAccessRoleArn
       `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` jobStatus
       `Prelude.hashWithSalt` submitTime
@@ -186,10 +187,10 @@ instance Prelude.Hashable ExportJobProperties where
 
 instance Prelude.NFData ExportJobProperties where
   rnf ExportJobProperties' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf dataAccessRoleArn
+    Prelude.rnf dataAccessRoleArn
       `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf message
       `Prelude.seq` Prelude.rnf jobId
       `Prelude.seq` Prelude.rnf jobStatus
       `Prelude.seq` Prelude.rnf submitTime

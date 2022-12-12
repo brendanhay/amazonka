@@ -30,10 +30,10 @@ module Amazonka.Route53Domains.ViewBilling
     newViewBilling,
 
     -- * Request Lenses
-    viewBilling_marker,
-    viewBilling_start,
-    viewBilling_maxItems,
     viewBilling_end,
+    viewBilling_marker,
+    viewBilling_maxItems,
+    viewBilling_start,
 
     -- * Destructuring the Response
     ViewBillingResponse (..),
@@ -58,7 +58,11 @@ import Amazonka.Route53Domains.Types
 --
 -- /See:/ 'newViewBilling' smart constructor.
 data ViewBilling = ViewBilling'
-  { -- | For an initial request for a list of billing records, omit this element.
+  { -- | The end date and time for the time period for which you want a list of
+    -- billing records. Specify the date and time in Unix time format and
+    -- Coordinated Universal time (UTC).
+    end :: Prelude.Maybe Data.POSIX,
+    -- | For an initial request for a list of billing records, omit this element.
     -- If the number of billing records that are associated with the current
     -- Amazon Web Services account during the specified period is greater than
     -- the value that you specified for @MaxItems@, you can use @Marker@ to
@@ -69,18 +73,14 @@ data ViewBilling = ViewBilling'
     -- Constraints: The marker must match the value of @NextPageMarker@ that
     -- was returned in the previous response.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | The beginning date and time for the time period for which you want a
-    -- list of billing records. Specify the date and time in Unix time format
-    -- and Coordinated Universal time (UTC).
-    start :: Prelude.Maybe Data.POSIX,
     -- | The number of billing records to be returned.
     --
     -- Default: 20
     maxItems :: Prelude.Maybe Prelude.Int,
-    -- | The end date and time for the time period for which you want a list of
-    -- billing records. Specify the date and time in Unix time format and
-    -- Coordinated Universal time (UTC).
-    end :: Prelude.Maybe Data.POSIX
+    -- | The beginning date and time for the time period for which you want a
+    -- list of billing records. Specify the date and time in Unix time format
+    -- and Coordinated Universal time (UTC).
+    start :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -91,6 +91,10 @@ data ViewBilling = ViewBilling'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'end', 'viewBilling_end' - The end date and time for the time period for which you want a list of
+-- billing records. Specify the date and time in Unix time format and
+-- Coordinated Universal time (UTC).
 --
 -- 'marker', 'viewBilling_marker' - For an initial request for a list of billing records, omit this element.
 -- If the number of billing records that are associated with the current
@@ -103,26 +107,28 @@ data ViewBilling = ViewBilling'
 -- Constraints: The marker must match the value of @NextPageMarker@ that
 -- was returned in the previous response.
 --
--- 'start', 'viewBilling_start' - The beginning date and time for the time period for which you want a
--- list of billing records. Specify the date and time in Unix time format
--- and Coordinated Universal time (UTC).
---
 -- 'maxItems', 'viewBilling_maxItems' - The number of billing records to be returned.
 --
 -- Default: 20
 --
--- 'end', 'viewBilling_end' - The end date and time for the time period for which you want a list of
--- billing records. Specify the date and time in Unix time format and
--- Coordinated Universal time (UTC).
+-- 'start', 'viewBilling_start' - The beginning date and time for the time period for which you want a
+-- list of billing records. Specify the date and time in Unix time format
+-- and Coordinated Universal time (UTC).
 newViewBilling ::
   ViewBilling
 newViewBilling =
   ViewBilling'
-    { marker = Prelude.Nothing,
-      start = Prelude.Nothing,
+    { end = Prelude.Nothing,
+      marker = Prelude.Nothing,
       maxItems = Prelude.Nothing,
-      end = Prelude.Nothing
+      start = Prelude.Nothing
     }
+
+-- | The end date and time for the time period for which you want a list of
+-- billing records. Specify the date and time in Unix time format and
+-- Coordinated Universal time (UTC).
+viewBilling_end :: Lens.Lens' ViewBilling (Prelude.Maybe Prelude.UTCTime)
+viewBilling_end = Lens.lens (\ViewBilling' {end} -> end) (\s@ViewBilling' {} a -> s {end = a} :: ViewBilling) Prelude.. Lens.mapping Data._Time
 
 -- | For an initial request for a list of billing records, omit this element.
 -- If the number of billing records that are associated with the current
@@ -137,23 +143,17 @@ newViewBilling =
 viewBilling_marker :: Lens.Lens' ViewBilling (Prelude.Maybe Prelude.Text)
 viewBilling_marker = Lens.lens (\ViewBilling' {marker} -> marker) (\s@ViewBilling' {} a -> s {marker = a} :: ViewBilling)
 
--- | The beginning date and time for the time period for which you want a
--- list of billing records. Specify the date and time in Unix time format
--- and Coordinated Universal time (UTC).
-viewBilling_start :: Lens.Lens' ViewBilling (Prelude.Maybe Prelude.UTCTime)
-viewBilling_start = Lens.lens (\ViewBilling' {start} -> start) (\s@ViewBilling' {} a -> s {start = a} :: ViewBilling) Prelude.. Lens.mapping Data._Time
-
 -- | The number of billing records to be returned.
 --
 -- Default: 20
 viewBilling_maxItems :: Lens.Lens' ViewBilling (Prelude.Maybe Prelude.Int)
 viewBilling_maxItems = Lens.lens (\ViewBilling' {maxItems} -> maxItems) (\s@ViewBilling' {} a -> s {maxItems = a} :: ViewBilling)
 
--- | The end date and time for the time period for which you want a list of
--- billing records. Specify the date and time in Unix time format and
--- Coordinated Universal time (UTC).
-viewBilling_end :: Lens.Lens' ViewBilling (Prelude.Maybe Prelude.UTCTime)
-viewBilling_end = Lens.lens (\ViewBilling' {end} -> end) (\s@ViewBilling' {} a -> s {end = a} :: ViewBilling) Prelude.. Lens.mapping Data._Time
+-- | The beginning date and time for the time period for which you want a
+-- list of billing records. Specify the date and time in Unix time format
+-- and Coordinated Universal time (UTC).
+viewBilling_start :: Lens.Lens' ViewBilling (Prelude.Maybe Prelude.UTCTime)
+viewBilling_start = Lens.lens (\ViewBilling' {start} -> start) (\s@ViewBilling' {} a -> s {start = a} :: ViewBilling) Prelude.. Lens.mapping Data._Time
 
 instance Core.AWSPager ViewBilling where
   page rq rs
@@ -192,17 +192,17 @@ instance Core.AWSRequest ViewBilling where
 
 instance Prelude.Hashable ViewBilling where
   hashWithSalt _salt ViewBilling' {..} =
-    _salt `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` start
+    _salt `Prelude.hashWithSalt` end
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
-      `Prelude.hashWithSalt` end
+      `Prelude.hashWithSalt` start
 
 instance Prelude.NFData ViewBilling where
   rnf ViewBilling' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf start
+    Prelude.rnf end
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxItems
-      `Prelude.seq` Prelude.rnf end
+      `Prelude.seq` Prelude.rnf start
 
 instance Data.ToHeaders ViewBilling where
   toHeaders =
@@ -223,10 +223,10 @@ instance Data.ToJSON ViewBilling where
   toJSON ViewBilling' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Marker" Data..=) Prelude.<$> marker,
-            ("Start" Data..=) Prelude.<$> start,
+          [ ("End" Data..=) Prelude.<$> end,
+            ("Marker" Data..=) Prelude.<$> marker,
             ("MaxItems" Data..=) Prelude.<$> maxItems,
-            ("End" Data..=) Prelude.<$> end
+            ("Start" Data..=) Prelude.<$> start
           ]
       )
 

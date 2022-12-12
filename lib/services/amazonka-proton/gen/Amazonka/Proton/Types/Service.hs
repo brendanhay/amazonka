@@ -30,22 +30,22 @@ import Amazonka.Proton.Types.ServiceStatus
 --
 -- /See:/ 'newService' smart constructor.
 data Service = Service'
-  { -- | The Amazon Resource Name (ARN) of the repository connection. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/proton/latest/userguide/setting-up-for-service.html#setting-up-vcontrol Setting up an AWS CodeStar connection>
-    -- in the /Proton User Guide/.
-    repositoryConnectionArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the code repository branch that holds the code that\'s
+  { -- | The name of the code repository branch that holds the code that\'s
     -- deployed in Proton.
     branchName :: Prelude.Maybe Prelude.Text,
     -- | A description of the service.
     description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The service pipeline detail data.
+    pipeline :: Prelude.Maybe ServicePipeline,
+    -- | The Amazon Resource Name (ARN) of the repository connection. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/proton/latest/userguide/setting-up-for-service.html#setting-up-vcontrol Setting up an AWS CodeStar connection>
+    -- in the /Proton User Guide/.
+    repositoryConnectionArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the source code repository.
     repositoryId :: Prelude.Maybe Prelude.Text,
     -- | A service status message.
     statusMessage :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The service pipeline detail data.
-    pipeline :: Prelude.Maybe ServicePipeline,
     -- | The Amazon Resource Name (ARN) of the service.
     arn :: Prelude.Text,
     -- | The time when the service was created.
@@ -71,21 +71,21 @@ data Service = Service'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'repositoryConnectionArn', 'service_repositoryConnectionArn' - The Amazon Resource Name (ARN) of the repository connection. For more
--- information, see
--- <https://docs.aws.amazon.com/proton/latest/userguide/setting-up-for-service.html#setting-up-vcontrol Setting up an AWS CodeStar connection>
--- in the /Proton User Guide/.
---
 -- 'branchName', 'service_branchName' - The name of the code repository branch that holds the code that\'s
 -- deployed in Proton.
 --
 -- 'description', 'service_description' - A description of the service.
 --
+-- 'pipeline', 'service_pipeline' - The service pipeline detail data.
+--
+-- 'repositoryConnectionArn', 'service_repositoryConnectionArn' - The Amazon Resource Name (ARN) of the repository connection. For more
+-- information, see
+-- <https://docs.aws.amazon.com/proton/latest/userguide/setting-up-for-service.html#setting-up-vcontrol Setting up an AWS CodeStar connection>
+-- in the /Proton User Guide/.
+--
 -- 'repositoryId', 'service_repositoryId' - The ID of the source code repository.
 --
 -- 'statusMessage', 'service_statusMessage' - A service status message.
---
--- 'pipeline', 'service_pipeline' - The service pipeline detail data.
 --
 -- 'arn', 'service_arn' - The Amazon Resource Name (ARN) of the service.
 --
@@ -125,12 +125,12 @@ newService
   pStatus_
   pTemplateName_ =
     Service'
-      { repositoryConnectionArn = Prelude.Nothing,
-        branchName = Prelude.Nothing,
+      { branchName = Prelude.Nothing,
         description = Prelude.Nothing,
+        pipeline = Prelude.Nothing,
+        repositoryConnectionArn = Prelude.Nothing,
         repositoryId = Prelude.Nothing,
         statusMessage = Prelude.Nothing,
-        pipeline = Prelude.Nothing,
         arn = pArn_,
         createdAt = Data._Time Lens.# pCreatedAt_,
         lastModifiedAt = Data._Time Lens.# pLastModifiedAt_,
@@ -139,13 +139,6 @@ newService
         status = pStatus_,
         templateName = pTemplateName_
       }
-
--- | The Amazon Resource Name (ARN) of the repository connection. For more
--- information, see
--- <https://docs.aws.amazon.com/proton/latest/userguide/setting-up-for-service.html#setting-up-vcontrol Setting up an AWS CodeStar connection>
--- in the /Proton User Guide/.
-service_repositoryConnectionArn :: Lens.Lens' Service (Prelude.Maybe Prelude.Text)
-service_repositoryConnectionArn = Lens.lens (\Service' {repositoryConnectionArn} -> repositoryConnectionArn) (\s@Service' {} a -> s {repositoryConnectionArn = a} :: Service)
 
 -- | The name of the code repository branch that holds the code that\'s
 -- deployed in Proton.
@@ -156,6 +149,17 @@ service_branchName = Lens.lens (\Service' {branchName} -> branchName) (\s@Servic
 service_description :: Lens.Lens' Service (Prelude.Maybe Prelude.Text)
 service_description = Lens.lens (\Service' {description} -> description) (\s@Service' {} a -> s {description = a} :: Service) Prelude.. Lens.mapping Data._Sensitive
 
+-- | The service pipeline detail data.
+service_pipeline :: Lens.Lens' Service (Prelude.Maybe ServicePipeline)
+service_pipeline = Lens.lens (\Service' {pipeline} -> pipeline) (\s@Service' {} a -> s {pipeline = a} :: Service)
+
+-- | The Amazon Resource Name (ARN) of the repository connection. For more
+-- information, see
+-- <https://docs.aws.amazon.com/proton/latest/userguide/setting-up-for-service.html#setting-up-vcontrol Setting up an AWS CodeStar connection>
+-- in the /Proton User Guide/.
+service_repositoryConnectionArn :: Lens.Lens' Service (Prelude.Maybe Prelude.Text)
+service_repositoryConnectionArn = Lens.lens (\Service' {repositoryConnectionArn} -> repositoryConnectionArn) (\s@Service' {} a -> s {repositoryConnectionArn = a} :: Service)
+
 -- | The ID of the source code repository.
 service_repositoryId :: Lens.Lens' Service (Prelude.Maybe Prelude.Text)
 service_repositoryId = Lens.lens (\Service' {repositoryId} -> repositoryId) (\s@Service' {} a -> s {repositoryId = a} :: Service)
@@ -163,10 +167,6 @@ service_repositoryId = Lens.lens (\Service' {repositoryId} -> repositoryId) (\s@
 -- | A service status message.
 service_statusMessage :: Lens.Lens' Service (Prelude.Maybe Prelude.Text)
 service_statusMessage = Lens.lens (\Service' {statusMessage} -> statusMessage) (\s@Service' {} a -> s {statusMessage = a} :: Service) Prelude.. Lens.mapping Data._Sensitive
-
--- | The service pipeline detail data.
-service_pipeline :: Lens.Lens' Service (Prelude.Maybe ServicePipeline)
-service_pipeline = Lens.lens (\Service' {pipeline} -> pipeline) (\s@Service' {} a -> s {pipeline = a} :: Service)
 
 -- | The Amazon Resource Name (ARN) of the service.
 service_arn :: Lens.Lens' Service Prelude.Text
@@ -202,12 +202,12 @@ instance Data.FromJSON Service where
       "Service"
       ( \x ->
           Service'
-            Prelude.<$> (x Data..:? "repositoryConnectionArn")
-            Prelude.<*> (x Data..:? "branchName")
+            Prelude.<$> (x Data..:? "branchName")
             Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "pipeline")
+            Prelude.<*> (x Data..:? "repositoryConnectionArn")
             Prelude.<*> (x Data..:? "repositoryId")
             Prelude.<*> (x Data..:? "statusMessage")
-            Prelude.<*> (x Data..:? "pipeline")
             Prelude.<*> (x Data..: "arn")
             Prelude.<*> (x Data..: "createdAt")
             Prelude.<*> (x Data..: "lastModifiedAt")
@@ -219,13 +219,12 @@ instance Data.FromJSON Service where
 
 instance Prelude.Hashable Service where
   hashWithSalt _salt Service' {..} =
-    _salt
-      `Prelude.hashWithSalt` repositoryConnectionArn
-      `Prelude.hashWithSalt` branchName
+    _salt `Prelude.hashWithSalt` branchName
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` pipeline
+      `Prelude.hashWithSalt` repositoryConnectionArn
       `Prelude.hashWithSalt` repositoryId
       `Prelude.hashWithSalt` statusMessage
-      `Prelude.hashWithSalt` pipeline
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` lastModifiedAt
@@ -236,12 +235,12 @@ instance Prelude.Hashable Service where
 
 instance Prelude.NFData Service where
   rnf Service' {..} =
-    Prelude.rnf repositoryConnectionArn
-      `Prelude.seq` Prelude.rnf branchName
+    Prelude.rnf branchName
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf pipeline
+      `Prelude.seq` Prelude.rnf repositoryConnectionArn
       `Prelude.seq` Prelude.rnf repositoryId
       `Prelude.seq` Prelude.rnf statusMessage
-      `Prelude.seq` Prelude.rnf pipeline
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf lastModifiedAt

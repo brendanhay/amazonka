@@ -43,9 +43,9 @@ module Amazonka.ChimeSDKMessaging.RedactChannelMessage
     newRedactChannelMessageResponse,
 
     -- * Response Lenses
-    redactChannelMessageResponse_subChannelId,
     redactChannelMessageResponse_channelArn,
     redactChannelMessageResponse_messageId,
+    redactChannelMessageResponse_subChannelId,
     redactChannelMessageResponse_httpStatus,
   )
 where
@@ -132,9 +132,9 @@ instance Core.AWSRequest RedactChannelMessage where
     Response.receiveJSON
       ( \s h x ->
           RedactChannelMessageResponse'
-            Prelude.<$> (x Data..?> "SubChannelId")
-            Prelude.<*> (x Data..?> "ChannelArn")
+            Prelude.<$> (x Data..?> "ChannelArn")
             Prelude.<*> (x Data..?> "MessageId")
+            Prelude.<*> (x Data..?> "SubChannelId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -180,15 +180,15 @@ instance Data.ToQuery RedactChannelMessage where
 
 -- | /See:/ 'newRedactChannelMessageResponse' smart constructor.
 data RedactChannelMessageResponse = RedactChannelMessageResponse'
-  { -- | The ID of the SubChannel in the response.
+  { -- | The ARN of the channel containing the messages that you want to redact.
+    channelArn :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the message being redacted.
+    messageId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the SubChannel in the response.
     --
     -- Only required when redacting messages in a SubChannel that the user
     -- belongs to.
     subChannelId :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the channel containing the messages that you want to redact.
-    channelArn :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the message being redacted.
-    messageId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -202,14 +202,14 @@ data RedactChannelMessageResponse = RedactChannelMessageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'channelArn', 'redactChannelMessageResponse_channelArn' - The ARN of the channel containing the messages that you want to redact.
+--
+-- 'messageId', 'redactChannelMessageResponse_messageId' - The ID of the message being redacted.
+--
 -- 'subChannelId', 'redactChannelMessageResponse_subChannelId' - The ID of the SubChannel in the response.
 --
 -- Only required when redacting messages in a SubChannel that the user
 -- belongs to.
---
--- 'channelArn', 'redactChannelMessageResponse_channelArn' - The ARN of the channel containing the messages that you want to redact.
---
--- 'messageId', 'redactChannelMessageResponse_messageId' - The ID of the message being redacted.
 --
 -- 'httpStatus', 'redactChannelMessageResponse_httpStatus' - The response's http status code.
 newRedactChannelMessageResponse ::
@@ -218,19 +218,12 @@ newRedactChannelMessageResponse ::
   RedactChannelMessageResponse
 newRedactChannelMessageResponse pHttpStatus_ =
   RedactChannelMessageResponse'
-    { subChannelId =
+    { channelArn =
         Prelude.Nothing,
-      channelArn = Prelude.Nothing,
       messageId = Prelude.Nothing,
+      subChannelId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ID of the SubChannel in the response.
---
--- Only required when redacting messages in a SubChannel that the user
--- belongs to.
-redactChannelMessageResponse_subChannelId :: Lens.Lens' RedactChannelMessageResponse (Prelude.Maybe Prelude.Text)
-redactChannelMessageResponse_subChannelId = Lens.lens (\RedactChannelMessageResponse' {subChannelId} -> subChannelId) (\s@RedactChannelMessageResponse' {} a -> s {subChannelId = a} :: RedactChannelMessageResponse)
 
 -- | The ARN of the channel containing the messages that you want to redact.
 redactChannelMessageResponse_channelArn :: Lens.Lens' RedactChannelMessageResponse (Prelude.Maybe Prelude.Text)
@@ -240,13 +233,20 @@ redactChannelMessageResponse_channelArn = Lens.lens (\RedactChannelMessageRespon
 redactChannelMessageResponse_messageId :: Lens.Lens' RedactChannelMessageResponse (Prelude.Maybe Prelude.Text)
 redactChannelMessageResponse_messageId = Lens.lens (\RedactChannelMessageResponse' {messageId} -> messageId) (\s@RedactChannelMessageResponse' {} a -> s {messageId = a} :: RedactChannelMessageResponse)
 
+-- | The ID of the SubChannel in the response.
+--
+-- Only required when redacting messages in a SubChannel that the user
+-- belongs to.
+redactChannelMessageResponse_subChannelId :: Lens.Lens' RedactChannelMessageResponse (Prelude.Maybe Prelude.Text)
+redactChannelMessageResponse_subChannelId = Lens.lens (\RedactChannelMessageResponse' {subChannelId} -> subChannelId) (\s@RedactChannelMessageResponse' {} a -> s {subChannelId = a} :: RedactChannelMessageResponse)
+
 -- | The response's http status code.
 redactChannelMessageResponse_httpStatus :: Lens.Lens' RedactChannelMessageResponse Prelude.Int
 redactChannelMessageResponse_httpStatus = Lens.lens (\RedactChannelMessageResponse' {httpStatus} -> httpStatus) (\s@RedactChannelMessageResponse' {} a -> s {httpStatus = a} :: RedactChannelMessageResponse)
 
 instance Prelude.NFData RedactChannelMessageResponse where
   rnf RedactChannelMessageResponse' {..} =
-    Prelude.rnf subChannelId
-      `Prelude.seq` Prelude.rnf channelArn
+    Prelude.rnf channelArn
       `Prelude.seq` Prelude.rnf messageId
+      `Prelude.seq` Prelude.rnf subChannelId
       `Prelude.seq` Prelude.rnf httpStatus

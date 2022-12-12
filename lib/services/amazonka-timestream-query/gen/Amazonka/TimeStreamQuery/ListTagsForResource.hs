@@ -29,8 +29,8 @@ module Amazonka.TimeStreamQuery.ListTagsForResource
     newListTagsForResource,
 
     -- * Request Lenses
-    listTagsForResource_nextToken,
     listTagsForResource_maxResults,
+    listTagsForResource_nextToken,
     listTagsForResource_resourceARN,
 
     -- * Destructuring the Response
@@ -54,10 +54,10 @@ import Amazonka.TimeStreamQuery.Types
 
 -- | /See:/ 'newListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { -- | A pagination token to resume pagination.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of tags to return.
+  { -- | The maximum number of tags to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A pagination token to resume pagination.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Timestream resource with tags to be listed. This value is an Amazon
     -- Resource Name (ARN).
     resourceARN :: Prelude.Text
@@ -72,9 +72,9 @@ data ListTagsForResource = ListTagsForResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTagsForResource_nextToken' - A pagination token to resume pagination.
---
 -- 'maxResults', 'listTagsForResource_maxResults' - The maximum number of tags to return.
+--
+-- 'nextToken', 'listTagsForResource_nextToken' - A pagination token to resume pagination.
 --
 -- 'resourceARN', 'listTagsForResource_resourceARN' - The Timestream resource with tags to be listed. This value is an Amazon
 -- Resource Name (ARN).
@@ -84,18 +84,18 @@ newListTagsForResource ::
   ListTagsForResource
 newListTagsForResource pResourceARN_ =
   ListTagsForResource'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       resourceARN = pResourceARN_
     }
-
--- | A pagination token to resume pagination.
-listTagsForResource_nextToken :: Lens.Lens' ListTagsForResource (Prelude.Maybe Prelude.Text)
-listTagsForResource_nextToken = Lens.lens (\ListTagsForResource' {nextToken} -> nextToken) (\s@ListTagsForResource' {} a -> s {nextToken = a} :: ListTagsForResource)
 
 -- | The maximum number of tags to return.
 listTagsForResource_maxResults :: Lens.Lens' ListTagsForResource (Prelude.Maybe Prelude.Natural)
 listTagsForResource_maxResults = Lens.lens (\ListTagsForResource' {maxResults} -> maxResults) (\s@ListTagsForResource' {} a -> s {maxResults = a} :: ListTagsForResource)
+
+-- | A pagination token to resume pagination.
+listTagsForResource_nextToken :: Lens.Lens' ListTagsForResource (Prelude.Maybe Prelude.Text)
+listTagsForResource_nextToken = Lens.lens (\ListTagsForResource' {nextToken} -> nextToken) (\s@ListTagsForResource' {} a -> s {nextToken = a} :: ListTagsForResource)
 
 -- | The Timestream resource with tags to be listed. This value is an Amazon
 -- Resource Name (ARN).
@@ -138,14 +138,14 @@ instance Core.AWSRequest ListTagsForResource where
 
 instance Prelude.Hashable ListTagsForResource where
   hashWithSalt _salt ListTagsForResource' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceARN
 
 instance Prelude.NFData ListTagsForResource where
   rnf ListTagsForResource' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf resourceARN
 
 instance Data.ToHeaders ListTagsForResource where
@@ -167,8 +167,8 @@ instance Data.ToJSON ListTagsForResource where
   toJSON ListTagsForResource' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("ResourceARN" Data..= resourceARN)
           ]
       )

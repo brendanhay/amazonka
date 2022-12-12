@@ -37,11 +37,11 @@ module Amazonka.LexV2Models.StopBotRecommendation
     newStopBotRecommendationResponse,
 
     -- * Response Lenses
+    stopBotRecommendationResponse_botId,
+    stopBotRecommendationResponse_botRecommendationId,
+    stopBotRecommendationResponse_botRecommendationStatus,
     stopBotRecommendationResponse_botVersion,
     stopBotRecommendationResponse_localeId,
-    stopBotRecommendationResponse_botRecommendationId,
-    stopBotRecommendationResponse_botId,
-    stopBotRecommendationResponse_botRecommendationStatus,
     stopBotRecommendationResponse_httpStatus,
   )
 where
@@ -142,11 +142,11 @@ instance Core.AWSRequest StopBotRecommendation where
     Response.receiveJSON
       ( \s h x ->
           StopBotRecommendationResponse'
-            Prelude.<$> (x Data..?> "botVersion")
-            Prelude.<*> (x Data..?> "localeId")
+            Prelude.<$> (x Data..?> "botId")
             Prelude.<*> (x Data..?> "botRecommendationId")
-            Prelude.<*> (x Data..?> "botId")
             Prelude.<*> (x Data..?> "botRecommendationStatus")
+            Prelude.<*> (x Data..?> "botVersion")
+            Prelude.<*> (x Data..?> "localeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -197,7 +197,15 @@ instance Data.ToQuery StopBotRecommendation where
 
 -- | /See:/ 'newStopBotRecommendationResponse' smart constructor.
 data StopBotRecommendationResponse = StopBotRecommendationResponse'
-  { -- | The version of the bot containing the recommendation that is being
+  { -- | The unique identifier of the bot containing the bot recommendation that
+    -- is being stopped.
+    botId :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier of the bot recommendation that is being stopped.
+    botRecommendationId :: Prelude.Maybe Prelude.Text,
+    -- | The status of the bot recommendation. If the status is Failed, then the
+    -- reasons for the failure are listed in the failureReasons field.
+    botRecommendationStatus :: Prelude.Maybe BotRecommendationStatus,
+    -- | The version of the bot containing the recommendation that is being
     -- stopped.
     botVersion :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the language and locale of the bot response to stop.
@@ -205,14 +213,6 @@ data StopBotRecommendationResponse = StopBotRecommendationResponse'
     -- information, see
     -- <https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html Supported languages>
     localeId :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier of the bot recommendation that is being stopped.
-    botRecommendationId :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier of the bot containing the bot recommendation that
-    -- is being stopped.
-    botId :: Prelude.Maybe Prelude.Text,
-    -- | The status of the bot recommendation. If the status is Failed, then the
-    -- reasons for the failure are listed in the failureReasons field.
-    botRecommendationStatus :: Prelude.Maybe BotRecommendationStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -226,6 +226,14 @@ data StopBotRecommendationResponse = StopBotRecommendationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'botId', 'stopBotRecommendationResponse_botId' - The unique identifier of the bot containing the bot recommendation that
+-- is being stopped.
+--
+-- 'botRecommendationId', 'stopBotRecommendationResponse_botRecommendationId' - The unique identifier of the bot recommendation that is being stopped.
+--
+-- 'botRecommendationStatus', 'stopBotRecommendationResponse_botRecommendationStatus' - The status of the bot recommendation. If the status is Failed, then the
+-- reasons for the failure are listed in the failureReasons field.
+--
 -- 'botVersion', 'stopBotRecommendationResponse_botVersion' - The version of the bot containing the recommendation that is being
 -- stopped.
 --
@@ -234,14 +242,6 @@ data StopBotRecommendationResponse = StopBotRecommendationResponse'
 -- information, see
 -- <https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html Supported languages>
 --
--- 'botRecommendationId', 'stopBotRecommendationResponse_botRecommendationId' - The unique identifier of the bot recommendation that is being stopped.
---
--- 'botId', 'stopBotRecommendationResponse_botId' - The unique identifier of the bot containing the bot recommendation that
--- is being stopped.
---
--- 'botRecommendationStatus', 'stopBotRecommendationResponse_botRecommendationStatus' - The status of the bot recommendation. If the status is Failed, then the
--- reasons for the failure are listed in the failureReasons field.
---
 -- 'httpStatus', 'stopBotRecommendationResponse_httpStatus' - The response's http status code.
 newStopBotRecommendationResponse ::
   -- | 'httpStatus'
@@ -249,14 +249,28 @@ newStopBotRecommendationResponse ::
   StopBotRecommendationResponse
 newStopBotRecommendationResponse pHttpStatus_ =
   StopBotRecommendationResponse'
-    { botVersion =
+    { botId =
         Prelude.Nothing,
-      localeId = Prelude.Nothing,
       botRecommendationId = Prelude.Nothing,
-      botId = Prelude.Nothing,
       botRecommendationStatus = Prelude.Nothing,
+      botVersion = Prelude.Nothing,
+      localeId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The unique identifier of the bot containing the bot recommendation that
+-- is being stopped.
+stopBotRecommendationResponse_botId :: Lens.Lens' StopBotRecommendationResponse (Prelude.Maybe Prelude.Text)
+stopBotRecommendationResponse_botId = Lens.lens (\StopBotRecommendationResponse' {botId} -> botId) (\s@StopBotRecommendationResponse' {} a -> s {botId = a} :: StopBotRecommendationResponse)
+
+-- | The unique identifier of the bot recommendation that is being stopped.
+stopBotRecommendationResponse_botRecommendationId :: Lens.Lens' StopBotRecommendationResponse (Prelude.Maybe Prelude.Text)
+stopBotRecommendationResponse_botRecommendationId = Lens.lens (\StopBotRecommendationResponse' {botRecommendationId} -> botRecommendationId) (\s@StopBotRecommendationResponse' {} a -> s {botRecommendationId = a} :: StopBotRecommendationResponse)
+
+-- | The status of the bot recommendation. If the status is Failed, then the
+-- reasons for the failure are listed in the failureReasons field.
+stopBotRecommendationResponse_botRecommendationStatus :: Lens.Lens' StopBotRecommendationResponse (Prelude.Maybe BotRecommendationStatus)
+stopBotRecommendationResponse_botRecommendationStatus = Lens.lens (\StopBotRecommendationResponse' {botRecommendationStatus} -> botRecommendationStatus) (\s@StopBotRecommendationResponse' {} a -> s {botRecommendationStatus = a} :: StopBotRecommendationResponse)
 
 -- | The version of the bot containing the recommendation that is being
 -- stopped.
@@ -270,29 +284,15 @@ stopBotRecommendationResponse_botVersion = Lens.lens (\StopBotRecommendationResp
 stopBotRecommendationResponse_localeId :: Lens.Lens' StopBotRecommendationResponse (Prelude.Maybe Prelude.Text)
 stopBotRecommendationResponse_localeId = Lens.lens (\StopBotRecommendationResponse' {localeId} -> localeId) (\s@StopBotRecommendationResponse' {} a -> s {localeId = a} :: StopBotRecommendationResponse)
 
--- | The unique identifier of the bot recommendation that is being stopped.
-stopBotRecommendationResponse_botRecommendationId :: Lens.Lens' StopBotRecommendationResponse (Prelude.Maybe Prelude.Text)
-stopBotRecommendationResponse_botRecommendationId = Lens.lens (\StopBotRecommendationResponse' {botRecommendationId} -> botRecommendationId) (\s@StopBotRecommendationResponse' {} a -> s {botRecommendationId = a} :: StopBotRecommendationResponse)
-
--- | The unique identifier of the bot containing the bot recommendation that
--- is being stopped.
-stopBotRecommendationResponse_botId :: Lens.Lens' StopBotRecommendationResponse (Prelude.Maybe Prelude.Text)
-stopBotRecommendationResponse_botId = Lens.lens (\StopBotRecommendationResponse' {botId} -> botId) (\s@StopBotRecommendationResponse' {} a -> s {botId = a} :: StopBotRecommendationResponse)
-
--- | The status of the bot recommendation. If the status is Failed, then the
--- reasons for the failure are listed in the failureReasons field.
-stopBotRecommendationResponse_botRecommendationStatus :: Lens.Lens' StopBotRecommendationResponse (Prelude.Maybe BotRecommendationStatus)
-stopBotRecommendationResponse_botRecommendationStatus = Lens.lens (\StopBotRecommendationResponse' {botRecommendationStatus} -> botRecommendationStatus) (\s@StopBotRecommendationResponse' {} a -> s {botRecommendationStatus = a} :: StopBotRecommendationResponse)
-
 -- | The response's http status code.
 stopBotRecommendationResponse_httpStatus :: Lens.Lens' StopBotRecommendationResponse Prelude.Int
 stopBotRecommendationResponse_httpStatus = Lens.lens (\StopBotRecommendationResponse' {httpStatus} -> httpStatus) (\s@StopBotRecommendationResponse' {} a -> s {httpStatus = a} :: StopBotRecommendationResponse)
 
 instance Prelude.NFData StopBotRecommendationResponse where
   rnf StopBotRecommendationResponse' {..} =
-    Prelude.rnf botVersion
-      `Prelude.seq` Prelude.rnf localeId
+    Prelude.rnf botId
       `Prelude.seq` Prelude.rnf botRecommendationId
-      `Prelude.seq` Prelude.rnf botId
       `Prelude.seq` Prelude.rnf botRecommendationStatus
+      `Prelude.seq` Prelude.rnf botVersion
+      `Prelude.seq` Prelude.rnf localeId
       `Prelude.seq` Prelude.rnf httpStatus

@@ -35,9 +35,9 @@ module Amazonka.OpsWorks.DescribeDeployments
     newDescribeDeployments,
 
     -- * Request Lenses
-    describeDeployments_stackId,
-    describeDeployments_deploymentIds,
     describeDeployments_appId,
+    describeDeployments_deploymentIds,
+    describeDeployments_stackId,
 
     -- * Destructuring the Response
     DescribeDeploymentsResponse (..),
@@ -59,16 +59,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeDeployments' smart constructor.
 data DescribeDeployments = DescribeDeployments'
-  { -- | The stack ID. If you include this parameter, the command returns a
-    -- description of the commands associated with the specified stack.
-    stackId :: Prelude.Maybe Prelude.Text,
+  { -- | The app ID. If you include this parameter, the command returns a
+    -- description of the commands associated with the specified app.
+    appId :: Prelude.Maybe Prelude.Text,
     -- | An array of deployment IDs to be described. If you include this
     -- parameter, the command returns a description of the specified
     -- deployments. Otherwise, it returns a description of every deployment.
     deploymentIds :: Prelude.Maybe [Prelude.Text],
-    -- | The app ID. If you include this parameter, the command returns a
-    -- description of the commands associated with the specified app.
-    appId :: Prelude.Maybe Prelude.Text
+    -- | The stack ID. If you include this parameter, the command returns a
+    -- description of the commands associated with the specified stack.
+    stackId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,28 +80,28 @@ data DescribeDeployments = DescribeDeployments'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stackId', 'describeDeployments_stackId' - The stack ID. If you include this parameter, the command returns a
--- description of the commands associated with the specified stack.
+-- 'appId', 'describeDeployments_appId' - The app ID. If you include this parameter, the command returns a
+-- description of the commands associated with the specified app.
 --
 -- 'deploymentIds', 'describeDeployments_deploymentIds' - An array of deployment IDs to be described. If you include this
 -- parameter, the command returns a description of the specified
 -- deployments. Otherwise, it returns a description of every deployment.
 --
--- 'appId', 'describeDeployments_appId' - The app ID. If you include this parameter, the command returns a
--- description of the commands associated with the specified app.
+-- 'stackId', 'describeDeployments_stackId' - The stack ID. If you include this parameter, the command returns a
+-- description of the commands associated with the specified stack.
 newDescribeDeployments ::
   DescribeDeployments
 newDescribeDeployments =
   DescribeDeployments'
-    { stackId = Prelude.Nothing,
+    { appId = Prelude.Nothing,
       deploymentIds = Prelude.Nothing,
-      appId = Prelude.Nothing
+      stackId = Prelude.Nothing
     }
 
--- | The stack ID. If you include this parameter, the command returns a
--- description of the commands associated with the specified stack.
-describeDeployments_stackId :: Lens.Lens' DescribeDeployments (Prelude.Maybe Prelude.Text)
-describeDeployments_stackId = Lens.lens (\DescribeDeployments' {stackId} -> stackId) (\s@DescribeDeployments' {} a -> s {stackId = a} :: DescribeDeployments)
+-- | The app ID. If you include this parameter, the command returns a
+-- description of the commands associated with the specified app.
+describeDeployments_appId :: Lens.Lens' DescribeDeployments (Prelude.Maybe Prelude.Text)
+describeDeployments_appId = Lens.lens (\DescribeDeployments' {appId} -> appId) (\s@DescribeDeployments' {} a -> s {appId = a} :: DescribeDeployments)
 
 -- | An array of deployment IDs to be described. If you include this
 -- parameter, the command returns a description of the specified
@@ -109,10 +109,10 @@ describeDeployments_stackId = Lens.lens (\DescribeDeployments' {stackId} -> stac
 describeDeployments_deploymentIds :: Lens.Lens' DescribeDeployments (Prelude.Maybe [Prelude.Text])
 describeDeployments_deploymentIds = Lens.lens (\DescribeDeployments' {deploymentIds} -> deploymentIds) (\s@DescribeDeployments' {} a -> s {deploymentIds = a} :: DescribeDeployments) Prelude.. Lens.mapping Lens.coerced
 
--- | The app ID. If you include this parameter, the command returns a
--- description of the commands associated with the specified app.
-describeDeployments_appId :: Lens.Lens' DescribeDeployments (Prelude.Maybe Prelude.Text)
-describeDeployments_appId = Lens.lens (\DescribeDeployments' {appId} -> appId) (\s@DescribeDeployments' {} a -> s {appId = a} :: DescribeDeployments)
+-- | The stack ID. If you include this parameter, the command returns a
+-- description of the commands associated with the specified stack.
+describeDeployments_stackId :: Lens.Lens' DescribeDeployments (Prelude.Maybe Prelude.Text)
+describeDeployments_stackId = Lens.lens (\DescribeDeployments' {stackId} -> stackId) (\s@DescribeDeployments' {} a -> s {stackId = a} :: DescribeDeployments)
 
 instance Core.AWSRequest DescribeDeployments where
   type
@@ -130,15 +130,15 @@ instance Core.AWSRequest DescribeDeployments where
 
 instance Prelude.Hashable DescribeDeployments where
   hashWithSalt _salt DescribeDeployments' {..} =
-    _salt `Prelude.hashWithSalt` stackId
+    _salt `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` deploymentIds
-      `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` stackId
 
 instance Prelude.NFData DescribeDeployments where
   rnf DescribeDeployments' {..} =
-    Prelude.rnf stackId
+    Prelude.rnf appId
       `Prelude.seq` Prelude.rnf deploymentIds
-      `Prelude.seq` Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf stackId
 
 instance Data.ToHeaders DescribeDeployments where
   toHeaders =
@@ -159,9 +159,9 @@ instance Data.ToJSON DescribeDeployments where
   toJSON DescribeDeployments' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("StackId" Data..=) Prelude.<$> stackId,
+          [ ("AppId" Data..=) Prelude.<$> appId,
             ("DeploymentIds" Data..=) Prelude.<$> deploymentIds,
-            ("AppId" Data..=) Prelude.<$> appId
+            ("StackId" Data..=) Prelude.<$> stackId
           ]
       )
 

@@ -30,8 +30,8 @@ module Amazonka.IoTSiteWise.BatchGetAssetPropertyValueHistory
     newBatchGetAssetPropertyValueHistory,
 
     -- * Request Lenses
-    batchGetAssetPropertyValueHistory_nextToken,
     batchGetAssetPropertyValueHistory_maxResults,
+    batchGetAssetPropertyValueHistory_nextToken,
     batchGetAssetPropertyValueHistory_entries,
 
     -- * Destructuring the Response
@@ -57,9 +57,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newBatchGetAssetPropertyValueHistory' smart constructor.
 data BatchGetAssetPropertyValueHistory = BatchGetAssetPropertyValueHistory'
-  { -- | The token to be used for the next set of paginated results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return for each paginated request. A
+  { -- | The maximum number of results to return for each paginated request. A
     -- result set is returned in the two cases, whichever occurs first.
     --
     -- -   The size of the result set is less than 1 MB.
@@ -67,6 +65,8 @@ data BatchGetAssetPropertyValueHistory = BatchGetAssetPropertyValueHistory'
     -- -   The number of data points in the result set is less than the value
     --     of @maxResults@. The maximum value of @maxResults@ is 4000.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to be used for the next set of paginated results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The list of asset property historical value entries for the batch get
     -- request. You can specify up to 16 entries per request.
     entries :: [BatchGetAssetPropertyValueHistoryEntry]
@@ -81,8 +81,6 @@ data BatchGetAssetPropertyValueHistory = BatchGetAssetPropertyValueHistory'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'batchGetAssetPropertyValueHistory_nextToken' - The token to be used for the next set of paginated results.
---
 -- 'maxResults', 'batchGetAssetPropertyValueHistory_maxResults' - The maximum number of results to return for each paginated request. A
 -- result set is returned in the two cases, whichever occurs first.
 --
@@ -91,21 +89,19 @@ data BatchGetAssetPropertyValueHistory = BatchGetAssetPropertyValueHistory'
 -- -   The number of data points in the result set is less than the value
 --     of @maxResults@. The maximum value of @maxResults@ is 4000.
 --
+-- 'nextToken', 'batchGetAssetPropertyValueHistory_nextToken' - The token to be used for the next set of paginated results.
+--
 -- 'entries', 'batchGetAssetPropertyValueHistory_entries' - The list of asset property historical value entries for the batch get
 -- request. You can specify up to 16 entries per request.
 newBatchGetAssetPropertyValueHistory ::
   BatchGetAssetPropertyValueHistory
 newBatchGetAssetPropertyValueHistory =
   BatchGetAssetPropertyValueHistory'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       entries = Prelude.mempty
     }
-
--- | The token to be used for the next set of paginated results.
-batchGetAssetPropertyValueHistory_nextToken :: Lens.Lens' BatchGetAssetPropertyValueHistory (Prelude.Maybe Prelude.Text)
-batchGetAssetPropertyValueHistory_nextToken = Lens.lens (\BatchGetAssetPropertyValueHistory' {nextToken} -> nextToken) (\s@BatchGetAssetPropertyValueHistory' {} a -> s {nextToken = a} :: BatchGetAssetPropertyValueHistory)
 
 -- | The maximum number of results to return for each paginated request. A
 -- result set is returned in the two cases, whichever occurs first.
@@ -116,6 +112,10 @@ batchGetAssetPropertyValueHistory_nextToken = Lens.lens (\BatchGetAssetPropertyV
 --     of @maxResults@. The maximum value of @maxResults@ is 4000.
 batchGetAssetPropertyValueHistory_maxResults :: Lens.Lens' BatchGetAssetPropertyValueHistory (Prelude.Maybe Prelude.Natural)
 batchGetAssetPropertyValueHistory_maxResults = Lens.lens (\BatchGetAssetPropertyValueHistory' {maxResults} -> maxResults) (\s@BatchGetAssetPropertyValueHistory' {} a -> s {maxResults = a} :: BatchGetAssetPropertyValueHistory)
+
+-- | The token to be used for the next set of paginated results.
+batchGetAssetPropertyValueHistory_nextToken :: Lens.Lens' BatchGetAssetPropertyValueHistory (Prelude.Maybe Prelude.Text)
+batchGetAssetPropertyValueHistory_nextToken = Lens.lens (\BatchGetAssetPropertyValueHistory' {nextToken} -> nextToken) (\s@BatchGetAssetPropertyValueHistory' {} a -> s {nextToken = a} :: BatchGetAssetPropertyValueHistory)
 
 -- | The list of asset property historical value entries for the batch get
 -- request. You can specify up to 16 entries per request.
@@ -151,8 +151,8 @@ instance
   hashWithSalt
     _salt
     BatchGetAssetPropertyValueHistory' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` entries
 
 instance
@@ -160,8 +160,8 @@ instance
     BatchGetAssetPropertyValueHistory
   where
   rnf BatchGetAssetPropertyValueHistory' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf entries
 
 instance
@@ -185,8 +185,8 @@ instance
   toJSON BatchGetAssetPropertyValueHistory' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("entries" Data..= entries)
           ]
       )

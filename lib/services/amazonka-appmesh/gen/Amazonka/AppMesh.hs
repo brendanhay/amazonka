@@ -36,35 +36,35 @@ module Amazonka.AppMesh
     -- * Errors
     -- $errors
 
-    -- ** TooManyTagsException
-    _TooManyTagsException,
-
-    -- ** NotFoundException
-    _NotFoundException,
-
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
-
-    -- ** InternalServerErrorException
-    _InternalServerErrorException,
-
-    -- ** ResourceInUseException
-    _ResourceInUseException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
-
-    -- ** ForbiddenException
-    _ForbiddenException,
+    -- ** BadRequestException
+    _BadRequestException,
 
     -- ** ConflictException
     _ConflictException,
 
-    -- ** BadRequestException
-    _BadRequestException,
+    -- ** ForbiddenException
+    _ForbiddenException,
+
+    -- ** InternalServerErrorException
+    _InternalServerErrorException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** NotFoundException
+    _NotFoundException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
+
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
 
     -- ** TooManyRequestsException
     _TooManyRequestsException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
 
     -- * Waiters
     -- $waiters

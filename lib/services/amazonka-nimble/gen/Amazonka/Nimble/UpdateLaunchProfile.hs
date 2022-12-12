@@ -27,12 +27,12 @@ module Amazonka.Nimble.UpdateLaunchProfile
     newUpdateLaunchProfile,
 
     -- * Request Lenses
-    updateLaunchProfile_studioComponentIds,
-    updateLaunchProfile_name,
     updateLaunchProfile_clientToken,
     updateLaunchProfile_description,
-    updateLaunchProfile_streamConfiguration,
     updateLaunchProfile_launchProfileProtocolVersions,
+    updateLaunchProfile_name,
+    updateLaunchProfile_streamConfiguration,
+    updateLaunchProfile_studioComponentIds,
     updateLaunchProfile_launchProfileId,
     updateLaunchProfile_studioId,
 
@@ -56,23 +56,23 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateLaunchProfile' smart constructor.
 data UpdateLaunchProfile = UpdateLaunchProfile'
-  { -- | Unique identifiers for a collection of studio components that can be
-    -- used with this launch profile.
-    studioComponentIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The name for the launch profile.
-    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | Unique, case-sensitive identifier that you provide to ensure the
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. If you don’t specify a client token, the AWS
     -- SDK automatically generates a client token and uses it for the request
     -- to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The description.
     description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | A configuration for a streaming session.
-    streamConfiguration :: Prelude.Maybe StreamConfigurationCreate,
     -- | The version number of the protocol that is used by the launch profile.
     -- The only valid version is \"2021-03-31\".
     launchProfileProtocolVersions :: Prelude.Maybe [Prelude.Text],
+    -- | The name for the launch profile.
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | A configuration for a streaming session.
+    streamConfiguration :: Prelude.Maybe StreamConfigurationCreate,
+    -- | Unique identifiers for a collection of studio components that can be
+    -- used with this launch profile.
+    studioComponentIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The Launch Profile ID.
     launchProfileId :: Prelude.Text,
     -- | The studio ID.
@@ -88,11 +88,6 @@ data UpdateLaunchProfile = UpdateLaunchProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'studioComponentIds', 'updateLaunchProfile_studioComponentIds' - Unique identifiers for a collection of studio components that can be
--- used with this launch profile.
---
--- 'name', 'updateLaunchProfile_name' - The name for the launch profile.
---
 -- 'clientToken', 'updateLaunchProfile_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. If you don’t specify a client token, the AWS
 -- SDK automatically generates a client token and uses it for the request
@@ -100,10 +95,15 @@ data UpdateLaunchProfile = UpdateLaunchProfile'
 --
 -- 'description', 'updateLaunchProfile_description' - The description.
 --
--- 'streamConfiguration', 'updateLaunchProfile_streamConfiguration' - A configuration for a streaming session.
---
 -- 'launchProfileProtocolVersions', 'updateLaunchProfile_launchProfileProtocolVersions' - The version number of the protocol that is used by the launch profile.
 -- The only valid version is \"2021-03-31\".
+--
+-- 'name', 'updateLaunchProfile_name' - The name for the launch profile.
+--
+-- 'streamConfiguration', 'updateLaunchProfile_streamConfiguration' - A configuration for a streaming session.
+--
+-- 'studioComponentIds', 'updateLaunchProfile_studioComponentIds' - Unique identifiers for a collection of studio components that can be
+-- used with this launch profile.
 --
 -- 'launchProfileId', 'updateLaunchProfile_launchProfileId' - The Launch Profile ID.
 --
@@ -116,25 +116,15 @@ newUpdateLaunchProfile ::
   UpdateLaunchProfile
 newUpdateLaunchProfile pLaunchProfileId_ pStudioId_ =
   UpdateLaunchProfile'
-    { studioComponentIds =
-        Prelude.Nothing,
-      name = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+    { clientToken = Prelude.Nothing,
       description = Prelude.Nothing,
-      streamConfiguration = Prelude.Nothing,
       launchProfileProtocolVersions = Prelude.Nothing,
+      name = Prelude.Nothing,
+      streamConfiguration = Prelude.Nothing,
+      studioComponentIds = Prelude.Nothing,
       launchProfileId = pLaunchProfileId_,
       studioId = pStudioId_
     }
-
--- | Unique identifiers for a collection of studio components that can be
--- used with this launch profile.
-updateLaunchProfile_studioComponentIds :: Lens.Lens' UpdateLaunchProfile (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-updateLaunchProfile_studioComponentIds = Lens.lens (\UpdateLaunchProfile' {studioComponentIds} -> studioComponentIds) (\s@UpdateLaunchProfile' {} a -> s {studioComponentIds = a} :: UpdateLaunchProfile) Prelude.. Lens.mapping Lens.coerced
-
--- | The name for the launch profile.
-updateLaunchProfile_name :: Lens.Lens' UpdateLaunchProfile (Prelude.Maybe Prelude.Text)
-updateLaunchProfile_name = Lens.lens (\UpdateLaunchProfile' {name} -> name) (\s@UpdateLaunchProfile' {} a -> s {name = a} :: UpdateLaunchProfile) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. If you don’t specify a client token, the AWS
@@ -147,14 +137,23 @@ updateLaunchProfile_clientToken = Lens.lens (\UpdateLaunchProfile' {clientToken}
 updateLaunchProfile_description :: Lens.Lens' UpdateLaunchProfile (Prelude.Maybe Prelude.Text)
 updateLaunchProfile_description = Lens.lens (\UpdateLaunchProfile' {description} -> description) (\s@UpdateLaunchProfile' {} a -> s {description = a} :: UpdateLaunchProfile) Prelude.. Lens.mapping Data._Sensitive
 
--- | A configuration for a streaming session.
-updateLaunchProfile_streamConfiguration :: Lens.Lens' UpdateLaunchProfile (Prelude.Maybe StreamConfigurationCreate)
-updateLaunchProfile_streamConfiguration = Lens.lens (\UpdateLaunchProfile' {streamConfiguration} -> streamConfiguration) (\s@UpdateLaunchProfile' {} a -> s {streamConfiguration = a} :: UpdateLaunchProfile)
-
 -- | The version number of the protocol that is used by the launch profile.
 -- The only valid version is \"2021-03-31\".
 updateLaunchProfile_launchProfileProtocolVersions :: Lens.Lens' UpdateLaunchProfile (Prelude.Maybe [Prelude.Text])
 updateLaunchProfile_launchProfileProtocolVersions = Lens.lens (\UpdateLaunchProfile' {launchProfileProtocolVersions} -> launchProfileProtocolVersions) (\s@UpdateLaunchProfile' {} a -> s {launchProfileProtocolVersions = a} :: UpdateLaunchProfile) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name for the launch profile.
+updateLaunchProfile_name :: Lens.Lens' UpdateLaunchProfile (Prelude.Maybe Prelude.Text)
+updateLaunchProfile_name = Lens.lens (\UpdateLaunchProfile' {name} -> name) (\s@UpdateLaunchProfile' {} a -> s {name = a} :: UpdateLaunchProfile) Prelude.. Lens.mapping Data._Sensitive
+
+-- | A configuration for a streaming session.
+updateLaunchProfile_streamConfiguration :: Lens.Lens' UpdateLaunchProfile (Prelude.Maybe StreamConfigurationCreate)
+updateLaunchProfile_streamConfiguration = Lens.lens (\UpdateLaunchProfile' {streamConfiguration} -> streamConfiguration) (\s@UpdateLaunchProfile' {} a -> s {streamConfiguration = a} :: UpdateLaunchProfile)
+
+-- | Unique identifiers for a collection of studio components that can be
+-- used with this launch profile.
+updateLaunchProfile_studioComponentIds :: Lens.Lens' UpdateLaunchProfile (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+updateLaunchProfile_studioComponentIds = Lens.lens (\UpdateLaunchProfile' {studioComponentIds} -> studioComponentIds) (\s@UpdateLaunchProfile' {} a -> s {studioComponentIds = a} :: UpdateLaunchProfile) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Launch Profile ID.
 updateLaunchProfile_launchProfileId :: Lens.Lens' UpdateLaunchProfile Prelude.Text
@@ -180,23 +179,23 @@ instance Core.AWSRequest UpdateLaunchProfile where
 
 instance Prelude.Hashable UpdateLaunchProfile where
   hashWithSalt _salt UpdateLaunchProfile' {..} =
-    _salt `Prelude.hashWithSalt` studioComponentIds
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` streamConfiguration
       `Prelude.hashWithSalt` launchProfileProtocolVersions
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` streamConfiguration
+      `Prelude.hashWithSalt` studioComponentIds
       `Prelude.hashWithSalt` launchProfileId
       `Prelude.hashWithSalt` studioId
 
 instance Prelude.NFData UpdateLaunchProfile where
   rnf UpdateLaunchProfile' {..} =
-    Prelude.rnf studioComponentIds
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf streamConfiguration
       `Prelude.seq` Prelude.rnf launchProfileProtocolVersions
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf streamConfiguration
+      `Prelude.seq` Prelude.rnf studioComponentIds
       `Prelude.seq` Prelude.rnf launchProfileId
       `Prelude.seq` Prelude.rnf studioId
 
@@ -212,14 +211,14 @@ instance Data.ToJSON UpdateLaunchProfile where
   toJSON UpdateLaunchProfile' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("studioComponentIds" Data..=)
-              Prelude.<$> studioComponentIds,
+          [ ("description" Data..=) Prelude.<$> description,
+            ("launchProfileProtocolVersions" Data..=)
+              Prelude.<$> launchProfileProtocolVersions,
             ("name" Data..=) Prelude.<$> name,
-            ("description" Data..=) Prelude.<$> description,
             ("streamConfiguration" Data..=)
               Prelude.<$> streamConfiguration,
-            ("launchProfileProtocolVersions" Data..=)
-              Prelude.<$> launchProfileProtocolVersions
+            ("studioComponentIds" Data..=)
+              Prelude.<$> studioComponentIds
           ]
       )
 

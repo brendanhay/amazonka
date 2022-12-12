@@ -27,8 +27,8 @@ module Amazonka.WorkMail.ListMailDomains
     newListMailDomains,
 
     -- * Request Lenses
-    listMailDomains_nextToken,
     listMailDomains_maxResults,
+    listMailDomains_nextToken,
     listMailDomains_organizationId,
 
     -- * Destructuring the Response
@@ -36,8 +36,8 @@ module Amazonka.WorkMail.ListMailDomains
     newListMailDomainsResponse,
 
     -- * Response Lenses
-    listMailDomainsResponse_nextToken,
     listMailDomainsResponse_mailDomains,
+    listMailDomainsResponse_nextToken,
     listMailDomainsResponse_httpStatus,
   )
 where
@@ -52,11 +52,11 @@ import Amazonka.WorkMail.Types
 
 -- | /See:/ 'newListMailDomains' smart constructor.
 data ListMailDomains = ListMailDomains'
-  { -- | The token to use to retrieve the next page of results. The first call
+  { -- | The maximum number of results to return in a single call.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to use to retrieve the next page of results. The first call
     -- does not require a token.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in a single call.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The WorkMail organization for which to list domains.
     organizationId :: Prelude.Text
   }
@@ -70,10 +70,10 @@ data ListMailDomains = ListMailDomains'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listMailDomains_maxResults' - The maximum number of results to return in a single call.
+--
 -- 'nextToken', 'listMailDomains_nextToken' - The token to use to retrieve the next page of results. The first call
 -- does not require a token.
---
--- 'maxResults', 'listMailDomains_maxResults' - The maximum number of results to return in a single call.
 --
 -- 'organizationId', 'listMailDomains_organizationId' - The WorkMail organization for which to list domains.
 newListMailDomains ::
@@ -82,19 +82,19 @@ newListMailDomains ::
   ListMailDomains
 newListMailDomains pOrganizationId_ =
   ListMailDomains'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       organizationId = pOrganizationId_
     }
+
+-- | The maximum number of results to return in a single call.
+listMailDomains_maxResults :: Lens.Lens' ListMailDomains (Prelude.Maybe Prelude.Natural)
+listMailDomains_maxResults = Lens.lens (\ListMailDomains' {maxResults} -> maxResults) (\s@ListMailDomains' {} a -> s {maxResults = a} :: ListMailDomains)
 
 -- | The token to use to retrieve the next page of results. The first call
 -- does not require a token.
 listMailDomains_nextToken :: Lens.Lens' ListMailDomains (Prelude.Maybe Prelude.Text)
 listMailDomains_nextToken = Lens.lens (\ListMailDomains' {nextToken} -> nextToken) (\s@ListMailDomains' {} a -> s {nextToken = a} :: ListMailDomains)
-
--- | The maximum number of results to return in a single call.
-listMailDomains_maxResults :: Lens.Lens' ListMailDomains (Prelude.Maybe Prelude.Natural)
-listMailDomains_maxResults = Lens.lens (\ListMailDomains' {maxResults} -> maxResults) (\s@ListMailDomains' {} a -> s {maxResults = a} :: ListMailDomains)
 
 -- | The WorkMail organization for which to list domains.
 listMailDomains_organizationId :: Lens.Lens' ListMailDomains Prelude.Text
@@ -110,21 +110,21 @@ instance Core.AWSRequest ListMailDomains where
     Response.receiveJSON
       ( \s h x ->
           ListMailDomainsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "MailDomains" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "MailDomains" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListMailDomains where
   hashWithSalt _salt ListMailDomains' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` organizationId
 
 instance Prelude.NFData ListMailDomains where
   rnf ListMailDomains' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf organizationId
 
 instance Data.ToHeaders ListMailDomains where
@@ -146,8 +146,8 @@ instance Data.ToJSON ListMailDomains where
   toJSON ListMailDomains' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("OrganizationId" Data..= organizationId)
           ]
@@ -161,13 +161,13 @@ instance Data.ToQuery ListMailDomains where
 
 -- | /See:/ 'newListMailDomainsResponse' smart constructor.
 data ListMailDomainsResponse = ListMailDomainsResponse'
-  { -- | The token to use to retrieve the next page of results. The value becomes
-    -- @null@ when there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of mail domain summaries, specifying domains that exist in the
+  { -- | The list of mail domain summaries, specifying domains that exist in the
     -- specified WorkMail organization, along with the information about
     -- whether the domain is or isn\'t the default.
     mailDomains :: Prelude.Maybe [MailDomainSummary],
+    -- | The token to use to retrieve the next page of results. The value becomes
+    -- @null@ when there are no more results to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -181,12 +181,12 @@ data ListMailDomainsResponse = ListMailDomainsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listMailDomainsResponse_nextToken' - The token to use to retrieve the next page of results. The value becomes
--- @null@ when there are no more results to return.
---
 -- 'mailDomains', 'listMailDomainsResponse_mailDomains' - The list of mail domain summaries, specifying domains that exist in the
 -- specified WorkMail organization, along with the information about
 -- whether the domain is or isn\'t the default.
+--
+-- 'nextToken', 'listMailDomainsResponse_nextToken' - The token to use to retrieve the next page of results. The value becomes
+-- @null@ when there are no more results to return.
 --
 -- 'httpStatus', 'listMailDomainsResponse_httpStatus' - The response's http status code.
 newListMailDomainsResponse ::
@@ -195,16 +195,11 @@ newListMailDomainsResponse ::
   ListMailDomainsResponse
 newListMailDomainsResponse pHttpStatus_ =
   ListMailDomainsResponse'
-    { nextToken =
+    { mailDomains =
         Prelude.Nothing,
-      mailDomains = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token to use to retrieve the next page of results. The value becomes
--- @null@ when there are no more results to return.
-listMailDomainsResponse_nextToken :: Lens.Lens' ListMailDomainsResponse (Prelude.Maybe Prelude.Text)
-listMailDomainsResponse_nextToken = Lens.lens (\ListMailDomainsResponse' {nextToken} -> nextToken) (\s@ListMailDomainsResponse' {} a -> s {nextToken = a} :: ListMailDomainsResponse)
 
 -- | The list of mail domain summaries, specifying domains that exist in the
 -- specified WorkMail organization, along with the information about
@@ -212,12 +207,17 @@ listMailDomainsResponse_nextToken = Lens.lens (\ListMailDomainsResponse' {nextTo
 listMailDomainsResponse_mailDomains :: Lens.Lens' ListMailDomainsResponse (Prelude.Maybe [MailDomainSummary])
 listMailDomainsResponse_mailDomains = Lens.lens (\ListMailDomainsResponse' {mailDomains} -> mailDomains) (\s@ListMailDomainsResponse' {} a -> s {mailDomains = a} :: ListMailDomainsResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The token to use to retrieve the next page of results. The value becomes
+-- @null@ when there are no more results to return.
+listMailDomainsResponse_nextToken :: Lens.Lens' ListMailDomainsResponse (Prelude.Maybe Prelude.Text)
+listMailDomainsResponse_nextToken = Lens.lens (\ListMailDomainsResponse' {nextToken} -> nextToken) (\s@ListMailDomainsResponse' {} a -> s {nextToken = a} :: ListMailDomainsResponse)
+
 -- | The response's http status code.
 listMailDomainsResponse_httpStatus :: Lens.Lens' ListMailDomainsResponse Prelude.Int
 listMailDomainsResponse_httpStatus = Lens.lens (\ListMailDomainsResponse' {httpStatus} -> httpStatus) (\s@ListMailDomainsResponse' {} a -> s {httpStatus = a} :: ListMailDomainsResponse)
 
 instance Prelude.NFData ListMailDomainsResponse where
   rnf ListMailDomainsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf mailDomains
+    Prelude.rnf mailDomains
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -36,22 +36,22 @@ module Amazonka.Route53Domains.GetDomainDetail
     newGetDomainDetailResponse,
 
     -- * Response Lenses
-    getDomainDetailResponse_reseller,
-    getDomainDetailResponse_registrantPrivacy,
-    getDomainDetailResponse_autoRenew,
-    getDomainDetailResponse_registrarName,
-    getDomainDetailResponse_creationDate,
-    getDomainDetailResponse_dnsSec,
-    getDomainDetailResponse_registryDomainId,
-    getDomainDetailResponse_techPrivacy,
-    getDomainDetailResponse_adminPrivacy,
-    getDomainDetailResponse_whoIsServer,
-    getDomainDetailResponse_statusList,
-    getDomainDetailResponse_updatedDate,
     getDomainDetailResponse_abuseContactEmail,
     getDomainDetailResponse_abuseContactPhone,
+    getDomainDetailResponse_adminPrivacy,
+    getDomainDetailResponse_autoRenew,
+    getDomainDetailResponse_creationDate,
+    getDomainDetailResponse_dnsSec,
     getDomainDetailResponse_expirationDate,
+    getDomainDetailResponse_registrantPrivacy,
+    getDomainDetailResponse_registrarName,
     getDomainDetailResponse_registrarUrl,
+    getDomainDetailResponse_registryDomainId,
+    getDomainDetailResponse_reseller,
+    getDomainDetailResponse_statusList,
+    getDomainDetailResponse_techPrivacy,
+    getDomainDetailResponse_updatedDate,
+    getDomainDetailResponse_whoIsServer,
     getDomainDetailResponse_httpStatus,
     getDomainDetailResponse_domainName,
     getDomainDetailResponse_nameservers,
@@ -108,22 +108,22 @@ instance Core.AWSRequest GetDomainDetail where
     Response.receiveJSON
       ( \s h x ->
           GetDomainDetailResponse'
-            Prelude.<$> (x Data..?> "Reseller")
-            Prelude.<*> (x Data..?> "RegistrantPrivacy")
+            Prelude.<$> (x Data..?> "AbuseContactEmail")
+            Prelude.<*> (x Data..?> "AbuseContactPhone")
+            Prelude.<*> (x Data..?> "AdminPrivacy")
             Prelude.<*> (x Data..?> "AutoRenew")
-            Prelude.<*> (x Data..?> "RegistrarName")
             Prelude.<*> (x Data..?> "CreationDate")
             Prelude.<*> (x Data..?> "DnsSec")
-            Prelude.<*> (x Data..?> "RegistryDomainId")
-            Prelude.<*> (x Data..?> "TechPrivacy")
-            Prelude.<*> (x Data..?> "AdminPrivacy")
-            Prelude.<*> (x Data..?> "WhoIsServer")
-            Prelude.<*> (x Data..?> "StatusList" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "UpdatedDate")
-            Prelude.<*> (x Data..?> "AbuseContactEmail")
-            Prelude.<*> (x Data..?> "AbuseContactPhone")
             Prelude.<*> (x Data..?> "ExpirationDate")
+            Prelude.<*> (x Data..?> "RegistrantPrivacy")
+            Prelude.<*> (x Data..?> "RegistrarName")
             Prelude.<*> (x Data..?> "RegistrarUrl")
+            Prelude.<*> (x Data..?> "RegistryDomainId")
+            Prelude.<*> (x Data..?> "Reseller")
+            Prelude.<*> (x Data..?> "StatusList" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "TechPrivacy")
+            Prelude.<*> (x Data..?> "UpdatedDate")
+            Prelude.<*> (x Data..?> "WhoIsServer")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "DomainName")
             Prelude.<*> (x Data..?> "Nameservers" Core..!@ Prelude.mempty)
@@ -171,39 +171,13 @@ instance Data.ToQuery GetDomainDetail where
 --
 -- /See:/ 'newGetDomainDetailResponse' smart constructor.
 data GetDomainDetailResponse = GetDomainDetailResponse'
-  { -- | Reseller of the domain. Domains registered or transferred using Route 53
-    -- domains will have @\"Amazon\"@ as the reseller.
-    reseller :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether contact information is concealed from WHOIS queries.
-    -- If the value is @true@, WHOIS (\"who is\") queries return contact
-    -- information either for Amazon Registrar (for .com, .net, and .org
-    -- domains) or for our registrar associate, Gandi (for all other TLDs). If
-    -- the value is @false@, WHOIS queries return the information that you
-    -- entered for the registrant contact (domain owner).
-    registrantPrivacy :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies whether the domain registration is set to renew automatically.
-    autoRenew :: Prelude.Maybe Prelude.Bool,
-    -- | Name of the registrar of the domain as identified in the registry.
-    -- Domains with a .com, .net, or .org TLD are registered by Amazon
-    -- Registrar. All other domains are registered by our registrar associate,
-    -- Gandi. The value for domains that are registered by Gandi is
-    -- @\"GANDI SAS\"@.
-    registrarName :: Prelude.Maybe Prelude.Text,
-    -- | The date when the domain was created as found in the response to a WHOIS
-    -- query. The date and time is in Unix time format and Coordinated
-    -- Universal time (UTC).
-    creationDate :: Prelude.Maybe Data.POSIX,
-    -- | Deprecated.
-    dnsSec :: Prelude.Maybe Prelude.Text,
-    -- | Reserved for future use.
-    registryDomainId :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether contact information is concealed from WHOIS queries.
-    -- If the value is @true@, WHOIS (\"who is\") queries return contact
-    -- information either for Amazon Registrar (for .com, .net, and .org
-    -- domains) or for our registrar associate, Gandi (for all other TLDs). If
-    -- the value is @false@, WHOIS queries return the information that you
-    -- entered for the technical contact.
-    techPrivacy :: Prelude.Maybe Prelude.Bool,
+  { -- | Email address to contact to report incorrect contact information for a
+    -- domain, to report that the domain is being used to send spam, to report
+    -- that someone is cybersquatting on a domain name, or report some other
+    -- type of abuse.
+    abuseContactEmail :: Prelude.Maybe Prelude.Text,
+    -- | Phone number for reporting abuse.
+    abuseContactPhone :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether contact information is concealed from WHOIS queries.
     -- If the value is @true@, WHOIS (\"who is\") queries return contact
     -- information either for Amazon Registrar (for .com, .net, and .org
@@ -211,9 +185,37 @@ data GetDomainDetailResponse = GetDomainDetailResponse'
     -- the value is @false@, WHOIS queries return the information that you
     -- entered for the admin contact.
     adminPrivacy :: Prelude.Maybe Prelude.Bool,
-    -- | The fully qualified name of the WHOIS server that can answer the WHOIS
-    -- query for the domain.
-    whoIsServer :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether the domain registration is set to renew automatically.
+    autoRenew :: Prelude.Maybe Prelude.Bool,
+    -- | The date when the domain was created as found in the response to a WHOIS
+    -- query. The date and time is in Unix time format and Coordinated
+    -- Universal time (UTC).
+    creationDate :: Prelude.Maybe Data.POSIX,
+    -- | Deprecated.
+    dnsSec :: Prelude.Maybe Prelude.Text,
+    -- | The date when the registration for the domain is set to expire. The date
+    -- and time is in Unix time format and Coordinated Universal time (UTC).
+    expirationDate :: Prelude.Maybe Data.POSIX,
+    -- | Specifies whether contact information is concealed from WHOIS queries.
+    -- If the value is @true@, WHOIS (\"who is\") queries return contact
+    -- information either for Amazon Registrar (for .com, .net, and .org
+    -- domains) or for our registrar associate, Gandi (for all other TLDs). If
+    -- the value is @false@, WHOIS queries return the information that you
+    -- entered for the registrant contact (domain owner).
+    registrantPrivacy :: Prelude.Maybe Prelude.Bool,
+    -- | Name of the registrar of the domain as identified in the registry.
+    -- Domains with a .com, .net, or .org TLD are registered by Amazon
+    -- Registrar. All other domains are registered by our registrar associate,
+    -- Gandi. The value for domains that are registered by Gandi is
+    -- @\"GANDI SAS\"@.
+    registrarName :: Prelude.Maybe Prelude.Text,
+    -- | Web address of the registrar.
+    registrarUrl :: Prelude.Maybe Prelude.Text,
+    -- | Reserved for future use.
+    registryDomainId :: Prelude.Maybe Prelude.Text,
+    -- | Reseller of the domain. Domains registered or transferred using Route 53
+    -- domains will have @\"Amazon\"@ as the reseller.
+    reseller :: Prelude.Maybe Prelude.Text,
     -- | An array of domain name status codes, also known as Extensible
     -- Provisioning Protocol (EPP) status codes.
     --
@@ -229,22 +231,20 @@ data GetDomainDetailResponse = GetDomainDetailResponse'
     -- and search for @epp status codes@. (Search on the ICANN website; web
     -- searches sometimes return an old version of the document.)
     statusList :: Prelude.Maybe [Prelude.Text],
+    -- | Specifies whether contact information is concealed from WHOIS queries.
+    -- If the value is @true@, WHOIS (\"who is\") queries return contact
+    -- information either for Amazon Registrar (for .com, .net, and .org
+    -- domains) or for our registrar associate, Gandi (for all other TLDs). If
+    -- the value is @false@, WHOIS queries return the information that you
+    -- entered for the technical contact.
+    techPrivacy :: Prelude.Maybe Prelude.Bool,
     -- | The last updated date of the domain as found in the response to a WHOIS
     -- query. The date and time is in Unix time format and Coordinated
     -- Universal time (UTC).
     updatedDate :: Prelude.Maybe Data.POSIX,
-    -- | Email address to contact to report incorrect contact information for a
-    -- domain, to report that the domain is being used to send spam, to report
-    -- that someone is cybersquatting on a domain name, or report some other
-    -- type of abuse.
-    abuseContactEmail :: Prelude.Maybe Prelude.Text,
-    -- | Phone number for reporting abuse.
-    abuseContactPhone :: Prelude.Maybe Prelude.Text,
-    -- | The date when the registration for the domain is set to expire. The date
-    -- and time is in Unix time format and Coordinated Universal time (UTC).
-    expirationDate :: Prelude.Maybe Data.POSIX,
-    -- | Web address of the registrar.
-    registrarUrl :: Prelude.Maybe Prelude.Text,
+    -- | The fully qualified name of the WHOIS server that can answer the WHOIS
+    -- query for the domain.
+    whoIsServer :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The name of a domain.
@@ -268,38 +268,12 @@ data GetDomainDetailResponse = GetDomainDetailResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'reseller', 'getDomainDetailResponse_reseller' - Reseller of the domain. Domains registered or transferred using Route 53
--- domains will have @\"Amazon\"@ as the reseller.
+-- 'abuseContactEmail', 'getDomainDetailResponse_abuseContactEmail' - Email address to contact to report incorrect contact information for a
+-- domain, to report that the domain is being used to send spam, to report
+-- that someone is cybersquatting on a domain name, or report some other
+-- type of abuse.
 --
--- 'registrantPrivacy', 'getDomainDetailResponse_registrantPrivacy' - Specifies whether contact information is concealed from WHOIS queries.
--- If the value is @true@, WHOIS (\"who is\") queries return contact
--- information either for Amazon Registrar (for .com, .net, and .org
--- domains) or for our registrar associate, Gandi (for all other TLDs). If
--- the value is @false@, WHOIS queries return the information that you
--- entered for the registrant contact (domain owner).
---
--- 'autoRenew', 'getDomainDetailResponse_autoRenew' - Specifies whether the domain registration is set to renew automatically.
---
--- 'registrarName', 'getDomainDetailResponse_registrarName' - Name of the registrar of the domain as identified in the registry.
--- Domains with a .com, .net, or .org TLD are registered by Amazon
--- Registrar. All other domains are registered by our registrar associate,
--- Gandi. The value for domains that are registered by Gandi is
--- @\"GANDI SAS\"@.
---
--- 'creationDate', 'getDomainDetailResponse_creationDate' - The date when the domain was created as found in the response to a WHOIS
--- query. The date and time is in Unix time format and Coordinated
--- Universal time (UTC).
---
--- 'dnsSec', 'getDomainDetailResponse_dnsSec' - Deprecated.
---
--- 'registryDomainId', 'getDomainDetailResponse_registryDomainId' - Reserved for future use.
---
--- 'techPrivacy', 'getDomainDetailResponse_techPrivacy' - Specifies whether contact information is concealed from WHOIS queries.
--- If the value is @true@, WHOIS (\"who is\") queries return contact
--- information either for Amazon Registrar (for .com, .net, and .org
--- domains) or for our registrar associate, Gandi (for all other TLDs). If
--- the value is @false@, WHOIS queries return the information that you
--- entered for the technical contact.
+-- 'abuseContactPhone', 'getDomainDetailResponse_abuseContactPhone' - Phone number for reporting abuse.
 --
 -- 'adminPrivacy', 'getDomainDetailResponse_adminPrivacy' - Specifies whether contact information is concealed from WHOIS queries.
 -- If the value is @true@, WHOIS (\"who is\") queries return contact
@@ -308,8 +282,36 @@ data GetDomainDetailResponse = GetDomainDetailResponse'
 -- the value is @false@, WHOIS queries return the information that you
 -- entered for the admin contact.
 --
--- 'whoIsServer', 'getDomainDetailResponse_whoIsServer' - The fully qualified name of the WHOIS server that can answer the WHOIS
--- query for the domain.
+-- 'autoRenew', 'getDomainDetailResponse_autoRenew' - Specifies whether the domain registration is set to renew automatically.
+--
+-- 'creationDate', 'getDomainDetailResponse_creationDate' - The date when the domain was created as found in the response to a WHOIS
+-- query. The date and time is in Unix time format and Coordinated
+-- Universal time (UTC).
+--
+-- 'dnsSec', 'getDomainDetailResponse_dnsSec' - Deprecated.
+--
+-- 'expirationDate', 'getDomainDetailResponse_expirationDate' - The date when the registration for the domain is set to expire. The date
+-- and time is in Unix time format and Coordinated Universal time (UTC).
+--
+-- 'registrantPrivacy', 'getDomainDetailResponse_registrantPrivacy' - Specifies whether contact information is concealed from WHOIS queries.
+-- If the value is @true@, WHOIS (\"who is\") queries return contact
+-- information either for Amazon Registrar (for .com, .net, and .org
+-- domains) or for our registrar associate, Gandi (for all other TLDs). If
+-- the value is @false@, WHOIS queries return the information that you
+-- entered for the registrant contact (domain owner).
+--
+-- 'registrarName', 'getDomainDetailResponse_registrarName' - Name of the registrar of the domain as identified in the registry.
+-- Domains with a .com, .net, or .org TLD are registered by Amazon
+-- Registrar. All other domains are registered by our registrar associate,
+-- Gandi. The value for domains that are registered by Gandi is
+-- @\"GANDI SAS\"@.
+--
+-- 'registrarUrl', 'getDomainDetailResponse_registrarUrl' - Web address of the registrar.
+--
+-- 'registryDomainId', 'getDomainDetailResponse_registryDomainId' - Reserved for future use.
+--
+-- 'reseller', 'getDomainDetailResponse_reseller' - Reseller of the domain. Domains registered or transferred using Route 53
+-- domains will have @\"Amazon\"@ as the reseller.
 --
 -- 'statusList', 'getDomainDetailResponse_statusList' - An array of domain name status codes, also known as Extensible
 -- Provisioning Protocol (EPP) status codes.
@@ -326,21 +328,19 @@ data GetDomainDetailResponse = GetDomainDetailResponse'
 -- and search for @epp status codes@. (Search on the ICANN website; web
 -- searches sometimes return an old version of the document.)
 --
+-- 'techPrivacy', 'getDomainDetailResponse_techPrivacy' - Specifies whether contact information is concealed from WHOIS queries.
+-- If the value is @true@, WHOIS (\"who is\") queries return contact
+-- information either for Amazon Registrar (for .com, .net, and .org
+-- domains) or for our registrar associate, Gandi (for all other TLDs). If
+-- the value is @false@, WHOIS queries return the information that you
+-- entered for the technical contact.
+--
 -- 'updatedDate', 'getDomainDetailResponse_updatedDate' - The last updated date of the domain as found in the response to a WHOIS
 -- query. The date and time is in Unix time format and Coordinated
 -- Universal time (UTC).
 --
--- 'abuseContactEmail', 'getDomainDetailResponse_abuseContactEmail' - Email address to contact to report incorrect contact information for a
--- domain, to report that the domain is being used to send spam, to report
--- that someone is cybersquatting on a domain name, or report some other
--- type of abuse.
---
--- 'abuseContactPhone', 'getDomainDetailResponse_abuseContactPhone' - Phone number for reporting abuse.
---
--- 'expirationDate', 'getDomainDetailResponse_expirationDate' - The date when the registration for the domain is set to expire. The date
--- and time is in Unix time format and Coordinated Universal time (UTC).
---
--- 'registrarUrl', 'getDomainDetailResponse_registrarUrl' - Web address of the registrar.
+-- 'whoIsServer', 'getDomainDetailResponse_whoIsServer' - The fully qualified name of the WHOIS server that can answer the WHOIS
+-- query for the domain.
 --
 -- 'httpStatus', 'getDomainDetailResponse_httpStatus' - The response's http status code.
 --
@@ -372,23 +372,23 @@ newGetDomainDetailResponse
   pRegistrantContact_
   pTechContact_ =
     GetDomainDetailResponse'
-      { reseller =
+      { abuseContactEmail =
           Prelude.Nothing,
-        registrantPrivacy = Prelude.Nothing,
+        abuseContactPhone = Prelude.Nothing,
+        adminPrivacy = Prelude.Nothing,
         autoRenew = Prelude.Nothing,
-        registrarName = Prelude.Nothing,
         creationDate = Prelude.Nothing,
         dnsSec = Prelude.Nothing,
-        registryDomainId = Prelude.Nothing,
-        techPrivacy = Prelude.Nothing,
-        adminPrivacy = Prelude.Nothing,
-        whoIsServer = Prelude.Nothing,
-        statusList = Prelude.Nothing,
-        updatedDate = Prelude.Nothing,
-        abuseContactEmail = Prelude.Nothing,
-        abuseContactPhone = Prelude.Nothing,
         expirationDate = Prelude.Nothing,
+        registrantPrivacy = Prelude.Nothing,
+        registrarName = Prelude.Nothing,
         registrarUrl = Prelude.Nothing,
+        registryDomainId = Prelude.Nothing,
+        reseller = Prelude.Nothing,
+        statusList = Prelude.Nothing,
+        techPrivacy = Prelude.Nothing,
+        updatedDate = Prelude.Nothing,
+        whoIsServer = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         domainName = pDomainName_,
         nameservers = Prelude.mempty,
@@ -399,31 +399,29 @@ newGetDomainDetailResponse
         techContact = Data._Sensitive Lens.# pTechContact_
       }
 
--- | Reseller of the domain. Domains registered or transferred using Route 53
--- domains will have @\"Amazon\"@ as the reseller.
-getDomainDetailResponse_reseller :: Lens.Lens' GetDomainDetailResponse (Prelude.Maybe Prelude.Text)
-getDomainDetailResponse_reseller = Lens.lens (\GetDomainDetailResponse' {reseller} -> reseller) (\s@GetDomainDetailResponse' {} a -> s {reseller = a} :: GetDomainDetailResponse)
+-- | Email address to contact to report incorrect contact information for a
+-- domain, to report that the domain is being used to send spam, to report
+-- that someone is cybersquatting on a domain name, or report some other
+-- type of abuse.
+getDomainDetailResponse_abuseContactEmail :: Lens.Lens' GetDomainDetailResponse (Prelude.Maybe Prelude.Text)
+getDomainDetailResponse_abuseContactEmail = Lens.lens (\GetDomainDetailResponse' {abuseContactEmail} -> abuseContactEmail) (\s@GetDomainDetailResponse' {} a -> s {abuseContactEmail = a} :: GetDomainDetailResponse)
+
+-- | Phone number for reporting abuse.
+getDomainDetailResponse_abuseContactPhone :: Lens.Lens' GetDomainDetailResponse (Prelude.Maybe Prelude.Text)
+getDomainDetailResponse_abuseContactPhone = Lens.lens (\GetDomainDetailResponse' {abuseContactPhone} -> abuseContactPhone) (\s@GetDomainDetailResponse' {} a -> s {abuseContactPhone = a} :: GetDomainDetailResponse)
 
 -- | Specifies whether contact information is concealed from WHOIS queries.
 -- If the value is @true@, WHOIS (\"who is\") queries return contact
 -- information either for Amazon Registrar (for .com, .net, and .org
 -- domains) or for our registrar associate, Gandi (for all other TLDs). If
 -- the value is @false@, WHOIS queries return the information that you
--- entered for the registrant contact (domain owner).
-getDomainDetailResponse_registrantPrivacy :: Lens.Lens' GetDomainDetailResponse (Prelude.Maybe Prelude.Bool)
-getDomainDetailResponse_registrantPrivacy = Lens.lens (\GetDomainDetailResponse' {registrantPrivacy} -> registrantPrivacy) (\s@GetDomainDetailResponse' {} a -> s {registrantPrivacy = a} :: GetDomainDetailResponse)
+-- entered for the admin contact.
+getDomainDetailResponse_adminPrivacy :: Lens.Lens' GetDomainDetailResponse (Prelude.Maybe Prelude.Bool)
+getDomainDetailResponse_adminPrivacy = Lens.lens (\GetDomainDetailResponse' {adminPrivacy} -> adminPrivacy) (\s@GetDomainDetailResponse' {} a -> s {adminPrivacy = a} :: GetDomainDetailResponse)
 
 -- | Specifies whether the domain registration is set to renew automatically.
 getDomainDetailResponse_autoRenew :: Lens.Lens' GetDomainDetailResponse (Prelude.Maybe Prelude.Bool)
 getDomainDetailResponse_autoRenew = Lens.lens (\GetDomainDetailResponse' {autoRenew} -> autoRenew) (\s@GetDomainDetailResponse' {} a -> s {autoRenew = a} :: GetDomainDetailResponse)
-
--- | Name of the registrar of the domain as identified in the registry.
--- Domains with a .com, .net, or .org TLD are registered by Amazon
--- Registrar. All other domains are registered by our registrar associate,
--- Gandi. The value for domains that are registered by Gandi is
--- @\"GANDI SAS\"@.
-getDomainDetailResponse_registrarName :: Lens.Lens' GetDomainDetailResponse (Prelude.Maybe Prelude.Text)
-getDomainDetailResponse_registrarName = Lens.lens (\GetDomainDetailResponse' {registrarName} -> registrarName) (\s@GetDomainDetailResponse' {} a -> s {registrarName = a} :: GetDomainDetailResponse)
 
 -- | The date when the domain was created as found in the response to a WHOIS
 -- query. The date and time is in Unix time format and Coordinated
@@ -435,32 +433,40 @@ getDomainDetailResponse_creationDate = Lens.lens (\GetDomainDetailResponse' {cre
 getDomainDetailResponse_dnsSec :: Lens.Lens' GetDomainDetailResponse (Prelude.Maybe Prelude.Text)
 getDomainDetailResponse_dnsSec = Lens.lens (\GetDomainDetailResponse' {dnsSec} -> dnsSec) (\s@GetDomainDetailResponse' {} a -> s {dnsSec = a} :: GetDomainDetailResponse)
 
+-- | The date when the registration for the domain is set to expire. The date
+-- and time is in Unix time format and Coordinated Universal time (UTC).
+getDomainDetailResponse_expirationDate :: Lens.Lens' GetDomainDetailResponse (Prelude.Maybe Prelude.UTCTime)
+getDomainDetailResponse_expirationDate = Lens.lens (\GetDomainDetailResponse' {expirationDate} -> expirationDate) (\s@GetDomainDetailResponse' {} a -> s {expirationDate = a} :: GetDomainDetailResponse) Prelude.. Lens.mapping Data._Time
+
+-- | Specifies whether contact information is concealed from WHOIS queries.
+-- If the value is @true@, WHOIS (\"who is\") queries return contact
+-- information either for Amazon Registrar (for .com, .net, and .org
+-- domains) or for our registrar associate, Gandi (for all other TLDs). If
+-- the value is @false@, WHOIS queries return the information that you
+-- entered for the registrant contact (domain owner).
+getDomainDetailResponse_registrantPrivacy :: Lens.Lens' GetDomainDetailResponse (Prelude.Maybe Prelude.Bool)
+getDomainDetailResponse_registrantPrivacy = Lens.lens (\GetDomainDetailResponse' {registrantPrivacy} -> registrantPrivacy) (\s@GetDomainDetailResponse' {} a -> s {registrantPrivacy = a} :: GetDomainDetailResponse)
+
+-- | Name of the registrar of the domain as identified in the registry.
+-- Domains with a .com, .net, or .org TLD are registered by Amazon
+-- Registrar. All other domains are registered by our registrar associate,
+-- Gandi. The value for domains that are registered by Gandi is
+-- @\"GANDI SAS\"@.
+getDomainDetailResponse_registrarName :: Lens.Lens' GetDomainDetailResponse (Prelude.Maybe Prelude.Text)
+getDomainDetailResponse_registrarName = Lens.lens (\GetDomainDetailResponse' {registrarName} -> registrarName) (\s@GetDomainDetailResponse' {} a -> s {registrarName = a} :: GetDomainDetailResponse)
+
+-- | Web address of the registrar.
+getDomainDetailResponse_registrarUrl :: Lens.Lens' GetDomainDetailResponse (Prelude.Maybe Prelude.Text)
+getDomainDetailResponse_registrarUrl = Lens.lens (\GetDomainDetailResponse' {registrarUrl} -> registrarUrl) (\s@GetDomainDetailResponse' {} a -> s {registrarUrl = a} :: GetDomainDetailResponse)
+
 -- | Reserved for future use.
 getDomainDetailResponse_registryDomainId :: Lens.Lens' GetDomainDetailResponse (Prelude.Maybe Prelude.Text)
 getDomainDetailResponse_registryDomainId = Lens.lens (\GetDomainDetailResponse' {registryDomainId} -> registryDomainId) (\s@GetDomainDetailResponse' {} a -> s {registryDomainId = a} :: GetDomainDetailResponse)
 
--- | Specifies whether contact information is concealed from WHOIS queries.
--- If the value is @true@, WHOIS (\"who is\") queries return contact
--- information either for Amazon Registrar (for .com, .net, and .org
--- domains) or for our registrar associate, Gandi (for all other TLDs). If
--- the value is @false@, WHOIS queries return the information that you
--- entered for the technical contact.
-getDomainDetailResponse_techPrivacy :: Lens.Lens' GetDomainDetailResponse (Prelude.Maybe Prelude.Bool)
-getDomainDetailResponse_techPrivacy = Lens.lens (\GetDomainDetailResponse' {techPrivacy} -> techPrivacy) (\s@GetDomainDetailResponse' {} a -> s {techPrivacy = a} :: GetDomainDetailResponse)
-
--- | Specifies whether contact information is concealed from WHOIS queries.
--- If the value is @true@, WHOIS (\"who is\") queries return contact
--- information either for Amazon Registrar (for .com, .net, and .org
--- domains) or for our registrar associate, Gandi (for all other TLDs). If
--- the value is @false@, WHOIS queries return the information that you
--- entered for the admin contact.
-getDomainDetailResponse_adminPrivacy :: Lens.Lens' GetDomainDetailResponse (Prelude.Maybe Prelude.Bool)
-getDomainDetailResponse_adminPrivacy = Lens.lens (\GetDomainDetailResponse' {adminPrivacy} -> adminPrivacy) (\s@GetDomainDetailResponse' {} a -> s {adminPrivacy = a} :: GetDomainDetailResponse)
-
--- | The fully qualified name of the WHOIS server that can answer the WHOIS
--- query for the domain.
-getDomainDetailResponse_whoIsServer :: Lens.Lens' GetDomainDetailResponse (Prelude.Maybe Prelude.Text)
-getDomainDetailResponse_whoIsServer = Lens.lens (\GetDomainDetailResponse' {whoIsServer} -> whoIsServer) (\s@GetDomainDetailResponse' {} a -> s {whoIsServer = a} :: GetDomainDetailResponse)
+-- | Reseller of the domain. Domains registered or transferred using Route 53
+-- domains will have @\"Amazon\"@ as the reseller.
+getDomainDetailResponse_reseller :: Lens.Lens' GetDomainDetailResponse (Prelude.Maybe Prelude.Text)
+getDomainDetailResponse_reseller = Lens.lens (\GetDomainDetailResponse' {reseller} -> reseller) (\s@GetDomainDetailResponse' {} a -> s {reseller = a} :: GetDomainDetailResponse)
 
 -- | An array of domain name status codes, also known as Extensible
 -- Provisioning Protocol (EPP) status codes.
@@ -479,31 +485,25 @@ getDomainDetailResponse_whoIsServer = Lens.lens (\GetDomainDetailResponse' {whoI
 getDomainDetailResponse_statusList :: Lens.Lens' GetDomainDetailResponse (Prelude.Maybe [Prelude.Text])
 getDomainDetailResponse_statusList = Lens.lens (\GetDomainDetailResponse' {statusList} -> statusList) (\s@GetDomainDetailResponse' {} a -> s {statusList = a} :: GetDomainDetailResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | Specifies whether contact information is concealed from WHOIS queries.
+-- If the value is @true@, WHOIS (\"who is\") queries return contact
+-- information either for Amazon Registrar (for .com, .net, and .org
+-- domains) or for our registrar associate, Gandi (for all other TLDs). If
+-- the value is @false@, WHOIS queries return the information that you
+-- entered for the technical contact.
+getDomainDetailResponse_techPrivacy :: Lens.Lens' GetDomainDetailResponse (Prelude.Maybe Prelude.Bool)
+getDomainDetailResponse_techPrivacy = Lens.lens (\GetDomainDetailResponse' {techPrivacy} -> techPrivacy) (\s@GetDomainDetailResponse' {} a -> s {techPrivacy = a} :: GetDomainDetailResponse)
+
 -- | The last updated date of the domain as found in the response to a WHOIS
 -- query. The date and time is in Unix time format and Coordinated
 -- Universal time (UTC).
 getDomainDetailResponse_updatedDate :: Lens.Lens' GetDomainDetailResponse (Prelude.Maybe Prelude.UTCTime)
 getDomainDetailResponse_updatedDate = Lens.lens (\GetDomainDetailResponse' {updatedDate} -> updatedDate) (\s@GetDomainDetailResponse' {} a -> s {updatedDate = a} :: GetDomainDetailResponse) Prelude.. Lens.mapping Data._Time
 
--- | Email address to contact to report incorrect contact information for a
--- domain, to report that the domain is being used to send spam, to report
--- that someone is cybersquatting on a domain name, or report some other
--- type of abuse.
-getDomainDetailResponse_abuseContactEmail :: Lens.Lens' GetDomainDetailResponse (Prelude.Maybe Prelude.Text)
-getDomainDetailResponse_abuseContactEmail = Lens.lens (\GetDomainDetailResponse' {abuseContactEmail} -> abuseContactEmail) (\s@GetDomainDetailResponse' {} a -> s {abuseContactEmail = a} :: GetDomainDetailResponse)
-
--- | Phone number for reporting abuse.
-getDomainDetailResponse_abuseContactPhone :: Lens.Lens' GetDomainDetailResponse (Prelude.Maybe Prelude.Text)
-getDomainDetailResponse_abuseContactPhone = Lens.lens (\GetDomainDetailResponse' {abuseContactPhone} -> abuseContactPhone) (\s@GetDomainDetailResponse' {} a -> s {abuseContactPhone = a} :: GetDomainDetailResponse)
-
--- | The date when the registration for the domain is set to expire. The date
--- and time is in Unix time format and Coordinated Universal time (UTC).
-getDomainDetailResponse_expirationDate :: Lens.Lens' GetDomainDetailResponse (Prelude.Maybe Prelude.UTCTime)
-getDomainDetailResponse_expirationDate = Lens.lens (\GetDomainDetailResponse' {expirationDate} -> expirationDate) (\s@GetDomainDetailResponse' {} a -> s {expirationDate = a} :: GetDomainDetailResponse) Prelude.. Lens.mapping Data._Time
-
--- | Web address of the registrar.
-getDomainDetailResponse_registrarUrl :: Lens.Lens' GetDomainDetailResponse (Prelude.Maybe Prelude.Text)
-getDomainDetailResponse_registrarUrl = Lens.lens (\GetDomainDetailResponse' {registrarUrl} -> registrarUrl) (\s@GetDomainDetailResponse' {} a -> s {registrarUrl = a} :: GetDomainDetailResponse)
+-- | The fully qualified name of the WHOIS server that can answer the WHOIS
+-- query for the domain.
+getDomainDetailResponse_whoIsServer :: Lens.Lens' GetDomainDetailResponse (Prelude.Maybe Prelude.Text)
+getDomainDetailResponse_whoIsServer = Lens.lens (\GetDomainDetailResponse' {whoIsServer} -> whoIsServer) (\s@GetDomainDetailResponse' {} a -> s {whoIsServer = a} :: GetDomainDetailResponse)
 
 -- | The response's http status code.
 getDomainDetailResponse_httpStatus :: Lens.Lens' GetDomainDetailResponse Prelude.Int
@@ -531,22 +531,22 @@ getDomainDetailResponse_techContact = Lens.lens (\GetDomainDetailResponse' {tech
 
 instance Prelude.NFData GetDomainDetailResponse where
   rnf GetDomainDetailResponse' {..} =
-    Prelude.rnf reseller
-      `Prelude.seq` Prelude.rnf registrantPrivacy
+    Prelude.rnf abuseContactEmail
+      `Prelude.seq` Prelude.rnf abuseContactPhone
+      `Prelude.seq` Prelude.rnf adminPrivacy
       `Prelude.seq` Prelude.rnf autoRenew
-      `Prelude.seq` Prelude.rnf registrarName
       `Prelude.seq` Prelude.rnf creationDate
       `Prelude.seq` Prelude.rnf dnsSec
-      `Prelude.seq` Prelude.rnf registryDomainId
-      `Prelude.seq` Prelude.rnf techPrivacy
-      `Prelude.seq` Prelude.rnf adminPrivacy
-      `Prelude.seq` Prelude.rnf whoIsServer
-      `Prelude.seq` Prelude.rnf statusList
-      `Prelude.seq` Prelude.rnf updatedDate
-      `Prelude.seq` Prelude.rnf abuseContactEmail
-      `Prelude.seq` Prelude.rnf abuseContactPhone
       `Prelude.seq` Prelude.rnf expirationDate
+      `Prelude.seq` Prelude.rnf registrantPrivacy
+      `Prelude.seq` Prelude.rnf registrarName
       `Prelude.seq` Prelude.rnf registrarUrl
+      `Prelude.seq` Prelude.rnf registryDomainId
+      `Prelude.seq` Prelude.rnf reseller
+      `Prelude.seq` Prelude.rnf statusList
+      `Prelude.seq` Prelude.rnf techPrivacy
+      `Prelude.seq` Prelude.rnf updatedDate
+      `Prelude.seq` Prelude.rnf whoIsServer
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf nameservers

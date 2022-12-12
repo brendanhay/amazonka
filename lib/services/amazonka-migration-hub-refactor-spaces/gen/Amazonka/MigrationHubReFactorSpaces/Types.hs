@@ -19,11 +19,11 @@ module Amazonka.MigrationHubReFactorSpaces.Types
 
     -- * Errors
     _AccessDeniedException,
-    _InternalServerException,
-    _ServiceQuotaExceededException,
-    _ResourceNotFoundException,
-    _InvalidResourcePolicyException,
     _ConflictException,
+    _InternalServerException,
+    _InvalidResourcePolicyException,
+    _ResourceNotFoundException,
+    _ServiceQuotaExceededException,
     _ThrottlingException,
     _ValidationException,
 
@@ -69,48 +69,48 @@ module Amazonka.MigrationHubReFactorSpaces.Types
     -- * ApiGatewayProxyConfig
     ApiGatewayProxyConfig (..),
     newApiGatewayProxyConfig,
-    apiGatewayProxyConfig_stageName,
-    apiGatewayProxyConfig_proxyUrl,
-    apiGatewayProxyConfig_endpointType,
     apiGatewayProxyConfig_apiGatewayId,
-    apiGatewayProxyConfig_nlbName,
-    apiGatewayProxyConfig_vpcLinkId,
+    apiGatewayProxyConfig_endpointType,
     apiGatewayProxyConfig_nlbArn,
+    apiGatewayProxyConfig_nlbName,
+    apiGatewayProxyConfig_proxyUrl,
+    apiGatewayProxyConfig_stageName,
+    apiGatewayProxyConfig_vpcLinkId,
 
     -- * ApiGatewayProxyInput
     ApiGatewayProxyInput (..),
     newApiGatewayProxyInput,
-    apiGatewayProxyInput_stageName,
     apiGatewayProxyInput_endpointType,
+    apiGatewayProxyInput_stageName,
 
     -- * ApiGatewayProxySummary
     ApiGatewayProxySummary (..),
     newApiGatewayProxySummary,
-    apiGatewayProxySummary_stageName,
-    apiGatewayProxySummary_proxyUrl,
-    apiGatewayProxySummary_endpointType,
     apiGatewayProxySummary_apiGatewayId,
-    apiGatewayProxySummary_nlbName,
-    apiGatewayProxySummary_vpcLinkId,
+    apiGatewayProxySummary_endpointType,
     apiGatewayProxySummary_nlbArn,
+    apiGatewayProxySummary_nlbName,
+    apiGatewayProxySummary_proxyUrl,
+    apiGatewayProxySummary_stageName,
+    apiGatewayProxySummary_vpcLinkId,
 
     -- * ApplicationSummary
     ApplicationSummary (..),
     newApplicationSummary,
-    applicationSummary_tags,
-    applicationSummary_name,
-    applicationSummary_proxyType,
-    applicationSummary_createdTime,
-    applicationSummary_createdByAccountId,
+    applicationSummary_apiGatewayProxy,
+    applicationSummary_applicationId,
     applicationSummary_arn,
-    applicationSummary_state,
-    applicationSummary_lastUpdatedTime,
-    applicationSummary_ownerAccountId,
-    applicationSummary_vpcId,
+    applicationSummary_createdByAccountId,
+    applicationSummary_createdTime,
     applicationSummary_environmentId,
     applicationSummary_error,
-    applicationSummary_applicationId,
-    applicationSummary_apiGatewayProxy,
+    applicationSummary_lastUpdatedTime,
+    applicationSummary_name,
+    applicationSummary_ownerAccountId,
+    applicationSummary_proxyType,
+    applicationSummary_state,
+    applicationSummary_tags,
+    applicationSummary_vpcId,
 
     -- * DefaultRouteInput
     DefaultRouteInput (..),
@@ -120,39 +120,39 @@ module Amazonka.MigrationHubReFactorSpaces.Types
     -- * EnvironmentSummary
     EnvironmentSummary (..),
     newEnvironmentSummary,
-    environmentSummary_tags,
-    environmentSummary_name,
-    environmentSummary_createdTime,
-    environmentSummary_transitGatewayId,
     environmentSummary_arn,
-    environmentSummary_state,
-    environmentSummary_lastUpdatedTime,
+    environmentSummary_createdTime,
     environmentSummary_description,
-    environmentSummary_ownerAccountId,
     environmentSummary_environmentId,
     environmentSummary_error,
+    environmentSummary_lastUpdatedTime,
+    environmentSummary_name,
     environmentSummary_networkFabricType,
+    environmentSummary_ownerAccountId,
+    environmentSummary_state,
+    environmentSummary_tags,
+    environmentSummary_transitGatewayId,
 
     -- * EnvironmentVpc
     EnvironmentVpc (..),
     newEnvironmentVpc,
-    environmentVpc_createdTime,
-    environmentVpc_vpcName,
-    environmentVpc_lastUpdatedTime,
     environmentVpc_accountId,
-    environmentVpc_vpcId,
-    environmentVpc_environmentId,
     environmentVpc_cidrBlocks,
+    environmentVpc_createdTime,
+    environmentVpc_environmentId,
+    environmentVpc_lastUpdatedTime,
+    environmentVpc_vpcId,
+    environmentVpc_vpcName,
 
     -- * ErrorResponse
     ErrorResponse (..),
     newErrorResponse,
-    errorResponse_resourceType,
-    errorResponse_message,
+    errorResponse_accountId,
     errorResponse_additionalDetails,
     errorResponse_code,
-    errorResponse_accountId,
+    errorResponse_message,
     errorResponse_resourceIdentifier,
+    errorResponse_resourceType,
 
     -- * LambdaEndpointConfig
     LambdaEndpointConfig (..),
@@ -172,58 +172,58 @@ module Amazonka.MigrationHubReFactorSpaces.Types
     -- * RouteSummary
     RouteSummary (..),
     newRouteSummary,
-    routeSummary_tags,
-    routeSummary_routeType,
-    routeSummary_createdTime,
-    routeSummary_createdByAccountId,
+    routeSummary_applicationId,
     routeSummary_arn,
-    routeSummary_state,
-    routeSummary_pathResourceToId,
-    routeSummary_lastUpdatedTime,
-    routeSummary_ownerAccountId,
-    routeSummary_routeId,
-    routeSummary_methods,
+    routeSummary_createdByAccountId,
+    routeSummary_createdTime,
     routeSummary_environmentId,
     routeSummary_error,
-    routeSummary_applicationId,
-    routeSummary_sourcePath,
     routeSummary_includeChildPaths,
+    routeSummary_lastUpdatedTime,
+    routeSummary_methods,
+    routeSummary_ownerAccountId,
+    routeSummary_pathResourceToId,
+    routeSummary_routeId,
+    routeSummary_routeType,
     routeSummary_serviceId,
+    routeSummary_sourcePath,
+    routeSummary_state,
+    routeSummary_tags,
 
     -- * ServiceSummary
     ServiceSummary (..),
     newServiceSummary,
-    serviceSummary_tags,
-    serviceSummary_name,
-    serviceSummary_createdTime,
-    serviceSummary_createdByAccountId,
+    serviceSummary_applicationId,
     serviceSummary_arn,
-    serviceSummary_state,
-    serviceSummary_urlEndpoint,
-    serviceSummary_lastUpdatedTime,
-    serviceSummary_endpointType,
+    serviceSummary_createdByAccountId,
+    serviceSummary_createdTime,
     serviceSummary_description,
-    serviceSummary_ownerAccountId,
-    serviceSummary_lambdaEndpoint,
-    serviceSummary_vpcId,
+    serviceSummary_endpointType,
     serviceSummary_environmentId,
     serviceSummary_error,
-    serviceSummary_applicationId,
+    serviceSummary_lambdaEndpoint,
+    serviceSummary_lastUpdatedTime,
+    serviceSummary_name,
+    serviceSummary_ownerAccountId,
     serviceSummary_serviceId,
+    serviceSummary_state,
+    serviceSummary_tags,
+    serviceSummary_urlEndpoint,
+    serviceSummary_vpcId,
 
     -- * UriPathRouteInput
     UriPathRouteInput (..),
     newUriPathRouteInput,
-    uriPathRouteInput_methods,
     uriPathRouteInput_includeChildPaths,
+    uriPathRouteInput_methods,
     uriPathRouteInput_activationState,
     uriPathRouteInput_sourcePath,
 
     -- * UrlEndpointConfig
     UrlEndpointConfig (..),
     newUrlEndpointConfig,
-    urlEndpointConfig_url,
     urlEndpointConfig_healthUrl,
+    urlEndpointConfig_url,
 
     -- * UrlEndpointInput
     UrlEndpointInput (..),
@@ -234,8 +234,8 @@ module Amazonka.MigrationHubReFactorSpaces.Types
     -- * UrlEndpointSummary
     UrlEndpointSummary (..),
     newUrlEndpointSummary,
-    urlEndpointSummary_url,
     urlEndpointSummary_healthUrl,
+    urlEndpointSummary_url,
   )
 where
 
@@ -301,28 +301,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -330,13 +324,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -344,6 +342,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The user does not have sufficient access to perform this action.
@@ -354,6 +354,14 @@ _AccessDeniedException =
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
+-- | Updating or deleting a resource can cause an inconsistent state.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
 -- | An unexpected error occurred while processing the request.
 _InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InternalServerException =
@@ -361,22 +369,6 @@ _InternalServerException =
     defaultService
     "InternalServerException"
     Prelude.. Core.hasStatus 500
-
--- | The request would cause a service quota to be exceeded.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceQuotaExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceQuotaExceededException"
-    Prelude.. Core.hasStatus 402
-
--- | The request references a resource that does not exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
 
 -- | The resource policy is not valid.
 _InvalidResourcePolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -386,13 +378,21 @@ _InvalidResourcePolicyException =
     "InvalidResourcePolicyException"
     Prelude.. Core.hasStatus 400
 
--- | Updating or deleting a resource can cause an inconsistent state.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
+-- | The request references a resource that does not exist.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
+
+-- | The request would cause a service quota to be exceeded.
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceQuotaExceededException"
+    Prelude.. Core.hasStatus 402
 
 -- | Request was denied because the request was throttled.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

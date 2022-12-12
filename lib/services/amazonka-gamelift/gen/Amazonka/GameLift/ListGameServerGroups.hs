@@ -20,24 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __This operation is used with the GameLift FleetIQ solution and game
--- server groups.__
---
--- Retrieves information on all game servers groups that exist in the
--- current Amazon Web Services account for the selected Region. Use the
--- pagination parameters to retrieve results in a set of sequential
--- segments.
---
--- __Learn more__
---
--- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html GameLift FleetIQ Guide>
---
--- __Related actions__
---
--- CreateGameServerGroup | ListGameServerGroups | DescribeGameServerGroup |
--- UpdateGameServerGroup | DeleteGameServerGroup | ResumeGameServerGroup |
--- SuspendGameServerGroup | DescribeGameServerInstances |
--- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html All APIs by task>
+-- Lists a game server groups.
 --
 -- This operation returns paginated results.
 module Amazonka.GameLift.ListGameServerGroups
@@ -46,16 +29,16 @@ module Amazonka.GameLift.ListGameServerGroups
     newListGameServerGroups,
 
     -- * Request Lenses
-    listGameServerGroups_nextToken,
     listGameServerGroups_limit,
+    listGameServerGroups_nextToken,
 
     -- * Destructuring the Response
     ListGameServerGroupsResponse (..),
     newListGameServerGroupsResponse,
 
     -- * Response Lenses
-    listGameServerGroupsResponse_nextToken,
     listGameServerGroupsResponse_gameServerGroups,
+    listGameServerGroupsResponse_nextToken,
     listGameServerGroupsResponse_httpStatus,
   )
 where
@@ -70,13 +53,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListGameServerGroups' smart constructor.
 data ListGameServerGroups = ListGameServerGroups'
-  { -- | A token that indicates the start of the next sequential page of results.
-    -- Use the token that is returned with a previous call to this operation.
-    -- To start at the beginning of the result set, do not specify a value.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return. Use this parameter with
-    -- @NextToken@ to get results as a set of sequential pages.
-    limit :: Prelude.Maybe Prelude.Natural
+  { -- | The game server groups\' limit.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | Specify the pagination token from a previous request to retrieve the
+    -- next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -88,30 +69,26 @@ data ListGameServerGroups = ListGameServerGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listGameServerGroups_nextToken' - A token that indicates the start of the next sequential page of results.
--- Use the token that is returned with a previous call to this operation.
--- To start at the beginning of the result set, do not specify a value.
+-- 'limit', 'listGameServerGroups_limit' - The game server groups\' limit.
 --
--- 'limit', 'listGameServerGroups_limit' - The maximum number of results to return. Use this parameter with
--- @NextToken@ to get results as a set of sequential pages.
+-- 'nextToken', 'listGameServerGroups_nextToken' - Specify the pagination token from a previous request to retrieve the
+-- next page of results.
 newListGameServerGroups ::
   ListGameServerGroups
 newListGameServerGroups =
   ListGameServerGroups'
-    { nextToken = Prelude.Nothing,
-      limit = Prelude.Nothing
+    { limit = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
 
--- | A token that indicates the start of the next sequential page of results.
--- Use the token that is returned with a previous call to this operation.
--- To start at the beginning of the result set, do not specify a value.
-listGameServerGroups_nextToken :: Lens.Lens' ListGameServerGroups (Prelude.Maybe Prelude.Text)
-listGameServerGroups_nextToken = Lens.lens (\ListGameServerGroups' {nextToken} -> nextToken) (\s@ListGameServerGroups' {} a -> s {nextToken = a} :: ListGameServerGroups)
-
--- | The maximum number of results to return. Use this parameter with
--- @NextToken@ to get results as a set of sequential pages.
+-- | The game server groups\' limit.
 listGameServerGroups_limit :: Lens.Lens' ListGameServerGroups (Prelude.Maybe Prelude.Natural)
 listGameServerGroups_limit = Lens.lens (\ListGameServerGroups' {limit} -> limit) (\s@ListGameServerGroups' {} a -> s {limit = a} :: ListGameServerGroups)
+
+-- | Specify the pagination token from a previous request to retrieve the
+-- next page of results.
+listGameServerGroups_nextToken :: Lens.Lens' ListGameServerGroups (Prelude.Maybe Prelude.Text)
+listGameServerGroups_nextToken = Lens.lens (\ListGameServerGroups' {nextToken} -> nextToken) (\s@ListGameServerGroups' {} a -> s {nextToken = a} :: ListGameServerGroups)
 
 instance Core.AWSPager ListGameServerGroups where
   page rq rs
@@ -145,22 +122,22 @@ instance Core.AWSRequest ListGameServerGroups where
     Response.receiveJSON
       ( \s h x ->
           ListGameServerGroupsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "GameServerGroups"
+            Prelude.<$> ( x Data..?> "GameServerGroups"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListGameServerGroups where
   hashWithSalt _salt ListGameServerGroups' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` limit
+    _salt `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListGameServerGroups where
   rnf ListGameServerGroups' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf limit
+    Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListGameServerGroups where
   toHeaders =
@@ -181,8 +158,8 @@ instance Data.ToJSON ListGameServerGroups where
   toJSON ListGameServerGroups' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Limit" Data..=) Prelude.<$> limit
+          [ ("Limit" Data..=) Prelude.<$> limit,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -194,12 +171,11 @@ instance Data.ToQuery ListGameServerGroups where
 
 -- | /See:/ 'newListGameServerGroupsResponse' smart constructor.
 data ListGameServerGroupsResponse = ListGameServerGroupsResponse'
-  { -- | A token that indicates where to resume retrieving results on the next
-    -- call to this operation. If no token is returned, these results represent
-    -- the end of the list.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A collection of game server group objects that match the request.
+  { -- | The game server groups\' game server groups.
     gameServerGroups :: Prelude.Maybe [GameServerGroup],
+    -- | Specify the pagination token from a previous request to retrieve the
+    -- next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -213,11 +189,10 @@ data ListGameServerGroupsResponse = ListGameServerGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listGameServerGroupsResponse_nextToken' - A token that indicates where to resume retrieving results on the next
--- call to this operation. If no token is returned, these results represent
--- the end of the list.
+-- 'gameServerGroups', 'listGameServerGroupsResponse_gameServerGroups' - The game server groups\' game server groups.
 --
--- 'gameServerGroups', 'listGameServerGroupsResponse_gameServerGroups' - A collection of game server group objects that match the request.
+-- 'nextToken', 'listGameServerGroupsResponse_nextToken' - Specify the pagination token from a previous request to retrieve the
+-- next page of results.
 --
 -- 'httpStatus', 'listGameServerGroupsResponse_httpStatus' - The response's http status code.
 newListGameServerGroupsResponse ::
@@ -226,21 +201,20 @@ newListGameServerGroupsResponse ::
   ListGameServerGroupsResponse
 newListGameServerGroupsResponse pHttpStatus_ =
   ListGameServerGroupsResponse'
-    { nextToken =
+    { gameServerGroups =
         Prelude.Nothing,
-      gameServerGroups = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | A token that indicates where to resume retrieving results on the next
--- call to this operation. If no token is returned, these results represent
--- the end of the list.
-listGameServerGroupsResponse_nextToken :: Lens.Lens' ListGameServerGroupsResponse (Prelude.Maybe Prelude.Text)
-listGameServerGroupsResponse_nextToken = Lens.lens (\ListGameServerGroupsResponse' {nextToken} -> nextToken) (\s@ListGameServerGroupsResponse' {} a -> s {nextToken = a} :: ListGameServerGroupsResponse)
-
--- | A collection of game server group objects that match the request.
+-- | The game server groups\' game server groups.
 listGameServerGroupsResponse_gameServerGroups :: Lens.Lens' ListGameServerGroupsResponse (Prelude.Maybe [GameServerGroup])
 listGameServerGroupsResponse_gameServerGroups = Lens.lens (\ListGameServerGroupsResponse' {gameServerGroups} -> gameServerGroups) (\s@ListGameServerGroupsResponse' {} a -> s {gameServerGroups = a} :: ListGameServerGroupsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specify the pagination token from a previous request to retrieve the
+-- next page of results.
+listGameServerGroupsResponse_nextToken :: Lens.Lens' ListGameServerGroupsResponse (Prelude.Maybe Prelude.Text)
+listGameServerGroupsResponse_nextToken = Lens.lens (\ListGameServerGroupsResponse' {nextToken} -> nextToken) (\s@ListGameServerGroupsResponse' {} a -> s {nextToken = a} :: ListGameServerGroupsResponse)
 
 -- | The response's http status code.
 listGameServerGroupsResponse_httpStatus :: Lens.Lens' ListGameServerGroupsResponse Prelude.Int
@@ -248,6 +222,6 @@ listGameServerGroupsResponse_httpStatus = Lens.lens (\ListGameServerGroupsRespon
 
 instance Prelude.NFData ListGameServerGroupsResponse where
   rnf ListGameServerGroupsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf gameServerGroups
+    Prelude.rnf gameServerGroups
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

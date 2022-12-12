@@ -34,7 +34,13 @@ import Amazonka.Route53AutoNaming.Types.RoutingPolicy
 --
 -- /See:/ 'newDnsConfig' smart constructor.
 data DnsConfig = DnsConfig'
-  { -- | The routing policy that you want to apply to all Route 53 DNS records
+  { -- | /Use NamespaceId in
+    -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_Service.html Service>
+    -- instead./
+    --
+    -- The ID of the namespace to use for DNS configuration.
+    namespaceId :: Prelude.Maybe Prelude.Text,
+    -- | The routing policy that you want to apply to all Route 53 DNS records
     -- that Cloud Map creates when you register an instance and specify this
     -- service.
     --
@@ -84,12 +90,6 @@ data DnsConfig = DnsConfig'
     --     <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted Weighted Routing>
     --     in the /Route 53 Developer Guide/.
     routingPolicy :: Prelude.Maybe RoutingPolicy,
-    -- | /Use NamespaceId in
-    -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_Service.html Service>
-    -- instead./
-    --
-    -- The ID of the namespace to use for DNS configuration.
-    namespaceId :: Prelude.Maybe Prelude.Text,
     -- | An array that contains one @DnsRecord@ object for each Route 53 DNS
     -- record that you want Cloud Map to create when you register an instance.
     dnsRecords :: [DnsRecord]
@@ -103,6 +103,12 @@ data DnsConfig = DnsConfig'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'namespaceId', 'dnsConfig_namespaceId' - /Use NamespaceId in
+-- <https://docs.aws.amazon.com/cloud-map/latest/api/API_Service.html Service>
+-- instead./
+--
+-- The ID of the namespace to use for DNS configuration.
 --
 -- 'routingPolicy', 'dnsConfig_routingPolicy' - The routing policy that you want to apply to all Route 53 DNS records
 -- that Cloud Map creates when you register an instance and specify this
@@ -154,22 +160,24 @@ data DnsConfig = DnsConfig'
 --     <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted Weighted Routing>
 --     in the /Route 53 Developer Guide/.
 --
--- 'namespaceId', 'dnsConfig_namespaceId' - /Use NamespaceId in
--- <https://docs.aws.amazon.com/cloud-map/latest/api/API_Service.html Service>
--- instead./
---
--- The ID of the namespace to use for DNS configuration.
---
 -- 'dnsRecords', 'dnsConfig_dnsRecords' - An array that contains one @DnsRecord@ object for each Route 53 DNS
 -- record that you want Cloud Map to create when you register an instance.
 newDnsConfig ::
   DnsConfig
 newDnsConfig =
   DnsConfig'
-    { routingPolicy = Prelude.Nothing,
-      namespaceId = Prelude.Nothing,
+    { namespaceId = Prelude.Nothing,
+      routingPolicy = Prelude.Nothing,
       dnsRecords = Prelude.mempty
     }
+
+-- | /Use NamespaceId in
+-- <https://docs.aws.amazon.com/cloud-map/latest/api/API_Service.html Service>
+-- instead./
+--
+-- The ID of the namespace to use for DNS configuration.
+dnsConfig_namespaceId :: Lens.Lens' DnsConfig (Prelude.Maybe Prelude.Text)
+dnsConfig_namespaceId = Lens.lens (\DnsConfig' {namespaceId} -> namespaceId) (\s@DnsConfig' {} a -> s {namespaceId = a} :: DnsConfig)
 
 -- | The routing policy that you want to apply to all Route 53 DNS records
 -- that Cloud Map creates when you register an instance and specify this
@@ -223,14 +231,6 @@ newDnsConfig =
 dnsConfig_routingPolicy :: Lens.Lens' DnsConfig (Prelude.Maybe RoutingPolicy)
 dnsConfig_routingPolicy = Lens.lens (\DnsConfig' {routingPolicy} -> routingPolicy) (\s@DnsConfig' {} a -> s {routingPolicy = a} :: DnsConfig)
 
--- | /Use NamespaceId in
--- <https://docs.aws.amazon.com/cloud-map/latest/api/API_Service.html Service>
--- instead./
---
--- The ID of the namespace to use for DNS configuration.
-dnsConfig_namespaceId :: Lens.Lens' DnsConfig (Prelude.Maybe Prelude.Text)
-dnsConfig_namespaceId = Lens.lens (\DnsConfig' {namespaceId} -> namespaceId) (\s@DnsConfig' {} a -> s {namespaceId = a} :: DnsConfig)
-
 -- | An array that contains one @DnsRecord@ object for each Route 53 DNS
 -- record that you want Cloud Map to create when you register an instance.
 dnsConfig_dnsRecords :: Lens.Lens' DnsConfig [DnsRecord]
@@ -242,29 +242,29 @@ instance Data.FromJSON DnsConfig where
       "DnsConfig"
       ( \x ->
           DnsConfig'
-            Prelude.<$> (x Data..:? "RoutingPolicy")
-            Prelude.<*> (x Data..:? "NamespaceId")
+            Prelude.<$> (x Data..:? "NamespaceId")
+            Prelude.<*> (x Data..:? "RoutingPolicy")
             Prelude.<*> (x Data..:? "DnsRecords" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable DnsConfig where
   hashWithSalt _salt DnsConfig' {..} =
-    _salt `Prelude.hashWithSalt` routingPolicy
-      `Prelude.hashWithSalt` namespaceId
+    _salt `Prelude.hashWithSalt` namespaceId
+      `Prelude.hashWithSalt` routingPolicy
       `Prelude.hashWithSalt` dnsRecords
 
 instance Prelude.NFData DnsConfig where
   rnf DnsConfig' {..} =
-    Prelude.rnf routingPolicy
-      `Prelude.seq` Prelude.rnf namespaceId
+    Prelude.rnf namespaceId
+      `Prelude.seq` Prelude.rnf routingPolicy
       `Prelude.seq` Prelude.rnf dnsRecords
 
 instance Data.ToJSON DnsConfig where
   toJSON DnsConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("RoutingPolicy" Data..=) Prelude.<$> routingPolicy,
-            ("NamespaceId" Data..=) Prelude.<$> namespaceId,
+          [ ("NamespaceId" Data..=) Prelude.<$> namespaceId,
+            ("RoutingPolicy" Data..=) Prelude.<$> routingPolicy,
             Prelude.Just ("DnsRecords" Data..= dnsRecords)
           ]
       )

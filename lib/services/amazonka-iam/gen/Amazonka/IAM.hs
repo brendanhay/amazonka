@@ -28,47 +28,50 @@ module Amazonka.IAM
     -- * Errors
     -- $errors
 
-    -- ** EntityTemporarilyUnmodifiableException
-    _EntityTemporarilyUnmodifiableException,
-
-    -- ** ServiceNotSupportedException
-    _ServiceNotSupportedException,
-
-    -- ** PolicyEvaluationException
-    _PolicyEvaluationException,
-
-    -- ** DuplicateCertificateException
-    _DuplicateCertificateException,
-
-    -- ** EntityAlreadyExistsException
-    _EntityAlreadyExistsException,
-
-    -- ** InvalidInputException
-    _InvalidInputException,
-
-    -- ** PasswordPolicyViolationException
-    _PasswordPolicyViolationException,
-
-    -- ** InvalidCertificateException
-    _InvalidCertificateException,
-
     -- ** ConcurrentModificationException
     _ConcurrentModificationException,
 
-    -- ** UnrecognizedPublicKeyEncodingException
-    _UnrecognizedPublicKeyEncodingException,
-
-    -- ** DuplicateSSHPublicKeyException
-    _DuplicateSSHPublicKeyException,
+    -- ** CredentialReportExpiredException
+    _CredentialReportExpiredException,
 
     -- ** CredentialReportNotPresentException
     _CredentialReportNotPresentException,
 
-    -- ** NoSuchEntityException
-    _NoSuchEntityException,
+    -- ** CredentialReportNotReadyException
+    _CredentialReportNotReadyException,
 
-    -- ** PolicyNotAttachableException
-    _PolicyNotAttachableException,
+    -- ** DeleteConflictException
+    _DeleteConflictException,
+
+    -- ** DuplicateCertificateException
+    _DuplicateCertificateException,
+
+    -- ** DuplicateSSHPublicKeyException
+    _DuplicateSSHPublicKeyException,
+
+    -- ** EntityAlreadyExistsException
+    _EntityAlreadyExistsException,
+
+    -- ** EntityTemporarilyUnmodifiableException
+    _EntityTemporarilyUnmodifiableException,
+
+    -- ** InvalidAuthenticationCodeException
+    _InvalidAuthenticationCodeException,
+
+    -- ** InvalidCertificateException
+    _InvalidCertificateException,
+
+    -- ** InvalidInputException
+    _InvalidInputException,
+
+    -- ** InvalidPublicKeyException
+    _InvalidPublicKeyException,
+
+    -- ** InvalidUserTypeException
+    _InvalidUserTypeException,
+
+    -- ** KeyPairMismatchException
+    _KeyPairMismatchException,
 
     -- ** LimitExceededException
     _LimitExceededException,
@@ -76,53 +79,50 @@ module Amazonka.IAM
     -- ** MalformedCertificateException
     _MalformedCertificateException,
 
-    -- ** KeyPairMismatchException
-    _KeyPairMismatchException,
+    -- ** MalformedPolicyDocumentException
+    _MalformedPolicyDocumentException,
 
-    -- ** CredentialReportNotReadyException
-    _CredentialReportNotReadyException,
+    -- ** NoSuchEntityException
+    _NoSuchEntityException,
 
-    -- ** UnmodifiableEntityException
-    _UnmodifiableEntityException,
+    -- ** PasswordPolicyViolationException
+    _PasswordPolicyViolationException,
 
-    -- ** InvalidAuthenticationCodeException
-    _InvalidAuthenticationCodeException,
+    -- ** PolicyEvaluationException
+    _PolicyEvaluationException,
+
+    -- ** PolicyNotAttachableException
+    _PolicyNotAttachableException,
 
     -- ** ReportGenerationLimitExceededException
     _ReportGenerationLimitExceededException,
 
-    -- ** MalformedPolicyDocumentException
-    _MalformedPolicyDocumentException,
-
-    -- ** InvalidUserTypeException
-    _InvalidUserTypeException,
-
-    -- ** CredentialReportExpiredException
-    _CredentialReportExpiredException,
-
-    -- ** DeleteConflictException
-    _DeleteConflictException,
-
-    -- ** InvalidPublicKeyException
-    _InvalidPublicKeyException,
-
     -- ** ServiceFailureException
     _ServiceFailureException,
+
+    -- ** ServiceNotSupportedException
+    _ServiceNotSupportedException,
+
+    -- ** UnmodifiableEntityException
+    _UnmodifiableEntityException,
+
+    -- ** UnrecognizedPublicKeyEncodingException
+    _UnrecognizedPublicKeyEncodingException,
 
     -- * Waiters
     -- $waiters
 
-    -- ** RoleExists
-    newRoleExists,
+    -- ** InstanceProfileExists
+    newInstanceProfileExists,
 
     -- ** PolicyExists
     newPolicyExists,
 
+    -- ** RoleExists
+    newRoleExists,
+
     -- ** UserExists
     newUserExists,
-
-    -- ** InstanceProfileExists
-    newInstanceProfileExists,
 
     -- * Operations
     -- $operations

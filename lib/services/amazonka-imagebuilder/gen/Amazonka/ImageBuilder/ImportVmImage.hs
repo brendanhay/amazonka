@@ -37,9 +37,9 @@ module Amazonka.ImageBuilder.ImportVmImage
     newImportVmImage,
 
     -- * Request Lenses
-    importVmImage_tags,
-    importVmImage_osVersion,
     importVmImage_description,
+    importVmImage_osVersion,
+    importVmImage_tags,
     importVmImage_name,
     importVmImage_semanticVersion,
     importVmImage_platform,
@@ -52,8 +52,8 @@ module Amazonka.ImageBuilder.ImportVmImage
 
     -- * Response Lenses
     importVmImageResponse_clientToken,
-    importVmImageResponse_requestId,
     importVmImageResponse_imageArn,
+    importVmImageResponse_requestId,
     importVmImageResponse_httpStatus,
   )
 where
@@ -68,13 +68,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newImportVmImage' smart constructor.
 data ImportVmImage = ImportVmImage'
-  { -- | Tags that are attached to the import resources.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The operating system version for the imported VM.
-    osVersion :: Prelude.Maybe Prelude.Text,
-    -- | The description for the base image that is created by the import
+  { -- | The description for the base image that is created by the import
     -- process.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The operating system version for the imported VM.
+    osVersion :: Prelude.Maybe Prelude.Text,
+    -- | Tags that are attached to the import resources.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the base image that is created by the import process.
     name :: Prelude.Text,
     -- | The semantic version to attach to the base image that was created during
@@ -117,12 +117,12 @@ data ImportVmImage = ImportVmImage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'importVmImage_tags' - Tags that are attached to the import resources.
+-- 'description', 'importVmImage_description' - The description for the base image that is created by the import
+-- process.
 --
 -- 'osVersion', 'importVmImage_osVersion' - The operating system version for the imported VM.
 --
--- 'description', 'importVmImage_description' - The description for the base image that is created by the import
--- process.
+-- 'tags', 'importVmImage_tags' - Tags that are attached to the import resources.
 --
 -- 'name', 'importVmImage_name' - The name of the base image that is created by the import process.
 --
@@ -173,9 +173,9 @@ newImportVmImage
   pVmImportTaskId_
   pClientToken_ =
     ImportVmImage'
-      { tags = Prelude.Nothing,
+      { description = Prelude.Nothing,
         osVersion = Prelude.Nothing,
-        description = Prelude.Nothing,
+        tags = Prelude.Nothing,
         name = pName_,
         semanticVersion = pSemanticVersion_,
         platform = pPlatform_,
@@ -183,18 +183,18 @@ newImportVmImage
         clientToken = pClientToken_
       }
 
--- | Tags that are attached to the import resources.
-importVmImage_tags :: Lens.Lens' ImportVmImage (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-importVmImage_tags = Lens.lens (\ImportVmImage' {tags} -> tags) (\s@ImportVmImage' {} a -> s {tags = a} :: ImportVmImage) Prelude.. Lens.mapping Lens.coerced
+-- | The description for the base image that is created by the import
+-- process.
+importVmImage_description :: Lens.Lens' ImportVmImage (Prelude.Maybe Prelude.Text)
+importVmImage_description = Lens.lens (\ImportVmImage' {description} -> description) (\s@ImportVmImage' {} a -> s {description = a} :: ImportVmImage)
 
 -- | The operating system version for the imported VM.
 importVmImage_osVersion :: Lens.Lens' ImportVmImage (Prelude.Maybe Prelude.Text)
 importVmImage_osVersion = Lens.lens (\ImportVmImage' {osVersion} -> osVersion) (\s@ImportVmImage' {} a -> s {osVersion = a} :: ImportVmImage)
 
--- | The description for the base image that is created by the import
--- process.
-importVmImage_description :: Lens.Lens' ImportVmImage (Prelude.Maybe Prelude.Text)
-importVmImage_description = Lens.lens (\ImportVmImage' {description} -> description) (\s@ImportVmImage' {} a -> s {description = a} :: ImportVmImage)
+-- | Tags that are attached to the import resources.
+importVmImage_tags :: Lens.Lens' ImportVmImage (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+importVmImage_tags = Lens.lens (\ImportVmImage' {tags} -> tags) (\s@ImportVmImage' {} a -> s {tags = a} :: ImportVmImage) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the base image that is created by the import process.
 importVmImage_name :: Lens.Lens' ImportVmImage Prelude.Text
@@ -248,16 +248,16 @@ instance Core.AWSRequest ImportVmImage where
       ( \s h x ->
           ImportVmImageResponse'
             Prelude.<$> (x Data..?> "clientToken")
-            Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (x Data..?> "imageArn")
+            Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ImportVmImage where
   hashWithSalt _salt ImportVmImage' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` osVersion
-      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` semanticVersion
       `Prelude.hashWithSalt` platform
@@ -266,9 +266,9 @@ instance Prelude.Hashable ImportVmImage where
 
 instance Prelude.NFData ImportVmImage where
   rnf ImportVmImage' {..} =
-    Prelude.rnf tags
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf osVersion
-      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf semanticVersion
       `Prelude.seq` Prelude.rnf platform
@@ -290,9 +290,9 @@ instance Data.ToJSON ImportVmImage where
   toJSON ImportVmImage' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
+          [ ("description" Data..=) Prelude.<$> description,
             ("osVersion" Data..=) Prelude.<$> osVersion,
-            ("description" Data..=) Prelude.<$> description,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("name" Data..= name),
             Prelude.Just
               ("semanticVersion" Data..= semanticVersion),
@@ -313,12 +313,12 @@ instance Data.ToQuery ImportVmImage where
 data ImportVmImageResponse = ImportVmImageResponse'
   { -- | The idempotency token that was used for this request.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The request ID that uniquely identifies this request.
-    requestId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the AMI that was created during the VM
     -- import process. This AMI is used as the base image for the recipe that
     -- imported the VM.
     imageArn :: Prelude.Maybe Prelude.Text,
+    -- | The request ID that uniquely identifies this request.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -334,11 +334,11 @@ data ImportVmImageResponse = ImportVmImageResponse'
 --
 -- 'clientToken', 'importVmImageResponse_clientToken' - The idempotency token that was used for this request.
 --
--- 'requestId', 'importVmImageResponse_requestId' - The request ID that uniquely identifies this request.
---
 -- 'imageArn', 'importVmImageResponse_imageArn' - The Amazon Resource Name (ARN) of the AMI that was created during the VM
 -- import process. This AMI is used as the base image for the recipe that
 -- imported the VM.
+--
+-- 'requestId', 'importVmImageResponse_requestId' - The request ID that uniquely identifies this request.
 --
 -- 'httpStatus', 'importVmImageResponse_httpStatus' - The response's http status code.
 newImportVmImageResponse ::
@@ -349,8 +349,8 @@ newImportVmImageResponse pHttpStatus_ =
   ImportVmImageResponse'
     { clientToken =
         Prelude.Nothing,
-      requestId = Prelude.Nothing,
       imageArn = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -358,15 +358,15 @@ newImportVmImageResponse pHttpStatus_ =
 importVmImageResponse_clientToken :: Lens.Lens' ImportVmImageResponse (Prelude.Maybe Prelude.Text)
 importVmImageResponse_clientToken = Lens.lens (\ImportVmImageResponse' {clientToken} -> clientToken) (\s@ImportVmImageResponse' {} a -> s {clientToken = a} :: ImportVmImageResponse)
 
--- | The request ID that uniquely identifies this request.
-importVmImageResponse_requestId :: Lens.Lens' ImportVmImageResponse (Prelude.Maybe Prelude.Text)
-importVmImageResponse_requestId = Lens.lens (\ImportVmImageResponse' {requestId} -> requestId) (\s@ImportVmImageResponse' {} a -> s {requestId = a} :: ImportVmImageResponse)
-
 -- | The Amazon Resource Name (ARN) of the AMI that was created during the VM
 -- import process. This AMI is used as the base image for the recipe that
 -- imported the VM.
 importVmImageResponse_imageArn :: Lens.Lens' ImportVmImageResponse (Prelude.Maybe Prelude.Text)
 importVmImageResponse_imageArn = Lens.lens (\ImportVmImageResponse' {imageArn} -> imageArn) (\s@ImportVmImageResponse' {} a -> s {imageArn = a} :: ImportVmImageResponse)
+
+-- | The request ID that uniquely identifies this request.
+importVmImageResponse_requestId :: Lens.Lens' ImportVmImageResponse (Prelude.Maybe Prelude.Text)
+importVmImageResponse_requestId = Lens.lens (\ImportVmImageResponse' {requestId} -> requestId) (\s@ImportVmImageResponse' {} a -> s {requestId = a} :: ImportVmImageResponse)
 
 -- | The response's http status code.
 importVmImageResponse_httpStatus :: Lens.Lens' ImportVmImageResponse Prelude.Int
@@ -375,6 +375,6 @@ importVmImageResponse_httpStatus = Lens.lens (\ImportVmImageResponse' {httpStatu
 instance Prelude.NFData ImportVmImageResponse where
   rnf ImportVmImageResponse' {..} =
     Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf imageArn
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf httpStatus

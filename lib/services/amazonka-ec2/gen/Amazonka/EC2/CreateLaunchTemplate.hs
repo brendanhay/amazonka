@@ -43,8 +43,8 @@ module Amazonka.EC2.CreateLaunchTemplate
     -- * Request Lenses
     createLaunchTemplate_clientToken,
     createLaunchTemplate_dryRun,
-    createLaunchTemplate_versionDescription,
     createLaunchTemplate_tagSpecifications,
+    createLaunchTemplate_versionDescription,
     createLaunchTemplate_launchTemplateName,
     createLaunchTemplate_launchTemplateData,
 
@@ -80,8 +80,6 @@ data CreateLaunchTemplate = CreateLaunchTemplate'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | A description for the first version of the launch template.
-    versionDescription :: Prelude.Maybe Prelude.Text,
     -- | The tags to apply to the launch template on creation. To tag the launch
     -- template, the resource type must be @launch-template@.
     --
@@ -90,6 +88,8 @@ data CreateLaunchTemplate = CreateLaunchTemplate'
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestLaunchTemplateData.html launch template data>
     -- structure.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
+    -- | A description for the first version of the launch template.
+    versionDescription :: Prelude.Maybe Prelude.Text,
     -- | A name for the launch template.
     launchTemplateName :: Prelude.Text,
     -- | The information for the launch template.
@@ -116,8 +116,6 @@ data CreateLaunchTemplate = CreateLaunchTemplate'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'versionDescription', 'createLaunchTemplate_versionDescription' - A description for the first version of the launch template.
---
 -- 'tagSpecifications', 'createLaunchTemplate_tagSpecifications' - The tags to apply to the launch template on creation. To tag the launch
 -- template, the resource type must be @launch-template@.
 --
@@ -125,6 +123,8 @@ data CreateLaunchTemplate = CreateLaunchTemplate'
 -- is launched, you must use the @TagSpecifications@ parameter in the
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestLaunchTemplateData.html launch template data>
 -- structure.
+--
+-- 'versionDescription', 'createLaunchTemplate_versionDescription' - A description for the first version of the launch template.
 --
 -- 'launchTemplateName', 'createLaunchTemplate_launchTemplateName' - A name for the launch template.
 --
@@ -142,8 +142,8 @@ newCreateLaunchTemplate
       { clientToken =
           Prelude.Nothing,
         dryRun = Prelude.Nothing,
-        versionDescription = Prelude.Nothing,
         tagSpecifications = Prelude.Nothing,
+        versionDescription = Prelude.Nothing,
         launchTemplateName = pLaunchTemplateName_,
         launchTemplateData =
           Data._Sensitive Lens.# pLaunchTemplateData_
@@ -164,10 +164,6 @@ createLaunchTemplate_clientToken = Lens.lens (\CreateLaunchTemplate' {clientToke
 createLaunchTemplate_dryRun :: Lens.Lens' CreateLaunchTemplate (Prelude.Maybe Prelude.Bool)
 createLaunchTemplate_dryRun = Lens.lens (\CreateLaunchTemplate' {dryRun} -> dryRun) (\s@CreateLaunchTemplate' {} a -> s {dryRun = a} :: CreateLaunchTemplate)
 
--- | A description for the first version of the launch template.
-createLaunchTemplate_versionDescription :: Lens.Lens' CreateLaunchTemplate (Prelude.Maybe Prelude.Text)
-createLaunchTemplate_versionDescription = Lens.lens (\CreateLaunchTemplate' {versionDescription} -> versionDescription) (\s@CreateLaunchTemplate' {} a -> s {versionDescription = a} :: CreateLaunchTemplate)
-
 -- | The tags to apply to the launch template on creation. To tag the launch
 -- template, the resource type must be @launch-template@.
 --
@@ -177,6 +173,10 @@ createLaunchTemplate_versionDescription = Lens.lens (\CreateLaunchTemplate' {ver
 -- structure.
 createLaunchTemplate_tagSpecifications :: Lens.Lens' CreateLaunchTemplate (Prelude.Maybe [TagSpecification])
 createLaunchTemplate_tagSpecifications = Lens.lens (\CreateLaunchTemplate' {tagSpecifications} -> tagSpecifications) (\s@CreateLaunchTemplate' {} a -> s {tagSpecifications = a} :: CreateLaunchTemplate) Prelude.. Lens.mapping Lens.coerced
+
+-- | A description for the first version of the launch template.
+createLaunchTemplate_versionDescription :: Lens.Lens' CreateLaunchTemplate (Prelude.Maybe Prelude.Text)
+createLaunchTemplate_versionDescription = Lens.lens (\CreateLaunchTemplate' {versionDescription} -> versionDescription) (\s@CreateLaunchTemplate' {} a -> s {versionDescription = a} :: CreateLaunchTemplate)
 
 -- | A name for the launch template.
 createLaunchTemplate_launchTemplateName :: Lens.Lens' CreateLaunchTemplate Prelude.Text
@@ -205,8 +205,8 @@ instance Prelude.Hashable CreateLaunchTemplate where
   hashWithSalt _salt CreateLaunchTemplate' {..} =
     _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` dryRun
-      `Prelude.hashWithSalt` versionDescription
       `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` versionDescription
       `Prelude.hashWithSalt` launchTemplateName
       `Prelude.hashWithSalt` launchTemplateData
 
@@ -214,8 +214,8 @@ instance Prelude.NFData CreateLaunchTemplate where
   rnf CreateLaunchTemplate' {..} =
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf versionDescription
       `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf versionDescription
       `Prelude.seq` Prelude.rnf launchTemplateName
       `Prelude.seq` Prelude.rnf launchTemplateData
 
@@ -234,11 +234,11 @@ instance Data.ToQuery CreateLaunchTemplate where
           Data.=: ("2016-11-15" :: Prelude.ByteString),
         "ClientToken" Data.=: clientToken,
         "DryRun" Data.=: dryRun,
-        "VersionDescription" Data.=: versionDescription,
         Data.toQuery
           ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
+        "VersionDescription" Data.=: versionDescription,
         "LaunchTemplateName" Data.=: launchTemplateName,
         "LaunchTemplateData" Data.=: launchTemplateData
       ]

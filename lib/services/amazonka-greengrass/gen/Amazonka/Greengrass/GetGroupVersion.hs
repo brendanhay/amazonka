@@ -36,10 +36,10 @@ module Amazonka.Greengrass.GetGroupVersion
 
     -- * Response Lenses
     getGroupVersionResponse_arn,
-    getGroupVersionResponse_id,
     getGroupVersionResponse_creationTimestamp,
-    getGroupVersionResponse_version,
     getGroupVersionResponse_definition,
+    getGroupVersionResponse_id,
+    getGroupVersionResponse_version,
     getGroupVersionResponse_httpStatus,
   )
 where
@@ -118,10 +118,10 @@ instance Core.AWSRequest GetGroupVersion where
       ( \s h x ->
           GetGroupVersionResponse'
             Prelude.<$> (x Data..?> "Arn")
-            Prelude.<*> (x Data..?> "Id")
             Prelude.<*> (x Data..?> "CreationTimestamp")
-            Prelude.<*> (x Data..?> "Version")
             Prelude.<*> (x Data..?> "Definition")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "Version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -162,15 +162,15 @@ instance Data.ToQuery GetGroupVersion where
 data GetGroupVersionResponse = GetGroupVersionResponse'
   { -- | The ARN of the group version.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the group that the version is associated with.
-    id :: Prelude.Maybe Prelude.Text,
     -- | The time, in milliseconds since the epoch, when the group version was
     -- created.
     creationTimestamp :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the group version.
-    version :: Prelude.Maybe Prelude.Text,
     -- | Information about the group version definition.
     definition :: Prelude.Maybe GroupVersion,
+    -- | The ID of the group that the version is associated with.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the group version.
+    version :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -186,14 +186,14 @@ data GetGroupVersionResponse = GetGroupVersionResponse'
 --
 -- 'arn', 'getGroupVersionResponse_arn' - The ARN of the group version.
 --
--- 'id', 'getGroupVersionResponse_id' - The ID of the group that the version is associated with.
---
 -- 'creationTimestamp', 'getGroupVersionResponse_creationTimestamp' - The time, in milliseconds since the epoch, when the group version was
 -- created.
 --
--- 'version', 'getGroupVersionResponse_version' - The ID of the group version.
---
 -- 'definition', 'getGroupVersionResponse_definition' - Information about the group version definition.
+--
+-- 'id', 'getGroupVersionResponse_id' - The ID of the group that the version is associated with.
+--
+-- 'version', 'getGroupVersionResponse_version' - The ID of the group version.
 --
 -- 'httpStatus', 'getGroupVersionResponse_httpStatus' - The response's http status code.
 newGetGroupVersionResponse ::
@@ -203,10 +203,10 @@ newGetGroupVersionResponse ::
 newGetGroupVersionResponse pHttpStatus_ =
   GetGroupVersionResponse'
     { arn = Prelude.Nothing,
-      id = Prelude.Nothing,
       creationTimestamp = Prelude.Nothing,
-      version = Prelude.Nothing,
       definition = Prelude.Nothing,
+      id = Prelude.Nothing,
+      version = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -214,22 +214,22 @@ newGetGroupVersionResponse pHttpStatus_ =
 getGroupVersionResponse_arn :: Lens.Lens' GetGroupVersionResponse (Prelude.Maybe Prelude.Text)
 getGroupVersionResponse_arn = Lens.lens (\GetGroupVersionResponse' {arn} -> arn) (\s@GetGroupVersionResponse' {} a -> s {arn = a} :: GetGroupVersionResponse)
 
--- | The ID of the group that the version is associated with.
-getGroupVersionResponse_id :: Lens.Lens' GetGroupVersionResponse (Prelude.Maybe Prelude.Text)
-getGroupVersionResponse_id = Lens.lens (\GetGroupVersionResponse' {id} -> id) (\s@GetGroupVersionResponse' {} a -> s {id = a} :: GetGroupVersionResponse)
-
 -- | The time, in milliseconds since the epoch, when the group version was
 -- created.
 getGroupVersionResponse_creationTimestamp :: Lens.Lens' GetGroupVersionResponse (Prelude.Maybe Prelude.Text)
 getGroupVersionResponse_creationTimestamp = Lens.lens (\GetGroupVersionResponse' {creationTimestamp} -> creationTimestamp) (\s@GetGroupVersionResponse' {} a -> s {creationTimestamp = a} :: GetGroupVersionResponse)
 
--- | The ID of the group version.
-getGroupVersionResponse_version :: Lens.Lens' GetGroupVersionResponse (Prelude.Maybe Prelude.Text)
-getGroupVersionResponse_version = Lens.lens (\GetGroupVersionResponse' {version} -> version) (\s@GetGroupVersionResponse' {} a -> s {version = a} :: GetGroupVersionResponse)
-
 -- | Information about the group version definition.
 getGroupVersionResponse_definition :: Lens.Lens' GetGroupVersionResponse (Prelude.Maybe GroupVersion)
 getGroupVersionResponse_definition = Lens.lens (\GetGroupVersionResponse' {definition} -> definition) (\s@GetGroupVersionResponse' {} a -> s {definition = a} :: GetGroupVersionResponse)
+
+-- | The ID of the group that the version is associated with.
+getGroupVersionResponse_id :: Lens.Lens' GetGroupVersionResponse (Prelude.Maybe Prelude.Text)
+getGroupVersionResponse_id = Lens.lens (\GetGroupVersionResponse' {id} -> id) (\s@GetGroupVersionResponse' {} a -> s {id = a} :: GetGroupVersionResponse)
+
+-- | The ID of the group version.
+getGroupVersionResponse_version :: Lens.Lens' GetGroupVersionResponse (Prelude.Maybe Prelude.Text)
+getGroupVersionResponse_version = Lens.lens (\GetGroupVersionResponse' {version} -> version) (\s@GetGroupVersionResponse' {} a -> s {version = a} :: GetGroupVersionResponse)
 
 -- | The response's http status code.
 getGroupVersionResponse_httpStatus :: Lens.Lens' GetGroupVersionResponse Prelude.Int
@@ -238,8 +238,8 @@ getGroupVersionResponse_httpStatus = Lens.lens (\GetGroupVersionResponse' {httpS
 instance Prelude.NFData GetGroupVersionResponse where
   rnf GetGroupVersionResponse' {..} =
     Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf creationTimestamp
-      `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf definition
+      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf httpStatus

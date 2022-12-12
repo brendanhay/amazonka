@@ -42,22 +42,22 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBatchGetAssetPropertyValueHistoryEntry' smart constructor.
 data BatchGetAssetPropertyValueHistoryEntry = BatchGetAssetPropertyValueHistoryEntry'
-  { -- | The alias that identifies the property, such as an OPC-UA server data
+  { -- | The ID of the asset in which the asset property was created.
+    assetId :: Prelude.Maybe Prelude.Text,
+    -- | The inclusive end of the range from which to query historical data,
+    -- expressed in seconds in Unix epoch time.
+    endDate :: Prelude.Maybe Data.POSIX,
+    -- | The alias that identifies the property, such as an OPC-UA server data
     -- stream path (for example,
     -- @\/company\/windfarm\/3\/turbine\/7\/temperature@). For more
     -- information, see
     -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html Mapping industrial data streams to asset properties>
     -- in the /IoT SiteWise User Guide/.
     propertyAlias :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the asset in which the asset property was created.
-    assetId :: Prelude.Maybe Prelude.Text,
-    -- | The inclusive end of the range from which to query historical data,
-    -- expressed in seconds in Unix epoch time.
-    endDate :: Prelude.Maybe Data.POSIX,
-    -- | The quality by which to filter asset data.
-    qualities :: Prelude.Maybe (Prelude.NonEmpty Quality),
     -- | The ID of the asset property.
     propertyId :: Prelude.Maybe Prelude.Text,
+    -- | The quality by which to filter asset data.
+    qualities :: Prelude.Maybe (Prelude.NonEmpty Quality),
     -- | The exclusive start of the range from which to query historical data,
     -- expressed in seconds in Unix epoch time.
     startDate :: Prelude.Maybe Data.POSIX,
@@ -78,6 +78,11 @@ data BatchGetAssetPropertyValueHistoryEntry = BatchGetAssetPropertyValueHistoryE
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'assetId', 'batchGetAssetPropertyValueHistoryEntry_assetId' - The ID of the asset in which the asset property was created.
+--
+-- 'endDate', 'batchGetAssetPropertyValueHistoryEntry_endDate' - The inclusive end of the range from which to query historical data,
+-- expressed in seconds in Unix epoch time.
+--
 -- 'propertyAlias', 'batchGetAssetPropertyValueHistoryEntry_propertyAlias' - The alias that identifies the property, such as an OPC-UA server data
 -- stream path (for example,
 -- @\/company\/windfarm\/3\/turbine\/7\/temperature@). For more
@@ -85,14 +90,9 @@ data BatchGetAssetPropertyValueHistoryEntry = BatchGetAssetPropertyValueHistoryE
 -- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html Mapping industrial data streams to asset properties>
 -- in the /IoT SiteWise User Guide/.
 --
--- 'assetId', 'batchGetAssetPropertyValueHistoryEntry_assetId' - The ID of the asset in which the asset property was created.
---
--- 'endDate', 'batchGetAssetPropertyValueHistoryEntry_endDate' - The inclusive end of the range from which to query historical data,
--- expressed in seconds in Unix epoch time.
+-- 'propertyId', 'batchGetAssetPropertyValueHistoryEntry_propertyId' - The ID of the asset property.
 --
 -- 'qualities', 'batchGetAssetPropertyValueHistoryEntry_qualities' - The quality by which to filter asset data.
---
--- 'propertyId', 'batchGetAssetPropertyValueHistoryEntry_propertyId' - The ID of the asset property.
 --
 -- 'startDate', 'batchGetAssetPropertyValueHistoryEntry_startDate' - The exclusive start of the range from which to query historical data,
 -- expressed in seconds in Unix epoch time.
@@ -108,25 +108,16 @@ newBatchGetAssetPropertyValueHistoryEntry ::
   BatchGetAssetPropertyValueHistoryEntry
 newBatchGetAssetPropertyValueHistoryEntry pEntryId_ =
   BatchGetAssetPropertyValueHistoryEntry'
-    { propertyAlias =
+    { assetId =
         Prelude.Nothing,
-      assetId = Prelude.Nothing,
       endDate = Prelude.Nothing,
-      qualities = Prelude.Nothing,
+      propertyAlias = Prelude.Nothing,
       propertyId = Prelude.Nothing,
+      qualities = Prelude.Nothing,
       startDate = Prelude.Nothing,
       timeOrdering = Prelude.Nothing,
       entryId = pEntryId_
     }
-
--- | The alias that identifies the property, such as an OPC-UA server data
--- stream path (for example,
--- @\/company\/windfarm\/3\/turbine\/7\/temperature@). For more
--- information, see
--- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html Mapping industrial data streams to asset properties>
--- in the /IoT SiteWise User Guide/.
-batchGetAssetPropertyValueHistoryEntry_propertyAlias :: Lens.Lens' BatchGetAssetPropertyValueHistoryEntry (Prelude.Maybe Prelude.Text)
-batchGetAssetPropertyValueHistoryEntry_propertyAlias = Lens.lens (\BatchGetAssetPropertyValueHistoryEntry' {propertyAlias} -> propertyAlias) (\s@BatchGetAssetPropertyValueHistoryEntry' {} a -> s {propertyAlias = a} :: BatchGetAssetPropertyValueHistoryEntry)
 
 -- | The ID of the asset in which the asset property was created.
 batchGetAssetPropertyValueHistoryEntry_assetId :: Lens.Lens' BatchGetAssetPropertyValueHistoryEntry (Prelude.Maybe Prelude.Text)
@@ -137,13 +128,22 @@ batchGetAssetPropertyValueHistoryEntry_assetId = Lens.lens (\BatchGetAssetProper
 batchGetAssetPropertyValueHistoryEntry_endDate :: Lens.Lens' BatchGetAssetPropertyValueHistoryEntry (Prelude.Maybe Prelude.UTCTime)
 batchGetAssetPropertyValueHistoryEntry_endDate = Lens.lens (\BatchGetAssetPropertyValueHistoryEntry' {endDate} -> endDate) (\s@BatchGetAssetPropertyValueHistoryEntry' {} a -> s {endDate = a} :: BatchGetAssetPropertyValueHistoryEntry) Prelude.. Lens.mapping Data._Time
 
--- | The quality by which to filter asset data.
-batchGetAssetPropertyValueHistoryEntry_qualities :: Lens.Lens' BatchGetAssetPropertyValueHistoryEntry (Prelude.Maybe (Prelude.NonEmpty Quality))
-batchGetAssetPropertyValueHistoryEntry_qualities = Lens.lens (\BatchGetAssetPropertyValueHistoryEntry' {qualities} -> qualities) (\s@BatchGetAssetPropertyValueHistoryEntry' {} a -> s {qualities = a} :: BatchGetAssetPropertyValueHistoryEntry) Prelude.. Lens.mapping Lens.coerced
+-- | The alias that identifies the property, such as an OPC-UA server data
+-- stream path (for example,
+-- @\/company\/windfarm\/3\/turbine\/7\/temperature@). For more
+-- information, see
+-- <https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html Mapping industrial data streams to asset properties>
+-- in the /IoT SiteWise User Guide/.
+batchGetAssetPropertyValueHistoryEntry_propertyAlias :: Lens.Lens' BatchGetAssetPropertyValueHistoryEntry (Prelude.Maybe Prelude.Text)
+batchGetAssetPropertyValueHistoryEntry_propertyAlias = Lens.lens (\BatchGetAssetPropertyValueHistoryEntry' {propertyAlias} -> propertyAlias) (\s@BatchGetAssetPropertyValueHistoryEntry' {} a -> s {propertyAlias = a} :: BatchGetAssetPropertyValueHistoryEntry)
 
 -- | The ID of the asset property.
 batchGetAssetPropertyValueHistoryEntry_propertyId :: Lens.Lens' BatchGetAssetPropertyValueHistoryEntry (Prelude.Maybe Prelude.Text)
 batchGetAssetPropertyValueHistoryEntry_propertyId = Lens.lens (\BatchGetAssetPropertyValueHistoryEntry' {propertyId} -> propertyId) (\s@BatchGetAssetPropertyValueHistoryEntry' {} a -> s {propertyId = a} :: BatchGetAssetPropertyValueHistoryEntry)
+
+-- | The quality by which to filter asset data.
+batchGetAssetPropertyValueHistoryEntry_qualities :: Lens.Lens' BatchGetAssetPropertyValueHistoryEntry (Prelude.Maybe (Prelude.NonEmpty Quality))
+batchGetAssetPropertyValueHistoryEntry_qualities = Lens.lens (\BatchGetAssetPropertyValueHistoryEntry' {qualities} -> qualities) (\s@BatchGetAssetPropertyValueHistoryEntry' {} a -> s {qualities = a} :: BatchGetAssetPropertyValueHistoryEntry) Prelude.. Lens.mapping Lens.coerced
 
 -- | The exclusive start of the range from which to query historical data,
 -- expressed in seconds in Unix epoch time.
@@ -167,11 +167,11 @@ instance
   hashWithSalt
     _salt
     BatchGetAssetPropertyValueHistoryEntry' {..} =
-      _salt `Prelude.hashWithSalt` propertyAlias
-        `Prelude.hashWithSalt` assetId
+      _salt `Prelude.hashWithSalt` assetId
         `Prelude.hashWithSalt` endDate
-        `Prelude.hashWithSalt` qualities
+        `Prelude.hashWithSalt` propertyAlias
         `Prelude.hashWithSalt` propertyId
+        `Prelude.hashWithSalt` qualities
         `Prelude.hashWithSalt` startDate
         `Prelude.hashWithSalt` timeOrdering
         `Prelude.hashWithSalt` entryId
@@ -181,11 +181,11 @@ instance
     BatchGetAssetPropertyValueHistoryEntry
   where
   rnf BatchGetAssetPropertyValueHistoryEntry' {..} =
-    Prelude.rnf propertyAlias
-      `Prelude.seq` Prelude.rnf assetId
+    Prelude.rnf assetId
       `Prelude.seq` Prelude.rnf endDate
-      `Prelude.seq` Prelude.rnf qualities
+      `Prelude.seq` Prelude.rnf propertyAlias
       `Prelude.seq` Prelude.rnf propertyId
+      `Prelude.seq` Prelude.rnf qualities
       `Prelude.seq` Prelude.rnf startDate
       `Prelude.seq` Prelude.rnf timeOrdering
       `Prelude.seq` Prelude.rnf entryId
@@ -197,11 +197,11 @@ instance
   toJSON BatchGetAssetPropertyValueHistoryEntry' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("propertyAlias" Data..=) Prelude.<$> propertyAlias,
-            ("assetId" Data..=) Prelude.<$> assetId,
+          [ ("assetId" Data..=) Prelude.<$> assetId,
             ("endDate" Data..=) Prelude.<$> endDate,
-            ("qualities" Data..=) Prelude.<$> qualities,
+            ("propertyAlias" Data..=) Prelude.<$> propertyAlias,
             ("propertyId" Data..=) Prelude.<$> propertyId,
+            ("qualities" Data..=) Prelude.<$> qualities,
             ("startDate" Data..=) Prelude.<$> startDate,
             ("timeOrdering" Data..=) Prelude.<$> timeOrdering,
             Prelude.Just ("entryId" Data..= entryId)

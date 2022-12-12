@@ -31,11 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSearchResourcesSimpleCriterion' smart constructor.
 data SearchResourcesSimpleCriterion = SearchResourcesSimpleCriterion'
-  { -- | The property to use in the condition.
-    key :: Prelude.Maybe SearchResourcesSimpleCriterionKey,
-    -- | The operator to use in the condition. Valid values are EQ (equals) and
+  { -- | The operator to use in the condition. Valid values are EQ (equals) and
     -- NE (not equals).
     comparator :: Prelude.Maybe SearchResourcesComparator,
+    -- | The property to use in the condition.
+    key :: Prelude.Maybe SearchResourcesSimpleCriterionKey,
     -- | An array that lists one or more values to use in the condition. If you
     -- specify multiple values, Amazon Macie uses OR logic to join the values.
     -- Valid values for each supported property (key) are:
@@ -69,10 +69,10 @@ data SearchResourcesSimpleCriterion = SearchResourcesSimpleCriterion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 'searchResourcesSimpleCriterion_key' - The property to use in the condition.
---
 -- 'comparator', 'searchResourcesSimpleCriterion_comparator' - The operator to use in the condition. Valid values are EQ (equals) and
 -- NE (not equals).
+--
+-- 'key', 'searchResourcesSimpleCriterion_key' - The property to use in the condition.
 --
 -- 'values', 'searchResourcesSimpleCriterion_values' - An array that lists one or more values to use in the condition. If you
 -- specify multiple values, Amazon Macie uses OR logic to join the values.
@@ -99,20 +99,20 @@ newSearchResourcesSimpleCriterion ::
   SearchResourcesSimpleCriterion
 newSearchResourcesSimpleCriterion =
   SearchResourcesSimpleCriterion'
-    { key =
+    { comparator =
         Prelude.Nothing,
-      comparator = Prelude.Nothing,
+      key = Prelude.Nothing,
       values = Prelude.Nothing
     }
-
--- | The property to use in the condition.
-searchResourcesSimpleCriterion_key :: Lens.Lens' SearchResourcesSimpleCriterion (Prelude.Maybe SearchResourcesSimpleCriterionKey)
-searchResourcesSimpleCriterion_key = Lens.lens (\SearchResourcesSimpleCriterion' {key} -> key) (\s@SearchResourcesSimpleCriterion' {} a -> s {key = a} :: SearchResourcesSimpleCriterion)
 
 -- | The operator to use in the condition. Valid values are EQ (equals) and
 -- NE (not equals).
 searchResourcesSimpleCriterion_comparator :: Lens.Lens' SearchResourcesSimpleCriterion (Prelude.Maybe SearchResourcesComparator)
 searchResourcesSimpleCriterion_comparator = Lens.lens (\SearchResourcesSimpleCriterion' {comparator} -> comparator) (\s@SearchResourcesSimpleCriterion' {} a -> s {comparator = a} :: SearchResourcesSimpleCriterion)
+
+-- | The property to use in the condition.
+searchResourcesSimpleCriterion_key :: Lens.Lens' SearchResourcesSimpleCriterion (Prelude.Maybe SearchResourcesSimpleCriterionKey)
+searchResourcesSimpleCriterion_key = Lens.lens (\SearchResourcesSimpleCriterion' {key} -> key) (\s@SearchResourcesSimpleCriterion' {} a -> s {key = a} :: SearchResourcesSimpleCriterion)
 
 -- | An array that lists one or more values to use in the condition. If you
 -- specify multiple values, Amazon Macie uses OR logic to join the values.
@@ -145,8 +145,8 @@ instance
   hashWithSalt
     _salt
     SearchResourcesSimpleCriterion' {..} =
-      _salt `Prelude.hashWithSalt` key
-        `Prelude.hashWithSalt` comparator
+      _salt `Prelude.hashWithSalt` comparator
+        `Prelude.hashWithSalt` key
         `Prelude.hashWithSalt` values
 
 instance
@@ -154,16 +154,16 @@ instance
     SearchResourcesSimpleCriterion
   where
   rnf SearchResourcesSimpleCriterion' {..} =
-    Prelude.rnf key
-      `Prelude.seq` Prelude.rnf comparator
+    Prelude.rnf comparator
+      `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf values
 
 instance Data.ToJSON SearchResourcesSimpleCriterion where
   toJSON SearchResourcesSimpleCriterion' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("key" Data..=) Prelude.<$> key,
-            ("comparator" Data..=) Prelude.<$> comparator,
+          [ ("comparator" Data..=) Prelude.<$> comparator,
+            ("key" Data..=) Prelude.<$> key,
             ("values" Data..=) Prelude.<$> values
           ]
       )

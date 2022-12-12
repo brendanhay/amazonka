@@ -30,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUnprocessedAccount' smart constructor.
 data UnprocessedAccount = UnprocessedAccount'
-  { -- | The reason why the request hasn\'t been processed.
-    errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services account ID for the account that the request
+  { -- | The Amazon Web Services account ID for the account that the request
     -- applies to.
     accountId :: Prelude.Maybe Prelude.Text,
     -- | The source of the issue or delay in processing the request.
-    errorCode :: Prelude.Maybe ErrorCode
+    errorCode :: Prelude.Maybe ErrorCode,
+    -- | The reason why the request hasn\'t been processed.
+    errorMessage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,24 +48,20 @@ data UnprocessedAccount = UnprocessedAccount'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'errorMessage', 'unprocessedAccount_errorMessage' - The reason why the request hasn\'t been processed.
---
 -- 'accountId', 'unprocessedAccount_accountId' - The Amazon Web Services account ID for the account that the request
 -- applies to.
 --
 -- 'errorCode', 'unprocessedAccount_errorCode' - The source of the issue or delay in processing the request.
+--
+-- 'errorMessage', 'unprocessedAccount_errorMessage' - The reason why the request hasn\'t been processed.
 newUnprocessedAccount ::
   UnprocessedAccount
 newUnprocessedAccount =
   UnprocessedAccount'
-    { errorMessage = Prelude.Nothing,
-      accountId = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+    { accountId = Prelude.Nothing,
+      errorCode = Prelude.Nothing,
+      errorMessage = Prelude.Nothing
     }
-
--- | The reason why the request hasn\'t been processed.
-unprocessedAccount_errorMessage :: Lens.Lens' UnprocessedAccount (Prelude.Maybe Prelude.Text)
-unprocessedAccount_errorMessage = Lens.lens (\UnprocessedAccount' {errorMessage} -> errorMessage) (\s@UnprocessedAccount' {} a -> s {errorMessage = a} :: UnprocessedAccount)
 
 -- | The Amazon Web Services account ID for the account that the request
 -- applies to.
@@ -76,25 +72,29 @@ unprocessedAccount_accountId = Lens.lens (\UnprocessedAccount' {accountId} -> ac
 unprocessedAccount_errorCode :: Lens.Lens' UnprocessedAccount (Prelude.Maybe ErrorCode)
 unprocessedAccount_errorCode = Lens.lens (\UnprocessedAccount' {errorCode} -> errorCode) (\s@UnprocessedAccount' {} a -> s {errorCode = a} :: UnprocessedAccount)
 
+-- | The reason why the request hasn\'t been processed.
+unprocessedAccount_errorMessage :: Lens.Lens' UnprocessedAccount (Prelude.Maybe Prelude.Text)
+unprocessedAccount_errorMessage = Lens.lens (\UnprocessedAccount' {errorMessage} -> errorMessage) (\s@UnprocessedAccount' {} a -> s {errorMessage = a} :: UnprocessedAccount)
+
 instance Data.FromJSON UnprocessedAccount where
   parseJSON =
     Data.withObject
       "UnprocessedAccount"
       ( \x ->
           UnprocessedAccount'
-            Prelude.<$> (x Data..:? "errorMessage")
-            Prelude.<*> (x Data..:? "accountId")
+            Prelude.<$> (x Data..:? "accountId")
             Prelude.<*> (x Data..:? "errorCode")
+            Prelude.<*> (x Data..:? "errorMessage")
       )
 
 instance Prelude.Hashable UnprocessedAccount where
   hashWithSalt _salt UnprocessedAccount' {..} =
-    _salt `Prelude.hashWithSalt` errorMessage
-      `Prelude.hashWithSalt` accountId
+    _salt `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` errorMessage
 
 instance Prelude.NFData UnprocessedAccount where
   rnf UnprocessedAccount' {..} =
-    Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf accountId
+    Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage

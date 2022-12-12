@@ -27,9 +27,9 @@ module Amazonka.Nimble.CreateLaunchProfile
     newCreateLaunchProfile,
 
     -- * Request Lenses
-    createLaunchProfile_tags,
     createLaunchProfile_clientToken,
     createLaunchProfile_description,
+    createLaunchProfile_tags,
     createLaunchProfile_ec2SubnetIds,
     createLaunchProfile_launchProfileProtocolVersions,
     createLaunchProfile_name,
@@ -57,16 +57,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateLaunchProfile' smart constructor.
 data CreateLaunchProfile = CreateLaunchProfile'
-  { -- | A collection of labels, in the form of key:value pairs, that apply to
-    -- this resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Unique, case-sensitive identifier that you provide to ensure the
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. If you don’t specify a client token, the AWS
     -- SDK automatically generates a client token and uses it for the request
     -- to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The description.
     description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | A collection of labels, in the form of key:value pairs, that apply to
+    -- this resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Specifies the IDs of the EC2 subnets where streaming sessions will be
     -- accessible from. These subnets must support the specified instance
     -- types.
@@ -94,15 +94,15 @@ data CreateLaunchProfile = CreateLaunchProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createLaunchProfile_tags' - A collection of labels, in the form of key:value pairs, that apply to
--- this resource.
---
 -- 'clientToken', 'createLaunchProfile_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. If you don’t specify a client token, the AWS
 -- SDK automatically generates a client token and uses it for the request
 -- to ensure idempotency.
 --
 -- 'description', 'createLaunchProfile_description' - The description.
+--
+-- 'tags', 'createLaunchProfile_tags' - A collection of labels, in the form of key:value pairs, that apply to
+-- this resource.
 --
 -- 'ec2SubnetIds', 'createLaunchProfile_ec2SubnetIds' - Specifies the IDs of the EC2 subnets where streaming sessions will be
 -- accessible from. These subnets must support the specified instance
@@ -135,9 +135,9 @@ newCreateLaunchProfile
   pStudioComponentIds_
   pStudioId_ =
     CreateLaunchProfile'
-      { tags = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+      { clientToken = Prelude.Nothing,
         description = Prelude.Nothing,
+        tags = Prelude.Nothing,
         ec2SubnetIds = Prelude.mempty,
         launchProfileProtocolVersions = Prelude.mempty,
         name = Data._Sensitive Lens.# pName_,
@@ -146,11 +146,6 @@ newCreateLaunchProfile
           Lens.coerced Lens.# pStudioComponentIds_,
         studioId = pStudioId_
       }
-
--- | A collection of labels, in the form of key:value pairs, that apply to
--- this resource.
-createLaunchProfile_tags :: Lens.Lens' CreateLaunchProfile (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createLaunchProfile_tags = Lens.lens (\CreateLaunchProfile' {tags} -> tags) (\s@CreateLaunchProfile' {} a -> s {tags = a} :: CreateLaunchProfile) Prelude.. Lens.mapping Lens.coerced
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. If you don’t specify a client token, the AWS
@@ -162,6 +157,11 @@ createLaunchProfile_clientToken = Lens.lens (\CreateLaunchProfile' {clientToken}
 -- | The description.
 createLaunchProfile_description :: Lens.Lens' CreateLaunchProfile (Prelude.Maybe Prelude.Text)
 createLaunchProfile_description = Lens.lens (\CreateLaunchProfile' {description} -> description) (\s@CreateLaunchProfile' {} a -> s {description = a} :: CreateLaunchProfile) Prelude.. Lens.mapping Data._Sensitive
+
+-- | A collection of labels, in the form of key:value pairs, that apply to
+-- this resource.
+createLaunchProfile_tags :: Lens.Lens' CreateLaunchProfile (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createLaunchProfile_tags = Lens.lens (\CreateLaunchProfile' {tags} -> tags) (\s@CreateLaunchProfile' {} a -> s {tags = a} :: CreateLaunchProfile) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the IDs of the EC2 subnets where streaming sessions will be
 -- accessible from. These subnets must support the specified instance
@@ -207,9 +207,9 @@ instance Core.AWSRequest CreateLaunchProfile where
 
 instance Prelude.Hashable CreateLaunchProfile where
   hashWithSalt _salt CreateLaunchProfile' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` ec2SubnetIds
       `Prelude.hashWithSalt` launchProfileProtocolVersions
       `Prelude.hashWithSalt` name
@@ -219,9 +219,9 @@ instance Prelude.Hashable CreateLaunchProfile where
 
 instance Prelude.NFData CreateLaunchProfile where
   rnf CreateLaunchProfile' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf ec2SubnetIds
       `Prelude.seq` Prelude.rnf launchProfileProtocolVersions
       `Prelude.seq` Prelude.rnf name
@@ -241,8 +241,8 @@ instance Data.ToJSON CreateLaunchProfile where
   toJSON CreateLaunchProfile' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("description" Data..=) Prelude.<$> description,
+          [ ("description" Data..=) Prelude.<$> description,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("ec2SubnetIds" Data..= ec2SubnetIds),
             Prelude.Just
               ( "launchProfileProtocolVersions"

@@ -29,8 +29,8 @@ module Amazonka.ElasticSearch.DescribeDomainAutoTunes
     newDescribeDomainAutoTunes,
 
     -- * Request Lenses
-    describeDomainAutoTunes_nextToken,
     describeDomainAutoTunes_maxResults,
+    describeDomainAutoTunes_nextToken,
     describeDomainAutoTunes_domainName,
 
     -- * Destructuring the Response
@@ -38,8 +38,8 @@ module Amazonka.ElasticSearch.DescribeDomainAutoTunes
     newDescribeDomainAutoTunesResponse,
 
     -- * Response Lenses
-    describeDomainAutoTunesResponse_nextToken,
     describeDomainAutoTunesResponse_autoTunes,
+    describeDomainAutoTunesResponse_nextToken,
     describeDomainAutoTunesResponse_httpStatus,
   )
 where
@@ -56,12 +56,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeDomainAutoTunes' smart constructor.
 data DescribeDomainAutoTunes = DescribeDomainAutoTunes'
-  { -- | NextToken is sent in case the earlier API call results contain the
-    -- NextToken. It is used for pagination.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Set this value to limit the number of results returned. If not
+  { -- | Set this value to limit the number of results returned. If not
     -- specified, defaults to 100.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | NextToken is sent in case the earlier API call results contain the
+    -- NextToken. It is used for pagination.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies the domain name for which you want Auto-Tune action details.
     domainName :: Prelude.Text
   }
@@ -75,11 +75,11 @@ data DescribeDomainAutoTunes = DescribeDomainAutoTunes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeDomainAutoTunes_nextToken' - NextToken is sent in case the earlier API call results contain the
--- NextToken. It is used for pagination.
---
 -- 'maxResults', 'describeDomainAutoTunes_maxResults' - Set this value to limit the number of results returned. If not
 -- specified, defaults to 100.
+--
+-- 'nextToken', 'describeDomainAutoTunes_nextToken' - NextToken is sent in case the earlier API call results contain the
+-- NextToken. It is used for pagination.
 --
 -- 'domainName', 'describeDomainAutoTunes_domainName' - Specifies the domain name for which you want Auto-Tune action details.
 newDescribeDomainAutoTunes ::
@@ -88,21 +88,21 @@ newDescribeDomainAutoTunes ::
   DescribeDomainAutoTunes
 newDescribeDomainAutoTunes pDomainName_ =
   DescribeDomainAutoTunes'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       domainName = pDomainName_
     }
-
--- | NextToken is sent in case the earlier API call results contain the
--- NextToken. It is used for pagination.
-describeDomainAutoTunes_nextToken :: Lens.Lens' DescribeDomainAutoTunes (Prelude.Maybe Prelude.Text)
-describeDomainAutoTunes_nextToken = Lens.lens (\DescribeDomainAutoTunes' {nextToken} -> nextToken) (\s@DescribeDomainAutoTunes' {} a -> s {nextToken = a} :: DescribeDomainAutoTunes)
 
 -- | Set this value to limit the number of results returned. If not
 -- specified, defaults to 100.
 describeDomainAutoTunes_maxResults :: Lens.Lens' DescribeDomainAutoTunes (Prelude.Maybe Prelude.Int)
 describeDomainAutoTunes_maxResults = Lens.lens (\DescribeDomainAutoTunes' {maxResults} -> maxResults) (\s@DescribeDomainAutoTunes' {} a -> s {maxResults = a} :: DescribeDomainAutoTunes)
+
+-- | NextToken is sent in case the earlier API call results contain the
+-- NextToken. It is used for pagination.
+describeDomainAutoTunes_nextToken :: Lens.Lens' DescribeDomainAutoTunes (Prelude.Maybe Prelude.Text)
+describeDomainAutoTunes_nextToken = Lens.lens (\DescribeDomainAutoTunes' {nextToken} -> nextToken) (\s@DescribeDomainAutoTunes' {} a -> s {nextToken = a} :: DescribeDomainAutoTunes)
 
 -- | Specifies the domain name for which you want Auto-Tune action details.
 describeDomainAutoTunes_domainName :: Lens.Lens' DescribeDomainAutoTunes Prelude.Text
@@ -118,21 +118,21 @@ instance Core.AWSRequest DescribeDomainAutoTunes where
     Response.receiveJSON
       ( \s h x ->
           DescribeDomainAutoTunesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "AutoTunes" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "AutoTunes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeDomainAutoTunes where
   hashWithSalt _salt DescribeDomainAutoTunes' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData DescribeDomainAutoTunes where
   rnf DescribeDomainAutoTunes' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf domainName
 
 instance Data.ToHeaders DescribeDomainAutoTunes where
@@ -155,13 +155,13 @@ instance Data.ToQuery DescribeDomainAutoTunes where
 --
 -- /See:/ 'newDescribeDomainAutoTunesResponse' smart constructor.
 data DescribeDomainAutoTunesResponse = DescribeDomainAutoTunesResponse'
-  { -- | Specifies an identifier to allow retrieval of paginated results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the list of setting adjustments that Auto-Tune has made to the
+  { -- | Specifies the list of setting adjustments that Auto-Tune has made to the
     -- domain. See the
     -- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>
     -- for more information.
     autoTunes :: Prelude.Maybe [AutoTune],
+    -- | Specifies an identifier to allow retrieval of paginated results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -175,12 +175,12 @@ data DescribeDomainAutoTunesResponse = DescribeDomainAutoTunesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeDomainAutoTunesResponse_nextToken' - Specifies an identifier to allow retrieval of paginated results.
---
 -- 'autoTunes', 'describeDomainAutoTunesResponse_autoTunes' - Specifies the list of setting adjustments that Auto-Tune has made to the
 -- domain. See the
 -- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>
 -- for more information.
+--
+-- 'nextToken', 'describeDomainAutoTunesResponse_nextToken' - Specifies an identifier to allow retrieval of paginated results.
 --
 -- 'httpStatus', 'describeDomainAutoTunesResponse_httpStatus' - The response's http status code.
 newDescribeDomainAutoTunesResponse ::
@@ -189,15 +189,11 @@ newDescribeDomainAutoTunesResponse ::
   DescribeDomainAutoTunesResponse
 newDescribeDomainAutoTunesResponse pHttpStatus_ =
   DescribeDomainAutoTunesResponse'
-    { nextToken =
+    { autoTunes =
         Prelude.Nothing,
-      autoTunes = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Specifies an identifier to allow retrieval of paginated results.
-describeDomainAutoTunesResponse_nextToken :: Lens.Lens' DescribeDomainAutoTunesResponse (Prelude.Maybe Prelude.Text)
-describeDomainAutoTunesResponse_nextToken = Lens.lens (\DescribeDomainAutoTunesResponse' {nextToken} -> nextToken) (\s@DescribeDomainAutoTunesResponse' {} a -> s {nextToken = a} :: DescribeDomainAutoTunesResponse)
 
 -- | Specifies the list of setting adjustments that Auto-Tune has made to the
 -- domain. See the
@@ -205,6 +201,10 @@ describeDomainAutoTunesResponse_nextToken = Lens.lens (\DescribeDomainAutoTunesR
 -- for more information.
 describeDomainAutoTunesResponse_autoTunes :: Lens.Lens' DescribeDomainAutoTunesResponse (Prelude.Maybe [AutoTune])
 describeDomainAutoTunesResponse_autoTunes = Lens.lens (\DescribeDomainAutoTunesResponse' {autoTunes} -> autoTunes) (\s@DescribeDomainAutoTunesResponse' {} a -> s {autoTunes = a} :: DescribeDomainAutoTunesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specifies an identifier to allow retrieval of paginated results.
+describeDomainAutoTunesResponse_nextToken :: Lens.Lens' DescribeDomainAutoTunesResponse (Prelude.Maybe Prelude.Text)
+describeDomainAutoTunesResponse_nextToken = Lens.lens (\DescribeDomainAutoTunesResponse' {nextToken} -> nextToken) (\s@DescribeDomainAutoTunesResponse' {} a -> s {nextToken = a} :: DescribeDomainAutoTunesResponse)
 
 -- | The response's http status code.
 describeDomainAutoTunesResponse_httpStatus :: Lens.Lens' DescribeDomainAutoTunesResponse Prelude.Int
@@ -215,6 +215,6 @@ instance
     DescribeDomainAutoTunesResponse
   where
   rnf DescribeDomainAutoTunesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf autoTunes
+    Prelude.rnf autoTunes
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

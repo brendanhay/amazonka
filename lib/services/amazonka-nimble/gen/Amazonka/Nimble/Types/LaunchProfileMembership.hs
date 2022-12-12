@@ -48,14 +48,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLaunchProfileMembership' smart constructor.
 data LaunchProfileMembership = LaunchProfileMembership'
-  { -- | The principal ID.
-    principalId :: Prelude.Maybe Prelude.Text,
+  { -- | The ID of the identity store.
+    identityStoreId :: Prelude.Maybe Prelude.Text,
     -- | The persona.
     persona :: Prelude.Maybe LaunchProfilePersona,
+    -- | The principal ID.
+    principalId :: Prelude.Maybe Prelude.Text,
     -- | The Active Directory Security Identifier for this user, if available.
-    sid :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the identity store.
-    identityStoreId :: Prelude.Maybe Prelude.Text
+    sid :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,39 +67,39 @@ data LaunchProfileMembership = LaunchProfileMembership'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'principalId', 'launchProfileMembership_principalId' - The principal ID.
+-- 'identityStoreId', 'launchProfileMembership_identityStoreId' - The ID of the identity store.
 --
 -- 'persona', 'launchProfileMembership_persona' - The persona.
 --
--- 'sid', 'launchProfileMembership_sid' - The Active Directory Security Identifier for this user, if available.
+-- 'principalId', 'launchProfileMembership_principalId' - The principal ID.
 --
--- 'identityStoreId', 'launchProfileMembership_identityStoreId' - The ID of the identity store.
+-- 'sid', 'launchProfileMembership_sid' - The Active Directory Security Identifier for this user, if available.
 newLaunchProfileMembership ::
   LaunchProfileMembership
 newLaunchProfileMembership =
   LaunchProfileMembership'
-    { principalId =
+    { identityStoreId =
         Prelude.Nothing,
       persona = Prelude.Nothing,
-      sid = Prelude.Nothing,
-      identityStoreId = Prelude.Nothing
+      principalId = Prelude.Nothing,
+      sid = Prelude.Nothing
     }
 
--- | The principal ID.
-launchProfileMembership_principalId :: Lens.Lens' LaunchProfileMembership (Prelude.Maybe Prelude.Text)
-launchProfileMembership_principalId = Lens.lens (\LaunchProfileMembership' {principalId} -> principalId) (\s@LaunchProfileMembership' {} a -> s {principalId = a} :: LaunchProfileMembership)
+-- | The ID of the identity store.
+launchProfileMembership_identityStoreId :: Lens.Lens' LaunchProfileMembership (Prelude.Maybe Prelude.Text)
+launchProfileMembership_identityStoreId = Lens.lens (\LaunchProfileMembership' {identityStoreId} -> identityStoreId) (\s@LaunchProfileMembership' {} a -> s {identityStoreId = a} :: LaunchProfileMembership)
 
 -- | The persona.
 launchProfileMembership_persona :: Lens.Lens' LaunchProfileMembership (Prelude.Maybe LaunchProfilePersona)
 launchProfileMembership_persona = Lens.lens (\LaunchProfileMembership' {persona} -> persona) (\s@LaunchProfileMembership' {} a -> s {persona = a} :: LaunchProfileMembership)
 
+-- | The principal ID.
+launchProfileMembership_principalId :: Lens.Lens' LaunchProfileMembership (Prelude.Maybe Prelude.Text)
+launchProfileMembership_principalId = Lens.lens (\LaunchProfileMembership' {principalId} -> principalId) (\s@LaunchProfileMembership' {} a -> s {principalId = a} :: LaunchProfileMembership)
+
 -- | The Active Directory Security Identifier for this user, if available.
 launchProfileMembership_sid :: Lens.Lens' LaunchProfileMembership (Prelude.Maybe Prelude.Text)
 launchProfileMembership_sid = Lens.lens (\LaunchProfileMembership' {sid} -> sid) (\s@LaunchProfileMembership' {} a -> s {sid = a} :: LaunchProfileMembership)
-
--- | The ID of the identity store.
-launchProfileMembership_identityStoreId :: Lens.Lens' LaunchProfileMembership (Prelude.Maybe Prelude.Text)
-launchProfileMembership_identityStoreId = Lens.lens (\LaunchProfileMembership' {identityStoreId} -> identityStoreId) (\s@LaunchProfileMembership' {} a -> s {identityStoreId = a} :: LaunchProfileMembership)
 
 instance Data.FromJSON LaunchProfileMembership where
   parseJSON =
@@ -107,22 +107,22 @@ instance Data.FromJSON LaunchProfileMembership where
       "LaunchProfileMembership"
       ( \x ->
           LaunchProfileMembership'
-            Prelude.<$> (x Data..:? "principalId")
+            Prelude.<$> (x Data..:? "identityStoreId")
             Prelude.<*> (x Data..:? "persona")
+            Prelude.<*> (x Data..:? "principalId")
             Prelude.<*> (x Data..:? "sid")
-            Prelude.<*> (x Data..:? "identityStoreId")
       )
 
 instance Prelude.Hashable LaunchProfileMembership where
   hashWithSalt _salt LaunchProfileMembership' {..} =
-    _salt `Prelude.hashWithSalt` principalId
+    _salt `Prelude.hashWithSalt` identityStoreId
       `Prelude.hashWithSalt` persona
+      `Prelude.hashWithSalt` principalId
       `Prelude.hashWithSalt` sid
-      `Prelude.hashWithSalt` identityStoreId
 
 instance Prelude.NFData LaunchProfileMembership where
   rnf LaunchProfileMembership' {..} =
-    Prelude.rnf principalId
+    Prelude.rnf identityStoreId
       `Prelude.seq` Prelude.rnf persona
+      `Prelude.seq` Prelude.rnf principalId
       `Prelude.seq` Prelude.rnf sid
-      `Prelude.seq` Prelude.rnf identityStoreId

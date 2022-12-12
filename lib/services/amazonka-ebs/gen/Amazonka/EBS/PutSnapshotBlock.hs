@@ -44,8 +44,8 @@ module Amazonka.EBS.PutSnapshotBlock
     newPutSnapshotBlockResponse,
 
     -- * Response Lenses
-    putSnapshotBlockResponse_checksumAlgorithm,
     putSnapshotBlockResponse_checksum,
+    putSnapshotBlockResponse_checksumAlgorithm,
     putSnapshotBlockResponse_httpStatus,
   )
 where
@@ -248,8 +248,8 @@ instance Core.AWSRequest PutSnapshotBlock where
     Response.receiveEmpty
       ( \s h x ->
           PutSnapshotBlockResponse'
-            Prelude.<$> (h Data..#? "x-amz-Checksum-Algorithm")
-            Prelude.<*> (h Data..#? "x-amz-Checksum")
+            Prelude.<$> (h Data..#? "x-amz-Checksum")
+            Prelude.<*> (h Data..#? "x-amz-Checksum-Algorithm")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -281,10 +281,10 @@ instance Data.ToQuery PutSnapshotBlock where
 
 -- | /See:/ 'newPutSnapshotBlockResponse' smart constructor.
 data PutSnapshotBlockResponse = PutSnapshotBlockResponse'
-  { -- | The algorithm used by Amazon EBS to generate the checksum.
-    checksumAlgorithm :: Prelude.Maybe ChecksumAlgorithm,
-    -- | The SHA256 checksum generated for the block data by Amazon EBS.
+  { -- | The SHA256 checksum generated for the block data by Amazon EBS.
     checksum :: Prelude.Maybe Prelude.Text,
+    -- | The algorithm used by Amazon EBS to generate the checksum.
+    checksumAlgorithm :: Prelude.Maybe ChecksumAlgorithm,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -298,9 +298,9 @@ data PutSnapshotBlockResponse = PutSnapshotBlockResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'checksumAlgorithm', 'putSnapshotBlockResponse_checksumAlgorithm' - The algorithm used by Amazon EBS to generate the checksum.
---
 -- 'checksum', 'putSnapshotBlockResponse_checksum' - The SHA256 checksum generated for the block data by Amazon EBS.
+--
+-- 'checksumAlgorithm', 'putSnapshotBlockResponse_checksumAlgorithm' - The algorithm used by Amazon EBS to generate the checksum.
 --
 -- 'httpStatus', 'putSnapshotBlockResponse_httpStatus' - The response's http status code.
 newPutSnapshotBlockResponse ::
@@ -309,19 +309,19 @@ newPutSnapshotBlockResponse ::
   PutSnapshotBlockResponse
 newPutSnapshotBlockResponse pHttpStatus_ =
   PutSnapshotBlockResponse'
-    { checksumAlgorithm =
+    { checksum =
         Prelude.Nothing,
-      checksum = Prelude.Nothing,
+      checksumAlgorithm = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The algorithm used by Amazon EBS to generate the checksum.
-putSnapshotBlockResponse_checksumAlgorithm :: Lens.Lens' PutSnapshotBlockResponse (Prelude.Maybe ChecksumAlgorithm)
-putSnapshotBlockResponse_checksumAlgorithm = Lens.lens (\PutSnapshotBlockResponse' {checksumAlgorithm} -> checksumAlgorithm) (\s@PutSnapshotBlockResponse' {} a -> s {checksumAlgorithm = a} :: PutSnapshotBlockResponse)
 
 -- | The SHA256 checksum generated for the block data by Amazon EBS.
 putSnapshotBlockResponse_checksum :: Lens.Lens' PutSnapshotBlockResponse (Prelude.Maybe Prelude.Text)
 putSnapshotBlockResponse_checksum = Lens.lens (\PutSnapshotBlockResponse' {checksum} -> checksum) (\s@PutSnapshotBlockResponse' {} a -> s {checksum = a} :: PutSnapshotBlockResponse)
+
+-- | The algorithm used by Amazon EBS to generate the checksum.
+putSnapshotBlockResponse_checksumAlgorithm :: Lens.Lens' PutSnapshotBlockResponse (Prelude.Maybe ChecksumAlgorithm)
+putSnapshotBlockResponse_checksumAlgorithm = Lens.lens (\PutSnapshotBlockResponse' {checksumAlgorithm} -> checksumAlgorithm) (\s@PutSnapshotBlockResponse' {} a -> s {checksumAlgorithm = a} :: PutSnapshotBlockResponse)
 
 -- | The response's http status code.
 putSnapshotBlockResponse_httpStatus :: Lens.Lens' PutSnapshotBlockResponse Prelude.Int
@@ -329,6 +329,6 @@ putSnapshotBlockResponse_httpStatus = Lens.lens (\PutSnapshotBlockResponse' {htt
 
 instance Prelude.NFData PutSnapshotBlockResponse where
   rnf PutSnapshotBlockResponse' {..} =
-    Prelude.rnf checksumAlgorithm
-      `Prelude.seq` Prelude.rnf checksum
+    Prelude.rnf checksum
+      `Prelude.seq` Prelude.rnf checksumAlgorithm
       `Prelude.seq` Prelude.rnf httpStatus

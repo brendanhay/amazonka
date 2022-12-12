@@ -51,9 +51,9 @@ module Amazonka.PinpointEmail.CreateEmailIdentity
     newCreateEmailIdentityResponse,
 
     -- * Response Lenses
-    createEmailIdentityResponse_verifiedForSendingStatus,
     createEmailIdentityResponse_dkimAttributes,
     createEmailIdentityResponse_identityType,
+    createEmailIdentityResponse_verifiedForSendingStatus,
     createEmailIdentityResponse_httpStatus,
   )
 where
@@ -120,9 +120,9 @@ instance Core.AWSRequest CreateEmailIdentity where
     Response.receiveJSON
       ( \s h x ->
           CreateEmailIdentityResponse'
-            Prelude.<$> (x Data..?> "VerifiedForSendingStatus")
-            Prelude.<*> (x Data..?> "DkimAttributes")
+            Prelude.<$> (x Data..?> "DkimAttributes")
             Prelude.<*> (x Data..?> "IdentityType")
+            Prelude.<*> (x Data..?> "VerifiedForSendingStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,18 +172,18 @@ instance Data.ToQuery CreateEmailIdentity where
 --
 -- /See:/ 'newCreateEmailIdentityResponse' smart constructor.
 data CreateEmailIdentityResponse = CreateEmailIdentityResponse'
-  { -- | Specifies whether or not the identity is verified. In Amazon Pinpoint,
-    -- you can only send email from verified email addresses or domains. For
-    -- more information about verifying identities, see the
-    -- <https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html Amazon Pinpoint User Guide>.
-    verifiedForSendingStatus :: Prelude.Maybe Prelude.Bool,
-    -- | An object that contains information about the DKIM attributes for the
+  { -- | An object that contains information about the DKIM attributes for the
     -- identity. This object includes the tokens that you use to create the
     -- CNAME records that are required to complete the DKIM verification
     -- process.
     dkimAttributes :: Prelude.Maybe DkimAttributes,
     -- | The email identity type.
     identityType :: Prelude.Maybe IdentityType,
+    -- | Specifies whether or not the identity is verified. In Amazon Pinpoint,
+    -- you can only send email from verified email addresses or domains. For
+    -- more information about verifying identities, see the
+    -- <https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html Amazon Pinpoint User Guide>.
+    verifiedForSendingStatus :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -197,17 +197,17 @@ data CreateEmailIdentityResponse = CreateEmailIdentityResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'verifiedForSendingStatus', 'createEmailIdentityResponse_verifiedForSendingStatus' - Specifies whether or not the identity is verified. In Amazon Pinpoint,
--- you can only send email from verified email addresses or domains. For
--- more information about verifying identities, see the
--- <https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html Amazon Pinpoint User Guide>.
---
 -- 'dkimAttributes', 'createEmailIdentityResponse_dkimAttributes' - An object that contains information about the DKIM attributes for the
 -- identity. This object includes the tokens that you use to create the
 -- CNAME records that are required to complete the DKIM verification
 -- process.
 --
 -- 'identityType', 'createEmailIdentityResponse_identityType' - The email identity type.
+--
+-- 'verifiedForSendingStatus', 'createEmailIdentityResponse_verifiedForSendingStatus' - Specifies whether or not the identity is verified. In Amazon Pinpoint,
+-- you can only send email from verified email addresses or domains. For
+-- more information about verifying identities, see the
+-- <https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html Amazon Pinpoint User Guide>.
 --
 -- 'httpStatus', 'createEmailIdentityResponse_httpStatus' - The response's http status code.
 newCreateEmailIdentityResponse ::
@@ -216,19 +216,12 @@ newCreateEmailIdentityResponse ::
   CreateEmailIdentityResponse
 newCreateEmailIdentityResponse pHttpStatus_ =
   CreateEmailIdentityResponse'
-    { verifiedForSendingStatus =
+    { dkimAttributes =
         Prelude.Nothing,
-      dkimAttributes = Prelude.Nothing,
       identityType = Prelude.Nothing,
+      verifiedForSendingStatus = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Specifies whether or not the identity is verified. In Amazon Pinpoint,
--- you can only send email from verified email addresses or domains. For
--- more information about verifying identities, see the
--- <https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html Amazon Pinpoint User Guide>.
-createEmailIdentityResponse_verifiedForSendingStatus :: Lens.Lens' CreateEmailIdentityResponse (Prelude.Maybe Prelude.Bool)
-createEmailIdentityResponse_verifiedForSendingStatus = Lens.lens (\CreateEmailIdentityResponse' {verifiedForSendingStatus} -> verifiedForSendingStatus) (\s@CreateEmailIdentityResponse' {} a -> s {verifiedForSendingStatus = a} :: CreateEmailIdentityResponse)
 
 -- | An object that contains information about the DKIM attributes for the
 -- identity. This object includes the tokens that you use to create the
@@ -241,13 +234,20 @@ createEmailIdentityResponse_dkimAttributes = Lens.lens (\CreateEmailIdentityResp
 createEmailIdentityResponse_identityType :: Lens.Lens' CreateEmailIdentityResponse (Prelude.Maybe IdentityType)
 createEmailIdentityResponse_identityType = Lens.lens (\CreateEmailIdentityResponse' {identityType} -> identityType) (\s@CreateEmailIdentityResponse' {} a -> s {identityType = a} :: CreateEmailIdentityResponse)
 
+-- | Specifies whether or not the identity is verified. In Amazon Pinpoint,
+-- you can only send email from verified email addresses or domains. For
+-- more information about verifying identities, see the
+-- <https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html Amazon Pinpoint User Guide>.
+createEmailIdentityResponse_verifiedForSendingStatus :: Lens.Lens' CreateEmailIdentityResponse (Prelude.Maybe Prelude.Bool)
+createEmailIdentityResponse_verifiedForSendingStatus = Lens.lens (\CreateEmailIdentityResponse' {verifiedForSendingStatus} -> verifiedForSendingStatus) (\s@CreateEmailIdentityResponse' {} a -> s {verifiedForSendingStatus = a} :: CreateEmailIdentityResponse)
+
 -- | The response's http status code.
 createEmailIdentityResponse_httpStatus :: Lens.Lens' CreateEmailIdentityResponse Prelude.Int
 createEmailIdentityResponse_httpStatus = Lens.lens (\CreateEmailIdentityResponse' {httpStatus} -> httpStatus) (\s@CreateEmailIdentityResponse' {} a -> s {httpStatus = a} :: CreateEmailIdentityResponse)
 
 instance Prelude.NFData CreateEmailIdentityResponse where
   rnf CreateEmailIdentityResponse' {..} =
-    Prelude.rnf verifiedForSendingStatus
-      `Prelude.seq` Prelude.rnf dkimAttributes
+    Prelude.rnf dkimAttributes
       `Prelude.seq` Prelude.rnf identityType
+      `Prelude.seq` Prelude.rnf verifiedForSendingStatus
       `Prelude.seq` Prelude.rnf httpStatus

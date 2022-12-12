@@ -31,7 +31,17 @@ import Amazonka.WorkSpaces.Types.SamlStatusEnum
 --
 -- /See:/ 'newSamlProperties' smart constructor.
 data SamlProperties = SamlProperties'
-  { -- | Indicates the status of SAML 2.0 authentication. These statuses include
+  { -- | The relay state parameter name supported by the SAML 2.0 identity
+    -- provider (IdP). When the end user is redirected to the user access URL
+    -- from the WorkSpaces client application, this relay state parameter name
+    -- is appended as a query parameter to the URL along with the relay state
+    -- endpoint to return the user to the client application session.
+    --
+    -- To use SAML 2.0 authentication with WorkSpaces, the IdP must support
+    -- IdP-initiated deep linking for the relay state URL. Consult your IdP
+    -- documentation for more information.
+    relayStateParameterName :: Prelude.Maybe Prelude.Text,
+    -- | Indicates the status of SAML 2.0 authentication. These statuses include
     -- the following.
     --
     -- -   If the setting is @DISABLED@, end users will be directed to login
@@ -48,16 +58,6 @@ data SamlProperties = SamlProperties'
     --     support SAML 2.0 authentication from connecting as if SAML 2.0
     --     authentication was disabled.
     status :: Prelude.Maybe SamlStatusEnum,
-    -- | The relay state parameter name supported by the SAML 2.0 identity
-    -- provider (IdP). When the end user is redirected to the user access URL
-    -- from the WorkSpaces client application, this relay state parameter name
-    -- is appended as a query parameter to the URL along with the relay state
-    -- endpoint to return the user to the client application session.
-    --
-    -- To use SAML 2.0 authentication with WorkSpaces, the IdP must support
-    -- IdP-initiated deep linking for the relay state URL. Consult your IdP
-    -- documentation for more information.
-    relayStateParameterName :: Prelude.Maybe Prelude.Text,
     -- | The SAML 2.0 identity provider (IdP) user access URL is the URL a user
     -- would navigate to in their web browser in order to federate from the IdP
     -- and directly access the application, without any SAML 2.0 service
@@ -73,6 +73,16 @@ data SamlProperties = SamlProperties'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'relayStateParameterName', 'samlProperties_relayStateParameterName' - The relay state parameter name supported by the SAML 2.0 identity
+-- provider (IdP). When the end user is redirected to the user access URL
+-- from the WorkSpaces client application, this relay state parameter name
+-- is appended as a query parameter to the URL along with the relay state
+-- endpoint to return the user to the client application session.
+--
+-- To use SAML 2.0 authentication with WorkSpaces, the IdP must support
+-- IdP-initiated deep linking for the relay state URL. Consult your IdP
+-- documentation for more information.
 --
 -- 'status', 'samlProperties_status' - Indicates the status of SAML 2.0 authentication. These statuses include
 -- the following.
@@ -91,16 +101,6 @@ data SamlProperties = SamlProperties'
 --     support SAML 2.0 authentication from connecting as if SAML 2.0
 --     authentication was disabled.
 --
--- 'relayStateParameterName', 'samlProperties_relayStateParameterName' - The relay state parameter name supported by the SAML 2.0 identity
--- provider (IdP). When the end user is redirected to the user access URL
--- from the WorkSpaces client application, this relay state parameter name
--- is appended as a query parameter to the URL along with the relay state
--- endpoint to return the user to the client application session.
---
--- To use SAML 2.0 authentication with WorkSpaces, the IdP must support
--- IdP-initiated deep linking for the relay state URL. Consult your IdP
--- documentation for more information.
---
 -- 'userAccessUrl', 'samlProperties_userAccessUrl' - The SAML 2.0 identity provider (IdP) user access URL is the URL a user
 -- would navigate to in their web browser in order to federate from the IdP
 -- and directly access the application, without any SAML 2.0 service
@@ -109,10 +109,23 @@ newSamlProperties ::
   SamlProperties
 newSamlProperties =
   SamlProperties'
-    { status = Prelude.Nothing,
-      relayStateParameterName = Prelude.Nothing,
+    { relayStateParameterName =
+        Prelude.Nothing,
+      status = Prelude.Nothing,
       userAccessUrl = Prelude.Nothing
     }
+
+-- | The relay state parameter name supported by the SAML 2.0 identity
+-- provider (IdP). When the end user is redirected to the user access URL
+-- from the WorkSpaces client application, this relay state parameter name
+-- is appended as a query parameter to the URL along with the relay state
+-- endpoint to return the user to the client application session.
+--
+-- To use SAML 2.0 authentication with WorkSpaces, the IdP must support
+-- IdP-initiated deep linking for the relay state URL. Consult your IdP
+-- documentation for more information.
+samlProperties_relayStateParameterName :: Lens.Lens' SamlProperties (Prelude.Maybe Prelude.Text)
+samlProperties_relayStateParameterName = Lens.lens (\SamlProperties' {relayStateParameterName} -> relayStateParameterName) (\s@SamlProperties' {} a -> s {relayStateParameterName = a} :: SamlProperties)
 
 -- | Indicates the status of SAML 2.0 authentication. These statuses include
 -- the following.
@@ -133,18 +146,6 @@ newSamlProperties =
 samlProperties_status :: Lens.Lens' SamlProperties (Prelude.Maybe SamlStatusEnum)
 samlProperties_status = Lens.lens (\SamlProperties' {status} -> status) (\s@SamlProperties' {} a -> s {status = a} :: SamlProperties)
 
--- | The relay state parameter name supported by the SAML 2.0 identity
--- provider (IdP). When the end user is redirected to the user access URL
--- from the WorkSpaces client application, this relay state parameter name
--- is appended as a query parameter to the URL along with the relay state
--- endpoint to return the user to the client application session.
---
--- To use SAML 2.0 authentication with WorkSpaces, the IdP must support
--- IdP-initiated deep linking for the relay state URL. Consult your IdP
--- documentation for more information.
-samlProperties_relayStateParameterName :: Lens.Lens' SamlProperties (Prelude.Maybe Prelude.Text)
-samlProperties_relayStateParameterName = Lens.lens (\SamlProperties' {relayStateParameterName} -> relayStateParameterName) (\s@SamlProperties' {} a -> s {relayStateParameterName = a} :: SamlProperties)
-
 -- | The SAML 2.0 identity provider (IdP) user access URL is the URL a user
 -- would navigate to in their web browser in order to federate from the IdP
 -- and directly access the application, without any SAML 2.0 service
@@ -158,30 +159,31 @@ instance Data.FromJSON SamlProperties where
       "SamlProperties"
       ( \x ->
           SamlProperties'
-            Prelude.<$> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "RelayStateParameterName")
+            Prelude.<$> (x Data..:? "RelayStateParameterName")
+            Prelude.<*> (x Data..:? "Status")
             Prelude.<*> (x Data..:? "UserAccessUrl")
       )
 
 instance Prelude.Hashable SamlProperties where
   hashWithSalt _salt SamlProperties' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt
       `Prelude.hashWithSalt` relayStateParameterName
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` userAccessUrl
 
 instance Prelude.NFData SamlProperties where
   rnf SamlProperties' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf relayStateParameterName
+    Prelude.rnf relayStateParameterName
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf userAccessUrl
 
 instance Data.ToJSON SamlProperties where
   toJSON SamlProperties' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Status" Data..=) Prelude.<$> status,
-            ("RelayStateParameterName" Data..=)
+          [ ("RelayStateParameterName" Data..=)
               Prelude.<$> relayStateParameterName,
+            ("Status" Data..=) Prelude.<$> status,
             ("UserAccessUrl" Data..=) Prelude.<$> userAccessUrl
           ]
       )

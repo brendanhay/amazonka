@@ -36,8 +36,8 @@ module Amazonka.ImageBuilder.StartImagePipelineExecution
 
     -- * Response Lenses
     startImagePipelineExecutionResponse_clientToken,
-    startImagePipelineExecutionResponse_requestId,
     startImagePipelineExecutionResponse_imageBuildVersionArn,
+    startImagePipelineExecutionResponse_requestId,
     startImagePipelineExecutionResponse_httpStatus,
   )
 where
@@ -107,8 +107,8 @@ instance Core.AWSRequest StartImagePipelineExecution where
       ( \s h x ->
           StartImagePipelineExecutionResponse'
             Prelude.<$> (x Data..?> "clientToken")
-            Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (x Data..?> "imageBuildVersionArn")
+            Prelude.<*> (x Data..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,11 +153,11 @@ instance Data.ToQuery StartImagePipelineExecution where
 data StartImagePipelineExecutionResponse = StartImagePipelineExecutionResponse'
   { -- | The idempotency token used to make this request idempotent.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The request ID that uniquely identifies this request.
-    requestId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the image that was created by this
     -- request.
     imageBuildVersionArn :: Prelude.Maybe Prelude.Text,
+    -- | The request ID that uniquely identifies this request.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -173,10 +173,10 @@ data StartImagePipelineExecutionResponse = StartImagePipelineExecutionResponse'
 --
 -- 'clientToken', 'startImagePipelineExecutionResponse_clientToken' - The idempotency token used to make this request idempotent.
 --
--- 'requestId', 'startImagePipelineExecutionResponse_requestId' - The request ID that uniquely identifies this request.
---
 -- 'imageBuildVersionArn', 'startImagePipelineExecutionResponse_imageBuildVersionArn' - The Amazon Resource Name (ARN) of the image that was created by this
 -- request.
+--
+-- 'requestId', 'startImagePipelineExecutionResponse_requestId' - The request ID that uniquely identifies this request.
 --
 -- 'httpStatus', 'startImagePipelineExecutionResponse_httpStatus' - The response's http status code.
 newStartImagePipelineExecutionResponse ::
@@ -187,8 +187,8 @@ newStartImagePipelineExecutionResponse pHttpStatus_ =
   StartImagePipelineExecutionResponse'
     { clientToken =
         Prelude.Nothing,
-      requestId = Prelude.Nothing,
       imageBuildVersionArn = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -196,14 +196,14 @@ newStartImagePipelineExecutionResponse pHttpStatus_ =
 startImagePipelineExecutionResponse_clientToken :: Lens.Lens' StartImagePipelineExecutionResponse (Prelude.Maybe Prelude.Text)
 startImagePipelineExecutionResponse_clientToken = Lens.lens (\StartImagePipelineExecutionResponse' {clientToken} -> clientToken) (\s@StartImagePipelineExecutionResponse' {} a -> s {clientToken = a} :: StartImagePipelineExecutionResponse)
 
--- | The request ID that uniquely identifies this request.
-startImagePipelineExecutionResponse_requestId :: Lens.Lens' StartImagePipelineExecutionResponse (Prelude.Maybe Prelude.Text)
-startImagePipelineExecutionResponse_requestId = Lens.lens (\StartImagePipelineExecutionResponse' {requestId} -> requestId) (\s@StartImagePipelineExecutionResponse' {} a -> s {requestId = a} :: StartImagePipelineExecutionResponse)
-
 -- | The Amazon Resource Name (ARN) of the image that was created by this
 -- request.
 startImagePipelineExecutionResponse_imageBuildVersionArn :: Lens.Lens' StartImagePipelineExecutionResponse (Prelude.Maybe Prelude.Text)
 startImagePipelineExecutionResponse_imageBuildVersionArn = Lens.lens (\StartImagePipelineExecutionResponse' {imageBuildVersionArn} -> imageBuildVersionArn) (\s@StartImagePipelineExecutionResponse' {} a -> s {imageBuildVersionArn = a} :: StartImagePipelineExecutionResponse)
+
+-- | The request ID that uniquely identifies this request.
+startImagePipelineExecutionResponse_requestId :: Lens.Lens' StartImagePipelineExecutionResponse (Prelude.Maybe Prelude.Text)
+startImagePipelineExecutionResponse_requestId = Lens.lens (\StartImagePipelineExecutionResponse' {requestId} -> requestId) (\s@StartImagePipelineExecutionResponse' {} a -> s {requestId = a} :: StartImagePipelineExecutionResponse)
 
 -- | The response's http status code.
 startImagePipelineExecutionResponse_httpStatus :: Lens.Lens' StartImagePipelineExecutionResponse Prelude.Int
@@ -215,6 +215,6 @@ instance
   where
   rnf StartImagePipelineExecutionResponse' {..} =
     Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf imageBuildVersionArn
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf httpStatus

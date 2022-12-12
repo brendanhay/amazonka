@@ -42,8 +42,8 @@ module Amazonka.SecurityHub.GetMembers
     newGetMembersResponse,
 
     -- * Response Lenses
-    getMembersResponse_unprocessedAccounts,
     getMembersResponse_members,
+    getMembersResponse_unprocessedAccounts,
     getMembersResponse_httpStatus,
   )
 where
@@ -92,10 +92,10 @@ instance Core.AWSRequest GetMembers where
     Response.receiveJSON
       ( \s h x ->
           GetMembersResponse'
-            Prelude.<$> ( x Data..?> "UnprocessedAccounts"
+            Prelude.<$> (x Data..?> "Members" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "UnprocessedAccounts"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "Members" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,12 +132,12 @@ instance Data.ToQuery GetMembers where
 
 -- | /See:/ 'newGetMembersResponse' smart constructor.
 data GetMembersResponse = GetMembersResponse'
-  { -- | The list of Amazon Web Services accounts that could not be processed.
+  { -- | The list of details about the Security Hub member accounts.
+    members :: Prelude.Maybe [Member],
+    -- | The list of Amazon Web Services accounts that could not be processed.
     -- For each account, the list includes the account ID and the email
     -- address.
     unprocessedAccounts :: Prelude.Maybe [Result],
-    -- | The list of details about the Security Hub member accounts.
-    members :: Prelude.Maybe [Member],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -151,11 +151,11 @@ data GetMembersResponse = GetMembersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'members', 'getMembersResponse_members' - The list of details about the Security Hub member accounts.
+--
 -- 'unprocessedAccounts', 'getMembersResponse_unprocessedAccounts' - The list of Amazon Web Services accounts that could not be processed.
 -- For each account, the list includes the account ID and the email
 -- address.
---
--- 'members', 'getMembersResponse_members' - The list of details about the Security Hub member accounts.
 --
 -- 'httpStatus', 'getMembersResponse_httpStatus' - The response's http status code.
 newGetMembersResponse ::
@@ -164,11 +164,14 @@ newGetMembersResponse ::
   GetMembersResponse
 newGetMembersResponse pHttpStatus_ =
   GetMembersResponse'
-    { unprocessedAccounts =
-        Prelude.Nothing,
-      members = Prelude.Nothing,
+    { members = Prelude.Nothing,
+      unprocessedAccounts = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of details about the Security Hub member accounts.
+getMembersResponse_members :: Lens.Lens' GetMembersResponse (Prelude.Maybe [Member])
+getMembersResponse_members = Lens.lens (\GetMembersResponse' {members} -> members) (\s@GetMembersResponse' {} a -> s {members = a} :: GetMembersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The list of Amazon Web Services accounts that could not be processed.
 -- For each account, the list includes the account ID and the email
@@ -176,16 +179,12 @@ newGetMembersResponse pHttpStatus_ =
 getMembersResponse_unprocessedAccounts :: Lens.Lens' GetMembersResponse (Prelude.Maybe [Result])
 getMembersResponse_unprocessedAccounts = Lens.lens (\GetMembersResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@GetMembersResponse' {} a -> s {unprocessedAccounts = a} :: GetMembersResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The list of details about the Security Hub member accounts.
-getMembersResponse_members :: Lens.Lens' GetMembersResponse (Prelude.Maybe [Member])
-getMembersResponse_members = Lens.lens (\GetMembersResponse' {members} -> members) (\s@GetMembersResponse' {} a -> s {members = a} :: GetMembersResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 getMembersResponse_httpStatus :: Lens.Lens' GetMembersResponse Prelude.Int
 getMembersResponse_httpStatus = Lens.lens (\GetMembersResponse' {httpStatus} -> httpStatus) (\s@GetMembersResponse' {} a -> s {httpStatus = a} :: GetMembersResponse)
 
 instance Prelude.NFData GetMembersResponse where
   rnf GetMembersResponse' {..} =
-    Prelude.rnf unprocessedAccounts
-      `Prelude.seq` Prelude.rnf members
+    Prelude.rnf members
+      `Prelude.seq` Prelude.rnf unprocessedAccounts
       `Prelude.seq` Prelude.rnf httpStatus

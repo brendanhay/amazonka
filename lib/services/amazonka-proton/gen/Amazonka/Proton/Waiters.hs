@@ -29,34 +29,47 @@ import Amazonka.Proton.GetServiceTemplateVersion
 import Amazonka.Proton.Lens
 import Amazonka.Proton.Types
 
--- | Polls 'Amazonka.Proton.GetServiceTemplateVersion' every 2 seconds until a successful state is reached. An error is returned after 150 failed checks.
-newServiceTemplateVersionRegistered :: Core.Wait GetServiceTemplateVersion
-newServiceTemplateVersionRegistered =
+-- | Polls 'Amazonka.Proton.GetComponent' every 5 seconds until a successful state is reached. An error is returned after 999 failed checks.
+newComponentDeleted :: Core.Wait GetComponent
+newComponentDeleted =
   Core.Wait
-    { Core.name =
-        "ServiceTemplateVersionRegistered",
-      Core.attempts = 150,
-      Core.delay = 2,
+    { Core.name = "ComponentDeleted",
+      Core.attempts = 999,
+      Core.delay = 5,
+      Core.acceptors =
+        [ Core.matchError
+            "ResourceNotFoundException"
+            Core.AcceptSuccess,
+          Core.matchAll
+            "DELETE_FAILED"
+            Core.AcceptFailure
+            ( getComponentResponse_component Prelude.. Lens._Just
+                Prelude.. component_deploymentStatus
+                Prelude.. Lens.to Data.toTextCI
+            )
+        ]
+    }
+
+-- | Polls 'Amazonka.Proton.GetComponent' every 5 seconds until a successful state is reached. An error is returned after 999 failed checks.
+newComponentDeployed :: Core.Wait GetComponent
+newComponentDeployed =
+  Core.Wait
+    { Core.name = "ComponentDeployed",
+      Core.attempts = 999,
+      Core.delay = 5,
       Core.acceptors =
         [ Core.matchAll
-            "DRAFT"
+            "SUCCEEDED"
             Core.AcceptSuccess
-            ( getServiceTemplateVersionResponse_serviceTemplateVersion
-                Prelude.. serviceTemplateVersion_status
+            ( getComponentResponse_component Prelude.. Lens._Just
+                Prelude.. component_deploymentStatus
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAll
-            "PUBLISHED"
-            Core.AcceptSuccess
-            ( getServiceTemplateVersionResponse_serviceTemplateVersion
-                Prelude.. serviceTemplateVersion_status
-                Prelude.. Lens.to Data.toTextCI
-            ),
-          Core.matchAll
-            "REGISTRATION_FAILED"
+            "FAILED"
             Core.AcceptFailure
-            ( getServiceTemplateVersionResponse_serviceTemplateVersion
-                Prelude.. serviceTemplateVersion_status
+            ( getComponentResponse_component Prelude.. Lens._Just
+                Prelude.. component_deploymentStatus
                 Prelude.. Lens.to Data.toTextCI
             )
         ]
@@ -180,6 +193,93 @@ newServiceDeleted =
         ]
     }
 
+-- | Polls 'Amazonka.Proton.GetServiceInstance' every 5 seconds until a successful state is reached. An error is returned after 999 failed checks.
+newServiceInstanceDeployed :: Core.Wait GetServiceInstance
+newServiceInstanceDeployed =
+  Core.Wait
+    { Core.name = "ServiceInstanceDeployed",
+      Core.attempts = 999,
+      Core.delay = 5,
+      Core.acceptors =
+        [ Core.matchAll
+            "SUCCEEDED"
+            Core.AcceptSuccess
+            ( getServiceInstanceResponse_serviceInstance
+                Prelude.. serviceInstance_deploymentStatus
+                Prelude.. Lens.to Data.toTextCI
+            ),
+          Core.matchAll
+            "FAILED"
+            Core.AcceptFailure
+            ( getServiceInstanceResponse_serviceInstance
+                Prelude.. serviceInstance_deploymentStatus
+                Prelude.. Lens.to Data.toTextCI
+            )
+        ]
+    }
+
+-- | Polls 'Amazonka.Proton.GetService' every 10 seconds until a successful state is reached. An error is returned after 360 failed checks.
+newServicePipelineDeployed :: Core.Wait GetService
+newServicePipelineDeployed =
+  Core.Wait
+    { Core.name = "ServicePipelineDeployed",
+      Core.attempts = 360,
+      Core.delay = 10,
+      Core.acceptors =
+        [ Core.matchAll
+            "SUCCEEDED"
+            Core.AcceptSuccess
+            ( getServiceResponse_service Prelude.. Lens._Just
+                Prelude.. service_pipeline
+                Prelude.. Lens._Just
+                Prelude.. servicePipeline_deploymentStatus
+                Prelude.. Lens.to Data.toTextCI
+            ),
+          Core.matchAll
+            "FAILED"
+            Core.AcceptFailure
+            ( getServiceResponse_service Prelude.. Lens._Just
+                Prelude.. service_pipeline
+                Prelude.. Lens._Just
+                Prelude.. servicePipeline_deploymentStatus
+                Prelude.. Lens.to Data.toTextCI
+            )
+        ]
+    }
+
+-- | Polls 'Amazonka.Proton.GetServiceTemplateVersion' every 2 seconds until a successful state is reached. An error is returned after 150 failed checks.
+newServiceTemplateVersionRegistered :: Core.Wait GetServiceTemplateVersion
+newServiceTemplateVersionRegistered =
+  Core.Wait
+    { Core.name =
+        "ServiceTemplateVersionRegistered",
+      Core.attempts = 150,
+      Core.delay = 2,
+      Core.acceptors =
+        [ Core.matchAll
+            "DRAFT"
+            Core.AcceptSuccess
+            ( getServiceTemplateVersionResponse_serviceTemplateVersion
+                Prelude.. serviceTemplateVersion_status
+                Prelude.. Lens.to Data.toTextCI
+            ),
+          Core.matchAll
+            "PUBLISHED"
+            Core.AcceptSuccess
+            ( getServiceTemplateVersionResponse_serviceTemplateVersion
+                Prelude.. serviceTemplateVersion_status
+                Prelude.. Lens.to Data.toTextCI
+            ),
+          Core.matchAll
+            "REGISTRATION_FAILED"
+            Core.AcceptFailure
+            ( getServiceTemplateVersionResponse_serviceTemplateVersion
+                Prelude.. serviceTemplateVersion_status
+                Prelude.. Lens.to Data.toTextCI
+            )
+        ]
+    }
+
 -- | Polls 'Amazonka.Proton.GetService' every 5 seconds until a successful state is reached. An error is returned after 999 failed checks.
 newServiceUpdated :: Core.Wait GetService
 newServiceUpdated =
@@ -221,106 +321,6 @@ newServiceUpdated =
             Core.AcceptFailure
             ( getServiceResponse_service Prelude.. Lens._Just
                 Prelude.. service_status
-                Prelude.. Lens.to Data.toTextCI
-            )
-        ]
-    }
-
--- | Polls 'Amazonka.Proton.GetServiceInstance' every 5 seconds until a successful state is reached. An error is returned after 999 failed checks.
-newServiceInstanceDeployed :: Core.Wait GetServiceInstance
-newServiceInstanceDeployed =
-  Core.Wait
-    { Core.name = "ServiceInstanceDeployed",
-      Core.attempts = 999,
-      Core.delay = 5,
-      Core.acceptors =
-        [ Core.matchAll
-            "SUCCEEDED"
-            Core.AcceptSuccess
-            ( getServiceInstanceResponse_serviceInstance
-                Prelude.. serviceInstance_deploymentStatus
-                Prelude.. Lens.to Data.toTextCI
-            ),
-          Core.matchAll
-            "FAILED"
-            Core.AcceptFailure
-            ( getServiceInstanceResponse_serviceInstance
-                Prelude.. serviceInstance_deploymentStatus
-                Prelude.. Lens.to Data.toTextCI
-            )
-        ]
-    }
-
--- | Polls 'Amazonka.Proton.GetComponent' every 5 seconds until a successful state is reached. An error is returned after 999 failed checks.
-newComponentDeployed :: Core.Wait GetComponent
-newComponentDeployed =
-  Core.Wait
-    { Core.name = "ComponentDeployed",
-      Core.attempts = 999,
-      Core.delay = 5,
-      Core.acceptors =
-        [ Core.matchAll
-            "SUCCEEDED"
-            Core.AcceptSuccess
-            ( getComponentResponse_component Prelude.. Lens._Just
-                Prelude.. component_deploymentStatus
-                Prelude.. Lens.to Data.toTextCI
-            ),
-          Core.matchAll
-            "FAILED"
-            Core.AcceptFailure
-            ( getComponentResponse_component Prelude.. Lens._Just
-                Prelude.. component_deploymentStatus
-                Prelude.. Lens.to Data.toTextCI
-            )
-        ]
-    }
-
--- | Polls 'Amazonka.Proton.GetService' every 10 seconds until a successful state is reached. An error is returned after 360 failed checks.
-newServicePipelineDeployed :: Core.Wait GetService
-newServicePipelineDeployed =
-  Core.Wait
-    { Core.name = "ServicePipelineDeployed",
-      Core.attempts = 360,
-      Core.delay = 10,
-      Core.acceptors =
-        [ Core.matchAll
-            "SUCCEEDED"
-            Core.AcceptSuccess
-            ( getServiceResponse_service Prelude.. Lens._Just
-                Prelude.. service_pipeline
-                Prelude.. Lens._Just
-                Prelude.. servicePipeline_deploymentStatus
-                Prelude.. Lens.to Data.toTextCI
-            ),
-          Core.matchAll
-            "FAILED"
-            Core.AcceptFailure
-            ( getServiceResponse_service Prelude.. Lens._Just
-                Prelude.. service_pipeline
-                Prelude.. Lens._Just
-                Prelude.. servicePipeline_deploymentStatus
-                Prelude.. Lens.to Data.toTextCI
-            )
-        ]
-    }
-
--- | Polls 'Amazonka.Proton.GetComponent' every 5 seconds until a successful state is reached. An error is returned after 999 failed checks.
-newComponentDeleted :: Core.Wait GetComponent
-newComponentDeleted =
-  Core.Wait
-    { Core.name = "ComponentDeleted",
-      Core.attempts = 999,
-      Core.delay = 5,
-      Core.acceptors =
-        [ Core.matchError
-            "ResourceNotFoundException"
-            Core.AcceptSuccess,
-          Core.matchAll
-            "DELETE_FAILED"
-            Core.AcceptFailure
-            ( getComponentResponse_component Prelude.. Lens._Just
-                Prelude.. component_deploymentStatus
                 Prelude.. Lens.to Data.toTextCI
             )
         ]

@@ -146,8 +146,8 @@ module Amazonka.EFS.CreateMountTarget
     newCreateMountTarget,
 
     -- * Request Lenses
-    createMountTarget_securityGroups,
     createMountTarget_ipAddress,
+    createMountTarget_securityGroups,
     createMountTarget_fileSystemId,
     createMountTarget_subnetId,
 
@@ -156,12 +156,12 @@ module Amazonka.EFS.CreateMountTarget
     newMountTargetDescription,
 
     -- * Response Lenses
-    mountTargetDescription_ownerId,
-    mountTargetDescription_availabilityZoneName,
-    mountTargetDescription_networkInterfaceId,
-    mountTargetDescription_vpcId,
-    mountTargetDescription_ipAddress,
     mountTargetDescription_availabilityZoneId,
+    mountTargetDescription_availabilityZoneName,
+    mountTargetDescription_ipAddress,
+    mountTargetDescription_networkInterfaceId,
+    mountTargetDescription_ownerId,
+    mountTargetDescription_vpcId,
     mountTargetDescription_mountTargetId,
     mountTargetDescription_fileSystemId,
     mountTargetDescription_subnetId,
@@ -181,11 +181,11 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateMountTarget' smart constructor.
 data CreateMountTarget = CreateMountTarget'
-  { -- | Up to five VPC security group IDs, of the form @sg-xxxxxxxx@. These must
+  { -- | Valid IPv4 address within the address range of the specified subnet.
+    ipAddress :: Prelude.Maybe Prelude.Text,
+    -- | Up to five VPC security group IDs, of the form @sg-xxxxxxxx@. These must
     -- be for the same VPC as subnet specified.
     securityGroups :: Prelude.Maybe [Prelude.Text],
-    -- | Valid IPv4 address within the address range of the specified subnet.
-    ipAddress :: Prelude.Maybe Prelude.Text,
     -- | The ID of the file system for which to create the mount target.
     fileSystemId :: Prelude.Text,
     -- | The ID of the subnet to add the mount target in. For file systems that
@@ -203,10 +203,10 @@ data CreateMountTarget = CreateMountTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ipAddress', 'createMountTarget_ipAddress' - Valid IPv4 address within the address range of the specified subnet.
+--
 -- 'securityGroups', 'createMountTarget_securityGroups' - Up to five VPC security group IDs, of the form @sg-xxxxxxxx@. These must
 -- be for the same VPC as subnet specified.
---
--- 'ipAddress', 'createMountTarget_ipAddress' - Valid IPv4 address within the address range of the specified subnet.
 --
 -- 'fileSystemId', 'createMountTarget_fileSystemId' - The ID of the file system for which to create the mount target.
 --
@@ -221,21 +221,20 @@ newCreateMountTarget ::
   CreateMountTarget
 newCreateMountTarget pFileSystemId_ pSubnetId_ =
   CreateMountTarget'
-    { securityGroups =
-        Prelude.Nothing,
-      ipAddress = Prelude.Nothing,
+    { ipAddress = Prelude.Nothing,
+      securityGroups = Prelude.Nothing,
       fileSystemId = pFileSystemId_,
       subnetId = pSubnetId_
     }
+
+-- | Valid IPv4 address within the address range of the specified subnet.
+createMountTarget_ipAddress :: Lens.Lens' CreateMountTarget (Prelude.Maybe Prelude.Text)
+createMountTarget_ipAddress = Lens.lens (\CreateMountTarget' {ipAddress} -> ipAddress) (\s@CreateMountTarget' {} a -> s {ipAddress = a} :: CreateMountTarget)
 
 -- | Up to five VPC security group IDs, of the form @sg-xxxxxxxx@. These must
 -- be for the same VPC as subnet specified.
 createMountTarget_securityGroups :: Lens.Lens' CreateMountTarget (Prelude.Maybe [Prelude.Text])
 createMountTarget_securityGroups = Lens.lens (\CreateMountTarget' {securityGroups} -> securityGroups) (\s@CreateMountTarget' {} a -> s {securityGroups = a} :: CreateMountTarget) Prelude.. Lens.mapping Lens.coerced
-
--- | Valid IPv4 address within the address range of the specified subnet.
-createMountTarget_ipAddress :: Lens.Lens' CreateMountTarget (Prelude.Maybe Prelude.Text)
-createMountTarget_ipAddress = Lens.lens (\CreateMountTarget' {ipAddress} -> ipAddress) (\s@CreateMountTarget' {} a -> s {ipAddress = a} :: CreateMountTarget)
 
 -- | The ID of the file system for which to create the mount target.
 createMountTarget_fileSystemId :: Lens.Lens' CreateMountTarget Prelude.Text
@@ -259,15 +258,15 @@ instance Core.AWSRequest CreateMountTarget where
 
 instance Prelude.Hashable CreateMountTarget where
   hashWithSalt _salt CreateMountTarget' {..} =
-    _salt `Prelude.hashWithSalt` securityGroups
-      `Prelude.hashWithSalt` ipAddress
+    _salt `Prelude.hashWithSalt` ipAddress
+      `Prelude.hashWithSalt` securityGroups
       `Prelude.hashWithSalt` fileSystemId
       `Prelude.hashWithSalt` subnetId
 
 instance Prelude.NFData CreateMountTarget where
   rnf CreateMountTarget' {..} =
-    Prelude.rnf securityGroups
-      `Prelude.seq` Prelude.rnf ipAddress
+    Prelude.rnf ipAddress
+      `Prelude.seq` Prelude.rnf securityGroups
       `Prelude.seq` Prelude.rnf fileSystemId
       `Prelude.seq` Prelude.rnf subnetId
 
@@ -278,9 +277,9 @@ instance Data.ToJSON CreateMountTarget where
   toJSON CreateMountTarget' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SecurityGroups" Data..=)
+          [ ("IpAddress" Data..=) Prelude.<$> ipAddress,
+            ("SecurityGroups" Data..=)
               Prelude.<$> securityGroups,
-            ("IpAddress" Data..=) Prelude.<$> ipAddress,
             Prelude.Just ("FileSystemId" Data..= fileSystemId),
             Prelude.Just ("SubnetId" Data..= subnetId)
           ]

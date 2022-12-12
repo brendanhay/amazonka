@@ -28,8 +28,8 @@ module Amazonka.FSx.DeleteVolume
 
     -- * Request Lenses
     deleteVolume_clientRequestToken,
-    deleteVolume_openZFSConfiguration,
     deleteVolume_ontapConfiguration,
+    deleteVolume_openZFSConfiguration,
     deleteVolume_volumeId,
 
     -- * Destructuring the Response
@@ -37,8 +37,8 @@ module Amazonka.FSx.DeleteVolume
     newDeleteVolumeResponse,
 
     -- * Response Lenses
-    deleteVolumeResponse_ontapResponse,
     deleteVolumeResponse_lifecycle,
+    deleteVolumeResponse_ontapResponse,
     deleteVolumeResponse_volumeId,
     deleteVolumeResponse_httpStatus,
   )
@@ -55,13 +55,13 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newDeleteVolume' smart constructor.
 data DeleteVolume = DeleteVolume'
   { clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | For Amazon FSx for OpenZFS volumes, specify whether to delete all child
-    -- volumes and snapshots.
-    openZFSConfiguration :: Prelude.Maybe DeleteVolumeOpenZFSConfiguration,
     -- | For Amazon FSx for ONTAP volumes, specify whether to take a final backup
     -- of the volume and apply tags to the backup. To apply tags to the backup,
     -- you must have the @fsx:TagResource@ permission.
     ontapConfiguration :: Prelude.Maybe DeleteVolumeOntapConfiguration,
+    -- | For Amazon FSx for OpenZFS volumes, specify whether to delete all child
+    -- volumes and snapshots.
+    openZFSConfiguration :: Prelude.Maybe DeleteVolumeOpenZFSConfiguration,
     -- | The ID of the volume that you are deleting.
     volumeId :: Prelude.Text
   }
@@ -77,12 +77,12 @@ data DeleteVolume = DeleteVolume'
 --
 -- 'clientRequestToken', 'deleteVolume_clientRequestToken' - Undocumented member.
 --
--- 'openZFSConfiguration', 'deleteVolume_openZFSConfiguration' - For Amazon FSx for OpenZFS volumes, specify whether to delete all child
--- volumes and snapshots.
---
 -- 'ontapConfiguration', 'deleteVolume_ontapConfiguration' - For Amazon FSx for ONTAP volumes, specify whether to take a final backup
 -- of the volume and apply tags to the backup. To apply tags to the backup,
 -- you must have the @fsx:TagResource@ permission.
+--
+-- 'openZFSConfiguration', 'deleteVolume_openZFSConfiguration' - For Amazon FSx for OpenZFS volumes, specify whether to delete all child
+-- volumes and snapshots.
 --
 -- 'volumeId', 'deleteVolume_volumeId' - The ID of the volume that you are deleting.
 newDeleteVolume ::
@@ -92,8 +92,8 @@ newDeleteVolume ::
 newDeleteVolume pVolumeId_ =
   DeleteVolume'
     { clientRequestToken = Prelude.Nothing,
-      openZFSConfiguration = Prelude.Nothing,
       ontapConfiguration = Prelude.Nothing,
+      openZFSConfiguration = Prelude.Nothing,
       volumeId = pVolumeId_
     }
 
@@ -101,16 +101,16 @@ newDeleteVolume pVolumeId_ =
 deleteVolume_clientRequestToken :: Lens.Lens' DeleteVolume (Prelude.Maybe Prelude.Text)
 deleteVolume_clientRequestToken = Lens.lens (\DeleteVolume' {clientRequestToken} -> clientRequestToken) (\s@DeleteVolume' {} a -> s {clientRequestToken = a} :: DeleteVolume)
 
--- | For Amazon FSx for OpenZFS volumes, specify whether to delete all child
--- volumes and snapshots.
-deleteVolume_openZFSConfiguration :: Lens.Lens' DeleteVolume (Prelude.Maybe DeleteVolumeOpenZFSConfiguration)
-deleteVolume_openZFSConfiguration = Lens.lens (\DeleteVolume' {openZFSConfiguration} -> openZFSConfiguration) (\s@DeleteVolume' {} a -> s {openZFSConfiguration = a} :: DeleteVolume)
-
 -- | For Amazon FSx for ONTAP volumes, specify whether to take a final backup
 -- of the volume and apply tags to the backup. To apply tags to the backup,
 -- you must have the @fsx:TagResource@ permission.
 deleteVolume_ontapConfiguration :: Lens.Lens' DeleteVolume (Prelude.Maybe DeleteVolumeOntapConfiguration)
 deleteVolume_ontapConfiguration = Lens.lens (\DeleteVolume' {ontapConfiguration} -> ontapConfiguration) (\s@DeleteVolume' {} a -> s {ontapConfiguration = a} :: DeleteVolume)
+
+-- | For Amazon FSx for OpenZFS volumes, specify whether to delete all child
+-- volumes and snapshots.
+deleteVolume_openZFSConfiguration :: Lens.Lens' DeleteVolume (Prelude.Maybe DeleteVolumeOpenZFSConfiguration)
+deleteVolume_openZFSConfiguration = Lens.lens (\DeleteVolume' {openZFSConfiguration} -> openZFSConfiguration) (\s@DeleteVolume' {} a -> s {openZFSConfiguration = a} :: DeleteVolume)
 
 -- | The ID of the volume that you are deleting.
 deleteVolume_volumeId :: Lens.Lens' DeleteVolume Prelude.Text
@@ -124,8 +124,8 @@ instance Core.AWSRequest DeleteVolume where
     Response.receiveJSON
       ( \s h x ->
           DeleteVolumeResponse'
-            Prelude.<$> (x Data..?> "OntapResponse")
-            Prelude.<*> (x Data..?> "Lifecycle")
+            Prelude.<$> (x Data..?> "Lifecycle")
+            Prelude.<*> (x Data..?> "OntapResponse")
             Prelude.<*> (x Data..?> "VolumeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -133,15 +133,15 @@ instance Core.AWSRequest DeleteVolume where
 instance Prelude.Hashable DeleteVolume where
   hashWithSalt _salt DeleteVolume' {..} =
     _salt `Prelude.hashWithSalt` clientRequestToken
-      `Prelude.hashWithSalt` openZFSConfiguration
       `Prelude.hashWithSalt` ontapConfiguration
+      `Prelude.hashWithSalt` openZFSConfiguration
       `Prelude.hashWithSalt` volumeId
 
 instance Prelude.NFData DeleteVolume where
   rnf DeleteVolume' {..} =
     Prelude.rnf clientRequestToken
-      `Prelude.seq` Prelude.rnf openZFSConfiguration
       `Prelude.seq` Prelude.rnf ontapConfiguration
+      `Prelude.seq` Prelude.rnf openZFSConfiguration
       `Prelude.seq` Prelude.rnf volumeId
 
 instance Data.ToHeaders DeleteVolume where
@@ -165,10 +165,10 @@ instance Data.ToJSON DeleteVolume where
       ( Prelude.catMaybes
           [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
-            ("OpenZFSConfiguration" Data..=)
-              Prelude.<$> openZFSConfiguration,
             ("OntapConfiguration" Data..=)
               Prelude.<$> ontapConfiguration,
+            ("OpenZFSConfiguration" Data..=)
+              Prelude.<$> openZFSConfiguration,
             Prelude.Just ("VolumeId" Data..= volumeId)
           ]
       )
@@ -181,12 +181,12 @@ instance Data.ToQuery DeleteVolume where
 
 -- | /See:/ 'newDeleteVolumeResponse' smart constructor.
 data DeleteVolumeResponse = DeleteVolumeResponse'
-  { -- | Returned after a @DeleteVolume@ request, showing the status of the
-    -- delete request.
-    ontapResponse :: Prelude.Maybe DeleteVolumeOntapResponse,
-    -- | The lifecycle state of the volume being deleted. If the @DeleteVolume@
+  { -- | The lifecycle state of the volume being deleted. If the @DeleteVolume@
     -- operation is successful, this value is @DELETING@.
     lifecycle :: Prelude.Maybe VolumeLifecycle,
+    -- | Returned after a @DeleteVolume@ request, showing the status of the
+    -- delete request.
+    ontapResponse :: Prelude.Maybe DeleteVolumeOntapResponse,
     -- | The ID of the volume that\'s being deleted.
     volumeId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -202,11 +202,11 @@ data DeleteVolumeResponse = DeleteVolumeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ontapResponse', 'deleteVolumeResponse_ontapResponse' - Returned after a @DeleteVolume@ request, showing the status of the
--- delete request.
---
 -- 'lifecycle', 'deleteVolumeResponse_lifecycle' - The lifecycle state of the volume being deleted. If the @DeleteVolume@
 -- operation is successful, this value is @DELETING@.
+--
+-- 'ontapResponse', 'deleteVolumeResponse_ontapResponse' - Returned after a @DeleteVolume@ request, showing the status of the
+-- delete request.
 --
 -- 'volumeId', 'deleteVolumeResponse_volumeId' - The ID of the volume that\'s being deleted.
 --
@@ -217,22 +217,21 @@ newDeleteVolumeResponse ::
   DeleteVolumeResponse
 newDeleteVolumeResponse pHttpStatus_ =
   DeleteVolumeResponse'
-    { ontapResponse =
-        Prelude.Nothing,
-      lifecycle = Prelude.Nothing,
+    { lifecycle = Prelude.Nothing,
+      ontapResponse = Prelude.Nothing,
       volumeId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Returned after a @DeleteVolume@ request, showing the status of the
--- delete request.
-deleteVolumeResponse_ontapResponse :: Lens.Lens' DeleteVolumeResponse (Prelude.Maybe DeleteVolumeOntapResponse)
-deleteVolumeResponse_ontapResponse = Lens.lens (\DeleteVolumeResponse' {ontapResponse} -> ontapResponse) (\s@DeleteVolumeResponse' {} a -> s {ontapResponse = a} :: DeleteVolumeResponse)
 
 -- | The lifecycle state of the volume being deleted. If the @DeleteVolume@
 -- operation is successful, this value is @DELETING@.
 deleteVolumeResponse_lifecycle :: Lens.Lens' DeleteVolumeResponse (Prelude.Maybe VolumeLifecycle)
 deleteVolumeResponse_lifecycle = Lens.lens (\DeleteVolumeResponse' {lifecycle} -> lifecycle) (\s@DeleteVolumeResponse' {} a -> s {lifecycle = a} :: DeleteVolumeResponse)
+
+-- | Returned after a @DeleteVolume@ request, showing the status of the
+-- delete request.
+deleteVolumeResponse_ontapResponse :: Lens.Lens' DeleteVolumeResponse (Prelude.Maybe DeleteVolumeOntapResponse)
+deleteVolumeResponse_ontapResponse = Lens.lens (\DeleteVolumeResponse' {ontapResponse} -> ontapResponse) (\s@DeleteVolumeResponse' {} a -> s {ontapResponse = a} :: DeleteVolumeResponse)
 
 -- | The ID of the volume that\'s being deleted.
 deleteVolumeResponse_volumeId :: Lens.Lens' DeleteVolumeResponse (Prelude.Maybe Prelude.Text)
@@ -244,7 +243,7 @@ deleteVolumeResponse_httpStatus = Lens.lens (\DeleteVolumeResponse' {httpStatus}
 
 instance Prelude.NFData DeleteVolumeResponse where
   rnf DeleteVolumeResponse' {..} =
-    Prelude.rnf ontapResponse
-      `Prelude.seq` Prelude.rnf lifecycle
+    Prelude.rnf lifecycle
+      `Prelude.seq` Prelude.rnf ontapResponse
       `Prelude.seq` Prelude.rnf volumeId
       `Prelude.seq` Prelude.rnf httpStatus

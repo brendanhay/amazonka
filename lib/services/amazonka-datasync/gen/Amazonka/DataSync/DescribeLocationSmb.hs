@@ -35,13 +35,13 @@ module Amazonka.DataSync.DescribeLocationSmb
     newDescribeLocationSmbResponse,
 
     -- * Response Lenses
-    describeLocationSmbResponse_user,
+    describeLocationSmbResponse_agentArns,
+    describeLocationSmbResponse_creationTime,
     describeLocationSmbResponse_domain,
-    describeLocationSmbResponse_mountOptions,
     describeLocationSmbResponse_locationArn,
     describeLocationSmbResponse_locationUri,
-    describeLocationSmbResponse_creationTime,
-    describeLocationSmbResponse_agentArns,
+    describeLocationSmbResponse_mountOptions,
+    describeLocationSmbResponse_user,
     describeLocationSmbResponse_httpStatus,
   )
 where
@@ -93,13 +93,13 @@ instance Core.AWSRequest DescribeLocationSmb where
     Response.receiveJSON
       ( \s h x ->
           DescribeLocationSmbResponse'
-            Prelude.<$> (x Data..?> "User")
+            Prelude.<$> (x Data..?> "AgentArns")
+            Prelude.<*> (x Data..?> "CreationTime")
             Prelude.<*> (x Data..?> "Domain")
-            Prelude.<*> (x Data..?> "MountOptions")
             Prelude.<*> (x Data..?> "LocationArn")
             Prelude.<*> (x Data..?> "LocationUri")
-            Prelude.<*> (x Data..?> "CreationTime")
-            Prelude.<*> (x Data..?> "AgentArns")
+            Prelude.<*> (x Data..?> "MountOptions")
+            Prelude.<*> (x Data..?> "User")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,23 +143,23 @@ instance Data.ToQuery DescribeLocationSmb where
 --
 -- /See:/ 'newDescribeLocationSmbResponse' smart constructor.
 data DescribeLocationSmbResponse = DescribeLocationSmbResponse'
-  { -- | The user who can mount the share, has the permissions to access files
-    -- and folders in the SMB share.
-    user :: Prelude.Maybe Prelude.Text,
+  { -- | The Amazon Resource Name (ARN) of the source SMB file system location
+    -- that is created.
+    agentArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The time that the SMB location was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the Windows domain that the SMB server belongs to.
     domain :: Prelude.Maybe Prelude.Text,
-    -- | The mount options that are available for DataSync to use to access an
-    -- SMB location.
-    mountOptions :: Prelude.Maybe SmbMountOptions,
     -- | The Amazon Resource Name (ARN) of the SMB location that was described.
     locationArn :: Prelude.Maybe Prelude.Text,
     -- | The URL of the source SMB location that was described.
     locationUri :: Prelude.Maybe Prelude.Text,
-    -- | The time that the SMB location was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
-    -- | The Amazon Resource Name (ARN) of the source SMB file system location
-    -- that is created.
-    agentArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The mount options that are available for DataSync to use to access an
+    -- SMB location.
+    mountOptions :: Prelude.Maybe SmbMountOptions,
+    -- | The user who can mount the share, has the permissions to access files
+    -- and folders in the SMB share.
+    user :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -173,22 +173,22 @@ data DescribeLocationSmbResponse = DescribeLocationSmbResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'user', 'describeLocationSmbResponse_user' - The user who can mount the share, has the permissions to access files
--- and folders in the SMB share.
+-- 'agentArns', 'describeLocationSmbResponse_agentArns' - The Amazon Resource Name (ARN) of the source SMB file system location
+-- that is created.
+--
+-- 'creationTime', 'describeLocationSmbResponse_creationTime' - The time that the SMB location was created.
 --
 -- 'domain', 'describeLocationSmbResponse_domain' - The name of the Windows domain that the SMB server belongs to.
---
--- 'mountOptions', 'describeLocationSmbResponse_mountOptions' - The mount options that are available for DataSync to use to access an
--- SMB location.
 --
 -- 'locationArn', 'describeLocationSmbResponse_locationArn' - The Amazon Resource Name (ARN) of the SMB location that was described.
 --
 -- 'locationUri', 'describeLocationSmbResponse_locationUri' - The URL of the source SMB location that was described.
 --
--- 'creationTime', 'describeLocationSmbResponse_creationTime' - The time that the SMB location was created.
+-- 'mountOptions', 'describeLocationSmbResponse_mountOptions' - The mount options that are available for DataSync to use to access an
+-- SMB location.
 --
--- 'agentArns', 'describeLocationSmbResponse_agentArns' - The Amazon Resource Name (ARN) of the source SMB file system location
--- that is created.
+-- 'user', 'describeLocationSmbResponse_user' - The user who can mount the share, has the permissions to access files
+-- and folders in the SMB share.
 --
 -- 'httpStatus', 'describeLocationSmbResponse_httpStatus' - The response's http status code.
 newDescribeLocationSmbResponse ::
@@ -197,30 +197,29 @@ newDescribeLocationSmbResponse ::
   DescribeLocationSmbResponse
 newDescribeLocationSmbResponse pHttpStatus_ =
   DescribeLocationSmbResponse'
-    { user =
+    { agentArns =
         Prelude.Nothing,
+      creationTime = Prelude.Nothing,
       domain = Prelude.Nothing,
-      mountOptions = Prelude.Nothing,
       locationArn = Prelude.Nothing,
       locationUri = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      agentArns = Prelude.Nothing,
+      mountOptions = Prelude.Nothing,
+      user = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The user who can mount the share, has the permissions to access files
--- and folders in the SMB share.
-describeLocationSmbResponse_user :: Lens.Lens' DescribeLocationSmbResponse (Prelude.Maybe Prelude.Text)
-describeLocationSmbResponse_user = Lens.lens (\DescribeLocationSmbResponse' {user} -> user) (\s@DescribeLocationSmbResponse' {} a -> s {user = a} :: DescribeLocationSmbResponse)
+-- | The Amazon Resource Name (ARN) of the source SMB file system location
+-- that is created.
+describeLocationSmbResponse_agentArns :: Lens.Lens' DescribeLocationSmbResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+describeLocationSmbResponse_agentArns = Lens.lens (\DescribeLocationSmbResponse' {agentArns} -> agentArns) (\s@DescribeLocationSmbResponse' {} a -> s {agentArns = a} :: DescribeLocationSmbResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The time that the SMB location was created.
+describeLocationSmbResponse_creationTime :: Lens.Lens' DescribeLocationSmbResponse (Prelude.Maybe Prelude.UTCTime)
+describeLocationSmbResponse_creationTime = Lens.lens (\DescribeLocationSmbResponse' {creationTime} -> creationTime) (\s@DescribeLocationSmbResponse' {} a -> s {creationTime = a} :: DescribeLocationSmbResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the Windows domain that the SMB server belongs to.
 describeLocationSmbResponse_domain :: Lens.Lens' DescribeLocationSmbResponse (Prelude.Maybe Prelude.Text)
 describeLocationSmbResponse_domain = Lens.lens (\DescribeLocationSmbResponse' {domain} -> domain) (\s@DescribeLocationSmbResponse' {} a -> s {domain = a} :: DescribeLocationSmbResponse)
-
--- | The mount options that are available for DataSync to use to access an
--- SMB location.
-describeLocationSmbResponse_mountOptions :: Lens.Lens' DescribeLocationSmbResponse (Prelude.Maybe SmbMountOptions)
-describeLocationSmbResponse_mountOptions = Lens.lens (\DescribeLocationSmbResponse' {mountOptions} -> mountOptions) (\s@DescribeLocationSmbResponse' {} a -> s {mountOptions = a} :: DescribeLocationSmbResponse)
 
 -- | The Amazon Resource Name (ARN) of the SMB location that was described.
 describeLocationSmbResponse_locationArn :: Lens.Lens' DescribeLocationSmbResponse (Prelude.Maybe Prelude.Text)
@@ -230,14 +229,15 @@ describeLocationSmbResponse_locationArn = Lens.lens (\DescribeLocationSmbRespons
 describeLocationSmbResponse_locationUri :: Lens.Lens' DescribeLocationSmbResponse (Prelude.Maybe Prelude.Text)
 describeLocationSmbResponse_locationUri = Lens.lens (\DescribeLocationSmbResponse' {locationUri} -> locationUri) (\s@DescribeLocationSmbResponse' {} a -> s {locationUri = a} :: DescribeLocationSmbResponse)
 
--- | The time that the SMB location was created.
-describeLocationSmbResponse_creationTime :: Lens.Lens' DescribeLocationSmbResponse (Prelude.Maybe Prelude.UTCTime)
-describeLocationSmbResponse_creationTime = Lens.lens (\DescribeLocationSmbResponse' {creationTime} -> creationTime) (\s@DescribeLocationSmbResponse' {} a -> s {creationTime = a} :: DescribeLocationSmbResponse) Prelude.. Lens.mapping Data._Time
+-- | The mount options that are available for DataSync to use to access an
+-- SMB location.
+describeLocationSmbResponse_mountOptions :: Lens.Lens' DescribeLocationSmbResponse (Prelude.Maybe SmbMountOptions)
+describeLocationSmbResponse_mountOptions = Lens.lens (\DescribeLocationSmbResponse' {mountOptions} -> mountOptions) (\s@DescribeLocationSmbResponse' {} a -> s {mountOptions = a} :: DescribeLocationSmbResponse)
 
--- | The Amazon Resource Name (ARN) of the source SMB file system location
--- that is created.
-describeLocationSmbResponse_agentArns :: Lens.Lens' DescribeLocationSmbResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-describeLocationSmbResponse_agentArns = Lens.lens (\DescribeLocationSmbResponse' {agentArns} -> agentArns) (\s@DescribeLocationSmbResponse' {} a -> s {agentArns = a} :: DescribeLocationSmbResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The user who can mount the share, has the permissions to access files
+-- and folders in the SMB share.
+describeLocationSmbResponse_user :: Lens.Lens' DescribeLocationSmbResponse (Prelude.Maybe Prelude.Text)
+describeLocationSmbResponse_user = Lens.lens (\DescribeLocationSmbResponse' {user} -> user) (\s@DescribeLocationSmbResponse' {} a -> s {user = a} :: DescribeLocationSmbResponse)
 
 -- | The response's http status code.
 describeLocationSmbResponse_httpStatus :: Lens.Lens' DescribeLocationSmbResponse Prelude.Int
@@ -245,11 +245,11 @@ describeLocationSmbResponse_httpStatus = Lens.lens (\DescribeLocationSmbResponse
 
 instance Prelude.NFData DescribeLocationSmbResponse where
   rnf DescribeLocationSmbResponse' {..} =
-    Prelude.rnf user
+    Prelude.rnf agentArns
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf mountOptions
       `Prelude.seq` Prelude.rnf locationArn
       `Prelude.seq` Prelude.rnf locationUri
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf agentArns
+      `Prelude.seq` Prelude.rnf mountOptions
+      `Prelude.seq` Prelude.rnf user
       `Prelude.seq` Prelude.rnf httpStatus

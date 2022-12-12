@@ -34,17 +34,17 @@ module Amazonka.M2.GetApplication
     newGetApplicationResponse,
 
     -- * Response Lenses
-    getApplicationResponse_tags,
-    getApplicationResponse_listenerArns,
     getApplicationResponse_deployedVersion,
-    getApplicationResponse_lastStartTime,
-    getApplicationResponse_statusReason,
     getApplicationResponse_description,
-    getApplicationResponse_loadBalancerDnsName,
-    getApplicationResponse_targetGroupArns,
-    getApplicationResponse_logGroups,
-    getApplicationResponse_listenerPorts,
     getApplicationResponse_environmentId,
+    getApplicationResponse_lastStartTime,
+    getApplicationResponse_listenerArns,
+    getApplicationResponse_listenerPorts,
+    getApplicationResponse_loadBalancerDnsName,
+    getApplicationResponse_logGroups,
+    getApplicationResponse_statusReason,
+    getApplicationResponse_tags,
+    getApplicationResponse_targetGroupArns,
     getApplicationResponse_httpStatus,
     getApplicationResponse_applicationArn,
     getApplicationResponse_applicationId,
@@ -101,17 +101,17 @@ instance Core.AWSRequest GetApplication where
     Response.receiveJSON
       ( \s h x ->
           GetApplicationResponse'
-            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "listenerArns")
-            Prelude.<*> (x Data..?> "deployedVersion")
-            Prelude.<*> (x Data..?> "lastStartTime")
-            Prelude.<*> (x Data..?> "statusReason")
+            Prelude.<$> (x Data..?> "deployedVersion")
             Prelude.<*> (x Data..?> "description")
-            Prelude.<*> (x Data..?> "loadBalancerDnsName")
-            Prelude.<*> (x Data..?> "targetGroupArns")
-            Prelude.<*> (x Data..?> "logGroups" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "listenerPorts")
             Prelude.<*> (x Data..?> "environmentId")
+            Prelude.<*> (x Data..?> "lastStartTime")
+            Prelude.<*> (x Data..?> "listenerArns")
+            Prelude.<*> (x Data..?> "listenerPorts")
+            Prelude.<*> (x Data..?> "loadBalancerDnsName")
+            Prelude.<*> (x Data..?> "logGroups" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "statusReason")
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "targetGroupArns")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "applicationArn")
             Prelude.<*> (x Data..:> "applicationId")
@@ -150,39 +150,39 @@ instance Data.ToQuery GetApplication where
 
 -- | /See:/ 'newGetApplicationResponse' smart constructor.
 data GetApplicationResponse = GetApplicationResponse'
-  { -- | A list of tags associated with the application.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | The version of the application that is deployed.
+    deployedVersion :: Prelude.Maybe DeployedVersionSummary,
+    -- | The description of the application.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the environment where the application will be
+    -- deployed.
+    environmentId :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp when the application was last started. Null until the
+    -- application has started running for the first time.
+    lastStartTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) for the network load balancer listener
     -- created in your Amazon Web Services account. Amazon Web Services
     -- Mainframe Modernization creates this listener on your behalf the first
     -- time you deploy an application.
     listenerArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The version of the application that is deployed.
-    deployedVersion :: Prelude.Maybe DeployedVersionSummary,
-    -- | The timestamp when the application was last started. Null until the
-    -- application has started running for the first time.
-    lastStartTime :: Prelude.Maybe Data.POSIX,
-    -- | The reason for the reported status.
-    statusReason :: Prelude.Maybe Prelude.Text,
-    -- | The description of the application.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | The port associated with the network load balancer listener created in
+    -- your Amazon Web Services account.
+    listenerPorts :: Prelude.Maybe (Prelude.NonEmpty Prelude.Int),
     -- | The public DNS name of the load balancer created in your Amazon Web
     -- Services account.
     loadBalancerDnsName :: Prelude.Maybe Prelude.Text,
-    -- | Returns the Amazon Resource Names (ARNs) of the target groups that are
-    -- attached to the network load balancer.
-    targetGroupArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The list of log summaries. Each log summary includes the log type as
     -- well as the log group identifier. These are CloudWatch logs. The Amazon
     -- Web Services Mainframe Modernization application log is pushed to
     -- CloudWatch under the customer\'s account.
     logGroups :: Prelude.Maybe [LogGroupSummary],
-    -- | The port associated with the network load balancer listener created in
-    -- your Amazon Web Services account.
-    listenerPorts :: Prelude.Maybe (Prelude.NonEmpty Prelude.Int),
-    -- | The identifier of the environment where the application will be
-    -- deployed.
-    environmentId :: Prelude.Maybe Prelude.Text,
+    -- | The reason for the reported status.
+    statusReason :: Prelude.Maybe Prelude.Text,
+    -- | A list of tags associated with the application.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Returns the Amazon Resource Names (ARNs) of the target groups that are
+    -- attached to the network load balancer.
+    targetGroupArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the application.
@@ -210,38 +210,38 @@ data GetApplicationResponse = GetApplicationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'getApplicationResponse_tags' - A list of tags associated with the application.
+-- 'deployedVersion', 'getApplicationResponse_deployedVersion' - The version of the application that is deployed.
+--
+-- 'description', 'getApplicationResponse_description' - The description of the application.
+--
+-- 'environmentId', 'getApplicationResponse_environmentId' - The identifier of the environment where the application will be
+-- deployed.
+--
+-- 'lastStartTime', 'getApplicationResponse_lastStartTime' - The timestamp when the application was last started. Null until the
+-- application has started running for the first time.
 --
 -- 'listenerArns', 'getApplicationResponse_listenerArns' - The Amazon Resource Name (ARN) for the network load balancer listener
 -- created in your Amazon Web Services account. Amazon Web Services
 -- Mainframe Modernization creates this listener on your behalf the first
 -- time you deploy an application.
 --
--- 'deployedVersion', 'getApplicationResponse_deployedVersion' - The version of the application that is deployed.
---
--- 'lastStartTime', 'getApplicationResponse_lastStartTime' - The timestamp when the application was last started. Null until the
--- application has started running for the first time.
---
--- 'statusReason', 'getApplicationResponse_statusReason' - The reason for the reported status.
---
--- 'description', 'getApplicationResponse_description' - The description of the application.
+-- 'listenerPorts', 'getApplicationResponse_listenerPorts' - The port associated with the network load balancer listener created in
+-- your Amazon Web Services account.
 --
 -- 'loadBalancerDnsName', 'getApplicationResponse_loadBalancerDnsName' - The public DNS name of the load balancer created in your Amazon Web
 -- Services account.
---
--- 'targetGroupArns', 'getApplicationResponse_targetGroupArns' - Returns the Amazon Resource Names (ARNs) of the target groups that are
--- attached to the network load balancer.
 --
 -- 'logGroups', 'getApplicationResponse_logGroups' - The list of log summaries. Each log summary includes the log type as
 -- well as the log group identifier. These are CloudWatch logs. The Amazon
 -- Web Services Mainframe Modernization application log is pushed to
 -- CloudWatch under the customer\'s account.
 --
--- 'listenerPorts', 'getApplicationResponse_listenerPorts' - The port associated with the network load balancer listener created in
--- your Amazon Web Services account.
+-- 'statusReason', 'getApplicationResponse_statusReason' - The reason for the reported status.
 --
--- 'environmentId', 'getApplicationResponse_environmentId' - The identifier of the environment where the application will be
--- deployed.
+-- 'tags', 'getApplicationResponse_tags' - A list of tags associated with the application.
+--
+-- 'targetGroupArns', 'getApplicationResponse_targetGroupArns' - Returns the Amazon Resource Names (ARNs) of the target groups that are
+-- attached to the network load balancer.
 --
 -- 'httpStatus', 'getApplicationResponse_httpStatus' - The response's http status code.
 --
@@ -286,17 +286,18 @@ newGetApplicationResponse
   pName_
   pStatus_ =
     GetApplicationResponse'
-      { tags = Prelude.Nothing,
-        listenerArns = Prelude.Nothing,
-        deployedVersion = Prelude.Nothing,
-        lastStartTime = Prelude.Nothing,
-        statusReason = Prelude.Nothing,
+      { deployedVersion =
+          Prelude.Nothing,
         description = Prelude.Nothing,
-        loadBalancerDnsName = Prelude.Nothing,
-        targetGroupArns = Prelude.Nothing,
-        logGroups = Prelude.Nothing,
-        listenerPorts = Prelude.Nothing,
         environmentId = Prelude.Nothing,
+        lastStartTime = Prelude.Nothing,
+        listenerArns = Prelude.Nothing,
+        listenerPorts = Prelude.Nothing,
+        loadBalancerDnsName = Prelude.Nothing,
+        logGroups = Prelude.Nothing,
+        statusReason = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        targetGroupArns = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         applicationArn = pApplicationArn_,
         applicationId = pApplicationId_,
@@ -307,9 +308,23 @@ newGetApplicationResponse
         status = pStatus_
       }
 
--- | A list of tags associated with the application.
-getApplicationResponse_tags :: Lens.Lens' GetApplicationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getApplicationResponse_tags = Lens.lens (\GetApplicationResponse' {tags} -> tags) (\s@GetApplicationResponse' {} a -> s {tags = a} :: GetApplicationResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The version of the application that is deployed.
+getApplicationResponse_deployedVersion :: Lens.Lens' GetApplicationResponse (Prelude.Maybe DeployedVersionSummary)
+getApplicationResponse_deployedVersion = Lens.lens (\GetApplicationResponse' {deployedVersion} -> deployedVersion) (\s@GetApplicationResponse' {} a -> s {deployedVersion = a} :: GetApplicationResponse)
+
+-- | The description of the application.
+getApplicationResponse_description :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Prelude.Text)
+getApplicationResponse_description = Lens.lens (\GetApplicationResponse' {description} -> description) (\s@GetApplicationResponse' {} a -> s {description = a} :: GetApplicationResponse)
+
+-- | The identifier of the environment where the application will be
+-- deployed.
+getApplicationResponse_environmentId :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Prelude.Text)
+getApplicationResponse_environmentId = Lens.lens (\GetApplicationResponse' {environmentId} -> environmentId) (\s@GetApplicationResponse' {} a -> s {environmentId = a} :: GetApplicationResponse)
+
+-- | The timestamp when the application was last started. Null until the
+-- application has started running for the first time.
+getApplicationResponse_lastStartTime :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Prelude.UTCTime)
+getApplicationResponse_lastStartTime = Lens.lens (\GetApplicationResponse' {lastStartTime} -> lastStartTime) (\s@GetApplicationResponse' {} a -> s {lastStartTime = a} :: GetApplicationResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) for the network load balancer listener
 -- created in your Amazon Web Services account. Amazon Web Services
@@ -318,32 +333,15 @@ getApplicationResponse_tags = Lens.lens (\GetApplicationResponse' {tags} -> tags
 getApplicationResponse_listenerArns :: Lens.Lens' GetApplicationResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 getApplicationResponse_listenerArns = Lens.lens (\GetApplicationResponse' {listenerArns} -> listenerArns) (\s@GetApplicationResponse' {} a -> s {listenerArns = a} :: GetApplicationResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The version of the application that is deployed.
-getApplicationResponse_deployedVersion :: Lens.Lens' GetApplicationResponse (Prelude.Maybe DeployedVersionSummary)
-getApplicationResponse_deployedVersion = Lens.lens (\GetApplicationResponse' {deployedVersion} -> deployedVersion) (\s@GetApplicationResponse' {} a -> s {deployedVersion = a} :: GetApplicationResponse)
-
--- | The timestamp when the application was last started. Null until the
--- application has started running for the first time.
-getApplicationResponse_lastStartTime :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Prelude.UTCTime)
-getApplicationResponse_lastStartTime = Lens.lens (\GetApplicationResponse' {lastStartTime} -> lastStartTime) (\s@GetApplicationResponse' {} a -> s {lastStartTime = a} :: GetApplicationResponse) Prelude.. Lens.mapping Data._Time
-
--- | The reason for the reported status.
-getApplicationResponse_statusReason :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Prelude.Text)
-getApplicationResponse_statusReason = Lens.lens (\GetApplicationResponse' {statusReason} -> statusReason) (\s@GetApplicationResponse' {} a -> s {statusReason = a} :: GetApplicationResponse)
-
--- | The description of the application.
-getApplicationResponse_description :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Prelude.Text)
-getApplicationResponse_description = Lens.lens (\GetApplicationResponse' {description} -> description) (\s@GetApplicationResponse' {} a -> s {description = a} :: GetApplicationResponse)
+-- | The port associated with the network load balancer listener created in
+-- your Amazon Web Services account.
+getApplicationResponse_listenerPorts :: Lens.Lens' GetApplicationResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Int))
+getApplicationResponse_listenerPorts = Lens.lens (\GetApplicationResponse' {listenerPorts} -> listenerPorts) (\s@GetApplicationResponse' {} a -> s {listenerPorts = a} :: GetApplicationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The public DNS name of the load balancer created in your Amazon Web
 -- Services account.
 getApplicationResponse_loadBalancerDnsName :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Prelude.Text)
 getApplicationResponse_loadBalancerDnsName = Lens.lens (\GetApplicationResponse' {loadBalancerDnsName} -> loadBalancerDnsName) (\s@GetApplicationResponse' {} a -> s {loadBalancerDnsName = a} :: GetApplicationResponse)
-
--- | Returns the Amazon Resource Names (ARNs) of the target groups that are
--- attached to the network load balancer.
-getApplicationResponse_targetGroupArns :: Lens.Lens' GetApplicationResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-getApplicationResponse_targetGroupArns = Lens.lens (\GetApplicationResponse' {targetGroupArns} -> targetGroupArns) (\s@GetApplicationResponse' {} a -> s {targetGroupArns = a} :: GetApplicationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The list of log summaries. Each log summary includes the log type as
 -- well as the log group identifier. These are CloudWatch logs. The Amazon
@@ -352,15 +350,18 @@ getApplicationResponse_targetGroupArns = Lens.lens (\GetApplicationResponse' {ta
 getApplicationResponse_logGroups :: Lens.Lens' GetApplicationResponse (Prelude.Maybe [LogGroupSummary])
 getApplicationResponse_logGroups = Lens.lens (\GetApplicationResponse' {logGroups} -> logGroups) (\s@GetApplicationResponse' {} a -> s {logGroups = a} :: GetApplicationResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The port associated with the network load balancer listener created in
--- your Amazon Web Services account.
-getApplicationResponse_listenerPorts :: Lens.Lens' GetApplicationResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Int))
-getApplicationResponse_listenerPorts = Lens.lens (\GetApplicationResponse' {listenerPorts} -> listenerPorts) (\s@GetApplicationResponse' {} a -> s {listenerPorts = a} :: GetApplicationResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The reason for the reported status.
+getApplicationResponse_statusReason :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Prelude.Text)
+getApplicationResponse_statusReason = Lens.lens (\GetApplicationResponse' {statusReason} -> statusReason) (\s@GetApplicationResponse' {} a -> s {statusReason = a} :: GetApplicationResponse)
 
--- | The identifier of the environment where the application will be
--- deployed.
-getApplicationResponse_environmentId :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Prelude.Text)
-getApplicationResponse_environmentId = Lens.lens (\GetApplicationResponse' {environmentId} -> environmentId) (\s@GetApplicationResponse' {} a -> s {environmentId = a} :: GetApplicationResponse)
+-- | A list of tags associated with the application.
+getApplicationResponse_tags :: Lens.Lens' GetApplicationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getApplicationResponse_tags = Lens.lens (\GetApplicationResponse' {tags} -> tags) (\s@GetApplicationResponse' {} a -> s {tags = a} :: GetApplicationResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Returns the Amazon Resource Names (ARNs) of the target groups that are
+-- attached to the network load balancer.
+getApplicationResponse_targetGroupArns :: Lens.Lens' GetApplicationResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+getApplicationResponse_targetGroupArns = Lens.lens (\GetApplicationResponse' {targetGroupArns} -> targetGroupArns) (\s@GetApplicationResponse' {} a -> s {targetGroupArns = a} :: GetApplicationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getApplicationResponse_httpStatus :: Lens.Lens' GetApplicationResponse Prelude.Int
@@ -396,17 +397,17 @@ getApplicationResponse_status = Lens.lens (\GetApplicationResponse' {status} -> 
 
 instance Prelude.NFData GetApplicationResponse where
   rnf GetApplicationResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf listenerArns
-      `Prelude.seq` Prelude.rnf deployedVersion
-      `Prelude.seq` Prelude.rnf lastStartTime
-      `Prelude.seq` Prelude.rnf statusReason
+    Prelude.rnf deployedVersion
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf loadBalancerDnsName
-      `Prelude.seq` Prelude.rnf targetGroupArns
-      `Prelude.seq` Prelude.rnf logGroups
-      `Prelude.seq` Prelude.rnf listenerPorts
       `Prelude.seq` Prelude.rnf environmentId
+      `Prelude.seq` Prelude.rnf lastStartTime
+      `Prelude.seq` Prelude.rnf listenerArns
+      `Prelude.seq` Prelude.rnf listenerPorts
+      `Prelude.seq` Prelude.rnf loadBalancerDnsName
+      `Prelude.seq` Prelude.rnf logGroups
+      `Prelude.seq` Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf targetGroupArns
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf applicationArn
       `Prelude.seq` Prelude.rnf applicationId

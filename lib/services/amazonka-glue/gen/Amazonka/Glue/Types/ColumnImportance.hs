@@ -33,10 +33,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newColumnImportance' smart constructor.
 data ColumnImportance = ColumnImportance'
-  { -- | The column importance score for the column, as a decimal.
-    importance :: Prelude.Maybe Prelude.Double,
-    -- | The name of a column.
-    columnName :: Prelude.Maybe Prelude.Text
+  { -- | The name of a column.
+    columnName :: Prelude.Maybe Prelude.Text,
+    -- | The column importance score for the column, as a decimal.
+    importance :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,24 +48,24 @@ data ColumnImportance = ColumnImportance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'importance', 'columnImportance_importance' - The column importance score for the column, as a decimal.
---
 -- 'columnName', 'columnImportance_columnName' - The name of a column.
+--
+-- 'importance', 'columnImportance_importance' - The column importance score for the column, as a decimal.
 newColumnImportance ::
   ColumnImportance
 newColumnImportance =
   ColumnImportance'
-    { importance = Prelude.Nothing,
-      columnName = Prelude.Nothing
+    { columnName = Prelude.Nothing,
+      importance = Prelude.Nothing
     }
-
--- | The column importance score for the column, as a decimal.
-columnImportance_importance :: Lens.Lens' ColumnImportance (Prelude.Maybe Prelude.Double)
-columnImportance_importance = Lens.lens (\ColumnImportance' {importance} -> importance) (\s@ColumnImportance' {} a -> s {importance = a} :: ColumnImportance)
 
 -- | The name of a column.
 columnImportance_columnName :: Lens.Lens' ColumnImportance (Prelude.Maybe Prelude.Text)
 columnImportance_columnName = Lens.lens (\ColumnImportance' {columnName} -> columnName) (\s@ColumnImportance' {} a -> s {columnName = a} :: ColumnImportance)
+
+-- | The column importance score for the column, as a decimal.
+columnImportance_importance :: Lens.Lens' ColumnImportance (Prelude.Maybe Prelude.Double)
+columnImportance_importance = Lens.lens (\ColumnImportance' {importance} -> importance) (\s@ColumnImportance' {} a -> s {importance = a} :: ColumnImportance)
 
 instance Data.FromJSON ColumnImportance where
   parseJSON =
@@ -73,16 +73,16 @@ instance Data.FromJSON ColumnImportance where
       "ColumnImportance"
       ( \x ->
           ColumnImportance'
-            Prelude.<$> (x Data..:? "Importance")
-            Prelude.<*> (x Data..:? "ColumnName")
+            Prelude.<$> (x Data..:? "ColumnName")
+            Prelude.<*> (x Data..:? "Importance")
       )
 
 instance Prelude.Hashable ColumnImportance where
   hashWithSalt _salt ColumnImportance' {..} =
-    _salt `Prelude.hashWithSalt` importance
-      `Prelude.hashWithSalt` columnName
+    _salt `Prelude.hashWithSalt` columnName
+      `Prelude.hashWithSalt` importance
 
 instance Prelude.NFData ColumnImportance where
   rnf ColumnImportance' {..} =
-    Prelude.rnf importance
-      `Prelude.seq` Prelude.rnf columnName
+    Prelude.rnf columnName
+      `Prelude.seq` Prelude.rnf importance

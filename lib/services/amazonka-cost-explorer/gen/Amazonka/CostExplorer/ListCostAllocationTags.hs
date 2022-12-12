@@ -28,19 +28,19 @@ module Amazonka.CostExplorer.ListCostAllocationTags
     newListCostAllocationTags,
 
     -- * Request Lenses
-    listCostAllocationTags_tagKeys,
-    listCostAllocationTags_nextToken,
-    listCostAllocationTags_type,
-    listCostAllocationTags_status,
     listCostAllocationTags_maxResults,
+    listCostAllocationTags_nextToken,
+    listCostAllocationTags_status,
+    listCostAllocationTags_tagKeys,
+    listCostAllocationTags_type,
 
     -- * Destructuring the Response
     ListCostAllocationTagsResponse (..),
     newListCostAllocationTagsResponse,
 
     -- * Response Lenses
-    listCostAllocationTagsResponse_nextToken,
     listCostAllocationTagsResponse_costAllocationTags,
+    listCostAllocationTagsResponse_nextToken,
     listCostAllocationTagsResponse_httpStatus,
   )
 where
@@ -55,24 +55,24 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListCostAllocationTags' smart constructor.
 data ListCostAllocationTags = ListCostAllocationTags'
-  { -- | The list of cost allocation tag keys that are returned for this request.
-    tagKeys :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+  { -- | The maximum number of objects that are returned for this request. By
+    -- default, the request returns 100 results.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The token to retrieve the next set of results. Amazon Web Services
     -- provides the token when the response from a previous call has more
     -- results than the maximum page size.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The status of cost allocation tag keys that are returned for this
+    -- request.
+    status :: Prelude.Maybe CostAllocationTagStatus,
+    -- | The list of cost allocation tag keys that are returned for this request.
+    tagKeys :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The type of @CostAllocationTag@ object that are returned for this
     -- request. The @AWSGenerated@ type tags are tags that Amazon Web Services
     -- defines and applies to support Amazon Web Services resources for cost
     -- allocation purposes. The @UserDefined@ type tags are tags that you
     -- define, create, and apply to resources.
-    type' :: Prelude.Maybe CostAllocationTagType,
-    -- | The status of cost allocation tag keys that are returned for this
-    -- request.
-    status :: Prelude.Maybe CostAllocationTagStatus,
-    -- | The maximum number of objects that are returned for this request. By
-    -- default, the request returns 100 results.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    type' :: Prelude.Maybe CostAllocationTagType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,43 +84,54 @@ data ListCostAllocationTags = ListCostAllocationTags'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tagKeys', 'listCostAllocationTags_tagKeys' - The list of cost allocation tag keys that are returned for this request.
+-- 'maxResults', 'listCostAllocationTags_maxResults' - The maximum number of objects that are returned for this request. By
+-- default, the request returns 100 results.
 --
 -- 'nextToken', 'listCostAllocationTags_nextToken' - The token to retrieve the next set of results. Amazon Web Services
 -- provides the token when the response from a previous call has more
 -- results than the maximum page size.
+--
+-- 'status', 'listCostAllocationTags_status' - The status of cost allocation tag keys that are returned for this
+-- request.
+--
+-- 'tagKeys', 'listCostAllocationTags_tagKeys' - The list of cost allocation tag keys that are returned for this request.
 --
 -- 'type'', 'listCostAllocationTags_type' - The type of @CostAllocationTag@ object that are returned for this
 -- request. The @AWSGenerated@ type tags are tags that Amazon Web Services
 -- defines and applies to support Amazon Web Services resources for cost
 -- allocation purposes. The @UserDefined@ type tags are tags that you
 -- define, create, and apply to resources.
---
--- 'status', 'listCostAllocationTags_status' - The status of cost allocation tag keys that are returned for this
--- request.
---
--- 'maxResults', 'listCostAllocationTags_maxResults' - The maximum number of objects that are returned for this request. By
--- default, the request returns 100 results.
 newListCostAllocationTags ::
   ListCostAllocationTags
 newListCostAllocationTags =
   ListCostAllocationTags'
-    { tagKeys = Prelude.Nothing,
+    { maxResults =
+        Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      type' = Prelude.Nothing,
       status = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      tagKeys = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
--- | The list of cost allocation tag keys that are returned for this request.
-listCostAllocationTags_tagKeys :: Lens.Lens' ListCostAllocationTags (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-listCostAllocationTags_tagKeys = Lens.lens (\ListCostAllocationTags' {tagKeys} -> tagKeys) (\s@ListCostAllocationTags' {} a -> s {tagKeys = a} :: ListCostAllocationTags) Prelude.. Lens.mapping Lens.coerced
+-- | The maximum number of objects that are returned for this request. By
+-- default, the request returns 100 results.
+listCostAllocationTags_maxResults :: Lens.Lens' ListCostAllocationTags (Prelude.Maybe Prelude.Natural)
+listCostAllocationTags_maxResults = Lens.lens (\ListCostAllocationTags' {maxResults} -> maxResults) (\s@ListCostAllocationTags' {} a -> s {maxResults = a} :: ListCostAllocationTags)
 
 -- | The token to retrieve the next set of results. Amazon Web Services
 -- provides the token when the response from a previous call has more
 -- results than the maximum page size.
 listCostAllocationTags_nextToken :: Lens.Lens' ListCostAllocationTags (Prelude.Maybe Prelude.Text)
 listCostAllocationTags_nextToken = Lens.lens (\ListCostAllocationTags' {nextToken} -> nextToken) (\s@ListCostAllocationTags' {} a -> s {nextToken = a} :: ListCostAllocationTags)
+
+-- | The status of cost allocation tag keys that are returned for this
+-- request.
+listCostAllocationTags_status :: Lens.Lens' ListCostAllocationTags (Prelude.Maybe CostAllocationTagStatus)
+listCostAllocationTags_status = Lens.lens (\ListCostAllocationTags' {status} -> status) (\s@ListCostAllocationTags' {} a -> s {status = a} :: ListCostAllocationTags)
+
+-- | The list of cost allocation tag keys that are returned for this request.
+listCostAllocationTags_tagKeys :: Lens.Lens' ListCostAllocationTags (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+listCostAllocationTags_tagKeys = Lens.lens (\ListCostAllocationTags' {tagKeys} -> tagKeys) (\s@ListCostAllocationTags' {} a -> s {tagKeys = a} :: ListCostAllocationTags) Prelude.. Lens.mapping Lens.coerced
 
 -- | The type of @CostAllocationTag@ object that are returned for this
 -- request. The @AWSGenerated@ type tags are tags that Amazon Web Services
@@ -129,16 +140,6 @@ listCostAllocationTags_nextToken = Lens.lens (\ListCostAllocationTags' {nextToke
 -- define, create, and apply to resources.
 listCostAllocationTags_type :: Lens.Lens' ListCostAllocationTags (Prelude.Maybe CostAllocationTagType)
 listCostAllocationTags_type = Lens.lens (\ListCostAllocationTags' {type'} -> type') (\s@ListCostAllocationTags' {} a -> s {type' = a} :: ListCostAllocationTags)
-
--- | The status of cost allocation tag keys that are returned for this
--- request.
-listCostAllocationTags_status :: Lens.Lens' ListCostAllocationTags (Prelude.Maybe CostAllocationTagStatus)
-listCostAllocationTags_status = Lens.lens (\ListCostAllocationTags' {status} -> status) (\s@ListCostAllocationTags' {} a -> s {status = a} :: ListCostAllocationTags)
-
--- | The maximum number of objects that are returned for this request. By
--- default, the request returns 100 results.
-listCostAllocationTags_maxResults :: Lens.Lens' ListCostAllocationTags (Prelude.Maybe Prelude.Natural)
-listCostAllocationTags_maxResults = Lens.lens (\ListCostAllocationTags' {maxResults} -> maxResults) (\s@ListCostAllocationTags' {} a -> s {maxResults = a} :: ListCostAllocationTags)
 
 instance Core.AWSRequest ListCostAllocationTags where
   type
@@ -150,28 +151,28 @@ instance Core.AWSRequest ListCostAllocationTags where
     Response.receiveJSON
       ( \s h x ->
           ListCostAllocationTagsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "CostAllocationTags"
+            Prelude.<$> ( x Data..?> "CostAllocationTags"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListCostAllocationTags where
   hashWithSalt _salt ListCostAllocationTags' {..} =
-    _salt `Prelude.hashWithSalt` tagKeys
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` tagKeys
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData ListCostAllocationTags where
   rnf ListCostAllocationTags' {..} =
-    Prelude.rnf tagKeys
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf tagKeys
+      `Prelude.seq` Prelude.rnf type'
 
 instance Data.ToHeaders ListCostAllocationTags where
   toHeaders =
@@ -192,11 +193,11 @@ instance Data.ToJSON ListCostAllocationTags where
   toJSON ListCostAllocationTags' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("TagKeys" Data..=) Prelude.<$> tagKeys,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Type" Data..=) Prelude.<$> type',
             ("Status" Data..=) Prelude.<$> status,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+            ("TagKeys" Data..=) Prelude.<$> tagKeys,
+            ("Type" Data..=) Prelude.<$> type'
           ]
       )
 
@@ -208,13 +209,13 @@ instance Data.ToQuery ListCostAllocationTags where
 
 -- | /See:/ 'newListCostAllocationTagsResponse' smart constructor.
 data ListCostAllocationTagsResponse = ListCostAllocationTagsResponse'
-  { -- | The token to retrieve the next set of results. Amazon Web Services
+  { -- | A list of cost allocation tags that includes the detailed metadata for
+    -- each one.
+    costAllocationTags :: Prelude.Maybe [CostAllocationTag],
+    -- | The token to retrieve the next set of results. Amazon Web Services
     -- provides the token when the response from a previous call has more
     -- results than the maximum page size.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of cost allocation tags that includes the detailed metadata for
-    -- each one.
-    costAllocationTags :: Prelude.Maybe [CostAllocationTag],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -228,12 +229,12 @@ data ListCostAllocationTagsResponse = ListCostAllocationTagsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'costAllocationTags', 'listCostAllocationTagsResponse_costAllocationTags' - A list of cost allocation tags that includes the detailed metadata for
+-- each one.
+--
 -- 'nextToken', 'listCostAllocationTagsResponse_nextToken' - The token to retrieve the next set of results. Amazon Web Services
 -- provides the token when the response from a previous call has more
 -- results than the maximum page size.
---
--- 'costAllocationTags', 'listCostAllocationTagsResponse_costAllocationTags' - A list of cost allocation tags that includes the detailed metadata for
--- each one.
 --
 -- 'httpStatus', 'listCostAllocationTagsResponse_httpStatus' - The response's http status code.
 newListCostAllocationTagsResponse ::
@@ -242,22 +243,22 @@ newListCostAllocationTagsResponse ::
   ListCostAllocationTagsResponse
 newListCostAllocationTagsResponse pHttpStatus_ =
   ListCostAllocationTagsResponse'
-    { nextToken =
+    { costAllocationTags =
         Prelude.Nothing,
-      costAllocationTags = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of cost allocation tags that includes the detailed metadata for
+-- each one.
+listCostAllocationTagsResponse_costAllocationTags :: Lens.Lens' ListCostAllocationTagsResponse (Prelude.Maybe [CostAllocationTag])
+listCostAllocationTagsResponse_costAllocationTags = Lens.lens (\ListCostAllocationTagsResponse' {costAllocationTags} -> costAllocationTags) (\s@ListCostAllocationTagsResponse' {} a -> s {costAllocationTags = a} :: ListCostAllocationTagsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to retrieve the next set of results. Amazon Web Services
 -- provides the token when the response from a previous call has more
 -- results than the maximum page size.
 listCostAllocationTagsResponse_nextToken :: Lens.Lens' ListCostAllocationTagsResponse (Prelude.Maybe Prelude.Text)
 listCostAllocationTagsResponse_nextToken = Lens.lens (\ListCostAllocationTagsResponse' {nextToken} -> nextToken) (\s@ListCostAllocationTagsResponse' {} a -> s {nextToken = a} :: ListCostAllocationTagsResponse)
-
--- | A list of cost allocation tags that includes the detailed metadata for
--- each one.
-listCostAllocationTagsResponse_costAllocationTags :: Lens.Lens' ListCostAllocationTagsResponse (Prelude.Maybe [CostAllocationTag])
-listCostAllocationTagsResponse_costAllocationTags = Lens.lens (\ListCostAllocationTagsResponse' {costAllocationTags} -> costAllocationTags) (\s@ListCostAllocationTagsResponse' {} a -> s {costAllocationTags = a} :: ListCostAllocationTagsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listCostAllocationTagsResponse_httpStatus :: Lens.Lens' ListCostAllocationTagsResponse Prelude.Int
@@ -268,6 +269,6 @@ instance
     ListCostAllocationTagsResponse
   where
   rnf ListCostAllocationTagsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf costAllocationTags
+    Prelude.rnf costAllocationTags
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

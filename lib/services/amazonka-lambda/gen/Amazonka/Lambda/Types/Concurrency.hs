@@ -28,7 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 data Concurrency = Concurrency'
   { -- | The number of concurrent executions that are reserved for this function.
     -- For more information, see
-    -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html Managing Concurrency>.
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html Managing Lambda reserved concurrency>.
     reservedConcurrentExecutions :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,7 +43,7 @@ data Concurrency = Concurrency'
 --
 -- 'reservedConcurrentExecutions', 'concurrency_reservedConcurrentExecutions' - The number of concurrent executions that are reserved for this function.
 -- For more information, see
--- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html Managing Concurrency>.
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html Managing Lambda reserved concurrency>.
 newConcurrency ::
   Concurrency
 newConcurrency =
@@ -54,7 +54,7 @@ newConcurrency =
 
 -- | The number of concurrent executions that are reserved for this function.
 -- For more information, see
--- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html Managing Concurrency>.
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html Managing Lambda reserved concurrency>.
 concurrency_reservedConcurrentExecutions :: Lens.Lens' Concurrency (Prelude.Maybe Prelude.Natural)
 concurrency_reservedConcurrentExecutions = Lens.lens (\Concurrency' {reservedConcurrentExecutions} -> reservedConcurrentExecutions) (\s@Concurrency' {} a -> s {reservedConcurrentExecutions = a} :: Concurrency)
 

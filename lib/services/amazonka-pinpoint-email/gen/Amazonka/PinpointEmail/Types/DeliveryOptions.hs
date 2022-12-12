@@ -29,15 +29,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeliveryOptions' smart constructor.
 data DeliveryOptions = DeliveryOptions'
-  { -- | Specifies whether messages that use the configuration set are required
+  { -- | The name of the dedicated IP pool that you want to associate with the
+    -- configuration set.
+    sendingPoolName :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether messages that use the configuration set are required
     -- to use Transport Layer Security (TLS). If the value is @Require@,
     -- messages are only delivered if a TLS connection can be established. If
     -- the value is @Optional@, messages can be delivered in plain text if a
     -- TLS connection can\'t be established.
-    tlsPolicy :: Prelude.Maybe TlsPolicy,
-    -- | The name of the dedicated IP pool that you want to associate with the
-    -- configuration set.
-    sendingPoolName :: Prelude.Maybe Prelude.Text
+    tlsPolicy :: Prelude.Maybe TlsPolicy
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,21 +49,26 @@ data DeliveryOptions = DeliveryOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'sendingPoolName', 'deliveryOptions_sendingPoolName' - The name of the dedicated IP pool that you want to associate with the
+-- configuration set.
+--
 -- 'tlsPolicy', 'deliveryOptions_tlsPolicy' - Specifies whether messages that use the configuration set are required
 -- to use Transport Layer Security (TLS). If the value is @Require@,
 -- messages are only delivered if a TLS connection can be established. If
 -- the value is @Optional@, messages can be delivered in plain text if a
 -- TLS connection can\'t be established.
---
--- 'sendingPoolName', 'deliveryOptions_sendingPoolName' - The name of the dedicated IP pool that you want to associate with the
--- configuration set.
 newDeliveryOptions ::
   DeliveryOptions
 newDeliveryOptions =
   DeliveryOptions'
-    { tlsPolicy = Prelude.Nothing,
-      sendingPoolName = Prelude.Nothing
+    { sendingPoolName = Prelude.Nothing,
+      tlsPolicy = Prelude.Nothing
     }
+
+-- | The name of the dedicated IP pool that you want to associate with the
+-- configuration set.
+deliveryOptions_sendingPoolName :: Lens.Lens' DeliveryOptions (Prelude.Maybe Prelude.Text)
+deliveryOptions_sendingPoolName = Lens.lens (\DeliveryOptions' {sendingPoolName} -> sendingPoolName) (\s@DeliveryOptions' {} a -> s {sendingPoolName = a} :: DeliveryOptions)
 
 -- | Specifies whether messages that use the configuration set are required
 -- to use Transport Layer Security (TLS). If the value is @Require@,
@@ -73,37 +78,32 @@ newDeliveryOptions =
 deliveryOptions_tlsPolicy :: Lens.Lens' DeliveryOptions (Prelude.Maybe TlsPolicy)
 deliveryOptions_tlsPolicy = Lens.lens (\DeliveryOptions' {tlsPolicy} -> tlsPolicy) (\s@DeliveryOptions' {} a -> s {tlsPolicy = a} :: DeliveryOptions)
 
--- | The name of the dedicated IP pool that you want to associate with the
--- configuration set.
-deliveryOptions_sendingPoolName :: Lens.Lens' DeliveryOptions (Prelude.Maybe Prelude.Text)
-deliveryOptions_sendingPoolName = Lens.lens (\DeliveryOptions' {sendingPoolName} -> sendingPoolName) (\s@DeliveryOptions' {} a -> s {sendingPoolName = a} :: DeliveryOptions)
-
 instance Data.FromJSON DeliveryOptions where
   parseJSON =
     Data.withObject
       "DeliveryOptions"
       ( \x ->
           DeliveryOptions'
-            Prelude.<$> (x Data..:? "TlsPolicy")
-            Prelude.<*> (x Data..:? "SendingPoolName")
+            Prelude.<$> (x Data..:? "SendingPoolName")
+            Prelude.<*> (x Data..:? "TlsPolicy")
       )
 
 instance Prelude.Hashable DeliveryOptions where
   hashWithSalt _salt DeliveryOptions' {..} =
-    _salt `Prelude.hashWithSalt` tlsPolicy
-      `Prelude.hashWithSalt` sendingPoolName
+    _salt `Prelude.hashWithSalt` sendingPoolName
+      `Prelude.hashWithSalt` tlsPolicy
 
 instance Prelude.NFData DeliveryOptions where
   rnf DeliveryOptions' {..} =
-    Prelude.rnf tlsPolicy
-      `Prelude.seq` Prelude.rnf sendingPoolName
+    Prelude.rnf sendingPoolName
+      `Prelude.seq` Prelude.rnf tlsPolicy
 
 instance Data.ToJSON DeliveryOptions where
   toJSON DeliveryOptions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("TlsPolicy" Data..=) Prelude.<$> tlsPolicy,
-            ("SendingPoolName" Data..=)
-              Prelude.<$> sendingPoolName
+          [ ("SendingPoolName" Data..=)
+              Prelude.<$> sendingPoolName,
+            ("TlsPolicy" Data..=) Prelude.<$> tlsPolicy
           ]
       )

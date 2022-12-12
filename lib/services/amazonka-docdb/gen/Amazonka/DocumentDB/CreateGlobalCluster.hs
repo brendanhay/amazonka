@@ -39,12 +39,12 @@ module Amazonka.DocumentDB.CreateGlobalCluster
     newCreateGlobalCluster,
 
     -- * Request Lenses
-    createGlobalCluster_sourceDBClusterIdentifier,
     createGlobalCluster_databaseName,
-    createGlobalCluster_storageEncrypted,
-    createGlobalCluster_engine,
     createGlobalCluster_deletionProtection,
+    createGlobalCluster_engine,
     createGlobalCluster_engineVersion,
+    createGlobalCluster_sourceDBClusterIdentifier,
+    createGlobalCluster_storageEncrypted,
     createGlobalCluster_globalClusterIdentifier,
 
     -- * Destructuring the Response
@@ -69,22 +69,22 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateGlobalCluster' smart constructor.
 data CreateGlobalCluster = CreateGlobalCluster'
-  { -- | The Amazon Resource Name (ARN) to use as the primary cluster of the
-    -- global cluster. This parameter is optional.
-    sourceDBClusterIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The name for your database of up to 64 alpha-numeric characters. If you
+  { -- | The name for your database of up to 64 alpha-numeric characters. If you
     -- do not provide a name, Amazon DocumentDB will not create a database in
     -- the global cluster you are creating.
     databaseName :: Prelude.Maybe Prelude.Text,
-    -- | The storage encryption setting for the new global cluster.
-    storageEncrypted :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the database engine to be used for this cluster.
-    engine :: Prelude.Maybe Prelude.Text,
     -- | The deletion protection setting for the new global cluster. The global
     -- cluster can\'t be deleted when deletion protection is enabled.
     deletionProtection :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the database engine to be used for this cluster.
+    engine :: Prelude.Maybe Prelude.Text,
     -- | The engine version of the global cluster.
     engineVersion :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) to use as the primary cluster of the
+    -- global cluster. This parameter is optional.
+    sourceDBClusterIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The storage encryption setting for the new global cluster.
+    storageEncrypted :: Prelude.Maybe Prelude.Bool,
     -- | The cluster identifier of the new global cluster.
     globalClusterIdentifier :: Prelude.Text
   }
@@ -98,21 +98,21 @@ data CreateGlobalCluster = CreateGlobalCluster'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceDBClusterIdentifier', 'createGlobalCluster_sourceDBClusterIdentifier' - The Amazon Resource Name (ARN) to use as the primary cluster of the
--- global cluster. This parameter is optional.
---
 -- 'databaseName', 'createGlobalCluster_databaseName' - The name for your database of up to 64 alpha-numeric characters. If you
 -- do not provide a name, Amazon DocumentDB will not create a database in
 -- the global cluster you are creating.
 --
--- 'storageEncrypted', 'createGlobalCluster_storageEncrypted' - The storage encryption setting for the new global cluster.
---
--- 'engine', 'createGlobalCluster_engine' - The name of the database engine to be used for this cluster.
---
 -- 'deletionProtection', 'createGlobalCluster_deletionProtection' - The deletion protection setting for the new global cluster. The global
 -- cluster can\'t be deleted when deletion protection is enabled.
 --
+-- 'engine', 'createGlobalCluster_engine' - The name of the database engine to be used for this cluster.
+--
 -- 'engineVersion', 'createGlobalCluster_engineVersion' - The engine version of the global cluster.
+--
+-- 'sourceDBClusterIdentifier', 'createGlobalCluster_sourceDBClusterIdentifier' - The Amazon Resource Name (ARN) to use as the primary cluster of the
+-- global cluster. This parameter is optional.
+--
+-- 'storageEncrypted', 'createGlobalCluster_storageEncrypted' - The storage encryption setting for the new global cluster.
 --
 -- 'globalClusterIdentifier', 'createGlobalCluster_globalClusterIdentifier' - The cluster identifier of the new global cluster.
 newCreateGlobalCluster ::
@@ -121,20 +121,15 @@ newCreateGlobalCluster ::
   CreateGlobalCluster
 newCreateGlobalCluster pGlobalClusterIdentifier_ =
   CreateGlobalCluster'
-    { sourceDBClusterIdentifier =
+    { databaseName =
         Prelude.Nothing,
-      databaseName = Prelude.Nothing,
-      storageEncrypted = Prelude.Nothing,
-      engine = Prelude.Nothing,
       deletionProtection = Prelude.Nothing,
+      engine = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
+      sourceDBClusterIdentifier = Prelude.Nothing,
+      storageEncrypted = Prelude.Nothing,
       globalClusterIdentifier = pGlobalClusterIdentifier_
     }
-
--- | The Amazon Resource Name (ARN) to use as the primary cluster of the
--- global cluster. This parameter is optional.
-createGlobalCluster_sourceDBClusterIdentifier :: Lens.Lens' CreateGlobalCluster (Prelude.Maybe Prelude.Text)
-createGlobalCluster_sourceDBClusterIdentifier = Lens.lens (\CreateGlobalCluster' {sourceDBClusterIdentifier} -> sourceDBClusterIdentifier) (\s@CreateGlobalCluster' {} a -> s {sourceDBClusterIdentifier = a} :: CreateGlobalCluster)
 
 -- | The name for your database of up to 64 alpha-numeric characters. If you
 -- do not provide a name, Amazon DocumentDB will not create a database in
@@ -142,22 +137,27 @@ createGlobalCluster_sourceDBClusterIdentifier = Lens.lens (\CreateGlobalCluster'
 createGlobalCluster_databaseName :: Lens.Lens' CreateGlobalCluster (Prelude.Maybe Prelude.Text)
 createGlobalCluster_databaseName = Lens.lens (\CreateGlobalCluster' {databaseName} -> databaseName) (\s@CreateGlobalCluster' {} a -> s {databaseName = a} :: CreateGlobalCluster)
 
--- | The storage encryption setting for the new global cluster.
-createGlobalCluster_storageEncrypted :: Lens.Lens' CreateGlobalCluster (Prelude.Maybe Prelude.Bool)
-createGlobalCluster_storageEncrypted = Lens.lens (\CreateGlobalCluster' {storageEncrypted} -> storageEncrypted) (\s@CreateGlobalCluster' {} a -> s {storageEncrypted = a} :: CreateGlobalCluster)
-
--- | The name of the database engine to be used for this cluster.
-createGlobalCluster_engine :: Lens.Lens' CreateGlobalCluster (Prelude.Maybe Prelude.Text)
-createGlobalCluster_engine = Lens.lens (\CreateGlobalCluster' {engine} -> engine) (\s@CreateGlobalCluster' {} a -> s {engine = a} :: CreateGlobalCluster)
-
 -- | The deletion protection setting for the new global cluster. The global
 -- cluster can\'t be deleted when deletion protection is enabled.
 createGlobalCluster_deletionProtection :: Lens.Lens' CreateGlobalCluster (Prelude.Maybe Prelude.Bool)
 createGlobalCluster_deletionProtection = Lens.lens (\CreateGlobalCluster' {deletionProtection} -> deletionProtection) (\s@CreateGlobalCluster' {} a -> s {deletionProtection = a} :: CreateGlobalCluster)
 
+-- | The name of the database engine to be used for this cluster.
+createGlobalCluster_engine :: Lens.Lens' CreateGlobalCluster (Prelude.Maybe Prelude.Text)
+createGlobalCluster_engine = Lens.lens (\CreateGlobalCluster' {engine} -> engine) (\s@CreateGlobalCluster' {} a -> s {engine = a} :: CreateGlobalCluster)
+
 -- | The engine version of the global cluster.
 createGlobalCluster_engineVersion :: Lens.Lens' CreateGlobalCluster (Prelude.Maybe Prelude.Text)
 createGlobalCluster_engineVersion = Lens.lens (\CreateGlobalCluster' {engineVersion} -> engineVersion) (\s@CreateGlobalCluster' {} a -> s {engineVersion = a} :: CreateGlobalCluster)
+
+-- | The Amazon Resource Name (ARN) to use as the primary cluster of the
+-- global cluster. This parameter is optional.
+createGlobalCluster_sourceDBClusterIdentifier :: Lens.Lens' CreateGlobalCluster (Prelude.Maybe Prelude.Text)
+createGlobalCluster_sourceDBClusterIdentifier = Lens.lens (\CreateGlobalCluster' {sourceDBClusterIdentifier} -> sourceDBClusterIdentifier) (\s@CreateGlobalCluster' {} a -> s {sourceDBClusterIdentifier = a} :: CreateGlobalCluster)
+
+-- | The storage encryption setting for the new global cluster.
+createGlobalCluster_storageEncrypted :: Lens.Lens' CreateGlobalCluster (Prelude.Maybe Prelude.Bool)
+createGlobalCluster_storageEncrypted = Lens.lens (\CreateGlobalCluster' {storageEncrypted} -> storageEncrypted) (\s@CreateGlobalCluster' {} a -> s {storageEncrypted = a} :: CreateGlobalCluster)
 
 -- | The cluster identifier of the new global cluster.
 createGlobalCluster_globalClusterIdentifier :: Lens.Lens' CreateGlobalCluster Prelude.Text
@@ -180,23 +180,22 @@ instance Core.AWSRequest CreateGlobalCluster where
 
 instance Prelude.Hashable CreateGlobalCluster where
   hashWithSalt _salt CreateGlobalCluster' {..} =
-    _salt
-      `Prelude.hashWithSalt` sourceDBClusterIdentifier
-      `Prelude.hashWithSalt` databaseName
-      `Prelude.hashWithSalt` storageEncrypted
-      `Prelude.hashWithSalt` engine
+    _salt `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` deletionProtection
+      `Prelude.hashWithSalt` engine
       `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` sourceDBClusterIdentifier
+      `Prelude.hashWithSalt` storageEncrypted
       `Prelude.hashWithSalt` globalClusterIdentifier
 
 instance Prelude.NFData CreateGlobalCluster where
   rnf CreateGlobalCluster' {..} =
-    Prelude.rnf sourceDBClusterIdentifier
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf storageEncrypted
-      `Prelude.seq` Prelude.rnf engine
+    Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf deletionProtection
+      `Prelude.seq` Prelude.rnf engine
       `Prelude.seq` Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf sourceDBClusterIdentifier
+      `Prelude.seq` Prelude.rnf storageEncrypted
       `Prelude.seq` Prelude.rnf globalClusterIdentifier
 
 instance Data.ToHeaders CreateGlobalCluster where
@@ -212,13 +211,13 @@ instance Data.ToQuery CreateGlobalCluster where
           Data.=: ("CreateGlobalCluster" :: Prelude.ByteString),
         "Version"
           Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "DatabaseName" Data.=: databaseName,
+        "DeletionProtection" Data.=: deletionProtection,
+        "Engine" Data.=: engine,
+        "EngineVersion" Data.=: engineVersion,
         "SourceDBClusterIdentifier"
           Data.=: sourceDBClusterIdentifier,
-        "DatabaseName" Data.=: databaseName,
         "StorageEncrypted" Data.=: storageEncrypted,
-        "Engine" Data.=: engine,
-        "DeletionProtection" Data.=: deletionProtection,
-        "EngineVersion" Data.=: engineVersion,
         "GlobalClusterIdentifier"
           Data.=: globalClusterIdentifier
       ]

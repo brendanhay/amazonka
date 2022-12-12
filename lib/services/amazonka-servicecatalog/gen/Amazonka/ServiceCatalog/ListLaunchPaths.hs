@@ -31,9 +31,9 @@ module Amazonka.ServiceCatalog.ListLaunchPaths
     newListLaunchPaths,
 
     -- * Request Lenses
-    listLaunchPaths_pageToken,
-    listLaunchPaths_pageSize,
     listLaunchPaths_acceptLanguage,
+    listLaunchPaths_pageSize,
+    listLaunchPaths_pageToken,
     listLaunchPaths_productId,
 
     -- * Destructuring the Response
@@ -41,8 +41,8 @@ module Amazonka.ServiceCatalog.ListLaunchPaths
     newListLaunchPathsResponse,
 
     -- * Response Lenses
-    listLaunchPathsResponse_nextPageToken,
     listLaunchPathsResponse_launchPathSummaries,
+    listLaunchPathsResponse_nextPageToken,
     listLaunchPathsResponse_httpStatus,
   )
 where
@@ -57,12 +57,7 @@ import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newListLaunchPaths' smart constructor.
 data ListLaunchPaths = ListLaunchPaths'
-  { -- | The page token for the next set of results. To retrieve the first set of
-    -- results, use null.
-    pageToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return with this call.
-    pageSize :: Prelude.Maybe Prelude.Natural,
-    -- | The language code.
+  { -- | The language code.
     --
     -- -   @en@ - English (default)
     --
@@ -70,6 +65,11 @@ data ListLaunchPaths = ListLaunchPaths'
     --
     -- -   @zh@ - Chinese
     acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return with this call.
+    pageSize :: Prelude.Maybe Prelude.Natural,
+    -- | The page token for the next set of results. To retrieve the first set of
+    -- results, use null.
+    pageToken :: Prelude.Maybe Prelude.Text,
     -- | The product identifier.
     productId :: Prelude.Text
   }
@@ -83,11 +83,6 @@ data ListLaunchPaths = ListLaunchPaths'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pageToken', 'listLaunchPaths_pageToken' - The page token for the next set of results. To retrieve the first set of
--- results, use null.
---
--- 'pageSize', 'listLaunchPaths_pageSize' - The maximum number of items to return with this call.
---
 -- 'acceptLanguage', 'listLaunchPaths_acceptLanguage' - The language code.
 --
 -- -   @en@ - English (default)
@@ -96,6 +91,11 @@ data ListLaunchPaths = ListLaunchPaths'
 --
 -- -   @zh@ - Chinese
 --
+-- 'pageSize', 'listLaunchPaths_pageSize' - The maximum number of items to return with this call.
+--
+-- 'pageToken', 'listLaunchPaths_pageToken' - The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+--
 -- 'productId', 'listLaunchPaths_productId' - The product identifier.
 newListLaunchPaths ::
   -- | 'productId'
@@ -103,20 +103,11 @@ newListLaunchPaths ::
   ListLaunchPaths
 newListLaunchPaths pProductId_ =
   ListLaunchPaths'
-    { pageToken = Prelude.Nothing,
+    { acceptLanguage = Prelude.Nothing,
       pageSize = Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing,
+      pageToken = Prelude.Nothing,
       productId = pProductId_
     }
-
--- | The page token for the next set of results. To retrieve the first set of
--- results, use null.
-listLaunchPaths_pageToken :: Lens.Lens' ListLaunchPaths (Prelude.Maybe Prelude.Text)
-listLaunchPaths_pageToken = Lens.lens (\ListLaunchPaths' {pageToken} -> pageToken) (\s@ListLaunchPaths' {} a -> s {pageToken = a} :: ListLaunchPaths)
-
--- | The maximum number of items to return with this call.
-listLaunchPaths_pageSize :: Lens.Lens' ListLaunchPaths (Prelude.Maybe Prelude.Natural)
-listLaunchPaths_pageSize = Lens.lens (\ListLaunchPaths' {pageSize} -> pageSize) (\s@ListLaunchPaths' {} a -> s {pageSize = a} :: ListLaunchPaths)
 
 -- | The language code.
 --
@@ -127,6 +118,15 @@ listLaunchPaths_pageSize = Lens.lens (\ListLaunchPaths' {pageSize} -> pageSize) 
 -- -   @zh@ - Chinese
 listLaunchPaths_acceptLanguage :: Lens.Lens' ListLaunchPaths (Prelude.Maybe Prelude.Text)
 listLaunchPaths_acceptLanguage = Lens.lens (\ListLaunchPaths' {acceptLanguage} -> acceptLanguage) (\s@ListLaunchPaths' {} a -> s {acceptLanguage = a} :: ListLaunchPaths)
+
+-- | The maximum number of items to return with this call.
+listLaunchPaths_pageSize :: Lens.Lens' ListLaunchPaths (Prelude.Maybe Prelude.Natural)
+listLaunchPaths_pageSize = Lens.lens (\ListLaunchPaths' {pageSize} -> pageSize) (\s@ListLaunchPaths' {} a -> s {pageSize = a} :: ListLaunchPaths)
+
+-- | The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+listLaunchPaths_pageToken :: Lens.Lens' ListLaunchPaths (Prelude.Maybe Prelude.Text)
+listLaunchPaths_pageToken = Lens.lens (\ListLaunchPaths' {pageToken} -> pageToken) (\s@ListLaunchPaths' {} a -> s {pageToken = a} :: ListLaunchPaths)
 
 -- | The product identifier.
 listLaunchPaths_productId :: Lens.Lens' ListLaunchPaths Prelude.Text
@@ -164,25 +164,25 @@ instance Core.AWSRequest ListLaunchPaths where
     Response.receiveJSON
       ( \s h x ->
           ListLaunchPathsResponse'
-            Prelude.<$> (x Data..?> "NextPageToken")
-            Prelude.<*> ( x Data..?> "LaunchPathSummaries"
+            Prelude.<$> ( x Data..?> "LaunchPathSummaries"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListLaunchPaths where
   hashWithSalt _salt ListLaunchPaths' {..} =
-    _salt `Prelude.hashWithSalt` pageToken
+    _salt `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` pageSize
-      `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` pageToken
       `Prelude.hashWithSalt` productId
 
 instance Prelude.NFData ListLaunchPaths where
   rnf ListLaunchPaths' {..} =
-    Prelude.rnf pageToken
+    Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf pageToken
       `Prelude.seq` Prelude.rnf productId
 
 instance Data.ToHeaders ListLaunchPaths where
@@ -204,10 +204,10 @@ instance Data.ToJSON ListLaunchPaths where
   toJSON ListLaunchPaths' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("PageToken" Data..=) Prelude.<$> pageToken,
-            ("PageSize" Data..=) Prelude.<$> pageSize,
-            ("AcceptLanguage" Data..=)
+          [ ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
+            ("PageSize" Data..=) Prelude.<$> pageSize,
+            ("PageToken" Data..=) Prelude.<$> pageToken,
             Prelude.Just ("ProductId" Data..= productId)
           ]
       )
@@ -220,11 +220,11 @@ instance Data.ToQuery ListLaunchPaths where
 
 -- | /See:/ 'newListLaunchPathsResponse' smart constructor.
 data ListLaunchPathsResponse = ListLaunchPathsResponse'
-  { -- | The page token to use to retrieve the next set of results. If there are
+  { -- | Information about the launch path.
+    launchPathSummaries :: Prelude.Maybe [LaunchPathSummary],
+    -- | The page token to use to retrieve the next set of results. If there are
     -- no additional results, this value is null.
     nextPageToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the launch path.
-    launchPathSummaries :: Prelude.Maybe [LaunchPathSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -238,10 +238,10 @@ data ListLaunchPathsResponse = ListLaunchPathsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'launchPathSummaries', 'listLaunchPathsResponse_launchPathSummaries' - Information about the launch path.
+--
 -- 'nextPageToken', 'listLaunchPathsResponse_nextPageToken' - The page token to use to retrieve the next set of results. If there are
 -- no additional results, this value is null.
---
--- 'launchPathSummaries', 'listLaunchPathsResponse_launchPathSummaries' - Information about the launch path.
 --
 -- 'httpStatus', 'listLaunchPathsResponse_httpStatus' - The response's http status code.
 newListLaunchPathsResponse ::
@@ -250,20 +250,20 @@ newListLaunchPathsResponse ::
   ListLaunchPathsResponse
 newListLaunchPathsResponse pHttpStatus_ =
   ListLaunchPathsResponse'
-    { nextPageToken =
+    { launchPathSummaries =
         Prelude.Nothing,
-      launchPathSummaries = Prelude.Nothing,
+      nextPageToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about the launch path.
+listLaunchPathsResponse_launchPathSummaries :: Lens.Lens' ListLaunchPathsResponse (Prelude.Maybe [LaunchPathSummary])
+listLaunchPathsResponse_launchPathSummaries = Lens.lens (\ListLaunchPathsResponse' {launchPathSummaries} -> launchPathSummaries) (\s@ListLaunchPathsResponse' {} a -> s {launchPathSummaries = a} :: ListLaunchPathsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The page token to use to retrieve the next set of results. If there are
 -- no additional results, this value is null.
 listLaunchPathsResponse_nextPageToken :: Lens.Lens' ListLaunchPathsResponse (Prelude.Maybe Prelude.Text)
 listLaunchPathsResponse_nextPageToken = Lens.lens (\ListLaunchPathsResponse' {nextPageToken} -> nextPageToken) (\s@ListLaunchPathsResponse' {} a -> s {nextPageToken = a} :: ListLaunchPathsResponse)
-
--- | Information about the launch path.
-listLaunchPathsResponse_launchPathSummaries :: Lens.Lens' ListLaunchPathsResponse (Prelude.Maybe [LaunchPathSummary])
-listLaunchPathsResponse_launchPathSummaries = Lens.lens (\ListLaunchPathsResponse' {launchPathSummaries} -> launchPathSummaries) (\s@ListLaunchPathsResponse' {} a -> s {launchPathSummaries = a} :: ListLaunchPathsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listLaunchPathsResponse_httpStatus :: Lens.Lens' ListLaunchPathsResponse Prelude.Int
@@ -271,6 +271,6 @@ listLaunchPathsResponse_httpStatus = Lens.lens (\ListLaunchPathsResponse' {httpS
 
 instance Prelude.NFData ListLaunchPathsResponse where
   rnf ListLaunchPathsResponse' {..} =
-    Prelude.rnf nextPageToken
-      `Prelude.seq` Prelude.rnf launchPathSummaries
+    Prelude.rnf launchPathSummaries
+      `Prelude.seq` Prelude.rnf nextPageToken
       `Prelude.seq` Prelude.rnf httpStatus

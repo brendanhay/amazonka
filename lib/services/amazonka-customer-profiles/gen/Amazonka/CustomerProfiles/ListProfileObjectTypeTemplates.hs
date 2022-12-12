@@ -27,8 +27,8 @@ module Amazonka.CustomerProfiles.ListProfileObjectTypeTemplates
     newListProfileObjectTypeTemplates,
 
     -- * Request Lenses
-    listProfileObjectTypeTemplates_nextToken,
     listProfileObjectTypeTemplates_maxResults,
+    listProfileObjectTypeTemplates_nextToken,
 
     -- * Destructuring the Response
     ListProfileObjectTypeTemplatesResponse (..),
@@ -51,10 +51,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListProfileObjectTypeTemplates' smart constructor.
 data ListProfileObjectTypeTemplates = ListProfileObjectTypeTemplates'
-  { -- | The pagination token from the previous ListObjectTypeTemplates API call.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of objects returned per page.
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { -- | The maximum number of objects returned per page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token from the previous ListObjectTypeTemplates API call.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,25 +66,25 @@ data ListProfileObjectTypeTemplates = ListProfileObjectTypeTemplates'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listProfileObjectTypeTemplates_nextToken' - The pagination token from the previous ListObjectTypeTemplates API call.
---
 -- 'maxResults', 'listProfileObjectTypeTemplates_maxResults' - The maximum number of objects returned per page.
+--
+-- 'nextToken', 'listProfileObjectTypeTemplates_nextToken' - The pagination token from the previous ListObjectTypeTemplates API call.
 newListProfileObjectTypeTemplates ::
   ListProfileObjectTypeTemplates
 newListProfileObjectTypeTemplates =
   ListProfileObjectTypeTemplates'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | The pagination token from the previous ListObjectTypeTemplates API call.
-listProfileObjectTypeTemplates_nextToken :: Lens.Lens' ListProfileObjectTypeTemplates (Prelude.Maybe Prelude.Text)
-listProfileObjectTypeTemplates_nextToken = Lens.lens (\ListProfileObjectTypeTemplates' {nextToken} -> nextToken) (\s@ListProfileObjectTypeTemplates' {} a -> s {nextToken = a} :: ListProfileObjectTypeTemplates)
 
 -- | The maximum number of objects returned per page.
 listProfileObjectTypeTemplates_maxResults :: Lens.Lens' ListProfileObjectTypeTemplates (Prelude.Maybe Prelude.Natural)
 listProfileObjectTypeTemplates_maxResults = Lens.lens (\ListProfileObjectTypeTemplates' {maxResults} -> maxResults) (\s@ListProfileObjectTypeTemplates' {} a -> s {maxResults = a} :: ListProfileObjectTypeTemplates)
+
+-- | The pagination token from the previous ListObjectTypeTemplates API call.
+listProfileObjectTypeTemplates_nextToken :: Lens.Lens' ListProfileObjectTypeTemplates (Prelude.Maybe Prelude.Text)
+listProfileObjectTypeTemplates_nextToken = Lens.lens (\ListProfileObjectTypeTemplates' {nextToken} -> nextToken) (\s@ListProfileObjectTypeTemplates' {} a -> s {nextToken = a} :: ListProfileObjectTypeTemplates)
 
 instance
   Core.AWSRequest
@@ -111,16 +111,16 @@ instance
   hashWithSalt
     _salt
     ListProfileObjectTypeTemplates' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     ListProfileObjectTypeTemplates
   where
   rnf ListProfileObjectTypeTemplates' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -142,8 +142,8 @@ instance Data.ToPath ListProfileObjectTypeTemplates where
 instance Data.ToQuery ListProfileObjectTypeTemplates where
   toQuery ListProfileObjectTypeTemplates' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
-        "max-results" Data.=: maxResults
+      [ "max-results" Data.=: maxResults,
+        "next-token" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListProfileObjectTypeTemplatesResponse' smart constructor.

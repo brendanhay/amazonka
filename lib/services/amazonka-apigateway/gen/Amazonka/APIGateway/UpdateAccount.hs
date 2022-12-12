@@ -34,10 +34,10 @@ module Amazonka.APIGateway.UpdateAccount
     newAccount,
 
     -- * Response Lenses
+    account_apiKeyVersion,
     account_cloudwatchRoleArn,
     account_features,
     account_throttleSettings,
-    account_apiKeyVersion,
   )
 where
 

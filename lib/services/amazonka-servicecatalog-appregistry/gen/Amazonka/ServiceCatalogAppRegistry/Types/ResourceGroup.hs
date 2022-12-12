@@ -29,11 +29,11 @@ import Amazonka.ServiceCatalogAppRegistry.Types.ResourceGroupState
 --
 -- /See:/ 'newResourceGroup' smart constructor.
 data ResourceGroup = ResourceGroup'
-  { -- | The error message that generates when the propagation process for the
+  { -- | The Amazon resource name (ARN) of the resource group.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The error message that generates when the propagation process for the
     -- resource group fails.
     errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon resource name (ARN) of the resource group.
-    arn :: Prelude.Maybe Prelude.Text,
     -- | The state of the propagation process for the resource group. The states
     -- includes:
     --
@@ -60,10 +60,10 @@ data ResourceGroup = ResourceGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'arn', 'resourceGroup_arn' - The Amazon resource name (ARN) of the resource group.
+--
 -- 'errorMessage', 'resourceGroup_errorMessage' - The error message that generates when the propagation process for the
 -- resource group fails.
---
--- 'arn', 'resourceGroup_arn' - The Amazon resource name (ARN) of the resource group.
 --
 -- 'state', 'resourceGroup_state' - The state of the propagation process for the resource group. The states
 -- includes:
@@ -83,19 +83,19 @@ newResourceGroup ::
   ResourceGroup
 newResourceGroup =
   ResourceGroup'
-    { errorMessage = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      errorMessage = Prelude.Nothing,
       state = Prelude.Nothing
     }
+
+-- | The Amazon resource name (ARN) of the resource group.
+resourceGroup_arn :: Lens.Lens' ResourceGroup (Prelude.Maybe Prelude.Text)
+resourceGroup_arn = Lens.lens (\ResourceGroup' {arn} -> arn) (\s@ResourceGroup' {} a -> s {arn = a} :: ResourceGroup)
 
 -- | The error message that generates when the propagation process for the
 -- resource group fails.
 resourceGroup_errorMessage :: Lens.Lens' ResourceGroup (Prelude.Maybe Prelude.Text)
 resourceGroup_errorMessage = Lens.lens (\ResourceGroup' {errorMessage} -> errorMessage) (\s@ResourceGroup' {} a -> s {errorMessage = a} :: ResourceGroup)
-
--- | The Amazon resource name (ARN) of the resource group.
-resourceGroup_arn :: Lens.Lens' ResourceGroup (Prelude.Maybe Prelude.Text)
-resourceGroup_arn = Lens.lens (\ResourceGroup' {arn} -> arn) (\s@ResourceGroup' {} a -> s {arn = a} :: ResourceGroup)
 
 -- | The state of the propagation process for the resource group. The states
 -- includes:
@@ -120,19 +120,19 @@ instance Data.FromJSON ResourceGroup where
       "ResourceGroup"
       ( \x ->
           ResourceGroup'
-            Prelude.<$> (x Data..:? "errorMessage")
-            Prelude.<*> (x Data..:? "arn")
+            Prelude.<$> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "errorMessage")
             Prelude.<*> (x Data..:? "state")
       )
 
 instance Prelude.Hashable ResourceGroup where
   hashWithSalt _salt ResourceGroup' {..} =
-    _salt `Prelude.hashWithSalt` errorMessage
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` state
 
 instance Prelude.NFData ResourceGroup where
   rnf ResourceGroup' {..} =
-    Prelude.rnf errorMessage
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf errorMessage
       `Prelude.seq` Prelude.rnf state

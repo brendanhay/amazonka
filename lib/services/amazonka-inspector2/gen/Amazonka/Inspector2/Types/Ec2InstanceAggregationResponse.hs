@@ -30,18 +30,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEc2InstanceAggregationResponse' smart constructor.
 data Ec2InstanceAggregationResponse = Ec2InstanceAggregationResponse'
-  { -- | An object that contains the count of matched findings per severity.
-    severityCounts :: Prelude.Maybe SeverityCounts,
-    -- | The operating system of the Amazon EC2 instance.
-    operatingSystem :: Prelude.Maybe Prelude.Text,
+  { -- | The Amazon Web Services account for the Amazon EC2 instance.
+    accountId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Machine Image (AMI) of the Amazon EC2 instance.
+    ami :: Prelude.Maybe Prelude.Text,
     -- | The tags attached to the instance.
     instanceTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The number of network findings for the Amazon EC2 instance.
     networkFindings :: Prelude.Maybe Prelude.Integer,
-    -- | The Amazon Web Services account the Amazon EC2 instance belongs to.
-    accountId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Machine Image (AMI) of the Amazon EC2 instance.
-    ami :: Prelude.Maybe Prelude.Text,
+    -- | The operating system of the Amazon EC2 instance.
+    operatingSystem :: Prelude.Maybe Prelude.Text,
+    -- | An object that contains the count of matched findings per severity.
+    severityCounts :: Prelude.Maybe SeverityCounts,
     -- | The Amazon EC2 instance ID.
     instanceId :: Prelude.Text
   }
@@ -55,17 +55,17 @@ data Ec2InstanceAggregationResponse = Ec2InstanceAggregationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'severityCounts', 'ec2InstanceAggregationResponse_severityCounts' - An object that contains the count of matched findings per severity.
+-- 'accountId', 'ec2InstanceAggregationResponse_accountId' - The Amazon Web Services account for the Amazon EC2 instance.
 --
--- 'operatingSystem', 'ec2InstanceAggregationResponse_operatingSystem' - The operating system of the Amazon EC2 instance.
+-- 'ami', 'ec2InstanceAggregationResponse_ami' - The Amazon Machine Image (AMI) of the Amazon EC2 instance.
 --
 -- 'instanceTags', 'ec2InstanceAggregationResponse_instanceTags' - The tags attached to the instance.
 --
 -- 'networkFindings', 'ec2InstanceAggregationResponse_networkFindings' - The number of network findings for the Amazon EC2 instance.
 --
--- 'accountId', 'ec2InstanceAggregationResponse_accountId' - The Amazon Web Services account the Amazon EC2 instance belongs to.
+-- 'operatingSystem', 'ec2InstanceAggregationResponse_operatingSystem' - The operating system of the Amazon EC2 instance.
 --
--- 'ami', 'ec2InstanceAggregationResponse_ami' - The Amazon Machine Image (AMI) of the Amazon EC2 instance.
+-- 'severityCounts', 'ec2InstanceAggregationResponse_severityCounts' - An object that contains the count of matched findings per severity.
 --
 -- 'instanceId', 'ec2InstanceAggregationResponse_instanceId' - The Amazon EC2 instance ID.
 newEc2InstanceAggregationResponse ::
@@ -74,23 +74,23 @@ newEc2InstanceAggregationResponse ::
   Ec2InstanceAggregationResponse
 newEc2InstanceAggregationResponse pInstanceId_ =
   Ec2InstanceAggregationResponse'
-    { severityCounts =
+    { accountId =
         Prelude.Nothing,
-      operatingSystem = Prelude.Nothing,
+      ami = Prelude.Nothing,
       instanceTags = Prelude.Nothing,
       networkFindings = Prelude.Nothing,
-      accountId = Prelude.Nothing,
-      ami = Prelude.Nothing,
+      operatingSystem = Prelude.Nothing,
+      severityCounts = Prelude.Nothing,
       instanceId = pInstanceId_
     }
 
--- | An object that contains the count of matched findings per severity.
-ec2InstanceAggregationResponse_severityCounts :: Lens.Lens' Ec2InstanceAggregationResponse (Prelude.Maybe SeverityCounts)
-ec2InstanceAggregationResponse_severityCounts = Lens.lens (\Ec2InstanceAggregationResponse' {severityCounts} -> severityCounts) (\s@Ec2InstanceAggregationResponse' {} a -> s {severityCounts = a} :: Ec2InstanceAggregationResponse)
+-- | The Amazon Web Services account for the Amazon EC2 instance.
+ec2InstanceAggregationResponse_accountId :: Lens.Lens' Ec2InstanceAggregationResponse (Prelude.Maybe Prelude.Text)
+ec2InstanceAggregationResponse_accountId = Lens.lens (\Ec2InstanceAggregationResponse' {accountId} -> accountId) (\s@Ec2InstanceAggregationResponse' {} a -> s {accountId = a} :: Ec2InstanceAggregationResponse)
 
--- | The operating system of the Amazon EC2 instance.
-ec2InstanceAggregationResponse_operatingSystem :: Lens.Lens' Ec2InstanceAggregationResponse (Prelude.Maybe Prelude.Text)
-ec2InstanceAggregationResponse_operatingSystem = Lens.lens (\Ec2InstanceAggregationResponse' {operatingSystem} -> operatingSystem) (\s@Ec2InstanceAggregationResponse' {} a -> s {operatingSystem = a} :: Ec2InstanceAggregationResponse)
+-- | The Amazon Machine Image (AMI) of the Amazon EC2 instance.
+ec2InstanceAggregationResponse_ami :: Lens.Lens' Ec2InstanceAggregationResponse (Prelude.Maybe Prelude.Text)
+ec2InstanceAggregationResponse_ami = Lens.lens (\Ec2InstanceAggregationResponse' {ami} -> ami) (\s@Ec2InstanceAggregationResponse' {} a -> s {ami = a} :: Ec2InstanceAggregationResponse)
 
 -- | The tags attached to the instance.
 ec2InstanceAggregationResponse_instanceTags :: Lens.Lens' Ec2InstanceAggregationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -100,13 +100,13 @@ ec2InstanceAggregationResponse_instanceTags = Lens.lens (\Ec2InstanceAggregation
 ec2InstanceAggregationResponse_networkFindings :: Lens.Lens' Ec2InstanceAggregationResponse (Prelude.Maybe Prelude.Integer)
 ec2InstanceAggregationResponse_networkFindings = Lens.lens (\Ec2InstanceAggregationResponse' {networkFindings} -> networkFindings) (\s@Ec2InstanceAggregationResponse' {} a -> s {networkFindings = a} :: Ec2InstanceAggregationResponse)
 
--- | The Amazon Web Services account the Amazon EC2 instance belongs to.
-ec2InstanceAggregationResponse_accountId :: Lens.Lens' Ec2InstanceAggregationResponse (Prelude.Maybe Prelude.Text)
-ec2InstanceAggregationResponse_accountId = Lens.lens (\Ec2InstanceAggregationResponse' {accountId} -> accountId) (\s@Ec2InstanceAggregationResponse' {} a -> s {accountId = a} :: Ec2InstanceAggregationResponse)
+-- | The operating system of the Amazon EC2 instance.
+ec2InstanceAggregationResponse_operatingSystem :: Lens.Lens' Ec2InstanceAggregationResponse (Prelude.Maybe Prelude.Text)
+ec2InstanceAggregationResponse_operatingSystem = Lens.lens (\Ec2InstanceAggregationResponse' {operatingSystem} -> operatingSystem) (\s@Ec2InstanceAggregationResponse' {} a -> s {operatingSystem = a} :: Ec2InstanceAggregationResponse)
 
--- | The Amazon Machine Image (AMI) of the Amazon EC2 instance.
-ec2InstanceAggregationResponse_ami :: Lens.Lens' Ec2InstanceAggregationResponse (Prelude.Maybe Prelude.Text)
-ec2InstanceAggregationResponse_ami = Lens.lens (\Ec2InstanceAggregationResponse' {ami} -> ami) (\s@Ec2InstanceAggregationResponse' {} a -> s {ami = a} :: Ec2InstanceAggregationResponse)
+-- | An object that contains the count of matched findings per severity.
+ec2InstanceAggregationResponse_severityCounts :: Lens.Lens' Ec2InstanceAggregationResponse (Prelude.Maybe SeverityCounts)
+ec2InstanceAggregationResponse_severityCounts = Lens.lens (\Ec2InstanceAggregationResponse' {severityCounts} -> severityCounts) (\s@Ec2InstanceAggregationResponse' {} a -> s {severityCounts = a} :: Ec2InstanceAggregationResponse)
 
 -- | The Amazon EC2 instance ID.
 ec2InstanceAggregationResponse_instanceId :: Lens.Lens' Ec2InstanceAggregationResponse Prelude.Text
@@ -118,12 +118,12 @@ instance Data.FromJSON Ec2InstanceAggregationResponse where
       "Ec2InstanceAggregationResponse"
       ( \x ->
           Ec2InstanceAggregationResponse'
-            Prelude.<$> (x Data..:? "severityCounts")
-            Prelude.<*> (x Data..:? "operatingSystem")
+            Prelude.<$> (x Data..:? "accountId")
+            Prelude.<*> (x Data..:? "ami")
             Prelude.<*> (x Data..:? "instanceTags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "networkFindings")
-            Prelude.<*> (x Data..:? "accountId")
-            Prelude.<*> (x Data..:? "ami")
+            Prelude.<*> (x Data..:? "operatingSystem")
+            Prelude.<*> (x Data..:? "severityCounts")
             Prelude.<*> (x Data..: "instanceId")
       )
 
@@ -134,12 +134,12 @@ instance
   hashWithSalt
     _salt
     Ec2InstanceAggregationResponse' {..} =
-      _salt `Prelude.hashWithSalt` severityCounts
-        `Prelude.hashWithSalt` operatingSystem
+      _salt `Prelude.hashWithSalt` accountId
+        `Prelude.hashWithSalt` ami
         `Prelude.hashWithSalt` instanceTags
         `Prelude.hashWithSalt` networkFindings
-        `Prelude.hashWithSalt` accountId
-        `Prelude.hashWithSalt` ami
+        `Prelude.hashWithSalt` operatingSystem
+        `Prelude.hashWithSalt` severityCounts
         `Prelude.hashWithSalt` instanceId
 
 instance
@@ -147,10 +147,10 @@ instance
     Ec2InstanceAggregationResponse
   where
   rnf Ec2InstanceAggregationResponse' {..} =
-    Prelude.rnf severityCounts
-      `Prelude.seq` Prelude.rnf operatingSystem
+    Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf ami
       `Prelude.seq` Prelude.rnf instanceTags
       `Prelude.seq` Prelude.rnf networkFindings
-      `Prelude.seq` Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf ami
+      `Prelude.seq` Prelude.rnf operatingSystem
+      `Prelude.seq` Prelude.rnf severityCounts
       `Prelude.seq` Prelude.rnf instanceId

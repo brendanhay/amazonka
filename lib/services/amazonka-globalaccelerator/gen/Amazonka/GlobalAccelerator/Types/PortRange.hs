@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPortRange' smart constructor.
 data PortRange = PortRange'
-  { -- | The last port in the range of ports, inclusive.
-    toPort :: Prelude.Maybe Prelude.Natural,
-    -- | The first port in the range of ports, inclusive.
-    fromPort :: Prelude.Maybe Prelude.Natural
+  { -- | The first port in the range of ports, inclusive.
+    fromPort :: Prelude.Maybe Prelude.Natural,
+    -- | The last port in the range of ports, inclusive.
+    toPort :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data PortRange = PortRange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'toPort', 'portRange_toPort' - The last port in the range of ports, inclusive.
---
 -- 'fromPort', 'portRange_fromPort' - The first port in the range of ports, inclusive.
+--
+-- 'toPort', 'portRange_toPort' - The last port in the range of ports, inclusive.
 newPortRange ::
   PortRange
 newPortRange =
   PortRange'
-    { toPort = Prelude.Nothing,
-      fromPort = Prelude.Nothing
+    { fromPort = Prelude.Nothing,
+      toPort = Prelude.Nothing
     }
-
--- | The last port in the range of ports, inclusive.
-portRange_toPort :: Lens.Lens' PortRange (Prelude.Maybe Prelude.Natural)
-portRange_toPort = Lens.lens (\PortRange' {toPort} -> toPort) (\s@PortRange' {} a -> s {toPort = a} :: PortRange)
 
 -- | The first port in the range of ports, inclusive.
 portRange_fromPort :: Lens.Lens' PortRange (Prelude.Maybe Prelude.Natural)
 portRange_fromPort = Lens.lens (\PortRange' {fromPort} -> fromPort) (\s@PortRange' {} a -> s {fromPort = a} :: PortRange)
+
+-- | The last port in the range of ports, inclusive.
+portRange_toPort :: Lens.Lens' PortRange (Prelude.Maybe Prelude.Natural)
+portRange_toPort = Lens.lens (\PortRange' {toPort} -> toPort) (\s@PortRange' {} a -> s {toPort = a} :: PortRange)
 
 instance Data.FromJSON PortRange where
   parseJSON =
@@ -68,25 +68,25 @@ instance Data.FromJSON PortRange where
       "PortRange"
       ( \x ->
           PortRange'
-            Prelude.<$> (x Data..:? "ToPort")
-            Prelude.<*> (x Data..:? "FromPort")
+            Prelude.<$> (x Data..:? "FromPort")
+            Prelude.<*> (x Data..:? "ToPort")
       )
 
 instance Prelude.Hashable PortRange where
   hashWithSalt _salt PortRange' {..} =
-    _salt `Prelude.hashWithSalt` toPort
-      `Prelude.hashWithSalt` fromPort
+    _salt `Prelude.hashWithSalt` fromPort
+      `Prelude.hashWithSalt` toPort
 
 instance Prelude.NFData PortRange where
   rnf PortRange' {..} =
-    Prelude.rnf toPort
-      `Prelude.seq` Prelude.rnf fromPort
+    Prelude.rnf fromPort
+      `Prelude.seq` Prelude.rnf toPort
 
 instance Data.ToJSON PortRange where
   toJSON PortRange' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ToPort" Data..=) Prelude.<$> toPort,
-            ("FromPort" Data..=) Prelude.<$> fromPort
+          [ ("FromPort" Data..=) Prelude.<$> fromPort,
+            ("ToPort" Data..=) Prelude.<$> toPort
           ]
       )

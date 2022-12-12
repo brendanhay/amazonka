@@ -34,13 +34,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceFleetStatus' smart constructor.
 data InstanceFleetStatus = InstanceFleetStatus'
-  { -- | Provides status change reason details for the instance fleet.
-    stateChangeReason :: Prelude.Maybe InstanceFleetStateChangeReason,
-    -- | Provides historical timestamps for the instance fleet, including the
-    -- time of creation, the time it became ready to run jobs, and the time of
-    -- termination.
-    timeline :: Prelude.Maybe InstanceFleetTimeline,
-    -- | A code representing the instance fleet status.
+  { -- | A code representing the instance fleet status.
     --
     -- -   @PROVISIONING@—The instance fleet is provisioning EC2 resources and
     --     is not yet ready to run jobs.
@@ -62,7 +56,13 @@ data InstanceFleetStatus = InstanceFleetStatus'
     --
     -- -   @TERMINATED@—The instance fleet is no longer active, and all EC2
     --     instances have been terminated.
-    state :: Prelude.Maybe InstanceFleetState
+    state :: Prelude.Maybe InstanceFleetState,
+    -- | Provides status change reason details for the instance fleet.
+    stateChangeReason :: Prelude.Maybe InstanceFleetStateChangeReason,
+    -- | Provides historical timestamps for the instance fleet, including the
+    -- time of creation, the time it became ready to run jobs, and the time of
+    -- termination.
+    timeline :: Prelude.Maybe InstanceFleetTimeline
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,12 +73,6 @@ data InstanceFleetStatus = InstanceFleetStatus'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'stateChangeReason', 'instanceFleetStatus_stateChangeReason' - Provides status change reason details for the instance fleet.
---
--- 'timeline', 'instanceFleetStatus_timeline' - Provides historical timestamps for the instance fleet, including the
--- time of creation, the time it became ready to run jobs, and the time of
--- termination.
 --
 -- 'state', 'instanceFleetStatus_state' - A code representing the instance fleet status.
 --
@@ -102,25 +96,20 @@ data InstanceFleetStatus = InstanceFleetStatus'
 --
 -- -   @TERMINATED@—The instance fleet is no longer active, and all EC2
 --     instances have been terminated.
+--
+-- 'stateChangeReason', 'instanceFleetStatus_stateChangeReason' - Provides status change reason details for the instance fleet.
+--
+-- 'timeline', 'instanceFleetStatus_timeline' - Provides historical timestamps for the instance fleet, including the
+-- time of creation, the time it became ready to run jobs, and the time of
+-- termination.
 newInstanceFleetStatus ::
   InstanceFleetStatus
 newInstanceFleetStatus =
   InstanceFleetStatus'
-    { stateChangeReason =
-        Prelude.Nothing,
-      timeline = Prelude.Nothing,
-      state = Prelude.Nothing
+    { state = Prelude.Nothing,
+      stateChangeReason = Prelude.Nothing,
+      timeline = Prelude.Nothing
     }
-
--- | Provides status change reason details for the instance fleet.
-instanceFleetStatus_stateChangeReason :: Lens.Lens' InstanceFleetStatus (Prelude.Maybe InstanceFleetStateChangeReason)
-instanceFleetStatus_stateChangeReason = Lens.lens (\InstanceFleetStatus' {stateChangeReason} -> stateChangeReason) (\s@InstanceFleetStatus' {} a -> s {stateChangeReason = a} :: InstanceFleetStatus)
-
--- | Provides historical timestamps for the instance fleet, including the
--- time of creation, the time it became ready to run jobs, and the time of
--- termination.
-instanceFleetStatus_timeline :: Lens.Lens' InstanceFleetStatus (Prelude.Maybe InstanceFleetTimeline)
-instanceFleetStatus_timeline = Lens.lens (\InstanceFleetStatus' {timeline} -> timeline) (\s@InstanceFleetStatus' {} a -> s {timeline = a} :: InstanceFleetStatus)
 
 -- | A code representing the instance fleet status.
 --
@@ -147,25 +136,35 @@ instanceFleetStatus_timeline = Lens.lens (\InstanceFleetStatus' {timeline} -> ti
 instanceFleetStatus_state :: Lens.Lens' InstanceFleetStatus (Prelude.Maybe InstanceFleetState)
 instanceFleetStatus_state = Lens.lens (\InstanceFleetStatus' {state} -> state) (\s@InstanceFleetStatus' {} a -> s {state = a} :: InstanceFleetStatus)
 
+-- | Provides status change reason details for the instance fleet.
+instanceFleetStatus_stateChangeReason :: Lens.Lens' InstanceFleetStatus (Prelude.Maybe InstanceFleetStateChangeReason)
+instanceFleetStatus_stateChangeReason = Lens.lens (\InstanceFleetStatus' {stateChangeReason} -> stateChangeReason) (\s@InstanceFleetStatus' {} a -> s {stateChangeReason = a} :: InstanceFleetStatus)
+
+-- | Provides historical timestamps for the instance fleet, including the
+-- time of creation, the time it became ready to run jobs, and the time of
+-- termination.
+instanceFleetStatus_timeline :: Lens.Lens' InstanceFleetStatus (Prelude.Maybe InstanceFleetTimeline)
+instanceFleetStatus_timeline = Lens.lens (\InstanceFleetStatus' {timeline} -> timeline) (\s@InstanceFleetStatus' {} a -> s {timeline = a} :: InstanceFleetStatus)
+
 instance Data.FromJSON InstanceFleetStatus where
   parseJSON =
     Data.withObject
       "InstanceFleetStatus"
       ( \x ->
           InstanceFleetStatus'
-            Prelude.<$> (x Data..:? "StateChangeReason")
+            Prelude.<$> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "StateChangeReason")
             Prelude.<*> (x Data..:? "Timeline")
-            Prelude.<*> (x Data..:? "State")
       )
 
 instance Prelude.Hashable InstanceFleetStatus where
   hashWithSalt _salt InstanceFleetStatus' {..} =
-    _salt `Prelude.hashWithSalt` stateChangeReason
+    _salt `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` stateChangeReason
       `Prelude.hashWithSalt` timeline
-      `Prelude.hashWithSalt` state
 
 instance Prelude.NFData InstanceFleetStatus where
   rnf InstanceFleetStatus' {..} =
-    Prelude.rnf stateChangeReason
+    Prelude.rnf state
+      `Prelude.seq` Prelude.rnf stateChangeReason
       `Prelude.seq` Prelude.rnf timeline
-      `Prelude.seq` Prelude.rnf state

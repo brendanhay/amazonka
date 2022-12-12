@@ -35,10 +35,10 @@ module Amazonka.DataSync.DescribeLocationFsxLustre
     newDescribeLocationFsxLustreResponse,
 
     -- * Response Lenses
+    describeLocationFsxLustreResponse_creationTime,
     describeLocationFsxLustreResponse_locationArn,
     describeLocationFsxLustreResponse_locationUri,
     describeLocationFsxLustreResponse_securityGroupArns,
-    describeLocationFsxLustreResponse_creationTime,
     describeLocationFsxLustreResponse_httpStatus,
   )
 where
@@ -94,10 +94,10 @@ instance Core.AWSRequest DescribeLocationFsxLustre where
     Response.receiveJSON
       ( \s h x ->
           DescribeLocationFsxLustreResponse'
-            Prelude.<$> (x Data..?> "LocationArn")
+            Prelude.<$> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "LocationArn")
             Prelude.<*> (x Data..?> "LocationUri")
             Prelude.<*> (x Data..?> "SecurityGroupArns")
-            Prelude.<*> (x Data..?> "CreationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,7 +139,9 @@ instance Data.ToQuery DescribeLocationFsxLustre where
 
 -- | /See:/ 'newDescribeLocationFsxLustreResponse' smart constructor.
 data DescribeLocationFsxLustreResponse = DescribeLocationFsxLustreResponse'
-  { -- | The Amazon Resource Name (ARN) of the FSx for Lustre location that was
+  { -- | The time that the FSx for Lustre location was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The Amazon Resource Name (ARN) of the FSx for Lustre location that was
     -- described.
     locationArn :: Prelude.Maybe Prelude.Text,
     -- | The URI of the FSx for Lustre location that was described.
@@ -147,8 +149,6 @@ data DescribeLocationFsxLustreResponse = DescribeLocationFsxLustreResponse'
     -- | The Amazon Resource Names (ARNs) of the security groups that are
     -- configured for the FSx for Lustre file system.
     securityGroupArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The time that the FSx for Lustre location was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -162,6 +162,8 @@ data DescribeLocationFsxLustreResponse = DescribeLocationFsxLustreResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'creationTime', 'describeLocationFsxLustreResponse_creationTime' - The time that the FSx for Lustre location was created.
+--
 -- 'locationArn', 'describeLocationFsxLustreResponse_locationArn' - The Amazon Resource Name (ARN) of the FSx for Lustre location that was
 -- described.
 --
@@ -170,8 +172,6 @@ data DescribeLocationFsxLustreResponse = DescribeLocationFsxLustreResponse'
 -- 'securityGroupArns', 'describeLocationFsxLustreResponse_securityGroupArns' - The Amazon Resource Names (ARNs) of the security groups that are
 -- configured for the FSx for Lustre file system.
 --
--- 'creationTime', 'describeLocationFsxLustreResponse_creationTime' - The time that the FSx for Lustre location was created.
---
 -- 'httpStatus', 'describeLocationFsxLustreResponse_httpStatus' - The response's http status code.
 newDescribeLocationFsxLustreResponse ::
   -- | 'httpStatus'
@@ -179,13 +179,17 @@ newDescribeLocationFsxLustreResponse ::
   DescribeLocationFsxLustreResponse
 newDescribeLocationFsxLustreResponse pHttpStatus_ =
   DescribeLocationFsxLustreResponse'
-    { locationArn =
+    { creationTime =
         Prelude.Nothing,
+      locationArn = Prelude.Nothing,
       locationUri = Prelude.Nothing,
       securityGroupArns = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The time that the FSx for Lustre location was created.
+describeLocationFsxLustreResponse_creationTime :: Lens.Lens' DescribeLocationFsxLustreResponse (Prelude.Maybe Prelude.UTCTime)
+describeLocationFsxLustreResponse_creationTime = Lens.lens (\DescribeLocationFsxLustreResponse' {creationTime} -> creationTime) (\s@DescribeLocationFsxLustreResponse' {} a -> s {creationTime = a} :: DescribeLocationFsxLustreResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the FSx for Lustre location that was
 -- described.
@@ -201,10 +205,6 @@ describeLocationFsxLustreResponse_locationUri = Lens.lens (\DescribeLocationFsxL
 describeLocationFsxLustreResponse_securityGroupArns :: Lens.Lens' DescribeLocationFsxLustreResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 describeLocationFsxLustreResponse_securityGroupArns = Lens.lens (\DescribeLocationFsxLustreResponse' {securityGroupArns} -> securityGroupArns) (\s@DescribeLocationFsxLustreResponse' {} a -> s {securityGroupArns = a} :: DescribeLocationFsxLustreResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The time that the FSx for Lustre location was created.
-describeLocationFsxLustreResponse_creationTime :: Lens.Lens' DescribeLocationFsxLustreResponse (Prelude.Maybe Prelude.UTCTime)
-describeLocationFsxLustreResponse_creationTime = Lens.lens (\DescribeLocationFsxLustreResponse' {creationTime} -> creationTime) (\s@DescribeLocationFsxLustreResponse' {} a -> s {creationTime = a} :: DescribeLocationFsxLustreResponse) Prelude.. Lens.mapping Data._Time
-
 -- | The response's http status code.
 describeLocationFsxLustreResponse_httpStatus :: Lens.Lens' DescribeLocationFsxLustreResponse Prelude.Int
 describeLocationFsxLustreResponse_httpStatus = Lens.lens (\DescribeLocationFsxLustreResponse' {httpStatus} -> httpStatus) (\s@DescribeLocationFsxLustreResponse' {} a -> s {httpStatus = a} :: DescribeLocationFsxLustreResponse)
@@ -214,8 +214,8 @@ instance
     DescribeLocationFsxLustreResponse
   where
   rnf DescribeLocationFsxLustreResponse' {..} =
-    Prelude.rnf locationArn
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf locationArn
       `Prelude.seq` Prelude.rnf locationUri
       `Prelude.seq` Prelude.rnf securityGroupArns
-      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf httpStatus

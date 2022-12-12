@@ -36,8 +36,8 @@ module Amazonka.QuickSight.DescribeIngestion
     newDescribeIngestionResponse,
 
     -- * Response Lenses
-    describeIngestionResponse_requestId,
     describeIngestionResponse_ingestion,
+    describeIngestionResponse_requestId,
     describeIngestionResponse_status,
   )
 where
@@ -114,8 +114,8 @@ instance Core.AWSRequest DescribeIngestion where
     Response.receiveJSON
       ( \s h x ->
           DescribeIngestionResponse'
-            Prelude.<$> (x Data..?> "RequestId")
-            Prelude.<*> (x Data..?> "Ingestion")
+            Prelude.<$> (x Data..?> "Ingestion")
+            Prelude.<*> (x Data..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,10 +158,10 @@ instance Data.ToQuery DescribeIngestion where
 
 -- | /See:/ 'newDescribeIngestionResponse' smart constructor.
 data DescribeIngestionResponse = DescribeIngestionResponse'
-  { -- | The Amazon Web Services request ID for this operation.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | Information about the ingestion.
+  { -- | Information about the ingestion.
     ingestion :: Prelude.Maybe Ingestion,
+    -- | The Amazon Web Services request ID for this operation.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | The HTTP status of the request.
     status :: Prelude.Int
   }
@@ -175,9 +175,9 @@ data DescribeIngestionResponse = DescribeIngestionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'describeIngestionResponse_requestId' - The Amazon Web Services request ID for this operation.
---
 -- 'ingestion', 'describeIngestionResponse_ingestion' - Information about the ingestion.
+--
+-- 'requestId', 'describeIngestionResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'status', 'describeIngestionResponse_status' - The HTTP status of the request.
 newDescribeIngestionResponse ::
@@ -186,19 +186,19 @@ newDescribeIngestionResponse ::
   DescribeIngestionResponse
 newDescribeIngestionResponse pStatus_ =
   DescribeIngestionResponse'
-    { requestId =
+    { ingestion =
         Prelude.Nothing,
-      ingestion = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       status = pStatus_
     }
-
--- | The Amazon Web Services request ID for this operation.
-describeIngestionResponse_requestId :: Lens.Lens' DescribeIngestionResponse (Prelude.Maybe Prelude.Text)
-describeIngestionResponse_requestId = Lens.lens (\DescribeIngestionResponse' {requestId} -> requestId) (\s@DescribeIngestionResponse' {} a -> s {requestId = a} :: DescribeIngestionResponse)
 
 -- | Information about the ingestion.
 describeIngestionResponse_ingestion :: Lens.Lens' DescribeIngestionResponse (Prelude.Maybe Ingestion)
 describeIngestionResponse_ingestion = Lens.lens (\DescribeIngestionResponse' {ingestion} -> ingestion) (\s@DescribeIngestionResponse' {} a -> s {ingestion = a} :: DescribeIngestionResponse)
+
+-- | The Amazon Web Services request ID for this operation.
+describeIngestionResponse_requestId :: Lens.Lens' DescribeIngestionResponse (Prelude.Maybe Prelude.Text)
+describeIngestionResponse_requestId = Lens.lens (\DescribeIngestionResponse' {requestId} -> requestId) (\s@DescribeIngestionResponse' {} a -> s {requestId = a} :: DescribeIngestionResponse)
 
 -- | The HTTP status of the request.
 describeIngestionResponse_status :: Lens.Lens' DescribeIngestionResponse Prelude.Int
@@ -206,6 +206,6 @@ describeIngestionResponse_status = Lens.lens (\DescribeIngestionResponse' {statu
 
 instance Prelude.NFData DescribeIngestionResponse where
   rnf DescribeIngestionResponse' {..} =
-    Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf ingestion
+    Prelude.rnf ingestion
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf status

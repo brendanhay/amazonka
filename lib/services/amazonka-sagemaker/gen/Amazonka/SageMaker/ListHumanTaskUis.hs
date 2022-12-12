@@ -30,11 +30,11 @@ module Amazonka.SageMaker.ListHumanTaskUis
     newListHumanTaskUis,
 
     -- * Request Lenses
-    listHumanTaskUis_sortOrder,
-    listHumanTaskUis_nextToken,
+    listHumanTaskUis_creationTimeAfter,
     listHumanTaskUis_creationTimeBefore,
     listHumanTaskUis_maxResults,
-    listHumanTaskUis_creationTimeAfter,
+    listHumanTaskUis_nextToken,
+    listHumanTaskUis_sortOrder,
 
     -- * Destructuring the Response
     ListHumanTaskUisResponse (..),
@@ -57,11 +57,9 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newListHumanTaskUis' smart constructor.
 data ListHumanTaskUis = ListHumanTaskUis'
-  { -- | An optional value that specifies whether you want the results sorted in
-    -- @Ascending@ or @Descending@ order.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | A token to resume pagination.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | A filter that returns only human task user interfaces with a creation
+    -- time greater than or equal to the specified timestamp.
+    creationTimeAfter :: Prelude.Maybe Data.POSIX,
     -- | A filter that returns only human task user interfaces that were created
     -- before the specified timestamp.
     creationTimeBefore :: Prelude.Maybe Data.POSIX,
@@ -70,9 +68,11 @@ data ListHumanTaskUis = ListHumanTaskUis'
     -- @NextToken@ will be provided in the output that you can use to resume
     -- pagination.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | A filter that returns only human task user interfaces with a creation
-    -- time greater than or equal to the specified timestamp.
-    creationTimeAfter :: Prelude.Maybe Data.POSIX
+    -- | A token to resume pagination.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An optional value that specifies whether you want the results sorted in
+    -- @Ascending@ or @Descending@ order.
+    sortOrder :: Prelude.Maybe SortOrder
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,10 +84,8 @@ data ListHumanTaskUis = ListHumanTaskUis'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listHumanTaskUis_sortOrder' - An optional value that specifies whether you want the results sorted in
--- @Ascending@ or @Descending@ order.
---
--- 'nextToken', 'listHumanTaskUis_nextToken' - A token to resume pagination.
+-- 'creationTimeAfter', 'listHumanTaskUis_creationTimeAfter' - A filter that returns only human task user interfaces with a creation
+-- time greater than or equal to the specified timestamp.
 --
 -- 'creationTimeBefore', 'listHumanTaskUis_creationTimeBefore' - A filter that returns only human task user interfaces that were created
 -- before the specified timestamp.
@@ -97,27 +95,26 @@ data ListHumanTaskUis = ListHumanTaskUis'
 -- @NextToken@ will be provided in the output that you can use to resume
 -- pagination.
 --
--- 'creationTimeAfter', 'listHumanTaskUis_creationTimeAfter' - A filter that returns only human task user interfaces with a creation
--- time greater than or equal to the specified timestamp.
+-- 'nextToken', 'listHumanTaskUis_nextToken' - A token to resume pagination.
+--
+-- 'sortOrder', 'listHumanTaskUis_sortOrder' - An optional value that specifies whether you want the results sorted in
+-- @Ascending@ or @Descending@ order.
 newListHumanTaskUis ::
   ListHumanTaskUis
 newListHumanTaskUis =
   ListHumanTaskUis'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { creationTimeAfter =
+        Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      creationTimeAfter = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing
     }
 
--- | An optional value that specifies whether you want the results sorted in
--- @Ascending@ or @Descending@ order.
-listHumanTaskUis_sortOrder :: Lens.Lens' ListHumanTaskUis (Prelude.Maybe SortOrder)
-listHumanTaskUis_sortOrder = Lens.lens (\ListHumanTaskUis' {sortOrder} -> sortOrder) (\s@ListHumanTaskUis' {} a -> s {sortOrder = a} :: ListHumanTaskUis)
-
--- | A token to resume pagination.
-listHumanTaskUis_nextToken :: Lens.Lens' ListHumanTaskUis (Prelude.Maybe Prelude.Text)
-listHumanTaskUis_nextToken = Lens.lens (\ListHumanTaskUis' {nextToken} -> nextToken) (\s@ListHumanTaskUis' {} a -> s {nextToken = a} :: ListHumanTaskUis)
+-- | A filter that returns only human task user interfaces with a creation
+-- time greater than or equal to the specified timestamp.
+listHumanTaskUis_creationTimeAfter :: Lens.Lens' ListHumanTaskUis (Prelude.Maybe Prelude.UTCTime)
+listHumanTaskUis_creationTimeAfter = Lens.lens (\ListHumanTaskUis' {creationTimeAfter} -> creationTimeAfter) (\s@ListHumanTaskUis' {} a -> s {creationTimeAfter = a} :: ListHumanTaskUis) Prelude.. Lens.mapping Data._Time
 
 -- | A filter that returns only human task user interfaces that were created
 -- before the specified timestamp.
@@ -131,10 +128,14 @@ listHumanTaskUis_creationTimeBefore = Lens.lens (\ListHumanTaskUis' {creationTim
 listHumanTaskUis_maxResults :: Lens.Lens' ListHumanTaskUis (Prelude.Maybe Prelude.Natural)
 listHumanTaskUis_maxResults = Lens.lens (\ListHumanTaskUis' {maxResults} -> maxResults) (\s@ListHumanTaskUis' {} a -> s {maxResults = a} :: ListHumanTaskUis)
 
--- | A filter that returns only human task user interfaces with a creation
--- time greater than or equal to the specified timestamp.
-listHumanTaskUis_creationTimeAfter :: Lens.Lens' ListHumanTaskUis (Prelude.Maybe Prelude.UTCTime)
-listHumanTaskUis_creationTimeAfter = Lens.lens (\ListHumanTaskUis' {creationTimeAfter} -> creationTimeAfter) (\s@ListHumanTaskUis' {} a -> s {creationTimeAfter = a} :: ListHumanTaskUis) Prelude.. Lens.mapping Data._Time
+-- | A token to resume pagination.
+listHumanTaskUis_nextToken :: Lens.Lens' ListHumanTaskUis (Prelude.Maybe Prelude.Text)
+listHumanTaskUis_nextToken = Lens.lens (\ListHumanTaskUis' {nextToken} -> nextToken) (\s@ListHumanTaskUis' {} a -> s {nextToken = a} :: ListHumanTaskUis)
+
+-- | An optional value that specifies whether you want the results sorted in
+-- @Ascending@ or @Descending@ order.
+listHumanTaskUis_sortOrder :: Lens.Lens' ListHumanTaskUis (Prelude.Maybe SortOrder)
+listHumanTaskUis_sortOrder = Lens.lens (\ListHumanTaskUis' {sortOrder} -> sortOrder) (\s@ListHumanTaskUis' {} a -> s {sortOrder = a} :: ListHumanTaskUis)
 
 instance Core.AWSPager ListHumanTaskUis where
   page rq rs
@@ -176,19 +177,19 @@ instance Core.AWSRequest ListHumanTaskUis where
 
 instance Prelude.Hashable ListHumanTaskUis where
   hashWithSalt _salt ListHumanTaskUis' {..} =
-    _salt `Prelude.hashWithSalt` sortOrder
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` creationTimeAfter
       `Prelude.hashWithSalt` creationTimeBefore
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` creationTimeAfter
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortOrder
 
 instance Prelude.NFData ListHumanTaskUis where
   rnf ListHumanTaskUis' {..} =
-    Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf creationTimeAfter
       `Prelude.seq` Prelude.rnf creationTimeBefore
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf creationTimeAfter
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListHumanTaskUis where
   toHeaders =
@@ -207,13 +208,13 @@ instance Data.ToJSON ListHumanTaskUis where
   toJSON ListHumanTaskUis' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
-            ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("CreationTimeAfter" Data..=)
+              Prelude.<$> creationTimeAfter,
             ("CreationTimeBefore" Data..=)
               Prelude.<$> creationTimeBefore,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("CreationTimeAfter" Data..=)
-              Prelude.<$> creationTimeAfter
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SortOrder" Data..=) Prelude.<$> sortOrder
           ]
       )
 

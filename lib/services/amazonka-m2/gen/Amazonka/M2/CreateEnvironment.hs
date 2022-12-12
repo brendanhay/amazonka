@@ -27,16 +27,16 @@ module Amazonka.M2.CreateEnvironment
     newCreateEnvironment,
 
     -- * Request Lenses
-    createEnvironment_tags,
     createEnvironment_clientToken,
+    createEnvironment_description,
+    createEnvironment_engineVersion,
+    createEnvironment_highAvailabilityConfig,
+    createEnvironment_preferredMaintenanceWindow,
+    createEnvironment_publiclyAccessible,
     createEnvironment_securityGroupIds,
     createEnvironment_storageConfigurations,
-    createEnvironment_description,
-    createEnvironment_publiclyAccessible,
-    createEnvironment_preferredMaintenanceWindow,
-    createEnvironment_highAvailabilityConfig,
     createEnvironment_subnetIds,
-    createEnvironment_engineVersion,
+    createEnvironment_tags,
     createEnvironment_engineType,
     createEnvironment_instanceType,
     createEnvironment_name,
@@ -61,34 +61,34 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateEnvironment' smart constructor.
 data CreateEnvironment = CreateEnvironment'
-  { -- | The tags for the environment.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Unique, case-sensitive identifier you provide to ensure the idempotency
+  { -- | Unique, case-sensitive identifier you provide to ensure the idempotency
     -- of the request to create an environment. The service generates the
     -- clientToken when the API call is triggered. The token expires after one
     -- hour, so if you retry the API within this timeframe with the same
     -- clientToken, you will get the same response. The service also handles
     -- deleting the clientToken after it expires.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The description of the environment.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The version of the engine type for the environment.
+    engineVersion :: Prelude.Maybe Prelude.Text,
+    -- | The details of a high availability configuration for this runtime
+    -- environment.
+    highAvailabilityConfig :: Prelude.Maybe HighAvailabilityConfig,
+    -- | Configures a desired maintenance window for the environment. If you do
+    -- not provide a value, a random system-generated value will be assigned.
+    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether the environment is publicly accessible.
+    publiclyAccessible :: Prelude.Maybe Prelude.Bool,
     -- | The list of security groups for the VPC associated with this
     -- environment.
     securityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | Optional. The storage configurations for this environment.
     storageConfigurations :: Prelude.Maybe [StorageConfiguration],
-    -- | The description of the environment.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether the environment is publicly accessible.
-    publiclyAccessible :: Prelude.Maybe Prelude.Bool,
-    -- | Configures a desired maintenance window for the environment. If you do
-    -- not provide a value, a random system-generated value will be assigned.
-    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
-    -- | The details of a high availability configuration for this runtime
-    -- environment.
-    highAvailabilityConfig :: Prelude.Maybe HighAvailabilityConfig,
     -- | The list of subnets associated with the VPC for this environment.
     subnetIds :: Prelude.Maybe [Prelude.Text],
-    -- | The version of the engine type for the environment.
-    engineVersion :: Prelude.Maybe Prelude.Text,
+    -- | The tags for the environment.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The engine type for the environment.
     engineType :: EngineType,
     -- | The type of instance for the environment.
@@ -106,8 +106,6 @@ data CreateEnvironment = CreateEnvironment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createEnvironment_tags' - The tags for the environment.
---
 -- 'clientToken', 'createEnvironment_clientToken' - Unique, case-sensitive identifier you provide to ensure the idempotency
 -- of the request to create an environment. The service generates the
 -- clientToken when the API call is triggered. The token expires after one
@@ -115,24 +113,26 @@ data CreateEnvironment = CreateEnvironment'
 -- clientToken, you will get the same response. The service also handles
 -- deleting the clientToken after it expires.
 --
+-- 'description', 'createEnvironment_description' - The description of the environment.
+--
+-- 'engineVersion', 'createEnvironment_engineVersion' - The version of the engine type for the environment.
+--
+-- 'highAvailabilityConfig', 'createEnvironment_highAvailabilityConfig' - The details of a high availability configuration for this runtime
+-- environment.
+--
+-- 'preferredMaintenanceWindow', 'createEnvironment_preferredMaintenanceWindow' - Configures a desired maintenance window for the environment. If you do
+-- not provide a value, a random system-generated value will be assigned.
+--
+-- 'publiclyAccessible', 'createEnvironment_publiclyAccessible' - Specifies whether the environment is publicly accessible.
+--
 -- 'securityGroupIds', 'createEnvironment_securityGroupIds' - The list of security groups for the VPC associated with this
 -- environment.
 --
 -- 'storageConfigurations', 'createEnvironment_storageConfigurations' - Optional. The storage configurations for this environment.
 --
--- 'description', 'createEnvironment_description' - The description of the environment.
---
--- 'publiclyAccessible', 'createEnvironment_publiclyAccessible' - Specifies whether the environment is publicly accessible.
---
--- 'preferredMaintenanceWindow', 'createEnvironment_preferredMaintenanceWindow' - Configures a desired maintenance window for the environment. If you do
--- not provide a value, a random system-generated value will be assigned.
---
--- 'highAvailabilityConfig', 'createEnvironment_highAvailabilityConfig' - The details of a high availability configuration for this runtime
--- environment.
---
 -- 'subnetIds', 'createEnvironment_subnetIds' - The list of subnets associated with the VPC for this environment.
 --
--- 'engineVersion', 'createEnvironment_engineVersion' - The version of the engine type for the environment.
+-- 'tags', 'createEnvironment_tags' - The tags for the environment.
 --
 -- 'engineType', 'createEnvironment_engineType' - The engine type for the environment.
 --
@@ -152,24 +152,20 @@ newCreateEnvironment
   pInstanceType_
   pName_ =
     CreateEnvironment'
-      { tags = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+      { clientToken = Prelude.Nothing,
+        description = Prelude.Nothing,
+        engineVersion = Prelude.Nothing,
+        highAvailabilityConfig = Prelude.Nothing,
+        preferredMaintenanceWindow = Prelude.Nothing,
+        publiclyAccessible = Prelude.Nothing,
         securityGroupIds = Prelude.Nothing,
         storageConfigurations = Prelude.Nothing,
-        description = Prelude.Nothing,
-        publiclyAccessible = Prelude.Nothing,
-        preferredMaintenanceWindow = Prelude.Nothing,
-        highAvailabilityConfig = Prelude.Nothing,
         subnetIds = Prelude.Nothing,
-        engineVersion = Prelude.Nothing,
+        tags = Prelude.Nothing,
         engineType = pEngineType_,
         instanceType = pInstanceType_,
         name = pName_
       }
-
--- | The tags for the environment.
-createEnvironment_tags :: Lens.Lens' CreateEnvironment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createEnvironment_tags = Lens.lens (\CreateEnvironment' {tags} -> tags) (\s@CreateEnvironment' {} a -> s {tags = a} :: CreateEnvironment) Prelude.. Lens.mapping Lens.coerced
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency
 -- of the request to create an environment. The service generates the
@@ -180,6 +176,28 @@ createEnvironment_tags = Lens.lens (\CreateEnvironment' {tags} -> tags) (\s@Crea
 createEnvironment_clientToken :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Text)
 createEnvironment_clientToken = Lens.lens (\CreateEnvironment' {clientToken} -> clientToken) (\s@CreateEnvironment' {} a -> s {clientToken = a} :: CreateEnvironment)
 
+-- | The description of the environment.
+createEnvironment_description :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Text)
+createEnvironment_description = Lens.lens (\CreateEnvironment' {description} -> description) (\s@CreateEnvironment' {} a -> s {description = a} :: CreateEnvironment)
+
+-- | The version of the engine type for the environment.
+createEnvironment_engineVersion :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Text)
+createEnvironment_engineVersion = Lens.lens (\CreateEnvironment' {engineVersion} -> engineVersion) (\s@CreateEnvironment' {} a -> s {engineVersion = a} :: CreateEnvironment)
+
+-- | The details of a high availability configuration for this runtime
+-- environment.
+createEnvironment_highAvailabilityConfig :: Lens.Lens' CreateEnvironment (Prelude.Maybe HighAvailabilityConfig)
+createEnvironment_highAvailabilityConfig = Lens.lens (\CreateEnvironment' {highAvailabilityConfig} -> highAvailabilityConfig) (\s@CreateEnvironment' {} a -> s {highAvailabilityConfig = a} :: CreateEnvironment)
+
+-- | Configures a desired maintenance window for the environment. If you do
+-- not provide a value, a random system-generated value will be assigned.
+createEnvironment_preferredMaintenanceWindow :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Text)
+createEnvironment_preferredMaintenanceWindow = Lens.lens (\CreateEnvironment' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@CreateEnvironment' {} a -> s {preferredMaintenanceWindow = a} :: CreateEnvironment)
+
+-- | Specifies whether the environment is publicly accessible.
+createEnvironment_publiclyAccessible :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Bool)
+createEnvironment_publiclyAccessible = Lens.lens (\CreateEnvironment' {publiclyAccessible} -> publiclyAccessible) (\s@CreateEnvironment' {} a -> s {publiclyAccessible = a} :: CreateEnvironment)
+
 -- | The list of security groups for the VPC associated with this
 -- environment.
 createEnvironment_securityGroupIds :: Lens.Lens' CreateEnvironment (Prelude.Maybe [Prelude.Text])
@@ -189,31 +207,13 @@ createEnvironment_securityGroupIds = Lens.lens (\CreateEnvironment' {securityGro
 createEnvironment_storageConfigurations :: Lens.Lens' CreateEnvironment (Prelude.Maybe [StorageConfiguration])
 createEnvironment_storageConfigurations = Lens.lens (\CreateEnvironment' {storageConfigurations} -> storageConfigurations) (\s@CreateEnvironment' {} a -> s {storageConfigurations = a} :: CreateEnvironment) Prelude.. Lens.mapping Lens.coerced
 
--- | The description of the environment.
-createEnvironment_description :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Text)
-createEnvironment_description = Lens.lens (\CreateEnvironment' {description} -> description) (\s@CreateEnvironment' {} a -> s {description = a} :: CreateEnvironment)
-
--- | Specifies whether the environment is publicly accessible.
-createEnvironment_publiclyAccessible :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Bool)
-createEnvironment_publiclyAccessible = Lens.lens (\CreateEnvironment' {publiclyAccessible} -> publiclyAccessible) (\s@CreateEnvironment' {} a -> s {publiclyAccessible = a} :: CreateEnvironment)
-
--- | Configures a desired maintenance window for the environment. If you do
--- not provide a value, a random system-generated value will be assigned.
-createEnvironment_preferredMaintenanceWindow :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Text)
-createEnvironment_preferredMaintenanceWindow = Lens.lens (\CreateEnvironment' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@CreateEnvironment' {} a -> s {preferredMaintenanceWindow = a} :: CreateEnvironment)
-
--- | The details of a high availability configuration for this runtime
--- environment.
-createEnvironment_highAvailabilityConfig :: Lens.Lens' CreateEnvironment (Prelude.Maybe HighAvailabilityConfig)
-createEnvironment_highAvailabilityConfig = Lens.lens (\CreateEnvironment' {highAvailabilityConfig} -> highAvailabilityConfig) (\s@CreateEnvironment' {} a -> s {highAvailabilityConfig = a} :: CreateEnvironment)
-
 -- | The list of subnets associated with the VPC for this environment.
 createEnvironment_subnetIds :: Lens.Lens' CreateEnvironment (Prelude.Maybe [Prelude.Text])
 createEnvironment_subnetIds = Lens.lens (\CreateEnvironment' {subnetIds} -> subnetIds) (\s@CreateEnvironment' {} a -> s {subnetIds = a} :: CreateEnvironment) Prelude.. Lens.mapping Lens.coerced
 
--- | The version of the engine type for the environment.
-createEnvironment_engineVersion :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Text)
-createEnvironment_engineVersion = Lens.lens (\CreateEnvironment' {engineVersion} -> engineVersion) (\s@CreateEnvironment' {} a -> s {engineVersion = a} :: CreateEnvironment)
+-- | The tags for the environment.
+createEnvironment_tags :: Lens.Lens' CreateEnvironment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createEnvironment_tags = Lens.lens (\CreateEnvironment' {tags} -> tags) (\s@CreateEnvironment' {} a -> s {tags = a} :: CreateEnvironment) Prelude.. Lens.mapping Lens.coerced
 
 -- | The engine type for the environment.
 createEnvironment_engineType :: Lens.Lens' CreateEnvironment EngineType
@@ -243,32 +243,32 @@ instance Core.AWSRequest CreateEnvironment where
 
 instance Prelude.Hashable CreateEnvironment where
   hashWithSalt _salt CreateEnvironment' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` clientToken
+    _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` highAvailabilityConfig
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` publiclyAccessible
       `Prelude.hashWithSalt` securityGroupIds
       `Prelude.hashWithSalt` storageConfigurations
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` publiclyAccessible
-      `Prelude.hashWithSalt` preferredMaintenanceWindow
-      `Prelude.hashWithSalt` highAvailabilityConfig
       `Prelude.hashWithSalt` subnetIds
-      `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` engineType
       `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateEnvironment where
   rnf CreateEnvironment' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf clientToken
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf highAvailabilityConfig
+      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf publiclyAccessible
       `Prelude.seq` Prelude.rnf securityGroupIds
       `Prelude.seq` Prelude.rnf storageConfigurations
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf publiclyAccessible
-      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
-      `Prelude.seq` Prelude.rnf highAvailabilityConfig
       `Prelude.seq` Prelude.rnf subnetIds
-      `Prelude.seq` Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf engineType
       `Prelude.seq` Prelude.rnf instanceType
       `Prelude.seq` Prelude.rnf name
@@ -288,21 +288,21 @@ instance Data.ToJSON CreateEnvironment where
   toJSON CreateEnvironment' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("clientToken" Data..=) Prelude.<$> clientToken,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("description" Data..=) Prelude.<$> description,
+            ("engineVersion" Data..=) Prelude.<$> engineVersion,
+            ("highAvailabilityConfig" Data..=)
+              Prelude.<$> highAvailabilityConfig,
+            ("preferredMaintenanceWindow" Data..=)
+              Prelude.<$> preferredMaintenanceWindow,
+            ("publiclyAccessible" Data..=)
+              Prelude.<$> publiclyAccessible,
             ("securityGroupIds" Data..=)
               Prelude.<$> securityGroupIds,
             ("storageConfigurations" Data..=)
               Prelude.<$> storageConfigurations,
-            ("description" Data..=) Prelude.<$> description,
-            ("publiclyAccessible" Data..=)
-              Prelude.<$> publiclyAccessible,
-            ("preferredMaintenanceWindow" Data..=)
-              Prelude.<$> preferredMaintenanceWindow,
-            ("highAvailabilityConfig" Data..=)
-              Prelude.<$> highAvailabilityConfig,
             ("subnetIds" Data..=) Prelude.<$> subnetIds,
-            ("engineVersion" Data..=) Prelude.<$> engineVersion,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("engineType" Data..= engineType),
             Prelude.Just ("instanceType" Data..= instanceType),
             Prelude.Just ("name" Data..= name)

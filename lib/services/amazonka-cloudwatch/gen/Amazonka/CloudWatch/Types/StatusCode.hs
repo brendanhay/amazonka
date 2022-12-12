@@ -21,6 +21,7 @@ module Amazonka.CloudWatch.Types.StatusCode
   ( StatusCode
       ( ..,
         StatusCode_Complete,
+        StatusCode_Forbidden,
         StatusCode_InternalError,
         StatusCode_PartialData
       ),
@@ -62,6 +63,9 @@ newtype StatusCode = StatusCode'
 pattern StatusCode_Complete :: StatusCode
 pattern StatusCode_Complete = StatusCode' "Complete"
 
+pattern StatusCode_Forbidden :: StatusCode
+pattern StatusCode_Forbidden = StatusCode' "Forbidden"
+
 pattern StatusCode_InternalError :: StatusCode
 pattern StatusCode_InternalError = StatusCode' "InternalError"
 
@@ -70,6 +74,7 @@ pattern StatusCode_PartialData = StatusCode' "PartialData"
 
 {-# COMPLETE
   StatusCode_Complete,
+  StatusCode_Forbidden,
   StatusCode_InternalError,
   StatusCode_PartialData,
   StatusCode'

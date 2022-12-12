@@ -30,16 +30,16 @@ module Amazonka.ServiceCatalogAppRegistry.ListAttributeGroups
     newListAttributeGroups,
 
     -- * Request Lenses
-    listAttributeGroups_nextToken,
     listAttributeGroups_maxResults,
+    listAttributeGroups_nextToken,
 
     -- * Destructuring the Response
     ListAttributeGroupsResponse (..),
     newListAttributeGroupsResponse,
 
     -- * Response Lenses
-    listAttributeGroupsResponse_nextToken,
     listAttributeGroupsResponse_attributeGroups,
+    listAttributeGroupsResponse_nextToken,
     listAttributeGroupsResponse_httpStatus,
   )
 where
@@ -54,12 +54,12 @@ import Amazonka.ServiceCatalogAppRegistry.Types
 
 -- | /See:/ 'newListAttributeGroups' smart constructor.
 data ListAttributeGroups = ListAttributeGroups'
-  { -- | The token to use to get the next page of results after a previous API
-    -- call.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The upper bound of the number of results to return (cannot exceed 25).
+  { -- | The upper bound of the number of results to return (cannot exceed 25).
     -- If this parameter is omitted, it defaults to 25. This value is optional.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to use to get the next page of results after a previous API
+    -- call.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,28 +71,28 @@ data ListAttributeGroups = ListAttributeGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAttributeGroups_nextToken' - The token to use to get the next page of results after a previous API
--- call.
---
 -- 'maxResults', 'listAttributeGroups_maxResults' - The upper bound of the number of results to return (cannot exceed 25).
 -- If this parameter is omitted, it defaults to 25. This value is optional.
+--
+-- 'nextToken', 'listAttributeGroups_nextToken' - The token to use to get the next page of results after a previous API
+-- call.
 newListAttributeGroups ::
   ListAttributeGroups
 newListAttributeGroups =
   ListAttributeGroups'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token to use to get the next page of results after a previous API
--- call.
-listAttributeGroups_nextToken :: Lens.Lens' ListAttributeGroups (Prelude.Maybe Prelude.Text)
-listAttributeGroups_nextToken = Lens.lens (\ListAttributeGroups' {nextToken} -> nextToken) (\s@ListAttributeGroups' {} a -> s {nextToken = a} :: ListAttributeGroups)
 
 -- | The upper bound of the number of results to return (cannot exceed 25).
 -- If this parameter is omitted, it defaults to 25. This value is optional.
 listAttributeGroups_maxResults :: Lens.Lens' ListAttributeGroups (Prelude.Maybe Prelude.Natural)
 listAttributeGroups_maxResults = Lens.lens (\ListAttributeGroups' {maxResults} -> maxResults) (\s@ListAttributeGroups' {} a -> s {maxResults = a} :: ListAttributeGroups)
+
+-- | The token to use to get the next page of results after a previous API
+-- call.
+listAttributeGroups_nextToken :: Lens.Lens' ListAttributeGroups (Prelude.Maybe Prelude.Text)
+listAttributeGroups_nextToken = Lens.lens (\ListAttributeGroups' {nextToken} -> nextToken) (\s@ListAttributeGroups' {} a -> s {nextToken = a} :: ListAttributeGroups)
 
 instance Core.AWSPager ListAttributeGroups where
   page rq rs
@@ -126,22 +126,22 @@ instance Core.AWSRequest ListAttributeGroups where
     Response.receiveJSON
       ( \s h x ->
           ListAttributeGroupsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "attributeGroups"
+            Prelude.<$> ( x Data..?> "attributeGroups"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListAttributeGroups where
   hashWithSalt _salt ListAttributeGroups' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListAttributeGroups where
   rnf ListAttributeGroups' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListAttributeGroups where
   toHeaders =
@@ -160,17 +160,17 @@ instance Data.ToPath ListAttributeGroups where
 instance Data.ToQuery ListAttributeGroups where
   toQuery ListAttributeGroups' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListAttributeGroupsResponse' smart constructor.
 data ListAttributeGroupsResponse = ListAttributeGroupsResponse'
-  { -- | The token to use to get the next page of results after a previous API
+  { -- | This list of attribute groups.
+    attributeGroups :: Prelude.Maybe [AttributeGroupSummary],
+    -- | The token to use to get the next page of results after a previous API
     -- call.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | This list of attribute groups.
-    attributeGroups :: Prelude.Maybe [AttributeGroupSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -184,10 +184,10 @@ data ListAttributeGroupsResponse = ListAttributeGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'attributeGroups', 'listAttributeGroupsResponse_attributeGroups' - This list of attribute groups.
+--
 -- 'nextToken', 'listAttributeGroupsResponse_nextToken' - The token to use to get the next page of results after a previous API
 -- call.
---
--- 'attributeGroups', 'listAttributeGroupsResponse_attributeGroups' - This list of attribute groups.
 --
 -- 'httpStatus', 'listAttributeGroupsResponse_httpStatus' - The response's http status code.
 newListAttributeGroupsResponse ::
@@ -196,20 +196,20 @@ newListAttributeGroupsResponse ::
   ListAttributeGroupsResponse
 newListAttributeGroupsResponse pHttpStatus_ =
   ListAttributeGroupsResponse'
-    { nextToken =
+    { attributeGroups =
         Prelude.Nothing,
-      attributeGroups = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | This list of attribute groups.
+listAttributeGroupsResponse_attributeGroups :: Lens.Lens' ListAttributeGroupsResponse (Prelude.Maybe [AttributeGroupSummary])
+listAttributeGroupsResponse_attributeGroups = Lens.lens (\ListAttributeGroupsResponse' {attributeGroups} -> attributeGroups) (\s@ListAttributeGroupsResponse' {} a -> s {attributeGroups = a} :: ListAttributeGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to get the next page of results after a previous API
 -- call.
 listAttributeGroupsResponse_nextToken :: Lens.Lens' ListAttributeGroupsResponse (Prelude.Maybe Prelude.Text)
 listAttributeGroupsResponse_nextToken = Lens.lens (\ListAttributeGroupsResponse' {nextToken} -> nextToken) (\s@ListAttributeGroupsResponse' {} a -> s {nextToken = a} :: ListAttributeGroupsResponse)
-
--- | This list of attribute groups.
-listAttributeGroupsResponse_attributeGroups :: Lens.Lens' ListAttributeGroupsResponse (Prelude.Maybe [AttributeGroupSummary])
-listAttributeGroupsResponse_attributeGroups = Lens.lens (\ListAttributeGroupsResponse' {attributeGroups} -> attributeGroups) (\s@ListAttributeGroupsResponse' {} a -> s {attributeGroups = a} :: ListAttributeGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAttributeGroupsResponse_httpStatus :: Lens.Lens' ListAttributeGroupsResponse Prelude.Int
@@ -217,6 +217,6 @@ listAttributeGroupsResponse_httpStatus = Lens.lens (\ListAttributeGroupsResponse
 
 instance Prelude.NFData ListAttributeGroupsResponse where
   rnf ListAttributeGroupsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf attributeGroups
+    Prelude.rnf attributeGroups
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

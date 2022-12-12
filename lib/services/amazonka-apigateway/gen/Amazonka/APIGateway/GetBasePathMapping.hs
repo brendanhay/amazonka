@@ -35,9 +35,9 @@ module Amazonka.APIGateway.GetBasePathMapping
     newBasePathMapping,
 
     -- * Response Lenses
+    basePathMapping_basePath,
     basePathMapping_restApiId,
     basePathMapping_stage,
-    basePathMapping_basePath,
   )
 where
 

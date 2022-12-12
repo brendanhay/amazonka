@@ -29,27 +29,27 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResourceSharePermissionSummary' smart constructor.
 data ResourceSharePermissionSummary = ResourceSharePermissionSummary'
-  { -- | The type of resource to which this permission applies.
-    resourceType :: Prelude.Maybe Prelude.Text,
-    -- | The name of this permission.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The
+  { -- | The
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
     -- of the permission you want information about.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The current status of the permission.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The date and time when the permission was last updated.
-    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
+    -- | The date and time when the permission was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | Specifies whether the version of the permission represented in this
     -- structure is the default version for this permission.
     defaultVersion :: Prelude.Maybe Prelude.Bool,
-    -- | The date and time when the permission was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
     -- | Specifies whether the version of the permission represented in this
     -- structure is the default version for all resources of this resource
     -- type.
     isResourceTypeDefault :: Prelude.Maybe Prelude.Bool,
+    -- | The date and time when the permission was last updated.
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
+    -- | The name of this permission.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The type of resource to which this permission applies.
+    resourceType :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the permission.
+    status :: Prelude.Maybe Prelude.Text,
     -- | The version of the permission represented in this structure.
     version :: Prelude.Maybe Prelude.Text
   }
@@ -63,51 +63,43 @@ data ResourceSharePermissionSummary = ResourceSharePermissionSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceType', 'resourceSharePermissionSummary_resourceType' - The type of resource to which this permission applies.
---
--- 'name', 'resourceSharePermissionSummary_name' - The name of this permission.
---
 -- 'arn', 'resourceSharePermissionSummary_arn' - The
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
 -- of the permission you want information about.
 --
--- 'status', 'resourceSharePermissionSummary_status' - The current status of the permission.
---
--- 'lastUpdatedTime', 'resourceSharePermissionSummary_lastUpdatedTime' - The date and time when the permission was last updated.
+-- 'creationTime', 'resourceSharePermissionSummary_creationTime' - The date and time when the permission was created.
 --
 -- 'defaultVersion', 'resourceSharePermissionSummary_defaultVersion' - Specifies whether the version of the permission represented in this
 -- structure is the default version for this permission.
 --
--- 'creationTime', 'resourceSharePermissionSummary_creationTime' - The date and time when the permission was created.
---
 -- 'isResourceTypeDefault', 'resourceSharePermissionSummary_isResourceTypeDefault' - Specifies whether the version of the permission represented in this
 -- structure is the default version for all resources of this resource
 -- type.
+--
+-- 'lastUpdatedTime', 'resourceSharePermissionSummary_lastUpdatedTime' - The date and time when the permission was last updated.
+--
+-- 'name', 'resourceSharePermissionSummary_name' - The name of this permission.
+--
+-- 'resourceType', 'resourceSharePermissionSummary_resourceType' - The type of resource to which this permission applies.
+--
+-- 'status', 'resourceSharePermissionSummary_status' - The current status of the permission.
 --
 -- 'version', 'resourceSharePermissionSummary_version' - The version of the permission represented in this structure.
 newResourceSharePermissionSummary ::
   ResourceSharePermissionSummary
 newResourceSharePermissionSummary =
   ResourceSharePermissionSummary'
-    { resourceType =
+    { arn =
         Prelude.Nothing,
-      name = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      status = Prelude.Nothing,
-      lastUpdatedTime = Prelude.Nothing,
-      defaultVersion = Prelude.Nothing,
       creationTime = Prelude.Nothing,
+      defaultVersion = Prelude.Nothing,
       isResourceTypeDefault = Prelude.Nothing,
+      lastUpdatedTime = Prelude.Nothing,
+      name = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
+      status = Prelude.Nothing,
       version = Prelude.Nothing
     }
-
--- | The type of resource to which this permission applies.
-resourceSharePermissionSummary_resourceType :: Lens.Lens' ResourceSharePermissionSummary (Prelude.Maybe Prelude.Text)
-resourceSharePermissionSummary_resourceType = Lens.lens (\ResourceSharePermissionSummary' {resourceType} -> resourceType) (\s@ResourceSharePermissionSummary' {} a -> s {resourceType = a} :: ResourceSharePermissionSummary)
-
--- | The name of this permission.
-resourceSharePermissionSummary_name :: Lens.Lens' ResourceSharePermissionSummary (Prelude.Maybe Prelude.Text)
-resourceSharePermissionSummary_name = Lens.lens (\ResourceSharePermissionSummary' {name} -> name) (\s@ResourceSharePermissionSummary' {} a -> s {name = a} :: ResourceSharePermissionSummary)
 
 -- | The
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
@@ -115,28 +107,36 @@ resourceSharePermissionSummary_name = Lens.lens (\ResourceSharePermissionSummary
 resourceSharePermissionSummary_arn :: Lens.Lens' ResourceSharePermissionSummary (Prelude.Maybe Prelude.Text)
 resourceSharePermissionSummary_arn = Lens.lens (\ResourceSharePermissionSummary' {arn} -> arn) (\s@ResourceSharePermissionSummary' {} a -> s {arn = a} :: ResourceSharePermissionSummary)
 
--- | The current status of the permission.
-resourceSharePermissionSummary_status :: Lens.Lens' ResourceSharePermissionSummary (Prelude.Maybe Prelude.Text)
-resourceSharePermissionSummary_status = Lens.lens (\ResourceSharePermissionSummary' {status} -> status) (\s@ResourceSharePermissionSummary' {} a -> s {status = a} :: ResourceSharePermissionSummary)
-
--- | The date and time when the permission was last updated.
-resourceSharePermissionSummary_lastUpdatedTime :: Lens.Lens' ResourceSharePermissionSummary (Prelude.Maybe Prelude.UTCTime)
-resourceSharePermissionSummary_lastUpdatedTime = Lens.lens (\ResourceSharePermissionSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@ResourceSharePermissionSummary' {} a -> s {lastUpdatedTime = a} :: ResourceSharePermissionSummary) Prelude.. Lens.mapping Data._Time
+-- | The date and time when the permission was created.
+resourceSharePermissionSummary_creationTime :: Lens.Lens' ResourceSharePermissionSummary (Prelude.Maybe Prelude.UTCTime)
+resourceSharePermissionSummary_creationTime = Lens.lens (\ResourceSharePermissionSummary' {creationTime} -> creationTime) (\s@ResourceSharePermissionSummary' {} a -> s {creationTime = a} :: ResourceSharePermissionSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies whether the version of the permission represented in this
 -- structure is the default version for this permission.
 resourceSharePermissionSummary_defaultVersion :: Lens.Lens' ResourceSharePermissionSummary (Prelude.Maybe Prelude.Bool)
 resourceSharePermissionSummary_defaultVersion = Lens.lens (\ResourceSharePermissionSummary' {defaultVersion} -> defaultVersion) (\s@ResourceSharePermissionSummary' {} a -> s {defaultVersion = a} :: ResourceSharePermissionSummary)
 
--- | The date and time when the permission was created.
-resourceSharePermissionSummary_creationTime :: Lens.Lens' ResourceSharePermissionSummary (Prelude.Maybe Prelude.UTCTime)
-resourceSharePermissionSummary_creationTime = Lens.lens (\ResourceSharePermissionSummary' {creationTime} -> creationTime) (\s@ResourceSharePermissionSummary' {} a -> s {creationTime = a} :: ResourceSharePermissionSummary) Prelude.. Lens.mapping Data._Time
-
 -- | Specifies whether the version of the permission represented in this
 -- structure is the default version for all resources of this resource
 -- type.
 resourceSharePermissionSummary_isResourceTypeDefault :: Lens.Lens' ResourceSharePermissionSummary (Prelude.Maybe Prelude.Bool)
 resourceSharePermissionSummary_isResourceTypeDefault = Lens.lens (\ResourceSharePermissionSummary' {isResourceTypeDefault} -> isResourceTypeDefault) (\s@ResourceSharePermissionSummary' {} a -> s {isResourceTypeDefault = a} :: ResourceSharePermissionSummary)
+
+-- | The date and time when the permission was last updated.
+resourceSharePermissionSummary_lastUpdatedTime :: Lens.Lens' ResourceSharePermissionSummary (Prelude.Maybe Prelude.UTCTime)
+resourceSharePermissionSummary_lastUpdatedTime = Lens.lens (\ResourceSharePermissionSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@ResourceSharePermissionSummary' {} a -> s {lastUpdatedTime = a} :: ResourceSharePermissionSummary) Prelude.. Lens.mapping Data._Time
+
+-- | The name of this permission.
+resourceSharePermissionSummary_name :: Lens.Lens' ResourceSharePermissionSummary (Prelude.Maybe Prelude.Text)
+resourceSharePermissionSummary_name = Lens.lens (\ResourceSharePermissionSummary' {name} -> name) (\s@ResourceSharePermissionSummary' {} a -> s {name = a} :: ResourceSharePermissionSummary)
+
+-- | The type of resource to which this permission applies.
+resourceSharePermissionSummary_resourceType :: Lens.Lens' ResourceSharePermissionSummary (Prelude.Maybe Prelude.Text)
+resourceSharePermissionSummary_resourceType = Lens.lens (\ResourceSharePermissionSummary' {resourceType} -> resourceType) (\s@ResourceSharePermissionSummary' {} a -> s {resourceType = a} :: ResourceSharePermissionSummary)
+
+-- | The current status of the permission.
+resourceSharePermissionSummary_status :: Lens.Lens' ResourceSharePermissionSummary (Prelude.Maybe Prelude.Text)
+resourceSharePermissionSummary_status = Lens.lens (\ResourceSharePermissionSummary' {status} -> status) (\s@ResourceSharePermissionSummary' {} a -> s {status = a} :: ResourceSharePermissionSummary)
 
 -- | The version of the permission represented in this structure.
 resourceSharePermissionSummary_version :: Lens.Lens' ResourceSharePermissionSummary (Prelude.Maybe Prelude.Text)
@@ -148,14 +148,14 @@ instance Data.FromJSON ResourceSharePermissionSummary where
       "ResourceSharePermissionSummary"
       ( \x ->
           ResourceSharePermissionSummary'
-            Prelude.<$> (x Data..:? "resourceType")
-            Prelude.<*> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "arn")
-            Prelude.<*> (x Data..:? "status")
-            Prelude.<*> (x Data..:? "lastUpdatedTime")
-            Prelude.<*> (x Data..:? "defaultVersion")
+            Prelude.<$> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "defaultVersion")
             Prelude.<*> (x Data..:? "isResourceTypeDefault")
+            Prelude.<*> (x Data..:? "lastUpdatedTime")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "resourceType")
+            Prelude.<*> (x Data..:? "status")
             Prelude.<*> (x Data..:? "version")
       )
 
@@ -166,14 +166,14 @@ instance
   hashWithSalt
     _salt
     ResourceSharePermissionSummary' {..} =
-      _salt `Prelude.hashWithSalt` resourceType
-        `Prelude.hashWithSalt` name
-        `Prelude.hashWithSalt` arn
-        `Prelude.hashWithSalt` status
-        `Prelude.hashWithSalt` lastUpdatedTime
-        `Prelude.hashWithSalt` defaultVersion
+      _salt `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` creationTime
+        `Prelude.hashWithSalt` defaultVersion
         `Prelude.hashWithSalt` isResourceTypeDefault
+        `Prelude.hashWithSalt` lastUpdatedTime
+        `Prelude.hashWithSalt` name
+        `Prelude.hashWithSalt` resourceType
+        `Prelude.hashWithSalt` status
         `Prelude.hashWithSalt` version
 
 instance
@@ -181,12 +181,12 @@ instance
     ResourceSharePermissionSummary
   where
   rnf ResourceSharePermissionSummary' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf defaultVersion
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf defaultVersion
       `Prelude.seq` Prelude.rnf isResourceTypeDefault
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf version

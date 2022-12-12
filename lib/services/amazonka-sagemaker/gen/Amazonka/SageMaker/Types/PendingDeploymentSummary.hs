@@ -32,6 +32,12 @@ import Amazonka.SageMaker.Types.PendingProductionVariantSummary
 data PendingDeploymentSummary = PendingDeploymentSummary'
   { -- | List of @PendingProductionVariantSummary@ objects.
     productionVariants :: Prelude.Maybe (Prelude.NonEmpty PendingProductionVariantSummary),
+    -- | Array of @ProductionVariant@ objects, one for each model that you want
+    -- to host at this endpoint in shadow mode with production traffic
+    -- replicated from the model specified on @ProductionVariants@.If you use
+    -- this field, you can only specify one variant for @ProductionVariants@
+    -- and one variant for @ShadowProductionVariants@.
+    shadowProductionVariants :: Prelude.Maybe (Prelude.NonEmpty PendingProductionVariantSummary),
     -- | The start time of the deployment.
     startTime :: Prelude.Maybe Data.POSIX,
     -- | The name of the endpoint configuration used in the deployment.
@@ -49,6 +55,12 @@ data PendingDeploymentSummary = PendingDeploymentSummary'
 --
 -- 'productionVariants', 'pendingDeploymentSummary_productionVariants' - List of @PendingProductionVariantSummary@ objects.
 --
+-- 'shadowProductionVariants', 'pendingDeploymentSummary_shadowProductionVariants' - Array of @ProductionVariant@ objects, one for each model that you want
+-- to host at this endpoint in shadow mode with production traffic
+-- replicated from the model specified on @ProductionVariants@.If you use
+-- this field, you can only specify one variant for @ProductionVariants@
+-- and one variant for @ShadowProductionVariants@.
+--
 -- 'startTime', 'pendingDeploymentSummary_startTime' - The start time of the deployment.
 --
 -- 'endpointConfigName', 'pendingDeploymentSummary_endpointConfigName' - The name of the endpoint configuration used in the deployment.
@@ -60,6 +72,7 @@ newPendingDeploymentSummary pEndpointConfigName_ =
   PendingDeploymentSummary'
     { productionVariants =
         Prelude.Nothing,
+      shadowProductionVariants = Prelude.Nothing,
       startTime = Prelude.Nothing,
       endpointConfigName = pEndpointConfigName_
     }
@@ -67,6 +80,14 @@ newPendingDeploymentSummary pEndpointConfigName_ =
 -- | List of @PendingProductionVariantSummary@ objects.
 pendingDeploymentSummary_productionVariants :: Lens.Lens' PendingDeploymentSummary (Prelude.Maybe (Prelude.NonEmpty PendingProductionVariantSummary))
 pendingDeploymentSummary_productionVariants = Lens.lens (\PendingDeploymentSummary' {productionVariants} -> productionVariants) (\s@PendingDeploymentSummary' {} a -> s {productionVariants = a} :: PendingDeploymentSummary) Prelude.. Lens.mapping Lens.coerced
+
+-- | Array of @ProductionVariant@ objects, one for each model that you want
+-- to host at this endpoint in shadow mode with production traffic
+-- replicated from the model specified on @ProductionVariants@.If you use
+-- this field, you can only specify one variant for @ProductionVariants@
+-- and one variant for @ShadowProductionVariants@.
+pendingDeploymentSummary_shadowProductionVariants :: Lens.Lens' PendingDeploymentSummary (Prelude.Maybe (Prelude.NonEmpty PendingProductionVariantSummary))
+pendingDeploymentSummary_shadowProductionVariants = Lens.lens (\PendingDeploymentSummary' {shadowProductionVariants} -> shadowProductionVariants) (\s@PendingDeploymentSummary' {} a -> s {shadowProductionVariants = a} :: PendingDeploymentSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | The start time of the deployment.
 pendingDeploymentSummary_startTime :: Lens.Lens' PendingDeploymentSummary (Prelude.Maybe Prelude.UTCTime)
@@ -83,6 +104,7 @@ instance Data.FromJSON PendingDeploymentSummary where
       ( \x ->
           PendingDeploymentSummary'
             Prelude.<$> (x Data..:? "ProductionVariants")
+            Prelude.<*> (x Data..:? "ShadowProductionVariants")
             Prelude.<*> (x Data..:? "StartTime")
             Prelude.<*> (x Data..: "EndpointConfigName")
       )
@@ -90,11 +112,13 @@ instance Data.FromJSON PendingDeploymentSummary where
 instance Prelude.Hashable PendingDeploymentSummary where
   hashWithSalt _salt PendingDeploymentSummary' {..} =
     _salt `Prelude.hashWithSalt` productionVariants
+      `Prelude.hashWithSalt` shadowProductionVariants
       `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` endpointConfigName
 
 instance Prelude.NFData PendingDeploymentSummary where
   rnf PendingDeploymentSummary' {..} =
     Prelude.rnf productionVariants
+      `Prelude.seq` Prelude.rnf shadowProductionVariants
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf endpointConfigName

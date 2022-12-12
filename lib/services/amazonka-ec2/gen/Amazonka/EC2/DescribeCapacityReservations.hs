@@ -31,19 +31,19 @@ module Amazonka.EC2.DescribeCapacityReservations
     newDescribeCapacityReservations,
 
     -- * Request Lenses
-    describeCapacityReservations_nextToken,
-    describeCapacityReservations_filters,
     describeCapacityReservations_capacityReservationIds,
     describeCapacityReservations_dryRun,
+    describeCapacityReservations_filters,
     describeCapacityReservations_maxResults,
+    describeCapacityReservations_nextToken,
 
     -- * Destructuring the Response
     DescribeCapacityReservationsResponse (..),
     newDescribeCapacityReservationsResponse,
 
     -- * Response Lenses
-    describeCapacityReservationsResponse_nextToken,
     describeCapacityReservationsResponse_capacityReservations,
+    describeCapacityReservationsResponse_nextToken,
     describeCapacityReservationsResponse_httpStatus,
   )
 where
@@ -58,8 +58,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeCapacityReservations' smart constructor.
 data DescribeCapacityReservations = DescribeCapacityReservations'
-  { -- | The token to use to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The ID of the Capacity Reservation.
+    capacityReservationIds :: Prelude.Maybe [Prelude.Text],
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | One or more filters.
     --
     -- -   @instance-type@ - The type of instance for which the Capacity
@@ -145,18 +150,13 @@ data DescribeCapacityReservations = DescribeCapacityReservations'
     -- -   @placement-group-arn@ - The ARN of the cluster placement group in
     --     which the Capacity Reservation was created.
     filters :: Prelude.Maybe [Filter],
-    -- | The ID of the Capacity Reservation.
-    capacityReservationIds :: Prelude.Maybe [Prelude.Text],
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return for the request in a single
     -- page. The remaining results can be seen by sending another request with
     -- the returned @nextToken@ value. This value can be between 5 and 500. If
     -- @maxResults@ is given a larger value than 500, you receive an error.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to use to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -168,7 +168,12 @@ data DescribeCapacityReservations = DescribeCapacityReservations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeCapacityReservations_nextToken' - The token to use to retrieve the next page of results.
+-- 'capacityReservationIds', 'describeCapacityReservations_capacityReservationIds' - The ID of the Capacity Reservation.
+--
+-- 'dryRun', 'describeCapacityReservations_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'filters', 'describeCapacityReservations_filters' - One or more filters.
 --
@@ -255,32 +260,34 @@ data DescribeCapacityReservations = DescribeCapacityReservations'
 -- -   @placement-group-arn@ - The ARN of the cluster placement group in
 --     which the Capacity Reservation was created.
 --
--- 'capacityReservationIds', 'describeCapacityReservations_capacityReservationIds' - The ID of the Capacity Reservation.
---
--- 'dryRun', 'describeCapacityReservations_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'maxResults', 'describeCapacityReservations_maxResults' - The maximum number of results to return for the request in a single
 -- page. The remaining results can be seen by sending another request with
 -- the returned @nextToken@ value. This value can be between 5 and 500. If
 -- @maxResults@ is given a larger value than 500, you receive an error.
+--
+-- 'nextToken', 'describeCapacityReservations_nextToken' - The token to use to retrieve the next page of results.
 newDescribeCapacityReservations ::
   DescribeCapacityReservations
 newDescribeCapacityReservations =
   DescribeCapacityReservations'
-    { nextToken =
+    { capacityReservationIds =
         Prelude.Nothing,
-      filters = Prelude.Nothing,
-      capacityReservationIds = Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
 
--- | The token to use to retrieve the next page of results.
-describeCapacityReservations_nextToken :: Lens.Lens' DescribeCapacityReservations (Prelude.Maybe Prelude.Text)
-describeCapacityReservations_nextToken = Lens.lens (\DescribeCapacityReservations' {nextToken} -> nextToken) (\s@DescribeCapacityReservations' {} a -> s {nextToken = a} :: DescribeCapacityReservations)
+-- | The ID of the Capacity Reservation.
+describeCapacityReservations_capacityReservationIds :: Lens.Lens' DescribeCapacityReservations (Prelude.Maybe [Prelude.Text])
+describeCapacityReservations_capacityReservationIds = Lens.lens (\DescribeCapacityReservations' {capacityReservationIds} -> capacityReservationIds) (\s@DescribeCapacityReservations' {} a -> s {capacityReservationIds = a} :: DescribeCapacityReservations) Prelude.. Lens.mapping Lens.coerced
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeCapacityReservations_dryRun :: Lens.Lens' DescribeCapacityReservations (Prelude.Maybe Prelude.Bool)
+describeCapacityReservations_dryRun = Lens.lens (\DescribeCapacityReservations' {dryRun} -> dryRun) (\s@DescribeCapacityReservations' {} a -> s {dryRun = a} :: DescribeCapacityReservations)
 
 -- | One or more filters.
 --
@@ -369,23 +376,16 @@ describeCapacityReservations_nextToken = Lens.lens (\DescribeCapacityReservation
 describeCapacityReservations_filters :: Lens.Lens' DescribeCapacityReservations (Prelude.Maybe [Filter])
 describeCapacityReservations_filters = Lens.lens (\DescribeCapacityReservations' {filters} -> filters) (\s@DescribeCapacityReservations' {} a -> s {filters = a} :: DescribeCapacityReservations) Prelude.. Lens.mapping Lens.coerced
 
--- | The ID of the Capacity Reservation.
-describeCapacityReservations_capacityReservationIds :: Lens.Lens' DescribeCapacityReservations (Prelude.Maybe [Prelude.Text])
-describeCapacityReservations_capacityReservationIds = Lens.lens (\DescribeCapacityReservations' {capacityReservationIds} -> capacityReservationIds) (\s@DescribeCapacityReservations' {} a -> s {capacityReservationIds = a} :: DescribeCapacityReservations) Prelude.. Lens.mapping Lens.coerced
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeCapacityReservations_dryRun :: Lens.Lens' DescribeCapacityReservations (Prelude.Maybe Prelude.Bool)
-describeCapacityReservations_dryRun = Lens.lens (\DescribeCapacityReservations' {dryRun} -> dryRun) (\s@DescribeCapacityReservations' {} a -> s {dryRun = a} :: DescribeCapacityReservations)
-
 -- | The maximum number of results to return for the request in a single
 -- page. The remaining results can be seen by sending another request with
 -- the returned @nextToken@ value. This value can be between 5 and 500. If
 -- @maxResults@ is given a larger value than 500, you receive an error.
 describeCapacityReservations_maxResults :: Lens.Lens' DescribeCapacityReservations (Prelude.Maybe Prelude.Natural)
 describeCapacityReservations_maxResults = Lens.lens (\DescribeCapacityReservations' {maxResults} -> maxResults) (\s@DescribeCapacityReservations' {} a -> s {maxResults = a} :: DescribeCapacityReservations)
+
+-- | The token to use to retrieve the next page of results.
+describeCapacityReservations_nextToken :: Lens.Lens' DescribeCapacityReservations (Prelude.Maybe Prelude.Text)
+describeCapacityReservations_nextToken = Lens.lens (\DescribeCapacityReservations' {nextToken} -> nextToken) (\s@DescribeCapacityReservations' {} a -> s {nextToken = a} :: DescribeCapacityReservations)
 
 instance Core.AWSPager DescribeCapacityReservations where
   page rq rs
@@ -419,11 +419,11 @@ instance Core.AWSRequest DescribeCapacityReservations where
     Response.receiveXML
       ( \s h x ->
           DescribeCapacityReservationsResponse'
-            Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "capacityReservationSet"
+            Prelude.<$> ( x Data..@? "capacityReservationSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
+            Prelude.<*> (x Data..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -432,19 +432,19 @@ instance
     DescribeCapacityReservations
   where
   hashWithSalt _salt DescribeCapacityReservations' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` capacityReservationIds
+    _salt `Prelude.hashWithSalt` capacityReservationIds
       `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeCapacityReservations where
   rnf DescribeCapacityReservations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf capacityReservationIds
+    Prelude.rnf capacityReservationIds
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeCapacityReservations where
   toHeaders = Prelude.const Prelude.mempty
@@ -461,24 +461,24 @@ instance Data.ToQuery DescribeCapacityReservations where
                   ),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
-        Data.toQuery
-          (Data.toQueryList "Filter" Prelude.<$> filters),
         Data.toQuery
           ( Data.toQueryList "CapacityReservationId"
               Prelude.<$> capacityReservationIds
           ),
         "DryRun" Data.=: dryRun,
-        "MaxResults" Data.=: maxResults
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newDescribeCapacityReservationsResponse' smart constructor.
 data DescribeCapacityReservationsResponse = DescribeCapacityReservationsResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
+  { -- | Information about the Capacity Reservations.
+    capacityReservations :: Prelude.Maybe [CapacityReservation],
+    -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the Capacity Reservations.
-    capacityReservations :: Prelude.Maybe [CapacityReservation],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -492,10 +492,10 @@ data DescribeCapacityReservationsResponse = DescribeCapacityReservationsResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'capacityReservations', 'describeCapacityReservationsResponse_capacityReservations' - Information about the Capacity Reservations.
+--
 -- 'nextToken', 'describeCapacityReservationsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
---
--- 'capacityReservations', 'describeCapacityReservationsResponse_capacityReservations' - Information about the Capacity Reservations.
 --
 -- 'httpStatus', 'describeCapacityReservationsResponse_httpStatus' - The response's http status code.
 newDescribeCapacityReservationsResponse ::
@@ -504,21 +504,20 @@ newDescribeCapacityReservationsResponse ::
   DescribeCapacityReservationsResponse
 newDescribeCapacityReservationsResponse pHttpStatus_ =
   DescribeCapacityReservationsResponse'
-    { nextToken =
+    { capacityReservations =
         Prelude.Nothing,
-      capacityReservations =
-        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about the Capacity Reservations.
+describeCapacityReservationsResponse_capacityReservations :: Lens.Lens' DescribeCapacityReservationsResponse (Prelude.Maybe [CapacityReservation])
+describeCapacityReservationsResponse_capacityReservations = Lens.lens (\DescribeCapacityReservationsResponse' {capacityReservations} -> capacityReservations) (\s@DescribeCapacityReservationsResponse' {} a -> s {capacityReservations = a} :: DescribeCapacityReservationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 describeCapacityReservationsResponse_nextToken :: Lens.Lens' DescribeCapacityReservationsResponse (Prelude.Maybe Prelude.Text)
 describeCapacityReservationsResponse_nextToken = Lens.lens (\DescribeCapacityReservationsResponse' {nextToken} -> nextToken) (\s@DescribeCapacityReservationsResponse' {} a -> s {nextToken = a} :: DescribeCapacityReservationsResponse)
-
--- | Information about the Capacity Reservations.
-describeCapacityReservationsResponse_capacityReservations :: Lens.Lens' DescribeCapacityReservationsResponse (Prelude.Maybe [CapacityReservation])
-describeCapacityReservationsResponse_capacityReservations = Lens.lens (\DescribeCapacityReservationsResponse' {capacityReservations} -> capacityReservations) (\s@DescribeCapacityReservationsResponse' {} a -> s {capacityReservations = a} :: DescribeCapacityReservationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeCapacityReservationsResponse_httpStatus :: Lens.Lens' DescribeCapacityReservationsResponse Prelude.Int
@@ -529,6 +528,6 @@ instance
     DescribeCapacityReservationsResponse
   where
   rnf DescribeCapacityReservationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf capacityReservations
+    Prelude.rnf capacityReservations
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

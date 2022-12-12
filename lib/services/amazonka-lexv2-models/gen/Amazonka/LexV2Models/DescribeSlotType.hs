@@ -37,19 +37,19 @@ module Amazonka.LexV2Models.DescribeSlotType
     newDescribeSlotTypeResponse,
 
     -- * Response Lenses
+    describeSlotTypeResponse_botId,
     describeSlotTypeResponse_botVersion,
     describeSlotTypeResponse_compositeSlotTypeSetting,
     describeSlotTypeResponse_creationDateTime,
-    describeSlotTypeResponse_localeId,
-    describeSlotTypeResponse_externalSourceSetting,
-    describeSlotTypeResponse_valueSelectionSetting,
     describeSlotTypeResponse_description,
-    describeSlotTypeResponse_botId,
-    describeSlotTypeResponse_slotTypeValues,
-    describeSlotTypeResponse_slotTypeName,
-    describeSlotTypeResponse_slotTypeId,
-    describeSlotTypeResponse_parentSlotTypeSignature,
+    describeSlotTypeResponse_externalSourceSetting,
     describeSlotTypeResponse_lastUpdatedDateTime,
+    describeSlotTypeResponse_localeId,
+    describeSlotTypeResponse_parentSlotTypeSignature,
+    describeSlotTypeResponse_slotTypeId,
+    describeSlotTypeResponse_slotTypeName,
+    describeSlotTypeResponse_slotTypeValues,
+    describeSlotTypeResponse_valueSelectionSetting,
     describeSlotTypeResponse_httpStatus,
   )
 where
@@ -147,19 +147,19 @@ instance Core.AWSRequest DescribeSlotType where
     Response.receiveJSON
       ( \s h x ->
           DescribeSlotTypeResponse'
-            Prelude.<$> (x Data..?> "botVersion")
+            Prelude.<$> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "botVersion")
             Prelude.<*> (x Data..?> "compositeSlotTypeSetting")
             Prelude.<*> (x Data..?> "creationDateTime")
-            Prelude.<*> (x Data..?> "localeId")
-            Prelude.<*> (x Data..?> "externalSourceSetting")
-            Prelude.<*> (x Data..?> "valueSelectionSetting")
             Prelude.<*> (x Data..?> "description")
-            Prelude.<*> (x Data..?> "botId")
-            Prelude.<*> (x Data..?> "slotTypeValues")
-            Prelude.<*> (x Data..?> "slotTypeName")
-            Prelude.<*> (x Data..?> "slotTypeId")
-            Prelude.<*> (x Data..?> "parentSlotTypeSignature")
+            Prelude.<*> (x Data..?> "externalSourceSetting")
             Prelude.<*> (x Data..?> "lastUpdatedDateTime")
+            Prelude.<*> (x Data..?> "localeId")
+            Prelude.<*> (x Data..?> "parentSlotTypeSignature")
+            Prelude.<*> (x Data..?> "slotTypeId")
+            Prelude.<*> (x Data..?> "slotTypeName")
+            Prelude.<*> (x Data..?> "slotTypeValues")
+            Prelude.<*> (x Data..?> "valueSelectionSetting")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -207,33 +207,33 @@ instance Data.ToQuery DescribeSlotType where
 
 -- | /See:/ 'newDescribeSlotTypeResponse' smart constructor.
 data DescribeSlotTypeResponse = DescribeSlotTypeResponse'
-  { -- | The version of the bot associated with the slot type.
+  { -- | The identifier of the bot associated with the slot type.
+    botId :: Prelude.Maybe Prelude.Text,
+    -- | The version of the bot associated with the slot type.
     botVersion :: Prelude.Maybe Prelude.Text,
     -- | Specifications for a composite slot type.
     compositeSlotTypeSetting :: Prelude.Maybe CompositeSlotTypeSetting,
     -- | A timestamp of the date and time that the slot type was created.
     creationDateTime :: Prelude.Maybe Data.POSIX,
-    -- | The language and locale specified for the slot type.
-    localeId :: Prelude.Maybe Prelude.Text,
-    externalSourceSetting :: Prelude.Maybe ExternalSourceSetting,
-    -- | The strategy that Amazon Lex uses to choose a value from a list of
-    -- possible values.
-    valueSelectionSetting :: Prelude.Maybe SlotValueSelectionSetting,
     -- | The description specified for the slot type.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the bot associated with the slot type.
-    botId :: Prelude.Maybe Prelude.Text,
+    externalSourceSetting :: Prelude.Maybe ExternalSourceSetting,
+    -- | A timestamp of the date and time that the slot type was last updated.
+    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The language and locale specified for the slot type.
+    localeId :: Prelude.Maybe Prelude.Text,
+    -- | The built in slot type used as a parent to this slot type.
+    parentSlotTypeSignature :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier for the slot type.
+    slotTypeId :: Prelude.Maybe Prelude.Text,
+    -- | The name specified for the slot type.
+    slotTypeName :: Prelude.Maybe Prelude.Text,
     -- | The values that the slot type can take. Includes any synonyms for the
     -- slot type values.
     slotTypeValues :: Prelude.Maybe (Prelude.NonEmpty SlotTypeValue),
-    -- | The name specified for the slot type.
-    slotTypeName :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the slot type.
-    slotTypeId :: Prelude.Maybe Prelude.Text,
-    -- | The built in slot type used as a parent to this slot type.
-    parentSlotTypeSignature :: Prelude.Maybe Prelude.Text,
-    -- | A timestamp of the date and time that the slot type was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
+    -- | The strategy that Amazon Lex uses to choose a value from a list of
+    -- possible values.
+    valueSelectionSetting :: Prelude.Maybe SlotValueSelectionSetting,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -247,33 +247,33 @@ data DescribeSlotTypeResponse = DescribeSlotTypeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'botId', 'describeSlotTypeResponse_botId' - The identifier of the bot associated with the slot type.
+--
 -- 'botVersion', 'describeSlotTypeResponse_botVersion' - The version of the bot associated with the slot type.
 --
 -- 'compositeSlotTypeSetting', 'describeSlotTypeResponse_compositeSlotTypeSetting' - Specifications for a composite slot type.
 --
 -- 'creationDateTime', 'describeSlotTypeResponse_creationDateTime' - A timestamp of the date and time that the slot type was created.
 --
--- 'localeId', 'describeSlotTypeResponse_localeId' - The language and locale specified for the slot type.
+-- 'description', 'describeSlotTypeResponse_description' - The description specified for the slot type.
 --
 -- 'externalSourceSetting', 'describeSlotTypeResponse_externalSourceSetting' - Undocumented member.
 --
--- 'valueSelectionSetting', 'describeSlotTypeResponse_valueSelectionSetting' - The strategy that Amazon Lex uses to choose a value from a list of
--- possible values.
+-- 'lastUpdatedDateTime', 'describeSlotTypeResponse_lastUpdatedDateTime' - A timestamp of the date and time that the slot type was last updated.
 --
--- 'description', 'describeSlotTypeResponse_description' - The description specified for the slot type.
+-- 'localeId', 'describeSlotTypeResponse_localeId' - The language and locale specified for the slot type.
 --
--- 'botId', 'describeSlotTypeResponse_botId' - The identifier of the bot associated with the slot type.
+-- 'parentSlotTypeSignature', 'describeSlotTypeResponse_parentSlotTypeSignature' - The built in slot type used as a parent to this slot type.
+--
+-- 'slotTypeId', 'describeSlotTypeResponse_slotTypeId' - The unique identifier for the slot type.
+--
+-- 'slotTypeName', 'describeSlotTypeResponse_slotTypeName' - The name specified for the slot type.
 --
 -- 'slotTypeValues', 'describeSlotTypeResponse_slotTypeValues' - The values that the slot type can take. Includes any synonyms for the
 -- slot type values.
 --
--- 'slotTypeName', 'describeSlotTypeResponse_slotTypeName' - The name specified for the slot type.
---
--- 'slotTypeId', 'describeSlotTypeResponse_slotTypeId' - The unique identifier for the slot type.
---
--- 'parentSlotTypeSignature', 'describeSlotTypeResponse_parentSlotTypeSignature' - The built in slot type used as a parent to this slot type.
---
--- 'lastUpdatedDateTime', 'describeSlotTypeResponse_lastUpdatedDateTime' - A timestamp of the date and time that the slot type was last updated.
+-- 'valueSelectionSetting', 'describeSlotTypeResponse_valueSelectionSetting' - The strategy that Amazon Lex uses to choose a value from a list of
+-- possible values.
 --
 -- 'httpStatus', 'describeSlotTypeResponse_httpStatus' - The response's http status code.
 newDescribeSlotTypeResponse ::
@@ -282,22 +282,25 @@ newDescribeSlotTypeResponse ::
   DescribeSlotTypeResponse
 newDescribeSlotTypeResponse pHttpStatus_ =
   DescribeSlotTypeResponse'
-    { botVersion =
-        Prelude.Nothing,
+    { botId = Prelude.Nothing,
+      botVersion = Prelude.Nothing,
       compositeSlotTypeSetting = Prelude.Nothing,
       creationDateTime = Prelude.Nothing,
-      localeId = Prelude.Nothing,
-      externalSourceSetting = Prelude.Nothing,
-      valueSelectionSetting = Prelude.Nothing,
       description = Prelude.Nothing,
-      botId = Prelude.Nothing,
-      slotTypeValues = Prelude.Nothing,
-      slotTypeName = Prelude.Nothing,
-      slotTypeId = Prelude.Nothing,
-      parentSlotTypeSignature = Prelude.Nothing,
+      externalSourceSetting = Prelude.Nothing,
       lastUpdatedDateTime = Prelude.Nothing,
+      localeId = Prelude.Nothing,
+      parentSlotTypeSignature = Prelude.Nothing,
+      slotTypeId = Prelude.Nothing,
+      slotTypeName = Prelude.Nothing,
+      slotTypeValues = Prelude.Nothing,
+      valueSelectionSetting = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The identifier of the bot associated with the slot type.
+describeSlotTypeResponse_botId :: Lens.Lens' DescribeSlotTypeResponse (Prelude.Maybe Prelude.Text)
+describeSlotTypeResponse_botId = Lens.lens (\DescribeSlotTypeResponse' {botId} -> botId) (\s@DescribeSlotTypeResponse' {} a -> s {botId = a} :: DescribeSlotTypeResponse)
 
 -- | The version of the bot associated with the slot type.
 describeSlotTypeResponse_botVersion :: Lens.Lens' DescribeSlotTypeResponse (Prelude.Maybe Prelude.Text)
@@ -311,47 +314,43 @@ describeSlotTypeResponse_compositeSlotTypeSetting = Lens.lens (\DescribeSlotType
 describeSlotTypeResponse_creationDateTime :: Lens.Lens' DescribeSlotTypeResponse (Prelude.Maybe Prelude.UTCTime)
 describeSlotTypeResponse_creationDateTime = Lens.lens (\DescribeSlotTypeResponse' {creationDateTime} -> creationDateTime) (\s@DescribeSlotTypeResponse' {} a -> s {creationDateTime = a} :: DescribeSlotTypeResponse) Prelude.. Lens.mapping Data._Time
 
--- | The language and locale specified for the slot type.
-describeSlotTypeResponse_localeId :: Lens.Lens' DescribeSlotTypeResponse (Prelude.Maybe Prelude.Text)
-describeSlotTypeResponse_localeId = Lens.lens (\DescribeSlotTypeResponse' {localeId} -> localeId) (\s@DescribeSlotTypeResponse' {} a -> s {localeId = a} :: DescribeSlotTypeResponse)
+-- | The description specified for the slot type.
+describeSlotTypeResponse_description :: Lens.Lens' DescribeSlotTypeResponse (Prelude.Maybe Prelude.Text)
+describeSlotTypeResponse_description = Lens.lens (\DescribeSlotTypeResponse' {description} -> description) (\s@DescribeSlotTypeResponse' {} a -> s {description = a} :: DescribeSlotTypeResponse)
 
 -- | Undocumented member.
 describeSlotTypeResponse_externalSourceSetting :: Lens.Lens' DescribeSlotTypeResponse (Prelude.Maybe ExternalSourceSetting)
 describeSlotTypeResponse_externalSourceSetting = Lens.lens (\DescribeSlotTypeResponse' {externalSourceSetting} -> externalSourceSetting) (\s@DescribeSlotTypeResponse' {} a -> s {externalSourceSetting = a} :: DescribeSlotTypeResponse)
 
--- | The strategy that Amazon Lex uses to choose a value from a list of
--- possible values.
-describeSlotTypeResponse_valueSelectionSetting :: Lens.Lens' DescribeSlotTypeResponse (Prelude.Maybe SlotValueSelectionSetting)
-describeSlotTypeResponse_valueSelectionSetting = Lens.lens (\DescribeSlotTypeResponse' {valueSelectionSetting} -> valueSelectionSetting) (\s@DescribeSlotTypeResponse' {} a -> s {valueSelectionSetting = a} :: DescribeSlotTypeResponse)
+-- | A timestamp of the date and time that the slot type was last updated.
+describeSlotTypeResponse_lastUpdatedDateTime :: Lens.Lens' DescribeSlotTypeResponse (Prelude.Maybe Prelude.UTCTime)
+describeSlotTypeResponse_lastUpdatedDateTime = Lens.lens (\DescribeSlotTypeResponse' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DescribeSlotTypeResponse' {} a -> s {lastUpdatedDateTime = a} :: DescribeSlotTypeResponse) Prelude.. Lens.mapping Data._Time
 
--- | The description specified for the slot type.
-describeSlotTypeResponse_description :: Lens.Lens' DescribeSlotTypeResponse (Prelude.Maybe Prelude.Text)
-describeSlotTypeResponse_description = Lens.lens (\DescribeSlotTypeResponse' {description} -> description) (\s@DescribeSlotTypeResponse' {} a -> s {description = a} :: DescribeSlotTypeResponse)
+-- | The language and locale specified for the slot type.
+describeSlotTypeResponse_localeId :: Lens.Lens' DescribeSlotTypeResponse (Prelude.Maybe Prelude.Text)
+describeSlotTypeResponse_localeId = Lens.lens (\DescribeSlotTypeResponse' {localeId} -> localeId) (\s@DescribeSlotTypeResponse' {} a -> s {localeId = a} :: DescribeSlotTypeResponse)
 
--- | The identifier of the bot associated with the slot type.
-describeSlotTypeResponse_botId :: Lens.Lens' DescribeSlotTypeResponse (Prelude.Maybe Prelude.Text)
-describeSlotTypeResponse_botId = Lens.lens (\DescribeSlotTypeResponse' {botId} -> botId) (\s@DescribeSlotTypeResponse' {} a -> s {botId = a} :: DescribeSlotTypeResponse)
+-- | The built in slot type used as a parent to this slot type.
+describeSlotTypeResponse_parentSlotTypeSignature :: Lens.Lens' DescribeSlotTypeResponse (Prelude.Maybe Prelude.Text)
+describeSlotTypeResponse_parentSlotTypeSignature = Lens.lens (\DescribeSlotTypeResponse' {parentSlotTypeSignature} -> parentSlotTypeSignature) (\s@DescribeSlotTypeResponse' {} a -> s {parentSlotTypeSignature = a} :: DescribeSlotTypeResponse)
+
+-- | The unique identifier for the slot type.
+describeSlotTypeResponse_slotTypeId :: Lens.Lens' DescribeSlotTypeResponse (Prelude.Maybe Prelude.Text)
+describeSlotTypeResponse_slotTypeId = Lens.lens (\DescribeSlotTypeResponse' {slotTypeId} -> slotTypeId) (\s@DescribeSlotTypeResponse' {} a -> s {slotTypeId = a} :: DescribeSlotTypeResponse)
+
+-- | The name specified for the slot type.
+describeSlotTypeResponse_slotTypeName :: Lens.Lens' DescribeSlotTypeResponse (Prelude.Maybe Prelude.Text)
+describeSlotTypeResponse_slotTypeName = Lens.lens (\DescribeSlotTypeResponse' {slotTypeName} -> slotTypeName) (\s@DescribeSlotTypeResponse' {} a -> s {slotTypeName = a} :: DescribeSlotTypeResponse)
 
 -- | The values that the slot type can take. Includes any synonyms for the
 -- slot type values.
 describeSlotTypeResponse_slotTypeValues :: Lens.Lens' DescribeSlotTypeResponse (Prelude.Maybe (Prelude.NonEmpty SlotTypeValue))
 describeSlotTypeResponse_slotTypeValues = Lens.lens (\DescribeSlotTypeResponse' {slotTypeValues} -> slotTypeValues) (\s@DescribeSlotTypeResponse' {} a -> s {slotTypeValues = a} :: DescribeSlotTypeResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The name specified for the slot type.
-describeSlotTypeResponse_slotTypeName :: Lens.Lens' DescribeSlotTypeResponse (Prelude.Maybe Prelude.Text)
-describeSlotTypeResponse_slotTypeName = Lens.lens (\DescribeSlotTypeResponse' {slotTypeName} -> slotTypeName) (\s@DescribeSlotTypeResponse' {} a -> s {slotTypeName = a} :: DescribeSlotTypeResponse)
-
--- | The unique identifier for the slot type.
-describeSlotTypeResponse_slotTypeId :: Lens.Lens' DescribeSlotTypeResponse (Prelude.Maybe Prelude.Text)
-describeSlotTypeResponse_slotTypeId = Lens.lens (\DescribeSlotTypeResponse' {slotTypeId} -> slotTypeId) (\s@DescribeSlotTypeResponse' {} a -> s {slotTypeId = a} :: DescribeSlotTypeResponse)
-
--- | The built in slot type used as a parent to this slot type.
-describeSlotTypeResponse_parentSlotTypeSignature :: Lens.Lens' DescribeSlotTypeResponse (Prelude.Maybe Prelude.Text)
-describeSlotTypeResponse_parentSlotTypeSignature = Lens.lens (\DescribeSlotTypeResponse' {parentSlotTypeSignature} -> parentSlotTypeSignature) (\s@DescribeSlotTypeResponse' {} a -> s {parentSlotTypeSignature = a} :: DescribeSlotTypeResponse)
-
--- | A timestamp of the date and time that the slot type was last updated.
-describeSlotTypeResponse_lastUpdatedDateTime :: Lens.Lens' DescribeSlotTypeResponse (Prelude.Maybe Prelude.UTCTime)
-describeSlotTypeResponse_lastUpdatedDateTime = Lens.lens (\DescribeSlotTypeResponse' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DescribeSlotTypeResponse' {} a -> s {lastUpdatedDateTime = a} :: DescribeSlotTypeResponse) Prelude.. Lens.mapping Data._Time
+-- | The strategy that Amazon Lex uses to choose a value from a list of
+-- possible values.
+describeSlotTypeResponse_valueSelectionSetting :: Lens.Lens' DescribeSlotTypeResponse (Prelude.Maybe SlotValueSelectionSetting)
+describeSlotTypeResponse_valueSelectionSetting = Lens.lens (\DescribeSlotTypeResponse' {valueSelectionSetting} -> valueSelectionSetting) (\s@DescribeSlotTypeResponse' {} a -> s {valueSelectionSetting = a} :: DescribeSlotTypeResponse)
 
 -- | The response's http status code.
 describeSlotTypeResponse_httpStatus :: Lens.Lens' DescribeSlotTypeResponse Prelude.Int
@@ -359,17 +358,17 @@ describeSlotTypeResponse_httpStatus = Lens.lens (\DescribeSlotTypeResponse' {htt
 
 instance Prelude.NFData DescribeSlotTypeResponse where
   rnf DescribeSlotTypeResponse' {..} =
-    Prelude.rnf botVersion
+    Prelude.rnf botId
+      `Prelude.seq` Prelude.rnf botVersion
       `Prelude.seq` Prelude.rnf compositeSlotTypeSetting
       `Prelude.seq` Prelude.rnf creationDateTime
-      `Prelude.seq` Prelude.rnf localeId
-      `Prelude.seq` Prelude.rnf externalSourceSetting
-      `Prelude.seq` Prelude.rnf valueSelectionSetting
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf botId
-      `Prelude.seq` Prelude.rnf slotTypeValues
-      `Prelude.seq` Prelude.rnf slotTypeName
-      `Prelude.seq` Prelude.rnf slotTypeId
-      `Prelude.seq` Prelude.rnf parentSlotTypeSignature
+      `Prelude.seq` Prelude.rnf externalSourceSetting
       `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf localeId
+      `Prelude.seq` Prelude.rnf parentSlotTypeSignature
+      `Prelude.seq` Prelude.rnf slotTypeId
+      `Prelude.seq` Prelude.rnf slotTypeName
+      `Prelude.seq` Prelude.rnf slotTypeValues
+      `Prelude.seq` Prelude.rnf valueSelectionSetting
       `Prelude.seq` Prelude.rnf httpStatus

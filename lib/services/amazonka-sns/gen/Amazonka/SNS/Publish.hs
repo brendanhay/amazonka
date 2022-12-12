@@ -47,14 +47,14 @@ module Amazonka.SNS.Publish
     newPublish,
 
     -- * Request Lenses
+    publish_messageAttributes,
     publish_messageDeduplicationId,
     publish_messageGroupId,
-    publish_targetArn,
-    publish_topicArn,
-    publish_messageAttributes,
     publish_messageStructure,
     publish_phoneNumber,
     publish_subject,
+    publish_targetArn,
+    publish_topicArn,
     publish_message,
 
     -- * Destructuring the Response
@@ -80,7 +80,9 @@ import Amazonka.SNS.Types
 --
 -- /See:/ 'newPublish' smart constructor.
 data Publish = Publish'
-  { -- | This parameter applies only to FIFO (first-in-first-out) topics. The
+  { -- | Message attributes for Publish action.
+    messageAttributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text MessageAttributeValue),
+    -- | This parameter applies only to FIFO (first-in-first-out) topics. The
     -- @MessageDeduplicationId@ can contain up to 128 alphanumeric characters
     -- @(a-z, A-Z, 0-9)@ and punctuation
     -- @(!\"#$%&\'()*+,-.\/:;\<=>?\@[\\]^_\`{|}~)@.
@@ -106,16 +108,6 @@ data Publish = Publish'
     -- groups might be processed out of order). Every message must include a
     -- @MessageGroupId@.
     messageGroupId :: Prelude.Maybe Prelude.Text,
-    -- | If you don\'t specify a value for the @TargetArn@ parameter, you must
-    -- specify a value for the @PhoneNumber@ or @TopicArn@ parameters.
-    targetArn :: Prelude.Maybe Prelude.Text,
-    -- | The topic you want to publish to.
-    --
-    -- If you don\'t specify a value for the @TopicArn@ parameter, you must
-    -- specify a value for the @PhoneNumber@ or @TargetArn@ parameters.
-    topicArn :: Prelude.Maybe Prelude.Text,
-    -- | Message attributes for Publish action.
-    messageAttributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text MessageAttributeValue),
     -- | Set @MessageStructure@ to @json@ if you want to send a different message
     -- for each protocol. For example, using one publish action, you can send a
     -- short message to your SMS subscribers and a longer message to your email
@@ -146,6 +138,14 @@ data Publish = Publish'
     -- number, or punctuation mark; must not include line breaks or control
     -- characters; and must be less than 100 characters long.
     subject :: Prelude.Maybe Prelude.Text,
+    -- | If you don\'t specify a value for the @TargetArn@ parameter, you must
+    -- specify a value for the @PhoneNumber@ or @TopicArn@ parameters.
+    targetArn :: Prelude.Maybe Prelude.Text,
+    -- | The topic you want to publish to.
+    --
+    -- If you don\'t specify a value for the @TopicArn@ parameter, you must
+    -- specify a value for the @PhoneNumber@ or @TargetArn@ parameters.
+    topicArn :: Prelude.Maybe Prelude.Text,
     -- | The message you want to send.
     --
     -- If you are publishing to a topic and you want to send the same message
@@ -210,6 +210,8 @@ data Publish = Publish'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'messageAttributes', 'publish_messageAttributes' - Message attributes for Publish action.
+--
 -- 'messageDeduplicationId', 'publish_messageDeduplicationId' - This parameter applies only to FIFO (first-in-first-out) topics. The
 -- @MessageDeduplicationId@ can contain up to 128 alphanumeric characters
 -- @(a-z, A-Z, 0-9)@ and punctuation
@@ -235,16 +237,6 @@ data Publish = Publish'
 -- are processed in a FIFO manner (however, messages in different message
 -- groups might be processed out of order). Every message must include a
 -- @MessageGroupId@.
---
--- 'targetArn', 'publish_targetArn' - If you don\'t specify a value for the @TargetArn@ parameter, you must
--- specify a value for the @PhoneNumber@ or @TopicArn@ parameters.
---
--- 'topicArn', 'publish_topicArn' - The topic you want to publish to.
---
--- If you don\'t specify a value for the @TopicArn@ parameter, you must
--- specify a value for the @PhoneNumber@ or @TargetArn@ parameters.
---
--- 'messageAttributes', 'publish_messageAttributes' - Message attributes for Publish action.
 --
 -- 'messageStructure', 'publish_messageStructure' - Set @MessageStructure@ to @json@ if you want to send a different message
 -- for each protocol. For example, using one publish action, you can send a
@@ -275,6 +267,14 @@ data Publish = Publish'
 -- Constraints: Subjects must be ASCII text that begins with a letter,
 -- number, or punctuation mark; must not include line breaks or control
 -- characters; and must be less than 100 characters long.
+--
+-- 'targetArn', 'publish_targetArn' - If you don\'t specify a value for the @TargetArn@ parameter, you must
+-- specify a value for the @PhoneNumber@ or @TopicArn@ parameters.
+--
+-- 'topicArn', 'publish_topicArn' - The topic you want to publish to.
+--
+-- If you don\'t specify a value for the @TopicArn@ parameter, you must
+-- specify a value for the @PhoneNumber@ or @TargetArn@ parameters.
 --
 -- 'message', 'publish_message' - The message you want to send.
 --
@@ -334,16 +334,20 @@ newPublish ::
   Publish
 newPublish pMessage_ =
   Publish'
-    { messageDeduplicationId = Prelude.Nothing,
+    { messageAttributes = Prelude.Nothing,
+      messageDeduplicationId = Prelude.Nothing,
       messageGroupId = Prelude.Nothing,
-      targetArn = Prelude.Nothing,
-      topicArn = Prelude.Nothing,
-      messageAttributes = Prelude.Nothing,
       messageStructure = Prelude.Nothing,
       phoneNumber = Prelude.Nothing,
       subject = Prelude.Nothing,
+      targetArn = Prelude.Nothing,
+      topicArn = Prelude.Nothing,
       message = pMessage_
     }
+
+-- | Message attributes for Publish action.
+publish_messageAttributes :: Lens.Lens' Publish (Prelude.Maybe (Prelude.HashMap Prelude.Text MessageAttributeValue))
+publish_messageAttributes = Lens.lens (\Publish' {messageAttributes} -> messageAttributes) (\s@Publish' {} a -> s {messageAttributes = a} :: Publish) Prelude.. Lens.mapping Lens.coerced
 
 -- | This parameter applies only to FIFO (first-in-first-out) topics. The
 -- @MessageDeduplicationId@ can contain up to 128 alphanumeric characters
@@ -374,22 +378,6 @@ publish_messageDeduplicationId = Lens.lens (\Publish' {messageDeduplicationId} -
 -- @MessageGroupId@.
 publish_messageGroupId :: Lens.Lens' Publish (Prelude.Maybe Prelude.Text)
 publish_messageGroupId = Lens.lens (\Publish' {messageGroupId} -> messageGroupId) (\s@Publish' {} a -> s {messageGroupId = a} :: Publish)
-
--- | If you don\'t specify a value for the @TargetArn@ parameter, you must
--- specify a value for the @PhoneNumber@ or @TopicArn@ parameters.
-publish_targetArn :: Lens.Lens' Publish (Prelude.Maybe Prelude.Text)
-publish_targetArn = Lens.lens (\Publish' {targetArn} -> targetArn) (\s@Publish' {} a -> s {targetArn = a} :: Publish)
-
--- | The topic you want to publish to.
---
--- If you don\'t specify a value for the @TopicArn@ parameter, you must
--- specify a value for the @PhoneNumber@ or @TargetArn@ parameters.
-publish_topicArn :: Lens.Lens' Publish (Prelude.Maybe Prelude.Text)
-publish_topicArn = Lens.lens (\Publish' {topicArn} -> topicArn) (\s@Publish' {} a -> s {topicArn = a} :: Publish)
-
--- | Message attributes for Publish action.
-publish_messageAttributes :: Lens.Lens' Publish (Prelude.Maybe (Prelude.HashMap Prelude.Text MessageAttributeValue))
-publish_messageAttributes = Lens.lens (\Publish' {messageAttributes} -> messageAttributes) (\s@Publish' {} a -> s {messageAttributes = a} :: Publish) Prelude.. Lens.mapping Lens.coerced
 
 -- | Set @MessageStructure@ to @json@ if you want to send a different message
 -- for each protocol. For example, using one publish action, you can send a
@@ -426,6 +414,18 @@ publish_phoneNumber = Lens.lens (\Publish' {phoneNumber} -> phoneNumber) (\s@Pub
 -- characters; and must be less than 100 characters long.
 publish_subject :: Lens.Lens' Publish (Prelude.Maybe Prelude.Text)
 publish_subject = Lens.lens (\Publish' {subject} -> subject) (\s@Publish' {} a -> s {subject = a} :: Publish)
+
+-- | If you don\'t specify a value for the @TargetArn@ parameter, you must
+-- specify a value for the @PhoneNumber@ or @TopicArn@ parameters.
+publish_targetArn :: Lens.Lens' Publish (Prelude.Maybe Prelude.Text)
+publish_targetArn = Lens.lens (\Publish' {targetArn} -> targetArn) (\s@Publish' {} a -> s {targetArn = a} :: Publish)
+
+-- | The topic you want to publish to.
+--
+-- If you don\'t specify a value for the @TopicArn@ parameter, you must
+-- specify a value for the @PhoneNumber@ or @TargetArn@ parameters.
+publish_topicArn :: Lens.Lens' Publish (Prelude.Maybe Prelude.Text)
+publish_topicArn = Lens.lens (\Publish' {topicArn} -> topicArn) (\s@Publish' {} a -> s {topicArn = a} :: Publish)
 
 -- | The message you want to send.
 --
@@ -498,26 +498,26 @@ instance Core.AWSRequest Publish where
 
 instance Prelude.Hashable Publish where
   hashWithSalt _salt Publish' {..} =
-    _salt `Prelude.hashWithSalt` messageDeduplicationId
+    _salt `Prelude.hashWithSalt` messageAttributes
+      `Prelude.hashWithSalt` messageDeduplicationId
       `Prelude.hashWithSalt` messageGroupId
-      `Prelude.hashWithSalt` targetArn
-      `Prelude.hashWithSalt` topicArn
-      `Prelude.hashWithSalt` messageAttributes
       `Prelude.hashWithSalt` messageStructure
       `Prelude.hashWithSalt` phoneNumber
       `Prelude.hashWithSalt` subject
+      `Prelude.hashWithSalt` targetArn
+      `Prelude.hashWithSalt` topicArn
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData Publish where
   rnf Publish' {..} =
-    Prelude.rnf messageDeduplicationId
+    Prelude.rnf messageAttributes
+      `Prelude.seq` Prelude.rnf messageDeduplicationId
       `Prelude.seq` Prelude.rnf messageGroupId
-      `Prelude.seq` Prelude.rnf targetArn
-      `Prelude.seq` Prelude.rnf topicArn
-      `Prelude.seq` Prelude.rnf messageAttributes
       `Prelude.seq` Prelude.rnf messageStructure
       `Prelude.seq` Prelude.rnf phoneNumber
       `Prelude.seq` Prelude.rnf subject
+      `Prelude.seq` Prelude.rnf targetArn
+      `Prelude.seq` Prelude.rnf topicArn
       `Prelude.seq` Prelude.rnf message
 
 instance Data.ToHeaders Publish where
@@ -532,19 +532,19 @@ instance Data.ToQuery Publish where
       [ "Action" Data.=: ("Publish" :: Prelude.ByteString),
         "Version"
           Data.=: ("2010-03-31" :: Prelude.ByteString),
-        "MessageDeduplicationId"
-          Data.=: messageDeduplicationId,
-        "MessageGroupId" Data.=: messageGroupId,
-        "TargetArn" Data.=: targetArn,
-        "TopicArn" Data.=: topicArn,
         "MessageAttributes"
           Data.=: Data.toQuery
             ( Data.toQueryMap "entry" "Name" "Value"
                 Prelude.<$> messageAttributes
             ),
+        "MessageDeduplicationId"
+          Data.=: messageDeduplicationId,
+        "MessageGroupId" Data.=: messageGroupId,
         "MessageStructure" Data.=: messageStructure,
         "PhoneNumber" Data.=: phoneNumber,
         "Subject" Data.=: subject,
+        "TargetArn" Data.=: targetArn,
+        "TopicArn" Data.=: topicArn,
         "Message" Data.=: message
       ]
 

@@ -130,10 +130,10 @@ module Amazonka.S3.SelectObjectContent
     -- * Request Lenses
     selectObjectContent_expectedBucketOwner,
     selectObjectContent_requestProgress,
-    selectObjectContent_scanRange,
     selectObjectContent_sSECustomerAlgorithm,
-    selectObjectContent_sSECustomerKeyMD5,
     selectObjectContent_sSECustomerKey,
+    selectObjectContent_sSECustomerKeyMD5,
+    selectObjectContent_scanRange,
     selectObjectContent_bucket,
     selectObjectContent_key,
     selectObjectContent_expression,
@@ -176,6 +176,24 @@ data SelectObjectContent = SelectObjectContent'
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | Specifies if periodic request progress information should be enabled.
     requestProgress :: Prelude.Maybe RequestProgress,
+    -- | The server-side encryption (SSE) algorithm used to encrypt the object.
+    -- This parameter is needed only when the object was created using a
+    -- checksum algorithm. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
+    -- in the /Amazon S3 User Guide/.
+    sSECustomerAlgorithm :: Prelude.Maybe Prelude.Text,
+    -- | The server-side encryption (SSE) customer managed key. This parameter is
+    -- needed only when the object was created using a checksum algorithm. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
+    -- in the /Amazon S3 User Guide/.
+    sSECustomerKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The MD5 server-side encryption (SSE) customer managed key. This
+    -- parameter is needed only when the object was created using a checksum
+    -- algorithm. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
+    -- in the /Amazon S3 User Guide/.
+    sSECustomerKeyMD5 :: Prelude.Maybe Prelude.Text,
     -- | Specifies the byte range of the object to get the records from. A record
     -- is processed when its first byte is contained by the range. This
     -- parameter is optional, but when specified, it must not be empty. See RFC
@@ -194,24 +212,6 @@ data SelectObjectContent = SelectObjectContent'
     -- -   @\<scanrange>\<end>50\<\/end>\<\/scanrange>@ - process only the
     --     records within the last 50 bytes of the file.
     scanRange :: Prelude.Maybe ScanRange,
-    -- | The server-side encryption (SSE) algorithm used to encrypt the object.
-    -- This parameter is needed only when the object was created using a
-    -- checksum algorithm. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
-    -- in the /Amazon S3 User Guide/.
-    sSECustomerAlgorithm :: Prelude.Maybe Prelude.Text,
-    -- | The MD5 server-side encryption (SSE) customer managed key. This
-    -- parameter is needed only when the object was created using a checksum
-    -- algorithm. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
-    -- in the /Amazon S3 User Guide/.
-    sSECustomerKeyMD5 :: Prelude.Maybe Prelude.Text,
-    -- | The server-side encryption (SSE) customer managed key. This parameter is
-    -- needed only when the object was created using a checksum algorithm. For
-    -- more information, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
-    -- in the /Amazon S3 User Guide/.
-    sSECustomerKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The S3 bucket.
     bucket :: BucketName,
     -- | The object key.
@@ -242,6 +242,24 @@ data SelectObjectContent = SelectObjectContent'
 --
 -- 'requestProgress', 'selectObjectContent_requestProgress' - Specifies if periodic request progress information should be enabled.
 --
+-- 'sSECustomerAlgorithm', 'selectObjectContent_sSECustomerAlgorithm' - The server-side encryption (SSE) algorithm used to encrypt the object.
+-- This parameter is needed only when the object was created using a
+-- checksum algorithm. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
+-- in the /Amazon S3 User Guide/.
+--
+-- 'sSECustomerKey', 'selectObjectContent_sSECustomerKey' - The server-side encryption (SSE) customer managed key. This parameter is
+-- needed only when the object was created using a checksum algorithm. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
+-- in the /Amazon S3 User Guide/.
+--
+-- 'sSECustomerKeyMD5', 'selectObjectContent_sSECustomerKeyMD5' - The MD5 server-side encryption (SSE) customer managed key. This
+-- parameter is needed only when the object was created using a checksum
+-- algorithm. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
+-- in the /Amazon S3 User Guide/.
+--
 -- 'scanRange', 'selectObjectContent_scanRange' - Specifies the byte range of the object to get the records from. A record
 -- is processed when its first byte is contained by the range. This
 -- parameter is optional, but when specified, it must not be empty. See RFC
@@ -259,24 +277,6 @@ data SelectObjectContent = SelectObjectContent'
 --
 -- -   @\<scanrange>\<end>50\<\/end>\<\/scanrange>@ - process only the
 --     records within the last 50 bytes of the file.
---
--- 'sSECustomerAlgorithm', 'selectObjectContent_sSECustomerAlgorithm' - The server-side encryption (SSE) algorithm used to encrypt the object.
--- This parameter is needed only when the object was created using a
--- checksum algorithm. For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
--- in the /Amazon S3 User Guide/.
---
--- 'sSECustomerKeyMD5', 'selectObjectContent_sSECustomerKeyMD5' - The MD5 server-side encryption (SSE) customer managed key. This
--- parameter is needed only when the object was created using a checksum
--- algorithm. For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
--- in the /Amazon S3 User Guide/.
---
--- 'sSECustomerKey', 'selectObjectContent_sSECustomerKey' - The server-side encryption (SSE) customer managed key. This parameter is
--- needed only when the object was created using a checksum algorithm. For
--- more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
--- in the /Amazon S3 User Guide/.
 --
 -- 'bucket', 'selectObjectContent_bucket' - The S3 bucket.
 --
@@ -315,10 +315,10 @@ newSelectObjectContent
       { expectedBucketOwner =
           Prelude.Nothing,
         requestProgress = Prelude.Nothing,
-        scanRange = Prelude.Nothing,
         sSECustomerAlgorithm = Prelude.Nothing,
-        sSECustomerKeyMD5 = Prelude.Nothing,
         sSECustomerKey = Prelude.Nothing,
+        sSECustomerKeyMD5 = Prelude.Nothing,
+        scanRange = Prelude.Nothing,
         bucket = pBucket_,
         key = pKey_,
         expression = pExpression_,
@@ -336,6 +336,30 @@ selectObjectContent_expectedBucketOwner = Lens.lens (\SelectObjectContent' {expe
 -- | Specifies if periodic request progress information should be enabled.
 selectObjectContent_requestProgress :: Lens.Lens' SelectObjectContent (Prelude.Maybe RequestProgress)
 selectObjectContent_requestProgress = Lens.lens (\SelectObjectContent' {requestProgress} -> requestProgress) (\s@SelectObjectContent' {} a -> s {requestProgress = a} :: SelectObjectContent)
+
+-- | The server-side encryption (SSE) algorithm used to encrypt the object.
+-- This parameter is needed only when the object was created using a
+-- checksum algorithm. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
+-- in the /Amazon S3 User Guide/.
+selectObjectContent_sSECustomerAlgorithm :: Lens.Lens' SelectObjectContent (Prelude.Maybe Prelude.Text)
+selectObjectContent_sSECustomerAlgorithm = Lens.lens (\SelectObjectContent' {sSECustomerAlgorithm} -> sSECustomerAlgorithm) (\s@SelectObjectContent' {} a -> s {sSECustomerAlgorithm = a} :: SelectObjectContent)
+
+-- | The server-side encryption (SSE) customer managed key. This parameter is
+-- needed only when the object was created using a checksum algorithm. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
+-- in the /Amazon S3 User Guide/.
+selectObjectContent_sSECustomerKey :: Lens.Lens' SelectObjectContent (Prelude.Maybe Prelude.Text)
+selectObjectContent_sSECustomerKey = Lens.lens (\SelectObjectContent' {sSECustomerKey} -> sSECustomerKey) (\s@SelectObjectContent' {} a -> s {sSECustomerKey = a} :: SelectObjectContent) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The MD5 server-side encryption (SSE) customer managed key. This
+-- parameter is needed only when the object was created using a checksum
+-- algorithm. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
+-- in the /Amazon S3 User Guide/.
+selectObjectContent_sSECustomerKeyMD5 :: Lens.Lens' SelectObjectContent (Prelude.Maybe Prelude.Text)
+selectObjectContent_sSECustomerKeyMD5 = Lens.lens (\SelectObjectContent' {sSECustomerKeyMD5} -> sSECustomerKeyMD5) (\s@SelectObjectContent' {} a -> s {sSECustomerKeyMD5 = a} :: SelectObjectContent)
 
 -- | Specifies the byte range of the object to get the records from. A record
 -- is processed when its first byte is contained by the range. This
@@ -356,30 +380,6 @@ selectObjectContent_requestProgress = Lens.lens (\SelectObjectContent' {requestP
 --     records within the last 50 bytes of the file.
 selectObjectContent_scanRange :: Lens.Lens' SelectObjectContent (Prelude.Maybe ScanRange)
 selectObjectContent_scanRange = Lens.lens (\SelectObjectContent' {scanRange} -> scanRange) (\s@SelectObjectContent' {} a -> s {scanRange = a} :: SelectObjectContent)
-
--- | The server-side encryption (SSE) algorithm used to encrypt the object.
--- This parameter is needed only when the object was created using a
--- checksum algorithm. For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
--- in the /Amazon S3 User Guide/.
-selectObjectContent_sSECustomerAlgorithm :: Lens.Lens' SelectObjectContent (Prelude.Maybe Prelude.Text)
-selectObjectContent_sSECustomerAlgorithm = Lens.lens (\SelectObjectContent' {sSECustomerAlgorithm} -> sSECustomerAlgorithm) (\s@SelectObjectContent' {} a -> s {sSECustomerAlgorithm = a} :: SelectObjectContent)
-
--- | The MD5 server-side encryption (SSE) customer managed key. This
--- parameter is needed only when the object was created using a checksum
--- algorithm. For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
--- in the /Amazon S3 User Guide/.
-selectObjectContent_sSECustomerKeyMD5 :: Lens.Lens' SelectObjectContent (Prelude.Maybe Prelude.Text)
-selectObjectContent_sSECustomerKeyMD5 = Lens.lens (\SelectObjectContent' {sSECustomerKeyMD5} -> sSECustomerKeyMD5) (\s@SelectObjectContent' {} a -> s {sSECustomerKeyMD5 = a} :: SelectObjectContent)
-
--- | The server-side encryption (SSE) customer managed key. This parameter is
--- needed only when the object was created using a checksum algorithm. For
--- more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
--- in the /Amazon S3 User Guide/.
-selectObjectContent_sSECustomerKey :: Lens.Lens' SelectObjectContent (Prelude.Maybe Prelude.Text)
-selectObjectContent_sSECustomerKey = Lens.lens (\SelectObjectContent' {sSECustomerKey} -> sSECustomerKey) (\s@SelectObjectContent' {} a -> s {sSECustomerKey = a} :: SelectObjectContent) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The S3 bucket.
 selectObjectContent_bucket :: Lens.Lens' SelectObjectContent BucketName
@@ -425,10 +425,10 @@ instance Prelude.Hashable SelectObjectContent where
   hashWithSalt _salt SelectObjectContent' {..} =
     _salt `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` requestProgress
-      `Prelude.hashWithSalt` scanRange
       `Prelude.hashWithSalt` sSECustomerAlgorithm
-      `Prelude.hashWithSalt` sSECustomerKeyMD5
       `Prelude.hashWithSalt` sSECustomerKey
+      `Prelude.hashWithSalt` sSECustomerKeyMD5
+      `Prelude.hashWithSalt` scanRange
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` expression
@@ -440,10 +440,10 @@ instance Prelude.NFData SelectObjectContent where
   rnf SelectObjectContent' {..} =
     Prelude.rnf expectedBucketOwner
       `Prelude.seq` Prelude.rnf requestProgress
-      `Prelude.seq` Prelude.rnf scanRange
       `Prelude.seq` Prelude.rnf sSECustomerAlgorithm
-      `Prelude.seq` Prelude.rnf sSECustomerKeyMD5
       `Prelude.seq` Prelude.rnf sSECustomerKey
+      `Prelude.seq` Prelude.rnf sSECustomerKeyMD5
+      `Prelude.seq` Prelude.rnf scanRange
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf expression
@@ -463,10 +463,10 @@ instance Data.ToHeaders SelectObjectContent where
           Data.=# expectedBucketOwner,
         "x-amz-server-side-encryption-customer-algorithm"
           Data.=# sSECustomerAlgorithm,
-        "x-amz-server-side-encryption-customer-key-MD5"
-          Data.=# sSECustomerKeyMD5,
         "x-amz-server-side-encryption-customer-key"
-          Data.=# sSECustomerKey
+          Data.=# sSECustomerKey,
+        "x-amz-server-side-encryption-customer-key-MD5"
+          Data.=# sSECustomerKeyMD5
       ]
 
 instance Data.ToPath SelectObjectContent where

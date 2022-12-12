@@ -37,8 +37,8 @@ module Amazonka.WorkSpaces.DescribeAccountModifications
     newDescribeAccountModificationsResponse,
 
     -- * Response Lenses
-    describeAccountModificationsResponse_nextToken,
     describeAccountModificationsResponse_accountModifications,
+    describeAccountModificationsResponse_nextToken,
     describeAccountModificationsResponse_httpStatus,
   )
 where
@@ -114,10 +114,10 @@ instance Core.AWSRequest DescribeAccountModifications where
     Response.receiveJSON
       ( \s h x ->
           DescribeAccountModificationsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "AccountModifications"
+            Prelude.<$> ( x Data..?> "AccountModifications"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -162,11 +162,11 @@ instance Data.ToQuery DescribeAccountModifications where
 
 -- | /See:/ 'newDescribeAccountModificationsResponse' smart constructor.
 data DescribeAccountModificationsResponse = DescribeAccountModificationsResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
+  { -- | The list of modifications to the configuration of BYOL.
+    accountModifications :: Prelude.Maybe [AccountModification],
+    -- | The token to use to retrieve the next page of results. This value is
     -- null when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of modifications to the configuration of BYOL.
-    accountModifications :: Prelude.Maybe [AccountModification],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -180,10 +180,10 @@ data DescribeAccountModificationsResponse = DescribeAccountModificationsResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'accountModifications', 'describeAccountModificationsResponse_accountModifications' - The list of modifications to the configuration of BYOL.
+--
 -- 'nextToken', 'describeAccountModificationsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- null when there are no more results to return.
---
--- 'accountModifications', 'describeAccountModificationsResponse_accountModifications' - The list of modifications to the configuration of BYOL.
 --
 -- 'httpStatus', 'describeAccountModificationsResponse_httpStatus' - The response's http status code.
 newDescribeAccountModificationsResponse ::
@@ -192,21 +192,20 @@ newDescribeAccountModificationsResponse ::
   DescribeAccountModificationsResponse
 newDescribeAccountModificationsResponse pHttpStatus_ =
   DescribeAccountModificationsResponse'
-    { nextToken =
+    { accountModifications =
         Prelude.Nothing,
-      accountModifications =
-        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of modifications to the configuration of BYOL.
+describeAccountModificationsResponse_accountModifications :: Lens.Lens' DescribeAccountModificationsResponse (Prelude.Maybe [AccountModification])
+describeAccountModificationsResponse_accountModifications = Lens.lens (\DescribeAccountModificationsResponse' {accountModifications} -> accountModifications) (\s@DescribeAccountModificationsResponse' {} a -> s {accountModifications = a} :: DescribeAccountModificationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- null when there are no more results to return.
 describeAccountModificationsResponse_nextToken :: Lens.Lens' DescribeAccountModificationsResponse (Prelude.Maybe Prelude.Text)
 describeAccountModificationsResponse_nextToken = Lens.lens (\DescribeAccountModificationsResponse' {nextToken} -> nextToken) (\s@DescribeAccountModificationsResponse' {} a -> s {nextToken = a} :: DescribeAccountModificationsResponse)
-
--- | The list of modifications to the configuration of BYOL.
-describeAccountModificationsResponse_accountModifications :: Lens.Lens' DescribeAccountModificationsResponse (Prelude.Maybe [AccountModification])
-describeAccountModificationsResponse_accountModifications = Lens.lens (\DescribeAccountModificationsResponse' {accountModifications} -> accountModifications) (\s@DescribeAccountModificationsResponse' {} a -> s {accountModifications = a} :: DescribeAccountModificationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeAccountModificationsResponse_httpStatus :: Lens.Lens' DescribeAccountModificationsResponse Prelude.Int
@@ -217,6 +216,6 @@ instance
     DescribeAccountModificationsResponse
   where
   rnf DescribeAccountModificationsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf accountModifications
+    Prelude.rnf accountModifications
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -42,98 +42,98 @@ module Amazonka.IoT
     -- * Errors
     -- $errors
 
-    -- ** ResourceAlreadyExistsException
-    _ResourceAlreadyExistsException,
-
-    -- ** InvalidResponseException
-    _InvalidResponseException,
-
-    -- ** SqlParseException
-    _SqlParseException,
-
-    -- ** MalformedPolicyException
-    _MalformedPolicyException,
-
     -- ** CertificateConflictException
     _CertificateConflictException,
-
-    -- ** ConflictingResourceUpdateException
-    _ConflictingResourceUpdateException,
-
-    -- ** InternalServerException
-    _InternalServerException,
-
-    -- ** UnauthorizedException
-    _UnauthorizedException,
-
-    -- ** InvalidAggregationException
-    _InvalidAggregationException,
-
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
-
-    -- ** IndexNotReadyException
-    _IndexNotReadyException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** RegistrationCodeValidationException
-    _RegistrationCodeValidationException,
 
     -- ** CertificateStateException
     _CertificateStateException,
 
-    -- ** InvalidQueryException
-    _InvalidQueryException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
-
-    -- ** TransferAlreadyCompletedException
-    _TransferAlreadyCompletedException,
-
-    -- ** TaskAlreadyExistsException
-    _TaskAlreadyExistsException,
+    -- ** CertificateValidationException
+    _CertificateValidationException,
 
     -- ** ConflictException
     _ConflictException,
 
-    -- ** ThrottlingException
-    _ThrottlingException,
-
-    -- ** InvalidStateTransitionException
-    _InvalidStateTransitionException,
-
-    -- ** InternalException
-    _InternalException,
-
-    -- ** NotConfiguredException
-    _NotConfiguredException,
-
-    -- ** ResourceRegistrationFailureException
-    _ResourceRegistrationFailureException,
-
-    -- ** TransferConflictException
-    _TransferConflictException,
+    -- ** ConflictingResourceUpdateException
+    _ConflictingResourceUpdateException,
 
     -- ** DeleteConflictException
     _DeleteConflictException,
 
-    -- ** VersionsLimitExceededException
-    _VersionsLimitExceededException,
+    -- ** IndexNotReadyException
+    _IndexNotReadyException,
 
-    -- ** VersionConflictException
-    _VersionConflictException,
+    -- ** InternalException
+    _InternalException,
+
+    -- ** InternalFailureException
+    _InternalFailureException,
+
+    -- ** InternalServerException
+    _InternalServerException,
+
+    -- ** InvalidAggregationException
+    _InvalidAggregationException,
+
+    -- ** InvalidQueryException
+    _InvalidQueryException,
 
     -- ** InvalidRequestException
     _InvalidRequestException,
 
-    -- ** CertificateValidationException
-    _CertificateValidationException,
+    -- ** InvalidResponseException
+    _InvalidResponseException,
 
-    -- ** InternalFailureException
-    _InternalFailureException,
+    -- ** InvalidStateTransitionException
+    _InvalidStateTransitionException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** MalformedPolicyException
+    _MalformedPolicyException,
+
+    -- ** NotConfiguredException
+    _NotConfiguredException,
+
+    -- ** RegistrationCodeValidationException
+    _RegistrationCodeValidationException,
+
+    -- ** ResourceAlreadyExistsException
+    _ResourceAlreadyExistsException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ResourceRegistrationFailureException
+    _ResourceRegistrationFailureException,
+
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
+
+    -- ** SqlParseException
+    _SqlParseException,
+
+    -- ** TaskAlreadyExistsException
+    _TaskAlreadyExistsException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** TransferAlreadyCompletedException
+    _TransferAlreadyCompletedException,
+
+    -- ** TransferConflictException
+    _TransferConflictException,
+
+    -- ** UnauthorizedException
+    _UnauthorizedException,
+
+    -- ** VersionConflictException
+    _VersionConflictException,
+
+    -- ** VersionsLimitExceededException
+    _VersionsLimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -1670,6 +1670,9 @@ module Amazonka.IoT
     -- ** IndexStatus
     IndexStatus (..),
 
+    -- ** JobEndBehavior
+    JobEndBehavior (..),
+
     -- ** JobExecutionFailureType
     JobExecutionFailureType (..),
 
@@ -2216,6 +2219,10 @@ module Amazonka.IoT
     MqttContext (MqttContext'),
     newMqttContext,
 
+    -- ** MqttHeaders
+    MqttHeaders (MqttHeaders'),
+    newMqttHeaders,
+
     -- ** NonCompliantResource
     NonCompliantResource (NonCompliantResource'),
     newNonCompliantResource,
@@ -2335,6 +2342,10 @@ module Amazonka.IoT
     -- ** ScheduledAuditMetadata
     ScheduledAuditMetadata (ScheduledAuditMetadata'),
     newScheduledAuditMetadata,
+
+    -- ** SchedulingConfig
+    SchedulingConfig (SchedulingConfig'),
+    newSchedulingConfig,
 
     -- ** SecurityProfileIdentifier
     SecurityProfileIdentifier (SecurityProfileIdentifier'),
@@ -2515,6 +2526,10 @@ module Amazonka.IoT
     -- ** UpdateDeviceCertificateParams
     UpdateDeviceCertificateParams (UpdateDeviceCertificateParams'),
     newUpdateDeviceCertificateParams,
+
+    -- ** UserProperty
+    UserProperty (UserProperty'),
+    newUserProperty,
 
     -- ** ValidationError
     ValidationError (ValidationError'),

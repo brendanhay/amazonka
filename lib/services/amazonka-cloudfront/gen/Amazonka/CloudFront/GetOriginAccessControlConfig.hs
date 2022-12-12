@@ -34,8 +34,8 @@ module Amazonka.CloudFront.GetOriginAccessControlConfig
     newGetOriginAccessControlConfigResponse,
 
     -- * Response Lenses
-    getOriginAccessControlConfigResponse_originAccessControlConfig,
     getOriginAccessControlConfigResponse_eTag,
+    getOriginAccessControlConfigResponse_originAccessControlConfig,
     getOriginAccessControlConfigResponse_httpStatus,
   )
 where
@@ -85,8 +85,8 @@ instance Core.AWSRequest GetOriginAccessControlConfig where
     Response.receiveXML
       ( \s h x ->
           GetOriginAccessControlConfigResponse'
-            Prelude.<$> (Data.parseXML x)
-            Prelude.<*> (h Data..#? "ETag")
+            Prelude.<$> (h Data..#? "ETag")
+            Prelude.<*> (Data.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -117,11 +117,11 @@ instance Data.ToQuery GetOriginAccessControlConfig where
 
 -- | /See:/ 'newGetOriginAccessControlConfigResponse' smart constructor.
 data GetOriginAccessControlConfigResponse = GetOriginAccessControlConfigResponse'
-  { -- | Contains an origin access control configuration.
-    originAccessControlConfig :: Prelude.Maybe OriginAccessControlConfig,
-    -- | The version identifier for the current version of the origin access
+  { -- | The version identifier for the current version of the origin access
     -- control.
     eTag :: Prelude.Maybe Prelude.Text,
+    -- | Contains an origin access control configuration.
+    originAccessControlConfig :: Prelude.Maybe OriginAccessControlConfig,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -135,10 +135,10 @@ data GetOriginAccessControlConfigResponse = GetOriginAccessControlConfigResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'originAccessControlConfig', 'getOriginAccessControlConfigResponse_originAccessControlConfig' - Contains an origin access control configuration.
---
 -- 'eTag', 'getOriginAccessControlConfigResponse_eTag' - The version identifier for the current version of the origin access
 -- control.
+--
+-- 'originAccessControlConfig', 'getOriginAccessControlConfigResponse_originAccessControlConfig' - Contains an origin access control configuration.
 --
 -- 'httpStatus', 'getOriginAccessControlConfigResponse_httpStatus' - The response's http status code.
 newGetOriginAccessControlConfigResponse ::
@@ -147,20 +147,21 @@ newGetOriginAccessControlConfigResponse ::
   GetOriginAccessControlConfigResponse
 newGetOriginAccessControlConfigResponse pHttpStatus_ =
   GetOriginAccessControlConfigResponse'
-    { originAccessControlConfig =
+    { eTag =
         Prelude.Nothing,
-      eTag = Prelude.Nothing,
+      originAccessControlConfig =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Contains an origin access control configuration.
-getOriginAccessControlConfigResponse_originAccessControlConfig :: Lens.Lens' GetOriginAccessControlConfigResponse (Prelude.Maybe OriginAccessControlConfig)
-getOriginAccessControlConfigResponse_originAccessControlConfig = Lens.lens (\GetOriginAccessControlConfigResponse' {originAccessControlConfig} -> originAccessControlConfig) (\s@GetOriginAccessControlConfigResponse' {} a -> s {originAccessControlConfig = a} :: GetOriginAccessControlConfigResponse)
 
 -- | The version identifier for the current version of the origin access
 -- control.
 getOriginAccessControlConfigResponse_eTag :: Lens.Lens' GetOriginAccessControlConfigResponse (Prelude.Maybe Prelude.Text)
 getOriginAccessControlConfigResponse_eTag = Lens.lens (\GetOriginAccessControlConfigResponse' {eTag} -> eTag) (\s@GetOriginAccessControlConfigResponse' {} a -> s {eTag = a} :: GetOriginAccessControlConfigResponse)
+
+-- | Contains an origin access control configuration.
+getOriginAccessControlConfigResponse_originAccessControlConfig :: Lens.Lens' GetOriginAccessControlConfigResponse (Prelude.Maybe OriginAccessControlConfig)
+getOriginAccessControlConfigResponse_originAccessControlConfig = Lens.lens (\GetOriginAccessControlConfigResponse' {originAccessControlConfig} -> originAccessControlConfig) (\s@GetOriginAccessControlConfigResponse' {} a -> s {originAccessControlConfig = a} :: GetOriginAccessControlConfigResponse)
 
 -- | The response's http status code.
 getOriginAccessControlConfigResponse_httpStatus :: Lens.Lens' GetOriginAccessControlConfigResponse Prelude.Int
@@ -171,6 +172,6 @@ instance
     GetOriginAccessControlConfigResponse
   where
   rnf GetOriginAccessControlConfigResponse' {..} =
-    Prelude.rnf originAccessControlConfig
-      `Prelude.seq` Prelude.rnf eTag
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf originAccessControlConfig
       `Prelude.seq` Prelude.rnf httpStatus

@@ -32,14 +32,14 @@ module Amazonka.EC2.ModifyIpamPool
 
     -- * Request Lenses
     modifyIpamPool_addAllocationResourceTags,
-    modifyIpamPool_clearAllocationDefaultNetmaskLength,
-    modifyIpamPool_removeAllocationResourceTags,
+    modifyIpamPool_allocationDefaultNetmaskLength,
     modifyIpamPool_allocationMaxNetmaskLength,
+    modifyIpamPool_allocationMinNetmaskLength,
+    modifyIpamPool_autoImport,
+    modifyIpamPool_clearAllocationDefaultNetmaskLength,
     modifyIpamPool_description,
     modifyIpamPool_dryRun,
-    modifyIpamPool_allocationMinNetmaskLength,
-    modifyIpamPool_allocationDefaultNetmaskLength,
-    modifyIpamPool_autoImport,
+    modifyIpamPool_removeAllocationResourceTags,
     modifyIpamPool_ipamPoolId,
 
     -- * Destructuring the Response
@@ -67,31 +67,20 @@ data ModifyIpamPool = ModifyIpamPool'
     -- <https://docs.aws.amazon.com/vpc/latest/ipam/create-top-ipam.html Create a top-level pool>
     -- in the /Amazon VPC IPAM User Guide/.
     addAllocationResourceTags :: Prelude.Maybe [RequestIpamResourceTag],
-    -- | Clear the default netmask length allocation rule for this pool.
-    clearAllocationDefaultNetmaskLength :: Prelude.Maybe Prelude.Bool,
-    -- | Remove tag allocation rules from a pool.
-    removeAllocationResourceTags :: Prelude.Maybe [RequestIpamResourceTag],
+    -- | The default netmask length for allocations added to this pool. If, for
+    -- example, the CIDR assigned to this pool is 10.0.0.0\/8 and you enter 16
+    -- here, new allocations will default to 10.0.0.0\/16.
+    allocationDefaultNetmaskLength :: Prelude.Maybe Prelude.Natural,
     -- | The maximum netmask length possible for CIDR allocations in this IPAM
     -- pool to be compliant. Possible netmask lengths for IPv4 addresses are 0
     -- - 32. Possible netmask lengths for IPv6 addresses are 0 - 128.The
     -- maximum netmask length must be greater than the minimum netmask length.
     allocationMaxNetmaskLength :: Prelude.Maybe Prelude.Natural,
-    -- | The description of the IPAM pool you want to modify.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | A check for whether you have the required permissions for the action
-    -- without actually making the request and provides an error response. If
-    -- you have the required permissions, the error response is
-    -- @DryRunOperation@. Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The minimum netmask length required for CIDR allocations in this IPAM
     -- pool to be compliant. Possible netmask lengths for IPv4 addresses are 0
     -- - 32. Possible netmask lengths for IPv6 addresses are 0 - 128. The
     -- minimum netmask length must be less than the maximum netmask length.
     allocationMinNetmaskLength :: Prelude.Maybe Prelude.Natural,
-    -- | The default netmask length for allocations added to this pool. If, for
-    -- example, the CIDR assigned to this pool is 10.0.0.0\/8 and you enter 16
-    -- here, new allocations will default to 10.0.0.0\/16.
-    allocationDefaultNetmaskLength :: Prelude.Maybe Prelude.Natural,
     -- | If true, IPAM will continuously look for resources within the CIDR range
     -- of this pool and automatically import them as allocations into your
     -- IPAM. The CIDRs that will be allocated for these resources must not
@@ -105,6 +94,17 @@ data ModifyIpamPool = ModifyIpamPool'
     --
     -- A locale must be set on the pool for this feature to work.
     autoImport :: Prelude.Maybe Prelude.Bool,
+    -- | Clear the default netmask length allocation rule for this pool.
+    clearAllocationDefaultNetmaskLength :: Prelude.Maybe Prelude.Bool,
+    -- | The description of the IPAM pool you want to modify.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | A check for whether you have the required permissions for the action
+    -- without actually making the request and provides an error response. If
+    -- you have the required permissions, the error response is
+    -- @DryRunOperation@. Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | Remove tag allocation rules from a pool.
+    removeAllocationResourceTags :: Prelude.Maybe [RequestIpamResourceTag],
     -- | The ID of the IPAM pool you want to modify.
     ipamPoolId :: Prelude.Text
   }
@@ -123,30 +123,19 @@ data ModifyIpamPool = ModifyIpamPool'
 -- <https://docs.aws.amazon.com/vpc/latest/ipam/create-top-ipam.html Create a top-level pool>
 -- in the /Amazon VPC IPAM User Guide/.
 --
--- 'clearAllocationDefaultNetmaskLength', 'modifyIpamPool_clearAllocationDefaultNetmaskLength' - Clear the default netmask length allocation rule for this pool.
---
--- 'removeAllocationResourceTags', 'modifyIpamPool_removeAllocationResourceTags' - Remove tag allocation rules from a pool.
+-- 'allocationDefaultNetmaskLength', 'modifyIpamPool_allocationDefaultNetmaskLength' - The default netmask length for allocations added to this pool. If, for
+-- example, the CIDR assigned to this pool is 10.0.0.0\/8 and you enter 16
+-- here, new allocations will default to 10.0.0.0\/16.
 --
 -- 'allocationMaxNetmaskLength', 'modifyIpamPool_allocationMaxNetmaskLength' - The maximum netmask length possible for CIDR allocations in this IPAM
 -- pool to be compliant. Possible netmask lengths for IPv4 addresses are 0
 -- - 32. Possible netmask lengths for IPv6 addresses are 0 - 128.The
 -- maximum netmask length must be greater than the minimum netmask length.
 --
--- 'description', 'modifyIpamPool_description' - The description of the IPAM pool you want to modify.
---
--- 'dryRun', 'modifyIpamPool_dryRun' - A check for whether you have the required permissions for the action
--- without actually making the request and provides an error response. If
--- you have the required permissions, the error response is
--- @DryRunOperation@. Otherwise, it is @UnauthorizedOperation@.
---
 -- 'allocationMinNetmaskLength', 'modifyIpamPool_allocationMinNetmaskLength' - The minimum netmask length required for CIDR allocations in this IPAM
 -- pool to be compliant. Possible netmask lengths for IPv4 addresses are 0
 -- - 32. Possible netmask lengths for IPv6 addresses are 0 - 128. The
 -- minimum netmask length must be less than the maximum netmask length.
---
--- 'allocationDefaultNetmaskLength', 'modifyIpamPool_allocationDefaultNetmaskLength' - The default netmask length for allocations added to this pool. If, for
--- example, the CIDR assigned to this pool is 10.0.0.0\/8 and you enter 16
--- here, new allocations will default to 10.0.0.0\/16.
 --
 -- 'autoImport', 'modifyIpamPool_autoImport' - If true, IPAM will continuously look for resources within the CIDR range
 -- of this pool and automatically import them as allocations into your
@@ -161,6 +150,17 @@ data ModifyIpamPool = ModifyIpamPool'
 --
 -- A locale must be set on the pool for this feature to work.
 --
+-- 'clearAllocationDefaultNetmaskLength', 'modifyIpamPool_clearAllocationDefaultNetmaskLength' - Clear the default netmask length allocation rule for this pool.
+--
+-- 'description', 'modifyIpamPool_description' - The description of the IPAM pool you want to modify.
+--
+-- 'dryRun', 'modifyIpamPool_dryRun' - A check for whether you have the required permissions for the action
+-- without actually making the request and provides an error response. If
+-- you have the required permissions, the error response is
+-- @DryRunOperation@. Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'removeAllocationResourceTags', 'modifyIpamPool_removeAllocationResourceTags' - Remove tag allocation rules from a pool.
+--
 -- 'ipamPoolId', 'modifyIpamPool_ipamPoolId' - The ID of the IPAM pool you want to modify.
 newModifyIpamPool ::
   -- | 'ipamPoolId'
@@ -170,15 +170,15 @@ newModifyIpamPool pIpamPoolId_ =
   ModifyIpamPool'
     { addAllocationResourceTags =
         Prelude.Nothing,
+      allocationDefaultNetmaskLength = Prelude.Nothing,
+      allocationMaxNetmaskLength = Prelude.Nothing,
+      allocationMinNetmaskLength = Prelude.Nothing,
+      autoImport = Prelude.Nothing,
       clearAllocationDefaultNetmaskLength =
         Prelude.Nothing,
-      removeAllocationResourceTags = Prelude.Nothing,
-      allocationMaxNetmaskLength = Prelude.Nothing,
       description = Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      allocationMinNetmaskLength = Prelude.Nothing,
-      allocationDefaultNetmaskLength = Prelude.Nothing,
-      autoImport = Prelude.Nothing,
+      removeAllocationResourceTags = Prelude.Nothing,
       ipamPoolId = pIpamPoolId_
     }
 
@@ -189,13 +189,11 @@ newModifyIpamPool pIpamPoolId_ =
 modifyIpamPool_addAllocationResourceTags :: Lens.Lens' ModifyIpamPool (Prelude.Maybe [RequestIpamResourceTag])
 modifyIpamPool_addAllocationResourceTags = Lens.lens (\ModifyIpamPool' {addAllocationResourceTags} -> addAllocationResourceTags) (\s@ModifyIpamPool' {} a -> s {addAllocationResourceTags = a} :: ModifyIpamPool) Prelude.. Lens.mapping Lens.coerced
 
--- | Clear the default netmask length allocation rule for this pool.
-modifyIpamPool_clearAllocationDefaultNetmaskLength :: Lens.Lens' ModifyIpamPool (Prelude.Maybe Prelude.Bool)
-modifyIpamPool_clearAllocationDefaultNetmaskLength = Lens.lens (\ModifyIpamPool' {clearAllocationDefaultNetmaskLength} -> clearAllocationDefaultNetmaskLength) (\s@ModifyIpamPool' {} a -> s {clearAllocationDefaultNetmaskLength = a} :: ModifyIpamPool)
-
--- | Remove tag allocation rules from a pool.
-modifyIpamPool_removeAllocationResourceTags :: Lens.Lens' ModifyIpamPool (Prelude.Maybe [RequestIpamResourceTag])
-modifyIpamPool_removeAllocationResourceTags = Lens.lens (\ModifyIpamPool' {removeAllocationResourceTags} -> removeAllocationResourceTags) (\s@ModifyIpamPool' {} a -> s {removeAllocationResourceTags = a} :: ModifyIpamPool) Prelude.. Lens.mapping Lens.coerced
+-- | The default netmask length for allocations added to this pool. If, for
+-- example, the CIDR assigned to this pool is 10.0.0.0\/8 and you enter 16
+-- here, new allocations will default to 10.0.0.0\/16.
+modifyIpamPool_allocationDefaultNetmaskLength :: Lens.Lens' ModifyIpamPool (Prelude.Maybe Prelude.Natural)
+modifyIpamPool_allocationDefaultNetmaskLength = Lens.lens (\ModifyIpamPool' {allocationDefaultNetmaskLength} -> allocationDefaultNetmaskLength) (\s@ModifyIpamPool' {} a -> s {allocationDefaultNetmaskLength = a} :: ModifyIpamPool)
 
 -- | The maximum netmask length possible for CIDR allocations in this IPAM
 -- pool to be compliant. Possible netmask lengths for IPv4 addresses are 0
@@ -204,29 +202,12 @@ modifyIpamPool_removeAllocationResourceTags = Lens.lens (\ModifyIpamPool' {remov
 modifyIpamPool_allocationMaxNetmaskLength :: Lens.Lens' ModifyIpamPool (Prelude.Maybe Prelude.Natural)
 modifyIpamPool_allocationMaxNetmaskLength = Lens.lens (\ModifyIpamPool' {allocationMaxNetmaskLength} -> allocationMaxNetmaskLength) (\s@ModifyIpamPool' {} a -> s {allocationMaxNetmaskLength = a} :: ModifyIpamPool)
 
--- | The description of the IPAM pool you want to modify.
-modifyIpamPool_description :: Lens.Lens' ModifyIpamPool (Prelude.Maybe Prelude.Text)
-modifyIpamPool_description = Lens.lens (\ModifyIpamPool' {description} -> description) (\s@ModifyIpamPool' {} a -> s {description = a} :: ModifyIpamPool)
-
--- | A check for whether you have the required permissions for the action
--- without actually making the request and provides an error response. If
--- you have the required permissions, the error response is
--- @DryRunOperation@. Otherwise, it is @UnauthorizedOperation@.
-modifyIpamPool_dryRun :: Lens.Lens' ModifyIpamPool (Prelude.Maybe Prelude.Bool)
-modifyIpamPool_dryRun = Lens.lens (\ModifyIpamPool' {dryRun} -> dryRun) (\s@ModifyIpamPool' {} a -> s {dryRun = a} :: ModifyIpamPool)
-
 -- | The minimum netmask length required for CIDR allocations in this IPAM
 -- pool to be compliant. Possible netmask lengths for IPv4 addresses are 0
 -- - 32. Possible netmask lengths for IPv6 addresses are 0 - 128. The
 -- minimum netmask length must be less than the maximum netmask length.
 modifyIpamPool_allocationMinNetmaskLength :: Lens.Lens' ModifyIpamPool (Prelude.Maybe Prelude.Natural)
 modifyIpamPool_allocationMinNetmaskLength = Lens.lens (\ModifyIpamPool' {allocationMinNetmaskLength} -> allocationMinNetmaskLength) (\s@ModifyIpamPool' {} a -> s {allocationMinNetmaskLength = a} :: ModifyIpamPool)
-
--- | The default netmask length for allocations added to this pool. If, for
--- example, the CIDR assigned to this pool is 10.0.0.0\/8 and you enter 16
--- here, new allocations will default to 10.0.0.0\/16.
-modifyIpamPool_allocationDefaultNetmaskLength :: Lens.Lens' ModifyIpamPool (Prelude.Maybe Prelude.Natural)
-modifyIpamPool_allocationDefaultNetmaskLength = Lens.lens (\ModifyIpamPool' {allocationDefaultNetmaskLength} -> allocationDefaultNetmaskLength) (\s@ModifyIpamPool' {} a -> s {allocationDefaultNetmaskLength = a} :: ModifyIpamPool)
 
 -- | If true, IPAM will continuously look for resources within the CIDR range
 -- of this pool and automatically import them as allocations into your
@@ -242,6 +223,25 @@ modifyIpamPool_allocationDefaultNetmaskLength = Lens.lens (\ModifyIpamPool' {all
 -- A locale must be set on the pool for this feature to work.
 modifyIpamPool_autoImport :: Lens.Lens' ModifyIpamPool (Prelude.Maybe Prelude.Bool)
 modifyIpamPool_autoImport = Lens.lens (\ModifyIpamPool' {autoImport} -> autoImport) (\s@ModifyIpamPool' {} a -> s {autoImport = a} :: ModifyIpamPool)
+
+-- | Clear the default netmask length allocation rule for this pool.
+modifyIpamPool_clearAllocationDefaultNetmaskLength :: Lens.Lens' ModifyIpamPool (Prelude.Maybe Prelude.Bool)
+modifyIpamPool_clearAllocationDefaultNetmaskLength = Lens.lens (\ModifyIpamPool' {clearAllocationDefaultNetmaskLength} -> clearAllocationDefaultNetmaskLength) (\s@ModifyIpamPool' {} a -> s {clearAllocationDefaultNetmaskLength = a} :: ModifyIpamPool)
+
+-- | The description of the IPAM pool you want to modify.
+modifyIpamPool_description :: Lens.Lens' ModifyIpamPool (Prelude.Maybe Prelude.Text)
+modifyIpamPool_description = Lens.lens (\ModifyIpamPool' {description} -> description) (\s@ModifyIpamPool' {} a -> s {description = a} :: ModifyIpamPool)
+
+-- | A check for whether you have the required permissions for the action
+-- without actually making the request and provides an error response. If
+-- you have the required permissions, the error response is
+-- @DryRunOperation@. Otherwise, it is @UnauthorizedOperation@.
+modifyIpamPool_dryRun :: Lens.Lens' ModifyIpamPool (Prelude.Maybe Prelude.Bool)
+modifyIpamPool_dryRun = Lens.lens (\ModifyIpamPool' {dryRun} -> dryRun) (\s@ModifyIpamPool' {} a -> s {dryRun = a} :: ModifyIpamPool)
+
+-- | Remove tag allocation rules from a pool.
+modifyIpamPool_removeAllocationResourceTags :: Lens.Lens' ModifyIpamPool (Prelude.Maybe [RequestIpamResourceTag])
+modifyIpamPool_removeAllocationResourceTags = Lens.lens (\ModifyIpamPool' {removeAllocationResourceTags} -> removeAllocationResourceTags) (\s@ModifyIpamPool' {} a -> s {removeAllocationResourceTags = a} :: ModifyIpamPool) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the IPAM pool you want to modify.
 modifyIpamPool_ipamPoolId :: Lens.Lens' ModifyIpamPool Prelude.Text
@@ -265,27 +265,27 @@ instance Prelude.Hashable ModifyIpamPool where
   hashWithSalt _salt ModifyIpamPool' {..} =
     _salt
       `Prelude.hashWithSalt` addAllocationResourceTags
-      `Prelude.hashWithSalt` clearAllocationDefaultNetmaskLength
-      `Prelude.hashWithSalt` removeAllocationResourceTags
+      `Prelude.hashWithSalt` allocationDefaultNetmaskLength
       `Prelude.hashWithSalt` allocationMaxNetmaskLength
+      `Prelude.hashWithSalt` allocationMinNetmaskLength
+      `Prelude.hashWithSalt` autoImport
+      `Prelude.hashWithSalt` clearAllocationDefaultNetmaskLength
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
-      `Prelude.hashWithSalt` allocationMinNetmaskLength
-      `Prelude.hashWithSalt` allocationDefaultNetmaskLength
-      `Prelude.hashWithSalt` autoImport
+      `Prelude.hashWithSalt` removeAllocationResourceTags
       `Prelude.hashWithSalt` ipamPoolId
 
 instance Prelude.NFData ModifyIpamPool where
   rnf ModifyIpamPool' {..} =
     Prelude.rnf addAllocationResourceTags
-      `Prelude.seq` Prelude.rnf clearAllocationDefaultNetmaskLength
-      `Prelude.seq` Prelude.rnf removeAllocationResourceTags
+      `Prelude.seq` Prelude.rnf allocationDefaultNetmaskLength
       `Prelude.seq` Prelude.rnf allocationMaxNetmaskLength
+      `Prelude.seq` Prelude.rnf allocationMinNetmaskLength
+      `Prelude.seq` Prelude.rnf autoImport
+      `Prelude.seq` Prelude.rnf clearAllocationDefaultNetmaskLength
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf allocationMinNetmaskLength
-      `Prelude.seq` Prelude.rnf allocationDefaultNetmaskLength
-      `Prelude.seq` Prelude.rnf autoImport
+      `Prelude.seq` Prelude.rnf removeAllocationResourceTags
       `Prelude.seq` Prelude.rnf ipamPoolId
 
 instance Data.ToHeaders ModifyIpamPool where
@@ -305,21 +305,21 @@ instance Data.ToQuery ModifyIpamPool where
           ( Data.toQueryList "AddAllocationResourceTag"
               Prelude.<$> addAllocationResourceTags
           ),
+        "AllocationDefaultNetmaskLength"
+          Data.=: allocationDefaultNetmaskLength,
+        "AllocationMaxNetmaskLength"
+          Data.=: allocationMaxNetmaskLength,
+        "AllocationMinNetmaskLength"
+          Data.=: allocationMinNetmaskLength,
+        "AutoImport" Data.=: autoImport,
         "ClearAllocationDefaultNetmaskLength"
           Data.=: clearAllocationDefaultNetmaskLength,
+        "Description" Data.=: description,
+        "DryRun" Data.=: dryRun,
         Data.toQuery
           ( Data.toQueryList "RemoveAllocationResourceTag"
               Prelude.<$> removeAllocationResourceTags
           ),
-        "AllocationMaxNetmaskLength"
-          Data.=: allocationMaxNetmaskLength,
-        "Description" Data.=: description,
-        "DryRun" Data.=: dryRun,
-        "AllocationMinNetmaskLength"
-          Data.=: allocationMinNetmaskLength,
-        "AllocationDefaultNetmaskLength"
-          Data.=: allocationDefaultNetmaskLength,
-        "AutoImport" Data.=: autoImport,
         "IpamPoolId" Data.=: ipamPoolId
       ]
 

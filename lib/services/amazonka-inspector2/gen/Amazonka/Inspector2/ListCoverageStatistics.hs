@@ -29,17 +29,17 @@ module Amazonka.Inspector2.ListCoverageStatistics
     newListCoverageStatistics,
 
     -- * Request Lenses
-    listCoverageStatistics_nextToken,
-    listCoverageStatistics_groupBy,
     listCoverageStatistics_filterCriteria,
+    listCoverageStatistics_groupBy,
+    listCoverageStatistics_nextToken,
 
     -- * Destructuring the Response
     ListCoverageStatisticsResponse (..),
     newListCoverageStatisticsResponse,
 
     -- * Response Lenses
-    listCoverageStatisticsResponse_nextToken,
     listCoverageStatisticsResponse_countsByGroup,
+    listCoverageStatisticsResponse_nextToken,
     listCoverageStatisticsResponse_httpStatus,
     listCoverageStatisticsResponse_totalCounts,
   )
@@ -55,16 +55,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListCoverageStatistics' smart constructor.
 data ListCoverageStatistics = ListCoverageStatistics'
-  { -- | A token to use for paginating results that are returned in the response.
+  { -- | An object that contains details on the filters to apply to the coverage
+    -- data for your environment.
+    filterCriteria :: Prelude.Maybe CoverageFilterCriteria,
+    -- | The value to group the results by.
+    groupBy :: Prelude.Maybe GroupKey,
+    -- | A token to use for paginating results that are returned in the response.
     -- Set the value of this parameter to null for the first request to a list
     -- action. For subsequent calls, use the @NextToken@ value returned from
     -- the previous request to continue listing results after the first page.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The value to group the results by.
-    groupBy :: Prelude.Maybe GroupKey,
-    -- | An object that contains details on the filters to apply to the coverage
-    -- data for your environment.
-    filterCriteria :: Prelude.Maybe CoverageFilterCriteria
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,24 +76,33 @@ data ListCoverageStatistics = ListCoverageStatistics'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'filterCriteria', 'listCoverageStatistics_filterCriteria' - An object that contains details on the filters to apply to the coverage
+-- data for your environment.
+--
+-- 'groupBy', 'listCoverageStatistics_groupBy' - The value to group the results by.
+--
 -- 'nextToken', 'listCoverageStatistics_nextToken' - A token to use for paginating results that are returned in the response.
 -- Set the value of this parameter to null for the first request to a list
 -- action. For subsequent calls, use the @NextToken@ value returned from
 -- the previous request to continue listing results after the first page.
---
--- 'groupBy', 'listCoverageStatistics_groupBy' - The value to group the results by.
---
--- 'filterCriteria', 'listCoverageStatistics_filterCriteria' - An object that contains details on the filters to apply to the coverage
--- data for your environment.
 newListCoverageStatistics ::
   ListCoverageStatistics
 newListCoverageStatistics =
   ListCoverageStatistics'
-    { nextToken =
+    { filterCriteria =
         Prelude.Nothing,
       groupBy = Prelude.Nothing,
-      filterCriteria = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
+
+-- | An object that contains details on the filters to apply to the coverage
+-- data for your environment.
+listCoverageStatistics_filterCriteria :: Lens.Lens' ListCoverageStatistics (Prelude.Maybe CoverageFilterCriteria)
+listCoverageStatistics_filterCriteria = Lens.lens (\ListCoverageStatistics' {filterCriteria} -> filterCriteria) (\s@ListCoverageStatistics' {} a -> s {filterCriteria = a} :: ListCoverageStatistics)
+
+-- | The value to group the results by.
+listCoverageStatistics_groupBy :: Lens.Lens' ListCoverageStatistics (Prelude.Maybe GroupKey)
+listCoverageStatistics_groupBy = Lens.lens (\ListCoverageStatistics' {groupBy} -> groupBy) (\s@ListCoverageStatistics' {} a -> s {groupBy = a} :: ListCoverageStatistics)
 
 -- | A token to use for paginating results that are returned in the response.
 -- Set the value of this parameter to null for the first request to a list
@@ -101,15 +110,6 @@ newListCoverageStatistics =
 -- the previous request to continue listing results after the first page.
 listCoverageStatistics_nextToken :: Lens.Lens' ListCoverageStatistics (Prelude.Maybe Prelude.Text)
 listCoverageStatistics_nextToken = Lens.lens (\ListCoverageStatistics' {nextToken} -> nextToken) (\s@ListCoverageStatistics' {} a -> s {nextToken = a} :: ListCoverageStatistics)
-
--- | The value to group the results by.
-listCoverageStatistics_groupBy :: Lens.Lens' ListCoverageStatistics (Prelude.Maybe GroupKey)
-listCoverageStatistics_groupBy = Lens.lens (\ListCoverageStatistics' {groupBy} -> groupBy) (\s@ListCoverageStatistics' {} a -> s {groupBy = a} :: ListCoverageStatistics)
-
--- | An object that contains details on the filters to apply to the coverage
--- data for your environment.
-listCoverageStatistics_filterCriteria :: Lens.Lens' ListCoverageStatistics (Prelude.Maybe CoverageFilterCriteria)
-listCoverageStatistics_filterCriteria = Lens.lens (\ListCoverageStatistics' {filterCriteria} -> filterCriteria) (\s@ListCoverageStatistics' {} a -> s {filterCriteria = a} :: ListCoverageStatistics)
 
 instance Core.AWSPager ListCoverageStatistics where
   page rq rs
@@ -144,23 +144,23 @@ instance Core.AWSRequest ListCoverageStatistics where
     Response.receiveJSON
       ( \s h x ->
           ListCoverageStatisticsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "countsByGroup")
+            Prelude.<$> (x Data..?> "countsByGroup")
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "totalCounts")
       )
 
 instance Prelude.Hashable ListCoverageStatistics where
   hashWithSalt _salt ListCoverageStatistics' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` filterCriteria
       `Prelude.hashWithSalt` groupBy
-      `Prelude.hashWithSalt` filterCriteria
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListCoverageStatistics where
   rnf ListCoverageStatistics' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf filterCriteria
       `Prelude.seq` Prelude.rnf groupBy
-      `Prelude.seq` Prelude.rnf filterCriteria
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListCoverageStatistics where
   toHeaders =
@@ -177,10 +177,10 @@ instance Data.ToJSON ListCoverageStatistics where
   toJSON ListCoverageStatistics' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+          [ ("filterCriteria" Data..=)
+              Prelude.<$> filterCriteria,
             ("groupBy" Data..=) Prelude.<$> groupBy,
-            ("filterCriteria" Data..=)
-              Prelude.<$> filterCriteria
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -192,13 +192,13 @@ instance Data.ToQuery ListCoverageStatistics where
 
 -- | /See:/ 'newListCoverageStatisticsResponse' smart constructor.
 data ListCoverageStatisticsResponse = ListCoverageStatisticsResponse'
-  { -- | A token to use for paginating results that are returned in the response.
+  { -- | An array with the number for each group.
+    countsByGroup :: Prelude.Maybe (Prelude.NonEmpty Counts),
+    -- | A token to use for paginating results that are returned in the response.
     -- Set the value of this parameter to null for the first request to a list
     -- action. For subsequent calls, use the @NextToken@ value returned from
     -- the previous request to continue listing results after the first page.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array with the number for each group.
-    countsByGroup :: Prelude.Maybe (Prelude.NonEmpty Counts),
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The total number for all groups.
@@ -214,12 +214,12 @@ data ListCoverageStatisticsResponse = ListCoverageStatisticsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'countsByGroup', 'listCoverageStatisticsResponse_countsByGroup' - An array with the number for each group.
+--
 -- 'nextToken', 'listCoverageStatisticsResponse_nextToken' - A token to use for paginating results that are returned in the response.
 -- Set the value of this parameter to null for the first request to a list
 -- action. For subsequent calls, use the @NextToken@ value returned from
 -- the previous request to continue listing results after the first page.
---
--- 'countsByGroup', 'listCoverageStatisticsResponse_countsByGroup' - An array with the number for each group.
 --
 -- 'httpStatus', 'listCoverageStatisticsResponse_httpStatus' - The response's http status code.
 --
@@ -234,12 +234,16 @@ newListCoverageStatisticsResponse
   pHttpStatus_
   pTotalCounts_ =
     ListCoverageStatisticsResponse'
-      { nextToken =
+      { countsByGroup =
           Prelude.Nothing,
-        countsByGroup = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         totalCounts = pTotalCounts_
       }
+
+-- | An array with the number for each group.
+listCoverageStatisticsResponse_countsByGroup :: Lens.Lens' ListCoverageStatisticsResponse (Prelude.Maybe (Prelude.NonEmpty Counts))
+listCoverageStatisticsResponse_countsByGroup = Lens.lens (\ListCoverageStatisticsResponse' {countsByGroup} -> countsByGroup) (\s@ListCoverageStatisticsResponse' {} a -> s {countsByGroup = a} :: ListCoverageStatisticsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token to use for paginating results that are returned in the response.
 -- Set the value of this parameter to null for the first request to a list
@@ -247,10 +251,6 @@ newListCoverageStatisticsResponse
 -- the previous request to continue listing results after the first page.
 listCoverageStatisticsResponse_nextToken :: Lens.Lens' ListCoverageStatisticsResponse (Prelude.Maybe Prelude.Text)
 listCoverageStatisticsResponse_nextToken = Lens.lens (\ListCoverageStatisticsResponse' {nextToken} -> nextToken) (\s@ListCoverageStatisticsResponse' {} a -> s {nextToken = a} :: ListCoverageStatisticsResponse)
-
--- | An array with the number for each group.
-listCoverageStatisticsResponse_countsByGroup :: Lens.Lens' ListCoverageStatisticsResponse (Prelude.Maybe (Prelude.NonEmpty Counts))
-listCoverageStatisticsResponse_countsByGroup = Lens.lens (\ListCoverageStatisticsResponse' {countsByGroup} -> countsByGroup) (\s@ListCoverageStatisticsResponse' {} a -> s {countsByGroup = a} :: ListCoverageStatisticsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listCoverageStatisticsResponse_httpStatus :: Lens.Lens' ListCoverageStatisticsResponse Prelude.Int
@@ -265,7 +265,7 @@ instance
     ListCoverageStatisticsResponse
   where
   rnf ListCoverageStatisticsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf countsByGroup
+    Prelude.rnf countsByGroup
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf totalCounts

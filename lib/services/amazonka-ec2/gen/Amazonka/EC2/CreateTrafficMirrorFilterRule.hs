@@ -34,8 +34,8 @@ module Amazonka.EC2.CreateTrafficMirrorFilterRule
     -- * Request Lenses
     createTrafficMirrorFilterRule_clientToken,
     createTrafficMirrorFilterRule_description,
-    createTrafficMirrorFilterRule_dryRun,
     createTrafficMirrorFilterRule_destinationPortRange,
+    createTrafficMirrorFilterRule_dryRun,
     createTrafficMirrorFilterRule_protocol,
     createTrafficMirrorFilterRule_sourcePortRange,
     createTrafficMirrorFilterRule_trafficMirrorFilterId,
@@ -72,13 +72,13 @@ data CreateTrafficMirrorFilterRule = CreateTrafficMirrorFilterRule'
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The description of the Traffic Mirror rule.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The destination port range.
+    destinationPortRange :: Prelude.Maybe TrafficMirrorPortRangeRequest,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The destination port range.
-    destinationPortRange :: Prelude.Maybe TrafficMirrorPortRangeRequest,
     -- | The protocol, for example UDP, to assign to the Traffic Mirror rule.
     --
     -- For information about the protocol value, see
@@ -118,12 +118,12 @@ data CreateTrafficMirrorFilterRule = CreateTrafficMirrorFilterRule'
 --
 -- 'description', 'createTrafficMirrorFilterRule_description' - The description of the Traffic Mirror rule.
 --
+-- 'destinationPortRange', 'createTrafficMirrorFilterRule_destinationPortRange' - The destination port range.
+--
 -- 'dryRun', 'createTrafficMirrorFilterRule_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'destinationPortRange', 'createTrafficMirrorFilterRule_destinationPortRange' - The destination port range.
 --
 -- 'protocol', 'createTrafficMirrorFilterRule_protocol' - The protocol, for example UDP, to assign to the Traffic Mirror rule.
 --
@@ -171,8 +171,8 @@ newCreateTrafficMirrorFilterRule
       { clientToken =
           Prelude.Nothing,
         description = Prelude.Nothing,
-        dryRun = Prelude.Nothing,
         destinationPortRange = Prelude.Nothing,
+        dryRun = Prelude.Nothing,
         protocol = Prelude.Nothing,
         sourcePortRange = Prelude.Nothing,
         trafficMirrorFilterId =
@@ -195,16 +195,16 @@ createTrafficMirrorFilterRule_clientToken = Lens.lens (\CreateTrafficMirrorFilte
 createTrafficMirrorFilterRule_description :: Lens.Lens' CreateTrafficMirrorFilterRule (Prelude.Maybe Prelude.Text)
 createTrafficMirrorFilterRule_description = Lens.lens (\CreateTrafficMirrorFilterRule' {description} -> description) (\s@CreateTrafficMirrorFilterRule' {} a -> s {description = a} :: CreateTrafficMirrorFilterRule)
 
+-- | The destination port range.
+createTrafficMirrorFilterRule_destinationPortRange :: Lens.Lens' CreateTrafficMirrorFilterRule (Prelude.Maybe TrafficMirrorPortRangeRequest)
+createTrafficMirrorFilterRule_destinationPortRange = Lens.lens (\CreateTrafficMirrorFilterRule' {destinationPortRange} -> destinationPortRange) (\s@CreateTrafficMirrorFilterRule' {} a -> s {destinationPortRange = a} :: CreateTrafficMirrorFilterRule)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 createTrafficMirrorFilterRule_dryRun :: Lens.Lens' CreateTrafficMirrorFilterRule (Prelude.Maybe Prelude.Bool)
 createTrafficMirrorFilterRule_dryRun = Lens.lens (\CreateTrafficMirrorFilterRule' {dryRun} -> dryRun) (\s@CreateTrafficMirrorFilterRule' {} a -> s {dryRun = a} :: CreateTrafficMirrorFilterRule)
-
--- | The destination port range.
-createTrafficMirrorFilterRule_destinationPortRange :: Lens.Lens' CreateTrafficMirrorFilterRule (Prelude.Maybe TrafficMirrorPortRangeRequest)
-createTrafficMirrorFilterRule_destinationPortRange = Lens.lens (\CreateTrafficMirrorFilterRule' {destinationPortRange} -> destinationPortRange) (\s@CreateTrafficMirrorFilterRule' {} a -> s {destinationPortRange = a} :: CreateTrafficMirrorFilterRule)
 
 -- | The protocol, for example UDP, to assign to the Traffic Mirror rule.
 --
@@ -269,8 +269,8 @@ instance
   hashWithSalt _salt CreateTrafficMirrorFilterRule' {..} =
     _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` destinationPortRange
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` protocol
       `Prelude.hashWithSalt` sourcePortRange
       `Prelude.hashWithSalt` trafficMirrorFilterId
@@ -284,8 +284,8 @@ instance Prelude.NFData CreateTrafficMirrorFilterRule where
   rnf CreateTrafficMirrorFilterRule' {..} =
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf destinationPortRange
+      `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf protocol
       `Prelude.seq` Prelude.rnf sourcePortRange
       `Prelude.seq` Prelude.rnf trafficMirrorFilterId
@@ -312,8 +312,8 @@ instance Data.ToQuery CreateTrafficMirrorFilterRule where
           Data.=: ("2016-11-15" :: Prelude.ByteString),
         "ClientToken" Data.=: clientToken,
         "Description" Data.=: description,
-        "DryRun" Data.=: dryRun,
         "DestinationPortRange" Data.=: destinationPortRange,
+        "DryRun" Data.=: dryRun,
         "Protocol" Data.=: protocol,
         "SourcePortRange" Data.=: sourcePortRange,
         "TrafficMirrorFilterId"

@@ -31,8 +31,8 @@ module Amazonka.ElasticBeanstalk.ValidateConfigurationSettings
     newValidateConfigurationSettings,
 
     -- * Request Lenses
-    validateConfigurationSettings_templateName,
     validateConfigurationSettings_environmentName,
+    validateConfigurationSettings_templateName,
     validateConfigurationSettings_applicationName,
     validateConfigurationSettings_optionSettings,
 
@@ -58,15 +58,15 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newValidateConfigurationSettings' smart constructor.
 data ValidateConfigurationSettings = ValidateConfigurationSettings'
-  { -- | The name of the configuration template to validate the settings against.
-    --
-    -- Condition: You cannot specify both this and an environment name.
-    templateName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the environment to validate the settings against.
+  { -- | The name of the environment to validate the settings against.
     --
     -- Condition: You cannot specify both this and a configuration template
     -- name.
     environmentName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the configuration template to validate the settings against.
+    --
+    -- Condition: You cannot specify both this and an environment name.
+    templateName :: Prelude.Maybe Prelude.Text,
     -- | The name of the application that the configuration template or
     -- environment belongs to.
     applicationName :: Prelude.Text,
@@ -83,14 +83,14 @@ data ValidateConfigurationSettings = ValidateConfigurationSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'templateName', 'validateConfigurationSettings_templateName' - The name of the configuration template to validate the settings against.
---
--- Condition: You cannot specify both this and an environment name.
---
 -- 'environmentName', 'validateConfigurationSettings_environmentName' - The name of the environment to validate the settings against.
 --
 -- Condition: You cannot specify both this and a configuration template
 -- name.
+--
+-- 'templateName', 'validateConfigurationSettings_templateName' - The name of the configuration template to validate the settings against.
+--
+-- Condition: You cannot specify both this and an environment name.
 --
 -- 'applicationName', 'validateConfigurationSettings_applicationName' - The name of the application that the configuration template or
 -- environment belongs to.
@@ -102,18 +102,12 @@ newValidateConfigurationSettings ::
   ValidateConfigurationSettings
 newValidateConfigurationSettings pApplicationName_ =
   ValidateConfigurationSettings'
-    { templateName =
+    { environmentName =
         Prelude.Nothing,
-      environmentName = Prelude.Nothing,
+      templateName = Prelude.Nothing,
       applicationName = pApplicationName_,
       optionSettings = Prelude.mempty
     }
-
--- | The name of the configuration template to validate the settings against.
---
--- Condition: You cannot specify both this and an environment name.
-validateConfigurationSettings_templateName :: Lens.Lens' ValidateConfigurationSettings (Prelude.Maybe Prelude.Text)
-validateConfigurationSettings_templateName = Lens.lens (\ValidateConfigurationSettings' {templateName} -> templateName) (\s@ValidateConfigurationSettings' {} a -> s {templateName = a} :: ValidateConfigurationSettings)
 
 -- | The name of the environment to validate the settings against.
 --
@@ -121,6 +115,12 @@ validateConfigurationSettings_templateName = Lens.lens (\ValidateConfigurationSe
 -- name.
 validateConfigurationSettings_environmentName :: Lens.Lens' ValidateConfigurationSettings (Prelude.Maybe Prelude.Text)
 validateConfigurationSettings_environmentName = Lens.lens (\ValidateConfigurationSettings' {environmentName} -> environmentName) (\s@ValidateConfigurationSettings' {} a -> s {environmentName = a} :: ValidateConfigurationSettings)
+
+-- | The name of the configuration template to validate the settings against.
+--
+-- Condition: You cannot specify both this and an environment name.
+validateConfigurationSettings_templateName :: Lens.Lens' ValidateConfigurationSettings (Prelude.Maybe Prelude.Text)
+validateConfigurationSettings_templateName = Lens.lens (\ValidateConfigurationSettings' {templateName} -> templateName) (\s@ValidateConfigurationSettings' {} a -> s {templateName = a} :: ValidateConfigurationSettings)
 
 -- | The name of the application that the configuration template or
 -- environment belongs to.
@@ -156,15 +156,15 @@ instance
     ValidateConfigurationSettings
   where
   hashWithSalt _salt ValidateConfigurationSettings' {..} =
-    _salt `Prelude.hashWithSalt` templateName
-      `Prelude.hashWithSalt` environmentName
+    _salt `Prelude.hashWithSalt` environmentName
+      `Prelude.hashWithSalt` templateName
       `Prelude.hashWithSalt` applicationName
       `Prelude.hashWithSalt` optionSettings
 
 instance Prelude.NFData ValidateConfigurationSettings where
   rnf ValidateConfigurationSettings' {..} =
-    Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf environmentName
+    Prelude.rnf environmentName
+      `Prelude.seq` Prelude.rnf templateName
       `Prelude.seq` Prelude.rnf applicationName
       `Prelude.seq` Prelude.rnf optionSettings
 
@@ -183,8 +183,8 @@ instance Data.ToQuery ValidateConfigurationSettings where
                   ),
         "Version"
           Data.=: ("2010-12-01" :: Prelude.ByteString),
-        "TemplateName" Data.=: templateName,
         "EnvironmentName" Data.=: environmentName,
+        "TemplateName" Data.=: templateName,
         "ApplicationName" Data.=: applicationName,
         "OptionSettings"
           Data.=: Data.toQueryList "member" optionSettings

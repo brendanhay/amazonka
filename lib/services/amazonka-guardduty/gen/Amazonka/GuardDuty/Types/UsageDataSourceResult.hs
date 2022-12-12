@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUsageDataSourceResult' smart constructor.
 data UsageDataSourceResult = UsageDataSourceResult'
-  { -- | Represents the total of usage for the specified data source.
-    total :: Prelude.Maybe Total,
-    -- | The data source type that generated usage.
-    dataSource :: Prelude.Maybe DataSource
+  { -- | The data source type that generated usage.
+    dataSource :: Prelude.Maybe DataSource,
+    -- | Represents the total of usage for the specified data source.
+    total :: Prelude.Maybe Total
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,25 @@ data UsageDataSourceResult = UsageDataSourceResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'total', 'usageDataSourceResult_total' - Represents the total of usage for the specified data source.
---
 -- 'dataSource', 'usageDataSourceResult_dataSource' - The data source type that generated usage.
+--
+-- 'total', 'usageDataSourceResult_total' - Represents the total of usage for the specified data source.
 newUsageDataSourceResult ::
   UsageDataSourceResult
 newUsageDataSourceResult =
   UsageDataSourceResult'
-    { total = Prelude.Nothing,
-      dataSource = Prelude.Nothing
+    { dataSource =
+        Prelude.Nothing,
+      total = Prelude.Nothing
     }
-
--- | Represents the total of usage for the specified data source.
-usageDataSourceResult_total :: Lens.Lens' UsageDataSourceResult (Prelude.Maybe Total)
-usageDataSourceResult_total = Lens.lens (\UsageDataSourceResult' {total} -> total) (\s@UsageDataSourceResult' {} a -> s {total = a} :: UsageDataSourceResult)
 
 -- | The data source type that generated usage.
 usageDataSourceResult_dataSource :: Lens.Lens' UsageDataSourceResult (Prelude.Maybe DataSource)
 usageDataSourceResult_dataSource = Lens.lens (\UsageDataSourceResult' {dataSource} -> dataSource) (\s@UsageDataSourceResult' {} a -> s {dataSource = a} :: UsageDataSourceResult)
+
+-- | Represents the total of usage for the specified data source.
+usageDataSourceResult_total :: Lens.Lens' UsageDataSourceResult (Prelude.Maybe Total)
+usageDataSourceResult_total = Lens.lens (\UsageDataSourceResult' {total} -> total) (\s@UsageDataSourceResult' {} a -> s {total = a} :: UsageDataSourceResult)
 
 instance Data.FromJSON UsageDataSourceResult where
   parseJSON =
@@ -70,16 +71,16 @@ instance Data.FromJSON UsageDataSourceResult where
       "UsageDataSourceResult"
       ( \x ->
           UsageDataSourceResult'
-            Prelude.<$> (x Data..:? "total")
-            Prelude.<*> (x Data..:? "dataSource")
+            Prelude.<$> (x Data..:? "dataSource")
+            Prelude.<*> (x Data..:? "total")
       )
 
 instance Prelude.Hashable UsageDataSourceResult where
   hashWithSalt _salt UsageDataSourceResult' {..} =
-    _salt `Prelude.hashWithSalt` total
-      `Prelude.hashWithSalt` dataSource
+    _salt `Prelude.hashWithSalt` dataSource
+      `Prelude.hashWithSalt` total
 
 instance Prelude.NFData UsageDataSourceResult where
   rnf UsageDataSourceResult' {..} =
-    Prelude.rnf total
-      `Prelude.seq` Prelude.rnf dataSource
+    Prelude.rnf dataSource
+      `Prelude.seq` Prelude.rnf total

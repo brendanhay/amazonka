@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAlarmCapabilities' smart constructor.
 data AlarmCapabilities = AlarmCapabilities'
-  { -- | Specifies the default alarm state. The configuration applies to all
+  { -- | Specifies whether to get notified for alarm state changes.
+    acknowledgeFlow :: Prelude.Maybe AcknowledgeFlow,
+    -- | Specifies the default alarm state. The configuration applies to all
     -- alarms that were created based on this alarm model.
-    initializationConfiguration :: Prelude.Maybe InitializationConfiguration,
-    -- | Specifies whether to get notified for alarm state changes.
-    acknowledgeFlow :: Prelude.Maybe AcknowledgeFlow
+    initializationConfiguration :: Prelude.Maybe InitializationConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,27 +46,27 @@ data AlarmCapabilities = AlarmCapabilities'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'acknowledgeFlow', 'alarmCapabilities_acknowledgeFlow' - Specifies whether to get notified for alarm state changes.
+--
 -- 'initializationConfiguration', 'alarmCapabilities_initializationConfiguration' - Specifies the default alarm state. The configuration applies to all
 -- alarms that were created based on this alarm model.
---
--- 'acknowledgeFlow', 'alarmCapabilities_acknowledgeFlow' - Specifies whether to get notified for alarm state changes.
 newAlarmCapabilities ::
   AlarmCapabilities
 newAlarmCapabilities =
   AlarmCapabilities'
-    { initializationConfiguration =
+    { acknowledgeFlow =
         Prelude.Nothing,
-      acknowledgeFlow = Prelude.Nothing
+      initializationConfiguration = Prelude.Nothing
     }
+
+-- | Specifies whether to get notified for alarm state changes.
+alarmCapabilities_acknowledgeFlow :: Lens.Lens' AlarmCapabilities (Prelude.Maybe AcknowledgeFlow)
+alarmCapabilities_acknowledgeFlow = Lens.lens (\AlarmCapabilities' {acknowledgeFlow} -> acknowledgeFlow) (\s@AlarmCapabilities' {} a -> s {acknowledgeFlow = a} :: AlarmCapabilities)
 
 -- | Specifies the default alarm state. The configuration applies to all
 -- alarms that were created based on this alarm model.
 alarmCapabilities_initializationConfiguration :: Lens.Lens' AlarmCapabilities (Prelude.Maybe InitializationConfiguration)
 alarmCapabilities_initializationConfiguration = Lens.lens (\AlarmCapabilities' {initializationConfiguration} -> initializationConfiguration) (\s@AlarmCapabilities' {} a -> s {initializationConfiguration = a} :: AlarmCapabilities)
-
--- | Specifies whether to get notified for alarm state changes.
-alarmCapabilities_acknowledgeFlow :: Lens.Lens' AlarmCapabilities (Prelude.Maybe AcknowledgeFlow)
-alarmCapabilities_acknowledgeFlow = Lens.lens (\AlarmCapabilities' {acknowledgeFlow} -> acknowledgeFlow) (\s@AlarmCapabilities' {} a -> s {acknowledgeFlow = a} :: AlarmCapabilities)
 
 instance Data.FromJSON AlarmCapabilities where
   parseJSON =
@@ -74,28 +74,27 @@ instance Data.FromJSON AlarmCapabilities where
       "AlarmCapabilities"
       ( \x ->
           AlarmCapabilities'
-            Prelude.<$> (x Data..:? "initializationConfiguration")
-            Prelude.<*> (x Data..:? "acknowledgeFlow")
+            Prelude.<$> (x Data..:? "acknowledgeFlow")
+            Prelude.<*> (x Data..:? "initializationConfiguration")
       )
 
 instance Prelude.Hashable AlarmCapabilities where
   hashWithSalt _salt AlarmCapabilities' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` acknowledgeFlow
       `Prelude.hashWithSalt` initializationConfiguration
-      `Prelude.hashWithSalt` acknowledgeFlow
 
 instance Prelude.NFData AlarmCapabilities where
   rnf AlarmCapabilities' {..} =
-    Prelude.rnf initializationConfiguration
-      `Prelude.seq` Prelude.rnf acknowledgeFlow
+    Prelude.rnf acknowledgeFlow
+      `Prelude.seq` Prelude.rnf initializationConfiguration
 
 instance Data.ToJSON AlarmCapabilities where
   toJSON AlarmCapabilities' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("initializationConfiguration" Data..=)
-              Prelude.<$> initializationConfiguration,
-            ("acknowledgeFlow" Data..=)
-              Prelude.<$> acknowledgeFlow
+          [ ("acknowledgeFlow" Data..=)
+              Prelude.<$> acknowledgeFlow,
+            ("initializationConfiguration" Data..=)
+              Prelude.<$> initializationConfiguration
           ]
       )

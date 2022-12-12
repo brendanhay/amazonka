@@ -29,26 +29,26 @@ module Amazonka.ElastiCache.ModifyCacheCluster
     newModifyCacheCluster,
 
     -- * Request Lenses
-    modifyCacheCluster_notificationTopicStatus,
-    modifyCacheCluster_cacheNodeIdsToRemove,
-    modifyCacheCluster_securityGroupIds,
-    modifyCacheCluster_autoMinorVersionUpgrade,
+    modifyCacheCluster_aZMode,
     modifyCacheCluster_applyImmediately,
     modifyCacheCluster_authToken,
-    modifyCacheCluster_logDeliveryConfigurations,
-    modifyCacheCluster_ipDiscovery,
-    modifyCacheCluster_numCacheNodes,
+    modifyCacheCluster_authTokenUpdateStrategy,
+    modifyCacheCluster_autoMinorVersionUpgrade,
+    modifyCacheCluster_cacheNodeIdsToRemove,
     modifyCacheCluster_cacheNodeType,
     modifyCacheCluster_cacheParameterGroupName,
-    modifyCacheCluster_notificationTopicArn,
-    modifyCacheCluster_snapshotWindow,
-    modifyCacheCluster_aZMode,
-    modifyCacheCluster_snapshotRetentionLimit,
-    modifyCacheCluster_authTokenUpdateStrategy,
     modifyCacheCluster_cacheSecurityGroupNames,
-    modifyCacheCluster_preferredMaintenanceWindow,
-    modifyCacheCluster_newAvailabilityZones,
     modifyCacheCluster_engineVersion,
+    modifyCacheCluster_ipDiscovery,
+    modifyCacheCluster_logDeliveryConfigurations,
+    modifyCacheCluster_newAvailabilityZones,
+    modifyCacheCluster_notificationTopicArn,
+    modifyCacheCluster_notificationTopicStatus,
+    modifyCacheCluster_numCacheNodes,
+    modifyCacheCluster_preferredMaintenanceWindow,
+    modifyCacheCluster_securityGroupIds,
+    modifyCacheCluster_snapshotRetentionLimit,
+    modifyCacheCluster_snapshotWindow,
     modifyCacheCluster_cacheClusterId,
 
     -- * Destructuring the Response
@@ -73,32 +73,20 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newModifyCacheCluster' smart constructor.
 data ModifyCacheCluster = ModifyCacheCluster'
-  { -- | The status of the Amazon SNS notification topic. Notifications are sent
-    -- only if the status is @active@.
+  { -- | Specifies whether the new nodes in this Memcached cluster are all
+    -- created in a single Availability Zone or created across multiple
+    -- Availability Zones.
     --
-    -- Valid values: @active@ | @inactive@
-    notificationTopicStatus :: Prelude.Maybe Prelude.Text,
-    -- | A list of cache node IDs to be removed. A node ID is a numeric
-    -- identifier (0001, 0002, etc.). This parameter is only valid when
-    -- @NumCacheNodes@ is less than the existing number of cache nodes. The
-    -- number of cache node IDs supplied in this parameter must match the
-    -- difference between the existing number of cache nodes in the cluster or
-    -- pending cache nodes, whichever is greater, and the value of
-    -- @NumCacheNodes@ in the request.
+    -- Valid values: @single-az@ | @cross-az@.
     --
-    -- For example: If you have 3 active cache nodes, 7 pending cache nodes,
-    -- and the number of cache nodes in this @ModifyCacheCluster@ call is 5,
-    -- you must list 2 (7 - 5) cache node IDs to remove.
-    cacheNodeIdsToRemove :: Prelude.Maybe [Prelude.Text],
-    -- | Specifies the VPC Security Groups associated with the cluster.
+    -- This option is only supported for Memcached clusters.
     --
-    -- This parameter can be used only with clusters that are created in an
-    -- Amazon Virtual Private Cloud (Amazon VPC).
-    securityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | If you are running Redis engine version 6.0 or later, set this
-    -- parameter to yes if you want to opt-in to the next auto minor version
-    -- upgrade campaign. This parameter is disabled for previous versions.
-    autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
+    -- You cannot specify @single-az@ if the Memcached cluster already has
+    -- cache nodes in different Availability Zones. If @cross-az@ is specified,
+    -- existing Memcached nodes remain in their current Availability Zone.
+    --
+    -- Only newly created nodes are located in different Availability Zones.
+    aZMode :: Prelude.Maybe AZMode,
     -- | If @true@, this parameter causes the modifications in this request and
     -- any pending modifications to be applied, asynchronously and as soon as
     -- possible, regardless of the @PreferredMaintenanceWindow@ setting for the
@@ -129,85 +117,6 @@ data ModifyCacheCluster = ModifyCacheCluster'
     -- For more information, see AUTH password at
     -- <http://redis.io/commands/AUTH AUTH>.
     authToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the destination, format and type of the logs.
-    logDeliveryConfigurations :: Prelude.Maybe [LogDeliveryConfigurationRequest],
-    -- | The network type you choose when modifying a cluster, either @ipv4@ |
-    -- @ipv6@. IPv6 is supported for workloads using Redis engine version 6.2
-    -- onward or Memcached engine version 1.6.6 on all instances built on the
-    -- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
-    ipDiscovery :: Prelude.Maybe IpDiscovery,
-    -- | The number of cache nodes that the cluster should have. If the value for
-    -- @NumCacheNodes@ is greater than the sum of the number of current cache
-    -- nodes and the number of cache nodes pending creation (which may be
-    -- zero), more nodes are added. If the value is less than the number of
-    -- existing cache nodes, nodes are removed. If the value is equal to the
-    -- number of current cache nodes, any pending add or remove requests are
-    -- canceled.
-    --
-    -- If you are removing cache nodes, you must use the @CacheNodeIdsToRemove@
-    -- parameter to provide the IDs of the specific cache nodes to remove.
-    --
-    -- For clusters running Redis, this value must be 1. For clusters running
-    -- Memcached, this value must be between 1 and 40.
-    --
-    -- Adding or removing Memcached cache nodes can be applied immediately or
-    -- as a pending operation (see @ApplyImmediately@).
-    --
-    -- A pending operation to modify the number of cache nodes in a cluster
-    -- during its maintenance window, whether by adding or removing nodes in
-    -- accordance with the scale out architecture, is not queued. The
-    -- customer\'s latest request to add or remove nodes to the cluster
-    -- overrides any previous pending operations to modify the number of cache
-    -- nodes in the cluster. For example, a request to remove 2 nodes would
-    -- override a previous pending operation to remove 3 nodes. Similarly, a
-    -- request to add 2 nodes would override a previous pending operation to
-    -- remove 3 nodes and vice versa. As Memcached cache nodes may now be
-    -- provisioned in different Availability Zones with flexible cache node
-    -- placement, a request to add nodes does not automatically override a
-    -- previous pending operation to add nodes. The customer can modify the
-    -- previous pending operation to add more nodes or explicitly cancel the
-    -- pending request and retry the new request. To cancel pending operations
-    -- to modify the number of cache nodes in a cluster, use the
-    -- @ModifyCacheCluster@ request and set @NumCacheNodes@ equal to the number
-    -- of cache nodes currently in the cluster.
-    numCacheNodes :: Prelude.Maybe Prelude.Int,
-    -- | A valid cache node type that you want to scale this cluster up to.
-    cacheNodeType :: Prelude.Maybe Prelude.Text,
-    -- | The name of the cache parameter group to apply to this cluster. This
-    -- change is asynchronously applied as soon as possible for parameters when
-    -- the @ApplyImmediately@ parameter is specified as @true@ for this
-    -- request.
-    cacheParameterGroupName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which
-    -- notifications are sent.
-    --
-    -- The Amazon SNS topic owner must be same as the cluster owner.
-    notificationTopicArn :: Prelude.Maybe Prelude.Text,
-    -- | The daily time range (in UTC) during which ElastiCache begins taking a
-    -- daily snapshot of your cluster.
-    snapshotWindow :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether the new nodes in this Memcached cluster are all
-    -- created in a single Availability Zone or created across multiple
-    -- Availability Zones.
-    --
-    -- Valid values: @single-az@ | @cross-az@.
-    --
-    -- This option is only supported for Memcached clusters.
-    --
-    -- You cannot specify @single-az@ if the Memcached cluster already has
-    -- cache nodes in different Availability Zones. If @cross-az@ is specified,
-    -- existing Memcached nodes remain in their current Availability Zone.
-    --
-    -- Only newly created nodes are located in different Availability Zones.
-    aZMode :: Prelude.Maybe AZMode,
-    -- | The number of days for which ElastiCache retains automatic cluster
-    -- snapshots before deleting them. For example, if you set
-    -- @SnapshotRetentionLimit@ to 5, a snapshot that was taken today is
-    -- retained for 5 days before being deleted.
-    --
-    -- If the value of @SnapshotRetentionLimit@ is set to zero (0), backups are
-    -- turned off.
-    snapshotRetentionLimit :: Prelude.Maybe Prelude.Int,
     -- | Specifies the strategy to use to update the AUTH token. This parameter
     -- must be specified with the @auth-token@ parameter. Possible values:
     --
@@ -218,6 +127,29 @@ data ModifyCacheCluster = ModifyCacheCluster'
     -- For more information, see
     -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html Authenticating Users with Redis AUTH>
     authTokenUpdateStrategy :: Prelude.Maybe AuthTokenUpdateStrategyType,
+    -- | If you are running Redis engine version 6.0 or later, set this
+    -- parameter to yes if you want to opt-in to the next auto minor version
+    -- upgrade campaign. This parameter is disabled for previous versions.
+    autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
+    -- | A list of cache node IDs to be removed. A node ID is a numeric
+    -- identifier (0001, 0002, etc.). This parameter is only valid when
+    -- @NumCacheNodes@ is less than the existing number of cache nodes. The
+    -- number of cache node IDs supplied in this parameter must match the
+    -- difference between the existing number of cache nodes in the cluster or
+    -- pending cache nodes, whichever is greater, and the value of
+    -- @NumCacheNodes@ in the request.
+    --
+    -- For example: If you have 3 active cache nodes, 7 pending cache nodes,
+    -- and the number of cache nodes in this @ModifyCacheCluster@ call is 5,
+    -- you must list 2 (7 - 5) cache node IDs to remove.
+    cacheNodeIdsToRemove :: Prelude.Maybe [Prelude.Text],
+    -- | A valid cache node type that you want to scale this cluster up to.
+    cacheNodeType :: Prelude.Maybe Prelude.Text,
+    -- | The name of the cache parameter group to apply to this cluster. This
+    -- change is asynchronously applied as soon as possible for parameters when
+    -- the @ApplyImmediately@ parameter is specified as @true@ for this
+    -- request.
+    cacheParameterGroupName :: Prelude.Maybe Prelude.Text,
     -- | A list of cache security group names to authorize on this cluster. This
     -- change is asynchronously applied as soon as possible.
     --
@@ -227,29 +159,21 @@ data ModifyCacheCluster = ModifyCacheCluster'
     -- Constraints: Must contain no more than 255 alphanumeric characters. Must
     -- not be \"Default\".
     cacheSecurityGroupNames :: Prelude.Maybe [Prelude.Text],
-    -- | Specifies the weekly time range during which maintenance on the cluster
-    -- is performed. It is specified as a range in the format
-    -- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
-    -- is a 60 minute period.
+    -- | The upgraded version of the cache engine to be run on the cache nodes.
     --
-    -- Valid values for @ddd@ are:
-    --
-    -- -   @sun@
-    --
-    -- -   @mon@
-    --
-    -- -   @tue@
-    --
-    -- -   @wed@
-    --
-    -- -   @thu@
-    --
-    -- -   @fri@
-    --
-    -- -   @sat@
-    --
-    -- Example: @sun:23:00-mon:01:30@
-    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
+    -- __Important:__ You can upgrade to a newer engine version (see
+    -- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement Selecting a Cache Engine and Version>),
+    -- but you cannot downgrade to an earlier engine version. If you want to
+    -- use an earlier engine version, you must delete the existing cluster and
+    -- create it anew with the earlier engine version.
+    engineVersion :: Prelude.Maybe Prelude.Text,
+    -- | The network type you choose when modifying a cluster, either @ipv4@ |
+    -- @ipv6@. IPv6 is supported for workloads using Redis engine version 6.2
+    -- onward or Memcached engine version 1.6.6 on all instances built on the
+    -- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+    ipDiscovery :: Prelude.Maybe IpDiscovery,
+    -- | Specifies the destination, format and type of the logs.
+    logDeliveryConfigurations :: Prelude.Maybe [LogDeliveryConfigurationRequest],
     -- | This option is only supported on Memcached clusters.
     --
     -- The list of Availability Zones where the new Memcached cache nodes are
@@ -328,14 +252,90 @@ data ModifyCacheCluster = ModifyCacheCluster'
     --         create request is __Apply Immediately - No__, all creates are
     --         pending.
     newAvailabilityZones' :: Prelude.Maybe [Prelude.Text],
-    -- | The upgraded version of the cache engine to be run on the cache nodes.
+    -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which
+    -- notifications are sent.
     --
-    -- __Important:__ You can upgrade to a newer engine version (see
-    -- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement Selecting a Cache Engine and Version>),
-    -- but you cannot downgrade to an earlier engine version. If you want to
-    -- use an earlier engine version, you must delete the existing cluster and
-    -- create it anew with the earlier engine version.
-    engineVersion :: Prelude.Maybe Prelude.Text,
+    -- The Amazon SNS topic owner must be same as the cluster owner.
+    notificationTopicArn :: Prelude.Maybe Prelude.Text,
+    -- | The status of the Amazon SNS notification topic. Notifications are sent
+    -- only if the status is @active@.
+    --
+    -- Valid values: @active@ | @inactive@
+    notificationTopicStatus :: Prelude.Maybe Prelude.Text,
+    -- | The number of cache nodes that the cluster should have. If the value for
+    -- @NumCacheNodes@ is greater than the sum of the number of current cache
+    -- nodes and the number of cache nodes pending creation (which may be
+    -- zero), more nodes are added. If the value is less than the number of
+    -- existing cache nodes, nodes are removed. If the value is equal to the
+    -- number of current cache nodes, any pending add or remove requests are
+    -- canceled.
+    --
+    -- If you are removing cache nodes, you must use the @CacheNodeIdsToRemove@
+    -- parameter to provide the IDs of the specific cache nodes to remove.
+    --
+    -- For clusters running Redis, this value must be 1. For clusters running
+    -- Memcached, this value must be between 1 and 40.
+    --
+    -- Adding or removing Memcached cache nodes can be applied immediately or
+    -- as a pending operation (see @ApplyImmediately@).
+    --
+    -- A pending operation to modify the number of cache nodes in a cluster
+    -- during its maintenance window, whether by adding or removing nodes in
+    -- accordance with the scale out architecture, is not queued. The
+    -- customer\'s latest request to add or remove nodes to the cluster
+    -- overrides any previous pending operations to modify the number of cache
+    -- nodes in the cluster. For example, a request to remove 2 nodes would
+    -- override a previous pending operation to remove 3 nodes. Similarly, a
+    -- request to add 2 nodes would override a previous pending operation to
+    -- remove 3 nodes and vice versa. As Memcached cache nodes may now be
+    -- provisioned in different Availability Zones with flexible cache node
+    -- placement, a request to add nodes does not automatically override a
+    -- previous pending operation to add nodes. The customer can modify the
+    -- previous pending operation to add more nodes or explicitly cancel the
+    -- pending request and retry the new request. To cancel pending operations
+    -- to modify the number of cache nodes in a cluster, use the
+    -- @ModifyCacheCluster@ request and set @NumCacheNodes@ equal to the number
+    -- of cache nodes currently in the cluster.
+    numCacheNodes :: Prelude.Maybe Prelude.Int,
+    -- | Specifies the weekly time range during which maintenance on the cluster
+    -- is performed. It is specified as a range in the format
+    -- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
+    -- is a 60 minute period.
+    --
+    -- Valid values for @ddd@ are:
+    --
+    -- -   @sun@
+    --
+    -- -   @mon@
+    --
+    -- -   @tue@
+    --
+    -- -   @wed@
+    --
+    -- -   @thu@
+    --
+    -- -   @fri@
+    --
+    -- -   @sat@
+    --
+    -- Example: @sun:23:00-mon:01:30@
+    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the VPC Security Groups associated with the cluster.
+    --
+    -- This parameter can be used only with clusters that are created in an
+    -- Amazon Virtual Private Cloud (Amazon VPC).
+    securityGroupIds :: Prelude.Maybe [Prelude.Text],
+    -- | The number of days for which ElastiCache retains automatic cluster
+    -- snapshots before deleting them. For example, if you set
+    -- @SnapshotRetentionLimit@ to 5, a snapshot that was taken today is
+    -- retained for 5 days before being deleted.
+    --
+    -- If the value of @SnapshotRetentionLimit@ is set to zero (0), backups are
+    -- turned off.
+    snapshotRetentionLimit :: Prelude.Maybe Prelude.Int,
+    -- | The daily time range (in UTC) during which ElastiCache begins taking a
+    -- daily snapshot of your cluster.
+    snapshotWindow :: Prelude.Maybe Prelude.Text,
     -- | The cluster identifier. This value is stored as a lowercase string.
     cacheClusterId :: Prelude.Text
   }
@@ -349,31 +349,19 @@ data ModifyCacheCluster = ModifyCacheCluster'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'notificationTopicStatus', 'modifyCacheCluster_notificationTopicStatus' - The status of the Amazon SNS notification topic. Notifications are sent
--- only if the status is @active@.
+-- 'aZMode', 'modifyCacheCluster_aZMode' - Specifies whether the new nodes in this Memcached cluster are all
+-- created in a single Availability Zone or created across multiple
+-- Availability Zones.
 --
--- Valid values: @active@ | @inactive@
+-- Valid values: @single-az@ | @cross-az@.
 --
--- 'cacheNodeIdsToRemove', 'modifyCacheCluster_cacheNodeIdsToRemove' - A list of cache node IDs to be removed. A node ID is a numeric
--- identifier (0001, 0002, etc.). This parameter is only valid when
--- @NumCacheNodes@ is less than the existing number of cache nodes. The
--- number of cache node IDs supplied in this parameter must match the
--- difference between the existing number of cache nodes in the cluster or
--- pending cache nodes, whichever is greater, and the value of
--- @NumCacheNodes@ in the request.
+-- This option is only supported for Memcached clusters.
 --
--- For example: If you have 3 active cache nodes, 7 pending cache nodes,
--- and the number of cache nodes in this @ModifyCacheCluster@ call is 5,
--- you must list 2 (7 - 5) cache node IDs to remove.
+-- You cannot specify @single-az@ if the Memcached cluster already has
+-- cache nodes in different Availability Zones. If @cross-az@ is specified,
+-- existing Memcached nodes remain in their current Availability Zone.
 --
--- 'securityGroupIds', 'modifyCacheCluster_securityGroupIds' - Specifies the VPC Security Groups associated with the cluster.
---
--- This parameter can be used only with clusters that are created in an
--- Amazon Virtual Private Cloud (Amazon VPC).
---
--- 'autoMinorVersionUpgrade', 'modifyCacheCluster_autoMinorVersionUpgrade' - If you are running Redis engine version 6.0 or later, set this
--- parameter to yes if you want to opt-in to the next auto minor version
--- upgrade campaign. This parameter is disabled for previous versions.
+-- Only newly created nodes are located in different Availability Zones.
 --
 -- 'applyImmediately', 'modifyCacheCluster_applyImmediately' - If @true@, this parameter causes the modifications in this request and
 -- any pending modifications to be applied, asynchronously and as soon as
@@ -405,85 +393,6 @@ data ModifyCacheCluster = ModifyCacheCluster'
 -- For more information, see AUTH password at
 -- <http://redis.io/commands/AUTH AUTH>.
 --
--- 'logDeliveryConfigurations', 'modifyCacheCluster_logDeliveryConfigurations' - Specifies the destination, format and type of the logs.
---
--- 'ipDiscovery', 'modifyCacheCluster_ipDiscovery' - The network type you choose when modifying a cluster, either @ipv4@ |
--- @ipv6@. IPv6 is supported for workloads using Redis engine version 6.2
--- onward or Memcached engine version 1.6.6 on all instances built on the
--- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
---
--- 'numCacheNodes', 'modifyCacheCluster_numCacheNodes' - The number of cache nodes that the cluster should have. If the value for
--- @NumCacheNodes@ is greater than the sum of the number of current cache
--- nodes and the number of cache nodes pending creation (which may be
--- zero), more nodes are added. If the value is less than the number of
--- existing cache nodes, nodes are removed. If the value is equal to the
--- number of current cache nodes, any pending add or remove requests are
--- canceled.
---
--- If you are removing cache nodes, you must use the @CacheNodeIdsToRemove@
--- parameter to provide the IDs of the specific cache nodes to remove.
---
--- For clusters running Redis, this value must be 1. For clusters running
--- Memcached, this value must be between 1 and 40.
---
--- Adding or removing Memcached cache nodes can be applied immediately or
--- as a pending operation (see @ApplyImmediately@).
---
--- A pending operation to modify the number of cache nodes in a cluster
--- during its maintenance window, whether by adding or removing nodes in
--- accordance with the scale out architecture, is not queued. The
--- customer\'s latest request to add or remove nodes to the cluster
--- overrides any previous pending operations to modify the number of cache
--- nodes in the cluster. For example, a request to remove 2 nodes would
--- override a previous pending operation to remove 3 nodes. Similarly, a
--- request to add 2 nodes would override a previous pending operation to
--- remove 3 nodes and vice versa. As Memcached cache nodes may now be
--- provisioned in different Availability Zones with flexible cache node
--- placement, a request to add nodes does not automatically override a
--- previous pending operation to add nodes. The customer can modify the
--- previous pending operation to add more nodes or explicitly cancel the
--- pending request and retry the new request. To cancel pending operations
--- to modify the number of cache nodes in a cluster, use the
--- @ModifyCacheCluster@ request and set @NumCacheNodes@ equal to the number
--- of cache nodes currently in the cluster.
---
--- 'cacheNodeType', 'modifyCacheCluster_cacheNodeType' - A valid cache node type that you want to scale this cluster up to.
---
--- 'cacheParameterGroupName', 'modifyCacheCluster_cacheParameterGroupName' - The name of the cache parameter group to apply to this cluster. This
--- change is asynchronously applied as soon as possible for parameters when
--- the @ApplyImmediately@ parameter is specified as @true@ for this
--- request.
---
--- 'notificationTopicArn', 'modifyCacheCluster_notificationTopicArn' - The Amazon Resource Name (ARN) of the Amazon SNS topic to which
--- notifications are sent.
---
--- The Amazon SNS topic owner must be same as the cluster owner.
---
--- 'snapshotWindow', 'modifyCacheCluster_snapshotWindow' - The daily time range (in UTC) during which ElastiCache begins taking a
--- daily snapshot of your cluster.
---
--- 'aZMode', 'modifyCacheCluster_aZMode' - Specifies whether the new nodes in this Memcached cluster are all
--- created in a single Availability Zone or created across multiple
--- Availability Zones.
---
--- Valid values: @single-az@ | @cross-az@.
---
--- This option is only supported for Memcached clusters.
---
--- You cannot specify @single-az@ if the Memcached cluster already has
--- cache nodes in different Availability Zones. If @cross-az@ is specified,
--- existing Memcached nodes remain in their current Availability Zone.
---
--- Only newly created nodes are located in different Availability Zones.
---
--- 'snapshotRetentionLimit', 'modifyCacheCluster_snapshotRetentionLimit' - The number of days for which ElastiCache retains automatic cluster
--- snapshots before deleting them. For example, if you set
--- @SnapshotRetentionLimit@ to 5, a snapshot that was taken today is
--- retained for 5 days before being deleted.
---
--- If the value of @SnapshotRetentionLimit@ is set to zero (0), backups are
--- turned off.
---
 -- 'authTokenUpdateStrategy', 'modifyCacheCluster_authTokenUpdateStrategy' - Specifies the strategy to use to update the AUTH token. This parameter
 -- must be specified with the @auth-token@ parameter. Possible values:
 --
@@ -494,6 +403,29 @@ data ModifyCacheCluster = ModifyCacheCluster'
 -- For more information, see
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html Authenticating Users with Redis AUTH>
 --
+-- 'autoMinorVersionUpgrade', 'modifyCacheCluster_autoMinorVersionUpgrade' - If you are running Redis engine version 6.0 or later, set this
+-- parameter to yes if you want to opt-in to the next auto minor version
+-- upgrade campaign. This parameter is disabled for previous versions.
+--
+-- 'cacheNodeIdsToRemove', 'modifyCacheCluster_cacheNodeIdsToRemove' - A list of cache node IDs to be removed. A node ID is a numeric
+-- identifier (0001, 0002, etc.). This parameter is only valid when
+-- @NumCacheNodes@ is less than the existing number of cache nodes. The
+-- number of cache node IDs supplied in this parameter must match the
+-- difference between the existing number of cache nodes in the cluster or
+-- pending cache nodes, whichever is greater, and the value of
+-- @NumCacheNodes@ in the request.
+--
+-- For example: If you have 3 active cache nodes, 7 pending cache nodes,
+-- and the number of cache nodes in this @ModifyCacheCluster@ call is 5,
+-- you must list 2 (7 - 5) cache node IDs to remove.
+--
+-- 'cacheNodeType', 'modifyCacheCluster_cacheNodeType' - A valid cache node type that you want to scale this cluster up to.
+--
+-- 'cacheParameterGroupName', 'modifyCacheCluster_cacheParameterGroupName' - The name of the cache parameter group to apply to this cluster. This
+-- change is asynchronously applied as soon as possible for parameters when
+-- the @ApplyImmediately@ parameter is specified as @true@ for this
+-- request.
+--
 -- 'cacheSecurityGroupNames', 'modifyCacheCluster_cacheSecurityGroupNames' - A list of cache security group names to authorize on this cluster. This
 -- change is asynchronously applied as soon as possible.
 --
@@ -503,28 +435,20 @@ data ModifyCacheCluster = ModifyCacheCluster'
 -- Constraints: Must contain no more than 255 alphanumeric characters. Must
 -- not be \"Default\".
 --
--- 'preferredMaintenanceWindow', 'modifyCacheCluster_preferredMaintenanceWindow' - Specifies the weekly time range during which maintenance on the cluster
--- is performed. It is specified as a range in the format
--- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
--- is a 60 minute period.
+-- 'engineVersion', 'modifyCacheCluster_engineVersion' - The upgraded version of the cache engine to be run on the cache nodes.
 --
--- Valid values for @ddd@ are:
+-- __Important:__ You can upgrade to a newer engine version (see
+-- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement Selecting a Cache Engine and Version>),
+-- but you cannot downgrade to an earlier engine version. If you want to
+-- use an earlier engine version, you must delete the existing cluster and
+-- create it anew with the earlier engine version.
 --
--- -   @sun@
+-- 'ipDiscovery', 'modifyCacheCluster_ipDiscovery' - The network type you choose when modifying a cluster, either @ipv4@ |
+-- @ipv6@. IPv6 is supported for workloads using Redis engine version 6.2
+-- onward or Memcached engine version 1.6.6 on all instances built on the
+-- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
 --
--- -   @mon@
---
--- -   @tue@
---
--- -   @wed@
---
--- -   @thu@
---
--- -   @fri@
---
--- -   @sat@
---
--- Example: @sun:23:00-mon:01:30@
+-- 'logDeliveryConfigurations', 'modifyCacheCluster_logDeliveryConfigurations' - Specifies the destination, format and type of the logs.
 --
 -- 'newAvailabilityZones'', 'modifyCacheCluster_newAvailabilityZones' - This option is only supported on Memcached clusters.
 --
@@ -604,13 +528,89 @@ data ModifyCacheCluster = ModifyCacheCluster'
 --         create request is __Apply Immediately - No__, all creates are
 --         pending.
 --
--- 'engineVersion', 'modifyCacheCluster_engineVersion' - The upgraded version of the cache engine to be run on the cache nodes.
+-- 'notificationTopicArn', 'modifyCacheCluster_notificationTopicArn' - The Amazon Resource Name (ARN) of the Amazon SNS topic to which
+-- notifications are sent.
 --
--- __Important:__ You can upgrade to a newer engine version (see
--- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement Selecting a Cache Engine and Version>),
--- but you cannot downgrade to an earlier engine version. If you want to
--- use an earlier engine version, you must delete the existing cluster and
--- create it anew with the earlier engine version.
+-- The Amazon SNS topic owner must be same as the cluster owner.
+--
+-- 'notificationTopicStatus', 'modifyCacheCluster_notificationTopicStatus' - The status of the Amazon SNS notification topic. Notifications are sent
+-- only if the status is @active@.
+--
+-- Valid values: @active@ | @inactive@
+--
+-- 'numCacheNodes', 'modifyCacheCluster_numCacheNodes' - The number of cache nodes that the cluster should have. If the value for
+-- @NumCacheNodes@ is greater than the sum of the number of current cache
+-- nodes and the number of cache nodes pending creation (which may be
+-- zero), more nodes are added. If the value is less than the number of
+-- existing cache nodes, nodes are removed. If the value is equal to the
+-- number of current cache nodes, any pending add or remove requests are
+-- canceled.
+--
+-- If you are removing cache nodes, you must use the @CacheNodeIdsToRemove@
+-- parameter to provide the IDs of the specific cache nodes to remove.
+--
+-- For clusters running Redis, this value must be 1. For clusters running
+-- Memcached, this value must be between 1 and 40.
+--
+-- Adding or removing Memcached cache nodes can be applied immediately or
+-- as a pending operation (see @ApplyImmediately@).
+--
+-- A pending operation to modify the number of cache nodes in a cluster
+-- during its maintenance window, whether by adding or removing nodes in
+-- accordance with the scale out architecture, is not queued. The
+-- customer\'s latest request to add or remove nodes to the cluster
+-- overrides any previous pending operations to modify the number of cache
+-- nodes in the cluster. For example, a request to remove 2 nodes would
+-- override a previous pending operation to remove 3 nodes. Similarly, a
+-- request to add 2 nodes would override a previous pending operation to
+-- remove 3 nodes and vice versa. As Memcached cache nodes may now be
+-- provisioned in different Availability Zones with flexible cache node
+-- placement, a request to add nodes does not automatically override a
+-- previous pending operation to add nodes. The customer can modify the
+-- previous pending operation to add more nodes or explicitly cancel the
+-- pending request and retry the new request. To cancel pending operations
+-- to modify the number of cache nodes in a cluster, use the
+-- @ModifyCacheCluster@ request and set @NumCacheNodes@ equal to the number
+-- of cache nodes currently in the cluster.
+--
+-- 'preferredMaintenanceWindow', 'modifyCacheCluster_preferredMaintenanceWindow' - Specifies the weekly time range during which maintenance on the cluster
+-- is performed. It is specified as a range in the format
+-- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
+-- is a 60 minute period.
+--
+-- Valid values for @ddd@ are:
+--
+-- -   @sun@
+--
+-- -   @mon@
+--
+-- -   @tue@
+--
+-- -   @wed@
+--
+-- -   @thu@
+--
+-- -   @fri@
+--
+-- -   @sat@
+--
+-- Example: @sun:23:00-mon:01:30@
+--
+-- 'securityGroupIds', 'modifyCacheCluster_securityGroupIds' - Specifies the VPC Security Groups associated with the cluster.
+--
+-- This parameter can be used only with clusters that are created in an
+-- Amazon Virtual Private Cloud (Amazon VPC).
+--
+-- 'snapshotRetentionLimit', 'modifyCacheCluster_snapshotRetentionLimit' - The number of days for which ElastiCache retains automatic cluster
+-- snapshots before deleting them. For example, if you set
+-- @SnapshotRetentionLimit@ to 5, a snapshot that was taken today is
+-- retained for 5 days before being deleted.
+--
+-- If the value of @SnapshotRetentionLimit@ is set to zero (0), backups are
+-- turned off.
+--
+-- 'snapshotWindow', 'modifyCacheCluster_snapshotWindow' - The daily time range (in UTC) during which ElastiCache begins taking a
+-- daily snapshot of your cluster.
 --
 -- 'cacheClusterId', 'modifyCacheCluster_cacheClusterId' - The cluster identifier. This value is stored as a lowercase string.
 newModifyCacheCluster ::
@@ -619,63 +619,44 @@ newModifyCacheCluster ::
   ModifyCacheCluster
 newModifyCacheCluster pCacheClusterId_ =
   ModifyCacheCluster'
-    { notificationTopicStatus =
-        Prelude.Nothing,
-      cacheNodeIdsToRemove = Prelude.Nothing,
-      securityGroupIds = Prelude.Nothing,
-      autoMinorVersionUpgrade = Prelude.Nothing,
+    { aZMode = Prelude.Nothing,
       applyImmediately = Prelude.Nothing,
       authToken = Prelude.Nothing,
-      logDeliveryConfigurations = Prelude.Nothing,
-      ipDiscovery = Prelude.Nothing,
-      numCacheNodes = Prelude.Nothing,
+      authTokenUpdateStrategy = Prelude.Nothing,
+      autoMinorVersionUpgrade = Prelude.Nothing,
+      cacheNodeIdsToRemove = Prelude.Nothing,
       cacheNodeType = Prelude.Nothing,
       cacheParameterGroupName = Prelude.Nothing,
-      notificationTopicArn = Prelude.Nothing,
-      snapshotWindow = Prelude.Nothing,
-      aZMode = Prelude.Nothing,
-      snapshotRetentionLimit = Prelude.Nothing,
-      authTokenUpdateStrategy = Prelude.Nothing,
       cacheSecurityGroupNames = Prelude.Nothing,
-      preferredMaintenanceWindow = Prelude.Nothing,
-      newAvailabilityZones' = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
+      ipDiscovery = Prelude.Nothing,
+      logDeliveryConfigurations = Prelude.Nothing,
+      newAvailabilityZones' = Prelude.Nothing,
+      notificationTopicArn = Prelude.Nothing,
+      notificationTopicStatus = Prelude.Nothing,
+      numCacheNodes = Prelude.Nothing,
+      preferredMaintenanceWindow = Prelude.Nothing,
+      securityGroupIds = Prelude.Nothing,
+      snapshotRetentionLimit = Prelude.Nothing,
+      snapshotWindow = Prelude.Nothing,
       cacheClusterId = pCacheClusterId_
     }
 
--- | The status of the Amazon SNS notification topic. Notifications are sent
--- only if the status is @active@.
+-- | Specifies whether the new nodes in this Memcached cluster are all
+-- created in a single Availability Zone or created across multiple
+-- Availability Zones.
 --
--- Valid values: @active@ | @inactive@
-modifyCacheCluster_notificationTopicStatus :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Text)
-modifyCacheCluster_notificationTopicStatus = Lens.lens (\ModifyCacheCluster' {notificationTopicStatus} -> notificationTopicStatus) (\s@ModifyCacheCluster' {} a -> s {notificationTopicStatus = a} :: ModifyCacheCluster)
-
--- | A list of cache node IDs to be removed. A node ID is a numeric
--- identifier (0001, 0002, etc.). This parameter is only valid when
--- @NumCacheNodes@ is less than the existing number of cache nodes. The
--- number of cache node IDs supplied in this parameter must match the
--- difference between the existing number of cache nodes in the cluster or
--- pending cache nodes, whichever is greater, and the value of
--- @NumCacheNodes@ in the request.
+-- Valid values: @single-az@ | @cross-az@.
 --
--- For example: If you have 3 active cache nodes, 7 pending cache nodes,
--- and the number of cache nodes in this @ModifyCacheCluster@ call is 5,
--- you must list 2 (7 - 5) cache node IDs to remove.
-modifyCacheCluster_cacheNodeIdsToRemove :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe [Prelude.Text])
-modifyCacheCluster_cacheNodeIdsToRemove = Lens.lens (\ModifyCacheCluster' {cacheNodeIdsToRemove} -> cacheNodeIdsToRemove) (\s@ModifyCacheCluster' {} a -> s {cacheNodeIdsToRemove = a} :: ModifyCacheCluster) Prelude.. Lens.mapping Lens.coerced
-
--- | Specifies the VPC Security Groups associated with the cluster.
+-- This option is only supported for Memcached clusters.
 --
--- This parameter can be used only with clusters that are created in an
--- Amazon Virtual Private Cloud (Amazon VPC).
-modifyCacheCluster_securityGroupIds :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe [Prelude.Text])
-modifyCacheCluster_securityGroupIds = Lens.lens (\ModifyCacheCluster' {securityGroupIds} -> securityGroupIds) (\s@ModifyCacheCluster' {} a -> s {securityGroupIds = a} :: ModifyCacheCluster) Prelude.. Lens.mapping Lens.coerced
-
--- | If you are running Redis engine version 6.0 or later, set this
--- parameter to yes if you want to opt-in to the next auto minor version
--- upgrade campaign. This parameter is disabled for previous versions.
-modifyCacheCluster_autoMinorVersionUpgrade :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Bool)
-modifyCacheCluster_autoMinorVersionUpgrade = Lens.lens (\ModifyCacheCluster' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@ModifyCacheCluster' {} a -> s {autoMinorVersionUpgrade = a} :: ModifyCacheCluster)
+-- You cannot specify @single-az@ if the Memcached cluster already has
+-- cache nodes in different Availability Zones. If @cross-az@ is specified,
+-- existing Memcached nodes remain in their current Availability Zone.
+--
+-- Only newly created nodes are located in different Availability Zones.
+modifyCacheCluster_aZMode :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe AZMode)
+modifyCacheCluster_aZMode = Lens.lens (\ModifyCacheCluster' {aZMode} -> aZMode) (\s@ModifyCacheCluster' {} a -> s {aZMode = a} :: ModifyCacheCluster)
 
 -- | If @true@, this parameter causes the modifications in this request and
 -- any pending modifications to be applied, asynchronously and as soon as
@@ -711,103 +692,6 @@ modifyCacheCluster_applyImmediately = Lens.lens (\ModifyCacheCluster' {applyImme
 modifyCacheCluster_authToken :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Text)
 modifyCacheCluster_authToken = Lens.lens (\ModifyCacheCluster' {authToken} -> authToken) (\s@ModifyCacheCluster' {} a -> s {authToken = a} :: ModifyCacheCluster)
 
--- | Specifies the destination, format and type of the logs.
-modifyCacheCluster_logDeliveryConfigurations :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe [LogDeliveryConfigurationRequest])
-modifyCacheCluster_logDeliveryConfigurations = Lens.lens (\ModifyCacheCluster' {logDeliveryConfigurations} -> logDeliveryConfigurations) (\s@ModifyCacheCluster' {} a -> s {logDeliveryConfigurations = a} :: ModifyCacheCluster) Prelude.. Lens.mapping Lens.coerced
-
--- | The network type you choose when modifying a cluster, either @ipv4@ |
--- @ipv6@. IPv6 is supported for workloads using Redis engine version 6.2
--- onward or Memcached engine version 1.6.6 on all instances built on the
--- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
-modifyCacheCluster_ipDiscovery :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe IpDiscovery)
-modifyCacheCluster_ipDiscovery = Lens.lens (\ModifyCacheCluster' {ipDiscovery} -> ipDiscovery) (\s@ModifyCacheCluster' {} a -> s {ipDiscovery = a} :: ModifyCacheCluster)
-
--- | The number of cache nodes that the cluster should have. If the value for
--- @NumCacheNodes@ is greater than the sum of the number of current cache
--- nodes and the number of cache nodes pending creation (which may be
--- zero), more nodes are added. If the value is less than the number of
--- existing cache nodes, nodes are removed. If the value is equal to the
--- number of current cache nodes, any pending add or remove requests are
--- canceled.
---
--- If you are removing cache nodes, you must use the @CacheNodeIdsToRemove@
--- parameter to provide the IDs of the specific cache nodes to remove.
---
--- For clusters running Redis, this value must be 1. For clusters running
--- Memcached, this value must be between 1 and 40.
---
--- Adding or removing Memcached cache nodes can be applied immediately or
--- as a pending operation (see @ApplyImmediately@).
---
--- A pending operation to modify the number of cache nodes in a cluster
--- during its maintenance window, whether by adding or removing nodes in
--- accordance with the scale out architecture, is not queued. The
--- customer\'s latest request to add or remove nodes to the cluster
--- overrides any previous pending operations to modify the number of cache
--- nodes in the cluster. For example, a request to remove 2 nodes would
--- override a previous pending operation to remove 3 nodes. Similarly, a
--- request to add 2 nodes would override a previous pending operation to
--- remove 3 nodes and vice versa. As Memcached cache nodes may now be
--- provisioned in different Availability Zones with flexible cache node
--- placement, a request to add nodes does not automatically override a
--- previous pending operation to add nodes. The customer can modify the
--- previous pending operation to add more nodes or explicitly cancel the
--- pending request and retry the new request. To cancel pending operations
--- to modify the number of cache nodes in a cluster, use the
--- @ModifyCacheCluster@ request and set @NumCacheNodes@ equal to the number
--- of cache nodes currently in the cluster.
-modifyCacheCluster_numCacheNodes :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Int)
-modifyCacheCluster_numCacheNodes = Lens.lens (\ModifyCacheCluster' {numCacheNodes} -> numCacheNodes) (\s@ModifyCacheCluster' {} a -> s {numCacheNodes = a} :: ModifyCacheCluster)
-
--- | A valid cache node type that you want to scale this cluster up to.
-modifyCacheCluster_cacheNodeType :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Text)
-modifyCacheCluster_cacheNodeType = Lens.lens (\ModifyCacheCluster' {cacheNodeType} -> cacheNodeType) (\s@ModifyCacheCluster' {} a -> s {cacheNodeType = a} :: ModifyCacheCluster)
-
--- | The name of the cache parameter group to apply to this cluster. This
--- change is asynchronously applied as soon as possible for parameters when
--- the @ApplyImmediately@ parameter is specified as @true@ for this
--- request.
-modifyCacheCluster_cacheParameterGroupName :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Text)
-modifyCacheCluster_cacheParameterGroupName = Lens.lens (\ModifyCacheCluster' {cacheParameterGroupName} -> cacheParameterGroupName) (\s@ModifyCacheCluster' {} a -> s {cacheParameterGroupName = a} :: ModifyCacheCluster)
-
--- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which
--- notifications are sent.
---
--- The Amazon SNS topic owner must be same as the cluster owner.
-modifyCacheCluster_notificationTopicArn :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Text)
-modifyCacheCluster_notificationTopicArn = Lens.lens (\ModifyCacheCluster' {notificationTopicArn} -> notificationTopicArn) (\s@ModifyCacheCluster' {} a -> s {notificationTopicArn = a} :: ModifyCacheCluster)
-
--- | The daily time range (in UTC) during which ElastiCache begins taking a
--- daily snapshot of your cluster.
-modifyCacheCluster_snapshotWindow :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Text)
-modifyCacheCluster_snapshotWindow = Lens.lens (\ModifyCacheCluster' {snapshotWindow} -> snapshotWindow) (\s@ModifyCacheCluster' {} a -> s {snapshotWindow = a} :: ModifyCacheCluster)
-
--- | Specifies whether the new nodes in this Memcached cluster are all
--- created in a single Availability Zone or created across multiple
--- Availability Zones.
---
--- Valid values: @single-az@ | @cross-az@.
---
--- This option is only supported for Memcached clusters.
---
--- You cannot specify @single-az@ if the Memcached cluster already has
--- cache nodes in different Availability Zones. If @cross-az@ is specified,
--- existing Memcached nodes remain in their current Availability Zone.
---
--- Only newly created nodes are located in different Availability Zones.
-modifyCacheCluster_aZMode :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe AZMode)
-modifyCacheCluster_aZMode = Lens.lens (\ModifyCacheCluster' {aZMode} -> aZMode) (\s@ModifyCacheCluster' {} a -> s {aZMode = a} :: ModifyCacheCluster)
-
--- | The number of days for which ElastiCache retains automatic cluster
--- snapshots before deleting them. For example, if you set
--- @SnapshotRetentionLimit@ to 5, a snapshot that was taken today is
--- retained for 5 days before being deleted.
---
--- If the value of @SnapshotRetentionLimit@ is set to zero (0), backups are
--- turned off.
-modifyCacheCluster_snapshotRetentionLimit :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Int)
-modifyCacheCluster_snapshotRetentionLimit = Lens.lens (\ModifyCacheCluster' {snapshotRetentionLimit} -> snapshotRetentionLimit) (\s@ModifyCacheCluster' {} a -> s {snapshotRetentionLimit = a} :: ModifyCacheCluster)
-
 -- | Specifies the strategy to use to update the AUTH token. This parameter
 -- must be specified with the @auth-token@ parameter. Possible values:
 --
@@ -820,6 +704,37 @@ modifyCacheCluster_snapshotRetentionLimit = Lens.lens (\ModifyCacheCluster' {sna
 modifyCacheCluster_authTokenUpdateStrategy :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe AuthTokenUpdateStrategyType)
 modifyCacheCluster_authTokenUpdateStrategy = Lens.lens (\ModifyCacheCluster' {authTokenUpdateStrategy} -> authTokenUpdateStrategy) (\s@ModifyCacheCluster' {} a -> s {authTokenUpdateStrategy = a} :: ModifyCacheCluster)
 
+-- | If you are running Redis engine version 6.0 or later, set this
+-- parameter to yes if you want to opt-in to the next auto minor version
+-- upgrade campaign. This parameter is disabled for previous versions.
+modifyCacheCluster_autoMinorVersionUpgrade :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Bool)
+modifyCacheCluster_autoMinorVersionUpgrade = Lens.lens (\ModifyCacheCluster' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@ModifyCacheCluster' {} a -> s {autoMinorVersionUpgrade = a} :: ModifyCacheCluster)
+
+-- | A list of cache node IDs to be removed. A node ID is a numeric
+-- identifier (0001, 0002, etc.). This parameter is only valid when
+-- @NumCacheNodes@ is less than the existing number of cache nodes. The
+-- number of cache node IDs supplied in this parameter must match the
+-- difference between the existing number of cache nodes in the cluster or
+-- pending cache nodes, whichever is greater, and the value of
+-- @NumCacheNodes@ in the request.
+--
+-- For example: If you have 3 active cache nodes, 7 pending cache nodes,
+-- and the number of cache nodes in this @ModifyCacheCluster@ call is 5,
+-- you must list 2 (7 - 5) cache node IDs to remove.
+modifyCacheCluster_cacheNodeIdsToRemove :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe [Prelude.Text])
+modifyCacheCluster_cacheNodeIdsToRemove = Lens.lens (\ModifyCacheCluster' {cacheNodeIdsToRemove} -> cacheNodeIdsToRemove) (\s@ModifyCacheCluster' {} a -> s {cacheNodeIdsToRemove = a} :: ModifyCacheCluster) Prelude.. Lens.mapping Lens.coerced
+
+-- | A valid cache node type that you want to scale this cluster up to.
+modifyCacheCluster_cacheNodeType :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Text)
+modifyCacheCluster_cacheNodeType = Lens.lens (\ModifyCacheCluster' {cacheNodeType} -> cacheNodeType) (\s@ModifyCacheCluster' {} a -> s {cacheNodeType = a} :: ModifyCacheCluster)
+
+-- | The name of the cache parameter group to apply to this cluster. This
+-- change is asynchronously applied as soon as possible for parameters when
+-- the @ApplyImmediately@ parameter is specified as @true@ for this
+-- request.
+modifyCacheCluster_cacheParameterGroupName :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Text)
+modifyCacheCluster_cacheParameterGroupName = Lens.lens (\ModifyCacheCluster' {cacheParameterGroupName} -> cacheParameterGroupName) (\s@ModifyCacheCluster' {} a -> s {cacheParameterGroupName = a} :: ModifyCacheCluster)
+
 -- | A list of cache security group names to authorize on this cluster. This
 -- change is asynchronously applied as soon as possible.
 --
@@ -831,30 +746,26 @@ modifyCacheCluster_authTokenUpdateStrategy = Lens.lens (\ModifyCacheCluster' {au
 modifyCacheCluster_cacheSecurityGroupNames :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe [Prelude.Text])
 modifyCacheCluster_cacheSecurityGroupNames = Lens.lens (\ModifyCacheCluster' {cacheSecurityGroupNames} -> cacheSecurityGroupNames) (\s@ModifyCacheCluster' {} a -> s {cacheSecurityGroupNames = a} :: ModifyCacheCluster) Prelude.. Lens.mapping Lens.coerced
 
--- | Specifies the weekly time range during which maintenance on the cluster
--- is performed. It is specified as a range in the format
--- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
--- is a 60 minute period.
+-- | The upgraded version of the cache engine to be run on the cache nodes.
 --
--- Valid values for @ddd@ are:
---
--- -   @sun@
---
--- -   @mon@
---
--- -   @tue@
---
--- -   @wed@
---
--- -   @thu@
---
--- -   @fri@
---
--- -   @sat@
---
--- Example: @sun:23:00-mon:01:30@
-modifyCacheCluster_preferredMaintenanceWindow :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Text)
-modifyCacheCluster_preferredMaintenanceWindow = Lens.lens (\ModifyCacheCluster' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@ModifyCacheCluster' {} a -> s {preferredMaintenanceWindow = a} :: ModifyCacheCluster)
+-- __Important:__ You can upgrade to a newer engine version (see
+-- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement Selecting a Cache Engine and Version>),
+-- but you cannot downgrade to an earlier engine version. If you want to
+-- use an earlier engine version, you must delete the existing cluster and
+-- create it anew with the earlier engine version.
+modifyCacheCluster_engineVersion :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Text)
+modifyCacheCluster_engineVersion = Lens.lens (\ModifyCacheCluster' {engineVersion} -> engineVersion) (\s@ModifyCacheCluster' {} a -> s {engineVersion = a} :: ModifyCacheCluster)
+
+-- | The network type you choose when modifying a cluster, either @ipv4@ |
+-- @ipv6@. IPv6 is supported for workloads using Redis engine version 6.2
+-- onward or Memcached engine version 1.6.6 on all instances built on the
+-- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+modifyCacheCluster_ipDiscovery :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe IpDiscovery)
+modifyCacheCluster_ipDiscovery = Lens.lens (\ModifyCacheCluster' {ipDiscovery} -> ipDiscovery) (\s@ModifyCacheCluster' {} a -> s {ipDiscovery = a} :: ModifyCacheCluster)
+
+-- | Specifies the destination, format and type of the logs.
+modifyCacheCluster_logDeliveryConfigurations :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe [LogDeliveryConfigurationRequest])
+modifyCacheCluster_logDeliveryConfigurations = Lens.lens (\ModifyCacheCluster' {logDeliveryConfigurations} -> logDeliveryConfigurations) (\s@ModifyCacheCluster' {} a -> s {logDeliveryConfigurations = a} :: ModifyCacheCluster) Prelude.. Lens.mapping Lens.coerced
 
 -- | This option is only supported on Memcached clusters.
 --
@@ -936,15 +847,103 @@ modifyCacheCluster_preferredMaintenanceWindow = Lens.lens (\ModifyCacheCluster' 
 modifyCacheCluster_newAvailabilityZones :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe [Prelude.Text])
 modifyCacheCluster_newAvailabilityZones = Lens.lens (\ModifyCacheCluster' {newAvailabilityZones'} -> newAvailabilityZones') (\s@ModifyCacheCluster' {} a -> s {newAvailabilityZones' = a} :: ModifyCacheCluster) Prelude.. Lens.mapping Lens.coerced
 
--- | The upgraded version of the cache engine to be run on the cache nodes.
+-- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which
+-- notifications are sent.
 --
--- __Important:__ You can upgrade to a newer engine version (see
--- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement Selecting a Cache Engine and Version>),
--- but you cannot downgrade to an earlier engine version. If you want to
--- use an earlier engine version, you must delete the existing cluster and
--- create it anew with the earlier engine version.
-modifyCacheCluster_engineVersion :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Text)
-modifyCacheCluster_engineVersion = Lens.lens (\ModifyCacheCluster' {engineVersion} -> engineVersion) (\s@ModifyCacheCluster' {} a -> s {engineVersion = a} :: ModifyCacheCluster)
+-- The Amazon SNS topic owner must be same as the cluster owner.
+modifyCacheCluster_notificationTopicArn :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Text)
+modifyCacheCluster_notificationTopicArn = Lens.lens (\ModifyCacheCluster' {notificationTopicArn} -> notificationTopicArn) (\s@ModifyCacheCluster' {} a -> s {notificationTopicArn = a} :: ModifyCacheCluster)
+
+-- | The status of the Amazon SNS notification topic. Notifications are sent
+-- only if the status is @active@.
+--
+-- Valid values: @active@ | @inactive@
+modifyCacheCluster_notificationTopicStatus :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Text)
+modifyCacheCluster_notificationTopicStatus = Lens.lens (\ModifyCacheCluster' {notificationTopicStatus} -> notificationTopicStatus) (\s@ModifyCacheCluster' {} a -> s {notificationTopicStatus = a} :: ModifyCacheCluster)
+
+-- | The number of cache nodes that the cluster should have. If the value for
+-- @NumCacheNodes@ is greater than the sum of the number of current cache
+-- nodes and the number of cache nodes pending creation (which may be
+-- zero), more nodes are added. If the value is less than the number of
+-- existing cache nodes, nodes are removed. If the value is equal to the
+-- number of current cache nodes, any pending add or remove requests are
+-- canceled.
+--
+-- If you are removing cache nodes, you must use the @CacheNodeIdsToRemove@
+-- parameter to provide the IDs of the specific cache nodes to remove.
+--
+-- For clusters running Redis, this value must be 1. For clusters running
+-- Memcached, this value must be between 1 and 40.
+--
+-- Adding or removing Memcached cache nodes can be applied immediately or
+-- as a pending operation (see @ApplyImmediately@).
+--
+-- A pending operation to modify the number of cache nodes in a cluster
+-- during its maintenance window, whether by adding or removing nodes in
+-- accordance with the scale out architecture, is not queued. The
+-- customer\'s latest request to add or remove nodes to the cluster
+-- overrides any previous pending operations to modify the number of cache
+-- nodes in the cluster. For example, a request to remove 2 nodes would
+-- override a previous pending operation to remove 3 nodes. Similarly, a
+-- request to add 2 nodes would override a previous pending operation to
+-- remove 3 nodes and vice versa. As Memcached cache nodes may now be
+-- provisioned in different Availability Zones with flexible cache node
+-- placement, a request to add nodes does not automatically override a
+-- previous pending operation to add nodes. The customer can modify the
+-- previous pending operation to add more nodes or explicitly cancel the
+-- pending request and retry the new request. To cancel pending operations
+-- to modify the number of cache nodes in a cluster, use the
+-- @ModifyCacheCluster@ request and set @NumCacheNodes@ equal to the number
+-- of cache nodes currently in the cluster.
+modifyCacheCluster_numCacheNodes :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Int)
+modifyCacheCluster_numCacheNodes = Lens.lens (\ModifyCacheCluster' {numCacheNodes} -> numCacheNodes) (\s@ModifyCacheCluster' {} a -> s {numCacheNodes = a} :: ModifyCacheCluster)
+
+-- | Specifies the weekly time range during which maintenance on the cluster
+-- is performed. It is specified as a range in the format
+-- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
+-- is a 60 minute period.
+--
+-- Valid values for @ddd@ are:
+--
+-- -   @sun@
+--
+-- -   @mon@
+--
+-- -   @tue@
+--
+-- -   @wed@
+--
+-- -   @thu@
+--
+-- -   @fri@
+--
+-- -   @sat@
+--
+-- Example: @sun:23:00-mon:01:30@
+modifyCacheCluster_preferredMaintenanceWindow :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Text)
+modifyCacheCluster_preferredMaintenanceWindow = Lens.lens (\ModifyCacheCluster' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@ModifyCacheCluster' {} a -> s {preferredMaintenanceWindow = a} :: ModifyCacheCluster)
+
+-- | Specifies the VPC Security Groups associated with the cluster.
+--
+-- This parameter can be used only with clusters that are created in an
+-- Amazon Virtual Private Cloud (Amazon VPC).
+modifyCacheCluster_securityGroupIds :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe [Prelude.Text])
+modifyCacheCluster_securityGroupIds = Lens.lens (\ModifyCacheCluster' {securityGroupIds} -> securityGroupIds) (\s@ModifyCacheCluster' {} a -> s {securityGroupIds = a} :: ModifyCacheCluster) Prelude.. Lens.mapping Lens.coerced
+
+-- | The number of days for which ElastiCache retains automatic cluster
+-- snapshots before deleting them. For example, if you set
+-- @SnapshotRetentionLimit@ to 5, a snapshot that was taken today is
+-- retained for 5 days before being deleted.
+--
+-- If the value of @SnapshotRetentionLimit@ is set to zero (0), backups are
+-- turned off.
+modifyCacheCluster_snapshotRetentionLimit :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Int)
+modifyCacheCluster_snapshotRetentionLimit = Lens.lens (\ModifyCacheCluster' {snapshotRetentionLimit} -> snapshotRetentionLimit) (\s@ModifyCacheCluster' {} a -> s {snapshotRetentionLimit = a} :: ModifyCacheCluster)
+
+-- | The daily time range (in UTC) during which ElastiCache begins taking a
+-- daily snapshot of your cluster.
+modifyCacheCluster_snapshotWindow :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Text)
+modifyCacheCluster_snapshotWindow = Lens.lens (\ModifyCacheCluster' {snapshotWindow} -> snapshotWindow) (\s@ModifyCacheCluster' {} a -> s {snapshotWindow = a} :: ModifyCacheCluster)
 
 -- | The cluster identifier. This value is stored as a lowercase string.
 modifyCacheCluster_cacheClusterId :: Lens.Lens' ModifyCacheCluster Prelude.Text
@@ -967,53 +966,52 @@ instance Core.AWSRequest ModifyCacheCluster where
 
 instance Prelude.Hashable ModifyCacheCluster where
   hashWithSalt _salt ModifyCacheCluster' {..} =
-    _salt
-      `Prelude.hashWithSalt` notificationTopicStatus
-      `Prelude.hashWithSalt` cacheNodeIdsToRemove
-      `Prelude.hashWithSalt` securityGroupIds
-      `Prelude.hashWithSalt` autoMinorVersionUpgrade
+    _salt `Prelude.hashWithSalt` aZMode
       `Prelude.hashWithSalt` applyImmediately
       `Prelude.hashWithSalt` authToken
-      `Prelude.hashWithSalt` logDeliveryConfigurations
-      `Prelude.hashWithSalt` ipDiscovery
-      `Prelude.hashWithSalt` numCacheNodes
+      `Prelude.hashWithSalt` authTokenUpdateStrategy
+      `Prelude.hashWithSalt` autoMinorVersionUpgrade
+      `Prelude.hashWithSalt` cacheNodeIdsToRemove
       `Prelude.hashWithSalt` cacheNodeType
       `Prelude.hashWithSalt` cacheParameterGroupName
-      `Prelude.hashWithSalt` notificationTopicArn
-      `Prelude.hashWithSalt` snapshotWindow
-      `Prelude.hashWithSalt` aZMode
-      `Prelude.hashWithSalt` snapshotRetentionLimit
-      `Prelude.hashWithSalt` authTokenUpdateStrategy
       `Prelude.hashWithSalt` cacheSecurityGroupNames
-      `Prelude.hashWithSalt` preferredMaintenanceWindow
-      `Prelude.hashWithSalt` newAvailabilityZones'
       `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` ipDiscovery
+      `Prelude.hashWithSalt` logDeliveryConfigurations
+      `Prelude.hashWithSalt` newAvailabilityZones'
+      `Prelude.hashWithSalt` notificationTopicArn
+      `Prelude.hashWithSalt` notificationTopicStatus
+      `Prelude.hashWithSalt` numCacheNodes
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` securityGroupIds
+      `Prelude.hashWithSalt` snapshotRetentionLimit
+      `Prelude.hashWithSalt` snapshotWindow
       `Prelude.hashWithSalt` cacheClusterId
 
 instance Prelude.NFData ModifyCacheCluster where
   rnf ModifyCacheCluster' {..} =
-    Prelude.rnf notificationTopicStatus
-      `Prelude.seq` Prelude.rnf cacheNodeIdsToRemove
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
+    Prelude.rnf aZMode
       `Prelude.seq` Prelude.rnf applyImmediately
       `Prelude.seq` Prelude.rnf authToken
-      `Prelude.seq` Prelude.rnf logDeliveryConfigurations
-      `Prelude.seq` Prelude.rnf ipDiscovery
-      `Prelude.seq` Prelude.rnf numCacheNodes
+      `Prelude.seq` Prelude.rnf authTokenUpdateStrategy
+      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
+      `Prelude.seq` Prelude.rnf cacheNodeIdsToRemove
       `Prelude.seq` Prelude.rnf cacheNodeType
       `Prelude.seq` Prelude.rnf cacheParameterGroupName
-      `Prelude.seq` Prelude.rnf notificationTopicArn
-      `Prelude.seq` Prelude.rnf snapshotWindow
-      `Prelude.seq` Prelude.rnf aZMode
-      `Prelude.seq` Prelude.rnf snapshotRetentionLimit
-      `Prelude.seq` Prelude.rnf authTokenUpdateStrategy
       `Prelude.seq` Prelude.rnf cacheSecurityGroupNames
+      `Prelude.seq` Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf ipDiscovery
+      `Prelude.seq` Prelude.rnf logDeliveryConfigurations
+      `Prelude.seq` Prelude.rnf newAvailabilityZones'
+      `Prelude.seq` Prelude.rnf notificationTopicArn
+      `Prelude.seq` Prelude.rnf notificationTopicStatus
+      `Prelude.seq` Prelude.rnf numCacheNodes
       `Prelude.seq` Prelude.rnf
         preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf securityGroupIds
       `Prelude.seq` Prelude.rnf
-        newAvailabilityZones'
-      `Prelude.seq` Prelude.rnf engineVersion
+        snapshotRetentionLimit
+      `Prelude.seq` Prelude.rnf snapshotWindow
       `Prelude.seq` Prelude.rnf cacheClusterId
 
 instance Data.ToHeaders ModifyCacheCluster where
@@ -1029,52 +1027,52 @@ instance Data.ToQuery ModifyCacheCluster where
           Data.=: ("ModifyCacheCluster" :: Prelude.ByteString),
         "Version"
           Data.=: ("2015-02-02" :: Prelude.ByteString),
-        "NotificationTopicStatus"
-          Data.=: notificationTopicStatus,
+        "AZMode" Data.=: aZMode,
+        "ApplyImmediately" Data.=: applyImmediately,
+        "AuthToken" Data.=: authToken,
+        "AuthTokenUpdateStrategy"
+          Data.=: authTokenUpdateStrategy,
+        "AutoMinorVersionUpgrade"
+          Data.=: autoMinorVersionUpgrade,
         "CacheNodeIdsToRemove"
           Data.=: Data.toQuery
             ( Data.toQueryList "CacheNodeId"
                 Prelude.<$> cacheNodeIdsToRemove
             ),
-        "SecurityGroupIds"
-          Data.=: Data.toQuery
-            ( Data.toQueryList "SecurityGroupId"
-                Prelude.<$> securityGroupIds
-            ),
-        "AutoMinorVersionUpgrade"
-          Data.=: autoMinorVersionUpgrade,
-        "ApplyImmediately" Data.=: applyImmediately,
-        "AuthToken" Data.=: authToken,
-        "LogDeliveryConfigurations"
-          Data.=: Data.toQuery
-            ( Data.toQueryList "LogDeliveryConfigurationRequest"
-                Prelude.<$> logDeliveryConfigurations
-            ),
-        "IpDiscovery" Data.=: ipDiscovery,
-        "NumCacheNodes" Data.=: numCacheNodes,
         "CacheNodeType" Data.=: cacheNodeType,
         "CacheParameterGroupName"
           Data.=: cacheParameterGroupName,
-        "NotificationTopicArn" Data.=: notificationTopicArn,
-        "SnapshotWindow" Data.=: snapshotWindow,
-        "AZMode" Data.=: aZMode,
-        "SnapshotRetentionLimit"
-          Data.=: snapshotRetentionLimit,
-        "AuthTokenUpdateStrategy"
-          Data.=: authTokenUpdateStrategy,
         "CacheSecurityGroupNames"
           Data.=: Data.toQuery
             ( Data.toQueryList "CacheSecurityGroupName"
                 Prelude.<$> cacheSecurityGroupNames
             ),
-        "PreferredMaintenanceWindow"
-          Data.=: preferredMaintenanceWindow,
+        "EngineVersion" Data.=: engineVersion,
+        "IpDiscovery" Data.=: ipDiscovery,
+        "LogDeliveryConfigurations"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "LogDeliveryConfigurationRequest"
+                Prelude.<$> logDeliveryConfigurations
+            ),
         "NewAvailabilityZones"
           Data.=: Data.toQuery
             ( Data.toQueryList "PreferredAvailabilityZone"
                 Prelude.<$> newAvailabilityZones'
             ),
-        "EngineVersion" Data.=: engineVersion,
+        "NotificationTopicArn" Data.=: notificationTopicArn,
+        "NotificationTopicStatus"
+          Data.=: notificationTopicStatus,
+        "NumCacheNodes" Data.=: numCacheNodes,
+        "PreferredMaintenanceWindow"
+          Data.=: preferredMaintenanceWindow,
+        "SecurityGroupIds"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "SecurityGroupId"
+                Prelude.<$> securityGroupIds
+            ),
+        "SnapshotRetentionLimit"
+          Data.=: snapshotRetentionLimit,
+        "SnapshotWindow" Data.=: snapshotWindow,
         "CacheClusterId" Data.=: cacheClusterId
       ]
 

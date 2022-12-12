@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a custom language model. To use this operation, specify the name
--- of the language model you want to delete using @ModelName@. Language
--- model names are case sensitive.
+-- of the language model you want to delete using @ModelName@. custom
+-- language model names are case sensitive.
 module Amazonka.Transcribe.DeleteLanguageModel
   ( -- * Creating a Request
     DeleteLanguageModel (..),

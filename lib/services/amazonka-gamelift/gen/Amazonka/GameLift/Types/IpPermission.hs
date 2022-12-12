@@ -33,10 +33,6 @@ import qualified Amazonka.Prelude as Prelude
 -- automatically opens two port ranges, one for TCP messaging and one for
 -- UDP.
 --
--- __Related actions__
---
--- DescribeFleetPortSettings
---
 -- /See:/ 'newIpPermission' smart constructor.
 data IpPermission = IpPermission'
   { -- | A starting value for a range of allowed port numbers.

@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResource' smart constructor.
 data Resource = Resource'
-  { -- | The last path segment for this resource.
-    pathPart :: Prelude.Maybe Prelude.Text,
-    -- | The full path for this resource.
-    path :: Prelude.Maybe Prelude.Text,
+  { -- | The resource\'s identifier.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The parent resource\'s identifier.
     parentId :: Prelude.Maybe Prelude.Text,
-    -- | The resource\'s identifier.
-    id :: Prelude.Maybe Prelude.Text,
+    -- | The full path for this resource.
+    path :: Prelude.Maybe Prelude.Text,
+    -- | The last path segment for this resource.
+    pathPart :: Prelude.Maybe Prelude.Text,
     -- | Gets an API resource\'s method of a given HTTP verb.
     resourceMethods :: Prelude.Maybe (Prelude.HashMap Prelude.Text Method)
   }
@@ -50,41 +50,41 @@ data Resource = Resource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pathPart', 'resource_pathPart' - The last path segment for this resource.
---
--- 'path', 'resource_path' - The full path for this resource.
+-- 'id', 'resource_id' - The resource\'s identifier.
 --
 -- 'parentId', 'resource_parentId' - The parent resource\'s identifier.
 --
--- 'id', 'resource_id' - The resource\'s identifier.
+-- 'path', 'resource_path' - The full path for this resource.
+--
+-- 'pathPart', 'resource_pathPart' - The last path segment for this resource.
 --
 -- 'resourceMethods', 'resource_resourceMethods' - Gets an API resource\'s method of a given HTTP verb.
 newResource ::
   Resource
 newResource =
   Resource'
-    { pathPart = Prelude.Nothing,
-      path = Prelude.Nothing,
+    { id = Prelude.Nothing,
       parentId = Prelude.Nothing,
-      id = Prelude.Nothing,
+      path = Prelude.Nothing,
+      pathPart = Prelude.Nothing,
       resourceMethods = Prelude.Nothing
     }
 
--- | The last path segment for this resource.
-resource_pathPart :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
-resource_pathPart = Lens.lens (\Resource' {pathPart} -> pathPart) (\s@Resource' {} a -> s {pathPart = a} :: Resource)
-
--- | The full path for this resource.
-resource_path :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
-resource_path = Lens.lens (\Resource' {path} -> path) (\s@Resource' {} a -> s {path = a} :: Resource)
+-- | The resource\'s identifier.
+resource_id :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
+resource_id = Lens.lens (\Resource' {id} -> id) (\s@Resource' {} a -> s {id = a} :: Resource)
 
 -- | The parent resource\'s identifier.
 resource_parentId :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
 resource_parentId = Lens.lens (\Resource' {parentId} -> parentId) (\s@Resource' {} a -> s {parentId = a} :: Resource)
 
--- | The resource\'s identifier.
-resource_id :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
-resource_id = Lens.lens (\Resource' {id} -> id) (\s@Resource' {} a -> s {id = a} :: Resource)
+-- | The full path for this resource.
+resource_path :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
+resource_path = Lens.lens (\Resource' {path} -> path) (\s@Resource' {} a -> s {path = a} :: Resource)
+
+-- | The last path segment for this resource.
+resource_pathPart :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
+resource_pathPart = Lens.lens (\Resource' {pathPart} -> pathPart) (\s@Resource' {} a -> s {pathPart = a} :: Resource)
 
 -- | Gets an API resource\'s method of a given HTTP verb.
 resource_resourceMethods :: Lens.Lens' Resource (Prelude.Maybe (Prelude.HashMap Prelude.Text Method))
@@ -96,10 +96,10 @@ instance Data.FromJSON Resource where
       "Resource"
       ( \x ->
           Resource'
-            Prelude.<$> (x Data..:? "pathPart")
-            Prelude.<*> (x Data..:? "path")
+            Prelude.<$> (x Data..:? "id")
             Prelude.<*> (x Data..:? "parentId")
-            Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "path")
+            Prelude.<*> (x Data..:? "pathPart")
             Prelude.<*> ( x Data..:? "resourceMethods"
                             Data..!= Prelude.mempty
                         )
@@ -107,16 +107,16 @@ instance Data.FromJSON Resource where
 
 instance Prelude.Hashable Resource where
   hashWithSalt _salt Resource' {..} =
-    _salt `Prelude.hashWithSalt` pathPart
-      `Prelude.hashWithSalt` path
+    _salt `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` parentId
-      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` path
+      `Prelude.hashWithSalt` pathPart
       `Prelude.hashWithSalt` resourceMethods
 
 instance Prelude.NFData Resource where
   rnf Resource' {..} =
-    Prelude.rnf pathPart
-      `Prelude.seq` Prelude.rnf path
+    Prelude.rnf id
       `Prelude.seq` Prelude.rnf parentId
-      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf path
+      `Prelude.seq` Prelude.rnf pathPart
       `Prelude.seq` Prelude.rnf resourceMethods

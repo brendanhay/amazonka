@@ -32,17 +32,26 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSlackConfiguration' smart constructor.
 data SlackConfiguration = SlackConfiguration'
-  { -- | @TRUE@ to use the Slack change log to determine which documents require
-    -- updating in the index. Depending on the Slack change log\'s size, it may
-    -- take longer for Amazon Kendra to use the change log than to scan all of
-    -- your documents in Slack.
-    useChangeLog :: Prelude.Maybe Prelude.Bool,
-    -- | Configuration information for an Amazon Virtual Private Cloud to connect
-    -- to your Slack. For more information, see
-    -- <https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html Configuring a VPC>.
-    vpcConfiguration :: Prelude.Maybe DataSourceVpcConfiguration,
-    -- | @TRUE@ to index bot messages from your Slack workspace team.
+  { -- | @TRUE@ to index bot messages from your Slack workspace team.
     crawlBotMessage :: Prelude.Maybe Prelude.Bool,
+    -- | @TRUE@ to exclude archived messages to index from your Slack workspace
+    -- team.
+    excludeArchived :: Prelude.Maybe Prelude.Bool,
+    -- | A list of regular expression patterns to exclude certain attached files
+    -- in your Slack workspace team. Files that match the patterns are excluded
+    -- from the index. Files that don’t match the patterns are included in the
+    -- index. If a file matches both an inclusion and exclusion pattern, the
+    -- exclusion pattern takes precedence and the file isn\'t included in the
+    -- index.
+    exclusionPatterns :: Prelude.Maybe [Prelude.Text],
+    -- | A list of @DataSourceToIndexFieldMapping@ objects that map Slack data
+    -- source attributes or field names to Amazon Kendra index field names. To
+    -- create custom fields, use the @UpdateIndex@ API before you map to Slack
+    -- fields. For more information, see
+    -- <https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html Mapping data source fields>.
+    -- The Slack data source field names must exist in your Slack custom
+    -- metadata.
+    fieldMappings :: Prelude.Maybe (Prelude.NonEmpty DataSourceToIndexFieldMapping),
     -- | A list of regular expression patterns to include certain attached files
     -- in your Slack workspace team. Files that match the patterns are included
     -- in the index. Files that don\'t match the patterns are excluded from the
@@ -59,34 +68,25 @@ data SlackConfiguration = SlackConfiguration'
     -- content before you last synced, set the @LookBackPeriod@ to the number
     -- of hours you want change log to look back.
     lookBackPeriod :: Prelude.Maybe Prelude.Natural,
-    -- | @TRUE@ to exclude archived messages to index from your Slack workspace
-    -- team.
-    excludeArchived :: Prelude.Maybe Prelude.Bool,
-    -- | A list of @DataSourceToIndexFieldMapping@ objects that map Slack data
-    -- source attributes or field names to Amazon Kendra index field names. To
-    -- create custom fields, use the @UpdateIndex@ API before you map to Slack
-    -- fields. For more information, see
-    -- <https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html Mapping data source fields>.
-    -- The Slack data source field names must exist in your Slack custom
-    -- metadata.
-    fieldMappings :: Prelude.Maybe (Prelude.NonEmpty DataSourceToIndexFieldMapping),
-    -- | The list of public channel names to index from your Slack workspace
-    -- team. You use this if you want to index specific public channels, not
-    -- all public channels. You can also use regular expression patterns to
-    -- filter public channels.
-    publicChannelFilter :: Prelude.Maybe [Prelude.Text],
     -- | The list of private channel names from your Slack workspace team. You
     -- use this if you want to index specific private channels, not all private
     -- channels. You can also use regular expression patterns to filter private
     -- channels.
     privateChannelFilter :: Prelude.Maybe [Prelude.Text],
-    -- | A list of regular expression patterns to exclude certain attached files
-    -- in your Slack workspace team. Files that match the patterns are excluded
-    -- from the index. Files that don’t match the patterns are included in the
-    -- index. If a file matches both an inclusion and exclusion pattern, the
-    -- exclusion pattern takes precedence and the file isn\'t included in the
-    -- index.
-    exclusionPatterns :: Prelude.Maybe [Prelude.Text],
+    -- | The list of public channel names to index from your Slack workspace
+    -- team. You use this if you want to index specific public channels, not
+    -- all public channels. You can also use regular expression patterns to
+    -- filter public channels.
+    publicChannelFilter :: Prelude.Maybe [Prelude.Text],
+    -- | @TRUE@ to use the Slack change log to determine which documents require
+    -- updating in the index. Depending on the Slack change log\'s size, it may
+    -- take longer for Amazon Kendra to use the change log than to scan all of
+    -- your documents in Slack.
+    useChangeLog :: Prelude.Maybe Prelude.Bool,
+    -- | Configuration information for an Amazon Virtual Private Cloud to connect
+    -- to your Slack. For more information, see
+    -- <https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html Configuring a VPC>.
+    vpcConfiguration :: Prelude.Maybe DataSourceVpcConfiguration,
     -- | The identifier of the team in the Slack workspace. For example,
     -- /T0123456789/.
     --
@@ -121,16 +121,25 @@ data SlackConfiguration = SlackConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'useChangeLog', 'slackConfiguration_useChangeLog' - @TRUE@ to use the Slack change log to determine which documents require
--- updating in the index. Depending on the Slack change log\'s size, it may
--- take longer for Amazon Kendra to use the change log than to scan all of
--- your documents in Slack.
---
--- 'vpcConfiguration', 'slackConfiguration_vpcConfiguration' - Configuration information for an Amazon Virtual Private Cloud to connect
--- to your Slack. For more information, see
--- <https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html Configuring a VPC>.
---
 -- 'crawlBotMessage', 'slackConfiguration_crawlBotMessage' - @TRUE@ to index bot messages from your Slack workspace team.
+--
+-- 'excludeArchived', 'slackConfiguration_excludeArchived' - @TRUE@ to exclude archived messages to index from your Slack workspace
+-- team.
+--
+-- 'exclusionPatterns', 'slackConfiguration_exclusionPatterns' - A list of regular expression patterns to exclude certain attached files
+-- in your Slack workspace team. Files that match the patterns are excluded
+-- from the index. Files that don’t match the patterns are included in the
+-- index. If a file matches both an inclusion and exclusion pattern, the
+-- exclusion pattern takes precedence and the file isn\'t included in the
+-- index.
+--
+-- 'fieldMappings', 'slackConfiguration_fieldMappings' - A list of @DataSourceToIndexFieldMapping@ objects that map Slack data
+-- source attributes or field names to Amazon Kendra index field names. To
+-- create custom fields, use the @UpdateIndex@ API before you map to Slack
+-- fields. For more information, see
+-- <https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html Mapping data source fields>.
+-- The Slack data source field names must exist in your Slack custom
+-- metadata.
 --
 -- 'inclusionPatterns', 'slackConfiguration_inclusionPatterns' - A list of regular expression patterns to include certain attached files
 -- in your Slack workspace team. Files that match the patterns are included
@@ -148,33 +157,24 @@ data SlackConfiguration = SlackConfiguration'
 -- content before you last synced, set the @LookBackPeriod@ to the number
 -- of hours you want change log to look back.
 --
--- 'excludeArchived', 'slackConfiguration_excludeArchived' - @TRUE@ to exclude archived messages to index from your Slack workspace
--- team.
---
--- 'fieldMappings', 'slackConfiguration_fieldMappings' - A list of @DataSourceToIndexFieldMapping@ objects that map Slack data
--- source attributes or field names to Amazon Kendra index field names. To
--- create custom fields, use the @UpdateIndex@ API before you map to Slack
--- fields. For more information, see
--- <https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html Mapping data source fields>.
--- The Slack data source field names must exist in your Slack custom
--- metadata.
+-- 'privateChannelFilter', 'slackConfiguration_privateChannelFilter' - The list of private channel names from your Slack workspace team. You
+-- use this if you want to index specific private channels, not all private
+-- channels. You can also use regular expression patterns to filter private
+-- channels.
 --
 -- 'publicChannelFilter', 'slackConfiguration_publicChannelFilter' - The list of public channel names to index from your Slack workspace
 -- team. You use this if you want to index specific public channels, not
 -- all public channels. You can also use regular expression patterns to
 -- filter public channels.
 --
--- 'privateChannelFilter', 'slackConfiguration_privateChannelFilter' - The list of private channel names from your Slack workspace team. You
--- use this if you want to index specific private channels, not all private
--- channels. You can also use regular expression patterns to filter private
--- channels.
+-- 'useChangeLog', 'slackConfiguration_useChangeLog' - @TRUE@ to use the Slack change log to determine which documents require
+-- updating in the index. Depending on the Slack change log\'s size, it may
+-- take longer for Amazon Kendra to use the change log than to scan all of
+-- your documents in Slack.
 --
--- 'exclusionPatterns', 'slackConfiguration_exclusionPatterns' - A list of regular expression patterns to exclude certain attached files
--- in your Slack workspace team. Files that match the patterns are excluded
--- from the index. Files that don’t match the patterns are included in the
--- index. If a file matches both an inclusion and exclusion pattern, the
--- exclusion pattern takes precedence and the file isn\'t included in the
--- index.
+-- 'vpcConfiguration', 'slackConfiguration_vpcConfiguration' - Configuration information for an Amazon Virtual Private Cloud to connect
+-- to your Slack. For more information, see
+-- <https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html Configuring a VPC>.
 --
 -- 'teamId', 'slackConfiguration_teamId' - The identifier of the team in the Slack workspace. For example,
 -- /T0123456789/.
@@ -214,16 +214,17 @@ newSlackConfiguration
   pSlackEntityList_
   pSinceCrawlDate_ =
     SlackConfiguration'
-      { useChangeLog = Prelude.Nothing,
-        vpcConfiguration = Prelude.Nothing,
-        crawlBotMessage = Prelude.Nothing,
+      { crawlBotMessage =
+          Prelude.Nothing,
+        excludeArchived = Prelude.Nothing,
+        exclusionPatterns = Prelude.Nothing,
+        fieldMappings = Prelude.Nothing,
         inclusionPatterns = Prelude.Nothing,
         lookBackPeriod = Prelude.Nothing,
-        excludeArchived = Prelude.Nothing,
-        fieldMappings = Prelude.Nothing,
-        publicChannelFilter = Prelude.Nothing,
         privateChannelFilter = Prelude.Nothing,
-        exclusionPatterns = Prelude.Nothing,
+        publicChannelFilter = Prelude.Nothing,
+        useChangeLog = Prelude.Nothing,
+        vpcConfiguration = Prelude.Nothing,
         teamId = pTeamId_,
         secretArn = pSecretArn_,
         slackEntityList =
@@ -231,22 +232,33 @@ newSlackConfiguration
         sinceCrawlDate = pSinceCrawlDate_
       }
 
--- | @TRUE@ to use the Slack change log to determine which documents require
--- updating in the index. Depending on the Slack change log\'s size, it may
--- take longer for Amazon Kendra to use the change log than to scan all of
--- your documents in Slack.
-slackConfiguration_useChangeLog :: Lens.Lens' SlackConfiguration (Prelude.Maybe Prelude.Bool)
-slackConfiguration_useChangeLog = Lens.lens (\SlackConfiguration' {useChangeLog} -> useChangeLog) (\s@SlackConfiguration' {} a -> s {useChangeLog = a} :: SlackConfiguration)
-
--- | Configuration information for an Amazon Virtual Private Cloud to connect
--- to your Slack. For more information, see
--- <https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html Configuring a VPC>.
-slackConfiguration_vpcConfiguration :: Lens.Lens' SlackConfiguration (Prelude.Maybe DataSourceVpcConfiguration)
-slackConfiguration_vpcConfiguration = Lens.lens (\SlackConfiguration' {vpcConfiguration} -> vpcConfiguration) (\s@SlackConfiguration' {} a -> s {vpcConfiguration = a} :: SlackConfiguration)
-
 -- | @TRUE@ to index bot messages from your Slack workspace team.
 slackConfiguration_crawlBotMessage :: Lens.Lens' SlackConfiguration (Prelude.Maybe Prelude.Bool)
 slackConfiguration_crawlBotMessage = Lens.lens (\SlackConfiguration' {crawlBotMessage} -> crawlBotMessage) (\s@SlackConfiguration' {} a -> s {crawlBotMessage = a} :: SlackConfiguration)
+
+-- | @TRUE@ to exclude archived messages to index from your Slack workspace
+-- team.
+slackConfiguration_excludeArchived :: Lens.Lens' SlackConfiguration (Prelude.Maybe Prelude.Bool)
+slackConfiguration_excludeArchived = Lens.lens (\SlackConfiguration' {excludeArchived} -> excludeArchived) (\s@SlackConfiguration' {} a -> s {excludeArchived = a} :: SlackConfiguration)
+
+-- | A list of regular expression patterns to exclude certain attached files
+-- in your Slack workspace team. Files that match the patterns are excluded
+-- from the index. Files that don’t match the patterns are included in the
+-- index. If a file matches both an inclusion and exclusion pattern, the
+-- exclusion pattern takes precedence and the file isn\'t included in the
+-- index.
+slackConfiguration_exclusionPatterns :: Lens.Lens' SlackConfiguration (Prelude.Maybe [Prelude.Text])
+slackConfiguration_exclusionPatterns = Lens.lens (\SlackConfiguration' {exclusionPatterns} -> exclusionPatterns) (\s@SlackConfiguration' {} a -> s {exclusionPatterns = a} :: SlackConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of @DataSourceToIndexFieldMapping@ objects that map Slack data
+-- source attributes or field names to Amazon Kendra index field names. To
+-- create custom fields, use the @UpdateIndex@ API before you map to Slack
+-- fields. For more information, see
+-- <https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html Mapping data source fields>.
+-- The Slack data source field names must exist in your Slack custom
+-- metadata.
+slackConfiguration_fieldMappings :: Lens.Lens' SlackConfiguration (Prelude.Maybe (Prelude.NonEmpty DataSourceToIndexFieldMapping))
+slackConfiguration_fieldMappings = Lens.lens (\SlackConfiguration' {fieldMappings} -> fieldMappings) (\s@SlackConfiguration' {} a -> s {fieldMappings = a} :: SlackConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of regular expression patterns to include certain attached files
 -- in your Slack workspace team. Files that match the patterns are included
@@ -268,20 +280,12 @@ slackConfiguration_inclusionPatterns = Lens.lens (\SlackConfiguration' {inclusio
 slackConfiguration_lookBackPeriod :: Lens.Lens' SlackConfiguration (Prelude.Maybe Prelude.Natural)
 slackConfiguration_lookBackPeriod = Lens.lens (\SlackConfiguration' {lookBackPeriod} -> lookBackPeriod) (\s@SlackConfiguration' {} a -> s {lookBackPeriod = a} :: SlackConfiguration)
 
--- | @TRUE@ to exclude archived messages to index from your Slack workspace
--- team.
-slackConfiguration_excludeArchived :: Lens.Lens' SlackConfiguration (Prelude.Maybe Prelude.Bool)
-slackConfiguration_excludeArchived = Lens.lens (\SlackConfiguration' {excludeArchived} -> excludeArchived) (\s@SlackConfiguration' {} a -> s {excludeArchived = a} :: SlackConfiguration)
-
--- | A list of @DataSourceToIndexFieldMapping@ objects that map Slack data
--- source attributes or field names to Amazon Kendra index field names. To
--- create custom fields, use the @UpdateIndex@ API before you map to Slack
--- fields. For more information, see
--- <https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html Mapping data source fields>.
--- The Slack data source field names must exist in your Slack custom
--- metadata.
-slackConfiguration_fieldMappings :: Lens.Lens' SlackConfiguration (Prelude.Maybe (Prelude.NonEmpty DataSourceToIndexFieldMapping))
-slackConfiguration_fieldMappings = Lens.lens (\SlackConfiguration' {fieldMappings} -> fieldMappings) (\s@SlackConfiguration' {} a -> s {fieldMappings = a} :: SlackConfiguration) Prelude.. Lens.mapping Lens.coerced
+-- | The list of private channel names from your Slack workspace team. You
+-- use this if you want to index specific private channels, not all private
+-- channels. You can also use regular expression patterns to filter private
+-- channels.
+slackConfiguration_privateChannelFilter :: Lens.Lens' SlackConfiguration (Prelude.Maybe [Prelude.Text])
+slackConfiguration_privateChannelFilter = Lens.lens (\SlackConfiguration' {privateChannelFilter} -> privateChannelFilter) (\s@SlackConfiguration' {} a -> s {privateChannelFilter = a} :: SlackConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The list of public channel names to index from your Slack workspace
 -- team. You use this if you want to index specific public channels, not
@@ -290,21 +294,18 @@ slackConfiguration_fieldMappings = Lens.lens (\SlackConfiguration' {fieldMapping
 slackConfiguration_publicChannelFilter :: Lens.Lens' SlackConfiguration (Prelude.Maybe [Prelude.Text])
 slackConfiguration_publicChannelFilter = Lens.lens (\SlackConfiguration' {publicChannelFilter} -> publicChannelFilter) (\s@SlackConfiguration' {} a -> s {publicChannelFilter = a} :: SlackConfiguration) Prelude.. Lens.mapping Lens.coerced
 
--- | The list of private channel names from your Slack workspace team. You
--- use this if you want to index specific private channels, not all private
--- channels. You can also use regular expression patterns to filter private
--- channels.
-slackConfiguration_privateChannelFilter :: Lens.Lens' SlackConfiguration (Prelude.Maybe [Prelude.Text])
-slackConfiguration_privateChannelFilter = Lens.lens (\SlackConfiguration' {privateChannelFilter} -> privateChannelFilter) (\s@SlackConfiguration' {} a -> s {privateChannelFilter = a} :: SlackConfiguration) Prelude.. Lens.mapping Lens.coerced
+-- | @TRUE@ to use the Slack change log to determine which documents require
+-- updating in the index. Depending on the Slack change log\'s size, it may
+-- take longer for Amazon Kendra to use the change log than to scan all of
+-- your documents in Slack.
+slackConfiguration_useChangeLog :: Lens.Lens' SlackConfiguration (Prelude.Maybe Prelude.Bool)
+slackConfiguration_useChangeLog = Lens.lens (\SlackConfiguration' {useChangeLog} -> useChangeLog) (\s@SlackConfiguration' {} a -> s {useChangeLog = a} :: SlackConfiguration)
 
--- | A list of regular expression patterns to exclude certain attached files
--- in your Slack workspace team. Files that match the patterns are excluded
--- from the index. Files that don’t match the patterns are included in the
--- index. If a file matches both an inclusion and exclusion pattern, the
--- exclusion pattern takes precedence and the file isn\'t included in the
--- index.
-slackConfiguration_exclusionPatterns :: Lens.Lens' SlackConfiguration (Prelude.Maybe [Prelude.Text])
-slackConfiguration_exclusionPatterns = Lens.lens (\SlackConfiguration' {exclusionPatterns} -> exclusionPatterns) (\s@SlackConfiguration' {} a -> s {exclusionPatterns = a} :: SlackConfiguration) Prelude.. Lens.mapping Lens.coerced
+-- | Configuration information for an Amazon Virtual Private Cloud to connect
+-- to your Slack. For more information, see
+-- <https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html Configuring a VPC>.
+slackConfiguration_vpcConfiguration :: Lens.Lens' SlackConfiguration (Prelude.Maybe DataSourceVpcConfiguration)
+slackConfiguration_vpcConfiguration = Lens.lens (\SlackConfiguration' {vpcConfiguration} -> vpcConfiguration) (\s@SlackConfiguration' {} a -> s {vpcConfiguration = a} :: SlackConfiguration)
 
 -- | The identifier of the team in the Slack workspace. For example,
 -- /T0123456789/.
@@ -343,24 +344,24 @@ instance Data.FromJSON SlackConfiguration where
       "SlackConfiguration"
       ( \x ->
           SlackConfiguration'
-            Prelude.<$> (x Data..:? "UseChangeLog")
-            Prelude.<*> (x Data..:? "VpcConfiguration")
-            Prelude.<*> (x Data..:? "CrawlBotMessage")
+            Prelude.<$> (x Data..:? "CrawlBotMessage")
+            Prelude.<*> (x Data..:? "ExcludeArchived")
+            Prelude.<*> ( x Data..:? "ExclusionPatterns"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "FieldMappings")
             Prelude.<*> ( x Data..:? "InclusionPatterns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "LookBackPeriod")
-            Prelude.<*> (x Data..:? "ExcludeArchived")
-            Prelude.<*> (x Data..:? "FieldMappings")
-            Prelude.<*> ( x Data..:? "PublicChannelFilter"
-                            Data..!= Prelude.mempty
-                        )
             Prelude.<*> ( x Data..:? "PrivateChannelFilter"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ExclusionPatterns"
+            Prelude.<*> ( x Data..:? "PublicChannelFilter"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "UseChangeLog")
+            Prelude.<*> (x Data..:? "VpcConfiguration")
             Prelude.<*> (x Data..: "TeamId")
             Prelude.<*> (x Data..: "SecretArn")
             Prelude.<*> (x Data..: "SlackEntityList")
@@ -369,16 +370,16 @@ instance Data.FromJSON SlackConfiguration where
 
 instance Prelude.Hashable SlackConfiguration where
   hashWithSalt _salt SlackConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` useChangeLog
-      `Prelude.hashWithSalt` vpcConfiguration
-      `Prelude.hashWithSalt` crawlBotMessage
+    _salt `Prelude.hashWithSalt` crawlBotMessage
+      `Prelude.hashWithSalt` excludeArchived
+      `Prelude.hashWithSalt` exclusionPatterns
+      `Prelude.hashWithSalt` fieldMappings
       `Prelude.hashWithSalt` inclusionPatterns
       `Prelude.hashWithSalt` lookBackPeriod
-      `Prelude.hashWithSalt` excludeArchived
-      `Prelude.hashWithSalt` fieldMappings
-      `Prelude.hashWithSalt` publicChannelFilter
       `Prelude.hashWithSalt` privateChannelFilter
-      `Prelude.hashWithSalt` exclusionPatterns
+      `Prelude.hashWithSalt` publicChannelFilter
+      `Prelude.hashWithSalt` useChangeLog
+      `Prelude.hashWithSalt` vpcConfiguration
       `Prelude.hashWithSalt` teamId
       `Prelude.hashWithSalt` secretArn
       `Prelude.hashWithSalt` slackEntityList
@@ -386,16 +387,16 @@ instance Prelude.Hashable SlackConfiguration where
 
 instance Prelude.NFData SlackConfiguration where
   rnf SlackConfiguration' {..} =
-    Prelude.rnf useChangeLog
-      `Prelude.seq` Prelude.rnf vpcConfiguration
-      `Prelude.seq` Prelude.rnf crawlBotMessage
+    Prelude.rnf crawlBotMessage
+      `Prelude.seq` Prelude.rnf excludeArchived
+      `Prelude.seq` Prelude.rnf exclusionPatterns
+      `Prelude.seq` Prelude.rnf fieldMappings
       `Prelude.seq` Prelude.rnf inclusionPatterns
       `Prelude.seq` Prelude.rnf lookBackPeriod
-      `Prelude.seq` Prelude.rnf excludeArchived
-      `Prelude.seq` Prelude.rnf fieldMappings
-      `Prelude.seq` Prelude.rnf publicChannelFilter
       `Prelude.seq` Prelude.rnf privateChannelFilter
-      `Prelude.seq` Prelude.rnf exclusionPatterns
+      `Prelude.seq` Prelude.rnf publicChannelFilter
+      `Prelude.seq` Prelude.rnf useChangeLog
+      `Prelude.seq` Prelude.rnf vpcConfiguration
       `Prelude.seq` Prelude.rnf teamId
       `Prelude.seq` Prelude.rnf secretArn
       `Prelude.seq` Prelude.rnf slackEntityList
@@ -405,24 +406,24 @@ instance Data.ToJSON SlackConfiguration where
   toJSON SlackConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("UseChangeLog" Data..=) Prelude.<$> useChangeLog,
-            ("VpcConfiguration" Data..=)
-              Prelude.<$> vpcConfiguration,
-            ("CrawlBotMessage" Data..=)
+          [ ("CrawlBotMessage" Data..=)
               Prelude.<$> crawlBotMessage,
+            ("ExcludeArchived" Data..=)
+              Prelude.<$> excludeArchived,
+            ("ExclusionPatterns" Data..=)
+              Prelude.<$> exclusionPatterns,
+            ("FieldMappings" Data..=) Prelude.<$> fieldMappings,
             ("InclusionPatterns" Data..=)
               Prelude.<$> inclusionPatterns,
             ("LookBackPeriod" Data..=)
               Prelude.<$> lookBackPeriod,
-            ("ExcludeArchived" Data..=)
-              Prelude.<$> excludeArchived,
-            ("FieldMappings" Data..=) Prelude.<$> fieldMappings,
-            ("PublicChannelFilter" Data..=)
-              Prelude.<$> publicChannelFilter,
             ("PrivateChannelFilter" Data..=)
               Prelude.<$> privateChannelFilter,
-            ("ExclusionPatterns" Data..=)
-              Prelude.<$> exclusionPatterns,
+            ("PublicChannelFilter" Data..=)
+              Prelude.<$> publicChannelFilter,
+            ("UseChangeLog" Data..=) Prelude.<$> useChangeLog,
+            ("VpcConfiguration" Data..=)
+              Prelude.<$> vpcConfiguration,
             Prelude.Just ("TeamId" Data..= teamId),
             Prelude.Just ("SecretArn" Data..= secretArn),
             Prelude.Just

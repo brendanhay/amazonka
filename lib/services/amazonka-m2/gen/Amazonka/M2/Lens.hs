@@ -20,9 +20,9 @@ module Amazonka.M2.Lens
     cancelBatchJobExecutionResponse_httpStatus,
 
     -- ** CreateApplication
-    createApplication_tags,
     createApplication_clientToken,
     createApplication_description,
+    createApplication_tags,
     createApplication_definition,
     createApplication_engineType,
     createApplication_name,
@@ -47,16 +47,16 @@ module Amazonka.M2.Lens
     createDeploymentResponse_deploymentId,
 
     -- ** CreateEnvironment
-    createEnvironment_tags,
     createEnvironment_clientToken,
+    createEnvironment_description,
+    createEnvironment_engineVersion,
+    createEnvironment_highAvailabilityConfig,
+    createEnvironment_preferredMaintenanceWindow,
+    createEnvironment_publiclyAccessible,
     createEnvironment_securityGroupIds,
     createEnvironment_storageConfigurations,
-    createEnvironment_description,
-    createEnvironment_publiclyAccessible,
-    createEnvironment_preferredMaintenanceWindow,
-    createEnvironment_highAvailabilityConfig,
     createEnvironment_subnetIds,
-    createEnvironment_engineVersion,
+    createEnvironment_tags,
     createEnvironment_engineType,
     createEnvironment_instanceType,
     createEnvironment_name,
@@ -78,17 +78,17 @@ module Amazonka.M2.Lens
 
     -- ** GetApplication
     getApplication_applicationId,
-    getApplicationResponse_tags,
-    getApplicationResponse_listenerArns,
     getApplicationResponse_deployedVersion,
-    getApplicationResponse_lastStartTime,
-    getApplicationResponse_statusReason,
     getApplicationResponse_description,
-    getApplicationResponse_loadBalancerDnsName,
-    getApplicationResponse_targetGroupArns,
-    getApplicationResponse_logGroups,
-    getApplicationResponse_listenerPorts,
     getApplicationResponse_environmentId,
+    getApplicationResponse_lastStartTime,
+    getApplicationResponse_listenerArns,
+    getApplicationResponse_listenerPorts,
+    getApplicationResponse_loadBalancerDnsName,
+    getApplicationResponse_logGroups,
+    getApplicationResponse_statusReason,
+    getApplicationResponse_tags,
+    getApplicationResponse_targetGroupArns,
     getApplicationResponse_httpStatus,
     getApplicationResponse_applicationArn,
     getApplicationResponse_applicationId,
@@ -101,8 +101,8 @@ module Amazonka.M2.Lens
     -- ** GetApplicationVersion
     getApplicationVersion_applicationId,
     getApplicationVersion_applicationVersion,
-    getApplicationVersionResponse_statusReason,
     getApplicationVersionResponse_description,
+    getApplicationVersionResponse_statusReason,
     getApplicationVersionResponse_httpStatus,
     getApplicationVersionResponse_applicationVersion,
     getApplicationVersionResponse_creationTime,
@@ -113,12 +113,12 @@ module Amazonka.M2.Lens
     -- ** GetBatchJobExecution
     getBatchJobExecution_applicationId,
     getBatchJobExecution_executionId,
-    getBatchJobExecutionResponse_jobName,
-    getBatchJobExecutionResponse_statusReason,
-    getBatchJobExecutionResponse_jobId,
     getBatchJobExecutionResponse_endTime,
-    getBatchJobExecutionResponse_jobUser,
+    getBatchJobExecutionResponse_jobId,
+    getBatchJobExecutionResponse_jobName,
     getBatchJobExecutionResponse_jobType,
+    getBatchJobExecutionResponse_jobUser,
+    getBatchJobExecutionResponse_statusReason,
     getBatchJobExecutionResponse_httpStatus,
     getBatchJobExecutionResponse_applicationId,
     getBatchJobExecutionResponse_executionId,
@@ -128,13 +128,13 @@ module Amazonka.M2.Lens
     -- ** GetDataSetDetails
     getDataSetDetails_applicationId,
     getDataSetDetails_dataSetName,
-    getDataSetDetailsResponse_lastUpdatedTime,
-    getDataSetDetailsResponse_location,
+    getDataSetDetailsResponse_blocksize,
+    getDataSetDetailsResponse_creationTime,
     getDataSetDetailsResponse_dataSetOrg,
     getDataSetDetailsResponse_lastReferencedTime,
-    getDataSetDetailsResponse_creationTime,
+    getDataSetDetailsResponse_lastUpdatedTime,
+    getDataSetDetailsResponse_location,
     getDataSetDetailsResponse_recordLength,
-    getDataSetDetailsResponse_blocksize,
     getDataSetDetailsResponse_httpStatus,
     getDataSetDetailsResponse_dataSetName,
 
@@ -160,16 +160,16 @@ module Amazonka.M2.Lens
 
     -- ** GetEnvironment
     getEnvironment_environmentId,
-    getEnvironmentResponse_tags,
     getEnvironmentResponse_actualCapacity,
+    getEnvironmentResponse_description,
+    getEnvironmentResponse_highAvailabilityConfig,
+    getEnvironmentResponse_loadBalancerArn,
     getEnvironmentResponse_pendingMaintenance,
+    getEnvironmentResponse_preferredMaintenanceWindow,
+    getEnvironmentResponse_publiclyAccessible,
     getEnvironmentResponse_statusReason,
     getEnvironmentResponse_storageConfigurations,
-    getEnvironmentResponse_loadBalancerArn,
-    getEnvironmentResponse_description,
-    getEnvironmentResponse_publiclyAccessible,
-    getEnvironmentResponse_preferredMaintenanceWindow,
-    getEnvironmentResponse_highAvailabilityConfig,
+    getEnvironmentResponse_tags,
     getEnvironmentResponse_httpStatus,
     getEnvironmentResponse_creationTime,
     getEnvironmentResponse_engineType,
@@ -184,25 +184,25 @@ module Amazonka.M2.Lens
     getEnvironmentResponse_vpcId,
 
     -- ** ListApplicationVersions
-    listApplicationVersions_nextToken,
     listApplicationVersions_maxResults,
+    listApplicationVersions_nextToken,
     listApplicationVersions_applicationId,
     listApplicationVersionsResponse_nextToken,
     listApplicationVersionsResponse_httpStatus,
     listApplicationVersionsResponse_applicationVersions,
 
     -- ** ListApplications
-    listApplications_nextToken,
-    listApplications_names,
-    listApplications_maxResults,
     listApplications_environmentId,
+    listApplications_maxResults,
+    listApplications_names,
+    listApplications_nextToken,
     listApplicationsResponse_nextToken,
     listApplicationsResponse_httpStatus,
     listApplicationsResponse_applications,
 
     -- ** ListBatchJobDefinitions
-    listBatchJobDefinitions_nextToken,
     listBatchJobDefinitions_maxResults,
+    listBatchJobDefinitions_nextToken,
     listBatchJobDefinitions_prefix,
     listBatchJobDefinitions_applicationId,
     listBatchJobDefinitionsResponse_nextToken,
@@ -210,29 +210,29 @@ module Amazonka.M2.Lens
     listBatchJobDefinitionsResponse_batchJobDefinitions,
 
     -- ** ListBatchJobExecutions
-    listBatchJobExecutions_startedBefore,
-    listBatchJobExecutions_nextToken,
-    listBatchJobExecutions_jobName,
-    listBatchJobExecutions_status,
-    listBatchJobExecutions_maxResults,
-    listBatchJobExecutions_startedAfter,
     listBatchJobExecutions_executionIds,
+    listBatchJobExecutions_jobName,
+    listBatchJobExecutions_maxResults,
+    listBatchJobExecutions_nextToken,
+    listBatchJobExecutions_startedAfter,
+    listBatchJobExecutions_startedBefore,
+    listBatchJobExecutions_status,
     listBatchJobExecutions_applicationId,
     listBatchJobExecutionsResponse_nextToken,
     listBatchJobExecutionsResponse_httpStatus,
     listBatchJobExecutionsResponse_batchJobExecutions,
 
     -- ** ListDataSetImportHistory
-    listDataSetImportHistory_nextToken,
     listDataSetImportHistory_maxResults,
+    listDataSetImportHistory_nextToken,
     listDataSetImportHistory_applicationId,
     listDataSetImportHistoryResponse_nextToken,
     listDataSetImportHistoryResponse_httpStatus,
     listDataSetImportHistoryResponse_dataSetImportTasks,
 
     -- ** ListDataSets
-    listDataSets_nextToken,
     listDataSets_maxResults,
+    listDataSets_nextToken,
     listDataSets_prefix,
     listDataSets_applicationId,
     listDataSetsResponse_nextToken,
@@ -240,26 +240,26 @@ module Amazonka.M2.Lens
     listDataSetsResponse_dataSets,
 
     -- ** ListDeployments
-    listDeployments_nextToken,
     listDeployments_maxResults,
+    listDeployments_nextToken,
     listDeployments_applicationId,
     listDeploymentsResponse_nextToken,
     listDeploymentsResponse_httpStatus,
     listDeploymentsResponse_deployments,
 
     -- ** ListEngineVersions
-    listEngineVersions_nextToken,
     listEngineVersions_engineType,
     listEngineVersions_maxResults,
+    listEngineVersions_nextToken,
     listEngineVersionsResponse_nextToken,
     listEngineVersionsResponse_httpStatus,
     listEngineVersionsResponse_engineVersions,
 
     -- ** ListEnvironments
-    listEnvironments_nextToken,
     listEnvironments_engineType,
-    listEnvironments_names,
     listEnvironments_maxResults,
+    listEnvironments_names,
+    listEnvironments_nextToken,
     listEnvironmentsResponse_nextToken,
     listEnvironmentsResponse_httpStatus,
     listEnvironmentsResponse_environments,
@@ -296,19 +296,19 @@ module Amazonka.M2.Lens
     untagResourceResponse_httpStatus,
 
     -- ** UpdateApplication
-    updateApplication_description,
     updateApplication_definition,
+    updateApplication_description,
     updateApplication_applicationId,
     updateApplication_currentApplicationVersion,
     updateApplicationResponse_httpStatus,
     updateApplicationResponse_applicationVersion,
 
     -- ** UpdateEnvironment
+    updateEnvironment_applyDuringMaintenanceWindow,
+    updateEnvironment_desiredCapacity,
+    updateEnvironment_engineVersion,
     updateEnvironment_instanceType,
     updateEnvironment_preferredMaintenanceWindow,
-    updateEnvironment_desiredCapacity,
-    updateEnvironment_applyDuringMaintenanceWindow,
-    updateEnvironment_engineVersion,
     updateEnvironment_environmentId,
     updateEnvironmentResponse_httpStatus,
     updateEnvironmentResponse_environmentId,
@@ -316,17 +316,17 @@ module Amazonka.M2.Lens
     -- * Types
 
     -- ** AlternateKey
-    alternateKey_name,
     alternateKey_allowDuplicates,
+    alternateKey_name,
     alternateKey_length,
     alternateKey_offset,
 
     -- ** ApplicationSummary
     applicationSummary_deploymentStatus,
-    applicationSummary_versionStatus,
-    applicationSummary_lastStartTime,
     applicationSummary_description,
     applicationSummary_environmentId,
+    applicationSummary_lastStartTime,
+    applicationSummary_versionStatus,
     applicationSummary_applicationArn,
     applicationSummary_applicationId,
     applicationSummary_applicationVersion,
@@ -346,9 +346,9 @@ module Amazonka.M2.Lens
     batchJobDefinition_scriptBatchJobDefinition,
 
     -- ** BatchJobExecutionSummary
-    batchJobExecutionSummary_jobName,
-    batchJobExecutionSummary_jobId,
     batchJobExecutionSummary_endTime,
+    batchJobExecutionSummary_jobId,
+    batchJobExecutionSummary_jobName,
     batchJobExecutionSummary_jobType,
     batchJobExecutionSummary_applicationId,
     batchJobExecutionSummary_executionId,
@@ -356,12 +356,12 @@ module Amazonka.M2.Lens
     batchJobExecutionSummary_status,
 
     -- ** BatchJobIdentifier
-    batchJobIdentifier_scriptBatchJobIdentifier,
     batchJobIdentifier_fileBatchJobIdentifier,
+    batchJobIdentifier_scriptBatchJobIdentifier,
 
     -- ** DataSet
-    dataSet_storageType,
     dataSet_relativePath,
+    dataSet_storageType,
     dataSet_datasetName,
     dataSet_datasetOrg,
     dataSet_recordLength,
@@ -387,11 +387,11 @@ module Amazonka.M2.Lens
     dataSetImportTask_taskId,
 
     -- ** DataSetSummary
-    dataSetSummary_format,
-    dataSetSummary_lastUpdatedTime,
-    dataSetSummary_dataSetOrg,
-    dataSetSummary_lastReferencedTime,
     dataSetSummary_creationTime,
+    dataSetSummary_dataSetOrg,
+    dataSetSummary_format,
+    dataSetSummary_lastReferencedTime,
+    dataSetSummary_lastUpdatedTime,
     dataSetSummary_dataSetName,
 
     -- ** DatasetDetailOrgAttributes
@@ -403,8 +403,8 @@ module Amazonka.M2.Lens
     datasetOrgAttributes_vsam,
 
     -- ** Definition
-    definition_s3Location,
     definition_content,
+    definition_s3Location,
 
     -- ** DeployedVersionSummary
     deployedVersionSummary_statusReason,
@@ -473,8 +473,8 @@ module Amazonka.M2.Lens
     maintenanceSchedule_startTime,
 
     -- ** PendingMaintenance
-    pendingMaintenance_schedule,
     pendingMaintenance_engineVersion,
+    pendingMaintenance_schedule,
 
     -- ** PrimaryKey
     primaryKey_name,
@@ -496,19 +496,19 @@ module Amazonka.M2.Lens
     storageConfiguration_fsx,
 
     -- ** VsamAttributes
-    vsamAttributes_primaryKey,
-    vsamAttributes_encoding,
-    vsamAttributes_compressed,
     vsamAttributes_alternateKeys,
+    vsamAttributes_compressed,
+    vsamAttributes_encoding,
+    vsamAttributes_primaryKey,
     vsamAttributes_format,
 
     -- ** VsamDetailAttributes
-    vsamDetailAttributes_primaryKey,
-    vsamDetailAttributes_encoding,
-    vsamDetailAttributes_recordFormat,
-    vsamDetailAttributes_compressed,
-    vsamDetailAttributes_cacheAtStartup,
     vsamDetailAttributes_alternateKeys,
+    vsamDetailAttributes_cacheAtStartup,
+    vsamDetailAttributes_compressed,
+    vsamDetailAttributes_encoding,
+    vsamDetailAttributes_primaryKey,
+    vsamDetailAttributes_recordFormat,
   )
 where
 

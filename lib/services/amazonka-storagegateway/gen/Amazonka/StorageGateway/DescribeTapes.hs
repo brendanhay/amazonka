@@ -32,9 +32,9 @@ module Amazonka.StorageGateway.DescribeTapes
     newDescribeTapes,
 
     -- * Request Lenses
-    describeTapes_tapeARNs,
-    describeTapes_marker,
     describeTapes_limit,
+    describeTapes_marker,
+    describeTapes_tapeARNs,
     describeTapes_gatewayARN,
 
     -- * Destructuring the Response
@@ -60,21 +60,21 @@ import Amazonka.StorageGateway.Types
 --
 -- /See:/ 'newDescribeTapes' smart constructor.
 data DescribeTapes = DescribeTapes'
-  { -- | Specifies one or more unique Amazon Resource Names (ARNs) that represent
-    -- the virtual tapes you want to describe. If this parameter is not
-    -- specified, Tape gateway returns a description of all virtual tapes
-    -- associated with the specified gateway.
-    tapeARNs :: Prelude.Maybe [Prelude.Text],
+  { -- | Specifies that the number of virtual tapes described be limited to the
+    -- specified number.
+    --
+    -- Amazon Web Services may impose its own limit, if this field is not set.
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | A marker value, obtained in a previous call to @DescribeTapes@. This
     -- marker indicates which page of results to retrieve.
     --
     -- If not specified, the first page of results is retrieved.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | Specifies that the number of virtual tapes described be limited to the
-    -- specified number.
-    --
-    -- Amazon Web Services may impose its own limit, if this field is not set.
-    limit :: Prelude.Maybe Prelude.Natural,
+    -- | Specifies one or more unique Amazon Resource Names (ARNs) that represent
+    -- the virtual tapes you want to describe. If this parameter is not
+    -- specified, Tape gateway returns a description of all virtual tapes
+    -- associated with the specified gateway.
+    tapeARNs :: Prelude.Maybe [Prelude.Text],
     gatewayARN :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -87,20 +87,20 @@ data DescribeTapes = DescribeTapes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tapeARNs', 'describeTapes_tapeARNs' - Specifies one or more unique Amazon Resource Names (ARNs) that represent
--- the virtual tapes you want to describe. If this parameter is not
--- specified, Tape gateway returns a description of all virtual tapes
--- associated with the specified gateway.
+-- 'limit', 'describeTapes_limit' - Specifies that the number of virtual tapes described be limited to the
+-- specified number.
+--
+-- Amazon Web Services may impose its own limit, if this field is not set.
 --
 -- 'marker', 'describeTapes_marker' - A marker value, obtained in a previous call to @DescribeTapes@. This
 -- marker indicates which page of results to retrieve.
 --
 -- If not specified, the first page of results is retrieved.
 --
--- 'limit', 'describeTapes_limit' - Specifies that the number of virtual tapes described be limited to the
--- specified number.
---
--- Amazon Web Services may impose its own limit, if this field is not set.
+-- 'tapeARNs', 'describeTapes_tapeARNs' - Specifies one or more unique Amazon Resource Names (ARNs) that represent
+-- the virtual tapes you want to describe. If this parameter is not
+-- specified, Tape gateway returns a description of all virtual tapes
+-- associated with the specified gateway.
 --
 -- 'gatewayARN', 'describeTapes_gatewayARN' - Undocumented member.
 newDescribeTapes ::
@@ -109,18 +109,18 @@ newDescribeTapes ::
   DescribeTapes
 newDescribeTapes pGatewayARN_ =
   DescribeTapes'
-    { tapeARNs = Prelude.Nothing,
+    { limit = Prelude.Nothing,
       marker = Prelude.Nothing,
-      limit = Prelude.Nothing,
+      tapeARNs = Prelude.Nothing,
       gatewayARN = pGatewayARN_
     }
 
--- | Specifies one or more unique Amazon Resource Names (ARNs) that represent
--- the virtual tapes you want to describe. If this parameter is not
--- specified, Tape gateway returns a description of all virtual tapes
--- associated with the specified gateway.
-describeTapes_tapeARNs :: Lens.Lens' DescribeTapes (Prelude.Maybe [Prelude.Text])
-describeTapes_tapeARNs = Lens.lens (\DescribeTapes' {tapeARNs} -> tapeARNs) (\s@DescribeTapes' {} a -> s {tapeARNs = a} :: DescribeTapes) Prelude.. Lens.mapping Lens.coerced
+-- | Specifies that the number of virtual tapes described be limited to the
+-- specified number.
+--
+-- Amazon Web Services may impose its own limit, if this field is not set.
+describeTapes_limit :: Lens.Lens' DescribeTapes (Prelude.Maybe Prelude.Natural)
+describeTapes_limit = Lens.lens (\DescribeTapes' {limit} -> limit) (\s@DescribeTapes' {} a -> s {limit = a} :: DescribeTapes)
 
 -- | A marker value, obtained in a previous call to @DescribeTapes@. This
 -- marker indicates which page of results to retrieve.
@@ -129,12 +129,12 @@ describeTapes_tapeARNs = Lens.lens (\DescribeTapes' {tapeARNs} -> tapeARNs) (\s@
 describeTapes_marker :: Lens.Lens' DescribeTapes (Prelude.Maybe Prelude.Text)
 describeTapes_marker = Lens.lens (\DescribeTapes' {marker} -> marker) (\s@DescribeTapes' {} a -> s {marker = a} :: DescribeTapes)
 
--- | Specifies that the number of virtual tapes described be limited to the
--- specified number.
---
--- Amazon Web Services may impose its own limit, if this field is not set.
-describeTapes_limit :: Lens.Lens' DescribeTapes (Prelude.Maybe Prelude.Natural)
-describeTapes_limit = Lens.lens (\DescribeTapes' {limit} -> limit) (\s@DescribeTapes' {} a -> s {limit = a} :: DescribeTapes)
+-- | Specifies one or more unique Amazon Resource Names (ARNs) that represent
+-- the virtual tapes you want to describe. If this parameter is not
+-- specified, Tape gateway returns a description of all virtual tapes
+-- associated with the specified gateway.
+describeTapes_tapeARNs :: Lens.Lens' DescribeTapes (Prelude.Maybe [Prelude.Text])
+describeTapes_tapeARNs = Lens.lens (\DescribeTapes' {tapeARNs} -> tapeARNs) (\s@DescribeTapes' {} a -> s {tapeARNs = a} :: DescribeTapes) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 describeTapes_gatewayARN :: Lens.Lens' DescribeTapes Prelude.Text
@@ -176,16 +176,16 @@ instance Core.AWSRequest DescribeTapes where
 
 instance Prelude.Hashable DescribeTapes where
   hashWithSalt _salt DescribeTapes' {..} =
-    _salt `Prelude.hashWithSalt` tapeARNs
+    _salt `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` tapeARNs
       `Prelude.hashWithSalt` gatewayARN
 
 instance Prelude.NFData DescribeTapes where
   rnf DescribeTapes' {..} =
-    Prelude.rnf tapeARNs
+    Prelude.rnf limit
       `Prelude.seq` Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf tapeARNs
       `Prelude.seq` Prelude.rnf gatewayARN
 
 instance Data.ToHeaders DescribeTapes where
@@ -207,9 +207,9 @@ instance Data.ToJSON DescribeTapes where
   toJSON DescribeTapes' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("TapeARNs" Data..=) Prelude.<$> tapeARNs,
+          [ ("Limit" Data..=) Prelude.<$> limit,
             ("Marker" Data..=) Prelude.<$> marker,
-            ("Limit" Data..=) Prelude.<$> limit,
+            ("TapeARNs" Data..=) Prelude.<$> tapeARNs,
             Prelude.Just ("GatewayARN" Data..= gatewayARN)
           ]
       )

@@ -51,10 +51,10 @@ module Amazonka.LakeFormation.AssumeDecoratedRoleWithSAML
     newAssumeDecoratedRoleWithSAMLResponse,
 
     -- * Response Lenses
-    assumeDecoratedRoleWithSAMLResponse_sessionToken,
+    assumeDecoratedRoleWithSAMLResponse_accessKeyId,
     assumeDecoratedRoleWithSAMLResponse_expiration,
     assumeDecoratedRoleWithSAMLResponse_secretAccessKey,
-    assumeDecoratedRoleWithSAMLResponse_accessKeyId,
+    assumeDecoratedRoleWithSAMLResponse_sessionToken,
     assumeDecoratedRoleWithSAMLResponse_httpStatus,
   )
 where
@@ -162,10 +162,10 @@ instance Core.AWSRequest AssumeDecoratedRoleWithSAML where
     Response.receiveJSON
       ( \s h x ->
           AssumeDecoratedRoleWithSAMLResponse'
-            Prelude.<$> (x Data..?> "SessionToken")
+            Prelude.<$> (x Data..?> "AccessKeyId")
             Prelude.<*> (x Data..?> "Expiration")
             Prelude.<*> (x Data..?> "SecretAccessKey")
-            Prelude.<*> (x Data..?> "AccessKeyId")
+            Prelude.<*> (x Data..?> "SessionToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -214,16 +214,16 @@ instance Data.ToQuery AssumeDecoratedRoleWithSAML where
 
 -- | /See:/ 'newAssumeDecoratedRoleWithSAMLResponse' smart constructor.
 data AssumeDecoratedRoleWithSAMLResponse = AssumeDecoratedRoleWithSAMLResponse'
-  { -- | The session token for the temporary credentials.
-    sessionToken :: Prelude.Maybe Prelude.Text,
+  { -- | The access key ID for the temporary credentials. (The access key
+    -- consists of an access key ID and a secret key).
+    accessKeyId :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the temporary credentials expire.
     expiration :: Prelude.Maybe Data.POSIX,
     -- | The secret key for the temporary credentials. (The access key consists
     -- of an access key ID and a secret key).
     secretAccessKey :: Prelude.Maybe Prelude.Text,
-    -- | The access key ID for the temporary credentials. (The access key
-    -- consists of an access key ID and a secret key).
-    accessKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The session token for the temporary credentials.
+    sessionToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -237,15 +237,15 @@ data AssumeDecoratedRoleWithSAMLResponse = AssumeDecoratedRoleWithSAMLResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sessionToken', 'assumeDecoratedRoleWithSAMLResponse_sessionToken' - The session token for the temporary credentials.
+-- 'accessKeyId', 'assumeDecoratedRoleWithSAMLResponse_accessKeyId' - The access key ID for the temporary credentials. (The access key
+-- consists of an access key ID and a secret key).
 --
 -- 'expiration', 'assumeDecoratedRoleWithSAMLResponse_expiration' - The date and time when the temporary credentials expire.
 --
 -- 'secretAccessKey', 'assumeDecoratedRoleWithSAMLResponse_secretAccessKey' - The secret key for the temporary credentials. (The access key consists
 -- of an access key ID and a secret key).
 --
--- 'accessKeyId', 'assumeDecoratedRoleWithSAMLResponse_accessKeyId' - The access key ID for the temporary credentials. (The access key
--- consists of an access key ID and a secret key).
+-- 'sessionToken', 'assumeDecoratedRoleWithSAMLResponse_sessionToken' - The session token for the temporary credentials.
 --
 -- 'httpStatus', 'assumeDecoratedRoleWithSAMLResponse_httpStatus' - The response's http status code.
 newAssumeDecoratedRoleWithSAMLResponse ::
@@ -254,17 +254,18 @@ newAssumeDecoratedRoleWithSAMLResponse ::
   AssumeDecoratedRoleWithSAMLResponse
 newAssumeDecoratedRoleWithSAMLResponse pHttpStatus_ =
   AssumeDecoratedRoleWithSAMLResponse'
-    { sessionToken =
+    { accessKeyId =
         Prelude.Nothing,
       expiration = Prelude.Nothing,
       secretAccessKey = Prelude.Nothing,
-      accessKeyId = Prelude.Nothing,
+      sessionToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The session token for the temporary credentials.
-assumeDecoratedRoleWithSAMLResponse_sessionToken :: Lens.Lens' AssumeDecoratedRoleWithSAMLResponse (Prelude.Maybe Prelude.Text)
-assumeDecoratedRoleWithSAMLResponse_sessionToken = Lens.lens (\AssumeDecoratedRoleWithSAMLResponse' {sessionToken} -> sessionToken) (\s@AssumeDecoratedRoleWithSAMLResponse' {} a -> s {sessionToken = a} :: AssumeDecoratedRoleWithSAMLResponse)
+-- | The access key ID for the temporary credentials. (The access key
+-- consists of an access key ID and a secret key).
+assumeDecoratedRoleWithSAMLResponse_accessKeyId :: Lens.Lens' AssumeDecoratedRoleWithSAMLResponse (Prelude.Maybe Prelude.Text)
+assumeDecoratedRoleWithSAMLResponse_accessKeyId = Lens.lens (\AssumeDecoratedRoleWithSAMLResponse' {accessKeyId} -> accessKeyId) (\s@AssumeDecoratedRoleWithSAMLResponse' {} a -> s {accessKeyId = a} :: AssumeDecoratedRoleWithSAMLResponse)
 
 -- | The date and time when the temporary credentials expire.
 assumeDecoratedRoleWithSAMLResponse_expiration :: Lens.Lens' AssumeDecoratedRoleWithSAMLResponse (Prelude.Maybe Prelude.UTCTime)
@@ -275,10 +276,9 @@ assumeDecoratedRoleWithSAMLResponse_expiration = Lens.lens (\AssumeDecoratedRole
 assumeDecoratedRoleWithSAMLResponse_secretAccessKey :: Lens.Lens' AssumeDecoratedRoleWithSAMLResponse (Prelude.Maybe Prelude.Text)
 assumeDecoratedRoleWithSAMLResponse_secretAccessKey = Lens.lens (\AssumeDecoratedRoleWithSAMLResponse' {secretAccessKey} -> secretAccessKey) (\s@AssumeDecoratedRoleWithSAMLResponse' {} a -> s {secretAccessKey = a} :: AssumeDecoratedRoleWithSAMLResponse)
 
--- | The access key ID for the temporary credentials. (The access key
--- consists of an access key ID and a secret key).
-assumeDecoratedRoleWithSAMLResponse_accessKeyId :: Lens.Lens' AssumeDecoratedRoleWithSAMLResponse (Prelude.Maybe Prelude.Text)
-assumeDecoratedRoleWithSAMLResponse_accessKeyId = Lens.lens (\AssumeDecoratedRoleWithSAMLResponse' {accessKeyId} -> accessKeyId) (\s@AssumeDecoratedRoleWithSAMLResponse' {} a -> s {accessKeyId = a} :: AssumeDecoratedRoleWithSAMLResponse)
+-- | The session token for the temporary credentials.
+assumeDecoratedRoleWithSAMLResponse_sessionToken :: Lens.Lens' AssumeDecoratedRoleWithSAMLResponse (Prelude.Maybe Prelude.Text)
+assumeDecoratedRoleWithSAMLResponse_sessionToken = Lens.lens (\AssumeDecoratedRoleWithSAMLResponse' {sessionToken} -> sessionToken) (\s@AssumeDecoratedRoleWithSAMLResponse' {} a -> s {sessionToken = a} :: AssumeDecoratedRoleWithSAMLResponse)
 
 -- | The response's http status code.
 assumeDecoratedRoleWithSAMLResponse_httpStatus :: Lens.Lens' AssumeDecoratedRoleWithSAMLResponse Prelude.Int
@@ -289,8 +289,8 @@ instance
     AssumeDecoratedRoleWithSAMLResponse
   where
   rnf AssumeDecoratedRoleWithSAMLResponse' {..} =
-    Prelude.rnf sessionToken
+    Prelude.rnf accessKeyId
       `Prelude.seq` Prelude.rnf expiration
       `Prelude.seq` Prelude.rnf secretAccessKey
-      `Prelude.seq` Prelude.rnf accessKeyId
+      `Prelude.seq` Prelude.rnf sessionToken
       `Prelude.seq` Prelude.rnf httpStatus

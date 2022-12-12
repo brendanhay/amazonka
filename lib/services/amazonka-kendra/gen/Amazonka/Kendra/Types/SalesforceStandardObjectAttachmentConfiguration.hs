@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSalesforceStandardObjectAttachmentConfiguration' smart constructor.
 data SalesforceStandardObjectAttachmentConfiguration = SalesforceStandardObjectAttachmentConfiguration'
-  { -- | One or more objects that map fields in attachments to Amazon Kendra
+  { -- | The name of the field used for the document title.
+    documentTitleFieldName :: Prelude.Maybe Prelude.Text,
+    -- | One or more objects that map fields in attachments to Amazon Kendra
     -- index fields.
-    fieldMappings :: Prelude.Maybe (Prelude.NonEmpty DataSourceToIndexFieldMapping),
-    -- | The name of the field used for the document title.
-    documentTitleFieldName :: Prelude.Maybe Prelude.Text
+    fieldMappings :: Prelude.Maybe (Prelude.NonEmpty DataSourceToIndexFieldMapping)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,28 +46,28 @@ data SalesforceStandardObjectAttachmentConfiguration = SalesforceStandardObjectA
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'documentTitleFieldName', 'salesforceStandardObjectAttachmentConfiguration_documentTitleFieldName' - The name of the field used for the document title.
+--
 -- 'fieldMappings', 'salesforceStandardObjectAttachmentConfiguration_fieldMappings' - One or more objects that map fields in attachments to Amazon Kendra
 -- index fields.
---
--- 'documentTitleFieldName', 'salesforceStandardObjectAttachmentConfiguration_documentTitleFieldName' - The name of the field used for the document title.
 newSalesforceStandardObjectAttachmentConfiguration ::
   SalesforceStandardObjectAttachmentConfiguration
 newSalesforceStandardObjectAttachmentConfiguration =
   SalesforceStandardObjectAttachmentConfiguration'
-    { fieldMappings =
+    { documentTitleFieldName =
         Prelude.Nothing,
-      documentTitleFieldName =
+      fieldMappings =
         Prelude.Nothing
     }
+
+-- | The name of the field used for the document title.
+salesforceStandardObjectAttachmentConfiguration_documentTitleFieldName :: Lens.Lens' SalesforceStandardObjectAttachmentConfiguration (Prelude.Maybe Prelude.Text)
+salesforceStandardObjectAttachmentConfiguration_documentTitleFieldName = Lens.lens (\SalesforceStandardObjectAttachmentConfiguration' {documentTitleFieldName} -> documentTitleFieldName) (\s@SalesforceStandardObjectAttachmentConfiguration' {} a -> s {documentTitleFieldName = a} :: SalesforceStandardObjectAttachmentConfiguration)
 
 -- | One or more objects that map fields in attachments to Amazon Kendra
 -- index fields.
 salesforceStandardObjectAttachmentConfiguration_fieldMappings :: Lens.Lens' SalesforceStandardObjectAttachmentConfiguration (Prelude.Maybe (Prelude.NonEmpty DataSourceToIndexFieldMapping))
 salesforceStandardObjectAttachmentConfiguration_fieldMappings = Lens.lens (\SalesforceStandardObjectAttachmentConfiguration' {fieldMappings} -> fieldMappings) (\s@SalesforceStandardObjectAttachmentConfiguration' {} a -> s {fieldMappings = a} :: SalesforceStandardObjectAttachmentConfiguration) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the field used for the document title.
-salesforceStandardObjectAttachmentConfiguration_documentTitleFieldName :: Lens.Lens' SalesforceStandardObjectAttachmentConfiguration (Prelude.Maybe Prelude.Text)
-salesforceStandardObjectAttachmentConfiguration_documentTitleFieldName = Lens.lens (\SalesforceStandardObjectAttachmentConfiguration' {documentTitleFieldName} -> documentTitleFieldName) (\s@SalesforceStandardObjectAttachmentConfiguration' {} a -> s {documentTitleFieldName = a} :: SalesforceStandardObjectAttachmentConfiguration)
 
 instance
   Data.FromJSON
@@ -78,8 +78,8 @@ instance
       "SalesforceStandardObjectAttachmentConfiguration"
       ( \x ->
           SalesforceStandardObjectAttachmentConfiguration'
-            Prelude.<$> (x Data..:? "FieldMappings")
-              Prelude.<*> (x Data..:? "DocumentTitleFieldName")
+            Prelude.<$> (x Data..:? "DocumentTitleFieldName")
+              Prelude.<*> (x Data..:? "FieldMappings")
       )
 
 instance
@@ -89,8 +89,8 @@ instance
   hashWithSalt
     _salt
     SalesforceStandardObjectAttachmentConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` fieldMappings
-        `Prelude.hashWithSalt` documentTitleFieldName
+      _salt `Prelude.hashWithSalt` documentTitleFieldName
+        `Prelude.hashWithSalt` fieldMappings
 
 instance
   Prelude.NFData
@@ -98,8 +98,8 @@ instance
   where
   rnf
     SalesforceStandardObjectAttachmentConfiguration' {..} =
-      Prelude.rnf fieldMappings
-        `Prelude.seq` Prelude.rnf documentTitleFieldName
+      Prelude.rnf documentTitleFieldName
+        `Prelude.seq` Prelude.rnf fieldMappings
 
 instance
   Data.ToJSON
@@ -109,8 +109,8 @@ instance
     SalesforceStandardObjectAttachmentConfiguration' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("FieldMappings" Data..=) Prelude.<$> fieldMappings,
-              ("DocumentTitleFieldName" Data..=)
-                Prelude.<$> documentTitleFieldName
+            [ ("DocumentTitleFieldName" Data..=)
+                Prelude.<$> documentTitleFieldName,
+              ("FieldMappings" Data..=) Prelude.<$> fieldMappings
             ]
         )

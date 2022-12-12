@@ -61,8 +61,8 @@ module Amazonka.WAF.CreateRuleGroup
     newCreateRuleGroupResponse,
 
     -- * Response Lenses
-    createRuleGroupResponse_ruleGroup,
     createRuleGroupResponse_changeToken,
+    createRuleGroupResponse_ruleGroup,
     createRuleGroupResponse_httpStatus,
   )
 where
@@ -162,8 +162,8 @@ instance Core.AWSRequest CreateRuleGroup where
     Response.receiveJSON
       ( \s h x ->
           CreateRuleGroupResponse'
-            Prelude.<$> (x Data..?> "RuleGroup")
-            Prelude.<*> (x Data..?> "ChangeToken")
+            Prelude.<$> (x Data..?> "ChangeToken")
+            Prelude.<*> (x Data..?> "RuleGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -215,12 +215,12 @@ instance Data.ToQuery CreateRuleGroup where
 
 -- | /See:/ 'newCreateRuleGroupResponse' smart constructor.
 data CreateRuleGroupResponse = CreateRuleGroupResponse'
-  { -- | An empty RuleGroup.
-    ruleGroup :: Prelude.Maybe RuleGroup,
-    -- | The @ChangeToken@ that you used to submit the @CreateRuleGroup@ request.
+  { -- | The @ChangeToken@ that you used to submit the @CreateRuleGroup@ request.
     -- You can also use this value to query the status of the request. For more
     -- information, see GetChangeTokenStatus.
     changeToken :: Prelude.Maybe Prelude.Text,
+    -- | An empty RuleGroup.
+    ruleGroup :: Prelude.Maybe RuleGroup,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -234,11 +234,11 @@ data CreateRuleGroupResponse = CreateRuleGroupResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ruleGroup', 'createRuleGroupResponse_ruleGroup' - An empty RuleGroup.
---
 -- 'changeToken', 'createRuleGroupResponse_changeToken' - The @ChangeToken@ that you used to submit the @CreateRuleGroup@ request.
 -- You can also use this value to query the status of the request. For more
 -- information, see GetChangeTokenStatus.
+--
+-- 'ruleGroup', 'createRuleGroupResponse_ruleGroup' - An empty RuleGroup.
 --
 -- 'httpStatus', 'createRuleGroupResponse_httpStatus' - The response's http status code.
 newCreateRuleGroupResponse ::
@@ -247,15 +247,11 @@ newCreateRuleGroupResponse ::
   CreateRuleGroupResponse
 newCreateRuleGroupResponse pHttpStatus_ =
   CreateRuleGroupResponse'
-    { ruleGroup =
+    { changeToken =
         Prelude.Nothing,
-      changeToken = Prelude.Nothing,
+      ruleGroup = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An empty RuleGroup.
-createRuleGroupResponse_ruleGroup :: Lens.Lens' CreateRuleGroupResponse (Prelude.Maybe RuleGroup)
-createRuleGroupResponse_ruleGroup = Lens.lens (\CreateRuleGroupResponse' {ruleGroup} -> ruleGroup) (\s@CreateRuleGroupResponse' {} a -> s {ruleGroup = a} :: CreateRuleGroupResponse)
 
 -- | The @ChangeToken@ that you used to submit the @CreateRuleGroup@ request.
 -- You can also use this value to query the status of the request. For more
@@ -263,12 +259,16 @@ createRuleGroupResponse_ruleGroup = Lens.lens (\CreateRuleGroupResponse' {ruleGr
 createRuleGroupResponse_changeToken :: Lens.Lens' CreateRuleGroupResponse (Prelude.Maybe Prelude.Text)
 createRuleGroupResponse_changeToken = Lens.lens (\CreateRuleGroupResponse' {changeToken} -> changeToken) (\s@CreateRuleGroupResponse' {} a -> s {changeToken = a} :: CreateRuleGroupResponse)
 
+-- | An empty RuleGroup.
+createRuleGroupResponse_ruleGroup :: Lens.Lens' CreateRuleGroupResponse (Prelude.Maybe RuleGroup)
+createRuleGroupResponse_ruleGroup = Lens.lens (\CreateRuleGroupResponse' {ruleGroup} -> ruleGroup) (\s@CreateRuleGroupResponse' {} a -> s {ruleGroup = a} :: CreateRuleGroupResponse)
+
 -- | The response's http status code.
 createRuleGroupResponse_httpStatus :: Lens.Lens' CreateRuleGroupResponse Prelude.Int
 createRuleGroupResponse_httpStatus = Lens.lens (\CreateRuleGroupResponse' {httpStatus} -> httpStatus) (\s@CreateRuleGroupResponse' {} a -> s {httpStatus = a} :: CreateRuleGroupResponse)
 
 instance Prelude.NFData CreateRuleGroupResponse where
   rnf CreateRuleGroupResponse' {..} =
-    Prelude.rnf ruleGroup
-      `Prelude.seq` Prelude.rnf changeToken
+    Prelude.rnf changeToken
+      `Prelude.seq` Prelude.rnf ruleGroup
       `Prelude.seq` Prelude.rnf httpStatus

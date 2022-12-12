@@ -28,18 +28,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFilteredLogEvent' smart constructor.
 data FilteredLogEvent = FilteredLogEvent'
-  { -- | The data contained in the log event.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The time the event occurred, expressed as the number of milliseconds
-    -- after Jan 1, 1970 00:00:00 UTC.
-    timestamp :: Prelude.Maybe Prelude.Natural,
-    -- | The ID of the event.
+  { -- | The ID of the event.
     eventId :: Prelude.Maybe Prelude.Text,
     -- | The time the event was ingested, expressed as the number of milliseconds
-    -- after Jan 1, 1970 00:00:00 UTC.
+    -- after @Jan 1, 1970 00:00:00 UTC@.
     ingestionTime :: Prelude.Maybe Prelude.Natural,
     -- | The name of the log stream to which this event belongs.
-    logStreamName :: Prelude.Maybe Prelude.Text
+    logStreamName :: Prelude.Maybe Prelude.Text,
+    -- | The data contained in the log event.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | The time the event occurred, expressed as the number of milliseconds
+    -- after @Jan 1, 1970 00:00:00 UTC@.
+    timestamp :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,43 +51,34 @@ data FilteredLogEvent = FilteredLogEvent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'filteredLogEvent_message' - The data contained in the log event.
---
--- 'timestamp', 'filteredLogEvent_timestamp' - The time the event occurred, expressed as the number of milliseconds
--- after Jan 1, 1970 00:00:00 UTC.
---
 -- 'eventId', 'filteredLogEvent_eventId' - The ID of the event.
 --
 -- 'ingestionTime', 'filteredLogEvent_ingestionTime' - The time the event was ingested, expressed as the number of milliseconds
--- after Jan 1, 1970 00:00:00 UTC.
+-- after @Jan 1, 1970 00:00:00 UTC@.
 --
 -- 'logStreamName', 'filteredLogEvent_logStreamName' - The name of the log stream to which this event belongs.
+--
+-- 'message', 'filteredLogEvent_message' - The data contained in the log event.
+--
+-- 'timestamp', 'filteredLogEvent_timestamp' - The time the event occurred, expressed as the number of milliseconds
+-- after @Jan 1, 1970 00:00:00 UTC@.
 newFilteredLogEvent ::
   FilteredLogEvent
 newFilteredLogEvent =
   FilteredLogEvent'
-    { message = Prelude.Nothing,
-      timestamp = Prelude.Nothing,
-      eventId = Prelude.Nothing,
+    { eventId = Prelude.Nothing,
       ingestionTime = Prelude.Nothing,
-      logStreamName = Prelude.Nothing
+      logStreamName = Prelude.Nothing,
+      message = Prelude.Nothing,
+      timestamp = Prelude.Nothing
     }
-
--- | The data contained in the log event.
-filteredLogEvent_message :: Lens.Lens' FilteredLogEvent (Prelude.Maybe Prelude.Text)
-filteredLogEvent_message = Lens.lens (\FilteredLogEvent' {message} -> message) (\s@FilteredLogEvent' {} a -> s {message = a} :: FilteredLogEvent)
-
--- | The time the event occurred, expressed as the number of milliseconds
--- after Jan 1, 1970 00:00:00 UTC.
-filteredLogEvent_timestamp :: Lens.Lens' FilteredLogEvent (Prelude.Maybe Prelude.Natural)
-filteredLogEvent_timestamp = Lens.lens (\FilteredLogEvent' {timestamp} -> timestamp) (\s@FilteredLogEvent' {} a -> s {timestamp = a} :: FilteredLogEvent)
 
 -- | The ID of the event.
 filteredLogEvent_eventId :: Lens.Lens' FilteredLogEvent (Prelude.Maybe Prelude.Text)
 filteredLogEvent_eventId = Lens.lens (\FilteredLogEvent' {eventId} -> eventId) (\s@FilteredLogEvent' {} a -> s {eventId = a} :: FilteredLogEvent)
 
 -- | The time the event was ingested, expressed as the number of milliseconds
--- after Jan 1, 1970 00:00:00 UTC.
+-- after @Jan 1, 1970 00:00:00 UTC@.
 filteredLogEvent_ingestionTime :: Lens.Lens' FilteredLogEvent (Prelude.Maybe Prelude.Natural)
 filteredLogEvent_ingestionTime = Lens.lens (\FilteredLogEvent' {ingestionTime} -> ingestionTime) (\s@FilteredLogEvent' {} a -> s {ingestionTime = a} :: FilteredLogEvent)
 
@@ -95,31 +86,40 @@ filteredLogEvent_ingestionTime = Lens.lens (\FilteredLogEvent' {ingestionTime} -
 filteredLogEvent_logStreamName :: Lens.Lens' FilteredLogEvent (Prelude.Maybe Prelude.Text)
 filteredLogEvent_logStreamName = Lens.lens (\FilteredLogEvent' {logStreamName} -> logStreamName) (\s@FilteredLogEvent' {} a -> s {logStreamName = a} :: FilteredLogEvent)
 
+-- | The data contained in the log event.
+filteredLogEvent_message :: Lens.Lens' FilteredLogEvent (Prelude.Maybe Prelude.Text)
+filteredLogEvent_message = Lens.lens (\FilteredLogEvent' {message} -> message) (\s@FilteredLogEvent' {} a -> s {message = a} :: FilteredLogEvent)
+
+-- | The time the event occurred, expressed as the number of milliseconds
+-- after @Jan 1, 1970 00:00:00 UTC@.
+filteredLogEvent_timestamp :: Lens.Lens' FilteredLogEvent (Prelude.Maybe Prelude.Natural)
+filteredLogEvent_timestamp = Lens.lens (\FilteredLogEvent' {timestamp} -> timestamp) (\s@FilteredLogEvent' {} a -> s {timestamp = a} :: FilteredLogEvent)
+
 instance Data.FromJSON FilteredLogEvent where
   parseJSON =
     Data.withObject
       "FilteredLogEvent"
       ( \x ->
           FilteredLogEvent'
-            Prelude.<$> (x Data..:? "message")
-            Prelude.<*> (x Data..:? "timestamp")
-            Prelude.<*> (x Data..:? "eventId")
+            Prelude.<$> (x Data..:? "eventId")
             Prelude.<*> (x Data..:? "ingestionTime")
             Prelude.<*> (x Data..:? "logStreamName")
+            Prelude.<*> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "timestamp")
       )
 
 instance Prelude.Hashable FilteredLogEvent where
   hashWithSalt _salt FilteredLogEvent' {..} =
-    _salt `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` timestamp
-      `Prelude.hashWithSalt` eventId
+    _salt `Prelude.hashWithSalt` eventId
       `Prelude.hashWithSalt` ingestionTime
       `Prelude.hashWithSalt` logStreamName
+      `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` timestamp
 
 instance Prelude.NFData FilteredLogEvent where
   rnf FilteredLogEvent' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf timestamp
-      `Prelude.seq` Prelude.rnf eventId
+    Prelude.rnf eventId
       `Prelude.seq` Prelude.rnf ingestionTime
       `Prelude.seq` Prelude.rnf logStreamName
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf timestamp
